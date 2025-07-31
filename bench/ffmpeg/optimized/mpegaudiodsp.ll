@@ -138,7 +138,7 @@ define internal void @mpadsp_init_tabs() #2 {
 59:                                               ; preds = %58
   %60 = add nuw nsw i32 %.063, 1
   %exitcond71.not = icmp eq i32 %60, 36
-  br i1 %exitcond71.not, label %.preheader, label %.preheader59, !llvm.loop !20
+  br i1 %exitcond71.not, label %.preheader, label %.preheader59, !llvm.loop !21
 
 .preheader:                                       ; preds = %59, %83
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %83 ], [ 0, %59 ]
@@ -172,12 +172,12 @@ define internal void @mpadsp_init_tabs() #2 {
   store i32 %80, ptr %81, align 4, !tbaa !16
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 2
   %82 = icmp samesign ult i64 %indvars.iv72, 38
-  br i1 %82, label %66, label %83, !llvm.loop !21
+  br i1 %82, label %66, label %83, !llvm.loop !22
 
 83:                                               ; preds = %66
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 4
-  br i1 %exitcond78.not, label %84, label %.preheader, !llvm.loop !22
+  br i1 %exitcond78.not, label %84, label %.preheader, !llvm.loop !23
 
 84:                                               ; preds = %83
   ret void
@@ -230,8 +230,9 @@ attributes #4 = { nounwind }
 !15 = !{!"float", !7, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"int", !7, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
-!22 = distinct !{!22, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = distinct !{!23, !19, !20}

@@ -82,7 +82,7 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeEN
   %.177.ph = phi ptr [ %4, %15 ], [ %37, %34 ], [ %4, %._crit_edge.i ]
   %.172.ph = phi i32 [ 0, %15 ], [ %.24551.i, %34 ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !tbaa !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !tbaa !17
   %.not99 = icmp eq ptr %.177.ph, %6
   br i1 %.not99, label %._crit_edge108, label %.lr.ph107
 
@@ -167,7 +167,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.i: ; preds = %56, 
   %72 = mul i64 %.02548.i, %71
   %73 = add i32 %.03347.i, 36
   %.not.not.i = icmp eq ptr %46, %6
-  br i1 %.not.not.i, label %.critedge, label %43, !llvm.loop !18
+  br i1 %.not.not.i, label %.critedge, label %43, !llvm.loop !19
 
 _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; preds = %66
   %74 = sub i32 %67, %.073101
@@ -186,7 +186,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %82 = udiv i32 %.03797, 35
   %83 = add i32 %.24596, 36
   %84 = icmp ugt i32 %.03797, 15959
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit
   %.245.lcssa = phi i32 [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit ], [ %83, %.lr.ph ]
@@ -203,7 +203,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %91 = zext i32 %89 to i64
   call void @_ZN4absl18debugging_internal16Utf8ForCodePointC1Em(ptr noundef nonnull align 4 dereferenceable(8) %3, i64 noundef %91)
-  %92 = load i32, ptr %39, align 4, !tbaa !20
+  %92 = load i32, ptr %39, align 4, !tbaa !21
   %.not87 = icmp eq i32 %92, 0
   br i1 %.not87, label %.critedge.critedge, label %93
 
@@ -224,7 +224,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %103 = xor i64 %notmask.i, -1
   %104 = zext nneg i32 %99 to i64
   %105 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %104
-  %106 = load i64, ptr %105, align 8, !tbaa !16
+  %106 = load i64, ptr %105, align 8, !tbaa !17
   %107 = and i64 %106, %103
   %108 = call range(i64 0, 63) i64 @llvm.ctpop.i64(i64 %107)
   %109 = trunc nuw nsw i64 %108 to i32
@@ -241,7 +241,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   br i1 %.not49.i, label %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit, label %.lr.ph48.preheader.i
 
 .lr.ph48.preheader.i:                             ; preds = %.preheader.i
-  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !16
+  %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !17
   br label %.lr.ph48.i
 
 .lr.ph.i53:                                       ; preds = %98, %.lr.ph.i53
@@ -251,7 +251,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %113 = add nsw i32 %.03945.i, -1
   %114 = zext nneg i32 %113 to i64
   %115 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %114
-  %116 = load i64, ptr %115, align 8, !tbaa !16
+  %116 = load i64, ptr %115, align 8, !tbaa !17
   %117 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %116)
   %118 = trunc nuw nsw i64 %117 to i32
   %119 = add nuw nsw i32 %.04143.i, %118
@@ -260,10 +260,10 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %122 = trunc nuw nsw i64 %121 to i32
   %123 = add nuw nsw i32 %.04044.i, %122
   %.not.i = icmp eq i32 %113, 0
-  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i53, !llvm.loop !23
+  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i53, !llvm.loop !24
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph48.i
-  %.pre52.i = load i64, ptr %105, align 8, !tbaa !16
+  %.pre52.i = load i64, ptr %105, align 8, !tbaa !17
   %.pre53.i = and i64 %.pre52.i, %103
   br label %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit
 
@@ -273,11 +273,11 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %125 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.i54
   %indvars.iv.next.i55 = add nsw i64 %indvars.iv.i54, -1
   %126 = getelementptr inbounds nuw [8 x i64], ptr %2, i64 0, i64 %indvars.iv.next.i55
-  %127 = load i64, ptr %126, align 8, !tbaa !16
+  %127 = load i64, ptr %126, align 8, !tbaa !17
   %128 = call i64 @llvm.fshl.i64(i64 %124, i64 %127, i64 2)
-  store i64 %128, ptr %125, align 8, !tbaa !16
+  store i64 %128, ptr %125, align 8, !tbaa !17
   %129 = icmp ugt i64 %indvars.iv.next.i55, %104
-  br i1 %129, label %.lr.ph48.i, label %._crit_edge.loopexit.i, !llvm.loop !24
+  br i1 %129, label %.lr.ph48.i, label %._crit_edge.loopexit.i, !llvm.loop !25
 
 _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit: ; preds = %.preheader.i, %._crit_edge.loopexit.i
   %.pre-phi.i = phi i64 [ %.pre53.i, %._crit_edge.loopexit.i ], [ %107, %.preheader.i ]
@@ -294,7 +294,7 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   %139 = and i64 %130, %notmask.i
   %140 = shl i64 %139, 2
   %141 = or i64 %138, %140
-  store i64 %141, ptr %105, align 8, !tbaa !16
+  store i64 %141, ptr %105, align 8, !tbaa !17
   %142 = zext i32 %132 to i64
   %143 = getelementptr inbounds nuw i8, ptr %8, i64 %142
   %144 = zext i32 %92 to i64
@@ -307,7 +307,7 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   %149 = add nuw nsw i32 %90, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   %.not = icmp eq ptr %46, %6
-  br i1 %.not, label %._crit_edge108, label %40, !llvm.loop !25
+  br i1 %.not, label %._crit_edge108, label %40, !llvm.loop !26
 
 ._crit_edge108:                                   ; preds = %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit, %38
   %.040.lcssa = phi i32 [ %.172.ph, %38 ], [ %148, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
@@ -383,15 +383,16 @@ attributes #7 = { nounwind }
 !11 = !{!5, !6, i64 16}
 !12 = !{!5, !6, i64 24}
 !13 = !{!8, !8, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !8, i64 0}
-!18 = distinct !{!18, !15}
-!19 = distinct !{!19, !15}
-!20 = !{!21, !22, i64 4}
-!21 = !{!"_ZTSN4absl18debugging_internal16Utf8ForCodePointE", !8, i64 0, !22, i64 4}
-!22 = !{!"int", !8, i64 0}
-!23 = distinct !{!23, !15}
-!24 = distinct !{!24, !15}
-!25 = distinct !{!25, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !8, i64 0}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15, !16}
+!21 = !{!22, !23, i64 4}
+!22 = !{!"_ZTSN4absl18debugging_internal16Utf8ForCodePointE", !8, i64 0, !23, i64 4}
+!23 = !{!"int", !8, i64 0}
+!24 = distinct !{!24, !15, !16}
+!25 = distinct !{!25, !15, !16}
+!26 = distinct !{!26, !15, !16}

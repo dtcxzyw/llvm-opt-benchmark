@@ -5687,7 +5687,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %17
   %.022.be = phi ptr [ %.0, %17 ], [ %48, %lean_alloc_ctor.exit ]
   %.0.be = phi ptr [ %19, %17 ], [ %24, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !15
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -6079,7 +6079,7 @@ _init_l___auto____x40_Lean_Server_ServerTask___hyg_732____closed__13.exit: ; pre
   tail call void @lean_mark_persistent(ptr noundef %65) #4
   %66 = load ptr, ptr @l___auto____x40_Lean_Server_ServerTask___hyg_732____closed__18, align 8, !tbaa !9
   %67 = getelementptr i8, ptr %66, i64 8
-  %.val.i = load i64, ptr %67, align 8, !tbaa !15
+  %.val.i = load i64, ptr %67, align 8, !tbaa !17
   %68 = shl i64 %.val.i, 1
   %69 = add i64 %68, -1
   %70 = inttoptr i64 %69 to ptr
@@ -6466,5 +6466,7 @@ attributes #5 = { noreturn nounwind }
 !12 = !{!"short", !7, i64 0}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !7, i64 0}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}

@@ -1246,7 +1246,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
 81:                                               ; preds = %72, %77
   %82 = add nuw i64 %.04063, 1
   %exitcond.not = icmp eq i64 %82, %70
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %81, %69
   %83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -1303,7 +1303,7 @@ _ZNK10tinyformat6detail9FormatArg6formatERSoPKcS4_i.exit: ; preds = %59
   %.117.i49 = phi ptr [ %.016.i46, %.preheader ], [ %101, %96 ]
   %.1.i50 = phi ptr [ %.0.i47, %.preheader ], [ %101, %96 ]
   %104 = getelementptr inbounds nuw i8, ptr %.1.i50, i64 1
-  br label %.preheader, !llvm.loop !14
+  br label %.preheader, !llvm.loop !15
 
 _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit51: ; preds = %96, %91
   %105 = load ptr, ptr %0, align 8
@@ -1449,7 +1449,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   br i1 %.not75, label %74, label %.backedge
 
 .backedge:                                        ; preds = %68, %74, %40, %48, %56, %34
-  br label %32, !llvm.loop !15
+  br label %32, !llvm.loop !16
 
 74:                                               ; preds = %68
   store i8 1, ptr %1, align 1
@@ -1464,7 +1464,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %80 = or i32 %79, 2048
   store i32 %80, ptr %gep, align 4
   store i8 0, ptr %1, align 1
-  br label %.outer, !llvm.loop !15
+  br label %.outer, !llvm.loop !16
 
 81:                                               ; preds = %32
   %82 = add i8 %33, -48
@@ -1489,7 +1489,7 @@ define linkonce_odr hidden noundef ptr @_ZN10tinyformat6detail21streamStateFromF
   %93 = load i8, ptr %92, align 1
   %94 = add i8 %93, -48
   %or.cond.i = icmp ult i8 %94, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit, !llvm.loop !16
+  br i1 %or.cond.i, label %.lr.ph.i, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit, !llvm.loop !17
 
 _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %95 = getelementptr inbounds i8, ptr %0, i64 %86
@@ -1600,7 +1600,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %162 = load i8, ptr %161, align 1
   %163 = add i8 %162, -48
   %or.cond.i86 = icmp ult i8 %163, 10
-  br i1 %or.cond.i86, label %.lr.ph.i83, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87, !llvm.loop !16
+  br i1 %or.cond.i86, label %.lr.ph.i83, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87, !llvm.loop !17
 
 164:                                              ; preds = %154
   %165 = icmp eq i8 %140, 45
@@ -1619,7 +1619,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %172 = load i8, ptr %171, align 1
   %173 = add i8 %172, -48
   %or.cond.i94 = icmp ult i8 %173, 10
-  br i1 %or.cond.i94, label %.lr.ph.i91, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87, !llvm.loop !16
+  br i1 %or.cond.i94, label %.lr.ph.i91, label %_ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87, !llvm.loop !17
 
 _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %.lr.ph.i83, %166, %164, %146, %142
   %.3 = phi ptr [ %143, %146 ], [ %143, %142 ], [ %139, %164 ], [ %167, %166 ], [ %161, %.lr.ph.i83 ], [ %171, %.lr.ph.i91 ]
@@ -1666,7 +1666,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit87: ; preds = %.lr.ph.i91, %
 
 .critedge:                                        ; preds = %180, %180, %180, %180, %180, %180
   %182 = getelementptr inbounds nuw i8, ptr %.4, i64 1
-  br label %180, !llvm.loop !17
+  br label %180, !llvm.loop !18
 
 183:                                              ; preds = %180
   %184 = load ptr, ptr %0, align 8
@@ -2002,34 +2002,34 @@ define linkonce_odr hidden void @_ZNK4nori23MitchellNetravaliFilter8toStringB5cx
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4)
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4), !noalias !18
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3), !noalias !18
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4), !noalias !19
+  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %3), !noalias !19
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %8, ptr %3, align 8, !alias.scope !21, !noalias !18
+  store ptr %8, ptr %3, align 8, !alias.scope !22, !noalias !19
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 3, ptr %9, align 8, !alias.scope !21, !noalias !18
-  store ptr %5, ptr %8, align 8, !alias.scope !21, !noalias !18
+  store i32 3, ptr %9, align 8, !alias.scope !22, !noalias !19
+  store ptr %5, ptr %8, align 8, !alias.scope !22, !noalias !19
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIfEEvRSoPKcS5_iPKv, ptr %10, align 8, !alias.scope !21, !noalias !18
+  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIfEEvRSoPKcS5_iPKv, ptr %10, align 8, !alias.scope !22, !noalias !19
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIfEEiPKv, ptr %11, align 8, !alias.scope !21, !noalias !18
+  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIfEEiPKv, ptr %11, align 8, !alias.scope !22, !noalias !19
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %6, ptr %12, align 8, !alias.scope !21, !noalias !18
+  store ptr %6, ptr %12, align 8, !alias.scope !22, !noalias !19
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIfEEvRSoPKcS5_iPKv, ptr %13, align 8, !alias.scope !21, !noalias !18
+  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIfEEvRSoPKcS5_iPKv, ptr %13, align 8, !alias.scope !22, !noalias !19
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIfEEiPKv, ptr %14, align 8, !alias.scope !21, !noalias !18
+  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIfEEiPKv, ptr %14, align 8, !alias.scope !22, !noalias !19
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %7, ptr %15, align 8, !alias.scope !21, !noalias !18
+  store ptr %7, ptr %15, align 8, !alias.scope !22, !noalias !19
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIfEEvRSoPKcS5_iPKv, ptr %16, align 8, !alias.scope !21, !noalias !18
+  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIfEEvRSoPKcS5_iPKv, ptr %16, align 8, !alias.scope !22, !noalias !19
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIfEEiPKv, ptr %17, align 8, !alias.scope !21, !noalias !18
+  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIfEEiPKv, ptr %17, align 8, !alias.scope !22, !noalias !19
   invoke void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_9FormatArgEi(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.11, ptr noundef nonnull %8, i32 noundef 3)
-          to label %18 unwind label %19, !noalias !18
+          to label %18 unwind label %19, !noalias !19
 
 18:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !18
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %3), !noalias !19
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %_ZN10tinyformat6formatIJfffEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit unwind label %19
 
@@ -2361,16 +2361,17 @@ attributes #17 = { noreturn nounwind }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZN10tinyformat14makeFormatListIJffEEENS_6detail11FormatListNIXsZT_EEEDpRKT_: argument 0"}
 !10 = distinct !{!10, !"_ZN10tinyformat14makeFormatListIJffEEENS_6detail11FormatListNIXsZT_EEEDpRKT_"}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZN10tinyformat6formatIJfffEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_: argument 0"}
-!20 = distinct !{!20, !"_ZN10tinyformat6formatIJfffEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZN10tinyformat14makeFormatListIJfffEEENS_6detail11FormatListNIXsZT_EEEDpRKT_: argument 0"}
-!23 = distinct !{!23, !"_ZN10tinyformat14makeFormatListIJfffEEENS_6detail11FormatListNIXsZT_EEEDpRKT_"}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZN10tinyformat6formatIJfffEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_: argument 0"}
+!21 = distinct !{!21, !"_ZN10tinyformat6formatIJfffEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZN10tinyformat14makeFormatListIJfffEEENS_6detail11FormatListNIXsZT_EEEDpRKT_: argument 0"}
+!24 = distinct !{!24, !"_ZN10tinyformat14makeFormatListIJfffEEENS_6detail11FormatListNIXsZT_EEEDpRKT_"}

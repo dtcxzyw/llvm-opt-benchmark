@@ -487,7 +487,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit38.i: ; preds = %162, %160
 163:                                              ; preds = %155, %153
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #14
   %164 = invoke noundef i32 @_ZN2cv7waitKeyEi(i32 noundef 10)
-          to label %109 unwind label %171, !llvm.loop !53
+          to label %109 unwind label %171, !llvm.loop !54
 
 165:                                              ; preds = %74
   %166 = landingpad { ptr, i32 }
@@ -633,10 +633,10 @@ define internal void @_GLOBAL__sub_I_HoughCircle_Demo.cpp() #10 section ".text.s
   %3 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #14
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110windowNameB5cxx11E, i64 16), ptr @_ZN12_GLOBAL__N_110windowNameB5cxx11E, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  store i64 27, ptr %2, align 8, !tbaa !54
+  store i64 27, ptr %2, align 8, !tbaa !55
   %4 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_110windowNameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %4, ptr @_ZN12_GLOBAL__N_110windowNameB5cxx11E, align 8, !tbaa !15
-  %5 = load i64, ptr %2, align 8, !tbaa !54
+  %5 = load i64, ptr %2, align 8, !tbaa !55
   store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110windowNameB5cxx11E, i64 16), align 8, !tbaa !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(27) %4, ptr noundef nonnull align 1 dereferenceable(27) @.str, i64 27, i1 false)
   store i64 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_110windowNameB5cxx11E, i64 8), align 8, !tbaa !10
@@ -652,10 +652,10 @@ define internal void @_GLOBAL__sub_I_HoughCircle_Demo.cpp() #10 section ".text.s
   %9 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN12_GLOBAL__N_126cannyThresholdTrackbarNameB5cxx11E, ptr nonnull @__dso_handle) #14
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_132accumulatorThresholdTrackbarNameB5cxx11E, i64 16), ptr @_ZN12_GLOBAL__N_132accumulatorThresholdTrackbarNameB5cxx11E, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #14
-  store i64 21, ptr %1, align 8, !tbaa !54
+  store i64 21, ptr %1, align 8, !tbaa !55
   %10 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN12_GLOBAL__N_132accumulatorThresholdTrackbarNameB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %10, ptr @_ZN12_GLOBAL__N_132accumulatorThresholdTrackbarNameB5cxx11E, align 8, !tbaa !15
-  %11 = load i64, ptr %1, align 8, !tbaa !54
+  %11 = load i64, ptr %1, align 8, !tbaa !55
   store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_132accumulatorThresholdTrackbarNameB5cxx11E, i64 16), align 8, !tbaa !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %10, ptr noundef nonnull align 1 dereferenceable(21) @.str.5, i64 21, i1 false)
   store i64 %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_132accumulatorThresholdTrackbarNameB5cxx11E, i64 8), align 8, !tbaa !10
@@ -746,7 +746,8 @@ attributes #15 = { builtin nounwind }
 !48 = !{!"float", !8, i64 0}
 !49 = !{!50, !50, i64 0}
 !50 = !{!"double", !8, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = distinct !{!53, !52}
-!54 = !{!12, !12, i64 0}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = distinct !{!54, !52, !53}
+!55 = !{!12, !12, i64 0}

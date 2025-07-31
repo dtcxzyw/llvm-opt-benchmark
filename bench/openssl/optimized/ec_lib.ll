@@ -2582,7 +2582,7 @@ ec_point_is_compat.exit42.thread47:               ; preds = %28, %.lr.ph
 ec_point_is_compat.exit42.thread:                 ; preds = %27, %28
   %32 = add nuw i64 %.03356, 1
   %exitcond.not = icmp eq i64 %32, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %ec_point_is_compat.exit42.thread, %.preheader
   %33 = icmp eq ptr %6, null
@@ -2608,7 +2608,7 @@ ec_point_is_compat.exit42.thread:                 ; preds = %27, %28
   %.052 = phi ptr [ %35, %..thread_crit_edge ], [ null, %._crit_edge ]
   %.03551 = phi ptr [ %35, %..thread_crit_edge ], [ %6, %._crit_edge ]
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 224
-  %40 = load ptr, ptr %39, align 8, !tbaa !65
+  %40 = load ptr, ptr %39, align 8, !tbaa !66
   %.not40 = icmp eq ptr %40, null
   br i1 %.not40, label %43, label %41
 
@@ -2639,7 +2639,7 @@ define i32 @EC_POINT_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nou
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   store ptr %3, ptr %7, align 8, !tbaa !61
-  store ptr %4, ptr %8, align 8, !tbaa !66
+  store ptr %4, ptr %8, align 8, !tbaa !67
   %9 = load ptr, ptr %0, align 8, !tbaa !19
   %10 = load ptr, ptr %1, align 8, !tbaa !30
   %11 = icmp eq ptr %9, %10
@@ -2723,7 +2723,7 @@ ec_point_is_compat.exit32.thread:                 ; preds = %23, %24, %ec_point_
   %41 = and i1 %39, %40
   %42 = zext i1 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 224
-  %44 = load ptr, ptr %43, align 8, !tbaa !65
+  %44 = load ptr, ptr %43, align 8, !tbaa !66
   %.not31 = icmp eq ptr %44, null
   br i1 %.not31, label %47, label %45
 
@@ -2749,7 +2749,7 @@ ec_point_is_compat.exit32.thread:                 ; preds = %23, %24, %ec_point_
 define i32 @EC_GROUP_precompute_mult(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 224
-  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %9
 
@@ -2759,7 +2759,7 @@ define i32 @EC_GROUP_precompute_mult(ptr noundef %0, ptr noundef %1) local_unnam
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 232
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
 
@@ -2778,7 +2778,7 @@ declare i32 @ossl_ec_wNAF_precompute_mult(ptr noundef, ptr noundef) local_unname
 define i32 @EC_GROUP_have_precompute_mult(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %4 = load ptr, ptr %3, align 8, !tbaa !66
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
@@ -2788,7 +2788,7 @@ define i32 @EC_GROUP_have_precompute_mult(ptr noundef %0) local_unnamed_addr #0 
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %10 = load ptr, ptr %9, align 8, !tbaa !68
+  %10 = load ptr, ptr %9, align 8, !tbaa !69
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
 
@@ -2841,7 +2841,7 @@ define i32 @ossl_ec_group_simple_order_bits(ptr noundef readonly captures(none) 
 define i32 @ossl_ec_group_do_inverse_ord(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 400
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
@@ -2907,7 +2907,7 @@ ec_field_inverse_mod_ord.exit:                    ; preds = %31, %16, %10, %8
 define i32 @ossl_ec_point_blind_coordinates(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 408
-  %6 = load ptr, ptr %5, align 8, !tbaa !70
+  %6 = load ptr, ptr %5, align 8, !tbaa !71
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
@@ -2935,14 +2935,14 @@ define range(i32 0, 684) i32 @EC_GROUP_get_basis_type(ptr noundef readonly captu
 6:                                                ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
   %7 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 4, !tbaa !71
+  %8 = load i32, ptr %7, align 4, !tbaa !72
   %.not8 = icmp eq i32 %8, 0
   br i1 %.not8, label %.critedge, label %9
 
 9:                                                ; preds = %6
   %indvars.iv.next = add i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.thread, label %6, !llvm.loop !72
+  br i1 %exitcond.not, label %.thread, label %6, !llvm.loop !73
 
 .critedge:                                        ; preds = %6
   %switch.selectcmp = icmp eq i64 %indvars.iv, 2
@@ -2970,19 +2970,19 @@ define range(i32 0, 2) i32 @EC_GROUP_get_trinomial_basis(ptr noundef readonly ca
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load i32, ptr %9, align 8, !tbaa !71
+  %10 = load i32, ptr %9, align 8, !tbaa !72
   %.not11 = icmp eq i32 %10, 0
   br i1 %.not11, label %18, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %13 = load i32, ptr %12, align 4, !tbaa !71
+  %13 = load i32, ptr %12, align 4, !tbaa !72
   %.not12 = icmp eq i32 %13, 0
   br i1 %.not12, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %16 = load i32, ptr %15, align 8, !tbaa !71
+  %16 = load i32, ptr %15, align 8, !tbaa !72
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %19, label %18
 
@@ -2997,7 +2997,7 @@ define range(i32 0, 2) i32 @EC_GROUP_get_trinomial_basis(ptr noundef readonly ca
   br i1 %.not13, label %21, label %20
 
 20:                                               ; preds = %19
-  store i32 %13, ptr %1, align 4, !tbaa !71
+  store i32 %13, ptr %1, align 4, !tbaa !72
   br label %21
 
 21:                                               ; preds = %19, %20, %2, %18
@@ -3019,31 +3019,31 @@ define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly 
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %12 = load i32, ptr %11, align 8, !tbaa !71
+  %12 = load i32, ptr %11, align 8, !tbaa !72
   %.not21 = icmp eq i32 %12, 0
   br i1 %.not21, label %26, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %15 = load i32, ptr %14, align 4, !tbaa !71
+  %15 = load i32, ptr %14, align 4, !tbaa !72
   %.not22 = icmp eq i32 %15, 0
   br i1 %.not22, label %26, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %18 = load i32, ptr %17, align 8, !tbaa !71
+  %18 = load i32, ptr %17, align 8, !tbaa !72
   %.not23 = icmp eq i32 %18, 0
   br i1 %.not23, label %26, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %21 = load i32, ptr %20, align 4, !tbaa !71
+  %21 = load i32, ptr %20, align 4, !tbaa !72
   %.not24 = icmp eq i32 %21, 0
   br i1 %.not24, label %26, label %22
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %24 = load i32, ptr %23, align 8, !tbaa !71
+  %24 = load i32, ptr %23, align 8, !tbaa !72
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %27, label %26
 
@@ -3058,7 +3058,7 @@ define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly 
   br i1 %.not25, label %29, label %28
 
 28:                                               ; preds = %27
-  store i32 %21, ptr %1, align 4, !tbaa !71
+  store i32 %21, ptr %1, align 4, !tbaa !72
   br label %29
 
 29:                                               ; preds = %28, %27
@@ -3066,8 +3066,8 @@ define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly 
   br i1 %.not26, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = load i32, ptr %17, align 8, !tbaa !71
-  store i32 %31, ptr %2, align 4, !tbaa !71
+  %31 = load i32, ptr %17, align 8, !tbaa !72
+  store i32 %31, ptr %2, align 4, !tbaa !72
   br label %32
 
 32:                                               ; preds = %30, %29
@@ -3075,8 +3075,8 @@ define range(i32 0, 2) i32 @EC_GROUP_get_pentanomial_basis(ptr noundef readonly 
   br i1 %.not27, label %35, label %33
 
 33:                                               ; preds = %32
-  %34 = load i32, ptr %14, align 4, !tbaa !71
-  store i32 %34, ptr %3, align 4, !tbaa !71
+  %34 = load i32, ptr %14, align 4, !tbaa !72
+  store i32 %34, ptr %3, align 4, !tbaa !72
   br label %35
 
 35:                                               ; preds = %32, %33, %4, %26
@@ -3089,9 +3089,9 @@ define range(i32 0, 2) i32 @ossl_ec_group_set_params(ptr noundef captures(none) 
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  store i32 -1, ptr %3, align 4, !tbaa !71
+  store i32 -1, ptr %3, align 4, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  store i32 -1, ptr %4, align 4, !tbaa !71
+  store i32 -1, ptr %4, align 4, !tbaa !72
   %5 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %1, ptr noundef nonnull @.str.1) #9
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6
@@ -3108,7 +3108,7 @@ define range(i32 0, 2) i32 @ossl_ec_group_set_params(ptr noundef captures(none) 
   br label %EC_GROUP_set_seed.exit.thread
 
 9:                                                ; preds = %6
-  %10 = load i32, ptr %4, align 4, !tbaa !71
+  %10 = load i32, ptr %4, align 4, !tbaa !72
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %10, ptr %11, align 4, !tbaa !24
   br label %12
@@ -3130,7 +3130,7 @@ define range(i32 0, 2) i32 @ossl_ec_group_set_params(ptr noundef captures(none) 
   br label %EC_GROUP_set_seed.exit.thread
 
 17:                                               ; preds = %14
-  %18 = load i32, ptr %3, align 4, !tbaa !71
+  %18 = load i32, ptr %3, align 4, !tbaa !72
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %18, ptr %19, align 4, !tbaa !23
   br label %20
@@ -3142,15 +3142,15 @@ define range(i32 0, 2) i32 @ossl_ec_group_set_params(ptr noundef captures(none) 
 
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !73
+  %24 = load i32, ptr %23, align 8, !tbaa !74
   %.not21 = icmp eq i32 %24, 5
   br i1 %.not21, label %25, label %EC_GROUP_set_seed.exit
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !75
+  %27 = load ptr, ptr %26, align 8, !tbaa !76
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !76
+  %29 = load i64, ptr %28, align 8, !tbaa !77
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8, !tbaa !33
   call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 532) #9
@@ -3202,27 +3202,27 @@ define ptr @EC_GROUP_new_from_params(ptr noundef %0, ptr noundef %1, ptr noundef
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr null, ptr %5, align 8, !tbaa !66
+  store ptr null, ptr %5, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr null, ptr %6, align 8, !tbaa !66
+  store ptr null, ptr %6, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store ptr null, ptr %7, align 8, !tbaa !66
+  store ptr null, ptr %7, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
-  store ptr null, ptr %9, align 8, !tbaa !66
+  store ptr null, ptr %9, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
-  store i32 -1, ptr %10, align 4, !tbaa !71
+  store i32 -1, ptr %10, align 4, !tbaa !72
   %12 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %0, ptr noundef nonnull @.str.4) #9
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %43, label %13
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #9
-  store i32 0, ptr %11, align 4, !tbaa !71
+  store i32 0, ptr %11, align 4, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !77
+  store ptr null, ptr %4, align 8, !tbaa !78
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %15 = load i32, ptr %14, align 8, !tbaa !73
+  %15 = load i32, ptr %14, align 8, !tbaa !74
   switch i32 %15, label %group_new_from_name.exit.thread [
     i32 4, label %16
     i32 6, label %19
@@ -3230,8 +3230,8 @@ define ptr @EC_GROUP_new_from_params(ptr noundef %0, ptr noundef %1, ptr noundef
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !75
-  store ptr %18, ptr %4, align 8, !tbaa !77
+  %18 = load ptr, ptr %17, align 8, !tbaa !76
+  store ptr %18, ptr %4, align 8, !tbaa !78
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %group_new_from_name.exit.thread, label %22
 
@@ -3241,7 +3241,7 @@ define ptr @EC_GROUP_new_from_params(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %21, label %group_new_from_name.exit.thread, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %19
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !77
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !78
   br label %22
 
 22:                                               ; preds = %._crit_edge.i, %16
@@ -3286,7 +3286,7 @@ group_new_from_name.exit:                         ; preds = %22
   br i1 %.not133, label %38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34
-  %.pre = load i32, ptr %11, align 4, !tbaa !71
+  %.pre = load i32, ptr %11, align 4, !tbaa !72
   %36 = icmp sgt i32 %.pre, 0
   %37 = zext i1 %36 to i32
   br label %39
@@ -3323,13 +3323,13 @@ group_new_from_name.exit:                         ; preds = %22
 47:                                               ; preds = %43
   tail call void @BN_CTX_start(ptr noundef nonnull %44) #9
   %48 = tail call ptr @BN_CTX_get(ptr noundef nonnull %44) #9
-  store ptr %48, ptr %5, align 8, !tbaa !66
+  store ptr %48, ptr %5, align 8, !tbaa !67
   %49 = tail call ptr @BN_CTX_get(ptr noundef nonnull %44) #9
-  store ptr %49, ptr %6, align 8, !tbaa !66
+  store ptr %49, ptr %6, align 8, !tbaa !67
   %50 = tail call ptr @BN_CTX_get(ptr noundef nonnull %44) #9
-  store ptr %50, ptr %7, align 8, !tbaa !66
+  store ptr %50, ptr %7, align 8, !tbaa !67
   %51 = tail call ptr @BN_CTX_get(ptr noundef nonnull %44) #9
-  store ptr %51, ptr %8, align 8, !tbaa !66
+  store ptr %51, ptr %8, align 8, !tbaa !67
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %54
 
@@ -3346,7 +3346,7 @@ group_new_from_name.exit:                         ; preds = %22
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %59 = load i32, ptr %58, align 8, !tbaa !73
+  %59 = load i32, ptr %58, align 8, !tbaa !74
   %.not108 = icmp eq i32 %59, 4
   br i1 %.not108, label %61, label %60
 
@@ -3358,13 +3358,13 @@ group_new_from_name.exit:                         ; preds = %22
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !75
+  %63 = load ptr, ptr %62, align 8, !tbaa !76
   %64 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %63, ptr noundef nonnull @.str.7) #9
   %.not113 = icmp eq i32 %64, 0
   br i1 %.not113, label %70, label %65
 
 65:                                               ; preds = %61
-  %66 = load ptr, ptr %62, align 8, !tbaa !75
+  %66 = load ptr, ptr %62, align 8, !tbaa !76
   %67 = tail call i32 @OPENSSL_strcasecmp(ptr noundef %66, ptr noundef nonnull @.str.8) #9
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %70, label %69
@@ -3412,7 +3412,7 @@ group_new_from_name.exit:                         ; preds = %22
   br label %.thread157
 
 82:                                               ; preds = %78
-  %83 = load ptr, ptr %5, align 8, !tbaa !66
+  %83 = load ptr, ptr %5, align 8, !tbaa !67
   br i1 %.not113, label %84, label %95
 
 84:                                               ; preds = %82
@@ -3421,7 +3421,7 @@ group_new_from_name.exit:                         ; preds = %22
   br i1 %.not115, label %86, label %89
 
 86:                                               ; preds = %84
-  %87 = load ptr, ptr %5, align 8, !tbaa !66
+  %87 = load ptr, ptr %5, align 8, !tbaa !67
   %88 = call i32 @BN_is_zero(ptr noundef %87) #9
   %.not116 = icmp eq i32 %88, 0
   br i1 %.not116, label %90, label %89
@@ -3433,7 +3433,7 @@ group_new_from_name.exit:                         ; preds = %22
   br label %.thread157
 
 90:                                               ; preds = %86
-  %91 = load ptr, ptr %5, align 8, !tbaa !66
+  %91 = load ptr, ptr %5, align 8, !tbaa !67
   %92 = call i32 @BN_num_bits(ptr noundef %91) #9
   %93 = icmp sgt i32 %92, 661
   br i1 %93, label %94, label %103
@@ -3445,8 +3445,8 @@ group_new_from_name.exit:                         ; preds = %22
   br label %.thread157
 
 95:                                               ; preds = %82
-  %96 = load ptr, ptr %6, align 8, !tbaa !66
-  %97 = load ptr, ptr %7, align 8, !tbaa !66
+  %96 = load ptr, ptr %6, align 8, !tbaa !67
+  %97 = load ptr, ptr %7, align 8, !tbaa !67
   %98 = call ptr @EC_GROUP_new_curve_GF2m(ptr noundef %83, ptr noundef %96, ptr noundef %97, ptr noundef null) #9
   %.not114 = icmp eq ptr %98, null
   br i1 %.not114, label %.thread, label %99
@@ -3463,9 +3463,9 @@ group_new_from_name.exit:                         ; preds = %22
   br label %.thread157
 
 103:                                              ; preds = %90
-  %104 = load ptr, ptr %5, align 8, !tbaa !66
-  %105 = load ptr, ptr %6, align 8, !tbaa !66
-  %106 = load ptr, ptr %7, align 8, !tbaa !66
+  %104 = load ptr, ptr %5, align 8, !tbaa !67
+  %105 = load ptr, ptr %6, align 8, !tbaa !67
+  %106 = load ptr, ptr %7, align 8, !tbaa !67
   %107 = call ptr @EC_GROUP_new_curve_GFp(ptr noundef %104, ptr noundef %105, ptr noundef %106, ptr noundef nonnull %44) #9
   %108 = icmp eq ptr %107, null
   br i1 %108, label %.thread, label %.thread138
@@ -3485,7 +3485,7 @@ group_new_from_name.exit:                         ; preds = %22
 
 110:                                              ; preds = %.thread138
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !73
+  %112 = load i32, ptr %111, align 8, !tbaa !74
   %.not118 = icmp eq i32 %112, 5
   br i1 %.not118, label %114, label %113
 
@@ -3497,9 +3497,9 @@ group_new_from_name.exit:                         ; preds = %22
 
 114:                                              ; preds = %110
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  %116 = load ptr, ptr %115, align 8, !tbaa !75
+  %116 = load ptr, ptr %115, align 8, !tbaa !76
   %117 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %118 = load i64, ptr %117, align 8, !tbaa !76
+  %118 = load i64, ptr %117, align 8, !tbaa !77
   %119 = call i64 @EC_GROUP_set_seed(ptr noundef nonnull %.191141, ptr noundef %116, i64 noundef %118)
   %.not119 = icmp eq i64 %119, 0
   br i1 %.not119, label %.thread157, label %120
@@ -3511,7 +3511,7 @@ group_new_from_name.exit:                         ; preds = %22
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %125 = load i32, ptr %124, align 8, !tbaa !73
+  %125 = load i32, ptr %124, align 8, !tbaa !74
   %.not120 = icmp eq i32 %125, 5
   br i1 %.not120, label %127, label %126
 
@@ -3523,7 +3523,7 @@ group_new_from_name.exit:                         ; preds = %22
 
 127:                                              ; preds = %123
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !75
+  %129 = load ptr, ptr %128, align 8, !tbaa !76
   %130 = call ptr @EC_POINT_new(ptr noundef nonnull %.191141)
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.thread157, label %132
@@ -3535,7 +3535,7 @@ group_new_from_name.exit:                         ; preds = %22
   %136 = getelementptr inbounds nuw i8, ptr %.191141, i64 44
   store i32 %135, ptr %136, align 4, !tbaa !24
   %137 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %138 = load i64, ptr %137, align 8, !tbaa !76
+  %138 = load i64, ptr %137, align 8, !tbaa !77
   %139 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %.191141, ptr noundef nonnull %130, ptr noundef nonnull %129, i64 noundef %138, ptr noundef nonnull %44) #9
   %.not121 = icmp eq i32 %139, 0
   br i1 %.not121, label %179, label %140
@@ -3547,19 +3547,19 @@ group_new_from_name.exit:                         ; preds = %22
   br i1 %.not122, label %179, label %143
 
 143:                                              ; preds = %140
-  %144 = load ptr, ptr %8, align 8, !tbaa !66
+  %144 = load ptr, ptr %8, align 8, !tbaa !67
   %145 = call i32 @BN_is_negative(ptr noundef %144) #9
   %.not123 = icmp eq i32 %145, 0
   br i1 %.not123, label %146, label %179
 
 146:                                              ; preds = %143
-  %147 = load ptr, ptr %8, align 8, !tbaa !66
+  %147 = load ptr, ptr %8, align 8, !tbaa !67
   %148 = call i32 @BN_is_zero(ptr noundef %147) #9
   %.not124 = icmp eq i32 %148, 0
   br i1 %.not124, label %149, label %179
 
 149:                                              ; preds = %146
-  %150 = load ptr, ptr %8, align 8, !tbaa !66
+  %150 = load ptr, ptr %8, align 8, !tbaa !67
   %151 = call i32 @BN_num_bits(ptr noundef %150) #9
   %152 = add nsw i32 %.086142, 1
   %153 = icmp sgt i32 %151, %152
@@ -3572,7 +3572,7 @@ group_new_from_name.exit:                         ; preds = %22
 
 156:                                              ; preds = %154
   %157 = call ptr @BN_CTX_get(ptr noundef nonnull %44) #9
-  store ptr %157, ptr %9, align 8, !tbaa !66
+  store ptr %157, ptr %9, align 8, !tbaa !67
   %158 = icmp eq ptr %157, null
   br i1 %158, label %179, label %159
 
@@ -3582,12 +3582,12 @@ group_new_from_name.exit:                         ; preds = %22
   br i1 %.not126, label %179, label %._crit_edge160
 
 ._crit_edge160:                                   ; preds = %159
-  %.pre161 = load ptr, ptr %9, align 8, !tbaa !66
+  %.pre161 = load ptr, ptr %9, align 8, !tbaa !67
   br label %161
 
 161:                                              ; preds = %._crit_edge160, %154
   %162 = phi ptr [ %.pre161, %._crit_edge160 ], [ null, %154 ]
-  %163 = load ptr, ptr %8, align 8, !tbaa !66
+  %163 = load ptr, ptr %8, align 8, !tbaa !67
   %164 = call i32 @EC_GROUP_set_generator(ptr noundef nonnull %.191141, ptr noundef nonnull %130, ptr noundef %163, ptr noundef %162)
   %.not127 = icmp eq i32 %164, 0
   br i1 %.not127, label %179, label %165
@@ -3612,7 +3612,7 @@ group_new_from_name.exit:                         ; preds = %22
   br i1 %.not129, label %179, label %174
 
 174:                                              ; preds = %172
-  %.pre163 = load i32, ptr %10, align 4, !tbaa !71
+  %.pre163 = load i32, ptr %10, align 4, !tbaa !72
   %175 = icmp eq i32 %.pre163, 1
   br i1 %175, label %179, label %.thread164
 
@@ -3766,7 +3766,7 @@ EC_GROUP_dup.exit.thread:                         ; preds = %4, %21, %28, %22
 define ptr @EC_GROUP_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr null, ptr %5, align 8, !tbaa !77
+  store ptr null, ptr %5, align 8, !tbaa !78
   %6 = icmp eq ptr %0, null
   br i1 %6, label %18, label %7
 
@@ -3802,7 +3802,7 @@ define ptr @EC_GROUP_to_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %.016 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %12 ], [ %.127, %16 ], [ %.127, %.thread ]
   %.0 = phi ptr [ null, %4 ], [ null, %7 ], [ null, %12 ], [ %17, %16 ], [ null, %.thread ]
   call void @OSSL_PARAM_BLD_free(ptr noundef %.017) #9
-  %19 = load ptr, ptr %5, align 8, !tbaa !77
+  %19 = load ptr, ptr %5, align 8, !tbaa !78
   call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 1795) #9
   call void @BN_CTX_end(ptr noundef %.018) #9
   call void @BN_CTX_free(ptr noundef %.016) #9
@@ -3922,19 +3922,20 @@ attributes #9 = { nounwind }
 !59 = !{!4, !8, i64 208}
 !60 = !{!4, !8, i64 216}
 !61 = !{!12, !12, i64 0}
-!62 = distinct !{!62, !63}
+!62 = distinct !{!62, !63, !64}
 !63 = !{!"llvm.loop.mustprogress"}
-!64 = distinct !{!64, !63}
-!65 = !{!4, !8, i64 224}
-!66 = !{!13, !13, i64 0}
-!67 = !{!4, !8, i64 232}
-!68 = !{!4, !8, i64 240}
-!69 = !{!4, !8, i64 400}
-!70 = !{!4, !8, i64 408}
-!71 = !{!5, !5, i64 0}
-!72 = distinct !{!72, !63}
-!73 = !{!74, !5, i64 8}
-!74 = !{!"ossl_param_st", !14, i64 0, !5, i64 8, !8, i64 16, !15, i64 24, !15, i64 32}
-!75 = !{!74, !8, i64 16}
-!76 = !{!74, !15, i64 24}
-!77 = !{!14, !14, i64 0}
+!64 = !{!"llvm.loop.estimated_trip_count"}
+!65 = distinct !{!65, !63, !64}
+!66 = !{!4, !8, i64 224}
+!67 = !{!13, !13, i64 0}
+!68 = !{!4, !8, i64 232}
+!69 = !{!4, !8, i64 240}
+!70 = !{!4, !8, i64 400}
+!71 = !{!4, !8, i64 408}
+!72 = !{!5, !5, i64 0}
+!73 = distinct !{!73, !63, !64}
+!74 = !{!75, !5, i64 8}
+!75 = !{!"ossl_param_st", !14, i64 0, !5, i64 8, !8, i64 16, !15, i64 24, !15, i64 32}
+!76 = !{!75, !8, i64 16}
+!77 = !{!75, !15, i64 24}
+!78 = !{!14, !14, i64 0}

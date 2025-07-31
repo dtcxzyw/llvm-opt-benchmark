@@ -147,7 +147,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr readnone captures(none)
 33:                                               ; preds = %32, %.preheader
   %34 = add nuw i64 %.02637, 1
   %exitcond.not = icmp eq i64 %34, %2
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit:                                        ; preds = %33, %14
   %.not = icmp eq ptr %3, null
@@ -155,12 +155,12 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr readnone captures(none)
 
 35:                                               ; preds = %.loopexit
   %36 = tail call ptr @PMIx_Info_create(i64 noundef 1) #3
-  store ptr %36, ptr %3, align 8, !tbaa !40
+  store ptr %36, ptr %3, align 8, !tbaa !41
   %37 = icmp eq ptr %36, null
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %35
-  store i64 1, ptr %4, align 8, !tbaa !42
+  store i64 1, ptr %4, align 8, !tbaa !43
   %39 = tail call i32 @PMIx_Info_load(ptr noundef nonnull %36, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str, i16 noundef zeroext 3) #3
   br label %40
 
@@ -232,9 +232,10 @@ attributes #4 = { nounwind willreturn memory(read) }
 !34 = !{!"", !23, i64 0, !23, i64 1, !5, i64 4, !23, i64 8, !5, i64 12, !13, i64 16, !13, i64 24, !5, i64 32, !13, i64 40, !5, i64 48, !23, i64 52, !23, i64 53, !23, i64 54, !23, i64 55, !13, i64 56, !5, i64 64, !5, i64 68}
 !35 = !{!6, !6, i64 0}
 !36 = !{!13, !13, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS9pmix_info", !12, i64 0}
-!42 = !{!19, !19, i64 0}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS9pmix_info", !12, i64 0}
+!43 = !{!19, !19, i64 0}

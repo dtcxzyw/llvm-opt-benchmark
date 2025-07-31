@@ -233,7 +233,7 @@ default.unreachable108:                           ; preds = %dash_read_tmpl_id.e
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %10) #6
   %106 = sext i32 %105 to i64
   %107 = icmp ugt i64 %11, %106
-  br i1 %107, label %.lr.ph, label %.critedge
+  br i1 %107, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.lr.ph, %99, %7, %.thread
   ret void
@@ -281,3 +281,5 @@ attributes #7 = { nounwind willreturn memory(read) }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}

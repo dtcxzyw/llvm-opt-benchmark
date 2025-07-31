@@ -326,7 +326,7 @@ define void @_ZN6uu_yes14prepare_buffer17h11868802ee63e8cfE(ptr noalias noundef 
   %29 = add i64 %28, %spec.select.i.i.i
   store i64 %29, ptr %3, align 8, !alias.scope !84
   %30 = icmp ult i64 %29, %12
-  br i1 %30, label %15, label %.loopexit
+  br i1 %30, label %15, label %.loopexit, !llvm.loop !86
 
 .loopexit:                                        ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18extend_from_within17h83281dc547aed22dE.exit", %10, %1
   ret void
@@ -343,7 +343,7 @@ define noundef ptr @_ZN6uu_yes4exec17hab79ba36dc20148eE(ptr noalias noundef nonn
   %6 = call noundef nonnull align 8 ptr @_ZN3std2io5stdio6Stdout4lock17h553f24c29d1e7b1aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   store ptr %6, ptr %3, align 8
   %7 = invoke noundef i32 @_ZN6uucore8features7signals18enable_pipe_errors17h33076db2b0642d06E()
-          to label %9 unwind label %.loopexit.split-lp, !range !86
+          to label %9 unwind label %.loopexit.split-lp, !range !88
 
 .loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -391,30 +391,30 @@ define noundef ptr @_ZN6uu_yes4exec17hab79ba36dc20148eE(ptr noalias noundef nonn
 
 24:                                               ; preds = %.preheader
   %25 = icmp eq ptr %23, null
-  br i1 %25, label %.preheader, label %.loopexit22
+  br i1 %25, label %.preheader, label %.loopexit22, !llvm.loop !89
 
 .loopexit22:                                      ; preds = %24, %20, %18, %13
   %.0 = phi ptr [ %17, %13 ], [ null, %18 ], [ %21, %20 ], [ %23, %24 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !87)
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   call void @llvm.experimental.noalias.scope.decl(metadata !93)
-  %26 = load ptr, ptr %3, align 8, !alias.scope !96, !nonnull !31, !align !97, !noundef !31
+  call void @llvm.experimental.noalias.scope.decl(metadata !96)
+  %26 = load ptr, ptr %3, align 8, !alias.scope !99, !nonnull !31, !align !100, !noundef !31
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 52
-  %28 = load i32, ptr %27, align 4, !noalias !96, !noundef !31
+  %28 = load i32, ptr %27, align 4, !noalias !99, !noundef !31
   %29 = add i32 %28, -1
-  store i32 %29, ptr %27, align 4, !noalias !96
+  store i32 %29, ptr %27, align 4, !noalias !99
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E.exit"
 
 31:                                               ; preds = %.loopexit22
-  call void @_ZN4core4sync6atomic12atomic_store17hde95057a1cc44fb0E.llvm.10055069526626851930(ptr noundef nonnull %26, i64 noundef 0, i8 noundef 0), !noalias !96
+  call void @_ZN4core4sync6atomic12atomic_store17hde95057a1cc44fb0E.llvm.10055069526626851930(ptr noundef nonnull %26, i64 noundef 0, i8 noundef 0), !noalias !99
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %33 = atomicrmw xchg ptr %32, i32 0 release, align 4, !noalias !96
+  %33 = atomicrmw xchg ptr %32, i32 0 release, align 4, !noalias !99
   %34 = icmp eq i32 %33, 2
   br i1 %34, label %35, label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E.exit"
 
 35:                                               ; preds = %31
-  call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %32), !noalias !96
+  call void @_ZN3std3sys3pal4unix5locks11futex_mutex5Mutex4wake17hcd5401d505f8775bE(ptr noundef nonnull align 4 %32), !noalias !99
   br label %"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E.exit"
 
 "_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E.exit": ; preds = %.loopexit22, %31, %35
@@ -624,15 +624,18 @@ attributes #11 = { noreturn }
 !83 = distinct !{!83, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..ExtendFromWithinSpec$GT$23spec_extend_from_within17h7d4d6149d096ee78E.llvm.16374473169365211629"}
 !84 = !{!82, !76}
 !85 = !{i64 1}
-!86 = !{i32 0, i32 135}
-!87 = !{!88}
-!88 = distinct !{!88, !89, !"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E: argument 0"}
-!89 = distinct !{!89, !"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E"}
+!86 = distinct !{!86, !87}
+!87 = !{!"llvm.loop.estimated_trip_count"}
+!88 = !{i32 0, i32 135}
+!89 = distinct !{!89, !87}
 !90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN4core3ptr169drop_in_place$LT$std..sync..remutex..ReentrantMutexGuard$LT$core..cell..RefCell$LT$std..io..buffered..linewriter..LineWriter$LT$std..io..stdio..StdoutRaw$GT$$GT$$GT$$GT$17h08404c620e55c4f2E.llvm.10055069526626851930: argument 0"}
-!92 = distinct !{!92, !"_ZN4core3ptr169drop_in_place$LT$std..sync..remutex..ReentrantMutexGuard$LT$core..cell..RefCell$LT$std..io..buffered..linewriter..LineWriter$LT$std..io..stdio..StdoutRaw$GT$$GT$$GT$$GT$17h08404c620e55c4f2E.llvm.10055069526626851930"}
+!91 = distinct !{!91, !92, !"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E: argument 0"}
+!92 = distinct !{!92, !"_ZN4core3ptr47drop_in_place$LT$std..io..stdio..StdoutLock$GT$17h64bb83ac337b1872E"}
 !93 = !{!94}
-!94 = distinct !{!94, !95, !"_ZN90_$LT$std..sync..remutex..ReentrantMutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he57a68891920dcd5E.llvm.10055069526626851930: argument 0"}
-!95 = distinct !{!95, !"_ZN90_$LT$std..sync..remutex..ReentrantMutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he57a68891920dcd5E.llvm.10055069526626851930"}
-!96 = !{!94, !91, !88}
-!97 = !{i64 8}
+!94 = distinct !{!94, !95, !"_ZN4core3ptr169drop_in_place$LT$std..sync..remutex..ReentrantMutexGuard$LT$core..cell..RefCell$LT$std..io..buffered..linewriter..LineWriter$LT$std..io..stdio..StdoutRaw$GT$$GT$$GT$$GT$17h08404c620e55c4f2E.llvm.10055069526626851930: argument 0"}
+!95 = distinct !{!95, !"_ZN4core3ptr169drop_in_place$LT$std..sync..remutex..ReentrantMutexGuard$LT$core..cell..RefCell$LT$std..io..buffered..linewriter..LineWriter$LT$std..io..stdio..StdoutRaw$GT$$GT$$GT$$GT$17h08404c620e55c4f2E.llvm.10055069526626851930"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"_ZN90_$LT$std..sync..remutex..ReentrantMutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he57a68891920dcd5E.llvm.10055069526626851930: argument 0"}
+!98 = distinct !{!98, !"_ZN90_$LT$std..sync..remutex..ReentrantMutexGuard$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he57a68891920dcd5E.llvm.10055069526626851930"}
+!99 = !{!97, !94, !91}
+!100 = !{i64 8}

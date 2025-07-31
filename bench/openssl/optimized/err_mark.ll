@@ -241,7 +241,7 @@ define i32 @ERR_count_to_mark() local_unnamed_addr #0 {
   %16 = add nsw i32 %.015, -1
   %17 = select i1 %15, i32 %16, i32 15
   %.not = icmp eq i32 %8, %17
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
 
 .critedge:                                        ; preds = %13, %.lr.ph, %3, %0
   %.011 = phi i32 [ 0, %0 ], [ 0, %3 ], [ %14, %13 ], [ %.01014, %.lr.ph ]
@@ -279,7 +279,7 @@ define range(i32 0, 2) i32 @ERR_clear_last_mark() local_unnamed_addr #0 {
   %16 = add nsw i32 %.016, -1
   %17 = select i1 %15, i32 %16, i32 15
   %.not = icmp eq i32 %7, %17
-  br i1 %.not, label %.critedge.thread, label %9, !llvm.loop !19
+  br i1 %.not, label %.critedge.thread, label %9, !llvm.loop !20
 
 .critedge:                                        ; preds = %9
   %18 = getelementptr inbounds [16 x i32], ptr %8, i64 0, i64 %10
@@ -316,7 +316,8 @@ attributes #2 = { nounwind }
 !13 = !{!5, !5, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !5, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}

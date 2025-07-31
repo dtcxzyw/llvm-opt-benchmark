@@ -183,7 +183,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_update_multi(ptr noundef captu
   %75 = tail call i32 @llvm.fshl.i32(i32 %44, i32 %44, i32 30)
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
   %exitcond124.not.i = icmp eq i64 %indvars.iv.next122.i, 80
-  br i1 %exitcond124.not.i, label %update.exit, label %.preheader104.i, !llvm.loop !9
+  br i1 %exitcond124.not.i, label %update.exit, label %.preheader104.i, !llvm.loop !10
 
 update.exit:                                      ; preds = %69
   %76 = add i32 %74, %14
@@ -199,7 +199,7 @@ update.exit:                                      ; preds = %69
   call void @llvm.lifetime.end.p0(i64 320, ptr nonnull %4) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -221,7 +221,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_update_last(ptr noundef captur
   %16 = zext nneg i32 %8 to i64
   %17 = getelementptr i8, ptr %5, i64 %16
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %10, i64 %16, i1 false)
-  store i8 -128, ptr %17, align 1, !tbaa !11
+  store i8 -128, ptr %17, align 1, !tbaa !12
   %18 = getelementptr i8, ptr %17, i64 1
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %pad.exit, label %.lr.ph.preheader.i
@@ -229,7 +229,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_update_last(ptr noundef captur
 .lr.ph.preheader.i:                               ; preds = %4
   %19 = sub i64 55, %12
   %20 = and i64 %19, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %20, i1 false), !tbaa !11
+  call void @llvm.memset.p0.i64(ptr align 1 %18, i8 0, i64 %20, i1 false), !tbaa !12
   br label %pad.exit
 
 pad.exit:                                         ; preds = %4, %.lr.ph.preheader.i
@@ -283,7 +283,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_hash_oneshot(ptr noundef write
   %22 = zext nneg i32 %7 to i64
   %23 = getelementptr i8, ptr %4, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr readonly align 1 %18, i64 %22, i1 false)
-  store i8 -128, ptr %23, align 1, !tbaa !11
+  store i8 -128, ptr %23, align 1, !tbaa !12
   %24 = getelementptr i8, ptr %23, i64 1
   %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %python_hashlib_Hacl_Hash_SHA1_update_last.exit, label %.lr.ph.preheader.i.i
@@ -291,7 +291,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_hash_oneshot(ptr noundef write
 .lr.ph.preheader.i.i:                             ; preds = %3
   %25 = sub nsw i64 55, %19
   %26 = and i64 %25, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %24, i8 0, i64 %26, i1 false), !tbaa !11
+  call void @llvm.memset.p0.i64(ptr align 1 %24, i8 0, i64 %26, i1 false), !tbaa !12
   br label %python_hashlib_Hacl_Hash_SHA1_update_last.exit
 
 python_hashlib_Hacl_Hash_SHA1_update_last.exit:   ; preds = %3, %.lr.ph.preheader.i.i
@@ -338,11 +338,11 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA1_malloc() local_
   %1 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
   %2 = tail call noalias dereferenceable_or_null(20) ptr @calloc(i64 noundef 5, i64 noundef 4) #16
   %3 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %2, ptr %3, align 8, !tbaa !12
+  store ptr %2, ptr %3, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
+  store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !17
+  store i64 0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
   store i32 1732584193, ptr %2, align 4, !tbaa !3
   %4 = getelementptr i8, ptr %2, i64 4
   store i32 -271733879, ptr %4, align 4, !tbaa !3
@@ -363,7 +363,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @python_hashlib_Hacl_Hash_SHA1_reset(ptr noundef captures(none) initializes((16, 24)) %0) local_unnamed_addr #9 {
-  %.sroa.03.0.copyload = load ptr, ptr %0, align 8, !tbaa !12
+  %.sroa.03.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1732584193, ptr %.sroa.03.0.copyload, align 4, !tbaa !3
   %2 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 4
@@ -374,14 +374,14 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_reset(ptr noundef captures(non
   store i32 271733878, ptr %4, align 4, !tbaa !3
   %5 = getelementptr i8, ptr %.sroa.03.0.copyload, i64 16
   store i32 -1009589776, ptr %5, align 4, !tbaa !3
-  store i64 0, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !17
+  store i64 0, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA1_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #10 {
   %.sroa.3110.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.3110.0.copyload = load i64, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !17
+  %.sroa.3110.0.copyload = load i64, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !18
   %4 = zext i32 %2 to i64
   %5 = sub i64 2305843009213693951, %.sroa.3110.0.copyload
   %6 = icmp ult i64 %5, %4
@@ -399,15 +399,15 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA1_update(pt
   br i1 %.not, label %16, label %13
 
 13:                                               ; preds = %7
-  %.sroa.099.0.copyload = load ptr, ptr %0, align 8, !tbaa !12
+  %.sroa.099.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.4100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4100.0.copyload = load ptr, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.4100.0.copyload = load ptr, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !16
   %. = select i1 %or.cond, i64 64, i64 %8
   %14 = getelementptr i8, ptr %.sroa.4100.0.copyload, i64 %.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %1, i64 %4, i1 false)
   %15 = add i64 %.sroa.3110.0.copyload, %4
-  store ptr %.sroa.099.0.copyload, ptr %0, align 8, !tbaa !12
-  store ptr %.sroa.4100.0.copyload, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !15
+  store ptr %.sroa.099.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.4100.0.copyload, ptr %.sroa.4100.0..sroa_idx, align 8, !tbaa !16
   br label %.sink.split
 
 16:                                               ; preds = %7
@@ -415,9 +415,9 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA1_update(pt
   br i1 %17, label %18, label %31
 
 18:                                               ; preds = %16
-  %.sroa.083.0.copyload = load ptr, ptr %0, align 8, !tbaa !12
+  %.sroa.083.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.484.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.484.0.copyload = load ptr, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !16
   %or.cond158 = xor i1 %9, %or.cond
   br i1 %or.cond158, label %19, label %.critedge
 
@@ -440,23 +440,23 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA1_update(pt
   %29 = zext i32 %26 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.484.0.copyload, ptr align 1 %28, i64 %29, i1 false)
   %30 = add i64 %.sroa.3110.0.copyload, %4
-  store ptr %.sroa.083.0.copyload, ptr %0, align 8, !tbaa !12
-  store ptr %.sroa.484.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !15
+  store ptr %.sroa.083.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.484.0.copyload, ptr %.sroa.484.0..sroa_idx, align 8, !tbaa !16
   br label %.sink.split
 
 31:                                               ; preds = %16
   %32 = zext nneg i32 %12 to i64
   %33 = getelementptr i8, ptr %1, i64 %32
-  %.sroa.045.0.copyload = load ptr, ptr %0, align 8, !tbaa !12
+  %.sroa.045.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.446.0.copyload = load ptr, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.446.0.copyload = load ptr, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
   %.154 = select i1 %or.cond, i64 64, i64 %8
   %34 = getelementptr i8, ptr %.sroa.446.0.copyload, i64 %.154
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr align 1 %1, i64 %32, i1 false)
   %35 = add i64 %.sroa.3110.0.copyload, %32
-  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !12
-  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !15
-  store i64 %35, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !17
+  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
+  store i64 %35, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !18
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %37, label %.critedge156
 
@@ -481,13 +481,13 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA1_update(pt
   %48 = zext i32 %45 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.sroa.446.0.copyload, ptr align 1 %47, i64 %48, i1 false)
   %49 = add i64 %35, %39
-  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !12
-  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !15
+  store ptr %.sroa.045.0.copyload, ptr %0, align 8, !tbaa !13
+  store ptr %.sroa.446.0.copyload, ptr %.sroa.446.0..sroa_idx, align 8, !tbaa !16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %37, %13
   %.sink = phi i64 [ %15, %13 ], [ %49, %37 ], [ %30, %19 ]
-  store i64 %.sink, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !17
+  store i64 %.sink, ptr %.sroa.3110.0..sroa_idx, align 8, !tbaa !18
   br label %50
 
 50:                                               ; preds = %.sink.split, %3
@@ -499,11 +499,11 @@ define hidden zeroext range(i8 0, 4) i8 @python_hashlib_Hacl_Hash_SHA1_update(pt
 define hidden void @python_hashlib_Hacl_Hash_SHA1_digest(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 20)) %1) local_unnamed_addr #10 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca [5 x i32], align 16
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !12
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !17
+  %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
   %5 = and i64 %.sroa.5.0.copyload, 63
   %6 = icmp eq i64 %5, 0
   %7 = icmp ne i64 %.sroa.5.0.copyload, 0
@@ -534,7 +534,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_digest(ptr noundef readonly ca
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
   %24 = getelementptr i8, ptr %3, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr readonly align 1 %20, i64 %12, i1 false)
-  store i8 -128, ptr %24, align 1, !tbaa !11
+  store i8 -128, ptr %24, align 1, !tbaa !12
   %25 = getelementptr i8, ptr %24, i64 1
   %.not.i.i = icmp eq i32 %23, 0
   br i1 %.not.i.i, label %python_hashlib_Hacl_Hash_SHA1_update_last.exit, label %.lr.ph.preheader.i.i
@@ -542,7 +542,7 @@ define hidden void @python_hashlib_Hacl_Hash_SHA1_digest(ptr noundef readonly ca
 .lr.ph.preheader.i.i:                             ; preds = %2
   %26 = sub i64 55, %.sroa.5.0.copyload
   %27 = and i64 %26, 63
-  call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %27, i1 false), !tbaa !11
+  call void @llvm.memset.p0.i64(ptr align 1 %25, i8 0, i64 %27, i1 false), !tbaa !12
   br label %python_hashlib_Hacl_Hash_SHA1_update_last.exit
 
 python_hashlib_Hacl_Hash_SHA1_update_last.exit:   ; preds = %2, %.lr.ph.preheader.i.i
@@ -585,9 +585,9 @@ python_hashlib_Hacl_Hash_SHA1_update_last.exit:   ; preds = %2, %.lr.ph.preheade
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @python_hashlib_Hacl_Hash_SHA1_free(ptr noundef captures(none) %0) local_unnamed_addr #11 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !12
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
   tail call void @free(ptr noundef %.sroa.0.0.copyload) #15
   tail call void @free(ptr noundef %.sroa.4.0.copyload) #15
   tail call void @free(ptr noundef %0) #15
@@ -599,21 +599,21 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_SHA1_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
-  %.sroa.08.0.copyload = load ptr, ptr %0, align 8, !tbaa !12
+  %.sroa.08.0.copyload = load ptr, ptr %0, align 8, !tbaa !13
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !tbaa !15
+  %.sroa.49.0.copyload = load ptr, ptr %.sroa.49.0..sroa_idx, align 8, !tbaa !16
   %.sroa.510.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.510.0.copyload = load i64, ptr %.sroa.510.0..sroa_idx, align 8, !tbaa !17
+  %.sroa.510.0.copyload = load i64, ptr %.sroa.510.0..sroa_idx, align 8, !tbaa !18
   %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %2, ptr noundef nonnull align 1 dereferenceable(64) %.sroa.49.0.copyload, i64 64, i1 false)
   %3 = tail call noalias dereferenceable_or_null(20) ptr @calloc(i64 noundef 5, i64 noundef 4) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %.sroa.08.0.copyload, i64 20, i1 false)
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #17
-  store ptr %3, ptr %4, align 8, !tbaa !12
+  store ptr %3, ptr %4, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
+  store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.sroa.510.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !17
+  store i64 %.sroa.510.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
   ret ptr %4
 }
 
@@ -660,15 +660,16 @@ attributes #17 = { nounwind allocsize(0) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!5, !5, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 int", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !14, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!5, !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 int", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !15, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"long", !5, i64 0}

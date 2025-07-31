@@ -519,12 +519,12 @@ define internal void @message_decode_match_criteria_tostr_cb(ptr noundef readonl
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !9
 
 16:                                               ; preds = %.lr.ph20
   %17 = load i32, ptr %13, align 8
   %18 = icmp eq i32 %17, %8
-  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %18, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %16, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %15, %16 ]
@@ -609,12 +609,12 @@ define internal void @message_decode_msg_decoding_set_cb(ptr noundef writeonly c
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !9
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !10
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -649,12 +649,12 @@ define internal void @message_decode_msg_decoding_tostr_cb(ptr noundef readonly 
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !11
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !10
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !11
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -1185,7 +1185,7 @@ define internal i32 @dissect_mqtt(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %131 = load i32, ptr @hf_mqtt_will_msg_len, align 4
   %132 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %24, i32 noundef %131, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9)
   %133 = add i32 %.4, 2
-  %134 = load i8, ptr @show_msg_as_text, align 1, !range !11, !noundef !12
+  %134 = load i8, ptr @show_msg_as_text, align 1, !range !12, !noundef !13
   %135 = trunc nuw i8 %134 to i1
   %136 = load i32, ptr %9, align 4
   %. = select i1 %135, i32 2, i32 0
@@ -1416,7 +1416,7 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.303, ptr noundef %270)
   %271 = call i32 @tvb_reported_length(ptr noundef %0)
   %272 = sub i32 %271, %.8
-  %273 = load i8, ptr @show_msg_as_text, align 1, !range !11, !noundef !12
+  %273 = load i8, ptr @show_msg_as_text, align 1, !range !12, !noundef !13
   %274 = trunc nuw i8 %273 to i1
   %.438 = select i1 %274, i32 2, i32 0
   %hf_mqtt_pubmsg_text.val = load i32, ptr @hf_mqtt_pubmsg_text, align 4
@@ -1527,7 +1527,7 @@ proto_item_set_generated.exit:                    ; preds = %247, %251, %254
   %328 = zext i32 %326 to i64
   %329 = icmp samesign uge i64 %indvars.iv.next.i, %328
   %.not54.i = select i1 %329, i1 true, i1 %.1.i
-  br i1 %.not54.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not54.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
 330:                                              ; preds = %._crit_edge.i
   %331 = getelementptr inbounds nuw i8, ptr %287, i64 24
@@ -1675,7 +1675,7 @@ mqtt_user_decode_message.exit:                    ; preds = %proto_item_set_gene
   %410 = add i32 %.11, 1
   %411 = call i32 @tvb_reported_length(ptr noundef %0)
   %412 = icmp ult i32 %410, %411
-  br i1 %412, label %.lr.ph415, label %.loopexit, !llvm.loop !14
+  br i1 %412, label %.lr.ph415, label %.loopexit, !llvm.loop !15
 
 413:                                              ; preds = %65
   %414 = load i32, ptr @hf_mqtt_msgid, align 4
@@ -1724,7 +1724,7 @@ mqtt_user_decode_message.exit:                    ; preds = %proto_item_set_gene
   %.14 = phi i32 [ %436, %432 ], [ %430, %437 ]
   %440 = call i32 @tvb_reported_length(ptr noundef %0)
   %441 = icmp ult i32 %.14, %440
-  br i1 %441, label %.lr.ph412, label %.loopexit, !llvm.loop !15
+  br i1 %441, label %.lr.ph412, label %.loopexit, !llvm.loop !16
 
 442:                                              ; preds = %65
   %443 = load i32, ptr @hf_mqtt_msgid, align 4
@@ -1761,7 +1761,7 @@ mqtt_user_decode_message.exit:                    ; preds = %proto_item_set_gene
   %460 = add nuw i32 %.16408, 1
   %461 = call i32 @tvb_reported_length(ptr noundef %0)
   %462 = icmp ult i32 %460, %461
-  br i1 %462, label %.lr.ph409, label %.loopexit, !llvm.loop !16
+  br i1 %462, label %.lr.ph409, label %.loopexit, !llvm.loop !17
 
 463:                                              ; preds = %65, %65, %65, %65
   %464 = load i32, ptr @hf_mqtt_msgid, align 4
@@ -1827,7 +1827,7 @@ dissect_mqtt_reason_code.exit401.us:              ; preds = %495, %dissect_mqtt_
   %503 = add nuw i32 %.17407.us, 1
   %504 = call i32 @tvb_reported_length(ptr noundef %0)
   %505 = icmp ult i32 %503, %504
-  br i1 %505, label %dissect_mqtt_reason_code.exit401.us, label %.loopexit, !llvm.loop !17
+  br i1 %505, label %dissect_mqtt_reason_code.exit401.us, label %.loopexit, !llvm.loop !18
 
 506:                                              ; preds = %65, %65
   %507 = load i8, ptr %.0365, align 8
@@ -2104,7 +2104,7 @@ define internal fastcc noundef i32 @dissect_mqtt_properties(ptr noundef %0, ptr 
   %.1 = phi i32 [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %57, %53 ], [ %63, %58 ], [ %72, %64 ], [ %89, %73 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #8
   %94 = icmp ult i32 %.1, %24
-  br i1 %94, label %28, label %._crit_edge, !llvm.loop !19
+  br i1 %94, label %28, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %93, %.thread, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #8
@@ -2199,17 +2199,18 @@ attributes #9 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !8}

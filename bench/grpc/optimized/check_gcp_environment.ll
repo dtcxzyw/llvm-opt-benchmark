@@ -112,7 +112,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %5
 40:                                               ; preds = %33
   %41 = add nuw i64 %.02431.i, 1
   %exitcond.not.i = icmp eq i64 %41, %20
-  br i1 %exitcond.not.i, label %.critedge2.i, label %33, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.critedge2.i, label %33, !llvm.loop !15
 
 .critedge2.i:                                     ; preds = %40, %33
   %.024.lcssa.i = phi i64 [ %.02431.i, %33 ], [ %20, %40 ]
@@ -209,6 +209,7 @@ attributes #13 = { nounwind willreturn memory(none) }
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"short", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}

@@ -179,9 +179,9 @@ _ZNSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEE
   store i32 %3, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %15, ptr noundef nonnull %16, ptr noundef nonnull %.0.lcssa.i10.i.i, ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load i64, ptr %18, align 8, !tbaa !21
+  %19 = load i64, ptr %18, align 8, !tbaa !22
   %20 = add i64 %19, 1
-  store i64 %20, ptr %18, align 8, !tbaa !21
+  store i64 %20, ptr %18, align 8, !tbaa !22
   ret void
 }
 
@@ -190,7 +190,7 @@ declare noundef i64 @_ZN3zmq7clock_t6now_msEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq13poller_base_t12cancel_timerEPNS_13i_poll_eventsEi(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.not8 = icmp eq ptr %5, %6
   br i1 %.not8, label %.loopexit, label %.lr.ph
@@ -198,13 +198,13 @@ define void @_ZN3zmq13poller_base_t12cancel_timerEPNS_13i_poll_eventsEi(ptr noun
 .lr.ph:                                           ; preds = %3, %19
   %.sroa.03.09 = phi ptr [ %20, %19 ], [ %5, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.03.09, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %10, label %19
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.03.09, i64 48
-  %12 = load i32, ptr %11, align 8, !tbaa !28
+  %12 = load i32, ptr %11, align 8, !tbaa !29
   %13 = icmp eq i32 %12, %2
   br i1 %13, label %14, label %19
 
@@ -212,15 +212,15 @@ define void @_ZN3zmq13poller_base_t12cancel_timerEPNS_13i_poll_eventsEi(ptr noun
   %15 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.03.09, ptr noundef nonnull align 8 dereferenceable(32) %6) #17
   tail call void @_ZdlPv(ptr noundef nonnull %15) #18
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %17 = load i64, ptr %16, align 8, !tbaa !21
+  %17 = load i64, ptr %16, align 8, !tbaa !22
   %18 = add i64 %17, -1
-  store i64 %18, ptr %16, align 8, !tbaa !21
+  store i64 %18, ptr %16, align 8, !tbaa !22
   br label %.loopexit
 
 19:                                               ; preds = %.lr.ph, %10
   %20 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.03.09) #20
   %.not = icmp eq ptr %20, %6
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
 .loopexit:                                        ; preds = %19, %3, %14
   ret void
@@ -229,7 +229,7 @@ define void @_ZN3zmq13poller_base_t12cancel_timerEPNS_13i_poll_eventsEi(ptr noun
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN3zmq13poller_base_t14execute_timersEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load i64, ptr %2, align 8, !tbaa !21
+  %3 = load i64, ptr %2, align 8, !tbaa !22
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.loopexit, label %5
 
@@ -241,9 +241,9 @@ define noundef i64 @_ZN3zmq13poller_base_t14execute_timersEv(ptr noundef nonnull
   br label %10
 
 10:                                               ; preds = %17, %5
-  %11 = load ptr, ptr %8, align 8, !tbaa !22
+  %11 = load ptr, ptr %8, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load i64, ptr %12, align 8, !tbaa !30
+  %13 = load i64, ptr %12, align 8, !tbaa !31
   %14 = icmp ugt i64 %13, %7
   br i1 %14, label %15, label %17
 
@@ -253,21 +253,21 @@ define noundef i64 @_ZN3zmq13poller_base_t14execute_timersEv(ptr noundef nonnull
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.sroa.03.0.copyload = load ptr, ptr %18, align 8, !tbaa !31
+  %.sroa.03.0.copyload = load ptr, ptr %18, align 8, !tbaa !32
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !32
+  %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !33
   %19 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %11, ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   tail call void @_ZdlPv(ptr noundef nonnull %19) #18
-  %20 = load i64, ptr %2, align 8, !tbaa !21
+  %20 = load i64, ptr %2, align 8, !tbaa !22
   %21 = add i64 %20, -1
-  store i64 %21, ptr %2, align 8, !tbaa !21
+  store i64 %21, ptr %2, align 8, !tbaa !22
   %22 = load ptr, ptr %.sroa.03.0.copyload, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.03.0.copyload, i32 noundef %.sroa.4.0.copyload)
-  %25 = load i64, ptr %2, align 8, !tbaa !21
+  %25 = load i64, ptr %2, align 8, !tbaa !22
   %26 = icmp eq i64 %25, 0
-  br i1 %26, label %.loopexit, label %10, !llvm.loop !33
+  br i1 %26, label %.loopexit, label %10, !llvm.loop !34
 
 .loopexit:                                        ; preds = %17, %15, %1
   %.0 = phi i64 [ 0, %1 ], [ %16, %15 ], [ 0, %17 ]
@@ -280,38 +280,38 @@ define void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN3zmq7clock_tC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 0, ptr %4, align 8, !tbaa !34
+  store i32 0, ptr %4, align 8, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %4, ptr %6, align 8, !tbaa !22
+  store ptr %4, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %4, ptr %7, align 8, !tbaa !35
+  store ptr %4, ptr %7, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 0, ptr %8, align 8, !tbaa !21
+  store i64 0, ptr %8, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 0, ptr %9, align 8, !tbaa !36
+  store i32 0, ptr %9, align 8, !tbaa !37
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 16), ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %10, align 8, !tbaa !38
+  store ptr %1, ptr %10, align 8, !tbaa !39
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i8 0, ptr %12, align 8, !tbaa !40
+  store i8 0, ptr %12, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %11, i8 0, i64 16, i1 false)
-  store i32 -1, ptr %13, align 8, !tbaa !48
+  store i32 -1, ptr %13, align 8, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  store i32 -1, ptr %14, align 4, !tbaa !49
+  store i32 -1, ptr %14, align 4, !tbaa !50
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %15, align 8, !tbaa !34
+  store i32 0, ptr %15, align 8, !tbaa !35
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr null, ptr %16, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store ptr %15, ptr %17, align 8, !tbaa !22
+  store ptr %15, ptr %17, align 8, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %15, ptr %18, align 8, !tbaa !35
+  store ptr %15, ptr %18, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 0, ptr %19, align 8, !tbaa !21
+  store i64 0, ptr %19, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   ret void
@@ -331,7 +331,7 @@ define void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load atomic i32, ptr %3 seq_cst, align 8
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %6, label %11, !prof !50
+  br i1 %5, label %6, label %11, !prof !51
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr @stderr, align 8, !tbaa !7
@@ -343,7 +343,7 @@ define void @_ZN3zmq20worker_poller_base_t5startEPKc(ptr noundef nonnull align 8
 
 11:                                               ; preds = %2, %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %13 = load ptr, ptr %12, align 8, !tbaa !51
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNK3zmq12thread_ctx_t12start_threadERNS_8thread_tEPFvPvES3_PKc(ptr noundef nonnull align 8 dereferenceable(136) %13, ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull @_ZN3zmq20worker_poller_base_t14worker_routineEPv, ptr noundef nonnull %0, ptr noundef %1)
   ret void
@@ -437,13 +437,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   tail call void @_ZNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -474,13 +474,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -532,50 +532,51 @@ attributes #20 = { nounwind willreturn memory(read) }
 !16 = !{!"long", !10, i64 0}
 !17 = !{!15, !15, i64 0}
 !18 = !{!16, !16, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!12, !16, i64 32}
-!22 = !{!12, !15, i64 16}
-!23 = !{!24, !26, i64 8}
-!24 = !{!"_ZTSSt4pairIKmN3zmq13poller_base_t12timer_info_tEE", !16, i64 0, !25, i64 8}
-!25 = !{!"_ZTSN3zmq13poller_base_t12timer_info_tE", !26, i64 0, !27, i64 8}
-!26 = !{!"p1 _ZTSN3zmq13i_poll_eventsE", !9, i64 0}
-!27 = !{!"int", !10, i64 0}
-!28 = !{!24, !27, i64 16}
-!29 = distinct !{!29, !20}
-!30 = !{!24, !16, i64 0}
-!31 = !{!26, !26, i64 0}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!12, !16, i64 32}
+!23 = !{!12, !15, i64 16}
+!24 = !{!25, !27, i64 8}
+!25 = !{!"_ZTSSt4pairIKmN3zmq13poller_base_t12timer_info_tEE", !16, i64 0, !26, i64 8}
+!26 = !{!"_ZTSN3zmq13poller_base_t12timer_info_tE", !27, i64 0, !28, i64 8}
+!27 = !{!"p1 _ZTSN3zmq13i_poll_eventsE", !9, i64 0}
+!28 = !{!"int", !10, i64 0}
+!29 = !{!25, !28, i64 16}
+!30 = distinct !{!30, !20, !21}
+!31 = !{!25, !16, i64 0}
 !32 = !{!27, !27, i64 0}
-!33 = distinct !{!33, !20}
-!34 = !{!12, !14, i64 0}
-!35 = !{!12, !15, i64 24}
-!36 = !{!37, !27, i64 0}
-!37 = !{!"_ZTSSt13__atomic_baseIjE", !27, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTSN3zmq12thread_ctx_tE", !9, i64 0}
-!40 = !{!41, !42, i64 32}
-!41 = !{!"_ZTSN3zmq8thread_tE", !9, i64 0, !9, i64 8, !10, i64 16, !42, i64 32, !16, i64 40, !27, i64 48, !27, i64 52, !43, i64 56}
-!42 = !{!"bool", !10, i64 0}
-!43 = !{!"_ZTSSt3setIiSt4lessIiESaIiEE", !44, i64 0}
-!44 = !{!"_ZTSSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE", !45, i64 0}
-!45 = !{!"_ZTSNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEE", !46, i64 0, !12, i64 8}
-!46 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIiEE", !47, i64 0}
-!47 = !{!"_ZTSSt4lessIiE"}
-!48 = !{!41, !27, i64 48}
-!49 = !{!41, !27, i64 52}
-!50 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!51 = !{!52, !39, i64 80}
-!52 = !{!"_ZTSN3zmq20worker_poller_base_tE", !53, i64 0, !39, i64 80, !41, i64 88}
-!53 = !{!"_ZTSN3zmq13poller_base_tE", !54, i64 8, !55, i64 24, !60, i64 72}
-!54 = !{!"_ZTSN3zmq7clock_tE", !16, i64 0, !16, i64 8}
-!55 = !{!"_ZTSSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEE", !56, i64 0}
-!56 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE", !57, i64 0}
-!57 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE13_Rb_tree_implIS9_Lb1EEE", !58, i64 0, !12, i64 8}
-!58 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !59, i64 0}
-!59 = !{!"_ZTSSt4lessImE"}
-!60 = !{!"_ZTSN3zmq16atomic_counter_tE", !61, i64 0}
-!61 = !{!"_ZTSSt6atomicIjE", !37, i64 0}
-!62 = !{!13, !15, i64 24}
-!63 = !{!13, !15, i64 16}
-!64 = distinct !{!64, !20}
-!65 = distinct !{!65, !20}
+!33 = !{!28, !28, i64 0}
+!34 = distinct !{!34, !20, !21}
+!35 = !{!12, !14, i64 0}
+!36 = !{!12, !15, i64 24}
+!37 = !{!38, !28, i64 0}
+!38 = !{!"_ZTSSt13__atomic_baseIjE", !28, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTSN3zmq12thread_ctx_tE", !9, i64 0}
+!41 = !{!42, !43, i64 32}
+!42 = !{!"_ZTSN3zmq8thread_tE", !9, i64 0, !9, i64 8, !10, i64 16, !43, i64 32, !16, i64 40, !28, i64 48, !28, i64 52, !44, i64 56}
+!43 = !{!"bool", !10, i64 0}
+!44 = !{!"_ZTSSt3setIiSt4lessIiESaIiEE", !45, i64 0}
+!45 = !{!"_ZTSSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE", !46, i64 0}
+!46 = !{!"_ZTSNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE13_Rb_tree_implIS3_Lb1EEE", !47, i64 0, !12, i64 8}
+!47 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIiEE", !48, i64 0}
+!48 = !{!"_ZTSSt4lessIiE"}
+!49 = !{!42, !28, i64 48}
+!50 = !{!42, !28, i64 52}
+!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!52 = !{!53, !40, i64 80}
+!53 = !{!"_ZTSN3zmq20worker_poller_base_tE", !54, i64 0, !40, i64 80, !42, i64 88}
+!54 = !{!"_ZTSN3zmq13poller_base_tE", !55, i64 8, !56, i64 24, !61, i64 72}
+!55 = !{!"_ZTSN3zmq7clock_tE", !16, i64 0, !16, i64 8}
+!56 = !{!"_ZTSSt8multimapImN3zmq13poller_base_t12timer_info_tESt4lessImESaISt4pairIKmS2_EEE", !57, i64 0}
+!57 = !{!"_ZTSSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE", !58, i64 0}
+!58 = !{!"_ZTSNSt8_Rb_treeImSt4pairIKmN3zmq13poller_base_t12timer_info_tEESt10_Select1stIS5_ESt4lessImESaIS5_EE13_Rb_tree_implIS9_Lb1EEE", !59, i64 0, !12, i64 8}
+!59 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessImEE", !60, i64 0}
+!60 = !{!"_ZTSSt4lessImE"}
+!61 = !{!"_ZTSN3zmq16atomic_counter_tE", !62, i64 0}
+!62 = !{!"_ZTSSt6atomicIjE", !38, i64 0}
+!63 = !{!13, !15, i64 24}
+!64 = !{!13, !15, i64 16}
+!65 = distinct !{!65, !20, !21}
+!66 = distinct !{!66, !20, !21}

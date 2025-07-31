@@ -282,7 +282,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %151 = load i32, ptr %28, align 8
   %152 = sext i32 %151 to i64
   %153 = icmp slt i64 %indvars.iv.next157, %152
-  br i1 %153, label %100, label %._crit_edge, !llvm.loop !6
+  br i1 %153, label %100, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %150, %.preheader
   %.4.lcssa = phi i1 [ %.0.lcssa, %.preheader ], [ %.7, %150 ]
@@ -366,7 +366,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.9 = phi i1 [ %.8155.ph, %176 ], [ false, %183 ], [ false, %181 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next162, 8
-  br i1 %exitcond163.not, label %187, label %.outer, !llvm.loop !7
+  br i1 %exitcond163.not, label %187, label %.outer, !llvm.loop !8
 
 .outer:                                           ; preds = %186, %.critedge
   %indvars.iv161.ph = phi i64 [ %indvars.iv.next162, %186 ], [ 1, %.critedge ]
@@ -376,7 +376,7 @@ define dso_local zeroext i1 @ginvalidate(i32 noundef %0) local_unnamed_addr #0 {
 .thread:                                          ; preds = %172
   %indvars.iv.next162165 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond163.not166 = icmp eq i64 %indvars.iv.next162165, 8
-  br i1 %exitcond163.not166, label %.thread168, label %171, !llvm.loop !7
+  br i1 %exitcond163.not166, label %.thread168, label %171, !llvm.loop !8
 
 187:                                              ; preds = %186
   br i1 %.not123, label %190, label %.thread168
@@ -549,7 +549,8 @@ attributes #5 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

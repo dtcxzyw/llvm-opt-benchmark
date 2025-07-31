@@ -98,7 +98,7 @@ define void @DES_cfb64_encrypt(ptr noundef readonly captures(none) %0, ptr nound
   %48 = add nsw i32 %.2100118, 1
   %49 = and i32 %48, 7
   %.not107 = icmp eq i64 %33, 0
-  br i1 %.not107, label %.loopexit, label %32, !llvm.loop !10
+  br i1 %.not107, label %.loopexit, label %32, !llvm.loop !11
 
 .loopexit:                                        ; preds = %22, %40, %.preheader109, %.preheader
   %.199 = phi i32 [ %9, %.preheader ], [ %9, %.preheader109 ], [ %49, %40 ], [ %31, %22 ]
@@ -130,6 +130,7 @@ attributes #3 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

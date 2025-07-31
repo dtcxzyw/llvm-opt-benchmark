@@ -254,14 +254,14 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   %127 = sub i64 %61, %126
   %128 = trunc i64 %127 to i32
   %129 = icmp sgt i32 %128, 4094
-  br i1 %129, label %.thread.i, label %.lr.ph, !llvm.loop !6
+  br i1 %129, label %.thread.i, label %.lr.ph, !llvm.loop !7
 
 130:                                              ; preds = %.lr.ph16.us.i
   %131 = add nuw nsw i32 %.06315.us.i, 1
   %132 = getelementptr inbounds nuw i8, ptr %.06713.us.i, i64 1
   %133 = getelementptr inbounds nuw i8, ptr %.06514.us.i, i64 1
   %134 = icmp ult ptr %132, %7
-  br i1 %134, label %.lr.ph16.us.i, label %.critedge.us.i, !llvm.loop !8
+  br i1 %134, label %.lr.ph16.us.i, label %.critedge.us.i, !llvm.loop !9
 
 .thread.i:                                        ; preds = %.lr.ph26.split.us.i, %.critedge.us.i
   %135 = icmp sgt i32 %spec.select.us.i, 2
@@ -407,7 +407,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %spec.select193 = select i1 %217, i32 1, i32 %216
   %218 = getelementptr inbounds nuw i8, ptr %.1152238, i64 1
   %.not191 = icmp eq i32 %158, 0
-  br i1 %.not191, label %.loopexit, label %157, !llvm.loop !9
+  br i1 %.not191, label %.loopexit, label %157, !llvm.loop !10
 
 .thread.i.thread:                                 ; preds = %.lr.ph26.split.us.preheader.i, %.thread.i, %82
   %219 = icmp eq i8 %.0169241, 0
@@ -523,7 +523,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %.3 = phi ptr [ %224, %269 ], [ %.2, %207 ]
   %.2171 = shl i8 %.2171.in, 1
   %281 = icmp ult ptr %.2153, %7
-  br i1 %281, label %53, label %._crit_edge.loopexit, !llvm.loop !10
+  br i1 %281, label %53, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre256 = ptrtoint ptr %.3 to i64
@@ -579,7 +579,7 @@ define dso_local i32 @pglz_decompress(ptr noundef readonly captures(address) %0,
   %15 = icmp ult ptr %.183.lcssa, %7
   %16 = icmp ult ptr %.177.lcssa, %9
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %18, label %.critedge._crit_edge, !llvm.loop !11
+  br i1 %17, label %18, label %.critedge._crit_edge, !llvm.loop !12
 
 18:                                               ; preds = %.lr.ph120, %.critedge.loopexit
   %.076118 = phi ptr [ %2, %.lr.ph120 ], [ %.177.lcssa, %.critedge.loopexit ]
@@ -636,7 +636,7 @@ define dso_local i32 @pglz_decompress(ptr noundef readonly captures(address) %0,
   %46 = ptrtoint ptr %.177110 to i64
   %47 = sub i64 %46, %13
   %48 = icmp slt i64 %47, %45
-  br i1 %48, label %.critedge96, label %49, !prof !12
+  br i1 %48, label %.critedge96, label %49, !prof !13
 
 49:                                               ; preds = %44
   %50 = zext nneg i32 %.070 to i64
@@ -658,7 +658,7 @@ define dso_local i32 @pglz_decompress(ptr noundef readonly captures(address) %0,
   %59 = getelementptr inbounds i8, ptr %.379104, i64 %55
   %60 = shl i32 %.069106, 1
   %61 = icmp slt i32 %60, %58
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   %.379.lcssa = phi ptr [ %.177110, %49 ], [ %59, %.lr.ph ]
@@ -689,7 +689,7 @@ define dso_local i32 @pglz_decompress(ptr noundef readonly captures(address) %0,
   %or.cond94 = select i1 %74, i1 %75, i1 false
   %76 = icmp ult ptr %.581, %9
   %or.cond95 = select i1 %or.cond94, i1 %76, i1 false
-  br i1 %or.cond95, label %.lr.ph114, label %.critedge.loopexit, !llvm.loop !14
+  br i1 %or.cond95, label %.lr.ph114, label %.critedge.loopexit, !llvm.loop !15
 
 .critedge._crit_edge:                             ; preds = %.critedge.loopexit, %5
   %.082.lcssa = phi ptr [ %0, %5 ], [ %.183.lcssa, %.critedge.loopexit ]
@@ -763,14 +763,15 @@ attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}

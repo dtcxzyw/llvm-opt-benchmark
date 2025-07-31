@@ -1372,7 +1372,7 @@ define internal range(i32 0, 2) i32 @test_param_construct(i32 noundef %0) #0 {
 120:                                              ; preds = %115
   %121 = add nuw nsw i64 %.1147, 1
   %exitcond153.not = icmp eq i64 %121, 5
-  br i1 %exitcond153.not, label %122, label %.preheader, !llvm.loop !30
+  br i1 %exitcond153.not, label %122, label %.preheader, !llvm.loop !31
 
 122:                                              ; preds = %120
   %123 = call ptr @OSSL_PARAM_locate(ptr noundef %.088, ptr noundef nonnull @.str.75) #5
@@ -2014,7 +2014,7 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_null(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !31
+  %6 = load i32, ptr %5, align 8, !tbaa !32
   switch i32 %6, label %25 [
     i32 1, label %7
     i32 2, label %14
@@ -2102,7 +2102,7 @@ define internal fastcc range(i32 0, 2) i32 @test_param_type_extra(ptr noundef no
   %10 = icmp ult i64 %9, 5
   %11 = icmp ugt i64 %9, 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !31
+  %13 = load i32, ptr %12, align 8, !tbaa !32
   %14 = icmp eq i32 %13, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -1, ptr %15, align 8, !tbaa !19
@@ -2441,7 +2441,8 @@ attributes #5 = { nounwind }
 !25 = !{!12, !12, i64 0}
 !26 = !{i64 0, i64 8, !27, i64 8, i64 4, !14, i64 16, i64 8, !25, i64 24, i64 8, !15, i64 32, i64 8, !15}
 !27 = !{!11, !11, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = !{!10, !13, i64 8}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = !{!10, !13, i64 8}

@@ -666,7 +666,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h6ad6783d6ece380fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.540f8167415b1c9cb810750ae3b0071b.0.llvm.6289462341108754122)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !86
   %10 = icmp eq ptr %8, %6
-  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h5b731b7a17da0b73E.exit, label %.lr.ph.i
+  br i1 %10, label %_ZN4core3fmt8builders9DebugList7entries17h5b731b7a17da0b73E.exit, label %.lr.ph.i, !llvm.loop !89
 
 _ZN4core3fmt8builders9DebugList7entries17h5b731b7a17da0b73E.exit: ; preds = %.lr.ph.i, %3
   %11 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h0eca50d3e55a937aE(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
@@ -699,7 +699,7 @@ define hidden void @"_ZN5serde2de5impls74_$LT$impl$u20$serde..de..Deserialize$u2
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h26f3756067877ee7E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = load i8, ptr %0, align 8, !range !89, !noundef !3
+  %4 = load i8, ptr %0, align 8, !range !91, !noundef !3
   %5 = icmp eq i8 %4, 3
   br i1 %5, label %6, label %8
 
@@ -773,21 +773,21 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$owo_colors..styles..BoldDisplay$LT$
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fbea9781fc0d9c37dd8394348361eaa4.0, i64 noundef 5), !noalias !90
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fbea9781fc0d9c37dd8394348361eaa4.0, i64 noundef 5), !noalias !92
   br i1 %6, label %"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E.exit.thread", label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %5, align 8, !alias.scope !90, !noalias !93, !nonnull !3, !align !4, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
-  %9 = load ptr, ptr %8, align 8, !alias.scope !95, !noalias !98, !nonnull !3, !align !80, !noundef !3
+  %8 = load ptr, ptr %5, align 8, !alias.scope !92, !noalias !95, !nonnull !3, !align !4, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  %9 = load ptr, ptr %8, align 8, !alias.scope !97, !noalias !100, !nonnull !3, !align !80, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i64, ptr %10, align 8, !alias.scope !95, !noalias !98, !noundef !3
-  %12 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hb62cc6ef72f6aff0E"(ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !100
+  %11 = load i64, ptr %10, align 8, !alias.scope !97, !noalias !100, !noundef !3
+  %12 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hb62cc6ef72f6aff0E"(ptr noalias noundef nonnull readonly align 1 %9, i64 noundef %11, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !102
   br i1 %12, label %"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E.exit.thread", label %"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E.exit"
 
 "_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E.exit": ; preds = %7
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fbea9781fc0d9c37dd8394348361eaa4.1, i64 noundef 5), !noalias !90
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.fbea9781fc0d9c37dd8394348361eaa4.1, i64 noundef 5), !noalias !92
   br i1 %13, label %"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E.exit.thread", label %14
 
 14:                                               ; preds = %"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E.exit"
@@ -806,11 +806,11 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$owo_colors..styles..BoldDisplay$LT$
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !101, !noalias !104, !nonnull !3, !align !80, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  %6 = load ptr, ptr %5, align 8, !alias.scope !103, !noalias !106, !nonnull !3, !align !80, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load i64, ptr %7, align 8, !alias.scope !101, !noalias !104, !noundef !3
-  %9 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hb62cc6ef72f6aff0E"(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !101
+  %8 = load i64, ptr %7, align 8, !alias.scope !103, !noalias !106, !noundef !3
+  %9 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17hb62cc6ef72f6aff0E"(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !103
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %4
@@ -1078,20 +1078,22 @@ attributes #7 = { noreturn }
 !86 = !{!87}
 !87 = distinct !{!87, !88, !"_ZN4core3fmt8builders9DebugList7entries17h5b731b7a17da0b73E: argument 0"}
 !88 = distinct !{!88, !"_ZN4core3fmt8builders9DebugList7entries17h5b731b7a17da0b73E"}
-!89 = !{i8 0, i8 4}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E: argument 0"}
-!92 = distinct !{!92, !"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E"}
-!93 = !{!94}
-!94 = distinct !{!94, !92, !"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E: argument 1"}
+!89 = distinct !{!89, !90}
+!90 = !{!"llvm.loop.estimated_trip_count"}
+!91 = !{i8 0, i8 4}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E: argument 0"}
+!94 = distinct !{!94, !"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E"}
 !95 = !{!96}
-!96 = distinct !{!96, !97, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 0"}
-!97 = distinct !{!97, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE"}
-!98 = !{!99, !91}
-!99 = distinct !{!99, !97, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 1"}
-!100 = !{!96, !91}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 0"}
-!103 = distinct !{!103, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE"}
-!104 = !{!105}
-!105 = distinct !{!105, !103, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 1"}
+!96 = distinct !{!96, !94, !"_ZN10owo_colors6colors92_$LT$impl$u20$core..fmt..Display$u20$for$u20$owo_colors..FgColorDisplay$LT$Color$C$T$GT$$GT$3fmt17hf14abe91eb2b02b9E: argument 1"}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 0"}
+!99 = distinct !{!99, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE"}
+!100 = !{!101, !93}
+!101 = distinct !{!101, !99, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 1"}
+!102 = !{!98, !93}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 0"}
+!105 = distinct !{!105, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE"}
+!106 = !{!107}
+!107 = distinct !{!107, !105, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf43b7aaf490a3c4eE: argument 1"}

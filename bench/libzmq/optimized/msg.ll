@@ -1860,5 +1860,6 @@ attributes #26 = { nounwind willreturn memory(read) }
 !34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !35, i64 0}
 !35 = !{!"p1 omnipotent char", !9, i64 0}
 !36 = !{!33, !12, i64 8}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!"llvm.loop.estimated_trip_count"}

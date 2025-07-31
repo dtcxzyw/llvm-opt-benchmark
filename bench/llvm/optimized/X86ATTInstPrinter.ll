@@ -2484,7 +2484,7 @@ _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %69, %67, %56
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !20
   %.not57 = icmp eq i8 %73, 0
-  br i1 %.not57, label %.loopexit, label %52, !llvm.loop !104
+  br i1 %.not57, label %.loopexit, label %52, !llvm.loop !105
 
 .loopexit:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit65, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %4
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #14
@@ -2579,11 +2579,11 @@ define dso_local void @_ZN4llvm17X86ATTInstPrinter9printInstEPKNS_6MCInstEmNS_9S
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !105
+  %12 = load ptr, ptr %11, align 8, !tbaa !106
   %13 = tail call noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(44) %12) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = zext i1 %13 to i8
-  store i8 %15, ptr %14, align 8, !tbaa !106
+  store i8 %15, ptr %14, align 8, !tbaa !107
   br label %16
 
 16:                                               ; preds = %10, %7
@@ -2596,7 +2596,7 @@ define dso_local void @_ZN4llvm17X86ATTInstPrinter9printInstEPKNS_6MCInstEmNS_9S
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %20 = load i64, ptr %19, align 8, !tbaa !109
+  %20 = load i64, ptr %19, align 8, !tbaa !110
   %21 = and i64 %20, 512
   %.not28 = icmp eq i64 %21, 0
   br i1 %.not28, label %.thread, label %22
@@ -2629,7 +2629,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %31, %33
 
 36:                                               ; preds = %16
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %38 = load i64, ptr %37, align 8, !tbaa !109
+  %38 = load i64, ptr %37, align 8, !tbaa !110
   %39 = and i64 %38, 128
   %.not27 = icmp eq i64 %39, 0
   br i1 %.not27, label %.thread, label %40
@@ -2680,7 +2680,7 @@ declare void @_ZN4llvm20X86InstPrinterCommon14printInstFlagsEPKNS_6MCInstERNS_11
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm17X86ATTInstPrinter20printVecCompareInstrEPKNS_6MCInstERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !110
+  %5 = load i32, ptr %4, align 8, !tbaa !111
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZN4llvm11raw_ostreamlsEPKc.exit219, label %7
 
@@ -2698,9 +2698,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm17X86ATTInstPrinter20printVecCompar
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !105
+  %19 = load ptr, ptr %18, align 8, !tbaa !106
   %20 = load i32, ptr %1, align 8, !tbaa !3
-  %21 = load ptr, ptr %19, align 8, !tbaa !111
+  %21 = load ptr, ptr %19, align 8, !tbaa !112
   %22 = zext i32 %20 to i64
   %23 = sub nsw i64 0, %22
   %24 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %21, i64 %23
@@ -2998,7 +2998,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17X86ATTInstPrinter20printVecCompar
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %31, %33
   tail call void @_ZN4llvm20X86InstPrinterCommon16printCMPMnemonicEPKNS_6MCInstEbRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %36 = load i64, ptr %35, align 8, !tbaa !115
+  %36 = load i64, ptr %35, align 8, !tbaa !116
   %37 = and i64 %36, 127
   %38 = icmp eq i64 %37, 25
   br i1 %38, label %39, label %40
@@ -3041,7 +3041,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %31, %33
 _ZN4llvm11raw_ostreamlsEc.exit210:                ; preds = %49, %51
   tail call void @_ZN4llvm20X86InstPrinterCommon16printCMPMnemonicEPKNS_6MCInstEbRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %54 = load i64, ptr %53, align 8, !tbaa !115
+  %54 = load i64, ptr %53, align 8, !tbaa !116
   %55 = and i64 %54, 2199023255552
   %.not194 = icmp eq i64 %55, 0
   %56 = select i1 %.not194, i32 2, i32 3
@@ -3056,7 +3056,7 @@ _ZN4llvm11raw_ostreamlsEc.exit210:                ; preds = %49, %51
 
 61:                                               ; preds = %60
   tail call void @_ZN4llvm17X86ATTInstPrinter17printMemReferenceEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %1, i32 noundef %56, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  %62 = load i64, ptr %53, align 8, !tbaa !115
+  %62 = load i64, ptr %53, align 8, !tbaa !116
   %63 = and i64 %62, 8796093022208
   %.not201 = icmp eq i64 %63, 0
   br i1 %.not201, label %67, label %64
@@ -3238,7 +3238,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit216:              ; preds = %123, %125
 _ZN4llvm11raw_ostreamlsEc.exit222:                ; preds = %142, %144
   tail call void @_ZN4llvm20X86InstPrinterCommon18printVPCOMMnemonicEPKNS_6MCInstERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   %146 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %147 = load i64, ptr %146, align 8, !tbaa !115
+  %147 = load i64, ptr %146, align 8, !tbaa !116
   %148 = and i64 %147, 127
   %149 = icmp eq i64 %148, 25
   br i1 %149, label %150, label %151
@@ -3289,7 +3289,7 @@ _ZN4llvm11raw_ostreamlsEc.exit222:                ; preds = %142, %144
 _ZN4llvm11raw_ostreamlsEc.exit225:                ; preds = %161, %163
   tail call void @_ZN4llvm20X86InstPrinterCommon18printVPCMPMnemonicEPKNS_6MCInstERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2) #14
   %165 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %166 = load i64, ptr %165, align 8, !tbaa !115
+  %166 = load i64, ptr %165, align 8, !tbaa !116
   %167 = and i64 %166, 2199023255552
   %.not = icmp eq i64 %167, 0
   %168 = select i1 %.not, i32 2, i32 3
@@ -3304,7 +3304,7 @@ _ZN4llvm11raw_ostreamlsEc.exit225:                ; preds = %161, %163
   br i1 %.not184, label %_ZN4llvm11raw_ostreamlsEPKc.exit231, label %173
 
 173:                                              ; preds = %171
-  %174 = load i64, ptr %165, align 8, !tbaa !115
+  %174 = load i64, ptr %165, align 8, !tbaa !116
   %175 = and i64 %174, 8796093022208
   %.not188 = icmp eq i64 %175, 0
   br i1 %.not188, label %179, label %176
@@ -3599,7 +3599,7 @@ define dso_local void @_ZN4llvm17X86ATTInstPrinter14printMemOffsetEPKNS_6MCInstE
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !20
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %18 = load i8, ptr %17, align 1, !tbaa !35, !range !47, !noalias !117, !noundef !51
+  %18 = load i8, ptr %17, align 1, !tbaa !35, !range !47, !noalias !118, !noundef !51
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %21
 
@@ -3669,7 +3669,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJmEE7snprintEPc
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load i64, ptr %7, align 8, !tbaa !109
+  %8 = load i64, ptr %7, align 8, !tbaa !110
   %9 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i64 noundef %8) #14
   ret i32 %9
 }
@@ -3824,21 +3824,22 @@ attributes #15 = { builtin nounwind }
 !99 = !{!98, !72, i64 8}
 !100 = !{!101, !10, i64 64}
 !101 = !{!"_ZTSN4llvm17AliasMatchingDataE", !86, i64 0, !90, i64 16, !94, i64 32, !98, i64 48, !10, i64 64}
-!102 = distinct !{!102, !103}
+!102 = distinct !{!102, !103, !104}
 !103 = !{!"llvm.loop.mustprogress"}
-!104 = distinct !{!104, !103}
-!105 = !{!36, !38, i64 24}
-!106 = !{!107, !24, i64 96}
-!107 = !{!"_ZTSN4llvm17X86ATTInstPrinterE", !108, i64 0, !24, i64 96}
-!108 = !{!"_ZTSN4llvm20X86InstPrinterCommonE", !36, i64 0}
-!109 = !{!72, !72, i64 0}
-!110 = !{!15, !5, i64 8}
-!111 = !{!112, !113, i64 0}
-!112 = !{!"_ZTSN4llvm11MCInstrInfoE", !113, i64 0, !114, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !5, i64 40}
-!113 = !{!"p1 _ZTSN4llvm11MCInstrDescE", !10, i64 0}
-!114 = !{!"p1 int", !10, i64 0}
-!115 = !{!116, !72, i64 24}
-!116 = !{!"_ZTSN4llvm11MCInstrDescE", !19, i64 0, !19, i64 2, !6, i64 4, !6, i64 5, !19, i64 6, !6, i64 8, !6, i64 9, !19, i64 10, !19, i64 12, !72, i64 16, !72, i64 24}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZNK4llvm13MCInstPrinter9formatImmEl: argument 0"}
-!119 = distinct !{!119, !"_ZNK4llvm13MCInstPrinter9formatImmEl"}
+!104 = !{!"llvm.loop.estimated_trip_count"}
+!105 = distinct !{!105, !103, !104}
+!106 = !{!36, !38, i64 24}
+!107 = !{!108, !24, i64 96}
+!108 = !{!"_ZTSN4llvm17X86ATTInstPrinterE", !109, i64 0, !24, i64 96}
+!109 = !{!"_ZTSN4llvm20X86InstPrinterCommonE", !36, i64 0}
+!110 = !{!72, !72, i64 0}
+!111 = !{!15, !5, i64 8}
+!112 = !{!113, !114, i64 0}
+!113 = !{!"_ZTSN4llvm11MCInstrInfoE", !114, i64 0, !115, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !5, i64 40}
+!114 = !{!"p1 _ZTSN4llvm11MCInstrDescE", !10, i64 0}
+!115 = !{!"p1 int", !10, i64 0}
+!116 = !{!117, !72, i64 24}
+!117 = !{!"_ZTSN4llvm11MCInstrDescE", !19, i64 0, !19, i64 2, !6, i64 4, !6, i64 5, !19, i64 6, !6, i64 8, !6, i64 9, !19, i64 10, !19, i64 12, !72, i64 16, !72, i64 24}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZNK4llvm13MCInstPrinter9formatImmEl: argument 0"}
+!120 = distinct !{!120, !"_ZNK4llvm13MCInstPrinter9formatImmEl"}

@@ -177,7 +177,7 @@ primariesMatch.exit:                              ; preds = %55
 primariesMatch.exit.thread:                       ; preds = %13, %20, %27, %34, %41, %48, %55, %primariesMatch.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !7
 
 .loopexit:                                        ; preds = %primariesMatch.exit.thread, %72
   %.010 = phi i16 [ %73, %72 ], [ 0, %primariesMatch.exit.thread ]
@@ -255,7 +255,7 @@ define hidden void @avifCalcYUVCoefficients(ptr noundef readonly captures(none) 
 12:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %calcYUVInfoFromCICP.exit, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %calcYUVInfoFromCICP.exit, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %4, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %4 ]
@@ -290,7 +290,7 @@ define hidden ptr @avifTransferCharacteristicsGetGammaToLinearFunction(i16 nound
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !9
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -344,7 +344,7 @@ define hidden ptr @avifTransferCharacteristicsGetLinearToGammaFunction(i16 nound
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !10
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -1021,9 +1021,10 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

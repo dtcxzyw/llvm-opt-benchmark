@@ -165,7 +165,7 @@ parse_pk12.exit:                                  ; preds = %56, %.preheader.i
 .backedge.us:                                     ; preds = %63, %62
   %65 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73.us = icmp eq ptr %65, null
-  br i1 %.not73.us, label %._crit_edge, label %.thread.us, !llvm.loop !23
+  br i1 %.not73.us, label %._crit_edge, label %.thread.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %8, label %.lr.ph.split.split, label %.thread.us91
@@ -186,7 +186,7 @@ parse_pk12.exit:                                  ; preds = %56, %.preheader.i
 .backedge.us93:                                   ; preds = %68, %67
   %70 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73.us94 = icmp eq ptr %70, null
-  br i1 %.not73.us94, label %._crit_edge, label %.thread.us91, !llvm.loop !25
+  br i1 %.not73.us94, label %._crit_edge, label %.thread.us91, !llvm.loop !26
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %32, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -222,7 +222,7 @@ parse_pk12.exit:                                  ; preds = %56, %.preheader.i
 .backedge.us99:                                   ; preds = %.thread.us97, %81
   %83 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73.us100 = icmp eq ptr %83, null
-  br i1 %.not73.us100, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !26
+  br i1 %.not73.us100, label %._crit_edge, label %.lr.ph.split.split.split.us, !llvm.loop !27
 
 parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exit.thread82
   %84 = tail call i64 @ERR_peek_last_error() #3
@@ -270,7 +270,7 @@ parse_pk12.exit.thread:                           ; preds = %36, %parse_pk12.exi
 .backedge:                                        ; preds = %.thread, %98
   %99 = tail call ptr @OPENSSL_sk_shift(ptr noundef %.1) #3
   %.not73 = icmp eq ptr %99, null
-  br i1 %.not73, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !27
+  br i1 %.not73, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.backedge.us93, %.backedge, %.backedge.us99, %.backedge.us, %parse_pk12.exit
   tail call void @OPENSSL_sk_free(ptr noundef %.1) #3
@@ -473,8 +473,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_bags(ptr noundef %0, ptr nound
 
 48:                                               ; preds = %47
   %49 = getelementptr inbounds nuw i8, ptr %.054.i, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !28
-  %51 = load i32, ptr %.054.i, align 8, !tbaa !30
+  %50 = load ptr, ptr %49, align 8, !tbaa !29
+  %51 = load i32, ptr %.054.i, align 8, !tbaa !31
   %52 = call i32 @X509_keyid_set1(ptr noundef nonnull %45, ptr noundef %50, i32 noundef %51) #3
   %.not66.i = icmp eq i32 %52, 0
   br i1 %.not66.i, label %53, label %54
@@ -494,9 +494,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_bags(ptr noundef %0, ptr nound
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %7, align 8, !tbaa !31
+  %59 = load ptr, ptr %7, align 8, !tbaa !32
   %60 = call i32 @X509_alias_set1(ptr noundef nonnull %45, ptr noundef %59, i32 noundef %56) #3
-  %61 = load ptr, ptr %7, align 8, !tbaa !31
+  %61 = load ptr, ptr %7, align 8, !tbaa !32
   call void @CRYPTO_free(ptr noundef %61, ptr noundef nonnull @.str, i32 noundef 245) #3
   %.not68.i = icmp eq i32 %60, 0
   br i1 %.not68.i, label %.critedge.i, label %62
@@ -529,7 +529,7 @@ parse_bag.exit.thread:                            ; preds = %28, %38, %63, %23, 
   %68 = add nuw nsw i32 %.020, 1
   %69 = call i32 @OPENSSL_sk_num(ptr noundef %0) #3
   %70 = icmp slt i32 %68, %69
-  br i1 %70, label %12, label %parse_bag.exit.thread15, !llvm.loop !32
+  br i1 %70, label %12, label %parse_bag.exit.thread15, !llvm.loop !33
 
 parse_bag.exit.thread15:                          ; preds = %parse_bag.exit, %parse_bag.exit.thread, %28, %35, %38, %44, %6, %.critedge.i, %53, %65
   %.011 = phi i32 [ 0, %65 ], [ 0, %53 ], [ 0, %.critedge.i ], [ 1, %6 ], [ 0, %parse_bag.exit ], [ 1, %parse_bag.exit.thread ], [ 0, %28 ], [ 0, %35 ], [ 0, %38 ], [ 0, %44 ]
@@ -594,15 +594,16 @@ attributes #3 = { nounwind }
 !18 = !{!"p1 _ZTS15ossl_lib_ctx_st", !5, i64 0}
 !19 = !{!12, !18, i64 40}
 !20 = !{!12, !13, i64 48}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = distinct !{!23, !22, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !22, !24}
-!26 = distinct !{!26, !22, !24}
-!27 = distinct !{!27, !22}
-!28 = !{!29, !13, i64 8}
-!29 = !{!"asn1_string_st", !15, i64 0, !15, i64 4, !13, i64 8, !14, i64 16}
-!30 = !{!29, !15, i64 0}
-!31 = !{!13, !13, i64 0}
-!32 = distinct !{!32, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !23, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !23, !25}
+!27 = distinct !{!27, !23, !25}
+!28 = distinct !{!28, !23}
+!29 = !{!30, !13, i64 8}
+!30 = !{!"asn1_string_st", !15, i64 0, !15, i64 4, !13, i64 8, !14, i64 16}
+!31 = !{!30, !15, i64 0}
+!32 = !{!13, !13, i64 0}
+!33 = distinct !{!33, !22, !23}

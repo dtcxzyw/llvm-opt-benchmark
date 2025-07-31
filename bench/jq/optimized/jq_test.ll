@@ -214,9 +214,9 @@ jv_test.exit:                                     ; preds = %57
   call void @jv_free(i64 %138, ptr %139) #13
   call void @jv_free(i64 %141, ptr %142) #13
   call void @llvm.lifetime.start.p0(i64 20000, ptr nonnull %16) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20000) %16, i8 97, i64 20000, i1 false), !tbaa !11
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20000) %16, i8 97, i64 20000, i1 false), !tbaa !12
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 19999
-  store i8 0, ptr %143, align 1, !tbaa !11
+  store i8 0, ptr %143, align 1, !tbaa !12
   %144 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.26, ptr noundef nonnull %16) #13
   %145 = extractvalue { i64, ptr } %144, 0
   %146 = extractvalue { i64, ptr } %144, 1
@@ -280,7 +280,7 @@ jv_test.exit:                                     ; preds = %57
   %.12694 = phi ptr [ %.227, %213 ], [ %17, %jv_test.exit ]
   %190 = sext i32 %.097 to i64
   %191 = getelementptr inbounds ptr, ptr %4, i64 %190
-  %192 = load ptr, ptr %191, align 8, !tbaa !12
+  %192 = load ptr, ptr %191, align 8, !tbaa !13
   %193 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %192, ptr noundef nonnull dereferenceable(7) @.str) #14
   %.not = icmp eq i32 %193, 0
   br i1 %.not, label %194, label %201
@@ -289,7 +289,7 @@ jv_test.exit:                                     ; preds = %57
   %195 = add nsw i32 %.097, 1
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds ptr, ptr %4, i64 %196
-  %198 = load ptr, ptr %197, align 8, !tbaa !12
+  %198 = load ptr, ptr %197, align 8, !tbaa !13
   %199 = call i64 @strtol(ptr noundef nonnull captures(none) %198, ptr noundef null, i32 noundef 10) #13
   %200 = trunc i64 %199 to i32
   br label %213
@@ -303,7 +303,7 @@ jv_test.exit:                                     ; preds = %57
   %204 = add nsw i32 %.097, 1
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds ptr, ptr %4, i64 %205
-  %207 = load ptr, ptr %206, align 8, !tbaa !12
+  %207 = load ptr, ptr %206, align 8, !tbaa !13
   %208 = call i64 @strtol(ptr noundef nonnull captures(none) %207, ptr noundef null, i32 noundef 10) #13
   %209 = trunc i64 %208 to i32
   br label %213
@@ -325,7 +325,7 @@ jv_test.exit:                                     ; preds = %57
   %.1 = phi i32 [ %.097, %210 ], [ %204, %203 ], [ %195, %194 ]
   %214 = add nsw i32 %.1, 1
   %215 = icmp slt i32 %214, %3
-  br i1 %215, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %215, label %.preheader, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %213, %jv_test.exit
   %.025 = phi ptr [ %17, %jv_test.exit ], [ %.227, %213 ]
@@ -338,7 +338,7 @@ jv_test.exit:                                     ; preds = %57
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
   %216 = call i32 @llvm.smax.i32(i32 %.022, i32 0)
   %217 = call ptr @jq_init() #13
-  store ptr %217, ptr %11, align 8, !tbaa !15
+  store ptr %217, ptr %11, align 8, !tbaa !16
   %218 = call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %219 = icmp eq i32 %218, 1
   br i1 %219, label %220, label %224
@@ -396,7 +396,7 @@ jv_test.exit:                                     ; preds = %57
 233:                                              ; preds = %.critedge.i.i, %231
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ 0, %231 ]
   %234 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
-  %235 = load i8, ptr %234, align 1, !tbaa !11
+  %235 = load i8, ptr %234, align 1, !tbaa !12
   switch i8 %235, label %237 [
     i8 32, label %.critedge.i.i
     i8 9, label %.critedge.i.i
@@ -407,12 +407,12 @@ jv_test.exit:                                     ; preds = %57
 
 .critedge.i.i:                                    ; preds = %233, %233
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  br label %233, !llvm.loop !17
+  br label %233, !llvm.loop !18
 
 skipline.exit.i:                                  ; preds = %233, %233, %233
   %236 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
   %.not.i = icmp eq ptr %236, null
-  br i1 %.not.i, label %.thread209.i, label %231
+  br i1 %.not.i, label %.thread209.i, label %231, !llvm.loop !19
 
 237:                                              ; preds = %233
   %lhsv.i = load i64, ptr %8, align 16
@@ -429,18 +429,18 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
   call void @jq_set_error_cb(ptr noundef %217, ptr noundef nonnull @test_err_cb, ptr noundef nonnull %10) #13
   %239 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
   %.not263.i = icmp eq ptr %239, null
-  br i1 %.not263.i, label %.thread209.i, label %.lr.ph.i
+  br i1 %.not263.i, label %.thread209.i, label %.lr.ph.i, !llvm.loop !19
 
 240:                                              ; preds = %checkfail.exit.i
   %241 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #14
   %242 = add i64 %241, -1
   %243 = getelementptr inbounds nuw [4096 x i8], ptr %8, i64 0, i64 %242
-  %244 = load i8, ptr %243, align 1, !tbaa !11
+  %244 = load i8, ptr %243, align 1, !tbaa !12
   %245 = icmp eq i8 %244, 10
   br i1 %245, label %246, label %247
 
 246:                                              ; preds = %240
-  store i8 0, ptr %243, align 1, !tbaa !11
+  store i8 0, ptr %243, align 1, !tbaa !12
   br label %247
 
 247:                                              ; preds = %246, %240
@@ -459,7 +459,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 
 253:                                              ; preds = %251
   %254 = add i32 %.1138.i, 1
-  %255 = load i8, ptr %9, align 16, !tbaa !11
+  %255 = load i8, ptr %9, align 16, !tbaa !12
   %256 = icmp eq i8 %255, 10
   br i1 %256, label %.outer.outer226.i, label %257
 
@@ -468,13 +468,13 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
   %259 = load i8, ptr %229, align 1
   %260 = icmp eq i8 %259, 10
   %or.cond.i = select i1 %258, i1 %260, i1 false
-  br i1 %or.cond.i, label %.outer.outer226.i, label %251, !llvm.loop !18
+  br i1 %or.cond.i, label %.outer.outer226.i, label %251, !llvm.loop !20
 
 .outer.outer226.i:                                ; preds = %257, %253, %251
   %.2139.i = phi i32 [ %254, %253 ], [ %254, %257 ], [ %.1138.i, %251 ]
   %261 = call ptr @fgets(ptr noundef nonnull %8, i32 noundef 4096, ptr noundef %.025)
   %.not263272.i = icmp eq ptr %261, null
-  br i1 %.not263272.i, label %.thread209.i, label %.lr.ph.lr.ph.i
+  br i1 %.not263272.i, label %.thread209.i, label %.lr.ph.lr.ph.i, !llvm.loop !19
 
 262:                                              ; preds = %247
   %263 = icmp sgt i32 %.0124.ph.ph311.i, -1
@@ -524,12 +524,12 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
   %285 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #14
   %286 = add i64 %285, -1
   %287 = getelementptr inbounds nuw [4096 x i8], ptr %9, i64 0, i64 %286
-  %288 = load i8, ptr %287, align 1, !tbaa !11
+  %288 = load i8, ptr %287, align 1, !tbaa !12
   %289 = icmp eq i8 %288, 10
   br i1 %289, label %290, label %291
 
 290:                                              ; preds = %283
-  store i8 0, ptr %287, align 1, !tbaa !11
+  store i8 0, ptr %287, align 1, !tbaa !12
   br label %291
 
 291:                                              ; preds = %290, %283
@@ -576,7 +576,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 
 309:                                              ; preds = %307
   %310 = add i32 %.4141.i, 1
-  %311 = load i8, ptr %9, align 16, !tbaa !11
+  %311 = load i8, ptr %9, align 16, !tbaa !12
   %312 = icmp eq i8 %311, 10
   br i1 %312, label %.outer.outer.i, label %313
 
@@ -585,7 +585,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
   %315 = load i8, ptr %229, align 1
   %316 = icmp eq i8 %315, 10
   %or.cond7.i = select i1 %314, i1 %316, i1 false
-  br i1 %or.cond7.i, label %.outer.outer.i, label %307, !llvm.loop !19
+  br i1 %or.cond7.i, label %.outer.outer.i, label %307, !llvm.loop !21
 
 317:                                              ; preds = %303
   br i1 %.not167.i, label %318, label %319
@@ -635,7 +635,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 335:                                              ; preds = %.critedge.i189.i, %.lr.ph300.i
   %indvars.iv.i186.i = phi i64 [ %indvars.iv.next.i190.i, %.critedge.i189.i ], [ 0, %.lr.ph300.i ]
   %336 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i186.i
-  %337 = load i8, ptr %336, align 1, !tbaa !11
+  %337 = load i8, ptr %336, align 1, !tbaa !12
   switch i8 %337, label %338 [
     i8 32, label %.critedge.i189.i
     i8 9, label %.critedge.i189.i
@@ -646,7 +646,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 
 .critedge.i189.i:                                 ; preds = %335, %335
   %indvars.iv.next.i190.i = add nuw nsw i64 %indvars.iv.i186.i, 1
-  br label %335, !llvm.loop !17
+  br label %335, !llvm.loop !18
 
 338:                                              ; preds = %335
   %339 = call { i64, ptr } @jv_parse(ptr noundef nonnull %9) #13
@@ -659,7 +659,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 343:                                              ; preds = %338
   %344 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %334, ptr noundef nonnull %9)
   %345 = add nsw i32 %.5299.i, 1
-  br label %387, !llvm.loop !20
+  br label %387, !llvm.loop !22
 
 346:                                              ; preds = %338
   %347 = call { i64, ptr } @jq_next(ptr noundef %217) #13
@@ -818,12 +818,12 @@ run_jq_tests.exit:                                ; preds = %404
   %409 = call i32 @pthread_create(ptr noundef nonnull %407, ptr noundef null, ptr noundef nonnull @test_pthread_run, ptr noundef nonnull %408) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i32, label %.preheader11.i, label %406, !llvm.loop !21
+  br i1 %exitcond.not.i32, label %.preheader11.i, label %406, !llvm.loop !23
 
 .preheader11.i:                                   ; preds = %406, %414
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %414 ], [ 0, %406 ]
   %410 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv15.i
-  %411 = load i64, ptr %410, align 8, !tbaa !22
+  %411 = load i64, ptr %410, align 8, !tbaa !24
   %.not.i33 = icmp eq i64 %411, 0
   br i1 %.not.i33, label %414, label %412
 
@@ -834,7 +834,7 @@ run_jq_tests.exit:                                ; preds = %404
 414:                                              ; preds = %412, %.preheader11.i
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next16.i, 3
-  br i1 %exitcond18.not.i, label %run_jq_pthread_tests.exit, label %.preheader11.i, !llvm.loop !24
+  br i1 %exitcond18.not.i, label %run_jq_pthread_tests.exit, label %.preheader11.i, !llvm.loop !26
 
 run_jq_pthread_tests.exit:                        ; preds = %414
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7) #13
@@ -915,7 +915,7 @@ define internal void @test_err_cb(ptr noundef %0, i64 %1, ptr %2) #0 {
   br i1 %.not14, label %18, label %17
 
 17:                                               ; preds = %15
-  store i8 0, ptr %16, align 1, !tbaa !11
+  store i8 0, ptr %16, align 1, !tbaa !12
   br label %18
 
 18:                                               ; preds = %17, %15
@@ -975,7 +975,7 @@ define internal fastcc void @test_jq_start_resets_state(ptr noundef %0) unnamed_
   %3 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %4 = tail call ptr @jq_init() #13
-  store ptr %4, ptr %2, align 8, !tbaa !15
+  store ptr %4, ptr %2, align 8, !tbaa !16
   %5 = tail call i32 @jq_compile(ptr noundef %4, ptr noundef %0) #13
   %6 = tail call { i64, ptr } @jv_parse(ptr noundef nonnull @.str.28) #13
   %7 = extractvalue { i64, ptr } %6, 0
@@ -990,7 +990,7 @@ define internal fastcc void @test_jq_start_resets_state(ptr noundef %0) unnamed_
   %13 = tail call i32 @jv_get_kind(i64 %11, ptr %12) #13
   %.not1 = icmp eq i32 %13, 0
   tail call void @jv_free(i64 %11, ptr %12) #13
-  br i1 %.not1, label %14, label %9
+  br i1 %.not1, label %14, label %9, !llvm.loop !27
 
 14:                                               ; preds = %9
   %15 = tail call { i64, ptr } @jv_parse(ptr noundef nonnull @.str.28) #13
@@ -1010,7 +1010,7 @@ define internal noalias noundef ptr @test_pthread_run(ptr noundef writeonly capt
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %3 = tail call ptr @jq_init() #13
-  store ptr %3, ptr %2, align 8, !tbaa !15
+  store ptr %3, ptr %2, align 8, !tbaa !16
   %4 = tail call i32 @jq_compile(ptr noundef %3, ptr noundef nonnull @.str.31) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %16, label %6
@@ -1045,7 +1045,7 @@ define internal noalias noundef ptr @test_pthread_run(ptr noundef writeonly capt
   %.sroa.03.0.i = extractvalue { i64, ptr } %12, 0
   %13 = tail call i32 @jv_get_kind(i64 %.sroa.03.0.i, ptr %.sroa.7.0.i) #13
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !28
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph37.i
   %.sroa.7.0.lcssa.i = phi ptr [ %.sroa.7.025.i, %.lr.ph37.i ], [ %.sroa.7.0.i, %.lr.ph.i ]
@@ -1056,13 +1056,13 @@ define internal noalias noundef ptr @test_pthread_run(ptr noundef writeonly capt
   %.sroa.010.0.i = extractvalue { i64, ptr } %14, 0
   %15 = tail call i32 @jv_get_kind(i64 %.sroa.010.0.i, ptr %.sroa.713.0.i) #13
   %.not24.i = icmp eq i32 %15, 0
-  br i1 %.not24.i, label %test_pthread_jq_parse.exit, label %.lr.ph37.i, !llvm.loop !26
+  br i1 %.not24.i, label %test_pthread_jq_parse.exit, label %.lr.ph37.i, !llvm.loop !29
 
 test_pthread_jq_parse.exit:                       ; preds = %._crit_edge.i, %6
   %.sroa.713.0.lcssa.i = phi ptr [ %.sroa.713.031.i, %6 ], [ %.sroa.713.0.i, %._crit_edge.i ]
   %.sroa.010.0.lcssa.i = phi i64 [ %.sroa.010.032.i, %6 ], [ %.sroa.010.0.i, %._crit_edge.i ]
   tail call void @jv_free(i64 %.sroa.010.0.lcssa.i, ptr %.sroa.713.0.lcssa.i) #13
-  store i32 0, ptr %0, align 4, !tbaa !27
+  store i32 0, ptr %0, align 4, !tbaa !30
   tail call void @jv_parser_free(ptr noundef %7) #13
   br label %16
 
@@ -1141,24 +1141,27 @@ attributes #16 = { cold noreturn nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!7, !7, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !6, i64 0}
-!14 = distinct !{!14, !10}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS8jq_state", !6, i64 0}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"long", !7, i64 0}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = !{!28, !29, i64 0}
-!28 = !{!"test_pthread_data", !29, i64 0}
-!29 = !{!"int", !7, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!7, !7, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !6, i64 0}
+!15 = distinct !{!15, !10, !11}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8jq_state", !6, i64 0}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10, !11}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"long", !7, i64 0}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"test_pthread_data", !32, i64 0}
+!32 = !{!"int", !7, i64 0}

@@ -170,7 +170,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %110 = getelementptr inbounds nuw i8, ptr %.1210237, i64 32
   %111 = add i64 %.1218235, -32
   %112 = icmp ugt i64 %111, 32
-  br i1 %112, label %.lr.ph, label %.lr.ph244.preheader, !llvm.loop !8
+  br i1 %112, label %.lr.ph, label %.lr.ph244.preheader, !llvm.loop !9
 
 .lr.ph244.preheader:                              ; preds = %.lr.ph, %.preheader234
   %.2243.ph = phi ptr [ %1, %.preheader234 ], [ %110, %.lr.ph ]
@@ -188,7 +188,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %115 = getelementptr inbounds nuw i8, ptr %.2243, i64 1
   %116 = add nsw i64 %.2219241, -1
   %.not227 = icmp eq i64 %116, 0
-  br i1 %.not227, label %.loopexit, label %.lr.ph244, !llvm.loop !9
+  br i1 %.not227, label %.loopexit, label %.lr.ph244, !llvm.loop !10
 
 117:                                              ; preds = %9
   %.not225 = icmp eq i64 %11, 0
@@ -212,7 +212,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %126 = icmp ne i64 %124, 0
   %127 = icmp ne i64 %125, 0
   %128 = select i1 %126, i1 %127, i1 false
-  br i1 %128, label %120, label %.loopexit231, !llvm.loop !10
+  br i1 %128, label %120, label %.loopexit231, !llvm.loop !11
 
 .loopexit231:                                     ; preds = %120, %117
   %.3220 = phi i64 [ %2, %117 ], [ %125, %120 ]
@@ -229,41 +229,41 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %.0251 = phi ptr [ %153, %.lr.ph252 ], [ %.3, %.loopexit231 ]
   %.0206250 = phi ptr [ %152, %.lr.ph252 ], [ %.3214, %.loopexit231 ]
   %.5222249 = phi i64 [ %154, %.lr.ph252 ], [ %.3220, %.loopexit231 ]
-  %130 = load i32, ptr %.0251, align 4, !tbaa !11
-  store i32 %130, ptr %.0206250, align 4, !tbaa !11
+  %130 = load i32, ptr %.0251, align 4, !tbaa !12
+  store i32 %130, ptr %.0206250, align 4, !tbaa !12
   %131 = getelementptr inbounds nuw i8, ptr %.0206250, i64 4
   %132 = getelementptr inbounds nuw i8, ptr %.0251, i64 4
-  %133 = load i32, ptr %132, align 4, !tbaa !11
-  store i32 %133, ptr %131, align 4, !tbaa !11
+  %133 = load i32, ptr %132, align 4, !tbaa !12
+  store i32 %133, ptr %131, align 4, !tbaa !12
   %134 = getelementptr inbounds nuw i8, ptr %.0206250, i64 8
   %135 = getelementptr inbounds nuw i8, ptr %.0251, i64 8
-  %136 = load i32, ptr %135, align 4, !tbaa !11
-  store i32 %136, ptr %134, align 4, !tbaa !11
+  %136 = load i32, ptr %135, align 4, !tbaa !12
+  store i32 %136, ptr %134, align 4, !tbaa !12
   %137 = getelementptr inbounds nuw i8, ptr %.0206250, i64 12
   %138 = getelementptr inbounds nuw i8, ptr %.0251, i64 12
-  %139 = load i32, ptr %138, align 4, !tbaa !11
-  store i32 %139, ptr %137, align 4, !tbaa !11
+  %139 = load i32, ptr %138, align 4, !tbaa !12
+  store i32 %139, ptr %137, align 4, !tbaa !12
   %140 = getelementptr inbounds nuw i8, ptr %.0206250, i64 16
   %141 = getelementptr inbounds nuw i8, ptr %.0251, i64 16
-  %142 = load i32, ptr %141, align 4, !tbaa !11
-  store i32 %142, ptr %140, align 4, !tbaa !11
+  %142 = load i32, ptr %141, align 4, !tbaa !12
+  store i32 %142, ptr %140, align 4, !tbaa !12
   %143 = getelementptr inbounds nuw i8, ptr %.0206250, i64 20
   %144 = getelementptr inbounds nuw i8, ptr %.0251, i64 20
-  %145 = load i32, ptr %144, align 4, !tbaa !11
-  store i32 %145, ptr %143, align 4, !tbaa !11
+  %145 = load i32, ptr %144, align 4, !tbaa !12
+  store i32 %145, ptr %143, align 4, !tbaa !12
   %146 = getelementptr inbounds nuw i8, ptr %.0206250, i64 24
   %147 = getelementptr inbounds nuw i8, ptr %.0251, i64 24
-  %148 = load i32, ptr %147, align 4, !tbaa !11
-  store i32 %148, ptr %146, align 4, !tbaa !11
+  %148 = load i32, ptr %147, align 4, !tbaa !12
+  store i32 %148, ptr %146, align 4, !tbaa !12
   %149 = getelementptr inbounds nuw i8, ptr %.0206250, i64 28
   %150 = getelementptr inbounds nuw i8, ptr %.0251, i64 28
-  %151 = load i32, ptr %150, align 4, !tbaa !11
-  store i32 %151, ptr %149, align 4, !tbaa !11
+  %151 = load i32, ptr %150, align 4, !tbaa !12
+  store i32 %151, ptr %149, align 4, !tbaa !12
   %152 = getelementptr inbounds nuw i8, ptr %.0206250, i64 32
   %153 = getelementptr inbounds nuw i8, ptr %.0251, i64 32
   %154 = add i64 %.5222249, -32
   %155 = icmp ugt i64 %154, 32
-  br i1 %155, label %.lr.ph252, label %.lr.ph260.preheader, !llvm.loop !13
+  br i1 %155, label %.lr.ph252, label %.lr.ph260.preheader, !llvm.loop !14
 
 .lr.ph260.preheader:                              ; preds = %.lr.ph252, %.preheader229
   %.5259.ph = phi ptr [ %.3, %.preheader229 ], [ %153, %.lr.ph252 ]
@@ -281,7 +281,7 @@ define noundef ptr @lv_memcpy(ptr noundef returned %0, ptr noundef %1, i64 nound
   %158 = getelementptr inbounds nuw i8, ptr %.5259, i64 1
   %159 = add nsw i64 %.6257, -1
   %.not226 = icmp eq i64 %159, 0
-  br i1 %.not226, label %.loopexit, label %.lr.ph260, !llvm.loop !14
+  br i1 %.not226, label %.loopexit, label %.lr.ph260, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph244, %.lr.ph260, %.lr.ph265, %.preheader229, %.preheader
   ret ptr %0
@@ -327,25 +327,25 @@ define void @lv_memset(ptr noundef %0, i8 noundef zeroext %1, i64 noundef %2) lo
 .lr.ph60:                                         ; preds = %.loopexit, %.lr.ph60
   %.059 = phi ptr [ %21, %.lr.ph60 ], [ %.049, %.loopexit ]
   %.258 = phi i64 [ %22, %.lr.ph60 ], [ %.047, %.loopexit ]
-  store i32 %12, ptr %.059, align 4, !tbaa !11
+  store i32 %12, ptr %.059, align 4, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %.059, i64 4
-  store i32 %12, ptr %14, align 4, !tbaa !11
+  store i32 %12, ptr %14, align 4, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %.059, i64 8
-  store i32 %12, ptr %15, align 4, !tbaa !11
+  store i32 %12, ptr %15, align 4, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %.059, i64 12
-  store i32 %12, ptr %16, align 4, !tbaa !11
+  store i32 %12, ptr %16, align 4, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 16
-  store i32 %12, ptr %17, align 4, !tbaa !11
+  store i32 %12, ptr %17, align 4, !tbaa !12
   %18 = getelementptr inbounds nuw i8, ptr %.059, i64 20
-  store i32 %12, ptr %18, align 4, !tbaa !11
+  store i32 %12, ptr %18, align 4, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %.059, i64 24
-  store i32 %12, ptr %19, align 4, !tbaa !11
+  store i32 %12, ptr %19, align 4, !tbaa !12
   %20 = getelementptr inbounds nuw i8, ptr %.059, i64 28
-  store i32 %12, ptr %20, align 4, !tbaa !11
+  store i32 %12, ptr %20, align 4, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %.059, i64 32
   %22 = add i64 %.258, -32
   %23 = icmp ugt i64 %22, 32
-  br i1 %23, label %.lr.ph60, label %.lr.ph66.preheader, !llvm.loop !15
+  br i1 %23, label %.lr.ph60, label %.lr.ph66.preheader, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph66.preheader, %.preheader
   ret void
@@ -390,7 +390,7 @@ define noundef ptr @lv_memmove(ptr noundef returned %0, ptr noundef %1, i64 noun
   %15 = load i8, ptr %.024, align 1, !tbaa !3
   store i8 %15, ptr %.025, align 1, !tbaa !3
   %.not31 = icmp eq i64 %14, 0
-  br i1 %.not31, label %.loopexit, label %.lr.ph42, !llvm.loop !16
+  br i1 %.not31, label %.loopexit, label %.lr.ph42, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.037 = phi ptr [ %17, %.lr.ph ], [ %1, %.preheader ]
@@ -402,7 +402,7 @@ define noundef ptr @lv_memmove(ptr noundef returned %0, ptr noundef %1, i64 noun
   %19 = getelementptr inbounds nuw i8, ptr %.02336, i64 1
   store i8 %18, ptr %.02336, align 1, !tbaa !3
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %.preheader, %12, %8
   ret ptr %0
@@ -433,7 +433,7 @@ define range(i32 -255, 256) i32 @lv_memcmp(ptr noundef readonly captures(none) %
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 1
   %12 = add i64 %5, -1
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !19
 
 .critedge:                                        ; preds = %.lr.ph, %9, %3
   %.08.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %9 ], [ %.0812, %.lr.ph ]
@@ -474,7 +474,7 @@ define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
   store i8 %6, ptr %8, align 1, !tbaa !3
   %9 = add nuw i64 %.117, 1
   %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %7, %.preheader
   %.1.lcssa = phi i64 [ 0, %.preheader ], [ %4, %7 ], [ %.117, %.lr.ph ]
@@ -507,7 +507,7 @@ define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: addr
   store i8 %5, ptr %7, align 1, !tbaa !3
   %8 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %8, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 .critedge:                                        ; preds = %.lr.ph, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %.014, %.lr.ph ]
@@ -536,7 +536,7 @@ define noundef ptr @lv_strcpy(ptr noundef returned writeonly captures(ret: addre
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %5, ptr %.0, align 1, !tbaa !3
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %7, label %3, !llvm.loop !21
+  br i1 %.not, label %7, label %3, !llvm.loop !22
 
 7:                                                ; preds = %3
   ret ptr %0
@@ -561,7 +561,7 @@ define range(i32 -255, 256) i32 @lv_strcmp(ptr noundef readonly captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %10 = load i8, ptr %8, align 1, !tbaa !3
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !23
 
 .critedge.loopexit:                               ; preds = %7, %.lr.ph
   %.0.lcssa.ph = phi ptr [ %.011, %.lr.ph ], [ %9, %7 ]
@@ -607,7 +607,7 @@ define range(i32 -255, 256) i32 @lv_strncmp(ptr noundef readonly captures(none) 
   %14 = getelementptr inbounds nuw i8, ptr %.01020, i64 1
   %15 = load i8, ptr %13, align 1, !tbaa !3
   %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !24
 
 .critedge.loopexit:                               ; preds = %12, %.lr.ph
   %.010.lcssa.ph = phi ptr [ %.01020, %.lr.ph ], [ %14, %12 ]
@@ -660,7 +660,7 @@ define noundef ptr @lv_strcat(ptr noundef returned captures(ret: address, proven
   %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store i8 %6, ptr %.0.i, align 1, !tbaa !3
   %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %lv_strcpy.exit, label %4, !llvm.loop !21
+  br i1 %.not.i, label %lv_strcpy.exit, label %4, !llvm.loop !22
 
 lv_strcpy.exit:                                   ; preds = %4
   ret ptr %0
@@ -688,7 +688,7 @@ define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, prove
   %7 = getelementptr inbounds nuw i8, ptr %.116, i64 1
   store i8 %3, ptr %.116, align 1, !tbaa !3
   %.not11 = icmp eq i64 %5, 0
-  br i1 %.not11, label %.critedge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not11, label %.critedge, label %.lr.ph, !llvm.loop !25
 
 .critedge:                                        ; preds = %.lr.ph, %4, %.preheader
   %.1.lcssa = phi ptr [ %scevgep, %.preheader ], [ %7, %4 ], [ %.116, %.lr.ph ]
@@ -714,7 +714,7 @@ define noundef ptr @lv_strchr(ptr noundef readonly captures(ret: address, proven
   %10 = load i8, ptr %9, align 1, !tbaa !3
   %11 = sext i8 %10 to i32
   %12 = icmp eq i32 %1, %11
-  br i1 %12, label %._crit_edge, label %.lr.ph
+  br i1 %12, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %2
   %.0 = phi ptr [ %0, %2 ], [ null, %.lr.ph ], [ %9, %8 ]
@@ -751,22 +751,24 @@ attributes #11 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !4, i64 0}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !4, i64 0}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !8}

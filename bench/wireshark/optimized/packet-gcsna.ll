@@ -322,7 +322,7 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
   %117 = add i16 %.06.i.i, 8
   %118 = add nsw i16 %.0585.i.i, -1
   %.not60.i.i = icmp eq i16 %118, 0
-  br i1 %.not60.i.i, label %._crit_edge.i.i, label %.lr.ph7.i.i, !llvm.loop !8
+  br i1 %.not60.i.i, label %._crit_edge.i.i, label %.lr.ph7.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph7.i.i, %105
   %.0.lcssa.i.i = phi i16 [ %108, %105 ], [ %117, %.lr.ph7.i.i ]
@@ -370,7 +370,7 @@ gcsna_message_GCSNA1xCircuitService.exit.i:       ; preds = %74, %52
   %143 = add i16 %.23.i.i, 8
   %144 = add nsw i16 %.1592.i.i, -1
   %.not.i20.i = icmp eq i16 %144, 0
-  br i1 %.not.i20.i, label %gcsna_message_GCSNAServiceReject.exit.i, label %.lr.ph.i19.i, !llvm.loop !9
+  br i1 %.not.i20.i, label %gcsna_message_GCSNAServiceReject.exit.i, label %.lr.ph.i19.i, !llvm.loop !10
 
 145:                                              ; preds = %89
   %146 = load i32, ptr @hf_gcsna_unsupported_reject_seq, align 4
@@ -389,7 +389,7 @@ gcsna_message_decode.exit:                        ; preds = %gcsna_message_GCSNA
   %.129 = phi i32 [ %79, %gcsna_message_GCSNA1xCircuitService.exit.i ], [ %88, %80 ], [ %storemerge.i.i, %gcsna_message_GCSNAServiceReject.exit.i ]
   %151 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.129)
   %.not42 = icmp eq i32 %151, 0
-  br i1 %.not42, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !10
+  br i1 %.not42, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !11
 
 152:                                              ; preds = %.lr.ph
   %153 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %17)
@@ -470,8 +470,9 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

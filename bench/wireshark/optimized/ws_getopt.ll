@@ -337,7 +337,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %0, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %25
   %29 = trunc nsw i64 %indvars.iv to i32
@@ -425,7 +425,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 66:                                               ; preds = %63
   %67 = getelementptr i8, ptr %.0108.i, i64 1
   %68 = getelementptr i8, ptr %.1112.i, i64 1
-  br label %61, !llvm.loop !8
+  br label %61, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %63
   %cond.i = icmp eq i8 %62, 0
@@ -450,7 +450,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %73 = getelementptr %struct.ws_option, ptr %3, i64 %72
   %74 = load ptr, ptr %73, align 8
   %.not134.i = icmp eq ptr %74, null
-  br i1 %.not134.i, label %._crit_edge.i, label %59, !llvm.loop !9
+  br i1 %.not134.i, label %._crit_edge.i, label %59, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.thread.i, %.loopexit169.i
   %.1120.i = phi i32 [ %.2121159.i, %.thread.i ], [ 1, %.loopexit169.i ]
@@ -504,7 +504,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
 92:                                               ; preds = %86
   %93 = add nuw nsw i64 %.0186.us.i, 1
   %exitcond.not.i = icmp eq i64 %93, %79
-  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %86, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit.thread.i, label %86, !llvm.loop !12
 
 94:                                               ; preds = %.critedge3.us.i
   %95 = add i32 %.1110192.us.i, 1
@@ -512,7 +512,7 @@ define internal fastcc i32 @__getopt_long(i32 noundef %0, ptr noundef captures(n
   %97 = getelementptr i8, ptr %2, i64 %96
   %98 = load i8, ptr %97, align 1
   %.not140.us.i = icmp eq i8 %98, 0
-  br i1 %.not140.us.i, label %.loopexit.thread223.i, label %.preheader.us.i, !llvm.loop !11
+  br i1 %.not140.us.i, label %.loopexit.thread223.i, label %.preheader.us.i, !llvm.loop !13
 
 .preheader.lr.ph.split.i:                         ; preds = %.preheader.lr.ph.i
   %99 = icmp eq ptr %.1114.i, %40
@@ -701,13 +701,13 @@ permute.exit.preheader:                           ; preds = %.lr.ph62
   %177 = getelementptr ptr, ptr %1, i64 %indvars.iv.i.us
   store ptr %176, ptr %177, align 8
   %178 = icmp sgt i64 %indvars.iv.next.i.us, %15
-  br i1 %178, label %.lr.ph.i49.us, label %permute.exit.loopexit.us, !llvm.loop !13
+  br i1 %178, label %.lr.ph.i49.us, label %permute.exit.loopexit.us, !llvm.loop !15
 
 permute.exit.loopexit.us:                         ; preds = %.lr.ph.i49.us
   store ptr %174, ptr %16, align 8
   %179 = add nuw nsw i32 %.03361.us, 1
   %exitcond74.not = icmp eq i32 %179, %168
-  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.i49.preheader.us, !llvm.loop !14
+  br i1 %exitcond74.not, label %._crit_edge, label %.lr.ph.i49.preheader.us, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %permute.exit.loopexit.us, %permute.exit.preheader, %166
   %180 = add i32 %168, %13
@@ -763,12 +763,14 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !12}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8, !14}

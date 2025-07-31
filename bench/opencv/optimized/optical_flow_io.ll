@@ -209,7 +209,7 @@ _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader: ; preds = %36
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %74 = sext i32 %72 to i64
   %.not21 = icmp slt i64 %indvars.iv.next35, %74
-  br i1 %.not21, label %.preheader, label %.critedge26, !llvm.loop !44
+  br i1 %.not21, label %.preheader, label %.critedge26, !llvm.loop !45
 
 75:                                               ; preds = %60
   %76 = load i32, ptr %3, align 8, !tbaa !3
@@ -283,7 +283,7 @@ _ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv.exit: ; preds = %.noexc, %81
   %104 = getelementptr inbounds i8, ptr %4, i64 %103
   store ptr %101, ptr %104, align 8, !tbaa !20
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %105, align 8, !tbaa !46
+  store i64 0, ptr %105, align 8, !tbaa !47
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 256
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %106) #7
   call void @llvm.lifetime.end.p0(i64 520, ptr nonnull %4) #7
@@ -329,13 +329,13 @@ define noundef zeroext i1 @_ZN2cv16writeOpticalFlowERKNSt7__cxx1112basic_stringI
   %4 = alloca %"class.std::basic_ofstream", align 8
   %5 = alloca [12 x i8], align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #7
-  %6 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !48
+  %6 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %1), !noalias !49
   %7 = icmp eq i32 %6, 65536
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !51, !noalias !48
+  %10 = load ptr, ptr %9, align 8, !tbaa !52, !noalias !49
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %10)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
@@ -376,12 +376,12 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !54
+  %31 = load ptr, ptr %30, align 8, !tbaa !55
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !33
   %34 = load i32, ptr %31, align 4, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #7
-  %35 = load ptr, ptr @_ZN2cv15FLOW_TAG_STRINGE, align 8, !tbaa !55
+  %35 = load ptr, ptr @_ZN2cv15FLOW_TAG_STRINGE, align 8, !tbaa !56
   %36 = load i32, ptr %35, align 1
   store i32 %36, ptr %5, align 4
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -423,7 +423,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
 55:                                               ; preds = %63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %56, !llvm.loop !57
 
 56:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
@@ -594,18 +594,19 @@ attributes #7 = { nounwind }
 !39 = !{!4, !8, i64 16}
 !40 = !{!4, !15, i64 72}
 !41 = !{!19, !19, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.partial.disable"}
-!46 = !{!47, !19, i64 8}
-!47 = !{!"_ZTSSi", !19, i64 8}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!50 = distinct !{!50, !"_ZNK2cv11_InputArray6getMatEi"}
-!51 = !{!52, !9, i64 8}
-!52 = !{!"_ZTSN2cv11_InputArrayE", !5, i64 0, !9, i64 8, !53, i64 16}
-!53 = !{!"_ZTSN2cv5Size_IiEE", !5, i64 0, !5, i64 4}
-!54 = !{!12, !13, i64 0}
-!55 = !{!8, !8, i64 0}
-!56 = distinct !{!56, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44, !46}
+!46 = !{!"llvm.loop.unswitch.partial.disable"}
+!47 = !{!48, !19, i64 8}
+!48 = !{!"_ZTSSi", !19, i64 8}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!51 = distinct !{!51, !"_ZNK2cv11_InputArray6getMatEi"}
+!52 = !{!53, !9, i64 8}
+!53 = !{!"_ZTSN2cv11_InputArrayE", !5, i64 0, !9, i64 8, !54, i64 16}
+!54 = !{!"_ZTSN2cv5Size_IiEE", !5, i64 0, !5, i64 4}
+!55 = !{!12, !13, i64 0}
+!56 = !{!8, !8, i64 0}
+!57 = distinct !{!57, !43, !44}

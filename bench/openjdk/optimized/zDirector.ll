@@ -1716,5 +1716,6 @@ attributes #11 = { nounwind }
 !17 = distinct !{!17, !18, !"_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers: argument 0"}
 !18 = distinct !{!18, !"_ZL26sample_worker_resize_statsR15ZStatCycleStatsR17ZStatWorkersStatsP8ZWorkers"}
 !19 = !{!17, !7}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!"llvm.loop.estimated_trip_count"}

@@ -106,7 +106,7 @@ define dso_local i32 @acpi_nvs_for_each_region(ptr noundef readonly captures(non
   %11 = load i64, ptr %10, align 8
   %12 = tail call i32 %0(i64 noundef %9, i64 noundef %11, ptr noundef %1) #9
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %3, label %14, !llvm.loop !8
+  br i1 %13, label %3, label %14, !llvm.loop !9
 
 14:                                               ; preds = %7, %3
   %15 = phi i32 [ %12, %7 ], [ 0, %3 ]
@@ -137,7 +137,7 @@ define dso_local void @suspend_nvs_free() local_unnamed_addr #0 align 16 {
 
 12:                                               ; preds = %7
   %13 = getelementptr i8, ptr %3, i64 -8
-  %14 = load i8, ptr %13, align 8, !range !9, !noundef !10
+  %14 = load i8, ptr %13, align 8, !range !10, !noundef !11
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %17, label %16
 
@@ -160,7 +160,7 @@ define dso_local void @suspend_nvs_free() local_unnamed_addr #0 align 16 {
 22:                                               ; preds = %21, %7, %.preheader
   %23 = load ptr, ptr %3, align 8
   %24 = icmp eq ptr %23, @nvs_list
-  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %22, %0
   ret void
@@ -191,7 +191,7 @@ define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_alloc() local_unname
   %8 = getelementptr i8, ptr %3, i64 -16
   store ptr %7, ptr %8, align 8
   %9 = icmp eq i64 %6, 0
-  br i1 %9, label %10, label %1, !llvm.loop !12
+  br i1 %9, label %10, label %1, !llvm.loop !13
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr @nvs_list, align 8
@@ -216,7 +216,7 @@ define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_alloc() local_unname
 
 22:                                               ; preds = %17
   %23 = getelementptr i8, ptr %13, i64 -8
-  %24 = load i8, ptr %23, align 8, !range !9, !noundef !10
+  %24 = load i8, ptr %23, align 8, !range !10, !noundef !11
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %27, label %26
 
@@ -239,7 +239,7 @@ define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_alloc() local_unname
 32:                                               ; preds = %31, %17, %.preheader
   %33 = load ptr, ptr %13, align 8
   %34 = icmp eq ptr %33, @nvs_list
-  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %34, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %1, %32, %10
   %35 = phi i32 [ -12, %10 ], [ -12, %32 ], [ 0, %1 ]
@@ -308,7 +308,7 @@ define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_save() local_unnamed
 
 35:                                               ; preds = %30
   %36 = getelementptr i8, ptr %26, i64 -8
-  %37 = load i8, ptr %36, align 8, !range !9, !noundef !10
+  %37 = load i8, ptr %36, align 8, !range !10, !noundef !11
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %40, label %39
 
@@ -331,7 +331,7 @@ define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_save() local_unnamed
 45:                                               ; preds = %44, %30, %.preheader
   %46 = load ptr, ptr %26, align 8
   %47 = icmp eq ptr %46, @nvs_list
-  br i1 %47, label %.thread7, label %.preheader, !llvm.loop !11
+  br i1 %47, label %.thread7, label %.preheader, !llvm.loop !15
 
 .thread8:                                         ; preds = %16, %8
   %48 = phi ptr [ %18, %16 ], [ %13, %8 ]
@@ -344,7 +344,7 @@ define dso_local noundef range(i32 -12, 1) i32 @suspend_nvs_save() local_unnamed
 52:                                               ; preds = %.thread8, %.preheader9
   %53 = load ptr, ptr %4, align 8
   %54 = icmp eq ptr %53, @nvs_list
-  br i1 %54, label %.thread7, label %.preheader9, !llvm.loop !13
+  br i1 %54, label %.thread7, label %.preheader9, !llvm.loop !16
 
 .thread7:                                         ; preds = %52, %45, %23, %0
   %55 = phi i32 [ 0, %0 ], [ -12, %23 ], [ -12, %45 ], [ 0, %52 ]
@@ -386,7 +386,7 @@ define dso_local void @suspend_nvs_restore() local_unnamed_addr #2 align 16 {
 14:                                               ; preds = %8, %.preheader
   %15 = load ptr, ptr %4, align 8
   %16 = icmp eq ptr %15, @nvs_list
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %14, %0
   ret void
@@ -422,13 +422,16 @@ attributes #9 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}

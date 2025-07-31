@@ -856,7 +856,7 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
   %.118.i = phi i64 [ %.01720.i, %80 ], [ %73, %.lr.ph.i27 ]
   %.1.i = phi i64 [ %81, %80 ], [ %.01621.i, %.lr.ph.i27 ]
   %83 = icmp ult i64 %.1.i, %.118.i
-  br i1 %83, label %.lr.ph.i27, label %85, !llvm.loop !18
+  br i1 %83, label %.lr.ph.i27, label %85, !llvm.loop !19
 
 thread-pre-split:                                 ; preds = %79
   %84 = getelementptr inbounds nuw i8, ptr @color_lib, i64 %74
@@ -878,7 +878,7 @@ thread-pre-split:                                 ; preds = %79
   br label %123
 
 93:                                               ; preds = %85
-  %94 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %94 = load ptr, ptr @stderr, align 8, !tbaa !20
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %94, ptr noundef nonnull @.str.652, ptr noundef nonnull %0) #18
   %96 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #16
   %97 = icmp eq i64 %96, 0
@@ -1002,21 +1002,21 @@ agxbsizeof.exit.i:                                ; preds = %129, %agxblen.exit.
 
 agxbputc.exit:                                    ; preds = %134, %139
   %145 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %123, !llvm.loop !21
+  br label %123, !llvm.loop !22
 
 thread-pre-split.thread:                          ; preds = %6, %thread-pre-split
   %146 = phi ptr [ %84, %thread-pre-split ], [ %4, %6 ]
   %.val1954 = phi i1 [ %70, %thread-pre-split ], [ false, %6 ]
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %148 = load i8, ptr %147, align 8, !tbaa !22
+  %148 = load i8, ptr %147, align 8, !tbaa !23
   %149 = uitofp i8 %148 to double
   %150 = fdiv double %149, 2.550000e+02
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 9
-  %152 = load i8, ptr %151, align 1, !tbaa !23
+  %152 = load i8, ptr %151, align 1, !tbaa !24
   %153 = uitofp i8 %152 to double
   %154 = fdiv double %153, 2.550000e+02
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 10
-  %156 = load i8, ptr %155, align 2, !tbaa !24
+  %156 = load i8, ptr %155, align 2, !tbaa !25
   %157 = uitofp i8 %156 to double
   %158 = fdiv double %157, 2.550000e+02
   tail call void (ptr, ptr, ...) @agxbprint(ptr noundef %1, ptr nonnull poison, double noundef %150, double noundef %154, double noundef %158)
@@ -1216,7 +1216,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !20
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.655, i64 noundef %spec.select33) #18
   tail call fastcc void @graphviz_exit() #20
   unreachable
@@ -1239,7 +1239,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !19
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !20
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.655, i64 noundef %spec.select) #18
   tail call fastcc void @graphviz_exit() #20
   unreachable
@@ -1339,12 +1339,13 @@ attributes #22 = { cold noreturn nounwind }
 !13 = !{!"p1 int", !5, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
-!21 = distinct !{!21, !17}
-!22 = !{!9, !6, i64 8}
-!23 = !{!9, !6, i64 9}
-!24 = !{!9, !6, i64 10}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!22 = distinct !{!22, !17, !18}
+!23 = !{!9, !6, i64 8}
+!24 = !{!9, !6, i64 9}
+!25 = !{!9, !6, i64 10}

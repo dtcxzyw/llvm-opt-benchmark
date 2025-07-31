@@ -106,18 +106,18 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %53 = getelementptr i8, ptr %52, i64 -4
   %54 = load i32, ptr %53, align 4, !tbaa !3
   %55 = sext i32 %54 to i64
-  store i64 %55, ptr %indvars.iv543.sroa.phi623, align 8, !tbaa !9
+  store i64 %55, ptr %indvars.iv543.sroa.phi623, align 8, !tbaa !10
   %56 = getelementptr i8, ptr %52, i64 -8
   %57 = load i32, ptr %56, align 4, !tbaa !3
   %58 = sext i32 %57 to i64
   %59 = sub nsw i64 %55, %58
-  store i64 %59, ptr %indvars.iv543.sroa.phi619, align 8, !tbaa !9
+  store i64 %59, ptr %indvars.iv543.sroa.phi619, align 8, !tbaa !10
   %60 = getelementptr i8, ptr %52, i64 -12
   %61 = load i32, ptr %60, align 4, !tbaa !3
   %62 = sext i32 %61 to i64
   %.neg423 = sub nsw i64 %62, %58
   %63 = add nsw i64 %.neg423, %59
-  store i64 %63, ptr %indvars.iv543.sroa.phi615, align 8, !tbaa !9
+  store i64 %63, ptr %indvars.iv543.sroa.phi615, align 8, !tbaa !10
   %64 = shl nsw i64 %62, 1
   %65 = getelementptr i8, ptr %52, i64 -16
   %66 = load i32, ptr %65, align 4, !tbaa !3
@@ -125,18 +125,18 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %68 = add nsw i64 %58, %67
   %.neg483 = sub nsw i64 %64, %68
   %69 = add nsw i64 %.neg483, %63
-  store i64 %69, ptr %indvars.iv543.sroa.phi, align 8, !tbaa !9
-  br i1 %50, label %49, label %70, !llvm.loop !11
+  store i64 %69, ptr %indvars.iv543.sroa.phi, align 8, !tbaa !10
+  br i1 %50, label %49, label %70, !llvm.loop !12
 
 70:                                               ; preds = %49
   %71 = icmp sgt i32 %1, 1
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %70
-  %.sroa.0.0..sroa.0.0. = load <2 x i64>, ptr %.sroa.0, align 16, !tbaa !12
-  %.sroa.0617.0..sroa.0617.0. = load <2 x i64>, ptr %.sroa.0617, align 16, !tbaa !12
-  %.sroa.0621.0..sroa.0621.0. = load <2 x i64>, ptr %.sroa.0621, align 16, !tbaa !12
-  %.sroa.0625.0..sroa.0625.0. = load <2 x i64>, ptr %.sroa.0625, align 16, !tbaa !12
+  %.sroa.0.0..sroa.0.0. = load <2 x i64>, ptr %.sroa.0, align 16, !tbaa !13
+  %.sroa.0617.0..sroa.0617.0. = load <2 x i64>, ptr %.sroa.0617, align 16, !tbaa !13
+  %.sroa.0621.0..sroa.0621.0. = load <2 x i64>, ptr %.sroa.0621, align 16, !tbaa !13
+  %.sroa.0625.0..sroa.0625.0. = load <2 x i64>, ptr %.sroa.0625, align 16, !tbaa !13
   %72 = lshr i32 %1, 1
   %73 = zext nneg i32 %72 to i64
   %wide.trip.count = zext nneg i32 %7 to i64
@@ -188,7 +188,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %98 = or <2 x i64> %96, %.0365509
   %indvars.iv.next547 = add nuw nsw i64 %indvars.iv546, 1
   %exitcond549.not = icmp eq i64 %indvars.iv.next547, %wide.trip.count
-  br i1 %exitcond549.not, label %._crit_edge, label %74, !llvm.loop !13
+  br i1 %exitcond549.not, label %._crit_edge, label %74, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %74, %70
   %.2381.lcssa = phi i32 [ 0, %70 ], [ %7, %74 ]
@@ -325,7 +325,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
 182:                                              ; preds = %171, %174, %173
   %storemerge = phi float [ %181, %174 ], [ 0.000000e+00, %173 ], [ 3.400000e+01, %171 ]
   %.1393 = phi i64 [ %.1, %174 ], [ 0, %173 ], [ -1, %171 ]
-  store float %storemerge, ptr %2, align 4, !tbaa !14
+  store float %storemerge, ptr %2, align 4, !tbaa !15
   %183 = icmp ult i64 %.1389, 2147483648
   br i1 %183, label %184, label %194
 
@@ -351,7 +351,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %.3.shrunk = phi i1 [ %185, %186 ], [ %185, %184 ], [ false, %182 ]
   %.3 = zext i1 %.3.shrunk to i32
   %195 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %.sink, ptr %195, align 4, !tbaa !14
+  store float %.sink, ptr %195, align 4, !tbaa !15
   %196 = icmp ult i64 %.1387, 2147483648
   br i1 %196, label %197, label %207
 
@@ -377,7 +377,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %.5397 = phi i64 [ %spec.select428, %199 ], [ %spec.select428, %197 ], [ %.3395, %194 ]
   %.5 = phi i32 [ %spec.select429, %199 ], [ %spec.select429, %197 ], [ %.3, %194 ]
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store float %.sink568, ptr %208, align 4, !tbaa !14
+  store float %.sink568, ptr %208, align 4, !tbaa !15
   %209 = icmp ult i64 %.1385, 2147483648
   br i1 %209, label %210, label %220
 
@@ -403,7 +403,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %.7399 = phi i64 [ %spec.select430, %212 ], [ %spec.select430, %210 ], [ %.5397, %207 ]
   %.7 = phi i32 [ %spec.select431, %212 ], [ %spec.select431, %210 ], [ %.5, %207 ]
   %221 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store float %.sink570, ptr %221, align 4, !tbaa !14
+  store float %.sink570, ptr %221, align 4, !tbaa !15
   %222 = icmp ult i64 %.0383, 2147483648
   br i1 %222, label %223, label %233
 
@@ -427,7 +427,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
   %.sink572 = phi float [ %232, %225 ], [ 0.000000e+00, %223 ], [ 3.400000e+01, %220 ]
   %.9 = phi i32 [ %spec.select432, %225 ], [ %spec.select432, %223 ], [ %.7, %220 ]
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store float %.sink572, ptr %234, align 4, !tbaa !14
+  store float %.sink572, ptr %234, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0617)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.0621)
@@ -468,12 +468,13 @@ attributes #4 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"long", !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !8}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"float", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long", !5, i64 0}
+!12 = distinct !{!12, !8, !9}
+!13 = !{!5, !5, i64 0}
+!14 = distinct !{!14, !8, !9}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"float", !5, i64 0}

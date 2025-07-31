@@ -641,7 +641,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %24
   %.2 = phi ptr [ %.03549, %.lr.ph50 ], [ %55, %..loopexit_crit_edge ], [ %.03549, %36 ]
   %58 = add nuw i64 %.03747, 4
   %59 = icmp ult i64 %58, %32
-  br i1 %59, label %.lr.ph50, label %._crit_edge, !llvm.loop !47
+  br i1 %59, label %.lr.ph50, label %._crit_edge, !llvm.loop !48
 }
 
 ; Function Attrs: nofree nounwind
@@ -701,7 +701,7 @@ define noalias noundef ptr @color_blend_rgb2lab(ptr noundef %0, i32 noundef %1) 
   %13 = add nuw nsw i32 %.096139, 1
   %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 noundef 44) #23
   %.not114 = icmp eq ptr %14, null
-  br i1 %.not114, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %.not114, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %15 = zext nneg i32 %13 to i64
@@ -748,11 +748,11 @@ gv_calloc.exit:                                   ; preds = %._crit_edge
   %35 = getelementptr inbounds nuw %struct.lab_struct, ptr %16, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #19
   call void @RGB2LAB(ptr dead_on_unwind nonnull writable sret(%struct.lab_struct) align 8 %7, ptr noundef nonnull byval(%struct.rgb_struct) align 8 %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !50
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #19
   %36 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %26, i32 noundef 44) #23
   %.not116 = icmp eq ptr %36, null
-  br i1 %.not116, label %37, label %25, !llvm.loop !50
+  br i1 %.not116, label %37, label %25, !llvm.loop !51
 
 37:                                               ; preds = %25, %28
   %.2.in = phi i64 [ %indvars.iv, %25 ], [ %indvars.iv.next, %28 ]
@@ -810,7 +810,7 @@ gv_calloc.exit120:                                ; preds = %37
   %55 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next160
   store double %sqrt.i, ptr %55, align 8, !tbaa !26
   %exitcond.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph144.preheader, label %.lr.ph141, !llvm.loop !51
+  br i1 %exitcond.not, label %.lr.ph144.preheader, label %.lr.ph141, !llvm.loop !52
 
 .lr.ph144:                                        ; preds = %.lr.ph144.preheader, %.lr.ph144
   %56 = phi double [ 0.000000e+00, %.lr.ph144.preheader ], [ %59, %.lr.ph144 ]
@@ -821,7 +821,7 @@ gv_calloc.exit120:                                ; preds = %37
   %59 = fadd double %56, %58
   store double %59, ptr %57, align 8, !tbaa !26
   %exitcond168.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count167
-  br i1 %exitcond168.not, label %._crit_edge145, label %.lr.ph144, !llvm.loop !52
+  br i1 %exitcond168.not, label %._crit_edge145, label %.lr.ph144, !llvm.loop !53
 
 ._crit_edge145:                                   ; preds = %.lr.ph144, %gv_calloc.exit120
   %60 = load i8, ptr @Verbose, align 1, !tbaa !39
@@ -882,7 +882,7 @@ gv_calloc.exit123:                                ; preds = %67
   %94 = load double, ptr %93, align 8, !tbaa !26
   %95 = fcmp olt double %94, %91
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  br i1 %95, label %92, label %.lr.ph157.preheader, !llvm.loop !53
+  br i1 %95, label %92, label %.lr.ph157.preheader, !llvm.loop !54
 
 .lr.ph157.preheader:                              ; preds = %92
   %96 = trunc nuw nsw i64 %indvars.iv169 to i32
@@ -953,7 +953,7 @@ gv_calloc.exit123:                                ; preds = %67
 130:                                              ; preds = %126
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %86
-  br i1 %exitcond177.not, label %.critedge, label %126, !llvm.loop !54
+  br i1 %exitcond177.not, label %.critedge, label %126, !llvm.loop !55
 
 .critedge.loopexit.split.loop.exit:               ; preds = %126
   %131 = trunc nsw i64 %indvars.iv173 to i32
@@ -963,7 +963,7 @@ gv_calloc.exit123:                                ; preds = %67
   %.2107.lcssa = phi i32 [ %.1106152, %.lr.ph157 ], [ %131, %.critedge.loopexit.split.loop.exit ], [ %46, %130 ]
   %132 = add nuw nsw i32 %.2101155, 1
   %exitcond178.not = icmp eq i32 %132, %smax
-  br i1 %exitcond178.not, label %.loopexit, label %.lr.ph157, !llvm.loop !55
+  br i1 %exitcond178.not, label %.loopexit, label %.lr.ph157, !llvm.loop !56
 
 .loopexit:                                        ; preds = %.critedge, %77
   call void @free(ptr noundef nonnull %40) #19
@@ -1084,14 +1084,15 @@ attributes #24 = { cold noreturn nounwind }
 !42 = !{!"any pointer", !6, i64 0}
 !43 = !{!44, !44, i64 0}
 !44 = !{!"long", !6, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !46}
-!49 = !{i64 0, i64 8, !26, i64 8, i64 8, !26, i64 16, i64 8, !26}
-!50 = distinct !{!50, !46}
-!51 = distinct !{!51, !46}
-!52 = distinct !{!52, !46}
-!53 = distinct !{!53, !46}
-!54 = distinct !{!54, !46}
-!55 = distinct !{!55, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = distinct !{!49, !46, !47}
+!50 = !{i64 0, i64 8, !26, i64 8, i64 8, !26, i64 16, i64 8, !26}
+!51 = distinct !{!51, !46, !47}
+!52 = distinct !{!52, !46, !47}
+!53 = distinct !{!53, !46, !47}
+!54 = distinct !{!54, !46, !47}
+!55 = distinct !{!55, !46, !47}
+!56 = distinct !{!56, !46, !47}

@@ -1722,7 +1722,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   store i64 %193, ptr %191, align 8, !tbaa !24
   %194 = add nuw nsw i64 %.01924.i, 1
   %exitcond.not.i = icmp eq i64 %.01924.i, 3
-  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.preheader, %.preheader.i
   %.1.i = phi i64 [ %199, %.preheader.i ], [ 0, %.preheader ]
@@ -1734,7 +1734,7 @@ define internal i32 @ecp_mod_p224(ptr noundef %0) #0 {
   %199 = add nuw nsw i64 %.1.i, 1
   %.not22.i = icmp samesign ugt i64 %.1.i, 2
   %or.cond.i = or i1 %.not22.i, %198
-  br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %.preheader.i, !llvm.loop !29
 
 mbedtls_ecp_fix_negative.exit:                    ; preds = %.preheader.i
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2202,7 +2202,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   store i64 %346, ptr %344, align 8, !tbaa !24
   %347 = add nuw nsw i64 %341, 1
   %exitcond.not = icmp eq i64 %347, %339
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %300
   %348 = icmp slt i8 %327, 0
@@ -2216,7 +2216,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   store i64 %351, ptr %349, align 8, !tbaa !24
   %352 = add nuw nsw i64 %.01924.i, 1
   %exitcond.not.i = icmp eq i64 %.01924.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.preheader, %.preheader.i
   %.1.i = phi i64 [ %357, %.preheader.i ], [ 0, %.preheader ]
@@ -2228,7 +2228,7 @@ define internal i32 @ecp_mod_p256(ptr noundef %0) #0 {
   %357 = add nuw nsw i64 %.1.i, 1
   %.not22.i = icmp samesign ugt i64 %.1.i, 3
   %or.cond.i = or i1 %.not22.i, %356
-  br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %.preheader.i, !llvm.loop !29
 
 mbedtls_ecp_fix_negative.exit:                    ; preds = %.preheader.i
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2848,7 +2848,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   store i64 %468, ptr %466, align 8, !tbaa !24
   %469 = add nuw nsw i64 %463, 1
   %exitcond.not = icmp eq i64 %469, %461
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %435
   %470 = icmp slt i8 %449, 0
@@ -2862,7 +2862,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   store i64 %473, ptr %471, align 8, !tbaa !24
   %474 = add nuw nsw i64 %.01924.i, 1
   %exitcond.not.i = icmp eq i64 %.01924.i, 6
-  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader, !llvm.loop !27
+  br i1 %exitcond.not.i, label %.preheader.i, label %.preheader, !llvm.loop !28
 
 .preheader.i:                                     ; preds = %.preheader, %.preheader.i
   %.1.i = phi i64 [ %479, %.preheader.i ], [ 0, %.preheader ]
@@ -2874,7 +2874,7 @@ define internal i32 @ecp_mod_p384(ptr noundef %0) #0 {
   %479 = add nuw nsw i64 %.1.i, 1
   %.not22.i = icmp samesign ugt i64 %.1.i, 5
   %or.cond.i = or i1 %.not22.i, %478
-  br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %.preheader.i, !llvm.loop !28
+  br i1 %or.cond.i, label %mbedtls_ecp_fix_negative.exit, label %.preheader.i, !llvm.loop !29
 
 mbedtls_ecp_fix_negative.exit:                    ; preds = %.preheader.i
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3037,7 +3037,7 @@ define internal i32 @ecp_mod_p448(ptr noundef %0) #0 {
   br i1 %.not, label %22, label %40
 
 22:                                               ; preds = %._crit_edge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !32
   store ptr %5, ptr %3, align 8, !tbaa !18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, ptr noundef nonnull align 16 dereferenceable(56) %4, i64 56, i1 false)
   %23 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %3, i64 noundef 224) #7
@@ -3344,12 +3344,13 @@ attributes #7 = { nounwind }
 !22 = !{!4, !14, i64 176}
 !23 = !{!4, !13, i64 184}
 !24 = !{!13, !13, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = distinct !{!28, !26}
-!29 = distinct !{!29, !26}
-!30 = distinct !{!30, !26}
-!31 = !{i64 0, i64 8, !32, i64 8, i64 2, !33, i64 10, i64 2, !33}
-!32 = !{!9, !9, i64 0}
-!33 = !{!11, !11, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = distinct !{!29, !26, !27}
+!30 = distinct !{!30, !26, !27}
+!31 = distinct !{!31, !26, !27}
+!32 = !{i64 0, i64 8, !33, i64 8, i64 2, !34, i64 10, i64 2, !34}
+!33 = !{!9, !9, i64 0}
+!34 = !{!11, !11, i64 0}

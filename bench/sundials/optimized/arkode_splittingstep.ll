@@ -216,7 +216,7 @@ splittingStep_CheckSUNStepper.exit.thread:        ; preds = %15, %18, %21, %spli
 27:                                               ; preds = %splittingStep_CheckSUNStepper.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %28, label %.preheader
+  br i1 %exitcond.not, label %28, label %.preheader, !llvm.loop !44
 
 28:                                               ; preds = %27
   %29 = icmp eq ptr %3, null
@@ -228,15 +228,15 @@ splittingStep_CheckSUNStepper.exit.thread:        ; preds = %15, %18, %21, %spli
 
 31:                                               ; preds = %28
   %32 = getelementptr i8, ptr %3, i64 8
-  %.val26 = load ptr, ptr %32, align 8, !tbaa !44
+  %.val26 = load ptr, ptr %32, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %.val26, i64 88
-  %34 = load ptr, ptr %33, align 8, !tbaa !47
+  %34 = load ptr, ptr %33, align 8, !tbaa !49
   %.not.i27 = icmp eq ptr %34, null
   br i1 %.not.i27, label %splittingStep_CheckNVector.exit.thread, label %splittingStep_CheckNVector.exit
 
 splittingStep_CheckNVector.exit:                  ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %.val26, i64 120
-  %36 = load ptr, ptr %35, align 8, !tbaa !49
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
   %.not33 = icmp eq ptr %36, null
   br i1 %.not33, label %splittingStep_CheckNVector.exit.thread, label %.thread
 
@@ -260,7 +260,7 @@ declare void @ARKodeFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -20, 1) i32 @splittingStep_InitStepMem(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !50
+  %5 = load ptr, ptr %1, align 8, !tbaa !52
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -272,7 +272,7 @@ define internal fastcc range(i32 -20, 1) i32 @splittingStep_InitStepMem(ptr noun
   %8 = sext i32 %3 to i64
   %9 = shl nsw i64 %8, 3
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
-  store ptr %10, ptr %1, align 8, !tbaa !50
+  store ptr %10, ptr %1, align 8, !tbaa !52
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
@@ -283,7 +283,7 @@ define internal fastcc range(i32 -20, 1) i32 @splittingStep_InitStepMem(ptr noun
 13:                                               ; preds = %7
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 8 %2, i64 %9, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !51
+  %15 = load ptr, ptr %14, align 8, !tbaa !53
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %17, label %16
 
@@ -293,7 +293,7 @@ define internal fastcc range(i32 -20, 1) i32 @splittingStep_InitStepMem(ptr noun
 
 17:                                               ; preds = %16, %13
   %18 = tail call noalias ptr @calloc(i64 noundef %8, i64 noundef 8) #14
-  store ptr %18, ptr %14, align 8, !tbaa !51
+  store ptr %18, ptr %14, align 8, !tbaa !53
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !8
   %.not22 = icmp eq i32 %20, %3
@@ -326,7 +326,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %9 = load i32, ptr %8, align 8, !tbaa !52
+  %9 = load i32, ptr %8, align 8, !tbaa !54
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.preheader, label %.critedge
 
@@ -337,7 +337,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
   br i1 %.not3148, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = load ptr, ptr %5, align 8, !tbaa !50
+  %13 = load ptr, ptr %5, align 8, !tbaa !52
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %14
 
@@ -348,7 +348,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !36
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !53
+  %20 = load ptr, ptr %19, align 8, !tbaa !55
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %24
 
@@ -360,7 +360,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
 24:                                               ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %14
+  br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !56
 
 .critedge:                                        ; preds = %24, %.preheader, %7
   %25 = add i32 %2, -1
@@ -369,7 +369,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
 
 26:                                               ; preds = %.critedge
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %28 = load i32, ptr %27, align 8, !tbaa !54
+  %28 = load i32, ptr %27, align 8, !tbaa !57
   %.not32 = icmp eq i32 %28, 0
   br i1 %.not32, label %29, label %30
 
@@ -379,7 +379,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !55
+  %32 = load ptr, ptr %31, align 8, !tbaa !58
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %61
 
@@ -426,7 +426,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
 
 59:                                               ; preds = %54, %50, %43, %37
   %.sink.i = phi ptr [ %46, %43 ], [ %58, %54 ], [ %53, %50 ], [ %40, %37 ]
-  store ptr %.sink.i, ptr %31, align 8, !tbaa !55
+  store ptr %.sink.i, ptr %31, align 8, !tbaa !58
   %60 = icmp eq ptr %.sink.i, null
   br i1 %60, label %splittingStep_SetCoefficients.exit, label %61
 
@@ -437,13 +437,13 @@ splittingStep_SetCoefficients.exit:               ; preds = %59
 61:                                               ; preds = %30, %59
   %62 = phi ptr [ %32, %30 ], [ %.sink.i, %59 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 28
-  %64 = load i32, ptr %63, align 4, !tbaa !56
+  %64 = load i32, ptr %63, align 4, !tbaa !59
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  %66 = load i32, ptr %65, align 4, !tbaa !60
+  %66 = load i32, ptr %65, align 4, !tbaa !63
   %67 = add nsw i32 %64, -1
   %68 = tail call i32 @llvm.smin.i32(i32 %66, i32 %67)
   %spec.select = tail call i32 @llvm.smax.i32(i32 %68, i32 1)
-  store i32 %spec.select, ptr %65, align 4, !tbaa !60
+  store i32 %spec.select, ptr %65, align 4, !tbaa !63
   br label %69
 
 69:                                               ; preds = %splittingStep_SetCoefficients.exit, %22, %splittingStep_AccessStepMem.exit, %.critedge, %61, %29
@@ -474,7 +474,7 @@ splittingStep_AccessStepMem.exit.thread:          ; preds = %5
 
 12:                                               ; preds = %.lr.ph, %splittingStep_AccessStepMem.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %splittingStep_AccessStepMem.exit ]
-  %13 = load ptr, ptr %7, align 8, !tbaa !50
+  %13 = load ptr, ptr %7, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !34
   %16 = icmp eq i64 %indvars.iv, 0
@@ -486,13 +486,13 @@ splittingStep_AccessStepMem.exit.thread:          ; preds = %5
   br i1 %.not25, label %splittingStep_AccessStepMem.exit, label %23
 
 .thread:                                          ; preds = %12
-  %19 = load ptr, ptr %11, align 8, !tbaa !61
+  %19 = load ptr, ptr %11, align 8, !tbaa !64
   %20 = tail call i32 @SUNStepper_FullRhs(ptr noundef %15, double noundef %1, ptr noundef %2, ptr noundef %19, i32 noundef 2) #12
   %.not2532 = icmp eq i32 %20, 0
   br i1 %.not2532, label %21, label %23
 
 21:                                               ; preds = %.thread
-  %22 = load ptr, ptr %11, align 8, !tbaa !61
+  %22 = load ptr, ptr %11, align 8, !tbaa !64
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef 1.000000e+00, ptr noundef %22, ptr noundef %3) #12
   br label %splittingStep_AccessStepMem.exit
 
@@ -505,7 +505,7 @@ splittingStep_AccessStepMem.exit:                 ; preds = %21, %17
   %24 = load i32, ptr %9, align 8, !tbaa !8
   %25 = sext i32 %24 to i64
   %.not27 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %.not27, label %12, label %.loopexit
+  br i1 %.not27, label %12, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %splittingStep_AccessStepMem.exit, %splittingStep_AccessStepMem.exit.preheader, %23, %splittingStep_AccessStepMem.exit.thread
   %.0 = phi i32 [ -21, %splittingStep_AccessStepMem.exit.thread ], [ -8, %23 ], [ 0, %splittingStep_AccessStepMem.exit.preheader ], [ 0, %splittingStep_AccessStepMem.exit ]
@@ -524,34 +524,34 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
   br label %.loopexit
 
 7:                                                ; preds = %3
-  store i32 0, ptr %2, align 4, !tbaa !62
-  store double 0.000000e+00, ptr %1, align 8, !tbaa !63
+  store i32 0, ptr %2, align 4, !tbaa !66
+  store double 0.000000e+00, ptr %1, align 8, !tbaa !67
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %11 = load ptr, ptr %10, align 8, !tbaa !64
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %13 = load ptr, ptr %12, align 8, !tbaa !65
+  %13 = load ptr, ptr %12, align 8, !tbaa !69
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %11, ptr noundef %13) #12
-  %14 = load ptr, ptr %12, align 8, !tbaa !65
+  %14 = load ptr, ptr %12, align 8, !tbaa !69
   %15 = tail call fastcc i32 @splittingStep_SequentialMethod(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %14)
   %.not37 = icmp eq i32 %15, 0
   br i1 %.not37, label %16, label %.loopexit
 
 16:                                               ; preds = %7
-  %17 = load ptr, ptr %9, align 8, !tbaa !66
-  %18 = load double, ptr %17, align 8, !tbaa !63
+  %17 = load ptr, ptr %9, align 8, !tbaa !70
+  %18 = load double, ptr %17, align 8, !tbaa !67
   %19 = fcmp une double %18, 1.000000e+00
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr %12, align 8, !tbaa !65
+  %21 = load ptr, ptr %12, align 8, !tbaa !69
   tail call void @N_VScale(double noundef %18, ptr noundef %21, ptr noundef %21) #12
   br label %22
 
 22:                                               ; preds = %20, %16
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !67
+  %24 = load i32, ptr %23, align 8, !tbaa !71
   %.not3947 = icmp sgt i32 %24, 1
   br i1 %.not3947, label %.lr.ph, label %.loopexit
 
@@ -561,27 +561,27 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
 
 26:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %32 ]
-  %27 = load ptr, ptr %10, align 8, !tbaa !64
-  %28 = load ptr, ptr %25, align 8, !tbaa !61
+  %27 = load ptr, ptr %10, align 8, !tbaa !68
+  %28 = load ptr, ptr %25, align 8, !tbaa !64
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %27, ptr noundef %28) #12
-  %29 = load ptr, ptr %25, align 8, !tbaa !61
+  %29 = load ptr, ptr %25, align 8, !tbaa !64
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = tail call fastcc i32 @splittingStep_SequentialMethod(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %30, ptr noundef %29)
   %.not38 = icmp eq i32 %31, 0
   br i1 %.not38, label %32, label %.loopexit
 
 32:                                               ; preds = %26
-  %33 = load ptr, ptr %12, align 8, !tbaa !65
-  %34 = load ptr, ptr %9, align 8, !tbaa !66
+  %33 = load ptr, ptr %12, align 8, !tbaa !69
+  %34 = load ptr, ptr %9, align 8, !tbaa !70
   %35 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
-  %36 = load double, ptr %35, align 8, !tbaa !63
-  %37 = load ptr, ptr %25, align 8, !tbaa !61
+  %36 = load double, ptr %35, align 8, !tbaa !67
+  %37 = load ptr, ptr %25, align 8, !tbaa !64
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %33, double noundef %36, ptr noundef %37, ptr noundef %33) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = load i32, ptr %23, align 8, !tbaa !67
+  %38 = load i32, ptr %23, align 8, !tbaa !71
   %39 = sext i32 %38 to i64
   %.not39 = icmp slt i64 %indvars.iv.next, %39
-  br i1 %.not39, label %26, label %.loopexit
+  br i1 %.not39, label %26, label %.loopexit, !llvm.loop !72
 
 .loopexit:                                        ; preds = %26, %32, %22, %splittingStep_AccessStepMem.exit, %7
   %.031 = phi i32 [ -21, %splittingStep_AccessStepMem.exit ], [ %15, %7 ], [ 0, %22 ], [ %31, %26 ], [ 0, %32 ]
@@ -627,29 +627,29 @@ splittingStep_AccessStepMem.exit:                 ; preds = %3
 
 16:                                               ; preds = %.lr.ph28, %16
   %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %16 ]
-  %17 = load ptr, ptr %15, align 8, !tbaa !51
+  %17 = load ptr, ptr %15, align 8, !tbaa !53
   %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv31
-  %19 = load i64, ptr %18, align 8, !tbaa !68
+  %19 = load i64, ptr %18, align 8, !tbaa !73
   %20 = trunc nuw nsw i64 %indvars.iv31 to i32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, i32 noundef %20, i64 noundef %19) #12
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %22 = load i32, ptr %12, align 8, !tbaa !8
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next32, %23
-  br i1 %24, label %16, label %.loopexit
+  br i1 %24, label %16, label %.loopexit, !llvm.loop !74
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = load ptr, ptr %11, align 8, !tbaa !51
+  %26 = load ptr, ptr %11, align 8, !tbaa !53
   %27 = getelementptr inbounds nuw i64, ptr %26, i64 %indvars.iv
-  %28 = load i64, ptr %27, align 8, !tbaa !68
+  %28 = load i64, ptr %27, align 8, !tbaa !73
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24, i32 noundef %29, i64 noundef %28) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i32, ptr %8, align 8, !tbaa !8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %25, label %.loopexit
+  br i1 %33, label %25, label %.loopexit, !llvm.loop !75
 
 34:                                               ; preds = %7
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 381, ptr noundef nonnull @__func__.splittingStep_PrintAllStats, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25) #12
@@ -690,7 +690,7 @@ define internal void @splittingStep_Free(ptr noundef captures(none) %0) #0 {
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr %3, align 8, !tbaa !50
+  %5 = load ptr, ptr %3, align 8, !tbaa !52
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %7, label %6
 
@@ -700,7 +700,7 @@ define internal void @splittingStep_Free(ptr noundef captures(none) %0) #0 {
 
 7:                                                ; preds = %6, %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %11, label %10
 
@@ -748,22 +748,22 @@ splittingStep_AccessStepMem.exit:                 ; preds = %2
 ._crit_edge:                                      ; preds = %19, %6
   %16 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 29, i64 1, ptr %1)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !55
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   tail call void @SplittingStepCoefficients_Write(ptr noundef %18, ptr noundef %1) #12
   br label %28
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = load ptr, ptr %15, align 8, !tbaa !51
+  %20 = load ptr, ptr %15, align 8, !tbaa !53
   %21 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv
-  %22 = load i64, ptr %21, align 8, !tbaa !68
+  %22 = load i64, ptr %21, align 8, !tbaa !73
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %23, i64 noundef %22) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %7, align 8, !tbaa !8
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %19, label %._crit_edge
+  br i1 %27, label %19, label %._crit_edge, !llvm.loop !76
 
 28:                                               ; preds = %splittingStep_AccessStepMem.exit, %._crit_edge
   ret void
@@ -844,7 +844,7 @@ define i32 @SplittingStepReInit(ptr noundef %0, ptr noundef readonly captures(ad
 
 splittingStep_AccessARKODEStepMem.exit:           ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %14 = load i32, ptr %13, align 8, !tbaa !69
+  %14 = load i32, ptr %13, align 8, !tbaa !77
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %17
 
@@ -903,7 +903,7 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load i32, ptr %13, align 8, !tbaa !8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i32, ptr %15, align 8, !tbaa !70
+  %16 = load i32, ptr %15, align 8, !tbaa !78
   %.not11 = icmp eq i32 %14, %16
   br i1 %.not11, label %18, label %17
 
@@ -915,7 +915,7 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @SplittingStepCoefficients_Destroy(ptr noundef nonnull %19) #12
   %20 = tail call ptr @SplittingStepCoefficients_Copy(ptr noundef nonnull %1) #12
-  store ptr %20, ptr %19, align 8, !tbaa !55
+  store ptr %20, ptr %19, align 8, !tbaa !58
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %splittingStep_AccessARKODEStepMem.exit.thread
 
@@ -966,13 +966,13 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %6
   br i1 %15, label %16, label %25
 
 16:                                               ; preds = %14
-  store i64 0, ptr %2, align 8, !tbaa !68
+  store i64 0, ptr %2, align 8, !tbaa !73
   %17 = icmp sgt i32 %12, 0
   br i1 %17, label %.lr.ph, label %splittingStep_AccessARKODEStepMem.exit.thread
 
 .lr.ph:                                           ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %19 = load ptr, ptr %18, align 8, !tbaa !51
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %20
 
@@ -980,20 +980,20 @@ splittingStep_AccessARKODEStepMem.exit:           ; preds = %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = phi i64 [ 0, %.lr.ph ], [ %24, %20 ]
   %22 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !68
+  %23 = load i64, ptr %22, align 8, !tbaa !73
   %24 = add nsw i64 %21, %23
-  store i64 %24, ptr %2, align 8, !tbaa !68
+  store i64 %24, ptr %2, align 8, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %splittingStep_AccessARKODEStepMem.exit.thread, label %20
+  br i1 %exitcond.not, label %splittingStep_AccessARKODEStepMem.exit.thread, label %20, !llvm.loop !79
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
   %28 = zext nneg i32 %1 to i64
   %29 = getelementptr inbounds nuw i64, ptr %27, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !68
-  store i64 %30, ptr %2, align 8, !tbaa !68
+  %30 = load i64, ptr %29, align 8, !tbaa !73
+  store i64 %30, ptr %2, align 8, !tbaa !73
   br label %splittingStep_AccessARKODEStepMem.exit.thread
 
 splittingStep_AccessARKODEStepMem.exit.thread:    ; preds = %20, %16, %10, %5, %25, %13
@@ -1026,9 +1026,9 @@ declare void @N_VScale(double noundef, ptr noundef, ptr noundef) local_unnamed_a
 define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !55
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !71
+  %9 = load i32, ptr %8, align 4, !tbaa !80
   %.not5868 = icmp sgt i32 %9, 0
   br i1 %.not5868, label %.preheader.lr.ph, label %.thread
 
@@ -1039,7 +1039,7 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load i32, ptr %10, align 8, !tbaa !70
+  %16 = load i32, ptr %10, align 8, !tbaa !78
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.preheader, label %.thread
 
@@ -1054,26 +1054,26 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
 .lr.ph:                                           ; preds = %.preheader, %.thread61
   %21 = phi i32 [ %55, %.thread61 ], [ %19, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread61 ], [ 0, %.preheader ]
-  %22 = load ptr, ptr %11, align 8, !tbaa !72
+  %22 = load ptr, ptr %11, align 8, !tbaa !81
   %23 = getelementptr inbounds ptr, ptr %22, i64 %12
-  %24 = load ptr, ptr %23, align 8, !tbaa !73
+  %24 = load ptr, ptr %23, align 8, !tbaa !82
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv73
-  %26 = load ptr, ptr %25, align 8, !tbaa !75
+  %26 = load ptr, ptr %25, align 8, !tbaa !84
   %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
-  %28 = load double, ptr %27, align 8, !tbaa !63
+  %28 = load double, ptr %27, align 8, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !75
+  %30 = load ptr, ptr %29, align 8, !tbaa !84
   %31 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
-  %32 = load double, ptr %31, align 8, !tbaa !63
+  %32 = load double, ptr %31, align 8, !tbaa !67
   %33 = fcmp oeq double %28, %32
   br i1 %33, label %.thread61, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = load double, ptr %13, align 8, !tbaa !76
-  %36 = load double, ptr %14, align 8, !tbaa !77
+  %35 = load double, ptr %13, align 8, !tbaa !85
+  %36 = load double, ptr %14, align 8, !tbaa !86
   %37 = call double @llvm.fmuladd.f64(double %28, double %36, double %35)
   %38 = call double @llvm.fmuladd.f64(double %32, double %36, double %35)
-  %39 = load ptr, ptr %1, align 8, !tbaa !50
+  %39 = load ptr, ptr %1, align 8, !tbaa !52
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !34
   %42 = call i32 @SUNStepper_Reset(ptr noundef %41, double noundef %37, ptr noundef %3) #12
@@ -1093,7 +1093,7 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
 
 48:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store double 0.000000e+00, ptr %5, align 8, !tbaa !63
+  store double 0.000000e+00, ptr %5, align 8, !tbaa !67
   %49 = call i32 @SUNStepper_Evolve(ptr noundef %41, double noundef %38, ptr noundef %3, ptr noundef nonnull %5) #12
   %.not57 = icmp eq i32 %49, 0
   br i1 %.not57, label %50, label %.thread63
@@ -1103,13 +1103,13 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   br label %.thread
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr %15, align 8, !tbaa !51
+  %51 = load ptr, ptr %15, align 8, !tbaa !53
   %52 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv
-  %53 = load i64, ptr %52, align 8, !tbaa !68
+  %53 = load i64, ptr %52, align 8, !tbaa !73
   %54 = add nsw i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !68
+  store i64 %54, ptr %52, align 8, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
-  %.pre = load i32, ptr %10, align 8, !tbaa !70
+  %.pre = load i32, ptr %10, align 8, !tbaa !78
   br label %.thread61
 
 .thread61:                                        ; preds = %.lr.ph, %50
@@ -1117,10 +1117,10 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = sext i32 %55 to i64
   %.not59 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %.not59, label %.lr.ph, label %.critedge.loopexit
+  br i1 %.not59, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !87
 
 .critedge.loopexit:                               ; preds = %.thread61
-  %.pre76 = load i32, ptr %8, align 4, !tbaa !71
+  %.pre76 = load i32, ptr %8, align 4, !tbaa !80
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
@@ -1130,7 +1130,7 @@ define internal fastcc range(i32 -51, 1) i32 @splittingStep_SequentialMethod(ptr
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %60 = sext i32 %57 to i64
   %.not58 = icmp slt i64 %indvars.iv.next74, %60
-  br i1 %.not58, label %.preheader, label %.thread, !llvm.loop !78
+  br i1 %.not58, label %.preheader, label %.thread, !llvm.loop !88
 
 .thread:                                          ; preds = %.critedge, %46, %43, %34, %.preheader.lr.ph, %4, %.thread63
   %spec.select = phi i32 [ -51, %.thread63 ], [ 0, %4 ], [ 0, %.preheader.lr.ph ], [ -51, %34 ], [ -51, %43 ], [ -51, %46 ], [ 0, %.critedge ]
@@ -1227,39 +1227,49 @@ attributes #14 = { nounwind allocsize(0,1) }
 !41 = !{!40, !5, i64 24}
 !42 = !{!40, !5, i64 32}
 !43 = !{!40, !5, i64 40}
-!44 = !{!45, !46, i64 8}
-!45 = !{!"_generic_N_Vector", !5, i64 0, !46, i64 8, !17, i64 16}
-!46 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
-!47 = !{!48, !5, i64 88}
-!48 = !{!"_generic_N_Vector_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !5, i64 416, !5, i64 424, !5, i64 432, !5, i64 440}
-!49 = !{!48, !5, i64 120}
-!50 = !{!9, !10, i64 0}
-!51 = !{!9, !12, i64 16}
-!52 = !{!16, !13, i64 672}
-!53 = !{!40, !5, i64 16}
-!54 = !{!16, !13, i64 768}
-!55 = !{!9, !11, i64 8}
-!56 = !{!57, !13, i64 28}
-!57 = !{!"SplittingStepCoefficientsMem", !58, i64 0, !59, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
-!58 = !{!"p1 double", !5, i64 0}
-!59 = !{!"p3 double", !5, i64 0}
-!60 = !{!16, !13, i64 676}
-!61 = !{!16, !19, i64 616}
-!62 = !{!13, !13, i64 0}
-!63 = !{!18, !18, i64 0}
-!64 = !{!16, !19, i64 592}
-!65 = !{!16, !19, i64 584}
-!66 = !{!57, !58, i64 0}
-!67 = !{!57, !13, i64 16}
-!68 = !{!22, !22, i64 0}
-!69 = !{!16, !13, i64 960}
-!70 = !{!57, !13, i64 24}
-!71 = !{!57, !13, i64 20}
-!72 = !{!57, !59, i64 8}
-!73 = !{!74, !74, i64 0}
-!74 = !{!"p2 double", !5, i64 0}
-!75 = !{!58, !58, i64 0}
-!76 = !{!16, !18, i64 896}
-!77 = !{!16, !18, i64 704}
-!78 = distinct !{!78, !79}
-!79 = !{!"llvm.loop.unswitch.partial.disable"}
+!44 = distinct !{!44, !45}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!47, !48, i64 8}
+!47 = !{!"_generic_N_Vector", !5, i64 0, !48, i64 8, !17, i64 16}
+!48 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
+!49 = !{!50, !5, i64 88}
+!50 = !{!"_generic_N_Vector_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !5, i64 416, !5, i64 424, !5, i64 432, !5, i64 440}
+!51 = !{!50, !5, i64 120}
+!52 = !{!9, !10, i64 0}
+!53 = !{!9, !12, i64 16}
+!54 = !{!16, !13, i64 672}
+!55 = !{!40, !5, i64 16}
+!56 = distinct !{!56, !45}
+!57 = !{!16, !13, i64 768}
+!58 = !{!9, !11, i64 8}
+!59 = !{!60, !13, i64 28}
+!60 = !{!"SplittingStepCoefficientsMem", !61, i64 0, !62, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28}
+!61 = !{!"p1 double", !5, i64 0}
+!62 = !{!"p3 double", !5, i64 0}
+!63 = !{!16, !13, i64 676}
+!64 = !{!16, !19, i64 616}
+!65 = distinct !{!65, !45}
+!66 = !{!13, !13, i64 0}
+!67 = !{!18, !18, i64 0}
+!68 = !{!16, !19, i64 592}
+!69 = !{!16, !19, i64 584}
+!70 = !{!60, !61, i64 0}
+!71 = !{!60, !13, i64 16}
+!72 = distinct !{!72, !45}
+!73 = !{!22, !22, i64 0}
+!74 = distinct !{!74, !45}
+!75 = distinct !{!75, !45}
+!76 = distinct !{!76, !45}
+!77 = !{!16, !13, i64 960}
+!78 = !{!60, !13, i64 24}
+!79 = distinct !{!79, !45}
+!80 = !{!60, !13, i64 20}
+!81 = !{!60, !62, i64 8}
+!82 = !{!83, !83, i64 0}
+!83 = !{!"p2 double", !5, i64 0}
+!84 = !{!61, !61, i64 0}
+!85 = !{!16, !18, i64 896}
+!86 = !{!16, !18, i64 704}
+!87 = distinct !{!87, !45}
+!88 = distinct !{!88, !45, !89}
+!89 = !{!"llvm.loop.unswitch.partial.disable"}

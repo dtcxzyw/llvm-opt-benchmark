@@ -1173,19 +1173,19 @@ _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; 
 
 107:                                              ; preds = %105, %._crit_edge
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 3018
-  %109 = load i8, ptr %108, align 2, !tbaa !114, !range !13, !noundef !14
+  %109 = load i8, ptr %108, align 2, !tbaa !115, !range !13, !noundef !14
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %.preheader47, label %.loopexit
 
 .preheader47:                                     ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %112 = load i32, ptr %111, align 8, !tbaa !115
+  %112 = load i32, ptr %111, align 8, !tbaa !116
   %113 = icmp sgt i32 %112, 0
   br i1 %113, label %.lr.ph50, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph50, %.preheader47
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %115 = load i32, ptr %114, align 8, !tbaa !116
+  %115 = load i32, ptr %114, align 8, !tbaa !117
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %.lr.ph52, label %.loopexit
 
@@ -1196,10 +1196,10 @@ _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; 
   %118 = trunc nuw nsw i64 %indvars.iv54 to i32
   call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.08.0.copyload, ptr noundef nonnull @.str.18, i32 noundef %118)
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %119 = load i32, ptr %111, align 8, !tbaa !115
+  %119 = load i32, ptr %111, align 8, !tbaa !116
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next55, %120
-  br i1 %121, label %.lr.ph50, label %.preheader, !llvm.loop !117
+  br i1 %121, label %.lr.ph50, label %.preheader, !llvm.loop !118
 
 .lr.ph52:                                         ; preds = %.preheader, %.lr.ph52
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph52 ], [ 0, %.preheader ]
@@ -1227,35 +1227,35 @@ _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; 
   %132 = trunc nuw nsw i64 %indvars.iv57 to i32
   call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i, ptr noundef nonnull @.str.18, i32 noundef %132)
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %133 = load i32, ptr %114, align 8, !tbaa !116
+  %133 = load i32, ptr %114, align 8, !tbaa !117
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next58, %134
-  br i1 %135, label %.lr.ph52, label %.loopexit, !llvm.loop !118
+  br i1 %135, label %.lr.ph52, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %.lr.ph52, %.preheader, %107
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %137 = load i32, ptr %136, align 8, !tbaa !119
+  %137 = load i32, ptr %136, align 8, !tbaa !120
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %137, ptr noundef nonnull @.str.19)
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %139 = load i32, ptr %138, align 4, !tbaa !120
-  %140 = load i32, ptr %136, align 8, !tbaa !119
+  %139 = load i32, ptr %138, align 4, !tbaa !121
+  %140 = load i32, ptr %136, align 8, !tbaa !120
   %141 = add nsw i32 %140, %139
-  store i32 %141, ptr %136, align 8, !tbaa !119
+  store i32 %141, ptr %136, align 8, !tbaa !120
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %141, ptr noundef nonnull @.str.20)
-  %142 = load i32, ptr %138, align 4, !tbaa !120
-  %143 = load i32, ptr %136, align 8, !tbaa !119
+  %142 = load i32, ptr %138, align 4, !tbaa !121
+  %143 = load i32, ptr %136, align 8, !tbaa !120
   %144 = add nsw i32 %143, %142
-  store i32 %144, ptr %136, align 8, !tbaa !119
+  store i32 %144, ptr %136, align 8, !tbaa !120
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %146 = load float, ptr %145, align 8, !tbaa !121
+  %146 = load float, ptr %145, align 8, !tbaa !122
   %147 = fpext float %146 to double
   %148 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %149 = load i32, ptr %148, align 4, !tbaa !122
+  %149 = load i32, ptr %148, align 4, !tbaa !123
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %144, ptr noundef nonnull @.str.21, double noundef %147, i32 noundef %149)
-  %150 = load i32, ptr %138, align 4, !tbaa !120
-  %151 = load i32, ptr %136, align 8, !tbaa !119
+  %150 = load i32, ptr %138, align 4, !tbaa !121
+  %151 = load i32, ptr %136, align 8, !tbaa !120
   %152 = add nsw i32 %151, %150
-  store i32 %152, ptr %136, align 8, !tbaa !119
+  store i32 %152, ptr %136, align 8, !tbaa !120
   %153 = load i16, ptr %26, align 8, !tbaa !97
   switch i16 %153, label %193 [
     i16 1, label %154
@@ -1312,10 +1312,10 @@ _ZN13ShapeDistance27ComputeSimplexWitnessPointsEP6b2Vec2S1_PK9b2Simplex.exit: ; 
   br label %193
 
 193:                                              ; preds = %.loopexit, %161, %174, %154
-  %194 = load i32, ptr %138, align 4, !tbaa !120
-  %195 = load i32, ptr %136, align 8, !tbaa !119
+  %194 = load i32, ptr %138, align 4, !tbaa !121
+  %195 = load i32, ptr %136, align 8, !tbaa !120
   %196 = add nsw i32 %195, %194
-  store i32 %196, ptr %136, align 8, !tbaa !119
+  store i32 %196, ptr %136, align 8, !tbaa !120
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %3) #24
   ret void
@@ -1335,24 +1335,24 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   %.sroa.10 = alloca %struct.b2Vec2, align 8
   %.sroa.12 = alloca %struct.b2Vec2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
+  %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !124
   %8 = sitofp i32 %7 to float
   %9 = fadd float %8, -3.100000e+02
   %10 = fadd float %9, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !124
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !125
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %10, ptr %11, align 4, !tbaa !126
+  store float %10, ptr %11, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %12, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %12, align 4, !tbaa !127
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store float 2.400000e+02, ptr %4, align 4, !tbaa !124
+  store float 2.400000e+02, ptr %4, align 4, !tbaa !125
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 3.100000e+02, ptr %13, align 4, !tbaa !126
+  store float 3.100000e+02, ptr %13, align 4, !tbaa !127
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %14 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.1, ptr noundef null, i32 noundef 6)
@@ -1373,7 +1373,7 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.1218)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %21 = load float, ptr %20, align 8, !tbaa !88
-  call void @llvm.experimental.noalias.scope.decl(metadata !127)
+  call void @llvm.experimental.noalias.scope.decl(metadata !128)
   store i64 0, ptr %.sroa.716, align 8
   store i64 0, ptr %.sroa.1017, align 8
   store i64 0, ptr %.sroa.1218, align 8
@@ -1386,26 +1386,26 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %24 = load i64, ptr %23, align 8, !noalias !127
+  %24 = load i64, ptr %23, align 8, !noalias !128
   br label %.sink.split.sink.split.i
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %27 = load i64, ptr %26, align 8, !noalias !127
+  %27 = load i64, ptr %26, align 8, !noalias !128
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %29 = load i64, ptr %28, align 8, !noalias !127
-  store i64 %29, ptr %.sroa.716, align 8, !alias.scope !127
+  %29 = load i64, ptr %28, align 8, !noalias !128
+  store i64 %29, ptr %.sroa.716, align 8, !alias.scope !128
   br label %.sink.split.sink.split.i
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %32 = load i64, ptr %31, align 8, !noalias !127
+  %32 = load i64, ptr %31, align 8, !noalias !128
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %34 = load i64, ptr %33, align 8, !noalias !127
-  store i64 %34, ptr %.sroa.716, align 8, !alias.scope !127
+  %34 = load i64, ptr %33, align 8, !noalias !128
+  store i64 %34, ptr %.sroa.716, align 8, !alias.scope !128
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %36 = load i64, ptr %35, align 8, !noalias !127
-  store i64 %36, ptr %.sroa.1017, align 8, !alias.scope !127
+  %36 = load i64, ptr %35, align 8, !noalias !128
+  store i64 %36, ptr %.sroa.1017, align 8, !alias.scope !128
   br label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %30, %25, %22
@@ -1414,8 +1414,8 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance8UpdateUIEv(ptr noundef no
   %.sink6.i.sroa.phi = phi ptr [ %.sroa.716, %22 ], [ %.sroa.1017, %25 ], [ %.sroa.1218, %30 ]
   %.sink.ph.i = phi i32 [ 2, %22 ], [ 3, %25 ], [ 4, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i
-  %38 = load i64, ptr %37, align 8, !noalias !127
-  store i64 %38, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !127
+  %38 = load i64, ptr %37, align 8, !noalias !128
+  store i64 %38, ptr %.sink6.i.sroa.phi, align 8, !alias.scope !128
   %.sroa.716.0..sroa.716.0..pre = load i64, ptr %.sroa.716, align 8
   %.sroa.1017.0..sroa.1017.0..pre = load i64, ptr %.sroa.1017, align 8
   %.sroa.1218.0..sroa.1218.0..pre = load i64, ptr %.sroa.1218, align 8
@@ -1457,7 +1457,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
 43:                                               ; preds = %40
   %44 = load float, ptr %41, align 8, !tbaa !88
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 644
-  store float %44, ptr %45, align 4, !tbaa !130
+  store float %44, ptr %45, align 4, !tbaa !131
   br label %46
 
 46:                                               ; preds = %43, %40
@@ -1475,7 +1475,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.12)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 572
   %53 = load float, ptr %52, align 4, !tbaa !89
-  call void @llvm.experimental.noalias.scope.decl(metadata !131)
+  call void @llvm.experimental.noalias.scope.decl(metadata !132)
   store i64 0, ptr %.sroa.7, align 8
   store i64 0, ptr %.sroa.10, align 8
   store i64 0, ptr %.sroa.12, align 8
@@ -1488,26 +1488,26 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %56 = load i64, ptr %55, align 8, !noalias !131
+  %56 = load i64, ptr %55, align 8, !noalias !132
   br label %.sink.split.sink.split.i3
 
 57:                                               ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %59 = load i64, ptr %58, align 8, !noalias !131
+  %59 = load i64, ptr %58, align 8, !noalias !132
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %61 = load i64, ptr %60, align 8, !noalias !131
-  store i64 %61, ptr %.sroa.7, align 8, !alias.scope !131
+  %61 = load i64, ptr %60, align 8, !noalias !132
+  store i64 %61, ptr %.sroa.7, align 8, !alias.scope !132
   br label %.sink.split.sink.split.i3
 
 62:                                               ; preds = %50
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %64 = load i64, ptr %63, align 8, !noalias !131
+  %64 = load i64, ptr %63, align 8, !noalias !132
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %66 = load i64, ptr %65, align 8, !noalias !131
-  store i64 %66, ptr %.sroa.7, align 8, !alias.scope !131
+  %66 = load i64, ptr %65, align 8, !noalias !132
+  store i64 %66, ptr %.sroa.7, align 8, !alias.scope !132
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %68 = load i64, ptr %67, align 8, !noalias !131
-  store i64 %68, ptr %.sroa.10, align 8, !alias.scope !131
+  %68 = load i64, ptr %67, align 8, !noalias !132
+  store i64 %68, ptr %.sroa.10, align 8, !alias.scope !132
   br label %.sink.split.sink.split.i3
 
 .sink.split.sink.split.i3:                        ; preds = %62, %57, %54
@@ -1516,8 +1516,8 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit: ; preds = %.sink.split.sink.s
   %.sink6.i5.sroa.phi = phi ptr [ %.sroa.7, %54 ], [ %.sroa.10, %57 ], [ %.sroa.12, %62 ]
   %.sink.ph.i6 = phi i32 [ 2, %54 ], [ 3, %57 ], [ 4, %62 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink7.i4
-  %70 = load i64, ptr %69, align 8, !noalias !131
-  store i64 %70, ptr %.sink6.i5.sroa.phi, align 8, !alias.scope !131
+  %70 = load i64, ptr %69, align 8, !noalias !132
+  store i64 %70, ptr %.sink6.i5.sroa.phi, align 8, !alias.scope !132
   %.sroa.7.0..sroa.7.0..pre = load i64, ptr %.sroa.7, align 8
   %.sroa.10.0..sroa.10.0..pre = load i64, ptr %.sroa.10, align 8
   %.sroa.12.0..sroa.12.0..pre = load i64, ptr %.sroa.12, align 8
@@ -1559,7 +1559,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9: ; preds = %.sink.split.sink.
 75:                                               ; preds = %72
   %76 = load float, ptr %73, align 4, !tbaa !89
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  store float %76, ptr %77, align 4, !tbaa !134
+  store float %76, ptr %77, align 4, !tbaa !135
   br label %78
 
 78:                                               ; preds = %75, %72
@@ -1573,7 +1573,7 @@ _ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf.exit9: ; preds = %.sink.split.sink.
   br i1 %84, label %85, label %89
 
 85:                                               ; preds = %78
-  %86 = load float, ptr %83, align 8, !tbaa !135
+  %86 = load float, ptr %83, align 8, !tbaa !136
   %87 = call <2 x float> @b2ComputeCosSin(float noundef %86)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2984
   store <2 x float> %87, ptr %88, align 8
@@ -1642,7 +1642,7 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance9MouseDownE6b2Vec2ii(ptr n
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3016
-  store i8 1, ptr %12, align 8, !tbaa !136
+  store i8 1, ptr %12, align 8, !tbaa !137
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 3004
   store <2 x float> %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2976
@@ -1660,13 +1660,13 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance9MouseDownE6b2Vec2ii(ptr n
   br i1 %or.cond8, label %22, label %27
 
 22:                                               ; preds = %17
-  store i8 1, ptr %8, align 1, !tbaa !137
+  store i8 1, ptr %8, align 1, !tbaa !138
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 3004
   store <2 x float> %1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 2992
-  %25 = load float, ptr %24, align 8, !tbaa !135
+  %25 = load float, ptr %24, align 8, !tbaa !136
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 3012
-  store float %25, ptr %26, align 4, !tbaa !138
+  store float %25, ptr %26, align 4, !tbaa !139
   br label %27
 
 27:                                               ; preds = %11, %22, %17, %4
@@ -1680,9 +1680,9 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance7MouseUpE6b2Vec2i(ptr noun
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3016
-  store i8 0, ptr %6, align 8, !tbaa !136
+  store i8 0, ptr %6, align 8, !tbaa !137
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3017
-  store i8 0, ptr %7, align 1, !tbaa !137
+  store i8 0, ptr %7, align 1, !tbaa !138
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -1692,53 +1692,53 @@ define linkonce_odr dso_local void @_ZN13ShapeDistance7MouseUpE6b2Vec2i(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN13ShapeDistance9MouseMoveE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(3021) %0, <2 x float> %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3016
-  %4 = load i8, ptr %3, align 8, !tbaa !136, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 8, !tbaa !137, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2996
-  %8 = load float, ptr %7, align 4, !tbaa !139
+  %8 = load float, ptr %7, align 4, !tbaa !140
   %.sroa.02.0.vec.extract = extractelement <2 x float> %1, i64 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 3004
-  %10 = load float, ptr %9, align 4, !tbaa !140
+  %10 = load float, ptr %9, align 4, !tbaa !141
   %11 = fsub float %.sroa.02.0.vec.extract, %10
   %12 = fmul float %11, 5.000000e-01
   %13 = fadd float %8, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2976
-  store float %13, ptr %14, align 8, !tbaa !141
+  store float %13, ptr %14, align 8, !tbaa !142
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 3000
-  %16 = load float, ptr %15, align 8, !tbaa !142
+  %16 = load float, ptr %15, align 8, !tbaa !143
   %.sroa.02.4.vec.extract = extractelement <2 x float> %1, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 3008
-  %18 = load float, ptr %17, align 8, !tbaa !143
+  %18 = load float, ptr %17, align 8, !tbaa !144
   %19 = fsub float %.sroa.02.4.vec.extract, %18
   %20 = fmul float %19, 5.000000e-01
   %21 = fadd float %16, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2980
-  store float %21, ptr %22, align 4, !tbaa !144
+  store float %21, ptr %22, align 4, !tbaa !145
   br label %41
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3017
-  %25 = load i8, ptr %24, align 1, !tbaa !137, !range !13, !noundef !14
+  %25 = load i8, ptr %24, align 1, !tbaa !138, !range !13, !noundef !14
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %41
 
 27:                                               ; preds = %23
   %.sroa.02.0.vec.extract4 = extractelement <2 x float> %1, i64 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3004
-  %29 = load float, ptr %28, align 4, !tbaa !140
+  %29 = load float, ptr %28, align 4, !tbaa !141
   %30 = fsub float %.sroa.02.0.vec.extract4, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3012
-  %32 = load float, ptr %31, align 4, !tbaa !138
+  %32 = load float, ptr %31, align 4, !tbaa !139
   %33 = fadd float %32, %30
   %34 = fcmp olt float %33, 0xC00921FB60000000
   %35 = fcmp ogt float %33, 0x400921FB60000000
   %36 = select i1 %35, float 0x400921FB60000000, float %33
   %37 = select i1 %34, float 0xC00921FB60000000, float %36
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 2992
-  store float %37, ptr %38, align 8, !tbaa !135
+  store float %37, ptr %38, align 8, !tbaa !136
   %39 = tail call <2 x float> @b2ComputeCosSin(float noundef %37)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 2984
   store <2 x float> %39, ptr %40, align 8
@@ -1918,7 +1918,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   store i32 0, ptr %20, align 8, !tbaa !45
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #24
   call void @b2DynamicTree_Create(ptr dead_on_unwind nonnull writable sret(%struct.b2DynamicTree) align 8 %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false), !tbaa.struct !145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %2, i64 72, i1 false), !tbaa.struct !146
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2) #24
   %21 = load i32, ptr %8, align 8, !tbaa !46
   %22 = icmp sgt i32 %21, 0
@@ -1964,7 +1964,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %36 = fadd float %.060, %33
   %37 = add nuw nsw i32 %.05059, 1
   %38 = icmp slt i32 %37, %32
-  br i1 %38, label %.preheader, label %._crit_edge61, !llvm.loop !150
+  br i1 %38, label %.preheader, label %._crit_edge61, !llvm.loop !151
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %114
   %39 = phi i32 [ %115, %114 ], [ %29, %.lr.ph.preheader ]
@@ -2035,9 +2035,9 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %. = select i1 %93, float %94, float %81
   %.69 = select i1 %93, float %81, float %94
   %95 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store float %., ptr %95, align 4, !tbaa !152
+  store float %., ptr %95, align 4, !tbaa !153
   %96 = getelementptr inbounds nuw i8, ptr %56, i64 44
-  store float %.69, ptr %96, align 4, !tbaa !155
+  store float %.69, ptr %96, align 4, !tbaa !156
   store float %.05158, ptr %56, align 4, !tbaa !15
   %.sroa.49.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 4
   store float %.060, ptr %.sroa.49.0..sroa_idx, align 4, !tbaa !15
@@ -2068,13 +2068,13 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %106 = load i32, ptr %17, align 8, !tbaa !40
   %107 = call i32 @b2DynamicTree_CreateProxy(ptr noundef nonnull %3, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.02.4.vec.insert.i56, i64 noundef 1, i32 noundef %106)
   %108 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store i32 %107, ptr %108, align 4, !tbaa !156
+  store i32 %107, ptr %108, align 4, !tbaa !157
   %109 = getelementptr inbounds nuw i8, ptr %56, i64 52
-  store i32 -1, ptr %109, align 4, !tbaa !157
+  store i32 -1, ptr %109, align 4, !tbaa !158
   %110 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  store i32 -1, ptr %110, align 4, !tbaa !158
+  store i32 -1, ptr %110, align 4, !tbaa !159
   %111 = getelementptr inbounds nuw i8, ptr %56, i64 60
-  store i8 0, ptr %111, align 4, !tbaa !159
+  store i8 0, ptr %111, align 4, !tbaa !160
   %112 = load i32, ptr %17, align 8, !tbaa !40
   %113 = add nsw i32 %112, 1
   store i32 %113, ptr %17, align 8, !tbaa !40
@@ -2089,7 +2089,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %118 = fadd float %.05158, %117
   %119 = add nuw nsw i32 %.05257, 1
   %120 = icmp slt i32 %119, %115
-  br i1 %120, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !160
+  br i1 %120, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !161
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2147,7 +2147,7 @@ _ZN11DynamicTreeD2Ev.exit:                        ; preds = %1
 define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(403) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) unnamed_addr #2 comdat align 2 {
   %3 = alloca %struct.b2RayCastInput, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 401
-  %5 = load i8, ptr %4, align 1, !tbaa !161, !range !13, !noundef !14
+  %5 = load i8, ptr %4, align 1, !tbaa !162, !range !13, !noundef !14
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %20
 
@@ -2179,7 +2179,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
 
 20:                                               ; preds = %7, %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %22 = load i8, ptr %21, align 8, !tbaa !162, !range !13, !noundef !14
+  %22 = load i8, ptr %21, align 8, !tbaa !163, !range !13, !noundef !14
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %38
 
@@ -2195,7 +2195,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %.sroa.02.4.vec.insert.i120 = fsub <2 x float> %.sroa.091.0.copyload, %.sroa.090.0.copyload.cast
   store <2 x float> %.sroa.02.4.vec.insert.i120, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float 1.000000e+00, ptr %29, align 8, !tbaa !163
+  store float 1.000000e+00, ptr %29, align 8, !tbaa !164
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %31 = call i64 @b2DynamicTree_RayCast(ptr noundef nonnull %30, ptr noundef nonnull %3, i64 noundef -1, ptr noundef nonnull @_ZL11RayCallbackPK14b2RayCastInputiiPv, ptr noundef nonnull %0)
   %.sroa.089.0.extract.trunc = trunc i64 %31 to i32
@@ -2209,13 +2209,13 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %.sroa.085.0.copyload = load <2 x float>, ptr %28, align 8
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.085.0.copyload, float noundef 5.000000e+00, i32 noundef 16711680)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load i32, ptr %32, align 8, !tbaa !119
+  %33 = load i32, ptr %32, align 8, !tbaa !120
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %33, ptr noundef nonnull @.str.42, i32 noundef %.sroa.089.0.extract.trunc, i32 noundef %.sroa.4.0.extract.trunc)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %35 = load i32, ptr %34, align 4, !tbaa !120
-  %36 = load i32, ptr %32, align 8, !tbaa !119
+  %35 = load i32, ptr %34, align 4, !tbaa !121
+  %36 = load i32, ptr %32, align 8, !tbaa !120
   %37 = add nsw i32 %36, %35
-  store i32 %37, ptr %32, align 8, !tbaa !119
+  store i32 %37, ptr %32, align 8, !tbaa !120
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #24
   br label %38
 
@@ -2265,14 +2265,14 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %56 = load ptr, ptr %42, align 8, !tbaa !39
   %57 = getelementptr inbounds nuw %struct.Proxy, ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %59 = load i32, ptr %58, align 4, !tbaa !158
+  %59 = load i32, ptr %58, align 4, !tbaa !159
   %60 = load i32, ptr %43, align 4, !tbaa !48
   %61 = icmp eq i32 %59, %60
   br i1 %61, label %66, label %62
 
 62:                                               ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 52
-  %64 = load i32, ptr %63, align 4, !tbaa !157
+  %64 = load i32, ptr %63, align 4, !tbaa !158
   %65 = icmp eq i32 %64, %60
   %spec.select = select i1 %65, i32 32768, i32 255
   br label %66
@@ -2326,28 +2326,28 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %103 = fadd float %102, -1.000000e+00
   %104 = fmul float %103, %80
   %105 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %106 = load float, ptr %105, align 4, !tbaa !165
+  %106 = load float, ptr %105, align 4, !tbaa !166
   %107 = fadd float %92, %106
-  store float %107, ptr %105, align 4, !tbaa !165
+  store float %107, ptr %105, align 4, !tbaa !166
   %108 = getelementptr inbounds nuw i8, ptr %57, i64 36
-  %109 = load float, ptr %108, align 4, !tbaa !166
+  %109 = load float, ptr %108, align 4, !tbaa !167
   %110 = fadd float %104, %109
-  store float %110, ptr %108, align 4, !tbaa !166
+  store float %110, ptr %108, align 4, !tbaa !167
   %111 = fadd float %92, %107
-  store float %111, ptr %57, align 4, !tbaa !167
+  store float %111, ptr %57, align 4, !tbaa !168
   %112 = fadd float %104, %110
   %113 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store float %112, ptr %113, align 4, !tbaa !168
+  store float %112, ptr %113, align 4, !tbaa !169
   %114 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %115 = load float, ptr %114, align 4, !tbaa !152
+  %115 = load float, ptr %114, align 4, !tbaa !153
   %116 = fadd float %111, %115
   %117 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store float %116, ptr %117, align 4, !tbaa !169
+  store float %116, ptr %117, align 4, !tbaa !170
   %118 = getelementptr inbounds nuw i8, ptr %57, i64 44
-  %119 = load float, ptr %118, align 4, !tbaa !155
+  %119 = load float, ptr %118, align 4, !tbaa !156
   %120 = fadd float %112, %119
   %121 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store float %120, ptr %121, align 4, !tbaa !170
+  store float %120, ptr %121, align 4, !tbaa !171
   %122 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %.sroa.040.0.copyload = load <2 x float>, ptr %122, align 4
   %.sroa.241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 24
@@ -2387,12 +2387,12 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
 135:                                              ; preds = %66, %79, %130
   %.sink155 = phi i8 [ 1, %130 ], [ 0, %79 ], [ 0, %66 ]
   %136 = getelementptr inbounds nuw i8, ptr %57, i64 60
-  store i8 %.sink155, ptr %136, align 4, !tbaa !159
+  store i8 %.sink155, ptr %136, align 4, !tbaa !160
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %137 = load i32, ptr %39, align 8, !tbaa !40
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next, %138
-  br i1 %139, label %55, label %._crit_edge, !llvm.loop !171
+  br i1 %139, label %55, label %._crit_edge, !llvm.loop !172
 
 140:                                              ; preds = %._crit_edge
   %141 = call i64 @b2GetTicks()
@@ -2408,14 +2408,14 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
 ._crit_edge142:                                   ; preds = %165, %140
   %146 = call float @b2GetMilliseconds(i64 noundef %141)
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %148 = load i32, ptr %147, align 8, !tbaa !119
+  %148 = load i32, ptr %147, align 8, !tbaa !120
   %149 = fpext float %146 to double
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %148, ptr noundef nonnull @.str.43, double noundef %149)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %151 = load i32, ptr %150, align 4, !tbaa !120
-  %152 = load i32, ptr %147, align 8, !tbaa !119
+  %151 = load i32, ptr %150, align 4, !tbaa !121
+  %152 = load i32, ptr %147, align 8, !tbaa !120
   %153 = add nsw i32 %152, %151
-  store i32 %153, ptr %147, align 8, !tbaa !119
+  store i32 %153, ptr %147, align 8, !tbaa !120
   br label %221
 
 154:                                              ; preds = %.lr.ph141, %165
@@ -2424,13 +2424,13 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %156 = load ptr, ptr %144, align 8, !tbaa !39
   %157 = getelementptr inbounds nuw %struct.Proxy, ptr %156, i64 %indvars.iv150
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 60
-  %159 = load i8, ptr %158, align 4, !tbaa !159, !range !13, !noundef !14
+  %159 = load i8, ptr %158, align 4, !tbaa !160, !range !13, !noundef !14
   %160 = trunc nuw i8 %159 to i1
   br i1 %160, label %161, label %165
 
 161:                                              ; preds = %154
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 48
-  %163 = load i32, ptr %162, align 4, !tbaa !156
+  %163 = load i32, ptr %162, align 4, !tbaa !157
   %164 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %.sroa.023.0.copyload = load <2 x float>, ptr %164, align 4
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %157, i64 24
@@ -2444,7 +2444,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next151, %167
-  br i1 %168, label %154, label %._crit_edge142, !llvm.loop !172
+  br i1 %168, label %154, label %._crit_edge142, !llvm.loop !173
 
 ._crit_edge138:                                   ; preds = %191, %.preheader
   %169 = call i64 @b2GetTicks()
@@ -2452,14 +2452,14 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %171 = call i32 @b2DynamicTree_Rebuild(ptr noundef nonnull %170, i1 noundef zeroext true)
   %172 = call float @b2GetMilliseconds(i64 noundef %169)
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %174 = load i32, ptr %173, align 8, !tbaa !119
+  %174 = load i32, ptr %173, align 8, !tbaa !120
   %175 = fpext float %172 to double
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %174, ptr noundef nonnull @.str.44, i32 noundef %171, double noundef %175)
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %177 = load i32, ptr %176, align 4, !tbaa !120
-  %178 = load i32, ptr %173, align 8, !tbaa !119
+  %177 = load i32, ptr %176, align 4, !tbaa !121
+  %178 = load i32, ptr %173, align 8, !tbaa !120
   %179 = add nsw i32 %178, %177
-  store i32 %179, ptr %173, align 8, !tbaa !119
+  store i32 %179, ptr %173, align 8, !tbaa !120
   br label %221
 
 180:                                              ; preds = %.lr.ph137, %191
@@ -2468,13 +2468,13 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %182 = load ptr, ptr %53, align 8, !tbaa !39
   %183 = getelementptr inbounds nuw %struct.Proxy, ptr %182, i64 %indvars.iv147
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 60
-  %185 = load i8, ptr %184, align 4, !tbaa !159, !range !13, !noundef !14
+  %185 = load i8, ptr %184, align 4, !tbaa !160, !range !13, !noundef !14
   %186 = trunc nuw i8 %185 to i1
   br i1 %186, label %187, label %191
 
 187:                                              ; preds = %180
   %188 = getelementptr inbounds nuw i8, ptr %183, i64 48
-  %189 = load i32, ptr %188, align 4, !tbaa !156
+  %189 = load i32, ptr %188, align 4, !tbaa !157
   %190 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %.sroa.014.0.copyload = load <2 x float>, ptr %190, align 4
   %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 24
@@ -2488,7 +2488,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %193 = sext i32 %192 to i64
   %194 = icmp slt i64 %indvars.iv.next148, %193
-  br i1 %194, label %180, label %._crit_edge138, !llvm.loop !173
+  br i1 %194, label %180, label %._crit_edge138, !llvm.loop !174
 
 ._crit_edge135:                                   ; preds = %217, %.preheader131
   %195 = call i64 @b2GetTicks()
@@ -2496,14 +2496,14 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %197 = call i32 @b2DynamicTree_Rebuild(ptr noundef nonnull %196, i1 noundef zeroext false)
   %198 = call float @b2GetMilliseconds(i64 noundef %195)
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %200 = load i32, ptr %199, align 8, !tbaa !119
+  %200 = load i32, ptr %199, align 8, !tbaa !120
   %201 = fpext float %198 to double
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %200, ptr noundef nonnull @.str.45, i32 noundef %197, double noundef %201)
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %203 = load i32, ptr %202, align 4, !tbaa !120
-  %204 = load i32, ptr %199, align 8, !tbaa !119
+  %203 = load i32, ptr %202, align 4, !tbaa !121
+  %204 = load i32, ptr %199, align 8, !tbaa !120
   %205 = add nsw i32 %204, %203
-  store i32 %205, ptr %199, align 8, !tbaa !119
+  store i32 %205, ptr %199, align 8, !tbaa !120
   br label %221
 
 206:                                              ; preds = %.lr.ph134, %217
@@ -2512,13 +2512,13 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %208 = load ptr, ptr %50, align 8, !tbaa !39
   %209 = getelementptr inbounds nuw %struct.Proxy, ptr %208, i64 %indvars.iv144
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 60
-  %211 = load i8, ptr %210, align 4, !tbaa !159, !range !13, !noundef !14
+  %211 = load i8, ptr %210, align 4, !tbaa !160, !range !13, !noundef !14
   %212 = trunc nuw i8 %211 to i1
   br i1 %212, label %213, label %217
 
 213:                                              ; preds = %206
   %214 = getelementptr inbounds nuw i8, ptr %209, i64 48
-  %215 = load i32, ptr %214, align 4, !tbaa !156
+  %215 = load i32, ptr %214, align 4, !tbaa !157
   %216 = getelementptr inbounds nuw i8, ptr %209, i64 16
   %.sroa.0.0.copyload = load <2 x float>, ptr %216, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %209, i64 24
@@ -2532,7 +2532,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %219 = sext i32 %218 to i64
   %220 = icmp slt i64 %indvars.iv.next145, %219
-  br i1 %220, label %206, label %._crit_edge135, !llvm.loop !174
+  br i1 %220, label %206, label %._crit_edge135, !llvm.loop !175
 
 221:                                              ; preds = %._crit_edge, %._crit_edge135, %._crit_edge138, %._crit_edge142
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -2546,15 +2546,15 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %230 = call float @llvm.ceil.f32(float %229)
   %231 = fptosi float %230 to i32
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %233 = load i32, ptr %232, align 8, !tbaa !119
+  %233 = load i32, ptr %232, align 8, !tbaa !120
   %234 = load i32, ptr %39, align 8, !tbaa !40
   %235 = fpext float %224 to double
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %233, ptr noundef nonnull @.str.46, i32 noundef %234, i32 noundef %223, i32 noundef %231, double noundef %235)
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %237 = load i32, ptr %236, align 4, !tbaa !120
-  %238 = load i32, ptr %232, align 8, !tbaa !119
+  %237 = load i32, ptr %236, align 4, !tbaa !121
+  %238 = load i32, ptr %232, align 8, !tbaa !120
   %239 = add nsw i32 %238, %237
-  store i32 %239, ptr %232, align 8, !tbaa !119
+  store i32 %239, ptr %232, align 8, !tbaa !120
   call void @b2DynamicTree_Validate(ptr noundef nonnull %222)
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %241 = load i32, ptr %240, align 4, !tbaa !48
@@ -2569,24 +2569,24 @@ define linkonce_odr dso_local void @_ZN11DynamicTree8UpdateUIEv(ptr noundef nonn
   %3 = alloca %struct.ImVec2, align 4
   %4 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !124
   %6 = sitofp i32 %5 to float
   %7 = fadd float %6, -3.200000e+02
   %8 = fadd float %7, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !124
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !125
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %8, ptr %9, align 4, !tbaa !126
+  store float %8, ptr %9, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %10, align 4, !tbaa !127
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store float 2.000000e+02, ptr %4, align 4, !tbaa !124
+  store float 2.000000e+02, ptr %4, align 4, !tbaa !125
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 3.200000e+02, ptr %11, align 4, !tbaa !126
+  store float 3.200000e+02, ptr %11, align 4, !tbaa !127
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %12 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.3, ptr noundef null, i32 noundef 6)
@@ -2685,7 +2685,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9MouseDownE6b2Vec2ii(ptr nou
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store i8 1, ptr %12, align 8, !tbaa !162
+  store i8 1, ptr %12, align 8, !tbaa !163
   br label %.sink.split
 
 13:                                               ; preds = %6
@@ -2697,7 +2697,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9MouseDownE6b2Vec2ii(ptr nou
   br i1 %or.cond10, label %18, label %21
 
 18:                                               ; preds = %13
-  store i8 1, ptr %8, align 1, !tbaa !161
+  store i8 1, ptr %8, align 1, !tbaa !162
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %11
@@ -2718,9 +2718,9 @@ define linkonce_odr dso_local void @_ZN11DynamicTree7MouseUpE6b2Vec2i(ptr nounde
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 401
-  store i8 0, ptr %6, align 1, !tbaa !161
+  store i8 0, ptr %6, align 1, !tbaa !162
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store i8 0, ptr %7, align 8, !tbaa !162
+  store i8 0, ptr %7, align 8, !tbaa !163
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -2768,7 +2768,7 @@ define internal noundef zeroext i1 @_ZL13QueryCallbackiiPv(i32 %0, i32 noundef %
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 356
   %8 = load i32, ptr %7, align 4, !tbaa !48
   %9 = getelementptr inbounds %struct.Proxy, ptr %5, i64 %6, i32 6
-  store i32 %8, ptr %9, align 4, !tbaa !158
+  store i32 %8, ptr %9, align 4, !tbaa !159
   ret i1 true
 }
 
@@ -2784,9 +2784,9 @@ define internal noundef float @_ZL11RayCallbackPK14b2RayCastInputiiPv(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 356
   %9 = load i32, ptr %8, align 4, !tbaa !48
   %10 = getelementptr inbounds %struct.Proxy, ptr %6, i64 %7, i32 5
-  store i32 %9, ptr %10, align 4, !tbaa !157
+  store i32 %9, ptr %10, align 4, !tbaa !158
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load float, ptr %11, align 4, !tbaa !163
+  %12 = load float, ptr %11, align 4, !tbaa !164
   ret float %12
 }
 
@@ -2890,7 +2890,7 @@ define linkonce_odr dso_local void @_ZN7RayCastC2ER8Settings(ptr noundef nonnull
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) @_ZL20b2Transform_identity, i64 16, i1 false), !tbaa.struct !51
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store float 0.000000e+00, ptr %21, align 8, !tbaa !175
+  store float 0.000000e+00, ptr %21, align 8, !tbaa !176
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 620
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 604
   store float 0.000000e+00, ptr %23, align 4, !tbaa !15
@@ -2971,7 +2971,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %.sroa.0160.0.copyload = load <2 x float>, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %20 = load float, ptr %19, align 8, !tbaa !179
+  %20 = load float, ptr %19, align 8, !tbaa !180
   tail call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.6168.8.copyload, <2 x float> %.sroa.0160.0.copyload, float noundef %20, i32 noundef 16776960)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 604
   %.sroa.0156.0.copyload = load <2 x float>, ptr %21, align 4
@@ -3009,16 +3009,16 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store <2 x float> %.sroa.010.4.vec.insert.i, ptr %42, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store float 1.000000e+00, ptr %43, align 8, !tbaa !163
+  store float 1.000000e+00, ptr %43, align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #24
   call void @b2RayCastCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %5, ptr noundef nonnull %4, ptr noundef nonnull %18)
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %45 = load i8, ptr %44, align 8, !tbaa !180, !range !13, !noundef !14
+  %45 = load i8, ptr %44, align 8, !tbaa !181, !range !13, !noundef !14
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %68
 
 47:                                               ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %5, i64 28, i1 false), !tbaa.struct !182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %5, i64 28, i1 false), !tbaa.struct !183
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0147.0.copyload = load <2 x float>, ptr %48, align 8
   %.sroa.0.0.vec.extract.i206 = extractelement <2 x float> %.sroa.0147.0.copyload, i64 0
@@ -3050,7 +3050,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %.sroa.010.4.vec.insert.i214 = insertelement <2 x float> %.sroa.010.0.vec.insert.i213, float %65, i64 1
   store <2 x float> %.sroa.010.4.vec.insert.i214, ptr %3, align 8
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %67 = load float, ptr %66, align 8, !tbaa !184
+  %67 = load float, ptr %66, align 8, !tbaa !185
   br label %68
 
 68:                                               ; preds = %47, %2
@@ -3096,7 +3096,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %.sroa.011.0.vec.insert.i229 = insertelement <2 x float> poison, float %86, i64 0
   %.sroa.011.4.vec.insert.i230 = insertelement <2 x float> %.sroa.011.0.vec.insert.i229, float %90, i64 1
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %92 = load float, ptr %91, align 4, !tbaa !185
+  %92 = load float, ptr %91, align 4, !tbaa !186
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i224, <2 x float> %.sroa.011.4.vec.insert.i230, float noundef %92, i32 noundef 16776960)
   %.sroa.0115.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.0.0.vec.extract.i231 = extractelement <2 x float> %.sroa.0115.0.copyload, i64 0
@@ -3130,16 +3130,16 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store <2 x float> %.sroa.010.4.vec.insert.i248, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store float %.0, ptr %113, align 8, !tbaa !163
+  store float %.0, ptr %113, align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #24
   call void @b2RayCastCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %7, ptr noundef nonnull %6, ptr noundef nonnull %71)
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %115 = load i8, ptr %114, align 8, !tbaa !180, !range !13, !noundef !14
+  %115 = load i8, ptr %114, align 8, !tbaa !181, !range !13, !noundef !14
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %117, label %138
 
 117:                                              ; preds = %68
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !183
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0106.0.copyload = load <2 x float>, ptr %118, align 8
   %.sroa.0.0.vec.extract.i250 = extractelement <2 x float> %.sroa.0106.0.copyload, i64 0
@@ -3171,7 +3171,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %.sroa.010.4.vec.insert.i260 = insertelement <2 x float> %.sroa.010.0.vec.insert.i259, float %135, i64 1
   store <2 x float> %.sroa.010.4.vec.insert.i260, ptr %3, align 8
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %137 = load float, ptr %136, align 8, !tbaa !184
+  %137 = load float, ptr %136, align 8, !tbaa !185
   br label %138
 
 138:                                              ; preds = %117, %68
@@ -3188,7 +3188,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %.sroa.695.8.copyload = load <2 x float>, ptr %17, align 8
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %143 = load i32, ptr %142, align 4, !tbaa !186
+  %143 = load i32, ptr %142, align 4, !tbaa !187
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i264, <2 x float> %.sroa.695.8.copyload, ptr noundef nonnull %141, i32 noundef %143, float noundef 0.000000e+00, i32 noundef 16776960)
   %.sroa.084.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.0.0.vec.extract.i265 = extractelement <2 x float> %.sroa.084.0.copyload, i64 0
@@ -3224,16 +3224,16 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %163 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store <2 x float> %.sroa.010.4.vec.insert.i282, ptr %163, align 8
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float %.1, ptr %164, align 8, !tbaa !163
+  store float %.1, ptr %164, align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #24
   call void @b2RayCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %9, ptr noundef nonnull %8, ptr noundef nonnull %141)
   %165 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %166 = load i8, ptr %165, align 8, !tbaa !180, !range !13, !noundef !14
+  %166 = load i8, ptr %165, align 8, !tbaa !181, !range !13, !noundef !14
   %167 = trunc nuw i8 %166 to i1
   br i1 %167, label %168, label %189
 
 168:                                              ; preds = %138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %9, i64 28, i1 false), !tbaa.struct !183
   %169 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.075.0.copyload = load <2 x float>, ptr %169, align 8
   %.sroa.0.0.vec.extract.i284 = extractelement <2 x float> %.sroa.075.0.copyload, i64 0
@@ -3265,7 +3265,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %.sroa.010.4.vec.insert.i294 = insertelement <2 x float> %.sroa.010.0.vec.insert.i293, float %186, i64 1
   store <2 x float> %.sroa.010.4.vec.insert.i294, ptr %3, align 8
   %187 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %188 = load float, ptr %187, align 8, !tbaa !184
+  %188 = load float, ptr %187, align 8, !tbaa !185
   br label %189
 
 189:                                              ; preds = %168, %138
@@ -3282,7 +3282,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %.sroa.6.8.copyload = load <2 x float>, ptr %17, align 8
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %194 = load i32, ptr %193, align 4, !tbaa !187
+  %194 = load i32, ptr %193, align 4, !tbaa !188
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i298, <2 x float> %.sroa.6.8.copyload, ptr noundef nonnull %192, i32 noundef %194, float noundef 0.000000e+00, i32 noundef 16776960)
   %.sroa.054.0.copyload = load <2 x float>, ptr %21, align 4
   %.sroa.0.0.vec.extract.i299 = extractelement <2 x float> %.sroa.054.0.copyload, i64 0
@@ -3318,16 +3318,16 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %214 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store <2 x float> %.sroa.010.4.vec.insert.i316, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store float %.2, ptr %215, align 8, !tbaa !163
+  store float %.2, ptr %215, align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %11) #24
   call void @b2RayCastPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %11, ptr noundef nonnull %10, ptr noundef nonnull %192)
   %216 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %217 = load i8, ptr %216, align 8, !tbaa !180, !range !13, !noundef !14
+  %217 = load i8, ptr %216, align 8, !tbaa !181, !range !13, !noundef !14
   %218 = trunc nuw i8 %217 to i1
   br i1 %218, label %219, label %240
 
 219:                                              ; preds = %189
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %11, i64 28, i1 false), !tbaa.struct !183
   %220 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.045.0.copyload = load <2 x float>, ptr %220, align 8
   %.sroa.0.0.vec.extract.i318 = extractelement <2 x float> %.sroa.045.0.copyload, i64 0
@@ -3359,7 +3359,7 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %.sroa.010.4.vec.insert.i328 = insertelement <2 x float> %.sroa.010.0.vec.insert.i327, float %237, i64 1
   store <2 x float> %.sroa.010.4.vec.insert.i328, ptr %3, align 8
   %238 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %239 = load float, ptr %238, align 8, !tbaa !184
+  %239 = load float, ptr %238, align 8, !tbaa !185
   br label %240
 
 240:                                              ; preds = %219, %189
@@ -3437,16 +3437,16 @@ define linkonce_odr dso_local void @_ZN7RayCast4StepER8Settings(ptr noundef nonn
   %282 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store <2 x float> %.sroa.010.4.vec.insert.i362, ptr %282, align 8
   %283 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store float %.3, ptr %283, align 8, !tbaa !163
+  store float %.3, ptr %283, align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %13) #24
   call void @b2RayCastSegment(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %13, ptr noundef nonnull %12, ptr noundef nonnull %243, i1 noundef zeroext false)
   %284 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %285 = load i8, ptr %284, align 8, !tbaa !180, !range !13, !noundef !14
+  %285 = load i8, ptr %284, align 8, !tbaa !181, !range !13, !noundef !14
   %286 = trunc nuw i8 %285 to i1
   br i1 %286, label %287, label %306
 
 287:                                              ; preds = %240
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %13, i64 28, i1 false), !tbaa.struct !182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 8 dereferenceable(28) %13, i64 28, i1 false), !tbaa.struct !183
   %288 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.06.0.copyload = load <2 x float>, ptr %288, align 8
   %.sroa.0.0.vec.extract.i364 = extractelement <2 x float> %.sroa.06.0.copyload, i64 0
@@ -3494,24 +3494,24 @@ define linkonce_odr dso_local void @_ZN7RayCast8UpdateUIEv(ptr noundef nonnull a
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !124
   %7 = sitofp i32 %6 to float
   %8 = fadd float %7, -2.300000e+02
   %9 = fadd float %8, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !124
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !125
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %9, ptr %10, align 4, !tbaa !126
+  store float %9, ptr %10, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !127
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store float 2.000000e+02, ptr %4, align 4, !tbaa !124
+  store float 2.000000e+02, ptr %4, align 4, !tbaa !125
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 2.300000e+02, ptr %12, align 4, !tbaa !126
+  store float 2.300000e+02, ptr %12, align 4, !tbaa !127
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %13 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.59, ptr noundef null, i32 noundef 6)
@@ -3525,7 +3525,7 @@ define linkonce_odr dso_local void @_ZN7RayCast8UpdateUIEv(ptr noundef nonnull a
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %1
-  %21 = load float, ptr %18, align 8, !tbaa !175
+  %21 = load float, ptr %18, align 8, !tbaa !176
   %22 = call <2 x float> @b2ComputeCosSin(float noundef %21)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store <2 x float> %22, ptr %23, align 8
@@ -3535,16 +3535,16 @@ define linkonce_odr dso_local void @_ZN7RayCast8UpdateUIEv(ptr noundef nonnull a
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 643
   %26 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.60, ptr noundef nonnull %25)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !125
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %27, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %27, align 4, !tbaa !127
   %28 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.61, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) @_ZL20b2Transform_identity, i64 16, i1 false), !tbaa.struct !51
-  store float 0.000000e+00, ptr %18, align 8, !tbaa !175
+  store float 0.000000e+00, ptr %18, align 8, !tbaa !176
   br label %30
 
 30:                                               ; preds = %29, %24
@@ -3575,12 +3575,12 @@ define linkonce_odr dso_local void @_ZN7RayCast9MouseDownE6b2Vec2ii(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 604
   store <2 x float> %1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i8 1, ptr %10, align 8, !tbaa !188
+  store i8 1, ptr %10, align 8, !tbaa !189
   br label %21
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 641
-  store i8 1, ptr %12, align 1, !tbaa !189
+  store i8 1, ptr %12, align 1, !tbaa !190
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 620
   %15 = load i64, ptr %13, align 8
@@ -3589,11 +3589,11 @@ define linkonce_odr dso_local void @_ZN7RayCast9MouseDownE6b2Vec2ii(ptr noundef 
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 642
-  store i8 1, ptr %17, align 2, !tbaa !190
+  store i8 1, ptr %17, align 2, !tbaa !191
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %19 = load float, ptr %18, align 8, !tbaa !175
+  %19 = load float, ptr %18, align 8, !tbaa !176
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 628
-  store float %19, ptr %20, align 4, !tbaa !191
+  store float %19, ptr %20, align 4, !tbaa !192
   br label %21
 
 21:                                               ; preds = %6, %8, %16, %11, %4
@@ -3607,11 +3607,11 @@ define linkonce_odr dso_local void @_ZN7RayCast7MouseUpE6b2Vec2i(ptr noundef non
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store i8 0, ptr %6, align 8, !tbaa !188
+  store i8 0, ptr %6, align 8, !tbaa !189
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 642
-  store i8 0, ptr %7, align 2, !tbaa !190
+  store i8 0, ptr %7, align 2, !tbaa !191
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 641
-  store i8 0, ptr %8, align 1, !tbaa !189
+  store i8 0, ptr %8, align 1, !tbaa !190
   br label %9
 
 9:                                                ; preds = %5, %3
@@ -3621,7 +3621,7 @@ define linkonce_odr dso_local void @_ZN7RayCast7MouseUpE6b2Vec2i(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7RayCast9MouseMoveE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(644) %0, <2 x float> %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %4 = load i8, ptr %3, align 8, !tbaa !188, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 8, !tbaa !189, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -3632,46 +3632,46 @@ define linkonce_odr dso_local void @_ZN7RayCast9MouseMoveE6b2Vec2(ptr noundef no
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 641
-  %10 = load i8, ptr %9, align 1, !tbaa !189, !range !13, !noundef !14
+  %10 = load i8, ptr %9, align 1, !tbaa !190, !range !13, !noundef !14
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %29
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %14 = load float, ptr %13, align 4, !tbaa !192
+  %14 = load float, ptr %13, align 4, !tbaa !193
   %.sroa.02.0.vec.extract = extractelement <2 x float> %1, i64 0
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %16 = load float, ptr %15, align 8, !tbaa !193
+  %16 = load float, ptr %15, align 8, !tbaa !194
   %17 = fsub float %.sroa.02.0.vec.extract, %16
   %18 = fmul float %17, 5.000000e-01
   %19 = fadd float %14, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store float %19, ptr %20, align 8, !tbaa !194
+  store float %19, ptr %20, align 8, !tbaa !195
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %22 = load float, ptr %21, align 8, !tbaa !195
+  %22 = load float, ptr %21, align 8, !tbaa !196
   %.sroa.02.4.vec.extract = extractelement <2 x float> %1, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  %24 = load float, ptr %23, align 4, !tbaa !196
+  %24 = load float, ptr %23, align 4, !tbaa !197
   %25 = fsub float %.sroa.02.4.vec.extract, %24
   %26 = fmul float %25, 5.000000e-01
   %27 = fadd float %22, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 588
-  store float %27, ptr %28, align 4, !tbaa !197
+  store float %27, ptr %28, align 4, !tbaa !198
   br label %48
 
 29:                                               ; preds = %8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 642
-  %31 = load i8, ptr %30, align 2, !tbaa !190, !range !13, !noundef !14
+  %31 = load i8, ptr %30, align 2, !tbaa !191, !range !13, !noundef !14
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %48
 
 33:                                               ; preds = %29
   %.sroa.02.0.vec.extract4 = extractelement <2 x float> %1, i64 0
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %35 = load float, ptr %34, align 8, !tbaa !193
+  %35 = load float, ptr %34, align 8, !tbaa !194
   %36 = fsub float %.sroa.02.0.vec.extract4, %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 628
-  %38 = load float, ptr %37, align 4, !tbaa !191
+  %38 = load float, ptr %37, align 4, !tbaa !192
   %39 = fmul float %36, 5.000000e-01
   %40 = fadd float %38, %39
   %41 = fcmp olt float %40, 0xC00921FB60000000
@@ -3679,7 +3679,7 @@ define linkonce_odr dso_local void @_ZN7RayCast9MouseMoveE6b2Vec2(ptr noundef no
   %43 = select i1 %42, float 0x400921FB60000000, float %40
   %44 = select i1 %41, float 0xC00921FB60000000, float %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store float %44, ptr %45, align 8, !tbaa !175
+  store float %44, ptr %45, align 8, !tbaa !176
   %46 = tail call <2 x float> @b2ComputeCosSin(float noundef %44)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store <2 x float> %46, ptr %47, align 8
@@ -3704,7 +3704,7 @@ define linkonce_odr dso_local void @_ZN7RayCast7DrawRayEPK12b2CastOutput(ptr nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 612
   %.sroa.025.0.copyload = load <2 x float>, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i8, ptr %5, align 4, !tbaa !180, !range !13, !noundef !14
+  %6 = load i8, ptr %5, align 4, !tbaa !181, !range !13, !noundef !14
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %30
 
@@ -3716,7 +3716,7 @@ define linkonce_odr dso_local void @_ZN7RayCast7DrawRayEPK12b2CastOutput(ptr nou
   %11 = fsub <2 x float> %.sroa.025.0.copyload, %.sroa.028.0.copyload
   %12 = extractelement <2 x float> %11, i64 0
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load float, ptr %13, align 4, !tbaa !184
+  %14 = load float, ptr %13, align 4, !tbaa !185
   %15 = fmul float %12, %14
   %16 = fadd float %.sroa.0.0.vec.extract.i, %15
   %.sroa.03.0.vec.insert.i = insertelement <2 x float> poison, float %16, i64 0
@@ -3737,7 +3737,7 @@ define linkonce_odr dso_local void @_ZN7RayCast7DrawRayEPK12b2CastOutput(ptr nou
   %.sroa.03.4.vec.insert.i46 = insertelement <2 x float> %.sroa.03.0.vec.insert.i43, float %21, i64 1
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.03.4.vec.insert.i, <2 x float> %.sroa.03.4.vec.insert.i46, i32 noundef 15631086)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 643
-  %23 = load i8, ptr %22, align 1, !tbaa !198, !range !13, !noundef !14
+  %23 = load i8, ptr %22, align 1, !tbaa !199, !range !13, !noundef !14
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %31
 
@@ -3746,7 +3746,7 @@ define linkonce_odr dso_local void @_ZN7RayCast7DrawRayEPK12b2CastOutput(ptr nou
   %.sroa.05.0.vec.insert = insertelement <2 x float> poison, float %26, i64 0
   %27 = fadd float %18, 0xBF947AE140000000
   %.sroa.05.4.vec.insert = insertelement <2 x float> %.sroa.05.0.vec.insert, float %27, i64 1
-  %28 = load float, ptr %13, align 4, !tbaa !184
+  %28 = load float, ptr %13, align 4, !tbaa !185
   %29 = fpext float %28 to double
   tail call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.05.4.vec.insert, ptr noundef nonnull @.str.31, double noundef %29)
   br label %31
@@ -3788,12 +3788,12 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
 .preheader86:                                     ; preds = %.preheader86.preheader, %.preheader86
   %.idx56 = phi i64 [ %.add57, %.preheader86 ], [ 764, %.preheader86.preheader ]
   %.ptr58 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx56
-  store i32 0, ptr %.ptr58, align 4, !tbaa !199
+  store i32 0, ptr %.ptr58, align 4, !tbaa !200
   %15 = getelementptr inbounds nuw i8, ptr %.ptr58, i64 4
-  store i8 0, ptr %15, align 4, !tbaa !201
+  store i8 0, ptr %15, align 4, !tbaa !202
   %.add57 = add nuw nsw i64 %.idx56, 8
   %16 = icmp eq i64 %.add57, 1276
-  br i1 %16, label %17, label %.preheader86
+  br i1 %16, label %17, label %.preheader86, !llvm.loop !203
 
 17:                                               ; preds = %.preheader86
   %.ptr74 = getelementptr inbounds nuw i8, ptr %0, i64 1276
@@ -3867,7 +3867,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(144) %34, ptr noundef nonnull align 4 dereferenceable(144) %10, i64 144, i1 false), !tbaa.struct !79
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %10) #24
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1556
-  store float 5.000000e-01, ptr %35, align 4, !tbaa !202
+  store float 5.000000e-01, ptr %35, align 4, !tbaa !204
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %9) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #24
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #24
@@ -3952,13 +3952,13 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %59, i8 0, i64 516, i1 false)
-  store i32 1, ptr %60, align 8, !tbaa !203
+  store i32 1, ptr %60, align 8, !tbaa !205
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 1908
-  store i32 7, ptr %61, align 4, !tbaa !206
+  store i32 7, ptr %61, align 4, !tbaa !208
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  store i32 0, ptr %62, align 8, !tbaa !207
+  store i32 0, ptr %62, align 8, !tbaa !209
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 1916
-  store float 5.000000e-01, ptr %63, align 4, !tbaa !208
+  store float 5.000000e-01, ptr %63, align 4, !tbaa !210
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 1940
   store float -2.000000e+01, ptr %64, align 4, !tbaa !15
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1944
@@ -3968,10 +3968,10 @@ define linkonce_odr dso_local void @_ZN12RayCastWorldC2ER8Settings(ptr noundef n
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1952
   store float 1.000000e+01, ptr %.sroa.42.0..sroa_idx, align 8, !tbaa !15
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 1956
-  store i8 0, ptr %66, align 4, !tbaa !209
+  store i8 0, ptr %66, align 4, !tbaa !211
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1900
-  store i8 0, ptr %68, align 4, !tbaa !210
+  store i8 0, ptr %68, align 4, !tbaa !212
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %67, i8 0, i64 17, i1 false)
   ret void
 
@@ -4093,19 +4093,19 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld4StepER8Settings(ptr nounde
   %7 = alloca %struct.b2Polygon, align 4
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i32, ptr %8, align 8, !tbaa !119
+  %9 = load i32, ptr %8, align 8, !tbaa !120
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %9, ptr noundef nonnull @.str.66)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %11 = load i32, ptr %10, align 4, !tbaa !120
-  %12 = load i32, ptr %8, align 8, !tbaa !119
+  %11 = load i32, ptr %10, align 4, !tbaa !121
+  %12 = load i32, ptr %8, align 8, !tbaa !120
   %13 = add nsw i32 %12, %11
-  store i32 %13, ptr %8, align 8, !tbaa !119
+  store i32 %13, ptr %8, align 8, !tbaa !120
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %13, ptr noundef nonnull @.str.67)
-  %14 = load i32, ptr %10, align 4, !tbaa !120
-  %15 = load i32, ptr %8, align 8, !tbaa !119
+  %14 = load i32, ptr %10, align 4, !tbaa !121
+  %15 = load i32, ptr %8, align 8, !tbaa !120
   %reass.add = shl i32 %14, 1
   %16 = add i32 %15, %reass.add
-  store i32 %16, ptr %8, align 8, !tbaa !119
+  store i32 %16, ptr %8, align 8, !tbaa !120
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1948
   %.sroa.0147.0.copyload = load <2 x float>, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1940
@@ -4116,16 +4116,16 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld4StepER8Settings(ptr nounde
   %22 = extractelement <2 x float> %21, i64 1
   %.sroa.02.4.vec.insert.i = shufflevector <2 x float> %19, <2 x float> %21, <2 x i32> <i32 0, i32 3>
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1900
-  %24 = load i8, ptr %23, align 4, !tbaa !210, !range !13, !noundef !14
+  %24 = load i8, ptr %23, align 4, !tbaa !212, !range !13, !noundef !14
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %52
 
 26:                                               ; preds = %2
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %16, ptr noundef nonnull @.str.68)
-  %27 = load i32, ptr %10, align 4, !tbaa !120
-  %28 = load i32, ptr %8, align 8, !tbaa !119
+  %27 = load i32, ptr %10, align 4, !tbaa !121
+  %28 = load i32, ptr %8, align 8, !tbaa !120
   %29 = add nsw i32 %28, %27
-  store i32 %29, ptr %8, align 8, !tbaa !119
+  store i32 %29, ptr %8, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.0145.0.copyload = load i32, ptr %30, align 4
@@ -4135,14 +4135,14 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld4StepER8Settings(ptr nounde
   %33 = extractvalue { i64, i64 } %31, 1
   call void @b2World_CastRayClosest(ptr dead_on_unwind nonnull writable sret(%struct.b2RayResult) align 4 %3, i32 %.sroa.0145.0.copyload, <2 x float> %.sroa.0144.0.copyload, <2 x float> %.sroa.02.4.vec.insert.i, i64 %32, i64 %33)
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %35 = load i8, ptr %34, align 4, !tbaa !211, !range !13, !noundef !14
+  %35 = load i8, ptr %34, align 4, !tbaa !213, !range !13, !noundef !14
   %36 = trunc nuw i8 %35 to i1
   %.sroa.0139.0.copyload = load <2 x float>, ptr %18, align 4
   br i1 %36, label %37, label %50
 
 37:                                               ; preds = %26
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %39 = load float, ptr %38, align 4, !tbaa !214
+  %39 = load float, ptr %38, align 4, !tbaa !216
   %.sroa.02.0.vec.extract.i = extractelement <2 x float> %.sroa.0139.0.copyload, i64 0
   %40 = fmul float %20, %39
   %41 = fadd float %.sroa.02.0.vec.extract.i, %40
@@ -4183,7 +4183,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld4StepER8Settings(ptr nounde
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 1904
-  %54 = load i32, ptr %53, align 8, !tbaa !203
+  %54 = load i32, ptr %53, align 8, !tbaa !205
   %55 = icmp ult i32 %54, 4
   br i1 %55, label %switch.lookup, label %57
 
@@ -4195,14 +4195,14 @@ switch.lookup:                                    ; preds = %52
   br label %57
 
 57:                                               ; preds = %52, %switch.lookup
-  %58 = load i32, ptr %10, align 4, !tbaa !120
-  %59 = load i32, ptr %8, align 8, !tbaa !119
+  %58 = load i32, ptr %10, align 4, !tbaa !121
+  %59 = load i32, ptr %8, align 8, !tbaa !120
   %60 = add nsw i32 %59, %58
-  store i32 %60, ptr %8, align 8, !tbaa !119
-  %61 = load i32, ptr %53, align 8, !tbaa !203
+  store i32 %60, ptr %8, align 8, !tbaa !120
+  %61 = load i32, ptr %53, align 8, !tbaa !205
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds [4 x ptr], ptr @__const._ZN12RayCastWorld4StepER8Settings.fcns, i64 0, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !215
+  %64 = load ptr, ptr %63, align 8, !tbaa !217
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -4217,8 +4217,8 @@ switch.lookup:                                    ; preds = %52
   store float 0.000000e+00, ptr %68, align 4, !tbaa !73
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 1916
-  %71 = load float, ptr %70, align 4, !tbaa !208
-  store float %71, ptr %69, align 4, !tbaa !216
+  %71 = load float, ptr %70, align 4, !tbaa !210
+  store float %71, ptr %69, align 4, !tbaa !218
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #24
   store float -2.500000e-01, ptr %6, align 8, !tbaa !72
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -4228,15 +4228,15 @@ switch.lookup:                                    ; preds = %52
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float 0.000000e+00, ptr %74, align 4, !tbaa !73
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store float %71, ptr %75, align 8, !tbaa !217
+  store float %71, ptr %75, align 8, !tbaa !219
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7) #24
   call void @b2MakeRoundedBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %7, float noundef 2.500000e-01, float noundef 5.000000e-01, float noundef %71)
   %.sroa.0108.0.copyload = load <2 x float>, ptr %18, align 4
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 1932
-  %77 = load float, ptr %76, align 4, !tbaa !218
+  %77 = load float, ptr %76, align 4, !tbaa !220
   %78 = call <2 x float> @b2ComputeCosSin(float noundef %77)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  %80 = load i32, ptr %79, align 8, !tbaa !207
+  %80 = load i32, ptr %79, align 8, !tbaa !209
   switch i32 %80, label %105 [
     i32 0, label %81
     i32 1, label %87
@@ -4283,7 +4283,7 @@ switch.lookup:                                    ; preds = %52
 
 105:                                              ; preds = %99, %93, %87, %81, %57
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %107 = load i32, ptr %106, align 4, !tbaa !219
+  %107 = load i32, ptr %106, align 4, !tbaa !221
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %.lr.ph, label %166
 
@@ -4337,7 +4337,7 @@ switch.lookup:                                    ; preds = %52
   %.sroa.02.0.vec.insert.i196 = insertelement <2 x float> poison, float %130, i64 0
   %131 = fadd float %.sroa.01.4.vec.extract.i197, %129
   %.sroa.02.4.vec.insert.i199 = insertelement <2 x float> %.sroa.02.0.vec.insert.i196, float %131, i64 1
-  %132 = load i32, ptr %79, align 8, !tbaa !207
+  %132 = load i32, ptr %79, align 8, !tbaa !209
   switch i32 %132, label %162 [
     i32 1, label %133
     i32 2, label %135
@@ -4345,7 +4345,7 @@ switch.lookup:                                    ; preds = %52
   ]
 
 133:                                              ; preds = %112
-  %134 = load float, ptr %70, align 4, !tbaa !208
+  %134 = load float, ptr %70, align 4, !tbaa !210
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i199, <2 x float> %78, <2 x float> zeroinitializer, float noundef %134, i32 noundef 16776960)
   br label %162
 
@@ -4382,22 +4382,22 @@ switch.lookup:                                    ; preds = %52
   %.sroa.02.0.vec.insert.i218 = insertelement <2 x float> poison, float %156, i64 0
   %157 = fadd float %129, %155
   %.sroa.02.4.vec.insert.i221 = insertelement <2 x float> %.sroa.02.0.vec.insert.i218, float %157, i64 1
-  %158 = load float, ptr %70, align 4, !tbaa !208
+  %158 = load float, ptr %70, align 4, !tbaa !210
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i207, <2 x float> %.sroa.02.4.vec.insert.i221, float noundef %158, i32 noundef 16776960)
   br label %162
 
 159:                                              ; preds = %112
-  %160 = load i32, ptr %110, align 4, !tbaa !221
-  %161 = load float, ptr %111, align 4, !tbaa !202
+  %160 = load i32, ptr %110, align 4, !tbaa !223
+  %161 = load float, ptr %111, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i199, <2 x float> %78, ptr noundef nonnull %7, i32 noundef %160, float noundef %161, i32 noundef 16776960)
   br label %162
 
 162:                                              ; preds = %112, %135, %159, %133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %163 = load i32, ptr %106, align 4, !tbaa !219
+  %163 = load i32, ptr %106, align 4, !tbaa !221
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next, %164
-  br i1 %165, label %112, label %.loopexit, !llvm.loop !222
+  br i1 %165, label %112, label %.loopexit, !llvm.loop !224
 
 166:                                              ; preds = %105
   %167 = fadd <2 x float> %19, %.sroa.0108.0.copyload
@@ -4407,7 +4407,7 @@ switch.lookup:                                    ; preds = %52
   %.sroa.025.0.copyload = load <2 x float>, ptr %18, align 4
   %.sroa.024.0.copyload = load <2 x float>, ptr %17, align 4
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.025.0.copyload, <2 x float> %.sroa.024.0.copyload, i32 noundef 13882323)
-  %169 = load i32, ptr %79, align 8, !tbaa !207
+  %169 = load i32, ptr %79, align 8, !tbaa !209
   switch i32 %169, label %.loopexit [
     i32 1, label %170
     i32 2, label %172
@@ -4415,7 +4415,7 @@ switch.lookup:                                    ; preds = %52
   ]
 
 170:                                              ; preds = %166
-  %171 = load float, ptr %70, align 4, !tbaa !208
+  %171 = load float, ptr %70, align 4, !tbaa !210
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i227, <2 x float> %78, <2 x float> zeroinitializer, float noundef %171, i32 noundef 8421504)
   br label %.loopexit
 
@@ -4455,15 +4455,15 @@ switch.lookup:                                    ; preds = %52
   %.sroa.02.0.vec.insert.i252 = insertelement <2 x float> poison, float %193, i64 0
   %194 = fadd float %22, %192
   %.sroa.02.4.vec.insert.i255 = insertelement <2 x float> %.sroa.02.0.vec.insert.i252, float %194, i64 1
-  %195 = load float, ptr %70, align 4, !tbaa !208
+  %195 = load float, ptr %70, align 4, !tbaa !210
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i241, <2 x float> %.sroa.02.4.vec.insert.i255, float noundef %195, i32 noundef 16776960)
   br label %.loopexit
 
 196:                                              ; preds = %166
   %197 = getelementptr inbounds nuw i8, ptr %7, i64 140
-  %198 = load i32, ptr %197, align 4, !tbaa !221
+  %198 = load i32, ptr %197, align 4, !tbaa !223
   %199 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %200 = load float, ptr %199, align 4, !tbaa !202
+  %200 = load float, ptr %199, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i227, <2 x float> %78, ptr noundef nonnull %7, i32 noundef %198, float noundef %200, i32 noundef 16776960)
   br label %.loopexit
 
@@ -4479,10 +4479,10 @@ switch.lookup:                                    ; preds = %52
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.05.0.copyload, float noundef 5.000000e+00, i32 noundef 32768)
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 1908
-  %204 = load i32, ptr %203, align 4, !tbaa !206
+  %204 = load i32, ptr %203, align 4, !tbaa !208
   %205 = sext i32 %204 to i64
   %206 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %202, i64 0, i64 %205
-  %207 = load i32, ptr %206, align 4, !tbaa !223
+  %207 = load i32, ptr %206, align 4, !tbaa !225
   %.not = icmp eq i32 %207, 0
   br i1 %.not, label %211, label %208
 
@@ -4524,30 +4524,30 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld8UpdateUIEv(ptr noundef non
   %22 = alloca %struct.ImVec2, align 4
   %23 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
+  %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !124
   %25 = sitofp i32 %24 to float
   %26 = fadd float %25, -3.000000e+02
   %27 = fadd float %26, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !124
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !125
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %27, ptr %28, align 4, !tbaa !126
+  store float %27, ptr %28, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %29, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %29, align 4, !tbaa !127
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store float 2.000000e+02, ptr %4, align 4, !tbaa !124
+  store float 2.000000e+02, ptr %4, align 4, !tbaa !125
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 3.000000e+02, ptr %30, align 4, !tbaa !126
+  store float 3.000000e+02, ptr %30, align 4, !tbaa !127
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %31 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.74, ptr noundef null, i32 noundef 6)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1900
   %33 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.75, ptr noundef nonnull %32)
-  %34 = load i8, ptr %32, align 4, !tbaa !210, !range !13, !noundef !14
+  %34 = load i8, ptr %32, align 4, !tbaa !212, !range !13, !noundef !14
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %54
 
@@ -4556,18 +4556,18 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld8UpdateUIEv(ptr noundef non
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN12RayCastWorld8UpdateUIEv.castTypes, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1912
-  %38 = load i32, ptr %37, align 8, !tbaa !207
+  %38 = load i32, ptr %37, align 8, !tbaa !209
   store i32 %38, ptr %6, align 4, !tbaa !64
   %39 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.80, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 4, i32 noundef -1)
   br i1 %39, label %40, label %thread-pre-split
 
 40:                                               ; preds = %36
   %41 = load i32, ptr %6, align 4, !tbaa !64
-  store i32 %41, ptr %37, align 8, !tbaa !207
+  store i32 %41, ptr %37, align 8, !tbaa !209
   br label %42
 
 thread-pre-split:                                 ; preds = %36
-  %.pr = load i32, ptr %37, align 8, !tbaa !207
+  %.pr = load i32, ptr %37, align 8, !tbaa !209
   br label %42
 
 42:                                               ; preds = %thread-pre-split, %40
@@ -4585,14 +4585,14 @@ thread-pre-split:                                 ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) @__const._ZN12RayCastWorld8UpdateUIEv.modes, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #24
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 1904
-  %49 = load i32, ptr %48, align 8, !tbaa !203
+  %49 = load i32, ptr %48, align 8, !tbaa !205
   store i32 %49, ptr %8, align 4, !tbaa !64
   %50 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.87, ptr noundef nonnull %8, ptr noundef nonnull %7, i32 noundef 4, i32 noundef -1)
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %47
   %52 = load i32, ptr %8, align 4, !tbaa !64
-  store i32 %52, ptr %48, align 8, !tbaa !203
+  store i32 %52, ptr %48, align 8, !tbaa !205
   br label %53
 
 53:                                               ; preds = %51, %47
@@ -4604,9 +4604,9 @@ thread-pre-split:                                 ; preds = %36
 
 54:                                               ; preds = %53, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #24
-  store float 0.000000e+00, ptr %9, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %9, align 4, !tbaa !125
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float 0.000000e+00, ptr %55, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %55, align 4, !tbaa !127
   %56 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.88, ptr noundef nonnull align 4 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
   br i1 %56, label %57, label %58
@@ -4618,9 +4618,9 @@ thread-pre-split:                                 ; preds = %36
 58:                                               ; preds = %57, %54
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %10, align 4, !tbaa !125
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float 0.000000e+00, ptr %59, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %59, align 4, !tbaa !127
   %60 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.89, ptr noundef nonnull align 4 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
   br i1 %60, label %.lr.ph.i, label %_ZN12RayCastWorld7CreateNEii.exit
@@ -4630,13 +4630,13 @@ thread-pre-split:                                 ; preds = %36
   call void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(1957) %0, i32 noundef 0)
   %61 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %61, 10
-  br i1 %exitcond.not.i, label %_ZN12RayCastWorld7CreateNEii.exit, label %.lr.ph.i, !llvm.loop !224
+  br i1 %exitcond.not.i, label %_ZN12RayCastWorld7CreateNEii.exit, label %.lr.ph.i, !llvm.loop !226
 
 _ZN12RayCastWorld7CreateNEii.exit:                ; preds = %.lr.ph.i, %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #24
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !125
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store float 0.000000e+00, ptr %62, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %62, align 4, !tbaa !127
   %63 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #24
   br i1 %63, label %64, label %65
@@ -4648,9 +4648,9 @@ _ZN12RayCastWorld7CreateNEii.exit:                ; preds = %.lr.ph.i, %58
 65:                                               ; preds = %64, %_ZN12RayCastWorld7CreateNEii.exit
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #24
-  store float 0.000000e+00, ptr %12, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %12, align 4, !tbaa !125
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float 0.000000e+00, ptr %66, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %66, align 4, !tbaa !127
   %67 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.91, ptr noundef nonnull align 4 dereferenceable(8) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #24
   br i1 %67, label %.lr.ph.i3, label %_ZN12RayCastWorld7CreateNEii.exit6
@@ -4660,13 +4660,13 @@ _ZN12RayCastWorld7CreateNEii.exit:                ; preds = %.lr.ph.i, %58
   call void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(1957) %0, i32 noundef 1)
   %68 = add nuw nsw i32 %.04.i4, 1
   %exitcond.not.i5 = icmp eq i32 %68, 10
-  br i1 %exitcond.not.i5, label %_ZN12RayCastWorld7CreateNEii.exit6, label %.lr.ph.i3, !llvm.loop !224
+  br i1 %exitcond.not.i5, label %_ZN12RayCastWorld7CreateNEii.exit6, label %.lr.ph.i3, !llvm.loop !226
 
 _ZN12RayCastWorld7CreateNEii.exit6:               ; preds = %.lr.ph.i3, %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #24
-  store float 0.000000e+00, ptr %13, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %13, align 4, !tbaa !125
   %69 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store float 0.000000e+00, ptr %69, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %69, align 4, !tbaa !127
   %70 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.92, ptr noundef nonnull align 4 dereferenceable(8) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
   br i1 %70, label %71, label %72
@@ -4678,9 +4678,9 @@ _ZN12RayCastWorld7CreateNEii.exit6:               ; preds = %.lr.ph.i3, %65
 72:                                               ; preds = %71, %_ZN12RayCastWorld7CreateNEii.exit6
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #24
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %14, align 4, !tbaa !125
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store float 0.000000e+00, ptr %73, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %73, align 4, !tbaa !127
   %74 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.93, ptr noundef nonnull align 4 dereferenceable(8) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
   br i1 %74, label %.lr.ph.i7, label %_ZN12RayCastWorld7CreateNEii.exit10
@@ -4690,13 +4690,13 @@ _ZN12RayCastWorld7CreateNEii.exit6:               ; preds = %.lr.ph.i3, %65
   call void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(1957) %0, i32 noundef 2)
   %75 = add nuw nsw i32 %.04.i8, 1
   %exitcond.not.i9 = icmp eq i32 %75, 10
-  br i1 %exitcond.not.i9, label %_ZN12RayCastWorld7CreateNEii.exit10, label %.lr.ph.i7, !llvm.loop !224
+  br i1 %exitcond.not.i9, label %_ZN12RayCastWorld7CreateNEii.exit10, label %.lr.ph.i7, !llvm.loop !226
 
 _ZN12RayCastWorld7CreateNEii.exit10:              ; preds = %.lr.ph.i7, %72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #24
-  store float 0.000000e+00, ptr %15, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !125
   %76 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store float 0.000000e+00, ptr %76, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %76, align 4, !tbaa !127
   %77 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.94, ptr noundef nonnull align 4 dereferenceable(8) %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #24
   br i1 %77, label %78, label %79
@@ -4708,9 +4708,9 @@ _ZN12RayCastWorld7CreateNEii.exit10:              ; preds = %.lr.ph.i7, %72
 79:                                               ; preds = %78, %_ZN12RayCastWorld7CreateNEii.exit10
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #24
-  store float 0.000000e+00, ptr %16, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %16, align 4, !tbaa !125
   %80 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store float 0.000000e+00, ptr %80, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %80, align 4, !tbaa !127
   %81 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.95, ptr noundef nonnull align 4 dereferenceable(8) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #24
   br i1 %81, label %.lr.ph.i11, label %_ZN12RayCastWorld7CreateNEii.exit14
@@ -4720,13 +4720,13 @@ _ZN12RayCastWorld7CreateNEii.exit10:              ; preds = %.lr.ph.i7, %72
   call void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(1957) %0, i32 noundef 3)
   %82 = add nuw nsw i32 %.04.i12, 1
   %exitcond.not.i13 = icmp eq i32 %82, 10
-  br i1 %exitcond.not.i13, label %_ZN12RayCastWorld7CreateNEii.exit14, label %.lr.ph.i11, !llvm.loop !224
+  br i1 %exitcond.not.i13, label %_ZN12RayCastWorld7CreateNEii.exit14, label %.lr.ph.i11, !llvm.loop !226
 
 _ZN12RayCastWorld7CreateNEii.exit14:              ; preds = %.lr.ph.i11, %79
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #24
-  store float 0.000000e+00, ptr %17, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %17, align 4, !tbaa !125
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store float 0.000000e+00, ptr %83, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %83, align 4, !tbaa !127
   %84 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(8) %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #24
   br i1 %84, label %85, label %86
@@ -4738,9 +4738,9 @@ _ZN12RayCastWorld7CreateNEii.exit14:              ; preds = %.lr.ph.i11, %79
 86:                                               ; preds = %85, %_ZN12RayCastWorld7CreateNEii.exit14
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #24
-  store float 0.000000e+00, ptr %18, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %18, align 4, !tbaa !125
   %87 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store float 0.000000e+00, ptr %87, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %87, align 4, !tbaa !127
   %88 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.96, ptr noundef nonnull align 4 dereferenceable(8) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #24
   br i1 %88, label %.lr.ph.i15, label %_ZN12RayCastWorld7CreateNEii.exit18
@@ -4750,13 +4750,13 @@ _ZN12RayCastWorld7CreateNEii.exit14:              ; preds = %.lr.ph.i11, %79
   call void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(1957) %0, i32 noundef 4)
   %89 = add nuw nsw i32 %.04.i16, 1
   %exitcond.not.i17 = icmp eq i32 %89, 10
-  br i1 %exitcond.not.i17, label %_ZN12RayCastWorld7CreateNEii.exit18, label %.lr.ph.i15, !llvm.loop !224
+  br i1 %exitcond.not.i17, label %_ZN12RayCastWorld7CreateNEii.exit18, label %.lr.ph.i15, !llvm.loop !226
 
 _ZN12RayCastWorld7CreateNEii.exit18:              ; preds = %.lr.ph.i15, %86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #24
-  store float 0.000000e+00, ptr %19, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %19, align 4, !tbaa !125
   %90 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store float 0.000000e+00, ptr %90, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %90, align 4, !tbaa !127
   %91 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(8) %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #24
   br i1 %91, label %92, label %93
@@ -4768,9 +4768,9 @@ _ZN12RayCastWorld7CreateNEii.exit18:              ; preds = %.lr.ph.i15, %86
 93:                                               ; preds = %92, %_ZN12RayCastWorld7CreateNEii.exit18
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #24
-  store float 0.000000e+00, ptr %20, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %20, align 4, !tbaa !125
   %94 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store float 0.000000e+00, ptr %94, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %94, align 4, !tbaa !127
   %95 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.97, ptr noundef nonnull align 4 dereferenceable(8) %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #24
   br i1 %95, label %.lr.ph.i19, label %_ZN12RayCastWorld7CreateNEii.exit22
@@ -4780,13 +4780,13 @@ _ZN12RayCastWorld7CreateNEii.exit18:              ; preds = %.lr.ph.i15, %86
   call void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(1957) %0, i32 noundef 5)
   %96 = add nuw nsw i32 %.04.i20, 1
   %exitcond.not.i21 = icmp eq i32 %96, 10
-  br i1 %exitcond.not.i21, label %_ZN12RayCastWorld7CreateNEii.exit22, label %.lr.ph.i19, !llvm.loop !224
+  br i1 %exitcond.not.i21, label %_ZN12RayCastWorld7CreateNEii.exit22, label %.lr.ph.i19, !llvm.loop !226
 
 _ZN12RayCastWorld7CreateNEii.exit22:              ; preds = %.lr.ph.i19, %93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #24
-  store float 0.000000e+00, ptr %21, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %21, align 4, !tbaa !125
   %97 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store float 0.000000e+00, ptr %97, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %97, align 4, !tbaa !127
   %98 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.98, ptr noundef nonnull align 4 dereferenceable(8) %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #24
   br i1 %98, label %99, label %100
@@ -4798,9 +4798,9 @@ _ZN12RayCastWorld7CreateNEii.exit22:              ; preds = %.lr.ph.i19, %93
 100:                                              ; preds = %99, %_ZN12RayCastWorld7CreateNEii.exit22
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #24
-  store float 0.000000e+00, ptr %22, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %22, align 4, !tbaa !125
   %101 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store float 0.000000e+00, ptr %101, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %101, align 4, !tbaa !127
   %102 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.99, ptr noundef nonnull align 4 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #24
   br i1 %102, label %.lr.ph.i23, label %_ZN12RayCastWorld7CreateNEii.exit26
@@ -4810,13 +4810,13 @@ _ZN12RayCastWorld7CreateNEii.exit22:              ; preds = %.lr.ph.i19, %93
   call void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(1957) %0, i32 noundef 6)
   %103 = add nuw nsw i32 %.04.i24, 1
   %exitcond.not.i25 = icmp eq i32 %103, 10
-  br i1 %exitcond.not.i25, label %_ZN12RayCastWorld7CreateNEii.exit26, label %.lr.ph.i23, !llvm.loop !224
+  br i1 %exitcond.not.i25, label %_ZN12RayCastWorld7CreateNEii.exit26, label %.lr.ph.i23, !llvm.loop !226
 
 _ZN12RayCastWorld7CreateNEii.exit26:              ; preds = %.lr.ph.i23, %100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #24
-  store float 0.000000e+00, ptr %23, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %23, align 4, !tbaa !125
   %104 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store float 0.000000e+00, ptr %104, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %104, align 4, !tbaa !127
   %105 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.100, ptr noundef nonnull align 4 dereferenceable(8) %23)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #24
   br i1 %105, label %106, label %_ZN12RayCastWorld11DestroyBodyEv.exit
@@ -4828,12 +4828,12 @@ _ZN12RayCastWorld7CreateNEii.exit26:              ; preds = %.lr.ph.i23, %100
 108:                                              ; preds = %109
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i27, label %_ZN12RayCastWorld11DestroyBodyEv.exit, label %109, !llvm.loop !225
+  br i1 %exitcond.not.i27, label %_ZN12RayCastWorld11DestroyBodyEv.exit, label %109, !llvm.loop !227
 
 109:                                              ; preds = %108, %106
   %indvars.iv.i = phi i64 [ 0, %106 ], [ %indvars.iv.next.i, %108 ]
   %110 = getelementptr inbounds nuw [64 x %struct.b2BodyId], ptr %107, i64 0, i64 %indvars.iv.i
-  %111 = load i32, ptr %110, align 4, !tbaa !223
+  %111 = load i32, ptr %110, align 4, !tbaa !225
   %.not.i = icmp eq i32 %111, 0
   br i1 %.not.i, label %108, label %112
 
@@ -4868,7 +4868,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld9MouseDownE6b2Vec2ii(ptr no
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1948
   store <2 x float> %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1956
-  store i8 1, ptr %14, align 4, !tbaa !209
+  store i8 1, ptr %14, align 4, !tbaa !211
   br label %25
 
 15:                                               ; preds = %6
@@ -4880,13 +4880,13 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld9MouseDownE6b2Vec2ii(ptr no
   br i1 %or.cond9, label %20, label %25
 
 20:                                               ; preds = %15
-  store i8 1, ptr %8, align 8, !tbaa !226
+  store i8 1, ptr %8, align 8, !tbaa !228
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   store <2 x float> %1, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1932
-  %23 = load float, ptr %22, align 4, !tbaa !218
+  %23 = load float, ptr %22, align 4, !tbaa !220
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  store float %23, ptr %24, align 8, !tbaa !227
+  store float %23, ptr %24, align 8, !tbaa !229
   br label %25
 
 25:                                               ; preds = %11, %20, %15, %4
@@ -4900,9 +4900,9 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld7MouseUpE6b2Vec2i(ptr nound
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1956
-  store i8 0, ptr %6, align 4, !tbaa !209
+  store i8 0, ptr %6, align 4, !tbaa !211
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1936
-  store i8 0, ptr %7, align 8, !tbaa !226
+  store i8 0, ptr %7, align 8, !tbaa !228
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -4912,7 +4912,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld7MouseUpE6b2Vec2i(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12RayCastWorld9MouseMoveE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(1957) %0, <2 x float> %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1956
-  %4 = load i8, ptr %3, align 4, !tbaa !209, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 4, !tbaa !211, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -4923,20 +4923,20 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld9MouseMoveE6b2Vec2(ptr noun
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1936
-  %10 = load i8, ptr %9, align 8, !tbaa !226, !range !13, !noundef !14
+  %10 = load i8, ptr %9, align 8, !tbaa !228, !range !13, !noundef !14
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %8
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1920
-  %14 = load float, ptr %13, align 8, !tbaa !228
+  %14 = load float, ptr %13, align 8, !tbaa !230
   %15 = fsub float %.sroa.0.0.vec.extract, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  %17 = load float, ptr %16, align 8, !tbaa !227
+  %17 = load float, ptr %16, align 8, !tbaa !229
   %18 = fadd float %17, %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1932
-  store float %18, ptr %19, align 4, !tbaa !218
+  store float %18, ptr %19, align 4, !tbaa !220
   br label %20
 
 20:                                               ; preds = %8, %12, %6
@@ -4957,7 +4957,7 @@ define internal noundef float @_ZL18RayCastAnyCallback9b2ShapeId6b2Vec2S0_fPv(i6
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i8, ptr %8, align 4, !tbaa !201, !range !13, !noundef !14
+  %9 = load i8, ptr %8, align 4, !tbaa !202, !range !13, !noundef !14
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %15, label %11
 
@@ -4968,7 +4968,7 @@ define internal noundef float @_ZL18RayCastAnyCallback9b2ShapeId6b2Vec2S0_fPv(i6
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store float %3, ptr %13, align 4, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 1, ptr %14, align 4, !tbaa !219
+  store i32 1, ptr %14, align 4, !tbaa !221
   br label %15
 
 15:                                               ; preds = %7, %11
@@ -4984,7 +4984,7 @@ define internal noundef float @_ZL22RayCastClosestCallback9b2ShapeId6b2Vec2S0_fP
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i8, ptr %8, align 4, !tbaa !201, !range !13, !noundef !14
+  %9 = load i8, ptr %8, align 4, !tbaa !202, !range !13, !noundef !14
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %15, label %11
 
@@ -4995,7 +4995,7 @@ define internal noundef float @_ZL22RayCastClosestCallback9b2ShapeId6b2Vec2S0_fP
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store float %3, ptr %13, align 4, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i32 1, ptr %14, align 4, !tbaa !219
+  store i32 1, ptr %14, align 4, !tbaa !221
   br label %15
 
 15:                                               ; preds = %7, %11
@@ -5011,13 +5011,13 @@ define internal noundef float @_ZL23RayCastMultipleCallback9b2ShapeId6b2Vec2S0_f
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i8, ptr %8, align 4, !tbaa !201, !range !13, !noundef !14
+  %9 = load i8, ptr %8, align 4, !tbaa !202, !range !13, !noundef !14
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %22, label %11
 
 11:                                               ; preds = %7, %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %13 = load i32, ptr %12, align 4, !tbaa !219
+  %13 = load i32, ptr %12, align 4, !tbaa !221
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds [3 x %struct.b2Vec2], ptr %4, i64 0, i64 %14
   store <2 x float> %1, ptr %15, align 4
@@ -5028,7 +5028,7 @@ define internal noundef float @_ZL23RayCastMultipleCallback9b2ShapeId6b2Vec2S0_f
   %19 = getelementptr inbounds [3 x float], ptr %18, i64 0, i64 %14
   store float %3, ptr %19, align 4, !tbaa !15
   %20 = add nsw i32 %13, 1
-  store i32 %20, ptr %12, align 4, !tbaa !219
+  store i32 %20, ptr %12, align 4, !tbaa !221
   %21 = icmp eq i32 %20, 3
   %. = select i1 %21, float 0.000000e+00, float 1.000000e+00
   br label %22
@@ -5046,13 +5046,13 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %9 = load i8, ptr %8, align 4, !tbaa !201, !range !13, !noundef !14
+  %9 = load i8, ptr %8, align 4, !tbaa !202, !range !13, !noundef !14
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %48, label %11
 
 11:                                               ; preds = %7, %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  %13 = load i32, ptr %12, align 4, !tbaa !219
+  %13 = load i32, ptr %12, align 4, !tbaa !221
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %15
 
@@ -5066,7 +5066,7 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
 
 19:                                               ; preds = %15
   %20 = icmp eq i64 %indvars.iv.next, 0
-  br i1 %20, label %.lr.ph, label %15, !llvm.loop !229
+  br i1 %20, label %.lr.ph, label %15, !llvm.loop !231
 
 21:                                               ; preds = %15
   %22 = icmp eq i64 %indvars.iv, 3
@@ -5095,7 +5095,7 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
   store float %3, ptr %31, align 4, !tbaa !15
   %32 = tail call i32 @llvm.smin.i32(i32 %13, i32 2)
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %12, align 4, !tbaa !219
+  store i32 %33, ptr %12, align 4, !tbaa !221
   %34 = icmp eq i32 %33, 3
   br i1 %34, label %.sink.split, label %48
 
@@ -5115,7 +5115,7 @@ define internal noundef float @_ZL21RayCastSortedCallback9b2ShapeId6b2Vec2S0_fPv
   %44 = getelementptr inbounds nuw [3 x float], ptr %14, i64 0, i64 %indvars.iv49
   store float %43, ptr %44, align 4, !tbaa !15
   %45 = icmp samesign ugt i64 %indvars.iv.next50, %26
-  br i1 %45, label %35, label %._crit_edge, !llvm.loop !230
+  br i1 %45, label %35, label %._crit_edge, !llvm.loop !232
 
 .sink.split:                                      ; preds = %._crit_edge, %21
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -5147,17 +5147,17 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load i32, ptr %6, align 8, !tbaa !231
+  %7 = load i32, ptr %6, align 8, !tbaa !233
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !223
+  %10 = load i32, ptr %9, align 4, !tbaa !225
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %2
   %.sroa.015.0.copyload = load i64, ptr %9, align 4
   tail call void @b2DestroyBody(i64 %.sroa.015.0.copyload)
-  %12 = load i32, ptr %6, align 8, !tbaa !231
+  %12 = load i32, ptr %6, align 8, !tbaa !233
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %13
   store i64 0, ptr %14, align 4
@@ -5210,7 +5210,7 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   %52 = call <2 x float> @b2ComputeCosSin(float noundef %51)
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store <2 x float> %52, ptr %53, align 4
-  %54 = load i32, ptr %6, align 8, !tbaa !231
+  %54 = load i32, ptr %6, align 8, !tbaa !233
   %55 = srem i32 %54, 3
   switch i32 %55, label %60 [
     i32 0, label %56
@@ -5219,39 +5219,39 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   ]
 
 56:                                               ; preds = %15
-  store i32 0, ptr %3, align 8, !tbaa !232
+  store i32 0, ptr %3, align 8, !tbaa !234
   br label %60
 
 57:                                               ; preds = %15
-  store i32 1, ptr %3, align 8, !tbaa !232
+  store i32 1, ptr %3, align 8, !tbaa !234
   br label %60
 
 58:                                               ; preds = %15
-  store i32 2, ptr %3, align 8, !tbaa !232
+  store i32 2, ptr %3, align 8, !tbaa !234
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store float 0.000000e+00, ptr %59, align 8, !tbaa !236
+  store float 0.000000e+00, ptr %59, align 8, !tbaa !238
   br label %60
 
 60:                                               ; preds = %15, %57, %58, %56
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.08.0.copyload = load i32, ptr %61, align 4
   %62 = call i64 @b2CreateBody(i32 %.sroa.08.0.copyload, ptr noundef nonnull %3)
-  %63 = load i32, ptr %6, align 8, !tbaa !231
+  %63 = load i32, ptr %6, align 8, !tbaa !233
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %64
   store i64 %62, ptr %65, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 764
-  %67 = load i32, ptr %6, align 8, !tbaa !231
+  %67 = load i32, ptr %6, align 8, !tbaa !233
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds %struct.ShapeUserData, ptr %66, i64 %68
-  store ptr %69, ptr %4, align 8, !tbaa !237
+  store ptr %69, ptr %4, align 8, !tbaa !239
   %.idx = shl nsw i64 %68, 3
   %70 = getelementptr i8, ptr %66, i64 %.idx
   %71 = getelementptr i8, ptr %70, i64 4
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1908
-  %73 = load i32, ptr %72, align 4, !tbaa !206
+  %73 = load i32, ptr %72, align 4, !tbaa !208
   %74 = icmp eq i32 %67, %73
   %spec.store.select = zext i1 %74 to i8
   store i8 %spec.store.select, ptr %71, align 8
@@ -5289,10 +5289,10 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   br label %92
 
 92:                                               ; preds = %83, %89, %86, %77
-  %93 = load i32, ptr %6, align 8, !tbaa !231
+  %93 = load i32, ptr %6, align 8, !tbaa !233
   %94 = add nsw i32 %93, 1
   %95 = srem i32 %94, 64
-  store i32 %95, ptr %6, align 8, !tbaa !231
+  store i32 %95, ptr %6, align 8, !tbaa !233
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #24
   ret void
@@ -5451,9 +5451,9 @@ define linkonce_odr dso_local void @_ZN12OverlapWorldC2ER8Settings(ptr noundef n
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1900
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(516) %48, i8 0, i64 516, i1 false)
-  store i32 7, ptr %49, align 4, !tbaa !241
+  store i32 7, ptr %49, align 4, !tbaa !243
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 2212
-  store i32 0, ptr %50, align 4, !tbaa !243
+  store i32 0, ptr %50, align 4, !tbaa !245
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2036
   store float 0.000000e+00, ptr %51, align 4, !tbaa !15
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2040
@@ -5540,13 +5540,13 @@ define linkonce_odr dso_local void @_ZN12OverlapWorldC2ER8Settings(ptr noundef n
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 2244
   store float 1.000000e+01, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  store float 0.000000e+00, ptr %73, align 8, !tbaa !244
+  store float 0.000000e+00, ptr %73, align 8, !tbaa !246
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  store i8 0, ptr %74, align 8, !tbaa !245
+  store i8 0, ptr %74, align 8, !tbaa !247
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2265
-  store i8 0, ptr %75, align 1, !tbaa !246
+  store i8 0, ptr %75, align 1, !tbaa !248
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 2032
-  store i32 0, ptr %76, align 8, !tbaa !247
+  store i32 0, ptr %76, align 8, !tbaa !249
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %70
@@ -5557,7 +5557,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorldC2ER8Settings(ptr noundef n
 .noexc:                                           ; preds = %.lr.ph.i
   %77 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %77, 10
-  br i1 %exitcond.not.i, label %_ZN12OverlapWorld7CreateNEii.exit, label %.lr.ph.i, !llvm.loop !248
+  br i1 %exitcond.not.i, label %_ZN12OverlapWorld7CreateNEii.exit, label %.lr.ph.i, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit:                ; preds = %.noexc
   ret void
@@ -5591,27 +5591,27 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   %3 = alloca [8 x %struct.b2Vec2], align 16
   tail call void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 4 dereferenceable(44) %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = load i32, ptr %4, align 8, !tbaa !119
+  %5 = load i32, ptr %4, align 8, !tbaa !120
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %5, ptr noundef nonnull @.str.102)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %7 = load i32, ptr %6, align 4, !tbaa !120
-  %8 = load i32, ptr %4, align 8, !tbaa !119
+  %7 = load i32, ptr %6, align 4, !tbaa !121
+  %8 = load i32, ptr %4, align 8, !tbaa !120
   %9 = add nsw i32 %8, %7
-  store i32 %9, ptr %4, align 8, !tbaa !119
+  store i32 %9, ptr %4, align 8, !tbaa !120
   tail call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %9, ptr noundef nonnull @.str.103)
-  %10 = load i32, ptr %6, align 4, !tbaa !120
-  %11 = load i32, ptr %4, align 8, !tbaa !119
+  %10 = load i32, ptr %6, align 4, !tbaa !121
+  %11 = load i32, ptr %4, align 8, !tbaa !120
   %12 = add nsw i32 %11, %10
-  store i32 %12, ptr %4, align 8, !tbaa !119
+  store i32 %12, ptr %4, align 8, !tbaa !120
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2032
-  store i32 0, ptr %13, align 8, !tbaa !247
+  store i32 0, ptr %13, align 8, !tbaa !249
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   %.sroa.051.0.copyload = load <2 x float>, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %16 = load float, ptr %15, align 8, !tbaa !244
+  %16 = load float, ptr %15, align 8, !tbaa !246
   %17 = tail call <2 x float> @b2ComputeCosSin(float noundef %16)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2212
-  %19 = load i32, ptr %18, align 4, !tbaa !243
+  %19 = load i32, ptr %18, align 4, !tbaa !245
   switch i32 %19, label %79 [
     i32 0, label %20
     i32 1, label %29
@@ -5627,7 +5627,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   %25 = extractvalue { i64, i64 } %23, 1
   %26 = tail call i64 @b2World_OverlapCircle(i32 %.sroa.050.0.copyload, ptr noundef nonnull %22, <2 x float> %.sroa.051.0.copyload, <2 x float> %17, i64 %24, i64 %25, ptr noundef nonnull @_ZN12OverlapWorld16OverlapResultFcnE9b2ShapeIdPv, ptr noundef nonnull %0)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2044
-  %28 = load float, ptr %27, align 4, !tbaa !249
+  %28 = load float, ptr %27, align 4, !tbaa !251
   tail call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.051.0.copyload, <2 x float> %17, <2 x float> zeroinitializer, float noundef %28, i32 noundef 16777215)
   br label %79
 
@@ -5673,7 +5673,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   %.sroa.011.0.vec.insert.i76 = insertelement <2 x float> poison, float %50, i64 0
   %.sroa.011.4.vec.insert.i77 = insertelement <2 x float> %.sroa.011.0.vec.insert.i76, float %54, i64 1
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2064
-  %56 = load float, ptr %55, align 8, !tbaa !250
+  %56 = load float, ptr %55, align 8, !tbaa !252
   tail call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i, <2 x float> %.sroa.011.4.vec.insert.i77, float noundef %56, i32 noundef 16777215)
   br label %79
 
@@ -5688,7 +5688,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 2208
-  %65 = load i32, ptr %64, align 8, !tbaa !251
+  %65 = load i32, ptr %64, align 8, !tbaa !253
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph, label %._crit_edge
 
@@ -5726,15 +5726,15 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   store <2 x float> %.sroa.011.4.vec.insert.i85, ptr %78, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !252
+  br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !254
 
 79:                                               ; preds = %2, %29, %._crit_edge, %20
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 1900
-  %82 = load i32, ptr %81, align 4, !tbaa !241
+  %82 = load i32, ptr %81, align 4, !tbaa !243
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %80, i64 0, i64 %83
-  %85 = load i32, ptr %84, align 4, !tbaa !223
+  %85 = load i32, ptr %84, align 4, !tbaa !225
   %.not = icmp eq i32 %85, 0
   br i1 %.not, label %89, label %86
 
@@ -5748,7 +5748,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   br label %89
 
 89:                                               ; preds = %86, %79
-  %90 = load i32, ptr %13, align 8, !tbaa !247
+  %90 = load i32, ptr %13, align 8, !tbaa !249
   %91 = icmp sgt i32 %90, 0
   br i1 %91, label %.lr.ph89, label %._crit_edge90
 
@@ -5768,7 +5768,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
   br i1 %96, label %101, label %97
 
 97:                                               ; preds = %93
-  %98 = load i32, ptr %95, align 4, !tbaa !199
+  %98 = load i32, ptr %95, align 4, !tbaa !200
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %80, i64 0, i64 %99
   %.sroa.0.0.copyload = load i64, ptr %100, align 4
@@ -5778,10 +5778,10 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld4StepER8Settings(ptr nounde
 
 101:                                              ; preds = %93, %97
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %102 = load i32, ptr %13, align 8, !tbaa !247
+  %102 = load i32, ptr %13, align 8, !tbaa !249
   %103 = sext i32 %102 to i64
   %104 = icmp slt i64 %indvars.iv.next93, %103
-  br i1 %104, label %93, label %._crit_edge90, !llvm.loop !253
+  br i1 %104, label %93, label %._crit_edge90, !llvm.loop !255
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5805,31 +5805,31 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld8UpdateUIEv(ptr noundef non
   %18 = alloca %struct.ImVec2, align 4
   %19 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !124
   %21 = sitofp i32 %20 to float
   %22 = fadd float %21, -3.300000e+02
   %23 = fadd float %22, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !124
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !125
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %23, ptr %24, align 4, !tbaa !126
+  store float %23, ptr %24, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %25, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %25, align 4, !tbaa !127
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store float 1.400000e+02, ptr %4, align 4, !tbaa !124
+  store float 1.400000e+02, ptr %4, align 4, !tbaa !125
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 3.300000e+02, ptr %26, align 4, !tbaa !126
+  store float 3.300000e+02, ptr %26, align 4, !tbaa !127
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %27 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.9, ptr noundef null, i32 noundef 6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !125
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %28, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %28, align 4, !tbaa !127
   %29 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.88, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   br i1 %29, label %30, label %31
@@ -5841,9 +5841,9 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld8UpdateUIEv(ptr noundef non
 31:                                               ; preds = %30, %1
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
-  store float 0.000000e+00, ptr %6, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %6, align 4, !tbaa !125
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float 0.000000e+00, ptr %32, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %32, align 4, !tbaa !127
   %33 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.89, ptr noundef nonnull align 4 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   br i1 %33, label %.lr.ph.i, label %_ZN12OverlapWorld7CreateNEii.exit
@@ -5853,13 +5853,13 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld8UpdateUIEv(ptr noundef non
   call void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(2266) %0, i32 noundef 0)
   %34 = add nuw nsw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %34, 10
-  br i1 %exitcond.not.i, label %_ZN12OverlapWorld7CreateNEii.exit, label %.lr.ph.i, !llvm.loop !248
+  br i1 %exitcond.not.i, label %_ZN12OverlapWorld7CreateNEii.exit, label %.lr.ph.i, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit:                ; preds = %.lr.ph.i, %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
-  store float 0.000000e+00, ptr %7, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %7, align 4, !tbaa !125
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float 0.000000e+00, ptr %35, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %35, align 4, !tbaa !127
   %36 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.90, ptr noundef nonnull align 4 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   br i1 %36, label %37, label %38
@@ -5871,9 +5871,9 @@ _ZN12OverlapWorld7CreateNEii.exit:                ; preds = %.lr.ph.i, %31
 38:                                               ; preds = %37, %_ZN12OverlapWorld7CreateNEii.exit
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
-  store float 0.000000e+00, ptr %8, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %8, align 4, !tbaa !125
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float 0.000000e+00, ptr %39, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %39, align 4, !tbaa !127
   %40 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.91, ptr noundef nonnull align 4 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #24
   br i1 %40, label %.lr.ph.i3, label %_ZN12OverlapWorld7CreateNEii.exit6
@@ -5883,13 +5883,13 @@ _ZN12OverlapWorld7CreateNEii.exit:                ; preds = %.lr.ph.i, %31
   call void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(2266) %0, i32 noundef 1)
   %41 = add nuw nsw i32 %.04.i4, 1
   %exitcond.not.i5 = icmp eq i32 %41, 10
-  br i1 %exitcond.not.i5, label %_ZN12OverlapWorld7CreateNEii.exit6, label %.lr.ph.i3, !llvm.loop !248
+  br i1 %exitcond.not.i5, label %_ZN12OverlapWorld7CreateNEii.exit6, label %.lr.ph.i3, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit6:               ; preds = %.lr.ph.i3, %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #24
-  store float 0.000000e+00, ptr %9, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %9, align 4, !tbaa !125
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float 0.000000e+00, ptr %42, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %42, align 4, !tbaa !127
   %43 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.92, ptr noundef nonnull align 4 dereferenceable(8) %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
   br i1 %43, label %44, label %45
@@ -5901,9 +5901,9 @@ _ZN12OverlapWorld7CreateNEii.exit6:               ; preds = %.lr.ph.i3, %38
 45:                                               ; preds = %44, %_ZN12OverlapWorld7CreateNEii.exit6
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #24
-  store float 0.000000e+00, ptr %10, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %10, align 4, !tbaa !125
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store float 0.000000e+00, ptr %46, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %46, align 4, !tbaa !127
   %47 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.93, ptr noundef nonnull align 4 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24
   br i1 %47, label %.lr.ph.i7, label %_ZN12OverlapWorld7CreateNEii.exit10
@@ -5913,13 +5913,13 @@ _ZN12OverlapWorld7CreateNEii.exit6:               ; preds = %.lr.ph.i3, %38
   call void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(2266) %0, i32 noundef 2)
   %48 = add nuw nsw i32 %.04.i8, 1
   %exitcond.not.i9 = icmp eq i32 %48, 10
-  br i1 %exitcond.not.i9, label %_ZN12OverlapWorld7CreateNEii.exit10, label %.lr.ph.i7, !llvm.loop !248
+  br i1 %exitcond.not.i9, label %_ZN12OverlapWorld7CreateNEii.exit10, label %.lr.ph.i7, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit10:              ; preds = %.lr.ph.i7, %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #24
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !125
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store float 0.000000e+00, ptr %49, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %49, align 4, !tbaa !127
   %50 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.94, ptr noundef nonnull align 4 dereferenceable(8) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #24
   br i1 %50, label %51, label %52
@@ -5931,9 +5931,9 @@ _ZN12OverlapWorld7CreateNEii.exit10:              ; preds = %.lr.ph.i7, %45
 52:                                               ; preds = %51, %_ZN12OverlapWorld7CreateNEii.exit10
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #24
-  store float 0.000000e+00, ptr %12, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %12, align 4, !tbaa !125
   %53 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store float 0.000000e+00, ptr %53, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %53, align 4, !tbaa !127
   %54 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.95, ptr noundef nonnull align 4 dereferenceable(8) %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #24
   br i1 %54, label %.lr.ph.i11, label %_ZN12OverlapWorld7CreateNEii.exit14
@@ -5943,13 +5943,13 @@ _ZN12OverlapWorld7CreateNEii.exit10:              ; preds = %.lr.ph.i7, %45
   call void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(2266) %0, i32 noundef 3)
   %55 = add nuw nsw i32 %.04.i12, 1
   %exitcond.not.i13 = icmp eq i32 %55, 10
-  br i1 %exitcond.not.i13, label %_ZN12OverlapWorld7CreateNEii.exit14, label %.lr.ph.i11, !llvm.loop !248
+  br i1 %exitcond.not.i13, label %_ZN12OverlapWorld7CreateNEii.exit14, label %.lr.ph.i11, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit14:              ; preds = %.lr.ph.i11, %52
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #24
-  store float 0.000000e+00, ptr %13, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %13, align 4, !tbaa !125
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store float 0.000000e+00, ptr %56, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %56, align 4, !tbaa !127
   %57 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.77, ptr noundef nonnull align 4 dereferenceable(8) %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #24
   br i1 %57, label %58, label %59
@@ -5961,9 +5961,9 @@ _ZN12OverlapWorld7CreateNEii.exit14:              ; preds = %.lr.ph.i11, %52
 59:                                               ; preds = %58, %_ZN12OverlapWorld7CreateNEii.exit14
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #24
-  store float 0.000000e+00, ptr %14, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %14, align 4, !tbaa !125
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store float 0.000000e+00, ptr %60, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %60, align 4, !tbaa !127
   %61 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.96, ptr noundef nonnull align 4 dereferenceable(8) %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #24
   br i1 %61, label %.lr.ph.i15, label %_ZN12OverlapWorld7CreateNEii.exit18
@@ -5973,13 +5973,13 @@ _ZN12OverlapWorld7CreateNEii.exit14:              ; preds = %.lr.ph.i11, %52
   call void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(2266) %0, i32 noundef 4)
   %62 = add nuw nsw i32 %.04.i16, 1
   %exitcond.not.i17 = icmp eq i32 %62, 10
-  br i1 %exitcond.not.i17, label %_ZN12OverlapWorld7CreateNEii.exit18, label %.lr.ph.i15, !llvm.loop !248
+  br i1 %exitcond.not.i17, label %_ZN12OverlapWorld7CreateNEii.exit18, label %.lr.ph.i15, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit18:              ; preds = %.lr.ph.i15, %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #24
-  store float 0.000000e+00, ptr %15, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %15, align 4, !tbaa !125
   %63 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store float 0.000000e+00, ptr %63, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %63, align 4, !tbaa !127
   %64 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.78, ptr noundef nonnull align 4 dereferenceable(8) %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #24
   br i1 %64, label %65, label %66
@@ -5991,9 +5991,9 @@ _ZN12OverlapWorld7CreateNEii.exit18:              ; preds = %.lr.ph.i15, %59
 66:                                               ; preds = %65, %_ZN12OverlapWorld7CreateNEii.exit18
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #24
-  store float 0.000000e+00, ptr %16, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %16, align 4, !tbaa !125
   %67 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store float 0.000000e+00, ptr %67, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %67, align 4, !tbaa !127
   %68 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.97, ptr noundef nonnull align 4 dereferenceable(8) %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #24
   br i1 %68, label %.lr.ph.i19, label %_ZN12OverlapWorld7CreateNEii.exit22
@@ -6003,13 +6003,13 @@ _ZN12OverlapWorld7CreateNEii.exit18:              ; preds = %.lr.ph.i15, %59
   call void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(2266) %0, i32 noundef 5)
   %69 = add nuw nsw i32 %.04.i20, 1
   %exitcond.not.i21 = icmp eq i32 %69, 10
-  br i1 %exitcond.not.i21, label %_ZN12OverlapWorld7CreateNEii.exit22, label %.lr.ph.i19, !llvm.loop !248
+  br i1 %exitcond.not.i21, label %_ZN12OverlapWorld7CreateNEii.exit22, label %.lr.ph.i19, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit22:              ; preds = %.lr.ph.i19, %66
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #24
-  store float 0.000000e+00, ptr %17, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %17, align 4, !tbaa !125
   %70 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store float 0.000000e+00, ptr %70, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %70, align 4, !tbaa !127
   %71 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.98, ptr noundef nonnull align 4 dereferenceable(8) %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #24
   br i1 %71, label %72, label %73
@@ -6021,9 +6021,9 @@ _ZN12OverlapWorld7CreateNEii.exit22:              ; preds = %.lr.ph.i19, %66
 73:                                               ; preds = %72, %_ZN12OverlapWorld7CreateNEii.exit22
   call void @_ZN5ImGui8SameLineEff(float noundef 0.000000e+00, float noundef -1.000000e+00)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #24
-  store float 0.000000e+00, ptr %18, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %18, align 4, !tbaa !125
   %74 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store float 0.000000e+00, ptr %74, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %74, align 4, !tbaa !127
   %75 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.99, ptr noundef nonnull align 4 dereferenceable(8) %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #24
   br i1 %75, label %.lr.ph.i23, label %_ZN12OverlapWorld7CreateNEii.exit26
@@ -6033,13 +6033,13 @@ _ZN12OverlapWorld7CreateNEii.exit22:              ; preds = %.lr.ph.i19, %66
   call void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnull align 8 dereferenceable(2266) %0, i32 noundef 6)
   %76 = add nuw nsw i32 %.04.i24, 1
   %exitcond.not.i25 = icmp eq i32 %76, 10
-  br i1 %exitcond.not.i25, label %_ZN12OverlapWorld7CreateNEii.exit26, label %.lr.ph.i23, !llvm.loop !248
+  br i1 %exitcond.not.i25, label %_ZN12OverlapWorld7CreateNEii.exit26, label %.lr.ph.i23, !llvm.loop !250
 
 _ZN12OverlapWorld7CreateNEii.exit26:              ; preds = %.lr.ph.i23, %73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #24
-  store float 0.000000e+00, ptr %19, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %19, align 4, !tbaa !125
   %77 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store float 0.000000e+00, ptr %77, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %77, align 4, !tbaa !127
   %78 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.100, ptr noundef nonnull align 4 dereferenceable(8) %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #24
   br i1 %78, label %79, label %_ZN12OverlapWorld11DestroyBodyEv.exit
@@ -6051,12 +6051,12 @@ _ZN12OverlapWorld7CreateNEii.exit26:              ; preds = %.lr.ph.i23, %73
 81:                                               ; preds = %82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i27, label %_ZN12OverlapWorld11DestroyBodyEv.exit, label %82, !llvm.loop !254
+  br i1 %exitcond.not.i27, label %_ZN12OverlapWorld11DestroyBodyEv.exit, label %82, !llvm.loop !256
 
 82:                                               ; preds = %81, %79
   %indvars.iv.i = phi i64 [ 0, %79 ], [ %indvars.iv.next.i, %81 ]
   %83 = getelementptr inbounds nuw [64 x %struct.b2BodyId], ptr %80, i64 0, i64 %indvars.iv.i
-  %84 = load i32, ptr %83, align 4, !tbaa !223
+  %84 = load i32, ptr %83, align 4, !tbaa !225
   %.not.i = icmp eq i32 %84, 0
   br i1 %.not.i, label %81, label %85
 
@@ -6093,7 +6093,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld9MouseDownE6b2Vec2ii(ptr no
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  store i8 1, ptr %12, align 8, !tbaa !245
+  store i8 1, ptr %12, align 8, !tbaa !247
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2240
   store <2 x float> %1, ptr %13, align 8
   br label %24
@@ -6107,13 +6107,13 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld9MouseDownE6b2Vec2ii(ptr no
   br i1 %or.cond8, label %19, label %24
 
 19:                                               ; preds = %14
-  store i8 1, ptr %8, align 1, !tbaa !246
+  store i8 1, ptr %8, align 1, !tbaa !248
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 2232
   store <2 x float> %1, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  %22 = load float, ptr %21, align 8, !tbaa !244
+  %22 = load float, ptr %21, align 8, !tbaa !246
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2260
-  store float %22, ptr %23, align 4, !tbaa !255
+  store float %22, ptr %23, align 4, !tbaa !257
   br label %24
 
 24:                                               ; preds = %11, %19, %14, %4
@@ -6127,9 +6127,9 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld7MouseUpE6b2Vec2i(ptr nound
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  store i8 0, ptr %6, align 8, !tbaa !245
+  store i8 0, ptr %6, align 8, !tbaa !247
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2265
-  store i8 0, ptr %7, align 1, !tbaa !246
+  store i8 0, ptr %7, align 1, !tbaa !248
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -6139,7 +6139,7 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld7MouseUpE6b2Vec2i(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12OverlapWorld9MouseMoveE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(2266) %0, <2 x float> %1) unnamed_addr #9 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2264
-  %4 = load i8, ptr %3, align 8, !tbaa !245, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 8, !tbaa !247, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %8
 
@@ -6150,20 +6150,20 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld9MouseMoveE6b2Vec2(ptr noun
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2265
-  %10 = load i8, ptr %9, align 1, !tbaa !246, !range !13, !noundef !14
+  %10 = load i8, ptr %9, align 1, !tbaa !248, !range !13, !noundef !14
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %8
   %.sroa.0.0.vec.extract = extractelement <2 x float> %1, i64 0
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2232
-  %14 = load float, ptr %13, align 8, !tbaa !256
+  %14 = load float, ptr %13, align 8, !tbaa !258
   %15 = fsub float %.sroa.0.0.vec.extract, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2260
-  %17 = load float, ptr %16, align 4, !tbaa !255
+  %17 = load float, ptr %16, align 4, !tbaa !257
   %18 = fadd float %17, %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2256
-  store float %18, ptr %19, align 8, !tbaa !244
+  store float %18, ptr %19, align 8, !tbaa !246
   br label %20
 
 20:                                               ; preds = %8, %12, %6
@@ -6176,17 +6176,17 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   %4 = alloca %struct.b2ShapeDef, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load i32, ptr %6, align 8, !tbaa !257
+  %7 = load i32, ptr %6, align 8, !tbaa !259
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %8
-  %10 = load i32, ptr %9, align 4, !tbaa !223
+  %10 = load i32, ptr %9, align 4, !tbaa !225
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %11
 
 11:                                               ; preds = %2
   %.sroa.013.0.copyload = load i64, ptr %9, align 4
   tail call void @b2DestroyBody(i64 %.sroa.013.0.copyload)
-  %12 = load i32, ptr %6, align 8, !tbaa !257
+  %12 = load i32, ptr %6, align 8, !tbaa !259
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %13
   store i64 0, ptr %14, align 4
@@ -6242,23 +6242,23 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %.sroa.08.0.copyload = load i32, ptr %54, align 4
   %55 = call i64 @b2CreateBody(i32 %.sroa.08.0.copyload, ptr noundef nonnull %3)
-  %56 = load i32, ptr %6, align 8, !tbaa !257
+  %56 = load i32, ptr %6, align 8, !tbaa !259
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [64 x %struct.b2BodyId], ptr %5, i64 0, i64 %57
   store i64 %55, ptr %58, align 4
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #24
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %4)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 764
-  %60 = load i32, ptr %6, align 8, !tbaa !257
+  %60 = load i32, ptr %6, align 8, !tbaa !259
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds %struct.ShapeUserData, ptr %59, i64 %61
-  store ptr %62, ptr %4, align 8, !tbaa !237
-  store i32 %60, ptr %62, align 4, !tbaa !199
+  store ptr %62, ptr %4, align 8, !tbaa !239
+  store i32 %60, ptr %62, align 4, !tbaa !200
   %.idx = shl nsw i64 %61, 3
   %63 = getelementptr i8, ptr %59, i64 %.idx
   %64 = getelementptr i8, ptr %63, i64 4
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 1900
-  %66 = load i32, ptr %65, align 4, !tbaa !241
+  %66 = load i32, ptr %65, align 4, !tbaa !243
   %67 = icmp eq i32 %60, %66
   %spec.store.select = zext i1 %67 to i8
   store i8 %spec.store.select, ptr %64, align 8
@@ -6296,10 +6296,10 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   br label %85
 
 85:                                               ; preds = %76, %82, %79, %70
-  %86 = load i32, ptr %6, align 8, !tbaa !257
+  %86 = load i32, ptr %6, align 8, !tbaa !259
   %87 = add nsw i32 %86, 1
   %88 = srem i32 %87, 64
-  store i32 %88, ptr %6, align 8, !tbaa !257
+  store i32 %88, ptr %6, align 8, !tbaa !259
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #24
   ret void
@@ -6315,13 +6315,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12OverlapWorld16OverlapResu
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %6 = load i8, ptr %5, align 4, !tbaa !201, !range !13, !noundef !14
+  %6 = load i8, ptr %5, align 4, !tbaa !202, !range !13, !noundef !14
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %18, label %8
 
 8:                                                ; preds = %4, %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2032
-  %10 = load i32, ptr %9, align 8, !tbaa !247
+  %10 = load i32, ptr %9, align 8, !tbaa !249
   %11 = icmp slt i32 %10, 16
   br i1 %11, label %12, label %18
 
@@ -6330,9 +6330,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12OverlapWorld16OverlapResu
   %14 = sext i32 %10 to i64
   %15 = getelementptr inbounds [16 x %struct.b2ShapeId], ptr %13, i64 0, i64 %14
   store i64 %0, ptr %15, align 8
-  %16 = load i32, ptr %9, align 8, !tbaa !247
+  %16 = load i32, ptr %9, align 8, !tbaa !249
   %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %9, align 8, !tbaa !247
+  store i32 %17, ptr %9, align 8, !tbaa !249
   br label %18
 
 18:                                               ; preds = %8, %12, %4
@@ -6447,11 +6447,11 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @b2CollideCircles(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %5, ptr noundef nonnull %3, <2 x float> <float -1.000000e+01, float -5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %4, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.6721.8.copyload)
   %.sroa.0709.0.copyload = load <2 x float>, ptr %3, align 8
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %76 = load float, ptr %75, align 8, !tbaa !216
+  %76 = load float, ptr %75, align 8, !tbaa !218
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float -1.000000e+01, float -5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, <2 x float> %.sroa.0709.0.copyload, float noundef %76, i32 noundef 8388564)
   %.sroa.0706.0.copyload = load <2 x float>, ptr %4, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %78 = load float, ptr %77, align 8, !tbaa !216
+  %78 = load float, ptr %77, align 8, !tbaa !218
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i, <2 x float> %.sroa.6721.8.copyload, <2 x float> %.sroa.0706.0.copyload, float noundef %78, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %5, <2 x float> <float -1.000000e+01, float -5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %5) #24
@@ -6495,11 +6495,11 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %.sroa.011.0.vec.insert.i871 = insertelement <2 x float> poison, float %90, i64 0
   %.sroa.011.4.vec.insert.i872 = insertelement <2 x float> %.sroa.011.0.vec.insert.i871, float %93, i64 1
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %95 = load float, ptr %94, align 8, !tbaa !217
+  %95 = load float, ptr %94, align 8, !tbaa !219
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i, <2 x float> %.sroa.011.4.vec.insert.i872, float noundef %95, i32 noundef 8388564)
   %.sroa.0670.0.copyload = load <2 x float>, ptr %7, align 8
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %97 = load float, ptr %96, align 8, !tbaa !216
+  %97 = load float, ptr %96, align 8, !tbaa !218
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i868, <2 x float> %.sroa.6692.8.copyload, <2 x float> %.sroa.0670.0.copyload, float noundef %97, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %8, <2 x float> <float -6.000000e+00, float -5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i868)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #24
@@ -6545,7 +6545,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i880, <2 x float> %.sroa.011.4.vec.insert.i884, i32 noundef 8388564)
   %.sroa.0634.0.copyload = load <2 x float>, ptr %10, align 8
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %114 = load float, ptr %113, align 8, !tbaa !216
+  %114 = load float, ptr %113, align 8, !tbaa !218
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i876, <2 x float> %.sroa.6656.8.copyload, <2 x float> %.sroa.0634.0.copyload, float noundef %114, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %11, <2 x float> <float -2.000000e+00, float -5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i876)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #24
@@ -6558,7 +6558,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %116 = load float, ptr %115, align 8, !tbaa !60
   %117 = getelementptr inbounds nuw i8, ptr %13, i64 136
-  store float %116, ptr %117, align 4, !tbaa !202
+  store float %116, ptr %117, align 4, !tbaa !204
   %.sroa.0618.0.copyload = load <2 x float>, ptr %71, align 4
   %.sroa.01.0.vec.extract.i885 = extractelement <2 x float> %.sroa.0618.0.copyload, i64 0
   %118 = fadd float %.sroa.01.0.vec.extract.i885, 2.000000e+00
@@ -6570,12 +6570,12 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %14) #24
   call void @b2CollidePolygonAndCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %14, ptr noundef nonnull %13, <2 x float> <float 2.000000e+00, float -5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %12, <2 x float> %.sroa.02.4.vec.insert.i888, <2 x float> %.sroa.6622.8.copyload)
   %120 = getelementptr inbounds nuw i8, ptr %13, i64 140
-  %121 = load i32, ptr %120, align 4, !tbaa !221
+  %121 = load i32, ptr %120, align 4, !tbaa !223
   %122 = load float, ptr %115, align 8, !tbaa !60
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 2.000000e+00, float -5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %13, i32 noundef %121, float noundef %122, i32 noundef 8388564)
   %.sroa.0608.0.copyload = load <2 x float>, ptr %12, align 8
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %124 = load float, ptr %123, align 8, !tbaa !216
+  %124 = load float, ptr %123, align 8, !tbaa !218
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i888, <2 x float> %.sroa.6622.8.copyload, <2 x float> %.sroa.0608.0.copyload, float noundef %124, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %14, <2 x float> <float 2.000000e+00, float -5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i888)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #24
@@ -6619,7 +6619,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %.sroa.011.0.vec.insert.i899 = insertelement <2 x float> poison, float %136, i64 0
   %.sroa.011.4.vec.insert.i900 = insertelement <2 x float> %.sroa.011.0.vec.insert.i899, float %139, i64 1
   %140 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %141 = load float, ptr %140, align 8, !tbaa !217
+  %141 = load float, ptr %140, align 8, !tbaa !219
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i896, <2 x float> %.sroa.011.4.vec.insert.i900, float noundef %141, i32 noundef 8388564)
   %.sroa.0567.0.copyload = load <2 x float>, ptr %16, align 8
   %.sroa.3.8.vec.extract.i = extractelement <2 x float> %.sroa.7593.8.copyload, i64 0
@@ -6653,7 +6653,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %.sroa.011.0.vec.insert.i909 = insertelement <2 x float> poison, float %156, i64 0
   %.sroa.011.4.vec.insert.i910 = insertelement <2 x float> %.sroa.011.0.vec.insert.i909, float %160, i64 1
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %162 = load float, ptr %161, align 8, !tbaa !217
+  %162 = load float, ptr %161, align 8, !tbaa !219
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i904, <2 x float> %.sroa.011.4.vec.insert.i910, float noundef %162, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %17, <2 x float> <float 6.000000e+00, float -5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i892)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %17) #24
@@ -6675,9 +6675,9 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %20) #24
   call void @b2CollidePolygonAndCapsule(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %20, ptr noundef nonnull %19, <2 x float> <float 1.000000e+01, float -5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %18, <2 x float> %.sroa.02.4.vec.insert.i914, <2 x float> %.sroa.7545.8.copyload)
   %166 = getelementptr inbounds nuw i8, ptr %19, i64 140
-  %167 = load i32, ptr %166, align 4, !tbaa !221
+  %167 = load i32, ptr %166, align 4, !tbaa !223
   %168 = getelementptr inbounds nuw i8, ptr %19, i64 136
-  %169 = load float, ptr %168, align 4, !tbaa !202
+  %169 = load float, ptr %168, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 1.000000e+01, float -5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %19, i32 noundef %167, float noundef %169, i32 noundef 8388564)
   %.sroa.0529.0.copyload = load <2 x float>, ptr %18, align 8
   %.sroa.3.8.vec.extract.i915 = extractelement <2 x float> %.sroa.7545.8.copyload, i64 0
@@ -6711,7 +6711,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %.sroa.011.0.vec.insert.i925 = insertelement <2 x float> poison, float %184, i64 0
   %.sroa.011.4.vec.insert.i926 = insertelement <2 x float> %.sroa.011.0.vec.insert.i925, float %188, i64 1
   %189 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %190 = load float, ptr %189, align 8, !tbaa !217
+  %190 = load float, ptr %189, align 8, !tbaa !219
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i920, <2 x float> %.sroa.011.4.vec.insert.i926, float noundef %190, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %20, <2 x float> <float 1.000000e+01, float -5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i914)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %20) #24
@@ -6787,7 +6787,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %.sroa.011.0.vec.insert.i949 = insertelement <2 x float> poison, float %220, i64 0
   %.sroa.011.4.vec.insert.i950 = insertelement <2 x float> %.sroa.011.0.vec.insert.i949, float %224, i64 1
   %225 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %226 = load float, ptr %225, align 8, !tbaa !217
+  %226 = load float, ptr %225, align 8, !tbaa !219
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i944, <2 x float> %.sroa.011.4.vec.insert.i950, float noundef %226, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %23, <2 x float> <float 1.400000e+01, float -5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i930)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %23) #24
@@ -6808,14 +6808,14 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %26) #24
   call void @b2CollidePolygons(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %26, ptr noundef nonnull %24, <2 x float> <float -1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %25, <2 x float> %.sroa.02.4.vec.insert.i954, <2 x float> %.sroa.6462.8.copyload)
   %229 = getelementptr inbounds nuw i8, ptr %24, i64 140
-  %230 = load i32, ptr %229, align 4, !tbaa !221
+  %230 = load i32, ptr %229, align 4, !tbaa !223
   %231 = getelementptr inbounds nuw i8, ptr %24, i64 136
-  %232 = load float, ptr %231, align 4, !tbaa !202
+  %232 = load float, ptr %231, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float -1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %24, i32 noundef %230, float noundef %232, i32 noundef 8388564)
   %233 = getelementptr inbounds nuw i8, ptr %25, i64 140
-  %234 = load i32, ptr %233, align 4, !tbaa !221
+  %234 = load i32, ptr %233, align 4, !tbaa !223
   %235 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  %236 = load float, ptr %235, align 4, !tbaa !202
+  %236 = load float, ptr %235, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i954, <2 x float> %.sroa.6462.8.copyload, ptr noundef nonnull %25, i32 noundef %234, float noundef %236, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %26, <2 x float> <float -1.000000e+01, float 0.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i954)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %26) #24
@@ -6836,14 +6836,14 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %29) #24
   call void @b2CollidePolygons(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %29, ptr noundef nonnull %27, <2 x float> <float -6.000000e+00, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %28, <2 x float> %.sroa.02.4.vec.insert.i958, <2 x float> %.sroa.6437.8.copyload)
   %239 = getelementptr inbounds nuw i8, ptr %27, i64 140
-  %240 = load i32, ptr %239, align 4, !tbaa !221
+  %240 = load i32, ptr %239, align 4, !tbaa !223
   %241 = getelementptr inbounds nuw i8, ptr %27, i64 136
-  %242 = load float, ptr %241, align 4, !tbaa !202
+  %242 = load float, ptr %241, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float -6.000000e+00, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %27, i32 noundef %240, float noundef %242, i32 noundef 8388564)
   %243 = getelementptr inbounds nuw i8, ptr %28, i64 140
-  %244 = load i32, ptr %243, align 4, !tbaa !221
+  %244 = load i32, ptr %243, align 4, !tbaa !223
   %245 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  %246 = load float, ptr %245, align 4, !tbaa !202
+  %246 = load float, ptr %245, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i958, <2 x float> %.sroa.6437.8.copyload, ptr noundef nonnull %28, i32 noundef %244, float noundef %246, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %29, <2 x float> <float -6.000000e+00, float 0.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i958)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %29) #24
@@ -6866,14 +6866,14 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %32) #24
   call void @b2CollidePolygons(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %32, ptr noundef nonnull %30, <2 x float> <float -2.000000e+00, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %31, <2 x float> %.sroa.02.4.vec.insert.i962, <2 x float> %.sroa.6410.8.copyload)
   %251 = getelementptr inbounds nuw i8, ptr %30, i64 140
-  %252 = load i32, ptr %251, align 4, !tbaa !221
+  %252 = load i32, ptr %251, align 4, !tbaa !223
   %253 = getelementptr inbounds nuw i8, ptr %30, i64 136
-  %254 = load float, ptr %253, align 4, !tbaa !202
+  %254 = load float, ptr %253, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float -2.000000e+00, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %30, i32 noundef %252, float noundef %254, i32 noundef 8388564)
   %255 = getelementptr inbounds nuw i8, ptr %31, i64 140
-  %256 = load i32, ptr %255, align 4, !tbaa !221
+  %256 = load i32, ptr %255, align 4, !tbaa !223
   %257 = getelementptr inbounds nuw i8, ptr %31, i64 136
-  %258 = load float, ptr %257, align 4, !tbaa !202
+  %258 = load float, ptr %257, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i962, <2 x float> %.sroa.6410.8.copyload, ptr noundef nonnull %31, i32 noundef %256, float noundef %258, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %32, <2 x float> <float -2.000000e+00, float 0.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i962)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %32) #24
@@ -6894,12 +6894,12 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %34) #24
   call void @b2CollidePolygons(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %34, ptr noundef nonnull %33, <2 x float> <float 2.000000e+00, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %33, <2 x float> %.sroa.02.4.vec.insert.i966, <2 x float> %.sroa.6383.8.copyload)
   %263 = getelementptr inbounds nuw i8, ptr %33, i64 140
-  %264 = load i32, ptr %263, align 4, !tbaa !221
+  %264 = load i32, ptr %263, align 4, !tbaa !223
   %265 = getelementptr inbounds nuw i8, ptr %33, i64 136
-  %266 = load float, ptr %265, align 4, !tbaa !202
+  %266 = load float, ptr %265, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 2.000000e+00, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %33, i32 noundef %264, float noundef %266, i32 noundef 8388564)
-  %267 = load i32, ptr %263, align 4, !tbaa !221
-  %268 = load float, ptr %265, align 4, !tbaa !202
+  %267 = load i32, ptr %263, align 4, !tbaa !223
+  %268 = load float, ptr %265, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i966, <2 x float> %.sroa.6383.8.copyload, ptr noundef nonnull %33, i32 noundef %267, float noundef %268, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %34, <2 x float> <float 2.000000e+00, float 0.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i966)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %34) #24
@@ -6945,9 +6945,9 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %.sroa.011.4.vec.insert.i978 = insertelement <2 x float> %.sroa.011.0.vec.insert.i977, float %285, i64 1
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i974, <2 x float> %.sroa.011.4.vec.insert.i978, i32 noundef 8388564)
   %286 = getelementptr inbounds nuw i8, ptr %36, i64 140
-  %287 = load i32, ptr %286, align 4, !tbaa !221
+  %287 = load i32, ptr %286, align 4, !tbaa !223
   %288 = getelementptr inbounds nuw i8, ptr %36, i64 136
-  %289 = load float, ptr %288, align 4, !tbaa !202
+  %289 = load float, ptr %288, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i970, <2 x float> %.sroa.6354.8.copyload, ptr noundef nonnull %36, i32 noundef %287, float noundef %289, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %37, <2 x float> <float 6.000000e+00, float 0.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i970)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %37) #24
@@ -6968,16 +6968,16 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %39) #24
   call void @b2CollidePolygons(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %39, ptr noundef nonnull %38, <2 x float> <float 1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %38, <2 x float> %.sroa.02.4.vec.insert.i982, <2 x float> %.sroa.7318.8.copyload)
   %294 = getelementptr inbounds nuw i8, ptr %38, i64 140
-  %295 = load i32, ptr %294, align 4, !tbaa !221
+  %295 = load i32, ptr %294, align 4, !tbaa !223
   %296 = getelementptr inbounds nuw i8, ptr %38, i64 136
-  %297 = load float, ptr %296, align 4, !tbaa !202
+  %297 = load float, ptr %296, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %38, i32 noundef %295, float noundef %297, i32 noundef 8388564)
-  %298 = load i32, ptr %294, align 4, !tbaa !221
+  %298 = load i32, ptr %294, align 4, !tbaa !223
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 1.000000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %38, i32 noundef %298, float noundef 0.000000e+00, i32 noundef 8388564)
-  %299 = load i32, ptr %294, align 4, !tbaa !221
-  %300 = load float, ptr %296, align 4, !tbaa !202
+  %299 = load i32, ptr %294, align 4, !tbaa !223
+  %300 = load float, ptr %296, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i982, <2 x float> %.sroa.7318.8.copyload, ptr noundef nonnull %38, i32 noundef %299, float noundef %300, i32 noundef 15657130)
-  %301 = load i32, ptr %294, align 4, !tbaa !221
+  %301 = load i32, ptr %294, align 4, !tbaa !223
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i982, <2 x float> %.sroa.7318.8.copyload, ptr noundef nonnull %38, i32 noundef %301, float noundef 0.000000e+00, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %39, <2 x float> <float 1.000000e+01, float 0.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i982)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %39) #24
@@ -7005,18 +7005,18 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %46) #24
   call void @b2CollidePolygons(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %46, ptr noundef nonnull %44, <2 x float> <float 1.400000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %45, <2 x float> %.sroa.02.4.vec.insert.i986, <2 x float> %.sroa.7.8.copyload)
   %304 = getelementptr inbounds nuw i8, ptr %44, i64 140
-  %305 = load i32, ptr %304, align 4, !tbaa !221
+  %305 = load i32, ptr %304, align 4, !tbaa !223
   %306 = getelementptr inbounds nuw i8, ptr %44, i64 136
-  %307 = load float, ptr %306, align 4, !tbaa !202
+  %307 = load float, ptr %306, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 1.400000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %44, i32 noundef %305, float noundef %307, i32 noundef 8388564)
-  %308 = load i32, ptr %304, align 4, !tbaa !221
+  %308 = load i32, ptr %304, align 4, !tbaa !223
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float 1.400000e+01, float 0.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %44, i32 noundef %308, float noundef 0.000000e+00, i32 noundef 8388564)
   %309 = getelementptr inbounds nuw i8, ptr %45, i64 140
-  %310 = load i32, ptr %309, align 4, !tbaa !221
+  %310 = load i32, ptr %309, align 4, !tbaa !223
   %311 = getelementptr inbounds nuw i8, ptr %45, i64 136
-  %312 = load float, ptr %311, align 4, !tbaa !202
+  %312 = load float, ptr %311, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i986, <2 x float> %.sroa.7.8.copyload, ptr noundef nonnull %45, i32 noundef %310, float noundef %312, i32 noundef 15657130)
-  %313 = load i32, ptr %309, align 4, !tbaa !221
+  %313 = load i32, ptr %309, align 4, !tbaa !223
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i986, <2 x float> %.sroa.7.8.copyload, ptr noundef nonnull %45, i32 noundef %313, float noundef 0.000000e+00, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %46, <2 x float> <float 1.400000e+01, float 0.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i986)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %46) #24
@@ -7045,10 +7045,10 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %51) #24
   call void @b2CollidePolygons(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %51, ptr noundef nonnull %47, <2 x float> <float -1.000000e+01, float 5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %50, <2 x float> %.sroa.02.4.vec.insert.i990, <2 x float> %.sroa.6255.8.copyload)
   %316 = getelementptr inbounds nuw i8, ptr %47, i64 140
-  %317 = load i32, ptr %316, align 4, !tbaa !221
+  %317 = load i32, ptr %316, align 4, !tbaa !223
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> <float -1.000000e+01, float 5.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %47, i32 noundef %317, float noundef 0.000000e+00, i32 noundef 8388564)
   %318 = getelementptr inbounds nuw i8, ptr %50, i64 140
-  %319 = load i32, ptr %318, align 4, !tbaa !221
+  %319 = load i32, ptr %318, align 4, !tbaa !223
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i990, <2 x float> %.sroa.6255.8.copyload, ptr noundef nonnull %50, i32 noundef %319, float noundef 0.000000e+00, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %51, <2 x float> <float -1.000000e+01, float 5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i990)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %51) #24
@@ -7122,7 +7122,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i1010, <2 x float> %.sroa.011.4.vec.insert.i1002, i32 noundef 13882323)
   %.sroa.0189.0.copyload = load <2 x float>, ptr %53, align 8
   %349 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %350 = load float, ptr %349, align 8, !tbaa !216
+  %350 = load float, ptr %349, align 8, !tbaa !218
   call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i994, <2 x float> %.sroa.6.8.copyload, <2 x float> %.sroa.0189.0.copyload, float noundef %350, i32 noundef 15657130)
   call void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef nonnull %54, <2 x float> <float -6.000000e+00, float 5.000000e+00>, <2 x float> %.sroa.02.4.vec.insert.i994)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %54) #24
@@ -7230,9 +7230,9 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i1036, float noundef 4.000000e+00, i32 noundef 8388564)
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i1040, float noundef 4.000000e+00, i32 noundef 8388564)
   %398 = getelementptr inbounds nuw i8, ptr %57, i64 140
-  %399 = load i32, ptr %398, align 4, !tbaa !221
+  %399 = load i32, ptr %398, align 4, !tbaa !223
   %400 = getelementptr inbounds nuw i8, ptr %57, i64 136
-  %401 = load float, ptr %400, align 4, !tbaa !202
+  %401 = load float, ptr %400, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.02.4.vec.insert.i1016, <2 x float> %.sroa.9164.8.copyload, ptr noundef nonnull %57, i32 noundef %399, float noundef %401, i32 noundef 15657130)
   %402 = getelementptr inbounds nuw i8, ptr %57, i64 128
   %.sroa.0100.0.copyload = load <2 x float>, ptr %402, align 4
@@ -7390,7 +7390,7 @@ define linkonce_odr dso_local void @_ZN8Manifold4StepER8Settings(ptr noundef non
   %.sroa.011.0.vec.insert.i1087 = insertelement <2 x float> poison, float %471, i64 0
   %.sroa.011.4.vec.insert.i1088 = insertelement <2 x float> %.sroa.011.0.vec.insert.i1087, float %475, i64 1
   %476 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %477 = load float, ptr %476, align 8, !tbaa !217
+  %477 = load float, ptr %476, align 8, !tbaa !219
   call void @_ZN4Draw16DrawSolidCapsuleE6b2Vec2S0_f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i1082, <2 x float> %.sroa.011.4.vec.insert.i1088, float noundef %477, i32 noundef 15657130)
   %478 = fmul float %461, 5.000000e-01
   %479 = fmul float %471, 5.000000e-01
@@ -7418,24 +7418,24 @@ define linkonce_odr dso_local void @_ZN8Manifold8UpdateUIEv(ptr noundef nonnull 
   %4 = alloca %struct.ImVec2, align 4
   %5 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !124
   %7 = sitofp i32 %6 to float
   %8 = fadd float %7, -3.000000e+02
   %9 = fadd float %8, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !124
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !125
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %9, ptr %10, align 4, !tbaa !126
+  store float %9, ptr %10, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %11, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %11, align 4, !tbaa !127
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store float 2.400000e+02, ptr %4, align 4, !tbaa !124
+  store float 2.400000e+02, ptr %4, align 4, !tbaa !125
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 3.000000e+02, ptr %12, align 4, !tbaa !126
+  store float 3.000000e+02, ptr %12, align 4, !tbaa !127
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %13 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.11, ptr noundef null, i32 noundef 6)
@@ -7466,9 +7466,9 @@ define linkonce_odr dso_local void @_ZN8Manifold8UpdateUIEv(ptr noundef nonnull 
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 397
   %34 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.126, ptr noundef nonnull %33)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  store float 0.000000e+00, ptr %5, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %5, align 4, !tbaa !125
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %35, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %35, align 4, !tbaa !127
   %36 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.61, ptr noundef nonnull align 4 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
   br i1 %36, label %37, label %38
@@ -7501,7 +7501,7 @@ define linkonce_odr dso_local void @_ZN8Manifold9MouseDownE6b2Vec2ii(ptr noundef
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i8 1, ptr %12, align 8, !tbaa !258
+  store i8 1, ptr %12, align 8, !tbaa !260
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store <2 x float> %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 348
@@ -7519,13 +7519,13 @@ define linkonce_odr dso_local void @_ZN8Manifold9MouseDownE6b2Vec2ii(ptr noundef
   br i1 %or.cond8, label %22, label %27
 
 22:                                               ; preds = %17
-  store i8 1, ptr %8, align 1, !tbaa !259
+  store i8 1, ptr %8, align 1, !tbaa !261
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 380
   store <2 x float> %1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %25 = load float, ptr %24, align 4, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  store float %25, ptr %26, align 4, !tbaa !260
+  store float %25, ptr %26, align 4, !tbaa !262
   br label %27
 
 27:                                               ; preds = %11, %22, %17, %4
@@ -7539,9 +7539,9 @@ define linkonce_odr dso_local void @_ZN8Manifold7MouseUpE6b2Vec2i(ptr noundef no
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store i8 0, ptr %6, align 8, !tbaa !258
+  store i8 0, ptr %6, align 8, !tbaa !260
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 393
-  store i8 0, ptr %7, align 1, !tbaa !259
+  store i8 0, ptr %7, align 1, !tbaa !261
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -7551,26 +7551,26 @@ define linkonce_odr dso_local void @_ZN8Manifold7MouseUpE6b2Vec2i(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8Manifold9MouseMoveE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(398) %0, <2 x float> %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %4 = load i8, ptr %3, align 8, !tbaa !258, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 8, !tbaa !260, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 372
-  %8 = load float, ptr %7, align 4, !tbaa !261
+  %8 = load float, ptr %7, align 4, !tbaa !263
   %.sroa.02.0.vec.extract = extractelement <2 x float> %1, i64 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %10 = load float, ptr %9, align 4, !tbaa !262
+  %10 = load float, ptr %9, align 4, !tbaa !264
   %11 = fsub float %.sroa.02.0.vec.extract, %10
   %12 = fmul float %11, 5.000000e-01
   %13 = fadd float %8, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store float %13, ptr %14, align 4, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %16 = load float, ptr %15, align 8, !tbaa !263
+  %16 = load float, ptr %15, align 8, !tbaa !265
   %.sroa.02.4.vec.extract = extractelement <2 x float> %1, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %18 = load float, ptr %17, align 8, !tbaa !264
+  %18 = load float, ptr %17, align 8, !tbaa !266
   %19 = fsub float %.sroa.02.4.vec.extract, %18
   %20 = fmul float %19, 5.000000e-01
   %21 = fadd float %16, %20
@@ -7580,17 +7580,17 @@ define linkonce_odr dso_local void @_ZN8Manifold9MouseMoveE6b2Vec2(ptr noundef n
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 393
-  %25 = load i8, ptr %24, align 1, !tbaa !259, !range !13, !noundef !14
+  %25 = load i8, ptr %24, align 1, !tbaa !261, !range !13, !noundef !14
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %41
 
 27:                                               ; preds = %23
   %.sroa.02.0.vec.extract4 = extractelement <2 x float> %1, i64 0
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %29 = load float, ptr %28, align 4, !tbaa !262
+  %29 = load float, ptr %28, align 4, !tbaa !264
   %30 = fsub float %.sroa.02.0.vec.extract4, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %32 = load float, ptr %31, align 4, !tbaa !260
+  %32 = load float, ptr %31, align 4, !tbaa !262
   %33 = fadd float %32, %30
   %34 = fcmp olt float %33, 0xC00921FB60000000
   %35 = fcmp ogt float %33, 0x400921FB60000000
@@ -7612,7 +7612,7 @@ declare void @b2CollideCircles(ptr dead_on_unwind writable sret(%struct.b2Manifo
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2Vec2S3_(ptr noundef nonnull align 8 dereferenceable(398) %0, ptr noundef %1, <2 x float> %2, <2 x float> %3) local_unnamed_addr #2 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %6 = load i32, ptr %5, align 4, !tbaa !265
+  %6 = load i32, ptr %5, align 4, !tbaa !267
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
@@ -7642,7 +7642,7 @@ define linkonce_odr dso_local void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2
   %17 = fadd float %.sroa.02.4.vec.extract.i, %16
   %.sroa.03.4.vec.insert.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i, float %17, i64 1
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.018.0.copyload, <2 x float> %.sroa.03.4.vec.insert.i, i32 noundef 16777215)
-  %18 = load i8, ptr %9, align 1, !tbaa !267, !range !13, !noundef !14
+  %18 = load i8, ptr %9, align 1, !tbaa !269, !range !13, !noundef !14
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %23
 
@@ -7662,7 +7662,7 @@ define linkonce_odr dso_local void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = load i8, ptr %10, align 2, !tbaa !268, !range !13, !noundef !14
+  %25 = load i8, ptr %10, align 2, !tbaa !270, !range !13, !noundef !14
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %33
 
@@ -7672,13 +7672,13 @@ define linkonce_odr dso_local void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2
   %29 = fadd float %.sroa.02.4.vec.extract.i, 0xBF947AE140000000
   %.sroa.04.4.vec.insert = insertelement <2 x float> %.sroa.04.0.vec.insert, float %29, i64 1
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 44
-  %31 = load i16, ptr %30, align 4, !tbaa !269
+  %31 = load i16, ptr %30, align 4, !tbaa !271
   %32 = zext i16 %31 to i32
   tail call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.04.4.vec.insert, ptr noundef nonnull @.str.120, i32 noundef %32)
   br label %33
 
 33:                                               ; preds = %27, %24
-  %34 = load i8, ptr %11, align 4, !tbaa !271, !range !13, !noundef !14
+  %34 = load i8, ptr %11, align 4, !tbaa !273, !range !13, !noundef !14
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %42
 
@@ -7688,17 +7688,17 @@ define linkonce_odr dso_local void @_ZN8Manifold12DrawManifoldEPK10b2Manifold6b2
   %38 = fadd float %.sroa.02.4.vec.extract.i, 0x3F9EB851E0000000
   %.sroa.01.4.vec.insert = insertelement <2 x float> %.sroa.01.0.vec.insert, float %38, i64 1
   %39 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %40 = load float, ptr %39, align 4, !tbaa !272
+  %40 = load float, ptr %39, align 4, !tbaa !274
   %41 = fpext float %40 to double
   tail call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.01.4.vec.insert, ptr noundef nonnull @.str.121, double noundef %41)
   br label %42
 
 42:                                               ; preds = %36, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %5, align 4, !tbaa !265
+  %43 = load i32, ptr %5, align 4, !tbaa !267
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %12, label %._crit_edge, !llvm.loop !273
+  br i1 %45, label %12, label %._crit_edge, !llvm.loop !275
 }
 
 declare void @b2CollideCapsuleAndCircle(ptr dead_on_unwind writable sret(%struct.b2Manifold) align 4, ptr noundef, <2 x float>, <2 x float>, ptr noundef, <2 x float>, <2 x float>) local_unnamed_addr #0
@@ -7745,7 +7745,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifoldC2ER8Settings(ptr noundef
 
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i32 1, ptr %9, align 8, !tbaa !274
+  store i32 1, ptr %9, align 8, !tbaa !276
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store float 0.000000e+00, ptr %10, align 4, !tbaa !15
   %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -7755,7 +7755,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifoldC2ER8Settings(ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(33) %11, i8 0, i64 33, i1 false)
-  store i32 36, ptr %12, align 8, !tbaa !278
+  store i32 36, ptr %12, align 8, !tbaa !280
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %3) #24
   store float 0xC034954FE0000000, ptr %3, align 16, !tbaa !15
   %.sroa.484.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -7902,8 +7902,8 @@ define linkonce_odr dso_local void @_ZN14SmoothManifoldC2ER8Settings(ptr noundef
   store float 0x402D156040000000, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !15
   %48 = tail call noalias dereferenceable_or_null(1296) ptr @malloc(i64 noundef 1296) #25
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr %48, ptr %49, align 8, !tbaa !279
-  %50 = load i32, ptr %12, align 8, !tbaa !278
+  store ptr %48, ptr %49, align 8, !tbaa !281
+  %50 = load i32, ptr %12, align 8, !tbaa !280
   %51 = icmp sgt i32 %50, 0
   br i1 %51, label %.lr.ph, label %._crit_edge
 
@@ -7938,7 +7938,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifoldC2ER8Settings(ptr noundef
   %71 = zext nneg i32 %62 to i64
   %72 = getelementptr inbounds nuw [36 x %struct.b2Vec2], ptr %3, i64 0, i64 %71
   %73 = load i64, ptr %72, align 8
-  %74 = load ptr, ptr %49, align 8, !tbaa !279
+  %74 = load ptr, ptr %49, align 8, !tbaa !281
   %75 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %74, i64 %indvars.iv
   store i64 %65, ptr %75, align 4
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 8
@@ -7949,17 +7949,17 @@ define linkonce_odr dso_local void @_ZN14SmoothManifoldC2ER8Settings(ptr noundef
   store i64 %73, ptr %.sroa.0.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %75, i64 32
   store i32 -1, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !64
-  %76 = load i32, ptr %12, align 8, !tbaa !278
+  %76 = load i32, ptr %12, align 8, !tbaa !280
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !280
+  br i1 %78, label %.lr.ph, label %._crit_edge, !llvm.loop !282
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14SmoothManifoldD2Ev(ptr noundef nonnull align 8 dereferenceable(317) %0) unnamed_addr #8 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV14SmoothManifold, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %3 = load ptr, ptr %2, align 8, !tbaa !279
+  %3 = load ptr, ptr %2, align 8, !tbaa !281
   tail call void @free(ptr noundef %3) #24
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #24
   ret void
@@ -7969,7 +7969,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifoldD2Ev(ptr noundef nonnull 
 define linkonce_odr dso_local void @_ZN14SmoothManifoldD0Ev(ptr noundef nonnull align 8 dereferenceable(317) %0) unnamed_addr #8 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTV14SmoothManifold, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %3 = load ptr, ptr %2, align 8, !tbaa !279
+  %3 = load ptr, ptr %2, align 8, !tbaa !281
   tail call void @free(ptr noundef %3) #24
   tail call void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(317) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 320) #23
@@ -7988,7 +7988,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 276
   %.sroa.7.0.copyload = load <2 x float>, ptr %.sroa.7.0..sroa_idx, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %10 = load i32, ptr %9, align 8, !tbaa !278
+  %10 = load i32, ptr %9, align 8, !tbaa !280
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -7998,7 +7998,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
 
 ._crit_edge:                                      ; preds = %15, %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %14 = load i32, ptr %13, align 8, !tbaa !274
+  %14 = load i32, ptr %13, align 8, !tbaa !276
   switch i32 %14, label %125 [
     i32 0, label %34
     i32 1, label %76
@@ -8006,7 +8006,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = load ptr, ptr %12, align 8, !tbaa !279
+  %16 = load ptr, ptr %12, align 8, !tbaa !281
   %17 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %16, i64 %indvars.iv, i32 1
   %.sroa.027.0.copyload = load <2 x float>, ptr %17, align 4
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.027.0.copyload, i64 0
@@ -8034,16 +8034,16 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
   tail call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i, <2 x float> %.sroa.011.4.vec.insert.i63, i32 noundef 16776960)
   tail call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.011.4.vec.insert.i, float noundef 4.000000e+00, i32 noundef 16776960)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %31 = load i32, ptr %9, align 8, !tbaa !278
+  %31 = load i32, ptr %9, align 8, !tbaa !280
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %15, label %._crit_edge, !llvm.loop !281
+  br i1 %33, label %15, label %._crit_edge, !llvm.loop !283
 
 34:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN14SmoothManifold4StepER8Settings.circle, i64 12, i1 false)
   tail call void @_ZN4Draw15DrawSolidCircleE11b2Transform6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.037.0.copyload, <2 x float> %.sroa.7.0.copyload, <2 x float> zeroinitializer, float noundef 5.000000e-01, i32 noundef 16711935)
-  %35 = load i32, ptr %9, align 8, !tbaa !278
+  %35 = load i32, ptr %9, align 8, !tbaa !280
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph87, label %._crit_edge88
 
@@ -8061,11 +8061,11 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
 
 42:                                               ; preds = %.lr.ph87, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit
   %indvars.iv93 = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next94, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit ]
-  %43 = load ptr, ptr %37, align 8, !tbaa !279
+  %43 = load ptr, ptr %37, align 8, !tbaa !281
   %44 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %43, i64 %indvars.iv93
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #24
   call void @b2CollideChainSegmentAndCircle(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %4, ptr noundef %44, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %3, <2 x float> %.sroa.037.0.copyload, <2 x float> %.sroa.7.0.copyload)
-  %45 = load i32, ptr %38, align 4, !tbaa !265
+  %45 = load i32, ptr %38, align 4, !tbaa !267
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph.i, label %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit
 
@@ -8086,7 +8086,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
   %.sroa.03.4.vec.insert.i.i = insertelement <2 x float> %.sroa.03.0.vec.insert.i.i, float %51, i64 1
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.013.0.copyload.i, <2 x float> %.sroa.03.4.vec.insert.i.i, i32 noundef 16777215)
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.013.0.copyload.i, float noundef 5.000000e+00, i32 noundef 32768)
-  %52 = load i8, ptr %40, align 2, !tbaa !282, !range !13, !noundef !14
+  %52 = load i8, ptr %40, align 2, !tbaa !284, !range !13, !noundef !14
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %60
 
@@ -8096,13 +8096,13 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
   %56 = fadd float %.sroa.02.4.vec.extract.i.i, 0xBF947AE140000000
   %.sroa.04.4.vec.insert.i = insertelement <2 x float> %.sroa.04.0.vec.insert.i, float %56, i64 1
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 44
-  %58 = load i16, ptr %57, align 8, !tbaa !269
+  %58 = load i16, ptr %57, align 8, !tbaa !271
   %59 = zext i16 %58 to i32
   call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.04.4.vec.insert.i, ptr noundef nonnull @.str.120, i32 noundef %59)
   br label %60
 
 60:                                               ; preds = %54, %.lr.ph.i
-  %61 = load i8, ptr %41, align 4, !tbaa !283, !range !13, !noundef !14
+  %61 = load i8, ptr %41, align 4, !tbaa !285, !range !13, !noundef !14
   %62 = trunc nuw i8 %61 to i1
   br i1 %62, label %63, label %69
 
@@ -8112,38 +8112,38 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold4StepER8Settings(ptr noun
   %65 = fadd float %.sroa.02.4.vec.extract.i.i, 0x3F9EB851E0000000
   %.sroa.01.4.vec.insert.i = insertelement <2 x float> %.sroa.01.0.vec.insert.i, float %65, i64 1
   %66 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %67 = load float, ptr %66, align 4, !tbaa !272
+  %67 = load float, ptr %66, align 4, !tbaa !274
   %68 = fpext float %67 to double
   call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.01.4.vec.insert.i, ptr noundef nonnull @.str.121, double noundef %68)
   br label %69
 
 69:                                               ; preds = %63, %60
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %70 = load i32, ptr %38, align 4, !tbaa !265
+  %70 = load i32, ptr %38, align 4, !tbaa !267
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next.i, %71
-  br i1 %72, label %.lr.ph.i, label %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit, !llvm.loop !284
+  br i1 %72, label %.lr.ph.i, label %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit, !llvm.loop !286
 
 _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit: ; preds = %69, %42
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #24
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %73 = load i32, ptr %9, align 8, !tbaa !278
+  %73 = load i32, ptr %9, align 8, !tbaa !280
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next94, %74
-  br i1 %75, label %42, label %._crit_edge88, !llvm.loop !285
+  br i1 %75, label %42, label %._crit_edge88, !llvm.loop !287
 
 76:                                               ; preds = %._crit_edge
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %78 = load float, ptr %77, align 8, !tbaa !286
+  %78 = load float, ptr %77, align 8, !tbaa !288
   %79 = fsub float 5.000000e-01, %78
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5) #24
   call void @b2MakeRoundedBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %5, float noundef %79, float noundef %79, float noundef %78)
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  %81 = load i32, ptr %80, align 4, !tbaa !221
+  %81 = load i32, ptr %80, align 4, !tbaa !223
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %83 = load float, ptr %82, align 4, !tbaa !202
+  %83 = load float, ptr %82, align 4, !tbaa !204
   call void @_ZN4Draw16DrawSolidPolygonE11b2TransformPK6b2Vec2if10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.037.0.copyload, <2 x float> %.sroa.7.0.copyload, ptr noundef nonnull %5, i32 noundef %81, float noundef %83, i32 noundef 16711935)
-  %84 = load i32, ptr %9, align 8, !tbaa !278
+  %84 = load i32, ptr %9, align 8, !tbaa !280
   %85 = icmp sgt i32 %84, 0
   br i1 %85, label %.lr.ph83, label %._crit_edge84
 
@@ -8161,13 +8161,13 @@ _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit: ; preds = %69, %42
 
 91:                                               ; preds = %.lr.ph83, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79
   %indvars.iv90 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next91, %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79 ]
-  %92 = load ptr, ptr %86, align 8, !tbaa !279
+  %92 = load ptr, ptr %86, align 8, !tbaa !281
   %93 = getelementptr inbounds nuw %struct.b2ChainSegment, ptr %92, i64 %indvars.iv90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store i64 0, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %7) #24
   call void @b2CollideChainSegmentAndPolygon(ptr dead_on_unwind nonnull writable sret(%struct.b2Manifold) align 4 %7, ptr noundef %93, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr noundef nonnull %5, <2 x float> %.sroa.037.0.copyload, <2 x float> %.sroa.7.0.copyload, ptr noundef nonnull %6)
-  %94 = load i32, ptr %87, align 4, !tbaa !265
+  %94 = load i32, ptr %87, align 4, !tbaa !267
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %.lr.ph.i64, label %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79
 
@@ -8188,7 +8188,7 @@ _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit: ; preds = %69, %42
   %.sroa.03.4.vec.insert.i.i73 = insertelement <2 x float> %.sroa.03.0.vec.insert.i.i70, float %100, i64 1
   call void @_ZN4Draw11DrawSegmentE6b2Vec2S0_10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.013.0.copyload.i66, <2 x float> %.sroa.03.4.vec.insert.i.i73, i32 noundef 16777215)
   call void @_ZN4Draw9DrawPointE6b2Vec2f10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.013.0.copyload.i66, float noundef 5.000000e+00, i32 noundef 32768)
-  %101 = load i8, ptr %89, align 2, !tbaa !282, !range !13, !noundef !14
+  %101 = load i8, ptr %89, align 2, !tbaa !284, !range !13, !noundef !14
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %109
 
@@ -8198,13 +8198,13 @@ _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit: ; preds = %69, %42
   %105 = fadd float %.sroa.02.4.vec.extract.i.i71, 0xBF947AE140000000
   %.sroa.04.4.vec.insert.i78 = insertelement <2 x float> %.sroa.04.0.vec.insert.i77, float %105, i64 1
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 44
-  %107 = load i16, ptr %106, align 8, !tbaa !269
+  %107 = load i16, ptr %106, align 8, !tbaa !271
   %108 = zext i16 %107 to i32
   call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.04.4.vec.insert.i78, ptr noundef nonnull @.str.120, i32 noundef %108)
   br label %109
 
 109:                                              ; preds = %103, %.lr.ph.i64
-  %110 = load i8, ptr %90, align 4, !tbaa !283, !range !13, !noundef !14
+  %110 = load i8, ptr %90, align 4, !tbaa !285, !range !13, !noundef !14
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %118
 
@@ -8214,26 +8214,26 @@ _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit: ; preds = %69, %42
   %114 = fadd float %.sroa.02.4.vec.extract.i.i71, 0x3F9EB851E0000000
   %.sroa.01.4.vec.insert.i76 = insertelement <2 x float> %.sroa.01.0.vec.insert.i75, float %114, i64 1
   %115 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %116 = load float, ptr %115, align 4, !tbaa !272
+  %116 = load float, ptr %115, align 4, !tbaa !274
   %117 = fpext float %116 to double
   call void (ptr, <2 x float>, ptr, ...) @_ZN4Draw10DrawStringE6b2Vec2PKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, <2 x float> %.sroa.01.4.vec.insert.i76, ptr noundef nonnull @.str.121, double noundef %117)
   br label %118
 
 118:                                              ; preds = %112, %109
   %indvars.iv.next.i74 = add nuw nsw i64 %indvars.iv.i65, 1
-  %119 = load i32, ptr %87, align 4, !tbaa !265
+  %119 = load i32, ptr %87, align 4, !tbaa !267
   %120 = sext i32 %119 to i64
   %121 = icmp slt i64 %indvars.iv.next.i74, %120
-  br i1 %121, label %.lr.ph.i64, label %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79, !llvm.loop !284
+  br i1 %121, label %.lr.ph.i64, label %_ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79, !llvm.loop !286
 
 _ZN14SmoothManifold12DrawManifoldEPK10b2Manifold.exit79: ; preds = %118, %91
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %122 = load i32, ptr %9, align 8, !tbaa !278
+  %122 = load i32, ptr %9, align 8, !tbaa !280
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next91, %123
-  br i1 %124, label %91, label %._crit_edge84, !llvm.loop !287
+  br i1 %124, label %91, label %._crit_edge84, !llvm.loop !289
 
 125:                                              ; preds = %._crit_edge, %._crit_edge84, %._crit_edge88
   ret void
@@ -8248,24 +8248,24 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold8UpdateUIEv(ptr noundef n
   %6 = alloca i32, align 4
   %7 = alloca %struct.ImVec2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #24
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !123
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @g_camera, i64 16), align 4, !tbaa !124
   %9 = sitofp i32 %8 to float
   %10 = fadd float %9, -2.900000e+02
   %11 = fadd float %10, -5.000000e+01
-  store float 1.000000e+01, ptr %2, align 4, !tbaa !124
+  store float 1.000000e+01, ptr %2, align 4, !tbaa !125
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store float %11, ptr %12, align 4, !tbaa !126
+  store float %11, ptr %12, align 4, !tbaa !127
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !125
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store float 0.000000e+00, ptr %13, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %13, align 4, !tbaa !127
   call void @_ZN5ImGui16SetNextWindowPosERK6ImVec2iS2_(ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
-  store float 1.800000e+02, ptr %4, align 4, !tbaa !124
+  store float 1.800000e+02, ptr %4, align 4, !tbaa !125
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float 2.900000e+02, ptr %14, align 4, !tbaa !126
+  store float 2.900000e+02, ptr %14, align 4, !tbaa !127
   call void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnull align 4 dereferenceable(8) %4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   %15 = call noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef nonnull @.str.13, ptr noundef null, i32 noundef 6)
@@ -8274,11 +8274,11 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold8UpdateUIEv(ptr noundef n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @__const._ZN14SmoothManifold8UpdateUIEv.shapeTypes, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %17 = load i32, ptr %16, align 8, !tbaa !274
+  %17 = load i32, ptr %16, align 8, !tbaa !276
   store i32 %17, ptr %6, align 4, !tbaa !64
   %18 = call noundef zeroext i1 @_ZN5ImGui5ComboEPKcPiPKS1_ii(ptr noundef nonnull @.str.127, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 2, i32 noundef -1)
   %19 = load i32, ptr %6, align 4, !tbaa !64
-  store i32 %19, ptr %16, align 8, !tbaa !274
+  store i32 %19, ptr %16, align 8, !tbaa !276
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #24
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -8290,7 +8290,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold8UpdateUIEv(ptr noundef n
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %1
-  %27 = load float, ptr %24, align 4, !tbaa !288
+  %27 = load float, ptr %24, align 4, !tbaa !290
   %28 = call <2 x float> @b2ComputeCosSin(float noundef %27)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store <2 x float> %28, ptr %29, align 4
@@ -8306,16 +8306,16 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold8UpdateUIEv(ptr noundef n
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 315
   %38 = call noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef nonnull @.str.134, ptr noundef nonnull %37)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
-  store float 0.000000e+00, ptr %7, align 4, !tbaa !124
+  store float 0.000000e+00, ptr %7, align 4, !tbaa !125
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store float 0.000000e+00, ptr %39, align 4, !tbaa !126
+  store float 0.000000e+00, ptr %39, align 4, !tbaa !127
   %40 = call noundef zeroext i1 @_ZN5ImGui6ButtonEPKcRK6ImVec2(ptr noundef nonnull @.str.61, ptr noundef nonnull align 4 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, ptr noundef nonnull align 4 dereferenceable(16) @_ZL20b2Transform_identity, i64 16, i1 false), !tbaa.struct !51
-  store float 0.000000e+00, ptr %24, align 4, !tbaa !288
+  store float 0.000000e+00, ptr %24, align 4, !tbaa !290
   br label %42
 
 42:                                               ; preds = %41, %30
@@ -8342,7 +8342,7 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold9MouseDownE6b2Vec2ii(ptr 
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i8 1, ptr %12, align 8, !tbaa !289
+  store i8 1, ptr %12, align 8, !tbaa !291
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store <2 x float> %1, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 268
@@ -8360,13 +8360,13 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold9MouseDownE6b2Vec2ii(ptr 
   br i1 %or.cond8, label %22, label %27
 
 22:                                               ; preds = %17
-  store i8 1, ptr %8, align 1, !tbaa !290
+  store i8 1, ptr %8, align 1, !tbaa !292
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store <2 x float> %1, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  %25 = load float, ptr %24, align 4, !tbaa !288
+  %25 = load float, ptr %24, align 4, !tbaa !290
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  store float %25, ptr %26, align 4, !tbaa !291
+  store float %25, ptr %26, align 4, !tbaa !293
   br label %27
 
 27:                                               ; preds = %11, %22, %17, %4
@@ -8380,9 +8380,9 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold7MouseUpE6b2Vec2i(ptr nou
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i8 0, ptr %6, align 8, !tbaa !289
+  store i8 0, ptr %6, align 8, !tbaa !291
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 313
-  store i8 0, ptr %7, align 1, !tbaa !290
+  store i8 0, ptr %7, align 1, !tbaa !292
   br label %8
 
 8:                                                ; preds = %5, %3
@@ -8392,51 +8392,51 @@ define linkonce_odr dso_local void @_ZN14SmoothManifold7MouseUpE6b2Vec2i(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN14SmoothManifold9MouseMoveE6b2Vec2(ptr noundef nonnull align 8 dereferenceable(317) %0, <2 x float> %1) unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %4 = load i8, ptr %3, align 8, !tbaa !289, !range !13, !noundef !14
+  %4 = load i8, ptr %3, align 8, !tbaa !291, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %21
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %8 = load float, ptr %7, align 4, !tbaa !292
+  %8 = load float, ptr %7, align 4, !tbaa !294
   %.sroa.02.0.vec.extract = extractelement <2 x float> %1, i64 0
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %10 = load float, ptr %9, align 4, !tbaa !293
+  %10 = load float, ptr %9, align 4, !tbaa !295
   %11 = fsub float %.sroa.02.0.vec.extract, %10
   %12 = fadd float %8, %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store float %12, ptr %13, align 4, !tbaa !294
+  store float %12, ptr %13, align 4, !tbaa !296
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %15 = load float, ptr %14, align 8, !tbaa !295
+  %15 = load float, ptr %14, align 8, !tbaa !297
   %.sroa.02.4.vec.extract = extractelement <2 x float> %1, i64 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %17 = load float, ptr %16, align 8, !tbaa !296
+  %17 = load float, ptr %16, align 8, !tbaa !298
   %18 = fsub float %.sroa.02.4.vec.extract, %17
   %19 = fadd float %15, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store float %19, ptr %20, align 8, !tbaa !297
+  store float %19, ptr %20, align 8, !tbaa !299
   br label %39
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 313
-  %23 = load i8, ptr %22, align 1, !tbaa !290, !range !13, !noundef !14
+  %23 = load i8, ptr %22, align 1, !tbaa !292, !range !13, !noundef !14
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %39
 
 25:                                               ; preds = %21
   %.sroa.02.0.vec.extract4 = extractelement <2 x float> %1, i64 0
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %27 = load float, ptr %26, align 4, !tbaa !293
+  %27 = load float, ptr %26, align 4, !tbaa !295
   %28 = fsub float %.sroa.02.0.vec.extract4, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %30 = load float, ptr %29, align 4, !tbaa !291
+  %30 = load float, ptr %29, align 4, !tbaa !293
   %31 = fadd float %30, %28
   %32 = fcmp olt float %31, 0xC00921FB60000000
   %33 = fcmp ogt float %31, 0x400921FB60000000
   %34 = select i1 %33, float 0x400921FB60000000, float %31
   %35 = select i1 %32, float 0xC00921FB60000000, float %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 284
-  store float %35, ptr %36, align 4, !tbaa !288
+  store float %35, ptr %36, align 4, !tbaa !290
   %37 = tail call <2 x float> @b2ComputeCosSin(float noundef %35)
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store <2 x float> %37, ptr %38, align 4
@@ -8492,14 +8492,14 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   %28 = load i64, ptr %26, align 8
   store i64 %28, ptr %27, align 4
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  store float 1.000000e+00, ptr %29, align 4, !tbaa !298
+  store float 1.000000e+00, ptr %29, align 4, !tbaa !300
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #24
   call void @b2ShapeCast(ptr dead_on_unwind nonnull writable sret(%struct.b2CastOutput) align 4 %5, ptr noundef nonnull %3)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %.sroa.5.8.copyload = load <2 x float>, ptr %30, align 8
   %.sroa.054.0.copyload = load <2 x float>, ptr %24, align 8
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %32 = load float, ptr %31, align 8, !tbaa !184
+  %32 = load float, ptr %31, align 8, !tbaa !185
   %.sroa.053.0.copyload = load <2 x float>, ptr %27, align 4
   %.sroa.02.0.vec.extract.i = extractelement <2 x float> %.sroa.054.0.copyload, i64 0
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.053.0.copyload, i64 0
@@ -8531,28 +8531,28 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store i8 0, ptr %44, align 4, !tbaa !94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #24
-  store i16 0, ptr %8, align 2, !tbaa !300
+  store i16 0, ptr %8, align 2, !tbaa !302
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #24
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %9, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef null, i32 noundef 0)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %46 = load i32, ptr %45, align 8, !tbaa !119
+  %46 = load i32, ptr %45, align 8, !tbaa !120
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %48 = load i8, ptr %47, align 8, !tbaa !180, !range !13, !noundef !14
+  %48 = load i8, ptr %47, align 8, !tbaa !181, !range !13, !noundef !14
   %49 = trunc nuw i8 %48 to i1
   %50 = select i1 %49, ptr @.str.136, ptr @.str.137
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %52 = load i32, ptr %51, align 4, !tbaa !301
-  %53 = load float, ptr %31, align 8, !tbaa !184
+  %52 = load i32, ptr %51, align 4, !tbaa !303
+  %53 = load float, ptr %31, align 8, !tbaa !185
   %54 = fpext float %53 to double
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %56 = load float, ptr %55, align 4, !tbaa !121
+  %56 = load float, ptr %55, align 4, !tbaa !122
   %57 = fpext float %56 to double
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %46, ptr noundef nonnull @.str.135, ptr noundef nonnull %50, i32 noundef %52, double noundef %54, double noundef %57)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %59 = load i32, ptr %58, align 4, !tbaa !120
-  %60 = load i32, ptr %45, align 8, !tbaa !119
+  %59 = load i32, ptr %58, align 4, !tbaa !121
+  %60 = load i32, ptr %45, align 8, !tbaa !120
   %61 = add nsw i32 %60, %59
-  store i32 %61, ptr %45, align 8, !tbaa !119
+  store i32 %61, ptr %45, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #24
   %62 = load i32, ptr %12, align 8, !tbaa !65
   %63 = icmp sgt i32 %62, 0
@@ -8594,7 +8594,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   store <2 x float> %.sroa.011.4.vec.insert.i, ptr %76, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !302
+  br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !304
 
 77:                                               ; preds = %._crit_edge
   %78 = load float, ptr %14, align 4, !tbaa !67
@@ -8655,7 +8655,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   store <2 x float> %.sroa.011.4.vec.insert.i75, ptr %98, align 8
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
-  br i1 %exitcond110.not, label %._crit_edge98, label %87, !llvm.loop !303
+  br i1 %exitcond110.not, label %._crit_edge98, label %87, !llvm.loop !305
 
 99:                                               ; preds = %._crit_edge98
   %100 = load float, ptr %19, align 4, !tbaa !69
@@ -8712,7 +8712,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   store <2 x float> %.sroa.011.4.vec.insert.i83, ptr %120, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %._crit_edge103, label %109, !llvm.loop !304
+  br i1 %exitcond115.not, label %._crit_edge103, label %109, !llvm.loop !306
 
 121:                                              ; preds = %._crit_edge103
   %122 = load float, ptr %19, align 4, !tbaa !69
@@ -8734,7 +8734,7 @@ define linkonce_odr dso_local void @_ZN9ShapeCast4StepER8Settings(ptr noundef no
   br label %127
 
 127:                                              ; preds = %124, %125, %._crit_edge103.thread
-  %128 = load i8, ptr %47, align 8, !tbaa !180, !range !13, !noundef !14
+  %128 = load i8, ptr %47, align 8, !tbaa !181, !range !13, !noundef !14
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %130, label %132
 
@@ -8866,25 +8866,25 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %23, ptr noundef nonnull align 4 dereferenceable(72) %6, i64 72, i1 false), !tbaa.struct !93
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %24, ptr noundef nonnull align 4 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !305
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %24, ptr noundef nonnull align 4 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !307
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %25, ptr noundef nonnull align 4 dereferenceable(40) @__const._ZN12TimeOfImpact4StepER8Settings.sweepB, i64 40, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  store float 1.000000e+00, ptr %26, align 4, !tbaa !306
+  store float 1.000000e+00, ptr %26, align 4, !tbaa !308
   %27 = call i64 @b2TimeOfImpact(ptr noundef nonnull %5)
   %.sroa.449.0.extract.shift = lshr i64 %27, 32
   %.sroa.449.0.extract.trunc = trunc nuw i64 %.sroa.449.0.extract.shift to i32
   %28 = bitcast i32 %.sroa.449.0.extract.trunc to float
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load i32, ptr %29, align 8, !tbaa !119
+  %30 = load i32, ptr %29, align 8, !tbaa !120
   %31 = fpext float %28 to double
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %30, ptr noundef nonnull @.str.138, double noundef %31)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %33 = load i32, ptr %32, align 4, !tbaa !120
-  %34 = load i32, ptr %29, align 8, !tbaa !119
+  %33 = load i32, ptr %32, align 4, !tbaa !121
+  %34 = load i32, ptr %29, align 8, !tbaa !120
   %reass.add = shl i32 %33, 1
   %35 = add i32 %34, %reass.add
-  store i32 %35, ptr %29, align 8, !tbaa !119
+  store i32 %35, ptr %29, align 8, !tbaa !120
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #24
   %36 = call { <2 x float>, <2 x float> } @b2GetSweepTransform(ptr noundef nonnull %3, float noundef 0.000000e+00)
   %37 = load i32, ptr %14, align 8, !tbaa !74
@@ -8939,7 +8939,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   store <2 x float> %.sroa.011.4.vec.insert.i, ptr %57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !309
+  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !311
 
 ._crit_edge88:                                    ; preds = %65, %._crit_edge
   %.sroa.024.0.copyload = load <2 x float>, ptr %7, align 16
@@ -8983,7 +8983,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   store <2 x float> %.sroa.011.4.vec.insert.i66, ptr %76, align 8
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %._crit_edge88, label %65, !llvm.loop !310
+  br i1 %exitcond103.not, label %._crit_edge88, label %65, !llvm.loop !312
 
 ._crit_edge92:                                    ; preds = %82, %._crit_edge88
   call void @_ZN4Draw11DrawPolygonEPK6b2Vec2i10b2HexColor(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, ptr noundef nonnull %7, i32 noundef %61, i32 noundef 16753920)
@@ -9023,7 +9023,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   store <2 x float> %.sroa.011.4.vec.insert.i74, ptr %93, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge92, label %82, !llvm.loop !311
+  br i1 %exitcond108.not, label %._crit_edge92, label %82, !llvm.loop !313
 
 ._crit_edge97:                                    ; preds = %97, %._crit_edge92
   %.sroa.04.0.copyload = load <2 x float>, ptr %7, align 16
@@ -9055,7 +9055,7 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   store <2 x float> %.sroa.011.4.vec.insert.i82, ptr %108, align 8
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge97, label %97, !llvm.loop !312
+  br i1 %exitcond113.not, label %._crit_edge97, label %97, !llvm.loop !314
 
 109:                                              ; preds = %._crit_edge97
   call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %8) #24
@@ -9082,15 +9082,15 @@ define linkonce_odr dso_local void @_ZN12TimeOfImpact4StepER8Settings(ptr nounde
   store i64 0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10) #24
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %10, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef null, i32 noundef 0)
-  %120 = load i32, ptr %29, align 8, !tbaa !119
+  %120 = load i32, ptr %29, align 8, !tbaa !120
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %122 = load float, ptr %121, align 4, !tbaa !121
+  %122 = load float, ptr %121, align 4, !tbaa !122
   %123 = fpext float %122 to double
   call void (ptr, i32, i32, ptr, ...) @_ZN4Draw10DrawStringEiiPKcz(ptr noundef nonnull align 8 dereferenceable(216) @g_draw, i32 noundef 5, i32 noundef %120, ptr noundef nonnull @.str.139, double noundef %123)
-  %124 = load i32, ptr %32, align 4, !tbaa !120
-  %125 = load i32, ptr %29, align 8, !tbaa !119
+  %124 = load i32, ptr %32, align 4, !tbaa !121
+  %125 = load i32, ptr %29, align 8, !tbaa !120
   %126 = add nsw i32 %125, %124
-  store i32 %126, ptr %29, align 8, !tbaa !119
+  store i32 %126, ptr %29, align 8, !tbaa !120
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %10) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #24
   call void @llvm.lifetime.end.p0(i64 180, ptr nonnull %8) #24
@@ -9276,204 +9276,206 @@ attributes #26 = { noreturn nounwind }
 !109 = !{!105, !11, i64 96}
 !110 = !{!111, !111, i64 0}
 !111 = !{!"_ZTS10b2HexColor", !10, i64 0}
-!112 = distinct !{!112, !113}
+!112 = distinct !{!112, !113, !114}
 !113 = !{!"llvm.loop.mustprogress"}
-!114 = !{!81, !12, i64 3018}
-!115 = !{!81, !9, i64 640}
-!116 = !{!81, !9, i64 712}
-!117 = distinct !{!117, !113}
-!118 = distinct !{!118, !113}
-!119 = !{!21, !9, i64 48}
-!120 = !{!21, !9, i64 68}
-!121 = !{!99, !11, i64 16}
-!122 = !{!99, !9, i64 20}
-!123 = !{!17, !9, i64 16}
-!124 = !{!125, !11, i64 0}
-!125 = !{!"_ZTS6ImVec2", !11, i64 0, !11, i64 4}
-!126 = !{!125, !11, i64 4}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf: argument 0"}
-!129 = distinct !{!129, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf"}
-!130 = !{!81, !11, i64 644}
-!131 = !{!132}
-!132 = distinct !{!132, !133, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf: argument 0"}
-!133 = distinct !{!133, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf"}
-!134 = !{!81, !11, i64 716}
-!135 = !{!81, !11, i64 2992}
-!136 = !{!81, !12, i64 3016}
-!137 = !{!81, !12, i64 3017}
-!138 = !{!81, !11, i64 3012}
-!139 = !{!81, !11, i64 2996}
-!140 = !{!81, !11, i64 3004}
-!141 = !{!81, !11, i64 2976}
-!142 = !{!81, !11, i64 3000}
-!143 = !{!81, !11, i64 3008}
-!144 = !{!81, !11, i64 2980}
-!145 = !{i64 0, i64 8, !146, i64 8, i64 4, !64, i64 12, i64 4, !64, i64 16, i64 4, !64, i64 20, i64 4, !64, i64 24, i64 4, !64, i64 32, i64 8, !147, i64 40, i64 8, !148, i64 48, i64 8, !149, i64 56, i64 8, !147, i64 64, i64 4, !64}
-!146 = !{!32, !32, i64 0}
-!147 = !{!33, !33, i64 0}
-!148 = !{!34, !34, i64 0}
-!149 = !{!35, !35, i64 0}
-!150 = distinct !{!150, !113, !151}
-!151 = !{!"llvm.loop.unswitch.partial.disable"}
-!152 = !{!153, !11, i64 40}
-!153 = !{!"_ZTS5Proxy", !154, i64 0, !154, i64 16, !18, i64 32, !18, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !12, i64 60}
-!154 = !{!"_ZTS6b2AABB", !18, i64 0, !18, i64 8}
-!155 = !{!153, !11, i64 44}
-!156 = !{!153, !9, i64 48}
-!157 = !{!153, !9, i64 52}
-!158 = !{!153, !9, i64 56}
-!159 = !{!153, !12, i64 60}
-!160 = distinct !{!160, !113}
-!161 = !{!20, !12, i64 401}
-!162 = !{!20, !12, i64 400}
-!163 = !{!164, !11, i64 16}
-!164 = !{!"_ZTS14b2RayCastInput", !18, i64 0, !18, i64 8, !11, i64 16}
-!165 = !{!153, !11, i64 32}
-!166 = !{!153, !11, i64 36}
-!167 = !{!153, !11, i64 0}
-!168 = !{!153, !11, i64 4}
-!169 = !{!153, !11, i64 8}
-!170 = !{!153, !11, i64 12}
-!171 = distinct !{!171, !113}
-!172 = distinct !{!172, !113}
-!173 = distinct !{!173, !113}
-!174 = distinct !{!174, !113}
-!175 = !{!176, !11, i64 600}
-!176 = !{!"_ZTS7RayCast", !21, i64 0, !82, i64 248, !82, i64 392, !177, i64 536, !178, i64 548, !83, i64 568, !56, i64 584, !11, i64 600, !18, i64 604, !18, i64 612, !18, i64 620, !11, i64 628, !18, i64 632, !12, i64 640, !12, i64 641, !12, i64 642, !12, i64 643}
-!177 = !{!"_ZTS8b2Circle", !18, i64 0, !11, i64 8}
-!178 = !{!"_ZTS9b2Capsule", !18, i64 0, !18, i64 8, !11, i64 16}
-!179 = !{!176, !11, i64 544}
-!180 = !{!181, !12, i64 24}
-!181 = !{!"_ZTS12b2CastOutput", !18, i64 0, !18, i64 8, !11, i64 16, !9, i64 20, !12, i64 24}
-!182 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !64, i64 24, i64 1, !183}
-!183 = !{!12, !12, i64 0}
-!184 = !{!181, !11, i64 16}
-!185 = !{!176, !11, i64 564}
-!186 = !{!176, !9, i64 388}
-!187 = !{!176, !9, i64 532}
-!188 = !{!176, !12, i64 640}
-!189 = !{!176, !12, i64 641}
-!190 = !{!176, !12, i64 642}
-!191 = !{!176, !11, i64 628}
-!192 = !{!176, !11, i64 620}
-!193 = !{!176, !11, i64 632}
-!194 = !{!176, !11, i64 584}
-!195 = !{!176, !11, i64 624}
-!196 = !{!176, !11, i64 636}
-!197 = !{!176, !11, i64 588}
-!198 = !{!176, !12, i64 643}
-!199 = !{!200, !9, i64 0}
-!200 = !{!"_ZTS13ShapeUserData", !9, i64 0, !12, i64 4}
-!201 = !{!200, !12, i64 4}
-!202 = !{!82, !11, i64 136}
-!203 = !{!204, !9, i64 1904}
-!204 = !{!"_ZTS12RayCastWorld", !21, i64 0, !9, i64 248, !10, i64 252, !10, i64 764, !10, i64 1276, !178, i64 1852, !177, i64 1872, !83, i64 1884, !12, i64 1900, !9, i64 1904, !9, i64 1908, !205, i64 1912, !11, i64 1916, !18, i64 1920, !11, i64 1928, !11, i64 1932, !12, i64 1936, !18, i64 1940, !18, i64 1948, !12, i64 1956}
-!205 = !{!"_ZTSN12RayCastWorld8CastTypeE", !10, i64 0}
-!206 = !{!204, !9, i64 1908}
-!207 = !{!204, !205, i64 1912}
-!208 = !{!204, !11, i64 1916}
-!209 = !{!204, !12, i64 1956}
-!210 = !{!204, !12, i64 1900}
-!211 = !{!212, !12, i64 36}
-!212 = !{!"_ZTS11b2RayResult", !213, i64 0, !18, i64 8, !18, i64 16, !11, i64 24, !9, i64 28, !9, i64 32, !12, i64 36}
-!213 = !{!"_ZTS9b2ShapeId", !9, i64 0, !27, i64 4, !27, i64 6}
-!214 = !{!212, !11, i64 24}
-!215 = !{!23, !23, i64 0}
-!216 = !{!177, !11, i64 8}
-!217 = !{!178, !11, i64 16}
-!218 = !{!204, !11, i64 1932}
-!219 = !{!220, !9, i64 60}
-!220 = !{!"_ZTS14RayCastContext", !10, i64 0, !10, i64 24, !10, i64 48, !9, i64 60}
-!221 = !{!82, !9, i64 140}
-!222 = distinct !{!222, !113}
-!223 = !{!26, !9, i64 0}
-!224 = distinct !{!224, !113}
-!225 = distinct !{!225, !113}
-!226 = !{!204, !12, i64 1936}
-!227 = !{!204, !11, i64 1928}
-!228 = !{!204, !11, i64 1920}
-!229 = distinct !{!229, !113}
-!230 = distinct !{!230, !113}
-!231 = !{!204, !9, i64 248}
-!232 = !{!233, !234, i64 0}
-!233 = !{!"_ZTS9b2BodyDef", !234, i64 0, !18, i64 4, !57, i64 12, !18, i64 20, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !235, i64 48, !23, i64 56, !12, i64 64, !12, i64 65, !12, i64 66, !12, i64 67, !12, i64 68, !12, i64 69, !9, i64 72}
-!234 = !{!"_ZTS10b2BodyType", !10, i64 0}
-!235 = !{!"p1 omnipotent char", !23, i64 0}
-!236 = !{!233, !11, i64 40}
-!237 = !{!238, !23, i64 0}
-!238 = !{!"_ZTS10b2ShapeDef", !23, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !9, i64 24, !11, i64 28, !239, i64 32, !9, i64 56, !12, i64 60, !12, i64 61, !12, i64 62, !12, i64 63, !12, i64 64, !12, i64 65, !9, i64 68}
-!239 = !{!"_ZTS8b2Filter", !240, i64 0, !240, i64 8, !9, i64 16}
-!240 = !{!"long", !10, i64 0}
-!241 = !{!242, !9, i64 1900}
-!242 = !{!"_ZTS12OverlapWorld", !21, i64 0, !9, i64 248, !10, i64 252, !10, i64 764, !10, i64 1276, !178, i64 1852, !177, i64 1872, !83, i64 1884, !9, i64 1900, !10, i64 1904, !9, i64 2032, !177, i64 2036, !178, i64 2048, !82, i64 2068, !9, i64 2212, !56, i64 2216, !18, i64 2232, !18, i64 2240, !18, i64 2248, !11, i64 2256, !11, i64 2260, !12, i64 2264, !12, i64 2265}
-!243 = !{!242, !9, i64 2212}
-!244 = !{!242, !11, i64 2256}
-!245 = !{!242, !12, i64 2264}
-!246 = !{!242, !12, i64 2265}
-!247 = !{!242, !9, i64 2032}
-!248 = distinct !{!248, !113}
-!249 = !{!242, !11, i64 2044}
-!250 = !{!242, !11, i64 2064}
-!251 = !{!242, !9, i64 2208}
-!252 = distinct !{!252, !113}
-!253 = distinct !{!253, !113}
-!254 = distinct !{!254, !113}
-!255 = !{!242, !11, i64 2260}
-!256 = !{!242, !11, i64 2232}
-!257 = !{!242, !9, i64 248}
-!258 = !{!53, !12, i64 392}
-!259 = !{!53, !12, i64 393}
-!260 = !{!53, !11, i64 388}
-!261 = !{!53, !11, i64 372}
-!262 = !{!53, !11, i64 380}
-!263 = !{!53, !11, i64 376}
-!264 = !{!53, !11, i64 384}
-!265 = !{!266, !9, i64 108}
-!266 = !{!"_ZTS10b2Manifold", !18, i64 0, !11, i64 8, !10, i64 12, !9, i64 108}
-!267 = !{!53, !12, i64 395}
-!268 = !{!53, !12, i64 394}
-!269 = !{!270, !27, i64 44}
-!270 = !{!"_ZTS15b2ManifoldPoint", !18, i64 0, !18, i64 8, !18, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !27, i64 44, !12, i64 46}
-!271 = !{!53, !12, i64 396}
-!272 = !{!270, !11, i64 24}
-!273 = distinct !{!273, !113}
-!274 = !{!275, !276, i64 248}
-!275 = !{!"_ZTS14SmoothManifold", !21, i64 0, !276, i64 248, !277, i64 256, !9, i64 264, !56, i64 268, !11, i64 284, !11, i64 288, !18, i64 292, !18, i64 300, !11, i64 308, !12, i64 312, !12, i64 313, !12, i64 314, !12, i64 315, !12, i64 316}
-!276 = !{!"_ZTSN14SmoothManifold9ShapeTypeE", !10, i64 0}
-!277 = !{!"p1 _ZTS14b2ChainSegment", !23, i64 0}
-!278 = !{!275, !9, i64 264}
-!279 = !{!275, !277, i64 256}
-!280 = distinct !{!280, !113}
-!281 = distinct !{!281, !113}
-!282 = !{!275, !12, i64 314}
-!283 = !{!275, !12, i64 316}
-!284 = distinct !{!284, !113}
-!285 = distinct !{!285, !113}
-!286 = !{!275, !11, i64 288}
-!287 = distinct !{!287, !113}
-!288 = !{!275, !11, i64 284}
-!289 = !{!275, !12, i64 312}
-!290 = !{!275, !12, i64 313}
-!291 = !{!275, !11, i64 308}
-!292 = !{!275, !11, i64 292}
-!293 = !{!275, !11, i64 300}
-!294 = !{!275, !11, i64 268}
-!295 = !{!275, !11, i64 296}
-!296 = !{!275, !11, i64 304}
-!297 = !{!275, !11, i64 272}
-!298 = !{!299, !11, i64 184}
-!299 = !{!"_ZTS20b2ShapeCastPairInput", !85, i64 0, !85, i64 72, !56, i64 144, !56, i64 160, !18, i64 176, !11, i64 184}
-!300 = !{!54, !27, i64 0}
-!301 = !{!181, !9, i64 20}
-!302 = distinct !{!302, !113}
-!303 = distinct !{!303, !113}
-!304 = distinct !{!304, !113}
-!305 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !15, i64 32, i64 4, !15, i64 36, i64 4, !15}
-!306 = !{!307, !11, i64 224}
-!307 = !{!"_ZTS10b2TOIInput", !85, i64 0, !85, i64 72, !308, i64 144, !308, i64 184, !11, i64 224}
-!308 = !{!"_ZTS7b2Sweep", !18, i64 0, !18, i64 8, !18, i64 16, !57, i64 24, !57, i64 32}
-!309 = distinct !{!309, !113}
-!310 = distinct !{!310, !113}
-!311 = distinct !{!311, !113}
-!312 = distinct !{!312, !113}
+!114 = !{!"llvm.loop.estimated_trip_count"}
+!115 = !{!81, !12, i64 3018}
+!116 = !{!81, !9, i64 640}
+!117 = !{!81, !9, i64 712}
+!118 = distinct !{!118, !113, !114}
+!119 = distinct !{!119, !113, !114}
+!120 = !{!21, !9, i64 48}
+!121 = !{!21, !9, i64 68}
+!122 = !{!99, !11, i64 16}
+!123 = !{!99, !9, i64 20}
+!124 = !{!17, !9, i64 16}
+!125 = !{!126, !11, i64 0}
+!126 = !{!"_ZTS6ImVec2", !11, i64 0, !11, i64 4}
+!127 = !{!126, !11, i64 4}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf: argument 0"}
+!130 = distinct !{!130, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf"}
+!131 = !{!81, !11, i64 644}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf: argument 0"}
+!134 = distinct !{!134, !"_ZN13ShapeDistance9MakeProxyENS_9ShapeTypeEf"}
+!135 = !{!81, !11, i64 716}
+!136 = !{!81, !11, i64 2992}
+!137 = !{!81, !12, i64 3016}
+!138 = !{!81, !12, i64 3017}
+!139 = !{!81, !11, i64 3012}
+!140 = !{!81, !11, i64 2996}
+!141 = !{!81, !11, i64 3004}
+!142 = !{!81, !11, i64 2976}
+!143 = !{!81, !11, i64 3000}
+!144 = !{!81, !11, i64 3008}
+!145 = !{!81, !11, i64 2980}
+!146 = !{i64 0, i64 8, !147, i64 8, i64 4, !64, i64 12, i64 4, !64, i64 16, i64 4, !64, i64 20, i64 4, !64, i64 24, i64 4, !64, i64 32, i64 8, !148, i64 40, i64 8, !149, i64 48, i64 8, !150, i64 56, i64 8, !148, i64 64, i64 4, !64}
+!147 = !{!32, !32, i64 0}
+!148 = !{!33, !33, i64 0}
+!149 = !{!34, !34, i64 0}
+!150 = !{!35, !35, i64 0}
+!151 = distinct !{!151, !113, !114, !152}
+!152 = !{!"llvm.loop.unswitch.partial.disable"}
+!153 = !{!154, !11, i64 40}
+!154 = !{!"_ZTS5Proxy", !155, i64 0, !155, i64 16, !18, i64 32, !18, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !12, i64 60}
+!155 = !{!"_ZTS6b2AABB", !18, i64 0, !18, i64 8}
+!156 = !{!154, !11, i64 44}
+!157 = !{!154, !9, i64 48}
+!158 = !{!154, !9, i64 52}
+!159 = !{!154, !9, i64 56}
+!160 = !{!154, !12, i64 60}
+!161 = distinct !{!161, !113, !114}
+!162 = !{!20, !12, i64 401}
+!163 = !{!20, !12, i64 400}
+!164 = !{!165, !11, i64 16}
+!165 = !{!"_ZTS14b2RayCastInput", !18, i64 0, !18, i64 8, !11, i64 16}
+!166 = !{!154, !11, i64 32}
+!167 = !{!154, !11, i64 36}
+!168 = !{!154, !11, i64 0}
+!169 = !{!154, !11, i64 4}
+!170 = !{!154, !11, i64 8}
+!171 = !{!154, !11, i64 12}
+!172 = distinct !{!172, !113, !114}
+!173 = distinct !{!173, !113, !114}
+!174 = distinct !{!174, !113, !114}
+!175 = distinct !{!175, !113, !114}
+!176 = !{!177, !11, i64 600}
+!177 = !{!"_ZTS7RayCast", !21, i64 0, !82, i64 248, !82, i64 392, !178, i64 536, !179, i64 548, !83, i64 568, !56, i64 584, !11, i64 600, !18, i64 604, !18, i64 612, !18, i64 620, !11, i64 628, !18, i64 632, !12, i64 640, !12, i64 641, !12, i64 642, !12, i64 643}
+!178 = !{!"_ZTS8b2Circle", !18, i64 0, !11, i64 8}
+!179 = !{!"_ZTS9b2Capsule", !18, i64 0, !18, i64 8, !11, i64 16}
+!180 = !{!177, !11, i64 544}
+!181 = !{!182, !12, i64 24}
+!182 = !{!"_ZTS12b2CastOutput", !18, i64 0, !18, i64 8, !11, i64 16, !9, i64 20, !12, i64 24}
+!183 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !64, i64 24, i64 1, !184}
+!184 = !{!12, !12, i64 0}
+!185 = !{!182, !11, i64 16}
+!186 = !{!177, !11, i64 564}
+!187 = !{!177, !9, i64 388}
+!188 = !{!177, !9, i64 532}
+!189 = !{!177, !12, i64 640}
+!190 = !{!177, !12, i64 641}
+!191 = !{!177, !12, i64 642}
+!192 = !{!177, !11, i64 628}
+!193 = !{!177, !11, i64 620}
+!194 = !{!177, !11, i64 632}
+!195 = !{!177, !11, i64 584}
+!196 = !{!177, !11, i64 624}
+!197 = !{!177, !11, i64 636}
+!198 = !{!177, !11, i64 588}
+!199 = !{!177, !12, i64 643}
+!200 = !{!201, !9, i64 0}
+!201 = !{!"_ZTS13ShapeUserData", !9, i64 0, !12, i64 4}
+!202 = !{!201, !12, i64 4}
+!203 = distinct !{!203, !114}
+!204 = !{!82, !11, i64 136}
+!205 = !{!206, !9, i64 1904}
+!206 = !{!"_ZTS12RayCastWorld", !21, i64 0, !9, i64 248, !10, i64 252, !10, i64 764, !10, i64 1276, !179, i64 1852, !178, i64 1872, !83, i64 1884, !12, i64 1900, !9, i64 1904, !9, i64 1908, !207, i64 1912, !11, i64 1916, !18, i64 1920, !11, i64 1928, !11, i64 1932, !12, i64 1936, !18, i64 1940, !18, i64 1948, !12, i64 1956}
+!207 = !{!"_ZTSN12RayCastWorld8CastTypeE", !10, i64 0}
+!208 = !{!206, !9, i64 1908}
+!209 = !{!206, !207, i64 1912}
+!210 = !{!206, !11, i64 1916}
+!211 = !{!206, !12, i64 1956}
+!212 = !{!206, !12, i64 1900}
+!213 = !{!214, !12, i64 36}
+!214 = !{!"_ZTS11b2RayResult", !215, i64 0, !18, i64 8, !18, i64 16, !11, i64 24, !9, i64 28, !9, i64 32, !12, i64 36}
+!215 = !{!"_ZTS9b2ShapeId", !9, i64 0, !27, i64 4, !27, i64 6}
+!216 = !{!214, !11, i64 24}
+!217 = !{!23, !23, i64 0}
+!218 = !{!178, !11, i64 8}
+!219 = !{!179, !11, i64 16}
+!220 = !{!206, !11, i64 1932}
+!221 = !{!222, !9, i64 60}
+!222 = !{!"_ZTS14RayCastContext", !10, i64 0, !10, i64 24, !10, i64 48, !9, i64 60}
+!223 = !{!82, !9, i64 140}
+!224 = distinct !{!224, !113, !114}
+!225 = !{!26, !9, i64 0}
+!226 = distinct !{!226, !113, !114}
+!227 = distinct !{!227, !113, !114}
+!228 = !{!206, !12, i64 1936}
+!229 = !{!206, !11, i64 1928}
+!230 = !{!206, !11, i64 1920}
+!231 = distinct !{!231, !113, !114}
+!232 = distinct !{!232, !113, !114}
+!233 = !{!206, !9, i64 248}
+!234 = !{!235, !236, i64 0}
+!235 = !{!"_ZTS9b2BodyDef", !236, i64 0, !18, i64 4, !57, i64 12, !18, i64 20, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !237, i64 48, !23, i64 56, !12, i64 64, !12, i64 65, !12, i64 66, !12, i64 67, !12, i64 68, !12, i64 69, !9, i64 72}
+!236 = !{!"_ZTS10b2BodyType", !10, i64 0}
+!237 = !{!"p1 omnipotent char", !23, i64 0}
+!238 = !{!235, !11, i64 40}
+!239 = !{!240, !23, i64 0}
+!240 = !{!"_ZTS10b2ShapeDef", !23, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !9, i64 24, !11, i64 28, !241, i64 32, !9, i64 56, !12, i64 60, !12, i64 61, !12, i64 62, !12, i64 63, !12, i64 64, !12, i64 65, !9, i64 68}
+!241 = !{!"_ZTS8b2Filter", !242, i64 0, !242, i64 8, !9, i64 16}
+!242 = !{!"long", !10, i64 0}
+!243 = !{!244, !9, i64 1900}
+!244 = !{!"_ZTS12OverlapWorld", !21, i64 0, !9, i64 248, !10, i64 252, !10, i64 764, !10, i64 1276, !179, i64 1852, !178, i64 1872, !83, i64 1884, !9, i64 1900, !10, i64 1904, !9, i64 2032, !178, i64 2036, !179, i64 2048, !82, i64 2068, !9, i64 2212, !56, i64 2216, !18, i64 2232, !18, i64 2240, !18, i64 2248, !11, i64 2256, !11, i64 2260, !12, i64 2264, !12, i64 2265}
+!245 = !{!244, !9, i64 2212}
+!246 = !{!244, !11, i64 2256}
+!247 = !{!244, !12, i64 2264}
+!248 = !{!244, !12, i64 2265}
+!249 = !{!244, !9, i64 2032}
+!250 = distinct !{!250, !113, !114}
+!251 = !{!244, !11, i64 2044}
+!252 = !{!244, !11, i64 2064}
+!253 = !{!244, !9, i64 2208}
+!254 = distinct !{!254, !113, !114}
+!255 = distinct !{!255, !113, !114}
+!256 = distinct !{!256, !113, !114}
+!257 = !{!244, !11, i64 2260}
+!258 = !{!244, !11, i64 2232}
+!259 = !{!244, !9, i64 248}
+!260 = !{!53, !12, i64 392}
+!261 = !{!53, !12, i64 393}
+!262 = !{!53, !11, i64 388}
+!263 = !{!53, !11, i64 372}
+!264 = !{!53, !11, i64 380}
+!265 = !{!53, !11, i64 376}
+!266 = !{!53, !11, i64 384}
+!267 = !{!268, !9, i64 108}
+!268 = !{!"_ZTS10b2Manifold", !18, i64 0, !11, i64 8, !10, i64 12, !9, i64 108}
+!269 = !{!53, !12, i64 395}
+!270 = !{!53, !12, i64 394}
+!271 = !{!272, !27, i64 44}
+!272 = !{!"_ZTS15b2ManifoldPoint", !18, i64 0, !18, i64 8, !18, i64 16, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !27, i64 44, !12, i64 46}
+!273 = !{!53, !12, i64 396}
+!274 = !{!272, !11, i64 24}
+!275 = distinct !{!275, !113, !114}
+!276 = !{!277, !278, i64 248}
+!277 = !{!"_ZTS14SmoothManifold", !21, i64 0, !278, i64 248, !279, i64 256, !9, i64 264, !56, i64 268, !11, i64 284, !11, i64 288, !18, i64 292, !18, i64 300, !11, i64 308, !12, i64 312, !12, i64 313, !12, i64 314, !12, i64 315, !12, i64 316}
+!278 = !{!"_ZTSN14SmoothManifold9ShapeTypeE", !10, i64 0}
+!279 = !{!"p1 _ZTS14b2ChainSegment", !23, i64 0}
+!280 = !{!277, !9, i64 264}
+!281 = !{!277, !279, i64 256}
+!282 = distinct !{!282, !113, !114}
+!283 = distinct !{!283, !113, !114}
+!284 = !{!277, !12, i64 314}
+!285 = !{!277, !12, i64 316}
+!286 = distinct !{!286, !113, !114}
+!287 = distinct !{!287, !113, !114}
+!288 = !{!277, !11, i64 288}
+!289 = distinct !{!289, !113, !114}
+!290 = !{!277, !11, i64 284}
+!291 = !{!277, !12, i64 312}
+!292 = !{!277, !12, i64 313}
+!293 = !{!277, !11, i64 308}
+!294 = !{!277, !11, i64 292}
+!295 = !{!277, !11, i64 300}
+!296 = !{!277, !11, i64 268}
+!297 = !{!277, !11, i64 296}
+!298 = !{!277, !11, i64 304}
+!299 = !{!277, !11, i64 272}
+!300 = !{!301, !11, i64 184}
+!301 = !{!"_ZTS20b2ShapeCastPairInput", !85, i64 0, !85, i64 72, !56, i64 144, !56, i64 160, !18, i64 176, !11, i64 184}
+!302 = !{!54, !27, i64 0}
+!303 = !{!182, !9, i64 20}
+!304 = distinct !{!304, !113, !114}
+!305 = distinct !{!305, !113, !114}
+!306 = distinct !{!306, !113, !114}
+!307 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !15, i64 32, i64 4, !15, i64 36, i64 4, !15}
+!308 = !{!309, !11, i64 224}
+!309 = !{!"_ZTS10b2TOIInput", !85, i64 0, !85, i64 72, !310, i64 144, !310, i64 184, !11, i64 224}
+!310 = !{!"_ZTS7b2Sweep", !18, i64 0, !18, i64 8, !18, i64 16, !57, i64 24, !57, i64 32}
+!311 = distinct !{!311, !113, !114}
+!312 = distinct !{!312, !113, !114}
+!313 = distinct !{!313, !113, !114}
+!314 = distinct !{!314, !113, !114}

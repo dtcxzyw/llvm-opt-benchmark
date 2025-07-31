@@ -460,7 +460,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @eventfd_write(ptr nounde
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %49 = sext i32 %44 to i64
   %50 = icmp sgt i32 %44, 0
-  br i1 %50, label %..thread_crit_edge, label %.thread1, !prof !18
+  br i1 %50, label %..thread_crit_edge, label %.thread1, !prof !19
 
 ..thread_crit_edge:                               ; preds = %43
   %.pre = load i64, ptr %5, align 8
@@ -568,7 +568,7 @@ define internal range(i64 -512, 9) i64 @eventfd_read(ptr noundef readonly captur
 37:                                               ; preds = %34
   %38 = load i64, ptr %13, align 8
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %34, label %40, !llvm.loop !19
+  br i1 %39, label %34, label %40, !llvm.loop !20
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %33, align 8
@@ -867,8 +867,9 @@ attributes #7 = { nounwind allocsize(2) }
 !12 = !{i64 2148736464, i64 2148736503, i64 2148736524, i64 2148736561, i64 2148736584, i64 2148736593}
 !13 = !{!"branch_weights", i32 1, i32 2000}
 !14 = !{!"auto-init"}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16, !17, !18}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!"llvm.loop.unroll.disable"}
-!18 = !{!"branch_weights", i32 -2147483648, i32 0}
-!19 = distinct !{!19, !16, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!"branch_weights", i32 -2147483648, i32 0}
+!20 = distinct !{!20, !16, !17, !18}

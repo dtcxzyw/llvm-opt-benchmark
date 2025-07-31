@@ -300,7 +300,7 @@ define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr writeonly 
   %141 = load ptr, ptr %89, align 8, !nonnull !3, !align !4, !noundef !3
   %142 = load i64, ptr %90, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %139, i64 %140, ptr nonnull align 1 %126, i64 %127, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %123 unwind label %.loopexit.split-lp.loopexit
+          to label %123 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !5
 
 143:                                              ; preds = %157, %91
   %.sroa.016.2 = phi ptr [ %71, %91 ], [ %160, %157 ]
@@ -338,7 +338,7 @@ define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr writeonly 
   %160 = load ptr, ptr %97, align 8, !nonnull !3, !align !4, !noundef !3
   %161 = load i64, ptr %98, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %158, i64 %159, ptr nonnull align 1 %146, i64 %147, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %143 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %143 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !7
 
 162:                                              ; preds = %176, %99
   %.sroa.016.3 = phi ptr [ %71, %99 ], [ %179, %176 ]
@@ -376,7 +376,7 @@ define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr writeonly 
   %179 = load ptr, ptr %105, align 8, !nonnull !3, !align !4, !noundef !3
   %180 = load i64, ptr %106, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %177, i64 %178, ptr nonnull align 1 %165, i64 %166, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !8
 
 181:                                              ; preds = %195, %107
   %.sroa.016.4 = phi ptr [ %71, %107 ], [ %198, %195 ]
@@ -414,7 +414,7 @@ define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr writeonly 
   %198 = load ptr, ptr %113, align 8, !nonnull !3, !align !4, !noundef !3
   %199 = load i64, ptr %114, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %196, i64 %197, ptr nonnull align 1 %184, i64 %185, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !9
 
 200:                                              ; preds = %214, %115
   %.sroa.016.5 = phi ptr [ %71, %115 ], [ %217, %214 ]
@@ -452,7 +452,7 @@ define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr writeonly 
   %217 = load ptr, ptr %121, align 8, !nonnull !3, !align !4, !noundef !3
   %218 = load i64, ptr %122, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %215, i64 %216, ptr nonnull align 1 %203, i64 %204, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !10
 
 219:                                              ; preds = %233, %75
   %.sroa.016.0 = phi ptr [ %71, %75 ], [ %236, %233 ]
@@ -490,7 +490,7 @@ define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr writeonly 
   %236 = load ptr, ptr %81, align 8, !nonnull !3, !align !4, !noundef !3
   %237 = load i64, ptr %82, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %234, i64 %235, ptr nonnull align 1 %222, i64 %223, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %219 unwind label %.loopexit
+          to label %219 unwind label %.loopexit, !llvm.loop !11
 
 238:                                              ; preds = %.loopexit.split-lp
   %239 = landingpad { ptr, i32 }
@@ -772,7 +772,7 @@ define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr writeonly 
   %141 = load ptr, ptr %89, align 8, !nonnull !3, !align !4, !noundef !3
   %142 = load i64, ptr %90, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %139, i64 %140, ptr nonnull align 1 %126, i64 %127, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %123 unwind label %.loopexit.split-lp.loopexit
+          to label %123 unwind label %.loopexit.split-lp.loopexit, !llvm.loop !12
 
 143:                                              ; preds = %157, %91
   %.sroa.016.2 = phi ptr [ %71, %91 ], [ %160, %157 ]
@@ -810,7 +810,7 @@ define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr writeonly 
   %160 = load ptr, ptr %97, align 8, !nonnull !3, !align !4, !noundef !3
   %161 = load i64, ptr %98, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %158, i64 %159, ptr nonnull align 1 %146, i64 %147, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %143 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %143 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !13
 
 162:                                              ; preds = %176, %99
   %.sroa.016.3 = phi ptr [ %71, %99 ], [ %179, %176 ]
@@ -848,7 +848,7 @@ define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr writeonly 
   %179 = load ptr, ptr %105, align 8, !nonnull !3, !align !4, !noundef !3
   %180 = load i64, ptr %106, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %177, i64 %178, ptr nonnull align 1 %165, i64 %166, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !14
 
 181:                                              ; preds = %195, %107
   %.sroa.016.4 = phi ptr [ %71, %107 ], [ %198, %195 ]
@@ -886,7 +886,7 @@ define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr writeonly 
   %198 = load ptr, ptr %113, align 8, !nonnull !3, !align !4, !noundef !3
   %199 = load i64, ptr %114, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %196, i64 %197, ptr nonnull align 1 %184, i64 %185, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %181 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !15
 
 200:                                              ; preds = %214, %115
   %.sroa.016.5 = phi ptr [ %71, %115 ], [ %217, %214 ]
@@ -924,7 +924,7 @@ define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr writeonly 
   %217 = load ptr, ptr %121, align 8, !nonnull !3, !align !4, !noundef !3
   %218 = load i64, ptr %122, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %215, i64 %216, ptr nonnull align 1 %203, i64 %204, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, !llvm.loop !16
 
 219:                                              ; preds = %233, %75
   %.sroa.016.0 = phi ptr [ %71, %75 ], [ %236, %233 ]
@@ -962,7 +962,7 @@ define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr writeonly 
   %236 = load ptr, ptr %81, align 8, !nonnull !3, !align !4, !noundef !3
   %237 = load i64, ptr %82, align 8, !noundef !3
   invoke void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr nonnull align 1 %234, i64 %235, ptr nonnull align 1 %222, i64 %223, ptr nonnull align 8 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7)
-          to label %219 unwind label %.loopexit
+          to label %219 unwind label %.loopexit, !llvm.loop !17
 
 238:                                              ; preds = %.loopexit.split-lp
   %239 = landingpad { ptr, i32 }
@@ -1129,3 +1129,16 @@ attributes #10 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}

@@ -872,7 +872,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %143 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef %142, i32 noundef 0)
   %144 = add i32 %140, %142
   %145 = icmp sgt i32 %132, %144
-  br i1 %145, label %.lr.ph.i, label %dissect_channel_list.exit, !llvm.loop !10
+  br i1 %145, label %.lr.ph.i, label %dissect_channel_list.exit, !llvm.loop !11
 
 146:                                              ; preds = %13
   %147 = add i32 %.0121148, 3
@@ -926,7 +926,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %189 = add i32 %.096105.i, 8
   %190 = add i8 %.097104.i, -1
   %.not.i = icmp eq i8 %190, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i122, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i122, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i122, %146
   %.096.lcssa.i = phi i32 [ %186, %146 ], [ %189, %.lr.ph.i122 ]
@@ -1093,7 +1093,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %299 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %298, ptr noundef %0, i32 noundef %297, i32 noundef 4, i32 noundef -2147483648)
   %300 = add i32 %288, 13
   %.not.i125 = icmp slt i32 %285, %300
-  br i1 %.not.i125, label %dissect_channel_list.exit, label %.lr.ph.i124, !llvm.loop !12
+  br i1 %.not.i125, label %dissect_channel_list.exit, label %.lr.ph.i124, !llvm.loop !13
 
 301:                                              ; preds = %13
   %302 = load ptr, ptr %5, align 8
@@ -1197,7 +1197,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %375 = add i32 %.1147.i, 8
   %376 = add nsw i32 %.0134146.i, -1
   %377 = icmp samesign ugt i32 %.0134146.i, 1
-  br i1 %377, label %.lr.ph.i126, label %._crit_edge.i127, !llvm.loop !13
+  br i1 %377, label %.lr.ph.i126, label %._crit_edge.i127, !llvm.loop !14
 
 ._crit_edge.i127:                                 ; preds = %.lr.ph.i126, %.preheader.i
   %.1.lcssa.i = phi i32 [ %367, %.preheader.i ], [ %375, %.lr.ph.i126 ]
@@ -1248,7 +1248,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
 
 404:                                              ; preds = %402, %401
   %405 = icmp sgt i32 %304, %325
-  br i1 %405, label %.lr.ph150.i, label %dissect_channel_list.exit, !llvm.loop !14
+  br i1 %405, label %.lr.ph150.i, label %dissect_channel_list.exit, !llvm.loop !15
 
 406:                                              ; preds = %13
   %407 = load ptr, ptr %5, align 8
@@ -1323,7 +1323,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %460 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %459, ptr noundef %0, i32 noundef %.01.i, i32 noundef 6, i32 noundef 0)
   %461 = add i32 %.01.i, 6
   %462 = icmp slt i32 %461, %457
-  br i1 %462, label %.lr.ph.i130, label %dissect_channel_list.exit, !llvm.loop !15
+  br i1 %462, label %.lr.ph.i130, label %dissect_channel_list.exit, !llvm.loop !16
 
 463:                                              ; preds = %13
   %464 = load i32, ptr @hf_p2p_attr_session_information, align 4
@@ -1371,7 +1371,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   %496 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %495, ptr noundef %0, i32 noundef %494, i32 noundef %493, i32 noundef 0)
   %497 = add i32 %494, %493
   %498 = icmp slt i32 %497, %482
-  br i1 %498, label %.lr.ph.i132, label %dissect_channel_list.exit, !llvm.loop !16
+  br i1 %498, label %.lr.ph.i132, label %dissect_channel_list.exit, !llvm.loop !17
 
 499:                                              ; preds = %13
   %500 = load i32, ptr @hf_p2p_attr_session_id, align 4
@@ -1402,7 +1402,7 @@ dissect_channel_list.exit:                        ; preds = %.lr.ph.i132, %.lr.p
   %518 = add i32 %18, %.0121148
   %519 = sub nsw i32 %.0149, %18
   %520 = icmp sgt i32 %519, 0
-  br i1 %520, label %9, label %.loopexit, !llvm.loop !17
+  br i1 %520, label %9, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %dissect_channel_list.exit, %4, %11
   %521 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1531,13 +1531,14 @@ attributes #6 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

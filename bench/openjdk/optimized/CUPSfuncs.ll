@@ -302,7 +302,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
   call void %56(ptr noundef nonnull %0, ptr noundef nonnull %27) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %50, %.preheader
   %57 = load ptr, ptr @j2d_cupsFreeDests, align 8
@@ -531,7 +531,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr noundef read
   tail call void %111(ptr noundef nonnull %0, ptr noundef nonnull %94) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %71, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader, label %71, !llvm.loop !10
 
 112:                                              ; preds = %.lr.ph144, %145
   %indvars.iv150 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next151, %145 ]
@@ -602,7 +602,7 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr noundef read
   tail call void %153(ptr noundef nonnull %0, ptr noundef nonnull %136) #5
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %.loopexit, label %112, !llvm.loop !10
+  br i1 %exitcond154.not, label %.loopexit, label %112, !llvm.loop !11
 
 .loopexit:                                        ; preds = %145, %.preheader, %46
   %.0 = phi ptr [ null, %46 ], [ %54, %.preheader ], [ %54, %145 ]
@@ -775,7 +775,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr noundef
   tail call void %97(ptr noundef nonnull %0, ptr noundef nonnull %79) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %55, !llvm.loop !11
+  br i1 %exitcond.not, label %.thread, label %55, !llvm.loop !12
 
 .thread:                                          ; preds = %89, %32, %35
   %.0 = phi ptr [ null, %35 ], [ null, %32 ], [ %44, %89 ]
@@ -945,7 +945,7 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef 
   %97 = load i32, ptr %30, align 8
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %63, label %._crit_edge, !llvm.loop !12
+  br i1 %99, label %63, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %96, %.preheader
   %100 = load ptr, ptr %0, align 8
@@ -1220,7 +1220,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nound
   %152 = load i32, ptr %100, align 8
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next, %153
-  br i1 %154, label %104, label %.loopexit, !llvm.loop !13
+  br i1 %154, label %104, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.thread113, %.thread106, %55
   %155 = load ptr, ptr @j2d_ppdClose, align 8
@@ -1251,11 +1251,12 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

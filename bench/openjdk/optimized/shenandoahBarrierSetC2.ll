@@ -303,7 +303,7 @@ _ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE9remove_atEi.exit.i: ; preds =
 26:                                               ; preds = %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE18remove_if_existingERKS1_.exit, label %8, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE18remove_if_existingERKS1_.exit, label %8, !llvm.loop !9
 
 _ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE18remove_if_existingERKS1_.exit: ; preds = %26, %2, %_ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE9remove_atEi.exit.i
   ret void
@@ -382,7 +382,7 @@ define hidden void @_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barr
 9:                                                ; preds = %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE8containsERKS1_.exit.thread, label %10, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZNK17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE8containsERKS1_.exit.thread, label %10, !llvm.loop !10
 
 10:                                               ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
@@ -422,12 +422,12 @@ define hidden void @_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barr
   %28 = sext i32 %27 to i64
   %29 = icmp slt i64 %indvars.iv.next.i.i.i, %28
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %29, label %22, label %_ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit, !llvm.loop !10
+  br i1 %29, label %22, label %_ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit, !llvm.loop !11
 
 30:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i
-  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %.lr.ph.i.i, !llvm.loop !12
 
 .loopexit2.i:                                     ; preds = %30
   %31 = load ptr, ptr @g_assert_poison, align 8
@@ -621,7 +621,7 @@ define hidden noundef zeroext i1 @_ZNK22ShenandoahBarrierSetC227satb_can_remove_
   %.1 = load ptr, ptr %.1.in, align 8
   %75 = add nuw nsw i32 %.04053, 1
   %exitcond.not = icmp eq i32 %75, 50
-  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !13
 
 .loopexit:                                        ; preds = %49, %48, %25, %74, %32, %63, %71, %55, %52
   br label %76
@@ -5026,7 +5026,7 @@ _ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE9remove_atEi.exit.i.i: ; preds
 39:                                               ; preds = %21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.exit, label %21, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.exit, label %21, !llvm.loop !9
 
 _ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.exit: ; preds = %39, %_ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE9remove_atEi.exit.i.i, %7, %2
   %40 = load ptr, ptr %1, align 8
@@ -5059,7 +5059,7 @@ _ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.e
 59:                                               ; preds = %60
   %indvars.iv.next.i.i8 = add nuw nsw i64 %indvars.iv.i.i7, 1
   %exitcond.not.i.i9 = icmp eq i64 %indvars.iv.next.i.i8, %wide.trip.count.i.i6
-  br i1 %exitcond.not.i.i9, label %_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode.exit, label %60, !llvm.loop !9
+  br i1 %exitcond.not.i.i9, label %_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode.exit, label %60, !llvm.loop !10
 
 60:                                               ; preds = %59, %.lr.ph.i.i5
   %indvars.iv.i.i7 = phi i64 [ 0, %.lr.ph.i.i5 ], [ %indvars.iv.next.i.i8, %59 ]
@@ -5099,12 +5099,12 @@ _ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.e
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next.i.i.i.i, %78
   %indvars.iv.next11.i.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i.i, 1
-  br i1 %79, label %72, label %_ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit.i, !llvm.loop !10
+  br i1 %79, label %72, label %_ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit.i, !llvm.loop !11
 
 80:                                               ; preds = %.lr.ph.i.i.i10
   %indvars.iv.next.i.i.i12 = add nuw nsw i64 %indvars.iv.i.i.i11, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i12, %wide.trip.count.i.i6
-  br i1 %exitcond.not.i.i.i, label %.loopexit2.i.i, label %.lr.ph.i.i.i10, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %.loopexit2.i.i, label %.lr.ph.i.i.i10, !llvm.loop !12
 
 .loopexit2.i.i:                                   ; preds = %80
   %81 = load ptr, ptr @g_assert_poison, align 8
@@ -5305,7 +5305,7 @@ define hidden void @_ZNK22ShenandoahBarrierSetC225enqueue_useful_gc_barrierEP12P
 15:                                               ; preds = %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %.089.i, i64 8
   %17 = icmp ult ptr %16, %14
-  br i1 %17, label %.lr.ph.i, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit, !llvm.loop !13
+  br i1 %17, label %.lr.ph.i, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %8, %15
   %.089.i = phi ptr [ %16, %15 ], [ %10, %8 ]
@@ -5345,7 +5345,7 @@ define hidden noundef zeroext i1 @_ZN22ShenandoahBarrierSetC231has_only_shenando
 8:                                                ; preds = %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit
   %9 = getelementptr inbounds nuw i8, ptr %.089, i64 8
   %10 = icmp ult ptr %9, %7
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %1, %8
   %.089 = phi ptr [ %9, %8 ], [ %3, %1 ]
@@ -5410,7 +5410,7 @@ define hidden void @_ZNK22ShenandoahBarrierSetC229eliminate_useless_gc_barriersE
 23:                                               ; preds = %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %.089.i, i64 8
   %25 = icmp ult ptr %24, %22
-  br i1 %25, label %.lr.ph.i, label %.lr.ph, !llvm.loop !13
+  br i1 %25, label %.lr.ph.i, label %.lr.ph, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %16, %23
   %.089.i = phi ptr [ %24, %23 ], [ %18, %16 ]
@@ -5482,14 +5482,14 @@ _ZN9Node_List4pushEP4Node.exit.i.i:               ; preds = %57, %51
 _ZN7Compile15record_for_igvnEP4Node.exit:         ; preds = %_ZN9VectorSet8test_setEj.exit.i.i, %_ZN9Node_List4pushEP4Node.exit.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.02649, i64 8
   %63 = icmp ult ptr %62, %22
-  br i1 %63, label %.lr.ph, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread41, !llvm.loop !14
+  br i1 %63, label %.lr.ph, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread41, !llvm.loop !15
 
 _ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread41: ; preds = %.lr.ph.i, %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.i, %_ZN7Compile15record_for_igvnEP4Node.exit, %16, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %4, align 8
   %65 = zext i32 %64 to i64
   %66 = icmp samesign ult i64 %indvars.iv.next, %65
-  br i1 %66, label %8, label %._crit_edge, !llvm.loop !15
+  br i1 %66, label %8, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit.thread41, %3
   %67 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5595,11 +5595,11 @@ _ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE9remove_atEi.exit.i.i: ; preds
 125:                                              ; preds = %107
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.exit, label %107, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.exit, label %107, !llvm.loop !9
 
 _ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.exit: ; preds = %125, %_ZN17GrowableArrayViewIP23ShenandoahIUBarrierNodeE9remove_atEi.exit.i.i, %_ZN16Unique_Node_List6memberEP4Node.exit.thread, %_ZN16Unique_Node_List6memberEP4Node.exit
   %126 = icmp sgt i64 %indvars.iv68, 1
-  br i1 %126, label %81, label %._crit_edge56.loopexit, !llvm.loop !16
+  br i1 %126, label %81, label %._crit_edge56.loopexit, !llvm.loop !17
 
 ._crit_edge56.loopexit:                           ; preds = %_ZN27ShenandoahBarrierSetC2State17remove_iu_barrierEP23ShenandoahIUBarrierNode.exit
   %.pre = load ptr, ptr %67, align 8
@@ -5671,7 +5671,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit31.thread: ; preds = %135, %_ZN16Unique_
 162:                                              ; preds = %163
   %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i.i34, 1
   %exitcond.not.i.i36 = icmp eq i64 %indvars.iv.next.i.i35, %wide.trip.count.i.i33
-  br i1 %exitcond.not.i.i36, label %_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode.exit, label %163, !llvm.loop !9
+  br i1 %exitcond.not.i.i36, label %_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode.exit, label %163, !llvm.loop !10
 
 163:                                              ; preds = %162, %.lr.ph.i.i32
   %indvars.iv.i.i34 = phi i64 [ 0, %.lr.ph.i.i32 ], [ %indvars.iv.next.i.i35, %162 ]
@@ -5711,12 +5711,12 @@ _ZN16Unique_Node_List6memberEP4Node.exit31.thread: ; preds = %135, %_ZN16Unique_
   %181 = sext i32 %180 to i64
   %182 = icmp slt i64 %indvars.iv.next.i.i.i.i, %181
   %indvars.iv.next11.i.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i.i, 1
-  br i1 %182, label %175, label %_ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit.i, !llvm.loop !10
+  br i1 %182, label %175, label %_ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit.i, !llvm.loop !11
 
 183:                                              ; preds = %.lr.ph.i.i.i37
   %indvars.iv.next.i.i.i39 = add nuw nsw i64 %indvars.iv.i.i.i38, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i39, %wide.trip.count.i.i33
-  br i1 %exitcond.not.i.i.i, label %.loopexit2.i.i, label %.lr.ph.i.i.i37, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %.loopexit2.i.i, label %.lr.ph.i.i.i37, !llvm.loop !12
 
 .loopexit2.i.i:                                   ; preds = %183
   %184 = load ptr, ptr @g_assert_poison, align 8
@@ -5732,7 +5732,7 @@ _ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit.
 
 _ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode.exit: ; preds = %162, %_ZN17GrowableArrayViewIP34ShenandoahLoadReferenceBarrierNodeE6removeERKS1_.exit.i, %_ZN16Unique_Node_List6memberEP4Node.exit31.thread, %_ZN16Unique_Node_List6memberEP4Node.exit31
   %186 = icmp sgt i64 %indvars.iv71, 1
-  br i1 %186, label %135, label %._crit_edge61, !llvm.loop !17
+  br i1 %186, label %135, label %._crit_edge61, !llvm.loop !18
 
 ._crit_edge61:                                    ; preds = %_ZN27ShenandoahBarrierSetC2State29remove_load_reference_barrierEP34ShenandoahLoadReferenceBarrierNode.exit, %._crit_edge56
   ret void
@@ -5837,7 +5837,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit: ; preds = %4
 41:                                               ; preds = %_ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.i
   %42 = getelementptr inbounds nuw i8, ptr %.089.i, i64 8
   %43 = icmp ult ptr %42, %40
-  br i1 %43, label %.lr.ph.i, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit, !llvm.loop !13
+  br i1 %43, label %.lr.ph.i, label %_ZN22ShenandoahBarrierSetC231has_only_shenandoah_wb_pre_usesEP4Node.exit, !llvm.loop !14
 
 .lr.ph.i:                                         ; preds = %29, %41
   %.089.i = phi ptr [ %42, %41 ], [ %36, %29 ]
@@ -6065,7 +6065,7 @@ _ZN22ShenandoahBarrierSetC225is_shenandoah_wb_pre_callEP4Node.exit.thread: ; pre
   %174 = add nsw i32 %.0, -1
   %175 = tail call noundef ptr @_ZN6IfNode10up_one_domEP4Nodeb(ptr noundef nonnull %.061, i1 noundef zeroext false) #15
   %.not69 = icmp eq ptr %175, null
-  br i1 %.not69, label %_ZN16Unique_Node_List4pushEP4Node.exit, label %162, !llvm.loop !18
+  br i1 %.not69, label %_ZN16Unique_Node_List4pushEP4Node.exit, label %162, !llvm.loop !19
 
 176:                                              ; preds = %168
   %177 = icmp eq ptr %2, %.061
@@ -6551,7 +6551,7 @@ _ZN4NodenwEm.exit:                                ; preds = %27, %29
   %47 = getelementptr inbounds i8, ptr %.0.i.i, i64 -8
   %48 = load ptr, ptr %47, align 8
   %.not.i.i = icmp eq ptr %48, %2
-  br i1 %.not.i.i, label %49, label %46, !llvm.loop !19
+  br i1 %.not.i.i, label %49, label %46, !llvm.loop !20
 
 49:                                               ; preds = %46
   %50 = add i32 %43, -1
@@ -6960,7 +6960,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15ConnectionGraph8add_edgeEP12
 18:                                               ; preds = %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %19, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %19, !llvm.loop !21
 
 19:                                               ; preds = %18, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %18 ]
@@ -7012,7 +7012,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15ConnectionGraph8add_edgeEP12
 46:                                               ; preds = %47
   %indvars.iv.next.i.i.i19 = add nuw nsw i64 %indvars.iv.i.i.i18, 1
   %exitcond.not.i.i.i20 = icmp eq i64 %indvars.iv.next.i.i.i19, %wide.trip.count.i.i.i17
-  br i1 %exitcond.not.i.i.i20, label %.loopexit.i.i11, label %47, !llvm.loop !20
+  br i1 %exitcond.not.i.i.i20, label %.loopexit.i.i11, label %47, !llvm.loop !21
 
 47:                                               ; preds = %46, %.lr.ph.i.i.i16
   %indvars.iv.i.i.i18 = phi i64 [ 0, %.lr.ph.i.i.i16 ], [ %indvars.iv.next.i.i.i19, %46 ]
@@ -7121,7 +7121,7 @@ _ZN13GrowableArrayIP12PointsToNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !21
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !22
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7137,7 +7137,7 @@ _ZN13GrowableArrayIP12PointsToNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !22
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !23
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -7231,7 +7231,7 @@ _ZN13GrowableArrayIP23ShenandoahIUBarrierNodeE8allocateEv.exit: ; preds = %7, %1
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !23
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !24
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7247,7 +7247,7 @@ _ZN13GrowableArrayIP23ShenandoahIUBarrierNodeE8allocateEv.exit: ; preds = %7, %1
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !24
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !25
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -7328,7 +7328,7 @@ _ZN13GrowableArrayIP34ShenandoahLoadReferenceBarrierNodeE8allocateEv.exit: ; pre
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !25
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7344,7 +7344,7 @@ _ZN13GrowableArrayIP34ShenandoahLoadReferenceBarrierNodeE8allocateEv.exit: ; pre
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !26
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !27
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -7403,24 +7403,25 @@ attributes #17 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}

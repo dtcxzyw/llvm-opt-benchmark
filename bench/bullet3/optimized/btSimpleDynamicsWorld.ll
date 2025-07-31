@@ -282,21 +282,21 @@ _ZNK17btCollisionObject8isActiveEv.exit.i:        ; preds = %26, %23, %23, %23, 
 
 _ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.i, %4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %1, ptr %31, align 8, !tbaa !80
+  store float %1, ptr %31, align 8, !tbaa !81
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %32, align 4, !tbaa !81
+  store i32 0, ptr %32, align 4, !tbaa !82
   %33 = load ptr, ptr %0, align 8, !tbaa !43
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(121) %0)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %36, ptr %37, align 8, !tbaa !82
+  store ptr %36, ptr %37, align 8, !tbaa !83
   %38 = load ptr, ptr %0, align 8, !tbaa !43
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(121) %0)
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %42 = load ptr, ptr %41, align 8, !tbaa !83
+  %42 = load ptr, ptr %41, align 8, !tbaa !84
   %43 = load ptr, ptr %42, align 8, !tbaa !43
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load ptr, ptr %44, align 8
@@ -305,7 +305,7 @@ _ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %_ZNK17b
   br i1 %.not, label %106, label %47
 
 47:                                               ; preds = %_ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit
-  %48 = load ptr, ptr %41, align 8, !tbaa !83
+  %48 = load ptr, ptr %41, align 8, !tbaa !84
   %49 = load ptr, ptr %48, align 8, !tbaa !43
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 88
   %51 = load ptr, ptr %50, align 8
@@ -387,14 +387,14 @@ _ZN21btSimpleDynamicsWorld25predictUnconstraintMotionEf.exit: ; preds = %_ZNK17b
   %92 = load ptr, ptr %91, align 8, !tbaa !65
   %93 = load i32, ptr %7, align 4, !tbaa !64
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %95 = load ptr, ptr %94, align 8, !tbaa !84
-  %96 = load ptr, ptr %41, align 8, !tbaa !83
+  %95 = load ptr, ptr %94, align 8, !tbaa !85
+  %96 = load ptr, ptr %41, align 8, !tbaa !84
   %97 = load ptr, ptr %90, align 8, !tbaa !43
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = call noundef float %99(ptr noundef nonnull align 8 dereferenceable(8) %90, ptr noundef nonnull %92, i32 noundef %93, ptr noundef %52, i32 noundef %46, ptr noundef null, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(128) %6, ptr noundef %95, ptr noundef %96)
   %101 = load ptr, ptr %85, align 8, !tbaa !45
-  %102 = load ptr, ptr %94, align 8, !tbaa !84
+  %102 = load ptr, ptr %94, align 8, !tbaa !85
   %103 = load ptr, ptr %101, align 8, !tbaa !43
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load ptr, ptr %104, align 8
@@ -453,7 +453,7 @@ _ZNK17btCollisionObject8isActiveEv.exit.i15:      ; preds = %125, %121, %118, %1
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i12, 1
   %127 = sext i32 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next.i16, %127
-  br i1 %128, label %110, label %_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit, !llvm.loop !85
+  br i1 %128, label %110, label %_ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit, !llvm.loop !86
 
 _ZN21btSimpleDynamicsWorld19integrateTransformsEf.exit: ; preds = %_ZNK17btCollisionObject8isActiveEv.exit.i15, %106
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #13
@@ -591,7 +591,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %16, %16, %16, %19, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %8, label %._crit_edge, !llvm.loop !85
+  br i1 %26, label %8, label %._crit_edge, !llvm.loop !86
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -633,13 +633,13 @@ define dso_local void @_ZN21btSimpleDynamicsWorld11clearForcesEv(ptr noundef non
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %6, label %._crit_edge, !llvm.loop !86
+  br i1 %19, label %6, label %._crit_edge, !llvm.loop !87
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21btSimpleDynamicsWorld10setGravityERK9btVector3(ptr noundef nonnull align 8 captures(none) dereferenceable(308) initializes((292, 308)) %0, ptr noundef nonnull align 4 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !87
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !88
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !64
   %6 = icmp sgt i32 %5, 0
@@ -676,7 +676,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld10setGravityERK9btVector3(ptr n
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !89
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !90
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -689,7 +689,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK21btSimpleDynamicsWorld10getG
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %.sroa.0.0.copyload = load <2 x float>, ptr %2, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !88
+  %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !89
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.2.0.copyload, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -733,7 +733,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld12addRigidBodyEP11btRigidBody(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 292
   tail call void @_ZN11btRigidBody10setGravityERK9btVector3(ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(16) %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %10, label %6
 
@@ -753,7 +753,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld12addRigidBodyEP11btRigidBodyii
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 292
   tail call void @_ZN11btRigidBody10setGravityERK9btVector3(ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(16) %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
 
@@ -835,16 +835,16 @@ define dso_local void @_ZN21btSimpleDynamicsWorld11updateAabbsEv(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #13
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 200
-  %27 = load ptr, ptr %26, align 8, !tbaa !90
+  %27 = load ptr, ptr %26, align 8, !tbaa !91
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %29 = load ptr, ptr %27, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 4 dereferenceable(64) %28, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3)
-  %32 = load ptr, ptr %8, align 8, !tbaa !91
+  %32 = load ptr, ptr %8, align 8, !tbaa !92
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 192
-  %34 = load ptr, ptr %33, align 8, !tbaa !92
-  %35 = load ptr, ptr %9, align 8, !tbaa !83
+  %34 = load ptr, ptr %33, align 8, !tbaa !93
+  %35 = load ptr, ptr %9, align 8, !tbaa !84
   %36 = load ptr, ptr %32, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
@@ -859,7 +859,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %18, %18, %18, %21, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %10, label %._crit_edge, !llvm.loop !93
+  br i1 %41, label %10, label %._crit_edge, !llvm.loop !94
 }
 
 declare void @_ZN11btRigidBody26predictIntegratedTransformEfR11btTransform(ptr noundef nonnull align 8 dereferenceable(744), float noundef, ptr noundef nonnull align 4 dereferenceable(64)) local_unnamed_addr #4
@@ -902,7 +902,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld23synchronizeMotionStatesEv(ptr
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 592
-  %16 = load ptr, ptr %15, align 8, !tbaa !94
+  %16 = load ptr, ptr %15, align 8, !tbaa !95
   %.not10 = icmp eq ptr %16, null
   br i1 %.not10, label %25, label %17
 
@@ -926,7 +926,7 @@ define dso_local void @_ZN21btSimpleDynamicsWorld23synchronizeMotionStatesEv(ptr
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %6, label %._crit_edge, !llvm.loop !100
+  br i1 %28, label %6, label %._crit_edge, !llvm.loop !101
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -961,14 +961,14 @@ declare void @_ZN16btCollisionWorld23computeOverlappingPairsEv(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16btCollisionWorld14setDebugDrawerEP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %1, ptr %3, align 8, !tbaa !84
+  store ptr %1, ptr %3, align 8, !tbaa !85
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN16btCollisionWorld14getDebugDrawerEv(ptr noundef nonnull align 8 dereferenceable(121) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !84
+  %3 = load ptr, ptr %2, align 8, !tbaa !85
   ret ptr %3
 }
 
@@ -1139,26 +1139,27 @@ attributes #15 = { builtin nounwind }
 !75 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
 !76 = !{!69, !9, i64 224}
 !77 = !{!69, !9, i64 240}
-!78 = distinct !{!78, !79}
+!78 = distinct !{!78, !79, !80}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{!54, !6, i64 0}
-!81 = !{!54, !9, i64 4}
-!82 = !{!54, !55, i64 24}
-!83 = !{!48, !53, i64 40}
-!84 = !{!48, !55, i64 112}
-!85 = distinct !{!85, !79}
-!86 = distinct !{!86, !79}
-!87 = !{i64 0, i64 16, !88}
-!88 = !{!7, !7, i64 0}
-!89 = distinct !{!89, !79}
-!90 = !{!69, !73, i64 200}
-!91 = !{!48, !56, i64 104}
-!92 = !{!69, !72, i64 192}
-!93 = distinct !{!93, !79}
-!94 = !{!95, !96, i64 592}
-!95 = !{!"_ZTS11btRigidBody", !69, i64 0, !71, i64 372, !59, i64 420, !59, i64 436, !6, i64 452, !59, i64 456, !59, i64 472, !59, i64 488, !59, i64 504, !59, i64 520, !59, i64 536, !6, i64 552, !6, i64 556, !10, i64 560, !6, i64 564, !6, i64 568, !6, i64 572, !6, i64 576, !6, i64 580, !6, i64 584, !96, i64 592, !97, i64 600, !9, i64 632, !9, i64 636, !59, i64 640, !59, i64 656, !59, i64 672, !59, i64 688, !59, i64 704, !59, i64 720, !9, i64 736, !9, i64 740}
-!96 = !{!"p1 _ZTS13btMotionState", !52, i64 0}
-!97 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !98, i64 0, !9, i64 4, !9, i64 8, !99, i64 16, !10, i64 24}
-!98 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
-!99 = !{!"p2 _ZTS17btTypedConstraint", !52, i64 0}
-!100 = distinct !{!100, !79}
+!80 = !{!"llvm.loop.estimated_trip_count"}
+!81 = !{!54, !6, i64 0}
+!82 = !{!54, !9, i64 4}
+!83 = !{!54, !55, i64 24}
+!84 = !{!48, !53, i64 40}
+!85 = !{!48, !55, i64 112}
+!86 = distinct !{!86, !79, !80}
+!87 = distinct !{!87, !79, !80}
+!88 = !{i64 0, i64 16, !89}
+!89 = !{!7, !7, i64 0}
+!90 = distinct !{!90, !79, !80}
+!91 = !{!69, !73, i64 200}
+!92 = !{!48, !56, i64 104}
+!93 = !{!69, !72, i64 192}
+!94 = distinct !{!94, !79, !80}
+!95 = !{!96, !97, i64 592}
+!96 = !{!"_ZTS11btRigidBody", !69, i64 0, !71, i64 372, !59, i64 420, !59, i64 436, !6, i64 452, !59, i64 456, !59, i64 472, !59, i64 488, !59, i64 504, !59, i64 520, !59, i64 536, !6, i64 552, !6, i64 556, !10, i64 560, !6, i64 564, !6, i64 568, !6, i64 572, !6, i64 576, !6, i64 580, !6, i64 584, !97, i64 592, !98, i64 600, !9, i64 632, !9, i64 636, !59, i64 640, !59, i64 656, !59, i64 672, !59, i64 688, !59, i64 704, !59, i64 720, !9, i64 736, !9, i64 740}
+!97 = !{!"p1 _ZTS13btMotionState", !52, i64 0}
+!98 = !{!"_ZTS20btAlignedObjectArrayIP17btTypedConstraintE", !99, i64 0, !9, i64 4, !9, i64 8, !100, i64 16, !10, i64 24}
+!99 = !{!"_ZTS18btAlignedAllocatorIP17btTypedConstraintLj16EE"}
+!100 = !{!"p2 _ZTS17btTypedConstraint", !52, i64 0}
+!101 = distinct !{!101, !79, !80}

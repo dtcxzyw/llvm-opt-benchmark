@@ -6077,7 +6077,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h1d
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !3
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -6217,7 +6217,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h33
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !5
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -6357,7 +6357,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h4f
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !6
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -6497,7 +6497,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h54
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !7
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -6637,7 +6637,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h59
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !8
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -6777,7 +6777,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h6b
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !9
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -6917,7 +6917,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h72
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !10
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -7057,7 +7057,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17h9b
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !11
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -7197,7 +7197,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17ha0
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !12
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -7337,7 +7337,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hc1
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !13
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -7477,7 +7477,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$14__parse_scoped17hee
   %20 = icmp eq ptr %.sroa.013.0, %16
   %or.cond = select i1 %19, i1 true, i1 %20
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.0, i64 32
-  br i1 %or.cond, label %22, label %17
+  br i1 %or.cond, label %22, label %17, !llvm.loop !14
 
 22:                                               ; preds = %17
   store i32 0, ptr %9, align 8
@@ -7711,7 +7711,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5c426a10ab22c22fE"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !15
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7743,7 +7743,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha5e73bc14a484a4dE"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !16
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7775,7 +7775,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h37b71f206b2c29e3E"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !17
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7807,7 +7807,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h238eb433cf303aa6E"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !18
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7839,7 +7839,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2aefed16860adcacE"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !19
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7871,7 +7871,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1fcd589f848a000cE"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !20
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7903,7 +7903,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h191fea600e9eb976E"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !21
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7935,7 +7935,7 @@ define i64 @_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_bac
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h511b1e78f8b22021E"(ptr align 8 %8, ptr align 8 %0)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !22
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -7967,7 +7967,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h191fea600e9eb976E"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdbe91986aba85008E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hdbe91986aba85008E.exit, label %4, !llvm.loop !21
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -7996,7 +7996,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17ha5e73bc14a484a4dE"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7aaa532e70cb38dfE.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h7aaa532e70cb38dfE.exit, label %4, !llvm.loop !16
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -8025,7 +8025,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h2aefed16860adcacE"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hc65f5d1b992b7b3aE.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hc65f5d1b992b7b3aE.exit, label %4, !llvm.loop !19
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -8054,7 +8054,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h5c426a10ab22c22fE"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h198d8f2082b7c795E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h198d8f2082b7c795E.exit, label %4, !llvm.loop !15
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -8083,7 +8083,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h238eb433cf303aa6E"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hab612310b83ceef9E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hab612310b83ceef9E.exit, label %4, !llvm.loop !18
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -8112,7 +8112,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h1fcd589f848a000cE"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hd353ad065704e326E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hd353ad065704e326E.exit, label %4, !llvm.loop !20
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -8141,7 +8141,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h511b1e78f8b22021E"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hebf3dd5b531b365dE.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17hebf3dd5b531b365dE.exit, label %4, !llvm.loop !22
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -8170,7 +8170,7 @@ define align 8 ptr @_ZN4core4iter6traits12double_ended19DoubleEndedIterator8nth_
   store ptr null, ptr %3, align 8
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h37b71f206b2c29e3E"(ptr align 8 %8, ptr align 8 %0)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h959ea8feccc34e63E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator15advance_back_by17h959ea8feccc34e63E.exit, label %4, !llvm.loop !17
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %3, align 8
@@ -8198,7 +8198,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h07d0a96eb4f2260
   %8 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd117d00c8168181dE"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h751fdf1f1830751dE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !23
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8229,7 +8229,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h3fc0d8c09768ee6
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h221355d11d66fb16E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h97c9e04223d20f1eE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !24
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8260,7 +8260,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h579e56df1849fce
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he03f4f48f86ddbf6E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7df7a658cb152d47E"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !25
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8291,7 +8291,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h770791efc858b52
   %8 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63f7912e8d7281e8E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h46c818cf24fab3eaE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !26
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8322,7 +8322,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h8d215f3346131d6
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc0e0b75fd87418dE"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc28dbfb245c5983cE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !27
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8353,7 +8353,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h9e6ac8c6cd77d20
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62e5668995b9133eE"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h45a800ffbd362faaE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !28
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8384,10 +8384,10 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hb795e61d9920eca
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8, !invariant.load !3, !nonnull !3
+  %11 = load ptr, ptr %10, align 8, !invariant.load !29, !nonnull !29
   %12 = tail call align 8 ptr %11(ptr align 1 %8)
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %13, label %4
+  br i1 %.not, label %13, label %4, !llvm.loop !30
 
 .loopexit:                                        ; preds = %4, %13
   %.sroa.0.0 = phi i64 [ %14, %13 ], [ 0, %4 ]
@@ -8418,7 +8418,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hce87652a33290f8
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbf067e8548610b8E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h07277c113b0a5708E"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !31
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8449,7 +8449,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hdc97f1b699f1072
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70f5b286b06d05e6E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17heec4049cdb113a79E"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %10, label %4, !llvm.loop !32
 
 .loopexit:                                        ; preds = %4, %10
   %.sroa.0.0 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -8480,7 +8480,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h0ada1ebbf70a104
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70f5b286b06d05e6E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17heec4049cdb113a79E"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hdc97f1b699f10727E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hdc97f1b699f10727E.exit, label %4, !llvm.loop !32
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h70f5b286b06d05e6E"(ptr align 8 %0)
@@ -8507,7 +8507,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h1bbb1535046e736
   %8 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63f7912e8d7281e8E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h46c818cf24fab3eaE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h770791efc858b52eE.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h770791efc858b52eE.exit, label %4, !llvm.loop !26
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63f7912e8d7281e8E"(ptr align 8 %0)
@@ -8534,7 +8534,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h1ee78fbf0439c4c
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h221355d11d66fb16E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h97c9e04223d20f1eE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h3fc0d8c09768ee65E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h3fc0d8c09768ee65E.exit, label %4, !llvm.loop !24
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h221355d11d66fb16E"(ptr align 8 %0)
@@ -8561,7 +8561,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h48dcb4ee4f8522f
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he03f4f48f86ddbf6E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h7df7a658cb152d47E"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h579e56df1849fcecE.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h579e56df1849fcecE.exit, label %4, !llvm.loop !25
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he03f4f48f86ddbf6E"(ptr align 8 %0)
@@ -8588,7 +8588,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h62e34828022c000
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc0e0b75fd87418dE"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hc28dbfb245c5983cE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8d215f3346131d64E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h8d215f3346131d64E.exit, label %4, !llvm.loop !27
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbc0e0b75fd87418dE"(ptr align 8 %0)
@@ -8615,16 +8615,16 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h647a45fc1a9cb65
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8, !invariant.load !3, !nonnull !3
+  %11 = load ptr, ptr %10, align 8, !invariant.load !29, !nonnull !29
   %12 = tail call align 8 ptr %11(ptr align 1 %8)
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hb795e61d9920eca7E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hb795e61d9920eca7E.exit, label %4, !llvm.loop !30
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %0, align 8
   %15 = load ptr, ptr %3, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load ptr, ptr %16, align 8, !invariant.load !3, !nonnull !3
+  %17 = load ptr, ptr %16, align 8, !invariant.load !29, !nonnull !29
   %18 = tail call align 8 ptr %17(ptr align 1 %14)
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hb795e61d9920eca7E.exit
 
@@ -8648,7 +8648,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h73f4062feaba6f4
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62e5668995b9133eE"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h45a800ffbd362faaE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9e6ac8c6cd77d205E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h9e6ac8c6cd77d205E.exit, label %4, !llvm.loop !28
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h62e5668995b9133eE"(ptr align 8 %0)
@@ -8675,7 +8675,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17h7e5bb1360bb2d21
   %8 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbf067e8548610b8E"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h07277c113b0a5708E"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hce87652a33290f86E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hce87652a33290f86E.exit, label %4, !llvm.loop !31
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdbf067e8548610b8E"(ptr align 8 %0)
@@ -8702,7 +8702,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator3nth17hd4edcb007cf199a
   %8 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd117d00c8168181dE"(ptr align 8 %0)
   %9 = tail call align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17h751fdf1f1830751dE"(ptr align 8 %8, ptr nonnull align 8 %3)
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h07d0a96eb4f22608E.exit, label %4
+  br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h07d0a96eb4f22608E.exit, label %4, !llvm.loop !23
 
 10:                                               ; preds = %4
   %11 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd117d00c8168181dE"(ptr align 8 %0)
@@ -8733,7 +8733,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8find_map17h4851b09605ba3f38E
   %11 = load ptr, ptr %1, align 8
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8, !invariant.load !3, !nonnull !3
+  %14 = load ptr, ptr %13, align 8, !invariant.load !29, !nonnull !29
   %15 = call align 8 ptr %14(ptr align 1 %11)
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %20, label %16
@@ -8743,7 +8743,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8find_map17h4851b09605ba3f38E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h3f29b0f7f995fc92E"(ptr nonnull sret([1056 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %17 = load i64, ptr %6, align 8
   %18 = icmp eq i64 %17, 22
-  br i1 %18, label %10, label %19
+  br i1 %18, label %10, label %19, !llvm.loop !33
 
 19:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %4, ptr noundef nonnull align 8 dereferenceable(1056) %6, i64 1056, i1 false)
@@ -8786,7 +8786,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h20e97b3694
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
+  %8 = load ptr, ptr %7, align 8, !invariant.load !29, !nonnull !29
   %9 = call align 8 ptr %8(ptr align 1 %5)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %17, label %10
@@ -8795,7 +8795,7 @@ define align 8 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h20e97b3694
   %11 = call align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hf487ee6c8dd379acE"(ptr nonnull align 1 %2, ptr nonnull align 8 %9)
   %12 = call align 8 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17he36ffd97c0db97a4E"(ptr align 8 %11)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %4, label %14
+  br i1 %13, label %4, label %14, !llvm.loop !34
 
 14:                                               ; preds = %10
   %15 = call align 8 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h5fec36d9ec98c66dE"(ptr nonnull align 8 %12)
@@ -8822,7 +8822,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2a6e67e8bcfcb322E
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !invariant.load !3, !nonnull !3
+  %12 = load ptr, ptr %11, align 8, !invariant.load !29, !nonnull !29
   %13 = call align 8 ptr %12(ptr align 1 %9)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
@@ -8832,7 +8832,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2a6e67e8bcfcb322E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h369d276e7e36f272E"(ptr nonnull sret([112 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %15 = load i64, ptr %6, align 8
   %16 = icmp eq i64 %15, -9223372036854775806
-  br i1 %16, label %8, label %17
+  br i1 %16, label %8, label %17, !llvm.loop !35
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %6, i64 112, i1 false)
@@ -8859,7 +8859,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b671cede9d7b0e0E
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !invariant.load !3, !nonnull !3
+  %12 = load ptr, ptr %11, align 8, !invariant.load !29, !nonnull !29
   %13 = call align 8 ptr %12(ptr align 1 %9)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
@@ -8869,7 +8869,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2b671cede9d7b0e0E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h600f3b31c6c71436E"(ptr nonnull sret([328 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %15 = load i64, ptr %6, align 8
   %16 = icmp eq i64 %15, 45
-  br i1 %16, label %8, label %17
+  br i1 %16, label %8, label %17, !llvm.loop !36
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %4, ptr noundef nonnull align 8 dereferenceable(328) %6, i64 328, i1 false)
@@ -8897,7 +8897,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h35f5a5bd8b8ad451E
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8, !invariant.load !3, !nonnull !3
+  %13 = load ptr, ptr %12, align 8, !invariant.load !29, !nonnull !29
   %14 = call align 8 ptr %13(ptr align 1 %10)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %20, label %15
@@ -8907,7 +8907,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h35f5a5bd8b8ad451E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb8e2704b2b3e2168E"(ptr nonnull sret([56 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %16 = load i32, ptr %8, align 8
   %17 = icmp eq i32 %16, 4
-  br i1 %17, label %9, label %18
+  br i1 %17, label %9, label %18, !llvm.loop !37
 
 18:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
@@ -8934,7 +8934,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3c4b7aa3186a1eabE
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !invariant.load !3, !nonnull !3
+  %12 = load ptr, ptr %11, align 8, !invariant.load !29, !nonnull !29
   %13 = call align 8 ptr %12(ptr align 1 %9)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
@@ -8944,7 +8944,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3c4b7aa3186a1eabE
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7d603491545a030dE"(ptr nonnull sret([192 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %15 = load i64, ptr %6, align 8
   %16 = icmp eq i64 %15, -9223372036854775807
-  br i1 %16, label %8, label %17
+  br i1 %16, label %8, label %17, !llvm.loop !38
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(192) %6, i64 192, i1 false)
@@ -8972,7 +8972,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3fe851f900c7ecaeE
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %7, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8, !invariant.load !3, !nonnull !3
+  %13 = load ptr, ptr %12, align 8, !invariant.load !29, !nonnull !29
   %14 = call align 8 ptr %13(ptr align 1 %10)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %20, label %15
@@ -8982,7 +8982,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3fe851f900c7ecaeE
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb8e2704b2b3e2168E"(ptr nonnull sret([56 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %16 = load i32, ptr %8, align 8
   %17 = icmp eq i32 %16, 4
-  br i1 %17, label %9, label %18
+  br i1 %17, label %9, label %18, !llvm.loop !39
 
 18:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false)
@@ -9007,7 +9007,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h45899e6c4d5
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !invariant.load !3, !nonnull !3
+  %8 = load ptr, ptr %7, align 8, !invariant.load !29, !nonnull !29
   %9 = call align 8 ptr %8(ptr align 1 %5)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %16, label %10
@@ -9015,7 +9015,7 @@ define zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h45899e6c4d5
 10:                                               ; preds = %4
   %11 = call zeroext i1 @"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17hba0d2d12d6bf1b10E"(ptr nonnull align 1 %2, ptr nonnull align 8 %9)
   %12 = call zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h795b645577e5c429E"(i1 zeroext %11)
-  br i1 %12, label %13, label %4
+  br i1 %12, label %13, label %4, !llvm.loop !40
 
 13:                                               ; preds = %10
   %14 = call zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hbbb63a63507c6a6bE"()
@@ -9042,7 +9042,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h544312cdcdb211a7E
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !invariant.load !3, !nonnull !3
+  %12 = load ptr, ptr %11, align 8, !invariant.load !29, !nonnull !29
   %13 = call align 8 ptr %12(ptr align 1 %9)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
@@ -9052,7 +9052,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h544312cdcdb211a7E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hd202755ccf0120a5E"(ptr nonnull sret([144 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %15 = load i64, ptr %6, align 8
   %16 = icmp eq i64 %15, -9223372036854775806
-  br i1 %16, label %8, label %17
+  br i1 %16, label %8, label %17, !llvm.loop !41
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %4, ptr noundef nonnull align 8 dereferenceable(144) %6, i64 144, i1 false)
@@ -9091,7 +9091,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5632378123db2d38E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hebc339225b3215abE"(ptr nonnull sret([24 x i8]) align 8 %7, ptr nonnull align 8 %6)
   %14 = load i8, ptr %10, align 8
   %15 = icmp eq i8 %14, 3
-  br i1 %15, label %11, label %17
+  br i1 %15, label %11, label %17, !llvm.loop !42
 
 16:                                               ; preds = %11
   call void @"_ZN4core3ptr73drop_in_place$LT$core..option..Option$LT$proc_macro2..TokenStream$GT$$GT$17h9aa821bb60b0e557E"(ptr nonnull align 8 %8)
@@ -9121,7 +9121,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7824690aacb12596E
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %13 = load ptr, ptr %12, align 8, !invariant.load !3, !nonnull !3
+  %13 = load ptr, ptr %12, align 8, !invariant.load !29, !nonnull !29
   %14 = call align 8 ptr %13(ptr align 1 %10)
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %20, label %15
@@ -9131,7 +9131,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7824690aacb12596E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h3f29b0f7f995fc92E"(ptr nonnull sret([1056 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %16 = load i64, ptr %6, align 8
   %17 = icmp eq i64 %16, 22
-  br i1 %17, label %9, label %18
+  br i1 %17, label %9, label %18, !llvm.loop !33
 
 18:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1056) %4, ptr noundef nonnull align 8 dereferenceable(1056) %6, i64 1056, i1 false)
@@ -9158,7 +9158,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbd4784aea28c481bE
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !invariant.load !3, !nonnull !3
+  %12 = load ptr, ptr %11, align 8, !invariant.load !29, !nonnull !29
   %13 = call align 8 ptr %12(ptr align 1 %9)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
@@ -9168,7 +9168,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbd4784aea28c481bE
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hb271aeaca398d055E"(ptr nonnull sret([96 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %15 = load i64, ptr %6, align 8
   %16 = icmp eq i64 %15, -9223372036854775806
-  br i1 %16, label %8, label %17
+  br i1 %16, label %8, label %17, !llvm.loop !43
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false)
@@ -9195,7 +9195,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfe817e077287b458E
   %9 = load ptr, ptr %1, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !invariant.load !3, !nonnull !3
+  %12 = load ptr, ptr %11, align 8, !invariant.load !29, !nonnull !29
   %13 = call align 8 ptr %12(ptr align 1 %9)
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
@@ -9205,7 +9205,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfe817e077287b458E
   call void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17he46a99e6b9a992baE"(ptr nonnull sret([128 x i8]) align 8 %6, ptr nonnull align 8 %5)
   %15 = load i64, ptr %6, align 8
   %16 = icmp eq i64 %15, 3
-  br i1 %16, label %8, label %17
+  br i1 %16, label %8, label %17, !llvm.loop !44
 
 17:                                               ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false)
@@ -9484,7 +9484,7 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
+  %6 = load ptr, ptr %5, align 8, !invariant.load !29, !nonnull !29
   %7 = tail call align 8 ptr %6(ptr align 1 %2)
   ret ptr %7
 }
@@ -9495,7 +9495,7 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
+  %6 = load ptr, ptr %5, align 8, !invariant.load !29, !nonnull !29
   %7 = tail call align 8 ptr %6(ptr align 1 %2)
   ret ptr %7
 }
@@ -9506,7 +9506,7 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
+  %6 = load ptr, ptr %5, align 8, !invariant.load !29, !nonnull !29
   %7 = tail call align 8 ptr %6(ptr align 1 %2)
   ret ptr %7
 }
@@ -9517,7 +9517,7 @@ define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..tr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !29, !nonnull !29
   %8 = tail call i64 %7(ptr align 1 %3)
   %9 = tail call i64 %7(ptr align 1 %3)
   store i64 %8, ptr %0, align 8
@@ -9534,7 +9534,7 @@ define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..tr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !29, !nonnull !29
   %8 = tail call i64 %7(ptr align 1 %3)
   %9 = tail call i64 %7(ptr align 1 %3)
   store i64 %8, ptr %0, align 8
@@ -9551,7 +9551,7 @@ define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..tr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !29, !nonnull !29
   %8 = tail call i64 %7(ptr align 1 %3)
   %9 = tail call i64 %7(ptr align 1 %3)
   store i64 %8, ptr %0, align 8
@@ -9568,7 +9568,7 @@ define align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
+  %6 = load ptr, ptr %5, align 8, !invariant.load !29, !nonnull !29
   %7 = tail call align 8 ptr %6(ptr align 1 %2)
   ret ptr %7
 }
@@ -9579,7 +9579,7 @@ define align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
+  %6 = load ptr, ptr %5, align 8, !invariant.load !29, !nonnull !29
   %7 = tail call align 8 ptr %6(ptr align 1 %2)
   ret ptr %7
 }
@@ -9590,7 +9590,7 @@ define align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
+  %6 = load ptr, ptr %5, align 8, !invariant.load !29, !nonnull !29
   %7 = tail call align 8 ptr %6(ptr align 1 %2)
   ret ptr %7
 }
@@ -9601,7 +9601,7 @@ define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter.
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !29, !nonnull !29
   %8 = tail call i64 %7(ptr align 1 %3)
   %9 = tail call i64 %7(ptr align 1 %3)
   store i64 %8, ptr %0, align 8
@@ -9618,7 +9618,7 @@ define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter.
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !29, !nonnull !29
   %8 = tail call i64 %7(ptr align 1 %3)
   %9 = tail call i64 %7(ptr align 1 %3)
   store i64 %8, ptr %0, align 8
@@ -9635,7 +9635,7 @@ define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter.
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !29, !nonnull !29
   %8 = tail call i64 %7(ptr align 1 %3)
   %9 = tail call i64 %7(ptr align 1 %3)
   store i64 %8, ptr %0, align 8
@@ -10828,4 +10828,45 @@ attributes #14 = { nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = !{}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}
+!12 = distinct !{!12, !4}
+!13 = distinct !{!13, !4}
+!14 = distinct !{!14, !4}
+!15 = distinct !{!15, !4}
+!16 = distinct !{!16, !4}
+!17 = distinct !{!17, !4}
+!18 = distinct !{!18, !4}
+!19 = distinct !{!19, !4}
+!20 = distinct !{!20, !4}
+!21 = distinct !{!21, !4}
+!22 = distinct !{!22, !4}
+!23 = distinct !{!23, !4}
+!24 = distinct !{!24, !4}
+!25 = distinct !{!25, !4}
+!26 = distinct !{!26, !4}
+!27 = distinct !{!27, !4}
+!28 = distinct !{!28, !4}
+!29 = !{}
+!30 = distinct !{!30, !4}
+!31 = distinct !{!31, !4}
+!32 = distinct !{!32, !4}
+!33 = distinct !{!33, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !4}
+!36 = distinct !{!36, !4}
+!37 = distinct !{!37, !4}
+!38 = distinct !{!38, !4}
+!39 = distinct !{!39, !4}
+!40 = distinct !{!40, !4}
+!41 = distinct !{!41, !4}
+!42 = distinct !{!42, !4}
+!43 = distinct !{!43, !4}
+!44 = distinct !{!44, !4}

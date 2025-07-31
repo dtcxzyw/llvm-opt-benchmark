@@ -317,7 +317,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %147 = shl nuw nsw i32 12, %140
   %148 = and i32 %145, %147
   %.not208.i = icmp eq i32 %148, 0
-  br i1 %.not208.i, label %.preheader255.i, label %.thread230.i
+  br i1 %.not208.i, label %.preheader255.i, label %.thread230.i, !llvm.loop !44
 
 .thread.loopexit.i:                               ; preds = %132
   %149 = add nsw i32 %.0.i, 6
@@ -406,7 +406,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i8 %180, ptr %181, align 1, !tbaa !37
   %indvars.iv.next277.i = add nuw nsw i64 %indvars.iv276.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next277.i, %166
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph265.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph265.i, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %.lr.ph265.i
   %182 = getelementptr inbounds nuw i8, ptr %.1182.i, i64 %166
@@ -446,7 +446,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i8 %198, ptr %199, align 1, !tbaa !37
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not300.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not300.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !44
+  br i1 %.not300.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !46
 
 200:                                              ; preds = %168
   %201 = ptrtoint ptr %.5240.i to i64
@@ -498,7 +498,7 @@ default.unreachable.i:                            ; preds = %168
   %.6.i = phi ptr [ %.5240.i, %._crit_edge.i ], [ %207, %205 ], [ %214, %211 ], [ %.5240.i, %216 ], [ %.5240.i, %218 ], [ %.5240.i, %.lr.ph.i ]
   %.3184.i = phi ptr [ %182, %._crit_edge.i ], [ %206, %205 ], [ %213, %211 ], [ %217, %216 ], [ %220, %218 ], [ %185, %.lr.ph.i ]
   %.not254.i = icmp eq ptr %.3184.i, %.0180.i
-  br i1 %.not254.i, label %decode_bmv_frame.exit, label %118
+  br i1 %.not254.i, label %decode_bmv_frame.exit, label %118, !llvm.loop !47
 
 .loopexit:                                        ; preds = %121, %.thread235.i, %174, %170, %190, %183, %202, %208, %.preheader255.i, %130, %94
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.7) #7
@@ -538,7 +538,7 @@ decode_bmv_frame.exit:                            ; preds = %.loopexit.i
   %240 = add nuw nsw i32 %.17293, 1
   %241 = load i32, ptr %224, align 4, !tbaa !32
   %242 = icmp slt i32 %240, %241
-  br i1 %242, label %231, label %._crit_edge, !llvm.loop !45
+  br i1 %242, label %231, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %231, %decode_bmv_frame.exit
   store i32 1, ptr %2, align 4, !tbaa !40
@@ -619,8 +619,11 @@ attributes #8 = { noreturn nounwind }
 !38 = !{!35, !10, i64 32}
 !39 = !{!28, !14, i64 276240}
 !40 = !{!10, !10, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
-!44 = distinct !{!44, !42}
-!45 = distinct !{!45, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !43}
+!45 = distinct !{!45, !42, !43}
+!46 = distinct !{!46, !42, !43}
+!47 = distinct !{!47, !43}
+!48 = distinct !{!48, !42, !43}

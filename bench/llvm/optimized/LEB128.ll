@@ -34,7 +34,7 @@ define dso_local noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %0) local_u
   %7 = icmp ne i64 %6, 0
   %8 = or i1 %.not, %7
   %9 = add i32 %.010, 1
-  br i1 %8, label %3, label %10, !llvm.loop !5
+  br i1 %8, label %3, label %10, !llvm.loop !6
 
 10:                                               ; preds = %3
   ret i32 %9
@@ -47,6 +47,7 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}

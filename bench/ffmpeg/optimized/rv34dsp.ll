@@ -109,7 +109,7 @@ rv34_row_transform.exit:                          ; preds = %3, %rv34_row_transf
   store i16 %67, ptr %68, align 2, !tbaa !12
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond32.not = icmp eq i64 %indvars.iv.next30, 4
-  br i1 %exitcond32.not, label %69, label %rv34_row_transform.exit, !llvm.loop !18
+  br i1 %exitcond32.not, label %69, label %rv34_row_transform.exit, !llvm.loop !19
 
 69:                                               ; preds = %rv34_row_transform.exit
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #4
@@ -136,13 +136,13 @@ define internal void @rv34_inv_transform_dc_noround_c(ptr noundef captures(none)
   store i16 %6, ptr %8, align 2, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %9, label %7, !llvm.loop !19
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !20
 
 9:                                                ; preds = %7
   %10 = add nuw nsw i32 %.0812, 1
   %11 = getelementptr inbounds nuw i8, ptr %.0911, i64 8
   %exitcond14.not = icmp eq i32 %10, 4
-  br i1 %exitcond14.not, label %12, label %.preheader, !llvm.loop !20
+  br i1 %exitcond14.not, label %12, label %.preheader, !llvm.loop !21
 
 12:                                               ; preds = %9
   ret void
@@ -226,7 +226,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %54 = mul nsw i32 %48, 17
   %55 = mul nsw i32 %52, 7
   %56 = add nsw i32 %55, %54
-  %57 = load i8, ptr %.042.lver.orig, align 1, !tbaa !21
+  %57 = load i8, ptr %.042.lver.orig, align 1, !tbaa !22
   %58 = zext i8 %57 to i32
   %59 = add nsw i32 %56, %42
   %60 = ashr i32 %59, 10
@@ -236,9 +236,9 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %62 = sext i1 %isnotneg.i.lver.orig to i8
   %63 = trunc nuw i32 %61 to i8
   %.0.i30.lver.orig = select i1 %.not.i.lver.orig, i8 %63, i8 %62
-  store i8 %.0.i30.lver.orig, ptr %.042.lver.orig, align 1, !tbaa !21
+  store i8 %.0.i30.lver.orig, ptr %.042.lver.orig, align 1, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %.042.lver.orig, i64 1
-  %65 = load i8, ptr %64, align 1, !tbaa !21
+  %65 = load i8, ptr %64, align 1, !tbaa !22
   %66 = zext i8 %65 to i32
   %67 = add nsw i32 %53, %45
   %68 = ashr i32 %67, 10
@@ -248,9 +248,9 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %70 = sext i1 %isnotneg.i32.lver.orig to i8
   %71 = trunc nuw i32 %69 to i8
   %.0.i33.lver.orig = select i1 %.not.i31.lver.orig, i8 %71, i8 %70
-  store i8 %.0.i33.lver.orig, ptr %64, align 1, !tbaa !21
+  store i8 %.0.i33.lver.orig, ptr %64, align 1, !tbaa !22
   %72 = getelementptr inbounds nuw i8, ptr %.042.lver.orig, i64 2
-  %73 = load i8, ptr %72, align 1, !tbaa !21
+  %73 = load i8, ptr %72, align 1, !tbaa !22
   %74 = zext i8 %73 to i32
   %75 = sub nsw i32 %45, %53
   %76 = ashr i32 %75, 10
@@ -260,9 +260,9 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %78 = sext i1 %isnotneg.i35.lver.orig to i8
   %79 = trunc nuw i32 %77 to i8
   %.0.i36.lver.orig = select i1 %.not.i34.lver.orig, i8 %79, i8 %78
-  store i8 %.0.i36.lver.orig, ptr %72, align 1, !tbaa !21
+  store i8 %.0.i36.lver.orig, ptr %72, align 1, !tbaa !22
   %80 = getelementptr inbounds nuw i8, ptr %.042.lver.orig, i64 3
-  %81 = load i8, ptr %80, align 1, !tbaa !21
+  %81 = load i8, ptr %80, align 1, !tbaa !22
   %82 = zext i8 %81 to i32
   %83 = sub nsw i32 %42, %56
   %84 = ashr i32 %83, 10
@@ -272,11 +272,11 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %86 = sext i1 %isnotneg.i38.lver.orig to i8
   %87 = trunc nuw i32 %85 to i8
   %.0.i39.lver.orig = select i1 %.not.i37.lver.orig, i8 %87, i8 %86
-  store i8 %.0.i39.lver.orig, ptr %80, align 1, !tbaa !21
+  store i8 %.0.i39.lver.orig, ptr %80, align 1, !tbaa !22
   %88 = getelementptr inbounds i8, ptr %.042.lver.orig, i64 %1
   %indvars.iv.next45.lver.orig = add nuw nsw i64 %indvars.iv44.lver.orig, 1
   %exitcond47.not.lver.orig = icmp eq i64 %indvars.iv.next45.lver.orig, 4
-  br i1 %exitcond47.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !22
+  br i1 %exitcond47.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !23
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 2
@@ -310,7 +310,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %109 = mul nsw i32 %103, 17
   %110 = mul nsw i32 %107, 7
   %111 = add nsw i32 %110, %109
-  %112 = load i8, ptr %.042, align 1, !tbaa !21
+  %112 = load i8, ptr %.042, align 1, !tbaa !22
   %113 = zext i8 %112 to i32
   %114 = add nsw i32 %111, %97
   %115 = ashr i32 %114, 10
@@ -320,9 +320,9 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %117 = sext i1 %isnotneg.i to i8
   %118 = trunc nuw i32 %116 to i8
   %.0.i30 = select i1 %.not.i, i8 %118, i8 %117
-  store i8 %.0.i30, ptr %.042, align 1, !tbaa !21
+  store i8 %.0.i30, ptr %.042, align 1, !tbaa !22
   %119 = getelementptr inbounds nuw i8, ptr %.042, i64 1
-  %120 = load i8, ptr %119, align 1, !tbaa !21
+  %120 = load i8, ptr %119, align 1, !tbaa !22
   %121 = zext i8 %120 to i32
   %122 = add nsw i32 %108, %100
   %123 = ashr i32 %122, 10
@@ -332,7 +332,7 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %125 = sext i1 %isnotneg.i32 to i8
   %126 = trunc nuw i32 %124 to i8
   %.0.i33 = select i1 %.not.i31, i8 %126, i8 %125
-  store i8 %.0.i33, ptr %119, align 1, !tbaa !21
+  store i8 %.0.i33, ptr %119, align 1, !tbaa !22
   %127 = getelementptr inbounds nuw i8, ptr %.042, i64 2
   %128 = zext i8 %store_forwarded to i32
   %129 = sub nsw i32 %100, %108
@@ -343,9 +343,9 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %132 = sext i1 %isnotneg.i35 to i8
   %133 = trunc nuw i32 %131 to i8
   %.0.i36 = select i1 %.not.i34, i8 %133, i8 %132
-  store i8 %.0.i36, ptr %127, align 1, !tbaa !21
+  store i8 %.0.i36, ptr %127, align 1, !tbaa !22
   %134 = getelementptr inbounds nuw i8, ptr %.042, i64 3
-  %135 = load i8, ptr %134, align 1, !tbaa !21
+  %135 = load i8, ptr %134, align 1, !tbaa !22
   %136 = zext i8 %135 to i32
   %137 = sub nsw i32 %97, %111
   %138 = ashr i32 %137, 10
@@ -355,11 +355,11 @@ define internal void @rv34_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %140 = sext i1 %isnotneg.i38 to i8
   %141 = trunc nuw i32 %139 to i8
   %.0.i39 = select i1 %.not.i37, i8 %141, i8 %140
-  store i8 %.0.i39, ptr %134, align 1, !tbaa !21
+  store i8 %.0.i39, ptr %134, align 1, !tbaa !22
   %142 = getelementptr inbounds nuw i8, ptr %.042, i64 %1
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 4
-  br i1 %exitcond47.not, label %.loopexit, label %89, !llvm.loop !22
+  br i1 %exitcond47.not, label %.loopexit, label %89, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %89
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
@@ -381,7 +381,7 @@ define internal void @rv34_idct_dc_add_c(ptr noundef captures(none) %0, i64 noun
 7:                                                ; preds = %.preheader, %7
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %7 ]
   %8 = getelementptr inbounds nuw i8, ptr %.01214, i64 %indvars.iv
-  %9 = load i8, ptr %8, align 1, !tbaa !21
+  %9 = load i8, ptr %8, align 1, !tbaa !22
   %10 = zext i8 %9 to i32
   %11 = add nsw i32 %6, %10
   %.not.i = icmp ult i32 %11, 256
@@ -389,16 +389,16 @@ define internal void @rv34_idct_dc_add_c(ptr noundef captures(none) %0, i64 noun
   %12 = sext i1 %isnotneg.i to i8
   %13 = trunc nuw i32 %11 to i8
   %.0.i = select i1 %.not.i, i8 %13, i8 %12
-  store i8 %.0.i, ptr %8, align 1, !tbaa !21
+  store i8 %.0.i, ptr %8, align 1, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %7, !llvm.loop !23
+  br i1 %exitcond.not, label %14, label %7, !llvm.loop !24
 
 14:                                               ; preds = %7
   %15 = getelementptr inbounds i8, ptr %.01214, i64 %1
   %16 = add nuw nsw i32 %.01115, 1
   %exitcond17.not = icmp eq i32 %16, 4
-  br i1 %exitcond17.not, label %17, label %.preheader, !llvm.loop !24
+  br i1 %exitcond17.not, label %17, label %.preheader, !llvm.loop !25
 
 17:                                               ; preds = %14
   ret void
@@ -437,12 +437,13 @@ attributes #4 = { nounwind }
 !13 = !{!"short", !6, i64 0}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = !{!6, !6, i64 0}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17}
-!24 = distinct !{!24, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}
+!22 = !{!6, !6, i64 0}
+!23 = distinct !{!23, !17, !18}
+!24 = distinct !{!24, !17, !18}
+!25 = distinct !{!25, !17, !18}

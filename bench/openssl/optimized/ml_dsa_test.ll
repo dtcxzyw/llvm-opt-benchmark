@@ -262,7 +262,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_test(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !6
+  %11 = load ptr, ptr %10, align 8, !tbaa !7
   %12 = tail call fastcc ptr @do_gen_key(ptr noundef nonnull @.str.39, ptr noundef %11, i64 noundef 32)
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 93, ptr noundef nonnull @.str.30, ptr noundef %12) #5
   %.not = icmp eq i32 %13, 0
@@ -293,23 +293,23 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_test(i32 noundef %0) #1 {
   br i1 %.not16, label %42, label %29
 
 29:                                               ; preds = %24
-  %30 = load i64, ptr %6, align 8, !tbaa !13
+  %30 = load i64, ptr %6, align 8, !tbaa !14
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = call i32 @test_mem_eq(ptr noundef nonnull @.str.29, i32 noundef 100, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, ptr noundef nonnull %3, i64 noundef %30, ptr noundef %32, i64 noundef 1952) #5
   %.not17 = icmp eq i32 %33, 0
   br i1 %.not17, label %42, label %34
 
 34:                                               ; preds = %29
-  %35 = load i64, ptr %5, align 8, !tbaa !13
+  %35 = load i64, ptr %5, align 8, !tbaa !14
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !15
+  %37 = load ptr, ptr %36, align 8, !tbaa !16
   %38 = call i32 @test_mem_eq(ptr noundef nonnull @.str.29, i32 noundef 101, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.37, ptr noundef nonnull %2, i64 noundef %35, ptr noundef %37, i64 noundef 4032) #5
   %.not18 = icmp eq i32 %38, 0
   br i1 %.not18, label %42, label %39
 
 39:                                               ; preds = %34
-  %40 = load i64, ptr %7, align 8, !tbaa !13
+  %40 = load i64, ptr %7, align 8, !tbaa !14
   %41 = call i32 @test_mem_eq(ptr noundef nonnull @.str.29, i32 noundef 102, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.38, ptr noundef nonnull %4, i64 noundef %40, ptr noundef %11, i64 noundef 32) #5
   %.not19 = icmp ne i32 %41, 0
   %spec.select = zext i1 %.not19 to i32
@@ -343,28 +343,28 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   %13 = sext i32 %0 to i64
   %14 = getelementptr inbounds [2 x %struct.ml_dsa_sig_gen_test_data_st], ptr @ml_dsa_siggen_testdata, i64 0, i64 %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store ptr null, ptr %2, align 8, !tbaa !16
+  store ptr null, ptr %2, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  store i64 0, ptr %4, align 8, !tbaa !13
+  store i64 0, ptr %4, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
-  store i64 0, ptr %5, align 8, !tbaa !13
+  store i64 0, ptr %5, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  store i64 32, ptr %7, align 8, !tbaa !13
+  store i64 32, ptr %7, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
-  store i32 0, ptr %8, align 4, !tbaa !18
+  store i32 0, ptr %8, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #5
-  store i32 1, ptr %9, align 4, !tbaa !18
+  store i32 1, ptr %9, align 4, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.47, ptr noundef nonnull %9) #5
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #5
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.48, ptr noundef nonnull %8) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #5
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %23, label %19
 
@@ -372,9 +372,9 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #5
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %22 = load i64, ptr %21, align 8, !tbaa !25
+  %22 = load i64, ptr %21, align 8, !tbaa !26
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.49, ptr noundef nonnull %18, i64 noundef %22) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #5
   br label %23
 
@@ -382,25 +382,25 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   %.027 = phi ptr [ %20, %19 ], [ %16, %1 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.027, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.027, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #5
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = call fastcc i32 @ml_dsa_create_keypair(ptr noundef %2, ptr noundef nonnull @.str.39, ptr noundef %25, i64 noundef 4032, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %27 = call i32 @test_true(ptr noundef nonnull @.str.29, i32 noundef 137, ptr noundef nonnull @.str.50, i32 noundef %26) #5
   %.not31 = icmp eq i32 %27, 0
   br i1 %.not31, label %76, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
-  %30 = load ptr, ptr %2, align 8, !tbaa !16
+  %29 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
+  %30 = load ptr, ptr %2, align 8, !tbaa !17
   %31 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %29, ptr noundef %30, ptr noundef null) #5
   %32 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 138, ptr noundef nonnull @.str.51, ptr noundef %31) #5
   %.not32 = icmp eq i32 %32, 0
   br i1 %.not32, label %76, label %33
 
 33:                                               ; preds = %28
-  %34 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %34 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %35 = call ptr @EVP_SIGNATURE_fetch(ptr noundef %34, ptr noundef nonnull @.str.39, ptr noundef null) #5
   %36 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 139, ptr noundef nonnull @.str.52, ptr noundef %35) #5
   %.not33 = icmp eq i32 %36, 0
@@ -414,16 +414,16 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !29
+  %42 = load ptr, ptr %41, align 8, !tbaa !30
   %43 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %44 = load i64, ptr %43, align 8, !tbaa !30
+  %44 = load i64, ptr %43, align 8, !tbaa !31
   %45 = call i32 @EVP_PKEY_sign(ptr noundef %31, ptr noundef null, ptr noundef nonnull %4, ptr noundef %42, i64 noundef %44) #5
   %46 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 142, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.44, i32 noundef %45, i32 noundef 1) #5
   %.not35 = icmp eq i32 %46, 0
   br i1 %.not35, label %76, label %47
 
 47:                                               ; preds = %40
-  %48 = load ptr, ptr %2, align 8, !tbaa !16
+  %48 = load ptr, ptr %2, align 8, !tbaa !17
   %49 = call i32 @EVP_PKEY_get_size_t_param(ptr noundef %48, ptr noundef nonnull @.str.56, ptr noundef nonnull %5) #5
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
@@ -432,16 +432,16 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   br i1 %.not36, label %76, label %53
 
 53:                                               ; preds = %47
-  %54 = load i64, ptr %5, align 8, !tbaa !13
+  %54 = load i64, ptr %5, align 8, !tbaa !14
   %55 = trunc i64 %54 to i32
-  %56 = load i64, ptr %4, align 8, !tbaa !13
+  %56 = load i64, ptr %4, align 8, !tbaa !14
   %57 = trunc i64 %56 to i32
   %58 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 145, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58, i32 noundef %55, i32 noundef %57) #5
   %.not37 = icmp eq i32 %58, 0
   br i1 %.not37, label %76, label %59
 
 59:                                               ; preds = %53
-  %60 = load i64, ptr %4, align 8, !tbaa !13
+  %60 = load i64, ptr %4, align 8, !tbaa !14
   %61 = call noalias ptr @CRYPTO_zalloc(i64 noundef %60, ptr noundef nonnull @.str.29, i32 noundef 146) #5
   %62 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 146, ptr noundef nonnull @.str.59, ptr noundef %61) #5
   %.not38 = icmp eq i32 %62, 0
@@ -454,17 +454,17 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   br i1 %.not39, label %76, label %66
 
 66:                                               ; preds = %63
-  %67 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
-  %68 = load i64, ptr %4, align 8, !tbaa !13
+  %67 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
+  %68 = load i64, ptr %4, align 8, !tbaa !14
   %69 = call i32 @EVP_Q_digest(ptr noundef %67, ptr noundef nonnull @.str.62, ptr noundef null, ptr noundef %61, i64 noundef %68, ptr noundef nonnull %6, ptr noundef nonnull %7) #5
   %70 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 150, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.44, i32 noundef %69, i32 noundef 1) #5
   %.not40 = icmp eq i32 %70, 0
   br i1 %.not40, label %76, label %71
 
 71:                                               ; preds = %66
-  %72 = load i64, ptr %7, align 8, !tbaa !13
+  %72 = load i64, ptr %7, align 8, !tbaa !14
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %74 = load ptr, ptr %73, align 8, !tbaa !31
+  %74 = load ptr, ptr %73, align 8, !tbaa !32
   %75 = call i32 @test_mem_eq(ptr noundef nonnull @.str.29, i32 noundef 151, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef nonnull %6, i64 noundef %72, ptr noundef %74, i64 noundef 32) #5
   %.not41 = icmp ne i32 %75, 0
   %spec.select = zext i1 %.not41 to i32
@@ -476,7 +476,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_siggen_test(i32 noundef %0) #1 {
   %.028 = phi ptr [ %35, %66 ], [ %35, %63 ], [ %35, %59 ], [ %35, %53 ], [ %35, %47 ], [ %35, %40 ], [ %35, %37 ], [ %35, %33 ], [ null, %28 ], [ null, %23 ], [ %35, %71 ]
   %.0 = phi ptr [ %61, %66 ], [ %61, %63 ], [ %61, %59 ], [ null, %53 ], [ null, %47 ], [ null, %40 ], [ null, %37 ], [ null, %33 ], [ null, %28 ], [ null, %23 ], [ %61, %71 ]
   call void @EVP_SIGNATURE_free(ptr noundef %.028) #5
-  %77 = load ptr, ptr %2, align 8, !tbaa !16
+  %77 = load ptr, ptr %2, align 8, !tbaa !17
   call void @EVP_PKEY_free(ptr noundef %77) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %.029) #5
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.29, i32 noundef 158) #5
@@ -498,15 +498,15 @@ define internal range(i32 0, 2) i32 @ml_dsa_sigver_test(i32 %0) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store ptr null, ptr %2, align 8, !tbaa !16
+  store ptr null, ptr %2, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !tbaa !18
+  store i32 0, ptr %4, align 4, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.48, ptr noundef nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #5
   %7 = call fastcc i32 @ml_dsa_create_keypair(ptr noundef %2, ptr noundef nonnull @.str.74, ptr noundef null, i64 noundef 0, ptr noundef nonnull @ML_DSA_44_sigver_pub, i64 noundef 1312, i32 noundef 1)
   %8 = call i32 @test_true(ptr noundef nonnull @.str.29, i32 noundef 176, ptr noundef nonnull @.str.69, i32 noundef %7) #5
@@ -514,15 +514,15 @@ define internal range(i32 0, 2) i32 @ml_dsa_sigver_test(i32 %0) #1 {
   br i1 %.not, label %24, label %9
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
-  %11 = load ptr, ptr %2, align 8, !tbaa !16
+  %10 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
+  %11 = load ptr, ptr %2, align 8, !tbaa !17
   %12 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %10, ptr noundef %11, ptr noundef null) #5
   %13 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 179, ptr noundef nonnull @.str.70, ptr noundef %12) #5
   %.not19 = icmp eq i32 %13, 0
   br i1 %.not19, label %24, label %14
 
 14:                                               ; preds = %9
-  %15 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %15 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %16 = call ptr @EVP_SIGNATURE_fetch(ptr noundef %15, ptr noundef nonnull @.str.74, ptr noundef null) #5
   %17 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 181, ptr noundef nonnull @.str.52, ptr noundef %16) #5
   %.not20 = icmp eq i32 %17, 0
@@ -546,7 +546,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_sigver_test(i32 %0) #1 {
   %.017 = phi ptr [ %16, %18 ], [ %16, %14 ], [ null, %9 ], [ null, %1 ], [ %16, %21 ]
   %.0 = phi i32 [ 0, %18 ], [ 0, %14 ], [ 0, %9 ], [ 0, %1 ], [ %spec.select, %21 ]
   call void @EVP_SIGNATURE_free(ptr noundef %.017) #5
-  %25 = load ptr, ptr %2, align 8, !tbaa !16
+  %25 = load ptr, ptr %2, align 8, !tbaa !17
   call void @EVP_PKEY_free(ptr noundef %25) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %.018) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
@@ -577,7 +577,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_key_dup_test() #1 {
   br i1 %.not14, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %10 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %11 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %10, ptr noundef %4, ptr noundef null) #5
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 205, ptr noundef nonnull @.str.78, ptr noundef %11) #5
   %.not15 = icmp eq i32 %12, 0
@@ -609,7 +609,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_key_internal_test() #1 {
   br i1 %.not, label %37, label %3
 
 3:                                                ; preds = %0
-  %4 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %4 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %5 = tail call ptr @ossl_ml_dsa_key_new(ptr noundef %4, ptr noundef nonnull @.str.82, i32 noundef 0) #5
   %6 = tail call i32 @test_ptr_null(ptr noundef nonnull @.str.29, i32 noundef 227, ptr noundef nonnull @.str.81, ptr noundef %5) #5
   %.not9 = icmp eq i32 %6, 0
@@ -622,7 +622,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_key_internal_test() #1 {
   br i1 %.not10, label %37, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %11 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %12 = tail call ptr @ossl_ml_dsa_key_new(ptr noundef %11, ptr noundef nonnull @.str.41, i32 noundef 1457) #5
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 231, ptr noundef nonnull @.str.84, ptr noundef %12) #5
   %.not11 = icmp eq i32 %13, 0
@@ -681,9 +681,9 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_drbg_test() #1 {
   %1 = alloca ptr, align 8
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  store ptr null, ptr %1, align 8, !tbaa !16
+  store ptr null, ptr %1, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store i64 0, ptr %2, align 8, !tbaa !13
+  store i64 0, ptr %2, align 8, !tbaa !14
   %3 = tail call fastcc ptr @do_gen_key(ptr noundef nonnull @.str.74, ptr noundef null, i64 noundef 0)
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 317, ptr noundef nonnull @.str.88, ptr noundef %3) #5
   %.not = icmp eq i32 %4, 0
@@ -720,14 +720,14 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_drbg_test() #1 {
   br i1 %.not25, label %53, label %20
 
 20:                                               ; preds = %17
-  %21 = load i64, ptr %2, align 8, !tbaa !13
+  %21 = load i64, ptr %2, align 8, !tbaa !14
   %22 = trunc i64 %21 to i32
   %23 = call i32 @test_int_gt(ptr noundef nonnull @.str.29, i32 noundef 323, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.92, i32 noundef %22, i32 noundef 0) #5
   %.not26 = icmp eq i32 %23, 0
   br i1 %.not26, label %53, label %24
 
 24:                                               ; preds = %20
-  %25 = load i64, ptr %2, align 8, !tbaa !13
+  %25 = load i64, ptr %2, align 8, !tbaa !14
   %26 = call noalias ptr @CRYPTO_malloc(i64 noundef %25, ptr noundef nonnull @.str.29, i32 noundef 324) #5
   %27 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 324, ptr noundef nonnull @.str.97, ptr noundef %26) #5
   %.not27 = icmp eq i32 %27, 0
@@ -746,14 +746,14 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_drbg_test() #1 {
   br i1 %.not29, label %53, label %34
 
 34:                                               ; preds = %31
-  %35 = load i64, ptr %2, align 8, !tbaa !13
+  %35 = load i64, ptr %2, align 8, !tbaa !14
   %36 = trunc i64 %35 to i32
   %37 = call i32 @test_int_gt(ptr noundef nonnull @.str.29, i32 noundef 327, ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.92, i32 noundef %36, i32 noundef 0) #5
   %.not30 = icmp eq i32 %37, 0
   br i1 %.not30, label %53, label %38
 
 38:                                               ; preds = %34
-  %39 = load i64, ptr %2, align 8, !tbaa !13
+  %39 = load i64, ptr %2, align 8, !tbaa !14
   %40 = call noalias ptr @CRYPTO_malloc(i64 noundef %39, ptr noundef nonnull @.str.29, i32 noundef 328) #5
   %41 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 328, ptr noundef nonnull @.str.100, ptr noundef %40) #5
   %.not31 = icmp eq i32 %41, 0
@@ -766,14 +766,14 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_drbg_test() #1 {
   br i1 %.not32, label %53, label %45
 
 45:                                               ; preds = %42
-  %46 = load i64, ptr %2, align 8, !tbaa !13
+  %46 = load i64, ptr %2, align 8, !tbaa !14
   %47 = call fastcc i32 @ml_dsa_create_keypair(ptr noundef %1, ptr noundef nonnull @.str.74, ptr noundef null, i64 noundef 0, ptr noundef %40, i64 noundef %46, i32 noundef 1)
   %48 = call i32 @test_true(ptr noundef nonnull @.str.29, i32 noundef 332, ptr noundef nonnull @.str.102, i32 noundef %47) #5
   %.not33 = icmp eq i32 %48, 0
   br i1 %.not33, label %53, label %49
 
 49:                                               ; preds = %45
-  %50 = load ptr, ptr %1, align 8, !tbaa !16
+  %50 = load ptr, ptr %1, align 8, !tbaa !17
   %51 = call i32 @EVP_PKEY_eq(ptr noundef %50, ptr noundef %3) #5
   %52 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 334, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.44, i32 noundef %51, i32 noundef 1) #5
   %.not34 = icmp ne i32 %52, 0
@@ -791,7 +791,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_keygen_drbg_test() #1 {
   call void @EVP_PKEY_free(ptr noundef %3) #5
   call void @EVP_PKEY_free(ptr noundef %.019) #5
   call void @EVP_PKEY_free(ptr noundef %.018) #5
-  %54 = load ptr, ptr %1, align 8, !tbaa !16
+  %54 = load ptr, ptr %1, align 8, !tbaa !17
   call void @EVP_PKEY_free(ptr noundef %54) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
@@ -820,16 +820,16 @@ define internal range(i32 0, 2) i32 @ml_dsa_87_sign_verify_test(i32 noundef %0) 
 define internal range(i32 0, 2) i32 @from_data_invalid_public_test() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  store ptr null, ptr %1, align 8, !tbaa !16
+  store ptr null, ptr %1, align 8, !tbaa !17
   %2 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull @ml_dsa_65_0_keygen_pub, i64 noundef 1952, ptr noundef nonnull @.str.29, i32 noundef 254) #5
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 254, ptr noundef nonnull @.str.115, ptr noundef %2) #5
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %24, label %4
 
 4:                                                ; preds = %0
-  %5 = load i8, ptr %2, align 1, !tbaa !32
+  %5 = load i8, ptr %2, align 1, !tbaa !33
   %6 = xor i8 %5, 1
-  store i8 %6, ptr %2, align 1, !tbaa !32
+  store i8 %6, ptr %2, align 1, !tbaa !33
   %7 = call fastcc i32 @ml_dsa_create_keypair(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull @ml_dsa_65_0_keygen_priv, i64 noundef 4032, ptr noundef nonnull @ml_dsa_65_0_keygen_pub, i64 noundef 1952, i32 noundef 1)
   %8 = call i32 @test_true(ptr noundef nonnull @.str.29, i32 noundef 259, ptr noundef nonnull @.str.116, i32 noundef %7) #5
   %.not34 = icmp eq i32 %8, 0
@@ -869,7 +869,7 @@ define internal range(i32 0, 2) i32 @from_data_invalid_public_test() #1 {
 24:                                               ; preds = %21, %4, %9, %12, %15, %18, %0
   %.0 = phi i32 [ 0, %18 ], [ 0, %15 ], [ 0, %12 ], [ 0, %9 ], [ 0, %4 ], [ 0, %0 ], [ %spec.select, %21 ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.29, i32 noundef 274) #5
-  %25 = load ptr, ptr %1, align 8, !tbaa !16
+  %25 = load ptr, ptr %1, align 8, !tbaa !17
   call void @EVP_PKEY_free(ptr noundef %25) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
   ret i32 %.0
@@ -885,10 +885,10 @@ define internal range(i32 0, 2) i32 @from_data_bad_input_test() #1 {
   %6 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %1) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store ptr null, ptr %2, align 8, !tbaa !16
+  store ptr null, ptr %2, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
-  store i32 0, ptr %3, align 4, !tbaa !18
-  %7 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  store i32 0, ptr %3, align 4, !tbaa !19
+  %7 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %8 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %7, ptr noundef nonnull @.str.74, ptr noundef null) #5
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 287, ptr noundef nonnull @.str.122, ptr noundef %8) #5
   %.not = icmp eq i32 %9, 0
@@ -917,7 +917,7 @@ define internal range(i32 0, 2) i32 @from_data_bad_input_test() #1 {
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #5
   %21 = call i32 @EVP_PKEY_fromdata(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %1) #5
   %22 = call i32 @test_int_ne(ptr noundef nonnull @.str.29, i32 noundef 296, ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.44, i32 noundef %21, i32 noundef 1) #5
@@ -927,11 +927,11 @@ define internal range(i32 0, 2) i32 @from_data_bad_input_test() #1 {
 23:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #5
   call void @OSSL_PARAM_construct_uint32(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.35, ptr noundef nonnull %3) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
   %24 = call i32 @EVP_PKEY_fromdata(ptr noundef %8, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull %1) #5
   %25 = call i32 @test_int_ne(ptr noundef nonnull @.str.29, i32 noundef 301, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.44, i32 noundef %24, i32 noundef 1) #5
@@ -941,7 +941,7 @@ define internal range(i32 0, 2) i32 @from_data_bad_input_test() #1 {
 
 26:                                               ; preds = %23, %19, %0, %10, %13, %16
   %.0 = phi i32 [ 0, %19 ], [ 0, %16 ], [ 0, %13 ], [ 0, %10 ], [ 0, %0 ], [ %spec.select, %23 ]
-  %27 = load ptr, ptr %2, align 8, !tbaa !16
+  %27 = load ptr, ptr %2, align 8, !tbaa !17
   call void @EVP_PKEY_free(ptr noundef %27) #5
   call void @EVP_PKEY_CTX_free(ptr noundef %8) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
@@ -957,7 +957,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_digest_sign_verify_test() #1 {
   %3 = alloca %struct.ossl_param_st, align 8
   %4 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  store i64 0, ptr %1, align 8, !tbaa !13
+  store i64 0, ptr %1, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2) #5
   %5 = tail call fastcc ptr @do_gen_key(ptr noundef nonnull @.str.74, ptr noundef null, i64 noundef 0)
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 450, ptr noundef nonnull @.str.104, ptr noundef %5) #5
@@ -967,16 +967,16 @@ define internal range(i32 0, 2) i32 @ml_dsa_digest_sign_verify_test() #1 {
 7:                                                ; preds = %0
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.48, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @sig_params, i64 32)) #5
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 16), align 16, !tbaa !33
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 16), align 16, !tbaa !34
   %.not40 = icmp eq ptr %9, null
   br i1 %.not40, label %13, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #5
-  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 24), align 8, !tbaa !35
+  %12 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 24), align 8, !tbaa !36
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.105, ptr noundef nonnull %9, i64 noundef %12) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #5
   br label %13
 
@@ -984,7 +984,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_digest_sign_verify_test() #1 {
   %.038 = phi ptr [ %11, %10 ], [ %8, %7 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.038, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.038, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #5
   %14 = call ptr @EVP_MD_CTX_new() #5
   %15 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 460, ptr noundef nonnull @.str.127, ptr noundef %14) #5
@@ -992,86 +992,86 @@ define internal range(i32 0, 2) i32 @ml_dsa_digest_sign_verify_test() #1 {
   br i1 %.not41, label %68, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %17 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %18 = call i32 @EVP_DigestSignInit_ex(ptr noundef %14, ptr noundef null, ptr noundef nonnull @.str.62, ptr noundef %17, ptr noundef nonnull @.str.129, ptr noundef %5, ptr noundef nonnull %2) #5
   %19 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 463, ptr noundef nonnull @.str.128, ptr noundef nonnull @.str.92, i32 noundef %18, i32 noundef 0) #5
   %.not42 = icmp eq i32 %19, 0
   br i1 %.not42, label %68, label %20
 
 20:                                               ; preds = %16
-  %21 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %21 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %22 = call i32 @EVP_DigestSignInit_ex(ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef %21, ptr noundef nonnull @.str.129, ptr noundef %5, ptr noundef nonnull %2) #5
   %23 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 465, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.44, i32 noundef %22, i32 noundef 1) #5
   %.not43 = icmp eq i32 %23, 0
   br i1 %.not43, label %68, label %24
 
 24:                                               ; preds = %20
-  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 36), align 4, !tbaa !36
+  %25 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 36), align 4, !tbaa !37
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %68, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr @sig_params, align 16, !tbaa !37
-  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !38
+  %28 = load ptr, ptr @sig_params, align 16, !tbaa !38
+  %29 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !39
   %30 = call i32 @EVP_DigestSign(ptr noundef %14, ptr noundef null, ptr noundef nonnull %1, ptr noundef %28, i64 noundef %29) #5
   %31 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 471, ptr noundef nonnull @.str.131, ptr noundef nonnull @.str.44, i32 noundef %30, i32 noundef 1) #5
   %.not44 = icmp eq i32 %31, 0
   br i1 %.not44, label %68, label %32
 
 32:                                               ; preds = %27
-  %33 = load i64, ptr %1, align 8, !tbaa !13
+  %33 = load i64, ptr %1, align 8, !tbaa !14
   %34 = call noalias ptr @CRYPTO_zalloc(i64 noundef %33, ptr noundef nonnull @.str.29, i32 noundef 472) #5
   %35 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 472, ptr noundef nonnull @.str.110, ptr noundef %34) #5
   %.not45 = icmp eq i32 %35, 0
   br i1 %.not45, label %68, label %36
 
 36:                                               ; preds = %32
-  %37 = load i64, ptr %1, align 8, !tbaa !13
+  %37 = load i64, ptr %1, align 8, !tbaa !14
   %38 = add i64 %37, -1
-  store i64 %38, ptr %1, align 8, !tbaa !13
-  %39 = load ptr, ptr @sig_params, align 16, !tbaa !37
-  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !38
+  store i64 %38, ptr %1, align 8, !tbaa !14
+  %39 = load ptr, ptr @sig_params, align 16, !tbaa !38
+  %40 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !39
   %41 = call i32 @EVP_DigestSign(ptr noundef %14, ptr noundef %34, ptr noundef nonnull %1, ptr noundef %39, i64 noundef %40) #5
   %42 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 475, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.92, i32 noundef %41, i32 noundef 0) #5
   %.not46 = icmp eq i32 %42, 0
   br i1 %.not46, label %68, label %43
 
 43:                                               ; preds = %36
-  %44 = load i64, ptr %1, align 8, !tbaa !13
+  %44 = load i64, ptr %1, align 8, !tbaa !14
   %45 = add i64 %44, 1
-  store i64 %45, ptr %1, align 8, !tbaa !13
-  %46 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  store i64 %45, ptr %1, align 8, !tbaa !14
+  %46 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %47 = call i32 @EVP_DigestSignInit_ex(ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef %46, ptr noundef nonnull @.str.129, ptr noundef %5, ptr noundef nonnull %2) #5
   %48 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 479, ptr noundef nonnull @.str.130, ptr noundef nonnull @.str.44, i32 noundef %47, i32 noundef 1) #5
   %.not47 = icmp eq i32 %48, 0
   br i1 %.not47, label %68, label %49
 
 49:                                               ; preds = %43
-  %50 = load ptr, ptr @sig_params, align 16, !tbaa !37
-  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !38
+  %50 = load ptr, ptr @sig_params, align 16, !tbaa !38
+  %51 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !39
   %52 = call i32 @EVP_DigestSign(ptr noundef %14, ptr noundef %34, ptr noundef nonnull %1, ptr noundef %50, i64 noundef %51) #5
   %53 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 481, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.44, i32 noundef %52, i32 noundef 1) #5
   %.not48 = icmp eq i32 %53, 0
   br i1 %.not48, label %68, label %54
 
 54:                                               ; preds = %49
-  %55 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %55 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %56 = call i32 @EVP_DigestVerifyInit_ex(ptr noundef %14, ptr noundef null, ptr noundef nonnull @.str.62, ptr noundef %55, ptr noundef nonnull @.str.129, ptr noundef %5, ptr noundef nonnull %2) #5
   %57 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 484, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.92, i32 noundef %56, i32 noundef 0) #5
   %.not49 = icmp eq i32 %57, 0
   br i1 %.not49, label %68, label %58
 
 58:                                               ; preds = %54
-  %59 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %59 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %60 = call i32 @EVP_DigestVerifyInit_ex(ptr noundef %14, ptr noundef null, ptr noundef null, ptr noundef %59, ptr noundef nonnull @.str.129, ptr noundef %5, ptr noundef nonnull %2) #5
   %61 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 487, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.44, i32 noundef %60, i32 noundef 1) #5
   %.not50 = icmp eq i32 %61, 0
   br i1 %.not50, label %68, label %62
 
 62:                                               ; preds = %58
-  %63 = load i64, ptr %1, align 8, !tbaa !13
-  %64 = load ptr, ptr @sig_params, align 16, !tbaa !37
-  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !38
+  %63 = load i64, ptr %1, align 8, !tbaa !14
+  %64 = load ptr, ptr @sig_params, align 16, !tbaa !38
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sig_params, i64 8), align 8, !tbaa !39
   %66 = call i32 @EVP_DigestVerify(ptr noundef %14, ptr noundef %34, i64 noundef %63, ptr noundef %64, i64 noundef %65) #5
   %67 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 489, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.44, i32 noundef %66, i32 noundef 1) #5
   %.not51 = icmp ne i32 %67, 0
@@ -1094,7 +1094,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_digest_sign_verify_test() #1 {
 define internal range(i32 0, 2) i32 @ml_dsa_priv_pub_bad_t0_test() #1 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #5
-  store ptr null, ptr %1, align 8, !tbaa !16
+  store ptr null, ptr %1, align 8, !tbaa !17
   %2 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull @ml_dsa_65_0_sig_gen_priv, i64 noundef 4032, ptr noundef nonnull @.str.29, i32 noundef 504) #5
   %3 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 506, ptr noundef nonnull @.str.33, ptr noundef %2) #5
   %.not = icmp eq i32 %3, 0
@@ -1103,16 +1103,16 @@ define internal range(i32 0, 2) i32 @ml_dsa_priv_pub_bad_t0_test() #1 {
 4:                                                ; preds = %0
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(4032) %2, ptr noundef nonnull align 16 dereferenceable(4032) @ml_dsa_65_0_sig_gen_priv, i64 4032, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1536
-  store i8 -66, ptr %5, align 1, !tbaa !32
+  store i8 -66, ptr %5, align 1, !tbaa !33
   %6 = call fastcc i32 @ml_dsa_create_keypair(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull %2, i64 noundef 4032, ptr noundef null, i64 noundef 0, i32 noundef 0)
   %7 = call i32 @test_true(ptr noundef nonnull @.str.29, i32 noundef 515, ptr noundef nonnull @.str.136, i32 noundef %6) #5
   %.not17 = icmp eq i32 %7, 0
   br i1 %.not17, label %13, label %8
 
 8:                                                ; preds = %4
-  %9 = load i8, ptr %5, align 1, !tbaa !32
+  %9 = load i8, ptr %5, align 1, !tbaa !33
   %10 = xor i8 %9, 1
-  store i8 %10, ptr %5, align 1, !tbaa !32
+  store i8 %10, ptr %5, align 1, !tbaa !33
   %11 = call fastcc i32 @ml_dsa_create_keypair(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull %2, i64 noundef 4032, ptr noundef null, i64 noundef 0, i32 noundef 1)
   %12 = call i32 @test_true(ptr noundef nonnull @.str.29, i32 noundef 520, ptr noundef nonnull @.str.137, i32 noundef %11) #5
   %.not18 = icmp ne i32 %12, 0
@@ -1122,7 +1122,7 @@ define internal range(i32 0, 2) i32 @ml_dsa_priv_pub_bad_t0_test() #1 {
 13:                                               ; preds = %8, %4, %0
   %.0 = phi i32 [ 0, %4 ], [ 0, %0 ], [ %spec.select, %8 ]
   call void @CRYPTO_free(ptr noundef %2, ptr noundef nonnull @.str.29, i32 noundef 524) #5
-  %14 = load ptr, ptr %1, align 8, !tbaa !16
+  %14 = load ptr, ptr %1, align 8, !tbaa !17
   call void @EVP_PKEY_free(ptr noundef %14) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #5
   ret i32 %.0
@@ -1133,11 +1133,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cleanup_tests() local_unnamed_addr #1 {
-  %1 = load ptr, ptr @null_prov, align 8, !tbaa !39
+  %1 = load ptr, ptr @null_prov, align 8, !tbaa !40
   %2 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %1) #5
-  %3 = load ptr, ptr @lib_prov, align 8, !tbaa !39
+  %3 = load ptr, ptr @lib_prov, align 8, !tbaa !40
   %4 = tail call i32 @OSSL_PROVIDER_unload(ptr noundef %3) #5
-  %5 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %5 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   tail call void @OSSL_LIB_CTX_free(ptr noundef %5) #5
   ret void
 }
@@ -1155,7 +1155,7 @@ define internal fastcc ptr @do_gen_key(ptr noundef %0, ptr noundef %1, i64 nound
   %6 = alloca %struct.ossl_param_st, align 8
   %7 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
-  store ptr null, ptr %4, align 8, !tbaa !16
+  store ptr null, ptr %4, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #5
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %10, label %8
@@ -1170,13 +1170,13 @@ define internal fastcc ptr @do_gen_key(ptr noundef %0, ptr noundef %1, i64 nound
   %11 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i64 noundef 0) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #5
-  %12 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %12 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %13 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %12, ptr noundef %0, ptr noundef null) #5
   %14 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 42, ptr noundef nonnull @.str.42, ptr noundef %13) #5
   %.not11 = icmp eq i32 %14, 0
@@ -1201,12 +1201,12 @@ define internal fastcc ptr @do_gen_key(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %.not14, label %24, label %25
 
 24:                                               ; preds = %21, %18, %15, %10
-  store ptr null, ptr %4, align 8, !tbaa !16
+  store ptr null, ptr %4, align 8, !tbaa !17
   br label %25
 
 25:                                               ; preds = %24, %21
   call void @EVP_PKEY_CTX_free(ptr noundef %13) #5
-  %26 = load ptr, ptr %4, align 8, !tbaa !16
+  %26 = load ptr, ptr %4, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #5
   ret ptr %26
@@ -1267,7 +1267,7 @@ define internal fastcc range(i32 0, 2) i32 @ml_dsa_create_keypair(ptr noundef no
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #5
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.35, ptr noundef nonnull %4, i64 noundef %5) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #5
   %16 = or disjoint i32 %.017, 2
   br label %17
@@ -1277,9 +1277,9 @@ define internal fastcc range(i32 0, 2) i32 @ml_dsa_create_keypair(ptr noundef no
   %.1 = phi ptr [ %15, %14 ], [ %.0, %13 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #5
-  %18 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %18 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %19 = call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef %18, ptr noundef %1, ptr noundef null) #5
   %20 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 73, ptr noundef nonnull @.str.65, ptr noundef %19) #5
   %.not23 = icmp eq i32 %20, 0
@@ -1368,7 +1368,7 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds [12 x %struct.sig_params_st], ptr @sig_params, i64 0, i64 %7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store i64 0, ptr %3, align 8, !tbaa !13
+  store i64 0, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #5
   %9 = tail call fastcc ptr @do_gen_key(ptr noundef %0, ptr noundef null, i64 noundef 0)
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 387, ptr noundef nonnull @.str.104, ptr noundef %9) #5
@@ -1380,7 +1380,7 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.48, ptr noundef nonnull %13) #5
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !33
+  %15 = load ptr, ptr %14, align 8, !tbaa !34
   %.not43 = icmp eq ptr %15, null
   br i1 %.not43, label %20, label %16
 
@@ -1388,9 +1388,9 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #5
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %19 = load i64, ptr %18, align 8, !tbaa !35
+  %19 = load i64, ptr %18, align 8, !tbaa !36
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.105, ptr noundef nonnull %15, i64 noundef %19) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #5
   br label %20
 
@@ -1398,16 +1398,16 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
   %.0 = phi ptr [ %17, %16 ], [ %12, %11 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !21
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #5
-  %21 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %21 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %22 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %21, ptr noundef %9, ptr noundef null) #5
   %23 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 397, ptr noundef nonnull @.str.106, ptr noundef %22) #5
   %.not44 = icmp eq i32 %23, 0
   br i1 %.not44, label %73, label %24
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %25 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %26 = call ptr @EVP_SIGNATURE_fetch(ptr noundef %25, ptr noundef %0, ptr noundef null) #5
   %27 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 398, ptr noundef nonnull @.str.107, ptr noundef %26) #5
   %.not45 = icmp eq i32 %27, 0
@@ -1416,56 +1416,56 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
 28:                                               ; preds = %24
   %29 = call i32 @EVP_PKEY_sign_message_init(ptr noundef %22, ptr noundef %26, ptr noundef nonnull %4) #5
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !36
+  %31 = load i32, ptr %30, align 4, !tbaa !37
   %32 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 399, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.108, i32 noundef %29, i32 noundef %31) #5
   %.not46 = icmp eq i32 %32, 0
   br i1 %.not46, label %73, label %33
 
 33:                                               ; preds = %28
-  %34 = load i32, ptr %30, align 4, !tbaa !36
+  %34 = load i32, ptr %30, align 4, !tbaa !37
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %73, label %36
 
 36:                                               ; preds = %33
-  %37 = load ptr, ptr %8, align 8, !tbaa !37
+  %37 = load ptr, ptr %8, align 8, !tbaa !38
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !38
+  %39 = load i64, ptr %38, align 8, !tbaa !39
   %40 = call i32 @EVP_PKEY_sign(ptr noundef %22, ptr noundef null, ptr noundef nonnull %3, ptr noundef %37, i64 noundef %39) #5
   %41 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 405, ptr noundef nonnull @.str.109, ptr noundef nonnull @.str.44, i32 noundef %40, i32 noundef 1) #5
   %.not47 = icmp eq i32 %41, 0
   br i1 %.not47, label %73, label %42
 
 42:                                               ; preds = %36
-  %43 = load i64, ptr %3, align 8, !tbaa !13
+  %43 = load i64, ptr %3, align 8, !tbaa !14
   %44 = call noalias ptr @CRYPTO_zalloc(i64 noundef %43, ptr noundef nonnull @.str.29, i32 noundef 406) #5
   %45 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 406, ptr noundef nonnull @.str.110, ptr noundef %44) #5
   %.not48 = icmp eq i32 %45, 0
   br i1 %.not48, label %73, label %46
 
 46:                                               ; preds = %42
-  %47 = load i64, ptr %3, align 8, !tbaa !13
+  %47 = load i64, ptr %3, align 8, !tbaa !14
   %48 = add i64 %47, -1
-  store i64 %48, ptr %3, align 8, !tbaa !13
-  %49 = load ptr, ptr %8, align 8, !tbaa !37
-  %50 = load i64, ptr %38, align 8, !tbaa !38
+  store i64 %48, ptr %3, align 8, !tbaa !14
+  %49 = load ptr, ptr %8, align 8, !tbaa !38
+  %50 = load i64, ptr %38, align 8, !tbaa !39
   %51 = call i32 @EVP_PKEY_sign(ptr noundef %22, ptr noundef %44, ptr noundef nonnull %3, ptr noundef %49, i64 noundef %50) #5
   %52 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 409, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.92, i32 noundef %51, i32 noundef 0) #5
   %.not49 = icmp eq i32 %52, 0
   br i1 %.not49, label %73, label %53
 
 53:                                               ; preds = %46
-  %54 = load i64, ptr %3, align 8, !tbaa !13
+  %54 = load i64, ptr %3, align 8, !tbaa !14
   %55 = add i64 %54, 1
-  store i64 %55, ptr %3, align 8, !tbaa !13
-  %56 = load ptr, ptr %8, align 8, !tbaa !37
-  %57 = load i64, ptr %38, align 8, !tbaa !38
+  store i64 %55, ptr %3, align 8, !tbaa !14
+  %56 = load ptr, ptr %8, align 8, !tbaa !38
+  %57 = load i64, ptr %38, align 8, !tbaa !39
   %58 = call i32 @EVP_PKEY_sign(ptr noundef %22, ptr noundef %44, ptr noundef nonnull %3, ptr noundef %56, i64 noundef %57) #5
   %59 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 412, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.44, i32 noundef %58, i32 noundef 1) #5
   %.not50 = icmp eq i32 %59, 0
   br i1 %.not50, label %73, label %60
 
 60:                                               ; preds = %53
-  %61 = load ptr, ptr @lib_ctx, align 8, !tbaa !27
+  %61 = load ptr, ptr @lib_ctx, align 8, !tbaa !28
   %62 = call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %61, ptr noundef %9, ptr noundef null) #5
   %63 = call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 413, ptr noundef nonnull @.str.112, ptr noundef %62) #5
   %.not51 = icmp eq i32 %63, 0
@@ -1478,9 +1478,9 @@ define internal fastcc range(i32 0, 2) i32 @do_ml_dsa_sign_verify(ptr noundef %0
   br i1 %.not52, label %73, label %67
 
 67:                                               ; preds = %64
-  %68 = load i64, ptr %3, align 8, !tbaa !13
-  %69 = load ptr, ptr %8, align 8, !tbaa !37
-  %70 = load i64, ptr %38, align 8, !tbaa !38
+  %68 = load i64, ptr %3, align 8, !tbaa !14
+  %69 = load ptr, ptr %8, align 8, !tbaa !38
+  %70 = load i64, ptr %38, align 8, !tbaa !39
   %71 = call i32 @EVP_PKEY_verify(ptr noundef %62, ptr noundef %44, i64 noundef %68, ptr noundef %69, i64 noundef %70) #5
   %72 = call i32 @test_int_eq(ptr noundef nonnull @.str.29, i32 noundef 415, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.44, i32 noundef %71, i32 noundef 1) #5
   %.not53 = icmp ne i32 %72, 0
@@ -1536,40 +1536,41 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !8, i64 8}
-!7 = !{!"ml_dsa_keygen_test_data_st", !8, i64 0, !8, i64 8, !12, i64 16, !8, i64 24, !12, i64 32, !8, i64 40, !12, i64 48}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"long", !10, i64 0}
-!13 = !{!12, !12, i64 0}
-!14 = !{!7, !8, i64 24}
-!15 = !{!7, !8, i64 40}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !10, i64 0}
-!20 = !{i64 0, i64 8, !21, i64 8, i64 4, !18, i64 16, i64 8, !22, i64 24, i64 8, !13, i64 32, i64 8, !13}
-!21 = !{!8, !8, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !9, i64 8}
+!8 = !{!"ml_dsa_keygen_test_data_st", !9, i64 0, !9, i64 8, !13, i64 16, !9, i64 24, !13, i64 32, !9, i64 40, !13, i64 48}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C/C++ TBAA"}
+!13 = !{!"long", !11, i64 0}
+!14 = !{!13, !13, i64 0}
+!15 = !{!8, !9, i64 24}
+!16 = !{!8, !9, i64 40}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS11evp_pkey_st", !10, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !11, i64 0}
+!21 = !{i64 0, i64 8, !22, i64 8, i64 4, !19, i64 16, i64 8, !23, i64 24, i64 8, !14, i64 32, i64 8, !14}
 !22 = !{!9, !9, i64 0}
-!23 = !{!24, !8, i64 56}
-!24 = !{!"ml_dsa_sig_gen_test_data_st", !8, i64 0, !8, i64 8, !12, i64 16, !8, i64 24, !12, i64 32, !8, i64 40, !12, i64 48, !8, i64 56, !12, i64 64}
-!25 = !{!24, !12, i64 64}
-!26 = !{!24, !8, i64 8}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!29 = !{!24, !8, i64 24}
-!30 = !{!24, !12, i64 32}
-!31 = !{!24, !8, i64 40}
-!32 = !{!10, !10, i64 0}
-!33 = !{!34, !8, i64 16}
-!34 = !{!"sig_params_st", !8, i64 0, !12, i64 8, !8, i64 16, !12, i64 24, !19, i64 32, !19, i64 36}
-!35 = !{!34, !12, i64 24}
-!36 = !{!34, !19, i64 36}
-!37 = !{!34, !8, i64 0}
-!38 = !{!34, !12, i64 8}
-!39 = !{!40, !40, i64 0}
-!40 = !{!"p1 _ZTS16ossl_provider_st", !9, i64 0}
+!23 = !{!10, !10, i64 0}
+!24 = !{!25, !9, i64 56}
+!25 = !{!"ml_dsa_sig_gen_test_data_st", !9, i64 0, !9, i64 8, !13, i64 16, !9, i64 24, !13, i64 32, !9, i64 40, !13, i64 48, !9, i64 56, !13, i64 64}
+!26 = !{!25, !13, i64 64}
+!27 = !{!25, !9, i64 8}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
+!30 = !{!25, !9, i64 24}
+!31 = !{!25, !13, i64 32}
+!32 = !{!25, !9, i64 40}
+!33 = !{!11, !11, i64 0}
+!34 = !{!35, !9, i64 16}
+!35 = !{!"sig_params_st", !9, i64 0, !13, i64 8, !9, i64 16, !13, i64 24, !20, i64 32, !20, i64 36}
+!36 = !{!35, !13, i64 24}
+!37 = !{!35, !20, i64 36}
+!38 = !{!35, !9, i64 0}
+!39 = !{!35, !13, i64 8}
+!40 = !{!41, !41, i64 0}
+!41 = !{!"p1 _ZTS16ossl_provider_st", !10, i64 0}

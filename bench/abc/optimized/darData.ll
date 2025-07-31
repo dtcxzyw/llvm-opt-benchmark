@@ -160,7 +160,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   store i32 %9, ptr %29, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24772
-  br i1 %exitcond.not, label %30, label %thread-pre-split, !llvm.loop !15
+  br i1 %exitcond.not, label %30, label %thread-pre-split, !llvm.loop !16
 
 30:                                               ; preds = %Vec_IntPush.exit
   ret ptr %1
@@ -238,7 +238,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   store i32 %9, ptr %29, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24772
-  br i1 %exitcond.not, label %30, label %thread-pre-split, !llvm.loop !16
+  br i1 %exitcond.not, label %30, label %thread-pre-split, !llvm.loop !17
 
 30:                                               ; preds = %Vec_IntPush.exit
   ret ptr %1
@@ -271,7 +271,8 @@ attributes #4 = { nounwind allocsize(1) }
 !10 = !{!4, !5, i64 0}
 !11 = !{!4, !8, i64 8}
 !12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}

@@ -416,7 +416,7 @@ define internal i32 @rfc4175_handle_packet(ptr noundef %0, ptr noundef %1, ptr n
   %117 = getelementptr inbounds i8, ptr %.179, i64 %116
   %118 = sub nsw i32 %.176, %spec.select
   %.not100 = icmp sgt i8 %87, -1
-  br i1 %.not100, label %119, label %65, !llvm.loop !63
+  br i1 %.not100, label %119, label %65, !llvm.loop !64
 
 119:                                              ; preds = %113
   %120 = and i32 %8, 2
@@ -583,7 +583,7 @@ sub_164:                                          ; preds = %sub_063
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !33
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 108
-  store i32 1, ptr %52, align 4, !tbaa !64
+  store i32 1, ptr %52, align 4, !tbaa !65
   br label %117
 
 .tail67:                                          ; preds = %sub_063
@@ -596,7 +596,7 @@ sub_164:                                          ; preds = %sub_063
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !33
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 108
-  store i32 16, ptr %59, align 4, !tbaa !64
+  store i32 16, ptr %59, align 4, !tbaa !65
   br label %117
 
 sub_173:                                          ; preds = %sub_063
@@ -615,7 +615,7 @@ sub_173:                                          ; preds = %sub_063
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 108
-  store i32 18, ptr %68, align 4, !tbaa !64
+  store i32 18, ptr %68, align 4, !tbaa !65
   br label %117
 
 .tail71.thread:                                   ; preds = %sub_063, %.tail62, %sub_164, %.tail67, %sub_173, %.tail71
@@ -627,7 +627,7 @@ sub_173:                                          ; preds = %sub_063
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !33
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 108
-  store i32 8, ptr %73, align 4, !tbaa !64
+  store i32 8, ptr %73, align 4, !tbaa !65
   br label %117
 
 74:                                               ; preds = %.tail71.thread
@@ -639,11 +639,11 @@ sub_173:                                          ; preds = %sub_063
   br i1 %.not54, label %79, label %80
 
 79:                                               ; preds = %74
-  store i32 17, ptr %78, align 4, !tbaa !64
+  store i32 17, ptr %78, align 4, !tbaa !65
   br label %117
 
 80:                                               ; preds = %74
-  store i32 2, ptr %78, align 4, !tbaa !64
+  store i32 2, ptr %78, align 4, !tbaa !65
   br label %117
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
@@ -660,9 +660,9 @@ sub_173:                                          ; preds = %sub_063
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !33
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 104
-  store i32 5, ptr %87, align 8, !tbaa !65
+  store i32 5, ptr %87, align 8, !tbaa !66
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 112
-  store i32 5, ptr %88, align 8, !tbaa !66
+  store i32 5, ptr %88, align 8, !tbaa !67
   br label %117
 
 89:                                               ; preds = %82
@@ -674,9 +674,9 @@ sub_173:                                          ; preds = %sub_063
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !33
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 104
-  store i32 1, ptr %94, align 8, !tbaa !65
+  store i32 1, ptr %94, align 8, !tbaa !66
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 112
-  store i32 1, ptr %95, align 8, !tbaa !66
+  store i32 1, ptr %95, align 8, !tbaa !67
   br label %117
 
 96:                                               ; preds = %89
@@ -688,9 +688,9 @@ sub_173:                                          ; preds = %sub_063
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !33
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 104
-  store i32 9, ptr %101, align 8, !tbaa !65
+  store i32 9, ptr %101, align 8, !tbaa !66
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 112
-  store i32 9, ptr %102, align 8, !tbaa !66
+  store i32 9, ptr %102, align 8, !tbaa !67
   br label %117
 
 103:                                              ; preds = %.tail.thread
@@ -707,7 +707,7 @@ sub_173:                                          ; preds = %sub_063
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !33
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 100
-  store i32 1, ptr %110, align 4, !tbaa !67
+  store i32 1, ptr %110, align 4, !tbaa !68
   br label %117
 
 111:                                              ; preds = %105
@@ -719,7 +719,7 @@ sub_173:                                          ; preds = %sub_063
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !33
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 100
-  store i32 2, ptr %116, align 4, !tbaa !67
+  store i32 2, ptr %116, align 4, !tbaa !68
   br label %117
 
 117:                                              ; preds = %13, %23, %33, %91, %98, %96, %84, %107, %113, %111, %103, %49, %65, %79, %80, %70, %56, %29, %19, %7
@@ -834,10 +834,11 @@ attributes #8 = { nounwind willreturn memory(read) }
 !58 = !{!34, !13, i64 8}
 !59 = !{!36, !13, i64 36}
 !60 = !{!8, !8, i64 0}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = distinct !{!63, !62}
-!64 = !{!40, !13, i64 108}
-!65 = !{!40, !13, i64 104}
-!66 = !{!40, !13, i64 112}
-!67 = !{!40, !13, i64 100}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = distinct !{!64, !62, !63}
+!65 = !{!40, !13, i64 108}
+!66 = !{!40, !13, i64 104}
+!67 = !{!40, !13, i64 112}
+!68 = !{!40, !13, i64 100}

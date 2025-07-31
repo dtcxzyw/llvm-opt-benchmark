@@ -387,7 +387,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %.4 = phi i32 [ 0, %178 ], [ %177, %176 ]
   %182 = add nsw i32 %171, -1
   %.not254 = icmp eq i32 %171, 0
-  br i1 %.not254, label %183, label %170, !llvm.loop !40
+  br i1 %.not254, label %183, label %170, !llvm.loop !41
 
 183:                                              ; preds = %178, %181
   %.4222 = phi ptr [ %179, %178 ], [ %.5223, %181 ]
@@ -395,7 +395,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %184 = icmp eq ptr %.4222, %152
   %185 = icmp uge ptr %.1207, %11
   %.not258 = select i1 %184, i1 true, i1 %185
-  br i1 %.not258, label %.critedge, label %.lr.ph281, !llvm.loop !41
+  br i1 %.not258, label %.critedge, label %.lr.ph281, !llvm.loop !42
 
 186:                                              ; preds = %.lr.ph271, %190
   %.3209270 = phi ptr [ %145, %.lr.ph271 ], [ %192, %190 ]
@@ -412,7 +412,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %192 = getelementptr inbounds nuw i8, ptr %.3209270, i64 %147
   %193 = add nuw i32 %.0225268, 1
   %exitcond304.not = icmp eq i32 %193, %22
-  br i1 %exitcond304.not, label %.critedge, label %186, !llvm.loop !42
+  br i1 %exitcond304.not, label %.critedge, label %186, !llvm.loop !43
 
 .critedge:                                        ; preds = %186, %190, %183, %149
   %.2208 = phi ptr [ %145, %149 ], [ %.1207, %183 ], [ %.3209270, %186 ], [ %192, %190 ]
@@ -484,7 +484,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   store i8 %217, ptr %gep332, align 1, !tbaa !16
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count309
-  br i1 %exitcond310.not, label %._crit_edge285.us, label %.lr.ph284.split.us294, !llvm.loop !43
+  br i1 %exitcond310.not, label %._crit_edge285.us, label %.lr.ph284.split.us294, !llvm.loop !44
 
 ._crit_edge285.us:                                ; preds = %.lr.ph284.split.us294, %.lr.ph284.split.us.us
   %218 = load i32, ptr %202, align 8, !tbaa !37
@@ -493,7 +493,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %221 = getelementptr inbounds nuw i8, ptr %.1217289.us, i64 %206
   %222 = add nuw nsw i32 %.1226286.us, 1
   %exitcond318.not = icmp eq i32 %222, %22
-  br i1 %exitcond318.not, label %._crit_edge291, label %.preheader.us, !llvm.loop !44
+  br i1 %exitcond318.not, label %._crit_edge291, label %.preheader.us, !llvm.loop !45
 
 .lr.ph284.split.us.us:                            ; preds = %.preheader.us, %.lr.ph284.split.us.us
   %indvars.iv311 = phi i64 [ %indvars.iv.next312, %.lr.ph284.split.us.us ], [ 0, %.preheader.us ]
@@ -555,7 +555,7 @@ define internal i32 @sunrast_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   store i8 %267, ptr %270, align 1, !tbaa !16
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond316.not = icmp eq i64 %indvars.iv.next312, %wide.trip.count315
-  br i1 %exitcond316.not, label %._crit_edge285.us, label %.lr.ph284.split.us.us, !llvm.loop !46
+  br i1 %exitcond316.not, label %._crit_edge285.us, label %.lr.ph284.split.us.us, !llvm.loop !47
 
 ._crit_edge291:                                   ; preds = %._crit_edge285.us, %.preheader.lr.ph, %.thread323, %200
   %.2208322326 = phi ptr [ %145, %.thread323 ], [ %.2208, %200 ], [ %.2208, %.preheader.lr.ph ], [ %.2208, %._crit_edge285.us ]
@@ -656,12 +656,13 @@ attributes #7 = { noreturn nounwind }
 !35 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !36 = !{!11, !11, i64 0}
 !37 = !{!12, !12, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
-!43 = distinct !{!43, !39}
-!44 = distinct !{!44, !39, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !39, !45}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !39, !40}
+!42 = distinct !{!42, !39, !40}
+!43 = distinct !{!43, !39, !40}
+!44 = distinct !{!44, !39, !40}
+!45 = distinct !{!45, !39, !40, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !39, !40, !46}

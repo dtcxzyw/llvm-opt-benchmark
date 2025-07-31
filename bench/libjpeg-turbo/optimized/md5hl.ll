@@ -67,16 +67,16 @@ define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %
 
 29:                                               ; preds = %.lr.ph
   %30 = tail call ptr @__errno_location() #10
-  %31 = load i32, ptr %30, align 4, !tbaa !13
+  %31 = load i32, ptr %30, align 4, !tbaa !14
   %32 = call i32 @close(i32 noundef %9) #9
-  store i32 %31, ptr %30, align 4, !tbaa !13
+  store i32 %31, ptr %30, align 4, !tbaa !14
   br label %54
 
 ._crit_edge:                                      ; preds = %25, %.preheader
   %33 = tail call ptr @__errno_location() #10
-  %34 = load i32, ptr %33, align 4, !tbaa !13
+  %34 = load i32, ptr %33, align 4, !tbaa !14
   %35 = call i32 @close(i32 noundef %9) #9
-  store i32 %34, ptr %33, align 4, !tbaa !13
+  store i32 %34, ptr %33, align 4, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #9
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %36, label %.thread.i
@@ -94,27 +94,27 @@ define dso_local noundef ptr @MD5FileChunk(ptr noundef readonly captures(none) %
 38:                                               ; preds = %38, %.thread.i
   %indvars.iv.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %38 ]
   %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %indvars.iv.i
-  %40 = load i8, ptr %39, align 1, !tbaa !14
+  %40 = load i8, ptr %39, align 1, !tbaa !15
   %41 = lshr i8 %40, 4
   %42 = zext nneg i8 %41 to i64
   %43 = getelementptr inbounds nuw [17 x i8], ptr @MD5End.hex, i64 0, i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !14
+  %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = shl nuw nsw i64 %indvars.iv.i, 1
   %46 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 %45
-  store i8 %44, ptr %46, align 1, !tbaa !14
+  store i8 %44, ptr %46, align 1, !tbaa !15
   %47 = and i8 %40, 15
   %48 = zext nneg i8 %47 to i64
   %49 = getelementptr inbounds nuw [17 x i8], ptr @MD5End.hex, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !14
+  %50 = load i8, ptr %49, align 1, !tbaa !15
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store i8 %50, ptr %51, align 1, !tbaa !14
+  store i8 %50, ptr %51, align 1, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %52, label %38, !llvm.loop !15
+  br i1 %exitcond.not.i, label %52, label %38, !llvm.loop !16
 
 52:                                               ; preds = %38
   %53 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 32
-  store i8 0, ptr %53, align 1, !tbaa !14
+  store i8 0, ptr %53, align 1, !tbaa !15
   br label %MD5End.exit
 
 MD5End.exit:                                      ; preds = %36, %52
@@ -194,8 +194,9 @@ attributes #11 = { nounwind allocsize(0) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
 !10 = !{!"timespec", !6, i64 0, !6, i64 8}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!9, !9, i64 0}
-!14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!9, !9, i64 0}
+!15 = !{!7, !7, i64 0}
+!16 = distinct !{!16, !12, !13}

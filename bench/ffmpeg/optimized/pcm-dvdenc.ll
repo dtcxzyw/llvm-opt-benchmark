@@ -245,7 +245,7 @@ bytestream2_put_be16.exit:                        ; preds = %39, %44
 58:                                               ; preds = %bytestream2_put_byte.exit70
   %59 = add nsw i32 %.046, -1
   %.not54 = icmp eq i32 %59, 0
-  br i1 %.not54, label %.loopexit, label %57, !llvm.loop !52
+  br i1 %.not54, label %.loopexit, label %57, !llvm.loop !53
 
 60:                                               ; preds = %57, %bytestream2_put_byte.exit70
   %.042204 = phi i32 [ 2, %57 ], [ %97, %bytestream2_put_byte.exit70 ]
@@ -260,7 +260,7 @@ bytestream2_put_be16.exit:                        ; preds = %39, %44
   br i1 %or.cond185, label %64, label %bytestream2_put_byte.exit70
 
 64:                                               ; preds = %60
-  %65 = load i32, ptr %.1203, align 4, !tbaa !53
+  %65 = load i32, ptr %.1203, align 4, !tbaa !54
   %66 = lshr i32 %65, 16
   %67 = trunc nuw i32 %66 to i16
   %68 = tail call i16 @llvm.bswap.i16(i16 %67)
@@ -273,7 +273,7 @@ bytestream2_put_be16.exit:                        ; preds = %39, %44
   br i1 %73, label %74, label %bytestream2_put_byte.exit70
 
 74:                                               ; preds = %64
-  %75 = load i32, ptr %70, align 4, !tbaa !53
+  %75 = load i32, ptr %70, align 4, !tbaa !54
   %76 = lshr i32 %75, 16
   %77 = trunc nuw i32 %76 to i16
   %78 = tail call i16 @llvm.bswap.i16(i16 %77)
@@ -285,7 +285,7 @@ bytestream2_put_be16.exit:                        ; preds = %39, %44
   br i1 %82, label %83, label %bytestream2_put_byte.exit70
 
 83:                                               ; preds = %74
-  %84 = load i32, ptr %.1203, align 4, !tbaa !53
+  %84 = load i32, ptr %.1203, align 4, !tbaa !54
   %85 = lshr i32 %84, 8
   %86 = trunc i32 %85 to i8
   store i8 %86, ptr %79, align 1, !tbaa !37
@@ -296,7 +296,7 @@ bytestream2_put_be16.exit:                        ; preds = %39, %44
   br i1 %90, label %91, label %bytestream2_put_byte.exit70
 
 91:                                               ; preds = %83
-  %92 = load i32, ptr %70, align 4, !tbaa !53
+  %92 = load i32, ptr %70, align 4, !tbaa !54
   %93 = lshr i32 %92, 8
   %94 = trunc i32 %93 to i8
   store i8 %94, ptr %87, align 1, !tbaa !37
@@ -309,7 +309,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   %96 = getelementptr inbounds nuw i8, ptr %.1203, i64 8
   %97 = add nsw i32 %.042204, -1
   %.not53 = icmp eq i32 %97, 0
-  br i1 %.not53, label %58, label %60, !llvm.loop !54
+  br i1 %.not53, label %58, label %60, !llvm.loop !55
 
 .preheader192.splitthread-pre-split:              ; preds = %._crit_edge
   %.pr = load i32, ptr %52, align 4, !tbaa !36
@@ -330,7 +330,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   %.3.lcssa = phi ptr [ %.2, %.preheader192.split ], [ %171, %bytestream2_put_byte.exit78 ]
   %99 = add nsw i32 %.147, -1
   %.not52 = icmp eq i32 %99, 0
-  br i1 %.not52, label %.loopexit, label %.preheader192.splitthread-pre-split, !llvm.loop !55
+  br i1 %.not52, label %.loopexit, label %.preheader192.splitthread-pre-split, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %.preheader192.split, %bytestream2_put_byte.exit78
   %.0198 = phi i32 [ %172, %bytestream2_put_byte.exit78 ], [ %98, %.preheader192.split ]
@@ -345,7 +345,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %or.cond189, label %103, label %bytestream2_put_byte.exit78
 
 103:                                              ; preds = %.lr.ph
-  %104 = load i32, ptr %.3197, align 4, !tbaa !53
+  %104 = load i32, ptr %.3197, align 4, !tbaa !54
   %105 = lshr i32 %104, 16
   %106 = trunc nuw i32 %105 to i16
   %107 = tail call i16 @llvm.bswap.i16(i16 %106)
@@ -358,7 +358,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %112, label %113, label %bytestream2_put_byte.exit78
 
 113:                                              ; preds = %103
-  %114 = load i32, ptr %109, align 4, !tbaa !53
+  %114 = load i32, ptr %109, align 4, !tbaa !54
   %115 = lshr i32 %114, 16
   %116 = trunc nuw i32 %115 to i16
   %117 = tail call i16 @llvm.bswap.i16(i16 %116)
@@ -371,7 +371,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %122, label %123, label %bytestream2_put_byte.exit78
 
 123:                                              ; preds = %113
-  %124 = load i32, ptr %119, align 4, !tbaa !53
+  %124 = load i32, ptr %119, align 4, !tbaa !54
   %125 = lshr i32 %124, 16
   %126 = trunc nuw i32 %125 to i16
   %127 = tail call i16 @llvm.bswap.i16(i16 %126)
@@ -384,7 +384,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %132, label %133, label %bytestream2_put_byte.exit78
 
 133:                                              ; preds = %123
-  %134 = load i32, ptr %129, align 4, !tbaa !53
+  %134 = load i32, ptr %129, align 4, !tbaa !54
   %135 = lshr i32 %134, 16
   %136 = trunc nuw i32 %135 to i16
   %137 = tail call i16 @llvm.bswap.i16(i16 %136)
@@ -396,7 +396,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %141, label %142, label %bytestream2_put_byte.exit78
 
 142:                                              ; preds = %133
-  %143 = load i32, ptr %.3197, align 4, !tbaa !53
+  %143 = load i32, ptr %.3197, align 4, !tbaa !54
   %144 = lshr i32 %143, 8
   %145 = trunc i32 %144 to i8
   store i8 %145, ptr %138, align 1, !tbaa !37
@@ -407,7 +407,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %149, label %150, label %bytestream2_put_byte.exit78
 
 150:                                              ; preds = %142
-  %151 = load i32, ptr %109, align 4, !tbaa !53
+  %151 = load i32, ptr %109, align 4, !tbaa !54
   %152 = lshr i32 %151, 8
   %153 = trunc i32 %152 to i8
   store i8 %153, ptr %146, align 1, !tbaa !37
@@ -418,7 +418,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %157, label %158, label %bytestream2_put_byte.exit78
 
 158:                                              ; preds = %150
-  %159 = load i32, ptr %119, align 4, !tbaa !53
+  %159 = load i32, ptr %119, align 4, !tbaa !54
   %160 = lshr i32 %159, 8
   %161 = trunc i32 %160 to i8
   store i8 %161, ptr %154, align 1, !tbaa !37
@@ -429,7 +429,7 @@ bytestream2_put_byte.exit70:                      ; preds = %60, %64, %74, %83, 
   br i1 %165, label %166, label %bytestream2_put_byte.exit78
 
 166:                                              ; preds = %158
-  %167 = load i32, ptr %129, align 4, !tbaa !53
+  %167 = load i32, ptr %129, align 4, !tbaa !54
   %168 = lshr i32 %167, 8
   %169 = trunc i32 %168 to i8
   store i8 %169, ptr %162, align 1, !tbaa !37
@@ -442,10 +442,10 @@ bytestream2_put_byte.exit78:                      ; preds = %.lr.ph, %103, %113,
   %171 = getelementptr inbounds nuw i8, ptr %.3197, i64 16
   %172 = add nsw i32 %.0198, -1
   %.not = icmp eq i32 %172, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 .loopexit:                                        ; preds = %._crit_edge, %58, %bytestream2_put_be16.exit, %.preheader192, %bytestream2_init_writer.exit
-  store i32 1, ptr %3, align 4, !tbaa !53
+  store i32 1, ptr %3, align 4, !tbaa !54
   br label %173
 
 173:                                              ; preds = %4, %.loopexit
@@ -527,11 +527,12 @@ attributes #7 = { noreturn nounwind }
 !47 = !{!45, !10, i64 32}
 !48 = !{!49, !49, i64 0}
 !49 = !{!"short", !8, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = distinct !{!52, !51}
-!53 = !{!10, !10, i64 0}
-!54 = distinct !{!54, !51}
-!55 = distinct !{!55, !51, !56}
-!56 = !{!"llvm.loop.unswitch.partial.disable"}
-!57 = distinct !{!57, !51}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = distinct !{!53, !51, !52}
+!54 = !{!10, !10, i64 0}
+!55 = distinct !{!55, !51, !52}
+!56 = distinct !{!56, !51, !52, !57}
+!57 = !{!"llvm.loop.unswitch.partial.disable"}
+!58 = distinct !{!58, !51, !52}

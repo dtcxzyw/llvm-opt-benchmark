@@ -283,7 +283,7 @@ define void @lv_draw_sw_blend(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %.not65, label %.preheader, label %164
 
 .preheader:                                       ; preds = %162, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !59
 
 164:                                              ; preds = %162
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -341,7 +341,7 @@ define void @lv_draw_sw_blend(ptr noundef %0, ptr noundef readonly captures(none
   %200 = load i32, ptr %187, align 4, !tbaa !37
   %201 = sub nsw i32 %199, %200
   %202 = call ptr @lv_draw_layer_go_to_xy(ptr noundef nonnull %22, i32 noundef %198, i32 noundef %201) #4
-  store ptr %202, ptr %5, align 8, !tbaa !59
+  store ptr %202, ptr %5, align 8, !tbaa !61
   %203 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %204 = load i32, ptr %203, align 8, !tbaa !43
   switch i32 %204, label %212 [
@@ -507,4 +507,6 @@ attributes #4 = { nounwind }
 !56 = !{!46, !5, i64 40}
 !57 = !{!46, !8, i64 32}
 !58 = !{!46, !10, i64 24}
-!59 = !{!46, !5, i64 0}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!46, !5, i64 0}

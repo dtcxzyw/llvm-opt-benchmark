@@ -122,38 +122,38 @@ gv_alloc.exit.i.i:                                ; preds = %51
   %57 = getelementptr inbounds nuw %struct.object_t, ptr %0, i64 %.02632.i.i
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  store ptr %57, ptr %59, align 8, !tbaa !30
+  store ptr %57, ptr %59, align 8, !tbaa !31
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !36
+  %61 = load ptr, ptr %60, align 8, !tbaa !37
   %.not.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i, label %objplpmks.exit.i.i, label %62
 
 62:                                               ; preds = %gv_alloc.exit.i.i
-  %.sroa.0.0.copyload.i.i.i = load double, ptr %61, align 8, !tbaa !38
+  %.sroa.0.0.copyload.i.i.i = load double, ptr %61, align 8, !tbaa !39
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %.sroa.6.0.copyload.i.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !tbaa !38
+  %.sroa.6.0.copyload.i.i.i = load double, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !tbaa !39
   br label %objplpmks.exit.i.i
 
 objplpmks.exit.i.i:                               ; preds = %62, %gv_alloc.exit.i.i
   %.sroa.6.0.i.i.i = phi double [ %.sroa.6.0.copyload.i.i.i, %62 ], [ 0.000000e+00, %gv_alloc.exit.i.i ]
   %.sroa.0.0.i.i.i = phi double [ %.sroa.0.0.copyload.i.i.i, %62 ], [ 0.000000e+00, %gv_alloc.exit.i.i ]
-  %63 = load double, ptr %57, align 8, !tbaa !39
+  %63 = load double, ptr %57, align 8, !tbaa !40
   %64 = fsub double %63, %.sroa.0.0.i.i.i
   %65 = tail call double @llvm.floor.f64(double %64)
   %66 = fptosi double %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %68 = load double, ptr %67, align 8, !tbaa !40
+  %68 = load double, ptr %67, align 8, !tbaa !41
   %69 = fsub double %68, %.sroa.6.0.i.i.i
   %70 = tail call double @llvm.floor.f64(double %69)
   %71 = fptosi double %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %73 = load double, ptr %72, align 8, !tbaa !41
+  %73 = load double, ptr %72, align 8, !tbaa !42
   %74 = fadd double %63, %73
   %75 = fadd double %.sroa.0.0.i.i.i, %74
   %76 = tail call double @llvm.ceil.f64(double %75)
   %77 = fptosi double %76 to i32
   %78 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %79 = load double, ptr %78, align 8, !tbaa !42
+  %79 = load double, ptr %78, align 8, !tbaa !43
   %80 = fadd double %68, %79
   %81 = fadd double %.sroa.6.0.i.i.i, %80
   %82 = tail call double @llvm.ceil.f64(double %81)
@@ -168,7 +168,7 @@ objplpmks.exit.i.i:                               ; preds = %62, %gv_alloc.exit.
   %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %.sroa.5.8.insert.shift.i.i.i, %.sroa.3.8.insert.ext.i.i.i
   store i64 %.sroa.010.0.insert.insert.i.i.i, ptr %58, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %52, i64 32
-  store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !43
+  store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !44
   br i1 %48, label %.lr.ph.preheader.i.i.i, label %hd_hil_s_from_xy.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %objplpmks.exit.i.i
@@ -204,19 +204,19 @@ objplpmks.exit.i.i:                               ; preds = %62, %gv_alloc.exit.
   %105 = xor i32 %104, %.031.i.i.i
   %106 = xor i32 %104, %.02530.i.i.i
   %107 = icmp samesign ugt i32 %.026.in29.i.i.i, 1
-  br i1 %107, label %.lr.ph.i.i.i, label %hd_hil_s_from_xy.exit.i.i, !llvm.loop !44
+  br i1 %107, label %.lr.ph.i.i.i, label %hd_hil_s_from_xy.exit.i.i, !llvm.loop !45
 
 hd_hil_s_from_xy.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %objplpmks.exit.i.i
   %.027.lcssa.i.i.i = phi i32 [ 0, %objplpmks.exit.i.i ], [ %98, %.lr.ph.i.i.i ]
   %108 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i32 %.027.lcssa.i.i.i, ptr %108, align 8, !tbaa !45
-  %109 = load ptr, ptr %25, align 8, !tbaa !46
+  store i32 %.027.lcssa.i.i.i, ptr %108, align 8, !tbaa !46
+  %109 = load ptr, ptr %25, align 8, !tbaa !47
   %110 = tail call ptr %109(ptr noundef nonnull %25, ptr noundef nonnull %52, i32 noundef 1) #18
   %.not.not.i.i = icmp eq ptr %110, null
   br i1 %.not.not.i.i, label %xlinitialize.exit.thread, label %49
 
 .loopexit.i:                                      ; preds = %49, %xlnew.exit
-  %111 = load ptr, ptr %25, align 8, !tbaa !46
+  %111 = load ptr, ptr %25, align 8, !tbaa !47
   %112 = tail call ptr %111(ptr noundef nonnull %25, ptr noundef null, i32 noundef 128) #18
   %.not10.i.i = icmp eq ptr %112, null
   br i1 %.not10.i.i, label %xlspdxload.exit.i, label %.lr.ph.i6.i
@@ -225,12 +225,12 @@ hd_hil_s_from_xy.exit.i.i:                        ; preds = %.lr.ph.i.i.i, %objp
   %.011.i.i = phi ptr [ %118, %.lr.ph.i6.i ], [ %112, %.loopexit.i ]
   %113 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 24
   %114 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 40
-  %115 = load ptr, ptr %114, align 8, !tbaa !30
+  %115 = load ptr, ptr %114, align 8, !tbaa !31
   %116 = tail call i32 @RTreeInsert(ptr noundef nonnull %31, ptr noundef nonnull %113, ptr noundef %115, ptr noundef nonnull %31, i32 noundef 0) #18
-  %117 = load ptr, ptr %25, align 8, !tbaa !46
+  %117 = load ptr, ptr %25, align 8, !tbaa !47
   %118 = tail call ptr %117(ptr noundef nonnull %25, ptr noundef nonnull %.011.i.i, i32 noundef 8) #18
   %.not.i7.i = icmp eq ptr %118, null
-  br i1 %.not.i7.i, label %xlspdxload.exit.i, label %.lr.ph.i6.i, !llvm.loop !50
+  br i1 %.not.i7.i, label %xlspdxload.exit.i, label %.lr.ph.i6.i, !llvm.loop !51
 
 xlspdxload.exit.i:                                ; preds = %.lr.ph.i6.i, %.loopexit.i
   %119 = tail call i32 @dtsize(ptr noundef nonnull %25) #18
@@ -244,20 +244,20 @@ xlspdxload.exit.i:                                ; preds = %.lr.ph.i6.i, %.loop
   br label %.lr.ph.i8.i
 
 .lr.ph.i8.i:                                      ; preds = %.lr.ph.i8.i.preheader, %.thread.i.i
-  %123 = load ptr, ptr %121, align 8, !tbaa !51
+  %123 = load ptr, ptr %121, align 8, !tbaa !52
   %.not15.i.i = icmp eq ptr %123, null
   br i1 %.not15.i.i, label %.thread.i.i, label %124
 
 124:                                              ; preds = %.lr.ph.i8.i
-  %125 = load ptr, ptr %122, align 8, !tbaa !52
+  %125 = load ptr, ptr %122, align 8, !tbaa !53
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load i32, ptr %126, align 8, !tbaa !53
+  %127 = load i32, ptr %126, align 8, !tbaa !54
   %128 = icmp slt i32 %127, 0
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %131 = load ptr, ptr %130, align 8, !tbaa !55
+  %131 = load ptr, ptr %130, align 8, !tbaa !56
   br label %136
 
 132:                                              ; preds = %124
@@ -272,7 +272,7 @@ xlspdxload.exit.i:                                ; preds = %.lr.ph.i6.i, %.loop
   br i1 %.not16.i.i, label %.thread.i.i, label %138
 
 138:                                              ; preds = %136
-  %139 = load ptr, ptr %25, align 8, !tbaa !46
+  %139 = load ptr, ptr %25, align 8, !tbaa !47
   %140 = tail call ptr %139(ptr noundef nonnull %25, ptr noundef nonnull %137, i32 noundef 4096) #18
   tail call void @free(ptr noundef nonnull %137) #18
   br label %.thread.i.i
@@ -280,7 +280,7 @@ xlspdxload.exit.i:                                ; preds = %.lr.ph.i6.i, %.loop
 .thread.i.i:                                      ; preds = %138, %136, %.lr.ph.i8.i
   %141 = tail call i32 @dtsize(ptr noundef nonnull %25) #18
   %.not.i9.i = icmp eq i32 %141, 0
-  br i1 %.not.i9.i, label %xlinitialize.exit, label %.lr.ph.i8.i, !llvm.loop !57
+  br i1 %.not.i9.i, label %xlinitialize.exit, label %.lr.ph.i8.i, !llvm.loop !58
 
 xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspdxload.exit.i
   %142 = tail call i32 @dtclose(ptr noundef nonnull %25) #18
@@ -348,53 +348,53 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.036141 = phi i32 [ 0, %.lr.ph ], [ %.1, %363 ]
   %154 = getelementptr inbounds nuw %struct.object_t, ptr %0, i64 %.0143
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 32
-  %156 = load ptr, ptr %155, align 8, !tbaa !36
+  %156 = load ptr, ptr %155, align 8, !tbaa !37
   %157 = icmp eq ptr %156, null
   br i1 %157, label %363, label %158
 
 158:                                              ; preds = %153
-  %159 = load double, ptr %156, align 8, !tbaa !58, !noalias !60
+  %159 = load double, ptr %156, align 8, !tbaa !59, !noalias !61
   %160 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %161 = load double, ptr %160, align 8, !tbaa !41, !noalias !60
+  %161 = load double, ptr %160, align 8, !tbaa !42, !noalias !61
   %162 = tail call double @llvm.fmuladd.f64(double %159, double 2.000000e+00, double %161)
   %163 = fmul double %162, 1.250000e-01
   %164 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %165 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  %165 = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   %166 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %167 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
+  %167 = load double, ptr %166, align 8, !tbaa !43, !noalias !61
   %168 = tail call double @llvm.fmuladd.f64(double %165, double 2.000000e+00, double %167)
   %169 = fmul double %168, 5.000000e-01
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #18, !noalias !60
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %6, i8 0, i64 72, i1 false), !noalias !60
-  %170 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #18, !noalias !61
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %6, i8 0, i64 72, i1 false), !noalias !61
+  %170 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
   %171 = fsub double %170, %159
   %172 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  store double %171, ptr %172, align 8, !tbaa !64, !noalias !60
+  store double %171, ptr %172, align 8, !tbaa !65, !noalias !61
   %173 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %174 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
+  %174 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
   %175 = fadd double %167, %174
   %176 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  store double %175, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0249.0.copyload.i = load i32, ptr %7, align 8, !tbaa !3, !noalias !60
-  %.sroa.28.0.copyload.i = load double, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.50.i.sroa.0.0.copyload = load double, ptr %.sroa.50.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.50.i.sroa.19.0.copyload = load double, ptr %.sroa.50.i.sroa.19.0..sroa.50.0..sroa_idx.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18, !noalias !60
+  store double %175, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %7, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0249.0.copyload.i = load i32, ptr %7, align 8, !tbaa !3, !noalias !61
+  %.sroa.28.0.copyload.i = load double, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.50.i.sroa.0.0.copyload = load double, ptr %.sroa.50.0..sroa_idx.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.50.i.sroa.19.0.copyload = load double, ptr %.sroa.50.i.sroa.19.0..sroa.50.0..sroa_idx.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18, !noalias !61
   %177 = icmp eq i32 %.sroa.0249.0.copyload.i, 0
   br i1 %177, label %xladjust.exit.thread, label %178
 
 178:                                              ; preds = %158
-  %179 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  store double %179, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload.i = load i32, ptr %8, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload.i = load double, ptr %.sroa.46142.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload = load double, ptr %.sroa.57.0..sroa_idx.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18, !noalias !60
+  %179 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  store double %179, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %8, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload.i = load i32, ptr %8, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload.i = load double, ptr %.sroa.46142.0..sroa_idx.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload = load double, ptr %.sroa.57.0..sroa_idx.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #18, !noalias !61
   %180 = icmp eq i32 %.sroa.0.0.copyload.i, 0
   br i1 %180, label %xladjust.exit.thread, label %181
 
@@ -410,17 +410,17 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.50.i.sroa.19.0 = phi double [ %.sroa.57.i.sroa.35.0.copyload, %183 ], [ %.sroa.50.i.sroa.19.0.copyload, %181 ]
   %.sroa.28.0.i = phi double [ %.sroa.46142.0.copyload.i, %183 ], [ %.sroa.28.0.copyload.i, %181 ]
   %.sroa.0249.0.i = phi i32 [ %.sroa.0.0.copyload.i, %183 ], [ %.sroa.0249.0.copyload.i, %181 ]
-  %185 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %186 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  %185 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %186 = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   %187 = fsub double %185, %186
-  store double %187, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload48.i = load i32, ptr %9, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload148.i = load double, ptr %.sroa.46142.0..sroa_idx147.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload54 = load double, ptr %.sroa.57.0..sroa_idx219.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload75 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx219.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18, !noalias !60
+  store double %187, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload48.i = load i32, ptr %9, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload148.i = load double, ptr %.sroa.46142.0..sroa_idx147.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload54 = load double, ptr %.sroa.57.0..sroa_idx219.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload75 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx219.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #18, !noalias !61
   %188 = icmp eq i32 %.sroa.0.0.copyload48.i, 0
   br i1 %188, label %xladjust.exit.thread, label %189
 
@@ -436,19 +436,19 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.50.i.sroa.19.1 = phi double [ %.sroa.57.i.sroa.35.0.copyload75, %191 ], [ %.sroa.50.i.sroa.19.0, %189 ]
   %.sroa.28.1.i = phi double [ %.sroa.46142.0.copyload148.i, %191 ], [ %.sroa.28.0.i, %189 ]
   %.sroa.0249.1.i = phi i32 [ %.sroa.0.0.copyload48.i, %191 ], [ %.sroa.0249.0.i, %189 ]
-  %193 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
-  store double %193, ptr %172, align 8, !tbaa !64, !noalias !60
-  %194 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %195 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
+  %193 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
+  store double %193, ptr %172, align 8, !tbaa !65, !noalias !61
+  %194 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %195 = load double, ptr %166, align 8, !tbaa !43, !noalias !61
   %196 = fadd double %194, %195
-  store double %196, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload51.i = load i32, ptr %10, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload154.i = load double, ptr %.sroa.46142.0..sroa_idx153.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload55 = load double, ptr %.sroa.57.0..sroa_idx222.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload76 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx222.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #18, !noalias !60
+  store double %196, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload51.i = load i32, ptr %10, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload154.i = load double, ptr %.sroa.46142.0..sroa_idx153.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload55 = load double, ptr %.sroa.57.0..sroa_idx222.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload76 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx222.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #18, !noalias !61
   %197 = icmp eq i32 %.sroa.0.0.copyload51.i, 0
   br i1 %197, label %xladjust.exit.thread, label %198
 
@@ -464,17 +464,17 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.50.i.sroa.19.2 = phi double [ %.sroa.57.i.sroa.35.0.copyload76, %200 ], [ %.sroa.50.i.sroa.19.1, %198 ]
   %.sroa.28.2.i = phi double [ %.sroa.46142.0.copyload154.i, %200 ], [ %.sroa.28.1.i, %198 ]
   %.sroa.0249.2.i = phi i32 [ %.sroa.0.0.copyload51.i, %200 ], [ %.sroa.0249.1.i, %198 ]
-  %202 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %203 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  %202 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %203 = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   %204 = fsub double %202, %203
-  store double %204, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload54.i = load i32, ptr %11, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload160.i = load double, ptr %.sroa.46142.0..sroa_idx159.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload56 = load double, ptr %.sroa.57.0..sroa_idx225.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload77 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx225.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #18, !noalias !60
+  store double %204, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload54.i = load i32, ptr %11, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload160.i = load double, ptr %.sroa.46142.0..sroa_idx159.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload56 = load double, ptr %.sroa.57.0..sroa_idx225.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload77 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx225.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #18, !noalias !61
   %205 = icmp eq i32 %.sroa.0.0.copyload54.i, 0
   br i1 %205, label %xladjust.exit.thread, label %206
 
@@ -490,21 +490,21 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.50.i.sroa.19.3 = phi double [ %.sroa.57.i.sroa.35.0.copyload77, %208 ], [ %.sroa.50.i.sroa.19.2, %206 ]
   %.sroa.28.3.i = phi double [ %.sroa.46142.0.copyload160.i, %208 ], [ %.sroa.28.2.i, %206 ]
   %.sroa.0249.3.i = phi i32 [ %.sroa.0.0.copyload54.i, %208 ], [ %.sroa.0249.2.i, %206 ]
-  %210 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
-  %211 = load double, ptr %160, align 8, !tbaa !41, !noalias !60
+  %210 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
+  %211 = load double, ptr %160, align 8, !tbaa !42, !noalias !61
   %212 = fadd double %210, %211
-  store double %212, ptr %172, align 8, !tbaa !64, !noalias !60
-  %213 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %214 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
+  store double %212, ptr %172, align 8, !tbaa !65, !noalias !61
+  %213 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %214 = load double, ptr %166, align 8, !tbaa !43, !noalias !61
   %215 = fadd double %213, %214
-  store double %215, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload57.i = load i32, ptr %12, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload166.i = load double, ptr %.sroa.46142.0..sroa_idx165.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload57 = load double, ptr %.sroa.57.0..sroa_idx228.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload78 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx228.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #18, !noalias !60
+  store double %215, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload57.i = load i32, ptr %12, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload166.i = load double, ptr %.sroa.46142.0..sroa_idx165.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload57 = load double, ptr %.sroa.57.0..sroa_idx228.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload78 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx228.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #18, !noalias !61
   %216 = icmp eq i32 %.sroa.0.0.copyload57.i, 0
   br i1 %216, label %xladjust.exit.thread, label %217
 
@@ -520,15 +520,15 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.50.i.sroa.19.4 = phi double [ %.sroa.57.i.sroa.35.0.copyload78, %219 ], [ %.sroa.50.i.sroa.19.3, %217 ]
   %.sroa.28.4.i = phi double [ %.sroa.46142.0.copyload166.i, %219 ], [ %.sroa.28.3.i, %217 ]
   %.sroa.0249.4.i = phi i32 [ %.sroa.0.0.copyload57.i, %219 ], [ %.sroa.0249.3.i, %217 ]
-  %221 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  store double %221, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload60.i = load i32, ptr %13, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload172.i = load double, ptr %.sroa.46142.0..sroa_idx171.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload58 = load double, ptr %.sroa.57.0..sroa_idx231.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload79 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx231.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #18, !noalias !60
+  %221 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  store double %221, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload60.i = load i32, ptr %13, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload172.i = load double, ptr %.sroa.46142.0..sroa_idx171.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload58 = load double, ptr %.sroa.57.0..sroa_idx231.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload79 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx231.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #18, !noalias !61
   %222 = icmp eq i32 %.sroa.0.0.copyload60.i, 0
   br i1 %222, label %xladjust.exit.thread, label %223
 
@@ -544,17 +544,17 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.50.i.sroa.19.5 = phi double [ %.sroa.57.i.sroa.35.0.copyload79, %225 ], [ %.sroa.50.i.sroa.19.4, %223 ]
   %.sroa.28.5.i = phi double [ %.sroa.46142.0.copyload172.i, %225 ], [ %.sroa.28.4.i, %223 ]
   %.sroa.0249.5.i = phi i32 [ %.sroa.0.0.copyload60.i, %225 ], [ %.sroa.0249.4.i, %223 ]
-  %227 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %228 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  %227 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %228 = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   %229 = fsub double %227, %228
-  store double %229, ptr %176, align 8, !tbaa !65, !noalias !60
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload63.i = load i32, ptr %14, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload178.i = load double, ptr %.sroa.46142.0..sroa_idx177.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload59 = load double, ptr %.sroa.57.0..sroa_idx234.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload80 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx234.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #18, !noalias !60
+  store double %229, ptr %176, align 8, !tbaa !66, !noalias !61
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %14, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload63.i = load i32, ptr %14, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload178.i = load double, ptr %.sroa.46142.0..sroa_idx177.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload59 = load double, ptr %.sroa.57.0..sroa_idx234.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload80 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx234.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #18, !noalias !61
   %230 = icmp eq i32 %.sroa.0.0.copyload63.i, 0
   br i1 %230, label %xladjust.exit.thread, label %231
 
@@ -570,41 +570,41 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.50.i.sroa.19.6 = phi double [ %.sroa.57.i.sroa.35.0.copyload80, %233 ], [ %.sroa.50.i.sroa.19.5, %231 ]
   %.sroa.28.6.i = phi double [ %.sroa.46142.0.copyload178.i, %233 ], [ %.sroa.28.5.i, %231 ]
   %.sroa.0249.6.i = phi i32 [ %.sroa.0.0.copyload63.i, %233 ], [ %.sroa.0249.5.i, %231 ]
-  %235 = load ptr, ptr %144, align 16, !tbaa !10, !noalias !60
+  %235 = load ptr, ptr %144, align 16, !tbaa !10, !noalias !61
   %236 = icmp ne ptr %235, null
-  %237 = load ptr, ptr %145, align 8, !noalias !60
+  %237 = load ptr, ptr %145, align 8, !noalias !61
   %238 = icmp ne ptr %237, null
   %or.cond.i = select i1 %236, i1 true, i1 %238
-  %239 = load ptr, ptr %146, align 16, !noalias !60
+  %239 = load ptr, ptr %146, align 16, !noalias !61
   %240 = icmp ne ptr %239, null
   %or.cond5.i = select i1 %or.cond.i, i1 true, i1 %240
-  %241 = load ptr, ptr %147, align 8, !noalias !60
+  %241 = load ptr, ptr %147, align 8, !noalias !61
   %242 = icmp ne ptr %241, null
   %or.cond8.i = select i1 %or.cond5.i, i1 true, i1 %242
-  %243 = load ptr, ptr %6, align 16, !noalias !60
+  %243 = load ptr, ptr %6, align 16, !noalias !61
   %244 = icmp ne ptr %243, null
   %or.cond11.i = select i1 %or.cond8.i, i1 true, i1 %244
   br i1 %or.cond11.i, label %245, label %..loopexit382_crit_edge.i
 
 ..loopexit382_crit_edge.i:                        ; preds = %234
-  %.pre431.i = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %.pre433.i = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  %.pre431.i = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %.pre433.i = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   br label %.loopexit382.i
 
 245:                                              ; preds = %234
   %or.cond14.i = select i1 %238, i1 true, i1 %240
-  %.pre432.pre438.i = load double, ptr %173, align 8, !tbaa !40, !noalias !60
+  %.pre432.pre438.i = load double, ptr %173, align 8, !tbaa !41, !noalias !61
   br i1 %or.cond14.i, label %.loopexit383.i, label %246
 
 246:                                              ; preds = %245
-  %247 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
-  %248 = load double, ptr %156, align 8, !tbaa !58, !noalias !60
+  %247 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
+  %248 = load double, ptr %156, align 8, !tbaa !59, !noalias !61
   %249 = fsub double %247, %248
-  store double %249, ptr %172, align 8, !tbaa !64, !noalias !60
-  %250 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
+  store double %249, ptr %172, align 8, !tbaa !65, !noalias !61
+  %250 = load double, ptr %166, align 8, !tbaa !43, !noalias !61
   %251 = fadd double %.pre432.pre438.i, %250
-  store double %251, ptr %176, align 8, !tbaa !65, !noalias !60
-  %252 = load double, ptr %160, align 8, !tbaa !41, !noalias !60
+  store double %251, ptr %176, align 8, !tbaa !66, !noalias !61
+  %252 = load double, ptr %160, align 8, !tbaa !42, !noalias !61
   %253 = fadd double %247, %252
   %254 = fcmp ugt double %249, %253
   br i1 %254, label %.loopexit383.i, label %.lr.ph.i
@@ -614,13 +614,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload64120 = phi double [ %.sroa.57.i.sroa.0.0.copyload64119, %259 ], [ %.sroa.50.i.sroa.0.6, %246 ]
   %.sroa.0249.9398.i = phi i32 [ %.sroa.0249.10.i, %259 ], [ %.sroa.0249.6.i, %246 ]
   %.sroa.28.9396.i = phi double [ %.sroa.28.10.i, %259 ], [ %.sroa.28.6.i, %246 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload66.i = load i32, ptr %15, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload184.i = load double, ptr %.sroa.46142.0..sroa_idx183.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload64 = load double, ptr %.sroa.57.0..sroa_idx237.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload86 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx237.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %15, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload66.i = load i32, ptr %15, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload184.i = load double, ptr %.sroa.46142.0..sroa_idx183.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload64 = load double, ptr %.sroa.57.0..sroa_idx237.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload86 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx237.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #18, !noalias !61
   %255 = icmp eq i32 %.sroa.0.0.copyload66.i, 0
   br i1 %255, label %xladjust.exit.thread, label %256
 
@@ -636,19 +636,19 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload64119 = phi double [ %.sroa.57.i.sroa.0.0.copyload64, %258 ], [ %.sroa.57.i.sroa.0.0.copyload64120, %256 ]
   %.sroa.28.10.i = phi double [ %.sroa.46142.0.copyload184.i, %258 ], [ %.sroa.28.9396.i, %256 ]
   %.sroa.0249.10.i = phi i32 [ %.sroa.0.0.copyload66.i, %258 ], [ %.sroa.0249.9398.i, %256 ]
-  %260 = load double, ptr %172, align 8, !tbaa !64, !noalias !60
+  %260 = load double, ptr %172, align 8, !tbaa !65, !noalias !61
   %261 = fadd double %163, %260
-  store double %261, ptr %172, align 8, !tbaa !64, !noalias !60
-  %262 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
-  %263 = load double, ptr %160, align 8, !tbaa !41, !noalias !60
+  store double %261, ptr %172, align 8, !tbaa !65, !noalias !61
+  %262 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
+  %263 = load double, ptr %160, align 8, !tbaa !42, !noalias !61
   %264 = fadd double %262, %263
   %265 = fcmp ugt double %261, %264
-  br i1 %265, label %.loopexit383.loopexit.i, label %.lr.ph.i, !llvm.loop !66
+  br i1 %265, label %.loopexit383.loopexit.i, label %.lr.ph.i, !llvm.loop !67
 
 .loopexit383.loopexit.i:                          ; preds = %259
-  %.pre.i = load ptr, ptr %147, align 8, !tbaa !10, !noalias !60
-  %.pre430.i = load ptr, ptr %6, align 16, !noalias !60
-  %.pre432.pre.i = load double, ptr %173, align 8, !tbaa !40, !noalias !60
+  %.pre.i = load ptr, ptr %147, align 8, !tbaa !10, !noalias !61
+  %.pre430.i = load ptr, ptr %6, align 16, !noalias !61
+  %.pre432.pre.i = load double, ptr %173, align 8, !tbaa !41, !noalias !61
   br label %.loopexit383.i
 
 .loopexit383.i:                                   ; preds = %.loopexit383.loopexit.i, %246, %245
@@ -662,17 +662,17 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %268 = icmp ne ptr %267, null
   %269 = icmp ne ptr %266, null
   %or.cond17.i = select i1 %268, i1 true, i1 %269
-  %.pre434.i = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  %.pre434.i = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   br i1 %or.cond17.i, label %.loopexit382.i, label %270
 
 270:                                              ; preds = %.loopexit383.i
-  %271 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
-  %272 = load double, ptr %156, align 8, !tbaa !58, !noalias !60
+  %271 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
+  %272 = load double, ptr %156, align 8, !tbaa !59, !noalias !61
   %273 = fsub double %271, %272
-  store double %273, ptr %172, align 8, !tbaa !64, !noalias !60
-  %274 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
+  store double %273, ptr %172, align 8, !tbaa !65, !noalias !61
+  %274 = load double, ptr %166, align 8, !tbaa !43, !noalias !61
   %275 = fadd double %.pre432.i, %274
-  store double %275, ptr %176, align 8, !tbaa !65, !noalias !60
+  store double %275, ptr %176, align 8, !tbaa !66, !noalias !61
   %276 = fsub double %.pre432.i, %.pre434.i
   %277 = fcmp ult double %275, %276
   br i1 %277, label %.loopexit382.i, label %.lr.ph404.i
@@ -682,13 +682,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload65125 = phi double [ %.sroa.57.i.sroa.0.0.copyload65124, %282 ], [ %.sroa.50.i.sroa.0.9, %270 ]
   %.sroa.0249.11403.i = phi i32 [ %.sroa.0249.12.i, %282 ], [ %.sroa.0249.8.i, %270 ]
   %.sroa.28.11401.i = phi double [ %.sroa.28.12.i, %282 ], [ %.sroa.28.8.i, %270 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload69.i = load i32, ptr %16, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload190.i = load double, ptr %.sroa.46142.0..sroa_idx189.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload65 = load double, ptr %.sroa.57.0..sroa_idx240.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload87 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx240.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %16, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload69.i = load i32, ptr %16, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload190.i = load double, ptr %.sroa.46142.0..sroa_idx189.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload65 = load double, ptr %.sroa.57.0..sroa_idx240.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload87 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx240.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #18, !noalias !61
   %278 = icmp eq i32 %.sroa.0.0.copyload69.i, 0
   br i1 %278, label %xladjust.exit.thread, label %279
 
@@ -704,17 +704,17 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload65124 = phi double [ %.sroa.57.i.sroa.0.0.copyload65, %281 ], [ %.sroa.57.i.sroa.0.0.copyload65125, %279 ]
   %.sroa.28.12.i = phi double [ %.sroa.46142.0.copyload190.i, %281 ], [ %.sroa.28.11401.i, %279 ]
   %.sroa.0249.12.i = phi i32 [ %.sroa.0.0.copyload69.i, %281 ], [ %.sroa.0249.11403.i, %279 ]
-  %283 = load double, ptr %176, align 8, !tbaa !65, !noalias !60
+  %283 = load double, ptr %176, align 8, !tbaa !66, !noalias !61
   %284 = fsub double %283, %169
-  store double %284, ptr %176, align 8, !tbaa !65, !noalias !60
-  %285 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %286 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  store double %284, ptr %176, align 8, !tbaa !66, !noalias !61
+  %285 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %286 = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   %287 = fsub double %285, %286
   %288 = fcmp ult double %284, %287
-  br i1 %288, label %.loopexit382.loopexit.i, label %.lr.ph404.i, !llvm.loop !67
+  br i1 %288, label %.loopexit382.loopexit.i, label %.lr.ph404.i, !llvm.loop !68
 
 .loopexit382.loopexit.i:                          ; preds = %282
-  %.pre435.i = load ptr, ptr %6, align 16, !noalias !60
+  %.pre435.i = load ptr, ptr %6, align 16, !noalias !61
   br label %.loopexit382.i
 
 .loopexit382.i:                                   ; preds = %.loopexit382.loopexit.i, %270, %.loopexit383.i, %..loopexit382_crit_edge.i
@@ -725,23 +725,23 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %291 = phi double [ %.pre432.i, %.loopexit383.i ], [ %.pre432.i, %270 ], [ %285, %.loopexit382.loopexit.i ], [ %.pre431.i, %..loopexit382_crit_edge.i ]
   %.sroa.28.7.i = phi double [ %.sroa.28.8.i, %.loopexit383.i ], [ %.sroa.28.8.i, %270 ], [ %.sroa.28.12.i, %.loopexit382.loopexit.i ], [ %.sroa.28.6.i, %..loopexit382_crit_edge.i ]
   %.sroa.0249.7.i = phi i32 [ %.sroa.0249.8.i, %.loopexit383.i ], [ %.sroa.0249.8.i, %270 ], [ %.sroa.0249.12.i, %.loopexit382.loopexit.i ], [ %.sroa.0249.6.i, %..loopexit382_crit_edge.i ]
-  %292 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
-  %293 = load double, ptr %160, align 8, !tbaa !41, !noalias !60
+  %292 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
+  %293 = load double, ptr %160, align 8, !tbaa !42, !noalias !61
   %294 = fadd double %292, %293
-  store double %294, ptr %172, align 8, !tbaa !64, !noalias !60
+  store double %294, ptr %172, align 8, !tbaa !65, !noalias !61
   %295 = fsub double %291, %290
-  store double %295, ptr %176, align 8, !tbaa !65, !noalias !60
-  %296 = load ptr, ptr %148, align 16, !tbaa !10, !noalias !60
+  store double %295, ptr %176, align 8, !tbaa !66, !noalias !61
+  %296 = load ptr, ptr %148, align 16, !tbaa !10, !noalias !61
   %297 = icmp ne ptr %296, null
-  %298 = load ptr, ptr %149, align 8, !noalias !60
+  %298 = load ptr, ptr %149, align 8, !noalias !61
   %299 = icmp ne ptr %298, null
   %or.cond20.i = select i1 %297, i1 true, i1 %299
   %300 = icmp ne ptr %289, null
   %or.cond23.i = select i1 %or.cond20.i, i1 true, i1 %300
-  %301 = load ptr, ptr %150, align 8, !noalias !60
+  %301 = load ptr, ptr %150, align 8, !noalias !61
   %302 = icmp ne ptr %301, null
   %or.cond26.i = select i1 %or.cond23.i, i1 true, i1 %302
-  %303 = load ptr, ptr %146, align 16, !noalias !60
+  %303 = load ptr, ptr %146, align 16, !noalias !61
   %304 = icmp ne ptr %303, null
   %or.cond29.i = select i1 %or.cond26.i, i1 true, i1 %304
   br i1 %or.cond29.i, label %305, label %xladjust.exit
@@ -751,7 +751,7 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %or.cond32.i, label %.loopexit381.i, label %306
 
 306:                                              ; preds = %305
-  %307 = load double, ptr %156, align 8, !tbaa !58, !noalias !60
+  %307 = load double, ptr %156, align 8, !tbaa !59, !noalias !61
   %308 = fsub double %292, %307
   %309 = fcmp ult double %294, %308
   br i1 %309, label %.loopexit381.i, label %.lr.ph411.i
@@ -761,13 +761,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload60131 = phi double [ %.sroa.57.i.sroa.0.0.copyload60130, %314 ], [ %.sroa.50.i.sroa.0.7, %306 ]
   %.sroa.0249.15410.i = phi i32 [ %.sroa.0249.16.i, %314 ], [ %.sroa.0249.7.i, %306 ]
   %.sroa.28.15408.i = phi double [ %.sroa.28.16.i, %314 ], [ %.sroa.28.7.i, %306 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload72.i = load i32, ptr %17, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload196.i = load double, ptr %.sroa.46142.0..sroa_idx195.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload60 = load double, ptr %.sroa.57.0..sroa_idx243.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload81 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx243.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload72.i = load i32, ptr %17, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload196.i = load double, ptr %.sroa.46142.0..sroa_idx195.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload60 = load double, ptr %.sroa.57.0..sroa_idx243.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload81 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx243.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #18, !noalias !61
   %310 = icmp eq i32 %.sroa.0.0.copyload72.i, 0
   br i1 %310, label %xladjust.exit.thread, label %311
 
@@ -783,18 +783,18 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload60130 = phi double [ %.sroa.57.i.sroa.0.0.copyload60, %313 ], [ %.sroa.57.i.sroa.0.0.copyload60131, %311 ]
   %.sroa.28.16.i = phi double [ %.sroa.46142.0.copyload196.i, %313 ], [ %.sroa.28.15408.i, %311 ]
   %.sroa.0249.16.i = phi i32 [ %.sroa.0.0.copyload72.i, %313 ], [ %.sroa.0249.15410.i, %311 ]
-  %315 = load double, ptr %172, align 8, !tbaa !64, !noalias !60
+  %315 = load double, ptr %172, align 8, !tbaa !65, !noalias !61
   %316 = fsub double %315, %163
-  store double %316, ptr %172, align 8, !tbaa !64, !noalias !60
-  %317 = load double, ptr %154, align 8, !tbaa !39, !noalias !60
-  %318 = load double, ptr %156, align 8, !tbaa !58, !noalias !60
+  store double %316, ptr %172, align 8, !tbaa !65, !noalias !61
+  %317 = load double, ptr %154, align 8, !tbaa !40, !noalias !61
+  %318 = load double, ptr %156, align 8, !tbaa !59, !noalias !61
   %319 = fsub double %317, %318
   %320 = fcmp ult double %316, %319
-  br i1 %320, label %.loopexit381.loopexit.i, label %.lr.ph411.i, !llvm.loop !68
+  br i1 %320, label %.loopexit381.loopexit.i, label %.lr.ph411.i, !llvm.loop !69
 
 .loopexit381.loopexit.i:                          ; preds = %314
-  %.pre436.i = load ptr, ptr %150, align 8, !tbaa !10, !noalias !60
-  %.pre437.i = load ptr, ptr %146, align 16, !noalias !60
+  %.pre436.i = load ptr, ptr %150, align 8, !tbaa !10, !noalias !61
+  %.pre437.i = load ptr, ptr %146, align 16, !noalias !61
   br label %.loopexit381.i
 
 .loopexit381.i:                                   ; preds = %.loopexit381.loopexit.i, %306, %305
@@ -811,14 +811,14 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   br i1 %or.cond35.i, label %xladjust.exit, label %326
 
 326:                                              ; preds = %.loopexit381.i
-  %327 = load double, ptr %160, align 8, !tbaa !41, !noalias !60
+  %327 = load double, ptr %160, align 8, !tbaa !42, !noalias !61
   %328 = fadd double %321, %327
-  store double %328, ptr %172, align 8, !tbaa !64, !noalias !60
-  %329 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %330 = load double, ptr %164, align 8, !tbaa !63, !noalias !60
+  store double %328, ptr %172, align 8, !tbaa !65, !noalias !61
+  %329 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %330 = load double, ptr %164, align 8, !tbaa !64, !noalias !61
   %331 = fsub double %329, %330
-  store double %331, ptr %176, align 8, !tbaa !65, !noalias !60
-  %332 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
+  store double %331, ptr %176, align 8, !tbaa !66, !noalias !61
+  %332 = load double, ptr %166, align 8, !tbaa !43, !noalias !61
   %333 = fadd double %329, %332
   %334 = fcmp ugt double %331, %333
   br i1 %334, label %xladjust.exit, label %.lr.ph418.i
@@ -828,13 +828,13 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload61137 = phi double [ %.sroa.57.i.sroa.0.0.copyload61136, %339 ], [ %.sroa.50.i.sroa.0.8, %326 ]
   %.sroa.0249.17417.i = phi i32 [ %.sroa.0249.18.i, %339 ], [ %.sroa.0249.14.i, %326 ]
   %.sroa.28.17415.i = phi double [ %.sroa.28.18.i, %339 ], [ %.sroa.28.14.i, %326 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #18, !noalias !60
-  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !60
-  %.sroa.0.0.copyload75.i = load i32, ptr %18, align 8, !tbaa !3, !noalias !60
-  %.sroa.46142.0.copyload202.i = load double, ptr %.sroa.46142.0..sroa_idx201.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.0.0.copyload61 = load double, ptr %.sroa.57.0..sroa_idx246.i, align 8, !tbaa !38, !noalias !60
-  %.sroa.57.i.sroa.35.0.copyload82 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx246.i.sroa_idx, align 8, !tbaa !38, !noalias !60
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #18, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #18, !noalias !61
+  call fastcc void @xlintersections(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull readonly %19, ptr noundef nonnull readonly %154, ptr noundef %6), !noalias !61
+  %.sroa.0.0.copyload75.i = load i32, ptr %18, align 8, !tbaa !3, !noalias !61
+  %.sroa.46142.0.copyload202.i = load double, ptr %.sroa.46142.0..sroa_idx201.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.0.0.copyload61 = load double, ptr %.sroa.57.0..sroa_idx246.i, align 8, !tbaa !39, !noalias !61
+  %.sroa.57.i.sroa.35.0.copyload82 = load double, ptr %.sroa.57.i.sroa.35.0..sroa.57.0..sroa_idx246.i.sroa_idx, align 8, !tbaa !39, !noalias !61
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #18, !noalias !61
   %335 = icmp eq i32 %.sroa.0.0.copyload75.i, 0
   br i1 %335, label %xladjust.exit.thread, label %336
 
@@ -850,17 +850,17 @@ xlinitialize.exit:                                ; preds = %.thread.i.i, %xlspd
   %.sroa.57.i.sroa.0.0.copyload61136 = phi double [ %.sroa.57.i.sroa.0.0.copyload61, %338 ], [ %.sroa.57.i.sroa.0.0.copyload61137, %336 ]
   %.sroa.28.18.i = phi double [ %.sroa.46142.0.copyload202.i, %338 ], [ %.sroa.28.17415.i, %336 ]
   %.sroa.0249.18.i = phi i32 [ %.sroa.0.0.copyload75.i, %338 ], [ %.sroa.0249.17417.i, %336 ]
-  %340 = load double, ptr %176, align 8, !tbaa !65, !noalias !60
+  %340 = load double, ptr %176, align 8, !tbaa !66, !noalias !61
   %341 = fadd double %169, %340
-  store double %341, ptr %176, align 8, !tbaa !65, !noalias !60
-  %342 = load double, ptr %173, align 8, !tbaa !40, !noalias !60
-  %343 = load double, ptr %166, align 8, !tbaa !42, !noalias !60
+  store double %341, ptr %176, align 8, !tbaa !66, !noalias !61
+  %342 = load double, ptr %173, align 8, !tbaa !41, !noalias !61
+  %343 = load double, ptr %166, align 8, !tbaa !43, !noalias !61
   %344 = fadd double %342, %343
   %345 = fcmp ugt double %341, %344
-  br i1 %345, label %xladjust.exit, label %.lr.ph418.i, !llvm.loop !69
+  br i1 %345, label %xladjust.exit, label %.lr.ph418.i, !llvm.loop !70
 
 xladjust.exit.thread:                             ; preds = %.lr.ph.i, %.lr.ph404.i, %.lr.ph411.i, %.lr.ph418.i, %158, %178, %184, %192, %201, %209, %220, %226
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18, !noalias !61
   br label %347
 
 xladjust.exit:                                    ; preds = %339, %.loopexit382.i, %.loopexit381.i, %326
@@ -868,12 +868,12 @@ xladjust.exit:                                    ; preds = %339, %.loopexit382.
   %.sroa.50.i.sroa.19.10 = phi double [ %.sroa.50.i.sroa.19.8, %.loopexit381.i ], [ %.sroa.50.i.sroa.19.8, %326 ], [ %.sroa.50.i.sroa.19.7, %.loopexit382.i ], [ %.sroa.57.i.sroa.35.0.copyload82139, %339 ]
   %.sroa.0249.13.sink.i = phi i32 [ %.sroa.0249.14.i, %.loopexit381.i ], [ %.sroa.0249.14.i, %326 ], [ %.sroa.0249.7.i, %.loopexit382.i ], [ %.sroa.0249.18.i, %339 ]
   %.sroa.28.13.sink.i = phi double [ %.sroa.28.14.i, %.loopexit381.i ], [ %.sroa.28.14.i, %326 ], [ %.sroa.28.7.i, %.loopexit382.i ], [ %.sroa.28.18.i, %339 ]
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18, !noalias !60
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #18, !noalias !61
   %346 = icmp eq i32 %.sroa.0249.13.sink.i, 0
   br i1 %346, label %347, label %349
 
 347:                                              ; preds = %xladjust.exit.thread, %xladjust.exit
-  %348 = load ptr, ptr %155, align 8, !tbaa !36
+  %348 = load ptr, ptr %155, align 8, !tbaa !37
   br label %.sink.split
 
 349:                                              ; preds = %xladjust.exit
@@ -881,37 +881,37 @@ xladjust.exit:                                    ; preds = %339, %.loopexit382.
   br i1 %350, label %351, label %355
 
 351:                                              ; preds = %349
-  %352 = load ptr, ptr %155, align 8, !tbaa !36
+  %352 = load ptr, ptr %155, align 8, !tbaa !37
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
-  store double %.sroa.50.i.sroa.0.10, ptr %353, align 8, !tbaa !64
+  store double %.sroa.50.i.sroa.0.10, ptr %353, align 8, !tbaa !65
   %354 = getelementptr inbounds nuw i8, ptr %352, i64 24
-  store double %.sroa.50.i.sroa.19.10, ptr %354, align 8, !tbaa !65
+  store double %.sroa.50.i.sroa.19.10, ptr %354, align 8, !tbaa !66
   br label %.sink.split
 
 355:                                              ; preds = %349
-  %356 = load i8, ptr %151, align 8, !tbaa !70
+  %356 = load i8, ptr %151, align 8, !tbaa !71
   %357 = icmp eq i8 %356, 1
   br i1 %357, label %358, label %363
 
 358:                                              ; preds = %355
-  %359 = load ptr, ptr %155, align 8, !tbaa !36
+  %359 = load ptr, ptr %155, align 8, !tbaa !37
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 16
-  store double %.sroa.50.i.sroa.0.10, ptr %360, align 8, !tbaa !64
+  store double %.sroa.50.i.sroa.0.10, ptr %360, align 8, !tbaa !65
   %361 = getelementptr inbounds nuw i8, ptr %359, i64 24
-  store double %.sroa.50.i.sroa.19.10, ptr %361, align 8, !tbaa !65
+  store double %.sroa.50.i.sroa.19.10, ptr %361, align 8, !tbaa !66
   br label %.sink.split
 
 .sink.split:                                      ; preds = %351, %358, %347
   %.sink162 = phi ptr [ %348, %347 ], [ %359, %358 ], [ %352, %351 ]
   %362 = getelementptr inbounds nuw i8, ptr %.sink162, i64 40
-  store i8 1, ptr %362, align 8, !tbaa !71
+  store i8 1, ptr %362, align 8, !tbaa !72
   br label %363
 
 363:                                              ; preds = %.sink.split, %355, %153
   %.1 = phi i32 [ %.036141, %153 ], [ 1, %355 ], [ %.036141, %.sink.split ]
   %364 = add nuw i64 %.0143, 1
   %exitcond155.not = icmp eq i64 %364, %1
-  br i1 %exitcond155.not, label %._crit_edge, label %153, !llvm.loop !72
+  br i1 %exitcond155.not, label %._crit_edge, label %153, !llvm.loop !73
 
 xlinitialize.exit.thread:                         ; preds = %hd_hil_s_from_xy.exit.i.i, %xlinitialize.exit, %._crit_edge
   %.035 = phi i32 [ %.036.lcssa, %._crit_edge ], [ %142, %xlinitialize.exit ], [ -1, %hd_hil_s_from_xy.exit.i.i ]
@@ -982,15 +982,15 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull 
   %6 = alloca %struct.Rect, align 8
   %7 = alloca %struct.Rect, align 8
   %8 = alloca %struct.Rect, align 8
-  store i32 0, ptr %0, align 8, !tbaa !73
+  store i32 0, ptr %0, align 8, !tbaa !74
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double 0.000000e+00, ptr %9, align 8, !tbaa !75
+  store double 0.000000e+00, ptr %9, align 8, !tbaa !76
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !36
+  %12 = load ptr, ptr %11, align 8, !tbaa !37
   %.fr = freeze ptr %12
   %13 = getelementptr inbounds nuw i8, ptr %.fr, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !76
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !77
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !18
   %.not121 = icmp eq i64 %15, 0
@@ -1005,17 +1005,17 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull 
 ._crit_edge:                                      ; preds = %lblenclosing.exit.thread, %4
   %19 = phi i32 [ 0, %4 ], [ %78, %lblenclosing.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
-  %20 = load double, ptr %13, align 8, !tbaa !64
+  %20 = load double, ptr %13, align 8, !tbaa !65
   %21 = fptosi double %20 to i32
   %22 = getelementptr inbounds nuw i8, ptr %.fr, i64 24
-  %23 = load double, ptr %22, align 8, !tbaa !65
+  %23 = load double, ptr %22, align 8, !tbaa !66
   %24 = fptosi double %23 to i32
-  %25 = load double, ptr %.fr, align 8, !tbaa !58
+  %25 = load double, ptr %.fr, align 8, !tbaa !59
   %26 = fadd double %20, %25
   %27 = fptosi double %26 to i32
   %.sroa.4.8.insert.ext.i = zext i32 %27 to i64
   %28 = getelementptr inbounds nuw i8, ptr %.fr, i64 8
-  %29 = load double, ptr %28, align 8, !tbaa !63
+  %29 = load double, ptr %28, align 8, !tbaa !64
   %30 = fadd double %23, %29
   %31 = fptosi double %30 to i32
   %.sroa.4.12.insert.ext.i = zext i32 %31 to i64
@@ -1030,7 +1030,7 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull 
   store i64 %.sroa.4.12.insert.insert.i, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !16
-  %35 = load ptr, ptr %34, align 8, !tbaa !77
+  %35 = load ptr, ptr %34, align 8, !tbaa !78
   %36 = call ptr @RTreeSearch(ptr noundef nonnull %34, ptr noundef %35, ptr noundef nonnull %7) #18
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %411, label %.preheader
@@ -1059,51 +1059,51 @@ define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull 
 
 52:                                               ; preds = %.lr.ph.split.split
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %54 = load double, ptr %53, align 8, !tbaa !41
+  %54 = load double, ptr %53, align 8, !tbaa !42
   %55 = fcmp ogt double %54, 0.000000e+00
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %58 = load double, ptr %57, align 8, !tbaa !42
+  %58 = load double, ptr %57, align 8, !tbaa !43
   %59 = fcmp ogt double %58, 0.000000e+00
   br i1 %59, label %lblenclosing.exit.thread, label %60
 
 60:                                               ; preds = %52, %56
-  %61 = load double, ptr %50, align 8, !tbaa !39
-  %62 = load double, ptr %13, align 8, !tbaa !64
+  %61 = load double, ptr %50, align 8, !tbaa !40
+  %62 = load double, ptr %13, align 8, !tbaa !65
   %63 = fcmp ogt double %61, %62
   br i1 %63, label %64, label %lblenclosing.exit.thread
 
 64:                                               ; preds = %60
-  %65 = load double, ptr %.fr, align 8, !tbaa !58
+  %65 = load double, ptr %.fr, align 8, !tbaa !59
   %66 = fadd double %62, %65
   %67 = fcmp olt double %61, %66
   br i1 %67, label %68, label %lblenclosing.exit.thread
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %70 = load double, ptr %69, align 8, !tbaa !40
-  %71 = load double, ptr %17, align 8, !tbaa !65
+  %70 = load double, ptr %69, align 8, !tbaa !41
+  %71 = load double, ptr %17, align 8, !tbaa !66
   %72 = fcmp ogt double %70, %71
   br i1 %72, label %lblenclosing.exit, label %lblenclosing.exit.thread
 
 lblenclosing.exit:                                ; preds = %68
-  %73 = load double, ptr %18, align 8, !tbaa !63
+  %73 = load double, ptr %18, align 8, !tbaa !64
   %74 = fadd double %71, %73
   %75 = fcmp olt double %70, %74
   br i1 %75, label %76, label %lblenclosing.exit.thread
 
 76:                                               ; preds = %lblenclosing.exit
   %77 = add nsw i32 %49, 1
-  store i32 %77, ptr %0, align 8, !tbaa !73
+  store i32 %77, ptr %0, align 8, !tbaa !74
   br label %lblenclosing.exit.thread
 
 lblenclosing.exit.thread:                         ; preds = %60, %64, %68, %lblenclosing.exit, %76, %56, %.lr.ph.split.split
   %78 = phi i32 [ %49, %60 ], [ %49, %64 ], [ %49, %68 ], [ %49, %lblenclosing.exit ], [ %77, %76 ], [ %49, %56 ], [ %49, %.lr.ph.split.split ]
   %79 = add nuw i64 %.0115, 1
   %exitcond.not = icmp eq i64 %79, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !81
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !82
 
 80:                                               ; preds = %407
   call void @RTreeLeafListFree(ptr noundef nonnull %36) #18
@@ -1114,26 +1114,26 @@ lblenclosing.exit.thread:                         ; preds = %60, %64, %68, %lble
   %83 = phi i32 [ %19, %.preheader ], [ %409, %407 ]
   %.040120 = phi ptr [ %36, %.preheader ], [ %410, %407 ]
   %84 = getelementptr inbounds nuw i8, ptr %.040120, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !82
+  %85 = load ptr, ptr %84, align 8, !tbaa !83
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !86
+  %87 = load ptr, ptr %86, align 8, !tbaa !87
   %88 = icmp eq ptr %87, %2
   br i1 %88, label %407, label %89
 
 89:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #18
-  %90 = load double, ptr %87, align 8, !tbaa !39
+  %90 = load double, ptr %87, align 8, !tbaa !40
   %91 = fptosi double %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  %93 = load double, ptr %92, align 8, !tbaa !40
+  %93 = load double, ptr %92, align 8, !tbaa !41
   %94 = fptosi double %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %96 = load double, ptr %95, align 8, !tbaa !41
+  %96 = load double, ptr %95, align 8, !tbaa !42
   %97 = fadd double %90, %96
   %98 = fptosi double %97 to i32
   %.sroa.4.8.insert.ext.i53 = zext i32 %98 to i64
   %99 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  %100 = load double, ptr %99, align 8, !tbaa !42
+  %100 = load double, ptr %99, align 8, !tbaa !43
   %101 = fadd double %93, %100
   %102 = fptosi double %101 to i32
   %.sroa.4.12.insert.ext.i54 = zext i32 %102 to i64
@@ -1172,40 +1172,40 @@ aabbaabb.exit:                                    ; preds = %89
   br i1 %122, label %123, label %aabbaabb.exit.thread
 
 123:                                              ; preds = %aabbaabb.exit
-  %124 = load ptr, ptr %11, align 8, !tbaa !36
+  %124 = load ptr, ptr %11, align 8, !tbaa !37
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
-  %126 = load i8, ptr %125, align 8, !tbaa !71
+  %126 = load i8, ptr %125, align 8, !tbaa !72
   %127 = icmp eq i8 %126, 0
   br i1 %127, label %getintrsxi.exit.i, label %128
 
 128:                                              ; preds = %123
   %129 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %130 = load ptr, ptr %129, align 8, !tbaa !36
+  %130 = load ptr, ptr %129, align 8, !tbaa !37
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 40
-  %132 = load i8, ptr %131, align 8, !tbaa !71
+  %132 = load i8, ptr %131, align 8, !tbaa !72
   %133 = icmp eq i8 %132, 0
   br i1 %133, label %getintrsxi.exit.i, label %134
 
 134:                                              ; preds = %128
-  %135 = load double, ptr %2, align 8, !tbaa !39
+  %135 = load double, ptr %2, align 8, !tbaa !40
   %136 = fcmp oeq double %135, 0.000000e+00
   br i1 %136, label %137, label %140
 
 137:                                              ; preds = %134
-  %138 = load double, ptr %42, align 8, !tbaa !40
+  %138 = load double, ptr %42, align 8, !tbaa !41
   %139 = fcmp oeq double %138, 0.000000e+00
   br i1 %139, label %getintrsxi.exit.i, label %140
 
 140:                                              ; preds = %137, %134
-  %141 = load double, ptr %87, align 8, !tbaa !39
+  %141 = load double, ptr %87, align 8, !tbaa !40
   %142 = fcmp oeq double %141, 0.000000e+00
-  %143 = load double, ptr %92, align 8, !tbaa !40
+  %143 = load double, ptr %92, align 8, !tbaa !41
   %144 = fcmp oeq double %143, 0.000000e+00
   %or.cond.i.i = select i1 %142, i1 %144, i1 false
   br i1 %or.cond.i.i, label %getintrsxi.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %140
-  %145 = load double, ptr %42, align 8, !tbaa !40
+  %145 = load double, ptr %42, align 8, !tbaa !41
   %146 = fcmp olt double %143, %145
   br i1 %146, label %147, label %151
 
@@ -1246,18 +1246,18 @@ getintrsxi.exit.i:                                ; preds = %158, %157, %155, %1
 
 162:                                              ; preds = %getintrsxi.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #18
-  %163 = load double, ptr %161, align 8, !tbaa !39
+  %163 = load double, ptr %161, align 8, !tbaa !40
   %164 = fptosi double %163 to i32
   %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %166 = load double, ptr %165, align 8, !tbaa !40
+  %166 = load double, ptr %165, align 8, !tbaa !41
   %167 = fptosi double %166 to i32
   %168 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %169 = load double, ptr %168, align 8, !tbaa !41
+  %169 = load double, ptr %168, align 8, !tbaa !42
   %170 = fadd double %163, %169
   %171 = fptosi double %170 to i32
   %.sroa.4.8.insert.ext.i.i = zext i32 %171 to i64
   %172 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  %173 = load double, ptr %172, align 8, !tbaa !42
+  %173 = load double, ptr %172, align 8, !tbaa !43
   %174 = fadd double %166, %173
   %175 = fptosi double %174 to i32
   %.sroa.4.12.insert.ext.i.i = zext i32 %175 to i64
@@ -1300,23 +1300,23 @@ aabbaabb.exit.i:                                  ; preds = %177, %162
   %.030.i = select i1 %196, double %.0.i35.i, double 0.000000e+00
   %197 = load ptr, ptr %160, align 8, !tbaa !10
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 32
-  %199 = load ptr, ptr %198, align 8, !tbaa !36
+  %199 = load ptr, ptr %198, align 8, !tbaa !37
   %.not34.i = icmp eq ptr %199, null
   br i1 %.not34.i, label %237, label %200
 
 200:                                              ; preds = %aabbaabb.exit.i
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  %202 = load double, ptr %201, align 8, !tbaa !64
+  %202 = load double, ptr %201, align 8, !tbaa !65
   %203 = fptosi double %202 to i32
   %204 = getelementptr inbounds nuw i8, ptr %199, i64 24
-  %205 = load double, ptr %204, align 8, !tbaa !65
+  %205 = load double, ptr %204, align 8, !tbaa !66
   %206 = fptosi double %205 to i32
-  %207 = load double, ptr %199, align 8, !tbaa !58
+  %207 = load double, ptr %199, align 8, !tbaa !59
   %208 = fadd double %202, %207
   %209 = fptosi double %208 to i32
   %.sroa.4.8.insert.ext.i37.i = zext i32 %209 to i64
   %210 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %211 = load double, ptr %210, align 8, !tbaa !63
+  %211 = load double, ptr %210, align 8, !tbaa !64
   %212 = fadd double %205, %211
   %213 = fptosi double %212 to i32
   %.sroa.4.12.insert.ext.i38.i = zext i32 %213 to i64
@@ -1327,7 +1327,7 @@ aabbaabb.exit.i:                                  ; preds = %177, %162
   %.sroa.0.sroa.0.0.insert.ext.i43.i = zext i32 %203 to i64
   %.sroa.0.sroa.0.0.insert.insert.i44.i = or disjoint i64 %.sroa.0.sroa.3.0.insert.shift.i42.i, %.sroa.0.sroa.0.0.insert.ext.i43.i
   store i64 %.sroa.0.sroa.0.0.insert.insert.i44.i, ptr %6, align 8
-  store i64 %.sroa.4.12.insert.insert.i40.i, ptr %43, align 8, !tbaa !43
+  store i64 %.sroa.4.12.insert.insert.i40.i, ptr %43, align 8, !tbaa !44
   %214 = call zeroext i1 @Overlap(ptr noundef nonnull %7, ptr noundef nonnull %6) #18
   br i1 %214, label %215, label %aabbaabb.exit49.i
 
@@ -1383,38 +1383,38 @@ aabbaabb.exit49.i:                                ; preds = %215, %200
 recordointrsx.exit:                               ; preds = %240, %241
   %.1.i = phi double [ %.0.i65, %240 ], [ %121, %241 ]
   %242 = add nsw i32 %83, 1
-  store i32 %242, ptr %0, align 8, !tbaa !73
+  store i32 %242, ptr %0, align 8, !tbaa !74
   %243 = fadd double %.1.i, %82
-  store double %243, ptr %9, align 8, !tbaa !75
+  store double %243, ptr %9, align 8, !tbaa !76
   br label %aabbaabb.exit.thread
 
 aabbaabb.exit.thread:                             ; preds = %89, %recordointrsx.exit, %aabbaabb.exit
   %244 = phi double [ %82, %89 ], [ %243, %recordointrsx.exit ], [ %82, %aabbaabb.exit ]
   %245 = phi i32 [ %83, %89 ], [ %242, %recordointrsx.exit ], [ %83, %aabbaabb.exit ]
   %246 = getelementptr inbounds nuw i8, ptr %87, i64 32
-  %247 = load ptr, ptr %246, align 8, !tbaa !36
+  %247 = load ptr, ptr %246, align 8, !tbaa !37
   %.not49 = icmp eq ptr %247, null
   br i1 %.not49, label %aabbaabb.exit78.thread, label %248
 
 248:                                              ; preds = %aabbaabb.exit.thread
   %249 = getelementptr inbounds nuw i8, ptr %247, i64 40
-  %250 = load i8, ptr %249, align 8, !tbaa !71
+  %250 = load i8, ptr %249, align 8, !tbaa !72
   %.not50 = icmp eq i8 %250, 0
   br i1 %.not50, label %aabbaabb.exit78.thread, label %251
 
 251:                                              ; preds = %248
   %252 = getelementptr inbounds nuw i8, ptr %247, i64 16
-  %253 = load double, ptr %252, align 8, !tbaa !64
+  %253 = load double, ptr %252, align 8, !tbaa !65
   %254 = fptosi double %253 to i32
   %255 = getelementptr inbounds nuw i8, ptr %247, i64 24
-  %256 = load double, ptr %255, align 8, !tbaa !65
+  %256 = load double, ptr %255, align 8, !tbaa !66
   %257 = fptosi double %256 to i32
-  %258 = load double, ptr %247, align 8, !tbaa !58
+  %258 = load double, ptr %247, align 8, !tbaa !59
   %259 = fadd double %253, %258
   %260 = fptosi double %259 to i32
   %.sroa.4.8.insert.ext.i66 = zext i32 %260 to i64
   %261 = getelementptr inbounds nuw i8, ptr %247, i64 8
-  %262 = load double, ptr %261, align 8, !tbaa !63
+  %262 = load double, ptr %261, align 8, !tbaa !64
   %263 = fadd double %256, %262
   %264 = fptosi double %263 to i32
   %.sroa.4.12.insert.ext.i67 = zext i32 %264 to i64
@@ -1425,7 +1425,7 @@ aabbaabb.exit.thread:                             ; preds = %89, %recordointrsx.
   %.sroa.0.sroa.0.0.insert.ext.i72 = zext i32 %254 to i64
   %.sroa.0.sroa.0.0.insert.insert.i73 = or disjoint i64 %.sroa.0.sroa.3.0.insert.shift.i71, %.sroa.0.sroa.0.0.insert.ext.i72
   store i64 %.sroa.0.sroa.0.0.insert.insert.i73, ptr %8, align 8
-  store i64 %.sroa.4.12.insert.insert.i69, ptr %37, align 8, !tbaa !43
+  store i64 %.sroa.4.12.insert.insert.i69, ptr %37, align 8, !tbaa !44
   %265 = call zeroext i1 @Overlap(ptr noundef nonnull %7, ptr noundef nonnull %8) #18
   br i1 %265, label %aabbaabb.exit78, label %aabbaabb.exit78.thread
 
@@ -1453,39 +1453,39 @@ aabbaabb.exit78:                                  ; preds = %251
   br i1 %284, label %285, label %aabbaabb.exit78.thread
 
 285:                                              ; preds = %aabbaabb.exit78
-  %286 = load ptr, ptr %11, align 8, !tbaa !36
+  %286 = load ptr, ptr %11, align 8, !tbaa !37
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 40
-  %288 = load i8, ptr %287, align 8, !tbaa !71
+  %288 = load i8, ptr %287, align 8, !tbaa !72
   %289 = icmp eq i8 %288, 0
   br i1 %289, label %getintrsxi.exit.i81, label %290
 
 290:                                              ; preds = %285
-  %291 = load ptr, ptr %246, align 8, !tbaa !36
+  %291 = load ptr, ptr %246, align 8, !tbaa !37
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 40
-  %293 = load i8, ptr %292, align 8, !tbaa !71
+  %293 = load i8, ptr %292, align 8, !tbaa !72
   %294 = icmp eq i8 %293, 0
   br i1 %294, label %getintrsxi.exit.i81, label %295
 
 295:                                              ; preds = %290
-  %296 = load double, ptr %2, align 8, !tbaa !39
+  %296 = load double, ptr %2, align 8, !tbaa !40
   %297 = fcmp oeq double %296, 0.000000e+00
   br i1 %297, label %298, label %301
 
 298:                                              ; preds = %295
-  %299 = load double, ptr %42, align 8, !tbaa !40
+  %299 = load double, ptr %42, align 8, !tbaa !41
   %300 = fcmp oeq double %299, 0.000000e+00
   br i1 %300, label %getintrsxi.exit.i81, label %301
 
 301:                                              ; preds = %298, %295
-  %302 = load double, ptr %87, align 8, !tbaa !39
+  %302 = load double, ptr %87, align 8, !tbaa !40
   %303 = fcmp oeq double %302, 0.000000e+00
-  %304 = load double, ptr %92, align 8, !tbaa !40
+  %304 = load double, ptr %92, align 8, !tbaa !41
   %305 = fcmp oeq double %304, 0.000000e+00
   %or.cond.i.i79 = select i1 %303, i1 %305, i1 false
   br i1 %or.cond.i.i79, label %getintrsxi.exit.i81, label %._crit_edge.i.i80
 
 ._crit_edge.i.i80:                                ; preds = %301
-  %306 = load double, ptr %42, align 8, !tbaa !40
+  %306 = load double, ptr %42, align 8, !tbaa !41
   %307 = fcmp olt double %304, %306
   br i1 %307, label %308, label %312
 
@@ -1526,18 +1526,18 @@ getintrsxi.exit.i81:                              ; preds = %319, %318, %316, %3
 
 323:                                              ; preds = %getintrsxi.exit.i81
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
-  %324 = load double, ptr %322, align 8, !tbaa !39
+  %324 = load double, ptr %322, align 8, !tbaa !40
   %325 = fptosi double %324 to i32
   %326 = getelementptr inbounds nuw i8, ptr %322, i64 8
-  %327 = load double, ptr %326, align 8, !tbaa !40
+  %327 = load double, ptr %326, align 8, !tbaa !41
   %328 = fptosi double %327 to i32
   %329 = getelementptr inbounds nuw i8, ptr %322, i64 16
-  %330 = load double, ptr %329, align 8, !tbaa !41
+  %330 = load double, ptr %329, align 8, !tbaa !42
   %331 = fadd double %324, %330
   %332 = fptosi double %331 to i32
   %.sroa.4.8.insert.ext.i.i83 = zext i32 %332 to i64
   %333 = getelementptr inbounds nuw i8, ptr %322, i64 24
-  %334 = load double, ptr %333, align 8, !tbaa !42
+  %334 = load double, ptr %333, align 8, !tbaa !43
   %335 = fadd double %327, %334
   %336 = fptosi double %335 to i32
   %.sroa.4.12.insert.ext.i.i84 = zext i32 %336 to i64
@@ -1580,23 +1580,23 @@ aabbaabb.exit.i91:                                ; preds = %338, %323
   %.030.i93 = select i1 %357, double %.0.i35.i92, double 0.000000e+00
   %358 = load ptr, ptr %321, align 8, !tbaa !10
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 32
-  %360 = load ptr, ptr %359, align 8, !tbaa !36
+  %360 = load ptr, ptr %359, align 8, !tbaa !37
   %.not34.i94 = icmp eq ptr %360, null
   br i1 %.not34.i94, label %398, label %361
 
 361:                                              ; preds = %aabbaabb.exit.i91
   %362 = getelementptr inbounds nuw i8, ptr %360, i64 16
-  %363 = load double, ptr %362, align 8, !tbaa !64
+  %363 = load double, ptr %362, align 8, !tbaa !65
   %364 = fptosi double %363 to i32
   %365 = getelementptr inbounds nuw i8, ptr %360, i64 24
-  %366 = load double, ptr %365, align 8, !tbaa !65
+  %366 = load double, ptr %365, align 8, !tbaa !66
   %367 = fptosi double %366 to i32
-  %368 = load double, ptr %360, align 8, !tbaa !58
+  %368 = load double, ptr %360, align 8, !tbaa !59
   %369 = fadd double %363, %368
   %370 = fptosi double %369 to i32
   %.sroa.4.8.insert.ext.i37.i95 = zext i32 %370 to i64
   %371 = getelementptr inbounds nuw i8, ptr %360, i64 8
-  %372 = load double, ptr %371, align 8, !tbaa !63
+  %372 = load double, ptr %371, align 8, !tbaa !64
   %373 = fadd double %366, %372
   %374 = fptosi double %373 to i32
   %.sroa.4.12.insert.ext.i38.i96 = zext i32 %374 to i64
@@ -1607,7 +1607,7 @@ aabbaabb.exit.i91:                                ; preds = %338, %323
   %.sroa.0.sroa.0.0.insert.ext.i43.i101 = zext i32 %364 to i64
   %.sroa.0.sroa.0.0.insert.insert.i44.i102 = or disjoint i64 %.sroa.0.sroa.3.0.insert.shift.i42.i100, %.sroa.0.sroa.0.0.insert.ext.i43.i101
   store i64 %.sroa.0.sroa.0.0.insert.insert.i44.i102, ptr %5, align 8
-  store i64 %.sroa.4.12.insert.insert.i40.i98, ptr %46, align 8, !tbaa !43
+  store i64 %.sroa.4.12.insert.insert.i40.i98, ptr %46, align 8, !tbaa !44
   %375 = call zeroext i1 @Overlap(ptr noundef nonnull %7, ptr noundef nonnull %5) #18
   br i1 %375, label %376, label %aabbaabb.exit49.i103
 
@@ -1663,9 +1663,9 @@ aabbaabb.exit49.i103:                             ; preds = %376, %361
 recordlintrsx.exit:                               ; preds = %401, %402
   %.1.i107 = phi double [ %.0.i106, %401 ], [ %283, %402 ]
   %403 = add nsw i32 %245, 1
-  store i32 %403, ptr %0, align 8, !tbaa !73
+  store i32 %403, ptr %0, align 8, !tbaa !74
   %404 = fadd double %.1.i107, %244
-  store double %404, ptr %9, align 8, !tbaa !75
+  store double %404, ptr %9, align 8, !tbaa !76
   br label %aabbaabb.exit78.thread
 
 aabbaabb.exit78.thread:                           ; preds = %251, %aabbaabb.exit78, %recordlintrsx.exit, %aabbaabb.exit.thread, %248
@@ -1677,9 +1677,9 @@ aabbaabb.exit78.thread:                           ; preds = %251, %aabbaabb.exit
 407:                                              ; preds = %81, %aabbaabb.exit78.thread
   %408 = phi double [ %82, %81 ], [ %405, %aabbaabb.exit78.thread ]
   %409 = phi i32 [ %83, %81 ], [ %406, %aabbaabb.exit78.thread ]
-  %410 = load ptr, ptr %.040120, align 8, !tbaa !87
+  %410 = load ptr, ptr %.040120, align 8, !tbaa !88
   %.not48 = icmp eq ptr %410, null
-  br i1 %.not48, label %80, label %81, !llvm.loop !88
+  br i1 %.not48, label %80, label %81, !llvm.loop !89
 
 411:                                              ; preds = %._crit_edge, %80
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
@@ -1758,64 +1758,65 @@ attributes #20 = { cold noreturn nounwind }
 !25 = !{!"pointf_s", !26, i64 0, !26, i64 8}
 !26 = !{!"double", !5, i64 0}
 !27 = !{!23, !26, i64 24}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!31, !9, i64 40}
-!31 = !{!"obyh", !32, i64 0, !4, i64 16, !34, i64 24}
-!32 = !{!"dtlink_s_", !33, i64 0, !5, i64 8}
-!33 = !{!"p1 _ZTS9dtlink_s_", !9, i64 0}
-!34 = !{!"Leaf", !35, i64 0, !9, i64 16}
-!35 = !{!"Rect", !5, i64 0}
-!36 = !{!37, !9, i64 32}
-!37 = !{!"", !25, i64 0, !25, i64 16, !9, i64 32}
-!38 = !{!26, !26, i64 0}
-!39 = !{!37, !26, i64 0}
-!40 = !{!37, !26, i64 8}
-!41 = !{!37, !26, i64 16}
-!42 = !{!37, !26, i64 24}
-!43 = !{!5, !5, i64 0}
-!44 = distinct !{!44, !29}
-!45 = !{!31, !4, i64 16}
-!46 = !{!47, !9, i64 0}
-!47 = !{!"dt_s_", !9, i64 0, !48, i64 8, !49, i64 16, !9, i64 56, !4, i64 64, !14, i64 72, !14, i64 80, !9, i64 88}
-!48 = !{!"p1 _ZTS9dtdisc_s_", !9, i64 0}
-!49 = !{!"", !4, i64 0, !33, i64 8, !5, i64 16, !4, i64 24, !4, i64 28, !4, i64 32}
-!50 = distinct !{!50, !29}
-!51 = !{!47, !33, i64 24}
-!52 = !{!47, !48, i64 8}
-!53 = !{!54, !4, i64 8}
-!54 = !{!"dtdisc_s_", !4, i64 0, !4, i64 4, !4, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
-!55 = !{!56, !9, i64 16}
-!56 = !{!"", !32, i64 0, !9, i64 16}
-!57 = distinct !{!57, !29}
-!58 = !{!59, !26, i64 0}
-!59 = !{!"", !25, i64 0, !25, i64 16, !9, i64 32, !5, i64 40}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"xladjust: argument 0"}
-!62 = distinct !{!62, !"xladjust"}
-!63 = !{!59, !26, i64 8}
-!64 = !{!59, !26, i64 16}
-!65 = !{!59, !26, i64 24}
-!66 = distinct !{!66, !29}
-!67 = distinct !{!67, !29}
-!68 = distinct !{!68, !29}
-!69 = distinct !{!69, !29}
-!70 = !{!23, !5, i64 32}
-!71 = !{!59, !5, i64 40}
-!72 = distinct !{!72, !29}
-!73 = !{!74, !4, i64 0}
-!74 = !{!"best_p_s", !4, i64 0, !26, i64 8, !25, i64 16}
-!75 = !{!74, !26, i64 8}
-!76 = !{i64 0, i64 8, !38, i64 8, i64 8, !38}
-!77 = !{!78, !79, i64 0}
-!78 = !{!"RTree", !79, i64 0, !80, i64 8}
-!79 = !{!"p1 _ZTS4Node", !9, i64 0}
-!80 = !{!"split_q_s", !5, i64 0, !35, i64 1560, !13, i64 1576, !5, i64 1584}
-!81 = distinct !{!81, !29}
-!82 = !{!83, !85, i64 8}
-!83 = !{!"LeafList", !84, i64 0, !85, i64 8}
-!84 = !{!"p1 _ZTS8LeafList", !9, i64 0}
-!85 = !{!"p1 _ZTS4Leaf", !9, i64 0}
-!86 = !{!34, !9, i64 16}
-!87 = !{!83, !84, i64 0}
-!88 = distinct !{!88, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!32, !9, i64 40}
+!32 = !{!"obyh", !33, i64 0, !4, i64 16, !35, i64 24}
+!33 = !{!"dtlink_s_", !34, i64 0, !5, i64 8}
+!34 = !{!"p1 _ZTS9dtlink_s_", !9, i64 0}
+!35 = !{!"Leaf", !36, i64 0, !9, i64 16}
+!36 = !{!"Rect", !5, i64 0}
+!37 = !{!38, !9, i64 32}
+!38 = !{!"", !25, i64 0, !25, i64 16, !9, i64 32}
+!39 = !{!26, !26, i64 0}
+!40 = !{!38, !26, i64 0}
+!41 = !{!38, !26, i64 8}
+!42 = !{!38, !26, i64 16}
+!43 = !{!38, !26, i64 24}
+!44 = !{!5, !5, i64 0}
+!45 = distinct !{!45, !29, !30}
+!46 = !{!32, !4, i64 16}
+!47 = !{!48, !9, i64 0}
+!48 = !{!"dt_s_", !9, i64 0, !49, i64 8, !50, i64 16, !9, i64 56, !4, i64 64, !14, i64 72, !14, i64 80, !9, i64 88}
+!49 = !{!"p1 _ZTS9dtdisc_s_", !9, i64 0}
+!50 = !{!"", !4, i64 0, !34, i64 8, !5, i64 16, !4, i64 24, !4, i64 28, !4, i64 32}
+!51 = distinct !{!51, !29, !30}
+!52 = !{!48, !34, i64 24}
+!53 = !{!48, !49, i64 8}
+!54 = !{!55, !4, i64 8}
+!55 = !{!"dtdisc_s_", !4, i64 0, !4, i64 4, !4, i64 8, !9, i64 16, !9, i64 24, !9, i64 32}
+!56 = !{!57, !9, i64 16}
+!57 = !{!"", !33, i64 0, !9, i64 16}
+!58 = distinct !{!58, !29, !30}
+!59 = !{!60, !26, i64 0}
+!60 = !{!"", !25, i64 0, !25, i64 16, !9, i64 32, !5, i64 40}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"xladjust: argument 0"}
+!63 = distinct !{!63, !"xladjust"}
+!64 = !{!60, !26, i64 8}
+!65 = !{!60, !26, i64 16}
+!66 = !{!60, !26, i64 24}
+!67 = distinct !{!67, !29, !30}
+!68 = distinct !{!68, !29, !30}
+!69 = distinct !{!69, !29, !30}
+!70 = distinct !{!70, !29, !30}
+!71 = !{!23, !5, i64 32}
+!72 = !{!60, !5, i64 40}
+!73 = distinct !{!73, !29, !30}
+!74 = !{!75, !4, i64 0}
+!75 = !{!"best_p_s", !4, i64 0, !26, i64 8, !25, i64 16}
+!76 = !{!75, !26, i64 8}
+!77 = !{i64 0, i64 8, !39, i64 8, i64 8, !39}
+!78 = !{!79, !80, i64 0}
+!79 = !{!"RTree", !80, i64 0, !81, i64 8}
+!80 = !{!"p1 _ZTS4Node", !9, i64 0}
+!81 = !{!"split_q_s", !5, i64 0, !36, i64 1560, !13, i64 1576, !5, i64 1584}
+!82 = distinct !{!82, !29, !30}
+!83 = !{!84, !86, i64 8}
+!84 = !{!"LeafList", !85, i64 0, !86, i64 8}
+!85 = !{!"p1 _ZTS8LeafList", !9, i64 0}
+!86 = !{!"p1 _ZTS4Leaf", !9, i64 0}
+!87 = !{!35, !9, i64 16}
+!88 = !{!84, !85, i64 0}
+!89 = distinct !{!89, !29, !30}

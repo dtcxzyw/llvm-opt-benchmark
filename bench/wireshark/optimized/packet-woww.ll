@@ -7382,7 +7382,7 @@ handle_packet_header.exit.thread61:               ; preds = %49
   store i8 1, ptr %44, align 2
   %72 = call ptr @wmem_file_scope()
   %73 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %72, i64 noundef 8) #5
-  %74 = call ptr @__memcpy_chk(ptr noundef %73, ptr noundef %62, i64 noundef range(i64 4, 7) %wide.trip.count.i, i64 noundef 8) #6, !alias.scope !10
+  %74 = call ptr @__memcpy_chk(ptr noundef %73, ptr noundef %62, i64 noundef range(i64 4, 7) %wide.trip.count.i, i64 noundef 8) #6, !alias.scope !11
   br label %handle_packet_header.exit
 
 75:                                               ; preds = %63
@@ -7408,7 +7408,7 @@ handle_packet_header.exit.thread61:               ; preds = %49
   %spec.select.i.i = select i1 %86, i1 %.068.i.i, i1 false
   %indvars.iv.next.i.i = add nuw nsw i16 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i16 %indvars.iv.next.i.i, %43
-  br i1 %exitcond.not.i.i, label %session_key_is_fully_deduced.exit.i, label %81, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %session_key_is_fully_deduced.exit.i, label %81, !llvm.loop !15
 
 session_key_is_fully_deduced.exit.i:              ; preds = %81
   br i1 %spec.select.i.i, label %150, label %handle_packet_header.exit.thread
@@ -7430,7 +7430,7 @@ session_key_is_fully_deduced.exit.i:              ; preds = %81
   %spec.select.i87.i = select i1 %94, i1 %.068.i85.i, i1 false
   %indvars.iv.next.i88.i = add nuw nsw i16 %indvars.iv.i84.i, 1
   %exitcond.not.i89.i = icmp eq i16 %indvars.iv.next.i88.i, %43
-  br i1 %exitcond.not.i89.i, label %session_key_is_fully_deduced.exit90.i, label %89, !llvm.loop !14
+  br i1 %exitcond.not.i89.i, label %session_key_is_fully_deduced.exit90.i, label %89, !llvm.loop !15
 
 session_key_is_fully_deduced.exit90.i:            ; preds = %89
   br i1 %spec.select.i87.i, label %.thread.i, label %95
@@ -7546,7 +7546,7 @@ session_key_is_fully_deduced.exit90.i:            ; preds = %89
   store i8 %170, ptr %.073.i, align 1
   %indvars.iv.next.i93.i = add nuw nsw i64 %indvars.iv.i92.i, 1
   %exitcond.not.i94.i = icmp eq i64 %indvars.iv.next.i93.i, %wide.trip.count.i
-  br i1 %exitcond.not.i94.i, label %handle_packet_header.exit, label %156, !llvm.loop !15
+  br i1 %exitcond.not.i94.i, label %handle_packet_header.exit, label %156, !llvm.loop !16
 
 handle_packet_header.exit.thread.sink.split:      ; preds = %109, %141
   %.sink = phi i8 [ %149, %141 ], [ %130, %109 ]
@@ -7640,7 +7640,7 @@ handle_packet_header.exit:                        ; preds = %156, %71
   call fastcc void @add_body_fields(i32 noundef %.0.i58, ptr noundef %191, ptr noundef %0, i32 noundef %218, i32 noundef %217, ptr noundef %1)
   %219 = add i8 %.048, 1
   %220 = icmp slt i32 %217, %39
-  br i1 %220, label %49, label %.thread.sink.split, !llvm.loop !16
+  br i1 %220, label %49, label %.thread.sink.split, !llvm.loop !17
 
 .thread.sink.split:                               ; preds = %215, %handle_packet_header.exit, %handle_packet_header.exit.thread
   %221 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -8558,7 +8558,7 @@ define internal fastcc void @add_body_fields(i32 noundef %0, ptr noundef %1, ptr
   %105 = add nuw i32 %.048315679, 1
   %106 = load i32, ptr %66, align 4
   %107 = icmp ult i32 %105, %106
-  br i1 %107, label %.lr.ph5681, label %.loopexit, !llvm.loop !17
+  br i1 %107, label %.lr.ph5681, label %.loopexit, !llvm.loop !18
 
 108:                                              ; preds = %6
   tail call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_name)
@@ -8606,7 +8606,7 @@ define internal fastcc void @add_body_fields(i32 noundef %0, ptr noundef %1, ptr
   %132 = add nuw i32 %.048325676, 1
   %133 = load i32, ptr %32, align 4
   %134 = icmp ult i32 %132, %133
-  br i1 %134, label %.lr.ph5678, label %.loopexit, !llvm.loop !18
+  br i1 %134, label %.lr.ph5678, label %.loopexit, !llvm.loop !19
 
 135:                                              ; preds = %6
   %136 = load i32, ptr @hf_woww_auctioneer, align 4
@@ -8711,7 +8711,7 @@ define internal fastcc void @add_body_fields(i32 noundef %0, ptr noundef %1, ptr
   %211 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %206, i32 noundef %210)
   %.not.i.i = icmp eq i8 %211, 0
   %212 = add nuw nsw i32 %.012.i.i, 1
-  br i1 %.not.i.i, label %add_cstring.exit, label %208, !llvm.loop !19
+  br i1 %.not.i.i, label %add_cstring.exit, label %208, !llvm.loop !20
 
 add_cstring.exit:                                 ; preds = %208, %209
   %spec.select.i.i = phi i32 [ %212, %209 ], [ 0, %208 ]
@@ -8726,7 +8726,7 @@ add_cstring.exit:                                 ; preds = %208, %209
   tail call void @ptvcursor_pop_subtree(ptr noundef %200)
   %221 = tail call i32 @ptvcursor_current_offset(ptr noundef %200)
   %222 = icmp slt i32 %221, %201
-  br i1 %222, label %.lr.ph5674, label %._crit_edge5675, !llvm.loop !20
+  br i1 %222, label %.lr.ph5674, label %._crit_edge5675, !llvm.loop !21
 
 ._crit_edge5675:                                  ; preds = %add_cstring.exit, %198
   tail call void @ptvcursor_free(ptr noundef %200)
@@ -9957,7 +9957,7 @@ add_cstring.exit:                                 ; preds = %208, %209
   %1014 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1009, i32 noundef %1013)
   %.not.i.i5270 = icmp eq i8 %1014, 0
   %1015 = add nuw nsw i32 %.012.i.i5268, 1
-  br i1 %.not.i.i5270, label %add_cstring.exit5272, label %1011, !llvm.loop !19
+  br i1 %.not.i.i5270, label %add_cstring.exit5272, label %1011, !llvm.loop !20
 
 add_cstring.exit5272:                             ; preds = %1011, %1012
   %spec.select.i.i5271 = phi i32 [ %1015, %1012 ], [ 0, %1011 ]
@@ -9966,7 +9966,7 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %1018 = add nuw nsw i32 %.048335672, 1
   %exitcond5815.not = icmp eq i32 %1018, 10
-  br i1 %exitcond5815.not, label %1001, label %1002, !llvm.loop !21
+  br i1 %exitcond5815.not, label %1001, label %1002, !llvm.loop !22
 
 1019:                                             ; preds = %6
   %1020 = load i32, ptr @hf_woww_gm_ticket_type, align 4
@@ -11760,7 +11760,7 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
   %2178 = add nuw i32 %.048305665, 1
   %2179 = load i32, ptr %48, align 4
   %2180 = icmp ult i32 %2178, %2179
-  br i1 %2180, label %.lr.ph5667, label %._crit_edge5668, !llvm.loop !22
+  br i1 %2180, label %.lr.ph5667, label %._crit_edge5668, !llvm.loop !23
 
 .lr.ph5671:                                       ; preds = %._crit_edge5668, %add_cstring.exit5277
   %.048295669 = phi i32 [ %2190, %add_cstring.exit5277 ], [ 0, %._crit_edge5668 ]
@@ -11778,7 +11778,7 @@ add_cstring.exit5272:                             ; preds = %1011, %1012
   %2186 = call zeroext i8 @tvb_get_uint8(ptr noundef %2181, i32 noundef %2185)
   %.not.i.i5275 = icmp eq i8 %2186, 0
   %2187 = add nuw nsw i32 %.012.i.i5273, 1
-  br i1 %.not.i.i5275, label %add_cstring.exit5277, label %2183, !llvm.loop !19
+  br i1 %.not.i.i5275, label %add_cstring.exit5277, label %2183, !llvm.loop !20
 
 add_cstring.exit5277:                             ; preds = %2183, %2184
   %spec.select.i.i5276 = phi i32 [ %2187, %2184 ], [ 0, %2183 ]
@@ -11787,7 +11787,7 @@ add_cstring.exit5277:                             ; preds = %2183, %2184
   %2190 = add nuw i32 %.048295669, 1
   %2191 = load i32, ptr %45, align 4
   %2192 = icmp ult i32 %2190, %2191
-  br i1 %2192, label %.lr.ph5671, label %.loopexit, !llvm.loop !23
+  br i1 %2192, label %.lr.ph5671, label %.loopexit, !llvm.loop !24
 
 2193:                                             ; preds = %6
   tail call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_character_name)
@@ -11878,7 +11878,7 @@ add_cstring.exit5277:                             ; preds = %2183, %2184
   %2253 = add nuw i32 %.048285658, 1
   %2254 = load i32, ptr %47, align 4
   %2255 = icmp ult i32 %2253, %2254
-  br i1 %2255, label %.lr.ph5660, label %._crit_edge5661, !llvm.loop !24
+  br i1 %2255, label %.lr.ph5660, label %._crit_edge5661, !llvm.loop !25
 
 .lr.ph5664:                                       ; preds = %._crit_edge5661, %.lr.ph5664
   %.048275662 = phi i32 [ %2264, %.lr.ph5664 ], [ 0, %._crit_edge5661 ]
@@ -11894,7 +11894,7 @@ add_cstring.exit5277:                             ; preds = %2183, %2184
   %2264 = add nuw i32 %.048275662, 1
   %2265 = load i32, ptr %9, align 4
   %2266 = icmp ult i32 %2264, %2265
-  br i1 %2266, label %.lr.ph5664, label %.loopexit, !llvm.loop !25
+  br i1 %2266, label %.lr.ph5664, label %.loopexit, !llvm.loop !26
 
 2267:                                             ; preds = %6
   %2268 = getelementptr inbounds nuw i8, ptr %5, i64 284
@@ -12041,7 +12041,7 @@ add_cstring.exit5277:                             ; preds = %2183, %2184
   %2377 = call zeroext i8 @tvb_get_uint8(ptr noundef %2372, i32 noundef %2376)
   %.not.i.i5280 = icmp eq i8 %2377, 0
   %2378 = add nuw nsw i32 %.012.i.i5278, 1
-  br i1 %.not.i.i5280, label %add_cstring.exit5282, label %2374, !llvm.loop !19
+  br i1 %.not.i.i5280, label %add_cstring.exit5282, label %2374, !llvm.loop !20
 
 add_cstring.exit5282:                             ; preds = %2374, %2375
   %spec.select.i.i5281 = phi i32 [ %2378, %2375 ], [ 0, %2374 ]
@@ -12055,7 +12055,7 @@ add_cstring.exit5282:                             ; preds = %2374, %2375
   %2385 = add nuw i32 %.048265655, 1
   %2386 = load i32, ptr %34, align 4
   %2387 = icmp ult i32 %2385, %2386
-  br i1 %2387, label %.lr.ph5657, label %.loopexit, !llvm.loop !26
+  br i1 %2387, label %.lr.ph5657, label %.loopexit, !llvm.loop !27
 
 2388:                                             ; preds = %6
   %2389 = getelementptr inbounds nuw i8, ptr %5, i64 284
@@ -16438,7 +16438,7 @@ add_cstring.exit5282:                             ; preds = %2374, %2375
   %5353 = add nuw i32 %.048255652, 1
   %5354 = load i32, ptr %35, align 4
   %5355 = icmp ult i32 %5353, %5354
-  br i1 %5355, label %.lr.ph5654, label %.loopexit, !llvm.loop !27
+  br i1 %5355, label %.lr.ph5654, label %.loopexit, !llvm.loop !28
 
 .lr.ph5650:                                       ; preds = %.lr.ph5654, %.lr.ph5650
   %.048245648 = phi i32 [ %5358, %.lr.ph5650 ], [ 0, %.lr.ph5654 ]
@@ -16447,7 +16447,7 @@ add_cstring.exit5282:                             ; preds = %2374, %2375
   %5358 = add nuw i32 %.048245648, 1
   %5359 = load i32, ptr %18, align 4
   %5360 = icmp ult i32 %5358, %5359
-  br i1 %5360, label %.lr.ph5650, label %._crit_edge5651, !llvm.loop !28
+  br i1 %5360, label %.lr.ph5650, label %._crit_edge5651, !llvm.loop !29
 
 5361:                                             ; preds = %6
   %5362 = getelementptr inbounds nuw i8, ptr %5, i64 284
@@ -16525,7 +16525,7 @@ add_cstring.exit5282:                             ; preds = %2374, %2375
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %5408 = add nuw nsw i32 %.048235647, 1
   %exitcond5814.not = icmp eq i32 %5408, 8
-  br i1 %exitcond5814.not, label %.loopexit, label %.preheader, !llvm.loop !29
+  br i1 %exitcond5814.not, label %.loopexit, label %.preheader, !llvm.loop !30
 
 5409:                                             ; preds = %5398
   %5410 = load i32, ptr @ett_message, align 4
@@ -16622,7 +16622,7 @@ add_cstring.exit5282:                             ; preds = %2374, %2375
   %5475 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5474, i32 noundef 4, i32 noundef -2147483648)
   %5476 = add nuw nsw i32 %.048225646, 1
   %exitcond5813.not = icmp eq i32 %5476, 32
-  br i1 %exitcond5813.not, label %.loopexit, label %.preheader5377, !llvm.loop !30
+  br i1 %exitcond5813.not, label %.loopexit, label %.preheader5377, !llvm.loop !31
 
 .preheader5379:                                   ; preds = %6, %.preheader5379
   %.048215645 = phi i32 [ %5479, %.preheader5379 ], [ 0, %6 ]
@@ -16630,7 +16630,7 @@ add_cstring.exit5282:                             ; preds = %2374, %2375
   %5478 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %5477, i32 noundef 4, i32 noundef -2147483648)
   %5479 = add nuw nsw i32 %.048215645, 1
   %exitcond5812.not = icmp eq i32 %5479, 120
-  br i1 %exitcond5812.not, label %.loopexit, label %.preheader5379, !llvm.loop !31
+  br i1 %exitcond5812.not, label %.loopexit, label %.preheader5379, !llvm.loop !32
 
 5480:                                             ; preds = %6
   %5481 = load i32, ptr @hf_woww_activate_taxi_reply, align 4
@@ -16687,7 +16687,7 @@ add_cstring.exit5282:                             ; preds = %2374, %2375
   %5512 = call zeroext i8 @tvb_get_uint8(ptr noundef %5507, i32 noundef %5511)
   %.not.i.i5285 = icmp eq i8 %5512, 0
   %5513 = add nuw nsw i32 %.012.i.i5283, 1
-  br i1 %.not.i.i5285, label %add_cstring.exit5287, label %5509, !llvm.loop !19
+  br i1 %.not.i.i5285, label %add_cstring.exit5287, label %5509, !llvm.loop !20
 
 add_cstring.exit5287:                             ; preds = %5509, %5510
   %spec.select.i.i5286 = phi i32 [ %5513, %5510 ], [ 0, %5509 ]
@@ -16699,7 +16699,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %5517 = call i32 @ptvcursor_current_offset(ptr noundef %82)
   %5518 = icmp slt i32 %5517, %4
-  br i1 %5518, label %.lr.ph5644, label %.loopexit, !llvm.loop !32
+  br i1 %5518, label %.lr.ph5644, label %.loopexit, !llvm.loop !33
 
 5519:                                             ; preds = %6
   %5520 = load i32, ptr @hf_woww_guid, align 4
@@ -16761,7 +16761,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   %5558 = add nuw i32 %.048205640, 1
   %5559 = load i32, ptr %13, align 4
   %5560 = icmp ult i32 %5558, %5559
-  br i1 %5560, label %.lr.ph5642, label %._crit_edge5643, !llvm.loop !33
+  br i1 %5560, label %.lr.ph5642, label %._crit_edge5643, !llvm.loop !34
 
 5561:                                             ; preds = %6
   %5562 = load i32, ptr @hf_woww_attacker, align 4
@@ -16825,7 +16825,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   %5605 = add nuw i32 %.048195636, 1
   %5606 = load i32, ptr %53, align 4
   %5607 = icmp ult i32 %5605, %5606
-  br i1 %5607, label %.lr.ph5638, label %._crit_edge5639, !llvm.loop !34
+  br i1 %5607, label %.lr.ph5638, label %._crit_edge5639, !llvm.loop !35
 
 5608:                                             ; preds = %6
   %5609 = load i32, ptr @hf_woww_auction_house, align 4
@@ -16953,7 +16953,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   %5697 = add nuw i32 %.048185632, 1
   %5698 = load i32, ptr %53, align 4
   %5699 = icmp ult i32 %5697, %5698
-  br i1 %5699, label %.lr.ph5634, label %._crit_edge5635, !llvm.loop !35
+  br i1 %5699, label %.lr.ph5634, label %._crit_edge5635, !llvm.loop !36
 
 5700:                                             ; preds = %6
   %5701 = load i32, ptr @hf_woww_count, align 4
@@ -17003,7 +17003,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   %5736 = add nuw i32 %.048175628, 1
   %5737 = load i32, ptr %53, align 4
   %5738 = icmp ult i32 %5736, %5737
-  br i1 %5738, label %.lr.ph5630, label %._crit_edge5631, !llvm.loop !36
+  br i1 %5738, label %.lr.ph5630, label %._crit_edge5631, !llvm.loop !37
 
 5739:                                             ; preds = %6
   %5740 = load i32, ptr @hf_woww_auction_id, align 4
@@ -17077,7 +17077,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   %5788 = add nuw i32 %.048165625, 1
   %5789 = load i32, ptr %67, align 4
   %5790 = icmp ult i32 %5788, %5789
-  br i1 %5790, label %.lr.ph5627, label %.loopexit, !llvm.loop !37
+  br i1 %5790, label %.lr.ph5627, label %.loopexit, !llvm.loop !38
 
 5791:                                             ; preds = %6
   %5792 = load i32, ptr @hf_woww_queue_slot, align 4
@@ -17237,7 +17237,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   %5894 = add nuw i32 %.048155622, 1
   %5895 = load i32, ptr %28, align 4
   %5896 = icmp ult i32 %5894, %5895
-  br i1 %5896, label %.lr.ph5624, label %.loopexit, !llvm.loop !38
+  br i1 %5896, label %.lr.ph5624, label %.loopexit, !llvm.loop !39
 
 5897:                                             ; preds = %6
   %5898 = load i32, ptr @hf_woww_chat_notify, align 4
@@ -17287,7 +17287,7 @@ add_cstring.exit5287:                             ; preds = %5509, %5510
   %5922 = call zeroext i8 @tvb_get_uint8(ptr noundef %5917, i32 noundef %5921)
   %.not.i.i5290 = icmp eq i8 %5922, 0
   %5923 = add nuw nsw i32 %.012.i.i5288, 1
-  br i1 %.not.i.i5290, label %add_cstring.exit5292, label %5919, !llvm.loop !19
+  br i1 %.not.i.i5290, label %add_cstring.exit5292, label %5919, !llvm.loop !20
 
 add_cstring.exit5292:                             ; preds = %5919, %5920
   %spec.select.i.i5291 = phi i32 [ %5923, %5920 ], [ 0, %5919 ]
@@ -17347,7 +17347,7 @@ add_cstring.exit5292:                             ; preds = %5919, %5920
   %5973 = add nuw i32 %.048145619, 1
   %5974 = load i32, ptr %10, align 4
   %5975 = icmp ult i32 %5973, %5974
-  br i1 %5975, label %.lr.ph5621, label %.loopexit, !llvm.loop !39
+  br i1 %5975, label %.lr.ph5621, label %.loopexit, !llvm.loop !40
 
 5976:                                             ; preds = %add_cstring.exit5292, %5976
   %.048135618 = phi i32 [ 0, %add_cstring.exit5292 ], [ %5983, %5976 ]
@@ -17360,7 +17360,7 @@ add_cstring.exit5292:                             ; preds = %5919, %5920
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %5983 = add nuw nsw i32 %.048135618, 1
   %exitcond5811.not = icmp eq i32 %5983, 19
-  br i1 %exitcond5811.not, label %5968, label %5976, !llvm.loop !40
+  br i1 %exitcond5811.not, label %5968, label %5976, !llvm.loop !41
 
 5984:                                             ; preds = %6
   %5985 = load i32, ptr @hf_woww_world_result, align 4
@@ -17568,7 +17568,7 @@ thread-pre-split5368:                             ; preds = %6080, %6086, %6083
   call void @ptvcursor_pop_subtree(ptr noundef %6011)
   %6104 = call i32 @ptvcursor_current_offset(ptr noundef %6011)
   %6105 = icmp slt i32 %6104, %6012
-  br i1 %6105, label %.lr.ph5616, label %._crit_edge5617, !llvm.loop !41
+  br i1 %6105, label %.lr.ph5616, label %._crit_edge5617, !llvm.loop !42
 
 ._crit_edge5617:                                  ; preds = %6103, %6009
   call void @ptvcursor_free(ptr noundef %6011)
@@ -17804,7 +17804,7 @@ thread-pre-split5368:                             ; preds = %6080, %6086, %6083
   %6254 = add nuw i32 %.048105600, 1
   %6255 = load i32, ptr %30, align 4
   %6256 = icmp ult i32 %6254, %6255
-  br i1 %6256, label %.lr.ph5602, label %._crit_edge5603, !llvm.loop !42
+  br i1 %6256, label %.lr.ph5602, label %._crit_edge5603, !llvm.loop !43
 
 6257:                                             ; preds = %6128
   %6258 = and i32 %6133, 64
@@ -18071,7 +18071,7 @@ thread-pre-split5368:                             ; preds = %6080, %6086, %6083
   %6423 = add nuw i32 %.048095607, 1
   %6424 = load i32, ptr %30, align 4
   %6425 = icmp ult i32 %6423, %6424
-  br i1 %6425, label %.lr.ph5609, label %._crit_edge5610, !llvm.loop !43
+  br i1 %6425, label %.lr.ph5609, label %._crit_edge5610, !llvm.loop !44
 
 6426:                                             ; preds = %6295
   %6427 = and i32 %6302, 64
@@ -18156,14 +18156,14 @@ thread-pre-split5368:                             ; preds = %6080, %6086, %6083
   %6466 = add nuw i32 %.048085604, 1
   %6467 = load i32, ptr %53, align 4
   %6468 = icmp ult i32 %6466, %6467
-  br i1 %6468, label %.lr.ph5606, label %.loopexit5386, !llvm.loop !44
+  br i1 %6468, label %.lr.ph5606, label %.loopexit5386, !llvm.loop !45
 
 .loopexit5386:                                    ; preds = %.lr.ph5606, %6462, %6293, %6292, %6461, %6127
   call void @ptvcursor_pop_subtree(ptr noundef %6116)
   %6469 = add nuw i32 %.048115611, 1
   %6470 = load i32, ptr %31, align 4
   %6471 = icmp ult i32 %6469, %6470
-  br i1 %6471, label %.lr.ph5613, label %._crit_edge5614, !llvm.loop !45
+  br i1 %6471, label %.lr.ph5613, label %._crit_edge5614, !llvm.loop !46
 
 6472:                                             ; preds = %6
   %6473 = load i32, ptr @hf_woww_id, align 4
@@ -18240,7 +18240,7 @@ thread-pre-split5368:                             ; preds = %6080, %6086, %6083
   %6520 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %6519, i32 noundef 4, i32 noundef -2147483648)
   %6521 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
   %6522 = icmp slt i32 %6521, %4
-  br i1 %6522, label %.lr.ph5599, label %.loopexit, !llvm.loop !46
+  br i1 %6522, label %.lr.ph5599, label %.loopexit, !llvm.loop !47
 
 6523:                                             ; preds = %6
   %6524 = load i32, ptr @hf_woww_ended_without_interruption, align 4
@@ -18322,7 +18322,7 @@ thread-pre-split5368:                             ; preds = %6080, %6086, %6083
   %6573 = call zeroext i8 @tvb_get_uint8(ptr noundef %6568, i32 noundef %6572)
   %.not.i.i5295 = icmp eq i8 %6573, 0
   %6574 = add nuw nsw i32 %.012.i.i5293, 1
-  br i1 %.not.i.i5295, label %add_cstring.exit5297, label %6570, !llvm.loop !19
+  br i1 %.not.i.i5295, label %add_cstring.exit5297, label %6570, !llvm.loop !20
 
 add_cstring.exit5297:                             ; preds = %6570, %6571
   %spec.select.i.i5296 = phi i32 [ %6574, %6571 ], [ 0, %6570 ]
@@ -18331,7 +18331,7 @@ add_cstring.exit5297:                             ; preds = %6570, %6571
   %6577 = add nuw i32 %.048075595, 1
   %6578 = load i32, ptr %39, align 4
   %6579 = icmp ult i32 %6577, %6578
-  br i1 %6579, label %.lr.ph5597, label %.loopexit, !llvm.loop !47
+  br i1 %6579, label %.lr.ph5597, label %.loopexit, !llvm.loop !48
 
 6580:                                             ; preds = %6
   %6581 = load i32, ptr @hf_woww_area, align 4
@@ -18435,7 +18435,7 @@ add_cstring.exit5297:                             ; preds = %6570, %6571
   %6644 = add nuw i32 %.048065592, 1
   %6645 = load i32, ptr %21, align 4
   %6646 = icmp ult i32 %6644, %6645
-  br i1 %6646, label %.lr.ph5594, label %.loopexit, !llvm.loop !48
+  br i1 %6646, label %.lr.ph5594, label %.loopexit, !llvm.loop !49
 
 6647:                                             ; preds = %6
   %6648 = load i32, ptr @hf_woww_friend_result, align 4
@@ -18486,7 +18486,7 @@ add_cstring.exit5297:                             ; preds = %6570, %6571
   %6674 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %6673, i32 noundef 4, i32 noundef -2147483648)
   %6675 = add nuw nsw i32 %.048055591, 1
   %exitcond5810.not = icmp eq i32 %6675, 6
-  br i1 %exitcond5810.not, label %.loopexit, label %6672, !llvm.loop !49
+  br i1 %exitcond5810.not, label %.loopexit, label %6672, !llvm.loop !50
 
 6676:                                             ; preds = %6
   %6677 = load i32, ptr @hf_woww_guid, align 4
@@ -18588,7 +18588,7 @@ add_cstring.exit5297:                             ; preds = %6570, %6571
   %6739 = call zeroext i8 @tvb_get_uint8(ptr noundef %6734, i32 noundef %6738)
   %.not.i.i5300 = icmp eq i8 %6739, 0
   %6740 = add nuw nsw i32 %.012.i.i5298, 1
-  br i1 %.not.i.i5300, label %add_cstring.exit5302, label %6736, !llvm.loop !19
+  br i1 %.not.i.i5300, label %add_cstring.exit5302, label %6736, !llvm.loop !20
 
 add_cstring.exit5302:                             ; preds = %6736, %6737
   %spec.select.i.i5301 = phi i32 [ %6740, %6737 ], [ 0, %6736 ]
@@ -18598,7 +18598,7 @@ add_cstring.exit5302:                             ; preds = %6736, %6737
   %6743 = add nuw i32 %.048045584, 1
   %6744 = load i32, ptr %22, align 4
   %6745 = icmp ult i32 %6743, %6744
-  br i1 %6745, label %.lr.ph5586, label %._crit_edge5587, !llvm.loop !50
+  br i1 %6745, label %.lr.ph5586, label %._crit_edge5587, !llvm.loop !51
 
 .lr.ph5590:                                       ; preds = %._crit_edge5587, %add_cstring.exit5307
   %.048035588 = phi i32 [ %6763, %add_cstring.exit5307 ], [ 0, %._crit_edge5587 ]
@@ -18624,7 +18624,7 @@ add_cstring.exit5302:                             ; preds = %6736, %6737
   %6759 = call zeroext i8 @tvb_get_uint8(ptr noundef %6754, i32 noundef %6758)
   %.not.i.i5305 = icmp eq i8 %6759, 0
   %6760 = add nuw nsw i32 %.012.i.i5303, 1
-  br i1 %.not.i.i5305, label %add_cstring.exit5307, label %6756, !llvm.loop !19
+  br i1 %.not.i.i5305, label %add_cstring.exit5307, label %6756, !llvm.loop !20
 
 add_cstring.exit5307:                             ; preds = %6756, %6757
   %spec.select.i.i5306 = phi i32 [ %6760, %6757 ], [ 0, %6756 ]
@@ -18634,7 +18634,7 @@ add_cstring.exit5307:                             ; preds = %6756, %6757
   %6763 = add nuw i32 %.048035588, 1
   %6764 = load i32, ptr %36, align 4
   %6765 = icmp ult i32 %6763, %6764
-  br i1 %6765, label %.lr.ph5590, label %.loopexit, !llvm.loop !51
+  br i1 %6765, label %.lr.ph5590, label %.loopexit, !llvm.loop !52
 
 6766:                                             ; preds = %6
   %6767 = load i32, ptr @hf_woww_flags, align 4
@@ -18702,7 +18702,7 @@ add_cstring.exit5307:                             ; preds = %6756, %6757
   %6802 = call zeroext i8 @tvb_get_uint8(ptr noundef %6797, i32 noundef %6801)
   %.not.i.i5310 = icmp eq i8 %6802, 0
   %6803 = add nuw nsw i32 %.012.i.i5308, 1
-  br i1 %.not.i.i5310, label %add_cstring.exit5312, label %6799, !llvm.loop !19
+  br i1 %.not.i.i5310, label %add_cstring.exit5312, label %6799, !llvm.loop !20
 
 add_cstring.exit5312:                             ; preds = %6799, %6800
   %spec.select.i.i5311 = phi i32 [ %6803, %6800 ], [ 0, %6799 ]
@@ -18718,7 +18718,7 @@ add_cstring.exit5312:                             ; preds = %6799, %6800
   %6812 = add nuw i32 %.048025580, 1
   %6813 = load i32, ptr %28, align 4
   %6814 = icmp ult i32 %6812, %6813
-  br i1 %6814, label %.lr.ph5582, label %._crit_edge5583, !llvm.loop !52
+  br i1 %6814, label %.lr.ph5582, label %._crit_edge5583, !llvm.loop !53
 
 6815:                                             ; preds = %._crit_edge5583
   %6816 = load i32, ptr @hf_woww_group_loot_setting, align 4
@@ -18766,7 +18766,7 @@ add_cstring.exit5312:                             ; preds = %6799, %6800
   %6839 = call zeroext i8 @tvb_get_uint8(ptr noundef %6834, i32 noundef %6838)
   %.not.i.i5315 = icmp eq i8 %6839, 0
   %6840 = add nuw nsw i32 %.012.i.i5313, 1
-  br i1 %.not.i.i5315, label %add_cstring.exit5317, label %6836, !llvm.loop !19
+  br i1 %.not.i.i5315, label %add_cstring.exit5317, label %6836, !llvm.loop !20
 
 add_cstring.exit5317:                             ; preds = %6836, %6837
   %spec.select.i.i5316 = phi i32 [ %6840, %6837 ], [ 0, %6836 ]
@@ -18775,7 +18775,7 @@ add_cstring.exit5317:                             ; preds = %6836, %6837
   %6843 = add nuw i32 %.048015577, 1
   %6844 = load i32, ptr %17, align 4
   %6845 = icmp ult i32 %6843, %6844
-  br i1 %6845, label %.lr.ph5579, label %.loopexit, !llvm.loop !53
+  br i1 %6845, label %.lr.ph5579, label %.loopexit, !llvm.loop !54
 
 6846:                                             ; preds = %6
   tail call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_guild_name)
@@ -18831,7 +18831,7 @@ add_cstring.exit5317:                             ; preds = %6836, %6837
   %6878 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %6873, i32 noundef %6877)
   %.not.i.i5320 = icmp eq i8 %6878, 0
   %6879 = add nuw nsw i32 %.012.i.i5318, 1
-  br i1 %.not.i.i5320, label %add_cstring.exit5322, label %6875, !llvm.loop !19
+  br i1 %.not.i.i5320, label %add_cstring.exit5322, label %6875, !llvm.loop !20
 
 add_cstring.exit5322:                             ; preds = %6875, %6876
   %spec.select.i.i5321 = phi i32 [ %6879, %6876 ], [ 0, %6875 ]
@@ -18839,7 +18839,7 @@ add_cstring.exit5322:                             ; preds = %6875, %6876
   %6881 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %6880, i32 noundef %spec.select.i.i5321, i32 noundef 2)
   %6882 = add nuw nsw i32 %.048005576, 1
   %exitcond5809.not = icmp eq i32 %6882, 10
-  br i1 %exitcond5809.not, label %6861, label %6872, !llvm.loop !54
+  br i1 %exitcond5809.not, label %6861, label %6872, !llvm.loop !55
 
 6883:                                             ; preds = %6
   %6884 = load i32, ptr @hf_woww_amount_of_members, align 4
@@ -18864,7 +18864,7 @@ add_cstring.exit5322:                             ; preds = %6875, %6876
   %6892 = add nuw i32 %.047995571, 1
   %6893 = load i32, ptr %41, align 4
   %6894 = icmp ult i32 %6892, %6893
-  br i1 %6894, label %.lr.ph5573, label %.preheader5393, !llvm.loop !55
+  br i1 %6894, label %.lr.ph5573, label %.preheader5393, !llvm.loop !56
 
 .lr.ph5575:                                       ; preds = %.preheader5393, %add_cstring.exit5337
   %.047985574 = phi i32 [ %6942, %add_cstring.exit5337 ], [ 0, %.preheader5393 ]
@@ -18888,7 +18888,7 @@ add_cstring.exit5322:                             ; preds = %6875, %6876
   %6906 = call zeroext i8 @tvb_get_uint8(ptr noundef %6901, i32 noundef %6905)
   %.not.i.i5325 = icmp eq i8 %6906, 0
   %6907 = add nuw nsw i32 %.012.i.i5323, 1
-  br i1 %.not.i.i5325, label %add_cstring.exit5327, label %6903, !llvm.loop !19
+  br i1 %.not.i.i5325, label %add_cstring.exit5327, label %6903, !llvm.loop !20
 
 add_cstring.exit5327:                             ; preds = %6903, %6904
   %spec.select.i.i5326 = phi i32 [ %6907, %6904 ], [ 0, %6903 ]
@@ -18926,7 +18926,7 @@ add_cstring.exit5327:                             ; preds = %6903, %6904
   %6929 = call zeroext i8 @tvb_get_uint8(ptr noundef %6924, i32 noundef %6928)
   %.not.i.i5330 = icmp eq i8 %6929, 0
   %6930 = add nuw nsw i32 %.012.i.i5328, 1
-  br i1 %.not.i.i5330, label %add_cstring.exit5332, label %6926, !llvm.loop !19
+  br i1 %.not.i.i5330, label %add_cstring.exit5332, label %6926, !llvm.loop !20
 
 add_cstring.exit5332:                             ; preds = %6926, %6927
   %spec.select.i.i5331 = phi i32 [ %6930, %6927 ], [ 0, %6926 ]
@@ -18946,7 +18946,7 @@ add_cstring.exit5332:                             ; preds = %6926, %6927
   %6938 = call zeroext i8 @tvb_get_uint8(ptr noundef %6933, i32 noundef %6937)
   %.not.i.i5335 = icmp eq i8 %6938, 0
   %6939 = add nuw nsw i32 %.012.i.i5333, 1
-  br i1 %.not.i.i5335, label %add_cstring.exit5337, label %6935, !llvm.loop !19
+  br i1 %.not.i.i5335, label %add_cstring.exit5337, label %6935, !llvm.loop !20
 
 add_cstring.exit5337:                             ; preds = %6935, %6936
   %spec.select.i.i5336 = phi i32 [ %6939, %6936 ], [ 0, %6935 ]
@@ -18956,7 +18956,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %6942 = add nuw i32 %.047985574, 1
   %6943 = load i32, ptr %28, align 4
   %6944 = icmp ult i32 %6942, %6943
-  br i1 %6944, label %.lr.ph5575, label %.loopexit, !llvm.loop !56
+  br i1 %6944, label %.lr.ph5575, label %.loopexit, !llvm.loop !57
 
 6945:                                             ; preds = %6
   %6946 = load i32, ptr @hf_woww_amount_of_ignored, align 4
@@ -18972,7 +18972,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %6951 = add nuw i32 %.047975568, 1
   %6952 = load i32, ptr %24, align 4
   %6953 = icmp ult i32 %6951, %6952
-  br i1 %6953, label %.lr.ph5570, label %.loopexit, !llvm.loop !57
+  br i1 %6953, label %.lr.ph5570, label %.loopexit, !llvm.loop !58
 
 6954:                                             ; preds = %6
   %6955 = load i32, ptr @hf_woww_amount_of_factions, align 4
@@ -18993,7 +18993,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %6964 = add nuw i32 %.047965565, 1
   %6965 = load i32, ptr %20, align 4
   %6966 = icmp ult i32 %6964, %6965
-  br i1 %6966, label %.lr.ph5567, label %.loopexit, !llvm.loop !58
+  br i1 %6966, label %.lr.ph5567, label %.loopexit, !llvm.loop !59
 
 6967:                                             ; preds = %6
   %6968 = load i32, ptr @hf_woww_unknown_int, align 4
@@ -19023,7 +19023,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %6982 = add nuw i32 %.047955558, 1
   %6983 = load i32, ptr %72, align 4
   %6984 = icmp ult i32 %6982, %6983
-  br i1 %6984, label %.lr.ph5560, label %._crit_edge5561, !llvm.loop !59
+  br i1 %6984, label %.lr.ph5560, label %._crit_edge5561, !llvm.loop !60
 
 .lr.ph5564:                                       ; preds = %._crit_edge5561, %.lr.ph5564
   %.047945562 = phi i32 [ %6997, %.lr.ph5564 ], [ 0, %._crit_edge5561 ]
@@ -19043,7 +19043,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %6997 = add nuw i32 %.047945562, 1
   %6998 = load i32, ptr %52, align 4
   %6999 = icmp ult i32 %6997, %6998
-  br i1 %6999, label %.lr.ph5564, label %.loopexit, !llvm.loop !60
+  br i1 %6999, label %.lr.ph5564, label %.loopexit, !llvm.loop !61
 
 7000:                                             ; preds = %6
   %7001 = load i32, ptr @hf_woww_map, align 4
@@ -19068,7 +19068,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %7014 = add nuw i32 %.047935555, 1
   %7015 = load i32, ptr %44, align 4
   %7016 = icmp ult i32 %7014, %7015
-  br i1 %7016, label %.lr.ph5557, label %.loopexit, !llvm.loop !61
+  br i1 %7016, label %.lr.ph5557, label %.loopexit, !llvm.loop !62
 
 7017:                                             ; preds = %6
   %7018 = load i32, ptr @hf_woww_guid, align 4
@@ -19238,7 +19238,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %7143 = add nuw nsw i32 %.047925552, 1
   %exitcond5806.not = icmp eq i32 %7143, 10
-  br i1 %exitcond5806.not, label %.preheader5399, label %7136, !llvm.loop !62
+  br i1 %exitcond5806.not, label %.preheader5399, label %7136, !llvm.loop !63
 
 7144:                                             ; preds = %.preheader5399
   %7145 = load i32, ptr @hf_woww_armor, align 4
@@ -19276,7 +19276,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %7173 = add nuw nsw i32 %.047915553, 1
   %exitcond5807.not = icmp eq i32 %7173, 5
-  br i1 %exitcond5807.not, label %7144, label %.preheader5399, !llvm.loop !63
+  br i1 %exitcond5807.not, label %7144, label %.preheader5399, !llvm.loop !64
 
 7174:                                             ; preds = %7205
   %7175 = load i32, ptr @hf_woww_bonding, align 4
@@ -19331,7 +19331,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %7220 = add nuw nsw i32 %.047905554, 1
   %exitcond5808.not = icmp eq i32 %7220, 5
-  br i1 %exitcond5808.not, label %7174, label %7205, !llvm.loop !64
+  br i1 %exitcond5808.not, label %7174, label %7205, !llvm.loop !65
 
 7221:                                             ; preds = %6
   %7222 = load i32, ptr @hf_woww_item_text_id, align 4
@@ -19409,7 +19409,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %7279 = add nuw i32 %.047895549, 1
   %7280 = load i32, ptr %26, align 4
   %7281 = icmp ult i32 %7279, %7280
-  br i1 %7281, label %.lr.ph5551, label %.loopexit, !llvm.loop !65
+  br i1 %7281, label %.lr.ph5551, label %.loopexit, !llvm.loop !66
 
 7282:                                             ; preds = %6
   %7283 = load i32, ptr @hf_woww_datetime, align 4
@@ -19486,7 +19486,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %7336 = add nuw i32 %.047885546, 1
   %7337 = load i32, ptr %35, align 4
   %7338 = icmp ult i32 %7336, %7337
-  br i1 %7338, label %.lr.ph5548, label %.loopexit, !llvm.loop !66
+  br i1 %7338, label %.lr.ph5548, label %.loopexit, !llvm.loop !67
 
 7339:                                             ; preds = %6
   %7340 = load i32, ptr @hf_woww_amount, align 4
@@ -19542,7 +19542,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %7374 = add nuw i32 %.047875543, 1
   %7375 = load i32, ptr %26, align 4
   %7376 = icmp ult i32 %7374, %7375
-  br i1 %7376, label %.lr.ph5545, label %.loopexit, !llvm.loop !67
+  br i1 %7376, label %.lr.ph5545, label %.loopexit, !llvm.loop !68
 
 7377:                                             ; preds = %6
   %7378 = load i32, ptr @hf_woww_creature, align 4
@@ -19647,7 +19647,7 @@ add_cstring.exit5337:                             ; preds = %6935, %6936
   %7448 = call zeroext i8 @tvb_get_uint8(ptr noundef %7443, i32 noundef %7447)
   %.not.i.i5340 = icmp eq i8 %7448, 0
   %7449 = add nuw nsw i32 %.012.i.i5338, 1
-  br i1 %.not.i.i5340, label %add_cstring.exit5342, label %7445, !llvm.loop !19
+  br i1 %.not.i.i5340, label %add_cstring.exit5342, label %7445, !llvm.loop !20
 
 add_cstring.exit5342:                             ; preds = %7445, %7446
   %spec.select.i.i5341 = phi i32 [ %7449, %7446 ], [ 0, %7445 ]
@@ -19689,7 +19689,7 @@ add_cstring.exit5342:                             ; preds = %7445, %7446
   %7484 = add nuw i32 %.047865540, 1
   %7485 = load i32, ptr %27, align 4
   %7486 = icmp ult i32 %7484, %7485
-  br i1 %7486, label %.lr.ph5542, label %.loopexit, !llvm.loop !68
+  br i1 %7486, label %.lr.ph5542, label %.loopexit, !llvm.loop !69
 
 7487:                                             ; preds = %6
   %7488 = load i32, ptr @hf_woww_meeting_stone_failure, align 4
@@ -19994,19 +19994,19 @@ add_cstring.exit5342:                             ; preds = %7445, %7446
   %7667 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %7662, i32 noundef %7666)
   %.not.i.i5345 = icmp eq i8 %7667, 0
   %7668 = add nuw nsw i32 %.012.i.i5343, 1
-  br i1 %.not.i.i5345, label %add_cstring.exit5347, label %7664, !llvm.loop !19
+  br i1 %.not.i.i5345, label %add_cstring.exit5347, label %7664, !llvm.loop !20
 
 add_cstring.exit5347:                             ; preds = %7664, %7665
   %spec.select.i.i5346 = phi i32 [ %7668, %7665 ], [ 0, %7664 ]
   %7669 = load i32, ptr @hf_woww_texts, align 4
   %7670 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %7669, i32 noundef %spec.select.i.i5346, i32 noundef 2)
-  br i1 %7661, label %7660, label %7657, !llvm.loop !69
+  br i1 %7661, label %7660, label %7657, !llvm.loop !70
 
 7671:                                             ; preds = %7673
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %7672 = add nuw nsw i32 %.047855539, 1
   %exitcond5805.not = icmp eq i32 %7672, 8
-  br i1 %exitcond5805.not, label %.loopexit, label %7652, !llvm.loop !70
+  br i1 %exitcond5805.not, label %.loopexit, label %7652, !llvm.loop !71
 
 7673:                                             ; preds = %7657, %7673
   %.047835538 = phi i32 [ 0, %7657 ], [ %7680, %7673 ]
@@ -20019,7 +20019,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %7680 = add nuw nsw i32 %.047835538, 1
   %exitcond5804.not = icmp eq i32 %7680, 3
-  br i1 %exitcond5804.not, label %7671, label %7673, !llvm.loop !71
+  br i1 %exitcond5804.not, label %7671, label %7673, !llvm.loop !72
 
 7681:                                             ; preds = %6
   %7682 = load i32, ptr @hf_woww_guid, align 4
@@ -20585,7 +20585,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %7953 = add nuw i32 %.047825534, 1
   %7954 = load i32, ptr %8, align 4
   %7955 = icmp ult i32 %7953, %7954
-  br i1 %7955, label %.lr.ph5536, label %.loopexit, !llvm.loop !72
+  br i1 %7955, label %.lr.ph5536, label %.loopexit, !llvm.loop !73
 
 7956:                                             ; preds = %6
   %7957 = load i32, ptr @hf_woww_petition_id, align 4
@@ -20649,7 +20649,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8005 = add nuw i32 %.047815531, 1
   %8006 = load i32, ptr %33, align 4
   %8007 = icmp ult i32 %8005, %8006
-  br i1 %8007, label %.lr.ph5533, label %.loopexit, !llvm.loop !73
+  br i1 %8007, label %.lr.ph5533, label %.loopexit, !llvm.loop !74
 
 8008:                                             ; preds = %6
   %8009 = load i32, ptr @hf_woww_item, align 4
@@ -20676,7 +20676,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8024 = add nuw i32 %.047805528, 1
   %8025 = load i32, ptr %42, align 4
   %8026 = icmp ult i32 %8024, %8025
-  br i1 %8026, label %.lr.ph5530, label %.loopexit, !llvm.loop !74
+  br i1 %8026, label %.lr.ph5530, label %.loopexit, !llvm.loop !75
 
 8027:                                             ; preds = %6
   %8028 = load i32, ptr @hf_woww_petition, align 4
@@ -20776,7 +20776,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8097 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8096, i32 noundef 4, i32 noundef -2147483648)
   %8098 = add nuw nsw i32 %.047795520, 1
   %exitcond5803.not = icmp eq i32 %8098, 10
-  br i1 %exitcond5803.not, label %8091, label %8095, !llvm.loop !75
+  br i1 %exitcond5803.not, label %8091, label %8095, !llvm.loop !76
 
 ._crit_edge5524:                                  ; preds = %.lr.ph5523, %8091
   %8099 = load i32, ptr @hf_woww_amount_of_cooldowns, align 4
@@ -20792,7 +20792,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8104 = add nuw i32 %.047785521, 1
   %8105 = load i32, ptr %43, align 4
   %8106 = icmp ult i32 %8104, %8105
-  br i1 %8106, label %.lr.ph5523, label %._crit_edge5524, !llvm.loop !76
+  br i1 %8106, label %.lr.ph5523, label %._crit_edge5524, !llvm.loop !77
 
 .lr.ph5527:                                       ; preds = %._crit_edge5524, %.lr.ph5527
   %.047775525 = phi i32 [ %8117, %.lr.ph5527 ], [ 0, %._crit_edge5524 ]
@@ -20810,7 +20810,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8117 = add nuw i32 %.047775525, 1
   %8118 = load i32, ptr %12, align 4
   %8119 = icmp ult i32 %8117, %8118
-  br i1 %8119, label %.lr.ph5527, label %.loopexit, !llvm.loop !77
+  br i1 %8119, label %.lr.ph5527, label %.loopexit, !llvm.loop !78
 
 8120:                                             ; preds = %6
   %8121 = load i32, ptr @hf_woww_pet_tame_failure_reason, align 4
@@ -20938,7 +20938,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8203 = add nuw i32 %.047765508, 1
   %8204 = load i32, ptr %15, align 4
   %8205 = icmp ult i32 %8203, %8204
-  br i1 %8205, label %.lr.ph5510, label %._crit_edge5511, !llvm.loop !78
+  br i1 %8205, label %.lr.ph5510, label %._crit_edge5511, !llvm.loop !79
 
 ._crit_edge5515:                                  ; preds = %.lr.ph5514, %._crit_edge5511
   %8206 = load i32, ptr @hf_woww_amount_of_item_rewards, align 4
@@ -20961,7 +20961,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8217 = add nuw i32 %.047755512, 1
   %8218 = load i32, ptr %11, align 4
   %8219 = icmp ult i32 %8217, %8218
-  br i1 %8219, label %.lr.ph5514, label %._crit_edge5515, !llvm.loop !79
+  br i1 %8219, label %.lr.ph5514, label %._crit_edge5515, !llvm.loop !80
 
 ._crit_edge5519:                                  ; preds = %.lr.ph5518, %._crit_edge5515
   %8220 = load i32, ptr @hf_woww_money_reward, align 4
@@ -20986,7 +20986,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8234 = add nuw i32 %.047745516, 1
   %8235 = load i32, ptr %25, align 4
   %8236 = icmp ult i32 %8234, %8235
-  br i1 %8236, label %.lr.ph5518, label %._crit_edge5519, !llvm.loop !80
+  br i1 %8236, label %.lr.ph5518, label %._crit_edge5519, !llvm.loop !81
 
 8237:                                             ; preds = %6
   %8238 = load i32, ptr @hf_woww_quest_id, align 4
@@ -21015,7 +21015,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8255 = add nuw i32 %.047735505, 1
   %8256 = load i32, ptr %25, align 4
   %8257 = icmp ult i32 %8255, %8256
-  br i1 %8257, label %.lr.ph5507, label %.loopexit, !llvm.loop !81
+  br i1 %8257, label %.lr.ph5507, label %.loopexit, !llvm.loop !82
 
 8258:                                             ; preds = %6
   %8259 = load i32, ptr @hf_woww_guid, align 4
@@ -21052,7 +21052,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8277 = add nuw i32 %.047725494, 1
   %8278 = load i32, ptr %11, align 4
   %8279 = icmp ult i32 %8277, %8278
-  br i1 %8279, label %.lr.ph5496, label %._crit_edge5497, !llvm.loop !82
+  br i1 %8279, label %.lr.ph5496, label %._crit_edge5497, !llvm.loop !83
 
 ._crit_edge5501:                                  ; preds = %.lr.ph5500, %._crit_edge5497
   %8280 = load i32, ptr @hf_woww_money_reward, align 4
@@ -21077,7 +21077,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8293 = add nuw i32 %.047715498, 1
   %8294 = load i32, ptr %25, align 4
   %8295 = icmp ult i32 %8293, %8294
-  br i1 %8295, label %.lr.ph5500, label %._crit_edge5501, !llvm.loop !83
+  br i1 %8295, label %.lr.ph5500, label %._crit_edge5501, !llvm.loop !84
 
 .lr.ph5504:                                       ; preds = %._crit_edge5501, %.lr.ph5504
   %.047705502 = phi i32 [ %8302, %.lr.ph5504 ], [ 0, %._crit_edge5501 ]
@@ -21091,7 +21091,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8302 = add nuw i32 %.047705502, 1
   %8303 = load i32, ptr %15, align 4
   %8304 = icmp ult i32 %8302, %8303
-  br i1 %8304, label %.lr.ph5504, label %.loopexit, !llvm.loop !84
+  br i1 %8304, label %.lr.ph5504, label %.loopexit, !llvm.loop !85
 
 8305:                                             ; preds = %6
   %8306 = load i32, ptr @hf_woww_quest_id, align 4
@@ -21143,7 +21143,7 @@ add_cstring.exit5347:                             ; preds = %7664, %7665
   %8336 = call zeroext i8 @tvb_get_uint8(ptr noundef %8331, i32 noundef %8335)
   %.not.i.i5350 = icmp eq i8 %8336, 0
   %8337 = add nuw nsw i32 %.012.i.i5348, 1
-  br i1 %.not.i.i5350, label %add_cstring.exit5352, label %8333, !llvm.loop !19
+  br i1 %.not.i.i5350, label %add_cstring.exit5352, label %8333, !llvm.loop !20
 
 add_cstring.exit5352:                             ; preds = %8333, %8334
   %spec.select.i.i5351 = phi i32 [ %8337, %8334 ], [ 0, %8333 ]
@@ -21153,7 +21153,7 @@ add_cstring.exit5352:                             ; preds = %8333, %8334
   %8340 = add nuw i32 %.047695491, 1
   %8341 = load i32, ptr %16, align 4
   %8342 = icmp ult i32 %8340, %8341
-  br i1 %8342, label %.lr.ph5493, label %.loopexit, !llvm.loop !85
+  br i1 %8342, label %.lr.ph5493, label %.loopexit, !llvm.loop !86
 
 8343:                                             ; preds = %6
   %8344 = load i32, ptr @hf_woww_npc, align 4
@@ -21201,7 +21201,7 @@ add_cstring.exit5352:                             ; preds = %8333, %8334
   %8375 = add nuw i32 %.047685487, 1
   %8376 = load i32, ptr %40, align 4
   %8377 = icmp ult i32 %8375, %8376
-  br i1 %8377, label %.lr.ph5489, label %._crit_edge5490, !llvm.loop !86
+  br i1 %8377, label %.lr.ph5489, label %._crit_edge5490, !llvm.loop !87
 
 8378:                                             ; preds = %6
   %8379 = load i32, ptr @hf_woww_guid, align 4
@@ -21297,7 +21297,7 @@ add_cstring.exit5352:                             ; preds = %8333, %8334
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %8451 = add nuw nsw i32 %.047675483, 1
   %exitcond5799.not = icmp eq i32 %8451, 4
-  br i1 %exitcond5799.not, label %.preheader5414, label %8444, !llvm.loop !87
+  br i1 %exitcond5799.not, label %.preheader5414, label %8444, !llvm.loop !88
 
 8452:                                             ; preds = %.preheader5414
   %8453 = load i32, ptr @hf_woww_point_map_id, align 4
@@ -21328,7 +21328,7 @@ add_cstring.exit5352:                             ; preds = %8333, %8334
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %8469 = add nuw nsw i32 %.047665484, 1
   %exitcond5800.not = icmp eq i32 %8469, 6
-  br i1 %exitcond5800.not, label %8452, label %.preheader5414, !llvm.loop !88
+  br i1 %exitcond5800.not, label %8452, label %.preheader5414, !llvm.loop !89
 
 8470:                                             ; preds = %8452, %8470
   %.047655485 = phi i32 [ 0, %8452 ], [ %8481, %8470 ]
@@ -21345,7 +21345,7 @@ add_cstring.exit5352:                             ; preds = %8333, %8334
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %8481 = add nuw nsw i32 %.047655485, 1
   %exitcond5801.not = icmp eq i32 %8481, 4
-  br i1 %exitcond5801.not, label %.preheader5412, label %8470, !llvm.loop !89
+  br i1 %exitcond5801.not, label %.preheader5412, label %8470, !llvm.loop !90
 
 .preheader5412:                                   ; preds = %8470, %add_cstring.exit5357
   %.047645486 = phi i32 [ %8491, %add_cstring.exit5357 ], [ 0, %8470 ]
@@ -21363,7 +21363,7 @@ add_cstring.exit5352:                             ; preds = %8333, %8334
   %8487 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %8482, i32 noundef %8486)
   %.not.i.i5355 = icmp eq i8 %8487, 0
   %8488 = add nuw nsw i32 %.012.i.i5353, 1
-  br i1 %.not.i.i5355, label %add_cstring.exit5357, label %8484, !llvm.loop !19
+  br i1 %.not.i.i5355, label %add_cstring.exit5357, label %8484, !llvm.loop !20
 
 add_cstring.exit5357:                             ; preds = %8484, %8485
   %spec.select.i.i5356 = phi i32 [ %8488, %8485 ], [ 0, %8484 ]
@@ -21371,7 +21371,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8490 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8489, i32 noundef %spec.select.i.i5356, i32 noundef 2)
   %8491 = add nuw nsw i32 %.047645486, 1
   %exitcond5802.not = icmp eq i32 %8491, 4
-  br i1 %exitcond5802.not, label %.loopexit, label %.preheader5412, !llvm.loop !90
+  br i1 %exitcond5802.not, label %.loopexit, label %.preheader5412, !llvm.loop !91
 
 8492:                                             ; preds = %6
   %8493 = load i32, ptr @hf_woww_homebind_timer, align 4
@@ -21401,7 +21401,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8509 = add nuw i32 %.047635480, 1
   %8510 = load i32, ptr %37, align 4
   %8511 = icmp ult i32 %8509, %8510
-  br i1 %8511, label %.lr.ph5482, label %.loopexit, !llvm.loop !91
+  br i1 %8511, label %.lr.ph5482, label %.loopexit, !llvm.loop !92
 
 8512:                                             ; preds = %6
   %8513 = load i32, ptr @hf_woww_raid_instance_message, align 4
@@ -21531,7 +21531,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8599 = add nuw i32 %.047625477, 1
   %8600 = load i32, ptr %19, align 4
   %8601 = icmp ult i32 %8599, %8600
-  br i1 %8601, label %.lr.ph5479, label %.loopexit, !llvm.loop !92
+  br i1 %8601, label %.lr.ph5479, label %.loopexit, !llvm.loop !93
 
 8602:                                             ; preds = %6
   %8603 = load i32, ptr @hf_woww_faction, align 4
@@ -21566,7 +21566,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8622 = add nuw i32 %.047615474, 1
   %8623 = load i32, ptr %38, align 4
   %8624 = icmp ult i32 %8622, %8623
-  br i1 %8624, label %.lr.ph5476, label %.loopexit, !llvm.loop !93
+  br i1 %8624, label %.lr.ph5476, label %.loopexit, !llvm.loop !94
 
 8625:                                             ; preds = %6
   %8626 = load i32, ptr @hf_woww_eff, align 4
@@ -21605,7 +21605,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8650 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %8649, i32 noundef 4, i32 noundef -2147483648)
   %8651 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
   %8652 = icmp slt i32 %8651, %4
-  br i1 %8652, label %.lr.ph5473, label %.loopexit, !llvm.loop !94
+  br i1 %8652, label %.lr.ph5473, label %.loopexit, !llvm.loop !95
 
 8653:                                             ; preds = %6
   %8654 = load i32, ptr @hf_woww_guid, align 4
@@ -21639,7 +21639,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8671 = add nuw i32 %.047605469, 1
   %8672 = load i32, ptr %43, align 4
   %8673 = icmp ult i32 %8671, %8672
-  br i1 %8673, label %.lr.ph5471, label %.loopexit, !llvm.loop !95
+  br i1 %8673, label %.lr.ph5471, label %.loopexit, !llvm.loop !96
 
 8674:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
@@ -21793,7 +21793,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8739 = add nuw i32 %.047595466, 1
   %8740 = load i32, ptr %14, align 4
   %8741 = icmp ult i32 %8739, %8740
-  br i1 %8741, label %.lr.ph5468, label %.loopexit, !llvm.loop !96
+  br i1 %8741, label %.lr.ph5468, label %.loopexit, !llvm.loop !97
 
 8742:                                             ; preds = %6
   %8743 = load i32, ptr @hf_woww_id, align 4
@@ -21820,7 +21820,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8758 = add nuw i32 %.047585463, 1
   %8759 = load i32, ptr %46, align 4
   %8760 = icmp ult i32 %8758, %8759
-  br i1 %8760, label %.lr.ph5465, label %.loopexit, !llvm.loop !97
+  br i1 %8760, label %.lr.ph5465, label %.loopexit, !llvm.loop !98
 
 8761:                                             ; preds = %6
   tail call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
@@ -21875,7 +21875,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %8802 = tail call i32 @ptvcursor_current_offset(ptr noundef %82)
   %8803 = icmp slt i32 %8802, %4
-  br i1 %8803, label %.lr.ph5462, label %.loopexit, !llvm.loop !98
+  br i1 %8803, label %.lr.ph5462, label %.loopexit, !llvm.loop !99
 
 8804:                                             ; preds = %6
   %8805 = load i32, ptr @hf_woww_guid, align 4
@@ -21927,7 +21927,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8834 = add nuw i32 %.047575453, 1
   %8835 = load i32, ptr %23, align 4
   %8836 = icmp ult i32 %8834, %8835
-  br i1 %8836, label %.lr.ph5455, label %._crit_edge5456, !llvm.loop !99
+  br i1 %8836, label %.lr.ph5455, label %._crit_edge5456, !llvm.loop !100
 
 ._crit_edge5460:                                  ; preds = %.lr.ph5459, %._crit_edge5456
   %8837 = load i32, ptr @ett_message, align 4
@@ -21951,7 +21951,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8849 = add nuw i32 %.047565457, 1
   %8850 = load i32, ptr %29, align 4
   %8851 = icmp ult i32 %8849, %8850
-  br i1 %8851, label %.lr.ph5459, label %._crit_edge5460, !llvm.loop !100
+  br i1 %8851, label %.lr.ph5459, label %._crit_edge5460, !llvm.loop !101
 
 8852:                                             ; preds = %._crit_edge5460
   call fastcc void @add_packed_guid(ptr noundef %82, ptr noundef %5)
@@ -22185,7 +22185,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %8967 = add nuw i32 %.047555450, 1
   %8968 = load i32, ptr %46, align 4
   %8969 = icmp ult i32 %8967, %8968
-  br i1 %8969, label %.lr.ph5452, label %.loopexit, !llvm.loop !101
+  br i1 %8969, label %.lr.ph5452, label %.loopexit, !llvm.loop !102
 
 8970:                                             ; preds = %6
   %8971 = load i32, ptr @hf_woww_guid, align 4
@@ -22421,7 +22421,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   tail call void @ptvcursor_pop_subtree(ptr noundef %82)
   %9112 = add nuw nsw i32 %.047545449, 1
   %exitcond5798.not = icmp eq i32 %9112, 7
-  br i1 %exitcond5798.not, label %.loopexit, label %9081, !llvm.loop !102
+  br i1 %exitcond5798.not, label %.loopexit, label %9081, !llvm.loop !103
 
 9113:                                             ; preds = %6
   %9114 = load i32, ptr @hf_woww_guid, align 4
@@ -22481,7 +22481,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %9152 = add nuw i32 %.047535445, 1
   %9153 = load i32, ptr %43, align 4
   %9154 = icmp ult i32 %9152, %9153
-  br i1 %9154, label %.lr.ph5447, label %._crit_edge5448, !llvm.loop !103
+  br i1 %9154, label %.lr.ph5447, label %._crit_edge5448, !llvm.loop !104
 
 9155:                                             ; preds = %.lr.ph5447, %9155
   %.047525444 = phi i32 [ 0, %.lr.ph5447 ], [ %9158, %9155 ]
@@ -22489,7 +22489,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %9157 = call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9156, i32 noundef 4, i32 noundef -2147483648)
   %9158 = add nuw nsw i32 %.047525444, 1
   %exitcond5797.not = icmp eq i32 %9158, 3
-  br i1 %exitcond5797.not, label %9151, label %9155, !llvm.loop !104
+  br i1 %exitcond5797.not, label %9151, label %9155, !llvm.loop !105
 
 9159:                                             ; preds = %6
   %9160 = load i32, ptr @hf_woww_map, align 4
@@ -22530,7 +22530,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %9182 = tail call ptr @ptvcursor_add(ptr noundef %82, i32 noundef %9181, i32 noundef 4, i32 noundef -2147483648)
   %9183 = add nuw nsw i32 %.047515443, 1
   %exitcond.not = icmp eq i32 %9183, 8
-  br i1 %exitcond.not, label %.loopexit, label %.preheader5425, !llvm.loop !105
+  br i1 %exitcond.not, label %.loopexit, label %.preheader5425, !llvm.loop !106
 
 9184:                                             ; preds = %6
   %9185 = load i32, ptr @hf_woww_aura_slot, align 4
@@ -22762,7 +22762,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %9333 = add nuw i32 %.047495431, 1
   %9334 = load i32, ptr %30, align 4
   %9335 = icmp ult i32 %9333, %9334
-  br i1 %9335, label %.lr.ph5432, label %._crit_edge, !llvm.loop !106
+  br i1 %9335, label %.lr.ph5432, label %._crit_edge, !llvm.loop !107
 
 9336:                                             ; preds = %9207
   %9337 = and i32 %9212, 64
@@ -23029,7 +23029,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %9502 = add nuw i32 %.047485436, 1
   %9503 = load i32, ptr %30, align 4
   %9504 = icmp ult i32 %9502, %9503
-  br i1 %9504, label %.lr.ph5438, label %._crit_edge5439, !llvm.loop !107
+  br i1 %9504, label %.lr.ph5438, label %._crit_edge5439, !llvm.loop !108
 
 9505:                                             ; preds = %9374
   %9506 = and i32 %9381, 64
@@ -23114,14 +23114,14 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %9545 = add nuw i32 %.047475433, 1
   %9546 = load i32, ptr %53, align 4
   %9547 = icmp ult i32 %9545, %9546
-  br i1 %9547, label %.lr.ph5435, label %.loopexit5427, !llvm.loop !108
+  br i1 %9547, label %.lr.ph5435, label %.loopexit5427, !llvm.loop !109
 
 .loopexit5427:                                    ; preds = %.lr.ph5435, %9541, %9372, %9371, %9540, %9206
   call void @ptvcursor_pop_subtree(ptr noundef %82)
   %9548 = add nuw i32 %.047505440, 1
   %9549 = load i32, ptr %31, align 4
   %9550 = icmp ult i32 %9548, %9549
-  br i1 %9550, label %.lr.ph5442, label %.loopexit, !llvm.loop !109
+  br i1 %9550, label %.lr.ph5442, label %.loopexit, !llvm.loop !110
 
 9551:                                             ; preds = %6
   %9552 = load i32, ptr @ett_message, align 4
@@ -23178,7 +23178,7 @@ add_cstring.exit5357:                             ; preds = %8484, %8485
   %9585 = call zeroext i8 @tvb_get_uint8(ptr noundef %9580, i32 noundef %9584)
   %.not.i.i5360 = icmp eq i8 %9585, 0
   %9586 = add nuw nsw i32 %.012.i.i5358, 1
-  br i1 %.not.i.i5360, label %add_cstring.exit5362, label %9582, !llvm.loop !19
+  br i1 %.not.i.i5360, label %add_cstring.exit5362, label %9582, !llvm.loop !20
 
 add_cstring.exit5362:                             ; preds = %9582, %9583
   %spec.select.i.i5361 = phi i32 [ %9586, %9583 ], [ 0, %9582 ]
@@ -23198,7 +23198,7 @@ add_cstring.exit5362:                             ; preds = %9582, %9583
   %9594 = call zeroext i8 @tvb_get_uint8(ptr noundef %9589, i32 noundef %9593)
   %.not.i.i5365 = icmp eq i8 %9594, 0
   %9595 = add nuw nsw i32 %.012.i.i5363, 1
-  br i1 %.not.i.i5365, label %add_cstring.exit5367, label %9591, !llvm.loop !19
+  br i1 %.not.i.i5365, label %add_cstring.exit5367, label %9591, !llvm.loop !20
 
 add_cstring.exit5367:                             ; preds = %9591, %9592
   %spec.select.i.i5366 = phi i32 [ %9595, %9592 ], [ 0, %9591 ]
@@ -23218,7 +23218,7 @@ add_cstring.exit5367:                             ; preds = %9591, %9592
   %9608 = add nuw i32 %.05430, 1
   %9609 = load i32, ptr %59, align 4
   %9610 = icmp ult i32 %9608, %9609
-  br i1 %9610, label %.lr.ph, label %.loopexit, !llvm.loop !110
+  br i1 %9610, label %.lr.ph, label %.loopexit, !llvm.loop !111
 
 9611:                                             ; preds = %6
   tail call fastcc void @add_cstring(ptr noundef %82, ptr noundef nonnull @hf_woww_message)
@@ -23333,7 +23333,7 @@ define internal fastcc void @add_cstring(ptr noundef %0, ptr noundef readonly ca
   %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %7)
   %.not.i = icmp eq i8 %8, 0
   %9 = add nuw nsw i32 %.012.i, 1
-  br i1 %.not.i, label %get_null_terminated_string_length.exit, label %5, !llvm.loop !19
+  br i1 %.not.i, label %get_null_terminated_string_length.exit, label %5, !llvm.loop !20
 
 get_null_terminated_string_length.exit:           ; preds = %5, %6
   %spec.select.i = phi i32 [ %9, %6 ], [ 0, %5 ]
@@ -23378,7 +23378,7 @@ define internal fastcc void @add_sized_cstring(ptr noundef %0, ptr noundef reado
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %5, i32 noundef %9)
   %.not.i = icmp eq i8 %10, 0
   %11 = add nuw nsw i32 %.012.i, 1
-  br i1 %.not.i, label %get_null_terminated_string_length.exit, label %7, !llvm.loop !19
+  br i1 %.not.i, label %get_null_terminated_string_length.exit, label %7, !llvm.loop !20
 
 get_null_terminated_string_length.exit:           ; preds = %7, %8
   %spec.select.i = phi i32 [ %11, %8 ], [ 0, %7 ]
@@ -23425,7 +23425,7 @@ define internal fastcc void @add_packed_guid(ptr noundef %0, ptr noundef %1) unn
 22:                                               ; preds = %14, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %10, label %14, !llvm.loop !111
+  br i1 %exitcond.not, label %10, label %14, !llvm.loop !112
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -23464,7 +23464,7 @@ define internal fastcc void @add_monster_move_spline(ptr noundef %0) unnamed_add
   %18 = add nuw i32 %.08, 1
   %19 = load i32, ptr %2, align 4
   %20 = icmp ult i32 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !112
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !113
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -23504,7 +23504,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %18 = load i32, ptr %3, align 4
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !113
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !114
 
 .preheader54:                                     ; preds = %.preheader54.preheader, %32
   %indvars.iv70 = phi i64 [ 0, %.preheader54.preheader ], [ %indvars.iv.next71, %32 ]
@@ -23534,7 +23534,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
 32:                                               ; preds = %33
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
-  br i1 %exitcond73.not, label %._crit_edge60.loopexit, label %.preheader54, !llvm.loop !114
+  br i1 %exitcond73.not, label %._crit_edge60.loopexit, label %.preheader54, !llvm.loop !115
 
 33:                                               ; preds = %.preheader54, %33
   %.14957 = phi i32 [ %.04859, %.preheader54 ], [ %spec.select, %33 ]
@@ -23544,7 +23544,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %spec.select = add i32 %35, %.14957
   %36 = add nuw nsw i32 %.05256, 1
   %exitcond.not = icmp eq i32 %36, 32
-  br i1 %exitcond.not, label %32, label %33, !llvm.loop !115
+  br i1 %exitcond.not, label %32, label %33, !llvm.loop !116
 
 .preheader:                                       ; preds = %._crit_edge60, %40
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %40 ], [ 0, %._crit_edge60 ]
@@ -23564,7 +23564,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %41 = load i32, ptr %3, align 4
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %indvars.iv.next76, %42
-  br i1 %43, label %.preheader, label %._crit_edge65, !llvm.loop !116
+  br i1 %43, label %.preheader, label %._crit_edge65, !llvm.loop !117
 
 44:                                               ; preds = %.preheader, %61
   %.04562 = phi i32 [ 0, %.preheader ], [ %62, %61 ]
@@ -23596,7 +23596,7 @@ define internal fastcc void @add_update_mask(ptr noundef %0, ptr noundef %1) unn
   %.2 = phi i32 [ %58, %48 ], [ %.161, %44 ]
   %62 = add nuw nsw i32 %.04562, 1
   %exitcond74.not = icmp eq i32 %62, 32
-  br i1 %exitcond74.not, label %40, label %44, !llvm.loop !117
+  br i1 %exitcond74.not, label %40, label %44, !llvm.loop !118
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -23628,7 +23628,7 @@ define internal fastcc void @add_aura_mask(ptr noundef %0) unnamed_addr #0 {
 13:                                               ; preds = %6, %10
   %14 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %14, 32
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !118
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !119
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -23658,114 +23658,115 @@ attributes #6 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
-!41 = distinct !{!41, !9}
-!42 = distinct !{!42, !9}
-!43 = distinct !{!43, !9}
-!44 = distinct !{!44, !9}
-!45 = distinct !{!45, !9}
-!46 = distinct !{!46, !9}
-!47 = distinct !{!47, !9}
-!48 = distinct !{!48, !9}
-!49 = distinct !{!49, !9}
-!50 = distinct !{!50, !9}
-!51 = distinct !{!51, !9}
-!52 = distinct !{!52, !9}
-!53 = distinct !{!53, !9}
-!54 = distinct !{!54, !9}
-!55 = distinct !{!55, !9}
-!56 = distinct !{!56, !9}
-!57 = distinct !{!57, !9}
-!58 = distinct !{!58, !9}
-!59 = distinct !{!59, !9}
-!60 = distinct !{!60, !9}
-!61 = distinct !{!61, !9}
-!62 = distinct !{!62, !9}
-!63 = distinct !{!63, !9}
-!64 = distinct !{!64, !9}
-!65 = distinct !{!65, !9}
-!66 = distinct !{!66, !9}
-!67 = distinct !{!67, !9}
-!68 = distinct !{!68, !9}
-!69 = distinct !{!69, !9}
-!70 = distinct !{!70, !9}
-!71 = distinct !{!71, !9}
-!72 = distinct !{!72, !9}
-!73 = distinct !{!73, !9}
-!74 = distinct !{!74, !9}
-!75 = distinct !{!75, !9}
-!76 = distinct !{!76, !9}
-!77 = distinct !{!77, !9}
-!78 = distinct !{!78, !9}
-!79 = distinct !{!79, !9}
-!80 = distinct !{!80, !9}
-!81 = distinct !{!81, !9}
-!82 = distinct !{!82, !9}
-!83 = distinct !{!83, !9}
-!84 = distinct !{!84, !9}
-!85 = distinct !{!85, !9}
-!86 = distinct !{!86, !9}
-!87 = distinct !{!87, !9}
-!88 = distinct !{!88, !9}
-!89 = distinct !{!89, !9}
-!90 = distinct !{!90, !9}
-!91 = distinct !{!91, !9}
-!92 = distinct !{!92, !9}
-!93 = distinct !{!93, !9}
-!94 = distinct !{!94, !9}
-!95 = distinct !{!95, !9}
-!96 = distinct !{!96, !9}
-!97 = distinct !{!97, !9}
-!98 = distinct !{!98, !9}
-!99 = distinct !{!99, !9}
-!100 = distinct !{!100, !9}
-!101 = distinct !{!101, !9}
-!102 = distinct !{!102, !9}
-!103 = distinct !{!103, !9}
-!104 = distinct !{!104, !9}
-!105 = distinct !{!105, !9}
-!106 = distinct !{!106, !9}
-!107 = distinct !{!107, !9}
-!108 = distinct !{!108, !9}
-!109 = distinct !{!109, !9}
-!110 = distinct !{!110, !9}
-!111 = distinct !{!111, !9}
-!112 = distinct !{!112, !9}
-!113 = distinct !{!113, !9}
-!114 = distinct !{!114, !9}
-!115 = distinct !{!115, !9}
-!116 = distinct !{!116, !9}
-!117 = distinct !{!117, !9}
-!118 = distinct !{!118, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}
+!41 = distinct !{!41, !9, !10}
+!42 = distinct !{!42, !9, !10}
+!43 = distinct !{!43, !9, !10}
+!44 = distinct !{!44, !9, !10}
+!45 = distinct !{!45, !9, !10}
+!46 = distinct !{!46, !9, !10}
+!47 = distinct !{!47, !9, !10}
+!48 = distinct !{!48, !9, !10}
+!49 = distinct !{!49, !9, !10}
+!50 = distinct !{!50, !9, !10}
+!51 = distinct !{!51, !9, !10}
+!52 = distinct !{!52, !9, !10}
+!53 = distinct !{!53, !9, !10}
+!54 = distinct !{!54, !9, !10}
+!55 = distinct !{!55, !9, !10}
+!56 = distinct !{!56, !9, !10}
+!57 = distinct !{!57, !9, !10}
+!58 = distinct !{!58, !9, !10}
+!59 = distinct !{!59, !9, !10}
+!60 = distinct !{!60, !9, !10}
+!61 = distinct !{!61, !9, !10}
+!62 = distinct !{!62, !9, !10}
+!63 = distinct !{!63, !9, !10}
+!64 = distinct !{!64, !9, !10}
+!65 = distinct !{!65, !9, !10}
+!66 = distinct !{!66, !9, !10}
+!67 = distinct !{!67, !9, !10}
+!68 = distinct !{!68, !9, !10}
+!69 = distinct !{!69, !9, !10}
+!70 = distinct !{!70, !9, !10}
+!71 = distinct !{!71, !9, !10}
+!72 = distinct !{!72, !9, !10}
+!73 = distinct !{!73, !9, !10}
+!74 = distinct !{!74, !9, !10}
+!75 = distinct !{!75, !9, !10}
+!76 = distinct !{!76, !9, !10}
+!77 = distinct !{!77, !9, !10}
+!78 = distinct !{!78, !9, !10}
+!79 = distinct !{!79, !9, !10}
+!80 = distinct !{!80, !9, !10}
+!81 = distinct !{!81, !9, !10}
+!82 = distinct !{!82, !9, !10}
+!83 = distinct !{!83, !9, !10}
+!84 = distinct !{!84, !9, !10}
+!85 = distinct !{!85, !9, !10}
+!86 = distinct !{!86, !9, !10}
+!87 = distinct !{!87, !9, !10}
+!88 = distinct !{!88, !9, !10}
+!89 = distinct !{!89, !9, !10}
+!90 = distinct !{!90, !9, !10}
+!91 = distinct !{!91, !9, !10}
+!92 = distinct !{!92, !9, !10}
+!93 = distinct !{!93, !9, !10}
+!94 = distinct !{!94, !9, !10}
+!95 = distinct !{!95, !9, !10}
+!96 = distinct !{!96, !9, !10}
+!97 = distinct !{!97, !9, !10}
+!98 = distinct !{!98, !9, !10}
+!99 = distinct !{!99, !9, !10}
+!100 = distinct !{!100, !9, !10}
+!101 = distinct !{!101, !9, !10}
+!102 = distinct !{!102, !9, !10}
+!103 = distinct !{!103, !9, !10}
+!104 = distinct !{!104, !9, !10}
+!105 = distinct !{!105, !9, !10}
+!106 = distinct !{!106, !9, !10}
+!107 = distinct !{!107, !9, !10}
+!108 = distinct !{!108, !9, !10}
+!109 = distinct !{!109, !9, !10}
+!110 = distinct !{!110, !9, !10}
+!111 = distinct !{!111, !9, !10}
+!112 = distinct !{!112, !9, !10}
+!113 = distinct !{!113, !9, !10}
+!114 = distinct !{!114, !9, !10}
+!115 = distinct !{!115, !9, !10}
+!116 = distinct !{!116, !9, !10}
+!117 = distinct !{!117, !9, !10}
+!118 = distinct !{!118, !9, !10}
+!119 = distinct !{!119, !9, !10}

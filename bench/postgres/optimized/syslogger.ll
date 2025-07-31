@@ -894,7 +894,7 @@ select.unfold.i:                                  ; preds = %377, %._crit_edge.i
   %.3.i = getelementptr inbounds nuw i8, ptr %.0192.i, i64 %.pn.i
   %.3103.i = sub nsw i32 %.0100191.i, %.0122.pn.i
   %378 = icmp sgt i32 %.3103.i, 9
-  br i1 %378, label %.lr.ph195.i, label %select.unfold.thread.i
+  br i1 %378, label %.lr.ph195.i, label %select.unfold.thread.i, !llvm.loop !9
 
 select.unfold.thread.i:                           ; preds = %select.unfold.i, %287
   %.0100.lcssa.i = phi i32 [ %.3103.i, %select.unfold.i ], [ %.0100191.i, %287 ]
@@ -940,7 +940,7 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %2
 .critedge.i101:                                   ; preds = %406, %.lr.ph.i100, %383
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next32.i, 256
-  br i1 %exitcond.not.i102, label %410, label %383, !llvm.loop !8
+  br i1 %exitcond.not.i102, label %410, label %383, !llvm.loop !10
 
 395:                                              ; preds = %.lr.ph28.i
   %396 = getelementptr inbounds nuw i8, ptr %393, i64 8
@@ -1009,7 +1009,7 @@ flush_pipe_input.exit:                            ; preds = %417, %412, %410, %2
 process_pipe_input.exit:                          ; preds = %380, %select.unfold.thread.i, %.critedge, %flush_pipe_input.exit
   %.2116 = phi i32 [ %.1115, %flush_pipe_input.exit ], [ %.0100.lcssa.i, %380 ], [ %.0100.lcssa.i, %select.unfold.thread.i ], [ %272, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #15
-  br label %78
+  br label %78, !llvm.loop !11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1777,6 +1777,9 @@ attributes #19 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}

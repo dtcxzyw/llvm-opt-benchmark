@@ -163,7 +163,7 @@ findCode.exit:                                    ; preds = %.lr.ph.i, %47, %29
   br i1 %57, label %58, label %findCode.exit.addCode.exit_crit_edge
 
 findCode.exit.addCode.exit_crit_edge:             ; preds = %findCode.exit
-  %.pre = load i32, ptr %26, align 4, !tbaa !32
+  %.pre = load i32, ptr %26, align 4, !tbaa !33
   br label %addCode.exit
 
 58:                                               ; preds = %findCode.exit
@@ -258,14 +258,14 @@ writeCode.exit:                                   ; preds = %put_bits_le.exit.i,
   store i32 %.026.i.i.sink.i, ptr %21, align 8, !tbaa !18
   store i32 %.0.i.i.sink.i, ptr %23, align 4, !tbaa !17
   %106 = load i32, ptr %13, align 4, !tbaa !22
-  %107 = load i32, ptr %26, align 4, !tbaa !32
+  %107 = load i32, ptr %26, align 4, !tbaa !33
   %108 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 %107, ptr %108, align 4, !tbaa !33
+  store i32 %107, ptr %108, align 4, !tbaa !34
   %109 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i8 %31, ptr %109, align 4, !tbaa !29
   store i32 %106, ptr %55, align 4, !tbaa !27
   %110 = add nsw i32 %107, 1
-  store i32 %110, ptr %26, align 4, !tbaa !32
+  store i32 %110, ptr %26, align 4, !tbaa !33
   %111 = load i32, ptr %22, align 8, !tbaa !23
   %112 = shl nuw i32 1, %111
   %113 = load i32, ptr %27, align 8, !tbaa !24
@@ -286,7 +286,7 @@ addCode.exit:                                     ; preds = %findCode.exit.addCo
   %120 = sext i32 %.0 to i64
   %.idx = mul nsw i64 %120, 12
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
-  %121 = load i32, ptr %gep, align 4, !tbaa !33
+  %121 = load i32, ptr %gep, align 4, !tbaa !34
   store i32 %121, ptr %13, align 4, !tbaa !22
   %122 = load i32, ptr %28, align 4, !tbaa !20
   %123 = add nsw i32 %122, -1
@@ -300,7 +300,7 @@ addCode.exit:                                     ; preds = %findCode.exit.addCo
 125:                                              ; preds = %124, %addCode.exit
   %126 = add nuw nsw i32 %.02935, 1
   %exitcond.not = icmp eq i32 %126, %2
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %125, %17
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 196968
@@ -437,7 +437,7 @@ writeCode.exit:                                   ; preds = %put_bits_le.exit.i,
   store i32 -2, ptr %60, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16411
-  br i1 %exitcond.not, label %.preheader, label %59, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader, label %59, !llvm.loop !36
 
 .preheader:                                       ; preds = %59, %.preheader
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 0, %59 ]
@@ -445,18 +445,18 @@ writeCode.exit:                                   ; preds = %put_bits_le.exit.i,
   %62 = getelementptr inbounds nuw [16411 x %struct.Code], ptr %58, i64 0, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = trunc nuw nsw i64 %indvars.iv21 to i32
-  store i32 %64, ptr %63, align 4, !tbaa !33
+  store i32 %64, ptr %63, align 4, !tbaa !34
   %65 = trunc i64 %indvars.iv21 to i8
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i8 %65, ptr %66, align 4, !tbaa !29
   store i32 -1, ptr %62, align 4, !tbaa !27
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 256
-  br i1 %exitcond24.not, label %67, label %.preheader, !llvm.loop !36
+  br i1 %exitcond24.not, label %67, label %.preheader, !llvm.loop !37
 
 67:                                               ; preds = %.preheader
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 196940
-  store i32 258, ptr %68, align 4, !tbaa !32
+  store i32 258, ptr %68, align 4, !tbaa !33
   ret void
 }
 
@@ -759,7 +759,7 @@ put_bits_le.exit:                                 ; preds = %124, %138
   %159 = add nsw i32 %158, 8
   store i32 %159, ptr %70, align 4, !tbaa !17
   %160 = icmp slt i32 %158, 24
-  br i1 %160, label %147, label %flush_put_bits_le.exit, !llvm.loop !37
+  br i1 %160, label %147, label %flush_put_bits_le.exit, !llvm.loop !38
 
 161:                                              ; preds = %writeCode.exit23
   br i1 %122, label %162, label %182
@@ -841,7 +841,7 @@ put_bits.exit:                                    ; preds = %175, %180, %164
   %202 = add nsw i32 %201, 8
   store i32 %202, ptr %70, align 4, !tbaa !17
   %203 = icmp slt i32 %201, 24
-  br i1 %203, label %189, label %flush_put_bits_le.exit, !llvm.loop !38
+  br i1 %203, label %189, label %flush_put_bits_le.exit, !llvm.loop !39
 
 flush_put_bits_le.exit:                           ; preds = %153, %195, %182, %141
   store i32 32, ptr %70, align 4, !tbaa !17
@@ -907,12 +907,13 @@ attributes #5 = { noreturn nounwind }
 !27 = !{!28, !6, i64 0}
 !28 = !{!"Code", !6, i64 0, !6, i64 4, !7, i64 8}
 !29 = !{!28, !7, i64 8}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!5, !6, i64 196940}
-!33 = !{!28, !6, i64 4}
-!34 = distinct !{!34, !31}
-!35 = distinct !{!35, !31}
-!36 = distinct !{!36, !31}
-!37 = distinct !{!37, !31}
-!38 = distinct !{!38, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!5, !6, i64 196940}
+!34 = !{!28, !6, i64 4}
+!35 = distinct !{!35, !31, !32}
+!36 = distinct !{!36, !31, !32}
+!37 = distinct !{!37, !31, !32}
+!38 = distinct !{!38, !31, !32}
+!39 = distinct !{!39, !31, !32}

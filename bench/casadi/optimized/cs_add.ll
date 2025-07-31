@@ -123,7 +123,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
 
 .loopexit.us:                                     ; preds = %.lr.ph.us, %.lr.ph101.split.us
   %exitcond116.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count115
-  br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph101.split.us, !llvm.loop !21
+  br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph101.split.us, !llvm.loop !22
 
 .lr.ph101.split:                                  ; preds = %.lr.ph101, %.lr.ph101.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph101.split ], [ 0, %.lr.ph101 ]
@@ -136,7 +136,7 @@ define ptr @cs_add(ptr noundef %0, ptr noundef %1, double noundef %2, double nou
   %75 = tail call i32 @cs_scatter(ptr noundef nonnull %0, i32 noundef %74, double noundef %2, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %.08399) #2
   %76 = tail call i32 @cs_scatter(ptr noundef nonnull %1, i32 noundef %74, double noundef %3, ptr noundef nonnull %36, ptr noundef %46, i32 noundef %indvars, ptr noundef nonnull %48, i32 noundef %75) #2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count115
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph101.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph101.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph101.split, %.loopexit.us, %52
   %.083.lcssa = phi i32 [ 0, %52 ], [ %63, %.loopexit.us ], [ %76, %.lr.ph101.split ]
@@ -192,8 +192,9 @@ attributes #2 = { nounwind }
 !16 = !{!4, !8, i64 24}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"double", !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !20, !21}

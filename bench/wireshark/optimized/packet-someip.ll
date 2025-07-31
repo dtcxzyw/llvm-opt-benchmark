@@ -3943,7 +3943,7 @@ reset_someip_service_cb.exit:                     ; preds = %0, %2
   %14 = load i32, ptr @someip_service_ident_num, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4097,7 +4097,7 @@ reset_someip_method_cb.exit:                      ; preds = %0, %2
   %19 = load i32, ptr @someip_method_ident_num, align 4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4156,7 +4156,7 @@ reset_someip_eventgroup_cb.exit:                  ; preds = %0, %2
   %19 = load i32, ptr @someip_eventgroup_ident_num, align 4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4262,7 +4262,7 @@ reset_someip_client_cb.exit:                      ; preds = %0, %2
   %19 = load i32, ptr @someip_client_ident_num, align 4
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4631,7 +4631,7 @@ define internal void @post_update_someip_parameter_list_cb() #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %post_update_someip_parameter_list_read_in_data.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %post_update_someip_parameter_list_read_in_data.exit, label %.lr.ph.i, !llvm.loop !15
 
 post_update_someip_parameter_list_read_in_data.exit: ; preds = %83, %0
   ret void
@@ -5025,7 +5025,7 @@ define internal void @post_update_someip_parameter_array_cb() #0 {
 69:                                               ; preds = %52, %48, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %post_update_someip_parameter_array_read_in_data.exit, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %post_update_someip_parameter_array_read_in_data.exit, label %.lr.ph.i, !llvm.loop !16
 
 post_update_someip_parameter_array_read_in_data.exit: ; preds = %69, %0
   ret void
@@ -5455,7 +5455,7 @@ define internal void @post_update_someip_parameter_struct_cb() #0 {
 70:                                               ; preds = %52, %48, %42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %post_update_someip_parameter_struct_read_in_data.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %post_update_someip_parameter_struct_read_in_data.exit, label %.lr.ph.i, !llvm.loop !17
 
 post_update_someip_parameter_struct_read_in_data.exit: ; preds = %70, %0
   ret void
@@ -5840,7 +5840,7 @@ define internal void @post_update_someip_parameter_union_cb() #0 {
 54:                                               ; preds = %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %51, !llvm.loop !17
+  br i1 %exitcond.not.i, label %.critedge.i, label %51, !llvm.loop !18
 
 55:                                               ; preds = %51
   %56 = and i64 %indvars.iv.i, 4294967295
@@ -5869,7 +5869,7 @@ define internal void @post_update_someip_parameter_union_cb() #0 {
 .critedge.i:                                      ; preds = %54, %55, %42
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
-  br i1 %exitcond84.not.i, label %post_update_someip_parameter_union_read_in_data.exit, label %.lr.ph72.i, !llvm.loop !18
+  br i1 %exitcond84.not.i, label %post_update_someip_parameter_union_read_in_data.exit, label %.lr.ph72.i, !llvm.loop !19
 
 post_update_someip_parameter_union_read_in_data.exit: ; preds = %.critedge.i, %0
   ret void
@@ -6186,7 +6186,7 @@ reset_someip_parameter_enum_cb.exit:              ; preds = %3, %5
 59:                                               ; preds = %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %56, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.critedge.i, label %56, !llvm.loop !20
 
 60:                                               ; preds = %56
   %61 = and i64 %indvars.iv.i, 4294967295
@@ -6205,7 +6205,7 @@ reset_someip_parameter_enum_cb.exit:              ; preds = %3, %5
 .critedge.i:                                      ; preds = %59, %60, %50, %47
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count80.i
-  br i1 %exitcond81.not.i, label %post_update_someip_parameter_enum_read_in_data.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond81.not.i, label %post_update_someip_parameter_enum_read_in_data.exit, label %.lr.ph.i, !llvm.loop !21
 
 post_update_someip_parameter_enum_read_in_data.exit: ; preds = %.critedge.i, %reset_someip_parameter_enum_cb.exit
   ret void
@@ -6407,7 +6407,7 @@ reset_someip_parameter_base_type_list_cb.exit:    ; preds = %3, %5
   %18 = load i32, ptr @someip_parameter_base_type_list_num, align 4
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %reset_someip_parameter_base_type_list_cb.exit
   ret void
@@ -6606,7 +6606,7 @@ reset_someip_parameter_string_list_cb.exit:       ; preds = %3, %5
   %18 = load i32, ptr @someip_parameter_strings_num, align 4
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %reset_someip_parameter_string_list_cb.exit
   ret void
@@ -6750,7 +6750,7 @@ reset_someip_parameter_typedef_list_cb.exit:      ; preds = %3, %5
   %18 = load i32, ptr @someip_parameter_typedefs_num, align 4
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %reset_someip_parameter_typedef_list_cb.exit
   ret void
@@ -7239,7 +7239,7 @@ get_typedef_config.exit.i:                        ; preds = %34, %.lr.ph.split.i
   %40 = icmp eq i32 %.029.i, 6
   %41 = icmp samesign ugt i32 %.03151.i, 1
   %42 = select i1 %40, i1 %41, i1 false
-  br i1 %42, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !24
+  br i1 %42, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %get_typedef_config.exit.i, %.lr.ph.split.us.i, %.preheader.i
   %.029.lcssa.i = phi i32 [ %.02949.i, %.preheader.i ], [ %.029.us.fr.i, %.lr.ph.split.us.i ], [ %.029.i, %get_typedef_config.exit.i ]
@@ -7447,7 +7447,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %136, %142, %145
   %150 = add i32 %.089, %20
   %151 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %150)
   %152 = icmp sgt i32 %151, 1
-  br i1 %152, label %.lr.ph111, label %.loopexit, !llvm.loop !26
+  br i1 %152, label %.lr.ph111, label %.loopexit, !llvm.loop !27
 
 153:                                              ; preds = %12
   %154 = icmp eq ptr %4, null
@@ -7478,7 +7478,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %136, %142, %145
   %166 = add i32 %165, %.3108
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.lr.ph, %149, %.preheader100, %.preheader
   %.288 = phi i32 [ %3, %.preheader ], [ %3, %.preheader100 ], [ %150, %149 ], [ %166, %.lr.ph ]
@@ -7708,7 +7708,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i: ; preds = %proto_item_set_hidd
 114:                                              ; preds = %115
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %dissect_someip_payload_base_type.exit, label %115, !llvm.loop !28
+  br i1 %exitcond.not.i, label %dissect_someip_payload_base_type.exit, label %115, !llvm.loop !29
 
 115:                                              ; preds = %114, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
@@ -7912,7 +7912,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i59: ; preds = %159, %.thread.i
 213:                                              ; preds = %212, %.lr.ph.i61
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i60
-  br i1 %exitcond.not.i64, label %.loopexit.i, label %.lr.ph.i61, !llvm.loop !29
+  br i1 %exitcond.not.i64, label %.loopexit.i, label %.lr.ph.i61, !llvm.loop !30
 
 .loopexit.i:                                      ; preds = %213, %202
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.087103.i, ptr noundef nonnull @.str.363, ptr noundef %205)
@@ -8481,7 +8481,7 @@ dissect_someip_payload_type_field.exit:           ; preds = %450, %453, %456, %4
   %.199.i = phi ptr [ %.098.i152, %484 ], [ %spec.select.i78, %488 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %484, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %484, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %491
   %.not.i77 = icmp eq ptr %.199.i, null
@@ -8697,7 +8697,7 @@ define internal fastcc i32 @dissect_someip_payload_array_dim(ptr noundef %0, ptr
   %or.cond.i = select i1 %.not.i, i1 %44, i1 false
   %45 = icmp slt i32 %42, %4
   %or.cond61.i = or i1 %or.cond.i, %45
-  br i1 %or.cond61.i, label %.critedge.i, label %._crit_edge, !llvm.loop !31
+  br i1 %or.cond61.i, label %.critedge.i, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %41, %27
   %.1.i.lcssa = phi i32 [ %.053.i, %27 ], [ %42, %41 ]
@@ -8812,7 +8812,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %77, %84, %87
   %98 = add i32 %97, %89
   tail call void @proto_item_set_end(ptr noundef %64, ptr noundef %0, i32 noundef %98)
   %99 = icmp slt i32 %98, %56
-  br i1 %99, label %62, label %.loopexit, !llvm.loop !32
+  br i1 %99, label %62, label %.loopexit, !llvm.loop !33
 
 100:                                              ; preds = %55
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -8832,7 +8832,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %77, %84, %87
   %110 = add i32 %109, %.296
   %111 = add nuw nsw i32 %.06995, 1
   %exitcond.not = icmp eq i32 %111, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !34
 
 .loopexit:                                        ; preds = %96, %.lr.ph97, %.preheader, %100, %dissect_someip_payload_array_payload.exit
   %.0 = phi i32 [ %54, %dissect_someip_payload_array_payload.exit ], [ %3, %100 ], [ %3, %.preheader ], [ %110, %.lr.ph97 ], [ %98, %96 ]
@@ -9421,7 +9421,7 @@ define internal void @update_dynamic_param_hf_entry(ptr readnone captures(none) 
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %7, label %._crit_edge, !llvm.loop !34
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %7, %27, %3
   ret void
@@ -9472,7 +9472,7 @@ get_typedef_config.exit.thread.i:                 ; preds = %16, %get_typedef_co
   %24 = icmp eq i8 %.1.i, 6
   %25 = icmp samesign ugt i32 %.03765.i, 1
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !35
+  br i1 %26, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %get_typedef_config.exit.thread.i, %6
   %.038.lcssa.i = phi i32 [ %3, %6 ], [ %.139.i, %get_typedef_config.exit.thread.i ]
@@ -9794,7 +9794,7 @@ define internal void @update_dynamic_struct_hf_entry(ptr readnone captures(none)
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %7, label %._crit_edge, !llvm.loop !36
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %7, %27, %3
   ret void
@@ -9847,7 +9847,7 @@ define internal void @update_dynamic_union_hf_entry(ptr readnone captures(none) 
   %28 = load i32, ptr %4, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next, %29
-  br i1 %30, label %7, label %._crit_edge, !llvm.loop !37
+  br i1 %30, label %7, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %7, %27, %3
   ret void
@@ -9898,33 +9898,34 @@ attributes #24 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9, !25}
-!25 = !{!"llvm.loop.unswitch.partial.disable"}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9, !25}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10, !26}
+!26 = !{!"llvm.loop.unswitch.partial.disable"}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10, !26}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}

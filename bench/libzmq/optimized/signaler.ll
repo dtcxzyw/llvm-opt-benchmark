@@ -91,7 +91,7 @@ _ZL8sleep_msj.exit.i:                             ; preds = %6
 
 _ZL13close_wait_msij.exit:                        ; preds = %.noexc3
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %26, label %_ZL13close_wait_msij.exit._ZL13close_wait_msij.exit.thread_crit_edge, !prof !13
+  br i1 %.not, label %26, label %_ZL13close_wait_msij.exit._ZL13close_wait_msij.exit.thread_crit_edge, !prof !14
 
 _ZL13close_wait_msij.exit._ZL13close_wait_msij.exit.thread_crit_edge: ; preds = %_ZL13close_wait_msij.exit
   %.pre = tail call ptr @__errno_location() #12
@@ -101,9 +101,9 @@ _ZL13close_wait_msij.exit.thread:                 ; preds = %16, %_ZL13close_wai
   %.pre-phi = phi ptr [ %.pre, %_ZL13close_wait_msij.exit._ZL13close_wait_msij.exit.thread_crit_edge ], [ %17, %16 ]
   %20 = load i32, ptr %.pre-phi, align 4, !tbaa !10
   %21 = tail call ptr @strerror(i32 noundef %20) #11
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !15
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str, ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef 111) #13
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !15
   %25 = tail call i32 @fflush(ptr noundef %24)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %21)
           to label %26 unwind label %.loopexit.split-lp
@@ -176,23 +176,23 @@ define void @_ZN3zmq10signaler_t4sendEv(ptr noundef nonnull readonly align 4 cap
   %4 = load i32, ptr %3, align 4, !tbaa !9
   %5 = tail call i32 @getpid() #11
   %.not = icmp eq i32 %4, %5
-  br i1 %.not, label %6, label %18, !prof !17
+  br i1 %.not, label %6, label %18, !prof !18
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  store i64 1, ptr %2, align 8, !tbaa !18
+  store i64 1, ptr %2, align 8, !tbaa !19
   %7 = load i32, ptr %0, align 4, !tbaa !3
   %8 = call i64 @write(i32 noundef %7, ptr noundef nonnull %2, i64 noundef 8)
   %.not3 = icmp eq i64 %8, 8
-  br i1 %.not3, label %17, label %9, !prof !17
+  br i1 %.not3, label %17, label %9, !prof !18
 
 9:                                                ; preds = %6
   %10 = tail call ptr @__errno_location() #12
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %12 = tail call ptr @strerror(i32 noundef %11) #11
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !15
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str, ptr noundef %12, ptr noundef nonnull @.str.1, i32 noundef 157) #13
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !15
   %16 = tail call i32 @fflush(ptr noundef %15)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %12)
   br label %17
@@ -215,7 +215,7 @@ define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef non
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = tail call i32 @getpid() #11
   %.not = icmp eq i32 %5, %6
-  br i1 %.not, label %9, label %7, !prof !17
+  br i1 %.not, label %9, label %7, !prof !18
 
 7:                                                ; preds = %2
   %8 = tail call ptr @__errno_location() #12
@@ -226,31 +226,31 @@ define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef non
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !8
-  store i32 %11, ptr %3, align 4, !tbaa !20
+  store i32 %11, ptr %3, align 4, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i16 1, ptr %12, align 4, !tbaa !23
+  store i16 1, ptr %12, align 4, !tbaa !24
   %13 = call i32 @poll(ptr noundef nonnull %3, i64 noundef 1, i32 noundef %1)
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %15, label %24, !prof !24
+  br i1 %14, label %15, label %24, !prof !25
 
 15:                                               ; preds = %9
   %16 = tail call ptr @__errno_location() #12
   %17 = load i32, ptr %16, align 4, !tbaa !10
   %.not11 = icmp eq i32 %17, 4
-  br i1 %.not11, label %48, label %18, !prof !17
+  br i1 %.not11, label %48, label %18, !prof !18
 
 18:                                               ; preds = %15
   %19 = call ptr @strerror(i32 noundef %17) #11
-  %20 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !15
   %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 221) #13
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !15
   %23 = call i32 @fflush(ptr noundef %22)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %19)
   br label %48
 
 24:                                               ; preds = %9
   %25 = icmp eq i32 %13, 0
-  br i1 %25, label %26, label %28, !prof !24
+  br i1 %25, label %26, label %28, !prof !25
 
 26:                                               ; preds = %24
   %27 = tail call ptr @__errno_location() #12
@@ -261,7 +261,7 @@ define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef non
   %29 = load i32, ptr %4, align 4, !tbaa !9
   %30 = call i32 @getpid() #11
   %.not8 = icmp eq i32 %29, %30
-  br i1 %.not8, label %33, label %31, !prof !17
+  br i1 %.not8, label %33, label %31, !prof !18
 
 31:                                               ; preds = %28
   %32 = tail call ptr @__errno_location() #12
@@ -270,27 +270,27 @@ define noundef range(i32 -1, 1) i32 @_ZNK3zmq10signaler_t4waitEi(ptr noundef non
 
 33:                                               ; preds = %28
   %.not9 = icmp eq i32 %13, 1
-  br i1 %.not9, label %39, label %34, !prof !17
+  br i1 %.not9, label %39, label %34, !prof !18
 
 34:                                               ; preds = %33
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !15
   %36 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 237) #13
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !15
   %38 = call i32 @fflush(ptr noundef %37)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
   br label %39
 
 39:                                               ; preds = %33, %34
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %41 = load i16, ptr %40, align 2, !tbaa !25
+  %41 = load i16, ptr %40, align 2, !tbaa !26
   %42 = and i16 %41, 1
   %.not10 = icmp eq i16 %42, 0
-  br i1 %.not10, label %43, label %48, !prof !24
+  br i1 %.not10, label %43, label %48, !prof !25
 
 43:                                               ; preds = %39
-  %44 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !15
   %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %44, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.1, i32 noundef 238) #13
-  %46 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %46 = load ptr, ptr @stderr, align 8, !tbaa !15
   %47 = call i32 @fflush(ptr noundef %46)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.4)
   br label %48
@@ -316,40 +316,40 @@ define void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull readonly align 4 cap
   %5 = load i32, ptr %4, align 4, !tbaa !8
   %6 = call i64 @read(i32 noundef %5, ptr noundef nonnull %2, i64 noundef 8)
   %.not = icmp eq i64 %6, 8
-  br i1 %.not, label %15, label %7, !prof !17
+  br i1 %.not, label %15, label %7, !prof !18
 
 7:                                                ; preds = %1
   %8 = tail call ptr @__errno_location() #12
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %10 = tail call ptr @strerror(i32 noundef %9) #11
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !15
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str, ptr noundef %10, ptr noundef nonnull @.str.1, i32 noundef 281) #13
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !15
   %14 = tail call i32 @fflush(ptr noundef %13)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %10)
   br label %15
 
 15:                                               ; preds = %7, %1
-  %16 = load i64, ptr %2, align 8, !tbaa !18
+  %16 = load i64, ptr %2, align 8, !tbaa !19
   %17 = icmp ugt i64 %16, 1
-  br i1 %17, label %18, label %31, !prof !24
+  br i1 %17, label %18, label %31, !prof !25
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %19 = add i64 %16, -1
-  store i64 %19, ptr %3, align 8, !tbaa !18
+  store i64 %19, ptr %3, align 8, !tbaa !19
   %20 = load i32, ptr %0, align 4, !tbaa !3
   %21 = call i64 @write(i32 noundef %20, ptr noundef nonnull %3, i64 noundef 8)
   %.not7 = icmp eq i64 %21, 8
-  br i1 %.not7, label %30, label %22, !prof !17
+  br i1 %.not7, label %30, label %22, !prof !18
 
 22:                                               ; preds = %18
   %23 = tail call ptr @__errno_location() #12
   %24 = load i32, ptr %23, align 4, !tbaa !10
   %25 = tail call ptr @strerror(i32 noundef %24) #11
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !15
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str, ptr noundef %25, ptr noundef nonnull @.str.1, i32 noundef 288) #13
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !15
   %29 = tail call i32 @fflush(ptr noundef %28)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %25)
   br label %30
@@ -360,12 +360,12 @@ define void @_ZN3zmq10signaler_t4recvEv(ptr noundef nonnull readonly align 4 cap
 
 31:                                               ; preds = %15
   %.not6 = icmp eq i64 %16, 1
-  br i1 %.not6, label %37, label %32, !prof !17
+  br i1 %.not6, label %37, label %32, !prof !18
 
 32:                                               ; preds = %31
-  %33 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !15
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 292) #13
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !15
   %36 = tail call i32 @fflush(ptr noundef %35)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %37
@@ -389,19 +389,19 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr no
   switch i64 %6, label %16 [
     i64 -1, label %7
     i64 8, label %24
-  ], !prof !26
+  ], !prof !27
 
 7:                                                ; preds = %1
   %8 = tail call ptr @__errno_location() #12
   %9 = load i32, ptr %8, align 4, !tbaa !10
   %.not14 = icmp eq i32 %9, 11
-  br i1 %.not14, label %46, label %10, !prof !17
+  br i1 %.not14, label %46, label %10, !prof !18
 
 10:                                               ; preds = %7
   %11 = tail call ptr @strerror(i32 noundef %9) #11
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !15
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, ptr noundef %11, ptr noundef nonnull @.str.1, i32 noundef 318) #13
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %14 = load ptr, ptr @stderr, align 8, !tbaa !15
   %15 = tail call i32 @fflush(ptr noundef %14)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %11)
   br label %46
@@ -410,34 +410,34 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr no
   %17 = tail call ptr @__errno_location() #12
   %18 = load i32, ptr %17, align 4, !tbaa !10
   %19 = tail call ptr @strerror(i32 noundef %18) #11
-  %20 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %20 = load ptr, ptr @stderr, align 8, !tbaa !15
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 321) #13
-  %22 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !15
   %23 = tail call i32 @fflush(ptr noundef %22)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %19)
   br label %24
 
 24:                                               ; preds = %1, %16
-  %25 = load i64, ptr %2, align 8, !tbaa !18
+  %25 = load i64, ptr %2, align 8, !tbaa !19
   %26 = icmp ugt i64 %25, 1
-  br i1 %26, label %27, label %40, !prof !24
+  br i1 %26, label %27, label %40, !prof !25
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %28 = add i64 %25, -1
-  store i64 %28, ptr %3, align 8, !tbaa !18
+  store i64 %28, ptr %3, align 8, !tbaa !19
   %29 = load i32, ptr %0, align 4, !tbaa !3
   %30 = call i64 @write(i32 noundef %29, ptr noundef nonnull %3, i64 noundef 8)
   %.not13 = icmp eq i64 %30, 8
-  br i1 %.not13, label %39, label %31, !prof !17
+  br i1 %.not13, label %39, label %31, !prof !18
 
 31:                                               ; preds = %27
   %32 = tail call ptr @__errno_location() #12
   %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = tail call ptr @strerror(i32 noundef %33) #11
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !15
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str, ptr noundef %34, ptr noundef nonnull @.str.1, i32 noundef 328) #13
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !15
   %38 = tail call i32 @fflush(ptr noundef %37)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %34)
   br label %39
@@ -448,12 +448,12 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq10signaler_t13recv_failableEv(ptr no
 
 40:                                               ; preds = %24
   %.not12 = icmp eq i64 %25, 1
-  br i1 %.not12, label %46, label %41, !prof !17
+  br i1 %.not12, label %46, label %41, !prof !18
 
 41:                                               ; preds = %40
-  %42 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %42 = load ptr, ptr @stderr, align 8, !tbaa !15
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %42, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 332) #13
-  %44 = load ptr, ptr @stderr, align 8, !tbaa !14
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !15
   %45 = tail call i32 @fflush(ptr noundef %44)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.5)
   br label %46
@@ -515,19 +515,20 @@ attributes #14 = { noreturn nounwind }
 !8 = !{!4, !5, i64 4}
 !9 = !{!4, !5, i64 8}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS8_IO_FILE", !16, i64 0}
-!16 = !{!"any pointer", !6, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !6, i64 0}
-!20 = !{!21, !5, i64 0}
-!21 = !{!"_ZTS6pollfd", !5, i64 0, !22, i64 4, !22, i64 6}
-!22 = !{!"short", !6, i64 0}
-!23 = !{!21, !22, i64 4}
-!24 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!25 = !{!21, !22, i64 6}
-!26 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long", !6, i64 0}
+!21 = !{!22, !5, i64 0}
+!22 = !{!"_ZTS6pollfd", !5, i64 0, !23, i64 4, !23, i64 6}
+!23 = !{!"short", !6, i64 0}
+!24 = !{!22, !23, i64 4}
+!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!26 = !{!22, !23, i64 6}
+!27 = !{!"branch_weights", i32 1, i32 2001, i32 2000}

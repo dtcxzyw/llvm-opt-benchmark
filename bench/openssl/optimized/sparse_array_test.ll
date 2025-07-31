@@ -129,7 +129,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array() #0 {
   %34 = add nuw nsw i64 %.01931, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond35.not = icmp eq i64 %34, 8
-  br i1 %exitcond35.not, label %.loopexit, label %.preheader26, !llvm.loop !14
+  br i1 %exitcond35.not, label %.loopexit, label %.preheader26, !llvm.loop !15
 
 .loopexit:                                        ; preds = %33, %0, %3, %6, %9, %28, %20
   %.0 = phi i32 [ 0, %28 ], [ 0, %20 ], [ 0, %9 ], [ 0, %6 ], [ 0, %3 ], [ 0, %0 ], [ 1, %33 ]
@@ -159,15 +159,15 @@ define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
 9:                                                ; preds = %20
   %10 = add nuw nsw i64 %.0915, 1
   %exitcond.not = icmp eq i64 %10, 16
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %6, %9
   %.0915 = phi i64 [ %10, %9 ], [ 0, %6 ]
   %11 = getelementptr inbounds nuw [16 x %struct.anon.0], ptr @test_sparse_array_num.cases, i64 0, i64 %.0915
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !16
+  %13 = load i64, ptr %12, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  %15 = load ptr, ptr %14, align 8, !tbaa !19
   %16 = tail call i32 @ossl_sa_set(ptr noundef %4, i64 noundef %13, ptr noundef %15) #4
   %17 = icmp ne i32 %16, 0
   %18 = zext i1 %17 to i32
@@ -177,7 +177,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array_num() #0 {
 
 20:                                               ; preds = %.preheader
   %21 = tail call i64 @ossl_sa_num(ptr noundef %4) #4
-  %22 = load i64, ptr %11, align 8, !tbaa !19
+  %22 = load i64, ptr %11, align 8, !tbaa !20
   %23 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.11, i32 noundef 89, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, i64 noundef %21, i64 noundef %22) #4
   %.not14 = icmp eq i32 %23, 0
   br i1 %.not14, label %.loopexit, label %9
@@ -200,20 +200,20 @@ define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
 
 4:                                                ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 8, ptr %5, align 8, !tbaa !20
+  store i64 8, ptr %5, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr @test_sparse_array_doall.cases, ptr %6, align 8, !tbaa !25
+  store ptr @test_sparse_array_doall.cases, ptr %6, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  store i32 1, ptr %7, align 4, !tbaa !26
-  store ptr null, ptr %1, align 8, !tbaa !27
+  store i32 1, ptr %7, align 4, !tbaa !27
+  store ptr null, ptr %1, align 8, !tbaa !28
   br label %8
 
 8:                                                ; preds = %4, %19
   %.01114 = phi i64 [ 0, %4 ], [ %17, %19 ]
   %9 = getelementptr inbounds nuw [8 x %struct.index_cases_st], ptr @test_sparse_array_doall.cases, i64 0, i64 %.01114
-  %10 = load i64, ptr %9, align 8, !tbaa !28
+  %10 = load i64, ptr %9, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !30
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = tail call i32 @ossl_sa_set(ptr noundef %2, i64 noundef %10, ptr noundef %12) #4
   %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
@@ -228,12 +228,12 @@ define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
 
 19:                                               ; preds = %8
   %exitcond.not = icmp eq i64 %17, 8
-  br i1 %exitcond.not, label %20, label %8, !llvm.loop !31
+  br i1 %exitcond.not, label %20, label %8, !llvm.loop !32
 
 20:                                               ; preds = %19
   call void @ossl_sa_doall_arg(ptr noundef %2, ptr noundef nonnull @leaf_check_all, ptr noundef nonnull %1) #4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load i32, ptr %21, align 8, !tbaa !32
+  %22 = load i32, ptr %21, align 8, !tbaa !33
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %25
 
@@ -242,10 +242,10 @@ define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
   br label %33
 
 25:                                               ; preds = %20
-  store i32 0, ptr %7, align 4, !tbaa !26
-  store ptr %2, ptr %1, align 8, !tbaa !27
+  store i32 0, ptr %7, align 4, !tbaa !27
+  store ptr %2, ptr %1, align 8, !tbaa !28
   call void @ossl_sa_doall_arg(ptr noundef %2, ptr noundef nonnull @leaf_delete, ptr noundef nonnull %1) #4
-  %26 = load i32, ptr %21, align 8, !tbaa !32
+  %26 = load i32, ptr %21, align 8, !tbaa !33
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %29
 
@@ -255,7 +255,7 @@ define internal range(i32 0, 2) i32 @test_sparse_array_doall() #0 {
 
 29:                                               ; preds = %25
   call void @ossl_sa_doall_arg(ptr noundef %2, ptr noundef nonnull @leaf_check_all, ptr noundef nonnull %1) #4
-  %30 = load i32, ptr %21, align 8, !tbaa !32
+  %30 = load i32, ptr %21, align 8, !tbaa !33
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %33
 
@@ -301,36 +301,36 @@ declare i64 @ossl_sa_num(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal void @leaf_check_all(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((24, 28)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 0, ptr %6, align 8, !tbaa !32
+  store i32 0, ptr %6, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !20
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %.not19 = icmp eq i64 %8, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !26
+  %10 = load i32, ptr %9, align 4, !tbaa !27
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %22
   %.018.us = phi i64 [ %23, %22 ], [ 0, %.lr.ph ]
   %11 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018.us, i32 2
-  %12 = load i32, ptr %11, align 8, !tbaa !33
+  %12 = load i32, ptr %11, align 8, !tbaa !34
   %.not17.us = icmp eq i32 %12, 0
   br i1 %.not17.us, label %13, label %22
 
 13:                                               ; preds = %.lr.ph.split.us
   %14 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018.us
-  %15 = load i64, ptr %14, align 8, !tbaa !28
+  %15 = load i64, ptr %14, align 8, !tbaa !29
   %16 = icmp eq i64 %0, %15
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !30
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %19) #5
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.split.us, label %22
@@ -338,30 +338,30 @@ define internal void @leaf_check_all(i64 noundef %0, ptr noundef %1, ptr noundef
 22:                                               ; preds = %17, %13, %.lr.ph.split.us
   %23 = add nuw i64 %.018.us, 1
   %exitcond22.not = icmp eq i64 %23, %8
-  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %exitcond22.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %32
   %.018 = phi i64 [ %33, %32 ], [ 0, %.lr.ph ]
   %24 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.018
-  %25 = load i64, ptr %24, align 8, !tbaa !28
+  %25 = load i64, ptr %24, align 8, !tbaa !29
   %26 = icmp eq i64 %0, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %.lr.ph.split
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !30
+  %29 = load ptr, ptr %28, align 8, !tbaa !31
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %29) #5
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %.split.us, label %32
 
 .split.us:                                        ; preds = %27, %17
-  store i32 1, ptr %6, align 8, !tbaa !32
+  store i32 1, ptr %6, align 8, !tbaa !33
   br label %34
 
 32:                                               ; preds = %.lr.ph.split, %27
   %33 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %33, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %32, %22, %3
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.11, i32 noundef 124, ptr noundef nonnull @.str.36, i64 noundef %0, ptr noundef %1) #4
@@ -376,38 +376,38 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define internal void @leaf_delete(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) initializes((24, 28)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 0, ptr %6, align 8, !tbaa !32
+  store i32 0, ptr %6, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !20
+  %8 = load i64, ptr %7, align 8, !tbaa !21
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %20
   %.017 = phi i64 [ %21, %20 ], [ 0, %3 ]
   %9 = getelementptr inbounds nuw %struct.index_cases_st, ptr %5, i64 %.017
-  %10 = load i64, ptr %9, align 8, !tbaa !28
+  %10 = load i64, ptr %9, align 8, !tbaa !29
   %11 = icmp eq i64 %0, %10
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %14) #5
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %12
-  store i32 1, ptr %6, align 8, !tbaa !32
-  %18 = load ptr, ptr %2, align 8, !tbaa !27
+  store i32 1, ptr %6, align 8, !tbaa !33
+  %18 = load ptr, ptr %2, align 8, !tbaa !28
   %19 = tail call i32 @ossl_sa_set(ptr noundef %18, i64 noundef %0, ptr noundef null) #4
   br label %22
 
 20:                                               ; preds = %.lr.ph, %12
   %21 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %21, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %20, %3
   tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.11, i32 noundef 140, ptr noundef nonnull @.str.36, i64 noundef %0, ptr noundef %1) #4
@@ -445,29 +445,30 @@ attributes #5 = { nounwind willreturn memory(read) }
 !9 = !{!"p1 omnipotent char", !10, i64 0}
 !10 = !{!"any pointer", !7, i64 0}
 !11 = !{!5, !9, i64 8}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = !{!17, !6, i64 8}
-!17 = !{!"", !6, i64 0, !6, i64 8, !9, i64 16}
-!18 = !{!17, !9, i64 16}
-!19 = !{!17, !6, i64 0}
-!20 = !{!21, !6, i64 8}
-!21 = !{!"doall_st", !22, i64 0, !6, i64 8, !23, i64 16, !24, i64 24, !24, i64 28}
-!22 = !{!"p1 _ZTS20sparse_array_st_char", !10, i64 0}
-!23 = !{!"p1 _ZTS14index_cases_st", !10, i64 0}
-!24 = !{!"int", !7, i64 0}
-!25 = !{!21, !23, i64 16}
-!26 = !{!21, !24, i64 28}
-!27 = !{!21, !22, i64 0}
-!28 = !{!29, !6, i64 0}
-!29 = !{!"index_cases_st", !6, i64 0, !9, i64 8, !24, i64 16}
-!30 = !{!29, !9, i64 8}
-!31 = distinct !{!31, !13}
-!32 = !{!21, !24, i64 24}
-!33 = !{!29, !24, i64 16}
-!34 = distinct !{!34, !13, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !13}
-!37 = distinct !{!37, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = !{!18, !6, i64 8}
+!18 = !{!"", !6, i64 0, !6, i64 8, !9, i64 16}
+!19 = !{!18, !9, i64 16}
+!20 = !{!18, !6, i64 0}
+!21 = !{!22, !6, i64 8}
+!22 = !{!"doall_st", !23, i64 0, !6, i64 8, !24, i64 16, !25, i64 24, !25, i64 28}
+!23 = !{!"p1 _ZTS20sparse_array_st_char", !10, i64 0}
+!24 = !{!"p1 _ZTS14index_cases_st", !10, i64 0}
+!25 = !{!"int", !7, i64 0}
+!26 = !{!22, !24, i64 16}
+!27 = !{!22, !25, i64 28}
+!28 = !{!22, !23, i64 0}
+!29 = !{!30, !6, i64 0}
+!30 = !{!"index_cases_st", !6, i64 0, !9, i64 8, !25, i64 16}
+!31 = !{!30, !9, i64 8}
+!32 = distinct !{!32, !13, !14}
+!33 = !{!22, !25, i64 24}
+!34 = !{!30, !25, i64 16}
+!35 = distinct !{!35, !13, !14, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !13, !14}
+!38 = distinct !{!38, !13, !14}

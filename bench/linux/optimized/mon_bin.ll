@@ -486,7 +486,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   %54 = ptrtoint ptr %53 to i64
   tail call void @free_pages(i64 noundef %54, i32 noundef 0) #12
   %55 = icmp eq i64 %51, 0
-  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %55, label %.loopexit, label %.preheader, !llvm.loop !11
 
 56:                                               ; preds = %.preheader22
   %57 = inttoptr i64 %45 to ptr
@@ -507,7 +507,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   store ptr %70, ptr %58, align 8
   %71 = add nuw nsw i64 %44, 1
   %72 = icmp eq i64 %71, %40
-  br i1 %72, label %73, label %.preheader22, !llvm.loop !11
+  br i1 %72, label %73, label %.preheader22, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %47
   tail call void @kfree(ptr noundef nonnull %42) #12
@@ -530,7 +530,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   tail call void @free_pages(i64 noundef %82, i32 noundef 0) #12
   %83 = add nuw nsw i64 %79, 1
   %84 = icmp eq i64 %83, %40
-  br i1 %84, label %85, label %.preheader21, !llvm.loop !12
+  br i1 %84, label %85, label %.preheader21, !llvm.loop !13
 
 85:                                               ; preds = %.preheader21
   tail call void @kfree(ptr noundef nonnull %42) #12
@@ -557,7 +557,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
   tail call void @free_pages(i64 noundef %99, i32 noundef 0) #12
   %100 = add nuw nsw i64 %96, 1
   %101 = icmp eq i64 %100, %94
-  br i1 %101, label %.loopexit20.loopexit, label %95, !llvm.loop !12
+  br i1 %101, label %.loopexit20.loopexit, label %95, !llvm.loop !14
 
 .loopexit20.loopexit:                             ; preds = %95
   %.pre = load ptr, ptr %87, align 8
@@ -631,7 +631,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_ioctl(ptr nounde
 141:                                              ; preds = %139, %122
   %142 = add nuw i32 %120, 1
   %143 = icmp eq i32 %142, %108
-  br i1 %143, label %mon_bin_flush.exit, label %118, !llvm.loop !13
+  br i1 %143, label %mon_bin_flush.exit, label %118, !llvm.loop !15
 
 mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %144 = phi i32 [ 0, %107 ], [ %108, %141 ], [ %120, %118 ]
@@ -643,7 +643,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
 
 146:                                              ; preds = %3, %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !16
   %147 = inttoptr i64 %2 to ptr
   %148 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %147, i64 noundef 24) #12
   %149 = icmp eq i64 %148, 0
@@ -667,13 +667,13 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = trunc nuw nsw i64 %152 to i32
-  %161 = call fastcc i32 @mon_bin_get_event(ptr noundef %0, ptr noundef %7, ptr noundef %155, i32 noundef %157, ptr noundef %159, i32 noundef %160), !range !15
+  %161 = call fastcc i32 @mon_bin_get_event(ptr noundef %0, ptr noundef %7, ptr noundef %155, i32 noundef %157, ptr noundef %159, i32 noundef %160), !range !17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   br label %.thread13
 
 162:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !16
   %163 = inttoptr i64 %2 to ptr
   %164 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %163, i64 noundef 16) #12
   %165 = icmp eq i64 %164, 0
@@ -731,7 +731,7 @@ mon_bin_flush.exit:                               ; preds = %118, %141, %107
 201:                                              ; preds = %199, %182
   %202 = add nuw i32 %180, 1
   %203 = icmp eq i32 %202, %168
-  br i1 %203, label %mon_bin_flush.exit10, label %178, !llvm.loop !13
+  br i1 %203, label %mon_bin_flush.exit10, label %178, !llvm.loop !15
 
 mon_bin_flush.exit10:                             ; preds = %178, %201
   %204 = phi i32 [ %180, %178 ], [ %168, %201 ]
@@ -749,7 +749,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
 209:                                              ; preds = %mon_bin_flush.exit10
   %210 = getelementptr inbounds nuw i8, ptr %163, i64 12
   %211 = call i64 @llvm.read_register.i64(metadata !0)
-  %212 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %210, i32 %204, i64 4, i64 %211) #12, !srcloc !16
+  %212 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %210, i32 %204, i64 4, i64 %211) #12, !srcloc !18
   %213 = extractvalue { ptr, i64 } %212, 0
   %214 = extractvalue { ptr, i64 } %212, 1
   %215 = ptrtoint ptr %213 to i64
@@ -778,7 +778,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
 226:                                              ; preds = %218
   %227 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %228 = call i64 @llvm.read_register.i64(metadata !0)
-  %229 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %227, i32 %222, i64 4, i64 %228) #12, !srcloc !17
+  %229 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %227, i32 %222, i64 4, i64 %228) #12, !srcloc !19
   %230 = extractvalue { ptr, i64 } %229, 0
   %231 = extractvalue { ptr, i64 } %229, 1
   %232 = ptrtoint ptr %230 to i64
@@ -833,7 +833,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %269 = sub i32 %266, %268
   %270 = add i32 %265, %253
   %271 = icmp ult i32 %270, %242
-  br i1 %271, label %251, label %.loopexit24, !llvm.loop !18
+  br i1 %271, label %251, label %.loopexit24, !llvm.loop !20
 
 .loopexit24:                                      ; preds = %251, %235
   %272 = phi i32 [ 0, %235 ], [ %261, %251 ]
@@ -841,7 +841,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
   %273 = inttoptr i64 %2 to ptr
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 4
   %275 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %276 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %274, i32 %238, i64 4, i64 %275) #12, !srcloc !19
+  %276 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %274, i32 %238, i64 4, i64 %275) #12, !srcloc !21
   %277 = extractvalue { ptr, i64 } %276, 0
   %278 = extractvalue { ptr, i64 } %276, 1
   %279 = ptrtoint ptr %277 to i64
@@ -852,7 +852,7 @@ mon_bin_flush.exit10:                             ; preds = %178, %201
 
 282:                                              ; preds = %.loopexit24
   %283 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %284 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %273, i32 %272, i64 4, i64 %283) #12, !srcloc !20
+  %284 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %273, i32 %272, i64 4, i64 %283) #12, !srcloc !22
   %285 = extractvalue { ptr, i64 } %284, 0
   %286 = extractvalue { ptr, i64 } %284, 1
   %287 = ptrtoint ptr %285 to i64
@@ -890,7 +890,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr
 
 8:                                                ; preds = %3, %3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !16
   %9 = inttoptr i64 %2 to ptr
   %10 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %9, i64 noundef 12) #12
   %11 = icmp eq i64 %10, 0
@@ -908,7 +908,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 4
-  %24 = call fastcc i32 @mon_bin_get_event(ptr noundef %0, ptr noundef %7, ptr noundef %15, i32 noundef %17, ptr noundef %21, i32 noundef %23), !range !15
+  %24 = call fastcc i32 @mon_bin_get_event(ptr noundef %0, ptr noundef %7, ptr noundef %15, i32 noundef %17, ptr noundef %21, i32 noundef %23), !range !17
   %25 = sext i32 %24 to i64
   br label %26
 
@@ -919,7 +919,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr
 
 28:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, i8 0, i64 12, i1 false), !annotation !16
   %29 = and i64 %2, 4294967295
   %30 = inttoptr i64 %29 to ptr
   %31 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %30, i64 noundef 12) #12
@@ -978,7 +978,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @mon_bin_compat_ioctl(ptr
 68:                                               ; preds = %66, %49
   %69 = add nuw i32 %47, 1
   %70 = icmp eq i32 %69, %35
-  br i1 %70, label %mon_bin_flush.exit, label %45, !llvm.loop !13
+  br i1 %70, label %mon_bin_flush.exit, label %45, !llvm.loop !15
 
 mon_bin_flush.exit:                               ; preds = %45, %68
   %71 = phi i32 [ %47, %45 ], [ %35, %68 ]
@@ -996,7 +996,7 @@ mon_bin_flush.exit:                               ; preds = %45, %68
 76:                                               ; preds = %mon_bin_flush.exit
   %77 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %78 = call i64 @llvm.read_register.i64(metadata !0)
-  %79 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %77, i32 %71, i64 4, i64 %78) #12, !srcloc !21
+  %79 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %77, i32 %71, i64 4, i64 %78) #12, !srcloc !23
   %80 = extractvalue { ptr, i64 } %79, 0
   %81 = extractvalue { ptr, i64 } %79, 1
   %82 = ptrtoint ptr %80 to i64
@@ -1022,7 +1022,7 @@ mon_bin_flush.exit:                               ; preds = %45, %68
 95:                                               ; preds = %85
   %96 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %97 = call i64 @llvm.read_register.i64(metadata !0)
-  %98 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %96, i32 %91, i64 4, i64 %97) #12, !srcloc !22
+  %98 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %96, i32 %91, i64 4, i64 %97) #12, !srcloc !24
   %99 = extractvalue { ptr, i64 } %98, 0
   %100 = extractvalue { ptr, i64 } %98, 1
   %101 = ptrtoint ptr %99 to i64
@@ -1177,7 +1177,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
   %45 = ptrtoint ptr %44 to i64
   tail call void @free_pages(i64 noundef %45, i32 noundef 0) #12
   %46 = icmp eq i64 %42, 0
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !25
 
 47:                                               ; preds = %34
   %48 = inttoptr i64 %36 to ptr
@@ -1198,7 +1198,7 @@ define internal noundef range(i32 -19, 1) i32 @mon_bin_open(ptr noundef readonly
   store ptr %61, ptr %49, align 8
   %62 = add nuw nsw i64 %35, 1
   %63 = icmp eq i64 %62, %33
-  br i1 %63, label %.critedge, label %34, !llvm.loop !11
+  br i1 %63, label %.critedge, label %34, !llvm.loop !26
 
 .critedge:                                        ; preds = %47, %28
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 96
@@ -1271,7 +1271,7 @@ define internal noundef i32 @mon_bin_release(ptr readnone captures(none) %0, ptr
   tail call void @free_pages(i64 noundef %26, i32 noundef 0) #12
   %27 = add nuw nsw i64 %23, 1
   %28 = icmp eq i64 %27, %21
-  br i1 %28, label %.loopexit.loopexit, label %22, !llvm.loop !12
+  br i1 %28, label %.loopexit.loopexit, label %22, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %22
   %.pre = load ptr, ptr %14, align 8
@@ -1296,7 +1296,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr nou
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !23
+  %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !28
   %6 = inttoptr i64 %5 to ptr
   store i64 0, ptr %3, align 8
   store ptr %6, ptr %4, align 8
@@ -1307,7 +1307,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @add_wait_queue(ptr noundef nonnull %9, ptr noundef nonnull %3) #12
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %11 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 1, ptr nonnull elementtype(i32) %10) #12, !srcloc !24
+  %11 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 1, ptr nonnull elementtype(i32) %10) #12, !srcloc !29
   %12 = call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #12
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i32, ptr %13, align 8
@@ -1327,7 +1327,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr nou
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %18
-  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 0, ptr nonnull elementtype(i32) %10) #12, !srcloc !25
+  %24 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 0, ptr nonnull elementtype(i32) %10) #12, !srcloc !30
   br label %.critedge
 
 25:                                               ; preds = %18
@@ -1335,7 +1335,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr nou
   %26 = load volatile i64, ptr %6, align 8
   %27 = and i64 %26, 131072
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %29, label %.critedge, !prof !26
+  br i1 %28, label %29, label %.critedge, !prof !31
 
 29:                                               ; preds = %25
   %30 = load volatile i64, ptr %6, align 8
@@ -1344,16 +1344,16 @@ define internal fastcc noundef range(i32 -11, 1) i32 @mon_bin_wait_event(ptr nou
   br i1 %32, label %33, label %.critedge
 
 33:                                               ; preds = %29
-  %34 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 1, ptr nonnull elementtype(i32) %10) #12, !srcloc !27
+  %34 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 1, ptr nonnull elementtype(i32) %10) #12, !srcloc !32
   %35 = call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #12
   %36 = load i32, ptr %13, align 8
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %18, label %.loopexit, !llvm.loop !28
+  br i1 %37, label %18, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %33, %2
   %38 = phi i64 [ %12, %2 ], [ %35, %33 ]
   call void @_raw_spin_unlock_irqrestore(ptr noundef %1, i64 noundef %38) #12
-  %39 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 0, ptr nonnull elementtype(i32) %10) #12, !srcloc !29
+  %39 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %10, i32 0, ptr nonnull elementtype(i32) %10) #12, !srcloc !34
   br label %.critedge
 
 .critedge:                                        ; preds = %25, %29, %.loopexit, %23
@@ -1460,7 +1460,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @mon_bin_get_event(ptr noun
   %58 = getelementptr i8, ptr %38, i64 %43
   %59 = sub i32 %37, %42
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %.loopexit5, label %36, !llvm.loop !7
+  br i1 %60, label %.loopexit5, label %36, !llvm.loop !35
 
 .loopexit5:                                       ; preds = %53, %24
   %61 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %1) #12
@@ -1538,7 +1538,7 @@ define internal fastcc i32 @mon_bin_fetch(ptr noundef readonly captures(none) %0
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i32, ptr %2, i64 %22
   %31 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %32 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %30, i32 %23, i64 4, i64 %31) #12, !srcloc !30
+  %32 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %30, i32 %23, i64 4, i64 %31) #12, !srcloc !36
   %33 = extractvalue { ptr, i64 } %32, 0
   %34 = extractvalue { ptr, i64 } %32, 1
   %35 = ptrtoint ptr %33 to i64
@@ -1564,7 +1564,7 @@ define internal fastcc i32 @mon_bin_fetch(ptr noundef readonly captures(none) %0
   %52 = icmp ult i32 %51, %11
   %53 = icmp samesign ult i64 %41, %20
   %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %21, label %55, !llvm.loop !31
+  br i1 %54, label %21, label %55, !llvm.loop !37
 
 55:                                               ; preds = %38
   %56 = trunc i64 %41 to i32
@@ -1642,7 +1642,7 @@ define internal noundef range(i32 0, 3) i32 @mon_bin_vma_fault(ptr noundef captu
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 1
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %26, label %23, !prof !26
+  br i1 %22, label %26, label %23, !prof !31
 
 23:                                               ; preds = %13
   %24 = add nsw i64 %20, -1
@@ -1651,7 +1651,7 @@ define internal noundef range(i32 0, 3) i32 @mon_bin_vma_fault(ptr noundef captu
 
 26:                                               ; preds = %13
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @hugetlb_optimize_vmemmap_key, i32 2) #12
-          to label %43 [label %27], !srcloc !32
+          to label %43 [label %27], !srcloc !38
 
 27:                                               ; preds = %26
   %28 = ptrtoint ptr %18 to i64
@@ -1680,7 +1680,7 @@ define internal noundef range(i32 0, 3) i32 @mon_bin_vma_fault(ptr noundef captu
 43:                                               ; preds = %42, %35, %26, %23
   %44 = phi ptr [ %25, %23 ], [ %41, %35 ], [ %18, %42 ], [ %18, %26 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 52
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, ptr nonnull elementtype(i32) %45) #12, !srcloc !33
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %45, ptr nonnull elementtype(i32) %45) #12, !srcloc !39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %18, ptr %46, align 8
   br label %47
@@ -1722,7 +1722,7 @@ define internal void @mon_bin_submit(ptr noundef %0, ptr noundef %1) #0 align 16
 define internal void @mon_bin_error(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.timespec64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !16
   call void @ktime_get_real_ts64(ptr noundef nonnull %4) #12
   %5 = call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1840,7 +1840,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !16
   call void @ktime_get_real_ts64(ptr noundef nonnull %5) #12
   %8 = call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #12
   %9 = icmp eq i8 %2, 83
@@ -1897,7 +1897,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %46 = phi i32 [ %35, %33 ], [ %44, %41 ]
   %47 = getelementptr i8, ptr %36, i64 16
   %48 = icmp eq i32 %37, 0
-  br i1 %48, label %.loopexit20, label %33, !llvm.loop !34
+  br i1 %48, label %.loopexit20, label %33, !llvm.loop !40
 
 .loopexit20:                                      ; preds = %45, %29, %24, %18, %4
   %49 = phi i32 [ %13, %24 ], [ %13, %18 ], [ %13, %4 ], [ 0, %29 ], [ %46, %45 ]
@@ -2186,7 +2186,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %239 = select i1 %238, i32 %236, i32 0
   %240 = getelementptr i8, ptr %217, i64 16
   %241 = icmp eq i32 %220, 0
-  br i1 %241, label %242, label %216, !llvm.loop !35
+  br i1 %241, label %242, label %216, !llvm.loop !41
 
 242:                                              ; preds = %216
   %243 = add i32 %138, %51
@@ -2237,7 +2237,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %277 = getelementptr i8, ptr %260, i64 %272
   %278 = sub i32 %259, %265
   %279 = icmp eq i32 %278, 0
-  br i1 %279, label %.thread18, label %.preheader, !llvm.loop !36
+  br i1 %279, label %.thread18, label %.preheader, !llvm.loop !42
 
 280:                                              ; preds = %251
   %281 = load i32, ptr %58, align 4
@@ -2301,7 +2301,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %329 = getelementptr i8, ptr %312, i64 %324
   %330 = sub i32 %311, %317
   %331 = icmp eq i32 %330, 0
-  br i1 %331, label %.loopexit, label %310, !llvm.loop !36
+  br i1 %331, label %.loopexit, label %310, !llvm.loop !43
 
 .loopexit:                                        ; preds = %310, %288
   %332 = phi i32 [ %289, %288 ], [ %328, %310 ]
@@ -2312,7 +2312,7 @@ define internal fastcc void @mon_bin_event(ptr noundef %0, ptr noundef %1, i8 no
   %337 = icmp sge i32 %334, %336
   %338 = icmp eq i32 %333, 0
   %339 = select i1 %337, i1 true, i1 %338
-  br i1 %339, label %.loopexit19, label %288, !llvm.loop !37
+  br i1 %339, label %.loopexit19, label %288, !llvm.loop !44
 
 .loopexit19.thread:                               ; preds = %255, %280
   %340 = phi i8 [ 90, %255 ], [ 68, %280 ]
@@ -2419,34 +2419,41 @@ attributes #16 = { nounwind memory(none) }
 !4 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !5 = !{i32 4, !"SkipRaxSetup", i32 1}
 !6 = !{i32 -11, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = !{!"auto-init"}
-!15 = !{i32 -14, i32 1}
-!16 = !{i64 2155045272}
-!17 = !{i64 2155046371}
-!18 = distinct !{!18, !8, !9}
-!19 = !{i64 2155048745}
-!20 = !{i64 2155049845}
-!21 = !{i64 2155054582}
-!22 = !{i64 2155055695}
-!23 = !{i64 2149025858}
-!24 = !{i64 2155062441}
-!25 = !{i64 2155064513}
-!26 = !{!"branch_weights", i32 2000, i32 1}
-!27 = !{i64 2155066226}
-!28 = distinct !{!28, !8, !9}
-!29 = !{i64 2155068267}
-!30 = !{i64 2155036792}
-!31 = distinct !{!31, !8, !9}
-!32 = !{i64 1416136, i64 1416180, i64 2148900863, i64 2148900884, i64 2148900910, i64 2148900943, i64 2148900977, i64 2148901001}
-!33 = !{i64 2148304882, i64 2148304921, i64 2148304942, i64 2148304979, i64 2148305002, i64 2148304872}
-!34 = distinct !{!34, !8, !9}
-!35 = distinct !{!35, !8, !9}
-!36 = distinct !{!36, !8, !9}
-!37 = distinct !{!37, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = !{!"auto-init"}
+!17 = !{i32 -14, i32 1}
+!18 = !{i64 2155045272}
+!19 = !{i64 2155046371}
+!20 = distinct !{!20, !8, !9, !10}
+!21 = !{i64 2155048745}
+!22 = !{i64 2155049845}
+!23 = !{i64 2155054582}
+!24 = !{i64 2155055695}
+!25 = distinct !{!25, !8, !9, !10}
+!26 = distinct !{!26, !8, !9, !10}
+!27 = distinct !{!27, !8, !9, !10}
+!28 = !{i64 2149025858}
+!29 = !{i64 2155062441}
+!30 = !{i64 2155064513}
+!31 = !{!"branch_weights", i32 2000, i32 1}
+!32 = !{i64 2155066226}
+!33 = distinct !{!33, !8, !9, !10}
+!34 = !{i64 2155068267}
+!35 = distinct !{!35, !8, !9, !10}
+!36 = !{i64 2155036792}
+!37 = distinct !{!37, !8, !9, !10}
+!38 = !{i64 1416136, i64 1416180, i64 2148900863, i64 2148900884, i64 2148900910, i64 2148900943, i64 2148900977, i64 2148901001}
+!39 = !{i64 2148304882, i64 2148304921, i64 2148304942, i64 2148304979, i64 2148305002, i64 2148304872}
+!40 = distinct !{!40, !8, !9, !10}
+!41 = distinct !{!41, !8, !9, !10}
+!42 = distinct !{!42, !8, !9, !10}
+!43 = distinct !{!43, !8, !9, !10}
+!44 = distinct !{!44, !8, !9, !10}

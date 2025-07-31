@@ -87,7 +87,7 @@ define dso_local void @initHyperLogLogError(ptr noundef captures(none) %0, doubl
   %7 = fdiv double 1.040000e+00, %sqrt
   %8 = fcmp olt double %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %8, label %9, label %3
+  br i1 %8, label %9, label %3, !llvm.loop !4
 
 9:                                                ; preds = %4
   %10 = trunc nuw nsw i64 %indvars.iv to i8
@@ -220,7 +220,7 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %14 = sext i32 %13 to i64
   %15 = load i64, ptr %2, align 8
   %16 = icmp ugt i64 %15, %14
-  br i1 %16, label %5, label %._crit_edge, !llvm.loop !4
+  br i1 %16, label %5, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -259,7 +259,7 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %35 = add i32 %.12336, 1
   %36 = sext i32 %35 to i64
   %37 = icmp ugt i64 %15, %36
-  br i1 %37, label %29, label %._crit_edge39, !llvm.loop !6
+  br i1 %37, label %29, label %._crit_edge39, !llvm.loop !8
 
 ._crit_edge39:                                    ; preds = %29
   %.not = icmp eq i32 %spec.select, 0
@@ -330,5 +330,7 @@ attributes #11 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !7, !5}
+!7 = !{!"llvm.loop.mustprogress"}
+!8 = distinct !{!8, !7, !5}

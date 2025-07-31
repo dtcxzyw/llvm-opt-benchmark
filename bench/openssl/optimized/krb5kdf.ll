@@ -334,43 +334,43 @@ cipher_init.exit.i:                               ; preds = %47, %44
   %84 = zext i32 %83 to i64
   %85 = urem i64 %84, %32
   %86 = getelementptr inbounds nuw i8, ptr %30, i64 %85
-  %87 = load i8, ptr %86, align 1, !tbaa !19
+  %87 = load i8, ptr %86, align 1, !tbaa !20
   %88 = zext i8 %87 to i32
   %89 = sub nuw nsw i32 8, %82
   %90 = shl nuw nsw i32 %88, %89
   %91 = zext i32 %81 to i64
   %92 = urem i64 %91, %32
   %93 = getelementptr inbounds nuw i8, ptr %30, i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !19
+  %94 = load i8, ptr %93, align 1, !tbaa !20
   %95 = zext i8 %94 to i32
   %96 = lshr i32 %95, %82
   %.masked.i.i = and i32 %90, 254
   %97 = or i32 %.masked.i.i, %96
   %98 = zext nneg i32 %76 to i64
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 %98
-  %100 = load i8, ptr %99, align 1, !tbaa !19
+  %100 = load i8, ptr %99, align 1, !tbaa !20
   %101 = zext i8 %100 to i32
   %102 = add nuw nsw i32 %.05664.i.i, %101
   %103 = add nuw nsw i32 %102, %97
   %104 = trunc i32 %103 to i8
-  store i8 %104, ptr %99, align 1, !tbaa !19
+  store i8 %104, ptr %99, align 1, !tbaa !20
   %105 = lshr i32 %103, 8
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %.not75.i.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %.not75.i.i, label %.preheader.i.i, label %.lr.ph67.i.i, !llvm.loop !20
+  br i1 %.not75.i.i, label %.preheader.i.i, label %.lr.ph67.i.i, !llvm.loop !21
 
 .lr.ph71.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph71.i.i
   %.05570.i.i = phi i32 [ %.055.i.i, %.lr.ph71.i.i ], [ %.05569.i.i, %.preheader.i.i ]
   %106 = zext nneg i32 %.05570.i.i to i64
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !19
+  %108 = load i8, ptr %107, align 1, !tbaa !20
   %109 = add i8 %108, 1
-  store i8 %109, ptr %107, align 1, !tbaa !19
+  store i8 %109, ptr %107, align 1, !tbaa !20
   %.055.i.i = add nsw i32 %.05570.i.i, -1
   %110 = icmp ne i32 %.05570.i.i, 0
   %111 = icmp eq i8 %108, -1
   %112 = select i1 %110, i1 %111, i1 false
-  br i1 %112, label %.lr.ph71.i.i, label %n_fold.exit.i, !llvm.loop !21
+  br i1 %112, label %.lr.ph71.i.i, label %n_fold.exit.i, !llvm.loop !22
 
 n_fold.exit.i:                                    ; preds = %.lr.ph71.i.i, %.preheader.i.i, %._crit_edge.i.i, %63
   %.not129.i = icmp eq i64 %2, 0
@@ -387,14 +387,14 @@ n_fold.exit.i:                                    ; preds = %.lr.ph71.i.i, %.pre
 .lr.ph:                                           ; preds = %.lr.ph.i, %138
   %.073127.i20 = phi ptr [ %spec.select104.i, %138 ], [ %113, %.lr.ph.i ]
   %.068128.i19 = phi i64 [ %125, %138 ], [ 0, %.lr.ph.i ]
-  %116 = load i32, ptr %6, align 4, !tbaa !22
+  %116 = load i32, ptr %6, align 4, !tbaa !23
   %117 = sext i32 %116 to i64
   %118 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %40, ptr noundef nonnull %.073127.i20, ptr noundef nonnull %6) #7
   %.not99.i = icmp eq i32 %118, 0
   br i1 %.not99.i, label %.thread.i, label %119
 
 119:                                              ; preds = %.lr.ph
-  %120 = load i32, ptr %6, align 4, !tbaa !22
+  %120 = load i32, ptr %6, align 4, !tbaa !23
   %.not100.i = icmp eq i32 %120, 0
   br i1 %.not100.i, label %122, label %121
 
@@ -471,14 +471,14 @@ cipher_init.exit109.i:                            ; preds = %134, %131
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 %146
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %145, ptr noundef nonnull align 1 dereferenceable(7) %147, i64 7, i1 false)
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 7
-  store i8 0, ptr %148, align 1, !tbaa !19
+  store i8 0, ptr %148, align 1, !tbaa !20
   br label %149
 
 149:                                              ; preds = %149, %.preheader.i
   %indvars.iv.i110.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i111.i, %149 ]
   %storemerge21.i.i = phi i8 [ 0, %.preheader.i ], [ %157, %149 ]
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 %indvars.iv.i110.i
-  %151 = load i8, ptr %150, align 1, !tbaa !19
+  %151 = load i8, ptr %150, align 1, !tbaa !20
   %152 = and i8 %151, 1
   %153 = zext nneg i8 %152 to i32
   %indvars.iv.next.i111.i = add nuw nsw i64 %indvars.iv.i110.i, 1
@@ -486,15 +486,15 @@ cipher_init.exit109.i:                            ; preds = %134, %131
   %155 = shl nuw nsw i32 %153, %154
   %156 = trunc nuw i32 %155 to i8
   %157 = or i8 %storemerge21.i.i, %156
-  store i8 %157, ptr %148, align 1, !tbaa !19
+  store i8 %157, ptr %148, align 1, !tbaa !20
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i111.i, 7
-  br i1 %exitcond.not.i.i, label %158, label %149, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %158, label %149, !llvm.loop !25
 
 158:                                              ; preds = %149
   call void @DES_set_odd_parity(ptr noundef nonnull %145) #7
   %indvars.iv.next25.i.i = add nsw i64 %indvars.iv24.i.i, -1
   %.not.i112.i = icmp eq i64 %indvars.iv24.i.i, 0
-  br i1 %.not.i112.i, label %159, label %.preheader.i, !llvm.loop !25
+  br i1 %.not.i112.i, label %159, label %.preheader.i, !llvm.loop !26
 
 159:                                              ; preds = %158
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -543,7 +543,7 @@ define internal range(i32 0, 2) i32 @krb5kdf_set_ctx_params(ptr noundef %0, ptr 
   br i1 %5, label %ossl_param_is_empty.exit.thread, label %ossl_param_is_empty.exit
 
 ossl_param_is_empty.exit:                         ; preds = %2
-  %6 = load ptr, ptr %1, align 8, !tbaa !26
+  %6 = load ptr, ptr %1, align 8, !tbaa !27
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %ossl_param_is_empty.exit.thread, label %7
 
@@ -561,8 +561,8 @@ ossl_param_is_empty.exit:                         ; preds = %2
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %13, align 8, !tbaa !28
-  %16 = load i64, ptr %14, align 8, !tbaa !29
+  %15 = load ptr, ptr %13, align 8, !tbaa !29
+  %16 = load i64, ptr %14, align 8, !tbaa !30
   tail call void @CRYPTO_clear_free(ptr noundef %15, i64 noundef %16, ptr noundef nonnull @.str, i32 noundef 98) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %17 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %11, ptr noundef nonnull %13, i64 noundef 0, ptr noundef nonnull %14) #7
@@ -577,8 +577,8 @@ ossl_param_is_empty.exit:                         ; preds = %2
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %23 = load ptr, ptr %21, align 8, !tbaa !28
-  %24 = load i64, ptr %22, align 8, !tbaa !29
+  %23 = load ptr, ptr %21, align 8, !tbaa !29
+  %24 = load i64, ptr %22, align 8, !tbaa !30
   tail call void @CRYPTO_clear_free(ptr noundef %23, i64 noundef %24, ptr noundef nonnull @.str, i32 noundef 98) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %25 = tail call i32 @OSSL_PARAM_get_octet_string(ptr noundef nonnull %19, ptr noundef nonnull %21, i64 noundef 0, ptr noundef nonnull %22) #7
@@ -737,16 +737,17 @@ attributes #7 = { nounwind }
 !14 = !{!4, !12, i64 40}
 !15 = !{!4, !11, i64 48}
 !16 = !{!4, !12, i64 56}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"int", !6, i64 0}
-!24 = distinct !{!24, !18}
-!25 = distinct !{!25, !18}
-!26 = !{!27, !11, i64 0}
-!27 = !{!"ossl_param_st", !11, i64 0, !23, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
-!28 = !{!11, !11, i64 0}
-!29 = !{!12, !12, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !6, i64 0}
+!25 = distinct !{!25, !18, !19}
+!26 = distinct !{!26, !18, !19}
+!27 = !{!28, !11, i64 0}
+!28 = !{!"ossl_param_st", !11, i64 0, !24, i64 8, !5, i64 16, !12, i64 24, !12, i64 32}
+!29 = !{!11, !11, i64 0}
+!30 = !{!12, !12, i64 0}

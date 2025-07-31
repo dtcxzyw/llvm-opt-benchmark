@@ -351,7 +351,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %222 = icmp slt i32 %.pre260, %221
   %223 = icmp eq i32 %.1, 0
   %or.cond = select i1 %222, i1 %223, i1 false
-  br i1 %or.cond, label %.lr.ph244, label %._crit_edge245
+  br i1 %or.cond, label %.lr.ph244, label %._crit_edge245, !llvm.loop !12
 
 ._crit_edge245:                                   ; preds = %.loopexit, %14
   %.0.lcssa = phi i32 [ 0, %14 ], [ %.1, %.loopexit ]
@@ -429,7 +429,7 @@ define void @dlaqps_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %270, ptr %271, align 8, !tbaa !7
   store double %270, ptr %251, align 8, !tbaa !7
   %272 = icmp sgt i32 %263, 0
-  br i1 %272, label %249, label %._crit_edge251
+  br i1 %272, label %249, label %._crit_edge251, !llvm.loop !13
 
 ._crit_edge251:                                   ; preds = %261, %246
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #7
@@ -494,5 +494,8 @@ attributes #7 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}

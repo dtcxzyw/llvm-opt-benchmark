@@ -56,7 +56,7 @@ define ptr @ossl_parse_property(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %.not.i, label %skip_space.exit, label %.preheader, !llvm.loop !6
 
 skip_space.exit:                                  ; preds = %.preheader
-  store ptr %.0.i, ptr %3, align 8, !tbaa !8
+  store ptr %.0.i, ptr %3, align 8, !tbaa !9
   %12 = load i8, ptr %.0.i, align 1, !tbaa !3
   %.not58 = icmp eq i8 %12, 0
   br i1 %.not58, label %._crit_edge.thread, label %.lr.ph.preheader
@@ -81,8 +81,8 @@ skip_space.exit:                                  ; preds = %.preheader
 
 22:                                               ; preds = %.lr.ph84
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 0, ptr %23, align 8, !tbaa !11
-  %24 = load i32, ptr %15, align 8, !tbaa !14
+  store i32 0, ptr %23, align 8, !tbaa !12
+  %24 = load i32, ptr %15, align 8, !tbaa !15
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
 
@@ -93,7 +93,7 @@ skip_space.exit:                                  ; preds = %.preheader
   br label %.thread
 
 27:                                               ; preds = %22
-  %28 = load ptr, ptr %3, align 8, !tbaa !8
+  %28 = load ptr, ptr %3, align 8, !tbaa !9
   %29 = load i8, ptr %28, align 1, !tbaa !3
   %30 = icmp eq i8 %29, 61
   br i1 %30, label %.preheader.i, label %37
@@ -108,7 +108,7 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not.i.i, label %34, label %.preheader.i, !llvm.loop !6
 
 34:                                               ; preds = %.preheader.i
-  store ptr %.0.i.i, ptr %3, align 8, !tbaa !8
+  store ptr %.0.i.i, ptr %3, align 8, !tbaa !9
   %35 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %3, ptr noundef %15, i32 noundef 1)
   %.not34 = icmp eq i32 %35, 0
   br i1 %.not34, label %36, label %39
@@ -121,7 +121,7 @@ skip_space.exit:                                  ; preds = %.preheader
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 0, ptr %38, align 4, !tbaa !15
+  store i32 0, ptr %38, align 4, !tbaa !16
   store i32 1, ptr %17, align 8, !tbaa !3
   br label %39
 
@@ -131,7 +131,7 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not35, label %.thread, label %41
 
 41:                                               ; preds = %39
-  %42 = load ptr, ptr %3, align 8, !tbaa !8
+  %42 = load ptr, ptr %3, align 8, !tbaa !9
   %43 = load i8, ptr %42, align 1, !tbaa !3
   %44 = icmp eq i8 %43, 44
   br i1 %44, label %.preheader.i40, label %._crit_edge
@@ -146,10 +146,10 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not.i.i43, label %.lr.ph, label %.preheader.i40, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader.i40
-  store ptr %.0.i.i42, ptr %3, align 8, !tbaa !8
+  store ptr %.0.i.i42, ptr %3, align 8, !tbaa !9
   %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 361) #9
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread, label %.lr.ph84
+  br i1 %49, label %.thread, label %.lr.ph84, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %41
   %.pre = load i8, ptr %42, align 1, !tbaa !3
@@ -184,10 +184,10 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 2) i32 @pd_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !16
-  %4 = load ptr, ptr %1, align 8, !tbaa !16
-  %5 = load i32, ptr %3, align 8, !tbaa !14
-  %6 = load i32, ptr %4, align 8, !tbaa !14
+  %3 = load ptr, ptr %0, align 8, !tbaa !18
+  %4 = load ptr, ptr %1, align 8, !tbaa !18
+  %5 = load i32, ptr %3, align 8, !tbaa !15
+  %6 = load i32, ptr %4, align 8, !tbaa !15
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
   ret i32 %.0
 }
@@ -198,7 +198,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #9
-  %5 = load ptr, ptr %1, align 8, !tbaa !8
+  %5 = load ptr, ptr %1, align 8, !tbaa !9
   %6 = load i8, ptr %5, align 1, !tbaa !3
   %7 = sext i8 %6 to i32
   %8 = tail call i32 @ossl_ctype_check(i32 noundef %7, i32 noundef 3) #9
@@ -215,7 +215,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
 ._crit_edge:                                      ; preds = %33, %3
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @__func__.parse_name) #9
-  %10 = load ptr, ptr %1, align 8, !tbaa !8
+  %10 = load ptr, ptr %1, align 8, !tbaa !9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 103, ptr noundef nonnull @.str.2, ptr noundef %10) #9
   br label %47
 
@@ -251,7 +251,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   br i1 %.not31, label %26, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %23, %19
-  br label %.critedge, !llvm.loop !18
+  br label %.critedge, !llvm.loop !20
 
 26:                                               ; preds = %23
   %27 = load i8, ptr %20, align 1, !tbaa !3
@@ -276,7 +276,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   %36 = sext i8 %35 to i32
   %37 = tail call i32 @ossl_ctype_check(i32 noundef %36, i32 noundef 3) #9
   %.not = icmp eq i32 %37, 0
-  br i1 %.not, label %._crit_edge, label %.critedge.preheader
+  br i1 %.not, label %._crit_edge, label %.critedge.preheader, !llvm.loop !21
 
 38:                                               ; preds = %26
   %39 = getelementptr inbounds nuw [100 x i8], ptr %4, i64 0, i64 %.2
@@ -287,7 +287,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
 40:                                               ; preds = %38
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 88, ptr noundef nonnull @__func__.parse_name) #9
-  %41 = load ptr, ptr %1, align 8, !tbaa !8
+  %41 = load ptr, ptr %1, align 8, !tbaa !9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 100, ptr noundef nonnull @.str.2, ptr noundef %41) #9
   br label %47
 
@@ -301,9 +301,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_name(ptr noundef %0, ptr nound
   br i1 %.not.i, label %skip_space.exit, label %.preheader, !llvm.loop !6
 
 skip_space.exit:                                  ; preds = %.preheader
-  store ptr %.0.i, ptr %1, align 8, !tbaa !8
+  store ptr %.0.i, ptr %1, align 8, !tbaa !9
   %46 = call i32 @ossl_property_name(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %9) #9
-  store i32 %46, ptr %2, align 4, !tbaa !19
+  store i32 %46, ptr %2, align 4, !tbaa !22
   br label %47
 
 47:                                               ; preds = %skip_space.exit, %40, %._crit_edge
@@ -324,8 +324,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
   %6 = alloca [1000 x i8], align 16
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  %8 = load ptr, ptr %1, align 8, !tbaa !8
-  store ptr %8, ptr %7, align 8, !tbaa !8
+  %8 = load ptr, ptr %1, align 8, !tbaa !9
+  store ptr %8, ptr %7, align 8, !tbaa !9
   %9 = load i8, ptr %8, align 1, !tbaa !3
   switch i8 %9, label %133 [
     i8 34, label %10
@@ -337,7 +337,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
 
 10:                                               ; preds = %4, %4
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store ptr %11, ptr %7, align 8, !tbaa !8
+  store ptr %11, ptr %7, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %6) #9
   %12 = load i8, ptr %11, align 1, !tbaa !3
   %.not28.i = icmp eq i8 %12, 0
@@ -367,7 +367,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
   %.not.i = icmp eq i8 %20, 0
   %.not26.i = icmp eq i8 %20, %9
   %or.cond.i = or i1 %.not.i, %.not26.i
-  br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %or.cond.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !23
 
 .critedge.i:                                      ; preds = %18
   br i1 %.not.i, label %21, label %23
@@ -421,9 +421,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef %0, ptr noun
   br i1 %.not.i.i, label %skip_space.exit.i, label %31, !llvm.loop !6
 
 skip_space.exit.i:                                ; preds = %31
-  store ptr %.0.i.i, ptr %7, align 8, !tbaa !8
+  store ptr %.0.i.i, ptr %7, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %35, align 4, !tbaa !15
+  store i32 0, ptr %35, align 4, !tbaa !16
   br label %parse_string.exit
 
 parse_string.exit:                                ; preds = %21, %skip_space.exit.i
@@ -433,13 +433,13 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
 
 36:                                               ; preds = %4
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store ptr %37, ptr %7, align 8, !tbaa !8
+  store ptr %37, ptr %7, align 8, !tbaa !9
   %38 = call fastcc i32 @parse_number(ptr noundef %7, ptr noundef %2)
   br label %parse_hex.exit
 
 39:                                               ; preds = %4
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  store ptr %40, ptr %7, align 8, !tbaa !8
+  store ptr %40, ptr %7, align 8, !tbaa !9
   %41 = call fastcc i32 @parse_number(ptr noundef %7, ptr noundef %2)
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !3
@@ -455,7 +455,7 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  store ptr %50, ptr %7, align 8, !tbaa !8
+  store ptr %50, ptr %7, align 8, !tbaa !9
   br label %51
 
 51:                                               ; preds = %73, %49
@@ -513,7 +513,7 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
   %78 = sext i8 %77 to i32
   %79 = tail call i32 @ossl_ctype_check(i32 noundef %78, i32 noundef 16) #9
   %.not27.i25 = icmp eq i32 %79, 0
-  br i1 %.not27.i25, label %80, label %51, !llvm.loop !21
+  br i1 %.not27.i25, label %80, label %51, !llvm.loop !24
 
 80:                                               ; preds = %73
   %81 = load i8, ptr %76, align 1, !tbaa !3
@@ -549,7 +549,7 @@ parse_string.exit:                                ; preds = %21, %skip_space.exi
 
 skip_space.exit.i29:                              ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %92, align 4, !tbaa !15
+  store i32 1, ptr %92, align 4, !tbaa !16
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %75, ptr %93, align 8, !tbaa !3
   br label %parse_hex.exit.thread52
@@ -565,7 +565,7 @@ skip_space.exit.i29:                              ; preds = %87
   br label %133
 
 97:                                               ; preds = %94
-  store ptr %46, ptr %7, align 8, !tbaa !8
+  store ptr %46, ptr %7, align 8, !tbaa !9
   %.pre.i = load i8, ptr %46, align 1, !tbaa !3
   br label %98
 
@@ -616,7 +616,7 @@ skip_space.exit.i29:                              ; preds = %87
   %120 = and i8 %.pre37.i, -2
   %switch34.i = icmp eq i8 %120, 56
   %or.cond.i36 = select i1 %.not27.i35, i1 true, i1 %switch34.i
-  br i1 %or.cond.i36, label %.critedge.i37, label %98
+  br i1 %or.cond.i36, label %.critedge.i37, label %98, !llvm.loop !25
 
 .critedge.i37:                                    ; preds = %112
   %121 = sext i8 %.pre37.i to i32
@@ -651,7 +651,7 @@ skip_space.exit.i29:                              ; preds = %87
 
 skip_space.exit.i40:                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %131, align 4, !tbaa !15
+  store i32 1, ptr %131, align 4, !tbaa !16
   %132 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %115, ptr %132, align 8, !tbaa !3
   br label %parse_hex.exit.thread52
@@ -676,7 +676,7 @@ skip_space.exit.i40:                              ; preds = %126
 
 143:                                              ; preds = %139
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %5) #9
-  %144 = load ptr, ptr %1, align 8, !tbaa !8
+  %144 = load ptr, ptr %1, align 8, !tbaa !9
   %145 = load i8, ptr %144, align 1, !tbaa !3
   switch i8 %145, label %.preheader.i [
     i8 0, label %parse_unquoted.exit
@@ -725,7 +725,7 @@ skip_space.exit.i40:                              ; preds = %126
   %164 = sext i8 %163 to i32
   %165 = tail call i32 @ossl_ctype_check(i32 noundef %164, i32 noundef 256) #9
   %.not.i48 = icmp eq i32 %165, 0
-  br i1 %.not.i48, label %.critedge.loopexit.i, label %.lr.ph.i42, !llvm.loop !22
+  br i1 %.not.i48, label %.critedge.loopexit.i, label %.lr.ph.i42, !llvm.loop !26
 
 .critedge.loopexit.i:                             ; preds = %161, %151, %.lr.ph.i42
   %.026.lcssa.ph.i = phi ptr [ %.02639.i, %151 ], [ %162, %161 ], [ %.02639.i, %.lr.ph.i42 ]
@@ -765,7 +765,7 @@ skip_space.exit.i40:                              ; preds = %126
 175:                                              ; preds = %173
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.parse_unquoted) #9
-  %176 = load ptr, ptr %1, align 8, !tbaa !8
+  %176 = load ptr, ptr %1, align 8, !tbaa !9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 109, ptr noundef nonnull @.str.2, ptr noundef %176) #9
   br label %181
 
@@ -791,9 +791,9 @@ skip_space.exit.i40:                              ; preds = %126
   br i1 %.not.i.i45, label %skip_space.exit.i46, label %182, !llvm.loop !6
 
 skip_space.exit.i46:                              ; preds = %182
-  store ptr %.0.i.i44, ptr %1, align 8, !tbaa !8
+  store ptr %.0.i.i44, ptr %1, align 8, !tbaa !9
   %187 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %187, align 4, !tbaa !15
+  store i32 0, ptr %187, align 4, !tbaa !16
   br label %parse_unquoted.exit
 
 parse_unquoted.exit:                              ; preds = %143, %143, %172, %skip_space.exit.i46
@@ -807,13 +807,13 @@ parse_hex.exit:                                   ; preds = %36, %39, %parse_str
   br i1 %.not23, label %parse_hex.exit.thread, label %parse_hex.exit.parse_hex.exit.thread52_crit_edge
 
 parse_hex.exit.parse_hex.exit.thread52_crit_edge: ; preds = %parse_hex.exit
-  %.pre = load ptr, ptr %7, align 8, !tbaa !8
+  %.pre = load ptr, ptr %7, align 8, !tbaa !9
   br label %parse_hex.exit.thread52
 
 parse_hex.exit.thread52:                          ; preds = %parse_hex.exit.parse_hex.exit.thread52_crit_edge, %skip_space.exit.i40, %skip_space.exit.i29
   %188 = phi ptr [ %.pre, %parse_hex.exit.parse_hex.exit.thread52_crit_edge ], [ %.0.i.i27, %skip_space.exit.i29 ], [ %.0.i.i38, %skip_space.exit.i40 ]
   %.055 = phi i32 [ %.0, %parse_hex.exit.parse_hex.exit.thread52_crit_edge ], [ 1, %skip_space.exit.i29 ], [ 1, %skip_space.exit.i40 ]
-  store ptr %188, ptr %1, align 8, !tbaa !8
+  store ptr %188, ptr %1, align 8, !tbaa !9
   br label %parse_hex.exit.thread
 
 parse_hex.exit.thread:                            ; preds = %125, %111, %104, %66, %86, %72, %139, %parse_hex.exit, %parse_hex.exit.thread52, %parse_unquoted.exit, %137
@@ -858,14 +858,14 @@ define internal fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef n
   %18 = getelementptr inbounds nuw [1 x %struct.ossl_property_definition_st], ptr %15, i64 0, i64 %indvars.iv
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %19) #9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !27
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %22 = load i8, ptr %21, align 4
   %23 = and i8 %22, 1
   %24 = or i8 %23, %17
   store i8 %24, ptr %11, align 4
   %.not32 = icmp ne i64 %indvars.iv, 0
-  %.pre = load i32, ptr %18, align 8, !tbaa !14
+  %.pre = load i32, ptr %18, align 8, !tbaa !15
   %25 = icmp eq i32 %.pre, %.02834
   %or.cond = select i1 %.not32, i1 %25, i1 false
   br i1 %or.cond, label %26, label %28
@@ -881,10 +881,10 @@ define internal fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef n
 28:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %28, %10
-  store i32 %3, ptr %9, align 8, !tbaa !25
+  store i32 %3, ptr %9, align 8, !tbaa !29
   br label %29
 
 29:                                               ; preds = %2, %._crit_edge, %26
@@ -921,7 +921,7 @@ define ptr @ossl_parse_query(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   br i1 %.not.i, label %skip_space.exit, label %.preheader, !llvm.loop !6
 
 skip_space.exit:                                  ; preds = %.preheader
-  store ptr %.0.i, ptr %4, align 8, !tbaa !8
+  store ptr %.0.i, ptr %4, align 8, !tbaa !9
   %13 = load i8, ptr %.0.i, align 1, !tbaa !3
   %.not71 = icmp eq i8 %13, 0
   br i1 %.not71, label %._crit_edge.thread, label %.lr.ph.preheader
@@ -952,9 +952,9 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not.i.i, label %23, label %.preheader.i, !llvm.loop !6
 
 23:                                               ; preds = %.preheader.i
-  store ptr %.0.i.i, ptr %4, align 8, !tbaa !8
+  store ptr %.0.i.i, ptr %4, align 8, !tbaa !9
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 2, ptr %24, align 8, !tbaa !11
+  store i32 2, ptr %24, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, -2
@@ -973,7 +973,7 @@ skip_space.exit:                                  ; preds = %.preheader
   br i1 %.not.i.i44, label %skip_space.exit.i45, label %.preheader.i41, !llvm.loop !6
 
 skip_space.exit.i45:                              ; preds = %.preheader.i41
-  store ptr %.0.i.i43, ptr %4, align 8, !tbaa !8
+  store ptr %.0.i.i43, ptr %4, align 8, !tbaa !9
   br label %match_ch.exit46
 
 match_ch.exit46:                                  ; preds = %.lr.ph79, %skip_space.exit.i45
@@ -988,7 +988,7 @@ match_ch.exit46:                                  ; preds = %.lr.ph79, %skip_spa
   br i1 %.not33, label %.loopexit, label %37
 
 37:                                               ; preds = %match_ch.exit46
-  %38 = load ptr, ptr %4, align 8, !tbaa !8
+  %38 = load ptr, ptr %4, align 8, !tbaa !9
   %39 = load i8, ptr %38, align 1, !tbaa !3
   %40 = icmp eq i8 %39, 61
   br i1 %40, label %.preheader.i48, label %44
@@ -1022,25 +1022,25 @@ match_ch.exit46:                                  ; preds = %.lr.ph79, %skip_spa
 
 54:                                               ; preds = %44
   %55 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 0, ptr %55, align 8, !tbaa !11
+  store i32 0, ptr %55, align 8, !tbaa !12
   %56 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 0, ptr %56, align 4, !tbaa !15
+  store i32 0, ptr %56, align 4, !tbaa !16
   store i32 1, ptr %18, align 8, !tbaa !3
   br label %61
 
 .loopexit76:                                      ; preds = %49, %.preheader.i48
   %.0.i.i55.lcssa.sink = phi ptr [ %.0.i.i50, %.preheader.i48 ], [ %.0.i.i55, %49 ]
   %.sink = phi i32 [ 0, %.preheader.i48 ], [ 1, %49 ]
-  store ptr %.0.i.i55.lcssa.sink, ptr %4, align 8, !tbaa !8
+  store ptr %.0.i.i55.lcssa.sink, ptr %4, align 8, !tbaa !9
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 %.sink, ptr %57, align 8, !tbaa !11
+  store i32 %.sink, ptr %57, align 8, !tbaa !12
   %58 = call fastcc i32 @parse_value(ptr noundef %0, ptr noundef %4, ptr noundef %16, i32 noundef %2)
   %.not36 = icmp eq i32 %58, 0
   br i1 %.not36, label %59, label %61
 
 59:                                               ; preds = %.loopexit76
   %60 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 2, ptr %60, align 4, !tbaa !15
+  store i32 2, ptr %60, align 4, !tbaa !16
   br label %61
 
 61:                                               ; preds = %.loopexit76, %59, %23, %54
@@ -1049,7 +1049,7 @@ match_ch.exit46:                                  ; preds = %.lr.ph79, %skip_spa
   br i1 %.not38, label %.loopexit, label %63
 
 63:                                               ; preds = %61
-  %64 = load ptr, ptr %4, align 8, !tbaa !8
+  %64 = load ptr, ptr %4, align 8, !tbaa !9
   %65 = load i8, ptr %64, align 1, !tbaa !3
   switch i8 %65, label %71 [
     i8 44, label %.preheader.i59
@@ -1066,7 +1066,7 @@ match_ch.exit46:                                  ; preds = %.lr.ph79, %skip_spa
   br i1 %.not.i.i62, label %skip_space.exit.i63, label %.preheader.i59, !llvm.loop !6
 
 skip_space.exit.i63:                              ; preds = %.preheader.i59
-  store ptr %.0.i.i61, ptr %4, align 8, !tbaa !8
+  store ptr %.0.i.i61, ptr %4, align 8, !tbaa !9
   %69 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str, i32 noundef 418) #9
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.loopexit, label %.lr.ph79
@@ -1097,7 +1097,7 @@ skip_space.exit.i63:                              ; preds = %.preheader.i59
 define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %0, align 8, !tbaa !25
+  %5 = load i32, ptr %0, align 8, !tbaa !29
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.lr.ph.preheader, label %.critedge
 
@@ -1122,25 +1122,25 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %11 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %3, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !11
+  %13 = load i32, ptr %12, align 8, !tbaa !12
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %10
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %16 = icmp slt i64 %indvars.iv.next, %7
-  br i1 %16, label %10, label %.critedge, !llvm.loop !27
+  br i1 %16, label %10, label %.critedge, !llvm.loop !31
 
 17:                                               ; preds = %10
   %18 = trunc nsw i64 %indvars.iv to i32
-  %19 = load i32, ptr %1, align 8, !tbaa !25
+  %19 = load i32, ptr %1, align 8, !tbaa !29
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv121, %20
   br i1 %21, label %22, label %49
 
 22:                                               ; preds = %17
-  %23 = load i32, ptr %11, align 8, !tbaa !14
-  %24 = load i32, ptr %8, align 8, !tbaa !14
+  %23 = load i32, ptr %11, align 8, !tbaa !15
+  %24 = load i32, ptr %8, align 8, !tbaa !15
   %25 = icmp sgt i32 %23, %24
   br i1 %25, label %.outer.backedge, label %27
 
@@ -1149,7 +1149,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   %.059.ph.be = phi i32 [ %48, %47 ], [ %18, %22 ]
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %26 = icmp slt i32 %.059.ph.be, %5
-  br i1 %26, label %.lr.ph.lr.ph, label %.critedge, !llvm.loop !27
+  br i1 %26, label %.lr.ph.lr.ph, label %.critedge, !llvm.loop !31
 
 27:                                               ; preds = %22
   %28 = icmp eq i32 %23, %24
@@ -1157,9 +1157,9 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !15
+  %31 = load i32, ptr %30, align 4, !tbaa !16
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !15
+  %33 = load i32, ptr %32, align 4, !tbaa !16
   %34 = icmp eq i32 %31, %33
   br i1 %34, label %35, label %40
 
@@ -1194,7 +1194,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
 
 49:                                               ; preds = %27, %17
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !15
+  %51 = load i32, ptr %50, align 4, !tbaa !16
   switch i32 %51, label %68 [
     i32 2, label %52
     i32 0, label %60
@@ -1248,7 +1248,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   %.3 = phi i32 [ %55, %54 ], [ %.061.ph7796, %56 ], [ %.061.ph7796, %68 ], [ %73, %72 ]
   %74 = add nsw i32 %18, 1
   %75 = icmp slt i32 %74, %5
-  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !27
+  br i1 %75, label %.lr.ph, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %43, %.outer.backedge, %.outer76, %68, %56, %15, %2
   %.2 = phi i32 [ 0, %2 ], [ %.061.ph7796, %15 ], [ %.3, %.outer76 ], [ -1, %68 ], [ -1, %56 ], [ %.061.ph.be, %.outer.backedge ], [ -1, %43 ]
@@ -1265,8 +1265,8 @@ define void @ossl_property_free(ptr noundef %0) local_unnamed_addr #0 {
 define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %0, align 8, !tbaa !25
-  %6 = load i32, ptr %1, align 8, !tbaa !25
+  %5 = load i32, ptr %0, align 8, !tbaa !29
+  %6 = load i32, ptr %1, align 8, !tbaa !29
   %7 = add nsw i32 %6, %5
   %8 = tail call i32 @llvm.usub.sat.i32(i32 %7, i32 1)
   %9 = sext i32 %8 to i64
@@ -1281,9 +1281,9 @@ define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, 
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, -2
   store i8 %17, ptr %15, align 4
-  %18 = load i32, ptr %0, align 8, !tbaa !25
+  %18 = load i32, ptr %0, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = load i32, ptr %1, align 8, !tbaa !25
+  %20 = load i32, ptr %1, align 8, !tbaa !29
   br label %21
 
 21:                                               ; preds = %46, %14
@@ -1316,10 +1316,10 @@ define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, 
 33:                                               ; preds = %28
   %34 = sext i32 %.044 to i64
   %35 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %3, i64 %34
-  %36 = load i32, ptr %35, align 8, !tbaa !14
+  %36 = load i32, ptr %35, align 8, !tbaa !15
   %37 = sext i32 %.043 to i64
   %38 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %4, i64 %37
-  %39 = load i32, ptr %38, align 8, !tbaa !14
+  %39 = load i32, ptr %38, align 8, !tbaa !15
   %.not51 = icmp sgt i32 %36, %39
   br i1 %.not51, label %44, label %40
 
@@ -1346,11 +1346,11 @@ define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, 
   %51 = or i8 %50, %22
   store i8 %51, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %21, !llvm.loop !28
+  br label %21, !llvm.loop !32
 
 52:                                               ; preds = %24
   %53 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %53, ptr %12, align 8, !tbaa !25
+  store i32 %53, ptr %12, align 8, !tbaa !29
   br label %54
 
 54:                                               ; preds = %2, %52
@@ -1367,12 +1367,12 @@ define range(i32 0, 2) i32 @ossl_property_parse_init(ptr noundef %0) local_unnam
 2:                                                ; preds = %4
   %3 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %3, 6
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !29
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !33
 
 4:                                                ; preds = %1, %2
   %.08 = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw [6 x ptr], ptr @ossl_property_parse_init.predefined_names, i64 0, i64 %.08
-  %6 = load ptr, ptr %5, align 8, !tbaa !8
+  %6 = load ptr, ptr %5, align 8, !tbaa !9
   %7 = tail call i32 @ossl_property_name(ptr noundef %0, ptr noundef %6, i32 noundef 1) #9
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %2
@@ -1404,10 +1404,10 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  store ptr %2, ptr %5, align 8, !tbaa !8
-  store i64 %3, ptr %6, align 8, !tbaa !30
+  store ptr %2, ptr %5, align 8, !tbaa !9
+  store i64 %3, ptr %6, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store i64 0, ptr %7, align 8, !tbaa !30
+  store i64 0, ptr %7, align 8, !tbaa !34
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %11
 
@@ -1420,7 +1420,7 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
   br label %.loopexit
 
 11:                                               ; preds = %4
-  %12 = load i32, ptr %1, align 8, !tbaa !25
+  %12 = load i32, ptr %1, align 8, !tbaa !29
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1434,17 +1434,17 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %put_num.exit
   %.153 = phi ptr [ %102, %put_num.exit ], [ %17, %.lr.ph.preheader ]
   %.02252 = phi i32 [ %101, %put_num.exit ], [ 0, %.lr.ph.preheader ]
-  %18 = load i32, ptr %.153, align 8, !tbaa !14
+  %18 = load i32, ptr %.153, align 8, !tbaa !15
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %put_num.exit, label %20
 
 20:                                               ; preds = %.lr.ph
-  %21 = load i64, ptr %7, align 8, !tbaa !30
+  %21 = load i64, ptr %7, align 8, !tbaa !34
   %.not28 = icmp eq i64 %21, 0
   br i1 %.not28, label %31, label %22
 
 22:                                               ; preds = %20
-  %23 = load i64, ptr %6, align 8, !tbaa !30
+  %23 = load i64, ptr %6, align 8, !tbaa !34
   switch i64 %23, label %24 [
     i64 0, label %put_char.exit
     i64 1, label %25
@@ -1455,12 +1455,12 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
 
 25:                                               ; preds = %24, %22
   %.sink.i = phi i8 [ 44, %24 ], [ 0, %22 ]
-  %26 = load ptr, ptr %5, align 8, !tbaa !8
+  %26 = load ptr, ptr %5, align 8, !tbaa !9
   store i8 %.sink.i, ptr %26, align 1, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %27, ptr %5, align 8, !tbaa !8
+  store ptr %27, ptr %5, align 8, !tbaa !9
   %28 = add i64 %21, 1
-  store i64 %28, ptr %7, align 8, !tbaa !30
+  store i64 %28, ptr %7, align 8, !tbaa !34
   br label %put_char.exit
 
 put_char.exit:                                    ; preds = %22, %25
@@ -1468,7 +1468,7 @@ put_char.exit:                                    ; preds = %22, %25
   %.sink13.i = phi ptr [ %6, %25 ], [ %7, %22 ]
   %.sink12.i = phi i64 [ -1, %25 ], [ 1, %22 ]
   %30 = add i64 %29, %.sink12.i
-  store i64 %30, ptr %.sink13.i, align 8, !tbaa !30
+  store i64 %30, ptr %.sink13.i, align 8, !tbaa !34
   br label %31
 
 31:                                               ; preds = %put_char.exit, %20
@@ -1479,7 +1479,7 @@ put_char.exit:                                    ; preds = %22, %25
   br i1 %.not29, label %38, label %35
 
 35:                                               ; preds = %31
-  %36 = load i64, ptr %6, align 8, !tbaa !30
+  %36 = load i64, ptr %6, align 8, !tbaa !34
   switch i64 %36, label %37 [
     i64 0, label %.sink.split
     i64 1, label %.sink.split.sink.split
@@ -1490,12 +1490,12 @@ put_char.exit:                                    ; preds = %22, %25
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %.153, i64 8
-  %40 = load i32, ptr %39, align 8, !tbaa !11
+  %40 = load i32, ptr %39, align 8, !tbaa !12
   %41 = icmp eq i32 %40, 2
   br i1 %41, label %42, label %51
 
 42:                                               ; preds = %38
-  %43 = load i64, ptr %6, align 8, !tbaa !30
+  %43 = load i64, ptr %6, align 8, !tbaa !34
   switch i64 %43, label %44 [
     i64 0, label %.sink.split
     i64 1, label %.sink.split.sink.split
@@ -1506,25 +1506,25 @@ put_char.exit:                                    ; preds = %22, %25
 
 .sink.split.sink.split:                           ; preds = %42, %44, %35, %37
   %.sink.i35.sink = phi i8 [ 63, %37 ], [ 0, %35 ], [ 45, %44 ], [ 0, %42 ]
-  %45 = load ptr, ptr %5, align 8, !tbaa !8
+  %45 = load ptr, ptr %5, align 8, !tbaa !9
   store i8 %.sink.i35.sink, ptr %45, align 1, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  store ptr %46, ptr %5, align 8, !tbaa !8
-  %47 = load i64, ptr %7, align 8, !tbaa !30
+  store ptr %46, ptr %5, align 8, !tbaa !9
+  %47 = load i64, ptr %7, align 8, !tbaa !34
   %48 = add i64 %47, 1
-  store i64 %48, ptr %7, align 8, !tbaa !30
+  store i64 %48, ptr %7, align 8, !tbaa !34
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %42, %35
   %.sink13.i36.sink56 = phi ptr [ %7, %35 ], [ %7, %42 ], [ %6, %.sink.split.sink.split ]
   %.sink12.i37.sink = phi i64 [ 1, %35 ], [ 1, %42 ], [ -1, %.sink.split.sink.split ]
-  %49 = load i64, ptr %.sink13.i36.sink56, align 8, !tbaa !30
+  %49 = load i64, ptr %.sink13.i36.sink56, align 8, !tbaa !34
   %50 = add i64 %49, %.sink12.i37.sink
-  store i64 %50, ptr %.sink13.i36.sink56, align 8, !tbaa !30
+  store i64 %50, ptr %.sink13.i36.sink56, align 8, !tbaa !34
   br label %51
 
 51:                                               ; preds = %.sink.split, %38
-  %52 = load i32, ptr %.153, align 8, !tbaa !14
+  %52 = load i32, ptr %.153, align 8, !tbaa !15
   %53 = tail call ptr @ossl_property_name_str(ptr noundef %0, i32 noundef %52) #9
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.loopexit, label %55
@@ -1532,14 +1532,14 @@ put_char.exit:                                    ; preds = %22, %25
 55:                                               ; preds = %51
   call fastcc void @put_str(ptr noundef %53, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   %56 = getelementptr inbounds nuw i8, ptr %.153, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !11
+  %57 = load i32, ptr %56, align 8, !tbaa !12
   switch i32 %57, label %put_num.exit [
     i32 1, label %58
     i32 0, label %68
   ]
 
 58:                                               ; preds = %55
-  %59 = load i64, ptr %6, align 8, !tbaa !30
+  %59 = load i64, ptr %6, align 8, !tbaa !34
   switch i64 %59, label %60 [
     i64 0, label %put_char.exit42
     i64 1, label %61
@@ -1550,25 +1550,25 @@ put_char.exit:                                    ; preds = %22, %25
 
 61:                                               ; preds = %60, %58
   %.sink.i39 = phi i8 [ 33, %60 ], [ 0, %58 ]
-  %62 = load ptr, ptr %5, align 8, !tbaa !8
+  %62 = load ptr, ptr %5, align 8, !tbaa !9
   store i8 %.sink.i39, ptr %62, align 1, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1
-  store ptr %63, ptr %5, align 8, !tbaa !8
-  %64 = load i64, ptr %7, align 8, !tbaa !30
+  store ptr %63, ptr %5, align 8, !tbaa !9
+  %64 = load i64, ptr %7, align 8, !tbaa !34
   %65 = add i64 %64, 1
-  store i64 %65, ptr %7, align 8, !tbaa !30
+  store i64 %65, ptr %7, align 8, !tbaa !34
   br label %put_char.exit42
 
 put_char.exit42:                                  ; preds = %58, %61
   %.sink13.i40 = phi ptr [ %6, %61 ], [ %7, %58 ]
   %.sink12.i41 = phi i64 [ -1, %61 ], [ 1, %58 ]
-  %66 = load i64, ptr %.sink13.i40, align 8, !tbaa !30
+  %66 = load i64, ptr %.sink13.i40, align 8, !tbaa !34
   %67 = add i64 %66, %.sink12.i41
-  store i64 %67, ptr %.sink13.i40, align 8, !tbaa !30
+  store i64 %67, ptr %.sink13.i40, align 8, !tbaa !34
   br label %68
 
 68:                                               ; preds = %put_char.exit42, %55
-  %69 = load i64, ptr %6, align 8, !tbaa !30
+  %69 = load i64, ptr %6, align 8, !tbaa !34
   switch i64 %69, label %70 [
     i64 0, label %put_char.exit46
     i64 1, label %71
@@ -1579,23 +1579,23 @@ put_char.exit42:                                  ; preds = %58, %61
 
 71:                                               ; preds = %70, %68
   %.sink.i43 = phi i8 [ 61, %70 ], [ 0, %68 ]
-  %72 = load ptr, ptr %5, align 8, !tbaa !8
+  %72 = load ptr, ptr %5, align 8, !tbaa !9
   store i8 %.sink.i43, ptr %72, align 1, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  store ptr %73, ptr %5, align 8, !tbaa !8
-  %74 = load i64, ptr %7, align 8, !tbaa !30
+  store ptr %73, ptr %5, align 8, !tbaa !9
+  %74 = load i64, ptr %7, align 8, !tbaa !34
   %75 = add i64 %74, 1
-  store i64 %75, ptr %7, align 8, !tbaa !30
+  store i64 %75, ptr %7, align 8, !tbaa !34
   br label %put_char.exit46
 
 put_char.exit46:                                  ; preds = %68, %71
   %.sink13.i44 = phi ptr [ %6, %71 ], [ %7, %68 ]
   %.sink12.i45 = phi i64 [ -1, %71 ], [ 1, %68 ]
-  %76 = load i64, ptr %.sink13.i44, align 8, !tbaa !30
+  %76 = load i64, ptr %.sink13.i44, align 8, !tbaa !34
   %77 = add i64 %76, %.sink12.i45
-  store i64 %77, ptr %.sink13.i44, align 8, !tbaa !30
+  store i64 %77, ptr %.sink13.i44, align 8, !tbaa !34
   %78 = getelementptr inbounds nuw i8, ptr %.153, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !15
+  %79 = load i32, ptr %78, align 4, !tbaa !16
   switch i32 %79, label %.loopexit [
     i32 0, label %80
     i32 1, label %86
@@ -1627,36 +1627,36 @@ put_char.exit46:                                  ; preds = %68, %71
   %91 = add i64 %.129.i, 1
   %92 = udiv i64 %.12228.i, 10
   %93 = icmp samesign ugt i64 %.12228.i, 99
-  br i1 %93, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !32
+  br i1 %93, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %86
   %.1.lcssa.i = phi i64 [ %spec.select27.i, %86 ], [ %91, %.lr.ph.i ]
-  %94 = load i64, ptr %7, align 8, !tbaa !30
+  %94 = load i64, ptr %7, align 8, !tbaa !34
   %95 = add i64 %94, %.1.lcssa.i
-  store i64 %95, ptr %7, align 8, !tbaa !30
-  %96 = load i64, ptr %6, align 8, !tbaa !30
+  store i64 %95, ptr %7, align 8, !tbaa !34
+  %96 = load i64, ptr %6, align 8, !tbaa !34
   %97 = icmp eq i64 %96, 0
   br i1 %97, label %put_num.exit, label %98
 
 98:                                               ; preds = %._crit_edge.i
-  %99 = load ptr, ptr %5, align 8, !tbaa !8
+  %99 = load ptr, ptr %5, align 8, !tbaa !9
   %100 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %99, i64 noundef %96, ptr noundef nonnull @.str.16, i64 noundef %88) #9
   %.sink.v.i = tail call i64 @llvm.umin.i64(i64 %96, i64 %.1.lcssa.i)
   %.sink.i47 = getelementptr inbounds nuw i8, ptr %99, i64 %.sink.v.i
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %96, i64 %.1.lcssa.i)
-  store ptr %.sink.i47, ptr %5, align 8, !tbaa !8
-  store i64 %storemerge.i, ptr %6, align 8, !tbaa !30
+  store ptr %.sink.i47, ptr %5, align 8, !tbaa !9
+  store i64 %storemerge.i, ptr %6, align 8, !tbaa !34
   br label %put_num.exit
 
 put_num.exit:                                     ; preds = %98, %._crit_edge.i, %85, %55, %.lr.ph
   %101 = add nuw nsw i32 %.02252, 1
   %102 = getelementptr inbounds i8, ptr %.153, i64 -24
-  %103 = load i32, ptr %1, align 8, !tbaa !25
+  %103 = load i32, ptr %1, align 8, !tbaa !29
   %104 = icmp slt i32 %101, %103
-  br i1 %104, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+  br i1 %104, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !37
 
 ._crit_edge.loopexit:                             ; preds = %put_num.exit
-  %.pre54 = load i64, ptr %6, align 8, !tbaa !30
+  %.pre54 = load i64, ptr %6, align 8, !tbaa !34
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %11
@@ -1665,20 +1665,20 @@ put_num.exit:                                     ; preds = %98, %._crit_edge.i,
   br i1 %cond, label %put_char.exit51, label %106
 
 106:                                              ; preds = %._crit_edge
-  %107 = load ptr, ptr %5, align 8, !tbaa !8
+  %107 = load ptr, ptr %5, align 8, !tbaa !9
   store i8 0, ptr %107, align 1, !tbaa !3
-  %108 = load i64, ptr %7, align 8, !tbaa !30
+  %108 = load i64, ptr %7, align 8, !tbaa !34
   %109 = add i64 %108, 1
-  store i64 %109, ptr %7, align 8, !tbaa !30
+  store i64 %109, ptr %7, align 8, !tbaa !34
   br label %put_char.exit51
 
 put_char.exit51:                                  ; preds = %._crit_edge, %106
   %.sink13.i49 = phi ptr [ %6, %106 ], [ %7, %._crit_edge ]
   %.sink12.i50 = phi i64 [ -1, %106 ], [ 1, %._crit_edge ]
-  %110 = load i64, ptr %.sink13.i49, align 8, !tbaa !30
+  %110 = load i64, ptr %.sink13.i49, align 8, !tbaa !34
   %111 = add i64 %110, %.sink12.i50
-  store i64 %111, ptr %.sink13.i49, align 8, !tbaa !30
-  %112 = load i64, ptr %7, align 8, !tbaa !30
+  store i64 %111, ptr %.sink13.i49, align 8, !tbaa !34
+  %112 = load i64, ptr %7, align 8, !tbaa !34
   br label %.loopexit
 
 .loopexit:                                        ; preds = %put_char.exit46, %80, %51, %9, %10, %put_char.exit51
@@ -1692,9 +1692,9 @@ declare ptr @ossl_property_name_str(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @put_str(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
-  %6 = load i64, ptr %3, align 8, !tbaa !30
+  %6 = load i64, ptr %3, align 8, !tbaa !34
   %7 = add i64 %6, %5
-  store i64 %7, ptr %3, align 8, !tbaa !30
+  store i64 %7, ptr %3, align 8, !tbaa !34
   %.not62 = icmp eq i64 %5, 0
   br i1 %.not62, label %._crit_edge, label %.lr.ph
 
@@ -1726,12 +1726,12 @@ define internal fastcc void @put_str(ptr noundef nonnull readonly captures(none)
   %.1 = phi i8 [ %.04761, %.lr.ph ], [ %spec.store.select1, %14 ], [ %.04761, %12 ], [ %.04761, %12 ]
   %18 = add nuw i64 %.04860, 1
   %exitcond.not = icmp eq i64 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %17, %4
   %.047.lcssa = phi i8 [ 0, %4 ], [ %.1, %17 ]
   %19 = icmp ne i8 %.047.lcssa, 0
-  %20 = load i64, ptr %2, align 8, !tbaa !30
+  %20 = load i64, ptr %2, align 8, !tbaa !34
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %22, label %24
 
@@ -1745,17 +1745,17 @@ define internal fastcc void @put_str(ptr noundef nonnull readonly captures(none)
 put_char.exit:                                    ; preds = %24
   %cond = icmp eq i64 %20, 1
   %spec.select59 = select i1 %cond, i8 0, i8 %.047.lcssa
-  %25 = load ptr, ptr %1, align 8, !tbaa !8
+  %25 = load ptr, ptr %1, align 8, !tbaa !9
   store i8 %spec.select59, ptr %25, align 1, !tbaa !3
-  %26 = load ptr, ptr %1, align 8, !tbaa !8
+  %26 = load ptr, ptr %1, align 8, !tbaa !9
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %27, ptr %1, align 8, !tbaa !8
-  %28 = load i64, ptr %3, align 8, !tbaa !30
+  store ptr %27, ptr %1, align 8, !tbaa !9
+  %28 = load i64, ptr %3, align 8, !tbaa !34
   %29 = add i64 %28, 1
-  store i64 %29, ptr %3, align 8, !tbaa !30
-  %30 = load i64, ptr %2, align 8, !tbaa !30
+  store i64 %29, ptr %3, align 8, !tbaa !34
+  %30 = load i64, ptr %2, align 8, !tbaa !34
   %31 = add i64 %30, -1
-  store i64 %31, ptr %2, align 8, !tbaa !30
+  store i64 %31, ptr %2, align 8, !tbaa !34
   br label %32
 
 32:                                               ; preds = %put_char.exit, %24
@@ -1770,14 +1770,14 @@ put_char.exit:                                    ; preds = %24
   br i1 %.not, label %45, label %39
 
 39:                                               ; preds = %32
-  %40 = load ptr, ptr %1, align 8, !tbaa !8
+  %40 = load ptr, ptr %1, align 8, !tbaa !9
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr nonnull align 1 %0, i64 %spec.select, i1 false)
-  %41 = load ptr, ptr %1, align 8, !tbaa !8
+  %41 = load ptr, ptr %1, align 8, !tbaa !9
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %spec.select
-  store ptr %42, ptr %1, align 8, !tbaa !8
-  %43 = load i64, ptr %2, align 8, !tbaa !30
+  store ptr %42, ptr %1, align 8, !tbaa !9
+  %43 = load i64, ptr %2, align 8, !tbaa !34
   %44 = sub i64 %43, %spec.select
-  store i64 %44, ptr %2, align 8, !tbaa !30
+  store i64 %44, ptr %2, align 8, !tbaa !34
   br label %45
 
 45:                                               ; preds = %39, %32
@@ -1795,22 +1795,22 @@ put_char.exit:                                    ; preds = %24
 
 49:                                               ; preds = %48, %47
   %.sink.i55 = phi i8 [ %.047.lcssa, %48 ], [ 0, %47 ]
-  %50 = load ptr, ptr %1, align 8, !tbaa !8
+  %50 = load ptr, ptr %1, align 8, !tbaa !9
   store i8 %.sink.i55, ptr %50, align 1, !tbaa !3
-  %51 = load ptr, ptr %1, align 8, !tbaa !8
+  %51 = load ptr, ptr %1, align 8, !tbaa !9
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %52, ptr %1, align 8, !tbaa !8
-  %53 = load i64, ptr %3, align 8, !tbaa !30
+  store ptr %52, ptr %1, align 8, !tbaa !9
+  %53 = load i64, ptr %3, align 8, !tbaa !34
   %54 = add i64 %53, 1
-  store i64 %54, ptr %3, align 8, !tbaa !30
+  store i64 %54, ptr %3, align 8, !tbaa !34
   br label %put_char.exit58
 
 put_char.exit58:                                  ; preds = %47, %49
   %.sink13.i56 = phi ptr [ %2, %49 ], [ %3, %47 ]
   %.sink12.i57 = phi i64 [ -1, %49 ], [ 1, %47 ]
-  %55 = load i64, ptr %.sink13.i56, align 8, !tbaa !30
+  %55 = load i64, ptr %.sink13.i56, align 8, !tbaa !34
   %56 = add i64 %55, %.sink12.i57
-  store i64 %56, ptr %.sink13.i56, align 8, !tbaa !30
+  store i64 %56, ptr %.sink13.i56, align 8, !tbaa !34
   br label %57
 
 57:                                               ; preds = %put_char.exit58, %45
@@ -1818,24 +1818,24 @@ put_char.exit58:                                  ; preds = %47, %49
   br i1 %58, label %59, label %68
 
 59:                                               ; preds = %57
-  %60 = load i64, ptr %2, align 8, !tbaa !30
+  %60 = load i64, ptr %2, align 8, !tbaa !34
   %61 = icmp eq i64 %60, 1
   br i1 %61, label %62, label %68
 
 62:                                               ; preds = %59
-  %63 = load ptr, ptr %1, align 8, !tbaa !8
+  %63 = load ptr, ptr %1, align 8, !tbaa !9
   store i8 0, ptr %63, align 1, !tbaa !3
-  %64 = load ptr, ptr %1, align 8, !tbaa !8
+  %64 = load ptr, ptr %1, align 8, !tbaa !9
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 1
-  store ptr %65, ptr %1, align 8, !tbaa !8
+  store ptr %65, ptr %1, align 8, !tbaa !9
   br label %.sink.split
 
 .sink.split:                                      ; preds = %22, %62
   %.sink = phi ptr [ %2, %62 ], [ %3, %22 ]
   %.sink65 = phi i64 [ -1, %62 ], [ %23, %22 ]
-  %66 = load i64, ptr %.sink, align 8, !tbaa !30
+  %66 = load i64, ptr %.sink, align 8, !tbaa !34
   %67 = add i64 %66, %.sink65
-  store i64 %67, ptr %.sink, align 8, !tbaa !30
+  store i64 %67, ptr %.sink, align 8, !tbaa !34
   br label %68
 
 68:                                               ; preds = %.sink.split, %57, %59
@@ -1852,7 +1852,7 @@ declare i32 @ossl_tolower(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !8
+  %3 = load ptr, ptr %0, align 8, !tbaa !9
   br label %4
 
 4:                                                ; preds = %18, %2
@@ -1867,7 +1867,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
 8:                                                ; preds = %4
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.parse_number) #9
-  %9 = load ptr, ptr %0, align 8, !tbaa !8
+  %9 = load ptr, ptr %0, align 8, !tbaa !9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 105, ptr noundef nonnull @.str.2, ptr noundef %9) #9
   br label %41
 
@@ -1882,7 +1882,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
 16:                                               ; preds = %10
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 109, ptr noundef nonnull @__func__.parse_number) #9
-  %17 = load ptr, ptr %0, align 8, !tbaa !8
+  %17 = load ptr, ptr %0, align 8, !tbaa !9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 108, ptr noundef nonnull @.str.13, ptr noundef %17) #9
   br label %41
 
@@ -1895,7 +1895,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
   %24 = sext i8 %23 to i32
   %25 = tail call i32 @ossl_isdigit(i32 noundef %24) #9
   %.not21 = icmp eq i32 %25, 0
-  br i1 %.not21, label %26, label %4, !llvm.loop !35
+  br i1 %.not21, label %26, label %4, !llvm.loop !39
 
 26:                                               ; preds = %18
   %27 = load i8, ptr %20, align 1, !tbaa !3
@@ -1917,7 +1917,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
 32:                                               ; preds = %30
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 116, ptr noundef nonnull @__func__.parse_number) #9
-  %33 = load ptr, ptr %0, align 8, !tbaa !8
+  %33 = load ptr, ptr %0, align 8, !tbaa !9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 55, i32 noundef 105, ptr noundef nonnull @.str.2, ptr noundef %33) #9
   br label %41
 
@@ -1931,9 +1931,9 @@ define internal fastcc range(i32 0, 2) i32 @parse_number(ptr noundef nonnull cap
   br i1 %.not.i, label %skip_space.exit, label %34, !llvm.loop !6
 
 skip_space.exit:                                  ; preds = %34
-  store ptr %.0.i, ptr %0, align 8, !tbaa !8
+  store ptr %.0.i, ptr %0, align 8, !tbaa !9
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %39, align 4, !tbaa !15
+  store i32 1, ptr %39, align 4, !tbaa !16
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %22, ptr %40, align 8, !tbaa !3
   br label %41
@@ -2003,33 +2003,37 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !4, i64 0}
-!11 = !{!12, !13, i64 8}
-!12 = !{!"ossl_property_definition_st", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !4, i64 16}
-!13 = !{!"int", !4, i64 0}
-!14 = !{!12, !13, i64 0}
-!15 = !{!12, !13, i64 4}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS27ossl_property_definition_st", !10, i64 0}
-!18 = distinct !{!18, !7}
-!19 = !{!13, !13, i64 0}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = !{i64 0, i64 4, !19, i64 4, i64 4, !19, i64 8, i64 4, !19, i64 12, i64 1, !3, i64 16, i64 8, !3}
-!24 = distinct !{!24, !7}
-!25 = !{!26, !13, i64 0}
-!26 = !{!"ossl_property_list_st", !13, i64 0, !13, i64 4, !4, i64 8}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"long", !4, i64 0}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 omnipotent char", !11, i64 0}
+!11 = !{!"any pointer", !4, i64 0}
+!12 = !{!13, !14, i64 8}
+!13 = !{!"ossl_property_definition_st", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !4, i64 16}
+!14 = !{!"int", !4, i64 0}
+!15 = !{!13, !14, i64 0}
+!16 = !{!13, !14, i64 4}
+!17 = distinct !{!17, !8}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS27ossl_property_definition_st", !11, i64 0}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = !{!14, !14, i64 0}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = !{i64 0, i64 4, !22, i64 4, i64 4, !22, i64 8, i64 4, !22, i64 12, i64 1, !3, i64 16, i64 8, !3}
+!28 = distinct !{!28, !7, !8}
+!29 = !{!30, !14, i64 0}
+!30 = !{!"ossl_property_list_st", !14, i64 0, !14, i64 4, !4, i64 8}
+!31 = distinct !{!31, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"long", !4, i64 0}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}

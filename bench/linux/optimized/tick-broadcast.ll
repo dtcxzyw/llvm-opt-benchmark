@@ -577,7 +577,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @tick_receive_broadcast() local_unnamed_addr #2 align 16 {
-  %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !15
+  %1 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !16
   %2 = inttoptr i64 %1 to ptr
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -600,7 +600,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tick_receive_broadcast() local_u
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   %2 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tick_broadcast_lock) #11
-  %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !16
+  %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !17
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -614,7 +614,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
   br i1 %11, label %12, label %57
 
 12:                                               ; preds = %7
-  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !17
+  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !18
   %14 = load ptr, ptr @tick_broadcast_device, align 8
   %15 = load i64, ptr @tick_broadcast_mask, align 8
   %16 = icmp eq i64 %15, 0
@@ -631,7 +631,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
 18:                                               ; preds = %17, %12
   %19 = zext i32 %13 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_on, i64 %19) #11, !srcloc !6
-  %20 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %19, ptr nonnull elementtype(i64) @tick_broadcast_mask) #11, !srcloc !18
+  %20 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %19, ptr nonnull elementtype(i64) @tick_broadcast_mask) #11, !srcloc !19
   %21 = icmp ult i8 %20, 2
   tail call void @llvm.assume(i1 %21)
   %22 = icmp ne i8 %20, 0
@@ -660,7 +660,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
 36:                                               ; preds = %34
   %37 = zext i32 %13 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_on, i64 %37) #11, !srcloc !7
-  %38 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %37, ptr nonnull elementtype(i64) @tick_broadcast_mask) #11, !srcloc !19
+  %38 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %37, ptr nonnull elementtype(i64) @tick_broadcast_mask) #11, !srcloc !20
   %39 = icmp ult i8 %38, 2
   tail call void @llvm.assume(i1 %39)
   %40 = icmp ne i8 %38, 0
@@ -723,7 +723,7 @@ define dso_local void @tick_set_periodic_handler(ptr noundef writeonly captures(
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @tick_handle_periodic_broadcast(ptr noundef %0) #2 align 16 {
-  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !20
+  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !21
   %3 = inttoptr i64 %2 to ptr
   tail call void @_raw_spin_lock(ptr noundef nonnull @tick_broadcast_lock) #11
   %4 = load ptr, ptr @tick_broadcast_device, align 8
@@ -741,7 +741,7 @@ define internal void @tick_handle_periodic_broadcast(ptr noundef %0) #2 align 16
   %11 = load i64, ptr @tick_broadcast_mask, align 8
   %12 = and i64 %11, %10
   store i64 %12, ptr @tmpmask, align 8
-  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !21
+  %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
   %14 = zext i32 %13 to i64
   %15 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tmpmask, i64 %14) #11, !srcloc !8
   %16 = icmp ult i8 %15, 2
@@ -873,7 +873,7 @@ define dso_local zeroext i1 @tick_resume_check_broadcast() local_unnamed_addr #2
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %0
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !23
   %5 = zext i32 %4 to i64
   %6 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %5) #11, !srcloc !8
   %7 = icmp ult i8 %6, 2
@@ -934,7 +934,7 @@ define dso_local noundef nonnull ptr @tick_get_broadcast_oneshot_mask() local_un
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
 define dso_local range(i32 0, 2) i32 @tick_check_broadcast_expired() local_unnamed_addr #6 section ".noinstr.text" align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !23
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !24
   %2 = sext i32 %1 to i64
   %3 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_force_mask, i64 %2) #11, !srcloc !8
   %4 = icmp ult i8 %3, 2
@@ -945,7 +945,7 @@ define dso_local range(i32 0, 2) i32 @tick_check_broadcast_expired() local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tick_check_oneshot_broadcast_this_cpu() local_unnamed_addr #2 align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !24
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !25
   %2 = zext i32 %1 to i64
   %3 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask, i64 %2) #11, !srcloc !8
   %4 = icmp ult i8 %3, 2
@@ -954,7 +954,7 @@ define dso_local void @tick_check_oneshot_broadcast_this_cpu() local_unnamed_add
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %0
-  %7 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !25
+  %7 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !26
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
@@ -975,9 +975,9 @@ declare dso_local void @clockevents_switch_state(ptr noundef, i32 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 noundef %0) local_unnamed_addr #2 align 16 {
-  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !26
+  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !27
   %3 = inttoptr i64 %2 to ptr
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !27
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !28
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
@@ -1055,7 +1055,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
 
 50:                                               ; preds = %45
   %51 = zext i32 %4 to i64
-  %52 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask, i64 %51, ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask) #11, !srcloc !18
+  %52 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask, i64 %51, ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask) #11, !srcloc !19
   %53 = icmp ult i8 %52, 2
   tail call void @llvm.assume(i1 %53)
   %54 = icmp eq i8 %52, 0
@@ -1069,9 +1069,9 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %58, label %60, label %59, !prof !5
 
 59:                                               ; preds = %55
-  tail call void asm sideeffect "317: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 317b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 317) #11, !srcloc !28
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 831, i32 2307, i64 12) #11, !srcloc !29
-  tail call void asm sideeffect "318: nop\0A\09.pushsection .discard.instr_end\0A\09.long 318b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 318) #11, !srcloc !30
+  tail call void asm sideeffect "317: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 317b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 317) #11, !srcloc !29
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 831, i32 2307, i64 12) #11, !srcloc !30
+  tail call void asm sideeffect "318: nop\0A\09.pushsection .discard.instr_end\0A\09.long 318b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 318) #11, !srcloc !31
   br label %60
 
 60:                                               ; preds = %59, %55
@@ -1081,7 +1081,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
   br i1 %63, label %77, label %64
 
 64:                                               ; preds = %60
-  %65 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !31
+  %65 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !32
   %66 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %67 = load i64, ptr %66, align 8
   %68 = icmp eq i64 %67, 9223372036854775807
@@ -1142,7 +1142,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
 
 100:                                              ; preds = %29
   %101 = zext i32 %4 to i64
-  %102 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask, i64 %101, ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask) #11, !srcloc !19
+  %102 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask, i64 %101, ptr nonnull elementtype(i64) @tick_broadcast_oneshot_mask) #11, !srcloc !20
   %103 = icmp ult i8 %102, 2
   tail call void @llvm.assume(i1 %103)
   %104 = icmp eq i8 %102, 0
@@ -1150,7 +1150,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
 
 105:                                              ; preds = %100
   tail call void @clockevents_switch_state(ptr noundef %5, i32 noundef 3) #11
-  %106 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_pending_mask, i64 %101, ptr nonnull elementtype(i64) @tick_broadcast_pending_mask) #11, !srcloc !19
+  %106 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_pending_mask, i64 %101, ptr nonnull elementtype(i64) @tick_broadcast_pending_mask) #11, !srcloc !20
   %107 = icmp ult i8 %106, 2
   tail call void @llvm.assume(i1 %107)
   %108 = icmp eq i8 %106, 0
@@ -1255,7 +1255,7 @@ define dso_local void @tick_broadcast_init() local_unnamed_addr #7 section ".ini
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @tick_oneshot_wakeup_handler(ptr readnone captures(none) %0) #2 align 16 {
-  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !15
+  %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !16
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1406,12 +1406,12 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   %35 = add nuw nsw i64 %13, 1
   %36 = and i64 %35, 127
   %37 = icmp samesign ugt i64 %36, 63
-  br i1 %37, label %.thread, label %4, !prof !11, !llvm.loop !32
+  br i1 %37, label %.thread, label %4, !prof !11, !llvm.loop !33
 
 .thread:                                          ; preds = %4, %31, %12
   %.lcssa6 = phi i32 [ %8, %4 ], [ %33, %31 ], [ %8, %12 ]
   %.lcssa = phi i64 [ %7, %4 ], [ %34, %31 ], [ %7, %12 ]
-  %38 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !33
+  %38 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !34
   %39 = zext i32 %38 to i64
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_pending_mask, i64 %39) #11, !srcloc !7
   %40 = load i64, ptr @tmpmask, align 8
@@ -1426,9 +1426,9 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   br i1 %46, label %51, label %47, !prof !5
 
 47:                                               ; preds = %.thread
-  tail call void asm sideeffect "315: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 315b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 315) #11, !srcloc !34
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 741, i32 2307, i64 12) #11, !srcloc !35
-  tail call void asm sideeffect "316: nop\0A\09.pushsection .discard.instr_end\0A\09.long 316b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 316) #11, !srcloc !36
+  tail call void asm sideeffect "315: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 315b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 315) #11, !srcloc !35
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 741, i32 2307, i64 12) #11, !srcloc !36
+  tail call void asm sideeffect "316: nop\0A\09.pushsection .discard.instr_end\0A\09.long 316b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 316) #11, !srcloc !37
   %48 = load i64, ptr @tmpmask, align 8
   %49 = load i64, ptr @__cpu_online_mask, align 8
   %50 = and i64 %49, %48
@@ -1436,7 +1436,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   br label %51
 
 51:                                               ; preds = %47, %.thread
-  %52 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !21
+  %52 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #13, !srcloc !22
   %53 = zext i32 %52 to i64
   %54 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tmpmask, i64 %53) #11, !srcloc !8
   %55 = icmp ult i8 %54, 2
@@ -1517,7 +1517,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
   br i1 %64, label %104, label %109
 
 104:                                              ; preds = %103
-  %105 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !37
+  %105 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !38
   %106 = inttoptr i64 %105 to ptr
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr %107, align 64
@@ -1560,29 +1560,30 @@ attributes #13 = { nounwind memory(read) }
 !9 = !{i64 2154523165}
 !10 = !{i64 924874}
 !11 = !{!"branch_weights", i32 1, i32 1999}
-!12 = distinct !{!12, !13, !14}
+!12 = distinct !{!12, !13, !14, !15}
 !13 = !{!"llvm.loop.mustprogress"}
 !14 = !{!"llvm.loop.unroll.disable"}
-!15 = !{i64 2154476539}
-!16 = !{i64 2154482768}
-!17 = !{i64 2154485702}
-!18 = !{i64 2148422867, i64 2148422906, i64 2148422927, i64 2148422964, i64 2148422987, i64 2148422996, i64 2148423099}
-!19 = !{i64 2148425769, i64 2148425808, i64 2148425829, i64 2148425866, i64 2148425889, i64 2148425898, i64 2148426001}
-!20 = !{i64 2154481608}
-!21 = !{i64 2154479470}
-!22 = !{i64 2154491911}
-!23 = !{i64 2154496141}
-!24 = !{i64 2154499629}
-!25 = !{i64 2154500769}
-!26 = !{i64 2154515423}
-!27 = !{i64 2154518348}
-!28 = !{i64 2154513626, i64 2154513435, i64 2154513487, i64 2154513533, i64 2154513561}
-!29 = !{i64 2154513700, i64 2154513729, i64 2154513775, i64 2154513833, i64 2154513887, i64 2154513941, i64 2154513996, i64 2154514027, i64 2154514335, i64 2154514341, i64 2154514388, i64 2154514411, i64 2154514437}
-!30 = !{i64 2154514898, i64 2154514709, i64 2154514759, i64 2154514805, i64 2154514833}
-!31 = !{i64 2154511996}
-!32 = distinct !{!32, !13, !14}
-!33 = !{i64 2154505555}
-!34 = !{i64 2154507197, i64 2154507006, i64 2154507058, i64 2154507104, i64 2154507132}
-!35 = !{i64 2154507271, i64 2154507300, i64 2154507346, i64 2154507404, i64 2154507458, i64 2154507512, i64 2154507567, i64 2154507598, i64 2154507906, i64 2154507912, i64 2154507959, i64 2154507982, i64 2154508008}
-!36 = !{i64 2154508469, i64 2154508280, i64 2154508330, i64 2154508376, i64 2154508404}
-!37 = !{i64 2154509027}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{i64 2154476539}
+!17 = !{i64 2154482768}
+!18 = !{i64 2154485702}
+!19 = !{i64 2148422867, i64 2148422906, i64 2148422927, i64 2148422964, i64 2148422987, i64 2148422996, i64 2148423099}
+!20 = !{i64 2148425769, i64 2148425808, i64 2148425829, i64 2148425866, i64 2148425889, i64 2148425898, i64 2148426001}
+!21 = !{i64 2154481608}
+!22 = !{i64 2154479470}
+!23 = !{i64 2154491911}
+!24 = !{i64 2154496141}
+!25 = !{i64 2154499629}
+!26 = !{i64 2154500769}
+!27 = !{i64 2154515423}
+!28 = !{i64 2154518348}
+!29 = !{i64 2154513626, i64 2154513435, i64 2154513487, i64 2154513533, i64 2154513561}
+!30 = !{i64 2154513700, i64 2154513729, i64 2154513775, i64 2154513833, i64 2154513887, i64 2154513941, i64 2154513996, i64 2154514027, i64 2154514335, i64 2154514341, i64 2154514388, i64 2154514411, i64 2154514437}
+!31 = !{i64 2154514898, i64 2154514709, i64 2154514759, i64 2154514805, i64 2154514833}
+!32 = !{i64 2154511996}
+!33 = distinct !{!33, !13, !14, !15}
+!34 = !{i64 2154505555}
+!35 = !{i64 2154507197, i64 2154507006, i64 2154507058, i64 2154507104, i64 2154507132}
+!36 = !{i64 2154507271, i64 2154507300, i64 2154507346, i64 2154507404, i64 2154507458, i64 2154507512, i64 2154507567, i64 2154507598, i64 2154507906, i64 2154507912, i64 2154507959, i64 2154507982, i64 2154508008}
+!37 = !{i64 2154508469, i64 2154508280, i64 2154508330, i64 2154508376, i64 2154508404}
+!38 = !{i64 2154509027}

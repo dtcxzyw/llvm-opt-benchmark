@@ -106,7 +106,7 @@ _ZSt8_DestroyIPN7rocksdb12Configurable17RegisteredOptionsES2_EvT_S4_RSaIT0_E.exi
 
 16:                                               ; preds = %_ZSt8_DestroyIPN7rocksdb12Configurable17RegisteredOptionsES2_EvT_S4_RSaIT0_E.exit.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
@@ -163,7 +163,7 @@ _ZSt8_DestroyIPN7rocksdb12Configurable17RegisteredOptionsES2_EvT_S4_RSaIT0_E.exi
 
 16:                                               ; preds = %_ZSt8_DestroyIPN7rocksdb12Configurable17RegisteredOptionsES2_EvT_S4_RSaIT0_E.exit.i.i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  %18 = load ptr, ptr %17, align 8, !tbaa !25
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %15 to i64
   %21 = sub i64 %19, %20
@@ -183,7 +183,7 @@ declare noundef zeroext i1 @_ZNK7rocksdb12Customizable13AreEquivalentERKNS_13Con
 define linkonce_odr void @_ZNK7rocksdb12Configurable19GetPrintableOptionsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %0, align 8, !tbaa !25
+  store ptr %2, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8, !tbaa !20
   store i8 0, ptr %2, align 8, !tbaa !21
@@ -245,7 +245,7 @@ define linkonce_odr void @_ZNK7rocksdb12Customizable5GetIdB5cxx11Ev(ptr dead_on_
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !25
+  store ptr %8, ptr %0, align 8, !tbaa !26
   %9 = icmp eq ptr %7, null
   br i1 %9, label %.noexc, label %10
 
@@ -256,14 +256,14 @@ define linkonce_odr void @_ZNK7rocksdb12Customizable5GetIdB5cxx11Ev(ptr dead_on_
 10:                                               ; preds = %2
   %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store i64 %11, ptr %3, align 8, !tbaa !26
+  store i64 %11, ptr %3, align 8, !tbaa !27
   %12 = icmp ugt i64 %11, 15
   br i1 %12, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %10
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %13, ptr %0, align 8, !tbaa !17
-  %14 = load i64, ptr %3, align 8, !tbaa !26
+  %14 = load i64, ptr %3, align 8, !tbaa !27
   store i64 %14, ptr %8, align 8, !tbaa !21
   br label %._crit_edge.i.i
 
@@ -284,7 +284,7 @@ define linkonce_odr void @_ZNK7rocksdb12Customizable5GetIdB5cxx11Ev(ptr dead_on_
   br label %19
 
 19:                                               ; preds = %18, %16, %._crit_edge.i.i
-  %20 = load i64, ptr %3, align 8, !tbaa !26
+  %20 = load i64, ptr %3, align 8, !tbaa !27
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !20
   %22 = load ptr, ptr %0, align 8, !tbaa !17
@@ -356,12 +356,12 @@ define linkonce_odr noundef i32 @_ZNK7rocksdb16CompactionFilter8FilterV2EiRKNS_5
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
-  store i8 0, ptr %8, align 1, !tbaa !27
+  store i8 0, ptr %8, align 1, !tbaa !28
   %10 = load ptr, ptr %0, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef nonnull %8)
-  %14 = load i8, ptr %8, align 1, !range !29
+  %14 = load i8, ptr %8, align 1, !range !30
   %15 = shl nuw nsw i8 %14, 1
   %16 = zext nneg i8 %15 to i32
   %.0 = select i1 %13, i32 1, i32 %16
@@ -488,11 +488,12 @@ attributes #14 = { nounwind }
 !19 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !6, i64 0}
 !20 = !{!18, !10, i64 8}
 !21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!14, !15, i64 16}
-!25 = !{!19, !6, i64 0}
-!26 = !{!10, !10, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"bool", !8, i64 0}
-!29 = !{i8 0, i8 2}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!14, !15, i64 16}
+!26 = !{!19, !6, i64 0}
+!27 = !{!10, !10, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"bool", !8, i64 0}
+!30 = !{i8 0, i8 2}

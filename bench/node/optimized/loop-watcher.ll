@@ -174,7 +174,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void %8(ptr noundef nonnull %add.ptr) #3
   %9 = load ptr, ptr %queue, align 8
   %cmp.i.not = icmp eq ptr %queue, %9
-  br i1 %cmp.i.not, label %while.end, label %while.body
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !5
 
 while.end:                                        ; preds = %while.body, %entry, %uv__queue_move.exit
   ret void
@@ -392,7 +392,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void %8(ptr noundef nonnull %add.ptr) #3
   %9 = load ptr, ptr %queue, align 8
   %cmp.i.not = icmp eq ptr %queue, %9
-  br i1 %cmp.i.not, label %while.end, label %while.body
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !7
 
 while.end:                                        ; preds = %while.body, %entry, %uv__queue_move.exit
   ret void
@@ -610,7 +610,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   call void %8(ptr noundef nonnull %add.ptr) #3
   %9 = load ptr, ptr %queue, align 8
   %cmp.i.not = icmp eq ptr %queue, %9
-  br i1 %cmp.i.not, label %while.end, label %while.body
+  br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %while.body, %entry, %uv__queue_move.exit
   ret void
@@ -671,3 +671,7 @@ attributes #3 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

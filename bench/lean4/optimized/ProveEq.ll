@@ -28902,7 +28902,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   br i1 %26, label %.backedge.backedge, label %27
 
 .backedge.backedge:                               ; preds = %14, %27
-  br label %.backedge
+  br label %.backedge, !llvm.loop !19
 
 27:                                               ; preds = %14
   %28 = tail call zeroext i8 @lean_expr_eqv(ptr noundef %22, ptr noundef %24) #4
@@ -29395,7 +29395,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !21
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -29908,7 +29908,7 @@ lean_array_uset.exit149:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit149, %lean_array_uset.exit
   %.086.be = phi ptr [ %19, %lean_array_uset.exit ], [ %95, %lean_array_uset.exit149 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i146, %lean_array_uset.exit149 ]
-  br label %3
+  br label %3, !llvm.loop !22
 }
 
 declare i64 @l_Lean_Expr_hash(ptr noundef) local_unnamed_addr #2
@@ -33212,7 +33212,7 @@ lean_obj_tag.exit.i:                              ; preds = %865, %862
   br i1 %.not.i1471, label %lean_array_uget.exit.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_ProveEq_0__Lean_Meta_Grind_abstractGroundMismatches_x3f_go___spec__1.exit
 
 lean_array_uget.exit.backedge:                    ; preds = %882, %869
-  br label %lean_array_uget.exit
+  br label %lean_array_uget.exit, !llvm.loop !19
 
 884:                                              ; preds = %lean_obj_tag.exit.i
   br i1 %.not1799, label %895, label %885, !prof !13
@@ -34250,7 +34250,7 @@ lean_obj_tag.exit.i1547:                          ; preds = %1280, %1277
   br i1 %.not.i1549, label %lean_array_uget.exit1544.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_ProveEq_0__Lean_Meta_Grind_abstractGroundMismatches_x3f_go___spec__1.exit1553
 
 lean_array_uget.exit1544.backedge:                ; preds = %1297, %1284
-  br label %lean_array_uget.exit1544
+  br label %lean_array_uget.exit1544, !llvm.loop !19
 
 1299:                                             ; preds = %lean_obj_tag.exit.i1547
   br i1 %.not1781, label %1310, label %1300, !prof !13
@@ -35579,7 +35579,7 @@ lean_obj_tag.exit.i1659:                          ; preds = %1802, %1799
   br i1 %.not.i1661, label %lean_array_uget.exit1656.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_ProveEq_0__Lean_Meta_Grind_abstractGroundMismatches_x3f_go___spec__1.exit1665
 
 lean_array_uget.exit1656.backedge:                ; preds = %1819, %1806
-  br label %lean_array_uget.exit1656
+  br label %lean_array_uget.exit1656, !llvm.loop !19
 
 1821:                                             ; preds = %lean_obj_tag.exit.i1659
   br i1 %.not1759, label %1832, label %1822, !prof !13
@@ -37610,7 +37610,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   br i1 %.not.i8, label %.backedge.i.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_ProveEq_0__Lean_Meta_Grind_abstractGroundMismatches_x3f_go___spec__1.exit
 
 .backedge.i.backedge:                             ; preds = %27, %14
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !19
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Meta_Tactic_Grind_ProveEq_0__Lean_Meta_Grind_abstractGroundMismatches_x3f_go___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %27
   %.1.i = phi i64 [ 1, %lean_obj_tag.exit.i ], [ 3, %27 ]
@@ -52617,3 +52617,7 @@ attributes #5 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !6, i64 0}
 !18 = !{!6, !6, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !20}

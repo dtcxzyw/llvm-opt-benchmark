@@ -1306,7 +1306,7 @@ _ZN12_GLOBAL__N_119_isExtensionSubtagsEcPKci.exit: ; preds = %42, %44, %46, %48
   %94 = load ptr, ptr %7, align 8
   %95 = load i32, ptr %85, align 8
   invoke void @_ZN6icu_776Locale22setUnicodeKeywordValueENS_11StringPieceES1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %65, ptr %94, i32 %95, ptr null, i32 0, ptr noundef nonnull align 4 dereferenceable(4) %11)
-          to label %86 unwind label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit.i, !llvm.loop !32
+          to label %86 unwind label %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit.i, !llvm.loop !33
 
 _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit.i: ; preds = %93, %92, %86
   %96 = landingpad { ptr, i32 }
@@ -1664,32 +1664,32 @@ _ZN6icu_776Locale15setKeywordValueEPKcS2_R10UErrorCode.exit: ; preds = %.noexc50
   %65 = load ptr, ptr %14, align 8
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %67 = load i32, ptr %66, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !33)
-  %68 = load i32, ptr %12, align 4, !tbaa !13, !noalias !33
+  call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  %68 = load i32, ptr %12, align 4, !tbaa !13, !noalias !34
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13)
           to label %.noexc52 unwind label %102
 
 .noexc52:                                         ; preds = %64
   %69 = icmp slt i32 %68, 1
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i32 0, ptr %70, align 8, !tbaa !28, !alias.scope !33
-  %71 = load ptr, ptr %13, align 8, !tbaa !3, !alias.scope !33
+  store i32 0, ptr %70, align 8, !tbaa !28, !alias.scope !34
+  %71 = load ptr, ptr %13, align 8, !tbaa !3, !alias.scope !34
   store i8 0, ptr %71, align 1, !tbaa !24
   br i1 %69, label %72, label %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit
 
 72:                                               ; preds = %.noexc52
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17, !noalias !33
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17, !noalias !34
   invoke void @_ZN6icu_7718CharStringByteSinkC2EPNS_10CharStringE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 %13)
           to label %73 unwind label %75
 
 73:                                               ; preds = %72
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINS_10CharStringEEE, i64 16), ptr %8, align 8, !tbaa !15, !noalias !33
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINS_10CharStringEEE, i64 16), ptr %8, align 8, !tbaa !15, !noalias !34
   invoke void @_ZNK6icu_776Locale15getKeywordValueENS_11StringPieceERNS_8ByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %46, ptr %65, i32 %67, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %74 unwind label %77
 
 74:                                               ; preds = %73
   call void @_ZN6icu_7718CharStringByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17, !noalias !34
   br label %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit
 
 75:                                               ; preds = %72
@@ -1705,7 +1705,7 @@ _ZN6icu_776Locale15setKeywordValueEPKcS2_R10UErrorCode.exit: ; preds = %.noexc50
 
 79:                                               ; preds = %77, %75
   %.pn.i = phi { ptr, i32 } [ %78, %77 ], [ %76, %75 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17, !noalias !33
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #17, !noalias !34
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %13) #17
   br label %.body
 
@@ -1933,7 +1933,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit71: ; preds = %
   %159 = getelementptr i8, ptr %.02690, i64 %158
   %160 = getelementptr i8, ptr %159, i64 1
   %161 = icmp ult ptr %160, %123
-  br i1 %161, label %129, label %._crit_edge, !llvm.loop !36
+  br i1 %161, label %129, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit71
   %162 = trunc nuw i8 %.117 to i1
@@ -2161,32 +2161,32 @@ _ZN6icu_7712_GLOBAL__N_19transformEPci.exit:      ; preds = %_ZN6icu_7712_GLOBAL
   %40 = load ptr, ptr %8, align 8
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %42 = load i32, ptr %41, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %43 = load i32, ptr %6, align 4, !tbaa !13, !noalias !37
+  call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  %43 = load i32, ptr %6, align 4, !tbaa !13, !noalias !38
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7)
           to label %.noexc39 unwind label %58
 
 .noexc39:                                         ; preds = %39
   %44 = icmp slt i32 %43, 1
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 0, ptr %45, align 8, !tbaa !28, !alias.scope !37
-  %46 = load ptr, ptr %7, align 8, !tbaa !3, !alias.scope !37
+  store i32 0, ptr %45, align 8, !tbaa !28, !alias.scope !38
+  %46 = load ptr, ptr %7, align 8, !tbaa !3, !alias.scope !38
   store i8 0, ptr %46, align 1, !tbaa !24
   br i1 %44, label %47, label %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit
 
 47:                                               ; preds = %.noexc39
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !37
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !38
   invoke void @_ZN6icu_7718CharStringByteSinkC2EPNS_10CharStringE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 %7)
           to label %48 unwind label %50
 
 48:                                               ; preds = %47
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINS_10CharStringEEE, i64 16), ptr %4, align 8, !tbaa !15, !noalias !37
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINS_10CharStringEEE, i64 16), ptr %4, align 8, !tbaa !15, !noalias !38
   invoke void @_ZNK6icu_776Locale15getKeywordValueENS_11StringPieceERNS_8ByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %36, ptr %40, i32 %42, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %49 unwind label %52
 
 49:                                               ; preds = %48
   call void @_ZN6icu_7718CharStringByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !38
   br label %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit
 
 50:                                               ; preds = %47
@@ -2202,7 +2202,7 @@ _ZN6icu_7712_GLOBAL__N_19transformEPci.exit:      ; preds = %_ZN6icu_7712_GLOBAL
 
 54:                                               ; preds = %52, %50
   %.pn.i = phi { ptr, i32 } [ %53, %52 ], [ %51, %50 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !37
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !38
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %7) #17
   br label %.body
 
@@ -2279,7 +2279,7 @@ _ZN6icu_7710CharStringC2Ev.exit:                  ; preds = %._crit_edge
   %78 = getelementptr inbounds nuw i8, ptr %.02350, i64 1
   %79 = load i32, ptr %45, align 8, !tbaa !28
   %80 = icmp slt i32 %77, %79
-  br i1 %80, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !40
+  br i1 %80, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !41
 
 81:                                               ; preds = %.outer, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit
   %.02152 = phi ptr [ %99, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit ], [ %.02152.ph, %.outer ]
@@ -2332,14 +2332,14 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %93
   %98 = getelementptr i8, ptr %.02152, i64 %97
   %99 = getelementptr i8, ptr %98, i64 1
   %100 = icmp ult ptr %99, %65
-  br i1 %100, label %81, label %._crit_edge55, !llvm.loop !41
+  br i1 %100, label %81, label %._crit_edge55, !llvm.loop !42
 
 _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit.thread: ; preds = %81
   %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.02152) #20
   %102 = getelementptr i8, ptr %.02152, i64 %101
   %103 = getelementptr i8, ptr %102, i64 1
   %104 = icmp ult ptr %103, %65
-  br i1 %104, label %.outer, label %._crit_edge55.thread, !llvm.loop !41
+  br i1 %104, label %.outer, label %._crit_edge55.thread, !llvm.loop !42
 
 ._crit_edge55:                                    ; preds = %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit
   br i1 %.053.ph, label %._crit_edge55.thread, label %.critedge
@@ -2564,31 +2564,31 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEE12adoptInsteadEPS1_.exit: ; pre
 36:                                               ; preds = %35
   %37 = load ptr, ptr %12, align 8
   %38 = load i32, ptr %21, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !42)
-  %39 = load i32, ptr %4, align 4, !tbaa !13, !noalias !42
+  call void @llvm.experimental.noalias.scope.decl(metadata !43)
+  %39 = load i32, ptr %4, align 4, !tbaa !13, !noalias !43
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11)
           to label %.noexc unwind label %54
 
 .noexc:                                           ; preds = %36
   %40 = icmp slt i32 %39, 1
-  store i32 0, ptr %22, align 8, !tbaa !28, !alias.scope !42
-  %41 = load ptr, ptr %11, align 8, !tbaa !3, !alias.scope !42
+  store i32 0, ptr %22, align 8, !tbaa !28, !alias.scope !43
+  %41 = load ptr, ptr %11, align 8, !tbaa !3, !alias.scope !43
   store i8 0, ptr %41, align 1, !tbaa !24
   br i1 %40, label %42, label %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit
 
 42:                                               ; preds = %.noexc
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17, !noalias !42
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #17, !noalias !43
   invoke void @_ZN6icu_7718CharStringByteSinkC2EPNS_10CharStringE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 %11)
           to label %43 unwind label %45
 
 43:                                               ; preds = %42
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINS_10CharStringEEE, i64 16), ptr %10, align 8, !tbaa !15, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7714StringByteSinkINS_10CharStringEEE, i64 16), ptr %10, align 8, !tbaa !15, !noalias !43
   invoke void @_ZNK6icu_776Locale15getKeywordValueENS_11StringPieceERNS_8ByteSinkER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr %37, i32 %38, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %44 unwind label %47
 
 44:                                               ; preds = %43
   call void @_ZN6icu_7718CharStringByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #17
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17, !noalias !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17, !noalias !43
   br label %_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode.exit
 
 45:                                               ; preds = %42
@@ -2604,7 +2604,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEE12adoptInsteadEPS1_.exit: ; pre
 
 49:                                               ; preds = %47, %45
   %.pn.i = phi { ptr, i32 } [ %48, %47 ], [ %46, %45 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17, !noalias !42
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #17, !noalias !43
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #17
   br label %.body
 
@@ -2749,16 +2749,16 @@ _ZN6icu_7712_GLOBAL__N_19transformEPci.exit:      ; preds = %.noexc36, %59, %56
           to label %.noexc46 unwind label %.loopexit.split-lp
 
 .noexc46:                                         ; preds = %.noexc45
-  %103 = load i8, ptr %23, align 8, !tbaa !45, !range !48, !noundef !49
+  %103 = load i8, ptr %23, align 8, !tbaa !46, !range !49, !noundef !50
   %104 = trunc nuw i8 %103 to i1
-  %105 = load i8, ptr %24, align 8, !range !48
+  %105 = load i8, ptr %24, align 8, !range !49
   %106 = trunc nuw i8 %105 to i1
   %or.cond.i = select i1 %104, i1 %106, i1 false
   br i1 %or.cond.i, label %107, label %.noexc48.thread
 
 107:                                              ; preds = %.noexc46
-  %108 = load ptr, ptr %25, align 8, !tbaa !50
-  %109 = load i64, ptr %8, align 8, !tbaa !53
+  %108 = load ptr, ptr %25, align 8, !tbaa !51
+  %109 = load i64, ptr %8, align 8, !tbaa !54
   %110 = trunc i64 %109 to i32
   %111 = invoke noundef zeroext i1 @_Z27ultag_isUnicodeLocaleKey_77PKci(ptr noundef %108, i32 noundef %110)
           to label %.noexc47 unwind label %.loopexit.split-lp
@@ -2767,8 +2767,8 @@ _ZN6icu_7712_GLOBAL__N_19transformEPci.exit:      ; preds = %.noexc36, %59, %56
   br i1 %111, label %112, label %.noexc48.thread
 
 112:                                              ; preds = %.noexc47
-  %113 = load ptr, ptr %26, align 8, !tbaa !50
-  %114 = load i64, ptr %9, align 8, !tbaa !53
+  %113 = load ptr, ptr %26, align 8, !tbaa !51
+  %114 = load i64, ptr %9, align 8, !tbaa !54
   %115 = trunc i64 %114 to i32
   %116 = invoke noundef zeroext i1 @_Z28ultag_isUnicodeLocaleType_77PKci(ptr noundef %113, i32 noundef %115)
           to label %.noexc48 unwind label %.loopexit.split-lp
@@ -2817,7 +2817,7 @@ _ZN6icu_7712_GLOBAL__N_115_isKeywordValueEPKcS2_i.exit.thread: ; preds = %.noexc
   %125 = icmp slt i32 %124, 1
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %11) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #17
-  br i1 %125, label %29, label %.loopexit61, !llvm.loop !54
+  br i1 %125, label %29, label %.loopexit61, !llvm.loop !55
 
 .body:                                            ; preds = %54, %49, %69
   %.pn = phi { ptr, i32 } [ %lpad.phi, %69 ], [ %55, %54 ], [ %.pn.i, %49 ]
@@ -3220,28 +3220,29 @@ attributes #20 = { nounwind willreturn memory(read) }
 !27 = !{!"_ZTSN6icu_776LocaleE", !19, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
 !28 = !{!29, !9, i64 56}
 !29 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = distinct !{!32, !31}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode: argument 0"}
-!35 = distinct !{!35, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode"}
-!36 = distinct !{!36, !31}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode: argument 0"}
-!39 = distinct !{!39, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode"}
-!40 = distinct !{!40, !31}
-!41 = distinct !{!41, !31}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode: argument 0"}
-!44 = distinct !{!44, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode"}
-!45 = !{!46, !47, i64 16}
-!46 = !{!"_ZTSSt22_Optional_payload_baseISt17basic_string_viewIcSt11char_traitsIcEEE", !7, i64 0, !47, i64 16}
-!47 = !{!"bool", !7, i64 0}
-!48 = !{i8 0, i8 2}
-!49 = !{}
-!50 = !{!51, !5, i64 8}
-!51 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !52, i64 0, !5, i64 8}
-!52 = !{!"long", !7, i64 0}
-!53 = !{!51, !52, i64 0}
-!54 = distinct !{!54, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !31, !32}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode: argument 0"}
+!36 = distinct !{!36, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode"}
+!37 = distinct !{!37, !31, !32}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode: argument 0"}
+!40 = distinct !{!40, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode"}
+!41 = distinct !{!41, !31, !32}
+!42 = distinct !{!42, !31, !32}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode: argument 0"}
+!45 = distinct !{!45, !"_ZNK6icu_776Locale15getKeywordValueINS_10CharStringEEET_NS_11StringPieceER10UErrorCode"}
+!46 = !{!47, !48, i64 16}
+!47 = !{!"_ZTSSt22_Optional_payload_baseISt17basic_string_viewIcSt11char_traitsIcEEE", !7, i64 0, !48, i64 16}
+!48 = !{!"bool", !7, i64 0}
+!49 = !{i8 0, i8 2}
+!50 = !{}
+!51 = !{!52, !5, i64 8}
+!52 = !{!"_ZTSSt17basic_string_viewIcSt11char_traitsIcEE", !53, i64 0, !5, i64 8}
+!53 = !{!"long", !7, i64 0}
+!54 = !{!52, !53, i64 0}
+!55 = distinct !{!55, !31, !32}

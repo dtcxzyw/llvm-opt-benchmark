@@ -300,7 +300,7 @@ sub_1:                                            ; preds = %sub_0
 ._crit_edge:                                      ; preds = %.lr.ph
   %75 = ptrtoint ptr %0 to i64
   %76 = getelementptr inbounds nuw i8, ptr %67, i64 224
-  store i64 %75, ptr %76, align 8, !tbaa !31
+  store i64 %75, ptr %76, align 8, !tbaa !32
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 208
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 216
   br label %79
@@ -308,19 +308,19 @@ sub_1:                                            ; preds = %sub_0
 79:                                               ; preds = %._crit_edge, %107
   %80 = phi i32 [ 3, %._crit_edge ], [ %110, %107 ]
   %.175 = phi i32 [ %72, %._crit_edge ], [ %109, %107 ]
-  %81 = load ptr, ptr %77, align 8, !tbaa !33
-  %82 = load ptr, ptr %78, align 8, !tbaa !34
+  %81 = load ptr, ptr %77, align 8, !tbaa !34
+  %82 = load ptr, ptr %78, align 8, !tbaa !35
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = trunc i64 %85 to i32
   %87 = icmp ugt i32 %.175, %86
-  br i1 %87, label %88, label %lj_buf_need.exit, !prof !35
+  br i1 %87, label %88, label %lj_buf_need.exit, !prof !36
 
 88:                                               ; preds = %79
   %89 = call ptr @lj_buf_need2(ptr noundef nonnull %68, i32 noundef %.175) #13
-  %.pre = load ptr, ptr %77, align 8, !tbaa !33
-  %.pre81 = load ptr, ptr %78, align 8, !tbaa !34
+  %.pre = load ptr, ptr %77, align 8, !tbaa !34
+  %.pre81 = load ptr, ptr %78, align 8, !tbaa !35
   %.pre82 = ptrtoint ptr %.pre to i64
   %.pre83 = ptrtoint ptr %.pre81 to i64
   %.pre85 = sub i64 %.pre82, %.pre83
@@ -346,11 +346,11 @@ lj_buf_need.exit:                                 ; preds = %79, %88
   %99 = load i64, ptr %65, align 8, !tbaa !28
   %100 = inttoptr i64 %99 to ptr
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = load i64, ptr %101, align 8, !tbaa !36
+  %102 = load i64, ptr %101, align 8, !tbaa !37
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 24
-  %104 = load i64, ptr %103, align 8, !tbaa !45
+  %104 = load i64, ptr %103, align 8, !tbaa !46
   %.not68 = icmp ult i64 %102, %104
-  br i1 %.not68, label %setboolfield.exit, label %105, !prof !46
+  br i1 %.not68, label %setboolfield.exit, label %105, !prof !47
 
 105:                                              ; preds = %92
   %106 = call i32 @lj_gc_step(ptr noundef nonnull %0) #13
@@ -361,7 +361,7 @@ lj_buf_need.exit:                                 ; preds = %79, %88
   %109 = add i32 %108, %.175
   %110 = add nsw i32 %80, -1
   %.not66 = icmp eq i32 %80, 0
-  br i1 %.not66, label %setboolfield.exit, label %79
+  br i1 %.not66, label %setboolfield.exit, label %79, !llvm.loop !48
 
 111:                                              ; preds = %sub_0
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -704,21 +704,23 @@ attributes #15 = { nounwind willreturn memory(none) }
 !26 = !{!18, !13, i64 28}
 !27 = !{!18, !13, i64 32}
 !28 = !{!5, !7, i64 16}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32, !7, i64 24}
-!32 = !{!"SBuf", !19, i64 0, !19, i64 8, !19, i64 16, !10, i64 24}
-!33 = !{!32, !19, i64 8}
-!34 = !{!32, !19, i64 16}
-!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!36 = !{!37, !7, i64 16}
-!37 = !{!"global_State", !12, i64 0, !12, i64 8, !38, i64 16, !39, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !40, i64 152, !13, i64 184, !6, i64 192, !32, i64 200, !8, i64 232, !8, i64 240, !42, i64 248, !8, i64 272, !43, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !44, i64 392, !8, i64 424}
-!38 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
-!39 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
-!40 = !{!"StrInternState", !41, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
-!41 = !{!"p1 _ZTS5GCRef", !12, i64 0}
-!42 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
-!43 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
-!44 = !{!"PRNGState", !8, i64 0}
-!45 = !{!37, !7, i64 24}
-!46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33, !7, i64 24}
+!33 = !{!"SBuf", !19, i64 0, !19, i64 8, !19, i64 16, !10, i64 24}
+!34 = !{!33, !19, i64 8}
+!35 = !{!33, !19, i64 16}
+!36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!37 = !{!38, !7, i64 16}
+!38 = !{!"global_State", !12, i64 0, !12, i64 8, !39, i64 16, !40, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !41, i64 152, !13, i64 184, !6, i64 192, !33, i64 200, !8, i64 232, !8, i64 240, !43, i64 248, !8, i64 272, !44, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !45, i64 392, !8, i64 424}
+!39 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
+!40 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
+!41 = !{!"StrInternState", !42, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
+!42 = !{!"p1 _ZTS5GCRef", !12, i64 0}
+!43 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
+!44 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
+!45 = !{!"PRNGState", !8, i64 0}
+!46 = !{!38, !7, i64 24}
+!47 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!48 = distinct !{!48, !31}

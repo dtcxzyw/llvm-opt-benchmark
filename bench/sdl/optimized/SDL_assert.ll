@@ -114,10 +114,10 @@ SDL_AddAssertionToReport.exit:                    ; preds = %14, %16
   unreachable
 
 .preheader:                                       ; preds = %25, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !3
 
 28:                                               ; preds = %SDL_AddAssertionToReport.exit
-  %29 = load i8, ptr %0, align 8, !range !3, !noundef !4
+  %29 = load i8, ptr %0, align 8, !range !5, !noundef !6
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %.thread16, label %31
 
@@ -206,14 +206,14 @@ define hidden void @SDL_AssertionsQuit() local_unnamed_addr #0 {
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 1
   %18 = select i1 %17, ptr @.str.3, ptr @.str.4
-  %19 = load i8, ptr %.012.i, align 8, !range !3, !noundef !4
+  %19 = load i8, ptr %.012.i, align 8, !range !5, !noundef !6
   %20 = trunc nuw i8 %19 to i1
   %21 = select i1 %20, ptr @.str.5, ptr @.str.6
   tail call void (ptr, ...) @debug_print(ptr noundef nonnull @.str.2, ptr noundef %8, ptr noundef %10, ptr noundef %12, i32 noundef %14, i32 noundef %16, ptr noundef nonnull %18, ptr noundef nonnull %21)
   %22 = getelementptr inbounds nuw i8, ptr %.012.i, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %24, label %6, !llvm.loop !5
+  br i1 %.not.i, label %24, label %6, !llvm.loop !7
 
 24:                                               ; preds = %6
   tail call void (ptr, ...) @debug_print(ptr noundef nonnull @.str.7)
@@ -230,7 +230,7 @@ define hidden void @SDL_AssertionsQuit() local_unnamed_addr #0 {
   store i32 0, ptr %28, align 4
   store ptr null, ptr %26, align 8
   %.not.i.i = icmp eq ptr %27, null
-  br i1 %.not.i.i, label %SDL_ResetAssertionReport_REAL.exit.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i.i, label %SDL_ResetAssertionReport_REAL.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 SDL_ResetAssertionReport_REAL.exit.i:             ; preds = %.lr.ph.i.i, %24
   store ptr null, ptr @triggered_assertions, align 8
@@ -370,7 +370,7 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
 
 57:                                               ; preds = %55
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 93
-  %59 = load i8, ptr %58, align 1, !range !3, !noundef !4
+  %59 = load i8, ptr %58, align 1, !range !5, !noundef !6
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %63
 
@@ -452,7 +452,7 @@ define internal range(i32 0, -1) i32 @SDL_PromptAssertion(ptr noundef readonly c
   %99 = load ptr, ptr @stdin, align 8
   %100 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 32, ptr noundef %99)
   %101 = icmp eq ptr %100, null
-  br i1 %101, label %.thread58, label %.lr.ph
+  br i1 %101, label %.thread58, label %.lr.ph, !llvm.loop !10
 
 102:                                              ; preds = %.thread58, %77
   %.034 = phi i32 [ %.50, %77 ], [ %.2.ph, %.thread58 ]
@@ -501,7 +501,7 @@ define hidden void @SDL_ResetAssertionReport_REAL() local_unnamed_addr #7 {
   store i32 0, ptr %4, align 4
   store ptr null, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store ptr null, ptr @triggered_assertions, align 8
@@ -609,8 +609,11 @@ attributes #18 = { cold }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i8 0, i8 2}
-!4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !8, !4}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8, !4}
+!10 = distinct !{!10, !4}

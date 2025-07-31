@@ -113,7 +113,7 @@ define dso_local range(i32 -1, 765) i32 @sodium_compare(ptr noundef %0, ptr noun
   %22 = and i8 %.0..0..0..0.4, %21
   store volatile i8 %22, ptr %5, align 1
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0..0..0..0.7 = load volatile i8, ptr %4, align 1
@@ -147,7 +147,7 @@ define dso_local range(i32 0, 2) i32 @sodium_is_zero(ptr noundef readonly captur
   store volatile i8 %6, ptr %3, align 1
   %7 = add nuw i64 %.06, 1
   %exitcond.not = icmp eq i64 %7, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0..0..0..0.1 = load volatile i8, ptr %3, align 1
@@ -170,15 +170,15 @@ define dso_local void @sodium_increment(ptr noundef %0, i64 noundef %1) local_un
   ]
 
 4:                                                ; preds = %2
-  %5 = tail call { i64, i32 } asm sideeffect "xorq $0, $0 \0Axorl $1, $1 \0Astc \0Aadcq $0, ($2) \0Aadcl $1, 8($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !8
+  %5 = tail call { i64, i32 } asm sideeffect "xorq $0, $0 \0Axorl $1, $1 \0Astc \0Aadcq $0, ($2) \0Aadcl $1, 8($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !9
   br label %.loopexit
 
 6:                                                ; preds = %2
-  %7 = tail call { i64, i64 } asm sideeffect "movq $$1, $0 \0Axorq $1, $1 \0Aaddq $0, ($2) \0Aadcq $1, 8($2) \0Aadcq $1, 16($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !9
+  %7 = tail call { i64, i64 } asm sideeffect "movq $$1, $0 \0Axorq $1, $1 \0Aaddq $0, ($2) \0Aadcq $1, 8($2) \0Aadcq $1, 16($2) \0A", "=&r,=&r,{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !10
   br label %.loopexit
 
 8:                                                ; preds = %2
-  tail call void asm sideeffect "incq ($0) \0A", "{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !10
+  tail call void asm sideeffect "incq ($0) \0A", "{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %0) #14, !srcloc !11
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
@@ -193,7 +193,7 @@ define dso_local void @sodium_increment(ptr noundef %0, i64 noundef %1) local_un
   %14 = lshr i64 %12, 8
   %15 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %15, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %8, %6, %4
   ret void
@@ -210,15 +210,15 @@ define dso_local void @sodium_add(ptr noundef %0, ptr noundef %1, i64 noundef %2
   ]
 
 5:                                                ; preds = %3
-  %6 = tail call { i64, i32 } asm sideeffect "movq ($2), $0 \0Amovl 8($2), $1 \0Aaddq $0, ($3) \0Aadcl $1, 8($3) \0A", "=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !12
+  %6 = tail call { i64, i32 } asm sideeffect "movq ($2), $0 \0Amovl 8($2), $1 \0Aaddq $0, ($3) \0Aadcl $1, 8($3) \0A", "=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !13
   br label %.loopexit
 
 7:                                                ; preds = %3
-  %8 = tail call { i64, i64, i64 } asm sideeffect "movq ($3), $0 \0Amovq 8($3), $1 \0Amovq 16($3), $2 \0Aaddq $0, ($4) \0Aadcq $1, 8($4) \0Aadcq $2, 16($4) \0A", "=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !13
+  %8 = tail call { i64, i64, i64 } asm sideeffect "movq ($3), $0 \0Amovq 8($3), $1 \0Amovq 16($3), $2 \0Aaddq $0, ($4) \0Aadcq $1, 8($4) \0Aadcq $2, 16($4) \0A", "=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !14
   br label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = tail call i64 asm sideeffect "movq ($1), $0 \0Aaddq $0, ($2) \0A", "=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !14
+  %10 = tail call i64 asm sideeffect "movq ($1), $0 \0Aaddq $0, ($2) \0A", "=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !15
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -237,7 +237,7 @@ define dso_local void @sodium_add(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %20 = lshr i64 %18, 8
   %21 = add nuw i64 %.023, 1
   %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %9, %7, %5
   ret void
@@ -251,7 +251,7 @@ define dso_local void @sodium_sub(ptr noundef %0, ptr noundef %1, i64 noundef %2
   ]
 
 4:                                                ; preds = %3
-  %5 = tail call { i64, i64, i64, i64, i64, i64, i64, i64 } asm sideeffect "movq   ($8), $0 \0Amovq  8($8), $1 \0Amovq 16($8), $2 \0Amovq 24($8), $3 \0Amovq 32($8), $4 \0Amovq 40($8), $5 \0Amovq 48($8), $6 \0Amovq 56($8), $7 \0Asubq $0,   ($9) \0Asbbq $1,  8($9) \0Asbbq $2, 16($9) \0Asbbq $3, 24($9) \0Asbbq $4, 32($9) \0Asbbq $5, 40($9) \0Asbbq $6, 48($9) \0Asbbq $7, 56($9) \0A", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !16
+  %5 = tail call { i64, i64, i64, i64, i64, i64, i64, i64 } asm sideeffect "movq   ($8), $0 \0Amovq  8($8), $1 \0Amovq 16($8), $2 \0Amovq 24($8), $3 \0Amovq 32($8), $4 \0Amovq 40($8), $5 \0Amovq 48($8), $6 \0Amovq 56($8), $7 \0Asubq $0,   ($9) \0Asbbq $1,  8($9) \0Asbbq $2, 16($9) \0Asbbq $3, 24($9) \0Asbbq $4, 32($9) \0Asbbq $5, 40($9) \0Asbbq $6, 48($9) \0Asbbq $7, 56($9) \0A", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,{si},{di},~{memory},~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr %0) #14, !srcloc !17
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
@@ -271,7 +271,7 @@ define dso_local void @sodium_sub(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %16 = and i64 %15, 1
   %17 = add nuw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %17, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %4
   ret void
@@ -656,7 +656,7 @@ define dso_local range(i32 -1, 1) i32 @sodium_pad(ptr noundef writeonly captures
   store volatile i8 %37, ptr %6, align 1
   %38 = add nuw i64 %.03442, 1
   %exitcond.not = icmp eq i64 %38, %3
-  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %26, !llvm.loop !19
 
 .loopexit:                                        ; preds = %26, %19, %5
   %.0 = phi i32 [ -1, %5 ], [ -1, %19 ], [ 0, %26 ]
@@ -707,7 +707,7 @@ define dso_local range(i32 -1, 1) i32 @sodium_unpad(ptr noundef writeonly captur
   %28 = or i8 %.02631, %27
   %29 = add nuw i64 %.02532, 1
   %exitcond.not = icmp eq i64 %29, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %30 = zext nneg i8 %28 to i32
@@ -781,19 +781,20 @@ attributes #17 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i64 6987, i64 7025, i64 7062, i64 7083, i64 7122}
-!9 = !{i64 7353, i64 7387, i64 7428, i64 7467, i64 7509}
-!10 = !{i64 7733}
-!11 = distinct !{!11, !5}
-!12 = !{i64 8299, i64 8338, i64 8377, i64 8416}
-!13 = !{i64 8659, i64 8698, i64 8739, i64 8781, i64 8820, i64 8862}
-!14 = !{i64 9133, i64 9172}
-!15 = distinct !{!15, !5}
-!16 = !{i64 9802, i64 9845, i64 9887, i64 9929, i64 9971, i64 10013, i64 10055, i64 10097, i64 10139, i64 10182, i64 10225, i64 10268, i64 10311, i64 10354, i64 10397, i64 10440}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i64 6987, i64 7025, i64 7062, i64 7083, i64 7122}
+!10 = !{i64 7353, i64 7387, i64 7428, i64 7467, i64 7509}
+!11 = !{i64 7733}
+!12 = distinct !{!12, !5, !6}
+!13 = !{i64 8299, i64 8338, i64 8377, i64 8416}
+!14 = !{i64 8659, i64 8698, i64 8739, i64 8781, i64 8820, i64 8862}
+!15 = !{i64 9133, i64 9172}
+!16 = distinct !{!16, !5, !6}
+!17 = !{i64 9802, i64 9845, i64 9887, i64 9929, i64 9971, i64 10013, i64 10055, i64 10097, i64 10139, i64 10182, i64 10225, i64 10268, i64 10311, i64 10354, i64 10397, i64 10440}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}

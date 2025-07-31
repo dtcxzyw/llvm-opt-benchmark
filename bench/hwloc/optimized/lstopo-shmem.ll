@@ -136,7 +136,7 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
 60:                                               ; preds = %56, %54
   %61 = lshr i64 %.014.i, 1
   %.not17.i = icmp ult i64 %.014.i, 2
-  br i1 %.not17.i, label %.thread39, label %48
+  br i1 %.not17.i, label %.thread39, label %48, !llvm.loop !25
 
 .thread39:                                        ; preds = %60
   store i64 0, ptr %43, align 8, !tbaa !23
@@ -157,17 +157,17 @@ define hidden range(i32 -1, 1) i32 @output_shmem(ptr noundef captures(none) %0, 
 
 .thread:                                          ; preds = %42, %62
   %69 = phi i64 [ %.014.i, %62 ], [ %44, %42 ]
-  store i32 1, ptr %3, align 8, !tbaa !25
+  store i32 1, ptr %3, align 8, !tbaa !27
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 32, ptr %70, align 4, !tbaa !27
+  store i32 32, ptr %70, align 4, !tbaa !29
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %69, ptr %71, align 8, !tbaa !28
+  store i64 %69, ptr %71, align 8, !tbaa !30
   %72 = load i64, ptr %4, align 8, !tbaa !24
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %72, ptr %73, align 8, !tbaa !29
+  store i64 %72, ptr %73, align 8, !tbaa !31
   %74 = call i64 @sysconf(i32 noundef 30) #9
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %74, ptr %75, align 8, !tbaa !30
+  store i64 %74, ptr %75, align 8, !tbaa !32
   %76 = call i64 @write(i32 noundef %34, ptr noundef nonnull %3, i64 noundef 32) #9
   %sext.mask = and i64 %76, 4294967295
   %.not37 = icmp eq i64 %sext.mask, 32
@@ -290,7 +290,7 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
   br label %57
 
 15:                                               ; preds = %7
-  %16 = load i32, ptr %4, align 8, !tbaa !25
+  %16 = load i32, ptr %4, align 8, !tbaa !27
   %17 = icmp ne i32 %16, 1
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %19 = load i32, ptr %18, align 4
@@ -306,12 +306,12 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
 
 25:                                               ; preds = %15
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !30
+  %27 = load i64, ptr %26, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !28
+  %29 = load i64, ptr %28, align 8, !tbaa !30
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %32 = load i64, ptr %31, align 8, !tbaa !29
+  %32 = load i64, ptr %31, align 8, !tbaa !31
   %33 = call i32 @hwloc_shmem_topology_adopt(ptr noundef nonnull %3, i32 noundef %5, i64 noundef %27, ptr noundef %30, i64 noundef %32, i64 noundef 0) #9
   %34 = call i32 @close(i32 noundef %5) #9
   %35 = icmp slt i32 %33, 0
@@ -334,9 +334,9 @@ define hidden range(i32 -1, 1) i32 @lstopo_shmem_adopt(ptr noundef readonly capt
   br label %57
 
 46:                                               ; preds = %25
-  %47 = load ptr, ptr %3, align 8, !tbaa !31
+  %47 = load ptr, ptr %3, align 8, !tbaa !33
   %48 = call i32 @hwloc_topology_dup(ptr noundef %1, ptr noundef %47) #9
-  %49 = load ptr, ptr %3, align 8, !tbaa !31
+  %49 = load ptr, ptr %3, align 8, !tbaa !33
   call void @hwloc_topology_destroy(ptr noundef %49) #9
   %50 = icmp slt i32 %48, 0
   br i1 %50, label %51, label %57
@@ -416,10 +416,12 @@ attributes #13 = { nounwind willreturn memory(none) }
 !22 = !{!12, !12, i64 0}
 !23 = !{!10, !14, i64 104}
 !24 = !{!14, !14, i64 0}
-!25 = !{!26, !12, i64 0}
-!26 = !{!"lstopo_shmem_header", !12, i64 0, !12, i64 4, !14, i64 8, !14, i64 16, !14, i64 24}
-!27 = !{!26, !12, i64 4}
-!28 = !{!26, !14, i64 8}
-!29 = !{!26, !14, i64 16}
-!30 = !{!26, !14, i64 24}
-!31 = !{!11, !11, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !12, i64 0}
+!28 = !{!"lstopo_shmem_header", !12, i64 0, !12, i64 4, !14, i64 8, !14, i64 16, !14, i64 24}
+!29 = !{!28, !12, i64 4}
+!30 = !{!28, !14, i64 8}
+!31 = !{!28, !14, i64 16}
+!32 = !{!28, !14, i64 24}
+!33 = !{!11, !11, i64 0}

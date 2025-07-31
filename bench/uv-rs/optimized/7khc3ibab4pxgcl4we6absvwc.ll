@@ -96,7 +96,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %47 = add nsw i32 %46, -65
   %48 = icmp ult i32 %47, 6
   %.not1.i.not = or i1 %.sroa.0.0.i.i, %48
-  br i1 %.not1.i.not, label %4, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6"
+  br i1 %.not1.i.not, label %4, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6", !llvm.loop !23
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread6": ; preds = %4, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread"
   %49 = phi i1 [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit" ], [ false, %4 ]
@@ -105,8 +105,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hba2ba9036334f9c2E.llvm.9912425598987717364"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #1 {
-  %3 = load i8, ptr %0, align 1, !range !23, !noundef !10
-  %4 = load i8, ptr %1, align 1, !range !23, !noundef !10
+  %3 = load i8, ptr %0, align 1, !range !25, !noundef !10
+  %4 = load i8, ptr %1, align 1, !range !25, !noundef !10
   %5 = trunc nuw i8 %4 to i1
   %6 = icmp eq i8 %3, %4
   %trunc = trunc nuw i8 %3 to i1
@@ -131,7 +131,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   br i1 %.not.i, label %.thread, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit": ; preds = %2
-  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.86d151933e283cf377ce94c5f4c085e0.3.llvm.9912425598987717364, ptr noundef nonnull readonly align 1 dereferenceable(5) %4, i64 5), !alias.scope !24
+  %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(5) @anon.86d151933e283cf377ce94c5f4c085e0.3.llvm.9912425598987717364, ptr noundef nonnull readonly align 1 dereferenceable(5) %4, i64 5), !alias.scope !26
   %7 = icmp eq i32 %bcmp.i.i, 0
   br i1 %7, label %.thread, label %8
 
@@ -150,7 +150,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %17 = load i8, ptr %13, align 1, !alias.scope !31, !noalias !34, !noundef !10
+  %17 = load i8, ptr %13, align 1, !alias.scope !33, !noalias !36, !noundef !10
   %18 = icmp sgt i8 %17, -1
   br i1 %18, label %29, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i.i"
 
@@ -160,7 +160,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   %21 = icmp ne ptr %16, %11
   tail call void @llvm.assume(i1 %21)
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  %23 = load i8, ptr %16, align 1, !alias.scope !31, !noalias !34, !noundef !10
+  %23 = load i8, ptr %16, align 1, !alias.scope !33, !noalias !36, !noundef !10
   %24 = shl nuw nsw i32 %20, 6
   %25 = and i8 %23, 63
   %26 = zext nneg i8 %25 to i32
@@ -176,7 +176,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   %31 = icmp ne ptr %22, %11
   tail call void @llvm.assume(i1 %31)
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  %33 = load i8, ptr %22, align 1, !alias.scope !31, !noalias !34, !noundef !10
+  %33 = load i8, ptr %22, align 1, !alias.scope !33, !noalias !36, !noundef !10
   %34 = shl nuw nsw i32 %26, 6
   %35 = and i8 %33, 63
   %36 = zext nneg i8 %35 to i32
@@ -190,7 +190,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   %41 = icmp ne ptr %32, %11
   tail call void @llvm.assume(i1 %41)
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %43 = load i8, ptr %32, align 1, !alias.scope !31, !noalias !34, !noundef !10
+  %43 = load i8, ptr %32, align 1, !alias.scope !33, !noalias !36, !noundef !10
   %44 = shl nuw nsw i32 %20, 18
   %45 = and i32 %44, 1835008
   %46 = shl nuw nsw i32 %37, 6
@@ -210,7 +210,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
   %55 = add nsw i32 %54, -65
   %56 = icmp ult i32 %55, 6
   %.not1.i.not.i.i = or i1 %.sroa.0.0.i.i.i.i, %56
-  br i1 %.not1.i.not.i.i, label %12, label %.thread
+  br i1 %.not1.i.not.i.i, label %12, label %.thread, !llvm.loop !23
 
 .thread:                                          ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i", %12, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i", %8, %2, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit"
   %.sink = phi i64 [ 4, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E.exit" ], [ 2, %2 ], [ 2, %8 ], [ 3, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i.i" ], [ 3, %12 ], [ 2, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i.i" ]
@@ -222,7 +222,7 @@ define void @_ZN12uv_git_types9reference12GitReference8from_rev17h120cb67da58921
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN12uv_git_types9reference12GitReference6as_str17h419494c798e15d0cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
-  %2 = load i64, ptr %0, align 8, !range !41, !noundef !10
+  %2 = load i64, ptr %0, align 8, !range !43, !noundef !10
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %3
     i64 1, label %8
@@ -280,7 +280,7 @@ default.unreachable1:                             ; preds = %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN12uv_git_types9reference12GitReference6as_rev17h91cd8d8792071a99E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
-  %2 = load i64, ptr %0, align 8, !range !41, !noundef !10
+  %2 = load i64, ptr %0, align 8, !range !43, !noundef !10
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %3
     i64 1, label %8
@@ -339,7 +339,7 @@ default.unreachable1:                             ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
 switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !41, !noundef !10
+  %1 = load i64, ptr %0, align 8, !range !43, !noundef !10
   %switch.gep = getelementptr inbounds nuw [6 x i64], ptr @switch.table._ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %switch.gep2 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN12uv_git_types9reference12GitReference8kind_str17h18899867a3ef7126E.5, i64 0, i64 %1
@@ -357,7 +357,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !42, !noundef !10
+  %5 = load i64, ptr %0, align 8, !range !43, !alias.scope !44, !noundef !10
   %switch = icmp samesign ult i64 %5, 5
   %.sroa.0.0.i.ph.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.i.ph = load ptr, ptr %.sroa.0.0.i.ph.in, align 8, !nonnull !10
@@ -375,7 +375,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   %.val = load ptr, ptr %7, align 8, !nonnull !10, !noundef !10
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val5 = load ptr, ptr %8, align 8, !nonnull !10, !noundef !10
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !45
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !47
   store ptr @anon.86d151933e283cf377ce94c5f4c085e0.11, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -385,8 +385,8 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %9 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !45
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !45
+  %9 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !47
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !47
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   ret i1 %9
@@ -408,7 +408,7 @@ define hidden noundef zeroext i1 @_ZN12uv_git_types9reference22looks_like_commit
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %11 = load i8, ptr %7, align 1, !noalias !48, !noundef !10
+  %11 = load i8, ptr %7, align 1, !noalias !50, !noundef !10
   %12 = icmp sgt i8 %11, -1
   br i1 %12, label %23, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE.exit12.i.i.i"
 
@@ -418,7 +418,7 @@ define hidden noundef zeroext i1 @_ZN12uv_git_types9reference22looks_like_commit
   %15 = icmp ne ptr %10, %5
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %17 = load i8, ptr %10, align 1, !noalias !48, !noundef !10
+  %17 = load i8, ptr %10, align 1, !noalias !50, !noundef !10
   %18 = shl nuw nsw i32 %14, 6
   %19 = and i8 %17, 63
   %20 = zext nneg i8 %19 to i32
@@ -434,7 +434,7 @@ define hidden noundef zeroext i1 @_ZN12uv_git_types9reference22looks_like_commit
   %25 = icmp ne ptr %16, %5
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %27 = load i8, ptr %16, align 1, !noalias !48, !noundef !10
+  %27 = load i8, ptr %16, align 1, !noalias !50, !noundef !10
   %28 = shl nuw nsw i32 %20, 6
   %29 = and i8 %27, 63
   %30 = zext nneg i8 %29 to i32
@@ -448,7 +448,7 @@ define hidden noundef zeroext i1 @_ZN12uv_git_types9reference22looks_like_commit
   %35 = icmp ne ptr %26, %5
   tail call void @llvm.assume(i1 %35)
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %37 = load i8, ptr %26, align 1, !noalias !48, !noundef !10
+  %37 = load i8, ptr %26, align 1, !noalias !50, !noundef !10
   %38 = shl nuw nsw i32 %14, 18
   %39 = and i32 %38, 1835008
   %40 = shl nuw nsw i32 %31, 6
@@ -468,7 +468,7 @@ define hidden noundef zeroext i1 @_ZN12uv_git_types9reference22looks_like_commit
   %49 = add nsw i32 %48, -65
   %50 = icmp ult i32 %49, 6
   %.not1.i.not.i = or i1 %.sroa.0.0.i.i.i, %50
-  br i1 %.not1.i.not.i, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit
+  br i1 %.not1.i.not.i, label %6, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit, !llvm.loop !23
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364.exit: ; preds = %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i", %6, %2
   %.sroa.0.0 = phi i1 [ false, %2 ], [ true, %6 ], [ true, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.i" ], [ false, %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E.exit.thread.i" ]
@@ -541,35 +541,37 @@ attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 !20 = !{!21, !6, !8}
 !21 = distinct !{!21, !22, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE: argument 0"}
 !22 = distinct !{!22, !"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h94df4ac1f36b70afE"}
-!23 = !{i8 0, i8 2}
-!24 = !{!25, !27, !28, !30}
-!25 = distinct !{!25, !26, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE: argument 0"}
-!26 = distinct !{!26, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE"}
-!27 = distinct !{!27, !26, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE: argument 1"}
-!28 = distinct !{!28, !29, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E: argument 0"}
-!29 = distinct !{!29, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E"}
-!30 = distinct !{!30, !29, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E: argument 1"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364: argument 0"}
-!33 = distinct !{!33, !"_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364"}
-!34 = !{!35, !37, !39}
-!35 = distinct !{!35, !36, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE: argument 0"}
-!36 = distinct !{!36, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE"}
-!37 = distinct !{!37, !38, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E: argument 0"}
-!38 = distinct !{!38, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E"}
-!39 = distinct !{!39, !40, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364: argument 0"}
-!40 = distinct !{!40, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364"}
-!41 = !{i64 0, i64 6}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZN12uv_git_types9reference12GitReference6as_str17h419494c798e15d0cE: argument 0"}
-!44 = distinct !{!44, !"_ZN12uv_git_types9reference12GitReference6as_str17h419494c798e15d0cE"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E: argument 0"}
-!47 = distinct !{!47, !"_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E"}
-!48 = !{!49, !51, !53}
-!49 = distinct !{!49, !50, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE"}
-!51 = distinct !{!51, !52, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E: argument 0"}
-!52 = distinct !{!52, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E"}
-!53 = distinct !{!53, !54, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364: argument 0"}
-!54 = distinct !{!54, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364"}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{i8 0, i8 2}
+!26 = !{!27, !29, !30, !32}
+!27 = distinct !{!27, !28, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE: argument 0"}
+!28 = distinct !{!28, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE"}
+!29 = distinct !{!29, !28, !"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h43ef553e583a6ebbE: argument 1"}
+!30 = distinct !{!30, !31, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E: argument 0"}
+!31 = distinct !{!31, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E"}
+!32 = distinct !{!32, !31, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0b2f07d1b62fc2d8E: argument 1"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364: argument 0"}
+!35 = distinct !{!35, !"_ZN12uv_git_types9reference22looks_like_commit_hash17hcb5b1f61666c0e8eE.llvm.9912425598987717364"}
+!36 = !{!37, !39, !41}
+!37 = distinct !{!37, !38, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE: argument 0"}
+!38 = distinct !{!38, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE"}
+!39 = distinct !{!39, !40, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E: argument 0"}
+!40 = distinct !{!40, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E"}
+!41 = distinct !{!41, !42, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364: argument 0"}
+!42 = distinct !{!42, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364"}
+!43 = !{i64 0, i64 6}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN12uv_git_types9reference12GitReference6as_str17h419494c798e15d0cE: argument 0"}
+!46 = distinct !{!46, !"_ZN12uv_git_types9reference12GitReference6as_str17h419494c798e15d0cE"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E: argument 0"}
+!49 = distinct !{!49, !"_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E"}
+!50 = !{!51, !53, !55}
+!51 = distinct !{!51, !52, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE: argument 0"}
+!52 = distinct !{!52, !"_ZN4core3str11validations15next_code_point17h5911830aca42015bE"}
+!53 = distinct !{!53, !54, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E: argument 0"}
+!54 = distinct !{!54, !"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7392693d4e9517b0E"}
+!55 = distinct !{!55, !56, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364: argument 0"}
+!56 = distinct !{!56, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h7bee3d11ed700242E.llvm.9912425598987717364"}

@@ -237,7 +237,7 @@ file2memory.exit:                                 ; preds = %20
 
 .critedge:                                        ; preds = %31, %31
   %33 = getelementptr inbounds nuw i8, ptr %.2132, i64 1
-  br label %31, !llvm.loop !13
+  br label %31, !llvm.loop !14
 
 34:                                               ; preds = %31
   %35 = icmp eq i32 %.1181407, 3
@@ -276,7 +276,7 @@ file2memory.exit:                                 ; preds = %20
   %42 = getelementptr inbounds nuw i8, ptr %.0126, i64 1
   %43 = add i64 %.0124, 1
   %.pre = load i8, ptr %42, align 1, !tbaa !9
-  br label %.preheader, !llvm.loop !14
+  br label %.preheader, !llvm.loop !15
 
 .critedge246:                                     ; preds = %.preheader, %.preheader, %39
   %.not223 = icmp eq i64 %.0124, 0
@@ -313,7 +313,7 @@ file2memory.exit:                                 ; preds = %20
   switch i8 %46, label %51 [
     i8 92, label %53
     i8 34, label %.loopexit
-  ], !llvm.loop !15
+  ], !llvm.loop !16
 
 .sink.split:                                      ; preds = %47, %49, %48
   %.sink = phi i8 [ 13, %48 ], [ 9, %49 ], [ 10, %47 ]
@@ -678,7 +678,8 @@ attributes #7 = { nounwind willreturn memory(read) }
 !9 = !{!5, !5, i64 0}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
+!12 = distinct !{!12, !11, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !13}
+!15 = distinct !{!15, !11, !13}
+!16 = distinct !{!16, !11}

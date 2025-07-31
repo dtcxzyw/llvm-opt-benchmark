@@ -724,7 +724,7 @@ define void @dlabrd_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %521 = add nsw i32 %520, 1
   store i32 %521, ptr %16, align 4, !tbaa !3
   %.not354.not = icmp slt i32 %520, %36
-  br i1 %.not354.not, label %.lr.ph446, label %.loopexit, !llvm.loop !11
+  br i1 %.not354.not, label %.lr.ph446, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %277, %519, %37, %280, %13, %32
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
@@ -765,6 +765,7 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

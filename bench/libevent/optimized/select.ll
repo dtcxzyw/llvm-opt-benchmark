@@ -421,7 +421,7 @@ define internal range(i32 -1, 1) i32 @select_dispatch(ptr noundef %0, ptr nounde
 76:                                               ; preds = %.lr.ph, %74
   %77 = add nuw i32 %.05371, 1
   %exitcond.not = icmp eq i32 %.05371, %32
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %76, %56, %49, %7, %14, %52
   %.1 = phi i32 [ -1, %52 ], [ -1, %14 ], [ -1, %7 ], [ 0, %49 ], [ 0, %56 ], [ 0, %76 ]
@@ -529,6 +529,7 @@ attributes #8 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}

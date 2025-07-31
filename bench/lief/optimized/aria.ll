@@ -400,7 +400,7 @@ aria_rot128.exit65:                               ; preds = %255
 
 aria_rot128.exit71:                               ; preds = %272
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %285, label %214, !llvm.loop !12
+  br i1 %exitcond.not, label %285, label %214, !llvm.loop !13
 
 285:                                              ; preds = %aria_rot128.exit71
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 260
@@ -677,13 +677,13 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   store i32 %14, ptr %15, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %17, label %12, !llvm.loop !13
+  br i1 %exitcond.not, label %17, label %12, !llvm.loop !14
 
 17:                                               ; preds = %12
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %indvars.iv.next50 = add nsw i64 %indvars.iv49, -1
   %18 = icmp slt i64 %indvars.iv.next48, %indvars.iv.next50
-  br i1 %18, label %.preheader40, label %.preheader, !llvm.loop !14
+  br i1 %18, label %.preheader40, label %.preheader, !llvm.loop !15
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %19 ]
@@ -729,7 +729,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
   store i32 %55, ptr %22, align 4, !tbaa !3
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond57.not, label %.loopexit, label %19, !llvm.loop !15
+  br i1 %exitcond57.not, label %.loopexit, label %19, !llvm.loop !16
 
 .loopexit:                                        ; preds = %19, %5, %.preheader, %3
   %.0 = phi i32 [ %4, %3 ], [ 0, %.preheader ], [ 0, %5 ], [ 0, %19 ]
@@ -1068,7 +1068,7 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr noundef readonly captures(
   %316 = tail call i32 @llvm.bswap.i32(i32 %304)
   %317 = xor i32 %316, %312
   %318 = xor i32 %317, %293
-  br label %10
+  br label %10, !llvm.loop !17
 
 319:                                              ; preds = %10
   %320 = and i64 %indvars.iv.next, 4294967294
@@ -1164,7 +1164,7 @@ define hidden range(i32 -94, 1) i32 @mbedtls_aria_crypt_cbc(ptr noundef readonly
   %19 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %20 = add i64 %.03257, -16
   %.not35 = icmp eq i64 %20, 0
-  br i1 %.not35, label %.loopexit, label %.lr.ph60, !llvm.loop !16
+  br i1 %.not35, label %.loopexit, label %.lr.ph60, !llvm.loop !18
 
 .preheader44:                                     ; preds = %.preheader44.preheader, %.preheader44
   %.152 = phi ptr [ %27, %.preheader44 ], [ %5, %.preheader44.preheader ]
@@ -1186,7 +1186,7 @@ define hidden range(i32 -94, 1) i32 @mbedtls_aria_crypt_cbc(ptr noundef readonly
   %27 = getelementptr inbounds nuw i8, ptr %.152, i64 16
   %28 = add i64 %.13350, -16
   %.not34 = icmp eq i64 %28, 0
-  br i1 %.not34, label %.loopexit, label %.preheader44, !llvm.loop !17
+  br i1 %.not34, label %.loopexit, label %.preheader44, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader44, %.lr.ph60, %.preheader45, %.preheader42, %8, %6
   %.031 = phi i32 [ -92, %6 ], [ -94, %8 ], [ 0, %.preheader42 ], [ 0, %.preheader45 ], [ 0, %.lr.ph60 ], [ 0, %.preheader44 ]
@@ -1200,7 +1200,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr noundef reado
   br i1 %or.cond, label %39, label %8
 
 8:                                                ; preds = %7
-  %9 = load i64, ptr %3, align 8, !tbaa !18
+  %9 = load i64, ptr %3, align 8, !tbaa !20
   %10 = icmp ugt i64 %9, 15
   br i1 %10, label %39, label %11
 
@@ -1240,7 +1240,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr noundef reado
   %24 = add nuw nsw i64 %.052, 1
   %25 = and i64 %24, 15
   %.not42 = icmp eq i64 %13, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph53, !llvm.loop !20
+  br i1 %.not42, label %.loopexit, label %.lr.ph53, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.preheader43, %30
   %.in = phi i64 [ %26, %30 ], [ %2, %.preheader43 ]
@@ -1267,11 +1267,11 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr noundef reado
   %37 = add nuw nsw i64 %.248, 1
   %38 = and i64 %37, 15
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %30, %17, %.preheader43, %.preheader
   %.1 = phi i64 [ %9, %.preheader ], [ %9, %.preheader43 ], [ %25, %17 ], [ %38, %30 ]
-  store i64 %.1, ptr %3, align 8, !tbaa !18
+  store i64 %.1, ptr %3, align 8, !tbaa !20
   br label %39
 
 39:                                               ; preds = %8, %7, %.loopexit
@@ -1281,7 +1281,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_cfb128(ptr noundef reado
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_ctr(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #6 {
-  %8 = load i64, ptr %2, align 8, !tbaa !18
+  %8 = load i64, ptr %2, align 8, !tbaa !20
   %9 = icmp ugt i64 %8, 15
   br i1 %9, label %29, label %.preheader
 
@@ -1317,7 +1317,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_ctr(ptr noundef readonly
   %19 = add nsw i32 %.01926, -1
   %20 = icmp samesign ugt i32 %.01926, 1
   %or.cond = and i1 %.not25, %20
-  br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !22
+  br i1 %or.cond, label %15, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %15, %10
   %21 = getelementptr inbounds nuw i8, ptr %.02228, i64 1
@@ -1330,11 +1330,11 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_crypt_ctr(ptr noundef readonly
   %27 = add nuw nsw i64 %.030, 1
   %28 = and i64 %27, 15
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.0.lcssa = phi i64 [ %8, %.preheader ], [ %28, %.loopexit ]
-  store i64 %.0.lcssa, ptr %2, align 8, !tbaa !18
+  store i64 %.0.lcssa, ptr %2, align 8, !tbaa !20
   br label %29
 
 29:                                               ; preds = %7, %._crit_edge
@@ -1415,7 +1415,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
 
 .backedge199.backedge:                            ; preds = %22, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %22 ], [ %indvars.iv.next179, %.thread ]
-  br label %.backedge199, !llvm.loop !24
+  br label %.backedge199, !llvm.loop !26
 
 .thread:                                          ; preds = %21
   %puts93 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
@@ -1467,7 +1467,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_aria_self_test(i32 noundef %0) local_
   %34 = getelementptr inbounds nuw i8, ptr %.152.i, i64 16
   %35 = add nsw i64 %.13350.i, -16
   %.not34.i = icmp eq i64 %35, 0
-  br i1 %.not34.i, label %mbedtls_aria_crypt_cbc.exit, label %.preheader44.i, !llvm.loop !17
+  br i1 %.not34.i, label %mbedtls_aria_crypt_cbc.exit, label %.preheader44.i, !llvm.loop !19
 
 mbedtls_aria_crypt_cbc.exit:                      ; preds = %.preheader44.i
   %36 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_cbc_ct, i64 0, i64 %indvars.iv139
@@ -1515,7 +1515,7 @@ mbedtls_aria_crypt_cbc.exit:                      ; preds = %.preheader44.i
   %48 = getelementptr inbounds nuw i8, ptr %.059.i, i64 16
   %49 = add nsw i64 %.03257.i, -16
   %.not35.i = icmp eq i64 %49, 0
-  br i1 %.not35.i, label %mbedtls_aria_crypt_cbc.exit102, label %.lr.ph60.i, !llvm.loop !16
+  br i1 %.not35.i, label %mbedtls_aria_crypt_cbc.exit102, label %.lr.ph60.i, !llvm.loop !18
 
 mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
   %bcmp82 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) @aria_test2_pt, i64 48)
@@ -1539,7 +1539,7 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
 
 .loopexit198.backedge:                            ; preds = %53, %.thread182
   %indvars.iv139.be = phi i64 [ %indvars.iv.next140, %53 ], [ %indvars.iv.next140183, %.thread182 ]
-  br label %.loopexit198, !llvm.loop !25
+  br label %.loopexit198, !llvm.loop !27
 
 .thread182:                                       ; preds = %52
   %puts84 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
@@ -1596,7 +1596,7 @@ mbedtls_aria_crypt_cbc.exit102:                   ; preds = %.lr.ph60.i
   %70 = add nuw nsw i64 %.248.i, 1
   %71 = and i64 %70, 15
   %.not.i = icmp eq i64 %59, 0
-  br i1 %.not.i, label %mbedtls_aria_crypt_cfb128.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %mbedtls_aria_crypt_cfb128.exit, label %.lr.ph.i, !llvm.loop !23
 
 mbedtls_aria_crypt_cfb128.exit:                   ; preds = %63
   %72 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_cfb_ct, i64 0, i64 %indvars.iv143
@@ -1650,7 +1650,7 @@ mbedtls_aria_crypt_cfb128.exit:                   ; preds = %63
   %91 = add nuw nsw i64 %.052.i, 1
   %92 = and i64 %91, 15
   %.not42.i = icmp eq i64 %80, 0
-  br i1 %.not42.i, label %mbedtls_aria_crypt_cfb128.exit105, label %.lr.ph53.i, !llvm.loop !20
+  br i1 %.not42.i, label %mbedtls_aria_crypt_cfb128.exit105, label %.lr.ph53.i, !llvm.loop !22
 
 mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   %bcmp74 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) @aria_test2_pt, i64 48)
@@ -1674,7 +1674,7 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
 
 .loopexit196.backedge:                            ; preds = %96, %.thread186
   %indvars.iv143.be = phi i64 [ %indvars.iv.next144, %96 ], [ %indvars.iv.next144187, %.thread186 ]
-  br label %.loopexit196, !llvm.loop !26
+  br label %.loopexit196, !llvm.loop !28
 
 .thread186:                                       ; preds = %95
   %puts76 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
@@ -1731,7 +1731,7 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   %111 = add nsw i32 %.01926.i, -1
   %112 = icmp samesign ugt i32 %.01926.i, 1
   %or.cond.i = and i1 %112, %.not25.i
-  br i1 %or.cond.i, label %107, label %.loopexit.i108, !llvm.loop !22
+  br i1 %or.cond.i, label %107, label %.loopexit.i108, !llvm.loop !24
 
 .loopexit.i108:                                   ; preds = %107, %102
   %113 = getelementptr inbounds nuw i8, ptr %.02228.i, i64 1
@@ -1744,7 +1744,7 @@ mbedtls_aria_crypt_cfb128.exit105:                ; preds = %84
   %119 = add nuw nsw i64 %.030.i, 1
   %120 = and i64 %119, 15
   %.not.i109 = icmp eq i64 %103, 0
-  br i1 %.not.i109, label %mbedtls_aria_crypt_ctr.exit, label %102, !llvm.loop !23
+  br i1 %.not.i109, label %mbedtls_aria_crypt_ctr.exit, label %102, !llvm.loop !25
 
 mbedtls_aria_crypt_ctr.exit:                      ; preds = %.loopexit.i108
   %121 = getelementptr inbounds nuw [3 x [48 x i8]], ptr @aria_test2_ctr_ct, i64 0, i64 %indvars.iv147
@@ -1797,7 +1797,7 @@ mbedtls_aria_crypt_ctr.exit:                      ; preds = %.loopexit.i108
   %137 = add nsw i32 %.01926.i121, -1
   %138 = icmp samesign ugt i32 %.01926.i121, 1
   %or.cond.i124 = and i1 %138, %.not25.i123
-  br i1 %or.cond.i124, label %133, label %.loopexit.i117, !llvm.loop !22
+  br i1 %or.cond.i124, label %133, label %.loopexit.i117, !llvm.loop !24
 
 .loopexit.i117:                                   ; preds = %133, %128
   %139 = getelementptr inbounds nuw i8, ptr %.02228.i116, i64 1
@@ -1810,7 +1810,7 @@ mbedtls_aria_crypt_ctr.exit:                      ; preds = %.loopexit.i108
   %145 = add nuw nsw i64 %.030.i114, 1
   %146 = and i64 %145, 15
   %.not.i118 = icmp eq i64 %129, 0
-  br i1 %.not.i118, label %mbedtls_aria_crypt_ctr.exit125, label %128, !llvm.loop !23
+  br i1 %.not.i118, label %mbedtls_aria_crypt_ctr.exit125, label %128, !llvm.loop !25
 
 mbedtls_aria_crypt_ctr.exit125:                   ; preds = %.loopexit.i117
   %bcmp66 = call i32 @bcmp(ptr noundef nonnull dereferenceable(48) %4, ptr noundef nonnull dereferenceable(48) @aria_test2_pt, i64 48)
@@ -1834,7 +1834,7 @@ mbedtls_aria_crypt_ctr.exit125:                   ; preds = %.loopexit.i117
 
 .backedge.backedge:                               ; preds = %150, %.thread190
   %indvars.iv147.be = phi i64 [ %indvars.iv.next148, %150 ], [ %indvars.iv.next148191, %.thread190 ]
-  br label %.backedge, !llvm.loop !27
+  br label %.backedge, !llvm.loop !29
 
 .thread190:                                       ; preds = %149
   %puts68 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.13)
@@ -1901,21 +1901,23 @@ attributes #13 = { nounwind }
 !7 = !{!8, !5, i64 0}
 !8 = !{!"mbedtls_aria_context", !5, i64 0, !5, i64 4}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long", !5, i64 0}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !5, i64 0}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !11, !12}
+!29 = distinct !{!29, !11, !12}

@@ -375,7 +375,7 @@ _dead_image_f.exit:                               ; preds = %_mipmap_cache_get_f
   store i32 %61, ptr %62, align 4, !tbaa !77
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not72 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not72, label %.preheader, label %56
+  br i1 %.not72, label %.preheader, label %56, !llvm.loop !79
 
 63:                                               ; preds = %99
   %64 = call i64 @llvm.umax.i64(i64 %38, i64 104857600)
@@ -389,13 +389,13 @@ _dead_image_f.exit:                               ; preds = %_mipmap_cache_get_f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %69, i8 0, i64 40, i1 false)
   call void @dt_cache_init(ptr noundef nonnull %66, i64 noundef 0, i64 noundef %65) #19
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store ptr @_mipmap_cache_allocate_dynamic, ptr %70, align 8, !tbaa !79
+  store ptr @_mipmap_cache_allocate_dynamic, ptr %70, align 8, !tbaa !81
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store ptr %0, ptr %71, align 8, !tbaa !82
+  store ptr %0, ptr %71, align 8, !tbaa !84
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store ptr @_mipmap_cache_deallocate_dynamic, ptr %72, align 8, !tbaa !83
+  store ptr @_mipmap_cache_deallocate_dynamic, ptr %72, align 8, !tbaa !85
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store ptr %0, ptr %73, align 8, !tbaa !84
+  store ptr %0, ptr %73, align 8, !tbaa !86
   %74 = call i32 (...) @dt_worker_threads() #19
   %75 = shl nsw i32 %74, 1
   br label %76
@@ -404,7 +404,7 @@ _dead_image_f.exit:                               ; preds = %_mipmap_cache_get_f
   %.0.i = phi i32 [ 1, %63 ], [ %78, %76 ]
   %77 = icmp ult i32 %.0.i, %75
   %78 = shl i32 %.0.i, 1
-  br i1 %77, label %76, label %_nearest_power_of_two.exit
+  br i1 %77, label %76, label %_nearest_power_of_two.exit, !llvm.loop !87
 
 _nearest_power_of_two.exit:                       ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -412,24 +412,24 @@ _nearest_power_of_two.exit:                       ; preds = %76
   %81 = sext i32 %.0.i to i64
   call void @dt_cache_init(ptr noundef nonnull %79, i64 noundef 0, i64 noundef %81) #19
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  store ptr @_mipmap_cache_allocate_dynamic, ptr %82, align 8, !tbaa !79
+  store ptr @_mipmap_cache_allocate_dynamic, ptr %82, align 8, !tbaa !81
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store ptr %0, ptr %83, align 8, !tbaa !82
+  store ptr %0, ptr %83, align 8, !tbaa !84
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @_mipmap_cache_deallocate_dynamic, ptr %84, align 8, !tbaa !83
+  store ptr @_mipmap_cache_deallocate_dynamic, ptr %84, align 8, !tbaa !85
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store ptr %0, ptr %85, align 8, !tbaa !84
+  store ptr %0, ptr %85, align 8, !tbaa !86
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 0, ptr %86, align 8, !tbaa !85
+  store i64 0, ptr %86, align 8, !tbaa !88
   call void @dt_cache_init(ptr noundef nonnull %80, i64 noundef 0, i64 noundef %81) #19
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store ptr @_mipmap_cache_allocate_dynamic, ptr %87, align 8, !tbaa !79
+  store ptr @_mipmap_cache_allocate_dynamic, ptr %87, align 8, !tbaa !81
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store ptr %0, ptr %88, align 8, !tbaa !82
+  store ptr %0, ptr %88, align 8, !tbaa !84
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store ptr @_mipmap_cache_deallocate_dynamic, ptr %89, align 8, !tbaa !83
+  store ptr @_mipmap_cache_deallocate_dynamic, ptr %89, align 8, !tbaa !85
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store ptr %0, ptr %90, align 8, !tbaa !84
+  store ptr %0, ptr %90, align 8, !tbaa !86
   %91 = load i32, ptr %50, align 4, !tbaa !77
   %92 = zext i32 %91 to i64
   %93 = shl nuw nsw i64 %92, 4
@@ -438,7 +438,7 @@ _nearest_power_of_two.exit:                       ; preds = %76
   %96 = mul i64 %93, %95
   %97 = add i64 %96, 64
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %97, ptr %98, align 8, !tbaa !85
+  store i64 %97, ptr %98, align 8, !tbaa !88
   ret void
 
 99:                                               ; preds = %.preheader, %99
@@ -453,10 +453,10 @@ _nearest_power_of_two.exit:                       ; preds = %76
   %107 = mul i64 %106, %105
   %108 = add i64 %107, 64
   %109 = getelementptr inbounds nuw [11 x i64], ptr %55, i64 0, i64 %indvars.iv69
-  store i64 %108, ptr %109, align 8, !tbaa !85
+  store i64 %108, ptr %109, align 8, !tbaa !88
   %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
   %.not73 = icmp eq i64 %indvars.iv69, 0
-  br i1 %.not73, label %63, label %99
+  br i1 %.not73, label %63, label %99, !llvm.loop !89
 }
 
 declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #4
@@ -473,7 +473,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   %6 = alloca %struct.dt_imageio_jpeg_t, align 8
   %7 = load ptr, ptr %1, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %9 = load i32, ptr %8, align 4, !tbaa !86
+  %9 = load i32, ptr %8, align 4, !tbaa !90
   %10 = lshr i32 %9, 28
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %63
@@ -515,7 +515,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = zext nneg i32 %10 to i64
   %34 = getelementptr inbounds nuw [11 x i64], ptr %32, i64 0, i64 %33
-  %35 = load i64, ptr %34, align 8, !tbaa !85
+  %35 = load i64, ptr %34, align 8, !tbaa !88
   %spec.select = tail call i64 @llvm.umax.i64(i64 %35, i64 3364)
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %spec.select, ptr %36, align 8, !tbaa !37
@@ -603,7 +603,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
 76:                                               ; preds = %72, %68
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %5, i8 0, i64 4096, i1 false)
-  %77 = load i32, ptr %8, align 4, !tbaa !86
+  %77 = load i32, ptr %8, align 4, !tbaa !90
   %78 = and i32 %77, 268435455
   %79 = add nuw nsw i32 %78, 1
   %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.11, ptr noundef nonnull %66, i32 noundef %10, i32 noundef %79) #19
@@ -636,7 +636,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   br i1 %.not104, label %94, label %114
 
 94:                                               ; preds = %92
-  %95 = load i32, ptr %6, align 8, !tbaa !87
+  %95 = load i32, ptr %6, align 8, !tbaa !91
   %96 = zext nneg i32 %10 to i64
   %97 = getelementptr inbounds nuw [11 x i32], ptr %0, i64 0, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !77
@@ -645,7 +645,7 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
 
 100:                                              ; preds = %94
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %102 = load i32, ptr %101, align 4, !tbaa !120
+  %102 = load i32, ptr %101, align 4, !tbaa !124
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %104 = getelementptr inbounds nuw [11 x i32], ptr %103, i64 0, i64 %96
   %105 = load i32, ptr %104, align 4, !tbaa !77
@@ -665,29 +665,29 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   br i1 %.not105, label %118, label %114
 
 114:                                              ; preds = %110, %107, %100, %94, %92
-  %115 = load i32, ptr %8, align 4, !tbaa !86
+  %115 = load i32, ptr %8, align 4, !tbaa !90
   %116 = and i32 %115, 268435455
   %117 = add nuw nsw i32 %116, 1
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.40, i32 noundef %117, ptr noundef nonnull %5) #19
   br label %.critedge.critedge
 
 118:                                              ; preds = %110
-  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %119 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %120 = and i32 %119, 1
   %.not106 = icmp eq i32 %120, 0
   br i1 %.not106, label %.thread114, label %121
 
 121:                                              ; preds = %118
-  %122 = load i32, ptr %8, align 4, !tbaa !86
+  %122 = load i32, ptr %8, align 4, !tbaa !90
   %123 = and i32 %122, 268435455
   %124 = add nuw nsw i32 %123, 1
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.41, i32 noundef %10, i32 noundef %124) #19
   br label %.thread114
 
 .thread114:                                       ; preds = %118, %121
-  %125 = load i32, ptr %6, align 8, !tbaa !87
+  %125 = load i32, ptr %6, align 8, !tbaa !91
   store i32 %125, ptr %.0, align 64, !tbaa !18
-  %126 = load i32, ptr %101, align 4, !tbaa !120
+  %126 = load i32, ptr %101, align 4, !tbaa !124
   %127 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   store i32 %126, ptr %127, align 4, !tbaa !15
   %128 = getelementptr inbounds nuw i8, ptr %.0, i64 8
@@ -735,13 +735,13 @@ define internal void @_mipmap_cache_allocate_dynamic(ptr noundef %0, ptr noundef
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %141 = zext nneg i32 %10 to i64
   %142 = getelementptr inbounds nuw [11 x i64], ptr %140, i64 0, i64 %141
-  %143 = load i64, ptr %142, align 8, !tbaa !85
+  %143 = load i64, ptr %142, align 8, !tbaa !88
   br label %144
 
 144:                                              ; preds = %136, %139, %131
   %.sink118 = phi i64 [ %138, %136 ], [ %143, %139 ], [ 1, %131 ]
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %.sink118, ptr %145, align 8, !tbaa !122
+  store i64 %.sink118, ptr %145, align 8, !tbaa !126
   ret void
 }
 
@@ -751,7 +751,7 @@ define internal void @_mipmap_cache_deallocate_dynamic(ptr noundef %0, ptr nound
   %4 = alloca [4096 x i8], align 16
   %5 = alloca %struct.statvfs, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %7 = load i32, ptr %6, align 4, !tbaa !86
+  %7 = load i32, ptr %6, align 4, !tbaa !90
   %8 = lshr i32 %7, 28
   %9 = icmp ult i32 %7, -1879048192
   br i1 %9, label %10, label %_mipmap_cache_unlink_ondisk_thumbnail.exit
@@ -817,7 +817,7 @@ define internal void @_mipmap_cache_deallocate_dynamic(ptr noundef %0, ptr nound
   br i1 %.not46, label %42, label %.thread54
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %6, align 4, !tbaa !86
+  %43 = load i32, ptr %6, align 4, !tbaa !90
   %44 = and i32 %43, 268435455
   %45 = add nuw nsw i32 %44, 1
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.11, ptr noundef nonnull %22, i32 noundef %8, i32 noundef %45) #19
@@ -838,9 +838,9 @@ define internal void @_mipmap_cache_deallocate_dynamic(ptr noundef %0, ptr nound
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !123
+  %54 = load i64, ptr %53, align 8, !tbaa !127
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %56 = load i64, ptr %55, align 8, !tbaa !125
+  %56 = load i64, ptr %55, align 8, !tbaa !129
   %57 = mul i64 %56, %54
   %58 = icmp ult i64 %57, 104857600
   br i1 %58, label %59, label %62
@@ -919,11 +919,11 @@ declare void @dt_cache_cleanup(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define void @dt_mipmap_cache_print(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %3 = load i64, ptr %2, align 8, !tbaa !126
+  %3 = load i64, ptr %2, align 8, !tbaa !130
   %4 = uitofp i64 %3 to double
   %5 = fmul reassoc nsz arcp contract afn double %4, 0x3EB0000000000000
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %7 = load i64, ptr %6, align 8, !tbaa !129
+  %7 = load i64, ptr %6, align 8, !tbaa !133
   %8 = uitofp i64 %7 to double
   %9 = fmul reassoc nsz arcp contract afn double %8, 0x3EB0000000000000
   %10 = uitofp i64 %3 to float
@@ -933,10 +933,10 @@ define void @dt_mipmap_cache_print(ptr noundef readonly captures(none) %0) local
   %14 = fpext reassoc nsz arcp contract afn float %13 to double
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, double noundef %5, double noundef %9, double noundef %14) #19
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  %16 = load i64, ptr %15, align 8, !tbaa !130
+  %16 = load i64, ptr %15, align 8, !tbaa !134
   %17 = trunc i64 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %19 = load i64, ptr %18, align 8, !tbaa !131
+  %19 = load i64, ptr %18, align 8, !tbaa !135
   %20 = trunc i64 %19 to i32
   %21 = uitofp i64 %16 to float
   %22 = fmul reassoc nsz arcp contract afn float %21, 1.000000e+02
@@ -945,10 +945,10 @@ define void @dt_mipmap_cache_print(ptr noundef readonly captures(none) %0) local
   %25 = fpext reassoc nsz arcp contract afn float %24 to double
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, i32 noundef %17, i32 noundef %20, double noundef %25) #19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %27 = load i64, ptr %26, align 8, !tbaa !132
+  %27 = load i64, ptr %26, align 8, !tbaa !136
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %30 = load i64, ptr %29, align 8, !tbaa !133
+  %30 = load i64, ptr %29, align 8, !tbaa !137
   %31 = trunc i64 %30 to i32
   %32 = uitofp i64 %27 to float
   %33 = fmul reassoc nsz arcp contract afn float %32, 1.000000e+02
@@ -957,50 +957,50 @@ define void @dt_mipmap_cache_print(ptr noundef readonly captures(none) %0) local
   %36 = fpext reassoc nsz arcp contract afn float %35 to double
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.6, i32 noundef %28, i32 noundef %31, double noundef %36) #19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %38 = load i64, ptr %37, align 8, !tbaa !134
+  %38 = load i64, ptr %37, align 8, !tbaa !138
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %40 = load i64, ptr %39, align 8, !tbaa !135
+  %40 = load i64, ptr %39, align 8, !tbaa !139
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %42 = load i64, ptr %41, align 8, !tbaa !136
+  %42 = load i64, ptr %41, align 8, !tbaa !140
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %44 = load i64, ptr %43, align 8, !tbaa !137
+  %44 = load i64, ptr %43, align 8, !tbaa !141
   %45 = add i64 %44, %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %47 = load i64, ptr %46, align 8, !tbaa !138
+  %47 = load i64, ptr %46, align 8, !tbaa !142
   %48 = add i64 %47, %40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %50 = load i64, ptr %49, align 8, !tbaa !139
+  %50 = load i64, ptr %49, align 8, !tbaa !143
   %51 = add i64 %50, %42
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %53 = load i64, ptr %52, align 8, !tbaa !140
+  %53 = load i64, ptr %52, align 8, !tbaa !144
   %54 = add i64 %45, %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %56 = load i64, ptr %55, align 8, !tbaa !141
+  %56 = load i64, ptr %55, align 8, !tbaa !145
   %57 = add i64 %48, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %59 = load i64, ptr %58, align 8, !tbaa !142
+  %59 = load i64, ptr %58, align 8, !tbaa !146
   %60 = add i64 %51, %59
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.7) #19
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %62 = load i64, ptr %61, align 8, !tbaa !143
+  %62 = load i64, ptr %61, align 8, !tbaa !147
   %63 = sitofp i64 %62 to double
   %64 = fmul reassoc nsz arcp contract afn double %63, 1.000000e+02
-  %65 = load i64, ptr %37, align 8, !tbaa !134
+  %65 = load i64, ptr %37, align 8, !tbaa !138
   %66 = sitofp i64 %65 to float
   %67 = fpext reassoc nsz arcp contract afn float %66 to double
   %68 = fdiv reassoc nsz arcp contract afn double %64, %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %70 = load i64, ptr %69, align 8, !tbaa !144
+  %70 = load i64, ptr %69, align 8, !tbaa !148
   %71 = sitofp i64 %70 to double
   %72 = fmul reassoc nsz arcp contract afn double %71, 1.000000e+02
   %73 = fdiv reassoc nsz arcp contract afn double %72, %67
-  %74 = load i64, ptr %41, align 8, !tbaa !136
+  %74 = load i64, ptr %41, align 8, !tbaa !140
   %75 = sitofp i64 %74 to double
   %76 = fmul reassoc nsz arcp contract afn double %75, 1.000000e+02
   %77 = uitofp i64 %60 to float
   %78 = fpext reassoc nsz arcp contract afn float %77 to double
   %79 = fdiv reassoc nsz arcp contract afn double %76, %78
-  %80 = load i64, ptr %39, align 8, !tbaa !135
+  %80 = load i64, ptr %39, align 8, !tbaa !139
   %81 = sitofp i64 %80 to double
   %82 = fmul reassoc nsz arcp contract afn double %81, 1.000000e+02
   %83 = uitofp i64 %57 to float
@@ -1013,23 +1013,23 @@ define void @dt_mipmap_cache_print(ptr noundef readonly captures(none) %0) local
   %90 = fdiv reassoc nsz arcp contract afn double %87, %89
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, double noundef %68, double noundef %73, double noundef %79, double noundef %85, double noundef %90) #19
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %92 = load i64, ptr %91, align 8, !tbaa !145
+  %92 = load i64, ptr %91, align 8, !tbaa !149
   %93 = sitofp i64 %92 to double
   %94 = fmul reassoc nsz arcp contract afn double %93, 1.000000e+02
-  %95 = load i64, ptr %43, align 8, !tbaa !137
+  %95 = load i64, ptr %43, align 8, !tbaa !141
   %96 = sitofp i64 %95 to float
   %97 = fpext reassoc nsz arcp contract afn float %96 to double
   %98 = fdiv reassoc nsz arcp contract afn double %94, %97
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %100 = load i64, ptr %99, align 8, !tbaa !146
+  %100 = load i64, ptr %99, align 8, !tbaa !150
   %101 = sitofp i64 %100 to double
   %102 = fmul reassoc nsz arcp contract afn double %101, 1.000000e+02
   %103 = fdiv reassoc nsz arcp contract afn double %102, %97
-  %104 = load i64, ptr %49, align 8, !tbaa !139
+  %104 = load i64, ptr %49, align 8, !tbaa !143
   %105 = sitofp i64 %104 to double
   %106 = fmul reassoc nsz arcp contract afn double %105, 1.000000e+02
   %107 = fdiv reassoc nsz arcp contract afn double %106, %78
-  %108 = load i64, ptr %46, align 8, !tbaa !138
+  %108 = load i64, ptr %46, align 8, !tbaa !142
   %109 = sitofp i64 %108 to double
   %110 = fmul reassoc nsz arcp contract afn double %109, 1.000000e+02
   %111 = fdiv reassoc nsz arcp contract afn double %110, %84
@@ -1038,23 +1038,23 @@ define void @dt_mipmap_cache_print(ptr noundef readonly captures(none) %0) local
   %114 = fdiv reassoc nsz arcp contract afn double %113, %89
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.9, double noundef %98, double noundef %103, double noundef %107, double noundef %111, double noundef %114) #19
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %116 = load i64, ptr %115, align 8, !tbaa !147
+  %116 = load i64, ptr %115, align 8, !tbaa !151
   %117 = sitofp i64 %116 to double
   %118 = fmul reassoc nsz arcp contract afn double %117, 1.000000e+02
-  %119 = load i64, ptr %52, align 8, !tbaa !140
+  %119 = load i64, ptr %52, align 8, !tbaa !144
   %120 = sitofp i64 %119 to float
   %121 = fpext reassoc nsz arcp contract afn float %120 to double
   %122 = fdiv reassoc nsz arcp contract afn double %118, %121
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %124 = load i64, ptr %123, align 8, !tbaa !148
+  %124 = load i64, ptr %123, align 8, !tbaa !152
   %125 = sitofp i64 %124 to double
   %126 = fmul reassoc nsz arcp contract afn double %125, 1.000000e+02
   %127 = fdiv reassoc nsz arcp contract afn double %126, %121
-  %128 = load i64, ptr %58, align 8, !tbaa !142
+  %128 = load i64, ptr %58, align 8, !tbaa !146
   %129 = sitofp i64 %128 to double
   %130 = fmul reassoc nsz arcp contract afn double %129, 1.000000e+02
   %131 = fdiv reassoc nsz arcp contract afn double %130, %78
-  %132 = load i64, ptr %55, align 8, !tbaa !141
+  %132 = load i64, ptr %55, align 8, !tbaa !145
   %133 = sitofp i64 %132 to double
   %134 = fmul reassoc nsz arcp contract afn double %133, 1.000000e+02
   %135 = fdiv reassoc nsz arcp contract afn double %134, %84
@@ -1083,7 +1083,7 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 0, ptr %19, align 4, !tbaa !149
+  store i32 0, ptr %19, align 4, !tbaa !153
   br label %20
 
 20:                                               ; preds = %18, %8
@@ -1106,22 +1106,22 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   %27 = load ptr, ptr %24, align 8, !tbaa !23
   %28 = load i32, ptr %27, align 64, !tbaa !18
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %28, ptr %29, align 8, !tbaa !150
+  store i32 %28, ptr %29, align 8, !tbaa !154
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %31, ptr %32, align 4, !tbaa !151
+  store i32 %31, ptr %32, align 4, !tbaa !155
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %34 = load float, ptr %33, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float %34, ptr %35, align 8, !tbaa !152
+  store float %34, ptr %35, align 8, !tbaa !156
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load i32, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %37, ptr %38, align 8, !tbaa !21
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %2, ptr %39, align 4, !tbaa !153
-  store i32 %3, ptr %1, align 8, !tbaa !154
+  store i32 %2, ptr %39, align 4, !tbaa !157
+  store i32 %3, ptr %1, align 8, !tbaa !158
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %40, ptr %41, align 8, !tbaa !6
@@ -1132,7 +1132,7 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   store i32 -1, ptr %44, align 8, !tbaa !21
-  store i32 11, ptr %1, align 8, !tbaa !154
+  store i32 11, ptr %1, align 8, !tbaa !158
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %45, align 8, !tbaa !6
   br label %_dead_image_8.exit
@@ -1150,7 +1150,7 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   br i1 %48, label %.critedge268, label %49
 
 49:                                               ; preds = %47
-  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !155
+  %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !159
   %51 = tail call ptr @dt_image_load_job_create(i32 noundef %2, i32 noundef %3) #19
   %52 = tail call i32 @dt_control_add_job(ptr noundef %50, i32 noundef 1, ptr noundef %51) #19
   br label %_dead_image_8.exit
@@ -1172,7 +1172,7 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not259.not, label %.critedge, label %60
 
 60:                                               ; preds = %57
-  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !155
+  %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !159
   %62 = call ptr @dt_image_load_job_create(i32 noundef %2, i32 noundef %3) #19
   %63 = call i32 @dt_control_add_job(ptr noundef %61, i32 noundef 1, ptr noundef %62) #19
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %9) #19
@@ -1204,47 +1204,47 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
 
 75:                                               ; preds = %72
   call void @llvm.lifetime.start.p0(i64 1856, ptr nonnull %10) #19
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   %77 = tail call ptr @dt_image_cache_get(ptr noundef %76, i32 noundef %2, i8 noundef signext 114) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1856) %10, ptr noundef nonnull align 16 dereferenceable(1856) %77, i64 1856, i1 false), !tbaa.struct !157
-  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(1856) %10, ptr noundef nonnull align 16 dereferenceable(1856) %77, i64 1856, i1 false), !tbaa.struct !161
+  %78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   tail call void @dt_image_cache_read_release(ptr noundef %78, ptr noundef nonnull %77) #19
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %11) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) %11, i8 0, i64 4096, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #19
   store i32 1, ptr %12, align 4, !tbaa !77
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 1432
-  %80 = load i32, ptr %79, align 8, !tbaa !164
+  %80 = load i32, ptr %79, align 8, !tbaa !168
   call void @dt_image_full_path(i32 noundef %80, ptr noundef nonnull %11, i64 noundef 4096, ptr noundef nonnull %12) #19
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %2, ptr %81, align 4, !tbaa !153
-  store i32 10, ptr %1, align 8, !tbaa !154
+  store i32 %2, ptr %81, align 4, !tbaa !157
+  store i32 10, ptr %1, align 8, !tbaa !158
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %82, align 8, !tbaa !6
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 0, ptr %83, align 4, !tbaa !151
+  store i32 0, ptr %83, align 4, !tbaa !155
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %84, align 8, !tbaa !150
+  store i32 0, ptr %84, align 8, !tbaa !154
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float 0.000000e+00, ptr %85, align 8, !tbaa !152
+  store float 0.000000e+00, ptr %85, align 8, !tbaa !156
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 -1, ptr %86, align 8, !tbaa !21
   %87 = call i32 @dt_imageio_open(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %1) #19
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %87, ptr %88, align 4, !tbaa !149
+  store i32 %87, ptr %88, align 4, !tbaa !153
   %89 = load ptr, ptr %68, align 8, !tbaa !22
   %90 = load ptr, ptr %89, align 8, !tbaa !23
   %91 = icmp eq i32 %87, 0
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %75
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   %94 = call ptr @dt_image_cache_get(ptr noundef %93, i32 noundef %2, i8 noundef signext 119) #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1856) %94, ptr noundef nonnull align 64 dereferenceable(1856) %10, i64 1856, i1 false), !tbaa.struct !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1856) %94, ptr noundef nonnull align 64 dereferenceable(1856) %10, i64 1856, i1 false), !tbaa.struct !161
   br label %106
 
 95:                                               ; preds = %75
-  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %97 = and i32 %96, 33554432
   %.not254 = icmp eq i32 %97, 0
   br i1 %.not254, label %99, label %98
@@ -1261,14 +1261,14 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   %101 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 0, ptr %101, align 4, !tbaa !15
   store i32 0, ptr %90, align 64, !tbaa !18
-  store float 0.000000e+00, ptr %85, align 8, !tbaa !152
+  store float 0.000000e+00, ptr %85, align 8, !tbaa !156
   %102 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store i32 -1, ptr %102, align 8, !tbaa !20
   store i32 -1, ptr %86, align 8, !tbaa !21
   br label %103
 
 103:                                              ; preds = %100, %99
-  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   %105 = call ptr @dt_image_cache_get(ptr noundef %104, i32 noundef %2, i8 noundef signext 119) #19
   br label %106
 
@@ -1276,8 +1276,8 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   %.sink325 = phi ptr [ %105, %103 ], [ %94, %92 ]
   %.sink = phi i32 [ %87, %103 ], [ 0, %92 ]
   %107 = getelementptr inbounds nuw i8, ptr %.sink325, i64 1844
-  store i32 %.sink, ptr %107, align 4, !tbaa !165
-  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  store i32 %.sink, ptr %107, align 4, !tbaa !169
+  %108 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   call void @dt_image_cache_write_release(ptr noundef %108, ptr noundef %.sink325, i32 noundef 1) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #19
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %11) #19
@@ -1318,12 +1318,12 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
 
 127:                                              ; preds = %125
   %128 = getelementptr inbounds nuw i8, ptr %66, i64 88
-  store i32 1, ptr %128, align 8, !tbaa !166
+  store i32 1, ptr %128, align 8, !tbaa !170
   call void @dt_cache_release_with_caller(ptr noundef nonnull %65, ptr noundef nonnull %66, ptr noundef nonnull @.str.13, i32 noundef 1009) #19
   %129 = call ptr @dt_cache_get_with_caller(ptr noundef nonnull %65, i32 noundef %17, i8 noundef signext 114, ptr noundef nonnull @.str.13, i32 noundef 1011) #19
   store ptr %129, ptr %68, align 8, !tbaa !22
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 88
-  store i32 0, ptr %130, align 8, !tbaa !166
+  store i32 0, ptr %130, align 8, !tbaa !170
   %131 = load ptr, ptr %129, align 8, !tbaa !23
   br label %132
 
@@ -1331,22 +1331,22 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   %.2238 = phi ptr [ %131, %127 ], [ %.0236, %125 ]
   %133 = load i32, ptr %.2238, align 64, !tbaa !18
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %133, ptr %134, align 8, !tbaa !150
+  store i32 %133, ptr %134, align 8, !tbaa !154
   %135 = getelementptr inbounds nuw i8, ptr %.2238, i64 4
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %136, ptr %137, align 4, !tbaa !151
+  store i32 %136, ptr %137, align 4, !tbaa !155
   %138 = getelementptr inbounds nuw i8, ptr %.2238, i64 8
   %139 = load float, ptr %138, align 8, !tbaa !19
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float %139, ptr %140, align 8, !tbaa !152
+  store float %139, ptr %140, align 8, !tbaa !156
   %141 = getelementptr inbounds nuw i8, ptr %.2238, i64 24
   %142 = load i32, ptr %141, align 8, !tbaa !20
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %142, ptr %143, align 8, !tbaa !21
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %2, ptr %144, align 4, !tbaa !153
-  store i32 %3, ptr %1, align 8, !tbaa !154
+  store i32 %2, ptr %144, align 4, !tbaa !157
+  store i32 %3, ptr %1, align 8, !tbaa !158
   %145 = getelementptr inbounds nuw i8, ptr %.2238, i64 64
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %145, ptr %146, align 8, !tbaa !6
@@ -1365,13 +1365,13 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   br i1 %or.cond313, label %154, label %_dead_image_8.exit
 
 154:                                              ; preds = %151
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   %156 = call ptr @dt_image_cache_get(ptr noundef %155, i32 noundef %2, i8 noundef signext 114) #19
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 1844
-  %158 = load i32, ptr %157, align 4, !tbaa !165
-  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %158 = load i32, ptr %157, align 4, !tbaa !169
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   call void @dt_image_cache_read_release(ptr noundef %159, ptr noundef %156) #19
-  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %161 = and i32 %160, 33554432
   %.not257 = icmp eq i32 %161, 0
   br i1 %.not257, label %163, label %162
@@ -1546,12 +1546,12 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not247, label %233, label %223
 
 223:                                              ; preds = %221
-  %224 = load i32, ptr %218, align 8, !tbaa !150
+  %224 = load i32, ptr %218, align 8, !tbaa !154
   %225 = icmp sgt i32 %224, 0
   br i1 %225, label %226, label %233
 
 226:                                              ; preds = %223
-  %227 = load i32, ptr %219, align 4, !tbaa !151
+  %227 = load i32, ptr %219, align 4, !tbaa !155
   %228 = icmp sgt i32 %227, 0
   br i1 %228, label %229, label %233
 
@@ -1579,7 +1579,7 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   %240 = select i1 %215, i1 true, i1 %239
   %241 = icmp sgt i32 %.0235316, 0
   %242 = and i1 %240, %241
-  br i1 %242, label %221, label %.critedge264
+  br i1 %242, label %221, label %.critedge264, !llvm.loop !171
 
 .critedge264:                                     ; preds = %237, %211
   %243 = select i1 %215, i32 8, i32 %3
@@ -1601,12 +1601,12 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not250, label %258, label %249
 
 249:                                              ; preds = %247
-  %250 = load i32, ptr %245, align 8, !tbaa !150
+  %250 = load i32, ptr %245, align 8, !tbaa !154
   %251 = icmp sgt i32 %250, 0
   br i1 %251, label %252, label %258
 
 252:                                              ; preds = %249
-  %253 = load i32, ptr %246, align 4, !tbaa !151
+  %253 = load i32, ptr %246, align 4, !tbaa !155
   %254 = icmp sgt i32 %253, 0
   br i1 %254, label %255, label %258
 
@@ -1618,7 +1618,7 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
 258:                                              ; preds = %247, %249, %252
   %.0 = add i32 %.0319, 1
   %.not249 = icmp ugt i32 %.0, %243
-  br i1 %.not249, label %.critedge266, label %247
+  br i1 %.not249, label %.critedge266, label %247, !llvm.loop !172
 
 .critedge266:                                     ; preds = %258, %.critedge264
   %259 = getelementptr inbounds nuw i8, ptr %212, i64 128
@@ -1648,20 +1648,20 @@ define void @dt_mipmap_cache_get_with_caller(ptr noundef %0, ptr noundef %1, i32
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %269, align 8, !tbaa !6
   %270 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %270, align 4, !tbaa !153
-  store i32 11, ptr %1, align 8, !tbaa !154
+  store i32 0, ptr %270, align 4, !tbaa !157
+  store i32 11, ptr %1, align 8, !tbaa !158
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 0, ptr %271, align 4, !tbaa !151
+  store i32 0, ptr %271, align 4, !tbaa !155
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 0, ptr %272, align 8, !tbaa !150
+  store i32 0, ptr %272, align 8, !tbaa !154
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store float 0.000000e+00, ptr %273, align 8, !tbaa !152
+  store float 0.000000e+00, ptr %273, align 8, !tbaa !156
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 -1, ptr %274, align 8, !tbaa !21
   br label %_dead_image_8.exit
 
 _dead_image_8.exit:                               ; preds = %151, %268, %205, %203, %198, %196, %191, %189, %182, %180, %175, %173, %168, %166, %60, %46, %147, %210, %26, %42, %49
-  %275 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %275 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %276 = and i32 %275, 16777217
   %or.cond.not = icmp eq i32 %276, 16777217
   br i1 %or.cond.not, label %277, label %.critedge268
@@ -1742,35 +1742,35 @@ define internal fastcc void @_init_f(ptr noundef writeonly captures(none) %0, pt
 17:                                               ; preds = %15, %6
   store i32 0, ptr %3, align 4, !tbaa !77
   store i32 0, ptr %2, align 4, !tbaa !77
-  store float 0.000000e+00, ptr %4, align 4, !tbaa !158
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !162
   br label %131
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #19
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !167
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   call void @dt_mipmap_cache_get_with_caller(ptr noundef %19, ptr noundef nonnull %9, i32 noundef %5, i32 noundef 10, i32 noundef 3, i8 noundef signext 114, ptr noundef nonnull @.str.13, i32 noundef 1279)
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   %21 = call ptr @dt_image_cache_get(ptr noundef %20, i32 noundef %5, i8 noundef signext 114) #19
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %10) #19
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %22, align 4, !tbaa !168
-  store i32 0, ptr %10, align 4, !tbaa !170
+  store i32 0, ptr %22, align 4, !tbaa !174
+  store i32 0, ptr %10, align 4, !tbaa !176
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 1372
   %24 = load i32, ptr %23, align 4, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 %24, ptr %25, align 4, !tbaa !171
+  store i32 %24, ptr %25, align 4, !tbaa !177
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 1376
   %27 = load i32, ptr %26, align 16, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %27, ptr %28, align 4, !tbaa !172
+  store i32 %27, ptr %28, align 4, !tbaa !178
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store float 1.000000e+00, ptr %29, align 4, !tbaa !173
+  store float 1.000000e+00, ptr %29, align 4, !tbaa !179
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #19
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 0, ptr %30, align 4, !tbaa !168
-  store i32 0, ptr %11, align 4, !tbaa !170
+  store i32 0, ptr %30, align 4, !tbaa !174
+  store i32 0, ptr %11, align 4, !tbaa !176
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 1496
-  %32 = load i32, ptr %31, align 8, !tbaa !174
+  %32 = load i32, ptr %31, align 8, !tbaa !180
   %.not54 = icmp eq i32 %32, 0
   %33 = select reassoc nsz arcp contract afn i1 %.not54, float 1.000000e+00, float 2.000000e+00
   %34 = uitofp i32 %12 to float
@@ -1783,15 +1783,15 @@ define internal fastcc void @_init_f(ptr noundef writeonly captures(none) %0, pt
   %41 = fdiv reassoc nsz arcp contract afn float %39, %40
   %42 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %37, float %41)
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store float %42, ptr %43, align 4, !tbaa !173
+  store float %42, ptr %43, align 4, !tbaa !179
   %44 = fmul reassoc nsz arcp contract afn float %42, %36
   %45 = fptosi float %44 to i32
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %45, ptr %46, align 4, !tbaa !171
+  store i32 %45, ptr %46, align 4, !tbaa !177
   %47 = fmul reassoc nsz arcp contract afn float %42, %40
   %48 = fptosi float %47 to i32
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %48, ptr %49, align 4, !tbaa !172
+  store i32 %48, ptr %49, align 4, !tbaa !178
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !6
   %.not55 = icmp eq ptr %51, null
@@ -1800,9 +1800,9 @@ define internal fastcc void @_init_f(ptr noundef writeonly captures(none) %0, pt
 52:                                               ; preds = %18
   %53 = load ptr, ptr @stderr, align 8, !tbaa !75
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 1844
-  %55 = load i32, ptr %54, align 4, !tbaa !165
+  %55 = load i32, ptr %54, align 4, !tbaa !169
   %56 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.49, i32 noundef %55) #22
-  %57 = load i32, ptr %54, align 4, !tbaa !165
+  %57 = load i32, ptr %54, align 4, !tbaa !169
   %switch.tableidx = add i32 %57, -1
   %58 = icmp ult i32 %switch.tableidx, 8
   br i1 %58, label %switch.lookup, label %60
@@ -1818,11 +1818,11 @@ switch.lookup:                                    ; preds = %52
   %61 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %.str.51.sink, i32 noundef 5) #19
   %62 = getelementptr inbounds nuw i8, ptr %21, i64 1116
   call void (ptr, ...) @dt_control_log(ptr noundef %61, ptr noundef nonnull %62) #19
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   call void @dt_image_cache_read_release(ptr noundef %63, ptr noundef nonnull %21) #19
   store i32 0, ptr %3, align 4, !tbaa !77
   store i32 0, ptr %2, align 4, !tbaa !77
-  store float 0.000000e+00, ptr %4, align 4, !tbaa !158
+  store float 0.000000e+00, ptr %4, align 4, !tbaa !162
   br label %130
 
 64:                                               ; preds = %18
@@ -1835,14 +1835,14 @@ switch.lookup:                                    ; preds = %52
 
 66:                                               ; preds = %64
   %67 = getelementptr inbounds nuw i8, ptr %21, i64 1492
-  %68 = load i32, ptr %67, align 4, !tbaa !175
+  %68 = load i32, ptr %67, align 4, !tbaa !181
   switch i32 %68, label %108 [
     i32 1, label %69
     i32 2, label %78
   ]
 
 69:                                               ; preds = %66
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %71 = and i32 %70, 33554432
   %.not63 = icmp eq i32 %71, 0
   br i1 %.not63, label %73, label %72
@@ -1850,9 +1850,9 @@ switch.lookup:                                    ; preds = %52
 72:                                               ; preds = %69
   call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @.str.54) #19
   %.pre81 = load ptr, ptr %50, align 8, !tbaa !6
-  %.pre82 = load i32, ptr %46, align 4, !tbaa !171
-  %.pre83 = load i32, ptr %25, align 4, !tbaa !171
-  %.pre84 = load i32, ptr %31, align 8, !tbaa !174
+  %.pre82 = load i32, ptr %46, align 4, !tbaa !177
+  %.pre83 = load i32, ptr %25, align 4, !tbaa !177
+  %.pre84 = load i32, ptr %31, align 8, !tbaa !180
   br label %73
 
 73:                                               ; preds = %72, %69
@@ -1864,7 +1864,7 @@ switch.lookup:                                    ; preds = %52
   br label %115
 
 78:                                               ; preds = %66
-  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %79 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %80 = and i32 %79, 33554432
   %.not62 = icmp eq i32 %80, 0
   br i1 %.not62, label %82, label %81
@@ -1872,9 +1872,9 @@ switch.lookup:                                    ; preds = %52
 81:                                               ; preds = %78
   call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @.str.54) #19
   %.pre77 = load ptr, ptr %50, align 8, !tbaa !6
-  %.pre78 = load i32, ptr %46, align 4, !tbaa !171
-  %.pre79 = load i32, ptr %25, align 4, !tbaa !171
-  %.pre80 = load i32, ptr %31, align 8, !tbaa !174
+  %.pre78 = load i32, ptr %46, align 4, !tbaa !177
+  %.pre79 = load i32, ptr %25, align 4, !tbaa !177
+  %.pre80 = load i32, ptr %31, align 8, !tbaa !180
   br label %82
 
 82:                                               ; preds = %81, %78
@@ -1887,14 +1887,14 @@ switch.lookup:                                    ; preds = %52
 
 87:                                               ; preds = %64
   %88 = getelementptr inbounds nuw i8, ptr %21, i64 1492
-  %89 = load i32, ptr %88, align 4, !tbaa !175
+  %89 = load i32, ptr %88, align 4, !tbaa !181
   switch i32 %89, label %108 [
     i32 2, label %90
     i32 1, label %99
   ]
 
 90:                                               ; preds = %87
-  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %91 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %92 = and i32 %91, 33554432
   %.not61 = icmp eq i32 %92, 0
   br i1 %.not61, label %94, label %93
@@ -1902,8 +1902,8 @@ switch.lookup:                                    ; preds = %52
 93:                                               ; preds = %90
   call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.56, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @.str.54) #19
   %.pre73 = load ptr, ptr %50, align 8, !tbaa !6
-  %.pre74 = load i32, ptr %46, align 4, !tbaa !171
-  %.pre75 = load i32, ptr %25, align 4, !tbaa !171
+  %.pre74 = load i32, ptr %46, align 4, !tbaa !177
+  %.pre75 = load i32, ptr %25, align 4, !tbaa !177
   br label %94
 
 94:                                               ; preds = %93, %90
@@ -1915,7 +1915,7 @@ switch.lookup:                                    ; preds = %52
   br label %115
 
 99:                                               ; preds = %87
-  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %101 = and i32 %100, 33554432
   %.not60 = icmp eq i32 %101, 0
   br i1 %.not60, label %103, label %102
@@ -1923,8 +1923,8 @@ switch.lookup:                                    ; preds = %52
 102:                                              ; preds = %99
   call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @.str.54) #19
   %.pre = load ptr, ptr %50, align 8, !tbaa !6
-  %.pre71 = load i32, ptr %46, align 4, !tbaa !171
-  %.pre72 = load i32, ptr %25, align 4, !tbaa !171
+  %.pre71 = load i32, ptr %46, align 4, !tbaa !177
+  %.pre72 = load i32, ptr %25, align 4, !tbaa !177
   br label %103
 
 103:                                              ; preds = %102, %99
@@ -1941,7 +1941,7 @@ switch.lookup:                                    ; preds = %52
   unreachable
 
 109:                                              ; preds = %64
-  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %111 = and i32 %110, 33554432
   %.not57 = icmp eq i32 %111, 0
   br i1 %.not57, label %113, label %112
@@ -1957,12 +1957,12 @@ switch.lookup:                                    ; preds = %52
   br label %115
 
 115:                                              ; preds = %73, %94, %103, %82, %113
-  %116 = load i32, ptr %9, align 8, !tbaa !154
+  %116 = load i32, ptr %9, align 8, !tbaa !158
   %117 = icmp eq i32 %116, 11
   br i1 %117, label %dt_mipmap_cache_release_with_caller.exit, label %118
 
 118:                                              ; preds = %115
-  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !167
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   %switch.selectcmp.i.i = icmp eq i32 %116, 9
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i64 328, i64 176
   %switch.selectcmp4.i.i = icmp eq i32 %116, 10
@@ -1971,21 +1971,21 @@ switch.lookup:                                    ; preds = %52
   %121 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %122 = load ptr, ptr %121, align 8, !tbaa !22
   call void @dt_cache_release_with_caller(ptr noundef nonnull %120, ptr noundef %122, ptr noundef nonnull @.str.13, i32 noundef 1368) #19
-  store i32 11, ptr %9, align 8, !tbaa !154
+  store i32 11, ptr %9, align 8, !tbaa !158
   store ptr null, ptr %50, align 8, !tbaa !6
   br label %dt_mipmap_cache_release_with_caller.exit
 
 dt_mipmap_cache_release_with_caller.exit:         ; preds = %115, %118
-  %123 = load i32, ptr %46, align 4, !tbaa !171
+  %123 = load i32, ptr %46, align 4, !tbaa !177
   store i32 %123, ptr %2, align 4, !tbaa !77
-  %124 = load i32, ptr %49, align 4, !tbaa !172
+  %124 = load i32, ptr %49, align 4, !tbaa !178
   store i32 %124, ptr %3, align 4, !tbaa !77
   %125 = load i32, ptr %23, align 4, !tbaa !26
   %126 = sitofp i32 %125 to float
   %127 = sitofp i32 %123 to float
   %128 = fdiv reassoc nsz arcp contract afn float %126, %127
-  store float %128, ptr %4, align 4, !tbaa !158
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  store float %128, ptr %4, align 4, !tbaa !162
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   call void @dt_image_cache_read_release(ptr noundef %129, ptr noundef nonnull %21) #19
   br label %130
 
@@ -2011,7 +2011,7 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   %13 = alloca i32, align 4
   %14 = alloca %struct.dt_imageio_module_format_t, align 8
   %15 = alloca %struct._dummy_data_t, align 8
-  store float 1.000000e+00, ptr %3, align 4, !tbaa !158
+  store float 1.000000e+00, ptr %3, align 4, !tbaa !162
   %16 = load i32, ptr %1, align 4, !tbaa !77
   %17 = load i32, ptr %2, align 4, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %8) #19
@@ -2031,18 +2031,18 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
 21:                                               ; preds = %19, %7
   store i32 0, ptr %2, align 4, !tbaa !77
   store i32 0, ptr %1, align 4, !tbaa !77
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !158
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !162
   store i32 -1, ptr %4, align 4, !tbaa !77
   br label %.critedge121
 
 22:                                               ; preds = %19
   %23 = call i32 @dt_image_altered(i32 noundef %5) #19
-  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   %25 = call ptr @dt_image_cache_get(ptr noundef %24, i32 noundef %5, i8 noundef signext 114) #19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 36
   %27 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(10) @.str.62, i64 noundef 9) #20
   %.not100 = icmp eq i32 %27, 0
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   call void @dt_image_cache_read_release(ptr noundef %28, ptr noundef %25) #19
   %29 = call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.63) #19
   %30 = call i32 @dt_mipmap_cache_get_min_mip_from_pref(ptr noundef %29)
@@ -2068,7 +2068,7 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   %40 = icmp ugt ptr %.094, %8
   %41 = and i1 %40, %39
   %42 = getelementptr inbounds i8, ptr %.094, i64 -1
-  br i1 %41, label %37, label %43
+  br i1 %41, label %37, label %43, !llvm.loop !182
 
 43:                                               ; preds = %37
   %44 = call i32 @strcasecmp(ptr noundef nonnull %.094, ptr noundef nonnull @.str.64) #20
@@ -2082,10 +2082,10 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not105, label %47, label %66
 
 47:                                               ; preds = %45
-  %48 = load i32, ptr %10, align 8, !tbaa !87
+  %48 = load i32, ptr %10, align 8, !tbaa !91
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %51 = load i32, ptr %50, align 4, !tbaa !120
+  %51 = load i32, ptr %50, align 4, !tbaa !124
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %49, 2
   %54 = mul i64 %53, %52
@@ -2098,7 +2098,7 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not106, label %58, label %65
 
 58:                                               ; preds = %47
-  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %60 = and i32 %59, 1
   %.not107 = icmp eq i32 %60, 0
   br i1 %.not107, label %62, label %61
@@ -2108,8 +2108,8 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %62
 
 62:                                               ; preds = %61, %58
-  %63 = load i32, ptr %10, align 8, !tbaa !87
-  %64 = load i32, ptr %50, align 4, !tbaa !120
+  %63 = load i32, ptr %10, align 8, !tbaa !91
+  %64 = load i32, ptr %50, align 4, !tbaa !124
   call void @dt_iop_flip_and_zoom_8(ptr noundef %55, i32 noundef %63, i32 noundef %64, ptr noundef %0, i32 noundef %16, i32 noundef %17, i32 noundef %34, ptr noundef nonnull %1, ptr noundef nonnull %2) #19
   br label %65
 
@@ -2125,7 +2125,7 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
 
 67:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #19
-  store ptr null, ptr %11, align 8, !tbaa !160
+  store ptr null, ptr %11, align 8, !tbaa !164
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #19
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #19
   %68 = call i32 @dt_imageio_large_thumbnail(ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %4) #19
@@ -2133,13 +2133,13 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not108, label %69, label %96
 
 69:                                               ; preds = %67
-  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   %71 = call ptr @dt_image_cache_get(ptr noundef %70, i32 noundef %5, i8 noundef signext 114) #19
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 1372
   %73 = load i32, ptr %72, align 4, !tbaa !26
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 1376
   %75 = load i32, ptr %74, align 16, !tbaa !36
-  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !156
+  %76 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !160
   call void @dt_image_cache_read_release(ptr noundef %76, ptr noundef %71) #19
   %77 = load i32, ptr %12, align 4, !tbaa !77
   %78 = icmp ult i32 %77, %16
@@ -2157,7 +2157,7 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %or.cond120, label %94, label %86
 
 86:                                               ; preds = %69, %79
-  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %88 = and i32 %87, 1
   %.not109 = icmp eq i32 %88, 0
   br i1 %.not109, label %90, label %89
@@ -2169,14 +2169,14 @@ define internal fastcc void @_init_8(ptr noundef %0, ptr noundef %1, ptr noundef
 
 90:                                               ; preds = %89, %86
   %91 = phi i32 [ %.pre, %89 ], [ %77, %86 ]
-  %92 = load ptr, ptr %11, align 8, !tbaa !160
+  %92 = load ptr, ptr %11, align 8, !tbaa !164
   %93 = load i32, ptr %13, align 4, !tbaa !77
   call void @dt_iop_flip_and_zoom_8(ptr noundef %92, i32 noundef %91, i32 noundef %93, ptr noundef %0, i32 noundef %16, i32 noundef %17, i32 noundef %34, ptr noundef nonnull %1, ptr noundef nonnull %2) #19
   br label %94
 
 94:                                               ; preds = %79, %90
   %.5 = phi i32 [ 0, %90 ], [ 1, %79 ]
-  %95 = load ptr, ptr %11, align 8, !tbaa !160
+  %95 = load ptr, ptr %11, align 8, !tbaa !164
   call void @free(ptr noundef %95) #19
   br label %96
 
@@ -2204,7 +2204,7 @@ dt_mipmap_cache_release_with_caller.exit:         ; preds = %dt_mipmap_cache_rel
   br i1 %100, label %101, label %128
 
 101:                                              ; preds = %dt_mipmap_cache_release_with_caller.exit
-  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !167
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   %103 = shl nuw i32 %.0, 28
   %104 = or disjoint i32 %103, %99
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 176
@@ -2227,7 +2227,7 @@ dt_mipmap_cache_release_with_caller.exit:         ; preds = %dt_mipmap_cache_rel
   %.sroa.22.0 = phi i32 [ %113, %107 ], [ -1, %101 ]
   %.sroa.11.0 = phi i32 [ %111, %107 ], [ 0, %101 ]
   %.sroa.8.0 = phi i32 [ %109, %107 ], [ 0, %101 ]
-  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %117 = and i32 %116, 16777217
   %or.cond.i.not = icmp eq i32 %117, 16777217
   br i1 %or.cond.i.not, label %118, label %dt_mipmap_cache_get_with_caller.exit
@@ -2238,10 +2238,10 @@ dt_mipmap_cache_release_with_caller.exit:         ; preds = %dt_mipmap_cache_rel
 
 dt_mipmap_cache_get_with_caller.exit:             ; preds = %115, %118
   %119 = icmp eq ptr %.sroa.16126.0, null
-  br i1 %119, label %dt_mipmap_cache_release_with_caller.exit, label %120
+  br i1 %119, label %dt_mipmap_cache_release_with_caller.exit, label %120, !llvm.loop !183
 
 120:                                              ; preds = %dt_mipmap_cache_get_with_caller.exit
-  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %121 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %122 = and i32 %121, 1
   %.not111 = icmp eq i32 %122, 0
   br i1 %.not111, label %124, label %123
@@ -2256,7 +2256,7 @@ dt_mipmap_cache_get_with_caller.exit:             ; preds = %115, %118
   br i1 %.not260.i, label %.critedge121, label %125
 
 125:                                              ; preds = %124
-  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !167
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !173
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 176
   call void @dt_cache_release_with_caller(ptr noundef nonnull %127, ptr noundef nonnull %106, ptr noundef nonnull @.str.13, i32 noundef 1529) #19
   br label %.critedge121
@@ -2265,22 +2265,22 @@ dt_mipmap_cache_get_with_caller.exit:             ; preds = %115, %118
   call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %14) #19
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %15) #19
   %129 = getelementptr inbounds nuw i8, ptr %14, i64 168
-  store ptr @_bpp, ptr %129, align 8, !tbaa !176
+  store ptr @_bpp, ptr %129, align 8, !tbaa !184
   %130 = getelementptr inbounds nuw i8, ptr %14, i64 176
-  store ptr @_write_image, ptr %130, align 8, !tbaa !182
+  store ptr @_write_image, ptr %130, align 8, !tbaa !190
   %131 = getelementptr inbounds nuw i8, ptr %14, i64 184
-  store ptr @_levels, ptr %131, align 8, !tbaa !183
-  store i32 %16, ptr %15, align 8, !tbaa !184
+  store ptr @_levels, ptr %131, align 8, !tbaa !191
+  store i32 %16, ptr %15, align 8, !tbaa !192
   %132 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 %17, ptr %132, align 4, !tbaa !187
+  store i32 %17, ptr %132, align 4, !tbaa !195
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 152
-  store ptr %0, ptr %133, align 8, !tbaa !188
+  store ptr %0, ptr %133, align 8, !tbaa !196
   %134 = call i32 @dt_imageio_export_with_flags(i32 noundef %5, ptr noundef nonnull @.str.68, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 1, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, i32 noundef 4, ptr noundef null, ptr noundef null, i32 noundef 1, i32 noundef 1, ptr noundef null, i32 noundef -1) #19
   %.not113 = icmp eq i32 %134, 0
   br i1 %.not113, label %135, label %145
 
 135:                                              ; preds = %128
-  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %137 = and i32 %136, 1
   %.not114 = icmp eq i32 %137, 0
   br i1 %.not114, label %139, label %138
@@ -2291,12 +2291,12 @@ dt_mipmap_cache_get_with_caller.exit:             ; preds = %115, %118
 
 139:                                              ; preds = %138, %135
   %140 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %141 = load i32, ptr %140, align 8, !tbaa !189
+  %141 = load i32, ptr %140, align 8, !tbaa !197
   store i32 %141, ptr %1, align 4, !tbaa !77
   %142 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %143 = load i32, ptr %142, align 4, !tbaa !190
+  %143 = load i32, ptr %142, align 4, !tbaa !198
   store i32 %143, ptr %2, align 4, !tbaa !77
-  store float 1.000000e+00, ptr %3, align 4, !tbaa !158
+  store float 1.000000e+00, ptr %3, align 4, !tbaa !162
   %144 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.30) #19
   %.not.i = icmp eq i32 %144, 0
   %..i = select i1 %.not.i, i32 8, i32 2
@@ -2304,16 +2304,16 @@ dt_mipmap_cache_get_with_caller.exit:             ; preds = %115, %118
   br label %145
 
 145:                                              ; preds = %128, %139
-  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %146 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %147 = and i32 %146, 33554432
   %.not115 = icmp eq i32 %147, 0
   br i1 %.not115, label %.critedge, label %148
 
 148:                                              ; preds = %145
   %149 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %150 = load i32, ptr %149, align 8, !tbaa !189
+  %150 = load i32, ptr %149, align 8, !tbaa !197
   %151 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  %152 = load i32, ptr %151, align 4, !tbaa !190
+  %152 = load i32, ptr %151, align 4, !tbaa !198
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.70, i32 noundef %5, i32 noundef %16, i32 noundef %17, i32 noundef %150, i32 noundef %152) #19
   br label %.critedge
 
@@ -2323,7 +2323,7 @@ dt_mipmap_cache_get_with_caller.exit:             ; preds = %115, %118
   br i1 %.not113, label %.critedge121, label %153
 
 153:                                              ; preds = %.critedge
-  %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %154 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %155 = and i32 %154, 33554432
   %.not117 = icmp eq i32 %155, 0
   br i1 %.not117, label %157, label %156
@@ -2335,7 +2335,7 @@ dt_mipmap_cache_get_with_caller.exit:             ; preds = %115, %118
 157:                                              ; preds = %156, %153
   store i32 0, ptr %2, align 4, !tbaa !77
   store i32 0, ptr %1, align 4, !tbaa !77
-  store float 0.000000e+00, ptr %3, align 4, !tbaa !158
+  store float 0.000000e+00, ptr %3, align 4, !tbaa !162
   store i32 -1, ptr %4, align 4, !tbaa !77
   br label %.critedge121
 
@@ -2351,7 +2351,7 @@ declare i32 @g_idle_add(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_raise_signal_mipmap_updated(ptr noundef %0) #3 {
-  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !191
+  %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !199
   %3 = and i32 %2, 1
   %4 = icmp ne i32 %3, 0
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3212), align 4
@@ -2360,7 +2360,7 @@ define internal noundef i32 @_raise_signal_mipmap_updated(ptr noundef %0) #3 {
   br i1 %or.cond, label %7, label %11
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !121
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !125
   %9 = and i32 %8, 1048576
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %11, label %10
@@ -2370,7 +2370,7 @@ define internal noundef i32 @_raise_signal_mipmap_updated(ptr noundef %0) #3 {
   br label %11
 
 11:                                               ; preds = %10, %7, %1
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !192
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !200
   %13 = ptrtoint ptr %0 to i64
   %14 = trunc i64 %13 to i32
   tail call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %12, i32 noundef 20, i32 noundef %14) #19
@@ -2379,7 +2379,7 @@ define internal noundef i32 @_raise_signal_mipmap_updated(ptr noundef %0) #3 {
 
 ; Function Attrs: nounwind uwtable
 define void @dt_mipmap_cache_release_with_caller(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = load i32, ptr %1, align 8, !tbaa !154
+  %5 = load i32, ptr %1, align 8, !tbaa !158
   %6 = icmp eq i32 %5, 11
   br i1 %6, label %12, label %7
 
@@ -2392,7 +2392,7 @@ define void @dt_mipmap_cache_release_with_caller(ptr noundef %0, ptr noundef cap
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   tail call void @dt_cache_release_with_caller(ptr noundef nonnull %8, ptr noundef %10, ptr noundef %2, i32 noundef %3) #19
-  store i32 11, ptr %1, align 8, !tbaa !154
+  store i32 11, ptr %1, align 8, !tbaa !158
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %11, align 8, !tbaa !6
   br label %12
@@ -2428,7 +2428,7 @@ define range(i32 0, 12) i32 @dt_mipmap_cache_get_matching_size(ptr noundef reado
 
 .backedge:                                        ; preds = %13, %9
   %.011.be = add nuw nsw i32 %.011, 1
-  br label %5
+  br label %5, !llvm.loop !201
 
 14:                                               ; preds = %9, %13
   ret i32 %.011
@@ -2528,7 +2528,7 @@ define void @dt_mipmap_cache_remove_at_size(ptr noundef %0, i32 noundef %1, i32 
 
 19:                                               ; preds = %6
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %21 = load ptr, ptr %20, align 8, !tbaa !193
+  %21 = load ptr, ptr %20, align 8, !tbaa !202
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 632
   %23 = load i8, ptr %22, align 8, !tbaa !74
   %.not.i = icmp eq i8 %23, 0
@@ -2560,7 +2560,7 @@ define void @dt_mipmap_cache_remove(ptr noundef %0, i32 noundef %1) local_unname
   tail call void @dt_mipmap_cache_remove_at_size(ptr noundef %0, i32 noundef %1, i32 noundef %.04)
   %5 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %5, 9
-  br i1 %exitcond.not, label %3, label %4
+  br i1 %exitcond.not, label %3, label %4, !llvm.loop !203
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2595,7 +2595,7 @@ define void @dt_mimap_cache_evict(ptr noundef %0, i32 noundef %1) local_unnamed_
   %10 = tail call i32 @dt_cache_remove(ptr noundef nonnull %5, i32 noundef %9) #19
   %11 = add nuw nsw i32 %.06, 1
   %exitcond.not = icmp eq i32 %11, 9
-  br i1 %exitcond.not, label %6, label %7
+  br i1 %exitcond.not, label %6, label %7, !llvm.loop !204
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2638,7 +2638,7 @@ define void @dt_mipmap_cache_copy_thumbnails(ptr noundef %0, i32 noundef %1, i32
   %16 = call ptr @g_file_new_for_path(ptr noundef nonnull %4) #19
   %17 = call ptr @g_file_new_for_path(ptr noundef nonnull %5) #19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
-  store ptr null, ptr %6, align 8, !tbaa !194
+  store ptr null, ptr %6, align 8, !tbaa !205
   %18 = call i32 @g_file_copy(ptr noundef %16, ptr noundef %17, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #19
   call void @g_object_unref(ptr noundef %17) #19
   call void @g_object_unref(ptr noundef %16) #19
@@ -2648,7 +2648,7 @@ define void @dt_mipmap_cache_copy_thumbnails(ptr noundef %0, i32 noundef %1, i32
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #19
   %19 = add nuw nsw i32 %.019, 1
   %exitcond.not = icmp eq i32 %19, 9
-  br i1 %exitcond.not, label %.loopexit, label %.preheader
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !207
 
 .loopexit:                                        ; preds = %.preheader, %9, %3
   ret void
@@ -2778,13 +2778,13 @@ define internal noundef i32 @_bpp(ptr readnone captures(none) %0) #16 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @_write_image(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i32 %6, i32 %7, i32 %8, i32 %9, ptr readnone captures(none) %10, i32 %11) #0 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %14 = load ptr, ptr %13, align 8, !tbaa !188
+  %14 = load ptr, ptr %13, align 8, !tbaa !196
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i32, ptr %15, align 4, !tbaa !196
+  %16 = load i32, ptr %15, align 4, !tbaa !208
   %17 = sext i32 %16 to i64
   %18 = shl nsw i64 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !197
+  %20 = load i32, ptr %19, align 4, !tbaa !209
   %21 = sext i32 %20 to i64
   %22 = mul i64 %18, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr align 1 %2, i64 %22, i1 false)
@@ -2919,122 +2919,134 @@ attributes #23 = { cold noreturn nounwind }
 !76 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
 !77 = !{!8, !8, i64 0}
 !78 = !{!41, !17, i64 3352}
-!79 = !{!80, !13, i64 80}
-!80 = !{!"dt_cache_t", !66, i64 0, !17, i64 40, !17, i64 48, !17, i64 56, !81, i64 64, !25, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104}
-!81 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
-!82 = !{!80, !13, i64 96}
-!83 = !{!80, !13, i64 88}
-!84 = !{!80, !13, i64 104}
-!85 = !{!17, !17, i64 0}
-!86 = !{!24, !8, i64 92}
-!87 = !{!88, !8, i64 0}
-!88 = !{!"dt_imageio_jpeg_t", !8, i64 0, !8, i64 4, !89, i64 8, !90, i64 64, !91, i64 104, !109, i64 760, !76, i64 1344}
-!89 = !{!"jpeg_source_mgr", !12, i64 0, !17, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
-!90 = !{!"jpeg_destination_mgr", !12, i64 0, !17, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
-!91 = !{!"jpeg_decompress_struct", !92, i64 0, !93, i64 8, !94, i64 16, !13, i64 24, !8, i64 32, !8, i64 36, !95, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !34, i64 80, !8, i64 88, !8, i64 92, !8, i64 96, !8, i64 100, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !8, i64 124, !8, i64 128, !8, i64 132, !8, i64 136, !8, i64 140, !8, i64 144, !8, i64 148, !8, i64 152, !8, i64 156, !96, i64 160, !8, i64 168, !8, i64 172, !8, i64 176, !8, i64 180, !8, i64 184, !71, i64 192, !9, i64 200, !9, i64 232, !9, i64 264, !8, i64 296, !13, i64 304, !8, i64 312, !8, i64 316, !8, i64 320, !9, i64 324, !9, i64 340, !9, i64 356, !8, i64 372, !8, i64 376, !9, i64 380, !9, i64 381, !9, i64 382, !30, i64 384, !30, i64 386, !8, i64 388, !9, i64 392, !8, i64 396, !97, i64 400, !8, i64 408, !8, i64 412, !8, i64 416, !8, i64 420, !8, i64 424, !12, i64 432, !8, i64 440, !9, i64 448, !8, i64 480, !8, i64 484, !8, i64 488, !9, i64 492, !8, i64 532, !8, i64 536, !8, i64 540, !8, i64 544, !8, i64 548, !71, i64 552, !8, i64 560, !8, i64 564, !98, i64 568, !99, i64 576, !100, i64 584, !101, i64 592, !102, i64 600, !103, i64 608, !104, i64 616, !105, i64 624, !106, i64 632, !107, i64 640, !108, i64 648}
-!92 = !{!"p1 _ZTS14jpeg_error_mgr", !13, i64 0}
-!93 = !{!"p1 _ZTS15jpeg_memory_mgr", !13, i64 0}
-!94 = !{!"p1 _ZTS17jpeg_progress_mgr", !13, i64 0}
-!95 = !{!"p1 _ZTS15jpeg_source_mgr", !13, i64 0}
-!96 = !{!"p2 omnipotent char", !13, i64 0}
-!97 = !{!"p1 _ZTS18jpeg_marker_struct", !13, i64 0}
-!98 = !{!"p1 _ZTS18jpeg_decomp_master", !13, i64 0}
-!99 = !{!"p1 _ZTS22jpeg_d_main_controller", !13, i64 0}
-!100 = !{!"p1 _ZTS22jpeg_d_coef_controller", !13, i64 0}
-!101 = !{!"p1 _ZTS22jpeg_d_post_controller", !13, i64 0}
-!102 = !{!"p1 _ZTS21jpeg_input_controller", !13, i64 0}
-!103 = !{!"p1 _ZTS18jpeg_marker_reader", !13, i64 0}
-!104 = !{!"p1 _ZTS20jpeg_entropy_decoder", !13, i64 0}
-!105 = !{!"p1 _ZTS16jpeg_inverse_dct", !13, i64 0}
-!106 = !{!"p1 _ZTS14jpeg_upsampler", !13, i64 0}
-!107 = !{!"p1 _ZTS22jpeg_color_deconverter", !13, i64 0}
-!108 = !{!"p1 _ZTS20jpeg_color_quantizer", !13, i64 0}
-!109 = !{!"jpeg_compress_struct", !92, i64 0, !93, i64 8, !94, i64 16, !13, i64 24, !8, i64 32, !8, i64 36, !110, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !34, i64 64, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !8, i64 88, !8, i64 92, !8, i64 96, !13, i64 104, !9, i64 112, !9, i64 144, !9, i64 160, !9, i64 192, !9, i64 224, !9, i64 240, !9, i64 256, !8, i64 272, !13, i64 280, !8, i64 288, !8, i64 292, !8, i64 296, !8, i64 300, !8, i64 304, !8, i64 308, !8, i64 312, !8, i64 316, !8, i64 320, !8, i64 324, !9, i64 328, !9, i64 329, !9, i64 330, !30, i64 332, !30, i64 334, !8, i64 336, !8, i64 340, !8, i64 344, !8, i64 348, !8, i64 352, !8, i64 356, !8, i64 360, !8, i64 364, !8, i64 368, !9, i64 376, !8, i64 408, !8, i64 412, !8, i64 416, !9, i64 420, !8, i64 460, !8, i64 464, !8, i64 468, !8, i64 472, !8, i64 476, !71, i64 480, !8, i64 488, !111, i64 496, !112, i64 504, !113, i64 512, !114, i64 520, !115, i64 528, !116, i64 536, !117, i64 544, !118, i64 552, !119, i64 560, !13, i64 568, !8, i64 576}
-!110 = !{!"p1 _ZTS20jpeg_destination_mgr", !13, i64 0}
-!111 = !{!"p1 _ZTS16jpeg_comp_master", !13, i64 0}
-!112 = !{!"p1 _ZTS22jpeg_c_main_controller", !13, i64 0}
-!113 = !{!"p1 _ZTS22jpeg_c_prep_controller", !13, i64 0}
-!114 = !{!"p1 _ZTS22jpeg_c_coef_controller", !13, i64 0}
-!115 = !{!"p1 _ZTS18jpeg_marker_writer", !13, i64 0}
-!116 = !{!"p1 _ZTS20jpeg_color_converter", !13, i64 0}
-!117 = !{!"p1 _ZTS16jpeg_downsampler", !13, i64 0}
-!118 = !{!"p1 _ZTS16jpeg_forward_dct", !13, i64 0}
-!119 = !{!"p1 _ZTS20jpeg_entropy_encoder", !13, i64 0}
-!120 = !{!88, !8, i64 4}
-!121 = !{!41, !8, i64 8}
-!122 = !{!24, !17, i64 16}
-!123 = !{!124, !17, i64 8}
-!124 = !{!"statvfs", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !9, i64 88}
-!125 = !{!124, !17, i64 32}
-!126 = !{!127, !17, i64 224}
-!127 = !{!"dt_mipmap_cache_t", !9, i64 0, !9, i64 44, !9, i64 88, !128, i64 176, !128, i64 328, !128, i64 480, !9, i64 632}
-!128 = !{!"dt_mipmap_cache_one_t", !80, i64 0, !17, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !17, i64 144}
-!129 = !{!127, !17, i64 232}
-!130 = !{!127, !17, i64 376}
-!131 = !{!127, !17, i64 384}
-!132 = !{!127, !17, i64 528}
-!133 = !{!127, !17, i64 536}
-!134 = !{!127, !17, i64 288}
-!135 = !{!127, !17, i64 312}
-!136 = !{!127, !17, i64 320}
-!137 = !{!127, !17, i64 440}
-!138 = !{!127, !17, i64 464}
-!139 = !{!127, !17, i64 472}
-!140 = !{!127, !17, i64 592}
-!141 = !{!127, !17, i64 616}
-!142 = !{!127, !17, i64 624}
-!143 = !{!127, !17, i64 296}
-!144 = !{!127, !17, i64 304}
-!145 = !{!127, !17, i64 448}
-!146 = !{!127, !17, i64 456}
-!147 = !{!127, !17, i64 600}
-!148 = !{!127, !17, i64 608}
-!149 = !{!7, !8, i64 36}
-!150 = !{!7, !8, i64 8}
-!151 = !{!7, !8, i64 12}
-!152 = !{!7, !11, i64 16}
-!153 = !{!7, !8, i64 4}
-!154 = !{!7, !8, i64 0}
-!155 = !{!41, !48, i64 88}
-!156 = !{!41, !52, i64 120}
-!157 = !{i64 0, i64 4, !77, i64 4, i64 4, !77, i64 8, i64 4, !158, i64 12, i64 4, !158, i64 16, i64 4, !158, i64 20, i64 4, !158, i64 24, i64 4, !158, i64 28, i64 4, !158, i64 32, i64 4, !158, i64 36, i64 64, !74, i64 100, i64 64, !74, i64 164, i64 128, !74, i64 292, i64 64, !74, i64 356, i64 64, !74, i64 420, i64 64, !74, i64 484, i64 64, !74, i64 552, i64 8, !85, i64 560, i64 4, !77, i64 564, i64 228, !74, i64 792, i64 64, !74, i64 856, i64 64, !74, i64 920, i64 64, !74, i64 984, i64 128, !74, i64 1112, i64 4, !77, i64 1116, i64 256, !74, i64 1372, i64 4, !77, i64 1376, i64 4, !77, i64 1380, i64 4, !77, i64 1384, i64 4, !77, i64 1388, i64 4, !77, i64 1392, i64 4, !77, i64 1396, i64 4, !77, i64 1400, i64 4, !77, i64 1404, i64 4, !77, i64 1408, i64 4, !77, i64 1412, i64 4, !158, i64 1416, i64 4, !77, i64 1420, i64 4, !77, i64 1424, i64 4, !77, i64 1428, i64 4, !77, i64 1432, i64 4, !77, i64 1436, i64 4, !77, i64 1440, i64 8, !85, i64 1448, i64 8, !85, i64 1456, i64 8, !85, i64 1464, i64 8, !85, i64 1472, i64 4, !77, i64 1488, i64 4, !77, i64 1492, i64 4, !77, i64 1496, i64 4, !77, i64 1500, i64 36, !74, i64 1536, i64 2, !159, i64 1538, i64 2, !159, i64 1552, i64 4, !77, i64 1568, i64 16, !74, i64 1584, i64 16, !74, i64 1600, i64 4, !77, i64 1616, i64 36, !74, i64 1656, i64 8, !160, i64 1664, i64 4, !77, i64 1668, i64 4, !77, i64 1672, i64 4, !74, i64 1680, i64 8, !161, i64 1688, i64 8, !161, i64 1696, i64 8, !161, i64 1704, i64 4, !77, i64 1708, i64 4, !77, i64 1712, i64 4, !77, i64 1716, i64 2, !159, i64 1718, i64 8, !74, i64 1728, i64 4, !77, i64 1732, i64 4, !77, i64 1736, i64 4, !158, i64 1740, i64 4, !158, i64 1744, i64 16, !74, i64 1760, i64 48, !74, i64 1808, i64 16, !74, i64 1824, i64 8, !162, i64 1832, i64 8, !163, i64 1840, i64 4, !77, i64 1844, i64 4, !77}
-!158 = !{!11, !11, i64 0}
-!159 = !{!30, !30, i64 0}
-!160 = !{!12, !12, i64 0}
-!161 = !{!34, !34, i64 0}
-!162 = !{!25, !25, i64 0}
-!163 = !{!14, !14, i64 0}
-!164 = !{!27, !8, i64 1432}
-!165 = !{!27, !8, i64 1844}
-!166 = !{!24, !8, i64 88}
-!167 = !{!41, !51, i64 112}
-!168 = !{!169, !8, i64 4}
-!169 = !{!"dt_iop_roi_t", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !11, i64 16}
-!170 = !{!169, !8, i64 0}
-!171 = !{!169, !8, i64 8}
-!172 = !{!169, !8, i64 12}
-!173 = !{!169, !11, i64 16}
-!174 = !{!27, !8, i64 1496}
-!175 = !{!27, !8, i64 1492}
-!176 = !{!177, !13, i64 168}
-!177 = !{!"dt_imageio_module_format_t", !178, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !9, i64 208, !180, i64 336, !181, i64 344, !13, i64 352, !8, i64 360, !8, i64 364}
-!178 = !{!"dt_action_t", !8, i64 0, !12, i64 8, !12, i64 16, !13, i64 24, !179, i64 32, !179, i64 40}
-!179 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
-!180 = !{!"p1 _ZTS8_GModule", !13, i64 0}
-!181 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
-!182 = !{!177, !13, i64 176}
-!183 = !{!177, !13, i64 184}
-!184 = !{!185, !8, i64 0}
-!185 = !{!"_dummy_data_t", !186, i64 0, !12, i64 152}
-!186 = !{!"dt_imageio_module_data_t", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !8, i64 144}
-!187 = !{!185, !8, i64 4}
-!188 = !{!185, !12, i64 152}
-!189 = !{!185, !8, i64 8}
-!190 = !{!185, !8, i64 12}
-!191 = !{!41, !8, i64 3128}
-!192 = !{!41, !49, i64 96}
-!193 = !{!128, !13, i64 104}
-!194 = !{!195, !195, i64 0}
-!195 = !{!"p1 _ZTS7_GError", !13, i64 0}
-!196 = !{!186, !8, i64 8}
-!197 = !{!186, !8, i64 12}
+!79 = distinct !{!79, !80}
+!80 = !{!"llvm.loop.estimated_trip_count"}
+!81 = !{!82, !13, i64 80}
+!82 = !{!"dt_cache_t", !66, i64 0, !17, i64 40, !17, i64 48, !17, i64 56, !83, i64 64, !25, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104}
+!83 = !{!"p1 _ZTS11_GHashTable", !13, i64 0}
+!84 = !{!82, !13, i64 96}
+!85 = !{!82, !13, i64 88}
+!86 = !{!82, !13, i64 104}
+!87 = distinct !{!87, !80}
+!88 = !{!17, !17, i64 0}
+!89 = distinct !{!89, !80}
+!90 = !{!24, !8, i64 92}
+!91 = !{!92, !8, i64 0}
+!92 = !{!"dt_imageio_jpeg_t", !8, i64 0, !8, i64 4, !93, i64 8, !94, i64 64, !95, i64 104, !113, i64 760, !76, i64 1344}
+!93 = !{!"jpeg_source_mgr", !12, i64 0, !17, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48}
+!94 = !{!"jpeg_destination_mgr", !12, i64 0, !17, i64 8, !13, i64 16, !13, i64 24, !13, i64 32}
+!95 = !{!"jpeg_decompress_struct", !96, i64 0, !97, i64 8, !98, i64 16, !13, i64 24, !8, i64 32, !8, i64 36, !99, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !8, i64 64, !8, i64 68, !8, i64 72, !34, i64 80, !8, i64 88, !8, i64 92, !8, i64 96, !8, i64 100, !8, i64 104, !8, i64 108, !8, i64 112, !8, i64 116, !8, i64 120, !8, i64 124, !8, i64 128, !8, i64 132, !8, i64 136, !8, i64 140, !8, i64 144, !8, i64 148, !8, i64 152, !8, i64 156, !100, i64 160, !8, i64 168, !8, i64 172, !8, i64 176, !8, i64 180, !8, i64 184, !71, i64 192, !9, i64 200, !9, i64 232, !9, i64 264, !8, i64 296, !13, i64 304, !8, i64 312, !8, i64 316, !8, i64 320, !9, i64 324, !9, i64 340, !9, i64 356, !8, i64 372, !8, i64 376, !9, i64 380, !9, i64 381, !9, i64 382, !30, i64 384, !30, i64 386, !8, i64 388, !9, i64 392, !8, i64 396, !101, i64 400, !8, i64 408, !8, i64 412, !8, i64 416, !8, i64 420, !8, i64 424, !12, i64 432, !8, i64 440, !9, i64 448, !8, i64 480, !8, i64 484, !8, i64 488, !9, i64 492, !8, i64 532, !8, i64 536, !8, i64 540, !8, i64 544, !8, i64 548, !71, i64 552, !8, i64 560, !8, i64 564, !102, i64 568, !103, i64 576, !104, i64 584, !105, i64 592, !106, i64 600, !107, i64 608, !108, i64 616, !109, i64 624, !110, i64 632, !111, i64 640, !112, i64 648}
+!96 = !{!"p1 _ZTS14jpeg_error_mgr", !13, i64 0}
+!97 = !{!"p1 _ZTS15jpeg_memory_mgr", !13, i64 0}
+!98 = !{!"p1 _ZTS17jpeg_progress_mgr", !13, i64 0}
+!99 = !{!"p1 _ZTS15jpeg_source_mgr", !13, i64 0}
+!100 = !{!"p2 omnipotent char", !13, i64 0}
+!101 = !{!"p1 _ZTS18jpeg_marker_struct", !13, i64 0}
+!102 = !{!"p1 _ZTS18jpeg_decomp_master", !13, i64 0}
+!103 = !{!"p1 _ZTS22jpeg_d_main_controller", !13, i64 0}
+!104 = !{!"p1 _ZTS22jpeg_d_coef_controller", !13, i64 0}
+!105 = !{!"p1 _ZTS22jpeg_d_post_controller", !13, i64 0}
+!106 = !{!"p1 _ZTS21jpeg_input_controller", !13, i64 0}
+!107 = !{!"p1 _ZTS18jpeg_marker_reader", !13, i64 0}
+!108 = !{!"p1 _ZTS20jpeg_entropy_decoder", !13, i64 0}
+!109 = !{!"p1 _ZTS16jpeg_inverse_dct", !13, i64 0}
+!110 = !{!"p1 _ZTS14jpeg_upsampler", !13, i64 0}
+!111 = !{!"p1 _ZTS22jpeg_color_deconverter", !13, i64 0}
+!112 = !{!"p1 _ZTS20jpeg_color_quantizer", !13, i64 0}
+!113 = !{!"jpeg_compress_struct", !96, i64 0, !97, i64 8, !98, i64 16, !13, i64 24, !8, i64 32, !8, i64 36, !114, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 60, !34, i64 64, !8, i64 72, !8, i64 76, !8, i64 80, !8, i64 84, !8, i64 88, !8, i64 92, !8, i64 96, !13, i64 104, !9, i64 112, !9, i64 144, !9, i64 160, !9, i64 192, !9, i64 224, !9, i64 240, !9, i64 256, !8, i64 272, !13, i64 280, !8, i64 288, !8, i64 292, !8, i64 296, !8, i64 300, !8, i64 304, !8, i64 308, !8, i64 312, !8, i64 316, !8, i64 320, !8, i64 324, !9, i64 328, !9, i64 329, !9, i64 330, !30, i64 332, !30, i64 334, !8, i64 336, !8, i64 340, !8, i64 344, !8, i64 348, !8, i64 352, !8, i64 356, !8, i64 360, !8, i64 364, !8, i64 368, !9, i64 376, !8, i64 408, !8, i64 412, !8, i64 416, !9, i64 420, !8, i64 460, !8, i64 464, !8, i64 468, !8, i64 472, !8, i64 476, !71, i64 480, !8, i64 488, !115, i64 496, !116, i64 504, !117, i64 512, !118, i64 520, !119, i64 528, !120, i64 536, !121, i64 544, !122, i64 552, !123, i64 560, !13, i64 568, !8, i64 576}
+!114 = !{!"p1 _ZTS20jpeg_destination_mgr", !13, i64 0}
+!115 = !{!"p1 _ZTS16jpeg_comp_master", !13, i64 0}
+!116 = !{!"p1 _ZTS22jpeg_c_main_controller", !13, i64 0}
+!117 = !{!"p1 _ZTS22jpeg_c_prep_controller", !13, i64 0}
+!118 = !{!"p1 _ZTS22jpeg_c_coef_controller", !13, i64 0}
+!119 = !{!"p1 _ZTS18jpeg_marker_writer", !13, i64 0}
+!120 = !{!"p1 _ZTS20jpeg_color_converter", !13, i64 0}
+!121 = !{!"p1 _ZTS16jpeg_downsampler", !13, i64 0}
+!122 = !{!"p1 _ZTS16jpeg_forward_dct", !13, i64 0}
+!123 = !{!"p1 _ZTS20jpeg_entropy_encoder", !13, i64 0}
+!124 = !{!92, !8, i64 4}
+!125 = !{!41, !8, i64 8}
+!126 = !{!24, !17, i64 16}
+!127 = !{!128, !17, i64 8}
+!128 = !{!"statvfs", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !9, i64 88}
+!129 = !{!128, !17, i64 32}
+!130 = !{!131, !17, i64 224}
+!131 = !{!"dt_mipmap_cache_t", !9, i64 0, !9, i64 44, !9, i64 88, !132, i64 176, !132, i64 328, !132, i64 480, !9, i64 632}
+!132 = !{!"dt_mipmap_cache_one_t", !82, i64 0, !17, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !17, i64 144}
+!133 = !{!131, !17, i64 232}
+!134 = !{!131, !17, i64 376}
+!135 = !{!131, !17, i64 384}
+!136 = !{!131, !17, i64 528}
+!137 = !{!131, !17, i64 536}
+!138 = !{!131, !17, i64 288}
+!139 = !{!131, !17, i64 312}
+!140 = !{!131, !17, i64 320}
+!141 = !{!131, !17, i64 440}
+!142 = !{!131, !17, i64 464}
+!143 = !{!131, !17, i64 472}
+!144 = !{!131, !17, i64 592}
+!145 = !{!131, !17, i64 616}
+!146 = !{!131, !17, i64 624}
+!147 = !{!131, !17, i64 296}
+!148 = !{!131, !17, i64 304}
+!149 = !{!131, !17, i64 448}
+!150 = !{!131, !17, i64 456}
+!151 = !{!131, !17, i64 600}
+!152 = !{!131, !17, i64 608}
+!153 = !{!7, !8, i64 36}
+!154 = !{!7, !8, i64 8}
+!155 = !{!7, !8, i64 12}
+!156 = !{!7, !11, i64 16}
+!157 = !{!7, !8, i64 4}
+!158 = !{!7, !8, i64 0}
+!159 = !{!41, !48, i64 88}
+!160 = !{!41, !52, i64 120}
+!161 = !{i64 0, i64 4, !77, i64 4, i64 4, !77, i64 8, i64 4, !162, i64 12, i64 4, !162, i64 16, i64 4, !162, i64 20, i64 4, !162, i64 24, i64 4, !162, i64 28, i64 4, !162, i64 32, i64 4, !162, i64 36, i64 64, !74, i64 100, i64 64, !74, i64 164, i64 128, !74, i64 292, i64 64, !74, i64 356, i64 64, !74, i64 420, i64 64, !74, i64 484, i64 64, !74, i64 552, i64 8, !88, i64 560, i64 4, !77, i64 564, i64 228, !74, i64 792, i64 64, !74, i64 856, i64 64, !74, i64 920, i64 64, !74, i64 984, i64 128, !74, i64 1112, i64 4, !77, i64 1116, i64 256, !74, i64 1372, i64 4, !77, i64 1376, i64 4, !77, i64 1380, i64 4, !77, i64 1384, i64 4, !77, i64 1388, i64 4, !77, i64 1392, i64 4, !77, i64 1396, i64 4, !77, i64 1400, i64 4, !77, i64 1404, i64 4, !77, i64 1408, i64 4, !77, i64 1412, i64 4, !162, i64 1416, i64 4, !77, i64 1420, i64 4, !77, i64 1424, i64 4, !77, i64 1428, i64 4, !77, i64 1432, i64 4, !77, i64 1436, i64 4, !77, i64 1440, i64 8, !88, i64 1448, i64 8, !88, i64 1456, i64 8, !88, i64 1464, i64 8, !88, i64 1472, i64 4, !77, i64 1488, i64 4, !77, i64 1492, i64 4, !77, i64 1496, i64 4, !77, i64 1500, i64 36, !74, i64 1536, i64 2, !163, i64 1538, i64 2, !163, i64 1552, i64 4, !77, i64 1568, i64 16, !74, i64 1584, i64 16, !74, i64 1600, i64 4, !77, i64 1616, i64 36, !74, i64 1656, i64 8, !164, i64 1664, i64 4, !77, i64 1668, i64 4, !77, i64 1672, i64 4, !74, i64 1680, i64 8, !165, i64 1688, i64 8, !165, i64 1696, i64 8, !165, i64 1704, i64 4, !77, i64 1708, i64 4, !77, i64 1712, i64 4, !77, i64 1716, i64 2, !163, i64 1718, i64 8, !74, i64 1728, i64 4, !77, i64 1732, i64 4, !77, i64 1736, i64 4, !162, i64 1740, i64 4, !162, i64 1744, i64 16, !74, i64 1760, i64 48, !74, i64 1808, i64 16, !74, i64 1824, i64 8, !166, i64 1832, i64 8, !167, i64 1840, i64 4, !77, i64 1844, i64 4, !77}
+!162 = !{!11, !11, i64 0}
+!163 = !{!30, !30, i64 0}
+!164 = !{!12, !12, i64 0}
+!165 = !{!34, !34, i64 0}
+!166 = !{!25, !25, i64 0}
+!167 = !{!14, !14, i64 0}
+!168 = !{!27, !8, i64 1432}
+!169 = !{!27, !8, i64 1844}
+!170 = !{!24, !8, i64 88}
+!171 = distinct !{!171, !80}
+!172 = distinct !{!172, !80}
+!173 = !{!41, !51, i64 112}
+!174 = !{!175, !8, i64 4}
+!175 = !{!"dt_iop_roi_t", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !11, i64 16}
+!176 = !{!175, !8, i64 0}
+!177 = !{!175, !8, i64 8}
+!178 = !{!175, !8, i64 12}
+!179 = !{!175, !11, i64 16}
+!180 = !{!27, !8, i64 1496}
+!181 = !{!27, !8, i64 1492}
+!182 = distinct !{!182, !80}
+!183 = distinct !{!183, !80}
+!184 = !{!185, !13, i64 168}
+!185 = !{!"dt_imageio_module_format_t", !186, i64 0, !13, i64 48, !13, i64 56, !13, i64 64, !13, i64 72, !13, i64 80, !13, i64 88, !13, i64 96, !13, i64 104, !13, i64 112, !13, i64 120, !13, i64 128, !13, i64 136, !13, i64 144, !13, i64 152, !13, i64 160, !13, i64 168, !13, i64 176, !13, i64 184, !13, i64 192, !13, i64 200, !9, i64 208, !188, i64 336, !189, i64 344, !13, i64 352, !8, i64 360, !8, i64 364}
+!186 = !{!"dt_action_t", !8, i64 0, !12, i64 8, !12, i64 16, !13, i64 24, !187, i64 32, !187, i64 40}
+!187 = !{!"p1 _ZTS11dt_action_t", !13, i64 0}
+!188 = !{!"p1 _ZTS8_GModule", !13, i64 0}
+!189 = !{!"p1 _ZTS10_GtkWidget", !13, i64 0}
+!190 = !{!185, !13, i64 176}
+!191 = !{!185, !13, i64 184}
+!192 = !{!193, !8, i64 0}
+!193 = !{!"_dummy_data_t", !194, i64 0, !12, i64 152}
+!194 = !{!"dt_imageio_module_data_t", !8, i64 0, !8, i64 4, !8, i64 8, !8, i64 12, !9, i64 16, !8, i64 144}
+!195 = !{!193, !8, i64 4}
+!196 = !{!193, !12, i64 152}
+!197 = !{!193, !8, i64 8}
+!198 = !{!193, !8, i64 12}
+!199 = !{!41, !8, i64 3128}
+!200 = !{!41, !49, i64 96}
+!201 = distinct !{!201, !80}
+!202 = !{!132, !13, i64 104}
+!203 = distinct !{!203, !80}
+!204 = distinct !{!204, !80}
+!205 = !{!206, !206, i64 0}
+!206 = !{!"p1 _ZTS7_GError", !13, i64 0}
+!207 = distinct !{!207, !80}
+!208 = !{!194, !8, i64 8}
+!209 = !{!194, !8, i64 12}

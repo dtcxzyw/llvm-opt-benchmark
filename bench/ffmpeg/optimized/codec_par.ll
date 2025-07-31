@@ -249,31 +249,31 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !36
+  %16 = load i32, ptr %15, align 4, !tbaa !37
   store i32 %16, ptr %0, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i32, ptr %17, align 8, !tbaa !50
+  %18 = load i32, ptr %17, align 8, !tbaa !51
   store i32 %18, ptr %8, align 4, !tbaa !15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %20 = load i32, ptr %19, align 4, !tbaa !51
-  store i32 %20, ptr %7, align 8, !tbaa !52
+  %20 = load i32, ptr %19, align 4, !tbaa !52
+  store i32 %20, ptr %7, align 8, !tbaa !53
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %22 = load i64, ptr %21, align 8, !tbaa !53
+  %22 = load i64, ptr %21, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %22, ptr %23, align 8, !tbaa !54
+  store i64 %22, ptr %23, align 8, !tbaa !55
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %25 = load i32, ptr %24, align 8, !tbaa !55
+  %25 = load i32, ptr %24, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %25, ptr %26, align 8, !tbaa !56
+  store i32 %25, ptr %26, align 8, !tbaa !57
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 652
-  %28 = load i32, ptr %27, align 4, !tbaa !57
+  %28 = load i32, ptr %27, align 4, !tbaa !58
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %28, ptr %29, align 4, !tbaa !58
+  store i32 %28, ptr %29, align 4, !tbaa !59
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %31 = load i32, ptr %30, align 8, !tbaa !59
+  %31 = load i32, ptr %30, align 8, !tbaa !60
   store i32 %31, ptr %13, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 692
-  %33 = load i32, ptr %32, align 4, !tbaa !60
+  %33 = load i32, ptr %32, align 4, !tbaa !61
   store i32 %33, ptr %14, align 4, !tbaa !22
   switch i32 %16, label %99 [
     i32 0, label %34
@@ -285,43 +285,43 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %38 = load i32, ptr %37, align 8, !tbaa !61
+  %38 = load i32, ptr %37, align 8, !tbaa !62
   store i32 %38, ptr %9, align 4, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %40 = load i32, ptr %39, align 8, !tbaa !62
+  %40 = load i32, ptr %39, align 8, !tbaa !63
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %40, ptr %41, align 8, !tbaa !63
+  store i32 %40, ptr %41, align 8, !tbaa !64
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %43 = load i32, ptr %42, align 4, !tbaa !64
+  %43 = load i32, ptr %42, align 4, !tbaa !65
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %43, ptr %44, align 4, !tbaa !65
+  store i32 %43, ptr %44, align 4, !tbaa !66
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %46 = load i32, ptr %45, align 4, !tbaa !66
-  store i32 %46, ptr %36, align 8, !tbaa !67
+  %46 = load i32, ptr %45, align 4, !tbaa !67
+  store i32 %46, ptr %36, align 8, !tbaa !68
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %48 = load i32, ptr %47, align 4, !tbaa !68
+  %48 = load i32, ptr %47, align 4, !tbaa !69
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %48, ptr %49, align 4, !tbaa !69
+  store i32 %48, ptr %49, align 4, !tbaa !70
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %51 = load i32, ptr %50, align 8, !tbaa !70
+  %51 = load i32, ptr %50, align 8, !tbaa !71
   store i32 %51, ptr %10, align 8, !tbaa !17
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %53 = load i32, ptr %52, align 4, !tbaa !71
+  %53 = load i32, ptr %52, align 4, !tbaa !72
   store i32 %53, ptr %11, align 4, !tbaa !18
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %55 = load i32, ptr %54, align 8, !tbaa !72
+  %55 = load i32, ptr %54, align 8, !tbaa !73
   store i32 %55, ptr %12, align 8, !tbaa !19
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %57 = load i32, ptr %56, align 8, !tbaa !73
+  %57 = load i32, ptr %56, align 8, !tbaa !74
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %57, ptr %58, align 4, !tbaa !74
+  store i32 %57, ptr %58, align 4, !tbaa !75
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %60 = load i64, ptr %59, align 8
   store i64 %60, ptr %35, align 8
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 172
-  %62 = load i32, ptr %61, align 4, !tbaa !75
+  %62 = load i32, ptr %61, align 4, !tbaa !76
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %62, ptr %63, align 8, !tbaa !76
+  store i32 %62, ptr %63, align 8, !tbaa !77
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %66 = load i64, ptr %65, align 4
@@ -330,7 +330,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
 
 67:                                               ; preds = %2
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  %69 = load i32, ptr %68, align 4, !tbaa !77
+  %69 = load i32, ptr %68, align 4, !tbaa !78
   store i32 %69, ptr %9, align 4, !tbaa !16
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %71 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %4, ptr noundef nonnull %70) #5
@@ -339,51 +339,51 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
 
 73:                                               ; preds = %67
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %75 = load i32, ptr %74, align 8, !tbaa !78
+  %75 = load i32, ptr %74, align 8, !tbaa !79
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %75, ptr %76, align 8, !tbaa !79
+  store i32 %75, ptr %76, align 8, !tbaa !80
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 380
-  %78 = load i32, ptr %77, align 4, !tbaa !80
+  %78 = load i32, ptr %77, align 4, !tbaa !81
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %78, ptr %79, align 4, !tbaa !81
+  store i32 %78, ptr %79, align 4, !tbaa !82
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %81 = load i32, ptr %80, align 8, !tbaa !82
+  %81 = load i32, ptr %80, align 8, !tbaa !83
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %81, ptr %82, align 8, !tbaa !83
+  store i32 %81, ptr %82, align 8, !tbaa !84
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 396
-  %84 = load i32, ptr %83, align 4, !tbaa !84
+  %84 = load i32, ptr %83, align 4, !tbaa !85
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %84, ptr %85, align 4, !tbaa !85
+  store i32 %84, ptr %85, align 4, !tbaa !86
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %87 = load i32, ptr %86, align 8, !tbaa !86
+  %87 = load i32, ptr %86, align 8, !tbaa !87
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %87, ptr %88, align 8, !tbaa !87
+  store i32 %87, ptr %88, align 8, !tbaa !88
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 404
-  %90 = load i32, ptr %89, align 4, !tbaa !88
+  %90 = load i32, ptr %89, align 4, !tbaa !89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %90, ptr %91, align 4, !tbaa !89
+  store i32 %90, ptr %91, align 4, !tbaa !90
   br label %99
 
 92:                                               ; preds = %2
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %94 = load i32, ptr %93, align 8, !tbaa !62
+  %94 = load i32, ptr %93, align 8, !tbaa !63
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %94, ptr %95, align 8, !tbaa !63
+  store i32 %94, ptr %95, align 8, !tbaa !64
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %97 = load i32, ptr %96, align 4, !tbaa !64
+  %97 = load i32, ptr %96, align 4, !tbaa !65
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %97, ptr %98, align 4, !tbaa !65
+  store i32 %97, ptr %98, align 4, !tbaa !66
   br label %99
 
 99:                                               ; preds = %92, %73, %34, %2
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %101 = load ptr, ptr %100, align 8, !tbaa !90
+  %101 = load ptr, ptr %100, align 8, !tbaa !91
   %.not = icmp eq ptr %101, null
   br i1 %.not, label %113, label %102
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %104 = load i32, ptr %103, align 8, !tbaa !91
+  %104 = load i32, ptr %103, align 8, !tbaa !92
   %105 = add nsw i32 %104, 64
   %106 = sext i32 %105 to i64
   %107 = tail call noalias ptr @av_mallocz(i64 noundef %106) #5
@@ -392,8 +392,8 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
   br i1 %.not82, label %codec_parameters_copy_side_data.exit, label %108
 
 108:                                              ; preds = %102
-  %109 = load ptr, ptr %100, align 8, !tbaa !90
-  %110 = load i32, ptr %103, align 8, !tbaa !91
+  %109 = load ptr, ptr %100, align 8, !tbaa !91
+  %110 = load i32, ptr %103, align 8, !tbaa !92
   %111 = sext i32 %110 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr align 1 %109, i64 %111, i1 false)
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -402,9 +402,9 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_from_context(ptr nounde
 
 113:                                              ; preds = %108, %99
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %115 = load ptr, ptr %114, align 8, !tbaa !92
+  %115 = load ptr, ptr %114, align 8, !tbaa !93
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 784
-  %117 = load i32, ptr %116, align 8, !tbaa !93
+  %117 = load i32, ptr %116, align 8, !tbaa !94
   %.not.i = icmp eq ptr %115, null
   br i1 %.not.i, label %codec_parameters_copy_side_data.exit, label %118
 
@@ -460,35 +460,35 @@ codec_parameters_copy_side_data.exit:             ; preds = %128, %.lr.ph.i, %.p
 define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef initializes((12, 16), (24, 32), (56, 64), (648, 656), (688, 696)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %3, ptr %4, align 4, !tbaa !36
+  store i32 %3, ptr %4, align 4, !tbaa !37
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %6, ptr %7, align 8, !tbaa !50
+  store i32 %6, ptr %7, align 8, !tbaa !51
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !52
+  %9 = load i32, ptr %8, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %9, ptr %10, align 4, !tbaa !51
+  store i32 %9, ptr %10, align 4, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %12 = load i64, ptr %11, align 8, !tbaa !54
+  %12 = load i64, ptr %11, align 8, !tbaa !55
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %12, ptr %13, align 8, !tbaa !53
+  store i64 %12, ptr %13, align 8, !tbaa !54
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %15 = load i32, ptr %14, align 8, !tbaa !56
+  %15 = load i32, ptr %14, align 8, !tbaa !57
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  store i32 %15, ptr %16, align 8, !tbaa !55
+  store i32 %15, ptr %16, align 8, !tbaa !56
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %18 = load i32, ptr %17, align 4, !tbaa !58
+  %18 = load i32, ptr %17, align 4, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  store i32 %18, ptr %19, align 4, !tbaa !57
+  store i32 %18, ptr %19, align 4, !tbaa !58
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  store i32 %21, ptr %22, align 8, !tbaa !59
+  store i32 %21, ptr %22, align 8, !tbaa !60
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %24 = load i32, ptr %23, align 4, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 692
-  store i32 %24, ptr %25, align 4, !tbaa !60
+  store i32 %24, ptr %25, align 4, !tbaa !61
   switch i32 %3, label %98 [
     i32 0, label %26
     i32 1, label %63
@@ -499,47 +499,47 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %28 = load i32, ptr %27, align 4, !tbaa !16
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 %28, ptr %29, align 8, !tbaa !61
+  store i32 %28, ptr %29, align 8, !tbaa !62
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %31 = load i32, ptr %30, align 8, !tbaa !63
+  %31 = load i32, ptr %30, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %31, ptr %32, align 8, !tbaa !62
+  store i32 %31, ptr %32, align 8, !tbaa !63
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %34 = load i32, ptr %33, align 4, !tbaa !65
+  %34 = load i32, ptr %33, align 4, !tbaa !66
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %34, ptr %35, align 4, !tbaa !64
+  store i32 %34, ptr %35, align 4, !tbaa !65
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %37 = load i32, ptr %36, align 8, !tbaa !67
+  %37 = load i32, ptr %36, align 8, !tbaa !68
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  store i32 %37, ptr %38, align 4, !tbaa !66
+  store i32 %37, ptr %38, align 4, !tbaa !67
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %40 = load i32, ptr %39, align 4, !tbaa !69
+  %40 = load i32, ptr %39, align 4, !tbaa !70
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  store i32 %40, ptr %41, align 4, !tbaa !68
+  store i32 %40, ptr %41, align 4, !tbaa !69
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %43 = load i32, ptr %42, align 8, !tbaa !17
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %43, ptr %44, align 8, !tbaa !70
+  store i32 %43, ptr %44, align 8, !tbaa !71
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %46 = load i32, ptr %45, align 4, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 %46, ptr %47, align 4, !tbaa !71
+  store i32 %46, ptr %47, align 4, !tbaa !72
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %49 = load i32, ptr %48, align 8, !tbaa !19
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 %49, ptr %50, align 8, !tbaa !72
+  store i32 %49, ptr %50, align 8, !tbaa !73
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %52 = load i32, ptr %51, align 4, !tbaa !74
+  %52 = load i32, ptr %51, align 4, !tbaa !75
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i32 %52, ptr %53, align 8, !tbaa !73
+  store i32 %52, ptr %53, align 8, !tbaa !74
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %56 = load i64, ptr %55, align 8
   store i64 %56, ptr %54, align 8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %58 = load i32, ptr %57, align 8, !tbaa !76
+  %58 = load i32, ptr %57, align 8, !tbaa !77
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %58, ptr %59, align 4, !tbaa !75
+  store i32 %58, ptr %59, align 4, !tbaa !76
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %62 = load i64, ptr %61, align 8
@@ -550,7 +550,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %65 = load i32, ptr %64, align 4, !tbaa !16
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 %65, ptr %66, align 4, !tbaa !77
+  store i32 %65, ptr %66, align 4, !tbaa !78
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %69 = tail call i32 @av_channel_layout_copy(ptr noundef nonnull %67, ptr noundef nonnull %68) #5
@@ -559,49 +559,49 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
 
 71:                                               ; preds = %63
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %73 = load i32, ptr %72, align 8, !tbaa !79
+  %73 = load i32, ptr %72, align 8, !tbaa !80
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 %73, ptr %74, align 8, !tbaa !78
+  store i32 %73, ptr %74, align 8, !tbaa !79
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 156
-  %76 = load i32, ptr %75, align 4, !tbaa !81
+  %76 = load i32, ptr %75, align 4, !tbaa !82
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  store i32 %76, ptr %77, align 4, !tbaa !80
+  store i32 %76, ptr %77, align 4, !tbaa !81
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %79 = load i32, ptr %78, align 8, !tbaa !83
+  %79 = load i32, ptr %78, align 8, !tbaa !84
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i32 %79, ptr %80, align 8, !tbaa !82
+  store i32 %79, ptr %80, align 8, !tbaa !83
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %82 = load i32, ptr %81, align 4, !tbaa !85
+  %82 = load i32, ptr %81, align 4, !tbaa !86
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 396
-  store i32 %82, ptr %83, align 4, !tbaa !84
+  store i32 %82, ptr %83, align 4, !tbaa !85
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %82, ptr %84, align 4, !tbaa !94
+  store i32 %82, ptr %84, align 4, !tbaa !95
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %86 = load i32, ptr %85, align 8, !tbaa !87
+  %86 = load i32, ptr %85, align 8, !tbaa !88
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store i32 %86, ptr %87, align 8, !tbaa !86
+  store i32 %86, ptr %87, align 8, !tbaa !87
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 172
-  %89 = load i32, ptr %88, align 4, !tbaa !89
+  %89 = load i32, ptr %88, align 4, !tbaa !90
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 404
-  store i32 %89, ptr %90, align 4, !tbaa !88
+  store i32 %89, ptr %90, align 4, !tbaa !89
   br label %98
 
 91:                                               ; preds = %2
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %93 = load i32, ptr %92, align 8, !tbaa !63
+  %93 = load i32, ptr %92, align 8, !tbaa !64
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i32 %93, ptr %94, align 8, !tbaa !62
+  store i32 %93, ptr %94, align 8, !tbaa !63
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %96 = load i32, ptr %95, align 4, !tbaa !65
+  %96 = load i32, ptr %95, align 4, !tbaa !66
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  store i32 %96, ptr %97, align 4, !tbaa !64
+  store i32 %96, ptr %97, align 4, !tbaa !65
   br label %98
 
 98:                                               ; preds = %91, %71, %26, %2
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @av_freep(ptr noundef nonnull %99) #5
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %100, align 8, !tbaa !91
+  store i32 0, ptr %100, align 8, !tbaa !92
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !25
   %.not = icmp eq ptr %102, null
@@ -613,7 +613,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
   %106 = add nsw i32 %105, 64
   %107 = sext i32 %106 to i64
   %108 = tail call noalias ptr @av_mallocz(i64 noundef %107) #5
-  store ptr %108, ptr %99, align 8, !tbaa !90
+  store ptr %108, ptr %99, align 8, !tbaa !91
   %.not86 = icmp eq ptr %108, null
   br i1 %.not86, label %codec_parameters_copy_side_data.exit, label %109
 
@@ -622,7 +622,7 @@ define range(i32 -2147483648, 1) i32 @avcodec_parameters_to_context(ptr noundef 
   %111 = load i32, ptr %104, align 8, !tbaa !26
   %112 = sext i32 %111 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr align 1 %110, i64 %112, i1 false)
-  store i32 %111, ptr %100, align 8, !tbaa !91
+  store i32 %111, ptr %100, align 8, !tbaa !92
   br label %113
 
 113:                                              ; preds = %109, %98
@@ -738,64 +738,65 @@ attributes #5 = { nounwind }
 !31 = !{!"AVPacketSideData", !9, i64 0, !12, i64 8, !6, i64 16}
 !32 = !{!31, !12, i64 8}
 !33 = !{!31, !6, i64 16}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !6, i64 12}
-!37 = !{!"AVCodecContext", !38, i64 0, !6, i64 8, !6, i64 12, !39, i64 16, !6, i64 24, !6, i64 28, !10, i64 32, !40, i64 40, !10, i64 48, !12, i64 56, !6, i64 64, !6, i64 68, !9, i64 72, !6, i64 80, !13, i64 84, !13, i64 92, !13, i64 100, !6, i64 108, !6, i64 112, !6, i64 116, !6, i64 120, !6, i64 124, !13, i64 128, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !6, i64 152, !6, i64 156, !6, i64 160, !6, i64 164, !6, i64 168, !6, i64 172, !6, i64 176, !10, i64 184, !10, i64 192, !6, i64 200, !41, i64 204, !41, i64 208, !41, i64 212, !41, i64 216, !41, i64 220, !41, i64 224, !41, i64 228, !41, i64 232, !41, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !6, i64 252, !6, i64 256, !6, i64 260, !6, i64 264, !6, i64 268, !6, i64 272, !6, i64 276, !6, i64 280, !6, i64 284, !42, i64 288, !42, i64 296, !42, i64 304, !6, i64 312, !6, i64 316, !6, i64 320, !6, i64 324, !6, i64 328, !6, i64 332, !6, i64 336, !6, i64 340, !6, i64 344, !6, i64 348, !14, i64 352, !6, i64 376, !6, i64 380, !6, i64 384, !6, i64 388, !6, i64 392, !6, i64 396, !6, i64 400, !6, i64 404, !10, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !41, i64 428, !41, i64 432, !6, i64 436, !6, i64 440, !6, i64 444, !6, i64 448, !6, i64 452, !43, i64 456, !12, i64 464, !12, i64 472, !41, i64 480, !41, i64 484, !6, i64 488, !6, i64 492, !9, i64 496, !9, i64 504, !6, i64 512, !6, i64 516, !6, i64 520, !6, i64 524, !6, i64 528, !44, i64 536, !10, i64 544, !45, i64 552, !45, i64 560, !6, i64 568, !6, i64 572, !7, i64 576, !6, i64 640, !6, i64 644, !6, i64 648, !6, i64 652, !6, i64 656, !6, i64 660, !6, i64 664, !10, i64 672, !10, i64 680, !6, i64 688, !6, i64 692, !6, i64 696, !6, i64 700, !6, i64 704, !6, i64 708, !6, i64 712, !6, i64 716, !6, i64 720, !6, i64 724, !46, i64 728, !9, i64 736, !6, i64 744, !6, i64 748, !9, i64 752, !9, i64 760, !9, i64 768, !11, i64 776, !6, i64 784, !6, i64 788, !12, i64 792, !6, i64 800, !6, i64 804, !12, i64 808, !10, i64 816, !12, i64 824, !47, i64 832, !6, i64 840, !48, i64 848, !6, i64 856}
-!38 = !{!"p1 _ZTS7AVClass", !10, i64 0}
-!39 = !{!"p1 _ZTS7AVCodec", !10, i64 0}
-!40 = !{!"p1 _ZTS15AVCodecInternal", !10, i64 0}
-!41 = !{!"float", !7, i64 0}
-!42 = !{!"p1 short", !10, i64 0}
-!43 = !{!"p1 _ZTS10RcOverride", !10, i64 0}
-!44 = !{!"p1 _ZTS9AVHWAccel", !10, i64 0}
-!45 = !{!"p1 _ZTS11AVBufferRef", !10, i64 0}
-!46 = !{!"p1 _ZTS17AVCodecDescriptor", !10, i64 0}
-!47 = !{!"p1 int", !10, i64 0}
-!48 = !{!"p2 _ZTS15AVFrameSideData", !49, i64 0}
-!49 = !{!"any p2 pointer", !10, i64 0}
-!50 = !{!37, !6, i64 24}
-!51 = !{!37, !6, i64 28}
-!52 = !{!5, !6, i64 8}
-!53 = !{!37, !12, i64 56}
-!54 = !{!5, !12, i64 48}
-!55 = !{!37, !6, i64 648}
-!56 = !{!5, !6, i64 56}
-!57 = !{!37, !6, i64 652}
-!58 = !{!5, !6, i64 60}
-!59 = !{!37, !6, i64 688}
-!60 = !{!37, !6, i64 692}
-!61 = !{!37, !6, i64 136}
-!62 = !{!37, !6, i64 112}
-!63 = !{!5, !6, i64 72}
-!64 = !{!37, !6, i64 116}
-!65 = !{!5, !6, i64 76}
-!66 = !{!37, !6, i64 164}
-!67 = !{!5, !6, i64 96}
-!68 = !{!37, !6, i64 156}
-!69 = !{!5, !6, i64 100}
-!70 = !{!37, !6, i64 144}
-!71 = !{!37, !6, i64 148}
-!72 = !{!37, !6, i64 152}
-!73 = !{!37, !6, i64 160}
-!74 = !{!5, !6, i64 116}
-!75 = !{!37, !6, i64 172}
-!76 = !{!5, !6, i64 120}
-!77 = !{!37, !6, i64 348}
-!78 = !{!37, !6, i64 344}
-!79 = !{!5, !6, i64 152}
-!80 = !{!37, !6, i64 380}
-!81 = !{!5, !6, i64 156}
-!82 = !{!37, !6, i64 376}
-!83 = !{!5, !6, i64 160}
-!84 = !{!37, !6, i64 396}
-!85 = !{!5, !6, i64 164}
-!86 = !{!37, !6, i64 400}
-!87 = !{!5, !6, i64 168}
-!88 = !{!37, !6, i64 404}
-!89 = !{!5, !6, i64 172}
-!90 = !{!37, !9, i64 72}
-!91 = !{!37, !6, i64 80}
-!92 = !{!37, !11, i64 776}
-!93 = !{!37, !6, i64 784}
-!94 = !{!37, !6, i64 108}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !6, i64 12}
+!38 = !{!"AVCodecContext", !39, i64 0, !6, i64 8, !6, i64 12, !40, i64 16, !6, i64 24, !6, i64 28, !10, i64 32, !41, i64 40, !10, i64 48, !12, i64 56, !6, i64 64, !6, i64 68, !9, i64 72, !6, i64 80, !13, i64 84, !13, i64 92, !13, i64 100, !6, i64 108, !6, i64 112, !6, i64 116, !6, i64 120, !6, i64 124, !13, i64 128, !6, i64 136, !6, i64 140, !6, i64 144, !6, i64 148, !6, i64 152, !6, i64 156, !6, i64 160, !6, i64 164, !6, i64 168, !6, i64 172, !6, i64 176, !10, i64 184, !10, i64 192, !6, i64 200, !42, i64 204, !42, i64 208, !42, i64 212, !42, i64 216, !42, i64 220, !42, i64 224, !42, i64 228, !42, i64 232, !42, i64 236, !6, i64 240, !6, i64 244, !6, i64 248, !6, i64 252, !6, i64 256, !6, i64 260, !6, i64 264, !6, i64 268, !6, i64 272, !6, i64 276, !6, i64 280, !6, i64 284, !43, i64 288, !43, i64 296, !43, i64 304, !6, i64 312, !6, i64 316, !6, i64 320, !6, i64 324, !6, i64 328, !6, i64 332, !6, i64 336, !6, i64 340, !6, i64 344, !6, i64 348, !14, i64 352, !6, i64 376, !6, i64 380, !6, i64 384, !6, i64 388, !6, i64 392, !6, i64 396, !6, i64 400, !6, i64 404, !10, i64 408, !6, i64 416, !6, i64 420, !6, i64 424, !42, i64 428, !42, i64 432, !6, i64 436, !6, i64 440, !6, i64 444, !6, i64 448, !6, i64 452, !44, i64 456, !12, i64 464, !12, i64 472, !42, i64 480, !42, i64 484, !6, i64 488, !6, i64 492, !9, i64 496, !9, i64 504, !6, i64 512, !6, i64 516, !6, i64 520, !6, i64 524, !6, i64 528, !45, i64 536, !10, i64 544, !46, i64 552, !46, i64 560, !6, i64 568, !6, i64 572, !7, i64 576, !6, i64 640, !6, i64 644, !6, i64 648, !6, i64 652, !6, i64 656, !6, i64 660, !6, i64 664, !10, i64 672, !10, i64 680, !6, i64 688, !6, i64 692, !6, i64 696, !6, i64 700, !6, i64 704, !6, i64 708, !6, i64 712, !6, i64 716, !6, i64 720, !6, i64 724, !47, i64 728, !9, i64 736, !6, i64 744, !6, i64 748, !9, i64 752, !9, i64 760, !9, i64 768, !11, i64 776, !6, i64 784, !6, i64 788, !12, i64 792, !6, i64 800, !6, i64 804, !12, i64 808, !10, i64 816, !12, i64 824, !48, i64 832, !6, i64 840, !49, i64 848, !6, i64 856}
+!39 = !{!"p1 _ZTS7AVClass", !10, i64 0}
+!40 = !{!"p1 _ZTS7AVCodec", !10, i64 0}
+!41 = !{!"p1 _ZTS15AVCodecInternal", !10, i64 0}
+!42 = !{!"float", !7, i64 0}
+!43 = !{!"p1 short", !10, i64 0}
+!44 = !{!"p1 _ZTS10RcOverride", !10, i64 0}
+!45 = !{!"p1 _ZTS9AVHWAccel", !10, i64 0}
+!46 = !{!"p1 _ZTS11AVBufferRef", !10, i64 0}
+!47 = !{!"p1 _ZTS17AVCodecDescriptor", !10, i64 0}
+!48 = !{!"p1 int", !10, i64 0}
+!49 = !{!"p2 _ZTS15AVFrameSideData", !50, i64 0}
+!50 = !{!"any p2 pointer", !10, i64 0}
+!51 = !{!38, !6, i64 24}
+!52 = !{!38, !6, i64 28}
+!53 = !{!5, !6, i64 8}
+!54 = !{!38, !12, i64 56}
+!55 = !{!5, !12, i64 48}
+!56 = !{!38, !6, i64 648}
+!57 = !{!5, !6, i64 56}
+!58 = !{!38, !6, i64 652}
+!59 = !{!5, !6, i64 60}
+!60 = !{!38, !6, i64 688}
+!61 = !{!38, !6, i64 692}
+!62 = !{!38, !6, i64 136}
+!63 = !{!38, !6, i64 112}
+!64 = !{!5, !6, i64 72}
+!65 = !{!38, !6, i64 116}
+!66 = !{!5, !6, i64 76}
+!67 = !{!38, !6, i64 164}
+!68 = !{!5, !6, i64 96}
+!69 = !{!38, !6, i64 156}
+!70 = !{!5, !6, i64 100}
+!71 = !{!38, !6, i64 144}
+!72 = !{!38, !6, i64 148}
+!73 = !{!38, !6, i64 152}
+!74 = !{!38, !6, i64 160}
+!75 = !{!5, !6, i64 116}
+!76 = !{!38, !6, i64 172}
+!77 = !{!5, !6, i64 120}
+!78 = !{!38, !6, i64 348}
+!79 = !{!38, !6, i64 344}
+!80 = !{!5, !6, i64 152}
+!81 = !{!38, !6, i64 380}
+!82 = !{!5, !6, i64 156}
+!83 = !{!38, !6, i64 376}
+!84 = !{!5, !6, i64 160}
+!85 = !{!38, !6, i64 396}
+!86 = !{!5, !6, i64 164}
+!87 = !{!38, !6, i64 400}
+!88 = !{!5, !6, i64 168}
+!89 = !{!38, !6, i64 404}
+!90 = !{!5, !6, i64 172}
+!91 = !{!38, !9, i64 72}
+!92 = !{!38, !6, i64 80}
+!93 = !{!38, !11, i64 776}
+!94 = !{!38, !6, i64 784}
+!95 = !{!38, !6, i64 108}

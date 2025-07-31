@@ -54,7 +54,7 @@ define range(i32 -1, 1) i32 @H5TBmake_table(ptr noundef %0, i64 noundef %1, ptr 
 .lr.ph:                                           ; preds = %.preheader201, %24
   %.089205 = phi i64 [ %25, %24 ], [ 0, %.preheader201 ]
   %26 = getelementptr inbounds nuw ptr, ptr %6, i64 %.089205
-  %27 = load ptr, ptr %26, align 8, !tbaa !9
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i64, ptr %7, i64 %.089205
   %29 = load i64, ptr %28, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i64, ptr %8, i64 %.089205
@@ -69,12 +69,12 @@ define range(i32 -1, 1) i32 @H5TBmake_table(ptr noundef %0, i64 noundef %1, ptr 
   br i1 %35, label %.thread169.thread.thread, label %36
 
 36:                                               ; preds = %._crit_edge
-  %37 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %37 = load i8, ptr @H5_libinit_g, align 1, !tbaa !13, !range !15, !noundef !16
   %38 = trunc nuw i8 %37 to i1
-  %39 = load i8, ptr @H5_libterm_g, align 1, !range !14
+  %39 = load i8, ptr @H5_libterm_g, align 1, !range !15
   %40 = trunc nuw i8 %39 to i1
   %41 = select i1 %38, i1 true, i1 %40
-  br i1 %41, label %44, label %42, !prof !16
+  br i1 %41, label %44, label %42, !prof !17
 
 42:                                               ; preds = %36
   %43 = call i32 @H5open() #12
@@ -173,7 +173,7 @@ define range(i32 -1, 1) i32 @H5TBmake_table(ptr noundef %0, i64 noundef %1, ptr 
 92:                                               ; preds = %87
   %93 = add nuw i64 %.190206, 1
   %exitcond220.not = icmp eq i64 %93, %3
-  br i1 %exitcond220.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !17
+  br i1 %exitcond220.not, label %._crit_edge208, label %.lr.ph207, !llvm.loop !18
 
 ._crit_edge208:                                   ; preds = %92, %.preheader200
   br i1 %.not, label %123, label %94
@@ -194,7 +194,7 @@ define range(i32 -1, 1) i32 @H5TBmake_table(ptr noundef %0, i64 noundef %1, ptr 
 100:                                              ; preds = %115
   %101 = add nuw i64 %.291209, 1
   %exitcond221.not = icmp eq i64 %101, %3
-  br i1 %exitcond221.not, label %._crit_edge211, label %.lr.ph210, !llvm.loop !18
+  br i1 %exitcond221.not, label %._crit_edge211, label %.lr.ph210, !llvm.loop !19
 
 .lr.ph210:                                        ; preds = %.preheader, %100
   %.291209 = phi i64 [ %101, %100 ], [ 0, %.preheader ]
@@ -571,13 +571,13 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
 21:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.177176
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.preheader113, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader113 ]
   %22 = tail call noalias dereferenceable_or_null(255) ptr @malloc(i64 noundef 255) #14
   %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  store ptr %22, ptr %23, align 8, !tbaa !9
+  store ptr %22, ptr %23, align 8, !tbaa !10
   %24 = icmp eq ptr %22, null
   br i1 %24, label %.loopexit, label %21
 
@@ -601,7 +601,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
 30:                                               ; preds = %56
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %.177176
-  br i1 %exitcond161.not, label %.loopexit, label %.lr.ph117, !llvm.loop !20
+  br i1 %exitcond161.not, label %.loopexit, label %.lr.ph117, !llvm.loop !21
 
 .lr.ph117:                                        ; preds = %.preheader, %30
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %30 ], [ 0, %.preheader ]
@@ -633,7 +633,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
 
 46:                                               ; preds = %43, %40
   %47 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv157
-  %48 = load ptr, ptr %47, align 8, !tbaa !9
+  %48 = load ptr, ptr %47, align 8, !tbaa !10
   %49 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv157
   %50 = load i64, ptr %49, align 8, !tbaa !3
   %51 = tail call i32 @H5Tinsert(i64 noundef %28, ptr noundef %48, i64 noundef %50, i64 noundef %35) #12
@@ -660,7 +660,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
 .lr.ph150:                                        ; preds = %.loopexit, %62
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %62 ], [ 0, %.loopexit ]
   %59 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv162
-  %60 = load ptr, ptr %59, align 8, !tbaa !9
+  %60 = load ptr, ptr %59, align 8, !tbaa !10
   %.not71 = icmp eq ptr %60, null
   br i1 %.not71, label %62, label %61
 
@@ -671,7 +671,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
 62:                                               ; preds = %.lr.ph150, %61
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %.177176
-  br i1 %exitcond166.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !21
+  br i1 %exitcond166.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !22
 
 ._crit_edge151:                                   ; preds = %62, %.loopexit
   tail call void @free(ptr noundef %19) #12
@@ -924,12 +924,12 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %
   br i1 %or.cond, label %.thread163, label %15
 
 15:                                               ; preds = %9
-  %16 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %16 = load i8, ptr @H5_libinit_g, align 1, !tbaa !13, !range !15, !noundef !16
   %17 = trunc nuw i8 %16 to i1
-  %18 = load i8, ptr @H5_libterm_g, align 1, !range !14
+  %18 = load i8, ptr @H5_libterm_g, align 1, !range !15
   %19 = trunc nuw i8 %18 to i1
   %20 = select i1 %17, i1 true, i1 %19
-  br i1 %20, label %23, label %21, !prof !16
+  br i1 %20, label %23, label %21, !prof !17
 
 21:                                               ; preds = %15
   %22 = tail call i32 @H5open() #12
@@ -1034,7 +1034,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %
   %74 = tail call i32 @H5free_memory(ptr noundef nonnull %44) #12
   %75 = add nuw nsw i64 %.067173.us, 1
   %exitcond185.not = icmp eq i64 %75, %38
-  br i1 %exitcond185.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %exitcond185.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %108
   %.065174 = phi i64 [ %.166, %108 ], [ 0, %.lr.ph ]
@@ -1097,7 +1097,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_name(i64 noundef %0, ptr noundef %
   %109 = tail call i32 @H5free_memory(ptr noundef nonnull %77) #12
   %110 = add nuw nsw i64 %.067173, 1
   %exitcond.not = icmp eq i64 %110, %38
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %108, %73, %.preheader
   %111 = tail call i64 @H5Dget_space(i64 noundef %31) #12
@@ -1234,7 +1234,7 @@ define internal fastcc zeroext i1 @H5TB_find_field(ptr noundef nonnull readonly 
   %12 = getelementptr inbounds nuw i8, ptr %strchr26, i64 1
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 44)
   %.not = icmp eq ptr %strchr, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %11, %2
   %.017.lcssa = phi ptr [ %1, %2 ], [ %12, %11 ]
@@ -1268,12 +1268,12 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
   br i1 %14, label %.thread230, label %15
 
 15:                                               ; preds = %10
-  %16 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %16 = load i8, ptr @H5_libinit_g, align 1, !tbaa !13, !range !15, !noundef !16
   %17 = trunc nuw i8 %16 to i1
-  %18 = load i8, ptr @H5_libterm_g, align 1, !range !14
+  %18 = load i8, ptr @H5_libterm_g, align 1, !range !15
   %19 = trunc nuw i8 %18 to i1
   %20 = select i1 %17, i1 true, i1 %19
-  br i1 %20, label %23, label %21, !prof !16
+  br i1 %20, label %23, label %21, !prof !17
 
 21:                                               ; preds = %15
   %22 = tail call i32 @H5open() #12
@@ -1316,7 +1316,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %69
   %.072241.us = phi i64 [ %71, %69 ], [ 0, %.lr.ph ]
   %39 = getelementptr inbounds nuw i32, ptr %3, i64 %.072241.us
-  %40 = load i32, ptr %39, align 4, !tbaa !26
+  %40 = load i32, ptr %39, align 4, !tbaa !27
   %41 = icmp slt i32 %40, 0
   br i1 %41, label %.thread124, label %42
 
@@ -1370,12 +1370,12 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
   %70 = tail call i32 @H5free_memory(ptr noundef nonnull %43) #12
   %71 = add nuw i64 %.072241.us, 1
   %exitcond254.not = icmp eq i64 %71, %2
-  br i1 %exitcond254.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %exitcond254.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %.072241 = phi i64 [ %106, %104 ], [ 0, %.lr.ph ]
   %72 = getelementptr inbounds nuw i32, ptr %3, i64 %.072241
-  %73 = load i32, ptr %72, align 4, !tbaa !26
+  %73 = load i32, ptr %72, align 4, !tbaa !27
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %.thread124, label %75
 
@@ -1431,7 +1431,7 @@ define range(i32 -1, 1) i32 @H5TBwrite_fields_index(i64 noundef %0, ptr noundef 
   %105 = tail call i32 @H5free_memory(ptr noundef nonnull %76) #12
   %106 = add nuw i64 %.072241, 1
   %exitcond.not = icmp eq i64 %106, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %104, %69, %.preheader
   %107 = tail call i64 @H5Dget_space(i64 noundef %31) #12
@@ -1886,7 +1886,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1
   %60 = tail call i32 @H5free_memory(ptr noundef nonnull %29) #12
   %61 = add nuw nsw i64 %.066216.us, 1
   %exitcond248.not = icmp eq i64 %61, %23
-  br i1 %exitcond248.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %exitcond248.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %95
   %.064217 = phi i64 [ %.165, %95 ], [ 0, %.lr.ph ]
@@ -1952,7 +1952,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_name(i64 noundef %0, ptr noundef %1
   %96 = tail call i32 @H5free_memory(ptr noundef nonnull %63) #12
   %97 = add nuw nsw i64 %.066216, 1
   %exitcond.not = icmp eq i64 %97, %23
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %95, %59
   %.064.lcssa = phi i64 [ %.165.us, %59 ], [ %.165, %95 ]
@@ -2114,7 +2114,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %54
   %.069214.us = phi i64 [ %56, %54 ], [ 0, %.lr.ph ]
   %24 = getelementptr inbounds nuw i32, ptr %3, i64 %.069214.us
-  %25 = load i32, ptr %24, align 4, !tbaa !26
+  %25 = load i32, ptr %24, align 4, !tbaa !27
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %.thread117, label %27
 
@@ -2168,12 +2168,12 @@ define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %
   %55 = tail call i32 @H5free_memory(ptr noundef nonnull %28) #12
   %56 = add nuw i64 %.069214.us, 1
   %exitcond227.not = icmp eq i64 %56, %2
-  br i1 %exitcond227.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
+  br i1 %exitcond227.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %89
   %.069214 = phi i64 [ %91, %89 ], [ 0, %.lr.ph ]
   %57 = getelementptr inbounds nuw i32, ptr %3, i64 %.069214
-  %58 = load i32, ptr %57, align 4, !tbaa !26
+  %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %.thread117, label %60
 
@@ -2229,7 +2229,7 @@ define range(i32 -1, 1) i32 @H5TBread_fields_index(i64 noundef %0, ptr noundef %
   %90 = tail call i32 @H5free_memory(ptr noundef nonnull %61) #12
   %91 = add nuw i64 %.069214, 1
   %exitcond.not = icmp eq i64 %91, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %89, %54, %.preheader
   %92 = tail call i64 @H5Dget_space(i64 noundef %16) #12
@@ -2633,7 +2633,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 28:                                               ; preds = %45
   %29 = add nuw nsw i64 %.047122.us, 1
   %exitcond259.not = icmp eq i64 %29, %23
-  br i1 %exitcond259.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %exitcond259.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !35
 
 30:                                               ; preds = %.lr.ph.split.us
   %31 = tail call i64 @H5Tget_native_type(i64 noundef %26, i32 noundef 0) #12
@@ -2682,11 +2682,11 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 51:                                               ; preds = %69
   %52 = add nuw nsw i64 %.047122.us166, 1
   %exitcond258.not = icmp eq i64 %52, %23
-  br i1 %exitcond258.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !35
+  br i1 %exitcond258.not, label %.loopexit, label %.lr.ph.split.split.us, !llvm.loop !36
 
 .thread.us:                                       ; preds = %.lr.ph.split.split.us
   %53 = getelementptr inbounds nuw ptr, ptr %2, i64 %.047122.us166
-  %54 = load ptr, ptr %53, align 8, !tbaa !9
+  %54 = load ptr, ptr %53, align 8, !tbaa !10
   %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %54, ptr noundef nonnull dereferenceable(1) %49) #12
   %56 = tail call i32 @H5free_memory(ptr noundef nonnull %49) #12
   %57 = tail call i64 @H5Tget_member_type(i64 noundef %12, i32 noundef %48) #12
@@ -2730,11 +2730,11 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 75:                                               ; preds = %93
   %76 = add nuw nsw i64 %.047122.us200, 1
   %exitcond257.not = icmp eq i64 %76, %23
-  br i1 %exitcond257.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !36
+  br i1 %exitcond257.not, label %.loopexit, label %.lr.ph.split.split.split.us, !llvm.loop !37
 
 .thread.us201:                                    ; preds = %.lr.ph.split.split.split.us
   %77 = getelementptr inbounds nuw ptr, ptr %2, i64 %.047122.us200
-  %78 = load ptr, ptr %77, align 8, !tbaa !9
+  %78 = load ptr, ptr %77, align 8, !tbaa !10
   %79 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(1) %73) #12
   %80 = tail call i32 @H5free_memory(ptr noundef nonnull %73) #12
   %81 = tail call i64 @H5Tget_member_type(i64 noundef %12, i32 noundef %72) #12
@@ -2766,7 +2766,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 96:                                               ; preds = %119
   %97 = add nuw nsw i64 %.047122, 1
   %exitcond.not = icmp eq i64 %97, %23
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split.split.split, !llvm.loop !38
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %96
   %.047122 = phi i64 [ %97, %96 ], [ 0, %.lr.ph.split.split ]
@@ -2777,7 +2777,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 
 .thread:                                          ; preds = %.lr.ph.split.split.split
   %101 = getelementptr inbounds nuw ptr, ptr %2, i64 %.047122
-  %102 = load ptr, ptr %101, align 8, !tbaa !9
+  %102 = load ptr, ptr %101, align 8, !tbaa !10
   %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %102, ptr noundef nonnull dereferenceable(1) %99) #12
   %104 = tail call i32 @H5free_memory(ptr noundef nonnull %99) #12
   %105 = tail call i64 @H5Tget_member_type(i64 noundef %12, i32 noundef %98) #12
@@ -3365,7 +3365,7 @@ define range(i32 -1, 1) i32 @H5TBcombine_tables(i64 noundef %0, ptr noundef %1, 
 76:                                               ; preds = %93
   %77 = add nuw i64 %.0133765, 1
   %exitcond.not = icmp eq i64 %77, %60
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader, %76
   %.0133765 = phi i64 [ %77, %76 ], [ 0, %.preheader ]
@@ -3770,7 +3770,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5TB_attach_attributes(ptr noundef 
 23:                                               ; preds = %18
   %24 = add nuw i64 %.01926, 1
   %exitcond.not = icmp eq i64 %24, %3
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !40
 
 .thread:                                          ; preds = %.lr.ph, %23, %18, %.preheader, %12, %9, %5
   %.025 = phi i32 [ -1, %12 ], [ -1, %9 ], [ -1, %5 ], [ 0, %.preheader ], [ -1, %.lr.ph ], [ 0, %23 ], [ -1, %18 ]
@@ -3833,7 +3833,7 @@ define range(i32 -1, -2147483648) i32 @H5TBAget_fill(i64 noundef %0, ptr noundef
 31:                                               ; preds = %24, %25
   %32 = add nuw i64 %.02036, 1
   %exitcond.not = icmp eq i64 %32, %13
-  br i1 %exitcond.not, label %.thread30, label %.lr.ph, !llvm.loop !40
+  br i1 %exitcond.not, label %.thread30, label %.lr.ph, !llvm.loop !41
 
 .thread30:                                        ; preds = %25, %31, %.lr.ph, %.preheader, %17
   %.035 = phi i32 [ -1, %17 ], [ 0, %.preheader ], [ -1, %25 ], [ %22, %31 ], [ -1, %.lr.ph ]
@@ -3998,7 +3998,7 @@ define range(i32 -1, 1) i32 @H5TBinsert_field(i64 noundef %0, ptr noundef %1, pt
   %.1167 = add i64 %.pn, %.0166734
   %84 = add nuw i64 %.0164735, 1
   %exitcond.not = icmp eq i64 %.0164735, %57
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %83, %.preheader725
   %.0170.lcssa = phi i64 [ 0, %.preheader725 ], [ %.1171, %83 ]
@@ -4012,12 +4012,12 @@ define range(i32 -1, 1) i32 @H5TBinsert_field(i64 noundef %0, ptr noundef %1, pt
   br i1 %89, label %.thread804, label %90
 
 90:                                               ; preds = %87
-  %91 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %91 = load i8, ptr @H5_libinit_g, align 1, !tbaa !13, !range !15, !noundef !16
   %92 = trunc nuw i8 %91 to i1
-  %93 = load i8, ptr @H5_libterm_g, align 1, !range !14
+  %93 = load i8, ptr @H5_libterm_g, align 1, !range !15
   %94 = trunc nuw i8 %93 to i1
   %95 = select i1 %92, i1 true, i1 %94
-  br i1 %95, label %98, label %96, !prof !16
+  br i1 %95, label %98, label %96, !prof !17
 
 96:                                               ; preds = %90
   %97 = call i32 @H5open() #12
@@ -4080,12 +4080,12 @@ define range(i32 -1, 1) i32 @H5TBinsert_field(i64 noundef %0, ptr noundef %1, pt
   br i1 %130, label %.thread.thread746, label %131
 
 131:                                              ; preds = %128
-  %132 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %132 = load i8, ptr @H5_libinit_g, align 1, !tbaa !13, !range !15, !noundef !16
   %133 = trunc nuw i8 %132 to i1
-  %134 = load i8, ptr @H5_libterm_g, align 1, !range !14
+  %134 = load i8, ptr @H5_libterm_g, align 1, !range !15
   %135 = trunc nuw i8 %134 to i1
   %136 = select i1 %133, i1 true, i1 %135
-  br i1 %136, label %139, label %137, !prof !16
+  br i1 %136, label %139, label %137, !prof !17
 
 137:                                              ; preds = %131
   %138 = call i32 @H5open() #12
@@ -4161,7 +4161,7 @@ define range(i32 -1, 1) i32 @H5TBinsert_field(i64 noundef %0, ptr noundef %1, pt
 176:                                              ; preds = %193
   %177 = add nuw i64 %.1165737, 1
   %exitcond745.not = icmp eq i64 %177, %175
-  br i1 %exitcond745.not, label %._crit_edge739, label %.lr.ph738, !llvm.loop !42
+  br i1 %exitcond745.not, label %._crit_edge739, label %.lr.ph738, !llvm.loop !43
 
 .lr.ph738:                                        ; preds = %.preheader, %176
   %.1165737 = phi i64 [ %177, %176 ], [ 0, %.preheader ]
@@ -4549,7 +4549,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   %50 = call i32 @H5free_memory(ptr noundef nonnull %36) #12
   %51 = add nuw i64 %.0168713, 1
   %exitcond.not = icmp eq i64 %51, %34
-  br i1 %exitcond.not, label %.thread539, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %.thread539, label %.lr.ph, !llvm.loop !44
 
 52:                                               ; preds = %46
   %53 = call i32 @H5free_memory(ptr noundef nonnull %36) #12
@@ -4627,7 +4627,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   %92 = call i32 @H5free_memory(ptr noundef nonnull %64) #12
   %93 = add nuw i64 %.1169716, 1
   %exitcond738.not = icmp eq i64 %93, %34
-  br i1 %exitcond738.not, label %94, label %.preheader698, !llvm.loop !44
+  br i1 %exitcond738.not, label %94, label %.preheader698, !llvm.loop !45
 
 94:                                               ; preds = %91
   %95 = call i32 @H5Pget_chunk(i64 noundef %20, i32 noundef 1, ptr noundef nonnull %6) #12
@@ -4640,12 +4640,12 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   br i1 %99, label %.thread279, label %100
 
 100:                                              ; preds = %97
-  %101 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %101 = load i8, ptr @H5_libinit_g, align 1, !tbaa !13, !range !15, !noundef !16
   %102 = trunc nuw i8 %101 to i1
-  %103 = load i8, ptr @H5_libterm_g, align 1, !range !14
+  %103 = load i8, ptr @H5_libterm_g, align 1, !range !15
   %104 = trunc nuw i8 %103 to i1
   %105 = select i1 %102, i1 true, i1 %104
-  br i1 %105, label %108, label %106, !prof !16
+  br i1 %105, label %108, label %106, !prof !17
 
 106:                                              ; preds = %100
   %107 = call i32 @H5open() #12
@@ -4719,12 +4719,12 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   br i1 %146, label %.loopexit, label %147
 
 147:                                              ; preds = %144
-  %148 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
+  %148 = load i8, ptr @H5_libinit_g, align 1, !tbaa !13, !range !15, !noundef !16
   %149 = trunc nuw i8 %148 to i1
-  %150 = load i8, ptr @H5_libterm_g, align 1, !range !14
+  %150 = load i8, ptr @H5_libterm_g, align 1, !range !15
   %151 = trunc nuw i8 %150 to i1
   %152 = select i1 %149, i1 true, i1 %151
-  br i1 %152, label %155, label %153, !prof !16
+  br i1 %152, label %155, label %153, !prof !17
 
 153:                                              ; preds = %147
   %154 = call i32 @H5open() #12
@@ -4774,7 +4774,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
   %179 = call i32 @H5free_memory(ptr noundef nonnull %119) #12
   %180 = add nuw i64 %.2170718, 1
   %exitcond739.not = icmp eq i64 %180, %34
-  br i1 %exitcond739.not, label %181, label %117, !llvm.loop !45
+  br i1 %exitcond739.not, label %181, label %117, !llvm.loop !46
 
 181:                                              ; preds = %178
   %182 = call i32 @H5Ldelete(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #12
@@ -4823,7 +4823,7 @@ define range(i32 -1, 1) i32 @H5TBdelete_field(i64 noundef %0, ptr noundef %1, pt
 205:                                              ; preds = %222
   %206 = add nuw i64 %.3171719, 1
   %exitcond740.not = icmp eq i64 %206, %197
-  br i1 %exitcond740.not, label %._crit_edge, label %.lr.ph720, !llvm.loop !46
+  br i1 %exitcond740.not, label %._crit_edge, label %.lr.ph720, !llvm.loop !47
 
 .lr.ph720:                                        ; preds = %.preheader, %205
   %.3171719 = phi i64 [ %206, %205 ], [ 0, %.preheader ]
@@ -5178,43 +5178,44 @@ attributes #15 = { nounwind willreturn memory(read) }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !5, i64 0}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"_Bool", !5, i64 0}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"int", !5, i64 0}
-!28 = distinct !{!28, !8, !23}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8, !23}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8, !23}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8, !23}
-!35 = distinct !{!35, !8, !23}
-!36 = distinct !{!36, !8, !23}
-!37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = distinct !{!40, !8}
-!41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8}
-!43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"_Bool", !5, i64 0}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"int", !5, i64 0}
+!29 = distinct !{!29, !8, !9, !24}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9, !24}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9, !24}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9, !24}
+!36 = distinct !{!36, !8, !9, !24}
+!37 = distinct !{!37, !8, !9, !24}
+!38 = distinct !{!38, !8, !9}
+!39 = distinct !{!39, !8, !9}
+!40 = distinct !{!40, !8, !9}
+!41 = distinct !{!41, !8, !9}
+!42 = distinct !{!42, !8, !9}
+!43 = distinct !{!43, !8, !9}
+!44 = distinct !{!44, !8, !9}
+!45 = distinct !{!45, !8, !9}
+!46 = distinct !{!46, !8, !9}
+!47 = distinct !{!47, !8, !9}

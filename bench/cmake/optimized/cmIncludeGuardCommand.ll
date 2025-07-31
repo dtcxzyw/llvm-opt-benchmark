@@ -461,7 +461,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZN17cmExecutionStatus16SetReturnInvokedEv.exit:  ; preds = %133, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 1, ptr %147, align 8, !tbaa !53
+  store i8 1, ptr %147, align 8, !tbaa !54
   br label %228
 
 148:                                              ; preds = %132
@@ -514,7 +514,7 @@ _ZN17cmExecutionStatus16SetReturnInvokedEv.exit:  ; preds = %133, %_ZSt8_Destroy
           to label %.noexc88 unwind label %.loopexit
 
 .noexc88:                                         ; preds = %154
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !54
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !55
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
   %155 = invoke noundef ptr @_ZNK15cmStateSnapshot8GetStateEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -522,7 +522,7 @@ _ZN17cmExecutionStatus16SetReturnInvokedEv.exit:  ; preds = %133, %_ZSt8_Destroy
 
 .noexc89:                                         ; preds = %.noexc88
   %.not.not.i = icmp eq ptr %155, null
-  br i1 %.not.not.i, label %._crit_edge.i.i99, label %.lr.ph.i, !llvm.loop !59
+  br i1 %.not.not.i, label %._crit_edge.i.i99, label %.lr.ph.i, !llvm.loop !60
 
 _ZN12_GLOBAL__N_122CheckIncludeGuardIsSetEP10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.noexc87
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
@@ -568,7 +568,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZN17cmExecutionStatus16SetReturnInvokedEv.exit98: ; preds = %_ZN12_GLOBAL__N_122CheckIncludeGuardIsSetEP10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i96
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 1, ptr %169, align 8, !tbaa !53
+  store i8 1, ptr %169, align 8, !tbaa !54
   br label %228
 
 ._crit_edge.i.i99:                                ; preds = %.noexc89, %.noexc85
@@ -679,7 +679,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 _ZN17cmExecutionStatus16SetReturnInvokedEv.exit118: ; preds = %192, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i116
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i8 1, ptr %206, align 8, !tbaa !53
+  store i8 1, ptr %206, align 8, !tbaa !54
   br label %228
 
 207:                                              ; preds = %187
@@ -946,19 +946,19 @@ define internal void @_GLOBAL__sub_I_cmIncludeGuardCommand.cxx() #10 section ".t
   tail call void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZN5cmsysL26SystemToolsManagerInstanceE)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #13
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #13
-  store i32 0, ptr %1, align 4, !tbaa !60
+  store i32 0, ptr %1, align 4, !tbaa !61
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %3, align 4, !tbaa !60
+  store i32 1, ptr %3, align 4, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %4, align 4, !tbaa !60
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !62
+  store i32 2, ptr %4, align 4, !tbaa !61
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !63
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %5 = phi i64 [ %11, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !60
+  %6 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !61
   %7 = zext i32 %6 to i64
   %8 = icmp ugt i32 %6, 31
   br i1 %8, label %9, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -973,7 +973,7 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   store i64 %11, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !14
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.1.exit, label %.lr.ph.i.i.i, !llvm.loop !65
 
 __cxx_global_var_init.1.exit:                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #13
@@ -1061,16 +1061,18 @@ attributes #15 = { noreturn }
 !48 = !{!49}
 !49 = distinct !{!49, !50, !"_ZZ8cmStrCatIRA12_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA3_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_: argument 0"}
 !50 = distinct !{!50, !"_ZZ8cmStrCatIRA12_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA3_S0_EES8_OT_OT0_DpOT1_ENKUlRK10cmAlphaNumE_clB5cxx11ESK_"}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!21, !23, i64 40}
-!54 = !{i64 0, i64 8, !55, i64 8, i64 8, !57, i64 16, i64 8, !14}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS7cmState", !7, i64 0}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTS12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE", !7, i64 0}
-!59 = distinct !{!59, !52}
-!60 = !{!61, !61, i64 0}
-!61 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
-!62 = !{!63, !15, i64 0}
-!63 = !{!"_ZTSSt12_Base_bitsetILm1EE", !15, i64 0}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!21, !23, i64 40}
+!55 = !{i64 0, i64 8, !56, i64 8, i64 8, !58, i64 16, i64 8, !14}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS7cmState", !7, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS12cmLinkedTreeIN13cmStateDetail16SnapshotDataTypeEE", !7, i64 0}
+!60 = distinct !{!60, !52, !53}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
+!63 = !{!64, !15, i64 0}
+!64 = !{!"_ZTSSt12_Base_bitsetILm1EE", !15, i64 0}
+!65 = distinct !{!65, !53}

@@ -184,7 +184,7 @@ sincf.exit51:                                     ; preds = %sincf.exit, %60
 ._crit_edge:                                      ; preds = %75, %.preheader
   %70 = load i64, ptr %15, align 8, !tbaa !34
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 136
-  store i64 %70, ptr %71, align 8, !tbaa !49
+  store i64 %70, ptr %71, align 8, !tbaa !50
   %72 = and i64 %18, 2147483647
   %73 = add nsw i64 %70, %72
   store i64 %73, ptr %15, align 8, !tbaa !34
@@ -201,7 +201,7 @@ sincf.exit51:                                     ; preds = %sincf.exit, %60
   %79 = load i32, ptr %32, align 4, !tbaa !44
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next57, %80
-  br i1 %81, label %75, label %._crit_edge, !llvm.loop !50
+  br i1 %81, label %75, label %._crit_edge, !llvm.loop !51
 
 82:                                               ; preds = %22, %1, %._crit_edge, %21
   %.043 = phi i32 [ 0, %21 ], [ %74, %._crit_edge ], [ -1497649742, %1 ], [ -12, %22 ]
@@ -210,13 +210,13 @@ sincf.exit51:                                     ; preds = %sincf.exit, %60
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @config_output(ptr noundef captures(none) initializes((64, 68)) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !51
+  %2 = load ptr, ptr %0, align 8, !tbaa !52
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 %6, ptr %7, align 8, !tbaa !57
+  store i32 %6, ptr %7, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 0, ptr %8, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -335,14 +335,15 @@ attributes #8 = { nounwind }
 !44 = !{!36, !15, i64 388}
 !45 = !{!46, !46, i64 0}
 !46 = !{!"float", !8, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!36, !28, i64 136}
-!50 = distinct !{!50, !48}
-!51 = !{!52, !53, i64 0}
-!52 = !{!"AVFilterLink", !53, i64 0, !12, i64 8, !53, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !38, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !27, i64 72, !38, i64 96, !40, i64 104, !15, i64 112, !54, i64 120, !54, i64 160}
-!53 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!54 = !{!"AVFilterFormatsConfig", !55, i64 0, !55, i64 8, !56, i64 16, !55, i64 24, !55, i64 32}
-!55 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!56 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!57 = !{!52, !15, i64 64}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!36, !28, i64 136}
+!51 = distinct !{!51, !48, !49}
+!52 = !{!53, !54, i64 0}
+!53 = !{!"AVFilterLink", !54, i64 0, !12, i64 8, !54, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !38, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !27, i64 72, !38, i64 96, !40, i64 104, !15, i64 112, !55, i64 120, !55, i64 160}
+!54 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!55 = !{!"AVFilterFormatsConfig", !56, i64 0, !56, i64 8, !57, i64 16, !56, i64 24, !56, i64 32}
+!56 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!57 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!58 = !{!53, !15, i64 64}

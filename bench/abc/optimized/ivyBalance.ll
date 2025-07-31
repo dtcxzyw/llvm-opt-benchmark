@@ -59,13 +59,13 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 .critedge:                                        ; preds = %.lr.ph, %2
   %36 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #10
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 0, ptr %37, align 4, !tbaa !25
-  store i32 50, ptr %36, align 8, !tbaa !27
+  store i32 0, ptr %37, align 4, !tbaa !26
+  store i32 50, ptr %36, align 8, !tbaa !28
   %38 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #10
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %38, ptr %39, align 8, !tbaa !28
+  store ptr %38, ptr %39, align 8, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !29
+  %41 = load ptr, ptr %40, align 8, !tbaa !30
   %42 = getelementptr i8, ptr %41, i64 4
   %.val3239 = load i32, ptr %42, align 4, !tbaa !19
   %43 = icmp sgt i32 %.val3239, 0
@@ -83,7 +83,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %48 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv43
   %49 = load ptr, ptr %48, align 8, !tbaa !22
   %50 = getelementptr i8, ptr %49, i64 16
-  %.val35 = load ptr, ptr %50, align 8, !tbaa !30
+  %.val35 = load ptr, ptr %50, align 8, !tbaa !31
   %51 = tail call ptr @Ivy_ObjReal(ptr noundef %.val35) #9
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, -2
@@ -91,7 +91,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %55 = tail call fastcc i32 @Ivy_NodeBalance_rec(ptr noundef nonnull %3, ptr noundef %54, ptr noundef nonnull %36, i32 noundef 0, i32 noundef %1)
   %56 = trunc i64 %52 to i32
   %57 = xor i32 %55, %56
-  %.val36 = load ptr, ptr %44, align 8, !tbaa !31
+  %.val36 = load ptr, ptr %44, align 8, !tbaa !32
   %58 = getelementptr i8, ptr %.val36, i64 8
   %.val36.val = load ptr, ptr %58, align 8, !tbaa !21
   %59 = ashr i32 %55, 1
@@ -105,15 +105,15 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %67 = inttoptr i64 %66 to ptr
   %68 = tail call ptr @Ivy_ObjCreatePo(ptr noundef nonnull %3, ptr noundef %67) #9
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %69 = load ptr, ptr %40, align 8, !tbaa !29
+  %69 = load ptr, ptr %40, align 8, !tbaa !30
   %70 = getelementptr i8, ptr %69, i64 4
   %.val32 = load i32, ptr %70, align 4, !tbaa !19
   %71 = sext i32 %.val32 to i64
   %72 = icmp slt i64 %indvars.iv.next44, %71
-  br i1 %72, label %45, label %.critedge2, !llvm.loop !32
+  br i1 %72, label %45, label %.critedge2, !llvm.loop !33
 
 .critedge2:                                       ; preds = %45
-  %.val11.i.pre = load i32, ptr %37, align 4, !tbaa !25
+  %.val11.i.pre = load i32, ptr %37, align 4, !tbaa !26
   %.pre.pre = load ptr, ptr %39, align 8, !tbaa !21
   %73 = icmp sgt i32 %.val11.i.pre, 0
   br i1 %73, label %.lr.ph.i.preheader, label %.critedge.i
@@ -146,7 +146,7 @@ Vec_PtrFree.exit.i:                               ; preds = %80, %77
 81:                                               ; preds = %Vec_PtrFree.exit.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %74
-  br i1 %exitcond.not, label %.critedge.i.thread, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not, label %.critedge.i.thread, label %.lr.ph.i, !llvm.loop !34
 
 .critedge.i:                                      ; preds = %.critedge, %.critedge2
   %.pre50 = phi ptr [ %.pre.pre, %.critedge2 ], [ %38, %.critedge ]
@@ -193,7 +193,7 @@ define internal fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %1, 
 
 8:                                                ; preds = %5
   %9 = getelementptr i8, ptr %2, i64 4
-  %.val20.i = load i32, ptr %9, align 4, !tbaa !25
+  %.val20.i = load i32, ptr %9, align 4, !tbaa !26
   %.not.i = icmp sgt i32 %.val20.i, %3
   br i1 %.not.i, label %._crit_edge.i, label %10
 
@@ -203,7 +203,7 @@ define internal fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %1, 
 
 10:                                               ; preds = %8
   %11 = add i32 %3, 1
-  %12 = load i32, ptr %2, align 8, !tbaa !34
+  %12 = load i32, ptr %2, align 8, !tbaa !35
   %.not.i.not.i.i = icmp sgt i32 %12, %3
   br i1 %.not.i.not.i.i, label %Vec_PtrGrow.exit.i.i, label %13
 
@@ -217,7 +217,7 @@ define internal fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %1, 
 
 18:                                               ; preds = %13
   %19 = tail call ptr @realloc(ptr noundef nonnull %15, i64 noundef %17) #11
-  %.pre.pre.i.i = load i32, ptr %9, align 4, !tbaa !25
+  %.pre.pre.i.i = load i32, ptr %9, align 4, !tbaa !26
   br label %22
 
 20:                                               ; preds = %13
@@ -228,7 +228,7 @@ define internal fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %1, 
   %.pre.i.i = phi i32 [ %.pre.pre.i.i, %18 ], [ %.val20.i, %20 ]
   %23 = phi ptr [ %19, %18 ], [ %21, %20 ]
   store ptr %23, ptr %14, align 8, !tbaa !21
-  store i32 %11, ptr %2, align 8, !tbaa !34
+  store i32 %11, ptr %2, align 8, !tbaa !35
   br label %Vec_PtrGrow.exit.i.i
 
 Vec_PtrGrow.exit.i.i:                             ; preds = %22, %10
@@ -244,24 +244,24 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %10
 27:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %26, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
   %calloc.i.i.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
-  %28 = load ptr, ptr %25, align 8, !tbaa !28
+  %28 = load ptr, ptr %25, align 8, !tbaa !29
   %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i.i
   store ptr %calloc.i.i.i, ptr %29, align 8, !tbaa !22
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
   %exitcond.not.i.i = icmp eq i32 %11, %lftr.wideiv.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %27, !llvm.loop !35
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %27, !llvm.loop !36
 
 .loopexit.i:                                      ; preds = %27, %Vec_PtrGrow.exit.i.i
-  store i32 %11, ptr %9, align 4, !tbaa !25
+  store i32 %11, ptr %9, align 4, !tbaa !26
   %30 = getelementptr i8, ptr %2, i64 8
-  %.val.i.i = load ptr, ptr %30, align 8, !tbaa !28
+  %.val.i.i = load ptr, ptr %30, align 8, !tbaa !29
   %31 = sext i32 %3 to i64
   %32 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !19
-  %36 = load i32, ptr %33, align 8, !tbaa !34
+  %36 = load i32, ptr %33, align 8, !tbaa !35
   %37 = icmp eq i32 %35, %36
   br i1 %37, label %38, label %.Vec_PtrGrow.exit11_crit_edge.i.i.i
 
@@ -291,7 +291,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %22, %10
 Vec_PtrGrow.exit.i.i.i:                           ; preds = %45, %43
   %47 = phi ptr [ %44, %43 ], [ %46, %45 ]
   store ptr %47, ptr %41, align 8, !tbaa !21
-  store i32 16, ptr %33, align 8, !tbaa !34
+  store i32 16, ptr %33, align 8, !tbaa !35
   br label %Vec_VecPush.exit.i
 
 48:                                               ; preds = %38
@@ -314,7 +314,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %45, %43
 58:                                               ; preds = %56, %54
   %59 = phi ptr [ %55, %54 ], [ %57, %56 ]
   store ptr %59, ptr %50, align 8, !tbaa !21
-  store i32 %49, ptr %33, align 8, !tbaa !34
+  store i32 %49, ptr %33, align 8, !tbaa !35
   br label %Vec_VecPush.exit.i
 
 Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
@@ -330,7 +330,7 @@ Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.ex
 65:                                               ; preds = %Vec_VecPush.exit.i, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %31, %Vec_VecPush.exit.i ]
   %66 = getelementptr i8, ptr %2, i64 8
-  %.val21.i = load ptr, ptr %66, align 8, !tbaa !28
+  %.val21.i = load ptr, ptr %66, align 8, !tbaa !29
   %67 = getelementptr inbounds ptr, ptr %.val21.i, i64 %.pre-phi.i
   %68 = load ptr, ptr %67, align 8, !tbaa !22
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -360,7 +360,7 @@ Vec_VecPush.exit.i:                               ; preds = %58, %Vec_PtrGrow.ex
   %.val.i = load i32, ptr %69, align 4, !tbaa !19
   %82 = sext i32 %.val.i to i64
   %83 = icmp slt i64 %indvars.iv.next.i, %82
-  br i1 %83, label %73, label %.critedge.i, !llvm.loop !36
+  br i1 %83, label %73, label %.critedge.i, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %73, %65
   %.pr = phi i32 [ %.val22.i, %65 ], [ %.val.i, %73 ]
@@ -420,7 +420,7 @@ Ivy_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   %115 = ptrtoint ptr %114 to i64
   %116 = trunc i64 %115 to i32
   %117 = xor i32 %111, %116
-  %.val42 = load ptr, ptr %103, align 8, !tbaa !31
+  %.val42 = load ptr, ptr %103, align 8, !tbaa !32
   %118 = getelementptr i8, ptr %.val42, i64 8
   %.val42.val = load ptr, ptr %118, align 8, !tbaa !21
   %119 = ashr i32 %111, 1
@@ -437,7 +437,7 @@ Ivy_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   %128 = load i32, ptr %69, align 4, !tbaa !19
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next, %129
-  br i1 %130, label %104, label %._crit_edge, !llvm.loop !37
+  br i1 %130, label %104, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %104, %99
   %131 = getelementptr i8, ptr %1, i64 8
@@ -473,14 +473,14 @@ declare i32 @Ivy_ManCheck(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -1, 2) i32 @Ivy_NodeCompareLevelsDecrease(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !38
+  %3 = load ptr, ptr %0, align 8, !tbaa !39
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = lshr i32 %8, 11
-  %10 = load ptr, ptr %1, align 8, !tbaa !38
+  %10 = load ptr, ptr %1, align 8, !tbaa !39
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
@@ -576,7 +576,7 @@ Vec_PtrSort.exit:                                 ; preds = %4
 41:                                               ; preds = %33
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %42 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %42, label %33, label %Ivy_NodeBalanceFindLeft.exit, !llvm.loop !39
+  br i1 %42, label %33, label %Ivy_NodeBalanceFindLeft.exit, !llvm.loop !40
 
 ._crit_edge.split.loop.exit24.i:                  ; preds = %33
   %43 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -634,15 +634,15 @@ Ivy_NodeBalanceFindLeft.exit:                     ; preds = %41, %._crit_edge.sp
 74:                                               ; preds = %Ivy_ObjCreateGhost.exit.us.i
   %indvars.iv.next89.i = add nsw i64 %indvars.iv88.i, -1
   %.not.us.not.i = icmp sgt i64 %indvars.iv88.i, %66
-  br i1 %.not.us.not.i, label %.lr.ph.split.us.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !40
+  br i1 %.not.us.not.i, label %.lr.ph.split.us.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !41
 
 75:                                               ; preds = %.lr.ph.split.us.i
   %76 = load i32, ptr %15, align 8
   %77 = and i32 %76, -1552
   %78 = or disjoint i32 %77, %14
   store i32 %78, ptr %15, align 8
-  store ptr null, ptr %16, align 8, !tbaa !30
-  store ptr %68, ptr %17, align 8, !tbaa !42
+  store ptr null, ptr %16, align 8, !tbaa !31
+  store ptr %68, ptr %17, align 8, !tbaa !43
   %.not.i.us.i = icmp eq ptr %68, null
   br i1 %.not.i.us.i, label %Ivy_ObjCreateGhost.exit.us.i, label %Ivy_ObjFaninId1.exit.i.us.i
 
@@ -652,8 +652,8 @@ Ivy_ObjFaninId1.exit.i.us.i:                      ; preds = %75
   br i1 %79, label %80, label %Ivy_ObjCreateGhost.exit.us.i
 
 80:                                               ; preds = %Ivy_ObjFaninId1.exit.i.us.i
-  store ptr %68, ptr %16, align 8, !tbaa !30
-  store ptr null, ptr %17, align 8, !tbaa !42
+  store ptr %68, ptr %16, align 8, !tbaa !31
+  store ptr null, ptr %17, align 8, !tbaa !43
   br label %Ivy_ObjCreateGhost.exit.us.i
 
 Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId1.exit.i.us.i, %75
@@ -664,7 +664,7 @@ Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId
 82:                                               ; preds = %Ivy_ObjCreateGhost.exit.i
   %indvars.iv.next.i17 = add nsw i64 %indvars.iv.i16, -1
   %.not.not.i = icmp sgt i64 %indvars.iv.i16, %66
-  br i1 %.not.not.i, label %.lr.ph.split.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !43
+  br i1 %.not.not.i, label %.lr.ph.split.i, label %Ivy_NodeBalancePermute.exit, !llvm.loop !44
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i15, %82
   %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i17, %82 ], [ %65, %.lr.ph.i15 ]
@@ -691,8 +691,8 @@ Ivy_ObjCreateGhost.exit.us.i:                     ; preds = %80, %Ivy_ObjFaninId
   %93 = and i32 %92, -1552
   %94 = or disjoint i32 %93, %14
   store i32 %94, ptr %15, align 8
-  store ptr %.fr.i, ptr %16, align 8, !tbaa !30
-  store ptr %84, ptr %17, align 8, !tbaa !42
+  store ptr %.fr.i, ptr %16, align 8, !tbaa !31
+  store ptr %84, ptr %17, align 8, !tbaa !43
   %.not.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i, label %Ivy_ObjCreateGhost.exit.i, label %Ivy_ObjFaninId1.exit.i.i
 
@@ -703,8 +703,8 @@ Ivy_ObjFaninId1.exit.i.i:                         ; preds = %91
   br i1 %95, label %96, label %Ivy_ObjCreateGhost.exit.i
 
 96:                                               ; preds = %Ivy_ObjFaninId1.exit.i.i
-  store ptr %84, ptr %16, align 8, !tbaa !30
-  store ptr %.fr.i, ptr %17, align 8, !tbaa !42
+  store ptr %84, ptr %16, align 8, !tbaa !31
+  store ptr %.fr.i, ptr %17, align 8, !tbaa !43
   br label %Ivy_ObjCreateGhost.exit.i
 
 Ivy_ObjCreateGhost.exit.i:                        ; preds = %96, %Ivy_ObjFaninId1.exit.i.i, %91
@@ -756,7 +756,7 @@ Ivy_NodeBalancePermute.exit:                      ; preds = %82, %74, %Ivy_NodeB
 116:                                              ; preds = %117
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %117, !llvm.loop !44
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %117, !llvm.loop !45
 
 117:                                              ; preds = %116, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %116 ]
@@ -766,7 +766,7 @@ Ivy_NodeBalancePermute.exit:                      ; preds = %82, %74, %Ivy_NodeB
   br i1 %120, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit, label %116
 
 ._crit_edge.i.i:                                  ; preds = %116, %Ivy_NodeBalancePermute.exit
-  %121 = load i32, ptr %1, align 8, !tbaa !34
+  %121 = load i32, ptr %1, align 8, !tbaa !35
   %122 = icmp eq i32 %113, %121
   br i1 %122, label %123, label %.Vec_PtrGrow.exit11_crit_edge.i.i.i
 
@@ -794,7 +794,7 @@ Ivy_NodeBalancePermute.exit:                      ; preds = %82, %74, %Ivy_NodeB
 Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
   %131 = phi ptr [ %128, %127 ], [ %130, %129 ]
   store ptr %131, ptr %12, align 8, !tbaa !21
-  store i32 16, ptr %1, align 8, !tbaa !34
+  store i32 16, ptr %1, align 8, !tbaa !35
   br label %143
 
 132:                                              ; preds = %123
@@ -816,7 +816,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
 141:                                              ; preds = %139, %137
   %142 = phi ptr [ %138, %137 ], [ %140, %139 ]
   store ptr %142, ptr %12, align 8, !tbaa !21
-  store i32 %133, ptr %1, align 8, !tbaa !34
+  store i32 %133, ptr %1, align 8, !tbaa !35
   br label %143
 
 143:                                              ; preds = %141, %Vec_PtrGrow.exit.i.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i.i
@@ -867,12 +867,12 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %129, %127
   %.0.i = add nsw i32 %.021.i, -1
   %173 = icmp sgt i32 %.021.i, 1
   %indvars.iv.next.i20 = add nsw i64 %indvars.iv.i19, -1
-  br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit, !llvm.loop !45
+  br i1 %173, label %.lr.ph.i18, label %Ivy_NodeBalancePushUniqueOrderByLevel.exit, !llvm.loop !46
 
 Ivy_NodeBalancePushUniqueOrderByLevel.exit:       ; preds = %117, %.lr.ph.i18, %170
   %174 = phi i32 [ %146, %170 ], [ %146, %.lr.ph.i18 ], [ %113, %117 ]
   %175 = icmp sgt i32 %174, 1
-  br i1 %175, label %19, label %._crit_edge, !llvm.loop !46
+  br i1 %175, label %19, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %143, %Ivy_NodeBalancePushUniqueOrderByLevel.exit, %4, %Vec_PtrSort.exit
   %176 = getelementptr i8, ptr %1, i64 8
@@ -909,7 +909,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 15:                                               ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph52, label %20, !llvm.loop !47
+  br i1 %exitcond.not, label %.lr.ph52, label %20, !llvm.loop !48
 
 .lr.ph52:                                         ; preds = %15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -929,7 +929,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 24:                                               ; preds = %25
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.loopexit, label %25, !llvm.loop !48
+  br i1 %exitcond62.not, label %.loopexit, label %25, !llvm.loop !49
 
 25:                                               ; preds = %.lr.ph52, %24
   %indvars.iv58 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next59, %24 ]
@@ -959,7 +959,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 37:                                               ; preds = %32
   %38 = getelementptr i8, ptr %1, i64 12
-  %.val45 = load i32, ptr %38, align 4, !tbaa !49
+  %.val45 = load i32, ptr %38, align 4, !tbaa !50
   %39 = icmp sgt i32 %.val45, 1
   br i1 %39, label %43, label %40
 
@@ -972,7 +972,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 43:                                               ; preds = %40, %37, %32, %30
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !19
-  %46 = load i32, ptr %2, align 8, !tbaa !34
+  %46 = load i32, ptr %2, align 8, !tbaa !35
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %.Vec_PtrGrow.exit11_crit_edge.i
 
@@ -1002,7 +1002,7 @@ define range(i32 -1, 2) i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 Vec_PtrGrow.exit.i:                               ; preds = %55, %53
   %57 = phi ptr [ %54, %53 ], [ %56, %55 ]
   store ptr %57, ptr %51, align 8, !tbaa !21
-  store i32 16, ptr %2, align 8, !tbaa !34
+  store i32 16, ptr %2, align 8, !tbaa !35
   br label %Vec_PtrPush.exit
 
 58:                                               ; preds = %48
@@ -1025,7 +1025,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %55, %53
 68:                                               ; preds = %66, %64
   %69 = phi ptr [ %65, %64 ], [ %67, %66 ]
   store ptr %69, ptr %60, align 8, !tbaa !21
-  store i32 %59, ptr %2, align 8, !tbaa !34
+  store i32 %59, ptr %2, align 8, !tbaa !35
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %68
@@ -1043,11 +1043,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 77:                                               ; preds = %40, %29
   %78 = getelementptr i8, ptr %1, i64 16
-  %.val42 = load ptr, ptr %78, align 8, !tbaa !30
+  %.val42 = load ptr, ptr %78, align 8, !tbaa !31
   %79 = tail call ptr @Ivy_ObjReal(ptr noundef %.val42) #9
   %80 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %79, ptr noundef %2)
   %81 = getelementptr i8, ptr %1, i64 24
-  %.val46 = load ptr, ptr %81, align 8, !tbaa !42
+  %.val46 = load ptr, ptr %81, align 8, !tbaa !43
   %82 = tail call ptr @Ivy_ObjReal(ptr noundef %.val46) #9
   %83 = tail call i32 @Ivy_NodeBalanceCone_rec(ptr noundef %0, ptr noundef %82, ptr noundef %2)
   %84 = icmp eq i32 %80, -1
@@ -1125,30 +1125,31 @@ attributes #11 = { nounwind allocsize(1) }
 !20 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
 !21 = !{!20, !6, i64 8}
 !22 = !{!6, !6, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !11, i64 4}
-!26 = !{!"Vec_Vec_t_", !11, i64 0, !11, i64 4, !6, i64 8}
-!27 = !{!26, !11, i64 0}
-!28 = !{!26, !6, i64 8}
-!29 = !{!4, !5, i64 8}
-!30 = !{!10, !9, i64 16}
-!31 = !{!4, !5, i64 24}
-!32 = distinct !{!32, !24}
-!33 = distinct !{!33, !24}
-!34 = !{!20, !11, i64 0}
-!35 = distinct !{!35, !24}
-!36 = distinct !{!36, !24}
-!37 = distinct !{!37, !24}
-!38 = !{!9, !9, i64 0}
-!39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = !{!10, !9, i64 24}
-!43 = distinct !{!43, !24}
-!44 = distinct !{!44, !24}
-!45 = distinct !{!45, !24}
-!46 = distinct !{!46, !24}
-!47 = distinct !{!47, !24}
-!48 = distinct !{!48, !24}
-!49 = !{!10, !11, i64 12}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !11, i64 4}
+!27 = !{!"Vec_Vec_t_", !11, i64 0, !11, i64 4, !6, i64 8}
+!28 = !{!27, !11, i64 0}
+!29 = !{!27, !6, i64 8}
+!30 = !{!4, !5, i64 8}
+!31 = !{!10, !9, i64 16}
+!32 = !{!4, !5, i64 24}
+!33 = distinct !{!33, !24, !25}
+!34 = distinct !{!34, !24, !25}
+!35 = !{!20, !11, i64 0}
+!36 = distinct !{!36, !24, !25}
+!37 = distinct !{!37, !24, !25}
+!38 = distinct !{!38, !24, !25}
+!39 = !{!9, !9, i64 0}
+!40 = distinct !{!40, !24, !25}
+!41 = distinct !{!41, !24, !25, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = !{!10, !9, i64 24}
+!44 = distinct !{!44, !24, !25}
+!45 = distinct !{!45, !24, !25}
+!46 = distinct !{!46, !24, !25}
+!47 = distinct !{!47, !24, !25}
+!48 = distinct !{!48, !24, !25}
+!49 = distinct !{!49, !24, !25}
+!50 = !{!10, !11, i64 12}

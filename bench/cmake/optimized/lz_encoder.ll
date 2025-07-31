@@ -598,15 +598,15 @@ define internal void @lz_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
   tail call void @lzma_next_end(ptr noundef nonnull %3, ptr noundef %1) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %6 = load ptr, ptr %5, align 8, !tbaa !73
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   tail call void @lzma_free(ptr noundef %6, ptr noundef %1) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %8 = load ptr, ptr %7, align 8, !tbaa !74
+  %8 = load ptr, ptr %7, align 8, !tbaa !75
   tail call void @lzma_free(ptr noundef %8, ptr noundef %1) #7
   %9 = load ptr, ptr %4, align 8, !tbaa !65
   tail call void @lzma_free(ptr noundef %9, ptr noundef %1) #7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
   %.not = icmp eq ptr %11, null
   %12 = load ptr, ptr %0, align 8, !tbaa !70
   br i1 %.not, label %14, label %13
@@ -627,7 +627,7 @@ define internal void @lz_encoder_end(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @lz_encoder_update(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !76
+  %6 = load ptr, ptr %5, align 8, !tbaa !77
   %7 = icmp eq ptr %6, null
   br i1 %7, label %15, label %8
 
@@ -657,7 +657,7 @@ define internal i32 @lz_encoder_set_out_limit(ptr noundef readonly captures(none
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !77
+  %9 = load ptr, ptr %8, align 8, !tbaa !78
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %13, label %10
 
@@ -812,10 +812,11 @@ attributes #7 = { nounwind }
 !68 = !{!42, !7, i64 96}
 !69 = !{!42, !7, i64 8}
 !70 = !{!42, !7, i64 0}
-!71 = distinct !{!71, !72}
+!71 = distinct !{!71, !72, !73}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!42, !11, i64 112}
-!74 = !{!42, !11, i64 104}
-!75 = !{!42, !7, i64 16}
-!76 = !{!42, !7, i64 24}
-!77 = !{!42, !7, i64 32}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = !{!42, !11, i64 112}
+!75 = !{!42, !11, i64 104}
+!76 = !{!42, !7, i64 16}
+!77 = !{!42, !7, i64 24}
+!78 = !{!42, !7, i64 32}

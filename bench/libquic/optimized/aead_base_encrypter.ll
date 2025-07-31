@@ -139,11 +139,11 @@ define noundef zeroext i1 @_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStrin
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = tail call noundef ptr @_ZN3net16ScopedEVPAEADCtx3getEv(ptr noundef nonnull align 8 dereferenceable(16) %13)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !20
+  %16 = load i64, ptr %15, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = add i64 %18, %16
-  %20 = load ptr, ptr %5, align 8, !tbaa !23
+  %20 = load ptr, ptr %5, align 8, !tbaa !24
   %21 = call i32 @EVP_AEAD_CTX_seal(ptr noundef %14, ptr noundef %6, ptr noundef nonnull %8, i64 noundef %19, ptr noundef %1, i64 noundef %2, ptr noundef %20, i64 noundef %16, ptr noundef %3, i64 noundef %4)
   %.not3 = icmp ne i32 %21, 0
   br i1 %.not3, label %_ZN3net12_GLOBAL__N_117DLogOpenSslErrorsEv.exit, label %.preheader
@@ -169,7 +169,7 @@ define noundef zeroext i1 @_ZN3net17AeadBaseEncrypter13EncryptPacketEhmN4base16B
   %10 = alloca i64, align 8
   %11 = alloca [12 x i8], align 4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !20
+  %13 = load i64, ptr %12, align 8, !tbaa !21
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
@@ -192,7 +192,7 @@ define noundef zeroext i1 @_ZN3net17AeadBaseEncrypter13EncryptPacketEhmN4base16B
 
 26:                                               ; preds = %19
   %27 = add i64 %21, 8
-  %.sroa.013.0.copyload = load ptr, ptr %5, align 8, !tbaa !24
+  %.sroa.013.0.copyload = load ptr, ptr %5, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = tail call noundef ptr @_ZN3net16ScopedEVPAEADCtx3getEv(ptr noundef nonnull align 8 dereferenceable(16) %28)
@@ -214,7 +214,7 @@ _ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_s
 
 35:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  store i64 %17, ptr %7, align 8, !tbaa !25
+  store i64 %17, ptr %7, align 8, !tbaa !26
   br label %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread
 
 _ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread: ; preds = %19, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit, %35
@@ -315,11 +315,12 @@ attributes #10 = { builtin nounwind }
 !15 = !{!7, !12, i64 16}
 !16 = !{!7, !12, i64 24}
 !17 = !{!7, !12, i64 32}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !12, i64 8}
-!21 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !22, i64 0, !12, i64 8}
-!22 = !{!"p1 omnipotent char", !10, i64 0}
-!23 = !{!21, !22, i64 0}
-!24 = !{!22, !22, i64 0}
-!25 = !{!12, !12, i64 0}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !12, i64 8}
+!22 = !{!"_ZTSN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !23, i64 0, !12, i64 8}
+!23 = !{!"p1 omnipotent char", !10, i64 0}
+!24 = !{!22, !23, i64 0}
+!25 = !{!23, !23, i64 0}
+!26 = !{!12, !12, i64 0}

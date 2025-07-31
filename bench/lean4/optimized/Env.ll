@@ -10874,7 +10874,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %36, ptr %69, align 8, !tbaa !9
   %70 = tail call ptr @l_Lean_RBNode_insert___at_Lean_Json_mkObj___spec__1(ptr noundef %62, ptr noundef %64, ptr noundef nonnull %65) #6
-  br label %3
+  br label %3, !llvm.loop !16
 }
 
 declare ptr @l_Lean_Name_toString(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
@@ -13262,9 +13262,9 @@ _init_l_Lake_Env_compute_computePkgUrlMap___closed__2.exit: ; preds = %_init_l_L
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr @l_Lean_Json_Parser_any, ptr %122, align 8, !tbaa !9
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
-  store i16 1, ptr %123, align 8, !tbaa !16
+  store i16 1, ptr %123, align 8, !tbaa !18
   %124 = getelementptr inbounds nuw i8, ptr %118, i64 18
-  store i16 0, ptr %124, align 2, !tbaa !16
+  store i16 0, ptr %124, align 2, !tbaa !18
   store ptr %118, ptr @l_Lake_Env_compute_computePkgUrlMap___closed__2, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %118) #6
   %125 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.6, i64 noundef 37, i64 noundef 37) #6
@@ -13668,9 +13668,9 @@ _init_l_Lean_RBNode_fold___at_Lake_Env_baseVars___spec__2___closed__1.exit: ; pr
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store ptr @l_Lean_RBNode_fold___at_Lake_Env_baseVars___spec__2___lambda__1___boxed, ptr %268, align 8, !tbaa !9
   %269 = getelementptr inbounds nuw i8, ptr %264, i64 16
-  store i16 1, ptr %269, align 8, !tbaa !16
+  store i16 1, ptr %269, align 8, !tbaa !18
   %270 = getelementptr inbounds nuw i8, ptr %264, i64 18
-  store i16 0, ptr %270, align 2, !tbaa !16
+  store i16 0, ptr %270, align 2, !tbaa !18
   store ptr %264, ptr @l_Lean_RBNode_fold___at_Lake_Env_baseVars___spec__2___closed__1, align 8, !tbaa !9
   tail call void @lean_mark_persistent(ptr noundef nonnull %264) #6
   %271 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.23, i64 noundef 7, i64 noundef 7) #6
@@ -13786,5 +13786,7 @@ attributes #7 = { noreturn nounwind }
 !13 = !{!"long", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !15 = !{!7, !7, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !7, i64 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"short", !7, i64 0}

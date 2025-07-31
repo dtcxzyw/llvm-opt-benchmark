@@ -295,7 +295,7 @@ define internal i32 @cdtoons_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %153 = getelementptr inbounds nuw i8, ptr %116, i64 %140
   %154 = add nuw nsw i32 %.0197358, 1
   %exitcond.not = icmp eq i32 %154, %115
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph360, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph360, !llvm.loop !48
 
 155:                                              ; preds = %102
   %156 = icmp ult i32 %106, 8
@@ -323,7 +323,7 @@ split:                                            ; preds = %157, %._crit_edge
 164:                                              ; preds = %157
   %165 = getelementptr inbounds nuw i8, ptr %99, i64 %159
   %166 = icmp ult ptr %165, %12
-  br i1 %166, label %98, label %.outer._crit_edge, !llvm.loop !48
+  br i1 %166, label %98, label %.outer._crit_edge, !llvm.loop !49
 
 .outer._crit_edge:                                ; preds = %164
   br i1 %97, label %.outer._crit_edge.thread, label %.outer._crit_edge.thread409
@@ -375,10 +375,10 @@ split:                                            ; preds = %157, %._crit_edge
 
 .thread313:                                       ; preds = %176
   %192 = load ptr, ptr %6, align 8, !tbaa !32
-  %193 = load ptr, ptr %192, align 8, !tbaa !49
+  %193 = load ptr, ptr %192, align 8, !tbaa !50
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 64
-  %195 = load i32, ptr %194, align 8, !tbaa !50
-  %196 = load i32, ptr %170, align 4, !tbaa !51
+  %195 = load i32, ptr %194, align 8, !tbaa !51
+  %196 = load i32, ptr %170, align 4, !tbaa !52
   %197 = mul nsw i32 %196, %195
   %198 = sext i32 %197 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %193, i8 %23, i64 %198, i1 false)
@@ -439,7 +439,7 @@ split:                                            ; preds = %157, %._crit_edge
 227:                                              ; preds = %212, %207, %191, %226, %213, %.thread313
   %228 = add nuw nsw i32 %.0198367, 1
   %exitcond399.not = icmp eq i32 %228, %30
-  br i1 %exitcond399.not, label %._crit_edge370, label %172, !llvm.loop !52
+  br i1 %exitcond399.not, label %._crit_edge370, label %172, !llvm.loop !53
 
 ._crit_edge370:                                   ; preds = %227, %.outer._crit_edge.thread
   %.not225 = icmp eq i16 %33, 0
@@ -494,7 +494,7 @@ split:                                            ; preds = %157, %._crit_edge
   br label %252
 
 251:                                              ; preds = %252
-  store i32 0, ptr %250, align 4, !tbaa !50
+  store i32 0, ptr %250, align 4, !tbaa !51
   br label %.outer._crit_edge.thread409
 
 252:                                              ; preds = %247, %252
@@ -514,11 +514,11 @@ split:                                            ; preds = %157, %._crit_edge
   %264 = or disjoint i32 %263, %260
   %265 = or disjoint i32 %264, -16777216
   %266 = getelementptr inbounds nuw [256 x i32], ptr %250, i64 0, i64 %indvars.iv
-  store i32 %265, ptr %266, align 4, !tbaa !50
+  store i32 %265, ptr %266, align 4, !tbaa !51
   %267 = getelementptr inbounds nuw i8, ptr %.0185371, i64 6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond401.not, label %251, label %252, !llvm.loop !53
+  br i1 %exitcond401.not, label %251, label %252, !llvm.loop !54
 
 .outer._crit_edge.thread409:                      ; preds = %.loopexit, %._crit_edge370, %229, %251, %246, %.outer._crit_edge, %241
   %268 = getelementptr inbounds nuw i8, ptr %6, i64 1040
@@ -527,7 +527,7 @@ split:                                            ; preds = %157, %._crit_edge
 269:                                              ; preds = %284
   %270 = load ptr, ptr %6, align 8, !tbaa !32
   %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %272 = load ptr, ptr %271, align 8, !tbaa !49
+  %272 = load ptr, ptr %271, align 8, !tbaa !50
   %273 = getelementptr inbounds nuw i8, ptr %6, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %272, ptr noundef nonnull align 4 dereferenceable(1024) %273, i64 1024, i1 false)
   %274 = load ptr, ptr %6, align 8, !tbaa !32
@@ -551,10 +551,10 @@ split:                                            ; preds = %157, %._crit_edge
 284:                                              ; preds = %277, %282
   %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402, 1
   %exitcond405.not = icmp eq i64 %indvars.iv.next403, 1200
-  br i1 %exitcond405.not, label %269, label %277, !llvm.loop !54
+  br i1 %exitcond405.not, label %269, label %277, !llvm.loop !55
 
 285:                                              ; preds = %269
-  store i32 1, ptr %2, align 4, !tbaa !50
+  store i32 1, ptr %2, align 4, !tbaa !51
   br label %.thread
 
 .thread:                                          ; preds = %91, %74, %87, %48, %201, %175, %111, %split, %101, %118, %144, %73, %64, %57, %269, %18, %14, %4, %285, %245, %234
@@ -582,7 +582,7 @@ define internal noundef i32 @cdtoons_decode_end(ptr noundef readonly captures(no
   store i32 0, ptr %9, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1200
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !55
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !56
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -604,7 +604,7 @@ define internal void @cdtoons_flush(ptr noundef readonly captures(none) %0) #2 {
   store i32 0, ptr %gep, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1200
-  br i1 %exitcond.not, label %5, label %6, !llvm.loop !56
+  br i1 %exitcond.not, label %5, label %6, !llvm.loop !57
 }
 
 declare ptr @av_frame_alloc() local_unnamed_addr #3
@@ -623,13 +623,13 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %12 = add nsw i32 %5, %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %14 = load i32, ptr %13, align 8, !tbaa !57
+  %14 = load i32, ptr %13, align 8, !tbaa !58
   %15 = icmp sgt i32 %12, %14
   %16 = sub nsw i32 %14, %3
   %spec.select = select i1 %15, i32 %16, i32 %5
   %17 = add nsw i32 %6, %4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %19 = load i32, ptr %18, align 4, !tbaa !51
+  %19 = load i32, ptr %18, align 4, !tbaa !52
   %20 = icmp sgt i32 %17, %19
   %21 = sub nsw i32 %19, %4
   %.091 = select i1 %20, i32 %21, i32 %6
@@ -681,9 +681,9 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
 
 .lr.ph.us:                                        ; preds = %41
   %45 = load ptr, ptr %9, align 8, !tbaa !32
-  %46 = load ptr, ptr %45, align 8, !tbaa !49
+  %46 = load ptr, ptr %45, align 8, !tbaa !50
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %48 = load i32, ptr %47, align 8, !tbaa !50
+  %48 = load i32, ptr %47, align 8, !tbaa !51
   %49 = mul nsw i32 %48, %43
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %46, i64 %50
@@ -792,7 +792,7 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
 100:                                              ; preds = %95
   %101 = sub nsw i32 %.087147.us, %60
   %102 = getelementptr inbounds nuw i8, ptr %56, i64 %.078.us
-  br label %103, !llvm.loop !58
+  br label %103, !llvm.loop !59
 
 103:                                              ; preds = %100, %93
   %.1.us = phi ptr [ %102, %100 ], [ %.3.us, %93 ]
@@ -804,7 +804,7 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
 ..loopexit_crit_edge.us:                          ; preds = %103, %41
   %105 = add nuw nsw i32 %.082152.us, 1
   %.not112.us = icmp slt i32 %105, %.091
-  br i1 %.not112.us, label %.lr.ph154.split.us, label %.thread138, !llvm.loop !59
+  br i1 %.not112.us, label %.lr.ph154.split.us, label %.thread138, !llvm.loop !60
 
 .lr.ph154.split:                                  ; preds = %.lr.ph154, %.loopexit
   %.082152 = phi i32 [ %118, %.loopexit ], [ 0, %.lr.ph154 ]
@@ -828,7 +828,7 @@ define internal fastcc range(i32 0, 2) i32 @cdtoons_render_sprite(ptr noundef re
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 %115
   %118 = add nuw nsw i32 %.082152, 1
   %.not112 = icmp slt i32 %118, %.091
-  br i1 %.not112, label %.lr.ph154.split, label %.thread138, !llvm.loop !61
+  br i1 %.not112, label %.lr.ph154.split, label %.thread138, !llvm.loop !62
 
 .thread138:                                       ; preds = %109, %.lr.ph154.split, %.loopexit, %33, %.lr.ph154.split.us, %..loopexit_crit_edge.us, %54, %66, %84, %95, %25, %23
   %.0 = phi i32 [ 0, %23 ], [ 0, %25 ], [ 1, %95 ], [ 1, %84 ], [ 1, %66 ], [ 1, %54 ], [ 0, %..loopexit_crit_edge.us ], [ 1, %.lr.ph154.split.us ], [ 1, %33 ], [ 0, %.loopexit ], [ 1, %.lr.ph154.split ], [ 1, %109 ]
@@ -910,20 +910,21 @@ attributes #8 = { nounwind }
 !42 = !{!38, !31, i64 4}
 !43 = !{!38, !31, i64 6}
 !44 = !{!38, !14, i64 16}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !46}
-!49 = !{!14, !14, i64 0}
-!50 = !{!10, !10, i64 0}
-!51 = !{!5, !10, i64 116}
-!52 = distinct !{!52, !46}
-!53 = distinct !{!53, !46}
-!54 = distinct !{!54, !46}
-!55 = distinct !{!55, !46}
-!56 = distinct !{!56, !46}
-!57 = !{!5, !10, i64 112}
-!58 = distinct !{!58, !46}
-!59 = distinct !{!59, !46, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = distinct !{!61, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !46, !47}
+!49 = distinct !{!49, !46, !47}
+!50 = !{!14, !14, i64 0}
+!51 = !{!10, !10, i64 0}
+!52 = !{!5, !10, i64 116}
+!53 = distinct !{!53, !46, !47}
+!54 = distinct !{!54, !46, !47}
+!55 = distinct !{!55, !46, !47}
+!56 = distinct !{!56, !46, !47}
+!57 = distinct !{!57, !46, !47}
+!58 = !{!5, !10, i64 112}
+!59 = distinct !{!59, !46}
+!60 = distinct !{!60, !46, !47, !61}
+!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!62 = distinct !{!62, !46, !47}

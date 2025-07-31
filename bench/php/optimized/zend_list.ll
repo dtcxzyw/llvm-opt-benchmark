@@ -587,7 +587,7 @@ zend_resource_dtor.exit:                          ; preds = %26, %33
 
 34:                                               ; preds = %21, %zend_resource_dtor.exit, %9
   %.not.wide = icmp eq i64 %10, 0
-  br i1 %.not.wide, label %._crit_edge, label %9
+  br i1 %.not.wide, label %._crit_edge, label %9, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %34, %1
   ret void
@@ -616,7 +616,7 @@ define internal range(i32 0, 2) i32 @zend_clean_module_rsrc_dtors_cb(ptr noundef
   %3 = load ptr, ptr %0, align 8, !tbaa !13
   %4 = load i32, ptr %1, align 4, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !59
+  %6 = load i32, ptr %5, align 8, !tbaa !61
   %7 = icmp eq i32 %6, %4
   br i1 %7, label %8, label %10
 
@@ -639,13 +639,13 @@ define dso_local i32 @zend_register_list_destructors_ex(ptr noundef %0, ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %3, ptr %8, align 8, !tbaa !59
+  store i32 %3, ptr %8, align 8, !tbaa !61
   %9 = load i64, ptr getelementptr inbounds nuw (i8, ptr @list_destructors, i64 40), align 8, !tbaa !4
   %10 = trunc i64 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %10, ptr %11, align 4, !tbaa !60
+  store i32 %10, ptr %11, align 4, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %2, ptr %12, align 8, !tbaa !61
+  store ptr %2, ptr %12, align 8, !tbaa !63
   store ptr %6, ptr %5, align 8, !tbaa !13
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 13, ptr %13, align 8, !tbaa !13
@@ -693,12 +693,12 @@ define dso_local i32 @zend_fetch_list_dtor_id(ptr noundef readonly captures(none
   %9 = getelementptr inbounds nuw i8, ptr %.01621, i64 8
   %10 = load i8, ptr %9, align 8, !tbaa !13
   %11 = icmp eq i8 %10, 0
-  br i1 %11, label %22, label %12, !prof !62
+  br i1 %11, label %22, label %12, !prof !64
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr %.01621, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !61
+  %15 = load ptr, ptr %14, align 8, !tbaa !63
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %22, label %16
 
@@ -709,13 +709,13 @@ define dso_local i32 @zend_fetch_list_dtor_id(ptr noundef readonly captures(none
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  %21 = load i32, ptr %20, align 4, !tbaa !60
+  %21 = load i32, ptr %20, align 4, !tbaa !62
   br label %.loopexit
 
 22:                                               ; preds = %12, %16, %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %.not = icmp eq ptr %23, %5
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %22, %1, %19
   %spec.select = phi i32 [ %21, %19 ], [ 0, %1 ], [ 0, %22 ]
@@ -759,7 +759,7 @@ define dso_local ptr @zend_rsrc_list_get_rsrc_type(ptr noundef readonly captures
 6:                                                ; preds = %1
   %7 = load ptr, ptr %5, align 8, !tbaa !13, !nonnull !22, !noundef !22
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !61
+  %9 = load ptr, ptr %8, align 8, !tbaa !63
   br label %zend_hash_index_find_ptr.exit.thread
 
 zend_hash_index_find_ptr.exit.thread:             ; preds = %1, %6
@@ -802,9 +802,9 @@ define dso_local ptr @zend_register_persistent_resource(ptr noundef readonly cap
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 150, ptr %9, align 4, !tbaa !13
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %10, align 8, !tbaa !63
+  store i64 0, ptr %10, align 8, !tbaa !66
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 %1, ptr %11, align 8, !tbaa !65
+  store i64 %1, ptr %11, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %12, ptr align 1 %0, i64 %1, i1 false)
   %13 = getelementptr inbounds nuw [1 x i8], ptr %12, i64 0, i64 %1
@@ -946,10 +946,13 @@ attributes #16 = { nounwind willreturn memory(read) }
 !56 = !{!"_zend_strtod_state", !8, i64 0, !57, i64 64, !25, i64 72}
 !57 = !{!"p1 _ZTS19_zend_strtod_bigint", !11, i64 0}
 !58 = !{!5, !7, i64 24}
-!59 = !{!24, !7, i64 24}
-!60 = !{!24, !7, i64 28}
-!61 = !{!24, !25, i64 16}
-!62 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!63 = !{!64, !10, i64 8}
-!64 = !{!"_zend_string", !6, i64 0, !10, i64 8, !10, i64 16, !8, i64 24}
-!65 = !{!64, !10, i64 16}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!24, !7, i64 24}
+!62 = !{!24, !7, i64 28}
+!63 = !{!24, !25, i64 16}
+!64 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!65 = distinct !{!65, !60}
+!66 = !{!67, !10, i64 8}
+!67 = !{!"_zend_string", !6, i64 0, !10, i64 8, !10, i64 16, !8, i64 24}
+!68 = !{!67, !10, i64 16}

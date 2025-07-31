@@ -229,7 +229,7 @@ define range(i32 0, 2) i32 @CTLOG_new_from_base64_ex(ptr noundef writeonly captu
 
 20:                                               ; preds = %14
   %21 = call ptr @CTLOG_new_ex(ptr noundef nonnull %17, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4
-  store ptr %21, ptr %0, align 8, !tbaa !11
+  store ptr %21, ptr %0, align 8, !tbaa !12
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
@@ -281,7 +281,8 @@ attributes #5 = { nounwind willreturn memory(read) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS8ctlog_st", !5, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS8ctlog_st", !5, i64 0}

@@ -347,7 +347,7 @@ define internal void @grayscale_convert(ptr noundef readonly captures(none) %0, 
   %22 = getelementptr inbounds nuw i8, ptr %.022.us, i64 8
   %23 = add i32 %.01421.us, 1
   %24 = icmp samesign ugt i32 %.in, 1
-  br i1 %24, label %.lr.ph.us, label %._crit_edge, !llvm.loop !8
+  br i1 %24, label %.lr.ph.us, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph23, %5
   ret void
@@ -403,7 +403,7 @@ define internal void @rgb_ycc_start(ptr noundef %0) #0 {
   store i32 %34, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %35, label %9, !llvm.loop !10
+  br i1 %exitcond.not, label %35, label %9, !llvm.loop !11
 
 35:                                               ; preds = %9
   ret void
@@ -468,13 +468,13 @@ define internal void @rgb_gray_convert(ptr noundef readonly captures(none) %0, p
   store i8 %36, ptr %37, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19, !llvm.loop !11
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %19, !llvm.loop !12
 
 ..loopexit_crit_edge.us:                          ; preds = %19
   %38 = getelementptr inbounds nuw i8, ptr %.032.us, i64 8
   %39 = add i32 %.02331.us, 1
   %40 = icmp samesign ugt i32 %.in, 1
-  br i1 %40, label %.lr.ph.us, label %._crit_edge, !llvm.loop !12
+  br i1 %40, label %.lr.ph.us, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph33, %5
   ret void
@@ -512,7 +512,7 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %.033.us, i64 8
   %16 = add i32 %.02032.us, 1
   %17 = icmp sgt i32 %.in, 1
-  br i1 %17, label %.preheader.us, label %._crit_edge, !llvm.loop !13
+  br i1 %17, label %.preheader.us, label %._crit_edge, !llvm.loop !14
 
 .lr.ph.us.us:                                     ; preds = %.preheader.us, %._crit_edge.us.us
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %._crit_edge.us.us ], [ 0, %.preheader.us ]
@@ -533,12 +533,12 @@ define internal void @null_convert(ptr noundef readonly captures(none) %0, ptr n
   %27 = getelementptr inbounds nuw i8, ptr %.02427.us.us, i64 %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us.us, label %23, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.us.us, label %23, !llvm.loop !15
 
 ._crit_edge.us.us:                                ; preds = %23
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count44
-  br i1 %exitcond45.not, label %._crit_edge31.us, label %.lr.ph.us.us, !llvm.loop !15
+  br i1 %exitcond45.not, label %._crit_edge31.us, label %.lr.ph.us.us, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %._crit_edge31.us, %.preheader.lr.ph, %5
   ret void
@@ -635,13 +635,13 @@ define internal void @rgb_ycc_convert(ptr noundef readonly captures(none) %0, pt
   store i8 %70, ptr %71, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %27, !llvm.loop !16
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %27, !llvm.loop !17
 
 ..loopexit_crit_edge.us:                          ; preds = %27
   %72 = getelementptr inbounds nuw i8, ptr %.050.us, i64 8
   %73 = add i32 %.04349.us, 1
   %74 = icmp samesign ugt i32 %.in, 1
-  br i1 %74, label %.lr.ph.us, label %._crit_edge, !llvm.loop !17
+  br i1 %74, label %.lr.ph.us, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph51, %5
   ret void
@@ -749,13 +749,13 @@ define internal void @cmyk_ycck_convert(ptr noundef readonly captures(none) %0, 
   store i8 %80, ptr %81, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %31, !llvm.loop !18
+  br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %31, !llvm.loop !19
 
 ..loopexit_crit_edge.us:                          ; preds = %31
   %82 = getelementptr inbounds nuw i8, ptr %.055.us, i64 8
   %83 = add i32 %.04854.us, 1
   %84 = icmp samesign ugt i32 %.in, 1
-  br i1 %84, label %.lr.ph.us, label %._crit_edge, !llvm.loop !19
+  br i1 %84, label %.lr.ph.us, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.lr.ph56, %5
   ret void
@@ -774,17 +774,18 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !9}
-!13 = distinct !{!13, !7, !9}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !9}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !9}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7, !9}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !10}
+!14 = distinct !{!14, !7, !8, !10}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8, !10}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8, !10}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8, !10}

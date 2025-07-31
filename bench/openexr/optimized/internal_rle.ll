@@ -125,14 +125,14 @@ define hidden i64 @internal_rle_compress(ptr noundef writeonly captures(none) %0
   store i8 %41, ptr %42, align 1, !tbaa !3
   %.3 = add i64 %.396, 1
   %exitcond.not = icmp eq i64 %.3, %39
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph97, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph97, %.critedge2, %19
   %.164 = phi ptr [ %.160.lcssa, %19 ], [ %.063, %.critedge2 ], [ %40, %.lr.ph97 ]
   %.261 = phi ptr [ %.160.lcssa, %19 ], [ %.362.lcssa, %.critedge2 ], [ %.362.lcssa, %.lr.ph97 ]
   %.2 = phi i64 [ %22, %19 ], [ %.394, %.critedge2 ], [ %39, %.lr.ph97 ]
   %.not72 = icmp ult i64 %.2, %1
-  br i1 %.not72, label %6, label %43
+  br i1 %.not72, label %6, label %43, !llvm.loop !10
 
 43:                                               ; preds = %.loopexit, %6
   %.158 = phi i64 [ %.2, %.loopexit ], [ %.057, %6 ]
@@ -142,7 +142,7 @@ define hidden i64 @internal_rle_compress(ptr noundef writeonly captures(none) %0
 ; Function Attrs: nounwind uwtable
 define hidden i32 @internal_exr_apply_rle(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load i64, ptr %2, align 8, !tbaa !9
+  %3 = load i64, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %3) #7
@@ -150,9 +150,9 @@ define hidden i32 @internal_exr_apply_rle(ptr noundef %0) local_unnamed_addr #1 
   br i1 %.not, label %7, label %80
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr %4, align 8, !tbaa !18
+  %8 = load ptr, ptr %4, align 8, !tbaa !20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %10 = load ptr, ptr %9, align 8, !tbaa !19
+  %10 = load ptr, ptr %9, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %3
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %reorder_and_predict.exit, label %.lr.ph.preheader.i
@@ -185,7 +185,7 @@ define hidden i32 @internal_exr_apply_rle(ptr noundef %0) local_unnamed_addr #1 
   %.128.i = phi ptr [ %22, %19 ], [ %.02732.i, %.lr.ph.i ]
   %.126.i = phi ptr [ %20, %19 ], [ %15, %.lr.ph.i ]
   %24 = icmp ult ptr %.126.i, %11
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 %3
@@ -206,14 +206,14 @@ define hidden i32 @internal_exr_apply_rle(ptr noundef %0) local_unnamed_addr #1 
   store i8 %29, ptr %.137.i, align 1, !tbaa !3
   %.1.i = getelementptr inbounds nuw i8, ptr %.137.i, i64 1
   %30 = icmp ult ptr %.1.i, %25
-  br i1 %30, label %.lr.ph39.i, label %reorder_and_predict.exit, !llvm.loop !21
+  br i1 %30, label %.lr.ph39.i, label %reorder_and_predict.exit, !llvm.loop !23
 
 reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._crit_edge.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %32 = load ptr, ptr %31, align 8, !tbaa !22
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %34 = load i64, ptr %33, align 8, !tbaa !23
-  %35 = load ptr, ptr %4, align 8, !tbaa !18
+  %34 = load i64, ptr %33, align 8, !tbaa !25
+  %35 = load ptr, ptr %4, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %3
   br label %37
 
@@ -346,14 +346,14 @@ reorder_and_predict.exit:                         ; preds = %.lr.ph39.i, %7, %._
   store i8 %73, ptr %74, align 1, !tbaa !3
   %.3.i = add i64 %.396.i, 1
   %exitcond.not.i = icmp eq i64 %.3.i, %71
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph97.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph97.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %.lr.ph97.i, %.critedge2.i, %51
   %.164.i = phi ptr [ %.160.lcssa.i, %51 ], [ %.063.i, %.critedge2.i ], [ %72, %.lr.ph97.i ]
   %.261.i = phi ptr [ %.160.lcssa.i, %51 ], [ %.362.lcssa.i, %.critedge2.i ], [ %.362.lcssa.i, %.lr.ph97.i ]
   %.2.i = phi i64 [ %54, %51 ], [ %.394.i, %.critedge2.i ], [ %71, %.lr.ph97.i ]
   %.not72.i = icmp ult i64 %.2.i, %34
-  br i1 %.not72.i, label %37, label %internal_rle_compress.exit
+  br i1 %.not72.i, label %37, label %internal_rle_compress.exit, !llvm.loop !10
 
 internal_rle_compress.exit:                       ; preds = %37, %.loopexit.i
   %.158.i = phi i64 [ %.2.i, %.loopexit.i ], [ %.057.i, %37 ]
@@ -361,15 +361,15 @@ internal_rle_compress.exit:                       ; preds = %37, %.loopexit.i
   br i1 %.not26, label %78, label %75
 
 75:                                               ; preds = %internal_rle_compress.exit
-  %76 = load ptr, ptr %31, align 8, !tbaa !22
-  %77 = load ptr, ptr %9, align 8, !tbaa !19
+  %76 = load ptr, ptr %31, align 8, !tbaa !24
+  %77 = load ptr, ptr %9, align 8, !tbaa !21
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr align 1 %77, i64 %3, i1 false)
   br label %78
 
 78:                                               ; preds = %75, %internal_rle_compress.exit
   %.022 = phi i64 [ %3, %75 ], [ %.158.i, %internal_rle_compress.exit ]
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 %.022, ptr %79, align 8, !tbaa !24
+  store i64 %.022, ptr %79, align 8, !tbaa !26
   br label %80
 
 80:                                               ; preds = %1, %78
@@ -441,7 +441,7 @@ define hidden i64 @internal_rle_decompress(ptr noundef writeonly captures(none) 
   %.248 = phi i64 [ %15, %17 ], [ %25, %27 ]
   %.256 = getelementptr inbounds nuw i8, ptr %.05471, i64 %.pn
   %31 = icmp ult i64 %.252, %3
-  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !25
+  br i1 %31, label %.lr.ph, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %30, %14, %7, %23, %19, %4
   %.2 = phi i64 [ 0, %4 ], [ 0, %19 ], [ 0, %23 ], [ 0, %7 ], [ 0, %14 ], [ %.248, %30 ]
@@ -466,7 +466,7 @@ define hidden i32 @internal_exr_undo_rle(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not, label %12, label %internal_rle_decompress.exit.thread
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr %9, align 8, !tbaa !26
+  %13 = load ptr, ptr %9, align 8, !tbaa !28
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %39
@@ -523,14 +523,14 @@ define hidden i32 @internal_exr_undo_rle(ptr noundef %0, ptr noundef readonly ca
   %.248.i = phi i64 [ %24, %26 ], [ %34, %36 ]
   %.256.i = getelementptr inbounds nuw i8, ptr %.05471.i, i64 %.pn.i
   %40 = icmp ult i64 %.252.i, %2
-  br i1 %40, label %.lr.ph.i, label %internal_rle_decompress.exit, !llvm.loop !25
+  br i1 %40, label %.lr.ph.i, label %internal_rle_decompress.exit, !llvm.loop !27
 
 internal_rle_decompress.exit:                     ; preds = %39
   %41 = icmp eq i64 %.248.i, 0
   br i1 %41, label %internal_rle_decompress.exit.thread, label %42
 
 42:                                               ; preds = %internal_rle_decompress.exit
-  %43 = load ptr, ptr %9, align 8, !tbaa !26
+  %43 = load ptr, ptr %9, align 8, !tbaa !28
   %44 = add i64 %.248.i, 1
   %45 = lshr i64 %44, 1
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %45
@@ -552,7 +552,7 @@ internal_rle_decompress.exit:                     ; preds = %39
   store i8 %51, ptr %.033.i, align 1, !tbaa !3
   %.0.i = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
   %52 = icmp ult ptr %.0.i, %47
-  br i1 %52, label %.lr.ph.i27, label %.lr.ph38.preheader.i, !llvm.loop !28
+  br i1 %52, label %.lr.ph.i27, label %.lr.ph38.preheader.i, !llvm.loop !30
 
 .lr.ph38.preheader.i:                             ; preds = %.lr.ph.i27, %42
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 %.248.i
@@ -580,12 +580,12 @@ internal_rle_decompress.exit:                     ; preds = %39
   %.127.i = phi ptr [ %59, %58 ], [ %.02634.i, %.lr.ph38.i ]
   %.125.i = phi ptr [ %61, %58 ], [ %56, %.lr.ph38.i ]
   %63 = icmp ult ptr %.125.i, %53
-  br i1 %63, label %.lr.ph38.i, label %internal_rle_decompress.exit.thread.sink.split, !llvm.loop !29
+  br i1 %63, label %.lr.ph38.i, label %internal_rle_decompress.exit.thread.sink.split, !llvm.loop !31
 
 internal_rle_decompress.exit.thread.sink.split:   ; preds = %62, %5
   %.248.i.lcssa.sink = phi i64 [ 0, %5 ], [ %.248.i, %62 ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %.248.i.lcssa.sink, ptr %64, align 8, !tbaa !30
+  store i64 %.248.i.lcssa.sink, ptr %64, align 8, !tbaa !32
   br label %internal_rle_decompress.exit.thread
 
 internal_rle_decompress.exit.thread:              ; preds = %23, %16, %32, %28, %internal_rle_decompress.exit.thread.sink.split, %internal_rle_decompress.exit, %8
@@ -615,28 +615,30 @@ attributes #7 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !11, i64 112}
-!10 = !{!"_exr_encode_pipeline", !11, i64 0, !12, i64 8, !13, i64 16, !13, i64 18, !14, i64 20, !15, i64 24, !16, i64 32, !12, i64 96, !12, i64 104, !11, i64 112, !11, i64 120, !17, i64 128, !11, i64 136, !12, i64 144, !11, i64 152, !11, i64 160, !12, i64 168, !11, i64 176, !11, i64 184, !12, i64 192, !11, i64 200, !12, i64 208, !11, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !4, i64 272}
-!11 = !{!"long", !4, i64 0}
-!12 = !{!"any pointer", !4, i64 0}
-!13 = !{!"short", !4, i64 0}
-!14 = !{!"int", !4, i64 0}
-!15 = !{!"p1 _ZTS19_priv_exr_context_t", !12, i64 0}
-!16 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !4, i64 20, !4, i64 21, !4, i64 22, !4, i64 23, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56}
-!17 = !{!"p1 int", !12, i64 0}
-!18 = !{!10, !12, i64 192}
-!19 = !{!10, !12, i64 104}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = !{!10, !12, i64 168}
-!23 = !{!10, !11, i64 184}
-!24 = !{!10, !11, i64 176}
-!25 = distinct !{!25, !7}
-!26 = !{!27, !12, i64 184}
-!27 = !{!"_exr_decode_pipeline", !11, i64 0, !12, i64 8, !13, i64 16, !13, i64 18, !14, i64 20, !15, i64 24, !16, i64 32, !14, i64 96, !14, i64 100, !11, i64 104, !12, i64 112, !12, i64 120, !11, i64 128, !12, i64 136, !11, i64 144, !12, i64 152, !11, i64 160, !17, i64 168, !11, i64 176, !12, i64 184, !11, i64 192, !12, i64 200, !11, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !4, i64 264}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = !{!27, !11, i64 104}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !13, i64 112}
+!12 = !{!"_exr_encode_pipeline", !13, i64 0, !14, i64 8, !15, i64 16, !15, i64 18, !16, i64 20, !17, i64 24, !18, i64 32, !14, i64 96, !14, i64 104, !13, i64 112, !13, i64 120, !19, i64 128, !13, i64 136, !14, i64 144, !13, i64 152, !13, i64 160, !14, i64 168, !13, i64 176, !13, i64 184, !14, i64 192, !13, i64 200, !14, i64 208, !13, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !14, i64 264, !4, i64 272}
+!13 = !{!"long", !4, i64 0}
+!14 = !{!"any pointer", !4, i64 0}
+!15 = !{!"short", !4, i64 0}
+!16 = !{!"int", !4, i64 0}
+!17 = !{!"p1 _ZTS19_priv_exr_context_t", !14, i64 0}
+!18 = !{!"", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !4, i64 20, !4, i64 21, !4, i64 22, !4, i64 23, !13, i64 24, !13, i64 32, !13, i64 40, !13, i64 48, !13, i64 56}
+!19 = !{!"p1 int", !14, i64 0}
+!20 = !{!12, !14, i64 192}
+!21 = !{!12, !14, i64 104}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = !{!12, !14, i64 168}
+!25 = !{!12, !13, i64 184}
+!26 = !{!12, !13, i64 176}
+!27 = distinct !{!27, !7, !8}
+!28 = !{!29, !14, i64 184}
+!29 = !{!"_exr_decode_pipeline", !13, i64 0, !14, i64 8, !15, i64 16, !15, i64 18, !16, i64 20, !17, i64 24, !18, i64 32, !16, i64 96, !16, i64 100, !13, i64 104, !14, i64 112, !14, i64 120, !13, i64 128, !14, i64 136, !13, i64 144, !14, i64 152, !13, i64 160, !19, i64 168, !13, i64 176, !14, i64 184, !13, i64 192, !14, i64 200, !13, i64 208, !14, i64 216, !14, i64 224, !14, i64 232, !14, i64 240, !14, i64 248, !14, i64 256, !4, i64 264}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = !{!29, !13, i64 104}

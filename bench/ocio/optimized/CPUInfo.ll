@@ -320,7 +320,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define hidden noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_5dev7CPUInfo8instanceEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load atomic i8, ptr @_ZGVZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton acquire, align 8
   %2 = icmp eq i8 %1, 0
-  br i1 %2, label %3, label %6, !prof !15
+  br i1 %2, label %3, label %6, !prof !16
 
 3:                                                ; preds = %0
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN19OpenColorIO_v2_5dev7CPUInfo8instanceEvE9singleton) #4
@@ -368,6 +368,7 @@ attributes #4 = { nounwind }
 !10 = !{!5, !6, i64 0}
 !11 = !{i64 743}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"branch_weights", i32 1, i32 1048575}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"branch_weights", i32 1, i32 1048575}

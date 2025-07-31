@@ -88,7 +88,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7717CharsetRecog_202210ma
   %.4.us = phi i32 [ %.04580.us, %12 ], [ %22, %.thread.us ]
   %24 = add nsw i32 %.4.us, 1
   %25 = icmp slt i32 %24, %2
-  br i1 %25, label %.lr.ph83.split.us, label %._crit_edge84, !llvm.loop !8
+  br i1 %25, label %.lr.ph83.split.us, label %._crit_edge84, !llvm.loop !9
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %19
   %indvars.iv96 = phi i64 [ 1, %.lr.ph.us.preheader ], [ %indvars.iv.next97, %19 ]
@@ -102,7 +102,7 @@ define noundef range(i32 0, -2147483648) i32 @_ZNK6icu_7717CharsetRecog_202210ma
 .loopexit.us:                                     ; preds = %.lr.ph.us, %15
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %._crit_edge.us, label %15
+  br i1 %exitcond105.not, label %._crit_edge.us, label %15, !llvm.loop !11
 
 .preheader.us:                                    ; preds = %15
   %29 = icmp sgt i32 %18, 1
@@ -176,9 +176,9 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_2022JP7getNameEv(ptr nonnu
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022JP5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !10
+  %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !16
+  %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph83.split.us.i, label %_ZNK6icu_7717CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
@@ -227,7 +227,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022JP5match
   %.4.us.i = phi i32 [ %.04580.us.i, %12 ], [ %22, %.thread.us.i ]
   %24 = add nsw i32 %.4.us.i, 1
   %25 = icmp slt i32 %24, %6
-  br i1 %25, label %.lr.ph83.split.us.i, label %._crit_edge84.i, !llvm.loop !8
+  br i1 %25, label %.lr.ph83.split.us.i, label %._crit_edge84.i, !llvm.loop !9
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.preheader.i, %19
   %indvars.iv96.i = phi i64 [ 1, %.lr.ph.us.preheader.i ], [ %indvars.iv.next97.i, %19 ]
@@ -241,7 +241,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022JP5match
 .loopexit.us.i:                                   ; preds = %.lr.ph.us.i, %15
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next102.i, 12
-  br i1 %exitcond105.not.i, label %._crit_edge.us.i, label %15
+  br i1 %exitcond105.not.i, label %._crit_edge.us.i, label %15, !llvm.loop !11
 
 .preheader.us.i:                                  ; preds = %15
   %29 = icmp sgt i32 %18, 1
@@ -307,9 +307,9 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_2022KR7getNameEv(ptr nonnu
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022KR5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !10
+  %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !16
+  %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph83.split.us.i, label %_ZNK6icu_7717CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
@@ -349,7 +349,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022KR5match
   %.4.us.i = phi i32 [ %.04580.us.i, %12 ], [ %17, %.thread.us.i ]
   %19 = add nsw i32 %.4.us.i, 1
   %20 = icmp slt i32 %19, %6
-  br i1 %20, label %.lr.ph83.split.us.i, label %._crit_edge84.i, !llvm.loop !8
+  br i1 %20, label %.lr.ph83.split.us.i, label %._crit_edge84.i, !llvm.loop !9
 
 .lr.ph.us.i:                                      ; preds = %.preheader72.us.i, %15
   %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %15 ], [ 1, %.preheader72.us.i ]
@@ -415,9 +415,9 @@ define noundef nonnull ptr @_ZNK6icu_7719CharsetRecog_2022CN7getNameEv(ptr nonnu
 
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022CN5matchEPNS_9InputTextEPNS_12CharsetMatchE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !10
+  %4 = load ptr, ptr %1, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !16
+  %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph83.split.us.i, label %_ZNK6icu_7717CharsetRecog_202210match_2022EPKhiPA5_S1_i.exit
 
@@ -466,7 +466,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022CN5match
   %.4.us.i = phi i32 [ %.04580.us.i, %12 ], [ %22, %.thread.us.i ]
   %24 = add nsw i32 %.4.us.i, 1
   %25 = icmp slt i32 %24, %6
-  br i1 %25, label %.lr.ph83.split.us.i, label %._crit_edge84.i, !llvm.loop !8
+  br i1 %25, label %.lr.ph83.split.us.i, label %._crit_edge84.i, !llvm.loop !9
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.preheader.i, %19
   %indvars.iv96.i = phi i64 [ 1, %.lr.ph.us.preheader.i ], [ %indvars.iv.next97.i, %19 ]
@@ -480,7 +480,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7719CharsetRecog_2022CN5match
 .loopexit.us.i:                                   ; preds = %.lr.ph.us.i, %15
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond105.not.i = icmp eq i64 %indvars.iv.next102.i, 11
-  br i1 %exitcond105.not.i, label %._crit_edge.us.i, label %15
+  br i1 %exitcond105.not.i, label %._crit_edge.us.i, label %15, !llvm.loop !11
 
 .preheader.us.i:                                  ; preds = %15
   %29 = icmp sgt i32 %18, 1
@@ -563,14 +563,16 @@ attributes #12 = { noreturn nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = !{!11, !12, i64 0}
-!11 = !{!"_ZTSN6icu_779InputTextE", !12, i64 0, !14, i64 8, !15, i64 16, !4, i64 24, !12, i64 32, !12, i64 40, !14, i64 48}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !4, i64 0}
-!14 = !{!"int", !4, i64 0}
-!15 = !{!"p1 short", !13, i64 0}
-!16 = !{!11, !14, i64 8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"_ZTSN6icu_779InputTextE", !14, i64 0, !16, i64 8, !17, i64 16, !4, i64 24, !14, i64 32, !14, i64 40, !16, i64 48}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !4, i64 0}
+!16 = !{!"int", !4, i64 0}
+!17 = !{!"p1 short", !15, i64 0}
+!18 = !{!13, !16, i64 8}

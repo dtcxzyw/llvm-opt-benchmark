@@ -175,7 +175,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_quic_cfq_add_frame(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %12, label %27
 
@@ -188,12 +188,12 @@ define ptr @ossl_quic_cfq_add_frame(ptr noundef captures(none) %0, i32 noundef %
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 84
   store i32 -1, ptr %16, align 4, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %18, ptr %19, align 8, !tbaa !29
+  store ptr %18, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr null, ptr %20, align 8, !tbaa !21
-  store ptr %13, ptr %17, align 8, !tbaa !28
+  store ptr %13, ptr %17, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %23, label %21
 
@@ -215,7 +215,7 @@ define ptr @ossl_quic_cfq_add_frame(ptr noundef captures(none) %0, i32 noundef %
   %28 = phi ptr [ %13, %26 ], [ %24, %23 ], [ %11, %9 ]
   %.0.i.ph = phi ptr [ %13, %26 ], [ %13, %23 ], [ %11, %9 ]
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 72
-  store i32 %1, ptr %29, align 8, !tbaa !30
+  store i32 %1, ptr %29, align 8, !tbaa !31
   %30 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 56
   store i64 %3, ptr %30, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 76
@@ -243,14 +243,14 @@ define ptr @ossl_quic_cfq_add_frame(ptr noundef captures(none) %0, i32 noundef %
 
 42:                                               ; preds = %39, %27
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %44 = load ptr, ptr %43, align 8, !tbaa !29
   %45 = icmp eq ptr %44, %.0.i.ph
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !29
+  %47 = load ptr, ptr %46, align 8, !tbaa !30
   br i1 %45, label %48, label %._crit_edge.i
 
 48:                                               ; preds = %42
-  store ptr %47, ptr %43, align 8, !tbaa !28
+  store ptr %47, ptr %43, align 8, !tbaa !29
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %48, %42
@@ -270,7 +270,7 @@ define ptr @ossl_quic_cfq_add_frame(ptr noundef captures(none) %0, i32 noundef %
 
 51:                                               ; preds = %._crit_edge19.i
   %52 = getelementptr inbounds nuw i8, ptr %.pre21.i, i64 16
-  store ptr %47, ptr %52, align 8, !tbaa !29
+  store ptr %47, ptr %52, align 8, !tbaa !30
   br label %list_remove.exit
 
 list_remove.exit:                                 ; preds = %._crit_edge19.i, %51
@@ -281,7 +281,7 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %5
 
 55:                                               ; preds = %list_remove.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.0.i.ph, ptr %56, align 8, !tbaa !28
+  store ptr %.0.i.ph, ptr %56, align 8, !tbaa !29
   store ptr %.0.i.ph, ptr %0, align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   br label %cfq_get_free.exit
@@ -300,7 +300,7 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %5
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %.0223.i, i64 72
-  %64 = load i32, ptr %63, align 8, !tbaa !30
+  %64 = load i32, ptr %63, align 8, !tbaa !31
   %65 = icmp ugt i32 %64, %1
   br i1 %65, label %66, label %.critedge.i
 
@@ -308,14 +308,14 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %5
   %67 = getelementptr inbounds nuw i8, ptr %.0223.i, i64 24
   %68 = load ptr, ptr %67, align 8, !tbaa !21
   %cond.i = icmp eq ptr %68, null
-  br i1 %cond.i, label %69, label %.preheader.i, !llvm.loop !31
+  br i1 %cond.i, label %69, label %.preheader.i, !llvm.loop !32
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !28
-  store ptr %71, ptr %46, align 8, !tbaa !29
+  %71 = load ptr, ptr %70, align 8, !tbaa !29
+  store ptr %71, ptr %46, align 8, !tbaa !30
   store ptr null, ptr %.phi.trans.insert20.i, align 8, !tbaa !21
-  store ptr %.0.i.ph, ptr %70, align 8, !tbaa !28
+  store ptr %.0.i.ph, ptr %70, align 8, !tbaa !29
   %.not.i.i26 = icmp eq ptr %71, null
   br i1 %.not.i.i26, label %cfq_get_free.exit, label %72
 
@@ -332,18 +332,18 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %5
   store ptr %53, ptr %.phi.trans.insert20.i, align 8, !tbaa !21
   store ptr %.0.i.ph, ptr %0, align 8, !tbaa !19
   %76 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store ptr %.0.i.ph, ptr %76, align 8, !tbaa !29
+  store ptr %.0.i.ph, ptr %76, align 8, !tbaa !30
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !28
+  %78 = load ptr, ptr %77, align 8, !tbaa !29
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %cfq_get_free.exit
 
 80:                                               ; preds = %75
-  store ptr %.0.i.ph, ptr %77, align 8, !tbaa !28
+  store ptr %.0.i.ph, ptr %77, align 8, !tbaa !29
   br label %cfq_get_free.exit
 
 81:                                               ; preds = %.critedge.i
-  store ptr %.04.i, ptr %46, align 8, !tbaa !29
+  store ptr %.04.i, ptr %46, align 8, !tbaa !30
   %82 = getelementptr inbounds nuw i8, ptr %.04.i, i64 24
   %83 = load ptr, ptr %82, align 8, !tbaa !21
   store ptr %83, ptr %.phi.trans.insert20.i, align 8, !tbaa !21
@@ -352,18 +352,18 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %5
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store ptr %.0.i.ph, ptr %85, align 8, !tbaa !29
+  store ptr %.0.i.ph, ptr %85, align 8, !tbaa !30
   br label %86
 
 86:                                               ; preds = %84, %81
   store ptr %.0.i.ph, ptr %82, align 8, !tbaa !21
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !28
+  %88 = load ptr, ptr %87, align 8, !tbaa !29
   %89 = icmp eq ptr %88, %.04.i
   br i1 %89, label %90, label %cfq_get_free.exit
 
 90:                                               ; preds = %86
-  store ptr %.0.i.ph, ptr %87, align 8, !tbaa !28
+  store ptr %.0.i.ph, ptr %87, align 8, !tbaa !29
   br label %cfq_get_free.exit
 
 cfq_get_free.exit:                                ; preds = %90, %86, %80, %75, %72, %69, %55, %12
@@ -391,14 +391,14 @@ define void @ossl_quic_cfq_mark_tx(ptr noundef captures(none) %0, ptr noundef %1
 
 11:                                               ; preds = %8, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = icmp eq ptr %13, %1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   br i1 %14, label %17, label %._crit_edge.i
 
 17:                                               ; preds = %11
-  store ptr %16, ptr %12, align 8, !tbaa !28
+  store ptr %16, ptr %12, align 8, !tbaa !29
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17, %11
@@ -418,16 +418,16 @@ define void @ossl_quic_cfq_mark_tx(ptr noundef captures(none) %0, ptr noundef %1
 
 20:                                               ; preds = %._crit_edge19.i
   %21 = getelementptr inbounds nuw i8, ptr %.pre21.i, i64 16
-  store ptr %16, ptr %21, align 8, !tbaa !29
+  store ptr %16, ptr %21, align 8, !tbaa !30
   br label %list_remove.exit
 
 list_remove.exit:                                 ; preds = %._crit_edge19.i, %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !28
-  store ptr %24, ptr %15, align 8, !tbaa !29
-  store ptr %1, ptr %23, align 8, !tbaa !28
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
+  store ptr %24, ptr %15, align 8, !tbaa !30
+  store ptr %1, ptr %23, align 8, !tbaa !29
   %.not.i7 = icmp eq ptr %24, null
   br i1 %.not.i7, label %27, label %25
 
@@ -479,7 +479,7 @@ define void @ossl_quic_cfq_mark_lost(ptr noundef captures(none) %0, ptr noundef 
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %14 = load i32, ptr %13, align 8, !tbaa !30
+  %14 = load i32, ptr %13, align 8, !tbaa !31
   %.not23 = icmp eq i32 %2, %14
   br i1 %.not23, label %list_insert_sorted.exit, label %15
 
@@ -496,14 +496,14 @@ define void @ossl_quic_cfq_mark_lost(ptr noundef captures(none) %0, ptr noundef 
 
 21:                                               ; preds = %18, %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %24 = icmp eq ptr %23, %1
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
   br i1 %24, label %27, label %._crit_edge.i
 
 27:                                               ; preds = %21
-  store ptr %26, ptr %22, align 8, !tbaa !28
+  store ptr %26, ptr %22, align 8, !tbaa !29
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %27, %21
@@ -523,12 +523,12 @@ define void @ossl_quic_cfq_mark_lost(ptr noundef captures(none) %0, ptr noundef 
 
 30:                                               ; preds = %._crit_edge19.i
   %31 = getelementptr inbounds nuw i8, ptr %.pre21.i, i64 16
-  store ptr %26, ptr %31, align 8, !tbaa !29
+  store ptr %26, ptr %31, align 8, !tbaa !30
   br label %list_remove.exit
 
 list_remove.exit:                                 ; preds = %._crit_edge19.i, %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  store i32 %2, ptr %13, align 8, !tbaa !30
+  store i32 %2, ptr %13, align 8, !tbaa !31
   %32 = load ptr, ptr %0, align 8, !tbaa !19
   %33 = icmp eq ptr %32, null
   br i1 %33, label %36, label %.preheader.i
@@ -539,7 +539,7 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
   br label %37
 
 36:                                               ; preds = %list_remove.exit
-  store ptr %1, ptr %22, align 8, !tbaa !28
+  store ptr %1, ptr %22, align 8, !tbaa !29
   store ptr %1, ptr %0, align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   br label %list_insert_sorted.exit
@@ -558,7 +558,7 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %.0223.i, i64 72
-  %45 = load i32, ptr %44, align 8, !tbaa !30
+  %45 = load i32, ptr %44, align 8, !tbaa !31
   %46 = icmp ugt i32 %45, %2
   br i1 %46, label %47, label %.critedge.i
 
@@ -566,13 +566,13 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
   %48 = getelementptr inbounds nuw i8, ptr %.0223.i, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !21
   %cond.i = icmp eq ptr %49, null
-  br i1 %cond.i, label %50, label %37, !llvm.loop !31
+  br i1 %cond.i, label %50, label %37, !llvm.loop !32
 
 50:                                               ; preds = %47
-  %51 = load ptr, ptr %22, align 8, !tbaa !28
-  store ptr %51, ptr %25, align 8, !tbaa !29
+  %51 = load ptr, ptr %22, align 8, !tbaa !29
+  store ptr %51, ptr %25, align 8, !tbaa !30
   store ptr null, ptr %.phi.trans.insert20.i, align 8, !tbaa !21
-  store ptr %1, ptr %22, align 8, !tbaa !28
+  store ptr %1, ptr %22, align 8, !tbaa !29
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %list_insert_sorted.exit, label %52
 
@@ -589,17 +589,17 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
   store ptr %32, ptr %.phi.trans.insert20.i, align 8, !tbaa !21
   store ptr %1, ptr %0, align 8, !tbaa !19
   %56 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %1, ptr %56, align 8, !tbaa !29
-  %57 = load ptr, ptr %22, align 8, !tbaa !28
+  store ptr %1, ptr %56, align 8, !tbaa !30
+  %57 = load ptr, ptr %22, align 8, !tbaa !29
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %list_insert_sorted.exit
 
 59:                                               ; preds = %55
-  store ptr %1, ptr %22, align 8, !tbaa !28
+  store ptr %1, ptr %22, align 8, !tbaa !29
   br label %list_insert_sorted.exit
 
 60:                                               ; preds = %.critedge.i
-  store ptr %.04.i, ptr %25, align 8, !tbaa !29
+  store ptr %.04.i, ptr %25, align 8, !tbaa !30
   %61 = getelementptr inbounds nuw i8, ptr %.04.i, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !21
   store ptr %62, ptr %.phi.trans.insert20.i, align 8, !tbaa !21
@@ -608,17 +608,17 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %1, ptr %64, align 8, !tbaa !29
+  store ptr %1, ptr %64, align 8, !tbaa !30
   br label %65
 
 65:                                               ; preds = %63, %60
   store ptr %1, ptr %61, align 8, !tbaa !21
-  %66 = load ptr, ptr %22, align 8, !tbaa !28
+  %66 = load ptr, ptr %22, align 8, !tbaa !29
   %67 = icmp eq ptr %66, %.04.i
   br i1 %67, label %68, label %list_insert_sorted.exit
 
 68:                                               ; preds = %65
-  store ptr %1, ptr %22, align 8, !tbaa !28
+  store ptr %1, ptr %22, align 8, !tbaa !29
   br label %list_insert_sorted.exit
 
 69:                                               ; preds = %8
@@ -627,7 +627,7 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %2, ptr %71, align 8, !tbaa !30
+  store i32 %2, ptr %71, align 8, !tbaa !31
   br label %72
 
 72:                                               ; preds = %70, %69
@@ -644,14 +644,14 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
 
 79:                                               ; preds = %76, %72
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !28
+  %81 = load ptr, ptr %80, align 8, !tbaa !29
   %82 = icmp eq ptr %81, %1
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !29
+  %84 = load ptr, ptr %83, align 8, !tbaa !30
   br i1 %82, label %85, label %._crit_edge.i24
 
 85:                                               ; preds = %79
-  store ptr %84, ptr %80, align 8, !tbaa !28
+  store ptr %84, ptr %80, align 8, !tbaa !29
   br label %._crit_edge.i24
 
 ._crit_edge.i24:                                  ; preds = %85, %79
@@ -671,7 +671,7 @@ list_remove.exit:                                 ; preds = %._crit_edge19.i, %3
 
 88:                                               ; preds = %._crit_edge19.i28
   %89 = getelementptr inbounds nuw i8, ptr %.pre21.i27, i64 16
-  store ptr %84, ptr %89, align 8, !tbaa !29
+  store ptr %84, ptr %89, align 8, !tbaa !30
   br label %list_remove.exit30
 
 list_remove.exit30:                               ; preds = %._crit_edge19.i28, %88
@@ -688,7 +688,7 @@ list_remove.exit30:                               ; preds = %._crit_edge19.i28, 
 
 95:                                               ; preds = %list_remove.exit30
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %96, align 8, !tbaa !28
+  store ptr %1, ptr %96, align 8, !tbaa !29
   store ptr %1, ptr %0, align 8, !tbaa !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
   br label %list_insert_sorted.exit38
@@ -707,8 +707,8 @@ list_remove.exit30:                               ; preds = %._crit_edge19.i28, 
 
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %.0223.i33, i64 72
-  %105 = load i32, ptr %104, align 8, !tbaa !30
-  %106 = load i32, ptr %94, align 8, !tbaa !30
+  %105 = load i32, ptr %104, align 8, !tbaa !31
+  %106 = load i32, ptr %94, align 8, !tbaa !31
   %107 = icmp ugt i32 %105, %106
   br i1 %107, label %108, label %.critedge.i34
 
@@ -716,14 +716,14 @@ list_remove.exit30:                               ; preds = %._crit_edge19.i28, 
   %109 = getelementptr inbounds nuw i8, ptr %.0223.i33, i64 24
   %110 = load ptr, ptr %109, align 8, !tbaa !21
   %cond.i36 = icmp eq ptr %110, null
-  br i1 %cond.i36, label %111, label %97, !llvm.loop !31
+  br i1 %cond.i36, label %111, label %97, !llvm.loop !32
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !28
-  store ptr %113, ptr %83, align 8, !tbaa !29
+  %113 = load ptr, ptr %112, align 8, !tbaa !29
+  store ptr %113, ptr %83, align 8, !tbaa !30
   store ptr null, ptr %.phi.trans.insert20.i26, align 8, !tbaa !21
-  store ptr %1, ptr %112, align 8, !tbaa !28
+  store ptr %1, ptr %112, align 8, !tbaa !29
   %.not.i.i37 = icmp eq ptr %113, null
   br i1 %.not.i.i37, label %list_insert_sorted.exit38, label %114
 
@@ -740,18 +740,18 @@ list_remove.exit30:                               ; preds = %._crit_edge19.i28, 
   store ptr %90, ptr %.phi.trans.insert20.i26, align 8, !tbaa !21
   store ptr %1, ptr %0, align 8, !tbaa !19
   %118 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  store ptr %1, ptr %118, align 8, !tbaa !29
+  store ptr %1, ptr %118, align 8, !tbaa !30
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !28
+  %120 = load ptr, ptr %119, align 8, !tbaa !29
   %121 = icmp eq ptr %120, null
   br i1 %121, label %122, label %list_insert_sorted.exit38
 
 122:                                              ; preds = %117
-  store ptr %1, ptr %119, align 8, !tbaa !28
+  store ptr %1, ptr %119, align 8, !tbaa !29
   br label %list_insert_sorted.exit38
 
 123:                                              ; preds = %.critedge.i34
-  store ptr %.04.i32, ptr %83, align 8, !tbaa !29
+  store ptr %.04.i32, ptr %83, align 8, !tbaa !30
   %124 = getelementptr inbounds nuw i8, ptr %.04.i32, i64 24
   %125 = load ptr, ptr %124, align 8, !tbaa !21
   store ptr %125, ptr %.phi.trans.insert20.i26, align 8, !tbaa !21
@@ -760,18 +760,18 @@ list_remove.exit30:                               ; preds = %._crit_edge19.i28, 
 
 126:                                              ; preds = %123
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  store ptr %1, ptr %127, align 8, !tbaa !29
+  store ptr %1, ptr %127, align 8, !tbaa !30
   br label %128
 
 128:                                              ; preds = %126, %123
   store ptr %1, ptr %124, align 8, !tbaa !21
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %130 = load ptr, ptr %129, align 8, !tbaa !28
+  %130 = load ptr, ptr %129, align 8, !tbaa !29
   %131 = icmp eq ptr %130, %.04.i32
   br i1 %131, label %132, label %list_insert_sorted.exit38
 
 132:                                              ; preds = %128
-  store ptr %1, ptr %129, align 8, !tbaa !28
+  store ptr %1, ptr %129, align 8, !tbaa !29
   br label %list_insert_sorted.exit38
 
 list_insert_sorted.exit38:                        ; preds = %95, %111, %114, %117, %122, %128, %132
@@ -804,14 +804,14 @@ define void @ossl_quic_cfq_release(ptr noundef captures(none) %0, ptr noundef %1
 
 11:                                               ; preds = %8, %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = icmp eq ptr %13, %1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !29
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   br i1 %14, label %17, label %._crit_edge.i
 
 17:                                               ; preds = %11
-  store ptr %16, ptr %12, align 8, !tbaa !28
+  store ptr %16, ptr %12, align 8, !tbaa !29
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %17, %11
@@ -831,16 +831,16 @@ define void @ossl_quic_cfq_release(ptr noundef captures(none) %0, ptr noundef %1
 
 20:                                               ; preds = %._crit_edge19.i
   %21 = getelementptr inbounds nuw i8, ptr %.pre21.i, i64 16
-  store ptr %16, ptr %21, align 8, !tbaa !29
+  store ptr %16, ptr %21, align 8, !tbaa !30
   br label %list_remove.exit
 
 list_remove.exit:                                 ; preds = %._crit_edge19.i, %20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !28
-  store ptr %24, ptr %15, align 8, !tbaa !29
-  store ptr %1, ptr %23, align 8, !tbaa !28
+  %24 = load ptr, ptr %23, align 8, !tbaa !29
+  store ptr %24, ptr %15, align 8, !tbaa !30
+  store ptr %1, ptr %23, align 8, !tbaa !29
   %.not.i12 = icmp eq ptr %24, null
   br i1 %.not.i12, label %27, label %25
 
@@ -878,14 +878,14 @@ list_insert_tail.exit:                            ; preds = %27, %30
 
 40:                                               ; preds = %37, %33
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !28
+  %42 = load ptr, ptr %41, align 8, !tbaa !29
   %43 = icmp eq ptr %42, %1
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !29
+  %45 = load ptr, ptr %44, align 8, !tbaa !30
   br i1 %43, label %46, label %._crit_edge.i14
 
 46:                                               ; preds = %40
-  store ptr %45, ptr %41, align 8, !tbaa !28
+  store ptr %45, ptr %41, align 8, !tbaa !29
   br label %._crit_edge.i14
 
 ._crit_edge.i14:                                  ; preds = %46, %40
@@ -905,16 +905,16 @@ list_insert_tail.exit:                            ; preds = %27, %30
 
 49:                                               ; preds = %._crit_edge19.i18
   %50 = getelementptr inbounds nuw i8, ptr %.pre21.i17, i64 16
-  store ptr %45, ptr %50, align 8, !tbaa !29
+  store ptr %45, ptr %50, align 8, !tbaa !30
   br label %list_remove.exit20
 
 list_remove.exit20:                               ; preds = %._crit_edge19.i18, %49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !28
-  store ptr %53, ptr %44, align 8, !tbaa !29
-  store ptr %1, ptr %52, align 8, !tbaa !28
+  %53 = load ptr, ptr %52, align 8, !tbaa !29
+  store ptr %53, ptr %44, align 8, !tbaa !30
+  store ptr %1, ptr %52, align 8, !tbaa !29
   %.not.i21 = icmp eq ptr %53, null
   br i1 %.not.i21, label %56, label %54
 
@@ -961,7 +961,7 @@ list_insert_tail.exit22:                          ; preds = %56, %59
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @ossl_quic_cfq_get_priority_head(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
-  %.09 = load ptr, ptr %0, align 8, !tbaa !32
+  %.09 = load ptr, ptr %0, align 8, !tbaa !33
   %cond10 = icmp eq ptr %.09, null
   br i1 %cond10, label %.critedge, label %.lr.ph
 
@@ -974,9 +974,9 @@ define ptr @ossl_quic_cfq_get_priority_head(ptr noundef readonly captures(none) 
 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.011, i64 24
-  %.0 = load ptr, ptr %6, align 8, !tbaa !32
+  %.0 = load ptr, ptr %6, align 8, !tbaa !33
   %cond = icmp eq ptr %.0, null
-  br i1 %cond, label %.critedge, label %.lr.ph, !llvm.loop !33
+  br i1 %cond, label %.critedge, label %.lr.ph, !llvm.loop !34
 
 .critedge:                                        ; preds = %5, %.lr.ph, %2
   %.07 = phi ptr [ null, %2 ], [ %.011, %.lr.ph ], [ null, %5 ]
@@ -999,7 +999,7 @@ define ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef readonly captures(a
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 76
   %6 = load i32, ptr %5, align 4, !tbaa !17
   %.not11 = icmp eq i32 %6, %1
-  br i1 %.not11, label %.critedge, label %.preheader, !llvm.loop !34
+  br i1 %.not11, label %.critedge, label %.preheader, !llvm.loop !35
 
 .critedge:                                        ; preds = %4, %.preheader, %2
   %.09 = phi ptr [ null, %2 ], [ %.0, %4 ], [ null, %.preheader ]
@@ -1043,14 +1043,15 @@ attributes #6 = { nounwind }
 !21 = !{!4, !10, i64 24}
 !22 = !{!4, !7, i64 40}
 !23 = !{!4, !7, i64 48}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !10, i64 32}
-!27 = !{!"quic_cfq_st", !20, i64 0, !20, i64 16, !20, i64 32}
-!28 = !{!20, !10, i64 8}
-!29 = !{!4, !10, i64 16}
-!30 = !{!4, !13, i64 72}
-!31 = distinct !{!31, !25}
-!32 = !{!10, !10, i64 0}
-!33 = distinct !{!33, !25}
-!34 = distinct !{!34, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !10, i64 32}
+!28 = !{!"quic_cfq_st", !20, i64 0, !20, i64 16, !20, i64 32}
+!29 = !{!20, !10, i64 8}
+!30 = !{!4, !10, i64 16}
+!31 = !{!4, !13, i64 72}
+!32 = distinct !{!32, !25, !26}
+!33 = !{!10, !10, i64 0}
+!34 = distinct !{!34, !25, !26}
+!35 = distinct !{!35, !25, !26}

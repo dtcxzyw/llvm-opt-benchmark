@@ -427,10 +427,10 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
 153:                                              ; preds = %151
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %154 = tail call ptr @__errno_location() #18
-  store i32 0, ptr %154, align 4, !tbaa !26
+  store i32 0, ptr %154, align 4, !tbaa !27
   %155 = getelementptr inbounds nuw i8, ptr %.193.i, i64 5
   %156 = call i64 @strtoul(ptr noundef nonnull %155, ptr noundef nonnull %5, i32 noundef 10) #13
-  %157 = load i32, ptr %154, align 4, !tbaa !26
+  %157 = load i32, ptr %154, align 4, !tbaa !27
   %.not165.i.i = icmp eq i32 %157, 0
   br i1 %.not165.i.i, label %158, label %.thread190.i
 
@@ -559,13 +559,13 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
   %219 = load i8, ptr %217, align 1, !tbaa !9
   %220 = add i8 %219, -48
   %or.cond175.i.i = icmp ult i8 %220, 10
-  br i1 %or.cond175.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !27
+  br i1 %or.cond175.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !28
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i, %211
   %221 = tail call ptr @__errno_location() #18
-  store i32 0, ptr %221, align 4, !tbaa !26
+  store i32 0, ptr %221, align 4, !tbaa !27
   %222 = call i64 @strtoul(ptr noundef nonnull %132, ptr noundef nonnull %6, i32 noundef 10) #13
-  %223 = load i32, ptr %221, align 4, !tbaa !26
+  %223 = load i32, ptr %221, align 4, !tbaa !27
   %.not.i53.i = icmp eq i32 %223, 0
   br i1 %.not.i53.i, label %224, label %.thread.i54.thread.i
 
@@ -589,7 +589,7 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
   ]
 
 .preheader.i.i.backedge:                          ; preds = %.preheader.i.i, %.preheader.i.i
-  br label %.preheader.i.i, !llvm.loop !28
+  br label %.preheader.i.i, !llvm.loop !29
 
 .critedge8.i.i:                                   ; preds = %.preheader.i.i
   %230 = add i8 %229, -48
@@ -597,9 +597,9 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
   br i1 %or.cond176.i.i, label %231, label %.thread.i54.thread.i
 
 231:                                              ; preds = %.critedge8.i.i
-  store i32 0, ptr %221, align 4, !tbaa !26
+  store i32 0, ptr %221, align 4, !tbaa !27
   %232 = call i64 @strtoul(ptr noundef nonnull %.3.i.i, ptr noundef nonnull %6, i32 noundef 10) #13
-  %233 = load i32, ptr %221, align 4, !tbaa !26
+  %233 = load i32, ptr %221, align 4, !tbaa !27
   %.not158.i.i = icmp eq i32 %233, 0
   br i1 %.not158.i.i, label %234, label %.thread.i54.thread.i
 
@@ -613,9 +613,9 @@ multiply.exit.i.i:                                ; preds = %93, %96, %.outer.i.
 
 237:                                              ; preds = %234
   %238 = getelementptr inbounds nuw i8, ptr %235, i64 1
-  store i32 0, ptr %221, align 4, !tbaa !26
+  store i32 0, ptr %221, align 4, !tbaa !27
   %239 = call i64 @strtoul(ptr noundef nonnull %238, ptr noundef nonnull %6, i32 noundef 10) #13
-  %240 = load i32, ptr %221, align 4, !tbaa !26
+  %240 = load i32, ptr %221, align 4, !tbaa !27
   %.not159.i.i = icmp eq i32 %240, 0
   br i1 %.not159.i.i, label %241, label %.thread.i54.thread.i
 
@@ -724,7 +724,7 @@ glob_fixed.exit.i:                                ; preds = %196, %205, %279, %m
   %281 = add i64 %280, 1
   store i64 %281, ptr %19, align 8, !tbaa !17
   %282 = icmp ugt i64 %281, 99
-  br i1 %282, label %glob_parse.exit.thread, label %22, !llvm.loop !29
+  br i1 %282, label %glob_parse.exit.thread, label %22, !llvm.loop !30
 
 glob_parse.exit.thread:                           ; preds = %glob_fixed.exit.i, %28, %28
   %.str.8.sink.i = phi ptr [ @.str.7, %28 ], [ @.str.7, %28 ], [ @.str.8, %glob_fixed.exit.i ]
@@ -737,7 +737,7 @@ glob_parse.exit:                                  ; preds = %22
   br i1 %.not.i, label %283, label %285
 
 283:                                              ; preds = %glob_parse.exit
-  store i64 %.032, ptr %2, align 8, !tbaa !30
+  store i64 %.032, ptr %2, align 8, !tbaa !31
   %284 = load ptr, ptr %8, align 8, !tbaa !4
   store ptr %284, ptr %0, align 8, !tbaa !4
   br label %300
@@ -775,7 +775,7 @@ glob_parse.exit:                                  ; preds = %22
 
 299:                                              ; preds = %297, %286, %285
   call void @glob_cleanup(ptr noundef nonnull %8)
-  store i64 1, ptr %2, align 8, !tbaa !30
+  store i64 1, ptr %2, align 8, !tbaa !31
   br label %300
 
 300:                                              ; preds = %4, %283, %299, %15
@@ -849,7 +849,7 @@ define dso_local void @glob_cleanup(ptr noundef captures(none) %0) local_unnamed
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.0
   store ptr null, ptr %20, align 8, !tbaa !24
   %21 = icmp samesign ugt i64 %.0.in29, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
+  br i1 %21, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %10, align 8, !tbaa !9
@@ -866,7 +866,7 @@ define dso_local void @glob_cleanup(ptr noundef captures(none) %0) local_unnamed
   %24 = phi i64 [ %5, %.lr.ph31 ], [ %5, %9 ], [ %.pre34, %._crit_edge ]
   %25 = add nuw i64 %.02630, 1
   %26 = icmp ult i64 %25, %24
-  br i1 %26, label %.lr.ph31, label %._crit_edge32, !llvm.loop !32
+  br i1 %26, label %.lr.ph31, label %._crit_edge32, !llvm.loop !33
 
 ._crit_edge32:                                    ; preds = %23, %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 4816
@@ -889,7 +889,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   store ptr null, ptr %0, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4824
-  %9 = load i8, ptr %8, align 8, !tbaa !33
+  %9 = load i8, ptr %8, align 8, !tbaa !34
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %12, label %.preheader
 
@@ -900,7 +900,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   br i1 %exitcond.not104, label %.loopexit, label %.lr.ph106
 
 12:                                               ; preds = %2
-  store i8 1, ptr %8, align 8, !tbaa !33
+  store i8 1, ptr %8, align 8, !tbaa !34
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4800
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !17
   %13 = icmp eq i64 %.pre, 0
@@ -980,7 +980,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
 .backedge:                                        ; preds = %47, %31, %43
   %.07289.be = add i64 %.07289105, 1
   %exitcond.not = icmp eq i64 %.07289.be, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph106, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph106, !llvm.loop !35
 
 .thread86:                                        ; preds = %47, %18, %21, %34, %12
   %.not93 = phi i1 [ %13, %12 ], [ false, %34 ], [ false, %21 ], [ false, %18 ], [ false, %47 ]
@@ -1051,7 +1051,7 @@ define dso_local range(i32 0, 28) i32 @glob_next_url(ptr noundef writeonly captu
   %89 = add nuw i64 %.17390, 1
   %90 = load i64, ptr %55, align 8, !tbaa !17
   %91 = icmp ult i64 %89, %90
-  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %88, %.thread86
   %92 = load ptr, ptr %6, align 8, !tbaa !14
@@ -1120,7 +1120,7 @@ define dso_local range(i32 0, 28) i32 @glob_match_url(ptr noundef writeonly capt
 23:                                               ; preds = %25
   %24 = add nuw i64 %.02954, 1
   %exitcond.not = icmp eq i64 %24, %19
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !37
 
 25:                                               ; preds = %.preheader, %23
   %.02954 = phi i64 [ 0, %.preheader ], [ %24, %23 ]
@@ -1170,7 +1170,7 @@ define dso_local range(i32 0, 28) i32 @glob_match_url(ptr noundef writeonly capt
   br label %56
 
 .critedge:                                        ; preds = %30
-  %52 = load ptr, ptr @tool_stderr, align 8, !tbaa !37
+  %52 = load ptr, ptr @tool_stderr, align 8, !tbaa !38
   %53 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %52, ptr noundef nonnull @.str.3, i32 noundef %31) #13
   call void @curlx_dyn_free(ptr noundef nonnull %6) #13
   br label %.loopexit52
@@ -1189,7 +1189,7 @@ define dso_local range(i32 0, 28) i32 @glob_match_url(ptr noundef writeonly capt
   %.336 = phi i64 [ 1, %54 ], [ %41, %35 ], [ %.033, %32 ], [ 1, %42 ], [ %51, %45 ], [ 1, %.loopexit ]
   %57 = call i32 @curlx_dyn_addn(ptr noundef nonnull %6, ptr noundef %.340, i64 noundef %.336) #13
   %.not49 = icmp eq i32 %57, 0
-  br i1 %.not49, label %9, label %.loopexit52, !llvm.loop !39
+  br i1 %.not49, label %9, label %.loopexit52, !llvm.loop !40
 
 58:                                               ; preds = %9
   %59 = call i32 @curlx_dyn_addn(ptr noundef nonnull %6, ptr noundef nonnull @.str.6, i64 noundef 0) #13
@@ -1278,7 +1278,7 @@ attributes #18 = { nounwind willreturn memory(none) }
 !13 = !{!"p1 omnipotent char", !6, i64 0}
 !14 = !{!11, !13, i64 4816}
 !15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"llvm.loop.estimated_trip_count"}
 !17 = !{!11, !12, i64 4800}
 !18 = !{!19, !20, i64 0}
 !19 = !{!"URLPattern", !20, i64 0, !20, i64 4, !7, i64 8}
@@ -1287,18 +1287,19 @@ attributes #18 = { nounwind willreturn memory(none) }
 !22 = !{!11, !13, i64 4832}
 !23 = !{!11, !12, i64 4840}
 !24 = !{!13, !13, i64 0}
-!25 = distinct !{!25, !16}
-!26 = !{!20, !20, i64 0}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16}
-!30 = !{!12, !12, i64 0}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
-!33 = !{!11, !7, i64 4824}
-!34 = distinct !{!34, !16}
-!35 = distinct !{!35, !16}
-!36 = distinct !{!36, !16}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!39 = distinct !{!39, !16}
+!25 = distinct !{!25, !26, !16}
+!26 = !{!"llvm.loop.mustprogress"}
+!27 = !{!20, !20, i64 0}
+!28 = distinct !{!28, !26, !16}
+!29 = distinct !{!29, !26, !16}
+!30 = distinct !{!30, !26, !16}
+!31 = !{!12, !12, i64 0}
+!32 = distinct !{!32, !26, !16}
+!33 = distinct !{!33, !26, !16}
+!34 = !{!11, !7, i64 4824}
+!35 = distinct !{!35, !26, !16}
+!36 = distinct !{!36, !26, !16}
+!37 = distinct !{!37, !26, !16}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!40 = distinct !{!40, !26, !16}

@@ -130,13 +130,13 @@ define void @swap_ij_case2(ptr noundef captures(none) %0, i32 noundef %1, i32 no
   store i64 %38, ptr %30, align 8, !tbaa !3
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, 1
   %39 = icmp slt i64 %indvars.iv.next42, %indvars.iv44
-  br i1 %39, label %27, label %._crit_edge, !llvm.loop !9
+  br i1 %39, label %27, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %27, %23
   %indvars.iv.next45 = add nsw i64 %indvars.iv44, %21
   %40 = icmp slt i64 %indvars.iv.next45, %22
   %indvars.iv.next = add i32 %indvars.iv, %19
-  br i1 %40, label %23, label %._crit_edge40, !llvm.loop !10
+  br i1 %40, label %23, label %._crit_edge40, !llvm.loop !11
 
 ._crit_edge40:                                    ; preds = %._crit_edge, %4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #5
@@ -188,13 +188,13 @@ define void @swap_ij_case3(ptr noundef captures(none) %0, i32 noundef %1, i32 no
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep, ptr align 8 %11, i64 %10, i1 false)
   %indvars.iv.next39 = add nsw i64 %indvars.iv38, %18
   %26 = icmp slt i64 %indvars.iv.next39, %indvars.iv41
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph36
   %indvars.iv.next42 = add nsw i64 %indvars.iv41, %21
   %27 = icmp slt i64 %indvars.iv.next42, %22
   %indvars.iv.next = add i32 %indvars.iv, %7
-  br i1 %27, label %.lr.ph36, label %._crit_edge37, !llvm.loop !12
+  br i1 %27, label %.lr.ph36, label %._crit_edge37, !llvm.loop !13
 
 ._crit_edge37:                                    ; preds = %._crit_edge, %4
   ret void
@@ -337,13 +337,13 @@ tailrecurse:                                      ; preds = %7, %4
   store i64 %80, ptr %72, align 8, !tbaa !3
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, 1
   %81 = icmp slt i64 %indvars.iv.next42.i, %indvars.iv44.i
-  br i1 %81, label %69, label %._crit_edge.i.loopexit, !llvm.loop !9
+  br i1 %81, label %69, label %._crit_edge.i.loopexit, !llvm.loop !10
 
 ._crit_edge.i.loopexit:                           ; preds = %69
   %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, %62
   %82 = icmp slt i64 %indvars.iv.next45.i, %63
   %indvars.iv.next.i33 = add i32 %indvars.iv.i31, %60
-  br i1 %82, label %.lr.ph.i32, label %swap_ij_case2.exit, !llvm.loop !10
+  br i1 %82, label %.lr.ph.i32, label %swap_ij_case2.exit, !llvm.loop !11
 
 swap_ij_case2.exit:                               ; preds = %._crit_edge.i.loopexit, %.lr.ph39.i, %48
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #5
@@ -397,13 +397,13 @@ swap_ij_case2.exit:                               ; preds = %._crit_edge.i.loope
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %gep.i41.us, ptr align 8 %92, i64 %91, i1 false)
   %indvars.iv.next39.i.us = add nsw i64 %indvars.iv38.i.us, %98
   %107 = icmp slt i64 %indvars.iv.next39.i.us, %indvars.iv41.i35.us
-  br i1 %107, label %.lr.ph.i40.us, label %._crit_edge.i37.loopexit.us, !llvm.loop !11
+  br i1 %107, label %.lr.ph.i40.us, label %._crit_edge.i37.loopexit.us, !llvm.loop !12
 
 ._crit_edge.i37.loopexit.us:                      ; preds = %.lr.ph.i40.us
   %indvars.iv.next42.i38.us = add nsw i64 %indvars.iv41.i35.us, %100
   %108 = icmp slt i64 %indvars.iv.next42.i38.us, %101
   %indvars.iv.next.i39.us = add i32 %indvars.iv.i36.us, %88
-  br i1 %108, label %.lr.ph36.i.us, label %swap_ij_case1.exit, !llvm.loop !13
+  br i1 %108, label %.lr.ph36.i.us, label %swap_ij_case1.exit, !llvm.loop !14
 
 swap_ij_case1.exit:                               ; preds = %tailrecurse, %._crit_edge.i37.loopexit.us, %35, %.lr.ph36.preheader.i, %85, %12, %swap_ij_case2.exit, %83
   ret void
@@ -426,11 +426,12 @@ attributes #6 = { nounwind allocsize(0) }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}

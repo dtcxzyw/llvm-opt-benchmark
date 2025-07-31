@@ -936,7 +936,7 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
 42:                                               ; preds = %49
   %43 = add nuw nsw i32 %.01424, 1
   %exitcond.not = icmp eq i32 %43, %40
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %42
   %.01424 = phi i32 [ %43, %42 ], [ 0, %.preheader ]
@@ -948,7 +948,7 @@ define dso_local range(i64 0, 2) i64 @pg_promote(ptr noundef readonly captures(n
 46:                                               ; preds = %.lr.ph
   %47 = load volatile i32, ptr @InterruptPending, align 4
   %.not19 = icmp eq i32 %47, 0
-  br i1 %.not19, label %49, label %48, !prof !7
+  br i1 %.not19, label %49, label %48, !prof !8
 
 48:                                               ; preds = %46
   tail call void @ProcessInterrupts() #9
@@ -1040,7 +1040,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}

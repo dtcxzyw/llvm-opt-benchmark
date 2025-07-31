@@ -168,16 +168,16 @@ define dso_local noundef zeroext i1 @is_ident1(i32 noundef %0) local_unnamed_add
 
 2:                                                ; preds = %.lr.ph.i
   %gep.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @is_ident1.range, i64 4), i64 %indvars.iv.i
-  %3 = load i32, ptr %gep.i, align 4, !tbaa !15
+  %3 = load i32, ptr %gep.i, align 4, !tbaa !16
   %.not15.i = icmp ugt i32 %0, %3
   br i1 %.not15.i, label %4, label %in_range.exit
 
 4:                                                ; preds = %2, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %5 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i
-  %6 = load i32, ptr %5, align 8, !tbaa !15
+  %6 = load i32, ptr %5, align 8, !tbaa !16
   %.not.not.i = icmp eq i32 %6, -1
-  br i1 %.not.not.i, label %in_range.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.not.i, label %in_range.exit, label %.lr.ph.i, !llvm.loop !18
 
 in_range.exit:                                    ; preds = %2, %4
   %.not.lcssa.i.ph = phi i1 [ true, %2 ], [ false, %4 ]
@@ -197,16 +197,16 @@ define dso_local noundef zeroext i1 @is_ident2(i32 noundef %0) local_unnamed_add
 
 2:                                                ; preds = %.lr.ph.i.i
   %gep.i.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @is_ident1.range, i64 4), i64 %indvars.iv.i.i
-  %3 = load i32, ptr %gep.i.i, align 4, !tbaa !15
+  %3 = load i32, ptr %gep.i.i, align 4, !tbaa !16
   %.not15.i.i = icmp ugt i32 %0, %3
   br i1 %.not15.i.i, label %4, label %is_ident1.exit
 
 4:                                                ; preds = %2, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %5 = getelementptr inbounds nuw i32, ptr @is_ident1.range, i64 %indvars.iv.next.i.i
-  %6 = load i32, ptr %5, align 8, !tbaa !15
+  %6 = load i32, ptr %5, align 8, !tbaa !16
   %.not.not.i.i = icmp eq i32 %6, -1
-  br i1 %.not.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.not.i.i, label %.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !18
 
 .lr.ph.i:                                         ; preds = %4, %10
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %4 ]
@@ -216,16 +216,16 @@ define dso_local noundef zeroext i1 @is_ident2(i32 noundef %0) local_unnamed_add
 
 8:                                                ; preds = %.lr.ph.i
   %gep.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @is_ident2.range, i64 4), i64 %indvars.iv.i
-  %9 = load i32, ptr %gep.i, align 4, !tbaa !15
+  %9 = load i32, ptr %gep.i, align 4, !tbaa !16
   %.not15.i = icmp ugt i32 %0, %9
   br i1 %.not15.i, label %10, label %is_ident1.exit
 
 10:                                               ; preds = %8, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %11 = getelementptr inbounds nuw i32, ptr @is_ident2.range, i64 %indvars.iv.next.i
-  %12 = load i32, ptr %11, align 8, !tbaa !15
+  %12 = load i32, ptr %11, align 8, !tbaa !16
   %.not.not.i = icmp eq i32 %12, -1
-  br i1 %.not.not.i, label %is_ident1.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.not.i, label %is_ident1.exit, label %.lr.ph.i, !llvm.loop !18
 
 is_ident1.exit:                                   ; preds = %2, %10, %8
   %13 = phi i1 [ false, %10 ], [ true, %8 ], [ true, %2 ]
@@ -312,16 +312,16 @@ decode_utf8.exit:                                 ; preds = %8, %19
 
 30:                                               ; preds = %.lr.ph.i.i
   %gep.i.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @char_width.range1, i64 4), i64 %indvars.iv.i.i
-  %31 = load i32, ptr %gep.i.i, align 4, !tbaa !15
+  %31 = load i32, ptr %gep.i.i, align 4, !tbaa !16
   %.not15.i.i = icmp ugt i32 %.027.i, %31
   br i1 %.not15.i.i, label %32, label %char_width.exit
 
 32:                                               ; preds = %30, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %33 = getelementptr inbounds nuw i32, ptr @char_width.range1, i64 %indvars.iv.next.i.i
-  %34 = load i32, ptr %33, align 8, !tbaa !15
+  %34 = load i32, ptr %33, align 8, !tbaa !16
   %.not.not.i.i = icmp eq i32 %34, -1
-  br i1 %.not.not.i.i, label %.lr.ph.i5.i, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.not.i.i, label %.lr.ph.i5.i, label %.lr.ph.i.i, !llvm.loop !18
 
 .lr.ph.i5.i:                                      ; preds = %32, %38
   %indvars.iv.i6.i = phi i64 [ %indvars.iv.next.i11.i, %38 ], [ 0, %32 ]
@@ -331,16 +331,16 @@ decode_utf8.exit:                                 ; preds = %8, %19
 
 36:                                               ; preds = %.lr.ph.i5.i
   %gep.i8.i = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @char_width.range2, i64 4), i64 %indvars.iv.i6.i
-  %37 = load i32, ptr %gep.i8.i, align 4, !tbaa !15
+  %37 = load i32, ptr %gep.i8.i, align 4, !tbaa !16
   %.not15.i9.i = icmp ugt i32 %.027.i, %37
   br i1 %.not15.i9.i, label %38, label %char_width.exit
 
 38:                                               ; preds = %36, %.lr.ph.i5.i
   %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i6.i, 2
   %39 = getelementptr inbounds nuw i32, ptr @char_width.range2, i64 %indvars.iv.next.i11.i
-  %40 = load i32, ptr %39, align 8, !tbaa !15
+  %40 = load i32, ptr %39, align 8, !tbaa !16
   %.not.not.i12.i = icmp eq i32 %40, -1
-  br i1 %.not.not.i12.i, label %char_width.exit, label %.lr.ph.i5.i, !llvm.loop !17
+  br i1 %.not.not.i12.i, label %char_width.exit, label %.lr.ph.i5.i, !llvm.loop !18
 
 char_width.exit:                                  ; preds = %30, %36, %38
   %.0.i = phi i32 [ 2, %36 ], [ 1, %38 ], [ 0, %30 ]
@@ -348,7 +348,7 @@ char_width.exit:                                  ; preds = %30, %36, %38
   %42 = ptrtoint ptr %.1 to i64
   %43 = sub i64 %42, %3
   %44 = icmp slt i64 %43, %4
-  br i1 %44, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !18
+  br i1 %44, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %char_width.exit, %2
   %.0.lcssa = phi i32 [ 0, %2 ], [ %41, %char_width.exit ]
@@ -376,9 +376,10 @@ attributes #4 = { noreturn nounwind }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 omnipotent char", !12, i64 0}
 !12 = !{!"any pointer", !8, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !8, i64 0}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !8, i64 0}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}

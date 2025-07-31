@@ -1002,7 +1002,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %30, ptr nonnull align 8 %29)
-          to label %209 unwind label %.loopexit
+          to label %209 unwind label %.loopexit, !llvm.loop !3
 
 241:                                              ; preds = %380
   unreachable
@@ -1190,7 +1190,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   store ptr %291, ptr %264, align 8
   store i64 4, ptr %24, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %26, ptr nonnull align 8 %24)
-          to label %267 unwind label %.loopexit207
+          to label %267 unwind label %.loopexit207, !llvm.loop !5
 
 297:                                              ; preds = %265
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
@@ -1278,7 +1278,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %26, ptr nonnull align 8 %25)
-          to label %260 unwind label %.loopexit.split-lp208
+          to label %260 unwind label %.loopexit.split-lp208, !llvm.loop !6
 
 316:                                              ; preds = %244
   %317 = load i64, ptr %19, align 8
@@ -1414,7 +1414,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb13c6326d10cd878E"(ptr nonnull align 8 %32, ptr nonnull align 8 %31)
-          to label %330 unwind label %336
+          to label %330 unwind label %336, !llvm.loop !7
 
 .thread182:                                       ; preds = %.body, %336, %.body140.thread192, %149
   %.pn129186 = phi { ptr, i32 } [ %.pn129, %149 ], [ %lpad.thr_comm190, %.body140.thread192 ], [ %eh.lpad-body, %.body ], [ %337, %336 ]
@@ -1548,7 +1548,7 @@ define void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFro
   store ptr %397, ptr %.sroa.3.0..sroa_idx10, align 8
   store i64 %398, ptr %.sroa.5.0..sroa_idx12, align 8
   invoke fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr align 8 %47, ptr align 8 %54)
-          to label %386 unwind label %387
+          to label %386 unwind label %387, !llvm.loop !8
 
 400:                                              ; preds = %395
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1647,7 +1647,7 @@ define internal fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core.
 25:                                               ; preds = %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false)
   invoke fastcc void @"_ZN96_$LT$logos_codegen..mir..Mir$u20$as$u20$core..convert..TryFrom$LT$regex_syntax..hir..Hir$GT$$GT$8try_from6extend17h0c0e7bfcbbd4fe02E"(ptr align 8 %4, ptr align 8 %1)
-          to label %18 unwind label %19
+          to label %18 unwind label %19, !llvm.loop !9
 
 26:                                               ; preds = %14, %30, %27
   ret void
@@ -2130,3 +2130,10 @@ attributes #9 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}

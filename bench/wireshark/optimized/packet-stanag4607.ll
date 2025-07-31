@@ -1724,7 +1724,7 @@ dissect_target.exit.i:                            ; preds = %383, %382
 dissect_dwell.exit:                               ; preds = %dissect_target.exit.i, %270, %502, %480, %391, %95
   %.1 = phi i32 [ %503, %502 ], [ %116, %95 ], [ %475, %391 ], [ %501, %480 ], [ %.16.i, %270 ], [ %.17.i.i, %dissect_target.exit.i ]
   %504 = icmp ult i32 %.1, %.0115
-  br i1 %504, label %505, label %73
+  br i1 %504, label %505, label %73, !llvm.loop !9
 
 505:                                              ; preds = %dissect_dwell.exit, %73
   %506 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1837,5 +1837,7 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}

@@ -297,7 +297,7 @@ define dso_local void @efi_print_memmap() local_unnamed_addr #1 section ".init.t
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 224), align 8
   %27 = icmp ule ptr %25, %26
   %28 = select i1 %24, i1 %27, i1 false
-  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %28, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %0
   ret void
@@ -587,7 +587,7 @@ define internal fastcc void @efi_clean_memmap() unnamed_addr #1 section ".init.t
   %23 = getelementptr i8, ptr %8, i64 %20
   %24 = add i32 %7, 1
   %25 = icmp ult ptr %23, %3
-  br i1 %25, label %.preheader, label %26, !llvm.loop !17
+  br i1 %25, label %.preheader, label %26, !llvm.loop !18
 
 26:                                               ; preds = %19
   %27 = icmp sgt i32 %21, 0
@@ -668,7 +668,7 @@ define internal fastcc void @efi_remove_e820_mmio() unnamed_addr #1 section ".in
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 224), align 8
   %35 = icmp ule ptr %33, %34
   %36 = select i1 %32, i1 %35, i1 false
-  br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !18
+  br i1 %36, label %.preheader, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %28, %0
   ret void
@@ -714,7 +714,7 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
 
 4:                                                ; preds = %0
   tail call void @efi_memmap_unmap() #13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !20
   br label %47
 
 5:                                                ; preds = %0
@@ -724,7 +724,7 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
 
 8:                                                ; preds = %5
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !20
   br label %47
 
 10:                                               ; preds = %5
@@ -747,7 +747,7 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 224), align 8
   %24 = icmp ule ptr %22, %23
   %25 = select i1 %21, i1 %24, i1 false
-  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !20
+  br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %10
   tail call void @efi_memmap_unmap() #13
@@ -762,7 +762,7 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
 
 33:                                               ; preds = %.loopexit
   %34 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.18) #13
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !20
   br label %47
 
 35:                                               ; preds = %.loopexit
@@ -778,7 +778,7 @@ define internal fastcc void @kexec_enter_virtual_mode() unnamed_addr #1 section 
   br i1 %44, label %46, label %45
 
 45:                                               ; preds = %35
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !20
   br label %47
 
 46:                                               ; preds = %35
@@ -893,7 +893,7 @@ define internal fastcc void @__efi_enter_virtual_mode() unnamed_addr #1 section 
   br label %59
 
 58:                                               ; preds = %49, %35, %27, %10, %5
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264), i32 -9, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @efi, i64 264)) #12, !srcloc !20
   br label %59
 
 59:                                               ; preds = %58, %57
@@ -919,7 +919,7 @@ define dso_local zeroext i1 @efi_is_table_address(i64 noundef %0) local_unnamed_
   %8 = add nuw nsw i64 %3, 1
   %9 = icmp eq i64 %8, 14
   %10 = select i1 %7, i1 true, i1 %9
-  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %10, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %1
   %11 = phi i1 [ false, %1 ], [ %7, %.preheader ]
@@ -1185,7 +1185,7 @@ define internal fastcc void @efi_merge_regions() unnamed_addr #11 section ".init
   %43 = getelementptr i8, ptr %41, i64 %39
   %44 = icmp ule ptr %43, %38
   %45 = select i1 %42, i1 %44, i1 false
-  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !22
+  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %37, %0
   ret void
@@ -1259,7 +1259,7 @@ select.unfold:                                    ; preds = %24, %20, %23, %19
 39:                                               ; preds = %38, %33
   %40 = add i32 %34, -3
   %41 = icmp ult i32 %40, 2
-  br i1 %41, label %42, label %13, !llvm.loop !23
+  br i1 %41, label %42, label %13, !llvm.loop !24
 
 42:                                               ; preds = %39, %38, %38, %38, %29
   tail call void @efi_map_region(ptr noundef nonnull %27) #13
@@ -1313,7 +1313,7 @@ select.unfold:                                    ; preds = %24, %20, %23, %19
   %71 = add i32 %70, 1
   store i32 %71, ptr %0, align 4
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @efi, i64 248), align 8
-  br label %4, !llvm.loop !23
+  br label %4, !llvm.loop !25
 
 .thread:                                          ; preds = %20, %24, %select.unfold, %.thread7
   %72 = phi ptr [ null, %.thread7 ], [ %7, %select.unfold ], [ %7, %24 ], [ %7, %20 ]
@@ -1375,14 +1375,16 @@ attributes #14 = { cold }
 !10 = !{i64 2156912548, i64 2156912359, i64 2156912409, i64 2156912455, i64 2156912483}
 !11 = !{i64 2156912854, i64 2156912665, i64 2156912715, i64 2156912761, i64 2156912789}
 !12 = !{i64 2147807257, i64 2147807296, i64 2147807317, i64 2147807354, i64 2147807377, i64 2147807247}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = distinct !{!16, !14, !15}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = !{i64 2147808545, i64 2147808584, i64 2147808605, i64 2147808642, i64 2147808665, i64 2147808535}
-!20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14, !15}
-!22 = distinct !{!22, !14, !15}
-!23 = distinct !{!23, !14, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}
+!18 = distinct !{!18, !14, !15, !16}
+!19 = distinct !{!19, !14, !15, !16}
+!20 = !{i64 2147808545, i64 2147808584, i64 2147808605, i64 2147808642, i64 2147808665, i64 2147808535}
+!21 = distinct !{!21, !14, !15, !16}
+!22 = distinct !{!22, !14, !15, !16}
+!23 = distinct !{!23, !14, !15, !16}
+!24 = distinct !{!24, !14, !15, !16}
+!25 = distinct !{!25, !14, !15, !16}

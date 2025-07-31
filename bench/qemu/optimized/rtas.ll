@@ -104,7 +104,7 @@ define internal fastcc i64 @qrtas_call(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void @qtest_writel(ptr noundef %0, i64 noundef %15, i32 noundef %17) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %qrtas_copy_args.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %qrtas_copy_args.exit, label %.lr.ph.i, !llvm.loop !8
 
 qrtas_copy_args.exit:                             ; preds = %.lr.ph.i, %7
   %18 = tail call i64 @qtest_rtas_call(ptr noundef %0, ptr noundef %2, i32 noundef %3, i64 noundef %10, i32 noundef %5, i64 noundef %13) #4
@@ -216,6 +216,7 @@ attributes #4 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"auto-init"}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

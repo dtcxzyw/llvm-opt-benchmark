@@ -173,7 +173,7 @@ define hidden void @_ZN6G1NUMA10initializeEb(ptr noundef nonnull align 8 capture
   %30 = load i32, ptr %22, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next33, %31
-  br i1 %32, label %.lr.ph25, label %.preheader, !llvm.loop !8
+  br i1 %32, label %.lr.ph25, label %.preheader, !llvm.loop !9
 
 .lr.ph27:                                         ; preds = %.preheader, %.lr.ph27
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.lr.ph27 ], [ 0, %.preheader ]
@@ -189,7 +189,7 @@ define hidden void @_ZN6G1NUMA10initializeEb(ptr noundef nonnull align 8 capture
   %40 = load i32, ptr %15, align 8
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next36, %41
-  br i1 %42, label %.lr.ph27, label %._crit_edge28, !llvm.loop !9
+  br i1 %42, label %.lr.ph27, label %._crit_edge28, !llvm.loop !10
 
 ._crit_edge28:                                    ; preds = %.lr.ph27, %.preheader
   %43 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 5, i32 noundef 0) #12
@@ -642,7 +642,7 @@ define hidden void @_ZN23G1NodeIndexCheckClosureD2Ev(ptr noundef nonnull align 8
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %indvars.iv.next, %31
-  br i1 %32, label %15, label %._crit_edge, !llvm.loop !10
+  br i1 %32, label %15, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %15, %1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -790,8 +790,9 @@ attributes #12 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

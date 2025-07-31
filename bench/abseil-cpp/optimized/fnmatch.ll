@@ -80,7 +80,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %25, %29
 29:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %30 = add i64 %.01116.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %30, %.sroa.034.076
-  br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, !llvm.loop !10
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   %.not14 = icmp eq i64 %.01116.i.i, -1
@@ -128,7 +128,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %_ZNSt11char_traitsI
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %35, %44
   %.not25.i.i = icmp ult i64 %45, %.sroa.0.0
-  br i1 %.not25.i.i, label %.critedge, label %36, !llvm.loop !10
+  br i1 %.not25.i.i, label %.critedge, label %36, !llvm.loop !11
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %46 = ptrtoint ptr %40 to i64
@@ -165,7 +165,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51: ; preds 
   %.sroa.023.1 = phi i64 [ %53, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ %60, %56 ], [ %.sroa.023.078, %17 ], [ %24, %20 ]
   %.19 = phi i8 [ 0, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread51 ], [ 0, %56 ], [ 1, %17 ], [ %.0879, %20 ]
   %62 = icmp eq i64 %.sroa.034.1, 0
-  br i1 %62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %62, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.thread, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit, %54, %36, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i17, %42, %._crit_edge, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit
   %.1 = phi i1 [ %14, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit ], [ %spec.select, %._crit_edge ], [ false, %42 ], [ false, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i17 ], [ false, %36 ], [ false, %54 ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit ], [ false, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.thread.thread ]
@@ -198,8 +198,9 @@ attributes #4 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

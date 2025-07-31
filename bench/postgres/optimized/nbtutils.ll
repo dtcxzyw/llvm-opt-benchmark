@@ -223,7 +223,7 @@ BTreeTupleGetHeapTID.exit:                        ; preds = %BTreeTupleIsPosting
 ._crit_edge:                                      ; preds = %96, %BTreeTupleGetHeapTID.exit
   %97 = load ptr, ptr %6, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 13
-  %99 = load i8, ptr %98, align 1, !range !4, !noundef !7
+  %99 = load i8, ptr %98, align 1, !range !4, !noundef !8
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %102
 
@@ -309,7 +309,7 @@ define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 
   %16 = zext nneg i32 %12 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 6
-  %19 = load i8, ptr %18, align 2, !range !4, !noundef !7
+  %19 = load i8, ptr %18, align 2, !range !4, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %22 = load i16, ptr %21, align 4
@@ -400,7 +400,7 @@ define dso_local void @_bt_freestack(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef nonnull %.05) #14
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -577,7 +577,7 @@ _bt_compare_array_skey.exit114.thread.us:         ; preds = %83
   %.484.us = select i1 %.not15.i112.us, i32 %87, i32 %.282157.us
   %.374.us = select i1 %.not15.i112.us, i32 %.273158.us, i32 %86
   %88 = icmp sgt i32 %.374.us, %.484.us
-  br i1 %88, label %83, label %._crit_edge.split.us, !llvm.loop !9
+  br i1 %88, label %83, label %._crit_edge.split.us, !llvm.loop !10
 
 ._crit_edge.split.us:                             ; preds = %_bt_compare_array_skey.exit114.thread.us
   %..i113.us.le = select i1 %.not15.i112.us, i32 1, i32 -1
@@ -631,7 +631,7 @@ _bt_compare_array_skey.exit114.thread:            ; preds = %106, %94, %_bt_comp
   %.484 = select i1 %111, i32 %112, i32 %.282157
   %.374 = select i1 %111, i32 %.273158, i32 %92
   %113 = icmp sgt i32 %.374, %.484
-  br i1 %113, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
+  br i1 %113, label %.lr.ph.split, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_bt_compare_array_skey.exit114.thread, %._crit_edge.split.us, %76
   %.282.lcssa = phi i32 [ %.080, %76 ], [ %.484.us, %._crit_edge.split.us ], [ %.484, %_bt_compare_array_skey.exit114.thread ]
@@ -730,7 +730,7 @@ define dso_local void @_bt_start_array_keys(ptr noundef readonly captures(none) 
   %26 = load i32, ptr %5, align 8
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next20, %27
-  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
+  br i1 %28, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -750,7 +750,7 @@ define dso_local void @_bt_start_array_keys(ptr noundef readonly captures(none) 
   %39 = load i32, ptr %5, align 8
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %41, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -769,7 +769,7 @@ define dso_local noundef zeroext i1 @_bt_start_prim_scan(ptr noundef %0, i32 nou
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 0, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %8 = load i8, ptr %7, align 4, !range !4, !noundef !7
+  %8 = load i8, ptr %7, align 4, !range !4, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %14, label %10
 
@@ -803,17 +803,17 @@ define dso_local noundef zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef c
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
   store i32 0, ptr %6, align 4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %16 = load i8, ptr %15, align 1, !range !4, !noundef !7
+  %16 = load i8, ptr %15, align 1, !range !4, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 30
-  %19 = load i8, ptr %18, align 2, !range !4, !noundef !7
+  %19 = load i8, ptr %18, align 2, !range !4, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %22 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef %0, i32 noundef %14, ptr noundef %3, i32 noundef %4, ptr noundef %10, i1 noundef zeroext %2, i1 noundef zeroext %17, i1 noundef zeroext %20, ptr noundef nonnull %21, ptr noundef %6)
   br i1 %2, label %23, label %_bt_checkkeys_look_ahead.exit
 
 23:                                               ; preds = %5
-  %24 = load i8, ptr %21, align 4, !range !4, !noundef !7
+  %24 = load i8, ptr %21, align 4, !range !4, !noundef !8
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %_bt_checkkeys_look_ahead.exit, label %26
 
@@ -825,9 +825,9 @@ define dso_local noundef zeroext i1 @_bt_checkkeys(ptr noundef %0, ptr noundef c
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 21
-  %31 = load i8, ptr %30, align 1, !range !4, !noundef !7
+  %31 = load i8, ptr %30, align 1, !range !4, !noundef !8
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %57, !prof !14
+  br i1 %32, label %33, label %57, !prof !15
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1091,7 +1091,7 @@ define internal fastcc noundef zeroext i1 @_bt_check_compare(ptr noundef %0, i32
 
 53:                                               ; preds = %45
   %54 = call fastcc i64 @index_getattr(ptr noundef %2, i32 noundef %48, ptr noundef %4, ptr noundef %11)
-  %55 = load i8, ptr %11, align 1, !range !4, !noundef !7
+  %55 = load i8, ptr %11, align 1, !range !4, !noundef !8
   %56 = trunc nuw i8 %55 to i1
   %57 = load i32, ptr %.064.i, align 8
   br i1 %56, label %58, label %64
@@ -1235,7 +1235,7 @@ select.unfold.i:                                  ; preds = %87, %50
 119:                                              ; preds = %115
   %120 = and i32 %117, 64
   %.not85 = icmp eq i32 %120, 0
-  %121 = load i8, ptr %12, align 1, !range !4, !noundef !7
+  %121 = load i8, ptr %12, align 1, !range !4, !noundef !8
   %122 = trunc nuw i8 %121 to i1
   br i1 %.not85, label %124, label %123
 
@@ -1255,7 +1255,7 @@ select.unfold.i:                                  ; preds = %87, %50
   br label %.thread
 
 126:                                              ; preds = %115
-  %127 = load i8, ptr %12, align 1, !range !4, !noundef !7
+  %127 = load i8, ptr %12, align 1, !range !4, !noundef !8
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %137
 
@@ -1343,7 +1343,7 @@ select.unfold.i:                                  ; preds = %87, %50
   store i32 %161, ptr %9, align 4
   %162 = load i32, ptr %15, align 4
   %163 = icmp slt i32 %161, %162
-  br i1 %163, label %22, label %.loopexit, !llvm.loop !15
+  br i1 %163, label %22, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %159, %158, %10, %.thread
   %.2 = phi i1 [ %.1.ph, %.thread ], [ true, %10 ], [ false, %158 ], [ true, %159 ]
@@ -1412,7 +1412,7 @@ define internal fastcc zeroext i1 @_bt_tuple_before_array_skeys(ptr readonly cap
   %37 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %28, ptr noundef %2, ptr noundef %8)
   %38 = load ptr, ptr %14, align 8
   %39 = getelementptr inbounds %struct.FmgrInfo, ptr %38, i64 %indvars.iv
-  %40 = load i8, ptr %8, align 1, !range !4, !noundef !7
+  %40 = load i8, ptr %8, align 1, !range !4, !noundef !8
   %41 = trunc nuw i8 %40 to i1
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %43 = load i64, ptr %42, align 8
@@ -1485,7 +1485,7 @@ _bt_compare_array_skey.exit:                      ; preds = %47, %50, %52, %59
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %68 = sext i32 %67 to i64
   %.not44 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %.not44, label %18, label %.loopexit, !llvm.loop !16
+  br i1 %.not44, label %18, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %66, %10, %.thread8
   %.not4413 = phi i1 [ true, %.thread8 ], [ false, %10 ], [ false, %66 ]
@@ -1624,7 +1624,7 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
   br i1 %or.cond, label %77, label %75
 
 75:                                               ; preds = %72
-  br i1 %.0177, label %76, label %170, !prof !14
+  br i1 %.0177, label %76, label %170, !prof !15
 
 76:                                               ; preds = %75
   br label %170
@@ -1722,7 +1722,7 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
   %122 = and i1 %6, %121
   %123 = load ptr, ptr %32, align 8
   %124 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %123, i64 %indvars.iv
-  %125 = load i8, ptr %10, align 1, !range !4, !noundef !7
+  %125 = load i8, ptr %10, align 1, !range !4, !noundef !8
   %126 = trunc nuw i8 %125 to i1
   %127 = call i32 @_bt_binsrch_array_skey(ptr noundef %124, i1 noundef zeroext %122, i32 noundef %19, i64 noundef %119, i1 noundef zeroext %126, ptr noundef nonnull %.0181, ptr noundef nonnull %41, ptr noundef nonnull %11)
   %.pr = load i32, ptr %11, align 4
@@ -1731,7 +1731,7 @@ define internal fastcc noundef zeroext i1 @_bt_advance_array_keys(ptr noundef %0
 128:                                              ; preds = %118
   %129 = load ptr, ptr %32, align 8
   %130 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %129, i64 %indvars.iv
-  %131 = load i8, ptr %10, align 1, !range !4, !noundef !7
+  %131 = load i8, ptr %10, align 1, !range !4, !noundef !8
   %132 = trunc nuw i8 %131 to i1
   %133 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %134 = load i64, ptr %133, align 8
@@ -1834,7 +1834,7 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %171 = load i32, ptr %27, align 4
   %172 = sext i32 %171 to i64
   %173 = icmp slt i64 %indvars.iv.next, %172
-  br i1 %173, label %39, label %._crit_edge, !llvm.loop !17
+  br i1 %173, label %39, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %170
   %174 = trunc nuw i8 %.2.ph to i1
@@ -1884,7 +1884,7 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %202 = load i32, ptr %201, align 8
   %203 = add i32 %200, 1
   %.not.us.i = icmp slt i32 %203, %202
-  br i1 %.not.us.i, label %.critedge37.i, label %.critedge39.us.i, !llvm.loop !18
+  br i1 %.not.us.i, label %.critedge37.i, label %.critedge39.us.i, !llvm.loop !19
 
 .critedge39.us.i:                                 ; preds = %.lr.ph.split.us.i, %193
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %193 ], [ %183, %.lr.ph.split.us.i ]
@@ -1899,7 +1899,7 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %211 = getelementptr inbounds %struct.ScanKeyData, ptr %206, i64 %205, i32 6
   store i64 %210, ptr %211, align 8
   %212 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %212, label %193, label %.critedge.i, !llvm.loop !18
+  br i1 %212, label %193, label %.critedge.i, !llvm.loop !19
 
 .lr.ph.split.us61.i:                              ; preds = %.lr.ph.i, %.backedge.us63.i
   %.03054.us62.i = phi i32 [ %.030.us64.i, %.backedge.us63.i ], [ %.03053.i, %.lr.ph.i ]
@@ -1930,7 +1930,7 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
 .backedge.us63.i:                                 ; preds = %.lr.ph.split.us61.i
   %.030.us64.i = add nsw i32 %.03054.us62.i, -1
   %232 = icmp sgt i32 %.03054.us62.i, 0
-  br i1 %232, label %.lr.ph.split.us61.i, label %.critedge.i, !llvm.loop !19
+  br i1 %232, label %.lr.ph.split.us61.i, label %.critedge.i, !llvm.loop !20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   %233 = load ptr, ptr %180, align 8
@@ -1994,7 +1994,7 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %268 = load i32, ptr %248, align 8
   %269 = sext i32 %268 to i64
   %270 = icmp slt i64 %indvars.iv.next20.i.i, %269
-  br i1 %270, label %.lr.ph.split.us.i.i, label %.loopexit, !llvm.loop !12
+  br i1 %270, label %.lr.ph.split.us.i.i, label %.loopexit, !llvm.loop !13
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.lr.ph.split.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i.i ]
@@ -2014,7 +2014,7 @@ _bt_compare_array_skey.exit:                      ; preds = %150, %143, %141, %1
   %281 = load i32, ptr %248, align 8
   %282 = sext i32 %281 to i64
   %283 = icmp slt i64 %indvars.iv.next.i.i, %282
-  br i1 %283, label %.lr.ph.split.i.i, label %.loopexit, !llvm.loop !13
+  br i1 %283, label %.lr.ph.split.i.i, label %.loopexit, !llvm.loop !14
 
 _bt_advance_array_keys_increment.exit.thread:     ; preds = %.lr.ph.split.us61.i, %26, %.critedge37.i, %.thread258, %._crit_edge
   %.0196289 = phi i1 [ %.0196290, %.thread258 ], [ %.2198.ph, %._crit_edge ], [ %.2198.ph, %.critedge37.i ], [ false, %26 ], [ %.2198.ph, %.lr.ph.split.us61.i ]
@@ -2034,7 +2034,7 @@ _bt_advance_array_keys_increment.exit.thread:     ; preds = %.lr.ph.split.us61.i
   br i1 %287, label %288, label %294
 
 288:                                              ; preds = %285
-  %289 = load i8, ptr %21, align 1, !range !4, !noundef !7
+  %289 = load i8, ptr %21, align 1, !range !4, !noundef !8
   %290 = trunc nuw i8 %289 to i1
   br i1 %290, label %294, label %291
 
@@ -2048,9 +2048,9 @@ _bt_advance_array_keys_increment.exit.thread:     ; preds = %.lr.ph.split.us61.i
   br label %.thread269
 
 294:                                              ; preds = %288, %285
-  %295 = load i8, ptr %13, align 1, !range !4, !noundef !7
+  %295 = load i8, ptr %13, align 1, !range !4, !noundef !8
   %296 = trunc nuw i8 %295 to i1
-  br i1 %296, label %300, label %297, !prof !20
+  br i1 %296, label %300, label %297, !prof !21
 
 297:                                              ; preds = %294
   %298 = load i32, ptr %12, align 4
@@ -2118,7 +2118,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %308, %BTreeTupleIsP
   br i1 %325, label %376, label %.critedge
 
 .critedge:                                        ; preds = %302, %323, %307
-  %326 = load i8, ptr %21, align 1, !range !4, !noundef !7
+  %326 = load i8, ptr %21, align 1, !range !4, !noundef !8
   %327 = trunc nuw i8 %326 to i1
   %or.cond17 = select i1 %327, i1 %.1183267, i1 false
   br i1 %or.cond17, label %328, label %329
@@ -2176,7 +2176,7 @@ BTreeTupleIsPivot.exit232.thread:                 ; preds = %333, %BTreeTupleIsP
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   store i32 0, ptr %9, align 4
   %355 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef nonnull %0, i32 noundef %354, ptr noundef nonnull %332, i32 noundef %353, ptr noundef %336, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %8, ptr noundef %9)
-  %356 = load i8, ptr %8, align 1, !range !4, !noundef !7
+  %356 = load i8, ptr %8, align 1, !range !4, !noundef !8
   %357 = trunc nuw i8 %356 to i1
   br i1 %357, label %_bt_oppodir_checkkeys.exit.thread, label %358
 
@@ -2207,7 +2207,7 @@ _bt_oppodir_checkkeys.exit.thread:                ; preds = %352, %358
   store i8 1, ptr %367, align 4
   %368 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 0, ptr %368, align 4
-  %369 = load i8, ptr %21, align 1, !range !4, !noundef !7
+  %369 = load i8, ptr %21, align 1, !range !4, !noundef !8
   %370 = trunc nuw i8 %369 to i1
   br i1 %370, label %371, label %388
 
@@ -2294,7 +2294,7 @@ BTreeTupleIsPivot.exit.thread:                    ; preds = %3, %BTreeTupleIsPiv
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4
   %29 = call fastcc zeroext i1 @_bt_check_compare(ptr noundef nonnull %0, i32 noundef %28, ptr noundef nonnull %2, i32 noundef %27, ptr noundef %9, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %4, ptr noundef %5)
-  %30 = load i8, ptr %4, align 1, !range !4, !noundef !7
+  %30 = load i8, ptr %4, align 1, !range !4, !noundef !8
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %39, label %32
 
@@ -2515,7 +2515,7 @@ BTreeTupleIsPosting.exit:                         ; preds = %77
   %.1.ph = phi i32 [ %.069114, %102 ], [ %106, %104 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %94, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge.thread, label %94, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %94
   %113 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2542,17 +2542,17 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %77, %BTreeTupleIsPo
   %.5102 = phi ptr [ %.178.lcssa, %._crit_edge ], [ %.5103, %._crit_edge.thread ], [ %.077121, %BTreeTupleIsPosting.exit.thread ]
   %120 = add i16 %.075122, 1
   %.not = icmp ugt i16 %120, %.0.i
-  br i1 %.not, label %.loopexit, label %77
+  br i1 %.not, label %.loopexit, label %77, !llvm.loop !23
 
 .loopexit:                                        ; preds = %119, %66
   %exitcond136.not = icmp eq i64 %.pre, %wide.trip.count135
-  br i1 %exitcond136.not, label %._crit_edge127, label %66, !llvm.loop !22
+  br i1 %exitcond136.not, label %._crit_edge127, label %66, !llvm.loop !24
 
 .loopexit.thread:                                 ; preds = %._crit_edge.thread
   %121 = or i32 %116, 98304
   store i32 %121, ptr %80, align 4
   %exitcond136.not141 = icmp eq i64 %.pre, %wide.trip.count135
-  br i1 %exitcond136.not141, label %._crit_edge127.thread, label %.outer, !llvm.loop !22
+  br i1 %exitcond136.not141, label %._crit_edge127.thread, label %.outer, !llvm.loop !24
 
 ._crit_edge127:                                   ; preds = %.loopexit
   br i1 %.072124.ph, label %._crit_edge127.thread, label %.critedge
@@ -2632,7 +2632,7 @@ define dso_local zeroext i16 @_bt_vacuum_cycleid(ptr noundef readonly captures(n
 25:                                               ; preds = %17, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !25
 
 .loopexit:                                        ; preds = %25, %1, %22
   %.1 = phi i16 [ %24, %22 ], [ 0, %1 ], [ 0, %25 ]
@@ -2700,7 +2700,7 @@ define dso_local zeroext i16 @_bt_start_vacuum(ptr noundef readonly captures(non
 32:                                               ; preds = %15, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %32, %1
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2792,7 +2792,7 @@ define dso_local void @_bt_end_vacuum(ptr noundef readonly captures(none) %0) lo
 26:                                               ; preds = %17, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !27
 
 .loopexit:                                        ; preds = %26, %1, %22
   %27 = load ptr, ptr @MainLWLockArray, align 8
@@ -2846,7 +2846,7 @@ define dso_local void @_bt_end_vacuum_callback(i32 noundef %0, i64 noundef %1) l
 28:                                               ; preds = %19, %15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_bt_end_vacuum.exit, label %15, !llvm.loop !25
+  br i1 %exitcond.not.i, label %_bt_end_vacuum.exit, label %15, !llvm.loop !27
 
 _bt_end_vacuum.exit:                              ; preds = %28, %2, %24
   %29 = load ptr, ptr @MainLWLockArray, align 8
@@ -2878,7 +2878,7 @@ define dso_local void @BTreeShmemInit() local_unnamed_addr #0 {
   %5 = tail call i64 @add_size(i64 noundef 12, i64 noundef %4) #14
   %6 = call ptr @ShmemInitStruct(ptr noundef nonnull @.str.3, i64 noundef %5, ptr noundef nonnull %1) #14
   store ptr %6, ptr @btvacinfo, align 8
-  %7 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !7
+  %7 = load i8, ptr @IsUnderPostmaster, align 1, !range !4, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %16, label %9
 
@@ -2954,7 +2954,7 @@ define dso_local ptr @_bt_truncate(ptr noundef readonly captures(none) %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %12 = load i16, ptr %11, align 2
   %13 = sext i16 %12 to i32
-  %14 = load i8, ptr %3, align 8, !range !4, !noundef !7
+  %14 = load i8, ptr %3, align 8, !range !4, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %_bt_keep_natts.exit
 
@@ -2974,8 +2974,8 @@ define dso_local ptr @_bt_truncate(ptr noundef readonly captures(none) %0, ptr n
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   %19 = call fastcc i64 @index_getattr(ptr noundef %1, i32 noundef %.0227.i, ptr noundef %8, ptr noundef %5)
   %20 = call fastcc i64 @index_getattr(ptr noundef %2, i32 noundef %.0227.i, ptr noundef %8, ptr noundef %6)
-  %21 = load i8, ptr %5, align 1, !range !4, !noundef !7
-  %22 = load i8, ptr %6, align 1, !range !4, !noundef !7
+  %21 = load i8, ptr %5, align 1, !range !4, !noundef !8
+  %22 = load i8, ptr %6, align 1, !range !4, !noundef !8
   %.not26.i = icmp eq i8 %21, %22
   br i1 %.not26.i, label %23, label %.thread.i
 
@@ -3003,7 +3003,7 @@ define dso_local ptr @_bt_truncate(ptr noundef readonly captures(none) %0, ptr n
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
   %33 = getelementptr inbounds nuw i8, ptr %.0255.i, i64 72
   %exitcond.not.i = icmp eq i32 %.0227.i, %13
-  br i1 %exitcond.not.i, label %_bt_keep_natts.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %_bt_keep_natts.exit, label %.lr.ph.i, !llvm.loop !28
 
 _bt_keep_natts.exit:                              ; preds = %31, %4, %16, %.thread.i
   %.0.i = phi i32 [ %13, %4 ], [ %.0227.i, %.thread.i ], [ 1, %16 ], [ %18, %31 ]
@@ -3163,8 +3163,8 @@ define dso_local i32 @_bt_keep_natts_fast(ptr noundef readonly captures(none) %0
   %16 = call fastcc i64 @index_getattr(ptr noundef %2, i32 noundef %indvars30, ptr noundef %7, ptr noundef %5)
   %17 = add nsw i64 %indvars.iv, -1
   %18 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %12, i64 0, i64 %17
-  %19 = load i8, ptr %4, align 1, !range !4, !noundef !7
-  %20 = load i8, ptr %5, align 1, !range !4, !noundef !7
+  %19 = load i8, ptr %4, align 1, !range !4, !noundef !8
+  %20 = load i8, ptr %5, align 1, !range !4, !noundef !8
   %.not21 = icmp eq i8 %19, %20
   br i1 %.not21, label %21, label %.thread
 
@@ -3174,7 +3174,7 @@ define dso_local i32 @_bt_keep_natts_fast(ptr noundef readonly captures(none) %0
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 6
-  %25 = load i8, ptr %24, align 2, !range !4, !noundef !7
+  %25 = load i8, ptr %24, align 2, !range !4, !noundef !8
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %28 = load i16, ptr %27, align 4
@@ -3192,7 +3192,7 @@ define dso_local i32 @_bt_keep_natts_fast(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #14
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !29
 
 .loopexit:                                        ; preds = %31, %3, %.thread
   %.025 = phi i32 [ %indvars30, %.thread ], [ 1, %3 ], [ %13, %31 ]
@@ -3474,7 +3474,7 @@ define dso_local noundef zeroext i1 @_bt_allequalimage(ptr noundef readonly capt
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i64
   %.not38 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %.not38, label %18, label %.thread, !llvm.loop !28
+  br i1 %.not38, label %18, label %.thread, !llvm.loop !30
 
 18:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
@@ -3589,7 +3589,7 @@ define internal fastcc void @_bt_rewind_nonrequired_arrays(ptr readonly captures
   %indvars.iv.next6 = add nuw nsw i64 %indvars.iv5, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next6, %32
-  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !29
+  br i1 %33, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %61, %30, %1
   ret void
@@ -3647,7 +3647,7 @@ define internal fastcc void @_bt_rewind_nonrequired_arrays(ptr readonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !30
+  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
 }
 
 declare void @_bt_parallel_primscan_schedule(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -3688,29 +3688,31 @@ attributes #15 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6, !10}
-!13 = distinct !{!13, !6}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6, !10}
-!19 = distinct !{!19, !6, !10}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6, !10}
-!30 = distinct !{!30, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7, !11}
+!14 = distinct !{!14, !6, !7}
+!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !7, !11}
+!20 = distinct !{!20, !7, !11}
+!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7, !11}
+!32 = distinct !{!32, !6, !7}

@@ -69346,7 +69346,7 @@ lean_alloc_ctor.exit501:                          ; preds = %810, %lean_alloc_ct
   store ptr %.sink714, ptr %840, align 8, !tbaa !4
   store i8 %.sink712, ptr %824, align 1, !tbaa !8
   %841 = tail call ptr @lean_array_push(ptr noundef nonnull %.0328, ptr noundef nonnull %.sink765) #4
-  br label %26
+  br label %26, !llvm.loop !21
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #1
@@ -78773,3 +78773,5 @@ attributes #5 = { noreturn nounwind }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"short", !6, i64 0}
 !20 = !{!"branch_weights", i32 4001, i32 4000000}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}

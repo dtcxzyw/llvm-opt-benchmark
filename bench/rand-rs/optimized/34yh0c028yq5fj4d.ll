@@ -63,7 +63,7 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %.fca.1.extract.val.i = load i64, ptr %25, align 8, !noalias !6, !noundef !5
   %26 = zext i32 %.fca.0.extract.val.i to i64
   %.not.i45 = icmp eq i64 %.fca.1.extract.val.i, %26
-  br i1 %.not.i45, label %20, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+  br i1 %.not.i45, label %20, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", !llvm.loop !9
 
 27:                                               ; preds = %8
   br i1 %.not.i46, label %29, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
@@ -87,11 +87,11 @@ define noundef zeroext i1 @"_ZN67_$LT$rand..seq..index..IndexVec$u20$as$u20$core
   %37 = add i64 %35, 1
   %38 = getelementptr inbounds i64, ptr %31, i64 %35
   %39 = getelementptr inbounds i32, ptr %33, i64 %35
-  %.fca.0.extract.val.i53 = load i64, ptr %38, align 8, !noalias !9, !noundef !5
-  %.fca.1.extract.val.i54 = load i32, ptr %39, align 4, !noalias !9, !noundef !5
+  %.fca.0.extract.val.i53 = load i64, ptr %38, align 8, !noalias !11, !noundef !5
+  %.fca.1.extract.val.i54 = load i32, ptr %39, align 4, !noalias !11, !noundef !5
   %40 = zext i32 %.fca.1.extract.val.i54 to i64
   %.not.i55 = icmp eq i64 %.fca.0.extract.val.i53, %40
-  br i1 %.not.i55, label %34, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit"
+  br i1 %.not.i55, label %34, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hf12281debeded355E.exit", !llvm.loop !14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -116,6 +116,9 @@ attributes #2 = { nocallback nofree nounwind nonlazybind willreturn memory(argme
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hfef42841617bfdcbE: argument 0"}
 !8 = distinct !{!8, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17hfef42841617bfdcbE"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h49550e4429032a60E: argument 0"}
-!11 = distinct !{!11, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h49550e4429032a60E"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h49550e4429032a60E: argument 0"}
+!13 = distinct !{!13, !"_ZN4core4iter6traits8iterator8Iterator8try_fold17h49550e4429032a60E"}
+!14 = distinct !{!14, !10}

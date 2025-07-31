@@ -98,7 +98,7 @@ define internal i32 @crc32_slice8(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %22 = icmp ne i64 %21, 0
   %23 = icmp ne ptr %19, %4
   %24 = select i1 %22, i1 %23, i1 false
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.035.lcssa = phi ptr [ %1, %3 ], [ %19, %.lr.ph ]
@@ -176,7 +176,7 @@ define internal i32 @crc32_slice8(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %82 = xor i32 %77, %81
   %83 = getelementptr inbounds nuw i8, ptr %.13644, i64 8
   %.not = icmp eq ptr %83, %28
-  br i1 %.not, label %.preheader, label %.lr.ph47
+  br i1 %.not, label %.preheader, label %.lr.ph47, !llvm.loop !13
 
 .lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
   %.252 = phi i32 [ %92, %.lr.ph53 ], [ %.1.lcssa, %.preheader ]
@@ -192,7 +192,7 @@ define internal i32 @crc32_slice8(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %92 = xor i32 %91, %84
   %93 = getelementptr inbounds nuw i8, ptr %.23751, i64 1
   %.not38 = icmp eq ptr %93, %4
-  br i1 %.not38, label %._crit_edge54, label %.lr.ph53
+  br i1 %.not38, label %._crit_edge54, label %.lr.ph53, !llvm.loop !14
 
 ._crit_edge54:                                    ; preds = %.lr.ph53, %.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %92, %.lr.ph53 ]
@@ -237,7 +237,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %22 = xor i32 %21, %13
   %23 = add nuw nsw i64 %.0.i406, 1
   %exitcond.not = icmp eq i64 %23, %2
-  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph407
+  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph407, !llvm.loop !15
 
 24:                                               ; preds = %11
   %25 = trunc nuw nsw i64 %2 to i32
@@ -372,7 +372,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %114 = getelementptr inbounds nuw i8, ptr %.5376, i64 16
   %115 = add i64 %.1377, -16
   %.not217 = icmp eq i64 %115, 0
-  br i1 %.not217, label %._crit_edge, label %.lr.ph
+  br i1 %.not217, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %108
   %.4190.lcssa = phi <2 x i64> [ %.3189, %108 ], [ %113, %.lr.ph ]
@@ -492,7 +492,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl512(i32 noundef %0, ptr nound
   %206 = add i64 %.5212380, -512
   %.7 = getelementptr inbounds nuw i8, ptr %.7390, i64 512
   %207 = icmp ugt i64 %206, 1023
-  br i1 %207, label %.lr.ph392, label %._crit_edge393
+  br i1 %207, label %.lr.ph392, label %._crit_edge393, !llvm.loop !17
 
 ._crit_edge393:                                   ; preds = %.lr.ph392, %127
   %.5212.lcssa = phi i64 [ %.4211, %127 ], [ %206, %.lr.ph392 ]
@@ -774,7 +774,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %22 = xor i32 %21, %13
   %23 = add nuw nsw i64 %.0.i383, 1
   %exitcond.not = icmp eq i64 %23, %2
-  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph384
+  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph384, !llvm.loop !15
 
 24:                                               ; preds = %11
   %25 = trunc nuw nsw i64 %2 to i32
@@ -884,7 +884,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %96 = getelementptr inbounds nuw i8, ptr %.5353, i64 16
   %97 = add i64 %.1354, -16
   %.not207 = icmp eq i64 %97, 0
-  br i1 %.not207, label %._crit_edge, label %.lr.ph
+  br i1 %.not207, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %90
   %.4180.lcssa = phi <2 x i64> [ %.3179, %90 ], [ %95, %.lr.ph ]
@@ -1000,7 +1000,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx512_vl256(i32 noundef %0, ptr nound
   %184 = add i64 %.5202357, -256
   %.7 = getelementptr inbounds nuw i8, ptr %.7367, i64 256
   %185 = icmp ugt i64 %184, 511
-  br i1 %185, label %.lr.ph369, label %._crit_edge370
+  br i1 %185, label %.lr.ph369, label %._crit_edge370, !llvm.loop !19
 
 ._crit_edge370:                                   ; preds = %.lr.ph369, %105
   %.5202.lcssa = phi i64 [ %.4201, %105 ], [ %184, %.lr.ph369 ]
@@ -1251,7 +1251,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx2(i32 noundef %0, ptr noundef %1, i
   %20 = xor i32 %19, %11
   %21 = add nuw nsw i64 %.0.i553, 1
   %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph554
+  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph554, !llvm.loop !15
 
 22:                                               ; preds = %9
   %23 = load <2 x i64>, ptr %1, align 1, !tbaa !10
@@ -1342,7 +1342,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx2(i32 noundef %0, ptr noundef %1, i
   %80 = getelementptr inbounds nuw i8, ptr %.5523, i64 16
   %81 = add i64 %.1524, -16
   %.not201 = icmp eq i64 %81, 0
-  br i1 %.not201, label %._crit_edge, label %.lr.ph
+  br i1 %.not201, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %74
   %.3173.lcssa = phi <2 x i64> [ %.2172, %74 ], [ %79, %.lr.ph ]
@@ -1442,7 +1442,7 @@ define internal i32 @crc32_x86_vpclmulqdq_avx2(i32 noundef %0, ptr noundef %1, i
   %152 = add i64 %.5196527, -256
   %.7 = getelementptr inbounds nuw i8, ptr %.7537, i64 256
   %153 = icmp ugt i64 %152, 511
-  br i1 %153, label %.lr.ph539, label %._crit_edge540
+  br i1 %153, label %.lr.ph539, label %._crit_edge540, !llvm.loop !21
 
 ._crit_edge540:                                   ; preds = %.lr.ph539, %89
   %.5196.lcssa = phi i64 [ %.4195, %89 ], [ %152, %.lr.ph539 ]
@@ -1658,7 +1658,7 @@ define internal i32 @crc32_x86_pclmulqdq_avx(i32 noundef %0, ptr noundef %1, i64
   %18 = xor i32 %17, %9
   %19 = add nuw nsw i64 %.0.i219, 1
   %exitcond.not = icmp eq i64 %19, %2
-  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph220
+  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph220, !llvm.loop !15
 
 20:                                               ; preds = %7
   %21 = load <2 x i64>, ptr %1, align 1, !tbaa !10
@@ -1816,7 +1816,7 @@ define internal i32 @crc32_x86_pclmulqdq_avx(i32 noundef %0, ptr noundef %1, i64
   %133 = add i64 %.5186197, -128
   %.7 = getelementptr inbounds nuw i8, ptr %.7207, i64 128
   %134 = icmp ugt i64 %133, 255
-  br i1 %134, label %.lr.ph, label %._crit_edge
+  br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70
   %.5186.lcssa = phi i64 [ %.4185, %70 ], [ %133, %.lr.ph ]
@@ -2009,7 +2009,7 @@ define internal i32 @crc32_x86_pclmulqdq(i32 noundef %0, ptr noundef %1, i64 nou
   %18 = xor i32 %17, %9
   %19 = add nuw nsw i64 %.0.i219, 1
   %exitcond.not = icmp eq i64 %19, %2
-  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph220
+  br i1 %exitcond.not, label %crc32_slice1.exit, label %.lr.ph220, !llvm.loop !15
 
 20:                                               ; preds = %7
   %21 = load <2 x i64>, ptr %1, align 1, !tbaa !10
@@ -2167,7 +2167,7 @@ define internal i32 @crc32_x86_pclmulqdq(i32 noundef %0, ptr noundef %1, i64 nou
   %133 = add i64 %.5186197, -128
   %.7 = getelementptr inbounds nuw i8, ptr %.7207, i64 128
   %134 = icmp ugt i64 %133, 255
-  br i1 %134, label %.lr.ph, label %._crit_edge
+  br i1 %134, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %70
   %.5186.lcssa = phi i64 [ %.4185, %70 ], [ %133, %.lr.ph ]
@@ -2385,3 +2385,16 @@ attributes #10 = { nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
 !10 = !{!6, !6, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}
+!16 = distinct !{!16, !12}
+!17 = distinct !{!17, !12}
+!18 = distinct !{!18, !12}
+!19 = distinct !{!19, !12}
+!20 = distinct !{!20, !12}
+!21 = distinct !{!21, !12}
+!22 = distinct !{!22, !12}
+!23 = distinct !{!23, !12}

@@ -356,7 +356,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaesdm_vvP
   store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
   %.0865.add = add nuw nsw i64 %.0865.idx939, 1
   %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !151
 
 161:                                              ; preds = %.preheader
   %162 = load i8, ptr %5, align 1, !tbaa !150
@@ -809,7 +809,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaesdm_vvP
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   %543 = add nuw nsw i64 %.0864942, 1
   %exitcond943.not = icmp eq i64 %543, %124
-  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !151
+  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !153
 
 .preheader:                                       ; preds = %156, %.preheader
   %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
@@ -821,7 +821,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_vaesdm_vvP
   store i8 %548, ptr %546, align 1, !tbaa !150
   %549 = add nuw nsw i64 %.0866940, 1
   %exitcond.not = icmp eq i64 %549, 16
-  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !153
+  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !155
 
 .loopexit:                                        ; preds = %161, %108
   %550 = shl i64 %2, 32
@@ -852,7 +852,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !154
+  %4 = load ptr, ptr %3, align 8, !tbaa !156
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not10.i.i.i = icmp eq ptr %4, null
   %.pre = load i64, ptr %1, align 8, !tbaa !146
@@ -867,9 +867,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm
   %.19.i.i.i = select i1 %8, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.1.in.v.i.i.i = select i1 %8, i64 24, i64 16
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
-  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !155
+  %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !157
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !156
+  br i1 %.not.i.i.i, label %_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit, label %.lr.ph.i.i.i, !llvm.loop !158
 
 _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; preds = %.lr.ph.i.i.i
   %9 = icmp eq ptr %.19.i.i.i, %5
@@ -885,7 +885,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %10 ], [ %.19.i.i.i, %_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit ], [ %5, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %.pre, ptr %15, align 8, !tbaa !157
+  store i64 %.pre, ptr %15, align 8, !tbaa !159
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -914,9 +914,9 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !160
+  %30 = load i64, ptr %29, align 8, !tbaa !162
   %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8, !tbaa !160
+  store i64 %31, ptr %29, align 8, !tbaa !162
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.critedge
@@ -1234,7 +1234,7 @@ define noundef i64 @_Z20fast_rv64i_vaesdm_vvP11processor_t6insn_tm(ptr noundef %
   store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
   %.0865.add = add nuw nsw i64 %.0865.idx939, 1
   %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !163
 
 161:                                              ; preds = %.preheader
   %162 = load i8, ptr %5, align 1, !tbaa !150
@@ -1687,7 +1687,7 @@ define noundef i64 @_Z20fast_rv64i_vaesdm_vvP11processor_t6insn_tm(ptr noundef %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   %543 = add nuw nsw i64 %.0864942, 1
   %exitcond943.not = icmp eq i64 %543, %124
-  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !161
+  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !164
 
 .preheader:                                       ; preds = %156, %.preheader
   %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
@@ -1699,7 +1699,7 @@ define noundef i64 @_Z20fast_rv64i_vaesdm_vvP11processor_t6insn_tm(ptr noundef %
   store i8 %548, ptr %546, align 1, !tbaa !150
   %549 = add nuw nsw i64 %.0866940, 1
   %exitcond.not = icmp eq i64 %549, 16
-  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !162
+  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !165
 
 .loopexit:                                        ; preds = %161, %108
   %550 = add i64 %2, 4
@@ -1994,1529 +1994,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_vaesdm_v
   store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
   %.0865.add = add nuw nsw i64 %.0865.idx939, 1
   %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
-
-161:                                              ; preds = %.preheader
-  %162 = load i8, ptr %5, align 1, !tbaa !150
-  %163 = load i8, ptr %126, align 1, !tbaa !150
-  %164 = load i8, ptr %130, align 1, !tbaa !150
-  %165 = load i8, ptr %134, align 1, !tbaa !150
-  %166 = zext i8 %162 to i32
-  %167 = shl nuw nsw i32 %166, 1
-  %.not874 = icmp sgt i8 %162, -1
-  %168 = select i1 %.not874, i32 0, i32 27
-  %169 = xor i32 %167, %168
-  %170 = shl nuw nsw i32 %169, 1
-  %171 = and i32 %166, 64
-  %.not875 = icmp eq i32 %171, 0
-  %172 = select i1 %.not875, i32 0, i32 27
-  %173 = xor i32 %170, %172
-  %174 = shl nuw nsw i32 %173, 1
-  %175 = and i32 %166, 32
-  %.not876 = icmp eq i32 %175, 0
-  %176 = select i1 %.not876, i32 0, i32 27
-  %177 = xor i32 %174, %176
-  %178 = zext i8 %163 to i32
-  %179 = shl nuw nsw i32 %178, 1
-  %.not877 = icmp sgt i8 %163, -1
-  %180 = select i1 %.not877, i32 0, i32 27
-  %181 = xor i32 %179, %180
-  %182 = shl nuw nsw i32 %181, 1
-  %183 = and i32 %178, 64
-  %.not878 = icmp eq i32 %183, 0
-  %184 = select i1 %.not878, i32 0, i32 27
-  %185 = xor i32 %182, %184
-  %186 = shl nuw nsw i32 %185, 1
-  %187 = and i32 %178, 32
-  %.not879 = icmp eq i32 %187, 0
-  %188 = select i1 %.not879, i32 0, i32 27
-  %189 = xor i32 %186, %188
-  %190 = zext i8 %164 to i32
-  %191 = shl nuw nsw i32 %190, 1
-  %.not880 = icmp sgt i8 %164, -1
-  %192 = select i1 %.not880, i32 0, i32 27
-  %193 = xor i32 %191, %192
-  %194 = shl nuw nsw i32 %193, 1
-  %195 = and i32 %190, 64
-  %.not881 = icmp eq i32 %195, 0
-  %196 = select i1 %.not881, i32 0, i32 27
-  %197 = xor i32 %194, %196
-  %198 = shl nuw nsw i32 %197, 1
-  %199 = and i32 %190, 32
-  %.not882 = icmp eq i32 %199, 0
-  %200 = select i1 %.not882, i32 0, i32 27
-  %201 = xor i32 %198, %200
-  %202 = zext i8 %165 to i32
-  %203 = shl nuw nsw i32 %202, 1
-  %.not883 = icmp sgt i8 %165, -1
-  %204 = select i1 %.not883, i32 0, i32 27
-  %205 = xor i32 %203, %204
-  %206 = shl nuw nsw i32 %205, 1
-  %207 = and i32 %202, 64
-  %.not884 = icmp eq i32 %207, 0
-  %208 = select i1 %.not884, i32 0, i32 27
-  %209 = xor i32 %206, %208
-  %210 = shl nuw nsw i32 %209, 1
-  %211 = and i32 %202, 32
-  %.not885 = icmp eq i32 %211, 0
-  %212 = select i1 %.not885, i32 0, i32 27
-  %213 = xor i32 %210, %212
-  %214 = xor i32 %190, %178
-  %215 = xor i32 %214, %169
-  %216 = xor i32 %215, %202
-  %217 = xor i32 %216, %181
-  %218 = xor i32 %217, %173
-  %219 = xor i32 %218, %197
-  %220 = xor i32 %219, %177
-  %221 = xor i32 %220, %189
-  %222 = xor i32 %221, %201
-  %223 = xor i32 %222, %213
-  %224 = trunc i32 %223 to i8
-  store i8 %224, ptr %5, align 1, !tbaa !150
-  %225 = xor i32 %190, %166
-  %226 = xor i32 %225, %202
-  %227 = xor i32 %226, %181
-  %228 = xor i32 %227, %193
-  %229 = xor i32 %228, %185
-  %230 = xor i32 %229, %177
-  %231 = xor i32 %230, %209
-  %232 = xor i32 %231, %189
-  %233 = xor i32 %232, %201
-  %234 = xor i32 %233, %213
-  %235 = trunc i32 %234 to i8
-  store i8 %235, ptr %126, align 1, !tbaa !150
-  %236 = xor i32 %178, %166
-  %237 = xor i32 %236, %202
-  %238 = xor i32 %237, %173
-  %239 = xor i32 %238, %193
-  %240 = xor i32 %239, %205
-  %241 = xor i32 %240, %177
-  %242 = xor i32 %241, %197
-  %243 = xor i32 %242, %189
-  %244 = xor i32 %243, %201
-  %245 = xor i32 %244, %213
-  %246 = trunc i32 %245 to i8
-  store i8 %246, ptr %130, align 1, !tbaa !150
-  %247 = xor i32 %236, %190
-  %248 = xor i32 %247, %169
-  %249 = xor i32 %248, %185
-  %250 = xor i32 %249, %205
-  %251 = xor i32 %250, %177
-  %252 = xor i32 %251, %189
-  %253 = xor i32 %252, %209
-  %254 = xor i32 %253, %201
-  %255 = xor i32 %254, %213
-  %256 = trunc i32 %255 to i8
-  store i8 %256, ptr %134, align 1, !tbaa !150
-  %257 = load i8, ptr %138, align 1, !tbaa !150
-  %258 = load i8, ptr %129, align 1, !tbaa !150
-  %259 = load i8, ptr %132, align 1, !tbaa !150
-  %260 = load i8, ptr %135, align 1, !tbaa !150
-  %261 = zext i8 %257 to i32
-  %262 = shl nuw nsw i32 %261, 1
-  %.not886 = icmp sgt i8 %257, -1
-  %263 = select i1 %.not886, i32 0, i32 27
-  %264 = xor i32 %262, %263
-  %265 = shl nuw nsw i32 %264, 1
-  %266 = and i32 %261, 64
-  %.not887 = icmp eq i32 %266, 0
-  %267 = select i1 %.not887, i32 0, i32 27
-  %268 = xor i32 %265, %267
-  %269 = shl nuw nsw i32 %268, 1
-  %270 = and i32 %261, 32
-  %.not888 = icmp eq i32 %270, 0
-  %271 = select i1 %.not888, i32 0, i32 27
-  %272 = xor i32 %269, %271
-  %273 = zext i8 %258 to i32
-  %274 = shl nuw nsw i32 %273, 1
-  %.not889 = icmp sgt i8 %258, -1
-  %275 = select i1 %.not889, i32 0, i32 27
-  %276 = xor i32 %274, %275
-  %277 = shl nuw nsw i32 %276, 1
-  %278 = and i32 %273, 64
-  %.not890 = icmp eq i32 %278, 0
-  %279 = select i1 %.not890, i32 0, i32 27
-  %280 = xor i32 %277, %279
-  %281 = shl nuw nsw i32 %280, 1
-  %282 = and i32 %273, 32
-  %.not891 = icmp eq i32 %282, 0
-  %283 = select i1 %.not891, i32 0, i32 27
-  %284 = xor i32 %281, %283
-  %285 = zext i8 %259 to i32
-  %286 = shl nuw nsw i32 %285, 1
-  %.not892 = icmp sgt i8 %259, -1
-  %287 = select i1 %.not892, i32 0, i32 27
-  %288 = xor i32 %286, %287
-  %289 = shl nuw nsw i32 %288, 1
-  %290 = and i32 %285, 64
-  %.not893 = icmp eq i32 %290, 0
-  %291 = select i1 %.not893, i32 0, i32 27
-  %292 = xor i32 %289, %291
-  %293 = shl nuw nsw i32 %292, 1
-  %294 = and i32 %285, 32
-  %.not894 = icmp eq i32 %294, 0
-  %295 = select i1 %.not894, i32 0, i32 27
-  %296 = xor i32 %293, %295
-  %297 = zext i8 %260 to i32
-  %298 = shl nuw nsw i32 %297, 1
-  %.not895 = icmp sgt i8 %260, -1
-  %299 = select i1 %.not895, i32 0, i32 27
-  %300 = xor i32 %298, %299
-  %301 = shl nuw nsw i32 %300, 1
-  %302 = and i32 %297, 64
-  %.not896 = icmp eq i32 %302, 0
-  %303 = select i1 %.not896, i32 0, i32 27
-  %304 = xor i32 %301, %303
-  %305 = shl nuw nsw i32 %304, 1
-  %306 = and i32 %297, 32
-  %.not897 = icmp eq i32 %306, 0
-  %307 = select i1 %.not897, i32 0, i32 27
-  %308 = xor i32 %305, %307
-  %309 = xor i32 %285, %273
-  %310 = xor i32 %309, %264
-  %311 = xor i32 %310, %297
-  %312 = xor i32 %311, %276
-  %313 = xor i32 %312, %268
-  %314 = xor i32 %313, %292
-  %315 = xor i32 %314, %272
-  %316 = xor i32 %315, %284
-  %317 = xor i32 %316, %296
-  %318 = xor i32 %317, %308
-  %319 = trunc i32 %318 to i8
-  store i8 %319, ptr %138, align 1, !tbaa !150
-  %320 = xor i32 %285, %261
-  %321 = xor i32 %320, %297
-  %322 = xor i32 %321, %276
-  %323 = xor i32 %322, %288
-  %324 = xor i32 %323, %280
-  %325 = xor i32 %324, %272
-  %326 = xor i32 %325, %304
-  %327 = xor i32 %326, %284
-  %328 = xor i32 %327, %296
-  %329 = xor i32 %328, %308
-  %330 = trunc i32 %329 to i8
-  store i8 %330, ptr %129, align 1, !tbaa !150
-  %331 = xor i32 %273, %261
-  %332 = xor i32 %331, %297
-  %333 = xor i32 %332, %268
-  %334 = xor i32 %333, %288
-  %335 = xor i32 %334, %300
-  %336 = xor i32 %335, %272
-  %337 = xor i32 %336, %292
-  %338 = xor i32 %337, %284
-  %339 = xor i32 %338, %296
-  %340 = xor i32 %339, %308
-  %341 = trunc i32 %340 to i8
-  store i8 %341, ptr %132, align 1, !tbaa !150
-  %342 = xor i32 %331, %285
-  %343 = xor i32 %342, %264
-  %344 = xor i32 %343, %280
-  %345 = xor i32 %344, %300
-  %346 = xor i32 %345, %272
-  %347 = xor i32 %346, %284
-  %348 = xor i32 %347, %304
-  %349 = xor i32 %348, %296
-  %350 = xor i32 %349, %308
-  %351 = trunc i32 %350 to i8
-  store i8 %351, ptr %135, align 1, !tbaa !150
-  %352 = load i8, ptr %139, align 1, !tbaa !150
-  %353 = load i8, ptr %128, align 1, !tbaa !150
-  %354 = load i8, ptr %131, align 1, !tbaa !150
-  %355 = load i8, ptr %136, align 1, !tbaa !150
-  %356 = zext i8 %352 to i32
-  %357 = shl nuw nsw i32 %356, 1
-  %.not898 = icmp sgt i8 %352, -1
-  %358 = select i1 %.not898, i32 0, i32 27
-  %359 = xor i32 %357, %358
-  %360 = shl nuw nsw i32 %359, 1
-  %361 = and i32 %356, 64
-  %.not899 = icmp eq i32 %361, 0
-  %362 = select i1 %.not899, i32 0, i32 27
-  %363 = xor i32 %360, %362
-  %364 = shl nuw nsw i32 %363, 1
-  %365 = and i32 %356, 32
-  %.not900 = icmp eq i32 %365, 0
-  %366 = select i1 %.not900, i32 0, i32 27
-  %367 = xor i32 %364, %366
-  %368 = zext i8 %353 to i32
-  %369 = shl nuw nsw i32 %368, 1
-  %.not901 = icmp sgt i8 %353, -1
-  %370 = select i1 %.not901, i32 0, i32 27
-  %371 = xor i32 %369, %370
-  %372 = shl nuw nsw i32 %371, 1
-  %373 = and i32 %368, 64
-  %.not902 = icmp eq i32 %373, 0
-  %374 = select i1 %.not902, i32 0, i32 27
-  %375 = xor i32 %372, %374
-  %376 = shl nuw nsw i32 %375, 1
-  %377 = and i32 %368, 32
-  %.not903 = icmp eq i32 %377, 0
-  %378 = select i1 %.not903, i32 0, i32 27
-  %379 = xor i32 %376, %378
-  %380 = zext i8 %354 to i32
-  %381 = shl nuw nsw i32 %380, 1
-  %.not904 = icmp sgt i8 %354, -1
-  %382 = select i1 %.not904, i32 0, i32 27
-  %383 = xor i32 %381, %382
-  %384 = shl nuw nsw i32 %383, 1
-  %385 = and i32 %380, 64
-  %.not905 = icmp eq i32 %385, 0
-  %386 = select i1 %.not905, i32 0, i32 27
-  %387 = xor i32 %384, %386
-  %388 = shl nuw nsw i32 %387, 1
-  %389 = and i32 %380, 32
-  %.not906 = icmp eq i32 %389, 0
-  %390 = select i1 %.not906, i32 0, i32 27
-  %391 = xor i32 %388, %390
-  %392 = zext i8 %355 to i32
-  %393 = shl nuw nsw i32 %392, 1
-  %.not907 = icmp sgt i8 %355, -1
-  %394 = select i1 %.not907, i32 0, i32 27
-  %395 = xor i32 %393, %394
-  %396 = shl nuw nsw i32 %395, 1
-  %397 = and i32 %392, 64
-  %.not908 = icmp eq i32 %397, 0
-  %398 = select i1 %.not908, i32 0, i32 27
-  %399 = xor i32 %396, %398
-  %400 = shl nuw nsw i32 %399, 1
-  %401 = and i32 %392, 32
-  %.not909 = icmp eq i32 %401, 0
-  %402 = select i1 %.not909, i32 0, i32 27
-  %403 = xor i32 %400, %402
-  %404 = xor i32 %380, %368
-  %405 = xor i32 %404, %359
-  %406 = xor i32 %405, %392
-  %407 = xor i32 %406, %371
-  %408 = xor i32 %407, %363
-  %409 = xor i32 %408, %387
-  %410 = xor i32 %409, %367
-  %411 = xor i32 %410, %379
-  %412 = xor i32 %411, %391
-  %413 = xor i32 %412, %403
-  %414 = trunc i32 %413 to i8
-  store i8 %414, ptr %139, align 1, !tbaa !150
-  %415 = xor i32 %380, %356
-  %416 = xor i32 %415, %392
-  %417 = xor i32 %416, %371
-  %418 = xor i32 %417, %383
-  %419 = xor i32 %418, %375
-  %420 = xor i32 %419, %367
-  %421 = xor i32 %420, %399
-  %422 = xor i32 %421, %379
-  %423 = xor i32 %422, %391
-  %424 = xor i32 %423, %403
-  %425 = trunc i32 %424 to i8
-  store i8 %425, ptr %128, align 1, !tbaa !150
-  %426 = xor i32 %368, %356
-  %427 = xor i32 %426, %392
-  %428 = xor i32 %427, %363
-  %429 = xor i32 %428, %383
-  %430 = xor i32 %429, %395
-  %431 = xor i32 %430, %367
-  %432 = xor i32 %431, %387
-  %433 = xor i32 %432, %379
-  %434 = xor i32 %433, %391
-  %435 = xor i32 %434, %403
-  %436 = trunc i32 %435 to i8
-  store i8 %436, ptr %131, align 1, !tbaa !150
-  %437 = xor i32 %426, %380
-  %438 = xor i32 %437, %359
-  %439 = xor i32 %438, %375
-  %440 = xor i32 %439, %395
-  %441 = xor i32 %440, %367
-  %442 = xor i32 %441, %379
-  %443 = xor i32 %442, %399
-  %444 = xor i32 %443, %391
-  %445 = xor i32 %444, %403
-  %446 = trunc i32 %445 to i8
-  store i8 %446, ptr %136, align 1, !tbaa !150
-  %447 = load i8, ptr %140, align 1, !tbaa !150
-  %448 = load i8, ptr %127, align 1, !tbaa !150
-  %449 = load i8, ptr %133, align 1, !tbaa !150
-  %450 = load i8, ptr %137, align 1, !tbaa !150
-  %451 = zext i8 %447 to i32
-  %452 = shl nuw nsw i32 %451, 1
-  %.not910 = icmp sgt i8 %447, -1
-  %453 = select i1 %.not910, i32 0, i32 27
-  %454 = xor i32 %452, %453
-  %455 = shl nuw nsw i32 %454, 1
-  %456 = and i32 %451, 64
-  %.not911 = icmp eq i32 %456, 0
-  %457 = select i1 %.not911, i32 0, i32 27
-  %458 = xor i32 %455, %457
-  %459 = shl nuw nsw i32 %458, 1
-  %460 = and i32 %451, 32
-  %.not912 = icmp eq i32 %460, 0
-  %461 = select i1 %.not912, i32 0, i32 27
-  %462 = xor i32 %459, %461
-  %463 = zext i8 %448 to i32
-  %464 = shl nuw nsw i32 %463, 1
-  %.not913 = icmp sgt i8 %448, -1
-  %465 = select i1 %.not913, i32 0, i32 27
-  %466 = xor i32 %464, %465
-  %467 = shl nuw nsw i32 %466, 1
-  %468 = and i32 %463, 64
-  %.not914 = icmp eq i32 %468, 0
-  %469 = select i1 %.not914, i32 0, i32 27
-  %470 = xor i32 %467, %469
-  %471 = shl nuw nsw i32 %470, 1
-  %472 = and i32 %463, 32
-  %.not915 = icmp eq i32 %472, 0
-  %473 = select i1 %.not915, i32 0, i32 27
-  %474 = xor i32 %471, %473
-  %475 = zext i8 %449 to i32
-  %476 = shl nuw nsw i32 %475, 1
-  %.not916 = icmp sgt i8 %449, -1
-  %477 = select i1 %.not916, i32 0, i32 27
-  %478 = xor i32 %476, %477
-  %479 = shl nuw nsw i32 %478, 1
-  %480 = and i32 %475, 64
-  %.not917 = icmp eq i32 %480, 0
-  %481 = select i1 %.not917, i32 0, i32 27
-  %482 = xor i32 %479, %481
-  %483 = shl nuw nsw i32 %482, 1
-  %484 = and i32 %475, 32
-  %.not918 = icmp eq i32 %484, 0
-  %485 = select i1 %.not918, i32 0, i32 27
-  %486 = xor i32 %483, %485
-  %487 = zext i8 %450 to i32
-  %488 = shl nuw nsw i32 %487, 1
-  %.not919 = icmp sgt i8 %450, -1
-  %489 = select i1 %.not919, i32 0, i32 27
-  %490 = xor i32 %488, %489
-  %491 = shl nuw nsw i32 %490, 1
-  %492 = and i32 %487, 64
-  %.not920 = icmp eq i32 %492, 0
-  %493 = select i1 %.not920, i32 0, i32 27
-  %494 = xor i32 %491, %493
-  %495 = shl nuw nsw i32 %494, 1
-  %496 = and i32 %487, 32
-  %.not921 = icmp eq i32 %496, 0
-  %497 = select i1 %.not921, i32 0, i32 27
-  %498 = xor i32 %495, %497
-  %499 = xor i32 %475, %463
-  %500 = xor i32 %499, %454
-  %501 = xor i32 %500, %487
-  %502 = xor i32 %501, %466
-  %503 = xor i32 %502, %458
-  %504 = xor i32 %503, %482
-  %505 = xor i32 %504, %462
-  %506 = xor i32 %505, %474
-  %507 = xor i32 %506, %486
-  %508 = xor i32 %507, %498
-  %509 = trunc i32 %508 to i8
-  store i8 %509, ptr %140, align 1, !tbaa !150
-  %510 = xor i32 %475, %451
-  %511 = xor i32 %510, %487
-  %512 = xor i32 %511, %466
-  %513 = xor i32 %512, %478
-  %514 = xor i32 %513, %470
-  %515 = xor i32 %514, %462
-  %516 = xor i32 %515, %494
-  %517 = xor i32 %516, %474
-  %518 = xor i32 %517, %486
-  %519 = xor i32 %518, %498
-  %520 = trunc i32 %519 to i8
-  store i8 %520, ptr %127, align 1, !tbaa !150
-  %521 = xor i32 %463, %451
-  %522 = xor i32 %521, %487
-  %523 = xor i32 %522, %458
-  %524 = xor i32 %523, %478
-  %525 = xor i32 %524, %490
-  %526 = xor i32 %525, %462
-  %527 = xor i32 %526, %482
-  %528 = xor i32 %527, %474
-  %529 = xor i32 %528, %486
-  %530 = xor i32 %529, %498
-  %531 = trunc i32 %530 to i8
-  store i8 %531, ptr %133, align 1, !tbaa !150
-  %532 = xor i32 %521, %475
-  %533 = xor i32 %532, %454
-  %534 = xor i32 %533, %470
-  %535 = xor i32 %534, %490
-  %536 = xor i32 %535, %462
-  %537 = xor i32 %536, %474
-  %538 = xor i32 %537, %494
-  %539 = xor i32 %538, %486
-  %540 = xor i32 %539, %498
-  %541 = trunc i32 %540 to i8
-  store i8 %541, ptr %137, align 1, !tbaa !150
-  %542 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext true)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %542, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false), !tbaa !150
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
-  %543 = add nuw nsw i64 %.0864942, 1
-  %exitcond943.not = icmp eq i64 %543, %124
-  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !163
-
-.preheader:                                       ; preds = %156, %.preheader
-  %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
-  %544 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0866940
-  %545 = load i8, ptr %544, align 1, !tbaa !150
-  %546 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0866940
-  %547 = load i8, ptr %546, align 1, !tbaa !150
-  %548 = xor i8 %547, %545
-  store i8 %548, ptr %546, align 1, !tbaa !150
-  %549 = add nuw nsw i64 %.0866940, 1
-  %exitcond.not = icmp eq i64 %549, 16
-  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !164
-
-.loopexit:                                        ; preds = %161, %108
-  %550 = shl i64 %2, 32
-  %551 = add i64 %550, 17179869184
-  %552 = ashr exact i64 %551, 32
-  %553 = load ptr, ptr %76, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %553, i64 noundef 0) #14
-  ret i64 %552
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv64i_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = alloca i64, align 8
-  %5 = alloca %"struct.std::array", align 1
-  %6 = alloca %"struct.std::array", align 1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %8 = load i64, ptr %7, align 8, !tbaa !3
-  %.not937 = icmp eq i64 %8, 0
-  br i1 %.not937, label %13, label %9, !prof !131
-
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %11 = load ptr, ptr %10, align 8, !tbaa !132
-  %12 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 1536)
-  br i1 %12, label %18, label %13, !prof !133
-
-13:                                               ; preds = %9, %3
-  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 2, ptr %15, align 8, !tbaa !134
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i8 0, ptr %16, align 8, !tbaa !136
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %1, ptr %17, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 266632
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %21 = load i8, ptr %20, align 8, !tbaa !141, !range !142, !noundef !143
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %28, !prof !131
-
-23:                                               ; preds = %18
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 2, ptr %25, align 8, !tbaa !134
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i8 0, ptr %26, align 8, !tbaa !136
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %1, ptr %27, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %30 = load i8, ptr %29, align 1, !tbaa !144, !range !142, !noundef !143
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %44, label %32
-
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %34 = load ptr, ptr %33, align 8, !tbaa !145
-  %35 = load ptr, ptr %34, align 8, !tbaa !139
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(48) %34) #14
-  %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %44, label %39, !prof !133
-
-39:                                               ; preds = %32
-  %40 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 2, ptr %41, align 8, !tbaa !134
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i8 0, ptr %42, align 8, !tbaa !136
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store i64 %1, ptr %43, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %40, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-44:                                               ; preds = %32, %28
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 3, ptr %4, align 8, !tbaa !146
-  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %47 = load ptr, ptr %10, align 8, !tbaa !132
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %47, i64 noundef 1536)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4320
-  %.sink.i = load i64, ptr %48, align 8, !tbaa !146
-  %49 = and i64 %.sink.i, 8192
-  %.0.i.not = icmp eq i64 %49, 0
-  br i1 %.0.i.not, label %50, label %55, !prof !131
-
-50:                                               ; preds = %44
-  %51 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 2, ptr %52, align 8, !tbaa !134
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i8 0, ptr %53, align 8, !tbaa !136
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i64 %1, ptr %54, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-55:                                               ; preds = %44
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
-  %57 = load i64, ptr %56, align 8, !tbaa !147
-  %.not869 = icmp eq i64 %57, 32
-  br i1 %.not869, label %63, label %58, !prof !133
-
-58:                                               ; preds = %55
-  %59 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i64 2, ptr %60, align 8, !tbaa !134
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i8 0, ptr %61, align 8, !tbaa !136
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i64 %1, ptr %62, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %59, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-63:                                               ; preds = %55
-  %64 = load i64, ptr %7, align 8, !tbaa !3
-  %65 = uitofp i64 %64 to float
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 266808
-  %67 = load float, ptr %66, align 8, !tbaa !148
-  %68 = fmul float %67, %65
-  %69 = fcmp ult float %68, 1.280000e+02
-  br i1 %69, label %70, label %75, !prof !131
-
-70:                                               ; preds = %63
-  %71 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i64 2, ptr %72, align 8, !tbaa !134
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i8 0, ptr %73, align 8, !tbaa !136
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %1, ptr %74, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-75:                                               ; preds = %63
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %77 = load ptr, ptr %76, align 8, !tbaa !145
-  %78 = load ptr, ptr %77, align 8, !tbaa !139
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(48) %77) #14
-  %82 = and i64 %81, 3
-  %.not870 = icmp eq i64 %82, 0
-  br i1 %.not870, label %88, label %83, !prof !133
-
-83:                                               ; preds = %75
-  %84 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 2, ptr %85, align 8, !tbaa !134
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i8 0, ptr %86, align 8, !tbaa !136
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store i64 %1, ptr %87, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %84, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-88:                                               ; preds = %75
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %90 = load ptr, ptr %89, align 8, !tbaa !145
-  %91 = load ptr, ptr %90, align 8, !tbaa !139
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(48) %90) #14
-  %95 = and i64 %94, 3
-  %.not871 = icmp eq i64 %95, 0
-  br i1 %.not871, label %101, label %96, !prof !133
-
-96:                                               ; preds = %88
-  %97 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i64 2, ptr %98, align 8, !tbaa !134
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i8 0, ptr %99, align 8, !tbaa !136
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store i64 %1, ptr %100, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %97, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-101:                                              ; preds = %88
-  %102 = and i64 %1, 33554432
-  %.not872.not = icmp eq i64 %102, 0
-  br i1 %.not872.not, label %103, label %108, !prof !131
-
-103:                                              ; preds = %101
-  %104 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store i64 2, ptr %105, align 8, !tbaa !134
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i8 0, ptr %106, align 8, !tbaa !136
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store i64 %1, ptr %107, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %104, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-108:                                              ; preds = %101
-  %109 = lshr i64 %1, 7
-  %110 = and i64 %109, 31
-  %111 = lshr i64 %1, 20
-  %112 = and i64 %111, 31
-  %113 = load ptr, ptr %76, align 8, !tbaa !145
-  %114 = load ptr, ptr %113, align 8, !tbaa !139
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(48) %113) #14
-  %118 = lshr i64 %117, 2
-  %119 = load ptr, ptr %89, align 8, !tbaa !145
-  %120 = load ptr, ptr %119, align 8, !tbaa !139
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(48) %119) #14
-  %124 = lshr i64 %123, 2
-  %125 = icmp samesign ult i64 %118, %124
-  br i1 %125, label %.preheader938, label %.loopexit
-
-.preheader938:                                    ; preds = %108
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %130 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %133 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %135 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  br label %141
-
-141:                                              ; preds = %.preheader938, %161
-  %.0864942 = phi i64 [ %118, %.preheader938 ], [ %543, %161 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  %142 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !149
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  %143 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %112, i64 noundef %.0864942, i1 noundef zeroext false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !149
-  %144 = load i8, ptr %126, align 1, !tbaa !150
-  %145 = load i8, ptr %127, align 1, !tbaa !150
-  store i8 %145, ptr %126, align 1, !tbaa !150
-  %146 = load i8, ptr %128, align 1, !tbaa !150
-  store i8 %146, ptr %127, align 1, !tbaa !150
-  %147 = load i8, ptr %129, align 1, !tbaa !150
-  store i8 %147, ptr %128, align 1, !tbaa !150
-  store i8 %144, ptr %129, align 1, !tbaa !150
-  %148 = load i8, ptr %130, align 1, !tbaa !150
-  %149 = load i8, ptr %131, align 1, !tbaa !150
-  store i8 %149, ptr %130, align 1, !tbaa !150
-  store i8 %148, ptr %131, align 1, !tbaa !150
-  %150 = load i8, ptr %132, align 1, !tbaa !150
-  %151 = load i8, ptr %133, align 1, !tbaa !150
-  store i8 %151, ptr %132, align 1, !tbaa !150
-  store i8 %150, ptr %133, align 1, !tbaa !150
-  %152 = load i8, ptr %134, align 1, !tbaa !150
-  %153 = load i8, ptr %135, align 1, !tbaa !150
-  store i8 %153, ptr %134, align 1, !tbaa !150
-  %154 = load i8, ptr %136, align 1, !tbaa !150
-  store i8 %154, ptr %135, align 1, !tbaa !150
-  %155 = load i8, ptr %137, align 1, !tbaa !150
-  store i8 %155, ptr %136, align 1, !tbaa !150
-  store i8 %152, ptr %137, align 1, !tbaa !150
-  br label %156
-
-156:                                              ; preds = %141, %156
-  %.0865.idx939 = phi i64 [ 0, %141 ], [ %.0865.add, %156 ]
-  %.0865.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0865.idx939
-  %157 = load i8, ptr %.0865.ptr, align 1, !tbaa !150
-  %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesdm_vvP11processor_t6insn_tmE13kVAESXDecSBox, i64 0, i64 %158
-  %160 = load i8, ptr %159, align 1, !tbaa !150
-  store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
-  %.0865.add = add nuw nsw i64 %.0865.idx939, 1
-  %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
-
-161:                                              ; preds = %.preheader
-  %162 = load i8, ptr %5, align 1, !tbaa !150
-  %163 = load i8, ptr %126, align 1, !tbaa !150
-  %164 = load i8, ptr %130, align 1, !tbaa !150
-  %165 = load i8, ptr %134, align 1, !tbaa !150
-  %166 = zext i8 %162 to i32
-  %167 = shl nuw nsw i32 %166, 1
-  %.not874 = icmp sgt i8 %162, -1
-  %168 = select i1 %.not874, i32 0, i32 27
-  %169 = xor i32 %167, %168
-  %170 = shl nuw nsw i32 %169, 1
-  %171 = and i32 %166, 64
-  %.not875 = icmp eq i32 %171, 0
-  %172 = select i1 %.not875, i32 0, i32 27
-  %173 = xor i32 %170, %172
-  %174 = shl nuw nsw i32 %173, 1
-  %175 = and i32 %166, 32
-  %.not876 = icmp eq i32 %175, 0
-  %176 = select i1 %.not876, i32 0, i32 27
-  %177 = xor i32 %174, %176
-  %178 = zext i8 %163 to i32
-  %179 = shl nuw nsw i32 %178, 1
-  %.not877 = icmp sgt i8 %163, -1
-  %180 = select i1 %.not877, i32 0, i32 27
-  %181 = xor i32 %179, %180
-  %182 = shl nuw nsw i32 %181, 1
-  %183 = and i32 %178, 64
-  %.not878 = icmp eq i32 %183, 0
-  %184 = select i1 %.not878, i32 0, i32 27
-  %185 = xor i32 %182, %184
-  %186 = shl nuw nsw i32 %185, 1
-  %187 = and i32 %178, 32
-  %.not879 = icmp eq i32 %187, 0
-  %188 = select i1 %.not879, i32 0, i32 27
-  %189 = xor i32 %186, %188
-  %190 = zext i8 %164 to i32
-  %191 = shl nuw nsw i32 %190, 1
-  %.not880 = icmp sgt i8 %164, -1
-  %192 = select i1 %.not880, i32 0, i32 27
-  %193 = xor i32 %191, %192
-  %194 = shl nuw nsw i32 %193, 1
-  %195 = and i32 %190, 64
-  %.not881 = icmp eq i32 %195, 0
-  %196 = select i1 %.not881, i32 0, i32 27
-  %197 = xor i32 %194, %196
-  %198 = shl nuw nsw i32 %197, 1
-  %199 = and i32 %190, 32
-  %.not882 = icmp eq i32 %199, 0
-  %200 = select i1 %.not882, i32 0, i32 27
-  %201 = xor i32 %198, %200
-  %202 = zext i8 %165 to i32
-  %203 = shl nuw nsw i32 %202, 1
-  %.not883 = icmp sgt i8 %165, -1
-  %204 = select i1 %.not883, i32 0, i32 27
-  %205 = xor i32 %203, %204
-  %206 = shl nuw nsw i32 %205, 1
-  %207 = and i32 %202, 64
-  %.not884 = icmp eq i32 %207, 0
-  %208 = select i1 %.not884, i32 0, i32 27
-  %209 = xor i32 %206, %208
-  %210 = shl nuw nsw i32 %209, 1
-  %211 = and i32 %202, 32
-  %.not885 = icmp eq i32 %211, 0
-  %212 = select i1 %.not885, i32 0, i32 27
-  %213 = xor i32 %210, %212
-  %214 = xor i32 %190, %178
-  %215 = xor i32 %214, %169
-  %216 = xor i32 %215, %202
-  %217 = xor i32 %216, %181
-  %218 = xor i32 %217, %173
-  %219 = xor i32 %218, %197
-  %220 = xor i32 %219, %177
-  %221 = xor i32 %220, %189
-  %222 = xor i32 %221, %201
-  %223 = xor i32 %222, %213
-  %224 = trunc i32 %223 to i8
-  store i8 %224, ptr %5, align 1, !tbaa !150
-  %225 = xor i32 %190, %166
-  %226 = xor i32 %225, %202
-  %227 = xor i32 %226, %181
-  %228 = xor i32 %227, %193
-  %229 = xor i32 %228, %185
-  %230 = xor i32 %229, %177
-  %231 = xor i32 %230, %209
-  %232 = xor i32 %231, %189
-  %233 = xor i32 %232, %201
-  %234 = xor i32 %233, %213
-  %235 = trunc i32 %234 to i8
-  store i8 %235, ptr %126, align 1, !tbaa !150
-  %236 = xor i32 %178, %166
-  %237 = xor i32 %236, %202
-  %238 = xor i32 %237, %173
-  %239 = xor i32 %238, %193
-  %240 = xor i32 %239, %205
-  %241 = xor i32 %240, %177
-  %242 = xor i32 %241, %197
-  %243 = xor i32 %242, %189
-  %244 = xor i32 %243, %201
-  %245 = xor i32 %244, %213
-  %246 = trunc i32 %245 to i8
-  store i8 %246, ptr %130, align 1, !tbaa !150
-  %247 = xor i32 %236, %190
-  %248 = xor i32 %247, %169
-  %249 = xor i32 %248, %185
-  %250 = xor i32 %249, %205
-  %251 = xor i32 %250, %177
-  %252 = xor i32 %251, %189
-  %253 = xor i32 %252, %209
-  %254 = xor i32 %253, %201
-  %255 = xor i32 %254, %213
-  %256 = trunc i32 %255 to i8
-  store i8 %256, ptr %134, align 1, !tbaa !150
-  %257 = load i8, ptr %138, align 1, !tbaa !150
-  %258 = load i8, ptr %129, align 1, !tbaa !150
-  %259 = load i8, ptr %132, align 1, !tbaa !150
-  %260 = load i8, ptr %135, align 1, !tbaa !150
-  %261 = zext i8 %257 to i32
-  %262 = shl nuw nsw i32 %261, 1
-  %.not886 = icmp sgt i8 %257, -1
-  %263 = select i1 %.not886, i32 0, i32 27
-  %264 = xor i32 %262, %263
-  %265 = shl nuw nsw i32 %264, 1
-  %266 = and i32 %261, 64
-  %.not887 = icmp eq i32 %266, 0
-  %267 = select i1 %.not887, i32 0, i32 27
-  %268 = xor i32 %265, %267
-  %269 = shl nuw nsw i32 %268, 1
-  %270 = and i32 %261, 32
-  %.not888 = icmp eq i32 %270, 0
-  %271 = select i1 %.not888, i32 0, i32 27
-  %272 = xor i32 %269, %271
-  %273 = zext i8 %258 to i32
-  %274 = shl nuw nsw i32 %273, 1
-  %.not889 = icmp sgt i8 %258, -1
-  %275 = select i1 %.not889, i32 0, i32 27
-  %276 = xor i32 %274, %275
-  %277 = shl nuw nsw i32 %276, 1
-  %278 = and i32 %273, 64
-  %.not890 = icmp eq i32 %278, 0
-  %279 = select i1 %.not890, i32 0, i32 27
-  %280 = xor i32 %277, %279
-  %281 = shl nuw nsw i32 %280, 1
-  %282 = and i32 %273, 32
-  %.not891 = icmp eq i32 %282, 0
-  %283 = select i1 %.not891, i32 0, i32 27
-  %284 = xor i32 %281, %283
-  %285 = zext i8 %259 to i32
-  %286 = shl nuw nsw i32 %285, 1
-  %.not892 = icmp sgt i8 %259, -1
-  %287 = select i1 %.not892, i32 0, i32 27
-  %288 = xor i32 %286, %287
-  %289 = shl nuw nsw i32 %288, 1
-  %290 = and i32 %285, 64
-  %.not893 = icmp eq i32 %290, 0
-  %291 = select i1 %.not893, i32 0, i32 27
-  %292 = xor i32 %289, %291
-  %293 = shl nuw nsw i32 %292, 1
-  %294 = and i32 %285, 32
-  %.not894 = icmp eq i32 %294, 0
-  %295 = select i1 %.not894, i32 0, i32 27
-  %296 = xor i32 %293, %295
-  %297 = zext i8 %260 to i32
-  %298 = shl nuw nsw i32 %297, 1
-  %.not895 = icmp sgt i8 %260, -1
-  %299 = select i1 %.not895, i32 0, i32 27
-  %300 = xor i32 %298, %299
-  %301 = shl nuw nsw i32 %300, 1
-  %302 = and i32 %297, 64
-  %.not896 = icmp eq i32 %302, 0
-  %303 = select i1 %.not896, i32 0, i32 27
-  %304 = xor i32 %301, %303
-  %305 = shl nuw nsw i32 %304, 1
-  %306 = and i32 %297, 32
-  %.not897 = icmp eq i32 %306, 0
-  %307 = select i1 %.not897, i32 0, i32 27
-  %308 = xor i32 %305, %307
-  %309 = xor i32 %285, %273
-  %310 = xor i32 %309, %264
-  %311 = xor i32 %310, %297
-  %312 = xor i32 %311, %276
-  %313 = xor i32 %312, %268
-  %314 = xor i32 %313, %292
-  %315 = xor i32 %314, %272
-  %316 = xor i32 %315, %284
-  %317 = xor i32 %316, %296
-  %318 = xor i32 %317, %308
-  %319 = trunc i32 %318 to i8
-  store i8 %319, ptr %138, align 1, !tbaa !150
-  %320 = xor i32 %285, %261
-  %321 = xor i32 %320, %297
-  %322 = xor i32 %321, %276
-  %323 = xor i32 %322, %288
-  %324 = xor i32 %323, %280
-  %325 = xor i32 %324, %272
-  %326 = xor i32 %325, %304
-  %327 = xor i32 %326, %284
-  %328 = xor i32 %327, %296
-  %329 = xor i32 %328, %308
-  %330 = trunc i32 %329 to i8
-  store i8 %330, ptr %129, align 1, !tbaa !150
-  %331 = xor i32 %273, %261
-  %332 = xor i32 %331, %297
-  %333 = xor i32 %332, %268
-  %334 = xor i32 %333, %288
-  %335 = xor i32 %334, %300
-  %336 = xor i32 %335, %272
-  %337 = xor i32 %336, %292
-  %338 = xor i32 %337, %284
-  %339 = xor i32 %338, %296
-  %340 = xor i32 %339, %308
-  %341 = trunc i32 %340 to i8
-  store i8 %341, ptr %132, align 1, !tbaa !150
-  %342 = xor i32 %331, %285
-  %343 = xor i32 %342, %264
-  %344 = xor i32 %343, %280
-  %345 = xor i32 %344, %300
-  %346 = xor i32 %345, %272
-  %347 = xor i32 %346, %284
-  %348 = xor i32 %347, %304
-  %349 = xor i32 %348, %296
-  %350 = xor i32 %349, %308
-  %351 = trunc i32 %350 to i8
-  store i8 %351, ptr %135, align 1, !tbaa !150
-  %352 = load i8, ptr %139, align 1, !tbaa !150
-  %353 = load i8, ptr %128, align 1, !tbaa !150
-  %354 = load i8, ptr %131, align 1, !tbaa !150
-  %355 = load i8, ptr %136, align 1, !tbaa !150
-  %356 = zext i8 %352 to i32
-  %357 = shl nuw nsw i32 %356, 1
-  %.not898 = icmp sgt i8 %352, -1
-  %358 = select i1 %.not898, i32 0, i32 27
-  %359 = xor i32 %357, %358
-  %360 = shl nuw nsw i32 %359, 1
-  %361 = and i32 %356, 64
-  %.not899 = icmp eq i32 %361, 0
-  %362 = select i1 %.not899, i32 0, i32 27
-  %363 = xor i32 %360, %362
-  %364 = shl nuw nsw i32 %363, 1
-  %365 = and i32 %356, 32
-  %.not900 = icmp eq i32 %365, 0
-  %366 = select i1 %.not900, i32 0, i32 27
-  %367 = xor i32 %364, %366
-  %368 = zext i8 %353 to i32
-  %369 = shl nuw nsw i32 %368, 1
-  %.not901 = icmp sgt i8 %353, -1
-  %370 = select i1 %.not901, i32 0, i32 27
-  %371 = xor i32 %369, %370
-  %372 = shl nuw nsw i32 %371, 1
-  %373 = and i32 %368, 64
-  %.not902 = icmp eq i32 %373, 0
-  %374 = select i1 %.not902, i32 0, i32 27
-  %375 = xor i32 %372, %374
-  %376 = shl nuw nsw i32 %375, 1
-  %377 = and i32 %368, 32
-  %.not903 = icmp eq i32 %377, 0
-  %378 = select i1 %.not903, i32 0, i32 27
-  %379 = xor i32 %376, %378
-  %380 = zext i8 %354 to i32
-  %381 = shl nuw nsw i32 %380, 1
-  %.not904 = icmp sgt i8 %354, -1
-  %382 = select i1 %.not904, i32 0, i32 27
-  %383 = xor i32 %381, %382
-  %384 = shl nuw nsw i32 %383, 1
-  %385 = and i32 %380, 64
-  %.not905 = icmp eq i32 %385, 0
-  %386 = select i1 %.not905, i32 0, i32 27
-  %387 = xor i32 %384, %386
-  %388 = shl nuw nsw i32 %387, 1
-  %389 = and i32 %380, 32
-  %.not906 = icmp eq i32 %389, 0
-  %390 = select i1 %.not906, i32 0, i32 27
-  %391 = xor i32 %388, %390
-  %392 = zext i8 %355 to i32
-  %393 = shl nuw nsw i32 %392, 1
-  %.not907 = icmp sgt i8 %355, -1
-  %394 = select i1 %.not907, i32 0, i32 27
-  %395 = xor i32 %393, %394
-  %396 = shl nuw nsw i32 %395, 1
-  %397 = and i32 %392, 64
-  %.not908 = icmp eq i32 %397, 0
-  %398 = select i1 %.not908, i32 0, i32 27
-  %399 = xor i32 %396, %398
-  %400 = shl nuw nsw i32 %399, 1
-  %401 = and i32 %392, 32
-  %.not909 = icmp eq i32 %401, 0
-  %402 = select i1 %.not909, i32 0, i32 27
-  %403 = xor i32 %400, %402
-  %404 = xor i32 %380, %368
-  %405 = xor i32 %404, %359
-  %406 = xor i32 %405, %392
-  %407 = xor i32 %406, %371
-  %408 = xor i32 %407, %363
-  %409 = xor i32 %408, %387
-  %410 = xor i32 %409, %367
-  %411 = xor i32 %410, %379
-  %412 = xor i32 %411, %391
-  %413 = xor i32 %412, %403
-  %414 = trunc i32 %413 to i8
-  store i8 %414, ptr %139, align 1, !tbaa !150
-  %415 = xor i32 %380, %356
-  %416 = xor i32 %415, %392
-  %417 = xor i32 %416, %371
-  %418 = xor i32 %417, %383
-  %419 = xor i32 %418, %375
-  %420 = xor i32 %419, %367
-  %421 = xor i32 %420, %399
-  %422 = xor i32 %421, %379
-  %423 = xor i32 %422, %391
-  %424 = xor i32 %423, %403
-  %425 = trunc i32 %424 to i8
-  store i8 %425, ptr %128, align 1, !tbaa !150
-  %426 = xor i32 %368, %356
-  %427 = xor i32 %426, %392
-  %428 = xor i32 %427, %363
-  %429 = xor i32 %428, %383
-  %430 = xor i32 %429, %395
-  %431 = xor i32 %430, %367
-  %432 = xor i32 %431, %387
-  %433 = xor i32 %432, %379
-  %434 = xor i32 %433, %391
-  %435 = xor i32 %434, %403
-  %436 = trunc i32 %435 to i8
-  store i8 %436, ptr %131, align 1, !tbaa !150
-  %437 = xor i32 %426, %380
-  %438 = xor i32 %437, %359
-  %439 = xor i32 %438, %375
-  %440 = xor i32 %439, %395
-  %441 = xor i32 %440, %367
-  %442 = xor i32 %441, %379
-  %443 = xor i32 %442, %399
-  %444 = xor i32 %443, %391
-  %445 = xor i32 %444, %403
-  %446 = trunc i32 %445 to i8
-  store i8 %446, ptr %136, align 1, !tbaa !150
-  %447 = load i8, ptr %140, align 1, !tbaa !150
-  %448 = load i8, ptr %127, align 1, !tbaa !150
-  %449 = load i8, ptr %133, align 1, !tbaa !150
-  %450 = load i8, ptr %137, align 1, !tbaa !150
-  %451 = zext i8 %447 to i32
-  %452 = shl nuw nsw i32 %451, 1
-  %.not910 = icmp sgt i8 %447, -1
-  %453 = select i1 %.not910, i32 0, i32 27
-  %454 = xor i32 %452, %453
-  %455 = shl nuw nsw i32 %454, 1
-  %456 = and i32 %451, 64
-  %.not911 = icmp eq i32 %456, 0
-  %457 = select i1 %.not911, i32 0, i32 27
-  %458 = xor i32 %455, %457
-  %459 = shl nuw nsw i32 %458, 1
-  %460 = and i32 %451, 32
-  %.not912 = icmp eq i32 %460, 0
-  %461 = select i1 %.not912, i32 0, i32 27
-  %462 = xor i32 %459, %461
-  %463 = zext i8 %448 to i32
-  %464 = shl nuw nsw i32 %463, 1
-  %.not913 = icmp sgt i8 %448, -1
-  %465 = select i1 %.not913, i32 0, i32 27
-  %466 = xor i32 %464, %465
-  %467 = shl nuw nsw i32 %466, 1
-  %468 = and i32 %463, 64
-  %.not914 = icmp eq i32 %468, 0
-  %469 = select i1 %.not914, i32 0, i32 27
-  %470 = xor i32 %467, %469
-  %471 = shl nuw nsw i32 %470, 1
-  %472 = and i32 %463, 32
-  %.not915 = icmp eq i32 %472, 0
-  %473 = select i1 %.not915, i32 0, i32 27
-  %474 = xor i32 %471, %473
-  %475 = zext i8 %449 to i32
-  %476 = shl nuw nsw i32 %475, 1
-  %.not916 = icmp sgt i8 %449, -1
-  %477 = select i1 %.not916, i32 0, i32 27
-  %478 = xor i32 %476, %477
-  %479 = shl nuw nsw i32 %478, 1
-  %480 = and i32 %475, 64
-  %.not917 = icmp eq i32 %480, 0
-  %481 = select i1 %.not917, i32 0, i32 27
-  %482 = xor i32 %479, %481
-  %483 = shl nuw nsw i32 %482, 1
-  %484 = and i32 %475, 32
-  %.not918 = icmp eq i32 %484, 0
-  %485 = select i1 %.not918, i32 0, i32 27
-  %486 = xor i32 %483, %485
-  %487 = zext i8 %450 to i32
-  %488 = shl nuw nsw i32 %487, 1
-  %.not919 = icmp sgt i8 %450, -1
-  %489 = select i1 %.not919, i32 0, i32 27
-  %490 = xor i32 %488, %489
-  %491 = shl nuw nsw i32 %490, 1
-  %492 = and i32 %487, 64
-  %.not920 = icmp eq i32 %492, 0
-  %493 = select i1 %.not920, i32 0, i32 27
-  %494 = xor i32 %491, %493
-  %495 = shl nuw nsw i32 %494, 1
-  %496 = and i32 %487, 32
-  %.not921 = icmp eq i32 %496, 0
-  %497 = select i1 %.not921, i32 0, i32 27
-  %498 = xor i32 %495, %497
-  %499 = xor i32 %475, %463
-  %500 = xor i32 %499, %454
-  %501 = xor i32 %500, %487
-  %502 = xor i32 %501, %466
-  %503 = xor i32 %502, %458
-  %504 = xor i32 %503, %482
-  %505 = xor i32 %504, %462
-  %506 = xor i32 %505, %474
-  %507 = xor i32 %506, %486
-  %508 = xor i32 %507, %498
-  %509 = trunc i32 %508 to i8
-  store i8 %509, ptr %140, align 1, !tbaa !150
-  %510 = xor i32 %475, %451
-  %511 = xor i32 %510, %487
-  %512 = xor i32 %511, %466
-  %513 = xor i32 %512, %478
-  %514 = xor i32 %513, %470
-  %515 = xor i32 %514, %462
-  %516 = xor i32 %515, %494
-  %517 = xor i32 %516, %474
-  %518 = xor i32 %517, %486
-  %519 = xor i32 %518, %498
-  %520 = trunc i32 %519 to i8
-  store i8 %520, ptr %127, align 1, !tbaa !150
-  %521 = xor i32 %463, %451
-  %522 = xor i32 %521, %487
-  %523 = xor i32 %522, %458
-  %524 = xor i32 %523, %478
-  %525 = xor i32 %524, %490
-  %526 = xor i32 %525, %462
-  %527 = xor i32 %526, %482
-  %528 = xor i32 %527, %474
-  %529 = xor i32 %528, %486
-  %530 = xor i32 %529, %498
-  %531 = trunc i32 %530 to i8
-  store i8 %531, ptr %133, align 1, !tbaa !150
-  %532 = xor i32 %521, %475
-  %533 = xor i32 %532, %454
-  %534 = xor i32 %533, %470
-  %535 = xor i32 %534, %490
-  %536 = xor i32 %535, %462
-  %537 = xor i32 %536, %474
-  %538 = xor i32 %537, %494
-  %539 = xor i32 %538, %486
-  %540 = xor i32 %539, %498
-  %541 = trunc i32 %540 to i8
-  store i8 %541, ptr %137, align 1, !tbaa !150
-  %542 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext true)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %542, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false), !tbaa !150
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
-  %543 = add nuw nsw i64 %.0864942, 1
-  %exitcond943.not = icmp eq i64 %543, %124
-  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !165
-
-.preheader:                                       ; preds = %156, %.preheader
-  %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
-  %544 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0866940
-  %545 = load i8, ptr %544, align 1, !tbaa !150
-  %546 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0866940
-  %547 = load i8, ptr %546, align 1, !tbaa !150
-  %548 = xor i8 %547, %545
-  store i8 %548, ptr %546, align 1, !tbaa !150
-  %549 = add nuw nsw i64 %.0866940, 1
-  %exitcond.not = icmp eq i64 %549, 16
-  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !166
-
-.loopexit:                                        ; preds = %161, %108
-  %550 = add i64 %2, 4
-  %551 = load ptr, ptr %76, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %551, i64 noundef 0) #14
-  ret i64 %550
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = alloca i64, align 8
-  %5 = alloca %"struct.std::array", align 1
-  %6 = alloca %"struct.std::array", align 1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %8 = load i64, ptr %7, align 8, !tbaa !3
-  %.not937 = icmp eq i64 %8, 0
-  br i1 %.not937, label %13, label %9, !prof !131
-
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %11 = load ptr, ptr %10, align 8, !tbaa !132
-  %12 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 1536)
-  br i1 %12, label %18, label %13, !prof !133
-
-13:                                               ; preds = %9, %3
-  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 2, ptr %15, align 8, !tbaa !134
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i8 0, ptr %16, align 8, !tbaa !136
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %1, ptr %17, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 266632
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %21 = load i8, ptr %20, align 8, !tbaa !141, !range !142, !noundef !143
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %28, !prof !131
-
-23:                                               ; preds = %18
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 2, ptr %25, align 8, !tbaa !134
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i8 0, ptr %26, align 8, !tbaa !136
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %1, ptr %27, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %30 = load i8, ptr %29, align 1, !tbaa !144, !range !142, !noundef !143
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %44, label %32
-
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %34 = load ptr, ptr %33, align 8, !tbaa !145
-  %35 = load ptr, ptr %34, align 8, !tbaa !139
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(48) %34) #14
-  %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %44, label %39, !prof !133
-
-39:                                               ; preds = %32
-  %40 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 2, ptr %41, align 8, !tbaa !134
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i8 0, ptr %42, align 8, !tbaa !136
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store i64 %1, ptr %43, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %40, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-44:                                               ; preds = %32, %28
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 3, ptr %4, align 8, !tbaa !146
-  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %47 = load ptr, ptr %10, align 8, !tbaa !132
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %47, i64 noundef 1536)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4320
-  %.sink.i = load i64, ptr %48, align 8, !tbaa !146
-  %49 = and i64 %.sink.i, 8192
-  %.0.i.not = icmp eq i64 %49, 0
-  br i1 %.0.i.not, label %50, label %55, !prof !131
-
-50:                                               ; preds = %44
-  %51 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 2, ptr %52, align 8, !tbaa !134
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i8 0, ptr %53, align 8, !tbaa !136
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i64 %1, ptr %54, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-55:                                               ; preds = %44
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
-  %57 = load i64, ptr %56, align 8, !tbaa !147
-  %.not869 = icmp eq i64 %57, 32
-  br i1 %.not869, label %63, label %58, !prof !133
-
-58:                                               ; preds = %55
-  %59 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i64 2, ptr %60, align 8, !tbaa !134
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i8 0, ptr %61, align 8, !tbaa !136
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i64 %1, ptr %62, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %59, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-63:                                               ; preds = %55
-  %64 = load i64, ptr %7, align 8, !tbaa !3
-  %65 = uitofp i64 %64 to float
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 266808
-  %67 = load float, ptr %66, align 8, !tbaa !148
-  %68 = fmul float %67, %65
-  %69 = fcmp ult float %68, 1.280000e+02
-  br i1 %69, label %70, label %75, !prof !131
-
-70:                                               ; preds = %63
-  %71 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i64 2, ptr %72, align 8, !tbaa !134
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i8 0, ptr %73, align 8, !tbaa !136
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %1, ptr %74, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-75:                                               ; preds = %63
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %77 = load ptr, ptr %76, align 8, !tbaa !145
-  %78 = load ptr, ptr %77, align 8, !tbaa !139
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(48) %77) #14
-  %82 = and i64 %81, 3
-  %.not870 = icmp eq i64 %82, 0
-  br i1 %.not870, label %88, label %83, !prof !133
-
-83:                                               ; preds = %75
-  %84 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 2, ptr %85, align 8, !tbaa !134
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i8 0, ptr %86, align 8, !tbaa !136
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store i64 %1, ptr %87, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %84, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-88:                                               ; preds = %75
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %90 = load ptr, ptr %89, align 8, !tbaa !145
-  %91 = load ptr, ptr %90, align 8, !tbaa !139
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(48) %90) #14
-  %95 = and i64 %94, 3
-  %.not871 = icmp eq i64 %95, 0
-  br i1 %.not871, label %101, label %96, !prof !133
-
-96:                                               ; preds = %88
-  %97 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i64 2, ptr %98, align 8, !tbaa !134
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i8 0, ptr %99, align 8, !tbaa !136
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store i64 %1, ptr %100, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %97, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-101:                                              ; preds = %88
-  %102 = and i64 %1, 33554432
-  %.not872.not = icmp eq i64 %102, 0
-  br i1 %.not872.not, label %103, label %108, !prof !131
-
-103:                                              ; preds = %101
-  %104 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store i64 2, ptr %105, align 8, !tbaa !134
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i8 0, ptr %106, align 8, !tbaa !136
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store i64 %1, ptr %107, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %104, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-108:                                              ; preds = %101
-  %109 = lshr i64 %1, 7
-  %110 = and i64 %109, 31
-  %111 = lshr i64 %1, 20
-  %112 = and i64 %111, 31
-  %113 = load ptr, ptr %76, align 8, !tbaa !145
-  %114 = load ptr, ptr %113, align 8, !tbaa !139
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(48) %113) #14
-  %118 = lshr i64 %117, 2
-  %119 = load ptr, ptr %89, align 8, !tbaa !145
-  %120 = load ptr, ptr %119, align 8, !tbaa !139
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(48) %119) #14
-  %124 = lshr i64 %123, 2
-  %125 = icmp samesign ult i64 %118, %124
-  br i1 %125, label %.preheader938, label %.loopexit
-
-.preheader938:                                    ; preds = %108
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %130 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %133 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %135 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  br label %141
-
-141:                                              ; preds = %.preheader938, %161
-  %.0864942 = phi i64 [ %118, %.preheader938 ], [ %543, %161 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  %142 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !149
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  %143 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %112, i64 noundef %.0864942, i1 noundef zeroext false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !149
-  %144 = load i8, ptr %126, align 1, !tbaa !150
-  %145 = load i8, ptr %127, align 1, !tbaa !150
-  store i8 %145, ptr %126, align 1, !tbaa !150
-  %146 = load i8, ptr %128, align 1, !tbaa !150
-  store i8 %146, ptr %127, align 1, !tbaa !150
-  %147 = load i8, ptr %129, align 1, !tbaa !150
-  store i8 %147, ptr %128, align 1, !tbaa !150
-  store i8 %144, ptr %129, align 1, !tbaa !150
-  %148 = load i8, ptr %130, align 1, !tbaa !150
-  %149 = load i8, ptr %131, align 1, !tbaa !150
-  store i8 %149, ptr %130, align 1, !tbaa !150
-  store i8 %148, ptr %131, align 1, !tbaa !150
-  %150 = load i8, ptr %132, align 1, !tbaa !150
-  %151 = load i8, ptr %133, align 1, !tbaa !150
-  store i8 %151, ptr %132, align 1, !tbaa !150
-  store i8 %150, ptr %133, align 1, !tbaa !150
-  %152 = load i8, ptr %134, align 1, !tbaa !150
-  %153 = load i8, ptr %135, align 1, !tbaa !150
-  store i8 %153, ptr %134, align 1, !tbaa !150
-  %154 = load i8, ptr %136, align 1, !tbaa !150
-  store i8 %154, ptr %135, align 1, !tbaa !150
-  %155 = load i8, ptr %137, align 1, !tbaa !150
-  store i8 %155, ptr %136, align 1, !tbaa !150
-  store i8 %152, ptr %137, align 1, !tbaa !150
-  br label %156
-
-156:                                              ; preds = %141, %156
-  %.0865.idx939 = phi i64 [ 0, %141 ], [ %.0865.add, %156 ]
-  %.0865.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0865.idx939
-  %157 = load i8, ptr %.0865.ptr, align 1, !tbaa !150
-  %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesdm_vvP11processor_t6insn_tmE13kVAESXDecSBox, i64 0, i64 %158
-  %160 = load i8, ptr %159, align 1, !tbaa !150
-  store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
-  %.0865.add = add nuw nsw i64 %.0865.idx939, 1
-  %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !166
 
 161:                                              ; preds = %.preheader
   %162 = load i8, ptr %5, align 1, !tbaa !150
@@ -3993,7 +2471,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaesdm_vvP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z20fast_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_Z22logged_rv64i_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.std::array", align 1
   %6 = alloca %"struct.std::array", align 1
@@ -4278,7 +2756,7 @@ define noundef i64 @_Z20fast_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %
   store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
   %.0865.add = add nuw nsw i64 %.0865.idx939, 1
   %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !169
 
 161:                                              ; preds = %.preheader
   %162 = load i8, ptr %5, align 1, !tbaa !150
@@ -4731,7 +3209,7 @@ define noundef i64 @_Z20fast_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   %543 = add nuw nsw i64 %.0864942, 1
   %exitcond943.not = icmp eq i64 %543, %124
-  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !169
+  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !170
 
 .preheader:                                       ; preds = %156, %.preheader
   %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
@@ -4743,7 +3221,7 @@ define noundef i64 @_Z20fast_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %
   store i8 %548, ptr %546, align 1, !tbaa !150
   %549 = add nuw nsw i64 %.0866940, 1
   %exitcond.not = icmp eq i64 %549, 16
-  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !170
+  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !171
 
 .loopexit:                                        ; preds = %161, %108
   %550 = add i64 %2, 4
@@ -4753,7 +3231,7 @@ define noundef i64 @_Z20fast_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"struct.std::array", align 1
   %6 = alloca %"struct.std::array", align 1
@@ -5038,769 +3516,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaesdm_v
   store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
   %.0865.add = add nuw nsw i64 %.0865.idx939, 1
   %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
-
-161:                                              ; preds = %.preheader
-  %162 = load i8, ptr %5, align 1, !tbaa !150
-  %163 = load i8, ptr %126, align 1, !tbaa !150
-  %164 = load i8, ptr %130, align 1, !tbaa !150
-  %165 = load i8, ptr %134, align 1, !tbaa !150
-  %166 = zext i8 %162 to i32
-  %167 = shl nuw nsw i32 %166, 1
-  %.not874 = icmp sgt i8 %162, -1
-  %168 = select i1 %.not874, i32 0, i32 27
-  %169 = xor i32 %167, %168
-  %170 = shl nuw nsw i32 %169, 1
-  %171 = and i32 %166, 64
-  %.not875 = icmp eq i32 %171, 0
-  %172 = select i1 %.not875, i32 0, i32 27
-  %173 = xor i32 %170, %172
-  %174 = shl nuw nsw i32 %173, 1
-  %175 = and i32 %166, 32
-  %.not876 = icmp eq i32 %175, 0
-  %176 = select i1 %.not876, i32 0, i32 27
-  %177 = xor i32 %174, %176
-  %178 = zext i8 %163 to i32
-  %179 = shl nuw nsw i32 %178, 1
-  %.not877 = icmp sgt i8 %163, -1
-  %180 = select i1 %.not877, i32 0, i32 27
-  %181 = xor i32 %179, %180
-  %182 = shl nuw nsw i32 %181, 1
-  %183 = and i32 %178, 64
-  %.not878 = icmp eq i32 %183, 0
-  %184 = select i1 %.not878, i32 0, i32 27
-  %185 = xor i32 %182, %184
-  %186 = shl nuw nsw i32 %185, 1
-  %187 = and i32 %178, 32
-  %.not879 = icmp eq i32 %187, 0
-  %188 = select i1 %.not879, i32 0, i32 27
-  %189 = xor i32 %186, %188
-  %190 = zext i8 %164 to i32
-  %191 = shl nuw nsw i32 %190, 1
-  %.not880 = icmp sgt i8 %164, -1
-  %192 = select i1 %.not880, i32 0, i32 27
-  %193 = xor i32 %191, %192
-  %194 = shl nuw nsw i32 %193, 1
-  %195 = and i32 %190, 64
-  %.not881 = icmp eq i32 %195, 0
-  %196 = select i1 %.not881, i32 0, i32 27
-  %197 = xor i32 %194, %196
-  %198 = shl nuw nsw i32 %197, 1
-  %199 = and i32 %190, 32
-  %.not882 = icmp eq i32 %199, 0
-  %200 = select i1 %.not882, i32 0, i32 27
-  %201 = xor i32 %198, %200
-  %202 = zext i8 %165 to i32
-  %203 = shl nuw nsw i32 %202, 1
-  %.not883 = icmp sgt i8 %165, -1
-  %204 = select i1 %.not883, i32 0, i32 27
-  %205 = xor i32 %203, %204
-  %206 = shl nuw nsw i32 %205, 1
-  %207 = and i32 %202, 64
-  %.not884 = icmp eq i32 %207, 0
-  %208 = select i1 %.not884, i32 0, i32 27
-  %209 = xor i32 %206, %208
-  %210 = shl nuw nsw i32 %209, 1
-  %211 = and i32 %202, 32
-  %.not885 = icmp eq i32 %211, 0
-  %212 = select i1 %.not885, i32 0, i32 27
-  %213 = xor i32 %210, %212
-  %214 = xor i32 %190, %178
-  %215 = xor i32 %214, %169
-  %216 = xor i32 %215, %202
-  %217 = xor i32 %216, %181
-  %218 = xor i32 %217, %173
-  %219 = xor i32 %218, %197
-  %220 = xor i32 %219, %177
-  %221 = xor i32 %220, %189
-  %222 = xor i32 %221, %201
-  %223 = xor i32 %222, %213
-  %224 = trunc i32 %223 to i8
-  store i8 %224, ptr %5, align 1, !tbaa !150
-  %225 = xor i32 %190, %166
-  %226 = xor i32 %225, %202
-  %227 = xor i32 %226, %181
-  %228 = xor i32 %227, %193
-  %229 = xor i32 %228, %185
-  %230 = xor i32 %229, %177
-  %231 = xor i32 %230, %209
-  %232 = xor i32 %231, %189
-  %233 = xor i32 %232, %201
-  %234 = xor i32 %233, %213
-  %235 = trunc i32 %234 to i8
-  store i8 %235, ptr %126, align 1, !tbaa !150
-  %236 = xor i32 %178, %166
-  %237 = xor i32 %236, %202
-  %238 = xor i32 %237, %173
-  %239 = xor i32 %238, %193
-  %240 = xor i32 %239, %205
-  %241 = xor i32 %240, %177
-  %242 = xor i32 %241, %197
-  %243 = xor i32 %242, %189
-  %244 = xor i32 %243, %201
-  %245 = xor i32 %244, %213
-  %246 = trunc i32 %245 to i8
-  store i8 %246, ptr %130, align 1, !tbaa !150
-  %247 = xor i32 %236, %190
-  %248 = xor i32 %247, %169
-  %249 = xor i32 %248, %185
-  %250 = xor i32 %249, %205
-  %251 = xor i32 %250, %177
-  %252 = xor i32 %251, %189
-  %253 = xor i32 %252, %209
-  %254 = xor i32 %253, %201
-  %255 = xor i32 %254, %213
-  %256 = trunc i32 %255 to i8
-  store i8 %256, ptr %134, align 1, !tbaa !150
-  %257 = load i8, ptr %138, align 1, !tbaa !150
-  %258 = load i8, ptr %129, align 1, !tbaa !150
-  %259 = load i8, ptr %132, align 1, !tbaa !150
-  %260 = load i8, ptr %135, align 1, !tbaa !150
-  %261 = zext i8 %257 to i32
-  %262 = shl nuw nsw i32 %261, 1
-  %.not886 = icmp sgt i8 %257, -1
-  %263 = select i1 %.not886, i32 0, i32 27
-  %264 = xor i32 %262, %263
-  %265 = shl nuw nsw i32 %264, 1
-  %266 = and i32 %261, 64
-  %.not887 = icmp eq i32 %266, 0
-  %267 = select i1 %.not887, i32 0, i32 27
-  %268 = xor i32 %265, %267
-  %269 = shl nuw nsw i32 %268, 1
-  %270 = and i32 %261, 32
-  %.not888 = icmp eq i32 %270, 0
-  %271 = select i1 %.not888, i32 0, i32 27
-  %272 = xor i32 %269, %271
-  %273 = zext i8 %258 to i32
-  %274 = shl nuw nsw i32 %273, 1
-  %.not889 = icmp sgt i8 %258, -1
-  %275 = select i1 %.not889, i32 0, i32 27
-  %276 = xor i32 %274, %275
-  %277 = shl nuw nsw i32 %276, 1
-  %278 = and i32 %273, 64
-  %.not890 = icmp eq i32 %278, 0
-  %279 = select i1 %.not890, i32 0, i32 27
-  %280 = xor i32 %277, %279
-  %281 = shl nuw nsw i32 %280, 1
-  %282 = and i32 %273, 32
-  %.not891 = icmp eq i32 %282, 0
-  %283 = select i1 %.not891, i32 0, i32 27
-  %284 = xor i32 %281, %283
-  %285 = zext i8 %259 to i32
-  %286 = shl nuw nsw i32 %285, 1
-  %.not892 = icmp sgt i8 %259, -1
-  %287 = select i1 %.not892, i32 0, i32 27
-  %288 = xor i32 %286, %287
-  %289 = shl nuw nsw i32 %288, 1
-  %290 = and i32 %285, 64
-  %.not893 = icmp eq i32 %290, 0
-  %291 = select i1 %.not893, i32 0, i32 27
-  %292 = xor i32 %289, %291
-  %293 = shl nuw nsw i32 %292, 1
-  %294 = and i32 %285, 32
-  %.not894 = icmp eq i32 %294, 0
-  %295 = select i1 %.not894, i32 0, i32 27
-  %296 = xor i32 %293, %295
-  %297 = zext i8 %260 to i32
-  %298 = shl nuw nsw i32 %297, 1
-  %.not895 = icmp sgt i8 %260, -1
-  %299 = select i1 %.not895, i32 0, i32 27
-  %300 = xor i32 %298, %299
-  %301 = shl nuw nsw i32 %300, 1
-  %302 = and i32 %297, 64
-  %.not896 = icmp eq i32 %302, 0
-  %303 = select i1 %.not896, i32 0, i32 27
-  %304 = xor i32 %301, %303
-  %305 = shl nuw nsw i32 %304, 1
-  %306 = and i32 %297, 32
-  %.not897 = icmp eq i32 %306, 0
-  %307 = select i1 %.not897, i32 0, i32 27
-  %308 = xor i32 %305, %307
-  %309 = xor i32 %285, %273
-  %310 = xor i32 %309, %264
-  %311 = xor i32 %310, %297
-  %312 = xor i32 %311, %276
-  %313 = xor i32 %312, %268
-  %314 = xor i32 %313, %292
-  %315 = xor i32 %314, %272
-  %316 = xor i32 %315, %284
-  %317 = xor i32 %316, %296
-  %318 = xor i32 %317, %308
-  %319 = trunc i32 %318 to i8
-  store i8 %319, ptr %138, align 1, !tbaa !150
-  %320 = xor i32 %285, %261
-  %321 = xor i32 %320, %297
-  %322 = xor i32 %321, %276
-  %323 = xor i32 %322, %288
-  %324 = xor i32 %323, %280
-  %325 = xor i32 %324, %272
-  %326 = xor i32 %325, %304
-  %327 = xor i32 %326, %284
-  %328 = xor i32 %327, %296
-  %329 = xor i32 %328, %308
-  %330 = trunc i32 %329 to i8
-  store i8 %330, ptr %129, align 1, !tbaa !150
-  %331 = xor i32 %273, %261
-  %332 = xor i32 %331, %297
-  %333 = xor i32 %332, %268
-  %334 = xor i32 %333, %288
-  %335 = xor i32 %334, %300
-  %336 = xor i32 %335, %272
-  %337 = xor i32 %336, %292
-  %338 = xor i32 %337, %284
-  %339 = xor i32 %338, %296
-  %340 = xor i32 %339, %308
-  %341 = trunc i32 %340 to i8
-  store i8 %341, ptr %132, align 1, !tbaa !150
-  %342 = xor i32 %331, %285
-  %343 = xor i32 %342, %264
-  %344 = xor i32 %343, %280
-  %345 = xor i32 %344, %300
-  %346 = xor i32 %345, %272
-  %347 = xor i32 %346, %284
-  %348 = xor i32 %347, %304
-  %349 = xor i32 %348, %296
-  %350 = xor i32 %349, %308
-  %351 = trunc i32 %350 to i8
-  store i8 %351, ptr %135, align 1, !tbaa !150
-  %352 = load i8, ptr %139, align 1, !tbaa !150
-  %353 = load i8, ptr %128, align 1, !tbaa !150
-  %354 = load i8, ptr %131, align 1, !tbaa !150
-  %355 = load i8, ptr %136, align 1, !tbaa !150
-  %356 = zext i8 %352 to i32
-  %357 = shl nuw nsw i32 %356, 1
-  %.not898 = icmp sgt i8 %352, -1
-  %358 = select i1 %.not898, i32 0, i32 27
-  %359 = xor i32 %357, %358
-  %360 = shl nuw nsw i32 %359, 1
-  %361 = and i32 %356, 64
-  %.not899 = icmp eq i32 %361, 0
-  %362 = select i1 %.not899, i32 0, i32 27
-  %363 = xor i32 %360, %362
-  %364 = shl nuw nsw i32 %363, 1
-  %365 = and i32 %356, 32
-  %.not900 = icmp eq i32 %365, 0
-  %366 = select i1 %.not900, i32 0, i32 27
-  %367 = xor i32 %364, %366
-  %368 = zext i8 %353 to i32
-  %369 = shl nuw nsw i32 %368, 1
-  %.not901 = icmp sgt i8 %353, -1
-  %370 = select i1 %.not901, i32 0, i32 27
-  %371 = xor i32 %369, %370
-  %372 = shl nuw nsw i32 %371, 1
-  %373 = and i32 %368, 64
-  %.not902 = icmp eq i32 %373, 0
-  %374 = select i1 %.not902, i32 0, i32 27
-  %375 = xor i32 %372, %374
-  %376 = shl nuw nsw i32 %375, 1
-  %377 = and i32 %368, 32
-  %.not903 = icmp eq i32 %377, 0
-  %378 = select i1 %.not903, i32 0, i32 27
-  %379 = xor i32 %376, %378
-  %380 = zext i8 %354 to i32
-  %381 = shl nuw nsw i32 %380, 1
-  %.not904 = icmp sgt i8 %354, -1
-  %382 = select i1 %.not904, i32 0, i32 27
-  %383 = xor i32 %381, %382
-  %384 = shl nuw nsw i32 %383, 1
-  %385 = and i32 %380, 64
-  %.not905 = icmp eq i32 %385, 0
-  %386 = select i1 %.not905, i32 0, i32 27
-  %387 = xor i32 %384, %386
-  %388 = shl nuw nsw i32 %387, 1
-  %389 = and i32 %380, 32
-  %.not906 = icmp eq i32 %389, 0
-  %390 = select i1 %.not906, i32 0, i32 27
-  %391 = xor i32 %388, %390
-  %392 = zext i8 %355 to i32
-  %393 = shl nuw nsw i32 %392, 1
-  %.not907 = icmp sgt i8 %355, -1
-  %394 = select i1 %.not907, i32 0, i32 27
-  %395 = xor i32 %393, %394
-  %396 = shl nuw nsw i32 %395, 1
-  %397 = and i32 %392, 64
-  %.not908 = icmp eq i32 %397, 0
-  %398 = select i1 %.not908, i32 0, i32 27
-  %399 = xor i32 %396, %398
-  %400 = shl nuw nsw i32 %399, 1
-  %401 = and i32 %392, 32
-  %.not909 = icmp eq i32 %401, 0
-  %402 = select i1 %.not909, i32 0, i32 27
-  %403 = xor i32 %400, %402
-  %404 = xor i32 %380, %368
-  %405 = xor i32 %404, %359
-  %406 = xor i32 %405, %392
-  %407 = xor i32 %406, %371
-  %408 = xor i32 %407, %363
-  %409 = xor i32 %408, %387
-  %410 = xor i32 %409, %367
-  %411 = xor i32 %410, %379
-  %412 = xor i32 %411, %391
-  %413 = xor i32 %412, %403
-  %414 = trunc i32 %413 to i8
-  store i8 %414, ptr %139, align 1, !tbaa !150
-  %415 = xor i32 %380, %356
-  %416 = xor i32 %415, %392
-  %417 = xor i32 %416, %371
-  %418 = xor i32 %417, %383
-  %419 = xor i32 %418, %375
-  %420 = xor i32 %419, %367
-  %421 = xor i32 %420, %399
-  %422 = xor i32 %421, %379
-  %423 = xor i32 %422, %391
-  %424 = xor i32 %423, %403
-  %425 = trunc i32 %424 to i8
-  store i8 %425, ptr %128, align 1, !tbaa !150
-  %426 = xor i32 %368, %356
-  %427 = xor i32 %426, %392
-  %428 = xor i32 %427, %363
-  %429 = xor i32 %428, %383
-  %430 = xor i32 %429, %395
-  %431 = xor i32 %430, %367
-  %432 = xor i32 %431, %387
-  %433 = xor i32 %432, %379
-  %434 = xor i32 %433, %391
-  %435 = xor i32 %434, %403
-  %436 = trunc i32 %435 to i8
-  store i8 %436, ptr %131, align 1, !tbaa !150
-  %437 = xor i32 %426, %380
-  %438 = xor i32 %437, %359
-  %439 = xor i32 %438, %375
-  %440 = xor i32 %439, %395
-  %441 = xor i32 %440, %367
-  %442 = xor i32 %441, %379
-  %443 = xor i32 %442, %399
-  %444 = xor i32 %443, %391
-  %445 = xor i32 %444, %403
-  %446 = trunc i32 %445 to i8
-  store i8 %446, ptr %136, align 1, !tbaa !150
-  %447 = load i8, ptr %140, align 1, !tbaa !150
-  %448 = load i8, ptr %127, align 1, !tbaa !150
-  %449 = load i8, ptr %133, align 1, !tbaa !150
-  %450 = load i8, ptr %137, align 1, !tbaa !150
-  %451 = zext i8 %447 to i32
-  %452 = shl nuw nsw i32 %451, 1
-  %.not910 = icmp sgt i8 %447, -1
-  %453 = select i1 %.not910, i32 0, i32 27
-  %454 = xor i32 %452, %453
-  %455 = shl nuw nsw i32 %454, 1
-  %456 = and i32 %451, 64
-  %.not911 = icmp eq i32 %456, 0
-  %457 = select i1 %.not911, i32 0, i32 27
-  %458 = xor i32 %455, %457
-  %459 = shl nuw nsw i32 %458, 1
-  %460 = and i32 %451, 32
-  %.not912 = icmp eq i32 %460, 0
-  %461 = select i1 %.not912, i32 0, i32 27
-  %462 = xor i32 %459, %461
-  %463 = zext i8 %448 to i32
-  %464 = shl nuw nsw i32 %463, 1
-  %.not913 = icmp sgt i8 %448, -1
-  %465 = select i1 %.not913, i32 0, i32 27
-  %466 = xor i32 %464, %465
-  %467 = shl nuw nsw i32 %466, 1
-  %468 = and i32 %463, 64
-  %.not914 = icmp eq i32 %468, 0
-  %469 = select i1 %.not914, i32 0, i32 27
-  %470 = xor i32 %467, %469
-  %471 = shl nuw nsw i32 %470, 1
-  %472 = and i32 %463, 32
-  %.not915 = icmp eq i32 %472, 0
-  %473 = select i1 %.not915, i32 0, i32 27
-  %474 = xor i32 %471, %473
-  %475 = zext i8 %449 to i32
-  %476 = shl nuw nsw i32 %475, 1
-  %.not916 = icmp sgt i8 %449, -1
-  %477 = select i1 %.not916, i32 0, i32 27
-  %478 = xor i32 %476, %477
-  %479 = shl nuw nsw i32 %478, 1
-  %480 = and i32 %475, 64
-  %.not917 = icmp eq i32 %480, 0
-  %481 = select i1 %.not917, i32 0, i32 27
-  %482 = xor i32 %479, %481
-  %483 = shl nuw nsw i32 %482, 1
-  %484 = and i32 %475, 32
-  %.not918 = icmp eq i32 %484, 0
-  %485 = select i1 %.not918, i32 0, i32 27
-  %486 = xor i32 %483, %485
-  %487 = zext i8 %450 to i32
-  %488 = shl nuw nsw i32 %487, 1
-  %.not919 = icmp sgt i8 %450, -1
-  %489 = select i1 %.not919, i32 0, i32 27
-  %490 = xor i32 %488, %489
-  %491 = shl nuw nsw i32 %490, 1
-  %492 = and i32 %487, 64
-  %.not920 = icmp eq i32 %492, 0
-  %493 = select i1 %.not920, i32 0, i32 27
-  %494 = xor i32 %491, %493
-  %495 = shl nuw nsw i32 %494, 1
-  %496 = and i32 %487, 32
-  %.not921 = icmp eq i32 %496, 0
-  %497 = select i1 %.not921, i32 0, i32 27
-  %498 = xor i32 %495, %497
-  %499 = xor i32 %475, %463
-  %500 = xor i32 %499, %454
-  %501 = xor i32 %500, %487
-  %502 = xor i32 %501, %466
-  %503 = xor i32 %502, %458
-  %504 = xor i32 %503, %482
-  %505 = xor i32 %504, %462
-  %506 = xor i32 %505, %474
-  %507 = xor i32 %506, %486
-  %508 = xor i32 %507, %498
-  %509 = trunc i32 %508 to i8
-  store i8 %509, ptr %140, align 1, !tbaa !150
-  %510 = xor i32 %475, %451
-  %511 = xor i32 %510, %487
-  %512 = xor i32 %511, %466
-  %513 = xor i32 %512, %478
-  %514 = xor i32 %513, %470
-  %515 = xor i32 %514, %462
-  %516 = xor i32 %515, %494
-  %517 = xor i32 %516, %474
-  %518 = xor i32 %517, %486
-  %519 = xor i32 %518, %498
-  %520 = trunc i32 %519 to i8
-  store i8 %520, ptr %127, align 1, !tbaa !150
-  %521 = xor i32 %463, %451
-  %522 = xor i32 %521, %487
-  %523 = xor i32 %522, %458
-  %524 = xor i32 %523, %478
-  %525 = xor i32 %524, %490
-  %526 = xor i32 %525, %462
-  %527 = xor i32 %526, %482
-  %528 = xor i32 %527, %474
-  %529 = xor i32 %528, %486
-  %530 = xor i32 %529, %498
-  %531 = trunc i32 %530 to i8
-  store i8 %531, ptr %133, align 1, !tbaa !150
-  %532 = xor i32 %521, %475
-  %533 = xor i32 %532, %454
-  %534 = xor i32 %533, %470
-  %535 = xor i32 %534, %490
-  %536 = xor i32 %535, %462
-  %537 = xor i32 %536, %474
-  %538 = xor i32 %537, %494
-  %539 = xor i32 %538, %486
-  %540 = xor i32 %539, %498
-  %541 = trunc i32 %540 to i8
-  store i8 %541, ptr %137, align 1, !tbaa !150
-  %542 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext true)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %542, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false), !tbaa !150
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
-  %543 = add nuw nsw i64 %.0864942, 1
-  %exitcond943.not = icmp eq i64 %543, %124
-  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !171
-
-.preheader:                                       ; preds = %156, %.preheader
-  %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
-  %544 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0866940
-  %545 = load i8, ptr %544, align 1, !tbaa !150
-  %546 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0866940
-  %547 = load i8, ptr %546, align 1, !tbaa !150
-  %548 = xor i8 %547, %545
-  store i8 %548, ptr %546, align 1, !tbaa !150
-  %549 = add nuw nsw i64 %.0866940, 1
-  %exitcond.not = icmp eq i64 %549, 16
-  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !172
-
-.loopexit:                                        ; preds = %161, %108
-  %550 = shl i64 %2, 32
-  %551 = add i64 %550, 17179869184
-  %552 = ashr exact i64 %551, 32
-  %553 = load ptr, ptr %76, align 8, !tbaa !145
-  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %553, i64 noundef 0) #14
-  ret i64 %552
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef i64 @_Z22logged_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
-  %4 = alloca i64, align 8
-  %5 = alloca %"struct.std::array", align 1
-  %6 = alloca %"struct.std::array", align 1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 266824
-  %8 = load i64, ptr %7, align 8, !tbaa !3
-  %.not937 = icmp eq i64 %8, 0
-  br i1 %.not937, label %13, label %9, !prof !131
-
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %11 = load ptr, ptr %10, align 8, !tbaa !132
-  %12 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 1536)
-  br i1 %12, label %18, label %13, !prof !133
-
-13:                                               ; preds = %9, %3
-  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i64 2, ptr %15, align 8, !tbaa !134
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i8 0, ptr %16, align 8, !tbaa !136
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i64 %1, ptr %17, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 266632
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 266832
-  %21 = load i8, ptr %20, align 8, !tbaa !141, !range !142, !noundef !143
-  %22 = trunc nuw i8 %21 to i1
-  br i1 %22, label %23, label %28, !prof !131
-
-23:                                               ; preds = %18
-  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 2, ptr %25, align 8, !tbaa !134
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i8 0, ptr %26, align 8, !tbaa !136
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 %1, ptr %27, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 266833
-  %30 = load i8, ptr %29, align 1, !tbaa !144, !range !142, !noundef !143
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %44, label %32
-
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %34 = load ptr, ptr %33, align 8, !tbaa !145
-  %35 = load ptr, ptr %34, align 8, !tbaa !139
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(48) %34) #14
-  %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %44, label %39, !prof !133
-
-39:                                               ; preds = %32
-  %40 = tail call ptr @__cxa_allocate_exception(i64 32) #14
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 2, ptr %41, align 8, !tbaa !134
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i8 0, ptr %42, align 8, !tbaa !136
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store i64 %1, ptr %43, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %40, align 8, !tbaa !139
-  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-44:                                               ; preds = %32, %28
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3840
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store i64 3, ptr %4, align 8, !tbaa !146
-  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
-  %47 = load ptr, ptr %10, align 8, !tbaa !132
-  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %47, i64 noundef 1536)
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4320
-  %.sink.i = load i64, ptr %48, align 8, !tbaa !146
-  %49 = and i64 %.sink.i, 8192
-  %.0.i.not = icmp eq i64 %49, 0
-  br i1 %.0.i.not, label %50, label %55, !prof !131
-
-50:                                               ; preds = %44
-  %51 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i64 2, ptr %52, align 8, !tbaa !134
-  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i8 0, ptr %53, align 8, !tbaa !136
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  store i64 %1, ptr %54, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-55:                                               ; preds = %44
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
-  %57 = load i64, ptr %56, align 8, !tbaa !147
-  %.not869 = icmp eq i64 %57, 32
-  br i1 %.not869, label %63, label %58, !prof !133
-
-58:                                               ; preds = %55
-  %59 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i64 2, ptr %60, align 8, !tbaa !134
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i8 0, ptr %61, align 8, !tbaa !136
-  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  store i64 %1, ptr %62, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %59, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-63:                                               ; preds = %55
-  %64 = load i64, ptr %7, align 8, !tbaa !3
-  %65 = uitofp i64 %64 to float
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 266808
-  %67 = load float, ptr %66, align 8, !tbaa !148
-  %68 = fmul float %67, %65
-  %69 = fcmp ult float %68, 1.280000e+02
-  br i1 %69, label %70, label %75, !prof !131
-
-70:                                               ; preds = %63
-  %71 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i64 2, ptr %72, align 8, !tbaa !134
-  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i8 0, ptr %73, align 8, !tbaa !136
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  store i64 %1, ptr %74, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-75:                                               ; preds = %63
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 266736
-  %77 = load ptr, ptr %76, align 8, !tbaa !145
-  %78 = load ptr, ptr %77, align 8, !tbaa !139
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(48) %77) #14
-  %82 = and i64 %81, 3
-  %.not870 = icmp eq i64 %82, 0
-  br i1 %.not870, label %88, label %83, !prof !133
-
-83:                                               ; preds = %75
-  %84 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 2, ptr %85, align 8, !tbaa !134
-  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i8 0, ptr %86, align 8, !tbaa !136
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store i64 %1, ptr %87, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %84, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-88:                                               ; preds = %75
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 266752
-  %90 = load ptr, ptr %89, align 8, !tbaa !145
-  %91 = load ptr, ptr %90, align 8, !tbaa !139
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(48) %90) #14
-  %95 = and i64 %94, 3
-  %.not871 = icmp eq i64 %95, 0
-  br i1 %.not871, label %101, label %96, !prof !133
-
-96:                                               ; preds = %88
-  %97 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
-  store i64 2, ptr %98, align 8, !tbaa !134
-  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store i8 0, ptr %99, align 8, !tbaa !136
-  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store i64 %1, ptr %100, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %97, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-101:                                              ; preds = %88
-  %102 = and i64 %1, 33554432
-  %.not872.not = icmp eq i64 %102, 0
-  br i1 %.not872.not, label %103, label %108, !prof !131
-
-103:                                              ; preds = %101
-  %104 = call ptr @__cxa_allocate_exception(i64 32) #14
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store i64 2, ptr %105, align 8, !tbaa !134
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
-  store i8 0, ptr %106, align 8, !tbaa !136
-  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store i64 %1, ptr %107, align 8, !tbaa !138
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %104, align 8, !tbaa !139
-  call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
-  unreachable
-
-108:                                              ; preds = %101
-  %109 = lshr i64 %1, 7
-  %110 = and i64 %109, 31
-  %111 = lshr i64 %1, 20
-  %112 = and i64 %111, 31
-  %113 = load ptr, ptr %76, align 8, !tbaa !145
-  %114 = load ptr, ptr %113, align 8, !tbaa !139
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
-  %116 = load ptr, ptr %115, align 8
-  %117 = call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(48) %113) #14
-  %118 = lshr i64 %117, 2
-  %119 = load ptr, ptr %89, align 8, !tbaa !145
-  %120 = load ptr, ptr %119, align 8, !tbaa !139
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %122 = load ptr, ptr %121, align 8
-  %123 = call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(48) %119) #14
-  %124 = lshr i64 %123, 2
-  %125 = icmp samesign ult i64 %118, %124
-  br i1 %125, label %.preheader938, label %.loopexit
-
-.preheader938:                                    ; preds = %108
-  %126 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %127 = getelementptr inbounds nuw i8, ptr %5, i64 13
-  %128 = getelementptr inbounds nuw i8, ptr %5, i64 9
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 5
-  %130 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %131 = getelementptr inbounds nuw i8, ptr %5, i64 10
-  %132 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %133 = getelementptr inbounds nuw i8, ptr %5, i64 14
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %135 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 11
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 15
-  %138 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  br label %141
-
-141:                                              ; preds = %.preheader938, %161
-  %.0864942 = phi i64 [ %118, %.preheader938 ], [ %543, %161 ]
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  %142 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !149
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
-  %143 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %112, i64 noundef %.0864942, i1 noundef zeroext false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !149
-  %144 = load i8, ptr %126, align 1, !tbaa !150
-  %145 = load i8, ptr %127, align 1, !tbaa !150
-  store i8 %145, ptr %126, align 1, !tbaa !150
-  %146 = load i8, ptr %128, align 1, !tbaa !150
-  store i8 %146, ptr %127, align 1, !tbaa !150
-  %147 = load i8, ptr %129, align 1, !tbaa !150
-  store i8 %147, ptr %128, align 1, !tbaa !150
-  store i8 %144, ptr %129, align 1, !tbaa !150
-  %148 = load i8, ptr %130, align 1, !tbaa !150
-  %149 = load i8, ptr %131, align 1, !tbaa !150
-  store i8 %149, ptr %130, align 1, !tbaa !150
-  store i8 %148, ptr %131, align 1, !tbaa !150
-  %150 = load i8, ptr %132, align 1, !tbaa !150
-  %151 = load i8, ptr %133, align 1, !tbaa !150
-  store i8 %151, ptr %132, align 1, !tbaa !150
-  store i8 %150, ptr %133, align 1, !tbaa !150
-  %152 = load i8, ptr %134, align 1, !tbaa !150
-  %153 = load i8, ptr %135, align 1, !tbaa !150
-  store i8 %153, ptr %134, align 1, !tbaa !150
-  %154 = load i8, ptr %136, align 1, !tbaa !150
-  store i8 %154, ptr %135, align 1, !tbaa !150
-  %155 = load i8, ptr %137, align 1, !tbaa !150
-  store i8 %155, ptr %136, align 1, !tbaa !150
-  store i8 %152, ptr %137, align 1, !tbaa !150
-  br label %156
-
-156:                                              ; preds = %141, %156
-  %.0865.idx939 = phi i64 [ 0, %141 ], [ %.0865.add, %156 ]
-  %.0865.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0865.idx939
-  %157 = load i8, ptr %.0865.ptr, align 1, !tbaa !150
-  %158 = zext i8 %157 to i64
-  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesdm_vvP11processor_t6insn_tmE13kVAESXDecSBox, i64 0, i64 %158
-  %160 = load i8, ptr %159, align 1, !tbaa !150
-  store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
-  %.0865.add = add nuw nsw i64 %.0865.idx939, 1
-  %.not873 = icmp eq i64 %.0865.add, 16
-  br i1 %.not873, label %.preheader, label %156
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !172
 
 161:                                              ; preds = %.preheader
   %162 = load i8, ptr %5, align 1, !tbaa !150
@@ -6268,6 +3984,2290 @@ define noundef i64 @_Z22logged_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef
   br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !174
 
 .loopexit:                                        ; preds = %161, %108
+  %550 = shl i64 %2, 32
+  %551 = add i64 %550, 17179869184
+  %552 = ashr exact i64 %551, 32
+  %553 = load ptr, ptr %76, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %553, i64 noundef 0) #14
+  ret i64 %552
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i64 @_Z20fast_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.std::array", align 1
+  %6 = alloca %"struct.std::array", align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %8 = load i64, ptr %7, align 8, !tbaa !3
+  %.not937 = icmp eq i64 %8, 0
+  br i1 %.not937, label %13, label %9, !prof !131
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %11 = load ptr, ptr %10, align 8, !tbaa !132
+  %12 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 1536)
+  br i1 %12, label %18, label %13, !prof !133
+
+13:                                               ; preds = %9, %3
+  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 2, ptr %15, align 8, !tbaa !134
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i8 0, ptr %16, align 8, !tbaa !136
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i64 %1, ptr %17, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 266632
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %21 = load i8, ptr %20, align 8, !tbaa !141, !range !142, !noundef !143
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %28, !prof !131
+
+23:                                               ; preds = %18
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 2, ptr %25, align 8, !tbaa !134
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i8 0, ptr %26, align 8, !tbaa !136
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %1, ptr %27, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %30 = load i8, ptr %29, align 1, !tbaa !144, !range !142, !noundef !143
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %44, label %32
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %34 = load ptr, ptr %33, align 8, !tbaa !145
+  %35 = load ptr, ptr %34, align 8, !tbaa !139
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(48) %34) #14
+  %.not = icmp eq i64 %38, 0
+  br i1 %.not, label %44, label %39, !prof !133
+
+39:                                               ; preds = %32
+  %40 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 2, ptr %41, align 8, !tbaa !134
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i8 0, ptr %42, align 8, !tbaa !136
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store i64 %1, ptr %43, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %40, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+44:                                               ; preds = %32, %28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  store i64 3, ptr %4, align 8, !tbaa !146
+  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  %47 = load ptr, ptr %10, align 8, !tbaa !132
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %47, i64 noundef 1536)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4320
+  %.sink.i = load i64, ptr %48, align 8, !tbaa !146
+  %49 = and i64 %.sink.i, 8192
+  %.0.i.not = icmp eq i64 %49, 0
+  br i1 %.0.i.not, label %50, label %55, !prof !131
+
+50:                                               ; preds = %44
+  %51 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i64 2, ptr %52, align 8, !tbaa !134
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i8 0, ptr %53, align 8, !tbaa !136
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  store i64 %1, ptr %54, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+55:                                               ; preds = %44
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
+  %57 = load i64, ptr %56, align 8, !tbaa !147
+  %.not869 = icmp eq i64 %57, 32
+  br i1 %.not869, label %63, label %58, !prof !133
+
+58:                                               ; preds = %55
+  %59 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i64 2, ptr %60, align 8, !tbaa !134
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i8 0, ptr %61, align 8, !tbaa !136
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i64 %1, ptr %62, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %59, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+63:                                               ; preds = %55
+  %64 = load i64, ptr %7, align 8, !tbaa !3
+  %65 = uitofp i64 %64 to float
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 266808
+  %67 = load float, ptr %66, align 8, !tbaa !148
+  %68 = fmul float %67, %65
+  %69 = fcmp ult float %68, 1.280000e+02
+  br i1 %69, label %70, label %75, !prof !131
+
+70:                                               ; preds = %63
+  %71 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i64 2, ptr %72, align 8, !tbaa !134
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i8 0, ptr %73, align 8, !tbaa !136
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store i64 %1, ptr %74, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+75:                                               ; preds = %63
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %77 = load ptr, ptr %76, align 8, !tbaa !145
+  %78 = load ptr, ptr %77, align 8, !tbaa !139
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(48) %77) #14
+  %82 = and i64 %81, 3
+  %.not870 = icmp eq i64 %82, 0
+  br i1 %.not870, label %88, label %83, !prof !133
+
+83:                                               ; preds = %75
+  %84 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store i64 2, ptr %85, align 8, !tbaa !134
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store i8 0, ptr %86, align 8, !tbaa !136
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  store i64 %1, ptr %87, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %84, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+88:                                               ; preds = %75
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %90 = load ptr, ptr %89, align 8, !tbaa !145
+  %91 = load ptr, ptr %90, align 8, !tbaa !139
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(48) %90) #14
+  %95 = and i64 %94, 3
+  %.not871 = icmp eq i64 %95, 0
+  br i1 %.not871, label %101, label %96, !prof !133
+
+96:                                               ; preds = %88
+  %97 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 2, ptr %98, align 8, !tbaa !134
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  store i8 0, ptr %99, align 8, !tbaa !136
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  store i64 %1, ptr %100, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %97, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+101:                                              ; preds = %88
+  %102 = and i64 %1, 33554432
+  %.not872.not = icmp eq i64 %102, 0
+  br i1 %.not872.not, label %103, label %108, !prof !131
+
+103:                                              ; preds = %101
+  %104 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store i64 2, ptr %105, align 8, !tbaa !134
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store i8 0, ptr %106, align 8, !tbaa !136
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  store i64 %1, ptr %107, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %104, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+108:                                              ; preds = %101
+  %109 = lshr i64 %1, 7
+  %110 = and i64 %109, 31
+  %111 = lshr i64 %1, 20
+  %112 = and i64 %111, 31
+  %113 = load ptr, ptr %76, align 8, !tbaa !145
+  %114 = load ptr, ptr %113, align 8, !tbaa !139
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(48) %113) #14
+  %118 = lshr i64 %117, 2
+  %119 = load ptr, ptr %89, align 8, !tbaa !145
+  %120 = load ptr, ptr %119, align 8, !tbaa !139
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(48) %119) #14
+  %124 = lshr i64 %123, 2
+  %125 = icmp samesign ult i64 %118, %124
+  br i1 %125, label %.preheader938, label %.loopexit
+
+.preheader938:                                    ; preds = %108
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 13
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 11
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  br label %141
+
+141:                                              ; preds = %.preheader938, %161
+  %.0864942 = phi i64 [ %118, %.preheader938 ], [ %543, %161 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  %142 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !149
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  %143 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %112, i64 noundef %.0864942, i1 noundef zeroext false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !149
+  %144 = load i8, ptr %126, align 1, !tbaa !150
+  %145 = load i8, ptr %127, align 1, !tbaa !150
+  store i8 %145, ptr %126, align 1, !tbaa !150
+  %146 = load i8, ptr %128, align 1, !tbaa !150
+  store i8 %146, ptr %127, align 1, !tbaa !150
+  %147 = load i8, ptr %129, align 1, !tbaa !150
+  store i8 %147, ptr %128, align 1, !tbaa !150
+  store i8 %144, ptr %129, align 1, !tbaa !150
+  %148 = load i8, ptr %130, align 1, !tbaa !150
+  %149 = load i8, ptr %131, align 1, !tbaa !150
+  store i8 %149, ptr %130, align 1, !tbaa !150
+  store i8 %148, ptr %131, align 1, !tbaa !150
+  %150 = load i8, ptr %132, align 1, !tbaa !150
+  %151 = load i8, ptr %133, align 1, !tbaa !150
+  store i8 %151, ptr %132, align 1, !tbaa !150
+  store i8 %150, ptr %133, align 1, !tbaa !150
+  %152 = load i8, ptr %134, align 1, !tbaa !150
+  %153 = load i8, ptr %135, align 1, !tbaa !150
+  store i8 %153, ptr %134, align 1, !tbaa !150
+  %154 = load i8, ptr %136, align 1, !tbaa !150
+  store i8 %154, ptr %135, align 1, !tbaa !150
+  %155 = load i8, ptr %137, align 1, !tbaa !150
+  store i8 %155, ptr %136, align 1, !tbaa !150
+  store i8 %152, ptr %137, align 1, !tbaa !150
+  br label %156
+
+156:                                              ; preds = %141, %156
+  %.0865.idx939 = phi i64 [ 0, %141 ], [ %.0865.add, %156 ]
+  %.0865.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0865.idx939
+  %157 = load i8, ptr %.0865.ptr, align 1, !tbaa !150
+  %158 = zext i8 %157 to i64
+  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesdm_vvP11processor_t6insn_tmE13kVAESXDecSBox, i64 0, i64 %158
+  %160 = load i8, ptr %159, align 1, !tbaa !150
+  store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
+  %.0865.add = add nuw nsw i64 %.0865.idx939, 1
+  %.not873 = icmp eq i64 %.0865.add, 16
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !175
+
+161:                                              ; preds = %.preheader
+  %162 = load i8, ptr %5, align 1, !tbaa !150
+  %163 = load i8, ptr %126, align 1, !tbaa !150
+  %164 = load i8, ptr %130, align 1, !tbaa !150
+  %165 = load i8, ptr %134, align 1, !tbaa !150
+  %166 = zext i8 %162 to i32
+  %167 = shl nuw nsw i32 %166, 1
+  %.not874 = icmp sgt i8 %162, -1
+  %168 = select i1 %.not874, i32 0, i32 27
+  %169 = xor i32 %167, %168
+  %170 = shl nuw nsw i32 %169, 1
+  %171 = and i32 %166, 64
+  %.not875 = icmp eq i32 %171, 0
+  %172 = select i1 %.not875, i32 0, i32 27
+  %173 = xor i32 %170, %172
+  %174 = shl nuw nsw i32 %173, 1
+  %175 = and i32 %166, 32
+  %.not876 = icmp eq i32 %175, 0
+  %176 = select i1 %.not876, i32 0, i32 27
+  %177 = xor i32 %174, %176
+  %178 = zext i8 %163 to i32
+  %179 = shl nuw nsw i32 %178, 1
+  %.not877 = icmp sgt i8 %163, -1
+  %180 = select i1 %.not877, i32 0, i32 27
+  %181 = xor i32 %179, %180
+  %182 = shl nuw nsw i32 %181, 1
+  %183 = and i32 %178, 64
+  %.not878 = icmp eq i32 %183, 0
+  %184 = select i1 %.not878, i32 0, i32 27
+  %185 = xor i32 %182, %184
+  %186 = shl nuw nsw i32 %185, 1
+  %187 = and i32 %178, 32
+  %.not879 = icmp eq i32 %187, 0
+  %188 = select i1 %.not879, i32 0, i32 27
+  %189 = xor i32 %186, %188
+  %190 = zext i8 %164 to i32
+  %191 = shl nuw nsw i32 %190, 1
+  %.not880 = icmp sgt i8 %164, -1
+  %192 = select i1 %.not880, i32 0, i32 27
+  %193 = xor i32 %191, %192
+  %194 = shl nuw nsw i32 %193, 1
+  %195 = and i32 %190, 64
+  %.not881 = icmp eq i32 %195, 0
+  %196 = select i1 %.not881, i32 0, i32 27
+  %197 = xor i32 %194, %196
+  %198 = shl nuw nsw i32 %197, 1
+  %199 = and i32 %190, 32
+  %.not882 = icmp eq i32 %199, 0
+  %200 = select i1 %.not882, i32 0, i32 27
+  %201 = xor i32 %198, %200
+  %202 = zext i8 %165 to i32
+  %203 = shl nuw nsw i32 %202, 1
+  %.not883 = icmp sgt i8 %165, -1
+  %204 = select i1 %.not883, i32 0, i32 27
+  %205 = xor i32 %203, %204
+  %206 = shl nuw nsw i32 %205, 1
+  %207 = and i32 %202, 64
+  %.not884 = icmp eq i32 %207, 0
+  %208 = select i1 %.not884, i32 0, i32 27
+  %209 = xor i32 %206, %208
+  %210 = shl nuw nsw i32 %209, 1
+  %211 = and i32 %202, 32
+  %.not885 = icmp eq i32 %211, 0
+  %212 = select i1 %.not885, i32 0, i32 27
+  %213 = xor i32 %210, %212
+  %214 = xor i32 %190, %178
+  %215 = xor i32 %214, %169
+  %216 = xor i32 %215, %202
+  %217 = xor i32 %216, %181
+  %218 = xor i32 %217, %173
+  %219 = xor i32 %218, %197
+  %220 = xor i32 %219, %177
+  %221 = xor i32 %220, %189
+  %222 = xor i32 %221, %201
+  %223 = xor i32 %222, %213
+  %224 = trunc i32 %223 to i8
+  store i8 %224, ptr %5, align 1, !tbaa !150
+  %225 = xor i32 %190, %166
+  %226 = xor i32 %225, %202
+  %227 = xor i32 %226, %181
+  %228 = xor i32 %227, %193
+  %229 = xor i32 %228, %185
+  %230 = xor i32 %229, %177
+  %231 = xor i32 %230, %209
+  %232 = xor i32 %231, %189
+  %233 = xor i32 %232, %201
+  %234 = xor i32 %233, %213
+  %235 = trunc i32 %234 to i8
+  store i8 %235, ptr %126, align 1, !tbaa !150
+  %236 = xor i32 %178, %166
+  %237 = xor i32 %236, %202
+  %238 = xor i32 %237, %173
+  %239 = xor i32 %238, %193
+  %240 = xor i32 %239, %205
+  %241 = xor i32 %240, %177
+  %242 = xor i32 %241, %197
+  %243 = xor i32 %242, %189
+  %244 = xor i32 %243, %201
+  %245 = xor i32 %244, %213
+  %246 = trunc i32 %245 to i8
+  store i8 %246, ptr %130, align 1, !tbaa !150
+  %247 = xor i32 %236, %190
+  %248 = xor i32 %247, %169
+  %249 = xor i32 %248, %185
+  %250 = xor i32 %249, %205
+  %251 = xor i32 %250, %177
+  %252 = xor i32 %251, %189
+  %253 = xor i32 %252, %209
+  %254 = xor i32 %253, %201
+  %255 = xor i32 %254, %213
+  %256 = trunc i32 %255 to i8
+  store i8 %256, ptr %134, align 1, !tbaa !150
+  %257 = load i8, ptr %138, align 1, !tbaa !150
+  %258 = load i8, ptr %129, align 1, !tbaa !150
+  %259 = load i8, ptr %132, align 1, !tbaa !150
+  %260 = load i8, ptr %135, align 1, !tbaa !150
+  %261 = zext i8 %257 to i32
+  %262 = shl nuw nsw i32 %261, 1
+  %.not886 = icmp sgt i8 %257, -1
+  %263 = select i1 %.not886, i32 0, i32 27
+  %264 = xor i32 %262, %263
+  %265 = shl nuw nsw i32 %264, 1
+  %266 = and i32 %261, 64
+  %.not887 = icmp eq i32 %266, 0
+  %267 = select i1 %.not887, i32 0, i32 27
+  %268 = xor i32 %265, %267
+  %269 = shl nuw nsw i32 %268, 1
+  %270 = and i32 %261, 32
+  %.not888 = icmp eq i32 %270, 0
+  %271 = select i1 %.not888, i32 0, i32 27
+  %272 = xor i32 %269, %271
+  %273 = zext i8 %258 to i32
+  %274 = shl nuw nsw i32 %273, 1
+  %.not889 = icmp sgt i8 %258, -1
+  %275 = select i1 %.not889, i32 0, i32 27
+  %276 = xor i32 %274, %275
+  %277 = shl nuw nsw i32 %276, 1
+  %278 = and i32 %273, 64
+  %.not890 = icmp eq i32 %278, 0
+  %279 = select i1 %.not890, i32 0, i32 27
+  %280 = xor i32 %277, %279
+  %281 = shl nuw nsw i32 %280, 1
+  %282 = and i32 %273, 32
+  %.not891 = icmp eq i32 %282, 0
+  %283 = select i1 %.not891, i32 0, i32 27
+  %284 = xor i32 %281, %283
+  %285 = zext i8 %259 to i32
+  %286 = shl nuw nsw i32 %285, 1
+  %.not892 = icmp sgt i8 %259, -1
+  %287 = select i1 %.not892, i32 0, i32 27
+  %288 = xor i32 %286, %287
+  %289 = shl nuw nsw i32 %288, 1
+  %290 = and i32 %285, 64
+  %.not893 = icmp eq i32 %290, 0
+  %291 = select i1 %.not893, i32 0, i32 27
+  %292 = xor i32 %289, %291
+  %293 = shl nuw nsw i32 %292, 1
+  %294 = and i32 %285, 32
+  %.not894 = icmp eq i32 %294, 0
+  %295 = select i1 %.not894, i32 0, i32 27
+  %296 = xor i32 %293, %295
+  %297 = zext i8 %260 to i32
+  %298 = shl nuw nsw i32 %297, 1
+  %.not895 = icmp sgt i8 %260, -1
+  %299 = select i1 %.not895, i32 0, i32 27
+  %300 = xor i32 %298, %299
+  %301 = shl nuw nsw i32 %300, 1
+  %302 = and i32 %297, 64
+  %.not896 = icmp eq i32 %302, 0
+  %303 = select i1 %.not896, i32 0, i32 27
+  %304 = xor i32 %301, %303
+  %305 = shl nuw nsw i32 %304, 1
+  %306 = and i32 %297, 32
+  %.not897 = icmp eq i32 %306, 0
+  %307 = select i1 %.not897, i32 0, i32 27
+  %308 = xor i32 %305, %307
+  %309 = xor i32 %285, %273
+  %310 = xor i32 %309, %264
+  %311 = xor i32 %310, %297
+  %312 = xor i32 %311, %276
+  %313 = xor i32 %312, %268
+  %314 = xor i32 %313, %292
+  %315 = xor i32 %314, %272
+  %316 = xor i32 %315, %284
+  %317 = xor i32 %316, %296
+  %318 = xor i32 %317, %308
+  %319 = trunc i32 %318 to i8
+  store i8 %319, ptr %138, align 1, !tbaa !150
+  %320 = xor i32 %285, %261
+  %321 = xor i32 %320, %297
+  %322 = xor i32 %321, %276
+  %323 = xor i32 %322, %288
+  %324 = xor i32 %323, %280
+  %325 = xor i32 %324, %272
+  %326 = xor i32 %325, %304
+  %327 = xor i32 %326, %284
+  %328 = xor i32 %327, %296
+  %329 = xor i32 %328, %308
+  %330 = trunc i32 %329 to i8
+  store i8 %330, ptr %129, align 1, !tbaa !150
+  %331 = xor i32 %273, %261
+  %332 = xor i32 %331, %297
+  %333 = xor i32 %332, %268
+  %334 = xor i32 %333, %288
+  %335 = xor i32 %334, %300
+  %336 = xor i32 %335, %272
+  %337 = xor i32 %336, %292
+  %338 = xor i32 %337, %284
+  %339 = xor i32 %338, %296
+  %340 = xor i32 %339, %308
+  %341 = trunc i32 %340 to i8
+  store i8 %341, ptr %132, align 1, !tbaa !150
+  %342 = xor i32 %331, %285
+  %343 = xor i32 %342, %264
+  %344 = xor i32 %343, %280
+  %345 = xor i32 %344, %300
+  %346 = xor i32 %345, %272
+  %347 = xor i32 %346, %284
+  %348 = xor i32 %347, %304
+  %349 = xor i32 %348, %296
+  %350 = xor i32 %349, %308
+  %351 = trunc i32 %350 to i8
+  store i8 %351, ptr %135, align 1, !tbaa !150
+  %352 = load i8, ptr %139, align 1, !tbaa !150
+  %353 = load i8, ptr %128, align 1, !tbaa !150
+  %354 = load i8, ptr %131, align 1, !tbaa !150
+  %355 = load i8, ptr %136, align 1, !tbaa !150
+  %356 = zext i8 %352 to i32
+  %357 = shl nuw nsw i32 %356, 1
+  %.not898 = icmp sgt i8 %352, -1
+  %358 = select i1 %.not898, i32 0, i32 27
+  %359 = xor i32 %357, %358
+  %360 = shl nuw nsw i32 %359, 1
+  %361 = and i32 %356, 64
+  %.not899 = icmp eq i32 %361, 0
+  %362 = select i1 %.not899, i32 0, i32 27
+  %363 = xor i32 %360, %362
+  %364 = shl nuw nsw i32 %363, 1
+  %365 = and i32 %356, 32
+  %.not900 = icmp eq i32 %365, 0
+  %366 = select i1 %.not900, i32 0, i32 27
+  %367 = xor i32 %364, %366
+  %368 = zext i8 %353 to i32
+  %369 = shl nuw nsw i32 %368, 1
+  %.not901 = icmp sgt i8 %353, -1
+  %370 = select i1 %.not901, i32 0, i32 27
+  %371 = xor i32 %369, %370
+  %372 = shl nuw nsw i32 %371, 1
+  %373 = and i32 %368, 64
+  %.not902 = icmp eq i32 %373, 0
+  %374 = select i1 %.not902, i32 0, i32 27
+  %375 = xor i32 %372, %374
+  %376 = shl nuw nsw i32 %375, 1
+  %377 = and i32 %368, 32
+  %.not903 = icmp eq i32 %377, 0
+  %378 = select i1 %.not903, i32 0, i32 27
+  %379 = xor i32 %376, %378
+  %380 = zext i8 %354 to i32
+  %381 = shl nuw nsw i32 %380, 1
+  %.not904 = icmp sgt i8 %354, -1
+  %382 = select i1 %.not904, i32 0, i32 27
+  %383 = xor i32 %381, %382
+  %384 = shl nuw nsw i32 %383, 1
+  %385 = and i32 %380, 64
+  %.not905 = icmp eq i32 %385, 0
+  %386 = select i1 %.not905, i32 0, i32 27
+  %387 = xor i32 %384, %386
+  %388 = shl nuw nsw i32 %387, 1
+  %389 = and i32 %380, 32
+  %.not906 = icmp eq i32 %389, 0
+  %390 = select i1 %.not906, i32 0, i32 27
+  %391 = xor i32 %388, %390
+  %392 = zext i8 %355 to i32
+  %393 = shl nuw nsw i32 %392, 1
+  %.not907 = icmp sgt i8 %355, -1
+  %394 = select i1 %.not907, i32 0, i32 27
+  %395 = xor i32 %393, %394
+  %396 = shl nuw nsw i32 %395, 1
+  %397 = and i32 %392, 64
+  %.not908 = icmp eq i32 %397, 0
+  %398 = select i1 %.not908, i32 0, i32 27
+  %399 = xor i32 %396, %398
+  %400 = shl nuw nsw i32 %399, 1
+  %401 = and i32 %392, 32
+  %.not909 = icmp eq i32 %401, 0
+  %402 = select i1 %.not909, i32 0, i32 27
+  %403 = xor i32 %400, %402
+  %404 = xor i32 %380, %368
+  %405 = xor i32 %404, %359
+  %406 = xor i32 %405, %392
+  %407 = xor i32 %406, %371
+  %408 = xor i32 %407, %363
+  %409 = xor i32 %408, %387
+  %410 = xor i32 %409, %367
+  %411 = xor i32 %410, %379
+  %412 = xor i32 %411, %391
+  %413 = xor i32 %412, %403
+  %414 = trunc i32 %413 to i8
+  store i8 %414, ptr %139, align 1, !tbaa !150
+  %415 = xor i32 %380, %356
+  %416 = xor i32 %415, %392
+  %417 = xor i32 %416, %371
+  %418 = xor i32 %417, %383
+  %419 = xor i32 %418, %375
+  %420 = xor i32 %419, %367
+  %421 = xor i32 %420, %399
+  %422 = xor i32 %421, %379
+  %423 = xor i32 %422, %391
+  %424 = xor i32 %423, %403
+  %425 = trunc i32 %424 to i8
+  store i8 %425, ptr %128, align 1, !tbaa !150
+  %426 = xor i32 %368, %356
+  %427 = xor i32 %426, %392
+  %428 = xor i32 %427, %363
+  %429 = xor i32 %428, %383
+  %430 = xor i32 %429, %395
+  %431 = xor i32 %430, %367
+  %432 = xor i32 %431, %387
+  %433 = xor i32 %432, %379
+  %434 = xor i32 %433, %391
+  %435 = xor i32 %434, %403
+  %436 = trunc i32 %435 to i8
+  store i8 %436, ptr %131, align 1, !tbaa !150
+  %437 = xor i32 %426, %380
+  %438 = xor i32 %437, %359
+  %439 = xor i32 %438, %375
+  %440 = xor i32 %439, %395
+  %441 = xor i32 %440, %367
+  %442 = xor i32 %441, %379
+  %443 = xor i32 %442, %399
+  %444 = xor i32 %443, %391
+  %445 = xor i32 %444, %403
+  %446 = trunc i32 %445 to i8
+  store i8 %446, ptr %136, align 1, !tbaa !150
+  %447 = load i8, ptr %140, align 1, !tbaa !150
+  %448 = load i8, ptr %127, align 1, !tbaa !150
+  %449 = load i8, ptr %133, align 1, !tbaa !150
+  %450 = load i8, ptr %137, align 1, !tbaa !150
+  %451 = zext i8 %447 to i32
+  %452 = shl nuw nsw i32 %451, 1
+  %.not910 = icmp sgt i8 %447, -1
+  %453 = select i1 %.not910, i32 0, i32 27
+  %454 = xor i32 %452, %453
+  %455 = shl nuw nsw i32 %454, 1
+  %456 = and i32 %451, 64
+  %.not911 = icmp eq i32 %456, 0
+  %457 = select i1 %.not911, i32 0, i32 27
+  %458 = xor i32 %455, %457
+  %459 = shl nuw nsw i32 %458, 1
+  %460 = and i32 %451, 32
+  %.not912 = icmp eq i32 %460, 0
+  %461 = select i1 %.not912, i32 0, i32 27
+  %462 = xor i32 %459, %461
+  %463 = zext i8 %448 to i32
+  %464 = shl nuw nsw i32 %463, 1
+  %.not913 = icmp sgt i8 %448, -1
+  %465 = select i1 %.not913, i32 0, i32 27
+  %466 = xor i32 %464, %465
+  %467 = shl nuw nsw i32 %466, 1
+  %468 = and i32 %463, 64
+  %.not914 = icmp eq i32 %468, 0
+  %469 = select i1 %.not914, i32 0, i32 27
+  %470 = xor i32 %467, %469
+  %471 = shl nuw nsw i32 %470, 1
+  %472 = and i32 %463, 32
+  %.not915 = icmp eq i32 %472, 0
+  %473 = select i1 %.not915, i32 0, i32 27
+  %474 = xor i32 %471, %473
+  %475 = zext i8 %449 to i32
+  %476 = shl nuw nsw i32 %475, 1
+  %.not916 = icmp sgt i8 %449, -1
+  %477 = select i1 %.not916, i32 0, i32 27
+  %478 = xor i32 %476, %477
+  %479 = shl nuw nsw i32 %478, 1
+  %480 = and i32 %475, 64
+  %.not917 = icmp eq i32 %480, 0
+  %481 = select i1 %.not917, i32 0, i32 27
+  %482 = xor i32 %479, %481
+  %483 = shl nuw nsw i32 %482, 1
+  %484 = and i32 %475, 32
+  %.not918 = icmp eq i32 %484, 0
+  %485 = select i1 %.not918, i32 0, i32 27
+  %486 = xor i32 %483, %485
+  %487 = zext i8 %450 to i32
+  %488 = shl nuw nsw i32 %487, 1
+  %.not919 = icmp sgt i8 %450, -1
+  %489 = select i1 %.not919, i32 0, i32 27
+  %490 = xor i32 %488, %489
+  %491 = shl nuw nsw i32 %490, 1
+  %492 = and i32 %487, 64
+  %.not920 = icmp eq i32 %492, 0
+  %493 = select i1 %.not920, i32 0, i32 27
+  %494 = xor i32 %491, %493
+  %495 = shl nuw nsw i32 %494, 1
+  %496 = and i32 %487, 32
+  %.not921 = icmp eq i32 %496, 0
+  %497 = select i1 %.not921, i32 0, i32 27
+  %498 = xor i32 %495, %497
+  %499 = xor i32 %475, %463
+  %500 = xor i32 %499, %454
+  %501 = xor i32 %500, %487
+  %502 = xor i32 %501, %466
+  %503 = xor i32 %502, %458
+  %504 = xor i32 %503, %482
+  %505 = xor i32 %504, %462
+  %506 = xor i32 %505, %474
+  %507 = xor i32 %506, %486
+  %508 = xor i32 %507, %498
+  %509 = trunc i32 %508 to i8
+  store i8 %509, ptr %140, align 1, !tbaa !150
+  %510 = xor i32 %475, %451
+  %511 = xor i32 %510, %487
+  %512 = xor i32 %511, %466
+  %513 = xor i32 %512, %478
+  %514 = xor i32 %513, %470
+  %515 = xor i32 %514, %462
+  %516 = xor i32 %515, %494
+  %517 = xor i32 %516, %474
+  %518 = xor i32 %517, %486
+  %519 = xor i32 %518, %498
+  %520 = trunc i32 %519 to i8
+  store i8 %520, ptr %127, align 1, !tbaa !150
+  %521 = xor i32 %463, %451
+  %522 = xor i32 %521, %487
+  %523 = xor i32 %522, %458
+  %524 = xor i32 %523, %478
+  %525 = xor i32 %524, %490
+  %526 = xor i32 %525, %462
+  %527 = xor i32 %526, %482
+  %528 = xor i32 %527, %474
+  %529 = xor i32 %528, %486
+  %530 = xor i32 %529, %498
+  %531 = trunc i32 %530 to i8
+  store i8 %531, ptr %133, align 1, !tbaa !150
+  %532 = xor i32 %521, %475
+  %533 = xor i32 %532, %454
+  %534 = xor i32 %533, %470
+  %535 = xor i32 %534, %490
+  %536 = xor i32 %535, %462
+  %537 = xor i32 %536, %474
+  %538 = xor i32 %537, %494
+  %539 = xor i32 %538, %486
+  %540 = xor i32 %539, %498
+  %541 = trunc i32 %540 to i8
+  store i8 %541, ptr %137, align 1, !tbaa !150
+  %542 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext true)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %542, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false), !tbaa !150
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  %543 = add nuw nsw i64 %.0864942, 1
+  %exitcond943.not = icmp eq i64 %543, %124
+  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !176
+
+.preheader:                                       ; preds = %156, %.preheader
+  %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
+  %544 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0866940
+  %545 = load i8, ptr %544, align 1, !tbaa !150
+  %546 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0866940
+  %547 = load i8, ptr %546, align 1, !tbaa !150
+  %548 = xor i8 %547, %545
+  store i8 %548, ptr %546, align 1, !tbaa !150
+  %549 = add nuw nsw i64 %.0866940, 1
+  %exitcond.not = icmp eq i64 %549, 16
+  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !177
+
+.loopexit:                                        ; preds = %161, %108
+  %550 = add i64 %2, 4
+  %551 = load ptr, ptr %76, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %551, i64 noundef 0) #14
+  ret i64 %550
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.std::array", align 1
+  %6 = alloca %"struct.std::array", align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %8 = load i64, ptr %7, align 8, !tbaa !3
+  %.not937 = icmp eq i64 %8, 0
+  br i1 %.not937, label %13, label %9, !prof !131
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %11 = load ptr, ptr %10, align 8, !tbaa !132
+  %12 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 1536)
+  br i1 %12, label %18, label %13, !prof !133
+
+13:                                               ; preds = %9, %3
+  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 2, ptr %15, align 8, !tbaa !134
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i8 0, ptr %16, align 8, !tbaa !136
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i64 %1, ptr %17, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 266632
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %21 = load i8, ptr %20, align 8, !tbaa !141, !range !142, !noundef !143
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %28, !prof !131
+
+23:                                               ; preds = %18
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 2, ptr %25, align 8, !tbaa !134
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i8 0, ptr %26, align 8, !tbaa !136
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %1, ptr %27, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %30 = load i8, ptr %29, align 1, !tbaa !144, !range !142, !noundef !143
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %44, label %32
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %34 = load ptr, ptr %33, align 8, !tbaa !145
+  %35 = load ptr, ptr %34, align 8, !tbaa !139
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(48) %34) #14
+  %.not = icmp eq i64 %38, 0
+  br i1 %.not, label %44, label %39, !prof !133
+
+39:                                               ; preds = %32
+  %40 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 2, ptr %41, align 8, !tbaa !134
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i8 0, ptr %42, align 8, !tbaa !136
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store i64 %1, ptr %43, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %40, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+44:                                               ; preds = %32, %28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  store i64 3, ptr %4, align 8, !tbaa !146
+  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  %47 = load ptr, ptr %10, align 8, !tbaa !132
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %47, i64 noundef 1536)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4320
+  %.sink.i = load i64, ptr %48, align 8, !tbaa !146
+  %49 = and i64 %.sink.i, 8192
+  %.0.i.not = icmp eq i64 %49, 0
+  br i1 %.0.i.not, label %50, label %55, !prof !131
+
+50:                                               ; preds = %44
+  %51 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i64 2, ptr %52, align 8, !tbaa !134
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i8 0, ptr %53, align 8, !tbaa !136
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  store i64 %1, ptr %54, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+55:                                               ; preds = %44
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
+  %57 = load i64, ptr %56, align 8, !tbaa !147
+  %.not869 = icmp eq i64 %57, 32
+  br i1 %.not869, label %63, label %58, !prof !133
+
+58:                                               ; preds = %55
+  %59 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i64 2, ptr %60, align 8, !tbaa !134
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i8 0, ptr %61, align 8, !tbaa !136
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i64 %1, ptr %62, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %59, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+63:                                               ; preds = %55
+  %64 = load i64, ptr %7, align 8, !tbaa !3
+  %65 = uitofp i64 %64 to float
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 266808
+  %67 = load float, ptr %66, align 8, !tbaa !148
+  %68 = fmul float %67, %65
+  %69 = fcmp ult float %68, 1.280000e+02
+  br i1 %69, label %70, label %75, !prof !131
+
+70:                                               ; preds = %63
+  %71 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i64 2, ptr %72, align 8, !tbaa !134
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i8 0, ptr %73, align 8, !tbaa !136
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store i64 %1, ptr %74, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+75:                                               ; preds = %63
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %77 = load ptr, ptr %76, align 8, !tbaa !145
+  %78 = load ptr, ptr %77, align 8, !tbaa !139
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(48) %77) #14
+  %82 = and i64 %81, 3
+  %.not870 = icmp eq i64 %82, 0
+  br i1 %.not870, label %88, label %83, !prof !133
+
+83:                                               ; preds = %75
+  %84 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store i64 2, ptr %85, align 8, !tbaa !134
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store i8 0, ptr %86, align 8, !tbaa !136
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  store i64 %1, ptr %87, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %84, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+88:                                               ; preds = %75
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %90 = load ptr, ptr %89, align 8, !tbaa !145
+  %91 = load ptr, ptr %90, align 8, !tbaa !139
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(48) %90) #14
+  %95 = and i64 %94, 3
+  %.not871 = icmp eq i64 %95, 0
+  br i1 %.not871, label %101, label %96, !prof !133
+
+96:                                               ; preds = %88
+  %97 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 2, ptr %98, align 8, !tbaa !134
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  store i8 0, ptr %99, align 8, !tbaa !136
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  store i64 %1, ptr %100, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %97, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+101:                                              ; preds = %88
+  %102 = and i64 %1, 33554432
+  %.not872.not = icmp eq i64 %102, 0
+  br i1 %.not872.not, label %103, label %108, !prof !131
+
+103:                                              ; preds = %101
+  %104 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store i64 2, ptr %105, align 8, !tbaa !134
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store i8 0, ptr %106, align 8, !tbaa !136
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  store i64 %1, ptr %107, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %104, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+108:                                              ; preds = %101
+  %109 = lshr i64 %1, 7
+  %110 = and i64 %109, 31
+  %111 = lshr i64 %1, 20
+  %112 = and i64 %111, 31
+  %113 = load ptr, ptr %76, align 8, !tbaa !145
+  %114 = load ptr, ptr %113, align 8, !tbaa !139
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(48) %113) #14
+  %118 = lshr i64 %117, 2
+  %119 = load ptr, ptr %89, align 8, !tbaa !145
+  %120 = load ptr, ptr %119, align 8, !tbaa !139
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(48) %119) #14
+  %124 = lshr i64 %123, 2
+  %125 = icmp samesign ult i64 %118, %124
+  br i1 %125, label %.preheader938, label %.loopexit
+
+.preheader938:                                    ; preds = %108
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 13
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 11
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  br label %141
+
+141:                                              ; preds = %.preheader938, %161
+  %.0864942 = phi i64 [ %118, %.preheader938 ], [ %543, %161 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  %142 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !149
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  %143 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %112, i64 noundef %.0864942, i1 noundef zeroext false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !149
+  %144 = load i8, ptr %126, align 1, !tbaa !150
+  %145 = load i8, ptr %127, align 1, !tbaa !150
+  store i8 %145, ptr %126, align 1, !tbaa !150
+  %146 = load i8, ptr %128, align 1, !tbaa !150
+  store i8 %146, ptr %127, align 1, !tbaa !150
+  %147 = load i8, ptr %129, align 1, !tbaa !150
+  store i8 %147, ptr %128, align 1, !tbaa !150
+  store i8 %144, ptr %129, align 1, !tbaa !150
+  %148 = load i8, ptr %130, align 1, !tbaa !150
+  %149 = load i8, ptr %131, align 1, !tbaa !150
+  store i8 %149, ptr %130, align 1, !tbaa !150
+  store i8 %148, ptr %131, align 1, !tbaa !150
+  %150 = load i8, ptr %132, align 1, !tbaa !150
+  %151 = load i8, ptr %133, align 1, !tbaa !150
+  store i8 %151, ptr %132, align 1, !tbaa !150
+  store i8 %150, ptr %133, align 1, !tbaa !150
+  %152 = load i8, ptr %134, align 1, !tbaa !150
+  %153 = load i8, ptr %135, align 1, !tbaa !150
+  store i8 %153, ptr %134, align 1, !tbaa !150
+  %154 = load i8, ptr %136, align 1, !tbaa !150
+  store i8 %154, ptr %135, align 1, !tbaa !150
+  %155 = load i8, ptr %137, align 1, !tbaa !150
+  store i8 %155, ptr %136, align 1, !tbaa !150
+  store i8 %152, ptr %137, align 1, !tbaa !150
+  br label %156
+
+156:                                              ; preds = %141, %156
+  %.0865.idx939 = phi i64 [ 0, %141 ], [ %.0865.add, %156 ]
+  %.0865.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0865.idx939
+  %157 = load i8, ptr %.0865.ptr, align 1, !tbaa !150
+  %158 = zext i8 %157 to i64
+  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesdm_vvP11processor_t6insn_tmE13kVAESXDecSBox, i64 0, i64 %158
+  %160 = load i8, ptr %159, align 1, !tbaa !150
+  store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
+  %.0865.add = add nuw nsw i64 %.0865.idx939, 1
+  %.not873 = icmp eq i64 %.0865.add, 16
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !178
+
+161:                                              ; preds = %.preheader
+  %162 = load i8, ptr %5, align 1, !tbaa !150
+  %163 = load i8, ptr %126, align 1, !tbaa !150
+  %164 = load i8, ptr %130, align 1, !tbaa !150
+  %165 = load i8, ptr %134, align 1, !tbaa !150
+  %166 = zext i8 %162 to i32
+  %167 = shl nuw nsw i32 %166, 1
+  %.not874 = icmp sgt i8 %162, -1
+  %168 = select i1 %.not874, i32 0, i32 27
+  %169 = xor i32 %167, %168
+  %170 = shl nuw nsw i32 %169, 1
+  %171 = and i32 %166, 64
+  %.not875 = icmp eq i32 %171, 0
+  %172 = select i1 %.not875, i32 0, i32 27
+  %173 = xor i32 %170, %172
+  %174 = shl nuw nsw i32 %173, 1
+  %175 = and i32 %166, 32
+  %.not876 = icmp eq i32 %175, 0
+  %176 = select i1 %.not876, i32 0, i32 27
+  %177 = xor i32 %174, %176
+  %178 = zext i8 %163 to i32
+  %179 = shl nuw nsw i32 %178, 1
+  %.not877 = icmp sgt i8 %163, -1
+  %180 = select i1 %.not877, i32 0, i32 27
+  %181 = xor i32 %179, %180
+  %182 = shl nuw nsw i32 %181, 1
+  %183 = and i32 %178, 64
+  %.not878 = icmp eq i32 %183, 0
+  %184 = select i1 %.not878, i32 0, i32 27
+  %185 = xor i32 %182, %184
+  %186 = shl nuw nsw i32 %185, 1
+  %187 = and i32 %178, 32
+  %.not879 = icmp eq i32 %187, 0
+  %188 = select i1 %.not879, i32 0, i32 27
+  %189 = xor i32 %186, %188
+  %190 = zext i8 %164 to i32
+  %191 = shl nuw nsw i32 %190, 1
+  %.not880 = icmp sgt i8 %164, -1
+  %192 = select i1 %.not880, i32 0, i32 27
+  %193 = xor i32 %191, %192
+  %194 = shl nuw nsw i32 %193, 1
+  %195 = and i32 %190, 64
+  %.not881 = icmp eq i32 %195, 0
+  %196 = select i1 %.not881, i32 0, i32 27
+  %197 = xor i32 %194, %196
+  %198 = shl nuw nsw i32 %197, 1
+  %199 = and i32 %190, 32
+  %.not882 = icmp eq i32 %199, 0
+  %200 = select i1 %.not882, i32 0, i32 27
+  %201 = xor i32 %198, %200
+  %202 = zext i8 %165 to i32
+  %203 = shl nuw nsw i32 %202, 1
+  %.not883 = icmp sgt i8 %165, -1
+  %204 = select i1 %.not883, i32 0, i32 27
+  %205 = xor i32 %203, %204
+  %206 = shl nuw nsw i32 %205, 1
+  %207 = and i32 %202, 64
+  %.not884 = icmp eq i32 %207, 0
+  %208 = select i1 %.not884, i32 0, i32 27
+  %209 = xor i32 %206, %208
+  %210 = shl nuw nsw i32 %209, 1
+  %211 = and i32 %202, 32
+  %.not885 = icmp eq i32 %211, 0
+  %212 = select i1 %.not885, i32 0, i32 27
+  %213 = xor i32 %210, %212
+  %214 = xor i32 %190, %178
+  %215 = xor i32 %214, %169
+  %216 = xor i32 %215, %202
+  %217 = xor i32 %216, %181
+  %218 = xor i32 %217, %173
+  %219 = xor i32 %218, %197
+  %220 = xor i32 %219, %177
+  %221 = xor i32 %220, %189
+  %222 = xor i32 %221, %201
+  %223 = xor i32 %222, %213
+  %224 = trunc i32 %223 to i8
+  store i8 %224, ptr %5, align 1, !tbaa !150
+  %225 = xor i32 %190, %166
+  %226 = xor i32 %225, %202
+  %227 = xor i32 %226, %181
+  %228 = xor i32 %227, %193
+  %229 = xor i32 %228, %185
+  %230 = xor i32 %229, %177
+  %231 = xor i32 %230, %209
+  %232 = xor i32 %231, %189
+  %233 = xor i32 %232, %201
+  %234 = xor i32 %233, %213
+  %235 = trunc i32 %234 to i8
+  store i8 %235, ptr %126, align 1, !tbaa !150
+  %236 = xor i32 %178, %166
+  %237 = xor i32 %236, %202
+  %238 = xor i32 %237, %173
+  %239 = xor i32 %238, %193
+  %240 = xor i32 %239, %205
+  %241 = xor i32 %240, %177
+  %242 = xor i32 %241, %197
+  %243 = xor i32 %242, %189
+  %244 = xor i32 %243, %201
+  %245 = xor i32 %244, %213
+  %246 = trunc i32 %245 to i8
+  store i8 %246, ptr %130, align 1, !tbaa !150
+  %247 = xor i32 %236, %190
+  %248 = xor i32 %247, %169
+  %249 = xor i32 %248, %185
+  %250 = xor i32 %249, %205
+  %251 = xor i32 %250, %177
+  %252 = xor i32 %251, %189
+  %253 = xor i32 %252, %209
+  %254 = xor i32 %253, %201
+  %255 = xor i32 %254, %213
+  %256 = trunc i32 %255 to i8
+  store i8 %256, ptr %134, align 1, !tbaa !150
+  %257 = load i8, ptr %138, align 1, !tbaa !150
+  %258 = load i8, ptr %129, align 1, !tbaa !150
+  %259 = load i8, ptr %132, align 1, !tbaa !150
+  %260 = load i8, ptr %135, align 1, !tbaa !150
+  %261 = zext i8 %257 to i32
+  %262 = shl nuw nsw i32 %261, 1
+  %.not886 = icmp sgt i8 %257, -1
+  %263 = select i1 %.not886, i32 0, i32 27
+  %264 = xor i32 %262, %263
+  %265 = shl nuw nsw i32 %264, 1
+  %266 = and i32 %261, 64
+  %.not887 = icmp eq i32 %266, 0
+  %267 = select i1 %.not887, i32 0, i32 27
+  %268 = xor i32 %265, %267
+  %269 = shl nuw nsw i32 %268, 1
+  %270 = and i32 %261, 32
+  %.not888 = icmp eq i32 %270, 0
+  %271 = select i1 %.not888, i32 0, i32 27
+  %272 = xor i32 %269, %271
+  %273 = zext i8 %258 to i32
+  %274 = shl nuw nsw i32 %273, 1
+  %.not889 = icmp sgt i8 %258, -1
+  %275 = select i1 %.not889, i32 0, i32 27
+  %276 = xor i32 %274, %275
+  %277 = shl nuw nsw i32 %276, 1
+  %278 = and i32 %273, 64
+  %.not890 = icmp eq i32 %278, 0
+  %279 = select i1 %.not890, i32 0, i32 27
+  %280 = xor i32 %277, %279
+  %281 = shl nuw nsw i32 %280, 1
+  %282 = and i32 %273, 32
+  %.not891 = icmp eq i32 %282, 0
+  %283 = select i1 %.not891, i32 0, i32 27
+  %284 = xor i32 %281, %283
+  %285 = zext i8 %259 to i32
+  %286 = shl nuw nsw i32 %285, 1
+  %.not892 = icmp sgt i8 %259, -1
+  %287 = select i1 %.not892, i32 0, i32 27
+  %288 = xor i32 %286, %287
+  %289 = shl nuw nsw i32 %288, 1
+  %290 = and i32 %285, 64
+  %.not893 = icmp eq i32 %290, 0
+  %291 = select i1 %.not893, i32 0, i32 27
+  %292 = xor i32 %289, %291
+  %293 = shl nuw nsw i32 %292, 1
+  %294 = and i32 %285, 32
+  %.not894 = icmp eq i32 %294, 0
+  %295 = select i1 %.not894, i32 0, i32 27
+  %296 = xor i32 %293, %295
+  %297 = zext i8 %260 to i32
+  %298 = shl nuw nsw i32 %297, 1
+  %.not895 = icmp sgt i8 %260, -1
+  %299 = select i1 %.not895, i32 0, i32 27
+  %300 = xor i32 %298, %299
+  %301 = shl nuw nsw i32 %300, 1
+  %302 = and i32 %297, 64
+  %.not896 = icmp eq i32 %302, 0
+  %303 = select i1 %.not896, i32 0, i32 27
+  %304 = xor i32 %301, %303
+  %305 = shl nuw nsw i32 %304, 1
+  %306 = and i32 %297, 32
+  %.not897 = icmp eq i32 %306, 0
+  %307 = select i1 %.not897, i32 0, i32 27
+  %308 = xor i32 %305, %307
+  %309 = xor i32 %285, %273
+  %310 = xor i32 %309, %264
+  %311 = xor i32 %310, %297
+  %312 = xor i32 %311, %276
+  %313 = xor i32 %312, %268
+  %314 = xor i32 %313, %292
+  %315 = xor i32 %314, %272
+  %316 = xor i32 %315, %284
+  %317 = xor i32 %316, %296
+  %318 = xor i32 %317, %308
+  %319 = trunc i32 %318 to i8
+  store i8 %319, ptr %138, align 1, !tbaa !150
+  %320 = xor i32 %285, %261
+  %321 = xor i32 %320, %297
+  %322 = xor i32 %321, %276
+  %323 = xor i32 %322, %288
+  %324 = xor i32 %323, %280
+  %325 = xor i32 %324, %272
+  %326 = xor i32 %325, %304
+  %327 = xor i32 %326, %284
+  %328 = xor i32 %327, %296
+  %329 = xor i32 %328, %308
+  %330 = trunc i32 %329 to i8
+  store i8 %330, ptr %129, align 1, !tbaa !150
+  %331 = xor i32 %273, %261
+  %332 = xor i32 %331, %297
+  %333 = xor i32 %332, %268
+  %334 = xor i32 %333, %288
+  %335 = xor i32 %334, %300
+  %336 = xor i32 %335, %272
+  %337 = xor i32 %336, %292
+  %338 = xor i32 %337, %284
+  %339 = xor i32 %338, %296
+  %340 = xor i32 %339, %308
+  %341 = trunc i32 %340 to i8
+  store i8 %341, ptr %132, align 1, !tbaa !150
+  %342 = xor i32 %331, %285
+  %343 = xor i32 %342, %264
+  %344 = xor i32 %343, %280
+  %345 = xor i32 %344, %300
+  %346 = xor i32 %345, %272
+  %347 = xor i32 %346, %284
+  %348 = xor i32 %347, %304
+  %349 = xor i32 %348, %296
+  %350 = xor i32 %349, %308
+  %351 = trunc i32 %350 to i8
+  store i8 %351, ptr %135, align 1, !tbaa !150
+  %352 = load i8, ptr %139, align 1, !tbaa !150
+  %353 = load i8, ptr %128, align 1, !tbaa !150
+  %354 = load i8, ptr %131, align 1, !tbaa !150
+  %355 = load i8, ptr %136, align 1, !tbaa !150
+  %356 = zext i8 %352 to i32
+  %357 = shl nuw nsw i32 %356, 1
+  %.not898 = icmp sgt i8 %352, -1
+  %358 = select i1 %.not898, i32 0, i32 27
+  %359 = xor i32 %357, %358
+  %360 = shl nuw nsw i32 %359, 1
+  %361 = and i32 %356, 64
+  %.not899 = icmp eq i32 %361, 0
+  %362 = select i1 %.not899, i32 0, i32 27
+  %363 = xor i32 %360, %362
+  %364 = shl nuw nsw i32 %363, 1
+  %365 = and i32 %356, 32
+  %.not900 = icmp eq i32 %365, 0
+  %366 = select i1 %.not900, i32 0, i32 27
+  %367 = xor i32 %364, %366
+  %368 = zext i8 %353 to i32
+  %369 = shl nuw nsw i32 %368, 1
+  %.not901 = icmp sgt i8 %353, -1
+  %370 = select i1 %.not901, i32 0, i32 27
+  %371 = xor i32 %369, %370
+  %372 = shl nuw nsw i32 %371, 1
+  %373 = and i32 %368, 64
+  %.not902 = icmp eq i32 %373, 0
+  %374 = select i1 %.not902, i32 0, i32 27
+  %375 = xor i32 %372, %374
+  %376 = shl nuw nsw i32 %375, 1
+  %377 = and i32 %368, 32
+  %.not903 = icmp eq i32 %377, 0
+  %378 = select i1 %.not903, i32 0, i32 27
+  %379 = xor i32 %376, %378
+  %380 = zext i8 %354 to i32
+  %381 = shl nuw nsw i32 %380, 1
+  %.not904 = icmp sgt i8 %354, -1
+  %382 = select i1 %.not904, i32 0, i32 27
+  %383 = xor i32 %381, %382
+  %384 = shl nuw nsw i32 %383, 1
+  %385 = and i32 %380, 64
+  %.not905 = icmp eq i32 %385, 0
+  %386 = select i1 %.not905, i32 0, i32 27
+  %387 = xor i32 %384, %386
+  %388 = shl nuw nsw i32 %387, 1
+  %389 = and i32 %380, 32
+  %.not906 = icmp eq i32 %389, 0
+  %390 = select i1 %.not906, i32 0, i32 27
+  %391 = xor i32 %388, %390
+  %392 = zext i8 %355 to i32
+  %393 = shl nuw nsw i32 %392, 1
+  %.not907 = icmp sgt i8 %355, -1
+  %394 = select i1 %.not907, i32 0, i32 27
+  %395 = xor i32 %393, %394
+  %396 = shl nuw nsw i32 %395, 1
+  %397 = and i32 %392, 64
+  %.not908 = icmp eq i32 %397, 0
+  %398 = select i1 %.not908, i32 0, i32 27
+  %399 = xor i32 %396, %398
+  %400 = shl nuw nsw i32 %399, 1
+  %401 = and i32 %392, 32
+  %.not909 = icmp eq i32 %401, 0
+  %402 = select i1 %.not909, i32 0, i32 27
+  %403 = xor i32 %400, %402
+  %404 = xor i32 %380, %368
+  %405 = xor i32 %404, %359
+  %406 = xor i32 %405, %392
+  %407 = xor i32 %406, %371
+  %408 = xor i32 %407, %363
+  %409 = xor i32 %408, %387
+  %410 = xor i32 %409, %367
+  %411 = xor i32 %410, %379
+  %412 = xor i32 %411, %391
+  %413 = xor i32 %412, %403
+  %414 = trunc i32 %413 to i8
+  store i8 %414, ptr %139, align 1, !tbaa !150
+  %415 = xor i32 %380, %356
+  %416 = xor i32 %415, %392
+  %417 = xor i32 %416, %371
+  %418 = xor i32 %417, %383
+  %419 = xor i32 %418, %375
+  %420 = xor i32 %419, %367
+  %421 = xor i32 %420, %399
+  %422 = xor i32 %421, %379
+  %423 = xor i32 %422, %391
+  %424 = xor i32 %423, %403
+  %425 = trunc i32 %424 to i8
+  store i8 %425, ptr %128, align 1, !tbaa !150
+  %426 = xor i32 %368, %356
+  %427 = xor i32 %426, %392
+  %428 = xor i32 %427, %363
+  %429 = xor i32 %428, %383
+  %430 = xor i32 %429, %395
+  %431 = xor i32 %430, %367
+  %432 = xor i32 %431, %387
+  %433 = xor i32 %432, %379
+  %434 = xor i32 %433, %391
+  %435 = xor i32 %434, %403
+  %436 = trunc i32 %435 to i8
+  store i8 %436, ptr %131, align 1, !tbaa !150
+  %437 = xor i32 %426, %380
+  %438 = xor i32 %437, %359
+  %439 = xor i32 %438, %375
+  %440 = xor i32 %439, %395
+  %441 = xor i32 %440, %367
+  %442 = xor i32 %441, %379
+  %443 = xor i32 %442, %399
+  %444 = xor i32 %443, %391
+  %445 = xor i32 %444, %403
+  %446 = trunc i32 %445 to i8
+  store i8 %446, ptr %136, align 1, !tbaa !150
+  %447 = load i8, ptr %140, align 1, !tbaa !150
+  %448 = load i8, ptr %127, align 1, !tbaa !150
+  %449 = load i8, ptr %133, align 1, !tbaa !150
+  %450 = load i8, ptr %137, align 1, !tbaa !150
+  %451 = zext i8 %447 to i32
+  %452 = shl nuw nsw i32 %451, 1
+  %.not910 = icmp sgt i8 %447, -1
+  %453 = select i1 %.not910, i32 0, i32 27
+  %454 = xor i32 %452, %453
+  %455 = shl nuw nsw i32 %454, 1
+  %456 = and i32 %451, 64
+  %.not911 = icmp eq i32 %456, 0
+  %457 = select i1 %.not911, i32 0, i32 27
+  %458 = xor i32 %455, %457
+  %459 = shl nuw nsw i32 %458, 1
+  %460 = and i32 %451, 32
+  %.not912 = icmp eq i32 %460, 0
+  %461 = select i1 %.not912, i32 0, i32 27
+  %462 = xor i32 %459, %461
+  %463 = zext i8 %448 to i32
+  %464 = shl nuw nsw i32 %463, 1
+  %.not913 = icmp sgt i8 %448, -1
+  %465 = select i1 %.not913, i32 0, i32 27
+  %466 = xor i32 %464, %465
+  %467 = shl nuw nsw i32 %466, 1
+  %468 = and i32 %463, 64
+  %.not914 = icmp eq i32 %468, 0
+  %469 = select i1 %.not914, i32 0, i32 27
+  %470 = xor i32 %467, %469
+  %471 = shl nuw nsw i32 %470, 1
+  %472 = and i32 %463, 32
+  %.not915 = icmp eq i32 %472, 0
+  %473 = select i1 %.not915, i32 0, i32 27
+  %474 = xor i32 %471, %473
+  %475 = zext i8 %449 to i32
+  %476 = shl nuw nsw i32 %475, 1
+  %.not916 = icmp sgt i8 %449, -1
+  %477 = select i1 %.not916, i32 0, i32 27
+  %478 = xor i32 %476, %477
+  %479 = shl nuw nsw i32 %478, 1
+  %480 = and i32 %475, 64
+  %.not917 = icmp eq i32 %480, 0
+  %481 = select i1 %.not917, i32 0, i32 27
+  %482 = xor i32 %479, %481
+  %483 = shl nuw nsw i32 %482, 1
+  %484 = and i32 %475, 32
+  %.not918 = icmp eq i32 %484, 0
+  %485 = select i1 %.not918, i32 0, i32 27
+  %486 = xor i32 %483, %485
+  %487 = zext i8 %450 to i32
+  %488 = shl nuw nsw i32 %487, 1
+  %.not919 = icmp sgt i8 %450, -1
+  %489 = select i1 %.not919, i32 0, i32 27
+  %490 = xor i32 %488, %489
+  %491 = shl nuw nsw i32 %490, 1
+  %492 = and i32 %487, 64
+  %.not920 = icmp eq i32 %492, 0
+  %493 = select i1 %.not920, i32 0, i32 27
+  %494 = xor i32 %491, %493
+  %495 = shl nuw nsw i32 %494, 1
+  %496 = and i32 %487, 32
+  %.not921 = icmp eq i32 %496, 0
+  %497 = select i1 %.not921, i32 0, i32 27
+  %498 = xor i32 %495, %497
+  %499 = xor i32 %475, %463
+  %500 = xor i32 %499, %454
+  %501 = xor i32 %500, %487
+  %502 = xor i32 %501, %466
+  %503 = xor i32 %502, %458
+  %504 = xor i32 %503, %482
+  %505 = xor i32 %504, %462
+  %506 = xor i32 %505, %474
+  %507 = xor i32 %506, %486
+  %508 = xor i32 %507, %498
+  %509 = trunc i32 %508 to i8
+  store i8 %509, ptr %140, align 1, !tbaa !150
+  %510 = xor i32 %475, %451
+  %511 = xor i32 %510, %487
+  %512 = xor i32 %511, %466
+  %513 = xor i32 %512, %478
+  %514 = xor i32 %513, %470
+  %515 = xor i32 %514, %462
+  %516 = xor i32 %515, %494
+  %517 = xor i32 %516, %474
+  %518 = xor i32 %517, %486
+  %519 = xor i32 %518, %498
+  %520 = trunc i32 %519 to i8
+  store i8 %520, ptr %127, align 1, !tbaa !150
+  %521 = xor i32 %463, %451
+  %522 = xor i32 %521, %487
+  %523 = xor i32 %522, %458
+  %524 = xor i32 %523, %478
+  %525 = xor i32 %524, %490
+  %526 = xor i32 %525, %462
+  %527 = xor i32 %526, %482
+  %528 = xor i32 %527, %474
+  %529 = xor i32 %528, %486
+  %530 = xor i32 %529, %498
+  %531 = trunc i32 %530 to i8
+  store i8 %531, ptr %133, align 1, !tbaa !150
+  %532 = xor i32 %521, %475
+  %533 = xor i32 %532, %454
+  %534 = xor i32 %533, %470
+  %535 = xor i32 %534, %490
+  %536 = xor i32 %535, %462
+  %537 = xor i32 %536, %474
+  %538 = xor i32 %537, %494
+  %539 = xor i32 %538, %486
+  %540 = xor i32 %539, %498
+  %541 = trunc i32 %540 to i8
+  store i8 %541, ptr %137, align 1, !tbaa !150
+  %542 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext true)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %542, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false), !tbaa !150
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  %543 = add nuw nsw i64 %.0864942, 1
+  %exitcond943.not = icmp eq i64 %543, %124
+  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !179
+
+.preheader:                                       ; preds = %156, %.preheader
+  %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
+  %544 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0866940
+  %545 = load i8, ptr %544, align 1, !tbaa !150
+  %546 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0866940
+  %547 = load i8, ptr %546, align 1, !tbaa !150
+  %548 = xor i8 %547, %545
+  store i8 %548, ptr %546, align 1, !tbaa !150
+  %549 = add nuw nsw i64 %.0866940, 1
+  %exitcond.not = icmp eq i64 %549, 16
+  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !180
+
+.loopexit:                                        ; preds = %161, %108
+  %550 = shl i64 %2, 32
+  %551 = add i64 %550, 17179869184
+  %552 = ashr exact i64 %551, 32
+  %553 = load ptr, ptr %76, align 8, !tbaa !145
+  call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %553, i64 noundef 0) #14
+  ret i64 %552
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i64 @_Z22logged_rv64e_vaesdm_vvP11processor_t6insn_tm(ptr noundef %0, i64 %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.std::array", align 1
+  %6 = alloca %"struct.std::array", align 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 266824
+  %8 = load i64, ptr %7, align 8, !tbaa !3
+  %.not937 = icmp eq i64 %8, 0
+  br i1 %.not937, label %13, label %9, !prof !131
+
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %11 = load ptr, ptr %10, align 8, !tbaa !132
+  %12 = tail call noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull align 8 dereferenceable(104) %11, i64 noundef 1536)
+  br i1 %12, label %18, label %13, !prof !133
+
+13:                                               ; preds = %9, %3
+  %14 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i64 2, ptr %15, align 8, !tbaa !134
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i8 0, ptr %16, align 8, !tbaa !136
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i64 %1, ptr %17, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %14, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 266632
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 266832
+  %21 = load i8, ptr %20, align 8, !tbaa !141, !range !142, !noundef !143
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %28, !prof !131
+
+23:                                               ; preds = %18
+  %24 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 2, ptr %25, align 8, !tbaa !134
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i8 0, ptr %26, align 8, !tbaa !136
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 %1, ptr %27, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %24, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+28:                                               ; preds = %18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 266833
+  %30 = load i8, ptr %29, align 1, !tbaa !144, !range !142, !noundef !143
+  %31 = trunc nuw i8 %30 to i1
+  br i1 %31, label %44, label %32
+
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %34 = load ptr, ptr %33, align 8, !tbaa !145
+  %35 = load ptr, ptr %34, align 8, !tbaa !139
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i64 %37(ptr noundef nonnull align 8 dereferenceable(48) %34) #14
+  %.not = icmp eq i64 %38, 0
+  br i1 %.not, label %44, label %39, !prof !133
+
+39:                                               ; preds = %32
+  %40 = tail call ptr @__cxa_allocate_exception(i64 32) #14
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 2, ptr %41, align 8, !tbaa !134
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i8 0, ptr %42, align 8, !tbaa !136
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  store i64 %1, ptr %43, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %40, align 8, !tbaa !139
+  tail call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+44:                                               ; preds = %32, %28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 3840
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
+  store i64 3, ptr %4, align 8, !tbaa !146
+  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  %47 = load ptr, ptr %10, align 8, !tbaa !132
+  call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %47, i64 noundef 1536)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4320
+  %.sink.i = load i64, ptr %48, align 8, !tbaa !146
+  %49 = and i64 %.sink.i, 8192
+  %.0.i.not = icmp eq i64 %49, 0
+  br i1 %.0.i.not, label %50, label %55, !prof !131
+
+50:                                               ; preds = %44
+  %51 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i64 2, ptr %52, align 8, !tbaa !134
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i8 0, ptr %53, align 8, !tbaa !136
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  store i64 %1, ptr %54, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %51, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %51, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+55:                                               ; preds = %44
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 266800
+  %57 = load i64, ptr %56, align 8, !tbaa !147
+  %.not869 = icmp eq i64 %57, 32
+  br i1 %.not869, label %63, label %58, !prof !133
+
+58:                                               ; preds = %55
+  %59 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i64 2, ptr %60, align 8, !tbaa !134
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i8 0, ptr %61, align 8, !tbaa !136
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  store i64 %1, ptr %62, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %59, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %59, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+63:                                               ; preds = %55
+  %64 = load i64, ptr %7, align 8, !tbaa !3
+  %65 = uitofp i64 %64 to float
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 266808
+  %67 = load float, ptr %66, align 8, !tbaa !148
+  %68 = fmul float %67, %65
+  %69 = fcmp ult float %68, 1.280000e+02
+  br i1 %69, label %70, label %75, !prof !131
+
+70:                                               ; preds = %63
+  %71 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i64 2, ptr %72, align 8, !tbaa !134
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i8 0, ptr %73, align 8, !tbaa !136
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  store i64 %1, ptr %74, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %71, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %71, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+75:                                               ; preds = %63
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 266736
+  %77 = load ptr, ptr %76, align 8, !tbaa !145
+  %78 = load ptr, ptr %77, align 8, !tbaa !139
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = call noundef i64 %80(ptr noundef nonnull align 8 dereferenceable(48) %77) #14
+  %82 = and i64 %81, 3
+  %.not870 = icmp eq i64 %82, 0
+  br i1 %.not870, label %88, label %83, !prof !133
+
+83:                                               ; preds = %75
+  %84 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store i64 2, ptr %85, align 8, !tbaa !134
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
+  store i8 0, ptr %86, align 8, !tbaa !136
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
+  store i64 %1, ptr %87, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %84, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %84, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+88:                                               ; preds = %75
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 266752
+  %90 = load ptr, ptr %89, align 8, !tbaa !145
+  %91 = load ptr, ptr %90, align 8, !tbaa !139
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(48) %90) #14
+  %95 = and i64 %94, 3
+  %.not871 = icmp eq i64 %95, 0
+  br i1 %.not871, label %101, label %96, !prof !133
+
+96:                                               ; preds = %88
+  %97 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i64 2, ptr %98, align 8, !tbaa !134
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  store i8 0, ptr %99, align 8, !tbaa !136
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
+  store i64 %1, ptr %100, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %97, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %97, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+101:                                              ; preds = %88
+  %102 = and i64 %1, 33554432
+  %.not872.not = icmp eq i64 %102, 0
+  br i1 %.not872.not, label %103, label %108, !prof !131
+
+103:                                              ; preds = %101
+  %104 = call ptr @__cxa_allocate_exception(i64 32) #14
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store i64 2, ptr %105, align 8, !tbaa !134
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store i8 0, ptr %106, align 8, !tbaa !136
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  store i64 %1, ptr %107, align 8, !tbaa !138
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %104, align 8, !tbaa !139
+  call void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #15
+  unreachable
+
+108:                                              ; preds = %101
+  %109 = lshr i64 %1, 7
+  %110 = and i64 %109, 31
+  %111 = lshr i64 %1, 20
+  %112 = and i64 %111, 31
+  %113 = load ptr, ptr %76, align 8, !tbaa !145
+  %114 = load ptr, ptr %113, align 8, !tbaa !139
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = call noundef i64 %116(ptr noundef nonnull align 8 dereferenceable(48) %113) #14
+  %118 = lshr i64 %117, 2
+  %119 = load ptr, ptr %89, align 8, !tbaa !145
+  %120 = load ptr, ptr %119, align 8, !tbaa !139
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  %123 = call noundef i64 %122(ptr noundef nonnull align 8 dereferenceable(48) %119) #14
+  %124 = lshr i64 %123, 2
+  %125 = icmp samesign ult i64 %118, %124
+  br i1 %125, label %.preheader938, label %.loopexit
+
+.preheader938:                                    ; preds = %108
+  %126 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 13
+  %128 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 5
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 14
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 11
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  br label %141
+
+141:                                              ; preds = %.preheader938, %161
+  %.0864942 = phi i64 [ %118, %.preheader938 ], [ %543, %161 ]
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
+  %142 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %5, ptr noundef nonnull align 1 dereferenceable(16) %142, i64 16, i1 false), !tbaa.struct !149
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
+  %143 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %112, i64 noundef %.0864942, i1 noundef zeroext false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %6, ptr noundef nonnull align 1 dereferenceable(16) %143, i64 16, i1 false), !tbaa.struct !149
+  %144 = load i8, ptr %126, align 1, !tbaa !150
+  %145 = load i8, ptr %127, align 1, !tbaa !150
+  store i8 %145, ptr %126, align 1, !tbaa !150
+  %146 = load i8, ptr %128, align 1, !tbaa !150
+  store i8 %146, ptr %127, align 1, !tbaa !150
+  %147 = load i8, ptr %129, align 1, !tbaa !150
+  store i8 %147, ptr %128, align 1, !tbaa !150
+  store i8 %144, ptr %129, align 1, !tbaa !150
+  %148 = load i8, ptr %130, align 1, !tbaa !150
+  %149 = load i8, ptr %131, align 1, !tbaa !150
+  store i8 %149, ptr %130, align 1, !tbaa !150
+  store i8 %148, ptr %131, align 1, !tbaa !150
+  %150 = load i8, ptr %132, align 1, !tbaa !150
+  %151 = load i8, ptr %133, align 1, !tbaa !150
+  store i8 %151, ptr %132, align 1, !tbaa !150
+  store i8 %150, ptr %133, align 1, !tbaa !150
+  %152 = load i8, ptr %134, align 1, !tbaa !150
+  %153 = load i8, ptr %135, align 1, !tbaa !150
+  store i8 %153, ptr %134, align 1, !tbaa !150
+  %154 = load i8, ptr %136, align 1, !tbaa !150
+  store i8 %154, ptr %135, align 1, !tbaa !150
+  %155 = load i8, ptr %137, align 1, !tbaa !150
+  store i8 %155, ptr %136, align 1, !tbaa !150
+  store i8 %152, ptr %137, align 1, !tbaa !150
+  br label %156
+
+156:                                              ; preds = %141, %156
+  %.0865.idx939 = phi i64 [ 0, %141 ], [ %.0865.add, %156 ]
+  %.0865.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0865.idx939
+  %157 = load i8, ptr %.0865.ptr, align 1, !tbaa !150
+  %158 = zext i8 %157 to i64
+  %159 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ22logged_rv64e_vaesdm_vvP11processor_t6insn_tmE13kVAESXDecSBox, i64 0, i64 %158
+  %160 = load i8, ptr %159, align 1, !tbaa !150
+  store i8 %160, ptr %.0865.ptr, align 1, !tbaa !150
+  %.0865.add = add nuw nsw i64 %.0865.idx939, 1
+  %.not873 = icmp eq i64 %.0865.add, 16
+  br i1 %.not873, label %.preheader, label %156, !llvm.loop !181
+
+161:                                              ; preds = %.preheader
+  %162 = load i8, ptr %5, align 1, !tbaa !150
+  %163 = load i8, ptr %126, align 1, !tbaa !150
+  %164 = load i8, ptr %130, align 1, !tbaa !150
+  %165 = load i8, ptr %134, align 1, !tbaa !150
+  %166 = zext i8 %162 to i32
+  %167 = shl nuw nsw i32 %166, 1
+  %.not874 = icmp sgt i8 %162, -1
+  %168 = select i1 %.not874, i32 0, i32 27
+  %169 = xor i32 %167, %168
+  %170 = shl nuw nsw i32 %169, 1
+  %171 = and i32 %166, 64
+  %.not875 = icmp eq i32 %171, 0
+  %172 = select i1 %.not875, i32 0, i32 27
+  %173 = xor i32 %170, %172
+  %174 = shl nuw nsw i32 %173, 1
+  %175 = and i32 %166, 32
+  %.not876 = icmp eq i32 %175, 0
+  %176 = select i1 %.not876, i32 0, i32 27
+  %177 = xor i32 %174, %176
+  %178 = zext i8 %163 to i32
+  %179 = shl nuw nsw i32 %178, 1
+  %.not877 = icmp sgt i8 %163, -1
+  %180 = select i1 %.not877, i32 0, i32 27
+  %181 = xor i32 %179, %180
+  %182 = shl nuw nsw i32 %181, 1
+  %183 = and i32 %178, 64
+  %.not878 = icmp eq i32 %183, 0
+  %184 = select i1 %.not878, i32 0, i32 27
+  %185 = xor i32 %182, %184
+  %186 = shl nuw nsw i32 %185, 1
+  %187 = and i32 %178, 32
+  %.not879 = icmp eq i32 %187, 0
+  %188 = select i1 %.not879, i32 0, i32 27
+  %189 = xor i32 %186, %188
+  %190 = zext i8 %164 to i32
+  %191 = shl nuw nsw i32 %190, 1
+  %.not880 = icmp sgt i8 %164, -1
+  %192 = select i1 %.not880, i32 0, i32 27
+  %193 = xor i32 %191, %192
+  %194 = shl nuw nsw i32 %193, 1
+  %195 = and i32 %190, 64
+  %.not881 = icmp eq i32 %195, 0
+  %196 = select i1 %.not881, i32 0, i32 27
+  %197 = xor i32 %194, %196
+  %198 = shl nuw nsw i32 %197, 1
+  %199 = and i32 %190, 32
+  %.not882 = icmp eq i32 %199, 0
+  %200 = select i1 %.not882, i32 0, i32 27
+  %201 = xor i32 %198, %200
+  %202 = zext i8 %165 to i32
+  %203 = shl nuw nsw i32 %202, 1
+  %.not883 = icmp sgt i8 %165, -1
+  %204 = select i1 %.not883, i32 0, i32 27
+  %205 = xor i32 %203, %204
+  %206 = shl nuw nsw i32 %205, 1
+  %207 = and i32 %202, 64
+  %.not884 = icmp eq i32 %207, 0
+  %208 = select i1 %.not884, i32 0, i32 27
+  %209 = xor i32 %206, %208
+  %210 = shl nuw nsw i32 %209, 1
+  %211 = and i32 %202, 32
+  %.not885 = icmp eq i32 %211, 0
+  %212 = select i1 %.not885, i32 0, i32 27
+  %213 = xor i32 %210, %212
+  %214 = xor i32 %190, %178
+  %215 = xor i32 %214, %169
+  %216 = xor i32 %215, %202
+  %217 = xor i32 %216, %181
+  %218 = xor i32 %217, %173
+  %219 = xor i32 %218, %197
+  %220 = xor i32 %219, %177
+  %221 = xor i32 %220, %189
+  %222 = xor i32 %221, %201
+  %223 = xor i32 %222, %213
+  %224 = trunc i32 %223 to i8
+  store i8 %224, ptr %5, align 1, !tbaa !150
+  %225 = xor i32 %190, %166
+  %226 = xor i32 %225, %202
+  %227 = xor i32 %226, %181
+  %228 = xor i32 %227, %193
+  %229 = xor i32 %228, %185
+  %230 = xor i32 %229, %177
+  %231 = xor i32 %230, %209
+  %232 = xor i32 %231, %189
+  %233 = xor i32 %232, %201
+  %234 = xor i32 %233, %213
+  %235 = trunc i32 %234 to i8
+  store i8 %235, ptr %126, align 1, !tbaa !150
+  %236 = xor i32 %178, %166
+  %237 = xor i32 %236, %202
+  %238 = xor i32 %237, %173
+  %239 = xor i32 %238, %193
+  %240 = xor i32 %239, %205
+  %241 = xor i32 %240, %177
+  %242 = xor i32 %241, %197
+  %243 = xor i32 %242, %189
+  %244 = xor i32 %243, %201
+  %245 = xor i32 %244, %213
+  %246 = trunc i32 %245 to i8
+  store i8 %246, ptr %130, align 1, !tbaa !150
+  %247 = xor i32 %236, %190
+  %248 = xor i32 %247, %169
+  %249 = xor i32 %248, %185
+  %250 = xor i32 %249, %205
+  %251 = xor i32 %250, %177
+  %252 = xor i32 %251, %189
+  %253 = xor i32 %252, %209
+  %254 = xor i32 %253, %201
+  %255 = xor i32 %254, %213
+  %256 = trunc i32 %255 to i8
+  store i8 %256, ptr %134, align 1, !tbaa !150
+  %257 = load i8, ptr %138, align 1, !tbaa !150
+  %258 = load i8, ptr %129, align 1, !tbaa !150
+  %259 = load i8, ptr %132, align 1, !tbaa !150
+  %260 = load i8, ptr %135, align 1, !tbaa !150
+  %261 = zext i8 %257 to i32
+  %262 = shl nuw nsw i32 %261, 1
+  %.not886 = icmp sgt i8 %257, -1
+  %263 = select i1 %.not886, i32 0, i32 27
+  %264 = xor i32 %262, %263
+  %265 = shl nuw nsw i32 %264, 1
+  %266 = and i32 %261, 64
+  %.not887 = icmp eq i32 %266, 0
+  %267 = select i1 %.not887, i32 0, i32 27
+  %268 = xor i32 %265, %267
+  %269 = shl nuw nsw i32 %268, 1
+  %270 = and i32 %261, 32
+  %.not888 = icmp eq i32 %270, 0
+  %271 = select i1 %.not888, i32 0, i32 27
+  %272 = xor i32 %269, %271
+  %273 = zext i8 %258 to i32
+  %274 = shl nuw nsw i32 %273, 1
+  %.not889 = icmp sgt i8 %258, -1
+  %275 = select i1 %.not889, i32 0, i32 27
+  %276 = xor i32 %274, %275
+  %277 = shl nuw nsw i32 %276, 1
+  %278 = and i32 %273, 64
+  %.not890 = icmp eq i32 %278, 0
+  %279 = select i1 %.not890, i32 0, i32 27
+  %280 = xor i32 %277, %279
+  %281 = shl nuw nsw i32 %280, 1
+  %282 = and i32 %273, 32
+  %.not891 = icmp eq i32 %282, 0
+  %283 = select i1 %.not891, i32 0, i32 27
+  %284 = xor i32 %281, %283
+  %285 = zext i8 %259 to i32
+  %286 = shl nuw nsw i32 %285, 1
+  %.not892 = icmp sgt i8 %259, -1
+  %287 = select i1 %.not892, i32 0, i32 27
+  %288 = xor i32 %286, %287
+  %289 = shl nuw nsw i32 %288, 1
+  %290 = and i32 %285, 64
+  %.not893 = icmp eq i32 %290, 0
+  %291 = select i1 %.not893, i32 0, i32 27
+  %292 = xor i32 %289, %291
+  %293 = shl nuw nsw i32 %292, 1
+  %294 = and i32 %285, 32
+  %.not894 = icmp eq i32 %294, 0
+  %295 = select i1 %.not894, i32 0, i32 27
+  %296 = xor i32 %293, %295
+  %297 = zext i8 %260 to i32
+  %298 = shl nuw nsw i32 %297, 1
+  %.not895 = icmp sgt i8 %260, -1
+  %299 = select i1 %.not895, i32 0, i32 27
+  %300 = xor i32 %298, %299
+  %301 = shl nuw nsw i32 %300, 1
+  %302 = and i32 %297, 64
+  %.not896 = icmp eq i32 %302, 0
+  %303 = select i1 %.not896, i32 0, i32 27
+  %304 = xor i32 %301, %303
+  %305 = shl nuw nsw i32 %304, 1
+  %306 = and i32 %297, 32
+  %.not897 = icmp eq i32 %306, 0
+  %307 = select i1 %.not897, i32 0, i32 27
+  %308 = xor i32 %305, %307
+  %309 = xor i32 %285, %273
+  %310 = xor i32 %309, %264
+  %311 = xor i32 %310, %297
+  %312 = xor i32 %311, %276
+  %313 = xor i32 %312, %268
+  %314 = xor i32 %313, %292
+  %315 = xor i32 %314, %272
+  %316 = xor i32 %315, %284
+  %317 = xor i32 %316, %296
+  %318 = xor i32 %317, %308
+  %319 = trunc i32 %318 to i8
+  store i8 %319, ptr %138, align 1, !tbaa !150
+  %320 = xor i32 %285, %261
+  %321 = xor i32 %320, %297
+  %322 = xor i32 %321, %276
+  %323 = xor i32 %322, %288
+  %324 = xor i32 %323, %280
+  %325 = xor i32 %324, %272
+  %326 = xor i32 %325, %304
+  %327 = xor i32 %326, %284
+  %328 = xor i32 %327, %296
+  %329 = xor i32 %328, %308
+  %330 = trunc i32 %329 to i8
+  store i8 %330, ptr %129, align 1, !tbaa !150
+  %331 = xor i32 %273, %261
+  %332 = xor i32 %331, %297
+  %333 = xor i32 %332, %268
+  %334 = xor i32 %333, %288
+  %335 = xor i32 %334, %300
+  %336 = xor i32 %335, %272
+  %337 = xor i32 %336, %292
+  %338 = xor i32 %337, %284
+  %339 = xor i32 %338, %296
+  %340 = xor i32 %339, %308
+  %341 = trunc i32 %340 to i8
+  store i8 %341, ptr %132, align 1, !tbaa !150
+  %342 = xor i32 %331, %285
+  %343 = xor i32 %342, %264
+  %344 = xor i32 %343, %280
+  %345 = xor i32 %344, %300
+  %346 = xor i32 %345, %272
+  %347 = xor i32 %346, %284
+  %348 = xor i32 %347, %304
+  %349 = xor i32 %348, %296
+  %350 = xor i32 %349, %308
+  %351 = trunc i32 %350 to i8
+  store i8 %351, ptr %135, align 1, !tbaa !150
+  %352 = load i8, ptr %139, align 1, !tbaa !150
+  %353 = load i8, ptr %128, align 1, !tbaa !150
+  %354 = load i8, ptr %131, align 1, !tbaa !150
+  %355 = load i8, ptr %136, align 1, !tbaa !150
+  %356 = zext i8 %352 to i32
+  %357 = shl nuw nsw i32 %356, 1
+  %.not898 = icmp sgt i8 %352, -1
+  %358 = select i1 %.not898, i32 0, i32 27
+  %359 = xor i32 %357, %358
+  %360 = shl nuw nsw i32 %359, 1
+  %361 = and i32 %356, 64
+  %.not899 = icmp eq i32 %361, 0
+  %362 = select i1 %.not899, i32 0, i32 27
+  %363 = xor i32 %360, %362
+  %364 = shl nuw nsw i32 %363, 1
+  %365 = and i32 %356, 32
+  %.not900 = icmp eq i32 %365, 0
+  %366 = select i1 %.not900, i32 0, i32 27
+  %367 = xor i32 %364, %366
+  %368 = zext i8 %353 to i32
+  %369 = shl nuw nsw i32 %368, 1
+  %.not901 = icmp sgt i8 %353, -1
+  %370 = select i1 %.not901, i32 0, i32 27
+  %371 = xor i32 %369, %370
+  %372 = shl nuw nsw i32 %371, 1
+  %373 = and i32 %368, 64
+  %.not902 = icmp eq i32 %373, 0
+  %374 = select i1 %.not902, i32 0, i32 27
+  %375 = xor i32 %372, %374
+  %376 = shl nuw nsw i32 %375, 1
+  %377 = and i32 %368, 32
+  %.not903 = icmp eq i32 %377, 0
+  %378 = select i1 %.not903, i32 0, i32 27
+  %379 = xor i32 %376, %378
+  %380 = zext i8 %354 to i32
+  %381 = shl nuw nsw i32 %380, 1
+  %.not904 = icmp sgt i8 %354, -1
+  %382 = select i1 %.not904, i32 0, i32 27
+  %383 = xor i32 %381, %382
+  %384 = shl nuw nsw i32 %383, 1
+  %385 = and i32 %380, 64
+  %.not905 = icmp eq i32 %385, 0
+  %386 = select i1 %.not905, i32 0, i32 27
+  %387 = xor i32 %384, %386
+  %388 = shl nuw nsw i32 %387, 1
+  %389 = and i32 %380, 32
+  %.not906 = icmp eq i32 %389, 0
+  %390 = select i1 %.not906, i32 0, i32 27
+  %391 = xor i32 %388, %390
+  %392 = zext i8 %355 to i32
+  %393 = shl nuw nsw i32 %392, 1
+  %.not907 = icmp sgt i8 %355, -1
+  %394 = select i1 %.not907, i32 0, i32 27
+  %395 = xor i32 %393, %394
+  %396 = shl nuw nsw i32 %395, 1
+  %397 = and i32 %392, 64
+  %.not908 = icmp eq i32 %397, 0
+  %398 = select i1 %.not908, i32 0, i32 27
+  %399 = xor i32 %396, %398
+  %400 = shl nuw nsw i32 %399, 1
+  %401 = and i32 %392, 32
+  %.not909 = icmp eq i32 %401, 0
+  %402 = select i1 %.not909, i32 0, i32 27
+  %403 = xor i32 %400, %402
+  %404 = xor i32 %380, %368
+  %405 = xor i32 %404, %359
+  %406 = xor i32 %405, %392
+  %407 = xor i32 %406, %371
+  %408 = xor i32 %407, %363
+  %409 = xor i32 %408, %387
+  %410 = xor i32 %409, %367
+  %411 = xor i32 %410, %379
+  %412 = xor i32 %411, %391
+  %413 = xor i32 %412, %403
+  %414 = trunc i32 %413 to i8
+  store i8 %414, ptr %139, align 1, !tbaa !150
+  %415 = xor i32 %380, %356
+  %416 = xor i32 %415, %392
+  %417 = xor i32 %416, %371
+  %418 = xor i32 %417, %383
+  %419 = xor i32 %418, %375
+  %420 = xor i32 %419, %367
+  %421 = xor i32 %420, %399
+  %422 = xor i32 %421, %379
+  %423 = xor i32 %422, %391
+  %424 = xor i32 %423, %403
+  %425 = trunc i32 %424 to i8
+  store i8 %425, ptr %128, align 1, !tbaa !150
+  %426 = xor i32 %368, %356
+  %427 = xor i32 %426, %392
+  %428 = xor i32 %427, %363
+  %429 = xor i32 %428, %383
+  %430 = xor i32 %429, %395
+  %431 = xor i32 %430, %367
+  %432 = xor i32 %431, %387
+  %433 = xor i32 %432, %379
+  %434 = xor i32 %433, %391
+  %435 = xor i32 %434, %403
+  %436 = trunc i32 %435 to i8
+  store i8 %436, ptr %131, align 1, !tbaa !150
+  %437 = xor i32 %426, %380
+  %438 = xor i32 %437, %359
+  %439 = xor i32 %438, %375
+  %440 = xor i32 %439, %395
+  %441 = xor i32 %440, %367
+  %442 = xor i32 %441, %379
+  %443 = xor i32 %442, %399
+  %444 = xor i32 %443, %391
+  %445 = xor i32 %444, %403
+  %446 = trunc i32 %445 to i8
+  store i8 %446, ptr %136, align 1, !tbaa !150
+  %447 = load i8, ptr %140, align 1, !tbaa !150
+  %448 = load i8, ptr %127, align 1, !tbaa !150
+  %449 = load i8, ptr %133, align 1, !tbaa !150
+  %450 = load i8, ptr %137, align 1, !tbaa !150
+  %451 = zext i8 %447 to i32
+  %452 = shl nuw nsw i32 %451, 1
+  %.not910 = icmp sgt i8 %447, -1
+  %453 = select i1 %.not910, i32 0, i32 27
+  %454 = xor i32 %452, %453
+  %455 = shl nuw nsw i32 %454, 1
+  %456 = and i32 %451, 64
+  %.not911 = icmp eq i32 %456, 0
+  %457 = select i1 %.not911, i32 0, i32 27
+  %458 = xor i32 %455, %457
+  %459 = shl nuw nsw i32 %458, 1
+  %460 = and i32 %451, 32
+  %.not912 = icmp eq i32 %460, 0
+  %461 = select i1 %.not912, i32 0, i32 27
+  %462 = xor i32 %459, %461
+  %463 = zext i8 %448 to i32
+  %464 = shl nuw nsw i32 %463, 1
+  %.not913 = icmp sgt i8 %448, -1
+  %465 = select i1 %.not913, i32 0, i32 27
+  %466 = xor i32 %464, %465
+  %467 = shl nuw nsw i32 %466, 1
+  %468 = and i32 %463, 64
+  %.not914 = icmp eq i32 %468, 0
+  %469 = select i1 %.not914, i32 0, i32 27
+  %470 = xor i32 %467, %469
+  %471 = shl nuw nsw i32 %470, 1
+  %472 = and i32 %463, 32
+  %.not915 = icmp eq i32 %472, 0
+  %473 = select i1 %.not915, i32 0, i32 27
+  %474 = xor i32 %471, %473
+  %475 = zext i8 %449 to i32
+  %476 = shl nuw nsw i32 %475, 1
+  %.not916 = icmp sgt i8 %449, -1
+  %477 = select i1 %.not916, i32 0, i32 27
+  %478 = xor i32 %476, %477
+  %479 = shl nuw nsw i32 %478, 1
+  %480 = and i32 %475, 64
+  %.not917 = icmp eq i32 %480, 0
+  %481 = select i1 %.not917, i32 0, i32 27
+  %482 = xor i32 %479, %481
+  %483 = shl nuw nsw i32 %482, 1
+  %484 = and i32 %475, 32
+  %.not918 = icmp eq i32 %484, 0
+  %485 = select i1 %.not918, i32 0, i32 27
+  %486 = xor i32 %483, %485
+  %487 = zext i8 %450 to i32
+  %488 = shl nuw nsw i32 %487, 1
+  %.not919 = icmp sgt i8 %450, -1
+  %489 = select i1 %.not919, i32 0, i32 27
+  %490 = xor i32 %488, %489
+  %491 = shl nuw nsw i32 %490, 1
+  %492 = and i32 %487, 64
+  %.not920 = icmp eq i32 %492, 0
+  %493 = select i1 %.not920, i32 0, i32 27
+  %494 = xor i32 %491, %493
+  %495 = shl nuw nsw i32 %494, 1
+  %496 = and i32 %487, 32
+  %.not921 = icmp eq i32 %496, 0
+  %497 = select i1 %.not921, i32 0, i32 27
+  %498 = xor i32 %495, %497
+  %499 = xor i32 %475, %463
+  %500 = xor i32 %499, %454
+  %501 = xor i32 %500, %487
+  %502 = xor i32 %501, %466
+  %503 = xor i32 %502, %458
+  %504 = xor i32 %503, %482
+  %505 = xor i32 %504, %462
+  %506 = xor i32 %505, %474
+  %507 = xor i32 %506, %486
+  %508 = xor i32 %507, %498
+  %509 = trunc i32 %508 to i8
+  store i8 %509, ptr %140, align 1, !tbaa !150
+  %510 = xor i32 %475, %451
+  %511 = xor i32 %510, %487
+  %512 = xor i32 %511, %466
+  %513 = xor i32 %512, %478
+  %514 = xor i32 %513, %470
+  %515 = xor i32 %514, %462
+  %516 = xor i32 %515, %494
+  %517 = xor i32 %516, %474
+  %518 = xor i32 %517, %486
+  %519 = xor i32 %518, %498
+  %520 = trunc i32 %519 to i8
+  store i8 %520, ptr %127, align 1, !tbaa !150
+  %521 = xor i32 %463, %451
+  %522 = xor i32 %521, %487
+  %523 = xor i32 %522, %458
+  %524 = xor i32 %523, %478
+  %525 = xor i32 %524, %490
+  %526 = xor i32 %525, %462
+  %527 = xor i32 %526, %482
+  %528 = xor i32 %527, %474
+  %529 = xor i32 %528, %486
+  %530 = xor i32 %529, %498
+  %531 = trunc i32 %530 to i8
+  store i8 %531, ptr %133, align 1, !tbaa !150
+  %532 = xor i32 %521, %475
+  %533 = xor i32 %532, %454
+  %534 = xor i32 %533, %470
+  %535 = xor i32 %534, %490
+  %536 = xor i32 %535, %462
+  %537 = xor i32 %536, %474
+  %538 = xor i32 %537, %494
+  %539 = xor i32 %538, %486
+  %540 = xor i32 %539, %498
+  %541 = trunc i32 %540 to i8
+  store i8 %541, ptr %137, align 1, !tbaa !150
+  %542 = call noundef nonnull align 1 dereferenceable(16) ptr @_ZN12vectorUnit_t9elt_groupISt5arrayIhLm16EEEERT_mmb(ptr noundef nonnull align 8 dereferenceable(202) %19, i64 noundef %110, i64 noundef %.0864942, i1 noundef zeroext true)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %542, ptr noundef nonnull align 1 dereferenceable(16) %5, i64 16, i1 false), !tbaa !150
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  %543 = add nuw nsw i64 %.0864942, 1
+  %exitcond943.not = icmp eq i64 %543, %124
+  br i1 %exitcond943.not, label %.loopexit, label %141, !llvm.loop !182
+
+.preheader:                                       ; preds = %156, %.preheader
+  %.0866940 = phi i64 [ %549, %.preheader ], [ 0, %156 ]
+  %544 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 0, i64 %.0866940
+  %545 = load i8, ptr %544, align 1, !tbaa !150
+  %546 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %.0866940
+  %547 = load i8, ptr %546, align 1, !tbaa !150
+  %548 = xor i8 %547, %545
+  store i8 %548, ptr %546, align 1, !tbaa !150
+  %549 = add nuw nsw i64 %.0866940, 1
+  %exitcond.not = icmp eq i64 %549, 16
+  br i1 %exitcond.not, label %161, label %.preheader, !llvm.loop !183
+
+.loopexit:                                        ; preds = %161, %108
   %550 = add i64 %2, 4
   %551 = load ptr, ptr %76, align 8, !tbaa !145
   call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %551, i64 noundef 0) #14
@@ -6319,11 +6319,11 @@ define linkonce_odr void @_ZN24trap_illegal_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #16
-  store ptr %3, ptr %0, align 8, !tbaa !175
+  store ptr %3, ptr %0, align 8, !tbaa !184
   store i64 24, ptr %2, align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.6, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !176
+  store i64 24, ptr %4, align 8, !tbaa !185
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %5, align 1, !tbaa !150
   ret void
@@ -6352,13 +6352,13 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !160
+  %8 = load i64, ptr %7, align 8, !tbaa !162
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !155
+  %11 = load ptr, ptr %10, align 8, !tbaa !157
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i64, ptr %12, align 8, !tbaa !146
   %14 = load i64, ptr %2, align 8, !tbaa !146
@@ -6367,7 +6367,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 16:                                               ; preds = %9, %6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i = load ptr, ptr %17, align 8, !tbaa !155
+  %.02022.i = load ptr, ptr %17, align 8, !tbaa !157
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
@@ -6382,9 +6382,9 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %22 = icmp ult i64 %18, %21
   %.in.v.i = select i1 %22, i64 16, i64 24
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
-  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !155
+  %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !157
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !177
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !186
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -6392,7 +6392,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !178
+  %24 = load ptr, ptr %23, align 8, !tbaa !187
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
@@ -6422,7 +6422,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !155
+  %39 = load ptr, ptr %38, align 8, !tbaa !157
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %41
 
@@ -6435,7 +6435,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !179
+  %48 = load ptr, ptr %47, align 8, !tbaa !188
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -6443,7 +6443,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 50:                                               ; preds = %41
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !155
+  %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !157
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
 
@@ -6454,9 +6454,9 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %54 = icmp ult i64 %34, %53
   %.in.v.i14 = select i1 %54, i64 16, i64 24
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
-  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !155
+  %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !157
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !177
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !186
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -6487,7 +6487,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %65 = load ptr, ptr %64, align 8, !tbaa !155
+  %65 = load ptr, ptr %64, align 8, !tbaa !157
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %67
 
@@ -6500,7 +6500,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !179
+  %74 = load ptr, ptr %73, align 8, !tbaa !188
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -6508,7 +6508,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 76:                                               ; preds = %67
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !155
+  %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !157
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
 
@@ -6519,9 +6519,9 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %80 = icmp ult i64 %34, %79
   %.in.v.i34 = select i1 %80, i64 16, i64 24
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
-  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !155
+  %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !157
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !177
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !186
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -6529,7 +6529,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !178
+  %82 = load ptr, ptr %81, align 8, !tbaa !187
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
@@ -6747,31 +6747,40 @@ attributes #18 = { nounwind willreturn memory(read) }
 !149 = !{i64 0, i64 16, !150}
 !150 = !{!7, !7, i64 0}
 !151 = distinct !{!151, !152}
-!152 = !{!"llvm.loop.mustprogress"}
-!153 = distinct !{!153, !152}
-!154 = !{!24, !27, i64 8}
-!155 = !{!27, !27, i64 0}
-!156 = distinct !{!156, !152}
-!157 = !{!158, !12, i64 0}
-!158 = !{!"_ZTSSt4pairIKm10float128_tE", !12, i64 0, !159, i64 8}
-!159 = !{!"_ZTS10float128_t", !7, i64 0}
-!160 = !{!24, !12, i64 32}
-!161 = distinct !{!161, !152}
-!162 = distinct !{!162, !152}
+!152 = !{!"llvm.loop.estimated_trip_count"}
+!153 = distinct !{!153, !154, !152}
+!154 = !{!"llvm.loop.mustprogress"}
+!155 = distinct !{!155, !154, !152}
+!156 = !{!24, !27, i64 8}
+!157 = !{!27, !27, i64 0}
+!158 = distinct !{!158, !154, !152}
+!159 = !{!160, !12, i64 0}
+!160 = !{!"_ZTSSt4pairIKm10float128_tE", !12, i64 0, !161, i64 8}
+!161 = !{!"_ZTS10float128_t", !7, i64 0}
+!162 = !{!24, !12, i64 32}
 !163 = distinct !{!163, !152}
-!164 = distinct !{!164, !152}
-!165 = distinct !{!165, !152}
+!164 = distinct !{!164, !154, !152}
+!165 = distinct !{!165, !154, !152}
 !166 = distinct !{!166, !152}
-!167 = distinct !{!167, !152}
-!168 = distinct !{!168, !152}
+!167 = distinct !{!167, !154, !152}
+!168 = distinct !{!168, !154, !152}
 !169 = distinct !{!169, !152}
-!170 = distinct !{!170, !152}
-!171 = distinct !{!171, !152}
+!170 = distinct !{!170, !154, !152}
+!171 = distinct !{!171, !154, !152}
 !172 = distinct !{!172, !152}
-!173 = distinct !{!173, !152}
-!174 = distinct !{!174, !152}
-!175 = !{!15, !17, i64 0}
-!176 = !{!15, !12, i64 8}
-!177 = distinct !{!177, !152}
-!178 = !{!24, !27, i64 16}
-!179 = !{!25, !27, i64 24}
+!173 = distinct !{!173, !154, !152}
+!174 = distinct !{!174, !154, !152}
+!175 = distinct !{!175, !152}
+!176 = distinct !{!176, !154, !152}
+!177 = distinct !{!177, !154, !152}
+!178 = distinct !{!178, !152}
+!179 = distinct !{!179, !154, !152}
+!180 = distinct !{!180, !154, !152}
+!181 = distinct !{!181, !152}
+!182 = distinct !{!182, !154, !152}
+!183 = distinct !{!183, !154, !152}
+!184 = !{!15, !17, i64 0}
+!185 = !{!15, !12, i64 8}
+!186 = distinct !{!186, !154, !152}
+!187 = !{!24, !27, i64 16}
+!188 = !{!25, !27, i64 24}

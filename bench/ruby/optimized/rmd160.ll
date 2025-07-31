@@ -1620,7 +1620,7 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef %0, ptr noundef writeonl
   %6 = load i32, ptr %5, align 4, !tbaa !10
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %7
-  store i8 -128, ptr %8, align 1, !tbaa !14
+  store i8 -128, ptr %8, align 1, !tbaa !15
   %9 = load i32, ptr %5, align 4, !tbaa !10
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %10
@@ -1660,25 +1660,25 @@ define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef %0, ptr noundef writeonl
   %29 = load i32, ptr %28, align 4, !tbaa !6
   %30 = trunc i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %30, ptr %31, align 1, !tbaa !14
+  store i8 %30, ptr %31, align 1, !tbaa !15
   %32 = load i32, ptr %28, align 4, !tbaa !6
   %33 = lshr i32 %32, 8
   %34 = trunc i32 %33 to i8
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store i8 %34, ptr %35, align 1, !tbaa !14
+  store i8 %34, ptr %35, align 1, !tbaa !15
   %36 = load i32, ptr %28, align 4, !tbaa !6
   %37 = lshr i32 %36, 16
   %38 = trunc i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %31, i64 2
-  store i8 %38, ptr %39, align 1, !tbaa !14
+  store i8 %38, ptr %39, align 1, !tbaa !15
   %40 = load i32, ptr %28, align 4, !tbaa !6
   %41 = lshr i32 %40, 24
   %42 = trunc nuw i32 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 3
-  store i8 %42, ptr %43, align 1, !tbaa !14
+  store i8 %42, ptr %43, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %44 = icmp samesign ult i64 %indvars.iv, 16
-  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !15
+  br i1 %44, label %.preheader, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #8
@@ -1718,7 +1718,8 @@ attributes #8 = { nounwind }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !7, i64 92}
 !11 = !{!"", !8, i64 0, !8, i64 20, !8, i64 28, !7, i64 92}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!8, !8, i64 0}
+!16 = distinct !{!16, !13, !14}

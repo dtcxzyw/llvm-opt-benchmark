@@ -2080,7 +2080,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   br i1 %6, label %146, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %3, align 8, !tbaa !63
+  %8 = load ptr, ptr %3, align 8, !tbaa !64
   %9 = icmp eq ptr %8, null
   br i1 %9, label %146, label %10
 
@@ -2133,7 +2133,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   br label %41
 
 37:                                               ; preds = %26
-  %38 = load ptr, ptr %23, align 8, !tbaa !64
+  %38 = load ptr, ptr %23, align 8, !tbaa !65
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %34
   %40 = getelementptr inbounds i8, ptr %39, i64 %25
   br label %41
@@ -2156,14 +2156,14 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %.129.i = phi i32 [ %47, %46 ], [ %.02836.i, %41 ]
   %.1.i = phi i32 [ %.02737.i, %46 ], [ %28, %41 ]
   %49 = icmp slt i32 %.129.i, %.1.i
-  br i1 %49, label %26, label %.thread, !llvm.loop !65
+  br i1 %49, label %26, label %.thread, !llvm.loop !66
 
 .thread:                                          ; preds = %48, %13
   store i32 -1, ptr %2, align 4, !tbaa !22
   br label %146
 
 50:                                               ; preds = %45
-  store ptr %42, ptr %3, align 8, !tbaa !63
+  store ptr %42, ptr %3, align 8, !tbaa !64
   store i32 %28, ptr %2, align 4, !tbaa !22
   %51 = zext i16 %19 to i64
   %52 = getelementptr inbounds nuw i16, ptr %18, i64 %51
@@ -2214,7 +2214,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   br label %89
 
 85:                                               ; preds = %73
-  %86 = load ptr, ptr %69, align 8, !tbaa !64
+  %86 = load ptr, ptr %69, align 8, !tbaa !65
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %81
   %88 = getelementptr inbounds i8, ptr %87, i64 %71
   br label %89
@@ -2237,14 +2237,14 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %.129.i69 = phi i32 [ %95, %94 ], [ %.02836.i67, %89 ]
   %.1.i70 = phi i32 [ %.02737.i66, %94 ], [ %75, %89 ]
   %97 = icmp slt i32 %.129.i69, %.1.i70
-  br i1 %97, label %73, label %.thread77, !llvm.loop !65
+  br i1 %97, label %73, label %.thread77, !llvm.loop !66
 
 .thread77:                                        ; preds = %96, %59
   store i32 -1, ptr %2, align 4, !tbaa !22
   br label %146
 
 98:                                               ; preds = %93
-  store ptr %90, ptr %3, align 8, !tbaa !63
+  store ptr %90, ptr %3, align 8, !tbaa !64
   store i32 %75, ptr %2, align 4, !tbaa !22
   %99 = add nuw nsw i32 %75, %66
   %100 = zext nneg i32 %99 to i64
@@ -2297,7 +2297,7 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %130 = and i32 %129, 2147483647
   %131 = icmp slt i32 %129, 0
   %spec.select82 = select i1 %131, ptr %123, ptr %116
-  %.sink.i = load ptr, ptr %spec.select82, align 8, !tbaa !66
+  %.sink.i = load ptr, ptr %spec.select82, align 8, !tbaa !67
   %132 = zext nneg i32 %130 to i64
   %133 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %132
   %134 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %133) #19
@@ -2316,14 +2316,14 @@ define i32 @res_getTableItemByKey_77(ptr noundef readonly captures(none) %0, i32
   %.127.i = phi i32 [ %138, %137 ], [ %.02633.i, %124 ]
   %.1.i73 = phi i32 [ %.02534.i, %137 ], [ %126, %124 ]
   %140 = icmp slt i32 %.127.i, %.1.i73
-  br i1 %140, label %124, label %.thread80, !llvm.loop !67
+  br i1 %140, label %124, label %.thread80, !llvm.loop !68
 
 .thread80:                                        ; preds = %139, %115
   store i32 -1, ptr %2, align 4, !tbaa !22
   br label %146
 
 141:                                              ; preds = %136
-  store ptr %133, ptr %3, align 8, !tbaa !63
+  store ptr %133, ptr %3, align 8, !tbaa !64
   store i32 %126, ptr %2, align 4, !tbaa !22
   %142 = add nuw nsw i32 %126, %121
   %143 = zext nneg i32 %142 to i64
@@ -2392,7 +2392,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 35:                                               ; preds = %25
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = zext i16 %27 to i64
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 %38
   %40 = sext i32 %30 to i64
@@ -2402,7 +2402,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 43:                                               ; preds = %35, %32
   %44 = phi ptr [ %34, %32 ], [ %42, %35 ]
-  store ptr %44, ptr %3, align 8, !tbaa !63
+  store ptr %44, ptr %3, align 8, !tbaa !64
   br label %.thread
 
 .thread:                                          ; preds = %18, %43
@@ -2444,7 +2444,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 69:                                               ; preds = %56
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !64
+  %71 = load ptr, ptr %70, align 8, !tbaa !65
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 %64
   %73 = sext i32 %62 to i64
   %74 = sub nsw i64 0, %73
@@ -2453,7 +2453,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 76:                                               ; preds = %69, %65
   %77 = phi ptr [ %68, %65 ], [ %75, %69 ]
-  store ptr %77, ptr %3, align 8, !tbaa !63
+  store ptr %77, ptr %3, align 8, !tbaa !64
   br label %78
 
 78:                                               ; preds = %76, %55
@@ -2506,7 +2506,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
 
 107:                                              ; preds = %102
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !64
+  %109 = load ptr, ptr %108, align 8, !tbaa !65
   %110 = and i32 %105, 2147483647
   br label %111
 
@@ -2515,7 +2515,7 @@ define i32 @res_getTableItemByIndex_77(ptr noundef readonly captures(none) %0, i
   %.sink = phi ptr [ %109, %107 ], [ %96, %102 ]
   %112 = zext nneg i32 %.sink104 to i64
   %113 = getelementptr inbounds nuw i8, ptr %.sink, i64 %112
-  store ptr %113, ptr %3, align 8, !tbaa !63
+  store ptr %113, ptr %3, align 8, !tbaa !64
   br label %.thread101
 
 .thread101:                                       ; preds = %101, %111
@@ -2535,7 +2535,7 @@ define i32 @res_getResource_77(ptr noundef readonly captures(none) %0, ptr nound
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store ptr %1, ptr %3, align 8, !tbaa !63
+  store ptr %1, ptr %3, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8, !tbaa !23
@@ -2580,7 +2580,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable14getKeyAndV
 
 26:                                               ; preds = %11
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !64
+  %28 = load ptr, ptr %27, align 8, !tbaa !65
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %21
   %30 = sext i32 %19 to i64
   %31 = sub nsw i64 0, %30
@@ -2607,7 +2607,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable14getKeyAndV
 
 47:                                               ; preds = %33
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !64
+  %49 = load ptr, ptr %48, align 8, !tbaa !65
   %50 = and i32 %38, 2147483647
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 %51
@@ -2616,7 +2616,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable14getKeyAndV
 53:                                               ; preds = %42, %47, %22, %26
   %54 = phi ptr [ %17, %22 ], [ %17, %26 ], [ %41, %42 ], [ %41, %47 ]
   %storemerge = phi ptr [ %25, %22 ], [ %32, %26 ], [ %46, %42 ], [ %52, %47 ]
-  store ptr %storemerge, ptr %2, align 8, !tbaa !63
+  store ptr %storemerge, ptr %2, align 8, !tbaa !64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !52
   %.not27 = icmp eq ptr %56, null
@@ -2705,7 +2705,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable9findValueEP
   br label %33
 
 29:                                               ; preds = %17
-  %30 = load ptr, ptr %13, align 8, !tbaa !64
+  %30 = load ptr, ptr %13, align 8, !tbaa !65
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %25
   %32 = getelementptr inbounds i8, ptr %31, i64 %15
   br label %33
@@ -2728,7 +2728,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable9findValueEP
   %.129.i = phi i32 [ %39, %38 ], [ %.02836.i, %33 ]
   %.1.i = phi i32 [ %.02737.i, %38 ], [ %19, %33 ]
   %41 = icmp slt i32 %.129.i, %.1.i
-  br i1 %41, label %17, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, !llvm.loop !65
+  br i1 %41, label %17, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, !llvm.loop !66
 
 42:                                               ; preds = %3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2755,7 +2755,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable9findValueEP
   %57 = icmp slt i32 %55, 0
   %spec.select19.v = select i1 %57, i64 24, i64 8
   %spec.select19 = getelementptr inbounds nuw i8, ptr %49, i64 %spec.select19.v
-  %.sink.i = load ptr, ptr %spec.select19, align 8, !tbaa !66
+  %.sink.i = load ptr, ptr %spec.select19, align 8, !tbaa !67
   %58 = zext nneg i32 %56 to i64
   %59 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 %58
   %60 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %59) #19
@@ -2774,7 +2774,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7713ResourceTable9findValueEP
   %.127.i = phi i32 [ %64, %63 ], [ %.02633.i, %50 ]
   %.1.i17 = phi i32 [ %.02534.i, %63 ], [ %52, %50 ]
   %66 = icmp slt i32 %.127.i, %.1.i17
-  br i1 %66, label %50, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, !llvm.loop !67
+  br i1 %66, label %50, label %_ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit.thread, !llvm.loop !68
 
 _ZL18_res_findTableItemPK12ResourceDataPKtiPKcPS5_.exit: ; preds = %37, %62
   %67 = phi ptr [ %49, %62 ], [ %10, %37 ]
@@ -2957,9 +2957,9 @@ _ZNK6icu_7713ResourceArray19internalGetResourceEPK12ResourceDatai.exit: ; preds 
 define i32 @res_findResource_77(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #12 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = load ptr, ptr %2, align 8, !tbaa !63
+  %7 = load ptr, ptr %2, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store ptr null, ptr %5, align 8, !tbaa !63
+  store ptr null, ptr %5, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #18
   %char0 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %char0, 0
@@ -3028,11 +3028,11 @@ switch.early.test:                                ; preds = %22
 
 33:                                               ; preds = %32, %30
   %storemerge = phi ptr [ %strchr, %32 ], [ %31, %30 ]
-  store ptr %storemerge, ptr %2, align 8, !tbaa !63
+  store ptr %storemerge, ptr %2, align 8, !tbaa !64
   br i1 %or.cond13, label %34, label %36
 
 34:                                               ; preds = %33
-  store ptr %.07077, ptr %3, align 8, !tbaa !63
+  store ptr %.07077, ptr %3, align 8, !tbaa !64
   %35 = call i32 @res_getTableItemByKey_77(ptr noundef %0, i32 noundef %.06878, ptr noundef nonnull %6, ptr noundef nonnull %3)
   br label %77
 
@@ -3046,7 +3046,7 @@ switch.early.test:                                ; preds = %22
   br i1 %40, label %41, label %res_getArrayItem_77.exit
 
 41:                                               ; preds = %37
-  %42 = load ptr, ptr %5, align 8, !tbaa !63
+  %42 = load ptr, ptr %5, align 8, !tbaa !64
   %43 = load i8, ptr %42, align 1, !tbaa !13
   %44 = icmp eq i8 %43, 0
   br i1 %44, label %45, label %res_getArrayItem_77.exit
@@ -3110,14 +3110,14 @@ switch.early.test:                                ; preds = %22
 
 res_getArrayItem_77.exit:                         ; preds = %.thread27.i, %58, %.thread.i, %49, %48, %45, %37, %41
   %.1 = phi i32 [ -1, %41 ], [ -1, %37 ], [ %57, %.thread.i ], [ %76, %.thread27.i ], [ -1, %58 ], [ -1, %49 ], [ -1, %45 ], [ -1, %48 ]
-  store ptr null, ptr %3, align 8, !tbaa !63
+  store ptr null, ptr %3, align 8, !tbaa !64
   br label %77
 
 77:                                               ; preds = %36, %res_getArrayItem_77.exit, %34
   %.067 = phi i32 [ %35, %34 ], [ %.1, %res_getArrayItem_77.exit ], [ -1, %36 ]
   %78 = lshr i32 %.067, 28
-  %79 = load ptr, ptr %2, align 8, !tbaa !63
-  br i1 %.not75, label %.critedge, label %18, !llvm.loop !68
+  %79 = load ptr, ptr %2, align 8, !tbaa !64
+  br i1 %.not75, label %.critedge, label %18, !llvm.loop !69
 
 .critedge:                                        ; preds = %77, %18, %28, %switch.early.test, %8, %4
   %.071 = phi i32 [ %1, %4 ], [ -1, %8 ], [ %.067, %77 ], [ %.06878, %18 ], [ %.06878, %switch.early.test ], [ -1, %28 ]
@@ -3214,7 +3214,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 54:                                               ; preds = %37, %34
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i8 %32, ptr %55, align 4, !tbaa !69
+  store i8 %32, ptr %55, align 4, !tbaa !70
   %56 = icmp slt i32 %2, 0
   br i1 %56, label %62, label %57
 
@@ -3234,7 +3234,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %63 = sext i32 %10 to i64
   %64 = getelementptr inbounds i8, ptr %1, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !72
+  %66 = load ptr, ptr %65, align 8, !tbaa !73
   %67 = load i32, ptr %64, align 4, !tbaa !22
   %68 = tail call noundef i32 %66(i32 noundef %67)
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 4
@@ -3286,7 +3286,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %97 = shl i32 %79, 2
   %spec.select = select i1 %96, i32 %97, i32 0
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %spec.select, ptr %98, align 8, !tbaa !74
+  store i32 %spec.select, ptr %98, align 8, !tbaa !75
   %99 = icmp sgt i32 %2, -1
   br i1 %99, label %100, label %183
 
@@ -3302,7 +3302,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 107:                                              ; preds = %100
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %9, ptr %108, align 8, !tbaa !75
+  store ptr %9, ptr %108, align 8, !tbaa !76
   %.pre164 = zext nneg i32 %105 to i64
   br label %115
 
@@ -3310,7 +3310,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %110 = zext nneg i32 %105 to i64
   %111 = tail call noalias ptr @uprv_malloc_77(i64 noundef %110) #20
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %111, ptr %112, align 8, !tbaa !75
+  store ptr %111, ptr %112, align 8, !tbaa !76
   %113 = icmp eq ptr %111, null
   br i1 %113, label %114, label %115
 
@@ -3359,7 +3359,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %136 = load ptr, ptr %135, align 8, !tbaa !76
+  %136 = load ptr, ptr %135, align 8, !tbaa !77
   %137 = sext i32 %79 to i64
   %138 = getelementptr inbounds i32, ptr %64, i64 %137
   %139 = sub nsw i32 %.0134, %79
@@ -3381,7 +3381,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br label %182
 
 148:                                              ; preds = %134, %132
-  store ptr %101, ptr %8, align 8, !tbaa !77
+  store ptr %101, ptr %8, align 8, !tbaa !78
   %149 = icmp samesign ugt i8 %32, 1
   %150 = icmp slt i32 %91, 201
   %or.cond = select i1 %149, i1 true, i1 %150
@@ -3389,7 +3389,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %6, ptr %152, align 8, !tbaa !78
+  store ptr %6, ptr %152, align 8, !tbaa !79
   br label %166
 
 153:                                              ; preds = %148
@@ -3400,7 +3400,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %158 = add nuw nsw i64 %155, %157
   %159 = call noalias ptr @uprv_malloc_77(i64 noundef %158) #20
   %160 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %159, ptr %160, align 8, !tbaa !78
+  store ptr %159, ptr %160, align 8, !tbaa !79
   %161 = icmp eq ptr %159, null
   br i1 %161, label %162, label %164
 
@@ -3421,7 +3421,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 166:                                              ; preds = %164, %151
   %.sink = phi ptr [ %165, %164 ], [ %7, %151 ]
   %167 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %.sink, ptr %167, align 8, !tbaa !79
+  store ptr %.sink, ptr %167, align 8, !tbaa !80
   call fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9TempTableP10UErrorCode(ptr noundef nonnull %0, ptr noundef nonnull %64, ptr noundef nonnull %101, i32 noundef %68, ptr noundef null, ptr noundef %8, ptr noundef %4)
   %168 = load i32, ptr %4, align 4, !tbaa !3
   %169 = icmp slt i32 %168, 1
@@ -3433,7 +3433,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 171:                                              ; preds = %170, %166
   %172 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %173 = load ptr, ptr %172, align 8, !tbaa !78
+  %173 = load ptr, ptr %172, align 8, !tbaa !79
   %.not157 = icmp eq ptr %173, %6
   br i1 %.not157, label %175, label %174
 
@@ -3442,7 +3442,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br label %175
 
 175:                                              ; preds = %174, %171
-  %176 = load ptr, ptr %117, align 8, !tbaa !75
+  %176 = load ptr, ptr %117, align 8, !tbaa !76
   %.not158 = icmp eq ptr %176, %9
   br i1 %.not158, label %.critedge, label %177
 
@@ -3452,7 +3452,7 @@ define i32 @ures_swap_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 .critedge:                                        ; preds = %177, %175
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %179 = load ptr, ptr %178, align 8, !tbaa !80
+  %179 = load ptr, ptr %178, align 8, !tbaa !81
   %180 = shl nuw nsw i32 %76, 2
   %181 = call noundef i32 %179(ptr noundef nonnull %0, ptr noundef nonnull %64, i32 noundef %180, ptr noundef nonnull %101, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(i64 800, ptr nonnull %9) #18
@@ -3508,7 +3508,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !75
+  %14 = load ptr, ptr %13, align 8, !tbaa !76
   %15 = lshr i32 %10, 5
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
@@ -3539,10 +3539,10 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %28 = load i32, ptr %25, align 4, !tbaa !22
   %29 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %28)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !80
+  %31 = load ptr, ptr %30, align 8, !tbaa !81
   %32 = tail call noundef i32 %31(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 4, ptr noundef nonnull %26, ptr noundef nonnull %6)
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load ptr, ptr %33, align 8, !tbaa !76
+  %34 = load ptr, ptr %33, align 8, !tbaa !77
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %36 = shl nsw i32 %29, 1
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -3553,7 +3553,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %40 = load i32, ptr %25, align 4, !tbaa !22
   %41 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %40)
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %43 = load ptr, ptr %42, align 8, !tbaa !80
+  %43 = load ptr, ptr %42, align 8, !tbaa !81
   %44 = tail call noundef i32 %43(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 4, ptr noundef nonnull %26, ptr noundef nonnull %6)
   %.not302 = icmp eq ptr %4, null
   br i1 %.not302, label %254, label %45
@@ -3564,7 +3564,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !81
+  %48 = load ptr, ptr %47, align 8, !tbaa !82
   %49 = tail call noundef i32 %48(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef -1, ptr noundef nonnull @_ZL16gCollationBinKey, i32 noundef 14)
   %.not305 = icmp eq i32 %49, 0
   br i1 %.not305, label %54, label %254
@@ -3583,12 +3583,12 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 58:                                               ; preds = %22
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !82
+  %60 = load ptr, ptr %59, align 8, !tbaa !83
   %61 = load i16, ptr %25, align 2, !tbaa !36
   %62 = tail call noundef zeroext i16 %60(i16 noundef zeroext %61)
   %63 = zext i16 %62 to i32
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %65 = load ptr, ptr %64, align 8, !tbaa !76
+  %65 = load ptr, ptr %64, align 8, !tbaa !77
   %66 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %67 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %68 = tail call noundef i32 %65(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 2, ptr noundef nonnull %26, ptr noundef nonnull %6)
@@ -3600,7 +3600,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %72 = load i32, ptr %25, align 4, !tbaa !22
   %73 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %72)
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !80
+  %75 = load ptr, ptr %74, align 8, !tbaa !81
   %76 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %77 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %78 = tail call noundef i32 %75(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 4, ptr noundef nonnull %26, ptr noundef nonnull %6)
@@ -3638,12 +3638,12 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   br i1 %.not300, label %100, label %91
 
 91:                                               ; preds = %90
-  %92 = load ptr, ptr %87, align 8, !tbaa !82
+  %92 = load ptr, ptr %87, align 8, !tbaa !83
   %93 = getelementptr inbounds nuw i16, ptr %.0278, i64 %indvars.iv
   %94 = load i16, ptr %93, align 2, !tbaa !36
   %95 = tail call noundef zeroext i16 %92(i16 noundef zeroext %94)
   %96 = zext i16 %95 to i32
-  %97 = load i32, ptr %88, align 8, !tbaa !74
+  %97 = load i32, ptr %88, align 8, !tbaa !75
   %98 = icmp sgt i32 %97, %96
   %99 = zext i16 %95 to i64
   br label %106
@@ -3661,7 +3661,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %.sink = phi i1 [ %104, %100 ], [ %98, %91 ]
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink377
   %.2 = select i1 %.sink, ptr %107, ptr @.str.15
-  %108 = load ptr, ptr %89, align 8, !tbaa !72
+  %108 = load ptr, ptr %89, align 8, !tbaa !73
   %109 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv
   %110 = load i32, ptr %109, align 4, !tbaa !22
   %111 = tail call noundef i32 %108(i32 noundef %110)
@@ -3678,19 +3678,19 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 .critedge:                                        ; preds = %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.critedge, %82
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %117 = load i8, ptr %116, align 4, !tbaa !69
+  %117 = load i8, ptr %116, align 4, !tbaa !70
   %118 = icmp ugt i8 %117, 1
   br i1 %118, label %125, label %119
 
 119:                                              ; preds = %._crit_edge
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %121 = load i8, ptr %120, align 1, !tbaa !84
+  %121 = load i8, ptr %120, align 1, !tbaa !85
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %123 = load i8, ptr %122, align 1, !tbaa !85
+  %123 = load i8, ptr %122, align 1, !tbaa !86
   %124 = icmp eq i8 %121, %123
   br i1 %124, label %125, label %140
 
@@ -3700,18 +3700,18 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %128 = load ptr, ptr %127, align 8, !tbaa !76
+  %128 = load ptr, ptr %127, align 8, !tbaa !77
   %129 = shl nsw i32 %.0274, 1
   %130 = tail call noundef i32 %128(ptr noundef nonnull %0, ptr noundef nonnull %.0278, i32 noundef %129, ptr noundef %.0277, ptr noundef nonnull %6)
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %132 = load ptr, ptr %131, align 8, !tbaa !80
+  %132 = load ptr, ptr %131, align 8, !tbaa !81
   %133 = shl nsw i32 %.0274, 2
   %134 = tail call noundef i32 %132(ptr noundef nonnull %0, ptr noundef %84, i32 noundef %133, ptr noundef %85, ptr noundef nonnull %6)
   br label %254
 
 135:                                              ; preds = %125
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %137 = load ptr, ptr %136, align 8, !tbaa !80
+  %137 = load ptr, ptr %136, align 8, !tbaa !81
   %138 = shl nsw i32 %.0274, 3
   %139 = tail call noundef i32 %137(ptr noundef nonnull %0, ptr noundef %.0276, i32 noundef %138, ptr noundef %.0275, ptr noundef nonnull %6)
   br label %254
@@ -3739,40 +3739,40 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 144:                                              ; preds = %.lr.ph313, %144
   %indvars.iv340 = phi i64 [ 0, %.lr.ph313 ], [ %indvars.iv.next341, %144 ]
-  %145 = load ptr, ptr %141, align 8, !tbaa !82
+  %145 = load ptr, ptr %141, align 8, !tbaa !83
   %146 = getelementptr inbounds nuw i16, ptr %.0278, i64 %indvars.iv340
   %147 = load i16, ptr %146, align 2, !tbaa !36
   %148 = tail call noundef zeroext i16 %145(i16 noundef zeroext %147)
   %149 = zext i16 %148 to i32
-  %150 = load ptr, ptr %142, align 8, !tbaa !78
+  %150 = load ptr, ptr %142, align 8, !tbaa !79
   %151 = getelementptr inbounds nuw %struct.Row, ptr %150, i64 %indvars.iv340
-  store i32 %149, ptr %151, align 4, !tbaa !86
+  store i32 %149, ptr %151, align 4, !tbaa !87
   %152 = getelementptr inbounds nuw %struct.Row, ptr %150, i64 %indvars.iv340, i32 1
   %153 = trunc nuw nsw i64 %indvars.iv340 to i32
-  store i32 %153, ptr %152, align 4, !tbaa !88
+  store i32 %153, ptr %152, align 4, !tbaa !89
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next341, %wide.trip.count343
-  br i1 %exitcond344.not, label %.loopexit, label %144, !llvm.loop !89
+  br i1 %exitcond344.not, label %.loopexit, label %144, !llvm.loop !90
 
 154:                                              ; preds = %.lr.ph315, %154
   %indvars.iv345 = phi i64 [ 0, %.lr.ph315 ], [ %indvars.iv.next346, %154 ]
   %155 = getelementptr inbounds nuw i32, ptr %.0276, i64 %indvars.iv345
   %156 = load i32, ptr %155, align 4, !tbaa !22
   %157 = tail call i32 @udata_readInt32_77(ptr noundef nonnull %0, i32 noundef %156)
-  %158 = load ptr, ptr %143, align 8, !tbaa !78
+  %158 = load ptr, ptr %143, align 8, !tbaa !79
   %159 = getelementptr inbounds nuw %struct.Row, ptr %158, i64 %indvars.iv345
-  store i32 %157, ptr %159, align 4, !tbaa !86
+  store i32 %157, ptr %159, align 4, !tbaa !87
   %160 = getelementptr inbounds nuw %struct.Row, ptr %158, i64 %indvars.iv345, i32 1
   %161 = trunc nuw nsw i64 %indvars.iv345 to i32
-  store i32 %161, ptr %160, align 4, !tbaa !88
+  store i32 %161, ptr %160, align 4, !tbaa !89
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
   %exitcond349.not = icmp eq i64 %indvars.iv.next346, %wide.trip.count348
-  br i1 %exitcond349.not, label %.loopexit, label %154, !llvm.loop !90
+  br i1 %exitcond349.not, label %.loopexit, label %154, !llvm.loop !91
 
 .loopexit:                                        ; preds = %144, %154, %.preheader306, %.preheader
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !78
-  %164 = load ptr, ptr %5, align 8, !tbaa !77
+  %163 = load ptr, ptr %162, align 8, !tbaa !79
+  %164 = load ptr, ptr %5, align 8, !tbaa !78
   tail call void @uprv_sortArray_77(ptr noundef %163, i32 noundef %.0274, i32 noundef 8, ptr noundef nonnull @_ZL16ures_compareRowsPKvS0_S0_, ptr noundef %164, i8 noundef signext 0, ptr noundef nonnull %6)
   %165 = load i32, ptr %6, align 4, !tbaa !3
   %166 = icmp slt i32 %165, 1
@@ -3791,7 +3791,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 170:                                              ; preds = %169
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %172 = load ptr, ptr %171, align 8, !tbaa !79
+  %172 = load ptr, ptr %171, align 8, !tbaa !80
   br label %173
 
 173:                                              ; preds = %169, %170
@@ -3805,17 +3805,17 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 175:                                              ; preds = %.lr.ph318, %175
   %indvars.iv350 = phi i64 [ 0, %.lr.ph318 ], [ %indvars.iv.next351, %175 ]
-  %176 = load ptr, ptr %162, align 8, !tbaa !78
+  %176 = load ptr, ptr %162, align 8, !tbaa !79
   %177 = getelementptr inbounds nuw %struct.Row, ptr %176, i64 %indvars.iv350, i32 1
-  %178 = load i32, ptr %177, align 4, !tbaa !88
-  %179 = load ptr, ptr %174, align 8, !tbaa !76
+  %178 = load i32, ptr %177, align 4, !tbaa !89
+  %179 = load ptr, ptr %174, align 8, !tbaa !77
   %180 = sext i32 %178 to i64
   %181 = getelementptr inbounds i16, ptr %.0278, i64 %180
   %182 = getelementptr inbounds nuw i16, ptr %.0268, i64 %indvars.iv350
   %183 = tail call noundef i32 %179(ptr noundef nonnull %0, ptr noundef nonnull %181, i32 noundef 2, ptr noundef %182, ptr noundef nonnull %6)
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
-  br i1 %exitcond354.not, label %._crit_edge319, label %175, !llvm.loop !91
+  br i1 %exitcond354.not, label %._crit_edge319, label %175, !llvm.loop !92
 
 ._crit_edge319:                                   ; preds = %175, %173
   %.not296 = icmp eq ptr %.0277, %.0268
@@ -3833,7 +3833,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 188:                                              ; preds = %187
   %189 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %190 = load ptr, ptr %189, align 8, !tbaa !79
+  %190 = load ptr, ptr %189, align 8, !tbaa !80
   br label %191
 
 191:                                              ; preds = %187, %188
@@ -3847,17 +3847,17 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 193:                                              ; preds = %.lr.ph322, %193
   %indvars.iv355 = phi i64 [ 0, %.lr.ph322 ], [ %indvars.iv.next356, %193 ]
-  %194 = load ptr, ptr %162, align 8, !tbaa !78
+  %194 = load ptr, ptr %162, align 8, !tbaa !79
   %195 = getelementptr inbounds nuw %struct.Row, ptr %194, i64 %indvars.iv355, i32 1
-  %196 = load i32, ptr %195, align 4, !tbaa !88
-  %197 = load ptr, ptr %192, align 8, !tbaa !80
+  %196 = load i32, ptr %195, align 4, !tbaa !89
+  %197 = load ptr, ptr %192, align 8, !tbaa !81
   %198 = sext i32 %196 to i64
   %199 = getelementptr inbounds i32, ptr %.0276, i64 %198
   %200 = getelementptr inbounds nuw i32, ptr %.0267, i64 %indvars.iv355
   %201 = tail call noundef i32 %197(ptr noundef nonnull %0, ptr noundef %199, i32 noundef 4, ptr noundef %200, ptr noundef nonnull %6)
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
-  br i1 %exitcond359.not, label %._crit_edge323, label %193, !llvm.loop !92
+  br i1 %exitcond359.not, label %._crit_edge323, label %193, !llvm.loop !93
 
 ._crit_edge323:                                   ; preds = %193, %191
   %.not294 = icmp eq ptr %.0275, %.0267
@@ -3875,7 +3875,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 206:                                              ; preds = %205
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %208 = load ptr, ptr %207, align 8, !tbaa !79
+  %208 = load ptr, ptr %207, align 8, !tbaa !80
   br label %209
 
 209:                                              ; preds = %205, %206
@@ -3889,17 +3889,17 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 211:                                              ; preds = %.lr.ph326, %211
   %indvars.iv360 = phi i64 [ 0, %.lr.ph326 ], [ %indvars.iv.next361, %211 ]
-  %212 = load ptr, ptr %162, align 8, !tbaa !78
+  %212 = load ptr, ptr %162, align 8, !tbaa !79
   %213 = getelementptr inbounds nuw %struct.Row, ptr %212, i64 %indvars.iv360, i32 1
-  %214 = load i32, ptr %213, align 4, !tbaa !88
-  %215 = load ptr, ptr %210, align 8, !tbaa !80
+  %214 = load i32, ptr %213, align 4, !tbaa !89
+  %215 = load ptr, ptr %210, align 8, !tbaa !81
   %216 = sext i32 %214 to i64
   %217 = getelementptr inbounds i32, ptr %84, i64 %216
   %218 = getelementptr inbounds nuw i32, ptr %.0266, i64 %indvars.iv360
   %219 = tail call noundef i32 %215(ptr noundef nonnull %0, ptr noundef %217, i32 noundef 4, ptr noundef %218, ptr noundef nonnull %6)
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
-  br i1 %exitcond364.not, label %._crit_edge327, label %211, !llvm.loop !93
+  br i1 %exitcond364.not, label %._crit_edge327, label %211, !llvm.loop !94
 
 ._crit_edge327:                                   ; preds = %211, %209
   %.not298 = icmp eq ptr %85, %.0266
@@ -3915,7 +3915,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %224 = load i32, ptr %25, align 4, !tbaa !22
   %225 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %224)
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %227 = load ptr, ptr %226, align 8, !tbaa !80
+  %227 = load ptr, ptr %226, align 8, !tbaa !81
   %228 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %229 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %230 = tail call noundef i32 %227(ptr noundef %0, ptr noundef nonnull %25, i32 noundef 4, ptr noundef nonnull %26, ptr noundef nonnull %6)
@@ -3929,7 +3929,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 
 232:                                              ; preds = %.lr.ph331, %241
   %indvars.iv365 = phi i64 [ 0, %.lr.ph331 ], [ %indvars.iv.next366, %241 ]
-  %233 = load ptr, ptr %231, align 8, !tbaa !72
+  %233 = load ptr, ptr %231, align 8, !tbaa !73
   %234 = getelementptr inbounds nuw i32, ptr %228, i64 %indvars.iv365
   %235 = load i32, ptr %234, align 4, !tbaa !22
   %236 = tail call noundef i32 %233(i32 noundef %235)
@@ -3946,10 +3946,10 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
 241:                                              ; preds = %232
   %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
-  br i1 %exitcond369.not, label %._crit_edge332, label %232, !llvm.loop !94
+  br i1 %exitcond369.not, label %._crit_edge332, label %232, !llvm.loop !95
 
 ._crit_edge332:                                   ; preds = %241, %223
-  %242 = load ptr, ptr %226, align 8, !tbaa !80
+  %242 = load ptr, ptr %226, align 8, !tbaa !81
   %243 = shl nsw i32 %225, 2
   %244 = tail call noundef i32 %242(ptr noundef nonnull %0, ptr noundef nonnull %228, i32 noundef %243, ptr noundef nonnull %229, ptr noundef nonnull %6)
   br label %254
@@ -3958,7 +3958,7 @@ define internal fastcc void @_ZL17ures_swapResourcePK12UDataSwapperPKjPjjPKcP9Te
   %246 = load i32, ptr %25, align 4, !tbaa !22
   %247 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %246)
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %249 = load ptr, ptr %248, align 8, !tbaa !80
+  %249 = load ptr, ptr %248, align 8, !tbaa !81
   %250 = shl i32 %247, 2
   %251 = add i32 %250, 4
   %252 = tail call noundef i32 %249(ptr noundef %0, ptr noundef nonnull %25, i32 noundef %251, ptr noundef nonnull %26, ptr noundef nonnull %6)
@@ -3985,10 +3985,10 @@ declare void @uprv_sortArray_77(ptr noundef, i32 noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define internal noundef i32 @_ZL16ures_compareRowsPKvS0_S0_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #17 {
-  %4 = load i32, ptr %1, align 4, !tbaa !86
+  %4 = load i32, ptr %1, align 4, !tbaa !87
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  %7 = load i32, ptr %2, align 4, !tbaa !86
+  %7 = load i32, ptr %2, align 4, !tbaa !87
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %0, i64 %8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %9) #19
@@ -4080,37 +4080,38 @@ attributes #20 = { allocsize(0) }
 !58 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !59, i64 0}
 !59 = !{!"p1 char16_t", !17, i64 0}
 !60 = !{i64 2150141213}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!20, !20, i64 0}
-!64 = !{!15, !20, i64 24}
-!65 = distinct !{!65, !62}
-!66 = !{!17, !17, i64 0}
-!67 = distinct !{!67, !62}
-!68 = distinct !{!68, !62}
-!69 = !{!70, !5, i64 36}
-!70 = !{!"_ZTS9TempTable", !20, i64 0, !71, i64 8, !18, i64 16, !18, i64 24, !21, i64 32, !5, i64 36}
-!71 = !{!"p1 _ZTS3Row", !17, i64 0}
-!72 = !{!73, !17, i64 16}
-!73 = !{!"_ZTS12UDataSwapper", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88}
-!74 = !{!70, !21, i64 32}
-!75 = !{!70, !18, i64 24}
-!76 = !{!73, !17, i64 48}
-!77 = !{!70, !20, i64 0}
-!78 = !{!70, !71, i64 8}
-!79 = !{!70, !18, i64 16}
-!80 = !{!73, !17, i64 56}
-!81 = !{!73, !17, i64 24}
-!82 = !{!73, !17, i64 8}
-!83 = distinct !{!83, !62}
-!84 = !{!73, !5, i64 1}
-!85 = !{!73, !5, i64 3}
-!86 = !{!87, !21, i64 0}
-!87 = !{!"_ZTS3Row", !21, i64 0, !21, i64 4}
-!88 = !{!87, !21, i64 4}
-!89 = distinct !{!89, !62}
-!90 = distinct !{!90, !62}
-!91 = distinct !{!91, !62}
-!92 = distinct !{!92, !62}
-!93 = distinct !{!93, !62}
-!94 = distinct !{!94, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!20, !20, i64 0}
+!65 = !{!15, !20, i64 24}
+!66 = distinct !{!66, !62, !63}
+!67 = !{!17, !17, i64 0}
+!68 = distinct !{!68, !62, !63}
+!69 = distinct !{!69, !62, !63}
+!70 = !{!71, !5, i64 36}
+!71 = !{!"_ZTS9TempTable", !20, i64 0, !72, i64 8, !18, i64 16, !18, i64 24, !21, i64 32, !5, i64 36}
+!72 = !{!"p1 _ZTS3Row", !17, i64 0}
+!73 = !{!74, !17, i64 16}
+!74 = !{!"_ZTS12UDataSwapper", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88}
+!75 = !{!71, !21, i64 32}
+!76 = !{!71, !18, i64 24}
+!77 = !{!74, !17, i64 48}
+!78 = !{!71, !20, i64 0}
+!79 = !{!71, !72, i64 8}
+!80 = !{!71, !18, i64 16}
+!81 = !{!74, !17, i64 56}
+!82 = !{!74, !17, i64 24}
+!83 = !{!74, !17, i64 8}
+!84 = distinct !{!84, !62, !63}
+!85 = !{!74, !5, i64 1}
+!86 = !{!74, !5, i64 3}
+!87 = !{!88, !21, i64 0}
+!88 = !{!"_ZTS3Row", !21, i64 0, !21, i64 4}
+!89 = !{!88, !21, i64 4}
+!90 = distinct !{!90, !62, !63}
+!91 = distinct !{!91, !62, !63}
+!92 = distinct !{!92, !62, !63}
+!93 = distinct !{!93, !62, !63}
+!94 = distinct !{!94, !62, !63}
+!95 = distinct !{!95, !62, !63}

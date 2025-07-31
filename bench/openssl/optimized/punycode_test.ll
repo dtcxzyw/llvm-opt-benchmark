@@ -158,7 +158,7 @@ define internal range(i32 0, 2) i32 @test_dotted_overflow() #0 {
 10:                                               ; preds = %18
   %11 = add nuw nsw i64 %.01830, 1
   %exitcond.not = icmp eq i64 %11, 22
-  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !14
+  br i1 %exitcond.not, label %23, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %4, %10
   %.01830 = phi i64 [ %11, %10 ], [ 0, %4 ]
@@ -190,18 +190,18 @@ define internal range(i32 0, 2) i32 @test_dotted_overflow() #0 {
   br i1 %.not22, label %.loopexit, label %28
 
 28:                                               ; preds = %23
-  %29 = load i64, ptr %2, align 8, !tbaa !15
+  %29 = load i64, ptr %2, align 8, !tbaa !16
   %30 = call noalias ptr @CRYPTO_malloc(i64 noundef %29, ptr noundef nonnull @.str.5, i32 noundef 264) #6
   %31 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 264, ptr noundef nonnull @.str.36, ptr noundef %30) #6
   %.not23 = icmp eq i32 %31, 0
   br i1 %.not23, label %.loopexit, label %32
 
 32:                                               ; preds = %28
-  %33 = load i64, ptr %2, align 8, !tbaa !15
+  %33 = load i64, ptr %2, align 8, !tbaa !16
   %34 = add i64 %33, -1
   call void @llvm.memset.p0.i64(ptr align 1 %30, i8 127, i64 %34, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !18
+  %36 = load ptr, ptr %35, align 8, !tbaa !19
   %37 = call i32 @ossl_a2ulabel(ptr noundef %36, ptr noundef %30, i64 noundef 22) #6
   %38 = call i32 @test_int_le(ptr noundef nonnull @.str.5, i32 noundef 269, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.38, i32 noundef %37, i32 noundef 0) #6
   %.not24 = icmp eq i32 %38, 0
@@ -209,15 +209,15 @@ define internal range(i32 0, 2) i32 @test_dotted_overflow() #0 {
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 22
-  %41 = load i8, ptr %40, align 1, !tbaa !19
+  %41 = load i8, ptr %40, align 1, !tbaa !20
   %42 = sext i8 %41 to i32
   %43 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 270, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, i32 noundef %42, i32 noundef 127) #6
   %.not25 = icmp eq i32 %43, 0
   br i1 %.not25, label %.loopexit, label %44
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %35, align 8, !tbaa !18
-  %46 = load i64, ptr %2, align 8, !tbaa !15
+  %45 = load ptr, ptr %35, align 8, !tbaa !19
+  %46 = load i64, ptr %2, align 8, !tbaa !16
   %47 = call i32 @ossl_a2ulabel(ptr noundef %45, ptr noundef nonnull %30, i64 noundef %46) #6
   %48 = call i32 @test_int_gt(ptr noundef nonnull @.str.5, i32 noundef 274, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.38, i32 noundef %47, i32 noundef 0) #6
   %.not26 = icmp eq i32 %48, 0
@@ -345,7 +345,7 @@ define internal i32 @test_a2ulabel_bad_decode(i32 noundef %0) #0 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [5 x %struct.bad_decode_test], ptr @bad_decode_tests, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i64, ptr %4, align 16, !tbaa !20
+  %6 = load i64, ptr %4, align 16, !tbaa !21
   %7 = call i32 @ossl_a2ulabel(ptr noundef nonnull %5, ptr noundef nonnull %2, i64 noundef %6) #6
   %8 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 187, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.57, i32 noundef %7, i32 noundef -1) #6
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #6
@@ -430,13 +430,14 @@ attributes #7 = { nounwind willreturn memory(read) }
 !9 = !{!"puny_test", !6, i64 0, !10, i64 200}
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!16, !17, i64 0}
-!16 = !{!"buf_mem_st", !17, i64 0, !10, i64 8, !17, i64 16, !17, i64 24}
-!17 = !{!"long", !6, i64 0}
-!18 = !{!16, !10, i64 8}
-!19 = !{!6, !6, i64 0}
-!20 = !{!21, !17, i64 0}
-!21 = !{!"bad_decode_test", !17, i64 0, !6, i64 8}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"buf_mem_st", !18, i64 0, !10, i64 8, !18, i64 16, !18, i64 24}
+!18 = !{!"long", !6, i64 0}
+!19 = !{!17, !10, i64 8}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22, !18, i64 0}
+!22 = !{!"bad_decode_test", !18, i64 0, !6, i64 8}

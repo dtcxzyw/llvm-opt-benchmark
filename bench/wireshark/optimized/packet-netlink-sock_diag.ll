@@ -845,7 +845,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
   %60 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %53
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %54, !llvm.loop !8
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %54, !llvm.loop !9
 
 61:                                               ; preds = %7
   %62 = icmp eq i32 %6, 1
@@ -1033,7 +1033,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
   %42 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %35
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %36, !llvm.loop !8
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %36, !llvm.loop !9
 
 43:                                               ; preds = %7
   %44 = icmp eq i32 %6, 1
@@ -1089,7 +1089,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr no
   %23 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !8
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !9
 
 dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, %8, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %17 ]
@@ -1132,7 +1132,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attr
   %23 = add i32 %.0141.i, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %16
-  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !8
+  br i1 %exitcond.not, label %dissect_sock_diag_meminfo.exit, label %17, !llvm.loop !9
 
 dissect_sock_diag_meminfo.exit:                   ; preds = %17, %.preheader.i, %8, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %8 ], [ 1, %.preheader.i ], [ 1, %17 ]
@@ -1158,6 +1158,7 @@ attributes #6 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

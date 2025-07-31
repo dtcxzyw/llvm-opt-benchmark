@@ -84,7 +84,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %.outer78, !llvm.loop !11
 
 20:                                               ; preds = %8
-  %21 = load ptr, ptr @outFile, align 8, !tbaa !13
+  %21 = load ptr, ptr @outFile, align 8, !tbaa !14
   %.not24.i = icmp eq ptr %21, null
   br i1 %.not24.i, label %24, label %22
 
@@ -100,14 +100,14 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br i1 %28, label %29, label %openFile.exit.i
 
 29:                                               ; preds = %24
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !14
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.10, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.9) #11
   tail call void @perror(ptr noundef %26) #12
   tail call fastcc void @graphviz_exit(i32 noundef 1) #13
   unreachable
 
 openFile.exit.i:                                  ; preds = %24
-  store ptr %27, ptr @outFile, align 8, !tbaa !13
+  store ptr %27, ptr @outFile, align 8, !tbaa !14
   br label %8, !llvm.loop !11
 
 32:                                               ; preds = %8
@@ -120,14 +120,14 @@ openFile.exit.i:                                  ; preds = %24
   unreachable
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %37 = load ptr, ptr @stderr, align 8, !tbaa !14
   %38 = load ptr, ptr @cmd, align 8, !tbaa !4
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.2, ptr noundef %38, i32 noundef %33) #11
   tail call fastcc void @usage(i32 noundef -1)
   unreachable
 
 40:                                               ; preds = %8
-  %41 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %41 = load ptr, ptr @stderr, align 8, !tbaa !14
   %42 = load ptr, ptr @cmd, align 8, !tbaa !4
   %43 = load i32, ptr @optopt, align 4, !tbaa !9
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.3, ptr noundef %42, i32 noundef %43) #11
@@ -135,7 +135,7 @@ openFile.exit.i:                                  ; preds = %24
   unreachable
 
 45:                                               ; preds = %8
-  %46 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %46 = load ptr, ptr @stderr, align 8, !tbaa !14
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %46, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 92) #11
   tail call void @abort() #14
   unreachable
@@ -150,20 +150,20 @@ openFile.exit.i:                                  ; preds = %24
   br i1 %or.cond, label %51, label %55
 
 51:                                               ; preds = %48
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !14
   %53 = load ptr, ptr @cmd, align 8, !tbaa !4
   %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.6, ptr noundef %53) #11
   br label %55
 
 55:                                               ; preds = %51, %48
   %56 = load i32, ptr @optind, align 4, !tbaa !9
-  %57 = load ptr, ptr @outFile, align 8, !tbaa !13
+  %57 = load ptr, ptr @outFile, align 8, !tbaa !14
   %.not22.i = icmp eq ptr %57, null
   br i1 %.not22.i, label %58, label %scanargs.exit
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr @stdout, align 8, !tbaa !13
-  store ptr %59, ptr @outFile, align 8, !tbaa !13
+  %59 = load ptr, ptr @stdout, align 8, !tbaa !14
+  store ptr %59, ptr @outFile, align 8, !tbaa !14
   br label %scanargs.exit
 
 scanargs.exit:                                    ; preds = %55, %58
@@ -179,11 +179,11 @@ scanargs.exit:                                    ; preds = %55, %58
 .lr.ph:                                           ; preds = %scanargs.exit, %.lr.ph
   %64 = phi ptr [ %67, %.lr.ph ], [ %63, %scanargs.exit ]
   call void @graphviz_unflatten(ptr noundef nonnull %64, ptr noundef nonnull %4) #10
-  %65 = load ptr, ptr @outFile, align 8, !tbaa !13
+  %65 = load ptr, ptr @outFile, align 8, !tbaa !14
   %66 = call i32 @agwrite(ptr noundef nonnull %64, ptr noundef %65) #10
   %67 = call ptr @nextGraph(ptr noundef nonnull %3) #10
   %.not = icmp eq ptr %67, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %scanargs.exit
   call fastcc void @graphviz_exit(i32 noundef 0) #13
@@ -215,7 +215,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @usage(i32 noundef range(i32 -1, 1) %0) unnamed_addr #6 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !14
   %3 = load ptr, ptr @cmd, align 8, !tbaa !4
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, ptr noundef %3) #11
   tail call fastcc void @graphviz_exit(i32 noundef %0) #13
@@ -269,8 +269,9 @@ attributes #14 = { noreturn nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!15 = distinct !{!15, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!16 = distinct !{!16, !12, !13}

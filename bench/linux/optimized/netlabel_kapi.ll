@@ -657,7 +657,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly captures(address_i
   %43 = add i32 %41, 1
   %44 = and i64 %40, 2
   %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %45, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit8
   %46 = phi i32 [ %36, %.loopexit8 ], [ %43, %.preheader ]
@@ -688,7 +688,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly captures(address_i
   %64 = getelementptr [4 x i64], ptr %62, i64 0, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 0
-  br i1 %66, label %.preheader7, label %.loopexit8, !llvm.loop !9
+  br i1 %66, label %.preheader7, label %.loopexit8, !llvm.loop !10
 
 .thread:                                          ; preds = %15, %55, %2, %.loopexit
   %67 = phi i32 [ %50, %.loopexit ], [ -2, %2 ], [ -2, %55 ], [ -2, %15 ]
@@ -721,7 +721,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(addres
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.thread, label %9, !llvm.loop !5
+  br i1 %18, label %.thread, label %9, !llvm.loop !11
 
 .loopexit8:                                       ; preds = %9, %4
   %19 = phi i32 [ %5, %4 ], [ %11, %9 ]
@@ -768,7 +768,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(addres
   %47 = add i32 %45, 1
   %48 = and i64 %46, %41
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %50, label %.preheader.us, !llvm.loop !10
+  br i1 %49, label %50, label %.preheader.us, !llvm.loop !12
 
 50:                                               ; preds = %.preheader.us
   %.not.us = icmp eq i64 %46, 0
@@ -777,7 +777,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(addres
 51:                                               ; preds = %50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count94
-  br i1 %exitcond, label %.split42.us, label %.split.us, !llvm.loop !11
+  br i1 %exitcond, label %.split42.us, label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %29, %84
   %indvars.iv90 = phi i64 [ %indvars.iv.next91, %84 ], [ %36, %29 ]
@@ -796,7 +796,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(addres
   %61 = add i32 %59, 1
   %62 = and i64 %60, %55
   %63 = icmp eq i64 %62, 0
-  br i1 %63, label %64, label %.preheader, !llvm.loop !10
+  br i1 %63, label %64, label %.preheader, !llvm.loop !12
 
 64:                                               ; preds = %.preheader
   %65 = icmp eq i64 %indvars.iv90, 0
@@ -846,13 +846,13 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly captures(addres
 84:                                               ; preds = %74
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond95 = icmp eq i64 %indvars.iv.next91, %wide.trip.count94
-  br i1 %exitcond95, label %.split42.us, label %.split, !llvm.loop !13
+  br i1 %exitcond95, label %.split42.us, label %.split, !llvm.loop !15
 
 .split42.us:                                      ; preds = %51, %84
   %85 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %88, label %29, !llvm.loop !13
+  br i1 %87, label %88, label %29, !llvm.loop !16
 
 88:                                               ; preds = %.split42.us
   %89 = load i32, ptr %30, align 8
@@ -911,7 +911,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_getlong(ptr nounde
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %20, !llvm.loop !5
+  br i1 %29, label %30, label %20, !llvm.loop !17
 
 30:                                               ; preds = %26
   store i32 -1, ptr %1, align 4
@@ -971,14 +971,14 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr noundef
   %16 = zext i32 %15 to i64
   %17 = add nuw nsw i64 %16, 256
   %18 = icmp samesign ugt i64 %17, %10
-  br i1 %18, label %.loopexit6, label %.preheader, !llvm.loop !5
+  br i1 %18, label %.loopexit6, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %9, %14
   %19 = phi ptr [ %21, %14 ], [ %4, %9 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %14, !llvm.loop !5
+  br i1 %22, label %.loopexit, label %14, !llvm.loop !19
 
 .loopexit6:                                       ; preds = %14, %9
   %23 = phi ptr [ null, %9 ], [ %19, %14 ]
@@ -991,7 +991,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setbit(ptr noundef
   %27 = phi ptr [ null, %3 ], [ null, %6 ], [ %23, %.loopexit6 ], [ %19, %.preheader ]
   %28 = and i32 %2, 17
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %34, label %30, !prof !14
+  br i1 %29, label %34, label %30, !prof !20
 
 30:                                               ; preds = %.loopexit
   %31 = and i32 %2, 1
@@ -1087,14 +1087,14 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr noundef
   %32 = zext i32 %31 to i64
   %33 = add nuw nsw i64 %32, 256
   %34 = icmp samesign ugt i64 %33, %26
-  br i1 %34, label %.loopexit6.i, label %.preheader.i, !llvm.loop !5
+  br i1 %34, label %.loopexit6.i, label %.preheader.i, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %25, %30
   %35 = phi ptr [ %37, %30 ], [ %20, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit.i, label %30, !llvm.loop !5
+  br i1 %38, label %.loopexit.i, label %30, !llvm.loop !19
 
 .loopexit6.i:                                     ; preds = %30, %25
   %39 = phi ptr [ null, %25 ], [ %35, %30 ]
@@ -1105,7 +1105,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlbl_catmap_setrng(ptr noundef
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.loopexit6.i, %22, %19
   %43 = phi ptr [ null, %19 ], [ null, %22 ], [ %39, %.loopexit6.i ], [ %35, %.preheader.i ]
-  br i1 %7, label %45, label %44, !prof !14
+  br i1 %7, label %45, label %44, !prof !20
 
 44:                                               ; preds = %.loopexit.i
   br label %45
@@ -1175,14 +1175,14 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
   %86 = zext i32 %85 to i64
   %87 = add nuw nsw i64 %86, 256
   %88 = icmp samesign ugt i64 %87, %80
-  br i1 %88, label %.loopexit6.i3, label %.preheader.i2, !llvm.loop !5
+  br i1 %88, label %.loopexit6.i3, label %.preheader.i2, !llvm.loop !18
 
 .preheader.i2:                                    ; preds = %79, %84
   %89 = phi ptr [ %91, %84 ], [ %74, %79 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
-  br i1 %92, label %.loopexit.i5, label %84, !llvm.loop !5
+  br i1 %92, label %.loopexit.i5, label %84, !llvm.loop !19
 
 .loopexit6.i3:                                    ; preds = %84, %79
   %93 = phi ptr [ null, %79 ], [ %89, %84 ]
@@ -1193,7 +1193,7 @@ netlbl_catmap_setlong.exit:                       ; preds = %45, %58
 
 .loopexit.i5:                                     ; preds = %.preheader.i2, %.loopexit6.i3, %76, %72
   %97 = phi ptr [ null, %72 ], [ null, %76 ], [ %93, %.loopexit6.i3 ], [ %89, %.preheader.i2 ]
-  br i1 %7, label %99, label %98, !prof !14
+  br i1 %7, label %99, label %98, !prof !20
 
 98:                                               ; preds = %.loopexit.i5
   br label %99
@@ -1241,7 +1241,7 @@ netlbl_catmap_setbit.exit:                        ; preds = %112, %netlbl_catmap
   %126 = icmp eq i32 %124, 0
   %127 = icmp ule i32 %125, %2
   %128 = and i1 %126, %127
-  br i1 %128, label %12, label %netlbl_catmap_setbit.exit.thread, !llvm.loop !15
+  br i1 %128, label %12, label %netlbl_catmap_setbit.exit.thread, !llvm.loop !22
 
 netlbl_catmap_setbit.exit.thread:                 ; preds = %99, %netlbl_catmap_setbit.exit, %4
   %129 = phi i32 [ 0, %4 ], [ -12, %99 ], [ %124, %netlbl_catmap_setbit.exit ]
@@ -1276,14 +1276,14 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nounde
   %20 = zext i32 %19 to i64
   %21 = add nuw nsw i64 %20, 256
   %22 = icmp samesign ugt i64 %21, %14
-  br i1 %22, label %.loopexit6, label %.preheader, !llvm.loop !5
+  br i1 %22, label %.loopexit6, label %.preheader, !llvm.loop !21
 
 .preheader:                                       ; preds = %13, %18
   %23 = phi ptr [ %25, %18 ], [ %8, %13 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit, label %18, !llvm.loop !5
+  br i1 %26, label %.loopexit, label %18, !llvm.loop !19
 
 .loopexit6:                                       ; preds = %18, %13
   %27 = phi ptr [ null, %13 ], [ %23, %18 ]
@@ -1296,7 +1296,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_catmap_setlong(ptr nounde
   %31 = phi ptr [ null, %7 ], [ null, %10 ], [ %27, %.loopexit6 ], [ %23, %.preheader ]
   %32 = and i32 %3, 17
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %38, label %34, !prof !14
+  br i1 %33, label %38, label %34, !prof !20
 
 34:                                               ; preds = %.loopexit
   %35 = and i32 %3, 1
@@ -1402,7 +1402,7 @@ define dso_local i32 @netlbl_bitmap_walk(ptr noundef readonly captures(none) %0,
   %44 = icmp eq i8 %41, 0
   %45 = select i1 %15, i1 %44, i1 false
   %46 = select i1 %43, i1 true, i1 %45
-  br i1 %46, label %.loopexit, label %.preheader
+  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %37, %.preheader, %6, %4
   %47 = phi i32 [ -1, %4 ], [ %2, %6 ], [ %27, %37 ], [ -1, %.preheader ]
@@ -2098,14 +2098,22 @@ attributes #16 = { cold noreturn nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
-!14 = !{!"branch_weights", i32 2000, i32 1}
-!15 = distinct !{!15, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7}
+!20 = !{!"branch_weights", i32 2000, i32 1}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !8}

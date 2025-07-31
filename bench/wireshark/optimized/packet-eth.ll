@@ -498,7 +498,7 @@ define hidden void @add_ethernet_trailer(ptr noundef %0, ptr noundef %1, ptr nou
 91:                                               ; preds = %90
   %92 = add i32 %.1, %.0121
   %93 = call i32 @tvb_get_ntohl(ptr noundef nonnull %5, i32 noundef %92)
-  %94 = load i8, ptr @eth_check_fcs, align 1, !range !8, !noundef !9
+  %94 = load i8, ptr @eth_check_fcs, align 1, !range !9, !noundef !10
   %95 = trunc nuw i8 %94 to i1
   %96 = icmp eq i32 %7, 14
   %or.cond13 = and i1 %96, %95
@@ -985,7 +985,7 @@ define internal i32 @dissect_eth(ptr noundef %0, ptr noundef initializes((112, 1
 
 9:                                                ; preds = %5, %7
   %.036 = phi i32 [ %8, %7 ], [ %6, %5 ]
-  %10 = load i8, ptr @eth_deduplicate_dmac, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr @eth_deduplicate_dmac, align 1, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %25
 
@@ -1277,7 +1277,7 @@ export_pdu.exit:                                  ; preds = %4, %45
   br label %174
 
 126:                                              ; preds = %105
-  %127 = load i8, ptr @eth_interpret_as_fw1_monitor, align 1, !range !8, !noundef !9
+  %127 = load i8, ptr @eth_interpret_as_fw1_monitor, align 1, !range !9, !noundef !10
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %129, label %134
 
@@ -1308,7 +1308,7 @@ export_pdu.exit:                                  ; preds = %4, %45
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = load i8, ptr %139, align 8, !range !8, !noundef !9
+  %140 = load i8, ptr %139, align 8, !range !9, !noundef !10
   %141 = trunc nuw i8 %140 to i1
   %142 = load i32, ptr @proto_eth, align 4
   br i1 %141, label %143, label %150
@@ -1588,15 +1588,15 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
   br i1 %22, label %.sink.split, label %23
 
 23:                                               ; preds = %20
-  %24 = load i8, ptr @ccsds_heuristic_length, align 1, !range !8, !noundef !9
+  %24 = load i8, ptr @ccsds_heuristic_length, align 1, !range !9, !noundef !10
   %25 = trunc nuw i8 %24 to i1
-  %26 = load i8, ptr @ccsds_heuristic_version, align 1, !range !8
+  %26 = load i8, ptr @ccsds_heuristic_version, align 1, !range !9
   %27 = trunc nuw i8 %26 to i1
   %or.cond = select i1 %25, i1 true, i1 %27
-  %28 = load i8, ptr @ccsds_heuristic_header, align 1, !range !8
+  %28 = load i8, ptr @ccsds_heuristic_header, align 1, !range !9
   %29 = trunc nuw i8 %28 to i1
   %or.cond3 = select i1 %or.cond, i1 true, i1 %29
-  %30 = load i8, ptr @ccsds_heuristic_bit, align 1, !range !8
+  %30 = load i8, ptr @ccsds_heuristic_bit, align 1, !range !9
   %31 = trunc nuw i8 %30 to i1
   %or.cond5 = select i1 %or.cond3, i1 true, i1 %31
   br i1 %or.cond5, label %32, label %67
@@ -1647,7 +1647,7 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
 
 51:                                               ; preds = %47, %45, %32
   %.054 = phi i1 [ true, %45 ], [ true, %32 ], [ %.not62, %47 ]
-  %52 = load i8, ptr @ccsds_heuristic_version, align 1, !range !8, !noundef !9
+  %52 = load i8, ptr @ccsds_heuristic_version, align 1, !range !9, !noundef !10
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %56
 
@@ -1658,7 +1658,7 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
 
 56:                                               ; preds = %54, %51
   %.053 = phi i1 [ true, %51 ], [ %.not63, %54 ]
-  %57 = load i8, ptr @ccsds_heuristic_header, align 1, !range !8, !noundef !9
+  %57 = load i8, ptr @ccsds_heuristic_header, align 1, !range !9, !noundef !10
   %58 = trunc nuw i8 %57 to i1
   br i1 %58, label %59, label %61
 
@@ -1669,7 +1669,7 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
 
 61:                                               ; preds = %59, %56
   %.052 = phi i1 [ true, %56 ], [ %.not64, %59 ]
-  %62 = load i8, ptr @ccsds_heuristic_bit, align 1, !range !8, !noundef !9
+  %62 = load i8, ptr @ccsds_heuristic_bit, align 1, !range !9, !noundef !10
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %66
 
@@ -1765,7 +1765,7 @@ define internal fastcc zeroext i1 @check_is_802_2(ptr noundef %0, i32 noundef %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %.0..0..0..0.40 = load volatile i8, ptr %3, align 1, !range !8, !noundef !9
+  %.0..0..0..0.40 = load volatile i8, ptr %3, align 1, !range !9, !noundef !10
   %100 = trunc nuw i8 %.0..0..0..0.40 to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
@@ -1938,7 +1938,8 @@ attributes #13 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}

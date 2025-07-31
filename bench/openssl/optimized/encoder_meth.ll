@@ -610,7 +610,7 @@ define void @OSSL_ENCODER_CTX_free(ptr noundef %0) local_unnamed_addr #2 {
   %4 = load ptr, ptr %3, align 8, !tbaa !40
   tail call void @OPENSSL_sk_pop_free(ptr noundef %4, ptr noundef nonnull @ossl_encoder_instance_free) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !48
+  %6 = load ptr, ptr %5, align 8, !tbaa !49
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str, i32 noundef 659) #8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @ossl_pw_clear_passphrase_data(ptr noundef nonnull %7) #8
@@ -814,14 +814,14 @@ define internal i32 @put_encoder_in_store(ptr noundef %0, ptr noundef %1, ptr no
 define internal ptr @construct_encoder(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #2 {
   %4 = tail call ptr @ossl_provider_libctx(ptr noundef %1) #8
   %5 = tail call ptr @ossl_namemap_stored(ptr noundef %4) #8
-  %6 = load ptr, ptr %0, align 8, !tbaa !49
+  %6 = load ptr, ptr %0, align 8, !tbaa !50
   %7 = tail call i32 @ossl_namemap_add_names(ptr noundef %5, i32 noundef 0, ptr noundef %6, i8 noundef signext 58) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %140, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !50
+  %10 = load ptr, ptr %9, align 8, !tbaa !51
   %11 = tail call ptr @ossl_provider_libctx(ptr noundef %1) #8
   %12 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 128, ptr noundef nonnull @.str, i32 noundef 42) #8
   %13 = icmp eq ptr %12, null
@@ -829,7 +829,7 @@ define internal ptr @construct_encoder(ptr noundef %0, ptr noundef %1, ptr nound
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store atomic i32 1, ptr %15 seq_cst, align 4, !tbaa !51
+  store atomic i32 1, ptr %15 seq_cst, align 4, !tbaa !52
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %7, ptr %16, align 8, !tbaa !32
   %17 = tail call ptr @ossl_algorithm_get1_first_name(ptr noundef nonnull %0) #8
@@ -911,7 +911,7 @@ CRYPTO_DOWN_REF.exit.i81.i:                       ; preds = %46
 
 54:                                               ; preds = %106, %.preheader.i
   %.062.i = phi ptr [ %107, %106 ], [ %10, %.preheader.i ]
-  %55 = load i32, ptr %.062.i, align 8, !tbaa !52
+  %55 = load i32, ptr %.062.i, align 8, !tbaa !53
   switch i32 %55, label %106 [
     i32 0, label %108
     i32 1, label %56
@@ -927,25 +927,25 @@ CRYPTO_DOWN_REF.exit.i81.i:                       ; preds = %46
   ]
 
 56:                                               ; preds = %54
-  %57 = load ptr, ptr %45, align 8, !tbaa !54
+  %57 = load ptr, ptr %45, align 8, !tbaa !55
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %106
 
 59:                                               ; preds = %56
   %60 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val.i = load ptr, ptr %60, align 8, !tbaa !55
-  store ptr %.062.val.i, ptr %45, align 8, !tbaa !54
+  %.062.val.i = load ptr, ptr %60, align 8, !tbaa !56
+  store ptr %.062.val.i, ptr %45, align 8, !tbaa !55
   br label %106
 
 61:                                               ; preds = %54
-  %62 = load ptr, ptr %44, align 8, !tbaa !56
+  %62 = load ptr, ptr %44, align 8, !tbaa !57
   %63 = icmp eq ptr %62, null
   br i1 %63, label %64, label %106
 
 64:                                               ; preds = %61
   %65 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val72.i = load ptr, ptr %65, align 8, !tbaa !55
-  store ptr %.062.val72.i, ptr %44, align 8, !tbaa !56
+  %.062.val72.i = load ptr, ptr %65, align 8, !tbaa !56
+  store ptr %.062.val72.i, ptr %44, align 8, !tbaa !57
   br label %106
 
 66:                                               ; preds = %54
@@ -955,7 +955,7 @@ CRYPTO_DOWN_REF.exit.i81.i:                       ; preds = %46
 
 69:                                               ; preds = %66
   %70 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val73.i = load ptr, ptr %70, align 8, !tbaa !55
+  %.062.val73.i = load ptr, ptr %70, align 8, !tbaa !56
   store ptr %.062.val73.i, ptr %43, align 8, !tbaa !38
   br label %106
 
@@ -966,7 +966,7 @@ CRYPTO_DOWN_REF.exit.i81.i:                       ; preds = %46
 
 74:                                               ; preds = %71
   %75 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val74.i = load ptr, ptr %75, align 8, !tbaa !55
+  %.062.val74.i = load ptr, ptr %75, align 8, !tbaa !56
   store ptr %.062.val74.i, ptr %42, align 8, !tbaa !37
   br label %106
 
@@ -977,7 +977,7 @@ CRYPTO_DOWN_REF.exit.i81.i:                       ; preds = %46
 
 79:                                               ; preds = %76
   %80 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val75.i = load ptr, ptr %80, align 8, !tbaa !55
+  %.062.val75.i = load ptr, ptr %80, align 8, !tbaa !56
   store ptr %.062.val75.i, ptr %41, align 8, !tbaa !45
   br label %106
 
@@ -988,76 +988,76 @@ CRYPTO_DOWN_REF.exit.i81.i:                       ; preds = %46
 
 84:                                               ; preds = %81
   %85 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val76.i = load ptr, ptr %85, align 8, !tbaa !55
+  %.062.val76.i = load ptr, ptr %85, align 8, !tbaa !56
   store ptr %.062.val76.i, ptr %40, align 8, !tbaa !39
   br label %106
 
 86:                                               ; preds = %54
-  %87 = load ptr, ptr %39, align 8, !tbaa !57
+  %87 = load ptr, ptr %39, align 8, !tbaa !58
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %106
 
 89:                                               ; preds = %86
   %90 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val77.i = load ptr, ptr %90, align 8, !tbaa !55
-  store ptr %.062.val77.i, ptr %39, align 8, !tbaa !57
+  %.062.val77.i = load ptr, ptr %90, align 8, !tbaa !56
+  store ptr %.062.val77.i, ptr %39, align 8, !tbaa !58
   br label %106
 
 91:                                               ; preds = %54
-  %92 = load ptr, ptr %38, align 8, !tbaa !58
+  %92 = load ptr, ptr %38, align 8, !tbaa !59
   %93 = icmp eq ptr %92, null
   br i1 %93, label %94, label %106
 
 94:                                               ; preds = %91
   %95 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val78.i = load ptr, ptr %95, align 8, !tbaa !55
-  store ptr %.062.val78.i, ptr %38, align 8, !tbaa !58
+  %.062.val78.i = load ptr, ptr %95, align 8, !tbaa !56
+  store ptr %.062.val78.i, ptr %38, align 8, !tbaa !59
   br label %106
 
 96:                                               ; preds = %54
-  %97 = load ptr, ptr %37, align 8, !tbaa !59
+  %97 = load ptr, ptr %37, align 8, !tbaa !60
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %106
 
 99:                                               ; preds = %96
   %100 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val79.i = load ptr, ptr %100, align 8, !tbaa !55
-  store ptr %.062.val79.i, ptr %37, align 8, !tbaa !59
+  %.062.val79.i = load ptr, ptr %100, align 8, !tbaa !56
+  store ptr %.062.val79.i, ptr %37, align 8, !tbaa !60
   br label %106
 
 101:                                              ; preds = %54
-  %102 = load ptr, ptr %36, align 8, !tbaa !60
+  %102 = load ptr, ptr %36, align 8, !tbaa !61
   %103 = icmp eq ptr %102, null
   br i1 %103, label %104, label %106
 
 104:                                              ; preds = %101
   %105 = getelementptr i8, ptr %.062.i, i64 8
-  %.062.val80.i = load ptr, ptr %105, align 8, !tbaa !55
-  store ptr %.062.val80.i, ptr %36, align 8, !tbaa !60
+  %.062.val80.i = load ptr, ptr %105, align 8, !tbaa !56
+  store ptr %.062.val80.i, ptr %36, align 8, !tbaa !61
   br label %106
 
 106:                                              ; preds = %104, %101, %99, %96, %94, %91, %89, %86, %84, %81, %79, %76, %74, %71, %69, %66, %64, %61, %59, %56, %54
   %107 = getelementptr inbounds nuw i8, ptr %.062.i, i64 16
-  br label %54, !llvm.loop !61
+  br label %54, !llvm.loop !62
 
 108:                                              ; preds = %54
-  %109 = load ptr, ptr %45, align 8, !tbaa !54
+  %109 = load ptr, ptr %45, align 8, !tbaa !55
   %110 = icmp eq ptr %109, null
-  %111 = load ptr, ptr %44, align 8, !tbaa !56
+  %111 = load ptr, ptr %44, align 8, !tbaa !57
   %112 = icmp eq ptr %111, null
   %113 = xor i1 %110, %112
   br i1 %113, label %.thread.i, label %118
 
 .thread.i:                                        ; preds = %108
-  %114 = load ptr, ptr %37, align 8, !tbaa !59
+  %114 = load ptr, ptr %37, align 8, !tbaa !60
   %.not68.i = icmp eq ptr %114, null
-  %115 = load ptr, ptr %36, align 8, !tbaa !60
+  %115 = load ptr, ptr %36, align 8, !tbaa !61
   %116 = icmp eq ptr %115, null
   %117 = xor i1 %.not68.i, %116
   br i1 %117, label %121, label %118
 
 118:                                              ; preds = %.thread.i, %108
-  %119 = load ptr, ptr %38, align 8, !tbaa !58
+  %119 = load ptr, ptr %38, align 8, !tbaa !59
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %129
 
@@ -1361,19 +1361,20 @@ attributes #9 = { nounwind willreturn memory(read) }
 !43 = !{!"ossl_passphrase_data_st", !10, i64 0, !8, i64 8, !10, i64 24, !11, i64 32, !44, i64 40}
 !44 = !{!"long", !8, i64 0}
 !45 = !{!4, !7, i64 80}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!41, !7, i64 48}
-!49 = !{!30, !11, i64 0}
-!50 = !{!30, !31, i64 16}
-!51 = !{!14, !8, i64 0}
-!52 = !{!53, !10, i64 0}
-!53 = !{!"ossl_dispatch_st", !10, i64 0, !7, i64 8}
-!54 = !{!4, !7, i64 48}
-!55 = !{!53, !7, i64 8}
-!56 = !{!4, !7, i64 56}
-!57 = !{!4, !7, i64 96}
-!58 = !{!4, !7, i64 104}
-!59 = !{!4, !7, i64 112}
-!60 = !{!4, !7, i64 120}
-!61 = distinct !{!61, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!41, !7, i64 48}
+!50 = !{!30, !11, i64 0}
+!51 = !{!30, !31, i64 16}
+!52 = !{!14, !8, i64 0}
+!53 = !{!54, !10, i64 0}
+!54 = !{!"ossl_dispatch_st", !10, i64 0, !7, i64 8}
+!55 = !{!4, !7, i64 48}
+!56 = !{!54, !7, i64 8}
+!57 = !{!4, !7, i64 56}
+!58 = !{!4, !7, i64 96}
+!59 = !{!4, !7, i64 104}
+!60 = !{!4, !7, i64 112}
+!61 = !{!4, !7, i64 120}
+!62 = distinct !{!62, !47, !48}

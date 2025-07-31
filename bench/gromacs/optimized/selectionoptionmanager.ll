@@ -658,12 +658,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %188
   br label %210
 
 207:                                              ; preds = %._crit_edge
-  %208 = load ptr, ptr %16, align 8, !tbaa !41
+  %208 = load ptr, ptr %16, align 8, !tbaa !42
   %.not.i.i.i93 = icmp eq ptr %.lcssa179, %208
   br i1 %.not.i.i.i93, label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit, label %209
 
 209:                                              ; preds = %207
-  store ptr %208, ptr %18, align 8, !tbaa !43
+  store ptr %208, ptr %18, align 8, !tbaa !44
   br label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit
 
 _ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit: ; preds = %207, %209
@@ -671,13 +671,13 @@ _ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit: ; preds = %207, 
 
 210:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83, %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92, %206, %.body, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %83
   %.pn73.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn71, %.body ], [ %.pn73.pn.pn133, %83 ], [ %.pn73, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.pn.pn.pn139, %206 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92 ], [ %.pn73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i ], [ %.pn65.pn.pn136, %124 ], [ %.pn65, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit83 ], [ %.pn65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i82 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i91 ]
-  %211 = load ptr, ptr %16, align 8, !tbaa !41
-  %212 = load ptr, ptr %18, align 8, !tbaa !43
+  %211 = load ptr, ptr %16, align 8, !tbaa !42
+  %212 = load ptr, ptr %18, align 8, !tbaa !44
   %.not.i.i.i94 = icmp eq ptr %212, %211
   br i1 %.not.i.i.i94, label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit95, label %213
 
 213:                                              ; preds = %210
-  store ptr %211, ptr %18, align 8, !tbaa !43
+  store ptr %211, ptr %18, align 8, !tbaa !44
   br label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit95
 
 _ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit95: ; preds = %210, %213
@@ -690,9 +690,9 @@ _ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit95: ; preds = %210
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx22SelectionOptionManager4Impl27requestUnsetRequiredOptionsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !44
+  %3 = load ptr, ptr %2, align 8, !tbaa !45
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %.not11 = icmp eq ptr %3, %5
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -706,27 +706,27 @@ define void @_ZN3gmx22SelectionOptionManager4Impl27requestUnsetRequiredOptionsEv
   %.pre13 = phi ptr [ %5, %.lr.ph ], [ %.pre14, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
   %10 = phi ptr [ %5, %.lr.ph ], [ %41, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
   %.sroa.07.012 = phi ptr [ %3, %.lr.ph ], [ %42, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit ]
-  %11 = load ptr, ptr %.sroa.07.012, align 8, !tbaa !47
+  %11 = load ptr, ptr %.sroa.07.012, align 8, !tbaa !48
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %13 = load i64, ptr %12, align 8, !tbaa !48
+  %13 = load i64, ptr %12, align 8, !tbaa !49
   %14 = and i64 %13, 17
   %or.cond.not = icmp eq i64 %14, 16
   br i1 %or.cond.not, label %15, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %7, align 8, !tbaa !43
-  %17 = load ptr, ptr %8, align 8, !tbaa !49
+  %16 = load ptr, ptr %7, align 8, !tbaa !44
+  %17 = load ptr, ptr %8, align 8, !tbaa !50
   %.not.i = icmp eq ptr %16, %17
   br i1 %.not.i, label %20, label %18
 
 18:                                               ; preds = %15
   store ptr %11, ptr %16, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %19, ptr %7, align 8, !tbaa !43
+  store ptr %19, ptr %7, align 8, !tbaa !44
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %6, align 8, !tbaa !41
+  %21 = load ptr, ptr %6, align 8, !tbaa !42
   %22 = ptrtoint ptr %16 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
@@ -756,14 +756,14 @@ _ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i ], [ %33, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.i.i.i ], [ %21, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %35 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !47, !alias.scope !53, !noalias !50
-  store i64 %35, ptr %.012.i.i.i.i.i, align 8, !tbaa !47, !alias.scope !50, !noalias !53
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  %35 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !54, !noalias !51
+  store i64 %35, ptr %.012.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !51, !noalias !54
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %36, %16
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !56
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %33, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %37, %.lr.ph.i.i.i.i.i ]
@@ -773,15 +773,15 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_r
 
 39:                                               ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %24) #23
-  %.pre.pre = load ptr, ptr %4, align 8, !tbaa !44
+  %.pre.pre = load ptr, ptr %4, align 8, !tbaa !45
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i
   %.pre = phi ptr [ %.pre.pre, %39 ], [ %.pre13, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i ]
-  store ptr %33, ptr %6, align 8, !tbaa !41
-  store ptr %38, ptr %7, align 8, !tbaa !43
+  store ptr %33, ptr %6, align 8, !tbaa !42
+  store ptr %38, ptr %7, align 8, !tbaa !44
   %40 = getelementptr inbounds nuw %"struct.gmx::SelectionOptionManager::Impl::SelectionRequest", ptr %33, i64 %31
-  store ptr %40, ptr %8, align 8, !tbaa !49
+  store ptr %40, ptr %8, align 8, !tbaa !50
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit: ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %18, %9
@@ -789,7 +789,7 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12empl
   %41 = phi ptr [ %.pre, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %10, %18 ], [ %10, %9 ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.07.012, i64 8
   %.not = icmp eq ptr %42, %41
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit, %1
   ret void
@@ -817,16 +817,16 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !57
-  store ptr %6, ptr %4, align 8, !tbaa !58
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !58
+  store ptr %6, ptr %4, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8, !tbaa !60
+  store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8, !tbaa !61
   invoke void @_ZN3gmx16GromacsException7setInfoERKSt10type_indexOSt10unique_ptrINS_8internal14IExceptionInfoESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %9 unwind label %14
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  %10 = load ptr, ptr %4, align 8, !tbaa !58
+  %10 = load ptr, ptr %4, align 8, !tbaa !59
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
 
@@ -841,7 +841,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
   %15 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  %16 = load ptr, ptr %4, align 8, !tbaa !58
+  %16 = load ptr, ptr %4, align 8, !tbaa !59
   %.not.i3.i = icmp eq ptr %16, null
   br i1 %.not.i3.i, label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i, label %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i
 
@@ -860,14 +860,14 @@ _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocation
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !63
-  store ptr %22, ptr %20, align 8, !tbaa !63
+  %22 = load ptr, ptr %21, align 8, !tbaa !64
+  store ptr %22, ptr %20, align 8, !tbaa !64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !68
-  store ptr null, ptr %24, align 8, !tbaa !68
-  store ptr %25, ptr %23, align 8, !tbaa !68
-  store ptr null, ptr %21, align 8, !tbaa !63
+  %25 = load ptr, ptr %24, align 8, !tbaa !69
+  store ptr null, ptr %24, align 8, !tbaa !69
+  store ptr %25, ptr %23, align 8, !tbaa !69
+  store ptr null, ptr %21, align 8, !tbaa !64
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %0, align 8, !tbaa !27
   ret void
 }
@@ -878,19 +878,19 @@ declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !69
+  store ptr %4, ptr %0, align 8, !tbaa !70
   %5 = load ptr, ptr %1, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #22
-  store i64 %7, ptr %3, align 8, !tbaa !70
+  store i64 %7, ptr %3, align 8, !tbaa !71
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %2
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %9, ptr %0, align 8, !tbaa !26
-  %10 = load i64, ptr %3, align 8, !tbaa !70
+  %10 = load i64, ptr %3, align 8, !tbaa !71
   store i64 %10, ptr %4, align 8, !tbaa !31
   br label %._crit_edge.i.i
 
@@ -911,7 +911,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2ERKNSt7__cxx1112basic_s
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %._crit_edge.i.i, %12, %14
-  %15 = load i64, ptr %3, align 8, !tbaa !70
+  %15 = load i64, ptr %3, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %15, ptr %16, align 8, !tbaa !32
   %17 = load ptr, ptr %0, align 8, !tbaa !26
@@ -927,7 +927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !68
+  %3 = load ptr, ptr %2, align 8, !tbaa !69
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -939,9 +939,9 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !71
+  store i32 0, ptr %5, align 8, !tbaa !72
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !73
+  store i32 0, ptr %10, align 4, !tbaa !74
   %11 = load ptr, ptr %3, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -969,7 +969,7 @@ define linkonce_odr void @_ZN3gmx16GromacsExceptionD2Ev(ptr noundef nonnull alig
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %21, %19
   %.0.i.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !74
+  br i1 %23, label %24, label %_ZNSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !75
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #22
@@ -989,15 +989,15 @@ declare void @_ZN3gmx8internal14IExceptionInfoD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !75
+  %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !78
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %8, %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
-  %6 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !79
+  %6 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !80
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i, label %7
 
@@ -1008,10 +1008,10 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !81
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !82
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %2, align 8, !tbaa !75
+  %.pr.i = load ptr, ptr %2, align 8, !tbaa !76
   br label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %1
@@ -1021,7 +1021,7 @@ _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i: ; 
 
 10:                                               ; preds = %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !82
+  %12 = load ptr, ptr %11, align 8, !tbaa !83
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
@@ -1148,7 +1148,7 @@ define void @_ZN3gmx22SelectionOptionManagerC2EPNS_19SelectionCollectionE(ptr no
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %3, ptr %6, align 8, !tbaa !83
+  store ptr %3, ptr %6, align 8, !tbaa !84
   ret void
 
 7:                                                ; preds = %2
@@ -1175,19 +1175,19 @@ declare void @_ZN3gmx14IOptionManagerD2Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZN3gmx22SelectionOptionManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN3gmx22SelectionOptionManagerE, i64 16), ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx22SelectionOptionManager4ImplESt14default_deleteIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   %.not.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EED2Ev.exit.i.i.i, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %10 = ptrtoint ptr %9 to i64
   %11 = ptrtoint ptr %6 to i64
   %12 = sub i64 %10, %11
@@ -1196,13 +1196,13 @@ define void @_ZN3gmx22SelectionOptionManagerD2Ev(ptr noundef nonnull align 8 der
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EED2Ev.exit.i.i.i: ; preds = %7, %4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !85
+  %14 = load ptr, ptr %13, align 8, !tbaa !86
   %.not.i.i.i1.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i1.i.i.i, label %_ZNKSt14default_deleteIN3gmx22SelectionOptionManager4ImplEEclEPS2_.exit.i, label %15
 
 15:                                               ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EED2Ev.exit.i.i.i
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !87
+  %17 = load ptr, ptr %16, align 8, !tbaa !88
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1214,7 +1214,7 @@ _ZNKSt14default_deleteIN3gmx22SelectionOptionManager4ImplEEclEPS2_.exit.i: ; pre
   br label %_ZNSt10unique_ptrIN3gmx22SelectionOptionManager4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx22SelectionOptionManager4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx22SelectionOptionManager4ImplEEclEPS2_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !83
+  store ptr null, ptr %2, align 8, !tbaa !84
   tail call void @_ZN3gmx14IOptionManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #22
   ret void
 }
@@ -1222,12 +1222,12 @@ _ZNSt10unique_ptrIN3gmx22SelectionOptionManager4ImplESt14default_deleteIS2_EED2E
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx22SelectionOptionManager14registerOptionEPNS_22SelectionOptionStorageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !88
-  %9 = load ptr, ptr %6, align 8, !tbaa !85
+  %8 = load ptr, ptr %7, align 8, !tbaa !89
+  %9 = load ptr, ptr %6, align 8, !tbaa !86
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -1242,8 +1242,8 @@ define void @_ZN3gmx22SelectionOptionManager14registerOptionEPNS_22SelectionOpti
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !49
-  %20 = load ptr, ptr %5, align 8, !tbaa !41
+  %19 = load ptr, ptr %18, align 8, !tbaa !50
+  %20 = load ptr, ptr %5, align 8, !tbaa !42
   %21 = ptrtoint ptr %19 to i64
   %22 = ptrtoint ptr %20 to i64
   %23 = sub i64 %21, %22
@@ -1253,7 +1253,7 @@ define void @_ZN3gmx22SelectionOptionManager14registerOptionEPNS_22SelectionOpti
 
 _ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_M_allocateEm.exit.i: ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !43
+  %27 = load ptr, ptr %26, align 8, !tbaa !44
   %28 = ptrtoint ptr %27 to i64
   %29 = sub i64 %28, %22
   %30 = shl nuw nsw i64 %14, 3
@@ -1264,14 +1264,14 @@ _ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_E
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i ], [ %31, %_ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %20, %_ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %32 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !47, !alias.scope !92, !noalias !89
-  store i64 %32, ptr %.012.i.i.i.i, align 8, !tbaa !47, !alias.scope !89, !noalias !92
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  %32 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !48, !alias.scope !93, !noalias !90
+  store i64 %32, ptr %.012.i.i.i.i, align 8, !tbaa !48, !alias.scope !90, !noalias !93
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %33, %27
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !56
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %20, null
@@ -1279,19 +1279,19 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_r
 
 35:                                               ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %23) #23
-  %.pre.pre = load ptr, ptr %3, align 8, !tbaa !83
+  %.pre.pre = load ptr, ptr %3, align 8, !tbaa !84
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 16
-  %.pre2.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !88
+  %.pre2.pre = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !89
   br label %_ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE13_M_deallocateEPS3_m.exit.i
 
 _ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %35, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   %.pre2 = phi ptr [ %.pre2.pre, %35 ], [ %8, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i ]
   %.pre = phi ptr [ %.pre.pre, %35 ], [ %4, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i ]
-  store ptr %31, ptr %5, align 8, !tbaa !41
+  store ptr %31, ptr %5, align 8, !tbaa !42
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %29
-  store ptr %36, ptr %26, align 8, !tbaa !43
+  store ptr %36, ptr %26, align 8, !tbaa !44
   %37 = getelementptr inbounds nuw %"struct.gmx::SelectionOptionManager::Impl::SelectionRequest", ptr %31, i64 %14
-  store ptr %37, ptr %18, align 8, !tbaa !49
+  store ptr %37, ptr %18, align 8, !tbaa !50
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE7reserveEm.exit
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE7reserveEm.exit: ; preds = %17, %_ZNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE13_M_deallocateEPS3_m.exit.i
@@ -1300,18 +1300,18 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE7reser
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %43 = load ptr, ptr %42, align 8, !tbaa !87
+  %43 = load ptr, ptr %42, align 8, !tbaa !88
   %.not.i = icmp eq ptr %38, %43
   br i1 %.not.i, label %46, label %44
 
 44:                                               ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE7reserveEm.exit
-  store ptr %1, ptr %38, align 8, !tbaa !47
+  store ptr %1, ptr %38, align 8, !tbaa !48
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %45, ptr %41, align 8, !tbaa !88
+  store ptr %45, ptr %41, align 8, !tbaa !89
   br label %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE9push_backERKS2_.exit
 
 46:                                               ; preds = %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE7reserveEm.exit
-  %47 = load ptr, ptr %40, align 8, !tbaa !85
+  %47 = load ptr, ptr %40, align 8, !tbaa !86
   %48 = ptrtoint ptr %38 to i64
   %49 = ptrtoint ptr %47 to i64
   %50 = sub i64 %48, %49
@@ -1334,7 +1334,7 @@ _ZNKSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE12_M_check_lenEmPKc.exit.i.
   %58 = shl nuw nsw i64 %57, 3
   %59 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %58) #25
   %60 = getelementptr inbounds i8, ptr %59, i64 %50
-  store ptr %1, ptr %60, align 8, !tbaa !47
+  store ptr %1, ptr %60, align 8, !tbaa !48
   %61 = icmp sgt i64 %50, 0
   br i1 %61, label %62, label %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
@@ -1352,10 +1352,10 @@ _ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
   br label %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %64, %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %59, ptr %40, align 8, !tbaa !85
-  store ptr %63, ptr %41, align 8, !tbaa !88
+  store ptr %59, ptr %40, align 8, !tbaa !86
+  store ptr %63, ptr %41, align 8, !tbaa !89
   %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
-  store ptr %65, ptr %42, align 8, !tbaa !87
+  store ptr %65, ptr %42, align 8, !tbaa !88
   br label %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE9push_backERKS2_.exit: ; preds = %44, %_ZNSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -1370,8 +1370,8 @@ define void @_ZN3gmx22SelectionOptionManager18convertOptionValueEPNS_22Selection
   %5 = alloca %"class.std::vector.7", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !83
-  %8 = load ptr, ptr %7, align 8, !tbaa !94
+  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %8 = load ptr, ptr %7, align 8, !tbaa !95
   call void @_ZN3gmx19SelectionCollection15parseFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %2)
   invoke void @_ZN3gmx22SelectionOptionStorage13addSelectionsERKSt6vectorINS_9SelectionESaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext %3)
           to label %9 unwind label %17
@@ -1420,23 +1420,23 @@ declare void @_ZN3gmx19SelectionCollection15parseFromStringERKNSt7__cxx1112basic
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx22SelectionOptionManager27requestOptionDelayedParsingEPNS_22SelectionOptionStorageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !43
+  %7 = load ptr, ptr %6, align 8, !tbaa !44
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !49
+  %9 = load ptr, ptr %8, align 8, !tbaa !50
   %.not.i = icmp eq ptr %7, %9
   br i1 %.not.i, label %12, label %10
 
 10:                                               ; preds = %2
   store ptr %1, ptr %7, align 8, !tbaa !13
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %11, ptr %6, align 8, !tbaa !43
+  store ptr %11, ptr %6, align 8, !tbaa !44
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJRPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %5, align 8, !tbaa !41
+  %13 = load ptr, ptr %5, align 8, !tbaa !42
   %14 = ptrtoint ptr %7 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -1466,14 +1466,14 @@ _ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i.i ], [ %25, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i = phi ptr [ %28, %.lr.ph.i.i.i.i.i ], [ %13, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %27 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !47, !alias.scope !105, !noalias !102
-  store i64 %27, ptr %.012.i.i.i.i.i, align 8, !tbaa !47, !alias.scope !102, !noalias !105
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  %27 = load i64, ptr %.0911.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !106, !noalias !103
+  store i64 %27, ptr %.012.i.i.i.i.i, align 8, !tbaa !48, !alias.scope !103, !noalias !106
   %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %28, %7
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !55
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !56
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %.0.lcssa.i.i.i.i.i = phi ptr [ %25, %_ZNKSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %29, %.lr.ph.i.i.i.i.i ]
@@ -1486,10 +1486,10 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_r
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJRPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJRPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32.i.i
-  store ptr %25, ptr %5, align 8, !tbaa !41
-  store ptr %30, ptr %6, align 8, !tbaa !43
+  store ptr %25, ptr %5, align 8, !tbaa !42
+  store ptr %30, ptr %6, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw %"struct.gmx::SelectionOptionManager::Impl::SelectionRequest", ptr %25, i64 %23
-  store ptr %32, ptr %8, align 8, !tbaa !49
+  store ptr %32, ptr %8, align 8, !tbaa !50
   br label %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJRPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit
 
 _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12emplace_backIJRPNS0_22SelectionOptionStorageEEEERS3_DpOT_.exit: ; preds = %10, %_ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_M_realloc_insertIJRPNS0_22SelectionOptionStorageEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
@@ -1499,7 +1499,7 @@ _ZNSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12empl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx22SelectionOptionManager22hasRequestedSelectionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -1511,26 +1511,26 @@ define noundef zeroext i1 @_ZNK3gmx22SelectionOptionManager22hasRequestedSelecti
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx22SelectionOptionManager11initOptionsEPNS_17IOptionsContainerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !84
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !44
+  %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !44
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %.not9 = icmp eq ptr %6, %8
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.011 = phi i8 [ %spec.select, %.lr.ph ], [ 1, %2 ]
   %.sroa.05.010 = phi ptr [ %13, %.lr.ph ], [ %6, %2 ]
-  %9 = load ptr, ptr %.sroa.05.010, align 8, !tbaa !47
+  %9 = load ptr, ptr %.sroa.05.010, align 8, !tbaa !48
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 200
-  %11 = load i64, ptr %10, align 8, !tbaa !107
+  %11 = load i64, ptr %10, align 8, !tbaa !108
   %12 = and i64 %11, 2
   %.not8 = icmp eq i64 %12, 0
   %spec.select = select i1 %.not8, i8 0, i8 %.011
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 8
   %.not = icmp eq ptr %13, %8
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !109
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !110
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %14 = zext nneg i8 %spec.select to i32
@@ -1538,7 +1538,7 @@ define void @_ZN3gmx22SelectionOptionManager11initOptionsEPNS_17IOptionsContaine
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.0.lcssa = phi i32 [ 1, %2 ], [ %14, %._crit_edge.loopexit ]
-  %15 = load ptr, ptr %4, align 8, !tbaa !94
+  %15 = load ptr, ptr %4, align 8, !tbaa !95
   tail call void @_ZN3gmx19SelectionCollection11initOptionsEPNS_17IOptionsContainerENS0_19SelectionTypeOptionE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %1, i32 noundef %.0.lcssa)
   ret void
 }
@@ -1550,7 +1550,7 @@ define void @_ZN3gmx22SelectionOptionManager23parseRequestedFromStdinEb(ptr noun
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.7", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1577,8 +1577,8 @@ define void @_ZN3gmx22SelectionOptionManager23parseRequestedFromStdinEb(ptr noun
 
 20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #22
-  %21 = load ptr, ptr %5, align 8, !tbaa !83
-  %22 = load ptr, ptr %21, align 8, !tbaa !94
+  %21 = load ptr, ptr %5, align 8, !tbaa !84
+  %22 = load ptr, ptr %21, align 8, !tbaa !95
   %23 = load ptr, ptr %.sroa.021.027, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 92
   %25 = load i32, ptr %24, align 4, !tbaa !16
@@ -1624,11 +1624,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.021.027, i64 8
-  %42 = load ptr, ptr %5, align 8, !tbaa !83
+  %42 = load ptr, ptr %5, align 8, !tbaa !84
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !9
   %.not = icmp eq ptr %41, %44
-  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !110
+  br i1 %.not, label %._crit_edge, label %14, !llvm.loop !111
 
 45:                                               ; preds = %14
   %46 = landingpad { ptr, i32 }
@@ -1677,26 +1677,26 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14, %45
   %.pn.pn = phi { ptr, i32 } [ %46, %45 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14 ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #22
-  %63 = load ptr, ptr %7, align 8, !tbaa !41
-  %64 = load ptr, ptr %9, align 8, !tbaa !43
+  %63 = load ptr, ptr %7, align 8, !tbaa !42
+  %64 = load ptr, ptr %9, align 8, !tbaa !44
   %.not.i.i.i16 = icmp eq ptr %64, %63
   br i1 %.not.i.i.i16, label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit, label %65
 
 65:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15
-  store ptr %63, ptr %9, align 8, !tbaa !43
+  store ptr %63, ptr %9, align 8, !tbaa !44
   br label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit
 
 _ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15, %65
   resume { ptr, i32 } %.pn.pn
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pre = load ptr, ptr %7, align 8, !tbaa !41
-  %.pre28 = load ptr, ptr %9, align 8, !tbaa !43
+  %.pre = load ptr, ptr %7, align 8, !tbaa !42
+  %.pre28 = load ptr, ptr %9, align 8, !tbaa !44
   %66 = icmp eq ptr %.pre28, %.pre
   br i1 %66, label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18, label %67
 
 67:                                               ; preds = %._crit_edge
-  store ptr %.pre, ptr %9, align 8, !tbaa !43
+  store ptr %.pre, ptr %9, align 8, !tbaa !44
   br label %_ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18
 
 _ZN3gmx22SelectionOptionManager4Impl15RequestsClearerD2Ev.exit18: ; preds = %2, %._crit_edge, %67
@@ -1712,8 +1712,8 @@ define void @_ZN3gmx22SelectionOptionManager22parseRequestedFromFileERKNSt7__cxx
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !83
-  %8 = load ptr, ptr %7, align 8, !tbaa !94
+  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %8 = load ptr, ptr %7, align 8, !tbaa !95
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #22
   call void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef zeroext 2)
   invoke void @_ZN3gmx19SelectionCollection13parseFromFileERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(40) %4)
@@ -1721,7 +1721,7 @@ define void @_ZN3gmx22SelectionOptionManager22parseRequestedFromFileERKNSt7__cxx
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !111
+  %11 = load ptr, ptr %10, align 8, !tbaa !112
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i, label %12
 
@@ -1730,7 +1730,7 @@ define void @_ZN3gmx22SelectionOptionManager22parseRequestedFromFileERKNSt7__cxx
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit.i:  ; preds = %12, %9
-  store ptr null, ptr %10, align 8, !tbaa !111
+  store ptr null, ptr %10, align 8, !tbaa !112
   %13 = load ptr, ptr %4, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = icmp eq ptr %13, %14
@@ -1751,7 +1751,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #22
-  %21 = load ptr, ptr %6, align 8, !tbaa !83
+  %21 = load ptr, ptr %6, align 8, !tbaa !84
   invoke void @_ZN3gmx22SelectionOptionManager4Impl25placeSelectionsInRequestsERKSt6vectorINS_9SelectionESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %58 unwind label %24
 
@@ -1906,7 +1906,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_st
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %0, align 8, !tbaa !69
+  store ptr %8, ptr %0, align 8, !tbaa !70
   %9 = icmp eq ptr %5, null
   %10 = icmp ne i64 %7, 0
   %or.cond.i.i.i = and i1 %9, %10
@@ -1918,14 +1918,14 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_st
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #22
-  store i64 %7, ptr %4, align 8, !tbaa !70
+  store i64 %7, ptr %4, align 8, !tbaa !71
   %12 = icmp ugt i64 %7, 15
   br i1 %12, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %11
   %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %13, ptr %0, align 8, !tbaa !26
-  %14 = load i64, ptr %4, align 8, !tbaa !70
+  %14 = load i64, ptr %4, align 8, !tbaa !71
   store i64 %14, ptr %8, align 8, !tbaa !31
   br label %._crit_edge.i.i.i.i
 
@@ -1946,7 +1946,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_st
   br label %19
 
 19:                                               ; preds = %18, %16, %._crit_edge.i.i.i.i
-  %20 = load i64, ptr %4, align 8, !tbaa !70
+  %20 = load i64, ptr %4, align 8, !tbaa !71
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !32
   %22 = load ptr, ptr %0, align 8, !tbaa !26
@@ -1972,7 +1972,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_st
 29:                                               ; preds = %25
   %30 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %24, align 8, !tbaa !111
+  %31 = load ptr, ptr %24, align 8, !tbaa !112
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %32
 
@@ -1981,7 +1981,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2INSt7__cxx1112basic_st
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %29, %32
-  store ptr null, ptr %24, align 8, !tbaa !111
+  store ptr null, ptr %24, align 8, !tbaa !112
   br label %33
 
 33:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %27
@@ -2009,7 +2009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !111
+  %3 = load ptr, ptr %2, align 8, !tbaa !112
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
@@ -2018,7 +2018,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !111
+  store ptr null, ptr %2, align 8, !tbaa !112
   %5 = load ptr, ptr %0, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
@@ -2061,10 +2061,10 @@ define void @_ZN3gmx22SelectionOptionManager24parseRequestedFromStringERKNSt7__c
   %3 = alloca %"class.std::vector.7", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !83
-  %6 = load ptr, ptr %5, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !84
+  %6 = load ptr, ptr %5, align 8, !tbaa !95
   call void @_ZN3gmx19SelectionCollection15parseFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.7") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %7 = load ptr, ptr %4, align 8, !tbaa !83
+  %7 = load ptr, ptr %4, align 8, !tbaa !84
   invoke void @_ZN3gmx22SelectionOptionManager4Impl25placeSelectionsInRequestsERKSt6vectorINS_9SelectionESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %8 unwind label %16
 
@@ -2191,77 +2191,78 @@ attributes #26 = { noreturn nounwind }
 !36 = !{!37, !37, i64 0}
 !37 = !{!"p1 _ZTSN3gmx8internal13SelectionDataE", !6, i64 0}
 !38 = !{!34, !12, i64 8}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!42, !10, i64 0}
-!42 = !{!"_ZTSNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
-!43 = !{!42, !10, i64 8}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p2 _ZTSN3gmx22SelectionOptionStorageE", !46, i64 0}
-!46 = !{!"any p2 pointer", !6, i64 0}
-!47 = !{!15, !15, i64 0}
-!48 = !{!22, !21, i64 0}
-!49 = !{!42, !10, i64 16}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_"}
-!53 = !{!54}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!55 = distinct !{!55, !40}
-!56 = distinct !{!56, !40}
-!57 = !{i64 0, i64 8, !29, i64 8, i64 8, !29, i64 16, i64 4, !30}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTSN3gmx8internal14IExceptionInfoE", !6, i64 0}
-!60 = !{!61, !62, i64 0}
-!61 = !{!"_ZTSSt10type_index", !62, i64 0}
-!62 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ZTSSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE", !65, i64 0, !66, i64 8}
-!65 = !{!"p1 _ZTSN3gmx8internal13ExceptionDataE", !6, i64 0}
-!66 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !67, i64 0}
-!67 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
-!68 = !{!66, !67, i64 0}
-!69 = !{!19, !20, i64 0}
-!70 = !{!21, !21, i64 0}
-!71 = !{!72, !24, i64 8}
-!72 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !24, i64 8, !24, i64 12}
-!73 = !{!72, !24, i64 12}
-!74 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!75 = !{!76, !77, i64 0}
-!76 = !{!"_ZTSNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE17_Vector_impl_dataE", !77, i64 0, !77, i64 8, !77, i64 16}
-!77 = !{!"p1 _ZTSNSt15__exception_ptr13exception_ptrE", !6, i64 0}
-!78 = !{!76, !77, i64 8}
-!79 = !{!80, !6, i64 0}
-!80 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !6, i64 0}
-!81 = distinct !{!81, !40}
-!82 = !{!76, !77, i64 16}
-!83 = !{!84, !84, i64 0}
-!84 = !{!"p1 _ZTSN3gmx22SelectionOptionManager4ImplE", !6, i64 0}
-!85 = !{!86, !45, i64 0}
-!86 = !{!"_ZTSNSt12_Vector_baseIPN3gmx22SelectionOptionStorageESaIS2_EE17_Vector_impl_dataE", !45, i64 0, !45, i64 8, !45, i64 16}
-!87 = !{!86, !45, i64 16}
-!88 = !{!86, !45, i64 8}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!91 = distinct !{!91, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_"}
-!92 = !{!93}
-!93 = distinct !{!93, !91, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!94 = !{!95, !5, i64 0}
-!95 = !{!"_ZTSN3gmx22SelectionOptionManager4ImplE", !5, i64 0, !96, i64 8, !99, i64 32}
-!96 = !{!"_ZTSSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE", !97, i64 0}
-!97 = !{!"_ZTSSt12_Vector_baseIPN3gmx22SelectionOptionStorageESaIS2_EE", !98, i64 0}
-!98 = !{!"_ZTSNSt12_Vector_baseIPN3gmx22SelectionOptionStorageESaIS2_EE12_Vector_implE", !86, i64 0}
-!99 = !{!"_ZTSSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE", !100, i64 0}
-!100 = !{!"_ZTSSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE", !101, i64 0}
-!101 = !{!"_ZTSNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_Vector_implE", !42, i64 0}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
-!104 = distinct !{!104, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_"}
-!105 = !{!106}
-!106 = distinct !{!106, !104, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
-!107 = !{!108, !21, i64 0}
-!108 = !{!"_ZTSN3gmx13FlagsTemplateINS_13SelectionFlagEEE", !21, i64 0}
-!109 = distinct !{!109, !40}
-!110 = distinct !{!110, !40}
-!111 = !{!112, !112, i64 0}
-!112 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !6, i64 0}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!43, !10, i64 0}
+!43 = !{!"_ZTSNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE17_Vector_impl_dataE", !10, i64 0, !10, i64 8, !10, i64 16}
+!44 = !{!43, !10, i64 8}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p2 _ZTSN3gmx22SelectionOptionStorageE", !47, i64 0}
+!47 = !{!"any p2 pointer", !6, i64 0}
+!48 = !{!15, !15, i64 0}
+!49 = !{!22, !21, i64 0}
+!50 = !{!43, !10, i64 16}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!53 = distinct !{!53, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_"}
+!54 = !{!55}
+!55 = distinct !{!55, !53, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!56 = distinct !{!56, !40, !41}
+!57 = distinct !{!57, !40, !41}
+!58 = !{i64 0, i64 8, !29, i64 8, i64 8, !29, i64 16, i64 4, !30}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSN3gmx8internal14IExceptionInfoE", !6, i64 0}
+!61 = !{!62, !63, i64 0}
+!62 = !{!"_ZTSSt10type_index", !63, i64 0}
+!63 = !{!"p1 _ZTSSt9type_info", !6, i64 0}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"_ZTSSt12__shared_ptrIN3gmx8internal13ExceptionDataELN9__gnu_cxx12_Lock_policyE2EE", !66, i64 0, !67, i64 8}
+!66 = !{!"p1 _ZTSN3gmx8internal13ExceptionDataE", !6, i64 0}
+!67 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !68, i64 0}
+!68 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !6, i64 0}
+!69 = !{!67, !68, i64 0}
+!70 = !{!19, !20, i64 0}
+!71 = !{!21, !21, i64 0}
+!72 = !{!73, !24, i64 8}
+!73 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !24, i64 8, !24, i64 12}
+!74 = !{!73, !24, i64 12}
+!75 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!76 = !{!77, !78, i64 0}
+!77 = !{!"_ZTSNSt12_Vector_baseINSt15__exception_ptr13exception_ptrESaIS1_EE17_Vector_impl_dataE", !78, i64 0, !78, i64 8, !78, i64 16}
+!78 = !{!"p1 _ZTSNSt15__exception_ptr13exception_ptrE", !6, i64 0}
+!79 = !{!77, !78, i64 8}
+!80 = !{!81, !6, i64 0}
+!81 = !{!"_ZTSNSt15__exception_ptr13exception_ptrE", !6, i64 0}
+!82 = distinct !{!82, !40, !41}
+!83 = !{!77, !78, i64 16}
+!84 = !{!85, !85, i64 0}
+!85 = !{!"p1 _ZTSN3gmx22SelectionOptionManager4ImplE", !6, i64 0}
+!86 = !{!87, !46, i64 0}
+!87 = !{!"_ZTSNSt12_Vector_baseIPN3gmx22SelectionOptionStorageESaIS2_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
+!88 = !{!87, !46, i64 16}
+!89 = !{!87, !46, i64 8}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!92 = distinct !{!92, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_"}
+!93 = !{!94}
+!94 = distinct !{!94, !92, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!95 = !{!96, !5, i64 0}
+!96 = !{!"_ZTSN3gmx22SelectionOptionManager4ImplE", !5, i64 0, !97, i64 8, !100, i64 32}
+!97 = !{!"_ZTSSt6vectorIPN3gmx22SelectionOptionStorageESaIS2_EE", !98, i64 0}
+!98 = !{!"_ZTSSt12_Vector_baseIPN3gmx22SelectionOptionStorageESaIS2_EE", !99, i64 0}
+!99 = !{!"_ZTSNSt12_Vector_baseIPN3gmx22SelectionOptionStorageESaIS2_EE12_Vector_implE", !87, i64 0}
+!100 = !{!"_ZTSSt6vectorIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE", !101, i64 0}
+!101 = !{!"_ZTSSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE", !102, i64 0}
+!102 = !{!"_ZTSNSt12_Vector_baseIN3gmx22SelectionOptionManager4Impl16SelectionRequestESaIS3_EE12_Vector_implE", !43, i64 0}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 0"}
+!105 = distinct !{!105, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_"}
+!106 = !{!107}
+!107 = distinct !{!107, !105, !"_ZSt19__relocate_object_aIN3gmx22SelectionOptionManager4Impl16SelectionRequestES3_SaIS3_EEvPT_PT0_RT1_: argument 1"}
+!108 = !{!109, !21, i64 0}
+!109 = !{!"_ZTSN3gmx13FlagsTemplateINS_13SelectionFlagEEE", !21, i64 0}
+!110 = distinct !{!110, !40, !41}
+!111 = distinct !{!111, !40, !41}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !6, i64 0}

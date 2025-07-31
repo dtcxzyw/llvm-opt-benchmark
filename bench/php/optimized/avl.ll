@@ -178,14 +178,14 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
   %.2 = phi ptr [ %21, %19 ], [ %25, %23 ]
   %28 = load i64, ptr %.2, align 8, !tbaa !11
   %29 = icmp eq i64 %2, %28
-  br i1 %29, label %._crit_edge, label %.lr.ph
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .lr.ph56.preheader:                               ; preds = %23, %19
   %.sink67 = phi i64 [ 24, %19 ], [ 32, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %.04152, i64 %.sink67
   store ptr %8, ptr %30, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %.04152, ptr %31, align 8, !tbaa !19
+  store ptr %.04152, ptr %31, align 8, !tbaa !21
   store i64 %2, ptr %8, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3, ptr %32, align 8, !tbaa !15
@@ -195,7 +195,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
   %.354 = phi ptr [ %33, %.lr.ph56 ], [ %8, %.lr.ph56.preheader ]
   %33 = tail call fastcc ptr @lexbor_avl_node_balance(ptr noundef %.354, ptr noundef nonnull %1)
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %.loopexit, label %.lr.ph56
+  br i1 %.not, label %.loopexit, label %.lr.ph56, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph56, %._crit_edge, %lexbor_avl_node_make.exit
   %.0 = phi ptr [ %8, %lexbor_avl_node_make.exit ], [ %.041.lcssa, %._crit_edge ], [ %8, %.lr.ph56 ]
@@ -211,7 +211,7 @@ define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull initiali
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i16, ptr %6, align 8, !tbaa !20
+  %7 = load i16, ptr %6, align 8, !tbaa !23
   %8 = sext i16 %7 to i32
   br label %lexbor_avl_node_height.exit
 
@@ -224,7 +224,7 @@ lexbor_avl_node_height.exit:                      ; preds = %2, %5
 
 12:                                               ; preds = %lexbor_avl_node_height.exit
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %14 = load i16, ptr %13, align 8, !tbaa !20
+  %14 = load i16, ptr %13, align 8, !tbaa !23
   %15 = sext i16 %14 to i32
   br label %lexbor_avl_node_height.exit46
 
@@ -234,7 +234,7 @@ lexbor_avl_node_height.exit46:                    ; preds = %lexbor_avl_node_hei
   %18 = trunc nsw i32 %17 to i16
   %19 = add i16 %18, 1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i16 %19, ptr %20, align 8, !tbaa !20
+  store i16 %19, ptr %20, align 8, !tbaa !23
   %21 = sub nsw i32 %16, %9
   switch i32 %21, label %276 [
     i32 2, label %22
@@ -249,7 +249,7 @@ lexbor_avl_node_height.exit46:                    ; preds = %lexbor_avl_node_hei
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load i16, ptr %26, align 8, !tbaa !20
+  %27 = load i16, ptr %26, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i
 
 lexbor_avl_node_height.exit.i:                    ; preds = %25, %22
@@ -261,7 +261,7 @@ lexbor_avl_node_height.exit.i:                    ; preds = %25, %22
 
 31:                                               ; preds = %lexbor_avl_node_height.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load i16, ptr %32, align 8, !tbaa !20
+  %33 = load i16, ptr %32, align 8, !tbaa !23
   br label %lexbor_avl_node_balance_factor.exit
 
 lexbor_avl_node_balance_factor.exit:              ; preds = %lexbor_avl_node_height.exit.i, %31
@@ -272,9 +272,9 @@ lexbor_avl_node_balance_factor.exit:              ; preds = %lexbor_avl_node_hei
 
 37:                                               ; preds = %lexbor_avl_node_balance_factor.exit
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !19
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store ptr %39, ptr %40, align 8, !tbaa !19
+  store ptr %39, ptr %40, align 8, !tbaa !21
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !18
   %.not.i47 = icmp eq ptr %42, null
@@ -282,15 +282,15 @@ lexbor_avl_node_balance_factor.exit:              ; preds = %lexbor_avl_node_hei
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store ptr %11, ptr %44, align 8, !tbaa !19
+  store ptr %11, ptr %44, align 8, !tbaa !21
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %46 = load i16, ptr %45, align 8, !tbaa !20
+  %46 = load i16, ptr %45, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i
 
 lexbor_avl_node_height.exit.i.i:                  ; preds = %43, %37
   %47 = phi i16 [ %46, %43 ], [ 0, %37 ]
   store ptr %42, ptr %29, align 8, !tbaa !17
-  store ptr %30, ptr %38, align 8, !tbaa !19
+  store ptr %30, ptr %38, align 8, !tbaa !21
   store ptr %11, ptr %41, align 8, !tbaa !18
   %48 = load ptr, ptr %23, align 8, !tbaa !18
   %.not.i6.i.i = icmp eq ptr %48, null
@@ -298,7 +298,7 @@ lexbor_avl_node_height.exit.i.i:                  ; preds = %43, %37
 
 49:                                               ; preds = %lexbor_avl_node_height.exit.i.i
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load i16, ptr %50, align 8, !tbaa !20
+  %51 = load i16, ptr %50, align 8, !tbaa !23
   br label %lexbor_avl_node_set_height.exit.i
 
 lexbor_avl_node_set_height.exit.i:                ; preds = %49, %lexbor_avl_node_height.exit.i.i
@@ -306,7 +306,7 @@ lexbor_avl_node_set_height.exit.i:                ; preds = %49, %lexbor_avl_nod
   %53 = tail call i16 @llvm.smax.i16(i16 %47, i16 %52)
   %54 = add i16 %53, 1
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i16 %54, ptr %55, align 8, !tbaa !20
+  store i16 %54, ptr %55, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !17
   %.not.i.i15.i = icmp eq ptr %57, null
@@ -314,7 +314,7 @@ lexbor_avl_node_set_height.exit.i:                ; preds = %49, %lexbor_avl_nod
 
 58:                                               ; preds = %lexbor_avl_node_set_height.exit.i
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %60 = load i16, ptr %59, align 8, !tbaa !20
+  %60 = load i16, ptr %59, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_right.exit
 
 lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_set_height.exit.i, %58
@@ -322,7 +322,7 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_set
   %62 = tail call i16 @llvm.smax.i16(i16 %61, i16 %54)
   %63 = add i16 %62, 1
   %64 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i16 %63, ptr %64, align 8, !tbaa !20
+  store i16 %63, ptr %64, align 8, !tbaa !23
   store ptr %30, ptr %10, align 8, !tbaa !18
   br label %65
 
@@ -330,7 +330,7 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_set
   %66 = phi ptr [ %57, %lexbor_avl_node_rotate_right.exit ], [ %30, %lexbor_avl_node_balance_factor.exit ]
   %67 = phi ptr [ %30, %lexbor_avl_node_rotate_right.exit ], [ %11, %lexbor_avl_node_balance_factor.exit ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %69 = load ptr, ptr %68, align 8, !tbaa !19
+  %69 = load ptr, ptr %68, align 8, !tbaa !21
   %.not44 = icmp eq ptr %69, null
   br i1 %.not44, label %125, label %70
 
@@ -339,7 +339,7 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_set
   %72 = load ptr, ptr %71, align 8, !tbaa !18
   %73 = icmp eq ptr %72, %0
   %74 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store ptr %69, ptr %74, align 8, !tbaa !19
+  store ptr %69, ptr %74, align 8, !tbaa !21
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %.not.i48 = icmp eq ptr %66, null
   br i1 %73, label %76, label %100
@@ -349,12 +349,12 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_set
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store ptr %0, ptr %78, align 8, !tbaa !19
+  store ptr %0, ptr %78, align 8, !tbaa !21
   br label %79
 
 79:                                               ; preds = %77, %76
   store ptr %66, ptr %10, align 8, !tbaa !18
-  store ptr %67, ptr %68, align 8, !tbaa !19
+  store ptr %67, ptr %68, align 8, !tbaa !21
   store ptr %0, ptr %75, align 8, !tbaa !17
   %80 = load ptr, ptr %3, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %80, null
@@ -362,7 +362,7 @@ lexbor_avl_node_rotate_right.exit:                ; preds = %lexbor_avl_node_set
 
 81:                                               ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load i16, ptr %82, align 8, !tbaa !20
+  %83 = load i16, ptr %82, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i49
 
 lexbor_avl_node_height.exit.i.i49:                ; preds = %81, %79
@@ -371,14 +371,14 @@ lexbor_avl_node_height.exit.i.i49:                ; preds = %81, %79
 
 85:                                               ; preds = %lexbor_avl_node_height.exit.i.i49
   %86 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %87 = load i16, ptr %86, align 8, !tbaa !20
+  %87 = load i16, ptr %86, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i16.i
 
 lexbor_avl_node_height.exit.i16.i:                ; preds = %85, %lexbor_avl_node_height.exit.i.i49
   %88 = phi i16 [ %87, %85 ], [ 0, %lexbor_avl_node_height.exit.i.i49 ]
   %89 = tail call i16 @llvm.smax.i16(i16 %84, i16 %88)
   %90 = add i16 %89, 1
-  store i16 %90, ptr %20, align 8, !tbaa !20
+  store i16 %90, ptr %20, align 8, !tbaa !23
   %91 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !18
   %.not.i6.i17.i = icmp eq ptr %92, null
@@ -386,7 +386,7 @@ lexbor_avl_node_height.exit.i16.i:                ; preds = %85, %lexbor_avl_nod
 
 93:                                               ; preds = %lexbor_avl_node_height.exit.i16.i
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %95 = load i16, ptr %94, align 8, !tbaa !20
+  %95 = load i16, ptr %94, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_left.exit
 
 lexbor_avl_node_rotate_left.exit:                 ; preds = %lexbor_avl_node_height.exit.i16.i, %93
@@ -394,7 +394,7 @@ lexbor_avl_node_rotate_left.exit:                 ; preds = %lexbor_avl_node_hei
   %97 = tail call i16 @llvm.smax.i16(i16 %90, i16 %96)
   %98 = add i16 %97, 1
   %99 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i16 %98, ptr %99, align 8, !tbaa !20
+  store i16 %98, ptr %99, align 8, !tbaa !23
   store ptr %67, ptr %71, align 8, !tbaa !18
   br label %281
 
@@ -403,12 +403,12 @@ lexbor_avl_node_rotate_left.exit:                 ; preds = %lexbor_avl_node_hei
 
 101:                                              ; preds = %100
   %102 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store ptr %0, ptr %102, align 8, !tbaa !19
+  store ptr %0, ptr %102, align 8, !tbaa !21
   br label %103
 
 103:                                              ; preds = %101, %100
   store ptr %66, ptr %10, align 8, !tbaa !18
-  store ptr %67, ptr %68, align 8, !tbaa !19
+  store ptr %67, ptr %68, align 8, !tbaa !21
   store ptr %0, ptr %75, align 8, !tbaa !17
   %104 = load ptr, ptr %3, align 8, !tbaa !17
   %.not.i.i.i51 = icmp eq ptr %104, null
@@ -416,7 +416,7 @@ lexbor_avl_node_rotate_left.exit:                 ; preds = %lexbor_avl_node_hei
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %107 = load i16, ptr %106, align 8, !tbaa !20
+  %107 = load i16, ptr %106, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i52
 
 lexbor_avl_node_height.exit.i.i52:                ; preds = %105, %103
@@ -425,14 +425,14 @@ lexbor_avl_node_height.exit.i.i52:                ; preds = %105, %103
 
 109:                                              ; preds = %lexbor_avl_node_height.exit.i.i52
   %110 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %111 = load i16, ptr %110, align 8, !tbaa !20
+  %111 = load i16, ptr %110, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i16.i53
 
 lexbor_avl_node_height.exit.i16.i53:              ; preds = %109, %lexbor_avl_node_height.exit.i.i52
   %112 = phi i16 [ %111, %109 ], [ 0, %lexbor_avl_node_height.exit.i.i52 ]
   %113 = tail call i16 @llvm.smax.i16(i16 %108, i16 %112)
   %114 = add i16 %113, 1
-  store i16 %114, ptr %20, align 8, !tbaa !20
+  store i16 %114, ptr %20, align 8, !tbaa !23
   %115 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %116 = load ptr, ptr %115, align 8, !tbaa !18
   %.not.i6.i17.i54 = icmp eq ptr %116, null
@@ -440,7 +440,7 @@ lexbor_avl_node_height.exit.i16.i53:              ; preds = %109, %lexbor_avl_no
 
 117:                                              ; preds = %lexbor_avl_node_height.exit.i16.i53
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %119 = load i16, ptr %118, align 8, !tbaa !20
+  %119 = load i16, ptr %118, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_left.exit55
 
 lexbor_avl_node_rotate_left.exit55:               ; preds = %lexbor_avl_node_height.exit.i16.i53, %117
@@ -448,26 +448,26 @@ lexbor_avl_node_rotate_left.exit55:               ; preds = %lexbor_avl_node_hei
   %121 = tail call i16 @llvm.smax.i16(i16 %114, i16 %120)
   %122 = add i16 %121, 1
   %123 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i16 %122, ptr %123, align 8, !tbaa !20
+  store i16 %122, ptr %123, align 8, !tbaa !23
   %124 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %67, ptr %124, align 8, !tbaa !17
   br label %281
 
 125:                                              ; preds = %65
   %126 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  store ptr null, ptr %126, align 8, !tbaa !19
+  store ptr null, ptr %126, align 8, !tbaa !21
   %127 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %.not.i56 = icmp eq ptr %66, null
   br i1 %.not.i56, label %130, label %128
 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  store ptr %0, ptr %129, align 8, !tbaa !19
+  store ptr %0, ptr %129, align 8, !tbaa !21
   br label %130
 
 130:                                              ; preds = %128, %125
   store ptr %66, ptr %10, align 8, !tbaa !18
-  store ptr %67, ptr %68, align 8, !tbaa !19
+  store ptr %67, ptr %68, align 8, !tbaa !21
   store ptr %0, ptr %127, align 8, !tbaa !17
   %131 = load ptr, ptr %3, align 8, !tbaa !17
   %.not.i.i.i57 = icmp eq ptr %131, null
@@ -475,7 +475,7 @@ lexbor_avl_node_rotate_left.exit55:               ; preds = %lexbor_avl_node_hei
 
 132:                                              ; preds = %130
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %134 = load i16, ptr %133, align 8, !tbaa !20
+  %134 = load i16, ptr %133, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i58
 
 lexbor_avl_node_height.exit.i.i58:                ; preds = %132, %130
@@ -484,14 +484,14 @@ lexbor_avl_node_height.exit.i.i58:                ; preds = %132, %130
 
 136:                                              ; preds = %lexbor_avl_node_height.exit.i.i58
   %137 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %138 = load i16, ptr %137, align 8, !tbaa !20
+  %138 = load i16, ptr %137, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i16.i59
 
 lexbor_avl_node_height.exit.i16.i59:              ; preds = %136, %lexbor_avl_node_height.exit.i.i58
   %139 = phi i16 [ %138, %136 ], [ 0, %lexbor_avl_node_height.exit.i.i58 ]
   %140 = tail call i16 @llvm.smax.i16(i16 %135, i16 %139)
   %141 = add i16 %140, 1
-  store i16 %141, ptr %20, align 8, !tbaa !20
+  store i16 %141, ptr %20, align 8, !tbaa !23
   %142 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %143 = load ptr, ptr %142, align 8, !tbaa !18
   %.not.i6.i17.i60 = icmp eq ptr %143, null
@@ -499,7 +499,7 @@ lexbor_avl_node_height.exit.i16.i59:              ; preds = %136, %lexbor_avl_no
 
 144:                                              ; preds = %lexbor_avl_node_height.exit.i16.i59
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %146 = load i16, ptr %145, align 8, !tbaa !20
+  %146 = load i16, ptr %145, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_left.exit61
 
 lexbor_avl_node_rotate_left.exit61:               ; preds = %lexbor_avl_node_height.exit.i16.i59, %144
@@ -507,7 +507,7 @@ lexbor_avl_node_rotate_left.exit61:               ; preds = %lexbor_avl_node_hei
   %148 = tail call i16 @llvm.smax.i16(i16 %141, i16 %147)
   %149 = add i16 %148, 1
   %150 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i16 %149, ptr %150, align 8, !tbaa !20
+  store i16 %149, ptr %150, align 8, !tbaa !23
   br label %281
 
 151:                                              ; preds = %lexbor_avl_node_height.exit46
@@ -518,7 +518,7 @@ lexbor_avl_node_rotate_left.exit61:               ; preds = %lexbor_avl_node_hei
 
 154:                                              ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %156 = load i16, ptr %155, align 8, !tbaa !20
+  %156 = load i16, ptr %155, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i63
 
 lexbor_avl_node_height.exit.i63:                  ; preds = %154, %151
@@ -530,7 +530,7 @@ lexbor_avl_node_height.exit.i63:                  ; preds = %154, %151
 
 160:                                              ; preds = %lexbor_avl_node_height.exit.i63
   %161 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  %162 = load i16, ptr %161, align 8, !tbaa !20
+  %162 = load i16, ptr %161, align 8, !tbaa !23
   br label %lexbor_avl_node_balance_factor.exit65
 
 lexbor_avl_node_balance_factor.exit65:            ; preds = %lexbor_avl_node_height.exit.i63, %160
@@ -541,9 +541,9 @@ lexbor_avl_node_balance_factor.exit65:            ; preds = %lexbor_avl_node_hei
 
 166:                                              ; preds = %lexbor_avl_node_balance_factor.exit65
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %168 = load ptr, ptr %167, align 8, !tbaa !19
+  %168 = load ptr, ptr %167, align 8, !tbaa !21
   %169 = getelementptr inbounds nuw i8, ptr %153, i64 40
-  store ptr %168, ptr %169, align 8, !tbaa !19
+  store ptr %168, ptr %169, align 8, !tbaa !21
   %170 = getelementptr inbounds nuw i8, ptr %153, i64 24
   %171 = load ptr, ptr %170, align 8, !tbaa !17
   %.not.i66 = icmp eq ptr %171, null
@@ -551,12 +551,12 @@ lexbor_avl_node_balance_factor.exit65:            ; preds = %lexbor_avl_node_hei
 
 172:                                              ; preds = %166
   %173 = getelementptr inbounds nuw i8, ptr %171, i64 40
-  store ptr %4, ptr %173, align 8, !tbaa !19
+  store ptr %4, ptr %173, align 8, !tbaa !21
   br label %174
 
 174:                                              ; preds = %172, %166
   store ptr %171, ptr %152, align 8, !tbaa !18
-  store ptr %153, ptr %167, align 8, !tbaa !19
+  store ptr %153, ptr %167, align 8, !tbaa !21
   store ptr %4, ptr %170, align 8, !tbaa !17
   %175 = load ptr, ptr %158, align 8, !tbaa !17
   %.not.i.i.i67 = icmp eq ptr %175, null
@@ -564,7 +564,7 @@ lexbor_avl_node_balance_factor.exit65:            ; preds = %lexbor_avl_node_hei
 
 176:                                              ; preds = %174
   %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %178 = load i16, ptr %177, align 8, !tbaa !20
+  %178 = load i16, ptr %177, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i68
 
 lexbor_avl_node_height.exit.i.i68:                ; preds = %176, %174
@@ -573,7 +573,7 @@ lexbor_avl_node_height.exit.i.i68:                ; preds = %176, %174
 
 180:                                              ; preds = %lexbor_avl_node_height.exit.i.i68
   %181 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %182 = load i16, ptr %181, align 8, !tbaa !20
+  %182 = load i16, ptr %181, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i16.i69
 
 lexbor_avl_node_height.exit.i16.i69:              ; preds = %180, %lexbor_avl_node_height.exit.i.i68
@@ -581,7 +581,7 @@ lexbor_avl_node_height.exit.i16.i69:              ; preds = %180, %lexbor_avl_no
   %184 = tail call i16 @llvm.smax.i16(i16 %179, i16 %183)
   %185 = add i16 %184, 1
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %185, ptr %186, align 8, !tbaa !20
+  store i16 %185, ptr %186, align 8, !tbaa !23
   %187 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %188 = load ptr, ptr %187, align 8, !tbaa !18
   %.not.i6.i17.i70 = icmp eq ptr %188, null
@@ -589,7 +589,7 @@ lexbor_avl_node_height.exit.i16.i69:              ; preds = %180, %lexbor_avl_no
 
 189:                                              ; preds = %lexbor_avl_node_height.exit.i16.i69
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %191 = load i16, ptr %190, align 8, !tbaa !20
+  %191 = load i16, ptr %190, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_left.exit71
 
 lexbor_avl_node_rotate_left.exit71:               ; preds = %lexbor_avl_node_height.exit.i16.i69, %189
@@ -597,7 +597,7 @@ lexbor_avl_node_rotate_left.exit71:               ; preds = %lexbor_avl_node_hei
   %193 = tail call i16 @llvm.smax.i16(i16 %185, i16 %192)
   %194 = add i16 %193, 1
   %195 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store i16 %194, ptr %195, align 8, !tbaa !20
+  store i16 %194, ptr %195, align 8, !tbaa !23
   store ptr %153, ptr %3, align 8, !tbaa !17
   br label %196
 
@@ -605,7 +605,7 @@ lexbor_avl_node_rotate_left.exit71:               ; preds = %lexbor_avl_node_hei
   %197 = phi ptr [ %188, %lexbor_avl_node_rotate_left.exit71 ], [ %153, %lexbor_avl_node_balance_factor.exit65 ]
   %198 = phi ptr [ %153, %lexbor_avl_node_rotate_left.exit71 ], [ %4, %lexbor_avl_node_balance_factor.exit65 ]
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %200 = load ptr, ptr %199, align 8, !tbaa !19
+  %200 = load ptr, ptr %199, align 8, !tbaa !21
   %.not = icmp eq ptr %200, null
   br i1 %.not, label %252, label %201
 
@@ -614,7 +614,7 @@ lexbor_avl_node_rotate_left.exit71:               ; preds = %lexbor_avl_node_hei
   %203 = load ptr, ptr %202, align 8, !tbaa !18
   %204 = icmp eq ptr %203, %0
   %205 = getelementptr inbounds nuw i8, ptr %198, i64 40
-  store ptr %200, ptr %205, align 8, !tbaa !19
+  store ptr %200, ptr %205, align 8, !tbaa !21
   %206 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %.not.i72 = icmp eq ptr %197, null
   br i1 %204, label %207, label %229
@@ -624,15 +624,15 @@ lexbor_avl_node_rotate_left.exit71:               ; preds = %lexbor_avl_node_hei
 
 208:                                              ; preds = %207
   %209 = getelementptr inbounds nuw i8, ptr %197, i64 40
-  store ptr %0, ptr %209, align 8, !tbaa !19
+  store ptr %0, ptr %209, align 8, !tbaa !21
   %210 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %211 = load i16, ptr %210, align 8, !tbaa !20
+  %211 = load i16, ptr %210, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i73
 
 lexbor_avl_node_height.exit.i.i73:                ; preds = %208, %207
   %212 = phi i16 [ %211, %208 ], [ 0, %207 ]
   store ptr %197, ptr %3, align 8, !tbaa !17
-  store ptr %198, ptr %199, align 8, !tbaa !19
+  store ptr %198, ptr %199, align 8, !tbaa !21
   store ptr %0, ptr %206, align 8, !tbaa !18
   %213 = load ptr, ptr %10, align 8, !tbaa !18
   %.not.i6.i.i74 = icmp eq ptr %213, null
@@ -640,14 +640,14 @@ lexbor_avl_node_height.exit.i.i73:                ; preds = %208, %207
 
 214:                                              ; preds = %lexbor_avl_node_height.exit.i.i73
   %215 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %216 = load i16, ptr %215, align 8, !tbaa !20
+  %216 = load i16, ptr %215, align 8, !tbaa !23
   br label %lexbor_avl_node_set_height.exit.i75
 
 lexbor_avl_node_set_height.exit.i75:              ; preds = %214, %lexbor_avl_node_height.exit.i.i73
   %217 = phi i16 [ %216, %214 ], [ 0, %lexbor_avl_node_height.exit.i.i73 ]
   %218 = tail call i16 @llvm.smax.i16(i16 %212, i16 %217)
   %219 = add i16 %218, 1
-  store i16 %219, ptr %20, align 8, !tbaa !20
+  store i16 %219, ptr %20, align 8, !tbaa !23
   %220 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %221 = load ptr, ptr %220, align 8, !tbaa !17
   %.not.i.i15.i76 = icmp eq ptr %221, null
@@ -655,7 +655,7 @@ lexbor_avl_node_set_height.exit.i75:              ; preds = %214, %lexbor_avl_no
 
 222:                                              ; preds = %lexbor_avl_node_set_height.exit.i75
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %224 = load i16, ptr %223, align 8, !tbaa !20
+  %224 = load i16, ptr %223, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_right.exit77
 
 lexbor_avl_node_rotate_right.exit77:              ; preds = %lexbor_avl_node_set_height.exit.i75, %222
@@ -663,7 +663,7 @@ lexbor_avl_node_rotate_right.exit77:              ; preds = %lexbor_avl_node_set
   %226 = tail call i16 @llvm.smax.i16(i16 %225, i16 %219)
   %227 = add i16 %226, 1
   %228 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  store i16 %227, ptr %228, align 8, !tbaa !20
+  store i16 %227, ptr %228, align 8, !tbaa !23
   store ptr %198, ptr %202, align 8, !tbaa !18
   br label %281
 
@@ -672,15 +672,15 @@ lexbor_avl_node_rotate_right.exit77:              ; preds = %lexbor_avl_node_set
 
 230:                                              ; preds = %229
   %231 = getelementptr inbounds nuw i8, ptr %197, i64 40
-  store ptr %0, ptr %231, align 8, !tbaa !19
+  store ptr %0, ptr %231, align 8, !tbaa !21
   %232 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %233 = load i16, ptr %232, align 8, !tbaa !20
+  %233 = load i16, ptr %232, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i79
 
 lexbor_avl_node_height.exit.i.i79:                ; preds = %230, %229
   %234 = phi i16 [ %233, %230 ], [ 0, %229 ]
   store ptr %197, ptr %3, align 8, !tbaa !17
-  store ptr %198, ptr %199, align 8, !tbaa !19
+  store ptr %198, ptr %199, align 8, !tbaa !21
   store ptr %0, ptr %206, align 8, !tbaa !18
   %235 = load ptr, ptr %10, align 8, !tbaa !18
   %.not.i6.i.i80 = icmp eq ptr %235, null
@@ -688,14 +688,14 @@ lexbor_avl_node_height.exit.i.i79:                ; preds = %230, %229
 
 236:                                              ; preds = %lexbor_avl_node_height.exit.i.i79
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  %238 = load i16, ptr %237, align 8, !tbaa !20
+  %238 = load i16, ptr %237, align 8, !tbaa !23
   br label %lexbor_avl_node_set_height.exit.i81
 
 lexbor_avl_node_set_height.exit.i81:              ; preds = %236, %lexbor_avl_node_height.exit.i.i79
   %239 = phi i16 [ %238, %236 ], [ 0, %lexbor_avl_node_height.exit.i.i79 ]
   %240 = tail call i16 @llvm.smax.i16(i16 %234, i16 %239)
   %241 = add i16 %240, 1
-  store i16 %241, ptr %20, align 8, !tbaa !20
+  store i16 %241, ptr %20, align 8, !tbaa !23
   %242 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %243 = load ptr, ptr %242, align 8, !tbaa !17
   %.not.i.i15.i82 = icmp eq ptr %243, null
@@ -703,7 +703,7 @@ lexbor_avl_node_set_height.exit.i81:              ; preds = %236, %lexbor_avl_no
 
 244:                                              ; preds = %lexbor_avl_node_set_height.exit.i81
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %246 = load i16, ptr %245, align 8, !tbaa !20
+  %246 = load i16, ptr %245, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_right.exit83
 
 lexbor_avl_node_rotate_right.exit83:              ; preds = %lexbor_avl_node_set_height.exit.i81, %244
@@ -711,29 +711,29 @@ lexbor_avl_node_rotate_right.exit83:              ; preds = %lexbor_avl_node_set
   %248 = tail call i16 @llvm.smax.i16(i16 %247, i16 %241)
   %249 = add i16 %248, 1
   %250 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  store i16 %249, ptr %250, align 8, !tbaa !20
+  store i16 %249, ptr %250, align 8, !tbaa !23
   %251 = getelementptr inbounds nuw i8, ptr %200, i64 24
   store ptr %198, ptr %251, align 8, !tbaa !17
   br label %281
 
 252:                                              ; preds = %196
   %253 = getelementptr inbounds nuw i8, ptr %198, i64 40
-  store ptr null, ptr %253, align 8, !tbaa !19
+  store ptr null, ptr %253, align 8, !tbaa !21
   %254 = getelementptr inbounds nuw i8, ptr %198, i64 32
   %.not.i84 = icmp eq ptr %197, null
   br i1 %.not.i84, label %lexbor_avl_node_height.exit.i.i85, label %255
 
 255:                                              ; preds = %252
   %256 = getelementptr inbounds nuw i8, ptr %197, i64 40
-  store ptr %0, ptr %256, align 8, !tbaa !19
+  store ptr %0, ptr %256, align 8, !tbaa !21
   %257 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %258 = load i16, ptr %257, align 8, !tbaa !20
+  %258 = load i16, ptr %257, align 8, !tbaa !23
   br label %lexbor_avl_node_height.exit.i.i85
 
 lexbor_avl_node_height.exit.i.i85:                ; preds = %255, %252
   %259 = phi i16 [ %258, %255 ], [ 0, %252 ]
   store ptr %197, ptr %3, align 8, !tbaa !17
-  store ptr %198, ptr %199, align 8, !tbaa !19
+  store ptr %198, ptr %199, align 8, !tbaa !21
   store ptr %0, ptr %254, align 8, !tbaa !18
   %260 = load ptr, ptr %10, align 8, !tbaa !18
   %.not.i6.i.i86 = icmp eq ptr %260, null
@@ -741,14 +741,14 @@ lexbor_avl_node_height.exit.i.i85:                ; preds = %255, %252
 
 261:                                              ; preds = %lexbor_avl_node_height.exit.i.i85
   %262 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  %263 = load i16, ptr %262, align 8, !tbaa !20
+  %263 = load i16, ptr %262, align 8, !tbaa !23
   br label %lexbor_avl_node_set_height.exit.i87
 
 lexbor_avl_node_set_height.exit.i87:              ; preds = %261, %lexbor_avl_node_height.exit.i.i85
   %264 = phi i16 [ %263, %261 ], [ 0, %lexbor_avl_node_height.exit.i.i85 ]
   %265 = tail call i16 @llvm.smax.i16(i16 %259, i16 %264)
   %266 = add i16 %265, 1
-  store i16 %266, ptr %20, align 8, !tbaa !20
+  store i16 %266, ptr %20, align 8, !tbaa !23
   %267 = getelementptr inbounds nuw i8, ptr %198, i64 24
   %268 = load ptr, ptr %267, align 8, !tbaa !17
   %.not.i.i15.i88 = icmp eq ptr %268, null
@@ -756,7 +756,7 @@ lexbor_avl_node_set_height.exit.i87:              ; preds = %261, %lexbor_avl_no
 
 269:                                              ; preds = %lexbor_avl_node_set_height.exit.i87
   %270 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  %271 = load i16, ptr %270, align 8, !tbaa !20
+  %271 = load i16, ptr %270, align 8, !tbaa !23
   br label %lexbor_avl_node_rotate_right.exit89
 
 lexbor_avl_node_rotate_right.exit89:              ; preds = %lexbor_avl_node_set_height.exit.i87, %269
@@ -764,18 +764,18 @@ lexbor_avl_node_rotate_right.exit89:              ; preds = %lexbor_avl_node_set
   %273 = tail call i16 @llvm.smax.i16(i16 %272, i16 %266)
   %274 = add i16 %273, 1
   %275 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  store i16 %274, ptr %275, align 8, !tbaa !20
+  store i16 %274, ptr %275, align 8, !tbaa !23
   br label %281
 
 276:                                              ; preds = %lexbor_avl_node_height.exit46
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %278 = load ptr, ptr %277, align 8, !tbaa !19
+  %278 = load ptr, ptr %277, align 8, !tbaa !21
   %279 = icmp eq ptr %278, null
   br i1 %279, label %280, label %281
 
 280:                                              ; preds = %276
   store ptr %0, ptr %1, align 8, !tbaa !16
-  %.pre = load ptr, ptr %277, align 8, !tbaa !19
+  %.pre = load ptr, ptr %277, align 8, !tbaa !21
   br label %281
 
 281:                                              ; preds = %276, %280, %lexbor_avl_node_rotate_right.exit89, %lexbor_avl_node_rotate_right.exit83, %lexbor_avl_node_rotate_right.exit77, %lexbor_avl_node_rotate_left.exit61, %lexbor_avl_node_rotate_left.exit55, %lexbor_avl_node_rotate_left.exit
@@ -806,7 +806,7 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %12, label %.preheader.i
+  br i1 %.not.i, label %12, label %.preheader.i, !llvm.loop !24
 
 12:                                               ; preds = %.preheader.i
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
@@ -821,9 +821,9 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %.not66.i = icmp eq ptr %19, null
   %..i = select i1 %.not66.i, ptr %.0.i, ptr %19
-  %20 = load ptr, ptr %16, align 8, !tbaa !19
+  %20 = load ptr, ptr %16, align 8, !tbaa !21
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  store ptr %20, ptr %21, align 8, !tbaa !19
+  store ptr %20, ptr %21, align 8, !tbaa !21
   %22 = getelementptr inbounds nuw i8, ptr %.030, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !18
   store ptr %23, ptr %13, align 8, !tbaa !18
@@ -832,11 +832,11 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !19
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr null, ptr %27, align 8, !tbaa !18
-  %28 = load ptr, ptr %16, align 8, !tbaa !19
-  store ptr %28, ptr %25, align 8, !tbaa !19
+  %28 = load ptr, ptr %16, align 8, !tbaa !21
+  store ptr %28, ptr %25, align 8, !tbaa !21
   %29 = getelementptr inbounds nuw i8, ptr %.030, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !18
   store ptr %30, ptr %13, align 8, !tbaa !18
@@ -848,7 +848,7 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store ptr %.0.i, ptr %34, align 8, !tbaa !19
+  store ptr %.0.i, ptr %34, align 8, !tbaa !21
   br label %35
 
 35:                                               ; preds = %33, %24
@@ -859,12 +859,12 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
   %.sink72.i = phi ptr [ %23, %17 ], [ %30, %35 ]
   %.0.ph.i = phi ptr [ %..i, %17 ], [ %.0.i, %35 ]
   %36 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 40
-  store ptr %.0.i, ptr %36, align 8, !tbaa !19
+  store ptr %.0.i, ptr %36, align 8, !tbaa !21
   br label %37
 
 37:                                               ; preds = %.sink.split.i, %35, %17
   %.0.i21 = phi ptr [ %..i, %17 ], [ %.0.i, %35 ], [ %.0.ph.i, %.sink.split.i ]
-  %38 = load ptr, ptr %16, align 8, !tbaa !19
+  %38 = load ptr, ptr %16, align 8, !tbaa !21
   %.not68.i = icmp eq ptr %38, null
   br i1 %.not68.i, label %46, label %39
 
@@ -891,7 +891,7 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %48, align 8, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %.030, i64 40
-  %50 = load ptr, ptr %49, align 8, !tbaa !19
+  %50 = load ptr, ptr %49, align 8, !tbaa !21
   %.not62.i = icmp eq ptr %50, null
   br i1 %.not62.i, label %60, label %51
 
@@ -925,7 +925,7 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 40
-  store ptr %50, ptr %66, align 8, !tbaa !19
+  store ptr %50, ptr %66, align 8, !tbaa !21
   br label %67
 
 67:                                               ; preds = %65, %63, %46, %44, %43
@@ -937,7 +937,7 @@ define hidden ptr @lexbor_avl_remove(ptr noundef captures(none) %0, ptr noundef 
   %.271.i = phi ptr [ %68, %.lr.ph.i ], [ %.1.i, %67 ]
   %68 = tail call fastcc ptr @lexbor_avl_node_balance(ptr noundef %.271.i, ptr noundef nonnull %1)
   %.not69.i = icmp eq ptr %68, null
-  br i1 %.not69.i, label %lexbor_avl_rotate_for_delete.exit, label %.lr.ph.i
+  br i1 %.not69.i, label %lexbor_avl_rotate_for_delete.exit, label %.lr.ph.i, !llvm.loop !25
 
 lexbor_avl_rotate_for_delete.exit:                ; preds = %.lr.ph.i, %67
   %69 = getelementptr inbounds nuw i8, ptr %.030, i64 16
@@ -952,7 +952,7 @@ lexbor_avl_rotate_for_delete.exit:                ; preds = %.lr.ph.i, %67
   %.1.in = getelementptr inbounds nuw i8, ptr %.030, i64 %.1.in.v
   %.0 = load ptr, ptr %.1.in, align 8, !tbaa !16
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %73, %3, %lexbor_avl_rotate_for_delete.exit
   %.017 = phi ptr [ %70, %lexbor_avl_rotate_for_delete.exit ], [ null, %3 ], [ null, %73 ]
@@ -971,7 +971,7 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
   %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %.not.i = icmp eq ptr %8, null
-  br i1 %.not.i, label %9, label %.preheader.i
+  br i1 %.not.i, label %9, label %.preheader.i, !llvm.loop !24
 
 9:                                                ; preds = %.preheader.i
   %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
@@ -986,9 +986,9 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   %.not66.i = icmp eq ptr %16, null
   %..i = select i1 %.not66.i, ptr %.0.i, ptr %16
-  %17 = load ptr, ptr %13, align 8, !tbaa !19
+  %17 = load ptr, ptr %13, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  store ptr %17, ptr %18, align 8, !tbaa !19
+  store ptr %17, ptr %18, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !18
   store ptr %20, ptr %10, align 8, !tbaa !18
@@ -997,11 +997,11 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store ptr null, ptr %24, align 8, !tbaa !18
-  %25 = load ptr, ptr %13, align 8, !tbaa !19
-  store ptr %25, ptr %22, align 8, !tbaa !19
+  %25 = load ptr, ptr %13, align 8, !tbaa !21
+  store ptr %25, ptr %22, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !18
   store ptr %27, ptr %10, align 8, !tbaa !18
@@ -1013,7 +1013,7 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store ptr %.0.i, ptr %31, align 8, !tbaa !19
+  store ptr %.0.i, ptr %31, align 8, !tbaa !21
   br label %32
 
 32:                                               ; preds = %30, %21
@@ -1024,12 +1024,12 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
   %.sink72.i = phi ptr [ %20, %14 ], [ %27, %32 ]
   %.0.ph.i = phi ptr [ %..i, %14 ], [ %.0.i, %32 ]
   %33 = getelementptr inbounds nuw i8, ptr %.sink72.i, i64 40
-  store ptr %.0.i, ptr %33, align 8, !tbaa !19
+  store ptr %.0.i, ptr %33, align 8, !tbaa !21
   br label %34
 
 34:                                               ; preds = %.sink.split.i, %32, %14
   %.0.i8 = phi ptr [ %..i, %14 ], [ %.0.i, %32 ], [ %.0.ph.i, %.sink.split.i ]
-  %35 = load ptr, ptr %13, align 8, !tbaa !19
+  %35 = load ptr, ptr %13, align 8, !tbaa !21
   %.not68.i = icmp eq ptr %35, null
   br i1 %.not68.i, label %43, label %36
 
@@ -1056,7 +1056,7 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %45, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !19
+  %47 = load ptr, ptr %46, align 8, !tbaa !21
   %.not62.i = icmp eq ptr %47, null
   br i1 %.not62.i, label %57, label %48
 
@@ -1090,7 +1090,7 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
 
 62:                                               ; preds = %60
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  store ptr %47, ptr %63, align 8, !tbaa !19
+  store ptr %47, ptr %63, align 8, !tbaa !21
   br label %64
 
 64:                                               ; preds = %62, %60, %43, %41, %40
@@ -1102,7 +1102,7 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
   %.271.i = phi ptr [ %65, %.lr.ph.i ], [ %.1.i, %64 ]
   %65 = tail call fastcc ptr @lexbor_avl_node_balance(ptr noundef %.271.i, ptr noundef %1)
   %.not69.i = icmp eq ptr %65, null
-  br i1 %.not69.i, label %lexbor_avl_rotate_for_delete.exit, label %.lr.ph.i
+  br i1 %.not69.i, label %lexbor_avl_rotate_for_delete.exit, label %.lr.ph.i, !llvm.loop !25
 
 lexbor_avl_rotate_for_delete.exit:                ; preds = %.lr.ph.i, %64
   %66 = load ptr, ptr %0, align 8, !tbaa !10
@@ -1127,7 +1127,7 @@ define hidden noundef ptr @lexbor_avl_search(ptr noundef readnone captures(none)
   %.1.in = getelementptr inbounds nuw i8, ptr %.0812, i64 %.1.in.v
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !16
   %.not = icmp eq ptr %.1, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %3
   %.08.lcssa = phi ptr [ null, %3 ], [ null, %6 ], [ %.0812, %.lr.ph ]
@@ -1149,130 +1149,121 @@ define hidden i32 @lexbor_avl_foreach(ptr noundef %0, ptr noundef %1, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %.054, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %.preheader93, label %.preheader95
+  br i1 %.not, label %.preheader93, label %.preheader95, !llvm.loop !28
 
 .preheader93:                                     ; preds = %.preheader95
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %.loopexit.outer
+  br label %12
 
-.loopexit.outer:                                  ; preds = %.loopexit.outer.backedge, %.preheader93
-  %.057.ph = phi i1 [ false, %.preheader93 ], [ %.057.ph.be, %.loopexit.outer.backedge ]
-  %.155.ph = phi ptr [ %.054, %.preheader93 ], [ %.155.ph.be, %.loopexit.outer.backedge ]
-  %.0.ph = phi ptr [ %7, %.preheader93 ], [ %.0.ph.be, %.loopexit.outer.backedge ]
-  br label %.loopexit
+12:                                               ; preds = %.preheader93, %.loopexit
+  %.057 = phi i1 [ %.158, %.loopexit ], [ false, %.preheader93 ]
+  %.155 = phi ptr [ %.3, %.loopexit ], [ %.054, %.preheader93 ]
+  %.0 = phi ptr [ %.2, %.loopexit ], [ %7, %.preheader93 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.155, i64 40
+  %14 = load ptr, ptr %13, align 8, !tbaa !21
+  br i1 %.057, label %.thread86, label %15
 
-.loopexit:                                        ; preds = %.loopexit.backedge, %.loopexit.outer
-  %.057 = phi i1 [ %.057.ph, %.loopexit.outer ], [ false, %.loopexit.backedge ]
-  %.155 = phi ptr [ %.155.ph, %.loopexit.outer ], [ %.155.be, %.loopexit.backedge ]
-  %12 = getelementptr inbounds nuw i8, ptr %.155, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !19
-  br i1 %.057, label %.thread86, label %14
+15:                                               ; preds = %12
+  %16 = icmp eq ptr %.155, %.0
+  br i1 %16, label %.thread, label %17
 
-14:                                               ; preds = %.loopexit
-  %15 = icmp eq ptr %.155, %.0.ph
-  br i1 %15, label %.thread, label %16
-
-16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %.not92 = icmp eq ptr %18, %.155
-  %19 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.155, ptr noundef %3) #7
-  %.not71 = icmp eq i32 %19, 0
-  br i1 %.not71, label %28, label %.loopexit94
-
-.thread:                                          ; preds = %14
+17:                                               ; preds = %15
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %.not92 = icmp eq ptr %19, %.155
   %20 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.155, ptr noundef %3) #7
-  %.not7182 = icmp eq i32 %20, 0
-  br i1 %.not7182, label %21, label %.loopexit94
+  %.not71 = icmp eq i32 %20, 0
+  br i1 %.not71, label %29, label %.loopexit94
 
-21:                                               ; preds = %.thread
-  %22 = load ptr, ptr %1, align 8, !tbaa !16
-  %.not79 = icmp eq ptr %22, %.155
-  br i1 %.not79, label %.loopexit96, label %23
+.thread:                                          ; preds = %15
+  %21 = tail call i32 %2(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.155, ptr noundef %3) #7
+  %.not7182 = icmp eq i32 %21, 0
+  br i1 %.not7182, label %22, label %.loopexit94
 
-23:                                               ; preds = %21
-  %24 = icmp eq ptr %22, null
-  br i1 %24, label %.loopexit94, label %25
+22:                                               ; preds = %.thread
+  %23 = load ptr, ptr %1, align 8, !tbaa !16
+  %.not79 = icmp eq ptr %23, %.155
+  br i1 %.not79, label %42, label %24
 
-25:                                               ; preds = %23
-  %26 = load ptr, ptr %11, align 8, !tbaa !4
-  %27 = icmp eq ptr %26, %22
-  br i1 %27, label %.loopexit96, label %.loopexit.outer.backedge
+24:                                               ; preds = %22
+  %25 = icmp eq ptr %23, null
+  br i1 %25, label %.loopexit94, label %26
 
-28:                                               ; preds = %16
-  %29 = load ptr, ptr %17, align 8, !tbaa !17
-  %.not72 = icmp eq ptr %29, %.155
-  br i1 %.not72, label %.loopexit96, label %30
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %11, align 8, !tbaa !4
+  %28 = icmp eq ptr %27, %23
+  br i1 %28, label %42, label %.loopexit
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !18
-  %.not73 = icmp eq ptr %32, %.155
-  br i1 %.not73, label %.loopexit96, label %33
+29:                                               ; preds = %17
+  %30 = load ptr, ptr %18, align 8, !tbaa !17
+  %.not72 = icmp eq ptr %30, %.155
+  br i1 %.not72, label %42, label %31
 
-33:                                               ; preds = %30
-  br i1 %.not92, label %34, label %38
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
+  %.not73 = icmp eq ptr %33, %.155
+  br i1 %.not73, label %42, label %34
 
-34:                                               ; preds = %33
-  %.not77 = icmp eq ptr %29, null
-  br i1 %.not77, label %.loopexit.backedge, label %35
-
-.loopexit.backedge:                               ; preds = %34, %35, %39
-  %.155.be = phi ptr [ %32, %39 ], [ %13, %35 ], [ %13, %34 ]
-  br label %.loopexit
+34:                                               ; preds = %31
+  br i1 %.not92, label %35, label %39
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %37 = load ptr, ptr %36, align 8, !tbaa !18
-  %.not78 = icmp eq ptr %37, null
-  br i1 %.not78, label %.loopexit.backedge, label %.loopexit96
+  %.not77 = icmp eq ptr %30, null
+  br i1 %.not77, label %.loopexit, label %36
 
-38:                                               ; preds = %33
-  %.not75 = icmp eq ptr %32, null
-  br i1 %.not75, label %.loopexit96, label %39
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %38 = load ptr, ptr %37, align 8, !tbaa !18
+  %.not78 = icmp eq ptr %38, null
+  br i1 %.not78, label %.loopexit, label %42
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %11, align 8, !tbaa !4
-  %.not76 = icmp eq ptr %32, %40
-  br i1 %.not76, label %.loopexit96, label %.loopexit.backedge
+39:                                               ; preds = %34
+  %.not75 = icmp eq ptr %33, null
+  br i1 %.not75, label %42, label %40
 
-.loopexit96:                                      ; preds = %38, %35, %39, %30, %28, %25, %21
-  %.256 = phi ptr [ %.155, %21 ], [ %22, %25 ], [ %13, %38 ], [ %29, %35 ], [ %.155, %28 ], [ %.155, %30 ], [ %32, %39 ]
-  %.1 = phi ptr [ %.0.ph, %21 ], [ %22, %25 ], [ %.0.ph, %28 ], [ %.0.ph, %30 ], [ %.0.ph, %39 ], [ %.0.ph, %35 ], [ %.0.ph, %38 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.256, i64 32
-  %42 = load ptr, ptr %41, align 8, !tbaa !18
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.thread86, label %.preheader
+40:                                               ; preds = %39
+  %41 = load ptr, ptr %11, align 8, !tbaa !4
+  %.not76 = icmp eq ptr %33, %41
+  br i1 %.not76, label %42, label %.loopexit
 
-.preheader:                                       ; preds = %.loopexit96, %.preheader
-  %.4 = phi ptr [ %45, %.preheader ], [ %42, %.loopexit96 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.4, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !17
-  %.not80 = icmp eq ptr %45, null
-  br i1 %.not80, label %.loopexit.outer.backedge, label %.preheader
+42:                                               ; preds = %39, %36, %26, %22, %40, %31, %29
+  %.256 = phi ptr [ %.155, %22 ], [ %33, %40 ], [ %.155, %31 ], [ %.155, %29 ], [ %23, %26 ], [ %30, %36 ], [ %14, %39 ]
+  %.1 = phi ptr [ %.0, %22 ], [ %.0, %40 ], [ %.0, %31 ], [ %.0, %29 ], [ %23, %26 ], [ %.0, %36 ], [ %.0, %39 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.256, i64 32
+  %44 = load ptr, ptr %43, align 8, !tbaa !18
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %.thread86, label %.preheader
 
-.thread86:                                        ; preds = %.loopexit, %.loopexit96
-  %.191 = phi ptr [ %.1, %.loopexit96 ], [ %.0.ph, %.loopexit ]
-  %.25690 = phi ptr [ %.256, %.loopexit96 ], [ %.155, %.loopexit ]
-  %46 = getelementptr inbounds nuw i8, ptr %.191, i64 40
-  %47 = load ptr, ptr %46, align 8, !tbaa !19
-  %48 = icmp eq ptr %13, %47
-  br i1 %48, label %.loopexit94, label %49
+.preheader:                                       ; preds = %42, %.preheader
+  %.4 = phi ptr [ %47, %.preheader ], [ %44, %42 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.4, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !17
+  %.not80 = icmp eq ptr %47, null
+  br i1 %.not80, label %.loopexit, label %.preheader, !llvm.loop !29
 
-49:                                               ; preds = %.thread86
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !17
-  %52 = icmp ne ptr %.25690, %51
-  br label %.loopexit.outer.backedge
+.thread86:                                        ; preds = %12, %42
+  %.191 = phi ptr [ %.1, %42 ], [ %.0, %12 ]
+  %.25690 = phi ptr [ %.256, %42 ], [ %.155, %12 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.191, i64 40
+  %49 = load ptr, ptr %48, align 8, !tbaa !21
+  %50 = icmp eq ptr %14, %49
+  br i1 %50, label %.loopexit94, label %51
 
-.loopexit.outer.backedge:                         ; preds = %.preheader, %49, %25
-  %.057.ph.be = phi i1 [ false, %25 ], [ %52, %49 ], [ false, %.preheader ]
-  %.155.ph.be = phi ptr [ %22, %25 ], [ %13, %49 ], [ %.4, %.preheader ]
-  %.0.ph.be = phi ptr [ %22, %25 ], [ %.191, %49 ], [ %.1, %.preheader ]
-  br label %.loopexit.outer
+51:                                               ; preds = %.thread86
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !17
+  %54 = icmp ne ptr %.25690, %53
+  br label %.loopexit
 
-.loopexit94:                                      ; preds = %16, %.thread, %.thread86, %23, %4, %6
-  %.053 = phi i32 [ 9, %6 ], [ 9, %4 ], [ %19, %16 ], [ 0, %23 ], [ 0, %.thread86 ], [ %20, %.thread ]
+.loopexit:                                        ; preds = %.preheader, %35, %36, %26, %40, %51
+  %.158 = phi i1 [ %54, %51 ], [ false, %40 ], [ false, %26 ], [ false, %36 ], [ false, %35 ], [ false, %.preheader ]
+  %.3 = phi ptr [ %14, %51 ], [ %33, %40 ], [ %23, %26 ], [ %14, %36 ], [ %14, %35 ], [ %.4, %.preheader ]
+  %.2 = phi ptr [ %.191, %51 ], [ %.0, %40 ], [ %23, %26 ], [ %.0, %36 ], [ %.0, %35 ], [ %.1, %.preheader ]
+  br label %12, !llvm.loop !30
+
+.loopexit94:                                      ; preds = %.thread, %.thread86, %24, %17, %4, %6
+  %.053 = phi i32 [ 9, %6 ], [ 9, %4 ], [ %21, %.thread ], [ 0, %.thread86 ], [ 0, %24 ], [ %20, %17 ]
   ret i32 %.053
 }
 
@@ -1332,5 +1323,15 @@ attributes #7 = { nounwind }
 !16 = !{!9, !9, i64 0}
 !17 = !{!12, !9, i64 24}
 !18 = !{!12, !9, i64 32}
-!19 = !{!12, !9, i64 40}
-!20 = !{!12, !14, i64 8}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!12, !9, i64 40}
+!22 = distinct !{!22, !20}
+!23 = !{!12, !14, i64 8}
+!24 = distinct !{!24, !20}
+!25 = distinct !{!25, !20}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20}

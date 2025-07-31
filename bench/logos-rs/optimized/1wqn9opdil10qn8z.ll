@@ -324,7 +324,7 @@ define void @"_ZN91_$LT$logos_codegen..generator..tables..TableStack$u20$as$u20$
   call void @"_ZN115_$LT$proc_macro2..imp..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro2..TokenTree$GT$$GT$6extend17h1816b7e32e261676E"(ptr align 8 %1, ptr nonnull align 8 %11)
   %56 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hddc491fd096d4d21E"(ptr nonnull align 8 %12)
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %.loopexit, label %26
+  br i1 %57, label %.loopexit, label %26, !llvm.loop !3
 
 58:                                               ; preds = %59, %53
   invoke void @"_ZN67_$LT$proc_macro2..Literal$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8a2fba262de632bcE"(ptr nonnull align 8 %4, ptr nonnull align 8 %6)
@@ -343,7 +343,7 @@ define void @"_ZN91_$LT$logos_codegen..generator..tables..TableStack$u20$as$u20$
 62:                                               ; preds = %58
   %63 = add i64 %.sroa.09.0, 1
   invoke void @"_ZN4core3ptr76drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..Literal$GT$$GT$17h4360b92bc3432b66E"(ptr nonnull align 8 %4)
-          to label %45 unwind label %47
+          to label %45 unwind label %47, !llvm.loop !5
 
 64:                                               ; preds = %60, %46, %37, %30
   %65 = landingpad { ptr, i32 }
@@ -463,3 +463,6 @@ attributes #10 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

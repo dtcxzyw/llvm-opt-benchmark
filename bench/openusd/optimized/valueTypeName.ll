@@ -258,7 +258,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeN
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i, i64 8
   %.not7.i = icmp eq ptr %9, %.val3
   %or.cond = select i1 %8, i1 true, i1 %.not7.i
-  br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_T0_.exit, label %.lr.ph.i
+  br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_T0_.exit, label %.lr.ph.i, !llvm.loop !4
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_T0_.exit: ; preds = %.noexc, %2
   %.lcssa.i = phi i1 [ false, %2 ], [ %8, %.noexc ]
@@ -315,7 +315,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit: ; preds = %8, %2
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.03.06.i, i64 8
   %.not9.i = icmp eq ptr %19, %.val2
   %or.cond = select i1 %18, i1 true, i1 %.not9.i
-  br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EES3_EEbRKT_T0_.exit, label %.lr.ph.i
+  br i1 %or.cond, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EES3_EEbRKT_T0_.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_19IsValueInISt6vectorINS_7TfTokenESaIS3_EES3_EEbRKT_T0_.exit: ; preds = %.lr.ph.i, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit
   %.lcssa.i = phi i1 [ false, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit ], [ %18, %.lr.ph.i ]
@@ -428,7 +428,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %31, %7
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEC2ERKS3_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEC2ERKS3_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEC2ERKS3_.exit: ; preds = %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i, %.thread
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.thread ], [ %32, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7TfTokenEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i ]
@@ -439,9 +439,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EEC2ERKS3_.exit: 
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_16SdfValueTypeNameE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !noalias !6
+  %3 = load ptr, ptr %1, align 8, !noalias !9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !noalias !6
+  %5 = load i64, ptr %4, align 8, !noalias !9
   %6 = and i64 %5, 7
   %.not.i.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv.exit, label %7
@@ -449,7 +449,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 7:                                                ; preds = %2
   %8 = and i64 %5, -8
   %9 = inttoptr i64 %8 to ptr
-  %10 = atomicrmw add ptr %9, i32 2 monotonic, align 4, !noalias !6
+  %10 = atomicrmw add ptr %9, i32 2 monotonic, align 4, !noalias !9
   %11 = and i32 %10, 1
   %.not1.i.i.i = icmp eq i32 %11, 0
   %12 = select i1 %.not1.i.i.i, i64 %8, i64 %5
@@ -547,7 +547,10 @@ attributes #16 = { builtin allocsize(0) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv: argument 0"}
-!8 = distinct !{!8, !"_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !8, !5}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv: argument 0"}
+!11 = distinct !{!11, !"_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv"}

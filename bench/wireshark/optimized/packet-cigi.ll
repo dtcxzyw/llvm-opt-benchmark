@@ -6747,7 +6747,7 @@ define internal i32 @cigi3_3_add_symbol_line_definition(ptr noundef %0, ptr read
   %38 = add nuw i32 %.04048, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %4
   %.039 = phi i32 [ 0, %4 ], [ 14, %.preheader ], [ %38, %.lr.ph ]
@@ -8611,7 +8611,7 @@ define internal range(i32 20, 0) i32 @cigi4_add_symbol_circle_definition(ptr nou
   %58 = add nuw i32 %.075, 24
   %59 = add nuw nsw i32 %.06274, 1
   %exitcond.not = icmp eq i32 %59, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 20, %4 ], [ %58, %.lr.ph ]
@@ -8671,7 +8671,7 @@ define internal range(i32 8, 0) i32 @cigi4_add_symbol_polygon_definition(ptr nou
   %39 = add nuw i32 %.051, 8
   %40 = add nuw nsw i32 %.04250, 1
   %exitcond.not = icmp eq i32 %40, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 20, %4 ], [ %39, %.lr.ph ]
@@ -8914,7 +8914,7 @@ define internal range(i32 40, 13) i32 @cigi4_add_symbol_circle_textured(ptr noun
   %76 = add nuw i32 %.093, 40
   %77 = add nuw nsw i32 %.07792, 1
   %exitcond.not = icmp eq i32 %77, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 12, %4 ], [ %76, %.lr.ph ]
@@ -8982,7 +8982,7 @@ define internal range(i32 12, 0) i32 @cigi4_add_symbol_polygon_textured(ptr noun
   %46 = add nuw nsw i32 %.057, 16
   %47 = add nuw nsw i32 %.04756, 1
   %exitcond.not = icmp eq i32 %47, %18
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 12, %4 ], [ %46, %.lr.ph ]
@@ -10364,7 +10364,7 @@ proto_item_set_hidden.exit97:                     ; preds = %proto_item_set_hidd
   %210 = add i32 %.0145.i, %199
   %211 = sub i32 %210, %.0147.i
   %.not.i98 = icmp eq i32 %211, %.0148.i
-  br i1 %.not.i98, label %103, label %.thread.i
+  br i1 %.not.i98, label %103, label %.thread.i, !llvm.loop !14
 
 .thread.i:                                        ; preds = %209
   %212 = tail call ptr @proto_tree_add_expert(ptr noundef %188, ptr noundef %1, ptr noundef nonnull @ei_cigi_invalid_len, ptr noundef %0, i32 noundef %.0147.i, i32 noundef %211)
@@ -10693,7 +10693,7 @@ proto_item_set_hidden.exit97:                     ; preds = %proto_item_set_hidd
   %319 = add i32 %.0139.i, %308
   %320 = sub i32 %319, %.0141.i
   %.not.i102 = icmp eq i32 %320, %.0142.i
-  br i1 %.not.i102, label %215, label %.thread.i103
+  br i1 %.not.i102, label %215, label %.thread.i103, !llvm.loop !15
 
 .thread.i103:                                     ; preds = %318
   %321 = tail call ptr @proto_tree_add_expert(ptr noundef %297, ptr noundef %1, ptr noundef nonnull @ei_cigi_invalid_len, ptr noundef %0, i32 noundef %.0141.i, i32 noundef %320)
@@ -10764,7 +10764,7 @@ proto_item_set_hidden.exit97:                     ; preds = %proto_item_set_hidd
   %359 = tail call ptr @proto_tree_add_item(ptr noundef %342, i32 noundef %358, ptr noundef %0, i32 noundef %.1.i, i32 noundef %.045.i, i32 noundef 0)
   %360 = add i32 %.1.i, %.045.i
   %361 = icmp slt i32 %360, %323
-  br i1 %361, label %.lr.ph.i, label %cigi3_add_tree.exit, !llvm.loop !13
+  br i1 %361, label %.lr.ph.i, label %cigi3_add_tree.exit, !llvm.loop !16
 
 cigi3_add_tree.exit:                              ; preds = %215, %103, %357, %.lr.ph.i, %322, %.thread.i103, %302, %.thread.i, %196, %100, %36
   ret void
@@ -11779,7 +11779,7 @@ cigi2_add_image_generator_message.exit:           ; preds = %770, %767, %779, %7
   %.1 = phi i32 [ %780, %779 ], [ %83, %64 ], [ %126, %84 ], [ %145, %127 ], [ %185, %146 ], [ %210, %186 ], [ %246, %211 ], [ %289, %247 ], [ %329, %290 ], [ %361, %330 ], [ %374, %362 ], [ %431, %375 ], [ %477, %432 ], [ %525, %478 ], [ %570, %526 ], [ %583, %571 ], [ %605, %584 ], [ %630, %606 ], [ %640, %631 ], [ %659, %641 ], [ %672, %660 ], [ %696, %673 ], [ %720, %697 ], [ %741, %721 ], [ %754, %742 ], [ %766, %755 ], [ %778, %770 ], [ -1, %767 ]
   %783 = sub i32 %.1, %.0158
   %.not = icmp eq i32 %783, %.0159
-  br i1 %.not, label %5, label %784, !llvm.loop !14
+  br i1 %.not, label %5, label %784, !llvm.loop !17
 
 784:                                              ; preds = %cigi2_add_image_generator_message.exit
   %785 = tail call ptr @proto_tree_add_expert(ptr noundef %52, ptr noundef %1, ptr noundef nonnull @ei_cigi_invalid_len, ptr noundef %0, i32 noundef %.0158, i32 noundef %783)
@@ -11838,12 +11838,15 @@ attributes #3 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

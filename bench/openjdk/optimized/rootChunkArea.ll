@@ -513,16 +513,16 @@ define hidden noundef ptr @_ZN9metaspace13RootChunkArea5mergeEPNS_9MetachunkEPNS
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i8, ptr %45, align 8
   %.not = icmp eq i8 %46, %132
-  br i1 %.not, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !8
+  br i1 %.not, label %.lr.ph, label %.._crit_edge.loopexit_crit_edge, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %33
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 25
   %48 = load i8, ptr %47, align 1
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %.lr.ph76, label %._crit_edge, !llvm.loop !8
+  br i1 %49, label %.lr.ph76, label %._crit_edge, !llvm.loop !9
 
 .._crit_edge.loopexit_crit_edge:                  ; preds = %33
-  br label %._crit_edge, !llvm.loop !8
+  br label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph.preheader, %.._crit_edge.loopexit_crit_edge, %14
   %.048.lcssa = phi ptr [ null, %14 ], [ %.045., %.._crit_edge.loopexit_crit_edge ], [ null, %.lr.ph.preheader ], [ %.045., %.lr.ph ]
@@ -679,7 +679,7 @@ _ZN9metaspace19FreeChunkListVector6removeEPNS_9MetachunkE.exit: ; preds = %89, %
   tail call void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr noundef nonnull align 8 dereferenceable(72) %.045., i64 noundef %.0) #8
   %132 = load i8, ptr %99, align 8
   %133 = icmp eq i8 %132, 0
-  br i1 %133, label %.thread, label %33, !llvm.loop !8
+  br i1 %133, label %.thread, label %33, !llvm.loop !9
 
 .thread:                                          ; preds = %123, %51, %._crit_edge
   %.14957 = phi ptr [ %.048.lcssa, %._crit_edge ], [ %.048.lcssa, %51 ], [ %.045., %123 ]
@@ -959,7 +959,7 @@ define hidden void @_ZNK9metaspace13RootChunkArea8print_onEP12outputStream(ptr n
   %19 = getelementptr inbounds nuw i8, ptr %.018, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not17 = icmp eq ptr %20, null
-  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %.not17, label %.loopexit, label %.preheader, !llvm.loop !10
 
 21:                                               ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #8
@@ -1008,7 +1008,7 @@ define hidden void @_ZN9metaspace16RootChunkAreaLUTC2EPKP12MetaWordImplm(ptr nou
   %17 = load i32, ptr %4, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1070,7 +1070,7 @@ _ZN9metaspace13RootChunkAreaD2Ev.exit:            ; preds = %10, %_ZN9metaspace1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %10, label %._crit_edge, !llvm.loop !11
+  br i1 %27, label %10, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN9metaspace13RootChunkAreaD2Ev.exit, %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1133,7 +1133,7 @@ define hidden void @_ZNK9metaspace16RootChunkAreaLUT8print_onEP12outputStream(pt
   %27 = getelementptr inbounds nuw i8, ptr %.018.i, i64 64
   %28 = load ptr, ptr %27, align 8
   %.not17.i = icmp eq ptr %28, null
-  br i1 %.not17.i, label %_ZNK9metaspace13RootChunkArea8print_onEP12outputStream.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %.not17.i, label %_ZNK9metaspace13RootChunkArea8print_onEP12outputStream.exit, label %.preheader.i, !llvm.loop !10
 
 29:                                               ; preds = %7
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.16) #8
@@ -1145,7 +1145,7 @@ _ZNK9metaspace13RootChunkArea8print_onEP12outputStream.exit: ; preds = %26, %29
   %30 = load i32, ptr %3, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %7, label %._crit_edge, !llvm.loop !12
+  br i1 %32, label %7, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %_ZNK9metaspace13RootChunkArea8print_onEP12outputStream.exit, %2
   ret void
@@ -1204,10 +1204,11 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

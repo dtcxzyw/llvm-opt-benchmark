@@ -119,5 +119,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, argmem: rea
 !19 = !{!15, !10, i64 16}
 !20 = !{!10, !10, i64 0}
 !21 = !{!15, !10, i64 20}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"llvm.loop.estimated_trip_count"}

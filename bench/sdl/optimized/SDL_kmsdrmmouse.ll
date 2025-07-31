@@ -353,7 +353,7 @@ KMSDRM_RemoveCursorFromBO.exit:                   ; preds = %.lr.ph, %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr align 1 %65, i64 %61, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %62, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %62, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %62, %.preheader.i
   %68 = load ptr, ptr @KMSDRM_gbm_bo_write, align 8
@@ -626,6 +626,7 @@ attributes #7 = { nounwind allocsize(0,1) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

@@ -227,7 +227,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
 
 108:                                              ; preds = %.lr.ph.i
   %109 = icmp eq ptr %120, %.3
-  br i1 %109, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %109, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 110:                                              ; preds = %103
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 24
@@ -255,7 +255,7 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %119 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 24
   %120 = load ptr, ptr %119, align 8
   %.not.i = icmp eq ptr %120, null
-  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %108, !llvm.loop !8
+  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %108, !llvm.loop !9
 
 AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %116, %96
   store ptr %1, ptr %97, align 8
@@ -308,7 +308,7 @@ define hidden void @AccelGlyphCache_RemoveCellInfo(ptr noundef captures(none) %0
 
 6:                                                ; preds = %.lr.ph
   %7 = icmp eq ptr %18, %1
-  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %7, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -336,7 +336,7 @@ define hidden void @AccelGlyphCache_RemoveCellInfo(ptr noundef captures(none) %0
   %17 = getelementptr inbounds nuw i8, ptr %.01317, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.loopexit, label %6, !llvm.loop !8
+  br i1 %.not, label %.loopexit, label %6, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %14
   ret void
@@ -391,7 +391,7 @@ define hidden void @AccelGlyphCache_Invalidate(ptr noundef readonly captures(add
 
 14:                                               ; preds = %.lr.ph.i
   %15 = icmp eq ptr %26, %.019
-  br i1 %15, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %15, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -419,13 +419,13 @@ define hidden void @AccelGlyphCache_Invalidate(ptr noundef readonly captures(add
   %25 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %14, !llvm.loop !8
+  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %14, !llvm.loop !9
 
 AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %22, %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %.0 = load ptr, ptr %27, align 8
   %.not12 = icmp eq ptr %.0, null
-  br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %AccelGlyphCache_RemoveCellInfo.exit, %7, %1
   ret void
@@ -466,7 +466,7 @@ define hidden void @AccelGlyphCache_Free(ptr noundef captures(address_is_null) %
 
 16:                                               ; preds = %.lr.ph.i
   %17 = icmp eq ptr %28, %9
-  br i1 %17, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %17, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -494,7 +494,7 @@ define hidden void @AccelGlyphCache_Free(ptr noundef captures(address_is_null) %
   %27 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 24
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %16, !llvm.loop !8
+  br i1 %.not.i, label %AccelGlyphCache_RemoveCellInfo.exit, label %16, !llvm.loop !9
 
 AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %24, %.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -503,7 +503,7 @@ AccelGlyphCache_RemoveCellInfo.exit:              ; preds = %.lr.ph.i, %24, %.lr
   tail call void @free(ptr noundef %9) #9
   %31 = load ptr, ptr %0, align 8
   %.not15 = icmp eq ptr %31, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %AccelGlyphCache_RemoveCellInfo.exit, %7
   tail call void @free(ptr noundef nonnull %0) #9
@@ -535,7 +535,7 @@ define void @AccelGlyphCache_RemoveAllCellInfos(ptr noundef captures(address_is_
   %9 = load ptr, ptr %8, align 8
   store ptr null, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %.preheader, !llvm.loop !11
+  br i1 %.not, label %10, label %.preheader, !llvm.loop !12
 
 10:                                               ; preds = %.preheader
   store ptr null, ptr %4, align 8
@@ -562,7 +562,7 @@ define hidden noundef ptr @AccelGlyphCache_GetCellInfoForCache(ptr noundef reado
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %9, null
-  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %.not11, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %7, %.preheader, %2
   %.08 = phi ptr [ null, %2 ], [ null, %7 ], [ %.0, %.preheader ]
@@ -591,10 +591,11 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

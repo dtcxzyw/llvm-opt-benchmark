@@ -118,7 +118,7 @@ define noundef i32 @drot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   store <8 x double> %78, ptr %72, align 1, !tbaa !9
   %79 = add nuw nsw i64 %.1141.i.i, 8
   %80 = icmp samesign ult i64 %79, %26
-  br i1 %80, label %.lr.ph142.i.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %80, label %.lr.ph142.i.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph142.i.i, %.preheader.i.i
   %81 = and i64 %0, 7
@@ -163,7 +163,7 @@ define noundef i32 @drot_k(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr n
   %107 = add nsw i64 %.03236.i, %4
   %108 = add nuw nsw i64 %.037.i, 1
   %exitcond.not.i = icmp eq i64 %108, %0
-  br i1 %exitcond.not.i, label %rot_compute.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %rot_compute.exit, label %.lr.ph.i, !llvm.loop !14
 
 109:                                              ; preds = %14
   %110 = call i32 @blas_level1_thread(i32 noundef 16387, i64 noundef %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %8, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %9, i64 noundef 0, ptr noundef nonnull @rot_thread_function, i32 noundef %15) #7
@@ -183,16 +183,16 @@ declare i32 @blas_level1_thread(i32 noundef, i64 noundef, i64 noundef, i64 nound
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load i64, ptr %2, align 8, !tbaa !14
-  %4 = load ptr, ptr %0, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load i64, ptr %5, align 8, !tbaa !19
+  %6 = load i64, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load i64, ptr %9, align 8, !tbaa !21
+  %10 = load i64, ptr %9, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
   %13 = load double, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load double, ptr %14, align 8, !tbaa !3
@@ -287,7 +287,7 @@ define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(n
   store <8 x double> %77, ptr %71, align 1, !tbaa !9
   %78 = add nuw nsw i64 %.1141.i.i, 8
   %79 = icmp samesign ult i64 %78, %25
-  br i1 %79, label %.lr.ph142.i.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %79, label %.lr.ph142.i.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph142.i.i, %.preheader.i.i
   %80 = and i64 %3, 7
@@ -332,7 +332,7 @@ define internal noundef i32 @rot_thread_function(ptr noundef readonly captures(n
   %106 = add nsw i64 %.03236.i, %10
   %107 = add nuw nsw i64 %.037.i, 1
   %exitcond.not.i = icmp eq i64 %107, %3
-  br i1 %exitcond.not.i, label %rot_compute.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %rot_compute.exit, label %.lr.ph.i, !llvm.loop !14
 
 rot_compute.exit:                                 ; preds = %.lr.ph.i, %1, %._crit_edge.i.i, %81
   ret i32 0
@@ -374,16 +374,17 @@ attributes #7 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = !{!15, !17, i64 48}
-!15 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !17, i64 96, !16, i64 104, !17, i64 112, !16, i64 120, !8, i64 128}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = !{!"long", !5, i64 0}
-!18 = !{!15, !16, i64 0}
-!19 = !{!15, !17, i64 72}
-!20 = !{!15, !16, i64 8}
-!21 = !{!15, !17, i64 80}
-!22 = !{!15, !16, i64 32}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = !{!16, !18, i64 48}
+!16 = !{!"", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !18, i64 96, !17, i64 104, !18, i64 112, !17, i64 120, !8, i64 128}
+!17 = !{!"any pointer", !5, i64 0}
+!18 = !{!"long", !5, i64 0}
+!19 = !{!16, !17, i64 0}
+!20 = !{!16, !18, i64 72}
+!21 = !{!16, !17, i64 8}
+!22 = !{!16, !18, i64 80}
+!23 = !{!16, !17, i64 32}

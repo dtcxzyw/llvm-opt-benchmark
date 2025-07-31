@@ -271,7 +271,7 @@ define i64 @check_primary_key(ptr noundef readonly captures(none) %0) local_unna
   %103 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %104 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %98, i64 noundef %99, ptr noundef nonnull @.str.8, ptr noundef %100, i32 noundef %103, ptr noundef nonnull %102) #9
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
-  br i1 %exitcond102.not, label %._crit_edge92, label %96, !llvm.loop !7
+  br i1 %exitcond102.not, label %._crit_edge92, label %96, !llvm.loop !8
 
 ._crit_edge92:                                    ; preds = %96, %.thread
   %105 = call ptr @SPI_prepare(ptr noundef nonnull %4, i32 noundef %40, ptr noundef %.074) #9
@@ -390,7 +390,7 @@ define internal fastcc ptr @find_plan(ptr noundef nonnull %0, ptr noundef captur
 14:                                               ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %9, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread, label %9, !llvm.loop !9
 
 15:                                               ; preds = %9
   %16 = trunc nuw nsw i64 %indvars.iv to i32
@@ -689,7 +689,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 123:                                              ; preds = %120, %117
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond301.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count300
-  br i1 %exitcond301.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %exitcond301.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %161
   %indvars.iv = phi i64 [ %indvars.iv.next, %161 ], [ 0, %.lr.ph ]
@@ -767,7 +767,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
 161:                                              ; preds = %153, %156
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count300
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %161, %123
   %.0192.lcssa = phi i1 [ true, %123 ], [ %.2194, %161 ]
@@ -866,7 +866,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %209 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %203, i64 noundef %204, ptr noundef nonnull @.str.32, ptr noundef %206, ptr noundef nonnull %201, ptr noundef %180, ptr noundef nonnull %201, ptr noundef nonnull %208) #9
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count312
-  br i1 %exitcond313.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !12
+  br i1 %exitcond313.not, label %._crit_edge256, label %.lr.ph255, !llvm.loop !13
 
 ._crit_edge256:                                   ; preds = %200
   %strlen222 = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
@@ -894,7 +894,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %220 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %214, i64 noundef %215, ptr noundef nonnull @.str.37, ptr noundef %217, ptr noundef nonnull %219) #9
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %exitcond307.not = icmp eq i64 %indvars.iv.next303, %wide.trip.count306
-  br i1 %exitcond307.not, label %._crit_edge251, label %.lr.ph250, !llvm.loop !13
+  br i1 %exitcond307.not, label %._crit_edge251, label %.lr.ph250, !llvm.loop !14
 
 ._crit_edge251:                                   ; preds = %.lr.ph250
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %4)
@@ -918,7 +918,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %229 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %222, i64 noundef %223, ptr noundef nonnull @.str.8, ptr noundef %225, i32 noundef %228, ptr noundef nonnull %227) #9
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
   %exitcond319.not = icmp eq i64 %indvars.iv.next315, %wide.trip.count318
-  br i1 %exitcond319.not, label %._crit_edge261, label %.lr.ph260, !llvm.loop !14
+  br i1 %exitcond319.not, label %._crit_edge261, label %.lr.ph260, !llvm.loop !15
 
 ._crit_edge261:                                   ; preds = %.lr.ph260
   %230 = call ptr @SPI_prepare(ptr noundef nonnull %4, i32 noundef %74, ptr noundef %.0191) #9
@@ -954,7 +954,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next321, %wide.trip.count324
-  br i1 %exitcond325.not, label %._crit_edge266, label %172, !llvm.loop !15
+  br i1 %exitcond325.not, label %._crit_edge266, label %172, !llvm.loop !16
 
 ._crit_edge266:                                   ; preds = %242
   store i32 %48, ptr %97, align 8
@@ -1001,7 +1001,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 8
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %exitcond337.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count336
-  br i1 %exitcond337.not, label %._crit_edge270, label %.lr.ph269.split.us, !llvm.loop !16
+  br i1 %exitcond337.not, label %._crit_edge270, label %.lr.ph269.split.us, !llvm.loop !17
 
 269:                                              ; preds = %247
   %270 = call i32 @SPI_finish() #9
@@ -1057,7 +1057,7 @@ define i64 @check_foreign_key(ptr noundef readonly captures(none) %0) local_unna
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count336
-  br i1 %exitcond331.not, label %._crit_edge270, label %.lr.ph269.split, !llvm.loop !17
+  br i1 %exitcond331.not, label %._crit_edge270, label %.lr.ph269.split, !llvm.loop !18
 
 ._crit_edge270:                                   ; preds = %295, %266
   %298 = call i32 @SPI_finish() #9
@@ -1116,16 +1116,17 @@ attributes #12 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6, !10}
-!17 = distinct !{!17, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7, !11}
+!18 = distinct !{!18, !6, !7}

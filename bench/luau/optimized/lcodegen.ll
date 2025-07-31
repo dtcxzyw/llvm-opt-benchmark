@@ -81,7 +81,7 @@ _ZSt8_DestroyIPN4Luau7CodeGen23ProtoCompilationFailureES2_EvT_S4_RSaIT0_E.exit.i
 
 21:                                               ; preds = %_ZSt8_DestroyIPN4Luau7CodeGen23ProtoCompilationFailureES2_EvT_S4_RSaIT0_E.exit.i.i
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = ptrtoint ptr %23 to i64
   %25 = ptrtoint ptr %20 to i64
   %26 = sub i64 %24, %25
@@ -147,6 +147,7 @@ attributes #7 = { builtin nounwind }
 !21 = !{!"long", !7, i64 0}
 !22 = !{!18, !21, i64 8}
 !23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!14, !15, i64 16}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!14, !15, i64 16}

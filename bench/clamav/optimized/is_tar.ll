@@ -35,7 +35,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
   %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %17 = add nsw i32 %.014.i, -1
   %18 = icmp samesign ult i32 %.014.i, 2
-  br i1 %18, label %from_oct.exit, label %8
+  br i1 %18, label %from_oct.exit, label %8, !llvm.loop !11
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %21
   %.030.i = phi i32 [ %25, %21 ], [ 0, %.preheader.i ]
@@ -54,7 +54,7 @@ define range(i32 0, 3) i32 @is_tar(ptr noundef readonly captures(none) %0, i32 n
   %25 = or disjoint i32 %22, %24
   %26 = add nsw i32 %.11528.i, -1
   %27 = icmp sgt i32 %.11528.i, 1
-  br i1 %27, label %.lr.ph.i, label %from_oct.exit
+  br i1 %27, label %.lr.ph.i, label %from_oct.exit, !llvm.loop !13
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %.not19.i = icmp eq i8 %19, 0
@@ -83,7 +83,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %.01628, %37
   %39 = icmp samesign ugt i32 %.01727, 1
-  br i1 %39, label %33, label %.preheader
+  br i1 %39, label %33, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %33, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 8, %33 ]
@@ -94,7 +94,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %42 = zext i8 %41 to i32
   %43 = sub nsw i32 %.131, %42
   %44 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %44, label %.preheader, label %45
+  br i1 %44, label %.preheader, label %45, !llvm.loop !15
 
 45:                                               ; preds = %.preheader
   %46 = add i32 %43, 256
@@ -138,3 +138,8 @@ attributes #4 = { nounwind willreturn memory(read) }
 !8 = !{!6, !6, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !6, i64 0}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !12}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !12}

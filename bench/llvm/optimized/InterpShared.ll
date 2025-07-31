@@ -166,13 +166,13 @@ _ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load i16, ptr %73, align 8
   %75 = icmp eq i16 %74, 95
-  br i1 %75, label %_ZNK5clang22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %75, label %_ZNK5clang22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit, label %.lr.ph.i.i, !llvm.loop !29
 
 _ZNK5clang22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit: ; preds = %.lr.ph.i.i, %65
   %.sroa.038.1 = phi ptr [ %.sroa.038.0, %65 ], [ %71, %.lr.ph.i.i ]
   %76 = phi ptr [ %66, %65 ], [ %72, %.lr.ph.i.i ]
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 36
-  %78 = load i32, ptr %77, align 4, !tbaa !29
+  %78 = load i32, ptr %77, align 4, !tbaa !30
   %.not24.not = icmp eq i32 %78, 0
   br i1 %.not24.not, label %79, label %.lr.ph
 
@@ -207,7 +207,7 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i:          ; preds = %.lr.ph.i.i.i.i.preh
 
 .lr.ph:                                           ; preds = %_ZNK5clang22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit
   %94 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %95 = load ptr, ptr %94, align 8, !tbaa !39
+  %95 = load ptr, ptr %94, align 8, !tbaa !40
   %96 = zext i32 %78 to i64
   %.idx = shl nuw nsw i64 %96, 2
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx
@@ -216,7 +216,7 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i:          ; preds = %.lr.ph.i.i.i.i.preh
 
 99:                                               ; preds = %.lr.ph, %117
   %.02351 = phi ptr [ %95, %.lr.ph ], [ %118, %117 ]
-  %100 = load i32, ptr %.02351, align 4, !tbaa !40
+  %100 = load i32, ptr %.02351, align 4, !tbaa !41
   %101 = and i32 %100, 1073741823
   %102 = add nsw i32 %101, -1
   %103 = shl i32 %100, 1
@@ -242,11 +242,11 @@ _ZN4llvm9BitVector10init_wordsEb.exit.i:          ; preds = %.lr.ph.i.i.i.i.preh
 117:                                              ; preds = %99, %108
   %118 = getelementptr inbounds nuw i8, ptr %.02351, i64 4
   %.not25 = icmp eq ptr %118, %97
-  br i1 %.not25, label %_ZN4llvm9BitVector3setEv.exit, label %99
+  br i1 %.not25, label %_ZN4llvm9BitVector3setEv.exit, label %99, !llvm.loop !42
 
 _ZN4llvm9BitVector3setEv.exit:                    ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.038.1, i64 8
-  br label %50
+  br label %50, !llvm.loop !43
 
 _ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.thread: ; preds = %58, %_ZN5clangneENS_22specific_attr_iteratorINS_11NonNullAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit, %63, %56, %_ZN4llvm9BitVector10init_wordsEb.exit.i, %86, %3
   ret void
@@ -292,18 +292,21 @@ attributes #3 = { nounwind }
 !23 = !{!21, !21, i64 0}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 _ZTSN5clang4AttrE", !5, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = !{!30, !8, i64 36}
-!30 = !{!"_ZTSN5clang11NonNullAttrE", !31, i64 0, !8, i64 36, !38, i64 40}
-!31 = !{!"_ZTSN5clang20InheritableParamAttrE", !32, i64 0}
-!32 = !{!"_ZTSN5clang15InheritableAttrE", !33, i64 0}
-!33 = !{!"_ZTSN5clang4AttrE", !34, i64 0, !8, i64 32, !8, i64 34, !8, i64 34, !8, i64 34, !8, i64 34, !8, i64 34}
-!34 = !{!"_ZTSN5clang19AttributeCommonInfoE", !35, i64 0, !35, i64 8, !36, i64 16, !37, i64 24, !8, i64 28, !8, i64 30, !8, i64 30, !8, i64 31, !8, i64 31}
-!35 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !5, i64 0}
-!36 = !{!"_ZTSN5clang11SourceRangeE", !37, i64 0, !37, i64 4}
-!37 = !{!"_ZTSN5clang14SourceLocationE", !8, i64 0}
-!38 = !{!"p1 _ZTSN5clang8ParamIdxE", !5, i64 0}
-!39 = !{!30, !38, i64 40}
-!40 = !{!6, !6, i64 0}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = !{!31, !8, i64 36}
+!31 = !{!"_ZTSN5clang11NonNullAttrE", !32, i64 0, !8, i64 36, !39, i64 40}
+!32 = !{!"_ZTSN5clang20InheritableParamAttrE", !33, i64 0}
+!33 = !{!"_ZTSN5clang15InheritableAttrE", !34, i64 0}
+!34 = !{!"_ZTSN5clang4AttrE", !35, i64 0, !8, i64 32, !8, i64 34, !8, i64 34, !8, i64 34, !8, i64 34, !8, i64 34}
+!35 = !{!"_ZTSN5clang19AttributeCommonInfoE", !36, i64 0, !36, i64 8, !37, i64 16, !38, i64 24, !8, i64 28, !8, i64 30, !8, i64 30, !8, i64 31, !8, i64 31}
+!36 = !{!"p1 _ZTSN5clang14IdentifierInfoE", !5, i64 0}
+!37 = !{!"_ZTSN5clang11SourceRangeE", !38, i64 0, !38, i64 4}
+!38 = !{!"_ZTSN5clang14SourceLocationE", !8, i64 0}
+!39 = !{!"p1 _ZTSN5clang8ParamIdxE", !5, i64 0}
+!40 = !{!31, !39, i64 40}
+!41 = !{!6, !6, i64 0}
+!42 = distinct !{!42, !28}
+!43 = distinct !{!43, !28}

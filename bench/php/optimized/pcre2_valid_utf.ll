@@ -334,7 +334,7 @@ define hidden range(i32 -23, 1) i32 @_pcre2_valid_utf_8(ptr noundef %0, i64 noun
   %.1116 = phi i64 [ %8, %5 ], [ %34, %154 ], [ %34, %92 ], [ %34, %64 ], [ %34, %44 ]
   %160 = getelementptr inbounds nuw i8, ptr %.1118, i64 1
   %.not = icmp eq i64 %.1116, 0
-  br i1 %.not, label %.thread150, label %5
+  br i1 %.not, label %.thread150, label %5, !llvm.loop !9
 
 switch.lookup:                                    ; preds = %27
   %switch.idx.cast = zext nneg i8 %switch.tableidx to i32
@@ -359,3 +359,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"long", !5, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}

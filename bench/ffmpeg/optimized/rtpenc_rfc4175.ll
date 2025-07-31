@@ -177,7 +177,7 @@ define void @ff_rtp_send_raw_rfc4175(ptr noundef %0, ptr noundef readonly captur
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1107, ptr align 1 %115, i64 %84, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %.1107, i64 %84
   %.not117 = icmp sgt i8 %95, -1
-  br i1 %.not117, label %.thread, label %.preheader, !llvm.loop !48
+  br i1 %.not117, label %.thread, label %.preheader, !llvm.loop !49
 
 .thread:                                          ; preds = %.preheader, %113
   %117 = load ptr, ptr %28, align 8, !tbaa !44
@@ -186,7 +186,7 @@ define void @ff_rtp_send_raw_rfc4175(ptr noundef %0, ptr noundef readonly captur
   %120 = icmp sge i32 %spec.select, %16
   %121 = zext i1 %120 to i32
   tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %117, i32 noundef %119, i32 noundef %121) #3
-  br i1 %67, label %35, label %.loopexit, !llvm.loop !49
+  br i1 %67, label %35, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.thread, %25, %5
   ret void
@@ -250,7 +250,8 @@ attributes #3 = { nounwind }
 !43 = !{!39, !13, i64 56}
 !44 = !{!39, !18, i64 96}
 !45 = !{!8, !8, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = distinct !{!49, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = distinct !{!50, !47, !48}

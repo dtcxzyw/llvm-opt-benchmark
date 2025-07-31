@@ -170,7 +170,7 @@ _ZN5QListIP9ProtoNodeE6appendES1_.exit:           ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   %.0 = load ptr, ptr %48, align 8
   %.not21 = icmp eq ptr %.0, null
-  br i1 %.not21, label %.loopexit, label %26, !llvm.loop !9
+  br i1 %.not21, label %.loopexit, label %26, !llvm.loop !10
 
 49:                                               ; preds = %43, %45, %24
   %.pn23 = phi { ptr, i32 } [ %25, %24 ], [ %44, %43 ], [ %46, %45 ]
@@ -361,7 +361,7 @@ define void @_ZN9ProtoNodeD2Ev(ptr noundef readonly align 8 captures(none) deref
 11:                                               ; preds = %10, %.lr.ph.i.i
   %12 = getelementptr i8, ptr %.sroa.0.05.i.i, i64 8
   %.not.i.i = icmp eq ptr %12, %7
-  br i1 %.not.i.i, label %_Z10qDeleteAllI5QListIP9ProtoNodeEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %_Z10qDeleteAllI5QListIP9ProtoNodeEEvRKT_.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _Z10qDeleteAllI5QListIP9ProtoNodeEEvRKT_.exit:    ; preds = %11, %1
   %13 = load ptr, ptr %2, align 8
@@ -861,7 +861,7 @@ _ZNK9ProtoNode7isChildEv.exit:                    ; preds = %1
 18:                                               ; preds = %16
   %19 = load ptr, ptr %17, align 8
   %20 = icmp eq ptr %19, %0
-  br i1 %20, label %21, label %16, !llvm.loop !11
+  br i1 %20, label %21, label %16, !llvm.loop !12
 
 21:                                               ; preds = %18
   %22 = ptrtoint ptr %17 to i64
@@ -972,7 +972,7 @@ _ZN9ProtoNode8isHiddenEP11_proto_node.exit:       ; preds = %.lr.ph.split
   %12 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %.0 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not, label %.critedge, label %.lr.ph.split, !llvm.loop !13
 
 .critedge:                                        ; preds = %_ZN9ProtoNode8isHiddenEP11_proto_node.exit, %.critedge9, %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.05, %.lr.ph ], [ null, %.critedge9 ], [ %.07, %_ZN9ProtoNode8isHiddenEP11_proto_node.exit ]
@@ -1035,7 +1035,7 @@ _ZN9ProtoNode8isHiddenEP11_proto_node.exit:       ; preds = %6, %9
   %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 380), align 4, !range !6
   %15 = trunc nuw i8 %14 to i1
   %16 = select i1 %.0.i.i, i1 true, i1 %15
-  br i1 %16, label %.critedge, label %2, !llvm.loop !13
+  br i1 %16, label %.critedge, label %2, !llvm.loop !14
 
 .critedge:                                        ; preds = %2, %_ZN9ProtoNode8isHiddenEP11_proto_node.exit
   ret ptr %5
@@ -1763,10 +1763,11 @@ attributes #22 = { cold noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}

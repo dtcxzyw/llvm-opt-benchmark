@@ -290,9 +290,9 @@ define void @Aig_ObjOrderRemove(ptr noundef captures(none) %0, i32 noundef %1) l
 
 21:                                               ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %23 = load i32, ptr %22, align 8, !tbaa !34
+  %23 = load i32, ptr %22, align 8, !tbaa !35
   %24 = add nsw i32 %23, -1
-  store i32 %24, ptr %22, align 8, !tbaa !34
+  store i32 %24, ptr %22, align 8, !tbaa !35
   store i32 %8, ptr %18, align 4, !tbaa !27
   br label %25
 
@@ -321,9 +321,9 @@ define void @Aig_ObjOrderAdvance(ptr noundef captures(none) initializes((228, 23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 228
   store i32 %3, ptr %4, align 4, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %6 = load i32, ptr %5, align 8, !tbaa !34
+  %6 = load i32, ptr %5, align 8, !tbaa !35
   %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %5, align 8, !tbaa !34
+  store i32 %7, ptr %5, align 8, !tbaa !35
   ret void
 }
 
@@ -377,6 +377,7 @@ attributes #11 = { nounwind }
 !29 = !{!6, !6, i64 0}
 !30 = !{!11, !12, i64 36}
 !31 = !{!4, !12, i64 236}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!4, !12, i64 240}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!4, !12, i64 240}

@@ -100,7 +100,7 @@ define dso_local i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr
 13:                                               ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %14, label %3, !llvm.loop !6
+  br i1 %exitcond.not, label %14, label %3, !llvm.loop !7
 
 14:                                               ; preds = %13
   %.not = icmp eq ptr %1, null
@@ -263,6 +263,7 @@ attributes #8 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

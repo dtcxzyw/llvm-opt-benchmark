@@ -381,7 +381,7 @@ define range(i32 0, 2) i32 @ossl_base_provider_init(ptr noundef %0, ptr noundef 
   %29 = load ptr, ptr %3, align 8, !tbaa !10
   %30 = load ptr, ptr @c_get_params, align 8, !tbaa !10
   tail call void @ossl_prov_ctx_set0_core_get_params(ptr noundef %29, ptr noundef %30) #4
-  store ptr @base_dispatch_table, ptr %2, align 8, !tbaa !13
+  store ptr @base_dispatch_table, ptr %2, align 8, !tbaa !14
   br label %31
 
 31:                                               ; preds = %15, %4, %25, %23
@@ -470,7 +470,7 @@ define internal range(i32 0, 2) i32 @base_get_params(ptr readnone captures(none)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef ptr @base_query(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #3 {
-  store i32 0, ptr %2, align 4, !tbaa !15
+  store i32 0, ptr %2, align 4, !tbaa !16
   switch i32 %1, label %7 [
     i32 20, label %8
     i32 21, label %4
@@ -526,8 +526,9 @@ attributes #4 = { nounwind }
 !8 = !{!"any pointer", !6, i64 0}
 !9 = !{!4, !8, i64 8}
 !10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS16ossl_dispatch_st", !8, i64 0}
-!15 = !{!5, !5, i64 0}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS16ossl_dispatch_st", !8, i64 0}
+!16 = !{!5, !5, i64 0}

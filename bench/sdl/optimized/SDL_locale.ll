@@ -73,7 +73,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   %.165.i = phi i32 [ %20, %19 ], [ %.064.i, %.preheader.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.058.i, i64 1
   %.pr80.i = load i8, ptr %22, align 1
-  br label %.preheader.i, !llvm.loop !5
+  br label %.preheader.i, !llvm.loop !6
 
 23:                                               ; preds = %.preheader.i
   %24 = ptrtoint ptr %.058.i to i64
@@ -116,7 +116,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   %43 = call i32 @SDL_isspace_REAL(i32 noundef %42) #6
   %.not77.i = icmp eq i32 %43, 0
   %44 = getelementptr inbounds nuw i8, ptr %.260.i, i64 1
-  br i1 %.not77.i, label %45, label %40, !llvm.loop !6
+  br i1 %.not77.i, label %45, label %40, !llvm.loop !7
 
 45:                                               ; preds = %40
   %46 = load i8, ptr %.260.i, align 1
@@ -154,7 +154,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   switch i8 %50, label %66 [
     i8 44, label %60
     i8 0, label %.loopexit.i
-  ]
+  ], !llvm.loop !8
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
@@ -164,7 +164,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   %64 = zext nneg i32 %.061.i.ph to i64
   %65 = getelementptr inbounds nuw ptr, ptr %35, i64 %64
   store ptr %62, ptr %65, align 8
-  br label %.loopexit.i.outer
+  br label %.loopexit.i.outer, !llvm.loop !8
 
 66:                                               ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
@@ -172,7 +172,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
 
 .backedge:                                        ; preds = %66, %57, %52
   %.3.i.be = phi ptr [ %58, %57 ], [ %67, %66 ], [ %53, %52 ]
-  br label %49
+  br label %49, !llvm.loop !8
 
 68:                                               ; preds = %45
   br i1 %.not.i, label %build_locales_from_csv_string.exit, label %69
@@ -224,7 +224,9 @@ attributes #7 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !5}

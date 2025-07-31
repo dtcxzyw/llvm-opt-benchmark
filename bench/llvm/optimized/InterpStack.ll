@@ -261,7 +261,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
-  %.08 = load ptr, ptr %0, align 8, !tbaa !18
+  %.08 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 24
@@ -277,7 +277,7 @@ define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noun
   %.079 = phi i64 [ %11, %.lr.ph ], [ %1, %2 ]
   %11 = sub nuw i64 %.079, %10
   %12 = getelementptr inbounds nuw i8, ptr %.010, i64 8
-  %.0 = load ptr, ptr %12, align 8, !tbaa !18
+  %.0 = load ptr, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 24
@@ -285,7 +285,7 @@ define dso_local noundef ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noun
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
   %19 = icmp ugt i64 %11, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.07.lcssa = phi i64 [ %1, %2 ], [ %11, %.lr.ph ]
@@ -332,7 +332,8 @@ attributes #9 = { nounwind allocsize(0) }
 !13 = !{!4, !9, i64 8}
 !14 = !{!11, !12, i64 16}
 !15 = !{!11, !5, i64 8}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!5, !5, i64 0}
+!20 = distinct !{!20, !17, !18}

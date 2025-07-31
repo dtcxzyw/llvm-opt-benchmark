@@ -361,7 +361,7 @@ define internal void @PredictorAdd1_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %9
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %21 = trunc nuw nsw i64 %indvars.iv to i32
@@ -408,7 +408,7 @@ define internal void @PredictorAdd2_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %12 = trunc nuw nsw i64 %indvars.iv to i32
@@ -456,7 +456,7 @@ define internal void @PredictorAdd3_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -504,7 +504,7 @@ define internal void @PredictorAdd4_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %11 = trunc nuw nsw i64 %indvars.iv to i32
@@ -581,7 +581,7 @@ define internal void @PredictorAdd5_SSE2(ptr noundef readonly captures(none) %0,
   store i32 %40, ptr %6, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -630,7 +630,7 @@ define internal void @PredictorAdd6_SSE2(ptr noundef readonly captures(none) %0,
   store i32 %29, ptr %6, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -678,7 +678,7 @@ define internal void @PredictorAdd7_SSE2(ptr noundef readonly captures(none) %0,
   store i32 %30, ptr %6, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -715,7 +715,7 @@ define internal void @PredictorAdd8_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %21 = trunc nuw nsw i64 %indvars.iv to i32
@@ -771,7 +771,7 @@ define internal void @PredictorAdd9_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %21 = trunc nuw nsw i64 %indvars.iv to i32
@@ -897,7 +897,7 @@ define internal void @PredictorAdd10_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %9
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %87 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1043,7 +1043,7 @@ define internal void @PredictorAdd11_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %9
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %107 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1146,7 +1146,7 @@ define internal void @PredictorAdd12_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %10
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %64 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1227,7 +1227,7 @@ define internal void @PredictorAdd13_SSE2(ptr noundef readonly captures(none) %0
   store i32 %43, ptr %6, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -1258,7 +1258,7 @@ define internal void @AddGreenToBlueAndRed_SSE2(ptr noundef %0, i32 noundef %1, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %4
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %14 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1288,7 +1288,7 @@ define internal void @TransformColorInverse_SSE2(ptr noundef %0, ptr noundef %1,
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %6 = load i8, ptr %5, align 1, !tbaa !26
+  %6 = load i8, ptr %5, align 1, !tbaa !27
   %7 = zext i8 %6 to i16
   %8 = shl nuw i16 %7, 8
   %9 = ashr exact i16 %8, 5
@@ -1296,14 +1296,14 @@ define internal void @TransformColorInverse_SSE2(ptr noundef %0, ptr noundef %1,
   %11 = shl nsw i32 %10, 16
   %12 = insertelement <4 x i32> poison, i32 %11, i64 0
   %13 = shufflevector <4 x i32> %12, <4 x i32> poison, <4 x i32> zeroinitializer
-  %14 = load i8, ptr %0, align 1, !tbaa !28
+  %14 = load i8, ptr %0, align 1, !tbaa !29
   %15 = zext i8 %14 to i16
   %16 = shl nuw i16 %15, 8
   %17 = ashr exact i16 %16, 5
   %18 = sext i16 %17 to i32
   %19 = shl nsw i32 %18, 16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !29
+  %21 = load i8, ptr %20, align 1, !tbaa !30
   %22 = zext i8 %21 to i16
   %23 = shl nuw i16 %22, 8
   %24 = ashr exact i16 %23, 5
@@ -1345,7 +1345,7 @@ define internal void @TransformColorInverse_SSE2(ptr noundef %0, ptr noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp samesign ugt i64 %indvars.iv.next, %31
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 4
-  br i1 %.not, label %._crit_edge.loopexit, label %32, !llvm.loop !30
+  br i1 %.not, label %._crit_edge.loopexit, label %32, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %32
   %55 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1549,7 +1549,7 @@ define internal void @ConvertBGRAToRGB_SSE2(ptr noalias noundef %0, i32 noundef 
   %168 = getelementptr inbounds nuw i8, ptr %.063, i64 96
   %169 = add nsw i32 %.02461, -32
   %170 = icmp samesign ugt i32 %.02461, 63
-  br i1 %170, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %170, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.024.lcssa = phi i32 [ %1, %3 ], [ %169, %.lr.ph ]
@@ -1597,7 +1597,7 @@ define internal void @ConvertBGRAToRGBA_SSE2(ptr noalias noundef %0, i32 noundef
   store <2 x i64> %20, ptr %21, align 1, !tbaa !9
   %23 = add nsw i32 %.033, -8
   %24 = icmp samesign ugt i32 %.033, 15
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.030.lcssa = phi ptr [ %2, %3 ], [ %22, %.lr.ph ]
@@ -1645,7 +1645,7 @@ define internal void @ConvertBGRAToRGBA4444_SSE2(ptr noalias noundef %0, i32 nou
   store <16 x i8> %22, ptr %.03839, align 1, !tbaa !9
   %24 = add nsw i32 %.041, -8
   %25 = icmp samesign ugt i32 %.041, 15
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !33
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.038.lcssa = phi ptr [ %2, %3 ], [ %23, %.lr.ph ]
@@ -1703,7 +1703,7 @@ define internal void @ConvertBGRAToRGB565_SSE2(ptr noalias noundef %0, i32 nound
   store <16 x i8> %32, ptr %.04445, align 1, !tbaa !9
   %34 = add nsw i32 %.047, -8
   %35 = icmp samesign ugt i32 %.047, 15
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.044.lcssa = phi ptr [ %2, %3 ], [ %33, %.lr.ph ]
@@ -1759,7 +1759,7 @@ define internal void @ConvertBGRAToBGR_SSE2(ptr noalias noundef %0, i32 noundef 
   %27 = add nsw i32 %.041, -8
   %28 = getelementptr inbounds nuw i8, ptr %.03640, i64 50
   %.not = icmp ugt ptr %28, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.037.lcssa = phi ptr [ %0, %3 ], [ %9, %.lr.ph ]
@@ -1829,29 +1829,30 @@ attributes #7 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
 !9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
-!26 = !{!27, !5, i64 2}
-!27 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
-!28 = !{!27, !5, i64 0}
-!29 = !{!27, !5, i64 1}
-!30 = distinct !{!30, !11}
-!31 = distinct !{!31, !11}
-!32 = distinct !{!32, !11}
-!33 = distinct !{!33, !11}
-!34 = distinct !{!34, !11}
-!35 = distinct !{!35, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12}
+!27 = !{!28, !5, i64 2}
+!28 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2}
+!29 = !{!28, !5, i64 0}
+!30 = !{!28, !5, i64 1}
+!31 = distinct !{!31, !11, !12}
+!32 = distinct !{!32, !11, !12}
+!33 = distinct !{!33, !11, !12}
+!34 = distinct !{!34, !11, !12}
+!35 = distinct !{!35, !11, !12}
+!36 = distinct !{!36, !11, !12}

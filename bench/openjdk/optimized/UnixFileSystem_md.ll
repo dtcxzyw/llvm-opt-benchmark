@@ -290,7 +290,7 @@ statMode.exit.thread:                             ; preds = %23
   %35 = tail call ptr @__errno_location() #8
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %32, label %.critedge.loopexit, !llvm.loop !8
+  br i1 %37, label %32, label %.critedge.loopexit, !llvm.loop !9
 
 .critedge.loopexit:                               ; preds = %32, %34
   br label %.critedge
@@ -583,7 +583,7 @@ sub_185:                                          ; preds = %.tail
 41:                                               ; preds = %.tail83, %.tail
   %42 = tail call ptr @readdir64(ptr noundef nonnull %19) #7
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.outer._crit_edge, label %sub_0, !llvm.loop !9
+  br i1 %.not, label %.outer._crit_edge, label %sub_0, !llvm.loop !10
 
 .tail83.thread:                                   ; preds = %sub_0, %sub_185, %.tail83
   %43 = getelementptr inbounds nuw i8, ptr %30, i64 19
@@ -630,7 +630,7 @@ sub_185:                                          ; preds = %.tail
   tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %60) #7
   %69 = tail call ptr @readdir64(ptr noundef nonnull %19) #7
   %.not90 = icmp eq ptr %69, null
-  br i1 %.not90, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !9
+  br i1 %.not90, label %.outer._crit_edge, label %sub_0.lr.ph, !llvm.loop !10
 
 .outer._crit_edge:                                ; preds = %.outer, %41
   %.068.ph.lcssa89 = phi ptr [ %.068.ph97, %41 ], [ %.169, %.outer ]
@@ -896,7 +896,7 @@ statMode.exit:                                    ; preds = %16
   %25 = tail call ptr @__errno_location() #8
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, 4
-  br i1 %27, label %22, label %.critedge.loopexit, !llvm.loop !10
+  br i1 %27, label %22, label %.critedge.loopexit, !llvm.loop !11
 
 .critedge.loopexit:                               ; preds = %22, %24
   br label %.critedge
@@ -950,7 +950,7 @@ define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr noundef re
   %21 = tail call ptr @__errno_location() #8
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, 4
-  br i1 %23, label %18, label %.critedge, !llvm.loop !11
+  br i1 %23, label %18, label %.critedge, !llvm.loop !12
 
 24:                                               ; preds = %18
   switch i32 %3, label %.critedge [
@@ -1055,9 +1055,10 @@ attributes #8 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

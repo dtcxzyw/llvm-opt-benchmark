@@ -2858,7 +2858,7 @@ _ZN6icu_77L15getCalendarTypeEPKc.exit.thread:     ; preds = %22, %12
 51:                                               ; preds = %45, %41
   %.020 = phi ptr [ %40, %41 ], [ %46, %45 ]
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i32 0, ptr %52, align 8, !tbaa !61
+  store i32 0, ptr %52, align 8, !tbaa !62
   %53 = load ptr, ptr %4, align 8, !tbaa !3
   store i8 0, ptr %53, align 1, !tbaa !47
   %54 = load i32, ptr %2, align 4, !tbaa !13
@@ -3056,9 +3056,9 @@ define linkonce_odr void @_ZN6icu_7712UnifiedCache11getByLocaleINS_14SharedCalen
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %4) #25
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %9, align 8, !tbaa !63
+  store i32 0, ptr %9, align 8, !tbaa !64
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i8 0, ptr %10, align 4, !tbaa !65
+  store i8 0, ptr %10, align 4, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN6icu_7714LocaleCacheKeyINS_14SharedCalendarEEE, i64 16), ptr %4, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN6icu_776LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %11, ptr noundef nonnull align 8 dereferenceable(217) %0)
@@ -3419,9 +3419,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_778Calendar14isEquivalentToER
   %7 = getelementptr inbounds i8, ptr %6, i64 -8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !66
+  %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = icmp eq ptr %10, %12
   br i1 %13, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %14
 
@@ -4039,7 +4039,7 @@ define void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull 
   %.1.i = select i1 %or.cond.i, i32 %26, i32 %.01217.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
-  br i1 %exitcond.not.i, label %30, label %23, !llvm.loop !68
+  br i1 %exitcond.not.i, label %30, label %23, !llvm.loop !69
 
 30:                                               ; preds = %23
   %31 = icmp sgt i32 %.114.i, -1
@@ -4053,11 +4053,11 @@ define void @_ZN6icu_778Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull 
   store i8 %33, ptr %35, align 1, !tbaa !47
   %36 = add nuw nsw i32 %.01119.i, 1
   %exitcond21.not.i = icmp eq i32 %36, 24
-  br i1 %exitcond21.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !69
+  br i1 %exitcond21.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !70
 
 ._crit_edge.i:                                    ; preds = %32
   %.pre.i = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit:     ; preds = %30, %._crit_edge.i
   %37 = phi i8 [ %.pre.i, %._crit_edge.i ], [ %22, %30 ]
@@ -4107,7 +4107,7 @@ define void @_ZN6icu_778Calendar16recalculateStampEv(ptr noundef nonnull align 8
   %.1 = select i1 %or.cond, i32 %8, i32 %.01217
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %12, label %5, !llvm.loop !68
+  br i1 %exitcond.not, label %12, label %5, !llvm.loop !69
 
 12:                                               ; preds = %5
   %13 = icmp sgt i32 %.114, -1
@@ -4121,11 +4121,11 @@ define void @_ZN6icu_778Calendar16recalculateStampEv(ptr noundef nonnull align 8
   store i8 %15, ptr %17, align 1, !tbaa !47
   %18 = add nuw nsw i32 %.01119, 1
   %exitcond21.not = icmp eq i32 %18, 24
-  br i1 %exitcond21.not, label %._crit_edge, label %.preheader, !llvm.loop !69
+  br i1 %exitcond21.not, label %._crit_edge, label %.preheader, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %14
   %.pre = load i8, ptr %2, align 8, !tbaa !40
-  br label %split, !llvm.loop !69
+  br label %split, !llvm.loop !70
 
 split:                                            ; preds = %12, %._crit_edge
   %19 = phi i8 [ %.pre, %._crit_edge ], [ %4, %12 ]
@@ -4186,7 +4186,7 @@ define void @_ZN6icu_778Calendar3setEiii(ptr noundef nonnull align 8 dereference
   %.1.i.i = select i1 %or.cond.i.i, i32 %24, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %28, label %21, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %28, label %21, !llvm.loop !69
 
 28:                                               ; preds = %21
   %29 = icmp sgt i32 %.114.i.i, -1
@@ -4200,11 +4200,11 @@ define void @_ZN6icu_778Calendar3setEiii(ptr noundef nonnull align 8 dereference
   store i8 %31, ptr %33, align 1, !tbaa !47
   %34 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %34, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %30
   %.pre.i.i = load i8, ptr %15, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %28, %._crit_edge.i.i
   %35 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %20, %28 ]
@@ -4249,7 +4249,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %28, %._crit_edge.i.
   %.1.i.i11 = select i1 %or.cond.i.i9, i32 %51, i32 %.01217.i.i7
   %indvars.iv.next.i.i12 = add nuw nsw i64 %indvars.iv.i.i6, 1
   %exitcond.not.i.i13 = icmp eq i64 %indvars.iv.next.i.i12, 24
-  br i1 %exitcond.not.i.i13, label %55, label %48, !llvm.loop !68
+  br i1 %exitcond.not.i.i13, label %55, label %48, !llvm.loop !69
 
 55:                                               ; preds = %48
   %56 = icmp sgt i32 %.114.i.i10, -1
@@ -4263,11 +4263,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %28, %._crit_edge.i.
   store i8 %58, ptr %60, align 1, !tbaa !47
   %61 = add nuw nsw i32 %.01119.i.i5, 1
   %exitcond21.not.i.i15 = icmp eq i32 %61, 24
-  br i1 %exitcond21.not.i.i15, label %._crit_edge.i.i16, label %.preheader.i.i4, !llvm.loop !69
+  br i1 %exitcond21.not.i.i15, label %._crit_edge.i.i16, label %.preheader.i.i4, !llvm.loop !70
 
 ._crit_edge.i.i16:                                ; preds = %57
   %.pre.i.i17 = load i8, ptr %15, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i14, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i14, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i14: ; preds = %55, %._crit_edge.i.i16
   %62 = phi i8 [ %.pre.i.i17, %._crit_edge.i.i16 ], [ %47, %55 ]
@@ -4312,7 +4312,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i14: ; preds = %55, %._crit_edge.i.
   %.1.i.i27 = select i1 %or.cond.i.i25, i32 %77, i32 %.01217.i.i23
   %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i22, 1
   %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, 24
-  br i1 %exitcond.not.i.i29, label %81, label %74, !llvm.loop !68
+  br i1 %exitcond.not.i.i29, label %81, label %74, !llvm.loop !69
 
 81:                                               ; preds = %74
   %82 = icmp sgt i32 %.114.i.i26, -1
@@ -4326,11 +4326,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i14: ; preds = %55, %._crit_edge.i.
   store i8 %84, ptr %86, align 1, !tbaa !47
   %87 = add nuw nsw i32 %.01119.i.i21, 1
   %exitcond21.not.i.i31 = icmp eq i32 %87, 24
-  br i1 %exitcond21.not.i.i31, label %._crit_edge.i.i32, label %.preheader.i.i20, !llvm.loop !69
+  br i1 %exitcond21.not.i.i31, label %._crit_edge.i.i32, label %.preheader.i.i20, !llvm.loop !70
 
 ._crit_edge.i.i32:                                ; preds = %83
   %.pre.i.i33 = load i8, ptr %15, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i30, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i30, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i30: ; preds = %81, %._crit_edge.i.i32
   %88 = phi i8 [ %.pre.i.i33, %._crit_edge.i.i32 ], [ %73, %81 ]
@@ -4402,7 +4402,7 @@ define void @_ZN6icu_778Calendar3setEiiiii(ptr noundef nonnull align 8 dereferen
   %.1.i.i = select i1 %or.cond.i.i, i32 %26, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %30, label %23, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %30, label %23, !llvm.loop !69
 
 30:                                               ; preds = %23
   %31 = icmp sgt i32 %.114.i.i, -1
@@ -4416,11 +4416,11 @@ define void @_ZN6icu_778Calendar3setEiiiii(ptr noundef nonnull align 8 dereferen
   store i8 %33, ptr %35, align 1, !tbaa !47
   %36 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %36, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %32
   %.pre.i.i = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %30, %._crit_edge.i.i
   %37 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %22, %30 ]
@@ -4465,7 +4465,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %30, %._crit_edge.i.
   %.1.i.i13 = select i1 %or.cond.i.i11, i32 %53, i32 %.01217.i.i9
   %indvars.iv.next.i.i14 = add nuw nsw i64 %indvars.iv.i.i8, 1
   %exitcond.not.i.i15 = icmp eq i64 %indvars.iv.next.i.i14, 24
-  br i1 %exitcond.not.i.i15, label %57, label %50, !llvm.loop !68
+  br i1 %exitcond.not.i.i15, label %57, label %50, !llvm.loop !69
 
 57:                                               ; preds = %50
   %58 = icmp sgt i32 %.114.i.i12, -1
@@ -4479,11 +4479,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %30, %._crit_edge.i.
   store i8 %60, ptr %62, align 1, !tbaa !47
   %63 = add nuw nsw i32 %.01119.i.i7, 1
   %exitcond21.not.i.i17 = icmp eq i32 %63, 24
-  br i1 %exitcond21.not.i.i17, label %._crit_edge.i.i18, label %.preheader.i.i6, !llvm.loop !69
+  br i1 %exitcond21.not.i.i17, label %._crit_edge.i.i18, label %.preheader.i.i6, !llvm.loop !70
 
 ._crit_edge.i.i18:                                ; preds = %59
   %.pre.i.i19 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i16, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i16, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i16: ; preds = %57, %._crit_edge.i.i18
   %64 = phi i8 [ %.pre.i.i19, %._crit_edge.i.i18 ], [ %49, %57 ]
@@ -4528,7 +4528,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i16: ; preds = %57, %._crit_edge.i.
   %.1.i.i29 = select i1 %or.cond.i.i27, i32 %79, i32 %.01217.i.i25
   %indvars.iv.next.i.i30 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %exitcond.not.i.i31 = icmp eq i64 %indvars.iv.next.i.i30, 24
-  br i1 %exitcond.not.i.i31, label %83, label %76, !llvm.loop !68
+  br i1 %exitcond.not.i.i31, label %83, label %76, !llvm.loop !69
 
 83:                                               ; preds = %76
   %84 = icmp sgt i32 %.114.i.i28, -1
@@ -4542,11 +4542,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i16: ; preds = %57, %._crit_edge.i.
   store i8 %86, ptr %88, align 1, !tbaa !47
   %89 = add nuw nsw i32 %.01119.i.i23, 1
   %exitcond21.not.i.i33 = icmp eq i32 %89, 24
-  br i1 %exitcond21.not.i.i33, label %._crit_edge.i.i34, label %.preheader.i.i22, !llvm.loop !69
+  br i1 %exitcond21.not.i.i33, label %._crit_edge.i.i34, label %.preheader.i.i22, !llvm.loop !70
 
 ._crit_edge.i.i34:                                ; preds = %85
   %.pre.i.i35 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i32: ; preds = %83, %._crit_edge.i.i34
   %90 = phi i8 [ %.pre.i.i35, %._crit_edge.i.i34 ], [ %75, %83 ]
@@ -4591,7 +4591,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i32: ; preds = %83, %._crit_edge.i.
   %.1.i.i45 = select i1 %or.cond.i.i43, i32 %105, i32 %.01217.i.i41
   %indvars.iv.next.i.i46 = add nuw nsw i64 %indvars.iv.i.i40, 1
   %exitcond.not.i.i47 = icmp eq i64 %indvars.iv.next.i.i46, 24
-  br i1 %exitcond.not.i.i47, label %109, label %102, !llvm.loop !68
+  br i1 %exitcond.not.i.i47, label %109, label %102, !llvm.loop !69
 
 109:                                              ; preds = %102
   %110 = icmp sgt i32 %.114.i.i44, -1
@@ -4605,11 +4605,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i32: ; preds = %83, %._crit_edge.i.
   store i8 %112, ptr %114, align 1, !tbaa !47
   %115 = add nuw nsw i32 %.01119.i.i39, 1
   %exitcond21.not.i.i49 = icmp eq i32 %115, 24
-  br i1 %exitcond21.not.i.i49, label %._crit_edge.i.i50, label %.preheader.i.i38, !llvm.loop !69
+  br i1 %exitcond21.not.i.i49, label %._crit_edge.i.i50, label %.preheader.i.i38, !llvm.loop !70
 
 ._crit_edge.i.i50:                                ; preds = %111
   %.pre.i.i51 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i48, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i48, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i48: ; preds = %109, %._crit_edge.i.i50
   %116 = phi i8 [ %.pre.i.i51, %._crit_edge.i.i50 ], [ %101, %109 ]
@@ -4654,7 +4654,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i48: ; preds = %109, %._crit_edge.i
   %.1.i.i61 = select i1 %or.cond.i.i59, i32 %131, i32 %.01217.i.i57
   %indvars.iv.next.i.i62 = add nuw nsw i64 %indvars.iv.i.i56, 1
   %exitcond.not.i.i63 = icmp eq i64 %indvars.iv.next.i.i62, 24
-  br i1 %exitcond.not.i.i63, label %135, label %128, !llvm.loop !68
+  br i1 %exitcond.not.i.i63, label %135, label %128, !llvm.loop !69
 
 135:                                              ; preds = %128
   %136 = icmp sgt i32 %.114.i.i60, -1
@@ -4668,11 +4668,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i48: ; preds = %109, %._crit_edge.i
   store i8 %138, ptr %140, align 1, !tbaa !47
   %141 = add nuw nsw i32 %.01119.i.i55, 1
   %exitcond21.not.i.i65 = icmp eq i32 %141, 24
-  br i1 %exitcond21.not.i.i65, label %._crit_edge.i.i66, label %.preheader.i.i54, !llvm.loop !69
+  br i1 %exitcond21.not.i.i65, label %._crit_edge.i.i66, label %.preheader.i.i54, !llvm.loop !70
 
 ._crit_edge.i.i66:                                ; preds = %137
   %.pre.i.i67 = load i8, ptr %17, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i64, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i64, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i64: ; preds = %135, %._crit_edge.i.i66
   %142 = phi i8 [ %.pre.i.i67, %._crit_edge.i.i66 ], [ %127, %135 ]
@@ -4744,7 +4744,7 @@ define void @_ZN6icu_778Calendar3setEiiiiii(ptr noundef nonnull align 8 derefere
   %.1.i.i = select i1 %or.cond.i.i, i32 %27, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %31, label %24, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %31, label %24, !llvm.loop !69
 
 31:                                               ; preds = %24
   %32 = icmp sgt i32 %.114.i.i, -1
@@ -4758,11 +4758,11 @@ define void @_ZN6icu_778Calendar3setEiiiiii(ptr noundef nonnull align 8 derefere
   store i8 %34, ptr %36, align 1, !tbaa !47
   %37 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %37, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %33
   %.pre.i.i = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %31, %._crit_edge.i.i
   %38 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %23, %31 ]
@@ -4807,7 +4807,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %31, %._crit_edge.i.
   %.1.i.i14 = select i1 %or.cond.i.i12, i32 %54, i32 %.01217.i.i10
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i9, 1
   %exitcond.not.i.i16 = icmp eq i64 %indvars.iv.next.i.i15, 24
-  br i1 %exitcond.not.i.i16, label %58, label %51, !llvm.loop !68
+  br i1 %exitcond.not.i.i16, label %58, label %51, !llvm.loop !69
 
 58:                                               ; preds = %51
   %59 = icmp sgt i32 %.114.i.i13, -1
@@ -4821,11 +4821,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %31, %._crit_edge.i.
   store i8 %61, ptr %63, align 1, !tbaa !47
   %64 = add nuw nsw i32 %.01119.i.i8, 1
   %exitcond21.not.i.i18 = icmp eq i32 %64, 24
-  br i1 %exitcond21.not.i.i18, label %._crit_edge.i.i19, label %.preheader.i.i7, !llvm.loop !69
+  br i1 %exitcond21.not.i.i18, label %._crit_edge.i.i19, label %.preheader.i.i7, !llvm.loop !70
 
 ._crit_edge.i.i19:                                ; preds = %60
   %.pre.i.i20 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i17, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i17, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i17: ; preds = %58, %._crit_edge.i.i19
   %65 = phi i8 [ %.pre.i.i20, %._crit_edge.i.i19 ], [ %50, %58 ]
@@ -4870,7 +4870,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i17: ; preds = %58, %._crit_edge.i.
   %.1.i.i30 = select i1 %or.cond.i.i28, i32 %80, i32 %.01217.i.i26
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, 24
-  br i1 %exitcond.not.i.i32, label %84, label %77, !llvm.loop !68
+  br i1 %exitcond.not.i.i32, label %84, label %77, !llvm.loop !69
 
 84:                                               ; preds = %77
   %85 = icmp sgt i32 %.114.i.i29, -1
@@ -4884,11 +4884,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i17: ; preds = %58, %._crit_edge.i.
   store i8 %87, ptr %89, align 1, !tbaa !47
   %90 = add nuw nsw i32 %.01119.i.i24, 1
   %exitcond21.not.i.i34 = icmp eq i32 %90, 24
-  br i1 %exitcond21.not.i.i34, label %._crit_edge.i.i35, label %.preheader.i.i23, !llvm.loop !69
+  br i1 %exitcond21.not.i.i34, label %._crit_edge.i.i35, label %.preheader.i.i23, !llvm.loop !70
 
 ._crit_edge.i.i35:                                ; preds = %86
   %.pre.i.i36 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i33, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i33, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i33: ; preds = %84, %._crit_edge.i.i35
   %91 = phi i8 [ %.pre.i.i36, %._crit_edge.i.i35 ], [ %76, %84 ]
@@ -4933,7 +4933,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i33: ; preds = %84, %._crit_edge.i.
   %.1.i.i46 = select i1 %or.cond.i.i44, i32 %106, i32 %.01217.i.i42
   %indvars.iv.next.i.i47 = add nuw nsw i64 %indvars.iv.i.i41, 1
   %exitcond.not.i.i48 = icmp eq i64 %indvars.iv.next.i.i47, 24
-  br i1 %exitcond.not.i.i48, label %110, label %103, !llvm.loop !68
+  br i1 %exitcond.not.i.i48, label %110, label %103, !llvm.loop !69
 
 110:                                              ; preds = %103
   %111 = icmp sgt i32 %.114.i.i45, -1
@@ -4947,11 +4947,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i33: ; preds = %84, %._crit_edge.i.
   store i8 %113, ptr %115, align 1, !tbaa !47
   %116 = add nuw nsw i32 %.01119.i.i40, 1
   %exitcond21.not.i.i50 = icmp eq i32 %116, 24
-  br i1 %exitcond21.not.i.i50, label %._crit_edge.i.i51, label %.preheader.i.i39, !llvm.loop !69
+  br i1 %exitcond21.not.i.i50, label %._crit_edge.i.i51, label %.preheader.i.i39, !llvm.loop !70
 
 ._crit_edge.i.i51:                                ; preds = %112
   %.pre.i.i52 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i49, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i49, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i49: ; preds = %110, %._crit_edge.i.i51
   %117 = phi i8 [ %.pre.i.i52, %._crit_edge.i.i51 ], [ %102, %110 ]
@@ -4996,7 +4996,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i49: ; preds = %110, %._crit_edge.i
   %.1.i.i62 = select i1 %or.cond.i.i60, i32 %132, i32 %.01217.i.i58
   %indvars.iv.next.i.i63 = add nuw nsw i64 %indvars.iv.i.i57, 1
   %exitcond.not.i.i64 = icmp eq i64 %indvars.iv.next.i.i63, 24
-  br i1 %exitcond.not.i.i64, label %136, label %129, !llvm.loop !68
+  br i1 %exitcond.not.i.i64, label %136, label %129, !llvm.loop !69
 
 136:                                              ; preds = %129
   %137 = icmp sgt i32 %.114.i.i61, -1
@@ -5010,11 +5010,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i49: ; preds = %110, %._crit_edge.i
   store i8 %139, ptr %141, align 1, !tbaa !47
   %142 = add nuw nsw i32 %.01119.i.i56, 1
   %exitcond21.not.i.i66 = icmp eq i32 %142, 24
-  br i1 %exitcond21.not.i.i66, label %._crit_edge.i.i67, label %.preheader.i.i55, !llvm.loop !69
+  br i1 %exitcond21.not.i.i66, label %._crit_edge.i.i67, label %.preheader.i.i55, !llvm.loop !70
 
 ._crit_edge.i.i67:                                ; preds = %138
   %.pre.i.i68 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i65, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i65, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i65: ; preds = %136, %._crit_edge.i.i67
   %143 = phi i8 [ %.pre.i.i68, %._crit_edge.i.i67 ], [ %128, %136 ]
@@ -5059,7 +5059,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i65: ; preds = %136, %._crit_edge.i
   %.1.i.i78 = select i1 %or.cond.i.i76, i32 %158, i32 %.01217.i.i74
   %indvars.iv.next.i.i79 = add nuw nsw i64 %indvars.iv.i.i73, 1
   %exitcond.not.i.i80 = icmp eq i64 %indvars.iv.next.i.i79, 24
-  br i1 %exitcond.not.i.i80, label %162, label %155, !llvm.loop !68
+  br i1 %exitcond.not.i.i80, label %162, label %155, !llvm.loop !69
 
 162:                                              ; preds = %155
   %163 = icmp sgt i32 %.114.i.i77, -1
@@ -5073,11 +5073,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i65: ; preds = %136, %._crit_edge.i
   store i8 %165, ptr %167, align 1, !tbaa !47
   %168 = add nuw nsw i32 %.01119.i.i72, 1
   %exitcond21.not.i.i82 = icmp eq i32 %168, 24
-  br i1 %exitcond21.not.i.i82, label %._crit_edge.i.i83, label %.preheader.i.i71, !llvm.loop !69
+  br i1 %exitcond21.not.i.i82, label %._crit_edge.i.i83, label %.preheader.i.i71, !llvm.loop !70
 
 ._crit_edge.i.i83:                                ; preds = %164
   %.pre.i.i84 = load i8, ptr %18, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i81, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i81, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i81: ; preds = %162, %._crit_edge.i.i83
   %169 = phi i8 [ %.pre.i.i84, %._crit_edge.i.i83 ], [ %154, %162 ]
@@ -5215,7 +5215,7 @@ define void @_ZN6icu_778Calendar14setRelatedYearEi(ptr noundef nonnull align 8 d
   %.1.i.i = select i1 %or.cond.i.i, i32 %22, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %26, label %19, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %26, label %19, !llvm.loop !69
 
 26:                                               ; preds = %19
   %27 = icmp sgt i32 %.114.i.i, -1
@@ -5229,11 +5229,11 @@ define void @_ZN6icu_778Calendar14setRelatedYearEi(ptr noundef nonnull align 8 d
   store i8 %29, ptr %31, align 1, !tbaa !47
   %32 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %32, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %28
   %.pre.i.i = load i8, ptr %13, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %26, %._crit_edge.i.i
   %33 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %18, %26 ]
@@ -5363,7 +5363,7 @@ define noundef i32 @_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i(
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %7, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !71
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5447,7 +5447,7 @@ define void @_ZN6icu_778Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode(ptr
   %.1.i.i = select i1 %or.cond.i.i, i32 %42, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %46, label %39, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %46, label %39, !llvm.loop !69
 
 46:                                               ; preds = %39
   %47 = icmp sgt i32 %.114.i.i, -1
@@ -5461,11 +5461,11 @@ define void @_ZN6icu_778Calendar8pinFieldE19UCalendarDateFieldsR10UErrorCode(ptr
   store i8 %49, ptr %51, align 1, !tbaa !47
   %52 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %52, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %48
   %.pre.i.i = load i8, ptr %33, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %46, %._crit_edge.i.i
   %53 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %38, %46 ]
@@ -5537,7 +5537,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %32, %_ZN6icu_778
   %.1.i.i29 = select i1 %or.cond.i.i27, i32 %81, i32 %.01217.i.i25
   %indvars.iv.next.i.i30 = add nuw nsw i64 %indvars.iv.i.i24, 1
   %exitcond.not.i.i31 = icmp eq i64 %indvars.iv.next.i.i30, 24
-  br i1 %exitcond.not.i.i31, label %85, label %78, !llvm.loop !68
+  br i1 %exitcond.not.i.i31, label %85, label %78, !llvm.loop !69
 
 85:                                               ; preds = %78
   %86 = icmp sgt i32 %.114.i.i28, -1
@@ -5551,11 +5551,11 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %32, %_ZN6icu_778
   store i8 %88, ptr %90, align 1, !tbaa !47
   %91 = add nuw nsw i32 %.01119.i.i23, 1
   %exitcond21.not.i.i33 = icmp eq i32 %91, 24
-  br i1 %exitcond21.not.i.i33, label %._crit_edge.i.i34, label %.preheader.i.i22, !llvm.loop !69
+  br i1 %exitcond21.not.i.i33, label %._crit_edge.i.i34, label %.preheader.i.i22, !llvm.loop !70
 
 ._crit_edge.i.i34:                                ; preds = %87
   %.pre.i.i35 = load i8, ptr %72, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i32, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i32: ; preds = %85, %._crit_edge.i.i34
   %92 = phi i8 [ %.pre.i.i35, %._crit_edge.i.i34 ], [ %77, %85 ]
@@ -5632,7 +5632,7 @@ define void @_ZN6icu_778Calendar13computeFieldsER10UErrorCode(ptr noundef nonnul
   %35 = lshr i32 %.02125, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %23, label %31, !llvm.loop !71
+  br i1 %exitcond.not, label %23, label %31, !llvm.loop !72
 
 36:                                               ; preds = %23
   store i32 1, ptr %1, align 4, !tbaa !13
@@ -6003,7 +6003,7 @@ define void @_ZN6icu_778Calendar19handleComputeFieldsEiR10UErrorCode(ptr noundef
 
 .split9:                                          ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %7 = load i8, ptr %6, align 8, !tbaa !72
+  %7 = load i8, ptr %6, align 8, !tbaa !73
   %8 = sext i8 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6016,21 +6016,21 @@ define void @_ZN6icu_778Calendar19handleComputeFieldsEiR10UErrorCode(ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 127
   store i8 1, ptr %14, align 1, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 169
-  %16 = load i8, ptr %15, align 1, !tbaa !73
+  %16 = load i8, ptr %15, align 1, !tbaa !74
   %17 = sext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %17, ptr %18, align 4, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 109
   store i8 1, ptr %19, align 1, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  %21 = load i16, ptr %20, align 2, !tbaa !74
+  %21 = load i16, ptr %20, align 2, !tbaa !75
   %22 = sext i16 %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %22, ptr %23, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 110
   store i8 1, ptr %24, align 2, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %26 = load i32, ptr %25, align 4, !tbaa !75
+  %26 = load i32, ptr %25, align 4, !tbaa !76
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %26, ptr %27, align 4, !tbaa !12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 123
@@ -7209,7 +7209,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit141: ; preds = %
   br i1 %or.cond3, label %267, label %269
 
 267:                                              ; preds = %259
-  %268 = load double, ptr %8, align 8, !tbaa !76
+  %268 = load double, ptr %8, align 8, !tbaa !77
   tail call void @_ZN6icu_778Calendar15setTimeInMillisEdR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, double noundef %268, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %269
 
@@ -7381,7 +7381,7 @@ _ZNK6icu_778Calendar16getBasicTimeZoneEv.exit:    ; preds = %.critedge12.i, %.cr
   br label %32
 
 30:                                               ; preds = %26
-  store double %27, ptr %2, align 8, !tbaa !76
+  store double %27, ptr %2, align 8, !tbaa !77
   call void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
   br label %32
@@ -7707,7 +7707,7 @@ _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit173: ; preds = %_ZN6icu_
   %133 = fcmp ogt double %.0.i167, %1
   %..3117 = select i1 %133, i32 %95, i32 %.3117
   %.4104. = select i1 %133, i32 %.4104, i32 %95
-  br i1 %132, label %87, label %.critedge, !llvm.loop !77
+  br i1 %132, label %87, label %.critedge, !llvm.loop !78
 
 134:                                              ; preds = %_ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit
   %135 = fcmp ogt double %.0.i, %1
@@ -7963,7 +7963,7 @@ _ZNK6icu_778Calendar15getTimeInMillisER10UErrorCode.exit203: ; preds = %_ZN6icu_
   %245 = fcmp olt double %.0.i197, %1
   %..3123 = select i1 %245, i32 %205, i32 %.3123
   %.12112. = select i1 %245, i32 %.12112, i32 %205
-  br i1 %244, label %196, label %.critedge, !llvm.loop !78
+  br i1 %244, label %196, label %.critedge, !llvm.loop !79
 
 .critedge.thread:                                 ; preds = %196, %87, %134
   %.pr = phi i32 [ %27, %134 ], [ %88, %87 ], [ %197, %196 ]
@@ -8691,7 +8691,7 @@ define noundef i32 @_ZNK6icu_778Calendar16getActualMinimumE19UCalendarDateFields
   %.1.i.i = select i1 %or.cond.i.i, i32 %51, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %55, label %48, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %55, label %48, !llvm.loop !69
 
 55:                                               ; preds = %48
   %56 = icmp sgt i32 %.114.i.i, -1
@@ -8705,11 +8705,11 @@ define noundef i32 @_ZNK6icu_778Calendar16getActualMinimumE19UCalendarDateFields
   store i8 %58, ptr %60, align 1, !tbaa !47
   %61 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %61, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %57
   %.pre.i.i = load i8, ptr %33, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %55, %._crit_edge.i.i
   %62 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %47, %55 ]
@@ -8783,7 +8783,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN
 92:                                               ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %93 = add nsw i32 %.031, -1
   %.not39.not = icmp sgt i32 %.031, %17
-  br i1 %.not39.not, label %36, label %94, !llvm.loop !79
+  br i1 %.not39.not, label %36, label %94, !llvm.loop !80
 
 94:                                               ; preds = %92, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %.1 = phi i32 [ %.0, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %.031, %92 ]
@@ -9038,7 +9038,7 @@ define void @_ZN6icu_778Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noun
   %.1.i.i = select i1 %or.cond.i.i, i32 %38, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %42, label %35, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %42, label %35, !llvm.loop !69
 
 42:                                               ; preds = %35
   %43 = icmp sgt i32 %.114.i.i, -1
@@ -9052,11 +9052,11 @@ define void @_ZN6icu_778Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noun
   store i8 %45, ptr %47, align 1, !tbaa !47
   %48 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %48, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %44
   %.pre.i.i = load i8, ptr %29, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %42, %._crit_edge.i.i
   %49 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %34, %42 ]
@@ -9101,7 +9101,7 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %42, %._crit_edge.i.
   %.1.i.i22 = select i1 %or.cond.i.i20, i32 %65, i32 %.01217.i.i18
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i17, 1
   %exitcond.not.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, 24
-  br i1 %exitcond.not.i.i24, label %69, label %62, !llvm.loop !68
+  br i1 %exitcond.not.i.i24, label %69, label %62, !llvm.loop !69
 
 69:                                               ; preds = %62
   %70 = icmp sgt i32 %.114.i.i21, -1
@@ -9115,11 +9115,11 @@ _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %42, %._crit_edge.i.
   store i8 %72, ptr %74, align 1, !tbaa !47
   %75 = add nuw nsw i32 %.01119.i.i16, 1
   %exitcond21.not.i.i26 = icmp eq i32 %75, 24
-  br i1 %exitcond21.not.i.i26, label %._crit_edge.i.i27, label %.preheader.i.i15, !llvm.loop !69
+  br i1 %exitcond21.not.i.i26, label %._crit_edge.i.i27, label %.preheader.i.i15, !llvm.loop !70
 
 ._crit_edge.i.i27:                                ; preds = %71
   %.pre.i.i28 = load i8, ptr %29, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i25, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i25, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i25: ; preds = %69, %._crit_edge.i.i27
   %76 = phi i8 [ %.pre.i.i28, %._crit_edge.i.i27 ], [ %61, %69 ]
@@ -9141,7 +9141,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit29: ; preds = %51, %_ZN6icu_7
 83:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not13 = icmp eq i64 %indvars.iv.next, 12
-  br i1 %.not13, label %.critedge, label %.preheader, !llvm.loop !80
+  br i1 %.not13, label %.critedge, label %.preheader, !llvm.loop !81
 
 .critedge:                                        ; preds = %83, %11, %7
   store i32 1, ptr %2, align 4, !tbaa !13
@@ -9187,7 +9187,7 @@ define void @_ZN6icu_778Calendar14validateFieldsER10UErrorCode(ptr noundef nonnu
   %18 = icmp slt i32 %17, 1
   %19 = icmp samesign ult i64 %indvars.iv, 23
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %6, label %.loopexit, !llvm.loop !81
+  br i1 %20, label %6, label %.loopexit, !llvm.loop !82
 
 .loopexit:                                        ; preds = %16, %2
   ret void
@@ -9399,7 +9399,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %14 = icmp ne i32 %13, -1
   %15 = icmp eq i32 %.2.us.us, 24
   %16 = select i1 %14, i1 %15, i1 false
-  br i1 %16, label %.lr.ph75.us.preheader, label %._crit_edge85, !llvm.loop !82
+  br i1 %16, label %.lr.ph75.us.preheader, label %._crit_edge85, !llvm.loop !83
 
 .lr.ph75.us:                                      ; preds = %.lr.ph75.us.preheader, %._crit_edge.us.us
   %indvars.iv102 = phi i64 [ 0, %.lr.ph75.us.preheader ], [ %indvars.iv.next103, %._crit_edge.us.us ]
@@ -9419,7 +9419,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %25 = getelementptr inbounds [24 x i8], ptr %4, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !47
   %.not60.us.us = icmp eq i8 %26, 0
-  br i1 %.not60.us.us, label %._crit_edge.us.us, label %.lr.ph81.us, !llvm.loop !84
+  br i1 %.not60.us.us, label %._crit_edge.us.us, label %.lr.ph81.us, !llvm.loop !85
 
 .lr.ph81.us:                                      ; preds = %.lr.ph.us.us, %23
   %indvars.iv100 = phi i64 [ %indvars.iv.next101, %23 ], [ %20, %.lr.ph.us.us ]
@@ -9431,7 +9431,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %29 = getelementptr inbounds nuw [8 x i32], ptr %18, i64 0, i64 %indvars.iv.next101
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %.not59.us.us = icmp eq i32 %30, -1
-  br i1 %.not59.us.us, label %._crit_edge.us.us, label %23, !llvm.loop !84
+  br i1 %.not59.us.us, label %._crit_edge.us.us, label %23, !llvm.loop !85
 
 ._crit_edge.us.us:                                ; preds = %23, %.lr.ph81.us, %.lr.ph.us.us, %.lr.ph75.us
   %.042.lcssa.us.us = phi i32 [ 0, %.lr.ph75.us ], [ 0, %.lr.ph.us.us ], [ %spec.select.us.us, %.lr.ph81.us ], [ %spec.select.us.us, %23 ]
@@ -9446,7 +9446,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %33 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %11, i64 0, i64 %indvars.iv.next103
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %.not.us.us = icmp eq i32 %34, -1
-  br i1 %.not.us.us, label %._crit_edge76.split.us.us, label %.lr.ph75.us, !llvm.loop !85
+  br i1 %.not.us.us, label %._crit_edge76.split.us.us, label %.lr.ph75.us, !llvm.loop !86
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph75.us
   %35 = sext i32 %22 to i64
@@ -9472,7 +9472,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %42 = icmp ne i32 %41, -1
   %43 = icmp eq i32 %.2, 24
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph75.preheader, label %._crit_edge85, !llvm.loop !86
+  br i1 %44, label %.lr.ph75.preheader, label %._crit_edge85, !llvm.loop !87
 
 .lr.ph75:                                         ; preds = %.lr.ph75.preheader, %._crit_edge.thread
   %indvars.iv94 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next95, %._crit_edge.thread ]
@@ -9504,7 +9504,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %57 = getelementptr inbounds nuw [8 x i32], ptr %46, i64 0, i64 %indvars.iv.next
   %58 = load i32, ptr %57, align 4, !tbaa !12
   %.not59 = icmp eq i32 %58, -1
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %55, %.lr.ph75
   %.042.lcssa = phi i32 [ 0, %.lr.ph75 ], [ %spec.select, %55 ]
@@ -9528,7 +9528,7 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %63 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %39, i64 0, i64 %indvars.iv.next95
   %64 = load i32, ptr %63, align 4, !tbaa !12
   %.not = icmp eq i32 %64, -1
-  br i1 %.not, label %._crit_edge76.split, label %.lr.ph75, !llvm.loop !87
+  br i1 %.not, label %._crit_edge76.split, label %.lr.ph75, !llvm.loop !88
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9574,7 +9574,7 @@ define void @_ZN6icu_778Calendar11computeTimeER10UErrorCode(ptr noundef nonnull 
   %25 = icmp slt i32 %24, 1
   %26 = icmp samesign ult i64 %indvars.iv.i, 23
   %27 = select i1 %25, i1 %26, i1 false
-  br i1 %27, label %13, label %_ZN6icu_778Calendar14validateFieldsER10UErrorCode.exit, !llvm.loop !81
+  br i1 %27, label %13, label %_ZN6icu_778Calendar14validateFieldsER10UErrorCode.exit, !llvm.loop !82
 
 _ZN6icu_778Calendar14validateFieldsER10UErrorCode.exit: ; preds = %23
   br i1 %25, label %28, label %177
@@ -9598,7 +9598,7 @@ _ZN6icu_778Calendar14validateFieldsER10UErrorCode.exit: ; preds = %23
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.0912.i.i, i32 %37)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i, label %34, !llvm.loop !70
+  br i1 %exitcond.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i, label %34, !llvm.loop !71
 
 _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i: ; preds = %34, %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i12.i, %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i ], [ 17, %34 ]
@@ -9609,7 +9609,7 @@ _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i: ; preds = %3
   %spec.select.i11.i = tail call i32 @llvm.smax.i32(i32 %.0912.i10.i, i32 %40)
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %exitcond25.i = icmp eq i64 %indvars.iv.next.i12.i, 20
-  br i1 %exitcond25.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i, !llvm.loop !70
+  br i1 %exitcond25.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i, !llvm.loop !71
 
 _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader.i: ; preds = %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 127
@@ -9664,7 +9664,7 @@ _ZN6icu_778Calendar16computeJulianDayER10UErrorCode.exit: ; preds = %28, %_ZNK6i
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.0912.i, i32 %70)
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i47, 15
-  br i1 %exitcond, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, label %67, !llvm.loop !70
+  br i1 %exitcond, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, label %67, !llvm.loop !71
 
 _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %67
   %71 = zext nneg i8 %63 to i32
@@ -9864,7 +9864,7 @@ define noundef i32 @_ZN6icu_778Calendar16computeJulianDayER10UErrorCode(ptr noun
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.0912.i, i32 %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond = icmp eq i64 %indvars.iv.next.i, 9
-  br i1 %exitcond, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, label %8, !llvm.loop !70
+  br i1 %exitcond, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, label %8, !llvm.loop !71
 
 _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %8, %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i12, %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit ], [ 17, %8 ]
@@ -9875,7 +9875,7 @@ _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %8, 
   %spec.select.i11 = tail call i32 @llvm.smax.i32(i32 %.0912.i10, i32 %14)
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond25 = icmp eq i64 %indvars.iv.next.i12, 20
-  br i1 %exitcond25, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, !llvm.loop !70
+  br i1 %exitcond25, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, !llvm.loop !71
 
 _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader: ; preds = %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 127
@@ -11310,7 +11310,7 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i: ; preds = %_ZN6
   %.1.i.i = select i1 %or.cond.i.i, i32 %77, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %81, label %74, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %81, label %74, !llvm.loop !69
 
 81:                                               ; preds = %74
   %82 = icmp sgt i32 %.114.i.i, -1
@@ -11324,11 +11324,11 @@ _ZN6icu_778Calendar10updateTimeER10UErrorCode.exit._crit_edge.i: ; preds = %_ZN6
   store i8 %84, ptr %86, align 1, !tbaa !47
   %87 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %87, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %83
   %.pre.i.i = load i8, ptr %68, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %81, %._crit_edge.i.i
   %88 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %73, %81 ]
@@ -11467,7 +11467,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83: ; preds = %_
 
 154:                                              ; preds = %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83
   %.not68 = icmp eq i32 %122, %3
-  br i1 %.not68, label %.loopexit, label %.preheader, !llvm.loop !88
+  br i1 %.not68, label %.loopexit, label %.preheader, !llvm.loop !89
 
 .loopexit:                                        ; preds = %131, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i74, %144, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i81, %.preheader, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83, %154, %98, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i, %110, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit
   %.0 = phi i32 [ %2, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit ], [ %2, %_ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit ], [ %2, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i ], [ %2, %110 ], [ %2, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i ], [ %2, %98 ], [ %.1, %131 ], [ %.1, %_ZN6icu_778Calendar10updateTimeER10UErrorCode.exit.i.i74 ], [ %.1, %144 ], [ %.1, %_ZN6icu_778Calendar8completeER10UErrorCode.exit.i81 ], [ %.1, %.preheader ], [ %3, %154 ], [ %.1, %_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit83 ]
@@ -11553,7 +11553,7 @@ define void @_ZN6icu_778Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErr
   %.1.i.i = select i1 %or.cond.i.i, i32 %35, i32 %.01217.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 24
-  br i1 %exitcond.not.i.i, label %39, label %32, !llvm.loop !68
+  br i1 %exitcond.not.i.i, label %39, label %32, !llvm.loop !69
 
 39:                                               ; preds = %32
   %40 = icmp sgt i32 %.114.i.i, -1
@@ -11567,11 +11567,11 @@ define void @_ZN6icu_778Calendar16prepareGetActualE19UCalendarDateFieldsaR10UErr
   store i8 %42, ptr %44, align 1, !tbaa !47
   %45 = add nuw nsw i32 %.01119.i.i, 1
   %exitcond21.not.i.i = icmp eq i32 %45, 24
-  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !69
+  br i1 %exitcond21.not.i.i, label %._crit_edge.i.i, label %.preheader.i.i, !llvm.loop !70
 
 ._crit_edge.i.i:                                  ; preds = %41
   %.pre.i.i = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i:   ; preds = %39, %._crit_edge.i.i
   %46 = phi i8 [ %.pre.i.i, %._crit_edge.i.i ], [ %31, %39 ]
@@ -11649,7 +11649,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %23, %_ZN6icu_778
   %.1.i.i25 = select i1 %or.cond.i.i23, i32 %74, i32 %.01217.i.i21
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 24
-  br i1 %exitcond.not.i.i27, label %78, label %71, !llvm.loop !68
+  br i1 %exitcond.not.i.i27, label %78, label %71, !llvm.loop !69
 
 78:                                               ; preds = %71
   %79 = icmp sgt i32 %.114.i.i24, -1
@@ -11663,11 +11663,11 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit: ; preds = %23, %_ZN6icu_778
   store i8 %81, ptr %83, align 1, !tbaa !47
   %84 = add nuw nsw i32 %.01119.i.i19, 1
   %exitcond21.not.i.i29 = icmp eq i32 %84, 24
-  br i1 %exitcond21.not.i.i29, label %._crit_edge.i.i30, label %.preheader.i.i18, !llvm.loop !69
+  br i1 %exitcond21.not.i.i29, label %._crit_edge.i.i30, label %.preheader.i.i18, !llvm.loop !70
 
 ._crit_edge.i.i30:                                ; preds = %80
   %.pre.i.i31 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i28, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i28, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i28: ; preds = %78, %._crit_edge.i.i30
   %85 = phi i8 [ %.pre.i.i31, %._crit_edge.i.i30 ], [ %70, %78 ]
@@ -11735,7 +11735,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit32: ; preds = %65, %_ZN6icu_7
   %.1.i.i41 = select i1 %or.cond.i.i39, i32 %112, i32 %.01217.i.i37
   %indvars.iv.next.i.i42 = add nuw nsw i64 %indvars.iv.i.i36, 1
   %exitcond.not.i.i43 = icmp eq i64 %indvars.iv.next.i.i42, 24
-  br i1 %exitcond.not.i.i43, label %116, label %109, !llvm.loop !68
+  br i1 %exitcond.not.i.i43, label %116, label %109, !llvm.loop !69
 
 116:                                              ; preds = %109
   %117 = icmp sgt i32 %.114.i.i40, -1
@@ -11749,11 +11749,11 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit32: ; preds = %65, %_ZN6icu_7
   store i8 %119, ptr %121, align 1, !tbaa !47
   %122 = add nuw nsw i32 %.01119.i.i35, 1
   %exitcond21.not.i.i45 = icmp eq i32 %122, 24
-  br i1 %exitcond21.not.i.i45, label %._crit_edge.i.i46, label %.preheader.i.i34, !llvm.loop !69
+  br i1 %exitcond21.not.i.i45, label %._crit_edge.i.i46, label %.preheader.i.i34, !llvm.loop !70
 
 ._crit_edge.i.i46:                                ; preds = %118
   %.pre.i.i47 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i44, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i44, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i44: ; preds = %116, %._crit_edge.i.i46
   %123 = phi i8 [ %.pre.i.i47, %._crit_edge.i.i46 ], [ %108, %116 ]
@@ -11822,7 +11822,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit48: ; preds = %103, %_ZN6icu_
   %.1.i.i57 = select i1 %or.cond.i.i55, i32 %150, i32 %.01217.i.i53
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i52, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, 24
-  br i1 %exitcond.not.i.i59, label %154, label %147, !llvm.loop !68
+  br i1 %exitcond.not.i.i59, label %154, label %147, !llvm.loop !69
 
 154:                                              ; preds = %147
   %155 = icmp sgt i32 %.114.i.i56, -1
@@ -11836,11 +11836,11 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit48: ; preds = %103, %_ZN6icu_
   store i8 %157, ptr %159, align 1, !tbaa !47
   %160 = add nuw nsw i32 %.01119.i.i51, 1
   %exitcond21.not.i.i61 = icmp eq i32 %160, 24
-  br i1 %exitcond21.not.i.i61, label %._crit_edge.i.i62, label %.preheader.i.i50, !llvm.loop !69
+  br i1 %exitcond21.not.i.i61, label %._crit_edge.i.i62, label %.preheader.i.i50, !llvm.loop !70
 
 ._crit_edge.i.i62:                                ; preds = %156
   %.pre.i.i63 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i60, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i60, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i60: ; preds = %154, %._crit_edge.i.i62
   %161 = phi i8 [ %.pre.i.i63, %._crit_edge.i.i62 ], [ %146, %154 ]
@@ -11887,7 +11887,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit64: ; preds = %141, %_ZN6icu_
   %.1.i.i73 = select i1 %or.cond.i.i71, i32 %176, i32 %.01217.i.i69
   %indvars.iv.next.i.i74 = add nuw nsw i64 %indvars.iv.i.i68, 1
   %exitcond.not.i.i75 = icmp eq i64 %indvars.iv.next.i.i74, 24
-  br i1 %exitcond.not.i.i75, label %180, label %173, !llvm.loop !68
+  br i1 %exitcond.not.i.i75, label %180, label %173, !llvm.loop !69
 
 180:                                              ; preds = %173
   %181 = icmp sgt i32 %.114.i.i72, -1
@@ -11901,11 +11901,11 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit64: ; preds = %141, %_ZN6icu_
   store i8 %183, ptr %185, align 1, !tbaa !47
   %186 = add nuw nsw i32 %.01119.i.i67, 1
   %exitcond21.not.i.i77 = icmp eq i32 %186, 24
-  br i1 %exitcond21.not.i.i77, label %._crit_edge.i.i78, label %.preheader.i.i66, !llvm.loop !69
+  br i1 %exitcond21.not.i.i77, label %._crit_edge.i.i78, label %.preheader.i.i66, !llvm.loop !70
 
 ._crit_edge.i.i78:                                ; preds = %182
   %.pre.i.i79 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i76, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i76, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i76: ; preds = %180, %._crit_edge.i.i78
   %187 = phi i8 [ %.pre.i.i79, %._crit_edge.i.i78 ], [ %172, %180 ]
@@ -12023,7 +12023,7 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN
   %.1.i.i90 = select i1 %or.cond.i.i88, i32 %233, i32 %.01217.i.i86
   %indvars.iv.next.i.i91 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %exitcond.not.i.i92 = icmp eq i64 %indvars.iv.next.i.i91, 24
-  br i1 %exitcond.not.i.i92, label %237, label %230, !llvm.loop !68
+  br i1 %exitcond.not.i.i92, label %237, label %230, !llvm.loop !69
 
 237:                                              ; preds = %230
   %238 = icmp sgt i32 %.114.i.i89, -1
@@ -12037,11 +12037,11 @@ _ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode.exit: ; preds = %_ZN
   store i8 %240, ptr %242, align 1, !tbaa !47
   %243 = add nuw nsw i32 %.01119.i.i84, 1
   %exitcond21.not.i.i94 = icmp eq i32 %243, 24
-  br i1 %exitcond21.not.i.i94, label %._crit_edge.i.i95, label %.preheader.i.i83, !llvm.loop !69
+  br i1 %exitcond21.not.i.i94, label %._crit_edge.i.i95, label %.preheader.i.i83, !llvm.loop !70
 
 ._crit_edge.i.i95:                                ; preds = %239
   %.pre.i.i96 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i93, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i93, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i93: ; preds = %237, %._crit_edge.i.i95
   %244 = phi i8 [ %.pre.i.i96, %._crit_edge.i.i95 ], [ %229, %237 ]
@@ -12107,7 +12107,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit97: ; preds = %224, %_ZN6icu_
   %.1.i.i106 = select i1 %or.cond.i.i104, i32 %269, i32 %.01217.i.i102
   %indvars.iv.next.i.i107 = add nuw nsw i64 %indvars.iv.i.i101, 1
   %exitcond.not.i.i108 = icmp eq i64 %indvars.iv.next.i.i107, 24
-  br i1 %exitcond.not.i.i108, label %273, label %266, !llvm.loop !68
+  br i1 %exitcond.not.i.i108, label %273, label %266, !llvm.loop !69
 
 273:                                              ; preds = %266
   %274 = icmp sgt i32 %.114.i.i105, -1
@@ -12121,11 +12121,11 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit97: ; preds = %224, %_ZN6icu_
   store i8 %276, ptr %278, align 1, !tbaa !47
   %279 = add nuw nsw i32 %.01119.i.i100, 1
   %exitcond21.not.i.i110 = icmp eq i32 %279, 24
-  br i1 %exitcond21.not.i.i110, label %._crit_edge.i.i111, label %.preheader.i.i99, !llvm.loop !69
+  br i1 %exitcond21.not.i.i110, label %._crit_edge.i.i111, label %.preheader.i.i99, !llvm.loop !70
 
 ._crit_edge.i.i111:                               ; preds = %275
   %.pre.i.i112 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i109, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i109, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i109: ; preds = %273, %._crit_edge.i.i111
   %280 = phi i8 [ %.pre.i.i112, %._crit_edge.i.i111 ], [ %265, %273 ]
@@ -12200,7 +12200,7 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit113: ; preds = %261, %_ZN6icu
   %.1.i.i122 = select i1 %or.cond.i.i120, i32 %308, i32 %.01217.i.i118
   %indvars.iv.next.i.i123 = add nuw nsw i64 %indvars.iv.i.i117, 1
   %exitcond.not.i.i124 = icmp eq i64 %indvars.iv.next.i.i123, 24
-  br i1 %exitcond.not.i.i124, label %312, label %305, !llvm.loop !68
+  br i1 %exitcond.not.i.i124, label %312, label %305, !llvm.loop !69
 
 312:                                              ; preds = %305
   %313 = icmp sgt i32 %.114.i.i121, -1
@@ -12214,11 +12214,11 @@ _ZN6icu_778Calendar3setE19UCalendarDateFieldsi.exit113: ; preds = %261, %_ZN6icu
   store i8 %315, ptr %317, align 1, !tbaa !47
   %318 = add nuw nsw i32 %.01119.i.i116, 1
   %exitcond21.not.i.i126 = icmp eq i32 %318, 24
-  br i1 %exitcond21.not.i.i126, label %._crit_edge.i.i127, label %.preheader.i.i115, !llvm.loop !69
+  br i1 %exitcond21.not.i.i126, label %._crit_edge.i.i127, label %.preheader.i.i115, !llvm.loop !70
 
 ._crit_edge.i.i127:                               ; preds = %314
   %.pre.i.i128 = load i8, ptr %26, align 8, !tbaa !40
-  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i125, !llvm.loop !69
+  br label %_ZN6icu_778Calendar16recalculateStampEv.exit.i125, !llvm.loop !70
 
 _ZN6icu_778Calendar16recalculateStampEv.exit.i125: ; preds = %312, %._crit_edge.i.i127
   %319 = phi i8 [ %.pre.i.i128, %._crit_edge.i.i127 ], [ %304, %312 ]
@@ -12559,7 +12559,7 @@ define linkonce_odr void @_ZNK6icu_7720BasicCalendarFactory16updateVisibleIDsERN
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #25
   call void @_ZN6icu_7713UnicodeStringC1EDs(ptr noundef nonnull align 8 dereferenceable(64) %4, i16 noundef zeroext 64)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #25
-  store ptr @.str.47, ptr %6, align 8, !tbaa !89
+  store ptr @.str.47, ptr %6, align 8, !tbaa !90
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 noundef signext 1, ptr noundef nonnull %6, i32 noundef -1)
           to label %16 unwind label %43
 
@@ -12575,8 +12575,8 @@ define linkonce_odr void @_ZNK6icu_7720BasicCalendarFactory16updateVisibleIDsERN
 
 _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %16
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #25
-  %24 = load ptr, ptr %6, align 8, !tbaa !89
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #25, !srcloc !92
+  %24 = load ptr, ptr %6, align 8, !tbaa !90
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #25, !srcloc !93
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #25
   %25 = load ptr, ptr %15, align 8, !tbaa !58
@@ -12596,7 +12596,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %16
 _ZN6icu_7713UnicodeString6appendERKS0_.exit18:    ; preds = %26
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #25
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #25
-  %34 = load ptr, ptr %1, align 8, !tbaa !93
+  %34 = load ptr, ptr %1, align 8, !tbaa !94
   %35 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #25
   %36 = icmp eq ptr %35, null
   br i1 %36, label %38, label %37
@@ -12621,7 +12621,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = getelementptr inbounds nuw [19 x ptr], ptr @_ZL9gCalTypes, i64 0, i64 %indvars.iv.next
   %.not12 = icmp eq i64 %indvars.iv.next, 18
-  br i1 %.not12, label %.loopexit, label %14, !llvm.loop !99
+  br i1 %.not12, label %.loopexit, label %14, !llvm.loop !100
 
 43:                                               ; preds = %14
   %44 = landingpad { ptr, i32 }
@@ -12636,8 +12636,8 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %3
 
 47:                                               ; preds = %45, %43
   %.pn = phi { ptr, i32 } [ %46, %45 ], [ %44, %43 ]
-  %48 = load ptr, ptr %6, align 8, !tbaa !89
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #25, !srcloc !92
+  %48 = load ptr, ptr %6, align 8, !tbaa !90
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %48) #25, !srcloc !93
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #25
   br label %.body
 
@@ -12722,14 +12722,14 @@ define linkonce_odr noundef ptr @_ZNK6icu_7722DefaultCalendarFactory6createERKNS
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i16 2, ptr %25, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  store i16 64, ptr %5, align 2, !tbaa !100
+  store i16 64, ptr %5, align 2, !tbaa !101
   %26 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 1)
           to label %27 unwind label %56
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #25
-  store ptr @.str.47, ptr %8, align 8, !tbaa !89
+  store ptr @.str.47, ptr %8, align 8, !tbaa !90
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext 1, ptr noundef nonnull %8, i32 noundef 9)
           to label %28 unwind label %58
 
@@ -12747,8 +12747,8 @@ define linkonce_odr noundef ptr @_ZNK6icu_7722DefaultCalendarFactory6createERKNS
 
 _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %28
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #25
-  %38 = load ptr, ptr %8, align 8, !tbaa !89
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #25, !srcloc !92
+  %38 = load ptr, ptr %8, align 8, !tbaa !90
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %38) #25, !srcloc !93
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #25
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -12798,8 +12798,8 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit25:    ; preds = %46
 
 62:                                               ; preds = %60, %58
   %.pn = phi { ptr, i32 } [ %61, %60 ], [ %59, %58 ]
-  %63 = load ptr, ptr %8, align 8, !tbaa !89
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #25, !srcloc !92
+  %63 = load ptr, ptr %8, align 8, !tbaa !90
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #25, !srcloc !93
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #25
   br label %70
 
@@ -13004,7 +13004,7 @@ define linkonce_odr void @_ZN6icu_7715CalendarServiceC2Ev(ptr noundef nonnull al
   %3 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #25
-  store ptr @.str.16, ptr %3, align 8, !tbaa !89
+  store ptr @.str.16, ptr %3, align 8, !tbaa !90
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 noundef signext 1, ptr noundef nonnull %3, i32 noundef -1)
           to label %5 unwind label %17
 
@@ -13014,8 +13014,8 @@ define linkonce_odr void @_ZN6icu_7715CalendarServiceC2Ev(ptr noundef nonnull al
 
 6:                                                ; preds = %5
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #25
-  %7 = load ptr, ptr %3, align 8, !tbaa !89
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #25, !srcloc !92
+  %7 = load ptr, ptr %3, align 8, !tbaa !90
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7) #25, !srcloc !93
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #25
   store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTVN6icu_7715CalendarServiceE, i64 16), ptr %0, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
@@ -13056,8 +13056,8 @@ _ZN6icu_7722DefaultCalendarFactoryC2Ev.exit:      ; preds = %10
 
 21:                                               ; preds = %19, %17
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
-  %22 = load ptr, ptr %3, align 8, !tbaa !89
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #25, !srcloc !92
+  %22 = load ptr, ptr %3, align 8, !tbaa !90
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %22) #25, !srcloc !93
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #25
   br label %28
 
@@ -13210,9 +13210,9 @@ define linkonce_odr void @_ZNK6icu_7712UnifiedCache3getINS_14SharedCalendarEEEvR
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #25
   store i32 0, ptr %5, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #25
-  store ptr null, ptr %6, align 8, !tbaa !102
+  store ptr null, ptr %6, align 8, !tbaa !103
   call void @_ZNK6icu_7712UnifiedCache4_getERKNS_12CacheKeyBaseERPKNS_12SharedObjectEPKvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %10 = load ptr, ptr %6, align 8, !tbaa !102
+  %10 = load ptr, ptr %6, align 8, !tbaa !103
   %11 = load i32, ptr %5, align 4, !tbaa !13
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %_ZN6icu_7712SharedObject7copyPtrINS_14SharedCalendarEEEvPKT_RS5_.exit.i, label %13
@@ -13308,10 +13308,10 @@ define linkonce_odr noundef ptr @_ZNK6icu_7714LocaleCacheKeyINS_14SharedCalendar
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !63
-  store i32 %7, ptr %5, align 8, !tbaa !63
+  %7 = load i32, ptr %6, align 8, !tbaa !64
+  store i32 %7, ptr %5, align 8, !tbaa !64
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i8 0, ptr %8, align 4, !tbaa !65
+  store i8 0, ptr %8, align 4, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN6icu_7714LocaleCacheKeyINS_14SharedCalendarEEE, i64 16), ptr %2, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13354,9 +13354,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7714LocaleCacheKeyINS_14SharedC
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !66
+  %12 = load ptr, ptr %11, align 8, !tbaa !67
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
   %15 = icmp eq ptr %12, %14
   br i1 %15, label %_ZNK6icu_778CacheKeyINS_14SharedCalendarEE6equalsERKNS_12CacheKeyBaseE.exit.thread, label %16
 
@@ -13500,48 +13500,49 @@ attributes #28 = { nounwind willreturn memory(read) }
 !56 = !{!57, !24, i64 0}
 !57 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_8CalendarEEE", !24, i64 0}
 !58 = !{!5, !5, i64 0}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!62, !9, i64 56}
-!62 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!63 = !{!64, !14, i64 8}
-!64 = !{!"_ZTSN6icu_7712CacheKeyBaseE", !20, i64 0, !14, i64 8, !7, i64 12}
-!65 = !{!64, !7, i64 12}
-!66 = !{!67, !5, i64 8}
-!67 = !{!"_ZTSSt9type_info", !5, i64 8}
-!68 = distinct !{!68, !60}
-!69 = distinct !{!69, !60}
-!70 = distinct !{!70, !60}
-!71 = distinct !{!71, !60}
-!72 = !{!28, !7, i64 168}
-!73 = !{!28, !7, i64 169}
-!74 = !{!28, !34, i64 170}
-!75 = !{!28, !9, i64 164}
-!76 = !{!29, !29, i64 0}
-!77 = distinct !{!77, !60}
-!78 = distinct !{!78, !60}
-!79 = distinct !{!79, !60}
-!80 = distinct !{!80, !60}
-!81 = distinct !{!81, !60}
-!82 = distinct !{!82, !60, !83}
-!83 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!84 = distinct !{!84, !60}
-!85 = distinct !{!85, !60, !83}
-!86 = distinct !{!86, !60}
-!87 = distinct !{!87, !60}
-!88 = distinct !{!88, !60}
-!89 = !{!90, !91, i64 0}
-!90 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !91, i64 0}
-!91 = !{!"p1 char16_t", !6, i64 0}
-!92 = !{i64 2150464769}
-!93 = !{!94, !95, i64 0}
-!94 = !{!"_ZTSN6icu_779HashtableE", !95, i64 0, !96, i64 8}
-!95 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
-!96 = !{!"_ZTS10UHashtable", !97, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !98, i64 64, !98, i64 68, !7, i64 72, !7, i64 73}
-!97 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
-!98 = !{!"float", !7, i64 0}
-!99 = distinct !{!99, !60}
-!100 = !{!101, !101, i64 0}
-!101 = !{!"char16_t", !7, i64 0}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"p1 _ZTSN6icu_7712SharedObjectE", !6, i64 0}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!63, !9, i64 56}
+!63 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!64 = !{!65, !14, i64 8}
+!65 = !{!"_ZTSN6icu_7712CacheKeyBaseE", !20, i64 0, !14, i64 8, !7, i64 12}
+!66 = !{!65, !7, i64 12}
+!67 = !{!68, !5, i64 8}
+!68 = !{!"_ZTSSt9type_info", !5, i64 8}
+!69 = distinct !{!69, !60, !61}
+!70 = distinct !{!70, !60, !61}
+!71 = distinct !{!71, !60, !61}
+!72 = distinct !{!72, !60, !61}
+!73 = !{!28, !7, i64 168}
+!74 = !{!28, !7, i64 169}
+!75 = !{!28, !34, i64 170}
+!76 = !{!28, !9, i64 164}
+!77 = !{!29, !29, i64 0}
+!78 = distinct !{!78, !60, !61}
+!79 = distinct !{!79, !60, !61}
+!80 = distinct !{!80, !60, !61}
+!81 = distinct !{!81, !60, !61}
+!82 = distinct !{!82, !60, !61}
+!83 = distinct !{!83, !60, !61, !84}
+!84 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!85 = distinct !{!85, !60, !61}
+!86 = distinct !{!86, !60, !61, !84}
+!87 = distinct !{!87, !60, !61}
+!88 = distinct !{!88, !60, !61}
+!89 = distinct !{!89, !60, !61}
+!90 = !{!91, !92, i64 0}
+!91 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !92, i64 0}
+!92 = !{!"p1 char16_t", !6, i64 0}
+!93 = !{i64 2150464769}
+!94 = !{!95, !96, i64 0}
+!95 = !{!"_ZTSN6icu_779HashtableE", !96, i64 0, !97, i64 8}
+!96 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
+!97 = !{!"_ZTS10UHashtable", !98, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !99, i64 64, !99, i64 68, !7, i64 72, !7, i64 73}
+!98 = !{!"p1 _ZTS12UHashElement", !6, i64 0}
+!99 = !{!"float", !7, i64 0}
+!100 = distinct !{!100, !60, !61}
+!101 = !{!102, !102, i64 0}
+!102 = !{!"char16_t", !7, i64 0}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"p1 _ZTSN6icu_7712SharedObjectE", !6, i64 0}

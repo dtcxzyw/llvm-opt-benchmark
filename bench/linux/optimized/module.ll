@@ -307,7 +307,7 @@ define dso_local noundef i32 @module_finalize(ptr noundef readonly captures(none
   %55 = select i1 %54, ptr %16, ptr %25
   %56 = getelementptr i8, ptr %16, i64 64
   %57 = icmp ult ptr %56, %14
-  br i1 %57, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %57, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %3
   %58 = phi ptr [ null, %3 ], [ %55, %.preheader ]
@@ -591,7 +591,8 @@ attributes #12 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{ptr @memcpy, ptr @text_poke}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}

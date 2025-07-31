@@ -131,7 +131,7 @@ openFile.exit.i:                                  ; preds = %15
 42:                                               ; preds = %39
   %43 = sext i32 %40 to i64
   %44 = getelementptr inbounds ptr, ptr %1, i64 %43
-  store ptr %44, ptr @Files, align 8, !tbaa !15
+  store ptr %44, ptr @Files, align 8, !tbaa !16
   br label %45
 
 45:                                               ; preds = %42, %39
@@ -151,7 +151,7 @@ openFile.exit.i:                                  ; preds = %15
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr @CmdName, align 8, !tbaa !4
-  %54 = load i8, ptr %53, align 1, !tbaa !17
+  %54 = load i8, ptr %53, align 1, !tbaa !18
   %55 = sext i8 %54 to i32
   %56 = add nsw i32 %55, -65
   %57 = icmp ult i32 %56, 26
@@ -164,7 +164,7 @@ openFile.exit.i:                                  ; preds = %15
 
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  %61 = load i8, ptr %60, align 1, !tbaa !17
+  %61 = load i8, ptr %60, align 1, !tbaa !18
   %62 = sext i8 %61 to i32
   %63 = add nsw i32 %62, -65
   %64 = icmp ult i32 %63, 26
@@ -175,7 +175,7 @@ openFile.exit.i:                                  ; preds = %15
   br label %setAction.exit.i
 
 67:                                               ; preds = %52
-  %68 = load ptr, ptr @Files, align 8, !tbaa !15
+  %68 = load ptr, ptr @Files, align 8, !tbaa !16
   %.not.i11.i = icmp eq ptr %68, null
   br i1 %.not.i11.i, label %checkInput.exit.i.i, label %69
 
@@ -231,7 +231,7 @@ initargs.exit:                                    ; preds = %49, %setAction.exit
 
 88:                                               ; preds = %initargs.exit
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #11
-  %89 = load ptr, ptr @Files, align 8, !tbaa !15
+  %89 = load ptr, ptr @Files, align 8, !tbaa !16
   %90 = call ptr @newIngraph(ptr noundef nonnull %3, ptr noundef %89) #11
   %91 = call ptr @nextGraph(ptr noundef nonnull %3) #11
   %.not1426 = icmp eq ptr %91, null
@@ -254,7 +254,7 @@ initargs.exit:                                    ; preds = %49, %setAction.exit
   %98 = call i32 @fflush(ptr noundef %97)
   %99 = call ptr @nextGraph(ptr noundef nonnull %3) #11
   %.not14 = icmp eq ptr %99, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph28, !llvm.loop !18
+  br i1 %.not14, label %._crit_edge, label %.lr.ph28, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %95, %88
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #11
@@ -262,11 +262,11 @@ initargs.exit:                                    ; preds = %49, %setAction.exit
 
 .loopexit:                                        ; preds = %139, %.preheader
   %.2.lcssa = phi ptr [ %.1, %.preheader ], [ %136, %139 ]
-  br label %.preheader18, !llvm.loop !19
+  br label %.preheader18, !llvm.loop !20
 
 .preheader18:                                     ; preds = %initargs.exit, %.loopexit
   %.1 = phi ptr [ %.2.lcssa, %.loopexit ], [ null, %initargs.exit ]
-  %100 = load ptr, ptr @Files, align 8, !tbaa !15
+  %100 = load ptr, ptr @Files, align 8, !tbaa !16
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %106
 
@@ -284,7 +284,7 @@ initargs.exit:                                    ; preds = %49, %setAction.exit
 
 108:                                              ; preds = %106
   %109 = tail call i32 @fclose(ptr noundef nonnull %107)
-  %.pre.i = load ptr, ptr @Files, align 8, !tbaa !15
+  %.pre.i = load ptr, ptr @Files, align 8, !tbaa !16
   br label %110
 
 110:                                              ; preds = %108, %106
@@ -311,20 +311,20 @@ getFile.exit.thread34:                            ; preds = %.lr.ph.i
 
 120:                                              ; preds = %.lr.ph.i
   %121 = load ptr, ptr @stderr, align 8, !tbaa !11
-  %122 = load ptr, ptr @Files, align 8, !tbaa !15
+  %122 = load ptr, ptr @Files, align 8, !tbaa !16
   %123 = load i32, ptr @getFile.cnt, align 4, !tbaa !9
   %124 = sext i32 %123 to i64
   %125 = getelementptr ptr, ptr %122, i64 %124
   %126 = getelementptr i8, ptr %125, i64 -8
   %127 = load ptr, ptr %126, align 8, !tbaa !4
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %121, ptr noundef nonnull @.str.14, ptr noundef %127) #12
-  %129 = load ptr, ptr @Files, align 8, !tbaa !15
+  %129 = load ptr, ptr @Files, align 8, !tbaa !16
   %130 = load i32, ptr @getFile.cnt, align 4, !tbaa !9
   %131 = sext i32 %130 to i64
   %132 = getelementptr inbounds ptr, ptr %129, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !4
   %.not5.i = icmp eq ptr %133, null
-  br i1 %.not5.i, label %getFile.exit.thread, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not5.i, label %getFile.exit.thread, label %.lr.ph.i, !llvm.loop !21
 
 getFile.exit.thread:                              ; preds = %102, %110, %120
   store ptr null, ptr @getFile.savef, align 8, !tbaa !11
@@ -359,7 +359,7 @@ getFile.exit:                                     ; preds = %102
   %143 = tail call i32 @fflush(ptr noundef %142)
   %144 = tail call ptr @gxl_to_gv(ptr noundef nonnull %.0.i37) #11
   %.not12 = icmp eq ptr %144, null
-  br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not12, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit20:                                      ; preds = %getFile.exit, %getFile.exit.thread, %._crit_edge
   call fastcc void @graphviz_exit(i32 noundef 0) #14
@@ -461,12 +461,13 @@ attributes #15 = { noreturn nounwind }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p2 omnipotent char", !6, i64 0}
-!17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14}
-!20 = distinct !{!20, !14}
-!21 = distinct !{!21, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p2 omnipotent char", !6, i64 0}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15}
+!21 = distinct !{!21, !14, !15}
+!22 = distinct !{!22, !14, !15}

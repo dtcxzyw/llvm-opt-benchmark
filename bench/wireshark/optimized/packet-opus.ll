@@ -473,7 +473,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
   %138 = add i32 %.0.i251, %.3209300
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond323.not, label %.lr.ph305.preheader, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond323.not, label %.lr.ph305.preheader, label %.lr.ph, !llvm.loop !9
 
 .lr.ph305:                                        ; preds = %.lr.ph305.preheader, %.lr.ph305
   %indvars.iv324 = phi i64 [ 0, %.lr.ph305.preheader ], [ %indvars.iv.next325, %.lr.ph305 ]
@@ -487,7 +487,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
   %144 = add i32 %.4210303, %143
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond329.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count328
-  br i1 %exitcond329.not, label %._crit_edge.loopexit, label %.lr.ph305, !llvm.loop !9
+  br i1 %exitcond329.not, label %._crit_edge.loopexit, label %.lr.ph305, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph305
   %145 = zext nneg i32 %smax327 to i64
@@ -549,7 +549,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
   store i16 %163, ptr %171, align 2
   %indvars.iv.next331 = add nuw nsw i64 %indvars.iv330, 1
   %exitcond334.not = icmp eq i64 %indvars.iv.next331, %wide.trip.count333
-  br i1 %exitcond334.not, label %.loopexit, label %165, !llvm.loop !10
+  br i1 %exitcond334.not, label %.loopexit, label %165, !llvm.loop !11
 
 .loopexit:                                        ; preds = %165, %149, %55, %29, %20
   %.0221 = phi i32 [ 1, %20 ], [ 2, %29 ], [ 2, %55 ], [ %71, %149 ], [ %71, %165 ]
@@ -577,7 +577,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
   %184 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %181, ptr noundef %0, i32 noundef %183, i32 noundef %180, i32 noundef 0)
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %exitcond340.not = icmp eq i64 %indvars.iv.next336, %wide.trip.count339
-  br i1 %exitcond340.not, label %185, label %172, !llvm.loop !11
+  br i1 %exitcond340.not, label %185, label %172, !llvm.loop !12
 
 185:                                              ; preds = %179
   %.not236 = icmp eq i32 %.0217, 0
@@ -594,7 +594,7 @@ parse_size_field.exit252:                         ; preds = %.thread267, %118, %
 192:                                              ; preds = %.lr.ph312
   %193 = add nuw nsw i32 %.0310, 1
   %exitcond341.not = icmp eq i32 %193, %.0217
-  br i1 %exitcond341.not, label %.critedge, label %.lr.ph312, !llvm.loop !12
+  br i1 %exitcond341.not, label %.critedge, label %.lr.ph312, !llvm.loop !13
 
 .lr.ph312:                                        ; preds = %186, %192
   %.0310 = phi i32 [ %193, %192 ], [ 0, %186 ]
@@ -687,10 +687,11 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

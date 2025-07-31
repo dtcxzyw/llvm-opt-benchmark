@@ -59,7 +59,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   %25 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.next.i30
   store float %24, ptr %25, align 4
   %26 = icmp samesign ugt i64 %indvars.iv.i29, 1
-  br i1 %26, label %.lr.ph.i28, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !5
+  br i1 %26, label %.lr.ph.i28, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !6
 
 27:                                               ; preds = %4
   %28 = icmp sgt i32 %2, 0
@@ -81,7 +81,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   %36 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.next.i34
   store float %35, ptr %36, align 4
   %37 = icmp samesign ugt i64 %indvars.iv.i33, 1
-  br i1 %37, label %.lr.ph.i32, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !6
+  br i1 %37, label %.lr.ph.i32, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !7
 
 38:                                               ; preds = %4
   %39 = icmp sgt i32 %2, 0
@@ -100,7 +100,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   store i16 %42, ptr %43, align 2
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.i40, label %.lr.ph.i36, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.lr.ph.i40, label %.lr.ph.i36, !llvm.loop !8
 
 .lr.ph.i40:                                       ; preds = %.lr.ph.i36, %.lr.ph.i40
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %.lr.ph.i40 ], [ %wide.trip.count.i, %.lr.ph.i36 ]
@@ -114,7 +114,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   %50 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.next.i42
   store float %49, ptr %50, align 4
   %51 = icmp samesign ugt i64 %indvars.iv.i41, 1
-  br i1 %51, label %.lr.ph.i40, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !6
+  br i1 %51, label %.lr.ph.i40, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !7
 
 52:                                               ; preds = %4
   %53 = icmp sgt i32 %2, 0
@@ -134,7 +134,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   %59 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.next.i47
   store float %58, ptr %59, align 4
   %60 = icmp samesign ugt i64 %indvars.iv.i46, 1
-  br i1 %60, label %.lr.ph.i45, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !8
+  br i1 %60, label %.lr.ph.i45, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !9
 
 61:                                               ; preds = %4
   %62 = icmp sgt i32 %2, 0
@@ -153,7 +153,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   store i32 %65, ptr %66, align 4
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i49
-  br i1 %exitcond.not.i53, label %.lr.ph.i55, label %.lr.ph.i50, !llvm.loop !9
+  br i1 %exitcond.not.i53, label %.lr.ph.i55, label %.lr.ph.i50, !llvm.loop !10
 
 .lr.ph.i55:                                       ; preds = %.lr.ph.i50, %.lr.ph.i55
   %indvars.iv.i56 = phi i64 [ %indvars.iv.next.i57, %.lr.ph.i55 ], [ %wide.trip.count.i49, %.lr.ph.i50 ]
@@ -164,7 +164,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   %70 = fmul float %69, 0x3E00000000000000
   store float %70, ptr %67, align 4
   %71 = icmp samesign ugt i64 %indvars.iv.i56, 1
-  br i1 %71, label %.lr.ph.i55, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !8
+  br i1 %71, label %.lr.ph.i55, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !9
 
 72:                                               ; preds = %4
   %73 = icmp sgt i32 %2, 0
@@ -183,7 +183,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   store i32 %76, ptr %77, align 4
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i60
-  br i1 %exitcond.not.i64, label %SDL_Convert_S8_to_F32_Scalar.exit, label %.lr.ph.i61, !llvm.loop !9
+  br i1 %exitcond.not.i64, label %SDL_Convert_S8_to_F32_Scalar.exit, label %.lr.ph.i61, !llvm.loop !10
 
 SDL_Convert_S8_to_F32_Scalar.exit:                ; preds = %.lr.ph.i61, %.lr.ph.i55, %.lr.ph.i45, %.lr.ph.i40, %.lr.ph.i32, %.lr.ph.i28, %.lr.ph.i, %72, %61, %52, %38, %27, %16, %5, %4
   ret void
@@ -226,7 +226,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i8 %16, ptr %17, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i, !llvm.loop !11
 
 18:                                               ; preds = %4
   %19 = icmp sgt i32 %2, 0
@@ -254,7 +254,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i8 %30, ptr %31, align 1
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i33 = icmp eq i64 %indvars.iv.next.i32, %wide.trip.count.i28
-  br i1 %exitcond.not.i33, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i29, !llvm.loop !11
+  br i1 %exitcond.not.i33, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i29, !llvm.loop !12
 
 32:                                               ; preds = %4
   %33 = icmp sgt i32 %2, 0
@@ -281,7 +281,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i16 %43, ptr %44, align 2
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i35
-  br i1 %exitcond.not.i40, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i36, !llvm.loop !12
+  br i1 %exitcond.not.i40, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i36, !llvm.loop !13
 
 45:                                               ; preds = %4
   %46 = icmp sgt i32 %2, 0
@@ -308,7 +308,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i16 %56, ptr %57, align 2
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i42
-  br i1 %exitcond.not.i47, label %.lr.ph.i51, label %.lr.ph.i43, !llvm.loop !12
+  br i1 %exitcond.not.i47, label %.lr.ph.i51, label %.lr.ph.i43, !llvm.loop !13
 
 .lr.ph.i51:                                       ; preds = %.lr.ph.i43, %.lr.ph.i51
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i53, %.lr.ph.i51 ], [ 0, %.lr.ph.i43 ]
@@ -318,7 +318,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i16 %60, ptr %58, align 2
   %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i52, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next.i53, %wide.trip.count.i42
-  br i1 %exitcond.not.i54, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i51, !llvm.loop !7
+  br i1 %exitcond.not.i54, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i51, !llvm.loop !8
 
 61:                                               ; preds = %4
   %62 = icmp sgt i32 %2, 0
@@ -346,7 +346,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i32 %72, ptr %73, align 4
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i58, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i56
-  br i1 %exitcond.not.i61, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i57, !llvm.loop !13
+  br i1 %exitcond.not.i61, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i57, !llvm.loop !14
 
 74:                                               ; preds = %4
   %75 = icmp sgt i32 %2, 0
@@ -374,7 +374,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i32 %85, ptr %86, align 4
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i69 = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i63
-  br i1 %exitcond.not.i69, label %.lr.ph.i73, label %.lr.ph.i64, !llvm.loop !13
+  br i1 %exitcond.not.i69, label %.lr.ph.i73, label %.lr.ph.i64, !llvm.loop !14
 
 .lr.ph.i73:                                       ; preds = %.lr.ph.i64, %.lr.ph.i73
   %indvars.iv.i74 = phi i64 [ %indvars.iv.next.i75, %.lr.ph.i73 ], [ 0, %.lr.ph.i64 ]
@@ -384,7 +384,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i32 %89, ptr %87, align 4
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i74, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, %wide.trip.count.i63
-  br i1 %exitcond.not.i76, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i73, !llvm.loop !9
+  br i1 %exitcond.not.i76, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i73, !llvm.loop !10
 
 90:                                               ; preds = %4
   %91 = icmp sgt i32 %2, 0
@@ -403,7 +403,7 @@ define hidden void @ConvertAudioFromFloat(ptr noundef captures(none) %0, ptr nou
   store i32 %94, ptr %95, align 4
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, %wide.trip.count.i78
-  br i1 %exitcond.not.i82, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i79, !llvm.loop !9
+  br i1 %exitcond.not.i82, label %SDL_Convert_F32_to_S8_Scalar.exit, label %.lr.ph.i79, !llvm.loop !10
 
 SDL_Convert_F32_to_S8_Scalar.exit:                ; preds = %.lr.ph.i79, %.lr.ph.i73, %.lr.ph.i57, %.lr.ph.i51, %.lr.ph.i36, %.lr.ph.i29, %.lr.ph.i, %90, %74, %61, %45, %32, %18, %5, %4
   ret void
@@ -433,7 +433,7 @@ define hidden void @ConvertAudioSwapEndian(ptr noundef writeonly captures(none) 
   store i16 %9, ptr %10, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_Convert_Swap16_Scalar.exit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %SDL_Convert_Swap16_Scalar.exit, label %.lr.ph.i, !llvm.loop !8
 
 11:                                               ; preds = %4
   %12 = icmp sgt i32 %2, 0
@@ -452,7 +452,7 @@ define hidden void @ConvertAudioSwapEndian(ptr noundef writeonly captures(none) 
   store i32 %15, ptr %16, align 4
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
   %exitcond.not.i11 = icmp eq i64 %indvars.iv.next.i10, %wide.trip.count.i7
-  br i1 %exitcond.not.i11, label %SDL_Convert_Swap16_Scalar.exit, label %.lr.ph.i8, !llvm.loop !9
+  br i1 %exitcond.not.i11, label %SDL_Convert_Swap16_Scalar.exit, label %.lr.ph.i8, !llvm.loop !10
 
 SDL_Convert_Swap16_Scalar.exit:                   ; preds = %.lr.ph.i8, %.lr.ph.i, %11, %5, %4
   ret void
@@ -490,14 +490,15 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}

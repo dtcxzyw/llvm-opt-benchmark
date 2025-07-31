@@ -88,7 +88,7 @@ define hidden void @_ZN16fixed_bit_vector3setERKS_jj(ptr noundef nonnull align 4
   store i32 %35, ptr %31, align 4, !tbaa !3
   %36 = add nuw i32 %.02836, 1
   %37 = icmp ult i32 %36, %11
-  br i1 %37, label %.lr.ph38, label %.loopexit, !llvm.loop !9
+  br i1 %37, label %.lr.ph38, label %.loopexit, !llvm.loop !10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.033 = phi i32 [ %56, %.lr.ph ], [ 0, %.lr.ph.preheader ]
@@ -114,7 +114,7 @@ define hidden void @_ZN16fixed_bit_vector3setERKS_jj(ptr noundef nonnull align 4
   store i32 %55, ptr %49, align 4, !tbaa !3
   %56 = add nuw i32 %.033, 1
   %exitcond.not = icmp eq i32 %56, %8
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph38, %.preheader, %._crit_edge
   ret void
@@ -124,26 +124,26 @@ define hidden void @_ZN16fixed_bit_vector3setERKS_jj(ptr noundef nonnull align 4
 define hidden void @_ZN24fixed_bit_vector_managerC2Ej(ptr noundef nonnull align 8 dereferenceable(540) %0, i32 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN22small_object_allocatorC1EPKc(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @.str)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store i32 %1, ptr %3, align 8, !tbaa !11
+  store i32 %1, ptr %3, align 8, !tbaa !12
   %4 = add i32 %1, 31
   %5 = lshr i32 %4, 5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 %5, ptr %6, align 8, !tbaa !16
+  store i32 %5, ptr %6, align 8, !tbaa !17
   %7 = shl nuw nsw i32 %5, 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  store i32 %7, ptr %8, align 4, !tbaa !17
+  store i32 %7, ptr %8, align 4, !tbaa !18
   %9 = and i32 %1, 31
   %notmask = shl nsw i32 -1, %9
   %10 = xor i32 %notmask, -1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  store i32 %10, ptr %11, align 4, !tbaa !18
+  store i32 %10, ptr %11, align 4, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i32 0, ptr %12, align 8
   %13 = icmp eq i32 %9, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %2
-  store i32 -1, ptr %11, align 4, !tbaa !18
+  store i32 -1, ptr %11, align 4, !tbaa !19
   br label %15
 
 15:                                               ; preds = %14, %2
@@ -160,7 +160,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager8allocateEv(ptr noundef nonnull align 8 dereferenceable(540) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %3 = load i32, ptr %2, align 4, !tbaa !17
+  %3 = load i32, ptr %2, align 4, !tbaa !18
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
 
@@ -183,7 +183,7 @@ declare noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager9allocate0Ev(ptr noundef nonnull align 8 dereferenceable(540) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %3 = load i32, ptr %2, align 4, !tbaa !17
+  %3 = load i32, ptr %2, align 4, !tbaa !18
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
 
@@ -194,7 +194,7 @@ define hidden noundef ptr @_ZN24fixed_bit_vector_manager9allocate0Ev(ptr noundef
 7:                                                ; preds = %1
   %8 = zext i32 %3 to i64
   %9 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(540) %0, i64 noundef %8)
-  %.pre = load i32, ptr %2, align 4, !tbaa !17
+  %.pre = load i32, ptr %2, align 4, !tbaa !18
   %10 = zext i32 %.pre to i64
   br label %_ZN24fixed_bit_vector_manager8allocateEv.exit
 
@@ -208,7 +208,7 @@ _ZN24fixed_bit_vector_manager8allocateEv.exit:    ; preds = %5, %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill0ER16fixed_bit_vector(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(4) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %4 = load i32, ptr %3, align 4, !tbaa !17
+  %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = zext i32 %4 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %1, i8 0, i64 %5, i1 false)
   ret ptr %1
@@ -217,7 +217,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_ve
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager9allocate1Ev(ptr noundef nonnull align 8 dereferenceable(540) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %3 = load i32, ptr %2, align 4, !tbaa !17
+  %3 = load i32, ptr %2, align 4, !tbaa !18
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
 
@@ -228,7 +228,7 @@ define hidden noundef ptr @_ZN24fixed_bit_vector_manager9allocate1Ev(ptr noundef
 7:                                                ; preds = %1
   %8 = zext i32 %3 to i64
   %9 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(540) %0, i64 noundef %8)
-  %.pre = load i32, ptr %2, align 4, !tbaa !17
+  %.pre = load i32, ptr %2, align 4, !tbaa !18
   %10 = zext i32 %.pre to i64
   br label %_ZN24fixed_bit_vector_manager8allocateEv.exit
 
@@ -242,7 +242,7 @@ _ZN24fixed_bit_vector_manager8allocateEv.exit:    ; preds = %5, %7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager5fill1ER16fixed_bit_vector(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(4) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %4 = load i32, ptr %3, align 4, !tbaa !17
+  %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = zext i32 %4 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %1, i8 -1, i64 %5, i1 false)
   ret ptr %1
@@ -251,7 +251,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_ve
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN24fixed_bit_vector_manager8allocateERK16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %4 = load i32, ptr %3, align 4, !tbaa !17
+  %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %8
 
@@ -262,7 +262,7 @@ define hidden noundef ptr @_ZN24fixed_bit_vector_manager8allocateERK16fixed_bit_
 8:                                                ; preds = %2
   %9 = zext i32 %4 to i64
   %10 = tail call noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(540) %0, i64 noundef %9)
-  %.pre = load i32, ptr %3, align 4, !tbaa !17
+  %.pre = load i32, ptr %3, align 4, !tbaa !18
   %11 = zext i32 %.pre to i64
   br label %_ZN24fixed_bit_vector_manager8allocateEv.exit
 
@@ -276,7 +276,7 @@ _ZN24fixed_bit_vector_manager8allocateEv.exit:    ; preds = %6, %8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %5 = load i32, ptr %4, align 4, !tbaa !17
+  %5 = load i32, ptr %4, align 4, !tbaa !18
   %6 = zext i32 %5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1, ptr nonnull align 4 %2, i64 %6, i1 false)
   ret void
@@ -285,7 +285,7 @@ define hidden void @_ZNK24fixed_bit_vector_manager4copyER16fixed_bit_vectorRKS0_
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN24fixed_bit_vector_manager10deallocateEP16fixed_bit_vector(ptr noundef nonnull align 8 dereferenceable(540) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %4 = load i32, ptr %3, align 4, !tbaa !17
+  %4 = load i32, ptr %3, align 4, !tbaa !18
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
 
@@ -306,7 +306,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_andER16fixed_bit_vectorRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %5 = load i32, ptr %4, align 8, !tbaa !16
+  %5 = load i32, ptr %4, align 8, !tbaa !17
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -322,16 +322,16 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_ve
   %10 = and i32 %9, %7
   store i32 %10, ptr %8, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %4, align 8, !tbaa !16
+  %11 = load i32, ptr %4, align 8, !tbaa !17
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager6set_orER16fixed_bit_vectorRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %5 = load i32, ptr %4, align 8, !tbaa !16
+  %5 = load i32, ptr %4, align 8, !tbaa !17
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -347,16 +347,16 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_ve
   %10 = or i32 %9, %7
   store i32 %10, ptr %8, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = load i32, ptr %4, align 8, !tbaa !16
+  %11 = load i32, ptr %4, align 8, !tbaa !17
   %12 = zext i32 %11 to i64
   %13 = icmp samesign ult i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_vector_manager7set_negER16fixed_bit_vector(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %4 = load i32, ptr %3, align 8, !tbaa !16
+  %4 = load i32, ptr %3, align 8, !tbaa !17
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -370,16 +370,16 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK24fixed_bit_ve
   %7 = xor i32 %6, -1
   store i32 %7, ptr %5, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load i32, ptr %3, align 8, !tbaa !16
+  %8 = load i32, ptr %3, align 8, !tbaa !17
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %4 = load i32, ptr %3, align 8, !tbaa !16
+  %4 = load i32, ptr %3, align 8, !tbaa !17
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %14, label %6
 
@@ -389,7 +389,7 @@ define hidden noundef i32 @_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bi
   %9 = getelementptr inbounds nuw [1 x i32], ptr %1, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %12 = load i32, ptr %11, align 4, !tbaa !18
+  %12 = load i32, ptr %11, align 4, !tbaa !19
   %13 = and i32 %12, %10
   br label %14
 
@@ -405,7 +405,7 @@ define hidden noundef zeroext i1 @_ZNK24fixed_bit_vector_manager6equalsERK16fixe
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %7 = load i32, ptr %6, align 8, !tbaa !17
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %.preheader
 
@@ -421,7 +421,7 @@ define hidden noundef zeroext i1 @_ZNK24fixed_bit_vector_manager6equalsERK16fixe
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21, label %.lr.ph, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
@@ -437,7 +437,7 @@ _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21: ; preds = 
   %15 = getelementptr inbounds nuw [1 x i32], ptr %1, i64 0, i64 %.pre-phi
   %16 = load i32, ptr %15, align 4, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %18 = load i32, ptr %17, align 4, !tbaa !18
+  %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = getelementptr inbounds nuw [1 x i32], ptr %2, i64 0, i64 %.pre-phi
   %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = xor i32 %20, %16
@@ -453,7 +453,7 @@ _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZNK24fixed_bit_vector_manager4hashERK16fixed_bit_vector(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %4 = load i32, ptr %3, align 8, !tbaa !11
+  %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = lshr i32 %4, 3
   %6 = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %1, i32 noundef %5, i32 noundef %4)
   ret i32 %6
@@ -464,7 +464,7 @@ declare noundef i32 @_Z11string_hashPKcjj(ptr noundef, i32 noundef, i32 noundef)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK24fixed_bit_vector_manager8containsERK16fixed_bit_vectorS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %5 = load i32, ptr %4, align 8, !tbaa !16
+  %5 = load i32, ptr %4, align 8, !tbaa !17
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %.preheader
 
@@ -480,7 +480,7 @@ define hidden noundef zeroext i1 @_ZNK24fixed_bit_vector_manager8containsERK16fi
 8:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %_ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21, label %.lr.ph, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
@@ -497,7 +497,7 @@ _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21: ; preds = 
   %14 = getelementptr inbounds nuw [1 x i32], ptr %2, i64 0, i64 %.pre-phi
   %15 = load i32, ptr %14, align 4, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %17 = load i32, ptr %16, align 4, !tbaa !18
+  %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = getelementptr inbounds nuw [1 x i32], ptr %1, i64 0, i64 %.pre-phi
   %19 = load i32, ptr %18, align 4, !tbaa !3
   %20 = xor i32 %19, -1
@@ -514,7 +514,7 @@ _ZNK24fixed_bit_vector_manager9last_wordERK16fixed_bit_vector.exit21: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK24fixed_bit_vector_manager7displayERSoRK16fixed_bit_vector(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %0, ptr noundef nonnull returned align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %5 = load i32, ptr %4, align 8, !tbaa !11
+  %5 = load i32, ptr %4, align 8, !tbaa !12
   %.not8 = icmp eq i32 %5, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -532,7 +532,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK24fixed_bit_ve
   %.str.2..str.1 = select i1 %.not7, ptr @.str.2, ptr @.str.1
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.2..str.1, i64 noundef 1)
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %1
@@ -569,21 +569,22 @@ attributes #10 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !4, i64 520}
-!12 = !{!"_ZTS24fixed_bit_vector_manager", !13, i64 0, !4, i64 520, !4, i64 524, !4, i64 528, !4, i64 532, !15, i64 536}
-!13 = !{!"_ZTS22small_object_allocator", !5, i64 0, !5, i64 256, !14, i64 512}
-!14 = !{!"long", !5, i64 0}
-!15 = !{!"_ZTS16fixed_bit_vector", !5, i64 0}
-!16 = !{!12, !4, i64 528}
-!17 = !{!12, !4, i64 524}
-!18 = !{!12, !4, i64 532}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!13, !4, i64 520}
+!13 = !{!"_ZTS24fixed_bit_vector_manager", !14, i64 0, !4, i64 520, !4, i64 524, !4, i64 528, !4, i64 532, !16, i64 536}
+!14 = !{!"_ZTS22small_object_allocator", !5, i64 0, !5, i64 256, !15, i64 512}
+!15 = !{!"long", !5, i64 0}
+!16 = !{!"_ZTS16fixed_bit_vector", !5, i64 0}
+!17 = !{!13, !4, i64 528}
+!18 = !{!13, !4, i64 524}
+!19 = !{!13, !4, i64 532}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}

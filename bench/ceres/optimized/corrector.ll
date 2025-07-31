@@ -167,12 +167,12 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.021.i.i.i.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
   %30 = getelementptr inbounds double, ptr %2, i64 %.021.i.i.i.i.i.i
-  %31 = load <2 x double>, ptr %30, align 16, !tbaa !27
+  %31 = load <2 x double>, ptr %30, align 16, !tbaa !28
   %32 = fmul <2 x double> %24, %31
-  store <2 x double> %32, ptr %30, align 16, !tbaa !27
+  store <2 x double> %32, ptr %30, align 16, !tbaa !28
   %33 = add nsw i64 %.021.i.i.i.i.i.i, 2
   %34 = icmp slt i64 %33, %16
-  br i1 %34, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !28
+  br i1 %34, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !29
 
 _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEmLERKd.exit: ; preds = %.lr.ph.i17.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
   ret void
@@ -217,7 +217,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   store double %22, ptr %gep66, align 8, !tbaa !4
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
-  br i1 %exitcond58.not, label %._crit_edge.us, label %12, !llvm.loop !29
+  br i1 %exitcond58.not, label %._crit_edge.us, label %12, !llvm.loop !30
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
@@ -230,7 +230,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %.03139.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.us, label %.lr.ph.us, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader.us, label %.lr.ph.us, !llvm.loop !31
 
 .preheader.us:                                    ; preds = %.lr.ph.us
   %invariant.gep65 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv59
@@ -239,12 +239,12 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
 ._crit_edge.us:                                   ; preds = %12
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %11
-  br i1 %exitcond63.not, label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEmLERKd.exit, label %.lr.ph.us.preheader, !llvm.loop !31
+  br i1 %exitcond63.not, label %_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEmLERKd.exit, label %.lr.ph.us.preheader, !llvm.loop !32
 
 28:                                               ; preds = %5
   %29 = mul nsw i32 %2, %1
   %30 = sext i32 %29 to i64
-  %31 = load double, ptr %0, align 8, !tbaa !4, !noalias !33
+  %31 = load double, ptr %0, align 8, !tbaa !4, !noalias !34
   %32 = ptrtoint ptr %4 to i64
   %33 = and i64 %32, 7
   %.not.i.i.i.i.i.i.i = icmp eq i64 %33, 0
@@ -301,12 +301,12 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.021.i.i.i.i.i.i = phi i64 [ %58, %.lr.ph.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i ]
   %55 = getelementptr inbounds double, ptr %4, i64 %.021.i.i.i.i.i.i
-  %56 = load <2 x double>, ptr %55, align 16, !tbaa !27
+  %56 = load <2 x double>, ptr %55, align 16, !tbaa !28
   %57 = fmul <2 x double> %49, %56
-  store <2 x double> %57, ptr %55, align 16, !tbaa !27
+  store <2 x double> %57, ptr %55, align 16, !tbaa !28
   %58 = add nsw i64 %.021.i.i.i.i.i.i, 2
   %59 = icmp slt i64 %58, %41
-  br i1 %59, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !28
+  br i1 %59, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, !llvm.loop !29
 
 _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEmLERKd.exit: ; preds = %._crit_edge.us, %.lr.ph.i17.i.i.i.i.i.i, %.preheader37, %._crit_edge.i.i.i.i.i.i
   ret void
@@ -360,14 +360,15 @@ attributes #11 = { noreturn nounwind }
 !22 = !{!23}
 !23 = distinct !{!23, !24, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8ConstantEllRKd: argument 0"}
 !24 = distinct !{!24, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8ConstantEllRKd"}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !26}
-!29 = distinct !{!29, !26}
-!30 = distinct !{!30, !26}
-!31 = distinct !{!31, !26, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = !{!34}
-!34 = distinct !{!34, !35, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8ConstantEllRKd: argument 0"}
-!35 = distinct !{!35, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8ConstantEllRKd"}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!6, !6, i64 0}
+!29 = distinct !{!29, !26, !27}
+!30 = distinct !{!30, !26, !27}
+!31 = distinct !{!31, !26, !27}
+!32 = distinct !{!32, !26, !27, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = !{!35}
+!35 = distinct !{!35, !36, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8ConstantEllRKd: argument 0"}
+!36 = distinct !{!36, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE8ConstantEllRKd"}

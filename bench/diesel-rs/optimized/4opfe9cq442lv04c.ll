@@ -1257,7 +1257,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20: ; preds = %91, %93
   %124 = xor i64 %117, %.0.copyload
   %125 = add nuw i64 %.0921, 8
   %126 = icmp ult i64 %125, %44
-  br i1 %126, label %103, label %._crit_edge
+  br i1 %126, label %103, label %._crit_edge, !llvm.loop !243
 
 127:                                              ; preds = %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20, %73
   %storemerge = phi i64 [ %74, %73 ], [ %43, %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20 ]
@@ -1778,3 +1778,5 @@ attributes #21 = { cold }
 !240 = !{!241}
 !241 = distinct !{!241, !242, !"_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE: argument 0"}
 !242 = distinct !{!242, !"_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE"}
+!243 = distinct !{!243, !244}
+!244 = !{!"llvm.loop.estimated_trip_count"}

@@ -11700,7 +11700,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr noundef readonly captures(n
   %17 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %16, i32 noundef 5)
   %18 = load i32, ptr %11, align 4
   %19 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %18, i32 noundef 6)
-  %20 = load i8, ptr %3, align 4, !range !8, !noundef !9
+  %20 = load i8, ptr %3, align 4, !range !9, !noundef !10
   %21 = trunc nuw i8 %20 to i1
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %21, label %23, label %34
@@ -11748,7 +11748,7 @@ define internal noundef i32 @gsm_map_stat_packet(ptr noundef readonly captures(n
   %51 = load i32, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %53 = load i32, ptr %52, align 8
-  %54 = load i8, ptr %3, align 4, !range !8, !noundef !9
+  %54 = load i8, ptr %3, align 4, !range !9, !noundef !10
   %55 = trunc nuw i8 %54 to i1
   %56 = load i32, ptr %11, align 4
   %. = select i1 %55, i32 4, i32 7
@@ -11798,7 +11798,7 @@ define internal void @gsm_map_stat_reset(ptr noundef %0) #0 {
   %6 = add nuw i32 %.08, 1
   %7 = load i32, ptr %2, align 4
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -12041,7 +12041,7 @@ define internal i32 @dissect_gsm_map_T_extType(i1 zeroext %0, ptr noundef %1, i3
   %7 = load i32, ptr @ett_gsm_map_extension_data, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.4566)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 61
-  %10 = load i8, ptr %9, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %18
 
@@ -14574,7 +14574,7 @@ define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr nound
   store i32 0, ptr @opcode, align 4
   %4 = load i32, ptr @pref_application_context_version, align 4
   store i32 %4, ptr @application_context_version, align 4
-  %5 = load i8, ptr @pref_context_version_from_trace, align 1, !range !8, !noundef !9
+  %5 = load i8, ptr @pref_context_version_from_trace, align 1, !range !9, !noundef !10
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %22
 
@@ -14590,7 +14590,7 @@ define internal fastcc void @dissect_gsm_map_GSMMAPPDU(ptr noundef %0, ptr nound
   br i1 %.not18, label %22, label %12
 
 12:                                               ; preds = %10
-  %13 = load i8, ptr %11, align 8, !range !8, !noundef !9
+  %13 = load i8, ptr %11, align 8, !range !9, !noundef !10
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %22
 
@@ -14991,7 +14991,7 @@ define internal i32 @dissect_gsm_old_InvokeParameter(i1 zeroext %0, ptr noundef 
   br label %dissect_invokeData.exit
 
 124:                                              ; preds = %6
-  %125 = load i8, ptr @pref_ericsson_proprietary_ext, align 1, !range !8, !noundef !9
+  %125 = load i8, ptr @pref_ericsson_proprietary_ext, align 1, !range !9, !noundef !10
   %126 = trunc nuw i8 %125 to i1
   %127 = load i32, ptr @hf_gsm_map_ms_imei, align 4
   br i1 %126, label %128, label %130
@@ -21249,8 +21249,9 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}

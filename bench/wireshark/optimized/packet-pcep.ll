@@ -2339,7 +2339,7 @@ define internal void @dissect_pcep_end_point_obj(ptr noundef %0, ptr noundef %1,
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %37, ptr noundef %2, i32 noundef %39, i32 noundef 4, i32 noundef 0)
   %41 = add nuw nsw i32 %.065, 1
   %exitcond68.not = icmp eq i32 %41, %33
-  br i1 %exitcond68.not, label %.loopexit, label %36, !llvm.loop !8
+  br i1 %exitcond68.not, label %.loopexit, label %36, !llvm.loop !9
 
 42:                                               ; preds = %7
   %43 = load i32, ptr @hf_pcep_endpoint_p2mp_leaf, align 4
@@ -2364,7 +2364,7 @@ define internal void @dissect_pcep_end_point_obj(ptr noundef %0, ptr noundef %1,
   %56 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %53, ptr noundef %2, i32 noundef %55, i32 noundef 16, i32 noundef 0)
   %57 = add nuw nsw i32 %.164, 1
   %exitcond.not = icmp eq i32 %57, %49
-  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !10
 
 58:                                               ; preds = %7
   %59 = add i32 %4, -4
@@ -2525,7 +2525,7 @@ define internal void @dissect_pcep_explicit_route_obj(ptr noundef %0, ptr nounde
 45:                                               ; preds = %43, %41, %39, %37, %35, %33, %31, %29, %27
   %46 = add i32 %.080, %16
   %47 = sub i32 %.0, %16
-  br label %9, !llvm.loop !10
+  br label %9, !llvm.loop !11
 
 .loopexit:                                        ; preds = %9, %24, %18, %10
   ret void
@@ -2617,7 +2617,7 @@ define internal void @dissect_pcep_record_route_obj(ptr noundef %0, ptr noundef 
 40:                                               ; preds = %37, %35, %33, %31, %29, %27, %25
   %41 = add i32 %.068, %16
   %42 = sub i32 %.0, %16
-  br label %9, !llvm.loop !11
+  br label %9, !llvm.loop !12
 
 .loopexit:                                        ; preds = %9, %22, %18, %10
   ret void
@@ -2820,7 +2820,7 @@ define internal void @dissect_pcep_iro_obj(ptr noundef %0, ptr noundef %1, ptr n
   %76 = add nuw nsw i32 %.086.i, %60
   %77 = add i32 %.07985.i, %60
   %78 = icmp ult i32 %76, %53
-  br i1 %78, label %56, label %dissect_subobj_exrs.exit, !llvm.loop !12
+  br i1 %78, label %56, label %dissect_subobj_exrs.exit, !llvm.loop !13
 
 79:                                               ; preds = %26
   %80 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pcep_non_defined_subobject, ptr noundef %2, i32 noundef %.064, i32 noundef %16, ptr noundef nonnull @.str.1154, i32 noundef %22)
@@ -2829,7 +2829,7 @@ define internal void @dissect_pcep_iro_obj(ptr noundef %0, ptr noundef %1, ptr n
 dissect_subobj_exrs.exit:                         ; preds = %75, %62, %43, %41, %79, %33, %31, %29, %27
   %81 = add i32 %.064, %16
   %82 = sub i32 %.0, %16
-  br label %9, !llvm.loop !13
+  br label %9, !llvm.loop !14
 
 .loopexit:                                        ; preds = %9, %24, %18, %10
   ret void
@@ -2876,7 +2876,7 @@ define internal void @dissect_pcep_svec_obj(ptr noundef %0, ptr noundef %1, ptr 
   %34 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %0, i32 noundef %32, ptr noundef %2, i32 noundef %30, i32 noundef 4, i32 noundef %31, ptr noundef nonnull @.str.1181, i32 noundef %.044, i32 noundef %31)
   %35 = add nuw nsw i32 %.04143, 4
   %36 = icmp slt i32 %35, %29
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %9
   ret void
@@ -3225,7 +3225,7 @@ define internal void @dissect_pcep_path_key_obj(ptr noundef %0, ptr noundef %1, 
 31:                                               ; preds = %29, %27
   %32 = add i32 %.038, %16
   %33 = sub i32 %.0, %16
-  br label %9, !llvm.loop !15
+  br label %9, !llvm.loop !16
 
 .loopexit:                                        ; preds = %9, %24, %18, %10
   ret void
@@ -3369,7 +3369,7 @@ dissect_subobj_pksv6.exit:                        ; preds = %61, %59, %78, %52, 
   %81 = add i32 %.091100, %31
   %82 = sub i32 %.0101, %31
   %83 = icmp ugt i32 %82, 1
-  br i1 %83, label %27, label %.loopexit, !llvm.loop !16
+  br i1 %83, label %27, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %dissect_subobj_pksv6.exit, %33, %39, %25, %9
   ret void
@@ -3615,7 +3615,7 @@ define internal void @dissect_pcep_obj_unreach_destination(ptr noundef %0, ptr n
   %14 = add i32 %.03441.us, %switch.select
   %15 = sub nsw i32 %.042.us, %switch.select
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !17
+  br i1 %16, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !18
 
 .lr.ph.split.us44:                                ; preds = %.lr.ph, %18
   %.042.us45 = phi i32 [ %22, %18 ], [ %8, %.lr.ph ]
@@ -3629,7 +3629,7 @@ define internal void @dissect_pcep_obj_unreach_destination(ptr noundef %0, ptr n
   %21 = add i32 %.03441.us46, %switch.select
   %22 = sub nsw i32 %.042.us45, %switch.select
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split.us44, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.lr.ph.split.us44, !llvm.loop !20
 
 .split.us:                                        ; preds = %.lr.ph.split.us
   %23 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef %2, i32 noundef %.03441.us, i32 noundef %.042.us, ptr noundef nonnull @.str.1398, i32 noundef %.042.us, i32 noundef 4)
@@ -3705,7 +3705,7 @@ define internal void @dissect_pcep_obj_branch_node_capability(ptr noundef %0, pt
 33:                                               ; preds = %31, %29, %27
   %34 = add i32 %.045, %16
   %35 = sub i32 %.0, %16
-  br label %9, !llvm.loop !20
+  br label %9, !llvm.loop !21
 
 .loopexit:                                        ; preds = %9, %24, %18, %10
   ret void
@@ -4021,7 +4021,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
   %57 = call ptr @val_to_str_const(i32 noundef %55, ptr noundef nonnull @pcep_of_vals, ptr noundef nonnull @.str.1141)
   %58 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %54, ptr noundef %1, i32 noundef %52, i32 noundef 2, i32 noundef %55, ptr noundef nonnull @.str.1140, i32 noundef %56, ptr noundef %57, i32 noundef %55)
   %exitcond387.not = icmp eq i32 %56, %26
-  br i1 %exitcond387.not, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %50, !llvm.loop !21
+  br i1 %exitcond387.not, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %50, !llvm.loop !22
 
 59:                                               ; preds = %10
   %60 = load i32, ptr @hf_pcep_tlv_enterprise_number, align 4
@@ -4148,7 +4148,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
   %151 = add i32 %.2346368, 8
   %152 = add i16 %.1348367, -8
   %.not355 = icmp eq i16 %152, 0
-  br i1 %.not355, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %.lr.ph370, !llvm.loop !22
+  br i1 %.not355, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %.lr.ph370, !llvm.loop !23
 
 153:                                              ; preds = %10
   %154 = load i32, ptr @hf_pcep_association_source_global, align 4
@@ -4216,7 +4216,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
   %193 = add nuw nsw i32 %.1364, 1
   %194 = load i32, ptr %7, align 4
   %195 = icmp slt i32 %193, %194
-  br i1 %195, label %189, label %._crit_edge, !llvm.loop !23
+  br i1 %195, label %189, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %189, %179
   %.lcssa = phi i32 [ %186, %179 ], [ %194, %189 ]
@@ -4289,7 +4289,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
 242:                                              ; preds = %232, %217
   %243 = add i32 %223, %.039.i
   %244 = icmp slt i32 %243, %213
-  br i1 %244, label %217, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, !llvm.loop !24
+  br i1 %244, label %217, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, !llvm.loop !25
 
 245:                                              ; preds = %.lr.ph, %245
   %.2363 = phi i32 [ 0, %.lr.ph ], [ %251, %245 ]
@@ -4302,7 +4302,7 @@ define internal fastcc void @dissect_pcep_tlvs_with_scope(ptr noundef %0, ptr no
   %252 = call ptr @val_to_str_const(i32 noundef %250, ptr noundef nonnull @pcep_association_type_field_vals, ptr noundef nonnull @.str.1141)
   %253 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %249, ptr noundef %1, i32 noundef %247, i32 noundef 2, i32 noundef %250, ptr noundef nonnull @.str.1142, i32 noundef %251, ptr noundef %252, i32 noundef %250)
   %exitcond.not = icmp eq i32 %251, %24
-  br i1 %exitcond.not, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %245, !llvm.loop !25
+  br i1 %exitcond.not, label %dissect_pcep_path_setup_capabilities_sub_tlvs.exit, label %245, !llvm.loop !26
 
 254:                                              ; preds = %10
   %255 = load i32, ptr @hf_pcep_srcpag_info_color, align 4
@@ -4381,7 +4381,7 @@ dissect_pcep_path_setup_capabilities_sub_tlvs.exit._crit_edge: ; preds = %dissec
   %303 = add i32 %.pre-phi, %293
   %304 = add i32 %303, %295
   %305 = icmp slt i32 %304, %3
-  br i1 %305, label %10, label %._crit_edge379, !llvm.loop !26
+  br i1 %305, label %10, label %._crit_edge379, !llvm.loop !27
 
 ._crit_edge379:                                   ; preds = %302, %6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #3
@@ -5320,24 +5320,25 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7, !18}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !8, !19}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}

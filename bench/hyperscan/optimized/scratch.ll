@@ -475,7 +475,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %107 = getelementptr inbounds nuw i8, ptr %.0169176, i64 %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %94, label %102
+  br i1 %exitcond.not, label %94, label %102, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %94
   %.1.lcssa = phi ptr [ %101, %94 ], [ %157, %.lr.ph ]
@@ -559,7 +559,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %157 = getelementptr inbounds nuw i8, ptr %.1178, i64 %30
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %29
-  br i1 %exitcond190.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond190.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph183
   %.0181 = phi ptr [ %159, %.lr.ph183 ], [ %154, %.lr.ph183.preheader ]
@@ -569,7 +569,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %160 = load ptr, ptr %82, align 16
   %161 = getelementptr inbounds nuw %struct.mq, ptr %160, i64 %26
   %.not173 = icmp eq ptr %159, %161
-  br i1 %.not173, label %.loopexit, label %.lr.ph183
+  br i1 %.not173, label %.loopexit, label %.lr.ph183, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph183, %._crit_edge, %70
   %.0170 = phi i32 [ %.0.i, %70 ], [ 0, %._crit_edge ], [ 0, %.lr.ph183 ]
@@ -685,3 +685,7 @@ attributes #5 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

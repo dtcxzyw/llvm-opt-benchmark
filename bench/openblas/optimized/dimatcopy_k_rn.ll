@@ -35,7 +35,7 @@ define noundef i32 @dimatcopy_k_rn(i64 noundef %0, i64 noundef %1, double nounde
   %16 = getelementptr inbounds double, ptr %.143.us, i64 %4
   %17 = add nuw nsw i64 %.13142.us, 1
   %exitcond51.not = icmp eq i64 %17, %0
-  br i1 %exitcond51.not, label %.loopexit, label %.preheader38.us, !llvm.loop !9
+  br i1 %exitcond51.not, label %.loopexit, label %.preheader38.us, !llvm.loop !10
 
 .preheader.us.preheader:                          ; preds = %9
   %18 = shl nuw i64 %1, 3
@@ -48,7 +48,7 @@ define noundef i32 @dimatcopy_k_rn(i64 noundef %0, i64 noundef %1, double nounde
   %19 = getelementptr inbounds double, ptr %.046.us, i64 %4
   %20 = add nuw nsw i64 %.03045.us, 1
   %exitcond52.not = icmp eq i64 %20, %0
-  br i1 %exitcond52.not, label %.loopexit, label %.preheader.us, !llvm.loop !11
+  br i1 %exitcond52.not, label %.loopexit, label %.preheader.us, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge.us, %.preheader.us, %5
   ret i32 0
@@ -69,8 +69,9 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8, !10}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8, !9, !11}

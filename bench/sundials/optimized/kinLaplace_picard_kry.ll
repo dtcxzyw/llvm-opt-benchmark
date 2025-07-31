@@ -349,12 +349,12 @@ define internal noundef i32 @func(ptr noundef %0, ptr noundef %1, ptr readnone c
   store double %68, ptr %69, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !17
 
 .split.us:                                        ; preds = %54, %22
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next64, 32
-  br i1 %exitcond68.not, label %70, label %.preheader
+  br i1 %exitcond68.not, label %70, label %.preheader, !llvm.loop !18
 
 70:                                               ; preds = %.split.us
   ret i32 0
@@ -435,7 +435,7 @@ define internal noundef i32 @jactimes(ptr noundef %0, ptr noundef %1, ptr readno
   store double %33, ptr %34, align 8, !tbaa !12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next53, 32
-  br i1 %exitcond58.not, label %.split.us, label %.thread.us, !llvm.loop !16
+  br i1 %exitcond58.not, label %.split.us, label %.thread.us, !llvm.loop !19
 
 .preheader.split:                                 ; preds = %.preheader.split.preheader, %51
   %indvars.iv = phi i64 [ 1, %.preheader.split.preheader ], [ %indvars.iv.next, %51 ]
@@ -484,12 +484,12 @@ define internal noundef i32 @jactimes(ptr noundef %0, ptr noundef %1, ptr readno
   store double %60, ptr %61, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !20
 
 .split.us:                                        ; preds = %51, %24
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next60, 32
-  br i1 %exitcond64.not, label %62, label %.preheader
+  br i1 %exitcond64.not, label %62, label %.preheader, !llvm.loop !21
 
 62:                                               ; preds = %.split.us
   ret i32 0
@@ -516,7 +516,7 @@ define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, double noundef %6)
   %8 = add nuw nsw i32 %.016, 3
   %9 = icmp samesign ult i32 %.016, 29
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !22
 
 10:                                               ; preds = %4
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
@@ -540,13 +540,13 @@ define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, double noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %19 = icmp samesign ult i64 %indvars.iv, 29
-  br i1 %19, label %16, label %20
+  br i1 %19, label %16, label %20, !llvm.loop !23
 
 20:                                               ; preds = %16
   %putchar = tail call i32 @putchar(i32 10)
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 3
   %21 = icmp samesign ult i64 %indvars.iv20, 29
-  br i1 %21, label %11, label %22
+  br i1 %21, label %11, label %22, !llvm.loop !24
 
 22:                                               ; preds = %20
   ret void
@@ -679,23 +679,23 @@ check_retval.exit25:                              ; preds = %check_retval.exit23
 
 check_retval.exit27:                              ; preds = %check_retval.exit25, %61
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
-  %64 = load i64, ptr %2, align 8, !tbaa !17
-  %65 = load i64, ptr %4, align 8, !tbaa !17
-  %66 = load i64, ptr %7, align 8, !tbaa !17
+  %64 = load i64, ptr %2, align 8, !tbaa !25
+  %65 = load i64, ptr %4, align 8, !tbaa !25
+  %66 = load i64, ptr %7, align 8, !tbaa !25
   %67 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i64 noundef %64, i64 noundef %65, i64 noundef %66)
-  %68 = load i64, ptr %3, align 8, !tbaa !17
-  %69 = load i64, ptr %8, align 8, !tbaa !17
-  %70 = load i64, ptr %9, align 8, !tbaa !17
+  %68 = load i64, ptr %3, align 8, !tbaa !25
+  %69 = load i64, ptr %8, align 8, !tbaa !25
+  %70 = load i64, ptr %9, align 8, !tbaa !25
   %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %68, i64 noundef %69, i64 noundef %70)
-  %72 = load i64, ptr %5, align 8, !tbaa !17
-  %73 = load i64, ptr %6, align 8, !tbaa !17
+  %72 = load i64, ptr %5, align 8, !tbaa !25
+  %73 = load i64, ptr %6, align 8, !tbaa !25
   %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %72, i64 noundef %73)
   %putchar = call i32 @putchar(i32 10)
-  %75 = load i64, ptr %10, align 8, !tbaa !17
-  %76 = load i64, ptr %11, align 8, !tbaa !17
+  %75 = load i64, ptr %10, align 8, !tbaa !25
+  %76 = load i64, ptr %11, align 8, !tbaa !25
   %77 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %75, i64 noundef %76)
-  %78 = load i64, ptr %12, align 8, !tbaa !17
-  %79 = load i64, ptr %13, align 8, !tbaa !17
+  %78 = load i64, ptr %12, align 8, !tbaa !25
+  %79 = load i64, ptr %13, align 8, !tbaa !25
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %78, i64 noundef %79)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
@@ -783,8 +783,16 @@ attributes #7 = { cold nounwind }
 !11 = !{!6, !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"double", !7, i64 0}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !15}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"long", !7, i64 0}
+!14 = distinct !{!14, !15, !16}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !15}
+!18 = distinct !{!18, !15}
+!19 = distinct !{!19, !15, !16}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !15}
+!22 = distinct !{!22, !15}
+!23 = distinct !{!23, !15}
+!24 = distinct !{!24, !15}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"long", !7, i64 0}

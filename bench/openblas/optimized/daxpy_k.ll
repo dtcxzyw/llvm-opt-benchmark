@@ -99,7 +99,7 @@ define noundef i32 @daxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, doub
   store <4 x double> %70, ptr %66, align 1, !tbaa !3
   %71 = add nuw nsw i64 %.12.i, 16
   %72 = icmp samesign ult i64 %71, %16
-  br i1 %72, label %.lr.ph3.i, label %daxpy_kernel_8.exit, !llvm.loop !8
+  br i1 %72, label %.lr.ph3.i, label %daxpy_kernel_8.exit, !llvm.loop !9
 
 daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.preheader.i, %15
   %.not93 = icmp eq i64 %16, %0
@@ -108,14 +108,14 @@ daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.prehea
 .lr.ph84:                                         ; preds = %daxpy_kernel_8.exit, %.lr.ph84
   %.06283 = phi i64 [ %78, %.lr.ph84 ], [ %16, %daxpy_kernel_8.exit ]
   %73 = getelementptr inbounds nuw double, ptr %4, i64 %.06283
-  %74 = load double, ptr %73, align 8, !tbaa !9
+  %74 = load double, ptr %73, align 8, !tbaa !10
   %75 = getelementptr inbounds nuw double, ptr %6, i64 %.06283
-  %76 = load double, ptr %75, align 8, !tbaa !9
+  %76 = load double, ptr %75, align 8, !tbaa !10
   %77 = tail call double @llvm.fmuladd.f64(double %3, double %74, double %76)
-  store double %77, ptr %75, align 8, !tbaa !9
+  store double %77, ptr %75, align 8, !tbaa !10
   %78 = add nuw nsw i64 %.06283, 1
   %79 = icmp slt i64 %78, %0
-  br i1 %79, label %.lr.ph84, label %.loopexit, !llvm.loop !11
+  br i1 %79, label %.lr.ph84, label %.loopexit, !llvm.loop !12
 
 80:                                               ; preds = %12
   %81 = and i64 %0, 9223372036854775804
@@ -149,54 +149,54 @@ daxpy_kernel_8.exit:                              ; preds = %.lr.ph3.i, %.prehea
   %.06375 = phi i64 [ 0, %.lr.ph ], [ %113, %88 ]
   %.06574 = phi i64 [ 0, %.lr.ph ], [ %114, %88 ]
   %89 = getelementptr inbounds double, ptr %4, i64 %.06375
-  %90 = load double, ptr %89, align 8, !tbaa !9
+  %90 = load double, ptr %89, align 8, !tbaa !10
   %91 = fmul double %3, %90
   %92 = getelementptr double, ptr %89, i64 %5
-  %93 = load double, ptr %92, align 8, !tbaa !9
+  %93 = load double, ptr %92, align 8, !tbaa !10
   %94 = fmul double %3, %93
   %95 = getelementptr i8, ptr %89, i64 %.idx
-  %96 = load double, ptr %95, align 8, !tbaa !9
+  %96 = load double, ptr %95, align 8, !tbaa !10
   %97 = fmul double %3, %96
   %98 = getelementptr i8, ptr %89, i64 %.idx68
-  %99 = load double, ptr %98, align 8, !tbaa !9
+  %99 = load double, ptr %98, align 8, !tbaa !10
   %100 = fmul double %3, %99
   %101 = getelementptr inbounds double, ptr %6, i64 %.06574
-  %102 = load double, ptr %101, align 8, !tbaa !9
+  %102 = load double, ptr %101, align 8, !tbaa !10
   %103 = fadd double %91, %102
-  store double %103, ptr %101, align 8, !tbaa !9
+  store double %103, ptr %101, align 8, !tbaa !10
   %104 = getelementptr double, ptr %101, i64 %7
-  %105 = load double, ptr %104, align 8, !tbaa !9
+  %105 = load double, ptr %104, align 8, !tbaa !10
   %106 = fadd double %94, %105
-  store double %106, ptr %104, align 8, !tbaa !9
+  store double %106, ptr %104, align 8, !tbaa !10
   %107 = getelementptr i8, ptr %101, i64 %.idx69
-  %108 = load double, ptr %107, align 8, !tbaa !9
+  %108 = load double, ptr %107, align 8, !tbaa !10
   %109 = fadd double %97, %108
-  store double %109, ptr %107, align 8, !tbaa !9
+  store double %109, ptr %107, align 8, !tbaa !10
   %110 = getelementptr i8, ptr %101, i64 %.idx70
-  %111 = load double, ptr %110, align 8, !tbaa !9
+  %111 = load double, ptr %110, align 8, !tbaa !10
   %112 = fadd double %100, %111
-  store double %112, ptr %110, align 8, !tbaa !9
+  store double %112, ptr %110, align 8, !tbaa !10
   %113 = add nsw i64 %.06375, %82
   %114 = add nsw i64 %.06574, %83
   %115 = add nuw nsw i64 %.176, 4
   %116 = icmp samesign ult i64 %115, %81
-  br i1 %116, label %88, label %.preheader.loopexit, !llvm.loop !12
+  br i1 %116, label %88, label %.preheader.loopexit, !llvm.loop !13
 
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
   %.281 = phi i64 [ %124, %.lr.ph82 ], [ %.1.lcssa, %.preheader ]
   %.16480 = phi i64 [ %122, %.lr.ph82 ], [ %.063.lcssa, %.preheader ]
   %.16679 = phi i64 [ %123, %.lr.ph82 ], [ %.065.lcssa, %.preheader ]
   %117 = getelementptr inbounds double, ptr %4, i64 %.16480
-  %118 = load double, ptr %117, align 8, !tbaa !9
+  %118 = load double, ptr %117, align 8, !tbaa !10
   %119 = getelementptr inbounds double, ptr %6, i64 %.16679
-  %120 = load double, ptr %119, align 8, !tbaa !9
+  %120 = load double, ptr %119, align 8, !tbaa !10
   %121 = tail call double @llvm.fmuladd.f64(double %3, double %118, double %120)
-  store double %121, ptr %119, align 8, !tbaa !9
+  store double %121, ptr %119, align 8, !tbaa !10
   %122 = add nsw i64 %.16480, %5
   %123 = add nsw i64 %.16679, %7
   %124 = add nuw nsw i64 %.281, 1
   %exitcond.not = icmp eq i64 %124, %0
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph82, %.lr.ph84, %.preheader, %daxpy_kernel_8.exit, %10
   ret i32 0
@@ -222,11 +222,12 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"double", !4, i64 0}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"double", !4, i64 0}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

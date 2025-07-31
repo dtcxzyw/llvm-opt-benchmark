@@ -128,7 +128,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %54 = getelementptr inbounds nuw i8, ptr %.2264287, i64 4
   %55 = add nuw nsw i32 %.1103288, 1
   %exitcond.not = icmp eq i32 %55, %17
-  br i1 %exitcond.not, label %.loopexit.loopexit304, label %41, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit.loopexit304, label %41, !llvm.loop !44
 
 .loopexit.loopexit:                               ; preds = %30
   %.neg = mul nsw i32 %17, -3
@@ -155,7 +155,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 
 59:                                               ; preds = %.loopexit
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 1048
-  %61 = load ptr, ptr %60, align 8, !tbaa !44
+  %61 = load ptr, ptr %60, align 8, !tbaa !45
   %62 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !35
   %64 = sext i32 %63 to i64
@@ -226,7 +226,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %102 = icmp ult ptr %101, %67
   %103 = icmp ult ptr %100, %65
   %104 = select i1 %102, i1 %103, i1 false
-  br i1 %104, label %74, label %._crit_edge.i, !llvm.loop !45
+  br i1 %104, label %74, label %._crit_edge.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %98, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %72, %98 ]
@@ -241,7 +241,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
 
 110:                                              ; preds = %.loopexit
   %111 = getelementptr inbounds nuw i8, ptr %13, i64 1048
-  %112 = load ptr, ptr %111, align 8, !tbaa !44
+  %112 = load ptr, ptr %111, align 8, !tbaa !45
   %113 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %114 = load i32, ptr %113, align 8, !tbaa !35
   %115 = sext i32 %114 to i64
@@ -312,7 +312,7 @@ define internal i32 @cinvideo_decode_frame(ptr noundef %0, ptr noundef %1, ptr n
   %153 = icmp ult ptr %152, %118
   %154 = icmp ult ptr %151, %116
   %155 = select i1 %153, i1 %154, i1 false
-  br i1 %155, label %125, label %._crit_edge.i118, !llvm.loop !45
+  br i1 %155, label %125, label %._crit_edge.i118, !llvm.loop !46
 
 ._crit_edge.i118:                                 ; preds = %149, %.._crit_edge_crit_edge.i116
   %.pre-phi.i119 = phi i64 [ %.pre.i117, %.._crit_edge_crit_edge.i116 ], [ %123, %149 ]
@@ -331,9 +331,9 @@ cin_decode_rle.exit130:                           ; preds = %._crit_edge.i118
   br i1 %.not4.i, label %cin_decode_rle.exit, label %.lr.ph.i131.preheader
 
 .lr.ph.i131.preheader:                            ; preds = %cin_decode_rle.exit130
-  %162 = load ptr, ptr %111, align 8, !tbaa !44
+  %162 = load ptr, ptr %111, align 8, !tbaa !45
   %163 = getelementptr inbounds nuw i8, ptr %13, i64 1056
-  %164 = load ptr, ptr %163, align 8, !tbaa !44
+  %164 = load ptr, ptr %163, align 8, !tbaa !45
   br label %.lr.ph.i131
 
 .lr.ph.i131:                                      ; preds = %.lr.ph.i131.preheader, %.lr.ph.i131
@@ -348,12 +348,12 @@ cin_decode_rle.exit130:                           ; preds = %._crit_edge.i118
   %170 = add i8 %169, %167
   store i8 %170, ptr %.026.i, align 1, !tbaa !39
   %.not.i132 = icmp eq i32 %165, 0
-  br i1 %.not.i132, label %cin_decode_rle.exit, label %.lr.ph.i131, !llvm.loop !46
+  br i1 %.not.i132, label %cin_decode_rle.exit, label %.lr.ph.i131, !llvm.loop !47
 
 171:                                              ; preds = %.loopexit
   %172 = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %173 = getelementptr inbounds nuw i8, ptr %13, i64 1064
-  %174 = load ptr, ptr %173, align 8, !tbaa !44
+  %174 = load ptr, ptr %173, align 8, !tbaa !45
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %176 = load i32, ptr %175, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #7
@@ -413,7 +413,7 @@ cin_decode_rle.exit130:                           ; preds = %._crit_edge.i118
   %storemerge36.i = load i8, ptr %storemerge36.in.i, align 1, !tbaa !39
   store i8 %storemerge36.i, ptr %.232.i, align 1, !tbaa !39
   %.not37.i = icmp ult ptr %.3.i, %178
-  br i1 %.not37.i, label %182, label %cin_decode_huffman.exit, !llvm.loop !47
+  br i1 %.not37.i, label %182, label %cin_decode_huffman.exit, !llvm.loop !48
 
 cin_decode_huffman.exit:                          ; preds = %182, %199, %200
   %.131.i = phi ptr [ %.232.i, %199 ], [ %.3.i, %200 ], [ %.030.i, %182 ]
@@ -422,8 +422,8 @@ cin_decode_huffman.exit:                          ; preds = %182, %199, %200
   %207 = sub i64 %205, %206
   %208 = trunc i64 %207 to i32
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #7
-  %209 = load ptr, ptr %173, align 8, !tbaa !44
-  %210 = load ptr, ptr %172, align 8, !tbaa !44
+  %209 = load ptr, ptr %173, align 8, !tbaa !45
+  %210 = load ptr, ptr %172, align 8, !tbaa !45
   %211 = load i32, ptr %175, align 8, !tbaa !35
   %212 = sext i32 %211 to i64
   %213 = getelementptr inbounds i8, ptr %210, i64 %212
@@ -494,7 +494,7 @@ cin_decode_huffman.exit:                          ; preds = %182, %199, %200
   %250 = icmp ult ptr %249, %215
   %251 = icmp ult ptr %248, %213
   %252 = select i1 %250, i1 %251, i1 false
-  br i1 %252, label %222, label %._crit_edge.i139, !llvm.loop !45
+  br i1 %252, label %222, label %._crit_edge.i139, !llvm.loop !46
 
 ._crit_edge.i139:                                 ; preds = %246, %.._crit_edge_crit_edge.i137
   %.pre-phi.i140 = phi i64 [ %.pre.i138, %.._crit_edge_crit_edge.i137 ], [ %220, %246 ]
@@ -510,7 +510,7 @@ cin_decode_huffman.exit:                          ; preds = %182, %199, %200
 258:                                              ; preds = %.loopexit
   %259 = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %260 = getelementptr inbounds nuw i8, ptr %13, i64 1064
-  %261 = load ptr, ptr %260, align 8, !tbaa !44
+  %261 = load ptr, ptr %260, align 8, !tbaa !45
   %262 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %263 = load i32, ptr %262, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #7
@@ -570,7 +570,7 @@ cin_decode_huffman.exit:                          ; preds = %182, %199, %200
   %storemerge36.i164 = load i8, ptr %storemerge36.in.i160, align 1, !tbaa !39
   store i8 %storemerge36.i164, ptr %.232.i158, align 1, !tbaa !39
   %.not37.i165 = icmp ult ptr %.3.i163, %265
-  br i1 %.not37.i165, label %269, label %cin_decode_huffman.exit166, !llvm.loop !47
+  br i1 %.not37.i165, label %269, label %cin_decode_huffman.exit166, !llvm.loop !48
 
 cin_decode_huffman.exit166:                       ; preds = %269, %286, %287
   %.131.i154 = phi ptr [ %.232.i158, %286 ], [ %.3.i163, %287 ], [ %.030.i152, %269 ]
@@ -579,8 +579,8 @@ cin_decode_huffman.exit166:                       ; preds = %269, %286, %287
   %294 = sub i64 %292, %293
   %295 = trunc i64 %294 to i32
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #7
-  %296 = load ptr, ptr %260, align 8, !tbaa !44
-  %297 = load ptr, ptr %259, align 8, !tbaa !44
+  %296 = load ptr, ptr %260, align 8, !tbaa !45
+  %297 = load ptr, ptr %259, align 8, !tbaa !45
   %298 = load i32, ptr %262, align 8, !tbaa !35
   %299 = sext i32 %298 to i64
   %300 = getelementptr inbounds i8, ptr %297, i64 %299
@@ -651,7 +651,7 @@ cin_decode_huffman.exit166:                       ; preds = %269, %286, %287
   %337 = icmp ult ptr %336, %302
   %338 = icmp ult ptr %335, %300
   %339 = select i1 %337, i1 %338, i1 false
-  br i1 %339, label %309, label %._crit_edge.i169, !llvm.loop !45
+  br i1 %339, label %309, label %._crit_edge.i169, !llvm.loop !46
 
 ._crit_edge.i169:                                 ; preds = %333, %.._crit_edge_crit_edge.i167
   %.pre-phi.i170 = phi i64 [ %.pre.i168, %.._crit_edge_crit_edge.i167 ], [ %307, %333 ]
@@ -670,9 +670,9 @@ cin_decode_rle.exit181:                           ; preds = %._crit_edge.i169
   br i1 %.not4.i182, label %cin_decode_rle.exit, label %.lr.ph.i183.preheader
 
 .lr.ph.i183.preheader:                            ; preds = %cin_decode_rle.exit181
-  %346 = load ptr, ptr %259, align 8, !tbaa !44
+  %346 = load ptr, ptr %259, align 8, !tbaa !45
   %347 = getelementptr inbounds nuw i8, ptr %13, i64 1056
-  %348 = load ptr, ptr %347, align 8, !tbaa !44
+  %348 = load ptr, ptr %347, align 8, !tbaa !45
   br label %.lr.ph.i183
 
 .lr.ph.i183:                                      ; preds = %.lr.ph.i183.preheader, %.lr.ph.i183
@@ -687,11 +687,11 @@ cin_decode_rle.exit181:                           ; preds = %._crit_edge.i169
   %354 = add i8 %353, %351
   store i8 %354, ptr %.026.i185, align 1, !tbaa !39
   %.not.i187 = icmp eq i32 %349, 0
-  br i1 %.not.i187, label %cin_decode_rle.exit, label %.lr.ph.i183, !llvm.loop !46
+  br i1 %.not.i187, label %cin_decode_rle.exit, label %.lr.ph.i183, !llvm.loop !47
 
 355:                                              ; preds = %.loopexit
   %356 = getelementptr inbounds nuw i8, ptr %13, i64 1048
-  %357 = load ptr, ptr %356, align 8, !tbaa !44
+  %357 = load ptr, ptr %356, align 8, !tbaa !45
   %358 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %359 = load i32, ptr %358, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #7
@@ -751,7 +751,7 @@ cin_decode_rle.exit181:                           ; preds = %._crit_edge.i169
   %storemerge36.i202 = load i8, ptr %storemerge36.in.i198, align 1, !tbaa !39
   store i8 %storemerge36.i202, ptr %.232.i196, align 1, !tbaa !39
   %.not37.i203 = icmp ult ptr %.3.i201, %361
-  br i1 %.not37.i203, label %365, label %cin_decode_huffman.exit204, !llvm.loop !47
+  br i1 %.not37.i203, label %365, label %cin_decode_huffman.exit204, !llvm.loop !48
 
 cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   %.131.i192 = phi ptr [ %.232.i196, %382 ], [ %.3.i201, %383 ], [ %.030.i190, %365 ]
@@ -762,7 +762,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #7
   %392 = load i32, ptr %358, align 8, !tbaa !35
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 804
-  %394 = load i32, ptr %393, align 4, !tbaa !48
+  %394 = load i32, ptr %393, align 4, !tbaa !49
   %395 = mul i32 %394, %392
   %396 = udiv i32 %395, 100
   %397 = sub i32 %392, %396
@@ -771,7 +771,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
 
 399:                                              ; preds = %.loopexit
   %400 = getelementptr inbounds nuw i8, ptr %13, i64 1048
-  %401 = load ptr, ptr %400, align 8, !tbaa !44
+  %401 = load ptr, ptr %400, align 8, !tbaa !45
   %402 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %403 = load i32, ptr %402, align 8, !tbaa !35
   %404 = sext i32 %403 to i64
@@ -798,7 +798,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   %413 = icmp ult ptr %.1.lcssa.i, %407
   %414 = icmp ult ptr %.144.lcssa.i, %405
   %415 = select i1 %413, i1 %414, i1 false
-  br i1 %415, label %416, label %.critedge._crit_edge.i, !llvm.loop !49
+  br i1 %415, label %416, label %.critedge._crit_edge.i, !llvm.loop !50
 
 416:                                              ; preds = %.critedge.loopexit.i, %.lr.ph68.i
   %.04267.i = phi ptr [ %.1263, %.lr.ph68.i ], [ %.1.lcssa.i, %.critedge.loopexit.i ]
@@ -861,7 +861,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   store i8 %448, ptr %.24559.i, align 1, !tbaa !39
   %449 = getelementptr inbounds nuw i8, ptr %.24559.i, i64 1
   %.not51.i = icmp eq i32 %445, 0
-  br i1 %.not51.i, label %.loopexit.i, label %444, !llvm.loop !50
+  br i1 %.not51.i, label %.loopexit.i, label %444, !llvm.loop !51
 
 .loopexit.i:                                      ; preds = %444, %435, %423
   %.3.i211 = phi ptr [ %426, %423 ], [ %.14461.i, %435 ], [ %449, %444 ]
@@ -872,7 +872,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   %or.cond.i = select i1 %451, i1 %452, i1 false
   %453 = icmp ult ptr %.3.i211, %405
   %or.cond52.i = select i1 %or.cond.i, i1 %453, i1 false
-  br i1 %or.cond52.i, label %.lr.ph63.i, label %.critedge.loopexit.i, !llvm.loop !51
+  br i1 %or.cond52.i, label %.lr.ph63.i, label %.critedge.loopexit.i, !llvm.loop !52
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.loopexit.i, %..critedge._crit_edge_crit_edge.i
   %.pre-phi.i206 = phi i64 [ %.pre.i205, %..critedge._crit_edge_crit_edge.i ], [ %412, %.critedge.loopexit.i ]
@@ -887,7 +887,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
 
 459:                                              ; preds = %.loopexit
   %460 = getelementptr inbounds nuw i8, ptr %13, i64 1048
-  %461 = load ptr, ptr %460, align 8, !tbaa !44
+  %461 = load ptr, ptr %460, align 8, !tbaa !45
   %462 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %463 = load i32, ptr %462, align 8, !tbaa !35
   %464 = sext i32 %463 to i64
@@ -914,7 +914,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   %473 = icmp ult ptr %.1.lcssa.i227, %467
   %474 = icmp ult ptr %.144.lcssa.i226, %465
   %475 = select i1 %473, i1 %474, i1 false
-  br i1 %475, label %476, label %.critedge._crit_edge.i216, !llvm.loop !49
+  br i1 %475, label %476, label %.critedge._crit_edge.i216, !llvm.loop !50
 
 476:                                              ; preds = %.critedge.loopexit.i225, %.lr.ph68.i222
   %.04267.i223 = phi ptr [ %.1263, %.lr.ph68.i222 ], [ %.1.lcssa.i227, %.critedge.loopexit.i225 ]
@@ -977,7 +977,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   store i8 %508, ptr %.24559.i241, align 1, !tbaa !39
   %509 = getelementptr inbounds nuw i8, ptr %.24559.i241, i64 1
   %.not51.i243 = icmp eq i32 %505, 0
-  br i1 %.not51.i243, label %.loopexit.i233, label %504, !llvm.loop !50
+  br i1 %.not51.i243, label %.loopexit.i233, label %504, !llvm.loop !51
 
 .loopexit.i233:                                   ; preds = %504, %495, %483
   %.3.i234 = phi ptr [ %486, %483 ], [ %.14461.i230, %495 ], [ %509, %504 ]
@@ -988,7 +988,7 @@ cin_decode_huffman.exit204:                       ; preds = %365, %382, %383
   %or.cond.i236 = select i1 %511, i1 %512, i1 false
   %513 = icmp ult ptr %.3.i234, %465
   %or.cond52.i237 = select i1 %or.cond.i236, i1 %513, i1 false
-  br i1 %or.cond52.i237, label %.lr.ph63.i228, label %.critedge.loopexit.i225, !llvm.loop !51
+  br i1 %or.cond52.i237, label %.lr.ph63.i228, label %.critedge.loopexit.i225, !llvm.loop !52
 
 .critedge._crit_edge.i216:                        ; preds = %.critedge.loopexit.i225, %..critedge._crit_edge_crit_edge.i214
   %.pre-phi.i217 = phi i64 [ %.pre.i215, %..critedge._crit_edge_crit_edge.i214 ], [ %472, %.critedge.loopexit.i225 ]
@@ -1007,9 +1007,9 @@ cin_decode_lzss.exit244:                          ; preds = %.critedge._crit_edg
   br i1 %.not4.i245, label %cin_decode_rle.exit, label %.lr.ph.i246.preheader
 
 .lr.ph.i246.preheader:                            ; preds = %cin_decode_lzss.exit244
-  %520 = load ptr, ptr %460, align 8, !tbaa !44
+  %520 = load ptr, ptr %460, align 8, !tbaa !45
   %521 = getelementptr inbounds nuw i8, ptr %13, i64 1056
-  %522 = load ptr, ptr %521, align 8, !tbaa !44
+  %522 = load ptr, ptr %521, align 8, !tbaa !45
   br label %.lr.ph.i246
 
 .lr.ph.i246:                                      ; preds = %.lr.ph.i246.preheader, %.lr.ph.i246
@@ -1024,7 +1024,7 @@ cin_decode_lzss.exit244:                          ; preds = %.critedge._crit_edg
   %528 = add i8 %527, %525
   store i8 %528, ptr %.026.i248, align 1, !tbaa !39
   %.not.i250 = icmp eq i32 %523, 0
-  br i1 %.not.i250, label %cin_decode_rle.exit, label %.lr.ph.i246, !llvm.loop !46
+  br i1 %.not.i250, label %cin_decode_rle.exit, label %.lr.ph.i246, !llvm.loop !47
 
 cin_decode_rle.exit:                              ; preds = %.lr.ph.i246, %.lr.ph.i183, %.lr.ph.i131, %cin_decode_lzss.exit244, %.critedge._crit_edge.i, %cin_decode_rle.exit181, %._crit_edge.i139, %cin_decode_rle.exit130, %._crit_edge.i, %cin_decode_huffman.exit204, %.loopexit
   %529 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1036,7 +1036,7 @@ cin_decode_rle.exit:                              ; preds = %.lr.ph.i246, %.lr.p
 533:                                              ; preds = %cin_decode_rle.exit
   %534 = load ptr, ptr %529, align 8, !tbaa !32
   %535 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  %536 = load ptr, ptr %535, align 8, !tbaa !44
+  %536 = load ptr, ptr %535, align 8, !tbaa !45
   %537 = getelementptr inbounds nuw i8, ptr %13, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %536, ptr noundef nonnull align 4 dereferenceable(1024) %537, i64 1024, i1 false)
   %538 = load ptr, ptr %13, align 8, !tbaa !27
@@ -1054,7 +1054,7 @@ cin_decode_rle.exit:                              ; preds = %.lr.ph.i246, %.lr.p
   %545 = phi ptr [ %538, %.lr.ph298 ], [ %563, %543 ]
   %.0104297 = phi i32 [ 0, %.lr.ph298 ], [ %562, %543 ]
   %546 = load ptr, ptr %529, align 8, !tbaa !32
-  %547 = load ptr, ptr %546, align 8, !tbaa !44
+  %547 = load ptr, ptr %546, align 8, !tbaa !45
   %548 = xor i32 %.0104297, -1
   %549 = add i32 %544, %548
   %550 = getelementptr inbounds nuw i8, ptr %546, i64 64
@@ -1062,7 +1062,7 @@ cin_decode_rle.exit:                              ; preds = %.lr.ph.i246, %.lr.p
   %552 = mul nsw i32 %551, %549
   %553 = sext i32 %552 to i64
   %554 = getelementptr inbounds i8, ptr %547, i64 %553
-  %555 = load ptr, ptr %542, align 8, !tbaa !44
+  %555 = load ptr, ptr %542, align 8, !tbaa !45
   %556 = getelementptr inbounds nuw i8, ptr %545, i64 112
   %557 = load i32, ptr %556, align 8, !tbaa !33
   %558 = mul nsw i32 %557, %.0104297
@@ -1075,15 +1075,15 @@ cin_decode_rle.exit:                              ; preds = %.lr.ph.i246, %.lr.p
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 116
   %565 = load i32, ptr %564, align 4, !tbaa !34
   %566 = icmp slt i32 %562, %565
-  br i1 %566, label %543, label %._crit_edge, !llvm.loop !52
+  br i1 %566, label %543, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %543, %533
   %567 = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %568 = getelementptr inbounds nuw i8, ptr %13, i64 1056
-  %569 = load ptr, ptr %568, align 8, !tbaa !44
-  %570 = load ptr, ptr %567, align 8, !tbaa !44
-  store ptr %570, ptr %568, align 8, !tbaa !44
-  store ptr %569, ptr %567, align 8, !tbaa !44
+  %569 = load ptr, ptr %568, align 8, !tbaa !45
+  %570 = load ptr, ptr %567, align 8, !tbaa !45
+  store ptr %570, ptr %568, align 8, !tbaa !45
+  store ptr %569, ptr %567, align 8, !tbaa !45
   %571 = load ptr, ptr %529, align 8, !tbaa !32
   %572 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %571) #7
   %573 = icmp slt i32 %572, 0
@@ -1113,7 +1113,7 @@ define internal noundef i32 @cinvideo_decode_end(ptr noundef readonly captures(n
   tail call void @av_freep(ptr noundef nonnull %7) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %destroy_buffers.exit, label %6, !llvm.loop !53
+  br i1 %exitcond.not.i, label %destroy_buffers.exit, label %6, !llvm.loop !54
 
 destroy_buffers.exit:                             ; preds = %6
   ret i32 0
@@ -1133,7 +1133,7 @@ define internal fastcc range(i32 -12, 1) i32 @allocate_buffers(ptr noundef captu
 4:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !55
 
 5:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
@@ -1141,7 +1141,7 @@ define internal fastcc range(i32 -12, 1) i32 @allocate_buffers(ptr noundef captu
   %7 = zext i32 %6 to i64
   %8 = tail call noalias ptr @av_mallocz(i64 noundef %7) #7
   %9 = getelementptr inbounds nuw [3 x ptr], ptr %3, i64 0, i64 %indvars.iv
-  store ptr %8, ptr %9, align 8, !tbaa !44
+  store ptr %8, ptr %9, align 8, !tbaa !45
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %4
 
@@ -1235,17 +1235,18 @@ attributes #8 = { cold }
 !38 = !{!37, !10, i64 32}
 !39 = !{!8, !8, i64 0}
 !40 = !{!10, !10, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
-!44 = !{!14, !14, i64 0}
-!45 = distinct !{!45, !42}
-!46 = distinct !{!46, !42}
-!47 = distinct !{!47, !42}
-!48 = !{!5, !10, i64 804}
-!49 = distinct !{!49, !42}
-!50 = distinct !{!50, !42}
-!51 = distinct !{!51, !42}
-!52 = distinct !{!52, !42}
-!53 = distinct !{!53, !42}
-!54 = distinct !{!54, !42}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = distinct !{!44, !42, !43}
+!45 = !{!14, !14, i64 0}
+!46 = distinct !{!46, !42, !43}
+!47 = distinct !{!47, !42, !43}
+!48 = distinct !{!48, !42, !43}
+!49 = !{!5, !10, i64 804}
+!50 = distinct !{!50, !42, !43}
+!51 = distinct !{!51, !42, !43}
+!52 = distinct !{!52, !42, !43}
+!53 = distinct !{!53, !42, !43}
+!54 = distinct !{!54, !42, !43}
+!55 = distinct !{!55, !42, !43}

@@ -343,7 +343,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 131:                                              ; preds = %127
   %132 = add i64 %.064, 1
   invoke void @"_ZN4core3ptr80drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..TokenStream$GT$$GT$17h75d055c7a8283fc6E"(ptr nonnull align 8 %42)
-          to label %113 unwind label %115
+          to label %113 unwind label %115, !llvm.loop !5
 
 133:                                              ; preds = %.thread99, %332, %319, %317, %313, %306, %297, %284, %249, %228, %213, %208, %204, %200, %195, %191, %186, %175, %159, %148, %140, %135, %129, %122, %114, %.thread, %74, %64
   %134 = landingpad { ptr, i32 }
@@ -450,14 +450,14 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
   %165 = load ptr, ptr %164, align 8, !nonnull !3, !noundef !3
   %166 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %167 = load i64, ptr %166, align 8, !noundef !3
-  %168 = load ptr, ptr %31, align 8, !nonnull !3, !align !5, !noundef !3
-  %169 = load i64, ptr %168, align 8, !range !6, !noundef !3
+  %168 = load ptr, ptr %31, align 8, !nonnull !3, !align !7, !noundef !3
+  %169 = load i64, ptr %168, align 8, !range !8, !noundef !3
   %170 = icmp eq i64 %169, -9223372036854775808
   br i1 %170, label %171, label %174
 
 171:                                              ; preds = %163
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 12
-  %173 = load i32, ptr %172, align 4, !range !7, !noundef !3
+  %173 = load i32, ptr %172, align 4, !range !9, !noundef !3
   br label %174
 
 174:                                              ; preds = %163, %171
@@ -473,7 +473,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 
 177:                                              ; preds = %.invoke
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 161
-  %179 = load i8, ptr %178, align 1, !range !8, !noundef !3
+  %179 = load i8, ptr %178, align 1, !range !10, !noundef !3
   %180 = trunc nuw i8 %179 to i1
   br i1 %180, label %190, label %189
 
@@ -899,7 +899,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 
 294:                                              ; preds = %291
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %290, ptr nonnull align 8 %14)
-          to label %289 unwind label %.loopexit
+          to label %289 unwind label %.loopexit, !llvm.loop !11
 
 295:                                              ; preds = %293
   invoke void @_ZN11proc_macro211TokenStream3new17h58b2f508374e659cE(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %11)
@@ -981,7 +981,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 315:                                              ; preds = %311
   %316 = add i64 %.065, 1
   invoke void @"_ZN4core3ptr74drop_in_place$LT$quote..__private..RepInterp$LT$proc_macro2..Ident$GT$$GT$17ha8ae34e0c4f40a4aE"(ptr nonnull align 8 %37)
-          to label %139 unwind label %141
+          to label %139 unwind label %141, !llvm.loop !12
 
 317:                                              ; preds = %137
   %318 = landingpad { ptr, i32 }
@@ -1045,11 +1045,11 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
 338:                                              ; preds = %334
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %49, i64 32, i1 false)
   %339 = invoke zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hb0b0b9a2c67165e8E"(ptr nonnull align 8 %57, ptr nonnull align 8 %48)
-          to label %331 unwind label %332
+          to label %331 unwind label %332, !llvm.loop !13
 
 340:                                              ; preds = %337
   invoke void @"_ZN4core3ptr66drop_in_place$LT$alloc..rc..Rc$LT$witx..ast..InterfaceFunc$GT$$GT$17h57e5145b8fcd01a0E"(ptr nonnull align 8 %55)
-          to label %94 unwind label %96
+          to label %94 unwind label %96, !llvm.loop !14
 
 .thread99:                                        ; preds = %319, %96
   %.pn90102 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %96 ], [ %.pn, %319 ]
@@ -1169,7 +1169,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
 107:                                              ; preds = %120, %113
   %.1 = phi i1 [ %.3, %120 ], [ %.0, %113 ]
   %.pn106.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn106.pn.pn.pn.pn.pn, %120 ], [ %114, %113 ]
-  %108 = load i64, ptr %4, align 8, !range !9, !noundef !3
+  %108 = load i64, ptr %4, align 8, !range !15, !noundef !3
   %109 = add i64 %108, 9223372036854775807
   %110 = icmp ugt i64 %109, 2
   %111 = icmp eq i64 %109, 1
@@ -1326,7 +1326,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
 160:                                              ; preds = %143
   %161 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %162 = load ptr, ptr %161, align 8, !nonnull !3, !noundef !3
-  %163 = load i8, ptr %162, align 1, !range !10, !noundef !3
+  %163 = load i8, ptr %162, align 1, !range !16, !noundef !3
   invoke void @_ZN15wiggle_generate5names9wasm_type17h5152ee481af4db12E(ptr nonnull sret({ { i64, [3 x i64] }, {} }) align 8 %94, i8 %163)
           to label %156 unwind label %149
 
@@ -2296,7 +2296,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
 
 414:                                              ; preds = %413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, ptr noundef nonnull align 8 dereferenceable(32) %85, i64 32, i1 false)
-  %415 = load i64, ptr %4, align 8, !range !9, !noundef !3
+  %415 = load i64, ptr %4, align 8, !range !15, !noundef !3
   %416 = add i64 %415, 9223372036854775807
   %417 = icmp ult i64 %416, 3
   %418 = select i1 %417, i64 %416, i64 1
@@ -2568,7 +2568,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
 
 487:                                              ; preds = %466
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %462, ptr nonnull align 8 %9)
-          to label %461 unwind label %.loopexit
+          to label %461 unwind label %.loopexit, !llvm.loop !17
 
 488:                                              ; preds = %492, %489
   %.pn92.pn = phi { ptr, i32 } [ %.pn92, %492 ], [ %490, %489 ]
@@ -2870,7 +2870,7 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
 
 566:                                              ; preds = %529
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %525, ptr nonnull align 8 %19)
-          to label %524 unwind label %.loopexit114
+          to label %524 unwind label %.loopexit114, !llvm.loop !18
 
 567:                                              ; preds = %422
   invoke void @_ZN5alloc3fmt6format17h7750bf553f062d8cE(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %35, ptr nonnull align 8 %34)
@@ -3205,11 +3205,11 @@ define internal fastcc void @_ZN15wiggle_generate8wasmtime13generate_func17h1d8b
 
 657:                                              ; preds = %618
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17ha0795760d0fbc4c5E"(ptr nonnull align 8 %614, ptr nonnull align 8 %30)
-          to label %613 unwind label %.loopexit119
+          to label %613 unwind label %.loopexit119, !llvm.loop !19
 
 658:                                              ; preds = %409
   invoke void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfee7303479077cc8E"(ptr nonnull align 8 %405, ptr nonnull align 8 %41)
-          to label %404 unwind label %.loopexit124
+          to label %404 unwind label %.loopexit124, !llvm.loop !20
 
 659:                                              ; preds = %660, %107
   resume { ptr, i32 } %.pn106.pn.pn.pn.pn.pn.pn
@@ -3449,9 +3449,19 @@ attributes #7 = { noreturn }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 0, i64 -9223372036854775806}
-!5 = !{i64 8}
-!6 = !{i64 0, i64 -9223372036854775807}
-!7 = !{i32 1, i32 0}
-!8 = !{i8 0, i8 2}
-!9 = !{i64 0, i64 -9223372036854775804}
-!10 = !{i8 0, i8 4}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i64 8}
+!8 = !{i64 0, i64 -9223372036854775807}
+!9 = !{i32 1, i32 0}
+!10 = !{i8 0, i8 2}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = !{i64 0, i64 -9223372036854775804}
+!16 = !{i8 0, i8 4}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}

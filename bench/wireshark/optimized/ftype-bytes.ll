@@ -746,7 +746,7 @@ define internal noundef i32 @bytes_bitwise_and(ptr noundef writeonly captures(no
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
   %32 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %32, %16
-  br i1 %exitcond.not, label %23, label %25, !llvm.loop !8
+  br i1 %exitcond.not, label %23, label %25, !llvm.loop !9
 
 33:                                               ; preds = %23, %18
   %.sink = phi ptr [ %24, %23 ], [ %19, %18 ]
@@ -1261,6 +1261,7 @@ attributes #12 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

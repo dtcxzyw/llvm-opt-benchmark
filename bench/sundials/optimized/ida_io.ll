@@ -978,7 +978,7 @@ define range(i32 -22, 1) i32 @IDASetRootDirection(ptr noundef readonly captures(
   store i32 %15, ptr %16, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %13
+  br i1 %exitcond.not, label %.loopexit, label %13, !llvm.loop !61
 
 .loopexit:                                        ; preds = %13, %.preheader, %12, %4
   %.0 = phi i32 [ -20, %4 ], [ -22, %12 ], [ 0, %.preheader ], [ 0, %13 ]
@@ -996,7 +996,7 @@ define range(i32 -20, 1) i32 @IDASetNoInactiveRootWarn(ptr noundef writeonly cap
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1192
-  store i32 0, ptr %5, align 8, !tbaa !61
+  store i32 0, ptr %5, align 8, !tbaa !63
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -1023,7 +1023,7 @@ define range(i32 -22, 1) i32 @IDASetNonlinConvCoefIC(ptr noundef %0, double noun
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store double %1, ptr %9, align 8, !tbaa !62
+  store double %1, ptr %9, align 8, !tbaa !64
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -1050,7 +1050,7 @@ define range(i32 -22, 1) i32 @IDASetMaxNumStepsIC(ptr noundef %0, i32 noundef %1
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i32 %1, ptr %9, align 8, !tbaa !63
+  store i32 %1, ptr %9, align 8, !tbaa !65
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -1077,7 +1077,7 @@ define range(i32 -22, 1) i32 @IDASetMaxNumJacsIC(ptr noundef %0, i32 noundef %1)
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 556
-  store i32 %1, ptr %9, align 4, !tbaa !64
+  store i32 %1, ptr %9, align 4, !tbaa !66
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -1104,7 +1104,7 @@ define range(i32 -22, 1) i32 @IDASetMaxNumItersIC(ptr noundef %0, i32 noundef %1
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  store i32 %1, ptr %9, align 8, !tbaa !65
+  store i32 %1, ptr %9, align 8, !tbaa !67
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -1131,7 +1131,7 @@ define range(i32 -22, 1) i32 @IDASetMaxBacksIC(ptr noundef %0, i32 noundef %1) l
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  store i32 %1, ptr %9, align 4, !tbaa !66
+  store i32 %1, ptr %9, align 4, !tbaa !68
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -1150,7 +1150,7 @@ define range(i32 -20, 1) i32 @IDASetLineSearchOffIC(ptr noundef writeonly captur
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 548
-  store i32 %1, ptr %6, align 4, !tbaa !67
+  store i32 %1, ptr %6, align 4, !tbaa !69
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -1177,7 +1177,7 @@ define range(i32 -22, 1) i32 @IDASetStepToleranceIC(ptr noundef %0, double nound
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store double %1, ptr %9, align 8, !tbaa !68
+  store double %1, ptr %9, align 8, !tbaa !70
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -1197,7 +1197,7 @@ define range(i32 -20, 1) i32 @IDAGetNumSteps(ptr noundef readonly captures(addre
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %7 = load i64, ptr %6, align 8, !tbaa !30
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1216,8 +1216,8 @@ define range(i32 -20, 1) i32 @IDAGetNumResEvals(ptr noundef readonly captures(ad
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %7 = load i64, ptr %6, align 8, !tbaa !70
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !72
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1236,8 +1236,8 @@ define range(i32 -20, 1) i32 @IDAGetNumLinSolvSetups(ptr noundef readonly captur
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %7 = load i64, ptr %6, align 8, !tbaa !71
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !73
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1256,8 +1256,8 @@ define range(i32 -20, 1) i32 @IDAGetNumErrTestFails(ptr noundef readonly capture
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %7 = load i64, ptr %6, align 8, !tbaa !72
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !74
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1276,9 +1276,9 @@ define range(i32 -20, 1) i32 @IDAGetNumBacktrackOps(ptr noundef readonly capture
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %7 = load i32, ptr %6, align 4, !tbaa !73
+  %7 = load i32, ptr %6, align 4, !tbaa !75
   %8 = sext i32 %7 to i64
-  store i64 %8, ptr %1, align 8, !tbaa !69
+  store i64 %8, ptr %1, align 8, !tbaa !71
   br label %9
 
 9:                                                ; preds = %5, %4
@@ -1297,7 +1297,7 @@ define range(i32 -22, 1) i32 @IDAGetConsistentIC(ptr noundef %0, ptr noundef %1,
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %8 = load i32, ptr %7, align 4, !tbaa !74
+  %8 = load i32, ptr %7, align 4, !tbaa !76
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %10, label %9
 
@@ -1311,7 +1311,7 @@ define range(i32 -22, 1) i32 @IDAGetConsistentIC(ptr noundef %0, ptr noundef %1,
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %13 = load ptr, ptr %12, align 8, !tbaa !75
+  %13 = load ptr, ptr %12, align 8, !tbaa !77
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %13, ptr noundef nonnull %1) #8
   br label %14
 
@@ -1321,7 +1321,7 @@ define range(i32 -22, 1) i32 @IDAGetConsistentIC(ptr noundef %0, ptr noundef %1,
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %17 = load ptr, ptr %16, align 8, !tbaa !75
+  %17 = load ptr, ptr %16, align 8, !tbaa !77
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %17, ptr noundef nonnull %2) #8
   br label %18
 
@@ -1341,7 +1341,7 @@ define range(i32 -20, 1) i32 @IDAGetLastOrder(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %7 = load i32, ptr %6, align 4, !tbaa !74
+  %7 = load i32, ptr %6, align 4, !tbaa !76
   store i32 %7, ptr %1, align 4, !tbaa !60
   br label %8
 
@@ -1361,7 +1361,7 @@ define range(i32 -20, 1) i32 @IDAGetCurrentOrder(ptr noundef readonly captures(a
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %7 = load i32, ptr %6, align 8, !tbaa !76
+  %7 = load i32, ptr %6, align 8, !tbaa !78
   store i32 %7, ptr %1, align 4, !tbaa !60
   br label %8
 
@@ -1381,8 +1381,8 @@ define range(i32 -20, 1) i32 @IDAGetCurrentCj(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %7 = load double, ptr %6, align 8, !tbaa !77
-  store double %7, ptr %1, align 8, !tbaa !78
+  %7 = load double, ptr %6, align 8, !tbaa !79
+  store double %7, ptr %1, align 8, !tbaa !80
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1401,8 +1401,8 @@ define range(i32 -20, 1) i32 @IDAGetCurrentY(ptr noundef readonly captures(addre
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %7 = load ptr, ptr %6, align 8, !tbaa !79
-  store ptr %7, ptr %1, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !81
+  store ptr %7, ptr %1, align 8, !tbaa !77
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1421,8 +1421,8 @@ define range(i32 -20, 1) i32 @IDAGetCurrentYp(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %7 = load ptr, ptr %6, align 8, !tbaa !80
-  store ptr %7, ptr %1, align 8, !tbaa !75
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
+  store ptr %7, ptr %1, align 8, !tbaa !77
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1441,8 +1441,8 @@ define range(i32 -20, 1) i32 @IDAGetActualInitStep(ptr noundef readonly captures
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %7 = load double, ptr %6, align 8, !tbaa !81
-  store double %7, ptr %1, align 8, !tbaa !78
+  %7 = load double, ptr %6, align 8, !tbaa !83
+  store double %7, ptr %1, align 8, !tbaa !80
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1461,8 +1461,8 @@ define range(i32 -20, 1) i32 @IDAGetLastStep(ptr noundef readonly captures(addre
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %7 = load double, ptr %6, align 8, !tbaa !82
-  store double %7, ptr %1, align 8, !tbaa !78
+  %7 = load double, ptr %6, align 8, !tbaa !84
+  store double %7, ptr %1, align 8, !tbaa !80
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1482,7 +1482,7 @@ define range(i32 -20, 1) i32 @IDAGetCurrentStep(ptr noundef readonly captures(ad
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %7 = load double, ptr %6, align 8, !tbaa !32
-  store double %7, ptr %1, align 8, !tbaa !78
+  store double %7, ptr %1, align 8, !tbaa !80
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1502,7 +1502,7 @@ define range(i32 -20, 1) i32 @IDAGetCurrentTime(ptr noundef readonly captures(ad
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %7 = load double, ptr %6, align 8, !tbaa !31
-  store double %7, ptr %1, align 8, !tbaa !78
+  store double %7, ptr %1, align 8, !tbaa !80
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1521,8 +1521,8 @@ define range(i32 -20, 1) i32 @IDAGetTolScaleFactor(ptr noundef readonly captures
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %7 = load double, ptr %6, align 8, !tbaa !83
-  store double %7, ptr %1, align 8, !tbaa !78
+  %7 = load double, ptr %6, align 8, !tbaa !85
+  store double %7, ptr %1, align 8, !tbaa !80
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1541,7 +1541,7 @@ define range(i32 -20, 1) i32 @IDAGetErrWeights(ptr noundef readonly captures(add
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %7 = load ptr, ptr %6, align 8, !tbaa !86
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %7, ptr noundef %1) #8
   br label %8
 
@@ -1561,7 +1561,7 @@ define range(i32 -20, 1) i32 @IDAGetEstLocalErrors(ptr noundef readonly captures
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %7 = load ptr, ptr %6, align 8, !tbaa !85
+  %7 = load ptr, ptr %6, align 8, !tbaa !87
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %7, ptr noundef %1) #8
   br label %8
 
@@ -1582,10 +1582,10 @@ define range(i32 -20, 1) i32 @IDAGetWorkSpace(ptr noundef readonly captures(addr
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %8 = load i64, ptr %7, align 8, !tbaa !45
-  store i64 %8, ptr %2, align 8, !tbaa !69
+  store i64 %8, ptr %2, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %10 = load i64, ptr %9, align 8, !tbaa !43
-  store i64 %10, ptr %1, align 8, !tbaa !69
+  store i64 %10, ptr %1, align 8, !tbaa !71
   br label %11
 
 11:                                               ; preds = %6, %5
@@ -1605,34 +1605,34 @@ define range(i32 -20, 1) i32 @IDAGetIntegratorStats(ptr noundef readonly capture
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %16 = load i64, ptr %15, align 8, !tbaa !30
-  store i64 %16, ptr %1, align 8, !tbaa !69
+  store i64 %16, ptr %1, align 8, !tbaa !71
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %18 = load i64, ptr %17, align 8, !tbaa !70
-  store i64 %18, ptr %2, align 8, !tbaa !69
+  %18 = load i64, ptr %17, align 8, !tbaa !72
+  store i64 %18, ptr %2, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %20 = load i64, ptr %19, align 8, !tbaa !71
-  store i64 %20, ptr %3, align 8, !tbaa !69
+  %20 = load i64, ptr %19, align 8, !tbaa !73
+  store i64 %20, ptr %3, align 8, !tbaa !71
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %22 = load i64, ptr %21, align 8, !tbaa !72
-  store i64 %22, ptr %4, align 8, !tbaa !69
+  %22 = load i64, ptr %21, align 8, !tbaa !74
+  store i64 %22, ptr %4, align 8, !tbaa !71
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %24 = load i32, ptr %23, align 4, !tbaa !74
+  %24 = load i32, ptr %23, align 4, !tbaa !76
   store i32 %24, ptr %5, align 4, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %26 = load i32, ptr %25, align 8, !tbaa !76
+  %26 = load i32, ptr %25, align 8, !tbaa !78
   store i32 %26, ptr %6, align 4, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %28 = load double, ptr %27, align 8, !tbaa !81
-  store double %28, ptr %7, align 8, !tbaa !78
+  %28 = load double, ptr %27, align 8, !tbaa !83
+  store double %28, ptr %7, align 8, !tbaa !80
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %30 = load double, ptr %29, align 8, !tbaa !82
-  store double %30, ptr %8, align 8, !tbaa !78
+  %30 = load double, ptr %29, align 8, !tbaa !84
+  store double %30, ptr %8, align 8, !tbaa !80
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %32 = load double, ptr %31, align 8, !tbaa !32
-  store double %32, ptr %9, align 8, !tbaa !78
+  store double %32, ptr %9, align 8, !tbaa !80
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %34 = load double, ptr %33, align 8, !tbaa !31
-  store double %34, ptr %10, align 8, !tbaa !78
+  store double %34, ptr %10, align 8, !tbaa !80
   br label %35
 
 35:                                               ; preds = %14, %13
@@ -1651,8 +1651,8 @@ define range(i32 -20, 1) i32 @IDAGetNumGEvals(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %7 = load i64, ptr %6, align 8, !tbaa !86
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !88
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1677,7 +1677,7 @@ define range(i32 -20, 1) i32 @IDAGetRootInfo(ptr noundef readonly captures(addre
 
 .lr.ph:                                           ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %10 = load ptr, ptr %9, align 8, !tbaa !87
+  %10 = load ptr, ptr %9, align 8, !tbaa !89
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %11
 
@@ -1689,7 +1689,7 @@ define range(i32 -20, 1) i32 @IDAGetRootInfo(ptr noundef readonly captures(addre
   store i32 %13, ptr %14, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !90
 
 .loopexit:                                        ; preds = %11, %5, %4
   %.0 = phi i32 [ -20, %4 ], [ 0, %5 ], [ 0, %11 ]
@@ -1707,8 +1707,8 @@ define range(i32 -20, 1) i32 @IDAGetNumNonlinSolvIters(ptr noundef readonly capt
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %7 = load i64, ptr %6, align 8, !tbaa !88
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !91
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1727,8 +1727,8 @@ define range(i32 -20, 1) i32 @IDAGetNumNonlinSolvConvFails(ptr noundef readonly 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %7 = load i64, ptr %6, align 8, !tbaa !89
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !92
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1747,11 +1747,11 @@ define range(i32 -20, 1) i32 @IDAGetNonlinSolvStats(ptr noundef readonly capture
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %8 = load i64, ptr %7, align 8, !tbaa !88
-  store i64 %8, ptr %1, align 8, !tbaa !69
+  %8 = load i64, ptr %7, align 8, !tbaa !91
+  store i64 %8, ptr %1, align 8, !tbaa !71
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %10 = load i64, ptr %9, align 8, !tbaa !89
-  store i64 %10, ptr %2, align 8, !tbaa !69
+  %10 = load i64, ptr %9, align 8, !tbaa !92
+  store i64 %10, ptr %2, align 8, !tbaa !71
   br label %11
 
 11:                                               ; preds = %6, %5
@@ -1770,8 +1770,8 @@ define range(i32 -20, 1) i32 @IDAGetNumStepSolveFails(ptr noundef readonly captu
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %7 = load i64, ptr %6, align 8, !tbaa !90
-  store i64 %7, ptr %1, align 8, !tbaa !69
+  %7 = load i64, ptr %6, align 8, !tbaa !93
+  store i64 %7, ptr %1, align 8, !tbaa !71
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1791,7 +1791,7 @@ define range(i32 -20, 1) i32 @IDAGetUserData(ptr noundef readonly captures(addre
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !16
-  store ptr %7, ptr %1, align 8, !tbaa !91
+  store ptr %7, ptr %1, align 8, !tbaa !94
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1822,44 +1822,44 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr noundef captu
   %12 = load i64, ptr %11, align 8, !tbaa !30
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, i64 noundef %12) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %15 = load i64, ptr %14, align 8, !tbaa !72
+  %15 = load i64, ptr %14, align 8, !tbaa !74
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.21, i64 noundef %15) #8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %18 = load i64, ptr %17, align 8, !tbaa !90
+  %18 = load i64, ptr %17, align 8, !tbaa !93
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.22, i64 noundef %18) #8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %21 = load double, ptr %20, align 8, !tbaa !81
+  %21 = load double, ptr %20, align 8, !tbaa !83
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.23, double noundef %21) #8
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %24 = load double, ptr %23, align 8, !tbaa !82
+  %24 = load double, ptr %23, align 8, !tbaa !84
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.24, double noundef %24) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %27 = load double, ptr %26, align 8, !tbaa !32
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.25, double noundef %27) #8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %30 = load i32, ptr %29, align 4, !tbaa !74
+  %30 = load i32, ptr %29, align 4, !tbaa !76
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.26, i32 noundef %30) #8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %33 = load i32, ptr %32, align 8, !tbaa !76
+  %33 = load i32, ptr %32, align 8, !tbaa !78
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.27, i32 noundef %33) #8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %36 = load i64, ptr %35, align 8, !tbaa !70
+  %36 = load i64, ptr %35, align 8, !tbaa !72
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.28, i64 noundef %36) #8
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %39 = load i32, ptr %38, align 4, !tbaa !73
+  %39 = load i32, ptr %38, align 4, !tbaa !75
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.29, i32 noundef %39) #8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %42 = load i64, ptr %41, align 8, !tbaa !88
+  %42 = load i64, ptr %41, align 8, !tbaa !91
   %43 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.30, i64 noundef %42) #8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %45 = load i64, ptr %44, align 8, !tbaa !89
+  %45 = load i64, ptr %44, align 8, !tbaa !92
   %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, i64 noundef %45) #8
   %47 = load i64, ptr %11, align 8, !tbaa !30
   %48 = icmp sgt i64 %47, 0
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %7
-  %50 = load i64, ptr %35, align 8, !tbaa !70
+  %50 = load i64, ptr %35, align 8, !tbaa !72
   %51 = sitofp i64 %50 to double
   %52 = uitofp nneg i64 %47 to double
   %53 = fdiv double %51, %52
@@ -1868,57 +1868,57 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr noundef captu
 
 55:                                               ; preds = %49, %7
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %57 = load i64, ptr %56, align 8, !tbaa !71
+  %57 = load i64, ptr %56, align 8, !tbaa !73
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.33, i64 noundef %57) #8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %60 = load ptr, ptr %59, align 8, !tbaa !92
+  %60 = load ptr, ptr %59, align 8, !tbaa !95
   %.not140 = icmp eq ptr %60, null
   br i1 %.not140, label %106, label %61
 
 61:                                               ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 128
-  %63 = load i64, ptr %62, align 8, !tbaa !93
+  %63 = load i64, ptr %62, align 8, !tbaa !96
   %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, i64 noundef %63) #8
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 168
-  %66 = load i64, ptr %65, align 8, !tbaa !97
+  %66 = load i64, ptr %65, align 8, !tbaa !100
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i64 noundef %66) #8
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 136
-  %69 = load i64, ptr %68, align 8, !tbaa !98
+  %69 = load i64, ptr %68, align 8, !tbaa !101
   %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i64 noundef %69) #8
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 152
-  %72 = load i64, ptr %71, align 8, !tbaa !99
+  %72 = load i64, ptr %71, align 8, !tbaa !102
   %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i64 noundef %72) #8
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 144
-  %75 = load i64, ptr %74, align 8, !tbaa !100
+  %75 = load i64, ptr %74, align 8, !tbaa !103
   %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i64 noundef %75) #8
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 160
-  %78 = load i64, ptr %77, align 8, !tbaa !101
+  %78 = load i64, ptr %77, align 8, !tbaa !104
   %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i64 noundef %78) #8
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 176
-  %81 = load i64, ptr %80, align 8, !tbaa !102
+  %81 = load i64, ptr %80, align 8, !tbaa !105
   %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, i64 noundef %81) #8
   %83 = getelementptr inbounds nuw i8, ptr %60, i64 184
-  %84 = load i64, ptr %83, align 8, !tbaa !103
+  %84 = load i64, ptr %83, align 8, !tbaa !106
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, i64 noundef %84) #8
-  %86 = load i64, ptr %41, align 8, !tbaa !88
+  %86 = load i64, ptr %41, align 8, !tbaa !91
   %87 = icmp sgt i64 %86, 0
   br i1 %87, label %88, label %106
 
 88:                                               ; preds = %61
-  %89 = load i64, ptr %74, align 8, !tbaa !100
+  %89 = load i64, ptr %74, align 8, !tbaa !103
   %90 = sitofp i64 %89 to double
   %91 = uitofp nneg i64 %86 to double
   %92 = fdiv double %90, %91
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, double noundef %92) #8
-  %94 = load i64, ptr %62, align 8, !tbaa !93
+  %94 = load i64, ptr %62, align 8, !tbaa !96
   %95 = sitofp i64 %94 to double
-  %96 = load i64, ptr %41, align 8, !tbaa !88
+  %96 = load i64, ptr %41, align 8, !tbaa !91
   %97 = sitofp i64 %96 to double
   %98 = fdiv double %95, %97
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.43, double noundef %98) #8
-  %100 = load i64, ptr %68, align 8, !tbaa !98
+  %100 = load i64, ptr %68, align 8, !tbaa !101
   %101 = sitofp i64 %100 to double
-  %102 = load i64, ptr %41, align 8, !tbaa !88
+  %102 = load i64, ptr %41, align 8, !tbaa !91
   %103 = sitofp i64 %102 to double
   %104 = fdiv double %101, %103
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %104) #8
@@ -1926,7 +1926,7 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr noundef captu
 
 106:                                              ; preds = %61, %88, %55
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %108 = load i64, ptr %107, align 8, !tbaa !86
+  %108 = load i64, ptr %107, align 8, !tbaa !88
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i64 noundef %108) #8
   br label %220
 
@@ -1938,44 +1938,44 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr noundef captu
   %115 = load i64, ptr %114, align 8, !tbaa !30
   %116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, i64 noundef %115) #8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %118 = load i64, ptr %117, align 8, !tbaa !72
+  %118 = load i64, ptr %117, align 8, !tbaa !74
   %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, i64 noundef %118) #8
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 880
-  %121 = load i64, ptr %120, align 8, !tbaa !90
+  %121 = load i64, ptr %120, align 8, !tbaa !93
   %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.49, i64 noundef %121) #8
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %124 = load double, ptr %123, align 8, !tbaa !81
+  %124 = load double, ptr %123, align 8, !tbaa !83
   %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, double noundef %124) #8
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %127 = load double, ptr %126, align 8, !tbaa !82
+  %127 = load double, ptr %126, align 8, !tbaa !84
   %128 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.51, double noundef %127) #8
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %130 = load double, ptr %129, align 8, !tbaa !32
   %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.52, double noundef %130) #8
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %133 = load i32, ptr %132, align 4, !tbaa !74
+  %133 = load i32, ptr %132, align 4, !tbaa !76
   %134 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.53, i32 noundef %133) #8
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %136 = load i32, ptr %135, align 8, !tbaa !76
+  %136 = load i32, ptr %135, align 8, !tbaa !78
   %137 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.54, i32 noundef %136) #8
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %139 = load i64, ptr %138, align 8, !tbaa !70
+  %139 = load i64, ptr %138, align 8, !tbaa !72
   %140 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.55, i64 noundef %139) #8
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  %142 = load i32, ptr %141, align 4, !tbaa !73
+  %142 = load i32, ptr %141, align 4, !tbaa !75
   %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.56, i32 noundef %142) #8
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %145 = load i64, ptr %144, align 8, !tbaa !88
+  %145 = load i64, ptr %144, align 8, !tbaa !91
   %146 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.57, i64 noundef %145) #8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %148 = load i64, ptr %147, align 8, !tbaa !89
+  %148 = load i64, ptr %147, align 8, !tbaa !92
   %149 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.58, i64 noundef %148) #8
   %150 = load i64, ptr %114, align 8, !tbaa !30
   %151 = icmp sgt i64 %150, 0
   br i1 %151, label %152, label %158
 
 152:                                              ; preds = %110
-  %153 = load i64, ptr %138, align 8, !tbaa !70
+  %153 = load i64, ptr %138, align 8, !tbaa !72
   %154 = sitofp i64 %153 to double
   %155 = uitofp nneg i64 %150 to double
   %156 = fdiv double %154, %155
@@ -1988,57 +1988,57 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr noundef captu
 
 160:                                              ; preds = %158, %152
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %162 = load i64, ptr %161, align 8, !tbaa !71
+  %162 = load i64, ptr %161, align 8, !tbaa !73
   %163 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.61, i64 noundef %162) #8
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %165 = load ptr, ptr %164, align 8, !tbaa !92
+  %165 = load ptr, ptr %164, align 8, !tbaa !95
   %.not = icmp eq ptr %165, null
   br i1 %.not, label %215, label %166
 
 166:                                              ; preds = %160
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 128
-  %168 = load i64, ptr %167, align 8, !tbaa !93
+  %168 = load i64, ptr %167, align 8, !tbaa !96
   %169 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.62, i64 noundef %168) #8
   %170 = getelementptr inbounds nuw i8, ptr %165, i64 168
-  %171 = load i64, ptr %170, align 8, !tbaa !97
+  %171 = load i64, ptr %170, align 8, !tbaa !100
   %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.63, i64 noundef %171) #8
   %173 = getelementptr inbounds nuw i8, ptr %165, i64 136
-  %174 = load i64, ptr %173, align 8, !tbaa !98
+  %174 = load i64, ptr %173, align 8, !tbaa !101
   %175 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.64, i64 noundef %174) #8
   %176 = getelementptr inbounds nuw i8, ptr %165, i64 152
-  %177 = load i64, ptr %176, align 8, !tbaa !99
+  %177 = load i64, ptr %176, align 8, !tbaa !102
   %178 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.65, i64 noundef %177) #8
   %179 = getelementptr inbounds nuw i8, ptr %165, i64 144
-  %180 = load i64, ptr %179, align 8, !tbaa !100
+  %180 = load i64, ptr %179, align 8, !tbaa !103
   %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.66, i64 noundef %180) #8
   %182 = getelementptr inbounds nuw i8, ptr %165, i64 160
-  %183 = load i64, ptr %182, align 8, !tbaa !101
+  %183 = load i64, ptr %182, align 8, !tbaa !104
   %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.67, i64 noundef %183) #8
   %185 = getelementptr inbounds nuw i8, ptr %165, i64 176
-  %186 = load i64, ptr %185, align 8, !tbaa !102
+  %186 = load i64, ptr %185, align 8, !tbaa !105
   %187 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.68, i64 noundef %186) #8
   %188 = getelementptr inbounds nuw i8, ptr %165, i64 184
-  %189 = load i64, ptr %188, align 8, !tbaa !103
+  %189 = load i64, ptr %188, align 8, !tbaa !106
   %190 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.69, i64 noundef %189) #8
-  %191 = load i64, ptr %144, align 8, !tbaa !88
+  %191 = load i64, ptr %144, align 8, !tbaa !91
   %192 = icmp sgt i64 %191, 0
   br i1 %192, label %193, label %211
 
 193:                                              ; preds = %166
-  %194 = load i64, ptr %179, align 8, !tbaa !100
+  %194 = load i64, ptr %179, align 8, !tbaa !103
   %195 = sitofp i64 %194 to double
   %196 = uitofp nneg i64 %191 to double
   %197 = fdiv double %195, %196
   %198 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.70, double noundef %197) #8
-  %199 = load i64, ptr %167, align 8, !tbaa !93
+  %199 = load i64, ptr %167, align 8, !tbaa !96
   %200 = sitofp i64 %199 to double
-  %201 = load i64, ptr %144, align 8, !tbaa !88
+  %201 = load i64, ptr %144, align 8, !tbaa !91
   %202 = sitofp i64 %201 to double
   %203 = fdiv double %200, %202
   %204 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, double noundef %203) #8
-  %205 = load i64, ptr %173, align 8, !tbaa !98
+  %205 = load i64, ptr %173, align 8, !tbaa !101
   %206 = sitofp i64 %205 to double
-  %207 = load i64, ptr %144, align 8, !tbaa !88
+  %207 = load i64, ptr %144, align 8, !tbaa !91
   %208 = sitofp i64 %207 to double
   %209 = fdiv double %206, %208
   %210 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.72, double noundef %209) #8
@@ -2052,7 +2052,7 @@ define range(i32 -22, 1) i32 @IDAPrintAllStats(ptr noundef %0, ptr noundef captu
 
 215:                                              ; preds = %193, %211, %160
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 1176
-  %217 = load i64, ptr %216, align 8, !tbaa !86
+  %217 = load i64, ptr %216, align 8, !tbaa !88
   %218 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.76, i64 noundef %217) #8
   %fputc = tail call i32 @fputc(i32 10, ptr %1)
   br label %220
@@ -2297,46 +2297,49 @@ attributes #9 = { nounwind allocsize(0) }
 !58 = !{!4, !10, i64 1080}
 !59 = !{!4, !14, i64 1096}
 !60 = !{!10, !10, i64 0}
-!61 = !{!4, !10, i64 1192}
-!62 = !{!4, !9, i64 576}
-!63 = !{!4, !10, i64 552}
-!64 = !{!4, !10, i64 556}
-!65 = !{!4, !10, i64 560}
-!66 = !{!4, !10, i64 572}
-!67 = !{!4, !10, i64 548}
-!68 = !{!4, !9, i64 584}
-!69 = !{!12, !12, i64 0}
-!70 = !{!4, !12, i64 872}
-!71 = !{!4, !12, i64 912}
-!72 = !{!4, !12, i64 888}
-!73 = !{!4, !10, i64 564}
-!74 = !{!4, !10, i64 620}
-!75 = !{!11, !11, i64 0}
-!76 = !{!4, !10, i64 616}
-!77 = !{!4, !9, i64 696}
-!78 = !{!9, !9, i64 0}
-!79 = !{!4, !11, i64 392}
-!80 = !{!4, !11, i64 400}
-!81 = !{!4, !9, i64 648}
-!82 = !{!4, !9, i64 664}
-!83 = !{!4, !9, i64 952}
-!84 = !{!4, !11, i64 384}
-!85 = !{!4, !11, i64 456}
-!86 = !{!4, !12, i64 1176}
-!87 = !{!4, !14, i64 1088}
-!88 = !{!4, !12, i64 896}
-!89 = !{!4, !12, i64 904}
-!90 = !{!4, !12, i64 880}
-!91 = !{!6, !6, i64 0}
-!92 = !{!4, !6, i64 1048}
-!93 = !{!94, !12, i64 128}
-!94 = !{!"IDALsMemRec", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !6, i64 24, !95, i64 32, !96, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !10, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !9, i64 240, !10, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !10, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320}
-!95 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !6, i64 0}
-!96 = !{!"p1 _ZTS18_generic_SUNMatrix", !6, i64 0}
-!97 = !{!94, !12, i64 168}
-!98 = !{!94, !12, i64 136}
-!99 = !{!94, !12, i64 152}
-!100 = !{!94, !12, i64 144}
-!101 = !{!94, !12, i64 160}
-!102 = !{!94, !12, i64 176}
-!103 = !{!94, !12, i64 184}
+!61 = distinct !{!61, !62}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!4, !10, i64 1192}
+!64 = !{!4, !9, i64 576}
+!65 = !{!4, !10, i64 552}
+!66 = !{!4, !10, i64 556}
+!67 = !{!4, !10, i64 560}
+!68 = !{!4, !10, i64 572}
+!69 = !{!4, !10, i64 548}
+!70 = !{!4, !9, i64 584}
+!71 = !{!12, !12, i64 0}
+!72 = !{!4, !12, i64 872}
+!73 = !{!4, !12, i64 912}
+!74 = !{!4, !12, i64 888}
+!75 = !{!4, !10, i64 564}
+!76 = !{!4, !10, i64 620}
+!77 = !{!11, !11, i64 0}
+!78 = !{!4, !10, i64 616}
+!79 = !{!4, !9, i64 696}
+!80 = !{!9, !9, i64 0}
+!81 = !{!4, !11, i64 392}
+!82 = !{!4, !11, i64 400}
+!83 = !{!4, !9, i64 648}
+!84 = !{!4, !9, i64 664}
+!85 = !{!4, !9, i64 952}
+!86 = !{!4, !11, i64 384}
+!87 = !{!4, !11, i64 456}
+!88 = !{!4, !12, i64 1176}
+!89 = !{!4, !14, i64 1088}
+!90 = distinct !{!90, !62}
+!91 = !{!4, !12, i64 896}
+!92 = !{!4, !12, i64 904}
+!93 = !{!4, !12, i64 880}
+!94 = !{!6, !6, i64 0}
+!95 = !{!4, !6, i64 1048}
+!96 = !{!97, !12, i64 128}
+!97 = !{!"IDALsMemRec", !10, i64 0, !10, i64 4, !10, i64 8, !6, i64 16, !6, i64 24, !98, i64 32, !99, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !10, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !9, i64 240, !10, i64 248, !6, i64 256, !6, i64 264, !6, i64 272, !6, i64 280, !10, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320}
+!98 = !{!"p1 _ZTS24_generic_SUNLinearSolver", !6, i64 0}
+!99 = !{!"p1 _ZTS18_generic_SUNMatrix", !6, i64 0}
+!100 = !{!97, !12, i64 168}
+!101 = !{!97, !12, i64 136}
+!102 = !{!97, !12, i64 152}
+!103 = !{!97, !12, i64 144}
+!104 = !{!97, !12, i64 160}
+!105 = !{!97, !12, i64 176}
+!106 = !{!97, !12, i64 184}

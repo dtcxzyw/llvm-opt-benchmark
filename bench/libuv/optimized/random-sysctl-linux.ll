@@ -66,7 +66,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @uv__random_sysctl(ptr nou
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0911, ptr nonnull align 16 %4, i64 %spec.store.select, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %.0911, i64 %spec.store.select
   %31 = icmp ult ptr %30, %6
-  br i1 %31, label %16, label %.loopexit
+  br i1 %31, label %16, label %.loopexit, !llvm.loop !4
 
 .loopexit:                                        ; preds = %23, %25, %2, %19
   %.0 = phi i32 [ %22, %19 ], [ 0, %2 ], [ -5, %23 ], [ 0, %25 ]
@@ -113,3 +113,5 @@ attributes #8 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

@@ -189,7 +189,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   store i8 %80, ptr %77, align 1
   %82 = add nuw i64 %.0193, 1
   %exitcond234.not = icmp eq i64 %81, %umax
-  br i1 %exitcond234.not, label %.split81, label %.lr.ph
+  br i1 %exitcond234.not, label %.split81, label %.lr.ph, !llvm.loop !5
 
 83:                                               ; preds = %.lr.ph
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -225,7 +225,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 96:                                               ; preds = %91
   %exitcond.not = icmp eq i64 %.078.ph185, 4
-  br i1 %exitcond.not, label %103, label %.outer, !prof !5
+  br i1 %exitcond.not, label %103, label %.outer, !prof !7
 
 97:                                               ; preds = %91
   %98 = add i64 %.sroa.8.0171, %3
@@ -242,7 +242,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   store i8 %94, ptr %100, align 1
   %101 = add nuw nsw i64 %.078.ph185, 1
   %102 = icmp eq ptr %20, %15
-  br i1 %102, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph"
+  br i1 %102, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph", !llvm.loop !8
 
 103:                                              ; preds = %96
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef 4, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ac4fd1d65e6e66d260219a31c252ffb6.2) #4
@@ -253,7 +253,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   %spec.select = select i1 %105, i64 %.sroa.8.0171, i64 %.074174
   %106 = add i64 %.075173, 1
   %107 = icmp eq ptr %20, %15
-  br i1 %107, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit"
+  br i1 %107, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit", !llvm.loop !8
 
 108:                                              ; preds = %86
   %109 = add i64 %.sroa.8.0171, %3
@@ -298,4 +298,7 @@ attributes #4 = { noreturn }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !4 = !{}
-!5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = distinct !{!8, !6}

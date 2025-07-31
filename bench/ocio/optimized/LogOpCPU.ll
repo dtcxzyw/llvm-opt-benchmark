@@ -1013,14 +1013,14 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev14LogRendererSSE5applyEPKvPvl(ptr n
   %38 = fmul <4 x float> %8, %37
   %39 = getelementptr inbounds nuw i8, ptr %.023, i64 12
   %40 = load float, ptr %39, align 4, !tbaa !111
-  store <4 x float> %38, ptr %.02021, align 1, !tbaa !115
+  store <4 x float> %38, ptr %.02021, align 1, !tbaa !116
   %41 = getelementptr inbounds nuw i8, ptr %.02021, i64 12
   store float %40, ptr %41, align 4, !tbaa !111
   %42 = getelementptr inbounds nuw i8, ptr %.023, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %.02021, i64 16
   %44 = add nuw nsw i64 %.01922, 1
   %exitcond.not = icmp eq i64 %44, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !116
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1071,7 +1071,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev15AntiLogRenderer5applyEPKvPvl(ptr 
   %24 = getelementptr inbounds nuw i8, ptr %.01516, i64 16
   %25 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %25, %3
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !117
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !118
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1131,14 +1131,14 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev18AntiLogRendererSSE5applyEPKvPvl(p
   %40 = select <4 x i1> %38, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %39
   %41 = getelementptr inbounds nuw i8, ptr %.021, i64 12
   %42 = load float, ptr %41, align 4, !tbaa !111
-  store <4 x float> %40, ptr %.01819, align 1, !tbaa !115
+  store <4 x float> %40, ptr %.01819, align 1, !tbaa !116
   %43 = getelementptr inbounds nuw i8, ptr %.01819, i64 12
   store float %42, ptr %43, align 4, !tbaa !111
   %44 = getelementptr inbounds nuw i8, ptr %.021, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %.01819, i64 16
   %46 = add nuw nsw i64 %.01720, 1
   %exitcond.not = icmp eq i64 %46, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !118
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !119
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1183,73 +1183,73 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Log2LinRenderer10updateDataERSt10s
   %19 = load float, ptr %6, align 8, !tbaa !96
   %20 = tail call float @log2f(float noundef %19) #26, !tbaa !112
   %21 = load ptr, ptr %9, align 8, !tbaa !108
-  %22 = load double, ptr %21, align 8, !tbaa !119
+  %22 = load double, ptr %21, align 8, !tbaa !120
   %23 = fptrunc double %22 to float
   %24 = fdiv float %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store float %24, ptr %25, align 8, !tbaa !111
   %26 = load ptr, ptr %13, align 8, !tbaa !108
-  %27 = load double, ptr %26, align 8, !tbaa !119
+  %27 = load double, ptr %26, align 8, !tbaa !120
   %28 = fptrunc double %27 to float
   %29 = fdiv float %20, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %29, ptr %30, align 4, !tbaa !111
   %31 = load ptr, ptr %17, align 8, !tbaa !108
-  %32 = load double, ptr %31, align 8, !tbaa !119
+  %32 = load double, ptr %31, align 8, !tbaa !120
   %33 = fptrunc double %32 to float
   %34 = fdiv float %20, %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %34, ptr %35, align 8, !tbaa !111
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %37 = load double, ptr %36, align 8, !tbaa !119
+  %37 = load double, ptr %36, align 8, !tbaa !120
   %38 = fptrunc double %37 to float
   %39 = fneg float %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %39, ptr %40, align 4, !tbaa !111
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %42 = load double, ptr %41, align 8, !tbaa !119
+  %42 = load double, ptr %41, align 8, !tbaa !120
   %43 = fptrunc double %42 to float
   %44 = fneg float %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %44, ptr %45, align 8, !tbaa !111
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %47 = load double, ptr %46, align 8, !tbaa !119
+  %47 = load double, ptr %46, align 8, !tbaa !120
   %48 = fptrunc double %47 to float
   %49 = fneg float %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %49, ptr %50, align 4, !tbaa !111
   %51 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %52 = load double, ptr %51, align 8, !tbaa !119
+  %52 = load double, ptr %51, align 8, !tbaa !120
   %53 = fptrunc double %52 to float
   %54 = fneg float %53
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store float %54, ptr %55, align 8, !tbaa !111
   %56 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %57 = load double, ptr %56, align 8, !tbaa !119
+  %57 = load double, ptr %56, align 8, !tbaa !120
   %58 = fptrunc double %57 to float
   %59 = fneg float %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store float %59, ptr %60, align 4, !tbaa !111
   %61 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %62 = load double, ptr %61, align 8, !tbaa !119
+  %62 = load double, ptr %61, align 8, !tbaa !120
   %63 = fptrunc double %62 to float
   %64 = fneg float %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store float %64, ptr %65, align 8, !tbaa !111
   %66 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %67 = load double, ptr %66, align 8, !tbaa !119
+  %67 = load double, ptr %66, align 8, !tbaa !120
   %68 = fptrunc double %67 to float
   %69 = fdiv float 1.000000e+00, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store float %69, ptr %70, align 4, !tbaa !111
   %71 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %72 = load double, ptr %71, align 8, !tbaa !119
+  %72 = load double, ptr %71, align 8, !tbaa !120
   %73 = fptrunc double %72 to float
   %74 = fdiv float 1.000000e+00, %73
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float %74, ptr %75, align 8, !tbaa !111
   %76 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %77 = load double, ptr %76, align 8, !tbaa !119
+  %77 = load double, ptr %76, align 8, !tbaa !120
   %78 = fptrunc double %77 to float
   %79 = fdiv float 1.000000e+00, %78
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -1342,7 +1342,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev15Log2LinRenderer5applyEPKvPvl(ptr 
   %55 = getelementptr inbounds nuw i8, ptr %.021, i64 16
   %56 = add nuw nsw i64 %.01720, 1
   %exitcond.not = icmp eq i64 %56, %3
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !120
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !121
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1450,14 +1450,14 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev18Log2LinRendererSSE5applyEPKvPvl(p
   %75 = fmul <4 x float> %40, %74
   %76 = getelementptr inbounds nuw i8, ptr %.028, i64 12
   %77 = load float, ptr %76, align 4, !tbaa !111
-  store <4 x float> %75, ptr %.02526, align 1, !tbaa !115
+  store <4 x float> %75, ptr %.02526, align 1, !tbaa !116
   %78 = getelementptr inbounds nuw i8, ptr %.02526, i64 12
   store float %77, ptr %78, align 4, !tbaa !111
   %79 = getelementptr inbounds nuw i8, ptr %.02526, i64 16
   %80 = getelementptr inbounds nuw i8, ptr %.028, i64 16
   %81 = add nuw nsw i64 %.02427, 1
   %exitcond.not = icmp eq i64 %81, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !121
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !122
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1501,38 +1501,38 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRenderer10updateDataERSt10s
   %18 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIdSaIdEEaSERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %16)
   %19 = load ptr, ptr %9, align 8, !tbaa !108
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load double, ptr %20, align 8, !tbaa !119
+  %21 = load double, ptr %20, align 8, !tbaa !120
   %22 = fptrunc double %21 to float
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store float %22, ptr %23, align 8, !tbaa !111
   %24 = load ptr, ptr %13, align 8, !tbaa !108
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load double, ptr %25, align 8, !tbaa !119
+  %26 = load double, ptr %25, align 8, !tbaa !120
   %27 = fptrunc double %26 to float
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %27, ptr %28, align 4, !tbaa !111
   %29 = load ptr, ptr %17, align 8, !tbaa !108
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load double, ptr %30, align 8, !tbaa !119
+  %31 = load double, ptr %30, align 8, !tbaa !120
   %32 = fptrunc double %31 to float
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %32, ptr %33, align 8, !tbaa !111
   %34 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %35 = load double, ptr %34, align 8, !tbaa !119
+  %35 = load double, ptr %34, align 8, !tbaa !120
   %36 = fptrunc double %35 to float
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %36, ptr %37, align 4, !tbaa !111
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %39 = load double, ptr %38, align 8, !tbaa !119
+  %39 = load double, ptr %38, align 8, !tbaa !120
   %40 = fptrunc double %39 to float
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %40, ptr %41, align 8, !tbaa !111
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %43 = load double, ptr %42, align 8, !tbaa !119
+  %43 = load double, ptr %42, align 8, !tbaa !120
   %44 = fptrunc double %43 to float
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %44, ptr %45, align 4, !tbaa !111
-  %46 = load double, ptr %19, align 8, !tbaa !119
+  %46 = load double, ptr %19, align 8, !tbaa !120
   %47 = load float, ptr %6, align 8, !tbaa !96
   %48 = tail call noundef float @log2f(float noundef %47) #26, !tbaa !112
   %49 = fpext float %48 to double
@@ -1540,28 +1540,28 @@ define hidden void @_ZN19OpenColorIO_v2_5dev15Lin2LogRenderer10updateDataERSt10s
   %51 = fptrunc double %50 to float
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store float %51, ptr %52, align 8, !tbaa !111
-  %53 = load double, ptr %24, align 8, !tbaa !119
+  %53 = load double, ptr %24, align 8, !tbaa !120
   %54 = fdiv double %53, %49
   %55 = fptrunc double %54 to float
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store float %55, ptr %56, align 4, !tbaa !111
-  %57 = load double, ptr %29, align 8, !tbaa !119
+  %57 = load double, ptr %29, align 8, !tbaa !120
   %58 = fdiv double %57, %49
   %59 = fptrunc double %58 to float
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store float %59, ptr %60, align 8, !tbaa !111
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %62 = load double, ptr %61, align 8, !tbaa !119
+  %62 = load double, ptr %61, align 8, !tbaa !120
   %63 = fptrunc double %62 to float
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store float %63, ptr %64, align 4, !tbaa !111
   %65 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %66 = load double, ptr %65, align 8, !tbaa !119
+  %66 = load double, ptr %65, align 8, !tbaa !120
   %67 = fptrunc double %66 to float
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float %67, ptr %68, align 8, !tbaa !111
   %69 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %70 = load double, ptr %69, align 8, !tbaa !119
+  %70 = load double, ptr %69, align 8, !tbaa !120
   %71 = fptrunc double %70 to float
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store float %71, ptr %72, align 4, !tbaa !111
@@ -1656,7 +1656,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev15Lin2LogRenderer5applyEPKvPvl(ptr 
   %58 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %59 = add nuw nsw i64 %.01821, 1
   %exitcond.not = icmp eq i64 %59, %3
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !122
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !123
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1762,14 +1762,14 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev18Lin2LogRendererSSE5applyEPKvPvl(p
   %73 = fadd <4 x float> %40, %72
   %74 = getelementptr inbounds nuw i8, ptr %.029, i64 12
   %75 = load float, ptr %74, align 4, !tbaa !111
-  store <4 x float> %73, ptr %.02627, align 1, !tbaa !115
+  store <4 x float> %73, ptr %.02627, align 1, !tbaa !116
   %76 = getelementptr inbounds nuw i8, ptr %.02627, i64 12
   store float %75, ptr %76, align 4, !tbaa !111
   %77 = getelementptr inbounds nuw i8, ptr %.02627, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %79 = add nuw nsw i64 %.02528, 1
   %exitcond.not = icmp eq i64 %79, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !123
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -1849,7 +1849,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraL2LBaseRenderer10updateDataE
   %55 = load float, ptr %6, align 8, !tbaa !96
   %56 = tail call noundef float @log2f(float noundef %55) #26, !tbaa !112
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  store float %56, ptr %57, align 4, !tbaa !124
+  store float %56, ptr %57, align 4, !tbaa !125
   ret void
 }
 
@@ -1871,77 +1871,77 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRendererC2ERSt10share
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %7 = load float, ptr %6, align 4, !tbaa !124
+  %7 = load float, ptr %6, align 4, !tbaa !125
   %8 = load ptr, ptr %4, align 8, !tbaa !108
-  %9 = load double, ptr %8, align 8, !tbaa !119
+  %9 = load double, ptr %8, align 8, !tbaa !120
   %10 = fptrunc double %9 to float
   %11 = fdiv float %7, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float %11, ptr %12, align 8, !tbaa !111
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !108
-  %15 = load double, ptr %14, align 8, !tbaa !119
+  %15 = load double, ptr %14, align 8, !tbaa !120
   %16 = fptrunc double %15 to float
   %17 = fdiv float %7, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store float %17, ptr %18, align 4, !tbaa !111
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !108
-  %21 = load double, ptr %20, align 8, !tbaa !119
+  %21 = load double, ptr %20, align 8, !tbaa !120
   %22 = fptrunc double %21 to float
   %23 = fdiv float %7, %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store float %23, ptr %24, align 8, !tbaa !111
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %26 = load double, ptr %25, align 8, !tbaa !119
+  %26 = load double, ptr %25, align 8, !tbaa !120
   %27 = fptrunc double %26 to float
   %28 = fneg float %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store float %28, ptr %29, align 4, !tbaa !111
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %31 = load double, ptr %30, align 8, !tbaa !119
+  %31 = load double, ptr %30, align 8, !tbaa !120
   %32 = fptrunc double %31 to float
   %33 = fneg float %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store float %33, ptr %34, align 8, !tbaa !111
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %36 = load double, ptr %35, align 8, !tbaa !119
+  %36 = load double, ptr %35, align 8, !tbaa !120
   %37 = fptrunc double %36 to float
   %38 = fneg float %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store float %38, ptr %39, align 4, !tbaa !111
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %41 = load double, ptr %40, align 8, !tbaa !119
+  %41 = load double, ptr %40, align 8, !tbaa !120
   %42 = fptrunc double %41 to float
   %43 = fneg float %42
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store float %43, ptr %44, align 8, !tbaa !111
   %45 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %46 = load double, ptr %45, align 8, !tbaa !119
+  %46 = load double, ptr %45, align 8, !tbaa !120
   %47 = fptrunc double %46 to float
   %48 = fneg float %47
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store float %48, ptr %49, align 4, !tbaa !111
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %51 = load double, ptr %50, align 8, !tbaa !119
+  %51 = load double, ptr %50, align 8, !tbaa !120
   %52 = fptrunc double %51 to float
   %53 = fneg float %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store float %53, ptr %54, align 8, !tbaa !111
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %56 = load double, ptr %55, align 8, !tbaa !119
+  %56 = load double, ptr %55, align 8, !tbaa !120
   %57 = fptrunc double %56 to float
   %58 = fdiv float 1.000000e+00, %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store float %58, ptr %59, align 4, !tbaa !111
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %61 = load double, ptr %60, align 8, !tbaa !119
+  %61 = load double, ptr %60, align 8, !tbaa !120
   %62 = fptrunc double %61 to float
   %63 = fdiv float 1.000000e+00, %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store float %63, ptr %64, align 8, !tbaa !111
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %66 = load double, ptr %65, align 8, !tbaa !119
+  %66 = load double, ptr %65, align 8, !tbaa !120
   %67 = fptrunc double %66 to float
   %68 = fdiv float 1.000000e+00, %67
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -1989,78 +1989,78 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRendererC2ERSt10share
 define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLog2LinRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((8, 12)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN19OpenColorIO_v2_5dev21CameraL2LBaseRenderer10updateDataERSt10shared_ptrIKNS_9LogOpDataEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %4 = load float, ptr %3, align 4, !tbaa !124
+  %4 = load float, ptr %3, align 4, !tbaa !125
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !108
-  %7 = load double, ptr %6, align 8, !tbaa !119
+  %7 = load double, ptr %6, align 8, !tbaa !120
   %8 = fptrunc double %7 to float
   %9 = fdiv float %4, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float %9, ptr %10, align 8, !tbaa !111
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !108
-  %13 = load double, ptr %12, align 8, !tbaa !119
+  %13 = load double, ptr %12, align 8, !tbaa !120
   %14 = fptrunc double %13 to float
   %15 = fdiv float %4, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store float %15, ptr %16, align 4, !tbaa !111
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !108
-  %19 = load double, ptr %18, align 8, !tbaa !119
+  %19 = load double, ptr %18, align 8, !tbaa !120
   %20 = fptrunc double %19 to float
   %21 = fdiv float %4, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store float %21, ptr %22, align 8, !tbaa !111
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %24 = load double, ptr %23, align 8, !tbaa !119
+  %24 = load double, ptr %23, align 8, !tbaa !120
   %25 = fptrunc double %24 to float
   %26 = fneg float %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store float %26, ptr %27, align 4, !tbaa !111
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %29 = load double, ptr %28, align 8, !tbaa !119
+  %29 = load double, ptr %28, align 8, !tbaa !120
   %30 = fptrunc double %29 to float
   %31 = fneg float %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store float %31, ptr %32, align 8, !tbaa !111
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %34 = load double, ptr %33, align 8, !tbaa !119
+  %34 = load double, ptr %33, align 8, !tbaa !120
   %35 = fptrunc double %34 to float
   %36 = fneg float %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store float %36, ptr %37, align 4, !tbaa !111
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %39 = load double, ptr %38, align 8, !tbaa !119
+  %39 = load double, ptr %38, align 8, !tbaa !120
   %40 = fptrunc double %39 to float
   %41 = fneg float %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store float %41, ptr %42, align 8, !tbaa !111
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %44 = load double, ptr %43, align 8, !tbaa !119
+  %44 = load double, ptr %43, align 8, !tbaa !120
   %45 = fptrunc double %44 to float
   %46 = fneg float %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store float %46, ptr %47, align 4, !tbaa !111
   %48 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %49 = load double, ptr %48, align 8, !tbaa !119
+  %49 = load double, ptr %48, align 8, !tbaa !120
   %50 = fptrunc double %49 to float
   %51 = fneg float %50
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store float %51, ptr %52, align 8, !tbaa !111
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %54 = load double, ptr %53, align 8, !tbaa !119
+  %54 = load double, ptr %53, align 8, !tbaa !120
   %55 = fptrunc double %54 to float
   %56 = fdiv float 1.000000e+00, %55
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store float %56, ptr %57, align 4, !tbaa !111
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %59 = load double, ptr %58, align 8, !tbaa !119
+  %59 = load double, ptr %58, align 8, !tbaa !120
   %60 = fptrunc double %59 to float
   %61 = fdiv float 1.000000e+00, %60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store float %61, ptr %62, align 8, !tbaa !111
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %64 = load double, ptr %63, align 8, !tbaa !119
+  %64 = load double, ptr %63, align 8, !tbaa !120
   %65 = fptrunc double %64 to float
   %66 = fdiv float 1.000000e+00, %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -2131,7 +2131,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLog2LinRenderer5applyEPKvPv
   %19 = getelementptr inbounds nuw i8, ptr %.03744, i64 16
   %20 = add nuw nsw i64 %.03843, 1
   %exitcond46.not = icmp eq i64 %20, %3
-  br i1 %exitcond46.not, label %._crit_edge, label %13, !llvm.loop !126
+  br i1 %exitcond46.not, label %._crit_edge, label %13, !llvm.loop !127
 
 21:                                               ; preds = %13, %49
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %49 ]
@@ -2174,7 +2174,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLog2LinRenderer5applyEPKvPv
   store float %.sink, ptr %27, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %16, label %21, !llvm.loop !127
+  br i1 %exitcond.not, label %16, label %21, !llvm.loop !128
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2299,14 +2299,14 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24CameraLog2LinRendererSSE5applyEPK
   %.v = select <4 x i1> %77, <4 x float> %79, <4 x float> %105
   %106 = getelementptr inbounds nuw i8, ptr %.038, i64 12
   %107 = load float, ptr %106, align 4, !tbaa !111
-  store <4 x float> %.v, ptr %.03437, align 1, !tbaa !115
+  store <4 x float> %.v, ptr %.03437, align 1, !tbaa !116
   %108 = getelementptr inbounds nuw i8, ptr %.03437, i64 12
   store float %107, ptr %108, align 4, !tbaa !111
   %109 = getelementptr inbounds nuw i8, ptr %.03437, i64 16
   %110 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %111 = add nuw nsw i64 %.03536, 1
   %exitcond.not = icmp eq i64 %111, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2322,84 +2322,84 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLin2LogRendererC2ERSt10share
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8, !tbaa !108
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load double, ptr %7, align 8, !tbaa !119
+  %8 = load double, ptr %7, align 8, !tbaa !120
   %9 = fptrunc double %8 to float
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float %9, ptr %10, align 8, !tbaa !111
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !108
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load double, ptr %13, align 8, !tbaa !119
+  %14 = load double, ptr %13, align 8, !tbaa !120
   %15 = fptrunc double %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store float %15, ptr %16, align 4, !tbaa !111
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !108
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load double, ptr %19, align 8, !tbaa !119
+  %20 = load double, ptr %19, align 8, !tbaa !120
   %21 = fptrunc double %20 to float
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store float %21, ptr %22, align 8, !tbaa !111
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %24 = load double, ptr %23, align 8, !tbaa !119
+  %24 = load double, ptr %23, align 8, !tbaa !120
   %25 = fptrunc double %24 to float
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store float %25, ptr %26, align 4, !tbaa !111
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %28 = load double, ptr %27, align 8, !tbaa !119
+  %28 = load double, ptr %27, align 8, !tbaa !120
   %29 = fptrunc double %28 to float
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store float %29, ptr %30, align 8, !tbaa !111
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %32 = load double, ptr %31, align 8, !tbaa !119
+  %32 = load double, ptr %31, align 8, !tbaa !120
   %33 = fptrunc double %32 to float
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store float %33, ptr %34, align 4, !tbaa !111
-  %35 = load double, ptr %6, align 8, !tbaa !119
+  %35 = load double, ptr %6, align 8, !tbaa !120
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %37 = load float, ptr %36, align 4, !tbaa !124
+  %37 = load float, ptr %36, align 4, !tbaa !125
   %38 = fpext float %37 to double
   %39 = fdiv double %35, %38
   %40 = fptrunc double %39 to float
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store float %40, ptr %41, align 8, !tbaa !111
-  %42 = load double, ptr %12, align 8, !tbaa !119
+  %42 = load double, ptr %12, align 8, !tbaa !120
   %43 = fdiv double %42, %38
   %44 = fptrunc double %43 to float
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store float %44, ptr %45, align 4, !tbaa !111
-  %46 = load double, ptr %18, align 8, !tbaa !119
+  %46 = load double, ptr %18, align 8, !tbaa !120
   %47 = fdiv double %46, %38
   %48 = fptrunc double %47 to float
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store float %48, ptr %49, align 8, !tbaa !111
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %51 = load double, ptr %50, align 8, !tbaa !119
+  %51 = load double, ptr %50, align 8, !tbaa !120
   %52 = fptrunc double %51 to float
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store float %52, ptr %53, align 4, !tbaa !111
   %54 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %55 = load double, ptr %54, align 8, !tbaa !119
+  %55 = load double, ptr %54, align 8, !tbaa !120
   %56 = fptrunc double %55 to float
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store float %56, ptr %57, align 8, !tbaa !111
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %59 = load double, ptr %58, align 8, !tbaa !119
+  %59 = load double, ptr %58, align 8, !tbaa !120
   %60 = fptrunc double %59 to float
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store float %60, ptr %61, align 4, !tbaa !111
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %63 = load double, ptr %62, align 8, !tbaa !119
+  %63 = load double, ptr %62, align 8, !tbaa !120
   %64 = fptrunc double %63 to float
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store float %64, ptr %65, align 8, !tbaa !111
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %67 = load double, ptr %66, align 8, !tbaa !119
+  %67 = load double, ptr %66, align 8, !tbaa !120
   %68 = fptrunc double %67 to float
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store float %68, ptr %69, align 4, !tbaa !111
   %70 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %71 = load double, ptr %70, align 8, !tbaa !119
+  %71 = load double, ptr %70, align 8, !tbaa !120
   %72 = fptrunc double %71 to float
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store float %72, ptr %73, align 8, !tbaa !111
@@ -2418,84 +2418,84 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21CameraLin2LogRenderer10updateDataE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !108
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load double, ptr %5, align 8, !tbaa !119
+  %6 = load double, ptr %5, align 8, !tbaa !120
   %7 = fptrunc double %6 to float
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float %7, ptr %8, align 8, !tbaa !111
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !108
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load double, ptr %11, align 8, !tbaa !119
+  %12 = load double, ptr %11, align 8, !tbaa !120
   %13 = fptrunc double %12 to float
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store float %13, ptr %14, align 4, !tbaa !111
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !108
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load double, ptr %17, align 8, !tbaa !119
+  %18 = load double, ptr %17, align 8, !tbaa !120
   %19 = fptrunc double %18 to float
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store float %19, ptr %20, align 8, !tbaa !111
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %22 = load double, ptr %21, align 8, !tbaa !119
+  %22 = load double, ptr %21, align 8, !tbaa !120
   %23 = fptrunc double %22 to float
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store float %23, ptr %24, align 4, !tbaa !111
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %26 = load double, ptr %25, align 8, !tbaa !119
+  %26 = load double, ptr %25, align 8, !tbaa !120
   %27 = fptrunc double %26 to float
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store float %27, ptr %28, align 8, !tbaa !111
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %30 = load double, ptr %29, align 8, !tbaa !119
+  %30 = load double, ptr %29, align 8, !tbaa !120
   %31 = fptrunc double %30 to float
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store float %31, ptr %32, align 4, !tbaa !111
-  %33 = load double, ptr %4, align 8, !tbaa !119
+  %33 = load double, ptr %4, align 8, !tbaa !120
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %35 = load float, ptr %34, align 4, !tbaa !124
+  %35 = load float, ptr %34, align 4, !tbaa !125
   %36 = fpext float %35 to double
   %37 = fdiv double %33, %36
   %38 = fptrunc double %37 to float
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store float %38, ptr %39, align 8, !tbaa !111
-  %40 = load double, ptr %10, align 8, !tbaa !119
+  %40 = load double, ptr %10, align 8, !tbaa !120
   %41 = fdiv double %40, %36
   %42 = fptrunc double %41 to float
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store float %42, ptr %43, align 4, !tbaa !111
-  %44 = load double, ptr %16, align 8, !tbaa !119
+  %44 = load double, ptr %16, align 8, !tbaa !120
   %45 = fdiv double %44, %36
   %46 = fptrunc double %45 to float
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store float %46, ptr %47, align 8, !tbaa !111
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %49 = load double, ptr %48, align 8, !tbaa !119
+  %49 = load double, ptr %48, align 8, !tbaa !120
   %50 = fptrunc double %49 to float
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store float %50, ptr %51, align 4, !tbaa !111
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %53 = load double, ptr %52, align 8, !tbaa !119
+  %53 = load double, ptr %52, align 8, !tbaa !120
   %54 = fptrunc double %53 to float
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store float %54, ptr %55, align 8, !tbaa !111
   %56 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %57 = load double, ptr %56, align 8, !tbaa !119
+  %57 = load double, ptr %56, align 8, !tbaa !120
   %58 = fptrunc double %57 to float
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 172
   store float %58, ptr %59, align 4, !tbaa !111
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %61 = load double, ptr %60, align 8, !tbaa !119
+  %61 = load double, ptr %60, align 8, !tbaa !120
   %62 = fptrunc double %61 to float
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store float %62, ptr %63, align 8, !tbaa !111
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %65 = load double, ptr %64, align 8, !tbaa !119
+  %65 = load double, ptr %64, align 8, !tbaa !120
   %66 = fptrunc double %65 to float
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 180
   store float %66, ptr %67, align 4, !tbaa !111
   %68 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %69 = load double, ptr %68, align 8, !tbaa !119
+  %69 = load double, ptr %68, align 8, !tbaa !120
   %70 = fptrunc double %69 to float
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store float %70, ptr %71, align 8, !tbaa !111
@@ -2535,7 +2535,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLin2LogRenderer5applyEPKvPv
   %19 = getelementptr inbounds nuw i8, ptr %.04148, i64 16
   %20 = add nuw nsw i64 %.04247, 1
   %exitcond50.not = icmp eq i64 %20, %3
-  br i1 %exitcond50.not, label %._crit_edge, label %13, !llvm.loop !129
+  br i1 %exitcond50.not, label %._crit_edge, label %13, !llvm.loop !130
 
 21:                                               ; preds = %13, %48
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %48 ]
@@ -2577,7 +2577,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev21CameraLin2LogRenderer5applyEPKvPv
   store float %.sink, ptr %27, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %16, label %21, !llvm.loop !130
+  br i1 %exitcond.not, label %16, label %21, !llvm.loop !131
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2703,14 +2703,14 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev24CameraLin2LogRendererSSE5applyEPK
   %.v = select <4 x i1> %77, <4 x float> %79, <4 x float> %103
   %104 = getelementptr inbounds nuw i8, ptr %.039, i64 12
   %105 = load float, ptr %104, align 4, !tbaa !111
-  store <4 x float> %.v, ptr %.03538, align 1, !tbaa !115
+  store <4 x float> %.v, ptr %.03538, align 1, !tbaa !116
   %106 = getelementptr inbounds nuw i8, ptr %.03538, i64 12
   store float %105, ptr %106, align 4, !tbaa !111
   %107 = getelementptr inbounds nuw i8, ptr %.03538, i64 16
   %108 = getelementptr inbounds nuw i8, ptr %.039, i64 16
   %109 = add nuw nsw i64 %.03637, 1
   %exitcond.not = icmp eq i64 %109, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !132
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -3289,12 +3289,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3345,12 +3345,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3398,12 +3398,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3451,12 +3451,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3504,12 +3504,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3557,12 +3557,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3610,12 +3610,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3663,12 +3663,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3716,12 +3716,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3769,12 +3769,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3822,12 +3822,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -3880,12 +3880,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenCo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !132
+  %7 = load ptr, ptr %6, align 8, !tbaa !133
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !115
+  %10 = load i8, ptr %7, align 1, !tbaa !116
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -4058,24 +4058,25 @@ attributes #28 = { noreturn nounwind }
 !110 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !111 = !{!53, !53, i64 0}
 !112 = !{!42, !42, i64 0}
-!113 = distinct !{!113, !114}
+!113 = distinct !{!113, !114, !115}
 !114 = !{!"llvm.loop.mustprogress"}
-!115 = !{!7, !7, i64 0}
-!116 = distinct !{!116, !114}
-!117 = distinct !{!117, !114}
-!118 = distinct !{!118, !114}
-!119 = !{!37, !37, i64 0}
-!120 = distinct !{!120, !114}
-!121 = distinct !{!121, !114}
-!122 = distinct !{!122, !114}
-!123 = distinct !{!123, !114}
-!124 = !{!125, !53, i64 124}
-!125 = !{!"_ZTSN19OpenColorIO_v2_5dev21CameraL2LBaseRendererE", !97, i64 0, !7, i64 88, !7, i64 100, !7, i64 112, !53, i64 124}
-!126 = distinct !{!126, !114}
-!127 = distinct !{!127, !114}
-!128 = distinct !{!128, !114}
-!129 = distinct !{!129, !114}
-!130 = distinct !{!130, !114}
-!131 = distinct !{!131, !114}
-!132 = !{!133, !20, i64 8}
-!133 = !{!"_ZTSSt9type_info", !20, i64 8}
+!115 = !{!"llvm.loop.estimated_trip_count"}
+!116 = !{!7, !7, i64 0}
+!117 = distinct !{!117, !114, !115}
+!118 = distinct !{!118, !114, !115}
+!119 = distinct !{!119, !114, !115}
+!120 = !{!37, !37, i64 0}
+!121 = distinct !{!121, !114, !115}
+!122 = distinct !{!122, !114, !115}
+!123 = distinct !{!123, !114, !115}
+!124 = distinct !{!124, !114, !115}
+!125 = !{!126, !53, i64 124}
+!126 = !{!"_ZTSN19OpenColorIO_v2_5dev21CameraL2LBaseRendererE", !97, i64 0, !7, i64 88, !7, i64 100, !7, i64 112, !53, i64 124}
+!127 = distinct !{!127, !114, !115}
+!128 = distinct !{!128, !114, !115}
+!129 = distinct !{!129, !114, !115}
+!130 = distinct !{!130, !114, !115}
+!131 = distinct !{!131, !114, !115}
+!132 = distinct !{!132, !114, !115}
+!133 = !{!134, !20, i64 8}
+!134 = !{!"_ZTSSt9type_info", !20, i64 8}

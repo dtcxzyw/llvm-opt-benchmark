@@ -554,7 +554,7 @@ define internal void @post_update_doip_payload_types() #0 {
   %15 = load i32, ptr @doip_payload_type_count, align 4
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -1125,7 +1125,7 @@ define internal fastcc void @doip_prototree_add_with_resolv(ptr noundef %0, i32 
   %16 = load i32, ptr @ett_address, align 4
   %17 = call ptr @proto_item_add_subtree(ptr noundef %8, i32 noundef %16)
   %18 = call ptr @proto_tree_add_string(ptr noundef %17, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef nonnull %14)
-  %19 = load i8, ptr @doip_hide_address_names, align 1, !range !9, !noundef !10
+  %19 = load i8, ptr @doip_hide_address_names, align 1, !range !10, !noundef !11
   %20 = trunc nuw i8 %19 to i1
   %.not.i = icmp ne ptr %18, null
   %or.cond.not = select i1 %20, i1 %.not.i, i1 false
@@ -1206,8 +1206,9 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}

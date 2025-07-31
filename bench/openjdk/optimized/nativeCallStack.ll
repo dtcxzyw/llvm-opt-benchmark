@@ -77,7 +77,7 @@ define hidden noundef i32 @_ZNK15NativeCallStack6framesEv(ptr noundef nonnull re
 6:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.split.loop.exit6, label %2, !llvm.loop !8
+  br i1 %exitcond.not, label %.split.loop.exit6, label %2, !llvm.loop !9
 
 .split.loop.exit:                                 ; preds = %2
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -181,7 +181,7 @@ define hidden void @_ZNK15NativeCallStack8print_onEP12outputStream(ptr noundef n
   tail call void @_ZNK15NativeCallStack11print_frameEP12outputStreamPh(ptr nonnull align 8 poison, ptr noundef %1, ptr noundef nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !9
+  br i1 %exitcond.not, label %.critedge, label %3, !llvm.loop !10
 
 .critedge:                                        ; preds = %6, %3
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
@@ -214,7 +214,8 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

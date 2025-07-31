@@ -743,7 +743,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   %.sroa.speculated.i.i.i = select i1 %58, float %57, float %.04348.i.i.i
   %59 = add nuw i64 %.03749.i.i.i, 1
   %exitcond69.not.i.i.i = icmp eq i64 %59, %42
-  br i1 %exitcond69.not.i.i.i, label %.lr.ph55.preheader.i.i.i, label %.lr.ph51.i.i.i, !llvm.loop !62
+  br i1 %exitcond69.not.i.i.i, label %.lr.ph55.preheader.i.i.i, label %.lr.ph51.i.i.i, !llvm.loop !63
 
 ._crit_edge56.i.i.i:                              ; preds = %.lr.ph55.i.i.i
   %60 = fdiv float 1.000000e+00, %69
@@ -770,7 +770,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   %71 = load i32, ptr %26, align 4, !tbaa !3
   %72 = sext i32 %71 to i64
   %73 = icmp ult i64 %70, %72
-  br i1 %73, label %.lr.ph55.i.i.i, label %._crit_edge56.i.i.i, !llvm.loop !63
+  br i1 %73, label %.lr.ph55.i.i.i, label %._crit_edge56.i.i.i, !llvm.loop !64
 
 ._crit_edge62.i.i.i:                              ; preds = %79, %._crit_edge56.i.i.i, %36
   %74 = phi i32 [ 0, %._crit_edge56.i.i.i ], [ 0, %36 ], [ %71, %79 ]
@@ -778,7 +778,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   %76 = load i32, ptr %15, align 4, !tbaa !29
   %77 = sext i32 %76 to i64
   %78 = icmp ult i64 %75, %77
-  br i1 %78, label %36, label %._crit_edge65.i.i.i, !llvm.loop !64
+  br i1 %78, label %36, label %._crit_edge65.i.i.i, !llvm.loop !65
 
 79:                                               ; preds = %79, %.lr.ph61.i.i.i
   %.059.i.i.i = phi i64 [ 0, %.lr.ph61.i.i.i ], [ %86, %79 ]
@@ -791,7 +791,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   store float %82, ptr %85, align 4, !tbaa !58
   %86 = add nuw i64 %.059.i.i.i, 1
   %exitcond70.not.i.i.i = icmp eq i64 %86, %72
-  br i1 %exitcond70.not.i.i.i, label %._crit_edge62.i.i.i, label %79, !llvm.loop !65
+  br i1 %exitcond70.not.i.i.i, label %._crit_edge62.i.i.i, label %79, !llvm.loop !66
 
 "_ZSt10__invoke_rIvRZN2cv3dnn7softmaxERNS0_3MatERKS2_iiiE3$_0JRKNS0_5RangeEEENSt9enable_ifIXsr6__and_ISt7is_voidIT_ESt14__is_invocableIT0_JDpT1_EEEE5valueESD_E4typeEOSG_DpOSH_.exit": ; preds = %._crit_edge65.i.i.i, %35
   call void @llvm.lifetime.end.p0(i64 1072, ptr nonnull %3) #16
@@ -808,7 +808,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN
   ]
 
 4:                                                ; preds = %3
-  store ptr @"_ZTIZN2cv3dnn7softmaxERNS_3MatERKS1_iiiE3$_0", ptr %0, align 8, !tbaa !66
+  store ptr @"_ZTIZN2cv3dnn7softmaxERNS_3MatERKS1_iiiE3$_0", ptr %0, align 8, !tbaa !67
   br label %"_ZNSt14_Function_base13_Base_managerIZN2cv3dnn7softmaxERNS1_3MatERKS3_iiiE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
@@ -942,11 +942,12 @@ attributes #20 = { noreturn nounwind }
 !57 = !{!51, !14, i64 24}
 !58 = !{!59, !59, i64 0}
 !59 = !{!"float", !5, i64 0}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = distinct !{!62, !61}
-!63 = distinct !{!63, !61}
-!64 = distinct !{!64, !61}
-!65 = distinct !{!65, !61}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"p1 _ZTSSt9type_info", !10, i64 0}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = distinct !{!63, !61, !62}
+!64 = distinct !{!64, !61, !62}
+!65 = distinct !{!65, !61, !62}
+!66 = distinct !{!66, !61, !62}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"p1 _ZTSSt9type_info", !10, i64 0}

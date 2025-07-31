@@ -3013,7 +3013,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lea
   store ptr %.sink83, ptr %102, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %.sink88, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !10
-  br label %6
+  br label %6, !llvm.loop !17
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3734,7 +3734,7 @@ lean_alloc_ctor.exit:                             ; preds = %l_repr___at___priva
   store ptr %.sink92, ptr %118, align 8, !tbaa !10
   %119 = getelementptr inbounds nuw i8, ptr %.sink97, i64 16
   store ptr %.sink, ptr %119, align 8, !tbaa !10
-  br label %6
+  br label %6, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4437,7 +4437,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lea
   store ptr %.sink85, ptr %102, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %.sink90, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !10
-  br label %6
+  br label %6, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5222,7 +5222,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lea
   store ptr %.sink85, ptr %102, align 8, !tbaa !10
   %103 = getelementptr inbounds nuw i8, ptr %.sink90, i64 16
   store ptr %.sink, ptr %103, align 8, !tbaa !10
-  br label %6
+  br label %6, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5890,7 +5890,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit, %lea
   store ptr %.sink87, ptr %106, align 8, !tbaa !10
   %107 = getelementptr inbounds nuw i8, ptr %.sink92, i64 16
   store ptr %.sink, ptr %107, align 8, !tbaa !10
-  br label %6
+  br label %6, !llvm.loop !22
 }
 
 ; Function Attrs: nounwind uwtable
@@ -9147,7 +9147,7 @@ lean_uint64_to_nat.exit:                          ; preds = %14, %18
   %25 = and i64 %24, 1
   %26 = icmp ne i64 %25, 0
   %or.cond = select i1 %23, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %lean_nat_lt.exit, !prof !17
+  br i1 %or.cond, label %27, label %lean_nat_lt.exit, !prof !23
 
 27:                                               ; preds = %lean_uint64_to_nat.exit
   %28 = icmp ult ptr %.0.i22, %20
@@ -9734,9 +9734,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l_Std_Range_forIn_x27_loop___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_manyN___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 8, ptr %7, align 8, !tbaa !18
+  store i16 8, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !18
+  store i16 0, ptr %8, align 2, !tbaa !24
   ret ptr %2
 }
 
@@ -10073,9 +10073,9 @@ lean_alloc_closure.exit:                          ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_manyN___rarg, ptr %6, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i16 3, ptr %7, align 8, !tbaa !18
+  store i16 3, ptr %7, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  store i16 0, ptr %8, align 2, !tbaa !18
+  store i16 0, ptr %8, align 2, !tbaa !24
   ret ptr %2
 }
 
@@ -18049,9 +18049,9 @@ lean_alloc_closure.exit:                          ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseLeapSecond, ptr %12, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i16 2, ptr %13, align 8, !tbaa !18
+  store i16 2, ptr %13, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 18
-  store i16 1, ptr %14, align 2, !tbaa !18
+  store i16 1, ptr %14, align 2, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %0, ptr %15, align 8, !tbaa !10
   %16 = tail call ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_manyN___rarg(ptr noundef nonnull %10, ptr noundef nonnull %4, ptr noundef %2)
@@ -18103,9 +18103,9 @@ l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseLeapSeco
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseLeapSecond, ptr %20, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i16 2, ptr %21, align 8, !tbaa !18
+  store i16 2, ptr %21, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  store i16 1, ptr %22, align 2, !tbaa !18
+  store i16 1, ptr %22, align 2, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %0, ptr %23, align 8, !tbaa !10
   %24 = tail call ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_manyN___rarg(ptr noundef nonnull %18, ptr noundef nonnull %13, ptr noundef %2)
@@ -21476,7 +21476,7 @@ define noalias ptr @l_Array_forIn_x27Unsafe_loop___at___private_Std_Time_Zoned_D
 23:                                               ; preds = %19, %22
   %24 = phi i32 [ %20, %19 ], [ %.pr, %22 ]
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %26, label %28, !prof !20
+  br i1 %25, label %26, label %28, !prof !26
 
 26:                                               ; preds = %23
   %27 = add nsw i32 %24, -1
@@ -26294,9 +26294,9 @@ _init_l_Std_Time_TimeZone_TZif_instReprHeader___closed__1.exit: ; preds = %_init
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprHeader____x40_Std_Time_Zoned_Database_TzIf___hyg_76____boxed, ptr %146, align 8, !tbaa !10
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  store i16 2, ptr %147, align 8, !tbaa !18
+  store i16 2, ptr %147, align 8, !tbaa !24
   %148 = getelementptr inbounds nuw i8, ptr %142, i64 18
-  store i16 0, ptr %148, align 2, !tbaa !18
+  store i16 0, ptr %148, align 2, !tbaa !24
   store ptr %142, ptr @l_Std_Time_TimeZone_TZif_instReprHeader___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %142) #5
   %149 = load ptr, ptr @l_Std_Time_TimeZone_TZif_instReprHeader___closed__1, align 8, !tbaa !10
@@ -26452,9 +26452,9 @@ _init_l_Std_Time_TimeZone_TZif_instReprLocalTimeType___closed__1.exit: ; preds =
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprLocalTimeType____x40_Std_Time_Zoned_Database_TzIf___hyg_278____boxed, ptr %197, align 8, !tbaa !10
   %198 = getelementptr inbounds nuw i8, ptr %193, i64 16
-  store i16 2, ptr %198, align 8, !tbaa !18
+  store i16 2, ptr %198, align 8, !tbaa !24
   %199 = getelementptr inbounds nuw i8, ptr %193, i64 18
-  store i16 0, ptr %199, align 2, !tbaa !18
+  store i16 0, ptr %199, align 2, !tbaa !24
   store ptr %193, ptr @l_Std_Time_TimeZone_TZif_instReprLocalTimeType___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %193) #5
   %200 = load ptr, ptr @l_Std_Time_TimeZone_TZif_instReprLocalTimeType___closed__1, align 8, !tbaa !10
@@ -26587,9 +26587,9 @@ _init_l_Std_Time_TimeZone_TZif_instReprLeapSecond___closed__1.exit: ; preds = %_
   %242 = getelementptr inbounds nuw i8, ptr %238, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprLeapSecond____x40_Std_Time_Zoned_Database_TzIf___hyg_388____boxed, ptr %242, align 8, !tbaa !10
   %243 = getelementptr inbounds nuw i8, ptr %238, i64 16
-  store i16 2, ptr %243, align 8, !tbaa !18
+  store i16 2, ptr %243, align 8, !tbaa !24
   %244 = getelementptr inbounds nuw i8, ptr %238, i64 18
-  store i16 0, ptr %244, align 2, !tbaa !18
+  store i16 0, ptr %244, align 2, !tbaa !24
   store ptr %238, ptr @l_Std_Time_TimeZone_TZif_instReprLeapSecond___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %238) #5
   %245 = load ptr, ptr @l_Std_Time_TimeZone_TZif_instReprLeapSecond___closed__1, align 8, !tbaa !10
@@ -26958,9 +26958,9 @@ _init_l_Std_Time_TimeZone_TZif_instReprTZifV1___closed__1.exit: ; preds = %_init
   %368 = getelementptr inbounds nuw i8, ptr %364, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV1____x40_Std_Time_Zoned_Database_TzIf___hyg_532____boxed, ptr %368, align 8, !tbaa !10
   %369 = getelementptr inbounds nuw i8, ptr %364, i64 16
-  store i16 2, ptr %369, align 8, !tbaa !18
+  store i16 2, ptr %369, align 8, !tbaa !24
   %370 = getelementptr inbounds nuw i8, ptr %364, i64 18
-  store i16 0, ptr %370, align 2, !tbaa !18
+  store i16 0, ptr %370, align 2, !tbaa !24
   store ptr %364, ptr @l_Std_Time_TimeZone_TZif_instReprTZifV1___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %364) #5
   %371 = load ptr, ptr @l_Std_Time_TimeZone_TZif_instReprTZifV1___closed__1, align 8, !tbaa !10
@@ -27154,9 +27154,9 @@ _init_l_Std_Time_TimeZone_TZif_instReprTZifV2___closed__1.exit: ; preds = %_init
   %440 = getelementptr inbounds nuw i8, ptr %436, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZifV2____x40_Std_Time_Zoned_Database_TzIf___hyg_748____boxed, ptr %440, align 8, !tbaa !10
   %441 = getelementptr inbounds nuw i8, ptr %436, i64 16
-  store i16 2, ptr %441, align 8, !tbaa !18
+  store i16 2, ptr %441, align 8, !tbaa !24
   %442 = getelementptr inbounds nuw i8, ptr %436, i64 18
-  store i16 0, ptr %442, align 2, !tbaa !18
+  store i16 0, ptr %442, align 2, !tbaa !24
   store ptr %436, ptr @l_Std_Time_TimeZone_TZif_instReprTZifV2___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %436) #5
   %443 = load ptr, ptr @l_Std_Time_TimeZone_TZif_instReprTZifV2___closed__1, align 8, !tbaa !10
@@ -27286,9 +27286,9 @@ _init_l_Std_Time_TimeZone_TZif_instReprTZif___closed__1.exit: ; preds = %_init_l
   %485 = getelementptr inbounds nuw i8, ptr %481, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_reprTZif____x40_Std_Time_Zoned_Database_TzIf___hyg_838____boxed, ptr %485, align 8, !tbaa !10
   %486 = getelementptr inbounds nuw i8, ptr %481, i64 16
-  store i16 2, ptr %486, align 8, !tbaa !18
+  store i16 2, ptr %486, align 8, !tbaa !24
   %487 = getelementptr inbounds nuw i8, ptr %481, i64 18
-  store i16 0, ptr %487, align 2, !tbaa !18
+  store i16 0, ptr %487, align 2, !tbaa !24
   store ptr %481, ptr @l_Std_Time_TimeZone_TZif_instReprTZif___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %481) #5
   %488 = load ptr, ptr @l_Std_Time_TimeZone_TZif_instReprTZif___closed__1, align 8, !tbaa !10
@@ -27382,9 +27382,9 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTr
   %524 = getelementptr inbounds nuw i8, ptr %520, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_pu8, ptr %524, align 8, !tbaa !10
   %525 = getelementptr inbounds nuw i8, ptr %520, i64 16
-  store i16 1, ptr %525, align 8, !tbaa !18
+  store i16 1, ptr %525, align 8, !tbaa !24
   %526 = getelementptr inbounds nuw i8, ptr %520, i64 18
-  store i16 0, ptr %526, align 2, !tbaa !18
+  store i16 0, ptr %526, align 2, !tbaa !24
   store ptr %520, ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTransitionIndices___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %520) #5
   tail call void @lean_inc_heartbeat() #5
@@ -27403,9 +27403,9 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseLo
   %531 = getelementptr inbounds nuw i8, ptr %527, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseLocalTimeType, ptr %531, align 8, !tbaa !10
   %532 = getelementptr inbounds nuw i8, ptr %527, i64 16
-  store i16 1, ptr %532, align 8, !tbaa !18
+  store i16 1, ptr %532, align 8, !tbaa !24
   %533 = getelementptr inbounds nuw i8, ptr %527, i64 18
-  store i16 0, ptr %533, align 2, !tbaa !18
+  store i16 0, ptr %533, align 2, !tbaa !24
   store ptr %527, ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseLocalTimeTypes___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %527) #5
   %534 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.40, i64 noundef 0, i64 noundef 0) #5
@@ -27448,9 +27448,9 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseIn
   %547 = getelementptr inbounds nuw i8, ptr %543, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_pbool, ptr %547, align 8, !tbaa !10
   %548 = getelementptr inbounds nuw i8, ptr %543, i64 16
-  store i16 1, ptr %548, align 8, !tbaa !18
+  store i16 1, ptr %548, align 8, !tbaa !24
   %549 = getelementptr inbounds nuw i8, ptr %543, i64 18
-  store i16 0, ptr %549, align 2, !tbaa !18
+  store i16 0, ptr %549, align 2, !tbaa !24
   store ptr %543, ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseIndicators___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %543) #5
   tail call void @lean_inc_heartbeat() #5
@@ -27469,9 +27469,9 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZ
   %554 = getelementptr inbounds nuw i8, ptr %550, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_pi32, ptr %554, align 8, !tbaa !10
   %555 = getelementptr inbounds nuw i8, ptr %550, i64 16
-  store i16 1, ptr %555, align 8, !tbaa !18
+  store i16 1, ptr %555, align 8, !tbaa !24
   %556 = getelementptr inbounds nuw i8, ptr %550, i64 18
-  store i16 0, ptr %556, align 2, !tbaa !18
+  store i16 0, ptr %556, align 2, !tbaa !24
   store ptr %550, ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV1___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %550) #5
   %557 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.41, i64 noundef 23, i64 noundef 23) #5
@@ -27493,9 +27493,9 @@ _init_l_Std_Internal_Parsec_manyCore___at___private_Std_Time_Zoned_Database_TzIf
   %562 = getelementptr inbounds nuw i8, ptr %558, i64 8
   store ptr @l_Std_Internal_Parsec_manyCore___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__2___lambda__1___boxed, ptr %562, align 8, !tbaa !10
   %563 = getelementptr inbounds nuw i8, ptr %558, i64 16
-  store i16 1, ptr %563, align 8, !tbaa !18
+  store i16 1, ptr %563, align 8, !tbaa !24
   %564 = getelementptr inbounds nuw i8, ptr %558, i64 18
-  store i16 0, ptr %564, align 2, !tbaa !18
+  store i16 0, ptr %564, align 2, !tbaa !24
   store ptr %558, ptr @l_Std_Internal_Parsec_manyCore___at___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___spec__2___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %558) #5
   tail call void @lean_inc_heartbeat() #5
@@ -27514,9 +27514,9 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFo
   %569 = getelementptr inbounds nuw i8, ptr %565, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___lambda__1___boxed, ptr %569, align 8, !tbaa !10
   %570 = getelementptr inbounds nuw i8, ptr %565, i64 16
-  store i16 2, ptr %570, align 8, !tbaa !18
+  store i16 2, ptr %570, align 8, !tbaa !24
   %571 = getelementptr inbounds nuw i8, ptr %565, i64 18
-  store i16 0, ptr %571, align 2, !tbaa !18
+  store i16 0, ptr %571, align 2, !tbaa !24
   store ptr %565, ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseFooter___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %565) #5
   tail call void @lean_inc_heartbeat() #5
@@ -27535,9 +27535,9 @@ _init_l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZ
   %576 = getelementptr inbounds nuw i8, ptr %572, i64 8
   store ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_pi64, ptr %576, align 8, !tbaa !10
   %577 = getelementptr inbounds nuw i8, ptr %572, i64 16
-  store i16 1, ptr %577, align 8, !tbaa !18
+  store i16 1, ptr %577, align 8, !tbaa !24
   %578 = getelementptr inbounds nuw i8, ptr %572, i64 18
-  store i16 0, ptr %578, align 2, !tbaa !18
+  store i16 0, ptr %578, align 2, !tbaa !24
   store ptr %572, ptr @l___private_Std_Time_Zoned_Database_TzIf_0__Std_Time_TimeZone_TZif_parseTZifV2___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull %572) #5
   tail call void @lean_inc_heartbeat() #5
@@ -27646,7 +27646,13 @@ attributes #6 = { noreturn nounwind }
 !14 = !{!9, !9, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = !{!"branch_weights", i32 4000000, i32 4001}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"short", !5, i64 0}
-!20 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = !{!"branch_weights", i32 4000000, i32 4001}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"short", !5, i64 0}
+!26 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}

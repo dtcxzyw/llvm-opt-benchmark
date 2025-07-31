@@ -138,14 +138,14 @@ define internal range(i32 -2147483648, 1) i32 @xbm_encode_frame(ptr noundef %0, 
 ..loopexit_crit_edge.us:                          ; preds = %66, %68
   %.16778.us = phi i32 [ %.16781.us, %68 ], [ %.268.us, %66 ]
   %.2.us = phi ptr [ %60, %68 ], [ %.3.us, %66 ]
-  %69 = load i32, ptr %40, align 8, !tbaa !34
+  %69 = load i32, ptr %40, align 8, !tbaa !35
   %70 = sub nsw i32 %69, %8
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i8, ptr %58, i64 %71
   %73 = add nuw nsw i32 %.06191.us, 1
   %74 = load i32, ptr %9, align 4, !tbaa !27
   %75 = icmp slt i32 %73, %74
-  br i1 %75, label %.preheader.us, label %._crit_edge, !llvm.loop !35
+  br i1 %75, label %.preheader.us, label %._crit_edge, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader.lr.ph, %24
   %.0.lcssa = phi ptr [ %36, %24 ], [ %36, %.preheader.lr.ph ], [ %.2.us, %..loopexit_crit_edge.us ]
@@ -157,8 +157,8 @@ define internal range(i32 -2147483648, 1) i32 @xbm_encode_frame(ptr noundef %0, 
   %80 = sub i64 %78, %79
   %81 = trunc i64 %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %81, ptr %82, align 8, !tbaa !37
-  store i32 1, ptr %3, align 4, !tbaa !34
+  store i32 %81, ptr %82, align 8, !tbaa !38
+  store i32 1, ptr %3, align 4, !tbaa !35
   br label %83
 
 83:                                               ; preds = %16, %._crit_edge
@@ -221,9 +221,10 @@ attributes #5 = { nounwind }
 !29 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !30 = !{!14, !14, i64 0}
 !31 = !{!8, !8, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !33, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = !{!29, !10, i64 32}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!10, !10, i64 0}
+!36 = distinct !{!36, !33, !34, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = !{!29, !10, i64 32}

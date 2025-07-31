@@ -110,7 +110,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph, %.preheader218
   %exitcond.not = icmp eq i32 %.0182243, %30
-  br i1 %exitcond.not, label %.loopexit, label %.preheader218, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.preheader218, !llvm.loop !12
 
 43:                                               ; preds = %34
   br i1 %.not.not250, label %.preheader.preheader, label %.loopexit
@@ -141,11 +141,11 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %46, ptr %47, align 8, !tbaa !7
   %indvars.iv.next284 = add nsw i64 %indvars.iv283, -1
   %.not213.not = icmp sgt i64 %indvars.iv.next284, %44
-  br i1 %.not213.not, label %.lr.ph246, label %._crit_edge247, !llvm.loop !12
+  br i1 %.not213.not, label %.lr.ph246, label %._crit_edge247, !llvm.loop !13
 
 ._crit_edge247:                                   ; preds = %50, %.lr.ph246, %.preheader
   %exitcond286.not = icmp eq i32 %.1183251, %30
-  br i1 %exitcond286.not, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond286.not, label %.loopexit, label %.preheader, !llvm.loop !14
 
 51:                                               ; preds = %21
   %52 = icmp sgt i32 %32, 20
@@ -202,7 +202,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %79 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next
   %80 = load double, ptr %79, align 8, !tbaa !7
   %81 = fcmp olt double %80, %.0190
-  br i1 %81, label %78, label %.preheader220
+  br i1 %81, label %78, label %.preheader220, !llvm.loop !15
 
 .preheader220:                                    ; preds = %78
   %82 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next
@@ -215,7 +215,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %85 = getelementptr double, ptr %2, i64 %indvars.iv267
   %86 = load double, ptr %85, align 8, !tbaa !7
   %87 = fcmp ogt double %86, %.0190
-  br i1 %87, label %84, label %88
+  br i1 %87, label %84, label %88, !llvm.loop !16
 
 88:                                               ; preds = %84
   %89 = trunc nsw i64 %indvars.iv.next to i32
@@ -227,7 +227,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %93 = trunc nsw i64 %indvars.iv.next268 to i32
   store double %80, ptr %92, align 8, !tbaa !7
   store double %86, ptr %82, align 8, !tbaa !7
-  br label %.preheader303
+  br label %.preheader303, !llvm.loop !17
 
 94:                                               ; preds = %88
   %95 = trunc nsw i64 %indvars.iv to i32
@@ -268,7 +268,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %111 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next271
   %112 = load double, ptr %111, align 8, !tbaa !7
   %113 = fcmp ogt double %112, %.0190
-  br i1 %113, label %110, label %.preheader219
+  br i1 %113, label %110, label %.preheader219, !llvm.loop !18
 
 .preheader219:                                    ; preds = %110
   %114 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.next271
@@ -281,7 +281,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %117 = getelementptr double, ptr %2, i64 %indvars.iv273
   %118 = load double, ptr %117, align 8, !tbaa !7
   %119 = fcmp olt double %118, %.0190
-  br i1 %119, label %116, label %120
+  br i1 %119, label %116, label %120, !llvm.loop !19
 
 120:                                              ; preds = %116
   %121 = trunc nsw i64 %indvars.iv.next271 to i32
@@ -293,7 +293,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %125 = trunc nsw i64 %indvars.iv.next274 to i32
   store double %112, ptr %124, align 8, !tbaa !7
   store double %118, ptr %114, align 8, !tbaa !7
-  br label %.preheader302
+  br label %.preheader302, !llvm.loop !20
 
 126:                                              ; preds = %120
   %127 = trunc nsw i64 %indvars.iv270 to i32
@@ -325,7 +325,7 @@ define void @dlasrt_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge247, %35, %43, %51, %139, %140, %107, %108
   %.1 = phi i32 [ %99, %107 ], [ %99, %108 ], [ %131, %139 ], [ %131, %140 ], [ %31, %51 ], [ %31, %43 ], [ %31, %35 ], [ %31, %._crit_edge247 ], [ %31, %._crit_edge ]
   %141 = icmp sgt i32 %.1, 0
-  br i1 %141, label %21, label %.loopexit222
+  br i1 %141, label %21, label %.loopexit222, !llvm.loop !21
 
 .loopexit222:                                     ; preds = %.loopexit, %17, %.thread
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #3
@@ -359,8 +359,16 @@ attributes #3 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !11}
+!19 = distinct !{!19, !11}
+!20 = distinct !{!20, !11}
+!21 = distinct !{!21, !11}

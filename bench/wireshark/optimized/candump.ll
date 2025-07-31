@@ -244,7 +244,7 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %10 = load i8, ptr %9, align 4, !range !6, !noundef !9
+  %10 = load i8, ptr %9, align 4, !range !6, !noundef !10
   %11 = trunc nuw i8 %10 to i1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 22
   br i1 %11, label %13, label %35
@@ -272,7 +272,7 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #9, !srcloc !10
+  %25 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %24) #9, !srcloc !11
   store i32 %25, ptr %5, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 21
   %27 = load i8, ptr %26, align 1
@@ -284,7 +284,7 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %33 = zext nneg i8 %15 to i64
-  %34 = call ptr @__memcpy_chk(ptr noundef nonnull %31, ptr noundef nonnull %32, i64 noundef range(i64 0, 256) %33, i64 noundef 64) #8, !alias.scope !11
+  %34 = call ptr @__memcpy_chk(ptr noundef nonnull %31, ptr noundef nonnull %32, i64 noundef range(i64 0, 256) %33, i64 noundef 64) #8, !alias.scope !12
   call void @ws_buffer_append(ptr noundef nonnull %7, ptr noundef nonnull %5, i64 noundef 72)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #8
   br label %53
@@ -316,14 +316,14 @@ define internal fastcc noundef zeroext i1 @candump_gen_packet(ptr noundef initia
 44:                                               ; preds = %35
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %46 = load i32, ptr %45, align 8
-  %47 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %46) #9, !srcloc !15
+  %47 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %46) #9, !srcloc !16
   store i32 %47, ptr %6, align 4
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 %37, ptr %48, align 4
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 23
   %51 = zext nneg i8 %37 to i64
-  %52 = call ptr @__memcpy_chk(ptr noundef nonnull %49, ptr noundef nonnull %50, i64 noundef range(i64 0, 256) %51, i64 noundef 8) #8, !alias.scope !16
+  %52 = call ptr @__memcpy_chk(ptr noundef nonnull %49, ptr noundef nonnull %50, i64 noundef range(i64 0, 256) %51, i64 noundef 8) #8, !alias.scope !17
   call void @ws_buffer_append(ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #8
   br label %53
@@ -391,16 +391,17 @@ attributes #9 = { nounwind memory(none) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{}
-!10 = !{i64 2150979992}
-!11 = !{!12, !14}
-!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
-!13 = distinct !{!13, !"memcpy.inline"}
-!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
-!15 = !{i64 2150980868}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{}
+!11 = !{i64 2150979992}
+!12 = !{!13, !15}
+!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
+!14 = distinct !{!14, !"memcpy.inline"}
+!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!16 = !{i64 2150980868}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
+!19 = distinct !{!19, !"memcpy.inline"}
+!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}

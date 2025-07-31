@@ -245,7 +245,7 @@ _ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit: ; preds = %11,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %11, label %._crit_edge, !llvm.loop !8
+  br i1 %36, label %11, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN21SimulatedOperandStack8push_rawE21StackSlotAnalysisData.exit, %_ZN13GrowableArrayI21StackSlotAnalysisDataEC2Ev.exit
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -504,7 +504,7 @@ _ZN21StackSlotAnalysisData5mergeES_.exit:         ; preds = %18, %21, %25, %28, 
   %.sroa.05.0.i = phi i32 [ %34, %32 ], [ %27, %25 ], [ 1703935, %21 ], [ %13, %28 ], [ 2621439, %18 ]
   store i32 %.sroa.05.0.i, ptr %10, align 4
   %35 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %35, label %8, label %._crit_edge, !llvm.loop !9
+  br i1 %35, label %8, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN21StackSlotAnalysisData5mergeES_.exit, %2
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -625,7 +625,7 @@ _ZN26GrowableArrayWithAllocatorIP21SimulatedOperandStack13GrowableArrayIS1_EE4pu
   store ptr null, ptr %40, align 8
   %41 = add nuw nsw i32 %.03148, 1
   %exitcond.not = icmp eq i32 %.03148, %12
-  br i1 %exitcond.not, label %42, label %21, !llvm.loop !10
+  br i1 %exitcond.not, label %42, label %21, !llvm.loop !11
 
 42:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIP21SimulatedOperandStack13GrowableArrayIS1_EE4pushERKS1_.exit
   %43 = load ptr, ptr %0, align 8
@@ -716,7 +716,7 @@ _ZN21SimulatedOperandStackC2Ev.exit42:            ; preds = %.lr.ph.i.i.i.i38
   %84 = tail call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %9) #12
   %85 = zext i16 %84 to i64
   %86 = icmp samesign ult i64 %indvars.iv.next, %85
-  br i1 %86, label %.lr.ph, label %.loopexit47, !llvm.loop !11
+  br i1 %86, label %.lr.ph, label %.loopexit47, !llvm.loop !12
 
 .loopexit47:                                      ; preds = %83, %55, %_ZN21SimulatedOperandStackC2Ev.exit
   %87 = load i8, ptr %7, align 1
@@ -763,7 +763,7 @@ _ZN21SimulatedOperandStackC2Ev.exit42:            ; preds = %.lr.ph.i.i.i.i38
 104:                                              ; preds = %98, %94
   %105 = load i32, ptr %5, align 8
   %106 = icmp sgt i32 %105, 1000000
-  br i1 %106, label %.critedge, label %92, !llvm.loop !12
+  br i1 %106, label %.critedge, label %92, !llvm.loop !13
 
 .loopexit:                                        ; preds = %92
   %.pre = load i8, ptr %7, align 1
@@ -772,7 +772,7 @@ _ZN21SimulatedOperandStackC2Ev.exit42:            ; preds = %.lr.ph.i.i.i.i38
   %109 = load i8, ptr %6, align 4
   %110 = trunc i8 %109 to i1
   %or.cond = select i1 %108, i1 %110, i1 false
-  br i1 %or.cond, label %.lr.ph52, label %.critedge, !llvm.loop !13
+  br i1 %or.cond, label %.lr.ph52, label %.critedge, !llvm.loop !14
 
 .critedge:                                        ; preds = %.loopexit, %104, %.loopexit.thread, %.loopexit47
   ret void
@@ -1137,7 +1137,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
 
 93:                                               ; preds = %87
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %95 = load ptr, ptr %94, align 8, !nonnull !14, !noundef !14
+  %95 = load ptr, ptr %94, align 8, !nonnull !15, !noundef !15
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
@@ -1155,7 +1155,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
 
 106:                                              ; preds = %102
   %107 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %108 = load ptr, ptr %107, align 8, !nonnull !14, !noundef !14
+  %108 = load ptr, ptr %107, align 8, !nonnull !15, !noundef !15
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
@@ -1177,7 +1177,7 @@ _ZN9Bytecodes12java_code_atEPK6MethodPh.exit342:  ; preds = %59, %63
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.0333
   %124 = load volatile i8, ptr %123, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   switch i8 %124, label %.loopexit [
     i8 7, label %125
     i8 103, label %125
@@ -1758,7 +1758,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %409
   store i32 %436, ptr %434, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond580.not = icmp eq i64 %indvars.iv.next.i, %indvars.iv578
-  br i1 %exitcond580.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond580.not, label %.preheader16.loopexit.i, label %.lr.ph.i, !llvm.loop !17
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %409, %.lr.ph19.preheader.i, %.preheader16.i
   %.sroa.14.4 = phi i32 [ %.0.i.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i.i, %.preheader16.i ], [ %.sroa.14.1564, %409 ]
@@ -1767,7 +1767,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit: ; preds = %4
   store i32 %414, ptr %437, align 4
   %438 = add nsw i64 %.0335566, 1
   %.not.not = icmp slt i64 %.0335566, %407
-  br i1 %.not.not, label %409, label %.loopexit.loopexit, !llvm.loop !17
+  br i1 %.not.not, label %409, label %.loopexit.loopexit, !llvm.loop !18
 
 439:                                              ; preds = %71
   %.promoted.i415 = load i32, ptr %37, align 1
@@ -1846,7 +1846,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i464:       ; preds = %451
   store i32 %477, ptr %475, align 4
   %indvars.iv.next.i477 = add nuw nsw i64 %indvars.iv.i476, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i477, %indvars.iv
-  br i1 %exitcond.not, label %.preheader16.loopexit.i478, label %.lr.ph.i475, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader16.loopexit.i478, label %.lr.ph.i475, !llvm.loop !17
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422: ; preds = %451, %.lr.ph19.preheader.i471, %.preheader16.i466
   %.sroa.14.5 = phi i32 [ %.0.i.i.i.i.i420, %.lr.ph19.preheader.i471 ], [ %.0.i.i.i.i.i420, %.preheader16.i466 ], [ %.sroa.14.2558, %451 ]
@@ -1854,7 +1854,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE4pushERKi.exit422: ; preds =
   %478 = getelementptr inbounds nuw i32, ptr %.sroa.25.5, i64 %indvars.iv
   store i32 %455, ptr %478, align 4
   %exitcond577.not = icmp eq i64 %458, %wide.trip.count
-  br i1 %exitcond577.not, label %.loopexit, label %451, !llvm.loop !18
+  br i1 %exitcond577.not, label %.loopexit, label %451, !llvm.loop !19
 
 479:                                              ; preds = %71, %71, %71, %71, %71, %71, %71
   %480 = zext nneg i32 %.0331 to i64
@@ -2208,7 +2208,7 @@ _ZN21SimulatedOperandStack3popEi.exit.thread542:  ; preds = %652, %_ZN21Simulate
   call void @_ZN23ExceptionMessageBuilder5mergeEiP21SimulatedOperandStack(ptr noundef nonnull align 8 dereferenceable(22) %0, i32 noundef %667, ptr noundef %37)
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count586
-  br i1 %exitcond587.not, label %._crit_edge, label %655, !llvm.loop !19
+  br i1 %exitcond587.not, label %._crit_edge, label %655, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %666, %_ZN21SimulatedOperandStack3popEi.exit.thread542
   %668 = icmp eq ptr %37, null
@@ -2280,7 +2280,7 @@ _ZN21SimulatedOperandStackD2Ev.exit:              ; preds = %12, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = sext i32 %18 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !20
+  br i1 %21, label %.lr.ph, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %17, %.preheader, %1
   ret void
@@ -2358,7 +2358,7 @@ _ZN21StackSlotAnalysisData5mergeES_.exit.i:       ; preds = %40, %36, %33, %29, 
   %.sroa.05.0.i.i = phi i32 [ %42, %40 ], [ %35, %33 ], [ 1703935, %29 ], [ %21, %36 ], [ 2621439, %26 ]
   store i32 %.sroa.05.0.i.i, ptr %18, align 4
   %43 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %43, label %16, label %_ZN21SimulatedOperandStack5mergeERKS_.exit, !llvm.loop !9
+  br i1 %43, label %16, label %_ZN21SimulatedOperandStack5mergeERKS_.exit, !llvm.loop !10
 
 _ZN21SimulatedOperandStack5mergeERKS_.exit:       ; preds = %_ZN21StackSlotAnalysisData5mergeES_.exit.i, %11
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2971,7 +2971,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
   %43 = tail call noundef zeroext i16 @_ZNK11ConstMethod26localvariable_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %42) #12
   %44 = zext i16 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %45, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %41, %.preheader, %5
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -3050,7 +3050,7 @@ define internal fastcc void @_ZL15print_local_varP12outputStreamjP6Methodib(ptr 
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #12
   %87 = load i32, ptr %69, align 4
   %88 = icmp slt i32 %87, 0
-  br i1 %88, label %.thread, label %74, !llvm.loop !22
+  br i1 %88, label %.thread, label %74, !llvm.loop !23
 
 89:                                               ; preds = %77
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #12
@@ -3240,7 +3240,7 @@ define internal fastcc void @_ZL17print_method_nameP12outputStreamP6MethodiN9Byt
   %60 = add i64 %.1.i, 1
   %61 = add i64 %.041.i, 1
   %.not.i = icmp ugt i64 %60, %38
-  br i1 %.not.i, label %_ZL42trim_well_known_class_names_from_signaturePc.exit, label %40, !llvm.loop !23
+  br i1 %.not.i, label %_ZL42trim_well_known_class_names_from_signaturePc.exit, label %40, !llvm.loop !24
 
 _ZL42trim_well_known_class_names_from_signaturePc.exit: ; preds = %59, %3
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.54, ptr noundef nonnull %37) #12
@@ -3575,7 +3575,7 @@ _ZN21SimulatedOperandStackD2Ev.exit.i:            ; preds = %44, %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %48 = sext i32 %46 to i64
   %49 = icmp slt i64 %indvars.iv.next.i, %48
-  br i1 %49, label %.lr.ph.i, label %_ZN23ExceptionMessageBuilderD2Ev.exit, !llvm.loop !20
+  br i1 %49, label %.lr.ph.i, label %_ZN23ExceptionMessageBuilderD2Ev.exit, !llvm.loop !21
 
 _ZN23ExceptionMessageBuilderD2Ev.exit:            ; preds = %45, %_ZN23ExceptionMessageBuilder15print_NPE_causeEP12outputStreamii.exit, %.preheader.i
   %50 = load ptr, ptr %19, align 8
@@ -3659,7 +3659,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI21StackSlotAnal
   store i32 %27, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3812,7 +3812,7 @@ _ZN13GrowableArrayI21StackSlotAnalysisDataE8allocateEv.exit: ; preds = %7, %11, 
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !25
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !26
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3828,7 +3828,7 @@ _ZN13GrowableArrayI21StackSlotAnalysisDataE8allocateEv.exit: ; preds = %7, %11, 
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !26
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !27
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3912,7 +3912,7 @@ _ZN13GrowableArrayIP21SimulatedOperandStackE8allocateEv.exit: ; preds = %7, %11,
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !27
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3928,7 +3928,7 @@ _ZN13GrowableArrayIP21SimulatedOperandStackE8allocateEv.exit: ; preds = %7, %11,
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !28
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !29
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3978,26 +3978,27 @@ attributes #13 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{}
-!15 = !{i64 2145392468}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = !{}
+!16 = !{i64 2145392468}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}

@@ -375,8 +375,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i75: ; preds = %.noexc78, %11
 121:                                              ; preds = %.noexc80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  store double 2.550000e+02, ptr %76, align 8, !tbaa !54
-  store double 0.000000e+00, ptr %77, align 8, !tbaa !54
+  store double 2.550000e+02, ptr %76, align 8, !tbaa !55
+  store double 0.000000e+00, ptr %77, align 8, !tbaa !55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #12
   store i64 0, ptr %79, align 8
   store i32 50397184, ptr %8, align 8, !tbaa !43
@@ -416,7 +416,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i75: ; preds = %.noexc78, %11
   %140 = sub i64 %138, %139
   %141 = sdiv exact i64 %140, 24
   %142 = icmp ugt i64 %141, %135
-  br i1 %142, label %_ZN2cv3VecIfLi6EEC2ERKS1_.exit, label %._crit_edge.i.i47, !llvm.loop !56
+  br i1 %142, label %_ZN2cv3VecIfLi6EEC2ERKS1_.exit, label %._crit_edge.i.i47, !llvm.loop !57
 
 .loopexit:                                        ; preds = %.noexc51, %.noexc54
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -667,8 +667,9 @@ attributes #14 = { noreturn }
 !49 = !{!47, !48, i64 0}
 !50 = !{!51, !51, i64 0}
 !51 = !{!"float", !8, i64 0}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"double", !8, i64 0}
-!56 = distinct !{!56, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"double", !8, i64 0}
+!57 = distinct !{!57, !53, !54}

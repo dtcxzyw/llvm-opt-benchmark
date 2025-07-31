@@ -33,7 +33,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge.preheader:                              ; preds = %6, %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !19
+  %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = getelementptr i8, ptr %8, i64 4
   %.val55 = load i32, ptr %9, align 4, !tbaa !14
   %10 = icmp sgt i32 %.val55, 0
@@ -48,15 +48,15 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 12:                                               ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %13 = getelementptr inbounds nuw ptr, ptr %.val56, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !20
+  %14 = load ptr, ptr %13, align 8, !tbaa !21
   %15 = getelementptr i8, ptr %14, i64 16
-  %.val58 = load ptr, ptr %15, align 8, !tbaa !21
+  %.val58 = load ptr, ptr %15, align 8, !tbaa !22
   %.not53 = icmp ult ptr %.val58, inttoptr (i64 2 to ptr)
   br i1 %.not53, label %16, label %18
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %14, i64 24
-  %.val62 = load ptr, ptr %17, align 8, !tbaa !22
+  %.val62 = load ptr, ptr %17, align 8, !tbaa !23
   %.not54 = icmp ult ptr %.val62, inttoptr (i64 2 to ptr)
   br i1 %.not54, label %6, label %18
 
@@ -67,11 +67,11 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 .critedge:                                        ; preds = %30
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %.critedge2.preheader, label %24, !llvm.loop !23
+  br i1 %exitcond97.not, label %.critedge2.preheader, label %24, !llvm.loop !24
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %21 = load i32, ptr %20, align 8, !tbaa !24
+  %21 = load i32, ptr %20, align 8, !tbaa !25
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph83, label %.critedge2._crit_edge
 
@@ -82,9 +82,9 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 24:                                               ; preds = %.lr.ph81, %.critedge
   %indvars.iv93 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next94, %.critedge ]
   %25 = getelementptr inbounds nuw ptr, ptr %.val57, i64 %indvars.iv93
-  %26 = load ptr, ptr %25, align 8, !tbaa !20
+  %26 = load ptr, ptr %25, align 8, !tbaa !21
   %27 = getelementptr i8, ptr %26, i64 16
-  %.val59 = load ptr, ptr %27, align 8, !tbaa !21
+  %.val59 = load ptr, ptr %27, align 8, !tbaa !22
   %.not51 = icmp ult ptr %.val59, inttoptr (i64 2 to ptr)
   br i1 %.not51, label %28, label %30
 
@@ -94,7 +94,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %24
   %31 = getelementptr i8, ptr %26, i64 24
-  %.val63 = load ptr, ptr %31, align 8, !tbaa !22
+  %.val63 = load ptr, ptr %31, align 8, !tbaa !23
   %.not52 = icmp ult ptr %.val63, inttoptr (i64 2 to ptr)
   br i1 %.not52, label %.critedge, label %32
 
@@ -105,15 +105,15 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 34:                                               ; preds = %.lr.ph83, %.critedge2
   %35 = phi i32 [ %21, %.lr.ph83 ], [ %63, %.critedge2 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph83 ], [ %indvars.iv.next99, %.critedge2 ]
-  %36 = load ptr, ptr %23, align 8, !tbaa !25
+  %36 = load ptr, ptr %23, align 8, !tbaa !26
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv98
-  %38 = load ptr, ptr %37, align 8, !tbaa !26
+  %38 = load ptr, ptr %37, align 8, !tbaa !27
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.critedge2, label %40
 
 40:                                               ; preds = %34
   %41 = getelementptr i8, ptr %38, i64 16
-  %.val60 = load ptr, ptr %41, align 8, !tbaa !21
+  %.val60 = load ptr, ptr %41, align 8, !tbaa !22
   %42 = ptrtoint ptr %.val60 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
@@ -122,7 +122,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %40
   %46 = getelementptr i8, ptr %38, i64 24
-  %.val64 = load ptr, ptr %46, align 8, !tbaa !22
+  %.val64 = load ptr, ptr %46, align 8, !tbaa !23
   %47 = ptrtoint ptr %.val64 to i64
   %48 = and i64 %47, -2
   %.not48 = icmp eq i64 %48, 0
@@ -135,9 +135,9 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 51:                                               ; preds = %45
   %52 = inttoptr i64 %48 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %44, i64 36
-  %54 = load i32, ptr %53, align 4, !tbaa !27
+  %54 = load i32, ptr %53, align 4, !tbaa !28
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 36
-  %56 = load i32, ptr %55, align 4, !tbaa !27
+  %56 = load i32, ptr %55, align 4, !tbaa !28
   %.not49 = icmp slt i32 %54, %56
   br i1 %.not49, label %59, label %57
 
@@ -151,7 +151,7 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not50, label %..critedge2_crit_edge, label %61
 
 ..critedge2_crit_edge:                            ; preds = %59
-  %.pre = load i32, ptr %20, align 8, !tbaa !24
+  %.pre = load i32, ptr %20, align 8, !tbaa !25
   br label %.critedge2
 
 61:                                               ; preds = %59
@@ -163,25 +163,25 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %indvars.iv.next99, %64
-  br i1 %65, label %34, label %.critedge2._crit_edge, !llvm.loop !28
+  br i1 %65, label %34, label %.critedge2._crit_edge, !llvm.loop !29
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.critedge2.preheader
   %66 = getelementptr i8, ptr %0, i64 96
-  %.val66 = load i32, ptr %66, align 8, !tbaa !29
+  %.val66 = load i32, ptr %66, align 8, !tbaa !30
   %67 = getelementptr i8, ptr %0, i64 100
-  %.val67 = load i32, ptr %67, align 4, !tbaa !30
+  %.val67 = load i32, ptr %67, align 4, !tbaa !31
   %68 = sub nsw i32 %.val66, %.val67
   %69 = getelementptr i8, ptr %0, i64 80
-  %.val68 = load i32, ptr %69, align 8, !tbaa !31
+  %.val68 = load i32, ptr %69, align 8, !tbaa !32
   %70 = add nsw i32 %.val68, 1
   %71 = getelementptr i8, ptr %0, i64 84
-  %.val69 = load i32, ptr %71, align 4, !tbaa !31
+  %.val69 = load i32, ptr %71, align 4, !tbaa !32
   %72 = add nsw i32 %70, %.val69
   %73 = getelementptr i8, ptr %0, i64 88
-  %.val70 = load i32, ptr %73, align 8, !tbaa !31
+  %.val70 = load i32, ptr %73, align 8, !tbaa !32
   %74 = add nsw i32 %72, %.val70
   %75 = getelementptr i8, ptr %0, i64 92
-  %.val72 = load i32, ptr %75, align 4, !tbaa !31
+  %.val72 = load i32, ptr %75, align 4, !tbaa !32
   %76 = add nsw i32 %74, %.val72
   %.not = icmp eq i32 %68, %76
   br i1 %.not, label %78, label %77
@@ -192,8 +192,8 @@ define range(i32 0, 2) i32 @Hop_ManCheck(ptr noundef %0) local_unnamed_addr #0 {
 
 78:                                               ; preds = %.critedge2._crit_edge
   %79 = tail call i32 @Hop_TableCountEntries(ptr noundef nonnull %0) #4
-  %.val71 = load i32, ptr %73, align 8, !tbaa !31
-  %.val73 = load i32, ptr %75, align 4, !tbaa !31
+  %.val71 = load i32, ptr %73, align 8, !tbaa !32
+  %.val73 = load i32, ptr %75, align 4, !tbaa !32
   %80 = add nsw i32 %.val73, %.val71
   %.not45 = icmp eq i32 %79, %80
   br i1 %.not45, label %82, label %81
@@ -242,18 +242,19 @@ attributes #4 = { nounwind }
 !14 = !{!15, !11, i64 4}
 !15 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
 !16 = !{!15, !6, i64 8}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!4, !5, i64 8}
-!20 = !{!6, !6, i64 0}
-!21 = !{!10, !9, i64 16}
-!22 = !{!10, !9, i64 24}
-!23 = distinct !{!23, !18}
-!24 = !{!4, !11, i64 112}
-!25 = !{!4, !12, i64 104}
-!26 = !{!9, !9, i64 0}
-!27 = !{!10, !11, i64 36}
-!28 = distinct !{!28, !18}
-!29 = !{!4, !11, i64 96}
-!30 = !{!4, !11, i64 100}
-!31 = !{!11, !11, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!4, !5, i64 8}
+!21 = !{!6, !6, i64 0}
+!22 = !{!10, !9, i64 16}
+!23 = !{!10, !9, i64 24}
+!24 = distinct !{!24, !18, !19}
+!25 = !{!4, !11, i64 112}
+!26 = !{!4, !12, i64 104}
+!27 = !{!9, !9, i64 0}
+!28 = !{!10, !11, i64 36}
+!29 = distinct !{!29, !18, !19}
+!30 = !{!4, !11, i64 96}
+!31 = !{!4, !11, i64 100}
+!32 = !{!11, !11, i64 0}

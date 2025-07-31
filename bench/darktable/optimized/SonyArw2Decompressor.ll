@@ -644,7 +644,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   %173 = select i1 %.not38, i32 1, i32 31
   %174 = add nuw nsw i32 %173, %.035220
   %175 = icmp samesign ult i32 %174, %10
-  br i1 %175, label %57, label %56, !llvm.loop !123
+  br i1 %175, label %57, label %56, !llvm.loop !124
 
 176:                                              ; preds = %.critedge, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
   %indvars.iv = phi i64 [ 0, %.critedge ], [ %indvars.iv.next, %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit ]
@@ -739,25 +739,25 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
   tail call void @llvm.assume(i1 %48)
   tail call void @llvm.assume(i1 %51)
   %216 = getelementptr inbounds nuw i16, ptr %53, i64 %214
-  %217 = load ptr, ptr %54, align 8, !tbaa !124
+  %217 = load ptr, ptr %54, align 8, !tbaa !125
   %.not.i.i96 = icmp eq ptr %217, null
   br i1 %.not.i.i96, label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit, label %218
 
 218:                                              ; preds = %211
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 32
-  %220 = load i8, ptr %219, align 8, !tbaa !125, !range !132, !noundef !100
+  %220 = load i8, ptr %219, align 8, !tbaa !126, !range !133, !noundef !100
   %221 = trunc nuw i8 %220 to i1
   %222 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %223 = zext i16 %212 to i64
-  %224 = load ptr, ptr %222, align 8, !tbaa !133
+  %224 = load ptr, ptr %222, align 8, !tbaa !134
   br i1 %221, label %225, label %241
 
 225:                                              ; preds = %218
   %.idx.i = shl nuw nsw i64 %223, 2
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i
-  %227 = load i16, ptr %226, align 2, !tbaa !134
+  %227 = load i16, ptr %226, align 2, !tbaa !135
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 2
-  %229 = load i16, ptr %228, align 2, !tbaa !134
+  %229 = load i16, ptr %228, align 2, !tbaa !135
   %230 = zext i16 %229 to i32
   %231 = and i32 %.1214, 2047
   %232 = mul nuw nsw i32 %231, %230
@@ -773,16 +773,16 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerLSBENS_39BitStreamerForwardSequentialR
 
 241:                                              ; preds = %218
   %242 = getelementptr inbounds nuw i16, ptr %224, i64 %223
-  %243 = load i16, ptr %242, align 2, !tbaa !134
+  %243 = load i16, ptr %242, align 2, !tbaa !135
   br label %_ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit
 
 _ZN8rawspeed15RawImageDataU1613setWithLookUpEtPSt4bytePj.exit: ; preds = %211, %225, %241
   %.2 = phi i32 [ %.1214, %211 ], [ %238, %225 ], [ %.1214, %241 ]
   %.sink.i = phi i16 [ %212, %211 ], [ %240, %225 ], [ %243, %241 ]
-  store i16 %.sink.i, ptr %216, align 2, !tbaa !134
+  store i16 %.sink.i, ptr %216, align 2, !tbaa !135
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond222.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond222.not, label %171, label %176, !llvm.loop !136
+  br i1 %exitcond222.not, label %171, label %176, !llvm.loop !137
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -795,14 +795,14 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor16decompressThreadEv(ptr 
   %2 = alloca %"class.std::allocator.32", align 1
   %3 = load ptr, ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load i32, ptr %4, align 8, !tbaa !137
+  %5 = load i32, ptr %4, align 8, !tbaa !138
   %6 = icmp sgt i32 %5, 0
   tail call void @llvm.assume(i1 %6)
   %7 = and i32 %5, 31
   %8 = icmp eq i32 %7, 0
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %10 = load i32, ptr %9, align 4, !tbaa !138
+  %10 = load i32, ptr %9, align 4, !tbaa !139
   %11 = icmp sgt i32 %10, 0
   tail call void @llvm.assume(i1 %11)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -843,12 +843,12 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor16decompressThreadEv(ptr 
           to label %29 unwind label %42
 
 29:                                               ; preds = %27
-  %30 = load ptr, ptr %1, align 8, !tbaa !139
+  %30 = load ptr, ptr %1, align 8, !tbaa !140
   %31 = icmp eq ptr %30, %12
   br i1 %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %29
-  %32 = load i64, ptr %13, align 8, !tbaa !140
+  %32 = load i64, ptr %13, align 8, !tbaa !141
   %33 = icmp ult i64 %32, 16
   call void @llvm.assume(i1 %33)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -869,9 +869,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %37 = add nuw nsw i32 %.08, 1
   %38 = load ptr, ptr %0, align 8, !tbaa !6
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 44
-  %40 = load i32, ptr %39, align 4, !tbaa !138
+  %40 = load i32, ptr %39, align 4, !tbaa !139
   %41 = icmp slt i32 %37, %40
-  br i1 %41, label %14, label %._crit_edge, !llvm.loop !141
+  br i1 %41, label %14, label %._crit_edge, !llvm.loop !142
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %27, %15
   %43 = landingpad { ptr, i32 }
@@ -891,7 +891,7 @@ declare void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11ch
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !142
+  store ptr %4, ptr %0, align 8, !tbaa !143
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -923,7 +923,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %12
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #28
-  store ptr %15, ptr %0, align 8, !tbaa !139
+  store ptr %15, ptr %0, align 8, !tbaa !140
   store i64 %8, ptr %4, align 8, !tbaa !106
   br label %._crit_edge.i
 
@@ -945,7 +945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 
 20:                                               ; preds = %19, %17, %._crit_edge.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %8, ptr %21, align 8, !tbaa !140
+  store i64 %8, ptr %21, align 8, !tbaa !141
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %8
   store i8 0, ptr %22, align 1, !tbaa !106
   ret void
@@ -969,9 +969,9 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor10decompressEv(ptr nounde
   tail call void @_ZNK8rawspeed20SonyArw2Decompressor16decompressThreadEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %3, ptr %2, align 8, !tbaa !142
+  store ptr %3, ptr %2, align 8, !tbaa !143
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %4, align 8, !tbaa !140
+  store i64 0, ptr %4, align 8, !tbaa !141
   store i8 0, ptr %3, align 8, !tbaa !106
   %5 = load ptr, ptr %0, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -979,7 +979,7 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor10decompressEv(ptr nounde
           to label %8 unwind label %12
 
 8:                                                ; preds = %1
-  %9 = load ptr, ptr %2, align 8, !tbaa !139
+  %9 = load ptr, ptr %2, align 8, !tbaa !140
   br i1 %7, label %10, label %20
 
 10:                                               ; preds = %8
@@ -992,12 +992,12 @@ define hidden void @_ZNK8rawspeed20SonyArw2Decompressor10decompressEv(ptr nounde
 12:                                               ; preds = %10, %1
   %13 = landingpad { ptr, i32 }
           cleanup
-  %14 = load ptr, ptr %2, align 8, !tbaa !139
+  %14 = load ptr, ptr %2, align 8, !tbaa !140
   %15 = icmp eq ptr %14, %3
   br i1 %15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %12
-  %16 = load i64, ptr %4, align 8, !tbaa !140
+  %16 = load i64, ptr %4, align 8, !tbaa !141
   %17 = icmp ult i64 %16, 16
   call void @llvm.assume(i1 %17)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1017,7 +1017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %21, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i2
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i3: ; preds = %20
-  %22 = load i64, ptr %4, align 8, !tbaa !140
+  %22 = load i64, ptr %4, align 8, !tbaa !141
   %23 = icmp ult i64 %22, 16
   call void @llvm.assume(i1 %23)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4
@@ -1339,25 +1339,26 @@ attributes #29 = { cold }
 !118 = distinct !{!118, !"_ZNK8rawspeed10ByteStream12getSubStreamEjj"}
 !119 = distinct !{!119, !120, !"_ZNK8rawspeed10ByteStream10peekStreamEj: argument 0"}
 !120 = distinct !{!120, !"_ZNK8rawspeed10ByteStream10peekStreamEj"}
-!121 = distinct !{!121, !122}
+!121 = distinct !{!121, !122, !123}
 !122 = !{!"llvm.loop.mustprogress"}
-!123 = distinct !{!123, !122}
-!124 = !{!90, !90, i64 0}
-!125 = !{!126, !35, i64 32}
-!126 = !{!"_ZTSN8rawspeed11TableLookUpE", !18, i64 0, !127, i64 8, !35, i64 32}
-!127 = !{!"_ZTSSt6vectorItSaItEE", !128, i64 0}
-!128 = !{!"_ZTSSt12_Vector_baseItSaItEE", !129, i64 0}
-!129 = !{!"_ZTSNSt12_Vector_baseItSaItEE12_Vector_implE", !130, i64 0}
-!130 = !{!"_ZTSNSt12_Vector_baseItSaItEE17_Vector_impl_dataE", !131, i64 0, !131, i64 8, !131, i64 16}
-!131 = !{!"p1 short", !9, i64 0}
-!132 = !{i8 0, i8 2}
-!133 = !{!130, !131, i64 0}
-!134 = !{!135, !135, i64 0}
-!135 = !{!"short", !10, i64 0}
-!136 = distinct !{!136, !122}
-!137 = !{!26, !18, i64 40}
-!138 = !{!26, !18, i64 44}
-!139 = !{!74, !17, i64 0}
-!140 = !{!74, !76, i64 8}
-!141 = distinct !{!141, !122}
-!142 = !{!75, !17, i64 0}
+!123 = !{!"llvm.loop.estimated_trip_count"}
+!124 = distinct !{!124, !122, !123}
+!125 = !{!90, !90, i64 0}
+!126 = !{!127, !35, i64 32}
+!127 = !{!"_ZTSN8rawspeed11TableLookUpE", !18, i64 0, !128, i64 8, !35, i64 32}
+!128 = !{!"_ZTSSt6vectorItSaItEE", !129, i64 0}
+!129 = !{!"_ZTSSt12_Vector_baseItSaItEE", !130, i64 0}
+!130 = !{!"_ZTSNSt12_Vector_baseItSaItEE12_Vector_implE", !131, i64 0}
+!131 = !{!"_ZTSNSt12_Vector_baseItSaItEE17_Vector_impl_dataE", !132, i64 0, !132, i64 8, !132, i64 16}
+!132 = !{!"p1 short", !9, i64 0}
+!133 = !{i8 0, i8 2}
+!134 = !{!131, !132, i64 0}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"short", !10, i64 0}
+!137 = distinct !{!137, !122, !123}
+!138 = !{!26, !18, i64 40}
+!139 = !{!26, !18, i64 44}
+!140 = !{!74, !17, i64 0}
+!141 = !{!74, !76, i64 8}
+!142 = distinct !{!142, !122, !123}
+!143 = !{!75, !17, i64 0}

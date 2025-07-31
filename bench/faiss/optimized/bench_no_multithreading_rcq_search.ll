@@ -555,7 +555,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit76.thread:           ; preds = %47
 _ZN9benchmark5State3endEv.exit:                   ; preds = %104
   %105 = add nsw i64 %.sroa.083.0146, -1
   %.not.i.not = icmp eq i64 %105, 0
-  br i1 %.not.i.not, label %_ZN9benchmark5State3endEv.exit._crit_edge, label %104, !prof !74
+  br i1 %.not.i.not, label %_ZN9benchmark5State3endEv.exit._crit_edge, label %104, !prof !74, !llvm.loop !75
 
 106:                                              ; preds = %104
   %107 = landingpad { ptr, i32 }
@@ -651,13 +651,13 @@ define linkonce_odr dso_local void @_ZN9benchmark8internal15LambdaBenchmarkIZNS_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN9benchmark8internal15LambdaBenchmarkIZNS_17RegisterBenchmarkIRFvRNS_5StateEiifEJRiS7_RfEEEPNS0_9BenchmarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOT0_EUlS4_E_E3RunES4_(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 64 dereferenceable(184) %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %4 = load ptr, ptr %3, align 8, !tbaa !75
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %6 = load i32, ptr %5, align 8, !tbaa !77
+  %6 = load i32, ptr %5, align 8, !tbaa !79
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %8 = load i32, ptr %7, align 4, !tbaa !78
+  %8 = load i32, ptr %7, align 4, !tbaa !80
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %10 = load float, ptr %9, align 8, !tbaa !79
+  %10 = load float, ptr %9, align 8, !tbaa !81
   tail call void %4(ptr noundef nonnull align 64 dereferenceable(184) %1, i32 noundef %6, i32 noundef %8, float noundef %10)
   ret void
 }
@@ -831,8 +831,10 @@ attributes #17 = { noreturn }
 !72 = !{!"p1 float", !11, i64 0}
 !73 = !{!71, !72, i64 16}
 !74 = !{!"branch_weights", i32 127, i32 255873}
-!75 = !{!76, !11, i64 0}
-!76 = !{!"_ZTSZN9benchmark17RegisterBenchmarkIRFvRNS_5StateEiifEJRiS5_RfEEEPNS_8internal9BenchmarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOT0_EUlS2_E_", !11, i64 0, !6, i64 8, !6, i64 12, !28, i64 16}
-!77 = !{!76, !6, i64 8}
-!78 = !{!76, !6, i64 12}
-!79 = !{!76, !28, i64 16}
+!75 = distinct !{!75, !76}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = !{!78, !11, i64 0}
+!78 = !{!"_ZTSZN9benchmark17RegisterBenchmarkIRFvRNS_5StateEiifEJRiS5_RfEEEPNS_8internal9BenchmarkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEOT_DpOT0_EUlS2_E_", !11, i64 0, !6, i64 8, !6, i64 12, !28, i64 16}
+!79 = !{!78, !6, i64 8}
+!80 = !{!78, !6, i64 12}
+!81 = !{!78, !28, i64 16}

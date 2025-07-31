@@ -195,7 +195,7 @@ define dso_local noundef i64 @spg_kd_picksplit(ptr noundef readonly captures(non
   %66 = load i32, ptr %4, align 8
   %67 = sext i32 %66 to i64
   %68 = icmp slt i64 %indvars.iv.next54, %67
-  br i1 %68, label %.lr.ph49, label %._crit_edge50, !llvm.loop !8
+  br i1 %68, label %.lr.ph49, label %._crit_edge50, !llvm.loop !9
 
 ._crit_edge50:                                    ; preds = %.lr.ph49, %._crit_edge
   ret i64 0
@@ -443,7 +443,7 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
   %.2131 = phi i32 [ %.2, %select.unfold ], [ %.0105143, %29 ], [ %.0105143, %37 ], [ %.0105143, %66 ], [ %.0105143, %76 ], [ %.0105143, %32 ], [ %.0105143, %40 ], [ %.0105143, %53 ], [ %.0105143, %63 ], [ %.0105143, %70 ], [ %.0105143, %80 ], [ %.0105143, %94 ], [ %.0105143, %106 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
   %.0105.lcssa = phi i32 [ 6, %.preheader ], [ %.2131, %.thread ]
@@ -588,7 +588,7 @@ select.unfold:                                    ; preds = %106, %94, %80, %70,
 200:                                              ; preds = %167, %197
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 3
-  br i1 %exitcond151.not, label %201, label %167, !llvm.loop !10
+  br i1 %exitcond151.not, label %201, label %167, !llvm.loop !11
 
 201:                                              ; preds = %200
   %202 = call ptr @palloc(i64 noundef 8) #9
@@ -634,8 +634,9 @@ attributes #9 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

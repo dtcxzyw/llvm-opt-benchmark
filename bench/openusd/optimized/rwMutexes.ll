@@ -194,7 +194,7 @@ _ZNSt6threadD2Ev.exit.i:                          ; preds = %45
   store i64 0, ptr %20, align 8
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.020.025.i, i64 8
   %.not.i = icmp eq ptr %48, %scevgep.i.i.i.i.i.i
-  br i1 %.not.i, label %.lr.ph29.i, label %.lr.ph.i
+  br i1 %.not.i, label %.lr.ph29.i, label %.lr.ph.i, !llvm.loop !5
 
 .loopexit.i:                                      ; preds = %.lr.ph29.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -223,7 +223,7 @@ common.resume:                                    ; preds = %96, %_ZNKSt14defaul
 49:                                               ; preds = %.lr.ph29.i
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i, i64 8
   %.not23.i = icmp eq ptr %50, %scevgep.i.i.i.i.i.i
-  br i1 %.not23.i, label %._crit_edge30.i, label %.lr.ph29.i
+  br i1 %.not23.i, label %._crit_edge30.i, label %.lr.ph29.i, !llvm.loop !7
 
 ._crit_edge30.i:                                  ; preds = %49
   %51 = load i32, ptr %17, align 4
@@ -233,7 +233,7 @@ common.resume:                                    ; preds = %96, %_ZNKSt14defaul
 53:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 8
   %.not.i.i.i.i14.i = icmp eq ptr %54, %scevgep.i.i.i.i.i.i
-  br i1 %.not.i.i.i.i14.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i, !llvm.loop !5
+  br i1 %.not.i.i.i.i14.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i:      ; preds = %53, %._crit_edge30.i
   %.05.i.i.i.i.i = phi ptr [ %54, %53 ], [ %28, %._crit_edge30.i ]
@@ -360,7 +360,7 @@ _ZNSt6threadD2Ev.exit.i18:                        ; preds = %82
   store i64 0, ptr %15, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.024.029.i, i64 8
   %.not.i19 = icmp eq ptr %85, %scevgep.i.i.i.i.i.i3
-  br i1 %.not.i19, label %.lr.ph33.i, label %.lr.ph.i4
+  br i1 %.not.i19, label %.lr.ph33.i, label %.lr.ph.i4, !llvm.loop !10
 
 86:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i.i, %60
   %87 = landingpad { ptr, i32 }
@@ -390,7 +390,7 @@ _ZNSt6threadD2Ev.exit.i18:                        ; preds = %82
 88:                                               ; preds = %.lr.ph33.i
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.019.031.i, i64 8
   %.not27.i = icmp eq ptr %89, %scevgep.i.i.i.i.i.i3
-  br i1 %.not27.i, label %._crit_edge34.i, label %.lr.ph33.i
+  br i1 %.not27.i, label %._crit_edge34.i, label %.lr.ph33.i, !llvm.loop !11
 
 ._crit_edge34.i:                                  ; preds = %88
   %90 = load i32, ptr %12, align 4
@@ -400,7 +400,7 @@ _ZNSt6threadD2Ev.exit.i18:                        ; preds = %82
 92:                                               ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i23
   %93 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i24, i64 8
   %.not.i.i.i.i14.i27 = icmp eq ptr %93, %scevgep.i.i.i.i.i.i3
-  br i1 %.not.i.i.i.i14.i27, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i28, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i23, !llvm.loop !5
+  br i1 %.not.i.i.i.i14.i27, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i28, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i23, !llvm.loop !8
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i23:    ; preds = %92, %._crit_edge34.i
   %.05.i.i.i.i.i24 = phi ptr [ %93, %92 ], [ %64, %._crit_edge34.i ]
@@ -539,7 +539,7 @@ _ZNSt6threadD2Ev.exit.i49:                        ; preds = %123
   store i64 0, ptr %10, align 8
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.020.025.i35, i64 8
   %.not.i50 = icmp eq ptr %126, %scevgep.i.i.i.i.i.i33
-  br i1 %.not.i50, label %.lr.ph29.i52, label %.lr.ph.i34
+  br i1 %.not.i50, label %.lr.ph29.i52, label %.lr.ph.i34, !llvm.loop !12
 
 .loopexit.i54:                                    ; preds = %.lr.ph29.i52
   %lpad.loopexit.i55 = landingpad { ptr, i32 }
@@ -564,7 +564,7 @@ _ZNSt6threadD2Ev.exit.i49:                        ; preds = %123
 127:                                              ; preds = %.lr.ph29.i52
   %128 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i53, i64 8
   %.not23.i56 = icmp eq ptr %128, %scevgep.i.i.i.i.i.i33
-  br i1 %.not23.i56, label %._crit_edge30.i57, label %.lr.ph29.i52
+  br i1 %.not23.i56, label %._crit_edge30.i57, label %.lr.ph29.i52, !llvm.loop !13
 
 ._crit_edge30.i57:                                ; preds = %127
   %129 = load i32, ptr %7, align 4
@@ -574,7 +574,7 @@ _ZNSt6threadD2Ev.exit.i49:                        ; preds = %123
 131:                                              ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i58
   %132 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i59, i64 8
   %.not.i.i.i.i14.i62 = icmp eq ptr %132, %scevgep.i.i.i.i.i.i33
-  br i1 %.not.i.i.i.i14.i62, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i63, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i58, !llvm.loop !5
+  br i1 %.not.i.i.i.i14.i62, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i63, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i58, !llvm.loop !8
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i58:    ; preds = %131, %._crit_edge30.i57
   %.05.i.i.i.i.i59 = phi ptr [ %132, %131 ], [ %106, %._crit_edge30.i57 ]
@@ -693,7 +693,7 @@ _ZNSt6threadD2Ev.exit.i86:                        ; preds = %158
   store i64 0, ptr %5, align 8
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.020.025.i72, i64 8
   %.not.i87 = icmp eq ptr %161, %scevgep.i.i.i.i.i.i70
-  br i1 %.not.i87, label %.lr.ph29.i89, label %.lr.ph.i71
+  br i1 %.not.i87, label %.lr.ph29.i89, label %.lr.ph.i71, !llvm.loop !14
 
 .loopexit.i91:                                    ; preds = %.lr.ph29.i89
   %lpad.loopexit.i92 = landingpad { ptr, i32 }
@@ -718,7 +718,7 @@ _ZNSt6threadD2Ev.exit.i86:                        ; preds = %158
 162:                                              ; preds = %.lr.ph29.i89
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i90, i64 8
   %.not23.i93 = icmp eq ptr %163, %scevgep.i.i.i.i.i.i70
-  br i1 %.not23.i93, label %._crit_edge30.i94, label %.lr.ph29.i89
+  br i1 %.not23.i93, label %._crit_edge30.i94, label %.lr.ph29.i89, !llvm.loop !15
 
 ._crit_edge30.i94:                                ; preds = %162
   %164 = load i32, ptr %2, align 4
@@ -728,7 +728,7 @@ _ZNSt6threadD2Ev.exit.i86:                        ; preds = %158
 166:                                              ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i95
   %167 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i96, i64 8
   %.not.i.i.i.i14.i99 = icmp eq ptr %167, %scevgep.i.i.i.i.i.i70
-  br i1 %.not.i.i.i.i14.i99, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i100, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i95, !llvm.loop !5
+  br i1 %.not.i.i.i.i14.i99, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit.i.thread.i100, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i95, !llvm.loop !8
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i.i.i95:    ; preds = %166, %._crit_edge30.i94
   %.05.i.i.i.i.i96 = phi ptr [ %167, %166 ], [ %141, %._crit_edge30.i94 ]
@@ -773,7 +773,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt6threadSaIS0_EED2Ev(ptr nound
 5:                                                ; preds = %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %6, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i, !llvm.loop !5
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt6threadS0_EvT_S2_RSaIT0_E.exit, label %_ZSt8_DestroyISt6threadEvPT_.exit.i.i.i, !llvm.loop !8
 
 _ZSt8_DestroyISt6threadEvPT_.exit.i.i.i:          ; preds = %1, %5
   %.05.i.i.i = phi ptr [ %6, %5 ], [ %2, %1 ]
@@ -855,7 +855,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %.08.i.i.i.i.i = phi i64 [ 0, %1 ], [ %16, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit11.i.i.i.i.i ]
   %.07.i.i.i.i.i = phi i64 [ 0, %1 ], [ %33, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit11.i.i.i.i.i ]
   fence syncscope("singlethread") seq_cst
-  %5 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
+  %5 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   br label %6
 
 6:                                                ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit.i.i.i.i.i, %4
@@ -873,7 +873,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %11 = atomicrmw add ptr %7, i32 2 seq_cst, align 4
   %12 = and i32 %11, 1
   %.not.i.i.i2.i.i.i.i.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i2.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i2.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !17
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %6
   %13 = load ptr, ptr %3, align 8
@@ -883,7 +883,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit.i.i.i.
   %17 = atomicrmw sub ptr %7, i32 2 seq_cst, align 4
   %18 = add nuw nsw i32 %.025.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i32 %18, 1024
-  br i1 %.not.i.i.i.i.i, label %19, label %6, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i, label %19, label %6, !llvm.loop !18
 
 19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit.i.i.i.i.i
   %20 = load ptr, ptr %2, align 8
@@ -909,7 +909,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15TryAcquireWriteEv.exit.i.i
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %25, 0
   %.not13.i.i.i.i.i.i.i.i.i.i = icmp ne i32 %24, 0
   %or.cond.not.i.i.i.i.i.i.i.i.i.i = and i1 %.not13.i.i.i.i.i.i.i.i.i.i, %.not.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15TryAcquireWriteEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15TryAcquireWriteEv.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %or.cond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15TryAcquireWriteEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15TryAcquireWriteEv.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !19
 
 _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit11.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15TryAcquireWriteEv.exit.i.i.i.i.i.i.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex15TryAcquireWriteEv.exit.thread.i.i.i.i.i.i.i.i.i
   %26 = load ptr, ptr %3, align 8
@@ -918,13 +918,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit11.i.i.
   store i32 %28, ptr %26, align 4
   %29 = atomicrmw and ptr %20, i32 -2 seq_cst, align 4
   fence syncscope("singlethread") seq_cst
-  %30 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  %30 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   %31 = sub i64 %30, %5
   %32 = add i64 %31, %.sroa.016.0.i.i.i.i.i
   %33 = add i64 %.07.i.i.i.i.i, 1
   %34 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %32)
   %35 = fcmp olt double %34, 2.000000e+00
-  br i1 %35, label %4, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6SpinRWEvvEUlvE_EEEclEv.exit, !llvm.loop !12
+  br i1 %35, label %4, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6SpinRWEvvEUlvE_EEEclEv.exit, !llvm.loop !21
 
 _ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6SpinRWEvvEUlvE_EEEclEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13TfSpinRWMutex10ScopedLockD2Ev.exit11.i.i.i.i.i
   %36 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %32)
@@ -976,7 +976,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %.08.i.i.i.i.i = phi i64 [ 0, %1 ], [ %27, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit17.i.i.i.i.i ]
   %.07.i.i.i.i.i = phi i64 [ 0, %1 ], [ %43, %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit17.i.i.i.i.i ]
   fence syncscope("singlethread") seq_cst
-  %12 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
+  %12 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i.i.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit.i.i.i.i.i, %11
@@ -1019,7 +1019,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit.i
   store i32 -1, ptr %4, align 8
   %32 = add nuw nsw i32 %.032.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i32 %32, 1024
-  br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i9.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i9.i.i.i.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit.i.i.i.i.i.i.i, !llvm.loop !22
 
 _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i9.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock7AcquireEb.exit.i.i.i.i.i
   %33 = load ptr, ptr %3, align 8
@@ -1040,13 +1040,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv
 
 _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit17.i.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLock13_ReleaseWriteEv.exit.i.i9.i.i.i.i.i
   fence syncscope("singlethread") seq_cst
-  %40 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  %40 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   %41 = sub i64 %40, %12
   %42 = add i64 %41, %.sroa.022.0.i.i.i.i.i
   %43 = add i64 %.07.i.i.i.i.i, 1
   %44 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %42)
   %45 = fcmp olt double %44, 2.000000e+00
-  br i1 %45, label %11, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI5BigRWEvvEUlvE_EEEclEv.exit, !llvm.loop !14
+  br i1 %45, label %11, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI5BigRWEvvEUlvE_EEEclEv.exit, !llvm.loop !23
 
 _ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI5BigRWEvvEUlvE_EEEclEv.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit17.i.i.i.i.i
   %46 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %42)
@@ -1091,7 +1091,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %.08.i.i.i.i.i = phi i64 [ 0, %1 ], [ %27, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit11.i.i.i.i.i ]
   %.07.i.i.i.i.i = phi i64 [ 0, %1 ], [ %56, %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit11.i.i.i.i.i ]
   fence syncscope("singlethread") seq_cst
-  %5 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
+  %5 = tail call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   br label %6
 
 6:                                                ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i.i.i.i.i, %4
@@ -1133,15 +1133,15 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %19 = add nsw i32 %.01.i.i.i8.i.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %20 = icmp samesign ugt i32 %.01.i.i.i8.i.i.i.i.i.i.i, 1
-  br i1 %20, label %.lr.ph.i.i.i7.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %20, label %.lr.ph.i.i.i7.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i.i.i.i.i, !llvm.loop !24
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i6.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i7.i.i.i.i.i.i.i, %17
   %21 = shl nsw i32 %.sroa.0.0.i3.i.i.i.i.i.i.i.ph, 1
-  br label %.preheader9.i.i.i.i.i.i.i.outer, !llvm.loop !16
+  br label %.preheader9.i.i.i.i.i.i.i.outer, !llvm.loop !25
 
 22:                                               ; preds = %16
   %23 = tail call noundef i32 @sched_yield() #11
-  br label %.preheader9.i.i.i.i.i.i.i, !llvm.loop !16
+  br label %.preheader9.i.i.i.i.i.i.i, !llvm.loop !25
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i.i.i.i.i: ; preds = %11
   %24 = load ptr, ptr %3, align 8
@@ -1151,7 +1151,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i.i.i.i.i: ; pr
   %28 = atomicrmw sub ptr %7, i64 4 seq_cst, align 8
   %29 = add nuw nsw i32 %.023.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i32 %29, 1024
-  br i1 %.not.i.i.i.i.i, label %30, label %6, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i, label %30, label %6, !llvm.loop !26
 
 30:                                               ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i.i.i.i.i
   %31 = load ptr, ptr %2, align 8
@@ -1198,16 +1198,16 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit.i.i.i.i.i: ; pr
   %44 = add nsw i32 %.01.i.i.i.i.i.i.i.i.i.i, -1
   tail call void @llvm.x86.sse2.pause()
   %45 = icmp samesign ugt i32 %.01.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !15
+  br i1 %45, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i.i.i, !llvm.loop !24
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.thread.i.i.i.i.i.i.i.i
   %.sroa.0.15052.i.i.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.i.i.i.i.i.i.i.i.ph, %.thread.i.i.i.i.i.i.i.i ], [ %.sroa.0.15053.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i ]
   %46 = shl nsw i32 %.sroa.0.15052.i.i.i.i.i.i.i.i, 1
-  br label %.preheader.i.i.i.i.i.i.i.outer, !llvm.loop !18
+  br label %.preheader.i.i.i.i.i.i.i.outer, !llvm.loop !27
 
 47:                                               ; preds = %42
   %48 = tail call noundef i32 @sched_yield() #11
-  br label %.preheader.i.i.i.i.i.i.i, !llvm.loop !18
+  br label %.preheader.i.i.i.i.i.i.i, !llvm.loop !27
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit11.i.i.i.i.i: ; preds = %35
   %49 = load ptr, ptr %3, align 8
@@ -1216,13 +1216,13 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit11.i.i.i.i.i: ; 
   store i32 %51, ptr %49, align 4
   %52 = atomicrmw and ptr %31, i64 -4 seq_cst, align 8
   fence syncscope("singlethread") seq_cst
-  %53 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  %53 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   %54 = sub i64 %53, %5
   %55 = add i64 %54, %.sroa.014.0.i.i.i.i.i
   %56 = add i64 %.07.i.i.i.i.i, 1
   %57 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %55)
   %58 = fcmp olt double %57, 2.000000e+00
-  br i1 %58, label %4, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI9TbbSpinRWEvvEUlvE_EEEclEv.exit, !llvm.loop !19
+  br i1 %58, label %4, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI9TbbSpinRWEvvEUlvE_EEEclEv.exit, !llvm.loop !28
 
 _ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI9TbbSpinRWEvvEUlvE_EEEclEv.exit: ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit11.i.i.i.i.i
   %59 = tail call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %55)
@@ -1271,7 +1271,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
   %.08.i.i.i.i.i = phi i64 [ 0, %1 ], [ %17, %_ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit10.i.i.i.i.i ]
   %.07.i.i.i.i.i = phi i64 [ 0, %1 ], [ %37, %_ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit10.i.i.i.i.i ]
   fence syncscope("singlethread") seq_cst
-  %11 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
+  %11 = call noundef i64 asm sideeffect "lfence\0A\09rdtsc\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   br label %12
 
 12:                                               ; preds = %_ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit.i.i.i.i.i, %10
@@ -1304,7 +1304,7 @@ define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL22Test_
 _ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit.i.i.i.i.i: ; preds = %19, %12
   %23 = add nuw nsw i32 %.021.i.i.i.i.i, 1
   %.not.i.i.i.i.i = icmp eq i32 %23, 1024
-  br i1 %.not.i.i.i.i.i, label %24, label %12, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i, label %24, label %12, !llvm.loop !29
 
 24:                                               ; preds = %_ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit.i.i.i.i.i
   %25 = load ptr, ptr %4, align 8
@@ -1333,13 +1333,13 @@ _ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit.i.i.i.i.i: ; preds = %
 
 _ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit10.i.i.i.i.i: ; preds = %30, %24
   fence syncscope("singlethread") seq_cst
-  %34 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  %34 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !20
   %35 = sub i64 %34, %11
   %36 = add i64 %35, %.sroa.0.0.i.i.i.i.i
   %37 = add i64 %.07.i.i.i.i.i, 1
   %38 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %36)
   %39 = fcmp olt double %38, 2.000000e+00
-  br i1 %39, label %10, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6TbbQRWEvvEUlvE_EEEclEv.exit, !llvm.loop !21
+  br i1 %39, label %10, label %_ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6TbbQRWEvvEUlvE_EEEclEv.exit, !llvm.loop !30
 
 _ZNSt6thread8_InvokerISt5tupleIJZL22Test_RWMutexThroughputI6TbbQRWEvvEUlvE_EEEclEv.exit: ; preds = %_ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit10.i.i.i.i.i
   %40 = call noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %36)
@@ -1398,19 +1398,28 @@ attributes #17 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 5276941, i64 5276950, i64 5276970, i64 5276999, i64 5277026}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !9, !6}
+!9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !6}
-!11 = !{i64 5278193, i64 5278202, i64 5278231, i64 5278258}
+!11 = distinct !{!11, !6}
 !12 = distinct !{!12, !6}
 !13 = distinct !{!13, !6}
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
+!16 = !{i64 5276941, i64 5276950, i64 5276970, i64 5276999, i64 5277026}
+!17 = distinct !{!17, !9, !6}
+!18 = distinct !{!18, !9, !6}
+!19 = distinct !{!19, !9, !6}
+!20 = !{i64 5278193, i64 5278202, i64 5278231, i64 5278258}
+!21 = distinct !{!21, !9, !6}
+!22 = distinct !{!22, !9, !6}
+!23 = distinct !{!23, !9, !6}
+!24 = distinct !{!24, !9, !6}
+!25 = distinct !{!25, !9, !6}
+!26 = distinct !{!26, !9, !6}
+!27 = distinct !{!27, !9, !6}
+!28 = distinct !{!28, !9, !6}
+!29 = distinct !{!29, !9, !6}
+!30 = distinct !{!30, !9, !6}

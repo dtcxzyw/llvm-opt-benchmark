@@ -326,7 +326,7 @@ _ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit: ; preds = %54
 .backedge:                                        ; preds = %27, %30, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit
   %.020.be = phi i64 [ %.01651.i, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %23, %30 ], [ %23, %27 ]
   %59 = icmp ult i64 %.2, %1
-  br i1 %59, label %12, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread
+  br i1 %59, label %12, label %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread, !llvm.loop !38
 
 _ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit.thread: ; preds = %.backedge, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit, %35, %.thread, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i, %3
   %.1 = phi i64 [ 0, %3 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_117IsStackFrameValidEmmm.exit26.i ], [ %.2, %.thread ], [ %.2, %35 ], [ %.2, %_ZN4base5debug12_GLOBAL__N_121ScanStackForNextFrameEmm.exit ], [ %.2, %.backedge ]
@@ -416,4 +416,6 @@ attributes #14 = { builtin nounwind }
 !33 = !{!18, !18, i64 0}
 !34 = distinct !{!34, !35}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
+!36 = distinct !{!36, !35, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !37}

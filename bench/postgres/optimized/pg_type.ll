@@ -1239,7 +1239,7 @@ define dso_local ptr @makeArrayTypeName(ptr noundef %0, i32 noundef %1) local_un
   %10 = call ptr @makeObjectName(ptr noundef nonnull @.str.10, ptr noundef %0, ptr noundef nonnull %3) #8
   %11 = ptrtoint ptr %10 to i64
   %12 = call zeroext i1 @SearchSysCacheExists(i32 noundef 81, i64 noundef %11, i64 noundef %5, i64 noundef 0, i64 noundef 0) #8
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.06.lcssa = phi ptr [ %4, %2 ], [ %10, %.lr.ph ]
@@ -1356,3 +1356,5 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

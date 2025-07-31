@@ -53,7 +53,7 @@ define range(i32 -1, 1) i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nou
   %25 = zext i8 %24 to i32
   %26 = add i32 %.041, %25
   %exitcond.not = icmp eq i64 %.02839.idx, 511
-  br i1 %exitcond.not, label %27, label %23
+  br i1 %exitcond.not, label %27, label %23, !llvm.loop !11
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 148
@@ -103,7 +103,7 @@ define range(i32 -1, 1) i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nou
   %50 = call i64 @read(i32 noundef %7, ptr noundef nonnull %6, i64 noundef 8192) #7
   %51 = trunc i64 %50 to i32
   %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
+  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.thread, %58
   %53 = phi i32 [ %60, %58 ], [ %44, %.thread ]
@@ -123,7 +123,7 @@ define range(i32 -1, 1) i32 @tar_addfile(i32 noundef %0, ptr noundef %1, ptr nou
   %59 = call i64 @read(i32 noundef %7, ptr noundef nonnull %6, i64 noundef 8192) #7
   %60 = trunc i64 %59 to i32
   %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph.split, label %._crit_edge
+  br i1 %61, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %58, %49, %.thread, %39
   %62 = call i32 @close(i32 noundef %7) #7
@@ -214,4 +214,7 @@ attributes #7 = { nounwind }
 !9 = !{!"int", !4, i64 0}
 !10 = !{!"timespec", !8, i64 0, !8, i64 8}
 !11 = distinct !{!11, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !12, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !12}

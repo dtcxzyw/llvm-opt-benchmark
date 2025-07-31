@@ -42,7 +42,7 @@ define void @amd_l_postorder(i64 noundef %0, ptr noundef readonly captures(none)
 
 23:                                               ; preds = %.lr.ph102, %19, %16
   %24 = icmp samesign ugt i64 %.183101.in, 1
-  br i1 %24, label %.lr.ph102, label %.lr.ph109, !llvm.loop !9
+  br i1 %24, label %.lr.ph102, label %.lr.ph109, !llvm.loop !10
 
 .lr.ph109:                                        ; preds = %23, %45
   %.0108 = phi i64 [ %46, %45 ], [ 0, %23 ]
@@ -72,7 +72,7 @@ define void @amd_l_postorder(i64 noundef %0, ptr noundef readonly captures(none)
   %33 = getelementptr inbounds i64, ptr %6, i64 %.081103
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %.not91 = icmp eq i64 %34, -1
-  br i1 %.not91, label %35, label %.preheader96, !llvm.loop !10
+  br i1 %.not91, label %35, label %.preheader96, !llvm.loop !11
 
 35:                                               ; preds = %.preheader96
   %36 = getelementptr inbounds i64, ptr %6, i64 %.081103
@@ -102,7 +102,7 @@ define void @amd_l_postorder(i64 noundef %0, ptr noundef readonly captures(none)
 45:                                               ; preds = %.lr.ph109, %28, %44, %35
   %46 = add nuw nsw i64 %.0108, 1
   %exitcond115.not = icmp eq i64 %46, %0
-  br i1 %exitcond115.not, label %.lr.ph114.preheader, label %.lr.ph109, !llvm.loop !11
+  br i1 %exitcond115.not, label %.lr.ph114.preheader, label %.lr.ph109, !llvm.loop !12
 
 .lr.ph114.preheader:                              ; preds = %45
   %47 = shl nuw i64 %0, 3
@@ -131,7 +131,7 @@ define void @amd_l_postorder(i64 noundef %0, ptr noundef readonly captures(none)
   %.185 = phi i64 [ %56, %55 ], [ %.084112, %51 ], [ %.084112, %.lr.ph114 ]
   %58 = add nuw nsw i64 %.2113, 1
   %exitcond116.not = icmp eq i64 %58, %0
-  br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph114, !llvm.loop !12
+  br i1 %exitcond116.not, label %._crit_edge, label %.lr.ph114, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %57, %8
   ret void
@@ -160,9 +160,10 @@ attributes #4 = { nounwind }
 !4 = !{!"long long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

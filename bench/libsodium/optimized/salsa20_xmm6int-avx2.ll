@@ -608,7 +608,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %415 = getelementptr i8, ptr %.117051783, i64 512
   %416 = getelementptr i8, ptr %.11784, i64 512
   %417 = icmp ugt i64 %414, 511
-  br i1 %417, label %79, label %.loopexit1764, !llvm.loop !6
+  br i1 %417, label %79, label %.loopexit1764, !llvm.loop !7
 
 .loopexit1764:                                    ; preds = %267, %4
   %.01709 = phi i64 [ %3, %4 ], [ %414, %267 ]
@@ -868,7 +868,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %641 = xor <2 x i64> %566, %640
   %642 = add nuw nsw i32 %.017611785, 2
   %643 = icmp samesign ult i32 %.017611785, 18
-  br i1 %643, label %477, label %644, !llvm.loop !7
+  br i1 %643, label %477, label %644, !llvm.loop !8
 
 644:                                              ; preds = %477
   %645 = bitcast <2 x i64> %596 to <4 x i32>
@@ -1021,7 +1021,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %776 = getelementptr i8, ptr %.317071803, i64 256
   %777 = getelementptr i8, ptr %.31804, i64 256
   %778 = icmp ugt i64 %775, 255
-  br i1 %778, label %456, label %.loopexit, !llvm.loop !8
+  br i1 %778, label %456, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %644, %.loopexit1764
   %.21711 = phi i64 [ %.01709, %.loopexit1764 ], [ %775, %644 ]
@@ -1135,7 +1135,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %869 = xor <2 x i64> %848, %868
   %870 = add nuw nsw i32 %.017381809, 4
   %871 = icmp samesign ult i32 %.017381809, 16
-  br i1 %871, label %789, label %872, !llvm.loop !9
+  br i1 %871, label %789, label %872, !llvm.loop !10
 
 872:                                              ; preds = %789
   %873 = bitcast <2 x i64> %869 to <4 x i32>
@@ -1250,7 +1250,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %963 = getelementptr i8, ptr %.41812, i64 64
   %964 = add nsw i64 %.417131810, -64
   %965 = icmp ugt i64 %964, 63
-  br i1 %965, label %784, label %._crit_edge, !llvm.loop !10
+  br i1 %965, label %784, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %872, %.loopexit
   %.41713.lcssa = phi i64 [ %.21711, %.loopexit ], [ %964, %872 ]
@@ -1358,7 +1358,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   %1054 = xor <2 x i64> %1033, %1053
   %1055 = add nuw nsw i32 %.017141819, 4
   %1056 = icmp samesign ult i32 %.017141819, 16
-  br i1 %1056, label %974, label %1057, !llvm.loop !11
+  br i1 %1056, label %974, label %1057, !llvm.loop !12
 
 1057:                                             ; preds = %974
   %1058 = bitcast <2 x i64> %1054 to <4 x i32>
@@ -1427,7 +1427,7 @@ define internal fastcc void @salsa20_encrypt_bytes(ptr noundef nonnull captures(
   store i8 %1100, ptr %1101, align 1
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.41713.lcssa
-  br i1 %exitcond.not, label %1102, label %1095, !llvm.loop !12
+  br i1 %exitcond.not, label %1102, label %1095, !llvm.loop !13
 
 1102:                                             ; preds = %1095
   call void @sodium_memzero(ptr noundef nonnull %5, i64 noundef 64) #6
@@ -1466,12 +1466,13 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

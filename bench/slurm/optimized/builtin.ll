@@ -437,7 +437,7 @@ _compute_start_times.exit:                        ; preds = %133, %134
 .backedge:                                        ; preds = %_compute_start_times.exit, %36
   %137 = phi i32 [ %.pre, %_compute_start_times.exit ], [ %40, %36 ]
   %.b13 = load i1, ptr @stop_builtin, align 1
-  br i1 %.b13, label %_my_sleep.exit._crit_edge, label %13, !llvm.loop !11
+  br i1 %.b13, label %_my_sleep.exit._crit_edge, label %13, !llvm.loop !12
 
 _my_sleep.exit._crit_edge:                        ; preds = %.backedge, %_my_sleep.exit, %1
   ret ptr null
@@ -613,7 +613,8 @@ attributes #13 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}

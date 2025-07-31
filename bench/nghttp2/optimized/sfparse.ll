@@ -52,7 +52,7 @@ define hidden range(i32 -2, 1) i32 @sfparse_parser_param(ptr noundef captures(no
     i32 0, label %.preheader
     i32 -2, label %parser_skip_inner_list.exit.thread.loopexit
     i32 -1, label %parser_skip_inner_list.exit
-  ]
+  ], !llvm.loop !10
 
 8:                                                ; preds = %.preheader
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 1365, ptr noundef nonnull @__PRETTY_FUNCTION__.parser_skip_inner_list) #8
@@ -78,14 +78,14 @@ default.unreachable50:                            ; preds = %3
 
 13:                                               ; preds = %3, %parser_skip_inner_list.exit.thread
   %14 = phi i32 [ %5, %3 ], [ %11, %parser_skip_inner_list.exit.thread ]
-  %.val = load ptr, ptr %0, align 8, !tbaa !10
+  %.val = load ptr, ptr %0, align 8, !tbaa !12
   %15 = getelementptr i8, ptr %0, i64 8
-  %.val36 = load ptr, ptr %15, align 8, !tbaa !11
+  %.val36 = load ptr, ptr %15, align 8, !tbaa !13
   %.not = icmp eq ptr %.val, %.val36
   br i1 %.not, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = load i8, ptr %.val, align 1, !tbaa !12
+  %17 = load i8, ptr %.val, align 1, !tbaa !14
   %.not29 = icmp eq i8 %17, 59
   br i1 %.not29, label %20, label %18
 
@@ -96,21 +96,21 @@ default.unreachable50:                            ; preds = %3
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.val, i64 1
-  store ptr %21, ptr %0, align 8, !tbaa !10
+  store ptr %21, ptr %0, align 8, !tbaa !12
   %.not5.i = icmp eq ptr %21, %.val36
   br i1 %.not5.i, label %parser_skip_inner_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20, %24
   %.val46.i = phi ptr [ %25, %24 ], [ %21, %20 ]
-  %22 = load i8, ptr %.val46.i, align 1, !tbaa !12
+  %22 = load i8, ptr %.val46.i, align 1, !tbaa !14
   %23 = icmp eq i8 %22, 32
   br i1 %23, label %24, label %parser_discard_sp.exit
 
 24:                                               ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.val46.i, i64 1
-  store ptr %25, ptr %0, align 8, !tbaa !10
+  store ptr %25, ptr %0, align 8, !tbaa !12
   %.not.i = icmp eq ptr %25, %.val36
-  br i1 %.not.i, label %parser_skip_inner_list.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %parser_skip_inner_list.exit, label %.lr.ph.i, !llvm.loop !15
 
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   %26 = icmp eq ptr %.val46.i, %.val36
@@ -122,13 +122,13 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   br i1 %.not31, label %29, label %parser_skip_inner_list.exit
 
 29:                                               ; preds = %27
-  %.val39 = load ptr, ptr %0, align 8, !tbaa !10
-  %.val40 = load ptr, ptr %15, align 8, !tbaa !11
+  %.val39 = load ptr, ptr %0, align 8, !tbaa !12
+  %.val40 = load ptr, ptr %15, align 8, !tbaa !13
   %.not46 = icmp eq ptr %.val39, %.val40
   br i1 %.not46, label %32, label %30
 
 30:                                               ; preds = %29
-  %31 = load i8, ptr %.val39, align 1, !tbaa !12
+  %31 = load i8, ptr %.val39, align 1, !tbaa !14
   %.not33 = icmp eq i8 %31, 61
   br i1 %.not33, label %36, label %32
 
@@ -137,16 +137,16 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   br i1 %.not35, label %parser_skip_inner_list.exit, label %33
 
 33:                                               ; preds = %32
-  store i32 0, ptr %2, align 8, !tbaa !15
+  store i32 0, ptr %2, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %34, align 4, !tbaa !17
+  store i32 0, ptr %34, align 4, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %35, align 8, !tbaa !12
+  store i32 1, ptr %35, align 8, !tbaa !14
   br label %parser_skip_inner_list.exit
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %.val39, i64 1
-  store ptr %37, ptr %0, align 8, !tbaa !10
+  store ptr %37, ptr %0, align 8, !tbaa !12
   %.not47 = icmp eq ptr %37, %.val40
   br i1 %.not47, label %parser_skip_inner_list.exit, label %38
 
@@ -167,8 +167,8 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #3 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !14
   switch i8 %4, label %14 [
     i8 42, label %5
     i8 97, label %5
@@ -201,15 +201,15 @@ define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(non
 
 5:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %6 = getelementptr i8, ptr %0, i64 8
-  %.val13 = load ptr, ptr %6, align 8, !tbaa !11
+  %.val13 = load ptr, ptr %6, align 8, !tbaa !13
   %storemerge14 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %storemerge14, ptr %0, align 8, !tbaa !10
+  store ptr %storemerge14, ptr %0, align 8, !tbaa !12
   %.not15 = icmp eq ptr %storemerge14, %.val13
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %8
   %storemerge16 = phi ptr [ %storemerge, %8 ], [ %storemerge14, %5 ]
-  %7 = load i8, ptr %storemerge16, align 1, !tbaa !12
+  %7 = load i8, ptr %storemerge16, align 1, !tbaa !14
   switch i8 %7, label %._crit_edge [
     i8 95, label %8
     i8 45, label %8
@@ -255,9 +255,9 @@ define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(non
 
 8:                                                ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge16, i64 1
-  store ptr %storemerge, ptr %0, align 8, !tbaa !10
+  store ptr %storemerge, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %storemerge, %.val13
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %8, %.lr.ph, %5
   %storemerge.lcssa = phi ptr [ %.val13, %5 ], [ %storemerge16, %.lr.ph ], [ %.val13, %8 ]
@@ -265,12 +265,12 @@ define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(non
   br i1 %.not12, label %14, label %9
 
 9:                                                ; preds = %._crit_edge
-  store ptr %3, ptr %1, align 8, !tbaa !19
+  store ptr %3, ptr %1, align 8, !tbaa !21
   %10 = ptrtoint ptr %storemerge.lcssa to i64
   %11 = ptrtoint ptr %3 to i64
   %12 = sub i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %12, ptr %13, align 8, !tbaa !22
+  store i64 %12, ptr %13, align 8, !tbaa !24
   br label %14
 
 14:                                               ; preds = %._crit_edge, %9, %2
@@ -280,8 +280,8 @@ define internal fastcc range(i32 -1, 1) i32 @parser_key(ptr noundef captures(non
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !14
   switch i8 %4, label %parser_token.exit [
     i8 34, label %5
     i8 45, label %7
@@ -376,15 +376,15 @@ define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captur
 
 15:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2
   %16 = getelementptr i8, ptr %0, i64 8
-  %.val13.i = load ptr, ptr %16, align 8, !tbaa !11
+  %.val13.i = load ptr, ptr %16, align 8, !tbaa !13
   %storemerge14.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %storemerge14.i, ptr %0, align 8, !tbaa !10
+  store ptr %storemerge14.i, ptr %0, align 8, !tbaa !12
   %.not15.i = icmp eq ptr %storemerge14.i, %.val13.i
   br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %18
   %storemerge16.i = phi ptr [ %storemerge.i, %18 ], [ %storemerge14.i, %15 ]
-  %17 = load i8, ptr %storemerge16.i, align 1, !tbaa !12
+  %17 = load i8, ptr %storemerge16.i, align 1, !tbaa !14
   switch i8 %17, label %._crit_edge.i [
     i8 33, label %18
     i8 35, label %18
@@ -469,26 +469,26 @@ define internal fastcc range(i32 -1, 1) i32 @parser_bare_item(ptr noundef captur
 
 18:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
   %storemerge.i = getelementptr inbounds nuw i8, ptr %storemerge16.i, i64 1
-  store ptr %storemerge.i, ptr %0, align 8, !tbaa !10
+  store ptr %storemerge.i, ptr %0, align 8, !tbaa !12
   %.not.i = icmp eq ptr %storemerge.i, %.val13.i
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %18, %.lr.ph.i, %15
   %.not12.i = icmp eq ptr %1, null
   br i1 %.not12.i, label %parser_token.exit, label %19
 
 19:                                               ; preds = %._crit_edge.i
-  store i32 4, ptr %1, align 8, !tbaa !15
+  store i32 4, ptr %1, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %20, align 4, !tbaa !17
+  store i32 0, ptr %20, align 4, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %3, ptr %21, align 8, !tbaa !12
-  %22 = load ptr, ptr %0, align 8, !tbaa !10
+  store ptr %3, ptr %21, align 8, !tbaa !14
+  %22 = load ptr, ptr %0, align 8, !tbaa !12
   %23 = ptrtoint ptr %22 to i64
   %24 = ptrtoint ptr %3 to i64
   %25 = sub i64 %23, %24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %25, ptr %26, align 8, !tbaa !12
+  store i64 %25, ptr %26, align 8, !tbaa !14
   br label %parser_token.exit
 
 27:                                               ; preds = %2
@@ -517,22 +517,22 @@ define hidden range(i32 -2, 1) i32 @sfparse_parser_inner_list(ptr noundef captur
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val3.i = load ptr, ptr %7, align 8, !tbaa !11
-  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.val3.i = load ptr, ptr %7, align 8, !tbaa !13
+  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !12
   %.not5.i = icmp eq ptr %.promoted.i, %.val3.i
   br i1 %.not5.i, label %parser_discard_sp.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %10
   %.val46.i = phi ptr [ %11, %10 ], [ %.promoted.i, %6 ]
-  %8 = load i8, ptr %.val46.i, align 1, !tbaa !12
+  %8 = load i8, ptr %.val46.i, align 1, !tbaa !14
   %9 = icmp eq i8 %8, 32
   br i1 %9, label %10, label %parser_discard_sp.exit
 
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.val46.i, i64 1
-  store ptr %11, ptr %0, align 8, !tbaa !10
+  store ptr %11, ptr %0, align 8, !tbaa !12
   %.not.i = icmp eq ptr %11, %.val3.i
-  br i1 %.not.i, label %parser_discard_sp.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %parser_discard_sp.exit, label %.lr.ph.i, !llvm.loop !15
 
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %10, %6
   %.val28 = phi ptr [ %.promoted.i, %6 ], [ %.val46.i, %.lr.ph.i ], [ %11, %10 ]
@@ -545,33 +545,33 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %10, %6
     i32 0, label %.preheader
     i32 -2, label %parser_skip_params.exit.thread
     i32 -1, label %parser_skip_params.exit
-  ]
+  ], !llvm.loop !26
 
 parser_skip_params.exit.thread:                   ; preds = %.preheader, %2
-  %.val26 = load ptr, ptr %0, align 8, !tbaa !10
+  %.val26 = load ptr, ptr %0, align 8, !tbaa !12
   %13 = getelementptr i8, ptr %0, i64 8
-  %.val27 = load ptr, ptr %13, align 8, !tbaa !11
+  %.val27 = load ptr, ptr %13, align 8, !tbaa !13
   %.not = icmp eq ptr %.val26, %.val27
   br i1 %.not, label %parser_skip_params.exit, label %14
 
 14:                                               ; preds = %parser_skip_params.exit.thread
-  %15 = load i8, ptr %.val26, align 1, !tbaa !12
+  %15 = load i8, ptr %.val26, align 1, !tbaa !14
   switch i8 %15, label %parser_skip_params.exit [
     i8 32, label %.lr.ph.i33.preheader
     i8 41, label %parser_discard_sp.exit36.thread47
   ]
 
 .lr.ph.i33thread-pre-split:                       ; preds = %.lr.ph.i33.preheader
-  %.pr = load i8, ptr %17, align 1, !tbaa !12
+  %.pr = load i8, ptr %17, align 1, !tbaa !14
   %16 = icmp eq i8 %.pr, 32
   br i1 %16, label %.lr.ph.i33.preheader, label %parser_discard_sp.exit36
 
 .lr.ph.i33.preheader:                             ; preds = %14, %.lr.ph.i33thread-pre-split
   %.val46.i3442 = phi ptr [ %17, %.lr.ph.i33thread-pre-split ], [ %.val26, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %.val46.i3442, i64 1
-  store ptr %17, ptr %0, align 8, !tbaa !10
+  store ptr %17, ptr %0, align 8, !tbaa !12
   %.not.i35 = icmp eq ptr %17, %.val27
-  br i1 %.not.i35, label %parser_skip_params.exit, label %.lr.ph.i33thread-pre-split, !llvm.loop !13
+  br i1 %.not.i35, label %parser_skip_params.exit, label %.lr.ph.i33thread-pre-split, !llvm.loop !15
 
 default.unreachable45:                            ; preds = %.preheader, %2
   unreachable
@@ -581,7 +581,7 @@ default.unreachable45:                            ; preds = %.preheader, %2
   unreachable
 
 parser_discard_sp.exit36thread-pre-split:         ; preds = %parser_discard_sp.exit
-  %.pr46 = load i8, ptr %.val28, align 1, !tbaa !12
+  %.pr46 = load i8, ptr %.val28, align 1, !tbaa !14
   br label %parser_discard_sp.exit36
 
 parser_discard_sp.exit36:                         ; preds = %.lr.ph.i33thread-pre-split, %parser_discard_sp.exit36thread-pre-split
@@ -593,7 +593,7 @@ parser_discard_sp.exit36:                         ; preds = %.lr.ph.i33thread-pr
 parser_discard_sp.exit36.thread47:                ; preds = %14, %parser_discard_sp.exit36
   %22 = phi ptr [ %20, %parser_discard_sp.exit36 ], [ %.val26, %14 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store ptr %23, ptr %0, align 8, !tbaa !10
+  store ptr %23, ptr %0, align 8, !tbaa !12
   br label %parser_skip_params.exit.sink.split
 
 24:                                               ; preds = %parser_discard_sp.exit36
@@ -635,7 +635,7 @@ parser_skip_inner_list.exit.thread.preheader:     ; preds = %.preheader, %3
     i32 0, label %.preheader
     i32 -2, label %parser_skip_inner_list.exit.thread.preheader
     i32 -1, label %parser_skip_inner_list.exit
-  ]
+  ], !llvm.loop !10
 
 default.unreachable:                              ; preds = %.preheader, %parser_skip_inner_list.exit.thread
   unreachable
@@ -646,18 +646,18 @@ parser_skip_inner_list.exit.thread:               ; preds = %parser_skip_inner_l
     i32 0, label %parser_skip_inner_list.exit.thread
     i32 -2, label %parser_skip_params.exit.thread
     i32 -1, label %parser_skip_inner_list.exit
-  ]
+  ], !llvm.loop !26
 
 parser_skip_params.exit.thread:                   ; preds = %parser_skip_inner_list.exit.thread, %3
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val4.i.i = load ptr, ptr %8, align 8, !tbaa !11
-  %.promoted.i.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.val4.i.i = load ptr, ptr %8, align 8, !tbaa !13
+  %.promoted.i.i = load ptr, ptr %0, align 8, !tbaa !12
   %.not6.i.i = icmp eq ptr %.promoted.i.i, %.val4.i.i
   br i1 %.not6.i.i, label %parser_discard_ows.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %parser_skip_params.exit.thread, %10
   %.val57.i.i = phi ptr [ %11, %10 ], [ %.promoted.i.i, %parser_skip_params.exit.thread ]
-  %9 = load i8, ptr %.val57.i.i, align 1, !tbaa !12
+  %9 = load i8, ptr %.val57.i.i, align 1, !tbaa !14
   switch i8 %9, label %parser_discard_ows.exit.i [
     i8 32, label %10
     i8 9, label %10
@@ -665,9 +665,9 @@ parser_skip_params.exit.thread:                   ; preds = %parser_skip_inner_l
 
 10:                                               ; preds = %.lr.ph.i.i, %.lr.ph.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.val57.i.i, i64 1
-  store ptr %11, ptr %0, align 8, !tbaa !10
+  store ptr %11, ptr %0, align 8, !tbaa !12
   %.not.i.i = icmp eq ptr %11, %.val4.i.i
-  br i1 %.not.i.i, label %parser_discard_ows.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %.not.i.i, label %parser_discard_ows.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 parser_discard_ows.exit.i:                        ; preds = %10, %.lr.ph.i.i, %parser_skip_params.exit.thread
   %.val9.i = phi ptr [ %.promoted.i.i, %parser_skip_params.exit.thread ], [ %11, %10 ], [ %.val57.i.i, %.lr.ph.i.i ]
@@ -675,19 +675,19 @@ parser_discard_ows.exit.i:                        ; preds = %10, %.lr.ph.i.i, %p
   br i1 %.not.i, label %parser_skip_inner_list.exit, label %12
 
 12:                                               ; preds = %parser_discard_ows.exit.i
-  %13 = load i8, ptr %.val9.i, align 1, !tbaa !12
+  %13 = load i8, ptr %.val9.i, align 1, !tbaa !14
   %.not6.i = icmp eq i8 %13, 44
   br i1 %.not6.i, label %14, label %parser_skip_inner_list.exit
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %.val9.i, i64 1
-  store ptr %15, ptr %0, align 8, !tbaa !10
+  store ptr %15, ptr %0, align 8, !tbaa !12
   %.not6.i13.i = icmp eq ptr %15, %.val4.i.i
   br i1 %.not6.i13.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i
 
 .lr.ph.i14.i:                                     ; preds = %14, %17
   %.val57.i15.i = phi ptr [ %18, %17 ], [ %15, %14 ]
-  %16 = load i8, ptr %.val57.i15.i, align 1, !tbaa !12
+  %16 = load i8, ptr %.val57.i15.i, align 1, !tbaa !14
   switch i8 %16, label %parser_next_key_or_item.exit [
     i8 32, label %17
     i8 9, label %17
@@ -695,9 +695,9 @@ parser_discard_ows.exit.i:                        ; preds = %10, %.lr.ph.i.i, %p
 
 17:                                               ; preds = %.lr.ph.i14.i, %.lr.ph.i14.i
   %18 = getelementptr inbounds nuw i8, ptr %.val57.i15.i, i64 1
-  store ptr %18, ptr %0, align 8, !tbaa !10
+  store ptr %18, ptr %0, align 8, !tbaa !12
   %.not.i16.i = icmp eq ptr %18, %.val4.i.i
-  br i1 %.not.i16.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i, !llvm.loop !24
+  br i1 %.not.i16.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i, !llvm.loop !27
 
 parser_next_key_or_item.exit:                     ; preds = %.lr.ph.i14.i
   %.not43 = icmp eq ptr %.val57.i15.i, %.val4.i.i
@@ -705,22 +705,22 @@ parser_next_key_or_item.exit:                     ; preds = %.lr.ph.i14.i
 
 19:                                               ; preds = %3
   %20 = getelementptr i8, ptr %0, i64 8
-  %.val3.i = load ptr, ptr %20, align 8, !tbaa !11
-  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.val3.i = load ptr, ptr %20, align 8, !tbaa !13
+  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !12
   %.not5.i = icmp eq ptr %.promoted.i, %.val3.i
   br i1 %.not5.i, label %parser_skip_inner_list.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %23
   %.val46.i = phi ptr [ %24, %23 ], [ %.promoted.i, %19 ]
-  %21 = load i8, ptr %.val46.i, align 1, !tbaa !12
+  %21 = load i8, ptr %.val46.i, align 1, !tbaa !14
   %22 = icmp eq i8 %21, 32
   br i1 %22, label %23, label %parser_discard_sp.exit
 
 23:                                               ; preds = %.lr.ph.i
   %24 = getelementptr inbounds nuw i8, ptr %.val46.i, i64 1
-  store ptr %24, ptr %0, align 8, !tbaa !10
+  store ptr %24, ptr %0, align 8, !tbaa !12
   %.not.i31 = icmp eq ptr %24, %.val3.i
-  br i1 %.not.i31, label %parser_skip_inner_list.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i31, label %parser_skip_inner_list.exit, label %.lr.ph.i, !llvm.loop !15
 
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   %25 = icmp eq ptr %.val46.i, %.val3.i
@@ -736,14 +736,14 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   br i1 %.not25, label %29, label %parser_skip_inner_list.exit
 
 29:                                               ; preds = %27
-  %.val28.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.val28.i = load ptr, ptr %0, align 8, !tbaa !12
   %30 = getelementptr i8, ptr %0, i64 8
-  %.val29.i = load ptr, ptr %30, align 8, !tbaa !11
+  %.val29.i = load ptr, ptr %30, align 8, !tbaa !13
   %.not.i32 = icmp eq ptr %.val28.i, %.val29.i
   br i1 %.not.i32, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = load i8, ptr %.val28.i, align 1, !tbaa !12
+  %32 = load i8, ptr %.val28.i, align 1, !tbaa !14
   %.not22.i = icmp eq i8 %32, 61
   br i1 %.not22.i, label %37, label %33
 
@@ -752,21 +752,21 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   br i1 %.not26.i, label %.sink.split.i, label %34
 
 34:                                               ; preds = %33
-  store i32 0, ptr %2, align 8, !tbaa !15
+  store i32 0, ptr %2, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %35, align 4, !tbaa !17
+  store i32 0, ptr %35, align 4, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %36, align 8, !tbaa !12
+  store i32 1, ptr %36, align 8, !tbaa !14
   br label %.sink.split.i
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 1
-  store ptr %38, ptr %0, align 8, !tbaa !10
+  store ptr %38, ptr %0, align 8, !tbaa !12
   %.not30.i = icmp eq ptr %38, %.val29.i
   br i1 %.not30.i, label %parser_skip_inner_list.exit, label %39
 
 39:                                               ; preds = %37
-  %40 = load i8, ptr %38, align 1, !tbaa !12
+  %40 = load i8, ptr %38, align 1, !tbaa !14
   %41 = icmp eq i8 %40, 40
   br i1 %41, label %42, label %47
 
@@ -775,14 +775,14 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i
   br i1 %.not25.i, label %45, label %43
 
 43:                                               ; preds = %42
-  store i32 6, ptr %2, align 8, !tbaa !15
+  store i32 6, ptr %2, align 8, !tbaa !17
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %44, align 4, !tbaa !17
+  store i32 0, ptr %44, align 4, !tbaa !19
   br label %45
 
 45:                                               ; preds = %43, %42
   %46 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 2
-  store ptr %46, ptr %0, align 8, !tbaa !10
+  store ptr %46, ptr %0, align 8, !tbaa !12
   br label %.sink.split.i
 
 47:                                               ; preds = %39
@@ -820,7 +820,7 @@ parser_skip_inner_list.exit.thread.preheader:     ; preds = %.preheader, %2
     i32 0, label %.preheader
     i32 -2, label %parser_skip_inner_list.exit.thread.preheader
     i32 -1, label %parser_skip_inner_list.exit
-  ]
+  ], !llvm.loop !10
 
 default.unreachable:                              ; preds = %.preheader, %parser_skip_inner_list.exit.thread
   unreachable
@@ -831,18 +831,18 @@ parser_skip_inner_list.exit.thread:               ; preds = %parser_skip_inner_l
     i32 0, label %parser_skip_inner_list.exit.thread
     i32 -2, label %parser_skip_params.exit.thread
     i32 -1, label %parser_skip_inner_list.exit
-  ]
+  ], !llvm.loop !26
 
 parser_skip_params.exit.thread:                   ; preds = %parser_skip_inner_list.exit.thread, %2
   %7 = getelementptr i8, ptr %0, i64 8
-  %.val4.i.i = load ptr, ptr %7, align 8, !tbaa !11
-  %.promoted.i.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.val4.i.i = load ptr, ptr %7, align 8, !tbaa !13
+  %.promoted.i.i = load ptr, ptr %0, align 8, !tbaa !12
   %.not6.i.i = icmp eq ptr %.promoted.i.i, %.val4.i.i
   br i1 %.not6.i.i, label %parser_discard_ows.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %parser_skip_params.exit.thread, %9
   %.val57.i.i = phi ptr [ %10, %9 ], [ %.promoted.i.i, %parser_skip_params.exit.thread ]
-  %8 = load i8, ptr %.val57.i.i, align 1, !tbaa !12
+  %8 = load i8, ptr %.val57.i.i, align 1, !tbaa !14
   switch i8 %8, label %parser_discard_ows.exit.i [
     i8 32, label %9
     i8 9, label %9
@@ -850,9 +850,9 @@ parser_skip_params.exit.thread:                   ; preds = %parser_skip_inner_l
 
 9:                                                ; preds = %.lr.ph.i.i, %.lr.ph.i.i
   %10 = getelementptr inbounds nuw i8, ptr %.val57.i.i, i64 1
-  store ptr %10, ptr %0, align 8, !tbaa !10
+  store ptr %10, ptr %0, align 8, !tbaa !12
   %.not.i.i = icmp eq ptr %10, %.val4.i.i
-  br i1 %.not.i.i, label %parser_discard_ows.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %.not.i.i, label %parser_discard_ows.exit.i, label %.lr.ph.i.i, !llvm.loop !27
 
 parser_discard_ows.exit.i:                        ; preds = %9, %.lr.ph.i.i, %parser_skip_params.exit.thread
   %.val9.i = phi ptr [ %.promoted.i.i, %parser_skip_params.exit.thread ], [ %10, %9 ], [ %.val57.i.i, %.lr.ph.i.i ]
@@ -860,19 +860,19 @@ parser_discard_ows.exit.i:                        ; preds = %9, %.lr.ph.i.i, %pa
   br i1 %.not.i, label %parser_skip_inner_list.exit, label %11
 
 11:                                               ; preds = %parser_discard_ows.exit.i
-  %12 = load i8, ptr %.val9.i, align 1, !tbaa !12
+  %12 = load i8, ptr %.val9.i, align 1, !tbaa !14
   %.not6.i = icmp eq i8 %12, 44
   br i1 %.not6.i, label %13, label %parser_skip_inner_list.exit
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %.val9.i, i64 1
-  store ptr %14, ptr %0, align 8, !tbaa !10
+  store ptr %14, ptr %0, align 8, !tbaa !12
   %.not6.i13.i = icmp eq ptr %14, %.val4.i.i
   br i1 %.not6.i13.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i
 
 .lr.ph.i14.i:                                     ; preds = %13, %16
   %.val57.i15.i = phi ptr [ %17, %16 ], [ %14, %13 ]
-  %15 = load i8, ptr %.val57.i15.i, align 1, !tbaa !12
+  %15 = load i8, ptr %.val57.i15.i, align 1, !tbaa !14
   switch i8 %15, label %parser_next_key_or_item.exit [
     i8 32, label %16
     i8 9, label %16
@@ -880,9 +880,9 @@ parser_discard_ows.exit.i:                        ; preds = %9, %.lr.ph.i.i, %pa
 
 16:                                               ; preds = %.lr.ph.i14.i, %.lr.ph.i14.i
   %17 = getelementptr inbounds nuw i8, ptr %.val57.i15.i, i64 1
-  store ptr %17, ptr %0, align 8, !tbaa !10
+  store ptr %17, ptr %0, align 8, !tbaa !12
   %.not.i16.i = icmp eq ptr %17, %.val4.i.i
-  br i1 %.not.i16.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i, !llvm.loop !24
+  br i1 %.not.i16.i, label %parser_skip_inner_list.exit, label %.lr.ph.i14.i, !llvm.loop !27
 
 parser_next_key_or_item.exit:                     ; preds = %.lr.ph.i14.i
   %.not48 = icmp eq ptr %.val57.i15.i, %.val4.i.i
@@ -890,22 +890,22 @@ parser_next_key_or_item.exit:                     ; preds = %.lr.ph.i14.i
 
 18:                                               ; preds = %2
   %19 = getelementptr i8, ptr %0, i64 8
-  %.val3.i = load ptr, ptr %19, align 8, !tbaa !11
-  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.val3.i = load ptr, ptr %19, align 8, !tbaa !13
+  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !12
   %.not5.i = icmp eq ptr %.promoted.i, %.val3.i
   br i1 %.not5.i, label %parser_discard_sp.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %22
   %.val46.i = phi ptr [ %23, %22 ], [ %.promoted.i, %18 ]
-  %20 = load i8, ptr %.val46.i, align 1, !tbaa !12
+  %20 = load i8, ptr %.val46.i, align 1, !tbaa !14
   %21 = icmp eq i8 %20, 32
   br i1 %21, label %22, label %parser_discard_sp.exit
 
 22:                                               ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %.val46.i, i64 1
-  store ptr %23, ptr %0, align 8, !tbaa !10
+  store ptr %23, ptr %0, align 8, !tbaa !12
   %.not.i38 = icmp eq ptr %23, %.val3.i
-  br i1 %.not.i38, label %parser_discard_sp.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i38, label %parser_discard_sp.exit, label %.lr.ph.i, !llvm.loop !15
 
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %22, %18
   %.val = phi ptr [ %.promoted.i, %18 ], [ %.val46.i, %.lr.ph.i ], [ %23, %22 ]
@@ -913,7 +913,7 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %22, %18
   br i1 %.not, label %parser_skip_inner_list.exit, label %parser_discard_sp.exit._crit_edge
 
 parser_discard_sp.exit._crit_edge:                ; preds = %parser_discard_sp.exit
-  %.pre = load i8, ptr %.val, align 1, !tbaa !12
+  %.pre = load i8, ptr %.val, align 1, !tbaa !14
   br label %25
 
 24:                                               ; preds = %2
@@ -931,14 +931,14 @@ parser_discard_sp.exit._crit_edge:                ; preds = %parser_discard_sp.e
   br i1 %.not32, label %32, label %30
 
 30:                                               ; preds = %29
-  store i32 6, ptr %1, align 8, !tbaa !15
+  store i32 6, ptr %1, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %31, align 4, !tbaa !17
+  store i32 0, ptr %31, align 4, !tbaa !19
   br label %32
 
 32:                                               ; preds = %30, %29
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
-  store ptr %33, ptr %0, align 8, !tbaa !10
+  store ptr %33, ptr %0, align 8, !tbaa !12
   br label %parser_skip_inner_list.exit.sink.split
 
 34:                                               ; preds = %25
@@ -972,22 +972,22 @@ parser_skip_inner_list.exit.thread.preheader:     ; preds = %.preheader, %2
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 8
-  %.val3.i = load ptr, ptr %6, align 8, !tbaa !11
-  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !10
+  %.val3.i = load ptr, ptr %6, align 8, !tbaa !13
+  %.promoted.i = load ptr, ptr %0, align 8, !tbaa !12
   %.not5.i = icmp eq ptr %.promoted.i, %.val3.i
   br i1 %.not5.i, label %parser_discard_sp.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %9
   %.val46.i = phi ptr [ %10, %9 ], [ %.promoted.i, %5 ]
-  %7 = load i8, ptr %.val46.i, align 1, !tbaa !12
+  %7 = load i8, ptr %.val46.i, align 1, !tbaa !14
   %8 = icmp eq i8 %7, 32
   br i1 %8, label %9, label %parser_discard_sp.exit
 
 9:                                                ; preds = %.lr.ph.i
   %10 = getelementptr inbounds nuw i8, ptr %.val46.i, i64 1
-  store ptr %10, ptr %0, align 8, !tbaa !10
+  store ptr %10, ptr %0, align 8, !tbaa !12
   %.not.i = icmp eq ptr %10, %.val3.i
-  br i1 %.not.i, label %parser_discard_sp.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %parser_discard_sp.exit, label %.lr.ph.i, !llvm.loop !15
 
 parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %9, %5
   %.val32 = phi ptr [ %.promoted.i, %5 ], [ %.val46.i, %.lr.ph.i ], [ %10, %9 ]
@@ -1000,7 +1000,7 @@ parser_discard_sp.exit:                           ; preds = %.lr.ph.i, %9, %5
     i32 0, label %.preheader
     i32 -2, label %parser_skip_inner_list.exit.thread.preheader
     i32 -1, label %parser_skip_inner_list.exit
-  ]
+  ], !llvm.loop !10
 
 default.unreachable:                              ; preds = %.preheader, %parser_skip_inner_list.exit.thread
   unreachable
@@ -1011,26 +1011,26 @@ parser_skip_inner_list.exit.thread:               ; preds = %parser_skip_inner_l
     i32 0, label %parser_skip_inner_list.exit.thread
     i32 -2, label %parser_skip_params.exit.thread
     i32 -1, label %parser_skip_inner_list.exit
-  ]
+  ], !llvm.loop !26
 
 parser_skip_params.exit.thread:                   ; preds = %parser_skip_inner_list.exit.thread, %2
   %13 = getelementptr i8, ptr %0, i64 8
-  %.val3.i37 = load ptr, ptr %13, align 8, !tbaa !11
-  %.promoted.i38 = load ptr, ptr %0, align 8, !tbaa !10
+  %.val3.i37 = load ptr, ptr %13, align 8, !tbaa !13
+  %.promoted.i38 = load ptr, ptr %0, align 8, !tbaa !12
   %.not5.i39 = icmp eq ptr %.promoted.i38, %.val3.i37
   br i1 %.not5.i39, label %parser_skip_inner_list.exit, label %.lr.ph.i40
 
 .lr.ph.i40:                                       ; preds = %parser_skip_params.exit.thread, %16
   %.val46.i41 = phi ptr [ %17, %16 ], [ %.promoted.i38, %parser_skip_params.exit.thread ]
-  %14 = load i8, ptr %.val46.i41, align 1, !tbaa !12
+  %14 = load i8, ptr %.val46.i41, align 1, !tbaa !14
   %15 = icmp eq i8 %14, 32
   br i1 %15, label %16, label %parser_discard_sp.exit43.loopexit
 
 16:                                               ; preds = %.lr.ph.i40
   %17 = getelementptr inbounds nuw i8, ptr %.val46.i41, i64 1
-  store ptr %17, ptr %0, align 8, !tbaa !10
+  store ptr %17, ptr %0, align 8, !tbaa !12
   %.not.i42 = icmp eq ptr %17, %.val3.i37
-  br i1 %.not.i42, label %parser_discard_sp.exit43.loopexit, label %.lr.ph.i40, !llvm.loop !13
+  br i1 %.not.i42, label %parser_discard_sp.exit43.loopexit, label %.lr.ph.i40, !llvm.loop !15
 
 parser_discard_sp.exit43.loopexit:                ; preds = %16, %.lr.ph.i40
   %.val51 = phi ptr [ %.val3.i37, %16 ], [ %.val46.i41, %.lr.ph.i40 ]
@@ -1043,7 +1043,7 @@ parser_discard_sp.exit43.loopexit:                ; preds = %16, %.lr.ph.i40
   unreachable
 
 21:                                               ; preds = %parser_discard_sp.exit
-  %22 = load i8, ptr %.val32, align 1, !tbaa !12
+  %22 = load i8, ptr %.val32, align 1, !tbaa !14
   %23 = icmp eq i8 %22, 40
   br i1 %23, label %24, label %29
 
@@ -1052,14 +1052,14 @@ parser_discard_sp.exit43.loopexit:                ; preds = %16, %.lr.ph.i40
   br i1 %.not30, label %27, label %25
 
 25:                                               ; preds = %24
-  store i32 6, ptr %1, align 8, !tbaa !15
+  store i32 6, ptr %1, align 8, !tbaa !17
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %26, align 4, !tbaa !17
+  store i32 0, ptr %26, align 4, !tbaa !19
   br label %27
 
 27:                                               ; preds = %25, %24
   %28 = getelementptr inbounds nuw i8, ptr %.val32, i64 1
-  store ptr %28, ptr %0, align 8, !tbaa !10
+  store ptr %28, ptr %0, align 8, !tbaa !12
   store i32 28, ptr %3, align 8, !tbaa !3
   br label %parser_skip_inner_list.exit
 
@@ -1084,8 +1084,8 @@ define hidden void @sfparse_parser_init(ptr noundef writeonly captures(none) ini
   %spec.select = select i1 %4, ptr null, ptr %5
   %spec.select9 = select i1 %4, ptr null, ptr %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %spec.select, ptr %6, align 8, !tbaa !11
-  store ptr %spec.select9, ptr %0, align 8, !tbaa !10
+  store ptr %spec.select, ptr %6, align 8, !tbaa !13
+  store ptr %spec.select9, ptr %0, align 8, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %7, align 8, !tbaa !3
   ret void
@@ -1094,13 +1094,13 @@ define hidden void @sfparse_parser_init(ptr noundef writeonly captures(none) ini
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @sfparse_unescape(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !24
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %28, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
-  %8 = load ptr, ptr %1, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %8 = load ptr, ptr %1, align 8, !tbaa !21
   %9 = tail call ptr @memchr(ptr noundef %8, i32 noundef 92, i64 noundef %4) #9
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -1111,7 +1111,7 @@ define hidden void @sfparse_unescape(ptr noundef captures(none) %0, ptr noundef 
   %.0.lcssa = phi ptr [ %8, %6 ], [ %22, %.lr.ph ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.028.lcssa, ptr align 1 %.0.lcssa, i64 %.027.lcssa, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %.028.lcssa, i64 %.027.lcssa
-  %12 = load ptr, ptr %0, align 8, !tbaa !19
+  %12 = load ptr, ptr %0, align 8, !tbaa !21
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -1129,19 +1129,19 @@ define hidden void @sfparse_unescape(ptr noundef captures(none) %0, ptr noundef 
   %20 = getelementptr inbounds nuw i8, ptr %.02832, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %23 = load i8, ptr %21, align 1, !tbaa !12
+  %23 = load i8, ptr %21, align 1, !tbaa !14
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  store i8 %23, ptr %20, align 1, !tbaa !12
+  store i8 %23, ptr %20, align 1, !tbaa !14
   %.neg31 = add i64 %.02733, -2
   %25 = sub i64 %.neg31, %19
   %26 = tail call ptr @memchr(ptr noundef nonnull %22, i32 noundef 92, i64 noundef %25) #9
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  br i1 %27, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 28:                                               ; preds = %2, %._crit_edge
   %.sink = phi i64 [ %15, %._crit_edge ], [ 0, %2 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %29, align 8, !tbaa !22
+  store i64 %.sink, ptr %29, align 8, !tbaa !24
   ret void
 }
 
@@ -1154,13 +1154,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !24
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %105, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
-  %8 = load ptr, ptr %1, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %8 = load ptr, ptr %1, align 8, !tbaa !21
   %9 = and i64 %4, 3
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %16
@@ -1168,7 +1168,7 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
 11:                                               ; preds = %6
   %12 = getelementptr i8, ptr %8, i64 %4
   %13 = getelementptr i8, ptr %12, i64 -1
-  %14 = load i8, ptr %13, align 1, !tbaa !12
+  %14 = load i8, ptr %13, align 1, !tbaa !14
   %15 = icmp eq i8 %14, 61
   %spec.select = select i1 %15, i64 4, i64 0
   br label %16
@@ -1190,10 +1190,10 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   %.05273 = phi i64 [ 1, %.preheader ], [ %31, %25 ]
   %.05372 = phi i32 [ 0, %.preheader ], [ %30, %25 ]
   %.15571 = phi ptr [ %.05475, %.preheader ], [ %32, %25 ]
-  %20 = load i8, ptr %.15571, align 1, !tbaa !12
+  %20 = load i8, ptr %.15571, align 1, !tbaa !14
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !25
+  %23 = load i32, ptr %22, align 4, !tbaa !29
   %.not60 = icmp eq i32 %23, -1
   br i1 %.not60, label %24, label %25
 
@@ -1210,22 +1210,22 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   %31 = add nuw nsw i64 %.05273, 1
   %32 = getelementptr inbounds nuw i8, ptr %.15571, i64 1
   %exitcond.not = icmp eq i64 %31, 5
-  br i1 %exitcond.not, label %33, label %19, !llvm.loop !26
+  br i1 %exitcond.not, label %33, label %19, !llvm.loop !30
 
 33:                                               ; preds = %25
   %34 = lshr i32 %30, 16
   %35 = trunc i32 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %.076, i64 1
-  store i8 %35, ptr %.076, align 1, !tbaa !12
+  store i8 %35, ptr %.076, align 1, !tbaa !14
   %37 = lshr i32 %30, 8
   %38 = trunc i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %.076, i64 2
-  store i8 %38, ptr %36, align 1, !tbaa !12
+  store i8 %38, ptr %36, align 1, !tbaa !14
   %40 = trunc i32 %30 to i8
   %41 = getelementptr inbounds nuw i8, ptr %.076, i64 3
-  store i8 %40, ptr %39, align 1, !tbaa !12
+  store i8 %40, ptr %39, align 1, !tbaa !14
   %.not = icmp eq ptr %scevgep, %18
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %33, %16
   %.054.lcssa = phi ptr [ %8, %16 ], [ %18, %33 ]
@@ -1242,20 +1242,20 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
   unreachable
 
 43:                                               ; preds = %._crit_edge
-  %44 = load ptr, ptr %1, align 8, !tbaa !19
-  %45 = load i64, ptr %3, align 8, !tbaa !22
+  %44 = load ptr, ptr %1, align 8, !tbaa !21
+  %45 = load i64, ptr %3, align 8, !tbaa !24
   %46 = getelementptr i8, ptr %44, i64 %45
   %47 = getelementptr i8, ptr %46, i64 -1
-  %48 = load i8, ptr %47, align 1, !tbaa !12
+  %48 = load i8, ptr %47, align 1, !tbaa !14
   %49 = icmp eq i8 %48, 61
   br i1 %49, label %.thread, label %.thread65
 
 50:                                               ; preds = %._crit_edge
-  %51 = load ptr, ptr %1, align 8, !tbaa !19
-  %52 = load i64, ptr %3, align 8, !tbaa !22
+  %51 = load ptr, ptr %1, align 8, !tbaa !21
+  %52 = load i64, ptr %3, align 8, !tbaa !24
   %53 = getelementptr i8, ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -1
-  %55 = load i8, ptr %54, align 1, !tbaa !12
+  %55 = load i8, ptr %54, align 1, !tbaa !14
   %56 = icmp eq i8 %55, 61
   br i1 %56, label %58, label %57
 
@@ -1265,62 +1265,62 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
 
 58:                                               ; preds = %50
   %59 = getelementptr i8, ptr %53, i64 -2
-  %60 = load i8, ptr %59, align 1, !tbaa !12
+  %60 = load i8, ptr %59, align 1, !tbaa !14
   %61 = icmp eq i8 %60, 61
   br i1 %61, label %.thread, label %.thread65
 
 .thread:                                          ; preds = %._crit_edge, %58, %43
   %62 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
-  %63 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
+  %63 = load i8, ptr %.054.lcssa, align 1, !tbaa !14
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %64
-  %66 = load i32, ptr %65, align 4, !tbaa !25
+  %66 = load i32, ptr %65, align 4, !tbaa !29
   %.tr = trunc i32 %66 to i8
   %67 = shl i8 %.tr, 2
-  store i8 %67, ptr %.0.lcssa, align 1, !tbaa !12
-  %68 = load i8, ptr %62, align 1, !tbaa !12
+  store i8 %67, ptr %.0.lcssa, align 1, !tbaa !14
+  %68 = load i8, ptr %62, align 1, !tbaa !14
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %69
-  %71 = load i32, ptr %70, align 4, !tbaa !25
+  %71 = load i32, ptr %70, align 4, !tbaa !29
   %72 = lshr i32 %71, 4
   %73 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   %74 = trunc i32 %72 to i8
   %75 = or i8 %67, %74
-  store i8 %75, ptr %.0.lcssa, align 1, !tbaa !12
+  store i8 %75, ptr %.0.lcssa, align 1, !tbaa !14
   br label %100
 
 .thread65:                                        ; preds = %58, %43
   %76 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 1
-  %77 = load i8, ptr %.054.lcssa, align 1, !tbaa !12
+  %77 = load i8, ptr %.054.lcssa, align 1, !tbaa !14
   %78 = zext i8 %77 to i64
   %79 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %78
-  %80 = load i32, ptr %79, align 4, !tbaa !25
+  %80 = load i32, ptr %79, align 4, !tbaa !29
   %81 = shl i32 %80, 10
   %82 = getelementptr inbounds nuw i8, ptr %.054.lcssa, i64 2
-  %83 = load i8, ptr %76, align 1, !tbaa !12
+  %83 = load i8, ptr %76, align 1, !tbaa !14
   %84 = zext i8 %83 to i64
   %85 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %84
-  %86 = load i32, ptr %85, align 4, !tbaa !25
+  %86 = load i32, ptr %85, align 4, !tbaa !29
   %87 = shl i32 %86, 4
   %88 = add i32 %87, %81
-  %89 = load i8, ptr %82, align 1, !tbaa !12
+  %89 = load i8, ptr %82, align 1, !tbaa !14
   %90 = zext i8 %89 to i64
   %91 = getelementptr inbounds nuw [256 x i32], ptr @sfparse_base64decode.index_tbl, i64 0, i64 %90
-  %92 = load i32, ptr %91, align 4, !tbaa !25
+  %92 = load i32, ptr %91, align 4, !tbaa !29
   %93 = ashr i32 %92, 2
   %94 = add i32 %88, %93
   %95 = lshr i32 %94, 8
   %96 = trunc i32 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
-  store i8 %96, ptr %.0.lcssa, align 1, !tbaa !12
+  store i8 %96, ptr %.0.lcssa, align 1, !tbaa !14
   %98 = trunc i32 %94 to i8
   %99 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 2
-  store i8 %98, ptr %97, align 1, !tbaa !12
+  store i8 %98, ptr %97, align 1, !tbaa !14
   br label %100
 
 100:                                              ; preds = %._crit_edge, %.thread, %.thread65
   %.1 = phi ptr [ %73, %.thread ], [ %99, %.thread65 ], [ %.0.lcssa, %._crit_edge ]
-  %101 = load ptr, ptr %0, align 8, !tbaa !19
+  %101 = load ptr, ptr %0, align 8, !tbaa !21
   %102 = ptrtoint ptr %.1 to i64
   %103 = ptrtoint ptr %101 to i64
   %104 = sub i64 %102, %103
@@ -1329,20 +1329,20 @@ define hidden void @sfparse_base64decode(ptr noundef captures(none) %0, ptr noun
 105:                                              ; preds = %2, %100
   %.sink = phi i64 [ %104, %100 ], [ 0, %2 ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %106, align 8, !tbaa !22
+  store i64 %.sink, ptr %106, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @sfparse_pctdecode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !22
+  %4 = load i64, ptr %3, align 8, !tbaa !24
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %39, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
-  %8 = load ptr, ptr %1, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !21
+  %8 = load ptr, ptr %1, align 8, !tbaa !21
   %9 = tail call ptr @memchr(ptr noundef %8, i32 noundef 37, i64 noundef %4) #9
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.lr.ph
@@ -1353,7 +1353,7 @@ define hidden void @sfparse_pctdecode(ptr noundef captures(none) %0, ptr noundef
   %.0.lcssa = phi ptr [ %7, %6 ], [ %22, %pctdecode.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.lcssa, ptr align 1 %.026.lcssa, i64 %.022.lcssa, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 %.022.lcssa
-  %12 = load ptr, ptr %0, align 8, !tbaa !19
+  %12 = load ptr, ptr %0, align 8, !tbaa !21
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -1371,7 +1371,7 @@ define hidden void @sfparse_pctdecode(ptr noundef captures(none) %0, ptr noundef
   %20 = getelementptr inbounds nuw i8, ptr %.030, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 1
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  %23 = load i8, ptr %21, align 1, !tbaa !12
+  %23 = load i8, ptr %21, align 1, !tbaa !14
   switch i8 %23, label %pctdecode.exit [
     i8 48, label %24
     i8 49, label %24
@@ -1403,7 +1403,7 @@ define hidden void @sfparse_pctdecode(ptr noundef captures(none) %0, ptr noundef
 29:                                               ; preds = %26, %24
   %.0.i = phi i8 [ %25, %24 ], [ %28, %26 ]
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %31 = load i8, ptr %30, align 1, !tbaa !12
+  %31 = load i8, ptr %30, align 1, !tbaa !14
   switch i8 %31, label %pctdecode.exit [
     i8 48, label %33
     i8 49, label %33
@@ -1430,7 +1430,7 @@ define hidden void @sfparse_pctdecode(ptr noundef captures(none) %0, ptr noundef
   %.sink.i = phi i8 [ -87, %32 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ], [ -48, %29 ]
   %34 = add nsw i8 %.sink.i, %31
   %.1.i = or i8 %34, %.0.i
-  store i8 %.1.i, ptr %20, align 1, !tbaa !12
+  store i8 %.1.i, ptr %20, align 1, !tbaa !14
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 3
   br label %pctdecode.exit
 
@@ -1440,19 +1440,19 @@ pctdecode.exit:                                   ; preds = %.lr.ph, %29, %33
   %36 = sub i64 %.neg27, %19
   %37 = tail call ptr @memchr(ptr noundef nonnull %.1, i32 noundef 37, i64 noundef %36) #9
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %._crit_edge, label %.lr.ph
+  br i1 %38, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 39:                                               ; preds = %2, %._crit_edge
   %.sink = phi i64 [ %15, %._crit_edge ], [ 0, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %40, align 8, !tbaa !22
+  store i64 %.sink, ptr %40, align 8, !tbaa !24
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !14
   %5 = icmp eq i8 %4, 34
   br i1 %5, label %7, label %6
 
@@ -1463,8 +1463,8 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
 7:                                                ; preds = %2
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val25 = load ptr, ptr %8, align 8, !tbaa !11
-  store ptr %.ptr, ptr %0, align 8, !tbaa !10
+  %.val25 = load ptr, ptr %8, align 8, !tbaa !13
+  store ptr %.ptr, ptr %0, align 8, !tbaa !12
   %.not30 = icmp eq ptr %.ptr, %.val25
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
@@ -1473,7 +1473,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
   %.032 = phi i32 [ %.1, %14 ], [ 0, %7 ]
   %storemerge31.idx = phi i64 [ %storemerge29.add, %14 ], [ 1, %7 ]
   %storemerge31.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge31.idx
-  %10 = load i8, ptr %storemerge31.ptr, align 1, !tbaa !12
+  %10 = load i8, ptr %storemerge31.ptr, align 1, !tbaa !14
   switch i8 %10, label %.loopexit [
     i8 32, label %14
     i8 33, label %14
@@ -1575,12 +1575,12 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
 11:                                               ; preds = %.lr.ph
   %storemerge31.add = add nuw nsw i64 %storemerge31.idx, 1
   %.ptr37 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge31.add
-  store ptr %.ptr37, ptr %0, align 8, !tbaa !10
+  store ptr %.ptr37, ptr %0, align 8, !tbaa !12
   %.not26 = icmp eq ptr %.ptr37, %.val25
   br i1 %.not26, label %.loopexit, label %12
 
 12:                                               ; preds = %11
-  %13 = load i8, ptr %.ptr37, align 1, !tbaa !12
+  %13 = load i8, ptr %.ptr37, align 1, !tbaa !14
   switch i8 %13, label %.loopexit [
     i8 34, label %14
     i8 92, label %14
@@ -1591,32 +1591,32 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
   %.1 = phi i32 [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ %.032, %.lr.ph ], [ 1, %12 ], [ 1, %12 ]
   %storemerge29.add = add nuw nsw i64 %storemerge29.idx, 1
   %.ptr36 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge29.add
-  store ptr %.ptr36, ptr %0, align 8, !tbaa !10
+  store ptr %.ptr36, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %.ptr36, %.val25
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 15:                                               ; preds = %.lr.ph
   %.not21 = icmp eq ptr %1, null
   br i1 %.not21, label %22, label %16
 
 16:                                               ; preds = %15
-  store i32 3, ptr %1, align 8, !tbaa !15
+  store i32 3, ptr %1, align 8, !tbaa !17
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.032, ptr %17, align 4, !tbaa !17
+  store i32 %.032, ptr %17, align 4, !tbaa !19
   %gepdiff = add nsw i64 %storemerge31.idx, -1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %gepdiff, ptr %19, align 8, !tbaa !12
+  store i64 %gepdiff, ptr %19, align 8, !tbaa !14
   %20 = icmp eq i64 %storemerge31.idx, 1
   %21 = select i1 %20, ptr null, ptr %.ptr
-  store ptr %21, ptr %18, align 8, !tbaa !12
-  %.pre = load ptr, ptr %0, align 8, !tbaa !10
+  store ptr %21, ptr %18, align 8, !tbaa !14
+  %.pre = load ptr, ptr %0, align 8, !tbaa !12
   br label %22
 
 22:                                               ; preds = %16, %15
   %23 = phi ptr [ %.pre, %16 ], [ %9, %15 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %24, ptr %0, align 8, !tbaa !10
+  store ptr %24, ptr %0, align 8, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %11, %12, %.lr.ph, %14, %7, %22
@@ -1626,21 +1626,21 @@ define internal fastcc range(i32 -1, 1) i32 @parser_string(ptr noundef captures(
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !14
   %5 = icmp eq i8 %4, 45
   br i1 %5, label %6, label %._crit_edge115
 
 ._crit_edge115:                                   ; preds = %2
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 8
-  %.val69.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
+  %.val69.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
   br label %9
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %7, ptr %0, align 8, !tbaa !10
+  store ptr %7, ptr %0, align 8, !tbaa !12
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val71 = load ptr, ptr %8, align 8, !tbaa !11
+  %.val71 = load ptr, ptr %8, align 8, !tbaa !13
   %.not = icmp eq ptr %7, %.val71
   br i1 %.not, label %.loopexit, label %9
 
@@ -1664,7 +1664,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(
   %.091 = phi i64 [ %14, %13 ], [ 0, %.lr.ph.preheader ]
   %.04590 = phi i64 [ %18, %13 ], [ 0, %.lr.ph.preheader ]
   %.val668789 = phi ptr [ %19, %13 ], [ %.promoted, %.lr.ph.preheader ]
-  %11 = load i8, ptr %.val668789, align 1, !tbaa !12
+  %11 = load i8, ptr %.val668789, align 1, !tbaa !14
   %.off = add i8 %11, -48
   %switch = icmp ult i8 %.off, 10
   br i1 %switch, label %12, label %20
@@ -1680,9 +1680,9 @@ define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(
   %17 = add i64 %15, -48
   %18 = add i64 %17, %16
   %19 = getelementptr inbounds nuw i8, ptr %.val668789, i64 1
-  store ptr %19, ptr %0, align 8, !tbaa !10
+  store ptr %19, ptr %0, align 8, !tbaa !12
   %.not74 = icmp eq ptr %19, %.val69
-  br i1 %.not74, label %.thread72, label %.lr.ph, !llvm.loop !29
+  br i1 %.not74, label %.thread72, label %.lr.ph, !llvm.loop !34
 
 20:                                               ; preds = %.lr.ph
   %21 = icmp eq i64 %.091, 0
@@ -1698,9 +1698,9 @@ define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(
   br i1 %.not60, label %.loopexit, label %23
 
 23:                                               ; preds = %.thread72
-  store i32 1, ptr %1, align 8, !tbaa !15
+  store i32 1, ptr %1, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %24, align 4, !tbaa !17
+  store i32 0, ptr %24, align 4, !tbaa !19
   %25 = mul nsw i64 %.04586, %.047
   br label %.loopexit.sink.split
 
@@ -1710,7 +1710,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(
 
 .preheader:                                       ; preds = %26
   %storemerge93 = getelementptr inbounds nuw i8, ptr %.val668789, i64 1
-  store ptr %storemerge93, ptr %0, align 8, !tbaa !10
+  store ptr %storemerge93, ptr %0, align 8, !tbaa !12
   %.not7594 = icmp eq ptr %storemerge93, %.val69
   br i1 %.not7594, label %._crit_edge, label %.lr.ph98.preheader
 
@@ -1723,7 +1723,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(
   %storemerge97 = phi ptr [ %storemerge, %32 ], [ %storemerge93, %.lr.ph98.preheader ]
   %.196 = phi i64 [ %33, %32 ], [ %.091, %.lr.ph98.preheader ]
   %.14695 = phi i64 [ %37, %32 ], [ %.04590, %.lr.ph98.preheader ]
-  %30 = load i8, ptr %storemerge97, align 1, !tbaa !12
+  %30 = load i8, ptr %storemerge97, align 1, !tbaa !14
   %.off61 = add i8 %30, -48
   %switch62 = icmp ult i8 %.off61, 10
   br i1 %switch62, label %31, label %._crit_edge
@@ -1739,9 +1739,9 @@ define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(
   %36 = add i64 %34, -48
   %37 = add i64 %36, %35
   %storemerge = getelementptr inbounds nuw i8, ptr %storemerge97, i64 1
-  store ptr %storemerge, ptr %0, align 8, !tbaa !10
+  store ptr %storemerge, ptr %0, align 8, !tbaa !12
   %.not75 = icmp eq ptr %storemerge, %.val69
-  br i1 %.not75, label %._crit_edge, label %.lr.ph98, !llvm.loop !30
+  br i1 %.not75, label %._crit_edge, label %.lr.ph98, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %32, %.lr.ph98, %.preheader
   %.146.lcssa = phi i64 [ %.04590, %.preheader ], [ %.14695, %.lr.ph98 ], [ %37, %32 ]
@@ -1759,12 +1759,12 @@ define internal fastcc range(i32 -1, 1) i32 @parser_number(ptr noundef captures(
   br i1 %.not59, label %.loopexit, label %switch.lookup
 
 switch.lookup:                                    ; preds = %42
-  store i32 2, ptr %1, align 8, !tbaa !15
+  store i32 2, ptr %1, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %43, align 4, !tbaa !17
+  store i32 0, ptr %43, align 4, !tbaa !19
   %44 = mul nsw i64 %.146.lcssa, %.047
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %44, ptr %45, align 8, !tbaa !12
+  store i64 %44, ptr %45, align 8, !tbaa !14
   %switch.tableidx = add nsw i64 %40, -1
   %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.parser_number, i64 0, i64 %switch.tableidx
   %switch.load = load i64, ptr %switch.gep, align 8
@@ -1774,7 +1774,7 @@ switch.lookup:                                    ; preds = %42
   %.sink128 = phi i64 [ 8, %23 ], [ 16, %switch.lookup ]
   %.sink = phi i64 [ %25, %23 ], [ %switch.load, %switch.lookup ]
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink128
-  store i64 %.sink, ptr %46, align 8, !tbaa !12
+  store i64 %.sink, ptr %46, align 8, !tbaa !14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %31, %.loopexit.sink.split, %42, %._crit_edge, %39, %26, %.thread72, %20, %6
@@ -1786,8 +1786,8 @@ switch.lookup:                                    ; preds = %42
 define internal fastcc range(i32 -1, 1) i32 @parser_date(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
   %3 = alloca %struct.sfparse_value, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
-  %4 = load ptr, ptr %0, align 8, !tbaa !10
-  %5 = load i8, ptr %4, align 1, !tbaa !12
+  %4 = load ptr, ptr %0, align 8, !tbaa !12
+  %5 = load i8, ptr %4, align 1, !tbaa !14
   %6 = icmp eq i8 %5, 64
   br i1 %6, label %8, label %7
 
@@ -1797,9 +1797,9 @@ define internal fastcc range(i32 -1, 1) i32 @parser_date(ptr noundef captures(no
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  store ptr %9, ptr %0, align 8, !tbaa !10
+  store ptr %9, ptr %0, align 8, !tbaa !12
   %10 = getelementptr i8, ptr %0, i64 8
-  %.val14 = load ptr, ptr %10, align 8, !tbaa !11
+  %.val14 = load ptr, ptr %10, align 8, !tbaa !13
   %.not = icmp eq ptr %9, %.val14
   br i1 %.not, label %16, label %11
 
@@ -1816,8 +1816,8 @@ define internal fastcc range(i32 -1, 1) i32 @parser_date(ptr noundef captures(no
   br i1 %.not13, label %16, label %15
 
 15:                                               ; preds = %14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !31
-  store i32 7, ptr %1, align 8, !tbaa !15
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !36
+  store i32 7, ptr %1, align 8, !tbaa !17
   br label %16
 
 16:                                               ; preds = %14, %15, %11, %8
@@ -1828,8 +1828,8 @@ define internal fastcc range(i32 -1, 1) i32 @parser_date(ptr noundef captures(no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !14
   %5 = icmp eq i8 %4, 58
   br i1 %5, label %7, label %6
 
@@ -1840,15 +1840,15 @@ define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures
 7:                                                ; preds = %2
   %.ptr52 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = getelementptr i8, ptr %0, i64 8
-  %.val35 = load ptr, ptr %8, align 8, !tbaa !11
-  store ptr %.ptr52, ptr %0, align 8, !tbaa !10
+  %.val35 = load ptr, ptr %8, align 8, !tbaa !13
+  store ptr %.ptr52, ptr %0, align 8, !tbaa !12
   %.not42 = icmp eq ptr %.ptr52, %.val35
   br i1 %.not42, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %22
   %storemerge43.idx = phi i64 [ %storemerge43.add, %22 ], [ 1, %7 ]
   %storemerge43.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.idx
-  %9 = load i8, ptr %storemerge43.ptr, align 1, !tbaa !12
+  %9 = load i8, ptr %storemerge43.ptr, align 1, !tbaa !14
   switch i8 %9, label %.loopexit [
     i8 43, label %22
     i8 47, label %22
@@ -1931,12 +1931,12 @@ define internal fastcc range(i32 -1, 1) i32 @parser_byteseq(ptr noundef captures
 12:                                               ; preds = %10
   %storemerge43.add51 = add nuw nsw i64 %storemerge43.idx, 1
   %.ptr56 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add51
-  store ptr %.ptr56, ptr %0, align 8, !tbaa !10
+  store ptr %.ptr56, ptr %0, align 8, !tbaa !12
   %.not36 = icmp eq ptr %.ptr56, %.val35
   br i1 %.not36, label %.loopexit, label %13
 
 13:                                               ; preds = %12
-  %14 = load i8, ptr %.ptr56, align 1, !tbaa !12
+  %14 = load i8, ptr %.ptr56, align 1, !tbaa !14
   %15 = icmp eq i8 %14, 61
   br i1 %15, label %.sink.split, label %16
 
@@ -1947,7 +1947,7 @@ default.unreachable48:                            ; preds = %10
   %.sink = phi i64 [ 2, %13 ], [ 1, %10 ]
   %storemerge43.add50 = add nuw nsw i64 %storemerge43.idx, %.sink
   %.ptr55 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add50
-  store ptr %.ptr55, ptr %0, align 8, !tbaa !10
+  store ptr %.ptr55, ptr %0, align 8, !tbaa !12
   br label %16
 
 16:                                               ; preds = %.sink.split, %13
@@ -1957,7 +1957,7 @@ default.unreachable48:                            ; preds = %10
   br i1 %.not37, label %.loopexit, label %17
 
 17:                                               ; preds = %16
-  %18 = load i8, ptr %.val.ptr, align 1, !tbaa !12
+  %18 = load i8, ptr %.val.ptr, align 1, !tbaa !14
   %.not29 = icmp eq i8 %18, 58
   br i1 %.not29, label %23, label %.loopexit
 
@@ -1969,9 +1969,9 @@ default.unreachable48:                            ; preds = %10
 22:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %storemerge43.add = add nuw nsw i64 %storemerge43.idx, 1
   %.ptr53 = getelementptr inbounds nuw i8, ptr %3, i64 %storemerge43.add
-  store ptr %.ptr53, ptr %0, align 8, !tbaa !10
+  store ptr %.ptr53, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %.ptr53, %.val35
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 23:                                               ; preds = %19, %17
   %.idx = phi i64 [ %storemerge43.idx, %19 ], [ %.val.idx, %17 ]
@@ -1980,23 +1980,23 @@ default.unreachable48:                            ; preds = %10
   br i1 %.not30, label %30, label %24
 
 24:                                               ; preds = %23
-  store i32 5, ptr %1, align 8, !tbaa !15
+  store i32 5, ptr %1, align 8, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %25, align 4, !tbaa !17
+  store i32 0, ptr %25, align 4, !tbaa !19
   %gepdiff63 = add nsw i64 %.idx, -1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %gepdiff63, ptr %27, align 8, !tbaa !12
+  store i64 %gepdiff63, ptr %27, align 8, !tbaa !14
   %28 = icmp eq i64 %.idx, 1
   %29 = select i1 %28, ptr null, ptr %.ptr52
-  store ptr %29, ptr %26, align 8, !tbaa !12
-  %.pre = load ptr, ptr %0, align 8, !tbaa !10
+  store ptr %29, ptr %26, align 8, !tbaa !14
+  %.pre = load ptr, ptr %0, align 8, !tbaa !12
   br label %30
 
 30:                                               ; preds = %24, %23
   %31 = phi ptr [ %.pre, %24 ], [ %.ptr, %23 ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store ptr %32, ptr %0, align 8, !tbaa !10
+  store ptr %32, ptr %0, align 8, !tbaa !12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %22, %7, %19, %16, %17, %12, %10, %10, %30
@@ -2006,8 +2006,8 @@ default.unreachable48:                            ; preds = %10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parser_boolean(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !14
   %5 = icmp eq i8 %4, 63
   br i1 %5, label %7, label %6
 
@@ -2017,14 +2017,14 @@ define internal fastcc range(i32 -1, 1) i32 @parser_boolean(ptr noundef captures
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %8, ptr %0, align 8, !tbaa !10
+  store ptr %8, ptr %0, align 8, !tbaa !12
   %9 = getelementptr i8, ptr %0, i64 8
-  %.val13 = load ptr, ptr %9, align 8, !tbaa !11
+  %.val13 = load ptr, ptr %9, align 8, !tbaa !13
   %.not = icmp eq ptr %8, %.val13
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %7
-  %11 = load i8, ptr %8, align 1, !tbaa !12
+  %11 = load i8, ptr %8, align 1, !tbaa !14
   switch i8 %11, label %18 [
     i8 48, label %13
     i8 49, label %12
@@ -2036,16 +2036,16 @@ define internal fastcc range(i32 -1, 1) i32 @parser_boolean(ptr noundef captures
 13:                                               ; preds = %10, %12
   %.0 = phi i32 [ 1, %12 ], [ 0, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store ptr %14, ptr %0, align 8, !tbaa !10
+  store ptr %14, ptr %0, align 8, !tbaa !12
   %.not12 = icmp eq ptr %1, null
   br i1 %.not12, label %18, label %15
 
 15:                                               ; preds = %13
-  store i32 0, ptr %1, align 8, !tbaa !15
+  store i32 0, ptr %1, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %16, align 4, !tbaa !17
+  store i32 0, ptr %16, align 4, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.0, ptr %17, align 8, !tbaa !12
+  store i32 %.0, ptr %17, align 8, !tbaa !14
   br label %18
 
 18:                                               ; preds = %13, %15, %10, %7
@@ -2055,8 +2055,8 @@ define internal fastcc range(i32 -1, 1) i32 @parser_boolean(ptr noundef captures
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !10
-  %4 = load i8, ptr %3, align 1, !tbaa !12
+  %3 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load i8, ptr %3, align 1, !tbaa !14
   %5 = icmp eq i8 %4, 37
   br i1 %5, label %7, label %6
 
@@ -2066,20 +2066,20 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  store ptr %8, ptr %0, align 8, !tbaa !10
+  store ptr %8, ptr %0, align 8, !tbaa !12
   %9 = getelementptr i8, ptr %0, i64 8
-  %.val31 = load ptr, ptr %9, align 8, !tbaa !11
+  %.val31 = load ptr, ptr %9, align 8, !tbaa !13
   %.not = icmp eq ptr %8, %.val31
   br i1 %.not, label %pctdecode.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = load i8, ptr %8, align 1, !tbaa !12
+  %11 = load i8, ptr %8, align 1, !tbaa !14
   %.not23 = icmp eq i8 %11, 34
   br i1 %.not23, label %12, label %pctdecode.exit.thread
 
 12:                                               ; preds = %10
   %.ptr215 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store ptr %.ptr215, ptr %0, align 8, !tbaa !10
+  store ptr %.ptr215, ptr %0, align 8, !tbaa !12
   %.not4245 = icmp eq ptr %.ptr215, %.val31
   br i1 %.not4245, label %pctdecode.exit.thread, label %.lr.ph
 
@@ -2088,7 +2088,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
   %.03646 = phi i32 [ %.1, %56 ], [ 0, %12 ]
   %.idx = phi i64 [ %.idx213, %56 ], [ 2, %12 ]
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %14 = load i8, ptr %.ptr, align 1, !tbaa !12
+  %14 = load i8, ptr %.ptr, align 1, !tbaa !14
   switch i8 %14, label %54 [
     i8 0, label %pctdecode.exit.thread
     i8 1, label %pctdecode.exit.thread
@@ -2257,13 +2257,13 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
 
 15:                                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %.ptr, i64 1
-  store ptr %16, ptr %0, align 8, !tbaa !10
+  store ptr %16, ptr %0, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw i8, ptr %.ptr, i64 3
   %18 = icmp ugt ptr %17, %.val31
   br i1 %18, label %pctdecode.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = load i8, ptr %16, align 1, !tbaa !12
+  %20 = load i8, ptr %16, align 1, !tbaa !14
   switch i8 %20, label %pctdecode.exit.thread [
     i8 48, label %21
     i8 49, label %21
@@ -2295,8 +2295,8 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
 26:                                               ; preds = %23, %21
   %.0.i = phi i8 [ %22, %21 ], [ %25, %23 ]
   %27 = getelementptr inbounds nuw i8, ptr %.ptr, i64 2
-  store ptr %27, ptr %0, align 8, !tbaa !33
-  %28 = load i8, ptr %27, align 1, !tbaa !12
+  store ptr %27, ptr %0, align 8, !tbaa !38
+  %28 = load i8, ptr %27, align 1, !tbaa !14
   switch i8 %28, label %pctdecode.exit.thread [
     i8 48, label %30
     i8 49, label %30
@@ -2325,16 +2325,16 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
   %.1.i = or i8 %31, %.0.i
   %.add = add nuw nsw i64 %.idx, 3
   %.ptr217 = getelementptr inbounds nuw i8, ptr %3, i64 %.add
-  store ptr %.ptr217, ptr %0, align 8, !tbaa !33
+  store ptr %.ptr217, ptr %0, align 8, !tbaa !38
   %32 = add nuw nsw i32 %.03646, 256
   %33 = zext i8 %.1.i to i64
   %34 = getelementptr inbounds nuw [364 x i8], ptr @utf8d, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1, !tbaa !12
+  %35 = load i8, ptr %34, align 1, !tbaa !14
   %36 = zext i8 %35 to i32
   %37 = add nuw nsw i32 %32, %36
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw [364 x i8], ptr @utf8d, i64 0, i64 %38
-  %40 = load i8, ptr %39, align 1, !tbaa !12
+  %40 = load i8, ptr %39, align 1, !tbaa !14
   %41 = zext i8 %40 to i32
   %42 = icmp eq i8 %40, 12
   br i1 %42, label %pctdecode.exit.thread, label %56
@@ -2348,23 +2348,23 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
   br i1 %.not26, label %51, label %45
 
 45:                                               ; preds = %44
-  store i32 8, ptr %1, align 8, !tbaa !15
+  store i32 8, ptr %1, align 8, !tbaa !17
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 0, ptr %46, align 4, !tbaa !17
+  store i32 0, ptr %46, align 4, !tbaa !19
   %gepdiff = add nsw i64 %.idx, -2
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %gepdiff, ptr %48, align 8, !tbaa !12
+  store i64 %gepdiff, ptr %48, align 8, !tbaa !14
   %49 = icmp eq i64 %.idx, 2
   %50 = select i1 %49, ptr null, ptr %.ptr215
-  store ptr %50, ptr %47, align 8, !tbaa !12
-  %.pre = load ptr, ptr %0, align 8, !tbaa !10
+  store ptr %50, ptr %47, align 8, !tbaa !14
+  %.pre = load ptr, ptr %0, align 8, !tbaa !12
   br label %51
 
 51:                                               ; preds = %45, %44
   %52 = phi ptr [ %.pre, %45 ], [ %13, %44 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  store ptr %53, ptr %0, align 8, !tbaa !10
+  store ptr %53, ptr %0, align 8, !tbaa !12
   br label %pctdecode.exit.thread
 
 54:                                               ; preds = %.lr.ph
@@ -2374,7 +2374,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
 55:                                               ; preds = %54
   %.add214 = add nuw nsw i64 %.idx, 1
   %.ptr218 = getelementptr inbounds nuw i8, ptr %3, i64 %.add214
-  store ptr %.ptr218, ptr %0, align 8, !tbaa !10
+  store ptr %.ptr218, ptr %0, align 8, !tbaa !12
   br label %56
 
 56:                                               ; preds = %30, %55
@@ -2383,7 +2383,7 @@ define internal fastcc range(i32 -1, 1) i32 @parser_dispstring(ptr noundef captu
   %.1 = phi i32 [ 0, %55 ], [ %41, %30 ]
   %.ptr216 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx213
   %.not42 = icmp eq ptr %.ptr216, %.val31
-  br i1 %.not42, label %pctdecode.exit.thread, label %.lr.ph, !llvm.loop !34
+  br i1 %.not42, label %pctdecode.exit.thread, label %.lr.ph, !llvm.loop !39
 
 pctdecode.exit.thread:                            ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %15, %30, %54, %56, %19, %26, %12, %43, %7, %10, %51
   %.0 = phi i32 [ 0, %51 ], [ -1, %10 ], [ -1, %7 ], [ -1, %43 ], [ -1, %12 ], [ -1, %26 ], [ -1, %19 ], [ -1, %56 ], [ -1, %54 ], [ -1, %30 ], [ -1, %15 ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ], [ -1, %.lr.ph ]
@@ -2414,28 +2414,33 @@ attributes #10 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"int", !7, i64 0}
-!10 = !{!4, !5, i64 0}
-!11 = !{!4, !5, i64 8}
-!12 = !{!7, !7, i64 0}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !9, i64 0}
-!16 = !{!"sfparse_value", !9, i64 0, !9, i64 4, !7, i64 8}
-!17 = !{!16, !9, i64 4}
-!18 = distinct !{!18, !14}
-!19 = !{!20, !5, i64 0}
-!20 = !{!"sfparse_vec", !5, i64 0, !21, i64 8}
-!21 = !{!"long", !7, i64 0}
-!22 = !{!20, !21, i64 8}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = !{!9, !9, i64 0}
-!26 = distinct !{!26, !14}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
-!31 = !{i64 0, i64 4, !25, i64 4, i64 4, !25, i64 8, i64 16, !12}
-!32 = distinct !{!32, !14}
-!33 = !{!5, !5, i64 0}
-!34 = distinct !{!34, !14}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!4, !5, i64 0}
+!13 = !{!4, !5, i64 8}
+!14 = !{!7, !7, i64 0}
+!15 = distinct !{!15, !16, !11}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !9, i64 0}
+!18 = !{!"sfparse_value", !9, i64 0, !9, i64 4, !7, i64 8}
+!19 = !{!18, !9, i64 4}
+!20 = distinct !{!20, !16, !11}
+!21 = !{!22, !5, i64 0}
+!22 = !{!"sfparse_vec", !5, i64 0, !23, i64 8}
+!23 = !{!"long", !7, i64 0}
+!24 = !{!22, !23, i64 8}
+!25 = distinct !{!25, !16, !11}
+!26 = distinct !{!26, !11}
+!27 = distinct !{!27, !16, !11}
+!28 = distinct !{!28, !11}
+!29 = !{!9, !9, i64 0}
+!30 = distinct !{!30, !16, !11}
+!31 = distinct !{!31, !16, !11}
+!32 = distinct !{!32, !11}
+!33 = distinct !{!33, !16, !11}
+!34 = distinct !{!34, !16, !11}
+!35 = distinct !{!35, !16, !11}
+!36 = !{i64 0, i64 4, !29, i64 4, i64 4, !29, i64 8, i64 16, !14}
+!37 = distinct !{!37, !16, !11}
+!38 = !{!5, !5, i64 0}
+!39 = distinct !{!39, !16, !11}

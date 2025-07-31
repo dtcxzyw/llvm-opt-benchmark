@@ -177,7 +177,7 @@ define hidden noundef zeroext i1 @_ZN30ShenandoahAggressiveHeuristics21should_un
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load volatile i8, ptr %7, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !9
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %14, label %10
 
@@ -360,6 +360,7 @@ attributes #5 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2145392468}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2145392468}

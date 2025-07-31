@@ -1772,7 +1772,7 @@ define internal fastcc noundef zeroext i1 @tar_write_compressed_data(ptr noundef
 
 33:                                               ; preds = %.thread.us, %16
   %34 = icmp eq i32 %14, 1
-  br i1 %34, label %.thread35, label %.split.us, !llvm.loop !8
+  br i1 %34, label %.thread35, label %.split.us, !llvm.loop !9
 
 .split:                                           ; preds = %4, %61
   %35 = load ptr, ptr %5, align 8
@@ -1927,7 +1927,8 @@ attributes #15 = { cold noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}

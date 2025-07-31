@@ -332,7 +332,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %.1.us = phi i32 [ %spec.select39.us, %30 ], [ %.043.us, %.lr.ph.split.us ], [ %.043.us, %18 ], [ %.043.us, %28 ], [ %.043.us, %25 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %9
-  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %exitcond72.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %1, label %.lr.ph.split.split, label %.lr.ph.split.split.us
@@ -379,7 +379,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %.1.us54 = phi i32 [ %spec.select39.us52, %48 ], [ %.043.us46, %.lr.ph.split.split.us ], [ %.043.us46, %40 ], [ %.043.us46, %.critedge.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !11
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %73
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %73 ], [ 0, %.lr.ph.split ]
@@ -426,7 +426,7 @@ define dso_local i32 @toast_tuple_find_biggest_attribute(ptr noundef readonly ca
   %.1 = phi i32 [ %spec.select39, %68 ], [ %.043, %.lr.ph.split.split ], [ %.043, %58 ], [ %.043, %.critedge ]
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %9
-  br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !11
+  br i1 %exitcond67.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %53, %73, %35, %3
   %.0.lcssa = phi i32 [ -1, %3 ], [ %.1.us, %35 ], [ %.1, %73 ], [ %.1.us54, %53 ]
@@ -574,7 +574,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 22:                                               ; preds = %17, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit25.loopexit, label %12, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit25.loopexit, label %12, !llvm.loop !13
 
 .loopexit25.loopexit:                             ; preds = %22
   %.pre = load i8, ptr %6, align 8
@@ -613,7 +613,7 @@ define dso_local void @toast_tuple_cleanup(ptr noundef readonly captures(none) %
 37:                                               ; preds = %32, %27
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %.loopexit, label %27, !llvm.loop !13
+  br i1 %exitcond35.not, label %.loopexit, label %27, !llvm.loop !14
 
 .loopexit:                                        ; preds = %37, %.loopexit25
   ret void
@@ -669,7 +669,7 @@ define dso_local void @toast_delete_external(ptr noundef %0, ptr noundef readonl
 29:                                               ; preds = %14, %20, %24, %28, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %29, %4
   ret void
@@ -696,12 +696,13 @@ attributes #5 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8, !10}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

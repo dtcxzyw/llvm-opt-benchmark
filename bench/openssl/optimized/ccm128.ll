@@ -304,7 +304,7 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %0, ptr noundef r
   %28 = shl i64 %27, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %.087.lcssa = phi i64 [ 0, %18 ], [ %28, %.lr.ph ]
@@ -342,12 +342,12 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %0, ptr noundef r
   %.08398 = phi ptr [ %1, %.lr.ph99 ], [ %65, %ctr64_inc.exit ]
   %.08497 = phi ptr [ %2, %.lr.ph99 ], [ %66, %ctr64_inc.exit ]
   %.08596 = phi i64 [ %3, %.lr.ph99 ], [ %67, %ctr64_inc.exit ]
-  %47 = load i64, ptr %.08398, align 1, !tbaa !15
+  %47 = load i64, ptr %.08398, align 1, !tbaa !16
   %48 = load i64, ptr %42, align 8, !tbaa !3
   %49 = xor i64 %48, %47
   store i64 %49, ptr %42, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %.08398, i64 8
-  %51 = load i64, ptr %50, align 1, !tbaa !15
+  %51 = load i64, ptr %50, align 1, !tbaa !16
   %52 = load i64, ptr %43, align 8, !tbaa !3
   %53 = xor i64 %52, %51
   store i64 %53, ptr %43, align 8, !tbaa !3
@@ -365,23 +365,23 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt(ptr noundef %0, ptr noundef r
   %.not.i = icmp ne i8 %57, 0
   %.not10.i = icmp eq i64 %indvars.iv.next.i, 0
   %or.cond.i = or i1 %.not10.i, %.not.i
-  br i1 %or.cond.i, label %ctr64_inc.exit, label %54, !llvm.loop !16
+  br i1 %or.cond.i, label %ctr64_inc.exit, label %54, !llvm.loop !17
 
 ctr64_inc.exit:                                   ; preds = %54
   %58 = load i64, ptr %5, align 8, !tbaa !3
-  %59 = load i64, ptr %.08398, align 1, !tbaa !15
+  %59 = load i64, ptr %.08398, align 1, !tbaa !16
   %60 = xor i64 %59, %58
-  store i64 %60, ptr %.08497, align 1, !tbaa !15
+  store i64 %60, ptr %.08497, align 1, !tbaa !16
   %61 = load i64, ptr %45, align 8, !tbaa !3
-  %62 = load i64, ptr %50, align 1, !tbaa !15
+  %62 = load i64, ptr %50, align 1, !tbaa !16
   %63 = xor i64 %62, %61
   %64 = getelementptr inbounds nuw i8, ptr %.08497, i64 8
-  store i64 %63, ptr %64, align 1, !tbaa !15
+  store i64 %63, ptr %64, align 1, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %.08398, i64 16
   %66 = getelementptr inbounds nuw i8, ptr %.08497, i64 16
   %67 = add i64 %.08596, -16
   %68 = icmp ugt i64 %67, 15
-  br i1 %68, label %46, label %._crit_edge100, !llvm.loop !17
+  br i1 %68, label %46, label %._crit_edge100, !llvm.loop !18
 
 ._crit_edge100:                                   ; preds = %ctr64_inc.exit, %.preheader93
   %.085.lcssa = phi i64 [ %3, %.preheader93 ], [ %67, %ctr64_inc.exit ]
@@ -404,7 +404,7 @@ ctr64_inc.exit:                                   ; preds = %54
   store i8 %75, ptr %73, align 1, !tbaa !3
   %indvars.iv.next116 = add nuw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, %.085.lcssa
-  br i1 %exitcond118.not, label %76, label %70, !llvm.loop !18
+  br i1 %exitcond118.not, label %76, label %70, !llvm.loop !19
 
 76:                                               ; preds = %70
   call void %8(ptr noundef nonnull %69, ptr noundef nonnull %69, ptr noundef %10) #7
@@ -422,7 +422,7 @@ ctr64_inc.exit:                                   ; preds = %54
   store i8 %82, ptr %83, align 1, !tbaa !3
   %indvars.iv.next120 = add nuw i64 %indvars.iv119, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next120, %.085.lcssa
-  br i1 %exitcond122.not, label %._crit_edge109, label %77, !llvm.loop !19
+  br i1 %exitcond122.not, label %._crit_edge109, label %77, !llvm.loop !20
 
 ._crit_edge109:                                   ; preds = %77, %._crit_edge100
   %84 = zext nneg i32 %21 to i64
@@ -496,7 +496,7 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt(ptr noundef %0, ptr noundef r
   %25 = shl i64 %24, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.076.lcssa = phi i64 [ 0, %15 ], [ %25, %.lr.ph ]
@@ -536,22 +536,22 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt(ptr noundef %0, ptr noundef r
   %.not.i = icmp ne i8 %39, 0
   %.not10.i = icmp eq i64 %indvars.iv.next.i, 0
   %or.cond.i = or i1 %.not10.i, %.not.i
-  br i1 %or.cond.i, label %ctr64_inc.exit, label %36, !llvm.loop !16
+  br i1 %or.cond.i, label %ctr64_inc.exit, label %36, !llvm.loop !17
 
 ctr64_inc.exit:                                   ; preds = %36
   %40 = load i64, ptr %5, align 8, !tbaa !3
-  %41 = load i64, ptr %.07285, align 1, !tbaa !15
+  %41 = load i64, ptr %.07285, align 1, !tbaa !16
   %42 = xor i64 %41, %40
-  store i64 %42, ptr %.07384, align 1, !tbaa !15
+  store i64 %42, ptr %.07384, align 1, !tbaa !16
   %43 = load i64, ptr %32, align 8, !tbaa !3
   %44 = xor i64 %43, %42
   store i64 %44, ptr %32, align 8, !tbaa !3
   %45 = load i64, ptr %33, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %.07285, i64 8
-  %47 = load i64, ptr %46, align 1, !tbaa !15
+  %47 = load i64, ptr %46, align 1, !tbaa !16
   %48 = xor i64 %47, %45
   %49 = getelementptr inbounds nuw i8, ptr %.07384, i64 8
-  store i64 %48, ptr %49, align 1, !tbaa !15
+  store i64 %48, ptr %49, align 1, !tbaa !16
   %50 = load i64, ptr %34, align 8, !tbaa !3
   %51 = xor i64 %50, %48
   store i64 %51, ptr %34, align 8, !tbaa !3
@@ -560,7 +560,7 @@ ctr64_inc.exit:                                   ; preds = %36
   %53 = getelementptr inbounds nuw i8, ptr %.07384, i64 16
   %54 = add i64 %.07483, -16
   %55 = icmp ugt i64 %54, 15
-  br i1 %55, label %35, label %._crit_edge87, !llvm.loop !21
+  br i1 %55, label %35, label %._crit_edge87, !llvm.loop !22
 
 ._crit_edge87:                                    ; preds = %ctr64_inc.exit, %.preheader
   %.074.lcssa = phi i64 [ %3, %.preheader ], [ %54, %ctr64_inc.exit ]
@@ -589,7 +589,7 @@ ctr64_inc.exit:                                   ; preds = %36
   store i8 %67, ptr %65, align 1, !tbaa !3
   %indvars.iv.next102 = add nuw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, %.074.lcssa
-  br i1 %exitcond104.not, label %68, label %58, !llvm.loop !22
+  br i1 %exitcond104.not, label %68, label %58, !llvm.loop !23
 
 68:                                               ; preds = %58
   call void %8(ptr noundef nonnull %57, ptr noundef nonnull %57, ptr noundef %10) #7
@@ -671,7 +671,7 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %0, ptr nou
   %29 = shl i64 %28, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.085.lcssa = phi i64 [ 0, %19 ], [ %29, %.lr.ph ]
@@ -735,7 +735,7 @@ define range(i32 -2, 1) i32 @CRYPTO_ccm128_encrypt_ccm64(ptr noundef %0, ptr nou
   %64 = icmp samesign ugt i64 %.014.i, 255
   %65 = icmp samesign ugt i64 %59, 255
   %66 = select i1 %64, i1 true, i1 %65
-  br i1 %66, label %52, label %ctr64_add.exit, !llvm.loop !24
+  br i1 %66, label %52, label %ctr64_add.exit, !llvm.loop !25
 
 ctr64_add.exit:                                   ; preds = %61, %52, %42
   %.083 = phi i64 [ %3, %42 ], [ %49, %52 ], [ %49, %61 ]
@@ -758,7 +758,7 @@ ctr64_add.exit:                                   ; preds = %61, %52, %42
   store i8 %73, ptr %71, align 1, !tbaa !3
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, %.083
-  br i1 %exitcond112.not, label %74, label %68, !llvm.loop !25
+  br i1 %exitcond112.not, label %74, label %68, !llvm.loop !26
 
 74:                                               ; preds = %68
   tail call void %9(ptr noundef nonnull %67, ptr noundef nonnull %67, ptr noundef %11) #7
@@ -776,7 +776,7 @@ ctr64_add.exit:                                   ; preds = %61, %52, %42
   store i8 %80, ptr %81, align 1, !tbaa !3
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next114, %.083
-  br i1 %exitcond116.not, label %._crit_edge106, label %75, !llvm.loop !26
+  br i1 %exitcond116.not, label %._crit_edge106, label %75, !llvm.loop !27
 
 ._crit_edge106:                                   ; preds = %75, %44, %ctr64_add.exit
   %82 = zext nneg i32 %22 to i64
@@ -850,7 +850,7 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %0, ptr nou
   %26 = shl i64 %25, 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.076.lcssa = phi i64 [ 0, %16 ], [ %26, %.lr.ph ]
@@ -903,7 +903,7 @@ define range(i32 -1, 1) i32 @CRYPTO_ccm128_decrypt_ccm64(ptr noundef %0, ptr nou
   %53 = icmp samesign ugt i64 %.014.i, 255
   %54 = icmp samesign ugt i64 %48, 255
   %55 = select i1 %53, i1 true, i1 %54
-  br i1 %55, label %41, label %ctr64_add.exit, !llvm.loop !24
+  br i1 %55, label %41, label %ctr64_add.exit, !llvm.loop !25
 
 ctr64_add.exit:                                   ; preds = %50, %41, %31
   %.074 = phi i64 [ %3, %31 ], [ %38, %41 ], [ %38, %50 ]
@@ -932,7 +932,7 @@ ctr64_add.exit:                                   ; preds = %50, %41, %31
   store i8 %67, ptr %65, align 1, !tbaa !3
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next99, %.074
-  br i1 %exitcond101.not, label %68, label %58, !llvm.loop !28
+  br i1 %exitcond101.not, label %68, label %58, !llvm.loop !29
 
 68:                                               ; preds = %58
   call void %9(ptr noundef nonnull %57, ptr noundef nonnull %57, ptr noundef %11) #7
@@ -1011,20 +1011,21 @@ attributes #7 = { nounwind }
 !9 = !{!"any pointer", !4, i64 0}
 !10 = !{!7, !9, i64 40}
 !11 = !{!7, !9, i64 48}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{!8, !8, i64 0}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = distinct !{!19, !13}
-!20 = distinct !{!20, !13}
-!21 = distinct !{!21, !13}
-!22 = distinct !{!22, !13}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
-!25 = distinct !{!25, !13}
-!26 = distinct !{!26, !13}
-!27 = distinct !{!27, !13}
-!28 = distinct !{!28, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{!8, !8, i64 0}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}
+!20 = distinct !{!20, !13, !14}
+!21 = distinct !{!21, !13, !14}
+!22 = distinct !{!22, !13, !14}
+!23 = distinct !{!23, !13, !14}
+!24 = distinct !{!24, !13, !14}
+!25 = distinct !{!25, !13, !14}
+!26 = distinct !{!26, !13, !14}
+!27 = distinct !{!27, !13, !14}
+!28 = distinct !{!28, !13, !14}
+!29 = distinct !{!29, !13, !14}

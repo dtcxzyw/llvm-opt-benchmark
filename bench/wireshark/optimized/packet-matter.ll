@@ -559,7 +559,7 @@ define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   %74 = icmp slt i32 %.4, %9
-  br i1 %74, label %.lr.ph, label %.loopexit
+  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %72, %12, %.thread
   %.2 = phi i32 [ %.1.ph, %.thread ], [ %9, %12 ], [ %9, %72 ]
@@ -655,3 +655,5 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

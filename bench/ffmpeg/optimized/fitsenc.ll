@@ -151,7 +151,7 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   %.2.lcssa.us = phi ptr [ %.163.us, %.preheader.us ], [ %60, %.loopexit.us.loopexit ]
   %67 = add nuw nsw i32 %.04464.us, 1
   %68 = icmp slt i32 %67, %65
-  br i1 %68, label %.preheader.us, label %._crit_edge, !llvm.loop !36
+  br i1 %68, label %.preheader.us, label %._crit_edge, !llvm.loop !37
 
 .lr.ph65.split:                                   ; preds = %.lr.ph65.split.preheader, %.lr.ph65.split
   %69 = phi i32 [ %79, %.lr.ph65.split ], [ %.pre76, %.lr.ph65.split.preheader ]
@@ -173,7 +173,7 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   %82 = add nuw nsw i32 %.04464, 1
   %83 = load i32, ptr %17, align 4, !tbaa !28
   %84 = icmp slt i32 %82, %83
-  br i1 %84, label %.lr.ph65.split, label %._crit_edge, !llvm.loop !38
+  br i1 %84, label %.lr.ph65.split, label %._crit_edge, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph65.split, %.loopexit.us, %.preheader59
   %85 = phi i32 [ %36, %.preheader59 ], [ %65, %.loopexit.us ], [ %83, %.lr.ph65.split ]
@@ -181,7 +181,7 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   %.1.lcssa = phi ptr [ %.05867, %.preheader59 ], [ %.2.lcssa.us, %.loopexit.us ], [ %81, %.lr.ph65.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split70.us, label %.preheader59, !llvm.loop !39
+  br i1 %exitcond.not, label %.split70.us, label %.preheader59, !llvm.loop !40
 
 .split70.us:                                      ; preds = %._crit_edge, %30
   %.us-phi71 = phi ptr [ %32, %30 ], [ %.1.lcssa, %._crit_edge ]
@@ -190,9 +190,9 @@ define internal range(i32 -2147483648, 1) i32 @fits_encode_frame(ptr noundef %0,
   %89 = sext i32 %88 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.us-phi71, i8 0, i64 %89, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %91 = load i32, ptr %90, align 8, !tbaa !41
+  %91 = load i32, ptr %90, align 8, !tbaa !42
   %92 = or i32 %91, 1
-  store i32 %92, ptr %90, align 8, !tbaa !41
+  store i32 %92, ptr %90, align 8, !tbaa !42
   store i32 1, ptr %3, align 4, !tbaa !27
   br label %93
 
@@ -261,11 +261,12 @@ attributes #5 = { nounwind }
 !31 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
 !32 = !{!14, !14, i64 0}
 !33 = !{!8, !8, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = distinct !{!38, !35}
-!39 = distinct !{!39, !35, !40}
-!40 = !{!"llvm.loop.unswitch.partial.disable"}
-!41 = !{!31, !10, i64 40}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !35, !36}
+!40 = distinct !{!40, !35, !36, !41}
+!41 = !{!"llvm.loop.unswitch.partial.disable"}
+!42 = !{!31, !10, i64 40}

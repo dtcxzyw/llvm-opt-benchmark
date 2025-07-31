@@ -226,7 +226,7 @@ define internal fastcc i32 @map_madt_entry(ptr noundef %0, i32 noundef %1, i32 n
   %117 = add i64 %15, %116
   %118 = add i64 %117, 2
   %119 = icmp ult i64 %118, %10
-  br i1 %119, label %.lr.ph, label %.thread12
+  br i1 %119, label %.lr.ph, label %.thread12, !llvm.loop !5
 
 .thread12:                                        ; preds = %.thread, %5, %28, %42, %64, %83, %97, %111, %3
   %120 = phi i32 [ -1, %3 ], [ %31, %28 ], [ %44, %42 ], [ %72, %64 ], [ %86, %83 ], [ %100, %97 ], [ %113, %111 ], [ -1, %5 ], [ -1, %.thread ]
@@ -435,7 +435,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_map_cpuid(i32 noundef %0, i32 noun
   %13 = phi i64 [ %32, %24 ], [ 0, %4 ]
   %14 = and i64 %13, 4294967295
   %15 = icmp samesign ugt i64 %14, 63
-  br i1 %15, label %.thread, label %16, !prof !5
+  br i1 %15, label %.thread, label %16, !prof !7
 
 16:                                               ; preds = %12
   %17 = shl nsw i64 -1, %14
@@ -444,7 +444,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_map_cpuid(i32 noundef %0, i32 noun
   br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %18) #8, !srcloc !6
+  %21 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %18) #8, !srcloc !8
   %22 = trunc i64 %21 to i32
   %23 = icmp ult i32 %22, 64
   br i1 %23, label %24, label %.thread
@@ -458,7 +458,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_map_cpuid(i32 noundef %0, i32 noun
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %0
   %32 = add nuw nsw i64 %21, 1
-  br i1 %31, label %.thread, label %12, !llvm.loop !7
+  br i1 %31, label %.thread, label %12, !llvm.loop !9
 
 .thread:                                          ; preds = %16, %12, %24, %20, %6
   %33 = phi i32 [ %11, %6 ], [ -19, %16 ], [ -19, %12 ], [ -19, %20 ], [ %22, %24 ]
@@ -487,7 +487,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_get_cpuid(ptr noundef %0, i32 noun
   %15 = phi i64 [ %34, %26 ], [ 0, %6 ]
   %16 = and i64 %15, 4294967295
   %17 = icmp samesign ugt i64 %16, 63
-  br i1 %17, label %.thread, label %18, !prof !5
+  br i1 %17, label %.thread, label %18, !prof !7
 
 18:                                               ; preds = %14
   %19 = shl nsw i64 -1, %16
@@ -496,7 +496,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_get_cpuid(ptr noundef %0, i32 noun
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %18
-  %23 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %20) #8, !srcloc !6
+  %23 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %20) #8, !srcloc !8
   %24 = trunc i64 %23 to i32
   %25 = icmp ult i32 %24, 64
   br i1 %25, label %26, label %.thread
@@ -510,7 +510,7 @@ define dso_local range(i32 -22, 64) i32 @acpi_get_cpuid(ptr noundef %0, i32 noun
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %4
   %34 = add nuw nsw i64 %23, 1
-  br i1 %33, label %.thread, label %14, !llvm.loop !7
+  br i1 %33, label %.thread, label %14, !llvm.loop !12
 
 .thread:                                          ; preds = %18, %14, %26, %22, %8
   %35 = phi i32 [ %13, %8 ], [ -19, %18 ], [ -19, %14 ], [ -19, %22 ], [ %24, %26 ]
@@ -643,7 +643,7 @@ define dso_local range(i32 -1, 256) i32 @acpi_get_ioapic_id(ptr noundef %0, i32 
   %77 = add i64 %59, %76
   %78 = add i64 %77, 2
   %79 = icmp ult i64 %78, %53
-  br i1 %79, label %58, label %.loopexit, !llvm.loop !10
+  br i1 %79, label %58, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %73, %31, %.thread4, %48, %45
   %80 = phi i32 [ %37, %31 ], [ -1, %45 ], [ -1, %48 ], [ %72, %.thread4 ], [ -1, %73 ]
@@ -720,9 +720,12 @@ attributes #8 = { nounwind memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{!"branch_weights", i32 1, i32 2000}
-!6 = !{i64 1106624}
-!7 = distinct !{!7, !8, !9}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!"branch_weights", i32 1, i32 2000}
+!8 = !{i64 1106624}
+!9 = distinct !{!9, !10, !11, !6}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = !{!"llvm.loop.unroll.disable"}
+!12 = distinct !{!12, !10, !11, !6}
+!13 = distinct !{!13, !10, !11, !6}

@@ -2081,7 +2081,7 @@ if.end9:                                          ; preds = %if.then3
   %sin6_addr = getelementptr inbounds nuw i8, ptr %address, i64 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #25
   call void @_ZN7AddressC1EPK16IPv6AddressBytest(ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp, ptr noundef nonnull %sin6_addr, i16 noundef zeroext %rev.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp, i64 22, i1 false), !tbaa.struct !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp, i64 22, i1 false), !tbaa.struct !68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %address_len) #25
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %address) #25
@@ -2100,14 +2100,14 @@ if.else:                                          ; preds = %if.end
 
 if.end20:                                         ; preds = %if.else
   %sin_addr = getelementptr inbounds nuw i8, ptr %address12, i64 4
-  %5 = load i32, ptr %sin_addr, align 4, !tbaa !69
+  %5 = load i32, ptr %sin_addr, align 4, !tbaa !70
   %or7.i = call noundef i32 @llvm.bswap.i32(i32 %5)
   %sin_port = getelementptr inbounds nuw i8, ptr %address12, i64 2
   %6 = load i16, ptr %sin_port, align 2, !tbaa !59
   %rev.i78 = call noundef i16 @llvm.bswap.i16(i16 %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp24) #25
   call void @_ZN7AddressC1Ejt(ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp24, i32 noundef %or7.i, i16 noundef zeroext %rev.i78)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp24, i64 22, i1 false), !tbaa.struct !67
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef nonnull align 4 dereferenceable(22) %ref.tmp24, i64 22, i1 false), !tbaa.struct !68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp24) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %address_len13) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %address12) #25
@@ -2349,7 +2349,7 @@ if.then.i131:                                     ; preds = %if.then.i131.sink.s
 _ZN11StreamProxylsIRjEERS_OT_.exit:               ; preds = %if.then.i131, %_ZN11StreamProxylsISt8_SetfillIcEEERS_OT_.exit, %_ZTW11tracestream.exit113
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !70
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !71
 
 if.then57:                                        ; preds = %for.cond.cleanup
   br i1 %.not, label %_ZTW11tracestream.exit134, label %41
@@ -2456,9 +2456,9 @@ entry:
   %cond = tail call i32 @llvm.smax.i32(i32 %timeout_ms, i32 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pfd) #25
   %0 = load i32, ptr %this, align 4, !tbaa !4
-  store i32 %0, ptr %pfd, align 4, !tbaa !71
+  store i32 %0, ptr %pfd, align 4, !tbaa !72
   %events = getelementptr inbounds nuw i8, ptr %pfd, i64 4
-  store i16 1, ptr %events, align 4, !tbaa !73
+  store i16 1, ptr %events, align 4, !tbaa !74
   %call = call i32 @poll(ptr noundef nonnull %pfd, i64 noundef 1, i32 noundef %cond)
   %cmp2 = icmp eq i32 %call, 0
   br i1 %cmp2, label %cleanup, label %if.else
@@ -2469,7 +2469,7 @@ if.else:                                          ; preds = %entry
 
 if.then4:                                         ; preds = %if.else
   %revents = getelementptr inbounds nuw i8, ptr %pfd, i64 6
-  %1 = load i16, ptr %revents, align 2, !tbaa !74
+  %1 = load i16, ptr %revents, align 2, !tbaa !75
   %cmp5 = icmp ne i16 %1, 0
   br label %cleanup
 
@@ -2830,13 +2830,14 @@ attributes #28 = { noreturn nounwind }
 !62 = !{!28, !29, i64 16}
 !63 = !{!27, !33, i64 225}
 !64 = !{!27, !7, i64 224}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{i64 0, i64 2, !68, i64 4, i64 16, !37, i64 20, i64 2, !68}
-!68 = !{!9, !9, i64 0}
-!69 = !{!57, !6, i64 4}
-!70 = distinct !{!70, !66}
-!71 = !{!72, !6, i64 0}
-!72 = !{!"_ZTS6pollfd", !6, i64 0, !9, i64 4, !9, i64 6}
-!73 = !{!72, !9, i64 4}
-!74 = !{!72, !9, i64 6}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{i64 0, i64 2, !69, i64 4, i64 16, !37, i64 20, i64 2, !69}
+!69 = !{!9, !9, i64 0}
+!70 = !{!57, !6, i64 4}
+!71 = distinct !{!71, !66, !67}
+!72 = !{!73, !6, i64 0}
+!73 = !{!"_ZTS6pollfd", !6, i64 0, !9, i64 4, !9, i64 6}
+!74 = !{!73, !9, i64 4}
+!75 = !{!73, !9, i64 6}

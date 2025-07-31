@@ -558,17 +558,17 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_E
   %69 = ptrtoint ptr %66 to i64
   %70 = sub i64 %68, %69
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %65, ptr nonnull align 8 %66, i64 %70, i1 false)
-  %.pre.i.i.i = load ptr, ptr %16, align 8, !tbaa !52
+  %.pre.i.i.i = load ptr, ptr %16, align 8, !tbaa !53
   br label %71
 
 71:                                               ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i, %.noexc
   %72 = phi ptr [ %.pre.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i.i ], [ %67, %.noexc ]
   %73 = getelementptr inbounds i8, ptr %72, i64 -8
-  store ptr %73, ptr %16, align 8, !tbaa !52
+  store ptr %73, ptr %16, align 8, !tbaa !53
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.02.014, i64 8
   %75 = load ptr, ptr %4, align 8, !tbaa !41
   %.not = icmp eq ptr %74, %75
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !55
 
 76:                                               ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPPKN5Ipopt7SubjectESt6vectorIS5_SaIS5_EEEES5_ET_SB_SB_RKT0_.exit.i
   %77 = landingpad { ptr, i32 }
@@ -670,8 +670,9 @@ attributes #13 = { noreturn nounwind }
 !47 = !{!"p2 _ZTSN5Ipopt7SubjectE", !23, i64 0}
 !48 = !{!49, !49, i64 0}
 !49 = !{!"p1 _ZTSN5Ipopt7SubjectE", !13, i64 0}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!53, !47, i64 8}
-!53 = !{!"_ZTSNSt12_Vector_baseIPKN5Ipopt7SubjectESaIS3_EE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
-!54 = distinct !{!54, !51}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!54, !47, i64 8}
+!54 = !{!"_ZTSNSt12_Vector_baseIPKN5Ipopt7SubjectESaIS3_EE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
+!55 = distinct !{!55, !51, !52}

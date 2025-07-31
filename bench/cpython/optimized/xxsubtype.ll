@@ -137,13 +137,13 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @xxsubtype_exec(ptr noundef %0) #0 {
-  store ptr @PyDict_Type, ptr getelementptr inbounds nuw (i8, ptr @spamdict_type, i64 256), align 8, !tbaa !13
+  store ptr @PyDict_Type, ptr getelementptr inbounds nuw (i8, ptr @spamdict_type, i64 256), align 8, !tbaa !14
   %2 = tail call i32 @PyType_Ready(ptr noundef nonnull @spamdict_type) #4
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %18, label %4
 
 4:                                                ; preds = %1
-  store ptr @PyList_Type, ptr getelementptr inbounds nuw (i8, ptr @spamlist_type, i64 256), align 8, !tbaa !13
+  store ptr @PyList_Type, ptr getelementptr inbounds nuw (i8, ptr @spamlist_type, i64 256), align 8, !tbaa !14
   %5 = tail call i32 @PyType_Ready(ptr noundef nonnull @spamlist_type) #4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %18, label %7
@@ -179,14 +179,14 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @spamdict_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDict_Type, i64 296), align 8, !tbaa !24
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDict_Type, i64 296), align 8, !tbaa !25
   %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %8, align 8, !tbaa !25
+  store i32 0, ptr %8, align 8, !tbaa !26
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -202,7 +202,7 @@ define internal ptr @spamdict_getstate(ptr noundef readonly captures(none) %0, p
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load i32, ptr %5, align 8, !tbaa !25
+  %6 = load i32, ptr %5, align 8, !tbaa !26
   %7 = sext i32 %6 to i64
   %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #4
   br label %9
@@ -223,7 +223,7 @@ define internal noundef ptr @spamdict_setstate(ptr noundef writeonly captures(no
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 4, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %6, ptr %7, align 8, !tbaa !25
+  store i32 %6, ptr %7, align 8, !tbaa !26
   %8 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !10
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %_Py_NewRef.exit, label %10
@@ -243,14 +243,14 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @spamlist_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyList_Type, i64 296), align 8, !tbaa !24
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyList_Type, i64 296), align 8, !tbaa !25
   %5 = tail call i32 %4(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %8, align 8, !tbaa !30
+  store i32 0, ptr %8, align 8, !tbaa !31
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -266,7 +266,7 @@ define internal ptr @spamlist_getstate(ptr noundef readonly captures(none) %0, p
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load i32, ptr %5, align 8, !tbaa !30
+  %6 = load i32, ptr %5, align 8, !tbaa !31
   %7 = sext i32 %6 to i64
   %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #4
   br label %9
@@ -287,7 +287,7 @@ define internal noundef ptr @spamlist_setstate(ptr noundef writeonly captures(no
 5:                                                ; preds = %2
   %6 = load i32, ptr %3, align 4, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %6, ptr %7, align 8, !tbaa !30
+  store i32 %6, ptr %7, align 8, !tbaa !31
   %8 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !10
   %9 = icmp slt i32 %8, 0
   br i1 %9, label %_Py_NewRef.exit, label %10
@@ -361,7 +361,7 @@ declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal ptr @spamlist_state_get(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i32, ptr %3, align 8, !tbaa !30
+  %4 = load i32, ptr %3, align 8, !tbaa !31
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #4
   ret ptr %6
@@ -386,26 +386,27 @@ attributes #4 = { nounwind }
 !8 = !{!"p1 _ZTS7_object", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !17, i64 256}
-!14 = !{!"_typeobject", !15, i64 0, !19, i64 24, !18, i64 32, !18, i64 40, !9, i64 48, !18, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !18, i64 168, !19, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !18, i64 208, !9, i64 216, !9, i64 224, !20, i64 232, !21, i64 240, !22, i64 248, !17, i64 256, !8, i64 264, !9, i64 272, !9, i64 280, !18, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !8, i64 336, !8, i64 344, !8, i64 352, !9, i64 360, !8, i64 368, !9, i64 376, !4, i64 384, !9, i64 392, !9, i64 400, !5, i64 408, !23, i64 410}
-!15 = !{!"", !16, i64 0, !18, i64 16}
-!16 = !{!"_object", !5, i64 0, !17, i64 8}
-!17 = !{!"p1 _ZTS11_typeobject", !9, i64 0}
-!18 = !{!"long", !5, i64 0}
-!19 = !{!"p1 omnipotent char", !9, i64 0}
-!20 = !{!"p1 _ZTS11PyMethodDef", !9, i64 0}
-!21 = !{!"p1 _ZTS11PyMemberDef", !9, i64 0}
-!22 = !{!"p1 _ZTS11PyGetSetDef", !9, i64 0}
-!23 = !{!"short", !5, i64 0}
-!24 = !{!14, !9, i64 296}
-!25 = !{!26, !4, i64 48}
-!26 = !{!"", !27, i64 0, !4, i64 48}
-!27 = !{!"", !16, i64 0, !18, i64 16, !18, i64 24, !28, i64 32, !29, i64 40}
-!28 = !{!"p1 _ZTS15_dictkeysobject", !9, i64 0}
-!29 = !{!"p1 _ZTS11_dictvalues", !9, i64 0}
-!30 = !{!31, !4, i64 40}
-!31 = !{!"", !32, i64 0, !4, i64 40}
-!32 = !{!"", !15, i64 0, !33, i64 24, !18, i64 32}
-!33 = !{!"p2 _ZTS7_object", !9, i64 0}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !18, i64 256}
+!15 = !{!"_typeobject", !16, i64 0, !20, i64 24, !19, i64 32, !19, i64 40, !9, i64 48, !19, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !9, i64 144, !9, i64 152, !9, i64 160, !19, i64 168, !20, i64 176, !9, i64 184, !9, i64 192, !9, i64 200, !19, i64 208, !9, i64 216, !9, i64 224, !21, i64 232, !22, i64 240, !23, i64 248, !18, i64 256, !8, i64 264, !9, i64 272, !9, i64 280, !19, i64 288, !9, i64 296, !9, i64 304, !9, i64 312, !9, i64 320, !9, i64 328, !8, i64 336, !8, i64 344, !8, i64 352, !9, i64 360, !8, i64 368, !9, i64 376, !4, i64 384, !9, i64 392, !9, i64 400, !5, i64 408, !24, i64 410}
+!16 = !{!"", !17, i64 0, !19, i64 16}
+!17 = !{!"_object", !5, i64 0, !18, i64 8}
+!18 = !{!"p1 _ZTS11_typeobject", !9, i64 0}
+!19 = !{!"long", !5, i64 0}
+!20 = !{!"p1 omnipotent char", !9, i64 0}
+!21 = !{!"p1 _ZTS11PyMethodDef", !9, i64 0}
+!22 = !{!"p1 _ZTS11PyMemberDef", !9, i64 0}
+!23 = !{!"p1 _ZTS11PyGetSetDef", !9, i64 0}
+!24 = !{!"short", !5, i64 0}
+!25 = !{!15, !9, i64 296}
+!26 = !{!27, !4, i64 48}
+!27 = !{!"", !28, i64 0, !4, i64 48}
+!28 = !{!"", !17, i64 0, !19, i64 16, !19, i64 24, !29, i64 32, !30, i64 40}
+!29 = !{!"p1 _ZTS15_dictkeysobject", !9, i64 0}
+!30 = !{!"p1 _ZTS11_dictvalues", !9, i64 0}
+!31 = !{!32, !4, i64 40}
+!32 = !{!"", !33, i64 0, !4, i64 40}
+!33 = !{!"", !16, i64 0, !34, i64 24, !19, i64 32}
+!34 = !{!"p2 _ZTS7_object", !9, i64 0}

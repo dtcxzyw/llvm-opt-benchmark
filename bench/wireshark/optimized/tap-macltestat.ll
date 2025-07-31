@@ -373,7 +373,7 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
   %.0 = phi ptr [ %145, %131 ], [ %147, %146 ]
   %147 = load ptr, ptr %.0, align 8
   %.not130 = icmp eq ptr %147, null
-  br i1 %.not130, label %148, label %146, !llvm.loop !9
+  br i1 %.not130, label %148, label %146, !llvm.loop !10
 
 148:                                              ; preds = %146
   store ptr %130, ptr %.0, align 8
@@ -457,7 +457,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
 
 191:                                              ; preds = %186
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %193 = load i8, ptr %192, align 8, !range !10, !noundef !11
+  %193 = load i8, ptr %192, align 8, !range !11, !noundef !12
   %194 = trunc nuw i8 %193 to i1
   br i1 %194, label %195, label %202
 
@@ -534,7 +534,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
   store i32 %238, ptr %227, align 4
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next168, 33
-  br i1 %exitcond170.not, label %update_ueid_rnti_counts.exit.thread153, label %234, !llvm.loop !12
+  br i1 %exitcond170.not, label %update_ueid_rnti_counts.exit.thread153, label %234, !llvm.loop !13
 
 239:                                              ; preds = %update_ueid_rnti_counts.exit.thread
   br i1 %.not135, label %244, label %240
@@ -548,7 +548,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
 
 244:                                              ; preds = %239
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %246 = load i8, ptr %245, align 8, !range !10, !noundef !11
+  %246 = load i8, ptr %245, align 8, !range !11, !noundef !12
   %247 = trunc nuw i8 %246 to i1
   br i1 %247, label %248, label %255
 
@@ -625,7 +625,7 @@ update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %1
   store i32 %291, ptr %280, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 33
-  br i1 %exitcond.not, label %update_ueid_rnti_counts.exit.thread153, label %287, !llvm.loop !13
+  br i1 %exitcond.not, label %update_ueid_rnti_counts.exit.thread153, label %287, !llvm.loop !14
 
 update_ueid_rnti_counts.exit.thread153:           ; preds = %287, %234, %128, %129, %228, %281, %update_ueid_rnti_counts.exit, %6, %5, %251, %240, %198, %187, %39, %35, %26, %11
   %.0112 = phi i32 [ 1, %11 ], [ 1, %26 ], [ 1, %35 ], [ 1, %39 ], [ 1, %187 ], [ 1, %198 ], [ 1, %240 ], [ 1, %251 ], [ 0, %5 ], [ 0, %6 ], [ 0, %update_ueid_rnti_counts.exit ], [ 1, %281 ], [ 1, %228 ], [ 0, %129 ], [ 0, %128 ], [ 1, %234 ], [ 1, %287 ]
@@ -680,7 +680,7 @@ define internal void @mac_lte_stat_draw(ptr noundef readonly captures(none) %0) 
   %39 = load ptr, ptr %.05062, align 8
   %40 = add i16 %.04963, 1
   %.not = icmp eq ptr %39, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %41 = zext i16 %40 to i32
@@ -705,7 +705,7 @@ define internal void @mac_lte_stat_draw(ptr noundef readonly captures(none) %0) 
   %53 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %52)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %54, label %50, !llvm.loop !15
+  br i1 %exitcond.not, label %54, label %50, !llvm.loop !16
 
 54:                                               ; preds = %50
   %55 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.20)
@@ -842,7 +842,7 @@ calculate_bw.exit60:                              ; preds = %calculate_bw.exit, 
   %154 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.21, ptr noundef nonnull %109, i32 noundef %112, ptr noundef nonnull %116, i32 noundef %119, i32 noundef %121, i32 noundef %60, double noundef %.1.i, double noundef %133, i32 noundef %135, i32 noundef %137, i32 noundef %85, double noundef %.1.i59, double noundef %149, i32 noundef %151, i32 noundef %153)
   %155 = load ptr, ptr %.166, align 8
   %.not53 = icmp eq ptr %155, null
-  br i1 %.not53, label %._crit_edge69, label %.lr.ph68, !llvm.loop !16
+  br i1 %.not53, label %._crit_edge69, label %.lr.ph68, !llvm.loop !17
 
 ._crit_edge69:                                    ; preds = %148, %54
   ret void
@@ -903,13 +903,14 @@ attributes #14 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

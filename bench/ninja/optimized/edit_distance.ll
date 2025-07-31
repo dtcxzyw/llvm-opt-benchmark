@@ -102,13 +102,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %31 = add nsw i64 %indvars.iv154, -1
   %32 = getelementptr inbounds i8, ptr %25, i64 %31
   %33 = trunc nuw nsw i64 %31 to i32
-  %.pre161 = load i8, ptr %32, align 1, !tbaa !16
+  %.pre161 = load i8, ptr %32, align 1, !tbaa !17
   br label %35
 
 34:                                               ; preds = %._crit_edge.split.us.us
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next155, %wide.trip.count157
-  br i1 %exitcond158.not, label %.thread, label %.lr.ph98.us, !llvm.loop !17
+  br i1 %exitcond158.not, label %.thread, label %.lr.ph98.us, !llvm.loop !18
 
 35:                                               ; preds = %35, %.lr.ph98.us
   %36 = phi i32 [ %.sroa.speculated.us.us, %35 ], [ %30, %.lr.ph98.us ]
@@ -118,7 +118,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %37 = getelementptr inbounds nuw i32, ptr %.sroa.072.0, i64 %indvars.iv149
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv149
-  %39 = load i8, ptr %gep, align 1, !tbaa !16
+  %39 = load i8, ptr %gep, align 1, !tbaa !17
   %40 = icmp ne i8 %.pre161, %39
   %41 = zext i1 %40 to i32
   %42 = add nsw i32 %.04796.us.us, %41
@@ -129,7 +129,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.sroa.speculated68.us.us = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.us.us, i32 %.08995.us.us)
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %._crit_edge.split.us.us, label %35, !llvm.loop !18
+  br i1 %exitcond153.not, label %._crit_edge.split.us.us, label %35, !llvm.loop !19
 
 ._crit_edge.split.us.us:                          ; preds = %35
   %45 = icmp sle i32 %.sroa.speculated68.us.us, %3
@@ -146,7 +146,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %47 = add nsw i64 %indvars.iv144, -1
   %48 = getelementptr inbounds i8, ptr %25, i64 %47
   %49 = trunc nuw nsw i64 %47 to i32
-  %.pre160 = load i8, ptr %48, align 1, !tbaa !16
+  %.pre160 = load i8, ptr %48, align 1, !tbaa !17
   br label %50
 
 50:                                               ; preds = %63, %.lr.ph98.us112
@@ -157,7 +157,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %53 = load i32, ptr %52, align 4, !tbaa !11
   %54 = add nsw i64 %indvars.iv139, -1
   %55 = getelementptr inbounds i8, ptr %26, i64 %54
-  %56 = load i8, ptr %55, align 1, !tbaa !16
+  %56 = load i8, ptr %55, align 1, !tbaa !17
   %57 = icmp eq i8 %.pre160, %56
   br i1 %57, label %63, label %58
 
@@ -174,12 +174,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   store i32 %storemerge119, ptr %52, align 4, !tbaa !11
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count152
-  br i1 %exitcond143.not, label %._crit_edge.split.us, label %50, !llvm.loop !19
+  br i1 %exitcond143.not, label %._crit_edge.split.us, label %50, !llvm.loop !20
 
 ._crit_edge.split.us:                             ; preds = %63
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count157
-  br i1 %exitcond148.not, label %.thread, label %.lr.ph98.us112, !llvm.loop !20
+  br i1 %exitcond148.not, label %.thread, label %.lr.ph98.us112, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -188,12 +188,12 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   store i32 %65, ptr %64, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader.thread, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader.thread, label %.lr.ph, !llvm.loop !22
 
 66:                                               ; preds = %._crit_edge.split
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count157
-  br i1 %exitcond138.not, label %.thread, label %.lr.ph98, !llvm.loop !22
+  br i1 %exitcond138.not, label %.thread, label %.lr.ph98, !llvm.loop !23
 
 .lr.ph98:                                         ; preds = %.lr.ph103.split.split, %66
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %66 ], [ 1, %.lr.ph103.split.split ]
@@ -202,7 +202,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %68 = add nsw i64 %indvars.iv134, -1
   %69 = getelementptr inbounds i8, ptr %25, i64 %68
   %70 = trunc nuw nsw i64 %68 to i32
-  %.pre = load i8, ptr %69, align 1, !tbaa !16
+  %.pre = load i8, ptr %69, align 1, !tbaa !17
   br label %71
 
 ._crit_edge.split:                                ; preds = %84
@@ -218,7 +218,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %74 = load i32, ptr %73, align 4, !tbaa !11
   %75 = add nsw i64 %indvars.iv129, -1
   %76 = getelementptr inbounds i8, ptr %26, i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !16
+  %77 = load i8, ptr %76, align 1, !tbaa !17
   %78 = icmp eq i8 %.pre, %77
   br i1 %78, label %84, label %79
 
@@ -236,7 +236,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.sroa.speculated68 = tail call i32 @llvm.smin.i32(i32 %storemerge, i32 %.08995)
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count152
-  br i1 %exitcond133.not, label %._crit_edge.split, label %71, !llvm.loop !19
+  br i1 %exitcond133.not, label %._crit_edge.split, label %71, !llvm.loop !20
 
 .thread:                                          ; preds = %66, %._crit_edge.split.us, %34, %.preheader.thread, %..thread_crit_edge.split.us, %.preheader
   %85 = ashr exact i64 %11, 30
@@ -295,13 +295,14 @@ attributes #8 = { builtin nounwind }
 !10 = !{!"long", !8, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !8, i64 0}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = !{!8, !8, i64 0}
-!17 = distinct !{!17, !14, !15}
-!18 = distinct !{!18, !14, !15}
-!19 = distinct !{!19, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = !{!8, !8, i64 0}
+!18 = distinct !{!18, !14, !15, !16}
+!19 = distinct !{!19, !14, !15, !16}
 !20 = distinct !{!20, !14, !15}
-!21 = distinct !{!21, !14}
-!22 = distinct !{!22, !14}
+!21 = distinct !{!21, !14, !15, !16}
+!22 = distinct !{!22, !14, !15}
+!23 = distinct !{!23, !14, !15}

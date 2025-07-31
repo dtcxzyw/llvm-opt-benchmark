@@ -1416,7 +1416,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
 36:                                               ; preds = %30, %35
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %28
-  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
@@ -1502,7 +1502,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %.0..0..0..0.22 = load volatile i8, ptr %7, align 1, !range !9, !noundef !10
+  %.0..0..0..0.22 = load volatile i8, ptr %7, align 1, !range !10, !noundef !11
   %62 = trunc nuw i8 %.0..0..0..0.22 to i1
   br i1 %62, label %73, label %63
 
@@ -1589,7 +1589,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   %102 = call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %101, ptr noundef %2)
   %103 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %103, %98
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 104:                                              ; preds = %5
   %sext300 = shl i32 %1, 16
@@ -1613,7 +1613,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   %112 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef 1, i32 noundef 0)
   %113 = add nuw i8 %.01011.i277, 1
   %exitcond.not.i278 = icmp eq i8 %113, %106
-  br i1 %exitcond.not.i278, label %dissect_mih_list.exit, label %.lr.ph.i275, !llvm.loop !11
+  br i1 %exitcond.not.i278, label %dissect_mih_list.exit, label %.lr.ph.i275, !llvm.loop !12
 
 114:                                              ; preds = %5
   %115 = load i32, ptr @hf_reg_request_code, align 4
@@ -1705,7 +1705,7 @@ define internal fastcc void @dissect_mih_tlv(ptr noundef %0, i32 noundef %1, ptr
   %165 = call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %164, ptr noundef %2)
   %166 = add nuw i8 %.01011.i284, 1
   %exitcond.not.i285 = icmp eq i8 %166, %158
-  br i1 %exitcond.not.i285, label %dissect_mih_list.exit, label %.lr.ph.i282, !llvm.loop !11
+  br i1 %exitcond.not.i285, label %dissect_mih_list.exit, label %.lr.ph.i282, !llvm.loop !12
 
 167:                                              ; preds = %5
   %168 = trunc i32 %1 to i16
@@ -1868,7 +1868,7 @@ dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i289, %234
   %253 = add i16 %252, %251
   %254 = add nuw i8 %.01011.i291, 1
   %exitcond.not.i292 = icmp eq i8 %254, %229
-  br i1 %exitcond.not.i292, label %dissect_mih_list.exit, label %.lr.ph.i289, !llvm.loop !11
+  br i1 %exitcond.not.i292, label %dissect_mih_list.exit, label %.lr.ph.i289, !llvm.loop !12
 
 .lr.ph312:                                        ; preds = %.preheader, %.lr.ph312
   %.1311 = phi i8 [ %262, %.lr.ph312 ], [ 0, %.preheader ]
@@ -1883,7 +1883,7 @@ dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i289, %234
   %262 = add nuw i8 %.1311, 1
   %263 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %261)
   %264 = icmp ult i8 %262, %263
-  br i1 %264, label %.lr.ph312, label %dissect_mih_list.exit, !llvm.loop !12
+  br i1 %264, label %.lr.ph312, label %dissect_mih_list.exit, !llvm.loop !13
 
 265:                                              ; preds = %5
   %266 = load i32, ptr @hf_max_resp_size, align 4
@@ -1908,7 +1908,7 @@ dissect_iq_rdf_data.exit:                         ; preds = %.lr.ph.i289, %234
   %278 = add nuw i8 %.2309, 1
   %279 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %277)
   %280 = icmp ult i8 %278, %279
-  br i1 %280, label %.lr.ph, label %dissect_mih_list.exit, !llvm.loop !13
+  br i1 %280, label %.lr.ph, label %dissect_mih_list.exit, !llvm.loop !14
 
 281:                                              ; preds = %5
   %282 = trunc i32 %1 to i16
@@ -2045,7 +2045,7 @@ define internal fastcc void @dissect_mih_list(ptr noundef %0, i16 noundef signex
   %8 = tail call signext i16 %3(ptr noundef %0, i16 noundef signext %.012, ptr noundef %2)
   %9 = add nuw i8 %.01011, 1
   %exitcond.not = icmp eq i8 %9, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -2231,7 +2231,7 @@ dissect_link_param_type.exit:                     ; preds = %.lr.ph.i, %switch.l
   %23 = add i16 %.012.i, 2
   %24 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %24, %13
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_mih_list.exit:                            ; preds = %dissect_link_param_type.exit, %3
   %.0.lcssa.i = phi i16 [ %14, %3 ], [ %23, %dissect_link_param_type.exit ]
@@ -2278,7 +2278,7 @@ define internal signext i16 @dissect_status_list(ptr noundef %0, i16 noundef sig
   %17 = add i16 %.12.i, %.012.i
   %18 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %18, %10
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i16 [ %11, %3 ], [ %17, %.lr.ph.i ]
@@ -2294,7 +2294,7 @@ dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
   %22 = tail call fastcc signext i16 @dissect_link_param(ptr noundef %0, i16 noundef signext %.012.i14, ptr noundef %2)
   %23 = add nuw i8 %.01011.i15, 1
   %exitcond.not.i16 = icmp eq i8 %23, %20
-  br i1 %exitcond.not.i16, label %dissect_mih_list.exit18, label %.lr.ph.i13, !llvm.loop !11
+  br i1 %exitcond.not.i16, label %dissect_mih_list.exit18, label %.lr.ph.i13, !llvm.loop !12
 
 dissect_mih_list.exit18:                          ; preds = %.lr.ph.i13, %dissect_mih_list.exit
   %.0.lcssa.i17 = phi i16 [ %21, %dissect_mih_list.exit ], [ %22, %.lr.ph.i13 ]
@@ -2318,7 +2318,7 @@ dissect_mih_list.exit18:                          ; preds = %.lr.ph.i13, %dissec
   %32 = add i16 %.012.i21, 2
   %33 = add nuw i8 %.01011.i22, 1
   %exitcond.not.i23 = icmp eq i8 %33, %25
-  br i1 %exitcond.not.i23, label %dissect_mih_list.exit25, label %.lr.ph.i20, !llvm.loop !11
+  br i1 %exitcond.not.i23, label %dissect_mih_list.exit25, label %.lr.ph.i20, !llvm.loop !12
 
 dissect_mih_list.exit25:                          ; preds = %.lr.ph.i20, %dissect_mih_list.exit18
   %.0.lcssa.i24 = phi i16 [ %26, %dissect_mih_list.exit18 ], [ %32, %.lr.ph.i20 ]
@@ -2426,7 +2426,7 @@ define internal signext i16 @dissect_link_poa(ptr noundef %0, i16 noundef signex
   %12 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.012.i, ptr noundef %2)
   %13 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %13, %10
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i16 [ %11, %3 ], [ %12, %.lr.ph.i ]
@@ -2454,7 +2454,7 @@ define internal signext i16 @dissect_rq_result(ptr noundef %0, i16 noundef signe
   %14 = tail call fastcc signext i16 @dissect_link_addr(ptr noundef %0, i16 noundef signext %.012.i.i, ptr noundef %6)
   %15 = add nuw i8 %.01011.i.i, 1
   %exitcond.not.i.i = icmp eq i8 %15, %12
-  br i1 %exitcond.not.i.i, label %dissect_link_poa.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %dissect_link_poa.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 dissect_link_poa.exit:                            ; preds = %.lr.ph.i.i, %3
   %.0.lcssa.i.i = phi i16 [ %13, %3 ], [ %14, %.lr.ph.i.i ]
@@ -2670,7 +2670,7 @@ define internal fastcc signext i16 @dissect_qos_list(ptr noundef %0, i16 noundef
   %20 = add i16 %.012.i, 3
   %21 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %21, %11
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i16 [ %12, %3 ], [ %20, %.lr.ph.i ]
@@ -2695,7 +2695,7 @@ dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3
   %34 = add i16 %.012.i36, 3
   %35 = add nuw i8 %.01011.i37, 1
   %exitcond.not.i38 = icmp eq i8 %35, %25
-  br i1 %exitcond.not.i38, label %dissect_mih_list.exit40, label %.lr.ph.i35, !llvm.loop !11
+  br i1 %exitcond.not.i38, label %dissect_mih_list.exit40, label %.lr.ph.i35, !llvm.loop !12
 
 dissect_mih_list.exit40:                          ; preds = %.lr.ph.i35, %dissect_mih_list.exit
   %.0.lcssa.i39 = phi i16 [ %26, %dissect_mih_list.exit ], [ %34, %.lr.ph.i35 ]
@@ -2720,7 +2720,7 @@ dissect_mih_list.exit40:                          ; preds = %.lr.ph.i35, %dissec
   %48 = add i16 %.012.i43, 3
   %49 = add nuw i8 %.01011.i44, 1
   %exitcond.not.i45 = icmp eq i8 %49, %39
-  br i1 %exitcond.not.i45, label %dissect_mih_list.exit47, label %.lr.ph.i42, !llvm.loop !11
+  br i1 %exitcond.not.i45, label %dissect_mih_list.exit47, label %.lr.ph.i42, !llvm.loop !12
 
 dissect_mih_list.exit47:                          ; preds = %.lr.ph.i42, %dissect_mih_list.exit40
   %.0.lcssa.i46 = phi i16 [ %40, %dissect_mih_list.exit40 ], [ %48, %.lr.ph.i42 ]
@@ -2745,7 +2745,7 @@ dissect_mih_list.exit47:                          ; preds = %.lr.ph.i42, %dissec
   %62 = add i16 %.012.i50, 3
   %63 = add nuw i8 %.01011.i51, 1
   %exitcond.not.i52 = icmp eq i8 %63, %53
-  br i1 %exitcond.not.i52, label %dissect_mih_list.exit54, label %.lr.ph.i49, !llvm.loop !11
+  br i1 %exitcond.not.i52, label %dissect_mih_list.exit54, label %.lr.ph.i49, !llvm.loop !12
 
 dissect_mih_list.exit54:                          ; preds = %.lr.ph.i49, %dissect_mih_list.exit47
   %.0.lcssa.i53 = phi i16 [ %54, %dissect_mih_list.exit47 ], [ %62, %.lr.ph.i49 ]
@@ -2770,7 +2770,7 @@ dissect_mih_list.exit54:                          ; preds = %.lr.ph.i49, %dissec
   %76 = add i16 %.012.i57, 3
   %77 = add nuw i8 %.01011.i58, 1
   %exitcond.not.i59 = icmp eq i8 %77, %67
-  br i1 %exitcond.not.i59, label %dissect_mih_list.exit61, label %.lr.ph.i56, !llvm.loop !11
+  br i1 %exitcond.not.i59, label %dissect_mih_list.exit61, label %.lr.ph.i56, !llvm.loop !12
 
 dissect_mih_list.exit61:                          ; preds = %.lr.ph.i56, %dissect_mih_list.exit54
   %.0.lcssa.i60 = phi i16 [ %68, %dissect_mih_list.exit54 ], [ %76, %.lr.ph.i56 ]
@@ -2860,7 +2860,7 @@ define internal signext i16 @dissect_link_action_rsp(ptr noundef %0, i16 noundef
   %35 = add i16 %28, 3
   %36 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %36, %18
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i, %3, %16
   %.0 = phi i16 [ %19, %16 ], [ %15, %3 ], [ %35, %.lr.ph.i ]
@@ -2935,7 +2935,7 @@ dissect_link_det_cfg.exit:                        ; preds = %30, %34
   %39 = add i16 %.2.i, 1
   %40 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %40, %5
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 dissect_mih_list.exit:                            ; preds = %dissect_link_det_cfg.exit, %3
   %.0.lcssa.i = phi i16 [ %6, %3 ], [ %39, %dissect_link_det_cfg.exit ]
@@ -2951,7 +2951,7 @@ dissect_mih_list.exit:                            ; preds = %dissect_link_det_cf
   %44 = tail call signext i16 @dissect_link_cfg_param(ptr noundef %0, i16 noundef signext %.012.i8, ptr noundef %2)
   %45 = add nuw i8 %.01011.i9, 1
   %exitcond.not.i10 = icmp eq i8 %45, %42
-  br i1 %exitcond.not.i10, label %dissect_mih_list.exit12, label %.lr.ph.i7, !llvm.loop !11
+  br i1 %exitcond.not.i10, label %dissect_mih_list.exit12, label %.lr.ph.i7, !llvm.loop !12
 
 dissect_mih_list.exit12:                          ; preds = %.lr.ph.i7, %dissect_mih_list.exit
   %.0.lcssa.i11 = phi i16 [ %43, %dissect_mih_list.exit ], [ %44, %.lr.ph.i7 ]
@@ -3299,7 +3299,7 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   %44 = add i16 %.012.i, 3
   %45 = add nuw i8 %.01011.i, 1
   %exitcond.not.i = icmp eq i8 %45, %35
-  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %dissect_mih_list.exit, label %.lr.ph.i, !llvm.loop !12
 
 46:                                               ; preds = %21
   %47 = add nsw i32 %22, 1
@@ -3326,7 +3326,7 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   %61 = add i16 %.012.i49, 3
   %62 = add nuw i8 %.01011.i50, 1
   %exitcond.not.i51 = icmp eq i8 %62, %52
-  br i1 %exitcond.not.i51, label %dissect_mih_list.exit, label %.lr.ph.i48, !llvm.loop !11
+  br i1 %exitcond.not.i51, label %dissect_mih_list.exit, label %.lr.ph.i48, !llvm.loop !12
 
 63:                                               ; preds = %21
   %64 = add nsw i32 %22, 1
@@ -3353,7 +3353,7 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   %78 = add i16 %.012.i56, 3
   %79 = add nuw i8 %.01011.i57, 1
   %exitcond.not.i58 = icmp eq i8 %79, %69
-  br i1 %exitcond.not.i58, label %dissect_mih_list.exit, label %.lr.ph.i55, !llvm.loop !11
+  br i1 %exitcond.not.i58, label %dissect_mih_list.exit, label %.lr.ph.i55, !llvm.loop !12
 
 80:                                               ; preds = %21
   %81 = add nsw i32 %22, 1
@@ -3380,7 +3380,7 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   %95 = add i16 %.012.i63, 3
   %96 = add nuw i8 %.01011.i64, 1
   %exitcond.not.i65 = icmp eq i8 %96, %86
-  br i1 %exitcond.not.i65, label %dissect_mih_list.exit, label %.lr.ph.i62, !llvm.loop !11
+  br i1 %exitcond.not.i65, label %dissect_mih_list.exit, label %.lr.ph.i62, !llvm.loop !12
 
 97:                                               ; preds = %21
   %98 = add nsw i32 %22, 1
@@ -3407,7 +3407,7 @@ dissect_link_param_type.exit:                     ; preds = %3, %switch.lookup
   %112 = add i16 %.012.i70, 3
   %113 = add nuw i8 %.01011.i71, 1
   %exitcond.not.i72 = icmp eq i8 %113, %103
-  br i1 %exitcond.not.i72, label %dissect_mih_list.exit, label %.lr.ph.i69, !llvm.loop !11
+  br i1 %exitcond.not.i72, label %dissect_mih_list.exit, label %.lr.ph.i69, !llvm.loop !12
 
 dissect_mih_list.exit:                            ; preds = %.lr.ph.i69, %.lr.ph.i62, %.lr.ph.i55, %.lr.ph.i48, %.lr.ph.i, %97, %80, %63, %46, %29, %21, %24, %16
   %.0 = phi i16 [ %20, %16 ], [ %15, %21 ], [ %28, %24 ], [ %36, %29 ], [ %53, %46 ], [ %70, %63 ], [ %87, %80 ], [ %104, %97 ], [ %44, %.lr.ph.i ], [ %61, %.lr.ph.i48 ], [ %78, %.lr.ph.i55 ], [ %95, %.lr.ph.i62 ], [ %112, %.lr.ph.i69 ]
@@ -3441,11 +3441,12 @@ attributes #8 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

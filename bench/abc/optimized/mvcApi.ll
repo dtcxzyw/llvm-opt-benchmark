@@ -178,10 +178,10 @@ define void @Mvc_CoverMakeEmpty(ptr noundef %0) local_unnamed_addr #7 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.018.sink = phi ptr [ %4, %.lr.ph ], [ %3, %1 ]
-  %4 = load ptr, ptr %.018.sink, align 8, !tbaa !26
+  %4 = load ptr, ptr %.018.sink, align 8, !tbaa !27
   tail call void @Mvc_CubeFree(ptr noundef %0, ptr noundef nonnull %.018.sink) #10
   %.not15 = icmp eq ptr %4, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
@@ -199,10 +199,10 @@ define void @Mvc_CoverMakeTautology(ptr noundef %0) local_unnamed_addr #7 {
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.018.sink.i = phi ptr [ %4, %.lr.ph.i ], [ %3, %1 ]
-  %4 = load ptr, ptr %.018.sink.i, align 8, !tbaa !26
+  %4 = load ptr, ptr %.018.sink.i, align 8, !tbaa !27
   tail call void @Mvc_CubeFree(ptr noundef nonnull %0, ptr noundef nonnull %.018.sink.i) #10
   %.not15.i = icmp eq ptr %4, null
-  br i1 %.not15.i, label %Mvc_CoverMakeEmpty.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not15.i, label %Mvc_CoverMakeEmpty.exit, label %.lr.ph.i, !llvm.loop !29
 
 Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
@@ -259,13 +259,13 @@ Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
 32:                                               ; preds = %.loopexit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !20
-  store ptr %5, ptr %34, align 8, !tbaa !26
+  store ptr %5, ptr %34, align 8, !tbaa !27
   br label %35
 
 35:                                               ; preds = %32, %31
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %36, align 8, !tbaa !20
-  store ptr null, ptr %5, align 8, !tbaa !26
+  store ptr null, ptr %5, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load i32, ptr %37, align 8, !tbaa !18
   %39 = add nsw i32 %38, 1
@@ -278,7 +278,7 @@ declare ptr @Mvc_CubeAlloc(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define ptr @Mvc_CoverCreateEmpty(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !14
   %6 = tail call ptr @Mvc_CoverAlloc(ptr noundef %3, i32 noundef %5) #10
@@ -290,7 +290,7 @@ declare ptr @Mvc_CoverAlloc(ptr noundef, i32 noundef) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Mvc_CoverCreateTautology(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !14
   %6 = tail call ptr @Mvc_CoverAlloc(ptr noundef %3, i32 noundef %5) #10
@@ -348,13 +348,13 @@ define noundef ptr @Mvc_CoverCreateTautology(ptr noundef readonly captures(none)
 35:                                               ; preds = %.loopexit
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !20
-  store ptr %7, ptr %37, align 8, !tbaa !26
+  store ptr %7, ptr %37, align 8, !tbaa !27
   br label %38
 
 38:                                               ; preds = %35, %34
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %7, ptr %39, align 8, !tbaa !20
-  store ptr null, ptr %7, align 8, !tbaa !26
+  store ptr null, ptr %7, align 8, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %41 = load i32, ptr %40, align 8, !tbaa !18
   %42 = add nsw i32 %41, 1
@@ -403,9 +403,10 @@ attributes #10 = { nounwind }
 !21 = !{i64 0, i64 8, !22, i64 8, i64 8, !22, i64 16, i64 4, !23}
 !22 = !{!9, !9, i64 0}
 !23 = !{!5, !5, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !9, i64 0}
-!27 = !{!"MvcCubeStruct", !9, i64 0, !5, i64 8, !5, i64 11, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16}
-!28 = distinct !{!28, !25}
-!29 = !{!4, !13, i64 72}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !9, i64 0}
+!28 = !{!"MvcCubeStruct", !9, i64 0, !5, i64 8, !5, i64 11, !5, i64 11, !5, i64 11, !5, i64 12, !6, i64 16}
+!29 = distinct !{!29, !25, !26}
+!30 = !{!4, !13, i64 72}

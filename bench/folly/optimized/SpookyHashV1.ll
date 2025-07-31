@@ -156,7 +156,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 
 107:                                              ; preds = %105
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 14
-  %109 = load i8, ptr %108, align 1, !tbaa !13
+  %109 = load i8, ptr %108, align 1, !tbaa !14
   %110 = zext i8 %109 to i64
   %111 = shl nuw nsw i64 %110, 48
   %112 = or disjoint i64 %111, %106
@@ -165,7 +165,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 113:                                              ; preds = %107, %105
   %.2 = phi i64 [ %112, %107 ], [ %106, %105 ]
   %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 13
-  %115 = load i8, ptr %114, align 1, !tbaa !13
+  %115 = load i8, ptr %114, align 1, !tbaa !14
   %116 = zext i8 %115 to i64
   %117 = shl nuw nsw i64 %116, 40
   %118 = add i64 %117, %.2
@@ -174,7 +174,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 119:                                              ; preds = %113, %105
   %.3 = phi i64 [ %118, %113 ], [ %106, %105 ]
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 12
-  %121 = load i8, ptr %120, align 1, !tbaa !13
+  %121 = load i8, ptr %120, align 1, !tbaa !14
   %122 = zext i8 %121 to i64
   %123 = shl nuw nsw i64 %122, 32
   %124 = add i64 %123, %.3
@@ -183,7 +183,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 125:                                              ; preds = %119, %105
   %.4 = phi i64 [ %124, %119 ], [ %106, %105 ]
   %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  %127 = load i32, ptr %126, align 4, !tbaa !14
+  %127 = load i32, ptr %126, align 4, !tbaa !15
   %128 = zext i32 %127 to i64
   %129 = add i64 %.4, %128
   %130 = load i64, ptr %.sroa.0.0, align 8, !tbaa !7
@@ -192,7 +192,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 
 132:                                              ; preds = %105
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 10
-  %134 = load i8, ptr %133, align 1, !tbaa !13
+  %134 = load i8, ptr %133, align 1, !tbaa !14
   %135 = zext i8 %134 to i64
   %136 = shl nuw nsw i64 %135, 16
   %137 = or disjoint i64 %136, %106
@@ -201,7 +201,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 138:                                              ; preds = %132, %105
   %.5 = phi i64 [ %137, %132 ], [ %106, %105 ]
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 9
-  %140 = load i8, ptr %139, align 1, !tbaa !13
+  %140 = load i8, ptr %139, align 1, !tbaa !14
   %141 = zext i8 %140 to i64
   %142 = shl nuw nsw i64 %141, 8
   %143 = add nuw i64 %142, %.5
@@ -210,7 +210,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 144:                                              ; preds = %138, %105
   %.6 = phi i64 [ %143, %138 ], [ %106, %105 ]
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  %146 = load i8, ptr %145, align 1, !tbaa !13
+  %146 = load i8, ptr %145, align 1, !tbaa !14
   %147 = zext i8 %146 to i64
   %148 = add nuw i64 %.6, %147
   br label %149
@@ -223,7 +223,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 
 152:                                              ; preds = %105
   %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 6
-  %154 = load i8, ptr %153, align 1, !tbaa !13
+  %154 = load i8, ptr %153, align 1, !tbaa !14
   %155 = zext i8 %154 to i64
   %156 = shl nuw nsw i64 %155, 48
   %157 = add i64 %156, %.0170
@@ -232,7 +232,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 158:                                              ; preds = %152, %105
   %.3173 = phi i64 [ %157, %152 ], [ %.0170, %105 ]
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 5
-  %160 = load i8, ptr %159, align 1, !tbaa !13
+  %160 = load i8, ptr %159, align 1, !tbaa !14
   %161 = zext i8 %160 to i64
   %162 = shl nuw nsw i64 %161, 40
   %163 = add i64 %162, %.3173
@@ -241,7 +241,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 164:                                              ; preds = %158, %105
   %.4174 = phi i64 [ %163, %158 ], [ %.0170, %105 ]
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 4
-  %166 = load i8, ptr %165, align 1, !tbaa !13
+  %166 = load i8, ptr %165, align 1, !tbaa !14
   %167 = zext i8 %166 to i64
   %168 = shl nuw nsw i64 %167, 32
   %169 = add i64 %168, %.4174
@@ -249,14 +249,14 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 
 170:                                              ; preds = %164, %105
   %.5175 = phi i64 [ %169, %164 ], [ %.0170, %105 ]
-  %171 = load i32, ptr %.sroa.0.0, align 4, !tbaa !14
+  %171 = load i32, ptr %.sroa.0.0, align 4, !tbaa !15
   %172 = zext i32 %171 to i64
   %173 = add i64 %.5175, %172
   br label %193
 
 174:                                              ; preds = %105
   %175 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 2
-  %176 = load i8, ptr %175, align 1, !tbaa !13
+  %176 = load i8, ptr %175, align 1, !tbaa !14
   %177 = zext i8 %176 to i64
   %178 = shl nuw nsw i64 %177, 16
   %179 = add i64 %178, %.0170
@@ -265,7 +265,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 180:                                              ; preds = %174, %105
   %.6176 = phi i64 [ %179, %174 ], [ %.0170, %105 ]
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 1
-  %182 = load i8, ptr %181, align 1, !tbaa !13
+  %182 = load i8, ptr %181, align 1, !tbaa !14
   %183 = zext i8 %182 to i64
   %184 = shl nuw nsw i64 %183, 8
   %185 = add i64 %184, %.6176
@@ -273,7 +273,7 @@ define void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef readonly c
 
 186:                                              ; preds = %180, %105
   %.7177 = phi i64 [ %185, %180 ], [ %.0170, %105 ]
-  %187 = load i8, ptr %.sroa.0.0, align 1, !tbaa !13
+  %187 = load i8, ptr %.sroa.0.0, align 1, !tbaa !14
   %188 = zext i8 %187 to i64
   %189 = add i64 %.7177, %188
   br label %193
@@ -448,7 +448,7 @@ define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef readonly
   %94 = add i64 %92, %84
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0383, i64 96
   %96 = icmp ult ptr %95, %9
-  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %96, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 8 %9, i64 %8, i1 false)
@@ -457,7 +457,7 @@ define void @_ZN5folly4hash12SpookyHashV17Hash128EPKvmPmS4_(ptr noundef readonly
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %97, i8 0, i64 %98, i1 false)
   %99 = trunc nuw nsw i64 %8 to i8
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 95
-  store i8 %99, ptr %100, align 1, !tbaa !13
+  store i8 %99, ptr %100, align 1, !tbaa !14
   %101 = load i64, ptr %5, align 16, !tbaa !7
   %102 = add i64 %101, %84
   %103 = xor i64 %94, %38
@@ -666,9 +666,9 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly4hash12SpookyHashV14InitEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(297) initializes((192, 208), (288, 297)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 0, ptr %4, align 8, !tbaa !17
+  store i64 0, ptr %4, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i8 0, ptr %5, align 8, !tbaa !19
+  store i8 0, ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %1, ptr %6, align 8, !tbaa !7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -679,7 +679,7 @@ define void @_ZN5folly4hash12SpookyHashV14InitEmm(ptr noundef nonnull writeonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %5 = load i8, ptr %4, align 8, !tbaa !19
+  %5 = load i8, ptr %4, align 8, !tbaa !20
   %.fr = freeze i8 %5
   %6 = zext i8 %.fr to i64
   %7 = add i64 %2, %6
@@ -690,16 +690,16 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %1, i64 %2, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %12 = load i64, ptr %11, align 8, !tbaa !17
+  %12 = load i64, ptr %11, align 8, !tbaa !18
   %13 = add i64 %12, %2
-  store i64 %13, ptr %11, align 8, !tbaa !17
+  store i64 %13, ptr %11, align 8, !tbaa !18
   %14 = trunc nuw i64 %7 to i8
-  store i8 %14, ptr %4, align 8, !tbaa !19
+  store i8 %14, ptr %4, align 8, !tbaa !20
   br label %320
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %17 = load i64, ptr %16, align 8, !tbaa !17
+  %17 = load i64, ptr %16, align 8, !tbaa !18
   %18 = icmp ult i64 %17, 192
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %20 = load i64, ptr %19, align 8, !tbaa !7
@@ -742,7 +742,7 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
   %.0331 = phi i64 [ %41, %23 ], [ %22, %15 ]
   %.0330 = phi i64 [ %43, %23 ], [ -2401053088876216593, %15 ]
   %45 = add i64 %17, %2
-  store i64 %45, ptr %16, align 8, !tbaa !17
+  store i64 %45, ptr %16, align 8, !tbaa !18
   %.not = icmp eq i8 %.fr, 0
   br i1 %.not, label %219, label %46
 
@@ -1043,7 +1043,7 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
   %305 = add i64 %303, %295
   %306 = getelementptr inbounds nuw i8, ptr %.sroa.0.1376, i64 96
   %307 = icmp ult ptr %306, %221
-  br i1 %307, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %307, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %219
   %.2363.lcssa = phi i64 [ %.1362, %219 ], [ %295, %.lr.ph ]
@@ -1058,7 +1058,7 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
   %.2336.lcssa = phi i64 [ %.1335, %219 ], [ %298, %.lr.ph ]
   %.2333.lcssa = phi i64 [ %.1332, %219 ], [ %305, %.lr.ph ]
   %.2.lcssa = phi i64 [ %.1, %219 ], [ %304, %.lr.ph ]
-  store i8 %222, ptr %4, align 8, !tbaa !19
+  store i8 %222, ptr %4, align 8, !tbaa !20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr align 8 %221, i64 %220, i1 false)
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i64 %.2363.lcssa, ptr %308, align 8, !tbaa !7
@@ -1093,7 +1093,7 @@ define void @_ZN5folly4hash12SpookyHashV16UpdateEPKvm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 8 captures(address) dereferenceable(297) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %5 = load i64, ptr %4, align 8, !tbaa !17
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp ult i64 %5, 192
   br i1 %6, label %7, label %13
 
@@ -1104,13 +1104,13 @@ define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = load i64, ptr %10, align 8, !tbaa !7
   store i64 %11, ptr %2, align 8, !tbaa !7
-  %12 = load i64, ptr %4, align 8, !tbaa !17
+  %12 = load i64, ptr %4, align 8, !tbaa !18
   tail call void @_ZN5folly4hash12SpookyHashV15ShortEPKvmPmS4_(ptr noundef nonnull %0, i64 noundef %12, ptr noundef nonnull %1, ptr noundef nonnull %2)
   br label %322
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %15 = load i8, ptr %14, align 8, !tbaa !19
+  %15 = load i8, ptr %14, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = load i64, ptr %16, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1246,7 +1246,7 @@ define void @_ZN5folly4hash12SpookyHashV15FinalEPmS2_(ptr noundef nonnull align 
   %130 = sub nsw i64 96, %128
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %129, i8 0, i64 %130, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %.016, i64 95
-  store i8 %.0, ptr %131, align 1, !tbaa !13
+  store i8 %.0, ptr %131, align 1, !tbaa !14
   %132 = load i64, ptr %.016, align 8, !tbaa !7
   %133 = add i64 %132, %.0366
   %134 = xor i64 %.0356, %.0364
@@ -1469,13 +1469,14 @@ attributes #6 = { nounwind }
 !8 = !{!"long", !9, i64 0}
 !9 = !{!"omnipotent char", !10, i64 0}
 !10 = !{!"Simple C++ TBAA"}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!9, !9, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !9, i64 0}
-!16 = distinct !{!16, !12}
-!17 = !{!18, !8, i64 288}
-!18 = !{!"_ZTSN5folly4hash12SpookyHashV1E", !9, i64 0, !9, i64 192, !8, i64 288, !9, i64 296}
-!19 = !{!18, !9, i64 296}
-!20 = distinct !{!20, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!9, !9, i64 0}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !9, i64 0}
+!17 = distinct !{!17, !12, !13}
+!18 = !{!19, !8, i64 288}
+!19 = !{!"_ZTSN5folly4hash12SpookyHashV1E", !9, i64 0, !9, i64 192, !8, i64 288, !9, i64 296}
+!20 = !{!19, !9, i64 296}
+!21 = distinct !{!21, !12, !13}

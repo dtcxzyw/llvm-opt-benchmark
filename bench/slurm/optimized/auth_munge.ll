@@ -275,7 +275,7 @@ define dso_local ptr @auth_p_create(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 47:                                               ; preds = %45, %42
   %48 = call i32 @usleep(i32 noundef 100000) #13
-  br label %38
+  br label %38, !llvm.loop !10
 
 49:                                               ; preds = %40
   %50 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #13
@@ -404,7 +404,7 @@ define internal fastcc range(i32 -1, 1) i32 @_decode_cred(ptr noundef nonnull %0
   %39 = load ptr, ptr %21, align 8
   %40 = tail call i32 @munge_decode(ptr noundef %39, ptr noundef nonnull %11, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25) #13
   %.not36 = icmp eq i32 %40, 0
-  br i1 %.not36, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not36, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 41:                                               ; preds = %30
   %42 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #13
@@ -1045,3 +1045,6 @@ attributes #15 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}

@@ -146,7 +146,7 @@ lv_style_reset.exit:                              ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i8 %42, ptr %43, align 1, !tbaa !12
   %44 = icmp samesign ugt i64 %indvars.iv48.i, 1
-  br i1 %44, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !15
+  br i1 %44, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !16
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load i8, ptr %3, align 4, !tbaa !3
@@ -171,9 +171,9 @@ lv_style_reset.exit:                              ; preds = %2
   %narrow.i.i = lshr i8 %56, 2
   %spec.store.select.i.i = zext nneg i8 %narrow.i.i to i32
   %57 = shl nuw i32 1, %spec.store.select.i.i
-  %58 = load i32, ptr %12, align 8, !tbaa !16
+  %58 = load i32, ptr %12, align 8, !tbaa !17
   %59 = or i32 %58, %57
-  store i32 %59, ptr %12, align 8, !tbaa !16
+  store i32 %59, ptr %12, align 8, !tbaa !17
   br label %lv_style_set_prop.exit
 
 lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %30, %.loopexit.i, %._crit_edge.i
@@ -181,7 +181,7 @@ lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %30, 
   %60 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %6, i64 %indvars.iv.next
   %61 = load i8, ptr %60, align 8, !tbaa !10
   %.not = icmp eq i8 %61, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !18
 
 .lr.ph48:                                         ; preds = %8
   %62 = zext i8 %10 to i64
@@ -211,7 +211,7 @@ lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %30, 
   br i1 %.not.i27, label %.preheader.i42, label %74
 
 .preheader.i42:                                   ; preds = %73, %.preheader.i42
-  br label %.preheader.i42
+  br label %.preheader.i42, !llvm.loop !20
 
 74:                                               ; preds = %73
   %75 = load ptr, ptr %0, align 8, !tbaa !9
@@ -265,7 +265,7 @@ lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %30, 
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i8 %97, ptr %98, align 1, !tbaa !12
   %99 = icmp samesign ugt i64 %indvars.iv48.i34, 1
-  br i1 %99, label %.lr.ph.i33, label %._crit_edge.loopexit.i36, !llvm.loop !15
+  br i1 %99, label %.lr.ph.i33, label %._crit_edge.loopexit.i36, !llvm.loop !16
 
 ._crit_edge.loopexit.i36:                         ; preds = %.lr.ph.i33
   %.pre.i37 = load i8, ptr %3, align 4, !tbaa !3
@@ -290,9 +290,9 @@ lv_style_set_prop.exit:                           ; preds = %.lr.ph.split, %30, 
   %narrow.i.i39 = lshr i8 %111, 2
   %spec.store.select.i.i40 = zext nneg i8 %narrow.i.i39 to i32
   %112 = shl nuw i32 1, %spec.store.select.i.i40
-  %113 = load i32, ptr %65, align 8, !tbaa !16
+  %113 = load i32, ptr %65, align 8, !tbaa !17
   %114 = or i32 %113, %112
-  store i32 %114, ptr %65, align 8, !tbaa !16
+  store i32 %114, ptr %65, align 8, !tbaa !17
   br label %lv_style_set_prop.exit43
 
 lv_style_set_prop.exit43:                         ; preds = %.lr.ph48.split, %85, %.loopexit.i31, %._crit_edge.i38
@@ -300,7 +300,7 @@ lv_style_set_prop.exit43:                         ; preds = %.lr.ph48.split, %85
   %115 = load i8, ptr %9, align 4, !tbaa !3
   %116 = zext i8 %115 to i64
   %117 = icmp samesign ult i64 %indvars.iv.next59, %116
-  br i1 %117, label %.lr.ph48.splitthread-pre-split, label %.loopexit, !llvm.loop !19
+  br i1 %117, label %.lr.ph48.splitthread-pre-split, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %lv_style_set_prop.exit, %lv_style_set_prop.exit43, %.lr.ph48, %.lr.ph, %.preheader, %8, %lv_style_reset.exit, %2
   ret void
@@ -318,7 +318,7 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
   br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %6, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !20
 
 7:                                                ; preds = %6
   %8 = load ptr, ptr %0, align 8, !tbaa !9
@@ -372,7 +372,7 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i8 %30, ptr %31, align 1, !tbaa !12
   %32 = icmp samesign ugt i64 %indvars.iv48, 1
-  br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i8, ptr %4, align 4, !tbaa !3
@@ -398,9 +398,9 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
   %spec.store.select.i = zext nneg i8 %narrow.i to i32
   %45 = shl nuw i32 1, %spec.store.select.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !16
+  %47 = load i32, ptr %46, align 8, !tbaa !17
   %48 = or i32 %47, %45
-  store i32 %48, ptr %46, align 8, !tbaa !16
+  store i32 %48, ptr %46, align 8, !tbaa !17
   br label %49
 
 49:                                               ; preds = %18, %.loopexit, %._crit_edge, %3
@@ -409,18 +409,18 @@ define void @lv_style_set_prop(ptr noundef captures(none) %0, i8 noundef zeroext
 
 ; Function Attrs: nounwind uwtable
 define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !20
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %.thread18
 
 4:                                                ; preds = %1
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !42
-  store i32 140, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !44
+  store i32 140, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !45
   br label %7
 
 .thread18:                                        ; preds = %1
-  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
-  %.pre17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !42
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !45
+  %.pre17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !44
   %5 = add i32 %.pre, -139
   %6 = icmp ult i32 %.pre17, %5
   br i1 %6, label %7, label %.thread19
@@ -435,22 +435,22 @@ define zeroext i8 @lv_style_register_prop(i8 noundef zeroext %0) local_unnamed_a
   br i1 %.not, label %.critedge, label %.thread
 
 .thread:                                          ; preds = %7
-  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !20
+  store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !22
   %13 = trunc i64 %11 to i32
-  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !42
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
+  store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !44
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !45
   br label %.thread19
 
 .thread19:                                        ; preds = %.thread18, %.thread
   %.pre.sink = phi i32 [ %14, %.thread ], [ %.pre, %.thread18 ]
   %15 = phi ptr [ %12, %.thread ], [ %2, %.thread18 ]
   %16 = add i32 %.pre.sink, 1
-  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
+  store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !45
   %17 = add i32 %.pre.sink, -140
   %18 = zext i32 %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
   store i8 %0, ptr %19, align 1, !tbaa !12
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
+  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !45
   %21 = trunc i32 %20 to i8
   br label %.critedge
 
@@ -463,7 +463,7 @@ declare ptr @lv_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define zeroext i8 @lv_style_get_num_custom_props() local_unnamed_addr #2 {
-  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !43
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 80), align 8, !tbaa !45
   %2 = trunc i32 %1 to i8
   %3 = add i8 %2, 116
   ret i8 %3
@@ -490,7 +490,7 @@ define noundef zeroext i1 @lv_style_remove_prop(ptr noundef captures(none) %0, i
 9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !46
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
@@ -545,7 +545,7 @@ define noundef zeroext i1 @lv_style_remove_prop(ptr noundef captures(none) %0, i
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %37 = zext i8 %36 to i64
   %.not.not = icmp samesign ult i64 %indvars.iv52, %37
-  br i1 %.not.not, label %23, label %38, !llvm.loop !45
+  br i1 %.not.not, label %23, label %38, !llvm.loop !47
 
 38:                                               ; preds = %35
   tail call void @lv_free(ptr noundef nonnull %4) #8
@@ -582,11 +582,11 @@ define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none
   %12 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %6, i64 %11
   %13 = load i8, ptr %12, align 8, !tbaa !10
   %.not.not.i = icmp eq i8 %13, 0
-  br i1 %.not.not.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph39.i, !llvm.loop !46
+  br i1 %.not.not.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph39.i, !llvm.loop !48
 
 .lr.ph39.i:                                       ; preds = %.lr.ph
   %14 = icmp eq i8 %13, %1
-  br i1 %14, label %.lr.ph39.i._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %14, label %.lr.ph39.i._crit_edge, label %.lr.ph, !llvm.loop !48
 
 .lr.ph39.i._crit_edge:                            ; preds = %.lr.ph39.i, %.lr.ph39.i.preheader
   %.lcssa = phi ptr [ %6, %.lr.ph39.i.preheader ], [ %12, %.lr.ph39.i ]
@@ -603,7 +603,7 @@ define range(i32 0, 2) i32 @lv_style_get_prop(ptr noundef readonly captures(none
 20:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %17
-  br i1 %exitcond.not.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %lv_style_get_prop_inlined.exit, label %.lr.ph.i, !llvm.loop !49
 
 .lr.ph.i:                                         ; preds = %16, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %16 ]
@@ -630,17 +630,17 @@ lv_style_get_prop_inlined.exit:                   ; preds = %20, %.lr.ph, %7, %1
 ; Function Attrs: nounwind uwtable
 define void @lv_style_transition_dsc_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   tail call void @lv_memset(ptr noundef %0, i8 noundef zeroext 0, i64 noundef 32) #8
-  store ptr %1, ptr %0, align 8, !tbaa !48
+  store ptr %1, ptr %0, align 8, !tbaa !50
   %7 = icmp eq ptr %2, null
   %8 = select i1 %7, ptr @lv_anim_path_linear, ptr %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !50
+  store ptr %8, ptr %9, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %3, ptr %10, align 8, !tbaa !51
+  store i32 %3, ptr %10, align 8, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %4, ptr %11, align 4, !tbaa !52
+  store i32 %4, ptr %11, align 4, !tbaa !54
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %12, align 8, !tbaa !53
+  store ptr %5, ptr %12, align 8, !tbaa !55
   ret void
 }
 
@@ -725,13 +725,13 @@ define zeroext i8 @lv_style_prop_lookup_flags(i8 noundef zeroext %0) local_unnam
 
 9:                                                ; preds = %3
   %10 = add nsw i8 %0, 115
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !20
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 88), align 8, !tbaa !22
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %20, label %12
 
 12:                                               ; preds = %9
   %13 = zext nneg i8 %10 to i32
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !42
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 76), align 4, !tbaa !44
   %15 = icmp ugt i32 %14, %13
   br i1 %15, label %16, label %20
 
@@ -776,44 +776,46 @@ attributes #8 = { nounwind }
 !10 = !{!11, !6, i64 0}
 !11 = !{!"", !6, i64 0, !6, i64 8}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!4, !8, i64 8}
-!17 = distinct !{!17, !14, !18}
-!18 = !{!"llvm.loop.unswitch.partial.disable"}
-!19 = distinct !{!19, !14, !18}
-!20 = !{!21, !24, i64 88}
-!21 = !{!"_lv_global_t", !22, i64 0, !22, i64 1, !23, i64 8, !25, i64 32, !25, i64 40, !23, i64 48, !22, i64 72, !8, i64 76, !8, i64 80, !24, i64 88, !23, i64 96, !26, i64 120, !23, i64 128, !27, i64 152, !28, i64 160, !8, i64 168, !5, i64 176, !22, i64 184, !8, i64 188, !8, i64 192, !29, i64 200, !8, i64 208, !30, i64 216, !31, i64 288, !33, i64 328, !34, i64 352, !34, i64 400, !34, i64 448, !23, i64 496, !35, i64 520, !35, i64 528, !36, i64 536, !6, i64 568, !5, i64 760, !5, i64 768, !5, i64 776, !38, i64 784, !23, i64 832, !40, i64 856, !41, i64 864, !4, i64 872, !39, i64 888, !5, i64 896, !8, i64 904, !5, i64 912}
-!22 = !{!"_Bool", !6, i64 0}
-!23 = !{!"", !8, i64 0, !24, i64 8, !24, i64 16}
-!24 = !{!"p1 omnipotent char", !5, i64 0}
-!25 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
-!26 = !{!"p1 _ZTS11_lv_group_t", !5, i64 0}
-!27 = !{!"p1 _ZTS11_lv_indev_t", !5, i64 0}
-!28 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
-!29 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}
-!30 = !{!"", !23, i64 0, !22, i64 24, !6, i64 25, !22, i64 26, !22, i64 27, !8, i64 28, !22, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !8, i64 48, !5, i64 56, !5, i64 64}
-!31 = !{!"", !22, i64 0, !22, i64 1, !32, i64 8, !23, i64 16}
-!32 = !{!"p1 _ZTS11_lv_timer_t", !5, i64 0}
-!33 = !{!"", !8, i64 0, !6, i64 4, !5, i64 8, !5, i64 16}
-!34 = !{!"_lv_draw_buf_handlers_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
-!35 = !{!"p1 _ZTS11_lv_cache_t", !5, i64 0}
-!36 = !{!"", !37, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !22, i64 24}
-!37 = !{!"p1 _ZTS15_lv_draw_unit_t", !5, i64 0}
-!38 = !{!"", !5, i64 0, !39, i64 8, !39, i64 16, !23, i64 24}
-!39 = !{!"long", !6, i64 0}
-!40 = !{!"p1 _ZTS22_lv_freetype_context_t", !5, i64 0}
-!41 = !{!"p1 _ZTS14_snippet_stack", !5, i64 0}
-!42 = !{!21, !8, i64 76}
-!43 = !{!21, !8, i64 80}
-!44 = distinct !{!44, !14}
-!45 = distinct !{!45, !14}
-!46 = distinct !{!46, !14}
-!47 = distinct !{!47, !14}
-!48 = !{!49, !24, i64 0}
-!49 = !{!"", !24, i64 0, !5, i64 8, !5, i64 16, !8, i64 24, !8, i64 28}
-!50 = !{!49, !5, i64 16}
-!51 = !{!49, !8, i64 24}
-!52 = !{!49, !8, i64 28}
-!53 = !{!49, !5, i64 8}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!4, !8, i64 8}
+!18 = distinct !{!18, !14, !15, !19}
+!19 = !{!"llvm.loop.unswitch.partial.disable"}
+!20 = distinct !{!20, !15}
+!21 = distinct !{!21, !14, !15, !19}
+!22 = !{!23, !26, i64 88}
+!23 = !{!"_lv_global_t", !24, i64 0, !24, i64 1, !25, i64 8, !27, i64 32, !27, i64 40, !25, i64 48, !24, i64 72, !8, i64 76, !8, i64 80, !26, i64 88, !25, i64 96, !28, i64 120, !25, i64 128, !29, i64 152, !30, i64 160, !8, i64 168, !5, i64 176, !24, i64 184, !8, i64 188, !8, i64 192, !31, i64 200, !8, i64 208, !32, i64 216, !33, i64 288, !35, i64 328, !36, i64 352, !36, i64 400, !36, i64 448, !25, i64 496, !37, i64 520, !37, i64 528, !38, i64 536, !6, i64 568, !5, i64 760, !5, i64 768, !5, i64 776, !40, i64 784, !25, i64 832, !42, i64 856, !43, i64 864, !4, i64 872, !41, i64 888, !5, i64 896, !8, i64 904, !5, i64 912}
+!24 = !{!"_Bool", !6, i64 0}
+!25 = !{!"", !8, i64 0, !26, i64 8, !26, i64 16}
+!26 = !{!"p1 omnipotent char", !5, i64 0}
+!27 = !{!"p1 _ZTS13_lv_display_t", !5, i64 0}
+!28 = !{!"p1 _ZTS11_lv_group_t", !5, i64 0}
+!29 = !{!"p1 _ZTS11_lv_indev_t", !5, i64 0}
+!30 = !{!"p1 _ZTS9_lv_obj_t", !5, i64 0}
+!31 = !{!"p1 _ZTS11_lv_event_t", !5, i64 0}
+!32 = !{!"", !25, i64 0, !24, i64 24, !6, i64 25, !24, i64 26, !24, i64 27, !8, i64 28, !24, i64 32, !8, i64 36, !8, i64 40, !8, i64 44, !8, i64 48, !5, i64 56, !5, i64 64}
+!33 = !{!"", !24, i64 0, !24, i64 1, !34, i64 8, !25, i64 16}
+!34 = !{!"p1 _ZTS11_lv_timer_t", !5, i64 0}
+!35 = !{!"", !8, i64 0, !6, i64 4, !5, i64 8, !5, i64 16}
+!36 = !{!"_lv_draw_buf_handlers_t", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40}
+!37 = !{!"p1 _ZTS11_lv_cache_t", !5, i64 0}
+!38 = !{!"", !39, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !8, i64 20, !24, i64 24}
+!39 = !{!"p1 _ZTS15_lv_draw_unit_t", !5, i64 0}
+!40 = !{!"", !5, i64 0, !41, i64 8, !41, i64 16, !25, i64 24}
+!41 = !{!"long", !6, i64 0}
+!42 = !{!"p1 _ZTS22_lv_freetype_context_t", !5, i64 0}
+!43 = !{!"p1 _ZTS14_snippet_stack", !5, i64 0}
+!44 = !{!23, !8, i64 76}
+!45 = !{!23, !8, i64 80}
+!46 = distinct !{!46, !14, !15}
+!47 = distinct !{!47, !14, !15}
+!48 = distinct !{!48, !14, !15}
+!49 = distinct !{!49, !14, !15}
+!50 = !{!51, !26, i64 0}
+!51 = !{!"", !26, i64 0, !5, i64 8, !5, i64 16, !8, i64 24, !8, i64 28}
+!52 = !{!51, !5, i64 16}
+!53 = !{!51, !8, i64 24}
+!54 = !{!51, !8, i64 28}
+!55 = !{!51, !5, i64 8}

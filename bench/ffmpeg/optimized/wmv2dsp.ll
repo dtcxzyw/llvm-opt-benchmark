@@ -149,7 +149,7 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   tail call fastcc void @wmv2_idct_col(ptr noundef %94)
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next73, 8
-  br i1 %exitcond.not, label %.preheader.lver.check, label %.preheader63, !llvm.loop !17
+  br i1 %exitcond.not, label %.preheader.lver.check, label %.preheader63, !llvm.loop !18
 
 .preheader.lver.check:                            ; preds = %.preheader63
   %ident.check.not = icmp eq i64 %1, 1
@@ -159,7 +159,7 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %.268.lver.orig = phi i32 [ %167, %.preheader.lver.orig ], [ 0, %.preheader.lver.check ]
   %.03667.lver.orig = phi ptr [ %166, %.preheader.lver.orig ], [ %2, %.preheader.lver.check ]
   %.03766.lver.orig = phi ptr [ %165, %.preheader.lver.orig ], [ %0, %.preheader.lver.check ]
-  %95 = load i8, ptr %.03766.lver.orig, align 1, !tbaa !18
+  %95 = load i8, ptr %.03766.lver.orig, align 1, !tbaa !19
   %96 = zext i8 %95 to i32
   %97 = load i16, ptr %.03667.lver.orig, align 2, !tbaa !13
   %98 = sext i16 %97 to i32
@@ -169,9 +169,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %100 = sext i1 %isnotneg.i.lver.orig to i8
   %101 = trunc nuw i32 %99 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %101, i8 %100
-  store i8 %.0.i.lver.orig, ptr %.03766.lver.orig, align 1, !tbaa !18
+  store i8 %.0.i.lver.orig, ptr %.03766.lver.orig, align 1, !tbaa !19
   %102 = getelementptr inbounds nuw i8, ptr %.03766.lver.orig, i64 1
-  %103 = load i8, ptr %102, align 1, !tbaa !18
+  %103 = load i8, ptr %102, align 1, !tbaa !19
   %104 = zext i8 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 2
   %106 = load i16, ptr %105, align 2, !tbaa !13
@@ -182,9 +182,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %109 = sext i1 %isnotneg.i39.lver.orig to i8
   %110 = trunc nuw i32 %108 to i8
   %.0.i40.lver.orig = select i1 %.not.i38.lver.orig, i8 %110, i8 %109
-  store i8 %.0.i40.lver.orig, ptr %102, align 1, !tbaa !18
+  store i8 %.0.i40.lver.orig, ptr %102, align 1, !tbaa !19
   %111 = getelementptr inbounds nuw i8, ptr %.03766.lver.orig, i64 2
-  %112 = load i8, ptr %111, align 1, !tbaa !18
+  %112 = load i8, ptr %111, align 1, !tbaa !19
   %113 = zext i8 %112 to i32
   %114 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 4
   %115 = load i16, ptr %114, align 2, !tbaa !13
@@ -195,9 +195,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %118 = sext i1 %isnotneg.i42.lver.orig to i8
   %119 = trunc nuw i32 %117 to i8
   %.0.i43.lver.orig = select i1 %.not.i41.lver.orig, i8 %119, i8 %118
-  store i8 %.0.i43.lver.orig, ptr %111, align 1, !tbaa !18
+  store i8 %.0.i43.lver.orig, ptr %111, align 1, !tbaa !19
   %120 = getelementptr inbounds nuw i8, ptr %.03766.lver.orig, i64 3
-  %121 = load i8, ptr %120, align 1, !tbaa !18
+  %121 = load i8, ptr %120, align 1, !tbaa !19
   %122 = zext i8 %121 to i32
   %123 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 6
   %124 = load i16, ptr %123, align 2, !tbaa !13
@@ -208,9 +208,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %127 = sext i1 %isnotneg.i45.lver.orig to i8
   %128 = trunc nuw i32 %126 to i8
   %.0.i46.lver.orig = select i1 %.not.i44.lver.orig, i8 %128, i8 %127
-  store i8 %.0.i46.lver.orig, ptr %120, align 1, !tbaa !18
+  store i8 %.0.i46.lver.orig, ptr %120, align 1, !tbaa !19
   %129 = getelementptr inbounds nuw i8, ptr %.03766.lver.orig, i64 4
-  %130 = load i8, ptr %129, align 1, !tbaa !18
+  %130 = load i8, ptr %129, align 1, !tbaa !19
   %131 = zext i8 %130 to i32
   %132 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 8
   %133 = load i16, ptr %132, align 2, !tbaa !13
@@ -221,9 +221,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %136 = sext i1 %isnotneg.i48.lver.orig to i8
   %137 = trunc nuw i32 %135 to i8
   %.0.i49.lver.orig = select i1 %.not.i47.lver.orig, i8 %137, i8 %136
-  store i8 %.0.i49.lver.orig, ptr %129, align 1, !tbaa !18
+  store i8 %.0.i49.lver.orig, ptr %129, align 1, !tbaa !19
   %138 = getelementptr inbounds nuw i8, ptr %.03766.lver.orig, i64 5
-  %139 = load i8, ptr %138, align 1, !tbaa !18
+  %139 = load i8, ptr %138, align 1, !tbaa !19
   %140 = zext i8 %139 to i32
   %141 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 10
   %142 = load i16, ptr %141, align 2, !tbaa !13
@@ -234,9 +234,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %145 = sext i1 %isnotneg.i51.lver.orig to i8
   %146 = trunc nuw i32 %144 to i8
   %.0.i52.lver.orig = select i1 %.not.i50.lver.orig, i8 %146, i8 %145
-  store i8 %.0.i52.lver.orig, ptr %138, align 1, !tbaa !18
+  store i8 %.0.i52.lver.orig, ptr %138, align 1, !tbaa !19
   %147 = getelementptr inbounds nuw i8, ptr %.03766.lver.orig, i64 6
-  %148 = load i8, ptr %147, align 1, !tbaa !18
+  %148 = load i8, ptr %147, align 1, !tbaa !19
   %149 = zext i8 %148 to i32
   %150 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 12
   %151 = load i16, ptr %150, align 2, !tbaa !13
@@ -247,9 +247,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %154 = sext i1 %isnotneg.i54.lver.orig to i8
   %155 = trunc nuw i32 %153 to i8
   %.0.i55.lver.orig = select i1 %.not.i53.lver.orig, i8 %155, i8 %154
-  store i8 %.0.i55.lver.orig, ptr %147, align 1, !tbaa !18
+  store i8 %.0.i55.lver.orig, ptr %147, align 1, !tbaa !19
   %156 = getelementptr inbounds nuw i8, ptr %.03766.lver.orig, i64 7
-  %157 = load i8, ptr %156, align 1, !tbaa !18
+  %157 = load i8, ptr %156, align 1, !tbaa !19
   %158 = zext i8 %157 to i32
   %159 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 14
   %160 = load i16, ptr %159, align 2, !tbaa !13
@@ -260,12 +260,12 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %163 = sext i1 %isnotneg.i57.lver.orig to i8
   %164 = trunc nuw i32 %162 to i8
   %.0.i58.lver.orig = select i1 %.not.i56.lver.orig, i8 %164, i8 %163
-  store i8 %.0.i58.lver.orig, ptr %156, align 1, !tbaa !18
+  store i8 %.0.i58.lver.orig, ptr %156, align 1, !tbaa !19
   %165 = getelementptr inbounds i8, ptr %.03766.lver.orig, i64 %1
   %166 = getelementptr inbounds nuw i8, ptr %.03667.lver.orig, i64 16
   %167 = add nuw nsw i32 %.268.lver.orig, 1
   %exitcond75.not.lver.orig = icmp eq i32 %167, 8
-  br i1 %exitcond75.not.lver.orig, label %.loopexit, label %.preheader.lver.orig, !llvm.loop !19
+  br i1 %exitcond75.not.lver.orig, label %.loopexit, label %.preheader.lver.orig, !llvm.loop !20
 
 .preheader.ph:                                    ; preds = %.preheader.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -277,7 +277,7 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %.268 = phi i32 [ 0, %.preheader.ph ], [ %239, %.preheader ]
   %.03667 = phi ptr [ %2, %.preheader.ph ], [ %238, %.preheader ]
   %.03766 = phi ptr [ %0, %.preheader.ph ], [ %237, %.preheader ]
-  %168 = load i8, ptr %.03766, align 1, !tbaa !18
+  %168 = load i8, ptr %.03766, align 1, !tbaa !19
   %169 = zext i8 %168 to i32
   %170 = load i16, ptr %.03667, align 2, !tbaa !13
   %171 = sext i16 %170 to i32
@@ -287,9 +287,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %173 = sext i1 %isnotneg.i to i8
   %174 = trunc nuw i32 %172 to i8
   %.0.i = select i1 %.not.i, i8 %174, i8 %173
-  store i8 %.0.i, ptr %.03766, align 1, !tbaa !18
+  store i8 %.0.i, ptr %.03766, align 1, !tbaa !19
   %175 = getelementptr inbounds nuw i8, ptr %.03766, i64 1
-  %176 = load i8, ptr %175, align 1, !tbaa !18
+  %176 = load i8, ptr %175, align 1, !tbaa !19
   %177 = zext i8 %176 to i32
   %178 = getelementptr inbounds nuw i8, ptr %.03667, i64 2
   %179 = load i16, ptr %178, align 2, !tbaa !13
@@ -300,9 +300,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %182 = sext i1 %isnotneg.i39 to i8
   %183 = trunc nuw i32 %181 to i8
   %.0.i40 = select i1 %.not.i38, i8 %183, i8 %182
-  store i8 %.0.i40, ptr %175, align 1, !tbaa !18
+  store i8 %.0.i40, ptr %175, align 1, !tbaa !19
   %184 = getelementptr inbounds nuw i8, ptr %.03766, i64 2
-  %185 = load i8, ptr %184, align 1, !tbaa !18
+  %185 = load i8, ptr %184, align 1, !tbaa !19
   %186 = zext i8 %185 to i32
   %187 = getelementptr inbounds nuw i8, ptr %.03667, i64 4
   %188 = load i16, ptr %187, align 2, !tbaa !13
@@ -313,9 +313,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %191 = sext i1 %isnotneg.i42 to i8
   %192 = trunc nuw i32 %190 to i8
   %.0.i43 = select i1 %.not.i41, i8 %192, i8 %191
-  store i8 %.0.i43, ptr %184, align 1, !tbaa !18
+  store i8 %.0.i43, ptr %184, align 1, !tbaa !19
   %193 = getelementptr inbounds nuw i8, ptr %.03766, i64 3
-  %194 = load i8, ptr %193, align 1, !tbaa !18
+  %194 = load i8, ptr %193, align 1, !tbaa !19
   %195 = zext i8 %194 to i32
   %196 = getelementptr inbounds nuw i8, ptr %.03667, i64 6
   %197 = load i16, ptr %196, align 2, !tbaa !13
@@ -326,9 +326,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %200 = sext i1 %isnotneg.i45 to i8
   %201 = trunc nuw i32 %199 to i8
   %.0.i46 = select i1 %.not.i44, i8 %201, i8 %200
-  store i8 %.0.i46, ptr %193, align 1, !tbaa !18
+  store i8 %.0.i46, ptr %193, align 1, !tbaa !19
   %202 = getelementptr inbounds nuw i8, ptr %.03766, i64 4
-  %203 = load i8, ptr %202, align 1, !tbaa !18
+  %203 = load i8, ptr %202, align 1, !tbaa !19
   %204 = zext i8 %203 to i32
   %205 = getelementptr inbounds nuw i8, ptr %.03667, i64 8
   %206 = load i16, ptr %205, align 2, !tbaa !13
@@ -339,9 +339,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %209 = sext i1 %isnotneg.i48 to i8
   %210 = trunc nuw i32 %208 to i8
   %.0.i49 = select i1 %.not.i47, i8 %210, i8 %209
-  store i8 %.0.i49, ptr %202, align 1, !tbaa !18
+  store i8 %.0.i49, ptr %202, align 1, !tbaa !19
   %211 = getelementptr inbounds nuw i8, ptr %.03766, i64 5
-  %212 = load i8, ptr %211, align 1, !tbaa !18
+  %212 = load i8, ptr %211, align 1, !tbaa !19
   %213 = zext i8 %212 to i32
   %214 = getelementptr inbounds nuw i8, ptr %.03667, i64 10
   %215 = load i16, ptr %214, align 2, !tbaa !13
@@ -352,7 +352,7 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %218 = sext i1 %isnotneg.i51 to i8
   %219 = trunc nuw i32 %217 to i8
   %.0.i52 = select i1 %.not.i50, i8 %219, i8 %218
-  store i8 %.0.i52, ptr %211, align 1, !tbaa !18
+  store i8 %.0.i52, ptr %211, align 1, !tbaa !19
   %220 = getelementptr inbounds nuw i8, ptr %.03766, i64 6
   %221 = zext i8 %store_forwarded to i32
   %222 = getelementptr inbounds nuw i8, ptr %.03667, i64 12
@@ -364,9 +364,9 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %226 = sext i1 %isnotneg.i54 to i8
   %227 = trunc nuw i32 %225 to i8
   %.0.i55 = select i1 %.not.i53, i8 %227, i8 %226
-  store i8 %.0.i55, ptr %220, align 1, !tbaa !18
+  store i8 %.0.i55, ptr %220, align 1, !tbaa !19
   %228 = getelementptr inbounds nuw i8, ptr %.03766, i64 7
-  %229 = load i8, ptr %228, align 1, !tbaa !18
+  %229 = load i8, ptr %228, align 1, !tbaa !19
   %230 = zext i8 %229 to i32
   %231 = getelementptr inbounds nuw i8, ptr %.03667, i64 14
   %232 = load i16, ptr %231, align 2, !tbaa !13
@@ -377,12 +377,12 @@ define internal void @wmv2_idct_add_c(ptr noundef captures(none) %0, i64 noundef
   %235 = sext i1 %isnotneg.i57 to i8
   %236 = trunc nuw i32 %234 to i8
   %.0.i58 = select i1 %.not.i56, i8 %236, i8 %235
-  store i8 %.0.i58, ptr %228, align 1, !tbaa !18
+  store i8 %.0.i58, ptr %228, align 1, !tbaa !19
   %237 = getelementptr inbounds nuw i8, ptr %.03766, i64 %1
   %238 = getelementptr inbounds nuw i8, ptr %.03667, i64 16
   %239 = add nuw nsw i32 %.268, 1
   %exitcond75.not = icmp eq i32 %239, 8
-  br i1 %exitcond75.not, label %.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond75.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.preheader.lver.orig, %.preheader
   ret void
@@ -498,7 +498,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   store i16 %92, ptr %10, align 2, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %93 = icmp samesign ult i64 %indvars.iv, 56
-  br i1 %93, label %4, label %.preheader55, !llvm.loop !20
+  br i1 %93, label %4, label %.preheader55, !llvm.loop !21
 
 .preheader55:                                     ; preds = %4, %.preheader55
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader55 ], [ 0, %4 ]
@@ -506,7 +506,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   tail call fastcc void @wmv2_idct_col(ptr noundef %94)
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, 8
-  br i1 %exitcond.not, label %.preheader, label %.preheader55, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader, label %.preheader55, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader55, %.preheader
   %.260 = phi i32 [ %135, %.preheader ], [ 0, %.preheader55 ]
@@ -518,7 +518,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %96 = sext i1 %isnotneg.i to i8
   %97 = trunc i16 %95 to i8
   %.0.i = select i1 %.not.i, i8 %97, i8 %96
-  store i8 %.0.i, ptr %.02958, align 1, !tbaa !18
+  store i8 %.0.i, ptr %.02958, align 1, !tbaa !19
   %98 = getelementptr inbounds nuw i8, ptr %.02859, i64 2
   %99 = load i16, ptr %98, align 2, !tbaa !13
   %.not.i30 = icmp ult i16 %99, 256
@@ -527,7 +527,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %101 = trunc i16 %99 to i8
   %.0.i32 = select i1 %.not.i30, i8 %101, i8 %100
   %102 = getelementptr inbounds nuw i8, ptr %.02958, i64 1
-  store i8 %.0.i32, ptr %102, align 1, !tbaa !18
+  store i8 %.0.i32, ptr %102, align 1, !tbaa !19
   %103 = getelementptr inbounds nuw i8, ptr %.02859, i64 4
   %104 = load i16, ptr %103, align 2, !tbaa !13
   %.not.i33 = icmp ult i16 %104, 256
@@ -536,7 +536,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %106 = trunc i16 %104 to i8
   %.0.i35 = select i1 %.not.i33, i8 %106, i8 %105
   %107 = getelementptr inbounds nuw i8, ptr %.02958, i64 2
-  store i8 %.0.i35, ptr %107, align 1, !tbaa !18
+  store i8 %.0.i35, ptr %107, align 1, !tbaa !19
   %108 = getelementptr inbounds nuw i8, ptr %.02859, i64 6
   %109 = load i16, ptr %108, align 2, !tbaa !13
   %.not.i36 = icmp ult i16 %109, 256
@@ -545,7 +545,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %111 = trunc i16 %109 to i8
   %.0.i38 = select i1 %.not.i36, i8 %111, i8 %110
   %112 = getelementptr inbounds nuw i8, ptr %.02958, i64 3
-  store i8 %.0.i38, ptr %112, align 1, !tbaa !18
+  store i8 %.0.i38, ptr %112, align 1, !tbaa !19
   %113 = getelementptr inbounds nuw i8, ptr %.02859, i64 8
   %114 = load i16, ptr %113, align 2, !tbaa !13
   %.not.i39 = icmp ult i16 %114, 256
@@ -554,7 +554,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %116 = trunc i16 %114 to i8
   %.0.i41 = select i1 %.not.i39, i8 %116, i8 %115
   %117 = getelementptr inbounds nuw i8, ptr %.02958, i64 4
-  store i8 %.0.i41, ptr %117, align 1, !tbaa !18
+  store i8 %.0.i41, ptr %117, align 1, !tbaa !19
   %118 = getelementptr inbounds nuw i8, ptr %.02859, i64 10
   %119 = load i16, ptr %118, align 2, !tbaa !13
   %.not.i42 = icmp ult i16 %119, 256
@@ -563,7 +563,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %121 = trunc i16 %119 to i8
   %.0.i44 = select i1 %.not.i42, i8 %121, i8 %120
   %122 = getelementptr inbounds nuw i8, ptr %.02958, i64 5
-  store i8 %.0.i44, ptr %122, align 1, !tbaa !18
+  store i8 %.0.i44, ptr %122, align 1, !tbaa !19
   %123 = getelementptr inbounds nuw i8, ptr %.02859, i64 12
   %124 = load i16, ptr %123, align 2, !tbaa !13
   %.not.i45 = icmp ult i16 %124, 256
@@ -572,7 +572,7 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %126 = trunc i16 %124 to i8
   %.0.i47 = select i1 %.not.i45, i8 %126, i8 %125
   %127 = getelementptr inbounds nuw i8, ptr %.02958, i64 6
-  store i8 %.0.i47, ptr %127, align 1, !tbaa !18
+  store i8 %.0.i47, ptr %127, align 1, !tbaa !19
   %128 = getelementptr inbounds nuw i8, ptr %.02859, i64 14
   %129 = load i16, ptr %128, align 2, !tbaa !13
   %.not.i48 = icmp ult i16 %129, 256
@@ -581,12 +581,12 @@ define internal void @wmv2_idct_put_c(ptr noundef writeonly captures(none) %0, i
   %131 = trunc i16 %129 to i8
   %.0.i50 = select i1 %.not.i48, i8 %131, i8 %130
   %132 = getelementptr inbounds nuw i8, ptr %.02958, i64 7
-  store i8 %.0.i50, ptr %132, align 1, !tbaa !18
+  store i8 %.0.i50, ptr %132, align 1, !tbaa !19
   %133 = getelementptr inbounds i8, ptr %.02958, i64 %1
   %134 = getelementptr inbounds nuw i8, ptr %.02859, i64 16
   %135 = add nuw nsw i32 %.260, 1
   %exitcond67.not = icmp eq i32 %135, 8
-  br i1 %exitcond67.not, label %136, label %.preheader, !llvm.loop !22
+  br i1 %exitcond67.not, label %136, label %.preheader, !llvm.loop !23
 
 136:                                              ; preds = %.preheader
   ret void
@@ -826,18 +826,18 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %.081 = phi i32 [ 0, %5 ], [ %156, %8 ]
   %.05480 = phi ptr [ %0, %5 ], [ %154, %8 ]
   %.05579 = phi ptr [ %1, %5 ], [ %155, %8 ]
-  %9 = load i8, ptr %.05579, align 1, !tbaa !18
+  %9 = load i8, ptr %.05579, align 1, !tbaa !19
   %10 = zext i8 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %.05579, i64 1
-  %12 = load i8, ptr %11, align 1, !tbaa !18
+  %12 = load i8, ptr %11, align 1, !tbaa !19
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %13, %10
   %15 = mul nuw nsw i32 %14, 9
   %16 = getelementptr inbounds i8, ptr %.05579, i64 -1
-  %17 = load i8, ptr %16, align 1, !tbaa !18
+  %17 = load i8, ptr %16, align 1, !tbaa !19
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %.05579, i64 2
-  %20 = load i8, ptr %19, align 1, !tbaa !18
+  %20 = load i8, ptr %19, align 1, !tbaa !19
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %18, %21
   %reass.sub = sub nsw i32 %15, %22
@@ -845,18 +845,18 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %24 = ashr i32 %23, 4
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %25
-  %27 = load i8, ptr %26, align 1, !tbaa !18
-  store i8 %27, ptr %.05480, align 1, !tbaa !18
-  %28 = load i8, ptr %11, align 1, !tbaa !18
+  %27 = load i8, ptr %26, align 1, !tbaa !19
+  store i8 %27, ptr %.05480, align 1, !tbaa !19
+  %28 = load i8, ptr %11, align 1, !tbaa !19
   %29 = zext i8 %28 to i32
-  %30 = load i8, ptr %19, align 1, !tbaa !18
+  %30 = load i8, ptr %19, align 1, !tbaa !19
   %31 = zext i8 %30 to i32
   %32 = add nuw nsw i32 %31, %29
   %33 = mul nuw nsw i32 %32, 9
-  %34 = load i8, ptr %.05579, align 1, !tbaa !18
+  %34 = load i8, ptr %.05579, align 1, !tbaa !19
   %35 = zext i8 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %.05579, i64 3
-  %37 = load i8, ptr %36, align 1, !tbaa !18
+  %37 = load i8, ptr %36, align 1, !tbaa !19
   %38 = zext i8 %37 to i32
   %39 = add nuw nsw i32 %35, %38
   %reass.sub82 = sub nsw i32 %33, %39
@@ -864,19 +864,19 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %41 = ashr i32 %40, 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %42
-  %44 = load i8, ptr %43, align 1, !tbaa !18
+  %44 = load i8, ptr %43, align 1, !tbaa !19
   %45 = getelementptr inbounds nuw i8, ptr %.05480, i64 1
-  store i8 %44, ptr %45, align 1, !tbaa !18
-  %46 = load i8, ptr %19, align 1, !tbaa !18
+  store i8 %44, ptr %45, align 1, !tbaa !19
+  %46 = load i8, ptr %19, align 1, !tbaa !19
   %47 = zext i8 %46 to i32
-  %48 = load i8, ptr %36, align 1, !tbaa !18
+  %48 = load i8, ptr %36, align 1, !tbaa !19
   %49 = zext i8 %48 to i32
   %50 = add nuw nsw i32 %49, %47
   %51 = mul nuw nsw i32 %50, 9
-  %52 = load i8, ptr %11, align 1, !tbaa !18
+  %52 = load i8, ptr %11, align 1, !tbaa !19
   %53 = zext i8 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %.05579, i64 4
-  %55 = load i8, ptr %54, align 1, !tbaa !18
+  %55 = load i8, ptr %54, align 1, !tbaa !19
   %56 = zext i8 %55 to i32
   %57 = add nuw nsw i32 %53, %56
   %reass.sub83 = sub nsw i32 %51, %57
@@ -884,19 +884,19 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %59 = ashr i32 %58, 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !18
+  %62 = load i8, ptr %61, align 1, !tbaa !19
   %63 = getelementptr inbounds nuw i8, ptr %.05480, i64 2
-  store i8 %62, ptr %63, align 1, !tbaa !18
-  %64 = load i8, ptr %36, align 1, !tbaa !18
+  store i8 %62, ptr %63, align 1, !tbaa !19
+  %64 = load i8, ptr %36, align 1, !tbaa !19
   %65 = zext i8 %64 to i32
-  %66 = load i8, ptr %54, align 1, !tbaa !18
+  %66 = load i8, ptr %54, align 1, !tbaa !19
   %67 = zext i8 %66 to i32
   %68 = add nuw nsw i32 %67, %65
   %69 = mul nuw nsw i32 %68, 9
-  %70 = load i8, ptr %19, align 1, !tbaa !18
+  %70 = load i8, ptr %19, align 1, !tbaa !19
   %71 = zext i8 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %.05579, i64 5
-  %73 = load i8, ptr %72, align 1, !tbaa !18
+  %73 = load i8, ptr %72, align 1, !tbaa !19
   %74 = zext i8 %73 to i32
   %75 = add nuw nsw i32 %71, %74
   %reass.sub84 = sub nsw i32 %69, %75
@@ -904,19 +904,19 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %77 = ashr i32 %76, 4
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !18
+  %80 = load i8, ptr %79, align 1, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %.05480, i64 3
-  store i8 %80, ptr %81, align 1, !tbaa !18
-  %82 = load i8, ptr %54, align 1, !tbaa !18
+  store i8 %80, ptr %81, align 1, !tbaa !19
+  %82 = load i8, ptr %54, align 1, !tbaa !19
   %83 = zext i8 %82 to i32
-  %84 = load i8, ptr %72, align 1, !tbaa !18
+  %84 = load i8, ptr %72, align 1, !tbaa !19
   %85 = zext i8 %84 to i32
   %86 = add nuw nsw i32 %85, %83
   %87 = mul nuw nsw i32 %86, 9
-  %88 = load i8, ptr %36, align 1, !tbaa !18
+  %88 = load i8, ptr %36, align 1, !tbaa !19
   %89 = zext i8 %88 to i32
   %90 = getelementptr inbounds nuw i8, ptr %.05579, i64 6
-  %91 = load i8, ptr %90, align 1, !tbaa !18
+  %91 = load i8, ptr %90, align 1, !tbaa !19
   %92 = zext i8 %91 to i32
   %93 = add nuw nsw i32 %89, %92
   %reass.sub85 = sub nsw i32 %87, %93
@@ -924,19 +924,19 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %95 = ashr i32 %94, 4
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %96
-  %98 = load i8, ptr %97, align 1, !tbaa !18
+  %98 = load i8, ptr %97, align 1, !tbaa !19
   %99 = getelementptr inbounds nuw i8, ptr %.05480, i64 4
-  store i8 %98, ptr %99, align 1, !tbaa !18
-  %100 = load i8, ptr %72, align 1, !tbaa !18
+  store i8 %98, ptr %99, align 1, !tbaa !19
+  %100 = load i8, ptr %72, align 1, !tbaa !19
   %101 = zext i8 %100 to i32
-  %102 = load i8, ptr %90, align 1, !tbaa !18
+  %102 = load i8, ptr %90, align 1, !tbaa !19
   %103 = zext i8 %102 to i32
   %104 = add nuw nsw i32 %103, %101
   %105 = mul nuw nsw i32 %104, 9
-  %106 = load i8, ptr %54, align 1, !tbaa !18
+  %106 = load i8, ptr %54, align 1, !tbaa !19
   %107 = zext i8 %106 to i32
   %108 = getelementptr inbounds nuw i8, ptr %.05579, i64 7
-  %109 = load i8, ptr %108, align 1, !tbaa !18
+  %109 = load i8, ptr %108, align 1, !tbaa !19
   %110 = zext i8 %109 to i32
   %111 = add nuw nsw i32 %107, %110
   %reass.sub86 = sub nsw i32 %105, %111
@@ -944,19 +944,19 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %113 = ashr i32 %112, 4
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !18
+  %116 = load i8, ptr %115, align 1, !tbaa !19
   %117 = getelementptr inbounds nuw i8, ptr %.05480, i64 5
-  store i8 %116, ptr %117, align 1, !tbaa !18
-  %118 = load i8, ptr %90, align 1, !tbaa !18
+  store i8 %116, ptr %117, align 1, !tbaa !19
+  %118 = load i8, ptr %90, align 1, !tbaa !19
   %119 = zext i8 %118 to i32
-  %120 = load i8, ptr %108, align 1, !tbaa !18
+  %120 = load i8, ptr %108, align 1, !tbaa !19
   %121 = zext i8 %120 to i32
   %122 = add nuw nsw i32 %121, %119
   %123 = mul nuw nsw i32 %122, 9
-  %124 = load i8, ptr %72, align 1, !tbaa !18
+  %124 = load i8, ptr %72, align 1, !tbaa !19
   %125 = zext i8 %124 to i32
   %126 = getelementptr inbounds nuw i8, ptr %.05579, i64 8
-  %127 = load i8, ptr %126, align 1, !tbaa !18
+  %127 = load i8, ptr %126, align 1, !tbaa !19
   %128 = zext i8 %127 to i32
   %129 = add nuw nsw i32 %125, %128
   %reass.sub87 = sub nsw i32 %123, %129
@@ -964,19 +964,19 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %131 = ashr i32 %130, 4
   %132 = sext i32 %131 to i64
   %133 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %132
-  %134 = load i8, ptr %133, align 1, !tbaa !18
+  %134 = load i8, ptr %133, align 1, !tbaa !19
   %135 = getelementptr inbounds nuw i8, ptr %.05480, i64 6
-  store i8 %134, ptr %135, align 1, !tbaa !18
-  %136 = load i8, ptr %108, align 1, !tbaa !18
+  store i8 %134, ptr %135, align 1, !tbaa !19
+  %136 = load i8, ptr %108, align 1, !tbaa !19
   %137 = zext i8 %136 to i32
-  %138 = load i8, ptr %126, align 1, !tbaa !18
+  %138 = load i8, ptr %126, align 1, !tbaa !19
   %139 = zext i8 %138 to i32
   %140 = add nuw nsw i32 %139, %137
   %141 = mul nuw nsw i32 %140, 9
-  %142 = load i8, ptr %90, align 1, !tbaa !18
+  %142 = load i8, ptr %90, align 1, !tbaa !19
   %143 = zext i8 %142 to i32
   %144 = getelementptr inbounds nuw i8, ptr %.05579, i64 9
-  %145 = load i8, ptr %144, align 1, !tbaa !18
+  %145 = load i8, ptr %144, align 1, !tbaa !19
   %146 = zext i8 %145 to i32
   %147 = add nuw nsw i32 %143, %146
   %reass.sub88 = sub nsw i32 %141, %147
@@ -984,14 +984,14 @@ define internal fastcc void @wmv2_mspel8_h_lowpass(ptr noundef writeonly capture
   %149 = ashr i32 %148, 4
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %150
-  %152 = load i8, ptr %151, align 1, !tbaa !18
+  %152 = load i8, ptr %151, align 1, !tbaa !19
   %153 = getelementptr inbounds nuw i8, ptr %.05480, i64 7
-  store i8 %152, ptr %153, align 1, !tbaa !18
+  store i8 %152, ptr %153, align 1, !tbaa !19
   %154 = getelementptr inbounds i8, ptr %.05480, i64 %6
   %155 = getelementptr inbounds i8, ptr %.05579, i64 %7
   %156 = add nuw nsw i32 %.081, 1
   %exitcond.not = icmp eq i32 %156, %4
-  br i1 %exitcond.not, label %157, label %8, !llvm.loop !23
+  br i1 %exitcond.not, label %157, label %8, !llvm.loop !24
 
 157:                                              ; preds = %8
   ret void
@@ -1040,36 +1040,36 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %.081102 = phi ptr [ %1, %4 ], [ %141, %37 ]
   %.082101 = phi i32 [ 0, %4 ], [ %143, %37 ]
   %38 = getelementptr inbounds i8, ptr %.081102, i64 %6
-  %39 = load i8, ptr %38, align 1, !tbaa !18
+  %39 = load i8, ptr %38, align 1, !tbaa !19
   %40 = zext i8 %39 to i32
-  %41 = load i8, ptr %.081102, align 1, !tbaa !18
+  %41 = load i8, ptr %.081102, align 1, !tbaa !19
   %42 = zext i8 %41 to i32
   %43 = getelementptr inbounds i8, ptr %.081102, i64 %7
-  %44 = load i8, ptr %43, align 1, !tbaa !18
+  %44 = load i8, ptr %43, align 1, !tbaa !19
   %45 = zext i8 %44 to i32
   %46 = getelementptr inbounds i8, ptr %.081102, i64 %9
-  %47 = load i8, ptr %46, align 1, !tbaa !18
+  %47 = load i8, ptr %46, align 1, !tbaa !19
   %48 = zext i8 %47 to i32
   %49 = getelementptr inbounds i8, ptr %.081102, i64 %11
-  %50 = load i8, ptr %49, align 1, !tbaa !18
+  %50 = load i8, ptr %49, align 1, !tbaa !19
   %51 = zext i8 %50 to i32
   %52 = getelementptr inbounds i8, ptr %.081102, i64 %13
-  %53 = load i8, ptr %52, align 1, !tbaa !18
+  %53 = load i8, ptr %52, align 1, !tbaa !19
   %54 = zext i8 %53 to i32
   %55 = getelementptr inbounds i8, ptr %.081102, i64 %15
-  %56 = load i8, ptr %55, align 1, !tbaa !18
+  %56 = load i8, ptr %55, align 1, !tbaa !19
   %57 = zext i8 %56 to i32
   %58 = getelementptr inbounds i8, ptr %.081102, i64 %17
-  %59 = load i8, ptr %58, align 1, !tbaa !18
+  %59 = load i8, ptr %58, align 1, !tbaa !19
   %60 = zext i8 %59 to i32
   %61 = getelementptr inbounds i8, ptr %.081102, i64 %19
-  %62 = load i8, ptr %61, align 1, !tbaa !18
+  %62 = load i8, ptr %61, align 1, !tbaa !19
   %63 = zext i8 %62 to i32
   %64 = getelementptr inbounds i8, ptr %.081102, i64 %21
-  %65 = load i8, ptr %64, align 1, !tbaa !18
+  %65 = load i8, ptr %64, align 1, !tbaa !19
   %66 = zext i8 %65 to i32
   %67 = getelementptr inbounds i8, ptr %.081102, i64 %23
-  %68 = load i8, ptr %67, align 1, !tbaa !18
+  %68 = load i8, ptr %67, align 1, !tbaa !19
   %69 = zext i8 %68 to i32
   %70 = add nuw nsw i32 %45, %42
   %71 = mul nuw nsw i32 %70, 9
@@ -1079,8 +1079,8 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %74 = ashr i32 %73, 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %75
-  %77 = load i8, ptr %76, align 1, !tbaa !18
-  store i8 %77, ptr %.0103, align 1, !tbaa !18
+  %77 = load i8, ptr %76, align 1, !tbaa !19
+  store i8 %77, ptr %.0103, align 1, !tbaa !19
   %78 = add nuw nsw i32 %48, %45
   %79 = mul nuw nsw i32 %78, 9
   %80 = add nuw nsw i32 %42, %51
@@ -1089,9 +1089,9 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %82 = ashr i32 %81, 4
   %83 = sext i32 %82 to i64
   %84 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %83
-  %85 = load i8, ptr %84, align 1, !tbaa !18
+  %85 = load i8, ptr %84, align 1, !tbaa !19
   %86 = getelementptr inbounds i8, ptr %.0103, i64 %24
-  store i8 %85, ptr %86, align 1, !tbaa !18
+  store i8 %85, ptr %86, align 1, !tbaa !19
   %87 = add nuw nsw i32 %51, %48
   %88 = mul nuw nsw i32 %87, 9
   %89 = add nuw nsw i32 %45, %54
@@ -1100,9 +1100,9 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %91 = ashr i32 %90, 4
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %92
-  %94 = load i8, ptr %93, align 1, !tbaa !18
+  %94 = load i8, ptr %93, align 1, !tbaa !19
   %95 = getelementptr inbounds i8, ptr %.0103, i64 %26
-  store i8 %94, ptr %95, align 1, !tbaa !18
+  store i8 %94, ptr %95, align 1, !tbaa !19
   %96 = add nuw nsw i32 %54, %51
   %97 = mul nuw nsw i32 %96, 9
   %98 = add nuw nsw i32 %48, %57
@@ -1111,9 +1111,9 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %100 = ashr i32 %99, 4
   %101 = sext i32 %100 to i64
   %102 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %101
-  %103 = load i8, ptr %102, align 1, !tbaa !18
+  %103 = load i8, ptr %102, align 1, !tbaa !19
   %104 = getelementptr inbounds i8, ptr %.0103, i64 %28
-  store i8 %103, ptr %104, align 1, !tbaa !18
+  store i8 %103, ptr %104, align 1, !tbaa !19
   %105 = add nuw nsw i32 %57, %54
   %106 = mul nuw nsw i32 %105, 9
   %107 = add nuw nsw i32 %51, %60
@@ -1122,9 +1122,9 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %109 = ashr i32 %108, 4
   %110 = sext i32 %109 to i64
   %111 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %110
-  %112 = load i8, ptr %111, align 1, !tbaa !18
+  %112 = load i8, ptr %111, align 1, !tbaa !19
   %113 = getelementptr inbounds i8, ptr %.0103, i64 %30
-  store i8 %112, ptr %113, align 1, !tbaa !18
+  store i8 %112, ptr %113, align 1, !tbaa !19
   %114 = add nuw nsw i32 %60, %57
   %115 = mul nuw nsw i32 %114, 9
   %116 = add nuw nsw i32 %54, %63
@@ -1133,9 +1133,9 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %118 = ashr i32 %117, 4
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %119
-  %121 = load i8, ptr %120, align 1, !tbaa !18
+  %121 = load i8, ptr %120, align 1, !tbaa !19
   %122 = getelementptr inbounds i8, ptr %.0103, i64 %32
-  store i8 %121, ptr %122, align 1, !tbaa !18
+  store i8 %121, ptr %122, align 1, !tbaa !19
   %123 = add nuw nsw i32 %63, %60
   %124 = mul nuw nsw i32 %123, 9
   %125 = add nuw nsw i32 %57, %66
@@ -1144,9 +1144,9 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %127 = ashr i32 %126, 4
   %128 = sext i32 %127 to i64
   %129 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %128
-  %130 = load i8, ptr %129, align 1, !tbaa !18
+  %130 = load i8, ptr %129, align 1, !tbaa !19
   %131 = getelementptr inbounds i8, ptr %.0103, i64 %34
-  store i8 %130, ptr %131, align 1, !tbaa !18
+  store i8 %130, ptr %131, align 1, !tbaa !19
   %132 = add nuw nsw i32 %66, %63
   %133 = mul nuw nsw i32 %132, 9
   %134 = add nuw nsw i32 %60, %69
@@ -1155,14 +1155,14 @@ define internal fastcc void @wmv2_mspel8_v_lowpass(ptr noundef writeonly capture
   %136 = ashr i32 %135, 4
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @ff_crop_tab, i64 1024), i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !18
+  %139 = load i8, ptr %138, align 1, !tbaa !19
   %140 = getelementptr inbounds i8, ptr %.0103, i64 %36
-  store i8 %139, ptr %140, align 1, !tbaa !18
+  store i8 %139, ptr %140, align 1, !tbaa !19
   %141 = getelementptr inbounds nuw i8, ptr %.081102, i64 1
   %142 = getelementptr inbounds nuw i8, ptr %.0103, i64 1
   %143 = add nuw nsw i32 %.082101, 1
   %exitcond.not = icmp eq i32 %143, 8
-  br i1 %exitcond.not, label %144, label %37, !llvm.loop !24
+  br i1 %exitcond.not, label %144, label %37, !llvm.loop !25
 
 144:                                              ; preds = %37
   ret void
@@ -1193,13 +1193,14 @@ attributes #6 = { nounwind }
 !12 = !{!6, !6, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"short", !7, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = !{!7, !7, i64 0}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !16, !17}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = distinct !{!25, !16, !17}

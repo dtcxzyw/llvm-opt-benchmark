@@ -285,12 +285,12 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) 
   store double %139, ptr %131, align 8, !tbaa !7
   %indvars.iv.next1492 = add nuw nsw i64 %indvars.iv1491, 1
   %exitcond1495.not = icmp eq i64 %indvars.iv.next1492, %indvars.iv1496
-  br i1 %exitcond1495.not, label %140, label %133, !llvm.loop !11
+  br i1 %exitcond1495.not, label %140, label %133, !llvm.loop !12
 
 140:                                              ; preds = %133
   %indvars.iv.next1497 = add nuw nsw i64 %indvars.iv1496, 1
   %exitcond1500.not = icmp eq i64 %indvars.iv.next1497, %wide.trip.count1499
-  br i1 %exitcond1500.not, label %._crit_edge, label %.lr.ph1263, !llvm.loop !12
+  br i1 %exitcond1500.not, label %._crit_edge, label %.lr.ph1263, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %140
   %141 = add nsw i32 %123, -1
@@ -460,7 +460,7 @@ define void @dtrevc_(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) 
   store double %230, ptr %gep1677, align 8, !tbaa !7
   %indvars.iv.next1527 = add nuw nsw i64 %indvars.iv1526, 1
   %exitcond1530.not = icmp eq i64 %indvars.iv.next1527, %wide.trip.count1529
-  br i1 %exitcond1530.not, label %.lr.ph1336.preheader, label %228, !llvm.loop !13
+  br i1 %exitcond1530.not, label %.lr.ph1336.preheader, label %228, !llvm.loop !14
 
 .lr.ph1336:                                       ; preds = %.lr.ph1336.preheader, %.lr.ph1336._crit_edge
   %indvars.iv1531 = phi i64 [ %227, %.lr.ph1336.preheader ], [ %.pre1623, %.lr.ph1336._crit_edge ]
@@ -640,7 +640,7 @@ thread-pre-split1179:                             ; preds = %277, %286
 .lr.ph1336._crit_edge:                            ; preds = %.lr.ph1336._crit_edge.sink.split, %.lr.ph1336
   %.21080 = phi i32 [ %.010781334, %.lr.ph1336 ], [ %.21080.ph, %.lr.ph1336._crit_edge.sink.split ]
   %324 = icmp sgt i64 %indvars.iv1531, 1
-  br i1 %324, label %.lr.ph1336, label %._crit_edge1337, !llvm.loop !14
+  br i1 %324, label %.lr.ph1336, label %._crit_edge1337, !llvm.loop !15
 
 ._crit_edge1337:                                  ; preds = %.lr.ph1336._crit_edge, %217
   br i1 %.not1148, label %325, label %345
@@ -686,7 +686,7 @@ thread-pre-split1179:                             ; preds = %277, %286
   %344 = getelementptr inbounds double, ptr %40, i64 %343
   store double 0.000000e+00, ptr %344, align 8, !tbaa !7
   %exitcond1538.not = icmp eq i64 %indvars.iv.next1535, %wide.trip.count1537
-  br i1 %exitcond1538.not, label %.loopexit1252, label %.lr.ph1341, !llvm.loop !15
+  br i1 %exitcond1538.not, label %.loopexit1252, label %.lr.ph1341, !llvm.loop !16
 
 345:                                              ; preds = %._crit_edge1337
   %346 = load i32, ptr %27, align 4, !tbaa !3
@@ -824,7 +824,7 @@ thread-pre-split1179:                             ; preds = %277, %286
   store double %430, ptr %gep1655, align 8, !tbaa !7
   %indvars.iv.next1502 = add nuw nsw i64 %indvars.iv1501, 1
   %exitcond1505.not = icmp eq i64 %indvars.iv.next1502, %wide.trip.count1504
-  br i1 %exitcond1505.not, label %.lr.ph1293.preheader, label %422, !llvm.loop !16
+  br i1 %exitcond1505.not, label %.lr.ph1293.preheader, label %422, !llvm.loop !17
 
 .lr.ph1293:                                       ; preds = %.lr.ph1293.preheader, %.lr.ph1293._crit_edge
   %indvars.iv1506 = phi i64 [ %421, %.lr.ph1293.preheader ], [ %.pre1624, %.lr.ph1293._crit_edge ]
@@ -1043,7 +1043,7 @@ thread-pre-split1188:                             ; preds = %482, %491
 .lr.ph1293._crit_edge:                            ; preds = %.lr.ph1293._crit_edge.sink.split, %.lr.ph1293
   %.51083 = phi i32 [ %.310811291, %.lr.ph1293 ], [ %.51083.ph, %.lr.ph1293._crit_edge.sink.split ]
   %541 = icmp sgt i64 %indvars.iv1506, 1
-  br i1 %541, label %.lr.ph1293, label %._crit_edge1294, !llvm.loop !17
+  br i1 %541, label %.lr.ph1293, label %._crit_edge1294, !llvm.loop !18
 
 ._crit_edge1294:                                  ; preds = %.lr.ph1293._crit_edge, %400
   br i1 %.not1148, label %542, label %568
@@ -1091,7 +1091,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %562 = select i1 %561, double %.010981303, double %560
   %indvars.iv.next1515 = add nuw nsw i64 %indvars.iv1514, 1
   %exitcond1518.not = icmp eq i64 %indvars.iv.next1515, %wide.trip.count1517
-  br i1 %exitcond1518.not, label %._crit_edge1307, label %.lr.ph1306, !llvm.loop !18
+  br i1 %exitcond1518.not, label %._crit_edge1307, label %.lr.ph1306, !llvm.loop !19
 
 ._crit_edge1307:                                  ; preds = %.lr.ph1306
   store double %552, ptr %18, align 8, !tbaa !7
@@ -1124,7 +1124,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %gep1673 = getelementptr double, ptr %invariant.gep1672, i64 %indvars.iv.next1522
   store double 0.000000e+00, ptr %gep1673, align 8, !tbaa !7
   %exitcond1525.not = icmp eq i64 %indvars.iv.next1522, %wide.trip.count1524
-  br i1 %exitcond1525.not, label %.loopexit1252, label %.lr.ph1313, !llvm.loop !19
+  br i1 %exitcond1525.not, label %.loopexit1252, label %.lr.ph1313, !llvm.loop !20
 
 568:                                              ; preds = %._crit_edge1294
   %569 = load i32, ptr %27, align 4, !tbaa !3
@@ -1218,7 +1218,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %619 = select i1 %618, double %.110991296, double %617
   %indvars.iv.next1510 = add nuw nsw i64 %indvars.iv1509, 1
   %exitcond1513.not = icmp eq i64 %indvars.iv.next1510, %wide.trip.count1512
-  br i1 %exitcond1513.not, label %._crit_edge1300, label %608, !llvm.loop !20
+  br i1 %exitcond1513.not, label %._crit_edge1300, label %608, !llvm.loop !21
 
 ._crit_edge1300:                                  ; preds = %608
   store double %609, ptr %18, align 8, !tbaa !7
@@ -1258,7 +1258,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %627 = add nsw i32 %626, -1
   store i32 %627, ptr %27, align 4, !tbaa !3
   %628 = icmp sgt i32 %626, 1
-  br i1 %628, label %153, label %.loopexit1255, !llvm.loop !21
+  br i1 %628, label %153, label %.loopexit1255, !llvm.loop !22
 
 .loopexit1255:                                    ; preds = %625, %144, %142
   br i1 %49, label %629, label %.loopexit1251
@@ -1406,7 +1406,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %gep1681 = getelementptr double, ptr %invariant.gep1680, i64 %indvars.iv1539
   store double %708, ptr %gep1681, align 8, !tbaa !7
   %exitcond1543.not = icmp eq i64 %indvars.iv.next1540, %705
-  br i1 %exitcond1543.not, label %.lr.ph1398.preheader, label %.lr.ph1388, !llvm.loop !22
+  br i1 %exitcond1543.not, label %.lr.ph1398.preheader, label %.lr.ph1388, !llvm.loop !23
 
 ._crit_edge1389:                                  ; preds = %699
   store i32 %700, ptr %16, align 4, !tbaa !3
@@ -1654,7 +1654,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %871 = load i32, ptr %16, align 4, !tbaa !3
   %872 = sext i32 %871 to i64
   %.not1140.not = icmp slt i64 %indvars.iv.next1545, %872
-  br i1 %.not1140.not, label %.lr.ph1398, label %._crit_edge1399, !llvm.loop !23
+  br i1 %.not1140.not, label %.lr.ph1398, label %._crit_edge1399, !llvm.loop !24
 
 ._crit_edge1399:                                  ; preds = %869, %._crit_edge1389
   %873 = phi i32 [ %700, %._crit_edge1389 ], [ %870, %869 ]
@@ -1862,7 +1862,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %indvars.iv.next1553 = add nsw i64 %indvars.iv1552, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1553 to i32
   %exitcond1556.not = icmp eq i32 %996, %lftr.wideiv
-  br i1 %exitcond1556.not, label %.lr.ph1421.preheader, label %997, !llvm.loop !24
+  br i1 %exitcond1556.not, label %.lr.ph1421.preheader, label %997, !llvm.loop !25
 
 .lr.ph1421.preheader:                             ; preds = %997
   store i32 %975, ptr %16, align 4, !tbaa !3
@@ -2221,7 +2221,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %1259 = load i32, ptr %16, align 4, !tbaa !3
   %1260 = sext i32 %1259 to i64
   %.not1134.not = icmp slt i64 %indvars.iv1557, %1260
-  br i1 %.not1134.not, label %.lr.ph1421, label %._crit_edge1422, !llvm.loop !25
+  br i1 %.not1134.not, label %.lr.ph1421, label %._crit_edge1422, !llvm.loop !26
 
 ._crit_edge1422:                                  ; preds = %.lr.ph1421._crit_edge, %._crit_edge1408.thread
   %1261 = phi i32 [ %975, %._crit_edge1408.thread ], [ %1258, %.lr.ph1421._crit_edge ]
@@ -2291,7 +2291,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %indvars.iv.next1568 = add nsw i64 %indvars.iv1567, 1
   %lftr.wideiv1571 = trunc i64 %indvars.iv.next1568 to i32
   %exitcond1572.not = icmp eq i32 %1290, %lftr.wideiv1571
-  br i1 %exitcond1572.not, label %._crit_edge1436, label %.lr.ph1435, !llvm.loop !26
+  br i1 %exitcond1572.not, label %._crit_edge1436, label %.lr.ph1435, !llvm.loop !27
 
 ._crit_edge1436:                                  ; preds = %.lr.ph1435
   store double %1291, ptr %18, align 8, !tbaa !7
@@ -2339,7 +2339,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   store double 0.000000e+00, ptr %gep1707, align 8, !tbaa !7
   %indvars.iv.next1578 = add nuw nsw i64 %indvars.iv1577, 1
   %exitcond1582.not = icmp eq i64 %indvars.iv.next1578, %wide.trip.count1581
-  br i1 %exitcond1582.not, label %.loopexit, label %.lr.ph1442, !llvm.loop !27
+  br i1 %exitcond1582.not, label %.loopexit, label %.lr.ph1442, !llvm.loop !28
 
 1319:                                             ; preds = %._crit_edge1422
   %1320 = add nsw i32 %1261, -1
@@ -2446,7 +2446,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %1380 = select i1 %1379, double %.311011424, double %1378
   %indvars.iv.next1562 = add nuw nsw i64 %indvars.iv1561, 1
   %exitcond1566.not = icmp eq i64 %indvars.iv.next1562, %wide.trip.count1565
-  br i1 %exitcond1566.not, label %._crit_edge1428, label %1369, !llvm.loop !28
+  br i1 %exitcond1566.not, label %._crit_edge1428, label %1369, !llvm.loop !29
 
 ._crit_edge1428:                                  ; preds = %1369
   store double %1370, ptr %18, align 8, !tbaa !7
@@ -2488,7 +2488,7 @@ thread-pre-split1188:                             ; preds = %482, %491
   %1392 = add nsw i32 %1390, 1
   store i32 %1392, ptr %27, align 4, !tbaa !3
   %.not1129.not = icmp slt i32 %1390, %1389
-  br i1 %.not1129.not, label %638, label %.loopexit1251, !llvm.loop !29
+  br i1 %.not1129.not, label %638, label %.loopexit1251, !llvm.loop !30
 
 .loopexit1251:                                    ; preds = %.thread1206, %629, %.loopexit1255, %115, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #6
@@ -2569,24 +2569,25 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}

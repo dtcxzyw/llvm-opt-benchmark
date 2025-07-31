@@ -579,7 +579,7 @@ define internal noundef zeroext i8 @monitorInfo(ptr noundef %0, ptr noundef %1) 
   %45 = load i32, ptr %28, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %40, label %.preheader, !llvm.loop !8
+  br i1 %47, label %40, label %.preheader, !llvm.loop !9
 
 48:                                               ; preds = %.lr.ph35, %48
   %indvars.iv37 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next38, %48 ]
@@ -591,7 +591,7 @@ define internal noundef zeroext i8 @monitorInfo(ptr noundef %0, ptr noundef %1) 
   %53 = load i32, ptr %30, align 8
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next38, %54
-  br i1 %55, label %48, label %.loopexit, !llvm.loop !9
+  br i1 %55, label %48, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %48, %.preheader, %20
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -770,7 +770,7 @@ define internal noundef zeroext i8 @referringObjects(ptr noundef %0, ptr noundef
   %31 = load i32, ptr %20, align 8
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %34 = load ptr, ptr %3, align 8
@@ -885,8 +885,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

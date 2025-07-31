@@ -369,7 +369,7 @@ define internal void @_iop_color_picker_pickerdata_ready_callback(ptr readnone c
 
 31:                                               ; preds = %30, %23
   %.2.i = phi i32 [ 1, %30 ], [ %.138.i, %23 ]
-  br i1 %24, label %23, label %_record_point_area.exit
+  br i1 %24, label %23, label %_record_point_area.exit, !llvm.loop !133
 
 32:                                               ; preds = %39, %.preheader34.i
   %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %39 ]
@@ -389,7 +389,7 @@ define internal void @_iop_color_picker_pickerdata_ready_callback(ptr readnone c
   %.4.i = phi i32 [ 1, %38 ], [ %.336.i, %32 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_record_point_area.exit, label %32
+  br i1 %exitcond.not.i, label %_record_point_area.exit, label %32, !llvm.loop !135
 
 _record_point_area.exit:                          ; preds = %39, %31, %8, %17
   %.028.i = phi i32 [ %16, %8 ], [ %16, %17 ], [ %.2.i, %31 ], [ %.4.i, %39 ]
@@ -399,7 +399,7 @@ _record_point_area.exit:                          ; preds = %39, %31, %8, %17
 
 40:                                               ; preds = %_record_point_area.exit
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %42 = load ptr, ptr %41, align 8, !tbaa !133
+  %42 = load ptr, ptr %41, align 8, !tbaa !136
   %.not26 = icmp eq ptr %42, null
   br i1 %.not26, label %47, label %43
 
@@ -412,7 +412,7 @@ _record_point_area.exit:                          ; preds = %39, %31, %8, %17
 
 47:                                               ; preds = %43, %40
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %49 = load ptr, ptr %48, align 8, !tbaa !134
+  %49 = load ptr, ptr %48, align 8, !tbaa !137
   %.not28 = icmp eq ptr %49, null
   br i1 %.not28, label %86, label %50
 
@@ -424,7 +424,7 @@ _record_point_area.exit:                          ; preds = %39, %31, %8, %17
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %55 = load i32, ptr %54, align 8, !tbaa !135
+  %55 = load i32, ptr %54, align 8, !tbaa !138
   %56 = and i32 %55, 1
   %.not30 = icmp eq i32 %56, 0
   %57 = select i1 %.not30, ptr @.str.11, ptr @.str.10
@@ -456,7 +456,7 @@ _record_point_area.exit:                          ; preds = %39, %31, %8, %17
   %80 = load float, ptr %79, align 4, !tbaa !132
   %81 = fpext reassoc nsz arcp contract afn float %80 to double
   tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.8, ptr noundef %2, ptr noundef nonnull %1, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.9, ptr noundef nonnull %57, ptr noundef nonnull %59, ptr noundef nonnull %61, ptr noundef nonnull %63, double noundef %66, double noundef %69, double noundef %72, double noundef %75, double noundef %78, double noundef %81) #11
-  %.pre = load ptr, ptr %48, align 8, !tbaa !134
+  %.pre = load ptr, ptr %48, align 8, !tbaa !137
   br label %82
 
 82:                                               ; preds = %53, %50
@@ -522,7 +522,7 @@ define internal void @_color_picker_proxy_preview_pipe_callback(ptr readnone cap
   br label %26
 
 26:                                               ; preds = %25, %18
-  br i1 %19, label %18, label %_record_point_area.exit
+  br i1 %19, label %18, label %_record_point_area.exit, !llvm.loop !133
 
 27:                                               ; preds = %34, %.preheader34.i
   %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %34 ]
@@ -540,7 +540,7 @@ define internal void @_color_picker_proxy_preview_pipe_callback(ptr readnone cap
 34:                                               ; preds = %33, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %_record_point_area.exit, label %27
+  br i1 %exitcond.not.i, label %_record_point_area.exit, label %27, !llvm.loop !135
 
 _record_point_area.exit:                          ; preds = %34, %26, %8, %12
   store i32 0, ptr %11, align 8, !tbaa !114
@@ -548,7 +548,7 @@ _record_point_area.exit:                          ; preds = %34, %26, %8, %12
 
 35:                                               ; preds = %6, %_record_point_area.exit, %2
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !136
+  %37 = load ptr, ptr %36, align 8, !tbaa !139
   %.not8 = icmp eq ptr %37, null
   br i1 %.not8, label %50, label %38
 
@@ -569,11 +569,11 @@ _record_point_area.exit:                          ; preds = %34, %26, %8, %12
 43:                                               ; preds = %42, %38
   %44 = phi ptr [ %.pre, %42 ], [ %3, %38 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  %46 = load ptr, ptr %45, align 8, !tbaa !137
+  %46 = load ptr, ptr %45, align 8, !tbaa !140
   tail call void %46(ptr noundef nonnull %37) #11
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 80
-  %49 = load ptr, ptr %48, align 8, !tbaa !138
+  %49 = load ptr, ptr %48, align 8, !tbaa !141
   tail call void %49(ptr noundef nonnull %37) #11
   br label %50
 
@@ -657,13 +657,13 @@ define internal fastcc noundef ptr @_color_picker_new(ptr noundef %0, i32 nounde
   tail call void @dt_gui_add_class(ptr noundef %17, ptr noundef nonnull @.str.17) #11
   store ptr %0, ptr %6, align 8, !tbaa !98
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %18, align 8, !tbaa !135
+  store i32 %1, ptr %18, align 8, !tbaa !138
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_init_picker.exit, label %19
 
 19:                                               ; preds = %.critedge
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %21 = load ptr, ptr %20, align 8, !tbaa !139
+  %21 = load ptr, ptr %20, align 8, !tbaa !142
   %22 = tail call i32 %21(ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #11
   br label %_init_picker.exit
 
@@ -716,13 +716,13 @@ _init_picker.exit:                                ; preds = %.critedge, %19
   tail call void @dt_bauhaus_widget_set_quad_tooltip(ptr noundef nonnull %2, ptr noundef %42) #11
   store ptr %0, ptr %6, align 8, !tbaa !98
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %1, ptr %43, align 8, !tbaa !135
+  store i32 %1, ptr %43, align 8, !tbaa !138
   %.not.i46 = icmp eq ptr %0, null
   br i1 %.not.i46, label %_init_picker.exit47, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %46 = load ptr, ptr %45, align 8, !tbaa !139
+  %46 = load ptr, ptr %45, align 8, !tbaa !142
   %47 = tail call i32 %46(ptr noundef nonnull %0, ptr noundef null, ptr noundef null) #11
   br label %_init_picker.exit47
 
@@ -842,7 +842,7 @@ define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr rea
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 824
-  %21 = load ptr, ptr %20, align 8, !tbaa !140
+  %21 = load ptr, ptr %20, align 8, !tbaa !143
   %.not63 = icmp eq ptr %21, null
   br i1 %.not63, label %25, label %22
 
@@ -858,7 +858,7 @@ define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr rea
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %28 = load i32, ptr %27, align 8, !tbaa !141
+  %28 = load i32, ptr %27, align 8, !tbaa !144
   br label %31
 
 29:                                               ; preds = %25
@@ -868,7 +868,7 @@ define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr rea
 31:                                               ; preds = %29, %26
   %32 = phi i32 [ %28, %26 ], [ %30, %29 ]
   %33 = tail call i32 @gtk_accelerator_get_default_mod_mask() #11
-  %34 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !146
+  %34 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !149
   %35 = or i32 %34, %32
   %36 = and i32 %35, %33
   %.not77 = icmp eq i32 %36, 4
@@ -877,14 +877,14 @@ define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr rea
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %39 = load i32, ptr %38, align 4, !tbaa !147
+  %39 = load i32, ptr %38, align 4, !tbaa !150
   %40 = icmp eq i32 %39, 3
   br label %41
 
 41:                                               ; preds = %31, %37
   %42 = phi i1 [ %.not77, %31 ], [ %40, %37 ]
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !135
+  %44 = load i32, ptr %43, align 8, !tbaa !138
   br i1 %.not60, label %45, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %41
@@ -952,7 +952,7 @@ define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr rea
 79:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) @__const._color_picker_callback_button_press.reset, i64 16, i1 false)
-  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !148
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !151
   call void @dt_color_picker_backtransform_box(ptr noundef %80, i32 noundef 2, ptr noundef nonnull %4, ptr noundef nonnull %64) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   %.pre78 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
@@ -982,7 +982,7 @@ define internal range(i32 0, 2) i32 @_color_picker_callback_button_press(ptr rea
 92:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) @__const._color_picker_callback_button_press.middle, i64 16, i1 false)
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !148
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !151
   call void @dt_color_picker_backtransform_box(ptr noundef %93, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %85) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   %.pre79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
@@ -1050,16 +1050,16 @@ DTGTK_IS_TOGGLEBUTTON.exit.thread:                ; preds = %97, %DTGTK_IS_TOGGL
 
 123:                                              ; preds = %118
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 664
-  %125 = load ptr, ptr %124, align 8, !tbaa !149
+  %125 = load ptr, ptr %124, align 8, !tbaa !152
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 96
-  %127 = load ptr, ptr %126, align 16, !tbaa !150
+  %127 = load ptr, ptr %126, align 16, !tbaa !153
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 340
-  store i32 0, ptr %128, align 4, !tbaa !151
+  store i32 0, ptr %128, align 4, !tbaa !154
   call void @dt_iop_request_focus(ptr noundef nonnull %6) #11
   br label %131
 
 129:                                              ; preds = %118
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !148
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !151
   call void @dt_dev_invalidate_all(ptr noundef %130) #11
   br label %131
 
@@ -1080,20 +1080,20 @@ DTGTK_IS_TOGGLEBUTTON.exit.thread:                ; preds = %97, %DTGTK_IS_TOGGL
   %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 72
-  %140 = load ptr, ptr %139, align 8, !tbaa !137
-  %141 = load ptr, ptr %138, align 8, !tbaa !136
+  %140 = load ptr, ptr %139, align 8, !tbaa !140
+  %141 = load ptr, ptr %138, align 8, !tbaa !139
   tail call void %140(ptr noundef %141) #11
   br label %148
 
 142:                                              ; preds = %133
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !6
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 60
-  %145 = load i32, ptr %144, align 4, !tbaa !152
+  %145 = load i32, ptr %144, align 4, !tbaa !155
   %.not68 = icmp eq i32 %145, 0
   br i1 %.not68, label %148, label %146
 
 146:                                              ; preds = %142
-  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !148
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !151
   tail call void @dt_dev_invalidate_all(ptr noundef %147) #11
   br label %148
 
@@ -1297,23 +1297,26 @@ attributes #14 = { nounwind allocsize(0) }
 !130 = !{!"dt_colorpicker_sample_t", !10, i64 0, !10, i64 8, !9, i64 40, !9, i64 44, !9, i64 48, !9, i64 52, !9, i64 56, !10, i64 64, !10, i64 112, !10, i64 160, !10, i64 208, !131, i64 224, !81, i64 256, !81, i64 264, !81, i64 272}
 !131 = !{!"_GdkRGBA", !40, i64 0, !40, i64 8, !40, i64 16, !40, i64 24}
 !132 = !{!63, !63, i64 0}
-!133 = !{!88, !13, i64 776}
-!134 = !{!88, !13, i64 184}
-!135 = !{!99, !9, i64 8}
-!136 = !{!49, !50, i64 16}
-!137 = !{!49, !13, i64 72}
-!138 = !{!49, !13, i64 80}
-!139 = !{!88, !13, i64 120}
-!140 = !{!88, !81, i64 824}
-!141 = !{!142, !9, i64 48}
-!142 = !{!"_GdkEventButton", !9, i64 0, !143, i64 8, !10, i64 16, !9, i64 20, !40, i64 24, !40, i64 32, !144, i64 40, !9, i64 48, !9, i64 52, !145, i64 56, !40, i64 64, !40, i64 72}
-!143 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
-!144 = !{!"p1 double", !13, i64 0}
-!145 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
-!146 = !{!9, !9, i64 0}
-!147 = !{!142, !9, i64 52}
-!148 = !{!7, !16, i64 64}
-!149 = !{!88, !16, i64 664}
-!150 = !{!59, !61, i64 96}
-!151 = !{!119, !9, i64 340}
-!152 = !{!49, !9, i64 60}
+!133 = distinct !{!133, !134}
+!134 = !{!"llvm.loop.estimated_trip_count"}
+!135 = distinct !{!135, !134}
+!136 = !{!88, !13, i64 776}
+!137 = !{!88, !13, i64 184}
+!138 = !{!99, !9, i64 8}
+!139 = !{!49, !50, i64 16}
+!140 = !{!49, !13, i64 72}
+!141 = !{!49, !13, i64 80}
+!142 = !{!88, !13, i64 120}
+!143 = !{!88, !81, i64 824}
+!144 = !{!145, !9, i64 48}
+!145 = !{!"_GdkEventButton", !9, i64 0, !146, i64 8, !10, i64 16, !9, i64 20, !40, i64 24, !40, i64 32, !147, i64 40, !9, i64 48, !9, i64 52, !148, i64 56, !40, i64 64, !40, i64 72}
+!146 = !{!"p1 _ZTS10_GdkWindow", !13, i64 0}
+!147 = !{!"p1 double", !13, i64 0}
+!148 = !{!"p1 _ZTS10_GdkDevice", !13, i64 0}
+!149 = !{!9, !9, i64 0}
+!150 = !{!145, !9, i64 52}
+!151 = !{!7, !16, i64 64}
+!152 = !{!88, !16, i64 664}
+!153 = !{!59, !61, i64 96}
+!154 = !{!119, !9, i64 340}
+!155 = !{!49, !9, i64 60}

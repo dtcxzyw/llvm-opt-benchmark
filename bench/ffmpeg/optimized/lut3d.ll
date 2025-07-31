@@ -754,7 +754,7 @@ tetrahedral.exit.us:                              ; preds = %220, %187, %154, %1
   %435 = getelementptr inbounds i8, ptr %.0276.us, i64 %12
   %436 = getelementptr inbounds i8, ptr %.063275.us, i64 %13
   %.not.us = icmp eq i32 %17, 0
-  br i1 %.not.us, label %._crit_edge277, label %.preheader.us, !llvm.loop !24
+  br i1 %.not.us, label %._crit_edge277, label %.preheader.us, !llvm.loop !25
 
 ._crit_edge277:                                   ; preds = %._crit_edge.us, %.preheader.lr.ph, %7
   ret void
@@ -791,7 +791,8 @@ attributes #5 = { nounwind }
 !19 = !{}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"short", !9, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}

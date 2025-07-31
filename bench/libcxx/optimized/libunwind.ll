@@ -936,11 +936,11 @@ define dso_local void @__unw_add_dynamic_fde(i64 noundef %0) local_unnamed_addr 
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
-  %7 = load i64, ptr %2, align 8, !tbaa !35
+  %7 = load i64, ptr %2, align 8, !tbaa !36
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !37
+  %9 = load i64, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %11 = load i64, ptr %10, align 8, !tbaa !38
+  %11 = load i64, ptr %10, align 8, !tbaa !39
   call void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE3addEmmmm(i64 noundef %7, i64 noundef %9, i64 noundef %11, i64 noundef %7)
   br label %17
 
@@ -993,7 +993,7 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   br i1 %4, label %24, label %26
 
 24:                                               ; preds = %20
-  %25 = load i64, ptr %3, align 8, !tbaa !39
+  %25 = load i64, ptr %3, align 8, !tbaa !40
   %.not54 = icmp eq i64 %25, %23
   br i1 %.not54, label %28, label %85
 
@@ -1006,15 +1006,15 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   %29 = add i64 %15, 4
   store i64 %29, ptr %6, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %31 = load i8, ptr %30, align 8, !tbaa !41
+  %31 = load i8, ptr %30, align 8, !tbaa !42
   %32 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %21, i8 noundef zeroext %31, i64 noundef 0)
-  %33 = load i8, ptr %30, align 8, !tbaa !41
+  %33 = load i8, ptr %30, align 8, !tbaa !42
   %34 = and i8 %33, 15
   %35 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %21, i8 noundef zeroext %34, i64 noundef 0)
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i64 0, ptr %36, align 8, !tbaa !42
+  store i64 0, ptr %36, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 49
-  %38 = load i8, ptr %37, align 1, !tbaa !43, !range !10, !noundef !44
+  %38 = load i8, ptr %37, align 1, !tbaa !44, !range !10, !noundef !45
   %39 = trunc nuw i8 %38 to i1
   %.pre = load i64, ptr %6, align 8, !tbaa !18
   br i1 %39, label %40, label %77
@@ -1040,7 +1040,7 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   unreachable
 
 50:                                               ; preds = %43
-  %51 = load i8, ptr %.0.i, align 1, !tbaa !45
+  %51 = load i8, ptr %.0.i, align 1, !tbaa !46
   %52 = icmp samesign ugt i64 %indvars.iv.i, 63
   br i1 %52, label %58, label %53
 
@@ -1065,14 +1065,14 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %66 = icmp slt i8 %51, 0
-  br i1 %66, label %43, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
+  br i1 %66, label %43, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %63
   %67 = ptrtoint ptr %65 to i64
   store i64 %67, ptr %6, align 8, !tbaa !18
   %68 = add i64 %64, %67
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 25
-  %70 = load i8, ptr %69, align 1, !tbaa !47
+  %70 = load i8, ptr %69, align 1, !tbaa !48
   %.not55 = icmp eq i8 %70, -1
   br i1 %.not55, label %77, label %71
 
@@ -1084,24 +1084,24 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %63
 
 74:                                               ; preds = %71
   store i64 %67, ptr %6, align 8, !tbaa !18
-  %75 = load i8, ptr %69, align 1, !tbaa !47
+  %75 = load i8, ptr %69, align 1, !tbaa !48
   %76 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %21, i8 noundef zeroext %75, i64 noundef 0)
-  store i64 %76, ptr %36, align 8, !tbaa !42
+  store i64 %76, ptr %36, align 8, !tbaa !43
   br label %77
 
 77:                                               ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, %74, %71, %28
   %78 = phi i64 [ %.pre, %28 ], [ %68, %71 ], [ %68, %74 ], [ %68, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
-  store i64 %1, ptr %2, align 8, !tbaa !35
+  store i64 %1, ptr %2, align 8, !tbaa !36
   %79 = sub i64 %21, %1
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %79, ptr %80, align 8, !tbaa !48
+  store i64 %79, ptr %80, align 8, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %78, ptr %81, align 8, !tbaa !49
+  store i64 %78, ptr %81, align 8, !tbaa !50
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %32, ptr %82, align 8, !tbaa !37
+  store i64 %32, ptr %82, align 8, !tbaa !38
   %83 = add i64 %35, %32
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i64 %83, ptr %84, align 8, !tbaa !38
+  store i64 %83, ptr %84, align 8, !tbaa !39
   br label %85
 
 85:                                               ; preds = %17, %24, %26, %77, %14
@@ -1222,7 +1222,7 @@ define linkonce_odr hidden void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressS
   br i1 %.not12, label %18, label %17
 
 17:                                               ; preds = %16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.014, ptr noundef nonnull align 8 dereferenceable(32) %.01113, i64 32, i1 false), !tbaa.struct !50
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.014, ptr noundef nonnull align 8 dereferenceable(32) %.01113, i64 32, i1 false), !tbaa.struct !51
   br label %18
 
 18:                                               ; preds = %17, %16
@@ -1233,7 +1233,7 @@ define linkonce_odr hidden void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressS
   %.1 = phi ptr [ %19, %18 ], [ %.014, %.lr.ph ]
   %21 = getelementptr inbounds nuw i8, ptr %.01113, i64 32
   %22 = icmp ult ptr %21, %11
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !51
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 23:                                               ; preds = %._crit_edge
   %24 = load ptr, ptr @stderr, align 8, !tbaa !11
@@ -1271,11 +1271,11 @@ define dso_local void @__unw_add_dynamic_eh_frame_section(i64 noundef %0) local_
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr %6, align 8, !tbaa !37
-  %14 = load i64, ptr %7, align 8, !tbaa !38
-  %15 = load i64, ptr %3, align 8, !tbaa !35
+  %13 = load i64, ptr %6, align 8, !tbaa !38
+  %14 = load i64, ptr %7, align 8, !tbaa !39
+  %15 = load i64, ptr %3, align 8, !tbaa !36
   call void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE3addEmmmm(i64 noundef %0, i64 noundef %13, i64 noundef %14, i64 noundef %15)
-  %16 = load i64, ptr %8, align 8, !tbaa !48
+  %16 = load i64, ptr %8, align 8, !tbaa !49
   br label %22
 
 17:                                               ; preds = %9
@@ -1284,7 +1284,7 @@ define dso_local void @__unw_add_dynamic_eh_frame_section(i64 noundef %0) local_
   br i1 %19, label %20, label %._crit_edge
 
 20:                                               ; preds = %17
-  %21 = load i64, ptr %5, align 8, !tbaa !52
+  %21 = load i64, ptr %5, align 8, !tbaa !53
   br label %22
 
 22:                                               ; preds = %20, %12
@@ -1293,7 +1293,7 @@ define dso_local void @__unw_add_dynamic_eh_frame_section(i64 noundef %0) local_
   %23 = inttoptr i64 %.1 to ptr
   %.0.copyload.i = load i32, ptr %23, align 1
   %.not = icmp eq i32 %.0.copyload.i, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %17, %22, %1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #15
@@ -1305,20 +1305,20 @@ define dso_local void @__unw_add_dynamic_eh_frame_section(i64 noundef %0) local_
 define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE8parseCIEERS1_mPNS2_8CIE_InfoE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i8 0, ptr %5, align 8, !tbaa !41
+  store i8 0, ptr %5, align 8, !tbaa !42
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 25
-  store i8 -1, ptr %6, align 1, !tbaa !47
+  store i8 -1, ptr %6, align 1, !tbaa !48
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  store i8 0, ptr %7, align 2, !tbaa !54
+  store i8 0, ptr %7, align 2, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 27
-  store i8 0, ptr %8, align 1, !tbaa !55
+  store i8 0, ptr %8, align 1, !tbaa !56
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %9, i8 0, i64 18, i1 false)
-  store i64 %1, ptr %2, align 8, !tbaa !39
+  store i64 %1, ptr %2, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %14 = inttoptr i64 %1 to ptr
   %.0.copyload.i = load i32, ptr %14, align 1
@@ -1366,7 +1366,7 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   %.0.copyload.i73 = load i8, ptr %35, align 1
   %.not68 = icmp eq i8 %.0.copyload.i73, 0
   %36 = add i64 %storemerge, 1
-  br i1 %.not68, label %37, label %34, !llvm.loop !56
+  br i1 %.not68, label %37, label %34, !llvm.loop !57
 
 37:                                               ; preds = %34
   %38 = inttoptr i64 %36 to ptr
@@ -1389,7 +1389,7 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   unreachable
 
 47:                                               ; preds = %40
-  %48 = load i8, ptr %.0.i, align 1, !tbaa !45
+  %48 = load i8, ptr %.0.i, align 1, !tbaa !46
   %49 = icmp samesign ugt i64 %indvars.iv.i, 63
   br i1 %49, label %55, label %50
 
@@ -1414,13 +1414,13 @@ define linkonce_odr hidden noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %63 = icmp slt i8 %48, 0
-  br i1 %63, label %40, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
+  br i1 %63, label %40, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %60
   %64 = ptrtoint ptr %62 to i64
   store i64 %64, ptr %4, align 8, !tbaa !18
   %65 = trunc i64 %61 to i32
-  store i32 %65, ptr %10, align 8, !tbaa !57
+  store i32 %65, ptr %10, align 8, !tbaa !58
   br label %66
 
 66:                                               ; preds = %73, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit
@@ -1440,14 +1440,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %60
 
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %.0.i76, i64 1
-  %75 = load i8, ptr %.0.i76, align 1, !tbaa !45
+  %75 = load i8, ptr %.0.i76, align 1, !tbaa !46
   %76 = and i8 %75, 127
   %77 = zext nneg i8 %76 to i64
   %78 = shl i64 %77, %indvars.iv.i74
   %79 = or i64 %78, %.018.i75
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i74, 7
   %.not.i78 = icmp sgt i8 %75, -1
-  br i1 %.not.i78, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %66, !llvm.loop !58
+  br i1 %.not.i78, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %66, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %73
   %80 = icmp samesign ugt i8 %75, 63
@@ -1460,7 +1460,7 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %73
   %85 = ptrtoint ptr %74 to i64
   store i64 %85, ptr %4, align 8, !tbaa !18
   %86 = trunc i64 %.1.i to i32
-  store i32 %86, ptr %11, align 4, !tbaa !59
+  store i32 %86, ptr %11, align 4, !tbaa !60
   %87 = icmp eq i8 %.0.copyload.i72, 1
   br i1 %87, label %88, label %.preheader
 
@@ -1487,7 +1487,7 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %73
   unreachable
 
 97:                                               ; preds = %.preheader
-  %98 = load i8, ptr %.0.i82, align 1, !tbaa !45
+  %98 = load i8, ptr %.0.i82, align 1, !tbaa !46
   %99 = icmp samesign ugt i64 %indvars.iv.i80, 63
   br i1 %99, label %105, label %100
 
@@ -1512,7 +1512,7 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %73
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i80, 7
   %112 = getelementptr inbounds nuw i8, ptr %.0.i82, i64 1
   %113 = icmp slt i8 %98, 0
-  br i1 %113, label %.preheader, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit85, !llvm.loop !46
+  br i1 %113, label %.preheader, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit85, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit85: ; preds = %110
   %114 = ptrtoint ptr %112 to i64
@@ -1531,7 +1531,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit85: ; preds = %110
 120:                                              ; preds = %115
   %121 = trunc nuw i64 %117 to i8
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 50
-  store i8 %121, ptr %122, align 2, !tbaa !60
+  store i8 %121, ptr %122, align 2, !tbaa !61
   %123 = inttoptr i64 %33 to ptr
   %.0.copyload.i86 = load i8, ptr %123, align 1
   %124 = icmp eq i8 %.0.copyload.i86, 122
@@ -1556,7 +1556,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit85: ; preds = %110
   unreachable
 
 134:                                              ; preds = %127
-  %135 = load i8, ptr %.0.i89, align 1, !tbaa !45
+  %135 = load i8, ptr %.0.i89, align 1, !tbaa !46
   %136 = icmp samesign ugt i64 %indvars.iv.i87, 63
   br i1 %136, label %141, label %137
 
@@ -1579,7 +1579,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit85: ; preds = %110
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i87, 7
   %147 = getelementptr inbounds nuw i8, ptr %.0.i89, i64 1
   %148 = icmp slt i8 %135, 0
-  br i1 %148, label %127, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit92, !llvm.loop !46
+  br i1 %148, label %127, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit92, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit92: ; preds = %146
   %149 = ptrtoint ptr %147 to i64
@@ -1599,28 +1599,28 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit92: ; preds = %146
   ]
 
 151:                                              ; preds = %150
-  store i8 1, ptr %13, align 1, !tbaa !43
+  store i8 1, ptr %13, align 1, !tbaa !44
   br label %168
 
 152:                                              ; preds = %150
   %153 = load i64, ptr %4, align 8, !tbaa !18
   %154 = inttoptr i64 %153 to ptr
   %.0.copyload.i95 = load i8, ptr %154, align 1
-  store i8 %.0.copyload.i95, ptr %7, align 2, !tbaa !54
+  store i8 %.0.copyload.i95, ptr %7, align 2, !tbaa !55
   %155 = add i64 %153, 1
   store i64 %155, ptr %4, align 8, !tbaa !18
   %156 = sub i64 %155, %1
   %157 = trunc i64 %156 to i8
-  store i8 %157, ptr %8, align 1, !tbaa !55
+  store i8 %157, ptr %8, align 1, !tbaa !56
   %158 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.065, i8 noundef zeroext %.0.copyload.i95, i64 noundef 0)
-  store i64 %158, ptr %9, align 8, !tbaa !61
+  store i64 %158, ptr %9, align 8, !tbaa !62
   br label %168
 
 159:                                              ; preds = %150
   %160 = load i64, ptr %4, align 8, !tbaa !18
   %161 = inttoptr i64 %160 to ptr
   %.0.copyload.i96 = load i8, ptr %161, align 1
-  store i8 %.0.copyload.i96, ptr %6, align 1, !tbaa !47
+  store i8 %.0.copyload.i96, ptr %6, align 1, !tbaa !48
   %162 = add i64 %160, 1
   store i64 %162, ptr %4, align 8, !tbaa !18
   br label %168
@@ -1629,23 +1629,23 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit92: ; preds = %146
   %164 = load i64, ptr %4, align 8, !tbaa !18
   %165 = inttoptr i64 %164 to ptr
   %.0.copyload.i97 = load i8, ptr %165, align 1
-  store i8 %.0.copyload.i97, ptr %5, align 8, !tbaa !41
+  store i8 %.0.copyload.i97, ptr %5, align 8, !tbaa !42
   %166 = add i64 %164, 1
   store i64 %166, ptr %4, align 8, !tbaa !18
   br label %168
 
 167:                                              ; preds = %150
-  store i8 1, ptr %12, align 8, !tbaa !62
+  store i8 1, ptr %12, align 8, !tbaa !63
   br label %168
 
 168:                                              ; preds = %150, %151, %152, %159, %163, %167
   %169 = add i64 %.0, 1
   %.phi.trans.insert = inttoptr i64 %169 to ptr
   %.0.copyload.i93.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %150, !llvm.loop !63
+  br label %150, !llvm.loop !64
 
 .loopexit.loopexit:                               ; preds = %150
-  %.pre = load i64, ptr %2, align 8, !tbaa !39
+  %.pre = load i64, ptr %2, align 8, !tbaa !40
   %.pre115 = load i64, ptr %4, align 8, !tbaa !18
   br label %.loopexit
 
@@ -1654,9 +1654,9 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit92: ; preds = %146
   %171 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %1, %120 ]
   %172 = sub i64 %.065, %171
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %172, ptr %173, align 8, !tbaa !52
+  store i64 %172, ptr %173, align 8, !tbaa !53
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %170, ptr %174, align 8, !tbaa !64
+  store i64 %170, ptr %174, align 8, !tbaa !65
   br label %175
 
 175:                                              ; preds = %.loopexit, %28, %26, %23
@@ -1901,19 +1901,19 @@ define linkonce_odr hidden void @_ZN9libunwind12UnwindCursorINS_17LocalAddressSp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE4stepEb(ptr noundef nonnull align 8 dereferenceable(258) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %4 = load i8, ptr %3, align 8, !tbaa !65, !range !10, !noundef !44
+  %4 = load i8, ptr %3, align 8, !tbaa !66, !range !10, !noundef !45
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %26, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !70
+  %8 = load ptr, ptr %7, align 8, !tbaa !71
   %9 = load ptr, ptr %0, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(258) %0, i32 noundef -1) #15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %14 = load i64, ptr %13, align 8, !tbaa !71
+  %14 = load i64, ptr %13, align 8, !tbaa !72
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 257
   %17 = tail call noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE13stepWithDwarfERS1_mmRS2_Rbb(ptr noundef nonnull align 1 dereferenceable(1) %8, i64 noundef %12, i64 noundef %14, ptr noundef nonnull align 8 dereferenceable(168) %15, ptr noundef nonnull align 1 dereferenceable(1) %16, i1 noundef zeroext %1)
@@ -1925,7 +1925,7 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind12UnwindCursorINS_17LocalAd
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(258) %0, i1 noundef zeroext true) #15
-  %23 = load i8, ptr %3, align 8, !tbaa !65, !range !10, !noundef !44
+  %23 = load i8, ptr %3, align 8, !tbaa !66, !range !10, !noundef !45
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %26, label %25
 
@@ -1940,7 +1940,7 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind12UnwindCursorINS_17LocalAd
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE7getInfoEP15unw_proc_info_t(ptr noundef nonnull align 8 dereferenceable(258) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %4 = load i8, ptr %3, align 8, !tbaa !65, !range !10, !noundef !44
+  %4 = load i8, ptr %3, align 8, !tbaa !66, !range !10, !noundef !45
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %7
 
@@ -1950,7 +1950,7 @@ define linkonce_odr hidden void @_ZN9libunwind12UnwindCursorINS_17LocalAddressSp
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false), !tbaa.struct !72
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false), !tbaa.struct !73
   br label %9
 
 9:                                                ; preds = %7, %6
@@ -1967,7 +1967,7 @@ define linkonce_odr hidden void @_ZN9libunwind12UnwindCursorINS_17LocalAddressSp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE13isSignalFrameEv(ptr noundef nonnull align 8 dereferenceable(258) %0) unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %3 = load i8, ptr %2, align 1, !tbaa !74, !range !10, !noundef !44
+  %3 = load i8, ptr %2, align 1, !tbaa !75, !range !10, !noundef !45
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1992,7 +1992,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
 16:                                               ; preds = %4
   %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.104, ptr noundef nonnull %14) #15
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !75
+  %19 = load ptr, ptr %18, align 8, !tbaa !76
   %20 = ptrtoint ptr %19 to i64
   %21 = sub i64 %9, %20
   store i64 %21, ptr %3, align 8, !tbaa !18
@@ -2021,31 +2021,31 @@ define linkonce_odr hidden void @_ZN9libunwind12UnwindCursorINS_17LocalAddressSp
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 1, ptr %16, align 8, !tbaa !65
+  store i8 1, ptr %16, align 8, !tbaa !66
   br label %104
 
 17:                                               ; preds = %2
   %18 = sext i1 %1 to i64
   %spec.select = add i64 %13, %18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 257
-  %20 = load i8, ptr %19, align 1, !tbaa !74, !range !10, !noundef !44
+  %20 = load i8, ptr %19, align 1, !tbaa !75, !range !10, !noundef !45
   %21 = zext nneg i8 %20 to i64
   %.1 = add i64 %spec.select, %21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !70
-  %24 = load i8, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE19dlFindObjectChecked, align 1, !tbaa !6, !range !10, !noundef !44
+  %23 = load ptr, ptr %22, align 8, !tbaa !71
+  %24 = load i8, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE19dlFindObjectChecked, align 1, !tbaa !6, !range !10, !noundef !45
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %thread-pre-split.i, label %26
 
 26:                                               ; preds = %17
   %27 = tail call ptr @dlsym(ptr noundef null, ptr noundef nonnull @.str.105) #15
-  store ptr %27, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE12dlFindObject, align 8, !tbaa !78
+  store ptr %27, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE12dlFindObject, align 8, !tbaa !79
   store i8 1, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE19dlFindObjectChecked, align 1, !tbaa !6
   br label %28
 
 thread-pre-split.i:                               ; preds = %17
-  %.pr.i = load ptr, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE12dlFindObject, align 8, !tbaa !78
+  %.pr.i = load ptr, ptr @_ZZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsEE12dlFindObject, align 8, !tbaa !79
   br label %28
 
 28:                                               ; preds = %thread-pre-split.i, %26
@@ -2062,7 +2062,7 @@ thread-pre-split.i:                               ; preds = %17
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !79
+  %36 = load ptr, ptr %35, align 8, !tbaa !80
   %37 = icmp eq ptr %36, null
   br i1 %37, label %_ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.exit.thread, label %38
 
@@ -2072,31 +2072,31 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !83
+  %40 = load ptr, ptr %39, align 8, !tbaa !84
   %41 = ptrtoint ptr %40 to i64
-  store i64 %41, ptr %7, align 8, !tbaa !84
+  store i64 %41, ptr %7, align 8, !tbaa !85
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !86
+  %43 = load ptr, ptr %42, align 8, !tbaa !87
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %41
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %45, ptr %46, align 8, !tbaa !87
+  store i64 %45, ptr %46, align 8, !tbaa !88
   %47 = ptrtoint ptr %36 to i64
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 %47, ptr %48, align 8, !tbaa !88
+  store i64 %47, ptr %48, align 8, !tbaa !89
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store i64 -1, ptr %49, align 8, !tbaa !89
+  store i64 -1, ptr %49, align 8, !tbaa !90
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
   %50 = add i64 %47, -1
   %51 = call noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE11decodeEHHdrERS1_mmRNS2_12EHHeaderInfoE(ptr noundef nonnull align 1 dereferenceable(1) %23, i64 noundef %47, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(32) %5)
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %38
-  %53 = load i64, ptr %5, align 8, !tbaa !90
+  %53 = load i64, ptr %5, align 8, !tbaa !91
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 %53, ptr %54, align 8, !tbaa !92
+  store i64 %53, ptr %54, align 8, !tbaa !93
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 -1, ptr %55, align 8, !tbaa !93
+  store i64 -1, ptr %55, align 8, !tbaa !94
   br label %56
 
 56:                                               ; preds = %52, %38
@@ -2105,11 +2105,11 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
 
 57:                                               ; preds = %30, %28
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #15
-  store ptr %23, ptr %6, align 8, !tbaa !94
+  store ptr %23, ptr %6, align 8, !tbaa !95
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %7, ptr %58, align 8, !tbaa !97
+  store ptr %7, ptr %58, align 8, !tbaa !98
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.1, ptr %59, align 8, !tbaa !98
+  store i64 %.1, ptr %59, align 8, !tbaa !99
   %60 = call i32 @dl_iterate_phdr(ptr noundef nonnull @_ZN9libunwindL24findUnwindSectionsByPhdrEP12dl_phdr_infomPv, ptr noundef nonnull %6) #15
   %61 = icmp ne i32 %60, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #15
@@ -2136,7 +2136,7 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
 69:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #15
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #15
-  %70 = load ptr, ptr %22, align 8, !tbaa !70
+  %70 = load ptr, ptr %22, align 8, !tbaa !71
   %71 = call noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) %70, i64 noundef %68, ptr noundef nonnull %8, ptr noundef nonnull %9, i1 noundef zeroext false)
   %.not23 = icmp eq ptr %71, null
   br i1 %.not23, label %72, label %.critedge
@@ -2144,7 +2144,7 @@ _ZN9libunwind17LocalAddressSpace18findUnwindSectionsEmRNS_18UnwindInfoSectionsE.
 72:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %3) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %3, i8 0, i64 552, i1 false)
-  %73 = load ptr, ptr %22, align 8, !tbaa !70
+  %73 = load ptr, ptr %22, align 8, !tbaa !71
   %74 = call noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoE(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(56) %9, i64 noundef %.1, i32 noundef 1, ptr noundef nonnull %3)
   br i1 %74, label %75, label %_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit
 
@@ -2159,40 +2159,40 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %77 = load i64, ptr %76, align 8, !tbaa !37
+  %77 = load i64, ptr %76, align 8, !tbaa !38
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 %77, ptr %78, align 8, !tbaa !99
+  store i64 %77, ptr %78, align 8, !tbaa !100
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %80 = load i64, ptr %79, align 8, !tbaa !38
+  %80 = load i64, ptr %79, align 8, !tbaa !39
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %80, ptr %81, align 8, !tbaa !100
+  store i64 %80, ptr %81, align 8, !tbaa !101
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %83 = load i64, ptr %82, align 8, !tbaa !42
+  %83 = load i64, ptr %82, align 8, !tbaa !43
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 %83, ptr %84, align 8, !tbaa !101
+  store i64 %83, ptr %84, align 8, !tbaa !102
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %86 = load i64, ptr %85, align 8, !tbaa !61
+  %86 = load i64, ptr %85, align 8, !tbaa !62
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %86, ptr %87, align 8, !tbaa !102
+  store i64 %86, ptr %87, align 8, !tbaa !103
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %89 = load i32, ptr %88, align 8, !tbaa !103
+  %89 = load i32, ptr %88, align 8, !tbaa !104
   %90 = zext i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i64 %90, ptr %91, align 8, !tbaa !105
+  store i64 %90, ptr %91, align 8, !tbaa !106
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 0, ptr %92, align 8, !tbaa !106
+  store i64 0, ptr %92, align 8, !tbaa !107
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 67108864, ptr %93, align 8, !tbaa !107
-  %94 = load i64, ptr %8, align 8, !tbaa !35
+  store i32 67108864, ptr %93, align 8, !tbaa !108
+  %94 = load i64, ptr %8, align 8, !tbaa !36
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 %94, ptr %95, align 8, !tbaa !71
+  store i64 %94, ptr %95, align 8, !tbaa !72
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %97 = load i64, ptr %96, align 8, !tbaa !48
+  %97 = load i64, ptr %96, align 8, !tbaa !49
   %98 = trunc i64 %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i32 %98, ptr %99, align 4, !tbaa !108
+  store i32 %98, ptr %99, align 4, !tbaa !109
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 0, ptr %100, align 8, !tbaa !109
+  store i64 0, ptr %100, align 8, !tbaa !110
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #15
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
@@ -2200,7 +2200,7 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
 
 101:                                              ; preds = %.critedge, %67
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i8 1, ptr %102, align 8, !tbaa !65
+  store i8 1, ptr %102, align 8, !tbaa !66
   br label %103
 
 103:                                              ; preds = %101, %75, %65
@@ -2284,9 +2284,9 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
   %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !18
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 128
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx, i64 32, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx, i64 32, i1 false), !tbaa.struct !51
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 50
-  %17 = load i8, ptr %16, align 2, !tbaa !60
+  %17 = load i8, ptr %16, align 2, !tbaa !61
   %18 = icmp ult i8 %17, 33
   br i1 %18, label %.preheader, label %20
 
@@ -2318,9 +2318,9 @@ define linkonce_odr hidden noundef i32 @_ZN9libunwind17DwarfInstructionsINS_17Lo
   %.sroa.20.0138 = phi i64 [ %.sroa.20.0.copyload, %.preheader ], [ %.sroa.20.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
   %.sroa.21.0137 = phi i64 [ %.sroa.21.0.copyload, %.preheader ], [ %.sroa.21.1, %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit ]
   %22 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %19, i64 0, i64 %indvars.iv
-  %23 = load i32, ptr %22, align 8, !tbaa !110
+  %23 = load i32, ptr %22, align 8, !tbaa !111
   %.not = icmp eq i32 %23, 0
-  %24 = load i8, ptr %16, align 2, !tbaa !60
+  %24 = load i8, ptr %16, align 2, !tbaa !61
   %25 = zext i8 %24 to i64
   %26 = icmp eq i64 %indvars.iv, %25
   br i1 %.not, label %50, label %27
@@ -2515,11 +2515,11 @@ _ZN9libunwind16Registers_x86_6411setRegisterEim.exit: ; preds = %49, %48, %47, %
   %.146 = phi i64 [ %.0.i, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %.045154, %50 ], [ %29, %28 ], [ %.045154, %34 ], [ %.045154, %35 ], [ %.045154, %36 ], [ %.045154, %37 ], [ %.045154, %38 ], [ %.045154, %39 ], [ %.045154, %40 ], [ %.045154, %41 ], [ %.045154, %42 ], [ %.045154, %43 ], [ %.045154, %44 ], [ %.045154, %45 ], [ %.045154, %46 ], [ %.045154, %47 ], [ %.045154, %48 ], [ %.045154, %49 ], [ %.045154, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 33
-  br i1 %exitcond, label %.critedge, label %21, !llvm.loop !113
+  br i1 %exitcond, label %.critedge, label %21, !llvm.loop !114
 
 .critedge:                                        ; preds = %_ZN9libunwind16Registers_x86_6411setRegisterEim.exit
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %74 = load i8, ptr %73, align 8, !tbaa !62, !range !10, !noundef !44
+  %74 = load i8, ptr %73, align 8, !tbaa !63, !range !10, !noundef !45
   store i8 %74, ptr %4, align 1, !tbaa !6
   store i64 %.sroa.0.1, ptr %3, align 8, !tbaa !18
   store i64 %.sroa.5.1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !18
@@ -2538,7 +2538,7 @@ _ZN9libunwind16Registers_x86_6411setRegisterEim.exit: ; preds = %49, %48, %47, %
   store i64 %.sroa.20.1, ptr %.sroa.20.0..sroa_idx, align 8, !tbaa !18
   store i64 %.sroa.21.1, ptr %.sroa.21.0..sroa_idx, align 8, !tbaa !18
   store i64 %.146, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24, i64 32, i1 false), !tbaa.struct !50
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.24, i64 32, i1 false), !tbaa.struct !51
   br label %.loopexit
 
 .loopexit:                                        ; preds = %30, %.critedge
@@ -2565,31 +2565,31 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %9 = alloca %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::PrologInfo", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #15
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !64
-  store i64 %11, ptr %7, align 16, !tbaa !114
+  %11 = load i64, ptr %10, align 8, !tbaa !65
+  store i64 %11, ptr %7, align 16, !tbaa !115
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load i64, ptr %2, align 8, !tbaa !39
+  %13 = load i64, ptr %2, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !52
+  %15 = load i64, ptr %14, align 8, !tbaa !53
   %16 = add i64 %15, %13
-  store i64 %16, ptr %12, align 8, !tbaa !116
+  store i64 %16, ptr %12, align 8, !tbaa !117
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 -1, ptr %17, align 16, !tbaa !117
+  store i64 -1, ptr %17, align 16, !tbaa !118
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !49
-  store i64 %20, ptr %18, align 8, !tbaa !114
+  %20 = load i64, ptr %19, align 8, !tbaa !50
+  store i64 %20, ptr %18, align 8, !tbaa !115
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %22 = load i64, ptr %1, align 8, !tbaa !35
+  %22 = load i64, ptr %1, align 8, !tbaa !36
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !48
+  %24 = load i64, ptr %23, align 8, !tbaa !49
   %25 = add i64 %24, %22
-  store i64 %25, ptr %21, align 16, !tbaa !116
+  store i64 %25, ptr %21, align 16, !tbaa !117
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %28 = load i64, ptr %27, align 8, !tbaa !37
+  %28 = load i64, ptr %27, align 8, !tbaa !38
   %29 = sub i64 %3, %28
-  store i64 %29, ptr %26, align 8, !tbaa !117
+  store i64 %29, ptr %26, align 8, !tbaa !118
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2606,12 +2606,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %.sroa.0.0874 = phi ptr [ null, %6 ], [ %.sroa.0.1.lcssa, %._crit_edge ]
   %.0213.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0213.idx875
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  %40 = load i64, ptr %.0213.ptr, align 8, !tbaa !114
+  %40 = load i64, ptr %.0213.ptr, align 8, !tbaa !115
   store i64 %40, ptr %8, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !116
+  %42 = load i64, ptr %41, align 8, !tbaa !117
   %43 = getelementptr inbounds nuw i8, ptr %.0213.ptr, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !117
+  %44 = load i64, ptr %43, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %9) #15
   %.b1.i = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i, label %._crit_edge.i, label %logDWARF.exit
@@ -2705,7 +2705,7 @@ logDWARF.exit260:                                 ; preds = %61
   br label %1299
 
 69:                                               ; preds = %57
-  %70 = load i8, ptr %38, align 8, !tbaa !41
+  %70 = load i8, ptr %38, align 8, !tbaa !42
   %71 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %42, i8 noundef zeroext %70, i64 noundef 0)
   %.b1.i261 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i261, label %._crit_edge.i262, label %logDWARF.exit264
@@ -2732,7 +2732,7 @@ logDWARF.exit264:                                 ; preds = %69
   %80 = inttoptr i64 %60 to ptr
   %.0.copyload.i265 = load i8, ptr %80, align 1
   %81 = zext i8 %.0.copyload.i265 to i32
-  %82 = load i32, ptr %37, align 8, !tbaa !57
+  %82 = load i32, ptr %37, align 8, !tbaa !58
   %83 = mul i32 %82, %81
   %84 = zext i32 %83 to i64
   %85 = add i64 %.0218873, %84
@@ -2763,7 +2763,7 @@ logDWARF.exit269:                                 ; preds = %79
   %95 = inttoptr i64 %60 to ptr
   %.0.copyload.i270 = load i16, ptr %95, align 1
   %96 = zext i16 %.0.copyload.i270 to i32
-  %97 = load i32, ptr %37, align 8, !tbaa !57
+  %97 = load i32, ptr %37, align 8, !tbaa !58
   %98 = mul i32 %97, %96
   %99 = zext i32 %98 to i64
   %100 = add i64 %.0218873, %99
@@ -2793,7 +2793,7 @@ logDWARF.exit274:                                 ; preds = %94
 109:                                              ; preds = %57
   %110 = inttoptr i64 %60 to ptr
   %.0.copyload.i275 = load i32, ptr %110, align 1
-  %111 = load i32, ptr %37, align 8, !tbaa !57
+  %111 = load i32, ptr %37, align 8, !tbaa !58
   %112 = mul i32 %111, %.0.copyload.i275
   %113 = zext i32 %112 to i64
   %114 = add i64 %.0218873, %113
@@ -2840,7 +2840,7 @@ logDWARF.exit279:                                 ; preds = %109
   unreachable
 
 132:                                              ; preds = %125
-  %133 = load i8, ptr %.0.i, align 1, !tbaa !45
+  %133 = load i8, ptr %.0.i, align 1, !tbaa !46
   %134 = icmp samesign ugt i64 %indvars.iv.i, 63
   br i1 %134, label %140, label %135
 
@@ -2865,7 +2865,7 @@ logDWARF.exit279:                                 ; preds = %109
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %147 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %148 = icmp slt i8 %133, 0
-  br i1 %148, label %125, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
+  br i1 %148, label %125, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %145
   %149 = ptrtoint ptr %147 to i64
@@ -2888,7 +2888,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %145
   unreachable
 
 157:                                              ; preds = %150
-  %158 = load i8, ptr %.0.i282, align 1, !tbaa !45
+  %158 = load i8, ptr %.0.i282, align 1, !tbaa !46
   %159 = icmp samesign ugt i64 %indvars.iv.i280, 63
   br i1 %159, label %165, label %160
 
@@ -2913,12 +2913,12 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %145
   %indvars.iv.next.i284 = add nuw nsw i64 %indvars.iv.i280, 7
   %172 = getelementptr inbounds nuw i8, ptr %.0.i282, i64 1
   %173 = icmp slt i8 %158, 0
-  br i1 %173, label %150, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285, !llvm.loop !46
+  br i1 %173, label %150, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285: ; preds = %170
   %174 = ptrtoint ptr %172 to i64
   store i64 %174, ptr %8, align 8, !tbaa !18
-  %175 = load i32, ptr %30, align 4, !tbaa !59
+  %175 = load i32, ptr %30, align 4, !tbaa !60
   %176 = sext i32 %175 to i64
   %177 = mul nsw i64 %171, %176
   %178 = icmp ugt i64 %146, 32
@@ -2934,20 +2934,20 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285: ; preds = %170
 184:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit285
   %185 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %146
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %187 = load i8, ptr %186, align 4, !tbaa !118, !range !10, !noundef !44
+  %187 = load i8, ptr %186, align 4, !tbaa !119, !range !10, !noundef !45
   %188 = trunc nuw i8 %187 to i1
   br i1 %188, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit, label %189
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %186, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %190, ptr noundef nonnull align 8 dereferenceable(16) %185, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %186, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit: ; preds = %184, %189
-  store i32 2, ptr %185, align 8, !tbaa !110
+  store i32 2, ptr %185, align 8, !tbaa !111
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  store i64 %177, ptr %191, align 8, !tbaa !121
+  store i64 %177, ptr %191, align 8, !tbaa !122
   %.b1.i286 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i286, label %._crit_edge.i287, label %logDWARF.exit289
 
@@ -2989,7 +2989,7 @@ logDWARF.exit289:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 208:                                              ; preds = %201
-  %209 = load i8, ptr %.0.i292, align 1, !tbaa !45
+  %209 = load i8, ptr %.0.i292, align 1, !tbaa !46
   %210 = icmp samesign ugt i64 %indvars.iv.i290, 63
   br i1 %210, label %216, label %211
 
@@ -3014,7 +3014,7 @@ logDWARF.exit289:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i294 = add nuw nsw i64 %indvars.iv.i290, 7
   %223 = getelementptr inbounds nuw i8, ptr %.0.i292, i64 1
   %224 = icmp slt i8 %209, 0
-  br i1 %224, label %201, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295, !llvm.loop !46
+  br i1 %224, label %201, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295: ; preds = %221
   %225 = ptrtoint ptr %223 to i64
@@ -3032,13 +3032,13 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295: ; preds = %221
 232:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit295
   %233 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %222
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
-  %235 = load i8, ptr %234, align 4, !tbaa !118, !range !10, !noundef !44
+  %235 = load i8, ptr %234, align 4, !tbaa !119, !range !10, !noundef !45
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %237, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
 
 237:                                              ; preds = %232
   %238 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %222
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false), !tbaa.struct !119
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, ptr noundef nonnull align 8 dereferenceable(16) %238, i64 16, i1 false), !tbaa.struct !120
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit: ; preds = %232, %237
@@ -3083,7 +3083,7 @@ logDWARF.exit299:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 255:                                              ; preds = %248
-  %256 = load i8, ptr %.0.i302, align 1, !tbaa !45
+  %256 = load i8, ptr %.0.i302, align 1, !tbaa !46
   %257 = icmp samesign ugt i64 %indvars.iv.i300, 63
   br i1 %257, label %263, label %258
 
@@ -3108,7 +3108,7 @@ logDWARF.exit299:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i304 = add nuw nsw i64 %indvars.iv.i300, 7
   %270 = getelementptr inbounds nuw i8, ptr %.0.i302, i64 1
   %271 = icmp slt i8 %256, 0
-  br i1 %271, label %248, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305, !llvm.loop !46
+  br i1 %271, label %248, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305: ; preds = %268
   %272 = ptrtoint ptr %270 to i64
@@ -3126,18 +3126,18 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305: ; preds = %268
 279:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit305
   %280 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %269
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  %282 = load i8, ptr %281, align 4, !tbaa !118, !range !10, !noundef !44
+  %282 = load i8, ptr %281, align 4, !tbaa !119, !range !10, !noundef !45
   %283 = trunc nuw i8 %282 to i1
   br i1 %283, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit, label %284
 
 284:                                              ; preds = %279
   %285 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %269
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %285, ptr noundef nonnull align 8 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %281, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %285, ptr noundef nonnull align 8 dereferenceable(16) %280, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %281, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit: ; preds = %279, %284
-  store i32 1, ptr %280, align 8, !tbaa !110
+  store i32 1, ptr %280, align 8, !tbaa !111
   %.b1.i306 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i306, label %._crit_edge.i307, label %logDWARF.exit309
 
@@ -3179,7 +3179,7 @@ logDWARF.exit309:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 302:                                              ; preds = %295
-  %303 = load i8, ptr %.0.i312, align 1, !tbaa !45
+  %303 = load i8, ptr %.0.i312, align 1, !tbaa !46
   %304 = icmp samesign ugt i64 %indvars.iv.i310, 63
   br i1 %304, label %310, label %305
 
@@ -3204,7 +3204,7 @@ logDWARF.exit309:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i314 = add nuw nsw i64 %indvars.iv.i310, 7
   %317 = getelementptr inbounds nuw i8, ptr %.0.i312, i64 1
   %318 = icmp slt i8 %303, 0
-  br i1 %318, label %295, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315, !llvm.loop !46
+  br i1 %318, label %295, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315: ; preds = %315
   %319 = ptrtoint ptr %317 to i64
@@ -3222,18 +3222,18 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315: ; preds = %315
 326:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit315
   %327 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %316
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 4
-  %329 = load i8, ptr %328, align 4, !tbaa !118, !range !10, !noundef !44
+  %329 = load i8, ptr %328, align 4, !tbaa !119, !range !10, !noundef !45
   %330 = trunc nuw i8 %329 to i1
   br i1 %330, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316, label %331
 
 331:                                              ; preds = %326
   %332 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %316
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %332, ptr noundef nonnull align 8 dereferenceable(16) %327, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %328, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %332, ptr noundef nonnull align 8 dereferenceable(16) %327, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %328, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo19setRegisterLocationEmNS2_18RegisterSavedWhereERS3_.exit316: ; preds = %326, %331
-  store i32 0, ptr %327, align 8, !tbaa !110
+  store i32 0, ptr %327, align 8, !tbaa !111
   %.b1.i317 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i317, label %._crit_edge.i318, label %logDWARF.exit320
 
@@ -3275,7 +3275,7 @@ logDWARF.exit320:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 349:                                              ; preds = %342
-  %350 = load i8, ptr %.0.i323, align 1, !tbaa !45
+  %350 = load i8, ptr %.0.i323, align 1, !tbaa !46
   %351 = icmp samesign ugt i64 %indvars.iv.i321, 63
   br i1 %351, label %357, label %352
 
@@ -3300,7 +3300,7 @@ logDWARF.exit320:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i325 = add nuw nsw i64 %indvars.iv.i321, 7
   %364 = getelementptr inbounds nuw i8, ptr %.0.i323, i64 1
   %365 = icmp slt i8 %350, 0
-  br i1 %365, label %342, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326, !llvm.loop !46
+  br i1 %365, label %342, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326: ; preds = %362
   %366 = ptrtoint ptr %364 to i64
@@ -3323,7 +3323,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326: ; preds = %362
   unreachable
 
 374:                                              ; preds = %367
-  %375 = load i8, ptr %.0.i329, align 1, !tbaa !45
+  %375 = load i8, ptr %.0.i329, align 1, !tbaa !46
   %376 = icmp samesign ugt i64 %indvars.iv.i327, 63
   br i1 %376, label %382, label %377
 
@@ -3348,7 +3348,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit326: ; preds = %362
   %indvars.iv.next.i331 = add nuw nsw i64 %indvars.iv.i327, 7
   %389 = getelementptr inbounds nuw i8, ptr %.0.i329, i64 1
   %390 = icmp slt i8 %375, 0
-  br i1 %390, label %367, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332, !llvm.loop !46
+  br i1 %390, label %367, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332: ; preds = %387
   %391 = ptrtoint ptr %389 to i64
@@ -3377,20 +3377,20 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit332: ; preds = %387
 405:                                              ; preds = %398
   %406 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %363
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 4
-  %408 = load i8, ptr %407, align 4, !tbaa !118, !range !10, !noundef !44
+  %408 = load i8, ptr %407, align 4, !tbaa !119, !range !10, !noundef !45
   %409 = trunc nuw i8 %408 to i1
   br i1 %409, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333, label %410
 
 410:                                              ; preds = %405
   %411 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %363
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %411, ptr noundef nonnull align 8 dereferenceable(16) %406, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %407, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %411, ptr noundef nonnull align 8 dereferenceable(16) %406, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %407, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit333: ; preds = %405, %410
-  store i32 5, ptr %406, align 8, !tbaa !110
+  store i32 5, ptr %406, align 8, !tbaa !111
   %412 = getelementptr inbounds nuw i8, ptr %406, i64 8
-  store i64 %388, ptr %412, align 8, !tbaa !121
+  store i64 %388, ptr %412, align 8, !tbaa !122
   %.b1.i334 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i334, label %._crit_edge.i335, label %logDWARF.exit337
 
@@ -3414,9 +3414,9 @@ logDWARF.exit337:                                 ; preds = %_ZN9libunwind10CFI_
 
 420:                                              ; preds = %57
   %421 = alloca [560 x i8], align 16
-  store ptr %.sroa.0.1872, ptr %421, align 16, !tbaa !122
+  store ptr %.sroa.0.1872, ptr %421, align 16, !tbaa !123
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %422, ptr noundef nonnull align 8 dereferenceable(552) %5, i64 552, i1 false), !tbaa.struct !125
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %422, ptr noundef nonnull align 8 dereferenceable(552) %5, i64 552, i1 false), !tbaa.struct !126
   %.b1.i338 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i338, label %._crit_edge.i339, label %logDWARF.exit341
 
@@ -3444,8 +3444,8 @@ logDWARF.exit341:                                 ; preds = %420
 
 431:                                              ; preds = %430
   %432 = getelementptr inbounds nuw i8, ptr %.sroa.0.1872, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, ptr noundef nonnull align 8 dereferenceable(552) %432, i64 552, i1 false), !tbaa.struct !125
-  %433 = load ptr, ptr %.sroa.0.1872, align 8, !tbaa !122
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, ptr noundef nonnull align 8 dereferenceable(552) %432, i64 552, i1 false), !tbaa.struct !126
+  %433 = load ptr, ptr %.sroa.0.1872, align 8, !tbaa !123
   %.b1.i342 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i342, label %._crit_edge.i343, label %logDWARF.exit345
 
@@ -3487,7 +3487,7 @@ logDWARF.exit345:                                 ; preds = %431
   unreachable
 
 450:                                              ; preds = %443
-  %451 = load i8, ptr %.0.i348, align 1, !tbaa !45
+  %451 = load i8, ptr %.0.i348, align 1, !tbaa !46
   %452 = icmp samesign ugt i64 %indvars.iv.i346, 63
   br i1 %452, label %458, label %453
 
@@ -3512,7 +3512,7 @@ logDWARF.exit345:                                 ; preds = %431
   %indvars.iv.next.i350 = add nuw nsw i64 %indvars.iv.i346, 7
   %465 = getelementptr inbounds nuw i8, ptr %.0.i348, i64 1
   %466 = icmp slt i8 %451, 0
-  br i1 %466, label %443, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351, !llvm.loop !46
+  br i1 %466, label %443, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351: ; preds = %463
   %467 = ptrtoint ptr %465 to i64
@@ -3535,7 +3535,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351: ; preds = %463
   unreachable
 
 475:                                              ; preds = %468
-  %476 = load i8, ptr %.0.i354, align 1, !tbaa !45
+  %476 = load i8, ptr %.0.i354, align 1, !tbaa !46
   %477 = icmp samesign ugt i64 %indvars.iv.i352, 63
   br i1 %477, label %483, label %478
 
@@ -3560,7 +3560,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit351: ; preds = %463
   %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i352, 7
   %490 = getelementptr inbounds nuw i8, ptr %.0.i354, i64 1
   %491 = icmp slt i8 %476, 0
-  br i1 %491, label %468, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357, !llvm.loop !46
+  br i1 %491, label %468, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357: ; preds = %488
   %492 = ptrtoint ptr %490 to i64
@@ -3577,9 +3577,9 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357: ; preds = %488
 
 499:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit357
   %500 = trunc nuw nsw i64 %464 to i32
-  store i32 %500, ptr %5, align 8, !tbaa !126
+  store i32 %500, ptr %5, align 8, !tbaa !127
   %501 = trunc i64 %489 to i32
-  store i32 %501, ptr %35, align 4, !tbaa !127
+  store i32 %501, ptr %35, align 4, !tbaa !128
   %.b1.i358 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i358, label %._crit_edge.i359, label %logDWARF.exit361
 
@@ -3621,7 +3621,7 @@ logDWARF.exit361:                                 ; preds = %499
   unreachable
 
 518:                                              ; preds = %511
-  %519 = load i8, ptr %.0.i364, align 1, !tbaa !45
+  %519 = load i8, ptr %.0.i364, align 1, !tbaa !46
   %520 = icmp samesign ugt i64 %indvars.iv.i362, 63
   br i1 %520, label %526, label %521
 
@@ -3646,7 +3646,7 @@ logDWARF.exit361:                                 ; preds = %499
   %indvars.iv.next.i366 = add nuw nsw i64 %indvars.iv.i362, 7
   %533 = getelementptr inbounds nuw i8, ptr %.0.i364, i64 1
   %534 = icmp slt i8 %519, 0
-  br i1 %534, label %511, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367, !llvm.loop !46
+  br i1 %534, label %511, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367: ; preds = %531
   %535 = ptrtoint ptr %533 to i64
@@ -3663,7 +3663,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367: ; preds = %531
 
 542:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit367
   %543 = trunc nuw nsw i64 %532 to i32
-  store i32 %543, ptr %5, align 8, !tbaa !126
+  store i32 %543, ptr %5, align 8, !tbaa !127
   %.b1.i368 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i368, label %._crit_edge.i369, label %logDWARF.exit371
 
@@ -3705,7 +3705,7 @@ logDWARF.exit371:                                 ; preds = %542
   unreachable
 
 560:                                              ; preds = %553
-  %561 = load i8, ptr %.0.i374, align 1, !tbaa !45
+  %561 = load i8, ptr %.0.i374, align 1, !tbaa !46
   %562 = icmp samesign ugt i64 %indvars.iv.i372, 63
   br i1 %562, label %568, label %563
 
@@ -3730,13 +3730,13 @@ logDWARF.exit371:                                 ; preds = %542
   %indvars.iv.next.i376 = add nuw nsw i64 %indvars.iv.i372, 7
   %575 = getelementptr inbounds nuw i8, ptr %.0.i374, i64 1
   %576 = icmp slt i8 %561, 0
-  br i1 %576, label %553, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit377, !llvm.loop !46
+  br i1 %576, label %553, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit377, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit377: ; preds = %573
   %577 = ptrtoint ptr %575 to i64
   store i64 %577, ptr %8, align 8, !tbaa !18
   %578 = trunc i64 %574 to i32
-  store i32 %578, ptr %35, align 4, !tbaa !127
+  store i32 %578, ptr %35, align 4, !tbaa !128
   %.b1.i378 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i378, label %._crit_edge.i379, label %logDWARF.exit381
 
@@ -3759,8 +3759,8 @@ logDWARF.exit381:                                 ; preds = %_ZN9libunwind17Loca
   br label %1299
 
 586:                                              ; preds = %57
-  store i32 0, ptr %5, align 8, !tbaa !126
-  store i64 %60, ptr %36, align 8, !tbaa !128
+  store i32 0, ptr %5, align 8, !tbaa !127
+  store i64 %60, ptr %36, align 8, !tbaa !129
   %587 = inttoptr i64 %60 to ptr
   br label %588
 
@@ -3780,7 +3780,7 @@ logDWARF.exit381:                                 ; preds = %_ZN9libunwind17Loca
   unreachable
 
 595:                                              ; preds = %588
-  %596 = load i8, ptr %.0.i384, align 1, !tbaa !45
+  %596 = load i8, ptr %.0.i384, align 1, !tbaa !46
   %597 = icmp samesign ugt i64 %indvars.iv.i382, 63
   br i1 %597, label %603, label %598
 
@@ -3805,7 +3805,7 @@ logDWARF.exit381:                                 ; preds = %_ZN9libunwind17Loca
   %indvars.iv.next.i386 = add nuw nsw i64 %indvars.iv.i382, 7
   %610 = getelementptr inbounds nuw i8, ptr %.0.i384, i64 1
   %611 = icmp slt i8 %596, 0
-  br i1 %611, label %588, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit387, !llvm.loop !46
+  br i1 %611, label %588, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit387, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit387: ; preds = %608
   %612 = ptrtoint ptr %610 to i64
@@ -3861,7 +3861,7 @@ logDWARF.exit391:                                 ; preds = %614
   unreachable
 
 632:                                              ; preds = %625
-  %633 = load i8, ptr %.0.i394, align 1, !tbaa !45
+  %633 = load i8, ptr %.0.i394, align 1, !tbaa !46
   %634 = icmp samesign ugt i64 %indvars.iv.i392, 63
   br i1 %634, label %640, label %635
 
@@ -3886,7 +3886,7 @@ logDWARF.exit391:                                 ; preds = %614
   %indvars.iv.next.i396 = add nuw nsw i64 %indvars.iv.i392, 7
   %647 = getelementptr inbounds nuw i8, ptr %.0.i394, i64 1
   %648 = icmp slt i8 %633, 0
-  br i1 %648, label %625, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397, !llvm.loop !46
+  br i1 %648, label %625, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397: ; preds = %645
   %649 = ptrtoint ptr %647 to i64
@@ -3904,20 +3904,20 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397: ; preds = %645
 656:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit397
   %657 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %646
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 4
-  %659 = load i8, ptr %658, align 4, !tbaa !118, !range !10, !noundef !44
+  %659 = load i8, ptr %658, align 4, !tbaa !119, !range !10, !noundef !45
   %660 = trunc nuw i8 %659 to i1
   br i1 %660, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398, label %661
 
 661:                                              ; preds = %656
   %662 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %646
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %662, ptr noundef nonnull align 8 dereferenceable(16) %657, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %658, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %662, ptr noundef nonnull align 8 dereferenceable(16) %657, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %658, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398: ; preds = %656, %661
-  store i32 6, ptr %657, align 8, !tbaa !110
+  store i32 6, ptr %657, align 8, !tbaa !111
   %663 = getelementptr inbounds nuw i8, ptr %657, i64 8
-  store i64 %649, ptr %663, align 8, !tbaa !121
+  store i64 %649, ptr %663, align 8, !tbaa !122
   br label %664
 
 664:                                              ; preds = %684, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit398
@@ -3936,7 +3936,7 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   unreachable
 
 671:                                              ; preds = %664
-  %672 = load i8, ptr %.0.i401, align 1, !tbaa !45
+  %672 = load i8, ptr %.0.i401, align 1, !tbaa !46
   %673 = icmp samesign ugt i64 %indvars.iv.i399, 63
   br i1 %673, label %679, label %674
 
@@ -3961,7 +3961,7 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   %indvars.iv.next.i403 = add nuw nsw i64 %indvars.iv.i399, 7
   %686 = getelementptr inbounds nuw i8, ptr %.0.i401, i64 1
   %687 = icmp slt i8 %672, 0
-  br i1 %687, label %664, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit404, !llvm.loop !46
+  br i1 %687, label %664, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit404, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit404: ; preds = %684
   %688 = ptrtoint ptr %686 to i64
@@ -3996,7 +3996,7 @@ logDWARF.exit408:                                 ; preds = %690
   %697 = load ptr, ptr @stderr, align 8, !tbaa !11
   %.idx249 = shl nuw nsw i64 %646, 4
   %698 = getelementptr i8, ptr %34, i64 %.idx249
-  %699 = load i64, ptr %698, align 8, !tbaa !121
+  %699 = load i64, ptr %698, align 8, !tbaa !122
   %700 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %697, ptr noundef nonnull @.str.66, i64 noundef %646, i64 noundef %699, i64 noundef %685) #16
   br label %1299
 
@@ -4020,7 +4020,7 @@ logDWARF.exit408:                                 ; preds = %690
   unreachable
 
 710:                                              ; preds = %703
-  %711 = load i8, ptr %.0.i411, align 1, !tbaa !45
+  %711 = load i8, ptr %.0.i411, align 1, !tbaa !46
   %712 = icmp samesign ugt i64 %indvars.iv.i409, 63
   br i1 %712, label %718, label %713
 
@@ -4045,7 +4045,7 @@ logDWARF.exit408:                                 ; preds = %690
   %indvars.iv.next.i413 = add nuw nsw i64 %indvars.iv.i409, 7
   %725 = getelementptr inbounds nuw i8, ptr %.0.i411, i64 1
   %726 = icmp slt i8 %711, 0
-  br i1 %726, label %703, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414, !llvm.loop !46
+  br i1 %726, label %703, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414: ; preds = %723
   %727 = ptrtoint ptr %725 to i64
@@ -4077,14 +4077,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit414: ; preds = %723
 
 740:                                              ; preds = %.preheader
   %741 = getelementptr inbounds nuw i8, ptr %.0.i417, i64 1
-  %742 = load i8, ptr %.0.i417, align 1, !tbaa !45
+  %742 = load i8, ptr %.0.i417, align 1, !tbaa !46
   %743 = and i8 %742, 127
   %744 = zext nneg i8 %743 to i64
   %745 = shl i64 %744, %indvars.iv.i415
   %746 = or i64 %745, %.018.i416
   %indvars.iv.next.i418 = add nuw nsw i64 %indvars.iv.i415, 7
   %.not.i419 = icmp sgt i8 %742, -1
-  br i1 %.not.i419, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %.preheader, !llvm.loop !58
+  br i1 %.not.i419, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %.preheader, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %740
   %747 = icmp samesign ugt i8 %742, 63
@@ -4096,25 +4096,25 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %740
   %.1.i = or i64 %746, %751
   %752 = ptrtoint ptr %741 to i64
   store i64 %752, ptr %8, align 8, !tbaa !18
-  %753 = load i32, ptr %30, align 4, !tbaa !59
+  %753 = load i32, ptr %30, align 4, !tbaa !60
   %754 = sext i32 %753 to i64
   %755 = mul nsw i64 %.1.i, %754
   %756 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %724
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 4
-  %758 = load i8, ptr %757, align 4, !tbaa !118, !range !10, !noundef !44
+  %758 = load i8, ptr %757, align 4, !tbaa !119, !range !10, !noundef !45
   %759 = trunc nuw i8 %758 to i1
   br i1 %759, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420, label %760
 
 760:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit
   %761 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %724
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %761, ptr noundef nonnull align 8 dereferenceable(16) %756, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %757, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %761, ptr noundef nonnull align 8 dereferenceable(16) %756, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %757, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit420: ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, %760
-  store i32 2, ptr %756, align 8, !tbaa !110
+  store i32 2, ptr %756, align 8, !tbaa !111
   %762 = getelementptr inbounds nuw i8, ptr %756, i64 8
-  store i64 %755, ptr %762, align 8, !tbaa !121
+  store i64 %755, ptr %762, align 8, !tbaa !122
   %.b1.i421 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i421, label %._crit_edge.i422, label %logDWARF.exit424
 
@@ -4156,7 +4156,7 @@ logDWARF.exit424:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 779:                                              ; preds = %772
-  %780 = load i8, ptr %.0.i427, align 1, !tbaa !45
+  %780 = load i8, ptr %.0.i427, align 1, !tbaa !46
   %781 = icmp samesign ugt i64 %indvars.iv.i425, 63
   br i1 %781, label %787, label %782
 
@@ -4181,7 +4181,7 @@ logDWARF.exit424:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i429 = add nuw nsw i64 %indvars.iv.i425, 7
   %794 = getelementptr inbounds nuw i8, ptr %.0.i427, i64 1
   %795 = icmp slt i8 %780, 0
-  br i1 %795, label %772, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430, !llvm.loop !46
+  br i1 %795, label %772, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430: ; preds = %792
   %796 = ptrtoint ptr %794 to i64
@@ -4205,14 +4205,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit430: ; preds = %792
 
 804:                                              ; preds = %797
   %805 = getelementptr inbounds nuw i8, ptr %.0.i433, i64 1
-  %806 = load i8, ptr %.0.i433, align 1, !tbaa !45
+  %806 = load i8, ptr %.0.i433, align 1, !tbaa !46
   %807 = and i8 %806, 127
   %808 = zext nneg i8 %807 to i64
   %809 = shl i64 %808, %indvars.iv.i431
   %810 = or i64 %809, %.018.i432
   %indvars.iv.next.i434 = add nuw nsw i64 %indvars.iv.i431, 7
   %.not.i435 = icmp sgt i8 %806, -1
-  br i1 %.not.i435, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438, label %797, !llvm.loop !58
+  br i1 %.not.i435, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438, label %797, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438: ; preds = %804
   %811 = icmp samesign ugt i8 %806, 63
@@ -4224,7 +4224,7 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438: ; preds = %804
   %.1.i437 = or i64 %810, %815
   %816 = ptrtoint ptr %805 to i64
   store i64 %816, ptr %8, align 8, !tbaa !18
-  %817 = load i32, ptr %30, align 4, !tbaa !59
+  %817 = load i32, ptr %30, align 4, !tbaa !60
   %818 = sext i32 %817 to i64
   %819 = mul nsw i64 %.1.i437, %818
   %820 = icmp ugt i64 %793, 32
@@ -4239,9 +4239,9 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438: ; preds = %804
 
 826:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit438
   %827 = trunc nuw nsw i64 %793 to i32
-  store i32 %827, ptr %5, align 8, !tbaa !126
+  store i32 %827, ptr %5, align 8, !tbaa !127
   %828 = trunc i64 %819 to i32
-  store i32 %828, ptr %35, align 4, !tbaa !127
+  store i32 %828, ptr %35, align 4, !tbaa !128
   %.b1.i439 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i439, label %._crit_edge.i440, label %logDWARF.exit442
 
@@ -4284,14 +4284,14 @@ logDWARF.exit442:                                 ; preds = %826
 
 845:                                              ; preds = %838
   %846 = getelementptr inbounds nuw i8, ptr %.0.i445, i64 1
-  %847 = load i8, ptr %.0.i445, align 1, !tbaa !45
+  %847 = load i8, ptr %.0.i445, align 1, !tbaa !46
   %848 = and i8 %847, 127
   %849 = zext nneg i8 %848 to i64
   %850 = shl i64 %849, %indvars.iv.i443
   %851 = or i64 %850, %.018.i444
   %indvars.iv.next.i446 = add nuw nsw i64 %indvars.iv.i443, 7
   %.not.i447 = icmp sgt i8 %847, -1
-  br i1 %.not.i447, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450, label %838, !llvm.loop !58
+  br i1 %.not.i447, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450, label %838, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450: ; preds = %845
   %852 = icmp samesign ugt i8 %847, 63
@@ -4303,10 +4303,10 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit450: ; preds = %845
   %.1.i449 = or i64 %851, %856
   %857 = ptrtoint ptr %846 to i64
   store i64 %857, ptr %8, align 8, !tbaa !18
-  %858 = load i32, ptr %30, align 4, !tbaa !59
+  %858 = load i32, ptr %30, align 4, !tbaa !60
   %859 = trunc i64 %.1.i449 to i32
   %860 = mul i32 %858, %859
-  store i32 %860, ptr %35, align 4, !tbaa !127
+  store i32 %860, ptr %35, align 4, !tbaa !128
   %.b1.i451 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i451, label %._crit_edge.i452, label %logDWARF.exit454
 
@@ -4348,7 +4348,7 @@ logDWARF.exit454:                                 ; preds = %_ZN9libunwind17Loca
   unreachable
 
 877:                                              ; preds = %870
-  %878 = load i8, ptr %.0.i457, align 1, !tbaa !45
+  %878 = load i8, ptr %.0.i457, align 1, !tbaa !46
   %879 = icmp samesign ugt i64 %indvars.iv.i455, 63
   br i1 %879, label %885, label %880
 
@@ -4373,7 +4373,7 @@ logDWARF.exit454:                                 ; preds = %_ZN9libunwind17Loca
   %indvars.iv.next.i459 = add nuw nsw i64 %indvars.iv.i455, 7
   %892 = getelementptr inbounds nuw i8, ptr %.0.i457, i64 1
   %893 = icmp slt i8 %878, 0
-  br i1 %893, label %870, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460, !llvm.loop !46
+  br i1 %893, label %870, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460: ; preds = %890
   %894 = ptrtoint ptr %892 to i64
@@ -4404,7 +4404,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460: ; preds = %890
   unreachable
 
 907:                                              ; preds = %.preheader564
-  %908 = load i8, ptr %.0.i463, align 1, !tbaa !45
+  %908 = load i8, ptr %.0.i463, align 1, !tbaa !46
   %909 = icmp samesign ugt i64 %indvars.iv.i461, 63
   br i1 %909, label %915, label %910
 
@@ -4429,30 +4429,30 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit460: ; preds = %890
   %indvars.iv.next.i465 = add nuw nsw i64 %indvars.iv.i461, 7
   %922 = getelementptr inbounds nuw i8, ptr %.0.i463, i64 1
   %923 = icmp slt i8 %908, 0
-  br i1 %923, label %.preheader564, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466, !llvm.loop !46
+  br i1 %923, label %.preheader564, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466: ; preds = %920
   %924 = ptrtoint ptr %922 to i64
   store i64 %924, ptr %8, align 8, !tbaa !18
-  %925 = load i32, ptr %30, align 4, !tbaa !59
+  %925 = load i32, ptr %30, align 4, !tbaa !60
   %926 = sext i32 %925 to i64
   %927 = mul nsw i64 %921, %926
   %928 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %891
   %929 = getelementptr inbounds nuw i8, ptr %928, i64 4
-  %930 = load i8, ptr %929, align 4, !tbaa !118, !range !10, !noundef !44
+  %930 = load i8, ptr %929, align 4, !tbaa !119, !range !10, !noundef !45
   %931 = trunc nuw i8 %930 to i1
   br i1 %931, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467, label %932
 
 932:                                              ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466
   %933 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %891
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %933, ptr noundef nonnull align 8 dereferenceable(16) %928, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %929, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %933, ptr noundef nonnull align 8 dereferenceable(16) %928, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %929, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit467: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit466, %932
-  store i32 4, ptr %928, align 8, !tbaa !110
+  store i32 4, ptr %928, align 8, !tbaa !111
   %934 = getelementptr inbounds nuw i8, ptr %928, i64 8
-  store i64 %927, ptr %934, align 8, !tbaa !121
+  store i64 %927, ptr %934, align 8, !tbaa !122
   %.b1.i468 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i468, label %._crit_edge.i469, label %logDWARF.exit471
 
@@ -4494,7 +4494,7 @@ logDWARF.exit471:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 951:                                              ; preds = %944
-  %952 = load i8, ptr %.0.i474, align 1, !tbaa !45
+  %952 = load i8, ptr %.0.i474, align 1, !tbaa !46
   %953 = icmp samesign ugt i64 %indvars.iv.i472, 63
   br i1 %953, label %959, label %954
 
@@ -4519,7 +4519,7 @@ logDWARF.exit471:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i476 = add nuw nsw i64 %indvars.iv.i472, 7
   %966 = getelementptr inbounds nuw i8, ptr %.0.i474, i64 1
   %967 = icmp slt i8 %952, 0
-  br i1 %967, label %944, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477, !llvm.loop !46
+  br i1 %967, label %944, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477: ; preds = %964
   %968 = ptrtoint ptr %966 to i64
@@ -4551,14 +4551,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit477: ; preds = %964
 
 981:                                              ; preds = %.preheader565
   %982 = getelementptr inbounds nuw i8, ptr %.0.i480, i64 1
-  %983 = load i8, ptr %.0.i480, align 1, !tbaa !45
+  %983 = load i8, ptr %.0.i480, align 1, !tbaa !46
   %984 = and i8 %983, 127
   %985 = zext nneg i8 %984 to i64
   %986 = shl i64 %985, %indvars.iv.i478
   %987 = or i64 %986, %.018.i479
   %indvars.iv.next.i481 = add nuw nsw i64 %indvars.iv.i478, 7
   %.not.i482 = icmp sgt i8 %983, -1
-  br i1 %.not.i482, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485, label %.preheader565, !llvm.loop !58
+  br i1 %.not.i482, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485, label %.preheader565, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485: ; preds = %981
   %988 = icmp samesign ugt i8 %983, 63
@@ -4570,25 +4570,25 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485: ; preds = %981
   %.1.i484 = or i64 %987, %992
   %993 = ptrtoint ptr %982 to i64
   store i64 %993, ptr %8, align 8, !tbaa !18
-  %994 = load i32, ptr %30, align 4, !tbaa !59
+  %994 = load i32, ptr %30, align 4, !tbaa !60
   %995 = sext i32 %994 to i64
   %996 = mul nsw i64 %.1.i484, %995
   %997 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %965
   %998 = getelementptr inbounds nuw i8, ptr %997, i64 4
-  %999 = load i8, ptr %998, align 4, !tbaa !118, !range !10, !noundef !44
+  %999 = load i8, ptr %998, align 4, !tbaa !119, !range !10, !noundef !45
   %1000 = trunc nuw i8 %999 to i1
   br i1 %1000, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486, label %1001
 
 1001:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485
   %1002 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %965
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1002, ptr noundef nonnull align 8 dereferenceable(16) %997, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %998, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1002, ptr noundef nonnull align 8 dereferenceable(16) %997, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %998, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit486: ; preds = %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit485, %1001
-  store i32 4, ptr %997, align 8, !tbaa !110
+  store i32 4, ptr %997, align 8, !tbaa !111
   %1003 = getelementptr inbounds nuw i8, ptr %997, i64 8
-  store i64 %996, ptr %1003, align 8, !tbaa !121
+  store i64 %996, ptr %1003, align 8, !tbaa !122
   %.b1.i487 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i487, label %._crit_edge.i488, label %logDWARF.exit490
 
@@ -4630,7 +4630,7 @@ logDWARF.exit490:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 1020:                                             ; preds = %1013
-  %1021 = load i8, ptr %.0.i493, align 1, !tbaa !45
+  %1021 = load i8, ptr %.0.i493, align 1, !tbaa !46
   %1022 = icmp samesign ugt i64 %indvars.iv.i491, 63
   br i1 %1022, label %1028, label %1023
 
@@ -4655,7 +4655,7 @@ logDWARF.exit490:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i495 = add nuw nsw i64 %indvars.iv.i491, 7
   %1035 = getelementptr inbounds nuw i8, ptr %.0.i493, i64 1
   %1036 = icmp slt i8 %1021, 0
-  br i1 %1036, label %1013, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496, !llvm.loop !46
+  br i1 %1036, label %1013, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496: ; preds = %1033
   %1037 = ptrtoint ptr %1035 to i64
@@ -4673,20 +4673,20 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496: ; preds = %1033
 1044:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit496
   %1045 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %1034
   %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 4
-  %1047 = load i8, ptr %1046, align 4, !tbaa !118, !range !10, !noundef !44
+  %1047 = load i8, ptr %1046, align 4, !tbaa !119, !range !10, !noundef !45
   %1048 = trunc nuw i8 %1047 to i1
   br i1 %1048, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497, label %1049
 
 1049:                                             ; preds = %1044
   %1050 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %1034
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1050, ptr noundef nonnull align 8 dereferenceable(16) %1045, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %1046, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1050, ptr noundef nonnull align 8 dereferenceable(16) %1045, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %1046, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497: ; preds = %1044, %1049
-  store i32 7, ptr %1045, align 8, !tbaa !110
+  store i32 7, ptr %1045, align 8, !tbaa !111
   %1051 = getelementptr inbounds nuw i8, ptr %1045, i64 8
-  store i64 %1037, ptr %1051, align 8, !tbaa !121
+  store i64 %1037, ptr %1051, align 8, !tbaa !122
   br label %1052
 
 1052:                                             ; preds = %1072, %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit497
@@ -4705,7 +4705,7 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   unreachable
 
 1059:                                             ; preds = %1052
-  %1060 = load i8, ptr %.0.i500, align 1, !tbaa !45
+  %1060 = load i8, ptr %.0.i500, align 1, !tbaa !46
   %1061 = icmp samesign ugt i64 %indvars.iv.i498, 63
   br i1 %1061, label %1067, label %1062
 
@@ -4730,7 +4730,7 @@ _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2
   %indvars.iv.next.i502 = add nuw nsw i64 %indvars.iv.i498, 7
   %1074 = getelementptr inbounds nuw i8, ptr %.0.i500, i64 1
   %1075 = icmp slt i8 %1060, 0
-  br i1 %1075, label %1052, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit503, !llvm.loop !46
+  br i1 %1075, label %1052, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit503, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit503: ; preds = %1072
   %1076 = ptrtoint ptr %1074 to i64
@@ -4765,7 +4765,7 @@ logDWARF.exit507:                                 ; preds = %1078
   %1085 = load ptr, ptr @stderr, align 8, !tbaa !11
   %.idx = shl nuw nsw i64 %1034, 4
   %1086 = getelementptr i8, ptr %34, i64 %.idx
-  %1087 = load i64, ptr %1086, align 8, !tbaa !121
+  %1087 = load i64, ptr %1086, align 8, !tbaa !122
   %1088 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1085, ptr noundef nonnull @.str.77, i64 noundef %1034, i64 noundef %1087, i64 noundef %1073) #16
   br label %1299
 
@@ -4789,7 +4789,7 @@ logDWARF.exit507:                                 ; preds = %1078
   unreachable
 
 1098:                                             ; preds = %1091
-  %1099 = load i8, ptr %.0.i510, align 1, !tbaa !45
+  %1099 = load i8, ptr %.0.i510, align 1, !tbaa !46
   %1100 = icmp samesign ugt i64 %indvars.iv.i508, 63
   br i1 %1100, label %1106, label %1101
 
@@ -4814,13 +4814,13 @@ logDWARF.exit507:                                 ; preds = %1078
   %indvars.iv.next.i512 = add nuw nsw i64 %indvars.iv.i508, 7
   %1113 = getelementptr inbounds nuw i8, ptr %.0.i510, i64 1
   %1114 = icmp slt i8 %1099, 0
-  br i1 %1114, label %1091, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit513, !llvm.loop !46
+  br i1 %1114, label %1091, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit513, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit513: ; preds = %1111
   %1115 = ptrtoint ptr %1113 to i64
   store i64 %1115, ptr %8, align 8, !tbaa !18
   %1116 = trunc i64 %1112 to i32
-  store i32 %1116, ptr %33, align 8, !tbaa !103
+  store i32 %1116, ptr %33, align 8, !tbaa !104
   %.b1.i514 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i514, label %._crit_edge.i515, label %logDWARF.exit517
 
@@ -4862,7 +4862,7 @@ logDWARF.exit517:                                 ; preds = %_ZN9libunwind17Loca
   unreachable
 
 1133:                                             ; preds = %1126
-  %1134 = load i8, ptr %.0.i520, align 1, !tbaa !45
+  %1134 = load i8, ptr %.0.i520, align 1, !tbaa !46
   %1135 = icmp samesign ugt i64 %indvars.iv.i518, 63
   br i1 %1135, label %1141, label %1136
 
@@ -4887,7 +4887,7 @@ logDWARF.exit517:                                 ; preds = %_ZN9libunwind17Loca
   %indvars.iv.next.i522 = add nuw nsw i64 %indvars.iv.i518, 7
   %1148 = getelementptr inbounds nuw i8, ptr %.0.i520, i64 1
   %1149 = icmp slt i8 %1134, 0
-  br i1 %1149, label %1126, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523, !llvm.loop !46
+  br i1 %1149, label %1126, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523: ; preds = %1146
   %1150 = ptrtoint ptr %1148 to i64
@@ -4918,7 +4918,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523: ; preds = %1146
   unreachable
 
 1163:                                             ; preds = %.preheader566
-  %1164 = load i8, ptr %.0.i526, align 1, !tbaa !45
+  %1164 = load i8, ptr %.0.i526, align 1, !tbaa !46
   %1165 = icmp samesign ugt i64 %indvars.iv.i524, 63
   br i1 %1165, label %1171, label %1166
 
@@ -4943,31 +4943,31 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit523: ; preds = %1146
   %indvars.iv.next.i528 = add nuw nsw i64 %indvars.iv.i524, 7
   %1178 = getelementptr inbounds nuw i8, ptr %.0.i526, i64 1
   %1179 = icmp slt i8 %1164, 0
-  br i1 %1179, label %.preheader566, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529, !llvm.loop !46
+  br i1 %1179, label %.preheader566, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529: ; preds = %1176
   %1180 = ptrtoint ptr %1178 to i64
   store i64 %1180, ptr %8, align 8, !tbaa !18
-  %1181 = load i32, ptr %30, align 4, !tbaa !59
+  %1181 = load i32, ptr %30, align 4, !tbaa !60
   %1182 = sext i32 %1181 to i64
   %1183 = mul nsw i64 %1177, %1182
   %1184 = sub nsw i64 0, %1183
   %1185 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %1147
   %1186 = getelementptr inbounds nuw i8, ptr %1185, i64 4
-  %1187 = load i8, ptr %1186, align 4, !tbaa !118, !range !10, !noundef !44
+  %1187 = load i8, ptr %1186, align 4, !tbaa !119, !range !10, !noundef !45
   %1188 = trunc nuw i8 %1187 to i1
   br i1 %1188, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530, label %1189
 
 1189:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529
   %1190 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %1147
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1190, ptr noundef nonnull align 8 dereferenceable(16) %1185, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %1186, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1190, ptr noundef nonnull align 8 dereferenceable(16) %1185, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %1186, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit530: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit529, %1189
-  store i32 2, ptr %1185, align 8, !tbaa !110
+  store i32 2, ptr %1185, align 8, !tbaa !111
   %1191 = getelementptr inbounds nuw i8, ptr %1185, i64 8
-  store i64 %1184, ptr %1191, align 8, !tbaa !121
+  store i64 %1184, ptr %1191, align 8, !tbaa !122
   %.b1.i531 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i531, label %._crit_edge.i532, label %logDWARF.exit534
 
@@ -5032,7 +5032,7 @@ logDWARF.exit534:                                 ; preds = %_ZN9libunwind10CFI_
   unreachable
 
 1220:                                             ; preds = %1213
-  %1221 = load i8, ptr %.0.i537, align 1, !tbaa !45
+  %1221 = load i8, ptr %.0.i537, align 1, !tbaa !46
   %1222 = icmp samesign ugt i64 %indvars.iv.i535, 63
   br i1 %1222, label %1228, label %1223
 
@@ -5057,30 +5057,30 @@ logDWARF.exit534:                                 ; preds = %_ZN9libunwind10CFI_
   %indvars.iv.next.i539 = add nuw nsw i64 %indvars.iv.i535, 7
   %1235 = getelementptr inbounds nuw i8, ptr %.0.i537, i64 1
   %1236 = icmp slt i8 %1221, 0
-  br i1 %1236, label %1213, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540, !llvm.loop !46
+  br i1 %1236, label %1213, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540: ; preds = %1233
   %1237 = ptrtoint ptr %1235 to i64
   store i64 %1237, ptr %8, align 8, !tbaa !18
-  %1238 = load i32, ptr %30, align 4, !tbaa !59
+  %1238 = load i32, ptr %30, align 4, !tbaa !60
   %1239 = sext i32 %1238 to i64
   %1240 = mul nsw i64 %1234, %1239
   %1241 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %1204
   %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 4
-  %1243 = load i8, ptr %1242, align 4, !tbaa !118, !range !10, !noundef !44
+  %1243 = load i8, ptr %1242, align 4, !tbaa !119, !range !10, !noundef !45
   %1244 = trunc nuw i8 %1243 to i1
   br i1 %1244, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541, label %1245
 
 1245:                                             ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540
   %1246 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %1204
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1246, ptr noundef nonnull align 8 dereferenceable(16) %1241, i64 16, i1 false), !tbaa.struct !119
-  store i8 1, ptr %1242, align 4, !tbaa !118
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1246, ptr noundef nonnull align 8 dereferenceable(16) %1241, i64 16, i1 false), !tbaa.struct !120
+  store i8 1, ptr %1242, align 4, !tbaa !119
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo11setRegisterEmNS2_18RegisterSavedWhereElRS3_.exit541: ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit540, %1245
-  store i32 2, ptr %1241, align 8, !tbaa !110
+  store i32 2, ptr %1241, align 8, !tbaa !111
   %1247 = getelementptr inbounds nuw i8, ptr %1241, i64 8
-  store i64 %1240, ptr %1247, align 8, !tbaa !121
+  store i64 %1240, ptr %1247, align 8, !tbaa !122
   %.b1.i542 = load i1, ptr @_ZZ8logDWARFE7checked, align 1
   br i1 %.b1.i542, label %._crit_edge.i543, label %logDWARF.exit545
 
@@ -5105,7 +5105,7 @@ logDWARF.exit545:                                 ; preds = %_ZN9libunwind10CFI_
 
 1256:                                             ; preds = %1199
   %1257 = zext nneg i8 %1201 to i32
-  %1258 = load i32, ptr %37, align 8, !tbaa !57
+  %1258 = load i32, ptr %37, align 8, !tbaa !58
   %1259 = mul i32 %1258, %1257
   %1260 = zext i32 %1259 to i64
   %1261 = add i64 %.0218873, %1260
@@ -5145,13 +5145,13 @@ logDWARF.exit549:                                 ; preds = %1256
 1277:                                             ; preds = %1269
   %1278 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %31, i64 0, i64 %1270
   %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 4
-  %1280 = load i8, ptr %1279, align 4, !tbaa !118, !range !10, !noundef !44
+  %1280 = load i8, ptr %1279, align 4, !tbaa !119, !range !10, !noundef !45
   %1281 = trunc nuw i8 %1280 to i1
   br i1 %1281, label %1282, label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550
 
 1282:                                             ; preds = %1277
   %1283 = getelementptr inbounds nuw [33 x %"struct.libunwind::CFI_Parser<libunwind::LocalAddressSpace>::RegisterLocation"], ptr %32, i64 0, i64 %1270
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1278, ptr noundef nonnull align 8 dereferenceable(16) %1283, i64 16, i1 false), !tbaa.struct !119
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1278, ptr noundef nonnull align 8 dereferenceable(16) %1283, i64 16, i1 false), !tbaa.struct !120
   br label %_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550
 
 _ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfo29restoreRegisterToInitialStateEmRS3_.exit550: ; preds = %1277, %1282
@@ -5208,7 +5208,7 @@ logDWARF.exit558:                                 ; preds = %1291
   %1301 = icmp uge i64 %1300, %42
   %1302 = icmp uge i64 %.2220, %44
   %.not254 = select i1 %1301, i1 true, i1 %1302
-  br i1 %.not254, label %._crit_edge, label %57, !llvm.loop !129
+  br i1 %.not254, label %._crit_edge, label %57, !llvm.loop !130
 
 .loopexit:                                        ; preds = %430, %1206, %1272, %179, %227, %274, %321, %393, %400, %494, %537, %651, %729, %821, %896, %970, %1039, %1152, %1296, %logDWARF.exit558, %._crit_edge.i556
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %9) #15
@@ -5221,7 +5221,7 @@ logDWARF.exit558:                                 ; preds = %1291
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   %.0213.add = add nuw nsw i64 %.0213.idx875, 24
   %.not = icmp eq i64 %.0213.add, 48
-  br i1 %.not, label %.critedge256, label %39
+  br i1 %.not, label %.critedge256, label %39, !llvm.loop !131
 
 .critedge256:                                     ; preds = %._crit_edge, %.loopexit
   %.not869 = phi i1 [ false, %.loopexit ], [ true, %._crit_edge ]
@@ -5231,7 +5231,7 @@ logDWARF.exit558:                                 ; preds = %1291
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE6getCFAERS1_RKNS_10CFI_ParserIS1_E10PrologInfoERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(552) %1, ptr noundef nonnull align 8 dereferenceable(168) %2) local_unnamed_addr #0 comdat align 2 {
-  %4 = load i32, ptr %1, align 8, !tbaa !126
+  %4 = load i32, ptr %1, align 8, !tbaa !127
   switch i32 %4, label %20 [
     i32 0, label %30
     i32 -1, label %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit
@@ -5312,14 +5312,14 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit: ; preds = %3, %3, %5, %6, 
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink
   %.0.i = load i64, ptr %25, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !127
+  %27 = load i32, ptr %26, align 4, !tbaa !128
   %28 = sext i32 %27 to i64
   %29 = add nsw i64 %.0.i, %28
   br label %36
 
 30:                                               ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !128
+  %32 = load i64, ptr %31, align 8, !tbaa !129
   %.not10 = icmp eq i64 %32, 0
   br i1 %.not10, label %35, label %33
 
@@ -5341,7 +5341,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE16getSavedRegisterERS1_RKS2_mRKNS_10CFI_ParserIS1_E16RegisterLocationE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 comdat align 2 {
-  %5 = load i32, ptr %3, align 8, !tbaa !110
+  %5 = load i32, ptr %3, align 8, !tbaa !111
   switch i32 %5, label %68 [
     i32 2, label %6
     i32 3, label %11
@@ -5353,7 +5353,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !121
+  %8 = load i64, ptr %7, align 8, !tbaa !122
   %9 = add i64 %8, %2
   %10 = inttoptr i64 %9 to ptr
   %.0.copyload.i.i = load i64, ptr %10, align 1
@@ -5361,7 +5361,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = load i64, ptr %12, align 8, !tbaa !121
+  %13 = load i64, ptr %12, align 8, !tbaa !122
   %14 = add i64 %13, %2
   %15 = inttoptr i64 %14 to ptr
   %.0.copyload.i.i19 = load i64, ptr %15, align 1
@@ -5369,7 +5369,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !121
+  %18 = load i64, ptr %17, align 8, !tbaa !122
   %19 = tail call noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE18evaluateExpressionEmRS1_RKS2_m(i64 noundef %18, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2)
   %20 = inttoptr i64 %19 to ptr
   %.0.copyload.i.i20 = load i64, ptr %20, align 1
@@ -5377,13 +5377,13 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17Lo
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !121
+  %23 = load i64, ptr %22, align 8, !tbaa !122
   %24 = tail call noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17LocalAddressSpaceENS_16Registers_x86_64EE18evaluateExpressionEmRS1_RKS2_m(i64 noundef %23, ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2)
   br label %73
 
 25:                                               ; preds = %4
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !121
+  %27 = load i64, ptr %26, align 8, !tbaa !122
   %28 = trunc i64 %27 to i32
   switch i32 %28, label %63 [
     i32 -1, label %29
@@ -5544,7 +5544,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17LocalAddressSpace11getEnc
   unreachable
 
 21:                                               ; preds = %14
-  %22 = load i8, ptr %.0.i, align 1, !tbaa !45
+  %22 = load i8, ptr %.0.i, align 1, !tbaa !46
   %23 = icmp samesign ugt i64 %indvars.iv.i, 63
   br i1 %23, label %29, label %24
 
@@ -5569,7 +5569,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17LocalAddressSpace11getEnc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %37 = icmp slt i8 %22, 0
-  br i1 %37, label %14, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
+  br i1 %37, label %14, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !47
 
 38:                                               ; preds = %5
   %.0.copyload.i = load i16, ptr %7, align 1
@@ -5609,14 +5609,14 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17LocalAddressSpace11getEnc
 
 55:                                               ; preds = %48
   %56 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 1
-  %57 = load i8, ptr %.0.i49, align 1, !tbaa !45
+  %57 = load i8, ptr %.0.i49, align 1, !tbaa !46
   %58 = and i8 %57, 127
   %59 = zext nneg i8 %58 to i64
   %60 = shl i64 %59, %indvars.iv.i47
   %61 = or i64 %60, %.018.i48
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i47, 7
   %.not.i51 = icmp sgt i8 %57, -1
-  br i1 %.not.i51, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %48, !llvm.loop !58
+  br i1 %.not.i51, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %48, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %55
   %62 = icmp samesign ugt i8 %57, 63
@@ -5760,7 +5760,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17Lo
   unreachable
 
 16:                                               ; preds = %9
-  %17 = load i8, ptr %.0.i, align 1, !tbaa !45
+  %17 = load i8, ptr %.0.i, align 1, !tbaa !46
   %18 = icmp samesign ugt i64 %indvars.iv.i, 63
   br i1 %18, label %24, label %19
 
@@ -5785,7 +5785,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind17DwarfInstructionsINS_17Lo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %32 = icmp slt i8 %17, 0
-  br i1 %32, label %9, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
+  br i1 %32, label %9, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %29
   %33 = ptrtoint ptr %31 to i64
@@ -6073,7 +6073,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %29
   unreachable
 
 111:                                              ; preds = %104
-  %112 = load i8, ptr %.0.i209, align 1, !tbaa !45
+  %112 = load i8, ptr %.0.i209, align 1, !tbaa !46
   %113 = icmp samesign ugt i64 %indvars.iv.i207, 63
   br i1 %113, label %119, label %114
 
@@ -6098,7 +6098,7 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %29
   %indvars.iv.next.i211 = add nuw nsw i64 %indvars.iv.i207, 7
   %126 = getelementptr inbounds nuw i8, ptr %.0.i209, i64 1
   %127 = icmp slt i8 %112, 0
-  br i1 %127, label %104, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit212, !llvm.loop !46
+  br i1 %127, label %104, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit212, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit212: ; preds = %124
   %128 = ptrtoint ptr %126 to i64
@@ -6127,14 +6127,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit212: ; preds = %124
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %.0.i215, i64 1
-  %141 = load i8, ptr %.0.i215, align 1, !tbaa !45
+  %141 = load i8, ptr %.0.i215, align 1, !tbaa !46
   %142 = and i8 %141, 127
   %143 = zext nneg i8 %142 to i64
   %144 = shl i64 %143, %indvars.iv.i213
   %145 = or i64 %144, %.018.i214
   %indvars.iv.next.i216 = add nuw nsw i64 %indvars.iv.i213, 7
   %.not.i217 = icmp sgt i8 %141, -1
-  br i1 %.not.i217, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %132, !llvm.loop !58
+  br i1 %.not.i217, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit, label %132, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %139
   %146 = icmp samesign ugt i8 %141, 63
@@ -6303,7 +6303,7 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %139
   unreachable
 
 240:                                              ; preds = %233
-  %241 = load i8, ptr %.0.i221, align 1, !tbaa !45
+  %241 = load i8, ptr %.0.i221, align 1, !tbaa !46
   %242 = icmp samesign ugt i64 %indvars.iv.i219, 63
   br i1 %242, label %248, label %243
 
@@ -6328,7 +6328,7 @@ _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit: ; preds = %139
   %indvars.iv.next.i223 = add nuw nsw i64 %indvars.iv.i219, 7
   %255 = getelementptr inbounds nuw i8, ptr %.0.i221, i64 1
   %256 = icmp slt i8 %241, 0
-  br i1 %256, label %233, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit224, !llvm.loop !46
+  br i1 %256, label %233, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit224, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit224: ; preds = %253
   %257 = ptrtoint ptr %255 to i64
@@ -6557,7 +6557,7 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit: ; preds = %334, %335, %336
   unreachable
 
 366:                                              ; preds = %359
-  %367 = load i8, ptr %.0.i230, align 1, !tbaa !45
+  %367 = load i8, ptr %.0.i230, align 1, !tbaa !46
   %368 = icmp samesign ugt i64 %indvars.iv.i228, 63
   br i1 %368, label %374, label %369
 
@@ -6582,7 +6582,7 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit: ; preds = %334, %335, %336
   %indvars.iv.next.i232 = add nuw nsw i64 %indvars.iv.i228, 7
   %381 = getelementptr inbounds nuw i8, ptr %.0.i230, i64 1
   %382 = icmp slt i8 %367, 0
-  br i1 %382, label %359, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit233, !llvm.loop !46
+  br i1 %382, label %359, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit233, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit233: ; preds = %379
   %383 = ptrtoint ptr %381 to i64
@@ -6693,14 +6693,14 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit236: ; preds = %_ZN9libunwin
 
 416:                                              ; preds = %409
   %417 = getelementptr inbounds nuw i8, ptr %.0.i239, i64 1
-  %418 = load i8, ptr %.0.i239, align 1, !tbaa !45
+  %418 = load i8, ptr %.0.i239, align 1, !tbaa !46
   %419 = and i8 %418, 127
   %420 = zext nneg i8 %419 to i64
   %421 = shl i64 %420, %indvars.iv.i237
   %422 = or i64 %421, %.018.i238
   %indvars.iv.next.i240 = add nuw nsw i64 %indvars.iv.i237, 7
   %.not.i241 = icmp sgt i8 %418, -1
-  br i1 %.not.i241, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit244, label %409, !llvm.loop !58
+  br i1 %.not.i241, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit244, label %409, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit244: ; preds = %416
   %423 = icmp samesign ugt i8 %418, 63
@@ -6817,7 +6817,7 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit247: ; preds = %_ZN9libunwin
   unreachable
 
 461:                                              ; preds = %454
-  %462 = load i8, ptr %.0.i250, align 1, !tbaa !45
+  %462 = load i8, ptr %.0.i250, align 1, !tbaa !46
   %463 = icmp samesign ugt i64 %indvars.iv.i248, 63
   br i1 %463, label %469, label %464
 
@@ -6842,7 +6842,7 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit247: ; preds = %_ZN9libunwin
   %indvars.iv.next.i252 = add nuw nsw i64 %indvars.iv.i248, 7
   %476 = getelementptr inbounds nuw i8, ptr %.0.i250, i64 1
   %477 = icmp slt i8 %462, 0
-  br i1 %477, label %454, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit253, !llvm.loop !46
+  br i1 %477, label %454, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit253, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit253: ; preds = %474
   %478 = trunc i64 %475 to i32
@@ -6865,14 +6865,14 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit253: ; preds = %474
 
 486:                                              ; preds = %479
   %487 = getelementptr inbounds nuw i8, ptr %.0.i256, i64 1
-  %488 = load i8, ptr %.0.i256, align 1, !tbaa !45
+  %488 = load i8, ptr %.0.i256, align 1, !tbaa !46
   %489 = and i8 %488, 127
   %490 = zext nneg i8 %489 to i64
   %491 = shl i64 %490, %indvars.iv.i254
   %492 = or i64 %491, %.018.i255
   %indvars.iv.next.i257 = add nuw nsw i64 %indvars.iv.i254, 7
   %.not.i258 = icmp sgt i8 %488, -1
-  br i1 %.not.i258, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit261, label %479, !llvm.loop !58
+  br i1 %.not.i258, label %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit261, label %479, !llvm.loop !59
 
 _ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit261: ; preds = %486
   %493 = icmp samesign ugt i8 %488, 63
@@ -7045,7 +7045,7 @@ _ZNK9libunwind16Registers_x86_6411getRegisterEi.exit264: ; preds = %_ZN9libunwin
   %.1305 = phi i64 [ %59, %57 ], [ %55, %61 ], [ %67, %64 ], [ %72, %69 ], [ %77, %74 ], [ %82, %79 ], [ %87, %84 ], [ %92, %89 ], [ %96, %94 ], [ %100, %98 ], [ %128, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit212 ], [ %151, %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit ], [ %55, %153 ], [ %55, %156 ], [ %55, %158 ], [ %165, %162 ], [ %55, %170 ], [ %55, %174 ], [ %55, %180 ], [ %55, %188 ], [ %55, %185 ], [ %55, %190 ], [ %55, %195 ], [ %55, %200 ], [ %55, %205 ], [ %55, %210 ], [ %55, %215 ], [ %55, %218 ], [ %55, %221 ], [ %55, %226 ], [ %257, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit224 ], [ %55, %260 ], [ %55, %265 ], [ %55, %270 ], [ %55, %275 ], [ %284, %280 ], [ %286, %285 ], [ %292, %289 ], [ %55, %293 ], [ %55, %299 ], [ %55, %305 ], [ %55, %311 ], [ %55, %317 ], [ %55, %323 ], [ %55, %329 ], [ %55, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %383, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit236 ], [ %428, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit247 ], [ %498, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit264 ], [ %534, %552 ]
   %.1 = phi ptr [ %60, %57 ], [ %.0194347, %61 ], [ %68, %64 ], [ %73, %69 ], [ %78, %74 ], [ %83, %79 ], [ %88, %84 ], [ %93, %89 ], [ %97, %94 ], [ %101, %98 ], [ %129, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit212 ], [ %152, %_ZN9libunwind17LocalAddressSpace10getSLEB128ERmm.exit ], [ %155, %153 ], [ %157, %156 ], [ %161, %158 ], [ %169, %162 ], [ %.0194347, %170 ], [ %.0194347, %174 ], [ %181, %180 ], [ %.0194347, %188 ], [ %.0194347, %185 ], [ %191, %190 ], [ %196, %195 ], [ %201, %200 ], [ %206, %205 ], [ %211, %210 ], [ %.0194347, %215 ], [ %.0194347, %218 ], [ %222, %221 ], [ %227, %226 ], [ %.0194347, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit224 ], [ %261, %260 ], [ %266, %265 ], [ %271, %270 ], [ %276, %275 ], [ %.0194347, %280 ], [ %287, %285 ], [ %287, %289 ], [ %294, %293 ], [ %300, %299 ], [ %306, %305 ], [ %312, %311 ], [ %318, %317 ], [ %324, %323 ], [ %333, %329 ], [ %356, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit ], [ %406, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit236 ], [ %451, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit247 ], [ %521, %_ZNK9libunwind16Registers_x86_6411getRegisterEi.exit264 ], [ %.0194347, %552 ]
   %559 = icmp ult i64 %.1305, %34
-  br i1 %559, label %54, label %._crit_edge.loopexit, !llvm.loop !130
+  br i1 %559, label %54, label %._crit_edge.loopexit, !llvm.loop !132
 
 ._crit_edge.loopexit:                             ; preds = %558
   %.pre = load i64, ptr %.1, align 8, !tbaa !18
@@ -7077,11 +7077,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !70
+  %10 = load ptr, ptr %9, align 8, !tbaa !71
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !92
+  %12 = load i64, ptr %11, align 8, !tbaa !93
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !93
+  %14 = load i64, ptr %13, align 8, !tbaa !94
   %15 = zext i32 %3 to i64
   %16 = add i64 %12, %15
   %17 = call noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE7findFDEERS1_mmmmPNS2_8FDE_InfoEPNS2_8CIE_InfoE(ptr noundef nonnull align 1 dereferenceable(1) %10, i64 noundef %1, i64 noundef %12, i64 noundef %14, i64 noundef %16, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -7089,52 +7089,52 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind12UnwindCursorINS_17
 
 .thread:                                          ; preds = %4, %8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %19 = load i64, ptr %18, align 8, !tbaa !88
+  %19 = load i64, ptr %18, align 8, !tbaa !89
   %.not40 = icmp eq i64 %19, 0
   br i1 %.not40, label %.thread49, label %20
 
 20:                                               ; preds = %.thread
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !70
+  %22 = load ptr, ptr %21, align 8, !tbaa !71
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %24 = load i64, ptr %23, align 8, !tbaa !89
+  %24 = load i64, ptr %23, align 8, !tbaa !90
   %25 = trunc i64 %24 to i32
   %26 = call noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE7findFDEERS1_mmjPNS_10CFI_ParserIS1_E8FDE_InfoEPNS5_8CIE_InfoE(ptr noundef nonnull align 1 dereferenceable(1) %22, i64 noundef %1, i64 noundef %19, i32 noundef %25, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %26, label %.thread61, label %.thread49
 
 .thread49:                                        ; preds = %.thread, %20
-  %27 = load i64, ptr %2, align 8, !tbaa !84
+  %27 = load i64, ptr %2, align 8, !tbaa !85
   %28 = call noundef i64 @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE7findFDEEmm(i64 noundef %27, i64 noundef %1)
   %.not41 = icmp eq i64 %28, 0
   br i1 %.not41, label %.thread56, label %29
 
 29:                                               ; preds = %.thread49
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !70
+  %31 = load ptr, ptr %30, align 8, !tbaa !71
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !92
+  %33 = load i64, ptr %32, align 8, !tbaa !93
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !93
+  %35 = load i64, ptr %34, align 8, !tbaa !94
   %36 = call noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE7findFDEERS1_mmmmPNS2_8FDE_InfoEPNS2_8CIE_InfoE(ptr noundef nonnull align 1 dereferenceable(1) %31, i64 noundef %1, i64 noundef %33, i64 noundef %35, i64 noundef %28, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %36, label %.thread61, label %.thread56
 
 .thread56:                                        ; preds = %.thread49, %29
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !70
+  %38 = load ptr, ptr %37, align 8, !tbaa !71
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %40 = load i64, ptr %39, align 8, !tbaa !92
+  %40 = load i64, ptr %39, align 8, !tbaa !93
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !93
+  %42 = load i64, ptr %41, align 8, !tbaa !94
   %43 = call noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE7findFDEERS1_mmmmPNS2_8FDE_InfoEPNS2_8CIE_InfoE(ptr noundef nonnull align 1 dereferenceable(1) %38, i64 noundef %1, i64 noundef %40, i64 noundef %42, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   br i1 %43, label %.thread61, label %79
 
 .thread61:                                        ; preds = %8, %20, %29, %.thread56
   %.0335564 = phi i1 [ true, %.thread56 ], [ false, %29 ], [ true, %20 ], [ true, %8 ]
-  %44 = load i64, ptr %2, align 8, !tbaa !84
+  %44 = load i64, ptr %2, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 552, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(552) %5, i8 0, i64 552, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !70
+  %46 = load ptr, ptr %45, align 8, !tbaa !71
   %47 = call noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoE(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %1, i32 noundef 1, ptr noundef nonnull %5)
   br i1 %47, label %48, label %_ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getInfoFromFdeCieERKNS_10CFI_ParserIS1_E8FDE_InfoERKNS5_8CIE_InfoEmm.exit
 
@@ -7144,40 +7144,40 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
 
 48:                                               ; preds = %.thread61
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %50 = load i64, ptr %49, align 8, !tbaa !37
+  %50 = load i64, ptr %49, align 8, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i64 %50, ptr %51, align 8, !tbaa !99
+  store i64 %50, ptr %51, align 8, !tbaa !100
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %53 = load i64, ptr %52, align 8, !tbaa !38
+  %53 = load i64, ptr %52, align 8, !tbaa !39
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 %53, ptr %54, align 8, !tbaa !100
+  store i64 %53, ptr %54, align 8, !tbaa !101
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %56 = load i64, ptr %55, align 8, !tbaa !42
+  %56 = load i64, ptr %55, align 8, !tbaa !43
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 %56, ptr %57, align 8, !tbaa !101
+  store i64 %56, ptr %57, align 8, !tbaa !102
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %59 = load i64, ptr %58, align 8, !tbaa !61
+  %59 = load i64, ptr %58, align 8, !tbaa !62
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 %59, ptr %60, align 8, !tbaa !102
+  store i64 %59, ptr %60, align 8, !tbaa !103
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %62 = load i32, ptr %61, align 8, !tbaa !103
+  %62 = load i32, ptr %61, align 8, !tbaa !104
   %63 = zext i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i64 %63, ptr %64, align 8, !tbaa !105
+  store i64 %63, ptr %64, align 8, !tbaa !106
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i64 0, ptr %65, align 8, !tbaa !106
+  store i64 0, ptr %65, align 8, !tbaa !107
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 67108864, ptr %66, align 8, !tbaa !107
-  %67 = load i64, ptr %6, align 8, !tbaa !35
+  store i32 67108864, ptr %66, align 8, !tbaa !108
+  %67 = load i64, ptr %6, align 8, !tbaa !36
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i64 %67, ptr %68, align 8, !tbaa !71
+  store i64 %67, ptr %68, align 8, !tbaa !72
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %70 = load i64, ptr %69, align 8, !tbaa !48
+  %70 = load i64, ptr %69, align 8, !tbaa !49
   %71 = trunc i64 %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i32 %71, ptr %72, align 4, !tbaa !108
+  store i32 %71, ptr %72, align 4, !tbaa !109
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %44, ptr %73, align 8, !tbaa !109
+  store i64 %44, ptr %73, align 8, !tbaa !110
   call void @llvm.lifetime.end.p0(i64 552, ptr nonnull %5) #15
   %or.cond = and i1 %.not39, %.0335564
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -7187,7 +7187,7 @@ _ZN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EE17getI
   br i1 %or.cond44, label %77, label %79
 
 77:                                               ; preds = %48
-  %78 = load i64, ptr %2, align 8, !tbaa !84
+  %78 = load i64, ptr %2, align 8, !tbaa !85
   call void @_ZN9libunwind13DwarfFDECacheINS_17LocalAddressSpaceEE3addEmmmm(i64 noundef %78, i64 noundef %50, i64 noundef %53, i64 noundef %67)
   br label %79
 
@@ -7237,7 +7237,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind13DwarfFDECacheINS_17LocalA
 21:                                               ; preds = %17, %.lr.ph.split.us
   %22 = getelementptr inbounds nuw i8, ptr %.01316.us, i64 32
   %23 = icmp ult ptr %22, %12
-  br i1 %23, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !131
+  br i1 %23, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !133
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.01316 = phi ptr [ %36, %35 ], [ %11, %.lr.ph ]
@@ -7266,7 +7266,7 @@ define linkonce_odr hidden noundef i64 @_ZN9libunwind13DwarfFDECacheINS_17LocalA
 35:                                               ; preds = %.lr.ph.split, %29, %26
   %36 = getelementptr inbounds nuw i8, ptr %.01316, i64 32
   %37 = icmp ult ptr %36, %12
-  br i1 %37, label %.lr.ph.split, label %.loopexit, !llvm.loop !133
+  br i1 %37, label %.lr.ph.split, label %.loopexit, !llvm.loop !135
 
 .loopexit:                                        ; preds = %35, %21, %10, %.split.us
   %.0 = phi i64 [ %34, %.split.us ], [ 0, %10 ], [ 0, %21 ], [ 0, %35 ]
@@ -7334,9 +7334,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
   %30 = inttoptr i64 %27 to ptr
   %.0.copyload.i33 = load i8, ptr %30, align 1
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i8 %.0.copyload.i33, ptr %31, align 8, !tbaa !134
+  store i8 %.0.copyload.i33, ptr %31, align 8, !tbaa !136
   %32 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %2, i8 noundef zeroext %.0.copyload.i31, i64 noundef %1)
-  store i64 %32, ptr %3, align 8, !tbaa !90
+  store i64 %32, ptr %3, align 8, !tbaa !91
   %33 = icmp eq i8 %.0.copyload.i32, -1
   br i1 %33, label %36, label %34
 
@@ -7347,10 +7347,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
 36:                                               ; preds = %23, %34
   %37 = phi i64 [ %35, %34 ], [ 0, %23 ]
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %37, ptr %38, align 8, !tbaa !135
+  store i64 %37, ptr %38, align 8, !tbaa !137
   %39 = load i64, ptr %5, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %39, ptr %40, align 8, !tbaa !136
+  store i64 %39, ptr %40, align 8, !tbaa !138
   br label %41
 
 41:                                               ; preds = %17, %36, %8, %10
@@ -7365,40 +7365,40 @@ declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #10
 define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsByPhdrEP12dl_phdr_infomPv(ptr noundef readonly captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %"struct.libunwind::EHHeaderParser<libunwind::LocalAddressSpace>::EHHeaderInfo", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i16, ptr %5, align 8, !tbaa !137
+  %6 = load i16, ptr %5, align 8, !tbaa !139
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %.critedge, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !98
-  %11 = load i64, ptr %0, align 8, !tbaa !140
+  %10 = load i64, ptr %9, align 8, !tbaa !99
+  %11 = load i64, ptr %0, align 8, !tbaa !142
   %12 = icmp ult i64 %10, %11
   br i1 %12, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !141
+  %14 = load ptr, ptr %13, align 8, !tbaa !143
   %wide.trip.count = zext i16 %6 to i64
   br label %15
 
 15:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %28 ]
   %16 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %14, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 8, !tbaa !142
+  %17 = load i32, ptr %16, align 8, !tbaa !144
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !144
+  %21 = load i64, ptr %20, align 8, !tbaa !146
   %22 = add i64 %21, %11
   %.not.i = icmp ult i64 %10, %22
   br i1 %.not.i, label %28, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !145
+  %25 = load i64, ptr %24, align 8, !tbaa !147
   %26 = add i64 %25, %22
   %27 = icmp ult i64 %10, %26
   br i1 %27, label %29, label %28
@@ -7406,39 +7406,39 @@ define internal noundef range(i32 0, 2) i32 @_ZN9libunwindL24findUnwindSectionsB
 28:                                               ; preds = %15, %23, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !146
+  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !148
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !97
-  store i64 %22, ptr %31, align 8, !tbaa !84
+  %31 = load ptr, ptr %30, align 8, !tbaa !98
+  store i64 %22, ptr %31, align 8, !tbaa !85
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i64 %25, ptr %32, align 8, !tbaa !87
+  store i64 %25, ptr %32, align 8, !tbaa !88
   br label %33
 
 33:                                               ; preds = %29, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread
   %indvars.iv48 = phi i64 [ %wide.trip.count, %29 ], [ %indvars.iv.next49, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread ]
-  %34 = load ptr, ptr %13, align 8, !tbaa !141
+  %34 = load ptr, ptr %13, align 8, !tbaa !143
   %35 = add nuw nsw i64 %indvars.iv48, 4294967295
   %36 = and i64 %35, 4294967295
   %37 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %34, i64 %36
-  %38 = load i32, ptr %37, align 8, !tbaa !142
+  %38 = load i32, ptr %37, align 8, !tbaa !144
   %39 = icmp eq i32 %38, 1685382480
   br i1 %39, label %40, label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread
 
 40:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #15
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %42 = load i64, ptr %41, align 8, !tbaa !144
+  %42 = load i64, ptr %41, align 8, !tbaa !146
   %43 = add i64 %42, %11
-  %44 = load ptr, ptr %30, align 8, !tbaa !97
+  %44 = load ptr, ptr %30, align 8, !tbaa !98
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  store i64 %43, ptr %45, align 8, !tbaa !88
+  store i64 %43, ptr %45, align 8, !tbaa !89
   %46 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  %47 = load i64, ptr %46, align 8, !tbaa !145
+  %47 = load i64, ptr %46, align 8, !tbaa !147
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  store i64 %47, ptr %48, align 8, !tbaa !89
-  %49 = load ptr, ptr %2, align 8, !tbaa !94
+  store i64 %47, ptr %48, align 8, !tbaa !90
+  %49 = load ptr, ptr %2, align 8, !tbaa !95
   %50 = add i64 %47, %43
   %51 = call noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE11decodeEHHdrERS1_mmRNS2_12EHHeaderInfoE(ptr noundef nonnull align 1 dereferenceable(1) %49, i64 noundef %43, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(32) %4)
   br i1 %51, label %52, label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit
@@ -7448,12 +7448,12 @@ _ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dat
   br label %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread
 
 52:                                               ; preds = %40
-  %53 = load i64, ptr %4, align 8, !tbaa !90
-  %54 = load ptr, ptr %30, align 8, !tbaa !97
+  %53 = load i64, ptr %4, align 8, !tbaa !91
+  %54 = load ptr, ptr %30, align 8, !tbaa !98
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i64 %53, ptr %55, align 8, !tbaa !92
+  store i64 %53, ptr %55, align 8, !tbaa !93
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  store i64 -1, ptr %56, align 8, !tbaa !93
+  store i64 -1, ptr %56, align 8, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   br label %.critedge
 
@@ -7461,7 +7461,7 @@ _ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dat
   %indvars.iv.next49 = add nsw i64 %indvars.iv48, -1
   %57 = and i64 %indvars.iv.next49, 65535
   %.not.not.not = icmp eq i64 %57, 0
-  br i1 %.not.not.not, label %.critedge, label %33, !llvm.loop !147
+  br i1 %.not.not.not, label %.critedge, label %33, !llvm.loop !149
 
 .critedge:                                        ; preds = %28, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread, %52, %3, %8
   %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %52 ], [ 0, %_ZN9libunwindL25checkForUnwindInfoSegmentEPK10Elf64_PhdrmPNS_18dl_iterate_cb_dataE.exit.thread ], [ 0, %28 ]
@@ -7532,9 +7532,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %39 = load i64, ptr %8, align 8, !tbaa !18
   %40 = add i64 %39, 4
   store i64 %40, ptr %8, align 8, !tbaa !18
-  %41 = load i8, ptr %14, align 8, !tbaa !41
+  %41 = load i8, ptr %14, align 8, !tbaa !42
   %42 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %30, i8 noundef zeroext %41, i64 noundef 0)
-  %43 = load i8, ptr %14, align 8, !tbaa !41
+  %43 = load i8, ptr %14, align 8, !tbaa !42
   %44 = and i8 %43, 15
   %45 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %30, i8 noundef zeroext %44, i64 noundef 0)
   %46 = icmp uge i64 %42, %1
@@ -7545,9 +7545,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
 
 48:                                               ; preds = %38
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 0, ptr %49, align 8, !tbaa !42
+  store i64 0, ptr %49, align 8, !tbaa !43
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 49
-  %51 = load i8, ptr %50, align 1, !tbaa !43, !range !10, !noundef !44
+  %51 = load i8, ptr %50, align 1, !tbaa !44, !range !10, !noundef !45
   %52 = trunc nuw i8 %51 to i1
   %.pre = load i64, ptr %8, align 8, !tbaa !18
   br i1 %52, label %53, label %90
@@ -7573,7 +7573,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   unreachable
 
 63:                                               ; preds = %56
-  %64 = load i8, ptr %.0.i, align 1, !tbaa !45
+  %64 = load i8, ptr %.0.i, align 1, !tbaa !46
   %65 = icmp samesign ugt i64 %indvars.iv.i, 63
   br i1 %65, label %71, label %66
 
@@ -7598,14 +7598,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind10CFI_ParserINS_17Lo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 7
   %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %79 = icmp slt i8 %64, 0
-  br i1 %79, label %56, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !46
+  br i1 %79, label %56, label %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, !llvm.loop !47
 
 _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %76
   %80 = ptrtoint ptr %78 to i64
   store i64 %80, ptr %8, align 8, !tbaa !18
   %81 = add i64 %77, %80
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 25
-  %83 = load i8, ptr %82, align 1, !tbaa !47
+  %83 = load i8, ptr %82, align 1, !tbaa !48
   %.not81 = icmp eq i8 %83, -1
   br i1 %.not81, label %90, label %84
 
@@ -7617,29 +7617,29 @@ _ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit: ; preds = %76
 
 87:                                               ; preds = %84
   store i64 %80, ptr %8, align 8, !tbaa !18
-  %88 = load i8, ptr %82, align 1, !tbaa !47
+  %88 = load i8, ptr %82, align 1, !tbaa !48
   %89 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %30, i8 noundef zeroext %88, i64 noundef 0)
-  store i64 %89, ptr %49, align 8, !tbaa !42
+  store i64 %89, ptr %49, align 8, !tbaa !43
   br label %90
 
 90:                                               ; preds = %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit, %87, %84, %48
   %91 = phi i64 [ %.pre, %48 ], [ %81, %84 ], [ %81, %87 ], [ %81, %_ZN9libunwind17LocalAddressSpace10getULEB128ERmm.exit ]
-  store i64 %16, ptr %5, align 8, !tbaa !35
+  store i64 %16, ptr %5, align 8, !tbaa !36
   %92 = sub i64 %30, %16
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %92, ptr %93, align 8, !tbaa !48
+  store i64 %92, ptr %93, align 8, !tbaa !49
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %91, ptr %94, align 8, !tbaa !49
+  store i64 %91, ptr %94, align 8, !tbaa !50
   %95 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %42, ptr %95, align 8, !tbaa !37
+  store i64 %42, ptr %95, align 8, !tbaa !38
   %96 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %47, ptr %96, align 8, !tbaa !38
+  store i64 %47, ptr %96, align 8, !tbaa !39
   br label %.thread89
 
 .thread:                                          ; preds = %27, %35, %31, %38
   store i64 %30, ptr %8, align 8, !tbaa !18
   %97 = icmp ult i64 %30, %12
-  br i1 %97, label %15, label %.thread89, !llvm.loop !148
+  br i1 %97, label %15, label %.thread89, !llvm.loop !150
 
 .thread89:                                        ; preds = %.thread, %24, %7, %90
   %.7 = phi i1 [ true, %90 ], [ false, %7 ], [ false, %24 ], [ false, %.thread ]
@@ -7659,16 +7659,16 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !135
+  %14 = load i64, ptr %13, align 8, !tbaa !137
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %53, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %18 = load i8, ptr %17, align 8, !tbaa !134
+  %18 = load i8, ptr %17, align 8, !tbaa !136
   %19 = call noundef i64 @_ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE17getTableEntrySizeEh(i8 noundef zeroext %18)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
-  %20 = load i64, ptr %13, align 8, !tbaa !135
+  %20 = load i64, ptr %13, align 8, !tbaa !137
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %22
 
@@ -7685,25 +7685,25 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN9libunwind14EHHeaderParserINS_
 24:                                               ; preds = %22
   %25 = lshr i64 %.035, 1
   %26 = add i64 %25, %.037
-  %27 = load i64, ptr %21, align 8, !tbaa !136
+  %27 = load i64, ptr %21, align 8, !tbaa !138
   %28 = mul i64 %26, %19
   %29 = add i64 %27, %28
   store i64 %29, ptr %8, align 8, !tbaa !18
-  %30 = load i8, ptr %17, align 8, !tbaa !134
+  %30 = load i8, ptr %17, align 8, !tbaa !136
   %31 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10, i8 noundef zeroext %30, i64 noundef %2)
   %.not = icmp eq i64 %31, %1
   %32 = icmp ult i64 %31, %1
   %33 = sub i64 %.035, %25
   %.3 = select i1 %32, i64 %26, i64 %.037
   %.2 = select i1 %32, i64 %33, i64 %25
-  br i1 %.not, label %split, label %22, !llvm.loop !149
+  br i1 %.not, label %split, label %22, !llvm.loop !151
 
 split:                                            ; preds = %24, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %28, %24 ]
-  %34 = load i64, ptr %21, align 8, !tbaa !136
+  %34 = load i64, ptr %21, align 8, !tbaa !138
   %35 = add i64 %34, %.pre-phi
   store i64 %35, ptr %8, align 8, !tbaa !18
-  %36 = load i8, ptr %17, align 8, !tbaa !134
+  %36 = load i8, ptr %17, align 8, !tbaa !136
   %37 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10, i8 noundef zeroext %36, i64 noundef %2)
   %38 = call noundef i64 @_ZN9libunwind17LocalAddressSpace11getEncodedPERmmhm(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef %10, i8 noundef zeroext %36, i64 noundef %2)
   %39 = call noundef ptr @_ZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE9decodeFDEERS1_mPNS2_8FDE_InfoEPNS2_8CIE_InfoEb(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %38, ptr noundef %4, ptr noundef %5, i1 noundef zeroext false)
@@ -7719,13 +7719,13 @@ _ZN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE16decodeTableEntryERS1_Rmm
 
 44:                                               ; preds = %split
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %46 = load i64, ptr %45, align 8, !tbaa !37
+  %46 = load i64, ptr %45, align 8, !tbaa !38
   %.not43 = icmp ult i64 %1, %46
   br i1 %.not43, label %51, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %49 = load i64, ptr %48, align 8, !tbaa !38
+  %49 = load i64, ptr %48, align 8, !tbaa !39
   %50 = icmp ult i64 %1, %49
   br i1 %50, label %52, label %51
 
@@ -7859,120 +7859,122 @@ attributes #19 = { cold }
 !30 = !{!29, !19, i64 16}
 !31 = !{!29, !19, i64 24}
 !32 = !{!29, !19, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!36, !19, i64 0}
-!36 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE8FDE_InfoE", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
-!37 = !{!36, !19, i64 24}
-!38 = !{!36, !19, i64 32}
-!39 = !{!40, !19, i64 0}
-!40 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE8CIE_InfoE", !19, i64 0, !19, i64 8, !19, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !19, i64 32, !22, i64 40, !22, i64 44, !7, i64 48, !7, i64 49, !8, i64 50}
-!41 = !{!40, !8, i64 24}
-!42 = !{!36, !19, i64 40}
-!43 = !{!40, !7, i64 49}
-!44 = !{}
-!45 = !{!8, !8, i64 0}
-!46 = distinct !{!46, !34}
-!47 = !{!40, !8, i64 25}
-!48 = !{!36, !19, i64 8}
-!49 = !{!36, !19, i64 16}
-!50 = !{i64 0, i64 8, !18, i64 8, i64 8, !18, i64 16, i64 8, !18, i64 24, i64 8, !18}
-!51 = distinct !{!51, !34}
-!52 = !{!40, !19, i64 8}
-!53 = distinct !{!53, !34}
-!54 = !{!40, !8, i64 26}
-!55 = !{!40, !8, i64 27}
-!56 = distinct !{!56, !34}
-!57 = !{!40, !22, i64 40}
-!58 = distinct !{!58, !34}
-!59 = !{!40, !22, i64 44}
-!60 = !{!40, !8, i64 50}
-!61 = !{!40, !19, i64 32}
-!62 = !{!40, !7, i64 48}
-!63 = distinct !{!63, !34}
-!64 = !{!40, !19, i64 16}
-!65 = !{!66, !7, i64 256}
-!66 = !{!"_ZTSN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EEE", !67, i64 0, !17, i64 8, !68, i64 16, !21, i64 184, !7, i64 256, !7, i64 257}
-!67 = !{!"_ZTSN9libunwind20AbstractUnwindCursorE"}
-!68 = !{!"_ZTSN9libunwind16Registers_x86_64E", !69, i64 0}
-!69 = !{!"_ZTSN9libunwind16Registers_x86_644GPRsE", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !19, i64 152, !19, i64 160}
-!70 = !{!66, !17, i64 8}
-!71 = !{!66, !19, i64 240}
-!72 = !{i64 0, i64 8, !18, i64 8, i64 8, !18, i64 16, i64 8, !18, i64 24, i64 8, !18, i64 32, i64 8, !18, i64 40, i64 8, !18, i64 48, i64 4, !73, i64 52, i64 4, !73, i64 56, i64 8, !18, i64 64, i64 8, !18}
-!73 = !{!22, !22, i64 0}
-!74 = !{!66, !7, i64 257}
-!75 = !{!76, !13, i64 24}
-!76 = !{!"_ZTS7Dl_info", !77, i64 0, !13, i64 8, !77, i64 16, !13, i64 24}
-!77 = !{!"p1 omnipotent char", !13, i64 0}
-!78 = !{!13, !13, i64 0}
-!79 = !{!80, !13, i64 32}
-!80 = !{!"_ZTS14dl_find_object", !81, i64 0, !13, i64 8, !13, i64 16, !82, i64 24, !13, i64 32, !8, i64 40}
-!81 = !{!"long long", !8, i64 0}
-!82 = !{!"p1 _ZTS8link_map", !13, i64 0}
-!83 = !{!80, !13, i64 8}
-!84 = !{!85, !19, i64 0}
-!85 = !{!"_ZTSN9libunwind18UnwindInfoSectionsE", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
-!86 = !{!80, !13, i64 16}
-!87 = !{!85, !19, i64 8}
-!88 = !{!85, !19, i64 32}
-!89 = !{!85, !19, i64 40}
-!90 = !{!91, !19, i64 0}
-!91 = !{!"_ZTSN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE12EHHeaderInfoE", !19, i64 0, !19, i64 8, !19, i64 16, !8, i64 24}
-!92 = !{!85, !19, i64 16}
-!93 = !{!85, !19, i64 24}
-!94 = !{!95, !17, i64 0}
-!95 = !{!"_ZTSN9libunwind18dl_iterate_cb_dataE", !17, i64 0, !96, i64 8, !19, i64 16}
-!96 = !{!"p1 _ZTSN9libunwind18UnwindInfoSectionsE", !13, i64 0}
-!97 = !{!95, !96, i64 8}
-!98 = !{!95, !19, i64 16}
-!99 = !{!66, !19, i64 184}
-!100 = !{!66, !19, i64 192}
-!101 = !{!66, !19, i64 200}
-!102 = !{!66, !19, i64 208}
-!103 = !{!104, !22, i64 16}
-!104 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfoE", !22, i64 0, !22, i64 4, !19, i64 8, !22, i64 16, !8, i64 24}
-!105 = !{!66, !19, i64 216}
-!106 = !{!66, !19, i64 224}
-!107 = !{!66, !22, i64 232}
-!108 = !{!66, !22, i64 236}
-!109 = !{!66, !19, i64 248}
-!110 = !{!111, !112, i64 0}
-!111 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE16RegisterLocationE", !112, i64 0, !7, i64 4, !19, i64 8}
-!112 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE18RegisterSavedWhereE", !8, i64 0}
-!113 = distinct !{!113, !34}
-!114 = !{!115, !19, i64 0}
-!115 = !{!"_ZTSZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoEE9ParseInfo", !19, i64 0, !19, i64 8, !19, i64 16}
-!116 = !{!115, !19, i64 8}
-!117 = !{!115, !19, i64 16}
-!118 = !{!111, !7, i64 4}
-!119 = !{i64 0, i64 4, !120, i64 4, i64 1, !6, i64 8, i64 8, !18}
-!120 = !{!112, !112, i64 0}
-!121 = !{!111, !19, i64 8}
-!122 = !{!123, !124, i64 0}
-!123 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20PrologInfoStackEntryE", !124, i64 0, !104, i64 8}
-!124 = !{!"p1 _ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20PrologInfoStackEntryE", !13, i64 0}
-!125 = !{i64 0, i64 4, !73, i64 4, i64 4, !73, i64 8, i64 8, !18, i64 16, i64 4, !73, i64 24, i64 528, !45}
-!126 = !{!104, !22, i64 0}
-!127 = !{!104, !22, i64 4}
-!128 = !{!104, !19, i64 8}
-!129 = distinct !{!129, !34}
-!130 = distinct !{!130, !34}
-!131 = distinct !{!131, !34, !132}
-!132 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!133 = distinct !{!133, !34}
-!134 = !{!91, !8, i64 24}
-!135 = !{!91, !19, i64 8}
-!136 = !{!91, !19, i64 16}
-!137 = !{!138, !139, i64 24}
-!138 = !{!"_ZTS12dl_phdr_info", !19, i64 0, !77, i64 8, !13, i64 16, !139, i64 24, !81, i64 32, !81, i64 40, !19, i64 48, !13, i64 56}
-!139 = !{!"short", !8, i64 0}
-!140 = !{!138, !19, i64 0}
-!141 = !{!138, !13, i64 16}
-!142 = !{!143, !22, i64 0}
-!143 = !{!"_ZTS10Elf64_Phdr", !22, i64 0, !22, i64 4, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48}
-!144 = !{!143, !19, i64 16}
-!145 = !{!143, !19, i64 40}
-!146 = distinct !{!146, !34}
-!147 = distinct !{!147, !34}
-!148 = distinct !{!148, !34}
-!149 = distinct !{!149, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!37, !19, i64 0}
+!37 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE8FDE_InfoE", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
+!38 = !{!37, !19, i64 24}
+!39 = !{!37, !19, i64 32}
+!40 = !{!41, !19, i64 0}
+!41 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE8CIE_InfoE", !19, i64 0, !19, i64 8, !19, i64 16, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 27, !19, i64 32, !22, i64 40, !22, i64 44, !7, i64 48, !7, i64 49, !8, i64 50}
+!42 = !{!41, !8, i64 24}
+!43 = !{!37, !19, i64 40}
+!44 = !{!41, !7, i64 49}
+!45 = !{}
+!46 = !{!8, !8, i64 0}
+!47 = distinct !{!47, !34, !35}
+!48 = !{!41, !8, i64 25}
+!49 = !{!37, !19, i64 8}
+!50 = !{!37, !19, i64 16}
+!51 = !{i64 0, i64 8, !18, i64 8, i64 8, !18, i64 16, i64 8, !18, i64 24, i64 8, !18}
+!52 = distinct !{!52, !34, !35}
+!53 = !{!41, !19, i64 8}
+!54 = distinct !{!54, !34, !35}
+!55 = !{!41, !8, i64 26}
+!56 = !{!41, !8, i64 27}
+!57 = distinct !{!57, !34, !35}
+!58 = !{!41, !22, i64 40}
+!59 = distinct !{!59, !34, !35}
+!60 = !{!41, !22, i64 44}
+!61 = !{!41, !8, i64 50}
+!62 = !{!41, !19, i64 32}
+!63 = !{!41, !7, i64 48}
+!64 = distinct !{!64, !34, !35}
+!65 = !{!41, !19, i64 16}
+!66 = !{!67, !7, i64 256}
+!67 = !{!"_ZTSN9libunwind12UnwindCursorINS_17LocalAddressSpaceENS_16Registers_x86_64EEE", !68, i64 0, !17, i64 8, !69, i64 16, !21, i64 184, !7, i64 256, !7, i64 257}
+!68 = !{!"_ZTSN9libunwind20AbstractUnwindCursorE"}
+!69 = !{!"_ZTSN9libunwind16Registers_x86_64E", !70, i64 0}
+!70 = !{!"_ZTSN9libunwind16Registers_x86_644GPRsE", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !19, i64 72, !19, i64 80, !19, i64 88, !19, i64 96, !19, i64 104, !19, i64 112, !19, i64 120, !19, i64 128, !19, i64 136, !19, i64 144, !19, i64 152, !19, i64 160}
+!71 = !{!67, !17, i64 8}
+!72 = !{!67, !19, i64 240}
+!73 = !{i64 0, i64 8, !18, i64 8, i64 8, !18, i64 16, i64 8, !18, i64 24, i64 8, !18, i64 32, i64 8, !18, i64 40, i64 8, !18, i64 48, i64 4, !74, i64 52, i64 4, !74, i64 56, i64 8, !18, i64 64, i64 8, !18}
+!74 = !{!22, !22, i64 0}
+!75 = !{!67, !7, i64 257}
+!76 = !{!77, !13, i64 24}
+!77 = !{!"_ZTS7Dl_info", !78, i64 0, !13, i64 8, !78, i64 16, !13, i64 24}
+!78 = !{!"p1 omnipotent char", !13, i64 0}
+!79 = !{!13, !13, i64 0}
+!80 = !{!81, !13, i64 32}
+!81 = !{!"_ZTS14dl_find_object", !82, i64 0, !13, i64 8, !13, i64 16, !83, i64 24, !13, i64 32, !8, i64 40}
+!82 = !{!"long long", !8, i64 0}
+!83 = !{!"p1 _ZTS8link_map", !13, i64 0}
+!84 = !{!81, !13, i64 8}
+!85 = !{!86, !19, i64 0}
+!86 = !{!"_ZTSN9libunwind18UnwindInfoSectionsE", !19, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
+!87 = !{!81, !13, i64 16}
+!88 = !{!86, !19, i64 8}
+!89 = !{!86, !19, i64 32}
+!90 = !{!86, !19, i64 40}
+!91 = !{!92, !19, i64 0}
+!92 = !{!"_ZTSN9libunwind14EHHeaderParserINS_17LocalAddressSpaceEE12EHHeaderInfoE", !19, i64 0, !19, i64 8, !19, i64 16, !8, i64 24}
+!93 = !{!86, !19, i64 16}
+!94 = !{!86, !19, i64 24}
+!95 = !{!96, !17, i64 0}
+!96 = !{!"_ZTSN9libunwind18dl_iterate_cb_dataE", !17, i64 0, !97, i64 8, !19, i64 16}
+!97 = !{!"p1 _ZTSN9libunwind18UnwindInfoSectionsE", !13, i64 0}
+!98 = !{!96, !97, i64 8}
+!99 = !{!96, !19, i64 16}
+!100 = !{!67, !19, i64 184}
+!101 = !{!67, !19, i64 192}
+!102 = !{!67, !19, i64 200}
+!103 = !{!67, !19, i64 208}
+!104 = !{!105, !22, i64 16}
+!105 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE10PrologInfoE", !22, i64 0, !22, i64 4, !19, i64 8, !22, i64 16, !8, i64 24}
+!106 = !{!67, !19, i64 216}
+!107 = !{!67, !19, i64 224}
+!108 = !{!67, !22, i64 232}
+!109 = !{!67, !22, i64 236}
+!110 = !{!67, !19, i64 248}
+!111 = !{!112, !113, i64 0}
+!112 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE16RegisterLocationE", !113, i64 0, !7, i64 4, !19, i64 8}
+!113 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE18RegisterSavedWhereE", !8, i64 0}
+!114 = distinct !{!114, !34, !35}
+!115 = !{!116, !19, i64 0}
+!116 = !{!"_ZTSZN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20parseFDEInstructionsERS1_RKNS2_8FDE_InfoERKNS2_8CIE_InfoEmiPNS2_10PrologInfoEE9ParseInfo", !19, i64 0, !19, i64 8, !19, i64 16}
+!117 = !{!116, !19, i64 8}
+!118 = !{!116, !19, i64 16}
+!119 = !{!112, !7, i64 4}
+!120 = !{i64 0, i64 4, !121, i64 4, i64 1, !6, i64 8, i64 8, !18}
+!121 = !{!113, !113, i64 0}
+!122 = !{!112, !19, i64 8}
+!123 = !{!124, !125, i64 0}
+!124 = !{!"_ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20PrologInfoStackEntryE", !125, i64 0, !105, i64 8}
+!125 = !{!"p1 _ZTSN9libunwind10CFI_ParserINS_17LocalAddressSpaceEE20PrologInfoStackEntryE", !13, i64 0}
+!126 = !{i64 0, i64 4, !74, i64 4, i64 4, !74, i64 8, i64 8, !18, i64 16, i64 4, !74, i64 24, i64 528, !46}
+!127 = !{!105, !22, i64 0}
+!128 = !{!105, !22, i64 4}
+!129 = !{!105, !19, i64 8}
+!130 = distinct !{!130, !34, !35}
+!131 = distinct !{!131, !35}
+!132 = distinct !{!132, !34, !35}
+!133 = distinct !{!133, !34, !35, !134}
+!134 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!135 = distinct !{!135, !34, !35}
+!136 = !{!92, !8, i64 24}
+!137 = !{!92, !19, i64 8}
+!138 = !{!92, !19, i64 16}
+!139 = !{!140, !141, i64 24}
+!140 = !{!"_ZTS12dl_phdr_info", !19, i64 0, !78, i64 8, !13, i64 16, !141, i64 24, !82, i64 32, !82, i64 40, !19, i64 48, !13, i64 56}
+!141 = !{!"short", !8, i64 0}
+!142 = !{!140, !19, i64 0}
+!143 = !{!140, !13, i64 16}
+!144 = !{!145, !22, i64 0}
+!145 = !{!"_ZTS10Elf64_Phdr", !22, i64 0, !22, i64 4, !19, i64 8, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40, !19, i64 48}
+!146 = !{!145, !19, i64 16}
+!147 = !{!145, !19, i64 40}
+!148 = distinct !{!148, !34, !35}
+!149 = distinct !{!149, !34, !35}
+!150 = distinct !{!150, !34, !35}
+!151 = distinct !{!151, !34, !35}

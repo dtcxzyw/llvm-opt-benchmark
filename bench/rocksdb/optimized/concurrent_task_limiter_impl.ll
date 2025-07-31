@@ -178,12 +178,12 @@ _ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit: ; pr
 
 .split.us:                                        ; preds = %.lr.ph.split, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit.us, %.lr.ph.split.us
   %23 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
-  store ptr %1, ptr %23, align 8, !tbaa !25
+  store ptr %1, ptr %23, align 8, !tbaa !26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit, %3, %.split.us
   %storemerge = phi ptr [ %23, %.split.us ], [ null, %3 ], [ null, %_ZNSt13__atomic_baseIiE21compare_exchange_weakERiiSt12memory_orderS2_.exit ]
-  store ptr %storemerge, ptr %0, align 8, !tbaa !28
+  store ptr %storemerge, ptr %0, align 8, !tbaa !29
   ret void
 }
 
@@ -214,7 +214,7 @@ define noundef nonnull ptr @_ZN7rocksdb24NewConcurrentTaskLimiterERKNSt7__cxx111
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN7rocksdb16TaskLimiterTokenD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #7 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !25
+  %2 = load ptr, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %4 = atomicrmw sub ptr %3, i32 1 seq_cst, align 4
   ret void
@@ -268,10 +268,11 @@ attributes #13 = { builtin allocsize(0) }
 !20 = !{!"int", !11, i64 0}
 !21 = distinct !{!21, !22}
 !22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"_ZTSN7rocksdb16TaskLimiterTokenE", !27, i64 0}
-!27 = !{!"p1 _ZTSN7rocksdb25ConcurrentTaskLimiterImplE", !10, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTSN7rocksdb16TaskLimiterTokenE", !10, i64 0}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"_ZTSN7rocksdb16TaskLimiterTokenE", !28, i64 0}
+!28 = !{!"p1 _ZTSN7rocksdb25ConcurrentTaskLimiterImplE", !10, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTSN7rocksdb16TaskLimiterTokenE", !10, i64 0}

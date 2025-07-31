@@ -1021,7 +1021,7 @@ define internal void @msg_download_req(ptr noundef %0, ptr noundef %1, ptr nound
 132:                                              ; preds = %33, %130
   %.1 = phi i32 [ %131, %130 ], [ %28, %33 ]
   %exitcond.not = icmp eq i32 %18, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %132, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %132 ]
@@ -1223,7 +1223,7 @@ define internal void @msg_protocap_req(ptr noundef %0, ptr noundef %1, ptr nound
   %25 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %.051, i32 noundef 1, i32 noundef %22, ptr noundef nonnull @.str.417, i32 noundef %23, ptr noundef %24, i32 noundef %22)
   %26 = add i32 %.051, 1
   %exitcond.not = icmp eq i32 %23, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %26, %.lr.ph ]
@@ -1481,7 +1481,7 @@ for_param_block_val_spc.exit:                     ; preds = %58, %56, %48, %44, 
 71:                                               ; preds = %37, %for_param_block_val_spc.exit
   %.1 = phi i32 [ %70, %for_param_block_val_spc.exit ], [ %32, %37 ]
   %exitcond.not = icmp eq i32 %23, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %71, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %.1, %71 ]
@@ -1620,7 +1620,7 @@ define internal void @msg_puzl_download_req(ptr noundef %0, ptr noundef %1, ptr 
 40:                                               ; preds = %33, %36
   %.1 = phi i32 [ %39, %36 ], [ %28, %33 ]
   %exitcond.not = icmp eq i32 %18, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
@@ -1688,7 +1688,7 @@ define internal void @msg_3gpd_config_req(ptr noundef %0, ptr noundef %1, ptr no
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.052, i32 noundef 1, i32 noundef %21, ptr noundef nonnull @.str.418, i32 noundef %22, ptr noundef %23, i32 noundef %21)
   %25 = add i32 %.052, 1
   %exitcond.not = icmp eq i32 %22, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %25, %.lr.ph ]
@@ -1766,7 +1766,7 @@ define internal void @msg_3gpd_download_req(ptr noundef %0, ptr noundef %1, ptr 
 40:                                               ; preds = %33, %36
   %.1 = phi i32 [ %39, %36 ], [ %28, %33 ]
   %exitcond.not = icmp eq i32 %18, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
@@ -1899,7 +1899,7 @@ define internal void @msg_mmd_config_req(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.052, i32 noundef 1, i32 noundef %21, ptr noundef nonnull @.str.423, i32 noundef %22, ptr noundef %23, i32 noundef %21)
   %25 = add i32 %.052, 1
   %exitcond.not = icmp eq i32 %22, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %25, %.lr.ph ]
@@ -1977,7 +1977,7 @@ define internal void @msg_mmd_download_req(ptr noundef %0, ptr noundef %1, ptr n
 40:                                               ; preds = %33, %36
   %.1 = phi i32 [ %39, %36 ], [ %28, %33 ]
   %exitcond.not = icmp eq i32 %18, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
@@ -2182,7 +2182,7 @@ define internal void @msg_mms_config_req(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef %.052, i32 noundef 1, i32 noundef %21, ptr noundef nonnull @.str.427, i32 noundef %22, ptr noundef %23, i32 noundef %21)
   %25 = add i32 %.052, 1
   %exitcond.not = icmp eq i32 %22, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %25, %.lr.ph ]
@@ -2260,7 +2260,7 @@ define internal void @msg_mms_download_req(ptr noundef %0, ptr noundef %1, ptr n
 40:                                               ; preds = %33, %36
   %.1 = phi i32 [ %39, %36 ], [ %28, %33 ]
   %exitcond.not = icmp eq i32 %18, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %40, %10
   %.0.lcssa = phi i32 [ %14, %10 ], [ %.1, %40 ]
@@ -2354,7 +2354,7 @@ define internal fastcc void @param_block_nam_mdn(ptr noundef %0, ptr noundef %1,
   %.131 = phi i32 [ %.0301, %.lr.ph ], [ %22, %19 ]
   %.129 = phi i32 [ %.0282, %.lr.ph ], [ %20, %19 ]
   %30 = icmp ult i32 %.pre-phi, %8
-  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
+  br i1 %30, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %29
   %31 = zext i32 %.pre-phi to i64
@@ -2693,7 +2693,7 @@ rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
 179:                                              ; preds = %38, %177
   %.1 = phi i32 [ %178, %177 ], [ %33, %38 ]
   %exitcond.not = icmp eq i32 %23, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %179
   %.neg = sub i32 %4, %.1
@@ -2716,7 +2716,7 @@ rev_param_block_nam_cdma_analog.exit:             ; preds = %42, %63
   %189 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %185, ptr noundef %0, i32 noundef %.2147, i32 noundef 1, i32 noundef %186, ptr noundef nonnull @.str.428, i32 noundef %187, ptr noundef %188, i32 noundef %186)
   %190 = add i32 %.2147, 1
   %exitcond159.not = icmp eq i32 %187, %16
-  br i1 %exitcond159.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !20
+  br i1 %exitcond159.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !21
 
 ._crit_edge149:                                   ; preds = %.lr.ph148, %.preheader140
   %.2.lcssa = phi i32 [ %14, %.preheader140 ], [ %190, %.lr.ph148 ]
@@ -2787,7 +2787,7 @@ define internal void @msg_download_rsp(ptr noundef %0, ptr noundef %1, ptr nound
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %28 = add i32 %.053, 2
   %exitcond.not = icmp eq i32 %21, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
@@ -2968,7 +2968,7 @@ define internal void @msg_protocap_rsp(ptr noundef %0, ptr noundef %1, ptr nound
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 1, i32 noundef 0)
   %37 = add i32 %.0116, 2
   %exitcond.not = icmp eq i32 %29, %21
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %19, %.preheader ], [ %37, %.lr.ph ]
@@ -3171,7 +3171,7 @@ define internal void @msg_validate_rsp(ptr noundef %0, ptr noundef %1, ptr nound
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %28 = add i32 %.053, 2
   %exitcond.not = icmp eq i32 %21, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
@@ -3382,7 +3382,7 @@ define internal void @msg_puzl_download_rsp(ptr noundef %0, ptr noundef %1, ptr 
   %47 = load ptr, ptr %6, align 8
   call void @proto_item_set_len(ptr noundef %47, i32 noundef %.sink)
   %exitcond.not = icmp eq i32 %22, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %45, %.preheader.split
   %.0.lcssa = phi i32 [ %14, %.preheader.split ], [ %46, %45 ]
@@ -3474,7 +3474,7 @@ define internal void @msg_3gpd_config_rsp(ptr noundef %0, ptr noundef %1, ptr no
   %47 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0)
   %48 = add i32 %.1, 1
   %exitcond.not = icmp eq i32 %23, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %45, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %48, %45 ]
@@ -3545,7 +3545,7 @@ define internal void @msg_3gpd_download_rsp(ptr noundef %0, ptr noundef %1, ptr 
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %28 = add i32 %.053, 2
   %exitcond.not = icmp eq i32 %21, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
@@ -3635,7 +3635,7 @@ define internal void @msg_ext_protocap_rsp(ptr noundef %0, ptr noundef %1, ptr n
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef 0)
   %41 = add i32 %.0139, 2
   %exitcond.not = icmp eq i32 %33, %25
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader135
   %.lcssa137 = phi ptr [ undef, %.preheader135 ], [ %35, %.lr.ph ]
@@ -3714,7 +3714,7 @@ define internal void @msg_ext_protocap_rsp(ptr noundef %0, ptr noundef %1, ptr n
 81:                                               ; preds = %74, %77
   %.2 = phi i32 [ %80, %77 ], [ %69, %74 ]
   %exitcond151.not = icmp eq i32 %60, %52
-  br i1 %exitcond151.not, label %._crit_edge144, label %57, !llvm.loop !28
+  br i1 %exitcond151.not, label %._crit_edge144, label %57, !llvm.loop !29
 
 ._crit_edge144:                                   ; preds = %81, %.preheader
   %.1.lcssa = phi i32 [ %50, %.preheader ], [ %.2, %81 ]
@@ -3806,7 +3806,7 @@ define internal void @msg_mmd_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
   %47 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0)
   %48 = add i32 %.1, 1
   %exitcond.not = icmp eq i32 %23, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %45, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %48, %45 ]
@@ -3877,7 +3877,7 @@ define internal void @msg_mmd_download_rsp(ptr noundef %0, ptr noundef %1, ptr n
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %28 = add i32 %.053, 2
   %exitcond.not = icmp eq i32 %21, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
@@ -4092,7 +4092,7 @@ define internal void @msg_mms_config_rsp(ptr noundef %0, ptr noundef %1, ptr nou
   %46 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %45, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0)
   %47 = add i32 %.1, 1
   %exitcond.not = icmp eq i32 %23, %16
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %44, %.preheader
   %.0.lcssa = phi i32 [ %14, %.preheader ], [ %47, %44 ]
@@ -4163,7 +4163,7 @@ define internal void @msg_mms_download_rsp(ptr noundef %0, ptr noundef %1, ptr n
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %28 = add i32 %.053, 2
   %exitcond.not = icmp eq i32 %21, %15
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ %13, %.preheader ], [ %28, %.lr.ph ]
@@ -4199,30 +4199,31 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}

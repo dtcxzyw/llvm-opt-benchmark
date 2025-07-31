@@ -713,7 +713,7 @@ _ZNKSt8functionIFvRKN4lean4nameEEEclES3_.exit:    ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.05.010, i64 16
   %.sroa.05.0 = load ptr, ptr %12, align 8, !tbaa !19
   %.not = icmp eq ptr %.sroa.05.0, inttoptr (i64 1 to ptr)
-  br i1 %.not, label %._crit_edge, label %5
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !26
 }
 
 declare void @_ZN4lean4nameC2ERKS0_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #6
@@ -748,12 +748,12 @@ _ZN4lean10object_refD2Ev.exit:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = load ptr, ptr %2, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11, !noalias !26
-  store ptr %5, ptr %3, align 16, !tbaa !19, !noalias !26
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11, !noalias !28
+  store ptr %5, ptr %3, align 16, !tbaa !19, !noalias !28
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !19, !noalias !26
+  store ptr %6, ptr %7, align 8, !tbaa !19, !noalias !28
   call void @_ZN4lean8mk_cnstrEjjPP11lean_objectj(ptr dead_on_unwind nonnull writable sret(%"class.lean::object_ref") align 8 %4, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %3, i32 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11, !noalias !26
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11, !noalias !28
   %8 = load ptr, ptr %4, align 8, !tbaa !3
   store ptr %8, ptr %0, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
@@ -902,6 +902,8 @@ attributes #14 = { noreturn }
 !23 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
 !24 = !{!25, !5, i64 24}
 !25 = !{!"_ZTSSt8functionIFvRKN4lean4nameEEE", !23, i64 0, !5, i64 24}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
-!28 = distinct !{!28, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j: argument 0"}
+!30 = distinct !{!30, !"_ZN4lean8mk_cnstrEjP11lean_objectS1_j"}

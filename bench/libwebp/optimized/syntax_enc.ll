@@ -54,24 +54,24 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
   %8 = alloca [18 x i8], align 16
   %9 = alloca [12 x i8], align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = sdiv i32 19, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %17 = load i32, ptr %16, align 8, !tbaa !27
+  %17 = load i32, ptr %16, align 8, !tbaa !28
   %18 = add nsw i32 %17, 19
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load i32, ptr %19, align 8, !tbaa !28
+  %20 = load i32, ptr %19, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %22 = load i32, ptr %21, align 4, !tbaa !29
+  %22 = load i32, ptr %21, align 4, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %24 = load i32, ptr %23, align 4, !tbaa !30
+  %24 = load i32, ptr %23, align 4, !tbaa !31
   %25 = getelementptr i8, ptr %0, i64 88
-  %26 = load i64, ptr %25, align 8, !tbaa !31
+  %26 = load i64, ptr %25, align 8, !tbaa !32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = load i32, ptr %27, align 8, !tbaa !32
+  %28 = load i32, ptr %27, align 8, !tbaa !33
   %29 = zext i32 %28 to i64
   %30 = add i64 %26, %29
   %31 = mul i32 %20, 7
@@ -83,7 +83,7 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %36, label %38
 
 36:                                               ; preds = %1
-  %37 = load ptr, ptr %10, align 8, !tbaa !26
+  %37 = load ptr, ptr %10, align 8, !tbaa !27
   br label %GeneratePartition0.exit
 
 38:                                               ; preds = %1
@@ -91,7 +91,7 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
   %40 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef 0) #4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 3616
-  %43 = load i32, ptr %41, align 4, !tbaa !33
+  %43 = load i32, ptr %41, align 4, !tbaa !34
   %44 = icmp sgt i32 %43, 1
   %45 = zext i1 %44 to i32
   %46 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef %45) #4
@@ -100,7 +100,7 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
 
 47:                                               ; preds = %38
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %49 = load i32, ptr %48, align 4, !tbaa !34
+  %49 = load i32, ptr %48, align 4, !tbaa !35
   %50 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef %49) #4
   %51 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef 1) #4
   %.not26.i.i = icmp eq i32 %51, 0
@@ -119,31 +119,31 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i, %54 ]
   %55 = mul nuw nsw i64 %indvars.iv.i.i, 744
   %gep.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i.i, i64 %55
-  %56 = load i32, ptr %gep.i.i, align 8, !tbaa !35
+  %56 = load i32, ptr %gep.i.i, align 8, !tbaa !36
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %56, i32 noundef 7) #4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %.preheader32.i.i, label %54, !llvm.loop !38
+  br i1 %exitcond.not.i.i, label %.preheader32.i.i, label %54, !llvm.loop !39
 
 57:                                               ; preds = %57, %.preheader32.i.i
   %indvars.iv41.i.i = phi i64 [ 0, %.preheader32.i.i ], [ %indvars.iv.next42.i.i, %57 ]
   %58 = mul nuw nsw i64 %indvars.iv41.i.i, 744
   %gep36.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep35.i.i, i64 %58
-  %59 = load i32, ptr %gep36.i.i, align 4, !tbaa !39
+  %59 = load i32, ptr %gep36.i.i, align 4, !tbaa !40
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %59, i32 noundef 6) #4
   %indvars.iv.next42.i.i = add nuw nsw i64 %indvars.iv41.i.i, 1
   %exitcond45.not.i.i = icmp eq i64 %indvars.iv.next42.i.i, 4
-  br i1 %exitcond45.not.i.i, label %.loopexit33.i.i, label %57, !llvm.loop !40
+  br i1 %exitcond45.not.i.i, label %.loopexit33.i.i, label %57, !llvm.loop !41
 
 .loopexit33.i.i:                                  ; preds = %57, %47
-  %60 = load i32, ptr %48, align 4, !tbaa !34
+  %60 = load i32, ptr %48, align 4, !tbaa !35
   %.not27.i.i = icmp eq i32 %60, 0
   br i1 %.not27.i.i, label %PutSegmentHeader.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit33.i.i, %69
   %indvars.iv46.i.i = phi i64 [ %indvars.iv.next47.i.i, %69 ], [ 0, %.loopexit33.i.i ]
   %61 = getelementptr inbounds nuw [3 x i8], ptr %42, i64 0, i64 %indvars.iv46.i.i
-  %62 = load i8, ptr %61, align 1, !tbaa !41
+  %62 = load i8, ptr %61, align 1, !tbaa !42
   %63 = icmp ne i8 %62, -1
   %64 = zext i1 %63 to i32
   %65 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef %64) #4
@@ -151,7 +151,7 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not28.i.i, label %69, label %66
 
 66:                                               ; preds = %.preheader.i.i
-  %67 = load i8, ptr %61, align 1, !tbaa !41
+  %67 = load i8, ptr %61, align 1, !tbaa !42
   %68 = zext i8 %67 to i32
   tail call void @VP8PutBits(ptr noundef nonnull %12, i32 noundef %68, i32 noundef 8) #4
   br label %69
@@ -159,28 +159,28 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
 69:                                               ; preds = %66, %.preheader.i.i
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
   %exitcond49.not.i.i = icmp eq i64 %indvars.iv.next47.i.i, 3
-  br i1 %exitcond49.not.i.i, label %PutSegmentHeader.exit.i, label %.preheader.i.i, !llvm.loop !42
+  br i1 %exitcond49.not.i.i, label %PutSegmentHeader.exit.i, label %.preheader.i.i, !llvm.loop !43
 
 PutSegmentHeader.exit.i:                          ; preds = %69, %.loopexit33.i.i, %38
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %72 = load i32, ptr %71, align 4, !tbaa !43
+  %72 = load i32, ptr %71, align 4, !tbaa !44
   %73 = icmp ne i32 %72, 0
   %74 = zext i1 %73 to i32
-  %75 = load i32, ptr %70, align 4, !tbaa !44
+  %75 = load i32, ptr %70, align 4, !tbaa !45
   %76 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef %75) #4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %78 = load i32, ptr %77, align 4, !tbaa !45
+  %78 = load i32, ptr %77, align 4, !tbaa !46
   tail call void @VP8PutBits(ptr noundef nonnull %12, i32 noundef %78, i32 noundef 6) #4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %80 = load i32, ptr %79, align 4, !tbaa !46
+  %80 = load i32, ptr %79, align 4, !tbaa !47
   tail call void @VP8PutBits(ptr noundef nonnull %12, i32 noundef %80, i32 noundef 3) #4
   %81 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef %74) #4
   %.not.i41.i = icmp eq i32 %81, 0
   br i1 %.not.i41.i, label %PutFilterHeader.exit.i, label %82
 
 82:                                               ; preds = %PutSegmentHeader.exit.i
-  %83 = load i32, ptr %71, align 4, !tbaa !43
+  %83 = load i32, ptr %71, align 4, !tbaa !44
   %84 = icmp ne i32 %83, 0
   %85 = zext i1 %84 to i32
   %86 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef %85) #4
@@ -189,7 +189,7 @@ PutSegmentHeader.exit.i:                          ; preds = %69, %.loopexit33.i.
 
 87:                                               ; preds = %82
   tail call void @VP8PutBits(ptr noundef nonnull %12, i32 noundef 0, i32 noundef 4) #4
-  %88 = load i32, ptr %71, align 4, !tbaa !43
+  %88 = load i32, ptr %71, align 4, !tbaa !44
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %88, i32 noundef 6) #4
   tail call void @VP8PutBits(ptr noundef nonnull %12, i32 noundef 0, i32 noundef 3) #4
   br label %PutFilterHeader.exit.i
@@ -213,42 +213,42 @@ PutFilterHeader.exit.i:                           ; preds = %87, %82, %PutSegmen
   %94 = phi i32 [ 3, %PutFilterHeader.exit.i ], [ %92, %90 ], [ 2, %.fold.split.i ]
   tail call void @VP8PutBits(ptr noundef nonnull %12, i32 noundef %94, i32 noundef 2) #4
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 3584
-  %96 = load i32, ptr %95, align 8, !tbaa !47
+  %96 = load i32, ptr %95, align 8, !tbaa !48
   tail call void @VP8PutBits(ptr noundef nonnull %12, i32 noundef %96, i32 noundef 7) #4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3596
-  %98 = load i32, ptr %97, align 4, !tbaa !48
+  %98 = load i32, ptr %97, align 4, !tbaa !49
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %98, i32 noundef 4) #4
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 3600
-  %100 = load i32, ptr %99, align 8, !tbaa !49
+  %100 = load i32, ptr %99, align 8, !tbaa !50
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %100, i32 noundef 4) #4
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 3604
-  %102 = load i32, ptr %101, align 4, !tbaa !50
+  %102 = load i32, ptr %101, align 4, !tbaa !51
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %102, i32 noundef 4) #4
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 3608
-  %104 = load i32, ptr %103, align 8, !tbaa !51
+  %104 = load i32, ptr %103, align 8, !tbaa !52
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %104, i32 noundef 4) #4
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 3612
-  %106 = load i32, ptr %105, align 4, !tbaa !52
+  %106 = load i32, ptr %105, align 4, !tbaa !53
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %106, i32 noundef 4) #4
   %107 = tail call i32 @VP8PutBitUniform(ptr noundef nonnull %12, i32 noundef 0) #4
   tail call void @VP8WriteProbas(ptr noundef nonnull %12, ptr noundef nonnull %42) #4
-  %108 = load i32, ptr %23, align 4, !tbaa !30
-  %109 = load i64, ptr %25, align 8, !tbaa !31
-  %110 = load i32, ptr %27, align 8, !tbaa !32
+  %108 = load i32, ptr %23, align 4, !tbaa !31
+  %109 = load i64, ptr %25, align 8, !tbaa !32
+  %110 = load i32, ptr %27, align 8, !tbaa !33
   tail call void @VP8CodeIntraModes(ptr noundef nonnull %0) #4
   %111 = tail call ptr @VP8BitWriterFinish(ptr noundef nonnull %12) #4
-  %112 = load ptr, ptr %10, align 8, !tbaa !26
+  %112 = load ptr, ptr %10, align 8, !tbaa !27
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 128
-  %114 = load ptr, ptr %113, align 8, !tbaa !53
+  %114 = load ptr, ptr %113, align 8, !tbaa !54
   %.not39.i = icmp eq ptr %114, null
   br i1 %.not39.i, label %143, label %115
 
 115:                                              ; preds = %93
-  %116 = load i64, ptr %25, align 8, !tbaa !31
-  %117 = load i32, ptr %27, align 8, !tbaa !32
+  %116 = load i64, ptr %25, align 8, !tbaa !32
+  %117 = load i32, ptr %27, align 8, !tbaa !33
   %118 = zext i32 %117 to i64
   %119 = add i64 %116, %118
-  %120 = load i32, ptr %23, align 4, !tbaa !30
+  %120 = load i32, ptr %23, align 4, !tbaa !31
   %121 = add nsw i32 %120, 8
   %122 = sext i32 %121 to i64
   %123 = zext i32 %110 to i64
@@ -265,23 +265,23 @@ PutFilterHeader.exit.i:                           ; preds = %87, %82, %PutSegmen
   %132 = lshr i64 %131, 3
   %133 = trunc i64 %132 to i32
   %134 = getelementptr inbounds nuw i8, ptr %114, i64 36
-  store i32 %133, ptr %134, align 4, !tbaa !56
+  store i32 %133, ptr %134, align 4, !tbaa !57
   %reass.sub = sub i64 %122, %128
   %135 = add i64 %reass.sub, 7
   %136 = lshr i64 %135, 3
   %137 = add i64 %119, %136
   %138 = trunc i64 %137 to i32
   %139 = getelementptr inbounds nuw i8, ptr %114, i64 40
-  store i32 %138, ptr %139, align 4, !tbaa !56
+  store i32 %138, ptr %139, align 4, !tbaa !57
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %141 = load i32, ptr %140, align 8, !tbaa !57
+  %141 = load i32, ptr %140, align 8, !tbaa !58
   %142 = getelementptr inbounds nuw i8, ptr %114, i64 140
-  store i32 %141, ptr %142, align 4, !tbaa !58
+  store i32 %141, ptr %142, align 4, !tbaa !59
   br label %143
 
 143:                                              ; preds = %115, %93
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %145 = load i32, ptr %144, align 8, !tbaa !60
+  %145 = load i32, ptr %144, align 8, !tbaa !61
   %.not40.i = icmp eq i32 %145, 0
   br i1 %.not40.i, label %GeneratePartition0.exit.thread, label %GeneratePartition0.exit
 
@@ -292,7 +292,7 @@ GeneratePartition0.exit:                          ; preds = %36, %143
   br i1 %.not, label %331, label %GeneratePartition0.exit.thread
 
 GeneratePartition0.exit.thread:                   ; preds = %143, %GeneratePartition0.exit
-  %.val = load i64, ptr %25, align 8, !tbaa !31
+  %.val = load i64, ptr %25, align 8, !tbaa !32
   %147 = add i64 %.val, 10
   %148 = load i32, ptr %13, align 4, !tbaa !3
   %149 = mul i32 %148, 3
@@ -312,18 +312,18 @@ GeneratePartition0.exit.thread:                   ; preds = %143, %GenerateParti
   %.075110 = phi i64 [ %152, %.lr.ph ], [ %157, %155 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 48
   %156 = getelementptr i8, ptr %154, i64 %.idx
-  %.val89 = load i64, ptr %156, align 8, !tbaa !31
+  %.val89 = load i64, ptr %156, align 8, !tbaa !32
   %157 = add i64 %.val89, %.075110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %155, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %155, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %155, %GeneratePartition0.exit.thread
   %.075.lcssa = phi i64 [ %152, %GeneratePartition0.exit.thread ], [ %157, %155 ]
   %158 = and i64 %.075.lcssa, 1
   %159 = add i64 %158, %.075.lcssa
   %160 = getelementptr i8, ptr %0, i64 540
-  %.val92 = load i32, ptr %160, align 4, !tbaa !62
+  %.val92 = load i32, ptr %160, align 4, !tbaa !63
   %.not106 = icmp eq i32 %.val92, 0
   %spec.select.v = select i1 %.not106, i64 12, i64 30
   %spec.select = add i64 %spec.select.v, %159
@@ -331,7 +331,7 @@ GeneratePartition0.exit.thread:                   ; preds = %143, %GenerateParti
 
 161:                                              ; preds = %._crit_edge
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %163 = load i32, ptr %162, align 8, !tbaa !57
+  %163 = load i32, ptr %162, align 8, !tbaa !58
   %164 = and i32 %163, 1
   %165 = add i32 %163, 8
   %166 = add i32 %165, %164
@@ -350,27 +350,27 @@ GeneratePartition0.exit.thread:                   ; preds = %143, %GenerateParti
 
 173:                                              ; preds = %169
   %174 = getelementptr i8, ptr %0, i64 80
-  %.val93 = load ptr, ptr %174, align 8, !tbaa !63
-  %175 = load ptr, ptr %10, align 8, !tbaa !26
+  %.val93 = load ptr, ptr %174, align 8, !tbaa !64
+  %175 = load ptr, ptr %10, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %9, ptr noundef nonnull align 1 dereferenceable(12) @__const.PutRIFFHeader.riff, i64 12, i1 false)
   %176 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %177 = trunc nuw i64 %.177 to i32
   store i32 %177, ptr %176, align 1
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 96
-  %179 = load ptr, ptr %178, align 8, !tbaa !64
+  %179 = load ptr, ptr %178, align 8, !tbaa !65
   %180 = call i32 %179(ptr noundef nonnull %9, i64 noundef 12, ptr noundef %175) #4
   %.not.i.not.i = icmp eq i32 %180, 0
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #4
   br i1 %.not.i.not.i, label %PutWebPHeaders.exit, label %181
 
 181:                                              ; preds = %173
-  %.val.i = load i32, ptr %160, align 4, !tbaa !62
+  %.val.i = load i32, ptr %160, align 4, !tbaa !63
   %.not.i95 = icmp eq i32 %.val.i, 0
   br i1 %.not.i95, label %.critedge.i, label %182
 
 182:                                              ; preds = %181
-  %.val32.i = load ptr, ptr %10, align 8, !tbaa !26
+  %.val32.i = load ptr, ptr %10, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %8) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %8, ptr noundef nonnull align 16 dereferenceable(18) @__const.PutVP8XHeader.vp8x, i64 16, i1 false)
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -379,62 +379,62 @@ GeneratePartition0.exit.thread:                   ; preds = %143, %GenerateParti
   store i32 16, ptr %184, align 8
   %185 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %186 = getelementptr inbounds nuw i8, ptr %.val32.i, i64 8
-  %187 = load i32, ptr %186, align 8, !tbaa !65
+  %187 = load i32, ptr %186, align 8, !tbaa !66
   %188 = add nsw i32 %187, -1
   %189 = trunc i32 %188 to i16
   store i16 %189, ptr %185, align 4
   %190 = lshr i32 %188, 16
   %191 = trunc i32 %190 to i8
   %192 = getelementptr inbounds nuw i8, ptr %8, i64 14
-  store i8 %191, ptr %192, align 2, !tbaa !41
+  store i8 %191, ptr %192, align 2, !tbaa !42
   %193 = getelementptr inbounds nuw i8, ptr %8, i64 15
   %194 = getelementptr inbounds nuw i8, ptr %.val32.i, i64 12
-  %195 = load i32, ptr %194, align 4, !tbaa !66
+  %195 = load i32, ptr %194, align 4, !tbaa !67
   %196 = add nsw i32 %195, -1
   %197 = trunc i32 %196 to i16
   store i16 %197, ptr %193, align 1
   %198 = lshr i32 %196, 16
   %199 = trunc i32 %198 to i8
   %200 = getelementptr inbounds nuw i8, ptr %8, i64 17
-  store i8 %199, ptr %200, align 1, !tbaa !41
+  store i8 %199, ptr %200, align 1, !tbaa !42
   %201 = getelementptr inbounds nuw i8, ptr %.val32.i, i64 96
-  %202 = load ptr, ptr %201, align 8, !tbaa !64
+  %202 = load ptr, ptr %201, align 8, !tbaa !65
   %203 = call i32 %202(ptr noundef nonnull %8, i64 noundef 18, ptr noundef %.val32.i) #4
   %.not9.i.not.i = icmp eq i32 %203, 0
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %8) #4
   br i1 %.not9.i.not.i, label %PutWebPHeaders.exit, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %182
-  %.pr.i = load i32, ptr %160, align 4, !tbaa !62
+  %.pr.i = load i32, ptr %160, align 4, !tbaa !63
   %204 = icmp eq i32 %.pr.i, 0
   br i1 %204, label %.critedge.i, label %205
 
 205:                                              ; preds = %thread-pre-split.i
-  %206 = load ptr, ptr %10, align 8, !tbaa !26
+  %206 = load ptr, ptr %10, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   store i64 1213221953, ptr %7, align 8
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %209 = load i32, ptr %208, align 8, !tbaa !57
+  %209 = load i32, ptr %208, align 8, !tbaa !58
   store i32 %209, ptr %207, align 4
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 96
-  %211 = load ptr, ptr %210, align 8, !tbaa !64
+  %211 = load ptr, ptr %210, align 8, !tbaa !65
   %212 = call i32 %211(ptr noundef nonnull %7, i64 noundef 8, ptr noundef %206) #4
   %.not.i35.i = icmp eq i32 %212, 0
   br i1 %.not.i35.i, label %PutAlphaChunk.exit.thread.i, label %213
 
 213:                                              ; preds = %205
-  %214 = load ptr, ptr %210, align 8, !tbaa !64
+  %214 = load ptr, ptr %210, align 8, !tbaa !65
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %216 = load ptr, ptr %215, align 8, !tbaa !67
-  %217 = load i32, ptr %208, align 8, !tbaa !57
+  %216 = load ptr, ptr %215, align 8, !tbaa !68
+  %217 = load i32, ptr %208, align 8, !tbaa !58
   %218 = zext i32 %217 to i64
   %219 = call i32 %214(ptr noundef %216, i64 noundef %218, ptr noundef nonnull %206) #4
   %.not10.i.i = icmp eq i32 %219, 0
   br i1 %.not10.i.i, label %PutAlphaChunk.exit.thread.i, label %220
 
 220:                                              ; preds = %213
-  %221 = load i32, ptr %208, align 8, !tbaa !57
+  %221 = load i32, ptr %208, align 8, !tbaa !58
   %222 = and i32 %221, 1
   %.not11.i.i = icmp eq i32 %222, 0
   br i1 %.not11.i.i, label %PutAlphaChunk.exit.i, label %223
@@ -442,7 +442,7 @@ thread-pre-split.i:                               ; preds = %182
 223:                                              ; preds = %220
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #4
   store i8 0, ptr %6, align 1
-  %224 = load ptr, ptr %210, align 8, !tbaa !64
+  %224 = load ptr, ptr %210, align 8, !tbaa !65
   %225 = call i32 %224(ptr noundef nonnull %6, i64 noundef 1, ptr noundef nonnull %206) #4
   %.not13.i.i = icmp eq i32 %225, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #4
@@ -462,7 +462,7 @@ PutAlphaChunk.exit.i:                             ; preds = %223, %220
   %226 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %227 = trunc i64 %159 to i32
   store i32 %227, ptr %226, align 4
-  %228 = load ptr, ptr %178, align 8, !tbaa !64
+  %228 = load ptr, ptr %178, align 8, !tbaa !65
   %229 = call i32 %228(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull %175) #4
   %.not.i36.not.i = icmp eq i32 %229, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
@@ -470,7 +470,7 @@ PutAlphaChunk.exit.i:                             ; preds = %223, %220
 
 230:                                              ; preds = %.critedge.i
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %232 = load i32, ptr %231, align 4, !tbaa !68
+  %232 = load i32, ptr %231, align 4, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %4) #4
   %233 = icmp ugt i64 %.val, 524287
   br i1 %233, label %PutVP8FrameHeader.exit.thread.i, label %234
@@ -482,28 +482,28 @@ PutAlphaChunk.exit.i:                             ; preds = %223, %220
   %238 = or i32 %235, %237
   %239 = trunc i32 %238 to i8
   %240 = or i8 %239, 16
-  store i8 %240, ptr %4, align 1, !tbaa !41
+  store i8 %240, ptr %4, align 1, !tbaa !42
   %241 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %242 = lshr i32 %238, 8
   %243 = trunc i32 %242 to i16
   store i16 %243, ptr %241, align 1
   %244 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 -99, ptr %244, align 1, !tbaa !41
+  store i8 -99, ptr %244, align 1, !tbaa !42
   %245 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 1, ptr %245, align 1, !tbaa !41
+  store i8 1, ptr %245, align 1, !tbaa !42
   %246 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  store i8 42, ptr %246, align 1, !tbaa !41
+  store i8 42, ptr %246, align 1, !tbaa !42
   %247 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %248 = load i32, ptr %247, align 8, !tbaa !65
+  %248 = load i32, ptr %247, align 8, !tbaa !66
   %249 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %250 = trunc i32 %248 to i16
   store i16 %250, ptr %249, align 1
   %251 = getelementptr inbounds nuw i8, ptr %175, i64 12
-  %252 = load i32, ptr %251, align 4, !tbaa !66
+  %252 = load i32, ptr %251, align 4, !tbaa !67
   %253 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %254 = trunc i32 %252 to i16
   store i16 %254, ptr %253, align 1
-  %255 = load ptr, ptr %178, align 8, !tbaa !64
+  %255 = load ptr, ptr %178, align 8, !tbaa !65
   %256 = call i32 %255(ptr noundef nonnull %4, i64 noundef 10, ptr noundef nonnull %175) #4
   %.not.i38.i = icmp eq i32 %256, 0
   br i1 %.not.i38.i, label %PutVP8FrameHeader.exit.thread.i, label %PutWebPHeaders.exit.thread
@@ -525,7 +525,7 @@ PutWebPHeaders.exit:                              ; preds = %173, %182, %PutAlph
 
 258:                                              ; preds = %PutWebPHeaders.exit.thread, %PutWebPHeaders.exit
   %259 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %260 = load ptr, ptr %259, align 8, !tbaa !64
+  %260 = load ptr, ptr %259, align 8, !tbaa !65
   %261 = call i32 %260(ptr noundef %.val93, i64 noundef %.val, ptr noundef %11) #4
   %.not84 = icmp eq i32 %261, 0
   br i1 %.not84, label %289, label %262
@@ -546,7 +546,7 @@ PutWebPHeaders.exit:                              ; preds = %173, %182, %PutAlph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %270 ]
   %.idx.i = mul nuw nsw i64 %indvars.iv.i, 48
   %268 = getelementptr i8, ptr %266, i64 %.idx.i
-  %.val.i97 = load i64, ptr %268, align 8, !tbaa !31
+  %.val.i97 = load i64, ptr %268, align 8, !tbaa !32
   %269 = icmp ult i64 %.val.i97, 16777216
   br i1 %269, label %270, label %EmitPartitionsSize.exit.sink.split
 
@@ -554,23 +554,23 @@ PutWebPHeaders.exit:                              ; preds = %173, %182, %PutAlph
   %271 = trunc i64 %.val.i97 to i8
   %272 = mul nuw nsw i64 %indvars.iv.i, 3
   %273 = getelementptr inbounds nuw [21 x i8], ptr %3, i64 0, i64 %272
-  store i8 %271, ptr %273, align 1, !tbaa !41
+  store i8 %271, ptr %273, align 1, !tbaa !42
   %274 = lshr i64 %.val.i97, 8
   %275 = trunc i64 %274 to i8
   %276 = add nuw nsw i64 %272, 1
   %277 = getelementptr inbounds nuw [21 x i8], ptr %3, i64 0, i64 %276
-  store i8 %275, ptr %277, align 1, !tbaa !41
+  store i8 %275, ptr %277, align 1, !tbaa !42
   %278 = lshr i64 %.val.i97, 16
   %279 = trunc nuw i64 %278 to i8
   %280 = add nuw nsw i64 %272, 2
   %281 = getelementptr inbounds nuw [21 x i8], ptr %3, i64 0, i64 %280
-  store i8 %279, ptr %281, align 1, !tbaa !41
+  store i8 %279, ptr %281, align 1, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %267, !llvm.loop !69
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %267, !llvm.loop !70
 
 ._crit_edge.i:                                    ; preds = %270
-  %282 = load ptr, ptr %259, align 8, !tbaa !64
+  %282 = load ptr, ptr %259, align 8, !tbaa !65
   %283 = mul nuw nsw i32 %264, 3
   %284 = zext nneg i32 %283 to i64
   %285 = call i32 %282(ptr noundef nonnull %3, i64 noundef %284, ptr noundef %11) #4
@@ -606,9 +606,9 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   %.074112 = phi i32 [ %290, %.lr.ph114 ], [ %313, %312 ]
   %296 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %293, i64 %indvars.iv120
   %297 = getelementptr i8, ptr %296, i64 16
-  %.val94 = load ptr, ptr %297, align 8, !tbaa !63
+  %.val94 = load ptr, ptr %297, align 8, !tbaa !64
   %298 = getelementptr i8, ptr %296, i64 24
-  %.val91 = load i64, ptr %298, align 8, !tbaa !31
+  %.val91 = load i64, ptr %298, align 8, !tbaa !32
   %.not86 = icmp eq i64 %.val91, 0
   br i1 %.not86, label %305, label %299
 
@@ -621,7 +621,7 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   br label %312
 
 300:                                              ; preds = %299
-  %301 = load ptr, ptr %294, align 8, !tbaa !64
+  %301 = load ptr, ptr %294, align 8, !tbaa !65
   %302 = call i32 %301(ptr noundef %.val94, i64 noundef %.val91, ptr noundef %11) #4
   %303 = icmp ne i32 %302, 0
   %304 = zext i1 %303 to i32
@@ -634,7 +634,7 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   br i1 %.not88, label %312, label %306
 
 306:                                              ; preds = %305
-  %307 = load i32, ptr %16, align 8, !tbaa !27
+  %307 = load i32, ptr %16, align 8, !tbaa !28
   %308 = add nsw i32 %307, %15
   %309 = call i32 @WebPReportProgress(ptr noundef %11, i32 noundef %308, ptr noundef nonnull %16) #4
   %310 = icmp ne i32 %309, 0
@@ -647,7 +647,7 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   %314 = load i32, ptr %13, align 4, !tbaa !3
   %315 = sext i32 %314 to i64
   %316 = icmp slt i64 %indvars.iv.next121, %315
-  br i1 %316, label %295, label %._crit_edge115, !llvm.loop !70
+  br i1 %316, label %295, label %._crit_edge115, !llvm.loop !71
 
 ._crit_edge115:                                   ; preds = %312, %289
   %.074.lcssa = phi i32 [ %290, %289 ], [ %313, %312 ]
@@ -660,7 +660,7 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #4
   store i8 0, ptr %2, align 1
   %320 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %321 = load ptr, ptr %320, align 8, !tbaa !64
+  %321 = load ptr, ptr %320, align 8, !tbaa !65
   %322 = call i32 %321(ptr noundef nonnull %2, i64 noundef 1, ptr noundef %11) #4
   %323 = icmp ne i32 %322, 0
   %324 = zext i1 %323 to i32
@@ -671,7 +671,7 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
   %.2 = phi i32 [ %324, %319 ], [ %.074.lcssa, %._crit_edge115 ]
   %326 = add i32 %177, 8
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 23552
-  store i32 %326, ptr %327, align 8, !tbaa !71
+  store i32 %326, ptr %327, align 8, !tbaa !72
   %.not85 = icmp eq i32 %.2, 0
   br i1 %.not85, label %.thread105, label %328
 
@@ -742,51 +742,52 @@ attributes #4 = { nounwind }
 !21 = !{!"", !7, i64 0, !7, i64 3, !7, i64 4, !7, i64 1060, !7, i64 5284, !7, i64 18344, !11, i64 19880, !11, i64 19884, !11, i64 19888}
 !22 = !{!"p1 int", !6, i64 0}
 !23 = !{!"p1 double", !6, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!4, !9, i64 8}
-!27 = !{!4, !11, i64 536}
-!28 = !{!4, !11, i64 48}
-!29 = !{!4, !11, i64 52}
-!30 = !{!13, !11, i64 12}
-!31 = !{!13, !15, i64 24}
-!32 = !{!13, !11, i64 8}
-!33 = !{!12, !11, i64 0}
-!34 = !{!12, !11, i64 4}
-!35 = !{!36, !11, i64 680}
-!36 = !{!"", !37, i64 0, !37, i64 224, !37, i64 448, !11, i64 672, !11, i64 676, !11, i64 680, !11, i64 684, !11, i64 688, !11, i64 692, !11, i64 696, !11, i64 700, !11, i64 704, !11, i64 708, !11, i64 712, !11, i64 716, !11, i64 720, !11, i64 724, !11, i64 728, !15, i64 736}
-!37 = !{!"VP8Matrix", !7, i64 0, !7, i64 32, !7, i64 64, !7, i64 128, !7, i64 192}
-!38 = distinct !{!38, !25}
-!39 = !{!36, !11, i64 684}
-!40 = distinct !{!40, !25}
-!41 = !{!7, !7, i64 0}
-!42 = distinct !{!42, !25}
-!43 = !{!10, !11, i64 12}
-!44 = !{!10, !11, i64 0}
-!45 = !{!10, !11, i64 4}
-!46 = !{!10, !11, i64 8}
-!47 = !{!4, !11, i64 3584}
-!48 = !{!4, !11, i64 3596}
-!49 = !{!4, !11, i64 3600}
-!50 = !{!4, !11, i64 3604}
-!51 = !{!4, !11, i64 3608}
-!52 = !{!4, !11, i64 3612}
-!53 = !{!54, !55, i64 128}
-!54 = !{!"WebPPicture", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !14, i64 16, !14, i64 24, !14, i64 32, !11, i64 40, !11, i64 44, !14, i64 48, !11, i64 56, !7, i64 60, !22, i64 72, !11, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !11, i64 112, !14, i64 120, !55, i64 128, !11, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !14, i64 176, !14, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
-!55 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
-!56 = !{!11, !11, i64 0}
-!57 = !{!4, !11, i64 552}
-!58 = !{!59, !11, i64 140}
-!59 = !{!"WebPAuxStats", !11, i64 0, !7, i64 4, !7, i64 24, !7, i64 36, !7, i64 44, !7, i64 92, !7, i64 108, !7, i64 124, !11, i64 140, !11, i64 144, !11, i64 148, !11, i64 152, !11, i64 156, !11, i64 160, !11, i64 164, !11, i64 168, !11, i64 172, !11, i64 176, !11, i64 180, !7, i64 184}
-!60 = !{!13, !11, i64 40}
-!61 = distinct !{!61, !25}
-!62 = !{!4, !11, i64 540}
-!63 = !{!13, !14, i64 16}
-!64 = !{!54, !6, i64 96}
-!65 = !{!54, !11, i64 8}
-!66 = !{!54, !11, i64 12}
-!67 = !{!4, !14, i64 544}
-!68 = !{!4, !11, i64 44}
-!69 = distinct !{!69, !25}
-!70 = distinct !{!70, !25}
-!71 = !{!4, !11, i64 23552}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!4, !9, i64 8}
+!28 = !{!4, !11, i64 536}
+!29 = !{!4, !11, i64 48}
+!30 = !{!4, !11, i64 52}
+!31 = !{!13, !11, i64 12}
+!32 = !{!13, !15, i64 24}
+!33 = !{!13, !11, i64 8}
+!34 = !{!12, !11, i64 0}
+!35 = !{!12, !11, i64 4}
+!36 = !{!37, !11, i64 680}
+!37 = !{!"", !38, i64 0, !38, i64 224, !38, i64 448, !11, i64 672, !11, i64 676, !11, i64 680, !11, i64 684, !11, i64 688, !11, i64 692, !11, i64 696, !11, i64 700, !11, i64 704, !11, i64 708, !11, i64 712, !11, i64 716, !11, i64 720, !11, i64 724, !11, i64 728, !15, i64 736}
+!38 = !{!"VP8Matrix", !7, i64 0, !7, i64 32, !7, i64 64, !7, i64 128, !7, i64 192}
+!39 = distinct !{!39, !25, !26}
+!40 = !{!37, !11, i64 684}
+!41 = distinct !{!41, !25, !26}
+!42 = !{!7, !7, i64 0}
+!43 = distinct !{!43, !25, !26}
+!44 = !{!10, !11, i64 12}
+!45 = !{!10, !11, i64 0}
+!46 = !{!10, !11, i64 4}
+!47 = !{!10, !11, i64 8}
+!48 = !{!4, !11, i64 3584}
+!49 = !{!4, !11, i64 3596}
+!50 = !{!4, !11, i64 3600}
+!51 = !{!4, !11, i64 3604}
+!52 = !{!4, !11, i64 3608}
+!53 = !{!4, !11, i64 3612}
+!54 = !{!55, !56, i64 128}
+!55 = !{!"WebPPicture", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !14, i64 16, !14, i64 24, !14, i64 32, !11, i64 40, !11, i64 44, !14, i64 48, !11, i64 56, !7, i64 60, !22, i64 72, !11, i64 80, !7, i64 84, !6, i64 96, !6, i64 104, !11, i64 112, !14, i64 120, !56, i64 128, !11, i64 136, !6, i64 144, !6, i64 152, !7, i64 160, !14, i64 176, !14, i64 184, !7, i64 192, !6, i64 224, !6, i64 232, !7, i64 240}
+!56 = !{!"p1 _ZTS12WebPAuxStats", !6, i64 0}
+!57 = !{!11, !11, i64 0}
+!58 = !{!4, !11, i64 552}
+!59 = !{!60, !11, i64 140}
+!60 = !{!"WebPAuxStats", !11, i64 0, !7, i64 4, !7, i64 24, !7, i64 36, !7, i64 44, !7, i64 92, !7, i64 108, !7, i64 124, !11, i64 140, !11, i64 144, !11, i64 148, !11, i64 152, !11, i64 156, !11, i64 160, !11, i64 164, !11, i64 168, !11, i64 172, !11, i64 176, !11, i64 180, !7, i64 184}
+!61 = !{!13, !11, i64 40}
+!62 = distinct !{!62, !25, !26}
+!63 = !{!4, !11, i64 540}
+!64 = !{!13, !14, i64 16}
+!65 = !{!55, !6, i64 96}
+!66 = !{!55, !11, i64 8}
+!67 = !{!55, !11, i64 12}
+!68 = !{!4, !14, i64 544}
+!69 = !{!4, !11, i64 44}
+!70 = distinct !{!70, !25, !26}
+!71 = distinct !{!71, !25, !26}
+!72 = !{!4, !11, i64 23552}

@@ -243,7 +243,7 @@ define hidden range(i32 0, 2) i32 @NEWHOPE_server_compute_key(ptr noundef %0, pt
   store i16 %30, ptr %32, align 2, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  br i1 %exitcond.not.i, label %decode_rec.exit, label %12, !llvm.loop !13
+  br i1 %exitcond.not.i, label %decode_rec.exit, label %12, !llvm.loop !14
 
 decode_rec.exit:                                  ; preds = %12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #8
@@ -301,6 +301,7 @@ attributes #8 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}

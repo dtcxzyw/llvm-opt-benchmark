@@ -572,7 +572,7 @@ _ZNSt3__117__assoc_sub_state10__sub_waitERNS_11unique_lockINS_5mutexEEE.exit: ; 
   unreachable
 
 24:                                               ; preds = %_ZNSt3__117__assoc_sub_state10__sub_waitERNS_11unique_lockINS_5mutexEEE.exit
-  %25 = load i8, ptr %6, align 8, !tbaa !30, !range !33, !noundef !34
+  %25 = load i8, ptr %6, align 8, !tbaa !30, !range !34, !noundef !35
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit
 
@@ -589,7 +589,7 @@ _ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit: ; preds = %24, %27
   %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13exception_ptrD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
-  %.pre = load i8, ptr %6, align 8, !tbaa !30, !range !33
+  %.pre = load i8, ptr %6, align 8, !tbaa !30, !range !34
   %31 = trunc nuw i8 %.pre to i1
   br i1 %31, label %32, label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit5
 
@@ -624,7 +624,7 @@ define dso_local void @_ZNSt3__117__assoc_sub_state10__sub_waitERNS_11unique_loc
   %10 = and i32 %4, -13
   store i32 %10, ptr %3, align 8, !tbaa !16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i8, ptr %11, align 8, !tbaa !30, !range !33, !noundef !34
+  %12 = load i8, ptr %11, align 8, !tbaa !30, !range !34, !noundef !35
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %_ZNSt3__111unique_lockINS_5mutexEE6unlockB8ne210000Ev.exit, label %14
 
@@ -704,7 +704,7 @@ _ZNSt3__111unique_lockINS_5mutexEE6unlockB8ne210000Ev.exit.i: ; preds = %8
   br i1 %.not4.i, label %15, label %_ZNSt3__117__assoc_sub_state10__sub_waitERNS_11unique_lockINS_5mutexEEE.exit, !llvm.loop !31
 
 _ZNSt3__117__assoc_sub_state10__sub_waitERNS_11unique_lockINS_5mutexEEE.exit: ; preds = %15
-  %.pre = load i8, ptr %4, align 8, !tbaa !30, !range !33
+  %.pre = load i8, ptr %4, align 8, !tbaa !30, !range !34
   %18 = trunc nuw i8 %.pre to i1
   br i1 %18, label %_ZNSt3__117__assoc_sub_state10__sub_waitERNS_11unique_lockINS_5mutexEEE.exit.thread, label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne210000Ev.exit
 
@@ -729,7 +729,7 @@ define dso_local void @_ZNSt3__117__assoc_sub_state9__executeEv(ptr nonnull read
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__16futureIvEC2EPNS_17__assoc_sub_stateE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr %1, ptr %0, align 8, !tbaa !35
+  store ptr %1, ptr %0, align 8, !tbaa !36
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @_ZNSt3__15mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -762,7 +762,7 @@ _ZNSt3__117__assoc_sub_state15__attach_futureB8ne210000Ev.exit: ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__16futureIvED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %3
 
@@ -785,8 +785,8 @@ _ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit: ; preds = %7, %3, 
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__16futureIvE3getEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
-  store ptr null, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
+  store ptr null, ptr %0, align 8, !tbaa !36
   invoke void @_ZNSt3__117__assoc_sub_state4copyEv(ptr noundef nonnull align 8 dereferenceable(116) %2)
           to label %3 unwind label %11
 
@@ -829,11 +829,11 @@ _ZNSt3__110unique_ptrINS_14__shared_countENS_22__release_shared_countEED2B8ne210
 define dso_local void @_ZNSt3__17promiseIvEC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #20
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 0, ptr %3, align 8, !tbaa !38
+  store i64 0, ptr %3, align 8, !tbaa !39
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVNSt3__117__assoc_sub_stateE, i64 16), ptr %2, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %4, i8 0, i64 100, i1 false)
-  store ptr %2, ptr %0, align 8, !tbaa !39
+  store ptr %2, ptr %0, align 8, !tbaa !40
   ret void
 }
 
@@ -845,7 +845,7 @@ define dso_local void @_ZNSt3__17promiseIvED2Ev(ptr noundef nonnull readonly ali
   %2 = alloca %"class.std::exception_ptr", align 8
   %3 = alloca %"class.std::exception_ptr", align 8
   %4 = alloca %"class.std::__1::future_error", align 8
-  %5 = load ptr, ptr %0, align 8, !tbaa !39
+  %5 = load ptr, ptr %0, align 8, !tbaa !40
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %6
 
@@ -864,7 +864,7 @@ _ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit: ; preds = %6
   %.not1 = icmp eq ptr %11, null
   call void @_ZNSt13exception_ptrD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
-  %.pre2 = load ptr, ptr %0, align 8, !tbaa !39
+  %.pre2 = load ptr, ptr %0, align 8, !tbaa !40
   br i1 %.not1, label %12, label %_ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit.thread
 
 12:                                               ; preds = %_ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit
@@ -878,13 +878,13 @@ _ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit: ; preds = %6
           to label %17 unwind label %31
 
 17:                                               ; preds = %16
-  %18 = call ptr @__cxa_allocate_exception(i64 noundef 32) #21, !noalias !41
-  %19 = call ptr @__cxa_init_primary_exception(ptr noundef %18, ptr noundef nonnull @_ZTINSt3__112future_errorE, ptr noundef nonnull @_ZZSt18make_exception_ptrB8ne210000INSt3__112future_errorEESt13exception_ptrT_ENUlPvE_8__invokeES4_) #21, !noalias !41
-  call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %4) #21, !noalias !41
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt3__112future_errorE, i64 16), ptr %18, align 8, !tbaa !8, !noalias !41
+  %18 = call ptr @__cxa_allocate_exception(i64 noundef 32) #21, !noalias !42
+  %19 = call ptr @__cxa_init_primary_exception(ptr noundef %18, ptr noundef nonnull @_ZTINSt3__112future_errorE, ptr noundef nonnull @_ZZSt18make_exception_ptrB8ne210000INSt3__112future_errorEESt13exception_ptrT_ENUlPvE_8__invokeES4_) #21, !noalias !42
+  call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %4) #21, !noalias !42
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVNSt3__112future_errorE, i64 16), ptr %18, align 8, !tbaa !8, !noalias !42
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !10, !noalias !41
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !10, !noalias !42
   call void @_ZNSt13exception_ptr31__from_native_exception_pointerEPv(ptr dead_on_unwind nonnull writable sret(%"class.std::exception_ptr") align 8 %3, ptr noundef nonnull %18) #21
   invoke void @_ZNSt3__117__assoc_sub_state13set_exceptionESt13exception_ptr(ptr noundef nonnull align 8 dereferenceable(116) %.pre2, ptr noundef nonnull %3)
           to label %22 unwind label %31
@@ -892,7 +892,7 @@ _ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit: ; preds = %6
 22:                                               ; preds = %17
   call void @_ZNSt13exception_ptrD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   call void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
-  %.pre = load ptr, ptr %0, align 8, !tbaa !39
+  %.pre = load ptr, ptr %0, align 8, !tbaa !40
   br label %_ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit.thread
 
 _ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit.thread: ; preds = %6, %22, %12, %_ZNKSt3__117__assoc_sub_state11__has_valueB8ne210000Ev.exit
@@ -1004,7 +1004,7 @@ _ZNSt3__112future_errorC2ENS_10error_codeE.exit:  ; preds = %11, %14
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__17promiseIvE10get_futureEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::__1::future") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !39
+  %3 = load ptr, ptr %1, align 8, !tbaa !40
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -1013,7 +1013,7 @@ define dso_local void @_ZNSt3__17promiseIvE10get_futureEv(ptr dead_on_unwind noa
   unreachable
 
 6:                                                ; preds = %2
-  store ptr %3, ptr %0, align 8, !tbaa !35
+  store ptr %3, ptr %0, align 8, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @_ZNSt3__15mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(40) %7)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -1047,7 +1047,7 @@ _ZNSt3__16futureIvEC2EPNS_17__assoc_sub_stateE.exit: ; preds = %6
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__17promiseIvE9set_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::exception_ptr", align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !39
+  %3 = load ptr, ptr %0, align 8, !tbaa !40
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -1100,7 +1100,7 @@ _ZNSt3__117__assoc_sub_state9set_valueEv.exit:    ; preds = %_ZNKSt3__117__assoc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__17promiseIvE13set_exceptionESt13exception_ptr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::exception_ptr", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !39
+  %4 = load ptr, ptr %0, align 8, !tbaa !40
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
@@ -1126,7 +1126,7 @@ define dso_local void @_ZNSt3__17promiseIvE13set_exceptionESt13exception_ptr(ptr
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__17promiseIvE24set_value_at_thread_exitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #1 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !39
+  %2 = load ptr, ptr %0, align 8, !tbaa !40
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
 
@@ -1142,7 +1142,7 @@ define dso_local void @_ZNSt3__17promiseIvE24set_value_at_thread_exitEv(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNSt3__17promiseIvE28set_exception_at_thread_exitESt13exception_ptr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::exception_ptr", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !39
+  %4 = load ptr, ptr %0, align 8, !tbaa !40
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
@@ -1168,7 +1168,7 @@ define dso_local void @_ZNSt3__17promiseIvE28set_exception_at_thread_exitESt13ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNSt3__113shared_futureIvED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !44
+  %2 = load ptr, ptr %0, align 8, !tbaa !45
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %3
 
@@ -1191,7 +1191,7 @@ _ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit: ; preds = %7, %3, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113shared_futureIvEaSERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #8 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !44
+  %3 = load ptr, ptr %1, align 8, !tbaa !45
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
@@ -1201,7 +1201,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113shar
   br label %7
 
 7:                                                ; preds = %4, %2
-  %8 = load ptr, ptr %0, align 8, !tbaa !44
+  %8 = load ptr, ptr %0, align 8, !tbaa !45
   %.not5 = icmp eq ptr %8, null
   br i1 %.not5, label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit, label %9
 
@@ -1219,8 +1219,8 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__113shar
   br label %_ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit
 
 _ZNSt3__114__shared_count16__release_sharedB8ne210000Ev.exit: ; preds = %13, %9, %7
-  %17 = load ptr, ptr %1, align 8, !tbaa !44
-  store ptr %17, ptr %0, align 8, !tbaa !44
+  %17 = load ptr, ptr %1, align 8, !tbaa !45
+  store ptr %17, ptr %0, align 8, !tbaa !45
   ret ptr %0
 }
 
@@ -1373,18 +1373,19 @@ attributes #24 = { noreturn nounwind }
 !28 = !{!"p1 _ZTSNSt3__15mutexE", !15, i64 0}
 !29 = !{!"bool", !5, i64 0}
 !30 = !{!27, !29, i64 8}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{i8 0, i8 2}
-!34 = !{}
-!35 = !{!36, !37, i64 0}
-!36 = !{!"_ZTSNSt3__16futureIvEE", !37, i64 0}
-!37 = !{!"p1 _ZTSNSt3__117__assoc_sub_stateE", !15, i64 0}
-!38 = !{!18, !19, i64 8}
-!39 = !{!40, !37, i64 0}
-!40 = !{!"_ZTSNSt3__17promiseIvEE", !37, i64 0}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZSt18make_exception_ptrB8ne210000INSt3__112future_errorEESt13exception_ptrT_: argument 0"}
-!43 = distinct !{!43, !"_ZSt18make_exception_ptrB8ne210000INSt3__112future_errorEESt13exception_ptrT_"}
-!44 = !{!45, !37, i64 0}
-!45 = !{!"_ZTSNSt3__113shared_futureIvEE", !37, i64 0}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{i8 0, i8 2}
+!35 = !{}
+!36 = !{!37, !38, i64 0}
+!37 = !{!"_ZTSNSt3__16futureIvEE", !38, i64 0}
+!38 = !{!"p1 _ZTSNSt3__117__assoc_sub_stateE", !15, i64 0}
+!39 = !{!18, !19, i64 8}
+!40 = !{!41, !38, i64 0}
+!41 = !{!"_ZTSNSt3__17promiseIvEE", !38, i64 0}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZSt18make_exception_ptrB8ne210000INSt3__112future_errorEESt13exception_ptrT_: argument 0"}
+!44 = distinct !{!44, !"_ZSt18make_exception_ptrB8ne210000INSt3__112future_errorEESt13exception_ptrT_"}
+!45 = !{!46, !38, i64 0}
+!46 = !{!"_ZTSNSt3__113shared_futureIvEE", !38, i64 0}

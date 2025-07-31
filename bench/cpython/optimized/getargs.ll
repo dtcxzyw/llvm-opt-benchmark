@@ -1673,7 +1673,7 @@ PyBytes_AS_STRING.exit:                           ; preds = %57
   %90 = getelementptr i8, ptr %.036102, i64 1
   %91 = load i8, ptr %90, align 1, !tbaa !3
   %.not59.not = icmp eq i8 %91, 0
-  br i1 %.not59.not, label %.critedge, label %.lr.ph104, !llvm.loop !49
+  br i1 %.not59.not, label %.critedge, label %.lr.ph104, !llvm.loop !50
 
 .critedge:                                        ; preds = %89, %76
   %.037.lcssa = phi i32 [ 0, %76 ], [ %.138, %89 ]
@@ -1749,7 +1749,7 @@ PyTuple_SET_ITEM.exit:                            ; preds = %Py_SIZE.exit.i
   store ptr %spec.store.select, ptr %117, align 8, !tbaa !12
   %118 = add nuw nsw i64 %.035105, 1
   %exitcond108.not = icmp eq i64 %118, %92
-  br i1 %exitcond108.not, label %_Py_NewRef.exit87, label %99, !llvm.loop !50
+  br i1 %exitcond108.not, label %_Py_NewRef.exit87, label %99, !llvm.loop !51
 
 119:                                              ; preds = %84
   %120 = load i32, ptr @_Py_NoneStruct, align 8, !tbaa !3
@@ -1957,7 +1957,7 @@ Py_DECREF.exit53:                                 ; preds = %45, %47, %50
   call void @PyErr_Clear() #7
   %57 = add nuw nsw i64 %.03189, 1
   %exitcond = icmp eq i64 %57, 4
-  br i1 %exitcond, label %58, label %.preheader85, !llvm.loop !51
+  br i1 %exitcond, label %58, label %.preheader85, !llvm.loop !52
 
 58:                                               ; preds = %56
   %59 = call i32 @PyDict_DelItemString(ptr noundef nonnull %6, ptr noundef nonnull @.str.57) #7
@@ -2082,7 +2082,7 @@ Py_DECREF.exit65:                                 ; preds = %92, %94, %97
   call void @PyErr_Clear() #7
   %104 = add nuw nsw i64 %.190, 1
   %exitcond96 = icmp eq i64 %104, 6
-  br i1 %exitcond96, label %105, label %.preheader, !llvm.loop !52
+  br i1 %exitcond96, label %105, label %.preheader, !llvm.loop !53
 
 105:                                              ; preds = %103
   %106 = load i32, ptr %4, align 8, !tbaa !3
@@ -2248,9 +2248,10 @@ attributes #8 = { noreturn nounwind }
 !44 = !{!45, !46, i64 24}
 !45 = !{!"", !24, i64 0, !46, i64 24, !25, i64 32}
 !46 = !{!"p2 _ZTS7_object", !14, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = distinct !{!49, !48}
-!50 = distinct !{!50, !48}
-!51 = distinct !{!51, !48}
-!52 = distinct !{!52, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = distinct !{!50, !48, !49}
+!51 = distinct !{!51, !48, !49}
+!52 = distinct !{!52, !48, !49}
+!53 = distinct !{!53, !48, !49}

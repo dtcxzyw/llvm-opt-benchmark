@@ -206,7 +206,7 @@ define i32 @FT_Bitmap_Embolden(ptr noundef readonly captures(address_is_null) %0
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %26 = load i8, ptr %25, align 2, !tbaa !28
+  %26 = load i8, ptr %25, align 2, !tbaa !29
   switch i8 %26, label %49 [
     i8 3, label %27
     i8 4, label %27
@@ -229,7 +229,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   call void @ft_mem_free(ptr noundef %29, ptr noundef %30) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !20
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #7
-  %.pre = load i8, ptr %25, align 2, !tbaa !28
+  %.pre = load i8, ptr %25, align 2, !tbaa !29
   br label %49
 
 .thread184:                                       ; preds = %24
@@ -237,7 +237,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %31 = load ptr, ptr %0, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !29
+  %33 = load i32, ptr %32, align 4, !tbaa !30
   %34 = load i32, ptr %1, align 8, !tbaa !25
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !7
@@ -258,7 +258,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %42 = load ptr, ptr %0, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !29
+  %44 = load i32, ptr %43, align 4, !tbaa !30
   %45 = load i32, ptr %1, align 8, !tbaa !25
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !7
@@ -270,7 +270,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %51 = load ptr, ptr %0, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %53 = load i32, ptr %52, align 4, !tbaa !29
+  %53 = load i32, ptr %52, align 4, !tbaa !30
   %54 = load i32, ptr %1, align 8, !tbaa !25
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !7
@@ -380,7 +380,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %113 = getelementptr inbounds nuw i8, ptr %.0121136.us.i, i64 %98
   %.0124.us.i = getelementptr inbounds nuw i8, ptr %.0124137.us.i, i64 %98
   %.not130.us.i = icmp eq i32 %112, 0
-  br i1 %.not130.us.i, label %thread-pre-split, label %.lr.ph.split.us.i, !llvm.loop !30
+  br i1 %.not130.us.i, label %thread-pre-split, label %.lr.ph.split.us.i, !llvm.loop !31
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %122
   %.0124137.i = phi ptr [ %.0124.i, %122 ], [ %.0124133.i, %.lr.ph.i ]
@@ -405,7 +405,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   %124 = getelementptr inbounds nuw i8, ptr %.0121136.i, i64 %98
   %.0124.i = getelementptr inbounds nuw i8, ptr %.0124137.i, i64 %98
   %.not130.i = icmp eq i32 %123, 0
-  br i1 %.not130.i, label %thread-pre-split, label %.lr.ph.split.i, !llvm.loop !32
+  br i1 %.not130.i, label %thread-pre-split, label %.lr.ph.split.i, !llvm.loop !33
 
 125:                                              ; preds = %84
   %126 = zext i32 %.0115.i to i64
@@ -453,7 +453,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   call void @llvm.memset.p0.i64(ptr align 1 %152, i8 0, i64 %149, i1 false)
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 %149
   %154 = icmp ult ptr %151, %138
-  br i1 %154, label %150, label %.loopexit.i, !llvm.loop !33
+  br i1 %154, label %150, label %.loopexit.i, !llvm.loop !34
 
 155:                                              ; preds = %131
   %.not145.i = icmp eq i32 %136, 0
@@ -478,7 +478,7 @@ FT_Bitmap_Done.exit:                              ; preds = %27
   call void @llvm.memset.p0.i64(ptr align 1 %165, i8 0, i64 %162, i1 false)
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 %162
   %167 = icmp ult ptr %164, %138
-  br i1 %167, label %163, label %._crit_edge.i, !llvm.loop !34
+  br i1 %167, label %163, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %163, %155
   %.0116.lcssa.i = phi ptr [ %129, %155 ], [ %166, %163 ]
@@ -585,12 +585,12 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   store i8 %204, ptr %202, align 1, !tbaa !23
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %199, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge.us, label %199, !llvm.loop !36
 
 ._crit_edge.us:                                   ; preds = %199
   %205 = add nuw nsw i32 %.1109153.us, 1
   %exitcond175.not = icmp eq i32 %.1109153.us, %.0104182
-  br i1 %exitcond175.not, label %._crit_edge155, label %.lr.ph151.us, !llvm.loop !36
+  br i1 %exitcond175.not, label %._crit_edge155, label %.lr.ph151.us, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.lr.ph149, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ %193, %.lr.ph149 ]
@@ -608,7 +608,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us.backedge
   %211 = phi i8 [ %237, %.lr.ph.split.us.backedge ], [ %207, %.lr.ph ]
   %.0110141.us = phi i32 [ %.0110141.us.be, %.lr.ph.split.us.backedge ], [ 1, %.lr.ph ]
-  %212 = load i8, ptr %25, align 2, !tbaa !28
+  %212 = load i8, ptr %25, align 2, !tbaa !29
   %213 = icmp eq i8 %212, 1
   br i1 %213, label %233, label %214
 
@@ -624,7 +624,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %221 = load i8, ptr %220, align 1, !tbaa !23
   %222 = zext i8 %221 to i32
   %223 = add nuw nsw i32 %222, %218
-  %224 = load i16, ptr %192, align 8, !tbaa !37
+  %224 = load i16, ptr %192, align 8, !tbaa !38
   %225 = zext i16 %224 to i32
   %.not129.us = icmp samesign ult i32 %223, %225
   br i1 %.not129.us, label %226, label %.split.us
@@ -633,7 +633,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %227 = trunc i32 %223 to i8
   store i8 %227, ptr %206, align 1, !tbaa !23
   %228 = and i32 %223, 255
-  %229 = load i16, ptr %192, align 8, !tbaa !37
+  %229 = load i16, ptr %192, align 8, !tbaa !38
   %230 = zext i16 %229 to i32
   %231 = add nsw i32 %230, -1
   %232 = icmp eq i32 %228, %231
@@ -652,12 +652,12 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
 .lr.ph.split.us.backedge:                         ; preds = %233, %226
   %237 = phi i8 [ %236, %233 ], [ %227, %226 ]
   %.0110141.us.be = add nuw nsw i32 %.0110141.us, 1
-  br label %.lr.ph.split.us, !llvm.loop !38
+  br label %.lr.ph.split.us, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split.backedge
   %238 = phi i8 [ %251, %.lr.ph.split.backedge ], [ %207, %.lr.ph ]
   %.0110141 = phi i32 [ %.0110141.be, %.lr.ph.split.backedge ], [ 1, %.lr.ph ]
-  %239 = load i8, ptr %25, align 2, !tbaa !28
+  %239 = load i8, ptr %25, align 2, !tbaa !29
   %240 = icmp eq i8 %239, 1
   br i1 %240, label %241, label %252
 
@@ -679,7 +679,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
 .lr.ph.split.backedge:                            ; preds = %241, %266
   %251 = phi i8 [ %250, %241 ], [ %267, %266 ]
   %.0110141.be = add nuw nsw i32 %.0110141, 1
-  br label %.lr.ph.split, !llvm.loop !39
+  br label %.lr.ph.split, !llvm.loop !40
 
 252:                                              ; preds = %.lr.ph.split
   %253 = sub nsw i32 %210, %.0110141
@@ -693,7 +693,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %259 = load i8, ptr %258, align 1, !tbaa !23
   %260 = zext i8 %259 to i32
   %261 = add nuw nsw i32 %260, %256
-  %262 = load i16, ptr %192, align 8, !tbaa !37
+  %262 = load i16, ptr %192, align 8, !tbaa !38
   %263 = zext i16 %262 to i32
   %.not129 = icmp samesign ult i32 %261, %263
   br i1 %.not129, label %266, label %.split.us
@@ -709,7 +709,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %267 = trunc i32 %261 to i8
   store i8 %267, ptr %206, align 1, !tbaa !23
   %268 = and i32 %261, 255
-  %269 = load i16, ptr %192, align 8, !tbaa !37
+  %269 = load i16, ptr %192, align 8, !tbaa !38
   %270 = zext i16 %269 to i32
   %271 = add nsw i32 %270, -1
   %272 = icmp eq i32 %268, %271
@@ -721,7 +721,7 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %273 = icmp sgt i64 %indvars.iv, 0
   %274 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %273, label %.lr.ph, label %.preheader, !llvm.loop !40
+  br i1 %273, label %.lr.ph, label %.preheader, !llvm.loop !41
 
 ._crit_edge155:                                   ; preds = %._crit_edge.us, %.preheader, %.preheader136, %.preheader.thread189
   %275 = load i32, ptr %86, align 8, !tbaa !7
@@ -730,13 +730,13 @@ thread-pre-split:                                 ; preds = %122, %111, %97, %92
   %278 = add nuw i32 %.0106158, 1
   %279 = load i32, ptr %1, align 8, !tbaa !25
   %280 = icmp ult i32 %278, %279
-  br i1 %280, label %.preheader136, label %._crit_edge, !llvm.loop !41
+  br i1 %280, label %.preheader136, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %._crit_edge155, %190
   %.lcssa138 = phi i32 [ 0, %190 ], [ %279, %._crit_edge155 ]
-  %281 = load i32, ptr %89, align 4, !tbaa !29
+  %281 = load i32, ptr %89, align 4, !tbaa !30
   %282 = add i32 %281, %.0105179
-  store i32 %282, ptr %89, align 4, !tbaa !29
+  store i32 %282, ptr %89, align 4, !tbaa !30
   %283 = add i32 %.lcssa138, %.0104182
   store i32 %283, ptr %1, align 8, !tbaa !25
   br label %284
@@ -767,14 +767,14 @@ define i32 @FT_Bitmap_Convert(ptr noundef readonly captures(address_is_null) %0,
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %12 = load i8, ptr %11, align 2, !tbaa !28
+  %12 = load i8, ptr %11, align 2, !tbaa !29
   %.off = add i8 %12, -1
   %switch = icmp ult i8 %.off, 7
   br i1 %switch, label %13, label %49
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !29
+  %15 = load i32, ptr %14, align 4, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load i32, ptr %16, align 8, !tbaa !7
   %18 = icmp eq i32 %17, 0
@@ -797,12 +797,12 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   tail call void @ft_mem_free(ptr noundef %10, ptr noundef %27) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 26
-  store i8 2, ptr %28, align 2, !tbaa !28
+  store i8 2, ptr %28, align 2, !tbaa !29
   %29 = load i32, ptr %1, align 8, !tbaa !25
   store i32 %29, ptr %2, align 8, !tbaa !25
-  %30 = load i32, ptr %14, align 4, !tbaa !29
+  %30 = load i32, ptr %14, align 4, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %30, ptr %31, align 4, !tbaa !29
+  store i32 %30, ptr %31, align 4, !tbaa !30
   %.not217 = icmp eq i32 %3, 0
   br i1 %.not217, label %41, label %32
 
@@ -878,7 +878,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
 
 75:                                               ; preds = %68, %64
   %.0192 = phi ptr [ %74, %68 ], [ %51, %64 ]
-  %76 = load i8, ptr %11, align 2, !tbaa !28
+  %76 = load i8, ptr %11, align 2, !tbaa !29
   switch i8 %76, label %.loopexit238 [
     i8 1, label %77
     i8 2, label %125
@@ -891,7 +891,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i16 2, ptr %78, align 8, !tbaa !37
+  store i16 2, ptr %78, align 8, !tbaa !38
   %79 = load i32, ptr %1, align 8, !tbaa !25
   %.not230304 = icmp eq i32 %79, 0
   br i1 %.not230304, label %.loopexit238, label %.lr.ph309
@@ -904,7 +904,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %.1184307 = phi ptr [ %.0183, %.lr.ph309 ], [ %120, %.loopexit ]
   %.1193306 = phi ptr [ %.0192, %.lr.ph309 ], [ %123, %.loopexit ]
   %.0205305 = phi i32 [ %79, %.lr.ph309 ], [ %124, %.loopexit ]
-  %82 = load i32, ptr %80, align 4, !tbaa !29
+  %82 = load i32, ptr %80, align 4, !tbaa !30
   %.not231292 = icmp ult i32 %82, 8
   br i1 %.not231292, label %._crit_edge298, label %.lr.ph297.preheader
 
@@ -950,10 +950,10 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %107 = getelementptr inbounds nuw i8, ptr %.0204293, i64 1
   %108 = add nsw i32 %.0200295, -1
   %.not231 = icmp eq i32 %108, 0
-  br i1 %.not231, label %._crit_edge298.loopexit, label %.lr.ph297, !llvm.loop !42
+  br i1 %.not231, label %._crit_edge298.loopexit, label %.lr.ph297, !llvm.loop !43
 
 ._crit_edge298.loopexit:                          ; preds = %.lr.ph297
-  %.pre324 = load i32, ptr %80, align 4, !tbaa !29
+  %.pre324 = load i32, ptr %80, align 4, !tbaa !30
   br label %._crit_edge298
 
 ._crit_edge298:                                   ; preds = %._crit_edge298.loopexit, %81
@@ -978,7 +978,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %116 = getelementptr inbounds nuw i8, ptr %.1203301, i64 1
   %117 = add nsw i32 %.1201302, -1
   %.not233 = icmp eq i32 %117, 0
-  br i1 %.not233, label %.loopexit, label %113, !llvm.loop !43
+  br i1 %.not233, label %.loopexit, label %113, !llvm.loop !44
 
 .loopexit:                                        ; preds = %113, %._crit_edge298
   %118 = load i32, ptr %54, align 8, !tbaa !7
@@ -989,13 +989,13 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %123 = getelementptr inbounds i8, ptr %.1193306, i64 %122
   %124 = add i32 %.0205305, -1
   %.not230 = icmp eq i32 %124, 0
-  br i1 %.not230, label %.loopexit238, label %81, !llvm.loop !44
+  br i1 %.not230, label %.loopexit238, label %81, !llvm.loop !45
 
 125:                                              ; preds = %75, %75, %75
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %127 = load i32, ptr %126, align 4, !tbaa !29
+  %127 = load i32, ptr %126, align 4, !tbaa !30
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i16 256, ptr %128, align 8, !tbaa !37
+  store i16 256, ptr %128, align 8, !tbaa !38
   %129 = load i32, ptr %1, align 8, !tbaa !25
   %.not229286 = icmp eq i32 %129, 0
   br i1 %.not229286, label %.loopexit238, label %.lr.ph291
@@ -1017,11 +1017,11 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %137 = getelementptr inbounds i8, ptr %.2194287, i64 %136
   %138 = add i32 %.0191288, -1
   %.not229 = icmp eq i32 %138, 0
-  br i1 %.not229, label %.loopexit238, label %131, !llvm.loop !45
+  br i1 %.not229, label %.loopexit238, label %131, !llvm.loop !46
 
 139:                                              ; preds = %75
   %140 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i16 4, ptr %140, align 8, !tbaa !37
+  store i16 4, ptr %140, align 8, !tbaa !38
   %141 = load i32, ptr %1, align 8, !tbaa !25
   %.not225280 = icmp eq i32 %141, 0
   br i1 %.not225280, label %.loopexit238, label %.lr.ph285
@@ -1034,7 +1034,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %.3283 = phi ptr [ %.0183, %.lr.ph285 ], [ %170, %.loopexit240 ]
   %.0190282 = phi i32 [ %141, %.lr.ph285 ], [ %174, %.loopexit240 ]
   %.3195281 = phi ptr [ %.0192, %.lr.ph285 ], [ %173, %.loopexit240 ]
-  %144 = load i32, ptr %142, align 4, !tbaa !29
+  %144 = load i32, ptr %142, align 4, !tbaa !30
   %.not226268 = icmp ult i32 %144, 4
   br i1 %.not226268, label %._crit_edge274, label %.lr.ph273.preheader
 
@@ -1064,10 +1064,10 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %157 = getelementptr inbounds nuw i8, ptr %.0187270, i64 4
   %158 = add nsw i32 %.0185271, -1
   %.not226 = icmp eq i32 %158, 0
-  br i1 %.not226, label %._crit_edge274.loopexit, label %.lr.ph273, !llvm.loop !46
+  br i1 %.not226, label %._crit_edge274.loopexit, label %.lr.ph273, !llvm.loop !47
 
 ._crit_edge274.loopexit:                          ; preds = %.lr.ph273
-  %.pre323 = load i32, ptr %142, align 4, !tbaa !29
+  %.pre323 = load i32, ptr %142, align 4, !tbaa !30
   br label %._crit_edge274
 
 ._crit_edge274:                                   ; preds = %._crit_edge274.loopexit, %143
@@ -1092,7 +1092,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %166 = getelementptr inbounds nuw i8, ptr %.1188277, i64 1
   %167 = add nsw i32 %.1186278, -1
   %.not228 = icmp eq i32 %167, 0
-  br i1 %.not228, label %.loopexit240, label %163, !llvm.loop !47
+  br i1 %.not228, label %.loopexit240, label %163, !llvm.loop !48
 
 .loopexit240:                                     ; preds = %163, %._crit_edge274
   %168 = load i32, ptr %54, align 8, !tbaa !7
@@ -1103,11 +1103,11 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %173 = getelementptr inbounds i8, ptr %.3195281, i64 %172
   %174 = add i32 %.0190282, -1
   %.not225 = icmp eq i32 %174, 0
-  br i1 %.not225, label %.loopexit238, label %143, !llvm.loop !48
+  br i1 %.not225, label %.loopexit238, label %143, !llvm.loop !49
 
 175:                                              ; preds = %75
   %176 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i16 16, ptr %176, align 8, !tbaa !37
+  store i16 16, ptr %176, align 8, !tbaa !38
   %177 = load i32, ptr %1, align 8, !tbaa !25
   %.not222262 = icmp eq i32 %177, 0
   br i1 %.not222262, label %.loopexit238, label %.lr.ph267
@@ -1120,7 +1120,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %.0181265 = phi i32 [ %177, %.lr.ph267 ], [ %201, %194 ]
   %.4264 = phi ptr [ %.0183, %.lr.ph267 ], [ %197, %194 ]
   %.4196263 = phi ptr [ %.0192, %.lr.ph267 ], [ %200, %194 ]
-  %180 = load i32, ptr %178, align 4, !tbaa !29
+  %180 = load i32, ptr %178, align 4, !tbaa !30
   %.not223254 = icmp ult i32 %180, 2
   br i1 %.not223254, label %._crit_edge260, label %.lr.ph259.preheader
 
@@ -1142,10 +1142,10 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %187 = getelementptr inbounds nuw i8, ptr %.0179256, i64 2
   %188 = add nsw i32 %.0178257, -1
   %.not223 = icmp eq i32 %188, 0
-  br i1 %.not223, label %._crit_edge260.loopexit, label %.lr.ph259, !llvm.loop !49
+  br i1 %.not223, label %._crit_edge260.loopexit, label %.lr.ph259, !llvm.loop !50
 
 ._crit_edge260.loopexit:                          ; preds = %.lr.ph259
-  %.pre322 = load i32, ptr %178, align 4, !tbaa !29
+  %.pre322 = load i32, ptr %178, align 4, !tbaa !30
   br label %._crit_edge260
 
 ._crit_edge260:                                   ; preds = %._crit_edge260.loopexit, %179
@@ -1171,18 +1171,18 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %200 = getelementptr inbounds i8, ptr %.4196263, i64 %199
   %201 = add i32 %.0181265, -1
   %.not222 = icmp eq i32 %201, 0
-  br i1 %.not222, label %.loopexit238, label %179, !llvm.loop !50
+  br i1 %.not222, label %.loopexit238, label %179, !llvm.loop !51
 
 202:                                              ; preds = %75
   %203 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i16 256, ptr %203, align 8, !tbaa !37
+  store i16 256, ptr %203, align 8, !tbaa !38
   %204 = load i32, ptr %1, align 8, !tbaa !25
   %.not220248 = icmp eq i32 %204, 0
   br i1 %.not220248, label %.loopexit238, label %.lr.ph253
 
 .lr.ph253:                                        ; preds = %202
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %206 = load i32, ptr %205, align 4, !tbaa !29
+  %206 = load i32, ptr %205, align 4, !tbaa !30
   %207 = icmp eq i32 %206, 0
   br i1 %207, label %.loopexit238, label %.lr.ph253.split
 
@@ -1191,7 +1191,7 @@ FT_Bitmap_Done.exit:                              ; preds = %19, %23
   %209 = getelementptr inbounds i8, ptr %.5197249, i64 %208
   %210 = sext i32 %242 to i64
   %211 = getelementptr inbounds i8, ptr %.5250, i64 %210
-  %.pr = load i32, ptr %205, align 4, !tbaa !29
+  %.pr = load i32, ptr %205, align 4, !tbaa !30
   br label %.lr.ph253.split
 
 .lr.ph253.split:                                  ; preds = %.lr.ph253, %.lr.ph253.splitthread-pre-split
@@ -1245,7 +1245,7 @@ ft_gray_for_premultiplied_srgb_bgra.exit:         ; preds = %.lr.ph, %217
   %239 = getelementptr inbounds nuw i8, ptr %.0174246, i64 1
   %240 = add i32 %.0247, -1
   %.not221 = icmp eq i32 %240, 0
-  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !51
+  br i1 %.not221, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge.loopexit:                             ; preds = %ft_gray_for_premultiplied_srgb_bgra.exit
   %.pre320 = load i32, ptr %54, align 8, !tbaa !7
@@ -1257,7 +1257,7 @@ ft_gray_for_premultiplied_srgb_bgra.exit:         ; preds = %.lr.ph, %217
   %242 = phi i32 [ %.pre320, %._crit_edge.loopexit ], [ %214, %.lr.ph253.split ]
   %243 = add i32 %.0176251, -1
   %.not220 = icmp eq i32 %243, 0
-  br i1 %.not220, label %.loopexit238, label %.lr.ph253.splitthread-pre-split, !llvm.loop !52
+  br i1 %.not220, label %.loopexit238, label %.lr.ph253.splitthread-pre-split, !llvm.loop !53
 
 .loopexit238:                                     ; preds = %._crit_edge, %194, %.loopexit240, %131, %.loopexit, %.lr.ph253, %202, %175, %139, %125, %77, %75
   %244 = load i32, ptr %5, align 4, !tbaa !3
@@ -1319,7 +1319,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 14:                                               ; preds = %7
   %15 = load ptr, ptr %0, align 8, !tbaa !12
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %17 = load i8, ptr %16, align 2, !tbaa !28
+  %17 = load i8, ptr %16, align 2, !tbaa !29
   switch i8 %17, label %.thread284 [
     i8 0, label %.thread
     i8 7, label %18
@@ -1333,13 +1333,13 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %23 = load i8, ptr %22, align 2, !tbaa !28
+  %23 = load i8, ptr %22, align 2, !tbaa !29
   %24 = icmp eq i8 %23, 0
   br i1 %24, label %.thread284, label %28
 
 .thread:                                          ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 26
-  %26 = load i8, ptr %25, align 2, !tbaa !28
+  %26 = load i8, ptr %25, align 2, !tbaa !29
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %.thread284, label %.thread283
 
@@ -1353,7 +1353,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 
 .thread283:                                       ; preds = %.thread, %28
   %34 = phi ptr [ %22, %28 ], [ %25, %.thread ]
-  %35 = load i32, ptr %.0212.sroa.gep243, align 4, !tbaa !29
+  %35 = load i32, ptr %.0212.sroa.gep243, align 4, !tbaa !30
   %.not265 = icmp eq i32 %35, 0
   br i1 %.not265, label %.thread284, label %36
 
@@ -1365,10 +1365,10 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 38:                                               ; preds = %36
   %39 = and i64 %2, -64
   %40 = and i64 %3, -64
-  %41 = load i64, ptr %5, align 8, !tbaa !54
+  %41 = load i64, ptr %5, align 8, !tbaa !55
   %42 = and i64 %41, -64
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !57
+  %44 = load i64, ptr %43, align 8, !tbaa !58
   %45 = and i64 %44, -64
   %46 = shl i32 %37, 6
   %47 = zext i32 %46 to i64
@@ -1387,7 +1387,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
 56:                                               ; preds = %50
   %57 = add nsw i64 %39, %53
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %59 = load i32, ptr %58, align 4, !tbaa !29
+  %59 = load i32, ptr %58, align 4, !tbaa !30
   %.not267 = icmp eq i32 %59, 0
   br i1 %.not267, label %77, label %60
 
@@ -1457,14 +1457,14 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   br i1 %97, label %98, label %112
 
 98:                                               ; preds = %96
-  store i32 %82, ptr %58, align 4, !tbaa !29
+  store i32 %82, ptr %58, align 4, !tbaa !30
   store i32 %85, ptr %4, align 8, !tbaa !25
-  store i8 7, ptr %16, align 2, !tbaa !28
+  store i8 7, ptr %16, align 2, !tbaa !29
   %99 = shl nsw i32 %82, 2
   %100 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %99, ptr %100, align 8, !tbaa !7
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i16 256, ptr %101, align 8, !tbaa !37
+  store i16 256, ptr %101, align 8, !tbaa !38
   %102 = sext i32 %99 to i64
   %103 = sdiv i64 9223372036854775807, %102
   %sext295 = shl i64 %84, 32
@@ -1547,13 +1547,13 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %151 = getelementptr inbounds nuw i8, ptr %.0229301, i64 %149
   %152 = getelementptr inbounds i8, ptr %.0228302, i64 %119
   %153 = icmp ult ptr %151, %137
-  br i1 %153, label %150, label %.thread286, !llvm.loop !58
+  br i1 %153, label %150, label %.thread286, !llvm.loop !59
 
 .thread286:                                       ; preds = %150, %131, %128
   %154 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %155 = load ptr, ptr %154, align 8, !tbaa !19
   call void @ft_mem_free(ptr noundef %15, ptr noundef %155) #7
-  store i32 %82, ptr %58, align 4, !tbaa !29
+  store i32 %82, ptr %58, align 4, !tbaa !30
   store i32 %85, ptr %4, align 8, !tbaa !25
   %156 = load i32, ptr %116, align 8, !tbaa !7
   %157 = icmp slt i32 %156, 0
@@ -1564,7 +1564,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   br label %159
 
 159:                                              ; preds = %.thread286, %106, %113
-  %160 = load i8, ptr %34, align 2, !tbaa !28
+  %160 = load i8, ptr %34, align 2, !tbaa !29
   %.not275 = icmp eq i8 %160, 2
   br i1 %.not275, label %163, label %161
 
@@ -1620,7 +1620,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %194 = phi i32 [ %170, %.lr.ph309 ], [ %240, %._crit_edge ]
   %.0225307 = phi ptr [ %188, %.lr.ph309 ], [ %244, %._crit_edge ]
   %.0226306 = phi ptr [ %168, %.lr.ph309 ], [ %242, %._crit_edge ]
-  %195 = load i32, ptr %.0212.sroa.phi241, align 4, !tbaa !29
+  %195 = load i32, ptr %.0212.sroa.phi241, align 4, !tbaa !30
   %196 = zext i32 %195 to i64
   %197 = getelementptr inbounds nuw i8, ptr %.0226306, i64 %196
   %.not310 = icmp eq i32 %195, 0
@@ -1682,7 +1682,7 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %237 = getelementptr inbounds nuw i8, ptr %.0223304, i64 4
   store i8 %236, ptr %218, align 1, !tbaa !23
   %238 = icmp ult ptr %198, %197
-  br i1 %238, label %.lr.ph305, label %._crit_edge.loopexit, !llvm.loop !59
+  br i1 %238, label %.lr.ph305, label %._crit_edge.loopexit, !llvm.loop !60
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph305
   %.pre = load i32, ptr %.0212.sroa.phi244, align 8, !tbaa !7
@@ -1697,13 +1697,13 @@ define i32 @FT_Bitmap_Blend(ptr noundef readonly captures(address_is_null) %0, p
   %243 = sext i32 %239 to i64
   %244 = getelementptr inbounds i8, ptr %.0225307, i64 %243
   %245 = icmp ult ptr %242, %173
-  br i1 %245, label %192, label %.loopexit, !llvm.loop !60
+  br i1 %245, label %192, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %._crit_edge, %163, %167
-  store i64 %78, ptr %5, align 8, !tbaa !54
+  store i64 %78, ptr %5, align 8, !tbaa !55
   %246 = and i64 %83, 4294967232
   %247 = add nsw i64 %246, %79
-  store i64 %247, ptr %43, align 8, !tbaa !57
+  store i64 %247, ptr %43, align 8, !tbaa !58
   %.pre312 = load i32, ptr %8, align 4, !tbaa !3
   %248 = icmp ne i32 %.pre312, 0
   %or.cond10 = and i1 %97, %248
@@ -1758,15 +1758,15 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unna
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %5 = load i32, ptr %4, align 8, !tbaa !61
+  %5 = load i32, ptr %4, align 8, !tbaa !62
   %6 = icmp eq i32 %5, 1651078259
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %9 = load ptr, ptr %8, align 8, !tbaa !73
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !74
+  %11 = load i32, ptr %10, align 8, !tbaa !75
   %12 = and i32 %11, 1
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %13, label %21
@@ -1774,7 +1774,7 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unna
 13:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
-  %14 = load ptr, ptr %0, align 8, !tbaa !78
+  %14 = load ptr, ptr %0, align 8, !tbaa !79
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %16 = call i32 @FT_Bitmap_Copy(ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %2)
   %.not13.not = icmp eq i32 %16, 0
@@ -1782,11 +1782,11 @@ define i32 @FT_GlyphSlot_Own_Bitmap(ptr noundef captures(address) %0) local_unna
 
 .thread:                                          ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !20
-  %17 = load ptr, ptr %8, align 8, !tbaa !73
+  %17 = load ptr, ptr %8, align 8, !tbaa !74
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %19 = load i32, ptr %18, align 8, !tbaa !74
+  %19 = load i32, ptr %18, align 8, !tbaa !75
   %20 = or i32 %19, 1
-  store i32 %20, ptr %18, align 8, !tbaa !74
+  store i32 %20, ptr %18, align 8, !tbaa !75
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %.thread
@@ -1851,56 +1851,57 @@ attributes #7 = { nounwind }
 !23 = !{!5, !5, i64 0}
 !24 = !{!10, !10, i64 0}
 !25 = !{!8, !4, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!8, !5, i64 26}
-!29 = !{!8, !4, i64 4}
-!30 = distinct !{!30, !27, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !27}
-!33 = distinct !{!33, !27}
-!34 = distinct !{!34, !27}
-!35 = distinct !{!35, !27}
-!36 = distinct !{!36, !27, !31}
-!37 = !{!8, !11, i64 24}
-!38 = distinct !{!38, !27, !31}
-!39 = distinct !{!39, !27}
-!40 = distinct !{!40, !27}
-!41 = distinct !{!41, !27}
-!42 = distinct !{!42, !27}
-!43 = distinct !{!43, !27}
-!44 = distinct !{!44, !27}
-!45 = distinct !{!45, !27}
-!46 = distinct !{!46, !27}
-!47 = distinct !{!47, !27}
-!48 = distinct !{!48, !27}
-!49 = distinct !{!49, !27}
-!50 = distinct !{!50, !27}
-!51 = distinct !{!51, !27}
-!52 = distinct !{!52, !27, !53}
-!53 = !{!"llvm.loop.unswitch.partial.disable"}
-!54 = !{!55, !56, i64 0}
-!55 = !{!"FT_Vector_", !56, i64 0, !56, i64 8}
-!56 = !{!"long", !5, i64 0}
-!57 = !{!55, !56, i64 8}
-!58 = distinct !{!58, !27}
-!59 = distinct !{!59, !27}
-!60 = distinct !{!60, !27}
-!61 = !{!62, !4, i64 144}
-!62 = !{!"FT_GlyphSlotRec_", !63, i64 0, !64, i64 8, !65, i64 16, !4, i64 24, !66, i64 32, !67, i64 48, !56, i64 112, !56, i64 120, !55, i64 128, !4, i64 144, !8, i64 152, !4, i64 192, !4, i64 196, !68, i64 200, !4, i64 240, !71, i64 248, !10, i64 256, !56, i64 264, !56, i64 272, !56, i64 280, !10, i64 288, !72, i64 296}
-!63 = !{!"p1 _ZTS14FT_LibraryRec_", !10, i64 0}
-!64 = !{!"p1 _ZTS11FT_FaceRec_", !10, i64 0}
-!65 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !10, i64 0}
-!66 = !{!"FT_Generic_", !10, i64 0, !10, i64 8}
-!67 = !{!"FT_Glyph_Metrics_", !56, i64 0, !56, i64 8, !56, i64 16, !56, i64 24, !56, i64 32, !56, i64 40, !56, i64 48, !56, i64 56}
-!68 = !{!"FT_Outline_", !11, i64 0, !11, i64 2, !69, i64 8, !9, i64 16, !70, i64 24, !4, i64 32}
-!69 = !{!"p1 _ZTS10FT_Vector_", !10, i64 0}
-!70 = !{!"p1 short", !10, i64 0}
-!71 = !{!"p1 _ZTS15FT_SubGlyphRec_", !10, i64 0}
-!72 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !10, i64 0}
-!73 = !{!62, !72, i64 296}
-!74 = !{!75, !4, i64 8}
-!75 = !{!"FT_Slot_InternalRec_", !76, i64 0, !4, i64 8, !5, i64 12, !77, i64 16, !55, i64 48, !10, i64 64, !4, i64 72}
-!76 = !{!"p1 _ZTS18FT_GlyphLoaderRec_", !10, i64 0}
-!77 = !{!"FT_Matrix_", !56, i64 0, !56, i64 8, !56, i64 16, !56, i64 24}
-!78 = !{!62, !63, i64 0}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!8, !5, i64 26}
+!30 = !{!8, !4, i64 4}
+!31 = distinct !{!31, !27, !28, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !27, !28}
+!34 = distinct !{!34, !27, !28}
+!35 = distinct !{!35, !27, !28}
+!36 = distinct !{!36, !27, !28}
+!37 = distinct !{!37, !27, !28, !32}
+!38 = !{!8, !11, i64 24}
+!39 = distinct !{!39, !27, !28, !32}
+!40 = distinct !{!40, !27, !28}
+!41 = distinct !{!41, !27, !28}
+!42 = distinct !{!42, !27, !28}
+!43 = distinct !{!43, !27, !28}
+!44 = distinct !{!44, !27, !28}
+!45 = distinct !{!45, !27, !28}
+!46 = distinct !{!46, !27, !28}
+!47 = distinct !{!47, !27, !28}
+!48 = distinct !{!48, !27, !28}
+!49 = distinct !{!49, !27, !28}
+!50 = distinct !{!50, !27, !28}
+!51 = distinct !{!51, !27, !28}
+!52 = distinct !{!52, !27, !28}
+!53 = distinct !{!53, !27, !28, !54}
+!54 = !{!"llvm.loop.unswitch.partial.disable"}
+!55 = !{!56, !57, i64 0}
+!56 = !{!"FT_Vector_", !57, i64 0, !57, i64 8}
+!57 = !{!"long", !5, i64 0}
+!58 = !{!56, !57, i64 8}
+!59 = distinct !{!59, !27, !28}
+!60 = distinct !{!60, !27, !28}
+!61 = distinct !{!61, !27, !28}
+!62 = !{!63, !4, i64 144}
+!63 = !{!"FT_GlyphSlotRec_", !64, i64 0, !65, i64 8, !66, i64 16, !4, i64 24, !67, i64 32, !68, i64 48, !57, i64 112, !57, i64 120, !56, i64 128, !4, i64 144, !8, i64 152, !4, i64 192, !4, i64 196, !69, i64 200, !4, i64 240, !72, i64 248, !10, i64 256, !57, i64 264, !57, i64 272, !57, i64 280, !10, i64 288, !73, i64 296}
+!64 = !{!"p1 _ZTS14FT_LibraryRec_", !10, i64 0}
+!65 = !{!"p1 _ZTS11FT_FaceRec_", !10, i64 0}
+!66 = !{!"p1 _ZTS16FT_GlyphSlotRec_", !10, i64 0}
+!67 = !{!"FT_Generic_", !10, i64 0, !10, i64 8}
+!68 = !{!"FT_Glyph_Metrics_", !57, i64 0, !57, i64 8, !57, i64 16, !57, i64 24, !57, i64 32, !57, i64 40, !57, i64 48, !57, i64 56}
+!69 = !{!"FT_Outline_", !11, i64 0, !11, i64 2, !70, i64 8, !9, i64 16, !71, i64 24, !4, i64 32}
+!70 = !{!"p1 _ZTS10FT_Vector_", !10, i64 0}
+!71 = !{!"p1 short", !10, i64 0}
+!72 = !{!"p1 _ZTS15FT_SubGlyphRec_", !10, i64 0}
+!73 = !{!"p1 _ZTS20FT_Slot_InternalRec_", !10, i64 0}
+!74 = !{!63, !73, i64 296}
+!75 = !{!76, !4, i64 8}
+!76 = !{!"FT_Slot_InternalRec_", !77, i64 0, !4, i64 8, !5, i64 12, !78, i64 16, !56, i64 48, !10, i64 64, !4, i64 72}
+!77 = !{!"p1 _ZTS18FT_GlyphLoaderRec_", !10, i64 0}
+!78 = !{!"FT_Matrix_", !57, i64 0, !57, i64 8, !57, i64 16, !57, i64 24}
+!79 = !{!63, !64, i64 0}

@@ -748,7 +748,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
 invoke.cont20:                                    ; preds = %invoke.cont18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #9
   %inc = add nuw nsw i64 %i.0, 1
-  br label %for.cond, !llvm.loop !6
+  br label %for.cond, !llvm.loop !7
 
 lpad19:                                           ; preds = %invoke.cont18
   %5 = landingpad { ptr, i32 }
@@ -926,6 +926,7 @@ attributes #11 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

@@ -136,21 +136,21 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   %60 = load ptr, ptr %41, align 8, !tbaa !34
   %61 = shl nuw nsw i64 %indvars.iv111, 2
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 %61
-  %63 = load i32, ptr %62, align 4, !tbaa !37
+  %63 = load i32, ptr %62, align 4, !tbaa !38
   %64 = load ptr, ptr %19, align 8, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 18
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %61
   store i32 %63, ptr %66, align 1, !tbaa !32
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next112, 256
-  br i1 %exitcond114.not, label %.split103.us, label %.split.us, !llvm.loop !38
+  br i1 %exitcond114.not, label %.split103.us, label %.split.us, !llvm.loop !39
 
 .split:                                           ; preds = %48, %.split
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %.split ], [ 0, %48 ]
   %67 = load ptr, ptr %41, align 8, !tbaa !34
   %68 = shl nuw nsw i64 %indvars.iv107, 2
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
-  %70 = load i32, ptr %69, align 4, !tbaa !37
+  %70 = load i32, ptr %69, align 4, !tbaa !38
   %71 = trunc i32 %70 to i8
   %72 = load ptr, ptr %19, align 8, !tbaa !30
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 18
@@ -159,7 +159,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   store i8 %71, ptr %75, align 1, !tbaa !32
   %76 = load ptr, ptr %41, align 8, !tbaa !34
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %68
-  %78 = load i32, ptr %77, align 4, !tbaa !37
+  %78 = load i32, ptr %77, align 4, !tbaa !38
   %79 = lshr i32 %78, 8
   %80 = trunc i32 %79 to i8
   %81 = load ptr, ptr %19, align 8, !tbaa !30
@@ -169,7 +169,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   store i8 %80, ptr %84, align 1, !tbaa !32
   %85 = load ptr, ptr %41, align 8, !tbaa !34
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 %68
-  %87 = load i32, ptr %86, align 4, !tbaa !37
+  %87 = load i32, ptr %86, align 4, !tbaa !38
   %88 = lshr i32 %87, 16
   %89 = trunc i32 %88 to i8
   %90 = load ptr, ptr %19, align 8, !tbaa !30
@@ -179,7 +179,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   store i8 %89, ptr %93, align 1, !tbaa !32
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, 256
-  br i1 %exitcond110.not, label %.split103.us, label %.split, !llvm.loop !40
+  br i1 %exitcond110.not, label %.split103.us, label %.split, !llvm.loop !41
 
 .split103.us:                                     ; preds = %.split, %.split.us
   %94 = shl nuw nsw i32 %.0, 5
@@ -238,7 +238,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   %123 = lshr i8 %122, 3
   %124 = zext nneg i8 %123 to i32
   %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !41
+  %126 = load i32, ptr %125, align 8, !tbaa !42
   %.not93 = icmp eq i32 %126, 0
   br i1 %.not93, label %targa_encode_rle.exit.thread, label %127
 
@@ -257,7 +257,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   %.01924.i = phi i32 [ 0, %.lr.ph.i ], [ %144, %140 ]
   %.02023.i = phi i32 [ %13, %.lr.ph.i ], [ %143, %140 ]
   %133 = load ptr, ptr %2, align 8, !tbaa !34
-  %134 = load i32, ptr %131, align 8, !tbaa !37
+  %134 = load i32, ptr %131, align 8, !tbaa !38
   %135 = mul nsw i32 %134, %.01924.i
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %133, i64 %136
@@ -271,7 +271,7 @@ define internal range(i32 -2147483648, 1) i32 @targa_encode_frame(ptr noundef %0
   %143 = sub nsw i32 %.02023.i, %138
   %144 = add nuw nsw i32 %.01924.i, 1
   %exitcond.not.i = icmp eq i32 %144, %129
-  br i1 %exitcond.not.i, label %targa_encode_rle.exit, label %132, !llvm.loop !43
+  br i1 %exitcond.not.i, label %targa_encode_rle.exit, label %132, !llvm.loop !44
 
 targa_encode_rle.exit:                            ; preds = %140, %127
   %.0.lcssa.i = phi ptr [ %.088, %127 ], [ %142, %140 ]
@@ -309,12 +309,12 @@ targa_encode_rle.exit.thread:                     ; preds = %132, %119, %targa_e
   %.01617.i = phi i32 [ 0, %.lr.ph.i95 ], [ %167, %162 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01518.i, ptr align 1 %.019.i, i64 %160, i1 false)
   %163 = getelementptr inbounds i8, ptr %.01518.i, i64 %160
-  %164 = load i32, ptr %161, align 8, !tbaa !37
+  %164 = load i32, ptr %161, align 8, !tbaa !38
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i8, ptr %.019.i, i64 %165
   %167 = add nuw nsw i32 %.01617.i, 1
   %exitcond.not.i96 = icmp eq i32 %167, %155
-  br i1 %exitcond.not.i96, label %targa_encode_normal.exit, label %162, !llvm.loop !44
+  br i1 %exitcond.not.i96, label %targa_encode_normal.exit, label %162, !llvm.loop !45
 
 targa_encode_normal.exit:                         ; preds = %162, %targa_encode_rle.exit.thread
   %.015.lcssa.i = phi ptr [ %.088, %targa_encode_rle.exit.thread ], [ %163, %162 ]
@@ -336,8 +336,8 @@ targa_encode_normal.exit:                         ; preds = %162, %targa_encode_
   %178 = sub i64 %176, %177
   %179 = trunc i64 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %179, ptr %180, align 8, !tbaa !45
-  store i32 1, ptr %3, align 4, !tbaa !37
+  store i32 %179, ptr %180, align 8, !tbaa !46
+  store i32 1, ptr %3, align 4, !tbaa !38
   br label %181
 
 181:                                              ; preds = %4, %171, %117
@@ -411,14 +411,15 @@ attributes #5 = { nounwind }
 !32 = !{!8, !8, i64 0}
 !33 = !{!5, !10, i64 648}
 !34 = !{!14, !14, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !36, !39}
-!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!40 = distinct !{!40, !36}
-!41 = !{!42, !10, i64 8}
-!42 = !{!"TargaContext", !6, i64 0, !10, i64 8}
-!43 = distinct !{!43, !36}
-!44 = distinct !{!44, !36}
-!45 = !{!31, !10, i64 32}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!10, !10, i64 0}
+!39 = distinct !{!39, !36, !37, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !36, !37}
+!42 = !{!43, !10, i64 8}
+!43 = !{!"TargaContext", !6, i64 0, !10, i64 8}
+!44 = distinct !{!44, !36, !37}
+!45 = distinct !{!45, !36, !37}
+!46 = !{!31, !10, i64 32}

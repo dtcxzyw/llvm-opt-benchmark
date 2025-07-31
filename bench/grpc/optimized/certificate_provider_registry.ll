@@ -255,43 +255,43 @@ define void @_ZN9grpc_core27CertificateProviderRegistry7Builder5BuildEv(ptr dead
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !23
+  %9 = load i32, ptr %8, align 8, !tbaa !24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %15 = load i64, ptr %14, align 8, !tbaa !26
+  %15 = load i64, ptr %14, align 8, !tbaa !27
   store ptr null, ptr %5, align 8, !tbaa !11
-  store ptr %8, ptr %10, align 8, !tbaa !24
-  store ptr %8, ptr %12, align 8, !tbaa !25
-  store i64 0, ptr %14, align 8, !tbaa !26
+  store ptr %8, ptr %10, align 8, !tbaa !25
+  store ptr %8, ptr %12, align 8, !tbaa !26
+  store i64 0, ptr %14, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %9, ptr %4, align 8, !tbaa !23
+  store i32 %9, ptr %4, align 8, !tbaa !24
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %21, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %19, ptr %22, align 8, !tbaa !27
+  store ptr %19, ptr %22, align 8, !tbaa !28
   store ptr null, ptr %20, align 8, !tbaa !11
-  store ptr %4, ptr %16, align 8, !tbaa !24
-  store ptr %4, ptr %17, align 8, !tbaa !25
-  store i64 0, ptr %18, align 8, !tbaa !26
+  store ptr %4, ptr %16, align 8, !tbaa !25
+  store ptr %4, ptr %17, align 8, !tbaa !26
+  store i64 0, ptr %18, align 8, !tbaa !27
   br label %_ZN9grpc_core27CertificateProviderRegistryC2ESt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrINS_26CertificateProviderFactoryESt14default_deleteIS7_EESt4lessIS5_ESaISt4pairIKS5_SA_EEE.exit
 
 23:                                               ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr null, ptr %24, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %4, ptr %25, align 8, !tbaa !24
+  store ptr %4, ptr %25, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr %4, ptr %26, align 8, !tbaa !25
+  store ptr %4, ptr %26, align 8, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 0, ptr %27, align 8, !tbaa !26
-  store i32 0, ptr %4, align 8, !tbaa !23
+  store i64 0, ptr %27, align 8, !tbaa !27
+  store i32 0, ptr %4, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %29, align 8, !tbaa !11
@@ -304,12 +304,12 @@ _ZN9grpc_core27CertificateProviderRegistryC2ESt3mapISt17basic_string_viewIcSt11c
   %.sink3 = phi i64 [ 0, %23 ], [ %15, %7 ]
   %.sink.i.i.i.i.i = phi i32 [ 0, %23 ], [ %9, %7 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sink5, ptr %31, align 8, !tbaa !24
+  store ptr %.sink5, ptr %31, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink4, ptr %32, align 8, !tbaa !25
+  store ptr %.sink4, ptr %32, align 8, !tbaa !26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.sink3, ptr %33, align 8, !tbaa !26
-  store i32 %.sink.i.i.i.i.i, ptr %30, align 8, !tbaa !23
+  store i64 %.sink3, ptr %33, align 8, !tbaa !27
+  store i32 %.sink.i.i.i.i.i, ptr %30, align 8, !tbaa !24
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef null)
           to label %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS6_EESt4lessIS3_ESaISt4pairIKS3_S9_EEED2Ev.exit unwind label %34
 
@@ -363,7 +363,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i: ;
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !20
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 _ZNKSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS5_.exit.i.i: ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i.i
   %13 = icmp eq ptr %.19.i.i.i, %6
@@ -427,10 +427,10 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsI
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   tail call void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %.not.i.i.i.i.i.i = icmp eq ptr %8, null
@@ -446,7 +446,7 @@ _ZNKSt14default_deleteIN9grpc_core26CertificateProviderFactoryEEclEPS1_.exit.i.i
 _ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN9grpc_core26CertificateProviderFactoryEEclEPS1_.exit.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 56) #23
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit, %2
   ret void
@@ -464,16 +464,16 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 define linkonce_odr ptr @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE22_M_emplace_hint_uniqueIJRS3_SB_EEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::basic_string_view<char>, std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>, std::_Select1st<std::pair<const std::basic_string_view<char>, std::unique_ptr<grpc_core::CertificateProviderFactory>>>, std::less<std::basic_string_view<char>>>::_Auto_node", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
-  store ptr %0, ptr %5, align 8, !tbaa !32
+  store ptr %0, ptr %5, align 8, !tbaa !33
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !35
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %10 = load i64, ptr %3, align 8, !tbaa !3
   store i64 %10, ptr %9, align 8, !tbaa !3
   store ptr null, ptr %3, align 8, !tbaa !3
-  store ptr %7, ptr %6, align 8, !tbaa !35
+  store ptr %7, ptr %6, align 8, !tbaa !36
   %11 = invoke { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS5_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %8)
           to label %12 unwind label %29
 
@@ -523,9 +523,9 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i: ; p
   %25 = phi i1 [ true, %15 ], [ %24, %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit.i.i ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %25, ptr noundef nonnull %7, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(32) %16) #19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load i64, ptr %26, align 8, !tbaa !26
+  %27 = load i64, ptr %26, align 8, !tbaa !27
   %28 = add i64 %27, 1
-  store i64 %28, ptr %26, align 8, !tbaa !26
+  store i64 %28, ptr %26, align 8, !tbaa !27
   br label %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE10_Auto_nodeD2Ev.exit
 
 29:                                               ; preds = %4
@@ -565,7 +565,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !26
+  %8 = load i64, ptr %7, align 8, !tbaa !27
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %18, label %9
 
@@ -674,7 +674,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit37: ; pre
 
 44:                                               ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit37
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !29
+  %46 = load ptr, ptr %45, align 8, !tbaa !30
   %47 = icmp eq ptr %46, null
   %spec.select = select i1 %47, ptr null, ptr %1
   %spec.select93 = select i1 %47, ptr %37, ptr %1
@@ -740,7 +740,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit65: ; pre
 
 68:                                               ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit65
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !29
+  %70 = load ptr, ptr %69, align 8, !tbaa !30
   %71 = icmp eq ptr %70, null
   %spec.select94 = select i1 %71, ptr null, ptr %61
   %spec.select95 = select i1 %71, ptr %1, ptr %61
@@ -763,7 +763,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit65: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
 
@@ -834,7 +834,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
   %.in = getelementptr inbounds nuw i8, ptr %.03438, i64 %.in.v
   %.034 = load ptr, ptr %.in, align 8, !tbaa !20
   %.not = icmp eq ptr %.034, null
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit
   br i1 %11, label %._crit_edge.thread, label %17
@@ -842,7 +842,7 @@ _ZNKSt4lessISt17basic_string_viewIcSt11char_traitsIcEEEclERKS3_S6_.exit: ; preds
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.033.lcssa42 = phi ptr [ %.03438, %._crit_edge ], [ %4, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = icmp eq ptr %.033.lcssa42, %13
   br i1 %14, label %24, label %15
 
@@ -966,21 +966,22 @@ attributes #25 = { nounwind willreturn memory(read) }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 omnipotent char", !5, i64 0}
 !20 = !{!15, !15, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!12, !14, i64 0}
-!24 = !{!12, !15, i64 16}
-!25 = !{!12, !15, i64 24}
-!26 = !{!12, !16, i64 32}
-!27 = !{!13, !15, i64 8}
-!28 = distinct !{!28, !22}
-!29 = !{!13, !15, i64 24}
-!30 = !{!13, !15, i64 16}
-!31 = distinct !{!31, !22}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTSSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE", !5, i64 0}
-!34 = !{i64 0, i64 8, !17, i64 8, i64 8, !18}
-!35 = !{!36, !37, i64 8}
-!36 = !{!"_ZTSNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE10_Auto_nodeE", !33, i64 0, !37, i64 8}
-!37 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEEE", !5, i64 0}
-!38 = distinct !{!38, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!12, !14, i64 0}
+!25 = !{!12, !15, i64 16}
+!26 = !{!12, !15, i64 24}
+!27 = !{!12, !16, i64 32}
+!28 = !{!13, !15, i64 8}
+!29 = distinct !{!29, !22, !23}
+!30 = !{!13, !15, i64 24}
+!31 = !{!13, !15, i64 16}
+!32 = distinct !{!32, !22, !23}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE", !5, i64 0}
+!35 = !{i64 0, i64 8, !17, i64 8, i64 8, !18}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"_ZTSNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS3_ESaISC_EE10_Auto_nodeE", !34, i64 0, !38, i64 8}
+!38 = !{!"p1 _ZTSSt13_Rb_tree_nodeISt4pairIKSt17basic_string_viewIcSt11char_traitsIcEESt10unique_ptrIN9grpc_core26CertificateProviderFactoryESt14default_deleteIS8_EEEE", !5, i64 0}
+!39 = distinct !{!39, !22, !23}

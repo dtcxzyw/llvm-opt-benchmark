@@ -290,7 +290,7 @@ define hidden i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %108 = load i64, ptr %83, align 8, !tbaa !22
   %109 = icmp sgt i64 %108, %indvars.iv.next177
-  br i1 %109, label %.lr.ph172, label %._crit_edge173, !llvm.loop !31
+  br i1 %109, label %.lr.ph172, label %._crit_edge173, !llvm.loop !32
 
 ._crit_edge173:                                   ; preds = %104, %98
   br i1 %70, label %110, label %112
@@ -324,7 +324,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
-  %9 = load i64, ptr %2, align 8, !tbaa !32
+  %9 = load i64, ptr %2, align 8, !tbaa !33
   %10 = trunc i64 %9 to i32
   %11 = and i32 %10, 24
   %.not = icmp eq i32 %11, 0
@@ -336,7 +336,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !35
+  %15 = load i64, ptr %14, align 8, !tbaa !36
   %16 = trunc i64 %15 to i32
   %17 = and i32 %10, 192
   br label %20
@@ -389,13 +389,13 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %.092129 = phi i64 [ 0, %.lr.ph ], [ %38, %33 ]
   %34 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.092129) #10
   store ptr %34, ptr %8, align 8, !tbaa !6
-  %35 = load ptr, ptr %32, align 8, !tbaa !36
+  %35 = load ptr, ptr %32, align 8, !tbaa !37
   %36 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %8, ptr noundef null, ptr noundef %35, i32 noundef -1, i32 noundef %21)
   %37 = add nsw i32 %36, %.088130
   %38 = add nuw i64 %.092129, 1
   %39 = call i64 @sk_num(ptr noundef nonnull %26) #10
   %40 = icmp ult i64 %38, %39
-  br i1 %40, label %33, label %._crit_edge, !llvm.loop !37
+  br i1 %40, label %33, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %33, %27
   %.088.lcssa = phi i32 [ 0, %27 ], [ %37, %33 ]
@@ -419,7 +419,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %.096123127 = phi i32 [ %43, %44 ], [ %41, %42 ]
   call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %.088.lcssa, i32 noundef %.090, i32 noundef %.089) #10
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !36
+  %47 = load ptr, ptr %46, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
   br i1 %.not110, label %.preheader, label %48
@@ -455,7 +455,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %61 = add nuw i64 %.054.i144, 1
   %62 = call i64 @sk_num(ptr noundef nonnull %26) #10
   %63 = icmp ult i64 %61, %62
-  br i1 %63, label %.lr.ph145, label %asn1_set_seq_out.exit, !llvm.loop !38
+  br i1 %63, label %.lr.ph145, label %asn1_set_seq_out.exit, !llvm.loop !39
 
 64:                                               ; preds = %55
   store ptr %57, ptr %7, align 8, !tbaa !11
@@ -469,18 +469,18 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %66 = call ptr @sk_value(ptr noundef nonnull %26, i64 noundef %.155.i131) #10
   store ptr %66, ptr %6, align 8, !tbaa !6
   %67 = load ptr, ptr %7, align 8, !tbaa !11
-  store ptr %67, ptr %.0.i132, align 8, !tbaa !39
+  store ptr %67, ptr %.0.i132, align 8, !tbaa !40
   %68 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %47, i32 noundef -1, i32 noundef range(i32 0, -192) %21)
   %69 = getelementptr inbounds nuw i8, ptr %.0.i132, i64 8
-  store i32 %68, ptr %69, align 8, !tbaa !41
+  store i32 %68, ptr %69, align 8, !tbaa !42
   %70 = load ptr, ptr %6, align 8, !tbaa !6
   %71 = getelementptr inbounds nuw i8, ptr %.0.i132, i64 16
-  store ptr %70, ptr %71, align 8, !tbaa !42
+  store ptr %70, ptr %71, align 8, !tbaa !43
   %72 = add nuw i64 %.155.i131, 1
   %73 = getelementptr inbounds nuw i8, ptr %.0.i132, i64 24
   %74 = call i64 @sk_num(ptr noundef nonnull %26) #10
   %75 = icmp ult i64 %72, %74
-  br i1 %75, label %.lr.ph134, label %._crit_edge135, !llvm.loop !43
+  br i1 %75, label %.lr.ph134, label %._crit_edge135, !llvm.loop !44
 
 ._crit_edge135:                                   ; preds = %.lr.ph134, %64
   %76 = call i64 @sk_num(ptr noundef nonnull %26) #10
@@ -495,12 +495,12 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %.1.i137 = phi ptr [ %89, %.lr.ph139 ], [ %54, %._crit_edge135 ]
   %.256.i136 = phi i64 [ %88, %.lr.ph139 ], [ 0, %._crit_edge135 ]
   %79 = load ptr, ptr %7, align 8, !tbaa !11
-  %80 = load ptr, ptr %.1.i137, align 8, !tbaa !39
+  %80 = load ptr, ptr %.1.i137, align 8, !tbaa !40
   %81 = getelementptr inbounds nuw i8, ptr %.1.i137, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !41
+  %82 = load i32, ptr %81, align 8, !tbaa !42
   %83 = sext i32 %82 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 1 %80, i64 %83, i1 false)
-  %84 = load i32, ptr %81, align 8, !tbaa !41
+  %84 = load i32, ptr %81, align 8, !tbaa !42
   %85 = load ptr, ptr %7, align 8, !tbaa !11
   %86 = sext i32 %84 to i64
   %87 = getelementptr inbounds i8, ptr %85, i64 %86
@@ -509,7 +509,7 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %89 = getelementptr inbounds nuw i8, ptr %.1.i137, i64 24
   %90 = call i64 @sk_num(ptr noundef nonnull %26) #10
   %91 = icmp ult i64 %88, %90
-  br i1 %91, label %.lr.ph139, label %._crit_edge140, !llvm.loop !44
+  br i1 %91, label %.lr.ph139, label %._crit_edge140, !llvm.loop !45
 
 ._crit_edge140:                                   ; preds = %.lr.ph139, %._crit_edge135
   %92 = load ptr, ptr %7, align 8, !tbaa !11
@@ -525,13 +525,13 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   %.2.i142 = phi ptr [ %98, %.lr.ph143 ], [ %54, %.preheader128 ]
   %.3.i141 = phi i64 [ %97, %.lr.ph143 ], [ 0, %.preheader128 ]
   %94 = getelementptr inbounds nuw i8, ptr %.2.i142, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !42
+  %95 = load ptr, ptr %94, align 8, !tbaa !43
   %96 = call ptr @sk_set(ptr noundef nonnull %26, i64 noundef %.3.i141, ptr noundef %95) #10
   %97 = add nuw i64 %.3.i141, 1
   %98 = getelementptr inbounds nuw i8, ptr %.2.i142, i64 24
   %99 = call i64 @sk_num(ptr noundef nonnull %26) #10
   %100 = icmp ult i64 %97, %99
-  br i1 %100, label %.lr.ph143, label %.loopexit, !llvm.loop !45
+  br i1 %100, label %.lr.ph143, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.lr.ph143, %.preheader128, %._crit_edge140
   call void @free(ptr noundef nonnull %54) #10
@@ -564,7 +564,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_se
   %107 = and i32 %10, 16
   %.not106 = icmp eq i32 %107, 0
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !36
+  %109 = load ptr, ptr %108, align 8, !tbaa !37
   br i1 %.not106, label %119, label %110
 
 110:                                              ; preds = %106
@@ -579,7 +579,7 @@ asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_se
 
 114:                                              ; preds = %112
   tail call void @ASN1_put_object(ptr noundef nonnull %1, i32 noundef %spec.select120, i32 noundef %111, i32 noundef %.095, i32 noundef %.094) #10
-  %115 = load ptr, ptr %108, align 8, !tbaa !36
+  %115 = load ptr, ptr %108, align 8, !tbaa !37
   %116 = tail call i32 @ASN1_item_ex_i2d(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %115, i32 noundef -1, i32 noundef %21)
   br i1 %or.cond.not.not, label %122, label %117
 
@@ -602,7 +602,7 @@ define internal fastcc i32 @asn1_i2d_ex_primitive(ptr noundef %0, ptr noundef %1
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !46
+  %8 = load i64, ptr %7, align 8, !tbaa !47
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %6, align 4, !tbaa !28
   %10 = call i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef null, ptr noundef nonnull %6, ptr noundef %2)
@@ -699,7 +699,7 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !47
+  %11 = load ptr, ptr %10, align 8, !tbaa !48
   %.not58 = icmp eq ptr %11, null
   br i1 %.not58, label %14, label %12
 
@@ -714,7 +714,7 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !46
+  %18 = load i64, ptr %17, align 8, !tbaa !47
   %.not60 = icmp eq i64 %18, 1
   br i1 %.not60, label %.thread.thread, label %.thread70
 
@@ -734,12 +734,12 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 ..thread_crit_edge:                               ; preds = %22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !46
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !47
   br label %.thread
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !49
+  %26 = load i32, ptr %25, align 4, !tbaa !50
   store i32 %26, ptr %2, align 4, !tbaa !28
   br label %34
 
@@ -750,7 +750,7 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 29:                                               ; preds = %.thread
   %30 = load ptr, ptr %0, align 8, !tbaa !6
-  %31 = load i32, ptr %30, align 8, !tbaa !51
+  %31 = load i32, ptr %30, align 8, !tbaa !52
   store i32 %31, ptr %2, align 4, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %34
@@ -776,9 +776,9 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 35:                                               ; preds = %34
   %36 = load ptr, ptr %.049, align 8, !tbaa !6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !53
+  %38 = load ptr, ptr %37, align 8, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 20
-  %40 = load i32, ptr %39, align 4, !tbaa !55
+  %40 = load i32, ptr %39, align 4, !tbaa !56
   br label %77
 
 41:                                               ; preds = %34
@@ -788,14 +788,14 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !46
+  %46 = load i64, ptr %45, align 8, !tbaa !47
   %.not64 = icmp eq i64 %46, -4
   br i1 %.not64, label %53, label %47
 
 47:                                               ; preds = %44
   %.not65 = icmp eq i32 %42, 0
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %49 = load i64, ptr %48, align 8, !tbaa !56
+  %49 = load i64, ptr %48, align 8, !tbaa !57
   br i1 %.not65, label %52, label %50
 
 50:                                               ; preds = %47
@@ -828,13 +828,13 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 61:                                               ; preds = %34
   %62 = load ptr, ptr %.049, align 8, !tbaa !6
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %64 = load i64, ptr %63, align 8, !tbaa !56
+  %64 = load i64, ptr %63, align 8, !tbaa !57
   %65 = icmp eq i64 %64, 2048
   br i1 %65, label %66, label %73
 
 66:                                               ; preds = %61
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %68 = load i64, ptr %67, align 8, !tbaa !57
+  %68 = load i64, ptr %67, align 8, !tbaa !58
   %69 = and i64 %68, 16
   %.not68 = icmp eq i64 %69, 0
   br i1 %.not68, label %73, label %70
@@ -845,14 +845,14 @@ define hidden i32 @asn1_ex_i2c(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %1, ptr %72, align 8, !tbaa !58
-  store i32 0, ptr %62, align 8, !tbaa !59
+  store ptr %1, ptr %72, align 8, !tbaa !59
+  store i32 0, ptr %62, align 8, !tbaa !60
   br label %.thread74
 
 73:                                               ; preds = %66, %61
   %74 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !58
-  %76 = load i32, ptr %62, align 8, !tbaa !59
+  %75 = load ptr, ptr %74, align 8, !tbaa !59
+  %76 = load i32, ptr %62, align 8, !tbaa !60
   br label %77
 
 77:                                               ; preds = %73, %53, %35
@@ -897,12 +897,12 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @der_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !41
+  %4 = load i32, ptr %3, align 8, !tbaa !42
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !41
+  %6 = load i32, ptr %5, align 8, !tbaa !42
   %. = tail call i32 @llvm.smin.i32(i32 %4, i32 %6)
-  %7 = load ptr, ptr %0, align 8, !tbaa !39
-  %8 = load ptr, ptr %1, align 8, !tbaa !39
+  %7 = load ptr, ptr %0, align 8, !tbaa !40
+  %8 = load ptr, ptr %1, align 8, !tbaa !40
   %9 = sext i32 %. to i64
   %10 = tail call i32 @memcmp(ptr noundef %7, ptr noundef %8, i64 noundef %9) #12
   %.not = icmp eq i32 %10, 0
@@ -964,34 +964,35 @@ attributes #12 = { nounwind willreturn memory(read) }
 !26 = !{!"ASN1_COMPAT_FUNCS_st", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
 !27 = !{!9, !9, i64 0}
 !28 = !{!20, !20, i64 0}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
-!32 = !{!33, !15, i64 0}
-!33 = !{!"ASN1_TEMPLATE_st", !15, i64 0, !15, i64 8, !15, i64 16, !12, i64 24, !34, i64 32}
-!34 = !{!"p1 _ZTS12ASN1_ITEM_st", !8, i64 0}
-!35 = !{!33, !15, i64 8}
-!36 = !{!33, !34, i64 32}
-!37 = distinct !{!37, !30}
-!38 = distinct !{!38, !30}
-!39 = !{!40, !12, i64 0}
-!40 = !{!"", !12, i64 0, !20, i64 8, !7, i64 16}
-!41 = !{!40, !20, i64 8}
-!42 = !{!40, !7, i64 16}
-!43 = distinct !{!43, !30}
-!44 = distinct !{!44, !30}
-!45 = distinct !{!45, !30}
-!46 = !{!14, !15, i64 8}
-!47 = !{!48, !8, i64 48}
-!48 = !{!"ASN1_PRIMITIVE_FUNCS_st", !8, i64 0, !15, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
-!49 = !{!50, !20, i64 4}
-!50 = !{!"asn1_string_st", !20, i64 0, !20, i64 4, !12, i64 8, !15, i64 16}
-!51 = !{!52, !20, i64 0}
-!52 = !{!"asn1_type_st", !20, i64 0, !9, i64 8}
-!53 = !{!54, !12, i64 24}
-!54 = !{!"asn1_object_st", !12, i64 0, !12, i64 8, !20, i64 16, !20, i64 20, !12, i64 24, !20, i64 32}
-!55 = !{!54, !20, i64 20}
-!56 = !{!14, !15, i64 40}
-!57 = !{!50, !15, i64 16}
-!58 = !{!50, !12, i64 8}
-!59 = !{!50, !20, i64 0}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30, !31}
+!33 = !{!34, !15, i64 0}
+!34 = !{!"ASN1_TEMPLATE_st", !15, i64 0, !15, i64 8, !15, i64 16, !12, i64 24, !35, i64 32}
+!35 = !{!"p1 _ZTS12ASN1_ITEM_st", !8, i64 0}
+!36 = !{!34, !15, i64 8}
+!37 = !{!34, !35, i64 32}
+!38 = distinct !{!38, !30, !31}
+!39 = distinct !{!39, !30, !31}
+!40 = !{!41, !12, i64 0}
+!41 = !{!"", !12, i64 0, !20, i64 8, !7, i64 16}
+!42 = !{!41, !20, i64 8}
+!43 = !{!41, !7, i64 16}
+!44 = distinct !{!44, !30, !31}
+!45 = distinct !{!45, !30, !31}
+!46 = distinct !{!46, !30, !31}
+!47 = !{!14, !15, i64 8}
+!48 = !{!49, !8, i64 48}
+!49 = !{!"ASN1_PRIMITIVE_FUNCS_st", !8, i64 0, !15, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
+!50 = !{!51, !20, i64 4}
+!51 = !{!"asn1_string_st", !20, i64 0, !20, i64 4, !12, i64 8, !15, i64 16}
+!52 = !{!53, !20, i64 0}
+!53 = !{!"asn1_type_st", !20, i64 0, !9, i64 8}
+!54 = !{!55, !12, i64 24}
+!55 = !{!"asn1_object_st", !12, i64 0, !12, i64 8, !20, i64 16, !20, i64 20, !12, i64 24, !20, i64 32}
+!56 = !{!55, !20, i64 20}
+!57 = !{!14, !15, i64 40}
+!58 = !{!51, !15, i64 16}
+!59 = !{!51, !12, i64 8}
+!60 = !{!51, !20, i64 0}

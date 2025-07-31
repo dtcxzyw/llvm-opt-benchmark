@@ -306,7 +306,7 @@ palette_add_to_cache.exit66:                      ; preds = %64, %68
 palette_add_to_cache.exit67:                      ; preds = %88, %92
   %.6 = phi i32 [ %.27592, %88 ], [ %93, %92 ]
   %96 = icmp samesign ugt i32 %.394, 1
-  br i1 %96, label %.lr.ph95, label %.preheader, !llvm.loop !6
+  br i1 %96, label %.lr.ph95, label %.preheader, !llvm.loop !7
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %palette_add_to_cache.exit68
   %indvars.iv105 = phi i64 [ %83, %.lr.ph102.preheader ], [ %indvars.iv.next106, %palette_add_to_cache.exit68 ]
@@ -336,7 +336,7 @@ palette_add_to_cache.exit67:                      ; preds = %88, %92
 palette_add_to_cache.exit68:                      ; preds = %101, %105
   %.7 = phi i32 [ %.37699, %101 ], [ %106, %105 ]
   %109 = icmp samesign ugt i32 %.353101, 1
-  br i1 %109, label %.lr.ph102, label %.loopexit, !llvm.loop !7
+  br i1 %109, label %.lr.ph102, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %palette_add_to_cache.exit68, %.preheader, %32
   %.0 = phi i32 [ 0, %32 ], [ %.275.lcssa, %.preheader ], [ %.7, %palette_add_to_cache.exit68 ]
@@ -967,7 +967,8 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

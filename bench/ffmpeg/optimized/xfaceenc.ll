@@ -98,7 +98,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %35
-  %39 = load i32, ptr %21, align 8, !tbaa !33
+  %39 = load i32, ptr %21, align 8, !tbaa !34
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds i8, ptr %.046, i64 %40
   br label %42
@@ -107,7 +107,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %.149 = phi i32 [ 0, %38 ], [ %36, %35 ]
   %.1 = phi ptr [ %41, %38 ], [ %.046, %35 ]
   %43 = icmp slt i64 %indvars.iv, 2303
-  br i1 %43, label %22, label %44, !llvm.loop !34
+  br i1 %43, label %22, label %44, !llvm.loop !35
 
 44:                                               ; preds = %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(2304) %7, ptr noundef nonnull align 8 dereferenceable(2304) %20, i64 2304, i1 false)
@@ -130,32 +130,32 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 1576
   call fastcc void @encode_block(ptr noundef nonnull %52, i32 noundef 16, i32 noundef 16, i32 noundef 0, ptr noundef %6)
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 9216
-  %54 = load i32, ptr %53, align 4, !tbaa !35
+  %54 = load i32, ptr %53, align 4, !tbaa !36
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph, label %._crit_edge69
 
 .lr.ph:                                           ; preds = %44, %.lr.ph
   %56 = phi i32 [ %65, %.lr.ph ], [ %54, %44 ]
   %57 = add nsw i32 %56, -1
-  store i32 %57, ptr %53, align 4, !tbaa !35
+  store i32 %57, ptr %53, align 4, !tbaa !36
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw [4608 x %struct.ProbRange], ptr %6, i64 0, i64 %58
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #8
-  %60 = load i8, ptr %59, align 2, !tbaa !37
+  %60 = load i8, ptr %59, align 2, !tbaa !38
   call void @ff_big_div(ptr noundef nonnull %8, i8 noundef zeroext %60, ptr noundef nonnull %5) #8
   call void @ff_big_mul(ptr noundef nonnull %8, i8 noundef zeroext 0) #8
   %61 = load i8, ptr %5, align 1, !tbaa !30
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 1
-  %63 = load i8, ptr %62, align 1, !tbaa !39
+  %63 = load i8, ptr %62, align 1, !tbaa !40
   %64 = add i8 %63, %61
   call void @ff_big_add(ptr noundef nonnull %8, i8 noundef zeroext %64) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #8
-  %65 = load i32, ptr %53, align 4, !tbaa !35
+  %65 = load i32, ptr %53, align 4, !tbaa !36
   %66 = icmp sgt i32 %65, 0
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.pre = load i32, ptr %8, align 4, !tbaa !41
+  %.pre = load i32, ptr %8, align 4, !tbaa !42
   %67 = icmp slt i32 %.pre, 546
   br i1 %67, label %.preheader, label %68
 
@@ -187,9 +187,9 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %73 = getelementptr inbounds nuw [666 x i8], ptr %9, i64 0, i64 %indvars.iv79
   store i8 %72, ptr %73, align 1, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #8
-  %.pr = load i32, ptr %8, align 4, !tbaa !41
+  %.pr = load i32, ptr %8, align 4, !tbaa !42
   %.not61 = icmp eq i32 %.pr, 0
-  br i1 %.not61, label %._crit_edge69.loopexit, label %.lr.ph68, !llvm.loop !43
+  br i1 %.not61, label %._crit_edge69.loopexit, label %.lr.ph68, !llvm.loop !44
 
 ._crit_edge69.loopexit:                           ; preds = %70
   %74 = trunc nuw nsw i64 %indvars.iv.next80 to i32
@@ -205,7 +205,7 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
 
 79:                                               ; preds = %._crit_edge69
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !44
+  %81 = load ptr, ptr %80, align 8, !tbaa !45
   %82 = icmp sgt i32 %.2.lcssa, 0
   br i1 %82, label %.lr.ph73.preheader, label %._crit_edge74
 
@@ -222,14 +222,14 @@ define internal range(i32 -2147483648, 1) i32 @xface_encode_frame(ptr noundef %0
   %86 = getelementptr inbounds nuw i8, ptr %.071, i64 1
   store i8 %85, ptr %.071, align 1, !tbaa !30
   %87 = icmp samesign ugt i64 %indvars.iv83, 1
-  br i1 %87, label %.lr.ph73, label %._crit_edge74, !llvm.loop !46
+  br i1 %87, label %.lr.ph73, label %._crit_edge74, !llvm.loop !47
 
 ._crit_edge74:                                    ; preds = %.lr.ph73, %79
   %.0.lcssa = phi ptr [ %81, %79 ], [ %86, %.lr.ph73 ]
   %88 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 1
   store i8 10, ptr %.0.lcssa, align 1, !tbaa !30
   store i8 0, ptr %88, align 1, !tbaa !30
-  store i32 1, ptr %3, align 4, !tbaa !33
+  store i32 1, ptr %3, align 4, !tbaa !34
   br label %89
 
 89:                                               ; preds = %._crit_edge69, %._crit_edge74, %.thread
@@ -290,15 +290,15 @@ tailrecurse:                                      ; preds = %pq_push.exit46, %5
   %15 = getelementptr inbounds nuw i8, ptr %.08.i.i, i64 1
   %16 = load i8, ptr %.08.i.i, align 1, !tbaa !30
   %.not13.i.i = icmp eq i8 %16, 0
-  br i1 %.not13.i.i, label %12, label %.loopexit, !llvm.loop !47
+  br i1 %.not13.i.i, label %12, label %.loopexit, !llvm.loop !48
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %.01116.i.i, i64 48
   %.not.i.i = icmp eq i32 %11, 0
-  br i1 %.not.i.i, label %all_white.exit, label %.preheader.i.i, !llvm.loop !48
+  br i1 %.not.i.i, label %all_white.exit, label %.preheader.i.i, !llvm.loop !49
 
 all_white.exit:                                   ; preds = %10, %17
-  %19 = load i32, ptr %6, align 4, !tbaa !35
+  %19 = load i32, ptr %6, align 4, !tbaa !36
   %20 = icmp sgt i32 %19, 4606
   br i1 %20, label %pq_push.exit, label %21
 
@@ -307,7 +307,7 @@ all_white.exit:                                   ; preds = %10, %17
   %22 = ashr exact i64 %sext73, 32
   %23 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %22, i64 2
   %24 = add nsw i32 %19, 1
-  store i32 %24, ptr %6, align 4, !tbaa !35
+  store i32 %24, ptr %6, align 4, !tbaa !36
   %25 = sext i32 %19 to i64
   %26 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %4, i64 0, i64 %25
   %27 = load i16, ptr %23, align 2
@@ -317,7 +317,7 @@ all_white.exit:                                   ; preds = %10, %17
 .loopexit:                                        ; preds = %13, %tailrecurse
   %28 = tail call fastcc i32 @all_black(ptr noundef nonnull %.tr, i32 noundef %.tr48, i32 noundef %.tr49)
   %.not42 = icmp eq i32 %28, 0
-  %29 = load i32, ptr %6, align 4, !tbaa !35
+  %29 = load i32, ptr %6, align 4, !tbaa !36
   %30 = icmp sgt i32 %29, 4606
   br i1 %.not42, label %39, label %31
 
@@ -329,7 +329,7 @@ all_white.exit:                                   ; preds = %10, %17
   %33 = ashr exact i64 %sext, 32
   %34 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %33
   %35 = add nsw i32 %29, 1
-  store i32 %35, ptr %6, align 4, !tbaa !35
+  store i32 %35, ptr %6, align 4, !tbaa !36
   %36 = sext i32 %29 to i64
   %37 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %4, i64 0, i64 %36
   %38 = load i16, ptr %34, align 2
@@ -346,7 +346,7 @@ pq_push.exit44:                                   ; preds = %31, %32
 40:                                               ; preds = %39
   %41 = getelementptr inbounds [4 x [3 x %struct.ProbRange]], ptr @ff_xface_probranges_per_level, i64 0, i64 %indvars.iv, i64 1
   %42 = add nsw i32 %29, 1
-  store i32 %42, ptr %6, align 4, !tbaa !35
+  store i32 %42, ptr %6, align 4, !tbaa !36
   %43 = sext i32 %29 to i64
   %44 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %4, i64 0, i64 %43
   %45 = load i16, ptr %41, align 2
@@ -474,7 +474,7 @@ tailrecurse:                                      ; preds = %4, %tailrecurse
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
   %.tr28.lcssa = phi ptr [ %1, %4 ], [ %13, %tailrecurse ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 9216
-  %16 = load i32, ptr %15, align 4, !tbaa !35
+  %16 = load i32, ptr %15, align 4, !tbaa !36
   %17 = icmp sgt i32 %16, 4606
   br i1 %17, label %pq_push.exit, label %18
 
@@ -501,7 +501,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %4
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds %struct.ProbRange, ptr %33, i64 %38
   %40 = add nsw i32 %16, 1
-  store i32 %40, ptr %15, align 4, !tbaa !35
+  store i32 %40, ptr %15, align 4, !tbaa !36
   %41 = sext i32 %16 to i64
   %42 = getelementptr inbounds [4608 x %struct.ProbRange], ptr %0, i64 0, i64 %41
   %43 = load i16, ptr %39, align 2
@@ -560,21 +560,22 @@ attributes #9 = { noreturn nounwind }
 !28 = !{!5, !10, i64 116}
 !29 = !{!14, !14, i64 0}
 !30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!10, !10, i64 0}
-!34 = distinct !{!34, !32}
-!35 = !{!36, !10, i64 9216}
-!36 = !{!"", !8, i64 0, !10, i64 9216}
-!37 = !{!38, !8, i64 0}
-!38 = !{!"", !8, i64 0, !8, i64 1}
-!39 = !{!38, !8, i64 1}
-!40 = distinct !{!40, !32}
-!41 = !{!42, !10, i64 0}
-!42 = !{!"", !10, i64 0, !8, i64 4}
-!43 = distinct !{!43, !32}
-!44 = !{!45, !14, i64 24}
-!45 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!46 = distinct !{!46, !32}
-!47 = distinct !{!47, !32}
-!48 = distinct !{!48, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!10, !10, i64 0}
+!35 = distinct !{!35, !32, !33}
+!36 = !{!37, !10, i64 9216}
+!37 = !{!"", !8, i64 0, !10, i64 9216}
+!38 = !{!39, !8, i64 0}
+!39 = !{!"", !8, i64 0, !8, i64 1}
+!40 = !{!39, !8, i64 1}
+!41 = distinct !{!41, !32, !33}
+!42 = !{!43, !10, i64 0}
+!43 = !{!"", !10, i64 0, !8, i64 4}
+!44 = distinct !{!44, !32, !33}
+!45 = !{!46, !14, i64 24}
+!46 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!47 = distinct !{!47, !32, !33}
+!48 = distinct !{!48, !32, !33}
+!49 = distinct !{!49, !32, !33}

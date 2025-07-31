@@ -2363,7 +2363,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr noundef captures(none)
   %.1 = phi i32 [ %34, %31 ], [ %.092, %36 ], [ %44, %41 ], [ %.092, %46 ]
   %50 = add nuw nsw i32 %.07988, 1
   %exitcond.not = icmp eq i32 %50, %26
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %49, %22
   %.077.lcssa = phi ptr [ %8, %22 ], [ %.178, %49 ]
@@ -2758,7 +2758,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
   %209 = zext i8 %208 to i32
   %210 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef nonnull %169, i32 noundef %189, ptr noundef %2, i32 noundef %192, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.519, i32 noundef %194, i32 noundef %199, i32 noundef %204, i32 noundef %209)
   %211 = icmp samesign ult i32 %201, %176
-  br i1 %211, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %211, label %.preheader, label %.loopexit, !llvm.loop !12
 
 212:                                              ; preds = %185
   %213 = icmp ugt i8 %175, 7
@@ -2781,7 +2781,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
   %224 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %169, i32 noundef %220, ptr noundef %2, i32 noundef %223, i32 noundef 4, i32 noundef 0)
   %225 = add nuw nsw i32 %.0367463, 8
   %226 = icmp samesign ult i32 %225, %176
-  br i1 %226, label %.preheader446, label %.loopexit, !llvm.loop !12
+  br i1 %226, label %.preheader446, label %.loopexit, !llvm.loop !13
 
 227:                                              ; preds = %185
   %228 = icmp ugt i8 %175, 1
@@ -2861,7 +2861,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
 271:                                              ; preds = %.sink.split.i, %267, %263
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit448, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit448, label %.lr.ph.i, !llvm.loop !14
 
 .loopexit448:                                     ; preds = %271, %243
   %.0.lcssa.i = phi i64 [ 0, %243 ], [ %wide.trip.count.i, %271 ]
@@ -2889,7 +2889,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
   %284 = add i32 %283, %282
   %285 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %169, i32 noundef %281, ptr noundef %2, i32 noundef %284, i32 noundef 2, i32 noundef 0)
   %286 = icmp samesign ult i32 %283, %176
-  br i1 %286, label %.preheader449, label %.loopexit, !llvm.loop !14
+  br i1 %286, label %.preheader449, label %.loopexit, !llvm.loop !15
 
 287:                                              ; preds = %185
   %.not387 = icmp eq i8 %175, 0
@@ -2950,7 +2950,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
 317:                                              ; preds = %.sink.split.i410, %313, %309
   %indvars.iv.next.i406 = add nuw nsw i64 %indvars.iv.i405, 1
   %exitcond.not.i407 = icmp eq i64 %indvars.iv.next.i406, %wide.trip.count.i403
-  br i1 %exitcond.not.i407, label %.loopexit451, label %.lr.ph.i404, !llvm.loop !13
+  br i1 %exitcond.not.i407, label %.loopexit451, label %.lr.ph.i404, !llvm.loop !14
 
 .loopexit451:                                     ; preds = %317, %288
   %.0.lcssa.i409 = phi i64 [ 0, %288 ], [ %wide.trip.count.i403, %317 ]
@@ -3036,7 +3036,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
 364:                                              ; preds = %.sink.split.i423, %360, %356
   %indvars.iv.next.i419 = add nuw nsw i64 %indvars.iv.i418, 1
   %exitcond.not.i420 = icmp eq i64 %indvars.iv.next.i419, %wide.trip.count.i416
-  br i1 %exitcond.not.i420, label %.loopexit452, label %.lr.ph.i417, !llvm.loop !13
+  br i1 %exitcond.not.i420, label %.loopexit452, label %.lr.ph.i417, !llvm.loop !14
 
 .loopexit452:                                     ; preds = %364, %335
   %.0.lcssa.i422 = phi i64 [ 0, %335 ], [ %wide.trip.count.i416, %364 ]
@@ -3145,7 +3145,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
 430:                                              ; preds = %.sink.split.i436, %426, %422
   %indvars.iv.next.i432 = add nuw nsw i64 %indvars.iv.i431, 1
   %exitcond.not.i433 = icmp eq i64 %indvars.iv.next.i432, %wide.trip.count.i429
-  br i1 %exitcond.not.i433, label %.loopexit453, label %.lr.ph.i430, !llvm.loop !13
+  br i1 %exitcond.not.i433, label %.loopexit453, label %.lr.ph.i430, !llvm.loop !14
 
 .loopexit453:                                     ; preds = %430, %392
   %.0.lcssa.i435 = phi i64 [ 0, %392 ], [ %wide.trip.count.i429, %430 ]
@@ -3287,7 +3287,7 @@ default.unreachable:                              ; preds = %23
   %510 = phi i32 [ %96, %94 ], [ %145, %143 ], [ %164, %162 ], [ %507, %.loopexit ]
   %.1 = phi i32 [ %97, %94 ], [ %146, %143 ], [ %165, %162 ], [ %508, %.loopexit ]
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %.loopexit454, label %23, !llvm.loop !15
+  br i1 %.not, label %.loopexit454, label %23, !llvm.loop !16
 
 .loopexit454.sink.split:                          ; preds = %390, %334, %287, %278, %227, %212, %186
   %511 = tail call ptr @expert_add_info(ptr noundef %3, ptr noundef %26, ptr noundef nonnull @ei_x25_facility_length)
@@ -3445,11 +3445,12 @@ attributes #8 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}

@@ -416,7 +416,7 @@ define dso_local ptr @stepd_step_rec_create(ptr noundef %0, i16 noundef zeroext 
   %249 = load i32, ptr %137, align 8
   %250 = zext i32 %249 to i64
   %251 = icmp samesign ult i64 %indvars.iv.next282, %250
-  br i1 %251, label %.lr.ph276, label %._crit_edge277, !llvm.loop !11
+  br i1 %251, label %.lr.ph276, label %._crit_edge277, !llvm.loop !12
 
 ._crit_edge277:                                   ; preds = %248, %213
   %252 = tail call ptr @eio_handle_create(i16 noundef zeroext 0) #9
@@ -701,7 +701,7 @@ srun_info_create.exit:                            ; preds = %326, %335
 
 .thread:                                          ; preds = %402, %409
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %431 = load i8, ptr %430, align 8, !range !12, !noundef !13
+  %431 = load i8, ptr %430, align 8, !range !13, !noundef !14
   br label %.thread287
 
 .thread287:                                       ; preds = %409, %406, %.thread
@@ -894,7 +894,7 @@ _expand_stdio_filename.exit66.i:                  ; preds = %516, %514, %512, %5
   %540 = load i32, ptr %50, align 4
   %541 = zext i32 %540 to i64
   %542 = icmp samesign ult i64 %indvars.iv.next.i, %541
-  br i1 %542, label %466, label %._crit_edge.i, !llvm.loop !14
+  br i1 %542, label %466, label %._crit_edge.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %539
   %543 = icmp eq i32 %540, 0
@@ -924,7 +924,7 @@ _expand_stdio_filename.exit66.i:                  ; preds = %516, %514, %512, %5
   %560 = load i32, ptr %50, align 4
   %561 = zext i32 %560 to i64
   %562 = icmp samesign ult i64 %indvars.iv.next74.i, %561
-  br i1 %562, label %.lr.ph69.i, label %_job_init_task_info.exit, !llvm.loop !15
+  br i1 %562, label %.lr.ph69.i, label %_job_init_task_info.exit, !llvm.loop !16
 
 _job_init_task_info.exit:                         ; preds = %.lr.ph69.i, %._crit_edge.i, %454, %451, %8, %69, %29
   %.0 = phi ptr [ null, %29 ], [ null, %69 ], [ null, %8 ], [ %15, %451 ], [ %15, %454 ], [ %15, %._crit_edge.i ], [ %15, %.lr.ph69.i ]
@@ -1016,7 +1016,7 @@ _task_info_destroy.exit.us.i:                     ; preds = %22
   %27 = load i32, ptr %11, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next47.i, %28
-  br i1 %29, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !16
+  br i1 %29, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %_task_info_destroy.exit.i, %_task_info_destroy.exit.us.i, %10
   call void @slurm_xfree(ptr noundef nonnull %8) #9
@@ -1079,7 +1079,7 @@ _task_info_destroy.exit.i:                        ; preds = %38
   %45 = load i32, ptr %11, align 4
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next.i, %46
-  br i1 %47, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !18
+  br i1 %47, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !19
 
 _task_info_array_destroy.exit:                    ; preds = %1, %._crit_edge.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -1277,7 +1277,7 @@ _task_info_array_destroy.exit:                    ; preds = %1, %._crit_edge.i
   %121 = load i32, ptr %116, align 4
   %122 = zext i32 %121 to i64
   %123 = icmp samesign ult i64 %indvars.iv.next, %122
-  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %123, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %113
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -1939,7 +1939,7 @@ _batchfilename.exit158:                           ; preds = %_batchfilename.exit
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 160
   store ptr %244, ptr %247, align 8
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %249 = load i8, ptr %248, align 8, !range !12, !noundef !13
+  %249 = load i8, ptr %248, align 8, !range !13, !noundef !14
   %250 = getelementptr inbounds nuw i8, ptr %12, i64 904
   store i8 %249, ptr %250, align 8
   br label %251
@@ -2084,15 +2084,16 @@ attributes #11 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}

@@ -225,12 +225,12 @@ define void @stbcc__build_connected_components_for_clumps(ptr noundef captures(n
 ._crit_edge:                                      ; preds = %13, %5
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, 32
-  br i1 %exitcond.not, label %18, label %5, !llvm.loop !12
+  br i1 %exitcond.not, label %18, label %5, !llvm.loop !13
 
 18:                                               ; preds = %._crit_edge
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, 32
-  br i1 %exitcond109.not, label %.preheader77, label %.preheader79, !llvm.loop !13
+  br i1 %exitcond109.not, label %.preheader77, label %.preheader79, !llvm.loop !14
 
 .preheader77:                                     ; preds = %18, %76
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %76 ], [ 0, %18 ]
@@ -256,11 +256,11 @@ define void @stbcc__build_connected_components_for_clumps(ptr noundef captures(n
   %indvars.iv113 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next114, %._crit_edge86 ]
   %29 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %24, i64 0, i64 %indvars.iv113
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 6
-  %31 = load i8, ptr %30, align 2, !tbaa !14
+  %31 = load i8, ptr %30, align 2, !tbaa !15
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %25, i64 0, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  %35 = load i8, ptr %34, align 4, !tbaa !16
+  %35 = load i8, ptr %34, align 4, !tbaa !17
   %.not100 = icmp eq i8 %35, 0
   br i1 %.not100, label %._crit_edge86, label %.lr.ph85
 
@@ -311,10 +311,10 @@ define void @stbcc__build_connected_components_for_clumps(ptr noundef captures(n
 
 stbcc__clump_union.exit:                          ; preds = %37, %59
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  %70 = load i8, ptr %34, align 4, !tbaa !16
+  %70 = load i8, ptr %34, align 4, !tbaa !17
   %71 = zext i8 %70 to i64
   %72 = icmp samesign ult i64 %indvars.iv.next111, %71
-  br i1 %72, label %37, label %._crit_edge86.loopexit, !llvm.loop !17
+  br i1 %72, label %37, label %._crit_edge86.loopexit, !llvm.loop !18
 
 ._crit_edge86.loopexit:                           ; preds = %stbcc__clump_union.exit
   %.pre = load i8, ptr %22, align 2, !tbaa !8
@@ -325,17 +325,17 @@ stbcc__clump_union.exit:                          ; preds = %37, %59
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %74 = zext i8 %73 to i64
   %75 = icmp samesign ult i64 %indvars.iv.next114, %74
-  br i1 %75, label %27, label %._crit_edge90, !llvm.loop !18
+  br i1 %75, label %27, label %._crit_edge90, !llvm.loop !19
 
 ._crit_edge90:                                    ; preds = %._crit_edge86, %20
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 32
-  br i1 %exitcond119.not, label %76, label %20, !llvm.loop !19
+  br i1 %exitcond119.not, label %76, label %20, !llvm.loop !20
 
 76:                                               ; preds = %._crit_edge90
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond123.not = icmp eq i64 %indvars.iv.next121, 32
-  br i1 %exitcond123.not, label %.preheader, label %.preheader77, !llvm.loop !20
+  br i1 %exitcond123.not, label %.preheader, label %.preheader77, !llvm.loop !21
 
 .preheader:                                       ; preds = %76, %92
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %92 ], [ 0, %76 ]
@@ -364,17 +364,17 @@ stbcc__clump_union.exit:                          ; preds = %37, %59
   %89 = load i8, ptr %80, align 2, !tbaa !8
   %90 = zext i8 %89 to i32
   %91 = icmp samesign ult i32 %88, %90
-  br i1 %91, label %85, label %._crit_edge96, !llvm.loop !21
+  br i1 %91, label %85, label %._crit_edge96, !llvm.loop !22
 
 ._crit_edge96:                                    ; preds = %85, %79
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next125, 32
-  br i1 %exitcond127.not, label %92, label %79, !llvm.loop !22
+  br i1 %exitcond127.not, label %92, label %79, !llvm.loop !23
 
 92:                                               ; preds = %._crit_edge96
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next129, 32
-  br i1 %exitcond131.not, label %93, label %.preheader, !llvm.loop !23
+  br i1 %exitcond131.not, label %93, label %.preheader, !llvm.loop !24
 
 93:                                               ; preds = %92
   ret void
@@ -395,7 +395,7 @@ define void @stbcc__build_all_connections_for_cluster(ptr noundef captures(none)
   %11 = shl nsw i32 %1, 5
   %12 = shl nsw i32 %2, 5
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 0, ptr %13, align 1, !tbaa !24
+  store i8 0, ptr %13, align 1, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -430,7 +430,7 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %switch.lookup
-  %29 = load i32, ptr %14, align 4, !tbaa !25
+  %29 = load i32, ptr %14, align 4, !tbaa !26
   %.not = icmp slt i32 %26, %29
   br i1 %.not, label %30, label %.loopexit
 
@@ -440,7 +440,7 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %30
-  %34 = load i32, ptr %15, align 4, !tbaa !28
+  %34 = load i32, ptr %15, align 4, !tbaa !29
   %.not122 = icmp slt i32 %31, %34
   br i1 %.not122, label %35, label %.loopexit
 
@@ -527,13 +527,13 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, %switch.load152
   %92 = add nuw nsw i32 %.0115127, 1
   %exitcond.not = icmp eq i32 %92, 32
-  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !30
 
 .loopexit:                                        ; preds = %91, %switch.lookup, %28, %30, %33
   %.1104 = phi i32 [ %.0103131, %switch.lookup ], [ %.0103131, %28 ], [ %.0103131, %30 ], [ %.0103131, %33 ], [ %.3106, %91 ]
   %93 = add nuw nsw i32 %.0112130, 1
   %exitcond140.not = icmp eq i32 %93, 4
-  br i1 %exitcond140.not, label %94, label %switch.lookup, !llvm.loop !30
+  br i1 %exitcond140.not, label %94, label %switch.lookup, !llvm.loop !31
 
 94:                                               ; preds = %.loopexit
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 2
@@ -577,16 +577,16 @@ switch.lookup:                                    ; preds = %.loopexit, %3
   %115 = trunc i32 %.5132 to i8
   %116 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %109, i64 0, i64 %indvars.iv141
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 6
-  store i8 %115, ptr %117, align 2, !tbaa !14
+  store i8 %115, ptr %117, align 2, !tbaa !15
   %118 = trunc nuw nsw i32 %spec.store.select to i8
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 5
-  store i8 %118, ptr %119, align 1, !tbaa !31
+  store i8 %118, ptr %119, align 1, !tbaa !32
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 4
-  store i8 0, ptr %120, align 4, !tbaa !16
+  store i8 0, ptr %120, align 4, !tbaa !17
   %121 = add nuw nsw i32 %spec.store.select, %.5132
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count
-  br i1 %exitcond144.not, label %._crit_edge, label %110, !llvm.loop !32
+  br i1 %exitcond144.not, label %._crit_edge, label %110, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %110, %108
   tail call void @stbcc__add_connections_to_adjacent_cluster(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef -1, i32 noundef 0)
@@ -613,7 +613,7 @@ define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(non
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 4, !tbaa !25
+  %12 = load i32, ptr %11, align 4, !tbaa !26
   %13 = icmp sge i32 %1, %12
   %14 = icmp slt i32 %2, 0
   %or.cond = or i1 %14, %13
@@ -621,7 +621,7 @@ define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(non
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !28
+  %17 = load i32, ptr %16, align 4, !tbaa !29
   %.not = icmp slt i32 %2, %17
   br i1 %.not, label %18, label %.loopexit
 
@@ -645,7 +645,7 @@ define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(non
   %27 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %25, i64 0, i64 %26
   %28 = zext nneg i32 %1 to i64
   %29 = getelementptr inbounds nuw [32 x %struct.stbcc__cluster], ptr %27, i64 0, i64 %28, i32 2
-  %30 = load i8, ptr %29, align 1, !tbaa !24
+  %30 = load i8, ptr %29, align 1, !tbaa !25
   %.not99 = icmp eq i8 %30, 0
   br i1 %.not99, label %31, label %.loopexit
 
@@ -755,15 +755,15 @@ define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(non
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %102 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %101, i64 0, i64 %80
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  %104 = load i8, ptr %103, align 4, !tbaa !16
+  %104 = load i8, ptr %103, align 4, !tbaa !17
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 5
-  %106 = load i8, ptr %105, align 1, !tbaa !31
+  %106 = load i8, ptr %105, align 1, !tbaa !32
   %107 = icmp eq i8 %104, %106
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %92
   %109 = getelementptr inbounds nuw i8, ptr %100, i64 3
-  store i8 1, ptr %109, align 1, !tbaa !24
+  store i8 1, ptr %109, align 1, !tbaa !25
   br label %stbcc__add_clump_connection.exit
 
 110:                                              ; preds = %92
@@ -771,18 +771,18 @@ define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(non
   %.reass = or disjoint i16 %111, %invariant.op
   %112 = getelementptr inbounds nuw i8, ptr %100, i64 4100
   %113 = getelementptr inbounds nuw i8, ptr %102, i64 6
-  %114 = load i8, ptr %113, align 2, !tbaa !14
+  %114 = load i8, ptr %113, align 2, !tbaa !15
   %115 = zext i8 %114 to i64
   %116 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %112, i64 0, i64 %115
   %117 = add i8 %104, 1
-  store i8 %117, ptr %103, align 4, !tbaa !16
+  store i8 %117, ptr %103, align 4, !tbaa !17
   %118 = zext i8 %104 to i64
   %119 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %116, i64 %118
   store i16 %.reass, ptr %119, align 2, !tbaa !7
   br label %stbcc__add_clump_connection.exit
 
 stbcc__add_clump_connection.exit:                 ; preds = %108, %110
-  %120 = load i8, ptr %29, align 1, !tbaa !24
+  %120 = load i8, ptr %29, align 1, !tbaa !25
   %.not102 = icmp eq i8 %120, 0
   br i1 %.not102, label %.thread, label %.loopexit
 
@@ -791,7 +791,7 @@ stbcc__add_clump_connection.exit:                 ; preds = %108, %110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %.082
   %121 = add nuw nsw i32 %.085109, 1
   %exitcond.not = icmp eq i32 %121, 32
-  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !34
 
 .loopexit:                                        ; preds = %stbcc__add_clump_connection.exit, %.thread, %33, %24, %18, %21, %5, %10, %15
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #10
@@ -805,7 +805,7 @@ define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr noundef
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 4, !tbaa !25
+  %9 = load i32, ptr %8, align 4, !tbaa !26
   %10 = icmp slt i32 %1, %9
   %11 = icmp sgt i32 %2, -1
   %or.cond = and i1 %11, %10
@@ -813,7 +813,7 @@ define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr noundef
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !28
+  %14 = load i32, ptr %13, align 4, !tbaa !29
   %15 = icmp slt i32 %2, %14
   br i1 %15, label %16, label %24
 
@@ -824,7 +824,7 @@ define void @stbcc__add_connections_to_adjacent_cluster_with_rebuild(ptr noundef
   %19 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %17, i64 0, i64 %18
   %20 = zext nneg i32 %1 to i64
   %21 = getelementptr inbounds nuw [32 x %struct.stbcc__cluster], ptr %19, i64 0, i64 %20, i32 2
-  %22 = load i8, ptr %21, align 1, !tbaa !24
+  %22 = load i8, ptr %21, align 1, !tbaa !25
   %.not = icmp eq i8 %22, 0
   br i1 %.not, label %24, label %23
 
@@ -887,7 +887,7 @@ define void @stbcc_update_grid(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 38:                                               ; preds = %17
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load i32, ptr %39, align 4, !tbaa !25
+  %40 = load i32, ptr %39, align 4, !tbaa !26
   %41 = icmp sle i32 %18, %40
   %42 = icmp sgt i32 %19, -1
   %or.cond.i = and i1 %42, %41
@@ -895,7 +895,7 @@ define void @stbcc_update_grid(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 43:                                               ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %45 = load i32, ptr %44, align 4, !tbaa !28
+  %45 = load i32, ptr %44, align 4, !tbaa !29
   %46 = icmp slt i32 %19, %45
   br i1 %46, label %47, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit.thread
 
@@ -906,7 +906,7 @@ define void @stbcc_update_grid(ptr noundef captures(none) %0, i32 noundef %1, i3
   %50 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %48, i64 0, i64 %49
   %51 = zext nneg i32 %20 to i64
   %52 = getelementptr inbounds nuw [32 x %struct.stbcc__cluster], ptr %50, i64 0, i64 %51, i32 2
-  %53 = load i8, ptr %52, align 1, !tbaa !24
+  %53 = load i8, ptr %52, align 1, !tbaa !25
   %.not.i = icmp eq i8 %53, 0
   br i1 %.not.i, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit.thread, label %54
 
@@ -920,7 +920,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit: ; preds = %17
 
 stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit.thread: ; preds = %54, %47, %43, %38, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load i32, ptr %56, align 4, !tbaa !25
+  %57 = load i32, ptr %56, align 4, !tbaa !26
   %58 = icmp slt i32 %21, %57
   %59 = icmp sgt i32 %19, -1
   %or.cond.i54 = and i1 %59, %58
@@ -928,7 +928,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit.thread: ; preds = %
 
 60:                                               ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit.thread
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %62 = load i32, ptr %61, align 4, !tbaa !28
+  %62 = load i32, ptr %61, align 4, !tbaa !29
   %63 = icmp slt i32 %19, %62
   br i1 %63, label %64, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56
 
@@ -939,7 +939,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit.thread: ; preds = %
   %67 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %65, i64 0, i64 %66
   %68 = zext nneg i32 %21 to i64
   %69 = getelementptr inbounds nuw [32 x %struct.stbcc__cluster], ptr %67, i64 0, i64 %68, i32 2
-  %70 = load i8, ptr %69, align 1, !tbaa !24
+  %70 = load i8, ptr %69, align 1, !tbaa !25
   %.not.i55 = icmp eq i8 %70, 0
   br i1 %.not.i55, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56, label %71
 
@@ -952,7 +952,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56: ; preds = %stbcc
   br i1 %72, label %73, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit62
 
 73:                                               ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56
-  %74 = load i32, ptr %56, align 4, !tbaa !25
+  %74 = load i32, ptr %56, align 4, !tbaa !26
   %75 = icmp slt i32 %18, %74
   %76 = icmp sgt i32 %19, 0
   %or.cond.i57 = and i1 %76, %75
@@ -960,7 +960,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56: ; preds = %stbcc
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %79 = load i32, ptr %78, align 4, !tbaa !28
+  %79 = load i32, ptr %78, align 4, !tbaa !29
   %.not64 = icmp sgt i32 %19, %79
   br i1 %.not64, label %88, label %80
 
@@ -971,7 +971,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56: ; preds = %stbcc
   %83 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %81, i64 0, i64 %82
   %84 = zext nneg i32 %18 to i64
   %85 = getelementptr inbounds nuw [32 x %struct.stbcc__cluster], ptr %83, i64 0, i64 %84, i32 2
-  %86 = load i8, ptr %85, align 1, !tbaa !24
+  %86 = load i8, ptr %85, align 1, !tbaa !25
   %.not.i58 = icmp eq i8 %86, 0
   br i1 %.not.i58, label %88, label %87
 
@@ -980,7 +980,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56: ; preds = %stbcc
   br label %88
 
 88:                                               ; preds = %73, %77, %80, %87
-  %89 = load i32, ptr %56, align 4, !tbaa !25
+  %89 = load i32, ptr %56, align 4, !tbaa !26
   %90 = icmp slt i32 %18, %89
   %91 = icmp sgt i32 %19, -2
   %or.cond.i60 = and i1 %91, %90
@@ -988,7 +988,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56: ; preds = %stbcc
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %94 = load i32, ptr %93, align 4, !tbaa !28
+  %94 = load i32, ptr %93, align 4, !tbaa !29
   %95 = icmp slt i32 %23, %94
   br i1 %95, label %96, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit62
 
@@ -999,7 +999,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56: ; preds = %stbcc
   %99 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__cluster]], ptr %97, i64 0, i64 %98
   %100 = zext nneg i32 %18 to i64
   %101 = getelementptr inbounds nuw [32 x %struct.stbcc__cluster], ptr %99, i64 0, i64 %100, i32 2
-  %102 = load i8, ptr %101, align 1, !tbaa !24
+  %102 = load i8, ptr %101, align 1, !tbaa !25
   %.not.i61 = icmp eq i8 %102, 0
   br i1 %.not.i61, label %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit62, label %103
 
@@ -1009,7 +1009,7 @@ stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56: ; preds = %stbcc
 
 stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit62: ; preds = %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit56, %stbcc__add_connections_to_adjacent_cluster_with_rebuild.exit, %88, %92, %96, %103
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %105 = load i32, ptr %104, align 4, !tbaa !34
+  %105 = load i32, ptr %104, align 4, !tbaa !35
   %.not53 = icmp eq i32 %105, 0
   br i1 %.not53, label %106, label %107
 
@@ -1033,7 +1033,7 @@ define void @stbcc__remove_connections_to_adjacent_cluster(ptr noundef captures(
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load i32, ptr %11, align 4, !tbaa !25
+  %12 = load i32, ptr %11, align 4, !tbaa !26
   %13 = icmp sge i32 %1, %12
   %14 = icmp slt i32 %2, 0
   %or.cond = or i1 %14, %13
@@ -1041,7 +1041,7 @@ define void @stbcc__remove_connections_to_adjacent_cluster(ptr noundef captures(
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !28
+  %17 = load i32, ptr %16, align 4, !tbaa !29
   %.not = icmp slt i32 %2, %17
   br i1 %.not, label %18, label %.loopexit
 
@@ -1165,11 +1165,11 @@ define void @stbcc__remove_connections_to_adjacent_cluster(ptr noundef captures(
   %95 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %94, i64 0, i64 %73
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4100
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 6
-  %98 = load i8, ptr %97, align 2, !tbaa !14
+  %98 = load i8, ptr %97, align 2, !tbaa !15
   %99 = zext i8 %98 to i64
   %100 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %96, i64 0, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  %102 = load i8, ptr %101, align 4, !tbaa !16
+  %102 = load i8, ptr %101, align 4, !tbaa !17
   %.not.i = icmp eq i8 %102, 0
   br i1 %.not.i, label %stbcc__remove_clump_connection.exit, label %.lr.ph.i
 
@@ -1202,13 +1202,13 @@ define void @stbcc__remove_connections_to_adjacent_cluster(ptr noundef captures(
 118:                                              ; preds = %114, %109, %103
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %stbcc__remove_clump_connection.exit, label %103, !llvm.loop !35
+  br i1 %exitcond.not.i, label %stbcc__remove_clump_connection.exit, label %103, !llvm.loop !36
 
 119:                                              ; preds = %114
   %120 = and i64 %indvars.iv.i, 4294967295
   %121 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %100, i64 %120
   %122 = add i8 %102, -1
-  store i8 %122, ptr %101, align 4, !tbaa !16
+  store i8 %122, ptr %101, align 4, !tbaa !17
   %123 = zext i8 %122 to i64
   %124 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %100, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !7
@@ -1220,7 +1220,7 @@ stbcc__remove_clump_connection.exit:              ; preds = %118, %119, %85, %66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %.075
   %126 = add nuw nsw i32 %.07798, 1
   %exitcond.not = icmp eq i32 %126, 32
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !37
 
 .loopexit:                                        ; preds = %stbcc__remove_clump_connection.exit, %26, %18, %21, %5, %10, %15
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %6) #10
@@ -1251,17 +1251,17 @@ define void @stbcc__build_clumps_for_cluster(ptr noundef captures(none) %0, i32 
   %indvars.iv = phi i64 [ 0, %.preheader357 ], [ %indvars.iv.next, %11 ]
   %12 = trunc i64 %indvars.iv to i8
   %13 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %5, i64 0, i64 %indvars.iv
-  store i8 %12, ptr %13, align 2, !tbaa !37
+  store i8 %12, ptr %13, align 2, !tbaa !38
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 %6, ptr %14, align 1, !tbaa !39
+  store i8 %6, ptr %14, align 1, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %15, label %11, !llvm.loop !40
+  br i1 %exitcond.not, label %15, label %11, !llvm.loop !41
 
 15:                                               ; preds = %11
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %exitcond386.not = icmp eq i64 %indvars.iv.next384, 32
-  br i1 %exitcond386.not, label %.preheader356, label %.preheader357, !llvm.loop !41
+  br i1 %exitcond386.not, label %.preheader356, label %.preheader357, !llvm.loop !42
 
 .preheader354:                                    ; preds = %89
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 2048
@@ -1328,7 +1328,7 @@ define void @stbcc__build_clumps_for_cluster(ptr noundef captures(none) %0, i32 
 stbcc__incluster_union.exit:                      ; preds = %47, %40, %25, %35
   %52 = add nuw nsw i32 %.1302360, 1
   %exitcond387.not = icmp eq i32 %52, 32
-  br i1 %exitcond387.not, label %.loopexit, label %25, !llvm.loop !42
+  br i1 %exitcond387.not, label %.loopexit, label %25, !llvm.loop !43
 
 .loopexit:                                        ; preds = %stbcc__incluster_union.exit, %17
   %.pre-phi = phi i64 [ %.pre, %17 ], [ %18, %stbcc__incluster_union.exit ]
@@ -1388,12 +1388,12 @@ stbcc__incluster_union.exit:                      ; preds = %47, %40, %25, %35
 stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %88 = add nuw nsw i32 %.2303361, 1
   %exitcond388.not = icmp eq i32 %88, 31
-  br i1 %exitcond388.not, label %89, label %55, !llvm.loop !43
+  br i1 %exitcond388.not, label %89, label %55, !llvm.loop !44
 
 89:                                               ; preds = %stbcc__incluster_union.exit340
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next390, 32
-  br i1 %exitcond392.not, label %.preheader354, label %17, !llvm.loop !44
+  br i1 %exitcond392.not, label %.preheader354, label %17, !llvm.loop !45
 
 .preheader353:                                    ; preds = %91
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 4032
@@ -1407,7 +1407,7 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   store i16 512, ptr %92, align 2, !tbaa !3
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond396.not = icmp eq i64 %indvars.iv.next394, 32
-  br i1 %exitcond396.not, label %.preheader353, label %91, !llvm.loop !45
+  br i1 %exitcond396.not, label %.preheader353, label %91, !llvm.loop !46
 
 .preheader352:                                    ; preds = %98
   %94 = shl nsw i32 %1, 2
@@ -1425,7 +1425,7 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   store i16 512, ptr %100, align 2, !tbaa !3
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %exitcond400.not = icmp eq i64 %indvars.iv.next398, 32
-  br i1 %exitcond400.not, label %.preheader352, label %98, !llvm.loop !46
+  br i1 %exitcond400.not, label %.preheader352, label %98, !llvm.loop !47
 
 .preheader351:                                    ; preds = %161
   %101 = getelementptr inbounds [1024 x [128 x i8]], ptr %9, i64 0, i64 %10
@@ -1471,14 +1471,14 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %125 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %4, i64 0, i64 %.sroa.3.0.extract.trunc.i
   %126 = zext nneg i16 %.sroa.074.0.extract.trunc.mask to i64
   %127 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %125, i64 0, i64 %126
-  store i8 0, ptr %127, align 2, !tbaa !37
+  store i8 0, ptr %127, align 2, !tbaa !38
   %128 = trunc i64 %indvars.iv401 to i8
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 1
-  store i8 %128, ptr %129, align 1, !tbaa !39
+  store i8 %128, ptr %129, align 1, !tbaa !40
   %130 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %4, i64 0, i64 %indvars.iv401
-  store i8 0, ptr %130, align 2, !tbaa !37
+  store i8 0, ptr %130, align 2, !tbaa !38
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 1
-  store i8 %128, ptr %131, align 1, !tbaa !39
+  store i8 %128, ptr %131, align 1, !tbaa !40
   br label %.sink.split
 
 .sink.split:                                      ; preds = %112, %124
@@ -1520,14 +1520,14 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %151 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %4, i64 0, i64 %.sroa.3.0.extract.trunc.i342
   %152 = zext nneg i16 %.sroa.067.0.extract.trunc.mask to i64
   %153 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %151, i64 0, i64 %152
-  store i8 31, ptr %153, align 2, !tbaa !37
+  store i8 31, ptr %153, align 2, !tbaa !38
   %154 = trunc i64 %indvars.iv401 to i8
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 1
-  store i8 %154, ptr %155, align 1, !tbaa !39
+  store i8 %154, ptr %155, align 1, !tbaa !40
   %156 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %4, i64 0, i64 %indvars.iv401, i64 31
-  store i8 31, ptr %156, align 2, !tbaa !37
+  store i8 31, ptr %156, align 2, !tbaa !38
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 1
-  store i8 %154, ptr %157, align 1, !tbaa !39
+  store i8 %154, ptr %157, align 1, !tbaa !40
   br label %.sink.split443
 
 .sink.split443:                                   ; preds = %138, %150
@@ -1542,7 +1542,7 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %.4 = phi i32 [ %.1, %135 ], [ %.1, %144 ], [ %158, %.sink.split443 ]
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next402, 32
-  br i1 %exitcond404.not, label %.preheader351, label %106, !llvm.loop !47
+  br i1 %exitcond404.not, label %.preheader351, label %106, !llvm.loop !48
 
 162:                                              ; preds = %.preheader351, %220
   %indvars.iv405 = phi i64 [ 1, %.preheader351 ], [ %indvars.iv.next406, %220 ]
@@ -1587,13 +1587,13 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %186 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %4, i64 0, i64 %.sroa.3.0.extract.trunc.i344
   %187 = zext nneg i16 %.sroa.060.0.extract.trunc.mask to i64
   %188 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %186, i64 0, i64 %187
-  store i8 %185, ptr %188, align 2, !tbaa !37
+  store i8 %185, ptr %188, align 2, !tbaa !38
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 1
-  store i8 0, ptr %189, align 1, !tbaa !39
+  store i8 0, ptr %189, align 1, !tbaa !40
   %190 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %4, i64 0, i64 %indvars.iv405
-  store i8 %185, ptr %190, align 2, !tbaa !37
+  store i8 %185, ptr %190, align 2, !tbaa !38
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 1
-  store i8 0, ptr %191, align 1, !tbaa !39
+  store i8 0, ptr %191, align 1, !tbaa !40
   br label %.sink.split445
 
 .sink.split445:                                   ; preds = %174, %184
@@ -1637,13 +1637,13 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %211 = getelementptr inbounds nuw [32 x [32 x %struct.stbcc__tinypoint]], ptr %4, i64 0, i64 %.sroa.3.0.extract.trunc.i346
   %212 = zext nneg i16 %.sroa.054.0.extract.trunc.mask to i64
   %213 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %211, i64 0, i64 %212
-  store i8 %210, ptr %213, align 2, !tbaa !37
+  store i8 %210, ptr %213, align 2, !tbaa !38
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 1
-  store i8 31, ptr %214, align 1, !tbaa !39
+  store i8 31, ptr %214, align 1, !tbaa !40
   %215 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %105, i64 0, i64 %indvars.iv405
-  store i8 %210, ptr %215, align 2, !tbaa !37
+  store i8 %210, ptr %215, align 2, !tbaa !38
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 1
-  store i8 31, ptr %216, align 1, !tbaa !39
+  store i8 31, ptr %216, align 1, !tbaa !40
   br label %.sink.split447
 
 .sink.split447:                                   ; preds = %200, %209
@@ -1657,7 +1657,7 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %.9 = phi i32 [ %.6, %195 ], [ %.6, %205 ], [ %217, %.sink.split447 ]
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %exitcond408.not = icmp eq i64 %indvars.iv.next406, 31
-  br i1 %exitcond408.not, label %221, label %162, !llvm.loop !48
+  br i1 %exitcond408.not, label %221, label %162, !llvm.loop !49
 
 221:                                              ; preds = %220
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 2228244
@@ -1720,12 +1720,12 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %.12 = phi i32 [ %.11372, %237 ], [ %.11372, %233 ], [ %.12.ph, %.sink.split449 ]
   %indvars.iv.next410 = add nuw nsw i64 %indvars.iv409, 1
   %exitcond412.not = icmp eq i64 %indvars.iv.next410, 31
-  br i1 %exitcond412.not, label %255, label %233, !llvm.loop !49
+  br i1 %exitcond412.not, label %255, label %233, !llvm.loop !50
 
 255:                                              ; preds = %254
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %exitcond416.not = icmp eq i64 %indvars.iv.next414, 31
-  br i1 %exitcond416.not, label %.preheader348, label %.preheader350, !llvm.loop !50
+  br i1 %exitcond416.not, label %.preheader348, label %.preheader350, !llvm.loop !51
 
 .preheader348:                                    ; preds = %255, %283
   %indvars.iv421 = phi i64 [ %indvars.iv.next422, %283 ], [ 0, %255 ]
@@ -1775,16 +1775,16 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
 282:                                              ; preds = %260, %265, %276
   %indvars.iv.next418 = add nuw nsw i64 %indvars.iv417, 1
   %exitcond420.not = icmp eq i64 %indvars.iv.next418, 32
-  br i1 %exitcond420.not, label %283, label %260, !llvm.loop !51
+  br i1 %exitcond420.not, label %283, label %260, !llvm.loop !52
 
 283:                                              ; preds = %282
   %indvars.iv.next422 = add nuw nsw i64 %indvars.iv421, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next422, 32
-  br i1 %exitcond424.not, label %284, label %.preheader348, !llvm.loop !52
+  br i1 %exitcond424.not, label %284, label %.preheader348, !llvm.loop !53
 
 284:                                              ; preds = %283
   %285 = trunc i32 %.12 to i16
-  store i16 %285, ptr %226, align 4, !tbaa !53
+  store i16 %285, ptr %226, align 4, !tbaa !54
   %286 = icmp sgt i32 %.12, 0
   br i1 %286, label %.lr.ph, label %.preheader347
 
@@ -1807,12 +1807,12 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   %indvars.iv425 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next426, %294 ]
   %295 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %287, i64 0, i64 %indvars.iv425
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 4
-  store i8 0, ptr %296, align 4, !tbaa !16
+  store i8 0, ptr %296, align 4, !tbaa !17
   %297 = getelementptr inbounds nuw i8, ptr %295, i64 5
-  store i8 0, ptr %297, align 1, !tbaa !31
+  store i8 0, ptr %297, align 1, !tbaa !32
   %indvars.iv.next426 = add nuw nsw i64 %indvars.iv425, 1
   %exitcond429.not = icmp eq i64 %indvars.iv.next426, %wide.trip.count
-  br i1 %exitcond429.not, label %.preheader347, label %294, !llvm.loop !54
+  br i1 %exitcond429.not, label %.preheader347, label %294, !llvm.loop !55
 
 .preheader:                                       ; preds = %.preheader347, %.preheader
   %indvar = phi i64 [ 0, %.preheader347 ], [ %indvar.next, %.preheader ]
@@ -1823,11 +1823,11 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %scevgep, ptr noundef nonnull align 2 dereferenceable(64) %gep441, i64 64, i1 false), !tbaa !3
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond435.not = icmp eq i64 %indvar.next, 32
-  br i1 %exitcond435.not, label %300, label %.preheader, !llvm.loop !55
+  br i1 %exitcond435.not, label %300, label %.preheader, !llvm.loop !56
 
 300:                                              ; preds = %.preheader
   %301 = and i32 %.9, 255
-  %302 = load i16, ptr %226, align 4, !tbaa !53
+  %302 = load i16, ptr %226, align 4, !tbaa !54
   %303 = sext i16 %302 to i32
   %304 = icmp slt i32 %301, %303
   br i1 %304, label %.lr.ph381, label %._crit_edge
@@ -1852,11 +1852,11 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
   store i32 %314, ptr %315, align 4, !tbaa !7
   %indvars.iv.next438 = add nuw nsw i64 %indvars.iv437, 1
   %316 = icmp slt i64 %indvars.iv.next438, %310
-  br i1 %316, label %311, label %._crit_edge, !llvm.loop !56
+  br i1 %316, label %311, label %._crit_edge, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %311, %300
   %317 = getelementptr inbounds nuw i8, ptr %226, i64 3
-  store i8 1, ptr %317, align 1, !tbaa !24
+  store i8 1, ptr %317, align 1, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4) #10
   ret void
 }
@@ -1864,14 +1864,14 @@ stbcc__incluster_union.exit340:                   ; preds = %83, %75, %55, %65
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @stbcc_update_batch_begin(ptr noundef writeonly captures(none) initializes((16, 20)) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %2, align 4, !tbaa !34
+  store i32 1, ptr %2, align 4, !tbaa !35
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define void @stbcc_update_batch_end(ptr noundef captures(none) initializes((16, 20)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %2, align 4, !tbaa !34
+  store i32 0, ptr %2, align 4, !tbaa !35
   tail call void @stbcc__build_connected_components_for_clumps(ptr noundef %0)
   ret void
 }
@@ -1883,17 +1883,17 @@ define noundef i64 @stbcc_grid_sizeof() local_unnamed_addr #7 {
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
 define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  store i32 %2, ptr %0, align 4, !tbaa !57
+  store i32 %2, ptr %0, align 4, !tbaa !58
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %3, ptr %5, align 4, !tbaa !58
+  store i32 %3, ptr %5, align 4, !tbaa !59
   %6 = ashr i32 %2, 5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %6, ptr %7, align 4, !tbaa !25
+  store i32 %6, ptr %7, align 4, !tbaa !26
   %8 = ashr i32 %3, 5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %8, ptr %9, align 4, !tbaa !28
+  store i32 %8, ptr %9, align 4, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %10, align 4, !tbaa !34
+  store i32 0, ptr %10, align 4, !tbaa !35
   %11 = icmp sgt i32 %3, 0
   br i1 %11, label %.preheader65.lr.ph, label %.preheader63
 
@@ -1920,7 +1920,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   store i8 %.1.us, ptr %20, align 1, !tbaa !7
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 8
   %21 = icmp samesign ult i64 %indvars.iv.next83, %14
-  br i1 %21, label %.preheader64.us, label %._crit_edge.us, !llvm.loop !59
+  br i1 %21, label %.preheader64.us, label %._crit_edge.us, !llvm.loop !60
 
 22:                                               ; preds = %.preheader64.us, %22
   %indvars.iv = phi i64 [ 0, %.preheader64.us ], [ %indvars.iv.next, %22 ]
@@ -1938,7 +1938,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %.1.us = or i8 %31, %.067.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %18, label %22, !llvm.loop !60
+  br i1 %exitcond.not, label %18, label %22, !llvm.loop !61
 
 .preheader64.us:                                  ; preds = %.preheader65.us, %18
   %indvars.iv82 = phi i64 [ 0, %.preheader65.us ], [ %indvars.iv.next83, %18 ]
@@ -1948,7 +1948,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
 ._crit_edge.us:                                   ; preds = %18
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
-  br i1 %exitcond88.not, label %.preheader63, label %.preheader65.us, !llvm.loop !61
+  br i1 %exitcond88.not, label %.preheader63, label %.preheader65.us, !llvm.loop !62
 
 .preheader63:                                     ; preds = %._crit_edge.us, %.preheader65.lr.ph, %4
   %33 = icmp sgt i32 %8, 0
@@ -1973,12 +1973,12 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %.15670 = phi i32 [ %40, %.lr.ph ], [ 0, %.preheader62 ]
   tail call void @stbcc__build_clumps_for_cluster(ptr noundef nonnull %0, i32 noundef %.15670, i32 noundef %.15471)
   %40 = add nuw nsw i32 %.15670, 1
-  %41 = load i32, ptr %7, align 4, !tbaa !25
+  %41 = load i32, ptr %7, align 4, !tbaa !26
   %42 = icmp slt i32 %40, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !63
+  br i1 %42, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !64
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i32, ptr %9, align 4, !tbaa !28
+  %.pre = load i32, ptr %9, align 4, !tbaa !29
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader62
@@ -1986,7 +1986,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %44 = phi i32 [ %41, %._crit_edge.loopexit ], [ %36, %.preheader62 ]
   %45 = add nuw nsw i32 %.15471, 1
   %46 = icmp slt i32 %45, %43
-  br i1 %46, label %.preheader62, label %.preheader61, !llvm.loop !64
+  br i1 %46, label %.preheader62, label %.preheader61, !llvm.loop !65
 
 .preheader60:                                     ; preds = %.preheader61, %._crit_edge74
   %47 = phi i32 [ %53, %._crit_edge74 ], [ %43, %.preheader61 ]
@@ -1999,12 +1999,12 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %.25772 = phi i32 [ %50, %.lr.ph73 ], [ 0, %.preheader60 ]
   tail call void @stbcc__build_all_connections_for_cluster(ptr noundef nonnull %0, i32 noundef %.25772, i32 noundef %.275)
   %50 = add nuw nsw i32 %.25772, 1
-  %51 = load i32, ptr %7, align 4, !tbaa !25
+  %51 = load i32, ptr %7, align 4, !tbaa !26
   %52 = icmp slt i32 %50, %51
-  br i1 %52, label %.lr.ph73, label %._crit_edge74.loopexit, !llvm.loop !66
+  br i1 %52, label %.lr.ph73, label %._crit_edge74.loopexit, !llvm.loop !67
 
 ._crit_edge74.loopexit:                           ; preds = %.lr.ph73
-  %.pre89 = load i32, ptr %9, align 4, !tbaa !28
+  %.pre89 = load i32, ptr %9, align 4, !tbaa !29
   br label %._crit_edge74
 
 ._crit_edge74:                                    ; preds = %._crit_edge74.loopexit, %.preheader60
@@ -2012,7 +2012,7 @@ define void @stbcc_init_grid(ptr noundef captures(none) initializes((0, 20)) %0,
   %54 = phi i32 [ %51, %._crit_edge74.loopexit ], [ %48, %.preheader60 ]
   %55 = add nuw nsw i32 %.275, 1
   %56 = icmp slt i32 %55, %53
-  br i1 %56, label %.preheader60, label %._crit_edge76, !llvm.loop !67
+  br i1 %56, label %.preheader60, label %._crit_edge76, !llvm.loop !68
 
 ._crit_edge76:                                    ; preds = %._crit_edge74, %.preheader63, %.preheader61
   tail call void @stbcc__build_connected_components_for_clumps(ptr noundef nonnull %0)
@@ -2038,15 +2038,15 @@ define void @stbcc__add_clump_connection(ptr noundef captures(none) %0, i32 noun
   %20 = zext i16 %13 to i64
   %21 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %19, i64 0, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %23 = load i8, ptr %22, align 4, !tbaa !16
+  %23 = load i8, ptr %22, align 4, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 5
-  %25 = load i8, ptr %24, align 1, !tbaa !31
+  %25 = load i8, ptr %24, align 1, !tbaa !32
   %26 = icmp eq i8 %23, %25
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 3
-  store i8 1, ptr %28, align 1, !tbaa !24
+  store i8 1, ptr %28, align 1, !tbaa !25
   br label %53
 
 29:                                               ; preds = %5
@@ -2067,11 +2067,11 @@ define void @stbcc__add_clump_connection(ptr noundef captures(none) %0, i32 noun
   %44 = or disjoint i16 %40, %43
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 4100
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 6
-  %47 = load i8, ptr %46, align 2, !tbaa !14
+  %47 = load i8, ptr %46, align 2, !tbaa !15
   %48 = zext i8 %47 to i64
   %49 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %45, i64 0, i64 %48
   %50 = add i8 %23, 1
-  store i8 %50, ptr %22, align 4, !tbaa !16
+  store i8 %50, ptr %22, align 4, !tbaa !17
   %51 = zext i8 %23 to i64
   %52 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %49, i64 %51
   store i16 %44, ptr %52, align 2, !tbaa !7
@@ -2106,11 +2106,11 @@ define void @stbcc__remove_clump_connection(ptr noundef captures(none) %0, i32 n
   %26 = getelementptr inbounds nuw [512 x %struct.stbcc__clump], ptr %24, i64 0, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 4100
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 6
-  %29 = load i8, ptr %28, align 2, !tbaa !14
+  %29 = load i8, ptr %28, align 2, !tbaa !15
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds nuw [128 x %struct.stbcc__relative_clumpid], ptr %27, i64 0, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %33 = load i8, ptr %32, align 4, !tbaa !16
+  %33 = load i8, ptr %32, align 4, !tbaa !17
   %.not = icmp eq i8 %33, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -2149,13 +2149,13 @@ define void @stbcc__remove_clump_connection(ptr noundef captures(none) %0, i32 n
 55:                                               ; preds = %40, %46, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !36
 
 56:                                               ; preds = %51
   %57 = and i64 %indvars.iv, 4294967295
   %58 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %31, i64 %57
   %59 = add i8 %33, -1
-  store i8 %59, ptr %32, align 4, !tbaa !16
+  store i8 %59, ptr %32, align 4, !tbaa !17
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw %struct.stbcc__relative_clumpid, ptr %31, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !7
@@ -2235,17 +2235,17 @@ define void @stbcc__switch_root(ptr noundef writeonly captures(none) %0, i32 nou
   %7 = and i16 %3, 255
   %8 = zext nneg i16 %7 to i64
   %9 = getelementptr inbounds nuw [32 x %struct.stbcc__tinypoint], ptr %6, i64 0, i64 %8
-  store i8 %5, ptr %9, align 2, !tbaa !37
+  store i8 %5, ptr %9, align 2, !tbaa !38
   %10 = trunc i32 %2 to i8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 %10, ptr %11, align 1, !tbaa !39
+  store i8 %10, ptr %11, align 1, !tbaa !40
   %12 = sext i32 %2 to i64
   %13 = getelementptr inbounds [32 x [32 x %struct.stbcc__tinypoint]], ptr %0, i64 0, i64 %12
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds [32 x %struct.stbcc__tinypoint], ptr %13, i64 0, i64 %14
-  store i8 %5, ptr %15, align 2, !tbaa !37
+  store i8 %5, ptr %15, align 2, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store i8 %10, ptr %16, align 1, !tbaa !39
+  store i8 %10, ptr %16, align 1, !tbaa !40
   ret void
 }
 
@@ -2276,61 +2276,62 @@ attributes #10 = { nounwind }
 !7 = !{!5, !5, i64 0}
 !8 = !{!9, !5, i64 2}
 !9 = !{!"", !4, i64 0, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 4100}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = !{!15, !5, i64 6}
-!15 = !{!"", !5, i64 0, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7}
-!16 = !{!15, !5, i64 4}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = !{!9, !5, i64 3}
-!25 = !{!26, !27, i64 8}
-!26 = !{!"st_stbcc_grid", !27, i64 0, !27, i64 4, !27, i64 8, !27, i64 12, !27, i64 16, !5, i64 20, !5, i64 131092, !5, i64 2228244}
-!27 = !{!"int", !5, i64 0}
-!28 = !{!26, !27, i64 12}
-!29 = distinct !{!29, !11}
-!30 = distinct !{!30, !11}
-!31 = !{!15, !5, i64 5}
-!32 = distinct !{!32, !11}
-!33 = distinct !{!33, !11}
-!34 = !{!26, !27, i64 16}
-!35 = distinct !{!35, !11}
-!36 = distinct !{!36, !11}
-!37 = !{!38, !5, i64 0}
-!38 = !{!"", !5, i64 0, !5, i64 1}
-!39 = !{!38, !5, i64 1}
-!40 = distinct !{!40, !11}
-!41 = distinct !{!41, !11}
-!42 = distinct !{!42, !11}
-!43 = distinct !{!43, !11}
-!44 = distinct !{!44, !11}
-!45 = distinct !{!45, !11}
-!46 = distinct !{!46, !11}
-!47 = distinct !{!47, !11}
-!48 = distinct !{!48, !11}
-!49 = distinct !{!49, !11}
-!50 = distinct !{!50, !11}
-!51 = distinct !{!51, !11}
-!52 = distinct !{!52, !11}
-!53 = !{!9, !4, i64 0}
-!54 = distinct !{!54, !11}
-!55 = distinct !{!55, !11}
-!56 = distinct !{!56, !11}
-!57 = !{!26, !27, i64 0}
-!58 = !{!26, !27, i64 4}
-!59 = distinct !{!59, !11}
-!60 = distinct !{!60, !11}
-!61 = distinct !{!61, !11, !62}
-!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!63 = distinct !{!63, !11}
-!64 = distinct !{!64, !11, !65}
-!65 = !{!"llvm.loop.unswitch.partial.disable"}
-!66 = distinct !{!66, !11}
-!67 = distinct !{!67, !11, !65}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = !{!16, !5, i64 6}
+!16 = !{!"", !5, i64 0, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7}
+!17 = !{!16, !5, i64 4}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = !{!9, !5, i64 3}
+!26 = !{!27, !28, i64 8}
+!27 = !{!"st_stbcc_grid", !28, i64 0, !28, i64 4, !28, i64 8, !28, i64 12, !28, i64 16, !5, i64 20, !5, i64 131092, !5, i64 2228244}
+!28 = !{!"int", !5, i64 0}
+!29 = !{!27, !28, i64 12}
+!30 = distinct !{!30, !11, !12}
+!31 = distinct !{!31, !11, !12}
+!32 = !{!16, !5, i64 5}
+!33 = distinct !{!33, !11, !12}
+!34 = distinct !{!34, !11, !12}
+!35 = !{!27, !28, i64 16}
+!36 = distinct !{!36, !11, !12}
+!37 = distinct !{!37, !11, !12}
+!38 = !{!39, !5, i64 0}
+!39 = !{!"", !5, i64 0, !5, i64 1}
+!40 = !{!39, !5, i64 1}
+!41 = distinct !{!41, !11, !12}
+!42 = distinct !{!42, !11, !12}
+!43 = distinct !{!43, !11, !12}
+!44 = distinct !{!44, !11, !12}
+!45 = distinct !{!45, !11, !12}
+!46 = distinct !{!46, !11, !12}
+!47 = distinct !{!47, !11, !12}
+!48 = distinct !{!48, !11, !12}
+!49 = distinct !{!49, !11, !12}
+!50 = distinct !{!50, !11, !12}
+!51 = distinct !{!51, !11, !12}
+!52 = distinct !{!52, !11, !12}
+!53 = distinct !{!53, !11, !12}
+!54 = !{!9, !4, i64 0}
+!55 = distinct !{!55, !11, !12}
+!56 = distinct !{!56, !11, !12}
+!57 = distinct !{!57, !11, !12}
+!58 = !{!27, !28, i64 0}
+!59 = !{!27, !28, i64 4}
+!60 = distinct !{!60, !11, !12}
+!61 = distinct !{!61, !11, !12}
+!62 = distinct !{!62, !11, !12, !63}
+!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!64 = distinct !{!64, !11, !12}
+!65 = distinct !{!65, !11, !12, !66}
+!66 = !{!"llvm.loop.unswitch.partial.disable"}
+!67 = distinct !{!67, !11, !12}
+!68 = distinct !{!68, !11, !12, !66}

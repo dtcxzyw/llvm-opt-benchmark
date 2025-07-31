@@ -122,23 +122,23 @@ define dso_local void @nghttp2_downcase(ptr noundef captures(none) %0, i64 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
-  %5 = load i32, ptr %3, align 4, !tbaa !9
+  %5 = load i32, ptr %3, align 4, !tbaa !10
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %25
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %1, align 4, !tbaa !9
+  %8 = load i32, ptr %1, align 4, !tbaa !10
   %spec.select = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %9 = sub nsw i32 %spec.select, %5
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
-  store i32 %9, ptr %1, align 4, !tbaa !9
+  store i32 %9, ptr %1, align 4, !tbaa !10
   br label %44
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr %0, align 4, !tbaa !9
+  %13 = load i32, ptr %0, align 4, !tbaa !10
   %14 = add nsw i32 %9, 2147483647
   %15 = icmp sgt i32 %13, %14
   br i1 %15, label %44, label %16
@@ -146,49 +146,49 @@ define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr no
 16:                                               ; preds = %12
   %17 = sub nsw i32 0, %9
   %18 = sub nsw i32 %13, %9
-  store i32 %18, ptr %0, align 4, !tbaa !9
-  %19 = load i32, ptr %2, align 4, !tbaa !9
+  store i32 %18, ptr %0, align 4, !tbaa !10
+  %19 = load i32, ptr %2, align 4, !tbaa !10
   %. = tail call i32 @llvm.smin.i32(i32 %19, i32 %17)
   %20 = sub nsw i32 %19, %.
-  store i32 %20, ptr %2, align 4, !tbaa !9
-  %21 = load i32, ptr %1, align 4, !tbaa !9
+  store i32 %20, ptr %2, align 4, !tbaa !10
+  %21 = load i32, ptr %1, align 4, !tbaa !10
   %22 = tail call i32 @llvm.smin.i32(i32 %21, i32 0)
   %storemerge = add nsw i32 %22, %.
-  store i32 %storemerge, ptr %1, align 4, !tbaa !9
-  %23 = load i32, ptr %3, align 4, !tbaa !9
+  store i32 %storemerge, ptr %1, align 4, !tbaa !10
+  %23 = load i32, ptr %3, align 4, !tbaa !10
   %24 = sub nsw i32 %23, %.
-  store i32 %24, ptr %3, align 4, !tbaa !9
+  store i32 %24, ptr %3, align 4, !tbaa !10
   br label %44
 
 25:                                               ; preds = %4
-  %26 = load i32, ptr %0, align 4, !tbaa !9
+  %26 = load i32, ptr %0, align 4, !tbaa !10
   %27 = add nsw i32 %26, %5
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %44, label %29
 
 29:                                               ; preds = %25
-  %30 = load i32, ptr %1, align 4, !tbaa !9
+  %30 = load i32, ptr %1, align 4, !tbaa !10
   %31 = sub nsw i32 -2147483648, %5
   %32 = icmp slt i32 %30, %31
   br i1 %32, label %44, label %33
 
 33:                                               ; preds = %29
-  %34 = load i32, ptr %2, align 4, !tbaa !9
+  %34 = load i32, ptr %2, align 4, !tbaa !10
   %35 = add nsw i32 %5, 2147483647
   %36 = icmp sgt i32 %34, %35
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %33
-  store i32 %27, ptr %0, align 4, !tbaa !9
-  %38 = load i32, ptr %3, align 4, !tbaa !9
-  %39 = load i32, ptr %1, align 4, !tbaa !9
+  store i32 %27, ptr %0, align 4, !tbaa !10
+  %38 = load i32, ptr %3, align 4, !tbaa !10
+  %39 = load i32, ptr %1, align 4, !tbaa !10
   %40 = add nsw i32 %39, %38
-  store i32 %40, ptr %1, align 4, !tbaa !9
-  %41 = load i32, ptr %3, align 4, !tbaa !9
-  %42 = load i32, ptr %2, align 4, !tbaa !9
+  store i32 %40, ptr %1, align 4, !tbaa !10
+  %41 = load i32, ptr %3, align 4, !tbaa !10
+  %42 = load i32, ptr %2, align 4, !tbaa !10
   %43 = sub nsw i32 %42, %41
-  store i32 %43, ptr %2, align 4, !tbaa !9
-  store i32 0, ptr %3, align 4, !tbaa !9
+  store i32 %43, ptr %2, align 4, !tbaa !10
+  store i32 0, ptr %3, align 4, !tbaa !10
   br label %44
 
 44:                                               ; preds = %25, %29, %33, %11, %16, %12, %37
@@ -198,25 +198,25 @@ define dso_local range(i32 -524, 1) i32 @nghttp2_adjust_local_window_size(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local range(i32 -524, 1) i32 @nghttp2_increase_local_window_size(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
-  %5 = load i32, ptr %3, align 4, !tbaa !9
-  %6 = load i32, ptr %0, align 4, !tbaa !9
+  %5 = load i32, ptr %3, align 4, !tbaa !10
+  %6 = load i32, ptr %0, align 4, !tbaa !10
   %7 = sub nsw i32 2147483647, %5
   %8 = icmp sgt i32 %6, %7
   br i1 %8, label %17, label %9
 
 9:                                                ; preds = %4
   %10 = add nsw i32 %6, %5
-  store i32 %10, ptr %0, align 4, !tbaa !9
-  %11 = load i32, ptr %2, align 4, !tbaa !9
+  store i32 %10, ptr %0, align 4, !tbaa !10
+  %11 = load i32, ptr %2, align 4, !tbaa !10
   %. = tail call i32 @llvm.smin.i32(i32 %11, i32 %5)
   %12 = sub nsw i32 %11, %.
-  store i32 %12, ptr %2, align 4, !tbaa !9
-  %13 = load i32, ptr %1, align 4, !tbaa !9
+  store i32 %12, ptr %2, align 4, !tbaa !10
+  %13 = load i32, ptr %1, align 4, !tbaa !10
   %14 = add nsw i32 %13, %.
-  store i32 %14, ptr %1, align 4, !tbaa !9
-  %15 = load i32, ptr %3, align 4, !tbaa !9
+  store i32 %14, ptr %1, align 4, !tbaa !10
+  %15 = load i32, ptr %3, align 4, !tbaa !10
   %16 = sub nsw i32 %15, %.
-  store i32 %16, ptr %3, align 4, !tbaa !9
+  store i32 %16, ptr %3, align 4, !tbaa !10
   br label %17
 
 17:                                               ; preds = %4, %9
@@ -442,14 +442,14 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_name(ptr noundef read
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.116, i64 1
   %.not = icmp eq ptr %14, %12
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %.116 = phi ptr [ %14, %13 ], [ %.012, %.lr.ph.preheader ]
   %15 = load i8, ptr %.116, align 1, !tbaa !4
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_NAME_CHARS, i64 0, i64 %16
-  %18 = load i32, ptr %17, align 4, !tbaa !9
+  %18 = load i32, ptr %17, align 4, !tbaa !10
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %.loopexit, label %13
 
@@ -467,14 +467,14 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value(ptr noundef rea
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
   %6 = load i8, ptr %.069, align 1, !tbaa !4
   %7 = zext i8 %6 to i64
   %8 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %7
-  %9 = load i32, ptr %8, align 4, !tbaa !9
+  %9 = load i32, ptr %8, align 4, !tbaa !10
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %._crit_edge, label %4
 
@@ -507,14 +507,14 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_header_value_rfc9113(ptr nou
 10:                                               ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %.069.i, i64 1
   %.not.i = icmp eq ptr %11, %7
-  br i1 %.not.i, label %nghttp2_check_header_value.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %nghttp2_check_header_value.exit, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %6, %10
   %.069.i = phi ptr [ %11, %10 ], [ %0, %6 ]
   %12 = load i8, ptr %.069.i, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = getelementptr inbounds nuw [256 x i32], ptr @VALID_HD_VALUE_CHARS, i64 0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !9
+  %15 = load i32, ptr %14, align 4, !tbaa !10
   %.not7.i = icmp eq i32 %15, 0
   br i1 %.not7.i, label %nghttp2_check_header_value.exit, label %10
 
@@ -535,7 +535,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_method(ptr noundef readonly 
 5:                                                ; preds = %.lr.ph
   %6 = getelementptr inbounds nuw i8, ptr %.0711, i64 1
   %.not = icmp eq ptr %6, %4
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %.0711 = phi ptr [ %6, %5 ], [ %0, %.lr.ph.preheader ]
@@ -560,7 +560,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_path(ptr noundef readonly ca
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
@@ -585,7 +585,7 @@ define dso_local range(i32 0, 2) i32 @nghttp2_check_authority(ptr noundef readon
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.069, i64 1
   %.not = icmp eq ptr %5, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %2, %4
   %.069 = phi ptr [ %5, %4 ], [ %0, %2 ]
@@ -662,12 +662,13 @@ attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}

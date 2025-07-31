@@ -935,7 +935,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_inc.exit36
   %.032.be = phi ptr [ %.0, %lean_inc.exit36 ], [ %70, %lean_alloc_ctor.exit ]
-  br label %6
+  br label %6, !llvm.loop !14
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -1109,7 +1109,7 @@ lean_obj_tag.exit:                                ; preds = %47, %50
 64:                                               ; preds = %63, %60
   %.val.i760 = phi i32 [ %.val.i760.pr, %63 ], [ %61, %60 ]
   %65 = icmp sgt i32 %.val.i760, 0
-  br i1 %65, label %66, label %68, !prof !14
+  br i1 %65, label %66, label %68, !prof !16
 
 66:                                               ; preds = %64
   %67 = add nuw i32 %.val.i760, 1
@@ -1257,7 +1257,7 @@ lean_inc.exit565:                                 ; preds = %106, %105, %103, %9
 117:                                              ; preds = %116, %113
   %.val.i772 = phi i32 [ %.val.i772.pr, %116 ], [ %114, %113 ]
   %118 = icmp sgt i32 %.val.i772, 0
-  br i1 %118, label %119, label %121, !prof !14
+  br i1 %118, label %119, label %121, !prof !16
 
 119:                                              ; preds = %117
   %120 = add nuw i32 %.val.i772, 1
@@ -1874,7 +1874,7 @@ lean_inc.exit550:                                 ; preds = %331, %330, %328, %l
 
 lean_inc.exit549:                                 ; preds = %341, %340, %338, %lean_inc.exit550
   %342 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %343 = load i8, ptr %342, align 1, !tbaa !15
+  %343 = load i8, ptr %342, align 1, !tbaa !17
   br i1 %.not1058, label %344, label %lean_inc.exit548
 
 344:                                              ; preds = %lean_inc.exit549
@@ -2468,7 +2468,7 @@ lean_inc.exit537:                                 ; preds = %547, %546, %544, %l
 
 lean_inc.exit536:                                 ; preds = %557, %556, %554, %lean_inc.exit537
   %558 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %559 = load i8, ptr %558, align 1, !tbaa !15
+  %559 = load i8, ptr %558, align 1, !tbaa !17
   br i1 %.not1043, label %560, label %lean_inc.exit535
 
 560:                                              ; preds = %lean_inc.exit536
@@ -3088,7 +3088,7 @@ lean_inc.exit523:                                 ; preds = %773, %772, %770, %l
 
 lean_inc.exit522:                                 ; preds = %783, %782, %780, %lean_inc.exit523
   %784 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %785 = load i8, ptr %784, align 1, !tbaa !15
+  %785 = load i8, ptr %784, align 1, !tbaa !17
   br i1 %.not1025, label %786, label %lean_inc.exit521
 
 786:                                              ; preds = %lean_inc.exit522
@@ -3745,7 +3745,7 @@ lean_inc.exit509:                                 ; preds = %1007, %1006, %1004,
 1018:                                             ; preds = %1017, %1014
   %.val.i940 = phi i32 [ %.val.i940.pr, %1017 ], [ %1015, %1014 ]
   %1019 = icmp sgt i32 %.val.i940, 0
-  br i1 %1019, label %1020, label %1022, !prof !14
+  br i1 %1019, label %1020, label %1022, !prof !16
 
 1020:                                             ; preds = %1018
   %1021 = add nuw i32 %.val.i940, 1
@@ -4016,7 +4016,7 @@ lean_inc.exit502:                                 ; preds = %1106, %1105, %1103,
 1117:                                             ; preds = %1116, %1113
   %.val.i961 = phi i32 [ %.val.i961.pr, %1116 ], [ %1114, %1113 ]
   %1118 = icmp sgt i32 %.val.i961, 0
-  br i1 %1118, label %1119, label %1121, !prof !14
+  br i1 %1118, label %1119, label %1121, !prof !16
 
 1119:                                             ; preds = %1117
   %1120 = add nuw i32 %.val.i961, 1
@@ -4717,5 +4717,7 @@ attributes #4 = { noreturn nounwind }
 !11 = !{!"any pointer", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!7, !7, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!17 = !{!7, !7, i64 0}

@@ -494,7 +494,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %.2.us = phi i1 [ %.133.us, %48 ], [ %spec.select, %53 ]
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge, label %38, !llvm.loop !8
+  br i1 %exitcond39.not, label %._crit_edge, label %38, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %77 ]
@@ -536,7 +536,7 @@ define dso_local zeroext i1 @check_amproc_signature(i32 noundef %0, i32 noundef 
   %.2 = phi i1 [ %.133, %68 ], [ %spec.select34, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %77, %57, %31
   %.1.lcssa = phi i1 [ %.0, %31 ], [ %.2.us, %57 ], [ %.2, %77 ]
@@ -659,7 +659,7 @@ define dso_local i32 @opclass_for_family_datatype(i32 noundef %0, i32 noundef %1
 27:                                               ; preds = %21, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !12
 
 .loopexit:                                        ; preds = %27, %3, %25
   %.1 = phi i32 [ %26, %25 ], [ 0, %3 ], [ 0, %27 ]
@@ -713,7 +713,7 @@ define dso_local zeroext i1 @opfamily_can_sort_type(i32 noundef %0, i32 noundef 
 26:                                               ; preds = %19, %8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %opclass_for_family_datatype.exit, label %8, !llvm.loop !11
+  br i1 %exitcond.not.i, label %opclass_for_family_datatype.exit, label %8, !llvm.loop !12
 
 opclass_for_family_datatype.exit:                 ; preds = %26, %2, %23
   %.1.i = phi i1 [ %25, %23 ], [ false, %2 ], [ false, %26 ]
@@ -745,9 +745,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

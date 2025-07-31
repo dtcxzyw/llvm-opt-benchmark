@@ -600,7 +600,7 @@ _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedRead
   %.sroa.26.0.be = phi i16 [ %123, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %123, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.26.246, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i30, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %storemerge.i.i.i18, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.5.247, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   %.sroa.30.0.be = phi i16 [ %157, %_ZN20CompressedReadStream8read_intEv.exit13.i27 ], [ %.sroa.30.248, %_ZN20CompressedReadStream8read_intEv.exit.i15 ], [ %.sroa.30.248, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !8
+  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !9
 
 158:                                              ; preds = %24
   ret void
@@ -639,7 +639,7 @@ define linkonce_odr hidden void @_ZN11OopMapValue8write_onEP21CompressedWriteStr
   %19 = icmp uge i32 %18, %4
   %20 = icmp eq i32 %16, 4
   %or.cond.i.i.i.i = select i1 %19, i1 true, i1 %20
-  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
+  br i1 %or.cond.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i.i, %10
   %.0.lcssa.i.i.i.i = phi i32 [ 1, %10 ], [ %12, %._crit_edge.loopexit.i.i.i.i ]
@@ -681,7 +681,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i: ; preds = %22, %_ZN9UNS
   %34 = icmp ult i32 %30, 12224
   %35 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = select i1 %34, i1 true, i1 %35
-  br i1 %or.cond.i.i.i, label %27, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %or.cond.i.i.i, label %27, label %.preheader.i.i.i, !llvm.loop !11
 
 _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i, %27
   %.lcssa.sink.i.i.i = phi i32 [ %33, %27 ], [ %4, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i ]
@@ -732,7 +732,7 @@ _ZN21CompressedWriteStream9write_intEj.exit:      ; preds = %_ZN9UNSIGNED513fits
   %61 = icmp ule i32 %49, %60
   %62 = icmp eq i32 %58, 4
   %or.cond.i.i.i.i20 = select i1 %61, i1 true, i1 %62
-  br i1 %or.cond.i.i.i.i20, label %._crit_edge.loopexit.i.i.i.i21, label %.lr.ph.i.i.i.i16, !llvm.loop !9
+  br i1 %or.cond.i.i.i.i20, label %._crit_edge.loopexit.i.i.i.i21, label %.lr.ph.i.i.i.i16, !llvm.loop !10
 
 _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.i.i22: ; preds = %._crit_edge.loopexit.i.i.i.i21, %52
   %.0.lcssa.i.i.i.i23 = phi i32 [ 1, %52 ], [ %54, %._crit_edge.loopexit.i.i.i.i21 ]
@@ -774,7 +774,7 @@ _ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i4: ; preds = %64, %_ZN9UN
   %76 = icmp ult i32 %72, 12224
   %77 = icmp eq i64 %indvars.iv.next.i.i.i11, 4
   %or.cond.i.i.i12 = select i1 %76, i1 true, i1 %77
-  br i1 %or.cond.i.i.i12, label %69, label %.preheader.i.i.i7, !llvm.loop !10
+  br i1 %or.cond.i.i.i12, label %69, label %.preheader.i.i.i7, !llvm.loop !11
 
 _ZN21CompressedWriteStream9write_intEj.exit26:    ; preds = %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i4, %69
   %.lcssa.sink.i.i.i13 = phi i32 [ %75, %69 ], [ %49, %_ZN9UNSIGNED513fits_in_limitIiEEbjT_S1_.exit.thread.i.i4 ]
@@ -1085,7 +1085,7 @@ _ZN12OopMapStream4nextEv.exit22.backedge:         ; preds = %_ZN20CompressedRead
   %.sroa.5283.0.be = phi i32 [ %.sroa.5283.2335, %82 ], [ %storemerge.i.i.i127, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %storemerge.i.i12.i139, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
   %.sroa.26292.0.be = phi i16 [ %.sroa.26292.2337, %82 ], [ %113, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %113, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
   %.sroa.31.0.be = phi i16 [ %.sroa.31.2338, %82 ], [ %.sroa.31.2338, %_ZN20CompressedReadStream8read_intEv.exit.i124 ], [ %147, %_ZN20CompressedReadStream8read_intEv.exit13.i136 ]
-  br label %_ZN12OopMapStream4nextEv.exit22, !llvm.loop !11
+  br label %_ZN12OopMapStream4nextEv.exit22, !llvm.loop !12
 
 148:                                              ; preds = %9
   %149 = load i32, ptr %7, align 8
@@ -1276,7 +1276,7 @@ _ZN12OopMapStream7is_doneEv.exit27.thread:        ; preds = %_ZN20CompressedRead
   %indvars.iv.next.i31 = add nsw i64 %indvars.iv.i30, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i31 to i32
   %exitcond.not.i = icmp eq i32 %158, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %..loopexit_crit_edge12.i32, label %239, !llvm.loop !12
+  br i1 %exitcond.not.i, label %..loopexit_crit_edge12.i32, label %239, !llvm.loop !13
 
 ._crit_edge.loopexit.split.loop.exit16.i:         ; preds = %239
   %254 = trunc nsw i64 %indvars.iv.i30 to i32
@@ -1310,7 +1310,7 @@ _ZN10OopMapSort13find_positionE11OopMapValuei.exit: ; preds = %226, %._crit_edge
   %263 = load i32, ptr %7, align 8
   %264 = sext i32 %263 to i64
   %265 = icmp slt i64 %indvars.iv.next.i39, %264
-  br i1 %265, label %.lr.ph.i36, label %_ZN10OopMapSort6insertE11OopMapValuei.exit40, !llvm.loop !13
+  br i1 %265, label %.lr.ph.i36, label %_ZN10OopMapSort6insertE11OopMapValuei.exit40, !llvm.loop !14
 
 _ZN10OopMapSort6insertE11OopMapValuei.exit40:     ; preds = %.lr.ph.i36, %..loopexit_crit_edge12.i32
   %.pre-phi.i34 = phi i64 [ %.pre.i33, %..loopexit_crit_edge12.i32 ], [ %256, %.lr.ph.i36 ]
@@ -1438,7 +1438,7 @@ _ZN12OopMapStream4nextEv.exit43.backedge:         ; preds = %_ZN20CompressedRead
   %.sroa.30277.0.be = phi i16 [ %336, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %.sroa.30277.2350, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.30277.2350, %270 ]
   %.sroa.26276.0.be = phi i16 [ %302, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %302, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.26276.2351, %270 ]
   %.sroa.5267.0.be = phi i32 [ %storemerge.i.i12.i187, %_ZN20CompressedReadStream8read_intEv.exit13.i184 ], [ %storemerge.i.i.i175, %_ZN20CompressedReadStream8read_intEv.exit.i172 ], [ %.sroa.5267.2353, %270 ]
-  br label %_ZN12OopMapStream4nextEv.exit43, !llvm.loop !14
+  br label %_ZN12OopMapStream4nextEv.exit43, !llvm.loop !15
 
 337:                                              ; preds = %159
   %338 = load ptr, ptr %0, align 8
@@ -1646,7 +1646,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %449 = mul nsw i32 %448, %156
   %.0.i.i.us.i = select i1 %447, i32 0, i32 %449
   %450 = icmp sgt i32 %.0.i.i.us.i, %.0.i.i22.i
-  br i1 %450, label %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit, label %.preheader.split.us.i, !llvm.loop !15
+  br i1 %450, label %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit, label %.preheader.split.us.i, !llvm.loop !16
 
 .preheader.split.i:                               ; preds = %.preheader.i
   %.017.i = add nsw i32 %422, 1
@@ -1657,7 +1657,7 @@ _ZN12OopMapStream7is_doneEv.exit48.thread:        ; preds = %_ZN20CompressedRead
   %indvars.iv.next.i52 = add nsw i64 %indvars.iv.i51, 1
   %lftr.wideiv.i53 = trunc i64 %indvars.iv.next.i52 to i32
   %exitcond.not.i54 = icmp eq i32 %344, %lftr.wideiv.i53
-  br i1 %exitcond.not.i54, label %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit, label %416, !llvm.loop !17
+  br i1 %exitcond.not.i54, label %_ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit, label %416, !llvm.loop !18
 
 _ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit: ; preds = %451, %436, %438, %413, %.preheader.split.i
   %.0.i = phi i32 [ %spec.select.i, %.preheader.split.i ], [ -1, %413 ], [ %.017.us.i, %438 ], [ %.017.us.i, %436 ], [ -1, %451 ]
@@ -1687,7 +1687,7 @@ _ZN10OopMapSort21find_derived_positionE11OopMapValuei.exit: ; preds = %451, %436
   %460 = load i32, ptr %7, align 8
   %461 = sext i32 %460 to i64
   %462 = icmp slt i64 %indvars.iv.next.i62, %461
-  br i1 %462, label %.lr.ph.i59, label %_ZN10OopMapSort6insertE11OopMapValuei.exit63, !llvm.loop !13
+  br i1 %462, label %.lr.ph.i59, label %_ZN10OopMapSort6insertE11OopMapValuei.exit63, !llvm.loop !14
 
 _ZN10OopMapSort6insertE11OopMapValuei.exit63:     ; preds = %.lr.ph.i59, %..loopexit_crit_edge12.i55
   %.pre-phi.i57 = phi i64 [ %.pre.i56, %..loopexit_crit_edge12.i55 ], [ %453, %.lr.ph.i59 ]
@@ -1815,7 +1815,7 @@ _ZN12OopMapStream4nextEv.exit66.backedge:         ; preds = %_ZN20CompressedRead
   %.sroa.30.0.be = phi i16 [ %533, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %.sroa.30.2367, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.30.2367, %467 ]
   %.sroa.26.0.be = phi i16 [ %499, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %499, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.26.2368, %467 ]
   %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i235, %_ZN20CompressedReadStream8read_intEv.exit13.i232 ], [ %storemerge.i.i.i223, %_ZN20CompressedReadStream8read_intEv.exit.i220 ], [ %.sroa.5.2370, %467 ]
-  br label %_ZN12OopMapStream4nextEv.exit66, !llvm.loop !18
+  br label %_ZN12OopMapStream4nextEv.exit66, !llvm.loop !19
 
 534:                                              ; preds = %345
   ret void
@@ -1932,7 +1932,7 @@ define hidden void @_ZN10OopMapSort5printEv(ptr noundef nonnull readonly align 8
   %70 = load i32, ptr %2, align 8
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %7, label %._crit_edge, !llvm.loop !19
+  br i1 %72, label %7, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %69, %1
   ret void
@@ -1975,7 +1975,7 @@ define hidden void @_ZNK6OopMap21copy_and_sort_data_toEPh(ptr noundef nonnull al
   tail call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %20, ptr noundef nonnull %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not, label %_ZN10OopMapSort5writeEP21CompressedWriteStream.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not, label %_ZN10OopMapSort5writeEP21CompressedWriteStream.exit, label %.lr.ph.i, !llvm.loop !21
 
 _ZN10OopMapSort5writeEP21CompressedWriteStream.exit: ; preds = %.lr.ph.i, %2
   %21 = load ptr, ptr %11, align 8
@@ -2579,7 +2579,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i24:  ; preds = %.loopexit.loopexit.
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i24, %_ZN20CompressedReadStream8read_intEv.exit.i12, %68
   %.sroa.26.0.be = phi i16 [ %.sroa.26.247, %68 ], [ %99, %_ZN20CompressedReadStream8read_intEv.exit.i12 ], [ %99, %_ZN20CompressedReadStream8read_intEv.exit13.i24 ]
   %.sroa.5.0.be = phi i32 [ %.sroa.5.249, %68 ], [ %storemerge.i.i.i15, %_ZN20CompressedReadStream8read_intEv.exit.i12 ], [ %storemerge.i.i12.i27, %_ZN20CompressedReadStream8read_intEv.exit13.i24 ]
-  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !21
+  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !22
 
 118:                                              ; preds = %6
   ret void
@@ -2806,7 +2806,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i23:  ; preds = %.loopexit.loopexit.
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i23, %_ZN20CompressedReadStream8read_intEv.exit.i11, %67
   %.sroa.26.0.be = phi i16 [ %.sroa.26.246, %67 ], [ %98, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %98, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ]
   %.sroa.5.0.be = phi i32 [ %.sroa.5.248, %67 ], [ %storemerge.i.i.i14, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %storemerge.i.i12.i26, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ]
-  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !22
+  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !23
 
 117:                                              ; preds = %7
   ret void
@@ -3175,7 +3175,7 @@ _ZN12OopMapStream4nextEv.exit.i.backedge:         ; preds = %_ZN20CompressedRead
   %.sroa.5.0.i.be = phi i32 [ %storemerge.i.i12.i31.i, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %storemerge.i.i.i19.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.5.249.i, %148 ]
   %.sroa.26.0.i.be = phi i16 [ %179, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %179, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.26.250.i, %148 ]
   %.sroa.30.0.i.be = phi i16 [ %213, %_ZN20CompressedReadStream8read_intEv.exit13.i28.i ], [ %.sroa.30.251.i, %_ZN20CompressedReadStream8read_intEv.exit.i16.i ], [ %.sroa.30.251.i, %148 ]
-  br label %_ZN12OopMapStream4nextEv.exit.i, !llvm.loop !23
+  br label %_ZN12OopMapStream4nextEv.exit.i, !llvm.loop !24
 
 _ZL20update_register_map1PK15ImmutableOopMapPK5frameP11RegisterMap.exit: ; preds = %12
   ret void
@@ -3510,7 +3510,7 @@ _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedRead
   %.sroa.26.0.be = phi i16 [ %102, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %102, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.26.244, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i28, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %storemerge.i.i.i16, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.5.245, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   %.sroa.30.0.be = phi i16 [ %136, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %.sroa.30.246, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.30.246, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !24
+  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !25
 
 137:                                              ; preds = %6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14) #19
@@ -3779,7 +3779,7 @@ _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedRead
   %.sroa.26.0.be = phi i16 [ %105, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %105, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.26.244, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i28, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %storemerge.i.i.i16, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.5.245, %_ZN12OopMapStream7is_doneEv.exit.thread ]
   %.sroa.30.0.be = phi i16 [ %139, %_ZN20CompressedReadStream8read_intEv.exit13.i25 ], [ %.sroa.30.246, %_ZN20CompressedReadStream8read_intEv.exit.i13 ], [ %.sroa.30.246, %_ZN12OopMapStream7is_doneEv.exit.thread ]
-  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !25
+  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !26
 
 140:                                              ; preds = %9
   %141 = load i32, ptr %0, align 8
@@ -3832,7 +3832,7 @@ define hidden void @_ZNK18ImmutableOopMapSet8print_onEP12outputStream(ptr nounde
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.19, i32 noundef %18) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %17, %2
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #19
@@ -3871,7 +3871,7 @@ define hidden void @_ZNK9OopMapSet8print_onEP12outputStream(ptr noundef nonnull 
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %6, %2
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #19
@@ -3902,7 +3902,7 @@ define hidden void @_ZNK9OopMapSet5printEv(ptr noundef nonnull readonly align 8 
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK9OopMapSet8print_onEP12outputStream.exit, label %6, !llvm.loop !27
+  br i1 %exitcond.not.i, label %_ZNK9OopMapSet8print_onEP12outputStream.exit, label %6, !llvm.loop !28
 
 _ZNK9OopMapSet8print_onEP12outputStream.exit:     ; preds = %6, %1
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #19
@@ -3970,7 +3970,7 @@ define hidden noundef range(i32 -2147483648, 2147483647) i32 @_ZNK18ImmutableOop
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %12, %2, %8
   %.0 = phi i32 [ %11, %8 ], [ -1, %2 ], [ -1, %12 ]
@@ -3991,7 +3991,7 @@ define hidden noundef nonnull ptr @_ZNK18ImmutableOopMapSet18find_map_at_offsetE
 6:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %6 ]
@@ -4065,7 +4065,7 @@ define hidden void @_ZN15ImmutableOopMapC2EPK6OopMap(ptr noundef nonnull writeon
   tail call void @_ZN11OopMapValue8write_onEP21CompressedWriteStream(ptr noundef nonnull align 2 dereferenceable(4) %28, ptr noundef nonnull %19)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i.i, %27
-  br i1 %exitcond.not.i, label %_ZNK6OopMap21copy_and_sort_data_toEPh.exit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %_ZNK6OopMap21copy_and_sort_data_toEPh.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 _ZNK6OopMap21copy_and_sort_data_toEPh.exit:       ; preds = %.lr.ph.i.i, %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -4283,7 +4283,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i23:  ; preds = %.loopexit.loopexit.
 _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i23, %_ZN20CompressedReadStream8read_intEv.exit.i11, %55
   %.sroa.5.0.be = phi i32 [ %storemerge.i.i12.i26, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ], [ %storemerge.i.i.i14, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %.sroa.5.243, %55 ]
   %.sroa.26.0.be = phi i16 [ %83, %_ZN20CompressedReadStream8read_intEv.exit13.i23 ], [ %83, %_ZN20CompressedReadStream8read_intEv.exit.i11 ], [ %.sroa.26.244, %55 ]
-  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !30
+  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !31
 
 _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %5, %_ZN12OopMapStream7is_doneEv.exit.thread
   %.0 = phi i1 [ true, %_ZN12OopMapStream7is_doneEv.exit.thread ], [ false, %5 ]
@@ -4485,7 +4485,7 @@ _ZN22ImmutableOopMapBuilder17is_last_duplicateEPK6OopMap.exit: ; preds = %_ZNK6O
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next, %89
-  br i1 %90, label %11, label %._crit_edge, !llvm.loop !31
+  br i1 %90, label %11, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %84, %.._crit_edge_crit_edge
   %91 = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %86, %84 ]
@@ -4592,7 +4592,7 @@ define hidden void @_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti(ptr 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next, %38
-  br i1 %39, label %9, label %._crit_edge, !llvm.loop !32
+  br i1 %39, label %9, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %36, %3
   ret void
@@ -4667,7 +4667,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder13generate_intoEPh(ptr nou
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next.i, %42
-  br i1 %43, label %13, label %_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit.loopexit, !llvm.loop !32
+  br i1 %43, label %13, label %_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit.loopexit, !llvm.loop !33
 
 _ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit.loopexit: ; preds = %40
   %.pre = load ptr, ptr %8, align 8
@@ -4751,7 +4751,7 @@ define hidden noundef ptr @_ZN22ImmutableOopMapBuilder5buildEv(ptr noundef nonnu
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next.i.i, %44
-  br i1 %45, label %15, label %_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit.loopexit.i, !llvm.loop !32
+  br i1 %45, label %15, label %_ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit.loopexit.i, !llvm.loop !33
 
 _ZN22ImmutableOopMapBuilder4fillEP18ImmutableOopMapSeti.exit.loopexit.i: ; preds = %42
   %.pre.i = load ptr, ptr %10, align 8
@@ -4884,9 +4884,9 @@ define hidden void @_ZN19DerivedPointerTable3addEP15derived_pointerP12derived_ba
 12:                                               ; preds = %12, %2
   %.0.i.i = phi ptr [ %11, %2 ], [ %13, %12 ]
   store volatile ptr %.0.i.i, ptr %9, align 8
-  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %7, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %10) #19, !srcloc !33
+  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %7, ptr %.0.i.i, ptr nonnull align 8 dereferenceable(8) %10) #19, !srcloc !34
   %.not.i.i = icmp eq ptr %.0.i.i, %13
-  br i1 %.not.i.i, label %_ZN13LockFreeStackIN19DerivedPointerTable5EntryEXadL_ZNS1_8next_ptrERS1_EEE4pushES2_.exit, label %12, !llvm.loop !34
+  br i1 %.not.i.i, label %_ZN13LockFreeStackIN19DerivedPointerTable5EntryEXadL_ZNS1_8next_ptrERS1_EEE4pushES2_.exit, label %12, !llvm.loop !35
 
 _ZN13LockFreeStackIN19DerivedPointerTable5EntryEXadL_ZNS1_8next_ptrERS1_EEE4pushES2_.exit: ; preds = %12
   ret void
@@ -4895,7 +4895,7 @@ _ZN13LockFreeStackIN19DerivedPointerTable5EntryEXadL_ZNS1_8next_ptrERS1_EEE4push
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19DerivedPointerTable15update_pointersEv() local_unnamed_addr #2 align 2 {
   %1 = load ptr, ptr @_ZN19DerivedPointerTable5Entry5_listE, align 8
-  %2 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %1) #19, !srcloc !35
+  %2 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %1) #19, !srcloc !36
   %.not10 = icmp eq ptr %2, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -4913,7 +4913,7 @@ define hidden void @_ZN19DerivedPointerTable15update_pointersEv() local_unnamed_
   store i64 %11, ptr %5, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.011) #19
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   store i8 0, ptr @_ZN19DerivedPointerTable7_activeE, align 1
@@ -5072,7 +5072,7 @@ _ZN13GrowableArrayIP6OopMapE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !37
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !38
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5088,7 +5088,7 @@ _ZN13GrowableArrayIP6OopMapE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !38
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !39
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -5153,9 +5153,9 @@ define linkonce_odr hidden void @_ZN13AddDerivedOop14do_derived_oopEP12derived_b
 13:                                               ; preds = %13, %3
   %.0.i.i.i = phi ptr [ %12, %3 ], [ %14, %13 ]
   store volatile ptr %.0.i.i.i, ptr %10, align 8
-  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %8, ptr %.0.i.i.i, ptr nonnull align 8 dereferenceable(8) %11) #19, !srcloc !33
+  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull align 8 dereferenceable(24) %8, ptr %.0.i.i.i, ptr nonnull align 8 dereferenceable(8) %11) #19, !srcloc !34
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, %14
-  br i1 %.not.i.i.i, label %_ZN19DerivedPointerTable3addEP15derived_pointerP12derived_base.exit, label %13, !llvm.loop !34
+  br i1 %.not.i.i.i, label %_ZN19DerivedPointerTable3addEP15derived_pointerP12derived_base.exit, label %13, !llvm.loop !35
 
 _ZN19DerivedPointerTable3addEP15derived_pointerP12derived_base.exit: ; preds = %13
   ret void
@@ -5664,7 +5664,7 @@ _ZN12OopMapStream4nextEv.exit.backedge:           ; preds = %_ZN20CompressedRead
   %.sroa.5168.0.be = phi i32 [ %.sroa.5168.2184, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %storemerge.i.i.i85, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %storemerge.i.i12.i97, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
   %.sroa.26177.0.be = phi i16 [ %.sroa.26177.2186, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %234, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %234, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
   %.sroa.30178.0.be = phi i16 [ %.sroa.30178.2187, %_ZN13SkipNullValue11should_skipEPv.exit.thread ], [ %.sroa.30178.2187, %_ZN20CompressedReadStream8read_intEv.exit.i82 ], [ %268, %_ZN20CompressedReadStream8read_intEv.exit13.i94 ]
-  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !39
+  br label %_ZN12OopMapStream4nextEv.exit, !llvm.loop !40
 
 _ZN12OopMapStream7is_doneEv.exit:                 ; preds = %16, %4
   %269 = load ptr, ptr %0, align 8
@@ -6028,7 +6028,7 @@ _ZN20CompressedReadStream8read_intEv.exit13.i142: ; preds = %.loopexit.loopexit.
 _ZN12OopMapStream4nextEv.exit73.backedge:         ; preds = %_ZN20CompressedReadStream8read_intEv.exit13.i142, %_ZN20CompressedReadStream8read_intEv.exit.i130, %_ZN13SkipNullValue11should_skipEPv.exit70.thread
   %.sroa.26.0.be = phi i16 [ %.sroa.26.2201, %_ZN13SkipNullValue11should_skipEPv.exit70.thread ], [ %435, %_ZN20CompressedReadStream8read_intEv.exit.i130 ], [ %435, %_ZN20CompressedReadStream8read_intEv.exit13.i142 ]
   %.sroa.5.0.be = phi i32 [ %.sroa.5.2203, %_ZN13SkipNullValue11should_skipEPv.exit70.thread ], [ %storemerge.i.i.i133, %_ZN20CompressedReadStream8read_intEv.exit.i130 ], [ %storemerge.i.i12.i145, %_ZN20CompressedReadStream8read_intEv.exit13.i142 ]
-  br label %_ZN12OopMapStream4nextEv.exit73, !llvm.loop !40
+  br label %_ZN12OopMapStream4nextEv.exit73, !llvm.loop !41
 
 _ZN12OopMapStream7is_doneEv.exit55:               ; preds = %279, %_ZN12OopMapStream7is_doneEv.exit
   ret void
@@ -6084,38 +6084,39 @@ attributes #20 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = !{i64 2145412694}
-!34 = distinct !{!34, !7}
-!35 = !{i64 2145412131}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = !{i64 2145412694}
+!35 = distinct !{!35, !7, !8}
+!36 = !{i64 2145412131}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}

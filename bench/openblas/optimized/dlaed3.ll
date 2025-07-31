@@ -102,7 +102,7 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store i32 %52, ptr %16, align 4, !tbaa !3
   %53 = load i32, ptr %15, align 4, !tbaa !3
   %.not189.not = icmp slt i32 %51, %53
-  br i1 %.not189.not, label %.lr.ph213, label %._crit_edge214.loopexit, !llvm.loop !11
+  br i1 %.not189.not, label %.lr.ph213, label %._crit_edge214.loopexit, !llvm.loop !12
 
 ._crit_edge214.loopexit:                          ; preds = %50
   %.pre279 = load i32, ptr %0, align 4, !tbaa !3
@@ -144,7 +144,7 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %73, ptr %70, align 8, !tbaa !7
   %indvars.iv.next248 = add nuw nsw i64 %indvars.iv247, 1
   %exitcond250 = icmp eq i64 %indvars.iv.next248, 3
-  br i1 %exitcond250, label %.loopexit.sink.split, label %65, !llvm.loop !12
+  br i1 %exitcond250, label %.loopexit.sink.split, label %65, !llvm.loop !13
 
 74:                                               ; preds = %._crit_edge214
   call void @dcopy_(ptr noundef nonnull %0, ptr noundef %11, ptr noundef nonnull @c__1, ptr noundef %12, ptr noundef nonnull @c__1) #5
@@ -200,7 +200,7 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %94, ptr %92, align 8, !tbaa !7
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond255.not = icmp eq i64 %indvars.iv.next252, %indvars.iv256
-  br i1 %exitcond255.not, label %.preheader, label %85, !llvm.loop !13
+  br i1 %exitcond255.not, label %.preheader, label %85, !llvm.loop !14
 
 95:                                               ; preds = %.lr.ph221, %95
   %indvars.iv258 = phi i64 [ %indvars.iv256, %.lr.ph221 ], [ %indvars.iv.next259, %95 ]
@@ -217,12 +217,12 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %104 = fmul double %103, %101
   store double %104, ptr %102, align 8, !tbaa !7
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %._crit_edge222, label %95, !llvm.loop !14
+  br i1 %exitcond262.not, label %._crit_edge222, label %95, !llvm.loop !15
 
 ._crit_edge222:                                   ; preds = %95, %.preheader
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond265.not = icmp eq i64 %indvars.iv.next257, %wide.trip.count264
-  br i1 %exitcond265.not, label %._crit_edge225, label %.preheader205, !llvm.loop !15
+  br i1 %exitcond265.not, label %._crit_edge225, label %.preheader205, !llvm.loop !16
 
 ._crit_edge225:                                   ; preds = %._crit_edge222
   store i32 %77, ptr %15, align 4, !tbaa !3
@@ -246,7 +246,7 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %115 = load i32, ptr %15, align 4, !tbaa !3
   %116 = sext i32 %115 to i64
   %.not192.not = icmp slt i64 %indvars.iv266, %116
-  br i1 %.not192.not, label %.lr.ph229, label %._crit_edge230, !llvm.loop !16
+  br i1 %.not192.not, label %.lr.ph229, label %._crit_edge230, !llvm.loop !17
 
 ._crit_edge230.thread:                            ; preds = %74
   store i32 %77, ptr %15, align 4, !tbaa !3
@@ -284,7 +284,7 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %125, ptr %126, align 8, !tbaa !7
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
-  br i1 %exitcond273.not, label %._crit_edge235, label %121, !llvm.loop !17
+  br i1 %exitcond273.not, label %._crit_edge235, label %121, !llvm.loop !18
 
 ._crit_edge235:                                   ; preds = %121, %.lr.ph244
   %127 = call double @dnrm2_(ptr noundef nonnull %0, ptr noundef %12, ptr noundef nonnull @c__1) #5
@@ -313,14 +313,14 @@ define void @dlaed3_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %138, ptr %gep292, align 8, !tbaa !7
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond278.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count277
-  br i1 %exitcond278.not, label %._crit_edge240, label %132, !llvm.loop !18
+  br i1 %exitcond278.not, label %._crit_edge240, label %132, !llvm.loop !19
 
 ._crit_edge240:                                   ; preds = %132, %._crit_edge235
   %139 = add nsw i32 %.pre281, 1
   store i32 %139, ptr %16, align 4, !tbaa !3
   %140 = load i32, ptr %15, align 4, !tbaa !3
   %.not194.not = icmp slt i32 %.pre281, %140
-  br i1 %.not194.not, label %.lr.ph244, label %.loopexit, !llvm.loop !19
+  br i1 %.not194.not, label %.lr.ph244, label %.loopexit, !llvm.loop !20
 
 .loopexit.sink.split:                             ; preds = %65, %._crit_edge230.thread
   %.sink293 = phi i32 [ 1, %._crit_edge230.thread ], [ 3, %65 ]
@@ -438,14 +438,15 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}

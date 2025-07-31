@@ -339,7 +339,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %165 = tail call double @llvm.fmuladd.f64(double %160, double %164, double %125)
   %166 = fadd double %.184, 1.800000e+01
   %167 = fcmp ugt double %166, 7.200010e+01
-  br i1 %167, label %168, label %.preheader, !llvm.loop !67
+  br i1 %167, label %168, label %.preheader, !llvm.loop !68
 
 168:                                              ; preds = %.preheader
   %169 = fmul double %48, 0x3C91A62633145C07
@@ -381,9 +381,9 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %200 = fdiv double %195, 4.500000e+01
   store double %200, ptr %42, align 8, !tbaa !64
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL13som_e_inverse5PJ_XYP8PJconsts, ptr %201, align 8, !tbaa !68
+  store ptr @_ZL13som_e_inverse5PJ_XYP8PJconsts, ptr %201, align 8, !tbaa !69
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL13som_e_forward5PJ_LPP8PJconsts, ptr %202, align 8, !tbaa !69
+  store ptr @_ZL13som_e_forward5PJ_LPP8PJconsts, ptr %202, align 8, !tbaa !70
   ret ptr %0
 }
 
@@ -646,7 +646,7 @@ define internal { double, double } @_ZL13som_e_inverse5PJ_XYP8PJconsts(double %0
   %65 = add nsw i32 %.0, -1
   %.not = icmp eq i32 %65, 0
   %or.cond = select i1 %64, i1 true, i1 %.not
-  br i1 %or.cond, label %.critedge, label %32, !llvm.loop !70
+  br i1 %or.cond, label %.critedge, label %32, !llvm.loop !71
 
 .critedge:                                        ; preds = %32
   %66 = tail call double @sin(double noundef %61) #9, !tbaa !48
@@ -685,9 +685,9 @@ define internal { double, double } @_ZL13som_e_inverse5PJ_XYP8PJconsts(double %0
   %96 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
-  %.sroa.089.0.copyload = load double, ptr %4, align 8, !tbaa !71
+  %.sroa.089.0.copyload = load double, ptr %4, align 8, !tbaa !72
   %.sroa.390.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.390.0.copyload = load double, ptr %.sroa.390.0..sroa_idx, align 8, !tbaa !71
+  %.sroa.390.0.copyload = load double, ptr %.sroa.390.0..sroa_idx, align 8, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   br label %153
 
@@ -834,7 +834,7 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
 48:                                               ; preds = %31
   %49 = add nsw i32 %.090137, -1
   %.not144 = icmp eq i32 %.090137, 0
-  br i1 %.not144, label %.thread, label %31, !llvm.loop !72
+  br i1 %.not144, label %.thread, label %31, !llvm.loop !73
 
 50:                                               ; preds = %31
   %.not = icmp eq i32 %.090137, 0
@@ -857,16 +857,16 @@ define internal { double, double } @_ZL13som_e_forward5PJ_LPP8PJconsts(double %0
 
 58:                                               ; preds = %55, %52
   %59 = fcmp ugt double %42, %53
-  br i1 %59, label %60, label %.outer.backedge
+  br i1 %59, label %60, label %.outer.backedge, !llvm.loop !74
 
 60:                                               ; preds = %58
   %61 = load double, ptr %23, align 8, !tbaa !59
   %62 = fcmp ult double %42, %61
-  br i1 %62, label %25, label %.outer.backedge
+  br i1 %62, label %25, label %.outer.backedge, !llvm.loop !74
 
 .outer.backedge:                                  ; preds = %60, %58
   %.196.ph.be = phi double [ 0x401F6A7A2955385E, %58 ], [ 0x3FF921FB54442D18, %60 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !74
 
 63:                                               ; preds = %.thread, %55
   %64 = tail call double @sin(double noundef %.sroa.3.0) #9, !tbaa !48
@@ -1052,11 +1052,13 @@ attributes #9 = { nounwind }
 !62 = !{!45, !14, i64 8}
 !63 = !{!45, !14, i64 24}
 !64 = !{!45, !14, i64 32}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = distinct !{!67, !66}
-!68 = !{!4, !6, i64 112}
-!69 = !{!4, !6, i64 104}
-!70 = distinct !{!70, !66}
-!71 = !{!14, !14, i64 0}
-!72 = distinct !{!72, !66}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = distinct !{!68, !66, !67}
+!69 = !{!4, !6, i64 112}
+!70 = !{!4, !6, i64 104}
+!71 = distinct !{!71, !66, !67}
+!72 = !{!14, !14, i64 0}
+!73 = distinct !{!73, !66, !67}
+!74 = distinct !{!74, !67}

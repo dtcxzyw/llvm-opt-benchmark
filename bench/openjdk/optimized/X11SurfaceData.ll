@@ -3484,7 +3484,7 @@ define internal fastcc void @X11SD_SwapBytes(ptr noundef readonly captures(none)
   store i16 %18, ptr %.04354, align 2
   %20 = add nuw nsw i64 %.055, 1
   %exitcond61.not = icmp eq i64 %20, %13
-  br i1 %exitcond61.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !8
+  br i1 %exitcond61.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !9
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %12
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3537,7 +3537,7 @@ define internal fastcc void @X11SD_SwapBytes(ptr noundef readonly captures(none)
   %43 = getelementptr inbounds nuw i8, ptr %.04449, i64 3
   %44 = load i32, ptr %1, align 8
   %45 = icmp slt i32 %42, %44
-  br i1 %45, label %.lr.ph51, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %45, label %.lr.ph51, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph51
   %.pre = load i32, ptr %5, align 4
@@ -3550,7 +3550,7 @@ define internal fastcc void @X11SD_SwapBytes(ptr noundef readonly captures(none)
   %49 = getelementptr inbounds i8, ptr %.04552, i64 %10
   %50 = sext i32 %46 to i64
   %51 = icmp slt i64 %48, %50
-  br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %51, label %.preheader, label %.loopexit, !llvm.loop !11
 
 52:                                               ; preds = %23, %4
   %53 = sdiv i64 %11, 4
@@ -3571,7 +3571,7 @@ define internal fastcc void @X11SD_SwapBytes(ptr noundef readonly captures(none)
   store i32 %58, ptr %.04147, align 4
   %60 = add nuw nsw i64 %.248, 1
   %exitcond.not = icmp eq i64 %60, %53
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %._crit_edge, %.preheader.lr.ph, %52, %25, %._crit_edge58, %4
   ret void
@@ -3633,10 +3633,11 @@ attributes #21 = { nounwind willreturn memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.partial.disable"}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.partial.disable"}
+!13 = distinct !{!13, !7, !8}

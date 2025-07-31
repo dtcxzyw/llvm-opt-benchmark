@@ -1471,7 +1471,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   %.012423200 = phi ptr [ %202, %.lr.ph3201 ], [ %207, %206 ]
   %211 = zext i8 %210 to i64
   %212 = getelementptr inbounds nuw i16, ptr %205, i64 %211
-  %213 = load i16, ptr %212, align 2, !tbaa !30
+  %213 = load i16, ptr %212, align 2, !tbaa !31
   %214 = and i16 %213, 4096
   %.not1508 = icmp eq i16 %214, 0
   br i1 %.not1508, label %215, label %206
@@ -1487,7 +1487,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
 
 220:                                              ; preds = %82
   %221 = call ptr @opt_arg() #15
-  store ptr %221, ptr %54, align 8, !tbaa !32
+  store ptr %221, ptr %54, align 8, !tbaa !33
   %spec.store.select = call i32 @llvm.smax.i32(i32 %.010883243, i32 769)
   br label %.loopexit1780
 
@@ -1500,7 +1500,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   %225 = call ptr @opt_arg() #15
   %226 = call i64 @strtol(ptr noundef nonnull captures(none) %225, ptr noundef null, i32 noundef 10) #15
   %227 = trunc i64 %226 to i32
-  store i32 %227, ptr %53, align 4, !tbaa !34
+  store i32 %227, ptr %53, align 4, !tbaa !35
   %228 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %229 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %228, ptr noundef nonnull @.str.412, i32 noundef %227) #15
   %spec.store.select41 = call i32 @llvm.smax.i32(i32 %.010883243, i32 769)
@@ -1511,7 +1511,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   br label %.loopexit1780
 
 231:                                              ; preds = %82
-  store i32 1, ptr %52, align 8, !tbaa !35
+  store i32 1, ptr %52, align 8, !tbaa !36
   %spec.store.select43 = call i32 @llvm.smax.i32(i32 %.010883243, i32 769)
   br label %.loopexit1780
 
@@ -1719,7 +1719,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   %323 = trunc i64 %322 to i16
   %324 = sext i32 %.211063195 to i64
   %325 = getelementptr inbounds [100 x i16], ptr %23, i64 0, i64 %324
-  store i16 %323, ptr %325, align 2, !tbaa !30
+  store i16 %323, ptr %325, align 2, !tbaa !31
   %326 = add nsw i32 %.211063195, 1
   %327 = icmp eq i32 %326, 100
   br i1 %327, label %.loopexit1780, label %328
@@ -1734,7 +1734,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   %.31107 = phi i32 [ %.211063195, %._crit_edge3823 ], [ %326, %328 ]
   %.11103 = phi i32 [ %.011023196, %._crit_edge3823 ], [ %330, %328 ]
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit1780, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit1780, label %.lr.ph, !llvm.loop !37
 
 332:                                              ; preds = %82
   %333 = call ptr @opt_arg() #15
@@ -1928,7 +1928,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   %.2963 = phi ptr [ %.19623288, %82 ], [ %.19623288, %87 ], [ %.19623288, %89 ], [ %.19623288, %91 ], [ %.19623288, %93 ], [ %.19623288, %95 ], [ %.19623288, %97 ], [ %.19623288, %99 ], [ %.19623288, %101 ], [ %.19623288, %103 ], [ %.19623288, %105 ], [ %.19623288, %107 ], [ %.19623288, %109 ], [ %.19623288, %113 ], [ %.19623288, %116 ], [ %.19623288, %118 ], [ %.19623288, %121 ], [ %.19623288, %123 ], [ %.19623288, %124 ], [ %.19623288, %126 ], [ %.19623288, %128 ], [ %.19623288, %131 ], [ %.19623288, %134 ], [ %.19623288, %135 ], [ %.19623288, %136 ], [ %.19623288, %379 ], [ %.19623288, %377 ], [ %.39641541, %144 ], [ %.19623288, %373 ], [ %.19623288, %369 ], [ %.19623288, %153 ], [ %.19623288, %365 ], [ %.19623288, %361 ], [ %.19623288, %155 ], [ %.19623288, %157 ], [ %.19623288, %158 ], [ %.19623288, %159 ], [ %.19623288, %160 ], [ %.19623288, %161 ], [ %.19623288, %162 ], [ %.19623288, %163 ], [ %.19623288, %164 ], [ %.19623288, %165 ], [ %.19623288, %168 ], [ %.19623288, %354 ], [ %.19623288, %355 ], [ %.19623288, %356 ], [ %.19623288, %347 ], [ %.19623288, %175 ], [ %.19623288, %343 ], [ %.19623288, %341 ], [ %.19623288, %177 ], [ %.19623288, %179 ], [ %.19623288, %180 ], [ %.19623288, %181 ], [ %.19623288, %182 ], [ %.19623288, %183 ], [ %.19623288, %383 ], [ %.19623288, %184 ], [ %.19623288, %185 ], [ %.19623288, %193 ], [ %.19623288, %194 ], [ %.19623288, %195 ], [ %.19623288, %196 ], [ %.19623288, %197 ], [ %.19623288, %198 ], [ %.19623288, %199 ], [ %.19623288, %218 ], [ %.19623288, %220 ], [ %.19623288, %222 ], [ %.19623288, %224 ], [ %.19623288, %230 ], [ %.19623288, %231 ], [ %.19623288, %232 ], [ %.19623288, %234 ], [ %.19623288, %235 ], [ %.19623288, %236 ], [ %.19623288, %237 ], [ %.19623288, %238 ], [ %.19623288, %239 ], [ %.19623288, %241 ], [ %.19623288, %243 ], [ %.19623288, %245 ], [ %.19623288, %382 ], [ %.19623288, %381 ], [ %.19623288, %247 ], [ %.19623288, %248 ], [ %.19623288, %251 ], [ %.19623288, %252 ], [ %.19623288, %255 ], [ %.19623288, %257 ], [ %.19623288, %259 ], [ %.19623288, %261 ], [ %.19623288, %262 ], [ %.19623288, %264 ], [ %.19623288, %265 ], [ %.19623288, %267 ], [ %.19623288, %269 ], [ %.19623288, %270 ], [ %.19623288, %272 ], [ %.19623288, %274 ], [ %.19623288, %275 ], [ %.19623288, %276 ], [ %.19623288, %277 ], [ %.19623288, %279 ], [ %.19623288, %281 ], [ %.19623288, %283 ], [ %.19623288, %285 ], [ %.19623288, %286 ], [ %.19623288, %288 ], [ %.19623288, %290 ], [ %.19623288, %.thread1543 ], [ %.19623288, %303 ], [ %.19623288, %304 ], [ %.19623288, %306 ], [ %.19623288, %332 ], [ %.19623288, %335 ], [ %.19623288, %336 ], [ %.19623288, %338 ], [ %.19623288, %339 ], [ %.19623288, %348 ], [ %.19623288, %201 ], [ %.19623288, %308 ], [ %.19623288, %206 ], [ %.19623288, %331 ], [ %.19623288, %319 ]
   %384 = call i32 @opt_next() #15
   %.not = icmp eq i32 %384, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %55, !llvm.loop !37
+  br i1 %.not, label %._crit_edge.loopexit, label %55, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit1780
   %385 = icmp eq i32 %.11063, 0
@@ -2265,12 +2265,12 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   br label %.thread1688
 
 511:                                              ; preds = %.thread1561
-  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8, !tbaa !38
+  store i32 -1, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8, !tbaa !39
   br i1 %438, label %512, label %518
 
 512:                                              ; preds = %511
   %513 = call ptr @next_protos_parse(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @next_proto, i64 8), ptr noundef nonnull %.01100.lcssa) #15
-  store ptr %513, ptr @next_proto, align 8, !tbaa !40
+  store ptr %513, ptr @next_proto, align 8, !tbaa !41
   %514 = icmp eq ptr %513, null
   br i1 %514, label %515, label %519
 
@@ -2280,7 +2280,7 @@ define dso_local i32 @s_client_main(i32 noundef %0, ptr noundef %1) local_unname
   br label %.thread1688
 
 518:                                              ; preds = %511
-  store ptr null, ptr @next_proto, align 8, !tbaa !40
+  store ptr null, ptr @next_proto, align 8, !tbaa !41
   br label %519
 
 519:                                              ; preds = %512, %518
@@ -2706,9 +2706,9 @@ thread-pre-split:                                 ; preds = %579
 
 716:                                              ; preds = %709
   %717 = call ptr @PEM_read_bio_SSL_SESSION(ptr noundef nonnull %710, ptr noundef null, ptr noundef null, ptr noundef null) #15
-  store ptr %717, ptr @psksess, align 8, !tbaa !41
+  store ptr %717, ptr @psksess, align 8, !tbaa !42
   %718 = call i32 @BIO_free(ptr noundef nonnull %710) #15
-  %719 = load ptr, ptr @psksess, align 8, !tbaa !41
+  %719 = load ptr, ptr @psksess, align 8, !tbaa !42
   %720 = icmp eq ptr %719, null
   br i1 %720, label %721, label %.thread3825
 
@@ -2757,7 +2757,7 @@ thread-pre-split:                                 ; preds = %579
   br label %739
 
 739:                                              ; preds = %738, %736
-  %740 = load ptr, ptr @next_proto, align 8, !tbaa !40
+  %740 = load ptr, ptr @next_proto, align 8, !tbaa !41
   %.not1388 = icmp eq ptr %740, null
   br i1 %.not1388, label %742, label %741
 
@@ -2805,7 +2805,7 @@ thread-pre-split:                                 ; preds = %579
 .lr.ph3374:                                       ; preds = %.lr.ph3374.preheader, %762
   %indvars.iv3790 = phi i64 [ 0, %.lr.ph3374.preheader ], [ %indvars.iv.next3791, %762 ]
   %755 = getelementptr inbounds nuw [100 x i16], ptr %23, i64 0, i64 %indvars.iv3790
-  %756 = load i16, ptr %755, align 2, !tbaa !30
+  %756 = load i16, ptr %755, align 2, !tbaa !31
   %757 = zext i16 %756 to i32
   %758 = call i32 @SSL_CTX_add_client_custom_ext(ptr noundef %601, i32 noundef %757, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @serverinfo_cli_parse_cb, ptr noundef null) #15
   %.not1501 = icmp eq i32 %758, 0
@@ -2819,7 +2819,7 @@ thread-pre-split:                                 ; preds = %579
 762:                                              ; preds = %.lr.ph3374, %759
   %indvars.iv.next3791 = add nuw nsw i64 %indvars.iv3790, 1
   %exitcond3794.not = icmp eq i64 %indvars.iv.next3791, %wide.trip.count3793
-  br i1 %exitcond3794.not, label %._crit_edge3375, label %.lr.ph3374, !llvm.loop !43
+  br i1 %exitcond3794.not, label %._crit_edge3375, label %.lr.ph3374, !llvm.loop !44
 
 ._crit_edge3375:                                  ; preds = %762, %753
   br i1 %.01175.lcssa, label %764, label %763
@@ -2883,14 +2883,14 @@ thread-pre-split:                                 ; preds = %579
 
 784:                                              ; preds = %783
   %785 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  store ptr %785, ptr %22, align 8, !tbaa !44
+  store ptr %785, ptr %22, align 8, !tbaa !45
   %786 = call i64 @SSL_CTX_callback_ctrl(ptr noundef %601, i32 noundef 53, ptr noundef nonnull @ssl_servername_cb) #15
   %787 = call i64 @SSL_CTX_ctrl(ptr noundef %601, i32 noundef 54, i64 noundef 0, ptr noundef nonnull %22) #15
   br label %788
 
 788:                                              ; preds = %784, %783
   %789 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %790 = load ptr, ptr %789, align 8, !tbaa !32
+  %790 = load ptr, ptr %789, align 8, !tbaa !33
   %.not1397 = icmp eq ptr %790, null
   br i1 %.not1397, label %794, label %791
 
@@ -3289,11 +3289,11 @@ select.unfold:                                    ; preds = %854, %857, %852
   br i1 %.01132.lcssa, label %993, label %990
 
 990:                                              ; preds = %986
-  store i64 0, ptr %12, align 8, !tbaa !46
-  store i64 250000, ptr %918, align 8, !tbaa !48
+  store i64 0, ptr %12, align 8, !tbaa !47
+  store i64 250000, ptr %918, align 8, !tbaa !49
   %991 = call i64 @BIO_ctrl(ptr noundef nonnull %967, i32 noundef 33, i64 noundef 0, ptr noundef nonnull %12) #15
-  store i64 0, ptr %12, align 8, !tbaa !46
-  store i64 250000, ptr %918, align 8, !tbaa !48
+  store i64 0, ptr %12, align 8, !tbaa !47
+  store i64 250000, ptr %918, align 8, !tbaa !49
   %992 = call i64 @BIO_ctrl(ptr noundef nonnull %967, i32 noundef 35, i64 noundef 0, ptr noundef nonnull %12) #15
   br label %993
 
@@ -3519,7 +3519,7 @@ select.unfold:                                    ; preds = %854, %857, %852
 1092:                                             ; preds = %1089
   %1093 = load i8, ptr %922, align 1, !tbaa !25
   %1094 = icmp eq i8 %1093, 45
-  br i1 %1094, label %1089, label %.critedge, !llvm.loop !49
+  br i1 %1094, label %1089, label %.critedge, !llvm.loop !50
 
 .critedge:                                        ; preds = %1089, %1092
   %1095 = icmp eq ptr %.21239, null
@@ -3543,7 +3543,7 @@ select.unfold:                                    ; preds = %854, %857, %852
 1104:                                             ; preds = %1100
   %1105 = load i8, ptr %922, align 1, !tbaa !25
   %1106 = icmp eq i8 %1105, 45
-  br i1 %1106, label %1100, label %.critedge74, !llvm.loop !50
+  br i1 %1106, label %1100, label %.critedge74, !llvm.loop !51
 
 .critedge74:                                      ; preds = %1100, %1104
   %1107 = call i64 @BIO_ctrl(ptr noundef nonnull %1085, i32 noundef 11, i64 noundef 0, ptr noundef null) #15
@@ -3604,7 +3604,7 @@ select.unfold:                                    ; preds = %854, %857, %852
 1139:                                             ; preds = %1135
   %1140 = load i8, ptr %48, align 1, !tbaa !25
   %.not1461 = icmp eq i8 %1140, 46
-  br i1 %.not1461, label %.critedge76, label %1135, !llvm.loop !51
+  br i1 %.not1461, label %.critedge76, label %1135, !llvm.loop !52
 
 .critedge76:                                      ; preds = %1135, %1139
   %1141 = call i64 @BIO_ctrl(ptr noundef nonnull %1128, i32 noundef 11, i64 noundef 0, ptr noundef null) #15
@@ -3650,7 +3650,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   %1164 = load i8, ptr %48, align 1, !tbaa !25
   %1165 = zext i8 %1164 to i64
   %1166 = getelementptr inbounds nuw i16, ptr %1163, i64 %1165
-  %1167 = load i16, ptr %1166, align 2, !tbaa !30
+  %1167 = load i16, ptr %1166, align 2, !tbaa !31
   %1168 = and i16 %1167, 2048
   %.not1456 = icmp eq i16 %1168, 0
   br i1 %.not1456, label %.backedge, label %1169
@@ -3659,7 +3659,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   %1170 = load i8, ptr %923, align 1, !tbaa !25
   %1171 = zext i8 %1170 to i64
   %1172 = getelementptr inbounds nuw i16, ptr %1163, i64 %1171
-  %1173 = load i16, ptr %1172, align 2, !tbaa !30
+  %1173 = load i16, ptr %1172, align 2, !tbaa !31
   %1174 = and i16 %1173, 2048
   %.not1457 = icmp eq i16 %1174, 0
   br i1 %.not1457, label %.backedge, label %1175
@@ -3668,7 +3668,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   %1176 = load i8, ptr %924, align 1, !tbaa !25
   %1177 = zext i8 %1176 to i64
   %1178 = getelementptr inbounds nuw i16, ptr %1163, i64 %1177
-  %1179 = load i16, ptr %1178, align 2, !tbaa !30
+  %1179 = load i16, ptr %1178, align 2, !tbaa !31
   %1180 = and i16 %1179, 2048
   %.not1458 = icmp eq i16 %1180, 0
   br i1 %.not1458, label %.backedge, label %1181
@@ -3681,7 +3681,7 @@ select.unfold:                                    ; preds = %854, %857, %852
 .backedge:                                        ; preds = %1175, %1169, %1161, %1181
   %1183 = call i32 @BIO_gets(ptr noundef nonnull %1154, ptr noundef nonnull %48, i32 noundef 16384) #15
   %1184 = icmp sgt i32 %1183, 3
-  br i1 %1184, label %1161, label %.thread1606, !llvm.loop !52
+  br i1 %1184, label %1161, label %.thread1606, !llvm.loop !53
 
 .thread1606:                                      ; preds = %.backedge, %1181, %1156
   %.lcssa1791 = phi i32 [ %1158, %1156 ], [ %1162, %1181 ], [ %1183, %.backedge ]
@@ -3732,7 +3732,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   store i8 0, ptr %1211, align 1, !tbaa !25
   %1212 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) @.str.488) #17
   %.not1453 = icmp eq ptr %1212, null
-  br i1 %.not1453, label %.lr.ph3380, label %.critedge82, !llvm.loop !53
+  br i1 %.not1453, label %.lr.ph3380, label %.critedge82, !llvm.loop !54
 
 .critedge82:                                      ; preds = %.lr.ph3380, %1209, %1201
   %1213 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %.2947, ptr noundef nonnull @.str.490) #15
@@ -3815,8 +3815,8 @@ select.unfold:                                    ; preds = %854, %857, %852
   %1253 = load i64, ptr %1252, align 8, !tbaa !17
   %1254 = or i64 %1248, %1253
   store i64 %1254, ptr %1252, align 8, !tbaa !17
-  store i64 8, ptr %12, align 8, !tbaa !46
-  store i64 0, ptr %918, align 8, !tbaa !48
+  store i64 8, ptr %12, align 8, !tbaa !47
+  store i64 0, ptr %918, align 8, !tbaa !49
   %1255 = call i64 @BIO_ctrl(ptr noundef nonnull %1237, i32 noundef 116, i64 noundef 0, ptr noundef null) #15
   %.not1440 = icmp eq i64 %1255, 0
   br i1 %.not1440, label %1256, label %1268
@@ -3868,7 +3868,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   br i1 %.not1444, label %.backedge1775.backedge, label %1277
 
 .backedge1775.backedge:                           ; preds = %1275, %1273
-  br label %.backedge1775
+  br label %.backedge1775, !llvm.loop !55
 
 1277:                                             ; preds = %1275
   %1278 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -3975,7 +3975,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   %1328 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv3795
   %1329 = load i8, ptr %1328, align 1, !tbaa !25
   %1330 = icmp eq i8 %1329, 0
-  br i1 %1330, label %1331, label %.preheader1776
+  br i1 %1330, label %1331, label %.preheader1776, !llvm.loop !56
 
 1331:                                             ; preds = %1327
   %1332 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv3795
@@ -4062,7 +4062,7 @@ select.unfold:                                    ; preds = %854, %857, %852
 1378:                                             ; preds = %.preheader1777
   %1379 = load i8, ptr %48, align 1, !tbaa !25
   %.not1431 = icmp eq i8 %1379, 46
-  br i1 %.not1431, label %.critedge86.loopexit, label %.preheader1777, !llvm.loop !54
+  br i1 %.not1431, label %.critedge86.loopexit, label %.preheader1777, !llvm.loop !57
 
 .critedge86.loopexit:                             ; preds = %1378, %.preheader1777
   %1380 = icmp eq i32 %spec.select1524, 0
@@ -4139,7 +4139,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   %spec.select1525 = select i1 %1422, i32 1, i32 %.0959
   %.pr1645 = load i8, ptr %48, align 1, !tbaa !25
   %1423 = icmp eq i8 %.pr1645, 34
-  br i1 %1423, label %1414, label %.critedge88, !llvm.loop !55
+  br i1 %1423, label %1414, label %.critedge88, !llvm.loop !58
 
 .critedge88:                                      ; preds = %1417, %1414, %1420
   %.19601644 = phi i32 [ %spec.select1525, %1420 ], [ %.0959, %1414 ], [ %.0959, %1417 ]
@@ -4258,8 +4258,8 @@ sub_0:                                            ; preds = %1437
   %1484 = getelementptr inbounds nuw i8, ptr %1478, i64 8
   %1485 = load ptr, ptr %1484, align 8, !tbaa !25
   %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 8
-  %1487 = load ptr, ptr %1486, align 8, !tbaa !56
-  %1488 = load i32, ptr %1485, align 8, !tbaa !58
+  %1487 = load ptr, ptr %1486, align 8, !tbaa !59
+  %1488 = load i32, ptr %1485, align 8, !tbaa !61
   %1489 = call i32 @BIO_write(ptr noundef %.2947, ptr noundef %1487, i32 noundef %1488) #15
   %1490 = call i64 @BIO_ctrl(ptr noundef %.2947, i32 noundef 11, i64 noundef 0, ptr noundef null) #15
   call void @ASN1_TYPE_free(ptr noundef nonnull %1478) #15
@@ -4322,7 +4322,7 @@ sub_0:                                            ; preds = %1437
   br i1 %.not1468, label %1513, label %1517
 
 1513:                                             ; preds = %1510, %1508
-  %1514 = load ptr, ptr @psksess, align 8, !tbaa !41
+  %1514 = load ptr, ptr @psksess, align 8, !tbaa !42
   %.not1469 = icmp eq ptr %1514, null
   br i1 %.not1469, label %1537, label %1515
 
@@ -4344,7 +4344,7 @@ sub_0:                                            ; preds = %1437
   br label %.thread1665
 
 .loopexit1770:                                    ; preds = %1527, %.preheader1772
-  br i1 %.not1472.not, label %1535, label %.preheader1772, !llvm.loop !59
+  br i1 %.not1472.not, label %1535, label %.preheader1772, !llvm.loop !62
 
 .preheader1772:                                   ; preds = %1517, %.loopexit1770
   %1523 = call i32 @BIO_read_ex(ptr noundef nonnull %1518, ptr noundef %46, i64 noundef 16384, ptr noundef nonnull %32) #15
@@ -4366,7 +4366,7 @@ sub_0:                                            ; preds = %1437
   %1528 = load i64, ptr %32, align 8, !tbaa !17
   %1529 = call i32 @SSL_write_early_data(ptr noundef %807, ptr noundef %46, i64 noundef %1528, ptr noundef nonnull %33) #15
   %.not1473 = icmp eq i32 %1529, 0
-  br i1 %.not1473, label %.lr.ph3389, label %.loopexit1770, !llvm.loop !60
+  br i1 %.not1473, label %.lr.ph3389, label %.loopexit1770, !llvm.loop !63
 
 1530:                                             ; preds = %.lr.ph3389
   %1531 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -4388,12 +4388,12 @@ sub_0:                                            ; preds = %1437
   br label %1537
 
 1537:                                             ; preds = %1535, %1515, %1513, %.thread1637
-  store ptr %807, ptr %27, align 8, !tbaa !61
-  store ptr %46, ptr %925, align 8, !tbaa !64
-  store i64 16384, ptr %926, align 8, !tbaa !65
+  store ptr %807, ptr %27, align 8, !tbaa !64
+  store ptr %46, ptr %925, align 8, !tbaa !67
+  store i64 16384, ptr %926, align 8, !tbaa !68
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %927, i8 0, i64 16, i1 false)
-  store i32 %spec.select1520, ptr %928, align 8, !tbaa !66
-  store i32 0, ptr %929, align 4, !tbaa !67
+  store i32 %spec.select1520, ptr %928, align 8, !tbaa !69
+  store i32 0, ptr %929, align 4, !tbaa !70
   br label %.preheader1769.preheader
 
 .preheader1769.preheader:                         ; preds = %.preheader1769.preheader.backedge, %1537
@@ -4479,7 +4479,7 @@ sub_0:                                            ; preds = %1437
   call void @SSL_set_connect_state(ptr noundef nonnull %807) #15
   %1569 = call i32 @SSL_get_fd(ptr noundef nonnull %807) #15
   %1570 = call i32 @BIO_closesocket(i32 noundef %1569) #15
-  br label %.outer
+  br label %.outer, !llvm.loop !71
 
 1571:                                             ; preds = %.thread1667, %1550, %1553, %1564
   %.31224 = phi i32 [ 0, %1564 ], [ %.21223, %1553 ], [ %.21223, %1550 ], [ 0, %.thread1667 ]
@@ -4495,7 +4495,7 @@ sub_0:                                            ; preds = %1437
     i32 2, label %.loopexit1768
     i32 3, label %1578
     i32 4, label %.thread1669
-  ]
+  ], !llvm.loop !71
 
 1573:                                             ; preds = %.preheader1767
   %1574 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -4513,7 +4513,7 @@ sub_0:                                            ; preds = %1437
   %.val = load i64, ptr %927, align 8
   %.not1763 = icmp eq i64 %.val, 0
   %or.cond1766 = select i1 %1580, i1 true, i1 %.not1763
-  br i1 %or.cond1766, label %.critedge98, label %.preheader1767, !llvm.loop !68
+  br i1 %or.cond1766, label %.critedge98, label %.preheader1767, !llvm.loop !72
 
 .critedge98:                                      ; preds = %1578
   br i1 %1580, label %1581, label %1582
@@ -4802,7 +4802,7 @@ thread-pre-split1681:                             ; preds = %1680
   %.01150.be = phi i32 [ %.11151, %1726 ], [ %.11151, %user_data_add.exit ], [ %.11151, %1754 ], [ %.11151, %1842 ], [ %.11151, %1771 ], [ 0, %1723 ], [ 0, %1719 ], [ %.1529, %1705 ], [ %spec.store.select120, %1780 ], [ %spec.store.select119, %1773 ], [ %.11151, %1801 ], [ %.11151, %.critedge1534 ], [ 1, %1777 ], [ %.11151, %1784 ], [ %.11151, %1693 ], [ 1, %1707 ], [ 1, %1710 ], [ 0, %1713 ], [ %.11151, %1716 ]
   %.01148.be = phi i32 [ %.01148, %1726 ], [ %.01148, %user_data_add.exit ], [ %spec.select1533, %1754 ], [ %.01148, %1842 ], [ 0, %1771 ], [ %.01148, %1723 ], [ %.01148, %1719 ], [ %.01148, %1705 ], [ 1, %1780 ], [ 1, %1773 ], [ %.01148, %1801 ], [ %.01148, %.critedge1534 ], [ %.01148, %1777 ], [ %.01148, %1784 ], [ %.01148, %1693 ], [ %.01148, %1707 ], [ %.01148, %1710 ], [ 1, %1713 ], [ %.01148, %1716 ]
   %.11141.be = phi i32 [ %.11141, %1726 ], [ %spec.select1536, %user_data_add.exit ], [ %.11141, %1754 ], [ %spec.select1536, %1842 ], [ %.11141, %1771 ], [ %.11141, %1723 ], [ %.11141, %1719 ], [ %.11141, %1705 ], [ %.11141, %1780 ], [ %.11141, %1773 ], [ %.11141, %1801 ], [ %.11141, %.critedge1534 ], [ %.11141, %1777 ], [ %.11141, %1784 ], [ %.11141, %1693 ], [ %.11141, %1707 ], [ %.11141, %1710 ], [ %.11141, %1713 ], [ %.11141, %1716 ]
-  br label %.preheader1769.preheader
+  br label %.preheader1769.preheader, !llvm.loop !73
 
 1730:                                             ; preds = %1726
   %1731 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -4978,7 +4978,7 @@ thread-pre-split1681:                             ; preds = %1680
   %spec.select1535 = add nuw nsw i32 %.09423394, %1820
   %indvars.iv.next3810 = add nuw nsw i64 %indvars.iv3809, 1
   %exitcond3813.not = icmp eq i64 %indvars.iv.next3810, %wide.trip.count3812
-  br i1 %exitcond3813.not, label %.lr.ph3402.preheader, label %.lr.ph3396, !llvm.loop !69
+  br i1 %exitcond3813.not, label %.lr.ph3402.preheader, label %.lr.ph3396, !llvm.loop !74
 
 .lr.ph3402:                                       ; preds = %.lr.ph3402.preheader, %1833
   %indvars.iv3814 = phi i64 [ %1816, %.lr.ph3402.preheader ], [ %indvars.iv.next3815, %1833 ]
@@ -5007,7 +5007,7 @@ thread-pre-split1681:                             ; preds = %1680
   %.31185 = phi i32 [ %1829, %1827 ], [ %.211843399, %.lr.ph3402 ]
   %.3 = phi i32 [ %1828, %1827 ], [ %.23400, %.lr.ph3402 ]
   %1834 = icmp samesign ugt i64 %indvars.iv3814, 1
-  br i1 %1834, label %.lr.ph3402, label %.loopexit, !llvm.loop !70
+  br i1 %1834, label %.lr.ph3402, label %.loopexit, !llvm.loop !75
 
 1835:                                             ; preds = %1812
   %1836 = call i32 @raw_read_stdin(ptr noundef %46, i32 noundef 16384) #15
@@ -5032,7 +5032,7 @@ thread-pre-split1681:                             ; preds = %1680
 
 1844:                                             ; preds = %1842
   %1845 = zext nneg i32 %.41186 to i64
-  %1846 = load i64, ptr %927, align 8, !tbaa !71
+  %1846 = load i64, ptr %927, align 8, !tbaa !76
   %.not.i = icmp ne i64 %1846, 0
   %1847 = load i64, ptr %926, align 8
   %1848 = icmp ult i64 %1847, %1845
@@ -5040,8 +5040,8 @@ thread-pre-split1681:                             ; preds = %1680
   br i1 %or.cond1762, label %.thread1610, label %user_data_add.exit
 
 user_data_add.exit:                               ; preds = %1844
-  store i64 %1845, ptr %927, align 8, !tbaa !71
-  store i64 0, ptr %932, align 8, !tbaa !72
+  store i64 %1845, ptr %927, align 8, !tbaa !76
+  store i64 0, ptr %932, align 8, !tbaa !77
   br label %.preheader1769.preheader.backedge
 
 .thread1610:                                      ; preds = %1359, %1355, %1234, %1229, %1226, %1228, %1219, %1076, %1206, %1844, %1800, %.preheader1767, %.tail.thread, %1441, %1349, %1342, %1336, %1324, %1321, %1316, %1301, %1296, %1216, %1730, %.thread1665, %.thread1661, %1402, %.thread1622, %1190, %1149, %1115, %1043, %.thread1591, %1573, %1791, %1793, %1839, %1798, %1795, %1751, %1733, %1720, %1644, %1019
@@ -5061,8 +5061,8 @@ user_data_add.exit:                               ; preds = %1844
   call void @do_ssl_shutdown(ptr noundef %807) #15
   %1852 = call i32 @SSL_get_fd(ptr noundef %807) #15
   %1853 = call i32 @shutdown(i32 noundef %1852, i32 noundef 1) #15
-  store i64 0, ptr %12, align 8, !tbaa !46
-  store i64 500000, ptr %918, align 8, !tbaa !48
+  store i64 0, ptr %12, align 8, !tbaa !47
+  store i64 500000, ptr %918, align 8, !tbaa !49
   br label %1854
 
 1854:                                             ; preds = %1867, %1851
@@ -5085,7 +5085,7 @@ user_data_add.exit:                               ; preds = %1844
 1867:                                             ; preds = %1854
   %1868 = call i32 @BIO_read(ptr noundef %.0945, ptr noundef %47, i32 noundef 16384) #15
   %1869 = icmp sgt i32 %1868, 0
-  br i1 %1869, label %1854, label %.critedge118, !llvm.loop !73
+  br i1 %1869, label %1854, label %.critedge118, !llvm.loop !78
 
 .critedge118:                                     ; preds = %1854, %1867
   %1870 = call i32 @SSL_get_fd(ptr noundef %807) #15
@@ -5122,9 +5122,9 @@ user_data_add.exit:                               ; preds = %1844
   %.011141709 = phi ptr [ %.21116, %1874 ], [ %.21116, %.thread1573 ], [ null, %418 ], [ null, %454 ], [ %.21116, %502 ], [ %.21116, %521 ], [ %.21116, %526 ], [ %.21116, %550 ], [ %.21116, %567 ], [ %.21116, %582 ], [ %.21116, %595 ], [ %.21116, %608 ], [ %.21116, %634 ], [ %.21116, %645 ], [ %.21116, %653 ], [ %.21116, %661 ], [ %.21116, %673 ], [ %.21116, %679 ], [ %.21116, %689 ], [ %.21116, %696 ], [ %.21116, %767 ], [ %.21116, %772 ], [ %.21116, %777 ], [ %.21116, %779 ], [ %.21116, %791 ], [ %.21116, %806 ], [ %.21116, %803 ], [ %.21116, %798 ], [ %.21116, %732 ], [ %.21116, %624 ], [ %.21116, %619 ], [ %.21116, %614 ], [ %.21116, %603 ], [ %.21116, %590 ], [ %.21116, %544 ], [ %.21116, %538 ], [ %.21116, %533 ], [ %.21116, %515 ], [ %.21116, %508 ], [ null, %299 ], [ null, %215 ], [ null, %189 ], [ null, %147 ], [ null, %86 ], [ null, %.loopexit1782 ], [ null, %79 ], [ null, %71 ], [ null, %65 ], [ null, %58 ], [ null, %41 ], [ %.41118, %479 ], [ %.41118, %491 ], [ null, %468 ], [ %.21116, %563 ], [ %.21116, %554 ], [ %.21116, %712 ], [ %.21116, %721 ], [ null, %118 ], [ null, %151 ], [ null, %155 ], [ null, %175 ], [ null, %177 ], [ null, %332 ]
   %.011251708 = phi ptr [ %.11126.lcssa, %1874 ], [ %.11126.lcssa, %.thread1573 ], [ %.11126.lcssa, %418 ], [ %.11126.lcssa, %454 ], [ %.11126.lcssa, %502 ], [ %.11126.lcssa, %521 ], [ %.11126.lcssa, %526 ], [ %.11126.lcssa, %550 ], [ %.11126.lcssa, %567 ], [ %.11126.lcssa, %582 ], [ %.11126.lcssa, %595 ], [ %.11126.lcssa, %608 ], [ %.11126.lcssa, %634 ], [ %.11126.lcssa, %645 ], [ %.11126.lcssa, %653 ], [ %.11126.lcssa, %661 ], [ %.11126.lcssa, %673 ], [ %.11126.lcssa, %679 ], [ %.11126.lcssa, %689 ], [ %.11126.lcssa, %696 ], [ %.11126.lcssa, %767 ], [ %.11126.lcssa, %772 ], [ %.11126.lcssa, %777 ], [ %.11126.lcssa, %779 ], [ %.11126.lcssa, %791 ], [ %.11126.lcssa, %806 ], [ %.11126.lcssa, %803 ], [ %.11126.lcssa, %798 ], [ %.11126.lcssa, %732 ], [ %.11126.lcssa, %624 ], [ %.11126.lcssa, %619 ], [ %.11126.lcssa, %614 ], [ %.11126.lcssa, %603 ], [ %.11126.lcssa, %590 ], [ %.11126.lcssa, %544 ], [ %.11126.lcssa, %538 ], [ %.11126.lcssa, %533 ], [ %.11126.lcssa, %515 ], [ %.11126.lcssa, %508 ], [ %.111263231, %299 ], [ %.111263231, %215 ], [ %.111263231, %189 ], [ %.111263231, %147 ], [ %.111263231, %86 ], [ %.111262826, %.loopexit1782 ], [ %.111263231, %79 ], [ %.111263231, %71 ], [ %.111263231, %65 ], [ %.111263231, %58 ], [ null, %41 ], [ %.11126.lcssa, %479 ], [ %.11126.lcssa, %491 ], [ %.11126.lcssa, %468 ], [ %.11126.lcssa, %563 ], [ %.11126.lcssa, %554 ], [ %.11126.lcssa, %712 ], [ %.11126.lcssa, %721 ], [ %.111263231, %118 ], [ %.111263231, %151 ], [ %.111263231, %155 ], [ %.111263231, %175 ], [ %.111263231, %177 ], [ %.111263231, %332 ]
   %.011911707 = phi i32 [ %.011911744, %1874 ], [ 1, %.thread1573 ], [ 1, %418 ], [ 1, %454 ], [ 1, %502 ], [ 1, %521 ], [ 1, %526 ], [ 1, %550 ], [ 1, %567 ], [ 1, %582 ], [ 1, %595 ], [ 1, %608 ], [ 1, %634 ], [ 1, %645 ], [ 1, %653 ], [ 1, %661 ], [ 1, %673 ], [ 1, %679 ], [ 1, %689 ], [ 1, %696 ], [ 1, %767 ], [ 1, %772 ], [ 1, %777 ], [ 1, %779 ], [ 1, %791 ], [ 1, %806 ], [ 1, %803 ], [ 1, %798 ], [ 1, %732 ], [ 1, %624 ], [ 1, %619 ], [ 1, %614 ], [ 1, %603 ], [ 1, %590 ], [ 1, %544 ], [ 1, %538 ], [ 1, %533 ], [ 1, %515 ], [ 1, %508 ], [ 1, %299 ], [ 1, %215 ], [ 1, %189 ], [ 1, %147 ], [ 0, %86 ], [ 1, %.loopexit1782 ], [ 1, %79 ], [ 1, %71 ], [ 1, %65 ], [ 1, %58 ], [ 1, %41 ], [ 1, %479 ], [ 1, %491 ], [ 1, %468 ], [ 1, %563 ], [ 1, %554 ], [ 1, %712 ], [ 1, %721 ], [ 1, %118 ], [ 1, %151 ], [ 1, %155 ], [ 1, %175 ], [ 1, %177 ], [ 1, %332 ]
-  %1875 = load ptr, ptr @psksess, align 8, !tbaa !41
+  %1875 = load ptr, ptr @psksess, align 8, !tbaa !42
   call void @SSL_SESSION_free(ptr noundef %1875) #15
-  %1876 = load ptr, ptr @next_proto, align 8, !tbaa !40
+  %1876 = load ptr, ptr @next_proto, align 8, !tbaa !41
   call void @CRYPTO_free(ptr noundef %1876, ptr noundef nonnull @.str.396, i32 noundef 3324) #15
   call void @SSL_CTX_free(ptr noundef %.09561720) #15
   %1877 = call i32 @set_keylog_file(ptr noundef null, ptr noundef null) #15
@@ -5135,7 +5135,7 @@ user_data_add.exit:                               ; preds = %1844
   call void @OSSL_STACK_OF_X509_free(ptr noundef %1878) #15
   %1879 = load ptr, ptr %11, align 8, !tbaa !11
   call void @CRYPTO_free(ptr noundef %1879, ptr noundef nonnull @.str.396, i32 noundef 3332) #15
-  %1880 = load ptr, ptr %24, align 8, !tbaa !74
+  %1880 = load ptr, ptr %24, align 8, !tbaa !79
   call void @CRYPTO_free(ptr noundef %1880, ptr noundef nonnull @.str.396, i32 noundef 3334) #15
   call void @CRYPTO_free(ptr noundef %.011141709, ptr noundef nonnull @.str.396, i32 noundef 3336) #15
   %1881 = load ptr, ptr %26, align 8, !tbaa !15
@@ -5479,13 +5479,13 @@ declare void @SSL_CTX_set_psk_use_session_callback(ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @psk_use_session_cb(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca i64, align 8
-  %7 = load ptr, ptr @psksess, align 8, !tbaa !41
+  %7 = load ptr, ptr @psksess, align 8, !tbaa !42
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @SSL_SESSION_up_ref(ptr noundef nonnull %7) #15
-  %10 = load ptr, ptr @psksess, align 8, !tbaa !41
+  %10 = load ptr, ptr @psksess, align 8, !tbaa !42
   br label %36
 
 11:                                               ; preds = %5
@@ -5565,12 +5565,12 @@ define internal range(i32 0, 2) i32 @psk_use_session_cb(ptr noundef %0, ptr noun
 42:                                               ; preds = %40
   store ptr null, ptr %2, align 8, !tbaa !11
   store i64 0, ptr %3, align 8, !tbaa !17
-  store ptr null, ptr %4, align 8, !tbaa !41
+  store ptr null, ptr %4, align 8, !tbaa !42
   call void @SSL_SESSION_free(ptr noundef %.028) #15
   br label %47
 
 43:                                               ; preds = %40, %39
-  store ptr %.028, ptr %4, align 8, !tbaa !41
+  store ptr %.028, ptr %4, align 8, !tbaa !42
   %44 = load ptr, ptr @psk_identity, align 8, !tbaa !11
   store ptr %44, ptr %2, align 8, !tbaa !11
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #17
@@ -5628,7 +5628,7 @@ define internal noundef i32 @next_proto_cb(ptr readnone captures(none) %0, ptr n
   %24 = zext i8 %23 to i32
   %25 = add i32 %15, %24
   %26 = icmp ult i32 %25, %4
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !75
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %13, %7
   %27 = load ptr, ptr @bio_c_out, align 8, !tbaa !19
@@ -5636,13 +5636,13 @@ define internal noundef i32 @next_proto_cb(ptr readnone captures(none) %0, ptr n
   br label %29
 
 29:                                               ; preds = %._crit_edge, %6
-  %30 = load ptr, ptr %5, align 8, !tbaa !40
+  %30 = load ptr, ptr %5, align 8, !tbaa !41
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !76
+  %32 = load i64, ptr %31, align 8, !tbaa !81
   %33 = trunc i64 %32 to i32
   %34 = tail call i32 @SSL_select_next_proto(ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %30, i32 noundef %33) #15
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %34, ptr %35, align 8, !tbaa !38
+  store i32 %34, ptr %35, align 8, !tbaa !39
   ret i32 0
 }
 
@@ -5717,7 +5717,7 @@ define internal noundef i32 @ssl_servername_cb(ptr noundef %0, ptr readnone capt
   %9 = select i1 %.not6, i1 %8, i1 false
   %10 = zext i1 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %10, ptr %11, align 8, !tbaa !77
+  store i32 %10, ptr %11, align 8, !tbaa !82
   br label %15
 
 12:                                               ; preds = %3
@@ -5870,7 +5870,7 @@ define internal fastcc range(i32 0, 2) i32 @is_dNS_name(ptr noundef nonnull read
   %30 = icmp ult i64 %29, %2
   %31 = icmp ult i64 %.247.ph, 63
   %32 = select i1 %30, i1 %31, i1 false
-  br i1 %32, label %4, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %32, label %4, label %._crit_edge.loopexit, !llvm.loop !83
 
 ._crit_edge.loopexit:                             ; preds = %19, %22, %25, %17, %28
   %.045.lcssa.ph = phi i64 [ %.247.ph, %28 ], [ %.04571, %17 ], [ %.04571, %25 ], [ %.04571, %22 ], [ %.04571, %19 ]
@@ -5908,7 +5908,7 @@ define internal fastcc range(i32 0, 2) i32 @tlsa_import_rrset(ptr noundef nonnul
   %8 = phi ptr [ @tlsa_import_rr.usage, %.lr.ph ], [ %21, %19 ]
   %.01521.i = phi ptr [ @tlsa_import_rr.tlsa_fields, %.lr.ph ], [ %20, %19 ]
   %9 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !79
+  %10 = load ptr, ptr %9, align 8, !tbaa !84
   %11 = call i64 %10(ptr noundef nonnull %3, ptr noundef nonnull %8) #15
   %12 = icmp slt i64 %11, 1
   br i1 %12, label %13, label %19
@@ -5917,15 +5917,15 @@ define internal fastcc range(i32 0, 2) i32 @tlsa_import_rrset(ptr noundef nonnul
   %14 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %15 = load ptr, ptr @prog, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !81
+  %17 = load ptr, ptr %16, align 8, !tbaa !86
   %18 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %14, ptr noundef nonnull @.str.578, ptr noundef %15, ptr noundef %17, ptr noundef %6) #15
   br label %43
 
 19:                                               ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %.01521.i, i64 24
-  %21 = load ptr, ptr %20, align 8, !tbaa !82
+  %21 = load ptr, ptr %20, align 8, !tbaa !87
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %22, label %7, !llvm.loop !83
+  br i1 %.not.i, label %22, label %7, !llvm.loop !88
 
 22:                                               ; preds = %19
   %23 = load i8, ptr @tlsa_import_rr.usage, align 1, !tbaa !25
@@ -5971,7 +5971,7 @@ tlsa_import_rr.exit:                              ; preds = %35
   %45 = phi i32 [ %.016, %43 ], [ %42, %tlsa_import_rr.exit ]
   %46 = add nuw nsw i32 %.0915, 1
   %exitcond.not = icmp eq i32 %46, %4
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge.loopexit:                             ; preds = %44
   %47 = icmp sgt i32 %45, 0
@@ -6217,7 +6217,7 @@ define internal fastcc i32 @ldap_ExtendedResponse_parse(ptr noundef %0, i64 noun
   %60 = or disjoint i32 %56, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %48
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !90
 
 .loopexit.sink.split:                             ; preds = %40, %50, %30, %19, %24, %2, %11
   %.str.629.sink = phi ptr [ @.str.626, %11 ], [ @.str.626, %2 ], [ @.str.627, %24 ], [ @.str.627, %19 ], [ @.str.628, %30 ], [ @.str.629, %50 ], [ @.str.629, %40 ]
@@ -6327,7 +6327,7 @@ define internal fastcc void @print_stuff(ptr noundef %0, ptr noundef nonnull %1,
   %53 = add nuw nsw i32 %.0162189, 1
   %54 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %12) #15
   %55 = icmp slt i32 %53, %54
-  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !86
+  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !91
 
 .loopexit:                                        ; preds = %52, %13, %11
   %56 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.573) #15
@@ -6442,7 +6442,7 @@ define internal fastcc void @print_stuff(ptr noundef %0, ptr noundef nonnull %1,
 108:                                              ; preds = %106, %101
   %109 = add nuw nsw i32 %.1190, 1
   %exitcond.not = icmp eq i32 %109, %94
-  br i1 %exitcond.not, label %110, label %101, !llvm.loop !87
+  br i1 %exitcond.not, label %110, label %101, !llvm.loop !92
 
 110:                                              ; preds = %108
   %111 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.567) #15
@@ -6502,7 +6502,7 @@ define internal fastcc void @print_stuff(ptr noundef %0, ptr noundef nonnull %1,
 142:                                              ; preds = %137, %140
   %143 = phi ptr [ %141, %140 ], [ @.str.604, %137 ]
   %144 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.605, ptr noundef %143) #15
-  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8, !tbaa !38
+  %145 = load i32, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8, !tbaa !39
   %.not185 = icmp eq i32 %145, -1
   br i1 %.not185, label %153, label %146
 
@@ -6510,7 +6510,7 @@ define internal fastcc void @print_stuff(ptr noundef %0, ptr noundef nonnull %1,
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
   call void @SSL_get0_next_proto_negotiated(ptr noundef nonnull %1, ptr noundef nonnull %4, ptr noundef nonnull %5) #15
-  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8, !tbaa !38
+  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @next_proto, i64 16), align 8, !tbaa !39
   %148 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.606, i32 noundef %147) #15
   %149 = load ptr, ptr %4, align 8, !tbaa !11
   %150 = load i32, ptr %5, align 4, !tbaa !13
@@ -6548,7 +6548,7 @@ define internal fastcc void @print_stuff(ptr noundef %0, ptr noundef nonnull %1,
   br i1 %.not187, label %168, label %165
 
 165:                                              ; preds = %163
-  %166 = load ptr, ptr %164, align 8, !tbaa !88
+  %166 = load ptr, ptr %164, align 8, !tbaa !93
   %167 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.609, ptr noundef %166) #15
   br label %168
 
@@ -6619,7 +6619,7 @@ switch.lookup:                                    ; preds = %169
   %209 = load i32, ptr @keymatexportlen, align 4, !tbaa !13
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next, %210
-  br i1 %211, label %.lr.ph192, label %._crit_edge, !llvm.loop !90
+  br i1 %211, label %.lr.ph192, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph192, %201, %186
   %.str.567.sink = phi ptr [ @.str.618, %186 ], [ @.str.567, %201 ], [ @.str.567, %.lr.ph192 ]
@@ -6638,12 +6638,12 @@ declare void @do_ssl_shutdown(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !64
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i64, ptr %6, align 8, !tbaa !72
+  %7 = load i64, ptr %6, align 8, !tbaa !77
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !71
+  %10 = load i64, ptr %9, align 8, !tbaa !76
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
 
@@ -6654,7 +6654,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
 
 13:                                               ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !66
+  %15 = load i32, ptr %14, align 8, !tbaa !69
   switch i32 %15, label %142 [
     i32 1, label %16
     i32 2, label %56
@@ -6684,11 +6684,11 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %22 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %23 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %22, ptr noundef nonnull @.str.652) #15
-  %24 = load ptr, ptr %0, align 8, !tbaa !61
+  %24 = load ptr, ptr %0, align 8, !tbaa !64
   tail call void @do_ssl_shutdown(ptr noundef %24) #15
-  %25 = load ptr, ptr %0, align 8, !tbaa !61
+  %25 = load ptr, ptr %0, align 8, !tbaa !64
   tail call void @SSL_set_connect_state(ptr noundef %25) #15
-  %26 = load ptr, ptr %0, align 8, !tbaa !61
+  %26 = load ptr, ptr %0, align 8, !tbaa !64
   %27 = tail call i32 @SSL_get_fd(ptr noundef %26) #15
   %28 = tail call i32 @BIO_closesocket(i32 noundef %27) #15
   br label %user_data_execute.exit
@@ -6699,7 +6699,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %30 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %30, ptr noundef nonnull @.str.653) #15
-  %32 = load ptr, ptr %0, align 8, !tbaa !61
+  %32 = load ptr, ptr %0, align 8, !tbaa !64
   %33 = tail call i32 @SSL_renegotiate(ptr noundef %32) #15
   %.not17.i = icmp eq i32 %33, 0
   br i1 %.not17.i, label %34, label %user_data_execute.exit
@@ -6731,7 +6731,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
   %.014.i = phi i32 [ 1, %38 ], [ 0, %44 ]
   %48 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %49 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %48, ptr noundef nonnull @.str.654) #15
-  %50 = load ptr, ptr %0, align 8, !tbaa !61
+  %50 = load ptr, ptr %0, align 8, !tbaa !64
   %51 = tail call i32 @SSL_key_update(ptr noundef %50, i32 noundef %.014.i) #15
   %.not16.i = icmp eq i32 %51, 0
   br i1 %.not16.i, label %52, label %user_data_execute.exit
@@ -6762,16 +6762,16 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
 63:                                               ; preds = %.lr.ph
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 2
   %65 = getelementptr inbounds nuw i8, ptr %.0116154, i64 1
-  %66 = load i64, ptr %6, align 8, !tbaa !72
+  %66 = load i64, ptr %6, align 8, !tbaa !77
   %67 = add i64 %66, 1
-  store i64 %67, ptr %6, align 8, !tbaa !72
-  %68 = load i64, ptr %9, align 8, !tbaa !71
+  store i64 %67, ptr %6, align 8, !tbaa !77
+  %68 = load i64, ptr %9, align 8, !tbaa !76
   %69 = add i64 %68, -1
-  store i64 %69, ptr %9, align 8, !tbaa !71
+  store i64 %69, ptr %9, align 8, !tbaa !76
   %70 = add i64 %.1121153, -1
   %71 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %64, i32 noundef 123) #17
   %.not134 = icmp eq ptr %71, %65
-  br i1 %.not134, label %.lr.ph, label %._crit_edge
+  br i1 %.not134, label %.lr.ph, label %._crit_edge, !llvm.loop !96
 
 72:                                               ; preds = %.lr.ph
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 1
@@ -6818,7 +6818,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
   br i1 %93, label %100, label %94
 
 94:                                               ; preds = %91
-  %95 = load ptr, ptr %0, align 8, !tbaa !61
+  %95 = load ptr, ptr %0, align 8, !tbaa !64
   %96 = tail call i32 @SSL_is_quic(ptr noundef %95) #15
   %.not133 = icmp eq i32 %96, 0
   br i1 %.not133, label %100, label %97
@@ -6831,7 +6831,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
 
 100:                                              ; preds = %97, %91, %88, %85, %94
   %.0112 = phi i32 [ -1, %94 ], [ 0, %85 ], [ 1, %88 ], [ 2, %91 ], [ %spec.select, %97 ]
-  %101 = load ptr, ptr %0, align 8, !tbaa !61
+  %101 = load ptr, ptr %0, align 8, !tbaa !64
   %102 = tail call i32 @SSL_version(ptr noundef %101) #15
   %103 = icmp eq i32 %102, 772
   br i1 %103, label %104, label %109
@@ -6874,17 +6874,17 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
 
 122:                                              ; preds = %.thread, %119, %114
   %.0111 = phi i32 [ 3, %114 ], [ 3, %119 ], [ %117, %.thread ]
-  %123 = load i64, ptr %6, align 8, !tbaa !72
-  %124 = load ptr, ptr %4, align 8, !tbaa !64
+  %123 = load i64, ptr %6, align 8, !tbaa !77
+  %124 = load ptr, ptr %4, align 8, !tbaa !67
   %125 = ptrtoint ptr %74 to i64
   %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
   %128 = add nsw i64 %127, 1
-  store i64 %128, ptr %6, align 8, !tbaa !72
+  store i64 %128, ptr %6, align 8, !tbaa !77
   %.neg = sub i64 %123, %128
-  %129 = load i64, ptr %9, align 8, !tbaa !71
+  %129 = load i64, ptr %9, align 8, !tbaa !76
   %130 = add i64 %.neg, %129
-  store i64 %130, ptr %9, align 8, !tbaa !71
+  store i64 %130, ptr %9, align 8, !tbaa !76
   %131 = icmp eq ptr %124, %59
   %132 = icmp eq i64 %130, 1
   %or.cond = select i1 %131, i1 %132, i1 false
@@ -6919,7 +6919,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
 142:                                              ; preds = %._crit_edge, %13, %16
   %.0120 = phi i64 [ %10, %16 ], [ %.3, %._crit_edge ], [ %10, %13 ]
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %144 = load i32, ptr %143, align 4, !tbaa !67
+  %144 = load i32, ptr %143, align 4, !tbaa !70
   %.not135 = icmp eq i32 %144, 0
   br i1 %.not135, label %146, label %145
 
@@ -6931,15 +6931,15 @@ define internal fastcc range(i32 0, 5) i32 @user_data_process(ptr noundef nonnul
 
 146:                                              ; preds = %142
   store i64 %.0120, ptr %1, align 8, !tbaa !17
-  %147 = load i64, ptr %6, align 8, !tbaa !72
+  %147 = load i64, ptr %6, align 8, !tbaa !77
   store i64 %147, ptr %2, align 8, !tbaa !17
-  %148 = load i64, ptr %9, align 8, !tbaa !71
+  %148 = load i64, ptr %9, align 8, !tbaa !76
   %149 = sub i64 %148, %.0120
-  store i64 %149, ptr %9, align 8, !tbaa !71
+  store i64 %149, ptr %9, align 8, !tbaa !76
   %150 = icmp eq i64 %148, %.0120
   %151 = add i64 %147, %.0120
   %spec.select172 = select i1 %150, i64 0, i64 %151
-  store i64 %spec.select172, ptr %6, align 8, !tbaa !72
+  store i64 %spec.select172, ptr %6, align 8, !tbaa !77
   br label %user_data_execute.exit
 
 user_data_execute.exit:                           ; preds = %138, %76, %52, %47, %44, %34, %29, %146, %145, %21, %18, %12
@@ -7065,7 +7065,7 @@ define internal range(i64 -1, 2) i64 @checked_uint8(ptr noundef captures(none) %
   %18 = load i8, ptr %13, align 1, !tbaa !25
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw i16, ptr %17, i64 %19
-  %21 = load i16, ptr %20, align 2, !tbaa !30
+  %21 = load i16, ptr %20, align 2, !tbaa !31
   %22 = and i16 %21, 8192
   %.not = icmp eq i16 %22, 0
   br i1 %.not, label %34, label %23
@@ -7085,11 +7085,11 @@ define internal range(i64 -1, 2) i64 @checked_uint8(ptr noundef captures(none) %
   %27 = load i8, ptr %.017, align 1, !tbaa !25
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i16, ptr %25, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !30
+  %30 = load i16, ptr %29, align 2, !tbaa !31
   %31 = and i16 %30, 8192
   %.not20 = icmp eq i16 %31, 0
   %32 = getelementptr inbounds nuw i8, ptr %.017, i64 1
-  br i1 %.not20, label %33, label %26, !llvm.loop !91
+  br i1 %.not20, label %33, label %26, !llvm.loop !97
 
 33:                                               ; preds = %26
   store ptr %.017, ptr %0, align 8, !tbaa !11
@@ -7133,7 +7133,7 @@ define internal i64 @hexdecode(ptr noundef captures(none) %0, ptr noundef writeo
   %12 = load ptr, ptr %9, align 8, !tbaa !26
   %13 = zext i8 %11 to i64
   %14 = getelementptr inbounds nuw i16, ptr %12, i64 %13
-  %15 = load i16, ptr %14, align 2, !tbaa !30
+  %15 = load i16, ptr %14, align 2, !tbaa !31
   %16 = and i16 %15, 8192
   %.not39 = icmp eq i16 %16, 0
   br i1 %.not39, label %17, label %27
@@ -7163,7 +7163,7 @@ define internal i64 @hexdecode(ptr noundef captures(none) %0, ptr noundef writeo
   %28 = getelementptr inbounds nuw i8, ptr %.03451, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !25
   %.not = icmp eq i8 %29, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !92
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !98
 
 .thread:                                          ; preds = %20
   %30 = or i8 %.02853, %21
@@ -7172,7 +7172,7 @@ define internal i64 @hexdecode(ptr noundef captures(none) %0, ptr noundef writeo
   %32 = getelementptr inbounds nuw i8, ptr %.03451, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !25
   %.not65 = icmp eq i8 %33, 0
-  br i1 %.not65, label %._crit_edge.thread, label %.outer, !llvm.loop !92
+  br i1 %.not65, label %._crit_edge.thread, label %.outer, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %27
   %34 = icmp eq i32 %.127.ph, 0
@@ -7337,7 +7337,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
   %16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %15, ptr noundef nonnull @.str.644) #15
   %17 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.645) #15
-  %19 = load ptr, ptr %0, align 8, !tbaa !61
+  %19 = load ptr, ptr %0, align 8, !tbaa !64
   %20 = tail call i32 @SSL_is_quic(ptr noundef %19) #15
   %.not18 = icmp eq i32 %20, 0
   br i1 %.not18, label %24, label %21
@@ -7348,7 +7348,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
   br label %39
 
 24:                                               ; preds = %4
-  %25 = load ptr, ptr %0, align 8, !tbaa !61
+  %25 = load ptr, ptr %0, align 8, !tbaa !64
   %26 = tail call i32 @SSL_version(ptr noundef %25) #15
   %27 = icmp eq i32 %26, 772
   %28 = load ptr, ptr @bio_err, align 8, !tbaa !19
@@ -7381,11 +7381,11 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
 45:                                               ; preds = %3
   %46 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %47 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %46, ptr noundef nonnull @.str.652) #15
-  %48 = load ptr, ptr %0, align 8, !tbaa !61
+  %48 = load ptr, ptr %0, align 8, !tbaa !64
   tail call void @do_ssl_shutdown(ptr noundef %48) #15
-  %49 = load ptr, ptr %0, align 8, !tbaa !61
+  %49 = load ptr, ptr %0, align 8, !tbaa !64
   tail call void @SSL_set_connect_state(ptr noundef %49) #15
-  %50 = load ptr, ptr %0, align 8, !tbaa !61
+  %50 = load ptr, ptr %0, align 8, !tbaa !64
   %51 = tail call i32 @SSL_get_fd(ptr noundef %50) #15
   %52 = tail call i32 @BIO_closesocket(i32 noundef %51) #15
   br label %.thread
@@ -7393,7 +7393,7 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
 53:                                               ; preds = %3
   %54 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %55 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %54, ptr noundef nonnull @.str.653) #15
-  %56 = load ptr, ptr %0, align 8, !tbaa !61
+  %56 = load ptr, ptr %0, align 8, !tbaa !64
   %57 = tail call i32 @SSL_renegotiate(ptr noundef %56) #15
   %.not17 = icmp eq i32 %57, 0
   br i1 %.not17, label %74, label %.thread
@@ -7412,20 +7412,20 @@ define internal fastcc range(i32 0, 5) i32 @user_data_execute(ptr noundef nonnul
   %.014 = phi i32 [ 1, %58 ], [ 0, %61 ]
   %65 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %66 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %65, ptr noundef nonnull @.str.654) #15
-  %67 = load ptr, ptr %0, align 8, !tbaa !61
+  %67 = load ptr, ptr %0, align 8, !tbaa !64
   %68 = tail call i32 @SSL_key_update(ptr noundef %67, i32 noundef %.014) #15
   %.not16 = icmp eq i32 %68, 0
   br i1 %.not16, label %74, label %.thread
 
 69:                                               ; preds = %3
-  %70 = load ptr, ptr %0, align 8, !tbaa !61
+  %70 = load ptr, ptr %0, align 8, !tbaa !64
   %71 = tail call i32 @SSL_stream_conclude(ptr noundef %70, i64 noundef 0) #15
   %.not = icmp eq i32 %71, 0
   br i1 %.not, label %74, label %72
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %73, align 4, !tbaa !67
+  store i32 1, ptr %73, align 4, !tbaa !70
   br label %.thread
 
 default.unreachable24:                            ; preds = %3
@@ -7514,68 +7514,74 @@ attributes #17 = { nounwind willreturn memory(read) }
 !25 = !{!7, !7, i64 0}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"p1 short", !6, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"short", !7, i64 0}
-!32 = !{!33, !12, i64 8}
-!33 = !{!"srp_arg_st", !12, i64 0, !12, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
-!34 = !{!33, !14, i64 28}
-!35 = !{!33, !14, i64 24}
-!36 = distinct !{!36, !29}
-!37 = distinct !{!37, !29}
-!38 = !{!39, !14, i64 16}
-!39 = !{!"tlsextnextprotoctx_st", !12, i64 0, !18, i64 8, !14, i64 16}
-!40 = !{!39, !12, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS14ssl_session_st", !6, i64 0}
-!43 = distinct !{!43, !29}
-!44 = !{!45, !20, i64 0}
-!45 = !{!"tlsextctx_st", !20, i64 0, !14, i64 8}
-!46 = !{!47, !18, i64 0}
-!47 = !{!"timeval", !18, i64 0, !18, i64 8}
-!48 = !{!47, !18, i64 8}
-!49 = distinct !{!49, !29}
-!50 = distinct !{!50, !29}
-!51 = distinct !{!51, !29}
-!52 = distinct !{!52, !29}
-!53 = distinct !{!53, !29}
-!54 = distinct !{!54, !29}
-!55 = distinct !{!55, !29}
-!56 = !{!57, !12, i64 8}
-!57 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !12, i64 8, !18, i64 16}
-!58 = !{!57, !14, i64 0}
-!59 = distinct !{!59, !29}
-!60 = distinct !{!60, !29}
-!61 = !{!62, !63, i64 0}
-!62 = !{!"user_data_st", !63, i64 0, !12, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !14, i64 40, !14, i64 44}
-!63 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
-!64 = !{!62, !12, i64 8}
-!65 = !{!62, !18, i64 16}
-!66 = !{!62, !14, i64 40}
-!67 = !{!62, !14, i64 44}
-!68 = distinct !{!68, !29}
-!69 = distinct !{!69, !29}
-!70 = distinct !{!70, !29}
-!71 = !{!62, !18, i64 24}
-!72 = !{!62, !18, i64 32}
-!73 = distinct !{!73, !29}
-!74 = !{!33, !12, i64 0}
-!75 = distinct !{!75, !29}
-!76 = !{!39, !18, i64 8}
-!77 = !{!45, !14, i64 8}
-!78 = distinct !{!78, !29}
-!79 = !{!80, !6, i64 16}
-!80 = !{!"tlsa_field", !6, i64 0, !12, i64 8, !6, i64 16}
-!81 = !{!80, !12, i64 8}
-!82 = !{!80, !6, i64 0}
-!83 = distinct !{!83, !29}
-!84 = distinct !{!84, !29}
-!85 = distinct !{!85, !29}
-!86 = distinct !{!86, !29}
-!87 = distinct !{!87, !29}
-!88 = !{!89, !12, i64 0}
-!89 = !{!"srtp_protection_profile_st", !12, i64 0, !18, i64 8}
-!90 = distinct !{!90, !29}
-!91 = distinct !{!91, !29}
-!92 = distinct !{!92, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"short", !7, i64 0}
+!33 = !{!34, !12, i64 8}
+!34 = !{!"srp_arg_st", !12, i64 0, !12, i64 8, !14, i64 16, !14, i64 20, !14, i64 24, !14, i64 28}
+!35 = !{!34, !14, i64 28}
+!36 = !{!34, !14, i64 24}
+!37 = distinct !{!37, !29, !30}
+!38 = distinct !{!38, !29, !30}
+!39 = !{!40, !14, i64 16}
+!40 = !{!"tlsextnextprotoctx_st", !12, i64 0, !18, i64 8, !14, i64 16}
+!41 = !{!40, !12, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS14ssl_session_st", !6, i64 0}
+!44 = distinct !{!44, !29, !30}
+!45 = !{!46, !20, i64 0}
+!46 = !{!"tlsextctx_st", !20, i64 0, !14, i64 8}
+!47 = !{!48, !18, i64 0}
+!48 = !{!"timeval", !18, i64 0, !18, i64 8}
+!49 = !{!48, !18, i64 8}
+!50 = distinct !{!50, !29, !30}
+!51 = distinct !{!51, !29, !30}
+!52 = distinct !{!52, !29, !30}
+!53 = distinct !{!53, !30}
+!54 = distinct !{!54, !29, !30}
+!55 = distinct !{!55, !30}
+!56 = distinct !{!56, !30}
+!57 = distinct !{!57, !29, !30}
+!58 = distinct !{!58, !29, !30}
+!59 = !{!60, !12, i64 8}
+!60 = !{!"asn1_string_st", !14, i64 0, !14, i64 4, !12, i64 8, !18, i64 16}
+!61 = !{!60, !14, i64 0}
+!62 = distinct !{!62, !29, !30}
+!63 = distinct !{!63, !29, !30}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"user_data_st", !66, i64 0, !12, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !14, i64 40, !14, i64 44}
+!66 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
+!67 = !{!65, !12, i64 8}
+!68 = !{!65, !18, i64 16}
+!69 = !{!65, !14, i64 40}
+!70 = !{!65, !14, i64 44}
+!71 = distinct !{!71, !30}
+!72 = distinct !{!72, !29, !30}
+!73 = distinct !{!73, !30}
+!74 = distinct !{!74, !29, !30}
+!75 = distinct !{!75, !29, !30}
+!76 = !{!65, !18, i64 24}
+!77 = !{!65, !18, i64 32}
+!78 = distinct !{!78, !29, !30}
+!79 = !{!34, !12, i64 0}
+!80 = distinct !{!80, !29, !30}
+!81 = !{!40, !18, i64 8}
+!82 = !{!46, !14, i64 8}
+!83 = distinct !{!83, !29, !30}
+!84 = !{!85, !6, i64 16}
+!85 = !{!"tlsa_field", !6, i64 0, !12, i64 8, !6, i64 16}
+!86 = !{!85, !12, i64 8}
+!87 = !{!85, !6, i64 0}
+!88 = distinct !{!88, !29, !30}
+!89 = distinct !{!89, !29, !30}
+!90 = distinct !{!90, !29, !30}
+!91 = distinct !{!91, !29, !30}
+!92 = distinct !{!92, !29, !30}
+!93 = !{!94, !12, i64 0}
+!94 = !{!"srtp_protection_profile_st", !12, i64 0, !18, i64 8}
+!95 = distinct !{!95, !29, !30}
+!96 = distinct !{!96, !30}
+!97 = distinct !{!97, !29, !30}
+!98 = distinct !{!98, !29, !30}

@@ -354,7 +354,7 @@ define void @_ZN6google8protobuf18StringPrintfVectorEPKcRKSt6vectorINSt7__cxx111
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %103 = and i64 %indvars.iv.next34, 4294967295
   %exitcond36.not = icmp eq i64 %103, 32
-  br i1 %exitcond36.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !21
+  br i1 %exitcond36.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !22
 }
 
 declare void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #6
@@ -419,6 +419,7 @@ attributes #14 = { builtin nounwind }
 !16 = !{!"p1 _ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !7, i64 0}
 !17 = !{!15, !16, i64 0}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}

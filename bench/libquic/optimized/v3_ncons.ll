@@ -69,14 +69,14 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   %.03046 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
   %15 = call ptr @sk_value(ptr noundef %2, i64 noundef %.03046) #6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !8
+  %17 = load ptr, ptr %16, align 8, !tbaa !9
   %18 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(10) @.str.8, i64 noundef 9) #7
   %.not33 = icmp eq i32 %18, 0
   br i1 %.not33, label %19, label %22
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 9
-  %21 = load i8, ptr %20, align 1, !tbaa !14
+  %21 = load i8, ptr %20, align 1, !tbaa !15
   %.not34 = icmp eq i8 %21, 0
   br i1 %.not34, label %22, label %28
 
@@ -87,7 +87,7 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %26 = load i8, ptr %25, align 1, !tbaa !14
+  %26 = load i8, ptr %25, align 1, !tbaa !15
   %.not36 = icmp eq i8 %26, 0
   br i1 %.not36, label %27, label %28
 
@@ -99,24 +99,24 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
   %.sink = phi i64 [ 10, %19 ], [ 9, %24 ]
   %.028 = phi ptr [ %5, %19 ], [ %8, %24 ]
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink
-  store ptr %29, ptr %7, align 8, !tbaa !8
+  store ptr %29, ptr %7, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !15
-  store ptr %31, ptr %9, align 8, !tbaa !15
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  store ptr %31, ptr %9, align 8, !tbaa !16
   %32 = call ptr @ASN1_item_new(ptr noundef nonnull @GENERAL_SUBTREE_it) #6
-  %33 = load ptr, ptr %32, align 8, !tbaa !16
+  %33 = load ptr, ptr %32, align 8, !tbaa !17
   %34 = call ptr @v2i_GENERAL_NAME_ex(ptr noundef %33, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1) #6
   %.not37 = icmp eq ptr %34, null
   br i1 %.not37, label %.loopexit43, label %35
 
 35:                                               ; preds = %28
-  %36 = load ptr, ptr %.028, align 8, !tbaa !20
+  %36 = load ptr, ptr %.028, align 8, !tbaa !21
   %.not38 = icmp eq ptr %36, null
   br i1 %.not38, label %37, label %.thread
 
 37:                                               ; preds = %35
   %38 = call ptr @sk_new_null() #6
-  store ptr %38, ptr %.028, align 8, !tbaa !20
+  store ptr %38, ptr %.028, align 8, !tbaa !21
   %.not39 = icmp eq ptr %38, null
   br i1 %.not39, label %.loopexit44, label %.thread
 
@@ -155,10 +155,10 @@ define internal ptr @v2i_NAME_CONSTRAINTS(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @i2r_NAME_CONSTRAINTS(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !22
+  %5 = load ptr, ptr %1, align 8, !tbaa !23
   tail call fastcc void @do_i2r_name_constraints(ptr noundef %5, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.11)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !25
   tail call fastcc void @do_i2r_name_constraints(ptr noundef %7, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.12)
   ret i32 1
 }
@@ -201,15 +201,15 @@ define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %0, ptr n
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  store i32 4, ptr %3, align 8, !tbaa !25
+  store i32 4, ptr %3, align 8, !tbaa !26
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %8, align 8, !tbaa !14
+  store ptr %4, ptr %8, align 8, !tbaa !15
   %9 = call fastcc i32 @nc_match(ptr noundef nonnull %3, ptr noundef %1)
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %.thread47
 
 10:                                               ; preds = %7
-  store i32 1, ptr %3, align 8, !tbaa !25
+  store i32 1, ptr %3, align 8, !tbaa !26
   br label %11
 
 11:                                               ; preds = %19, %10
@@ -221,9 +221,9 @@ define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %0, ptr n
 14:                                               ; preds = %11
   %15 = tail call ptr @X509_NAME_get_entry(ptr noundef %4, i32 noundef %12) #6
   %16 = tail call ptr @X509_NAME_ENTRY_get_data(ptr noundef %15) #6
-  store ptr %16, ptr %8, align 8, !tbaa !14
+  store ptr %16, ptr %8, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !28
+  %18 = load i32, ptr %17, align 4, !tbaa !29
   %.not37 = icmp eq i32 %18, 22
   br i1 %.not37, label %19, label %.thread47
 
@@ -243,21 +243,21 @@ define hidden range(i32 0, 54) i32 @NAME_CONSTRAINTS_check(ptr noundef %0, ptr n
 
 22:                                               ; preds = %21, %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %24 = load ptr, ptr %23, align 8, !tbaa !31
+  %24 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = tail call i64 @sk_num(ptr noundef %24) #6
   %.not54 = icmp eq i64 %25, 0
   br i1 %.not54, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
   %27 = add nuw i64 %.03251, 1
-  %28 = load ptr, ptr %23, align 8, !tbaa !31
+  %28 = load ptr, ptr %23, align 8, !tbaa !32
   %29 = tail call i64 @sk_num(ptr noundef %28) #6
   %30 = icmp ult i64 %27, %29
-  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !43
+  br i1 %30, label %.lr.ph, label %.loopexit, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %22, %26
   %.03251 = phi i64 [ %27, %26 ], [ 0, %22 ]
-  %31 = load ptr, ptr %23, align 8, !tbaa !31
+  %31 = load ptr, ptr %23, align 8, !tbaa !32
   %32 = tail call ptr @sk_value(ptr noundef %31, i64 noundef %.03251) #6
   %33 = tail call fastcc i32 @nc_match(ptr noundef %32, ptr noundef %1)
   %.not39 = icmp eq i32 %33, 0
@@ -277,7 +277,7 @@ declare i32 @X509_NAME_entry_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !22
+  %3 = load ptr, ptr %1, align 8, !tbaa !23
   %4 = tail call i64 @sk_num(ptr noundef %3) #6
   %.not57 = icmp eq i64 %4, 0
   br i1 %.not57, label %.preheader, label %.lr.ph
@@ -285,23 +285,23 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
 .lr.ph:                                           ; preds = %2, %22
   %.047 = phi i64 [ %23, %22 ], [ 0, %2 ]
   %.03146 = phi i32 [ %.132, %22 ], [ 0, %2 ]
-  %5 = load ptr, ptr %1, align 8, !tbaa !22
+  %5 = load ptr, ptr %1, align 8, !tbaa !23
   %6 = tail call ptr @sk_value(ptr noundef %5, i64 noundef %.047) #6
-  %7 = load i32, ptr %0, align 8, !tbaa !25
-  %8 = load ptr, ptr %6, align 8, !tbaa !16
-  %9 = load i32, ptr %8, align 8, !tbaa !25
+  %7 = load i32, ptr %0, align 8, !tbaa !26
+  %8 = load ptr, ptr %6, align 8, !tbaa !17
+  %9 = load i32, ptr %8, align 8, !tbaa !26
   %.not39 = icmp eq i32 %7, %9
   br i1 %.not39, label %10, label %22
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !44
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
   %.not40 = icmp eq ptr %12, null
   br i1 %.not40, label %13, label %.loopexit43
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !45
+  %15 = load ptr, ptr %14, align 8, !tbaa !46
   %.not41 = icmp eq ptr %15, null
   br i1 %.not41, label %16, label %.loopexit43
 
@@ -322,10 +322,10 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
 22:                                               ; preds = %18, %21, %16, %.lr.ph
   %.132 = phi i32 [ %.03146, %.lr.ph ], [ 2, %16 ], [ %spec.store.select, %21 ], [ 2, %18 ]
   %23 = add nuw i64 %.047, 1
-  %24 = load ptr, ptr %1, align 8, !tbaa !22
+  %24 = load ptr, ptr %1, align 8, !tbaa !23
   %25 = tail call i64 @sk_num(ptr noundef %24) #6
   %26 = icmp ult i64 %23, %25
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %22
   %27 = icmp eq i32 %.132, 1
@@ -333,30 +333,30 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
 
 .preheader:                                       ; preds = %2, %._crit_edge
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !24
+  %29 = load ptr, ptr %28, align 8, !tbaa !25
   %30 = tail call i64 @sk_num(ptr noundef %29) #6
   %.not58 = icmp eq i64 %30, 0
   br i1 %.not58, label %.loopexit43, label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %.preheader, %44
   %.148 = phi i64 [ %45, %44 ], [ 0, %.preheader ]
-  %31 = load ptr, ptr %28, align 8, !tbaa !24
+  %31 = load ptr, ptr %28, align 8, !tbaa !25
   %32 = tail call ptr @sk_value(ptr noundef %31, i64 noundef %.148) #6
-  %33 = load i32, ptr %0, align 8, !tbaa !25
-  %34 = load ptr, ptr %32, align 8, !tbaa !16
-  %35 = load i32, ptr %34, align 8, !tbaa !25
+  %33 = load i32, ptr %0, align 8, !tbaa !26
+  %34 = load ptr, ptr %32, align 8, !tbaa !17
+  %35 = load i32, ptr %34, align 8, !tbaa !26
   %.not = icmp eq i32 %33, %35
   br i1 %.not, label %36, label %44
 
 36:                                               ; preds = %.lr.ph49
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !44
+  %38 = load ptr, ptr %37, align 8, !tbaa !45
   %.not36 = icmp eq ptr %38, null
   br i1 %.not36, label %39, label %.loopexit43
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !45
+  %41 = load ptr, ptr %40, align 8, !tbaa !46
   %.not37 = icmp eq ptr %41, null
   br i1 %.not37, label %42, label %.loopexit43
 
@@ -369,10 +369,10 @@ define internal fastcc range(i32 0, 54) i32 @nc_match(ptr noundef readonly captu
 
 44:                                               ; preds = %42, %.lr.ph49
   %45 = add nuw i64 %.148, 1
-  %46 = load ptr, ptr %28, align 8, !tbaa !24
+  %46 = load ptr, ptr %28, align 8, !tbaa !25
   %47 = tail call i64 @sk_num(ptr noundef %46) #6
   %48 = icmp ult i64 %45, %47
-  br i1 %48, label %.lr.ph49, label %.loopexit43, !llvm.loop !47
+  br i1 %48, label %.lr.ph49, label %.loopexit43, !llvm.loop !48
 
 .loopexit43.loopexit67:                           ; preds = %42
   br label %.loopexit43
@@ -429,17 +429,17 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
   %.01 = phi i64 [ 0, %.lr.ph ], [ %65, %print_nc_ipadd.exit ]
   %12 = tail call ptr @sk_value(ptr noundef %0, i64 noundef %.01) #6
   %13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.15, i32 noundef %10, ptr noundef nonnull @.str.14) #6
-  %14 = load ptr, ptr %12, align 8, !tbaa !16
-  %15 = load i32, ptr %14, align 8, !tbaa !25
+  %14 = load ptr, ptr %12, align 8, !tbaa !17
+  %15 = load i32, ptr %14, align 8, !tbaa !26
   %16 = icmp eq i32 %15, 7
   br i1 %16, label %17, label %62
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !14
-  %.val = load i32, ptr %19, align 8, !tbaa !48
+  %19 = load ptr, ptr %18, align 8, !tbaa !15
+  %.val = load i32, ptr %19, align 8, !tbaa !49
   %20 = getelementptr i8, ptr %19, i64 8
-  %.val16 = load ptr, ptr %20, align 8, !tbaa !49
+  %.val16 = load ptr, ptr %20, align 8, !tbaa !50
   %21 = tail call i32 @BIO_puts(ptr noundef %1, ptr noundef nonnull @.str.17) #6
   switch i32 %.val, label %60 [
     i32 8, label %22
@@ -447,28 +447,28 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
   ]
 
 22:                                               ; preds = %17
-  %23 = load i8, ptr %.val16, align 1, !tbaa !14
+  %23 = load i8, ptr %.val16, align 1, !tbaa !15
   %24 = zext i8 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %.val16, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !14
+  %26 = load i8, ptr %25, align 1, !tbaa !15
   %27 = zext i8 %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %.val16, i64 2
-  %29 = load i8, ptr %28, align 1, !tbaa !14
+  %29 = load i8, ptr %28, align 1, !tbaa !15
   %30 = zext i8 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %.val16, i64 3
-  %32 = load i8, ptr %31, align 1, !tbaa !14
+  %32 = load i8, ptr %31, align 1, !tbaa !15
   %33 = zext i8 %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %.val16, i64 4
-  %35 = load i8, ptr %34, align 1, !tbaa !14
+  %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = zext i8 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %.val16, i64 5
-  %38 = load i8, ptr %37, align 1, !tbaa !14
+  %38 = load i8, ptr %37, align 1, !tbaa !15
   %39 = zext i8 %38 to i32
   %40 = getelementptr inbounds nuw i8, ptr %.val16, i64 6
-  %41 = load i8, ptr %40, align 1, !tbaa !14
+  %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = zext i8 %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %.val16, i64 7
-  %44 = load i8, ptr %43, align 1, !tbaa !14
+  %44 = load i8, ptr %43, align 1, !tbaa !15
   %45 = zext i8 %44 to i32
   %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %24, i32 noundef %27, i32 noundef %30, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45) #6
   br label %print_nc_ipadd.exit
@@ -476,11 +476,11 @@ define internal fastcc void @do_i2r_name_constraints(ptr noundef %0, ptr noundef
 .preheader.i:                                     ; preds = %17, %57
   %.02.i = phi ptr [ %55, %57 ], [ %.val16, %17 ]
   %.0241.i = phi i32 [ %59, %57 ], [ 0, %17 ]
-  %47 = load i8, ptr %.02.i, align 1, !tbaa !14
+  %47 = load i8, ptr %.02.i, align 1, !tbaa !15
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 8
   %50 = getelementptr inbounds nuw i8, ptr %.02.i, i64 1
-  %51 = load i8, ptr %50, align 1, !tbaa !14
+  %51 = load i8, ptr %50, align 1, !tbaa !15
   %52 = zext i8 %51 to i32
   %53 = or disjoint i32 %49, %52
   %54 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %53) #6
@@ -512,7 +512,7 @@ print_nc_ipadd.exit:                              ; preds = %.preheader.i, %60, 
   %65 = add nuw i64 %.01, 1
   %66 = tail call i64 @sk_num(ptr noundef %0) #6
   %67 = icmp ult i64 %65, %66
-  br i1 %67, label %11, label %._crit_edge, !llvm.loop !50
+  br i1 %67, label %11, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %print_nc_ipadd.exit, %8
   ret void
@@ -526,7 +526,7 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !25
+  %3 = load i32, ptr %1, align 8, !tbaa !26
   switch i32 %3, label %nc_dn.exit [
     i32 4, label %4
     i32 2, label %32
@@ -536,11 +536,11 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !14
+  %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !14
+  %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load i32, ptr %9, align 8, !tbaa !51
+  %10 = load i32, ptr %9, align 8, !tbaa !52
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %14, label %11
 
@@ -551,7 +551,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 14:                                               ; preds = %11, %4
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !51
+  %16 = load i32, ptr %15, align 8, !tbaa !52
   %.not10.i = icmp eq i32 %16, 0
   br i1 %.not10.i, label %20, label %17
 
@@ -562,17 +562,17 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 20:                                               ; preds = %17, %14
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %22 = load i32, ptr %21, align 8, !tbaa !55
+  %22 = load i32, ptr %21, align 8, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %24 = load i32, ptr %23, align 8, !tbaa !55
+  %24 = load i32, ptr %23, align 8, !tbaa !56
   %25 = icmp sgt i32 %22, %24
   br i1 %25, label %nc_dn.exit, label %26
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %28 = load ptr, ptr %27, align 8, !tbaa !56
+  %28 = load ptr, ptr %27, align 8, !tbaa !57
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !56
+  %30 = load ptr, ptr %29, align 8, !tbaa !57
   %31 = sext i32 %22 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %28, ptr %30, i64 %31)
   %.not11.i = icmp eq i32 %bcmp.i, 0
@@ -581,20 +581,20 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !14
+  %34 = load ptr, ptr %33, align 8, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !14
+  %36 = load ptr, ptr %35, align 8, !tbaa !15
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !49
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %40 = load ptr, ptr %39, align 8, !tbaa !49
-  %41 = load i8, ptr %38, align 1, !tbaa !14
+  %40 = load ptr, ptr %39, align 8, !tbaa !50
+  %41 = load i8, ptr %38, align 1, !tbaa !15
   %.not.i9 = icmp eq i8 %41, 0
   br i1 %.not.i9, label %nc_dn.exit, label %42
 
 42:                                               ; preds = %32
-  %43 = load i32, ptr %34, align 8, !tbaa !48
-  %44 = load i32, ptr %36, align 8, !tbaa !48
+  %43 = load i32, ptr %34, align 8, !tbaa !49
+  %44 = load i32, ptr %36, align 8, !tbaa !49
   %45 = icmp sgt i32 %43, %44
   br i1 %45, label %46, label %53
 
@@ -607,7 +607,7 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds i8, ptr %49, i64 -1
-  %52 = load i8, ptr %51, align 1, !tbaa !14
+  %52 = load i8, ptr %51, align 1, !tbaa !15
   %.not17.i = icmp eq i8 %52, 46
   br i1 %.not17.i, label %53, label %nc_dn.exit
 
@@ -620,13 +620,13 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 55:                                               ; preds = %2
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %57 = load ptr, ptr %56, align 8, !tbaa !14
+  %57 = load ptr, ptr %56, align 8, !tbaa !15
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !14
+  %59 = load ptr, ptr %58, align 8, !tbaa !15
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !49
+  %61 = load ptr, ptr %60, align 8, !tbaa !50
   %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !49
+  %63 = load ptr, ptr %62, align 8, !tbaa !50
   %64 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %61, i32 noundef 64) #7
   %65 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef 64) #7
   %.not.i12 = icmp eq ptr %65, null
@@ -637,13 +637,13 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   br i1 %.not36.i, label %67, label %.critedge.i
 
 67:                                               ; preds = %66
-  %68 = load i8, ptr %61, align 1, !tbaa !14
+  %68 = load i8, ptr %61, align 1, !tbaa !15
   %69 = icmp eq i8 %68, 46
   br i1 %69, label %70, label %91
 
 70:                                               ; preds = %67
-  %71 = load i32, ptr %57, align 8, !tbaa !48
-  %72 = load i32, ptr %59, align 8, !tbaa !48
+  %71 = load i32, ptr %57, align 8, !tbaa !49
+  %72 = load i32, ptr %59, align 8, !tbaa !49
   %73 = icmp sgt i32 %71, %72
   br i1 %73, label %74, label %79
 
@@ -691,26 +691,26 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
 
 94:                                               ; preds = %2
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !14
+  %96 = load ptr, ptr %95, align 8, !tbaa !15
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !14
+  %98 = load ptr, ptr %97, align 8, !tbaa !15
   %99 = getelementptr i8, ptr %96, i64 8
-  %.val = load ptr, ptr %99, align 8, !tbaa !49
+  %.val = load ptr, ptr %99, align 8, !tbaa !50
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %101 = load ptr, ptr %100, align 8, !tbaa !49
+  %101 = load ptr, ptr %100, align 8, !tbaa !50
   %102 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.val, i32 noundef 58) #7
   %.not.i15 = icmp eq ptr %102, null
   br i1 %.not.i15, label %nc_dn.exit, label %103
 
 103:                                              ; preds = %94
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 1
-  %105 = load i8, ptr %104, align 1, !tbaa !14
+  %105 = load i8, ptr %104, align 1, !tbaa !15
   %.not34.i = icmp eq i8 %105, 47
   br i1 %.not34.i, label %106, label %nc_dn.exit
 
 106:                                              ; preds = %103
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 2
-  %108 = load i8, ptr %107, align 1, !tbaa !14
+  %108 = load i8, ptr %107, align 1, !tbaa !15
   %.not35.i = icmp eq i8 %108, 47
   br i1 %.not35.i, label %109, label %nc_dn.exit
 
@@ -743,9 +743,9 @@ define internal fastcc range(i32 0, 54) i32 @nc_match_single(ptr noundef readonl
   br i1 %120, label %nc_dn.exit, label %121
 
 121:                                              ; preds = %119
-  %122 = load i8, ptr %101, align 1, !tbaa !14
+  %122 = load i8, ptr %101, align 1, !tbaa !15
   %123 = icmp eq i8 %122, 46
-  %124 = load i32, ptr %98, align 8, !tbaa !48
+  %124 = load i32, ptr %98, align 8, !tbaa !49
   br i1 %123, label %125, label %135
 
 125:                                              ; preds = %121
@@ -818,54 +818,55 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 1}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !10, i64 8}
-!9 = !{!"conf_value_st", !10, i64 0, !10, i64 8, !10, i64 16}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !12, i64 0}
-!12 = !{!"omnipotent char", !13, i64 0}
-!13 = !{!"Simple C/C++ TBAA"}
-!14 = !{!12, !12, i64 0}
-!15 = !{!9, !10, i64 16}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"GENERAL_SUBTREE_st", !18, i64 0, !19, i64 8, !19, i64 16}
-!18 = !{!"p1 _ZTS15GENERAL_NAME_st", !11, i64 0}
-!19 = !{!"p1 _ZTS14asn1_string_st", !11, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS24stack_st_GENERAL_SUBTREE", !11, i64 0}
-!22 = !{!23, !21, i64 0}
-!23 = !{!"NAME_CONSTRAINTS_st", !21, i64 0, !21, i64 8}
-!24 = !{!23, !21, i64 8}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"GENERAL_NAME_st", !27, i64 0, !12, i64 8}
-!27 = !{!"int", !12, i64 0}
-!28 = !{!29, !27, i64 4}
-!29 = !{!"asn1_string_st", !27, i64 0, !27, i64 4, !10, i64 8, !30, i64 16}
-!30 = !{!"long", !12, i64 0}
-!31 = !{!32, !40, i64 128}
-!32 = !{!"x509_st", !33, i64 0, !34, i64 8, !19, i64 16, !27, i64 24, !27, i64 28, !10, i64 32, !35, i64 40, !30, i64 48, !30, i64 56, !30, i64 64, !30, i64 72, !30, i64 80, !30, i64 88, !19, i64 96, !37, i64 104, !38, i64 112, !39, i64 120, !40, i64 128, !41, i64 136, !12, i64 144, !42, i64 168}
-!33 = !{!"p1 _ZTS12x509_cinf_st", !11, i64 0}
-!34 = !{!"p1 _ZTS13X509_algor_st", !11, i64 0}
-!35 = !{!"crypto_ex_data_st", !36, i64 0}
-!36 = !{!"p1 _ZTS13stack_st_void", !11, i64 0}
-!37 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !11, i64 0}
-!38 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !11, i64 0}
-!39 = !{!"p1 _ZTS19stack_st_DIST_POINT", !11, i64 0}
-!40 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !11, i64 0}
-!41 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !11, i64 0}
-!42 = !{!"p1 _ZTS16x509_cert_aux_st", !11, i64 0}
-!43 = distinct !{!43, !7}
-!44 = !{!17, !19, i64 8}
-!45 = !{!17, !19, i64 16}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = !{!29, !27, i64 0}
-!49 = !{!29, !10, i64 8}
-!50 = distinct !{!50, !7}
-!51 = !{!52, !27, i64 8}
-!52 = !{!"X509_name_st", !53, i64 0, !27, i64 8, !54, i64 16, !10, i64 24, !27, i64 32}
-!53 = !{!"p1 _ZTS24stack_st_X509_NAME_ENTRY", !11, i64 0}
-!54 = !{!"p1 _ZTS10buf_mem_st", !11, i64 0}
-!55 = !{!52, !27, i64 32}
-!56 = !{!52, !10, i64 24}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !11, i64 8}
+!10 = !{!"conf_value_st", !11, i64 0, !11, i64 8, !11, i64 16}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !13, i64 0}
+!13 = !{!"omnipotent char", !14, i64 0}
+!14 = !{!"Simple C/C++ TBAA"}
+!15 = !{!13, !13, i64 0}
+!16 = !{!10, !11, i64 16}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"GENERAL_SUBTREE_st", !19, i64 0, !20, i64 8, !20, i64 16}
+!19 = !{!"p1 _ZTS15GENERAL_NAME_st", !12, i64 0}
+!20 = !{!"p1 _ZTS14asn1_string_st", !12, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS24stack_st_GENERAL_SUBTREE", !12, i64 0}
+!23 = !{!24, !22, i64 0}
+!24 = !{!"NAME_CONSTRAINTS_st", !22, i64 0, !22, i64 8}
+!25 = !{!24, !22, i64 8}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"GENERAL_NAME_st", !28, i64 0, !13, i64 8}
+!28 = !{!"int", !13, i64 0}
+!29 = !{!30, !28, i64 4}
+!30 = !{!"asn1_string_st", !28, i64 0, !28, i64 4, !11, i64 8, !31, i64 16}
+!31 = !{!"long", !13, i64 0}
+!32 = !{!33, !41, i64 128}
+!33 = !{!"x509_st", !34, i64 0, !35, i64 8, !20, i64 16, !28, i64 24, !28, i64 28, !11, i64 32, !36, i64 40, !31, i64 48, !31, i64 56, !31, i64 64, !31, i64 72, !31, i64 80, !31, i64 88, !20, i64 96, !38, i64 104, !39, i64 112, !40, i64 120, !41, i64 128, !42, i64 136, !13, i64 144, !43, i64 168}
+!34 = !{!"p1 _ZTS12x509_cinf_st", !12, i64 0}
+!35 = !{!"p1 _ZTS13X509_algor_st", !12, i64 0}
+!36 = !{!"crypto_ex_data_st", !37, i64 0}
+!37 = !{!"p1 _ZTS13stack_st_void", !12, i64 0}
+!38 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !12, i64 0}
+!39 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !12, i64 0}
+!40 = !{!"p1 _ZTS19stack_st_DIST_POINT", !12, i64 0}
+!41 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !12, i64 0}
+!42 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !12, i64 0}
+!43 = !{!"p1 _ZTS16x509_cert_aux_st", !12, i64 0}
+!44 = distinct !{!44, !7, !8}
+!45 = !{!18, !20, i64 8}
+!46 = !{!18, !20, i64 16}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = !{!30, !28, i64 0}
+!50 = !{!30, !11, i64 8}
+!51 = distinct !{!51, !7, !8}
+!52 = !{!53, !28, i64 8}
+!53 = !{!"X509_name_st", !54, i64 0, !28, i64 8, !55, i64 16, !11, i64 24, !28, i64 32}
+!54 = !{!"p1 _ZTS24stack_st_X509_NAME_ENTRY", !12, i64 0}
+!55 = !{!"p1 _ZTS10buf_mem_st", !12, i64 0}
+!56 = !{!53, !28, i64 32}
+!57 = !{!53, !11, i64 24}

@@ -151,7 +151,7 @@ define dso_local void @_ZN17BM_FlatArray_Push4BodyEv() local_unnamed_addr #3 ali
   br i1 %exitcond.not, label %13, label %2, !llvm.loop !5
 
 13:                                               ; preds = %11
-  %14 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.117) #16, !srcloc !7
+  %14 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.117) #16, !srcloc !8
   tail call void @_Z6rcFreePv(ptr noundef nonnull %.117)
   ret void
 }
@@ -180,10 +180,10 @@ define dso_local void @_ZN17BM_FlatArray_Fill4BodyEv() local_unnamed_addr #3 ali
   store i32 2, ptr %3, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100000
-  br i1 %exitcond.not, label %4, label %2, !llvm.loop !8
+  br i1 %exitcond.not, label %4, label %2, !llvm.loop !9
 
 4:                                                ; preds = %2
-  %5 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #16, !srcloc !7
+  %5 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #16, !srcloc !8
   tail call void @_Z6rcFreePv(ptr noundef nonnull %1)
   ret void
 }
@@ -198,7 +198,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_4v() #3 {
 define dso_local void @_ZN19BM_FlatArray_Memset4BodyEv() local_unnamed_addr #3 align 2 {
   %1 = tail call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef 400000, i32 noundef 1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(400000) %1, i8 0, i64 400000, i1 false)
-  %2 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #16, !srcloc !7
+  %2 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1) #16, !srcloc !8
   tail call void @_Z6rcFreePv(ptr noundef nonnull %1)
   ret void
 }
@@ -220,7 +220,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_6v() #3 {
   call void @_ZN16BM_rcVector_Push4BodyEv()
   %8 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %8, 100
-  br i1 %exitcond.not.i, label %_ZN16BM_rcVector_Push3RunEv.exit, label %7, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_ZN16BM_rcVector_Push3RunEv.exit, label %7, !llvm.loop !10
 
 _ZN16BM_rcVector_Push3RunEv.exit:                 ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -295,7 +295,7 @@ define dso_local void @_ZN16BM_rcVector_Push4BodyEv() local_unnamed_addr #3 alig
   store i32 %18, ptr %16, align 4
   %19 = add nuw nsw i64 %.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %19, %.sroa.0.023
-  br i1 %exitcond.not.i.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i: ; preds = %.lr.ph.i.i.i, %.noexc5
   %20 = getelementptr inbounds nuw i32, ptr %14, i64 %.sroa.0.023
@@ -308,7 +308,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit: ; preds = %3, %_ZN12rcV
   %.sroa.10.1 = phi ptr [ %.sroa.10.022, %3 ], [ %14, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
   %.sroa.0.1 = add nuw nsw i64 %.sroa.0.023, 1
   %exitcond.not = icmp eq i64 %.sroa.0.1, 100000
-  br i1 %exitcond.not, label %26, label %1, !llvm.loop !11
+  br i1 %exitcond.not, label %26, label %1, !llvm.loop !12
 
 21:                                               ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i, %.noexc4, %12, %.noexc, %5
   %22 = landingpad { ptr, i32 }
@@ -327,7 +327,7 @@ _ZN12rcTempVectorIiED2Ev.exit:                    ; preds = %21
   resume { ptr, i32 } %22
 
 26:                                               ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit
-  %27 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.sroa.10.1) #16, !srcloc !7
+  %27 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.sroa.10.1) #16, !srcloc !8
   invoke void @_Z6rcFreePv(ptr noundef nonnull %.sroa.10.1)
           to label %_ZN12rcTempVectorIiED2Ev.exit7 unwind label %28
 
@@ -361,7 +361,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_8v() #3 {
   call void @_ZN28BM_rcVector_PushPreallocated4BodyEv()
   %8 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %8, 100
-  br i1 %exitcond.not.i, label %_ZN28BM_rcVector_PushPreallocated3RunEv.exit, label %7, !llvm.loop !12
+  br i1 %exitcond.not.i, label %_ZN28BM_rcVector_PushPreallocated3RunEv.exit, label %7, !llvm.loop !13
 
 _ZN28BM_rcVector_PushPreallocated3RunEv.exit:     ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -453,7 +453,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE7reserveEl.exit: ; preds = %_ZN12rcVectorBas
   store i32 %19, ptr %17, align 4
   %20 = add nuw nsw i64 %.07.i.i.i7, 1
   %exitcond.not.i.i.i8 = icmp eq i64 %20, %.sroa.0.036
-  br i1 %exitcond.not.i.i.i8, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i, label %.lr.ph.i.i.i6, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i8, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i, label %.lr.ph.i.i.i6, !llvm.loop !11
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i: ; preds = %.lr.ph.i.i.i6, %.noexc13
   %21 = getelementptr inbounds nuw i32, ptr %15, i64 %.sroa.0.036
@@ -466,7 +466,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit: ; preds = %4, %_ZN12rcV
   %.sroa.13.3 = phi ptr [ %.sroa.13.135, %4 ], [ %15, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i ]
   %.sroa.0.1 = add nuw nsw i64 %.sroa.0.036, 1
   %exitcond.not = icmp eq i64 %.sroa.0.1, 100000
-  br i1 %exitcond.not, label %26, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE7reserveEl.exit, !llvm.loop !13
+  br i1 %exitcond.not, label %26, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE7reserveEl.exit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %6, %.noexc10, %13, %.noexc12, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -495,7 +495,7 @@ _ZN12rcTempVectorIiED2Ev.exit:                    ; preds = %22
   resume { ptr, i32 } %lpad.phi
 
 26:                                               ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE9push_backERKi.exit
-  %27 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.sroa.13.3) #16, !srcloc !7
+  %27 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.sroa.13.3) #16, !srcloc !8
   invoke void @_Z6rcFreePv(ptr noundef nonnull %.sroa.13.3)
           to label %_ZN12rcTempVectorIiED2Ev.exit15 unwind label %28
 
@@ -530,7 +530,7 @@ define dso_local void @_ZN18BM_rcVector_Assign4BodyEv() local_unnamed_addr #3 al
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit: ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %5) #16, !srcloc !7
+  %6 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %5) #16, !srcloc !8
   %7 = load ptr, ptr %4, align 8
   invoke void @_Z6rcFreePv(ptr noundef %7)
           to label %_ZN12rcTempVectorIiED2Ev.exit unwind label %8
@@ -581,7 +581,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_12v() #3 {
   call void @_ZN25BM_rcVector_AssignIndices4BodyEv()
   %8 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %8, 100
-  br i1 %exitcond.not.i, label %_ZN25BM_rcVector_AssignIndices3RunEv.exit, label %7, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZN25BM_rcVector_AssignIndices3RunEv.exit, label %7, !llvm.loop !15
 
 _ZN25BM_rcVector_AssignIndices3RunEv.exit:        ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -627,7 +627,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeEl.exit.preheader: ; preds = %_ZN12rc
   store i32 2, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100000
-  br i1 %exitcond.not, label %11, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeEl.exit.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %11, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeEl.exit.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeEl.exit.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -656,7 +656,7 @@ _ZN12rcTempVectorIiED2Ev.exit:                    ; preds = %7
   resume { ptr, i32 } %lpad.phi
 
 11:                                               ; preds = %.noexc
-  %12 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #16, !srcloc !7
+  %12 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4) #16, !srcloc !8
   invoke void @_Z6rcFreePv(ptr noundef nonnull %4)
           to label %_ZN12rcTempVectorIiED2Ev.exit6 unwind label %13
 
@@ -689,7 +689,7 @@ define dso_local void @_ZN18BM_rcVector_Resize4BodyEv() local_unnamed_addr #3 al
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit: ; preds = %0
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %4) #16, !srcloc !7
+  %5 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %4) #16, !srcloc !8
   %6 = load ptr, ptr %3, align 8
   invoke void @_Z6rcFreePv(ptr noundef %6)
           to label %_ZN12rcTempVectorIiED2Ev.exit unwind label %7
@@ -740,7 +740,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_16v() #3 {
   call void @_ZN17BM_stdvector_Push4BodyEv()
   %8 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %8, 100
-  br i1 %exitcond.not.i, label %_ZN17BM_stdvector_Push3RunEv.exit, label %7, !llvm.loop !16
+  br i1 %exitcond.not.i, label %_ZN17BM_stdvector_Push3RunEv.exit, label %7, !llvm.loop !17
 
 _ZN17BM_stdvector_Push3RunEv.exit:                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -831,7 +831,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.6.1 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %21 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %21, 100000
-  br i1 %exitcond.not, label %24, label %1, !llvm.loop !17
+  br i1 %exitcond.not, label %24, label %1, !llvm.loop !18
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -856,7 +856,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22, %23
   resume { ptr, i32 } %lpad.phi
 
 24:                                               ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %25 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.1) #16, !srcloc !7
+  %25 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.1) #16, !srcloc !8
   %.not.i.i.i4 = icmp eq ptr %.sroa.0.1, null
   br i1 %.not.i.i.i4, label %_ZNSt6vectorIiSaIiEED2Ev.exit5, label %26
 
@@ -885,7 +885,7 @@ define internal void @_ZL23CATCH2_INTERNAL_TEST_18v() #3 {
   call void @_ZN29BM_stdvector_PushPreallocated4BodyEv()
   %8 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %8, 100
-  br i1 %exitcond.not.i, label %_ZN29BM_stdvector_PushPreallocated3RunEv.exit, label %7, !llvm.loop !18
+  br i1 %exitcond.not.i, label %_ZN29BM_stdvector_PushPreallocated3RunEv.exit, label %7, !llvm.loop !19
 
 _ZN29BM_stdvector_PushPreallocated3RunEv.exit:    ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -972,7 +972,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.8.2 = getelementptr inbounds nuw i8, ptr %.pn, i64 4
   %21 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %21, 100000
-  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %2, !llvm.loop !19
+  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %2, !llvm.loop !20
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -990,7 +990,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt6vectorIiSaIiEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
-  %22 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.3) #16, !srcloc !7
+  %22 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.0.3) #16, !srcloc !8
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.3) #20
   ret void
 }
@@ -1013,10 +1013,10 @@ define dso_local void @_ZN19BM_stdvector_Assign4BodyEv() local_unnamed_addr #3 a
   store i32 2, ptr %.06.i.i.i.i.i.i.i.i.i.i.ptr, align 4
   %.06.i.i.i.i.i.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i.i.idx, 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.i.i.i.i.i.add, 400000
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %1 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0) #16, !srcloc !7
+  %1 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0) #16, !srcloc !8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
@@ -1040,10 +1040,10 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i:
   store i32 2, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 100000
-  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %1, !llvm.loop !21
+  br i1 %exitcond.not, label %_ZNSt6vectorIiSaIiEED2Ev.exit6, label %1, !llvm.loop !22
 
 _ZNSt6vectorIiSaIiEED2Ev.exit6:                   ; preds = %1
-  %3 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0) #16, !srcloc !7
+  %3 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0) #16, !srcloc !8
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
 }
@@ -1065,7 +1065,7 @@ define dso_local void @_ZN19BM_stdvector_Resize4BodyEv() local_unnamed_addr #3 a
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %0
   %.pre = load ptr, ptr %1, align 8
-  %3 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.pre) #16, !srcloc !7
+  %3 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.pre) #16, !srcloc !8
   %4 = load ptr, ptr %1, align 8
   %.not.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %5
@@ -1137,11 +1137,11 @@ define linkonce_odr dso_local void @_ZN17BM_FlatArray_Push3RunEv() local_unnamed
   br i1 %exitcond.not.i, label %_ZN17BM_FlatArray_Push4BodyEv.exit, label %9, !llvm.loop !5
 
 _ZN17BM_FlatArray_Push4BodyEv.exit:               ; preds = %18
-  %20 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.117.i) #16, !srcloc !7
+  %20 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.117.i) #16, !srcloc !8
   call void @_Z6rcFreePv(ptr noundef nonnull %.117.i)
   %21 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %21, 100
-  br i1 %exitcond.not, label %22, label %7, !llvm.loop !22
+  br i1 %exitcond.not, label %22, label %7, !llvm.loop !23
 
 22:                                               ; preds = %_ZN17BM_FlatArray_Push4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1186,14 +1186,14 @@ define linkonce_odr dso_local void @_ZN17BM_FlatArray_Fill3RunEv() local_unnamed
   store i32 2, ptr %10, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 100000
-  br i1 %exitcond.not.i, label %_ZN17BM_FlatArray_Fill4BodyEv.exit, label %9, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN17BM_FlatArray_Fill4BodyEv.exit, label %9, !llvm.loop !9
 
 _ZN17BM_FlatArray_Fill4BodyEv.exit:               ; preds = %9
-  %11 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !7
+  %11 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !8
   call void @_Z6rcFreePv(ptr noundef nonnull %8)
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 100
-  br i1 %exitcond.not, label %13, label %7, !llvm.loop !23
+  br i1 %exitcond.not, label %13, label %7, !llvm.loop !24
 
 13:                                               ; preds = %_ZN17BM_FlatArray_Fill4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1228,11 +1228,11 @@ define linkonce_odr dso_local void @_ZN19BM_FlatArray_Memset3RunEv() local_unnam
   %.07 = phi i32 [ 0, %0 ], [ %10, %7 ]
   %8 = call noundef ptr @_Z7rcAllocm11rcAllocHint(i64 noundef 400000, i32 noundef 1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(400000) %8, i8 0, i64 400000, i1 false)
-  %9 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !7
+  %9 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !8
   call void @_Z6rcFreePv(ptr noundef nonnull %8)
   %10 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %10, 100
-  br i1 %exitcond.not, label %11, label %7, !llvm.loop !24
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !25
 
 11:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1291,7 +1291,7 @@ define linkonce_odr dso_local void @_ZN18BM_rcVector_Assign3RunEv() local_unname
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6assignElRKi.exit.i: ; preds = %11
   %12 = load ptr, ptr %10, align 8
-  %13 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %12) #16, !srcloc !7
+  %13 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %12) #16, !srcloc !8
   %14 = load ptr, ptr %10, align 8
   invoke void @_Z6rcFreePv(ptr noundef %14)
           to label %_ZN18BM_rcVector_Assign4BodyEv.exit unwind label %15
@@ -1325,7 +1325,7 @@ _ZN18BM_rcVector_Assign4BodyEv.exit:              ; preds = %_ZN12rcVectorBaseIi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %24 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %24, 100
-  br i1 %exitcond.not, label %25, label %11, !llvm.loop !25
+  br i1 %exitcond.not, label %25, label %11, !llvm.loop !26
 
 25:                                               ; preds = %_ZN18BM_rcVector_Assign4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1370,7 +1370,7 @@ define linkonce_odr dso_local void @_ZN18BM_rcVector_Resize3RunEv() local_unname
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE6resizeElRKi.exit.i: ; preds = %10
   %11 = load ptr, ptr %9, align 8
-  %12 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %11) #16, !srcloc !7
+  %12 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %11) #16, !srcloc !8
   %13 = load ptr, ptr %9, align 8
   invoke void @_Z6rcFreePv(ptr noundef %13)
           to label %_ZN18BM_rcVector_Resize4BodyEv.exit unwind label %14
@@ -1404,7 +1404,7 @@ _ZN18BM_rcVector_Resize4BodyEv.exit:              ; preds = %_ZN12rcVectorBaseIi
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %23 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %23, 100
-  br i1 %exitcond.not, label %24, label %10, !llvm.loop !26
+  br i1 %exitcond.not, label %24, label %10, !llvm.loop !27
 
 24:                                               ; preds = %_ZN18BM_rcVector_Resize4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1446,14 +1446,14 @@ define linkonce_odr dso_local void @_ZN19BM_stdvector_Assign3RunEv() local_unnam
   store i32 2, ptr %.06.i.i.i.i.i.i.i.i.i.i.ptr.i, align 4
   %.06.i.i.i.i.i.i.i.i.i.i.add.i = add nuw nsw i64 %.06.i.i.i.i.i.i.i.i.i.i.idx.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.i.i.i.i.i.add.i, 400000
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN19BM_stdvector_Assign4BodyEv.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN19BM_stdvector_Assign4BodyEv.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZN19BM_stdvector_Assign4BodyEv.exit:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %9 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !7
+  %9 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !8
   call void @_ZdlPv(ptr noundef nonnull %8) #20
   %10 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %10, 100
-  br i1 %exitcond.not, label %11, label %7, !llvm.loop !27
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !28
 
 11:                                               ; preds = %_ZN19BM_stdvector_Assign4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1496,14 +1496,14 @@ define linkonce_odr dso_local void @_ZN26BM_stdvector_AssignIndices3RunEv() loca
   store i32 2, ptr %10, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 100000
-  br i1 %exitcond.not.i, label %_ZN26BM_stdvector_AssignIndices4BodyEv.exit, label %9, !llvm.loop !21
+  br i1 %exitcond.not.i, label %_ZN26BM_stdvector_AssignIndices4BodyEv.exit, label %9, !llvm.loop !22
 
 _ZN26BM_stdvector_AssignIndices4BodyEv.exit:      ; preds = %9
-  %11 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !7
+  %11 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8) #16, !srcloc !8
   call void @_ZdlPv(ptr noundef nonnull %8) #20
   %12 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %12, 100
-  br i1 %exitcond.not, label %13, label %7, !llvm.loop !28
+  br i1 %exitcond.not, label %13, label %7, !llvm.loop !29
 
 13:                                               ; preds = %_ZN26BM_stdvector_AssignIndices4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1547,7 +1547,7 @@ define linkonce_odr dso_local void @_ZN19BM_stdvector_Resize3RunEv() local_unnam
 
 _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit.i:          ; preds = %9
   %.pre.i = load ptr, ptr %2, align 8
-  %10 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.pre.i) #16, !srcloc !7
+  %10 = call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr %.pre.i) #16, !srcloc !8
   %11 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %_ZN19BM_stdvector_Resize4BodyEv.exit, label %12
@@ -1575,7 +1575,7 @@ _ZN19BM_stdvector_Resize4BodyEv.exit:             ; preds = %_ZNSt6vectorIiSaIiE
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %17 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %17, 100
-  br i1 %exitcond.not, label %18, label %9, !llvm.loop !29
+  br i1 %exitcond.not, label %18, label %9, !llvm.loop !30
 
 18:                                               ; preds = %_ZN19BM_stdvector_Resize4BodyEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -1629,7 +1629,7 @@ define linkonce_odr dso_local void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize
   store i32 %.pre.i, ptr %.06.i, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.06.i, i64 4
   %17 = icmp ult ptr %16, %14
-  br i1 %17, label %.lr.ph.i, label %.sink.split, !llvm.loop !30
+  br i1 %17, label %.lr.ph.i, label %.sink.split, !llvm.loop !31
 
 18:                                               ; preds = %8
   %19 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
@@ -1669,7 +1669,7 @@ define linkonce_odr dso_local void @_ZN12rcVectorBaseIiL11rcAllocHint1EE11resize
   store i32 %37, ptr %35, align 4
   %38 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %38, %33
-  br i1 %exitcond.not.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit: ; preds = %.lr.ph.i.i, %27, %30
   %.not27 = icmp eq ptr %2, null
@@ -1691,7 +1691,7 @@ _ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit: ; preds = %.lr.p
   store i32 %.pre.i30, ptr %.06.i32, align 4
   %44 = getelementptr inbounds nuw i8, ptr %.06.i32, i64 4
   %45 = icmp ult ptr %44, %41
-  br i1 %45, label %.lr.ph.i31, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33, !llvm.loop !30
+  br i1 %45, label %.lr.ph.i31, label %_ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33, !llvm.loop !31
 
 _ZN12rcVectorBaseIiL11rcAllocHint1EE15construct_rangeEPiS2_RKi.exit33: ; preds = %.lr.ph.i31, %_ZN12rcVectorBaseIiL11rcAllocHint1EE17allocate_and_copyEl.exit, %39
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1784,7 +1784,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %32, %31
-  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !21
 
 33:                                               ; preds = %14
   %34 = icmp eq i64 %2, %18
@@ -1801,7 +1801,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i.i.i.i.i, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %37
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !21
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
   %39 = phi ptr [ %9, %33 ], [ %37, %.lr.ph.i.i.i.i.i.i.i ]
@@ -1826,7 +1826,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   store i32 %15, ptr %.06.i.i.i72, align 4
   %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 4
   %.not.i.i.i73 = icmp eq ptr %43, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !20
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !21
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %0, align 8
@@ -1870,7 +1870,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %44
   store i32 %65, ptr %.06.i.i.i.i.i.i.i77, align 4
   %66 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i77, i64 4
   %.not.i.i.i.i.i.i.i78 = icmp eq ptr %66, %64
-  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !21
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.lr.ph.i.i.i.i.i.i.i76
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %1, %45
@@ -2482,29 +2482,30 @@ attributes #20 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{i64 1160}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{i64 1160}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}

@@ -424,7 +424,7 @@ _ZNKSt8functionIFddEEclEd.exit175:                ; preds = %_ZNKSt8functionIFdd
   store double %call2.i173, ptr %arrayidx80, align 8, !tbaa !18
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next303, 5
-  br i1 %exitcond306.not, label %for.end83, label %for.body54, !llvm.loop !25
+  br i1 %exitcond306.not, label %for.end83, label %for.body54, !llvm.loop !26
 
 for.end83:                                        ; preds = %_ZNKSt8functionIFddEEclEd.exit175
   %mul86 = fmul double %42, 5.000000e-01
@@ -463,7 +463,7 @@ for.body91:                                       ; preds = %for.end83, %for.bod
   %add112 = fadd double %resasc.0284, %58
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next308, 5
-  br i1 %exitcond310.not, label %for.end115, label %for.body91, !llvm.loop !26
+  br i1 %exitcond310.not, label %for.end115, label %for.body91, !llvm.loop !27
 
 for.end115:                                       ; preds = %for.body91
   %mul84 = fmul double %mul, %42
@@ -479,7 +479,7 @@ for.end115:                                       ; preds = %for.body91
 if.then.i176:                                     ; preds = %for.end115
   %mul.i = fmul double %59, 2.000000e+02
   %div.i = fdiv double %mul.i, %add112
-  %call.i = call double @pow(double noundef %div.i, double noundef 1.500000e+00) #18, !tbaa !27
+  %call.i = call double @pow(double noundef %div.i, double noundef 1.500000e+00) #18, !tbaa !28
   %cmp2.i = fcmp olt double %call.i, 1.000000e+00
   %mul4.i = fmul double %add112, %call.i
   %err.addr.1.i = select i1 %cmp2.i, double %mul4.i, double %add112
@@ -525,7 +525,7 @@ for.body130:                                      ; preds = %if.end126, %for.bod
   %64 = call double @llvm.fmuladd.f64(double %62, double %63, double %res43.0286)
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
   %exitcond314.not = icmp eq i64 %indvars.iv.next312, 10
-  br i1 %exitcond314.not, label %for.body141, label %for.body130, !llvm.loop !29
+  br i1 %exitcond314.not, label %for.body141, label %for.body130, !llvm.loop !30
 
 for.body141:                                      ; preds = %for.body130, %_ZNKSt8functionIFddEEclEd.exit190
   %indvars.iv315 = phi i64 [ %indvars.iv.next316, %_ZNKSt8functionIFddEEclEd.exit190 ], [ 0, %for.body130 ]
@@ -572,7 +572,7 @@ _ZNKSt8functionIFddEEclEd.exit190:                ; preds = %_ZNKSt8functionIFdd
   store double %add151, ptr %arrayidx157, align 8, !tbaa !18
   %indvars.iv.next316 = add nuw nsw i64 %indvars.iv315, 1
   %exitcond319.not = icmp eq i64 %indvars.iv.next316, 11
-  br i1 %exitcond319.not, label %for.end160, label %for.body141, !llvm.loop !30
+  br i1 %exitcond319.not, label %for.end160, label %for.body141, !llvm.loop !31
 
 for.end160:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit190
   %mul161 = fmul double %mul, %71
@@ -587,7 +587,7 @@ for.end160:                                       ; preds = %_ZNKSt8functionIFdd
 if.then.i202:                                     ; preds = %for.end160
   %mul.i203 = fmul double %73, 2.000000e+02
   %div.i204 = fdiv double %mul.i203, %mul119
-  %call.i205 = call double @pow(double noundef %div.i204, double noundef 1.500000e+00) #18, !tbaa !27
+  %call.i205 = call double @pow(double noundef %div.i204, double noundef 1.500000e+00) #18, !tbaa !28
   %cmp2.i206 = fcmp olt double %call.i205, 1.000000e+00
   %mul4.i207 = fmul double %mul119, %call.i205
   %err.addr.1.i208 = select i1 %cmp2.i206, double %mul4.i207, double %mul119
@@ -630,7 +630,7 @@ for.body176:                                      ; preds = %if.end172, %for.bod
   %78 = call double @llvm.fmuladd.f64(double %76, double %77, double %res87.0290)
   %indvars.iv.next321 = add nuw nsw i64 %indvars.iv320, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next321, 21
-  br i1 %exitcond323.not, label %for.body187, label %for.body176, !llvm.loop !31
+  br i1 %exitcond323.not, label %for.body187, label %for.body176, !llvm.loop !32
 
 for.body187:                                      ; preds = %for.body176, %_ZNKSt8functionIFddEEclEd.exit224
   %indvars.iv324 = phi i64 [ %indvars.iv.next325, %_ZNKSt8functionIFddEEclEd.exit224 ], [ 0, %for.body176 ]
@@ -674,7 +674,7 @@ _ZNKSt8functionIFddEEclEd.exit224:                ; preds = %_ZNKSt8functionIFdd
   %85 = call double @llvm.fmuladd.f64(double %80, double %add198, double %res87.1292)
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next325, 22
-  br i1 %exitcond327.not, label %for.end202, label %for.body187, !llvm.loop !32
+  br i1 %exitcond327.not, label %for.end202, label %for.body187, !llvm.loop !33
 
 for.end202:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit224
   %mul203 = fmul double %mul, %85
@@ -688,7 +688,7 @@ for.end202:                                       ; preds = %_ZNKSt8functionIFdd
 if.then.i236:                                     ; preds = %for.end202
   %mul.i237 = fmul double %86, 2.000000e+02
   %div.i238 = fdiv double %mul.i237, %mul119
-  %call.i239 = call double @pow(double noundef %div.i238, double noundef 1.500000e+00) #18, !tbaa !27
+  %call.i239 = call double @pow(double noundef %div.i238, double noundef 1.500000e+00) #18, !tbaa !28
   %cmp2.i240 = fcmp olt double %call.i239, 1.000000e+00
   %mul4.i241 = fmul double %mul119, %call.i239
   %err.addr.1.i242 = select i1 %cmp2.i240, double %mul4.i241, double %mul119
@@ -736,7 +736,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !33
+  store ptr %0, ptr %this, align 8, !tbaa !34
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -747,14 +747,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #18
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !34
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !35
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i5 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i5, ptr %this, align 8, !tbaa !12
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !34
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !35
   store i64 %1, ptr %0, align 8, !tbaa !17
   br label %if.end.i
 
@@ -775,7 +775,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !34
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !35
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !16
   %5 = load ptr, ptr %this, align 8, !tbaa !12
@@ -795,7 +795,7 @@ define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 der
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !10
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !35
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !36
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -954,7 +954,7 @@ _ZNKSt8functionIFddEEclEd.exit59:                 ; preds = %_ZNKSt8functionIFdd
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %exitcond.not = icmp eq i64 %indvars.iv.next122, 4
-  br i1 %exitcond.not, label %for.body19, label %for.body, !llvm.loop !37
+  br i1 %exitcond.not, label %for.body19, label %for.body, !llvm.loop !38
 
 for.body19:                                       ; preds = %_ZNKSt8functionIFddEEclEd.exit59, %_ZNKSt8functionIFddEEclEd.exit73
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %_ZNKSt8functionIFddEEclEd.exit73 ], [ 1, %_ZNKSt8functionIFddEEclEd.exit59 ]
@@ -998,7 +998,7 @@ _ZNKSt8functionIFddEEclEd.exit73:                 ; preds = %_ZNKSt8functionIFdd
   %17 = call double @llvm.fmuladd.f64(double %add27, double %16, double %k15.1117)
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 2
   %cmp18 = icmp samesign ult i64 %indvars.iv126, 6
-  br i1 %cmp18, label %for.body19, label %for.end33, !llvm.loop !38
+  br i1 %cmp18, label %for.body19, label %for.end33, !llvm.loop !39
 
 for.end33:                                        ; preds = %_ZNKSt8functionIFddEEclEd.exit73
   %mul34 = fmul double %div, %8
@@ -1490,19 +1490,20 @@ attributes #21 = { noreturn nounwind }
 !20 = !{!"_ZTSSt14_Function_base", !7, i64 0, !15, i64 16}
 !21 = !{!22, !15, i64 24}
 !22 = !{!"_ZTSSt8functionIFddEE", !20, i64 0, !15, i64 24}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"int", !7, i64 0}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
-!32 = distinct !{!32, !24}
-!33 = !{!14, !15, i64 0}
-!34 = !{!9, !9, i64 0}
-!35 = !{!36, !15, i64 0}
-!36 = !{!"_ZTSN5boost6detail12shared_countE", !15, i64 0}
-!37 = distinct !{!37, !24}
-!38 = distinct !{!38, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"int", !7, i64 0}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25}
+!32 = distinct !{!32, !24, !25}
+!33 = distinct !{!33, !24, !25}
+!34 = !{!14, !15, i64 0}
+!35 = !{!9, !9, i64 0}
+!36 = !{!37, !15, i64 0}
+!37 = !{!"_ZTSN5boost6detail12shared_countE", !15, i64 0}
+!38 = distinct !{!38, !24, !25}
+!39 = distinct !{!39, !24, !25}

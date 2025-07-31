@@ -228,7 +228,7 @@ declare { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RfNS_12chars_formatE(ptr nounde
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewIcSt11char_traitsIcEEPd(i64 %0, ptr %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
-  store double 0.000000e+00, ptr %2, align 8, !tbaa !18
+  store double 0.000000e+00, ptr %2, align 8, !tbaa !19
   %4 = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr %1)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -247,40 +247,40 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
   %.sroa.03.3.i.i.i.i = phi ptr [ %33, %39 ], [ %7, %.lr.ph.i.i.i.preheader.i.i ]
   %.015.i.i.i.i.i = phi i64 [ %40, %39 ], [ %9, %.lr.ph.i.i.i.preheader.i.i ]
   %12 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -1
-  %13 = load i8, ptr %12, align 1, !tbaa !8, !noalias !20
+  %13 = load i8, ptr %12, align 1, !tbaa !8, !noalias !21
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !8, !noalias !20
+  %16 = load i8, ptr %15, align 1, !tbaa !8, !noalias !21
   %17 = and i8 %16, 8
   %.not.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i
   %19 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -2
-  %20 = load i8, ptr %19, align 1, !tbaa !8, !noalias !20
+  %20 = load i8, ptr %19, align 1, !tbaa !8, !noalias !21
   %21 = zext i8 %20 to i64
   %22 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %21
-  %23 = load i8, ptr %22, align 1, !tbaa !8, !noalias !20
+  %23 = load i8, ptr %22, align 1, !tbaa !8, !noalias !21
   %24 = and i8 %23, 8
   %.not9.i.i = icmp eq i8 %24, 0
   br i1 %.not9.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit36, label %25
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -3
-  %27 = load i8, ptr %26, align 1, !tbaa !8, !noalias !20
+  %27 = load i8, ptr %26, align 1, !tbaa !8, !noalias !21
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !8, !noalias !20
+  %30 = load i8, ptr %29, align 1, !tbaa !8, !noalias !21
   %31 = and i8 %30, 8
   %.not10.i.i = icmp eq i8 %31, 0
   br i1 %.not10.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit34, label %32
 
 32:                                               ; preds = %25
   %33 = getelementptr inbounds i8, ptr %.sroa.03.3.i.i.i.i, i64 -4
-  %34 = load i8, ptr %33, align 1, !tbaa !8, !noalias !20
+  %34 = load i8, ptr %33, align 1, !tbaa !8, !noalias !21
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !8, !noalias !20
+  %37 = load i8, ptr %36, align 1, !tbaa !8, !noalias !21
   %38 = and i8 %37, 8
   %.not11.i.i = icmp eq i8 %38, 0
   br i1 %.not11.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit.loopexit.split.loop.exit, label %39
@@ -302,10 +302,10 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
 
 43:                                               ; preds = %._crit_edge.i.i.i.i.i
   %44 = getelementptr inbounds i8, ptr %.sroa.03.0.i.i.i.i, i64 -1
-  %45 = load i8, ptr %44, align 1, !tbaa !8, !noalias !20
+  %45 = load i8, ptr %44, align 1, !tbaa !8, !noalias !21
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !8, !noalias !20
+  %48 = load i8, ptr %47, align 1, !tbaa !8, !noalias !21
   %49 = and i8 %48, 8
   %.not12.i.i = icmp eq i8 %49, 0
   br i1 %.not12.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %50
@@ -313,10 +313,10 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
 50:                                               ; preds = %43, %._crit_edge.i.i.i.i.i
   %.sroa.03.2.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %44, %43 ]
   %51 = getelementptr inbounds i8, ptr %.sroa.03.2.i.i.i.i, i64 -1
-  %52 = load i8, ptr %51, align 1, !tbaa !8, !noalias !20
+  %52 = load i8, ptr %51, align 1, !tbaa !8, !noalias !21
   %53 = zext i8 %52 to i64
   %54 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %53
-  %55 = load i8, ptr %54, align 1, !tbaa !8, !noalias !20
+  %55 = load i8, ptr %54, align 1, !tbaa !8, !noalias !21
   %56 = and i8 %55, 8
   %.not13.i.i = icmp eq i8 %56, 0
   br i1 %.not13.i.i, label %_ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %57
@@ -324,10 +324,10 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewI
 57:                                               ; preds = %50, %._crit_edge.i.i.i.i.i
   %.sroa.03.1.i.i.i.i = phi ptr [ %.sroa.03.0.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %51, %50 ]
   %58 = getelementptr inbounds i8, ptr %.sroa.03.1.i.i.i.i, i64 -1
-  %59 = load i8, ptr %58, align 1, !tbaa !8, !noalias !20
+  %59 = load i8, ptr %58, align 1, !tbaa !8, !noalias !21
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal13kPropertyBitsE, i64 0, i64 %60
-  %62 = load i8, ptr %61, align 1, !tbaa !8, !noalias !20
+  %62 = load i8, ptr %61, align 1, !tbaa !8, !noalias !21
   %63 = and i8 %62, 8
   %.not14.i.i = icmp eq i8 %63, 0
   %spec.select.i.i.i.i = select i1 %.not14.i.i, ptr %.sroa.03.1.i.i.i.i, ptr %6
@@ -386,7 +386,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: 
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %86
-  %89 = load double, ptr %2, align 8, !tbaa !18
+  %89 = load double, ptr %2, align 8, !tbaa !19
   %90 = fcmp ogt double %89, 1.000000e+00
   br i1 %90, label %.sink.split, label %91
 
@@ -396,7 +396,7 @@ _ZN4absl20StripAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE.exit: 
 
 .sink.split:                                      ; preds = %91, %88
   %.sink = phi double [ 0x7FF0000000000000, %88 ], [ 0xFFF0000000000000, %91 ]
-  store double %.sink, ptr %2, align 8, !tbaa !18
+  store double %.sink, ptr %2, align 8, !tbaa !19
   br label %93
 
 93:                                               ; preds = %.sink.split, %80, %91, %86, %77
@@ -409,7 +409,7 @@ declare { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RdNS_12chars_formatE(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtobESt17basic_string_viewIcSt11char_traitsIcEEPb(i64 %0, ptr %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %4, label %5, !prof !27
+  br i1 %.not, label %4, label %5, !prof !28
 
 4:                                                ; preds = %3
   tail call void (i32, ptr, i32, ptr, ...) @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef 3, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 112), i32 noundef 113, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
@@ -457,7 +457,7 @@ define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtobESt17basic_string_viewI
 
 .sink.split:                                      ; preds = %15, %17, %19, %21, %23, %5, %7, %9, %11, %13
   %.sink = phi i8 [ 1, %13 ], [ 1, %11 ], [ 1, %9 ], [ 1, %7 ], [ 1, %5 ], [ 0, %23 ], [ 0, %21 ], [ 0, %19 ], [ 0, %17 ], [ 0, %15 ]
-  store i8 %.sink, ptr %2, align 1, !tbaa !28
+  store i8 %.sink, ptr %2, align 1, !tbaa !29
   br label %25
 
 25:                                               ; preds = %.sink.split, %23
@@ -1567,7 +1567,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   switch i8 %194, label %.loopexit201.loopexit [
     i8 48, label %192
     i8 46, label %.loopexit201
-  ]
+  ], !llvm.loop !31
 
 .loopexit201.loopexit:                            ; preds = %192
   br label %.loopexit201
@@ -1602,7 +1602,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   switch i8 %204, label %.loopexit202.loopexit [
     i8 48, label %202
     i8 46, label %.loopexit202
-  ]
+  ], !llvm.loop !32
 
 .loopexit202.loopexit:                            ; preds = %202
   br label %.loopexit202
@@ -1632,7 +1632,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   switch i8 %213, label %.loopexit203.loopexit [
     i8 48, label %211
     i8 46, label %.loopexit203
-  ]
+  ], !llvm.loop !33
 
 .loopexit203.loopexit:                            ; preds = %211
   br label %.loopexit203
@@ -1681,7 +1681,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   %229 = getelementptr inbounds i8, ptr %.13, i64 -1
   %230 = load i8, ptr %229, align 1, !tbaa !8
   %231 = icmp eq i8 %230, 48
-  br i1 %231, label %228, label %232, !llvm.loop !30
+  br i1 %231, label %228, label %232, !llvm.loop !34
 
 232:                                              ; preds = %228
   store i8 0, ptr %.13, align 1, !tbaa !8
@@ -1707,7 +1707,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   switch i8 %241, label %.loopexit.loopexit [
     i8 48, label %239
     i8 46, label %.loopexit
-  ]
+  ], !llvm.loop !35
 
 .loopexit.loopexit:                               ; preds = %239
   br label %.loopexit
@@ -1764,7 +1764,7 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %0, ptr %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) local_unnamed_addr #7 {
-  store i32 0, ptr %2, align 4, !tbaa !31
+  store i32 0, ptr %2, align 4, !tbaa !36
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %6
 
@@ -1786,7 +1786,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
 13:                                               ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05672.i.i, i64 1
   %15 = icmp ult ptr %14, %7
-  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !33
+  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !38
 
 .critedge.i.i:                                    ; preds = %13, %.lr.ph.i.i, %6
   %.056.lcssa.i.i = phi ptr [ %1, %6 ], [ %14, %13 ], [ %.05672.i.i, %.lr.ph.i.i ]
@@ -1805,7 +1805,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
-  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !34
+  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !39
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %.056.lcssa.i.i, align 1, !tbaa !8
@@ -1912,7 +1912,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVmaxOverBaseE, i64 0, i64 %65
-  %70 = load i32, ptr %69, align 4, !tbaa !31
+  %70 = load i32, ptr %69, align 4, !tbaa !36
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
 .lr.ph.i6.i:                                      ; preds = %68, %82
@@ -1940,11 +1940,11 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %83 = add nsw i32 %79, %75
   %84 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
   %.not42.i.i = icmp ult ptr %84, %66
-  br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !35
+  br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !40
 
 85:                                               ; preds = %62
   %86 = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIiE13kVminOverBaseE, i64 0, i64 %65
-  %87 = load i32, ptr %86, align 4, !tbaa !31
+  %87 = load i32, ptr %86, align 4, !tbaa !36
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
 .lr.ph.i9.i:                                      ; preds = %85, %99
@@ -1972,12 +1972,12 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_ba
   %100 = sub nsw i32 %96, %92
   %101 = getelementptr inbounds nuw i8, ptr %.03041.i.i, i64 1
   %.not44.i.i = icmp ult ptr %101, %66
-  br i1 %.not44.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !36
+  br i1 %.not44.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !41
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %82, %78, %76, %.lr.ph.i6.i, %99, %95, %93, %.lr.ph.i9.i, %85, %68
   %.02742.lcssa.sink.i.sink.i = phi i32 [ 0, %68 ], [ 0, %85 ], [ %.02742.i.i, %.lr.ph.i9.i ], [ -2147483648, %93 ], [ -2147483648, %95 ], [ %100, %99 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 2147483647, %76 ], [ 2147483647, %78 ], [ %83, %82 ]
   %.0.ph.i = phi i1 [ true, %68 ], [ true, %85 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %95 ], [ true, %99 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ false, %78 ], [ true, %82 ]
-  store i32 %.02742.lcssa.sink.i.sink.i, ptr %2, align 4, !tbaa !31
+  store i32 %.02742.lcssa.sink.i.sink.i, ptr %2, align 4, !tbaa !36
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
@@ -1987,7 +1987,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_tr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %0, ptr %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #7 {
-  store i64 0, ptr %2, align 8, !tbaa !37
+  store i64 0, ptr %2, align 8, !tbaa !42
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %6
 
@@ -2009,7 +2009,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
 13:                                               ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05672.i.i, i64 1
   %15 = icmp ult ptr %14, %7
-  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !33
+  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !38
 
 .critedge.i.i:                                    ; preds = %13, %.lr.ph.i.i, %6
   %.056.lcssa.i.i = phi ptr [ %1, %6 ], [ %14, %13 ], [ %.05672.i.i, %.lr.ph.i.i ]
@@ -2028,7 +2028,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
-  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !34
+  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !39
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %.056.lcssa.i.i, align 1, !tbaa !8
@@ -2135,7 +2135,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
 
 68:                                               ; preds = %62
   %69 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVmaxOverBaseE, i64 0, i64 %65
-  %70 = load i64, ptr %69, align 8, !tbaa !37
+  %70 = load i64, ptr %69, align 8, !tbaa !42
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i6.i
 
 .lr.ph.i6.i:                                      ; preds = %68, %82
@@ -2163,11 +2163,11 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %83 = add nsw i64 %79, %75
   %84 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
   %.not42.i.i = icmp ult ptr %84, %66
-  br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !39
+  br i1 %.not42.i.i, label %.lr.ph.i6.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !44
 
 85:                                               ; preds = %62
   %86 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIlE13kVminOverBaseE, i64 0, i64 %65
-  %87 = load i64, ptr %86, align 8, !tbaa !37
+  %87 = load i64, ptr %86, align 8, !tbaa !42
   br i1 %67, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, label %.lr.ph.i9.i
 
 .lr.ph.i9.i:                                      ; preds = %85, %100
@@ -2196,12 +2196,12 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_ba
   %101 = sub nsw i64 %96, %97
   %102 = getelementptr inbounds nuw i8, ptr %.03040.i.i, i64 1
   %.not43.i.i = icmp ult ptr %102, %66
-  br i1 %.not43.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !40
+  br i1 %.not43.i.i, label %.lr.ph.i9.i, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !45
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %82, %78, %76, %.lr.ph.i6.i, %100, %95, %93, %.lr.ph.i9.i, %85, %68
   %.02741.lcssa.sink.i.sink.i = phi i64 [ 0, %68 ], [ 0, %85 ], [ %.02741.i.i, %.lr.ph.i9.i ], [ -9223372036854775808, %93 ], [ -9223372036854775808, %95 ], [ %101, %100 ], [ %.02640.i.i, %.lr.ph.i6.i ], [ 9223372036854775807, %76 ], [ 9223372036854775807, %78 ], [ %83, %82 ]
   %.0.ph.i = phi i1 [ true, %68 ], [ true, %85 ], [ false, %.lr.ph.i9.i ], [ false, %93 ], [ false, %95 ], [ true, %100 ], [ false, %.lr.ph.i6.i ], [ false, %76 ], [ false, %78 ], [ true, %82 ]
-  store i64 %.02741.lcssa.sink.i.sink.i, ptr %2, align 8, !tbaa !37
+  store i64 %.02741.lcssa.sink.i.sink.i, ptr %2, align 8, !tbaa !42
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
@@ -2211,7 +2211,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_tr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %0, ptr %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2, i32 noundef %3) local_unnamed_addr #7 {
-  store i128 0, ptr %2, align 16, !tbaa !41
+  store i128 0, ptr %2, align 16, !tbaa !46
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %6
 
@@ -2233,7 +2233,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
 13:                                               ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05672.i.i, i64 1
   %15 = icmp ult ptr %14, %7
-  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !33
+  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !38
 
 .critedge.i.i:                                    ; preds = %13, %.lr.ph.i.i, %6
   %.056.lcssa.i.i = phi ptr [ %1, %6 ], [ %14, %13 ], [ %.05672.i.i, %.lr.ph.i.i ]
@@ -2252,7 +2252,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
-  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !34
+  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !39
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %.056.lcssa.i.i, align 1, !tbaa !8
@@ -2363,7 +2363,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %68 = zext nneg i32 %.0.i.i to i64
   %69 = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVmaxOverBaseE, i64 0, i64 %68
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41
+  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !46
   %.sroa.024.0.copyload.i.i = load i64, ptr %69, align 16
   %.sroa.0.0.insert.insert.i.i.i = zext nneg i32 %.0.i.i to i128
   %.sroa.2.0.insert.ext.i44.i.i = zext i64 %.sroa.4.0.copyload.i.i to i128
@@ -2417,7 +2417,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %.sroa.012.0.extract.trunc.i.i66.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i65.i.i to i64
   %83 = getelementptr inbounds nuw i8, ptr %.03892.i.i, i64 1
   %.not95.i.i = icmp ult ptr %83, %66
-  br i1 %.not95.i.i, label %70, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !43
+  br i1 %.not95.i.i, label %70, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !48
 
 84:                                               ; preds = %62
   %.sroa.01.0.insert.insert.i.i9.i = zext nneg i32 %.0.i.i to i128
@@ -2429,7 +2429,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %87 = zext nneg i32 %.0.i.i to i64
   %88 = getelementptr inbounds nuw [37 x %"class.absl::int128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_6int128EE13kVminOverBaseE, i64 0, i64 %87
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !41
+  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !46
   %.sroa.096.0.copyload.i.i = load i64, ptr %88, align 16
   %.sroa.2.0.insert.ext.i49.i.i = zext i64 %.sroa.6.0.copyload.i.i to i128
   %.sroa.2.0.insert.shift.i50.i.i = shl nuw i128 %.sroa.2.0.insert.ext.i49.i.i, 64
@@ -2478,7 +2478,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_b
   %.sroa.012.0.extract.trunc.i.i85.i.i = trunc i128 %.sroa.03.0.insert.insert.i.i82.i.i to i64
   %103 = getelementptr inbounds nuw i8, ptr %.037123.i.i, i64 1
   %.not126.i.i = icmp ult ptr %103, %85
-  br i1 %.not126.i.i, label %89, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !44
+  br i1 %.not126.i.i, label %89, label %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i, !llvm.loop !49
 
 _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i: ; preds = %81, %78, %76, %70, %101, %97, %95, %89, %84, %65
   %.sroa.098.0122.lcssa.sink.i.sink.i = phi i64 [ 0, %65 ], [ 0, %84 ], [ %.sroa.098.0122.i.i, %89 ], [ 0, %95 ], [ 0, %97 ], [ %.sroa.012.0.extract.trunc.i.i85.i.i, %101 ], [ %.sroa.068.091.i.i, %70 ], [ -1, %76 ], [ -1, %78 ], [ %.sroa.012.0.extract.trunc.i.i66.i.i, %81 ]
@@ -2486,7 +2486,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %.0.ph.i = phi i1 [ true, %65 ], [ true, %84 ], [ false, %89 ], [ false, %95 ], [ false, %97 ], [ true, %101 ], [ false, %70 ], [ false, %76 ], [ false, %78 ], [ true, %81 ]
   store i64 %.sroa.098.0122.lcssa.sink.i.sink.i, ptr %2, align 16
   %.sroa.11.0..sroa_idx.i13.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %.sroa.11.0121.lcssa.sink.i.sink.i, ptr %.sroa.11.0..sroa_idx.i13.i, align 8, !tbaa !41
+  store i64 %.sroa.11.0121.lcssa.sink.i.sink.i, ptr %.sroa.11.0..sroa_idx.i13.i, align 8, !tbaa !46
   br label %_ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.thread.sink.split.i
@@ -2496,7 +2496,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %0, ptr %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 noundef %3) local_unnamed_addr #7 {
-  store i32 0, ptr %2, align 4, !tbaa !31
+  store i32 0, ptr %2, align 4, !tbaa !36
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %6
 
@@ -2518,7 +2518,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_b
 13:                                               ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05672.i.i, i64 1
   %15 = icmp ult ptr %14, %7
-  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !33
+  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !38
 
 .critedge.i.i:                                    ; preds = %13, %.lr.ph.i.i, %6
   %.056.lcssa.i.i = phi ptr [ %1, %6 ], [ %14, %13 ], [ %.05672.i.i, %.lr.ph.i.i ]
@@ -2537,7 +2537,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_b
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
-  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !34
+  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !39
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %.056.lcssa.i.i, align 1, !tbaa !8
@@ -2642,7 +2642,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
   %66 = getelementptr inbounds nuw [0 x i32], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesIjE13kVmaxOverBaseE, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4, !tbaa !31
+  %67 = load i32, ptr %66, align 4, !tbaa !36
   %68 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %64
   %69 = icmp eq i64 %.pre-phi.i.i, %63
   br i1 %69, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %.lr.ph.i4.i
@@ -2672,12 +2672,12 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %82 = add i32 %78, %74
   %83 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
   %.not42.i.i = icmp ult ptr %83, %68
-  br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !45
+  br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !50
 
 _ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i: ; preds = %81, %77, %75, %.lr.ph.i4.i, %62
   %.02640.lcssa.sink.i.i = phi i32 [ 0, %62 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
   %84 = phi i1 [ true, %62 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ false, %77 ], [ true, %81 ]
-  store i32 %.02640.lcssa.sink.i.i, ptr %2, align 4, !tbaa !31
+  store i32 %.02640.lcssa.sink.i.i, ptr %2, align 4, !tbaa !36
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intIjEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i
@@ -2687,7 +2687,7 @@ _ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_t
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %0, ptr %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #7 {
-  store i64 0, ptr %2, align 8, !tbaa !37
+  store i64 0, ptr %2, align 8, !tbaa !42
   %5 = icmp eq ptr %1, null
   br i1 %5, label %_ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit, label %6
 
@@ -2709,7 +2709,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_b
 13:                                               ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05672.i.i, i64 1
   %15 = icmp ult ptr %14, %7
-  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !33
+  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !38
 
 .critedge.i.i:                                    ; preds = %13, %.lr.ph.i.i, %6
   %.056.lcssa.i.i = phi ptr [ %1, %6 ], [ %14, %13 ], [ %.05672.i.i, %.lr.ph.i.i ]
@@ -2728,7 +2728,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_b
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
-  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !34
+  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !39
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %.056.lcssa.i.i, align 1, !tbaa !8
@@ -2833,7 +2833,7 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %64 = sub i64 %.pre-phi.i.i, %63
   %65 = zext nneg i32 %.0.i.i to i64
   %66 = getelementptr inbounds nuw [0 x i64], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesImE13kVmaxOverBaseE, i64 0, i64 %65
-  %67 = load i64, ptr %66, align 8, !tbaa !37
+  %67 = load i64, ptr %66, align 8, !tbaa !42
   %68 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %64
   %69 = icmp eq i64 %.pre-phi.i.i, %63
   br i1 %69, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, label %.lr.ph.i4.i
@@ -2863,12 +2863,12 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %82 = add i64 %78, %74
   %83 = getelementptr inbounds nuw i8, ptr %.02839.i.i, i64 1
   %.not42.i.i = icmp ult ptr %83, %68
-  br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !46
+  br i1 %.not42.i.i, label %.lr.ph.i4.i, label %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i, !llvm.loop !51
 
 _ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i: ; preds = %81, %77, %75, %.lr.ph.i4.i, %62
   %.02640.lcssa.sink.i.i = phi i64 [ 0, %62 ], [ %.02640.i.i, %.lr.ph.i4.i ], [ -1, %75 ], [ -1, %77 ], [ %82, %81 ]
   %84 = phi i1 [ true, %62 ], [ false, %.lr.ph.i4.i ], [ false, %75 ], [ false, %77 ], [ true, %81 ]
-  store i64 %.02640.lcssa.sink.i.i, ptr %2, align 8, !tbaa !37
+  store i64 %.02640.lcssa.sink.i.i, ptr %2, align 8, !tbaa !42
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %_ZN4absl12_GLOBAL__N_123safe_parse_positive_intImEEbSt17basic_string_viewIcSt11char_traitsIcEEiPT_.exit.i
@@ -2901,7 +2901,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
 13:                                               ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.05672.i.i, i64 1
   %15 = icmp ult ptr %14, %7
-  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !33
+  br i1 %15, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !38
 
 .critedge.i.i:                                    ; preds = %13, %.lr.ph.i.i, %6
   %.056.lcssa.i.i = phi ptr [ %1, %6 ], [ %14, %13 ], [ %.05672.i.i, %.lr.ph.i.i ]
@@ -2920,7 +2920,7 @@ define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_
   %23 = load i8, ptr %22, align 1, !tbaa !8
   %24 = and i8 %23, 8
   %.not69.i.i = icmp eq i8 %24, 0
-  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !34
+  br i1 %.not69.i.i, label %25, label %16, !llvm.loop !39
 
 25:                                               ; preds = %18
   %26 = load i8, ptr %.056.lcssa.i.i, align 1, !tbaa !8
@@ -3031,8 +3031,8 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %67 = zext nneg i32 %.0.i.i to i64
   %68 = getelementptr inbounds nuw [37 x %"class.absl::uint128"], ptr @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE, i64 0, i64 %67
   %.sroa.4.0..sroa_idx.i5.i = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i5.i, align 8, !tbaa !37
-  %.sroa.024.0.copyload.i.i = load i64, ptr %68, align 16, !tbaa !37
+  %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i5.i, align 8, !tbaa !42
+  %.sroa.024.0.copyload.i.i = load i64, ptr %68, align 16, !tbaa !42
   %.sroa.0.0.insert.insert.i.i.i.i = zext nneg i32 %.0.i.i to i128
   %.sroa.22.0.insert.ext.i.i41.i.i = zext i64 %.sroa.4.0.copyload.i.i to i128
   %.sroa.22.0.insert.shift.i.i42.i.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i41.i.i, 64
@@ -3059,8 +3059,8 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   br i1 %.not.i6.i, label %78, label %77
 
 77:                                               ; preds = %69
-  store i64 %.sroa.078.0101.i.i, ptr %2, align 16, !tbaa !37
-  store i64 %.sroa.11.0100.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !37
+  store i64 %.sroa.078.0101.i.i, ptr %2, align 16, !tbaa !42
+  store i64 %.sroa.11.0100.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !42
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 78:                                               ; preds = %69
@@ -3098,13 +3098,13 @@ _ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11cha
   %.narrow.i.i.i.i = add i64 %.tr.i.i.i.i, %76
   %87 = getelementptr inbounds nuw i8, ptr %.038102.i.i, i64 1
   %.not105.i.i = icmp ult ptr %87, %65
-  br i1 %.not105.i.i, label %69, label %._crit_edge.i8.i, !llvm.loop !47
+  br i1 %.not105.i.i, label %69, label %._crit_edge.i8.i, !llvm.loop !52
 
 ._crit_edge.i8.i:                                 ; preds = %85, %62
   %.sroa.11.0.lcssa.i.i = phi i64 [ 0, %62 ], [ %.narrow.i.i.i.i, %85 ]
   %.sroa.078.0.lcssa.i.i = phi i64 [ 0, %62 ], [ %.sroa.0.0.extract.trunc.i.i70.i.i, %85 ]
-  store i64 %.sroa.078.0.lcssa.i.i, ptr %2, align 16, !tbaa !37
-  store i64 %.sroa.11.0.lcssa.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !37
+  store i64 %.sroa.078.0.lcssa.i.i, ptr %2, align 16, !tbaa !42
+  store i64 %.sroa.11.0.lcssa.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !42
   br label %_ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit
 
 _ZN4absl12_GLOBAL__N_118safe_uint_internalINS_7uint128EEEbSt17basic_string_viewIcSt11char_traitsIcEEPT_i.exit: ; preds = %16, %4, %28, %42, %58, %60, %_ZN4absl12_GLOBAL__N_124safe_parse_sign_and_baseEPSt17basic_string_viewIcSt11char_traitsIcEEPiPb.exit.i, %77, %80, %84, %._crit_edge.i8.i
@@ -3171,7 +3171,7 @@ define linkonce_odr dso_local { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespac
   %36 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 4
   %37 = add nsw i64 %.047.i.i.i, -1
   %38 = icmp sgt i64 %.047.i.i.i, 1
-  br i1 %38, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !48
+  br i1 %38, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !53
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %35
   %.pre.i.i.i = ptrtoint ptr %scevgep to i64
@@ -3324,7 +3324,7 @@ _ZN4abslL5Mul32ESt4pairImmEj.exit:                ; preds = %.lr.ph, %26
   %.sroa.3.0.i = phi i64 [ %31, %26 ], [ %13, %.lr.ph ]
   %35 = add nsw i32 %.028, -13
   %36 = icmp samesign ugt i32 %35, 12
-  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !49
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %_ZN4abslL5Mul32ESt4pairImmEj.exit, %2
   %.sroa.018.0.lcssa = phi i64 [ %0, %2 ], [ %.sroa.0.0.i, %_ZN4abslL5Mul32ESt4pairImmEj.exit ]
@@ -3332,7 +3332,7 @@ _ZN4abslL5Mul32ESt4pairImmEj.exit:                ; preds = %.lr.ph, %26
   %.0.lcssa = phi i32 [ %1, %2 ], [ %35, %_ZN4abslL5Mul32ESt4pairImmEj.exit ]
   %37 = zext nneg i32 %.0.lcssa to i64
   %38 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4abslL7PowFiveEmi.powers_of_five, i64 0, i64 %37
-  %39 = load i32, ptr %38, align 4, !tbaa !31
+  %39 = load i32, ptr %38, align 4, !tbaa !36
   %40 = and i64 %.sroa.9.0.lcssa, 4294967295
   %41 = lshr i64 %.sroa.9.0.lcssa, 32
   %42 = and i64 %.sroa.018.0.lcssa, 4294967295
@@ -3433,37 +3433,42 @@ attributes #17 = { noreturn }
 !13 = distinct !{!13, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIPFbhEEEET_SA_SA_T0_"}
 !14 = distinct !{!14, !15, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_: argument 0"}
 !15 = distinct !{!15, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_"}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"double", !6, i64 0}
-!20 = !{!21, !23, !25}
-!21 = distinct !{!21, !22, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops12_Iter_negateIPFbhEEEET_SA_SA_T0_St26random_access_iterator_tag: argument 0"}
-!22 = distinct !{!22, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops12_Iter_negateIPFbhEEEET_SA_SA_T0_St26random_access_iterator_tag"}
-!23 = distinct !{!23, !24, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIPFbhEEEET_SA_SA_T0_: argument 0"}
-!24 = distinct !{!24, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIPFbhEEEET_SA_SA_T0_"}
-!25 = distinct !{!25, !26, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_: argument 0"}
-!26 = distinct !{!26, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_"}
-!27 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"bool", !6, i64 0}
-!30 = distinct !{!30, !17}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"int", !6, i64 0}
-!33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17}
-!35 = distinct !{!35, !17}
-!36 = distinct !{!36, !17}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"long", !6, i64 0}
-!39 = distinct !{!39, !17}
-!40 = distinct !{!40, !17}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"__int128", !6, i64 0}
-!43 = distinct !{!43, !17}
-!44 = distinct !{!44, !17}
-!45 = distinct !{!45, !17}
-!46 = distinct !{!46, !17}
-!47 = distinct !{!47, !17}
-!48 = distinct !{!48, !17}
-!49 = distinct !{!49, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"double", !6, i64 0}
+!21 = !{!22, !24, !26}
+!22 = distinct !{!22, !23, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops12_Iter_negateIPFbhEEEET_SA_SA_T0_St26random_access_iterator_tag: argument 0"}
+!23 = distinct !{!23, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops12_Iter_negateIPFbhEEEET_SA_SA_T0_St26random_access_iterator_tag"}
+!24 = distinct !{!24, !25, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIPFbhEEEET_SA_SA_T0_: argument 0"}
+!25 = distinct !{!25, !"_ZSt13__find_if_notISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops10_Iter_predIPFbhEEEET_SA_SA_T0_"}
+!26 = distinct !{!26, !27, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_: argument 0"}
+!27 = distinct !{!27, !"_ZSt11find_if_notISt16reverse_iteratorIPKcEPFbhEET_S6_S6_T0_"}
+!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"bool", !6, i64 0}
+!31 = distinct !{!31, !18}
+!32 = distinct !{!32, !18}
+!33 = distinct !{!33, !18}
+!34 = distinct !{!34, !17, !18}
+!35 = distinct !{!35, !18}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"int", !6, i64 0}
+!38 = distinct !{!38, !17, !18}
+!39 = distinct !{!39, !17, !18}
+!40 = distinct !{!40, !17, !18}
+!41 = distinct !{!41, !17, !18}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"long", !6, i64 0}
+!44 = distinct !{!44, !17, !18}
+!45 = distinct !{!45, !17, !18}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"__int128", !6, i64 0}
+!48 = distinct !{!48, !17, !18}
+!49 = distinct !{!49, !17, !18}
+!50 = distinct !{!50, !17, !18}
+!51 = distinct !{!51, !17, !18}
+!52 = distinct !{!52, !17, !18}
+!53 = distinct !{!53, !17, !18}
+!54 = distinct !{!54, !17, !18}

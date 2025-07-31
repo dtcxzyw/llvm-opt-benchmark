@@ -1226,7 +1226,7 @@ define noundef zeroext i1 @_ZN12RtpAudioFile4seekEx(ptr noundef align 8 derefere
   %19 = load i64, ptr %13, align 8
   %20 = add i64 %19, %18
   %21 = icmp sgt i64 %20, %1
-  br i1 %21, label %22, label %14, !llvm.loop !10
+  br i1 %21, label %22, label %14, !llvm.loop !11
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -1424,7 +1424,7 @@ _ZN12RtpAudioFile13readFrameDataEPcx.exit:        ; preds = %11
 
 46:                                               ; preds = %36, %39, %25
   %47 = icmp eq i64 %27, 0
-  br i1 %47, label %48, label %11, !llvm.loop !11
+  br i1 %47, label %48, label %11, !llvm.loop !12
 
 48:                                               ; preds = %_ZN12RtpAudioFile13readFrameDataEPcx.exit, %46, %39, %33
   %.0 = phi i64 [ %29, %33 ], [ -1, %39 ], [ %29, %46 ], [ -1, %_ZN12RtpAudioFile13readFrameDataEPcx.exit ]
@@ -1553,7 +1553,8 @@ attributes #18 = { noreturn }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

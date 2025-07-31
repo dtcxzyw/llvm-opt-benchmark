@@ -108,12 +108,12 @@ tailrecurse.outer:                                ; preds = %tailrecurse.outer.b
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse.outer
   %indvars.iv = phi i64 [ %indvars.iv.next, %tailrecurse.backedge ], [ %12, %tailrecurse.outer ]
-  %13 = load i32, ptr %11, align 8, !tbaa !28
+  %13 = load i32, ptr %11, align 8, !tbaa !29
   %14 = icmp eq i32 %13, 2147483647
   br i1 %14, label %15, label %41
 
 15:                                               ; preds = %tailrecurse
-  %16 = load ptr, ptr %7, align 8, !tbaa !29
+  %16 = load ptr, ptr %7, align 8, !tbaa !30
   %17 = icmp eq ptr %.tr71.ph, %16
   br i1 %17, label %18, label %.loopexit
 
@@ -132,7 +132,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %28
 
 tailrecurse.backedge:                             ; preds = %18, %49
-  %23 = load ptr, ptr %6, align 8, !tbaa !30
+  %23 = load ptr, ptr %6, align 8, !tbaa !31
   %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !25
   %26 = sext i32 %25 to i64
@@ -145,7 +145,7 @@ tailrecurse.backedge:                             ; preds = %18, %49
   %indvars.iv81 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next82, %34 ]
   %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv81
   %30 = load i32, ptr %29, align 4, !tbaa !25
-  %31 = load ptr, ptr %22, align 8, !tbaa !31
+  %31 = load ptr, ptr %22, align 8, !tbaa !32
   %32 = icmp ult i32 %30, 4
   br i1 %32, label %switch.lookup, label %34
 
@@ -162,21 +162,21 @@ switch.lookup:                                    ; preds = %28
   %35 = load i32, ptr %8, align 4, !tbaa !3
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next82, %36
-  br i1 %37, label %28, label %._crit_edge, !llvm.loop !32
+  br i1 %37, label %28, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %34, %.preheader
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %39 = load ptr, ptr %38, align 8, !tbaa !31
+  %39 = load ptr, ptr %38, align 8, !tbaa !32
   %40 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %39)
   br label %.loopexit
 
 41:                                               ; preds = %tailrecurse
-  %42 = load i32, ptr %.tr71.ph, align 8, !tbaa !28
+  %42 = load i32, ptr %.tr71.ph, align 8, !tbaa !29
   %43 = icmp eq i32 %42, 2147483647
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %41
-  %45 = load ptr, ptr %5, align 8, !tbaa !33
+  %45 = load ptr, ptr %5, align 8, !tbaa !34
   %46 = zext i32 %42 to i64
   %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !25
@@ -191,8 +191,8 @@ switch.lookup:                                    ; preds = %28
 52:                                               ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %.tr71.ph, i64 16
   %54 = getelementptr inbounds nuw i8, ptr %.tr71.ph, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !34
-  %56 = load ptr, ptr %53, align 8, !tbaa !34
+  %55 = load ptr, ptr %54, align 8, !tbaa !35
+  %56 = load ptr, ptr %53, align 8, !tbaa !35
   %57 = icmp eq ptr %56, %55
   %58 = zext i32 %42 to i64
   %59 = getelementptr inbounds nuw i32, ptr %3, i64 %58
@@ -209,7 +209,7 @@ tailrecurse.outer.backedge:                       ; preds = %61, %62
 62:                                               ; preds = %52
   store i32 1, ptr %59, align 4, !tbaa !25
   tail call fastcc void @zdd_print_minterm_aux(ptr noundef %0, ptr noundef %56, i32 noundef %60, ptr noundef %3)
-  %63 = load i32, ptr %.tr71.ph, align 8, !tbaa !28
+  %63 = load i32, ptr %.tr71.ph, align 8, !tbaa !29
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw i32, ptr %3, i64 %64
   store i32 0, ptr %65, align 4, !tbaa !25
@@ -259,7 +259,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr noundef captures(none) %0, pt
   store i32 3, ptr %14, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   tail call fastcc void @zddPrintCoverAux(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %9)
@@ -290,12 +290,12 @@ tailrecurse.outer:                                ; preds = %tailrecurse.outer.b
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse.outer
   %indvars.iv = phi i64 [ %indvars.iv.next, %tailrecurse.backedge ], [ %12, %tailrecurse.outer ]
-  %13 = load i32, ptr %11, align 8, !tbaa !28
+  %13 = load i32, ptr %11, align 8, !tbaa !29
   %14 = icmp eq i32 %13, 2147483647
   br i1 %14, label %15, label %46
 
 15:                                               ; preds = %tailrecurse
-  %16 = load ptr, ptr %7, align 8, !tbaa !29
+  %16 = load ptr, ptr %7, align 8, !tbaa !30
   %17 = icmp eq ptr %.tr70.ph, %16
   br i1 %17, label %18, label %.loopexit
 
@@ -314,7 +314,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %28
 
 tailrecurse.backedge:                             ; preds = %18, %54
-  %23 = load ptr, ptr %6, align 8, !tbaa !30
+  %23 = load ptr, ptr %6, align 8, !tbaa !31
   %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !25
   %26 = sext i32 %25 to i64
@@ -331,7 +331,7 @@ tailrecurse.backedge:                             ; preds = %18, %54
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !25
   %34 = add nsw i32 %31, %33
-  %35 = load ptr, ptr %22, align 8, !tbaa !31
+  %35 = load ptr, ptr %22, align 8, !tbaa !32
   %36 = icmp ult i32 %34, 5
   br i1 %36, label %switch.lookup, label %38
 
@@ -348,21 +348,21 @@ switch.lookup:                                    ; preds = %28
   %40 = load i32, ptr %8, align 4, !tbaa !3
   %41 = trunc nuw i64 %indvars.iv.next81 to i32
   %42 = icmp sgt i32 %40, %41
-  br i1 %42, label %28, label %._crit_edge, !llvm.loop !36
+  br i1 %42, label %28, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %38, %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %44 = load ptr, ptr %43, align 8, !tbaa !31
+  %44 = load ptr, ptr %43, align 8, !tbaa !32
   %45 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %44)
   br label %.loopexit
 
 46:                                               ; preds = %tailrecurse
-  %47 = load i32, ptr %.tr70.ph, align 8, !tbaa !28
+  %47 = load i32, ptr %.tr70.ph, align 8, !tbaa !29
   %48 = icmp eq i32 %47, 2147483647
   br i1 %48, label %54, label %49
 
 49:                                               ; preds = %46
-  %50 = load ptr, ptr %5, align 8, !tbaa !33
+  %50 = load ptr, ptr %5, align 8, !tbaa !34
   %51 = zext i32 %47 to i64
   %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !25
@@ -377,8 +377,8 @@ switch.lookup:                                    ; preds = %28
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %.tr70.ph, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %.tr70.ph, i64 24
-  %60 = load ptr, ptr %59, align 8, !tbaa !34
-  %61 = load ptr, ptr %58, align 8, !tbaa !34
+  %60 = load ptr, ptr %59, align 8, !tbaa !35
+  %61 = load ptr, ptr %58, align 8, !tbaa !35
   %62 = icmp eq ptr %61, %60
   %63 = zext i32 %47 to i64
   %64 = getelementptr inbounds nuw i32, ptr %3, i64 %63
@@ -395,7 +395,7 @@ tailrecurse.outer.backedge:                       ; preds = %66, %67
 67:                                               ; preds = %57
   store i32 1, ptr %64, align 4, !tbaa !25
   tail call fastcc void @zddPrintCoverAux(ptr noundef %0, ptr noundef %61, i32 noundef %65, ptr noundef %3)
-  %68 = load i32, ptr %.tr70.ph, align 8, !tbaa !28
+  %68 = load i32, ptr %.tr70.ph, align 8, !tbaa !29
   %69 = zext i32 %68 to i64
   %70 = getelementptr inbounds nuw i32, ptr %3, i64 %69
   store i32 0, ptr %70, align 4, !tbaa !25
@@ -408,7 +408,7 @@ tailrecurse.outer.backedge:                       ; preds = %66, %67
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !38
   %7 = icmp eq ptr %1, %6
   %8 = icmp sgt i32 %3, 0
   %or.cond = and i1 %8, %7
@@ -416,7 +416,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %11 = load ptr, ptr %10, align 8, !tbaa !31
+  %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = tail call i64 @fwrite(ptr nonnull @.str, i64 19, i64 1, ptr %11)
   br label %.sink.split
 
@@ -430,7 +430,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i
   %18 = fcmp une double %17, -1.000000e+00
   %narrow = select i1 %18, i1 %16, i1 false
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %20 = load ptr, ptr %19, align 8, !tbaa !31
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %20, ptr noundef nonnull @.str.1, i32 noundef %15, double noundef %17) #12
   %22 = icmp samesign ugt i32 %3, 2
   br i1 %22, label %23, label %29
@@ -443,7 +443,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintDebug(ptr noundef %0, ptr noundef %1, i
 cuddZddP.exit:                                    ; preds = %23
   %26 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24)
   tail call void @st__free_table(ptr noundef nonnull %24) #12
-  %27 = load ptr, ptr %19, align 8, !tbaa !31
+  %27 = load ptr, ptr %19, align 8, !tbaa !32
   %28 = tail call i32 @fputc(i32 noundef 10, ptr noundef %27)
   %.fr = freeze i32 %26
   %.not = icmp eq i32 %.fr, 0
@@ -497,14 +497,14 @@ Cudd_zddPrintMinterm.exit:                        ; preds = %.lr.ph.i, %.prehead
 
 43:                                               ; preds = %Cudd_zddPrintMinterm.exit, %41
   %44 = phi i32 [ 0, %41 ], [ %.3, %Cudd_zddPrintMinterm.exit ]
-  %45 = load ptr, ptr %19, align 8, !tbaa !31
+  %45 = load ptr, ptr %19, align 8, !tbaa !32
   %fputc = tail call i32 @fputc(i32 10, ptr %45)
   br label %.sink.split
 
 .sink.split:                                      ; preds = %43, %29, %9
   %.sink.in = phi ptr [ %10, %9 ], [ %19, %29 ], [ %19, %43 ]
   %.029.ph = phi i32 [ 1, %9 ], [ %.3, %29 ], [ %44, %43 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !31
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !32
   %46 = tail call i32 @fflush(ptr noundef %.sink)
   br label %47
 
@@ -533,7 +533,7 @@ define range(i32 0, 2) i32 @cuddZddP(ptr noundef %0, ptr noundef %1) local_unnam
   %6 = tail call fastcc i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   tail call void @st__free_table(ptr noundef nonnull %3) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %8 = load ptr, ptr %7, align 8, !tbaa !32
   %9 = tail call i32 @fputc(i32 noundef 10, ptr noundef %8)
   br label %10
 
@@ -560,9 +560,9 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   br label %84
 
 11:                                               ; preds = %6
-  store ptr %0, ptr %7, align 8, !tbaa !38
+  store ptr %0, ptr %7, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 3, ptr %12, align 8, !tbaa !42
+  store i32 3, ptr %12, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -575,7 +575,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 2
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #11
-  store ptr %22, ptr %14, align 8, !tbaa !34
+  store ptr %22, ptr %14, align 8, !tbaa !35
   %23 = icmp eq ptr %22, null
   br i1 %23, label %25, label %.preheader93
 
@@ -599,14 +599,14 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   store i32 2, ptr %27, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader93
   %28 = add i32 %19, 1
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
   %31 = tail call noalias ptr @malloc(i64 noundef %30) #11
-  store ptr %31, ptr %17, align 8, !tbaa !44
+  store ptr %31, ptr %17, align 8, !tbaa !45
   %32 = icmp eq ptr %31, null
   br i1 %32, label %35, label %.preheader
 
@@ -617,7 +617,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
 .lr.ph103.preheader:                              ; preds = %.preheader
   %33 = zext i32 %28 to i64
   %34 = shl nuw nsw i64 %33, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %34, i1 false), !tbaa !45
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %34, i1 false), !tbaa !46
   br label %._crit_edge104
 
 35:                                               ; preds = %._crit_edge
@@ -628,7 +628,7 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   br label %84
 
 ._crit_edge104:                                   ; preds = %.lr.ph103.preheader, %.preheader
-  store ptr %1, ptr %31, align 8, !tbaa !45
+  store ptr %1, ptr %31, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %38
 
@@ -637,11 +637,11 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   %39 = sext i32 %.pr111 to i64
   %40 = getelementptr ptr, ptr %31, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -8
-  %42 = load ptr, ptr %41, align 8, !tbaa !45
+  %42 = load ptr, ptr %41, align 8, !tbaa !46
   %43 = ptrtoint ptr %42 to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
-  %46 = load i32, ptr %45, align 8, !tbaa !28
+  %46 = load i32, ptr %45, align 8, !tbaa !29
   %47 = icmp eq i32 %46, 2147483647
   br i1 %47, label %57, label %48
 
@@ -650,16 +650,16 @@ define noalias noundef ptr @Cudd_zddFirstPath(ptr noundef %0, ptr noundef %1, pt
   %50 = getelementptr inbounds nuw i32, ptr %22, i64 %49
   store i32 0, ptr %50, align 4, !tbaa !25
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %52 = load ptr, ptr %51, align 8, !tbaa !34
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
   %53 = ptrtoint ptr %52 to i64
   %54 = xor i64 %53, 1
   %55 = inttoptr i64 %54 to ptr
-  store ptr %55, ptr %40, align 8, !tbaa !45
+  store ptr %55, ptr %40, align 8, !tbaa !46
   %56 = add nsw i32 %.pr111, 1
   br label %.backedge
 
 57:                                               ; preds = %38
-  %58 = load ptr, ptr %37, align 8, !tbaa !37
+  %58 = load ptr, ptr %37, align 8, !tbaa !38
   %59 = icmp eq ptr %58, %45
   br i1 %59, label %thread-pre-split, label %80
 
@@ -668,8 +668,8 @@ thread-pre-split:                                 ; preds = %57
   br i1 %60, label %thread-pre-split._crit_edge, label %.lr.ph106
 
 thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %75
-  store i32 0, ptr %13, align 4, !tbaa !46
-  store i32 0, ptr %16, align 8, !tbaa !47
+  store i32 0, ptr %13, align 4, !tbaa !47
+  store i32 0, ptr %16, align 8, !tbaa !48
   br label %83
 
 .lr.ph106:                                        ; preds = %thread-pre-split, %75
@@ -677,48 +677,48 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   %.081105 = phi ptr [ %63, %75 ], [ %42, %thread-pre-split ]
   %61 = getelementptr ptr, ptr %31, i64 %indvars.iv132
   %62 = getelementptr i8, ptr %61, i64 -16
-  %63 = load ptr, ptr %62, align 8, !tbaa !45
+  %63 = load ptr, ptr %62, align 8, !tbaa !46
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %64, -2
   %66 = inttoptr i64 %65 to ptr
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = load ptr, ptr %67, align 8, !tbaa !34
+  %68 = load ptr, ptr %67, align 8, !tbaa !35
   %.not91 = icmp eq ptr %68, %.081105
   br i1 %.not91, label %75, label %69
 
 69:                                               ; preds = %.lr.ph106
   %70 = trunc nsw i64 %indvars.iv132 to i32
-  %71 = load i32, ptr %66, align 8, !tbaa !28
+  %71 = load i32, ptr %66, align 8, !tbaa !29
   %72 = zext i32 %71 to i64
   %73 = getelementptr inbounds nuw i32, ptr %22, i64 %72
   store i32 1, ptr %73, align 4, !tbaa !25
   %74 = getelementptr i8, ptr %61, i64 -8
-  store ptr %68, ptr %74, align 8, !tbaa !45
+  store ptr %68, ptr %74, align 8, !tbaa !46
   br label %.backedge
 
 .backedge:                                        ; preds = %69, %48
   %.pr111.be = phi i32 [ %70, %69 ], [ %56, %48 ]
-  br label %38
+  br label %38, !llvm.loop !49
 
 75:                                               ; preds = %.lr.ph106
-  %76 = load i32, ptr %66, align 8, !tbaa !28
+  %76 = load i32, ptr %66, align 8, !tbaa !29
   %77 = zext i32 %76 to i64
   %78 = getelementptr inbounds nuw i32, ptr %22, i64 %77
   store i32 2, ptr %78, align 4, !tbaa !25
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, -1
   %79 = icmp eq i64 %indvars.iv.next133, 1
-  br i1 %79, label %thread-pre-split._crit_edge, label %.lr.ph106
+  br i1 %79, label %thread-pre-split._crit_edge, label %.lr.ph106, !llvm.loop !50
 
 80:                                               ; preds = %57
   store i32 %.pr111, ptr %16, align 8
-  store i32 1, ptr %13, align 4, !tbaa !46
+  store i32 1, ptr %13, align 4, !tbaa !47
   %81 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %82 = load double, ptr %81, align 8, !tbaa !34
-  store double %82, ptr %15, align 8, !tbaa !34
+  %82 = load double, ptr %81, align 8, !tbaa !35
+  store double %82, ptr %15, align 8, !tbaa !35
   br label %83
 
 83:                                               ; preds = %80, %thread-pre-split._crit_edge
-  store ptr %22, ptr %2, align 8, !tbaa !48
+  store ptr %22, ptr %2, align 8, !tbaa !51
   br label %84
 
 84:                                               ; preds = %3, %83, %35, %25, %9
@@ -728,22 +728,22 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !38
+  %3 = load ptr, ptr %0, align 8, !tbaa !39
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !47
+  %5 = load i32, ptr %4, align 8, !tbaa !48
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !44
+  %8 = load ptr, ptr %7, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 ._crit_edge:                                      ; preds = %34, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !46
-  store i32 0, ptr %4, align 8, !tbaa !47
+  store i32 0, ptr %10, align 4, !tbaa !47
+  store i32 0, ptr %4, align 8, !tbaa !48
   br label %.thread
 
 11:                                               ; preds = %.lr.ph, %34
@@ -751,28 +751,28 @@ define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr noundef captures(none) %0, ptr 
   %13 = sext i32 %12 to i64
   %14 = getelementptr ptr, ptr %8, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
-  %16 = load ptr, ptr %15, align 8, !tbaa !45
+  %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = getelementptr i8, ptr %14, i64 -16
-  %18 = load ptr, ptr %17, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !46
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, -2
   %21 = inttoptr i64 %20 to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
+  %23 = load ptr, ptr %22, align 8, !tbaa !35
   %.not = icmp eq ptr %23, %16
-  %24 = load ptr, ptr %9, align 8, !tbaa !34
-  %25 = load i32, ptr %21, align 8, !tbaa !28
+  %24 = load ptr, ptr %9, align 8, !tbaa !35
+  %25 = load i32, ptr %21, align 8, !tbaa !29
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i32, ptr %24, i64 %26
   br i1 %.not, label %34, label %28
 
 28:                                               ; preds = %11
   store i32 1, ptr %27, align 4, !tbaa !25
-  %29 = load i32, ptr %4, align 8, !tbaa !47
+  %29 = load i32, ptr %4, align 8, !tbaa !48
   %30 = sext i32 %29 to i64
   %31 = getelementptr ptr, ptr %8, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
-  store ptr %23, ptr %32, align 8, !tbaa !45
+  store ptr %23, ptr %32, align 8, !tbaa !46
   %invariant.gep83 = getelementptr i8, ptr %8, i64 -8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %invariant.gep = getelementptr i8, ptr %8, i64 -16
@@ -780,44 +780,44 @@ define range(i32 0, 2) i32 @Cudd_zddNextPath(ptr noundef captures(none) %0, ptr 
 
 34:                                               ; preds = %11
   store i32 2, ptr %27, align 4, !tbaa !25
-  %35 = load i32, ptr %4, align 8, !tbaa !47
+  %35 = load i32, ptr %4, align 8, !tbaa !48
   %36 = add nsw i32 %35, -1
-  store i32 %36, ptr %4, align 8, !tbaa !47
+  store i32 %36, ptr %4, align 8, !tbaa !48
   %37 = icmp eq i32 %36, 1
-  br i1 %37, label %._crit_edge, label %11
+  br i1 %37, label %._crit_edge, label %11, !llvm.loop !52
 
 38:                                               ; preds = %.backedge, %28
   %.pr = phi i32 [ %29, %28 ], [ %.pr.be, %.backedge ]
   %39 = sext i32 %.pr to i64
   %gep84 = getelementptr ptr, ptr %invariant.gep83, i64 %39
-  %40 = load ptr, ptr %gep84, align 8, !tbaa !45
+  %40 = load ptr, ptr %gep84, align 8, !tbaa !46
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %44 = load i32, ptr %43, align 8, !tbaa !28
+  %44 = load i32, ptr %43, align 8, !tbaa !29
   %45 = icmp eq i32 %44, 2147483647
   br i1 %45, label %59, label %46
 
 46:                                               ; preds = %38
-  %47 = load ptr, ptr %9, align 8, !tbaa !34
+  %47 = load ptr, ptr %9, align 8, !tbaa !35
   %48 = zext i32 %44 to i64
   %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
   store i32 0, ptr %49, align 4, !tbaa !25
   %50 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !34
+  %51 = load ptr, ptr %50, align 8, !tbaa !35
   %52 = ptrtoint ptr %51 to i64
   %53 = xor i64 %52, 1
   %54 = inttoptr i64 %53 to ptr
-  %55 = load i32, ptr %4, align 8, !tbaa !47
+  %55 = load i32, ptr %4, align 8, !tbaa !48
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds ptr, ptr %8, i64 %56
-  store ptr %54, ptr %57, align 8, !tbaa !45
+  store ptr %54, ptr %57, align 8, !tbaa !46
   %58 = add nsw i32 %55, 1
-  store i32 %58, ptr %4, align 8, !tbaa !47
+  store i32 %58, ptr %4, align 8, !tbaa !48
   br label %.backedge
 
 59:                                               ; preds = %38
-  %60 = load ptr, ptr %33, align 8, !tbaa !37
+  %60 = load ptr, ptr %33, align 8, !tbaa !38
   %61 = icmp eq ptr %60, %43
   br i1 %61, label %thread-pre-split, label %85
 
@@ -827,8 +827,8 @@ thread-pre-split:                                 ; preds = %59
 
 thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %79
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %63, align 4, !tbaa !46
-  store i32 0, ptr %4, align 8, !tbaa !47
+  store i32 0, ptr %63, align 4, !tbaa !47
+  store i32 0, ptr %4, align 8, !tbaa !48
   br label %.thread
 
 .lr.ph79:                                         ; preds = %thread-pre-split, %79
@@ -836,52 +836,52 @@ thread-pre-split._crit_edge:                      ; preds = %thread-pre-split, %
   %64 = phi i32 [ %81, %79 ], [ %.pr, %thread-pre-split ]
   %65 = sext i32 %64 to i64
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %65
-  %66 = load ptr, ptr %gep, align 8, !tbaa !45
+  %66 = load ptr, ptr %gep, align 8, !tbaa !46
   %67 = ptrtoint ptr %66 to i64
   %68 = and i64 %67, -2
   %69 = inttoptr i64 %68 to ptr
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !34
+  %71 = load ptr, ptr %70, align 8, !tbaa !35
   %.not62 = icmp eq ptr %71, %.05578
-  %72 = load ptr, ptr %9, align 8, !tbaa !34
-  %73 = load i32, ptr %69, align 8, !tbaa !28
+  %72 = load ptr, ptr %9, align 8, !tbaa !35
+  %73 = load i32, ptr %69, align 8, !tbaa !29
   %74 = zext i32 %73 to i64
   %75 = getelementptr inbounds nuw i32, ptr %72, i64 %74
   br i1 %.not62, label %79, label %76
 
 76:                                               ; preds = %.lr.ph79
   store i32 1, ptr %75, align 4, !tbaa !25
-  %77 = load i32, ptr %4, align 8, !tbaa !47
+  %77 = load i32, ptr %4, align 8, !tbaa !48
   %78 = sext i32 %77 to i64
   %gep86 = getelementptr ptr, ptr %invariant.gep83, i64 %78
-  store ptr %71, ptr %gep86, align 8, !tbaa !45
+  store ptr %71, ptr %gep86, align 8, !tbaa !46
   br label %.backedge
 
 .backedge:                                        ; preds = %76, %46
   %.pr.be = phi i32 [ %77, %76 ], [ %58, %46 ]
-  br label %38
+  br label %38, !llvm.loop !53
 
 79:                                               ; preds = %.lr.ph79
   store i32 2, ptr %75, align 4, !tbaa !25
-  %80 = load i32, ptr %4, align 8, !tbaa !47
+  %80 = load i32, ptr %4, align 8, !tbaa !48
   %81 = add nsw i32 %80, -1
-  store i32 %81, ptr %4, align 8, !tbaa !47
+  store i32 %81, ptr %4, align 8, !tbaa !48
   %82 = sext i32 %80 to i64
   %gep77 = getelementptr ptr, ptr %invariant.gep, i64 %82
-  %83 = load ptr, ptr %gep77, align 8, !tbaa !45
+  %83 = load ptr, ptr %gep77, align 8, !tbaa !46
   %84 = icmp eq i32 %81, 1
-  br i1 %84, label %thread-pre-split._crit_edge, label %.lr.ph79
+  br i1 %84, label %thread-pre-split._crit_edge, label %.lr.ph79, !llvm.loop !54
 
 85:                                               ; preds = %59
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %86, align 4, !tbaa !46
+  store i32 1, ptr %86, align 4, !tbaa !47
   %87 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %88 = load double, ptr %87, align 8, !tbaa !34
+  %88 = load double, ptr %87, align 8, !tbaa !35
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %88, ptr %89, align 8, !tbaa !34
+  store double %88, ptr %89, align 8, !tbaa !35
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !34
-  store ptr %91, ptr %1, align 8, !tbaa !48
+  %91 = load ptr, ptr %90, align 8, !tbaa !35
+  store ptr %91, ptr %1, align 8, !tbaa !51
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %thread-pre-split._crit_edge, %85
@@ -939,15 +939,15 @@ switch.lookup:                                    ; preds = %.lr.ph
 25:                                               ; preds = %.lr.ph, %switch.lookup
   %.sink = phi i8 [ %switch.load, %switch.lookup ], [ 63, %.lr.ph ]
   %26 = getelementptr inbounds nuw i8, ptr %.026, i64 %indvars.iv
-  store i8 %.sink, ptr %26, align 1, !tbaa !34
+  store i8 %.sink, ptr %26, align 1, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %25, %15
   %27 = sext i32 %8 to i64
   %28 = getelementptr inbounds i8, ptr %.026, i64 %27
-  store i8 0, ptr %28, align 1, !tbaa !34
+  store i8 0, ptr %28, align 1, !tbaa !35
   br label %29
 
 29:                                               ; preds = %10, %3, %._crit_edge
@@ -993,7 +993,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph271:                                        ; preds = %.lr.ph271.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph271.preheader ], [ %indvars.iv.next, %._crit_edge ]
   %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !45
+  %20 = load ptr, ptr %19, align 8, !tbaa !46
   %21 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %20) #12
   %22 = icmp eq ptr %21, null
   br i1 %22, label %.thread, label %23
@@ -1003,10 +1003,10 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !50
+  %28 = load i32, ptr %27, align 4, !tbaa !56
   %29 = add i32 %28, 1
-  store i32 %29, ptr %27, align 4, !tbaa !50
-  %30 = load i32, ptr %21, align 8, !tbaa !28
+  store i32 %29, ptr %27, align 4, !tbaa !56
+  %30 = load i32, ptr %21, align 8, !tbaa !29
   %.not239267 = icmp eq i32 %30, 2147483647
   br i1 %.not239267, label %._crit_edge, label %.lr.ph269
 
@@ -1017,18 +1017,18 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %33 = getelementptr inbounds nuw i32, ptr %12, i64 %32
   store i32 1, ptr %33, align 4, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %storemerge238268, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !34
-  %36 = load i32, ptr %35, align 8, !tbaa !28
+  %35 = load ptr, ptr %34, align 8, !tbaa !35
+  %36 = load i32, ptr %35, align 8, !tbaa !29
   %.not239 = icmp eq i32 %36, 2147483647
-  br i1 %.not239, label %._crit_edge, label %.lr.ph269, !llvm.loop !51
+  br i1 %.not239, label %._crit_edge, label %.lr.ph269, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph269, %23
   %storemerge238.lcssa = phi ptr [ %21, %23 ], [ %35, %.lr.ph269 ]
-  store ptr %storemerge238.lcssa, ptr %7, align 8, !tbaa !45
+  store ptr %storemerge238.lcssa, ptr %7, align 8, !tbaa !46
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %21) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge272, label %.lr.ph271, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge272, label %.lr.ph271, !llvm.loop !58
 
 ._crit_edge272:                                   ; preds = %._crit_edge
   %37 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #12
@@ -1047,19 +1047,19 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 41:                                               ; preds = %.lr.ph274
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
-  br i1 %exitcond352.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !53
+  br i1 %exitcond352.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !59
 
 .lr.ph274:                                        ; preds = %.lr.ph274.preheader, %41
   %indvars.iv348 = phi i64 [ 0, %.lr.ph274.preheader ], [ %indvars.iv.next349, %41 ]
   %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv348
-  %43 = load ptr, ptr %42, align 8, !tbaa !45
+  %43 = load ptr, ptr %42, align 8, !tbaa !46
   %44 = tail call i32 @cuddCollectNodes(ptr noundef %43, ptr noundef nonnull %37) #12
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.loopexit401, label %41
 
 ._crit_edge275:                                   ; preds = %41, %._crit_edge272.thread
   %46 = phi ptr [ %39, %._crit_edge272.thread ], [ %37, %41 ]
-  %47 = load ptr, ptr %2, align 8, !tbaa !45
+  %47 = load ptr, ptr %2, align 8, !tbaa !46
   %48 = ptrtoint ptr %47 to i64
   %49 = tail call ptr @st__init_gen(ptr noundef nonnull %46) #12
   %50 = call i32 @st__gen(ptr noundef %49, ptr noundef nonnull %7, ptr noundef null) #12
@@ -1068,13 +1068,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 .lr.ph279:                                        ; preds = %._crit_edge275, %.lr.ph279
   %.0192277 = phi i64 [ %54, %.lr.ph279 ], [ 0, %._crit_edge275 ]
-  %51 = load ptr, ptr %7, align 8, !tbaa !45
+  %51 = load ptr, ptr %7, align 8, !tbaa !46
   %52 = ptrtoint ptr %51 to i64
   %53 = xor i64 %52, %48
   %54 = or i64 %53, %.0192277
   %55 = call i32 @st__gen(ptr noundef %49, ptr noundef nonnull %7, ptr noundef null) #12
   %.not = icmp eq i32 %55, 0
-  br i1 %.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !54
+  br i1 %.not, label %._crit_edge280, label %.lr.ph279, !llvm.loop !60
 
 ._crit_edge280:                                   ; preds = %.lr.ph279, %._crit_edge275
   %.0192.lcssa = phi i64 [ 0, %._crit_edge275 ], [ %54, %.lr.ph279 ]
@@ -1090,7 +1090,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   %59 = add nuw nsw i32 %.3199282, 4
   %60 = icmp samesign ult i32 %.3199282, 60
   %or.cond = select i1 %.not223, i1 %60, i1 false
-  br i1 %or.cond, label %56, label %61, !llvm.loop !55
+  br i1 %or.cond, label %56, label %61, !llvm.loop !61
 
 61:                                               ; preds = %56
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3) #12
@@ -1128,7 +1128,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 78:                                               ; preds = %.lr.ph284, %94
   %indvars.iv353 = phi i64 [ 0, %.lr.ph284 ], [ %indvars.iv.next354, %94 ]
-  %79 = load ptr, ptr %76, align 8, !tbaa !30
+  %79 = load ptr, ptr %76, align 8, !tbaa !31
   %80 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv353
   %81 = load i32, ptr %80, align 4, !tbaa !25
   %82 = sext i32 %81 to i64
@@ -1146,7 +1146,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds ptr, ptr %3, i64 %82
-  %90 = load ptr, ptr %89, align 8, !tbaa !56
+  %90 = load ptr, ptr %89, align 8, !tbaa !62
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.9, ptr noundef %90) #12
   br label %92
 
@@ -1158,7 +1158,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 94:                                               ; preds = %78, %92
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
-  br i1 %exitcond357.not, label %._crit_edge285, label %78, !llvm.loop !57
+  br i1 %exitcond357.not, label %._crit_edge285, label %78, !llvm.loop !63
 
 ._crit_edge285:                                   ; preds = %94, %.preheader259
   %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.10) #12
@@ -1183,7 +1183,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 103:                                              ; preds = %117
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
-  br i1 %exitcond362.not, label %.preheader255, label %107, !llvm.loop !58
+  br i1 %exitcond362.not, label %.preheader255, label %107, !llvm.loop !64
 
 .preheader255:                                    ; preds = %103, %.preheader257
   br i1 %14, label %.lr.ph299, label %._crit_edge300
@@ -1206,7 +1206,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv358
-  %113 = load ptr, ptr %112, align 8, !tbaa !56
+  %113 = load ptr, ptr %112, align 8, !tbaa !62
   %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %113) #12
   br label %115
 
@@ -1224,7 +1224,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 121:                                              ; preds = %.lr.ph299, %166
   %indvars.iv368 = phi i64 [ 0, %.lr.ph299 ], [ %indvars.iv.next369, %166 ]
-  %122 = load ptr, ptr %104, align 8, !tbaa !30
+  %122 = load ptr, ptr %104, align 8, !tbaa !31
   %123 = getelementptr inbounds nuw i32, ptr %122, i64 %indvars.iv368
   %124 = load i32, ptr %123, align 4, !tbaa !25
   %125 = sext i32 %124 to i64
@@ -1239,7 +1239,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %130, label %.loopexit401, label %131
 
 131:                                              ; preds = %128
-  %132 = load ptr, ptr %104, align 8, !tbaa !30
+  %132 = load ptr, ptr %104, align 8, !tbaa !31
   %133 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv368
   %134 = load i32, ptr %133, align 4, !tbaa !25
   br i1 %105, label %135, label %137
@@ -1251,7 +1251,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 137:                                              ; preds = %131
   %138 = sext i32 %134 to i64
   %139 = getelementptr inbounds ptr, ptr %3, i64 %138
-  %140 = load ptr, ptr %139, align 8, !tbaa !56
+  %140 = load ptr, ptr %139, align 8, !tbaa !62
   %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.18, ptr noundef %140) #12
   br label %142
 
@@ -1261,11 +1261,11 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %143, label %.loopexit401, label %144
 
 144:                                              ; preds = %142
-  %145 = load ptr, ptr %106, align 8, !tbaa !59
+  %145 = load ptr, ptr %106, align 8, !tbaa !65
   %146 = getelementptr inbounds nuw %struct.DdSubtable, ptr %145, i64 %indvars.iv368
-  %147 = load ptr, ptr %146, align 8, !tbaa !60
+  %147 = load ptr, ptr %146, align 8, !tbaa !66
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 12
-  %149 = load i32, ptr %148, align 4, !tbaa !61
+  %149 = load i32, ptr %148, align 4, !tbaa !67
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %.lr.ph296.preheader, label %._crit_edge297
 
@@ -1276,8 +1276,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph296:                                        ; preds = %.lr.ph296.preheader, %._crit_edge293
   %indvars.iv363 = phi i64 [ 0, %.lr.ph296.preheader ], [ %indvars.iv.next364, %._crit_edge293 ]
   %151 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv363
-  %storemerge234288 = load ptr, ptr %151, align 8, !tbaa !45
-  store ptr %storemerge234288, ptr %7, align 8, !tbaa !45
+  %storemerge234288 = load ptr, ptr %151, align 8, !tbaa !46
+  store ptr %storemerge234288, ptr %7, align 8, !tbaa !46
   %.not235289 = icmp eq ptr %storemerge234288, null
   br i1 %.not235289, label %._crit_edge293, label %.lr.ph292
 
@@ -1288,7 +1288,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not236, label %161, label %153
 
 153:                                              ; preds = %.lr.ph292
-  %154 = load ptr, ptr %7, align 8, !tbaa !45
+  %154 = load ptr, ptr %7, align 8, !tbaa !46
   %155 = ptrtoint ptr %154 to i64
   %156 = and i64 %155, %58
   %157 = udiv i64 %156, 40
@@ -1298,17 +1298,17 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %160, label %.loopexit401, label %161
 
 161:                                              ; preds = %153, %.lr.ph292
-  %162 = load ptr, ptr %7, align 8, !tbaa !45
+  %162 = load ptr, ptr %7, align 8, !tbaa !46
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %storemerge234 = load ptr, ptr %163, align 8, !tbaa !45
-  store ptr %storemerge234, ptr %7, align 8, !tbaa !45
+  %storemerge234 = load ptr, ptr %163, align 8, !tbaa !46
+  store ptr %storemerge234, ptr %7, align 8, !tbaa !46
   %.not235 = icmp eq ptr %storemerge234, null
-  br i1 %.not235, label %._crit_edge293, label %.lr.ph292, !llvm.loop !62
+  br i1 %.not235, label %._crit_edge293, label %.lr.ph292, !llvm.loop !68
 
 ._crit_edge293:                                   ; preds = %161, %.lr.ph296
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
-  br i1 %exitcond367.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !63
+  br i1 %exitcond367.not, label %._crit_edge297, label %.lr.ph296, !llvm.loop !69
 
 ._crit_edge297:                                   ; preds = %._crit_edge293, %144
   %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #12
@@ -1318,7 +1318,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 166:                                              ; preds = %121, %._crit_edge297
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count371
-  br i1 %exitcond372.not, label %._crit_edge300, label %121, !llvm.loop !64
+  br i1 %exitcond372.not, label %._crit_edge300, label %121, !llvm.loop !70
 
 ._crit_edge300:                                   ; preds = %166, %.preheader255
   %167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.21) #12
@@ -1327,9 +1327,9 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 169:                                              ; preds = %._crit_edge300
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %171 = load ptr, ptr %170, align 8, !tbaa !65
+  %171 = load ptr, ptr %170, align 8, !tbaa !71
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %173 = load i32, ptr %172, align 4, !tbaa !66
+  %173 = load i32, ptr %172, align 4, !tbaa !72
   %174 = icmp sgt i32 %173, 0
   br i1 %174, label %.lr.ph309.preheader, label %._crit_edge310
 
@@ -1340,8 +1340,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph309:                                        ; preds = %.lr.ph309.preheader, %._crit_edge306
   %indvars.iv373 = phi i64 [ 0, %.lr.ph309.preheader ], [ %indvars.iv.next374, %._crit_edge306 ]
   %175 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv373
-  %storemerge230301 = load ptr, ptr %175, align 8, !tbaa !45
-  store ptr %storemerge230301, ptr %7, align 8, !tbaa !45
+  %storemerge230301 = load ptr, ptr %175, align 8, !tbaa !46
+  store ptr %storemerge230301, ptr %7, align 8, !tbaa !46
   %.not231302 = icmp eq ptr %storemerge230301, null
   br i1 %.not231302, label %._crit_edge306, label %.lr.ph305
 
@@ -1352,7 +1352,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not232, label %185, label %177
 
 177:                                              ; preds = %.lr.ph305
-  %178 = load ptr, ptr %7, align 8, !tbaa !45
+  %178 = load ptr, ptr %7, align 8, !tbaa !46
   %179 = ptrtoint ptr %178 to i64
   %180 = and i64 %179, %58
   %181 = udiv i64 %180, 40
@@ -1362,17 +1362,17 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %184, label %.loopexit401, label %185
 
 185:                                              ; preds = %177, %.lr.ph305
-  %186 = load ptr, ptr %7, align 8, !tbaa !45
+  %186 = load ptr, ptr %7, align 8, !tbaa !46
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %storemerge230 = load ptr, ptr %187, align 8, !tbaa !45
-  store ptr %storemerge230, ptr %7, align 8, !tbaa !45
+  %storemerge230 = load ptr, ptr %187, align 8, !tbaa !46
+  store ptr %storemerge230, ptr %7, align 8, !tbaa !46
   %.not231 = icmp eq ptr %storemerge230, null
-  br i1 %.not231, label %._crit_edge306, label %.lr.ph305, !llvm.loop !67
+  br i1 %.not231, label %._crit_edge306, label %.lr.ph305, !llvm.loop !73
 
 ._crit_edge306:                                   ; preds = %185, %.lr.ph309
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
-  br i1 %exitcond377.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !68
+  br i1 %exitcond377.not, label %._crit_edge310, label %.lr.ph309, !llvm.loop !74
 
 ._crit_edge310:                                   ; preds = %._crit_edge306, %169
   %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.22) #12
@@ -1390,7 +1390,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 191:                                              ; preds = %204
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
   %exitcond382.not = icmp eq i64 %indvars.iv.next379, %wide.trip.count381
-  br i1 %exitcond382.not, label %.preheader, label %194, !llvm.loop !69
+  br i1 %exitcond382.not, label %.preheader, label %194, !llvm.loop !75
 
 .preheader:                                       ; preds = %191, %.preheader251
   br i1 %14, label %.lr.ph323, label %._crit_edge324
@@ -1412,7 +1412,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 198:                                              ; preds = %194
   %199 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv378
-  %200 = load ptr, ptr %199, align 8, !tbaa !56
+  %200 = load ptr, ptr %199, align 8, !tbaa !62
   %201 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.13, ptr noundef %200) #12
   br label %202
 
@@ -1423,7 +1423,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 204:                                              ; preds = %202
   %205 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv378
-  %206 = load ptr, ptr %205, align 8, !tbaa !45
+  %206 = load ptr, ptr %205, align 8, !tbaa !46
   %207 = ptrtoint ptr %206 to i64
   %208 = and i64 %207, %58
   %209 = udiv i64 %208, 40
@@ -1434,7 +1434,7 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 
 213:                                              ; preds = %.lr.ph323, %.loopexit
   %indvars.iv388 = phi i64 [ 0, %.lr.ph323 ], [ %indvars.iv.next389, %.loopexit ]
-  %214 = load ptr, ptr %192, align 8, !tbaa !30
+  %214 = load ptr, ptr %192, align 8, !tbaa !31
   %215 = getelementptr inbounds nuw i32, ptr %214, i64 %indvars.iv388
   %216 = load i32, ptr %215, align 4, !tbaa !25
   %217 = sext i32 %216 to i64
@@ -1444,11 +1444,11 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not226, label %.loopexit, label %220
 
 220:                                              ; preds = %213
-  %221 = load ptr, ptr %193, align 8, !tbaa !59
+  %221 = load ptr, ptr %193, align 8, !tbaa !65
   %222 = getelementptr inbounds nuw %struct.DdSubtable, ptr %221, i64 %indvars.iv388
-  %223 = load ptr, ptr %222, align 8, !tbaa !60
+  %223 = load ptr, ptr %222, align 8, !tbaa !66
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 12
-  %225 = load i32, ptr %224, align 4, !tbaa !61
+  %225 = load i32, ptr %224, align 4, !tbaa !67
   %226 = icmp sgt i32 %225, 0
   br i1 %226, label %.lr.ph321.preheader, label %.loopexit
 
@@ -1459,8 +1459,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph321:                                        ; preds = %.lr.ph321.preheader, %._crit_edge318
   %indvars.iv383 = phi i64 [ 0, %.lr.ph321.preheader ], [ %indvars.iv.next384, %._crit_edge318 ]
   %227 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv383
-  %storemerge227313 = load ptr, ptr %227, align 8, !tbaa !45
-  store ptr %storemerge227313, ptr %7, align 8, !tbaa !45
+  %storemerge227313 = load ptr, ptr %227, align 8, !tbaa !46
+  store ptr %storemerge227313, ptr %7, align 8, !tbaa !46
   %.not228314 = icmp eq ptr %storemerge227313, null
   br i1 %.not228314, label %._crit_edge318, label %.lr.ph317
 
@@ -1471,13 +1471,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not229, label %257, label %229
 
 229:                                              ; preds = %.lr.ph317
-  %230 = load ptr, ptr %7, align 8, !tbaa !45
+  %230 = load ptr, ptr %7, align 8, !tbaa !46
   %231 = ptrtoint ptr %230 to i64
   %232 = and i64 %231, %58
   %233 = udiv i64 %232, 40
   %234 = inttoptr i64 %233 to ptr
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !34
+  %236 = load ptr, ptr %235, align 8, !tbaa !35
   %237 = ptrtoint ptr %236 to i64
   %238 = and i64 %237, %58
   %239 = udiv i64 %238, 40
@@ -1487,13 +1487,13 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %242, label %.loopexit401, label %243
 
 243:                                              ; preds = %229
-  %244 = load ptr, ptr %7, align 8, !tbaa !45
+  %244 = load ptr, ptr %7, align 8, !tbaa !46
   %245 = ptrtoint ptr %244 to i64
   %246 = and i64 %245, %58
   %247 = udiv i64 %246, 40
   %248 = inttoptr i64 %247 to ptr
   %249 = getelementptr inbounds nuw i8, ptr %244, i64 24
-  %250 = load ptr, ptr %249, align 8, !tbaa !34
+  %250 = load ptr, ptr %249, align 8, !tbaa !35
   %251 = ptrtoint ptr %250 to i64
   %252 = and i64 %251, %58
   %253 = udiv i64 %252, 40
@@ -1503,26 +1503,26 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %256, label %.loopexit401, label %257
 
 257:                                              ; preds = %243, %.lr.ph317
-  %258 = load ptr, ptr %7, align 8, !tbaa !45
+  %258 = load ptr, ptr %7, align 8, !tbaa !46
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  %storemerge227 = load ptr, ptr %259, align 8, !tbaa !45
-  store ptr %storemerge227, ptr %7, align 8, !tbaa !45
+  %storemerge227 = load ptr, ptr %259, align 8, !tbaa !46
+  store ptr %storemerge227, ptr %7, align 8, !tbaa !46
   %.not228 = icmp eq ptr %storemerge227, null
-  br i1 %.not228, label %._crit_edge318, label %.lr.ph317, !llvm.loop !70
+  br i1 %.not228, label %._crit_edge318, label %.lr.ph317, !llvm.loop !76
 
 ._crit_edge318:                                   ; preds = %257, %.lr.ph321
   %indvars.iv.next384 = add nuw nsw i64 %indvars.iv383, 1
   %exitcond387.not = icmp eq i64 %indvars.iv.next384, %wide.trip.count386
-  br i1 %exitcond387.not, label %.loopexit, label %.lr.ph321, !llvm.loop !71
+  br i1 %exitcond387.not, label %.loopexit, label %.lr.ph321, !llvm.loop !77
 
 .loopexit:                                        ; preds = %._crit_edge318, %220, %213
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %exitcond392.not = icmp eq i64 %indvars.iv.next389, %wide.trip.count391
-  br i1 %exitcond392.not, label %._crit_edge324, label %213, !llvm.loop !72
+  br i1 %exitcond392.not, label %._crit_edge324, label %213, !llvm.loop !78
 
 ._crit_edge324:                                   ; preds = %.loopexit, %.preheader
-  %260 = load ptr, ptr %170, align 8, !tbaa !65
-  %261 = load i32, ptr %172, align 4, !tbaa !66
+  %260 = load ptr, ptr %170, align 8, !tbaa !71
+  %261 = load i32, ptr %172, align 4, !tbaa !72
   %262 = icmp sgt i32 %261, 0
   br i1 %262, label %.lr.ph333.preheader, label %._crit_edge334
 
@@ -1533,8 +1533,8 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
 .lr.ph333:                                        ; preds = %.lr.ph333.preheader, %._crit_edge330
   %indvars.iv393 = phi i64 [ 0, %.lr.ph333.preheader ], [ %indvars.iv.next394, %._crit_edge330 ]
   %263 = getelementptr inbounds nuw ptr, ptr %260, i64 %indvars.iv393
-  %storemerge325 = load ptr, ptr %263, align 8, !tbaa !45
-  store ptr %storemerge325, ptr %7, align 8, !tbaa !45
+  %storemerge325 = load ptr, ptr %263, align 8, !tbaa !46
+  store ptr %storemerge325, ptr %7, align 8, !tbaa !46
   %.not224326 = icmp eq ptr %storemerge325, null
   br i1 %.not224326, label %._crit_edge330, label %.lr.ph329
 
@@ -1545,29 +1545,29 @@ define range(i32 0, 2) i32 @Cudd_zddDumpDot(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not225, label %275, label %265
 
 265:                                              ; preds = %.lr.ph329
-  %266 = load ptr, ptr %7, align 8, !tbaa !45
+  %266 = load ptr, ptr %7, align 8, !tbaa !46
   %267 = ptrtoint ptr %266 to i64
   %268 = and i64 %267, %58
   %269 = udiv i64 %268, 40
   %270 = inttoptr i64 %269 to ptr
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 16
-  %272 = load double, ptr %271, align 8, !tbaa !34
+  %272 = load double, ptr %271, align 8, !tbaa !35
   %273 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.26, ptr noundef %270, double noundef %272) #12
   %274 = icmp eq i32 %273, -1
   br i1 %274, label %.loopexit401, label %275
 
 275:                                              ; preds = %265, %.lr.ph329
-  %276 = load ptr, ptr %7, align 8, !tbaa !45
+  %276 = load ptr, ptr %7, align 8, !tbaa !46
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %storemerge = load ptr, ptr %277, align 8, !tbaa !45
-  store ptr %storemerge, ptr %7, align 8, !tbaa !45
+  %storemerge = load ptr, ptr %277, align 8, !tbaa !46
+  store ptr %storemerge, ptr %7, align 8, !tbaa !46
   %.not224 = icmp eq ptr %storemerge, null
-  br i1 %.not224, label %._crit_edge330, label %.lr.ph329, !llvm.loop !73
+  br i1 %.not224, label %._crit_edge330, label %.lr.ph329, !llvm.loop !79
 
 ._crit_edge330:                                   ; preds = %275, %.lr.ph333
   %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
   %exitcond397.not = icmp eq i64 %indvars.iv.next394, %wide.trip.count396
-  br i1 %exitcond397.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !74
+  br i1 %exitcond397.not, label %._crit_edge334, label %.lr.ph333, !llvm.loop !80
 
 ._crit_edge334:                                   ; preds = %._crit_edge330, %._crit_edge324
   %278 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.20) #12
@@ -1620,7 +1620,7 @@ declare void @st__free_table(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = icmp eq ptr %1, null
   br i1 %6, label %70, label %7
 
@@ -1628,13 +1628,13 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = load i32, ptr %10, align 8, !tbaa !28
+  %11 = load i32, ptr %10, align 8, !tbaa !29
   %12 = icmp eq i32 %11, 2147483647
   br i1 %12, label %13, label %19
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %15 = load ptr, ptr %14, align 8, !tbaa !31
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = icmp eq ptr %1, %5
   %17 = zext i1 %16 to i32
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.27, i32 noundef %17) #12
@@ -1652,20 +1652,20 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %27 = load ptr, ptr %26, align 8, !tbaa !31
+  %27 = load ptr, ptr %26, align 8, !tbaa !32
   %28 = udiv i64 %8, 40
-  %29 = load i32, ptr %1, align 8, !tbaa !28
+  %29 = load i32, ptr %1, align 8, !tbaa !29
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !50
+  %31 = load i32, ptr %30, align 4, !tbaa !56
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.28, i64 noundef %28, i32 noundef %29, i32 noundef %31) #12
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !34
+  %34 = load ptr, ptr %33, align 8, !tbaa !35
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, -2
   %37 = inttoptr i64 %36 to ptr
-  %38 = load i32, ptr %37, align 8, !tbaa !28
+  %38 = load i32, ptr %37, align 8, !tbaa !29
   %.not39 = icmp eq i32 %38, 2147483647
-  %39 = load ptr, ptr %26, align 8, !tbaa !31
+  %39 = load ptr, ptr %26, align 8, !tbaa !32
   br i1 %.not39, label %40, label %44
 
 40:                                               ; preds = %25
@@ -1681,13 +1681,13 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
 
 47:                                               ; preds = %44, %40
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !34
+  %49 = load ptr, ptr %48, align 8, !tbaa !35
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = load i32, ptr %52, align 8, !tbaa !28
+  %53 = load i32, ptr %52, align 8, !tbaa !29
   %.not = icmp eq i32 %53, 2147483647
-  %54 = load ptr, ptr %26, align 8, !tbaa !31
+  %54 = load ptr, ptr %26, align 8, !tbaa !32
   br i1 %.not, label %.thread, label %58
 
 .thread:                                          ; preds = %47
@@ -1699,7 +1699,7 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
 58:                                               ; preds = %47
   %59 = udiv i64 %50, 40
   %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.32, i64 noundef %59) #12
-  %61 = load ptr, ptr %48, align 8, !tbaa !34
+  %61 = load ptr, ptr %48, align 8, !tbaa !35
   %62 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %2)
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %70, label %64
@@ -1708,7 +1708,7 @@ define internal fastcc range(i32 0, 2) i32 @zp2(ptr noundef %0, ptr noundef %1, 
   br i1 %.not39, label %69, label %65
 
 65:                                               ; preds = %64
-  %66 = load ptr, ptr %33, align 8, !tbaa !34
+  %66 = load ptr, ptr %33, align 8, !tbaa !35
   %67 = tail call fastcc i32 @zp2(ptr noundef nonnull %0, ptr noundef %66, ptr noundef %2)
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %70, label %69
@@ -1777,52 +1777,58 @@ attributes #12 = { nounwind }
 !23 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !24 = !{!4, !6, i64 624}
 !25 = !{!6, !6, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!5, !6, i64 0}
-!29 = !{!4, !9, i64 40}
-!30 = !{!4, !17, i64 336}
-!31 = !{!4, !23, i64 608}
-!32 = distinct !{!32, !27}
-!33 = !{!4, !17, i64 320}
-!34 = !{!7, !7, i64 0}
-!35 = distinct !{!35, !27}
-!36 = distinct !{!36, !27}
-!37 = !{!4, !9, i64 48}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"DdGen", !40, i64 0, !6, i64 8, !6, i64 12, !7, i64 16, !41, i64 32, !9, i64 48}
-!40 = !{!"p1 _ZTS9DdManager", !10, i64 0}
-!41 = !{!"", !6, i64 0, !16, i64 8}
-!42 = !{!39, !6, i64 8}
-!43 = distinct !{!43, !27}
-!44 = !{!39, !16, i64 40}
-!45 = !{!9, !9, i64 0}
-!46 = !{!39, !6, i64 12}
-!47 = !{!39, !6, i64 32}
-!48 = !{!17, !17, i64 0}
-!49 = distinct !{!49, !27}
-!50 = !{!5, !6, i64 4}
-!51 = distinct !{!51, !27}
-!52 = distinct !{!52, !27}
-!53 = distinct !{!53, !27}
-!54 = distinct !{!54, !27}
-!55 = distinct !{!55, !27}
-!56 = !{!19, !19, i64 0}
-!57 = distinct !{!57, !27}
-!58 = distinct !{!58, !27}
-!59 = !{!4, !14, i64 160}
-!60 = !{!15, !16, i64 0}
-!61 = !{!15, !6, i64 12}
-!62 = distinct !{!62, !27}
-!63 = distinct !{!63, !27}
-!64 = distinct !{!64, !27}
-!65 = !{!4, !16, i64 168}
-!66 = !{!4, !6, i64 180}
-!67 = distinct !{!67, !27}
-!68 = distinct !{!68, !27}
-!69 = distinct !{!69, !27}
-!70 = distinct !{!70, !27}
-!71 = distinct !{!71, !27}
-!72 = distinct !{!72, !27}
-!73 = distinct !{!73, !27}
-!74 = distinct !{!74, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!5, !6, i64 0}
+!30 = !{!4, !9, i64 40}
+!31 = !{!4, !17, i64 336}
+!32 = !{!4, !23, i64 608}
+!33 = distinct !{!33, !27, !28}
+!34 = !{!4, !17, i64 320}
+!35 = !{!7, !7, i64 0}
+!36 = distinct !{!36, !27, !28}
+!37 = distinct !{!37, !27, !28}
+!38 = !{!4, !9, i64 48}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"DdGen", !41, i64 0, !6, i64 8, !6, i64 12, !7, i64 16, !42, i64 32, !9, i64 48}
+!41 = !{!"p1 _ZTS9DdManager", !10, i64 0}
+!42 = !{!"", !6, i64 0, !16, i64 8}
+!43 = !{!40, !6, i64 8}
+!44 = distinct !{!44, !27, !28}
+!45 = !{!40, !16, i64 40}
+!46 = !{!9, !9, i64 0}
+!47 = !{!40, !6, i64 12}
+!48 = !{!40, !6, i64 32}
+!49 = distinct !{!49, !28}
+!50 = distinct !{!50, !28}
+!51 = !{!17, !17, i64 0}
+!52 = distinct !{!52, !28}
+!53 = distinct !{!53, !28}
+!54 = distinct !{!54, !28}
+!55 = distinct !{!55, !27, !28}
+!56 = !{!5, !6, i64 4}
+!57 = distinct !{!57, !27, !28}
+!58 = distinct !{!58, !27, !28}
+!59 = distinct !{!59, !27, !28}
+!60 = distinct !{!60, !27, !28}
+!61 = distinct !{!61, !27, !28}
+!62 = !{!19, !19, i64 0}
+!63 = distinct !{!63, !27, !28}
+!64 = distinct !{!64, !27, !28}
+!65 = !{!4, !14, i64 160}
+!66 = !{!15, !16, i64 0}
+!67 = !{!15, !6, i64 12}
+!68 = distinct !{!68, !27, !28}
+!69 = distinct !{!69, !27, !28}
+!70 = distinct !{!70, !27, !28}
+!71 = !{!4, !16, i64 168}
+!72 = !{!4, !6, i64 180}
+!73 = distinct !{!73, !27, !28}
+!74 = distinct !{!74, !27, !28}
+!75 = distinct !{!75, !27, !28}
+!76 = distinct !{!76, !27, !28}
+!77 = distinct !{!77, !27, !28}
+!78 = distinct !{!78, !27, !28}
+!79 = distinct !{!79, !27, !28}
+!80 = distinct !{!80, !27, !28}

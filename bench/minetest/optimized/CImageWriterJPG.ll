@@ -363,7 +363,7 @@ for.inc.i:                                        ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i
   %7 = load i8, ptr %arrayidx.i, align 1, !tbaa !17
   %tobool.not.i = icmp eq i8 %7, 0
-  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !51
+  br i1 %tobool.not.i, label %land.rhs21.loopexit.i, label %land.rhs.i, !llvm.loop !52
 
 land.rhs21.loopexit.i:                            ; preds = %for.inc.i
   %8 = zext i32 %inc.i to i64
@@ -410,7 +410,7 @@ for.inc.i42:                                      ; preds = %for.body.i32
   %arrayidx.i46 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i45
   %14 = load i8, ptr %arrayidx.i46, align 1, !tbaa !17
   %tobool.not.i47 = icmp eq i8 %14, 0
-  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !51
+  br i1 %tobool.not.i47, label %land.rhs21.loopexit.i48, label %land.rhs.i27, !llvm.loop !53
 
 land.rhs21.loopexit.i48:                          ; preds = %for.inc.i42
   %15 = zext i32 %inc.i43 to i64
@@ -457,7 +457,7 @@ for.inc.i79:                                      ; preds = %for.body.i69
   %arrayidx.i83 = getelementptr inbounds nuw i8, ptr %1, i64 %idxprom.i82
   %21 = load i8, ptr %arrayidx.i83, align 1, !tbaa !17
   %tobool.not.i84 = icmp eq i8 %21, 0
-  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !51
+  br i1 %tobool.not.i84, label %land.rhs21.loopexit.i85, label %land.rhs.i64, !llvm.loop !54
 
 land.rhs21.loopexit.i85:                          ; preds = %for.inc.i79
   %22 = zext i32 %inc.i80 to i64
@@ -518,9 +518,9 @@ entry:
   %dest1 = getelementptr inbounds nuw i8, ptr %cinfo, i64 40
   %0 = load ptr, ptr %dest1, align 8, !tbaa !32
   %buffer = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %buffer, ptr %0, align 8, !tbaa !52
+  store ptr %buffer, ptr %0, align 8, !tbaa !55
   %free_in_buffer = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4096, ptr %free_in_buffer, align 8, !tbaa !53
+  store i64 4096, ptr %free_in_buffer, align 8, !tbaa !56
   ret void
 }
 
@@ -541,15 +541,15 @@ entry:
 if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %cinfo, align 8, !tbaa !26
   %msg_code = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 37, ptr %msg_code, align 8, !tbaa !54
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  store i32 37, ptr %msg_code, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !59
   tail call void %4(ptr noundef nonnull %cinfo) #11
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  store ptr %buffer, ptr %0, align 8, !tbaa !52
+  store ptr %buffer, ptr %0, align 8, !tbaa !55
   %free_in_buffer = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4096, ptr %free_in_buffer, align 8, !tbaa !53
+  store i64 4096, ptr %free_in_buffer, align 8, !tbaa !56
   ret i32 1
 }
 
@@ -559,7 +559,7 @@ entry:
   %dest1 = getelementptr inbounds nuw i8, ptr %cinfo, i64 40
   %0 = load ptr, ptr %dest1, align 8, !tbaa !32
   %free_in_buffer = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1 = load i64, ptr %free_in_buffer, align 8, !tbaa !53
+  %1 = load i64, ptr %free_in_buffer, align 8, !tbaa !56
   %sub = sub i64 4096, %1
   %file = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load ptr, ptr %file, align 8, !tbaa !41
@@ -573,8 +573,8 @@ entry:
 if.then:                                          ; preds = %entry
   %4 = load ptr, ptr %cinfo, align 8, !tbaa !26
   %msg_code = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 37, ptr %msg_code, align 8, !tbaa !54
-  %5 = load ptr, ptr %4, align 8, !tbaa !56
+  store i32 37, ptr %msg_code, align 8, !tbaa !57
+  %5 = load ptr, ptr %4, align 8, !tbaa !59
   tail call void %5(ptr noundef nonnull %cinfo) #11
   br label %if.end
 
@@ -652,11 +652,14 @@ attributes #12 = { builtin nounwind }
 !46 = !{!27, !8, i64 52}
 !47 = !{!20, !5, i64 24}
 !48 = !{ptr @_ZN3irr5video15CColorConverter22convert_R5G6B5toR8G8B8EPKviPv, ptr @_ZN3irr5video15CColorConverter22convert_R8G8B8toR8G8B8EPKviPv, ptr @_ZN3irr5video15CColorConverter24convert_A1R5G5B5toB8G8R8EPKviPv, ptr @_ZN3irr5video15CColorConverter24convert_A8R8G8B8toR8G8B8EPKviPv}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = distinct !{!51, !50}
-!52 = !{!37, !5, i64 0}
-!53 = !{!37, !16, i64 8}
-!54 = !{!55, !8, i64 40}
-!55 = !{!"_ZTS14jpeg_error_mgr", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !8, i64 40, !6, i64 44, !8, i64 124, !16, i64 128, !5, i64 136, !8, i64 144, !5, i64 152, !8, i64 160, !8, i64 164}
-!56 = !{!55, !5, i64 0}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = distinct !{!52, !50, !51}
+!53 = distinct !{!53, !50, !51}
+!54 = distinct !{!54, !50, !51}
+!55 = !{!37, !5, i64 0}
+!56 = !{!37, !16, i64 8}
+!57 = !{!58, !8, i64 40}
+!58 = !{!"_ZTS14jpeg_error_mgr", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !8, i64 40, !6, i64 44, !8, i64 124, !16, i64 128, !5, i64 136, !8, i64 144, !5, i64 152, !8, i64 160, !8, i64 164}
+!59 = !{!58, !5, i64 0}

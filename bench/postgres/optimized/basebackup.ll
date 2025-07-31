@@ -1419,7 +1419,7 @@ IsTLHistoryFileName.exit.thread:                  ; preds = %187, %IsXLogFileNam
   %240 = load i32, ptr %232, align 4
   %241 = sext i32 %240 to i64
   %.not195 = icmp slt i64 %indvars.iv.next281, %241
-  br i1 %.not195, label %.lr.ph252, label %.critedge211, !llvm.loop !8
+  br i1 %.not195, label %.lr.ph252, label %.critedge211, !llvm.loop !9
 
 .lr.ph252:                                        ; preds = %.preheader223, %239
   %indvars.iv280 = phi i64 [ %indvars.iv.next281, %239 ], [ 0, %.preheader223 ]
@@ -1607,7 +1607,7 @@ basebackup_read_file.exit:                        ; preds = %314
   %334 = load i32, ptr @wal_segment_size, align 4
   %335 = sext i32 %334 to i64
   %336 = icmp eq i64 %333, %335
-  br i1 %336, label %split.thread, label %314, !llvm.loop !9
+  br i1 %336, label %split.thread, label %314, !llvm.loop !10
 
 split:                                            ; preds = %basebackup_read_file.exit
   %.pre289 = load i32, ptr @wal_segment_size, align 4
@@ -1633,7 +1633,7 @@ split.thread:                                     ; preds = %328, %split
   %345 = load i32, ptr %232, align 4
   %346 = sext i32 %345 to i64
   %.not198 = icmp slt i64 %indvars.iv.next284, %346
-  br i1 %.not198, label %274, label %.critedge213.preheader, !llvm.loop !10
+  br i1 %.not198, label %274, label %.critedge213.preheader, !llvm.loop !11
 
 .lr.ph260:                                        ; preds = %.lr.ph258, %.critedge213
   %indvars.iv286 = phi i64 [ %indvars.iv.next287, %.critedge213 ], [ 0, %.lr.ph258 ]
@@ -1890,7 +1890,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %.thre
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %63 = load i8, ptr %62, align 1
   %64 = icmp eq i8 %63, 0
-  br i1 %64, label %.thread204, label %sub_1223, !llvm.loop !11
+  br i1 %64, label %.thread204, label %sub_1223, !llvm.loop !12
 
 sub_1223:                                         ; preds = %.tail
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 20
@@ -1902,22 +1902,22 @@ sub_1223:                                         ; preds = %.tail
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 21
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 0
-  br i1 %69, label %.thread204, label %.tail221.thread, !llvm.loop !11
+  br i1 %69, label %.thread204, label %.tail221.thread, !llvm.loop !12
 
 .tail221.thread:                                  ; preds = %sub_0, %sub_1223, %.tail221
   %70 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(10) @.str.60, i64 noundef 9) #21
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.thread204, label %72, !llvm.loop !11
+  br i1 %71, label %.thread204, label %72, !llvm.loop !12
 
 72:                                               ; preds = %.tail221.thread
   %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(10) @.str.61) #21
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread204, label %75, !llvm.loop !11
+  br i1 %74, label %.thread204, label %75, !llvm.loop !12
 
 75:                                               ; preds = %72
   %76 = load volatile i32, ptr @InterruptPending, align 4
   %.not179 = icmp eq i32 %76, 0
-  br i1 %.not179, label %78, label %77, !prof !12
+  br i1 %.not179, label %78, label %77, !prof !13
 
 77:                                               ; preds = %75
   call void @ProcessInterrupts() #19
@@ -1944,7 +1944,7 @@ sub_1223:                                         ; preds = %.tail
   %88 = getelementptr inbounds nuw [9 x %struct.exclude_list_item], ptr @excludeFiles, i64 0, i64 %indvars.iv.next
   %89 = load ptr, ptr %88, align 16
   %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %104, label %.preheader225, !llvm.loop !13
+  br i1 %exitcond, label %104, label %.preheader225, !llvm.loop !14
 
 .preheader225:                                    ; preds = %78, %87
   %indvars.iv = phi i64 [ %indvars.iv.next, %87 ], [ 0, %78 ]
@@ -1991,12 +1991,12 @@ sub_1223:                                         ; preds = %.tail
 
 113:                                              ; preds = %109
   %114 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #19
-  br i1 %114, label %115, label %117, !llvm.loop !11
+  br i1 %114, label %115, label %117, !llvm.loop !12
 
 115:                                              ; preds = %113
   %116 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.66, ptr noundef nonnull %60) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1333, ptr noundef nonnull @__func__.sendDir) #19
-  br label %117, !llvm.loop !11
+  br label %117, !llvm.loop !12
 
 117:                                              ; preds = %113, %115
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %15) #19
@@ -2016,18 +2016,18 @@ sub_1223:                                         ; preds = %.tail
 
 120:                                              ; preds = %118
   %121 = call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #19
-  br i1 %121, label %122, label %.thread204, !llvm.loop !11
+  br i1 %121, label %122, label %.thread204, !llvm.loop !12
 
 122:                                              ; preds = %120
   %123 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.67, ptr noundef nonnull %60) #19
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1344, ptr noundef nonnull @__func__.sendDir) #19
-  br label %.thread204, !llvm.loop !11
+  br label %.thread204, !llvm.loop !12
 
 124:                                              ; preds = %118, %.thread206
   %125 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %10, i64 noundef 2048, ptr noundef nonnull @.str.68, ptr noundef %1, ptr noundef nonnull %60) #19
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %10, ptr noundef nonnull dereferenceable(20) @.str.69, i64 20)
   %126 = icmp eq i32 %bcmp, 0
-  br i1 %126, label %.thread204, label %127, !llvm.loop !11
+  br i1 %126, label %.thread204, label %127, !llvm.loop !12
 
 127:                                              ; preds = %124
   %128 = call i32 @lstat(ptr noundef nonnull %10, ptr noundef nonnull %11) #19
@@ -2038,7 +2038,7 @@ sub_1223:                                         ; preds = %.tail
   %130 = tail call ptr @__errno_location() #24
   %131 = load i32, ptr %130, align 4
   %.not194 = icmp eq i32 %131, 2
-  br i1 %.not194, label %.thread204, label %132, !llvm.loop !11
+  br i1 %.not194, label %.thread204, label %132, !llvm.loop !12
 
 132:                                              ; preds = %129
   %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -2051,7 +2051,7 @@ sub_1223:                                         ; preds = %.tail
 136:                                              ; preds = %.preheader
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
   %.not186.not = icmp eq i64 %indvars.iv.next259, 7
-  br i1 %.not186.not, label %154, label %.preheader, !llvm.loop !14
+  br i1 %.not186.not, label %154, label %.preheader, !llvm.loop !15
 
 .preheader:                                       ; preds = %127, %136
   %indvars.iv258 = phi i64 [ %indvars.iv.next259, %136 ], [ 0, %127 ]
@@ -2085,7 +2085,7 @@ sub_1223:                                         ; preds = %.tail
 152:                                              ; preds = %149, %145
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull %gep, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   %153 = add i64 %.0142253, 512
-  br label %.thread204, !llvm.loop !11
+  br label %.thread204, !llvm.loop !12
 
 154:                                              ; preds = %136
   %bcmp187 = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %10, ptr noundef nonnull dereferenceable(9) @.str.72, i64 9)
@@ -2109,7 +2109,7 @@ convert_link_to_directory.exit200:                ; preds = %156, %160
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.73, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   call fastcc void @_tarWriteHeader(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef %11, i1 noundef zeroext %3)
   %163 = add i64 %.0142253, 1536
-  br label %.thread204, !llvm.loop !11
+  br label %.thread204, !llvm.loop !12
 
 164:                                              ; preds = %154
   %165 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.75) #21
@@ -2299,7 +2299,7 @@ convert_link_to_directory.exit200:                ; preds = %156, %160
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #19
   %242 = call ptr @ReadDir(ptr noundef %51, ptr noundef %1) #19
   %.not177 = icmp eq ptr %242, null
-  br i1 %.not177, label %._crit_edge, label %sub_0
+  br i1 %.not177, label %._crit_edge, label %sub_0, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.thread204, %50
   %.0142.lcssa = phi i64 [ 0, %50 ], [ %.1143, %.thread204 ]
@@ -2435,7 +2435,7 @@ define internal fastcc void @sendFileWithContent(ptr noundef %0, ptr noundef %1,
   %44 = add i32 %.03236, %43
   %45 = getelementptr inbounds nuw i8, ptr %.037, i64 %.
   %46 = icmp slt i32 %44, %16
-  br i1 %46, label %35, label %._crit_edge, !llvm.loop !15
+  br i1 %46, label %35, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %35, %.preheader
   %47 = add i64 %15, 511
@@ -2609,7 +2609,7 @@ define internal fastcc noundef zeroext i1 @sendFile(ptr noundef %0, ptr noundef 
   %65 = sub i64 %.02740.i, %49
   %66 = getelementptr inbounds nuw i8, ptr %.02641.i, i64 %49
   %.not.i = icmp eq i64 %65, 0
-  br i1 %.not.i, label %push_to_sink.exit.preheader, label %48
+  br i1 %.not.i, label %push_to_sink.exit.preheader, label %48, !llvm.loop !18
 
 push_to_sink.exit.preheader:                      ; preds = %64, %.thread.i
   %.3191.ph = phi i64 [ %.02740.i, %.thread.i ], [ 0, %64 ]
@@ -2655,7 +2655,7 @@ push_to_sink.exit:                                ; preds = %push_to_sink.exit.p
   %86 = sub i64 %.02740.i152, %68
   %87 = getelementptr inbounds nuw i8, ptr %.02641.i151, i64 %68
   %.not.i153 = icmp eq i64 %86, 0
-  br i1 %.not.i153, label %push_to_sink.exit155.preheader, label %push_to_sink.exit
+  br i1 %.not.i153, label %push_to_sink.exit155.preheader, label %push_to_sink.exit, !llvm.loop !18
 
 push_to_sink.exit155.preheader:                   ; preds = %85, %.thread.i154
   %.5.ph = phi i64 [ %72, %.thread.i154 ], [ 0, %85 ]
@@ -2701,7 +2701,7 @@ push_to_sink.exit155:                             ; preds = %push_to_sink.exit15
   %107 = sub i64 %.02740.i158, %89
   %108 = getelementptr inbounds nuw i8, ptr %.02641.i157, i64 %89
   %.not.i159 = icmp eq i64 %107, 0
-  br i1 %.not.i159, label %push_to_sink.exit161, label %push_to_sink.exit155
+  br i1 %.not.i159, label %push_to_sink.exit161, label %push_to_sink.exit155, !llvm.loop !18
 
 push_to_sink.exit161:                             ; preds = %106, %.thread.i160
   %.6 = phi i64 [ %93, %.thread.i160 ], [ 0, %106 ]
@@ -2750,7 +2750,7 @@ push_to_sink.exit161:                             ; preds = %106, %.thread.i160
   %130 = sub i64 %.02740.i164, %112
   %131 = getelementptr inbounds nuw i8, ptr %.02641.i163, i64 %112
   %.not.i165 = icmp eq i64 %130, 0
-  br i1 %.not.i165, label %push_to_sink.exit167, label %.lr.ph.i
+  br i1 %.not.i165, label %push_to_sink.exit167, label %.lr.ph.i, !llvm.loop !18
 
 push_to_sink.exit167:                             ; preds = %129, %.thread.i166
   %.8 = phi i64 [ %116, %.thread.i166 ], [ 0, %129 ]
@@ -2803,7 +2803,7 @@ push_to_sink.exit167:                             ; preds = %129, %.thread.i166
   %155 = sub i64 %.02740.i172, %137
   %156 = getelementptr inbounds nuw i8, ptr %.02641.i171, i64 %137
   %.not.i173 = icmp eq i64 %155, 0
-  br i1 %.not.i173, label %push_to_sink.exit175, label %135
+  br i1 %.not.i173, label %push_to_sink.exit175, label %135, !llvm.loop !18
 
 push_to_sink.exit175:                             ; preds = %154, %.thread.i174
   %.10 = phi i64 [ %141, %.thread.i174 ], [ 0, %154 ]
@@ -2918,7 +2918,7 @@ push_to_sink.exit167.thread:                      ; preds = %push_to_sink.exit16
   %210 = load ptr, ptr %173, align 8
   %211 = call i32 @pg_checksum_update(ptr noundef nonnull %17, ptr noundef %210, i64 noundef %.2) #19
   %212 = icmp slt i32 %211, 0
-  br i1 %212, label %213, label %174
+  br i1 %212, label %213, label %174, !llvm.loop !19
 
 213:                                              ; preds = %202
   %214 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -2995,7 +2995,7 @@ push_to_sink.exit167.thread:                      ; preds = %push_to_sink.exit16
   %248 = add i64 %.149, %.3119232
   %249 = load i64, ptr %172, align 8
   %250 = icmp slt i64 %248, %249
-  br i1 %250, label %219, label %._crit_edge, !llvm.loop !16
+  br i1 %250, label %219, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %244, %.thread195
   %.3119.lcssa = phi i64 [ %.2118, %.thread195 ], [ %248, %244 ]
@@ -3429,7 +3429,7 @@ verify_page_checksum.exit.thread:                 ; preds = %verify_page_checksu
   %75 = add i32 %.04467, 1
   %76 = sext i32 %75 to i64
   %77 = icmp sgt i64 %22, %76
-  br i1 %77, label %24, label %.loopexit, !llvm.loop !17
+  br i1 %77, label %24, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %verify_page_checksum.exit.thread, %verify_page_checksum.exit, %.preheader, %basebackup_read_file.exit
   %.0 = phi i64 [ %14, %basebackup_read_file.exit ], [ 0, %.preheader ], [ %14, %verify_page_checksum.exit.thread ], [ %27, %verify_page_checksum.exit ]
@@ -3497,15 +3497,19 @@ attributes #24 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

@@ -204,7 +204,7 @@ define dso_local void @AllocSetReset(ptr noundef initializes((88, 176)) %0) loca
 
 21:                                               ; preds = %14, %10
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %21, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -239,7 +239,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   %10 = zext nneg i32 %6 to i64
   %11 = getelementptr inbounds nuw [2 x %struct.AllocSetFreeList], ptr @context_freelists, i64 0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i8, ptr %12, align 4, !range !7, !noundef !8
+  %13 = load i8, ptr %12, align 4, !range !8, !noundef !9
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %16, label %15
 
@@ -268,7 +268,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %24, ptr %11, align 16
   tail call void @free(ptr noundef nonnull %20) #15
   %.not34 = icmp eq ptr %22, null
-  br i1 %.not34, label %.loopexit.loopexit, label %.lr.ph40, !llvm.loop !9
+  br i1 %.not34, label %.loopexit.loopexit, label %.lr.ph40, !llvm.loop !10
 
 .loopexit.loopexit:                               ; preds = %.lr.ph40
   %.pre = load i32, ptr %11, align 16
@@ -306,7 +306,7 @@ define dso_local void @AllocSetDelete(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge:                                        ; preds = %30, %34
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %30, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader36
   tail call void @free(ptr noundef %0) #15
@@ -364,7 +364,7 @@ define dso_local ptr @AllocSetAlloc(ptr noundef %0, i64 noundef %1, i32 noundef 
   %34 = sub i64 %32, %33
   %35 = add nuw i64 %25, 8
   %36 = icmp ult i64 %34, %35
-  br i1 %36, label %37, label %39, !prof !11
+  br i1 %36, label %37, label %39, !prof !12
 
 37:                                               ; preds = %23
   %38 = tail call fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %.0.i)
@@ -392,7 +392,7 @@ define dso_local ptr @AllocSetAlloc(ptr noundef %0, i64 noundef %1, i32 noundef 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc ptr @AllocSetAllocLarge(ptr noundef %0, i64 noundef range(i64 1, 0) %1, i32 noundef %2) unnamed_addr #6 {
   %4 = icmp ugt i64 %1, 1073741823
-  br i1 %4, label %5, label %MemoryContextCheckSize.exit, !prof !11
+  br i1 %4, label %5, label %MemoryContextCheckSize.exit, !prof !12
 
 5:                                                ; preds = %3
   %6 = and i32 %2, 1
@@ -526,7 +526,7 @@ define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 nounde
   store ptr %42, ptr %40, align 8
   store ptr %30, ptr %41, align 8
   %43 = icmp ugt i64 %32, 15
-  br i1 %43, label %17, label %._crit_edge, !llvm.loop !12
+  br i1 %43, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %17, %4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -546,7 +546,7 @@ define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 nounde
   %.074 = phi i64 [ %46, %._crit_edge ], [ %55, %53 ]
   %54 = icmp ult i64 %.074, %52
   %55 = shl i64 %.074, 1
-  br i1 %54, label %53, label %56, !llvm.loop !13
+  br i1 %54, label %53, label %56, !llvm.loop !14
 
 56:                                               ; preds = %53
   %57 = tail call noalias ptr @malloc(i64 noundef %.074) #16
@@ -566,7 +566,7 @@ define internal fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef %0, i64 nounde
   %65 = icmp eq ptr %64, null
   %66 = icmp ugt i64 %.187, 2097153
   %67 = and i1 %66, %65
-  br i1 %67, label %.lr.ph89, label %._crit_edge90, !llvm.loop !14
+  br i1 %67, label %.lr.ph89, label %._crit_edge90, !llvm.loop !15
 
 ._crit_edge90:                                    ; preds = %63, %56
   %.1.lcssa = phi i64 [ %.074, %56 ], [ %61, %63 ]
@@ -758,7 +758,7 @@ define dso_local ptr @AllocSetRealloc(ptr noundef %0, i64 noundef %1, i32 nounde
 
 20:                                               ; preds = %12
   %21 = icmp ugt i64 %1, 1073741823
-  br i1 %21, label %22, label %MemoryContextCheckSize.exit, !prof !11
+  br i1 %21, label %22, label %MemoryContextCheckSize.exit, !prof !12
 
 22:                                               ; preds = %20
   %23 = and i32 %2, 1
@@ -881,7 +881,7 @@ MemoryContextCheckSize.exit:                      ; preds = %20, %22
   %96 = sub i64 %94, %95
   %97 = add nuw i64 %87, 8
   %98 = icmp ult i64 %96, %97
-  br i1 %98, label %99, label %101, !prof !11
+  br i1 %98, label %99, label %101, !prof !12
 
 99:                                               ; preds = %85
   %100 = tail call fastcc ptr @AllocSetAllocFromNewBlock(ptr noundef nonnull %61, i64 noundef %1, i32 noundef %2, i32 noundef %.0.i.i)
@@ -976,7 +976,7 @@ define dso_local i64 @AllocSetGetChunkSpace(ptr noundef %0) local_unnamed_addr #
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @AllocSetIsEmpty(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 4, !range !7, !noundef !8
+  %3 = load i8, ptr %2, align 4, !range !8, !noundef !9
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -1016,7 +1016,7 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly captur
   %21 = getelementptr inbounds nuw i8, ptr %.04459, i64 16
   %.044 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %.044, null
-  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !16
 
 22:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
@@ -1041,14 +1041,14 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly captur
   %29 = add i64 %25, %.264
   %.041 = load ptr, ptr %27, align 8
   %.not52 = icmp eq ptr %.041, null
-  br i1 %.not52, label %._crit_edge, label %26, !llvm.loop !16
+  br i1 %.not52, label %._crit_edge, label %26, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %26, %22
   %.2.lcssa = phi i64 [ %.14670, %22 ], [ %29, %26 ]
   %.1.lcssa = phi i64 [ %.04272, %22 ], [ %28, %26 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %30, label %22, !llvm.loop !17
+  br i1 %exitcond.not, label %30, label %22, !llvm.loop !18
 
 30:                                               ; preds = %._crit_edge
   %.not50 = icmp eq ptr %1, null
@@ -1135,17 +1135,18 @@ attributes #19 = { nounwind allocsize(1) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{i8 0, i8 2}
+!9 = !{}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}

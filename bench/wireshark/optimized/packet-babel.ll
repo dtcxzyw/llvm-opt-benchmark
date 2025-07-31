@@ -955,7 +955,7 @@ format_prefix.exit318:                            ; preds = %network_prefix.exit
   %.1 = phi i32 [ %91, %90 ], [ %349, %347 ]
   %351 = sub i32 %.1, %3
   %352 = icmp slt i32 %351, %22
-  br i1 %352, label %.lr.ph.split, label %._crit_edge
+  br i1 %352, label %.lr.ph.split, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %350, %69, %5
   %.0.lcssa = phi i32 [ %3, %5 ], [ %.1.us, %69 ], [ %.1, %350 ]
@@ -1042,7 +1042,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
   %29 = load i32, ptr @hf_babel_subtlv_type, align 4
   %30 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %29, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0)
   %31 = add nuw i16 %.079, 1
-  br label %74, !llvm.loop !10
+  br label %74, !llvm.loop !12
 
 32:                                               ; preds = %10
   %33 = add nuw nsw i32 %7, 2
@@ -1070,7 +1070,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef 0)
   %44 = add nuw nsw i32 %.07178, 1
   %exitcond.not = icmp eq i32 %44, %13
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 45:                                               ; preds = %36
   %46 = add nuw nsw i32 %7, 2
@@ -1118,7 +1118,7 @@ define internal fastcc void @dissect_babel_subtlvs(ptr noundef %0, i8 noundef ze
 74:                                               ; preds = %.loopexit, %.critedge
   %.1 = phi i16 [ %31, %.critedge ], [ %73, %.loopexit ]
   %75 = icmp ult i16 %.1, %3
-  br i1 %75, label %.lr.ph80, label %._crit_edge
+  br i1 %75, label %.lr.ph80, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %74, %5
   ret void
@@ -1172,7 +1172,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %2, 12
   %28 = zext nneg i32 %27 to i64
-  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %28, i64 noundef 16) #8, !alias.scope !12
+  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %28, i64 noundef 16) #8, !alias.scope !15
   br label %30
 
 30:                                               ; preds = %26, %23
@@ -1205,7 +1205,7 @@ define internal fastcc range(i32 -1, 17) i32 @network_prefix(i32 noundef range(i
 
 44:                                               ; preds = %42
   %45 = zext nneg i32 %2 to i64
-  %46 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %45, i64 noundef 16) #8, !alias.scope !16
+  %46 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef nonnull %5, i64 noundef range(i64 1, 17) %45, i64 noundef 16) #8, !alias.scope !19
   br label %47
 
 47:                                               ; preds = %44, %41
@@ -1304,15 +1304,18 @@ attributes #8 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
+!8 = distinct !{!8, !9, !10}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !7, !9}
+!14 = distinct !{!14, !9}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"memcpy.inline: argument 0"}
+!17 = distinct !{!17, !"memcpy.inline"}
+!18 = distinct !{!18, !17, !"memcpy.inline: argument 1"}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}

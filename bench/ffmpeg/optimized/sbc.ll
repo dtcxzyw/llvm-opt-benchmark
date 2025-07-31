@@ -54,12 +54,12 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %3 = alloca [2 x [8 x i32]], align 16
   %4 = alloca [2 x [8 x i32]], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 16, !tbaa !9
+  %6 = load i8, ptr %5, align 16, !tbaa !10
   %.fr495 = freeze i8 %6
   %7 = zext i8 %.fr495 to i32
-  %8 = load i8, ptr %0, align 16, !tbaa !15
+  %8 = load i8, ptr %0, align 16, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !16
+  %10 = load i32, ptr %9, align 4, !tbaa !17
   %indvars.iv524.sroa.gep647 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %indvars.iv539.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 32
   %indvars.iv547.sroa.gep649 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -73,7 +73,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 11:                                               ; preds = %2, %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !17
+  %13 = load i8, ptr %12, align 8, !tbaa !18
   %.not500 = icmp eq i8 %13, 0
   br i1 %.not500, label %._crit_edge493, label %.lr.ph492
 
@@ -98,7 +98,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %26 = shl nuw nsw i64 %indvar555, 5
   %scevgep557 = getelementptr i8, ptr %3, i64 %26
   %gep617 = getelementptr i8, ptr %invariant.gep616, i64 %26
-  %27 = load i32, ptr %14, align 4, !tbaa !18
+  %27 = load i32, ptr %14, align 4, !tbaa !19
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %.preheader375, label %.preheader376
 
@@ -115,24 +115,24 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph458:                                        ; preds = %.preheader375
   %31 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %15, i64 0, i64 %indvar555
-  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep557, ptr align 4 %gep617, i64 %23, i1 false), !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep557, ptr align 4 %gep617, i64 %23, i1 false), !tbaa !20
   br label %32
 
 32:                                               ; preds = %.lr.ph458, %32
   %indvars.iv559 = phi i64 [ 0, %.lr.ph458 ], [ %indvars.iv.next560, %32 ]
   %.0323456 = phi i32 [ 0, %.lr.ph458 ], [ %spec.select, %32 ]
   %33 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %indvars.iv559
-  %34 = load i32, ptr %33, align 4, !tbaa !19
+  %34 = load i32, ptr %33, align 4, !tbaa !20
   %spec.select = tail call i32 @llvm.smax.i32(i32 %34, i32 %.0323456)
   %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
   %exitcond563.not = icmp eq i64 %indvars.iv.next560, %24
-  br i1 %exitcond563.not, label %.lr.ph463.us.preheader, label %32, !llvm.loop !20
+  br i1 %exitcond563.not, label %.lr.ph463.us.preheader, label %32, !llvm.loop !21
 
 35:                                               ; preds = %.lr.ph454, %44
   %indvars.iv550 = phi i64 [ 0, %.lr.ph454 ], [ %indvars.iv.next551, %44 ]
   %.3326452 = phi i32 [ 0, %.lr.ph454 ], [ %spec.select355, %44 ]
   %36 = getelementptr inbounds nuw [8 x i32], ptr %29, i64 0, i64 %indvars.iv550
-  %37 = load i32, ptr %36, align 4, !tbaa !19
+  %37 = load i32, ptr %36, align 4, !tbaa !20
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %44, label %39
 
@@ -140,7 +140,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %40 = getelementptr inbounds nuw [4 x i32], ptr %18, i64 0, i64 %indvars.iv550
   %41 = getelementptr inbounds nuw [8 x i32], ptr %19, i64 0, i64 %indvars.iv550
   %.pn354.in = select i1 %16, ptr %40, ptr %41
-  %.pn354 = load i32, ptr %.pn354.in, align 4, !tbaa !19
+  %.pn354 = load i32, ptr %.pn354.in, align 4, !tbaa !20
   %.0328 = sub i32 %37, %.pn354
   %42 = icmp sgt i32 %.0328, 0
   %43 = zext i1 %42 to i32
@@ -150,16 +150,16 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 44:                                               ; preds = %39, %35
   %.sink = phi i32 [ -5, %35 ], [ %spec.select628, %39 ]
   %45 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %indvars.iv550
-  store i32 %.sink, ptr %45, align 4, !tbaa !19
+  store i32 %.sink, ptr %45, align 4, !tbaa !20
   %spec.select355 = tail call i32 @llvm.smax.i32(i32 %.sink, i32 %.3326452)
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond554.not = icmp eq i64 %indvars.iv.next551, %24
-  br i1 %exitcond554.not, label %.lr.ph463.us.preheader, label %35, !llvm.loop !21
+  br i1 %exitcond554.not, label %.lr.ph463.us.preheader, label %35, !llvm.loop !22
 
 .lr.ph463.us.preheader:                           ; preds = %44, %32
   %.in631 = phi i32 [ %spec.select, %32 ], [ %spec.select355, %44 ]
   %46 = add nuw nsw i32 %.in631, 1
-  %.in = load i8, ptr %20, align 1, !tbaa !22
+  %.in = load i8, ptr %20, align 1, !tbaa !23
   %47 = zext i8 %.in to i32
   %48 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %3, i64 0, i64 %indvar555
   br label %.lr.ph463.us
@@ -175,7 +175,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv564 = phi i64 [ 0, %.lr.ph463.us ], [ %indvars.iv.next565, %50 ]
   %.1315460.us = phi i32 [ 0, %.lr.ph463.us ], [ %.2316.us, %50 ]
   %51 = getelementptr inbounds nuw [8 x i32], ptr %48, i64 0, i64 %indvars.iv564
-  %52 = load i32, ptr %51, align 4, !tbaa !19
+  %52 = load i32, ptr %51, align 4, !tbaa !20
   %53 = icmp sgt i32 %52, %.0312.us
   %54 = icmp slt i32 %52, %49
   %or.cond.us = select i1 %53, i1 %54, i1 false
@@ -186,19 +186,19 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.2316.us = select i1 %or.cond.us, i32 %55, i32 %spec.select357.us
   %indvars.iv.next565 = add nuw nsw i64 %indvars.iv564, 1
   %exitcond568.not = icmp eq i64 %indvars.iv.next565, %24
-  br i1 %exitcond568.not, label %._crit_edge464.us, label %50, !llvm.loop !23
+  br i1 %exitcond568.not, label %._crit_edge464.us, label %50, !llvm.loop !24
 
 ._crit_edge464.us:                                ; preds = %50
   %58 = add nsw i32 %.0312.us, -1
   %59 = add nsw i32 %.0314.us, %.0317.us
   %60 = add nsw i32 %.2316.us, %59
   %61 = icmp slt i32 %60, %47
-  br i1 %61, label %.lr.ph463.us, label %.split468.us, !llvm.loop !24
+  br i1 %61, label %.lr.ph463.us, label %.split468.us, !llvm.loop !25
 
 .split466:                                        ; preds = %.preheader375, %.preheader376
-  %62 = load i8, ptr %20, align 1, !tbaa !22
+  %62 = load i8, ptr %20, align 1, !tbaa !23
   %63 = icmp eq i8 %62, 0
-  br i1 %63, label %._crit_edge488, label %.split466.split.us, !llvm.loop !26
+  br i1 %63, label %._crit_edge488, label %.split466.split.us, !llvm.loop !27
 
 .split466.split.us:                               ; preds = %.split466, %.split466.split.us
   br label %.split466.split.us
@@ -216,7 +216,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br label %72
 
 .preheader374:                                    ; preds = %81
-  %.pre581 = load i8, ptr %20, align 1, !tbaa !22
+  %.pre581 = load i8, ptr %20, align 1, !tbaa !23
   %.pre582 = zext i8 %.pre581 to i32
   %invariant.op479 = add nsw i32 %.pre582, -1
   %68 = icmp slt i32 %spec.select358, %.pre582
@@ -231,13 +231,13 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 72:                                               ; preds = %.lr.ph478, %81
   %indvars.iv569 = phi i64 [ 0, %.lr.ph478 ], [ %indvars.iv.next570, %81 ]
   %73 = getelementptr inbounds nuw [8 x i32], ptr %48, i64 0, i64 %indvars.iv569
-  %74 = load i32, ptr %73, align 4, !tbaa !19
+  %74 = load i32, ptr %73, align 4, !tbaa !20
   %75 = icmp slt i32 %74, %66
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw [8 x i32], ptr %67, i64 0, i64 %indvars.iv569
-  store i32 0, ptr %77, align 4, !tbaa !19
+  store i32 0, ptr %77, align 4, !tbaa !20
   br label %81
 
 78:                                               ; preds = %72
@@ -250,7 +250,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 81:                                               ; preds = %78, %76
   %indvars.iv.next570 = add nuw nsw i64 %indvars.iv569, 1
   %exitcond573.not = icmp eq i64 %indvars.iv.next570, %24
-  br i1 %exitcond573.not, label %.preheader374, label %72, !llvm.loop !27
+  br i1 %exitcond573.not, label %.preheader374, label %72, !llvm.loop !28
 
 .preheader:                                       ; preds = %97, %.preheader374
   %.2319.lcssa = phi i32 [ %spec.select358, %.preheader374 ], [ %.3320, %97 ]
@@ -266,7 +266,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv574 = phi i64 [ 0, %.lr.ph482 ], [ %indvars.iv.next575, %97 ]
   %.2319480 = phi i32 [ %spec.select358, %.lr.ph482 ], [ %.3320, %97 ]
   %86 = getelementptr inbounds nuw [8 x i32], ptr %70, i64 0, i64 %indvars.iv574
-  %87 = load i32, ptr %86, align 4, !tbaa !19
+  %87 = load i32, ptr %86, align 4, !tbaa !20
   %88 = add i32 %87, -2
   %or.cond360 = icmp ult i32 %88, 14
   br i1 %or.cond360, label %89, label %91
@@ -277,7 +277,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 91:                                               ; preds = %85
   %92 = getelementptr inbounds nuw [8 x i32], ptr %48, i64 0, i64 %indvars.iv574
-  %93 = load i32, ptr %92, align 4, !tbaa !19
+  %93 = load i32, ptr %92, align 4, !tbaa !20
   %94 = icmp eq i32 %93, %71
   %95 = icmp slt i32 %.2319480, %invariant.op479
   %or.cond371 = select i1 %94, i1 %95, i1 false
@@ -286,7 +286,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 .sink.split:                                      ; preds = %91, %89
   %.sink620 = phi i32 [ %90, %89 ], [ 2, %91 ]
   %.sink619 = phi i32 [ 1, %89 ], [ 2, %91 ]
-  store i32 %.sink620, ptr %86, align 4, !tbaa !19
+  store i32 %.sink620, ptr %86, align 4, !tbaa !20
   %96 = add nsw i32 %.2319480, %.sink619
   br label %97
 
@@ -296,19 +296,19 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %98 = icmp slt i32 %.3320, %.pre582
   %99 = icmp samesign ult i64 %indvars.iv.next575, %24
   %100 = select i1 %98, i1 %99, i1 false
-  br i1 %100, label %85, label %.preheader, !llvm.loop !28
+  br i1 %100, label %85, label %.preheader, !llvm.loop !29
 
 101:                                              ; preds = %.lr.ph487, %108
   %indvars.iv577 = phi i64 [ 0, %.lr.ph487 ], [ %indvars.iv.next578, %108 ]
   %.4321485 = phi i32 [ %.2319.lcssa, %.lr.ph487 ], [ %.5322, %108 ]
   %102 = getelementptr inbounds nuw [8 x i32], ptr %84, i64 0, i64 %indvars.iv577
-  %103 = load i32, ptr %102, align 4, !tbaa !19
+  %103 = load i32, ptr %102, align 4, !tbaa !20
   %104 = icmp slt i32 %103, 16
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %101
   %106 = add nsw i32 %103, 1
-  store i32 %106, ptr %102, align 4, !tbaa !19
+  store i32 %106, ptr %102, align 4, !tbaa !20
   %107 = add nsw i32 %.4321485, 1
   br label %108
 
@@ -318,14 +318,14 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %109 = icmp slt i32 %.5322, %.pre582
   %110 = icmp samesign ult i64 %indvars.iv.next578, %24
   %111 = select i1 %109, i1 %110, i1 false
-  br i1 %111, label %101, label %._crit_edge488, !llvm.loop !29
+  br i1 %111, label %101, label %._crit_edge488, !llvm.loop !30
 
 ._crit_edge488:                                   ; preds = %108, %.split468.us, %.split466, %.preheader
   %indvar.next556 = add nuw nsw i64 %indvar555, 1
-  %112 = load i8, ptr %12, align 8, !tbaa !17
+  %112 = load i8, ptr %12, align 8, !tbaa !18
   %113 = zext i8 %112 to i64
   %114 = icmp samesign ult i64 %indvar.next556, %113
-  br i1 %114, label %25, label %._crit_edge493, !llvm.loop !30
+  br i1 %114, label %25, label %._crit_edge493, !llvm.loop !31
 
 ._crit_edge493:                                   ; preds = %._crit_edge488, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #7
@@ -334,7 +334,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 115:                                              ; preds = %2, %2
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %117 = load i32, ptr %116, align 4, !tbaa !18
+  %117 = load i32, ptr %116, align 4, !tbaa !19
   %118 = icmp eq i32 %117, 1
   %.not496 = icmp eq i8 %.fr495, 0
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -364,13 +364,13 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv = phi i64 [ %indvars.iv.next, %133 ], [ 0, %.preheader384.us ]
   %.5302398.us403 = phi i32 [ %spec.select362.us406, %133 ], [ %.4301400.us, %.preheader384.us ]
   %126 = getelementptr inbounds nuw [8 x i32], ptr %125, i64 0, i64 %indvars.iv
-  %127 = load i32, ptr %126, align 4, !tbaa !19
+  %127 = load i32, ptr %126, align 4, !tbaa !20
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %133, label %129
 
 129:                                              ; preds = %.lr.ph.split.us409
   %130 = getelementptr inbounds nuw [8 x i32], ptr %123, i64 0, i64 %indvars.iv
-  %.pn.us404 = load i32, ptr %130, align 4, !tbaa !19
+  %.pn.us404 = load i32, ptr %130, align 4, !tbaa !20
   %.0304.us405 = sub i32 %127, %.pn.us404
   %131 = icmp sgt i32 %.0304.us405, 0
   %132 = zext i1 %131 to i32
@@ -380,27 +380,27 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 133:                                              ; preds = %129, %.lr.ph.split.us409
   %.sink621 = phi i32 [ -5, %.lr.ph.split.us409 ], [ %spec.select629, %129 ]
   %134 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv524.sroa.phi, i64 0, i64 %indvars.iv
-  store i32 %.sink621, ptr %134, align 4, !tbaa !19
+  store i32 %.sink621, ptr %134, align 4, !tbaa !20
   %spec.select362.us406 = tail call i32 @llvm.smax.i32(i32 %.sink621, i32 %.5302398.us403)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us409, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us409, !llvm.loop !32
 
 ._crit_edge.us:                                   ; preds = %133, %142
   %.us-phi.us = phi i32 [ %spec.select362.us.us, %142 ], [ %spec.select362.us406, %133 ]
-  br i1 %124, label %.preheader384.us, label %.loopexit383, !llvm.loop !32
+  br i1 %124, label %.preheader384.us, label %.loopexit383, !llvm.loop !33
 
 .lr.ph.split.us.us:                               ; preds = %.preheader384.us, %142
   %indvars.iv519 = phi i64 [ %indvars.iv.next520, %142 ], [ 0, %.preheader384.us ]
   %.5302398.us.us = phi i32 [ %spec.select362.us.us, %142 ], [ %.4301400.us, %.preheader384.us ]
   %135 = getelementptr inbounds nuw [8 x i32], ptr %125, i64 0, i64 %indvars.iv519
-  %136 = load i32, ptr %135, align 4, !tbaa !19
+  %136 = load i32, ptr %135, align 4, !tbaa !20
   %137 = icmp eq i32 %136, 0
   br i1 %137, label %142, label %138
 
 138:                                              ; preds = %.lr.ph.split.us.us
   %139 = getelementptr inbounds nuw [4 x i32], ptr %122, i64 0, i64 %indvars.iv519
-  %.pn.us.us = load i32, ptr %139, align 4, !tbaa !19
+  %.pn.us.us = load i32, ptr %139, align 4, !tbaa !20
   %.0304.us.us = sub i32 %136, %.pn.us.us
   %140 = icmp sgt i32 %.0304.us.us, 0
   %141 = zext i1 %140 to i32
@@ -410,11 +410,11 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 142:                                              ; preds = %138, %.lr.ph.split.us.us
   %.sink623 = phi i32 [ -5, %.lr.ph.split.us.us ], [ %spec.select630, %138 ]
   %143 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv524.sroa.phi, i64 0, i64 %indvars.iv519
-  store i32 %.sink623, ptr %143, align 4, !tbaa !19
+  store i32 %.sink623, ptr %143, align 4, !tbaa !20
   %spec.select362.us.us = tail call i32 @llvm.smax.i32(i32 %.sink623, i32 %.5302398.us.us)
   %indvars.iv.next520 = add nuw nsw i64 %indvars.iv519, 1
   %exitcond523.not = icmp eq i64 %indvars.iv.next520, %wide.trip.count522
-  br i1 %exitcond523.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !33
+  br i1 %exitcond523.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !34
 
 .preheader382:                                    ; preds = %115
   br i1 %.not496, label %.loopexit383.thread, label %.preheader381.us.preheader
@@ -434,25 +434,25 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %scevgep = getelementptr nuw i8, ptr %4, i64 %147
   %gep = getelementptr i8, ptr %invariant.gep, i64 %147
   %148 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %119, i64 0, i64 %indvar
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr align 4 %gep, i64 %145, i1 false), !tbaa !19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr align 4 %gep, i64 %145, i1 false), !tbaa !20
   br label %149
 
 149:                                              ; preds = %.preheader381.us, %149
   %indvars.iv528 = phi i64 [ 0, %.preheader381.us ], [ %indvars.iv.next529, %149 ]
   %.1298411.us = phi i32 [ %.0297413.us, %.preheader381.us ], [ %spec.select361.us, %149 ]
   %150 = getelementptr inbounds nuw [8 x i32], ptr %148, i64 0, i64 %indvars.iv528
-  %151 = load i32, ptr %150, align 4, !tbaa !19
+  %151 = load i32, ptr %150, align 4, !tbaa !20
   %spec.select361.us = tail call i32 @llvm.smax.i32(i32 %151, i32 %.1298411.us)
   %indvars.iv.next529 = add nuw nsw i64 %indvars.iv528, 1
   %exitcond532.not = icmp eq i64 %indvars.iv.next529, %wide.trip.count531
-  br i1 %exitcond532.not, label %._crit_edge.us415, label %149, !llvm.loop !34
+  br i1 %exitcond532.not, label %._crit_edge.us415, label %149, !llvm.loop !35
 
 ._crit_edge.us415:                                ; preds = %149
-  br i1 %146, label %.preheader381.us, label %.loopexit383, !llvm.loop !35
+  br i1 %146, label %.preheader381.us, label %.loopexit383, !llvm.loop !36
 
 .loopexit383.thread:                              ; preds = %.preheader382, %.preheader385
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %153 = load i8, ptr %152, align 1, !tbaa !22
+  %153 = load i8, ptr %152, align 1, !tbaa !23
   %154 = zext i8 %153 to i32
   br label %.split425
 
@@ -461,7 +461,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %155 = add nuw nsw i32 %.3300, 1
   %.not497 = icmp eq i8 %.fr495, 0
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %157 = load i8, ptr %156, align 1, !tbaa !22
+  %157 = load i8, ptr %156, align 1, !tbaa !23
   %158 = zext i8 %157 to i32
   br i1 %.not497, label %.split425, label %.split.us.us.preheader
 
@@ -486,7 +486,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv534 = phi i64 [ %indvars.iv.next535, %161 ], [ 0, %.preheader380.us.us ]
   %.2288416.us.us = phi i32 [ %.3289.us.us, %161 ], [ %.1287418.us.us, %.preheader380.us.us ]
   %162 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv539.sroa.phi, i64 0, i64 %indvars.iv534
-  %163 = load i32, ptr %162, align 4, !tbaa !19
+  %163 = load i32, ptr %162, align 4, !tbaa !20
   %164 = icmp sgt i32 %163, %.0284.us
   %165 = icmp slt i32 %163, %159
   %or.cond364.us.us = select i1 %164, i1 %165, i1 false
@@ -497,17 +497,17 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.3289.us.us = select i1 %or.cond364.us.us, i32 %166, i32 %spec.select365.us.us
   %indvars.iv.next535 = add nuw nsw i64 %indvars.iv534, 1
   %exitcond538.not = icmp eq i64 %indvars.iv.next535, %wide.trip.count537
-  br i1 %exitcond538.not, label %._crit_edge.us420.us, label %161, !llvm.loop !36
+  br i1 %exitcond538.not, label %._crit_edge.us420.us, label %161, !llvm.loop !37
 
 ._crit_edge.us420.us:                             ; preds = %161
-  br i1 %160, label %.preheader380.us.us, label %.split423.us.us, !llvm.loop !37
+  br i1 %160, label %.preheader380.us.us, label %.split423.us.us, !llvm.loop !38
 
 .split423.us.us:                                  ; preds = %._crit_edge.us420.us
   %169 = add nsw i32 %.0284.us, -1
   %170 = add nsw i32 %.0286.us, %.0290.us
   %171 = add nsw i32 %.3289.us.us, %170
   %172 = icmp slt i32 %171, %158
-  br i1 %172, label %.split.us.us, label %.split427.us, !llvm.loop !38
+  br i1 %172, label %.split.us.us, label %.split427.us, !llvm.loop !39
 
 .split425:                                        ; preds = %.loopexit383.thread, %.loopexit383
   %173 = phi i32 [ %154, %.loopexit383.thread ], [ %158, %.loopexit383 ]
@@ -516,10 +516,10 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %176 = phi i32 [ 1, %.loopexit383.thread ], [ %155, %.loopexit383 ]
   %.3300606 = phi i32 [ 0, %.loopexit383.thread ], [ %.3300, %.loopexit383 ]
   %.not498 = icmp eq i8 %174, 0
-  br i1 %.not498, label %.split427.us, label %.split.us, !llvm.loop !39
+  br i1 %.not498, label %.split427.us, label %.split.us, !llvm.loop !40
 
 .split.us:                                        ; preds = %.split425, %.split.us
-  br label %.split.us, !llvm.loop !40
+  br label %.split.us, !llvm.loop !41
 
 .split427.us:                                     ; preds = %.split423.us.us, %.split425
   %177 = phi i32 [ %173, %.split425 ], [ %158, %.split423.us.us ]
@@ -550,7 +550,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 184:                                              ; preds = %.preheader379.us, %193
   %indvars.iv542 = phi i64 [ 0, %.preheader379.us ], [ %indvars.iv.next543, %193 ]
   %185 = getelementptr inbounds nuw [8 x i32], ptr %indvars.iv547.sroa.phi, i64 0, i64 %indvars.iv542
-  %186 = load i32, ptr %185, align 4, !tbaa !19
+  %186 = load i32, ptr %185, align 4, !tbaa !20
   %187 = icmp slt i32 %186, %181
   br i1 %187, label %191, label %188
 
@@ -563,19 +563,19 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 191:                                              ; preds = %184
   %192 = getelementptr inbounds nuw [8 x i32], ptr %183, i64 0, i64 %indvars.iv542
-  store i32 0, ptr %192, align 4, !tbaa !19
+  store i32 0, ptr %192, align 4, !tbaa !20
   br label %193
 
 193:                                              ; preds = %191, %188
   %indvars.iv.next543 = add nuw nsw i64 %indvars.iv542, 1
   %exitcond546.not = icmp eq i64 %indvars.iv.next543, %wide.trip.count545
-  br i1 %exitcond546.not, label %._crit_edge.us437, label %184, !llvm.loop !41
+  br i1 %exitcond546.not, label %._crit_edge.us437, label %184, !llvm.loop !42
 
 ._crit_edge.us437:                                ; preds = %193
-  br i1 %182, label %.preheader379.us, label %.preheader378.loopexit507, !llvm.loop !42
+  br i1 %182, label %.preheader379.us, label %.preheader378.loopexit507, !llvm.loop !43
 
 .preheader378.loopexit507:                        ; preds = %._crit_edge.us437
-  %.pre = load i8, ptr %178, align 1, !tbaa !22
+  %.pre = load i8, ptr %178, align 1, !tbaa !23
   %.pre583 = zext i8 %.pre to i32
   br label %.preheader378
 
@@ -597,7 +597,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %198 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %197
   %199 = sext i32 %.4440 to i64
   %200 = getelementptr inbounds [8 x i32], ptr %198, i64 0, i64 %199
-  %201 = load i32, ptr %200, align 4, !tbaa !19
+  %201 = load i32, ptr %200, align 4, !tbaa !20
   %202 = add i32 %201, -2
   %or.cond369 = icmp ult i32 %202, 14
   br i1 %or.cond369, label %203, label %205
@@ -609,7 +609,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 205:                                              ; preds = %196
   %206 = getelementptr inbounds nuw [2 x [8 x i32]], ptr %4, i64 0, i64 %197
   %207 = getelementptr inbounds [8 x i32], ptr %206, i64 0, i64 %199
-  %208 = load i32, ptr %207, align 4, !tbaa !19
+  %208 = load i32, ptr %207, align 4, !tbaa !20
   %209 = icmp eq i32 %208, %195
   %210 = icmp slt i32 %.2292438, %invariant.op
   %or.cond373 = select i1 %209, i1 %210, i1 false
@@ -618,7 +618,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 .sink.split625:                                   ; preds = %205, %203
   %.sink627 = phi i32 [ %204, %203 ], [ 2, %205 ]
   %.sink626 = phi i32 [ 1, %203 ], [ 2, %205 ]
-  store i32 %.sink627, ptr %200, align 4, !tbaa !19
+  store i32 %.sink627, ptr %200, align 4, !tbaa !20
   %211 = add nsw i32 %.2292438, %.sink626
   br label %212
 
@@ -636,7 +636,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.5281 = phi i32 [ 0, %214 ], [ 1, %212 ]
   %.5 = phi i32 [ %215, %214 ], [ %.4440, %212 ]
   %217 = icmp slt i32 %.4294, %.pre-phi584
-  br i1 %217, label %196, label %._crit_edge, !llvm.loop !43
+  br i1 %217, label %196, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %216, %214, %.preheader378
   %.3293 = phi i32 [ %spec.select366, %.preheader378 ], [ %.4294, %214 ], [ %.4294, %216 ]
@@ -651,13 +651,13 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %220 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %219
   %221 = sext i32 %.6447 to i64
   %222 = getelementptr inbounds [8 x i32], ptr %220, i64 0, i64 %221
-  %223 = load i32, ptr %222, align 4, !tbaa !19
+  %223 = load i32, ptr %222, align 4, !tbaa !20
   %224 = icmp slt i32 %223, 16
   br i1 %224, label %225, label %228
 
 225:                                              ; preds = %.lr.ph449
   %226 = add nsw i32 %223, 1
-  store i32 %226, ptr %222, align 4, !tbaa !19
+  store i32 %226, ptr %222, align 4, !tbaa !20
   %227 = add nsw i32 %.5295445, 1
   br label %228
 
@@ -675,7 +675,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.7283 = phi i32 [ 0, %230 ], [ 1, %228 ]
   %.7 = phi i32 [ %231, %230 ], [ %.6447, %228 ]
   %233 = icmp slt i32 %.6296, %.pre-phi584
-  br i1 %233, label %.lr.ph449, label %._crit_edge450, !llvm.loop !44
+  br i1 %233, label %.lr.ph449, label %._crit_edge450, !llvm.loop !45
 
 ._crit_edge450:                                   ; preds = %232, %230, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #7
@@ -712,41 +712,42 @@ attributes #7 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !5, i64 16}
-!10 = !{!"sbc_frame", !5, i64 0, !5, i64 1, !11, i64 4, !5, i64 8, !11, i64 12, !5, i64 16, !5, i64 17, !12, i64 18, !5, i64 20, !5, i64 32, !5, i64 96, !5, i64 1120, !13, i64 2144}
-!11 = !{!"int", !5, i64 0}
-!12 = !{!"short", !5, i64 0}
-!13 = !{!"p1 int", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!10, !5, i64 0}
-!16 = !{!10, !11, i64 4}
-!17 = !{!10, !5, i64 8}
-!18 = !{!10, !11, i64 12}
-!19 = !{!11, !11, i64 0}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = !{!10, !5, i64 17}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8, !25}
-!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8, !25}
-!33 = distinct !{!33, !8, !25}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8, !25}
-!36 = distinct !{!36, !8}
-!37 = distinct !{!37, !8, !25}
-!38 = distinct !{!38, !8, !25}
-!39 = distinct !{!39, !8}
-!40 = distinct !{!40, !25}
-!41 = distinct !{!41, !8}
-!42 = distinct !{!42, !8, !25}
-!43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !5, i64 16}
+!11 = !{!"sbc_frame", !5, i64 0, !5, i64 1, !12, i64 4, !5, i64 8, !12, i64 12, !5, i64 16, !5, i64 17, !13, i64 18, !5, i64 20, !5, i64 32, !5, i64 96, !5, i64 1120, !14, i64 2144}
+!12 = !{!"int", !5, i64 0}
+!13 = !{!"short", !5, i64 0}
+!14 = !{!"p1 int", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!11, !5, i64 0}
+!17 = !{!11, !12, i64 4}
+!18 = !{!11, !5, i64 8}
+!19 = !{!11, !12, i64 12}
+!20 = !{!12, !12, i64 0}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = !{!11, !5, i64 17}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9, !26}
+!34 = distinct !{!34, !8, !9, !26}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9, !26}
+!37 = distinct !{!37, !8, !9}
+!38 = distinct !{!38, !8, !9, !26}
+!39 = distinct !{!39, !8, !9, !26}
+!40 = distinct !{!40, !8, !9}
+!41 = distinct !{!41, !26}
+!42 = distinct !{!42, !8, !9}
+!43 = distinct !{!43, !8, !9, !26}
+!44 = distinct !{!44, !8, !9}
+!45 = distinct !{!45, !8, !9}

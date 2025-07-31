@@ -31,7 +31,7 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_string(ptr noundef %
 is_http_whitespace.exit.thread:                   ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %storemerge109, i64 1
   %exitcond.not = icmp eq ptr %8, %1
-  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !7
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %is_http_whitespace.exit.thread
   %storemerge.lcssa.ph = phi ptr [ %scevgep, %is_http_whitespace.exit.thread ], [ %storemerge109, %.lr.ph ]
@@ -62,7 +62,7 @@ is_http_whitespace.exit.thread:                   ; preds = %.lr.ph, %.lr.ph, %.
 
 .backedge:                                        ; preds = %.lr.ph113, %.lr.ph113, %.lr.ph113, %.lr.ph113
   %13 = icmp ult ptr %storemerge.lcssa, %11
-  br i1 %13, label %.lr.ph113, label %.critedge2.loopexit
+  br i1 %13, label %.lr.ph113, label %.critedge2.loopexit, !llvm.loop !9
 
 .critedge2.loopexit:                              ; preds = %.lr.ph113, %.backedge
   %.043.lcssa.ph = phi ptr [ %scevgep181, %.backedge ], [ %.043112, %.lr.ph113 ]
@@ -93,7 +93,7 @@ collect_a_sequence_of_code_points.exit.thread:    ; preds = %.critedge2
 18:                                               ; preds = %.lr.ph118
   %19 = getelementptr inbounds nuw i8, ptr %.0.i117, i64 1
   %exitcond184.not = icmp eq ptr %19, %scevgep183
-  br i1 %exitcond184.not, label %collect_a_sequence_of_code_points.exit, label %.lr.ph118
+  br i1 %exitcond184.not, label %collect_a_sequence_of_code_points.exit, label %.lr.ph118, !llvm.loop !10
 
 collect_a_sequence_of_code_points.exit:           ; preds = %.lr.ph118, %18
   %.0.i.lcssa.ph = phi ptr [ %.0.i117, %.lr.ph118 ], [ %scevgep183, %18 ]
@@ -124,7 +124,7 @@ collect_a_sequence_of_code_points.exit:           ; preds = %.lr.ph118, %18
 29:                                               ; preds = %.lr.ph123
   %30 = getelementptr inbounds nuw i8, ptr %.0.i54122, i64 1
   %exitcond186.not = icmp eq ptr %30, %scevgep185
-  br i1 %exitcond186.not, label %collect_a_sequence_of_code_points.exit55, label %.lr.ph123
+  br i1 %exitcond186.not, label %collect_a_sequence_of_code_points.exit55, label %.lr.ph123, !llvm.loop !10
 
 collect_a_sequence_of_code_points.exit55:         ; preds = %.lr.ph123, %29, %23
   %.0.i54.lcssa = phi ptr [ %25, %23 ], [ %scevgep185, %29 ], [ %.0.i54122, %.lr.ph123 ]
@@ -166,7 +166,7 @@ collect_a_sequence_of_code_points.exit55:         ; preds = %.lr.ph123, %29, %23
 is_http_whitespace.exit67.thread:                 ; preds = %.lr.ph128, %.lr.ph128, %.lr.ph128, %.lr.ph128
   %42 = getelementptr inbounds nuw i8, ptr %.0.i56127, i64 1
   %exitcond190.not = icmp eq ptr %42, %scevgep189
-  br i1 %exitcond190.not, label %collect_a_sequence_of_code_points.exit57, label %.lr.ph128
+  br i1 %exitcond190.not, label %collect_a_sequence_of_code_points.exit57, label %.lr.ph128, !llvm.loop !10
 
 collect_a_sequence_of_code_points.exit57:         ; preds = %is_http_whitespace.exit67.thread, %.lr.ph128, %37
   %.0.i56.lcssa = phi ptr [ %38, %37 ], [ %.0.i56127, %.lr.ph128 ], [ %scevgep189, %is_http_whitespace.exit67.thread ]
@@ -188,7 +188,7 @@ collect_a_sequence_of_code_points.exit57:         ; preds = %is_http_whitespace.
 49:                                               ; preds = %.lr.ph133
   %50 = getelementptr inbounds nuw i8, ptr %.0.i58132, i64 1
   %51 = icmp ult ptr %50, %.043.lcssa
-  br i1 %51, label %.lr.ph133, label %collect_a_sequence_of_code_points.exit59.loopexit
+  br i1 %51, label %.lr.ph133, label %collect_a_sequence_of_code_points.exit59.loopexit, !llvm.loop !10
 
 collect_a_sequence_of_code_points.exit59.loopexit: ; preds = %.lr.ph133, %.lr.ph133, %49
   %.0.i58.lcssa.ph = phi ptr [ %50, %49 ], [ %.0.i58132, %.lr.ph133 ], [ %.0.i58132, %.lr.ph133 ]
@@ -229,7 +229,7 @@ zend_string_alloc.exit.i:                         ; preds = %59
   %67 = and i64 %66, -8
   %68 = add i64 %67, 32
   %69 = tail call noalias ptr @_emalloc(i64 noundef %68) #9
-  store i32 1, ptr %69, align 4, !tbaa !7
+  store i32 1, ptr %69, align 4, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 22, ptr %70, align 4, !tbaa !4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -263,7 +263,7 @@ zend_string_alloc.exit.i:                         ; preds = %59
 80:                                               ; preds = %.lr.ph.i
   %81 = getelementptr inbounds nuw i8, ptr %.0.i61.i, i64 1
   %exitcond.not.i = icmp eq ptr %81, %scevgep79.i
-  br i1 %exitcond.not.i, label %collect_a_sequence_of_code_points.exit.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %collect_a_sequence_of_code_points.exit.i, label %.lr.ph.i, !llvm.loop !10
 
 collect_a_sequence_of_code_points.exit.i:         ; preds = %80, %.lr.ph.i, %.lr.ph.i
   %.0.i.lcssa.ph.i = phi ptr [ %scevgep79.i, %80 ], [ %.0.i61.i, %.lr.ph.i ], [ %.0.i61.i, %.lr.ph.i ]
@@ -290,11 +290,11 @@ collect_a_sequence_of_code_points.exit.i:         ; preds = %80, %.lr.ph.i, %.lr
   %93 = getelementptr inbounds nuw [1 x i8], ptr %75, i64 0, i64 %85
   store i8 92, ptr %93, align 1, !tbaa !4
   %94 = add i64 %85, 1
-  store i64 %94, ptr %72, align 8, !tbaa !10
+  store i64 %94, ptr %72, align 8, !tbaa !14
   br label %collect_an_http_quoted_string_with_extract_value.exit
 
 95:                                               ; preds = %87
-  store i64 %85, ptr %72, align 8, !tbaa !10
+  store i64 %85, ptr %72, align 8, !tbaa !14
   %96 = icmp eq i8 %88, 34
   tail call void @llvm.assume(i1 %96)
   br label %collect_an_http_quoted_string_with_extract_value.exit
@@ -306,12 +306,12 @@ collect_a_sequence_of_code_points.exit.i:         ; preds = %80, %.lr.ph.i, %.lr
   %100 = add i64 %85, 1
   %.0.i68 = getelementptr inbounds nuw i8, ptr %86, i64 2
   %101 = icmp ult ptr %.0.i68, %.043.lcssa
-  br i1 %101, label %.lr.ph.preheader.i, label %.loopexit.i
+  br i1 %101, label %.lr.ph.preheader.i, label %.loopexit.i, !llvm.loop !17
 
 .loopexit.i:                                      ; preds = %collect_a_sequence_of_code_points.exit.i, %97, %zend_string_alloc.exit.i
   %102 = phi ptr [ %.0.i68147, %zend_string_alloc.exit.i ], [ %.0.i68, %97 ], [ %86, %collect_a_sequence_of_code_points.exit.i ]
   %103 = phi i64 [ 0, %zend_string_alloc.exit.i ], [ %100, %97 ], [ %85, %collect_a_sequence_of_code_points.exit.i ]
-  store i64 %103, ptr %72, align 8, !tbaa !10
+  store i64 %103, ptr %72, align 8, !tbaa !14
   br label %collect_an_http_quoted_string_with_extract_value.exit
 
 collect_an_http_quoted_string_with_extract_value.exit: ; preds = %92, %95, %.loopexit.i
@@ -338,7 +338,7 @@ collect_an_http_quoted_string_with_extract_value.exit: ; preds = %92, %95, %.loo
 109:                                              ; preds = %.lr.ph156
   %110 = getelementptr inbounds nuw i8, ptr %.0.i60155, i64 1
   %exitcond197.not = icmp eq ptr %110, %scevgep196
-  br i1 %exitcond197.not, label %collect_a_sequence_of_code_points.exit61.loopexit, label %.lr.ph156
+  br i1 %exitcond197.not, label %collect_a_sequence_of_code_points.exit61.loopexit, label %.lr.ph156, !llvm.loop !10
 
 collect_a_sequence_of_code_points.exit61.loopexit: ; preds = %109, %.lr.ph156
   %.0.i60.lcssa.ph = phi ptr [ %.0.i60155, %.lr.ph156 ], [ %scevgep196, %109 ]
@@ -360,7 +360,7 @@ collect_a_sequence_of_code_points.exit61:         ; preds = %collect_a_sequence_
 114:                                              ; preds = %.lr.ph140
   %115 = getelementptr inbounds nuw i8, ptr %.0.i62139, i64 1
   %exitcond193.not = icmp eq ptr %115, %scevgep192
-  br i1 %exitcond193.not, label %collect_a_sequence_of_code_points.exit63, label %.lr.ph140
+  br i1 %exitcond193.not, label %collect_a_sequence_of_code_points.exit63, label %.lr.ph140, !llvm.loop !10
 
 collect_a_sequence_of_code_points.exit63:         ; preds = %.lr.ph140, %114, %.preheader
   %.0.i62.lcssa = phi ptr [ %60, %.preheader ], [ %scevgep192, %114 ], [ %.0.i62139, %.lr.ph140 ]
@@ -370,13 +370,13 @@ collect_a_sequence_of_code_points.exit63:         ; preds = %.lr.ph140, %114, %.
   %119 = and i64 %118, -8
   %120 = add i64 %119, 32
   %121 = tail call noalias ptr @_emalloc(i64 noundef %120) #9
-  store i32 1, ptr %121, align 4, !tbaa !7
+  store i32 1, ptr %121, align 4, !tbaa !11
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 22, ptr %122, align 4, !tbaa !4
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store i64 0, ptr %123, align 8, !tbaa !13
+  store i64 0, ptr %123, align 8, !tbaa !18
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  store i64 %118, ptr %124, align 8, !tbaa !10
+  store i64 %118, ptr %124, align 8, !tbaa !14
   %125 = getelementptr inbounds nuw i8, ptr %121, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %125, ptr nonnull align 1 %60, i64 %118, i1 false)
   %126 = getelementptr inbounds nuw [1 x i8], ptr %125, i64 0, i64 %118
@@ -398,9 +398,9 @@ collect_a_sequence_of_code_points.exit63:         ; preds = %.lr.ph140, %114, %.
   ]
 
 is_http_whitespace.exit69.thread:                 ; preds = %.lr.ph145, %.lr.ph145, %.lr.ph145, %.lr.ph145
-  store i64 %129, ptr %124, align 8, !tbaa !10
+  store i64 %129, ptr %124, align 8, !tbaa !14
   %.not52 = icmp eq i64 %129, 0
-  br i1 %.not52, label %.loopexit207, label %.lr.ph145
+  br i1 %.not52, label %.loopexit207, label %.lr.ph145, !llvm.loop !19
 
 .loopexit207:                                     ; preds = %is_http_whitespace.exit69.thread, %collect_a_sequence_of_code_points.exit63
   store i8 0, ptr %125, align 1, !tbaa !4
@@ -448,12 +448,12 @@ is_http_quoted_string_token.exit.thread.i:        ; preds = %is_http_quoted_stri
   %146 = add i64 %.08.i, -1
   %147 = getelementptr inbounds nuw i8, ptr %.047.i, i64 1
   %.not.i71 = icmp eq i64 %146, 0
-  br i1 %.not.i71, label %zend_string_release_ex.exit65.thread92, label %.lr.ph.i70
+  br i1 %.not.i71, label %zend_string_release_ex.exit65.thread92, label %.lr.ph.i70, !llvm.loop !20
 
 zend_string_release_ex.exit65.sink.split:         ; preds = %is_http_quoted_string_token.exit.i, %133, %136, %.loopexit207
   %.sink217 = phi ptr [ %121, %.loopexit207 ], [ %.042, %136 ], [ %.042, %133 ], [ %.042, %is_http_quoted_string_token.exit.i ]
   %.1.ph = phi ptr [ %127, %.loopexit207 ], [ %.286, %136 ], [ %.286, %133 ], [ %.286, %is_http_quoted_string_token.exit.i ]
-  store i32 0, ptr %.sink217, align 4, !tbaa !7
+  store i32 0, ptr %.sink217, align 4, !tbaa !11
   tail call void @_efree(ptr noundef nonnull %.sink217) #11
   br label %zend_string_release_ex.exit65
 
@@ -510,7 +510,7 @@ is_http_token.exit.thread:                        ; preds = %5, %.preheader, %.p
   %10 = add i64 %.010, -1
   %11 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   %.not = icmp eq i64 %10, 0
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %5, %is_http_token.exit.thread, %2
   %.06 = phi i1 [ true, %2 ], [ true, %5 ], [ false, %is_http_token.exit.thread ]
@@ -536,7 +536,7 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !14
+  %11 = load i32, ptr %10, align 8, !tbaa !22
   %.not57 = icmp eq i32 %11, 0
   br i1 %.not57, label %.thread53, label %.lr.ph.preheader
 
@@ -574,7 +574,7 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
   %26 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %27 = load i8, ptr %26, align 8, !tbaa !4
   %28 = icmp eq i8 %27, 0
-  br i1 %28, label %.thread, label %29, !prof !17
+  br i1 %28, label %.thread, label %29, !prof !25
 
 29:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %2) #11
@@ -587,7 +587,7 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
   %33 = load ptr, ptr %.038, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !10
+  %36 = load i64, ptr %35, align 8, !tbaa !14
   %37 = call i32 @zend_binary_strncasecmp(ptr noundef nonnull %34, i64 noundef %36, ptr noundef nonnull %2, i64 noundef 13, i64 noundef 13) #11
   %.not46 = icmp eq i32 %37, 0
   br i1 %.not46, label %39, label %.thread50
@@ -599,14 +599,14 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
 .thread:                                          ; preds = %25, %.thread50
   %38 = add i32 %.04060, -1
   %.not = icmp eq i32 %38, 0
-  br i1 %.not, label %.thread53, label %.lr.ph
+  br i1 %.not, label %.thread53, label %.lr.ph, !llvm.loop !26
 
 39:                                               ; preds = %32
   %40 = load ptr, ptr %.038, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 37
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %44 = load i64, ptr %43, align 8, !tbaa !10
+  %44 = load i64, ptr %43, align 8, !tbaa !14
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 %44
   %46 = call ptr @php_libxml_sniff_charset_from_string(ptr noundef nonnull %42, ptr noundef nonnull %45)
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %2) #11
@@ -655,14 +655,23 @@ attributes #11 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"_zend_refcounted_h", !9, i64 0, !5, i64 4}
-!9 = !{!"int", !5, i64 0}
-!10 = !{!11, !12, i64 16}
-!11 = !{!"_zend_string", !8, i64 0, !12, i64 8, !12, i64 16, !5, i64 24}
-!12 = !{!"long", !5, i64 0}
-!13 = !{!11, !12, i64 8}
-!14 = !{!15, !9, i64 24}
-!15 = !{!"_zend_array", !8, i64 0, !5, i64 8, !9, i64 12, !5, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !12, i64 40, !16, i64 48}
-!16 = !{!"any pointer", !5, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = !{!12, !13, i64 0}
+!12 = !{!"_zend_refcounted_h", !13, i64 0, !5, i64 4}
+!13 = !{!"int", !5, i64 0}
+!14 = !{!15, !16, i64 16}
+!15 = !{!"_zend_string", !12, i64 0, !16, i64 8, !16, i64 16, !5, i64 24}
+!16 = !{!"long", !5, i64 0}
+!17 = distinct !{!17, !8}
+!18 = !{!15, !16, i64 8}
+!19 = distinct !{!19, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !8}
+!22 = !{!23, !13, i64 24}
+!23 = !{!"_zend_array", !12, i64 0, !5, i64 8, !13, i64 12, !5, i64 16, !13, i64 24, !13, i64 28, !13, i64 32, !13, i64 36, !16, i64 40, !24, i64 48}
+!24 = !{!"any pointer", !5, i64 0}
+!25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!26 = distinct !{!26, !8}

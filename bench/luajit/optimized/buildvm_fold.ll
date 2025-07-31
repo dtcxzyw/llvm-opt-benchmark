@@ -214,7 +214,7 @@ nexttoken.exit.i:                                 ; preds = %.lr.ph164.i.i
   %89 = getelementptr inbounds nuw [4096 x i32], ptr @foldkeys, i64 0, i64 %indvars.iv.i
   store i32 %79, ptr %89, align 4, !tbaa !20
   %.not.i = icmp eq i64 %77, 0
-  br i1 %.not.i, label %._crit_edge.loopexit.i, label %76, !llvm.loop !24
+  br i1 %.not.i, label %._crit_edge.loopexit.i, label %76, !llvm.loop !25
 
 ._crit_edge.loopexit.i:                           ; preds = %88, %76
   %.0.lcssa.ph.i = phi i64 [ 0, %88 ], [ %indvars.iv.i, %76 ]
@@ -279,7 +279,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
 117:                                              ; preds = %foldrule.exit, %104, %39
   %118 = call ptr @fgets(ptr noundef nonnull %4, i32 noundef 256, ptr noundef %.0)
   %.not39 = icmp eq ptr %118, null
-  br i1 %.not39, label %._crit_edge, label %39, !llvm.loop !25
+  br i1 %.not39, label %._crit_edge, label %39, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %117, %29
   %119 = call i32 @fclose(ptr noundef %.0)
@@ -376,7 +376,7 @@ foldrule.exit:                                    ; preds = %.preheader.i, %._cr
 .critedge.i.i:                                    ; preds = %161, %160
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %tryhash.exit.loopexit.i, label %131, !llvm.loop !26
+  br i1 %exitcond.not.i.i, label %tryhash.exit.loopexit.i, label %131, !llvm.loop !27
 
 tryhash.exit.loopexit.i:                          ; preds = %.critedge.i.i
   %.pre.i = load i32, ptr %2, align 16, !tbaa !20
@@ -400,7 +400,7 @@ tryhash.exit.i:                                   ; preds = %tryhash.exit.loopex
   %170 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.23, i32 noundef %169) #12
   %indvars.iv.next.i25.i = add nuw nsw i64 %indvars.iv.i24.i, 1
   %exitcond.not.i26.i = icmp eq i64 %indvars.iv.next.i25.i, %wide.trip.count.i23.i
-  br i1 %exitcond.not.i26.i, label %printhash.exit.i, label %166, !llvm.loop !27
+  br i1 %exitcond.not.i26.i, label %printhash.exit.i, label %166, !llvm.loop !28
 
 printhash.exit.i:                                 ; preds = %166
   %171 = load ptr, ptr %30, align 8, !tbaa !21
@@ -414,7 +414,7 @@ printhash.exit.i:                                 ; preds = %166
 177:                                              ; preds = %153, %149, %147
   %178 = add nuw nsw i32 %.064.i, 1
   %exitcond.not.i = icmp eq i32 %178, 1024
-  br i1 %exitcond.not.i, label %.preheader.i43, label %.lr.ph.i.i, !llvm.loop !28
+  br i1 %exitcond.not.i, label %.preheader.i43, label %.lr.ph.i.i, !llvm.loop !29
 
 .preheader.i43:                                   ; preds = %177, %.loopexit.i
   %.174.i = phi i32 [ %227, %.loopexit.i ], [ 0, %177 ]
@@ -486,7 +486,7 @@ printhash.exit.i:                                 ; preds = %166
 .critedge.i35.i:                                  ; preds = %213, %212
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i30.i, 1
   %exitcond.not.i37.i = icmp eq i64 %indvars.iv.next.i36.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i37.i, label %tryhash.exit38.i, label %183, !llvm.loop !26
+  br i1 %exitcond.not.i37.i, label %tryhash.exit38.i, label %183, !llvm.loop !27
 
 tryhash.exit38.i:                                 ; preds = %.critedge.i35.i
   %214 = load ptr, ptr %30, align 8, !tbaa !21
@@ -504,7 +504,7 @@ tryhash.exit38.i:                                 ; preds = %.critedge.i35.i
   %222 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %219, ptr noundef nonnull @.str.23, i32 noundef %221) #12
   %indvars.iv.next.i41.i = add nuw nsw i64 %indvars.iv.i40.i, 1
   %exitcond.not.i42.i = icmp eq i64 %indvars.iv.next.i41.i, %wide.trip.count.i39.i
-  br i1 %exitcond.not.i42.i, label %printhash.exit43.i, label %218, !llvm.loop !27
+  br i1 %exitcond.not.i42.i, label %printhash.exit43.i, label %218, !llvm.loop !28
 
 printhash.exit43.i:                               ; preds = %218
   %223 = load ptr, ptr %30, align 8, !tbaa !21
@@ -516,12 +516,12 @@ printhash.exit43.i:                               ; preds = %218
 .loopexit.i:                                      ; preds = %205, %201, %199, %.preheader.i43
   %227 = add nuw nsw i32 %.174.i, 1
   %exitcond83.not.i = icmp eq i32 %227, 1024
-  br i1 %exitcond83.not.i, label %228, label %.preheader.i43, !llvm.loop !29
+  br i1 %exitcond83.not.i, label %228, label %.preheader.i43, !llvm.loop !30
 
 228:                                              ; preds = %.loopexit.i
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 2
   %229 = icmp samesign ult i64 %indvars.iv.i42, 8190
-  br i1 %229, label %.preheader49.i, label %._crit_edge.i, !llvm.loop !30
+  br i1 %229, label %.preheader49.i, label %._crit_edge.i, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %228, %._crit_edge
   %230 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -620,7 +620,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   %20 = getelementptr inbounds nuw [0 x ptr], ptr @irfpm_names, i64 0, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %.not94 = icmp eq ptr %21, null
-  br i1 %.not94, label %.loopexit, label %14, !llvm.loop !31
+  br i1 %.not94, label %.loopexit, label %14, !llvm.loop !32
 
 22:                                               ; preds = %10
   %23 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(6) @.str.14, i64 noundef 5) #17
@@ -649,7 +649,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   %32 = getelementptr inbounds nuw [0 x ptr], ptr @irfield_names, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !17
   %.not97 = icmp eq ptr %33, null
-  br i1 %.not97, label %.loopexit, label %26, !llvm.loop !32
+  br i1 %.not97, label %.loopexit, label %26, !llvm.loop !33
 
 .critedge113:                                     ; preds = %22
   %34 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.15, i64 noundef 7) #17
@@ -678,7 +678,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   %43 = getelementptr inbounds nuw [0 x ptr], ptr @ircall_names, i64 0, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !17
   %.not100 = icmp eq ptr %44, null
-  br i1 %.not100, label %.loopexit, label %37, !llvm.loop !33
+  br i1 %.not100, label %.loopexit, label %37, !llvm.loop !34
 
 .critedge114:                                     ; preds = %.critedge113
   %45 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(8) @.str.16, i64 noundef 7) #17
@@ -720,7 +720,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   %60 = getelementptr inbounds nuw [0 x ptr], ptr @irt_names, i64 0, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !17
   %.not106 = icmp eq ptr %61, null
-  br i1 %.not106, label %.loopexit131, label %.lr.ph148, !llvm.loop !34
+  br i1 %.not106, label %.loopexit131, label %.lr.ph148, !llvm.loop !35
 
 62:                                               ; preds = %.lr.ph148
   %63 = shl i32 %.373150, 5
@@ -733,7 +733,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   %67 = getelementptr inbounds nuw [0 x ptr], ptr @irt_names, i64 0, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !17
   %.not103 = icmp eq ptr %68, null
-  br i1 %.not103, label %.loopexit, label %.lr.ph152.split, !llvm.loop !35
+  br i1 %.not103, label %.loopexit, label %.lr.ph152.split, !llvm.loop !36
 
 .critedge115:                                     ; preds = %.critedge114
   %69 = load i8, ptr %4, align 1, !tbaa !19
@@ -753,7 +753,7 @@ define internal fastcc i32 @nexttoken(ptr noundef nonnull captures(none) %0, i32
   %.pr = load i8, ptr %75, align 1, !tbaa !19
   %76 = add i8 %.pr, -48
   %or.cond117 = icmp ult i8 %76, 10
-  br i1 %or.cond117, label %.lr.ph, label %.critedge, !llvm.loop !36
+  br i1 %or.cond117, label %.lr.ph, label %.critedge, !llvm.loop !37
 
 .critedge:                                        ; preds = %.lr.ph
   %77 = icmp eq i8 %.pr, 0
@@ -859,18 +859,19 @@ attributes #17 = { nounwind willreturn memory(read) }
 !19 = !{!8, !8, i64 0}
 !20 = !{!10, !10, i64 0}
 !21 = !{!5, !11, i64 16}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23}
-!26 = distinct !{!26, !23}
-!27 = distinct !{!27, !23}
-!28 = distinct !{!28, !23}
-!29 = distinct !{!29, !23}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23}
-!33 = distinct !{!33, !23}
-!34 = distinct !{!34, !23}
-!35 = distinct !{!35, !23}
-!36 = distinct !{!36, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !23, !24}
+!27 = distinct !{!27, !23, !24}
+!28 = distinct !{!28, !23, !24}
+!29 = distinct !{!29, !23, !24}
+!30 = distinct !{!30, !23, !24}
+!31 = distinct !{!31, !23, !24}
+!32 = distinct !{!32, !23, !24}
+!33 = distinct !{!33, !23, !24}
+!34 = distinct !{!34, !23, !24}
+!35 = distinct !{!35, !23, !24}
+!36 = distinct !{!36, !23, !24}
+!37 = distinct !{!37, !23, !24}

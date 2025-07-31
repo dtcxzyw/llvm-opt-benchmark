@@ -644,7 +644,7 @@ define internal ptr @handle_need_offstr(ptr noundef captures(none) %0, i64 nound
   %41 = sub i64 %.177123, %.177.99
   %42 = add i64 %.079122, 1
   %.not92 = icmp ugt i64 %42, %23
-  br i1 %.not92, label %.loopexit, label %.lr.ph
+  br i1 %.not92, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %40, %19, %38
   %.174 = phi i64 [ %39, %38 ], [ %23, %19 ], [ %23, %40 ]
@@ -659,7 +659,7 @@ define internal ptr @handle_need_offstr(ptr noundef captures(none) %0, i64 nound
   %.180125 = phi i64 [ %21, %.lr.ph126 ], [ %59, %fmap_unneed_page.exit ]
   %.val101 = load ptr, ptr %43, align 8, !tbaa !19
   %45 = getelementptr inbounds nuw i64, ptr %.val101, i64 %.180125
-  %46 = load i64, ptr %45, align 8, !tbaa !40
+  %46 = load i64, ptr %45, align 8, !tbaa !42
   %47 = and i64 %46, 3221225472
   %48 = icmp eq i64 %47, 3221225472
   br i1 %48, label %49, label %58
@@ -671,7 +671,7 @@ define internal ptr @handle_need_offstr(ptr noundef captures(none) %0, i64 nound
 
 52:                                               ; preds = %49
   %53 = add nsw i64 %46, -1
-  store i64 %53, ptr %45, align 8, !tbaa !40
+  store i64 %53, ptr %45, align 8, !tbaa !42
   br label %fmap_unneed_page.exit
 
 54:                                               ; preds = %49
@@ -679,7 +679,7 @@ define internal ptr @handle_need_offstr(ptr noundef captures(none) %0, i64 nound
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %54
-  store i64 2147483647, ptr %45, align 8, !tbaa !40
+  store i64 2147483647, ptr %45, align 8, !tbaa !42
   br label %fmap_unneed_page.exit
 
 57:                                               ; preds = %54
@@ -693,7 +693,7 @@ define internal ptr @handle_need_offstr(ptr noundef captures(none) %0, i64 nound
 fmap_unneed_page.exit:                            ; preds = %52, %56, %57, %58
   %59 = add i64 %.180125, 1
   %.not95 = icmp ugt i64 %59, %.174
-  br i1 %.not95, label %.thread, label %44
+  br i1 %.not95, label %.thread, label %44, !llvm.loop !43
 
 .thread:                                          ; preds = %35, %fmap_unneed_page.exit, %.loopexit, %._crit_edge, %14
   %.071 = phi ptr [ null, %14 ], [ null, %._crit_edge ], [ null, %.loopexit ], [ null, %fmap_unneed_page.exit ], [ %8, %35 ]
@@ -707,7 +707,7 @@ define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noun
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
-  %10 = load i64, ptr %2, align 8, !tbaa !40
+  %10 = load i64, ptr %2, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   %12 = add i64 %3, -1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -728,7 +728,7 @@ define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noun
 20:                                               ; preds = %17
   tail call fastcc void @fmap_aging(ptr noundef nonnull %0)
   %21 = load i64, ptr %7, align 8, !tbaa !34
-  %22 = load i64, ptr %2, align 8, !tbaa !40
+  %22 = load i64, ptr %2, align 8, !tbaa !42
   %23 = add i64 %22, %21
   %24 = getelementptr i8, ptr %0, i64 40
   %.val = load i64, ptr %24, align 8, !tbaa !28
@@ -755,7 +755,7 @@ define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noun
 
 35:                                               ; preds = %33
   %36 = load i64, ptr %7, align 8, !tbaa !34
-  %37 = load i64, ptr %2, align 8, !tbaa !40
+  %37 = load i64, ptr %2, align 8, !tbaa !42
   %38 = add i64 %37, %36
   %39 = load i64, ptr %24, align 8, !tbaa !28
   %40 = urem i64 %38, %39
@@ -780,7 +780,7 @@ define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noun
   %49 = sub i64 %.083119, %.083.104
   %50 = add i64 %.082120, 1
   %.not99 = icmp ugt i64 %50, %27
-  br i1 %.not99, label %.loopexit, label %.lr.ph
+  br i1 %.not99, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 1
@@ -793,10 +793,10 @@ define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noun
   %..sink128 = phi i64 [ %55, %51 ], [ %., %20 ], [ %., %48 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %..sink128, i1 false)
   %56 = getelementptr inbounds i8, ptr %1, i64 %..sink128
-  store i8 0, ptr %56, align 1, !tbaa !41
-  %57 = load i64, ptr %2, align 8, !tbaa !40
+  store i8 0, ptr %56, align 1, !tbaa !45
+  %57 = load i64, ptr %2, align 8, !tbaa !42
   %58 = add i64 %57, %..sink128
-  store i64 %58, ptr %2, align 8, !tbaa !40
+  store i64 %58, ptr %2, align 8, !tbaa !42
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %4, %17, %.loopexit
@@ -853,7 +853,7 @@ define internal void @handle_unneed_off(ptr noundef readonly captures(none) %0, 
   %.048 = phi i64 [ %21, %.lr.ph ], [ %40, %fmap_unneed_page.exit ]
   %.val46 = load ptr, ptr %24, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i64, ptr %.val46, i64 %.048
-  %27 = load i64, ptr %26, align 8, !tbaa !40
+  %27 = load i64, ptr %26, align 8, !tbaa !42
   %28 = and i64 %27, 3221225472
   %29 = icmp eq i64 %28, 3221225472
   br i1 %29, label %30, label %39
@@ -865,7 +865,7 @@ define internal void @handle_unneed_off(ptr noundef readonly captures(none) %0, 
 
 33:                                               ; preds = %30
   %34 = add nsw i64 %27, -1
-  store i64 %34, ptr %26, align 8, !tbaa !40
+  store i64 %34, ptr %26, align 8, !tbaa !42
   br label %fmap_unneed_page.exit
 
 35:                                               ; preds = %30
@@ -873,7 +873,7 @@ define internal void @handle_unneed_off(ptr noundef readonly captures(none) %0, 
   br i1 %36, label %37, label %38
 
 37:                                               ; preds = %35
-  store i64 2147483647, ptr %26, align 8, !tbaa !40
+  store i64 2147483647, ptr %26, align 8, !tbaa !42
   br label %fmap_unneed_page.exit
 
 38:                                               ; preds = %35
@@ -887,7 +887,7 @@ define internal void @handle_unneed_off(ptr noundef readonly captures(none) %0, 
 fmap_unneed_page.exit:                            ; preds = %33, %37, %38, %39
   %40 = add i64 %.048, 1
   %.not41 = icmp ugt i64 %40, %23
-  br i1 %.not41, label %.loopexit, label %25
+  br i1 %.not41, label %.loopexit, label %25, !llvm.loop !46
 
 .loopexit.sink.split:                             ; preds = %8, %14, %7
   %.str.39.sink = phi ptr [ @.str.38, %7 ], [ @.str.39, %14 ], [ @.str.39, %8 ]
@@ -1070,7 +1070,7 @@ define internal noundef ptr @mem_gets(ptr noundef readonly captures(none) %0, pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8, !tbaa !34
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
-  %10 = load i64, ptr %2, align 8, !tbaa !40
+  %10 = load i64, ptr %2, align 8, !tbaa !42
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 %10
   %12 = add i64 %3, -1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1098,10 +1098,10 @@ define internal noundef ptr @mem_gets(ptr noundef readonly captures(none) %0, pt
   %..sink52 = select i1 %.not49, i64 %., i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %11, i64 %..sink52, i1 false)
   %26 = getelementptr inbounds i8, ptr %1, i64 %..sink52
-  store i8 0, ptr %26, align 1, !tbaa !41
-  %27 = load i64, ptr %2, align 8, !tbaa !40
+  store i8 0, ptr %26, align 1, !tbaa !45
+  %27 = load i64, ptr %2, align 8, !tbaa !42
   %28 = add i64 %27, %..sink52
-  store i64 %28, ptr %2, align 8, !tbaa !40
+  store i64 %28, ptr %2, align 8, !tbaa !42
   br label %29
 
 29:                                               ; preds = %4, %17, %20
@@ -1174,9 +1174,9 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #19
-  store ptr null, ptr %8, align 8, !tbaa !42
+  store ptr null, ptr %8, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #19
-  store ptr null, ptr %9, align 8, !tbaa !42
+  store ptr null, ptr %9, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #19
   store i32 -1, ptr %10, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1216,7 +1216,7 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br i1 %.not70, label %34, label %25
 
 25:                                               ; preds = %23
-  %26 = load ptr, ptr %8, align 8, !tbaa !42
+  %26 = load ptr, ptr %8, align 8, !tbaa !47
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #22
   %28 = add i64 %27, 49
   %29 = call noalias ptr @malloc(i64 noundef %28) #21
@@ -1225,20 +1225,20 @@ define i32 @fmap_dump_to_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 .thread:                                          ; preds = %25
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.13) #19
-  %30 = load ptr, ptr %8, align 8, !tbaa !42
+  %30 = load ptr, ptr %8, align 8, !tbaa !47
   call void @free(ptr noundef %30) #19
   br label %73
 
 31:                                               ; preds = %25
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %29, i64 noundef %28, ptr noundef nonnull @.str.14, ptr noundef nonnull %26, i64 noundef %5, i64 noundef %.) #19
-  %33 = load ptr, ptr %8, align 8, !tbaa !42
+  %33 = load ptr, ptr %8, align 8, !tbaa !47
   call void @free(ptr noundef %33) #19
-  store ptr null, ptr %8, align 8, !tbaa !42
+  store ptr null, ptr %8, align 8, !tbaa !47
   br label %36
 
 34:                                               ; preds = %23, %22
-  %35 = load ptr, ptr %8, align 8, !tbaa !42
-  store ptr null, ptr %8, align 8, !tbaa !42
+  %35 = load ptr, ptr %8, align 8, !tbaa !47
+  store ptr null, ptr %8, align 8, !tbaa !47
   br label %36
 
 36:                                               ; preds = %31, %21, %34, %16
@@ -1296,20 +1296,20 @@ fmap_need_off_once_len.exit:                      ; preds = %45
   br i1 %.not74, label %63, label %56
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr %9, align 8, !tbaa !42
+  %57 = load ptr, ptr %9, align 8, !tbaa !47
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef %57) #19
   %58 = load i32, ptr %10, align 4, !tbaa !3
   %59 = call i32 @close(i32 noundef %58) #19
-  %60 = load ptr, ptr %9, align 8, !tbaa !42
+  %60 = load ptr, ptr %9, align 8, !tbaa !47
   %61 = call i32 @unlink(ptr noundef %60) #19
-  %62 = load ptr, ptr %9, align 8, !tbaa !42
+  %62 = load ptr, ptr %9, align 8, !tbaa !47
   call void @free(ptr noundef %62) #19
   br label %73
 
 63:                                               ; preds = %53
   %64 = sub nuw i64 %.053, %spec.select.i
   %65 = icmp ugt i64 %.053, %spec.select.i
-  br i1 %65, label %45, label %.thread91
+  br i1 %65, label %45, label %.thread91, !llvm.loop !48
 
 .thread91:                                        ; preds = %fmap_need_off_once_len.exit, %45, %63
   %66 = load i32, ptr %10, align 4, !tbaa !3
@@ -1322,8 +1322,8 @@ fmap_need_off_once_len.exit:                      ; preds = %45
   br label %70
 
 70:                                               ; preds = %69, %.thread91
-  %71 = load ptr, ptr %9, align 8, !tbaa !42
-  store ptr %71, ptr %3, align 8, !tbaa !42
+  %71 = load ptr, ptr %9, align 8, !tbaa !47
+  store ptr %71, ptr %3, align 8, !tbaa !47
   %72 = load i32, ptr %10, align 4, !tbaa !3
   store i32 %72, ptr %4, align 4, !tbaa !3
   br label %73
@@ -1511,7 +1511,7 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
   %30 = add i64 %.050, %25
   %31 = tail call i32 @cl_update_hash(ptr noundef nonnull %20, ptr noundef nonnull %27, i64 noundef %25) #19
   %.not57 = icmp eq i32 %31, 0
-  br i1 %.not57, label %23, label %.thread83
+  br i1 %.not57, label %23, label %.thread83, !llvm.loop !49
 
 .thread83:                                        ; preds = %28
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.29) #19
@@ -1551,17 +1551,17 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
 
 45:                                               ; preds = %33, %6
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 153
-  store ptr %46, ptr %1, align 8, !tbaa !42
+  store ptr %46, ptr %1, align 8, !tbaa !47
   br label %.thread72
 
 47:                                               ; preds = %37, %10
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 170
-  store ptr %48, ptr %1, align 8, !tbaa !42
+  store ptr %48, ptr %1, align 8, !tbaa !47
   br label %.thread72
 
 49:                                               ; preds = %14, %41
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 191
-  store ptr %50, ptr %1, align 8, !tbaa !42
+  store ptr %50, ptr %1, align 8, !tbaa !47
   br label %.thread72
 
 51:                                               ; preds = %24
@@ -1605,7 +1605,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load i64, ptr %7, align 8, !tbaa !43
+  %8 = load i64, ptr %7, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i64, ptr %9, align 8, !tbaa !28
   %11 = mul i64 %10, %8
@@ -1633,7 +1633,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %.089 = phi i64 [ 0, %.lr.ph ], [ %56, %55 ]
   %.07488 = phi i64 [ 0, %.lr.ph ], [ %.175, %55 ]
   %23 = getelementptr inbounds nuw i64, ptr %20, i64 %.089
-  %24 = load i64, ptr %23, align 8, !tbaa !40
+  %24 = load i64, ptr %23, align 8, !tbaa !42
   %25 = and i64 %24, 3221225472
   %26 = icmp eq i64 %25, 1073741824
   br i1 %26, label %27, label %55
@@ -1645,7 +1645,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
 
 29:                                               ; preds = %27
   %30 = add nsw i64 %24, -1
-  store i64 %30, ptr %23, align 8, !tbaa !40
+  store i64 %30, ptr %23, align 8, !tbaa !42
   br label %31
 
 31:                                               ; preds = %29, %27
@@ -1654,7 +1654,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   br i1 %.not84, label %33, label %34
 
 33:                                               ; preds = %31
-  store i64 %.089, ptr %2, align 16, !tbaa !40
+  store i64 %.089, ptr %2, align 16, !tbaa !42
   br label %55
 
 34:                                               ; preds = %31
@@ -1664,9 +1664,9 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   br i1 %.not85, label %.preheader98, label %37
 
 37:                                               ; preds = %34
-  %38 = load i64, ptr %21, align 8, !tbaa !40
+  %38 = load i64, ptr %21, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw i64, ptr %20, i64 %38
-  %40 = load i64, ptr %39, align 8, !tbaa !40
+  %40 = load i64, ptr %39, align 8, !tbaa !42
   %41 = and i64 %40, 1073741823
   %42 = icmp samesign ugt i64 %41, %36
   br i1 %42, label %.preheader98, label %55
@@ -1678,23 +1678,23 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %.076.in = phi i64 [ %.076, %50 ], [ %35, %.preheader98 ]
   %.076 = add i64 %.076.in, -1
   %44 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.076
-  %45 = load i64, ptr %44, align 8, !tbaa !40
+  %45 = load i64, ptr %44, align 8, !tbaa !42
   %46 = getelementptr inbounds nuw i64, ptr %20, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !40
+  %47 = load i64, ptr %46, align 8, !tbaa !42
   %48 = and i64 %47, 1073741823
   %49 = icmp samesign ugt i64 %48, %36
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.076.in
-  store i64 %45, ptr %51, align 8, !tbaa !40
+  store i64 %45, ptr %51, align 8, !tbaa !42
   %.not86 = icmp eq i64 %.076, 0
-  br i1 %.not86, label %52, label %43
+  br i1 %.not86, label %52, label %43, !llvm.loop !51
 
 52:                                               ; preds = %50, %43
   %.177 = phi i64 [ 0, %50 ], [ %.076.in, %43 ]
   %53 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.177
-  store i64 %.089, ptr %53, align 8, !tbaa !40
+  store i64 %.089, ptr %53, align 8, !tbaa !42
   %54 = zext i1 %.not85 to i64
   %spec.select87 = add i64 %.07488, %54
   br label %55
@@ -1704,7 +1704,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %56 = add nuw i64 %.089, 1
   %57 = load i64, ptr %17, align 8, !tbaa !27
   %58 = icmp ult i64 %56, %57
-  br i1 %58, label %22, label %._crit_edge
+  br i1 %58, label %22, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %55
   %.not = icmp eq i64 %.175, 0
@@ -1723,12 +1723,12 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %.07290 = phi ptr [ null, %.preheader ], [ %83, %81 ]
   %63 = load ptr, ptr %59, align 8, !tbaa !20
   %64 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %.192
-  %65 = load i64, ptr %64, align 8, !tbaa !40
+  %65 = load i64, ptr %64, align 8, !tbaa !42
   %66 = mul i64 %62, %65
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 %66
   %68 = load ptr, ptr %60, align 8, !tbaa !19
   %69 = getelementptr inbounds nuw i64, ptr %68, i64 %65
-  store i64 2147483648, ptr %69, align 8, !tbaa !40
+  store i64 2147483648, ptr %69, align 8, !tbaa !42
   %.not82 = icmp ne ptr %.07290, null
   %70 = icmp eq ptr %67, %.07290
   %or.cond = select i1 %.not82, i1 %70, i1 false
@@ -1760,7 +1760,7 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   %83 = getelementptr inbounds nuw i8, ptr %67, i64 %82
   %84 = add nuw i64 %.192, 1
   %exitcond.not = icmp eq i64 %84, %.175
-  br i1 %exitcond.not, label %85, label %61
+  br i1 %exitcond.not, label %85, label %61, !llvm.loop !53
 
 85:                                               ; preds = %81
   %.not81 = icmp eq ptr %63, null
@@ -1784,9 +1784,9 @@ define internal fastcc void @fmap_aging(ptr noundef captures(none) %0) unnamed_a
   br label %96
 
 96:                                               ; preds = %94, %85
-  %97 = load i64, ptr %7, align 8, !tbaa !43
+  %97 = load i64, ptr %7, align 8, !tbaa !50
   %98 = sub i64 %97, %.175
-  store i64 %98, ptr %7, align 8, !tbaa !43
+  store i64 %98, ptr %7, align 8, !tbaa !50
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %13, %96, %._crit_edge
@@ -1834,13 +1834,13 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   %23 = add i64 %.0109177, %1
   %24 = mul i64 %21, %23
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %24
-  %26 = load i8, ptr %25, align 1, !tbaa !41
-  store volatile i8 %26, ptr %6, align 1, !tbaa !41
-  %.0..0..0..0. = load volatile i8, ptr %6, align 1, !tbaa !41
+  %26 = load i8, ptr %25, align 1, !tbaa !45
+  store volatile i8 %26, ptr %6, align 1, !tbaa !45
+  %.0..0..0..0. = load volatile i8, ptr %6, align 1, !tbaa !45
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   %27 = add nuw i64 %.0109177, 1
   %exitcond.not = icmp eq i64 %27, %2
-  br i1 %exitcond.not, label %._crit_edge, label %22
+  br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %22, %17
   %28 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #19
@@ -1873,7 +1873,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
 40:                                               ; preds = %37
   %41 = load ptr, ptr %29, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw i64, ptr %41, i64 %.0108189
-  %43 = load i64, ptr %42, align 8, !tbaa !40
+  %43 = load i64, ptr %42, align 8, !tbaa !42
   %44 = and i64 %43, 1073741824
   %.not128 = icmp eq i64 %44, 0
   br i1 %.not128, label %105, label %45
@@ -1904,7 +1904,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
 
 .sink.split:                                      ; preds = %54, %47, %52
   %.sink = phi i64 [ %53, %52 ], [ 3221225473, %47 ], [ 2147483647, %54 ]
-  store i64 %.sink, ptr %42, align 8, !tbaa !40
+  store i64 %.sink, ptr %42, align 8, !tbaa !42
   br label %55
 
 55:                                               ; preds = %.sink.split, %54
@@ -1930,12 +1930,12 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
 64:                                               ; preds = %67
   %65 = add nuw i64 %.099178, 1
   %66 = icmp ult i64 %65, %.0108189
-  br i1 %66, label %67, label %.thread151
+  br i1 %66, label %67, label %.thread151, !llvm.loop !55
 
 67:                                               ; preds = %.lr.ph180, %64
   %.099178 = phi i64 [ %.094192, %.lr.ph180 ], [ %65, %64 ]
   %68 = getelementptr inbounds nuw i64, ptr %63, i64 %.099178
-  %69 = load i64, ptr %68, align 8, !tbaa !40
+  %69 = load i64, ptr %68, align 8, !tbaa !42
   %70 = and i64 %69, 2147483648
   %.not138 = icmp eq i64 %70, 0
   br i1 %.not138, label %64, label %71
@@ -2020,7 +2020,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   %.1117 = phi i64 [ %99, %97 ], [ %.0116183, %92 ]
   %.3114 = phi ptr [ %98, %97 ], [ %.2113184, %92 ]
   %.not141 = icmp eq i64 %.3121, 0
-  br i1 %.not141, label %.loopexit, label %.lr.ph185
+  br i1 %.not141, label %.loopexit, label %.lr.ph185, !llvm.loop !56
 
 105:                                              ; preds = %40
   %.not135 = icmp eq ptr %.0111187, null
@@ -2054,10 +2054,10 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   %.pn = phi i64 [ %.pre.pre, %117 ], [ %116, %114 ]
   %.4122 = add i64 %.pn, %.0118186
   %spec.select = select i1 %.not127, i64 2147483647, i64 3221225473
-  store i64 %spec.select, ptr %42, align 8, !tbaa !40
-  %119 = load i64, ptr %31, align 8, !tbaa !43
+  store i64 %spec.select, ptr %42, align 8, !tbaa !42
+  %119 = load i64, ptr %31, align 8, !tbaa !50
   %120 = add i64 %119, 1
-  store i64 %120, ptr %31, align 8, !tbaa !43
+  store i64 %120, ptr %31, align 8, !tbaa !50
   br label %.loopexit
 
 .loopexit:                                        ; preds = %104, %.thread151, %118, %55
@@ -2067,7 +2067,7 @@ define internal fastcc range(i32 0, 2) i32 @fmap_readpage(ptr noundef captures(n
   %121 = add i64 %.1110188, 1
   %122 = add i64 %.0108189, 1
   %.not = icmp ugt i64 %121, %2
-  br i1 %.not, label %.thread166, label %37
+  br i1 %.not, label %.thread166, label %37, !llvm.loop !57
 
 .thread166:                                       ; preds = %39, %.loopexit, %101, %103, %51, %82, %16
   %.0 = phi i32 [ 1, %16 ], [ 1, %51 ], [ 1, %82 ], [ 1, %103 ], [ 1, %101 ], [ 0, %.loopexit ], [ 0, %39 ]
@@ -2156,7 +2156,21 @@ attributes #23 = { nounwind willreturn memory(none) }
 !37 = !{!12, !14, i64 190}
 !38 = !{i8 0, i8 2}
 !39 = !{}
-!40 = !{!9, !9, i64 0}
-!41 = !{!5, !5, i64 0}
-!42 = !{!16, !16, i64 0}
-!43 = !{!12, !9, i64 48}
+!40 = distinct !{!40, !41}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!9, !9, i64 0}
+!43 = distinct !{!43, !41}
+!44 = distinct !{!44, !41}
+!45 = !{!5, !5, i64 0}
+!46 = distinct !{!46, !41}
+!47 = !{!16, !16, i64 0}
+!48 = distinct !{!48, !41}
+!49 = distinct !{!49, !41}
+!50 = !{!12, !9, i64 48}
+!51 = distinct !{!51, !41}
+!52 = distinct !{!52, !41}
+!53 = distinct !{!53, !41}
+!54 = distinct !{!54, !41}
+!55 = distinct !{!55, !41}
+!56 = distinct !{!56, !41}
+!57 = distinct !{!57, !41}

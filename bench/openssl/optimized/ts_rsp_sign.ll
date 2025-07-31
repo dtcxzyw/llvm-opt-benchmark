@@ -1118,18 +1118,18 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
 
 188:                                              ; preds = %185
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 20
-  %190 = load i32, ptr %189, align 4, !tbaa !72
+  %190 = load i32, ptr %189, align 4, !tbaa !73
   %191 = add nsw i32 %190, 1900
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  %193 = load i32, ptr %192, align 8, !tbaa !74
+  %193 = load i32, ptr %192, align 8, !tbaa !75
   %194 = add nsw i32 %193, 1
   %195 = getelementptr inbounds nuw i8, ptr %186, i64 12
-  %196 = load i32, ptr %195, align 4, !tbaa !75
+  %196 = load i32, ptr %195, align 4, !tbaa !76
   %197 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %198 = load i32, ptr %197, align 8, !tbaa !76
+  %198 = load i32, ptr %197, align 8, !tbaa !77
   %199 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  %200 = load i32, ptr %199, align 4, !tbaa !77
-  %201 = load i32, ptr %186, align 8, !tbaa !78
+  %200 = load i32, ptr %199, align 4, !tbaa !78
+  %201 = load i32, ptr %186, align 8, !tbaa !79
   %202 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %6, i64 noundef 23, ptr noundef nonnull @.str.12, i32 noundef %191, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200, i32 noundef %201) #9
   %203 = sext i32 %202 to i64
   %204 = getelementptr inbounds i8, ptr %6, i64 %203
@@ -1147,11 +1147,11 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
 211:                                              ; preds = %211, %205
   %.1.i.i = phi ptr [ %210, %205 ], [ %212, %211 ]
   %212 = getelementptr inbounds i8, ptr %.1.i.i, i64 -1
-  %213 = load i8, ptr %212, align 1, !tbaa !79
+  %213 = load i8, ptr %212, align 1, !tbaa !80
   switch i8 %213, label %.loopexit.i.i [
     i8 48, label %211
     i8 46, label %.loopexit.i.i.loopexit
-  ]
+  ], !llvm.loop !81
 
 .loopexit.i.i.loopexit:                           ; preds = %211
   br label %.loopexit.i.i
@@ -1159,8 +1159,8 @@ TS_RESP_CTX_add_failure_info.exit.sink.split.i:   ; preds = %152, %125
 .loopexit.i.i:                                    ; preds = %211, %.loopexit.i.i.loopexit, %188
   %.027.i.i = phi ptr [ %204, %188 ], [ %212, %.loopexit.i.i.loopexit ], [ %.1.i.i, %211 ]
   %214 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 1
-  store i8 90, ptr %.027.i.i, align 1, !tbaa !79
-  store i8 0, ptr %214, align 1, !tbaa !79
+  store i8 90, ptr %.027.i.i, align 1, !tbaa !80
+  store i8 0, ptr %214, align 1, !tbaa !80
   %215 = call ptr @ASN1_GENERALIZEDTIME_new() #9
   %216 = icmp eq ptr %215, null
   br i1 %216, label %TS_RESP_set_genTime_with_precision.exit.thread.i, label %217
@@ -1271,7 +1271,7 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
 255:                                              ; preds = %253, %249
   %256 = load ptr, ptr %10, align 8, !tbaa !52
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  %258 = load ptr, ptr %257, align 8, !tbaa !80
+  %258 = load ptr, ptr %257, align 8, !tbaa !82
   %.not87.i = icmp eq ptr %258, null
   br i1 %.not87.i, label %261, label %259
 
@@ -1292,12 +1292,12 @@ TS_RESP_set_genTime_with_precision.exit.thread.i: ; preds = %219, %.loopexit.i.i
   br i1 %266, label %.thread.i, label %267
 
 267:                                              ; preds = %264
-  store i32 4, ptr %265, align 8, !tbaa !81
+  store i32 4, ptr %265, align 8, !tbaa !83
   %268 = load ptr, ptr %0, align 8, !tbaa !36
   %269 = call ptr @X509_get_subject_name(ptr noundef %268) #9
   %270 = call ptr @X509_NAME_dup(ptr noundef %269) #9
   %271 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  store ptr %270, ptr %271, align 8, !tbaa !79
+  store ptr %270, ptr %271, align 8, !tbaa !80
   %.not90.i = icmp eq ptr %270, null
   br i1 %.not90.i, label %.thread.i, label %272
 
@@ -1346,7 +1346,7 @@ ts_RESP_create_tst_info.exit:                     ; preds = %261, %272, %.thread
 283:                                              ; preds = %ts_RESP_create_tst_info.exit
   %284 = load ptr, ptr %10, align 8, !tbaa !52
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 40
-  %286 = load ptr, ptr %285, align 8, !tbaa !83
+  %286 = load ptr, ptr %285, align 8, !tbaa !85
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %288
 
@@ -1362,7 +1362,7 @@ ts_RESP_create_tst_info.exit:                     ; preds = %261, %272, %.thread
   %294 = call i32 %293(ptr noundef nonnull %0, ptr noundef %292, ptr noundef null) #9
   %295 = add nuw nsw i32 %.012.i, 1
   %.not.i38 = icmp eq i32 %294, 0
-  br i1 %.not.i38, label %.critedge, label %288, !llvm.loop !84
+  br i1 %.not.i38, label %.critedge, label %288, !llvm.loop !86
 
 ts_RESP_process_extensions.exit:                  ; preds = %288
   %296 = load ptr, ptr %0, align 8, !tbaa !36
@@ -1400,8 +1400,8 @@ ts_RESP_process_extensions.exit:                  ; preds = %288
 
 311:                                              ; preds = %309
   %312 = getelementptr inbounds nuw i8, ptr %306, i64 32
-  %313 = load ptr, ptr %312, align 8, !tbaa !79
-  %314 = load ptr, ptr %313, align 8, !tbaa !85
+  %313 = load ptr, ptr %312, align 8, !tbaa !80
+  %314 = load ptr, ptr %313, align 8, !tbaa !87
   %315 = call i32 @ASN1_INTEGER_set(ptr noundef %314, i64 noundef 3) #9
   %.not84.i41 = icmp eq i32 %315, 0
   br i1 %.not84.i41, label %430, label %316
@@ -1409,7 +1409,7 @@ ts_RESP_process_extensions.exit:                  ; preds = %288
 316:                                              ; preds = %311
   %317 = load ptr, ptr %10, align 8, !tbaa !52
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 32
-  %319 = load i32, ptr %318, align 8, !tbaa !90
+  %319 = load i32, ptr %318, align 8, !tbaa !92
   %.not85.i42 = icmp eq i32 %319, 0
   br i1 %.not85.i42, label %.loopexit.i, label %320
 
@@ -1435,7 +1435,7 @@ ts_RESP_process_extensions.exit:                  ; preds = %288
   %331 = load ptr, ptr %323, align 8, !tbaa !38
   %332 = call i32 @OPENSSL_sk_num(ptr noundef %331) #9
   %333 = icmp slt i32 %330, %332
-  br i1 %333, label %.lr.ph.i51, label %.loopexit.i, !llvm.loop !91
+  br i1 %333, label %.lr.ph.i51, label %.loopexit.i, !llvm.loop !93
 
 .loopexit.i:                                      ; preds = %.lr.ph.i51, %.preheader.i, %320, %316
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1507,7 +1507,7 @@ ts_RESP_process_extensions.exit:                  ; preds = %288
 369:                                              ; preds = %366, %362
   %370 = phi ptr [ %368, %366 ], [ null, %362 ]
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %372 = load ptr, ptr %371, align 8, !tbaa !92
+  %372 = load ptr, ptr %371, align 8, !tbaa !94
   %373 = icmp eq ptr %372, null
   br i1 %373, label %376, label %374
 
@@ -1531,7 +1531,7 @@ ts_RESP_process_extensions.exit:                  ; preds = %288
   br i1 %384, label %ossl_ess_add1_signing_cert.exit.thread.i, label %385
 
 385:                                              ; preds = %380
-  store ptr %383, ptr %3, align 8, !tbaa !93
+  store ptr %383, ptr %3, align 8, !tbaa !95
   %386 = call i32 @i2d_ESS_SIGNING_CERT(ptr noundef nonnull %378, ptr noundef nonnull %3) #9
   %387 = call ptr @ASN1_STRING_new() #9
   %388 = icmp eq ptr %387, null
@@ -1565,7 +1565,7 @@ ossl_ess_add1_signing_cert.exit.i:                ; preds = %389
   br label %430
 
 394:                                              ; preds = %374
-  %395 = load ptr, ptr %371, align 8, !tbaa !92
+  %395 = load ptr, ptr %371, align 8, !tbaa !94
   %396 = load ptr, ptr %0, align 8, !tbaa !36
   %397 = call ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef %395, ptr noundef %396, ptr noundef %370, i32 noundef 0) #9
   %398 = icmp eq ptr %397, null
@@ -1592,20 +1592,20 @@ ossl_ess_add1_signing_cert.exit.i:                ; preds = %389
 405:                                              ; preds = %402
   %406 = call ptr @ASN1_TYPE_new() #9
   %407 = getelementptr inbounds nuw i8, ptr %403, i64 32
-  store ptr %406, ptr %407, align 8, !tbaa !79
+  store ptr %406, ptr %407, align 8, !tbaa !80
   %408 = icmp eq ptr %406, null
   br i1 %408, label %ts_TST_INFO_content_new.exit.thread.i, label %409
 
 409:                                              ; preds = %405
   %410 = call ptr @OBJ_nid2obj(i32 noundef 207) #9
   %411 = getelementptr inbounds nuw i8, ptr %403, i64 24
-  store ptr %410, ptr %411, align 8, !tbaa !94
+  store ptr %410, ptr %411, align 8, !tbaa !96
   %412 = call ptr @ASN1_OCTET_STRING_new() #9
   %413 = icmp eq ptr %412, null
   br i1 %413, label %ts_TST_INFO_content_new.exit.thread.i, label %414
 
 414:                                              ; preds = %409
-  %415 = load ptr, ptr %407, align 8, !tbaa !79
+  %415 = load ptr, ptr %407, align 8, !tbaa !80
   call void @ASN1_TYPE_set(ptr noundef %415, i32 noundef 4, ptr noundef nonnull %412) #9
   %416 = call i32 @PKCS7_set_content(ptr noundef nonnull %306, ptr noundef nonnull %403) #9
   %.not.i97.i = icmp eq i32 %416, 0
@@ -1753,7 +1753,7 @@ declare void @TS_RESP_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @TS_RESP_CTX_set_ess_cert_id_digest(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %3, align 8, !tbaa !92
+  store ptr %1, ptr %3, align 8, !tbaa !94
   ret i32 1
 }
 
@@ -1864,7 +1864,7 @@ define internal fastcc i32 @ossl_ess_add1_signing_cert_v2(ptr noundef nonnull %0
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %2
-  store ptr %6, ptr %3, align 8, !tbaa !93
+  store ptr %6, ptr %3, align 8, !tbaa !95
   %9 = call i32 @i2d_ESS_SIGNING_CERT_V2(ptr noundef nonnull %1, ptr noundef nonnull %3) #9
   %10 = call ptr @ASN1_STRING_new() #9
   %11 = icmp eq ptr %10, null
@@ -2021,30 +2021,32 @@ attributes #10 = { nounwind willreturn memory(read) }
 !67 = !{!68, !16, i64 0}
 !68 = !{!"asn1_string_st", !16, i64 0, !16, i64 4, !21, i64 8, !35, i64 16}
 !69 = !{!56, !13, i64 16}
-!70 = distinct !{!70, !71}
+!70 = distinct !{!70, !71, !72}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!73, !16, i64 20}
-!73 = !{!"tm", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !35, i64 40, !21, i64 48}
-!74 = !{!73, !16, i64 16}
-!75 = !{!73, !16, i64 12}
-!76 = !{!73, !16, i64 8}
-!77 = !{!73, !16, i64 4}
-!78 = !{!73, !16, i64 0}
-!79 = !{!7, !7, i64 0}
-!80 = !{!56, !15, i64 24}
-!81 = !{!82, !16, i64 0}
-!82 = !{!"GENERAL_NAME_st", !16, i64 0, !7, i64 8}
-!83 = !{!56, !58, i64 40}
-!84 = distinct !{!84, !71}
-!85 = !{!86, !15, i64 0}
-!86 = !{!"pkcs7_signed_st", !15, i64 0, !87, i64 8, !11, i64 16, !88, i64 24, !89, i64 32, !30, i64 40}
-!87 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !6, i64 0}
-!88 = !{!"p1 _ZTS17stack_st_X509_CRL", !6, i64 0}
-!89 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !6, i64 0}
-!90 = !{!56, !16, i64 32}
-!91 = distinct !{!91, !71}
-!92 = !{!4, !10, i64 24}
-!93 = !{!21, !21, i64 0}
-!94 = !{!95, !13, i64 24}
-!95 = !{!"pkcs7_st", !21, i64 0, !35, i64 8, !16, i64 16, !16, i64 20, !13, i64 24, !7, i64 32, !96, i64 40}
-!96 = !{!"PKCS7_CTX_st", !20, i64 0, !21, i64 8}
+!72 = !{!"llvm.loop.estimated_trip_count"}
+!73 = !{!74, !16, i64 20}
+!74 = !{!"tm", !16, i64 0, !16, i64 4, !16, i64 8, !16, i64 12, !16, i64 16, !16, i64 20, !16, i64 24, !16, i64 28, !16, i64 32, !35, i64 40, !21, i64 48}
+!75 = !{!74, !16, i64 16}
+!76 = !{!74, !16, i64 12}
+!77 = !{!74, !16, i64 8}
+!78 = !{!74, !16, i64 4}
+!79 = !{!74, !16, i64 0}
+!80 = !{!7, !7, i64 0}
+!81 = distinct !{!81, !72}
+!82 = !{!56, !15, i64 24}
+!83 = !{!84, !16, i64 0}
+!84 = !{!"GENERAL_NAME_st", !16, i64 0, !7, i64 8}
+!85 = !{!56, !58, i64 40}
+!86 = distinct !{!86, !71, !72}
+!87 = !{!88, !15, i64 0}
+!88 = !{!"pkcs7_signed_st", !15, i64 0, !89, i64 8, !11, i64 16, !90, i64 24, !91, i64 32, !30, i64 40}
+!89 = !{!"p1 _ZTS19stack_st_X509_ALGOR", !6, i64 0}
+!90 = !{!"p1 _ZTS17stack_st_X509_CRL", !6, i64 0}
+!91 = !{!"p1 _ZTS26stack_st_PKCS7_SIGNER_INFO", !6, i64 0}
+!92 = !{!56, !16, i64 32}
+!93 = distinct !{!93, !71, !72}
+!94 = !{!4, !10, i64 24}
+!95 = !{!21, !21, i64 0}
+!96 = !{!97, !13, i64 24}
+!97 = !{!"pkcs7_st", !21, i64 0, !35, i64 8, !16, i64 16, !16, i64 20, !13, i64 24, !7, i64 32, !98, i64 40}
+!98 = !{!"PKCS7_CTX_st", !20, i64 0, !21, i64 8}

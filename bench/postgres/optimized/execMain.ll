@@ -915,7 +915,7 @@ ExecProcNode.exit.us49.i:                         ; preds = %89, %87
   %104 = add i64 %.0.us46.i, 1
   %105 = icmp eq i64 %2, %104
   %or.cond41.us52.i = select i1 %39, i1 %105, i1 false
-  br i1 %or.cond41.us52.i, label %.split45.us.i, label %.split.split.us.i, !llvm.loop !8
+  br i1 %or.cond41.us52.i, label %.split45.us.i, label %.split.split.us.i, !llvm.loop !9
 
 .split.split.i:                                   ; preds = %.split.i
   br i1 %39, label %.split.split.split.i, label %.split.split.split.us.i
@@ -963,7 +963,7 @@ ExecProcNode.exit.us56.i:                         ; preds = %112, %110
   br label %.split.split.split.us.i.backedge
 
 .split.split.split.us.i.backedge:                 ; preds = %122, %120
-  br label %.split.split.split.us.i, !llvm.loop !9
+  br label %.split.split.split.us.i, !llvm.loop !10
 
 .split.split.split.i:                             ; preds = %.split.split.i, %142
   %.0.i = phi i64 [ %143, %142 ], [ 0, %.split.split.i ]
@@ -1011,7 +1011,7 @@ ExecProcNode.exit.i:                              ; preds = %130, %128
 142:                                              ; preds = %140, %138
   %143 = add nuw i64 %.0.i, 1
   %144 = icmp eq i64 %2, %143
-  br i1 %144, label %.split45.us.i, label %.split.split.split.i
+  br i1 %144, label %.split45.us.i, label %.split.split.split.i, !llvm.loop !11
 
 .split45.us.i:                                    ; preds = %116, %ExecProcNode.exit.us56.i, %142, %134, %ExecProcNode.exit.i, %101, %93, %ExecProcNode.exit.us49.i, %80, %73, %65, %ExecProcNode.exit.us.i
   %145 = getelementptr inbounds nuw i8, ptr %32, i64 224
@@ -1156,7 +1156,7 @@ ExecProcNode.exit.i:                              ; preds = %31, %29
   %37 = load i16, ptr %36, align 4
   %38 = and i16 %37, 2
   %.not18.i = icmp eq i16 %38, 0
-  br i1 %.not18.i, label %24, label %39
+  br i1 %.not18.i, label %24, label %39, !llvm.loop !12
 
 39:                                               ; preds = %35, %ExecProcNode.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1294,7 +1294,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
   %43 = phi i32 [ %36, %35 ], [ %.pre.i.i, %41 ]
   %44 = add nuw i32 %.07.i.i, 1
   %45 = icmp ult i32 %44, %43
-  br i1 %45, label %35, label %ExecEndPlan.exit, !llvm.loop !10
+  br i1 %45, label %35, label %ExecEndPlan.exit, !llvm.loop !13
 
 ExecEndPlan.exit:                                 ; preds = %42, %.critedge.i
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1413,18 +1413,18 @@ define dso_local zeroext i1 @ExecCheckPermissions(ptr noundef %0, ptr noundef %1
 41:                                               ; preds = %.lr.ph.i
   %42 = tail call i32 @pg_attribute_aclcheck_all(i32 noundef %12, i32 noundef %20, i64 noundef 2, i32 noundef 0) #9
   %.not48.i = icmp eq i32 %42, 0
-  br i1 %.not48.i, label %.critedge.i, label %.loopexit, !llvm.loop !12
+  br i1 %.not48.i, label %.critedge.i, label %.loopexit, !llvm.loop !15
 
 43:                                               ; preds = %.lr.ph.i
   %44 = tail call i32 @pg_attribute_aclcheck(i32 noundef %12, i16 noundef signext %39, i32 noundef %20, i64 noundef 2) #9
   %.not47.i = icmp eq i32 %44, 0
-  br i1 %.not47.i, label %.critedge.i, label %.loopexit, !llvm.loop !12
+  br i1 %.not47.i, label %.critedge.i, label %.loopexit, !llvm.loop !15
 
 .critedge.i:                                      ; preds = %43, %41
   %45 = load ptr, ptr %28, align 8
   %46 = tail call i32 @bms_next_member(ptr noundef %45, i32 noundef %37) #9
   %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.lr.ph.i, label %.loopexit.i
+  br i1 %47, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.critedge.i, %33, %25
   %48 = and i64 %23, 1
@@ -2170,7 +2170,7 @@ define dso_local void @ExecCloseRangeTableRelations(ptr noundef readonly capture
   %13 = phi i32 [ %6, %5 ], [ %.pre, %11 ]
   %14 = add nuw i32 %.07, 1
   %15 = icmp ult i32 %14, %13
-  br i1 %15, label %5, label %._crit_edge, !llvm.loop !10
+  br i1 %15, label %5, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %12, %1
   ret void
@@ -2469,7 +2469,7 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   %78 = load i32, ptr %2, align 8
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next, %79
-  br i1 %80, label %30, label %._crit_edge, !llvm.loop !13
+  br i1 %80, label %30, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %77, %slot_getallattrs.exit
   %.1.lcssa = phi i8 [ %.044, %slot_getallattrs.exit ], [ %.2, %77 ]
@@ -2626,7 +2626,7 @@ slot_attisnull.exit:                              ; preds = %27, %slot_getsomeat
 72:                                               ; preds = %slot_attisnull.exit, %17
   %73 = add i32 %.082102, 1
   %.not = icmp sgt i32 %73, %14
-  br i1 %.not, label %.loopexit, label %17, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %17, !llvm.loop !18
 
 .loopexit:                                        ; preds = %72, %13, %3
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2708,7 +2708,7 @@ slot_attisnull.exit:                              ; preds = %27, %slot_getsomeat
 127:                                              ; preds = %119, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %112
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %127, %108
   store ptr %111, ptr @CurrentMemoryContext, align 8
@@ -2750,7 +2750,7 @@ slot_attisnull.exit:                              ; preds = %27, %slot_getsomeat
 141:                                              ; preds = %139, %.lr.ph57.i
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %exitcond66.not.i = icmp eq i64 %indvars.iv.next63.i, %wide.trip.count65.i
-  br i1 %exitcond66.not.i, label %ExecRelCheck.exit.thread, label %.lr.ph57.i, !llvm.loop !16
+  br i1 %exitcond66.not.i, label %ExecRelCheck.exit.thread, label %.lr.ph57.i, !llvm.loop !20
 
 ExecRelCheck.exit:                                ; preds = %139
   %142 = getelementptr inbounds nuw %struct.ConstrCheck, ptr %89, i64 %indvars.iv62.i
@@ -3074,7 +3074,7 @@ ExecQual.exit:                                    ; preds = %47
 
 137:                                              ; preds = %ExecQual.exit.thread, %ExecQual.exit, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split, !llvm.loop !17
+  br label %.split.split, !llvm.loop !21
 }
 
 declare i32 @check_enable_rls(i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -3482,7 +3482,7 @@ list_length.exit.i:                               ; preds = %74, %69
   store i8 %94, ptr %96, align 8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not143.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not143.i, label %.loopexit.i, label %86, !llvm.loop !18
+  br i1 %.not143.i, label %.loopexit.i, label %86, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %86, %list_length.exit.i, %6
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -3674,7 +3674,7 @@ list_length.exit:                                 ; preds = %187
   store i8 %207, ptr %209, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not33 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not33, label %.loopexit, label %199, !llvm.loop !19
+  br i1 %.not33, label %.loopexit, label %199, !llvm.loop !23
 
 .loopexit:                                        ; preds = %199, %187, %list_length.exit, %164
   %210 = getelementptr inbounds nuw i8, ptr %168, i64 104
@@ -4021,7 +4021,7 @@ ExecGetJunkAttribute.exit38:                      ; preds = %54, %slot_getsomeat
   %105 = load i8, ptr @bsysscan, align 1, !range !4
   %106 = trunc nuw i8 %105 to i1
   %.not5.i = select i1 %104, i1 true, i1 %106
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %107, !prof !20
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %107, !prof !24
 
 107:                                              ; preds = %102
   %108 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -4134,7 +4134,7 @@ define internal fastcc noundef zeroext i1 @ExecCheckPermissionsModified(i32 noun
 18:                                               ; preds = %11
   %19 = tail call i32 @pg_attribute_aclcheck(i32 noundef %0, i16 noundef signext %13, i32 noundef %1, i64 noundef %3) #9
   %.not16 = icmp eq i32 %19, 0
-  br i1 %.not16, label %8, label %.loopexit, !llvm.loop !21
+  br i1 %.not16, label %8, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %8, %18, %6
   %.0 = phi i1 [ false, %6 ], [ %10, %18 ], [ %10, %8 ]
@@ -4213,19 +4213,23 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = distinct !{!21, !11}
+!6 = distinct !{!6, !7, !8}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7}
+!12 = distinct !{!12, !7}
+!13 = distinct !{!13, !14, !7}
+!14 = !{!"llvm.loop.mustprogress"}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !14, !7}
+!18 = distinct !{!18, !14, !7}
+!19 = distinct !{!19, !14, !7}
+!20 = distinct !{!20, !14, !7}
+!21 = distinct !{!21, !14, !7}
+!22 = distinct !{!22, !14, !7}
+!23 = distinct !{!23, !14, !7}
+!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!25 = distinct !{!25, !14, !7}

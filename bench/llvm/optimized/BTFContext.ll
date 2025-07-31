@@ -402,9 +402,9 @@ _ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapIn
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %27, i64 noundef %26, i64 noundef 8) #13
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load i32, ptr %29, align 8, !tbaa !73
+  %30 = load i32, ptr %29, align 8, !tbaa !74
   %31 = icmp eq i32 %30, 0
-  %.pre1.i1 = load ptr, ptr %28, align 8, !tbaa !76
+  %.pre1.i1 = load ptr, ptr %28, align 8, !tbaa !77
   br i1 %31, label %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit, label %.lr.ph.preheader.i.i2
 
 .lr.ph.preheader.i.i2:                            ; preds = %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit
@@ -433,11 +433,11 @@ _ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapIn
 _ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i: ; preds = %40, %35, %.lr.ph.i.i4
   %41 = getelementptr inbounds nuw i8, ptr %.010.i.i5, i64 24
   %.not.i.i7 = icmp eq ptr %41, %33
-  br i1 %.not.i.i7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i4, !llvm.loop !77
+  br i1 %.not.i.i7, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i4, !llvm.loop !78
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i: ; preds = %_ZN4llvm11SmallVectorINS_3BTF11BPFLineInfoELj0EED2Ev.exit.i.i
-  %.pre.i8 = load ptr, ptr %28, align 8, !tbaa !76
-  %.pre2.i9 = load i32, ptr %29, align 8, !tbaa !73
+  %.pre.i8 = load ptr, ptr %28, align 8, !tbaa !77
+  %.pre2.i9 = load i32, ptr %29, align 8, !tbaa !74
   %42 = zext i32 %.pre2.i9 to i64
   %43 = mul nuw nsw i64 %42, 24
   br label %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit
@@ -447,7 +447,7 @@ _ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfo
   %45 = phi ptr [ %.pre.i8, %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS5_EEEEmS5_S7_SA_E10destroyAllEv.exit.loopexit.i ], [ %.pre1.i1, %_ZN4llvm8DenseMapImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEED2Ev.exit ]
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %45, i64 noundef %44, i64 noundef 8) #13
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !78
+  %47 = load ptr, ptr %46, align 8, !tbaa !79
   %48 = icmp eq ptr %47, null
   br i1 %48, label %_ZN4llvm14OwningArrayRefIhED2Ev.exit, label %49
 
@@ -569,12 +569,13 @@ attributes #16 = { builtin nounwind }
 !68 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairImNS_11SmallVectorINS_3BTF13BPFFieldRelocELj0EEEEE", !6, i64 0}
 !69 = !{!67, !68, i64 0}
 !70 = !{!11, !11, i64 0}
-!71 = distinct !{!71, !72}
+!71 = distinct !{!71, !72, !73}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!74, !21, i64 16}
-!74 = !{!"_ZTSN4llvm8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEEE", !75, i64 0, !21, i64 8, !21, i64 12, !21, i64 16}
-!75 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEEEE", !6, i64 0}
-!76 = !{!74, !75, i64 0}
-!77 = distinct !{!77, !72}
-!78 = !{!79, !5, i64 0}
-!79 = !{!"_ZTSN4llvm8ArrayRefIhEE", !5, i64 0, !11, i64 8}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = !{!75, !21, i64 16}
+!75 = !{!"_ZTSN4llvm8DenseMapImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS4_EEEE", !76, i64 0, !21, i64 8, !21, i64 12, !21, i64 16}
+!76 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairImNS_11SmallVectorINS_3BTF11BPFLineInfoELj0EEEEE", !6, i64 0}
+!77 = !{!75, !76, i64 0}
+!78 = distinct !{!78, !72, !73}
+!79 = !{!80, !5, i64 0}
+!80 = !{!"_ZTSN4llvm8ArrayRefIhEE", !5, i64 0, !11, i64 8}

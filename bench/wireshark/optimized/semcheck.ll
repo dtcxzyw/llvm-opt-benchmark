@@ -433,7 +433,7 @@ select.unfold:                                    ; preds = %22, %20
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %25 = load ptr, ptr %24, align 8
   %.not52 = icmp eq ptr %25, null
-  br i1 %.not52, label %.critedge, label %.lr.ph83, !llvm.loop !8
+  br i1 %.not52, label %.critedge, label %.lr.ph83, !llvm.loop !9
 
 .critedge:                                        ; preds = %select.unfold, %.lr.ph67.preheader
   %.165.lcssa = phi ptr [ %.0.lcssa, %.lr.ph67.preheader ], [ %15, %select.unfold ]
@@ -869,7 +869,7 @@ resolve_unparsed.exit:                            ; preds = %19, %26, %27
   %31 = getelementptr inbounds nuw i8, ptr %.018.i24, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not23.i = icmp eq ptr %32, null
-  br i1 %.not23.i, label %get_function_ftype.exit, label %19, !llvm.loop !9
+  br i1 %.not23.i, label %get_function_ftype.exit, label %19, !llvm.loop !10
 
 33:                                               ; preds = %2, %2
   call void @sttype_oper_get(ptr noundef %1, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4)
@@ -1330,7 +1330,7 @@ switch.lookup:                                    ; preds = %106
   %switch.load = load ptr, ptr %switch.gep, align 8
   %112 = load ptr, ptr %5, align 8
   %113 = load ptr, ptr %6, align 8
-  call void %switch.load(ptr noundef %0, ptr noundef %1, ptr noundef %112, ptr noundef %113), !callees !10
+  call void %switch.load(ptr noundef %0, ptr noundef %1, ptr noundef %112, ptr noundef %113), !callees !11
   br label %check_arithmetic_LHS_TIME.exit
 
 check_arithmetic_LHS_TIME.exit:                   ; preds = %40, %46, %50, %94, %98, %102, %switch.lookup
@@ -1587,7 +1587,7 @@ define hidden zeroext i1 @dfw_semcheck(ptr noundef %0) local_unnamed_addr #0 {
   %.0..0..0..0.12 = load volatile i32, ptr %3, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %.0..0..0..0.12, ptr %40, align 8
-  %.0..0..0..0.13 = load volatile i8, ptr %2, align 1, !range !11, !noundef !12
+  %.0..0..0..0.13 = load volatile i8, ptr %2, align 1, !range !12, !noundef !13
   %41 = trunc nuw i8 %.0..0..0..0.13 to i1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
@@ -1806,7 +1806,7 @@ resolve_unparsed.exit47.i:                        ; preds = %75, %74, %68
   %79 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not39.i = icmp eq ptr %80, null
-  br i1 %.not39.i, label %check_test.exit, label %49, !llvm.loop !13
+  br i1 %.not39.i, label %check_test.exit, label %49, !llvm.loop !14
 
 81:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8
   %82 = call ptr @stnode_op_name(i32 noundef %9)
@@ -2090,7 +2090,7 @@ define internal fastcc range(i32 0, 6) i32 @mk_fvalue_from_hfinfo(ptr noundef re
   %42 = icmp ne ptr %41, null
   %43 = icmp samesign ult i64 %.185, 2
   %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %38
   %45 = icmp samesign ugt i64 %.185, 1
@@ -2152,7 +2152,7 @@ define internal fastcc range(i32 0, 6) i32 @mk_fvalue_from_hfinfo(ptr noundef re
   %70 = icmp ne ptr %69, null
   %71 = icmp samesign ult i64 %.3, 2
   %72 = select i1 %70, i1 %71, i1 false
-  br i1 %72, label %.lr.ph135, label %._crit_edge136, !llvm.loop !15
+  br i1 %72, label %.lr.ph135, label %._crit_edge136, !llvm.loop !16
 
 ._crit_edge136:                                   ; preds = %66
   %73 = icmp samesign ugt i64 %.3, 1
@@ -2216,7 +2216,7 @@ define internal fastcc range(i32 0, 6) i32 @mk_fvalue_from_hfinfo(ptr noundef re
   %100 = icmp ne ptr %99, null
   %101 = icmp samesign ult i64 %.5, 2
   %102 = select i1 %100, i1 %101, i1 false
-  br i1 %102, label %.lr.ph143, label %._crit_edge144, !llvm.loop !16
+  br i1 %102, label %.lr.ph143, label %._crit_edge144, !llvm.loop !17
 
 ._crit_edge144:                                   ; preds = %96
   %103 = icmp samesign ugt i64 %.5, 1
@@ -2632,7 +2632,7 @@ find_logical_ftype.exit48:                        ; preds = %24
 
 find_logical_ftype.exit49:                        ; preds = %31
   %38 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %4, i32 noundef range(i32 1, 0) %32)
-  %39 = tail call zeroext i1 %2(i32 noundef %38), !callees !17
+  %39 = tail call zeroext i1 %2(i32 noundef %38), !callees !18
   br i1 %39, label %46, label %40
 
 40:                                               ; preds = %find_logical_ftype.exit49
@@ -2675,7 +2675,7 @@ find_logical_ftype.exit49:                        ; preds = %31
   unreachable
 
 58:                                               ; preds = %49
-  %59 = tail call zeroext i1 %2(i32 noundef %50), !callees !17
+  %59 = tail call zeroext i1 %2(i32 noundef %50), !callees !18
   br i1 %59, label %66, label %60
 
 60:                                               ; preds = %58
@@ -2728,7 +2728,7 @@ find_logical_ftype.exit49:                        ; preds = %31
   unreachable
 
 86:                                               ; preds = %77
-  %87 = tail call zeroext i1 %2(i32 noundef %78), !callees !17
+  %87 = tail call zeroext i1 %2(i32 noundef %78), !callees !18
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %86
@@ -2838,7 +2838,7 @@ is_bytes_type.exit.i:                             ; preds = %94, %94, %94, %94, 
   unreachable
 
 117:                                              ; preds = %107
-  %118 = tail call zeroext i1 %2(i32 noundef %108), !callees !17
+  %118 = tail call zeroext i1 %2(i32 noundef %108), !callees !18
   br i1 %118, label %check_relation_LHS_ARITHMETIC.exit, label %119
 
 119:                                              ; preds = %117
@@ -2865,7 +2865,7 @@ is_bytes_type.exit.i:                             ; preds = %94, %94, %94, %94, 
   unreachable
 
 134:                                              ; preds = %125
-  %135 = tail call zeroext i1 %2(i32 noundef %126), !callees !17
+  %135 = tail call zeroext i1 %2(i32 noundef %126), !callees !18
   br i1 %135, label %check_relation_LHS_ARITHMETIC.exit, label %136
 
 136:                                              ; preds = %134
@@ -2913,7 +2913,7 @@ find_logical_ftype.exit50:                        ; preds = %144
 153:                                              ; preds = %find_logical_ftype.exit50, %find_logical_ftype.exit50
   %154 = tail call ptr @sttype_field_hfinfo(ptr noundef %5)
   %155 = tail call i32 @sttype_field_ftenum(ptr noundef %5)
-  %156 = tail call zeroext i1 %2(i32 noundef %155), !callees !17
+  %156 = tail call zeroext i1 %2(i32 noundef %155), !callees !18
   br i1 %156, label %163, label %157
 
 157:                                              ; preds = %153
@@ -2944,7 +2944,7 @@ find_logical_ftype.exit50:                        ; preds = %144
 
 172:                                              ; preds = %find_logical_ftype.exit50
   %173 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef range(i32 1, 0) %145)
-  %174 = tail call zeroext i1 %2(i32 noundef %173), !callees !17
+  %174 = tail call zeroext i1 %2(i32 noundef %173), !callees !18
   br i1 %174, label %201, label %175
 
 175:                                              ; preds = %172
@@ -2958,7 +2958,7 @@ find_logical_ftype.exit50:                        ; preds = %144
 
 181:                                              ; preds = %find_logical_ftype.exit50
   %182 = tail call i32 @check_function(ptr noundef %0, ptr noundef %5, i32 noundef range(i32 1, 0) %145)
-  %183 = tail call zeroext i1 %2(i32 noundef %182), !callees !17
+  %183 = tail call zeroext i1 %2(i32 noundef %182), !callees !18
   br i1 %183, label %201, label %184
 
 184:                                              ; preds = %181
@@ -2972,7 +2972,7 @@ find_logical_ftype.exit50:                        ; preds = %144
 
 190:                                              ; preds = %find_logical_ftype.exit50
   %191 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %5, i32 noundef range(i32 1, 0) %145)
-  %192 = tail call zeroext i1 %2(i32 noundef %191), !callees !17
+  %192 = tail call zeroext i1 %2(i32 noundef %191), !callees !18
   br i1 %192, label %201, label %193
 
 193:                                              ; preds = %190
@@ -3280,7 +3280,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 14:                                               ; preds = %10, %7
   %15 = tail call ptr @sttype_field_hfinfo(ptr noundef %5)
   %16 = tail call i32 @sttype_field_ftenum(ptr noundef %5)
-  %17 = tail call zeroext i1 %2(i32 noundef %16), !callees !18
+  %17 = tail call zeroext i1 %2(i32 noundef %16), !callees !19
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %14
@@ -3340,7 +3340,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   unreachable
 
 48:                                               ; preds = %39
-  %49 = tail call zeroext i1 %2(i32 noundef %40), !callees !18
+  %49 = tail call zeroext i1 %2(i32 noundef %40), !callees !19
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %48
@@ -3400,7 +3400,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   %73 = and i32 %70, -2
   %74 = icmp eq i32 %73, 26
   %or.cond = select i1 %.not163.us, i1 %74, i1 false
-  br i1 %or.cond, label %.critedge9.us, label %.critedge, !llvm.loop !19
+  br i1 %or.cond, label %.critedge9.us, label %.critedge, !llvm.loop !20
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %75 = add i32 %36, -28
@@ -3418,7 +3418,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   %83 = add i32 %80, -28
   %84 = icmp ult i32 %83, -2
   %or.cond218 = select i1 %.not163.us183, i1 %84, i1 false
-  br i1 %or.cond218, label %.critedge9.us182, label %.critedge, !llvm.loop !21
+  br i1 %or.cond218, label %.critedge9.us182, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %.critedge9.us, %.critedge9.us182, %.preheader
   %.0157.lcssa = phi i32 [ %36, %.preheader ], [ %80, %.critedge9.us182 ], [ %70, %.critedge9.us ]
@@ -3479,7 +3479,7 @@ op_is_equality.exit:                              ; preds = %87
   unreachable
 
 103:                                              ; preds = %94
-  %104 = tail call zeroext i1 %2(i32 noundef %95), !callees !18
+  %104 = tail call zeroext i1 %2(i32 noundef %95), !callees !19
   br i1 %104, label %111, label %105
 
 105:                                              ; preds = %103
@@ -3593,7 +3593,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   unreachable
 
 138:                                              ; preds = %126
-  %139 = tail call zeroext i1 %2(i32 noundef %127), !callees !18
+  %139 = tail call zeroext i1 %2(i32 noundef %127), !callees !19
   br i1 %139, label %op_is_equality.exit.thread, label %140
 
 140:                                              ; preds = %138
@@ -3620,7 +3620,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   unreachable
 
 155:                                              ; preds = %146
-  %156 = tail call zeroext i1 %2(i32 noundef %147), !callees !18
+  %156 = tail call zeroext i1 %2(i32 noundef %147), !callees !19
   br i1 %156, label %op_is_equality.exit.thread, label %157
 
 157:                                              ; preds = %155
@@ -3644,7 +3644,7 @@ op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %1
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
   %8 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %6)
-  %9 = tail call zeroext i1 %1(i32 noundef %8), !callees !18
+  %9 = tail call zeroext i1 %1(i32 noundef %8), !callees !19
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %7
@@ -3797,7 +3797,7 @@ is_bytes_type.exit.thread:                        ; preds = %19, %19, %19, %19, 
   unreachable
 
 53:                                               ; preds = %44
-  %54 = tail call zeroext i1 %1(i32 noundef %45), !callees !18
+  %54 = tail call zeroext i1 %1(i32 noundef %45), !callees !19
   br i1 %54, label %is_bytes_type.exit97.thread, label %55
 
 55:                                               ; preds = %53
@@ -3908,7 +3908,7 @@ is_bytes_type.exit97:                             ; preds = %61, %61, %61, %61, 
   unreachable
 
 85:                                               ; preds = %76
-  %86 = tail call zeroext i1 %1(i32 noundef %77), !callees !18
+  %86 = tail call zeroext i1 %1(i32 noundef %77), !callees !19
   br i1 %86, label %is_bytes_type.exit97.thread, label %87
 
 87:                                               ; preds = %85
@@ -3932,7 +3932,7 @@ is_bytes_type.exit97.thread:                      ; preds = %61, %61, %61, %61, 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
   %8 = tail call i32 @check_function(ptr noundef %0, ptr noundef %4, i32 noundef %6)
-  %9 = tail call zeroext i1 %1(i32 noundef %8), !callees !18
+  %9 = tail call zeroext i1 %1(i32 noundef %8), !callees !19
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %7
@@ -3976,7 +3976,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr nou
   unreachable
 
 29:                                               ; preds = %20
-  %30 = tail call zeroext i1 %1(i32 noundef %21), !callees !18
+  %30 = tail call zeroext i1 %1(i32 noundef %21), !callees !19
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -4029,7 +4029,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr nou
   unreachable
 
 57:                                               ; preds = %48
-  %58 = tail call zeroext i1 %1(i32 noundef %49), !callees !18
+  %58 = tail call zeroext i1 %1(i32 noundef %49), !callees !19
   br i1 %58, label %65, label %59
 
 59:                                               ; preds = %57
@@ -4141,7 +4141,7 @@ is_bytes_type.exit:                               ; preds = %65, %65, %65, %65, 
   unreachable
 
 90:                                               ; preds = %79
-  %91 = tail call zeroext i1 %1(i32 noundef %80), !callees !18
+  %91 = tail call zeroext i1 %1(i32 noundef %80), !callees !19
   br i1 %91, label %is_bytes_type.exit.thread, label %92
 
 92:                                               ; preds = %90
@@ -4168,7 +4168,7 @@ is_bytes_type.exit:                               ; preds = %65, %65, %65, %65, 
   unreachable
 
 107:                                              ; preds = %98
-  %108 = tail call zeroext i1 %1(i32 noundef %99), !callees !18
+  %108 = tail call zeroext i1 %1(i32 noundef %99), !callees !19
   br i1 %108, label %is_bytes_type.exit.thread, label %109
 
 109:                                              ; preds = %107
@@ -4250,19 +4250,20 @@ attributes #9 = { nounwind returns_twice }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{ptr @do_addition, ptr @do_division, ptr @do_multiplication, ptr @do_subtraction}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{ptr @ftype_can_cmp, ptr @ftype_can_eq}
-!18 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq, ptr @ftype_can_matches}
-!19 = distinct !{!19, !7, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !7, !20}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{ptr @do_addition, ptr @do_division, ptr @do_multiplication, ptr @do_subtraction}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = !{ptr @ftype_can_cmp, ptr @ftype_can_eq}
+!19 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq, ptr @ftype_can_matches}
+!20 = distinct !{!20, !7, !8, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !7, !8, !21}

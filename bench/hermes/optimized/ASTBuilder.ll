@@ -17532,7 +17532,7 @@ if.end8:                                          ; preds = %for.body
   store ptr %14, ptr %result, align 8
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin2.09, i64 8
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %return, label %for.body
+  br i1 %cmp.not, label %return, label %for.body, !llvm.loop !7
 
 return:                                           ; preds = %for.body, %if.end8, %if.end, %if.then.i
   %retval.0 = phi i1 [ false, %if.then.i ], [ true, %if.end ], [ %tobool.i, %if.end8 ], [ %tobool.i, %for.body ]
@@ -20739,23 +20739,23 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEC2EOS4_.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvhplERKNS_5TwineES2_(ptr noalias sret(%"class.llvh::Twine") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(18) %LHS, ptr noundef nonnull align 8 dereferenceable(18) %RHS) local_unnamed_addr #0 comdat {
 entry:
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %LHSKind.i.i.i = getelementptr inbounds nuw i8, ptr %LHS, i64 16
-  %0 = load i8, ptr %LHSKind.i.i.i, align 8, !noalias !6
+  %0 = load i8, ptr %LHSKind.i.i.i, align 8, !noalias !8
   %cmp.i.i = icmp eq i8 %0, 0
   br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
   %LHSKind.i.i7.i = getelementptr inbounds nuw i8, ptr %RHS, i64 16
-  %1 = load i8, ptr %LHSKind.i.i7.i, align 8, !noalias !6
+  %1 = load i8, ptr %LHSKind.i.i7.i, align 8, !noalias !8
   %cmp.i8.i = icmp eq i8 %1, 0
   br i1 %cmp.i8.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i, %entry
   %LHSKind.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 0, ptr %LHSKind.i.i, align 8, !alias.scope !6
+  store i8 0, ptr %LHSKind.i.i, align 8, !alias.scope !8
   %RHSKind.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
-  store i8 1, ptr %RHSKind.i.i, align 1, !alias.scope !6
+  store i8 1, ptr %RHSKind.i.i, align 1, !alias.scope !8
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
@@ -20776,24 +20776,24 @@ if.then7.i:                                       ; preds = %if.end5.i
 
 if.end8.i:                                        ; preds = %if.end5.i
   %RHSKind.i.i.i = getelementptr inbounds nuw i8, ptr %LHS, i64 17
-  %2 = load i8, ptr %RHSKind.i.i.i, align 1, !noalias !6
+  %2 = load i8, ptr %RHSKind.i.i.i, align 1, !noalias !8
   %cmp.i13.i = icmp eq i8 %2, 1
-  %NewLHS.sroa.0.0.copyload.i = load ptr, ptr %LHS, align 8, !noalias !6
+  %NewLHS.sroa.0.0.copyload.i = load ptr, ptr %LHS, align 8, !noalias !8
   %spec.select.i = select i1 %cmp.i13.i, i8 %0, i8 2
   %spec.select20.i = select i1 %cmp.i13.i, ptr %NewLHS.sroa.0.0.copyload.i, ptr %LHS
   %RHSKind.i.i15.i = getelementptr inbounds nuw i8, ptr %RHS, i64 17
-  %3 = load i8, ptr %RHSKind.i.i15.i, align 1, !noalias !6
+  %3 = load i8, ptr %RHSKind.i.i15.i, align 1, !noalias !8
   %cmp.i16.i = icmp eq i8 %3, 1
-  %NewRHS.sroa.0.0.copyload.i = load ptr, ptr %RHS, align 8, !noalias !6
+  %NewRHS.sroa.0.0.copyload.i = load ptr, ptr %RHS, align 8, !noalias !8
   %NewRHSKind.0.i = select i1 %cmp.i16.i, i8 %1, i8 2
   %NewRHS.sroa.0.0.i = select i1 %cmp.i16.i, ptr %NewRHS.sroa.0.0.copyload.i, ptr %RHS
-  store ptr %spec.select20.i, ptr %agg.result, align 8, !alias.scope !6
+  store ptr %spec.select20.i, ptr %agg.result, align 8, !alias.scope !8
   %RHS4.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store ptr %NewRHS.sroa.0.0.i, ptr %RHS4.i.i, align 8, !alias.scope !6
+  store ptr %NewRHS.sroa.0.0.i, ptr %RHS4.i.i, align 8, !alias.scope !8
   %LHSKind5.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i8 %spec.select.i, ptr %LHSKind5.i.i, align 8, !alias.scope !6
+  store i8 %spec.select.i, ptr %LHSKind5.i.i, align 8, !alias.scope !8
   %RHSKind6.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 17
-  store i8 %NewRHSKind.0.i, ptr %RHSKind6.i.i, align 1, !alias.scope !6
+  store i8 %NewRHSKind.0.i, ptr %RHSKind6.i.i, align 1, !alias.scope !8
   br label %_ZNK4llvh5Twine6concatERKS0_.exit
 
 _ZNK4llvh5Twine6concatERKS0_.exit:                ; preds = %if.then.i, %if.then4.i, %if.then7.i, %if.end8.i
@@ -20834,7 +20834,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20875,7 +20875,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20904,7 +20904,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_body
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -20931,7 +20931,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -20963,7 +20963,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.015, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -21002,7 +21002,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21034,7 +21034,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.015, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -21073,7 +21073,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21105,7 +21105,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.015, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -21144,7 +21144,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21176,7 +21176,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.012, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -21212,7 +21212,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21259,7 +21259,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21306,7 +21306,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21356,7 +21356,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21406,7 +21406,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21459,7 +21459,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21500,7 +21500,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21541,7 +21541,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21570,7 +21570,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_body
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -21597,7 +21597,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21641,7 +21641,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21685,7 +21685,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21729,7 +21729,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21773,7 +21773,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21820,7 +21820,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21852,7 +21852,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_cases
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -21879,7 +21879,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21926,7 +21926,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -21970,7 +21970,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22020,7 +22020,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22070,7 +22070,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22111,7 +22111,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22152,7 +22152,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22193,7 +22193,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22234,7 +22234,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22275,7 +22275,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22316,7 +22316,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22357,7 +22357,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22398,7 +22398,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22427,7 +22427,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_expressions
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -22454,7 +22454,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22483,7 +22483,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_properties
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -22510,7 +22510,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22539,7 +22539,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_elements
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -22566,7 +22566,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22610,7 +22610,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22645,7 +22645,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_arguments
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -22672,7 +22672,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22716,7 +22716,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22760,7 +22760,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22807,7 +22807,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22842,7 +22842,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_arguments
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -22869,7 +22869,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22904,7 +22904,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_arguments
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -22931,7 +22931,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -22978,7 +22978,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23022,7 +23022,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23069,7 +23069,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_20UpdateExpressionNodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_20UpdateExpressionNodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 _ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_20UpdateExpressionNodeE.exit: ; preds = %while.body.i.i.i, %cond.true.i, %cond.false.i, %cond.true.i.i
   %agg.tmp.sroa.0.0.i = phi ptr [ %retval.sroa.0.0.copyload.i.i, %cond.true.i ], [ %incdec.ptr.i.i.i, %cond.true.i.i ], [ null, %cond.false.i ], [ %incdec.ptr3.i.i.i, %while.body.i.i.i ]
@@ -23111,7 +23111,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23158,7 +23158,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23205,7 +23205,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23255,7 +23255,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23302,7 +23302,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23346,7 +23346,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23387,7 +23387,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23431,7 +23431,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23475,7 +23475,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23522,7 +23522,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23554,7 +23554,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_consequent
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -23581,7 +23581,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23628,7 +23628,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23675,7 +23675,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23704,7 +23704,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_declarations
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -23731,7 +23731,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23760,7 +23760,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.024, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_quasis
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_expressions = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -23775,7 +23775,7 @@ for.body.i11:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i15 = getelementptr inbounds nuw i8, ptr %__begin2.i5.sroa.0.027, i64 8
   %__begin2.i5.sroa.0.0 = load ptr, ptr %Next.i.i.i15, align 8
   %cmp.i16.not = icmp eq ptr %__begin2.i5.sroa.0.0, %_expressions
-  br i1 %cmp.i16.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit14, label %for.body.i11
+  br i1 %cmp.i16.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit14, label %for.body.i11, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit14: ; preds = %for.body.i11, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -23802,7 +23802,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit14
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23849,7 +23849,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23890,7 +23890,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23937,7 +23937,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -23978,7 +23978,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.029, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_implements
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_decorators = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -23993,7 +23993,7 @@ for.body.i16:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i20 = getelementptr inbounds nuw i8, ptr %__begin2.i10.sroa.0.032, i64 8
   %__begin2.i10.sroa.0.0 = load ptr, ptr %Next.i.i.i20, align 8
   %cmp.i21.not = icmp eq ptr %__begin2.i10.sroa.0.0, %_decorators
-  br i1 %cmp.i21.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19, label %for.body.i16
+  br i1 %cmp.i21.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19, label %for.body.i16, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19: ; preds = %for.body.i16, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -24023,7 +24023,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24064,7 +24064,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.029, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_implements
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_decorators = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -24079,7 +24079,7 @@ for.body.i16:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i20 = getelementptr inbounds nuw i8, ptr %__begin2.i10.sroa.0.032, i64 8
   %__begin2.i10.sroa.0.0 = load ptr, ptr %Next.i.i.i20, align 8
   %cmp.i21.not = icmp eq ptr %__begin2.i10.sroa.0.0, %_decorators
-  br i1 %cmp.i21.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19, label %for.body.i16
+  br i1 %cmp.i21.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19, label %for.body.i16, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19: ; preds = %for.body.i16, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -24109,7 +24109,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit19
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24138,7 +24138,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_body
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -24165,7 +24165,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24221,7 +24221,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24277,7 +24277,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24324,7 +24324,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24353,7 +24353,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.026, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_specifiers
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -24371,7 +24371,7 @@ for.body.i13:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i17 = getelementptr inbounds nuw i8, ptr %__begin2.i7.sroa.0.029, i64 8
   %__begin2.i7.sroa.0.0 = load ptr, ptr %Next.i.i.i17, align 8
   %cmp.i18.not = icmp eq ptr %__begin2.i7.sroa.0.0, %_assertions
-  br i1 %cmp.i18.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit16, label %for.body.i13
+  br i1 %cmp.i18.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit16, label %for.body.i13, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit16: ; preds = %for.body.i13, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -24398,7 +24398,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit16
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24445,7 +24445,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24489,7 +24489,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24533,7 +24533,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24580,7 +24580,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24612,7 +24612,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_specifiers
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -24642,7 +24642,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24689,7 +24689,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24733,7 +24733,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24777,7 +24777,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24821,7 +24821,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24850,7 +24850,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_properties
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -24880,7 +24880,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24909,7 +24909,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_elements
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -24939,7 +24939,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -24983,7 +24983,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25030,7 +25030,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25071,7 +25071,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25118,7 +25118,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25165,7 +25165,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25206,7 +25206,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25250,7 +25250,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25294,7 +25294,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25326,7 +25326,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_attributes
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_typeArguments = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -25356,7 +25356,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25400,7 +25400,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25447,7 +25447,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25491,7 +25491,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25532,7 +25532,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25573,7 +25573,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25605,7 +25605,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_children
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_closingElement = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -25635,7 +25635,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25667,7 +25667,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_children
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_closingFragment = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -25697,7 +25697,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25738,7 +25738,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25779,7 +25779,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25820,7 +25820,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25861,7 +25861,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25902,7 +25902,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25943,7 +25943,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -25984,7 +25984,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26025,7 +26025,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26066,7 +26066,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26107,7 +26107,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26148,7 +26148,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26189,7 +26189,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26230,7 +26230,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26271,7 +26271,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26312,7 +26312,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26353,7 +26353,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26394,7 +26394,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26423,7 +26423,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.012, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_this = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -26462,7 +26462,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26509,7 +26509,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26538,7 +26538,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_rest = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -26574,7 +26574,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26621,7 +26621,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26665,7 +26665,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26712,7 +26712,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26756,7 +26756,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26800,7 +26800,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26844,7 +26844,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26891,7 +26891,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26920,7 +26920,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_types
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -26947,7 +26947,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -26994,7 +26994,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27044,7 +27044,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27088,7 +27088,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27132,7 +27132,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27161,7 +27161,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_types
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -27188,7 +27188,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27217,7 +27217,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_types
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -27244,7 +27244,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27291,7 +27291,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27338,7 +27338,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27385,7 +27385,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27438,7 +27438,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27485,7 +27485,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27514,7 +27514,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_extends
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -27544,7 +27544,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27594,7 +27594,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27647,7 +27647,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27682,7 +27682,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_extends
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -27712,7 +27712,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27762,7 +27762,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27815,7 +27815,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27850,7 +27850,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_extends
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -27880,7 +27880,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -27915,7 +27915,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.043, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_extends
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_implements = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -27930,7 +27930,7 @@ for.body.i15:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i29 = getelementptr inbounds nuw i8, ptr %__begin2.i9.sroa.0.046, i64 8
   %__begin2.i9.sroa.0.0 = load ptr, ptr %Next.i.i.i29, align 8
   %cmp.i30.not = icmp eq ptr %__begin2.i9.sroa.0.0, %_implements
-  br i1 %cmp.i30.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18, label %for.body.i15
+  br i1 %cmp.i30.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18, label %for.body.i15, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18: ; preds = %for.body.i15, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %_mixins = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -27945,7 +27945,7 @@ for.body.i25:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i32 = getelementptr inbounds nuw i8, ptr %__begin2.i19.sroa.0.049, i64 8
   %__begin2.i19.sroa.0.0 = load ptr, ptr %Next.i.i.i32, align 8
   %cmp.i33.not = icmp eq ptr %__begin2.i19.sroa.0.0, %_mixins
-  br i1 %cmp.i33.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28, label %for.body.i25
+  br i1 %cmp.i33.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28, label %for.body.i25, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28: ; preds = %for.body.i25, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18
   %_body = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -27975,7 +27975,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28022,7 +28022,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28054,7 +28054,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.012, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_rest = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -28090,7 +28090,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28134,7 +28134,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28181,7 +28181,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28213,7 +28213,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_specifiers
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -28243,7 +28243,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28287,7 +28287,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28334,7 +28334,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28378,7 +28378,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28425,7 +28425,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28472,7 +28472,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28516,7 +28516,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28545,7 +28545,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.058, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_properties
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_indexers = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -28560,7 +28560,7 @@ for.body.i15:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i39 = getelementptr inbounds nuw i8, ptr %__begin2.i9.sroa.0.061, i64 8
   %__begin2.i9.sroa.0.0 = load ptr, ptr %Next.i.i.i39, align 8
   %cmp.i40.not = icmp eq ptr %__begin2.i9.sroa.0.0, %_indexers
-  br i1 %cmp.i40.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18, label %for.body.i15
+  br i1 %cmp.i40.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18, label %for.body.i15, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18: ; preds = %for.body.i15, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %_callProperties = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -28575,7 +28575,7 @@ for.body.i25:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i42 = getelementptr inbounds nuw i8, ptr %__begin2.i19.sroa.0.064, i64 8
   %__begin2.i19.sroa.0.0 = load ptr, ptr %Next.i.i.i42, align 8
   %cmp.i43.not = icmp eq ptr %__begin2.i19.sroa.0.0, %_callProperties
-  br i1 %cmp.i43.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28, label %for.body.i25
+  br i1 %cmp.i43.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28, label %for.body.i25, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28: ; preds = %for.body.i25, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit18
   %_internalSlots = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -28590,7 +28590,7 @@ for.body.i35:                                     ; preds = %_ZN6hermes6ESTree11
   %Next.i.i.i45 = getelementptr inbounds nuw i8, ptr %__begin2.i29.sroa.0.067, i64 8
   %__begin2.i29.sroa.0.0 = load ptr, ptr %Next.i.i.i45, align 8
   %cmp.i46.not = icmp eq ptr %__begin2.i29.sroa.0.0, %_internalSlots
-  br i1 %cmp.i46.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit38, label %for.body.i35
+  br i1 %cmp.i46.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit38, label %for.body.i35, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit38: ; preds = %for.body.i35, %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit28
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -28617,7 +28617,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit38
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28667,7 +28667,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28711,7 +28711,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28758,7 +28758,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28802,7 +28802,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28855,7 +28855,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28908,7 +28908,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28949,7 +28949,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -28978,7 +28978,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29005,7 +29005,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29055,7 +29055,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29084,7 +29084,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29111,7 +29111,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29158,7 +29158,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29205,7 +29205,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29246,7 +29246,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29290,7 +29290,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29337,7 +29337,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29366,7 +29366,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_members
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29393,7 +29393,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29422,7 +29422,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_members
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29449,7 +29449,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29478,7 +29478,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_members
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29505,7 +29505,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29534,7 +29534,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_members
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -29561,7 +29561,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29605,7 +29605,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29652,7 +29652,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29699,7 +29699,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29746,7 +29746,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29793,7 +29793,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29837,7 +29837,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29878,7 +29878,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29919,7 +29919,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -29960,7 +29960,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30001,7 +30001,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30042,7 +30042,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30083,7 +30083,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30124,7 +30124,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30165,7 +30165,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30206,7 +30206,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30247,7 +30247,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30288,7 +30288,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30332,7 +30332,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30379,7 +30379,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30423,7 +30423,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30470,7 +30470,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30517,7 +30517,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30546,7 +30546,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -30579,7 +30579,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30608,7 +30608,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.010, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -30641,7 +30641,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30688,7 +30688,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30717,7 +30717,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_elementTypes
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -30744,7 +30744,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30791,7 +30791,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30838,7 +30838,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30882,7 +30882,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30932,7 +30932,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -30967,7 +30967,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_extends
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_typeParameters = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -30997,7 +30997,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31044,7 +31044,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31073,7 +31073,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_body
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31100,7 +31100,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31132,7 +31132,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_members
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31159,7 +31159,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31206,7 +31206,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31253,7 +31253,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31282,7 +31282,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_body
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31309,7 +31309,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31356,7 +31356,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31385,7 +31385,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31412,7 +31412,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31462,7 +31462,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31491,7 +31491,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31518,7 +31518,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31547,7 +31547,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_types
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31574,7 +31574,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31603,7 +31603,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_types
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31630,7 +31630,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31674,7 +31674,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31727,7 +31727,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31756,7 +31756,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.08, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_members
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %kind_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -31783,7 +31783,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31833,7 +31833,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31865,7 +31865,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.011, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -31895,7 +31895,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31924,7 +31924,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_parameters
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -31954,7 +31954,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -31983,7 +31983,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.i.sroa.0.09, i64 8
   %__begin2.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin2.i.sroa.0.0, %_params
-  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i
+  br i1 %cmp.i.not, label %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -32013,7 +32013,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %_ZN6hermes6ESTree11ESTreeVisitINS0_12_GLOBAL__N_124DebugLocationSynthesizerEEEvRT_RN4llvh12simple_ilistINS0_4NodeEJEEE.exit
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -32054,7 +32054,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -32095,7 +32095,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -32136,7 +32136,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -32180,7 +32180,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -32224,7 +32224,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -32271,7 +32271,7 @@ while.body.i.i.i:                                 ; preds = %cond.true.i.i, %whi
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.07.i.i.i, i64 -1
   %.pr.i.i.i = load i8, ptr %incdec.ptr3.i.i.i, align 1
   %cmp.not.i.i.i = icmp ugt i8 %.pr.i.i.i, -65
-  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !9
+  br i1 %cmp.not.i.i.i, label %_ZN6hermes6ESTree12_GLOBAL__N_124DebugLocationSynthesizer5leaveEPNS0_4NodeE.exit, label %while.body.i.i.i, !llvm.loop !11
 
 if.else.i:                                        ; preds = %entry
   %sourceRange_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -32325,9 +32325,12 @@ attributes #14 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNK4llvh5Twine6concatERKS0_: %agg.result"}
-!8 = distinct !{!8, !"_ZNK4llvh5Twine6concatERKS0_"}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZNK4llvh5Twine6concatERKS0_: %agg.result"}
+!10 = distinct !{!10, !"_ZNK4llvh5Twine6concatERKS0_"}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !6}

@@ -232,7 +232,7 @@ define void @_Z14CopyCalcSingleRKSt6vectorIiSaIiEE(ptr noundef nonnull readonly 
   store i32 %20, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %11, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %11, !llvm.loop !7
 
 .loopexit.loopexit:                               ; preds = %11
   %.pre = load ptr, ptr %2, align 8
@@ -249,7 +249,7 @@ define void @_Z14CopyCalcSingleRKSt6vectorIiSaIiEE(ptr noundef nonnull readonly 
   %29 = sub i64 %27, %28
   %30 = ashr exact i64 %29, 2
   %31 = icmp ugt i64 %30, %26
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -340,14 +340,14 @@ _ZNSt6vectorI12futureTricksSaIS0_EED2Ev.exit:     ; preds = %9, %11
   store i32 %30, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.backedge, label %20, !llvm.loop !8
+  br i1 %exitcond.not, label %.backedge, label %20, !llvm.loop !9
 
 34:                                               ; preds = %17
   invoke void @_Z16CalcSingleCommonii(i32 noundef %0, i32 noundef %.sroa.05.0.extract.trunc)
           to label %.backedge unwind label %.loopexit19
 
 .backedge:                                        ; preds = %20, %34
-  br label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, !llvm.loop !9
+  br label %_ZNSt6vectorI12futureTricksSaIS0_EE6resizeEm.exit, !llvm.loop !10
 
 35:                                               ; preds = %7
   %36 = load ptr, ptr %2, align 8
@@ -395,7 +395,7 @@ define noundef i32 @_Z14CalcAllBoardsNP6boardsP12solvedBoards(ptr noundef %0, pt
   store i32 0, ptr %gep, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 200
-  br i1 %exitcond.not, label %10, label %8, !llvm.loop !10
+  br i1 %exitcond.not, label %10, label %8, !llvm.loop !11
 
 10:                                               ; preds = %8
   %11 = tail call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
@@ -439,7 +439,7 @@ define i32 @CalcDDtable(ptr noundef readonly byval(%struct.ddTableDeal) align 8 
   store i32 0, ptr %8, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %9, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %9, label %7, !llvm.loop !12
 
 9:                                                ; preds = %7
   store i32 5, ptr %3, align 4
@@ -464,7 +464,7 @@ define i32 @CalcDDtable(ptr noundef readonly byval(%struct.ddTableDeal) align 8 
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %19 = add nsw i32 %.03548, -1
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 5
-  br i1 %exitcond59.not, label %20, label %14, !llvm.loop !12
+  br i1 %exitcond59.not, label %20, label %14, !llvm.loop !13
 
 20:                                               ; preds = %14
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @cparam, i64 24), align 8
@@ -483,7 +483,7 @@ define i32 @CalcDDtable(ptr noundef readonly byval(%struct.ddTableDeal) align 8 
   store i32 0, ptr %gep.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %24, label %22, !llvm.loop !10
+  br i1 %exitcond.not.i, label %24, label %22, !llvm.loop !11
 
 24:                                               ; preds = %22
   %25 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
@@ -523,12 +523,12 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %24
   store i32 %38, ptr %42, align 4
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 4
-  br i1 %exitcond63.not, label %43, label %35, !llvm.loop !13
+  br i1 %exitcond63.not, label %43, label %35, !llvm.loop !14
 
 43:                                               ; preds = %35
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 5
-  br i1 %exitcond67.not, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, label %29, !llvm.loop !14
+  br i1 %exitcond67.not, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, label %29, !llvm.loop !15
 
 _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread: ; preds = %43, %24, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit
   %.032 = phi i32 [ %27, %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit ], [ %25, %24 ], [ 1, %43 ]
@@ -553,7 +553,7 @@ define i32 @CalcAllTables(ptr noundef readonly captures(none) %0, i32 noundef %1
   %spec.select103 = add i32 %.080112, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %12, label %8, !llvm.loop !15
+  br i1 %exitcond.not, label %12, label %8, !llvm.loop !16
 
 12:                                               ; preds = %8
   br i1 %spec.select, label %13, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread
@@ -621,7 +621,7 @@ define i32 @CalcAllTables(ptr noundef readonly captures(none) %0, i32 noundef %1
   store i32 0, ptr %34, align 4
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, 3
-  br i1 %exitcond146.not, label %35, label %33, !llvm.loop !16
+  br i1 %exitcond146.not, label %35, label %33, !llvm.loop !17
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds [200 x i32], ptr %21, i64 0, i64 %28
@@ -638,12 +638,12 @@ define i32 @CalcAllTables(ptr noundef readonly captures(none) %0, i32 noundef %1
   %.2 = phi i32 [ %.189117, %25 ], [ %.191116, %35 ]
   %indvars.iv.next148 = add nsw i64 %indvars.iv147, -1
   %.not167 = icmp eq i64 %indvars.iv147, 0
-  br i1 %.not167, label %41, label %25, !llvm.loop !17
+  br i1 %.not167, label %41, label %25, !llvm.loop !18
 
 41:                                               ; preds = %40
   %indvar.next134 = add nuw nsw i64 %indvar133, 1
   %exitcond151.not = icmp eq i64 %indvar.next134, %wide.trip.count
-  br i1 %exitcond151.not, label %._crit_edge, label %.preheader109, !llvm.loop !18
+  br i1 %exitcond151.not, label %._crit_edge, label %.preheader109, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %41
   %42 = add nsw i32 %.2, 1
@@ -669,7 +669,7 @@ define i32 @CalcAllTables(ptr noundef readonly captures(none) %0, i32 noundef %1
   store i32 0, ptr %gep.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %49, label %47, !llvm.loop !10
+  br i1 %exitcond.not.i, label %49, label %47, !llvm.loop !11
 
 49:                                               ; preds = %47
   %50 = call noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) @sysdep)
@@ -723,7 +723,7 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %49
 72:                                               ; preds = %73
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %62
-  br i1 %exitcond160.not, label %._crit_edge124.us, label %65, !llvm.loop !19
+  br i1 %exitcond160.not, label %._crit_edge124.us, label %65, !llvm.loop !20
 
 73:                                               ; preds = %73, %65
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %73 ], [ 0, %65 ]
@@ -737,14 +737,14 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %49
   store i32 %76, ptr %80, align 4
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 4
-  br i1 %exitcond155.not, label %72, label %73, !llvm.loop !20
+  br i1 %exitcond155.not, label %72, label %73, !llvm.loop !21
 
 ._crit_edge124.us:                                ; preds = %72
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %81 = load i32, ptr %0, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next162, %82
-  br i1 %83, label %.preheader106.us, label %._crit_edge126, !llvm.loop !21
+  br i1 %83, label %.preheader106.us, label %._crit_edge126, !llvm.loop !22
 
 ._crit_edge126:                                   ; preds = %._crit_edge124.us
   %or.cond = icmp ult i32 %1, 4
@@ -762,7 +762,7 @@ _Z14CalcAllBoardsNP6boardsP12solvedBoards.exit:   ; preds = %49
   %88 = load i32, ptr %0, align 4
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next165, %89
-  br i1 %90, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !23
+  br i1 %90, label %.lr.ph, label %_Z14CalcAllBoardsNP6boardsP12solvedBoards.exit.thread, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %.preheader, %87
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %87 ], [ 0, %.preheader ]
@@ -796,7 +796,7 @@ define i32 @CalcAllTablesPBN(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   %12 = load i32, ptr %0, align 4
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %15, label %._crit_edge, !llvm.loop !24
+  br i1 %14, label %15, label %._crit_edge, !llvm.loop !25
 
 15:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
@@ -889,7 +889,7 @@ define linkonce_odr void @_ZNSt6vectorI12futureTricksSaIS0_EE17_M_default_append
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(216) %5, i64 216, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 216
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %24
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !26
 
 _ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
@@ -927,7 +927,7 @@ _ZNKSt6vectorI12futureTricksSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 4 dereferenceable(216) %33, i64 216, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 216
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !26
 
 _ZSt27__uninitialized_default_n_aIP12futureTricksmS0_ET_S2_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorI12futureTricksSaIS0_EE12_M_check_lenEmPKc.exit
   %40 = icmp sgt i64 %9, 0
@@ -1013,25 +1013,26 @@ attributes #16 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}

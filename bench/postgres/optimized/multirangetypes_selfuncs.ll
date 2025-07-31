@@ -745,7 +745,7 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
   %.1.i = select i1 %or.cond18.i, i32 %10, i32 %.020.i
   %17 = icmp slt i32 %.1.i, %.116.i
-  br i1 %17, label %7, label %rbound_bsearch.exit, !llvm.loop !8
+  br i1 %17, label %7, label %rbound_bsearch.exit, !llvm.loop !9
 
 rbound_bsearch.exit:                              ; preds = %7
   %18 = tail call i32 @llvm.smax.i32(i32 %.1.i, i32 0)
@@ -866,7 +866,7 @@ define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, pt
   %.116.i = select i1 %or.cond18.i, i32 %.01519.i, i32 %16
   %.1.i = select i1 %or.cond18.i, i32 %12, i32 %.020.i
   %17 = icmp slt i32 %.1.i, %.116.i
-  br i1 %17, label %9, label %rbound_bsearch.exit, !llvm.loop !8
+  br i1 %17, label %9, label %rbound_bsearch.exit, !llvm.loop !9
 
 rbound_bsearch.exit:                              ; preds = %9
   %18 = icmp slt i32 %.1.i, 0
@@ -1062,7 +1062,7 @@ get_distance.exit52:                              ; preds = %111, %115, %121, %1
   %134 = fadd double %.03854, %133
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %135 = icmp sgt i64 %indvars.iv, 0
-  br i1 %135, label %106, label %.loopexit, !llvm.loop !9
+  br i1 %135, label %106, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %get_distance.exit52, %rbound_bsearch.exit
   %.0 = phi double [ 0.000000e+00, %rbound_bsearch.exit ], [ %134, %get_distance.exit52 ]
@@ -1094,7 +1094,7 @@ define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, p
   %.116.i = select i1 %20, i32 %.01519.i, i32 %21
   %.1.i = select i1 %20, i32 %16, i32 %.020.i
   %22 = icmp slt i32 %.1.i, %.116.i
-  br i1 %22, label %13, label %rbound_bsearch.exit, !llvm.loop !8
+  br i1 %22, label %13, label %rbound_bsearch.exit, !llvm.loop !9
 
 rbound_bsearch.exit:                              ; preds = %13
   %23 = icmp slt i32 %.1.i, 0
@@ -1367,7 +1367,7 @@ get_distance.exit80:                              ; preds = %178, %173, %170, %1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %183 = icmp sgt i64 %indvars.iv, 0
   %or.cond = and i1 %87, %183
-  br i1 %or.cond, label %84, label %.loopexit, !llvm.loop !10
+  br i1 %or.cond, label %84, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %get_distance.exit80, %rbound_bsearch.exit
   %.053 = phi double [ 0.000000e+00, %rbound_bsearch.exit ], [ %182, %get_distance.exit80 ]
@@ -1411,7 +1411,7 @@ define internal fastcc double @calc_length_hist_frac(ptr noundef readonly captur
   %.115.us.i = select i1 %19, i32 %.01420.us.i, i32 %20
   %.1.us.i = select i1 %19, i32 %15, i32 %.021.us.i
   %21 = icmp slt i32 %.1.us.i, %.115.us.i
-  br i1 %21, label %.lr.ph.split.us.i, label %length_hist_bsearch.exit, !llvm.loop !11
+  br i1 %21, label %.lr.ph.split.us.i, label %length_hist_bsearch.exit, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.021.i = phi i32 [ %.1.i, %.lr.ph.split.i ], [ -1, %.lr.ph.i ]
@@ -1427,7 +1427,7 @@ define internal fastcc double @calc_length_hist_frac(ptr noundef readonly captur
   %.115.i = select i1 %29, i32 %.01420.i, i32 %28
   %.1.i = select i1 %29, i32 %24, i32 %.021.i
   %30 = icmp slt i32 %.1.i, %.115.i
-  br i1 %30, label %.lr.ph.split.i, label %length_hist_bsearch.exit, !llvm.loop !13
+  br i1 %30, label %.lr.ph.split.i, label %length_hist_bsearch.exit, !llvm.loop !14
 
 length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, %.lr.ph.split.i
   %.0.lcssa.i = phi i32 [ %.1.i, %.lr.ph.split.i ], [ %.1.us.i, %.lr.ph.split.us.i ]
@@ -1527,7 +1527,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %.2 = phi double [ %75, %71 ], [ %.081129, %66 ]
   %77 = trunc nuw i64 %indvars.iv.next to i32
   %78 = icmp sgt i32 %11, %77
-  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %78, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 79:                                               ; preds = %.lr.ph
   %80 = and i64 %indvars.iv, 4294967295
@@ -1649,12 +1649,13 @@ attributes #11 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

@@ -287,12 +287,12 @@ define internal range(i32 8, -2147483598) i32 @dissect_cesoeth(ptr noundef %0, p
 
 76:                                               ; preds = %70
   %77 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 8, i32 noundef %74)
-  %78 = load i8, ptr @has_rtp_header, align 1, !range !8, !noundef !9
+  %78 = load i8, ptr @has_rtp_header, align 1, !range !9, !noundef !10
   %79 = trunc nuw i8 %78 to i1
   br i1 %79, label %92, label %80
 
 80:                                               ; preds = %76
-  %81 = load i8, ptr @heuristic_rtp_header, align 1, !range !8, !noundef !9
+  %81 = load i8, ptr @heuristic_rtp_header, align 1, !range !9, !noundef !10
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %83, label %112
 
@@ -452,7 +452,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}

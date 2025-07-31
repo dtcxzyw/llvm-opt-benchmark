@@ -15421,7 +15421,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   %57 = load i32, ptr %55, align 8
   %.not103 = icmp eq i32 %56, %57
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  br i1 %.not103, label %43, label %.critedge, !llvm.loop !8
+  br i1 %.not103, label %43, label %.critedge, !llvm.loop !9
 
 58:                                               ; preds = %69, %.preheader126
   %indvars.iv139 = phi i64 [ %indvars.iv.next140, %69 ], [ 0, %.preheader126 ]
@@ -15451,7 +15451,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   %72 = load i32, ptr %70, align 8
   %.not99 = icmp eq i32 %71, %72
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
-  br i1 %.not99, label %58, label %.critedge, !llvm.loop !9
+  br i1 %.not99, label %58, label %.critedge, !llvm.loop !10
 
 73:                                               ; preds = %84, %.preheader129
   %indvars.iv = phi i64 [ %indvars.iv.next, %84 ], [ 0, %.preheader129 ]
@@ -15481,7 +15481,7 @@ define internal fastcc noundef zeroext i1 @_equalList(ptr noundef nonnull readon
   %87 = load i32, ptr %85, align 8
   %.not95 = icmp eq i32 %86, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not95, label %73, label %.critedge, !llvm.loop !10
+  br i1 %.not95, label %73, label %.critedge, !llvm.loop !11
 
 88:                                               ; preds = %10
   %89 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -15542,8 +15542,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

@@ -174,7 +174,7 @@ define hidden noundef i32 @mbedtls_sha3_update(ptr noundef %0, ptr noundef reado
 
 55:                                               ; preds = %54, %.lr.ph
   %56 = icmp ugt i64 %48, 7
-  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %55, %35, %3
   %.035 = phi ptr [ %1, %3 ], [ %12, %35 ], [ %47, %55 ]
@@ -219,7 +219,7 @@ define hidden noundef i32 @mbedtls_sha3_update(ptr noundef %0, ptr noundef reado
 
 80:                                               ; preds = %79, %59
   %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %._crit_edge, label %59, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %59, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %80, %.loopexit
   ret i32 0
@@ -290,7 +290,7 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   store i64 %46, ptr %47, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.preheader271, label %32, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader271, label %32, !llvm.loop !22
 
 .preheader271:                                    ; preds = %32, %.preheader271
   %indvars.iv278 = phi i64 [ %indvars.iv.next279, %.preheader271 ], [ 0, %32 ]
@@ -329,7 +329,7 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   %74 = xor i64 %73, %59
   store i64 %74, ptr %72, align 8, !tbaa !15
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, 5
-  br i1 %exitcond282.not, label %.preheader, label %.preheader271, !llvm.loop !22
+  br i1 %exitcond282.not, label %.preheader, label %.preheader271, !llvm.loop !23
 
 .preheader:                                       ; preds = %.preheader271, %.preheader
   %indvars.iv283 = phi i64 [ %indvars.iv.next284, %.preheader ], [ 1, %.preheader271 ]
@@ -382,7 +382,7 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   store i64 %117, ptr %109, align 8, !tbaa !15
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 4
   %118 = icmp samesign ult i64 %indvars.iv283, 21
-  br i1 %118, label %.preheader, label %119, !llvm.loop !23
+  br i1 %118, label %.preheader, label %119, !llvm.loop !24
 
 119:                                              ; preds = %.preheader
   %120 = load i64, ptr %3, align 8, !tbaa !15
@@ -532,7 +532,7 @@ define internal fastcc void @keccak_f1600(ptr noundef %0) unnamed_addr #6 {
   store i64 %234, ptr %0, align 8, !tbaa !15
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next287, 24
-  br i1 %exitcond289.not, label %31, label %.preheader272, !llvm.loop !24
+  br i1 %exitcond289.not, label %31, label %.preheader272, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -614,7 +614,7 @@ define hidden range(i32 -118, 1) i32 @mbedtls_sha3_finish(ptr noundef %0, ptr no
 
 53:                                               ; preds = %52, %.lr.ph
   %.not25 = icmp eq i64 %34, 0
-  br i1 %.not25, label %mbedtls_sha3_free.exit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not25, label %mbedtls_sha3_free.exit, label %.lr.ph, !llvm.loop !26
 
 mbedtls_sha3_free.exit:                           ; preds = %53, %9, %6
   %.0 = phi i32 [ -118, %6 ], [ 0, %9 ], [ 0, %53 ]
@@ -661,7 +661,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha3_self_test(i32 noundef %0) local_
   br label %3
 
 2:                                                ; preds = %10
-  br i1 %4, label %3, label %12, !llvm.loop !26
+  br i1 %4, label %3, label %12, !llvm.loop !27
 
 3:                                                ; preds = %1, %2
   %4 = phi i1 [ true, %1 ], [ false, %2 ]
@@ -856,7 +856,7 @@ default.unreachable34:                            ; preds = %20
   %13 = call i32 @mbedtls_sha3_update(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 1000)
   %14 = add nuw nsw i32 %.02233, 1
   %exitcond.not = icmp eq i32 %14, 1000
-  br i1 %exitcond.not, label %15, label %12, !llvm.loop !27
+  br i1 %exitcond.not, label %15, label %12, !llvm.loop !28
 
 15:                                               ; preds = %12
   %16 = call i32 @mbedtls_sha3_finish(ptr noundef nonnull %4, ptr noundef nonnull %6, i64 noundef 64)
@@ -969,14 +969,15 @@ attributes #13 = { nounwind willreturn memory(read) }
 !14 = !{!12, !8, i64 200}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !5, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
-!27 = distinct !{!27, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}
+!26 = distinct !{!26, !18, !19}
+!27 = distinct !{!27, !18, !19}
+!28 = distinct !{!28, !18, !19}

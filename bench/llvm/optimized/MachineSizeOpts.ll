@@ -184,7 +184,7 @@ _ZN4llvmL18isPGSOColdCodeOnlyEPNS_18ProfileSummaryInfoE.exit.thread: ; preds = %
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i, i64 8
   %.sroa.022.0.i = load ptr, ptr %49, align 8, !tbaa !149
   %.not30.i = icmp eq ptr %.sroa.022.0.i, %47
-  br i1 %.not30.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i
+  br i1 %.not30.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !150
 
 .lr.ph.i:                                         ; preds = %45, %48
   %.sroa.022.033.i = phi ptr [ %.sroa.022.0.i, %48 ], [ %.sroa.022.031.i, %45 ]
@@ -209,12 +209,12 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit: ; preds = %_ZN4llvmL18is
   br i1 %57, label %58, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
 
 58:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
-  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20PgsoCutoffSampleProfE, i64 120), align 8, !tbaa !150
+  %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20PgsoCutoffSampleProfE, i64 120), align 8, !tbaa !152
   %60 = tail call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo38isFunctionColdInCallGraphNthPercentileINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT_RT0_(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %59, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
 
 _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread: ; preds = %_ZN4llvmL18isPGSOColdCodeOnlyEPNS_18ProfileSummaryInfoE.exit.thread21, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
-  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19PgsoCutoffInstrProfE, i64 120), align 8, !tbaa !150
+  %61 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19PgsoCutoffInstrProfE, i64 120), align 8, !tbaa !152
   %62 = tail call noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo37isFunctionHotInCallGraphNthPercentileINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT_RT0_(ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef %61, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %63 = xor i1 %62, true
   br label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
@@ -227,7 +227,7 @@ _ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKN
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm21shouldOptimizeForSizeEPKNS_17MachineBasicBlockEPNS_18ProfileSummaryInfoEPKNS_25MachineBlockFrequencyInfoENS_13PGSOQueryTypeE(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !155
+  %6 = load ptr, ptr %5, align 8, !tbaa !157
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %7, i32 noundef 47) #3
   br i1 %8, label %_ZNK4llvm8Function10hasOptSizeEv.exit.thread, label %_ZNK4llvm8Function10hasOptSizeEv.exit
@@ -331,7 +331,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit: ; preds = %_ZN4llvmL18is
   br i1 %42, label %43, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
 
 43:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
-  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20PgsoCutoffSampleProfE, i64 120), align 8, !tbaa !150
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20PgsoCutoffSampleProfE, i64 120), align 8, !tbaa !152
   %45 = tail call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %0) #3
   %46 = extractvalue { i64, i8 } %45, 1
   %47 = trunc nuw i8 %46 to i1
@@ -343,7 +343,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit: ; preds = %_ZN4llvmL18is
   br label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit
 
 _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread: ; preds = %_ZN4llvmL18isPGSOColdCodeOnlyEPNS_18ProfileSummaryInfoE.exit.thread19, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
-  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19PgsoCutoffInstrProfE, i64 120), align 8, !tbaa !150
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19PgsoCutoffInstrProfE, i64 120), align 8, !tbaa !152
   %52 = tail call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %0) #3
   %53 = extractvalue { i64, i8 } %52, 1
   %54 = trunc nuw i8 %53 to i1
@@ -363,7 +363,7 @@ _ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_17MachineBasicBlockEKNS_25MachineB
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm21shouldOptimizeForSizeEPKNS_17MachineBasicBlockEPNS_18ProfileSummaryInfoEPNS_11MBFIWrapperENS_13PGSOQueryTypeE(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !155
+  %6 = load ptr, ptr %5, align 8, !tbaa !157
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136) %7, i32 noundef 47) #3
   br i1 %8, label %_ZNK4llvm8Function10hasOptSizeEv.exit.thread, label %_ZNK4llvm8Function10hasOptSizeEv.exit
@@ -378,7 +378,7 @@ _ZNK4llvm8Function10hasOptSizeEv.exit:            ; preds = %4
 
 11:                                               ; preds = %10
   %12 = tail call i64 @_ZNK4llvm11MBFIWrapper12getBlockFreqEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %0) #3
-  %13 = load ptr, ptr %2, align 8, !tbaa !201
+  %13 = load ptr, ptr %2, align 8, !tbaa !203
   %14 = tail call noundef zeroext i1 @_ZN4llvm25shouldOptimizeForSizeImplINS_14BlockFrequencyEKNS_25MachineBlockFrequencyInfoEEEbT_PNS_18ProfileSummaryInfoEPT0_NS_13PGSOQueryTypeE(i64 %12, ptr noundef %1, ptr noundef nonnull %13, i32 noundef %3)
   br label %_ZNK4llvm8Function10hasOptSizeEv.exit.thread
 
@@ -478,7 +478,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit: ; preds = %_ZN4llvmL18is
   br i1 %42, label %43, label %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread
 
 43:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
-  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20PgsoCutoffSampleProfE, i64 120), align 8, !tbaa !150
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20PgsoCutoffSampleProfE, i64 120), align 8, !tbaa !152
   %45 = tail call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo23getProfileCountFromFreqENS_14BlockFrequencyE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %0) #3
   %46 = extractvalue { i64, i8 } %45, 1
   %47 = trunc nuw i8 %46 to i1
@@ -490,7 +490,7 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit: ; preds = %_ZN4llvmL18is
   br label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_25MachineBlockFrequencyInfoEEEbNS_14BlockFrequencyEPKT_.exit
 
 _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.thread: ; preds = %_ZN4llvmL18isPGSOColdCodeOnlyEPNS_18ProfileSummaryInfoE.exit.thread21, %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit
-  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19PgsoCutoffInstrProfE, i64 120), align 8, !tbaa !150
+  %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm19PgsoCutoffInstrProfE, i64 120), align 8, !tbaa !152
   %52 = tail call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo23getProfileCountFromFreqENS_14BlockFrequencyE(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 %0) #3
   %53 = extractvalue { i64, i8 } %52, 1
   %54 = trunc nuw i8 %53 to i1
@@ -551,7 +551,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo38is
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i, i64 8
   %.sroa.025.0.i = load ptr, ptr %21, align 8, !tbaa !149
   %.not33.i = icmp eq ptr %.sroa.025.0.i, %19
-  br i1 %.not33.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
+  br i1 %.not33.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i, !llvm.loop !208
 
 .lr.ph.i:                                         ; preds = %17, %20
   %.sroa.025.036.i = phi ptr [ %.sroa.025.0.i, %20 ], [ %.sroa.025.034.i, %17 ]
@@ -621,7 +621,7 @@ _ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKN
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i, i64 8
   %.sroa.025.0.i = load ptr, ptr %25, align 8, !tbaa !149
   %.not33.not.i = icmp eq ptr %.sroa.025.0.i, %19
-  br i1 %.not33.not.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
+  br i1 %.not33.not.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i, !llvm.loop !209
 
 _ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit: ; preds = %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i, %4, %16, %17
   %.0.i = phi i1 [ true, %16 ], [ false, %4 ], [ false, %17 ], [ true, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i ], [ false, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i ]
@@ -801,59 +801,63 @@ attributes #3 = { nounwind }
 !147 = !{!"_ZTSN4llvm8Function12ProfileCountE", !38, i64 0, !148, i64 8}
 !148 = !{!"_ZTSN4llvm8Function16ProfileCountTypeE", !7, i64 0}
 !149 = !{!55, !56, i64 8}
-!150 = !{!151, !25, i64 0}
-!151 = !{!"_ZTSN4llvm2cl11opt_storageIiLb0ELb0EEE", !25, i64 0, !152, i64 8}
-!152 = !{!"_ZTSN4llvm2cl11OptionValueIiEE", !153, i64 0}
-!153 = !{!"_ZTSN4llvm2cl15OptionValueBaseIiLb0EEE", !154, i64 0}
-!154 = !{!"_ZTSN4llvm2cl15OptionValueCopyIiEE", !132, i64 0, !25, i64 8, !58, i64 12}
-!155 = !{!156, !160, i64 32}
-!156 = !{!"_ZTSN4llvm17MachineBasicBlockE", !157, i64 0, !159, i64 16, !25, i64 24, !25, i64 28, !160, i64 32, !161, i64 40, !173, i64 64, !178, i64 112, !180, i64 144, !185, i64 168, !189, i64 184, !57, i64 208, !25, i64 212, !58, i64 216, !58, i64 217, !159, i64 224, !58, i64 232, !58, i64 233, !58, i64 234, !58, i64 235, !58, i64 236, !194, i64 240, !198, i64 252, !58, i64 260, !58, i64 261, !58, i64 262, !200, i64 264, !200, i64 272, !200, i64 280}
-!157 = !{!"_ZTSN4llvm22ilist_node_with_parentINS_17MachineBasicBlockENS_15MachineFunctionEJEEE", !158, i64 0}
-!158 = !{!"_ZTSN4llvm10ilist_nodeINS_17MachineBasicBlockEJEEE", !53, i64 0}
-!159 = !{!"p1 _ZTSN4llvm10BasicBlockE", !6, i64 0}
-!160 = !{!"p1 _ZTSN4llvm15MachineFunctionE", !6, i64 0}
-!161 = !{!"_ZTSN4llvm6iplistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !162, i64 0}
-!162 = !{!"_ZTSN4llvm11iplist_implINS_12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEENS_12ilist_traitsIS2_EEEE", !163, i64 0, !165, i64 8}
-!163 = !{!"_ZTSN4llvm12ilist_traitsINS_12MachineInstrEEE", !164, i64 0}
-!164 = !{!"p1 _ZTSN4llvm17MachineBasicBlockE", !6, i64 0}
-!165 = !{!"_ZTSN4llvm12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !166, i64 0}
-!166 = !{!"_ZTSN4llvm14ilist_sentinelINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEEEE", !167, i64 0}
-!167 = !{!"_ZTSN4llvm15ilist_node_implINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEEEE", !168, i64 0}
-!168 = !{!"_ZTSN4llvm15ilist_node_baseILb1EvEE", !169, i64 0}
-!169 = !{!"_ZTSN4llvm12ilist_detail18node_base_prevnextINS_15ilist_node_baseILb1EvEELb1EEE", !170, i64 0, !172, i64 8}
-!170 = !{!"_ZTSN4llvm14PointerIntPairIPNS_15ilist_node_baseILb1EvEELj1EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !171, i64 0}
-!171 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_15ilist_node_baseILb1EvEEEE", !7, i64 0}
-!172 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb1EvEE", !6, i64 0}
-!173 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EEE", !174, i64 0, !177, i64 16}
-!174 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEEE", !175, i64 0}
-!175 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EEE", !176, i64 0}
-!176 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_17MachineBasicBlockEvEE", !32, i64 0}
-!177 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj4EEE", !7, i64 0}
-!178 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EEE", !174, i64 0, !179, i64 16}
-!179 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj2EEE", !7, i64 0}
-!180 = !{!"_ZTSSt6vectorIN4llvm17BranchProbabilityESaIS1_EE", !181, i64 0}
-!181 = !{!"_ZTSSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE", !182, i64 0}
-!182 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE12_Vector_implE", !183, i64 0}
-!183 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE17_Vector_impl_dataE", !184, i64 0, !184, i64 8, !184, i64 16}
-!184 = !{!"p1 _ZTSN4llvm17BranchProbabilityE", !6, i64 0}
-!185 = !{!"_ZTSSt8optionalImE", !186, i64 0}
-!186 = !{!"_ZTSSt14_Optional_baseImLb1ELb1EE", !187, i64 0}
-!187 = !{!"_ZTSSt17_Optional_payloadImLb1ELb1ELb1EE", !188, i64 0}
-!188 = !{!"_ZTSSt22_Optional_payload_baseImE", !7, i64 0, !58, i64 8}
-!189 = !{!"_ZTSSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !190, i64 0}
-!190 = !{!"_ZTSSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !191, i64 0}
-!191 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_Vector_implE", !192, i64 0}
-!192 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_Vector_impl_dataE", !193, i64 0, !193, i64 8, !193, i64 16}
-!193 = !{!"p1 _ZTSN4llvm17MachineBasicBlock16RegisterMaskPairE", !6, i64 0}
-!194 = !{!"_ZTSSt8optionalIN4llvm10UniqueBBIDEE", !195, i64 0}
-!195 = !{!"_ZTSSt14_Optional_baseIN4llvm10UniqueBBIDELb1ELb1EE", !196, i64 0}
-!196 = !{!"_ZTSSt17_Optional_payloadIN4llvm10UniqueBBIDELb1ELb1ELb1EE", !197, i64 0}
-!197 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm10UniqueBBIDEE", !7, i64 0, !58, i64 8}
-!198 = !{!"_ZTSN4llvm12MBBSectionIDE", !199, i64 0, !25, i64 4}
-!199 = !{!"_ZTSN4llvm12MBBSectionID11SectionTypeE", !7, i64 0}
-!200 = !{!"p1 _ZTSN4llvm8MCSymbolE", !6, i64 0}
-!201 = !{!202, !203, i64 0}
-!202 = !{!"_ZTSN4llvm11MBFIWrapperE", !203, i64 0, !204, i64 8}
-!203 = !{!"p1 _ZTSN4llvm25MachineBlockFrequencyInfoE", !6, i64 0}
-!204 = !{!"_ZTSN4llvm8DenseMapIPKNS_17MachineBasicBlockENS_14BlockFrequencyENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEE", !205, i64 0, !25, i64 8, !25, i64 12, !25, i64 16}
-!205 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_17MachineBasicBlockENS_14BlockFrequencyEEE", !6, i64 0}
+!150 = distinct !{!150, !151}
+!151 = !{!"llvm.loop.estimated_trip_count"}
+!152 = !{!153, !25, i64 0}
+!153 = !{!"_ZTSN4llvm2cl11opt_storageIiLb0ELb0EEE", !25, i64 0, !154, i64 8}
+!154 = !{!"_ZTSN4llvm2cl11OptionValueIiEE", !155, i64 0}
+!155 = !{!"_ZTSN4llvm2cl15OptionValueBaseIiLb0EEE", !156, i64 0}
+!156 = !{!"_ZTSN4llvm2cl15OptionValueCopyIiEE", !132, i64 0, !25, i64 8, !58, i64 12}
+!157 = !{!158, !162, i64 32}
+!158 = !{!"_ZTSN4llvm17MachineBasicBlockE", !159, i64 0, !161, i64 16, !25, i64 24, !25, i64 28, !162, i64 32, !163, i64 40, !175, i64 64, !180, i64 112, !182, i64 144, !187, i64 168, !191, i64 184, !57, i64 208, !25, i64 212, !58, i64 216, !58, i64 217, !161, i64 224, !58, i64 232, !58, i64 233, !58, i64 234, !58, i64 235, !58, i64 236, !196, i64 240, !200, i64 252, !58, i64 260, !58, i64 261, !58, i64 262, !202, i64 264, !202, i64 272, !202, i64 280}
+!159 = !{!"_ZTSN4llvm22ilist_node_with_parentINS_17MachineBasicBlockENS_15MachineFunctionEJEEE", !160, i64 0}
+!160 = !{!"_ZTSN4llvm10ilist_nodeINS_17MachineBasicBlockEJEEE", !53, i64 0}
+!161 = !{!"p1 _ZTSN4llvm10BasicBlockE", !6, i64 0}
+!162 = !{!"p1 _ZTSN4llvm15MachineFunctionE", !6, i64 0}
+!163 = !{!"_ZTSN4llvm6iplistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !164, i64 0}
+!164 = !{!"_ZTSN4llvm11iplist_implINS_12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEENS_12ilist_traitsIS2_EEEE", !165, i64 0, !167, i64 8}
+!165 = !{!"_ZTSN4llvm12ilist_traitsINS_12MachineInstrEEE", !166, i64 0}
+!166 = !{!"p1 _ZTSN4llvm17MachineBasicBlockE", !6, i64 0}
+!167 = !{!"_ZTSN4llvm12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_trackingILb1EEEEEE", !168, i64 0}
+!168 = !{!"_ZTSN4llvm14ilist_sentinelINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEEEE", !169, i64 0}
+!169 = !{!"_ZTSN4llvm15ilist_node_implINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEEEE", !170, i64 0}
+!170 = !{!"_ZTSN4llvm15ilist_node_baseILb1EvEE", !171, i64 0}
+!171 = !{!"_ZTSN4llvm12ilist_detail18node_base_prevnextINS_15ilist_node_baseILb1EvEELb1EEE", !172, i64 0, !174, i64 8}
+!172 = !{!"_ZTSN4llvm14PointerIntPairIPNS_15ilist_node_baseILb1EvEELj1EjNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEE", !173, i64 0}
+!173 = !{!"_ZTSN4llvm6detail13PunnedPointerIPNS_15ilist_node_baseILb1EvEEEE", !7, i64 0}
+!174 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb1EvEE", !6, i64 0}
+!175 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj4EEE", !176, i64 0, !179, i64 16}
+!176 = !{!"_ZTSN4llvm15SmallVectorImplIPNS_17MachineBasicBlockEEE", !177, i64 0}
+!177 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EEE", !178, i64 0}
+!178 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPNS_17MachineBasicBlockEvEE", !32, i64 0}
+!179 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj4EEE", !7, i64 0}
+!180 = !{!"_ZTSN4llvm11SmallVectorIPNS_17MachineBasicBlockELj2EEE", !176, i64 0, !181, i64 16}
+!181 = !{!"_ZTSN4llvm18SmallVectorStorageIPNS_17MachineBasicBlockELj2EEE", !7, i64 0}
+!182 = !{!"_ZTSSt6vectorIN4llvm17BranchProbabilityESaIS1_EE", !183, i64 0}
+!183 = !{!"_ZTSSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE", !184, i64 0}
+!184 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE12_Vector_implE", !185, i64 0}
+!185 = !{!"_ZTSNSt12_Vector_baseIN4llvm17BranchProbabilityESaIS1_EE17_Vector_impl_dataE", !186, i64 0, !186, i64 8, !186, i64 16}
+!186 = !{!"p1 _ZTSN4llvm17BranchProbabilityE", !6, i64 0}
+!187 = !{!"_ZTSSt8optionalImE", !188, i64 0}
+!188 = !{!"_ZTSSt14_Optional_baseImLb1ELb1EE", !189, i64 0}
+!189 = !{!"_ZTSSt17_Optional_payloadImLb1ELb1ELb1EE", !190, i64 0}
+!190 = !{!"_ZTSSt22_Optional_payload_baseImE", !7, i64 0, !58, i64 8}
+!191 = !{!"_ZTSSt6vectorIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !192, i64 0}
+!192 = !{!"_ZTSSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE", !193, i64 0}
+!193 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE12_Vector_implE", !194, i64 0}
+!194 = !{!"_ZTSNSt12_Vector_baseIN4llvm17MachineBasicBlock16RegisterMaskPairESaIS2_EE17_Vector_impl_dataE", !195, i64 0, !195, i64 8, !195, i64 16}
+!195 = !{!"p1 _ZTSN4llvm17MachineBasicBlock16RegisterMaskPairE", !6, i64 0}
+!196 = !{!"_ZTSSt8optionalIN4llvm10UniqueBBIDEE", !197, i64 0}
+!197 = !{!"_ZTSSt14_Optional_baseIN4llvm10UniqueBBIDELb1ELb1EE", !198, i64 0}
+!198 = !{!"_ZTSSt17_Optional_payloadIN4llvm10UniqueBBIDELb1ELb1ELb1EE", !199, i64 0}
+!199 = !{!"_ZTSSt22_Optional_payload_baseIN4llvm10UniqueBBIDEE", !7, i64 0, !58, i64 8}
+!200 = !{!"_ZTSN4llvm12MBBSectionIDE", !201, i64 0, !25, i64 4}
+!201 = !{!"_ZTSN4llvm12MBBSectionID11SectionTypeE", !7, i64 0}
+!202 = !{!"p1 _ZTSN4llvm8MCSymbolE", !6, i64 0}
+!203 = !{!204, !205, i64 0}
+!204 = !{!"_ZTSN4llvm11MBFIWrapperE", !205, i64 0, !206, i64 8}
+!205 = !{!"p1 _ZTSN4llvm25MachineBlockFrequencyInfoE", !6, i64 0}
+!206 = !{!"_ZTSN4llvm8DenseMapIPKNS_17MachineBasicBlockENS_14BlockFrequencyENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEE", !207, i64 0, !25, i64 8, !25, i64 12, !25, i64 16}
+!207 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_17MachineBasicBlockENS_14BlockFrequencyEEE", !6, i64 0}
+!208 = distinct !{!208, !151}
+!209 = distinct !{!209, !151}

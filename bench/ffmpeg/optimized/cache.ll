@@ -498,7 +498,7 @@ define internal i64 @cache_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
   %spec.select.us132 = trunc nuw nsw i64 %spec.select125.us131 to i32
   %75 = call i32 @cache_read(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %spec.select.us132)
   %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %.split.split.split.us, label %.thread119.loopexit.split.loop.exit145, !llvm.loop !42
+  br i1 %76, label %.split.split.split.us, label %.thread119.loopexit.split.loop.exit145, !llvm.loop !43
 
 .split128.us:                                     ; preds = %.split.us
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -728,7 +728,8 @@ attributes #11 = { noreturn nounwind }
 !36 = !{!18, !18, i64 0}
 !37 = !{!15, !15, i64 0}
 !38 = !{!17, !13, i64 96}
-!39 = distinct !{!39, !40, !41}
+!39 = distinct !{!39, !40, !41, !42}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !40, !41}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !40, !41, !42}

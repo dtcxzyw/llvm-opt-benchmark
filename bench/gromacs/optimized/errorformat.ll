@@ -191,7 +191,7 @@ define void @_ZN3gmx8internal26printFatalErrorMessageLineEP8_IO_FILEPKci(ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 %.01824
   %20 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %2, ptr noundef nonnull @.str.9, i32 noundef %.0.lcssa, ptr noundef nonnull %19) #11
   %21 = icmp ult i64 %7, %6
-  br i1 %21, label %.lr.ph25, label %._crit_edge, !llvm.loop !22
+  br i1 %21, label %.lr.ph25, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.critedge, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
@@ -262,6 +262,7 @@ attributes #13 = { nounwind willreturn memory(read) }
 !17 = !{!"_ZTSN3gmx23TextLineWrapperSettingsE", !18, i64 0, !18, i64 4, !18, i64 8, !19, i64 12, !12, i64 13}
 !18 = !{!"int", !12, i64 0}
 !19 = !{!"bool", !12, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}

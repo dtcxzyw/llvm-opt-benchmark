@@ -22,7 +22,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @cli_strlcpy(ptr
   %8 = getelementptr inbounds nuw i8, ptr %.115, i64 1
   store i8 %7, ptr %.115, align 1, !tbaa !3
   %9 = icmp eq i8 %7, 0
-  br i1 %9, label %.loopexit, label %.preheader
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !6
 
 10:                                               ; preds = %.preheader
   store i8 0, ptr %.115, align 1, !tbaa !3
@@ -58,3 +58,5 @@ attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

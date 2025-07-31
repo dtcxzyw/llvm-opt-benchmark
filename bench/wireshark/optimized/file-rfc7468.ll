@@ -156,7 +156,7 @@ define internal i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef
   %41 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.098162, i32 noundef %40)
   %42 = load i32, ptr %5, align 4
   %43 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %42)
-  br i1 %43, label %.lr.ph, label %line_is_eb.exit, !llvm.loop !8
+  br i1 %43, label %.lr.ph, label %line_is_eb.exit, !llvm.loop !9
 
 line_is_eb.exit:                                  ; preds = %.loopexit141, %27, %33, %35, %4
   %.098157 = phi i32 [ 0, %4 ], [ %.098162, %35 ], [ %42, %.loopexit141 ], [ %.098162, %27 ], [ %.098162, %33 ]
@@ -208,7 +208,7 @@ line_is_eb.exit:                                  ; preds = %.loopexit141, %27, 
   %66 = add nuw nsw i32 %.0816.i, 1
   %67 = getelementptr i8, ptr %.0915.i, i64 1
   %exitcond.not.i107 = icmp eq i32 %66, %58
-  br i1 %exitcond.not.i107, label %.loopexit139, label %.lr.ph.i106, !llvm.loop !9
+  br i1 %exitcond.not.i107, label %.loopexit139, label %.lr.ph.i106, !llvm.loop !10
 
 .loopexit139:                                     ; preds = %65, %62
   %68 = load i32, ptr %5, align 4
@@ -216,7 +216,7 @@ line_is_eb.exit:                                  ; preds = %.loopexit141, %27, 
   %70 = call ptr @proto_tree_add_format_text(ptr noundef %11, ptr noundef %0, i32 noundef %.199174, i32 noundef %69)
   %.199 = load i32, ptr %5, align 4
   %71 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %.199)
-  br i1 %71, label %.lr.ph175, label %line_is_blank.exit, !llvm.loop !10
+  br i1 %71, label %.lr.ph175, label %line_is_blank.exit, !llvm.loop !11
 
 line_is_blank.exit:                               ; preds = %.loopexit139, %.lr.ph.i106, %line_is_eb.exit
   %.199154 = phi i32 [ %.199173, %line_is_eb.exit ], [ %.199174, %.lr.ph.i106 ], [ %.199, %.loopexit139 ]
@@ -306,7 +306,7 @@ line_is_blank.exit:                               ; preds = %.loopexit139, %.lr.
   %109 = add i32 %.0100180, %108
   %110 = load i32, ptr %5, align 4
   %111 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %110)
-  br i1 %111, label %.lr.ph182, label %line_is_eb.exit120, !llvm.loop !11
+  br i1 %111, label %.lr.ph182, label %line_is_eb.exit120, !llvm.loop !12
 
 line_is_eb.exit120:                               ; preds = %.loopexit, %83, %89, %91
   %.0102151 = phi ptr [ %.0102178, %91 ], [ %104, %.loopexit ], [ %.0102178, %83 ], [ %.0102178, %89 ]
@@ -438,7 +438,7 @@ define internal noundef zeroext i1 @dissect_rfc7468_heur(ptr noundef %0, ptr nou
   %28 = load i32, ptr %5, align 4
   %29 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %29, 20
-  br i1 %exitcond.not, label %line_is_eb.exit, label %6, !llvm.loop !12
+  br i1 %exitcond.not, label %line_is_eb.exit, label %6, !llvm.loop !13
 
 .loopexit25:                                      ; preds = %17, %22, %24
   %30 = call i32 @dissect_rfc7468(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
@@ -529,10 +529,11 @@ attributes #6 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

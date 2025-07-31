@@ -926,27 +926,27 @@ define internal fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(p
 9:                                                ; preds = %7, %20
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %20 ]
   %10 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL19gCommonICUDataArray, i64 0, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !31
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL19gCommonICUDataArray, i64 0, i64 %indvars.iv
   %14 = trunc nuw nsw i64 %indvars.iv to i32
-  store ptr %4, ptr %13, align 8, !tbaa !30
+  store ptr %4, ptr %13, align 8, !tbaa !31
   br label %.loopexit
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !32
-  %18 = load ptr, ptr %8, align 8, !tbaa !32
+  %17 = load ptr, ptr %16, align 8, !tbaa !33
+  %18 = load ptr, ptr %8, align 8, !tbaa !33
   %19 = icmp eq ptr %17, %18
   br i1 %19, label %.loopexit.loopexit.split.loop.exit35, label %20
 
 20:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !35
 
 .loopexit.loopexit.split.loop.exit35:             ; preds = %15
   %21 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1033,7 +1033,7 @@ define internal fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10
 12:                                               ; preds = %8
   %13 = tail call ptr @UDataMemory_createNewInstance_77(ptr noundef nonnull %2)
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !35
+  store ptr %13, ptr %14, align 8, !tbaa !36
   %15 = load i32, ptr %2, align 4, !tbaa !13
   %16 = icmp slt i32 %15, 1
   br i1 %16, label %18, label %17
@@ -1053,13 +1053,13 @@ define internal fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10
   %sext = add i64 %23, 4294967296
   %24 = ashr exact i64 %sext, 32
   %25 = tail call noalias ptr @uprv_malloc_77(i64 noundef %24) #16
-  store ptr %25, ptr %9, align 8, !tbaa !37
+  store ptr %25, ptr %9, align 8, !tbaa !38
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %18
   store i32 7, ptr %2, align 4, !tbaa !13
-  %28 = load ptr, ptr %14, align 8, !tbaa !35
+  %28 = load ptr, ptr %14, align 8, !tbaa !36
   tail call void @uprv_free_77(ptr noundef %28)
   tail call void @uprv_free_77(ptr noundef nonnull %9)
   br label %48
@@ -1076,7 +1076,7 @@ define internal fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10
   br label %36
 
 33:                                               ; preds = %29
-  %34 = load ptr, ptr %9, align 8, !tbaa !37
+  %34 = load ptr, ptr %9, align 8, !tbaa !38
   %35 = call ptr @uhash_put_77(ptr noundef %5, ptr noundef %34, ptr noundef nonnull %9, ptr noundef nonnull %4)
   br label %36
 
@@ -1090,20 +1090,20 @@ define internal fastcc noundef ptr @_ZL19udata_cacheDataItemPKcP11UDataMemoryP10
 
 40:                                               ; preds = %36
   store i32 %37, ptr %2, align 4, !tbaa !13
-  %41 = load ptr, ptr %9, align 8, !tbaa !37
+  %41 = load ptr, ptr %9, align 8, !tbaa !38
   call void @uprv_free_77(ptr noundef %41)
-  %42 = load ptr, ptr %14, align 8, !tbaa !35
+  %42 = load ptr, ptr %14, align 8, !tbaa !36
   call void @uprv_free_77(ptr noundef %42)
   call void @uprv_free_77(ptr noundef nonnull %9)
   br i1 %.not38, label %48, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !35
+  %45 = load ptr, ptr %44, align 8, !tbaa !36
   br label %48
 
 46:                                               ; preds = %36
-  %47 = load ptr, ptr %14, align 8, !tbaa !35
+  %47 = load ptr, ptr %14, align 8, !tbaa !36
   br label %48
 
 48:                                               ; preds = %43, %40, %3, %46, %27, %17, %11
@@ -1537,7 +1537,7 @@ _ZL14isTimeZoneFilePKcS0_.exit.thread:            ; preds = %162, %165, %168, %_
   br label %229
 
 _ZL14isTimeZoneFilePKcS0_.exit.thread210:         ; preds = %159, %178, %173, %_ZL14isTimeZoneFilePKcS0_.exit, %158
-  %183 = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !38
+  %183 = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !39
   %184 = icmp eq i32 %183, 2
   br i1 %184, label %185, label %192
 
@@ -1556,7 +1556,7 @@ _ZL14isTimeZoneFilePKcS0_.exit.thread210:         ; preds = %159, %178, %173, %_
   br i1 %191, label %._crit_edge, label %.thread
 
 ._crit_edge:                                      ; preds = %189
-  %.pre = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !38
+  %.pre = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !39
   br label %192
 
 192:                                              ; preds = %._crit_edge, %_ZL14isTimeZoneFilePKcS0_.exit.thread210
@@ -1593,7 +1593,7 @@ _ZL14isTimeZoneFilePKcS0_.exit.thread210:         ; preds = %159, %178, %173, %_
   br i1 %206, label %.thread-pre-split_crit_edge, label %.thread
 
 .thread-pre-split_crit_edge:                      ; preds = %204
-  %.pr.pre = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !38
+  %.pr.pre = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !39
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %199, %196, %.thread-pre-split_crit_edge, %192
@@ -1616,7 +1616,7 @@ thread-pre-split:                                 ; preds = %199, %196, %.thread
   br i1 %214, label %._crit_edge218, label %.thread
 
 ._crit_edge218:                                   ; preds = %212
-  %.pre219 = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !38
+  %.pre219 = load i32, ptr @_ZL15gDataFileAccess, align 4, !tbaa !39
   br label %215
 
 215:                                              ; preds = %._crit_edge218, %thread-pre-split
@@ -1734,19 +1734,19 @@ define void @udata_getInfo_77(ptr noundef readonly captures(address_is_null) %0,
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   %.not20 = icmp eq ptr %6, null
   br i1 %.not20, label %24, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = tail call zeroext i16 @udata_getInfoSize_77(ptr noundef nonnull %8)
-  %10 = load i16, ptr %1, align 2, !tbaa !40
+  %10 = load i16, ptr %1, align 2, !tbaa !41
   %11 = icmp ugt i16 %10, %9
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  store i16 %9, ptr %1, align 2, !tbaa !40
+  store i16 %9, ptr %1, align 2, !tbaa !41
   br label %13
 
 13:                                               ; preds = %7, %12
@@ -1757,18 +1757,18 @@ define void @udata_getInfo_77(ptr noundef readonly captures(address_is_null) %0,
   %18 = add nsw i64 %17, -2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %15, ptr nonnull align 2 %16, i64 %18, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %20 = load i8, ptr %19, align 2, !tbaa !43
+  %20 = load i8, ptr %19, align 2, !tbaa !44
   %.not21 = icmp eq i8 %20, 0
   br i1 %.not21, label %25, label %21
 
 21:                                               ; preds = %13
-  %22 = load i16, ptr %16, align 2, !tbaa !44
+  %22 = load i16, ptr %16, align 2, !tbaa !45
   %23 = tail call i16 @llvm.bswap.i16(i16 %22)
-  store i16 %23, ptr %15, align 2, !tbaa !44
+  store i16 %23, ptr %15, align 2, !tbaa !45
   br label %25
 
 24:                                               ; preds = %4, %3
-  store i16 0, ptr %1, align 2, !tbaa !40
+  store i16 0, ptr %1, align 2, !tbaa !41
   br label %25
 
 25:                                               ; preds = %13, %21, %24, %2
@@ -1779,7 +1779,7 @@ declare zeroext i16 @udata_getInfoSize_77(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @udata_setFileAccess_77(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #11 {
-  store i32 %0, ptr @_ZL15gDataFileAccess, align 4, !tbaa !38
+  store i32 %0, ptr @_ZL15gDataFileAccess, align 4, !tbaa !39
   ret void
 }
 
@@ -1798,13 +1798,13 @@ declare void @ucln_common_registerCleanup_77(i32 noundef, ptr noundef) local_unn
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZL13udata_cleanupv() #1 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr @_ZL16gCommonDataCache, align 8, !tbaa !45
+  %1 = load ptr, ptr @_ZL16gCommonDataCache, align 8, !tbaa !46
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void @uhash_close_77(ptr noundef nonnull %1)
-  store ptr null, ptr @_ZL16gCommonDataCache, align 8, !tbaa !45
+  store ptr null, ptr @_ZL16gCommonDataCache, align 8, !tbaa !46
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -1814,16 +1814,16 @@ define internal noundef signext i8 @_ZL13udata_cleanupv() #1 personality ptr @__
 4:                                                ; preds = %3, %7
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %7 ]
   %5 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL19gCommonICUDataArray, i64 0, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %.not7 = icmp eq ptr %6, null
   br i1 %.not7, label %.critedge, label %7
 
 7:                                                ; preds = %4
   tail call void @udata_close_77(ptr noundef nonnull %6)
-  store ptr null, ptr %5, align 8, !tbaa !30
+  store ptr null, ptr %5, align 8, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.critedge, label %4, !llvm.loop !47
+  br i1 %exitcond.not, label %.critedge, label %4, !llvm.loop !48
 
 .critedge:                                        ; preds = %7, %4
   store atomic i32 0, ptr @_ZL26gHaveTriedToLoadCommonData.0 seq_cst, align 4
@@ -1852,7 +1852,7 @@ define internal fastcc noundef ptr @_ZL18udata_getHashTableR10UErrorCode(ptr nou
 
 8:                                                ; preds = %6
   %9 = tail call ptr @uhash_open_77(ptr noundef nonnull @uhash_hashChars_77, ptr noundef nonnull @uhash_compareChars_77, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr %9, ptr @_ZL16gCommonDataCache, align 8, !tbaa !45
+  store ptr %9, ptr @_ZL16gCommonDataCache, align 8, !tbaa !46
   %10 = load i32, ptr %0, align 4, !tbaa !13
   %11 = icmp slt i32 %10, 1
   br i1 %11, label %12, label %_ZL19udata_initHashTableR10UErrorCode.exit
@@ -1865,12 +1865,12 @@ define internal fastcc noundef ptr @_ZL18udata_getHashTableR10UErrorCode(ptr nou
 
 _ZL19udata_initHashTableR10UErrorCode.exit:       ; preds = %8, %12
   %14 = phi i32 [ %10, %8 ], [ %.pre, %12 ]
-  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL24gCommonDataCacheInitOnce, i64 4), align 4, !tbaa !48
+  store i32 %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL24gCommonDataCacheInitOnce, i64 4), align 4, !tbaa !49
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) @_ZL24gCommonDataCacheInitOnce)
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 15:                                               ; preds = %6, %4
-  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL24gCommonDataCacheInitOnce, i64 4), align 4, !tbaa !48
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL24gCommonDataCacheInitOnce, i64 4), align 4, !tbaa !49
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit, label %18
 
@@ -1879,7 +1879,7 @@ _ZL19udata_initHashTableR10UErrorCode.exit:       ; preds = %8, %12
   br label %_ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit
 
 _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %1, %_ZL19udata_initHashTableR10UErrorCode.exit, %15, %18
-  %19 = load ptr, ptr @_ZL16gCommonDataCache, align 8, !tbaa !45
+  %19 = load ptr, ptr @_ZL16gCommonDataCache, align 8, !tbaa !46
   ret ptr %19
 }
 
@@ -1905,9 +1905,9 @@ declare ptr @uhash_setValueDeleter_77(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL24DataCacheElement_deleterPv(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   tail call void @udata_close_77(ptr noundef %3)
-  %4 = load ptr, ptr %0, align 8, !tbaa !37
+  %4 = load ptr, ptr %0, align 8, !tbaa !38
   tail call void @uprv_free_77(ptr noundef %4)
   tail call void @uprv_free_77(ptr noundef nonnull %0)
   ret void
@@ -1945,20 +1945,20 @@ define internal fastcc noundef ptr @_ZL25doLoadFromIndividualFilesPKcS0_S0_S0_S0
   br i1 %.not24.us, label %.split.us.backedge, label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %13, align 8, !tbaa !32
+  %21 = load ptr, ptr %13, align 8, !tbaa !33
   %22 = load i32, ptr %9, align 4, !tbaa !13
   %23 = icmp slt i32 %22, 1
   br i1 %23, label %24, label %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread.us
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 2
-  %26 = load i8, ptr %25, align 2, !tbaa !52
+  %26 = load i8, ptr %25, align 2, !tbaa !53
   %27 = icmp eq i8 %26, -38
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 3
-  %30 = load i8, ptr %29, align 1, !tbaa !55
+  %30 = load i8, ptr %29, align 1, !tbaa !56
   %31 = icmp eq i8 %30, 39
   br i1 %31, label %32, label %34
 
@@ -1989,7 +1989,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %40, %19
-  br label %.split.us, !llvm.loop !56
+  br label %.split.us, !llvm.loop !57
 
 .split31.us:                                      ; preds = %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread.us, %32, %17, %.split.us
   %41 = landingpad { ptr, i32 }
@@ -2013,20 +2013,20 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   br i1 %.not24, label %.split.backedge, label %47
 
 47:                                               ; preds = %46
-  %48 = load ptr, ptr %13, align 8, !tbaa !32
+  %48 = load ptr, ptr %13, align 8, !tbaa !33
   %49 = load i32, ptr %9, align 4, !tbaa !13
   %50 = icmp slt i32 %49, 1
   br i1 %50, label %51, label %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  %53 = load i8, ptr %52, align 2, !tbaa !52
+  %53 = load i8, ptr %52, align 2, !tbaa !53
   %54 = icmp eq i8 %53, -38
   br i1 %54, label %55, label %66
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 3
-  %57 = load i8, ptr %56, align 1, !tbaa !55
+  %57 = load i8, ptr %56, align 1, !tbaa !56
   %58 = icmp eq i8 %57, 39
   br i1 %58, label %59, label %66
 
@@ -2056,15 +2056,15 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   %.lcssa41.sink = phi ptr [ %33, %.noexc27.us ], [ %63, %.noexc27 ]
   %.lcssa40.sink = phi ptr [ %21, %.noexc27.us ], [ %48, %.noexc27 ]
   %67 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 8
-  store ptr %.lcssa40.sink, ptr %67, align 8, !tbaa !32
+  store ptr %.lcssa40.sink, ptr %67, align 8, !tbaa !33
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !58
+  %69 = load ptr, ptr %68, align 8, !tbaa !59
   %70 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 32
-  store ptr %69, ptr %70, align 8, !tbaa !58
+  store ptr %69, ptr %70, align 8, !tbaa !59
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %72 = load ptr, ptr %71, align 8, !tbaa !59
+  %72 = load ptr, ptr %71, align 8, !tbaa !60
   %73 = getelementptr inbounds nuw i8, ptr %.lcssa41.sink, i64 40
-  store ptr %72, ptr %73, align 8, !tbaa !59
+  store ptr %72, ptr %73, align 8, !tbaa !60
   br label %.loopexit
 
 .split31:                                         ; preds = %62, %59, %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit.thread, %44, %.split
@@ -2098,7 +2098,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %82, %46
-  br label %.split, !llvm.loop !60
+  br label %.split, !llvm.loop !61
 
 .loopexit:                                        ; preds = %79, %43, %37, %16, %.split33.us
   %.0 = phi ptr [ %.lcssa41.sink, %.split33.us ], [ null, %16 ], [ null, %37 ], [ null, %43 ], [ null, %79 ]
@@ -2139,8 +2139,8 @@ define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_
 
 20:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #15
-  %21 = load ptr, ptr %16, align 8, !tbaa !61
-  %22 = load ptr, ptr %21, align 8, !tbaa !62
+  %21 = load ptr, ptr %16, align 8, !tbaa !62
+  %22 = load ptr, ptr %21, align 8, !tbaa !63
   %23 = call noundef ptr %22(ptr noundef nonnull %16, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %7)
   %.not41 = icmp eq ptr %23, null
   br i1 %.not41, label %.thread, label %24
@@ -2152,13 +2152,13 @@ define internal fastcc noundef ptr @_ZL20doLoadFromCommonDataaPKcS0_S0_S0_S0_S0_
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  %29 = load i8, ptr %28, align 2, !tbaa !52
+  %29 = load i8, ptr %28, align 2, !tbaa !53
   %30 = icmp eq i8 %29, -38
   br i1 %30, label %31, label %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 3
-  %33 = load i8, ptr %32, align 1, !tbaa !55
+  %33 = load i8, ptr %32, align 1, !tbaa !56
   %34 = icmp eq i8 %33, 39
   br i1 %34, label %35, label %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit
 
@@ -2185,14 +2185,14 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %23, ptr %45, align 8, !tbaa !32
+  store ptr %23, ptr %45, align 8, !tbaa !33
   %.not43 = icmp eq ptr %40, null
   br i1 %.not43, label %.thread, label %46
 
 46:                                               ; preds = %44
   %47 = load i32, ptr %11, align 4, !tbaa !12
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store i32 %47, ptr %48, align 8, !tbaa !64
+  store i32 %47, ptr %48, align 8, !tbaa !65
   br label %.loopexit
 
 .thread:                                          ; preds = %_ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB_.exit, %44, %20
@@ -2222,7 +2222,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
 
 55:                                               ; preds = %54
   %56 = add nsw i32 %.033.ph, 1
-  br label %.outer, !llvm.loop !65
+  br label %.outer, !llvm.loop !66
 
 57:                                               ; preds = %54
   %.not44 = icmp eq i8 %.032, 0
@@ -2265,7 +2265,7 @@ _ZL13checkDataItemPK10DataHeaderPFaPvPKcS4_PK9UDataInfoES2_S4_S4_P10UErrorCodeSB
 
 _ZL20udata_findCachedDataPKcR10UErrorCode.exit.i.i: ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !35
+  %71 = load ptr, ptr %70, align 8, !tbaa !36
   %72 = load i32, ptr %7, align 4, !tbaa !13
   %73 = icmp sgt i32 %72, 0
   %74 = icmp eq ptr %71, null
@@ -2280,21 +2280,21 @@ _ZL20udata_findCachedDataPKcR10UErrorCode.exit.i.i: ; preds = %68
 77:                                               ; preds = %85, %75
   %indvars.iv.i.i = phi i64 [ 0, %75 ], [ %indvars.iv.next.i.i, %85 ]
   %78 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL19gCommonICUDataArray, i64 0, i64 %indvars.iv.i.i
-  %79 = load ptr, ptr %78, align 8, !tbaa !30
+  %79 = load ptr, ptr %78, align 8, !tbaa !31
   %.not.i.i = icmp eq ptr %79, null
   br i1 %.not.i.i, label %85, label %80
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %82 = load ptr, ptr %81, align 8, !tbaa !32
-  %83 = load ptr, ptr %76, align 8, !tbaa !32
+  %82 = load ptr, ptr %81, align 8, !tbaa !33
+  %83 = load ptr, ptr %76, align 8, !tbaa !33
   %84 = icmp eq ptr %82, %83
   br i1 %84, label %86, label %85
 
 85:                                               ; preds = %80, %77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
-  br i1 %exitcond.not.i.i, label %86, label %77, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %86, label %77, !llvm.loop !67
 
 86:                                               ; preds = %85, %80
   %.not45 = phi i1 [ true, %85 ], [ false, %80 ]
@@ -2314,7 +2314,7 @@ _ZL13extendICUDataP10UErrorCode.exit.thread:      ; preds = %_ZL20udata_findCach
 
 _ZL13extendICUDataP10UErrorCode.exit:             ; preds = %86
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #15
-  br i1 %.not45, label %.loopexit5, label %15, !llvm.loop !65
+  br i1 %.not45, label %.loopexit5, label %15, !llvm.loop !66
 
 .loopexit5:                                       ; preds = %57, %_ZL13extendICUDataP10UErrorCode.exit, %53, %_ZL13extendICUDataP10UErrorCode.exit.thread, %.loopexit, %52
   %.3 = phi ptr [ null, %52 ], [ %.2, %.loopexit ], [ null, %_ZL13extendICUDataP10UErrorCode.exit.thread ], [ null, %53 ], [ null, %_ZL13extendICUDataP10UErrorCode.exit ], [ null, %57 ]
@@ -2346,7 +2346,7 @@ define internal fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr nou
   call void @umtx_lock_77(ptr noundef null)
   %14 = zext nneg i32 %1 to i64
   %15 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL19gCommonICUDataArray, i64 0, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !30
+  %16 = load ptr, ptr %15, align 8, !tbaa !31
   %.not48 = icmp eq ptr %16, null
   br i1 %.not48, label %.preheader, label %.loopexit
 
@@ -2357,14 +2357,14 @@ define internal fastcc noundef ptr @_ZL14openCommonDataPKciP10UErrorCode(ptr nou
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %17 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL19gCommonICUDataArray, i64 0, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8, !tbaa !30
+  %18 = load ptr, ptr %17, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
   %.not = icmp ne ptr %20, @icudt77_dat
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %14
   %or.cond.not = select i1 %.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !67
+  br i1 %or.cond.not, label %.lr.ph, label %.loopexit, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %13
   %.035 = phi i1 [ false, %13 ], [ true, %.preheader ], [ %.not, %.lr.ph ]
@@ -2390,7 +2390,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %.loopexit
   call fastcc void @_ZL16setCommonICUDataP11UDataMemoryaP10UErrorCode(ptr noundef %4, i8 noundef signext 0, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #15
   call void @umtx_lock_77(ptr noundef null)
-  %25 = load ptr, ptr %15, align 8, !tbaa !30
+  %25 = load ptr, ptr %15, align 8, !tbaa !31
   invoke void @umtx_unlock_77(ptr noundef null)
           to label %_ZN6icu_775MutexD2Ev.exit49 unwind label %26
 
@@ -2438,7 +2438,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %.loopexit
 
 _ZL20udata_findCachedDataPKcR10UErrorCode.exit:   ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !35
+  %49 = load ptr, ptr %48, align 8, !tbaa !36
   %.not41 = icmp eq ptr %49, null
   br i1 %.not41, label %_ZL20udata_findCachedDataPKcR10UErrorCode.exit.thread, label %_ZN6icu_775MutexD2Ev.exit49
 
@@ -2471,7 +2471,7 @@ _ZL20udata_findCachedDataPKcR10UErrorCode.exit.thread: ; preds = %43, %_ZL20udat
 
 60:                                               ; preds = %59
   %61 = invoke signext i8 @uprv_mapFile_77(ptr noundef nonnull %5, ptr noundef nonnull %58, ptr noundef nonnull %2)
-          to label %53 unwind label %.loopexit55, !llvm.loop !68
+          to label %53 unwind label %.loopexit55, !llvm.loop !69
 
 .loopexit55:                                      ; preds = %53, %57, %60
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2598,44 +2598,45 @@ attributes #18 = { nounwind willreturn memory(read) }
 !25 = !{!5, !5, i64 0}
 !26 = !{!22, !5, i64 8}
 !27 = !{!22, !7, i64 240}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS11UDataMemory", !6, i64 0}
-!32 = !{!33, !6, i64 8}
-!33 = !{!"_ZTS11UDataMemory", !6, i64 0, !6, i64 8, !6, i64 16, !7, i64 24, !6, i64 32, !6, i64 40, !9, i64 48}
-!34 = distinct !{!34, !29}
-!35 = !{!36, !31, i64 8}
-!36 = !{!"_ZTS16DataCacheElement", !5, i64 0, !31, i64 8}
-!37 = !{!36, !5, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"_ZTS15UDataFileAccess", !7, i64 0}
-!40 = !{!41, !42, i64 0}
-!41 = !{!"_ZTS9UDataInfo", !42, i64 0, !42, i64 2, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !7, i64 8, !7, i64 12, !7, i64 16}
-!42 = !{!"short", !7, i64 0}
-!43 = !{!41, !7, i64 4}
-!44 = !{!41, !42, i64 2}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
-!47 = distinct !{!47, !29}
-!48 = !{!49, !14, i64 4}
-!49 = !{!"_ZTSN6icu_779UInitOnceE", !50, i64 0, !14, i64 4}
-!50 = !{!"_ZTSSt6atomicIiE", !51, i64 0}
-!51 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
-!52 = !{!53, !7, i64 2}
-!53 = !{!"_ZTS10DataHeader", !54, i64 0, !41, i64 4}
-!54 = !{!"_ZTS10MappedData", !42, i64 0, !7, i64 2, !7, i64 3}
-!55 = !{!53, !7, i64 3}
-!56 = distinct !{!56, !29, !57}
-!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!58 = !{!33, !6, i64 32}
-!59 = !{!33, !6, i64 40}
-!60 = distinct !{!60, !29}
-!61 = !{!33, !6, i64 0}
-!62 = !{!63, !6, i64 0}
-!63 = !{!"_ZTS15commonDataFuncs", !6, i64 0, !6, i64 8}
-!64 = !{!33, !9, i64 48}
-!65 = distinct !{!65, !29}
-!66 = distinct !{!66, !29}
-!67 = distinct !{!67, !29}
-!68 = distinct !{!68, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS11UDataMemory", !6, i64 0}
+!33 = !{!34, !6, i64 8}
+!34 = !{!"_ZTS11UDataMemory", !6, i64 0, !6, i64 8, !6, i64 16, !7, i64 24, !6, i64 32, !6, i64 40, !9, i64 48}
+!35 = distinct !{!35, !29, !30}
+!36 = !{!37, !32, i64 8}
+!37 = !{!"_ZTS16DataCacheElement", !5, i64 0, !32, i64 8}
+!38 = !{!37, !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"_ZTS15UDataFileAccess", !7, i64 0}
+!41 = !{!42, !43, i64 0}
+!42 = !{!"_ZTS9UDataInfo", !43, i64 0, !43, i64 2, !7, i64 4, !7, i64 5, !7, i64 6, !7, i64 7, !7, i64 8, !7, i64 12, !7, i64 16}
+!43 = !{!"short", !7, i64 0}
+!44 = !{!42, !7, i64 4}
+!45 = !{!42, !43, i64 2}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
+!48 = distinct !{!48, !29, !30}
+!49 = !{!50, !14, i64 4}
+!50 = !{!"_ZTSN6icu_779UInitOnceE", !51, i64 0, !14, i64 4}
+!51 = !{!"_ZTSSt6atomicIiE", !52, i64 0}
+!52 = !{!"_ZTSSt13__atomic_baseIiE", !9, i64 0}
+!53 = !{!54, !7, i64 2}
+!54 = !{!"_ZTS10DataHeader", !55, i64 0, !42, i64 4}
+!55 = !{!"_ZTS10MappedData", !43, i64 0, !7, i64 2, !7, i64 3}
+!56 = !{!54, !7, i64 3}
+!57 = distinct !{!57, !29, !30, !58}
+!58 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!59 = !{!34, !6, i64 32}
+!60 = !{!34, !6, i64 40}
+!61 = distinct !{!61, !29, !30}
+!62 = !{!34, !6, i64 0}
+!63 = !{!64, !6, i64 0}
+!64 = !{!"_ZTS15commonDataFuncs", !6, i64 0, !6, i64 8}
+!65 = !{!34, !9, i64 48}
+!66 = distinct !{!66, !29, !30}
+!67 = distinct !{!67, !29, !30}
+!68 = distinct !{!68, !29, !30}
+!69 = distinct !{!69, !29, !30}

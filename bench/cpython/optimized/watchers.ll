@@ -746,7 +746,7 @@ define internal ptr @allocate_too_many_code_watchers(ptr readnone captures(none)
   store i32 %5, ptr %7, align 4, !tbaa !20
   %8 = add nuw nsw i64 %.01622, 1
   %exitcond.not = icmp eq i64 %8, 9
-  br i1 %exitcond.not, label %.thread.thread, label %4, !llvm.loop !25
+  br i1 %exitcond.not, label %.thread.thread, label %4, !llvm.loop !26
 
 .thread.thread:                                   ; preds = %6
   %9 = tail call ptr @PyErr_GetRaisedException() #6
@@ -767,7 +767,7 @@ define internal ptr @allocate_too_many_code_watchers(ptr readnone captures(none)
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
@@ -823,7 +823,7 @@ define internal ptr @add_func_watcher(ptr readnone captures(none) %0, ptr nounde
   br i1 %9, label %13, label %10
 
 10:                                               ; preds = %.preheader
-  br i1 %6, label %.preheader, label %11, !llvm.loop !27
+  br i1 %6, label %.preheader, label %11, !llvm.loop !28
 
 11:                                               ; preds = %10
   %12 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !21
@@ -832,7 +832,7 @@ define internal ptr @add_func_watcher(ptr readnone captures(none) %0, ptr nounde
 
 13:                                               ; preds = %.preheader
   %14 = getelementptr [2 x ptr], ptr @func_watcher_callbacks, i64 0, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = tail call i32 @PyFunction_AddWatcher(ptr noundef %15) #6
   %17 = getelementptr [2 x i32], ptr @func_watcher_ids, i64 0, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !20
@@ -888,7 +888,7 @@ define internal noundef ptr @clear_func_watcher(ptr readnone captures(none) %0, 
   br i1 %14, label %17, label %15
 
 15:                                               ; preds = %.preheader
-  br i1 %11, label %.preheader, label %16, !llvm.loop !29
+  br i1 %11, label %.preheader, label %16, !llvm.loop !30
 
 16:                                               ; preds = %15
   tail call void @__assert_fail(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.32, i32 noundef 584, ptr noundef nonnull @__PRETTY_FUNCTION__.clear_func_watcher) #7
@@ -991,7 +991,7 @@ define internal ptr @allocate_too_many_func_watchers(ptr readnone captures(none)
   store i32 %5, ptr %7, align 4, !tbaa !20
   %8 = add nuw nsw i64 %.01622, 1
   %exitcond.not = icmp eq i64 %8, 9
-  br i1 %exitcond.not, label %.thread.thread, label %4, !llvm.loop !30
+  br i1 %exitcond.not, label %.thread.thread, label %4, !llvm.loop !31
 
 .thread.thread:                                   ; preds = %6
   %9 = tail call ptr @PyErr_GetRaisedException() #6
@@ -1012,7 +1012,7 @@ define internal ptr @allocate_too_many_func_watchers(ptr readnone captures(none)
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
@@ -1073,7 +1073,7 @@ define internal ptr @add_context_watcher(ptr readnone captures(none) %0, ptr nou
 
 12:                                               ; preds = %7
   %13 = getelementptr [3 x ptr], ptr @add_context_watcher.callbacks, i64 0, i64 %8
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !29
   %15 = tail call i32 @PyContext_AddWatcher(ptr noundef %14) #6
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %34, label %17
@@ -1181,7 +1181,7 @@ define internal noundef ptr @clear_context_watcher(ptr readnone captures(none) %
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %27, %24, %22, %19, %.preheader
-  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !32
+  br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %Py_DECREF.exit, %12, %7
   %.0 = phi ptr [ null, %7 ], [ @_Py_NoneStruct, %12 ], [ @_Py_NoneStruct, %Py_DECREF.exit ]
@@ -1192,13 +1192,13 @@ Py_DECREF.exit:                                   ; preds = %27, %24, %22, %19, 
 define internal noundef ptr @clear_context_stack(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @PyThreadState_Get() #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  %5 = load ptr, ptr %4, align 8, !tbaa !33
+  %5 = load ptr, ptr %4, align 8, !tbaa !34
   %6 = icmp eq ptr %5, null
   br i1 %6, label %Py_DECREF.exit, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !43
+  %9 = load ptr, ptr %8, align 8, !tbaa !44
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %12, label %10
 
@@ -1294,7 +1294,7 @@ define internal ptr @allocate_too_many_context_watchers(ptr readnone captures(no
   store i32 %5, ptr %7, align 4, !tbaa !20
   %8 = add nuw nsw i64 %.01622, 1
   %exitcond.not = icmp eq i64 %8, 9
-  br i1 %exitcond.not, label %.thread.thread, label %4, !llvm.loop !46
+  br i1 %exitcond.not, label %.thread.thread, label %4, !llvm.loop !47
 
 .thread.thread:                                   ; preds = %6
   %9 = tail call ptr @PyErr_GetRaisedException() #6
@@ -1315,7 +1315,7 @@ define internal ptr @allocate_too_many_context_watchers(ptr readnone captures(no
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond27.not, label %.loopexit, label %.lr.ph, !llvm.loop !48
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
@@ -1999,28 +1999,29 @@ attributes #7 = { noreturn nounwind }
 !20 = !{!18, !18, i64 0}
 !21 = !{!17, !17, i64 0}
 !22 = !{!5, !5, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = distinct !{!27, !24}
-!28 = !{!8, !8, i64 0}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
-!32 = distinct !{!32, !24}
-!33 = !{!34, !17, i64 208}
-!34 = !{!"_ts", !35, i64 0, !35, i64 8, !36, i64 16, !12, i64 24, !37, i64 32, !18, i64 36, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !18, i64 56, !18, i64 60, !18, i64 64, !38, i64 72, !8, i64 80, !8, i64 88, !17, i64 96, !17, i64 104, !17, i64 112, !39, i64 120, !17, i64 128, !18, i64 136, !17, i64 144, !12, i64 152, !12, i64 160, !17, i64 168, !12, i64 176, !18, i64 184, !17, i64 192, !17, i64 200, !17, i64 208, !12, i64 216, !12, i64 224, !40, i64 232, !41, i64 240, !41, i64 248, !42, i64 256, !17, i64 272, !12, i64 280, !17, i64 288, !17, i64 296}
-!35 = !{!"p1 _ZTS3_ts", !8, i64 0}
-!36 = !{!"p1 _ZTS3_is", !8, i64 0}
-!37 = !{!"", !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 1}
-!38 = !{!"p1 _ZTS19_PyInterpreterFrame", !8, i64 0}
-!39 = !{!"p1 _ZTS14_err_stackitem", !8, i64 0}
-!40 = !{!"p1 _ZTS12_stack_chunk", !8, i64 0}
-!41 = !{!"p2 _ZTS7_object", !8, i64 0}
-!42 = !{!"_err_stackitem", !17, i64 0, !39, i64 8}
-!43 = !{!44, !45, i64 16}
-!44 = !{!"_pycontextobject", !4, i64 0, !45, i64 16, !8, i64 24, !17, i64 32, !18, i64 40}
-!45 = !{!"p1 _ZTS16_pycontextobject", !8, i64 0}
-!46 = distinct !{!46, !24}
-!47 = distinct !{!47, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25}
+!28 = distinct !{!28, !24, !25}
+!29 = !{!8, !8, i64 0}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25}
+!32 = distinct !{!32, !24, !25}
+!33 = distinct !{!33, !24, !25}
+!34 = !{!35, !17, i64 208}
+!35 = !{!"_ts", !36, i64 0, !36, i64 8, !37, i64 16, !12, i64 24, !38, i64 32, !18, i64 36, !18, i64 40, !18, i64 44, !18, i64 48, !18, i64 52, !18, i64 56, !18, i64 60, !18, i64 64, !39, i64 72, !8, i64 80, !8, i64 88, !17, i64 96, !17, i64 104, !17, i64 112, !40, i64 120, !17, i64 128, !18, i64 136, !17, i64 144, !12, i64 152, !12, i64 160, !17, i64 168, !12, i64 176, !18, i64 184, !17, i64 192, !17, i64 200, !17, i64 208, !12, i64 216, !12, i64 224, !41, i64 232, !42, i64 240, !42, i64 248, !43, i64 256, !17, i64 272, !12, i64 280, !17, i64 288, !17, i64 296}
+!36 = !{!"p1 _ZTS3_ts", !8, i64 0}
+!37 = !{!"p1 _ZTS3_is", !8, i64 0}
+!38 = !{!"", !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 0, !18, i64 1}
+!39 = !{!"p1 _ZTS19_PyInterpreterFrame", !8, i64 0}
+!40 = !{!"p1 _ZTS14_err_stackitem", !8, i64 0}
+!41 = !{!"p1 _ZTS12_stack_chunk", !8, i64 0}
+!42 = !{!"p2 _ZTS7_object", !8, i64 0}
+!43 = !{!"_err_stackitem", !17, i64 0, !40, i64 8}
+!44 = !{!45, !46, i64 16}
+!45 = !{!"_pycontextobject", !4, i64 0, !46, i64 16, !8, i64 24, !17, i64 32, !18, i64 40}
+!46 = !{!"p1 _ZTS16_pycontextobject", !8, i64 0}
+!47 = distinct !{!47, !24, !25}
+!48 = distinct !{!48, !24, !25}

@@ -1616,7 +1616,7 @@ define hidden void @proto_reg_handoff_dtls() #0 {
   %40 = getelementptr ptr, ptr %9, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not24.i = icmp eq ptr %41, null
-  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %37, %8
   call void @g_strfreev(ptr noundef %9)
@@ -1984,7 +1984,7 @@ define internal void @dtls_parse_uat() #0 {
   %16 = load ptr, ptr @key_list_stack, align 8
   %17 = tail call i32 @wmem_list_count(ptr noundef %16)
   %.not9 = icmp eq i32 %17, 0
-  br i1 %.not9, label %.loopexit13, label %.lr.ph, !llvm.loop !9
+  br i1 %.not9, label %.loopexit13, label %.lr.ph, !llvm.loop !10
 
 .loopexit13:                                      ; preds = %15, %.preheader
   %.lcssa = phi i32 [ undef, %.preheader ], [ %10, %15 ]
@@ -2045,7 +2045,7 @@ define internal void @dtls_parse_uat() #0 {
   %43 = load i32, ptr @ndtlsdecrypt, align 4
   %44 = zext i32 %43 to i64
   %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph16, label %.loopexit, !llvm.loop !10
+  br i1 %45, label %.lr.ph16, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %42, %25, %18
   %46 = load ptr, ptr @dtls_handle, align 8
@@ -2194,7 +2194,7 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %51, label %70, label %78
 
 70:                                               ; preds = %69
-  %71 = load i8, ptr %54, align 1, !range !11, !noundef !12
+  %71 = load i8, ptr %54, align 1, !range !12, !noundef !13
   %72 = trunc nuw i8 %71 to i1
   br i1 %72, label %73, label %75
 
@@ -2208,7 +2208,7 @@ define internal i32 @dissect_dtls(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %dtls_cid_length.exit.i
 
 78:                                               ; preds = %69
-  %79 = load i8, ptr %52, align 1, !range !11, !noundef !12
+  %79 = load i8, ptr %52, align 1, !range !12, !noundef !13
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %83
 
@@ -2247,7 +2247,7 @@ dtls_cid_length.exit.i:                           ; preds = %83, %81, %75, %73
   br i1 %.not183.i.i, label %106, label %98
 
 98:                                               ; preds = %97
-  %99 = load i8, ptr %54, align 1, !range !11, !noundef !12
+  %99 = load i8, ptr %54, align 1, !range !12, !noundef !13
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %103
 
@@ -2261,7 +2261,7 @@ dtls_cid_length.exit.i:                           ; preds = %83, %81, %75, %73
   br label %dtls_cid_length.exit.i.i
 
 106:                                              ; preds = %97
-  %107 = load i8, ptr %52, align 1, !range !11, !noundef !12
+  %107 = load i8, ptr %52, align 1, !range !12, !noundef !13
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %109, label %111
 
@@ -2431,7 +2431,7 @@ select.unfold.i.i.i:                              ; preds = %181, %180, %178, %1
   br label %dtls13_decrypt_early_data.exit.i.i
 
 191:                                              ; preds = %188
-  %192 = load i8, ptr %65, align 8, !range !11, !noundef !12
+  %192 = load i8, ptr %65, align 8, !range !12, !noundef !13
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %195, label %194
 
@@ -2580,7 +2580,7 @@ dtls13_setup_keys.exit.i.i:                       ; preds = %197, %195
 244:                                              ; preds = %240, %234
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 5
-  br i1 %exitcond.not.i.i.i, label %245, label %234, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %245, label %234, !llvm.loop !14
 
 245:                                              ; preds = %244
   call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.953)
@@ -3036,7 +3036,7 @@ dissect_dtls_record.exit:                         ; preds = %dissect_dtls13_reco
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #10
   %466 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.i)
   %.not51 = icmp eq i32 %466, 0
-  br i1 %.not51, label %._crit_edge, label %69, !llvm.loop !14
+  br i1 %.not51, label %._crit_edge, label %69, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %dissect_dtls_record.exit, %._crit_edge59
   %467 = load i32, ptr @dtls_tap, align 4
@@ -3175,7 +3175,7 @@ looks_like_dtls.exit.thread120:                   ; preds = %12, %12, %12, %look
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 857
-  %30 = load i8, ptr %29, align 1, !range !11, !noundef !12
+  %30 = load i8, ptr %29, align 1, !range !12, !noundef !13
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %dtls_cid_length.exit.thread, label %dtls_cid_length.exit
 
@@ -3184,7 +3184,7 @@ looks_like_dtls.exit.thread120:                   ; preds = %12, %12, %12, %look
 
 33:                                               ; preds = %32
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 859
-  %35 = load i8, ptr %34, align 1, !range !11, !noundef !12
+  %35 = load i8, ptr %34, align 1, !range !12, !noundef !13
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %dtls_cid_length.exit.thread, label %dtls_cid_length.exit
 
@@ -3250,7 +3250,7 @@ dtls_cid_length.exit:                             ; preds = %33, %28
 
 67:                                               ; preds = %66
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 857
-  %69 = load i8, ptr %68, align 1, !range !11, !noundef !12
+  %69 = load i8, ptr %68, align 1, !range !12, !noundef !13
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %74
 
@@ -3269,7 +3269,7 @@ dtls_cid_length.exit:                             ; preds = %33, %28
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %61, i64 859
-  %80 = load i8, ptr %79, align 1, !range !11, !noundef !12
+  %80 = load i8, ptr %79, align 1, !range !12, !noundef !13
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %82, label %85
 
@@ -3301,11 +3301,11 @@ dtls_cid_length.exit113:                          ; preds = %71, %74, %82, %85
   %.3 = phi i32 [ %54, %51 ], [ %49, %55 ], [ %93, %90 ]
   %95 = add i32 %.3, %.096
   %96 = icmp eq i32 %95, %5
-  br i1 %96, label %.thread.sink.split, label %.preheader, !llvm.loop !15
+  br i1 %96, label %.thread.sink.split, label %.preheader, !llvm.loop !16
 
 .critedge:                                        ; preds = %12, %.preheader, %looks_like_dtls.exit
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %98 = load i8, ptr %97, align 8, !range !11, !noundef !12
+  %98 = load i8, ptr %97, align 8, !range !12, !noundef !13
   %99 = trunc nuw i8 %98 to i1
   %100 = icmp ugt i32 %.093, 12
   %or.cond = and i1 %100, %99
@@ -3349,7 +3349,7 @@ looks_like_dtls.exit117.thread129:                ; preds = %106, %106, %106, %l
   %.reass = add i32 %.5, 13
   %116 = add i32 %.reass, %115
   %117 = icmp eq i32 %116, %5
-  br i1 %117, label %.thread.sink.split, label %.preheader137, !llvm.loop !16
+  br i1 %117, label %.thread.sink.split, label %.preheader137, !llvm.loop !17
 
 118:                                              ; preds = %.preheader137
   %119 = icmp ugt i32 %5, 2
@@ -3362,7 +3362,7 @@ looks_like_dtls.exit117.thread129:                ; preds = %106, %106, %106, %l
 
 122:                                              ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %124 = load i8, ptr %123, align 8, !range !11, !noundef !12
+  %124 = load i8, ptr %123, align 8, !range !12, !noundef !13
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %.thread.sink.split, label %.thread
 
@@ -3617,7 +3617,7 @@ define internal fastcc noundef zeroext i1 @decrypt_dtls_record(ptr noundef %0, p
   %46 = getelementptr i8, ptr %35, i64 %45
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
-  br i1 %48, label %.preheader.i, label %50, !llvm.loop !17
+  br i1 %48, label %.preheader.i, label %50, !llvm.loop !18
 
 49:                                               ; preds = %.preheader.i
   tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.969, ptr noundef nonnull @__func__.dtls_save_decrypted_record, i32 noundef %36)
@@ -3789,7 +3789,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %45, %42
-  %48 = load i8, ptr %13, align 1, !range !11, !noundef !12
+  %48 = load i8, ptr %13, align 1, !range !12, !noundef !13
   %49 = trunc nuw i8 %48 to i1
   %. = select i1 %49, i32 6, i32 %43
   %50 = call ptr @try_val_to_str(i32 noundef %., ptr noundef nonnull @ssl_31_handshake_type)
@@ -4000,7 +4000,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   %135 = call i32 @ssl_dissect_hnd_cli_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef nonnull %8, ptr noundef nonnull @dtls_hfs, ptr noundef null)
   %136 = call ptr @tls_get_master_key_map(i1 noundef zeroext false)
   call void @tls_save_crandom(ptr noundef nonnull %8, ptr noundef %136)
-  %137 = load i8, ptr %31, align 8, !range !11, !noundef !12
+  %137 = load i8, ptr %31, align 8, !range !12, !noundef !13
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %199
 
@@ -4016,7 +4016,7 @@ define internal fastcc void @dissect_dtls_handshake(ptr noundef %0, ptr noundef 
   %143 = call zeroext i1 @tls_scan_server_hello(ptr noundef %.0271, i32 noundef 0, i32 noundef %40, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %144 = load i16, ptr %12, align 2
   call void @ssl_try_set_version(ptr noundef %6, ptr noundef %8, i8 noundef zeroext 22, i8 noundef zeroext 2, i1 noundef zeroext true, i16 noundef zeroext %144)
-  %145 = load i8, ptr %13, align 1, !range !11, !noundef !12
+  %145 = load i8, ptr %13, align 1, !range !12, !noundef !13
   %146 = trunc nuw i8 %145 to i1
   call void @ssl_dissect_hnd_srv_hello(ptr noundef nonnull @dissect_dtls_hf, ptr noundef %.0271, ptr noundef %1, ptr noundef %37, i32 noundef 0, i32 noundef %60, ptr noundef %6, ptr noundef %8, i1 noundef zeroext true, i1 noundef zeroext %146)
   br label %199
@@ -4157,7 +4157,7 @@ dtls13_maybe_increase_max_epoch.exit:             ; preds = %51, %78
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #10
   %200 = add i32 %40, %74
   %201 = icmp ult i32 %200, %14
-  br i1 %201, label %33, label %.loopexit, !llvm.loop !18
+  br i1 %201, label %33, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %199, %10, %dtls13_maybe_increase_max_epoch.exit
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %12) #10
@@ -4482,7 +4482,7 @@ define internal fastcc void @dissect_dtls_ack(ptr noundef %0, ptr noundef %1, pt
   %38 = add i32 %.030, 16
   %39 = load i32, ptr %6, align 4
   %40 = icmp ult i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
@@ -5024,17 +5024,18 @@ attributes #14 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

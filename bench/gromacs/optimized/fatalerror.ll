@@ -528,12 +528,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 12:                                               ; preds = %.preheader.i
   %.015.add.i = add nuw nsw i64 %.015.idx22.i, 16
   %.not.i = icmp eq i64 %.015.add.i, 160
-  br i1 %.not.i, label %18, label %.preheader.i
+  br i1 %.not.i, label %18, label %.preheader.i, !llvm.loop !37
 
 .preheader.i:                                     ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %12
   %.015.idx22.i = phi i64 [ %.015.add.i, %12 ], [ 0, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
   %.015.ptr23.i = getelementptr inbounds nuw i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.015.idx22.i
-  %13 = load ptr, ptr %.015.ptr23.i, align 16, !tbaa !37
+  %13 = load ptr, ptr %.015.ptr23.i, align 16, !tbaa !39
   %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %13) #21
   %.not17.i = icmp eq i32 %14, 0
   br i1 %.not17.i, label %15, label %12
@@ -541,7 +541,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
 15:                                               ; preds = %.preheader.i
   %.015.ptr23.i.le = getelementptr inbounds nuw i8, ptr @__const._ZL12gmx_strerrorPKc.map, i64 %.015.idx22.i
   %16 = getelementptr inbounds nuw i8, ptr %.015.ptr23.i.le, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !39
+  %17 = load ptr, ptr %16, align 8, !tbaa !41
   br label %_ZL12gmx_strerrorPKc.exit
 
 18:                                               ; preds = %12
@@ -942,6 +942,8 @@ attributes #22 = { cold nounwind }
 !34 = !{!32, !29}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"p1 _ZTS10tmpi_comm_", !6, i64 0}
-!37 = !{!38, !21, i64 0}
-!38 = !{!"_ZTSZL12gmx_strerrorPKcE13ErrorKeyEntry", !21, i64 0, !21, i64 8}
-!39 = !{!38, !21, i64 8}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!40, !21, i64 0}
+!40 = !{!"_ZTSZL12gmx_strerrorPKcE13ErrorKeyEntry", !21, i64 0, !21, i64 8}
+!41 = !{!40, !21, i64 8}

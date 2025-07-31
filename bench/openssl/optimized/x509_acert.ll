@@ -579,7 +579,7 @@ define range(i32 0, 2) i32 @X509_ACERT_add_attr_nconf(ptr noundef %0, ptr nounde
 
 check_asn1_attribute.exit:                        ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
-  store ptr null, ptr %4, align 8, !tbaa !52
+  store ptr null, ptr %4, align 8, !tbaa !53
   %25 = call ptr @ASN1_generate_nconf(ptr noundef nonnull %.0.i, ptr noundef %0) #8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -592,12 +592,12 @@ check_asn1_attribute.exit:                        ; preds = %20
   %28 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %25, ptr noundef nonnull %4) #8
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !49
-  %31 = load ptr, ptr %4, align 8, !tbaa !52
+  %31 = load ptr, ptr %4, align 8, !tbaa !53
   %32 = load ptr, ptr %2, align 8, !tbaa !22
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %34 = call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %33, ptr noundef %30, i32 noundef 16, ptr noundef %31, i32 noundef %28) #8
   %.not59.not = icmp eq ptr %34, null
-  %35 = load ptr, ptr %4, align 8, !tbaa !52
+  %35 = load ptr, ptr %4, align 8, !tbaa !53
   call void @CRYPTO_free(ptr noundef %35, ptr noundef nonnull @.str.8, i32 noundef 295) #8
   call void @ASN1_TYPE_free(ptr noundef nonnull %25) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
@@ -618,7 +618,7 @@ check_asn1_attribute.exit:                        ; preds = %20
   %44 = add nuw nsw i32 %.02863, 1
   %45 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #8
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.thread50, !llvm.loop !53
+  br i1 %46, label %.lr.ph, label %.thread50, !llvm.loop !54
 
 .thread50:                                        ; preds = %.thread54, %36, %27, %.preheader, %.thread, %13, %3
   %.025 = phi i32 [ 0, %3 ], [ %.12764, %.thread ], [ %.12764, %13 ], [ 1, %.preheader ], [ 1, %.thread54 ], [ 0, %36 ], [ 0, %27 ]
@@ -652,7 +652,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 define ptr @X509_ACERT_get_ext_d2i(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %7 = load ptr, ptr %6, align 8, !tbaa !54
+  %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = tail call ptr @X509V3_get_d2i(ptr noundef %7, i32 noundef %1, ptr noundef %2, ptr noundef %3) #8
   ret ptr %8
 }
@@ -673,7 +673,7 @@ declare i32 @X509V3_add1_i2d(ptr noundef, i32 noundef, ptr noundef, i32 noundef,
 define ptr @X509_ACERT_get0_extensions(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  %4 = load ptr, ptr %3, align 8, !tbaa !54
+  %4 = load ptr, ptr %3, align 8, !tbaa !55
   ret ptr %4
 }
 
@@ -763,8 +763,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !47 = !{!48, !16, i64 16}
 !48 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16}
 !49 = !{!48, !16, i64 8}
-!50 = distinct !{!50, !51}
+!50 = distinct !{!50, !51, !52}
 !51 = !{!"llvm.loop.mustprogress"}
-!52 = !{!16, !16, i64 0}
-!53 = distinct !{!53, !51}
-!54 = !{!30, !37, i64 136}
+!52 = !{!"llvm.loop.estimated_trip_count"}
+!53 = !{!16, !16, i64 0}
+!54 = distinct !{!54, !51, !52}
+!55 = !{!30, !37, i64 136}

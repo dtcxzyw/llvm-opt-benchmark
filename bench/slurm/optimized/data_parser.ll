@@ -277,7 +277,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load i64, ptr %52, align 8
   %54 = icmp ugt i64 %53, %indvars.iv.next66.i
-  br i1 %54, label %.lr.ph52.i, label %.preheader.i, !llvm.loop !11
+  br i1 %54, label %.lr.ph52.i, label %.preheader.i, !llvm.loop !12
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %62
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %62 ], [ 0, %.preheader.i ]
@@ -297,7 +297,7 @@ define dso_local noundef ptr @data_parser_g_new(ptr noundef %0, ptr noundef %1, 
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load i64, ptr %64, align 8
   %.not43.i = icmp ugt i64 %65, %indvars.iv.next69.i
-  br i1 %.not43.i, label %.lr.ph55.i, label %_find_plugin_by_type.exit.thread, !llvm.loop !12
+  br i1 %.not43.i, label %.lr.ph55.i, label %_find_plugin_by_type.exit.thread, !llvm.loop !13
 
 _find_plugin_by_type.exit:                        ; preds = %38, %.lr.ph52.i, %.lr.ph55.i
   %.022.i.in = phi i64 [ %indvars.iv68.i, %.lr.ph55.i ], [ %indvars.iv65.i, %.lr.ph52.i ], [ %indvars.iv.i, %38 ]
@@ -341,7 +341,7 @@ _find_plugin_by_type.exit.thread:                 ; preds = %62, %.preheader46.i
   %78 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %17, i64 %indvars.iv.next
   %79 = load ptr, ptr %78, align 8
   %.not36 = icmp eq ptr %79, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 80:                                               ; preds = %.thread55, %._crit_edge, %14
   %.026 = phi ptr [ null, %14 ], [ %.02754, %._crit_edge ], [ null, %.thread55 ]
@@ -435,7 +435,7 @@ define internal fastcc ptr @_parse_plugin_type(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.33, ptr noundef nonnull %2) #13
   %.not24 = icmp eq ptr %38, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %37, %5
   call void @slurm_xfree(ptr noundef nonnull %3) #13
@@ -496,7 +496,7 @@ define internal fastcc i32 @_load_plugins(ptr noundef readonly captures(address_
   %18 = tail call i32 @load_plugins(ptr noundef nonnull @plugins, ptr noundef nonnull @.str.1, ptr noundef nonnull %16, ptr noundef %1, ptr noundef nonnull @parse_syms, i64 noundef 13) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not27 = icmp eq i32 %18, 0
-  br i1 %.not27, label %.preheader, label %.critedge, !llvm.loop !15
+  br i1 %.not27, label %.preheader, label %.critedge, !llvm.loop !16
 
 .critedge:                                        ; preds = %.preheader, %17, %13
   %.1 = phi i32 [ %14, %13 ], [ 0, %.preheader ], [ %18, %17 ]
@@ -681,7 +681,7 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %52 = load i64, ptr %51, align 8
   %53 = icmp ugt i64 %52, %indvars.iv.next66.i
-  br i1 %53, label %.lr.ph52.i, label %.preheader.i, !llvm.loop !11
+  br i1 %53, label %.lr.ph52.i, label %.preheader.i, !llvm.loop !12
 
 .lr.ph55.i:                                       ; preds = %.preheader.i, %61
   %indvars.iv68.i = phi i64 [ %indvars.iv.next69.i, %61 ], [ 0, %.preheader.i ]
@@ -701,7 +701,7 @@ define dso_local ptr @data_parser_g_new_array(ptr noundef %0, ptr noundef %1, pt
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load i64, ptr %63, align 8
   %.not43.i = icmp ugt i64 %64, %indvars.iv.next69.i
-  br i1 %.not43.i, label %.lr.ph55.i, label %.thread, !llvm.loop !12
+  br i1 %.not43.i, label %.lr.ph55.i, label %.thread, !llvm.loop !13
 
 _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.lr.ph55.i
   %.022.i.in = phi i64 [ %indvars.iv68.i, %.lr.ph55.i ], [ %indvars.iv65.i, %.lr.ph52.i ], [ %indvars.iv.i, %37 ]
@@ -732,7 +732,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   %79 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %77, i64 %indvars.iv.next
   %80 = load ptr, ptr %79, align 8
   %.not59 = icmp eq ptr %80, null
-  br i1 %.not59, label %.loopexit, label %.preheader46.i, !llvm.loop !16
+  br i1 %.not59, label %.loopexit, label %.preheader46.i, !llvm.loop !17
 
 .lr.ph92:                                         ; preds = %.preheader, %.lr.ph92
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %.lr.ph92 ], [ 0, %.preheader ]
@@ -745,7 +745,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = load i64, ptr %85, align 8
   %87 = icmp ugt i64 %86, %indvars.iv.next117
-  br i1 %87, label %.lr.ph92, label %.loopexit, !llvm.loop !17
+  br i1 %87, label %.lr.ph92, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %70, %.lr.ph92, %.preheader72, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %13) #13
@@ -776,7 +776,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   %97 = getelementptr inbounds nuw %struct.plugin_param_t, ptr %91, i64 %indvars.iv.next111
   %98 = load ptr, ptr %97, align 8
   %.not61 = icmp eq ptr %98, null
-  br i1 %.not61, label %.loopexit124, label %.lr.ph, !llvm.loop !18
+  br i1 %.not61, label %.loopexit124, label %.lr.ph, !llvm.loop !19
 
 .loopexit124:                                     ; preds = %.lr.ph, %.preheader69
   call void @slurm_xfree(ptr noundef nonnull %13) #13
@@ -810,7 +810,7 @@ _find_plugin_by_type.exit:                        ; preds = %37, %.lr.ph52.i, %.
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %110 = load i64, ptr %109, align 8
   %111 = icmp ugt i64 %110, %indvars.iv.next114
-  br i1 %111, label %.lr.ph90, label %.loopexit68, !llvm.loop !19
+  br i1 %111, label %.lr.ph90, label %.loopexit68, !llvm.loop !20
 
 .loopexit68:                                      ; preds = %107, %88, %.preheader67, %.loopexit124
   call void @slurm_xfree(ptr noundef nonnull %12) #13
@@ -1023,7 +1023,7 @@ define dso_local void @data_parser_g_array_free(ptr noundef %0, i1 noundef zeroe
   %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
-  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not5, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 8:                                                ; preds = %2, %._crit_edge
   ret void
@@ -1838,16 +1838,17 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}

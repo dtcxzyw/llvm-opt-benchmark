@@ -35,7 +35,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %add.i = add i64 %2, %total.07.i
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.06.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %1
-  br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i
+  br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit, label %for.body.i, !llvm.loop !5
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit: ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
@@ -50,7 +50,7 @@ do.body.i22:                                      ; preds = %_ZNK9struct_pb13Unk
   %inc.i23 = add nuw nsw i64 %ret.i21.0, 1
   %shr.i24 = lshr i64 %v.addr.i20.0, 7
   %cmp.i25.not = icmp ult i64 %v.addr.i20.0, 128
-  br i1 %cmp.i25.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26, label %do.body.i22, !llvm.loop !5
+  br i1 %cmp.i25.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit26, label %do.body.i22, !llvm.loop !7
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit26: ; preds = %do.body.i22
   %add = add i64 %total.0.lcssa.i, 2
@@ -71,7 +71,7 @@ do.body.i:                                        ; preds = %if.end, %do.body.i
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
   %cmp.i.not = icmp ult i64 %v.addr.i.0, 128
-  br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !5
+  br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !9
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %add14 = add i64 %total.0, 2
@@ -108,7 +108,7 @@ while.body.i47:                                   ; preds = %_ZN9struct_pb8inter
   store i8 %conv.i49, ptr %arrayidx.i51, align 1
   %shr.i52 = lshr i64 %v.addr.i41.059, 7
   %cmp.i43 = icmp ugt i64 %v.addr.i41.059, 16383
-  br i1 %cmp.i43, label %while.body.i47, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit53, !llvm.loop !7
+  br i1 %cmp.i43, label %while.body.i47, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit53, !llvm.loop !10
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit53: ; preds = %while.body.i47, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit69
   %pos.1.lcssa = phi i64 [ 1, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit69 ], [ %inc.i50, %while.body.i47 ]
@@ -151,7 +151,7 @@ while.body.i:                                     ; preds = %_ZN9struct_pb8inter
   %shr.i = lshr i64 %v.addr.i.063, 7
   %pos.3 = add i64 %pos.364, 1
   %cmp.i = icmp ugt i64 %v.addr.i.063, 16383
-  br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !7
+  br i1 %cmp.i, label %while.body.i, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit, !llvm.loop !11
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit: ; preds = %while.body.i, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37
   %pos.3.in.lcssa = phi i64 [ %pos.0, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit37 ], [ %pos.364, %while.body.i ]
@@ -189,7 +189,7 @@ for.body.i:                                       ; preds = %if.end21, %for.body
   %add.i = add i64 %16, %pos.4
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.08.i, i64 16
   %cmp.i.i = icmp eq ptr %incdec.ptr.i.i, %13
-  br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i
+  br i1 %cmp.i.i, label %_ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit, label %for.body.i, !llvm.loop !12
 
 _ZNK9struct_pb13UnknownFields12serialize_toEPcRmm.exit: ; preds = %for.body.i, %if.end21
   ret void
@@ -363,7 +363,7 @@ while.body.i216:                                  ; preds = %land.rhs.i225
   %or101.i223 = or i64 %shl100.i222, %val.i194.1288
   %add.i224 = add i32 %shift.i196.0287, 7
   %cmp92.i203.not = icmp eq i64 %inc96.i217, %size
-  br i1 %cmp92.i203.not, label %return, label %land.rhs.i225, !llvm.loop !8
+  br i1 %cmp92.i203.not, label %return, label %land.rhs.i225, !llvm.loop !13
 
 if.end104.i207:                                   ; preds = %land.rhs.i225
   store i64 %inc96.i217, ptr %pos, align 8
@@ -531,7 +531,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %or101.i = or i64 %shl100.i, %val.i.1305
   %add.i = add i32 %shift.i.0304, 7
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
-  br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !14
 
 if.end104.i:                                      ; preds = %land.rhs.i
   store i64 %inc96.i, ptr %pos, align 8
@@ -766,7 +766,7 @@ while.body.i74:                                   ; preds = %land.rhs.i83
   %or101.i81 = or i64 %shl100.i80, %val.i52.1296
   %add.i82 = add i32 %shift.i54.0295, 7
   %cmp92.i61.not = icmp eq i64 %inc96.i75, %size
-  br i1 %cmp92.i61.not, label %return, label %land.rhs.i83, !llvm.loop !8
+  br i1 %cmp92.i61.not, label %return, label %land.rhs.i83, !llvm.loop !15
 
 if.end104.i65:                                    ; preds = %land.rhs.i83
   store i64 %inc96.i75, ptr %pos, align 8
@@ -858,7 +858,7 @@ sw.epilog:                                        ; preds = %if.end22, %if.end8
   %storemerge = phi i64 [ %add19, %if.end22 ], [ %add, %if.end8 ]
   store i64 %storemerge, ptr %pos, align 8
   %cmp = icmp ult i64 %storemerge, %size
-  br i1 %cmp, label %land.lhs.true.i319, label %return, !llvm.loop !9
+  br i1 %cmp, label %land.lhs.true.i319, label %return, !llvm.loop !16
 
 return:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit266, %sw.epilog, %if.end82.i299, %if.end82.i, %if.end82.i157, %while.cond.i202.preheader, %while.cond.i60.preheader, %while.cond.i.preheader, %while.body.i216, %while.body.i74, %while.body.i, %entry, %sw.default
   %retval.0 = phi i1 [ %call27, %sw.default ], [ true, %entry ], [ false, %while.body.i ], [ false, %while.body.i74 ], [ false, %while.body.i216 ], [ false, %while.cond.i.preheader ], [ false, %while.cond.i60.preheader ], [ false, %while.cond.i202.preheader ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit266 ], [ true, %sw.epilog ], [ false, %if.end82.i299 ], [ false, %if.end82.i ], [ false, %if.end82.i157 ]
@@ -881,7 +881,7 @@ do.body.i:                                        ; preds = %do.body.i, %if.end
   %inc.i = add nuw nsw i64 %ret.i.0, 1
   %shr.i = lshr i64 %v.addr.i.0, 7
   %cmp.i.not = icmp samesign ult i64 %v.addr.i.0, 128
-  br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !5
+  br i1 %cmp.i.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, label %do.body.i, !llvm.loop !17
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %0 = load i64, ptr %pos, align 8
@@ -1004,7 +1004,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %inc96.i = add i64 %12, 1
   store i64 %inc96.i, ptr %pos, align 8
   %cmp92.i.not = icmp eq i64 %inc96.i, %size
-  br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !8
+  br i1 %cmp92.i.not, label %return, label %land.rhs.i, !llvm.loop !18
 
 if.end3.sink.split:                               ; preds = %land.rhs.i, %land.lhs.true.i
   %.lcssa.sink = phi i64 [ %0, %land.lhs.true.i ], [ %12, %land.rhs.i ]
@@ -1319,7 +1319,7 @@ while.body.i67:                                   ; preds = %land.rhs.i76
   %or101.i74 = or i64 %shl100.i73, %val.i45.1285
   %add.i75 = add i32 %shift.i47.0284, 7
   %cmp92.i54.not = icmp eq i64 %inc96.i68, %size
-  br i1 %cmp92.i54.not, label %return, label %land.rhs.i76, !llvm.loop !8
+  br i1 %cmp92.i54.not, label %return, label %land.rhs.i76, !llvm.loop !19
 
 if.end104.i58:                                    ; preds = %land.rhs.i76
   %conv107.i61 = sext i8 %39 to i64
@@ -1699,7 +1699,17 @@ attributes #12 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !8, !6}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8, !6}
+!10 = distinct !{!10, !8, !6}
+!11 = distinct !{!11, !8, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !8, !6}
+!14 = distinct !{!14, !8, !6}
+!15 = distinct !{!15, !8, !6}
+!16 = distinct !{!16, !8, !6}
+!17 = distinct !{!17, !8, !6}
+!18 = distinct !{!18, !8, !6}
+!19 = distinct !{!19, !8, !6}

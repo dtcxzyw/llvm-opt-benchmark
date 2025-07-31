@@ -192,7 +192,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %126 = add i32 %122, %125
   %127 = getelementptr i8, ptr %.3153183, i64 8
   %128 = icmp samesign ugt i32 %.5185, 15
-  br i1 %128, label %.lr.ph186, label %._crit_edge, !llvm.loop !8
+  br i1 %128, label %.lr.ph186, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph186, %.preheader
   %.3153.lcssa = phi ptr [ %.2152.lcssa, %.preheader ], [ %127, %.lr.ph186 ]
@@ -223,7 +223,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %141 = add i32 %.10191, %140
   %142 = add nsw i32 %137, -2
   %143 = icmp samesign ugt i32 %137, 1
-  br i1 %143, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !9
+  br i1 %143, label %.lr.ph193, label %._crit_edge194.loopexit, !llvm.loop !10
 
 ._crit_edge194.loopexit:                          ; preds = %.lr.ph193
   %144 = add nsw i32 %.5.lcssa, -4
@@ -272,7 +272,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %163 = getelementptr i8, ptr %.0155200, i64 16
   %164 = add i32 %.0156199, -1
   %.not = icmp eq i32 %164, 0
-  br i1 %.not, label %._crit_edge206.loopexit, label %5, !llvm.loop !10
+  br i1 %.not, label %._crit_edge206.loopexit, label %5, !llvm.loop !11
 
 ._crit_edge206.loopexit:                          ; preds = %162
   %165 = icmp eq i32 %.1141, -1
@@ -373,8 +373,9 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

@@ -2117,7 +2117,7 @@ proto_item_set_generated.exit.i:                  ; preds = %98, %95, %dissect_p
   %125 = load i32, ptr %12, align 4
   %126 = zext i32 %125 to i64
   %127 = getelementptr [2 x i8], ptr %.1227.i, i64 0, i64 %126
-  %128 = load i8, ptr %127, align 1, !range !8, !noundef !9
+  %128 = load i8, ptr %127, align 1, !range !9, !noundef !10
   %129 = trunc nuw i8 %128 to i1
   %.pre81.i = load i8, ptr %10, align 1
   br i1 %129, label %130, label %149
@@ -2181,7 +2181,7 @@ proto_item_set_generated.exit.i:                  ; preds = %98, %95, %dissect_p
   br i1 %.not250.i, label %182, label %167
 
 167:                                              ; preds = %162
-  %168 = load i8, ptr %166, align 4, !range !8, !noundef !9
+  %168 = load i8, ptr %166, align 4, !range !9, !noundef !10
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %170, label %182
 
@@ -2220,7 +2220,7 @@ proto_item_set_generated.exit.i:                  ; preds = %98, %95, %dissect_p
 
 190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %.0226.i, i64 24
-  %192 = load i8, ptr %191, align 8, !range !8, !noundef !9
+  %192 = load i8, ptr %191, align 8, !range !9, !noundef !10
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %194, label %199
 
@@ -2312,12 +2312,12 @@ proto_item_set_generated.exit.i:                  ; preds = %98, %95, %dissect_p
   br i1 %239, label %240, label %257
 
 240:                                              ; preds = %237
-  %241 = load i8, ptr %204, align 2, !range !8, !noundef !9
+  %241 = load i8, ptr %204, align 2, !range !9, !noundef !10
   %242 = trunc nuw i8 %241 to i1
   br i1 %242, label %243, label %246
 
 243:                                              ; preds = %240
-  %244 = load i8, ptr %205, align 1, !range !8, !noundef !9
+  %244 = load i8, ptr %205, align 1, !range !9, !noundef !10
   %245 = trunc nuw i8 %244 to i1
   br i1 %245, label %.critedge.i, label %.fold.split.i
 
@@ -2344,12 +2344,12 @@ at_udcomphdr.exit.i.i:                            ; preds = %246
   br i1 %255, label %.critedge.i, label %.fold.split.i
 
 257:                                              ; preds = %237
-  %258 = load i8, ptr %202, align 4, !range !8, !noundef !9
+  %258 = load i8, ptr %202, align 4, !range !9, !noundef !10
   %259 = trunc nuw i8 %258 to i1
   br i1 %259, label %260, label %263
 
 260:                                              ; preds = %257
-  %261 = load i8, ptr %203, align 1, !range !8, !noundef !9
+  %261 = load i8, ptr %203, align 1, !range !9, !noundef !10
   %262 = trunc nuw i8 %261 to i1
   br i1 %262, label %.critedge.i, label %.fold.split.i
 
@@ -2507,7 +2507,7 @@ proto_item_set_generated.exit277.i:               ; preds = %304, %301, %proto_i
 
 332:                                              ; preds = %328
   %.b26.pr.i.i = load i1, ptr @udcomplen_heuristic_result_set, align 1
-  br i1 %.b26.pr.i.i, label %udcomplen_appears_present.exitthread-pre-split.i, label %319, !llvm.loop !10
+  br i1 %.b26.pr.i.i, label %udcomplen_appears_present.exitthread-pre-split.i, label %319, !llvm.loop !11
 
 udcomplen_appears_present.exitthread-pre-split.i: ; preds = %332, %315
   %.b2427.i.pr.i = load i1, ptr @udcomplen_heuristic_result, align 1
@@ -2600,7 +2600,7 @@ udcomplen_appears_present.exit.i:                 ; preds = %328
   %spec.select.i = add i32 %372, %.023346.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %358, label %369, !llvm.loop !11
+  br i1 %exitcond.not.i, label %358, label %369, !llvm.loop !12
 
 373:                                              ; preds = %358
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %364, ptr noundef nonnull @.str.1180)
@@ -2625,7 +2625,7 @@ udcomplen_appears_present.exit.i:                 ; preds = %328
   %spec.select266.i = add i32 %381, %.223548.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next75.i, 12
-  br i1 %exitcond77.not.i, label %377, label %378, !llvm.loop !12
+  br i1 %exitcond77.not.i, label %377, label %378, !llvm.loop !13
 
 382:                                              ; preds = %377, %375, %373, %.fold.split261.i, %.fold.split261.thread.i
   %.023937.i = phi ptr [ null, %.fold.split261.thread.i ], [ %.0239.i, %377 ], [ %.0239.i, %375 ], [ %.0239.i, %373 ], [ %.0239.i, %.fold.split261.i ]
@@ -2730,7 +2730,7 @@ write_section_info.exit.i:                        ; preds = %388, %387, %386
   %spec.select267.i = add i32 %425, %.122450.i
   %426 = add nuw nsw i32 %.022051.i, 1
   %exitcond78.not.i = icmp eq i32 %426, 12
-  br i1 %exitcond78.not.i, label %.loopexit90.i, label %423, !llvm.loop !13
+  br i1 %exitcond78.not.i, label %.loopexit90.i, label %423, !llvm.loop !14
 
 .loopexit90.i:                                    ; preds = %423, %406
   %.0223.i = phi i32 [ 12, %406 ], [ %spec.select267.i, %423 ]
@@ -2740,7 +2740,7 @@ write_section_info.exit.i:                        ; preds = %388, %387, %386
   %429 = lshr i32 %428, 3
   %430 = load i32, ptr @hf_oran_iq_user_data, align 4
   %431 = call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %430, ptr noundef %0, i32 noundef %412, i32 noundef %429, i32 noundef 0)
-  %432 = load i8, ptr @pref_showIQSampleValues, align 1, !range !8, !noundef !9
+  %432 = load i8, ptr @pref_showIQSampleValues, align 1, !range !9, !noundef !10
   %433 = trunc nuw i8 %432 to i1
   br i1 %433, label %434, label %447
 
@@ -2769,7 +2769,7 @@ write_section_info.exit.i:                        ; preds = %388, %387, %386
   %.1.i = phi i32 [ %442, %440 ], [ %.021556.i, %.preheader.i ]
   %444 = add nuw nsw i32 %.021457.i, 1
   %exitcond80.not.i = icmp eq i32 %444, 13
-  br i1 %exitcond80.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond80.not.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !15
 
 .preheader41.i:                                   ; preds = %434, %.preheader41.i
   %.021354.i = phi i32 [ %446, %.preheader41.i ], [ 1, %434 ]
@@ -2777,7 +2777,7 @@ write_section_info.exit.i:                        ; preds = %388, %387, %386
   %445 = call fastcc i32 @dissect_oran_u_re(ptr noundef %0, ptr noundef %411, i32 noundef %.021354.i, i32 noundef %.221852.i, i32 noundef %.324.i, i32 noundef %.320.i, i32 noundef %436)
   %446 = add nuw nsw i32 %.021354.i, 1
   %exitcond79.not.i = icmp eq i32 %446, 13
-  br i1 %exitcond79.not.i, label %.loopexit.i, label %.preheader41.i, !llvm.loop !15
+  br i1 %exitcond79.not.i, label %.loopexit.i, label %.preheader41.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.preheader41.i, %443
   %.2.i = phi i32 [ %.1.i, %443 ], [ 12, %.preheader41.i ]
@@ -2792,7 +2792,7 @@ write_section_info.exit.i:                        ; preds = %388, %387, %386
   %449 = add nuw i32 %.023059.i, 1
   %450 = load i32, ptr %21, align 4
   %451 = icmp ult i32 %449, %450
-  br i1 %451, label %406, label %._crit_edge.i, !llvm.loop !16
+  br i1 %451, label %406, label %._crit_edge.i, !llvm.loop !17
 
 452:                                              ; preds = %404
   %453 = load i32, ptr %22, align 4
@@ -2818,7 +2818,7 @@ write_section_info.exit.i:                        ; preds = %388, %387, %386
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #13
   %461 = add i32 %.1238.lcssa.i, 4
   %.not255.i = icmp ult i32 %459, %461
-  br i1 %.not255.i, label %462, label %213, !llvm.loop !17
+  br i1 %.not255.i, label %462, label %213, !llvm.loop !18
 
 462:                                              ; preds = %456
   %463 = load i32, ptr @hf_oran_numberOfSections, align 4
@@ -3086,7 +3086,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %58, %61
   %108 = load i32, ptr %17, align 4
   %109 = zext i32 %108 to i64
   %110 = getelementptr [2 x i8], ptr %.1, i64 0, i64 %109
-  %111 = load i8, ptr %110, align 1, !range !8, !noundef !9
+  %111 = load i8, ptr %110, align 1, !range !9, !noundef !10
   %112 = trunc nuw i8 %111 to i1
   %.pre44 = load i8, ptr %13, align 1
   br i1 %112, label %113, label %132
@@ -3151,7 +3151,7 @@ proto_item_set_hidden.exit:                       ; preds = %4, %58, %61
   br i1 %.not539, label %166, label %150
 
 150:                                              ; preds = %145
-  %151 = load i8, ptr %149, align 4, !range !8, !noundef !9
+  %151 = load i8, ptr %149, align 4, !range !9, !noundef !10
   %152 = trunc nuw i8 %151 to i1
   br i1 %152, label %153, label %166
 
@@ -3344,7 +3344,7 @@ proto_item_set_generated.exit:                    ; preds = %225, %234, %237
   %252 = load i32, ptr @hf_oran_ready, align 4
   %253 = load i32, ptr %11, align 4
   %254 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %80, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %24)
-  %255 = load i8, ptr %24, align 1, !range !8, !noundef !9
+  %255 = load i8, ptr %24, align 1, !range !9, !noundef !10
   %256 = trunc nuw i8 %255 to i1
   br i1 %256, label %264, label %257
 
@@ -3626,7 +3626,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %409 = add i32 %.050510.us, 1
   %410 = load i32, ptr %30, align 4
   %.not543.us = icmp ugt i32 %409, %410
-  br i1 %.not543.us, label %.preheader7.thread, label %.lr.ph.split.us, !llvm.loop !18
+  br i1 %.not543.us, label %.preheader7.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .preheader7:                                      ; preds = %445, %392
   %411 = load i32, ptr %31, align 4
@@ -3662,7 +3662,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %422 = add i32 %.050612.us, 1
   %423 = load i32, ptr %31, align 4
   %.not544.us = icmp ugt i32 %422, %423
-  br i1 %.not544.us, label %.loopexit8, label %.lr.ph13.split.us, !llvm.loop !20
+  br i1 %.not544.us, label %.loopexit8, label %.lr.ph13.split.us, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %445
   %.050510 = phi i32 [ %446, %445 ], [ 1, %.lr.ph ]
@@ -3709,7 +3709,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %446 = add i32 %.050510, 1
   %447 = load i32, ptr %30, align 4
   %.not543 = icmp ugt i32 %446, %447
-  br i1 %.not543, label %.preheader7, label %.lr.ph.split, !llvm.loop !21
+  br i1 %.not543, label %.preheader7, label %.lr.ph.split, !llvm.loop !22
 
 .lr.ph13.split:                                   ; preds = %.lr.ph13, %471
   %.050612 = phi i32 [ %472, %471 ], [ 1, %.lr.ph13 ]
@@ -3758,7 +3758,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %472 = add i32 %.050612, 1
   %473 = load i32, ptr %31, align 4
   %.not544 = icmp ugt i32 %472, %473
-  br i1 %.not544, label %.loopexit8, label %.lr.ph13.split, !llvm.loop !22
+  br i1 %.not544, label %.loopexit8, label %.lr.ph13.split, !llvm.loop !23
 
 474:                                              ; preds = %277
   %475 = load i32, ptr @hf_oran_num_sinr_per_prb, align 4
@@ -3877,7 +3877,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   br i1 %527, label %528, label %532
 
 528:                                              ; preds = %516
-  %529 = load i8, ptr %24, align 1, !range !8, !noundef !9
+  %529 = load i8, ptr %24, align 1, !range !9, !noundef !10
   %530 = trunc nuw i8 %529 to i1
   %531 = select i1 %530, ptr @.str.1216, ptr @.str.1217
   call void (ptr, ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %71, ptr noundef %80, ptr noundef %1, ptr noundef nonnull %531)
@@ -4073,7 +4073,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
 635:                                              ; preds = %637
   %636 = add nuw nsw i32 %.050819, 1
   %exitcond42.not = icmp eq i32 %636, 14
-  br i1 %exitcond42.not, label %.loopexit6, label %637, !llvm.loop !23
+  br i1 %exitcond42.not, label %.loopexit6, label %637, !llvm.loop !24
 
 637:                                              ; preds = %627, %635
   %.050819 = phi i32 [ 0, %627 ], [ %636, %635 ]
@@ -4126,7 +4126,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %669 = load i32, ptr %11, align 4
   %670 = add i32 %669, 3
   store i32 %670, ptr %11, align 4
-  %671 = load i8, ptr %40, align 1, !range !8, !noundef !9
+  %671 = load i8, ptr %40, align 1, !range !9, !noundef !10
   %672 = trunc nuw i8 %671 to i1
   br i1 %672, label %.loopexit, label %.preheader
 
@@ -4148,7 +4148,7 @@ dissect_frame_structure.exit566:                  ; preds = %322, %335, %342, %3
   %683 = load i32, ptr %11, align 4
   %684 = add i32 %683, 2
   store i32 %684, ptr %11, align 4
-  %685 = load i8, ptr %44, align 1, !range !8, !noundef !9
+  %685 = load i8, ptr %44, align 1, !range !9, !noundef !10
   %686 = trunc nuw i8 %685 to i1
   br i1 %686, label %758, label %687
 
@@ -4281,7 +4281,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
   call void @proto_item_set_len(ptr noundef %694, i32 noundef %756)
   %757 = add nuw i32 %.051120, 1
   %exitcond43.not = icmp eq i32 %757, %690
-  br i1 %exitcond43.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !24
+  br i1 %exitcond43.not, label %._crit_edge24, label %.lr.ph23, !llvm.loop !25
 
 758:                                              ; preds = %._crit_edge24, %.lr.ph26
   %759 = phi i32 [ %.pre-phi61, %._crit_edge24 ], [ %684, %.lr.ph26 ]
@@ -4290,7 +4290,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
   %761 = load i32, ptr %36, align 4
   %762 = shl i32 %761, 2
   %763 = icmp ult i32 %760, %762
-  br i1 %763, label %.lr.ph26, label %.loopexit, !llvm.loop !25
+  br i1 %763, label %.lr.ph26, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %758, %.preheader, %.loopexit6
   %764 = phi i32 [ %670, %.preheader ], [ %670, %.loopexit6 ], [ %759, %758 ]
@@ -4459,7 +4459,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
 855:                                              ; preds = %857
   %856 = add nuw i32 %.051217, 1
   %exitcond41.not = icmp eq i32 %856, %.sink74
-  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !26
+  br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph18, !llvm.loop !27
 
 857:                                              ; preds = %.lr.ph18, %857
   %.051015 = phi i32 [ 0, %.lr.ph18 ], [ %860, %857 ]
@@ -4469,7 +4469,7 @@ decompress_value.exit573:                         ; preds = %decompress_value.ex
   %spec.select = add i32 %859, %.151414
   %860 = add nuw nsw i32 %.051015, 1
   %exitcond.not = icmp eq i32 %860, 8
-  br i1 %exitcond.not, label %855, label %857, !llvm.loop !27
+  br i1 %exitcond.not, label %855, label %857, !llvm.loop !28
 
 861:                                              ; preds = %625
   %862 = load i32, ptr @hf_oran_reserved_6bits, align 4
@@ -4648,7 +4648,7 @@ show_link_to_acknack_response.exit:               ; preds = %960, %957, %proto_i
   %964 = add nuw i32 %.050727, 1
   %965 = load i32, ptr %35, align 4
   %966 = icmp ult i32 %964, %965
-  br i1 %966, label %553, label %._crit_edge30, !llvm.loop !28
+  br i1 %966, label %553, label %._crit_edge30, !llvm.loop !29
 
 967:                                              ; preds = %532
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %53) #13
@@ -4900,7 +4900,7 @@ show_link_to_acknack_response.exit:               ; preds = %960, %957, %proto_i
   %1140 = add nuw i32 %.050231, 1
   %1141 = load i32, ptr %25, align 4
   %1142 = icmp ult i32 %1140, %1141
-  br i1 %1142, label %1130, label %._crit_edge34, !llvm.loop !29
+  br i1 %1142, label %1130, label %._crit_edge34, !llvm.loop !30
 
 1143:                                             ; preds = %._crit_edge34
   %1144 = load i32, ptr %11, align 4
@@ -5330,7 +5330,7 @@ proto_item_set_generated.exit:                    ; preds = %12, %20, %23
   %spec.select = add i32 %63, %.0843
   %indvars.iv.next7 = add nuw nsw i64 %indvars.iv6, 1
   %exitcond9.not = icmp eq i64 %indvars.iv.next7, 12
-  br i1 %exitcond9.not, label %53, label %60, !llvm.loop !30
+  br i1 %exitcond9.not, label %53, label %60, !llvm.loop !31
 
 64:                                               ; preds = %proto_item_set_generated.exit
   %65 = load i32, ptr @hf_oran_sReSMask, align 4
@@ -5364,7 +5364,7 @@ proto_item_set_generated.exit:                    ; preds = %12, %20, %23
   %spec.select89 = add i32 %82, %.0811
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %73, label %79, !llvm.loop !31
+  br i1 %exitcond.not, label %73, label %79, !llvm.loop !32
 
 83:                                               ; preds = %proto_item_set_generated.exit, %73, %53, %38, %34, %27
   %.086 = phi i32 [ %2, %proto_item_set_generated.exit ], [ %33, %27 ], [ %37, %34 ], [ %43, %38 ], [ %59, %53 ], [ %78, %73 ]
@@ -5697,7 +5697,7 @@ define internal fastcc noundef i32 @dissect_bfwCompParam(ptr noundef %0, ptr nou
 
 32:                                               ; preds = %11, %26, %22, %17
   %.038 = phi i32 [ %3, %11 ], [ %21, %17 ], [ %25, %22 ], [ %31, %26 ]
-  %33 = load i8, ptr %7, align 1, !range !8, !noundef !9
+  %33 = load i8, ptr %7, align 1, !range !9, !noundef !10
   %34 = trunc nuw i8 %33 to i1
   %35 = icmp eq ptr %4, null
   %or.cond.not = or i1 %35, %34
@@ -6189,7 +6189,7 @@ decompress_value.exit.us:                         ; preds = %253, %241, %236
   %274 = load i32, ptr @pref_sample_bit_width_uplink, align 4
   %275 = add i32 %274, %.114231717.us
   %exitcond1927.not = icmp eq i32 %271, %12
-  br i1 %exitcond1927.not, label %._crit_edge1720.us, label %236, !llvm.loop !32
+  br i1 %exitcond1927.not, label %._crit_edge1720.us, label %236, !llvm.loop !33
 
 ._crit_edge1720.us:                               ; preds = %decompress_value.exit.us
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %38) #13
@@ -6197,7 +6197,7 @@ decompress_value.exit.us:                         ; preds = %253, %241, %236
   %276 = add nuw i32 %.014251722.us, 1
   %277 = load i32, ptr %27, align 4
   %278 = icmp ult i32 %276, %277
-  br i1 %278, label %.lr.ph1719.us, label %._crit_edge1725, !llvm.loop !33
+  br i1 %278, label %.lr.ph1719.us, label %._crit_edge1725, !llvm.loop !34
 
 ._crit_edge1725:                                  ; preds = %._crit_edge1720.us, %.lr.ph1724.split, %proto_item_set_hidden.exit
   %.01422.lcssa = phi i32 [ %.11956, %proto_item_set_hidden.exit ], [ %284, %.lr.ph1724.split ], [ %275, %._crit_edge1720.us ]
@@ -6219,7 +6219,7 @@ decompress_value.exit.us:                         ; preds = %253, %241, %236
   %285 = add nuw i32 %.014251722, 1
   %286 = load i32, ptr %27, align 4
   %287 = icmp ult i32 %285, %286
-  br i1 %287, label %.lr.ph1724.split, label %._crit_edge1725, !llvm.loop !34
+  br i1 %287, label %.lr.ph1724.split, label %._crit_edge1725, !llvm.loop !35
 
 288:                                              ; preds = %192
   %289 = load i32, ptr @hf_oran_reserved_15bits, align 4
@@ -6463,7 +6463,7 @@ decompress_value.exit1579:                        ; preds = %decompress_value.ex
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %385, ptr noundef nonnull @.str.1282, i32 noundef %.014291708, double noundef %414)
   %417 = add nuw i32 %.014291708, 1
   %exitcond.not = icmp eq i32 %417, %322
-  br i1 %exitcond.not, label %._crit_edge, label %378, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %378, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %decompress_value.exit1579, %dissect_ciCompParam.exit
   %.21433.lcssa = phi i32 [ %.11432, %dissect_ciCompParam.exit ], [ %416, %decompress_value.exit1579 ]
@@ -6476,11 +6476,11 @@ decompress_value.exit1579:                        ; preds = %decompress_value.ex
   %422 = load i32, ptr %26, align 4
   %423 = add i32 %422, %421
   %424 = icmp ult i32 %420, %423
-  br i1 %424, label %347, label %._crit_edge1714, !llvm.loop !36
+  br i1 %424, label %347, label %._crit_edge1714, !llvm.loop !37
 
 ._crit_edge1714:                                  ; preds = %._crit_edge, %write_channel_section_info.exit
   %.01431.lcssa = phi i32 [ 56, %write_channel_section_info.exit ], [ %.21433.lcssa, %._crit_edge ]
-  %425 = load i8, ptr @st6_4byte_alignment, align 1, !range !8, !noundef !9
+  %425 = load i8, ptr @st6_4byte_alignment, align 1, !range !9, !noundef !10
   %426 = trunc nuw i8 %425 to i1
   %427 = select i1 %426, i32 3, i32 0
   %428 = add i32 %427, %.01431.lcssa
@@ -6494,7 +6494,7 @@ decompress_value.exit1579:                        ; preds = %decompress_value.ex
   %.3 = phi i32 [ %.2, %291 ], [ %428, %._crit_edge1714 ], [ 0, %13 ], [ 0, %13 ], [ 0, %13 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %40) #13
   store i32 0, ptr %40, align 4
-  %430 = load i8, ptr %31, align 1, !range !8, !noundef !9
+  %430 = load i8, ptr %31, align 1, !range !9, !noundef !10
   %431 = trunc nuw i8 %430 to i1
   br i1 %431, label %.lr.ph1858, label %.loopexit1702
 
@@ -6578,25 +6578,25 @@ decompress_value.exit1579:                        ; preds = %decompress_value.ex
 
 482:                                              ; preds = %481
   %483 = getelementptr [27 x %struct.AllowedCTs_t], ptr @ext_cts, i64 0, i64 %464, i32 1
-  %484 = load i8, ptr %483, align 1, !range !8, !noundef !9
+  %484 = load i8, ptr %483, align 1, !range !9, !noundef !10
   %485 = trunc nuw i8 %484 to i1
   br i1 %485, label %se_allowed_in_st.exit.thread, label %497
 
 486:                                              ; preds = %481
   %487 = getelementptr [27 x %struct.AllowedCTs_t], ptr @ext_cts, i64 0, i64 %464, i32 2
-  %488 = load i8, ptr %487, align 1, !range !8, !noundef !9
+  %488 = load i8, ptr %487, align 1, !range !9, !noundef !10
   %489 = trunc nuw i8 %488 to i1
   br i1 %489, label %se_allowed_in_st.exit.thread, label %497
 
 490:                                              ; preds = %481
   %491 = getelementptr [27 x %struct.AllowedCTs_t], ptr @ext_cts, i64 0, i64 %464, i32 3
-  %492 = load i8, ptr %491, align 1, !range !8, !noundef !9
+  %492 = load i8, ptr %491, align 1, !range !9, !noundef !10
   %493 = trunc nuw i8 %492 to i1
   br i1 %493, label %se_allowed_in_st.exit.thread, label %497
 
 se_allowed_in_st.exit:                            ; preds = %481
   %494 = getelementptr [27 x %struct.AllowedCTs_t], ptr @ext_cts, i64 0, i64 %464, i32 4
-  %495 = load i8, ptr %494, align 1, !range !8, !noundef !9
+  %495 = load i8, ptr %494, align 1, !range !9, !noundef !10
   %496 = trunc nuw i8 %495 to i1
   br i1 %496, label %se_allowed_in_st.exit.thread, label %497
 
@@ -6719,7 +6719,7 @@ proto_item_set_hidden.exit1583:                   ; preds = %518, %521, %524
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %45) #13
   %542 = load i32, ptr %43, align 4
   %543 = call fastcc i32 @dissect_bfwCompParam(ptr noundef %0, ptr noundef %468, ptr noundef %2, i32 noundef %538, ptr noundef %537, i32 noundef %542, ptr noundef nonnull %44, ptr noundef nonnull %45)
-  %544 = load i8, ptr %45, align 1, !range !8, !noundef !9
+  %544 = load i8, ptr %45, align 1, !range !9, !noundef !10
   %545 = trunc nuw i8 %544 to i1
   br i1 %545, label %546, label %._crit_edge1851
 
@@ -6844,7 +6844,7 @@ decompress_value.exit1593:                        ; preds = %decompress_value.ex
   call void @proto_item_set_len(ptr noundef %556, i32 noundef %618)
   %619 = add nuw i32 %.014481847, 1
   %620 = icmp ult i32 %619, %552
-  br i1 %620, label %.lr.ph1850, label %._crit_edge1851, !llvm.loop !37
+  br i1 %620, label %.lr.ph1850, label %._crit_edge1851, !llvm.loop !38
 
 ._crit_edge1851:                                  ; preds = %decompress_value.exit1593, %.._crit_edge1851_crit_edge, %proto_item_set_hidden.exit1583
   %.7 = phi i32 [ %543, %proto_item_set_hidden.exit1583 ], [ %.pre1946, %.._crit_edge1851_crit_edge ], [ %617, %decompress_value.exit1593 ]
@@ -7157,7 +7157,7 @@ dissect_csf.exit1602:                             ; preds = %769, %781
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #13
   %807 = add nuw nsw i32 %.014571845, 1
   %exitcond1937.not = icmp eq i32 %807, %.01453
-  br i1 %exitcond1937.not, label %768, label %769, !llvm.loop !38
+  br i1 %exitcond1937.not, label %768, label %769, !llvm.loop !39
 
 808:                                              ; preds = %768
   %809 = load i32, ptr @hf_oran_reserved, align 4
@@ -7300,7 +7300,7 @@ switch.lookup:                                    ; preds = %830
   %879 = icmp samesign ult i32 %.014681833, 27
   %880 = icmp ult i8 %877, 28
   %881 = select i1 %879, i1 %880, i1 false
-  br i1 %881, label %866, label %._crit_edge1839, !llvm.loop !39
+  br i1 %881, label %866, label %._crit_edge1839, !llvm.loop !40
 
 882:                                              ; preds = %._crit_edge1839
   %883 = add nuw i32 %.11467, 1
@@ -7388,7 +7388,7 @@ switch.lookup:                                    ; preds = %830
   %926 = add nuw i32 %.014691825, 1
   %927 = load i32, ptr %40, align 4
   %928 = icmp ult i32 %926, %927
-  br i1 %928, label %.lr.ph1828, label %._crit_edge1829, !llvm.loop !40
+  br i1 %928, label %.lr.ph1828, label %._crit_edge1829, !llvm.loop !41
 
 ._crit_edge1829:                                  ; preds = %.lr.ph1828, %917
   %.12.lcssa = phi i32 [ %911, %917 ], [ %924, %.lr.ph1828 ]
@@ -7432,7 +7432,7 @@ switch.lookup:                                    ; preds = %830
   %948 = load i32, ptr %40, align 4
   %949 = add i32 %948, -1
   %950 = icmp ult i32 %947, %949
-  br i1 %950, label %.lr.ph1822, label %._crit_edge1823, !llvm.loop !41
+  br i1 %950, label %.lr.ph1822, label %._crit_edge1823, !llvm.loop !42
 
 ._crit_edge1823:                                  ; preds = %.lr.ph1822, %931
   %.14.lcssa = phi i32 [ %934, %931 ], [ %944, %.lr.ph1822 ]
@@ -7488,7 +7488,7 @@ proto_item_set_hidden.exit1605:                   ; preds = %955, %958, %961
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %62) #13
   %968 = load i32, ptr @hf_oran_disable_bfws, align 4
   %969 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %468, i32 noundef %968, ptr noundef %0, i32 noundef %510, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %60)
-  %970 = load i8, ptr %60, align 1, !range !8, !noundef !9
+  %970 = load i8, ptr %60, align 1, !range !9, !noundef !10
   %971 = trunc nuw i8 %970 to i1
   br i1 %971, label %972, label %973
 
@@ -7514,7 +7514,7 @@ proto_item_set_hidden.exit1605:                   ; preds = %955, %958, %961
   br label %986
 
 986:                                              ; preds = %984, %973
-  %987 = load i8, ptr %60, align 1, !range !8, !noundef !9
+  %987 = load i8, ptr %60, align 1, !range !9, !noundef !10
   %988 = trunc nuw i8 %987 to i1
   br i1 %988, label %1131, label %989
 
@@ -7556,7 +7556,7 @@ proto_item_set_hidden.exit1605:                   ; preds = %955, %958, %961
   br i1 %.not1886, label %dissect_bfw_bundle.exit._crit_edge.thread, label %.lr.ph1808
 
 .lr.ph1808:                                       ; preds = %1005
-  %1009 = load i8, ptr %441, align 4, !range !8, !noundef !9
+  %1009 = load i8, ptr %441, align 4, !range !9, !noundef !10
   %1010 = trunc nuw i8 %1009 to i1
   %wide.trip.count = zext i32 %1008 to i64
   br label %1011
@@ -7574,7 +7574,7 @@ proto_item_set_hidden.exit1605:                   ; preds = %955, %958, %961
   %1019 = getelementptr inbounds nuw i8, ptr %1017, i64 4
   %1020 = load i32, ptr %1019, align 4
   %1021 = getelementptr inbounds nuw i8, ptr %1017, i64 8
-  %1022 = load i8, ptr %1021, align 4, !range !8, !noundef !9
+  %1022 = load i8, ptr %1021, align 4, !range !9, !noundef !10
   %1023 = trunc nuw i8 %1022 to i1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #13
   br i1 %1023, label %1027, label %1024
@@ -7638,7 +7638,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %1048, %1044, %1041,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #13
   store i32 0, ptr %18, align 4
   %1052 = call fastcc i32 @dissect_bfwCompParam(ptr noundef %0, ptr noundef %1037, ptr noundef %2, i32 noundef %.161806, ptr noundef %999, i32 noundef %1012, ptr noundef nonnull %18, ptr noundef nonnull %17)
-  %1053 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %1053 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %1054 = trunc nuw i8 %1053 to i1
   br i1 %1054, label %1055, label %dissect_bfw_bundle.exit
 
@@ -7772,7 +7772,7 @@ decompress_value.exit108.i:                       ; preds = %1115, %1111, %decom
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1092, ptr noundef nonnull @.str.1318, i32 noundef %.095109.i, double noundef %1123)
   %1126 = add nuw i32 %.095109.i, 1
   %exitcond.not.i = icmp eq i32 %1126, %1015
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %1085, !llvm.loop !42
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %1085, !llvm.loop !43
 
 dissect_bfw_bundle.exit:                          ; preds = %proto_item_set_hidden.exit.i, %._crit_edge.i
   %.0.i1608 = phi i32 [ %1083, %._crit_edge.i ], [ %1052, %proto_item_set_hidden.exit.i ]
@@ -7783,14 +7783,14 @@ dissect_bfw_bundle.exit:                          ; preds = %proto_item_set_hidd
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond1931.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond2013 = select i1 %.not1539, i1 true, i1 %exitcond1931.not
-  br i1 %or.cond2013, label %dissect_bfw_bundle.exit._crit_edge, label %1011, !llvm.loop !43
+  br i1 %or.cond2013, label %dissect_bfw_bundle.exit._crit_edge, label %1011, !llvm.loop !44
 
 dissect_bfw_bundle.exit._crit_edge:               ; preds = %dissect_bfw_bundle.exit
   %1127 = add i32 %1008, -1
   %1128 = zext i32 %1127 to i64
   %.idx1541 = mul nuw nsw i64 %1128, 12
   %1129 = getelementptr i8, ptr %452, i64 %.idx1541
-  %1130 = load i8, ptr %1129, align 4, !range !8, !noundef !9
+  %1130 = load i8, ptr %1129, align 4, !range !9, !noundef !10
   br label %dissect_bfw_bundle.exit._crit_edge.thread
 
 dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_bundle.exit._crit_edge
@@ -7827,7 +7827,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_
   %1141 = call ptr @proto_tree_add_item(ptr noundef %468, i32 noundef %1140, ptr noundef %0, i32 noundef %.201814, i32 noundef 2, i32 noundef 0)
   %.idx1543 = mul nuw nsw i64 %indvars.iv1932, 12
   %1142 = getelementptr i8, ptr %452, i64 %.idx1543
-  %1143 = load i8, ptr %1142, align 4, !range !8, !noundef !9
+  %1143 = load i8, ptr %1142, align 4, !range !9, !noundef !10
   %1144 = trunc nuw i8 %1143 to i1
   br i1 %1144, label %1147, label %1145
 
@@ -7845,7 +7845,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_
   %1149 = add i32 %.201814, 2
   %indvars.iv.next1933 = add nuw nsw i64 %indvars.iv1932, 1
   %exitcond1935.not = icmp eq i64 %indvars.iv.next1933, %wide.trip.count1934
-  br i1 %exitcond1935.not, label %.loopexit1689, label %.lr.ph1816, !llvm.loop !44
+  br i1 %exitcond1935.not, label %.loopexit1689, label %.lr.ph1816, !llvm.loop !45
 
 .loopexit1689:                                    ; preds = %1148, %dissect_bfw_bundle.exit._crit_edge.thread
   %.21480 = phi i8 [ %.01478, %dissect_bfw_bundle.exit._crit_edge.thread ], [ %.41482, %1148 ]
@@ -7948,7 +7948,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %65) #13
   %1191 = add i8 %.014861796, 1
   %.21 = add i32 %.211799, 2
-  br i1 %1173, label %..loopexit1690_crit_edge, label %1161, !llvm.loop !45
+  br i1 %1173, label %..loopexit1690_crit_edge, label %1161, !llvm.loop !46
 
 1192:                                             ; preds = %514
   store i8 1, ptr %444, align 4
@@ -8016,7 +8016,7 @@ dissect_bfw_bundle.exit._crit_edge.thread:        ; preds = %1005, %dissect_bfw_
   %1226 = add i8 %.014901790, 1
   %.01488 = add i32 %.014881792, -2
   %.not1537 = icmp eq i32 %.01488, 0
-  br i1 %.not1537, label %.loopexit1691, label %1194, !llvm.loop !46
+  br i1 %.not1537, label %.loopexit1691, label %1194, !llvm.loop !47
 
 1227:                                             ; preds = %514
   %1228 = load i32, ptr @hf_oran_bf, align 4
@@ -8064,7 +8064,7 @@ proto_item_set_hidden.exit1611:                   ; preds = %1227, %1230, %1233
   %1249 = load i32, ptr %40, align 4
   %1250 = add i32 %1249, 1
   %1251 = icmp ult i32 %1248, %1250
-  br i1 %1251, label %.lr.ph1785, label %.loopexit1690, !llvm.loop !47
+  br i1 %1251, label %.lr.ph1785, label %.loopexit1690, !llvm.loop !48
 
 1252:                                             ; preds = %514
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #13
@@ -8140,7 +8140,7 @@ dissect_frame_structure.exit:                     ; preds = %1252, %1259, %1266,
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1287, ptr noundef nonnull @.str.1313, i32 noundef %1288)
   %1289 = add i32 %.241779, 8
   %exitcond1929.not = icmp eq i32 %1288, %1285
-  br i1 %exitcond1929.not, label %.loopexit1690, label %.lr.ph1781, !llvm.loop !48
+  br i1 %exitcond1929.not, label %.loopexit1690, label %.lr.ph1781, !llvm.loop !49
 
 1290:                                             ; preds = %514
   %1291 = shl i32 %511, 5
@@ -8159,7 +8159,7 @@ dissect_frame_structure.exit:                     ; preds = %1252, %1259, %1266,
   %1298 = add nuw i32 %.014951775, 4
   %1299 = add nuw nsw i32 %.014961774, 1
   %1300 = icmp ult i32 %1298, %1294
-  br i1 %1300, label %.lr.ph1777, label %.loopexit1690, !llvm.loop !49
+  br i1 %1300, label %.lr.ph1777, label %.loopexit1690, !llvm.loop !50
 
 1301:                                             ; preds = %514
   %1302 = load i32, ptr @hf_oran_transmissionWindowOffset, align 4
@@ -8191,7 +8191,7 @@ dissect_frame_structure.exit:                     ; preds = %1252, %1259, %1266,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %69) #13
   %1319 = load i32, ptr @hf_oran_disable_bfws, align 4
   %1320 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %468, i32 noundef %1319, ptr noundef %0, i32 noundef %510, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %69)
-  %1321 = load i8, ptr %69, align 1, !range !8, !noundef !9
+  %1321 = load i8, ptr %69, align 1, !range !9, !noundef !10
   %1322 = trunc nuw i8 %1321 to i1
   br i1 %1322, label %1323, label %1324
 
@@ -8263,7 +8263,7 @@ dissect_frame_structure.exit:                     ; preds = %1252, %1259, %1266,
   %1372 = load i32, ptr %29, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1355, ptr noundef nonnull @.str.1316, i32 noundef %1372)
   %1373 = add i32 %.261771, 6
-  %1374 = load i8, ptr %69, align 1, !range !8, !noundef !9
+  %1374 = load i8, ptr %69, align 1, !range !9, !noundef !10
   %1375 = trunc nuw i8 %1374 to i1
   br i1 %1375, label %1454, label %1376
 
@@ -8392,7 +8392,7 @@ decompress_value.exit1625:                        ; preds = %decompress_value.ex
   %1451 = add nuw i32 %.014871765, 1
   %1452 = load i32, ptr @pref_num_bf_antennas, align 4
   %1453 = icmp ult i32 %1451, %1452
-  br i1 %1453, label %.lr.ph1767, label %._crit_edge1768, !llvm.loop !50
+  br i1 %1453, label %.lr.ph1767, label %._crit_edge1768, !llvm.loop !51
 
 1454:                                             ; preds = %.lr.ph1772
   %1455 = load i32, ptr @hf_oran_reserved_1bit, align 4
@@ -8411,7 +8411,7 @@ decompress_value.exit1625:                        ; preds = %decompress_value.ex
   %1463 = add nuw i32 %.014931770, 1
   %1464 = load i32, ptr %40, align 4
   %1465 = icmp ult i32 %1463, %1464
-  br i1 %1465, label %.lr.ph1772, label %.loopexit1697, !llvm.loop !51
+  br i1 %1465, label %.lr.ph1772, label %.loopexit1697, !llvm.loop !52
 
 .loopexit1697:                                    ; preds = %1461, %1324
   %.25 = phi i32 [ %1347, %1324 ], [ %.27, %1461 ]
@@ -8466,7 +8466,7 @@ decompress_value.exit1625:                        ; preds = %decompress_value.ex
   %1495 = load i32, ptr @hf_oran_RbgIncl, align 4
   %1496 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %1476, i32 noundef %1495, ptr noundef %0, i32 noundef %1488, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %76)
   %1497 = add i32 %.281759, 6
-  %1498 = load i8, ptr %76, align 1, !range !8, !noundef !9
+  %1498 = load i8, ptr %76, align 1, !range !9, !noundef !10
   %1499 = trunc nuw i8 %1498 to i1
   br i1 %1499, label %1500, label %1508
 
@@ -8488,7 +8488,7 @@ decompress_value.exit1625:                        ; preds = %decompress_value.ex
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %76) #13
   %1510 = load i32, ptr %75, align 4
   %1511 = icmp ult i32 %1472, %1510
-  br i1 %1511, label %.lr.ph1761, label %._crit_edge1762, !llvm.loop !52
+  br i1 %1511, label %.lr.ph1761, label %._crit_edge1762, !llvm.loop !53
 
 1512:                                             ; preds = %514
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %77) #13
@@ -8664,7 +8664,7 @@ show_link_to_acknack_response.exit:               ; preds = %1586, %1583, %proto
   %.301753 = phi i32 [ %1647, %dissect_csf.exit1631 ], [ %1600, %1590 ]
   %.014581752 = phi i32 [ %1648, %dissect_csf.exit1631 ], [ 0, %1590 ]
   %1602 = load i32, ptr @hf_oran_sym_prb_pattern, align 4
-  %1603 = load i8, ptr %80, align 1, !range !8, !noundef !9
+  %1603 = load i8, ptr %80, align 1, !range !9, !noundef !10
   %1604 = trunc nuw i8 %1603 to i1
   %1605 = select i1 %1604, ptr @.str.1321, ptr @.str.1322
   %1606 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %468, i32 noundef %1602, ptr noundef %0, i32 noundef %.301753, i32 noundef 1, ptr noundef nonnull @.str.1165, ptr noundef nonnull %1605)
@@ -8677,7 +8677,7 @@ show_link_to_acknack_response.exit:               ; preds = %1586, %1583, %proto
   %1613 = add i32 %.301753, 2
   %1614 = load i32, ptr @hf_oran_num_mc_scale_offset, align 4
   %1615 = call ptr @proto_tree_add_item(ptr noundef %1608, i32 noundef %1614, ptr noundef %0, i32 noundef %1613, i32 noundef 1, i32 noundef 0)
-  %1616 = load i8, ptr %80, align 1, !range !8, !noundef !9
+  %1616 = load i8, ptr %80, align 1, !range !9, !noundef !10
   %1617 = trunc nuw i8 %1616 to i1
   br i1 %1617, label %1624, label %1618
 
@@ -8697,7 +8697,7 @@ show_link_to_acknack_response.exit:               ; preds = %1586, %1583, %proto
 
 1628:                                             ; preds = %1624, %1618
   %.31 = add i32 %.301753, 4
-  %1629 = load i8, ptr %80, align 1, !range !8, !noundef !9
+  %1629 = load i8, ptr %80, align 1, !range !9, !noundef !10
   %1630 = trunc nuw i8 %1629 to i1
   %1631 = load i32, ptr @hf_oran_reserved_4bits, align 4
   %.sink2015 = select i1 %1630, i32 0, i32 %1631
@@ -8735,7 +8735,7 @@ dissect_csf.exit1631:                             ; preds = %1628, %1642
   %1648 = add nuw i32 %.014581752, 1
   %1649 = load i32, ptr %79, align 4
   %1650 = icmp ult i32 %1648, %1649
-  br i1 %1650, label %.lr.ph1755, label %._crit_edge1756, !llvm.loop !53
+  br i1 %1650, label %.lr.ph1755, label %._crit_edge1756, !llvm.loop !54
 
 1651:                                             ; preds = %514
   %1652 = load i32, ptr @hf_oran_bf, align 4
@@ -8878,7 +8878,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   %1735 = shl i32 %1734, 2
   %1736 = add i32 %1735, %.41856
   %1737 = icmp ult i32 %.33, %1736
-  br i1 %1737, label %.lr.ph1749, label %._crit_edge1750, !llvm.loop !54
+  br i1 %1737, label %.lr.ph1749, label %._crit_edge1750, !llvm.loop !55
 
 ._crit_edge1750:                                  ; preds = %1731, %1673
   %.32.lcssa = phi i32 [ %1677, %1673 ], [ %.33, %1731 ]
@@ -8903,7 +8903,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   %1746 = shl i32 %1745, 2
   %1747 = add i32 %1746, %.41856
   %.not1531 = icmp ugt i32 %1744, %1747
-  br i1 %.not1531, label %._crit_edge1743, label %.lr.ph1742, !llvm.loop !55
+  br i1 %.not1531, label %._crit_edge1743, label %.lr.ph1742, !llvm.loop !56
 
 1748:                                             ; preds = %.lr.ph1742, %1748
   %.351738 = phi i32 [ %.341741, %.lr.ph1742 ], [ %spec.select1560, %1748 ]
@@ -8923,7 +8923,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %87) #13
   %1756 = add nuw nsw i32 %.014401737, 1
   %exitcond1928.not = icmp eq i32 %1756, 14
-  br i1 %exitcond1928.not, label %1742, label %1748, !llvm.loop !56
+  br i1 %exitcond1928.not, label %1742, label %1748, !llvm.loop !57
 
 ._crit_edge1743:                                  ; preds = %1742
   %1757 = icmp eq i32 %.014461740, 0
@@ -8969,7 +8969,7 @@ proto_item_set_hidden.exit1634:                   ; preds = %1651, %1654, %1657
   %.37 = add i32 %.371733, 2
   %1776 = load i32, ptr %88, align 4
   %1777 = icmp ult i32 %1775, %1776
-  br i1 %1777, label %.lr.ph1735, label %.loopexit1690, !llvm.loop !57
+  br i1 %1777, label %.lr.ph1735, label %.loopexit1690, !llvm.loop !58
 
 1778:                                             ; preds = %514
   %1779 = load i32, ptr @hf_oran_bf, align 4
@@ -9058,9 +9058,9 @@ proto_item_set_hidden.exit1637:                   ; preds = %1778, %1781, %1784
   %1817 = add i32 %1816, %.41856
   call void @proto_item_set_len(ptr noundef %462, i32 noundef %1816)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #13
-  %1818 = load i8, ptr %31, align 1, !range !8, !noundef !9
+  %1818 = load i8, ptr %31, align 1, !range !9, !noundef !10
   %1819 = trunc nuw i8 %1818 to i1
-  br i1 %1819, label %456, label %.loopexit1702
+  br i1 %1819, label %456, label %.loopexit1702, !llvm.loop !59
 
 .loopexit1702:                                    ; preds = %1814, %429, %.thread1674
   %.5 = phi i32 [ %510, %.thread1674 ], [ %.3, %429 ], [ %1817, %1814 ]
@@ -9203,7 +9203,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   %1885 = add i32 %1884, -4
   %1886 = lshr i32 %1885, 1
   %1887 = icmp samesign ult i32 %1883, %1886
-  br i1 %1887, label %.lr.ph1871, label %.loopexit, !llvm.loop !58
+  br i1 %1887, label %.lr.ph1871, label %.loopexit, !llvm.loop !60
 
 1888:                                             ; preds = %1848
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %98) #13
@@ -9262,7 +9262,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   %1917 = add nuw i32 %.014191864, 1
   %1918 = load i32, ptr %26, align 4
   %1919 = icmp ult i32 %1917, %1918
-  br i1 %1919, label %.lr.ph1867, label %.loopexit, !llvm.loop !59
+  br i1 %1919, label %.lr.ph1867, label %.loopexit, !llvm.loop !61
 
 .lr.ph1862:                                       ; preds = %.preheader1687, %1927
   %.441861 = phi i32 [ %1928, %1927 ], [ %1854, %.preheader1687 ]
@@ -9287,7 +9287,7 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %100) #13
   %1929 = load i32, ptr %94, align 4
   %1930 = icmp ult i32 %1922, %1929
-  br i1 %1930, label %.lr.ph1862, label %.loopexit, !llvm.loop !60
+  br i1 %1930, label %.lr.ph1862, label %.loopexit, !llvm.loop !62
 
 1931:                                             ; preds = %1848
   %1932 = call ptr @val_to_str_const(i32 noundef %1859, ptr noundef nonnull @meas_type_id_vals, ptr noundef nonnull @.str.201)
@@ -9306,9 +9306,9 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %95) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %94) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %93) #13
-  %1937 = load i8, ptr %92, align 1, !range !8, !noundef !9
+  %1937 = load i8, ptr %92, align 1, !range !9, !noundef !10
   %1938 = trunc nuw i8 %1937 to i1
-  br i1 %1938, label %1830, label %1939, !llvm.loop !61
+  br i1 %1938, label %1830, label %1939, !llvm.loop !63
 
 1939:                                             ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %92) #13
@@ -9368,9 +9368,9 @@ proto_item_set_hidden.exit1640:                   ; preds = %1820, %1823, %1826
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1943, ptr noundef nonnull @.str.1224, ptr noundef %1974)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %103) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %102) #13
-  %1975 = load i8, ptr %101, align 1, !range !8, !noundef !9
+  %1975 = load i8, ptr %101, align 1, !range !9, !noundef !10
   %1976 = trunc nuw i8 %1975 to i1
-  br i1 %1976, label %1941, label %1977, !llvm.loop !62
+  br i1 %1976, label %1941, label %1977, !llvm.loop !64
 
 1977:                                             ; preds = %1972
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %101) #13
@@ -9400,7 +9400,7 @@ declare ptr @tfs_get_string(i1 noundef zeroext, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
 define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef %1, i32 noundef range(i32 1, 0) %2, ptr noundef captures(none) %3) unnamed_addr #9 {
-  %5 = load i8, ptr %3, align 4, !range !8, !noundef !9
+  %5 = load i8, ptr %3, align 4, !range !9, !noundef !10
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %7, label %60
 
@@ -9412,7 +9412,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %12 = icmp ugt i32 %2, %10
   %spec.store.select = select i1 %12, i32 1, i32 %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 812
-  %14 = load i8, ptr %13, align 4, !range !8, !noundef !9
+  %14 = load i8, ptr %13, align 4, !range !9, !noundef !10
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %21
 
@@ -9488,14 +9488,14 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 53:                                               ; preds = %51, %45
   %54 = add i32 %.2, 1
   %55 = icmp eq i32 %54, 512
-  br i1 %55, label %.critedge, label %38, !llvm.loop !63
+  br i1 %55, label %.critedge, label %38, !llvm.loop !65
 
 56:                                               ; preds = %38, %39
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %57 = icmp samesign uge i64 %indvars.iv.next333, %zext
   %58 = icmp samesign ugt i64 %indvars.iv332, 26
   %or.cond = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond, label %._crit_edge295, label %32, !llvm.loop !64
+  br i1 %or.cond, label %._crit_edge295, label %32, !llvm.loop !66
 
 ._crit_edge295:                                   ; preds = %56, %21
   %.0227.lcssa = phi i32 [ 0, %21 ], [ %.2, %56 ]
@@ -9505,7 +9505,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 
 60:                                               ; preds = %4
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 31
-  %62 = load i8, ptr %61, align 1, !range !8, !noundef !9
+  %62 = load i8, ptr %61, align 1, !range !9, !noundef !10
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %117
 
@@ -9554,7 +9554,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 82:                                               ; preds = %73, %80
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond323.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count322
-  br i1 %exitcond323.not, label %._crit_edge, label %73, !llvm.loop !65
+  br i1 %exitcond323.not, label %._crit_edge, label %73, !llvm.loop !67
 
 83:                                               ; preds = %._crit_edge
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -9593,7 +9593,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 99:                                               ; preds = %114
   %100 = add nuw i32 %.0229279, 1
   %exitcond325.not = icmp eq i32 %100, %umax324
-  br i1 %exitcond325.not, label %._crit_edge282.loopexit, label %101, !llvm.loop !66
+  br i1 %exitcond325.not, label %._crit_edge282.loopexit, label %101, !llvm.loop !68
 
 101:                                              ; preds = %.lr.ph281, %99
   %102 = phi i32 [ %.pre, %.lr.ph281 ], [ %115, %99 ]
@@ -9634,11 +9634,11 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
   %116 = add i32 %93, %.pre-phi
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
-  br i1 %exitcond330.not, label %.critedge, label %89, !llvm.loop !67
+  br i1 %exitcond330.not, label %.critedge, label %89, !llvm.loop !69
 
 117:                                              ; preds = %60
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 292
-  %119 = load i8, ptr %118, align 4, !range !8, !noundef !9
+  %119 = load i8, ptr %118, align 4, !range !9, !noundef !10
   %120 = trunc nuw i8 %119 to i1
   %121 = add i32 %2, -1
   %122 = add i32 %121, %1
@@ -9706,12 +9706,12 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 152:                                              ; preds = %150, %138
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next308, %wide.trip.count311
-  br i1 %exitcond312.not, label %..critedge258_crit_edge.us, label %135, !llvm.loop !68
+  br i1 %exitcond312.not, label %..critedge258_crit_edge.us, label %135, !llvm.loop !70
 
 ..critedge258_crit_edge.us:                       ; preds = %152
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
-  br i1 %exitcond317.not, label %.critedge, label %.lr.ph271.us, !llvm.loop !69
+  br i1 %exitcond317.not, label %.critedge, label %.lr.ph271.us, !llvm.loop !71
 
 153:                                              ; preds = %117
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 816
@@ -9751,7 +9751,7 @@ define internal fastcc void @ext11_work_out_bundles(i32 noundef %0, i32 noundef 
 167:                                              ; preds = %158, %165
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %158, !llvm.loop !70
+  br i1 %exitcond.not, label %.critedge, label %158, !llvm.loop !72
 
 .critedge:                                        ; preds = %167, %..critedge258_crit_edge.us, %135, %._crit_edge282, %114, %53, %.lr.ph273, %153, %124, %83, %._crit_edge295, %._crit_edge
   ret void
@@ -9798,68 +9798,70 @@ attributes #13 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !7, !19}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7, !19}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7, !19}
-!70 = distinct !{!70, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7, !8, !20}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8, !20}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8, !20}
+!72 = distinct !{!72, !7, !8}

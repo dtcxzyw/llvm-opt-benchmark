@@ -371,7 +371,7 @@ make_outputdirs.exit:                             ; preds = %110, %.preheader.i
   br label %136
 
 131:                                              ; preds = %128
-  %132 = load i8, ptr @user_opts, align 8, !range !6, !noundef !7
+  %132 = load i8, ptr @user_opts, align 8, !range !7, !noundef !8
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %135, label %134
 
@@ -478,7 +478,7 @@ set_locale_and_encoding.exit:                     ; preds = %163, %174, %179
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.33) #9
   %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %182 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #9
-  %183 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !6, !noundef !7
+  %183 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !7, !noundef !8
   %184 = trunc nuw i8 %183 to i1
   %185 = select i1 %184, ptr @.str.35, ptr @.str.36
   %186 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.34, ptr noundef %181, ptr noundef %182, ptr noundef nonnull %185) #9
@@ -486,7 +486,7 @@ set_locale_and_encoding.exit:                     ; preds = %163, %174, %179
   call void (ptr, ...) @prep_status(ptr noundef nonnull @.str.37) #9
   %187 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @new_cluster, i64 152), align 8
   %188 = call ptr @cluster_conn_opts(ptr noundef nonnull @new_cluster) #9
-  %189 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !6, !noundef !7
+  %189 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !7, !noundef !8
   %190 = trunc nuw i8 %189 to i1
   %191 = select i1 %190, ptr @.str.35, ptr @.str.36
   %192 = call zeroext i1 (ptr, ptr, i1, i1, ptr, ...) @exec_prog(ptr noundef nonnull @.str.1, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.38, ptr noundef %187, ptr noundef %188, ptr noundef nonnull %191) #9
@@ -627,7 +627,7 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %250, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %250, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %264, %255
   %265 = phi i32 [ %.pre.i, %255 ], [ %247, %264 ]
@@ -688,14 +688,14 @@ copy_xact_xlog_xid.exit:                          ; preds = %copy_xact_xlog_xid.
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
   %294 = sext i32 %292 to i64
   %295 = icmp slt i64 %indvars.iv.next39.i, %294
-  br i1 %295, label %.lr.ph33.i, label %.preheader.i6.preheader, !llvm.loop !9
+  br i1 %295, label %.lr.ph33.i, label %.preheader.i6.preheader, !llvm.loop !10
 
 .preheader.i6.preheader:                          ; preds = %291, %.loopexit.i, %copy_xact_xlog_xid.exit
   br label %.preheader.i6
 
 .preheader.i6:                                    ; preds = %.preheader.i6.preheader, %.preheader.i6
   %296 = call zeroext i1 @reap_child(i1 noundef zeroext true) #9
-  br i1 %296, label %.preheader.i6, label %297, !llvm.loop !10
+  br i1 %296, label %.preheader.i6, label %297, !llvm.loop !11
 
 297:                                              ; preds = %.preheader.i6
   call void @end_progress_output() #9
@@ -788,11 +788,11 @@ create_new_objects.exit:                          ; preds = %297, %300
   %336 = load ptr, ptr %335, align 8
   call void @appendStringLiteralConn(ptr noundef %326, ptr noundef %336, ptr noundef %325) #9
   %337 = getelementptr inbounds nuw i8, ptr %333, i64 16
-  %338 = load i8, ptr %337, align 8, !range !6, !noundef !7
+  %338 = load i8, ptr %337, align 8, !range !7, !noundef !8
   %339 = trunc nuw i8 %338 to i1
   %340 = select i1 %339, ptr @.str.88, ptr @.str.89
   %341 = getelementptr inbounds nuw i8, ptr %333, i64 19
-  %342 = load i8, ptr %341, align 1, !range !6, !noundef !7
+  %342 = load i8, ptr %341, align 1, !range !7, !noundef !8
   %343 = trunc nuw i8 %342 to i1
   %344 = select i1 %343, ptr @.str.88, ptr @.str.89
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %326, ptr noundef nonnull @.str.87, ptr noundef nonnull %340, ptr noundef nonnull %344) #9
@@ -804,7 +804,7 @@ create_new_objects.exit:                          ; preds = %297, %300
   %347 = load i32, ptr %319, align 8
   %348 = sext i32 %347 to i64
   %349 = icmp slt i64 %indvars.iv.next.i13, %348
-  br i1 %349, label %331, label %._crit_edge.i, !llvm.loop !11
+  br i1 %349, label %331, label %._crit_edge.i, !llvm.loop !12
 
 350:                                              ; preds = %._crit_edge.i, %.lr.ph31.i
   %351 = phi i32 [ %316, %.lr.ph31.i ], [ %.pre38.i, %._crit_edge.i ]
@@ -812,7 +812,7 @@ create_new_objects.exit:                          ; preds = %297, %300
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %353 = sext i32 %351 to i64
   %354 = icmp slt i64 %indvars.iv.next35.i, %353
-  br i1 %354, label %.lr.ph31.i, label %create_logical_replication_slots.exit, !llvm.loop !12
+  br i1 %354, label %.lr.ph31.i, label %create_logical_replication_slots.exit, !llvm.loop !13
 
 create_logical_replication_slots.exit:            ; preds = %350, %312
   call void @end_progress_output() #9
@@ -821,7 +821,7 @@ create_logical_replication_slots.exit:            ; preds = %350, %312
   br label %355
 
 355:                                              ; preds = %create_logical_replication_slots.exit, %304
-  %356 = load i8, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 2), align 2, !range !6, !noundef !7
+  %356 = load i8, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 2), align 2, !range !7, !noundef !8
   %357 = trunc nuw i8 %356 to i1
   br i1 %357, label %358, label %363
 
@@ -1060,7 +1060,7 @@ sub_030:                                          ; preds = %26, %.tail.thread
 .tail29.thread:                                   ; preds = %sub_030, %35, %.tail29
   %38 = add nuw nsw i32 %.033, 1
   %exitcond.not = icmp eq i32 %38, %14
-  br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %sub_0, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.tail29.thread, %7
   tail call void @PQclear(ptr noundef %11) #9
@@ -1158,13 +1158,14 @@ attributes #12 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

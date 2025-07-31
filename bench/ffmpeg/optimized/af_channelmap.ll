@@ -104,14 +104,14 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %36 = zext nneg i32 %.1143.lcssa to i64
   %37 = tail call ptr @av_malloc_array(i64 noundef %36, i64 noundef 16) #10
   %38 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %37, ptr %38, align 8, !tbaa !29
+  store ptr %37, ptr %38, align 8, !tbaa !30
   %.not168.not = icmp eq ptr %37, null
   br i1 %.not168.not, label %.thread190, label %.lr.ph220
 
 .lr.ph220:                                        ; preds = %._crit_edge
   %39 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %wide.trip.count = zext nneg i32 %.1143.lcssa to i64
-  %.pre = load ptr, ptr %39, align 8, !tbaa !29
+  %.pre = load ptr, ptr %39, align 8, !tbaa !30
   br label %40
 
 40:                                               ; preds = %.lr.ph220, %120
@@ -119,13 +119,13 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph220 ], [ %indvars.iv.next, %120 ]
   %.0151217 = phi i64 [ 0, %.lr.ph220 ], [ %.2153.ph, %120 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  store i32 -1, ptr %4, align 4, !tbaa !30
+  store i32 -1, ptr %4, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #10
-  store i32 -1, ptr %5, align 4, !tbaa !30
+  store i32 -1, ptr %5, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #10
-  store i32 -1, ptr %6, align 4, !tbaa !30
+  store i32 -1, ptr %6, align 4, !tbaa !31
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #10
-  store i32 -1, ptr %7, align 4, !tbaa !30
+  store i32 -1, ptr %7, align 4, !tbaa !31
   %42 = getelementptr inbounds nuw %struct.ChannelMap, ptr %41, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %42, i8 -1, i64 16, i1 false)
   switch i32 %.0154.ph, label %120 [
@@ -143,13 +143,13 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br i1 %45, label %119, label %46
 
 46:                                               ; preds = %43
-  %47 = load i32, ptr %4, align 4, !tbaa !30
-  %48 = load ptr, ptr %39, align 8, !tbaa !29
+  %47 = load i32, ptr %4, align 4, !tbaa !31
+  %48 = load ptr, ptr %39, align 8, !tbaa !30
   %49 = getelementptr inbounds nuw %struct.ChannelMap, ptr %48, i64 %indvars.iv, i32 2
-  store i32 %47, ptr %49, align 4, !tbaa !31
+  store i32 %47, ptr %49, align 4, !tbaa !32
   %50 = getelementptr inbounds nuw %struct.ChannelMap, ptr %48, i64 %indvars.iv, i32 3
   %51 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %51, ptr %50, align 4, !tbaa !33
+  store i32 %51, ptr %50, align 4, !tbaa !34
   br label %120
 
 52:                                               ; preds = %40
@@ -158,13 +158,13 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br i1 %54, label %119, label %55
 
 55:                                               ; preds = %52
-  %56 = load i32, ptr %6, align 4, !tbaa !30
-  %57 = load ptr, ptr %39, align 8, !tbaa !29
+  %56 = load i32, ptr %6, align 4, !tbaa !31
+  %57 = load ptr, ptr %39, align 8, !tbaa !30
   %58 = getelementptr inbounds nuw %struct.ChannelMap, ptr %57, i64 %indvars.iv
-  store i32 %56, ptr %58, align 4, !tbaa !34
+  store i32 %56, ptr %58, align 4, !tbaa !35
   %59 = getelementptr inbounds nuw %struct.ChannelMap, ptr %57, i64 %indvars.iv, i32 3
   %60 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %60, ptr %59, align 4, !tbaa !33
+  store i32 %60, ptr %59, align 4, !tbaa !34
   br label %120
 
 61:                                               ; preds = %40
@@ -178,13 +178,13 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br i1 %66, label %119, label %67
 
 67:                                               ; preds = %64
-  %68 = load i32, ptr %4, align 4, !tbaa !30
-  %69 = load ptr, ptr %39, align 8, !tbaa !29
+  %68 = load i32, ptr %4, align 4, !tbaa !31
+  %69 = load ptr, ptr %39, align 8, !tbaa !30
   %70 = getelementptr inbounds nuw %struct.ChannelMap, ptr %69, i64 %indvars.iv, i32 2
-  store i32 %68, ptr %70, align 4, !tbaa !31
-  %71 = load i32, ptr %5, align 4, !tbaa !30
+  store i32 %68, ptr %70, align 4, !tbaa !32
+  %71 = load i32, ptr %5, align 4, !tbaa !31
   %72 = getelementptr inbounds nuw %struct.ChannelMap, ptr %69, i64 %indvars.iv, i32 3
-  store i32 %71, ptr %72, align 4, !tbaa !33
+  store i32 %71, ptr %72, align 4, !tbaa !34
   br label %120
 
 73:                                               ; preds = %40
@@ -198,13 +198,13 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br i1 %78, label %119, label %79
 
 79:                                               ; preds = %76
-  %80 = load i32, ptr %4, align 4, !tbaa !30
-  %81 = load ptr, ptr %39, align 8, !tbaa !29
+  %80 = load i32, ptr %4, align 4, !tbaa !31
+  %81 = load ptr, ptr %39, align 8, !tbaa !30
   %82 = getelementptr inbounds nuw %struct.ChannelMap, ptr %81, i64 %indvars.iv, i32 2
-  store i32 %80, ptr %82, align 4, !tbaa !31
-  %83 = load i32, ptr %7, align 4, !tbaa !30
+  store i32 %80, ptr %82, align 4, !tbaa !32
+  %83 = load i32, ptr %7, align 4, !tbaa !31
   %84 = getelementptr inbounds nuw %struct.ChannelMap, ptr %81, i64 %indvars.iv, i32 1
-  store i32 %83, ptr %84, align 4, !tbaa !35
+  store i32 %83, ptr %84, align 4, !tbaa !36
   %85 = icmp slt i32 %83, 63
   br i1 %85, label %86, label %120
 
@@ -225,13 +225,13 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br i1 %95, label %119, label %96
 
 96:                                               ; preds = %93
-  %97 = load i32, ptr %6, align 4, !tbaa !30
-  %98 = load ptr, ptr %39, align 8, !tbaa !29
+  %97 = load i32, ptr %6, align 4, !tbaa !31
+  %98 = load ptr, ptr %39, align 8, !tbaa !30
   %99 = getelementptr inbounds nuw %struct.ChannelMap, ptr %98, i64 %indvars.iv
-  store i32 %97, ptr %99, align 4, !tbaa !34
-  %100 = load i32, ptr %5, align 4, !tbaa !30
+  store i32 %97, ptr %99, align 4, !tbaa !35
+  %100 = load i32, ptr %5, align 4, !tbaa !31
   %101 = getelementptr inbounds nuw %struct.ChannelMap, ptr %98, i64 %indvars.iv, i32 3
-  store i32 %100, ptr %101, align 4, !tbaa !33
+  store i32 %100, ptr %101, align 4, !tbaa !34
   br label %120
 
 102:                                              ; preds = %40
@@ -245,13 +245,13 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br i1 %107, label %119, label %108
 
 108:                                              ; preds = %105
-  %109 = load i32, ptr %6, align 4, !tbaa !30
-  %110 = load ptr, ptr %39, align 8, !tbaa !29
+  %109 = load i32, ptr %6, align 4, !tbaa !31
+  %110 = load ptr, ptr %39, align 8, !tbaa !30
   %111 = getelementptr inbounds nuw %struct.ChannelMap, ptr %110, i64 %indvars.iv
-  store i32 %109, ptr %111, align 4, !tbaa !34
-  %112 = load i32, ptr %7, align 4, !tbaa !30
+  store i32 %109, ptr %111, align 4, !tbaa !35
+  %112 = load i32, ptr %7, align 4, !tbaa !31
   %113 = getelementptr inbounds nuw %struct.ChannelMap, ptr %110, i64 %indvars.iv, i32 1
-  store i32 %112, ptr %113, align 4, !tbaa !35
+  store i32 %112, ptr %113, align 4, !tbaa !36
   %114 = icmp slt i32 %112, 63
   br i1 %114, label %115, label %120
 
@@ -278,32 +278,32 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge221, label %40, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge221, label %40, !llvm.loop !37
 
 ._crit_edge221:                                   ; preds = %120
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  store i32 %.0154.ph, ptr %122, align 4, !tbaa !37
+  store i32 %.0154.ph, ptr %122, align 4, !tbaa !38
   %123 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i32 %.1143.lcssa, ptr %123, align 8, !tbaa !38
+  store i32 %.1143.lcssa, ptr %123, align 8, !tbaa !39
   %124 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %125 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %126 = load i32, ptr %125, align 4, !tbaa !39
+  %126 = load i32, ptr %125, align 4, !tbaa !40
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %136, label %146
 
 ._crit_edge221.thread:                            ; preds = %1
   %128 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  store i32 0, ptr %128, align 4, !tbaa !37
+  store i32 0, ptr %128, align 4, !tbaa !38
   %129 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  store i32 0, ptr %129, align 8, !tbaa !38
+  store i32 0, ptr %129, align 8, !tbaa !39
   %130 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %131 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %132 = load i32, ptr %131, align 4, !tbaa !39
-  store i32 %132, ptr %129, align 8, !tbaa !38
+  %132 = load i32, ptr %131, align 4, !tbaa !40
+  store i32 %132, ptr %129, align 8, !tbaa !39
   %133 = sext i32 %132 to i64
   %134 = tail call ptr @av_malloc_array(i64 noundef %133, i64 noundef 16) #10
   %135 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %134, ptr %135, align 8, !tbaa !29
+  store ptr %134, ptr %135, align 8, !tbaa !30
   %.not171.not = icmp eq ptr %134, null
   br i1 %.not171.not, label %.thread190, label %.preheader201
 
@@ -320,7 +320,7 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   br label %146
 
 .preheader201:                                    ; preds = %._crit_edge221.thread
-  %141 = load i32, ptr %129, align 8, !tbaa !38
+  %141 = load i32, ptr %129, align 8, !tbaa !39
   %142 = icmp sgt i32 %141, 0
   br i1 %142, label %.lr.ph224.preheader, label %thread-pre-split
 
@@ -332,29 +332,29 @@ define internal range(i32 -22, 1) i32 @channelmap_init(ptr noundef %0) #0 {
   %indvars.iv238 = phi i64 [ 0, %.lr.ph224.preheader ], [ %indvars.iv.next239, %.lr.ph224 ]
   %143 = getelementptr inbounds nuw %struct.ChannelMap, ptr %134, i64 %indvars.iv238, i32 2
   %144 = trunc nuw nsw i64 %indvars.iv238 to i32
-  store i32 %144, ptr %143, align 4, !tbaa !31
+  store i32 %144, ptr %143, align 4, !tbaa !32
   %145 = getelementptr inbounds nuw %struct.ChannelMap, ptr %134, i64 %indvars.iv238, i32 3
-  store i32 %144, ptr %145, align 4, !tbaa !33
+  store i32 %144, ptr %145, align 4, !tbaa !34
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next239, %wide.trip.count241
-  br i1 %exitcond242.not, label %thread-pre-split, label %.lr.ph224, !llvm.loop !40
+  br i1 %exitcond242.not, label %thread-pre-split, label %.lr.ph224, !llvm.loop !41
 
 146:                                              ; preds = %._crit_edge221, %140, %138
-  %147 = load i32, ptr %123, align 8, !tbaa !38
-  %148 = load i32, ptr %125, align 4, !tbaa !39
+  %147 = load i32, ptr %123, align 8, !tbaa !39
+  %148 = load i32, ptr %125, align 4, !tbaa !40
   %.not170 = icmp eq i32 %147, %148
   br i1 %.not170, label %152, label %149
 
 149:                                              ; preds = %146
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %8) #10
   %150 = call i32 @av_channel_layout_describe(ptr noundef nonnull %124, ptr noundef nonnull %8, i64 noundef 256) #10
-  %151 = load i32, ptr %123, align 8, !tbaa !38
+  %151 = load i32, ptr %123, align 8, !tbaa !39
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, ptr noundef nonnull %8, i32 noundef %151) #10
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #10
   br label %.thread190
 
 thread-pre-split:                                 ; preds = %.lr.ph224, %.preheader201
-  %.pr = load i32, ptr %131, align 4, !tbaa !39
+  %.pr = load i32, ptr %131, align 4, !tbaa !40
   br label %152
 
 152:                                              ; preds = %thread-pre-split, %146
@@ -379,30 +379,30 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
 
 .lr.ph226:                                        ; preds = %158
   %161 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %.pre249 = load ptr, ptr %161, align 8, !tbaa !29
+  %.pre249 = load ptr, ptr %161, align 8, !tbaa !30
   br label %162
 
 162:                                              ; preds = %.lr.ph226, %162
   %163 = phi ptr [ %.pre249, %.lr.ph226 ], [ %167, %162 ]
   %indvars.iv243 = phi i64 [ 0, %.lr.ph226 ], [ %indvars.iv.next244, %162 ]
   %164 = getelementptr inbounds nuw %struct.ChannelMap, ptr %163, i64 %indvars.iv243, i32 1
-  %165 = load i32, ptr %164, align 4, !tbaa !35
+  %165 = load i32, ptr %164, align 4, !tbaa !36
   %166 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %154, i32 noundef %165) #10
-  %167 = load ptr, ptr %161, align 8, !tbaa !29
+  %167 = load ptr, ptr %161, align 8, !tbaa !30
   %168 = getelementptr inbounds nuw %struct.ChannelMap, ptr %167, i64 %indvars.iv243, i32 3
-  store i32 %166, ptr %168, align 4, !tbaa !33
+  store i32 %166, ptr %168, align 4, !tbaa !34
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
-  %169 = load i32, ptr %153, align 8, !tbaa !38
+  %169 = load i32, ptr %153, align 8, !tbaa !39
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next244, %170
-  br i1 %171, label %162, label %.loopexit200, !llvm.loop !41
+  br i1 %171, label %162, label %.loopexit200, !llvm.loop !42
 
 .loopexit200:                                     ; preds = %162, %158
   %172 = phi i32 [ %155, %158 ], [ %169, %162 ]
   %173 = sext i32 %172 to i64
   %174 = call noalias ptr @av_calloc(i64 noundef %173, i64 noundef 1) #10
   store ptr %174, ptr %3, align 8, !tbaa !20
-  %175 = load i32, ptr %153, align 8, !tbaa !38
+  %175 = load i32, ptr %153, align 8, !tbaa !39
   %176 = icmp sgt i32 %175, 0
   br i1 %176, label %.lr.ph229, label %.thread193
 
@@ -412,12 +412,12 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
 
 178:                                              ; preds = %.lr.ph229, %199
   %indvars.iv246 = phi i64 [ 0, %.lr.ph229 ], [ %indvars.iv.next247, %199 ]
-  %179 = load ptr, ptr %177, align 8, !tbaa !29
+  %179 = load ptr, ptr %177, align 8, !tbaa !30
   %180 = getelementptr inbounds nuw %struct.ChannelMap, ptr %179, i64 %indvars.iv246
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 12
-  %182 = load i32, ptr %181, align 4, !tbaa !33
+  %182 = load i32, ptr %181, align 4, !tbaa !34
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  %184 = load i32, ptr %183, align 4, !tbaa !35
+  %184 = load i32, ptr %183, align 4, !tbaa !36
   %185 = call fastcc i32 @check_idx_and_id(ptr noundef %0, i32 noundef %182, i32 noundef %184, ptr noundef nonnull %154, ptr noundef nonnull @.str.14)
   %186 = icmp slt i32 %185, 0
   br i1 %186, label %.loopexit, label %187
@@ -435,9 +435,9 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9) #10
   %194 = call i32 @av_channel_layout_describe(ptr noundef nonnull %154, ptr noundef nonnull %9, i64 noundef 256) #10
   %195 = add nuw nsw i32 %193, 1
-  %196 = load ptr, ptr %177, align 8, !tbaa !29
+  %196 = load ptr, ptr %177, align 8, !tbaa !30
   %197 = getelementptr inbounds nuw %struct.ChannelMap, ptr %196, i64 %indvars.iv246, i32 3
-  %198 = load i32, ptr %197, align 4, !tbaa !33
+  %198 = load i32, ptr %197, align 4, !tbaa !34
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.15, i32 noundef %195, i32 noundef %198, ptr noundef nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #10
   br label %.loopexit
@@ -445,10 +445,10 @@ thread-pre-split:                                 ; preds = %.lr.ph224, %.prehea
 199:                                              ; preds = %187
   store i8 1, ptr %190, align 1, !tbaa !26
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
-  %200 = load i32, ptr %153, align 8, !tbaa !38
+  %200 = load i32, ptr %153, align 8, !tbaa !39
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next247, %201
-  br i1 %202, label %178, label %.thread193, !llvm.loop !42
+  br i1 %202, label %178, label %.thread193, !llvm.loop !43
 
 .thread193:                                       ; preds = %199, %.loopexit200
   call void @av_freep(ptr noundef nonnull %3) #10
@@ -483,7 +483,7 @@ define internal range(i32 -2147483648, 1) i32 @channelmap_query_formats(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
-  store ptr null, ptr %4, align 8, !tbaa !43
+  store ptr null, ptr %4, align 8, !tbaa !44
   %7 = tail call ptr @ff_planar_sample_fmts() #10
   %8 = tail call i32 @ff_set_common_formats2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %7) #10
   %9 = icmp slt i32 %8, 0
@@ -496,8 +496,8 @@ define internal range(i32 -2147483648, 1) i32 @channelmap_query_formats(ptr noun
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %10
-  %15 = load ptr, ptr %4, align 8, !tbaa !43
-  %16 = load ptr, ptr %2, align 8, !tbaa !45
+  %15 = load ptr, ptr %4, align 8, !tbaa !44
+  %16 = load ptr, ptr %2, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = call i32 @ff_channel_layouts_ref(ptr noundef %15, ptr noundef nonnull %17) #10
   %. = call i32 @llvm.smin.i32(i32 %18, i32 0)
@@ -512,22 +512,22 @@ define internal range(i32 -2147483648, 1) i32 @channelmap_query_formats(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @channelmap_filter_frame(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 {
   %3 = alloca ptr, align 8
-  store ptr %1, ptr %3, align 8, !tbaa !47
+  store ptr %1, ptr %3, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !56
-  %8 = load ptr, ptr %7, align 8, !tbaa !57
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %8 = load ptr, ptr %7, align 8, !tbaa !58
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %12 = load i32, ptr %11, align 4, !tbaa !59
+  %12 = load i32, ptr %11, align 4, !tbaa !60
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %14 = load i32, ptr %13, align 8, !tbaa !38
+  %14 = load i32, ptr %13, align 8, !tbaa !39
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !60
+  %16 = load ptr, ptr %15, align 8, !tbaa !61
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !61
+  %18 = load ptr, ptr %17, align 8, !tbaa !62
   %19 = sext i32 %12 to i64
   %20 = shl nsw i64 %19, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %18, i64 %20, i1 false)
@@ -535,7 +535,7 @@ define internal i32 @channelmap_filter_frame(ptr noundef readonly captures(none)
   br i1 %21, label %22, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %2
-  %.pre.pre = load ptr, ptr %17, align 8, !tbaa !61
+  %.pre.pre = load ptr, ptr %17, align 8, !tbaa !62
   br label %.thread
 
 22:                                               ; preds = %2
@@ -549,17 +549,17 @@ define internal i32 @channelmap_filter_frame(ptr noundef readonly captures(none)
   br i1 %.not39.not, label %32, label %27
 
 27:                                               ; preds = %24
-  %28 = load ptr, ptr %17, align 8, !tbaa !61
+  %28 = load ptr, ptr %17, align 8, !tbaa !62
   %29 = icmp eq ptr %28, %1
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %27
-  store ptr %26, ptr %17, align 8, !tbaa !61
+  store ptr %26, ptr %17, align 8, !tbaa !62
   br label %.thread
 
 31:                                               ; preds = %27
   tail call void @av_free(ptr noundef %28) #10
-  store ptr %26, ptr %17, align 8, !tbaa !61
+  store ptr %26, ptr %17, align 8, !tbaa !62
   br label %.thread
 
 32:                                               ; preds = %24
@@ -567,13 +567,13 @@ define internal i32 @channelmap_filter_frame(ptr noundef readonly captures(none)
   br label %62
 
 33:                                               ; preds = %22
-  %34 = load ptr, ptr %17, align 8, !tbaa !61
+  %34 = load ptr, ptr %17, align 8, !tbaa !62
   %.not = icmp eq ptr %34, %1
   br i1 %.not, label %.thread, label %35
 
 35:                                               ; preds = %33
   tail call void @av_free(ptr noundef %34) #10
-  store ptr %1, ptr %17, align 8, !tbaa !61
+  store ptr %1, ptr %17, align 8, !tbaa !62
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %31, %30, %35, %33
@@ -582,9 +582,9 @@ define internal i32 @channelmap_filter_frame(ptr noundef readonly captures(none)
   br i1 %36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.thread
-  %37 = load ptr, ptr %15, align 8, !tbaa !60
+  %37 = load ptr, ptr %15, align 8, !tbaa !61
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %39 = load ptr, ptr %38, align 8, !tbaa !29
+  %39 = load ptr, ptr %38, align 8, !tbaa !30
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %40
 
@@ -592,18 +592,18 @@ define internal i32 @channelmap_filter_frame(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %41 = getelementptr inbounds nuw %struct.ChannelMap, ptr %39, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !31
+  %43 = load i32, ptr %42, align 4, !tbaa !32
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds ptr, ptr %37, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !20
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  %48 = load i32, ptr %47, align 4, !tbaa !33
+  %48 = load i32, ptr %47, align 4, !tbaa !34
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds ptr, ptr %.pre, i64 %49
   store ptr %46, ptr %50, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %40, %.thread
   %.not40 = icmp eq ptr %1, %.pre
@@ -637,11 +637,11 @@ define internal range(i32 -22, 1) i32 @channelmap_config_input(ptr noundef %0) #
   %2 = alloca [64 x i8], align 16
   %3 = alloca [256 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load i32, ptr %8, align 8, !tbaa !38
+  %9 = load i32, ptr %8, align 8, !tbaa !39
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -655,9 +655,9 @@ define internal range(i32 -22, 1) i32 @channelmap_config_input(ptr noundef %0) #
 15:                                               ; preds = %.lr.ph, %check_idx_and_id.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %check_idx_and_id.exit ]
   %.02227 = phi i32 [ 0, %.lr.ph ], [ %35, %check_idx_and_id.exit ]
-  %16 = load ptr, ptr %11, align 8, !tbaa !29
+  %16 = load ptr, ptr %11, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw %struct.ChannelMap, ptr %16, i64 %indvars.iv
-  %18 = load i32, ptr %12, align 4, !tbaa !37
+  %18 = load i32, ptr %12, align 4, !tbaa !38
   switch i32 %18, label %._crit_edge29 [
     i32 5, label %19
     i32 6, label %19
@@ -666,26 +666,26 @@ define internal range(i32 -22, 1) i32 @channelmap_config_input(ptr noundef %0) #
 
 ._crit_edge29:                                    ; preds = %15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !31
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !32
   br label %23
 
 19:                                               ; preds = %15, %15, %15
-  %20 = load i32, ptr %17, align 4, !tbaa !34
+  %20 = load i32, ptr %17, align 4, !tbaa !35
   %21 = call i32 @av_channel_layout_index_from_channel(ptr noundef nonnull %13, i32 noundef %20) #10
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 %21, ptr %22, align 4, !tbaa !31
+  store i32 %21, ptr %22, align 4, !tbaa !32
   br label %23
 
 23:                                               ; preds = %._crit_edge29, %19
   %24 = phi i32 [ %.pre, %._crit_edge29 ], [ %21, %19 ]
-  %25 = load i32, ptr %17, align 4, !tbaa !34
+  %25 = load i32, ptr %17, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #10
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #10
   %26 = icmp slt i32 %24, 0
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr %14, align 4, !tbaa !67
+  %28 = load i32, ptr %14, align 4, !tbaa !68
   %.not.i = icmp slt i32 %24, %28
   br i1 %.not.i, label %check_idx_and_id.exit, label %29
 
@@ -708,20 +708,20 @@ check_idx_and_id.exit:                            ; preds = %32, %34, %27
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %8, align 8, !tbaa !38
+  %36 = load i32, ptr %8, align 8, !tbaa !39
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %15, label %._crit_edge, !llvm.loop !68
+  br i1 %38, label %15, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %check_idx_and_id.exit, %1
   %.022.lcssa = phi i32 [ 0, %1 ], [ %35, %check_idx_and_id.exit ]
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 56
   call void @av_freep(ptr noundef nonnull %39) #10
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %41 = load i32, ptr %40, align 4, !tbaa !59
+  %41 = load i32, ptr %40, align 4, !tbaa !60
   %42 = sext i32 %41 to i64
   %43 = call noalias ptr @av_calloc(i64 noundef %42, i64 noundef 8) #10
-  store ptr %43, ptr %39, align 8, !tbaa !60
+  store ptr %43, ptr %39, align 8, !tbaa !61
   %.not = icmp eq ptr %43, null
   %..022 = select i1 %.not, i32 -12, i32 %.022.lcssa
   ret i32 %..022
@@ -759,7 +759,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_idx_and_id(ptr noundef %0, i
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !67
+  %11 = load i32, ptr %10, align 4, !tbaa !68
   %.not = icmp slt i32 %1, %11
   br i1 %.not, label %18, label %12
 
@@ -803,7 +803,7 @@ declare ptr @av_malloc_array(i64 noundef, i64 noundef) local_unnamed_addr #4
 define internal fastcc range(i32 -22, 1) i32 @get_channel_idx(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, i8 noundef signext range(i8 45, 125) %2) unnamed_addr #6 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #10
-  store i32 0, ptr %4, align 4, !tbaa !30
+  store i32 0, ptr %4, align 4, !tbaa !31
   %5 = load ptr, ptr %0, align 8, !tbaa !20
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %21, label %6
@@ -830,12 +830,12 @@ split.exit:                                       ; preds = %6
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #11
   %14 = trunc i64 %13 to i32
   %15 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %12, ptr noundef nonnull @.str.16, ptr noundef nonnull %1, ptr noundef nonnull %4) #10
-  %16 = load i32, ptr %4, align 4, !tbaa !30
+  %16 = load i32, ptr %4, align 4, !tbaa !31
   %.not15 = icmp eq i32 %16, %14
   br i1 %.not15, label %17, label %21
 
 17:                                               ; preds = %11
-  %18 = load i32, ptr %1, align 4, !tbaa !30
+  %18 = load i32, ptr %1, align 4, !tbaa !31
   %19 = icmp slt i32 %18, 0
   br i1 %19, label %21, label %20
 
@@ -871,7 +871,7 @@ split.exit:                                       ; preds = %3
   %10 = phi ptr [ %.pre, %split.exit.thread ], [ %4, %split.exit ]
   %.0.i13 = phi ptr [ %7, %split.exit.thread ], [ null, %split.exit ]
   %11 = tail call i32 @av_channel_from_string(ptr noundef %10) #10
-  store i32 %11, ptr %1, align 4, !tbaa !30
+  store i32 %11, ptr %1, align 4, !tbaa !31
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %14, label %13
 
@@ -955,45 +955,46 @@ attributes #11 = { nounwind willreturn memory(read) }
 !24 = !{!"p1 _ZTS10ChannelMap", !7, i64 0}
 !25 = !{!"p2 omnipotent char", !14, i64 0}
 !26 = !{!8, !8, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!22, !24, i64 40}
-!30 = !{!15, !15, i64 0}
-!31 = !{!32, !15, i64 8}
-!32 = !{!"ChannelMap", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12}
-!33 = !{!32, !15, i64 12}
-!34 = !{!32, !15, i64 0}
-!35 = !{!32, !15, i64 4}
-!36 = distinct !{!36, !28}
-!37 = !{!22, !15, i64 52}
-!38 = !{!22, !15, i64 48}
-!39 = !{!22, !15, i64 20}
-!40 = distinct !{!40, !28}
-!41 = distinct !{!41, !28}
-!42 = distinct !{!42, !28}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS21AVFilterFormatsConfig", !7, i64 0}
-!47 = !{!48, !48, i64 0}
-!48 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
-!49 = !{!50, !51, i64 16}
-!50 = !{!"AVFilterLink", !51, i64 0, !12, i64 8, !51, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !52, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !23, i64 72, !52, i64 96, !53, i64 104, !15, i64 112, !54, i64 120, !54, i64 160}
-!51 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
-!52 = !{!"AVRational", !15, i64 0, !15, i64 4}
-!53 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
-!54 = !{!"AVFilterFormatsConfig", !55, i64 0, !55, i64 8, !44, i64 16, !55, i64 24, !55, i64 32}
-!55 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
-!56 = !{!5, !13, i64 56}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
-!59 = !{!50, !15, i64 76}
-!60 = !{!22, !25, i64 56}
-!61 = !{!62, !25, i64 96}
-!62 = !{!"AVFrame", !8, i64 0, !8, i64 64, !25, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !52, i64 124, !63, i64 136, !63, i64 144, !52, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !64, i64 248, !15, i64 256, !53, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !63, i64 304, !65, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !63, i64 344, !63, i64 352, !63, i64 360, !63, i64 368, !7, i64 376, !23, i64 384, !63, i64 408}
-!63 = !{!"long", !8, i64 0}
-!64 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
-!65 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!66 = distinct !{!66, !28}
-!67 = !{!23, !15, i64 4}
-!68 = distinct !{!68, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!22, !24, i64 40}
+!31 = !{!15, !15, i64 0}
+!32 = !{!33, !15, i64 8}
+!33 = !{!"ChannelMap", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12}
+!34 = !{!33, !15, i64 12}
+!35 = !{!33, !15, i64 0}
+!36 = !{!33, !15, i64 4}
+!37 = distinct !{!37, !28, !29}
+!38 = !{!22, !15, i64 52}
+!39 = !{!22, !15, i64 48}
+!40 = !{!22, !15, i64 20}
+!41 = distinct !{!41, !28, !29}
+!42 = distinct !{!42, !28, !29}
+!43 = distinct !{!43, !28, !29}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS22AVFilterChannelLayouts", !7, i64 0}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS21AVFilterFormatsConfig", !7, i64 0}
+!48 = !{!49, !49, i64 0}
+!49 = !{!"p1 _ZTS7AVFrame", !7, i64 0}
+!50 = !{!51, !52, i64 16}
+!51 = !{!"AVFilterLink", !52, i64 0, !12, i64 8, !52, i64 16, !12, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !53, i64 48, !15, i64 56, !15, i64 60, !15, i64 64, !23, i64 72, !53, i64 96, !54, i64 104, !15, i64 112, !55, i64 120, !55, i64 160}
+!52 = !{!"p1 _ZTS15AVFilterContext", !7, i64 0}
+!53 = !{!"AVRational", !15, i64 0, !15, i64 4}
+!54 = !{!"p2 _ZTS15AVFrameSideData", !14, i64 0}
+!55 = !{!"AVFilterFormatsConfig", !56, i64 0, !56, i64 8, !45, i64 16, !56, i64 24, !56, i64 32}
+!56 = !{!"p1 _ZTS15AVFilterFormats", !7, i64 0}
+!57 = !{!5, !13, i64 56}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS12AVFilterLink", !7, i64 0}
+!60 = !{!51, !15, i64 76}
+!61 = !{!22, !25, i64 56}
+!62 = !{!63, !25, i64 96}
+!63 = !{!"AVFrame", !8, i64 0, !8, i64 64, !25, i64 96, !15, i64 104, !15, i64 108, !15, i64 112, !15, i64 116, !15, i64 120, !53, i64 124, !64, i64 136, !64, i64 144, !53, i64 152, !15, i64 160, !7, i64 168, !15, i64 176, !15, i64 180, !8, i64 184, !65, i64 248, !15, i64 256, !54, i64 264, !15, i64 272, !15, i64 276, !15, i64 280, !15, i64 284, !15, i64 288, !15, i64 292, !15, i64 296, !64, i64 304, !66, i64 312, !15, i64 320, !19, i64 328, !19, i64 336, !64, i64 344, !64, i64 352, !64, i64 360, !64, i64 368, !7, i64 376, !23, i64 384, !64, i64 408}
+!64 = !{!"long", !8, i64 0}
+!65 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
+!66 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!67 = distinct !{!67, !28, !29}
+!68 = !{!23, !15, i64 4}
+!69 = distinct !{!69, !28, !29}

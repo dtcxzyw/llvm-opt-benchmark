@@ -443,5 +443,6 @@ attributes #6 = { nounwind }
 !11 = !{!12, !10, i64 2056}
 !12 = !{!"", !5, i64 0, !10, i64 2056}
 !13 = !{ptr @HUF_compress1X_repeat, ptr @HUF_compress4X_repeat}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
+!16 = !{!"llvm.loop.estimated_trip_count"}

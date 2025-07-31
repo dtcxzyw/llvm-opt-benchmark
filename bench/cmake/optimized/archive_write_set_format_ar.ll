@@ -281,7 +281,7 @@ ar_basename.exit:                                 ; preds = %.tail140.thread
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %58 = load i32, ptr %57, align 4, !tbaa !31
+  %58 = load i32, ptr %57, align 4, !tbaa !32
   %59 = icmp slt i32 %58, 1
   br i1 %59, label %60, label %61
 
@@ -305,7 +305,7 @@ ar_basename.exit:                                 ; preds = %.tail140.thread
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 %67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %68, ptr noundef nonnull align 1 dereferenceable(3) @.str.15, i64 3, i1 false) #12
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %70 = load ptr, ptr %69, align 8, !tbaa !32
+  %70 = load ptr, ptr %69, align 8, !tbaa !33
   %71 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %63) #14
   tail call void @free(ptr noundef nonnull %63) #12
   %72 = icmp eq ptr %71, null
@@ -387,7 +387,7 @@ ar_basename.exit:                                 ; preds = %.tail140.thread
   %108 = icmp samesign ugt i32 %.025.i, 1
   %109 = icmp samesign ugt i64 %.029.i, 9
   %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %101, label %111, !llvm.loop !33
+  br i1 %110, label %101, label %111, !llvm.loop !34
 
 111:                                              ; preds = %101
   %112 = icmp samesign ult i64 %.029.i, 10
@@ -438,7 +438,7 @@ format_decimal.exit:                              ; preds = %95, %.preheader32.p
   %132 = icmp samesign ugt i32 %.025.i107, 1
   %133 = icmp samesign ugt i64 %.029.i105, 9
   %134 = select i1 %132, i1 %133, i1 false
-  br i1 %134, label %125, label %135, !llvm.loop !33
+  br i1 %134, label %125, label %135, !llvm.loop !34
 
 135:                                              ; preds = %125
   %136 = icmp samesign ult i64 %.029.i105, 10
@@ -489,7 +489,7 @@ format_decimal.exit112:                           ; preds = %120, %.preheader32.
   %156 = icmp samesign ugt i32 %.025.i115, 1
   %157 = icmp samesign ugt i64 %.029.i113, 9
   %158 = select i1 %156, i1 %157, i1 false
-  br i1 %158, label %149, label %159, !llvm.loop !33
+  br i1 %158, label %149, label %159, !llvm.loop !34
 
 159:                                              ; preds = %149
   %160 = icmp samesign ult i64 %.029.i113, 10
@@ -563,7 +563,7 @@ format_decimal.exit120:                           ; preds = %144, %.preheader32.
   %186 = icmp samesign ugt i32 %.025.i123, 1
   %187 = icmp samesign ugt i64 %.029.i121, 9
   %188 = select i1 %186, i1 %187, i1 false
-  br i1 %188, label %.preheader, label %189, !llvm.loop !33
+  br i1 %188, label %.preheader, label %189, !llvm.loop !34
 
 189:                                              ; preds = %.preheader
   %190 = icmp samesign ult i64 %.029.i121, 10
@@ -597,10 +597,10 @@ format_decimal.exit128:                           ; preds = %177, %.preheader32.
   br i1 %.not102, label %200, label %210
 
 200:                                              ; preds = %198
-  store i64 %.1, ptr %5, align 8, !tbaa !34
+  store i64 %.1, ptr %5, align 8, !tbaa !35
   %201 = and i64 %.1, 1
   %202 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %201, ptr %202, align 8, !tbaa !35
+  store i64 %201, ptr %202, align 8, !tbaa !36
   %.not139 = icmp eq i32 %.182, 0
   br i1 %.not139, label %210, label %203
 
@@ -612,9 +612,9 @@ format_decimal.exit128:                           ; preds = %177, %.preheader32.
 
 206:                                              ; preds = %203
   %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.179) #14
-  %208 = load i64, ptr %5, align 8, !tbaa !34
+  %208 = load i64, ptr %5, align 8, !tbaa !35
   %209 = sub i64 %208, %207
-  store i64 %209, ptr %5, align 8, !tbaa !34
+  store i64 %209, ptr %5, align 8, !tbaa !35
   br label %210
 
 210:                                              ; preds = %200, %206, %203, %198, %format_decimal.exit128, %176, %172, %format_decimal.exit120, %format_decimal.exit112, %format_decimal.exit, %92, %80, %73, %65, %60, %ar_basename.exit, %13
@@ -627,7 +627,7 @@ format_decimal.exit128:                           ; preds = %177, %.preheader32.
 define internal i64 @archive_write_ar_data(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %6 = load i64, ptr %5, align 8, !tbaa !34
+  %6 = load i64, ptr %5, align 8, !tbaa !35
   %spec.select = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !25
@@ -636,7 +636,7 @@ define internal i64 @archive_write_ar_data(ptr noundef %0, ptr noundef %1, i64 n
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %12 = load i32, ptr %11, align 4, !tbaa !31
+  %12 = load i32, ptr %11, align 4, !tbaa !32
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %15
 
@@ -648,7 +648,7 @@ define internal i64 @archive_write_ar_data(ptr noundef %0, ptr noundef %1, i64 n
   %16 = add i64 %spec.select, 1
   %17 = tail call noalias ptr @malloc(i64 noundef %16) #15
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %17, ptr %18, align 8, !tbaa !32
+  store ptr %17, ptr %18, align 8, !tbaa !33
   %19 = icmp eq ptr %17, null
   br i1 %19, label %20, label %21
 
@@ -660,7 +660,7 @@ define internal i64 @archive_write_ar_data(ptr noundef %0, ptr noundef %1, i64 n
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %spec.select, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 %spec.select
   store i8 0, ptr %22, align 1, !tbaa !27
-  store i32 1, ptr %11, align 4, !tbaa !31
+  store i32 1, ptr %11, align 4, !tbaa !32
   br label %23
 
 23:                                               ; preds = %21, %3
@@ -673,9 +673,9 @@ define internal i64 @archive_write_ar_data(ptr noundef %0, ptr noundef %1, i64 n
   br label %30
 
 27:                                               ; preds = %23
-  %28 = load i64, ptr %5, align 8, !tbaa !34
+  %28 = load i64, ptr %5, align 8, !tbaa !35
   %29 = sub i64 %28, %spec.select
-  store i64 %29, ptr %5, align 8, !tbaa !34
+  store i64 %29, ptr %5, align 8, !tbaa !35
   br label %30
 
 30:                                               ; preds = %27, %25, %20, %14
@@ -711,13 +711,13 @@ define internal noundef i32 @archive_write_ar_free(ptr noundef captures(none) %0
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !31
+  %7 = load i32, ptr %6, align 4, !tbaa !32
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !32
+  %11 = load ptr, ptr %10, align 8, !tbaa !33
   tail call void @free(ptr noundef %11) #12
   br label %12
 
@@ -734,7 +734,7 @@ define internal noundef i32 @archive_write_ar_free(ptr noundef captures(none) %0
 define internal i32 @archive_write_ar_finish_entry(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8, !tbaa !17
-  %4 = load i64, ptr %3, align 8, !tbaa !34
+  %4 = load i64, ptr %3, align 8, !tbaa !35
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %6, label %5
 
@@ -744,7 +744,7 @@ define internal i32 @archive_write_ar_finish_entry(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !35
+  %8 = load i64, ptr %7, align 8, !tbaa !36
   switch i64 %8, label %9 [
     i64 0, label %12
     i64 1, label %10
@@ -818,7 +818,7 @@ define internal fastcc range(i32 -1, 1) i32 @format_decimal(i64 noundef %0, ptr 
   %15 = icmp samesign ugt i32 %.025, 1
   %16 = icmp samesign ugt i64 %.029, 9
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %8, label %18, !llvm.loop !33
+  br i1 %17, label %8, label %18, !llvm.loop !34
 
 18:                                               ; preds = %8
   %19 = icmp samesign ult i64 %.029, 10
@@ -875,7 +875,7 @@ define internal fastcc range(i32 -1, 1) i32 @format_octal(i64 noundef range(i64 
   %11 = icmp samesign ugt i32 %.025, 1
   %12 = icmp samesign ugt i64 %.029, 7
   %13 = select i1 %11, i1 %12, i1 false
-  br i1 %13, label %4, label %14, !llvm.loop !36
+  br i1 %13, label %4, label %14, !llvm.loop !37
 
 14:                                               ; preds = %4
   %15 = icmp samesign ult i64 %.029, 8
@@ -962,11 +962,12 @@ attributes #15 = { nounwind allocsize(0) }
 !26 = !{!"ar_w", !14, i64 0, !14, i64 8, !7, i64 16, !7, i64 20, !8, i64 24, !12, i64 32}
 !27 = !{!8, !8, i64 0}
 !28 = !{!26, !8, i64 24}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!26, !7, i64 20}
-!32 = !{!26, !12, i64 32}
-!33 = distinct !{!33, !30}
-!34 = !{!26, !14, i64 0}
-!35 = !{!26, !14, i64 8}
-!36 = distinct !{!36, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!26, !7, i64 20}
+!33 = !{!26, !12, i64 32}
+!34 = distinct !{!34, !30, !31}
+!35 = !{!26, !14, i64 0}
+!36 = !{!26, !14, i64 8}
+!37 = distinct !{!37, !30, !31}

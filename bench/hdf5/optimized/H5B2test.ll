@@ -254,7 +254,7 @@ define internal noundef i32 @H5B2__test_decode(ptr noundef readonly captures(non
   store i64 %33, ptr %1, align 8, !tbaa !10
   %34 = add nuw nsw i64 %.029, 1
   %exitcond.not = icmp eq i64 %34, 8
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !20
 
 35:                                               ; preds = %10
   %36 = load i8, ptr %0, align 1, !tbaa !16
@@ -308,7 +308,7 @@ define internal noundef i32 @H5B2__test2_store(ptr noundef writeonly captures(no
   br i1 %8, label %9, label %10, !prof !9
 
 9:                                                ; preds = %2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !21
   br label %10
 
 10:                                               ; preds = %9, %2
@@ -326,8 +326,8 @@ define internal noundef i32 @H5B2__test2_compare(ptr noundef readonly captures(n
   br i1 %9, label %10, label %15, !prof !9
 
 10:                                               ; preds = %3
-  %11 = load i64, ptr %0, align 8, !tbaa !21
-  %12 = load i64, ptr %1, align 8, !tbaa !21
+  %11 = load i64, ptr %0, align 8, !tbaa !22
+  %12 = load i64, ptr %1, align 8, !tbaa !22
   %13 = sub i64 %11, %12
   %14 = trunc i64 %13 to i32
   store i32 %14, ptr %2, align 4, !tbaa !14
@@ -356,23 +356,23 @@ define internal noundef i32 @H5B2__test2_encode(ptr noundef writeonly captures(n
   ]
 
 12:                                               ; preds = %10
-  %13 = load i64, ptr %1, align 8, !tbaa !21
+  %13 = load i64, ptr %1, align 8, !tbaa !22
   %14 = trunc i64 %13 to i8
   store i8 %14, ptr %0, align 1, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %16 = load i64, ptr %1, align 8, !tbaa !21
+  %16 = load i64, ptr %1, align 8, !tbaa !22
   %17 = lshr i64 %16, 8
   %18 = trunc i64 %17 to i8
   store i8 %18, ptr %15, align 1, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %20 = load i64, ptr %1, align 8, !tbaa !21
+  %20 = load i64, ptr %1, align 8, !tbaa !22
   %21 = lshr i64 %20, 16
   %22 = trunc i64 %21 to i8
   store i8 %22, ptr %19, align 1, !tbaa !16
   br label %thread-pre-split.sink.split
 
 23:                                               ; preds = %10
-  %24 = load i64, ptr %1, align 8, !tbaa !21
+  %24 = load i64, ptr %1, align 8, !tbaa !22
   br label %25
 
 25:                                               ; preds = %23, %25
@@ -385,10 +385,10 @@ define internal noundef i32 @H5B2__test2_encode(ptr noundef writeonly captures(n
   %28 = add nuw nsw i64 %.06570, 1
   %29 = lshr i64 %.06769, 8
   %exitcond.not = icmp eq i64 %28, 8
-  br i1 %exitcond.not, label %thread-pre-split, label %25, !llvm.loop !23
+  br i1 %exitcond.not, label %thread-pre-split, label %25, !llvm.loop !24
 
 30:                                               ; preds = %10
-  %31 = load i64, ptr %1, align 8, !tbaa !21
+  %31 = load i64, ptr %1, align 8, !tbaa !22
   %32 = trunc i64 %31 to i8
   store i8 %32, ptr %0, align 1, !tbaa !16
   br label %thread-pre-split.sink.split
@@ -398,7 +398,7 @@ thread-pre-split.sink.split:                      ; preds = %12, %30
   %.sink80 = phi i64 [ 8, %30 ], [ 24, %12 ]
   %.sink.ph = phi i64 [ 2, %30 ], [ 4, %12 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink81
-  %34 = load i64, ptr %1, align 8, !tbaa !21
+  %34 = load i64, ptr %1, align 8, !tbaa !22
   %35 = lshr i64 %34, %.sink80
   %36 = trunc i64 %35 to i8
   store i8 %36, ptr %33, align 1, !tbaa !16
@@ -421,21 +421,21 @@ thread-pre-split:                                 ; preds = %25, %thread-pre-spl
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !24
+  %42 = load i64, ptr %41, align 8, !tbaa !25
   %43 = trunc i64 %42 to i8
   store i8 %43, ptr %.068, align 1, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %.068, i64 1
-  %45 = load i64, ptr %41, align 8, !tbaa !24
+  %45 = load i64, ptr %41, align 8, !tbaa !25
   %46 = lshr i64 %45, 8
   %47 = trunc i64 %46 to i8
   store i8 %47, ptr %44, align 1, !tbaa !16
   %48 = getelementptr inbounds nuw i8, ptr %.068, i64 2
-  %49 = load i64, ptr %41, align 8, !tbaa !24
+  %49 = load i64, ptr %41, align 8, !tbaa !25
   %50 = lshr i64 %49, 16
   %51 = trunc i64 %50 to i8
   store i8 %51, ptr %48, align 1, !tbaa !16
   %52 = getelementptr inbounds nuw i8, ptr %.068, i64 3
-  %53 = load i64, ptr %41, align 8, !tbaa !24
+  %53 = load i64, ptr %41, align 8, !tbaa !25
   %54 = lshr i64 %53, 24
   %55 = trunc i64 %54 to i8
   store i8 %55, ptr %52, align 1, !tbaa !16
@@ -443,7 +443,7 @@ thread-pre-split:                                 ; preds = %25, %thread-pre-spl
 
 56:                                               ; preds = %38
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !24
+  %58 = load i64, ptr %57, align 8, !tbaa !25
   br label %59
 
 59:                                               ; preds = %56, %59
@@ -456,15 +456,15 @@ thread-pre-split:                                 ; preds = %25, %thread-pre-spl
   %62 = add nuw nsw i64 %.06073, 1
   %63 = lshr i64 %.06272, 8
   %exitcond75.not = icmp eq i64 %62, 8
-  br i1 %exitcond75.not, label %.loopexit, label %59, !llvm.loop !25
+  br i1 %exitcond75.not, label %.loopexit, label %59, !llvm.loop !26
 
 64:                                               ; preds = %38
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %66 = load i64, ptr %65, align 8, !tbaa !24
+  %66 = load i64, ptr %65, align 8, !tbaa !25
   %67 = trunc i64 %66 to i8
   store i8 %67, ptr %.068, align 1, !tbaa !16
   %68 = getelementptr inbounds nuw i8, ptr %.068, i64 1
-  %69 = load i64, ptr %65, align 8, !tbaa !24
+  %69 = load i64, ptr %65, align 8, !tbaa !25
   %70 = lshr i64 %69, 8
   %71 = trunc i64 %70 to i8
   store i8 %71, ptr %68, align 1, !tbaa !16
@@ -495,52 +495,52 @@ define internal noundef i32 @H5B2__test2_decode(ptr noundef readonly captures(no
 .thread:                                          ; preds = %10
   %12 = load i8, ptr %0, align 1, !tbaa !16
   %13 = zext i8 %12 to i64
-  store i64 %13, ptr %1, align 8, !tbaa !21
+  store i64 %13, ptr %1, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !16
   %16 = zext i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 8
   %18 = or disjoint i64 %17, %13
-  store i64 %18, ptr %1, align 8, !tbaa !21
+  store i64 %18, ptr %1, align 8, !tbaa !22
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %20 = load i8, ptr %19, align 1, !tbaa !16
   %21 = zext i8 %20 to i64
   %22 = shl nuw nsw i64 %21, 16
   %23 = or disjoint i64 %22, %18
-  store i64 %23, ptr %1, align 8, !tbaa !21
+  store i64 %23, ptr %1, align 8, !tbaa !22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %25 = load i8, ptr %24, align 1, !tbaa !16
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 24
   %28 = or disjoint i64 %27, %23
-  store i64 %28, ptr %1, align 8, !tbaa !21
+  store i64 %28, ptr %1, align 8, !tbaa !22
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %30 = load i8, ptr %29, align 1, !tbaa !16
   %31 = zext i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %31, ptr %32, align 8, !tbaa !24
+  store i64 %31, ptr %32, align 8, !tbaa !25
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %34 = load i8, ptr %33, align 1, !tbaa !16
   %35 = zext i8 %34 to i64
   %36 = shl nuw nsw i64 %35, 8
   %37 = or disjoint i64 %36, %31
-  store i64 %37, ptr %32, align 8, !tbaa !24
+  store i64 %37, ptr %32, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %39 = load i8, ptr %38, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 16
   %42 = or disjoint i64 %41, %37
-  store i64 %42, ptr %32, align 8, !tbaa !24
+  store i64 %42, ptr %32, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %44 = load i8, ptr %43, align 1, !tbaa !16
   %45 = zext i8 %44 to i64
   %46 = shl nuw nsw i64 %45, 24
   %47 = or disjoint i64 %46, %42
-  store i64 %47, ptr %32, align 8, !tbaa !24
+  store i64 %47, ptr %32, align 8, !tbaa !25
   br label %.loopexit
 
 48:                                               ; preds = %10
-  store i64 0, ptr %1, align 8, !tbaa !21
+  store i64 0, ptr %1, align 8, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %50
 
@@ -553,38 +553,38 @@ define internal noundef i32 @H5B2__test2_decode(ptr noundef readonly captures(no
   %54 = load i8, ptr %53, align 1, !tbaa !16
   %55 = zext i8 %54 to i64
   %56 = or disjoint i64 %52, %55
-  store i64 %56, ptr %1, align 8, !tbaa !21
+  store i64 %56, ptr %1, align 8, !tbaa !22
   %57 = add nuw nsw i64 %.05462, 1
   %exitcond.not = icmp eq i64 %57, 8
-  br i1 %exitcond.not, label %.thread67, label %50, !llvm.loop !26
+  br i1 %exitcond.not, label %.thread67, label %50, !llvm.loop !27
 
 .thread67:                                        ; preds = %50
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 0, ptr %58, align 8, !tbaa !24
+  store i64 0, ptr %58, align 8, !tbaa !25
   %59 = getelementptr inbounds nuw i8, ptr %.05561, i64 15
   br label %76
 
 .thread58:                                        ; preds = %10
   %60 = load i8, ptr %0, align 1, !tbaa !16
   %61 = zext i8 %60 to i64
-  store i64 %61, ptr %1, align 8, !tbaa !21
+  store i64 %61, ptr %1, align 8, !tbaa !22
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %63 = load i8, ptr %62, align 1, !tbaa !16
   %64 = zext i8 %63 to i64
   %65 = shl nuw nsw i64 %64, 8
   %66 = or disjoint i64 %65, %61
-  store i64 %66, ptr %1, align 8, !tbaa !21
+  store i64 %66, ptr %1, align 8, !tbaa !22
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %68 = load i8, ptr %67, align 1, !tbaa !16
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %69, ptr %70, align 8, !tbaa !24
+  store i64 %69, ptr %70, align 8, !tbaa !25
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %72 = load i8, ptr %71, align 1, !tbaa !16
   %73 = zext i8 %72 to i64
   %74 = shl nuw nsw i64 %73, 8
   %75 = or disjoint i64 %74, %69
-  store i64 %75, ptr %70, align 8, !tbaa !24
+  store i64 %75, ptr %70, align 8, !tbaa !25
   br label %.loopexit
 
 76:                                               ; preds = %.thread67, %76
@@ -596,10 +596,10 @@ define internal noundef i32 @H5B2__test2_decode(ptr noundef readonly captures(no
   %80 = load i8, ptr %79, align 1, !tbaa !16
   %81 = zext i8 %80 to i64
   %82 = or disjoint i64 %78, %81
-  store i64 %82, ptr %58, align 8, !tbaa !24
+  store i64 %82, ptr %58, align 8, !tbaa !25
   %83 = add nuw nsw i64 %.065, 1
   %exitcond66.not = icmp eq i64 %83, 8
-  br i1 %exitcond66.not, label %.loopexit, label %76, !llvm.loop !27
+  br i1 %exitcond66.not, label %.loopexit, label %76, !llvm.loop !28
 
 .loopexit:                                        ; preds = %76, %10, %.thread, %.thread58, %3
   ret i32 0
@@ -616,9 +616,9 @@ define internal noundef i32 @H5B2__test2_debug(ptr noundef captures(none) %0, i3
   br i1 %11, label %12, label %17, !prof !9
 
 12:                                               ; preds = %5
-  %13 = load i64, ptr %3, align 8, !tbaa !21
+  %13 = load i64, ptr %3, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !24
+  %15 = load i64, ptr %14, align 8, !tbaa !25
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %1, ptr noundef nonnull @.str.15, i32 noundef %2, ptr noundef nonnull @.str.16, i64 noundef %13, i64 noundef %15) #8
   br label %17
 
@@ -637,9 +637,9 @@ define noundef i32 @H5B2__get_root_addr_test(ptr noundef readonly captures(none)
   br i1 %8, label %9, label %13, !prof !9
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %0, align 8, !tbaa !28
+  %10 = load ptr, ptr %0, align 8, !tbaa !29
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
-  %12 = load i64, ptr %11, align 8, !tbaa !33
+  %12 = load i64, ptr %11, align 8, !tbaa !34
   store i64 %12, ptr %1, align 8, !tbaa !10
   br label %13
 
@@ -666,18 +666,18 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
-  %17 = load ptr, ptr %0, align 8, !tbaa !28
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
+  %17 = load ptr, ptr %0, align 8, !tbaa !29
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 288
-  store ptr %16, ptr %18, align 8, !tbaa !48
+  store ptr %16, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false), !tbaa.struct !50
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 392
-  %21 = load i8, ptr %20, align 8, !tbaa !51, !range !7, !noundef !8
+  %21 = load i8, ptr %20, align 8, !tbaa !52, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   %spec.select = select i1 %22, ptr %17, ptr null
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %24 = load i16, ptr %23, align 8, !tbaa !52
+  %24 = load i16, ptr %23, align 8, !tbaa !53
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %26, label %30
 
@@ -689,7 +689,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
 
 30:                                               ; preds = %14
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 284
-  %32 = load i16, ptr %31, align 4, !tbaa !53
+  %32 = load i16, ptr %31, align 4, !tbaa !54
   store i32 -1, ptr %5, align 4, !tbaa !14
   %.not128 = icmp eq i16 %32, 0
   br i1 %.not128, label %._crit_edge, label %.lr.ph
@@ -731,13 +731,13 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %.thread90
 
 50:                                               ; preds = %43, %42
-  %51 = load ptr, ptr %33, align 8, !tbaa !54
+  %51 = load ptr, ptr %33, align 8, !tbaa !55
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 272
-  %53 = load i16, ptr %52, align 8, !tbaa !55
+  %53 = load i16, ptr %52, align 8, !tbaa !56
   %54 = zext i16 %53 to i32
-  %55 = load ptr, ptr %34, align 8, !tbaa !57
+  %55 = load ptr, ptr %34, align 8, !tbaa !58
   %56 = getelementptr inbounds nuw i8, ptr %36, i64 256
-  %57 = load ptr, ptr %56, align 8, !tbaa !58
+  %57 = load ptr, ptr %56, align 8, !tbaa !59
   %58 = call i32 @H5B2__locate_record(ptr noundef %51, i32 noundef %54, ptr noundef %55, ptr noundef %57, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #8
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %64
@@ -770,13 +770,13 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
 70:                                               ; preds = %._crit_edge145, %.thread
   %71 = phi i32 [ %.pre, %._crit_edge145 ], [ %68, %.thread ]
   %72 = getelementptr inbounds nuw i8, ptr %36, i64 264
-  %73 = load ptr, ptr %72, align 8, !tbaa !59
+  %73 = load ptr, ptr %72, align 8, !tbaa !60
   %74 = zext i32 %71 to i64
   %75 = getelementptr inbounds nuw %struct.H5B2_node_ptr_t, ptr %73, i64 %74
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !tbaa.struct !49
-  %76 = load ptr, ptr %18, align 8, !tbaa !48
-  %77 = load i64, ptr %4, align 8, !tbaa !60
-  %78 = load i8, ptr %20, align 8, !tbaa !51, !range !7, !noundef !8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false), !tbaa.struct !50
+  %76 = load ptr, ptr %18, align 8, !tbaa !49
+  %77 = load i64, ptr %4, align 8, !tbaa !61
+  %78 = load i8, ptr %20, align 8, !tbaa !52, !range !7, !noundef !8
   %79 = shl nuw nsw i8 %78, 2
   %80 = zext nneg i8 %79 to i32
   %81 = call i32 @H5AC_unprotect(ptr noundef %76, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %77, ptr noundef nonnull %36, i32 noundef %80) #8
@@ -790,8 +790,8 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %.thread90
 
 87:                                               ; preds = %69
-  %88 = load ptr, ptr %18, align 8, !tbaa !48
-  %89 = load i64, ptr %4, align 8, !tbaa !60
+  %88 = load ptr, ptr %18, align 8, !tbaa !49
+  %89 = load i64, ptr %4, align 8, !tbaa !61
   %90 = call i32 @H5AC_unprotect(ptr noundef %88, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %89, ptr noundef nonnull %36, i32 noundef 0) #8
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %92, label %96
@@ -803,10 +803,10 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %.thread90
 
 96:                                               ; preds = %87
-  store i16 %.075125, ptr %2, align 2, !tbaa !61
-  %97 = load i16, ptr %23, align 8, !tbaa !52
+  store i16 %.075125, ptr %2, align 2, !tbaa !62
+  %97 = load i16, ptr %23, align 8, !tbaa !53
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %97, ptr %98, align 2, !tbaa !63
+  store i16 %97, ptr %98, align 2, !tbaa !64
   br label %.thread90
 
 .thread90:                                        ; preds = %38, %46, %60, %83, %92, %96
@@ -816,10 +816,10 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %.thread96
 
 99:                                               ; preds = %70
-  %100 = load i8, ptr %20, align 8, !tbaa !51, !range !7, !noundef !8
+  %100 = load i8, ptr %20, align 8, !tbaa !52, !range !7, !noundef !8
   %101 = trunc nuw i8 %100 to i1
   %spec.select86 = select i1 %101, ptr %36, ptr null
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !49
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false), !tbaa.struct !50
   %102 = add i16 %.075125, -1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %103 = icmp ne i16 %102, 0
@@ -860,14 +860,14 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
 
 121:                                              ; preds = %114, %113
   %122 = getelementptr inbounds nuw i8, ptr %17, i64 424
-  %123 = load ptr, ptr %122, align 8, !tbaa !54
+  %123 = load ptr, ptr %122, align 8, !tbaa !55
   %124 = getelementptr inbounds nuw i8, ptr %107, i64 264
-  %125 = load i16, ptr %124, align 8, !tbaa !64
+  %125 = load i16, ptr %124, align 8, !tbaa !65
   %126 = zext i16 %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %17, i64 360
-  %128 = load ptr, ptr %127, align 8, !tbaa !57
+  %128 = load ptr, ptr %127, align 8, !tbaa !58
   %129 = getelementptr inbounds nuw i8, ptr %107, i64 256
-  %130 = load ptr, ptr %129, align 8, !tbaa !66
+  %130 = load ptr, ptr %129, align 8, !tbaa !67
   %131 = call i32 @H5B2__locate_record(ptr noundef %123, i32 noundef %126, ptr noundef %128, ptr noundef %130, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %5) #8
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %133, label %137
@@ -879,8 +879,8 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %.thread96.thread
 
 137:                                              ; preds = %121
-  %138 = load ptr, ptr %18, align 8, !tbaa !48
-  %139 = load i64, ptr %4, align 8, !tbaa !60
+  %138 = load ptr, ptr %18, align 8, !tbaa !49
+  %139 = load i64, ptr %4, align 8, !tbaa !61
   %140 = call i32 @H5AC_unprotect(ptr noundef %138, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %139, ptr noundef nonnull %107, i32 noundef 0) #8
   %141 = icmp slt i32 %140, 0
   br i1 %141, label %142, label %146
@@ -903,10 +903,10 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   br label %.thread96.thread
 
 .thread100:                                       ; preds = %146
-  store i16 %.075.lcssa, ptr %2, align 2, !tbaa !61
-  %152 = load i16, ptr %23, align 8, !tbaa !52
+  store i16 %.075.lcssa, ptr %2, align 2, !tbaa !62
+  %152 = load i16, ptr %23, align 8, !tbaa !53
   %153 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i16 %152, ptr %153, align 2, !tbaa !63
+  store i16 %152, ptr %153, align 2, !tbaa !64
   br label %.thread96.thread
 
 .thread96:                                        ; preds = %117, %109, %.thread90, %26
@@ -981,7 +981,7 @@ define range(i32 -1, 65536) i32 @H5B2__get_node_depth_test(ptr noundef readonly 
   br label %20
 
 17:                                               ; preds = %10
-  %18 = load i16, ptr %3, align 2, !tbaa !61
+  %18 = load i16, ptr %3, align 2, !tbaa !62
   %19 = zext i16 %18 to i32
   br label %20
 
@@ -1029,53 +1029,54 @@ attributes #8 = { nounwind }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"int", !5, i64 0}
 !16 = !{!5, !5, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{i64 0, i64 8, !10, i64 8, i64 8, !10}
-!21 = !{!22, !11, i64 0}
-!22 = !{!"H5B2_test_rec_t", !11, i64 0, !11, i64 8}
-!23 = distinct !{!23, !18}
-!24 = !{!22, !11, i64 8}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
-!27 = distinct !{!27, !18}
-!28 = !{!29, !30, i64 0}
-!29 = !{!"H5B2_t", !30, i64 0, !32, i64 8}
-!30 = !{!"p1 _ZTS10H5B2_hdr_t", !31, i64 0}
-!31 = !{!"any pointer", !5, i64 0}
-!32 = !{!"p1 _ZTS5H5F_t", !31, i64 0}
-!33 = !{!34, !11, i64 248}
-!34 = !{!"H5B2_hdr_t", !35, i64 0, !42, i64 248, !5, i64 272, !5, i64 273, !15, i64 276, !15, i64 280, !43, i64 284, !5, i64 286, !32, i64 288, !11, i64 296, !11, i64 304, !11, i64 312, !11, i64 320, !4, i64 328, !5, i64 329, !5, i64 330, !31, i64 336, !31, i64 344, !44, i64 352, !40, i64 360, !31, i64 368, !31, i64 376, !31, i64 384, !4, i64 392, !45, i64 400, !31, i64 408, !11, i64 416, !46, i64 424, !31, i64 432}
-!35 = !{!"H5C_cache_entry_t", !36, i64 0, !11, i64 8, !11, i64 16, !31, i64 24, !4, i64 32, !37, i64 40, !4, i64 48, !4, i64 49, !4, i64 50, !4, i64 51, !15, i64 52, !4, i64 56, !4, i64 57, !4, i64 58, !4, i64 59, !4, i64 60, !15, i64 64, !38, i64 72, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !15, i64 96, !4, i64 100, !4, i64 101, !39, i64 104, !39, i64 112, !39, i64 120, !39, i64 128, !39, i64 136, !39, i64 144, !4, i64 152, !15, i64 156, !4, i64 160, !11, i64 168, !40, i64 176, !11, i64 184, !11, i64 192, !15, i64 200, !4, i64 204, !15, i64 208, !15, i64 212, !4, i64 216, !39, i64 224, !39, i64 232, !41, i64 240}
-!36 = !{!"p1 _ZTS5H5C_t", !31, i64 0}
-!37 = !{!"p1 _ZTS11H5C_class_t", !31, i64 0}
-!38 = !{!"p2 _ZTS17H5C_cache_entry_t", !31, i64 0}
-!39 = !{!"p1 _ZTS17H5C_cache_entry_t", !31, i64 0}
-!40 = !{!"p1 long", !31, i64 0}
-!41 = !{!"p1 _ZTS14H5C_tag_info_t", !31, i64 0}
-!42 = !{!"", !11, i64 0, !43, i64 8, !11, i64 16}
-!43 = !{!"short", !5, i64 0}
-!44 = !{!"p1 omnipotent char", !31, i64 0}
-!45 = !{!"p1 _ZTS18H5AC_proxy_entry_t", !31, i64 0}
-!46 = !{!"p1 _ZTS12H5B2_class_t", !31, i64 0}
-!47 = !{!29, !32, i64 8}
-!48 = !{!34, !32, i64 288}
-!49 = !{i64 0, i64 8, !10, i64 8, i64 2, !50, i64 16, i64 8, !10}
-!50 = !{!43, !43, i64 0}
-!51 = !{!34, !4, i64 392}
-!52 = !{!42, !43, i64 8}
-!53 = !{!34, !43, i64 284}
-!54 = !{!34, !46, i64 424}
-!55 = !{!56, !43, i64 272}
-!56 = !{!"H5B2_internal_t", !35, i64 0, !30, i64 248, !44, i64 256, !31, i64 264, !43, i64 272, !43, i64 274, !45, i64 280, !31, i64 288, !11, i64 296}
-!57 = !{!34, !40, i64 360}
-!58 = !{!56, !44, i64 256}
-!59 = !{!56, !31, i64 264}
-!60 = !{!42, !11, i64 0}
-!61 = !{!62, !43, i64 0}
-!62 = !{!"H5B2_node_info_test_t", !43, i64 0, !43, i64 2}
-!63 = !{!62, !43, i64 2}
-!64 = !{!65, !43, i64 264}
-!65 = !{!"H5B2_leaf_t", !35, i64 0, !30, i64 248, !44, i64 256, !43, i64 264, !45, i64 272, !31, i64 280, !11, i64 288}
-!66 = !{!65, !44, i64 256}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{i64 0, i64 8, !10, i64 8, i64 8, !10}
+!22 = !{!23, !11, i64 0}
+!23 = !{!"H5B2_test_rec_t", !11, i64 0, !11, i64 8}
+!24 = distinct !{!24, !18, !19}
+!25 = !{!23, !11, i64 8}
+!26 = distinct !{!26, !18, !19}
+!27 = distinct !{!27, !18, !19}
+!28 = distinct !{!28, !18, !19}
+!29 = !{!30, !31, i64 0}
+!30 = !{!"H5B2_t", !31, i64 0, !33, i64 8}
+!31 = !{!"p1 _ZTS10H5B2_hdr_t", !32, i64 0}
+!32 = !{!"any pointer", !5, i64 0}
+!33 = !{!"p1 _ZTS5H5F_t", !32, i64 0}
+!34 = !{!35, !11, i64 248}
+!35 = !{!"H5B2_hdr_t", !36, i64 0, !43, i64 248, !5, i64 272, !5, i64 273, !15, i64 276, !15, i64 280, !44, i64 284, !5, i64 286, !33, i64 288, !11, i64 296, !11, i64 304, !11, i64 312, !11, i64 320, !4, i64 328, !5, i64 329, !5, i64 330, !32, i64 336, !32, i64 344, !45, i64 352, !41, i64 360, !32, i64 368, !32, i64 376, !32, i64 384, !4, i64 392, !46, i64 400, !32, i64 408, !11, i64 416, !47, i64 424, !32, i64 432}
+!36 = !{!"H5C_cache_entry_t", !37, i64 0, !11, i64 8, !11, i64 16, !32, i64 24, !4, i64 32, !38, i64 40, !4, i64 48, !4, i64 49, !4, i64 50, !4, i64 51, !15, i64 52, !4, i64 56, !4, i64 57, !4, i64 58, !4, i64 59, !4, i64 60, !15, i64 64, !39, i64 72, !15, i64 80, !15, i64 84, !15, i64 88, !15, i64 92, !15, i64 96, !4, i64 100, !4, i64 101, !40, i64 104, !40, i64 112, !40, i64 120, !40, i64 128, !40, i64 136, !40, i64 144, !4, i64 152, !15, i64 156, !4, i64 160, !11, i64 168, !41, i64 176, !11, i64 184, !11, i64 192, !15, i64 200, !4, i64 204, !15, i64 208, !15, i64 212, !4, i64 216, !40, i64 224, !40, i64 232, !42, i64 240}
+!37 = !{!"p1 _ZTS5H5C_t", !32, i64 0}
+!38 = !{!"p1 _ZTS11H5C_class_t", !32, i64 0}
+!39 = !{!"p2 _ZTS17H5C_cache_entry_t", !32, i64 0}
+!40 = !{!"p1 _ZTS17H5C_cache_entry_t", !32, i64 0}
+!41 = !{!"p1 long", !32, i64 0}
+!42 = !{!"p1 _ZTS14H5C_tag_info_t", !32, i64 0}
+!43 = !{!"", !11, i64 0, !44, i64 8, !11, i64 16}
+!44 = !{!"short", !5, i64 0}
+!45 = !{!"p1 omnipotent char", !32, i64 0}
+!46 = !{!"p1 _ZTS18H5AC_proxy_entry_t", !32, i64 0}
+!47 = !{!"p1 _ZTS12H5B2_class_t", !32, i64 0}
+!48 = !{!30, !33, i64 8}
+!49 = !{!35, !33, i64 288}
+!50 = !{i64 0, i64 8, !10, i64 8, i64 2, !51, i64 16, i64 8, !10}
+!51 = !{!44, !44, i64 0}
+!52 = !{!35, !4, i64 392}
+!53 = !{!43, !44, i64 8}
+!54 = !{!35, !44, i64 284}
+!55 = !{!35, !47, i64 424}
+!56 = !{!57, !44, i64 272}
+!57 = !{!"H5B2_internal_t", !36, i64 0, !31, i64 248, !45, i64 256, !32, i64 264, !44, i64 272, !44, i64 274, !46, i64 280, !32, i64 288, !11, i64 296}
+!58 = !{!35, !41, i64 360}
+!59 = !{!57, !45, i64 256}
+!60 = !{!57, !32, i64 264}
+!61 = !{!43, !11, i64 0}
+!62 = !{!63, !44, i64 0}
+!63 = !{!"H5B2_node_info_test_t", !44, i64 0, !44, i64 2}
+!64 = !{!63, !44, i64 2}
+!65 = !{!66, !44, i64 264}
+!66 = !{!"H5B2_leaf_t", !36, i64 0, !31, i64 248, !45, i64 256, !44, i64 264, !46, i64 272, !32, i64 280, !11, i64 288}
+!67 = !{!66, !45, i64 256}

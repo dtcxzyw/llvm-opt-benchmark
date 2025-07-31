@@ -64,7 +64,7 @@ define i64 @duckdb_je_pai_alloc_batch_default(ptr noundef %0, ptr noundef %1, i6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #3
   %36 = add nuw i64 %.01724, 1
   %exitcond.not = icmp eq i64 %36, %3
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %34, %7, %.thread
   %.01722 = phi i64 [ %14, %.thread ], [ 0, %7 ], [ %3, %34 ]
@@ -127,7 +127,7 @@ define void @duckdb_je_pai_dalloc_batch_default(ptr noundef %0, ptr noundef %1, 
   br label %edata_list_active_remove.exit
 
 edata_list_active_remove.exit:                    ; preds = %.thread.i, %27
-  %28 = load ptr, ptr %6, align 8, !tbaa !17
+  %28 = load ptr, ptr %6, align 8, !tbaa !19
   call void %28(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.val9, ptr noundef nonnull %5) #3
   %29 = load i8, ptr %5, align 1, !tbaa !3, !range !10, !noundef !11
   %30 = load i8, ptr %3, align 1, !tbaa !3, !range !10, !noundef !11
@@ -136,7 +136,7 @@ edata_list_active_remove.exit:                    ; preds = %.thread.i, %27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #3
   %.val = load ptr, ptr %2, align 8, !tbaa !13
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %edata_list_active_remove.exit, %4
   ret void
@@ -169,4 +169,7 @@ attributes #3 = { nounwind }
 !14 = !{!"", !15, i64 0}
 !15 = !{!"", !16, i64 0}
 !16 = !{!"p1 _ZTS7edata_s", !9, i64 0}
-!17 = !{!8, !9, i64 32}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!8, !9, i64 32}
+!20 = distinct !{!20, !18}

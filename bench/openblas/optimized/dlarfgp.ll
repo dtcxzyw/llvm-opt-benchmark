@@ -110,7 +110,7 @@ define void @dlarfgp_(ptr noundef readonly captures(none) %0, ptr noundef %1, pt
   %53 = fcmp olt double %52, %39
   %54 = icmp samesign ult i32 %.1, 19
   %or.cond = select i1 %53, i1 %54, i1 false
-  br i1 %or.cond, label %44, label %55
+  br i1 %or.cond, label %44, label %55, !llvm.loop !12
 
 55:                                               ; preds = %44
   %56 = load i32, ptr %0, align 4, !tbaa !3
@@ -196,7 +196,7 @@ define void @dlarfgp_(ptr noundef readonly captures(none) %0, ptr noundef %1, pt
   store double 0.000000e+00, ptr %gep, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %92, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %92, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %92, %88
   %95 = fneg double %68
@@ -223,7 +223,7 @@ define void @dlarfgp_(ptr noundef readonly captures(none) %0, ptr noundef %1, pt
   %102 = fmul double %39, %.497
   %103 = add nuw nsw i32 %.28496, 1
   %exitcond110.not = icmp eq i32 %.28496, %.0
-  br i1 %exitcond110.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !12
+  br i1 %exitcond110.not, label %._crit_edge100, label %.lr.ph99, !llvm.loop !14
 
 ._crit_edge100:                                   ; preds = %.lr.ph99, %101
   %.4.lcssa = phi double [ %.3, %101 ], [ %102, %.lr.ph99 ]
@@ -272,7 +272,9 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

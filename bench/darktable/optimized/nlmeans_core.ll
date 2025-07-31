@@ -116,7 +116,7 @@ define void @nlmeans_denoise(ptr noundef readonly captures(none) %0, ptr noundef
 ._crit_edge.i:                                    ; preds = %117
   %79 = add i32 %.05790.i, 1
   %exitcond94.not.i = icmp eq i32 %.05790.i, %48
-  br i1 %exitcond94.not.i, label %define_patches.exit, label %.preheader.i
+  br i1 %exitcond94.not.i, label %define_patches.exit, label %.preheader.i, !llvm.loop !24
 
 80:                                               ; preds = %117, %.preheader.i
   %.184.i = phi i32 [ %.091.i, %.preheader.i ], [ %.3.i, %117 ]
@@ -161,15 +161,15 @@ define void @nlmeans_denoise(ptr noundef readonly captures(none) %0, ptr noundef
   %107 = trunc i32 %93 to i16
   %108 = sext i32 %.16381.i to i64
   %109 = getelementptr inbounds %struct.patch_t, ptr %61, i64 %108
-  store i16 %107, ptr %109, align 8, !tbaa !24
+  store i16 %107, ptr %109, align 8, !tbaa !26
   %110 = trunc i32 %106 to i16
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 2
-  store i16 %110, ptr %111, align 2, !tbaa !27
+  store i16 %110, ptr %111, align 2, !tbaa !29
   %112 = mul nsw i32 %45, %93
   %113 = shl nsw i32 %106, 2
   %114 = add nsw i32 %112, %113
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 4
-  store i32 %114, ptr %115, align 4, !tbaa !28
+  store i32 %114, ptr %115, align 4, !tbaa !30
   %116 = add nsw i32 %.16381.i, 1
   br label %117
 
@@ -178,7 +178,7 @@ define void @nlmeans_denoise(ptr noundef readonly captures(none) %0, ptr noundef
   %.3.i = phi i32 [ %82, %81 ], [ %.2.i, %84 ]
   %118 = add i32 %.05683.i, 1
   %exitcond.not.i = icmp eq i32 %.05683.i, %48
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %80
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %80, !llvm.loop !31
 
 define_patches.exit:                              ; preds = %._crit_edge.i, %5
   %119 = load i32, ptr %33, align 8, !tbaa !17
@@ -191,7 +191,7 @@ define_patches.exit:                              ; preds = %._crit_edge.i, %5
   %126 = tail call ptr @dt_alloc_aligned(i64 noundef %125) #9
   call void @llvm.assume(i1 true) [ "align"(ptr %126, i64 64) ]
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %128 = load i32, ptr %127, align 4, !tbaa !29
+  %128 = load i32, ptr %127, align 4, !tbaa !32
   %129 = srem i32 %128, 60
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %compute_slice_height.exit, label %.preheader.i441
@@ -221,7 +221,7 @@ define_patches.exit:                              ; preds = %._crit_edge.i, %5
   %spec.select44.i = select i1 %139, i32 %140, i32 %spec.select.i443
   %141 = add nuw nsw i32 %.03351.i, 1
   %exitcond.i = icmp eq i32 %141, 10
-  br i1 %exitcond.i, label %142, label %.preheader.i441
+  br i1 %exitcond.i, label %142, label %.preheader.i441, !llvm.loop !33
 
 142:                                              ; preds = %137
   %143 = add nsw i32 %spec.select44.i, 60
@@ -288,7 +288,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %.0392536.us = phi i32 [ %180, %.preheader483.us ], [ 0, %.preheader483.lr.ph ]
   %180 = add nsw i32 %.0392536.us, %.0.i
   %181 = icmp slt i32 %180, %128
-  br i1 %181, label %.preheader483.us, label %._crit_edge537, !llvm.loop !30
+  br i1 %181, label %.preheader483.us, label %._crit_edge537, !llvm.loop !34
 
 .preheader483:                                    ; preds = %.preheader483.preheader, %._crit_edge535
   %182 = phi i32 [ %128, %.preheader483.preheader ], [ %187, %._crit_edge535 ]
@@ -321,7 +321,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %indvars = trunc i64 %indvars.iv.next577 to i32
   %190 = icmp sgt i32 %187, %indvars
   %indvars.iv.next = add i32 %indvars.iv, %.0.i
-  br i1 %190, label %.preheader483, label %._crit_edge537, !llvm.loop !32
+  br i1 %190, label %.preheader483, label %._crit_edge537, !llvm.loop !36
 
 191:                                              ; preds = %.lr.ph534, %.loopexit479
   %192 = phi i32 [ %182, %.lr.ph534 ], [ %204, %.loopexit479 ]
@@ -347,7 +347,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   br label %218
 
 .preheader482.loopexit:                           ; preds = %218
-  %.pre = load i32, ptr %127, align 4, !tbaa !29
+  %.pre = load i32, ptr %127, align 4, !tbaa !32
   %.pre601 = load i32, ptr %144, align 4, !tbaa !18
   br label %.preheader482
 
@@ -356,7 +356,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %205 = phi i32 [ %.pre601, %.preheader482.loopexit ], [ %193, %191 ]
   %206 = phi i32 [ %.pre601, %.preheader482.loopexit ], [ %195, %191 ]
   %207 = phi i32 [ %.pre, %.preheader482.loopexit ], [ %194, %191 ]
-  %208 = load ptr, ptr %158, align 8, !tbaa !34
+  %208 = load ptr, ptr %158, align 8, !tbaa !38
   %209 = add i32 %indvars599, %159
   %210 = add i32 %199, %119
   %211 = sext i32 %209 to i64
@@ -383,7 +383,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   tail call void @llvm.memset.p0.i64(ptr align 4 %224, i8 0, i64 %203, i1 false)
   %225 = add nsw i32 %.0398484, 1
   %exitcond.not = icmp eq i32 %225, %smin
-  br i1 %exitcond.not, label %.preheader482.loopexit, label %218
+  br i1 %exitcond.not, label %.preheader482.loopexit, label %218, !llvm.loop !39
 
 226:                                              ; preds = %._crit_edge511
   br i1 %30, label %.preheader478, label %.preheader480
@@ -416,7 +416,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 236:                                              ; preds = %238
   %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
   %237 = icmp slt i64 %indvars.iv.next587, %229
-  br i1 %237, label %.preheader471.us, label %._crit_edge517.us
+  br i1 %237, label %.preheader471.us, label %._crit_edge517.us, !llvm.loop !40
 
 238:                                              ; preds = %.preheader471.us, %238
   %.0513.us = phi i64 [ 0, %.preheader471.us ], [ %253, %238 ]
@@ -437,7 +437,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   store float %252, ptr %245, align 4, !tbaa !14
   %253 = add nuw nsw i64 %.0513.us, 1
   %exitcond585.not = icmp eq i64 %253, 4
-  br i1 %exitcond585.not, label %236, label %238
+  br i1 %exitcond585.not, label %236, label %238, !llvm.loop !41
 
 .preheader471.us:                                 ; preds = %.preheader471.lr.ph.us, %236
   %indvars.iv586 = phi i64 [ %indvars.iv559, %.preheader471.lr.ph.us ], [ %indvars.iv.next587, %236 ]
@@ -448,7 +448,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 ._crit_edge517.us:                                ; preds = %236
   %indvars.iv.next590 = add nsw i64 %indvars.iv589, 1
   %255 = icmp slt i64 %indvars.iv.next590, %230
-  br i1 %255, label %.preheader471.lr.ph.us, label %.loopexit479, !llvm.loop !35
+  br i1 %255, label %.preheader471.lr.ph.us, label %.loopexit479, !llvm.loop !42
 
 .preheader478:                                    ; preds = %226
   br i1 %200, label %.lr.ph528, label %.loopexit479
@@ -476,7 +476,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 263:                                              ; preds = %265
   %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
   %264 = icmp slt i64 %indvars.iv.next594, %258
-  br i1 %264, label %.preheader.us, label %._crit_edge526.us
+  br i1 %264, label %.preheader.us, label %._crit_edge526.us, !llvm.loop !43
 
 265:                                              ; preds = %.preheader.us, %265
   %.0394522.us = phi i64 [ 0, %.preheader.us ], [ %269, %265 ]
@@ -487,7 +487,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   store float %268, ptr %gep521.us, align 4, !tbaa !14
   %269 = add nuw nsw i64 %.0394522.us, 1
   %exitcond592.not = icmp eq i64 %269, 4
-  br i1 %exitcond592.not, label %263, label %265
+  br i1 %exitcond592.not, label %263, label %265, !llvm.loop !44
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.us, %263
   %indvars.iv593 = phi i64 [ %indvars.iv559, %.preheader.lr.ph.us ], [ %indvars.iv.next594, %263 ]
@@ -499,12 +499,12 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 ._crit_edge526.us:                                ; preds = %263
   %indvars.iv.next597 = add nsw i64 %indvars.iv596, 1
   %271 = icmp slt i64 %indvars.iv.next597, %259
-  br i1 %271, label %.preheader.lr.ph.us, label %.loopexit479, !llvm.loop !36
+  br i1 %271, label %.preheader.lr.ph.us, label %.loopexit479, !llvm.loop !45
 
 272:                                              ; preds = %.preheader482, %._crit_edge511
   %indvars.iv581 = phi i64 [ 0, %.preheader482 ], [ %indvars.iv.next582, %._crit_edge511 ]
   %273 = getelementptr inbounds nuw %struct.patch_t, ptr %61, i64 %indvars.iv581
-  %274 = load i16, ptr %273, align 8, !tbaa !24
+  %274 = load i16, ptr %273, align 8, !tbaa !26
   %275 = icmp sgt i16 %274, 0
   %276 = sext i16 %274 to i32
   %277 = sub nsw i32 0, %276
@@ -524,7 +524,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   %288 = add i32 %207, %287
   %spec.select461 = tail call i32 @llvm.smin.i32(i32 %spec.select459, i32 %288)
   %289 = getelementptr inbounds nuw i8, ptr %273, i64 2
-  %290 = load i16, ptr %289, align 2, !tbaa !27
+  %290 = load i16, ptr %289, align 2, !tbaa !29
   %291 = sext i16 %290 to i32
   %292 = sub nsw i32 0, %291
   %293 = tail call i32 @llvm.smax.i32(i32 %indvars599, i32 %292)
@@ -583,7 +583,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
 
 .preheader.lr.ph.split.i:                         ; preds = %.preheader.lr.ph.i446
   %326 = getelementptr inbounds nuw i8, ptr %273, i64 4
-  %327 = load i32, ptr %326, align 4, !tbaa !28
+  %327 = load i32, ptr %326, align 4, !tbaa !30
   %328 = sext i32 %327 to i64
   %329 = sext i32 %307 to i64
   %330 = add i32 %311, 1
@@ -619,7 +619,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   store float %363, ptr %341, align 4, !tbaa !14
   %indvars.iv.next157.i = add nsw i64 %indvars.iv156.i, 1
   %342 = icmp slt i64 %indvars.iv.next157.i, %332
-  br i1 %342, label %.preheader.i447, label %._crit_edge148.i
+  br i1 %342, label %.preheader.i447, label %._crit_edge148.i, !llvm.loop !46
 
 343:                                              ; preds = %pixel_difference.exit.i, %.preheader.i447
   %indvars.iv.i = phi i64 [ %329, %.preheader.i447 ], [ %indvars.iv.next.i, %pixel_difference.exit.i ]
@@ -646,7 +646,7 @@ compute_slice_width.exit:                         ; preds = %compute_slice_heigh
   store float %355, ptr %356, align 4, !tbaa !14
   %357 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %357, 4
-  br i1 %exitcond.not.i.i, label %pixel_difference.exit.i, label %346
+  br i1 %exitcond.not.i.i, label %pixel_difference.exit.i, label %346, !llvm.loop !47
 
 pixel_difference.exit.i:                          ; preds = %346
   %358 = load float, ptr %10, align 16, !tbaa !14
@@ -659,7 +659,7 @@ pixel_difference.exit.i:                          ; preds = %346
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i448 = icmp eq i32 %330, %lftr.wideiv.i
-  br i1 %exitcond.not.i448, label %._crit_edge.i449, label %343
+  br i1 %exitcond.not.i448, label %._crit_edge.i449, label %343, !llvm.loop !48
 
 init_column_sums.exit:                            ; preds = %._crit_edge148.i, %.lr.ph151.preheader.i
   %364 = icmp slt i32 %279, %spec.select459
@@ -671,7 +671,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   %367 = tail call i32 @llvm.smin.i32(i32 %366, i32 %.437)
   %368 = icmp slt i32 %365, %367
   %369 = getelementptr inbounds nuw i8, ptr %273, i64 4
-  %370 = load i32, ptr %369, align 4, !tbaa !28
+  %370 = load i32, ptr %369, align 4, !tbaa !30
   %371 = icmp slt i32 %293, %.437
   %372 = sext i32 %370 to i64
   %373 = tail call i32 @llvm.smin.i32(i32 %285, i32 %spec.select461)
@@ -697,7 +697,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
 ._crit_edge511:                                   ; preds = %.loopexit, %init_column_sums.exit
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond584.not = icmp eq i64 %indvars.iv.next582, %59
-  br i1 %exitcond584.not, label %226, label %272
+  br i1 %exitcond584.not, label %226, label %272, !llvm.loop !49
 
 388:                                              ; preds = %.lr.ph510, %.loopexit
   %indvars.iv579 = phi i64 [ %smax578, %.lr.ph510 ], [ %indvars.iv.next580, %.loopexit ]
@@ -709,7 +709,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   %390 = getelementptr inbounds nuw float, ptr %0, i64 %389
   %391 = mul i64 %217, %indvars.iv579
   %392 = getelementptr inbounds nuw float, ptr %1, i64 %391
-  %393 = load float, ptr %162, align 4, !tbaa !37
+  %393 = load float, ptr %162, align 4, !tbaa !50
   %394 = load float, ptr %31, align 8, !tbaa !16
   %395 = fcmp reassoc nsz arcp contract afn olt float %394, 0.000000e+00
   br i1 %395, label %.preheader474, label %.preheader476
@@ -733,7 +733,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   %399 = fadd reassoc nsz arcp contract afn float %398, %.0402486
   %indvars.iv.next547 = add nsw i64 %indvars.iv546, 1
   %400 = icmp slt i64 %indvars.iv.next547, %376
-  br i1 %400, label %.lr.ph487, label %._crit_edge
+  br i1 %400, label %.lr.ph487, label %._crit_edge, !llvm.loop !51
 
 401:                                              ; preds = %.lr.ph497, %422
   %indvars.iv556 = phi i64 [ %377, %.lr.ph497 ], [ %indvars.iv.next557, %422 ]
@@ -774,7 +774,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #9
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
   %424 = icmp slt i64 %indvars.iv.next557, %378
-  br i1 %424, label %401, label %.loopexit475
+  br i1 %424, label %401, label %.loopexit475, !llvm.loop !52
 
 425:                                              ; preds = %401, %425
   %.0406494 = phi i64 [ 0, %401 ], [ %431, %425 ]
@@ -787,7 +787,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   store float %430, ptr %gep493, align 4, !tbaa !14
   %431 = add nuw nsw i64 %.0406494, 1
   %exitcond554.not = icmp eq i64 %431, 4
-  br i1 %exitcond554.not, label %422, label %425
+  br i1 %exitcond554.not, label %422, label %425, !llvm.loop !53
 
 .lr.ph491:                                        ; preds = %.preheader476, %478
   %indvars.iv551 = phi i64 [ %indvars.iv.next552, %478 ], [ %377, %.preheader476 ]
@@ -821,7 +821,7 @@ init_column_sums.exit:                            ; preds = %._crit_edge148.i, %
   store float %450, ptr %451, align 4, !tbaa !14
   %452 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i450 = icmp eq i64 %452, 4
-  br i1 %exitcond.not.i450, label %pixel_difference.exit, label %441
+  br i1 %exitcond.not.i450, label %pixel_difference.exit, label %441, !llvm.loop !47
 
 pixel_difference.exit:                            ; preds = %441
   %453 = fsub reassoc nsz arcp contract afn float %432, %437
@@ -864,7 +864,7 @@ pixel_difference.exit:                            ; preds = %441
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #9
   %indvars.iv.next552 = add nuw nsw i64 %indvars.iv551, 1
   %480 = icmp slt i64 %indvars.iv.next552, %378
-  br i1 %480, label %.lr.ph491, label %.loopexit475
+  br i1 %480, label %.lr.ph491, label %.loopexit475, !llvm.loop !54
 
 481:                                              ; preds = %pixel_difference.exit, %481
   %.0408488 = phi i64 [ 0, %pixel_difference.exit ], [ %487, %481 ]
@@ -877,7 +877,7 @@ pixel_difference.exit:                            ; preds = %441
   store float %486, ptr %gep, align 4, !tbaa !14
   %487 = add nuw nsw i64 %.0408488, 1
   %exitcond549.not = icmp eq i64 %487, 4
-  br i1 %exitcond549.not, label %478, label %481
+  br i1 %exitcond549.not, label %478, label %481, !llvm.loop !55
 
 .loopexit475:                                     ; preds = %478, %422, %.preheader476, %.preheader474
   %488 = icmp slt i64 %indvars.iv579, %387
@@ -915,7 +915,7 @@ pixel_difference.exit:                            ; preds = %441
   store float %506, ptr %507, align 4, !tbaa !14
   %508 = add nuw nsw i64 %.010.i451, 1
   %exitcond.not.i452 = icmp eq i64 %508, 4
-  br i1 %exitcond.not.i452, label %pixel_difference.exit453, label %497
+  br i1 %exitcond.not.i452, label %pixel_difference.exit453, label %497, !llvm.loop !47
 
 pixel_difference.exit453:                         ; preds = %497
   %509 = load float, ptr %8, align 16, !tbaa !14
@@ -934,7 +934,7 @@ pixel_difference.exit453:                         ; preds = %497
   tail call void @llvm.prefetch.p0(ptr %518, i32 0, i32 3, i32 1)
   %indvars.iv.next574 = add nsw i64 %indvars.iv573, 1
   %519 = icmp slt i64 %indvars.iv.next574, %382
-  br i1 %519, label %.lr.ph508, label %.loopexit
+  br i1 %519, label %.lr.ph508, label %.loopexit, !llvm.loop !56
 
 520:                                              ; preds = %.loopexit475
   %521 = icmp slt i64 %indvars.iv579, %386
@@ -984,7 +984,7 @@ pixel_difference.exit453:                         ; preds = %497
   store float %552, ptr %553, align 4, !tbaa !14
   %554 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i454 = icmp eq i64 %554, 4
-  br i1 %exitcond.not.i454, label %diff_of_pixels_diff.exit, label %536
+  br i1 %exitcond.not.i454, label %diff_of_pixels_diff.exit, label %536, !llvm.loop !57
 
 diff_of_pixels_diff.exit:                         ; preds = %536
   %555 = load float, ptr %7, align 16, !tbaa !14
@@ -1003,7 +1003,7 @@ diff_of_pixels_diff.exit:                         ; preds = %536
   tail call void @llvm.prefetch.p0(ptr %564, i32 0, i32 3, i32 1)
   %indvars.iv.next569 = add nsw i64 %indvars.iv568, 1
   %565 = icmp slt i64 %indvars.iv.next569, %382
-  br i1 %565, label %.lr.ph505, label %.loopexit
+  br i1 %565, label %.lr.ph505, label %.loopexit, !llvm.loop !58
 
 566:                                              ; preds = %520
   %.not = icmp sge i64 %indvars.iv579, %385
@@ -1041,7 +1041,7 @@ diff_of_pixels_diff.exit:                         ; preds = %536
   store float %583, ptr %584, align 4, !tbaa !14
   %585 = add nuw nsw i64 %.010.i455, 1
   %exitcond.not.i456 = icmp eq i64 %585, 4
-  br i1 %exitcond.not.i456, label %pixel_difference.exit457, label %574
+  br i1 %exitcond.not.i456, label %pixel_difference.exit457, label %574, !llvm.loop !47
 
 pixel_difference.exit457:                         ; preds = %574
   %586 = load float, ptr %6, align 16, !tbaa !14
@@ -1056,17 +1056,17 @@ pixel_difference.exit457:                         ; preds = %574
   store float %593, ptr %589, align 4, !tbaa !14
   %indvars.iv.next564 = add nsw i64 %indvars.iv563, 1
   %594 = icmp slt i64 %indvars.iv.next564, %382
-  br i1 %594, label %.lr.ph502, label %.loopexit
+  br i1 %594, label %.lr.ph502, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %pixel_difference.exit457, %diff_of_pixels_diff.exit, %pixel_difference.exit453, %568, %522, %489, %566
   %indvars.iv.next580 = add nuw nsw i64 %indvars.iv579, 1
   %595 = icmp slt i64 %indvars.iv.next580, %384
-  br i1 %595, label %388, label %._crit_edge511
+  br i1 %595, label %388, label %._crit_edge511, !llvm.loop !60
 
 .loopexit479:                                     ; preds = %._crit_edge517.us, %._crit_edge526.us, %.lr.ph528, %.lr.ph519, %.preheader480, %.preheader478
   %596 = sext i32 %205 to i64
   %597 = icmp slt i64 %indvars.iv.next560, %596
-  br i1 %597, label %191, label %._crit_edge535
+  br i1 %597, label %191, label %._crit_edge535, !llvm.loop !61
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1150,17 +1150,41 @@ attributes #9 = { nounwind }
 !21 = !{!7, !8, i64 4}
 !22 = !{!7, !8, i64 0}
 !23 = !{!7, !11, i64 32}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"patch_t", !26, i64 0, !26, i64 2, !11, i64 4}
-!26 = !{!"short", !9, i64 0}
-!27 = !{!25, !26, i64 2}
-!28 = !{!25, !11, i64 4}
-!29 = !{!19, !11, i64 12}
-!30 = distinct !{!30, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.partial.disable"}
-!34 = !{!7, !12, i64 40}
-!35 = distinct !{!35, !31}
-!36 = distinct !{!36, !31}
-!37 = !{!7, !8, i64 20}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"patch_t", !28, i64 0, !28, i64 2, !11, i64 4}
+!28 = !{!"short", !9, i64 0}
+!29 = !{!27, !28, i64 2}
+!30 = !{!27, !11, i64 4}
+!31 = distinct !{!31, !25}
+!32 = !{!19, !11, i64 12}
+!33 = distinct !{!33, !25}
+!34 = distinct !{!34, !25, !35}
+!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!36 = distinct !{!36, !25, !37}
+!37 = !{!"llvm.loop.unswitch.partial.disable"}
+!38 = !{!7, !12, i64 40}
+!39 = distinct !{!39, !25}
+!40 = distinct !{!40, !25}
+!41 = distinct !{!41, !25}
+!42 = distinct !{!42, !25, !35}
+!43 = distinct !{!43, !25}
+!44 = distinct !{!44, !25}
+!45 = distinct !{!45, !25, !35}
+!46 = distinct !{!46, !25}
+!47 = distinct !{!47, !25}
+!48 = distinct !{!48, !25}
+!49 = distinct !{!49, !25}
+!50 = !{!7, !8, i64 20}
+!51 = distinct !{!51, !25}
+!52 = distinct !{!52, !25}
+!53 = distinct !{!53, !25}
+!54 = distinct !{!54, !25}
+!55 = distinct !{!55, !25}
+!56 = distinct !{!56, !25}
+!57 = distinct !{!57, !25}
+!58 = distinct !{!58, !25}
+!59 = distinct !{!59, !25}
+!60 = distinct !{!60, !25}
+!61 = distinct !{!61, !25}

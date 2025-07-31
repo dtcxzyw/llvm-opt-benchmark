@@ -402,7 +402,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit23:        ; preds = %44, %50, %55
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %18, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %18, !llvm.loop !37
 
 59:                                               ; preds = %18
   %60 = landingpad { ptr, i32 }
@@ -446,7 +446,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit23:        ; preds = %44, %50, %55
 .lr.ph.i.i:                                       ; preds = %69, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i
   %.06.i.i = phi ptr [ %82, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i ], [ %70, %69 ]
   %74 = load ptr, ptr %.06.i.i, align 8, !tbaa !21
-  %75 = load ptr, ptr %5, align 8, !tbaa !37
+  %75 = load ptr, ptr %5, align 8, !tbaa !38
   %.not.i.i.i.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i.i.i.i, label %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i, label %76
 
@@ -465,7 +465,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit23:        ; preds = %44, %50, %55
 _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i: ; preds = %81, %76, %.lr.ph.i.i
   %82 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %83 = icmp ult ptr %82, %73
-  br i1 %83, label %.lr.ph.i.i, label %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit.i, !llvm.loop !39
+  br i1 %83, label %.lr.ph.i.i, label %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit.i, !llvm.loop !40
 
 _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit.i: ; preds = %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i.i
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !23
@@ -524,7 +524,7 @@ define linkonce_odr hidden void @_ZN15ref_buffer_coreI3app19ref_manager_wrapperI
 .lr.ph.i:                                         ; preds = %1, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i
   %.06.i = phi ptr [ %16, %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i ], [ %3, %1 ]
   %8 = load ptr, ptr %.06.i, align 8, !tbaa !21
-  %9 = load ptr, ptr %0, align 8, !tbaa !37
+  %9 = load ptr, ptr %0, align 8, !tbaa !38
   %.not.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i, label %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i, label %10
 
@@ -543,7 +543,7 @@ define linkonce_odr hidden void @_ZN15ref_buffer_coreI3app19ref_manager_wrapperI
 _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i: ; preds = %15, %10, %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %17 = icmp ult ptr %16, %7
-  br i1 %17, label %.lr.ph.i, label %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit, !llvm.loop !39
+  br i1 %17, label %.lr.ph.i, label %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit, !llvm.loop !40
 
 _ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE13dec_range_refEPKPS0_S7_.exit.loopexit: ; preds = %_ZN15ref_buffer_coreI3app19ref_manager_wrapperIS0_11ast_managerELj16EE7dec_refEPS0_.exit.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !23
@@ -1028,10 +1028,10 @@ _ZN7obj_refI3app11ast_managerEC2ERKS2_.exit:      ; preds = %5, %_ZN11ast_manage
 define linkonce_odr hidden noundef ptr @_ZN8proof2pc9translateER15ast_translation(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(84) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !40
+  %5 = load ptr, ptr %4, align 8, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !14
-  %8 = load ptr, ptr %1, align 8, !tbaa !51
+  %8 = load ptr, ptr %1, align 8, !tbaa !52
   %9 = icmp eq ptr %8, %5
   br i1 %9, label %_ZN15ast_translationclI3appEEPT_PKS2_.exit, label %10
 
@@ -1135,21 +1135,22 @@ attributes #14 = { builtin nounwind }
 !31 = !{!"p2 _ZTS15proof_converter", !26, i64 0}
 !32 = !{!30, !31, i64 0}
 !33 = !{!10, !10, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35}
-!37 = !{!38, !17, i64 0}
-!38 = !{!"_ZTS19ref_manager_wrapperI3app11ast_managerE", !17, i64 0}
-!39 = distinct !{!39, !35}
-!40 = !{!41, !17, i64 8}
-!41 = !{!"_ZTS15ast_translation", !17, i64 0, !17, i64 8, !42, i64 16, !45, i64 24, !45, i64 32, !48, i64 40, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80}
-!42 = !{!"_ZTS7svectorIN15ast_translation5frameEjE", !43, i64 0}
-!43 = !{!"_ZTS6vectorIN15ast_translation5frameELb0EjE", !44, i64 0}
-!44 = !{!"p1 _ZTSN15ast_translation5frameE", !11, i64 0}
-!45 = !{!"_ZTS10ptr_vectorI3astE", !46, i64 0}
-!46 = !{!"_ZTS6vectorIP3astLb0EjE", !47, i64 0}
-!47 = !{!"p2 _ZTS3ast", !26, i64 0}
-!48 = !{!"_ZTS7obj_mapI3astPS0_E", !49, i64 0}
-!49 = !{!"_ZTS14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE", !50, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!50 = !{!"p1 _ZTSN7obj_mapI3astPS0_E13obj_map_entryE", !11, i64 0}
-!51 = !{!41, !17, i64 0}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36}
+!38 = !{!39, !17, i64 0}
+!39 = !{!"_ZTS19ref_manager_wrapperI3app11ast_managerE", !17, i64 0}
+!40 = distinct !{!40, !35, !36}
+!41 = !{!42, !17, i64 8}
+!42 = !{!"_ZTS15ast_translation", !17, i64 0, !17, i64 8, !43, i64 16, !46, i64 24, !46, i64 32, !49, i64 40, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80}
+!43 = !{!"_ZTS7svectorIN15ast_translation5frameEjE", !44, i64 0}
+!44 = !{!"_ZTS6vectorIN15ast_translation5frameELb0EjE", !45, i64 0}
+!45 = !{!"p1 _ZTSN15ast_translation5frameE", !11, i64 0}
+!46 = !{!"_ZTS10ptr_vectorI3astE", !47, i64 0}
+!47 = !{!"_ZTS6vectorIP3astLb0EjE", !48, i64 0}
+!48 = !{!"p2 _ZTS3ast", !26, i64 0}
+!49 = !{!"_ZTS7obj_mapI3astPS0_E", !50, i64 0}
+!50 = !{!"_ZTS14core_hashtableIN7obj_mapI3astPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE", !51, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!51 = !{!"p1 _ZTSN7obj_mapI3astPS0_E13obj_map_entryE", !11, i64 0}
+!52 = !{!42, !17, i64 0}

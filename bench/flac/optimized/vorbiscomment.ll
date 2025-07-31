@@ -97,7 +97,7 @@ local_strdup.exit30.i:                            ; preds = %._crit_edge.i
 .loopexit:                                        ; preds = %.lr.ph.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %local_strdup.exit29.i
   %storemerge = phi ptr [ @.str.1, %local_strdup.exit29.i ], [ @.str, %switch.early.test.i ], [ @.str, %switch.early.test.i ], [ @.str, %switch.early.test.i ], [ @.str, %.lr.ph.i ]
   tail call void @free(ptr noundef %11) #11
-  store ptr %storemerge, ptr %4, align 8, !tbaa !9
+  store ptr %storemerge, ptr %4, align 8, !tbaa !10
   tail call void @free(ptr noundef nonnull %8) #11
   br label %free_field.exit
 
@@ -111,7 +111,7 @@ local_strdup.exit30.i:                            ; preds = %._crit_edge.i
 32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
-  store ptr null, ptr %7, align 8, !tbaa !9
+  store ptr null, ptr %7, align 8, !tbaa !10
   %.not.i9 = icmp eq i32 %2, 0
   br i1 %.not.i9, label %71, label %33
 
@@ -170,7 +170,7 @@ fread.inline.exit.i:                              ; preds = %43
   br i1 %.not57.i, label %56, label %55
 
 55:                                               ; preds = %54
-  store ptr %40, ptr %7, align 8, !tbaa !9
+  store ptr %40, ptr %7, align 8, !tbaa !10
   br label %60
 
 56:                                               ; preds = %54
@@ -180,14 +180,14 @@ fread.inline.exit.i:                              ; preds = %43
   br i1 %58, label %59, label %93
 
 59:                                               ; preds = %56
-  %.pre.i = load ptr, ptr %7, align 8, !tbaa !9
+  %.pre.i = load ptr, ptr %7, align 8, !tbaa !10
   br label %60
 
 60:                                               ; preds = %59, %55
   %61 = phi ptr [ %.pre.i, %59 ], [ %40, %55 ]
   %62 = call i32 @FLAC__metadata_object_vorbiscomment_entry_from_name_value_pair(ptr noundef nonnull %6, ptr noundef nonnull %23, ptr noundef %61) #11
   %.not58.i = icmp eq i32 %62, 0
-  %63 = load ptr, ptr %7, align 8, !tbaa !9
+  %63 = load ptr, ptr %7, align 8, !tbaa !10
   call void @free(ptr noundef %63) #11
   br i1 %.not58.i, label %93, label %64
 
@@ -200,7 +200,7 @@ fread.inline.exit.i:                              ; preds = %43
   br i1 %.not59.i, label %69, label %set_vc_field.exit
 
 69:                                               ; preds = %64
-  %70 = load ptr, ptr %66, align 8, !tbaa !12
+  %70 = load ptr, ptr %66, align 8, !tbaa !13
   call void @free(ptr noundef %70) #11
   br label %93
 
@@ -214,7 +214,7 @@ fread.inline.exit.i:                              ; preds = %43
   br i1 %74, label %75, label %93
 
 75:                                               ; preds = %72
-  %76 = load ptr, ptr %7, align 8, !tbaa !9
+  %76 = load ptr, ptr %7, align 8, !tbaa !10
   br label %77
 
 77:                                               ; preds = %75, %71
@@ -229,7 +229,7 @@ fread.inline.exit.i:                              ; preds = %43
   br i1 %.not49.not.not.not.i, label %83, label %93
 
 83:                                               ; preds = %82
-  %84 = load ptr, ptr %7, align 8, !tbaa !9
+  %84 = load ptr, ptr %7, align 8, !tbaa !10
   call void @free(ptr noundef %84) #11
   br label %93
 
@@ -242,7 +242,7 @@ fread.inline.exit.i:                              ; preds = %43
   br i1 %.not49.not.not.not.i, label %88, label %93
 
 88:                                               ; preds = %87
-  %89 = load ptr, ptr %7, align 8, !tbaa !9
+  %89 = load ptr, ptr %7, align 8, !tbaa !10
   call void @free(ptr noundef %89) #11
   br label %93
 
@@ -250,7 +250,7 @@ fread.inline.exit.i:                              ; preds = %43
   br i1 %.not49.not.not.not.i, label %91, label %set_vc_field.exit
 
 91:                                               ; preds = %90
-  %92 = load ptr, ptr %7, align 8, !tbaa !9
+  %92 = load ptr, ptr %7, align 8, !tbaa !10
   call void @free(ptr noundef %92) #11
   br label %set_vc_field.exit
 
@@ -261,7 +261,7 @@ set_vc_field.exit:                                ; preds = %64, %90, %91
 
 93:                                               ; preds = %87, %88, %82, %83, %72, %60, %56, %.thread.i, %48, %36, %33, %69, %53
   %.str.13.sink = phi ptr [ @.str.12, %69 ], [ @.str.9, %53 ], [ @.str.4, %33 ], [ @.str.5, %36 ], [ @.str.8, %48 ], [ @.str.8, %.thread.i ], [ @.str.10, %56 ], [ @.str.11, %60 ], [ @.str.13, %72 ], [ @.str.14, %83 ], [ @.str.14, %82 ], [ @.str.12, %88 ], [ @.str.12, %87 ]
-  store ptr %.str.13.sink, ptr %4, align 8, !tbaa !9
+  store ptr %.str.13.sink, ptr %4, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   call void @free(ptr noundef nonnull %8) #11
@@ -300,7 +300,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
 define internal fastcc void @die(ptr noundef %0) unnamed_addr #5 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !15
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !16
   %3 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %0) #11
   tail call void @exit(i32 noundef 1) #14
   unreachable
@@ -358,13 +358,14 @@ attributes #14 = { cold noreturn nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 omnipotent char", !11, i64 0}
-!11 = !{!"any pointer", !5, i64 0}
-!12 = !{!13, !10, i64 8}
-!13 = !{!"", !14, i64 0, !10, i64 8}
-!14 = !{!"int", !5, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = !{!14, !11, i64 8}
+!14 = !{!"", !15, i64 0, !11, i64 8}
+!15 = !{!"int", !5, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}

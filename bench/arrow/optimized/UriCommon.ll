@@ -218,12 +218,12 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
   br i1 %or.cond314, label %52, label %50
 
 50:                                               ; preds = %49
-  %51 = load ptr, ptr %14, align 8, !tbaa !26
+  %51 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %51(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %52
 
 52:                                               ; preds = %50, %49
-  %53 = load ptr, ptr %14, align 8, !tbaa !26
+  %53 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %53(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
@@ -233,7 +233,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
   br i1 %or.cond315, label %57, label %55
 
 55:                                               ; preds = %54
-  %56 = load ptr, ptr %14, align 8, !tbaa !26
+  %56 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %56(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %57
 
@@ -243,25 +243,25 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !28
+  %61 = load ptr, ptr %60, align 8, !tbaa !29
   %.not5.i = icmp eq ptr %61, null
   br i1 %.not5.i, label %62, label %uriIsHostSetA.exit.thread
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %64 = load ptr, ptr %63, align 8, !tbaa !29
+  %64 = load ptr, ptr %63, align 8, !tbaa !30
   %.not6.i = icmp eq ptr %64, null
   br i1 %.not6.i, label %65, label %uriIsHostSetA.exit.thread
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %67 = load ptr, ptr %66, align 8, !tbaa !30
+  %67 = load ptr, ptr %66, align 8, !tbaa !31
   %.not7.i = icmp eq ptr %67, null
   br i1 %.not7.i, label %uriIsHostSetA.exit, label %uriIsHostSetA.exit.thread
 
 uriIsHostSetA.exit:                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %69 = load ptr, ptr %68, align 8, !tbaa !31
+  %69 = load ptr, ptr %68, align 8, !tbaa !32
   %.not319 = icmp eq ptr %69, null
   br i1 %.not319, label %70, label %uriIsHostSetA.exit.thread
 
@@ -271,7 +271,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br label %.critedge
 
 70:                                               ; preds = %uriIsHostSetA.exit
-  %71 = load ptr, ptr %14, align 8, !tbaa !26
+  %71 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %71(ptr noundef %3, ptr noundef nonnull %.0186) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %.critedge
@@ -346,7 +346,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br label %125
 
 109:                                              ; preds = %104
-  %110 = load ptr, ptr %12, align 8, !tbaa !32
+  %110 = load ptr, ptr %12, align 8, !tbaa !33
   %111 = tail call ptr %110(ptr noundef %3, i64 noundef 1, i64 noundef 32) #11
   %.not241 = icmp eq ptr %111, null
   br i1 %.not241, label %112, label %123
@@ -361,12 +361,12 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %.not239, label %118, label %116
 
 116:                                              ; preds = %113
-  %117 = load ptr, ptr %14, align 8, !tbaa !26
+  %117 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %117(ptr noundef nonnull %3, ptr noundef %114) #11
   br label %118
 
 118:                                              ; preds = %116, %113
-  %119 = load ptr, ptr %14, align 8, !tbaa !26
+  %119 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %119(ptr noundef nonnull %3, ptr noundef nonnull %.0186) #11
   %120 = load ptr, ptr %82, align 8, !tbaa !21
   %121 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -379,7 +379,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store ptr @.str, ptr %124, align 8, !tbaa !20
   store ptr %111, ptr %105, align 8, !tbaa !23
-  store ptr %111, ptr %13, align 8, !tbaa !33
+  store ptr %111, ptr %13, align 8, !tbaa !34
   br label %125
 
 125:                                              ; preds = %123, %107
@@ -392,12 +392,12 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %.not243, label %131, label %129
 
 129:                                              ; preds = %126
-  %130 = load ptr, ptr %14, align 8, !tbaa !26
+  %130 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %130(ptr noundef %3, ptr noundef %127) #11
   br label %131
 
 131:                                              ; preds = %129, %126
-  %132 = load ptr, ptr %14, align 8, !tbaa !26
+  %132 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %132(ptr noundef %3, ptr noundef nonnull %.0186) #11
   %133 = load ptr, ptr %82, align 8, !tbaa !21
   %134 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -407,12 +407,12 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
 
 .sink.split:                                      ; preds = %131, %125
   %.0186.sink = phi ptr [ %.0186, %125 ], [ %133, %131 ]
-  %136 = load ptr, ptr %14, align 8, !tbaa !26
+  %136 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %136(ptr noundef %3, ptr noundef %.0186.sink) #11
   br label %137
 
 137:                                              ; preds = %.sink.split, %131
-  %138 = load ptr, ptr %14, align 8, !tbaa !26
+  %138 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %138(ptr noundef nonnull %3, ptr noundef nonnull %82) #11
   br label %.thread297
 
@@ -429,12 +429,12 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %or.cond316, label %144, label %142
 
 142:                                              ; preds = %140
-  %143 = load ptr, ptr %14, align 8, !tbaa !26
+  %143 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %143(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %144
 
 144:                                              ; preds = %142, %140
-  %145 = load ptr, ptr %14, align 8, !tbaa !26
+  %145 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %145(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %150
 
@@ -444,7 +444,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %or.cond317, label %149, label %147
 
 147:                                              ; preds = %146
-  %148 = load ptr, ptr %14, align 8, !tbaa !26
+  %148 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %148(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %149
 
@@ -452,7 +452,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   store ptr @.str, ptr %.0186, align 8, !tbaa !21
   store ptr @.str, ptr %16, align 8, !tbaa !20
   store ptr %.0186, ptr %7, align 8, !tbaa !17
-  store ptr %.0186, ptr %13, align 8, !tbaa !33
+  store ptr %.0186, ptr %13, align 8, !tbaa !34
   br label %150
 
 150:                                              ; preds = %149, %144
@@ -466,12 +466,12 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %.not236, label %157, label %155
 
 155:                                              ; preds = %151
-  %156 = load ptr, ptr %14, align 8, !tbaa !26
+  %156 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %156(ptr noundef %3, ptr noundef %152) #11
   br label %157
 
 157:                                              ; preds = %155, %151, %150
-  %158 = load ptr, ptr %14, align 8, !tbaa !26
+  %158 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %158(ptr noundef %3, ptr noundef nonnull %82) #11
   br label %.thread297
 
@@ -486,7 +486,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br label %163
 
 162:                                              ; preds = %159
-  store ptr null, ptr %13, align 8, !tbaa !33
+  store ptr null, ptr %13, align 8, !tbaa !34
   br label %163
 
 163:                                              ; preds = %162, %160
@@ -495,23 +495,23 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br i1 %or.cond318, label %.thread305, label %164
 
 164:                                              ; preds = %163
-  %165 = load ptr, ptr %14, align 8, !tbaa !26
+  %165 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %165(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %.thread305
 
 .thread305:                                       ; preds = %163, %164
-  %166 = load ptr, ptr %14, align 8, !tbaa !26
+  %166 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %166(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
 .sink.split371:                                   ; preds = %118, %112
   %.sink = phi ptr [ %.0186, %112 ], [ %120, %118 ]
-  %167 = load ptr, ptr %14, align 8, !tbaa !26
+  %167 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %167(ptr noundef nonnull %3, ptr noundef %.sink) #11
   br label %168
 
 168:                                              ; preds = %.sink.split371, %118
-  %169 = load ptr, ptr %14, align 8, !tbaa !26
+  %169 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %169(ptr noundef nonnull %3, ptr noundef nonnull %82) #11
   br label %.critedge
 
@@ -527,13 +527,13 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
   br label %.thread297
 
 .thread309:                                       ; preds = %.thread301
-  store ptr %.0186, ptr %13, align 8, !tbaa !33
+  store ptr %.0186, ptr %13, align 8, !tbaa !34
   br label %.critedge
 
 .thread297:                                       ; preds = %157, %137, %52, %172, %.thread305
   %.5191 = phi ptr [ %84, %.thread305 ], [ %171, %172 ], [ %30, %52 ], [ %84, %137 ], [ %84, %157 ]
   %.not256 = icmp eq ptr %.5191, null
-  br i1 %.not256, label %.critedge, label %15, !llvm.loop !34
+  br i1 %.not256, label %.critedge, label %15, !llvm.loop !35
 
 .critedge:                                        ; preds = %.thread297, %72, %70, %uriIsHostSetA.exit.thread, %.thread309, %168, %4, %6
   %.0 = phi i32 [ 1, %6 ], [ 1, %4 ], [ 0, %168 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetA.exit.thread ], [ 1, %70 ], [ 1, %72 ], [ 1, %.thread297 ]
@@ -547,25 +547,25 @@ define range(i32 0, 2) i32 @uriIsHostSetA(ptr noundef readonly captures(address_
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %5, label %16
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %8, label %16
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !30
+  %10 = load ptr, ptr %9, align 8, !tbaa !31
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %11, label %16
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !31
+  %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = icmp ne ptr %13, null
   %15 = zext i1 %14 to i32
   br label %16
@@ -721,7 +721,7 @@ define range(i32 0, 2) i32 @uriCopyPathA(ptr noundef writeonly captures(none) %0
 .preheader:                                       ; preds = %3, %19
   %.030 = phi ptr [ %21, %19 ], [ %5, %3 ]
   %.028 = phi ptr [ %10, %19 ], [ null, %3 ]
-  %9 = load ptr, ptr %2, align 8, !tbaa !35
+  %9 = load ptr, ptr %2, align 8, !tbaa !36
   %10 = tail call ptr %9(ptr noundef nonnull %2, i64 noundef 32) #11
   %.not34 = icmp eq ptr %10, null
   br i1 %.not34, label %11, label %14
@@ -736,7 +736,7 @@ define range(i32 0, 2) i32 @uriCopyPathA(ptr noundef writeonly captures(none) %0
   br label %28
 
 14:                                               ; preds = %.preheader
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.030, i64 16, i1 false), !tbaa.struct !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.030, i64 16, i1 false), !tbaa.struct !37
   %15 = icmp eq ptr %.028, null
   br i1 %15, label %16, label %17
 
@@ -753,20 +753,20 @@ define range(i32 0, 2) i32 @uriCopyPathA(ptr noundef writeonly captures(none) %0
   %20 = getelementptr inbounds nuw i8, ptr %.030, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %.not35 = icmp eq ptr %21, null
-  br i1 %.not35, label %.thread38, label %.preheader, !llvm.loop !38
+  br i1 %.not35, label %.thread38, label %.preheader, !llvm.loop !39
 
 .thread38:                                        ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %10, ptr %22, align 8, !tbaa !33
+  store ptr %10, ptr %22, align 8, !tbaa !34
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %23, align 8, !tbaa !23
   br label %24
 
 24:                                               ; preds = %.thread38, %8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %26 = load i32, ptr %25, align 8, !tbaa !39
+  %26 = load i32, ptr %25, align 8, !tbaa !40
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %26, ptr %27, align 8, !tbaa !39
+  store i32 %26, ptr %27, align 8, !tbaa !40
   br label %28
 
 28:                                               ; preds = %12, %11, %24
@@ -781,25 +781,25 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr noundef writeonly captures(none) initializes((16, 56)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !37
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !37
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %2, align 8, !tbaa !35
+  %11 = load ptr, ptr %2, align 8, !tbaa !36
   %12 = tail call ptr %11(ptr noundef nonnull %2, i64 noundef 4) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %12, ptr %13, align 8, !tbaa !29
+  store ptr %12, ptr %13, align 8, !tbaa !30
   %14 = icmp eq ptr %12, null
   br i1 %14, label %37, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %8, align 8, !tbaa !29
+  %16 = load ptr, ptr %8, align 8, !tbaa !30
   %17 = load i32, ptr %16, align 1, !tbaa !22
   store i32 %17, ptr %12, align 1, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -808,23 +808,23 @@ define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr noundef writeonly captures(non
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !30
+  %21 = load ptr, ptr %20, align 8, !tbaa !31
   %.not32 = icmp eq ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not32, label %31, label %23
 
 23:                                               ; preds = %19
-  store ptr null, ptr %22, align 8, !tbaa !29
-  %24 = load ptr, ptr %2, align 8, !tbaa !35
+  store ptr null, ptr %22, align 8, !tbaa !30
+  %24 = load ptr, ptr %2, align 8, !tbaa !36
   %25 = tail call ptr %24(ptr noundef nonnull %2, i64 noundef 16) #11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %25, ptr %26, align 8, !tbaa !30
+  store ptr %25, ptr %26, align 8, !tbaa !31
   %27 = icmp eq ptr %25, null
   br i1 %27, label %37, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %20, align 8, !tbaa !30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !40
+  %29 = load ptr, ptr %20, align 8, !tbaa !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !41
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   br label %34
@@ -833,13 +833,13 @@ define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr noundef writeonly captures(non
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !37
   br label %34
 
 34:                                               ; preds = %28, %31, %15
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !37
   br label %37
 
 37:                                               ; preds = %23, %10, %34
@@ -850,7 +850,7 @@ define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr noundef writeonly captures(non
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriFixAmbiguityA(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load i32, ptr %3, align 8, !tbaa !39
+  %4 = load i32, ptr %3, align 8, !tbaa !40
   %.not = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !17
@@ -891,7 +891,7 @@ define range(i32 0, 2) i32 @uriFixAmbiguityA(ptr noundef captures(none) %0, ptr 
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %8, %22
-  %28 = load ptr, ptr %1, align 8, !tbaa !35
+  %28 = load ptr, ptr %1, align 8, !tbaa !36
   %29 = tail call ptr %28(ptr noundef nonnull %1, i64 noundef 32) #11
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
@@ -915,31 +915,31 @@ define range(i32 0, 2) i32 @uriFixAmbiguityA(ptr noundef captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define void @uriFixEmptyTrailSegmentA(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load i32, ptr %3, align 8, !tbaa !39
+  %4 = load i32, ptr %3, align 8, !tbaa !40
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %uriIsHostSetA.exit.thread
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
   %.not5.i = icmp eq ptr %7, null
   br i1 %.not5.i, label %8, label %uriIsHostSetA.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !29
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %.not6.i = icmp eq ptr %10, null
   br i1 %.not6.i, label %11, label %uriIsHostSetA.exit.thread
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !31
   %.not7.i = icmp eq ptr %13, null
   br i1 %.not7.i, label %uriIsHostSetA.exit, label %uriIsHostSetA.exit.thread
 
 uriIsHostSetA.exit:                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !31
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
   %.not14 = icmp eq ptr %15, null
   br i1 %.not14, label %16, label %uriIsHostSetA.exit.thread
 
@@ -964,7 +964,7 @@ uriIsHostSetA.exit:                               ; preds = %11
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   tail call void %30(ptr noundef %1, ptr noundef nonnull %18) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %uriIsHostSetA.exit.thread
@@ -1002,9 +1002,9 @@ define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly captures(addr
   br label %40
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr %0, align 8, !tbaa !41
+  %9 = load ptr, ptr %0, align 8, !tbaa !42
   %10 = icmp eq ptr %9, null
-  %.pre = load ptr, ptr %1, align 8, !tbaa !41
+  %.pre = load ptr, ptr %1, align 8, !tbaa !42
   %11 = icmp eq ptr %.pre, null
   %or.cond30 = select i1 %10, i1 true, i1 %11
   br i1 %or.cond30, label %12, label %17
@@ -1019,14 +1019,14 @@ define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly captures(addr
 
 17:                                               ; preds = %8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !44
+  %19 = load ptr, ptr %18, align 8, !tbaa !45
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %9 to i64
   %22 = sub i64 %20, %21
   %23 = ashr exact i64 %22, 2
   %24 = trunc i64 %23 to i32
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !44
+  %26 = load ptr, ptr %25, align 8, !tbaa !45
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %.pre to i64
   %29 = sub i64 %27, %28
@@ -1065,7 +1065,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsW(ptr noundef captures(address_i
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %7 = load i32, ptr %6, align 4, !tbaa !45
+  %7 = load i32, ptr %6, align 4, !tbaa !46
   %8 = tail call i32 @uriRemoveDotSegmentsExW(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %7, ptr noundef %2)
   br label %9
 
@@ -1081,13 +1081,13 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8, !tbaa !49
+  %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr null, ptr %11, align 8, !tbaa !50
+  store ptr null, ptr %11, align 8, !tbaa !51
   %.not = icmp eq i32 %1, 0
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1098,8 +1098,8 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
 15:                                               ; preds = %.thread297, %10
   %.0186 = phi ptr [ %8, %10 ], [ %.5191, %.thread297 ]
   %16 = getelementptr inbounds nuw i8, ptr %.0186, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !52
-  %18 = load ptr, ptr %.0186, align 8, !tbaa !53
+  %17 = load ptr, ptr %16, align 8, !tbaa !53
+  %18 = load ptr, ptr %.0186, align 8, !tbaa !54
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = sub i64 %19, %20
@@ -1111,39 +1111,39 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
   ]
 
 24:                                               ; preds = %15
-  %25 = load i32, ptr %18, align 4, !tbaa !54
+  %25 = load i32, ptr %18, align 4, !tbaa !55
   %26 = icmp eq i32 %25, 46
   br i1 %26, label %27, label %.thread301
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %.0186, i64 24
-  %29 = load ptr, ptr %28, align 8, !tbaa !50
+  %29 = load ptr, ptr %28, align 8, !tbaa !51
   %30 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !55
+  %31 = load ptr, ptr %30, align 8, !tbaa !56
   br i1 %.not, label %45, label %32
 
 32:                                               ; preds = %27
-  %33 = load ptr, ptr %7, align 8, !tbaa !49
+  %33 = load ptr, ptr %7, align 8, !tbaa !50
   %34 = icmp ne ptr %.0186, %33
   %.not246 = icmp eq ptr %31, null
   %or.cond = select i1 %34, i1 true, i1 %.not246
   br i1 %or.cond, label %45, label %35
 
 35:                                               ; preds = %32
-  %36 = load ptr, ptr %31, align 8, !tbaa !53
+  %36 = load ptr, ptr %31, align 8, !tbaa !54
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !52
+  %38 = load ptr, ptr %37, align 8, !tbaa !53
   %39 = icmp ult ptr %36, %38
   br i1 %39, label %.lr.ph, label %.thread261
 
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr inbounds nuw i8, ptr %.0200336, i64 4
   %42 = icmp ult ptr %41, %38
-  br i1 %42, label %.lr.ph, label %.thread261, !llvm.loop !56
+  br i1 %42, label %.lr.ph, label %.thread261, !llvm.loop !57
 
 .lr.ph:                                           ; preds = %35, %40
   %.0200336 = phi ptr [ %41, %40 ], [ %36, %35 ]
-  %43 = load i32, ptr %.0200336, align 4, !tbaa !54
+  %43 = load i32, ptr %.0200336, align 4, !tbaa !55
   %44 = icmp eq i32 %43, 58
   br i1 %44, label %.thread301, label %40
 
@@ -1153,17 +1153,17 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
 
 .thread261:                                       ; preds = %40, %35, %45
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr %29, ptr %46, align 8, !tbaa !50
+  store ptr %29, ptr %46, align 8, !tbaa !51
   %47 = icmp eq ptr %29, null
   br i1 %47, label %48, label %49
 
 48:                                               ; preds = %.thread261
-  store ptr %31, ptr %7, align 8, !tbaa !49
+  store ptr %31, ptr %7, align 8, !tbaa !50
   br label %51
 
 49:                                               ; preds = %.thread261
   %50 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %31, ptr %50, align 8, !tbaa !55
+  store ptr %31, ptr %50, align 8, !tbaa !56
   br label %51
 
 51:                                               ; preds = %49, %48
@@ -1172,12 +1172,12 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
   br i1 %or.cond314, label %54, label %52
 
 52:                                               ; preds = %51
-  %53 = load ptr, ptr %14, align 8, !tbaa !26
+  %53 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %53(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %54
 
 54:                                               ; preds = %52, %51
-  %55 = load ptr, ptr %14, align 8, !tbaa !26
+  %55 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %55(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
@@ -1187,7 +1187,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
   br i1 %or.cond315, label %59, label %57
 
 57:                                               ; preds = %56
-  %58 = load ptr, ptr %14, align 8, !tbaa !26
+  %58 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %58(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %59
 
@@ -1197,60 +1197,60 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !57
+  %63 = load ptr, ptr %62, align 8, !tbaa !58
   %.not5.i = icmp eq ptr %63, null
   br i1 %.not5.i, label %64, label %uriIsHostSetW.exit.thread
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %66 = load ptr, ptr %65, align 8, !tbaa !58
+  %66 = load ptr, ptr %65, align 8, !tbaa !59
   %.not6.i = icmp eq ptr %66, null
   br i1 %.not6.i, label %67, label %uriIsHostSetW.exit.thread
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %69 = load ptr, ptr %68, align 8, !tbaa !59
+  %69 = load ptr, ptr %68, align 8, !tbaa !60
   %.not7.i = icmp eq ptr %69, null
   br i1 %.not7.i, label %uriIsHostSetW.exit, label %uriIsHostSetW.exit.thread
 
 uriIsHostSetW.exit:                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !60
+  %71 = load ptr, ptr %70, align 8, !tbaa !61
   %.not319 = icmp eq ptr %71, null
   br i1 %.not319, label %72, label %uriIsHostSetW.exit.thread
 
 uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriIsHostSetW.exit
-  store ptr @.str.3, ptr %.0186, align 8, !tbaa !53
-  store ptr @.str.3, ptr %16, align 8, !tbaa !52
+  store ptr @.str.3, ptr %.0186, align 8, !tbaa !54
+  store ptr @.str.3, ptr %16, align 8, !tbaa !53
   br label %.critedge
 
 72:                                               ; preds = %uriIsHostSetW.exit
-  %73 = load ptr, ptr %14, align 8, !tbaa !26
+  %73 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %73(ptr noundef %3, ptr noundef nonnull %.0186) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %.critedge
 
 74:                                               ; preds = %59
-  store ptr @.str.3, ptr %.0186, align 8, !tbaa !53
-  store ptr @.str.3, ptr %16, align 8, !tbaa !52
+  store ptr @.str.3, ptr %.0186, align 8, !tbaa !54
+  store ptr @.str.3, ptr %16, align 8, !tbaa !53
   br label %.critedge
 
 75:                                               ; preds = %15
-  %76 = load i32, ptr %18, align 4, !tbaa !54
+  %76 = load i32, ptr %18, align 4, !tbaa !55
   %77 = icmp eq i32 %76, 46
   br i1 %77, label %78, label %.thread301
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !54
+  %80 = load i32, ptr %79, align 4, !tbaa !55
   %81 = icmp eq i32 %80, 46
   br i1 %81, label %82, label %.thread301
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %.0186, i64 24
-  %84 = load ptr, ptr %83, align 8, !tbaa !50
+  %84 = load ptr, ptr %83, align 8, !tbaa !51
   %85 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !55
+  %86 = load ptr, ptr %85, align 8, !tbaa !56
   %.not225 = icmp eq ptr %84, null
   br i1 %.not, label %103, label %87
 
@@ -1259,8 +1259,8 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
 
 88:                                               ; preds = %87
   %89 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !52
-  %91 = load ptr, ptr %84, align 8, !tbaa !53
+  %90 = load ptr, ptr %89, align 8, !tbaa !53
+  %91 = load ptr, ptr %84, align 8, !tbaa !54
   %92 = ptrtoint ptr %90 to i64
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
@@ -1268,13 +1268,13 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br i1 %95, label %96, label %.thread273
 
 96:                                               ; preds = %88
-  %97 = load i32, ptr %91, align 4, !tbaa !54
+  %97 = load i32, ptr %91, align 4, !tbaa !55
   %98 = icmp eq i32 %97, 46
   br i1 %98, label %99, label %.thread273
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  %101 = load i32, ptr %100, align 4, !tbaa !54
+  %101 = load i32, ptr %100, align 4, !tbaa !55
   %102 = icmp eq i32 %101, 46
   br i1 %102, label %.thread301, label %.thread273
 
@@ -1283,24 +1283,24 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
 
 .thread273:                                       ; preds = %88, %96, %99, %103
   %104 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %105 = load ptr, ptr %104, align 8, !tbaa !50
+  %105 = load ptr, ptr %104, align 8, !tbaa !51
   %.not229 = icmp eq ptr %105, null
   br i1 %.not229, label %141, label %106
 
 106:                                              ; preds = %.thread273
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
-  store ptr %86, ptr %107, align 8, !tbaa !55
-  %108 = load ptr, ptr %85, align 8, !tbaa !55
+  store ptr %86, ptr %107, align 8, !tbaa !56
+  %108 = load ptr, ptr %85, align 8, !tbaa !56
   %.not237 = icmp eq ptr %108, null
   br i1 %.not237, label %111, label %109
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds nuw i8, ptr %108, i64 24
-  store ptr %105, ptr %110, align 8, !tbaa !50
+  store ptr %105, ptr %110, align 8, !tbaa !51
   br label %127
 
 111:                                              ; preds = %106
-  %112 = load ptr, ptr %12, align 8, !tbaa !32
+  %112 = load ptr, ptr %12, align 8, !tbaa !33
   %113 = tail call ptr %112(ptr noundef %3, i64 noundef 1, i64 noundef 32) #11
   %.not241 = icmp eq ptr %113, null
   br i1 %.not241, label %114, label %125
@@ -1309,64 +1309,64 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br i1 %.not242, label %.sink.split371, label %115
 
 115:                                              ; preds = %114
-  %116 = load ptr, ptr %.0186, align 8, !tbaa !53
-  %117 = load ptr, ptr %16, align 8, !tbaa !52
+  %116 = load ptr, ptr %.0186, align 8, !tbaa !54
+  %117 = load ptr, ptr %16, align 8, !tbaa !53
   %.not239 = icmp eq ptr %116, %117
   br i1 %.not239, label %120, label %118
 
 118:                                              ; preds = %115
-  %119 = load ptr, ptr %14, align 8, !tbaa !26
+  %119 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %119(ptr noundef nonnull %3, ptr noundef %116) #11
   br label %120
 
 120:                                              ; preds = %118, %115
-  %121 = load ptr, ptr %14, align 8, !tbaa !26
+  %121 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %121(ptr noundef nonnull %3, ptr noundef nonnull %.0186) #11
-  %122 = load ptr, ptr %84, align 8, !tbaa !53
+  %122 = load ptr, ptr %84, align 8, !tbaa !54
   %123 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !52
+  %124 = load ptr, ptr %123, align 8, !tbaa !53
   %.not240 = icmp eq ptr %122, %124
   br i1 %.not240, label %170, label %.sink.split371
 
 125:                                              ; preds = %111
-  store ptr @.str.3, ptr %113, align 8, !tbaa !53
+  store ptr @.str.3, ptr %113, align 8, !tbaa !54
   %126 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store ptr @.str.3, ptr %126, align 8, !tbaa !52
-  store ptr %113, ptr %107, align 8, !tbaa !55
-  store ptr %113, ptr %13, align 8, !tbaa !61
+  store ptr @.str.3, ptr %126, align 8, !tbaa !53
+  store ptr %113, ptr %107, align 8, !tbaa !56
+  store ptr %113, ptr %13, align 8, !tbaa !62
   br label %127
 
 127:                                              ; preds = %125, %109
   br i1 %.not242, label %.sink.split, label %128
 
 128:                                              ; preds = %127
-  %129 = load ptr, ptr %.0186, align 8, !tbaa !53
-  %130 = load ptr, ptr %16, align 8, !tbaa !52
+  %129 = load ptr, ptr %.0186, align 8, !tbaa !54
+  %130 = load ptr, ptr %16, align 8, !tbaa !53
   %.not243 = icmp eq ptr %129, %130
   br i1 %.not243, label %133, label %131
 
 131:                                              ; preds = %128
-  %132 = load ptr, ptr %14, align 8, !tbaa !26
+  %132 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %132(ptr noundef %3, ptr noundef %129) #11
   br label %133
 
 133:                                              ; preds = %131, %128
-  %134 = load ptr, ptr %14, align 8, !tbaa !26
+  %134 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %134(ptr noundef %3, ptr noundef nonnull %.0186) #11
-  %135 = load ptr, ptr %84, align 8, !tbaa !53
+  %135 = load ptr, ptr %84, align 8, !tbaa !54
   %136 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %137 = load ptr, ptr %136, align 8, !tbaa !52
+  %137 = load ptr, ptr %136, align 8, !tbaa !53
   %.not244 = icmp eq ptr %135, %137
   br i1 %.not244, label %139, label %.sink.split
 
 .sink.split:                                      ; preds = %133, %127
   %.0186.sink = phi ptr [ %.0186, %127 ], [ %135, %133 ]
-  %138 = load ptr, ptr %14, align 8, !tbaa !26
+  %138 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %138(ptr noundef %3, ptr noundef %.0186.sink) #11
   br label %139
 
 139:                                              ; preds = %.sink.split, %133
-  %140 = load ptr, ptr %14, align 8, !tbaa !26
+  %140 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %140(ptr noundef nonnull %3, ptr noundef nonnull %84) #11
   br label %.thread297
 
@@ -1375,20 +1375,20 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br i1 %.not230, label %148, label %142
 
 142:                                              ; preds = %141
-  store ptr %86, ptr %7, align 8, !tbaa !49
+  store ptr %86, ptr %7, align 8, !tbaa !50
   %143 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr null, ptr %143, align 8, !tbaa !50
+  store ptr null, ptr %143, align 8, !tbaa !51
   %.not234 = icmp eq ptr %18, %17
   %or.cond316 = or i1 %.not242, %.not234
   br i1 %or.cond316, label %146, label %144
 
 144:                                              ; preds = %142
-  %145 = load ptr, ptr %14, align 8, !tbaa !26
+  %145 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %145(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %146
 
 146:                                              ; preds = %144, %142
-  %147 = load ptr, ptr %14, align 8, !tbaa !26
+  %147 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %147(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %152
 
@@ -1398,49 +1398,49 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br i1 %or.cond317, label %151, label %149
 
 149:                                              ; preds = %148
-  %150 = load ptr, ptr %14, align 8, !tbaa !26
+  %150 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %150(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %151
 
 151:                                              ; preds = %149, %148
-  store ptr @.str.3, ptr %.0186, align 8, !tbaa !53
-  store ptr @.str.3, ptr %16, align 8, !tbaa !52
-  store ptr %.0186, ptr %7, align 8, !tbaa !49
-  store ptr %.0186, ptr %13, align 8, !tbaa !61
+  store ptr @.str.3, ptr %.0186, align 8, !tbaa !54
+  store ptr @.str.3, ptr %16, align 8, !tbaa !53
+  store ptr %.0186, ptr %7, align 8, !tbaa !50
+  store ptr %.0186, ptr %13, align 8, !tbaa !62
   br label %152
 
 152:                                              ; preds = %151, %146
   br i1 %.not242, label %159, label %153
 
 153:                                              ; preds = %152
-  %154 = load ptr, ptr %84, align 8, !tbaa !53
+  %154 = load ptr, ptr %84, align 8, !tbaa !54
   %155 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %156 = load ptr, ptr %155, align 8, !tbaa !52
+  %156 = load ptr, ptr %155, align 8, !tbaa !53
   %.not236 = icmp eq ptr %154, %156
   br i1 %.not236, label %159, label %157
 
 157:                                              ; preds = %153
-  %158 = load ptr, ptr %14, align 8, !tbaa !26
+  %158 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %158(ptr noundef %3, ptr noundef %154) #11
   br label %159
 
 159:                                              ; preds = %157, %153, %152
-  %160 = load ptr, ptr %14, align 8, !tbaa !26
+  %160 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %160(ptr noundef %3, ptr noundef nonnull %84) #11
   br label %.thread297
 
 161:                                              ; preds = %103
-  store ptr %86, ptr %7, align 8, !tbaa !49
+  store ptr %86, ptr %7, align 8, !tbaa !50
   %.not226 = icmp eq ptr %86, null
   br i1 %.not226, label %164, label %162
 
 162:                                              ; preds = %161
   %163 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  store ptr null, ptr %163, align 8, !tbaa !50
+  store ptr null, ptr %163, align 8, !tbaa !51
   br label %165
 
 164:                                              ; preds = %161
-  store ptr null, ptr %13, align 8, !tbaa !61
+  store ptr null, ptr %13, align 8, !tbaa !62
   br label %165
 
 165:                                              ; preds = %164, %162
@@ -1449,45 +1449,45 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
   br i1 %or.cond318, label %.thread305, label %166
 
 166:                                              ; preds = %165
-  %167 = load ptr, ptr %14, align 8, !tbaa !26
+  %167 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %167(ptr noundef %3, ptr noundef nonnull %18) #11
   br label %.thread305
 
 .thread305:                                       ; preds = %165, %166
-  %168 = load ptr, ptr %14, align 8, !tbaa !26
+  %168 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %168(ptr noundef %3, ptr noundef nonnull %.0186) #11
   br label %.thread297
 
 .sink.split371:                                   ; preds = %120, %114
   %.sink = phi ptr [ %.0186, %114 ], [ %122, %120 ]
-  %169 = load ptr, ptr %14, align 8, !tbaa !26
+  %169 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %169(ptr noundef nonnull %3, ptr noundef %.sink) #11
   br label %170
 
 170:                                              ; preds = %.sink.split371, %120
-  %171 = load ptr, ptr %14, align 8, !tbaa !26
+  %171 = load ptr, ptr %14, align 8, !tbaa !27
   tail call void %171(ptr noundef nonnull %3, ptr noundef nonnull %84) #11
   br label %.critedge
 
 .thread301:                                       ; preds = %.lr.ph, %99, %75, %78, %24, %15, %87
   %172 = getelementptr inbounds nuw i8, ptr %.0186, i64 16
-  %173 = load ptr, ptr %172, align 8, !tbaa !55
+  %173 = load ptr, ptr %172, align 8, !tbaa !56
   %.not255 = icmp eq ptr %173, null
   br i1 %.not255, label %.thread309, label %174
 
 174:                                              ; preds = %.thread301
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  store ptr %.0186, ptr %175, align 8, !tbaa !50
+  store ptr %.0186, ptr %175, align 8, !tbaa !51
   br label %.thread297
 
 .thread309:                                       ; preds = %.thread301
-  store ptr %.0186, ptr %13, align 8, !tbaa !61
+  store ptr %.0186, ptr %13, align 8, !tbaa !62
   br label %.critedge
 
 .thread297:                                       ; preds = %159, %139, %54, %174, %.thread305
   %.5191 = phi ptr [ %86, %.thread305 ], [ %173, %174 ], [ %31, %54 ], [ %86, %139 ], [ %86, %159 ]
   %.not256 = icmp eq ptr %.5191, null
-  br i1 %.not256, label %.critedge, label %15, !llvm.loop !62
+  br i1 %.not256, label %.critedge, label %15, !llvm.loop !63
 
 .critedge:                                        ; preds = %.thread297, %74, %72, %uriIsHostSetW.exit.thread, %.thread309, %170, %4, %6
   %.0 = phi i32 [ 1, %6 ], [ 1, %4 ], [ 0, %170 ], [ 1, %.thread309 ], [ 1, %uriIsHostSetW.exit.thread ], [ 1, %72 ], [ 1, %74 ], [ 1, %.thread297 ]
@@ -1501,25 +1501,25 @@ define range(i32 0, 2) i32 @uriIsHostSetW(ptr noundef readonly captures(address_
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !58
   %.not5 = icmp eq ptr %4, null
   br i1 %.not5, label %5, label %16
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !58
+  %7 = load ptr, ptr %6, align 8, !tbaa !59
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %8, label %16
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !59
+  %10 = load ptr, ptr %9, align 8, !tbaa !60
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %11, label %16
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !60
+  %13 = load ptr, ptr %12, align 8, !tbaa !61
   %14 = icmp ne ptr %13, null
   %15 = zext i1 %14 to i32
   br label %16
@@ -1536,7 +1536,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef captures(a
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %6 = load i32, ptr %5, align 4, !tbaa !45
+  %6 = load i32, ptr %5, align 4, !tbaa !46
   %7 = tail call i32 @uriRemoveDotSegmentsExW(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %6, ptr noundef %1)
   br label %uriRemoveDotSegmentsW.exit
 
@@ -1663,7 +1663,7 @@ define range(i32 48, 103) i32 @uriHexToLetterExW(i32 noundef %0, i32 noundef %1)
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriCopyPathW(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br i1 %6, label %8, label %.preheader
@@ -1675,7 +1675,7 @@ define range(i32 0, 2) i32 @uriCopyPathW(ptr noundef writeonly captures(none) %0
 .preheader:                                       ; preds = %3, %19
   %.030 = phi ptr [ %21, %19 ], [ %5, %3 ]
   %.028 = phi ptr [ %10, %19 ], [ null, %3 ]
-  %9 = load ptr, ptr %2, align 8, !tbaa !35
+  %9 = load ptr, ptr %2, align 8, !tbaa !36
   %10 = tail call ptr %9(ptr noundef nonnull %2, i64 noundef 32) #11
   %.not34 = icmp eq ptr %10, null
   br i1 %.not34, label %11, label %14
@@ -1686,41 +1686,41 @@ define range(i32 0, 2) i32 @uriCopyPathW(ptr noundef writeonly captures(none) %0
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %.028, i64 16
-  store ptr null, ptr %13, align 8, !tbaa !55
+  store ptr null, ptr %13, align 8, !tbaa !56
   br label %28
 
 14:                                               ; preds = %.preheader
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.030, i64 16, i1 false), !tbaa.struct !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.030, i64 16, i1 false), !tbaa.struct !64
   %15 = icmp eq ptr %.028, null
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %14
-  store ptr %10, ptr %7, align 8, !tbaa !49
+  store ptr %10, ptr %7, align 8, !tbaa !50
   br label %19
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.028, i64 16
-  store ptr %10, ptr %18, align 8, !tbaa !55
+  store ptr %10, ptr %18, align 8, !tbaa !56
   br label %19
 
 19:                                               ; preds = %17, %16
   %20 = getelementptr inbounds nuw i8, ptr %.030, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !55
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   %.not35 = icmp eq ptr %21, null
-  br i1 %.not35, label %.thread38, label %.preheader, !llvm.loop !65
+  br i1 %.not35, label %.thread38, label %.preheader, !llvm.loop !66
 
 .thread38:                                        ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %10, ptr %22, align 8, !tbaa !61
+  store ptr %10, ptr %22, align 8, !tbaa !62
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr null, ptr %23, align 8, !tbaa !55
+  store ptr null, ptr %23, align 8, !tbaa !56
   br label %24
 
 24:                                               ; preds = %.thread38, %8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %26 = load i32, ptr %25, align 8, !tbaa !66
+  %26 = load i32, ptr %25, align 8, !tbaa !67
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %26, ptr %27, align 8, !tbaa !66
+  store i32 %26, ptr %27, align 8, !tbaa !67
   br label %28
 
 28:                                               ; preds = %12, %11, %24
@@ -1732,25 +1732,25 @@ define range(i32 0, 2) i32 @uriCopyPathW(ptr noundef writeonly captures(none) %0
 define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr noundef writeonly captures(none) initializes((16, 56)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !58
+  %9 = load ptr, ptr %8, align 8, !tbaa !59
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = load ptr, ptr %2, align 8, !tbaa !35
+  %11 = load ptr, ptr %2, align 8, !tbaa !36
   %12 = tail call ptr %11(ptr noundef nonnull %2, i64 noundef 4) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %12, ptr %13, align 8, !tbaa !58
+  store ptr %12, ptr %13, align 8, !tbaa !59
   %14 = icmp eq ptr %12, null
   br i1 %14, label %37, label %15
 
 15:                                               ; preds = %10
-  %16 = load ptr, ptr %8, align 8, !tbaa !58
+  %16 = load ptr, ptr %8, align 8, !tbaa !59
   %17 = load i32, ptr %16, align 1, !tbaa !22
   store i32 %17, ptr %12, align 1, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1759,23 +1759,23 @@ define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr noundef writeonly captures(non
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !59
+  %21 = load ptr, ptr %20, align 8, !tbaa !60
   %.not32 = icmp eq ptr %21, null
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br i1 %.not32, label %31, label %23
 
 23:                                               ; preds = %19
-  store ptr null, ptr %22, align 8, !tbaa !58
-  %24 = load ptr, ptr %2, align 8, !tbaa !35
+  store ptr null, ptr %22, align 8, !tbaa !59
+  %24 = load ptr, ptr %2, align 8, !tbaa !36
   %25 = tail call ptr %24(ptr noundef nonnull %2, i64 noundef 16) #11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %25, ptr %26, align 8, !tbaa !59
+  store ptr %25, ptr %26, align 8, !tbaa !60
   %27 = icmp eq ptr %25, null
   br i1 %27, label %37, label %28
 
 28:                                               ; preds = %23
-  %29 = load ptr, ptr %20, align 8, !tbaa !59
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !40
+  %29 = load ptr, ptr %20, align 8, !tbaa !60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %25, ptr noundef nonnull align 1 dereferenceable(16) %29, i64 16, i1 false), !tbaa.struct !41
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   br label %34
@@ -1784,13 +1784,13 @@ define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr noundef writeonly captures(non
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !64
   br label %34
 
 34:                                               ; preds = %28, %31, %15
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !63
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !64
   br label %37
 
 37:                                               ; preds = %23, %10, %34
@@ -1801,10 +1801,10 @@ define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr noundef writeonly captures(non
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load i32, ptr %3, align 8, !tbaa !66
+  %4 = load i32, ptr %3, align 8, !tbaa !67
   %.not = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %.not26 = icmp eq ptr %6, null
   br i1 %.not, label %13, label %7
 
@@ -1813,8 +1813,8 @@ define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr noundef captures(none) %0, ptr 
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !52
-  %11 = load ptr, ptr %6, align 8, !tbaa !53
+  %10 = load ptr, ptr %9, align 8, !tbaa !53
+  %11 = load ptr, ptr %6, align 8, !tbaa !54
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %27, label %.thread
 
@@ -1823,39 +1823,39 @@ define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr noundef captures(none) %0, ptr 
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !55
+  %16 = load ptr, ptr %15, align 8, !tbaa !56
   %.not27 = icmp eq ptr %16, null
   br i1 %.not27, label %.thread, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
-  %20 = load ptr, ptr %6, align 8, !tbaa !53
+  %19 = load ptr, ptr %18, align 8, !tbaa !53
+  %20 = load ptr, ptr %6, align 8, !tbaa !54
   %21 = icmp eq ptr %19, %20
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !52
-  %25 = load ptr, ptr %16, align 8, !tbaa !53
+  %24 = load ptr, ptr %23, align 8, !tbaa !53
+  %25 = load ptr, ptr %16, align 8, !tbaa !54
   %26 = icmp eq ptr %24, %25
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %8, %22
-  %28 = load ptr, ptr %1, align 8, !tbaa !35
+  %28 = load ptr, ptr %1, align 8, !tbaa !36
   %29 = tail call ptr %28(ptr noundef nonnull %1, i64 noundef 32) #11
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %33 = load ptr, ptr %32, align 8, !tbaa !49
+  %33 = load ptr, ptr %32, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %33, ptr %34, align 8, !tbaa !55
-  store ptr @.str.4, ptr %29, align 8, !tbaa !53
+  store ptr %33, ptr %34, align 8, !tbaa !56
+  store ptr @.str.4, ptr %29, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr getelementptr inbounds nuw (i8, ptr @.str.4, i64 4), ptr %35, align 8, !tbaa !52
-  store ptr %29, ptr %32, align 8, !tbaa !49
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.4, i64 4), ptr %35, align 8, !tbaa !53
+  store ptr %29, ptr %32, align 8, !tbaa !50
   br label %.thread
 
 .thread:                                          ; preds = %7, %8, %27, %13, %14, %17, %22, %31
@@ -1866,56 +1866,56 @@ define range(i32 0, 2) i32 @uriFixAmbiguityW(ptr noundef captures(none) %0, ptr 
 ; Function Attrs: nounwind uwtable
 define void @uriFixEmptyTrailSegmentW(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %4 = load i32, ptr %3, align 8, !tbaa !66
+  %4 = load i32, ptr %3, align 8, !tbaa !67
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %uriIsHostSetW.exit.thread
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
   %.not5.i = icmp eq ptr %7, null
   br i1 %.not5.i, label %8, label %uriIsHostSetW.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !58
+  %10 = load ptr, ptr %9, align 8, !tbaa !59
   %.not6.i = icmp eq ptr %10, null
   br i1 %.not6.i, label %11, label %uriIsHostSetW.exit.thread
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load ptr, ptr %12, align 8, !tbaa !59
+  %13 = load ptr, ptr %12, align 8, !tbaa !60
   %.not7.i = icmp eq ptr %13, null
   br i1 %.not7.i, label %uriIsHostSetW.exit, label %uriIsHostSetW.exit.thread
 
 uriIsHostSetW.exit:                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !60
+  %15 = load ptr, ptr %14, align 8, !tbaa !61
   %.not14 = icmp eq ptr %15, null
   br i1 %.not14, label %16, label %uriIsHostSetW.exit.thread
 
 16:                                               ; preds = %uriIsHostSetW.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %18 = load ptr, ptr %17, align 8, !tbaa !49
+  %18 = load ptr, ptr %17, align 8, !tbaa !50
   %.not12 = icmp eq ptr %18, null
   br i1 %.not12, label %uriIsHostSetW.exit.thread, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !55
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %uriIsHostSetW.exit.thread
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %18, align 8, !tbaa !53
+  %24 = load ptr, ptr %18, align 8, !tbaa !54
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !52
+  %26 = load ptr, ptr %25, align 8, !tbaa !53
   %27 = icmp eq ptr %24, %26
   br i1 %27, label %28, label %uriIsHostSetW.exit.thread
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load ptr, ptr %29, align 8, !tbaa !26
+  %30 = load ptr, ptr %29, align 8, !tbaa !27
   tail call void %30(ptr noundef %1, ptr noundef nonnull %18) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %uriIsHostSetW.exit.thread
@@ -1963,46 +1963,47 @@ attributes #11 = { nounwind }
 !21 = !{!19, !5, i64 0}
 !22 = !{!7, !7, i64 0}
 !23 = !{!19, !15, i64 16}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !6, i64 32}
-!27 = !{!"UriMemoryManagerStruct", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
-!28 = !{!11, !5, i64 32}
-!29 = !{!11, !13, i64 48}
-!30 = !{!11, !14, i64 56}
-!31 = !{!11, !5, i64 64}
-!32 = !{!27, !6, i64 8}
-!33 = !{!11, !15, i64 104}
-!34 = distinct !{!34, !25}
-!35 = !{!27, !6, i64 0}
-!36 = !{i64 0, i64 8, !37, i64 8, i64 8, !37}
-!37 = !{!5, !5, i64 0}
-!38 = distinct !{!38, !25}
-!39 = !{!11, !16, i64 144}
-!40 = !{i64 0, i64 16, !22}
-!41 = !{!42, !43, i64 0}
-!42 = !{!"UriTextRangeStructW", !43, i64 0, !43, i64 8}
-!43 = !{!"p1 int", !6, i64 0}
-!44 = !{!42, !43, i64 8}
-!45 = !{!46, !16, i64 148}
-!46 = !{!"UriUriStructW", !42, i64 0, !42, i64 16, !42, i64 32, !47, i64 48, !42, i64 80, !48, i64 96, !48, i64 104, !42, i64 112, !42, i64 128, !16, i64 144, !16, i64 148, !6, i64 152}
-!47 = !{!"UriHostDataStructW", !13, i64 0, !14, i64 8, !42, i64 16}
-!48 = !{!"p1 _ZTS21UriPathSegmentStructW", !6, i64 0}
-!49 = !{!46, !48, i64 96}
-!50 = !{!51, !6, i64 24}
-!51 = !{!"UriPathSegmentStructW", !42, i64 0, !48, i64 16, !6, i64 24}
-!52 = !{!51, !43, i64 8}
-!53 = !{!51, !43, i64 0}
-!54 = !{!16, !16, i64 0}
-!55 = !{!51, !48, i64 16}
-!56 = distinct !{!56, !25}
-!57 = !{!46, !43, i64 32}
-!58 = !{!46, !13, i64 48}
-!59 = !{!46, !14, i64 56}
-!60 = !{!46, !43, i64 64}
-!61 = !{!46, !48, i64 104}
-!62 = distinct !{!62, !25}
-!63 = !{i64 0, i64 8, !64, i64 8, i64 8, !64}
-!64 = !{!43, !43, i64 0}
-!65 = distinct !{!65, !25}
-!66 = !{!46, !16, i64 144}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !6, i64 32}
+!28 = !{!"UriMemoryManagerStruct", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40}
+!29 = !{!11, !5, i64 32}
+!30 = !{!11, !13, i64 48}
+!31 = !{!11, !14, i64 56}
+!32 = !{!11, !5, i64 64}
+!33 = !{!28, !6, i64 8}
+!34 = !{!11, !15, i64 104}
+!35 = distinct !{!35, !25, !26}
+!36 = !{!28, !6, i64 0}
+!37 = !{i64 0, i64 8, !38, i64 8, i64 8, !38}
+!38 = !{!5, !5, i64 0}
+!39 = distinct !{!39, !25, !26}
+!40 = !{!11, !16, i64 144}
+!41 = !{i64 0, i64 16, !22}
+!42 = !{!43, !44, i64 0}
+!43 = !{!"UriTextRangeStructW", !44, i64 0, !44, i64 8}
+!44 = !{!"p1 int", !6, i64 0}
+!45 = !{!43, !44, i64 8}
+!46 = !{!47, !16, i64 148}
+!47 = !{!"UriUriStructW", !43, i64 0, !43, i64 16, !43, i64 32, !48, i64 48, !43, i64 80, !49, i64 96, !49, i64 104, !43, i64 112, !43, i64 128, !16, i64 144, !16, i64 148, !6, i64 152}
+!48 = !{!"UriHostDataStructW", !13, i64 0, !14, i64 8, !43, i64 16}
+!49 = !{!"p1 _ZTS21UriPathSegmentStructW", !6, i64 0}
+!50 = !{!47, !49, i64 96}
+!51 = !{!52, !6, i64 24}
+!52 = !{!"UriPathSegmentStructW", !43, i64 0, !49, i64 16, !6, i64 24}
+!53 = !{!52, !44, i64 8}
+!54 = !{!52, !44, i64 0}
+!55 = !{!16, !16, i64 0}
+!56 = !{!52, !49, i64 16}
+!57 = distinct !{!57, !25, !26}
+!58 = !{!47, !44, i64 32}
+!59 = !{!47, !13, i64 48}
+!60 = !{!47, !14, i64 56}
+!61 = !{!47, !44, i64 64}
+!62 = !{!47, !49, i64 104}
+!63 = distinct !{!63, !25, !26}
+!64 = !{i64 0, i64 8, !65, i64 8, i64 8, !65}
+!65 = !{!44, !44, i64 0}
+!66 = distinct !{!66, !25, !26}
+!67 = !{!47, !16, i64 144}

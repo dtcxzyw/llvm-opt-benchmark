@@ -46,7 +46,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i64, ptr %1, i64 %0
-  %23 = load i64, ptr %22, align 8, !tbaa !9
+  %23 = load i64, ptr %22, align 8, !tbaa !10
   br i1 %.not, label %24, label %.thread
 
 24:                                               ; preds = %21
@@ -167,7 +167,7 @@ define i64 @amd_l_order(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %79 = add nuw nsw i64 %.1174, 1
   %80 = icmp samesign ult i64 %.1174, 6
   %81 = select i1 %78, i1 %80, i1 false
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %82 = uitofp i64 %77 to double
@@ -252,8 +252,9 @@ attributes #3 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"long long", !5, i64 0}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"long long", !5, i64 0}
+!12 = distinct !{!12, !8, !9}

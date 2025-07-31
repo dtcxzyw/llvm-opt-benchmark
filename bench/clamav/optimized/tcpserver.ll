@@ -53,7 +53,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
 18:                                               ; preds = %23
   %19 = add nuw nsw i32 %.06398, 1
   %exitcond.not = icmp eq i32 %19, %12
-  br i1 %exitcond.not, label %26, label %.preheader
+  br i1 %exitcond.not, label %26, label %.preheader, !llvm.loop !11
 
 .preheader:                                       ; preds = %16, %18
   %.06398 = phi i32 [ %19, %18 ], [ 0, %16 ]
@@ -95,18 +95,18 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
 39:                                               ; preds = %16
   %40 = tail call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.5) #9
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  %42 = load i64, ptr %41, align 8, !tbaa !11
+  %42 = load i64, ptr %41, align 8, !tbaa !13
   %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 10, ptr noundef nonnull @.str.4, i64 noundef %42) #9
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  store i32 1, ptr %44, align 8, !tbaa !17
-  store i32 33, ptr %5, align 8, !tbaa !21
+  store i32 1, ptr %44, align 8, !tbaa !19
+  store i32 33, ptr %5, align 8, !tbaa !23
   %45 = call i32 @getaddrinfo(ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %6) #9
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %.preheader83, label %47
 
 .preheader83:                                     ; preds = %39
-  %.06491 = load ptr, ptr %6, align 8, !tbaa !22
+  %.06491 = load ptr, ptr %6, align 8, !tbaa !24
   %.not7692 = icmp eq ptr %.06491, null
   br i1 %.not7692, label %._crit_edge, label %.lr.ph
 
@@ -145,20 +145,20 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
   %60 = load i32, ptr %1, align 4, !tbaa !4
   %61 = zext i32 %60 to i64
   %62 = icmp samesign ult i64 %indvars.iv.next, %61
-  br i1 %62, label %.lr.ph96, label %._crit_edge97
+  br i1 %62, label %.lr.ph96, label %._crit_edge97, !llvm.loop !25
 
 ._crit_edge97:                                    ; preds = %.lr.ph96, %.preheader82
-  %63 = load ptr, ptr %6, align 8, !tbaa !22
+  %63 = load ptr, ptr %6, align 8, !tbaa !24
   call void @freeaddrinfo(ptr noundef %63) #9
   br label %142
 
 64:                                               ; preds = %50
   %65 = getelementptr inbounds nuw i8, ptr %.06494, i64 4
-  %66 = load i32, ptr %65, align 4, !tbaa !23
+  %66 = load i32, ptr %65, align 4, !tbaa !26
   %67 = getelementptr inbounds nuw i8, ptr %.06494, i64 8
-  %68 = load i32, ptr %67, align 8, !tbaa !17
+  %68 = load i32, ptr %67, align 8, !tbaa !19
   %69 = getelementptr inbounds nuw i8, ptr %.06494, i64 12
-  %70 = load i32, ptr %69, align 4, !tbaa !24
+  %70 = load i32, ptr %69, align 4, !tbaa !27
   %71 = call i32 @socket(i32 noundef %66, i32 noundef %68, i32 noundef %70) #9
   %72 = icmp eq i32 %71, -1
   br i1 %72, label %73, label %78
@@ -183,7 +183,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
   br label %86
 
 86:                                               ; preds = %81, %78
-  %87 = load i32, ptr %65, align 4, !tbaa !23
+  %87 = load i32, ptr %65, align 4, !tbaa !26
   %88 = icmp eq i32 %87, 10
   br i1 %88, label %89, label %97
 
@@ -204,23 +204,23 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
 
 98:                                               ; preds = %97
   %99 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1025) #9
-  store i8 0, ptr %46, align 16, !tbaa !25
+  store i8 0, ptr %46, align 16, !tbaa !28
   br label %101
 
 100:                                              ; preds = %97
-  store i8 0, ptr %7, align 16, !tbaa !25
+  store i8 0, ptr %7, align 16, !tbaa !28
   br label %101
 
 101:                                              ; preds = %100, %98
   %102 = call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.5) #9
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
-  %104 = load i64, ptr %103, align 8, !tbaa !11
+  %104 = load i64, ptr %103, align 8, !tbaa !13
   %105 = trunc i64 %104 to i32
   %106 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.10, i32 noundef %105) #9
   %107 = getelementptr inbounds nuw i8, ptr %.06494, i64 24
-  %108 = load ptr, ptr %107, align 8, !tbaa !26
+  %108 = load ptr, ptr %107, align 8, !tbaa !29
   %109 = getelementptr inbounds nuw i8, ptr %.06494, i64 16
-  %110 = load i32, ptr %109, align 8, !tbaa !27
+  %110 = load i32, ptr %109, align 8, !tbaa !30
   %111 = call i32 @bind(i32 noundef %71, ptr %108, i32 noundef %110) #9
   %112 = icmp eq i32 %111, -1
   br i1 %112, label %113, label %119
@@ -237,7 +237,7 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
   %120 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %121 = call ptr @optget(ptr noundef %3, ptr noundef nonnull @.str.13) #9
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %123 = load i64, ptr %122, align 8, !tbaa !11
+  %123 = load i64, ptr %122, align 8, !tbaa !13
   %124 = trunc i64 %123 to i32
   %125 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.14, i32 noundef %124) #9
   %126 = call i32 @listen(i32 noundef %71, i32 noundef %124) #9
@@ -263,12 +263,12 @@ define dso_local range(i32 -2, 1) i32 @tcpserver(ptr noundef captures(none) %0, 
 
 139:                                              ; preds = %134, %128, %113, %73
   %140 = getelementptr inbounds nuw i8, ptr %.06494, i64 40
-  %.064 = load ptr, ptr %140, align 8, !tbaa !22
+  %.064 = load ptr, ptr %140, align 8, !tbaa !24
   %.not76 = icmp eq ptr %.064, null
-  br i1 %.not76, label %._crit_edge.loopexit, label %50
+  br i1 %.not76, label %._crit_edge.loopexit, label %50, !llvm.loop !31
 
 ._crit_edge.loopexit:                             ; preds = %139
-  %.pre = load ptr, ptr %6, align 8, !tbaa !22
+  %.pre = load ptr, ptr %6, align 8, !tbaa !24
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader83
@@ -369,20 +369,24 @@ attributes #11 = { nounwind willreturn memory(none) }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 int", !10, i64 0}
 !10 = !{!"any pointer", !6, i64 0}
-!11 = !{!12, !14, i64 24}
-!12 = !{!"optstruct", !13, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !15, i64 48, !15, i64 56, !16, i64 64}
-!13 = !{!"p1 omnipotent char", !10, i64 0}
-!14 = !{!"long long", !6, i64 0}
-!15 = !{!"p1 _ZTS9optstruct", !10, i64 0}
-!16 = !{!"p2 omnipotent char", !10, i64 0}
-!17 = !{!18, !5, i64 8}
-!18 = !{!"addrinfo", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !19, i64 24, !13, i64 32, !20, i64 40}
-!19 = !{!"p1 _ZTS8sockaddr", !10, i64 0}
-!20 = !{!"p1 _ZTS8addrinfo", !10, i64 0}
-!21 = !{!18, !5, i64 0}
-!22 = !{!20, !20, i64 0}
-!23 = !{!18, !5, i64 4}
-!24 = !{!18, !5, i64 12}
-!25 = !{!6, !6, i64 0}
-!26 = !{!18, !19, i64 24}
-!27 = !{!18, !5, i64 16}
+!11 = distinct !{!11, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !16, i64 24}
+!14 = !{!"optstruct", !15, i64 0, !15, i64 8, !15, i64 16, !16, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !17, i64 48, !17, i64 56, !18, i64 64}
+!15 = !{!"p1 omnipotent char", !10, i64 0}
+!16 = !{!"long long", !6, i64 0}
+!17 = !{!"p1 _ZTS9optstruct", !10, i64 0}
+!18 = !{!"p2 omnipotent char", !10, i64 0}
+!19 = !{!20, !5, i64 8}
+!20 = !{!"addrinfo", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !21, i64 24, !15, i64 32, !22, i64 40}
+!21 = !{!"p1 _ZTS8sockaddr", !10, i64 0}
+!22 = !{!"p1 _ZTS8addrinfo", !10, i64 0}
+!23 = !{!20, !5, i64 0}
+!24 = !{!22, !22, i64 0}
+!25 = distinct !{!25, !12}
+!26 = !{!20, !5, i64 4}
+!27 = !{!20, !5, i64 12}
+!28 = !{!6, !6, i64 0}
+!29 = !{!20, !21, i64 24}
+!30 = !{!20, !5, i64 16}
+!31 = distinct !{!31, !12}

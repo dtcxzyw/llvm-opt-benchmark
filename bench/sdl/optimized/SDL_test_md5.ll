@@ -114,7 +114,7 @@ define dso_local void @SDLTest_Md5Update(ptr noundef captures(address_is_null) %
 55:                                               ; preds = %54, %24
   %.1 = phi i32 [ 0, %54 ], [ %28, %24 ]
   %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %.loopexit, label %24, !llvm.loop !6
+  br i1 %.not38, label %.loopexit, label %24, !llvm.loop !7
 
 .loopexit:                                        ; preds = %55, %5, %3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #6
@@ -795,7 +795,7 @@ define dso_local void @SDLTest_Md5Final(ptr noundef captures(address_is_null) %0
 56:                                               ; preds = %55, %25
   %.1.i = phi i32 [ 0, %55 ], [ %29, %25 ]
   %.not38.i = icmp eq i32 %26, 0
-  br i1 %.not38.i, label %SDLTest_Md5Update.exit, label %25, !llvm.loop !6
+  br i1 %.not38.i, label %SDLTest_Md5Update.exit, label %25, !llvm.loop !7
 
 SDLTest_Md5Update.exit:                           ; preds = %56, %4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #6
@@ -831,7 +831,7 @@ SDLTest_Md5Update.exit:                           ; preds = %56, %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %81, label %58, !llvm.loop !7
+  br i1 %exitcond.not, label %81, label %58, !llvm.loop !8
 
 81:                                               ; preds = %58
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -868,7 +868,7 @@ SDLTest_Md5Update.exit:                           ; preds = %56, %4
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 4
   %exitcond59.not = icmp eq i64 %indvars.iv.next53, 4
-  br i1 %exitcond59.not, label %.loopexit, label %84, !llvm.loop !8
+  br i1 %exitcond59.not, label %.loopexit, label %84, !llvm.loop !9
 
 .loopexit:                                        ; preds = %84, %1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #6
@@ -892,8 +892,9 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

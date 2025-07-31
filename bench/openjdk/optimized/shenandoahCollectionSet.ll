@@ -279,7 +279,7 @@ define hidden noundef ptr @_ZN23ShenandoahCollectionSet4nextEv(ptr noundef nonnu
 
 24:                                               ; preds = %11
   %exitcond.not = icmp eq i64 %15, %5
-  br i1 %exitcond.not, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %_ZNK14ShenandoahHeap10get_regionEm.exit, label %11, !llvm.loop !10
 
 _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %24, %1, %19, %16
   %.07 = phi ptr [ %23, %19 ], [ null, %16 ], [ null, %1 ], [ null, %24 ]
@@ -326,7 +326,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 544
   %24 = load i64, ptr %23, align 8
   %25 = icmp ult i64 %22, %24
-  br i1 %25, label %10, label %._crit_edge, !llvm.loop !10
+  br i1 %25, label %10, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %20, %2
   ret void
@@ -460,7 +460,8 @@ attributes #9 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145412694}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}

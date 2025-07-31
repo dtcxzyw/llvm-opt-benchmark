@@ -211,7 +211,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
   br i1 %12, label %.preheader, label %.thread31
 
 13:                                               ; preds = %._crit_edge
-  br i1 %.not, label %.preheader, label %44, !llvm.loop !11
+  br i1 %.not, label %.preheader, label %44, !llvm.loop !12
 
 .preheader:                                       ; preds = %9, %13
   %.not = phi i1 [ false, %13 ], [ true, %9 ]
@@ -276,7 +276,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %39
   %43 = icmp eq i32 %.3, 0
@@ -509,7 +509,7 @@ define internal fastcc zeroext i1 @_test_core_dumping(ptr noundef %0) unnamed_ad
   %55 = call ptr @slurm_xrecalloc(ptr noundef nonnull %36, i64 noundef 1, i64 noundef %54, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull @.str.16, i32 noundef 223, ptr noundef nonnull @__func__._test_core_dumping) #10
   %56 = call i64 @lseek(i32 noundef %37, i64 noundef 0, i32 noundef 0) #10
   %.not = icmp eq i64 %56, 0
-  br i1 %.not, label %41, label %.loopexit, !llvm.loop !13
+  br i1 %.not, label %41, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %53, %48, %47
   %57 = call i32 @close(i32 noundef %37) #10
@@ -735,7 +735,7 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
   %26 = load i32, ptr %3, align 4
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
-  br i1 %28, label %.lr.ph, label %.preheader, !llvm.loop !14
+  br i1 %28, label %.lr.ph, label %.preheader, !llvm.loop !15
 
 29:                                               ; preds = %.lr.ph26, %29
   %indvars.iv30 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next31, %29 ]
@@ -748,7 +748,7 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
   %35 = load i32, ptr %3, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next31, %36
-  br i1 %37, label %29, label %._crit_edge, !llvm.loop !15
+  br i1 %37, label %29, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.preheader23, %29, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %2) #10
@@ -817,11 +817,12 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}

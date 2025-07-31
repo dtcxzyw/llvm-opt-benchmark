@@ -267,7 +267,7 @@ define dso_local i32 @acpi_pci_probe_root_resources(ptr noundef %0) local_unname
 
 31:                                               ; preds = %29, %25
   %32 = icmp eq ptr %18, %2
-  br i1 %32, label %.loopexit, label %16, !llvm.loop !8
+  br i1 %32, label %.loopexit, label %16, !llvm.loop !9
 
 .loopexit:                                        ; preds = %31, %11
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 616
@@ -397,7 +397,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
 63:                                               ; preds = %55, %50, %.preheader
   %64 = load ptr, ptr %43, align 8
   %65 = icmp eq ptr %64, %1
-  br i1 %65, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %65, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %63, %39, %16
   %66 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -429,7 +429,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
 
 76:                                               ; preds = %71, %.loopexit
   %77 = icmp eq ptr %18, %4
-  br i1 %77, label %.loopexit12, label %16, !llvm.loop !10
+  br i1 %77, label %.loopexit12, label %16, !llvm.loop !11
 
 .loopexit12:                                      ; preds = %76, %3, %8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
@@ -538,7 +538,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
 
 67:                                               ; preds = %58, %55, %52, %49
   %68 = icmp eq ptr %42, %14
-  br i1 %68, label %.loopexit15, label %.preheader14, !llvm.loop !11
+  br i1 %68, label %.loopexit15, label %.preheader14, !llvm.loop !12
 
 .loopexit15:                                      ; preds = %67, %38
   tail call void @pci_add_resource(ptr noundef nonnull %14, ptr noundef nonnull %5) #13
@@ -746,7 +746,7 @@ define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr n
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %185, align 8
   tail call void @kfree(ptr noundef %169) #13
   %188 = icmp eq ptr %170, %14
-  br i1 %188, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %188, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %183, %166
   %189 = load ptr, ptr %13, align 8
@@ -824,7 +824,7 @@ define internal void @acpi_pci_root_release_info(ptr noundef readonly captures(a
 23:                                               ; preds = %21, %17, %13
   %24 = load ptr, ptr %5, align 8
   %25 = icmp eq ptr %24, %2
-  br i1 %25, label %.loopexit6, label %.preheader5, !llvm.loop !13
+  br i1 %25, label %.loopexit6, label %.preheader5, !llvm.loop !14
 
 .loopexit6:                                       ; preds = %23, %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -871,7 +871,7 @@ define internal void @acpi_pci_root_release_info(ptr noundef readonly captures(a
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %49, align 8
   tail call void @kfree(ptr noundef %33) #13
   %52 = icmp eq ptr %34, %30
-  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %52, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .loopexit:                                        ; preds = %47, %29
   %53 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -963,7 +963,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   br i1 %25, label %515, label %26
 
 26:                                               ; preds = %2
-  store i64 0, ptr %18, align 8, !annotation !14
+  store i64 0, ptr %18, align 8, !annotation !16
   store i64 0, ptr %17, align 8
   %27 = call i32 @acpi_evaluate_integer(ptr noundef %20, ptr noundef nonnull @.str.10, ptr noundef null, ptr noundef nonnull %17) #13
   switch i32 %27, label %28 [
@@ -1066,7 +1066,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %73 = load ptr, ptr %24, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
-  %76 = load i8, ptr @x86_apple_machine, align 1, !range !15, !noundef !16
+  %76 = load i8, ptr @x86_apple_machine, align 1, !range !17, !noundef !18
   %77 = icmp eq i8 %76, 0
   br i1 %77, label %105, label %78
 
@@ -1103,7 +1103,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %99 = add nuw nsw i32 %83, 1
   %100 = getelementptr i8, ptr %81, i64 16
   %101 = icmp eq i32 %99, 7
-  br i1 %101, label %102, label %80, !llvm.loop !17
+  br i1 %101, label %102, label %80, !llvm.loop !19
 
 102:                                              ; preds = %97
   %103 = load ptr, ptr %24, align 8
@@ -1153,14 +1153,14 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %135 = add nuw nsw i32 %119, 1
   %136 = getelementptr i8, ptr %117, i64 16
   %137 = icmp eq i32 %135, 7
-  br i1 %137, label %138, label %116, !llvm.loop !17
+  br i1 %137, label %138, label %116, !llvm.loop !20
 
 138:                                              ; preds = %133
   %139 = load ptr, ptr %24, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 616
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %140, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.24, ptr noundef nonnull %15) #14
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %15) #13
-  %141 = load i8, ptr @pcie_ports_disabled, align 1, !range !15, !noundef !16
+  %141 = load i8, ptr @pcie_ports_disabled, align 1, !range !17, !noundef !18
   %142 = icmp eq i8 %141, 0
   br i1 %142, label %146, label %143
 
@@ -1206,7 +1206,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %169 = add nuw nsw i32 %153, 1
   %170 = getelementptr i8, ptr %151, i64 16
   %171 = icmp eq i32 %169, 7
-  br i1 %171, label %172, label %150, !llvm.loop !17
+  br i1 %171, label %172, label %150, !llvm.loop !21
 
 172:                                              ; preds = %167
   %173 = load ptr, ptr %24, align 8
@@ -1253,7 +1253,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %200 = add nuw nsw i32 %184, 1
   %201 = getelementptr i8, ptr %182, i64 16
   %202 = icmp eq i32 %200, 4
-  br i1 %202, label %203, label %181, !llvm.loop !17
+  br i1 %202, label %203, label %181, !llvm.loop !22
 
 203:                                              ; preds = %198
   %204 = load ptr, ptr %24, align 8
@@ -1265,7 +1265,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 206:                                              ; preds = %203, %175
   %207 = phi i32 [ 3, %203 ], [ 0, %175 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %12) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %12, i8 0, i64 20, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %12, i8 0, i64 20, i1 false), !annotation !16
   %208 = call ptr @acpi_fetch_acpi_dev(ptr noundef %75) #13
   %209 = icmp eq ptr %208, null
   br i1 %209, label %.thread37, label %210
@@ -1317,7 +1317,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %244 = phi i32 [ %176, %227 ], [ %272, %337 ]
   %245 = phi i32 [ 0, %227 ], [ %.ph26, %337 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %11) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %11, i8 0, i64 20, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %11, i8 0, i64 20, i1 false), !annotation !16
   %246 = load i32, ptr %229, align 8
   %247 = or i32 %246, %115
   store i32 1, ptr %11, align 16
@@ -1344,7 +1344,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 259:                                              ; preds = %285, %257
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false), !annotation !16
   %260 = load i32, ptr %221, align 4
   %261 = icmp eq i32 %260, 2
   %262 = select i1 %261, ptr @cxl_osc_uuid_str, ptr @pci_osc_uuid_str
@@ -1391,7 +1391,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 285:                                              ; preds = %282
   store i32 1, ptr %221, align 4
-  br label %259
+  br label %259, !llvm.loop !23
 
 286:                                              ; preds = %278
   store i32 %258, ptr %237, align 8
@@ -1450,7 +1450,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %320 = add nuw nsw i32 %304, 1
   %321 = getelementptr i8, ptr %302, i64 16
   %322 = icmp eq i32 %320, 7
-  br i1 %322, label %323, label %301, !llvm.loop !17
+  br i1 %322, label %323, label %301, !llvm.loop !24
 
 323:                                              ; preds = %318
   %324 = load ptr, ptr %215, align 8
@@ -1489,7 +1489,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %338 = icmp eq i32 %272, 0
   %339 = icmp eq i32 %.ph26, 0
   %340 = select i1 %338, i1 %339, i1 false
-  br i1 %340, label %.thread32, label %241, !llvm.loop !18
+  br i1 %340, label %.thread32, label %241, !llvm.loop !25
 
 .thread32:                                        ; preds = %286, %293, %337
   %.lcssa51 = phi i32 [ %244, %286 ], [ %244, %293 ], [ 0, %337 ]
@@ -1542,7 +1542,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %373 = add nuw nsw i32 %357, 1
   %374 = getelementptr i8, ptr %355, i64 16
   %375 = icmp eq i32 %373, 7
-  br i1 %375, label %376, label %354, !llvm.loop !17
+  br i1 %375, label %376, label %354, !llvm.loop !26
 
 376:                                              ; preds = %371
   %377 = load ptr, ptr %215, align 8
@@ -1572,7 +1572,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
 
 389:                                              ; preds = %385, %379
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false), !annotation !16
   %390 = load i32, ptr %221, align 4
   %391 = icmp eq i32 %390, 2
   %392 = select i1 %391, ptr @cxl_osc_uuid_str, ptr @pci_osc_uuid_str
@@ -1672,7 +1672,7 @@ define internal noundef range(i32 -19, 2) i32 @acpi_pci_root_add(ptr noundef %0,
   %441 = add nuw nsw i32 %425, 1
   %442 = getelementptr i8, ptr %423, i64 16
   %443 = icmp eq i32 %441, 7
-  br i1 %443, label %444, label %422, !llvm.loop !17
+  br i1 %443, label %444, label %422, !llvm.loop !27
 
 444:                                              ; preds = %439
   %445 = load ptr, ptr %24, align 8
@@ -1840,12 +1840,12 @@ define internal void @acpi_pci_root_remove(ptr noundef %0) #0 align 16 {
   tail call void @pci_remove_root_bus(ptr noundef %10) #13
   %11 = tail call i32 @acpi_ioapic_remove(ptr noundef %3) #13
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %14, label %13, !prof !19
+  br i1 %12, label %14, label %13, !prof !28
 
 13:                                               ; preds = %1
-  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #13, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 791, i32 2305, i64 12) #13, !srcloc !21
-  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #13, !srcloc !22
+  tail call void asm sideeffect "362: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 362b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 362) #13, !srcloc !29
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 791, i32 2305, i64 12) #13, !srcloc !30
+  tail call void asm sideeffect "363: nop\0A\09.pushsection .discard.instr_end\0A\09.long 363b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 363) #13, !srcloc !31
   br label %14
 
 14:                                               ; preds = %13, %1
@@ -1926,7 +1926,7 @@ declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef
 define internal noundef i32 @get_root_bridge_busnr_callback(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.acpi_resource_address64, align 1
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %3, i8 0, i64 60, i1 false), !annotation !14
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %3, i8 0, i64 60, i1 false), !annotation !16
   %4 = call i32 @acpi_resource_to_address64(ptr noundef %0, ptr noundef nonnull %3) #13
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %19
@@ -1991,7 +1991,7 @@ define internal fastcc void @decode_osc_control(ptr noundef nonnull readonly cap
   %24 = add nuw nsw i32 %8, 1
   %25 = getelementptr i8, ptr %6, i64 16
   %26 = icmp eq i32 %24, 7
-  br i1 %26, label %27, label %5, !llvm.loop !17
+  br i1 %26, label %27, label %5, !llvm.loop !32
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %0, align 8
@@ -2088,21 +2088,31 @@ attributes #15 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = !{!"auto-init"}
-!15 = !{i8 0, i8 2}
-!16 = !{}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = !{!"branch_weights", i32 2000, i32 1}
-!20 = !{i64 2156147417, i64 2156147226, i64 2156147278, i64 2156147324, i64 2156147352}
-!21 = !{i64 2156147491, i64 2156147520, i64 2156147566, i64 2156147624, i64 2156147678, i64 2156147732, i64 2156147787, i64 2156147818, i64 2156148126, i64 2156148132, i64 2156148179, i64 2156148202, i64 2156148228}
-!22 = !{i64 2156148684, i64 2156148495, i64 2156148545, i64 2156148591, i64 2156148619}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = !{!"auto-init"}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = !{!"branch_weights", i32 2000, i32 1}
+!29 = !{i64 2156147417, i64 2156147226, i64 2156147278, i64 2156147324, i64 2156147352}
+!30 = !{i64 2156147491, i64 2156147520, i64 2156147566, i64 2156147624, i64 2156147678, i64 2156147732, i64 2156147787, i64 2156147818, i64 2156148126, i64 2156148132, i64 2156148179, i64 2156148202, i64 2156148228}
+!31 = !{i64 2156148684, i64 2156148495, i64 2156148545, i64 2156148591, i64 2156148619}
+!32 = distinct !{!32, !6, !7, !8}

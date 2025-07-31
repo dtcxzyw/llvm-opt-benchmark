@@ -404,7 +404,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 104:                                              ; preds = %96
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %106 = load i32, ptr %105, align 8, !tbaa !48
+  %106 = load i32, ptr %105, align 8, !tbaa !49
   switch i32 %106, label %111 [
     i32 8, label %107
     i32 12, label %109
@@ -421,10 +421,10 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 111:                                              ; preds = %104
   %112 = load ptr, ptr %3, align 8, !tbaa !10
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
-  store i32 15, ptr %113, align 8, !tbaa !49
+  store i32 15, ptr %113, align 8, !tbaa !50
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 44
   store i32 %106, ptr %114, align 4, !tbaa !9
-  %115 = load ptr, ptr %112, align 8, !tbaa !50
+  %115 = load ptr, ptr %112, align 8, !tbaa !51
   call void %115(ptr noundef nonnull %3) #12
   br label %132
 
@@ -434,7 +434,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 118:                                              ; preds = %96
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %120 = load i32, ptr %119, align 8, !tbaa !48
+  %120 = load i32, ptr %119, align 8, !tbaa !49
   %121 = icmp slt i32 %120, 9
   br i1 %121, label %122, label %124
 
@@ -464,7 +464,7 @@ default.unreachable:                              ; preds = %96
 132:                                              ; preds = %122, %128, %126, %107, %111, %109, %130, %116, %102, %100
   %.0 = phi ptr [ %101, %100 ], [ %103, %102 ], [ %108, %107 ], [ %110, %109 ], [ null, %111 ], [ %117, %116 ], [ %123, %122 ], [ %127, %126 ], [ %129, %128 ], [ %131, %130 ]
   %133 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  store ptr %.0112, ptr %133, align 8, !tbaa !51
+  store ptr %.0112, ptr %133, align 8, !tbaa !52
   %134 = call i32 @jpeg_start_decompress(ptr noundef nonnull %3) #12
   %.b150 = load i1, ptr @skip, align 4
   br i1 %.b150, label %135, label %232
@@ -472,7 +472,7 @@ default.unreachable:                              ; preds = %96
 135:                                              ; preds = %132
   %136 = load i32, ptr @skip_end, align 4, !tbaa !44
   %137 = getelementptr inbounds nuw i8, ptr %3, i64 140
-  %138 = load i32, ptr %137, align 4, !tbaa !54
+  %138 = load i32, ptr %137, align 4, !tbaa !55
   %139 = add i32 %138, -1
   %140 = icmp ugt i32 %136, %139
   br i1 %140, label %141, label %145
@@ -489,12 +489,12 @@ default.unreachable:                              ; preds = %96
   %147 = xor i32 %136, -1
   %.neg = add i32 %138, %147
   %148 = add i32 %.neg, %146
-  store i32 %148, ptr %137, align 4, !tbaa !54
-  %149 = load ptr, ptr %.0, align 8, !tbaa !55
+  store i32 %148, ptr %137, align 4, !tbaa !55
+  %149 = load ptr, ptr %.0, align 8, !tbaa !56
   call void %149(ptr noundef nonnull %3, ptr noundef nonnull %.0) #12
-  store i32 %138, ptr %137, align 4, !tbaa !54
+  store i32 %138, ptr %137, align 4, !tbaa !55
   %150 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %151 = load i32, ptr %150, align 8, !tbaa !48
+  %151 = load i32, ptr %150, align 8, !tbaa !49
   switch i32 %151, label %.loopexit.sink.split [
     i32 8, label %.preheader174
     i32 12, label %.preheader177
@@ -502,7 +502,7 @@ default.unreachable:                              ; preds = %96
 
 .preheader177:                                    ; preds = %145
   %152 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %153 = load i32, ptr %152, align 8, !tbaa !56
+  %153 = load i32, ptr %152, align 8, !tbaa !57
   %154 = load i32, ptr @skip_start, align 4, !tbaa !44
   %155 = icmp ult i32 %153, %154
   br i1 %155, label %.lr.ph207, label %._crit_edge208
@@ -515,7 +515,7 @@ default.unreachable:                              ; preds = %96
 
 .preheader174:                                    ; preds = %145
   %159 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %160 = load i32, ptr %159, align 8, !tbaa !56
+  %160 = load i32, ptr %159, align 8, !tbaa !57
   %161 = load i32, ptr @skip_start, align 4, !tbaa !44
   %162 = icmp ult i32 %160, %161
   br i1 %162, label %.lr.ph211, label %._crit_edge212
@@ -527,15 +527,15 @@ default.unreachable:                              ; preds = %96
   br label %166
 
 166:                                              ; preds = %.lr.ph211, %166
-  %167 = load ptr, ptr %163, align 8, !tbaa !57
-  %168 = load i32, ptr %164, align 8, !tbaa !58
+  %167 = load ptr, ptr %163, align 8, !tbaa !58
+  %168 = load i32, ptr %164, align 8, !tbaa !59
   %169 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %167, i32 noundef %168) #12
-  %170 = load ptr, ptr %165, align 8, !tbaa !59
+  %170 = load ptr, ptr %165, align 8, !tbaa !60
   call void %170(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %169) #12
-  %171 = load i32, ptr %159, align 8, !tbaa !56
+  %171 = load i32, ptr %159, align 8, !tbaa !57
   %172 = load i32, ptr @skip_start, align 4, !tbaa !44
   %173 = icmp ult i32 %171, %172
-  br i1 %173, label %166, label %._crit_edge212, !llvm.loop !60
+  br i1 %173, label %166, label %._crit_edge212, !llvm.loop !61
 
 ._crit_edge212:                                   ; preds = %166, %.preheader174
   %.lcssa = phi i32 [ %161, %.preheader174 ], [ %172, %166 ]
@@ -551,8 +551,8 @@ default.unreachable:                              ; preds = %96
   br i1 %.not159, label %.preheader, label %187
 
 .preheader:                                       ; preds = %._crit_edge212
-  %181 = load i32, ptr %159, align 8, !tbaa !56
-  %182 = load i32, ptr %137, align 4, !tbaa !54
+  %181 = load i32, ptr %159, align 8, !tbaa !57
+  %182 = load i32, ptr %137, align 4, !tbaa !55
   %183 = icmp ult i32 %181, %182
   br i1 %183, label %.lr.ph214, label %.loopexit
 
@@ -570,26 +570,26 @@ default.unreachable:                              ; preds = %96
   unreachable
 
 191:                                              ; preds = %.lr.ph214, %191
-  %192 = load ptr, ptr %184, align 8, !tbaa !57
-  %193 = load i32, ptr %185, align 8, !tbaa !58
+  %192 = load ptr, ptr %184, align 8, !tbaa !58
+  %193 = load i32, ptr %185, align 8, !tbaa !59
   %194 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %192, i32 noundef %193) #12
-  %195 = load ptr, ptr %186, align 8, !tbaa !59
+  %195 = load ptr, ptr %186, align 8, !tbaa !60
   call void %195(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %194) #12
-  %196 = load i32, ptr %159, align 8, !tbaa !56
-  %197 = load i32, ptr %137, align 4, !tbaa !54
+  %196 = load i32, ptr %159, align 8, !tbaa !57
+  %197 = load i32, ptr %137, align 4, !tbaa !55
   %198 = icmp ult i32 %196, %197
-  br i1 %198, label %191, label %.loopexit, !llvm.loop !61
+  br i1 %198, label %191, label %.loopexit, !llvm.loop !62
 
 199:                                              ; preds = %.lr.ph207, %199
-  %200 = load ptr, ptr %156, align 8, !tbaa !62
-  %201 = load i32, ptr %157, align 8, !tbaa !58
+  %200 = load ptr, ptr %156, align 8, !tbaa !63
+  %201 = load i32, ptr %157, align 8, !tbaa !59
   %202 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %200, i32 noundef %201) #12
-  %203 = load ptr, ptr %158, align 8, !tbaa !59
+  %203 = load ptr, ptr %158, align 8, !tbaa !60
   call void %203(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %202) #12
-  %204 = load i32, ptr %152, align 8, !tbaa !56
+  %204 = load i32, ptr %152, align 8, !tbaa !57
   %205 = load i32, ptr @skip_start, align 4, !tbaa !44
   %206 = icmp ult i32 %204, %205
-  br i1 %206, label %199, label %._crit_edge208, !llvm.loop !63
+  br i1 %206, label %199, label %._crit_edge208, !llvm.loop !64
 
 ._crit_edge208:                                   ; preds = %199, %.preheader177
   %.lcssa189 = phi i32 [ %154, %.preheader177 ], [ %205, %199 ]
@@ -605,8 +605,8 @@ default.unreachable:                              ; preds = %96
   br i1 %.not158, label %.preheader175, label %220
 
 .preheader175:                                    ; preds = %._crit_edge208
-  %214 = load i32, ptr %152, align 8, !tbaa !56
-  %215 = load i32, ptr %137, align 4, !tbaa !54
+  %214 = load i32, ptr %152, align 8, !tbaa !57
+  %215 = load i32, ptr %137, align 4, !tbaa !55
   %216 = icmp ult i32 %214, %215
   br i1 %216, label %.lr.ph210, label %.loopexit
 
@@ -624,15 +624,15 @@ default.unreachable:                              ; preds = %96
   unreachable
 
 224:                                              ; preds = %.lr.ph210, %224
-  %225 = load ptr, ptr %217, align 8, !tbaa !62
-  %226 = load i32, ptr %218, align 8, !tbaa !58
+  %225 = load ptr, ptr %217, align 8, !tbaa !63
+  %226 = load i32, ptr %218, align 8, !tbaa !59
   %227 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %225, i32 noundef %226) #12
-  %228 = load ptr, ptr %219, align 8, !tbaa !59
+  %228 = load ptr, ptr %219, align 8, !tbaa !60
   call void %228(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %227) #12
-  %229 = load i32, ptr %152, align 8, !tbaa !56
-  %230 = load i32, ptr %137, align 4, !tbaa !54
+  %229 = load i32, ptr %152, align 8, !tbaa !57
+  %230 = load i32, ptr %137, align 4, !tbaa !55
   %231 = icmp ult i32 %229, %230
-  br i1 %231, label %224, label %.loopexit, !llvm.loop !64
+  br i1 %231, label %224, label %.loopexit, !llvm.loop !65
 
 232:                                              ; preds = %132
   %.b151 = load i1, ptr @crop, align 4
@@ -645,14 +645,14 @@ default.unreachable:                              ; preds = %96
   %237 = zext i32 %236 to i64
   %238 = add nuw nsw i64 %237, %235
   %239 = getelementptr inbounds nuw i8, ptr %3, i64 136
-  %240 = load i32, ptr %239, align 8, !tbaa !65
+  %240 = load i32, ptr %239, align 8, !tbaa !66
   %241 = zext i32 %240 to i64
   %242 = icmp samesign ugt i64 %238, %241
   br i1 %242, label %._crit_edge232, label %243
 
 ._crit_edge232:                                   ; preds = %233
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 140
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !54
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !55
   br label %253
 
 243:                                              ; preds = %233
@@ -662,7 +662,7 @@ default.unreachable:                              ; preds = %96
   %247 = zext i32 %246 to i64
   %248 = add nuw nsw i64 %247, %245
   %249 = getelementptr inbounds nuw i8, ptr %3, i64 140
-  %250 = load i32, ptr %249, align 4, !tbaa !54
+  %250 = load i32, ptr %249, align 4, !tbaa !55
   %251 = zext i32 %250 to i64
   %252 = icmp samesign ugt i64 %248, %251
   br i1 %252, label %253, label %258
@@ -677,7 +677,7 @@ default.unreachable:                              ; preds = %96
 
 258:                                              ; preds = %243
   %259 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %260 = load i32, ptr %259, align 8, !tbaa !48
+  %260 = load i32, ptr %259, align 8, !tbaa !49
   switch i32 %260, label %263 [
     i32 8, label %261
     i32 12, label %262
@@ -694,14 +694,14 @@ default.unreachable:                              ; preds = %96
 263:                                              ; preds = %258
   %264 = load ptr, ptr %3, align 8, !tbaa !10
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 40
-  store i32 47, ptr %265, align 8, !tbaa !49
-  %266 = load ptr, ptr %264, align 8, !tbaa !50
+  store i32 47, ptr %265, align 8, !tbaa !50
+  %266 = load ptr, ptr %264, align 8, !tbaa !51
   call void %266(ptr noundef nonnull %3) #12
   br label %267
 
 267:                                              ; preds = %262, %263, %261
   %268 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %269 = load ptr, ptr %268, align 8, !tbaa !66
+  %269 = load ptr, ptr %268, align 8, !tbaa !67
   %.not153 = icmp eq ptr %269, null
   br i1 %.not153, label %271, label %270
 
@@ -712,19 +712,19 @@ default.unreachable:                              ; preds = %96
 271:                                              ; preds = %267
   %272 = load ptr, ptr %3, align 8, !tbaa !10
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 40
-  store i32 1047, ptr %273, align 8, !tbaa !49
-  %274 = load ptr, ptr %272, align 8, !tbaa !50
+  store i32 1047, ptr %273, align 8, !tbaa !50
+  %274 = load ptr, ptr %272, align 8, !tbaa !51
   call void %274(ptr noundef nonnull %3) #12
   br label %275
 
 275:                                              ; preds = %271, %270
-  %276 = load i32, ptr %249, align 4, !tbaa !54
+  %276 = load i32, ptr %249, align 4, !tbaa !55
   %277 = load i32, ptr @crop_height, align 4, !tbaa !44
-  store i32 %277, ptr %249, align 4, !tbaa !54
-  %278 = load ptr, ptr %.0, align 8, !tbaa !55
+  store i32 %277, ptr %249, align 4, !tbaa !55
+  %278 = load ptr, ptr %.0, align 8, !tbaa !56
   call void %278(ptr noundef nonnull %3, ptr noundef nonnull %.0) #12
-  store i32 %276, ptr %249, align 4, !tbaa !54
-  %279 = load i32, ptr %259, align 8, !tbaa !48
+  store i32 %276, ptr %249, align 4, !tbaa !55
+  %279 = load i32, ptr %259, align 8, !tbaa !49
   switch i32 %279, label %.loopexit.sink.split [
     i32 8, label %280
     i32 12, label %318
@@ -739,7 +739,7 @@ default.unreachable:                              ; preds = %96
 
 .preheader178:                                    ; preds = %280
   %284 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %285 = load i32, ptr %284, align 8, !tbaa !56
+  %285 = load i32, ptr %284, align 8, !tbaa !57
   %286 = load i32, ptr @crop_height, align 4, !tbaa !44
   %287 = add i32 %286, %282
   %288 = icmp ult i32 %285, %287
@@ -759,24 +759,24 @@ default.unreachable:                              ; preds = %96
   unreachable
 
 296:                                              ; preds = %.lr.ph204, %296
-  %297 = load ptr, ptr %289, align 8, !tbaa !57
-  %298 = load i32, ptr %290, align 8, !tbaa !58
+  %297 = load ptr, ptr %289, align 8, !tbaa !58
+  %298 = load i32, ptr %290, align 8, !tbaa !59
   %299 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %297, i32 noundef %298) #12
-  %300 = load ptr, ptr %291, align 8, !tbaa !59
+  %300 = load ptr, ptr %291, align 8, !tbaa !60
   call void %300(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %299) #12
-  %301 = load i32, ptr %284, align 8, !tbaa !56
+  %301 = load i32, ptr %284, align 8, !tbaa !57
   %302 = load i32, ptr @crop_y, align 4, !tbaa !44
   %303 = load i32, ptr @crop_height, align 4, !tbaa !44
   %304 = add i32 %303, %302
   %305 = icmp ult i32 %301, %304
-  br i1 %305, label %296, label %._crit_edge205, !llvm.loop !67
+  br i1 %305, label %296, label %._crit_edge205, !llvm.loop !68
 
 ._crit_edge205:                                   ; preds = %296, %.preheader178
   %.lcssa191 = phi i32 [ %287, %.preheader178 ], [ %304, %296 ]
-  %306 = load i32, ptr %249, align 4, !tbaa !54
+  %306 = load i32, ptr %249, align 4, !tbaa !55
   %307 = sub i32 %306, %.lcssa191
   %308 = call i32 @jpeg_skip_scanlines(ptr noundef nonnull %3, i32 noundef %307) #12
-  %309 = load i32, ptr %249, align 4, !tbaa !54
+  %309 = load i32, ptr %249, align 4, !tbaa !55
   %310 = load i32, ptr @crop_y, align 4, !tbaa !44
   %311 = load i32, ptr @crop_height, align 4, !tbaa !44
   %312 = add i32 %310, %311
@@ -800,7 +800,7 @@ default.unreachable:                              ; preds = %96
 
 .preheader179:                                    ; preds = %318
   %322 = getelementptr inbounds nuw i8, ptr %3, i64 168
-  %323 = load i32, ptr %322, align 8, !tbaa !56
+  %323 = load i32, ptr %322, align 8, !tbaa !57
   %324 = load i32, ptr @crop_height, align 4, !tbaa !44
   %325 = add i32 %324, %320
   %326 = icmp ult i32 %323, %325
@@ -820,24 +820,24 @@ default.unreachable:                              ; preds = %96
   unreachable
 
 334:                                              ; preds = %.lr.ph203, %334
-  %335 = load ptr, ptr %327, align 8, !tbaa !62
-  %336 = load i32, ptr %328, align 8, !tbaa !58
+  %335 = load ptr, ptr %327, align 8, !tbaa !63
+  %336 = load i32, ptr %328, align 8, !tbaa !59
   %337 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %335, i32 noundef %336) #12
-  %338 = load ptr, ptr %329, align 8, !tbaa !59
+  %338 = load ptr, ptr %329, align 8, !tbaa !60
   call void %338(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %337) #12
-  %339 = load i32, ptr %322, align 8, !tbaa !56
+  %339 = load i32, ptr %322, align 8, !tbaa !57
   %340 = load i32, ptr @crop_y, align 4, !tbaa !44
   %341 = load i32, ptr @crop_height, align 4, !tbaa !44
   %342 = add i32 %341, %340
   %343 = icmp ult i32 %339, %342
-  br i1 %343, label %334, label %._crit_edge, !llvm.loop !68
+  br i1 %343, label %334, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %334, %.preheader179
   %.lcssa192 = phi i32 [ %325, %.preheader179 ], [ %342, %334 ]
-  %344 = load i32, ptr %249, align 4, !tbaa !54
+  %344 = load i32, ptr %249, align 4, !tbaa !55
   %345 = sub i32 %344, %.lcssa192
   %346 = call i32 @jpeg12_skip_scanlines(ptr noundef nonnull %3, i32 noundef %345) #12
-  %347 = load i32, ptr %249, align 4, !tbaa !54
+  %347 = load i32, ptr %249, align 4, !tbaa !55
   %348 = load i32, ptr @crop_y, align 4, !tbaa !44
   %349 = load i32, ptr @crop_height, align 4, !tbaa !44
   %350 = add i32 %348, %349
@@ -853,18 +853,18 @@ default.unreachable:                              ; preds = %96
   unreachable
 
 356:                                              ; preds = %232
-  %357 = load ptr, ptr %.0, align 8, !tbaa !55
+  %357 = load ptr, ptr %.0, align 8, !tbaa !56
   call void %357(ptr noundef nonnull %3, ptr noundef nonnull %.0) #12
   %358 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %359 = load i32, ptr %358, align 8, !tbaa !48
+  %359 = load i32, ptr %358, align 8, !tbaa !49
   %360 = icmp slt i32 %359, 9
   br i1 %360, label %.preheader180, label %377
 
 .preheader180:                                    ; preds = %356
   %361 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %362 = getelementptr inbounds nuw i8, ptr %3, i64 140
-  %363 = load i32, ptr %361, align 8, !tbaa !56
-  %364 = load i32, ptr %362, align 4, !tbaa !54
+  %363 = load i32, ptr %361, align 8, !tbaa !57
+  %364 = load i32, ptr %362, align 4, !tbaa !55
   %365 = icmp ult i32 %363, %364
   br i1 %365, label %.lr.ph202, label %.loopexit
 
@@ -875,22 +875,22 @@ default.unreachable:                              ; preds = %96
   br label %369
 
 369:                                              ; preds = %.lr.ph202, %369
-  %370 = load ptr, ptr %366, align 8, !tbaa !57
-  %371 = load i32, ptr %367, align 8, !tbaa !58
+  %370 = load ptr, ptr %366, align 8, !tbaa !58
+  %371 = load i32, ptr %367, align 8, !tbaa !59
   %372 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %3, ptr noundef %370, i32 noundef %371) #12
-  %373 = load ptr, ptr %368, align 8, !tbaa !59
+  %373 = load ptr, ptr %368, align 8, !tbaa !60
   call void %373(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %372) #12
-  %374 = load i32, ptr %361, align 8, !tbaa !56
-  %375 = load i32, ptr %362, align 4, !tbaa !54
+  %374 = load i32, ptr %361, align 8, !tbaa !57
+  %375 = load i32, ptr %362, align 4, !tbaa !55
   %376 = icmp ult i32 %374, %375
-  br i1 %376, label %369, label %.loopexit, !llvm.loop !69
+  br i1 %376, label %369, label %.loopexit, !llvm.loop !70
 
 377:                                              ; preds = %356
   %378 = icmp samesign ult i32 %359, 13
   %379 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %380 = getelementptr inbounds nuw i8, ptr %3, i64 140
-  %381 = load i32, ptr %379, align 8, !tbaa !56
-  %382 = load i32, ptr %380, align 4, !tbaa !54
+  %381 = load i32, ptr %379, align 8, !tbaa !57
+  %382 = load i32, ptr %380, align 4, !tbaa !55
   %383 = icmp ult i32 %381, %382
   br i1 %378, label %.preheader182, label %.preheader184
 
@@ -913,32 +913,32 @@ default.unreachable:                              ; preds = %96
   br label %390
 
 390:                                              ; preds = %.lr.ph201, %390
-  %391 = load ptr, ptr %387, align 8, !tbaa !62
-  %392 = load i32, ptr %388, align 8, !tbaa !58
+  %391 = load ptr, ptr %387, align 8, !tbaa !63
+  %392 = load i32, ptr %388, align 8, !tbaa !59
   %393 = call i32 @jpeg12_read_scanlines(ptr noundef nonnull %3, ptr noundef %391, i32 noundef %392) #12
-  %394 = load ptr, ptr %389, align 8, !tbaa !59
+  %394 = load ptr, ptr %389, align 8, !tbaa !60
   call void %394(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %393) #12
-  %395 = load i32, ptr %379, align 8, !tbaa !56
-  %396 = load i32, ptr %380, align 4, !tbaa !54
+  %395 = load i32, ptr %379, align 8, !tbaa !57
+  %396 = load i32, ptr %380, align 4, !tbaa !55
   %397 = icmp ult i32 %395, %396
-  br i1 %397, label %390, label %.loopexit, !llvm.loop !70
+  br i1 %397, label %390, label %.loopexit, !llvm.loop !71
 
 398:                                              ; preds = %.lr.ph, %398
-  %399 = load ptr, ptr %384, align 8, !tbaa !71
-  %400 = load i32, ptr %385, align 8, !tbaa !58
+  %399 = load ptr, ptr %384, align 8, !tbaa !72
+  %400 = load i32, ptr %385, align 8, !tbaa !59
   %401 = call i32 @jpeg16_read_scanlines(ptr noundef nonnull %3, ptr noundef %399, i32 noundef %400) #12
-  %402 = load ptr, ptr %386, align 8, !tbaa !59
+  %402 = load ptr, ptr %386, align 8, !tbaa !60
   call void %402(ptr noundef nonnull %3, ptr noundef nonnull %.0, i32 noundef %401) #12
-  %403 = load i32, ptr %379, align 8, !tbaa !56
-  %404 = load i32, ptr %380, align 4, !tbaa !54
+  %403 = load i32, ptr %379, align 8, !tbaa !57
+  %404 = load i32, ptr %380, align 4, !tbaa !55
   %405 = icmp ult i32 %403, %404
-  br i1 %405, label %398, label %.loopexit, !llvm.loop !72
+  br i1 %405, label %398, label %.loopexit, !llvm.loop !73
 
 .loopexit.sink.split:                             ; preds = %275, %145
   %406 = load ptr, ptr %3, align 8, !tbaa !10
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 40
-  store i32 47, ptr %407, align 8, !tbaa !49
-  %408 = load ptr, ptr %406, align 8, !tbaa !50
+  store i32 47, ptr %407, align 8, !tbaa !50
+  %408 = load ptr, ptr %406, align 8, !tbaa !51
   call void %408(ptr noundef nonnull %3) #12
   br label %.loopexit
 
@@ -951,9 +951,9 @@ default.unreachable:                              ; preds = %96
 
 411:                                              ; preds = %.loopexit
   %412 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %413 = load i32, ptr %412, align 4, !tbaa !73
+  %413 = load i32, ptr %412, align 4, !tbaa !74
   %414 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %413, ptr %414, align 8, !tbaa !74
+  store i32 %413, ptr %414, align 8, !tbaa !75
   br label %415
 
 415:                                              ; preds = %.loopexit, %411
@@ -1009,7 +1009,7 @@ default.unreachable:                              ; preds = %96
 443:                                              ; preds = %425
   %444 = load ptr, ptr %3, align 8, !tbaa !10
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 40
-  %446 = load i32, ptr %445, align 8, !tbaa !49
+  %446 = load i32, ptr %445, align 8, !tbaa !50
   %.not162 = icmp eq i32 %446, 127
   br i1 %.not162, label %451, label %447
 
@@ -1026,7 +1026,7 @@ default.unreachable:                              ; preds = %96
 
 452:                                              ; preds = %451, %415
   %453 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %454 = load ptr, ptr %453, align 8, !tbaa !75
+  %454 = load ptr, ptr %453, align 8, !tbaa !76
   call void %454(ptr noundef nonnull %3, ptr noundef nonnull %.0) #12
   %455 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %3) #12
   call void @jpeg_destroy_decompress(ptr noundef nonnull %3) #12
@@ -1068,7 +1068,7 @@ default.unreachable:                              ; preds = %96
 
 469:                                              ; preds = %468, %467
   %470 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %471 = load i64, ptr %470, align 8, !tbaa !76
+  %471 = load i64, ptr %470, align 8, !tbaa !77
   %.not165 = icmp eq i64 %471, 0
   %472 = select i1 %.not165, i32 0, i32 2
   call void @exit(i32 noundef %472) #16
@@ -1088,18 +1088,18 @@ declare void @jpeg_set_marker_processor(ptr noundef, i32 noundef, ptr noundef) l
 define internal noundef i32 @print_text_marker(ptr noundef %0) #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !10
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 124
-  %4 = load i32, ptr %3, align 4, !tbaa !77
+  %4 = load i32, ptr %3, align 4, !tbaa !78
   %5 = icmp sgt i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !78
+  %7 = load ptr, ptr %6, align 8, !tbaa !79
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !79
+  %9 = load i64, ptr %8, align 8, !tbaa !80
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %jpeg_getc.exit
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !81
+  %13 = load ptr, ptr %12, align 8, !tbaa !82
   %14 = tail call i32 %13(ptr noundef nonnull %0) #12
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %15, label %jpeg_getc.exit
@@ -1107,30 +1107,30 @@ define internal noundef i32 @print_text_marker(ptr noundef %0) #3 {
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store i32 24, ptr %17, align 8, !tbaa !49
-  %18 = load ptr, ptr %16, align 8, !tbaa !50
+  store i32 24, ptr %17, align 8, !tbaa !50
+  %18 = load ptr, ptr %16, align 8, !tbaa !51
   tail call void %18(ptr noundef nonnull %0) #12
   br label %jpeg_getc.exit
 
 jpeg_getc.exit:                                   ; preds = %1, %11, %15
-  %19 = load i64, ptr %8, align 8, !tbaa !79
+  %19 = load i64, ptr %8, align 8, !tbaa !80
   %20 = add i64 %19, -1
-  store i64 %20, ptr %8, align 8, !tbaa !79
-  %21 = load ptr, ptr %7, align 8, !tbaa !82
+  store i64 %20, ptr %8, align 8, !tbaa !80
+  %21 = load ptr, ptr %7, align 8, !tbaa !83
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  store ptr %22, ptr %7, align 8, !tbaa !82
+  store ptr %22, ptr %7, align 8, !tbaa !83
   %23 = load i8, ptr %21, align 1, !tbaa !9
   %24 = zext i8 %23 to i64
   %25 = shl nuw nsw i64 %24, 8
-  %26 = load ptr, ptr %6, align 8, !tbaa !78
+  %26 = load ptr, ptr %6, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !79
+  %28 = load i64, ptr %27, align 8, !tbaa !80
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %jpeg_getc.exit29
 
 30:                                               ; preds = %jpeg_getc.exit
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !81
+  %32 = load ptr, ptr %31, align 8, !tbaa !82
   %33 = tail call i32 %32(ptr noundef nonnull %0) #12
   %.not.i28 = icmp eq i32 %33, 0
   br i1 %.not.i28, label %34, label %jpeg_getc.exit29
@@ -1138,18 +1138,18 @@ jpeg_getc.exit:                                   ; preds = %1, %11, %15
 34:                                               ; preds = %30
   %35 = load ptr, ptr %0, align 8, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i32 24, ptr %36, align 8, !tbaa !49
-  %37 = load ptr, ptr %35, align 8, !tbaa !50
+  store i32 24, ptr %36, align 8, !tbaa !50
+  %37 = load ptr, ptr %35, align 8, !tbaa !51
   tail call void %37(ptr noundef nonnull %0) #12
   br label %jpeg_getc.exit29
 
 jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %30, %34
-  %38 = load i64, ptr %27, align 8, !tbaa !79
+  %38 = load i64, ptr %27, align 8, !tbaa !80
   %39 = add i64 %38, -1
-  store i64 %39, ptr %27, align 8, !tbaa !79
-  %40 = load ptr, ptr %26, align 8, !tbaa !82
+  store i64 %39, ptr %27, align 8, !tbaa !80
+  %40 = load ptr, ptr %26, align 8, !tbaa !83
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store ptr %41, ptr %26, align 8, !tbaa !82
+  store ptr %41, ptr %26, align 8, !tbaa !83
   %42 = load i8, ptr %40, align 1, !tbaa !9
   %43 = zext i8 %42 to i64
   %44 = or disjoint i64 %25, %43
@@ -1158,7 +1158,7 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %30
 
 46:                                               ; preds = %jpeg_getc.exit29
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %48 = load i32, ptr %47, align 4, !tbaa !83
+  %48 = load i32, ptr %47, align 4, !tbaa !84
   %49 = icmp eq i32 %48, 254
   %50 = load ptr, ptr @stderr, align 8, !tbaa !39
   br i1 %49, label %51, label %53
@@ -1191,15 +1191,15 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %30
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %100
   %61 = phi i64 [ %101, %100 ], [ %59, %.lr.ph ]
   %.032.us = phi i32 [ %79, %100 ], [ 0, %.lr.ph ]
-  %62 = load ptr, ptr %6, align 8, !tbaa !78
+  %62 = load ptr, ptr %6, align 8, !tbaa !79
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !79
+  %64 = load i64, ptr %63, align 8, !tbaa !80
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %66, label %jpeg_getc.exit31.us
 
 66:                                               ; preds = %.lr.ph.split.us
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !81
+  %68 = load ptr, ptr %67, align 8, !tbaa !82
   %69 = tail call i32 %68(ptr noundef nonnull %0) #12
   %.not.i30.us = icmp eq i32 %69, 0
   br i1 %.not.i30.us, label %70, label %jpeg_getc.exit31.us
@@ -1207,18 +1207,18 @@ jpeg_getc.exit29:                                 ; preds = %jpeg_getc.exit, %30
 70:                                               ; preds = %66
   %71 = load ptr, ptr %0, align 8, !tbaa !10
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  store i32 24, ptr %72, align 8, !tbaa !49
-  %73 = load ptr, ptr %71, align 8, !tbaa !50
+  store i32 24, ptr %72, align 8, !tbaa !50
+  %73 = load ptr, ptr %71, align 8, !tbaa !51
   tail call void %73(ptr noundef nonnull %0) #12
   br label %jpeg_getc.exit31.us
 
 jpeg_getc.exit31.us:                              ; preds = %70, %66, %.lr.ph.split.us
-  %74 = load i64, ptr %63, align 8, !tbaa !79
+  %74 = load i64, ptr %63, align 8, !tbaa !80
   %75 = add i64 %74, -1
-  store i64 %75, ptr %63, align 8, !tbaa !79
-  %76 = load ptr, ptr %62, align 8, !tbaa !82
+  store i64 %75, ptr %63, align 8, !tbaa !80
+  %76 = load ptr, ptr %62, align 8, !tbaa !83
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  store ptr %77, ptr %62, align 8, !tbaa !82
+  store ptr %77, ptr %62, align 8, !tbaa !83
   %78 = load i8, ptr %76, align 1, !tbaa !9
   %79 = zext i8 %78 to i32
   switch i8 %78, label %88 [
@@ -1248,10 +1248,10 @@ jpeg_getc.exit31.us:                              ; preds = %70, %66, %.lr.ph.sp
 
 88:                                               ; preds = %jpeg_getc.exit31.us
   %89 = tail call ptr @__ctype_b_loc() #18
-  %90 = load ptr, ptr %89, align 8, !tbaa !84
+  %90 = load ptr, ptr %89, align 8, !tbaa !85
   %91 = zext i8 %78 to i64
   %92 = getelementptr inbounds nuw i16, ptr %90, i64 %91
-  %93 = load i16, ptr %92, align 2, !tbaa !86
+  %93 = load i16, ptr %92, align 2, !tbaa !87
   %94 = and i16 %93, 16384
   %.not.us = icmp eq i16 %94, 0
   %95 = load ptr, ptr @stderr, align 8, !tbaa !39
@@ -1268,19 +1268,19 @@ jpeg_getc.exit31.us:                              ; preds = %70, %66, %.lr.ph.sp
 100:                                              ; preds = %98, %96, %86, %84, %83, %80
   %101 = add nsw i64 %61, -1
   %102 = icmp sgt i64 %61, 0
-  br i1 %102, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !87
+  br i1 %102, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !88
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %jpeg_getc.exit31
   %103 = phi i64 [ %120, %jpeg_getc.exit31 ], [ %60, %.lr.ph.split.preheader ]
-  %104 = load ptr, ptr %6, align 8, !tbaa !78
+  %104 = load ptr, ptr %6, align 8, !tbaa !79
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load i64, ptr %105, align 8, !tbaa !79
+  %106 = load i64, ptr %105, align 8, !tbaa !80
   %107 = icmp eq i64 %106, 0
   br i1 %107, label %108, label %jpeg_getc.exit31
 
 108:                                              ; preds = %.lr.ph.split
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %110 = load ptr, ptr %109, align 8, !tbaa !81
+  %110 = load ptr, ptr %109, align 8, !tbaa !82
   %111 = tail call i32 %110(ptr noundef nonnull %0) #12
   %.not.i30 = icmp eq i32 %111, 0
   br i1 %.not.i30, label %112, label %jpeg_getc.exit31
@@ -1288,21 +1288,21 @@ jpeg_getc.exit31.us:                              ; preds = %70, %66, %.lr.ph.sp
 112:                                              ; preds = %108
   %113 = load ptr, ptr %0, align 8, !tbaa !10
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
-  store i32 24, ptr %114, align 8, !tbaa !49
-  %115 = load ptr, ptr %113, align 8, !tbaa !50
+  store i32 24, ptr %114, align 8, !tbaa !50
+  %115 = load ptr, ptr %113, align 8, !tbaa !51
   tail call void %115(ptr noundef nonnull %0) #12
   br label %jpeg_getc.exit31
 
 jpeg_getc.exit31:                                 ; preds = %.lr.ph.split, %108, %112
-  %116 = load i64, ptr %105, align 8, !tbaa !79
+  %116 = load i64, ptr %105, align 8, !tbaa !80
   %117 = add i64 %116, -1
-  store i64 %117, ptr %105, align 8, !tbaa !79
-  %118 = load ptr, ptr %104, align 8, !tbaa !82
+  store i64 %117, ptr %105, align 8, !tbaa !80
+  %118 = load ptr, ptr %104, align 8, !tbaa !83
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 1
-  store ptr %119, ptr %104, align 8, !tbaa !82
+  store ptr %119, ptr %104, align 8, !tbaa !83
   %120 = add nsw i64 %103, -1
   %121 = icmp sgt i64 %103, 0
-  br i1 %121, label %.lr.ph.split, label %._crit_edge, !llvm.loop !89
+  br i1 %121, label %.lr.ph.split, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %jpeg_getc.exit31, %100, %56
   br i1 %5, label %122, label %._crit_edge.thread
@@ -1339,7 +1339,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   store i1 false, ptr @strict, align 4
   %15 = load ptr, ptr %0, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 124
-  store i32 0, ptr %16, align 4, !tbaa !77
+  store i32 0, ptr %16, align 4, !tbaa !78
   %17 = icmp sgt i32 %1, 1
   br i1 %17, label %.lr.ph, label %._crit_edge
 
@@ -1429,8 +1429,8 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 
 58:                                               ; preds = %52
   %59 = load i32, ptr %5, align 4, !tbaa !44
-  store i32 %59, ptr %18, align 8, !tbaa !90
-  store i32 1, ptr %19, align 4, !tbaa !91
+  store i32 %59, ptr %18, align 8, !tbaa !91
+  store i32 1, ptr %19, align 4, !tbaa !92
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   br label %299
 
@@ -1457,7 +1457,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not203, label %71, label %70
 
 70:                                               ; preds = %65
-  store i32 0, ptr %20, align 8, !tbaa !92
+  store i32 0, ptr %20, align 8, !tbaa !93
   br label %299
 
 71:                                               ; preds = %65
@@ -1467,7 +1467,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not204, label %75, label %74
 
 74:                                               ; preds = %71
-  store i32 1, ptr %20, align 8, !tbaa !92
+  store i32 1, ptr %20, align 8, !tbaa !93
   br label %299
 
 75:                                               ; preds = %71
@@ -1477,7 +1477,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not205, label %79, label %78
 
 78:                                               ; preds = %75
-  store i32 2, ptr %20, align 8, !tbaa !92
+  store i32 2, ptr %20, align 8, !tbaa !93
   br label %299
 
 79:                                               ; preds = %75
@@ -1507,7 +1507,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not199, label %91, label %90
 
 90:                                               ; preds = %85
-  store i32 2, ptr %21, align 8, !tbaa !93
+  store i32 2, ptr %21, align 8, !tbaa !94
   br label %299
 
 91:                                               ; preds = %85
@@ -1517,7 +1517,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not200, label %95, label %94
 
 94:                                               ; preds = %91
-  store i32 0, ptr %21, align 8, !tbaa !93
+  store i32 0, ptr %21, align 8, !tbaa !94
   br label %299
 
 95:                                               ; preds = %91
@@ -1527,7 +1527,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not201, label %99, label %98
 
 98:                                               ; preds = %95
-  store i32 1, ptr %21, align 8, !tbaa !93
+  store i32 1, ptr %21, align 8, !tbaa !94
   br label %299
 
 99:                                               ; preds = %95
@@ -1563,9 +1563,9 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 114:                                              ; preds = %105, %104
   %115 = load ptr, ptr %0, align 8, !tbaa !10
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 124
-  %117 = load i32, ptr %116, align 4, !tbaa !77
+  %117 = load i32, ptr %116, align 4, !tbaa !78
   %118 = add nsw i32 %117, 1
-  store i32 %118, ptr %116, align 4, !tbaa !77
+  store i32 %118, ptr %116, align 4, !tbaa !78
   br label %299
 
 119:                                              ; preds = %102
@@ -1585,19 +1585,19 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not161, label %130, label %126
 
 126:                                              ; preds = %124
-  store i32 0, ptr %22, align 4, !tbaa !94
-  store i32 1, ptr %21, align 8, !tbaa !93
-  %127 = load i32, ptr %19, align 4, !tbaa !91
+  store i32 0, ptr %22, align 4, !tbaa !95
+  store i32 1, ptr %21, align 8, !tbaa !94
+  %127 = load i32, ptr %19, align 4, !tbaa !92
   %.not197 = icmp eq i32 %127, 0
   br i1 %.not197, label %128, label %129
 
 128:                                              ; preds = %126
-  store i32 216, ptr %18, align 8, !tbaa !90
+  store i32 216, ptr %18, align 8, !tbaa !91
   br label %129
 
 129:                                              ; preds = %128, %126
-  store i32 1, ptr %20, align 8, !tbaa !92
-  store i32 0, ptr %23, align 4, !tbaa !95
+  store i32 1, ptr %20, align 8, !tbaa !93
+  store i32 0, ptr %23, align 4, !tbaa !96
   br label %299
 
 130:                                              ; preds = %124
@@ -1629,7 +1629,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not165, label %141, label %140
 
 140:                                              ; preds = %138, %136
-  store i32 1, ptr %24, align 8, !tbaa !96
+  store i32 1, ptr %24, align 8, !tbaa !97
   br label %299
 
 141:                                              ; preds = %138
@@ -1638,7 +1638,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not166, label %144, label %143
 
 143:                                              ; preds = %141
-  store i32 2, ptr %24, align 8, !tbaa !96
+  store i32 2, ptr %24, align 8, !tbaa !97
   br label %299
 
 144:                                              ; preds = %141
@@ -1647,7 +1647,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not167, label %147, label %146
 
 146:                                              ; preds = %144
-  store i32 16, ptr %24, align 8, !tbaa !96
+  store i32 16, ptr %24, align 8, !tbaa !97
   br label %299
 
 147:                                              ; preds = %144
@@ -1707,7 +1707,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   unreachable
 
 174:                                              ; preds = %162
-  %175 = load i32, ptr %25, align 8, !tbaa !48
+  %175 = load i32, ptr %25, align 8, !tbaa !49
   %176 = icmp eq i32 %175, 12
   br i1 %176, label %177, label %178
 
@@ -1721,7 +1721,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 
 179:                                              ; preds = %178, %177
   %180 = call i32 @fclose(ptr noundef nonnull %166)
-  store i32 1, ptr %19, align 4, !tbaa !91
+  store i32 1, ptr %19, align 4, !tbaa !92
   br label %299
 
 181:                                              ; preds = %156
@@ -1757,13 +1757,13 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %194 = load i8, ptr %7, align 1, !tbaa !9
   %195 = and i8 %194, -33
   %or.cond = icmp eq i8 %195, 77
-  %.pre = load i64, ptr %6, align 8, !tbaa !97
+  %.pre = load i64, ptr %6, align 8, !tbaa !98
   %196 = mul nsw i64 %.pre, 1000
   %spec.select = select i1 %or.cond, i64 %196, i64 %.pre
   %197 = mul nsw i64 %spec.select, 1000
-  %198 = load ptr, ptr %26, align 8, !tbaa !98
+  %198 = load ptr, ptr %26, align 8, !tbaa !99
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 88
-  store i64 %197, ptr %199, align 8, !tbaa !99
+  store i64 %197, ptr %199, align 8, !tbaa !100
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   br label %299
@@ -1800,7 +1800,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not172, label %214, label %213
 
 213:                                              ; preds = %211
-  store i32 0, ptr %23, align 4, !tbaa !95
+  store i32 0, ptr %23, align 4, !tbaa !96
   br label %299
 
 214:                                              ; preds = %211
@@ -1809,7 +1809,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   br i1 %.not173, label %217, label %216
 
 216:                                              ; preds = %214
-  store i32 0, ptr %22, align 4, !tbaa !94
+  store i32 0, ptr %22, align 4, !tbaa !95
   br label %299
 
 217:                                              ; preds = %214
@@ -2038,7 +2038,7 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
   %.1 = phi i32 [ %.0232, %36 ], [ %.0232, %40 ], [ %50, %58 ], [ %63, %70 ], [ %63, %74 ], [ %63, %78 ], [ %83, %90 ], [ %83, %94 ], [ %83, %98 ], [ %.0232, %114 ], [ %.0232, %129 ], [ %.0232, %132 ], [ %.0232, %135 ], [ %.0232, %140 ], [ %.0232, %143 ], [ %.0232, %146 ], [ %150, %152 ], [ %159, %179 ], [ %159, %161 ], [ %184, %193 ], [ %203, %205 ], [ %.0232, %213 ], [ %.0232, %216 ], [ %.0232, %219 ], [ %223, %225 ], [ %.0232, %231 ], [ %.0232, %236 ], [ %.0232, %239 ], [ %243, %245 ], [ %254, %268 ], [ %272, %291 ], [ %.0232, %294 ], [ %.0232, %297 ]
   %300 = add nsw i32 %.1, 1
   %301 = icmp slt i32 %300, %1
-  br i1 %301, label %29, label %._crit_edge, !llvm.loop !101
+  br i1 %301, label %29, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %299, %34, %4
   %.0.lcssa = phi i32 [ 1, %4 ], [ %.0232, %34 ], [ %300, %299 ]
@@ -2048,12 +2048,12 @@ define internal fastcc range(i32 -2147483646, -2147483648) i32 @parse_switches(p
 ; Function Attrs: nounwind uwtable
 define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #3 {
   %3 = icmp slt i32 %1, 0
-  %4 = load ptr, ptr %0, align 8, !tbaa !102
+  %4 = load ptr, ptr %0, align 8, !tbaa !103
   br i1 %3, label %.sink.split, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 124
-  %7 = load i32, ptr %6, align 4, !tbaa !77
+  %7 = load i32, ptr %6, align 4, !tbaa !78
   %.not = icmp slt i32 %7, %1
   br i1 %.not, label %10, label %8
 
@@ -2063,7 +2063,7 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #3 {
 
 .sink.split:                                      ; preds = %2, %8
   %.sink.in = phi ptr [ %9, %8 ], [ %4, %2 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !104
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !105
   tail call void %.sink(ptr noundef nonnull %0) #12
   br label %10
 
@@ -2324,62 +2324,63 @@ attributes #18 = { nounwind willreturn memory(none) }
 !43 = !{!"jpeg_progress_mgr", !6, i64 0, !35, i64 8, !35, i64 16, !15, i64 24, !15, i64 28}
 !44 = !{!15, !15, i64 0}
 !45 = !{!42, !15, i64 40}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!11, !15, i64 296}
-!49 = !{!34, !15, i64 40}
-!50 = !{!34, !6, i64 0}
-!51 = !{!52, !40, i64 32}
-!52 = !{!"djpeg_dest_struct", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !40, i64 32, !18, i64 40, !53, i64 48, !53, i64 56, !15, i64 64}
-!53 = !{!"p2 short", !6, i64 0}
-!54 = !{!11, !15, i64 140}
-!55 = !{!52, !6, i64 0}
-!56 = !{!11, !15, i64 168}
-!57 = !{!52, !18, i64 40}
-!58 = !{!52, !15, i64 64}
-!59 = !{!52, !6, i64 8}
-!60 = distinct !{!60, !47}
-!61 = distinct !{!61, !47}
-!62 = !{!52, !53, i64 48}
-!63 = distinct !{!63, !47}
-!64 = distinct !{!64, !47}
-!65 = !{!11, !15, i64 136}
-!66 = !{!52, !6, i64 24}
-!67 = distinct !{!67, !47}
-!68 = distinct !{!68, !47}
-!69 = distinct !{!69, !47}
-!70 = distinct !{!70, !47}
-!71 = !{!52, !53, i64 56}
-!72 = distinct !{!72, !47}
-!73 = !{!42, !15, i64 28}
-!74 = !{!42, !15, i64 24}
-!75 = !{!52, !6, i64 16}
-!76 = !{!34, !35, i64 128}
-!77 = !{!34, !15, i64 124}
-!78 = !{!11, !16, i64 40}
-!79 = !{!80, !35, i64 8}
-!80 = !{!"jpeg_source_mgr", !5, i64 0, !35, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
-!81 = !{!80, !6, i64 24}
-!82 = !{!80, !5, i64 0}
-!83 = !{!11, !15, i64 540}
-!84 = !{!85, !85, i64 0}
-!85 = !{!"p1 short", !6, i64 0}
-!86 = !{!20, !20, i64 0}
-!87 = distinct !{!87, !47, !88}
-!88 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!89 = distinct !{!89, !47}
-!90 = !{!11, !15, i64 120}
-!91 = !{!11, !15, i64 108}
-!92 = !{!11, !15, i64 96}
-!93 = !{!11, !15, i64 112}
-!94 = !{!11, !15, i64 116}
-!95 = !{!11, !15, i64 100}
-!96 = !{!11, !15, i64 64}
-!97 = !{!35, !35, i64 0}
-!98 = !{!11, !13, i64 8}
-!99 = !{!100, !35, i64 88}
-!100 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !35, i64 88, !35, i64 96}
-!101 = distinct !{!101, !47}
-!102 = !{!103, !12, i64 0}
-!103 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
-!104 = !{!6, !6, i64 0}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!11, !15, i64 296}
+!50 = !{!34, !15, i64 40}
+!51 = !{!34, !6, i64 0}
+!52 = !{!53, !40, i64 32}
+!53 = !{!"djpeg_dest_struct", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !40, i64 32, !18, i64 40, !54, i64 48, !54, i64 56, !15, i64 64}
+!54 = !{!"p2 short", !6, i64 0}
+!55 = !{!11, !15, i64 140}
+!56 = !{!53, !6, i64 0}
+!57 = !{!11, !15, i64 168}
+!58 = !{!53, !18, i64 40}
+!59 = !{!53, !15, i64 64}
+!60 = !{!53, !6, i64 8}
+!61 = distinct !{!61, !47, !48}
+!62 = distinct !{!62, !47, !48}
+!63 = !{!53, !54, i64 48}
+!64 = distinct !{!64, !47, !48}
+!65 = distinct !{!65, !47, !48}
+!66 = !{!11, !15, i64 136}
+!67 = !{!53, !6, i64 24}
+!68 = distinct !{!68, !47, !48}
+!69 = distinct !{!69, !47, !48}
+!70 = distinct !{!70, !47, !48}
+!71 = distinct !{!71, !47, !48}
+!72 = !{!53, !54, i64 56}
+!73 = distinct !{!73, !47, !48}
+!74 = !{!42, !15, i64 28}
+!75 = !{!42, !15, i64 24}
+!76 = !{!53, !6, i64 16}
+!77 = !{!34, !35, i64 128}
+!78 = !{!34, !15, i64 124}
+!79 = !{!11, !16, i64 40}
+!80 = !{!81, !35, i64 8}
+!81 = !{!"jpeg_source_mgr", !5, i64 0, !35, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48}
+!82 = !{!81, !6, i64 24}
+!83 = !{!81, !5, i64 0}
+!84 = !{!11, !15, i64 540}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 short", !6, i64 0}
+!87 = !{!20, !20, i64 0}
+!88 = distinct !{!88, !47, !48, !89}
+!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!90 = distinct !{!90, !47, !48}
+!91 = !{!11, !15, i64 120}
+!92 = !{!11, !15, i64 108}
+!93 = !{!11, !15, i64 96}
+!94 = !{!11, !15, i64 112}
+!95 = !{!11, !15, i64 116}
+!96 = !{!11, !15, i64 100}
+!97 = !{!11, !15, i64 64}
+!98 = !{!35, !35, i64 0}
+!99 = !{!11, !13, i64 8}
+!100 = !{!101, !35, i64 88}
+!101 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !35, i64 88, !35, i64 96}
+!102 = distinct !{!102, !47, !48}
+!103 = !{!104, !12, i64 0}
+!104 = !{!"jpeg_common_struct", !12, i64 0, !13, i64 8, !14, i64 16, !6, i64 24, !15, i64 32, !15, i64 36}
+!105 = !{!6, !6, i64 0}

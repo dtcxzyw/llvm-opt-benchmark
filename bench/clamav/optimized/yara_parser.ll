@@ -141,7 +141,7 @@ define i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef %1) lo
   %26 = getelementptr inbounds nuw i8, ptr %.02738, i64 1
   %27 = load i8, ptr %25, align 1, !tbaa !3
   %.not = icmp eq i8 %27, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %24, %17
   %.027.lcssa = phi ptr [ %19, %17 ], [ %26, %24 ]
@@ -164,10 +164,10 @@ define i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef %1) lo
 
 .critedge.thread34:                               ; preds = %._crit_edge, %.critedge, %31, %13
   %.1 = phi i32 [ %36, %31 ], [ %.041, %.critedge ], [ %.041, %13 ], [ %.041, %._crit_edge ]
-  %37 = load ptr, ptr %7, align 8, !tbaa !28
+  %37 = load ptr, ptr %7, align 8, !tbaa !30
   %38 = tail call ptr @yr_arena_next_address(ptr noundef %37, ptr noundef nonnull %.02840, i64 noundef 48) #6
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.critedge33, label %8
+  br i1 %39, label %.critedge33, label %8, !llvm.loop !31
 
 .critedge33:                                      ; preds = %8, %.critedge.thread34
   %.0.lcssa.ph = phi i32 [ %.041, %8 ], [ %.1, %.critedge.thread34 ]
@@ -176,14 +176,14 @@ define i32 @yr_parser_emit_pushes_for_strings(ptr noundef %0, ptr noundef %1) lo
 
 .critedge33._crit_edge:                           ; preds = %.critedge33
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !29
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !32
   br label %44
 
 .critedge33.thread:                               ; preds = %2, %.critedge33
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 692
   %42 = tail call i64 @cli_strlcpy(ptr noundef nonnull %41, ptr noundef %1, i64 noundef 256) #6
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 19, ptr %43, align 8, !tbaa !29
+  store i32 19, ptr %43, align 8, !tbaa !32
   br label %44
 
 44:                                               ; preds = %.critedge33._crit_edge, %.critedge33.thread
@@ -200,7 +200,7 @@ define i32 @yr_parser_check_types(ptr noundef %0, ptr noundef readonly captures(
   %4 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = load i8, ptr %6, align 1, !tbaa !3
   %.not32 = icmp eq i8 %7, 0
   %.pre33 = load i8, ptr %2, align 1, !tbaa !3
@@ -223,7 +223,7 @@ define i32 @yr_parser_check_types(ptr noundef %0, ptr noundef readonly captures(
   %11 = icmp eq i8 %.pre40, 0
   %or.cond = or i1 %.not39, %11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !33
+  %13 = load ptr, ptr %12, align 8, !tbaa !36
   br i1 %or.cond, label %14, label %16
 
 14:                                               ; preds = %10
@@ -237,7 +237,7 @@ define i32 @yr_parser_check_types(ptr noundef %0, ptr noundef readonly captures(
 18:                                               ; preds = %16, %14
   %.sink = phi i32 [ 40, %14 ], [ 24, %16 ]
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink, ptr %19, align 8, !tbaa !29
+  store i32 %.sink, ptr %19, align 8, !tbaa !32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 692
   %21 = call i64 @cli_strlcpy(ptr noundef nonnull %20, ptr noundef nonnull %4, i64 noundef 256) #6
   br label %.loopexit
@@ -250,11 +250,11 @@ define i32 @yr_parser_check_types(ptr noundef %0, ptr noundef readonly captures(
   %.pre = load i8, ptr %24, align 1, !tbaa !3
   %.not21 = icmp eq i8 %.pre, 0
   %or.cond29 = select i1 %.not, i1 %.not21, i1 false
-  br i1 %or.cond29, label %.loopexit, label %.critedge
+  br i1 %or.cond29, label %.loopexit, label %.critedge, !llvm.loop !37
 
 .loopexit:                                        ; preds = %22, %3, %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !29
+  %27 = load i32, ptr %26, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #6
   ret i32 %27
 }
@@ -296,16 +296,16 @@ define ptr @yr_parser_lookup_string(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %18, %13
-  %23 = load ptr, ptr %7, align 8, !tbaa !28
+  %23 = load ptr, ptr %7, align 8, !tbaa !30
   %24 = tail call ptr @yr_arena_next_address(ptr noundef %23, ptr noundef nonnull %.01416, i64 noundef 48) #6
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.critedge, label %8
+  br i1 %25, label %.critedge, label %8, !llvm.loop !38
 
 .critedge:                                        ; preds = %8, %22, %2
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 692
   %27 = tail call i64 @cli_strlcpy(ptr noundef nonnull %26, ptr noundef %1, i64 noundef 256) #6
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 19, ptr %28, align 8, !tbaa !29
+  store i32 19, ptr %28, align 8, !tbaa !32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.critedge
@@ -320,7 +320,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 408
-  %5 = load i32, ptr %4, align 8, !tbaa !34
+  %5 = load i32, ptr %4, align 8, !tbaa !39
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -332,7 +332,7 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
 8:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %9 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !35
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
 
@@ -344,7 +344,7 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
 14:                                               ; preds = %8, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !41
 
 ._crit_edge.loopexit.split.loop.exit16:           ; preds = %11
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -357,33 +357,33 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
 
 ; Function Attrs: nounwind uwtable
 define i32 @_yr_parser_write_string(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef initializes((0, 8)) %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
-  store ptr null, ptr %5, align 8, !tbaa !36
+  store ptr null, ptr %5, align 8, !tbaa !42
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 240
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = tail call i32 (ptr, i64, ptr, ...) @yr_arena_allocate_struct(ptr noundef %9, i64 noundef 48, ptr noundef nonnull %5, i64 noundef 16, i64 noundef 24, i64 noundef 32, i64 noundef -1) #6
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %29
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %13 = load ptr, ptr %12, align 8, !tbaa !37
-  %14 = load ptr, ptr %5, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  %14 = load ptr, ptr %5, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = tail call i32 @yr_arena_write_string(ptr noundef %13, ptr noundef %0, ptr noundef nonnull %15) #6
   %.not23 = icmp eq i32 %16, 0
   br i1 %.not23, label %17, label %29
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %5, align 8, !tbaa !36
+  %18 = load ptr, ptr %5, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %1, ptr %19, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store ptr null, ptr %20, align 8, !tbaa !3
-  %21 = load i32, ptr %3, align 4, !tbaa !38
-  %22 = load ptr, ptr %5, align 8, !tbaa !36
+  %21 = load i32, ptr %3, align 4, !tbaa !44
+  %22 = load ptr, ptr %5, align 8, !tbaa !42
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 %21, ptr %23, align 4, !tbaa !40
-  %24 = load ptr, ptr %12, align 8, !tbaa !37
+  store i32 %21, ptr %23, align 4, !tbaa !46
+  %24 = load ptr, ptr %12, align 8, !tbaa !43
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %26 = sext i32 %21 to i64
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
@@ -406,7 +406,7 @@ sub_0:
   %5 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !41
+  %7 = load i32, ptr %6, align 4, !tbaa !47
   %8 = shl i32 %7, 2
   %9 = and i32 %8, 4
   %spec.select = or i32 %9, %1
@@ -430,17 +430,17 @@ sub_0:
   %18 = xor i32 %17, 8
   %.2 = or i32 %15, %18
   %19 = or i32 %.2, 512
-  store ptr null, ptr %4, align 8, !tbaa !36
+  store ptr null, ptr %4, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  %21 = load ptr, ptr %20, align 8, !tbaa !28
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %22 = call i32 (ptr, i64, ptr, ...) @yr_arena_allocate_struct(ptr noundef %21, i64 noundef 48, ptr noundef nonnull %4, i64 noundef 16, i64 noundef 24, i64 noundef 32, i64 noundef -1) #6
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %_yr_parser_write_string.exit.thread
 
 23:                                               ; preds = %.tail.thread
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  %25 = load ptr, ptr %24, align 8, !tbaa !37
-  %26 = load ptr, ptr %4, align 8, !tbaa !36
+  %25 = load ptr, ptr %24, align 8, !tbaa !43
+  %26 = load ptr, ptr %4, align 8, !tbaa !42
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = call i32 @yr_arena_write_string(ptr noundef %25, ptr noundef nonnull %2, ptr noundef nonnull %27) #6
   %.not23.i = icmp eq i32 %28, 0
@@ -449,45 +449,45 @@ sub_0:
 _yr_parser_write_string.exit.thread:              ; preds = %.tail.thread, %23
   %.0.i.ph = phi i32 [ %28, %23 ], [ %22, %.tail.thread ]
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.0.i.ph, ptr %29, align 8, !tbaa !29
+  store i32 %.0.i.ph, ptr %29, align 8, !tbaa !32
   br label %.thread
 
 _yr_parser_write_string.exit:                     ; preds = %23
-  %30 = load ptr, ptr %4, align 8, !tbaa !36
+  %30 = load ptr, ptr %4, align 8, !tbaa !42
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %19, ptr %31, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store ptr null, ptr %32, align 8, !tbaa !3
-  %33 = load i32, ptr %3, align 4, !tbaa !38
+  %33 = load i32, ptr %3, align 4, !tbaa !44
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  store i32 %33, ptr %34, align 4, !tbaa !40
-  %35 = load ptr, ptr %24, align 8, !tbaa !37
+  store i32 %33, ptr %34, align 4, !tbaa !46
+  %35 = load ptr, ptr %24, align 8, !tbaa !43
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %37 = sext i32 %33 to i64
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %39 = call i32 @yr_arena_write_data(ptr noundef %35, ptr noundef nonnull %36, i64 noundef %37, ptr noundef nonnull %38) #6
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %39, ptr %40, align 8, !tbaa !29
+  store i32 %39, ptr %40, align 8, !tbaa !32
   %.not28 = icmp eq i32 %39, 0
   br i1 %.not28, label %41, label %.thread
 
 41:                                               ; preds = %_yr_parser_write_string.exit
-  %42 = load ptr, ptr %4, align 8, !tbaa !36
+  %42 = load ptr, ptr %4, align 8, !tbaa !42
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %41
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.3) #6
-  store i32 20, ptr %40, align 8, !tbaa !29
+  store i32 20, ptr %40, align 8, !tbaa !32
   br label %.thread
 
 45:                                               ; preds = %41
-  store ptr null, ptr %42, align 8, !tbaa !42
-  %46 = load ptr, ptr %4, align 8, !tbaa !36
+  store ptr null, ptr %42, align 8, !tbaa !48
+  %46 = load ptr, ptr %4, align 8, !tbaa !42
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 3048
-  %48 = load ptr, ptr %47, align 8, !tbaa !43
-  store ptr %46, ptr %48, align 8, !tbaa !36
-  store ptr %46, ptr %47, align 8, !tbaa !43
+  %48 = load ptr, ptr %47, align 8, !tbaa !49
+  store ptr %46, ptr %48, align 8, !tbaa !42
+  store ptr %46, ptr %47, align 8, !tbaa !49
   br label %.thread
 
 .thread:                                          ; preds = %_yr_parser_write_string.exit, %_yr_parser_write_string.exit.thread, %45, %44
@@ -507,9 +507,9 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
   store i8 -1, ptr %8, align 1, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
-  %11 = load ptr, ptr %10, align 8, !tbaa !44
+  %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 320
-  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !51
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = tail call ptr @yr_hash_table_lookup(ptr noundef %11, ptr noundef %2, ptr noundef %14) #6
   %.not = icmp eq ptr %15, null
@@ -517,8 +517,8 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 16:                                               ; preds = %6
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 312
-  %18 = load ptr, ptr %17, align 8, !tbaa !46
-  %19 = load ptr, ptr %12, align 8, !tbaa !45
+  %18 = load ptr, ptr %17, align 8, !tbaa !52
+  %19 = load ptr, ptr %12, align 8, !tbaa !51
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = tail call ptr @yr_hash_table_lookup(ptr noundef %18, ptr noundef %2, ptr noundef %20) #6
   %.not86 = icmp eq ptr %21, null
@@ -528,7 +528,7 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 692
   %24 = tail call i64 @cli_strlcpy(ptr noundef nonnull %23, ptr noundef %2, i64 noundef 256) #6
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 14, ptr %25, align 8, !tbaa !29
+  store i32 14, ptr %25, align 8, !tbaa !32
   br label %118
 
 26:                                               ; preds = %16
@@ -566,26 +566,26 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
   %45 = load ptr, ptr %44, align 8, !tbaa !3
   %46 = tail call i64 @cli_strlcpy(ptr noundef nonnull %43, ptr noundef %45, i64 noundef 256) #6
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 18, ptr %47, align 8, !tbaa !29
+  store i32 18, ptr %47, align 8, !tbaa !32
   br label %.critedge
 
 48:                                               ; preds = %38, %36
-  %49 = load ptr, ptr %30, align 8, !tbaa !28
+  %49 = load ptr, ptr %30, align 8, !tbaa !30
   %50 = tail call ptr @yr_arena_next_address(ptr noundef %49, ptr noundef nonnull %.095, i64 noundef 48) #6
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.critedge, label %31
+  br i1 %51, label %.critedge, label %31, !llvm.loop !53
 
 .critedge:                                        ; preds = %31, %48, %26, %42
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %53 = load i32, ptr %52, align 8, !tbaa !29
+  %53 = load i32, ptr %52, align 8, !tbaa !32
   %.not88 = icmp eq i32 %53, 0
   br i1 %.not88, label %54, label %118
 
 54:                                               ; preds = %.critedge
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 232
-  %56 = load ptr, ptr %55, align 8, !tbaa !47
+  %56 = load ptr, ptr %55, align 8, !tbaa !54
   %57 = call i32 (ptr, i64, ptr, ...) @yr_arena_allocate_struct(ptr noundef %56, i64 noundef 56, ptr noundef nonnull %7, i64 noundef 24, i64 noundef 8, i64 noundef -1) #6
-  store i32 %57, ptr %52, align 8, !tbaa !29
+  store i32 %57, ptr %52, align 8, !tbaa !32
   switch i32 %57, label %118 [
     i32 0, label %59
     i32 1, label %58
@@ -593,11 +593,11 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 58:                                               ; preds = %54
   call void @yara_yyfatal(ptr noundef %0, ptr noundef nonnull @.str.4) #6
-  %.pre101 = load i32, ptr %52, align 8, !tbaa !29
+  %.pre101 = load i32, ptr %52, align 8, !tbaa !32
   br label %118
 
 59:                                               ; preds = %54
-  %60 = load ptr, ptr %7, align 8, !tbaa !48
+  %60 = load ptr, ptr %7, align 8, !tbaa !55
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %63
 
@@ -607,35 +607,35 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr null, ptr %64, align 8, !tbaa !49
+  store ptr null, ptr %64, align 8, !tbaa !56
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %64, ptr %65, align 8, !tbaa !53
+  store ptr %64, ptr %65, align 8, !tbaa !60
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 3040
-  %67 = load ptr, ptr %66, align 8, !tbaa !54
+  %67 = load ptr, ptr %66, align 8, !tbaa !61
   %68 = icmp eq ptr %67, null
   br i1 %68, label %72, label %69
 
 69:                                               ; preds = %63
-  store ptr %67, ptr %64, align 8, !tbaa !36
+  store ptr %67, ptr %64, align 8, !tbaa !42
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 3048
-  %71 = load ptr, ptr %70, align 8, !tbaa !43
-  store ptr %71, ptr %65, align 8, !tbaa !53
+  %71 = load ptr, ptr %70, align 8, !tbaa !49
+  store ptr %71, ptr %65, align 8, !tbaa !60
   br label %72
 
 72:                                               ; preds = %63, %69
-  store ptr null, ptr %66, align 8, !tbaa !54
+  store ptr null, ptr %66, align 8, !tbaa !61
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 3048
-  store ptr %66, ptr %73, align 8, !tbaa !43
+  store ptr %66, ptr %73, align 8, !tbaa !49
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 336
-  %75 = load i32, ptr %74, align 8, !tbaa !55
+  %75 = load i32, ptr %74, align 8, !tbaa !62
   %76 = or i32 %75, %1
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store i32 %76, ptr %77, align 8, !tbaa !56
+  store i32 %76, ptr %77, align 8, !tbaa !63
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 224
-  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  %79 = load ptr, ptr %78, align 8, !tbaa !43
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %81 = call i32 @yr_arena_write_string(ptr noundef %79, ptr noundef %2, ptr noundef nonnull %80) #6
-  store i32 %81, ptr %52, align 8, !tbaa !29
+  store i32 %81, ptr %52, align 8, !tbaa !32
   switch i32 %81, label %118 [
     i32 0, label %83
     i32 1, label %82
@@ -643,14 +643,14 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 82:                                               ; preds = %72
   call void @yara_yyfatal(ptr noundef %0, ptr noundef nonnull @.str.4) #6
-  %.pre100 = load i32, ptr %52, align 8, !tbaa !29
+  %.pre100 = load i32, ptr %52, align 8, !tbaa !32
   br label %118
 
 83:                                               ; preds = %72
-  %84 = load ptr, ptr %7, align 8, !tbaa !48
+  %84 = load ptr, ptr %7, align 8, !tbaa !55
   %85 = ptrtoint ptr %84 to i64
   %86 = call i32 @yr_parser_emit_with_arg_reloc(ptr noundef %0, i8 noundef signext 36, i64 noundef %85, ptr noundef null)
-  store i32 %86, ptr %52, align 8, !tbaa !29
+  store i32 %86, ptr %52, align 8, !tbaa !32
   switch i32 %86, label %118 [
     i32 0, label %88
     i32 1, label %87
@@ -658,16 +658,16 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 87:                                               ; preds = %83
   call void @yara_yyfatal(ptr noundef %0, ptr noundef nonnull @.str.4) #6
-  %.pre99 = load i32, ptr %52, align 8, !tbaa !29
+  %.pre99 = load i32, ptr %52, align 8, !tbaa !32
   br label %118
 
 88:                                               ; preds = %83
-  %89 = load ptr, ptr %10, align 8, !tbaa !44
-  %90 = load ptr, ptr %12, align 8, !tbaa !45
+  %89 = load ptr, ptr %10, align 8, !tbaa !50
+  %90 = load ptr, ptr %12, align 8, !tbaa !51
   %91 = load ptr, ptr %90, align 8, !tbaa !3
-  %92 = load ptr, ptr %7, align 8, !tbaa !48
+  %92 = load ptr, ptr %7, align 8, !tbaa !55
   %93 = call i32 @yr_hash_table_add(ptr noundef %89, ptr noundef %2, ptr noundef %91, ptr noundef %92) #6
-  store i32 %93, ptr %52, align 8, !tbaa !29
+  store i32 %93, ptr %52, align 8, !tbaa !32
   switch i32 %93, label %118 [
     i32 0, label %95
     i32 1, label %94
@@ -675,31 +675,31 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 94:                                               ; preds = %88
   call void @yara_yyfatal(ptr noundef %0, ptr noundef nonnull @.str.4) #6
-  %.pre98 = load i32, ptr %52, align 8, !tbaa !29
+  %.pre98 = load i32, ptr %52, align 8, !tbaa !32
   br label %118
 
 95:                                               ; preds = %88
-  store i32 0, ptr %74, align 8, !tbaa !55
+  store i32 0, ptr %74, align 8, !tbaa !62
   %96 = getelementptr inbounds nuw i8, ptr %9, i64 3064
-  %97 = load i32, ptr %96, align 8, !tbaa !57
-  %98 = load ptr, ptr %7, align 8, !tbaa !48
+  %97 = load i32, ptr %96, align 8, !tbaa !64
+  %98 = load ptr, ptr %7, align 8, !tbaa !55
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 36
-  store i32 %97, ptr %99, align 4, !tbaa !58
-  store i32 0, ptr %96, align 8, !tbaa !57
+  store i32 %97, ptr %99, align 4, !tbaa !65
+  store i32 0, ptr %96, align 8, !tbaa !64
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %101 = load ptr, ptr %100, align 8, !tbaa !6
   %102 = call i32 @yr_arena_write_data(ptr noundef %101, ptr noundef nonnull %8, i64 noundef 1, ptr noundef null) #6
   %103 = load ptr, ptr %100, align 8, !tbaa !6
   %104 = call ptr @yr_arena_base_address(ptr noundef %103) #6
-  %105 = load ptr, ptr %7, align 8, !tbaa !48
+  %105 = load ptr, ptr %7, align 8, !tbaa !55
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 40
-  store ptr %104, ptr %106, align 8, !tbaa !59
+  store ptr %104, ptr %106, align 8, !tbaa !66
   %107 = getelementptr inbounds nuw i8, ptr %9, i64 3056
-  %108 = load ptr, ptr %107, align 8, !tbaa !60
+  %108 = load ptr, ptr %107, align 8, !tbaa !67
   %109 = load ptr, ptr %100, align 8, !tbaa !6
   %110 = call i32 @yr_arena_append(ptr noundef %108, ptr noundef %109) #6
   %111 = call i32 @yr_arena_create(i64 noundef 65536, i32 noundef 0, ptr noundef nonnull %100) #6
-  store i32 %111, ptr %52, align 8, !tbaa !29
+  store i32 %111, ptr %52, align 8, !tbaa !32
   switch i32 %111, label %118 [
     i32 0, label %113
     i32 1, label %112
@@ -707,17 +707,17 @@ define i32 @yr_parser_reduce_rule_declaration(ptr noundef %0, i32 noundef %1, pt
 
 112:                                              ; preds = %95
   call void @yara_yyfatal(ptr noundef %0, ptr noundef nonnull @.str.4) #6
-  %.pre = load i32, ptr %52, align 8, !tbaa !29
+  %.pre = load i32, ptr %52, align 8, !tbaa !32
   br label %118
 
 113:                                              ; preds = %95
-  %114 = load ptr, ptr %7, align 8, !tbaa !48
-  store ptr null, ptr %114, align 8, !tbaa !61
-  %115 = load ptr, ptr %7, align 8, !tbaa !48
+  %114 = load ptr, ptr %7, align 8, !tbaa !55
+  store ptr null, ptr %114, align 8, !tbaa !68
+  %115 = load ptr, ptr %7, align 8, !tbaa !55
   %116 = getelementptr inbounds nuw i8, ptr %9, i64 3032
-  %117 = load ptr, ptr %116, align 8, !tbaa !62
-  store ptr %115, ptr %117, align 8, !tbaa !48
-  store ptr %115, ptr %116, align 8, !tbaa !62
+  %117 = load ptr, ptr %116, align 8, !tbaa !69
+  store ptr %115, ptr %117, align 8, !tbaa !55
+  store ptr %115, ptr %116, align 8, !tbaa !69
   br label %118
 
 118:                                              ; preds = %112, %95, %94, %88, %87, %83, %82, %72, %58, %54, %.critedge, %113, %62, %22
@@ -759,7 +759,7 @@ sub_0:
 
 12:                                               ; preds = %.tail
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 412
-  %14 = load i32, ptr %13, align 4, !tbaa !63
+  %14 = load i32, ptr %13, align 4, !tbaa !70
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %47
 
@@ -817,14 +817,14 @@ yr_parser_emit_with_arg.exit:                     ; preds = %16, %23
 42:                                               ; preds = %37
   %43 = and i32 %39, -4609
   store i32 %43, ptr %38, align 8, !tbaa !25
-  %44 = load ptr, ptr %36, align 8, !tbaa !28
+  %44 = load ptr, ptr %36, align 8, !tbaa !30
   %45 = call ptr @yr_arena_next_address(ptr noundef %44, ptr noundef nonnull %.033, i64 noundef 48) #6
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.critedge, label %37
+  br i1 %46, label %.critedge, label %37, !llvm.loop !71
 
 47:                                               ; preds = %12
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 21, ptr %48, align 8, !tbaa !29
+  store i32 21, ptr %48, align 8, !tbaa !32
   br label %.critedge
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
@@ -860,16 +860,16 @@ yr_parser_emit_with_arg.exit:                     ; preds = %16, %23
   br i1 %67, label %yr_parser_lookup_string.exit, label %68
 
 68:                                               ; preds = %64, %59
-  %69 = load ptr, ptr %53, align 8, !tbaa !28
+  %69 = load ptr, ptr %53, align 8, !tbaa !30
   %70 = tail call ptr @yr_arena_next_address(ptr noundef %69, ptr noundef nonnull %.01416.i, i64 noundef 48) #6
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %yr_parser_lookup_string.exit.thread, label %54
+  br i1 %71, label %yr_parser_lookup_string.exit.thread, label %54, !llvm.loop !38
 
 yr_parser_lookup_string.exit.thread:              ; preds = %54, %68, %.tail.thread
   %72 = getelementptr inbounds nuw i8, ptr %49, i64 692
   %73 = tail call i64 @cli_strlcpy(ptr noundef nonnull %72, ptr noundef nonnull %1, i64 noundef 256) #6
   %74 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i32 19, ptr %74, align 8, !tbaa !29
+  store i32 19, ptr %74, align 8, !tbaa !32
   br label %.critedge
 
 yr_parser_lookup_string.exit:                     ; preds = %64
@@ -900,7 +900,7 @@ yr_parser_lookup_string.exit:                     ; preds = %64
 
 .critedge:                                        ; preds = %37, %42, %32, %yr_parser_lookup_string.exit.thread, %81, %47, %yr_parser_emit_with_arg.exit
   %88 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %89 = load i32, ptr %88, align 8, !tbaa !29
+  %89 = load i32, ptr %88, align 8, !tbaa !32
   ret i32 %89
 }
 
@@ -910,20 +910,20 @@ define noundef ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 nounde
   %7 = tail call ptr @yara_yyget_extra(ptr noundef %0) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
-  %9 = load ptr, ptr %8, align 8, !tbaa !64
+  %9 = load ptr, ptr %8, align 8, !tbaa !72
   %10 = call i32 (ptr, i64, ptr, ...) @yr_arena_allocate_struct(ptr noundef %9, i64 noundef 24, ptr noundef nonnull %6, i64 noundef 8, i64 noundef 16, i64 noundef -1) #6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %10, ptr %11, align 8, !tbaa !29
+  store i32 %10, ptr %11, align 8, !tbaa !32
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %12, label %32
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 224
-  %14 = load ptr, ptr %13, align 8, !tbaa !37
-  %15 = load ptr, ptr %6, align 8, !tbaa !65
+  %14 = load ptr, ptr %13, align 8, !tbaa !43
+  %15 = load ptr, ptr %6, align 8, !tbaa !73
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = call i32 @yr_arena_write_string(ptr noundef %14, ptr noundef %2, ptr noundef nonnull %16) #6
-  store i32 %17, ptr %11, align 8, !tbaa !29
+  store i32 %17, ptr %11, align 8, !tbaa !32
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %18, label %32
 
@@ -932,18 +932,18 @@ define noundef ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 nounde
   br i1 %.not17, label %24, label %19
 
 19:                                               ; preds = %18
-  %20 = load ptr, ptr %13, align 8, !tbaa !37
-  %21 = load ptr, ptr %6, align 8, !tbaa !65
+  %20 = load ptr, ptr %13, align 8, !tbaa !43
+  %21 = load ptr, ptr %6, align 8, !tbaa !73
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = call i32 @yr_arena_write_string(ptr noundef %20, ptr noundef nonnull %3, ptr noundef nonnull %22) #6
-  store i32 %23, ptr %11, align 8, !tbaa !29
+  store i32 %23, ptr %11, align 8, !tbaa !32
   br label %27
 
 24:                                               ; preds = %18
-  %25 = load ptr, ptr %6, align 8, !tbaa !65
+  %25 = load ptr, ptr %6, align 8, !tbaa !73
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr null, ptr %26, align 8, !tbaa !3
-  %.pr = load i32, ptr %11, align 8, !tbaa !29
+  %.pr = load i32, ptr %11, align 8, !tbaa !32
   br label %27
 
 27:                                               ; preds = %24, %19
@@ -952,10 +952,10 @@ define noundef ptr @yr_parser_reduce_meta_declaration(ptr noundef %0, i32 nounde
   br i1 %.not18, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = load ptr, ptr %6, align 8, !tbaa !65
+  %30 = load ptr, ptr %6, align 8, !tbaa !73
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  store i32 %4, ptr %31, align 4, !tbaa !67
-  store i32 %1, ptr %30, align 8, !tbaa !69
+  store i32 %4, ptr %31, align 4, !tbaa !75
+  store i32 %1, ptr %30, align 8, !tbaa !77
   br label %32
 
 32:                                               ; preds = %27, %12, %5, %29
@@ -1008,45 +1008,53 @@ attributes #7 = { nounwind willreturn memory(read) }
 !25 = !{!26, !8, i64 8}
 !26 = !{!"_yc_string", !27, i64 0, !8, i64 8, !8, i64 12, !4, i64 16, !4, i64 24, !4, i64 32, !8, i64 40}
 !27 = !{!"", !13, i64 0}
-!28 = !{!7, !9, i64 240}
-!29 = !{!7, !8, i64 16}
-!30 = !{!31, !14, i64 32}
-!31 = !{!"_YR_OBJECT_FUNCTION", !4, i64 0, !14, i64 8, !10, i64 16, !32, i64 24, !14, i64 32, !32, i64 40, !10, i64 48}
-!32 = !{!"p1 _ZTS10_YR_OBJECT", !10, i64 0}
-!33 = !{!31, !14, i64 8}
-!34 = !{!7, !8, i64 408}
-!35 = !{!14, !14, i64 0}
-!36 = !{!13, !13, i64 0}
-!37 = !{!7, !9, i64 224}
-!38 = !{!39, !8, i64 0}
-!39 = !{!"_SIZED_STRING", !8, i64 0, !8, i64 4, !4, i64 8}
-!40 = !{!26, !8, i64 12}
-!41 = !{!39, !8, i64 4}
-!42 = !{!26, !13, i64 0}
-!43 = !{!7, !20, i64 3048}
-!44 = !{!7, !11, i64 304}
-!45 = !{!7, !12, i64 320}
-!46 = !{!7, !11, i64 312}
-!47 = !{!7, !9, i64 232}
-!48 = !{!17, !17, i64 0}
-!49 = !{!50, !13, i64 8}
-!50 = !{!"_yc_rule", !51, i64 0, !52, i64 8, !14, i64 24, !8, i64 32, !8, i64 36, !14, i64 40, !8, i64 48}
-!51 = !{!"", !17, i64 0}
-!52 = !{!"sq", !13, i64 0, !20, i64 8}
-!53 = !{!50, !20, i64 16}
-!54 = !{!7, !13, i64 3040}
-!55 = !{!7, !8, i64 336}
-!56 = !{!50, !8, i64 32}
-!57 = !{!7, !8, i64 3064}
-!58 = !{!50, !8, i64 36}
-!59 = !{!50, !14, i64 40}
-!60 = !{!7, !9, i64 3056}
-!61 = !{!50, !17, i64 0}
-!62 = !{!7, !18, i64 3032}
-!63 = !{!7, !8, i64 412}
-!64 = !{!7, !9, i64 296}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"p1 _ZTS8_YR_META", !10, i64 0}
-!67 = !{!68, !8, i64 4}
-!68 = !{!"_YR_META", !8, i64 0, !8, i64 4, !4, i64 8, !4, i64 16}
-!69 = !{!68, !8, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!7, !9, i64 240}
+!31 = distinct !{!31, !29}
+!32 = !{!7, !8, i64 16}
+!33 = !{!34, !14, i64 32}
+!34 = !{!"_YR_OBJECT_FUNCTION", !4, i64 0, !14, i64 8, !10, i64 16, !35, i64 24, !14, i64 32, !35, i64 40, !10, i64 48}
+!35 = !{!"p1 _ZTS10_YR_OBJECT", !10, i64 0}
+!36 = !{!34, !14, i64 8}
+!37 = distinct !{!37, !29}
+!38 = distinct !{!38, !29}
+!39 = !{!7, !8, i64 408}
+!40 = !{!14, !14, i64 0}
+!41 = distinct !{!41, !29}
+!42 = !{!13, !13, i64 0}
+!43 = !{!7, !9, i64 224}
+!44 = !{!45, !8, i64 0}
+!45 = !{!"_SIZED_STRING", !8, i64 0, !8, i64 4, !4, i64 8}
+!46 = !{!26, !8, i64 12}
+!47 = !{!45, !8, i64 4}
+!48 = !{!26, !13, i64 0}
+!49 = !{!7, !20, i64 3048}
+!50 = !{!7, !11, i64 304}
+!51 = !{!7, !12, i64 320}
+!52 = !{!7, !11, i64 312}
+!53 = distinct !{!53, !29}
+!54 = !{!7, !9, i64 232}
+!55 = !{!17, !17, i64 0}
+!56 = !{!57, !13, i64 8}
+!57 = !{!"_yc_rule", !58, i64 0, !59, i64 8, !14, i64 24, !8, i64 32, !8, i64 36, !14, i64 40, !8, i64 48}
+!58 = !{!"", !17, i64 0}
+!59 = !{!"sq", !13, i64 0, !20, i64 8}
+!60 = !{!57, !20, i64 16}
+!61 = !{!7, !13, i64 3040}
+!62 = !{!7, !8, i64 336}
+!63 = !{!57, !8, i64 32}
+!64 = !{!7, !8, i64 3064}
+!65 = !{!57, !8, i64 36}
+!66 = !{!57, !14, i64 40}
+!67 = !{!7, !9, i64 3056}
+!68 = !{!57, !17, i64 0}
+!69 = !{!7, !18, i64 3032}
+!70 = !{!7, !8, i64 412}
+!71 = distinct !{!71, !29}
+!72 = !{!7, !9, i64 296}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"p1 _ZTS8_YR_META", !10, i64 0}
+!75 = !{!76, !8, i64 4}
+!76 = !{!"_YR_META", !8, i64 0, !8, i64 4, !4, i64 8, !4, i64 16}
+!77 = !{!76, !8, i64 0}

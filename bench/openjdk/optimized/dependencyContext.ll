@@ -213,7 +213,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %37, %35, %16
 define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load volatile ptr, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %._crit_edge, label %.lr.ph
 
@@ -230,14 +230,14 @@ define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load volatile ptr, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %11 = load ptr, ptr %0, align 8
   %12 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, %5
   br i1 %.not, label %13, label %.backedge
 
 13:                                               ; preds = %8
-  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %5, ptr nonnull %11) #12, !srcloc !9
+  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %5, ptr nonnull %11) #12, !srcloc !10
   %15 = icmp eq ptr %14, %5
   br i1 %15, label %16, label %.backedge
 
@@ -259,9 +259,9 @@ define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(
 23:                                               ; preds = %23, %.preheader.i
   %24 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
   store volatile ptr %24, ptr %19, align 8
-  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %24, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
+  %25 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %24, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !10
   %26 = icmp eq ptr %25, %24
-  br i1 %26, label %27, label %23, !llvm.loop !10
+  br i1 %26, label %27, label %23, !llvm.loop !11
 
 27:                                               ; preds = %23
   %28 = load i8, ptr @UsePerfData, align 1
@@ -290,9 +290,9 @@ define hidden noundef ptr @_ZN17DependencyContext26dependencies_not_unloadingEv(
 .backedge:                                        ; preds = %13, %20, %27, %.sink.split.i, %8
   %41 = load ptr, ptr %0, align 8
   %42 = load volatile ptr, ptr %41, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %43, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 }
 
 declare void @_ZN19DeoptimizationScope9dependentEP7nmethod(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
@@ -331,13 +331,13 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load volatile ptr, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %11 = load volatile ptr, ptr %2, align 8
   %.not = icmp eq ptr %11, %5
   br i1 %.not, label %12, label %.backedge
 
 12:                                               ; preds = %8
-  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %5, ptr nonnull %2) #12, !srcloc !9
+  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10, ptr nonnull %5, ptr nonnull %2) #12, !srcloc !10
   %14 = icmp eq ptr %13, %5
   br i1 %14, label %15, label %.backedge
 
@@ -359,9 +359,9 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
 22:                                               ; preds = %22, %.preheader.i
   %23 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
   store volatile ptr %23, ptr %18, align 8
-  %24 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %23, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
+  %24 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %23, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !10
   %25 = icmp eq ptr %24, %23
-  br i1 %25, label %26, label %22, !llvm.loop !10
+  br i1 %25, label %26, label %22, !llvm.loop !11
 
 26:                                               ; preds = %22
   %27 = load i8, ptr @UsePerfData, align 1
@@ -390,7 +390,7 @@ define hidden noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef 
 .backedge:                                        ; preds = %12, %19, %26, %.sink.split.i, %8
   %40 = load volatile ptr, ptr %2, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -408,7 +408,7 @@ define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr 
 6:                                                ; preds = %.lr.ph
   %7 = tail call noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(24) %.014)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %6, %2
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i8 noundef zeroext 1, i32 noundef 0) #12
@@ -424,9 +424,9 @@ define hidden void @_ZN17DependencyContext21add_dependent_nmethodEP7nmethod(ptr 
   %13 = load volatile ptr, ptr %12, align 8
   store volatile ptr %13, ptr %9, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, ptr %13, ptr %14) #12, !srcloc !9
+  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %8, ptr %13, ptr %14) #12, !srcloc !10
   %16 = icmp eq ptr %15, %13
-  br i1 %16, label %17, label %11, !llvm.loop !14
+  br i1 %16, label %17, label %11, !llvm.loop !15
 
 17:                                               ; preds = %11
   %18 = load i8, ptr @UsePerfData, align 1
@@ -479,9 +479,9 @@ define hidden void @_ZN17DependencyContext7releaseEP13nmethodBucket(ptr noundef 
 11:                                               ; preds = %.preheader, %11
   %12 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
   store volatile ptr %12, ptr %4, align 8
-  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %12, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
+  %13 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %12, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !10
   %14 = icmp eq ptr %13, %12
-  br i1 %14, label %15, label %11, !llvm.loop !10
+  br i1 %14, label %15, label %11, !llvm.loop !11
 
 15:                                               ; preds = %11
   %16 = load i8, ptr @UsePerfData, align 1
@@ -539,7 +539,7 @@ define hidden void @_ZN17DependencyContext25purge_dependency_contextsEv() local_
   %4 = add nuw nsw i32 %.010, 1
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %.079) #12
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %5 = load i8, ptr @UsePerfData, align 1
@@ -578,7 +578,7 @@ define hidden void @_ZN17DependencyContext26clean_unloading_dependentsEv(ptr nou
   br i1 %.not.i, label %_ZN17DependencyContext13claim_cleanupEv.exit, label %_ZN17DependencyContext13claim_cleanupEv.exit.thread
 
 _ZN17DependencyContext13claim_cleanupEv.exit:     ; preds = %1
-  %6 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, i64 %5, ptr nonnull %4) #12, !srcloc !9
+  %6 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, i64 %5, ptr nonnull %4) #12, !srcloc !10
   %7 = icmp eq i64 %6, %5
   br i1 %7, label %8, label %_ZN17DependencyContext13claim_cleanupEv.exit.thread
 
@@ -591,7 +591,7 @@ _ZN17DependencyContext13claim_cleanupEv.exit:     ; preds = %1
   %.06 = phi ptr [ %10, %.lr.ph ], [ %9, %8 ]
   %10 = tail call noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(24) %.06)
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %_ZN17DependencyContext13claim_cleanupEv.exit.thread, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %_ZN17DependencyContext13claim_cleanupEv.exit.thread, label %.lr.ph, !llvm.loop !17
 
 _ZN17DependencyContext13claim_cleanupEv.exit.thread: ; preds = %.lr.ph, %8, %1, %_ZN17DependencyContext13claim_cleanupEv.exit
   ret void
@@ -607,7 +607,7 @@ define hidden noundef zeroext i1 @_ZN17DependencyContext13claim_cleanupEv(ptr no
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %1
-  %7 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, i64 %5, ptr nonnull %4) #12, !srcloc !9
+  %7 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, i64 %5, ptr nonnull %4) #12, !srcloc !10
   %8 = icmp eq i64 %7, %5
   br label %9
 
@@ -636,9 +636,9 @@ define hidden noundef ptr @_ZN17DependencyContext34release_and_get_next_not_unlo
 9:                                                ; preds = %9, %.preheader.i
   %10 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
   store volatile ptr %10, ptr %5, align 8
-  %11 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %10, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
+  %11 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %10, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !10
   %12 = icmp eq ptr %11, %10
-  br i1 %12, label %13, label %9, !llvm.loop !10
+  br i1 %12, label %13, label %9, !llvm.loop !11
 
 13:                                               ; preds = %9
   %14 = load i8, ptr @UsePerfData, align 1
@@ -672,7 +672,7 @@ _ZN17DependencyContext7releaseEP13nmethodBucket.exit: ; preds = %6, %13, %.sink.
 define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load volatile ptr, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %4 = icmp eq ptr %3, null
   br i1 %4, label %30, label %.preheader
 
@@ -683,7 +683,7 @@ define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %7 = load volatile ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %.preheader, !llvm.loop !17
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !18
 
 8:                                                ; preds = %.preheader
   %9 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
@@ -693,9 +693,9 @@ define hidden void @_ZN17DependencyContext21remove_all_dependentsEv(ptr noundef 
 11:                                               ; preds = %11, %8
   %.016 = phi ptr [ %9, %8 ], [ %12, %11 ]
   store volatile ptr %.016, ptr %10, align 8
-  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr %.016, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
+  %12 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr %.016, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !10
   %13 = icmp eq ptr %.016, %12
-  br i1 %13, label %14, label %11, !llvm.loop !18
+  br i1 %13, label %14, label %11, !llvm.loop !19
 
 14:                                               ; preds = %11
   %15 = load i8, ptr @UsePerfData, align 1
@@ -770,9 +770,9 @@ define hidden void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_a
 13:                                               ; preds = %13, %.preheader.i.i
   %14 = load volatile ptr, ptr @_ZN17DependencyContext11_purge_listE, align 8
   store volatile ptr %14, ptr %9, align 8
-  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.07, ptr %14, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !9
+  %15 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.07, ptr %14, ptr nonnull @_ZN17DependencyContext11_purge_listE) #12, !srcloc !10
   %16 = icmp eq ptr %15, %14
-  br i1 %16, label %17, label %13, !llvm.loop !10
+  br i1 %16, label %17, label %13, !llvm.loop !11
 
 17:                                               ; preds = %13
   %18 = load i8, ptr @UsePerfData, align 1
@@ -800,7 +800,7 @@ define hidden void @_ZN17DependencyContext49remove_and_mark_for_deoptimization_a
 
 _ZN17DependencyContext34release_and_get_next_not_unloadingEP13nmethodBucket.exit: ; preds = %10, %17, %.sink.split.i.i
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %_ZN17DependencyContext34release_and_get_next_not_unloadingEP13nmethodBucket.exit, %2
   ret void
@@ -821,7 +821,7 @@ define hidden noundef zeroext i1 @_ZN17DependencyContext20is_dependent_nmethodEP
 6:                                                ; preds = %.lr.ph
   %7 = tail call noundef ptr @_ZN13nmethodBucket18next_not_unloadingEv(ptr noundef nonnull align 8 dereferenceable(24) %.08)
   %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ %5, %6 ], [ %5, %.lr.ph ]
@@ -958,18 +958,19 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2145392468}
-!9 = !{i64 2145412694}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2145392468}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

@@ -513,8 +513,8 @@ define internal i64 @console_conmode_get(i64 noundef %0) #0 {
   %13 = call i64 @rb_data_typed_object_zalloc(i64 noundef %12, i64 noundef 60, ptr noundef nonnull @conmode_type) #12
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %16, ptr noundef nonnull readonly align 4 dereferenceable(60) %2, i64 60, i1 false), !tbaa.struct !29
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %16, ptr noundef nonnull readonly align 4 dereferenceable(60) %2, i64 60, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %2) #12
   ret i64 %13
 }
@@ -525,7 +525,7 @@ define internal noundef i64 @console_conmode_set(i64 noundef %0, i64 noundef ret
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #12
   %4 = tail call i32 @rb_io_descriptor(i64 noundef %0) #12
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @conmode_type) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 4 dereferenceable(60) %5, i64 60, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 4 dereferenceable(60) %5, i64 60, i1 false), !tbaa.struct !30
   br label %6
 
 6:                                                ; preds = %8, %2
@@ -577,12 +577,12 @@ define internal i64 @console_winsize(i64 noundef %0) #0 {
   unreachable
 
 12:                                               ; preds = %1
-  %13 = load i16, ptr %2, align 2, !tbaa !30
+  %13 = load i16, ptr %2, align 2, !tbaa !31
   %14 = zext i16 %13 to i64
   %15 = shl nuw nsw i64 %14, 1
   %16 = or disjoint i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %18 = load i16, ptr %17, align 2, !tbaa !33
+  %18 = load i16, ptr %17, align 2, !tbaa !34
   %19 = zext i16 %18 to i64
   %20 = shl nuw nsw i64 %19, 1
   %21 = or disjoint i64 %20, 1
@@ -597,7 +597,7 @@ define internal noundef i64 @console_set_winsize(i64 noundef returned %0, i64 no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %4 = tail call i64 @rb_Array(i64 noundef %1) #12
   %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %5, align 8, !tbaa !34
+  %6 = load i64, ptr %5, align 8, !tbaa !35
   %7 = and i64 %6, 8192
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %11, label %8
@@ -669,7 +669,7 @@ rb_array_const_ptr.exit:                          ; preds = %17, %19
 
 41:                                               ; preds = %31, %38
   %42 = phi i16 [ %40, %38 ], [ 0, %31 ]
-  store i16 %42, ptr %3, align 2, !tbaa !30
+  store i16 %42, ptr %3, align 2, !tbaa !31
   %43 = icmp eq i64 %24, 4
   br i1 %43, label %47, label %44
 
@@ -680,7 +680,7 @@ rb_array_const_ptr.exit:                          ; preds = %17, %19
 
 47:                                               ; preds = %41, %44
   %48 = phi i16 [ %46, %44 ], [ 0, %41 ]
-  store i16 %48, ptr %36, align 2, !tbaa !33
+  store i16 %48, ptr %36, align 2, !tbaa !34
   %49 = icmp eq i64 %.0, 4
   br i1 %49, label %53, label %50
 
@@ -691,7 +691,7 @@ rb_array_const_ptr.exit:                          ; preds = %17, %19
 
 53:                                               ; preds = %47, %50
   %54 = phi i16 [ %52, %50 ], [ 0, %47 ]
-  store i16 %54, ptr %35, align 2, !tbaa !35
+  store i16 %54, ptr %35, align 2, !tbaa !36
   %55 = icmp eq i64 %.023, 4
   br i1 %55, label %59, label %56
 
@@ -702,7 +702,7 @@ rb_array_const_ptr.exit:                          ; preds = %17, %19
 
 59:                                               ; preds = %53, %56
   %60 = phi i16 [ %58, %56 ], [ 0, %53 ]
-  store i16 %60, ptr %34, align 2, !tbaa !36
+  store i16 %60, ptr %34, align 2, !tbaa !37
   %61 = call i32 (i32, i64, ...) @ioctl(i32 noundef %33, i64 noundef 21524, ptr noundef nonnull %3) #12
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %68, label %63
@@ -852,11 +852,11 @@ define internal range(i64 1, -7) i64 @console_cursor_pos(i64 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #12
   %4 = call fastcc ptr @rawmode_opt(i32 0, ptr noundef null, i32 noundef 1, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
-  store ptr @read_vt_response, ptr %2, align 8, !tbaa !37
+  store ptr @read_vt_response, ptr %2, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %0, ptr %5, align 8, !tbaa !39
+  store i64 %0, ptr %5, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 ptrtoint (ptr @console_cursor_pos.query to i64), ptr %6, align 8, !tbaa !40
+  store i64 ptrtoint (ptr @console_cursor_pos.query to i64), ptr %6, align 8, !tbaa !41
   %7 = ptrtoint ptr %2 to i64
   %8 = call fastcc i64 @ttymode(i64 noundef %0, ptr noundef nonnull @ttymode_callback, i64 noundef %7, ptr noundef nonnull @set_rawmode, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
@@ -869,7 +869,7 @@ define internal range(i64 1, -7) i64 @console_cursor_pos(i64 noundef %0) #0 {
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %1
   %13 = inttoptr i64 %8 to ptr
-  %14 = load i64, ptr %13, align 8, !tbaa !34
+  %14 = load i64, ptr %13, align 8, !tbaa !35
   %15 = and i64 %14, 31
   %16 = icmp eq i64 %15, 7
   br i1 %16, label %17, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -911,14 +911,14 @@ rb_array_const_ptr.exit:                          ; preds = %.thread, %23
 
 rbimpl_RB_TYPE_P_fastpath.exit21:                 ; preds = %rb_array_const_ptr.exit
   %32 = inttoptr i64 %27 to ptr
-  %33 = load i64, ptr %32, align 8, !tbaa !34
+  %33 = load i64, ptr %32, align 8, !tbaa !35
   %34 = and i64 %33, 31
   %35 = icmp eq i64 %34, 5
   br i1 %35, label %36, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
 36:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit21
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !41
+  %38 = load i64, ptr %37, align 8, !tbaa !42
   %.not18 = icmp eq i64 %38, 1
   br i1 %.not18, label %39, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
 
@@ -984,7 +984,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread:            ; preds = %rb_array_const_ptr.
 define internal noundef i64 @console_cursor_set(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = tail call i64 @rb_convert_type(i64 noundef %1, i32 noundef 7, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57) #12
   %4 = inttoptr i64 %3 to ptr
-  %5 = load i64, ptr %4, align 8, !tbaa !34
+  %5 = load i64, ptr %4, align 8, !tbaa !35
   %6 = and i64 %5, 8192
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %rb_array_len.exit, label %rb_array_len.exit.thread
@@ -1195,7 +1195,7 @@ define internal noundef i64 @console_erase_line(i64 noundef returned %0, i64 nou
 
 rb_integer_type_p.exit.i:                         ; preds = %6
   %11 = inttoptr i64 %1 to ptr
-  %12 = load i64, ptr %11, align 8, !tbaa !34
+  %12 = load i64, ptr %11, align 8, !tbaa !35
   %13 = and i64 %12, 31
   %14 = icmp eq i64 %13, 10
   br i1 %14, label %18, label %rb_integer_type_p.exit.thread12.i
@@ -1245,7 +1245,7 @@ define internal noundef i64 @console_erase_screen(i64 noundef returned %0, i64 n
 
 rb_integer_type_p.exit.i:                         ; preds = %6
   %11 = inttoptr i64 %1 to ptr
-  %12 = load i64, ptr %11, align 8, !tbaa !34
+  %12 = load i64, ptr %11, align 8, !tbaa !35
   %13 = and i64 %12, 31
   %14 = icmp eq i64 %13, 10
   br i1 %14, label %18, label %rb_integer_type_p.exit.thread12.i
@@ -1455,7 +1455,7 @@ define internal i64 @console_ttyname(i64 noundef %0) #0 {
   br label %18
 
 18:                                               ; preds = %30, %14
-  %19 = load i64, ptr %16, align 8, !tbaa !34, !noalias !43
+  %19 = load i64, ptr %16, align 8, !tbaa !35, !noalias !44
   %20 = and i64 %19, 8192
   %.not.i.i = icmp eq i64 %20, 0
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %21
@@ -1484,7 +1484,7 @@ RSTRING_PTR.exit:                                 ; preds = %18, %21
 
 30:                                               ; preds = %27
   %31 = call i64 @rb_str_resize(i64 noundef %15, i64 noundef %28) #12
-  br label %18
+  br label %18, !llvm.loop !47
 
 32:                                               ; preds = %RSTRING_PTR.exit
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.2.0.i) #14
@@ -1539,14 +1539,14 @@ rb_check_arity.exit:                              ; preds = %3
   %14 = and i64 %9, 7
   %15 = icmp ne i64 %14, 0
   %16 = or i1 %13, %15
-  br i1 %16, label %RB_SYMBOL_P.exit.thread9.i, label %RB_SYMBOL_P.exit.i, !prof !46
+  br i1 %16, label %RB_SYMBOL_P.exit.thread9.i, label %RB_SYMBOL_P.exit.i, !prof !48
 
 RB_SYMBOL_P.exit.i:                               ; preds = %12
   %17 = inttoptr i64 %9 to ptr
-  %18 = load i64, ptr %17, align 8, !tbaa !34
+  %18 = load i64, ptr %17, align 8, !tbaa !35
   %19 = and i64 %18, 31
   %20 = icmp eq i64 %19, 20
-  br i1 %20, label %Check_Type.exit, label %RB_SYMBOL_P.exit.thread9.i, !prof !47
+  br i1 %20, label %Check_Type.exit, label %RB_SYMBOL_P.exit.thread9.i, !prof !49
 
 RB_SYMBOL_P.exit.thread9.i:                       ; preds = %RB_SYMBOL_P.exit.i, %12
   tail call void @rb_unexpected_type(i64 noundef %9, i32 noundef 20) #15
@@ -1572,7 +1572,7 @@ Check_Type.exit:                                  ; preds = %RB_SYMBOL_P.exit.i,
 
 rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %26
   %32 = inttoptr i64 %27 to ptr
-  %33 = load i64, ptr %32, align 8, !tbaa !34
+  %33 = load i64, ptr %32, align 8, !tbaa !35
   %34 = and i64 %33, 31
   %35 = icmp eq i64 %34, 11
   br i1 %35, label %36, label %rbimpl_RB_TYPE_P_fastpath.exit.thread
@@ -1748,7 +1748,7 @@ declare void @rb_undef_method(i64 noundef, ptr noundef) local_unnamed_addr #1
 define internal noundef i64 @conmode_init_copy(i64 noundef returned %0, i64 noundef %1) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @conmode_type) #12
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %1, ptr noundef nonnull @conmode_type) #12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 4 dereferenceable(60) %4, i64 60, i1 false), !tbaa.struct !29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 4 dereferenceable(60) %4, i64 60, i1 false), !tbaa.struct !30
   ret i64 %0
 }
 
@@ -1832,7 +1832,7 @@ define internal i64 @conmode_raw_new(i32 noundef %0, ptr noundef readonly captur
   %5 = alloca %struct.rawmode_arg_t, align 4
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %2, ptr noundef nonnull @conmode_type) #12
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %4) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(60) %6, i64 60, i1 false), !tbaa.struct !29
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, ptr noundef nonnull align 4 dereferenceable(60) %6, i64 60, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #12
   %7 = call fastcc ptr @rawmode_opt(i32 %0, ptr noundef %1, i32 noundef 0, ptr noundef %5)
   call void @cfmakeraw(ptr noundef nonnull %4) #12
@@ -1889,8 +1889,8 @@ set_rawmode.exit:                                 ; preds = %3, %24, %27
   %35 = call i64 @rb_data_typed_object_zalloc(i64 noundef %34, i64 noundef 60, ptr noundef nonnull @conmode_type) #12
   %36 = inttoptr i64 %35 to ptr
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %38, ptr noundef nonnull readonly align 4 dereferenceable(60) %4, i64 60, i1 false), !tbaa.struct !29
+  %38 = load ptr, ptr %37, align 8, !tbaa !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %38, ptr noundef nonnull readonly align 4 dereferenceable(60) %4, i64 60, i1 false), !tbaa.struct !30
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %4) #12
   ret i64 %35
@@ -2056,8 +2056,8 @@ define internal fastcc i64 @ttymode(i64 noundef %0, ptr noundef %1, i64 noundef 
   br i1 %13, label %14, label %.loopexit66
 
 14:                                               ; preds = %11
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %7, ptr noundef nonnull align 16 dereferenceable(60) %9, i64 60, i1 false), !tbaa.struct !29
-  call void %3(ptr noundef nonnull %7, ptr noundef %4) #12, !callees !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %7, ptr noundef nonnull align 16 dereferenceable(60) %9, i64 60, i1 false), !tbaa.struct !30
+  call void %3(ptr noundef nonnull %7, ptr noundef %4) #12, !callees !50
   br label %15
 
 15:                                               ; preds = %17, %14
@@ -2103,8 +2103,8 @@ define internal fastcc i64 @ttymode(i64 noundef %0, ptr noundef %1, i64 noundef 
   br i1 %31, label %32, label %.loopexit
 
 32:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %6, ptr noundef nonnull align 4 dereferenceable(60) %29, i64 60, i1 false), !tbaa.struct !29
-  call void %3(ptr noundef nonnull %6, ptr noundef %4) #12, !callees !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %6, ptr noundef nonnull align 4 dereferenceable(60) %29, i64 60, i1 false), !tbaa.struct !30
+  call void %3(ptr noundef nonnull %6, ptr noundef %4) #12, !callees !50
   br label %33
 
 33:                                               ; preds = %35, %32
@@ -2401,7 +2401,7 @@ define internal i64 @read_vt_response(i64 noundef %0, i64 noundef %1) #0 {
 4:                                                ; preds = %2
   %5 = inttoptr i64 %1 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %7 = load i8, ptr %6, align 1, !tbaa !49
+  %7 = load i8, ptr %6, align 1, !tbaa !51
   %8 = zext i8 %7 to i32
   %9 = icmp eq i64 %0, 0
   %10 = and i64 %0, 7
@@ -2411,7 +2411,7 @@ define internal i64 @read_vt_response(i64 noundef %0, i64 noundef %1) #0 {
 
 rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %4
   %13 = inttoptr i64 %0 to ptr
-  %14 = load i64, ptr %13, align 8, !tbaa !34
+  %14 = load i64, ptr %13, align 8, !tbaa !35
   %15 = and i64 %14, 31
   %16 = icmp eq i64 %15, 11
   br i1 %16, label %direct_query.exit, label %direct_query.exit.thread
@@ -2490,7 +2490,7 @@ direct_query.exit:                                ; preds = %rbimpl_RB_TYPE_P_fa
   %.2 = phi i32 [ 0, %33 ], [ %44, %41 ], [ %.02547, %45 ]
   %54 = tail call i64 @rb_io_getbyte(i64 noundef %0) #12
   %55 = icmp eq i64 %54, 4
-  br i1 %55, label %.loopexit, label %.lr.ph
+  br i1 %55, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %53, %25, %.thread
   %.029 = phi i64 [ %52, %.thread ], [ 4, %25 ], [ 4, %53 ]
@@ -2505,11 +2505,11 @@ direct_query.exit.thread:                         ; preds = %4, %rbimpl_RB_TYPE_
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @ttymode_callback(i64 noundef %0) #0 {
   %2 = inttoptr i64 %0 to ptr
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !39
+  %5 = load i64, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !40
+  %7 = load i64, ptr %6, align 8, !tbaa !41
   %8 = tail call i64 %3(i64 noundef %5, i64 noundef %7) #12
   ret i64 %8
 }
@@ -2654,30 +2654,33 @@ attributes #15 = { cold noreturn nounwind }
 !21 = !{!18, !14, i64 8}
 !22 = !{!16, !14, i64 0}
 !23 = !{!16, !14, i64 4}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !8, i64 32}
-!27 = !{!"RData", !28, i64 0, !8, i64 16, !8, i64 24, !8, i64 32}
-!28 = !{!"RBasic", !12, i64 0, !12, i64 8}
-!29 = !{i64 0, i64 4, !13, i64 4, i64 4, !13, i64 8, i64 4, !13, i64 12, i64 4, !13, i64 16, i64 1, !19, i64 17, i64 32, !19, i64 52, i64 4, !13, i64 56, i64 4, !13}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"winsize", !32, i64 0, !32, i64 2, !32, i64 4, !32, i64 6}
-!32 = !{!"short", !9, i64 0}
-!33 = !{!31, !32, i64 2}
-!34 = !{!28, !12, i64 0}
-!35 = !{!31, !32, i64 4}
-!36 = !{!31, !32, i64 6}
-!37 = !{!38, !8, i64 0}
-!38 = !{!"ttymode_callback_args", !8, i64 0, !12, i64 8, !12, i64 16}
-!39 = !{!38, !12, i64 8}
-!40 = !{!38, !12, i64 16}
-!41 = !{!42, !12, i64 16}
-!42 = !{!"RString", !28, i64 0, !12, i64 16, !9, i64 24}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"rbimpl_rstring_getmem: argument 0"}
-!45 = distinct !{!45, !"rbimpl_rstring_getmem"}
-!46 = !{!"branch_weights", i32 1073205, i32 2146410443}
-!47 = !{!"branch_weights", !"expected", i32 2146409906, i32 1073742}
-!48 = !{ptr @set_cookedmode, ptr @set_noecho, ptr @set_rawmode}
-!49 = !{!50, !9, i64 6}
-!50 = !{!"query_args", !9, i64 0, !9, i64 6}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !8, i64 32}
+!28 = !{!"RData", !29, i64 0, !8, i64 16, !8, i64 24, !8, i64 32}
+!29 = !{!"RBasic", !12, i64 0, !12, i64 8}
+!30 = !{i64 0, i64 4, !13, i64 4, i64 4, !13, i64 8, i64 4, !13, i64 12, i64 4, !13, i64 16, i64 1, !19, i64 17, i64 32, !19, i64 52, i64 4, !13, i64 56, i64 4, !13}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"winsize", !33, i64 0, !33, i64 2, !33, i64 4, !33, i64 6}
+!33 = !{!"short", !9, i64 0}
+!34 = !{!32, !33, i64 2}
+!35 = !{!29, !12, i64 0}
+!36 = !{!32, !33, i64 4}
+!37 = !{!32, !33, i64 6}
+!38 = !{!39, !8, i64 0}
+!39 = !{!"ttymode_callback_args", !8, i64 0, !12, i64 8, !12, i64 16}
+!40 = !{!39, !12, i64 8}
+!41 = !{!39, !12, i64 16}
+!42 = !{!43, !12, i64 16}
+!43 = !{!"RString", !29, i64 0, !12, i64 16, !9, i64 24}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"rbimpl_rstring_getmem: argument 0"}
+!46 = distinct !{!46, !"rbimpl_rstring_getmem"}
+!47 = distinct !{!47, !26}
+!48 = !{!"branch_weights", i32 1073205, i32 2146410443}
+!49 = !{!"branch_weights", !"expected", i32 2146409906, i32 1073742}
+!50 = !{ptr @set_cookedmode, ptr @set_noecho, ptr @set_rawmode}
+!51 = !{!52, !9, i64 6}
+!52 = !{!"query_args", !9, i64 0, !9, i64 6}
+!53 = distinct !{!53, !26}

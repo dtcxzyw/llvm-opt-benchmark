@@ -205,7 +205,7 @@ define internal fastcc void @output_escaped_str(ptr noundef readonly captures(no
   ]
 
 .critedge.backedge:                               ; preds = %.critedge, %.critedge
-  br label %.critedge
+  br label %.critedge, !llvm.loop !7
 
 32:                                               ; preds = %.critedge
   %33 = add i32 %.0, 2
@@ -243,7 +243,7 @@ define internal fastcc void @output_escaped_str(ptr noundef readonly captures(no
   %.2 = phi i32 [ %.147, %22 ], [ %.147, %25 ], [ %40, %45 ], [ %.147, %48 ], [ %.147, %.loopexit ], [ %.147, %32 ], [ %.147, %.critedge ]
   %52 = add i32 %.2, 1
   %53 = icmp slt i32 %52, %.037
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit44, %17
   br i1 %1, label %54, label %64
@@ -396,16 +396,16 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @output_statement(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @base_yyout, align 8
   %5 = load i32, ptr @compat, align 4
-  %6 = load i8, ptr @force_indicator, align 1, !range !7, !noundef !8
+  %6 = load i8, ptr @force_indicator, align 1, !range !9, !noundef !10
   %7 = zext nneg i8 %6 to i32
   %8 = load ptr, ptr @connection, align 8
   %.not = icmp eq ptr %8, null
   %9 = select i1 %.not, ptr @.str.8, ptr %8
-  %10 = load i8, ptr @questionmarks, align 1, !range !7, !noundef !8
+  %10 = load i8, ptr @questionmarks, align 1, !range !9, !noundef !10
   %11 = zext nneg i8 %10 to i32
   %12 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %4, ptr noundef nonnull @.str.7, i32 noundef %5, i32 noundef %7, ptr noundef nonnull %9, i32 noundef %11) #7
   %13 = icmp ne i32 %2, 3
-  %14 = load i8, ptr @auto_prepare, align 1, !range !7
+  %14 = load i8, ptr @auto_prepare, align 1, !range !9
   %15 = trunc nuw i8 %14 to i1
   %or.cond = select i1 %13, i1 true, i1 %15
   %spec.store.select = select i1 %or.cond, i32 %2, i32 0
@@ -454,7 +454,7 @@ define dso_local void @output_prepare_statement(ptr noundef readonly captures(no
   %4 = load ptr, ptr @connection, align 8
   %.not = icmp eq ptr %4, null
   %5 = select i1 %.not, ptr @.str.8, ptr %4
-  %6 = load i8, ptr @questionmarks, align 1, !range !7, !noundef !8
+  %6 = load i8, ptr @questionmarks, align 1, !range !9, !noundef !10
   %7 = zext nneg i8 %6 to i32
   %8 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %5, i32 noundef %7) #7
   tail call fastcc void @output_escaped_str(ptr noundef %0, i1 noundef zeroext true)
@@ -519,8 +519,10 @@ attributes #8 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{i8 0, i8 2}
-!8 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i8 0, i8 2}
+!10 = !{}

@@ -474,7 +474,7 @@ define dso_local ptr @llvm_store_zero(ptr noundef %0, ptr noundef %1) local_unna
   %64 = add nuw i32 %.06069, 1
   %65 = load i32, ptr %52, align 8
   %66 = icmp ult i32 %64, %65
-  br i1 %66, label %57, label %.loopexit, !llvm.loop !9
+  br i1 %66, label %57, label %.loopexit, !llvm.loop !10
 
 67:                                               ; preds = %31, %28
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -541,7 +541,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !11
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.4, i32 noundef 29) #5
@@ -671,6 +671,8 @@ attributes #5 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !9}

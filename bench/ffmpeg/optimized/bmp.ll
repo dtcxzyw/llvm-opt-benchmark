@@ -502,7 +502,7 @@ define internal range(i32 14, 0) i32 @bmp_decode_frame(ptr noundef %0, ptr nound
   store i32 %231, ptr %232, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit518, label %228, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit518, label %228, !llvm.loop !38
 
 .loopexit518:                                     ; preds = %228, %217, %.preheader519, %.preheader517, %183
   br i1 %or.cond53, label %233, label %263
@@ -536,13 +536,13 @@ define internal range(i32 14, 0) i32 @bmp_decode_frame(ptr noundef %0, ptr nound
   unreachable
 
 bytestream2_init.exit:                            ; preds = %245
-  store ptr %138, ptr %5, align 8, !tbaa !38
+  store ptr %138, ptr %5, align 8, !tbaa !39
   %248 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %138, ptr %248, align 8, !tbaa !40
+  store ptr %138, ptr %248, align 8, !tbaa !41
   %249 = zext nneg i32 %139 to i64
   %250 = getelementptr inbounds nuw i8, ptr %138, i64 %249
   %251 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %250, ptr %251, align 8, !tbaa !41
+  store ptr %250, ptr %251, align 8, !tbaa !42
   %252 = call i32 @ff_msrle_decode(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %79, ptr noundef nonnull %5) #7
   br i1 %234, label %253, label %.loopexit
 
@@ -593,19 +593,19 @@ bytestream2_init.exit:                            ; preds = %245
   %.0374530.us = phi ptr [ %.8533.us, %.preheader514.us ], [ %271, %270 ]
   %.0391529.us = phi i32 [ 0, %.preheader514.us ], [ %274, %270 ]
   %271 = getelementptr inbounds nuw i8, ptr %.0374530.us, i64 2
-  %272 = load i16, ptr %.0374530.us, align 2, !tbaa !42
+  %272 = load i16, ptr %.0374530.us, align 2, !tbaa !43
   %273 = getelementptr inbounds nuw i8, ptr %.0373531.us, i64 2
-  store i16 %272, ptr %.0373531.us, align 2, !tbaa !42
+  store i16 %272, ptr %.0373531.us, align 2, !tbaa !43
   %274 = add nuw nsw i32 %.0391529.us, 1
   %exitcond581.not = icmp eq i32 %274, %266
-  br i1 %exitcond581.not, label %._crit_edge.us, label %270, !llvm.loop !44
+  br i1 %exitcond581.not, label %._crit_edge.us, label %270, !llvm.loop !45
 
 ._crit_edge.us:                                   ; preds = %270
   %275 = getelementptr inbounds nuw i8, ptr %.8533.us, i64 %268
   %276 = getelementptr inbounds i8, ptr %.4535.us, i64 %269
   %277 = add nuw nsw i32 %.5534.us, 1
   %exitcond582.not = icmp eq i32 %277, %264
-  br i1 %exitcond582.not, label %.loopexit, label %.preheader514.us, !llvm.loop !45
+  br i1 %exitcond582.not, label %.loopexit, label %.preheader514.us, !llvm.loop !46
 
 .preheader512:                                    ; preds = %263
   %278 = load i32, ptr %146, align 4, !tbaa !32
@@ -638,7 +638,7 @@ bytestream2_init.exit:                            ; preds = %245
   store i8 %289, ptr %290, align 1, !tbaa !16
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next584, %280
-  br i1 %exitcond587.not, label %._crit_edge.us541, label %282, !llvm.loop !47
+  br i1 %exitcond587.not, label %._crit_edge.us541, label %282, !llvm.loop !48
 
 ._crit_edge.us541:                                ; preds = %282
   %291 = getelementptr inbounds nuw i8, ptr %.7538.us, i64 %280
@@ -646,7 +646,7 @@ bytestream2_init.exit:                            ; preds = %245
   %293 = add nuw nsw i32 %.4396539.us, 1
   %294 = load i32, ptr %146, align 4, !tbaa !32
   %295 = icmp slt i32 %293, %294
-  br i1 %295, label %.preheader511.us, label %.loopexit, !llvm.loop !48
+  br i1 %295, label %.preheader511.us, label %.loopexit, !llvm.loop !49
 
 .preheader509:                                    ; preds = %263
   %296 = load i32, ptr %146, align 4, !tbaa !32
@@ -720,7 +720,7 @@ bytestream2_init.exit:                            ; preds = %245
   %337 = ashr i32 %336, 3
   %338 = sext i32 %337 to i64
   %339 = icmp slt i64 %indvars.iv.next589, %338
-  br i1 %339, label %.lr.ph547, label %.preheader507, !llvm.loop !49
+  br i1 %339, label %.lr.ph547, label %.preheader507, !llvm.loop !50
 
 .lr.ph549:                                        ; preds = %.preheader507, %.lr.ph549
   %340 = phi i32 [ %355, %.lr.ph549 ], [ %302, %.preheader507 ]
@@ -743,7 +743,7 @@ bytestream2_init.exit:                            ; preds = %245
   %355 = load i32, ptr %140, align 8, !tbaa !31
   %356 = and i32 %355, 7
   %357 = icmp samesign ult i32 %354, %356
-  br i1 %357, label %.lr.ph549, label %._crit_edge, !llvm.loop !50
+  br i1 %357, label %.lr.ph549, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph549, %.preheader507
   %358 = phi i32 [ %302, %.preheader507 ], [ %355, %.lr.ph549 ]
@@ -752,7 +752,7 @@ bytestream2_init.exit:                            ; preds = %245
   %361 = add nuw nsw i32 %.2394551, 1
   %362 = load i32, ptr %146, align 4, !tbaa !32
   %363 = icmp slt i32 %361, %362
-  br i1 %363, label %.preheader508, label %.loopexit, !llvm.loop !51
+  br i1 %363, label %.preheader508, label %.loopexit, !llvm.loop !52
 
 364:                                              ; preds = %263, %263, %263
   %365 = load i32, ptr %146, align 4, !tbaa !32
@@ -774,7 +774,7 @@ bytestream2_init.exit:                            ; preds = %245
   %372 = add nuw nsw i32 %.3395543, 1
   %373 = load i32, ptr %146, align 4, !tbaa !32
   %374 = icmp slt i32 %372, %373
-  br i1 %374, label %369, label %.loopexit, !llvm.loop !52
+  br i1 %374, label %369, label %.loopexit, !llvm.loop !53
 
 375:                                              ; preds = %263
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.19) #7
@@ -814,7 +814,7 @@ bytestream2_init.exit:                            ; preds = %245
 387:                                              ; preds = %388
   %indvars.iv.next592 = add nuw nsw i64 %indvars.iv591, 1
   %exitcond595.not = icmp eq i64 %indvars.iv.next592, %wide.trip.count594
-  br i1 %exitcond595.not, label %._crit_edge556.us, label %388, !llvm.loop !53
+  br i1 %exitcond595.not, label %._crit_edge556.us, label %388, !llvm.loop !54
 
 388:                                              ; preds = %.lr.ph555.us, %387
   %indvars.iv591 = phi i64 [ 0, %.lr.ph555.us ], [ %indvars.iv.next592, %387 ]
@@ -827,7 +827,7 @@ bytestream2_init.exit:                            ; preds = %245
 ._crit_edge556.us:                                ; preds = %387
   %indvars.iv.next597 = add nuw nsw i64 %indvars.iv596, 1
   %exitcond600.not = icmp eq i64 %indvars.iv.next597, %wide.trip.count599
-  br i1 %exitcond600.not, label %.thread504.thread, label %.lr.ph555.us, !llvm.loop !54
+  br i1 %exitcond600.not, label %.thread504.thread, label %.lr.ph555.us, !llvm.loop !55
 
 .thread504.loopexit:                              ; preds = %388
   %392 = trunc nuw nsw i64 %indvars.iv596 to i32
@@ -840,7 +840,7 @@ bytestream2_init.exit:                            ; preds = %245
 
 .thread504.thread:                                ; preds = %._crit_edge556.us, %.lr.ph558, %.thread504
   %394 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  store i32 121, ptr %394, align 4, !tbaa !55
+  store i32 121, ptr %394, align 4, !tbaa !56
   store i32 121, ptr %86, align 8, !tbaa !17
   br label %395
 
@@ -929,28 +929,29 @@ attributes #8 = { noreturn nounwind }
 !32 = !{!18, !12, i64 116}
 !33 = !{!11, !11, i64 0}
 !34 = !{!12, !12, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = !{!39, !11, i64 0}
-!39 = !{!"GetByteContext", !11, i64 0, !11, i64 8, !11, i64 16}
-!40 = !{!39, !11, i64 16}
-!41 = !{!39, !11, i64 8}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"short", !8, i64 0}
-!44 = distinct !{!44, !36}
-!45 = distinct !{!45, !36, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !36}
-!48 = distinct !{!48, !36, !46}
-!49 = distinct !{!49, !36}
-!50 = distinct !{!50, !36}
-!51 = distinct !{!51, !36}
-!52 = distinct !{!52, !36}
-!53 = distinct !{!53, !36}
-!54 = distinct !{!54, !36, !46}
-!55 = !{!56, !12, i64 116}
-!56 = !{!"AVFrame", !8, i64 0, !8, i64 64, !57, i64 96, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !12, i64 120, !14, i64 124, !10, i64 136, !10, i64 144, !14, i64 152, !12, i64 160, !7, i64 168, !12, i64 176, !12, i64 180, !8, i64 184, !58, i64 248, !12, i64 256, !29, i64 264, !12, i64 272, !12, i64 276, !12, i64 280, !12, i64 284, !12, i64 288, !12, i64 292, !12, i64 296, !10, i64 304, !59, i64 312, !12, i64 320, !6, i64 328, !6, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !10, i64 368, !7, i64 376, !24, i64 384, !10, i64 408}
-!57 = !{!"p2 omnipotent char", !30, i64 0}
-!58 = !{!"p2 _ZTS11AVBufferRef", !30, i64 0}
-!59 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = !{!40, !11, i64 0}
+!40 = !{!"GetByteContext", !11, i64 0, !11, i64 8, !11, i64 16}
+!41 = !{!40, !11, i64 16}
+!42 = !{!40, !11, i64 8}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"short", !8, i64 0}
+!45 = distinct !{!45, !36, !37}
+!46 = distinct !{!46, !36, !37, !47}
+!47 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!48 = distinct !{!48, !36, !37}
+!49 = distinct !{!49, !36, !37, !47}
+!50 = distinct !{!50, !36, !37}
+!51 = distinct !{!51, !36, !37}
+!52 = distinct !{!52, !36, !37}
+!53 = distinct !{!53, !36, !37}
+!54 = distinct !{!54, !36, !37}
+!55 = distinct !{!55, !36, !37, !47}
+!56 = !{!57, !12, i64 116}
+!57 = !{!"AVFrame", !8, i64 0, !8, i64 64, !58, i64 96, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !12, i64 120, !14, i64 124, !10, i64 136, !10, i64 144, !14, i64 152, !12, i64 160, !7, i64 168, !12, i64 176, !12, i64 180, !8, i64 184, !59, i64 248, !12, i64 256, !29, i64 264, !12, i64 272, !12, i64 276, !12, i64 280, !12, i64 284, !12, i64 288, !12, i64 292, !12, i64 296, !10, i64 304, !60, i64 312, !12, i64 320, !6, i64 328, !6, i64 336, !10, i64 344, !10, i64 352, !10, i64 360, !10, i64 368, !7, i64 376, !24, i64 384, !10, i64 408}
+!58 = !{!"p2 omnipotent char", !30, i64 0}
+!59 = !{!"p2 _ZTS11AVBufferRef", !30, i64 0}
+!60 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}

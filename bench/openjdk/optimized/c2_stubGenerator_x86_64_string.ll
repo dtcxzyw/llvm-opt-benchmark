@@ -648,7 +648,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
 265:                                              ; preds = %262, %._crit_edge.i
   %indvars.iv.next118.pre-phi.i = phi i64 [ %.pre130.i, %._crit_edge.i ], [ %263, %262 ]
   %exitcond120.not.i = icmp eq i64 %indvars.iv.next118.pre-phi.i, 10
-  br i1 %exitcond120.not.i, label %266, label %256, !llvm.loop !8
+  br i1 %exitcond120.not.i, label %266, label %256, !llvm.loop !9
 
 266:                                              ; preds = %265
   call void @_ZN14MacroAssembler5alignEj(ptr noundef nonnull align 8 dereferenceable(40) %3, i32 noundef 8) #6
@@ -670,7 +670,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
   store ptr %277, ptr %274, align 8
   %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
   %exitcond124.not.i = icmp eq i64 %indvars.iv.next122.i, 10
-  br i1 %exitcond124.not.i, label %278, label %270, !llvm.loop !9
+  br i1 %exitcond124.not.i, label %278, label %270, !llvm.loop !10
 
 278:                                              ; preds = %270
   %279 = load ptr, ptr %121, align 8
@@ -691,7 +691,7 @@ _ZL28highly_optimized_short_casesN16StrIntrinsicNode11ArgEncodingE8RegisterS1_S1
   store ptr %289, ptr %286, align 8
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %exitcond128.not.i = icmp eq i64 %indvars.iv.next126.i, 10
-  br i1 %exitcond128.not.i, label %_ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14MacroAssembler.exit, label %282, !llvm.loop !10
+  br i1 %exitcond128.not.i, label %_ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14MacroAssembler.exit, label %282, !llvm.loop !11
 
 _ZL17setup_jump_tablesN16StrIntrinsicNode11ArgEncodingER5LabelS2_S2_PPhS4_P14MacroAssembler.exit: ; preds = %282
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
@@ -2661,8 +2661,9 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

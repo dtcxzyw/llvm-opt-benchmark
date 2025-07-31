@@ -2340,5 +2340,6 @@ attributes #25 = { noreturn }
 !112 = !{!113, !6, i64 0}
 !113 = !{!"_ZTSNSt12_Vector_baseIN4cvc516ProofRewriteRuleESaIS1_EE17_Vector_impl_dataE", !6, i64 0, !6, i64 8, !6, i64 16}
 !114 = !{!113, !6, i64 16}
-!115 = distinct !{!115, !116}
+!115 = distinct !{!115, !116, !117}
 !116 = !{!"llvm.loop.mustprogress"}
+!117 = !{!"llvm.loop.estimated_trip_count"}

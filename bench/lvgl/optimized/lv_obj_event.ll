@@ -205,7 +205,7 @@ define ptr @lv_obj_add_event_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !29
 
 5:                                                ; preds = %4
   tail call void @lv_obj_allocate_spec_attr(ptr noundef nonnull %0) #4
@@ -226,7 +226,7 @@ define i32 @lv_obj_get_event_count(ptr noundef readonly captures(address_is_null
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !30
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -252,7 +252,7 @@ define ptr @lv_obj_get_event_dsc(ptr noundef readonly captures(address_is_null) 
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !31
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -278,7 +278,7 @@ define zeroext i1 @lv_obj_remove_event(ptr noundef readonly captures(address_is_
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !32
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -304,7 +304,7 @@ define noundef zeroext i1 @lv_obj_remove_event_cb(ptr noundef readonly captures(
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !33
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -340,7 +340,7 @@ lv_obj_get_event_dsc.exit:                        ; preds = %.lr.ph.split
   br i1 %.not17, label %lv_obj_get_event_dsc.exit.thread, label %15
 
 15:                                               ; preds = %lv_obj_get_event_dsc.exit
-  %16 = load ptr, ptr %14, align 8, !tbaa !28
+  %16 = load ptr, ptr %14, align 8, !tbaa !34
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %.critedge, label %lv_obj_get_event_dsc.exit.thread
 
@@ -357,7 +357,7 @@ lv_obj_get_event_dsc.exit:                        ; preds = %.lr.ph.split
 lv_obj_get_event_dsc.exit.thread:                 ; preds = %.lr.ph.split, %15, %lv_obj_get_event_dsc.exit
   %23 = add nuw i32 %.01428, 1
   %exitcond.not = icmp eq i32 %23, %8
-  br i1 %exitcond.not, label %lv_obj_remove_event.exit, label %.lr.ph.splitthread-pre-split, !llvm.loop !30
+  br i1 %exitcond.not, label %lv_obj_remove_event.exit, label %.lr.ph.splitthread-pre-split, !llvm.loop !36
 
 lv_obj_remove_event.exit:                         ; preds = %lv_obj_get_event_dsc.exit.thread, %3, %.lr.ph, %lv_obj_get_event_count.exit, %20, %.critedge
   %24 = phi i1 [ true, %20 ], [ true, %.critedge ], [ false, %lv_obj_get_event_count.exit ], [ false, %.lr.ph ], [ false, %3 ], [ false, %lv_obj_get_event_dsc.exit.thread ]
@@ -370,14 +370,14 @@ define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef readonly captures(address
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !38
 
 3:                                                ; preds = %2
   %.not9 = icmp eq ptr %1, null
   br i1 %.not9, label %.preheader10, label %4
 
 .preheader10:                                     ; preds = %3, %.preheader10
-  br label %.preheader10
+  br label %.preheader10, !llvm.loop !39
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -403,7 +403,7 @@ define i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef readonly captures(
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !40
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -446,13 +446,13 @@ lv_obj_get_event_dsc.exit:                        ; preds = %.lr.ph.split
   br i1 %12, label %23, label %20
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %18, align 8, !tbaa !28
+  %21 = load ptr, ptr %18, align 8, !tbaa !34
   %22 = icmp eq ptr %21, %1
   br i1 %22, label %23, label %lv_obj_get_event_dsc.exit.thread
 
 23:                                               ; preds = %20, %19
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
+  %25 = load ptr, ptr %24, align 8, !tbaa !41
   %26 = icmp eq ptr %25, %2
   br i1 %26, label %27, label %lv_obj_get_event_dsc.exit.thread
 
@@ -473,7 +473,7 @@ lv_obj_remove_event.exit:                         ; preds = %27, %30
 lv_obj_get_event_dsc.exit.thread:                 ; preds = %.lr.ph.split, %lv_obj_remove_event.exit, %23, %20, %lv_obj_get_event_dsc.exit
   %.1 = phi i32 [ %33, %lv_obj_remove_event.exit ], [ %.030, %23 ], [ %.030, %20 ], [ %.030, %lv_obj_get_event_dsc.exit ], [ %.030, %.lr.ph.split ]
   %34 = icmp sgt i32 %.01631, 0
-  br i1 %34, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !33
+  br i1 %34, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %lv_obj_get_event_dsc.exit.thread, %4, %.lr.ph, %lv_obj_get_event_count.exit
   %.0.lcssa = phi i32 [ 0, %lv_obj_get_event_count.exit ], [ 0, %.lr.ph ], [ 0, %4 ], [ %.1, %lv_obj_get_event_dsc.exit.thread ]
@@ -578,7 +578,7 @@ define i32 @lv_event_get_key(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr %6, align 4, !tbaa !34
+  %8 = load i32, ptr %6, align 4, !tbaa !43
   br label %9
 
 9:                                                ; preds = %1, %7, %5
@@ -599,7 +599,7 @@ define i32 @lv_event_get_rotary_diff(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr %6, align 4, !tbaa !34
+  %8 = load i32, ptr %6, align 4, !tbaa !43
   br label %9
 
 9:                                                ; preds = %1, %7, %5
@@ -632,9 +632,9 @@ define void @lv_event_set_ext_draw_size(ptr noundef %0, i32 noundef %1) local_un
 
 6:                                                ; preds = %2
   %7 = tail call ptr @lv_event_get_param(ptr noundef nonnull %0) #4
-  %8 = load i32, ptr %7, align 4, !tbaa !34
+  %8 = load i32, ptr %7, align 4, !tbaa !43
   %. = tail call i32 @llvm.smax.i32(i32 %8, i32 %1)
-  store i32 %., ptr %7, align 4, !tbaa !34
+  store i32 %., ptr %7, align 4, !tbaa !43
   br label %9
 
 9:                                                ; preds = %2, %6
@@ -683,7 +683,7 @@ define ptr @lv_event_get_cover_area(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = tail call ptr @lv_event_get_param(ptr noundef nonnull %0) #4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !44
   br label %9
 
 9:                                                ; preds = %1, %5
@@ -700,12 +700,12 @@ define void @lv_event_set_cover_res(ptr noundef %0, i32 noundef %1) local_unname
 
 6:                                                ; preds = %2
   %7 = tail call ptr @lv_event_get_param(ptr noundef nonnull %0) #4
-  %8 = load i32, ptr %7, align 8, !tbaa !37
+  %8 = load i32, ptr %7, align 8, !tbaa !46
   %9 = icmp ugt i32 %1, %8
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  store i32 %1, ptr %7, align 8, !tbaa !37
+  store i32 %1, ptr %7, align 8, !tbaa !46
   br label %11
 
 11:                                               ; preds = %6, %10, %2
@@ -773,15 +773,24 @@ attributes #4 = { nounwind }
 !23 = !{!24, !5, i64 24}
 !24 = !{!"_lv_obj_class_t", !16, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !25, i64 40, !8, i64 48, !8, i64 52, !8, i64 56, !8, i64 56, !8, i64 56, !8, i64 58}
 !25 = !{!"p1 omnipotent char", !5, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29, !5, i64 0}
-!29 = !{!"_lv_event_dsc_t", !5, i64 0, !5, i64 8, !8, i64 16}
-!30 = distinct !{!30, !27, !31}
-!31 = !{!"llvm.loop.unswitch.partial.disable"}
-!32 = !{!29, !5, i64 8}
-!33 = distinct !{!33, !27, !31}
-!34 = !{!8, !8, i64 0}
-!35 = !{!36, !5, i64 8}
-!36 = !{!"_lv_cover_check_info_t", !8, i64 0, !5, i64 8}
-!37 = !{!36, !8, i64 0}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !28}
+!30 = distinct !{!30, !28}
+!31 = distinct !{!31, !28}
+!32 = distinct !{!32, !28}
+!33 = distinct !{!33, !28}
+!34 = !{!35, !5, i64 0}
+!35 = !{!"_lv_event_dsc_t", !5, i64 0, !5, i64 8, !8, i64 16}
+!36 = distinct !{!36, !27, !28, !37}
+!37 = !{!"llvm.loop.unswitch.partial.disable"}
+!38 = distinct !{!38, !28}
+!39 = distinct !{!39, !28}
+!40 = distinct !{!40, !28}
+!41 = !{!35, !5, i64 8}
+!42 = distinct !{!42, !27, !28, !37}
+!43 = !{!8, !8, i64 0}
+!44 = !{!45, !5, i64 8}
+!45 = !{!"_lv_cover_check_info_t", !8, i64 0, !5, i64 8}
+!46 = !{!45, !8, i64 0}

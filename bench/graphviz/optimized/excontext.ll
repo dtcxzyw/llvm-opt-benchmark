@@ -98,7 +98,7 @@ gv_isspace.exit:                                  ; preds = %.lr.ph, %.lr.ph, %.
   %43 = getelementptr inbounds nuw i8, ptr %.25375, i64 1
   store i8 %42, ptr %.25375, align 1, !tbaa !23
   %exitcond94.not = icmp eq ptr %41, %scevgep93
-  br i1 %exitcond94.not, label %thread-pre-split, label %.lr.ph77, !llvm.loop !26
+  br i1 %exitcond94.not, label %thread-pre-split, label %.lr.ph77, !llvm.loop !27
 
 thread-pre-split:                                 ; preds = %.lr.ph77
   %.pr.pre = load i32, ptr %21, align 8, !tbaa !22
@@ -140,7 +140,7 @@ thread-pre-split.thread108:                       ; preds = %.critedge, %thread-
 51:                                               ; preds = %.lr.ph80, %.lr.ph80, %.lr.ph80, %.lr.ph80, %.lr.ph80, %.lr.ph80
   %52 = getelementptr inbounds nuw i8, ptr %.479, i64 1
   %exitcond96.not = icmp eq ptr %52, %46
-  br i1 %exitcond96.not, label %.critedge2, label %.lr.ph80, !llvm.loop !27
+  br i1 %exitcond96.not, label %.critedge2, label %.lr.ph80, !llvm.loop !28
 
 .critedge2:                                       ; preds = %51, %.lr.ph80, %.preheader, %thread-pre-split.thread108
   %.152106 = phi ptr [ %.152107, %.preheader ], [ %.152111, %thread-pre-split.thread108 ], [ %.152107, %.lr.ph80 ], [ %.152107, %51 ]
@@ -171,7 +171,7 @@ thread-pre-split.thread108:                       ; preds = %.critedge, %thread-
   store i8 %65, ptr %.35484, align 1, !tbaa !23
   %67 = load ptr, ptr %5, align 8, !tbaa !3
   %68 = icmp ult ptr %64, %67
-  br i1 %68, label %.lr.ph86, label %._crit_edge, !llvm.loop !28
+  br i1 %68, label %.lr.ph86, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph86, %.critedge2
   %.354.lcssa = phi ptr [ %.152106, %.critedge2 ], [ %66, %.lr.ph86 ]
@@ -188,7 +188,7 @@ thread-pre-split.thread108:                       ; preds = %.critedge, %thread-
   %71 = load i8, ptr %.ptr, align 1, !tbaa !23
   store i8 %71, ptr %70, align 1, !tbaa !23
   %exitcond98 = icmp eq i64 %.789.add, 4
-  br i1 %exitcond98, label %.loopexit, label %69, !llvm.loop !29
+  br i1 %exitcond98, label %.loopexit, label %69, !llvm.loop !30
 
 .loopexit:                                        ; preds = %69, %11
   %.051 = phi ptr [ %1, %11 ], [ %70, %69 ]
@@ -224,9 +224,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !21 = !{!"long long", !7, i64 0}
 !22 = !{!4, !20, i64 808}
 !23 = !{!7, !7, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = distinct !{!27, !25}
-!28 = distinct !{!28, !25}
-!29 = distinct !{!29, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !25, !26}
+!28 = distinct !{!28, !25, !26}
+!29 = distinct !{!29, !25, !26}
+!30 = distinct !{!30, !25, !26}

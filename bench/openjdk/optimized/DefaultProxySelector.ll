@@ -392,7 +392,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
   %116 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next.i
   %117 = load ptr, ptr %116, align 8
   %.not95.i = icmp eq ptr %117, null
-  br i1 %.not95.i, label %.loopexit.i, label %.lr.ph108.i, !llvm.loop !8
+  br i1 %.not95.i, label %.loopexit.i, label %.lr.ph108.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %115, %106, %101, %93, %84, %79, %74, %67, %61, %.preheader.i, %52, %._crit_edge.i, %41
   %.1.i = phi ptr [ null, %41 ], [ %51, %52 ], [ null, %._crit_edge.i ], [ %51, %.preheader.i ], [ null, %106 ], [ null, %93 ], [ null, %101 ], [ null, %61 ], [ null, %67 ], [ null, %84 ], [ null, %74 ], [ null, %79 ], [ %51, %115 ]
@@ -570,7 +570,7 @@ getProxyByGProxyResolver.exit:                    ; preds = %25, %29, %35, %.loo
 211:                                              ; preds = %206
   %212 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull %5) #10
   %.not79.i = icmp eq ptr %212, null
-  br i1 %.not79.i, label %.critedge85.i, label %.lr.ph.i30, !llvm.loop !9
+  br i1 %.not79.i, label %.critedge85.i, label %.lr.ph.i30, !llvm.loop !10
 
 .critedge85.i:                                    ; preds = %211, %.lr.ph.i30, %202, %.thread98.i
   %213 = load ptr, ptr %0, align 8
@@ -712,7 +712,8 @@ attributes #12 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

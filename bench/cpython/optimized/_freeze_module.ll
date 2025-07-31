@@ -254,7 +254,7 @@ compile_and_marshal.exit:                         ; preds = %60, %66, %69, %72
   store i8 0, ptr %99, align 1, !tbaa !29
   %100 = getelementptr inbounds nuw i8, ptr %.0.i21, i64 32
   %101 = getelementptr i8, ptr %.0.i21, i64 16
-  %.val.i.i = load i64, ptr %101, align 8, !tbaa !32
+  %.val.i.i = load i64, ptr %101, align 8, !tbaa !33
   %102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %75, ptr noundef nonnull @.str.14, ptr noundef nonnull %84) #13
   %.not.i.i22 = icmp eq i64 %.val.i.i, 0
   br i1 %.not.i.i22, label %write_code.exit.i, label %.lr.ph25.i.i
@@ -277,13 +277,13 @@ compile_and_marshal.exit:                         ; preds = %60, %66, %69, %72
   %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %75, ptr noundef nonnull @.str.16, i32 noundef %109) #13
   %111 = add i64 %.02022.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %111, %umin.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !36
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !37
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph25.i.i
   %fputc.i.i = call i32 @fputc(i32 10, ptr nonnull %75)
   %112 = icmp ult i64 %103, %.val.i.i
   %indvars.iv.next.i.i = add i64 %indvars.iv.i.i, 16
-  br i1 %112, label %.lr.ph25.i.i, label %write_code.exit.i, !llvm.loop !37
+  br i1 %112, label %.lr.ph25.i.i, label %write_code.exit.i, !llvm.loop !38
 
 write_code.exit.i:                                ; preds = %._crit_edge.i.i, %98
   %113 = call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr nonnull %75)
@@ -461,11 +461,12 @@ attributes #17 = { nounwind willreturn memory(read) }
 !27 = !{!"stat", !18, i64 0, !18, i64 8, !18, i64 16, !17, i64 24, !17, i64 28, !17, i64 32, !17, i64 36, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !28, i64 72, !28, i64 88, !28, i64 104, !7, i64 120}
 !28 = !{!"timespec", !18, i64 0, !18, i64 8}
 !29 = !{!7, !7, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!33, !18, i64 16}
-!33 = !{!"", !34, i64 0, !18, i64 16}
-!34 = !{!"_object", !7, i64 0, !35, i64 8}
-!35 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
-!36 = distinct !{!36, !31}
-!37 = distinct !{!37, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34, !18, i64 16}
+!34 = !{!"", !35, i64 0, !18, i64 16}
+!35 = !{!"_object", !7, i64 0, !36, i64 8}
+!36 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
+!37 = distinct !{!37, !31, !32}
+!38 = distinct !{!38, !31, !32}

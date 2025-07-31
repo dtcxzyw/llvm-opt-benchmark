@@ -143,13 +143,13 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_http_open(ptr noundef %0, pt
 66:                                               ; preds = %64
   %67 = add nuw nsw i32 %62, %.0
   %68 = icmp eq i32 %67, 64
-  br i1 %68, label %.loopexit, label %57
+  br i1 %68, label %.loopexit, label %57, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.preheader, %av_isspace.exit.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %av_isspace.exit.thread ], [ %59, %.preheader ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %69 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 0, i64 %indvars.iv.next
-  %70 = load i8, ptr %69, align 1, !tbaa !21
+  %70 = load i8, ptr %69, align 1, !tbaa !23
   switch i8 %70, label %.critedge.loopexit [
     i8 32, label %av_isspace.exit.thread
     i8 13, label %av_isspace.exit.thread
@@ -161,7 +161,7 @@ define internal range(i32 -2147483648, 1) i32 @rtmp_http_open(ptr noundef %0, pt
 
 av_isspace.exit.thread:                           ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %71 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %71, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !22
+  br i1 %71, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !24
 
 .critedge.loopexit:                               ; preds = %.lr.ph, %av_isspace.exit.thread
   %.1.lcssa.ph = phi i64 [ 0, %av_isspace.exit.thread ], [ %indvars.iv, %.lr.ph ]
@@ -171,9 +171,9 @@ av_isspace.exit.thread:                           ; preds = %.lr.ph, %.lr.ph, %.
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
   %.pre-phi = phi i64 [ %.pre, %.critedge.loopexit ], [ %59, %.preheader ]
   %72 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 0, i64 %.pre-phi
-  store i8 0, ptr %72, align 1, !tbaa !21
+  store i8 0, ptr %72, align 1, !tbaa !23
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 360
-  store i32 1, ptr %73, align 8, !tbaa !24
+  store i32 1, ptr %73, align 8, !tbaa !26
   br label %75
 
 .loopexit:                                        ; preds = %66, %64, %48, %52, %24
@@ -218,12 +218,12 @@ define internal range(i32 1, 0) i32 @rtmp_http_read(ptr noundef readonly capture
   ]
 
 19:                                               ; preds = %18, %18
-  %20 = load i32, ptr %7, align 4, !tbaa !25
+  %20 = load i32, ptr %7, align 4, !tbaa !27
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %21, label %.loopexit
 
 21:                                               ; preds = %19
-  %22 = load i32, ptr %8, align 8, !tbaa !26
+  %22 = load i32, ptr %8, align 8, !tbaa !28
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %24, label %27
 
@@ -234,7 +234,7 @@ define internal range(i32 1, 0) i32 @rtmp_http_read(ptr noundef readonly capture
   br i1 %26, label %.loopexit, label %55
 
 27:                                               ; preds = %21
-  %28 = load i32, ptr %9, align 8, !tbaa !27
+  %28 = load i32, ptr %9, align 8, !tbaa !29
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %32
 
@@ -245,16 +245,16 @@ define internal range(i32 1, 0) i32 @rtmp_http_read(ptr noundef readonly capture
 32:                                               ; preds = %30, %27
   %33 = load ptr, ptr %4, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 352
-  %35 = load i32, ptr %34, align 8, !tbaa !26
+  %35 = load i32, ptr %34, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 356
-  %37 = load i32, ptr %36, align 4, !tbaa !28
+  %37 = load i32, ptr %36, align 4, !tbaa !30
   %.not41 = icmp slt i32 %35, %37
   br i1 %.not41, label %45, label %38
 
 38:                                               ; preds = %32
   %39 = shl i32 %35, 1
   %40 = add i32 %39, 2
-  store i32 %40, ptr %36, align 4, !tbaa !28
+  store i32 %40, ptr %36, align 4, !tbaa !30
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 344
   %42 = sext i32 %40 to i64
   %43 = tail call i32 @av_reallocp(ptr noundef nonnull %41, i64 noundef %42) #4
@@ -262,31 +262,31 @@ define internal range(i32 1, 0) i32 @rtmp_http_read(ptr noundef readonly capture
   br i1 %44, label %..critedge_crit_edge.i, label %rtmp_http_write.exit.thread
 
 ..critedge_crit_edge.i:                           ; preds = %38
-  %.pre.i = load i32, ptr %34, align 8, !tbaa !26
+  %.pre.i = load i32, ptr %34, align 8, !tbaa !28
   br label %45
 
 rtmp_http_write.exit.thread:                      ; preds = %38
-  store i32 0, ptr %34, align 8, !tbaa !26
-  store i32 0, ptr %36, align 4, !tbaa !28
+  store i32 0, ptr %34, align 8, !tbaa !28
+  store i32 0, ptr %36, align 4, !tbaa !30
   br label %.loopexit
 
 45:                                               ; preds = %..critedge_crit_edge.i, %32
   %46 = phi i32 [ %.pre.i, %..critedge_crit_edge.i ], [ %35, %32 ]
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 344
-  %48 = load ptr, ptr %47, align 8, !tbaa !29
+  %48 = load ptr, ptr %47, align 8, !tbaa !31
   %49 = sext i32 %46 to i64
   %50 = getelementptr inbounds i8, ptr %48, i64 %49
   store i8 0, ptr %50, align 1
-  %51 = load i32, ptr %34, align 8, !tbaa !26
+  %51 = load i32, ptr %34, align 8, !tbaa !28
   %52 = add nsw i32 %51, 1
-  store i32 %52, ptr %34, align 8, !tbaa !26
+  store i32 %52, ptr %34, align 8, !tbaa !28
   %.val39 = load ptr, ptr %4, align 8, !tbaa !4
   %53 = tail call fastcc i32 @rtmp_http_send_cmd(ptr %.val39, ptr noundef nonnull @.str.12)
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %45, %24
-  %56 = load i32, ptr %10, align 8, !tbaa !30
+  %56 = load i32, ptr %10, align 8, !tbaa !32
   %57 = and i32 %56, 8
   %.not38 = icmp eq i32 %57, 0
   br i1 %.not38, label %63, label %.loopexit
@@ -294,16 +294,16 @@ rtmp_http_write.exit.thread:                      ; preds = %38
 58:                                               ; preds = %18
   %59 = add nsw i32 %15, %.0
   %60 = sub nsw i32 %.032, %15
-  %61 = load i32, ptr %9, align 8, !tbaa !27
+  %61 = load i32, ptr %9, align 8, !tbaa !29
   %62 = add nsw i32 %61, %15
-  store i32 %62, ptr %9, align 8, !tbaa !27
+  store i32 %62, ptr %9, align 8, !tbaa !29
   br label %63
 
 63:                                               ; preds = %58, %55
   %.133 = phi i32 [ %.032, %55 ], [ %60, %58 ]
   %.1 = phi i32 [ %.0, %55 ], [ %59, %58 ]
   %64 = icmp slt i32 %.1, 1
-  br i1 %64, label %11, label %.loopexit, !llvm.loop !31
+  br i1 %64, label %11, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %63, %55, %45, %24, %19, %11, %rtmp_http_write.exit.thread
   %.031 = phi i32 [ %43, %rtmp_http_write.exit.thread ], [ %.1, %63 ], [ -11, %55 ], [ %53, %45 ], [ %25, %24 ], [ -11, %19 ], [ %15, %11 ]
@@ -315,16 +315,16 @@ define internal i32 @rtmp_http_write(ptr noundef readonly captures(none) %0, ptr
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  %7 = load i32, ptr %6, align 8, !tbaa !26
+  %7 = load i32, ptr %6, align 8, !tbaa !28
   %8 = add nsw i32 %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 356
-  %10 = load i32, ptr %9, align 4, !tbaa !28
+  %10 = load i32, ptr %9, align 4, !tbaa !30
   %11 = icmp sgt i32 %8, %10
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %3
   %13 = shl nsw i32 %8, 1
-  store i32 %13, ptr %9, align 4, !tbaa !28
+  store i32 %13, ptr %9, align 4, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %15 = sext i32 %13 to i64
   %16 = tail call i32 @av_reallocp(ptr noundef nonnull %14, i64 noundef %15) #4
@@ -332,25 +332,25 @@ define internal i32 @rtmp_http_write(ptr noundef readonly captures(none) %0, ptr
   br i1 %17, label %..critedge_crit_edge, label %18
 
 ..critedge_crit_edge:                             ; preds = %12
-  %.pre = load i32, ptr %6, align 8, !tbaa !26
+  %.pre = load i32, ptr %6, align 8, !tbaa !28
   br label %.critedge
 
 18:                                               ; preds = %12
-  store i32 0, ptr %6, align 8, !tbaa !26
-  store i32 0, ptr %9, align 4, !tbaa !28
+  store i32 0, ptr %6, align 8, !tbaa !28
+  store i32 0, ptr %9, align 4, !tbaa !30
   br label %27
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %3
   %19 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %7, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 344
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !31
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = sext i32 %2 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %1, i64 %24, i1 false)
-  %25 = load i32, ptr %6, align 8, !tbaa !26
+  %25 = load i32, ptr %6, align 8, !tbaa !28
   %26 = add nsw i32 %25, %2
-  store i32 %26, ptr %6, align 8, !tbaa !26
+  store i32 %26, ptr %6, align 8, !tbaa !28
   br label %27
 
 27:                                               ; preds = %18, %.critedge
@@ -365,35 +365,35 @@ define internal i32 @rtmp_http_close(ptr noundef readonly captures(none) %0) #0 
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %2) #4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 360
-  %6 = load i32, ptr %5, align 8, !tbaa !24
+  %6 = load i32, ptr %5, align 8, !tbaa !26
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %35, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 364
-  store i32 1, ptr %8, align 4, !tbaa !25
+  store i32 1, ptr %8, align 4, !tbaa !27
   br label %9
 
 9:                                                ; preds = %9, %7
   %10 = call i32 @rtmp_http_read(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 2048)
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %9, label %12, !llvm.loop !32
+  br i1 %11, label %9, label %12, !llvm.loop !34
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  store i32 0, ptr %13, align 8, !tbaa !26
+  store i32 0, ptr %13, align 8, !tbaa !28
   %14 = load ptr, ptr %3, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 352
-  %16 = load i32, ptr %15, align 8, !tbaa !26
+  %16 = load i32, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 356
-  %18 = load i32, ptr %17, align 4, !tbaa !28
+  %18 = load i32, ptr %17, align 4, !tbaa !30
   %.not12 = icmp slt i32 %16, %18
   br i1 %.not12, label %26, label %19
 
 19:                                               ; preds = %12
   %20 = shl i32 %16, 1
   %21 = add i32 %20, 2
-  store i32 %21, ptr %17, align 4, !tbaa !28
+  store i32 %21, ptr %17, align 4, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 344
   %23 = sext i32 %21 to i64
   %24 = call i32 @av_reallocp(ptr noundef nonnull %22, i64 noundef %23) #4
@@ -401,24 +401,24 @@ define internal i32 @rtmp_http_close(ptr noundef readonly captures(none) %0) #0 
   br i1 %25, label %..critedge_crit_edge.i, label %rtmp_http_write.exit
 
 ..critedge_crit_edge.i:                           ; preds = %19
-  %.pre.i = load i32, ptr %15, align 8, !tbaa !26
+  %.pre.i = load i32, ptr %15, align 8, !tbaa !28
   br label %26
 
 rtmp_http_write.exit:                             ; preds = %19
-  store i32 0, ptr %15, align 8, !tbaa !26
-  store i32 0, ptr %17, align 4, !tbaa !28
+  store i32 0, ptr %15, align 8, !tbaa !28
+  store i32 0, ptr %17, align 4, !tbaa !30
   br label %35
 
 26:                                               ; preds = %12, %..critedge_crit_edge.i
   %27 = phi i32 [ %.pre.i, %..critedge_crit_edge.i ], [ %16, %12 ]
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 344
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %29 = load ptr, ptr %28, align 8, !tbaa !31
   %30 = sext i32 %27 to i64
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
   store i8 0, ptr %31, align 1
-  %32 = load i32, ptr %15, align 8, !tbaa !26
+  %32 = load i32, ptr %15, align 8, !tbaa !28
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %15, align 8, !tbaa !26
+  store i32 %33, ptr %15, align 8, !tbaa !28
   %.val = load ptr, ptr %3, align 8, !tbaa !4
   %34 = call fastcc i32 @rtmp_http_send_cmd(ptr %.val, ptr noundef nonnull @.str.14)
   br label %35
@@ -466,18 +466,18 @@ define internal fastcc i32 @rtmp_http_send_cmd(ptr %.16.val, ptr noundef %0) unn
   %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %.16.val, i64 276
   %8 = getelementptr inbounds nuw i8, ptr %.16.val, i64 340
-  %9 = load i32, ptr %8, align 4, !tbaa !33
+  %9 = load i32, ptr %8, align 4, !tbaa !35
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 4, !tbaa !33
+  store i32 %10, ptr %8, align 4, !tbaa !35
   %11 = call i32 (ptr, i32, ptr, ptr, ptr, i32, ptr, ...) @ff_url_join(ptr noundef nonnull %2, i32 noundef 2048, ptr noundef nonnull @.str.4, ptr noundef null, ptr noundef nonnull %4, i32 noundef %6, ptr noundef nonnull @.str.13, ptr noundef %0, ptr noundef nonnull %7, i32 noundef %9) #4
   %12 = getelementptr inbounds nuw i8, ptr %.16.val, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds nuw i8, ptr %.16.val, i64 344
-  %17 = load ptr, ptr %16, align 8, !tbaa !29
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw i8, ptr %.16.val, i64 352
-  %19 = load i32, ptr %18, align 8, !tbaa !26
+  %19 = load i32, ptr %18, align 8, !tbaa !28
   %20 = call i32 @av_opt_set_bin(ptr noundef %15, ptr noundef nonnull @.str.9, ptr noundef %17, i32 noundef %19, i32 noundef 0) #4
   %21 = load ptr, ptr %12, align 8, !tbaa !19
   %22 = call i32 @ff_http_do_new_request(ptr noundef %21, ptr noundef nonnull %2) #4
@@ -485,7 +485,7 @@ define internal fastcc i32 @rtmp_http_send_cmd(ptr %.16.val, ptr noundef %0) unn
   br i1 %23, label %30, label %24
 
 24:                                               ; preds = %1
-  store i32 0, ptr %18, align 8, !tbaa !26
+  store i32 0, ptr %18, align 8, !tbaa !28
   %25 = load ptr, ptr %12, align 8, !tbaa !19
   %26 = call i32 @ffurl_read2(ptr noundef %25, ptr noundef nonnull %3, i32 noundef 1) #4
   %27 = icmp slt i32 %26, 0
@@ -493,7 +493,7 @@ define internal fastcc i32 @rtmp_http_send_cmd(ptr %.16.val, ptr noundef %0) unn
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.16.val, i64 368
-  store i32 0, ptr %29, align 8, !tbaa !27
+  store i32 0, ptr %29, align 8, !tbaa !29
   br label %30
 
 30:                                               ; preds = %24, %1, %28
@@ -547,16 +547,18 @@ attributes #4 = { nounwind }
 !18 = !{!16, !12, i64 272}
 !19 = !{!16, !17, i64 8}
 !20 = !{!5, !11, i64 72}
-!21 = !{!8, !8, i64 0}
-!22 = distinct !{!22, !23}
-!23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!16, !12, i64 360}
-!25 = !{!16, !12, i64 364}
-!26 = !{!16, !12, i64 352}
-!27 = !{!16, !12, i64 368}
-!28 = !{!16, !12, i64 356}
-!29 = !{!16, !11, i64 344}
-!30 = !{!5, !12, i64 32}
-!31 = distinct !{!31, !23}
-!32 = distinct !{!32, !23}
-!33 = !{!16, !12, i64 340}
+!21 = distinct !{!21, !22}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!8, !8, i64 0}
+!24 = distinct !{!24, !25, !22}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!16, !12, i64 360}
+!27 = !{!16, !12, i64 364}
+!28 = !{!16, !12, i64 352}
+!29 = !{!16, !12, i64 368}
+!30 = !{!16, !12, i64 356}
+!31 = !{!16, !11, i64 344}
+!32 = !{!5, !12, i64 32}
+!33 = distinct !{!33, !25, !22}
+!34 = distinct !{!34, !25, !22}
+!35 = !{!16, !12, i64 340}

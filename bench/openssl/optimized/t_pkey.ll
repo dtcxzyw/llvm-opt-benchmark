@@ -50,7 +50,7 @@ define range(i32 0, 2) i32 @ASN1_buf_print(ptr noundef %0, ptr noundef readonly 
 
 17:                                               ; preds = %15, %8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %.017
-  %19 = load i8, ptr %18, align 1, !tbaa !5
+  %19 = load i8, ptr %18, align 1, !tbaa !6
   %20 = zext i8 %19 to i32
   %21 = icmp eq i64 %.017, %5
   %22 = select i1 %21, ptr @.str.2, ptr @.str.3
@@ -108,9 +108,9 @@ define range(i32 0, 2) i32 @ASN1_bn_print(ptr noundef %0, ptr noundef %1, ptr no
 
 19:                                               ; preds = %16
   %20 = tail call ptr @bn_get_words(ptr noundef nonnull %2) #2
-  %21 = load i64, ptr %20, align 8, !tbaa !8
+  %21 = load i64, ptr %20, align 8, !tbaa !9
   %22 = tail call ptr @bn_get_words(ptr noundef nonnull %2) #2
-  %23 = load i64, ptr %22, align 8, !tbaa !8
+  %23 = load i64, ptr %22, align 8, !tbaa !9
   %24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef nonnull %9, i64 noundef %21, ptr noundef nonnull %9, i64 noundef %23) #2
   %25 = icmp sgt i32 %24, 0
   %.41 = zext i1 %25 to i32
@@ -127,8 +127,8 @@ define range(i32 0, 2) i32 @ASN1_bn_print(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %33, label %69, label %34
 
 34:                                               ; preds = %26
-  store i8 0, ptr %32, align 1, !tbaa !5
-  %35 = load i8, ptr %9, align 1, !tbaa !5
+  store i8 0, ptr %32, align 1, !tbaa !6
+  %35 = load i8, ptr %9, align 1, !tbaa !6
   %36 = icmp eq i8 %35, 45
   %37 = select i1 %36, ptr @.str.9, ptr @.str.2
   %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef nonnull %37) #2
@@ -138,7 +138,7 @@ define range(i32 0, 2) i32 @ASN1_bn_print(ptr noundef %0, ptr noundef %1, ptr no
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %42 = tail call i32 @BN_bn2bin(ptr noundef nonnull %2, ptr noundef nonnull %41) #2
-  %43 = load i8, ptr %41, align 1, !tbaa !5
+  %43 = load i8, ptr %41, align 1, !tbaa !6
   %.not40 = icmp slt i8 %43, 0
   %.lobit = lshr i8 %43, 7
   %44 = zext nneg i8 %.lobit to i32
@@ -180,7 +180,7 @@ define range(i32 0, 2) i32 @ASN1_bn_print(ptr noundef %0, ptr noundef %1, ptr no
 
 59:                                               ; preds = %57, %50
   %60 = getelementptr inbounds nuw i8, ptr %.033, i64 %.017.i
-  %61 = load i8, ptr %60, align 1, !tbaa !5
+  %61 = load i8, ptr %60, align 1, !tbaa !6
   %62 = zext i8 %61 to i32
   %63 = icmp eq i64 %.017.i, %47
   %64 = select i1 %63, ptr @.str.2, ptr @.str.3
@@ -230,10 +230,11 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"long", !6, i64 0}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C/C++ TBAA"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !7, i64 0}

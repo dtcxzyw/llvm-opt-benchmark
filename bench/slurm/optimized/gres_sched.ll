@@ -117,12 +117,12 @@ define dso_local noundef zeroext i1 @gres_sched_init(ptr noundef %0) local_unnam
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
   %.not13 = icmp eq i64 %10, 0
-  br i1 %.not13, label %4, label %11, !llvm.loop !11
+  br i1 %.not13, label %4, label %11, !llvm.loop !12
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store i64 0, ptr %12, align 8
-  br label %.outer, !llvm.loop !11
+  br label %.outer, !llvm.loop !12
 
 13:                                               ; preds = %4
   tail call void @slurm_list_iterator_destroy(ptr noundef %3) #4
@@ -162,7 +162,7 @@ define dso_local noundef zeroext i1 @gres_sched_test(ptr noundef %0, i32 noundef
 15:                                               ; preds = %11, %.lr.ph
   %16 = tail call ptr @slurm_list_next(ptr noundef %4) #4
   %.not14 = icmp eq ptr %16, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %15, %11, %3
   %.not14.lcssa = phi i1 [ true, %3 ], [ false, %11 ], [ true, %15 ]
@@ -232,7 +232,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
 .backedge:                                        ; preds = %32, %39
   %38 = call ptr @slurm_list_next(ptr noundef %18) #4
   %.not89 = icmp eq ptr %38, null
-  br i1 %.not89, label %.outer._crit_edge, label %32, !llvm.loop !13
+  br i1 %.not89, label %.outer._crit_edge, label %32, !llvm.loop !14
 
 39:                                               ; preds = %32
   %40 = call ptr @slurm_list_find_first(ptr noundef %3, ptr noundef nonnull @slurm_gres_find_sock_by_job_state, ptr noundef nonnull %33) #4
@@ -334,7 +334,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   %95 = add i64 %.3127, %94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph130, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph130, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph130, %81, %79
   %96 = phi ptr [ %80, %79 ], [ %82, %81 ], [ %91, %.lr.ph130 ]
@@ -423,7 +423,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
 132:                                              ; preds = %130, %118
   %133 = add nsw i32 %116, -1
   %134 = icmp ugt i16 %120, %112
-  br i1 %134, label %.lr.ph.i, label %.thread.i
+  br i1 %134, label %.lr.ph.i, label %.thread.i, !llvm.loop !16
 
 .thread.i:                                        ; preds = %132, %.lr.ph.i, %.preheader.i
   %.6 = phi i64 [ %.5, %.preheader.i ], [ %126, %132 ], [ %.7, %.lr.ph.i ]
@@ -495,7 +495,7 @@ _gres_per_job_reduce_res_cores.exit:              ; preds = %.critedge.i, %.sink
   store i64 %157, ptr %70, align 8
   %158 = call ptr @slurm_list_next(ptr noundef %18) #4
   %.not89125 = icmp eq ptr %158, null
-  br i1 %.not89125, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not89125, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge
   %.070.ph.lcssa124 = phi i16 [ %.070.ph134, %.backedge ], [ %.1, %.outer ]
@@ -597,7 +597,7 @@ define dso_local void @gres_sched_consec(ptr noundef captures(none) %0, ptr noun
 .backedge:                                        ; preds = %26, %.lr.ph, %12
   %32 = tail call ptr @slurm_list_next(ptr noundef %5) #4
   %.not24 = icmp eq ptr %32, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.backedge, %4
   tail call void @slurm_list_iterator_destroy(ptr noundef %5) #4
@@ -640,7 +640,7 @@ define dso_local noundef zeroext i1 @gres_sched_sufficient(ptr noundef %0, ptr n
 .backedge:                                        ; preds = %.lr.ph, %13, %18
   %12 = tail call ptr @slurm_list_next(ptr noundef %5) #4
   %.not23 = icmp eq ptr %12, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
@@ -709,12 +709,14 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}

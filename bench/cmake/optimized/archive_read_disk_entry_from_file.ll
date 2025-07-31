@@ -505,11 +505,11 @@ thread-pre-split124:                              ; preds = %.thread.i, %135, %1
   %190 = getelementptr inbounds i8, ptr %187, i64 -40
   %191 = load i64, ptr %190, align 8, !tbaa !38
   %192 = add i64 %191, %189
-  store i64 %192, ptr %5, align 16, !tbaa !42
+  store i64 %192, ptr %5, align 16, !tbaa !43
   %193 = add nuw nsw i32 %.06899.i.i, 1
   %194 = call i32 (i32, i64, ...) @ioctl(i32 noundef %136, i64 noundef 3223348747, ptr noundef nonnull %5) #12
   %195 = icmp slt i32 %194, 0
-  br i1 %195, label %setup_sparse_fiemap.exit.i, label %155
+  br i1 %195, label %setup_sparse_fiemap.exit.i, label %155, !llvm.loop !44
 
 setup_sparse_fiemap.exit.i:                       ; preds = %._crit_edge.thread.i.i, %._crit_edge.i.i, %167, %160, %158, %146, %144, %141, %139
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5) #12
@@ -584,7 +584,7 @@ setup_sparse_fiemap.exit.i:                       ; preds = %._crit_edge.thread.
   %226 = sub nsw i64 %212, %202
   call void @archive_entry_sparse_add_entry(ptr noundef %1, i64 noundef %202, i64 noundef %226) #12
   %227 = icmp slt i64 %212, %200
-  br i1 %227, label %.lr.ph.i, label %.critedge.i, !llvm.loop !43
+  br i1 %227, label %.lr.ph.i, label %.critedge.i, !llvm.loop !45
 
 228:                                              ; preds = %208
   %229 = call i64 @lseek(i32 noundef %136, i64 noundef 0, i32 noundef 4) #12
@@ -752,7 +752,9 @@ attributes #14 = { nounwind allocsize(0) }
 !37 = !{!"fiemap_extent", !32, i64 0, !32, i64 8, !32, i64 16, !8, i64 24, !7, i64 40, !8, i64 44}
 !38 = !{!37, !32, i64 16}
 !39 = !{!37, !32, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!31, !32, i64 0}
-!43 = distinct !{!43, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!31, !32, i64 0}
+!44 = distinct !{!44, !42}
+!45 = distinct !{!45, !41, !42}

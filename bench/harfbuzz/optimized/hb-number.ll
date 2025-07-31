@@ -265,7 +265,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
 
 55:                                               ; preds = %46
   %56 = fcmp ugt double %.163.i, 0x42F9999999999990
-  br i1 %56, label %67, label %57, !prof !17
+  br i1 %56, label %67, label %57, !prof !18
 
 57:                                               ; preds = %55
   %58 = add nsw i32 %29, -48
@@ -280,7 +280,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %65 = add i32 %64, %29
   %66 = icmp ugt i32 %65, 2047
   %.176..i = select i1 %66, i1 true, i1 %.176.i
-  %..170.i = select i1 %66, i32 %.170.i, i32 %65, !prof !17
+  %..170.i = select i1 %66, i32 %.170.i, i32 %65, !prof !18
   br label %67
 
 67:                                               ; preds = %62, %57, %55, %51, %50, %49, %46, %35
@@ -297,7 +297,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.not90.i = icmp eq ptr %70, %1
-  br i1 %.not90.i, label %71, label %.preheader134.i
+  br i1 %.not90.i, label %71, label %.preheader134.i, !llvm.loop !19
 
 71:                                               ; preds = %69, %67
   %.1.i = phi ptr [ %.2.i, %67 ], [ %scevgep139.i, %69 ]
@@ -317,7 +317,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   br i1 %.not9.i.i, label %80, label %77
 
 77:                                               ; preds = %75
-  %78 = load double, ptr %.012.i.i, align 8, !tbaa !18
+  %78 = load double, ptr %.012.i.i, align 8, !tbaa !20
   %79 = fmul double %.0711.i.i, %78
   br label %80
 
@@ -326,7 +326,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef capt
   %81 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %82 = lshr i32 %.0810.i.i, 1
   %.not.i.i = icmp samesign ult i32 %.0810.i.i, 2
-  br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !20
+  br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !22
 
 _ZL6_pow10j.exit.i:                               ; preds = %80
   %83 = fdiv double %.264.i, %.1.i.i
@@ -337,7 +337,7 @@ _ZL6_pow10j.exit.i:                               ; preds = %80
   %.3.i = phi double [ %84, %_ZL6_pow10j.exit.i ], [ %.261.i, %71 ]
   %86 = fneg double %.3.i
   %.4.i = select i1 %.274.i, double %86, double %.3.i
-  br i1 %.277.i, label %87, label %95, !prof !21
+  br i1 %.277.i, label %87, label %95, !prof !23
 
 87:                                               ; preds = %85
   %88 = fcmp oeq double %.3.i, 0.000000e+00
@@ -372,7 +372,7 @@ _ZL6_pow10j.exit.i:                               ; preds = %80
   br i1 %.not9.i95.i, label %102, label %99
 
 99:                                               ; preds = %.preheader.i
-  %100 = load double, ptr %.012.i92.i, align 8, !tbaa !18
+  %100 = load double, ptr %.012.i92.i, align 8, !tbaa !20
   %101 = fmul double %.0711.i93.i, %100
   br label %102
 
@@ -381,7 +381,7 @@ _ZL6_pow10j.exit.i:                               ; preds = %80
   %103 = getelementptr inbounds nuw i8, ptr %.012.i92.i, i64 8
   %104 = lshr i32 %.0810.i94.i, 1
   %.not.i97.i = icmp samesign ult i32 %.0810.i94.i, 2
-  br i1 %.not.i97.i, label %_ZL6_pow10j.exit98.i, label %.preheader.i, !llvm.loop !20
+  br i1 %.not.i97.i, label %_ZL6_pow10j.exit98.i, label %.preheader.i, !llvm.loop !22
 
 _ZL6_pow10j.exit98.i:                             ; preds = %102
   %105 = fdiv double %.4.i, %.1.i96.i
@@ -396,7 +396,7 @@ _ZL6_pow10j.exit98.i:                             ; preds = %102
   br i1 %.not9.i102.i, label %110, label %107
 
 107:                                              ; preds = %.preheader133.i
-  %108 = load double, ptr %.012.i99.i, align 8, !tbaa !18
+  %108 = load double, ptr %.012.i99.i, align 8, !tbaa !20
   %109 = fmul double %.0711.i100.i, %108
   br label %110
 
@@ -405,7 +405,7 @@ _ZL6_pow10j.exit98.i:                             ; preds = %102
   %111 = getelementptr inbounds nuw i8, ptr %.012.i99.i, i64 8
   %112 = lshr i32 %.0810.i101.i, 1
   %.not.i104.i = icmp samesign ult i32 %.0810.i101.i, 2
-  br i1 %.not.i104.i, label %_ZL6_pow10j.exit105.i, label %.preheader133.i, !llvm.loop !20
+  br i1 %.not.i104.i, label %_ZL6_pow10j.exit105.i, label %.preheader133.i, !llvm.loop !22
 
 _ZL6_pow10j.exit105.i:                            ; preds = %110
   %113 = fmul double %.4.i, %.1.i103.i
@@ -414,9 +414,9 @@ _ZL6_pow10j.exit105.i:                            ; preds = %110
 _ZL9strtod_rlPKcPS0_.exit:                        ; preds = %.critedge.i, %87, %91, %93, %95, %_ZL6_pow10j.exit98.i, %_ZL6_pow10j.exit105.i
   %.010 = phi ptr [ %1, %.critedge.i ], [ %.1.i, %87 ], [ %.1.i, %91 ], [ %.1.i, %93 ], [ %.1.i, %95 ], [ %.1.i, %_ZL6_pow10j.exit98.i ], [ %.1.i, %_ZL6_pow10j.exit105.i ]
   %.0.i = phi double [ 0.000000e+00, %.critedge.i ], [ %.4.i, %87 ], [ %92, %91 ], [ %94, %93 ], [ %.4.i, %95 ], [ %105, %_ZL6_pow10j.exit98.i ], [ %113, %_ZL6_pow10j.exit105.i ]
-  store double %.0.i, ptr %2, align 8, !tbaa !18
+  store double %.0.i, ptr %2, align 8, !tbaa !20
   %114 = icmp eq ptr %5, %.010
-  br i1 %114, label %118, label %115, !prof !17
+  br i1 %114, label %118, label %115, !prof !18
 
 115:                                              ; preds = %_ZL9strtod_rlPKcPS0_.exit
   store ptr %.010, ptr %0, align 8, !tbaa !4
@@ -482,10 +482,12 @@ attributes #9 = { nounwind willreturn memory(none) }
 !12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !13 = !{!"branch_weights", i32 2000, i32 2002}
 !14 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"double", !7, i64 0}
-!20 = distinct !{!20, !16}
-!21 = !{!"branch_weights", !"expected", i32 1717127, i32 2145766521}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = distinct !{!19, !17}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !7, i64 0}
+!22 = distinct !{!22, !16, !17}
+!23 = !{!"branch_weights", !"expected", i32 1717127, i32 2145766521}

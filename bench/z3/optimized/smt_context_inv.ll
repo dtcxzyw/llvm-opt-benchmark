@@ -613,7 +613,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %71, %73, %79
   %.325 = phi i1 [ %.4, %94 ], [ %.4, %94 ], [ %.129, %_ZNK3smt7context11is_relevantEN3sat7literalE.exit ]
   %95 = getelementptr inbounds nuw i8, ptr %.01728, i64 4
   %.not = icmp eq ptr %95, %15
-  br i1 %.not, label %.loopexit, label %22
+  br i1 %.not, label %.loopexit, label %22, !llvm.loop !561
 
 .loopexit:                                        ; preds = %.thread, %94, %7, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit, %1
   %.0 = phi i1 [ true, %1 ], [ true, %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit ], [ true, %7 ], [ true, %.thread ], [ %.4, %94 ]
@@ -624,7 +624,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK3smt7context12literal2exprEN3sat7literalER7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(10544) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #6 comdat align 2 {
-  %4 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !561
+  %4 = load i32, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !563
   %5 = icmp eq i32 %1, %4
   br i1 %5, label %6, label %24
 
@@ -663,7 +663,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %6
   br label %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit
 
 24:                                               ; preds = %3
-  %25 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !561
+  %25 = load i32, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !563
   %26 = icmp eq i32 %1, %25
   br i1 %26, label %27, label %45
 
@@ -827,9 +827,9 @@ define hidden void @_ZN3smt7context19validate_unsat_coreEv(ptr noundef nonnull a
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.299", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %7 = load ptr, ptr %6, align 8, !tbaa !562
+  %7 = load ptr, ptr %6, align 8, !tbaa !564
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 772
-  %9 = load i8, ptr %8, align 4, !tbaa !563, !range !594, !noundef !595
+  %9 = load i8, ptr %8, align 4, !tbaa !565, !range !596, !noundef !597
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %92
 
@@ -838,7 +838,7 @@ define hidden void @_ZN3smt7context19validate_unsat_coreEv(ptr noundef nonnull a
   call void @llvm.lifetime.start.p0(i64 10544, ptr nonnull %2) #18
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %6, align 8, !tbaa !562
+  %14 = load ptr, ptr %6, align 8, !tbaa !564
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call void @_ZN3smt7contextC1ER11ast_managerR10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(10544) %2, ptr noundef nonnull align 8 dereferenceable(976) %13, ptr noundef nonnull align 8 dereferenceable(808) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
@@ -894,7 +894,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 31:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !596
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !598
 
 32:                                               ; preds = %.lr.ph
   %33 = landingpad { ptr, i32 }
@@ -916,7 +916,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 38:                                               ; preds = %.lr.ph31
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
-  br i1 %exitcond40.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !598
+  br i1 %exitcond40.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !600
 
 39:                                               ; preds = %.lr.ph31
   %40 = landingpad { ptr, i32 }
@@ -945,15 +945,15 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17default_exception, i64 16), ptr %45, align 8, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store ptr %48, ptr %47, align 8, !tbaa !599
-  %49 = load ptr, ptr %4, align 8, !tbaa !600
+  store ptr %48, ptr %47, align 8, !tbaa !601
+  %49 = load ptr, ptr %4, align 8, !tbaa !602
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %51 = icmp eq ptr %49, %50
   br i1 %51, label %52, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %54 = load i64, ptr %53, align 8, !tbaa !601
+  %54 = load i64, ptr %53, align 8, !tbaa !603
   %55 = icmp ult i64 %54, 16
   call void @llvm.assume(i1 %55)
   %56 = add nuw nsw i64 %54, 1
@@ -961,20 +961,20 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %46
-  store ptr %49, ptr %47, align 8, !tbaa !600
+  store ptr %49, ptr %47, align 8, !tbaa !602
   %57 = load i64, ptr %50, align 8, !tbaa !515
   store i64 %57, ptr %48, align 8, !tbaa !515
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !601
+  %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !603
   br label %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %58 = phi i64 [ %54, %52 ], [ %.pre, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i64 %58, ptr %60, align 8, !tbaa !601
-  store ptr %50, ptr %4, align 8, !tbaa !600
-  store i64 0, ptr %59, align 8, !tbaa !601
+  store i64 %58, ptr %60, align 8, !tbaa !603
+  store ptr %50, ptr %4, align 8, !tbaa !602
+  store i64 0, ptr %59, align 8, !tbaa !603
   store i8 0, ptr %50, align 8, !tbaa !515
   invoke void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #20
           to label %94 unwind label %61
@@ -982,12 +982,12 @@ _ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
 61:                                               ; preds = %_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %62 = landingpad { ptr, i32 }
           cleanup
-  %63 = load ptr, ptr %4, align 8, !tbaa !600
+  %63 = load ptr, ptr %4, align 8, !tbaa !602
   %64 = icmp eq ptr %63, %50
   br i1 %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i25
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %61
-  %65 = load i64, ptr %59, align 8, !tbaa !601
+  %65 = load i64, ptr %59, align 8, !tbaa !603
   %66 = icmp ult i64 %65, 16
   call void @llvm.assume(i1 %66)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread
@@ -1101,7 +1101,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !599
+  store ptr %4, ptr %0, align 8, !tbaa !601
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -1125,7 +1125,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 12:                                               ; preds = %10
   %13 = add nuw i64 %8, 1
   %14 = icmp slt i64 %13, 0
-  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !602
+  br i1 %14, label %.noexc11, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i, !prof !604
 
 .noexc11:                                         ; preds = %12
   tail call void @_ZSt17__throw_bad_allocv() #20
@@ -1133,7 +1133,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; preds = %12
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #22
-  store ptr %15, ptr %0, align 8, !tbaa !600
+  store ptr %15, ptr %0, align 8, !tbaa !602
   store i64 %8, ptr %4, align 8, !tbaa !515
   br label %._crit_edge.i
 
@@ -1155,7 +1155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 
 20:                                               ; preds = %19, %17, %._crit_edge.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %8, ptr %21, align 8, !tbaa !601
+  store i64 %8, ptr %21, align 8, !tbaa !603
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 %8
   store i8 0, ptr %22, align 1, !tbaa !515
   ret void
@@ -1165,14 +1165,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV17default_exception, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !600
+  %3 = load ptr, ptr %2, align 8, !tbaa !602
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = icmp eq ptr %3, %4
   br i1 %5, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !601
+  %7 = load i64, ptr %6, align 8, !tbaa !603
   %8 = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %8)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1277,13 +1277,13 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 define internal void @_GLOBAL__sub_I_smt_context_inv.cpp() #16 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #18
-  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !561
+  store i32 0, ptr @_ZN3smtL12true_literalE, align 4, !tbaa !563
   %2 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL12true_literalE)
-  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !561
+  store i32 1, ptr @_ZN3smtL13false_literalE, align 4, !tbaa !563
   %3 = tail call ptr @llvm.invariant.start.p0(i64 4, ptr nonnull @_ZN3smtL13false_literalE)
-  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !603
+  store ptr inttoptr (i64 3 to ptr), ptr @_ZN3smtL21null_eq_justificationE, align 8, !tbaa !605
   %4 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL21null_eq_justificationE)
-  store ptr null, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !605
+  store ptr null, ptr @_ZN3smtL20null_b_justificationE, align 8, !tbaa !607
   %5 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN3smtL20null_b_justificationE)
   ret void
 }
@@ -1879,48 +1879,50 @@ attributes #22 = { builtin allocsize(0) }
 !558 = !{!128, !28, i64 8}
 !559 = !{!560, !13, i64 8}
 !560 = !{!"_ZTS3ast", !13, i64 0, !13, i64 4, !13, i64 6, !13, i64 6, !13, i64 6, !13, i64 8, !13, i64 12}
-!561 = !{!435, !13, i64 0}
-!562 = !{!26, !29, i64 112}
-!563 = !{!564, !43, i64 772}
-!564 = !{!"_ZTS10smt_params", !565, i64 0, !570, i64 72, !572, i64 104, !576, i64 248, !581, i64 396, !583, i64 424, !585, i64 448, !586, i64 488, !587, i64 500, !588, i64 508, !43, i64 512, !43, i64 513, !43, i64 514, !43, i64 515, !43, i64 516, !43, i64 517, !13, i64 520, !43, i64 524, !13, i64 528, !433, i64 536, !433, i64 544, !13, i64 552, !589, i64 556, !590, i64 560, !13, i64 564, !13, i64 568, !43, i64 572, !13, i64 576, !13, i64 580, !13, i64 584, !13, i64 588, !13, i64 592, !13, i64 596, !43, i64 600, !13, i64 604, !43, i64 608, !43, i64 609, !43, i64 610, !43, i64 611, !43, i64 612, !41, i64 616, !43, i64 624, !43, i64 625, !591, i64 628, !13, i64 632, !43, i64 636, !43, i64 637, !43, i64 638, !43, i64 639, !13, i64 640, !43, i64 644, !592, i64 648, !13, i64 652, !433, i64 656, !43, i64 664, !433, i64 672, !433, i64 680, !593, i64 688, !43, i64 692, !13, i64 696, !13, i64 700, !433, i64 704, !13, i64 712, !13, i64 716, !13, i64 720, !13, i64 724, !13, i64 728, !433, i64 736, !43, i64 744, !43, i64 745, !43, i64 746, !43, i64 747, !41, i64 752, !43, i64 760, !43, i64 761, !43, i64 762, !43, i64 763, !43, i64 764, !43, i64 765, !13, i64 768, !43, i64 772, !43, i64 773, !43, i64 774, !43, i64 775, !43, i64 776, !43, i64 777, !43, i64 778, !43, i64 779, !43, i64 780, !433, i64 784, !43, i64 792, !41, i64 800}
-!565 = !{!"_ZTS19preprocessor_params", !566, i64 0, !568, i64 38, !569, i64 40, !569, i64 44, !43, i64 48, !43, i64 49, !43, i64 50, !43, i64 51, !43, i64 52, !43, i64 53, !43, i64 54, !43, i64 55, !43, i64 56, !43, i64 57, !43, i64 58, !43, i64 59, !43, i64 60, !43, i64 61, !43, i64 62, !43, i64 63, !43, i64 64, !43, i64 65, !43, i64 66}
-!566 = !{!"_ZTS24pattern_inference_params", !43, i64 0, !13, i64 4, !43, i64 8, !43, i64 9, !567, i64 12, !43, i64 16, !13, i64 20, !13, i64 24, !43, i64 28, !13, i64 32, !43, i64 36, !43, i64 37}
-!567 = !{!"_ZTS28arith_pattern_inference_kind", !7, i64 0}
-!568 = !{!"_ZTS18bit_blaster_params", !43, i64 0, !43, i64 1}
-!569 = !{!"_ZTS13lift_ite_kind", !7, i64 0}
-!570 = !{!"_ZTS14dyn_ack_params", !571, i64 0, !43, i64 4, !433, i64 8, !13, i64 16, !13, i64 20, !433, i64 24}
-!571 = !{!"_ZTS16dyn_ack_strategy", !7, i64 0}
-!572 = !{!"_ZTS9qi_params", !573, i64 0, !573, i64 32, !433, i64 64, !433, i64 72, !13, i64 80, !13, i64 84, !43, i64 88, !13, i64 92, !575, i64 96, !43, i64 100, !43, i64 101, !13, i64 104, !43, i64 108, !43, i64 109, !43, i64 110, !43, i64 111, !13, i64 112, !13, i64 116, !13, i64 120, !43, i64 124, !13, i64 128, !42, i64 136}
-!573 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !574, i64 0, !48, i64 8, !7, i64 16}
-!574 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !42, i64 0}
-!575 = !{!"_ZTS18quick_checker_mode", !7, i64 0}
-!576 = !{!"_ZTS19theory_arith_params", !43, i64 0, !43, i64 1, !577, i64 4, !43, i64 8, !13, i64 12, !43, i64 16, !578, i64 20, !43, i64 24, !43, i64 25, !13, i64 28, !13, i64 32, !43, i64 36, !43, i64 37, !13, i64 40, !13, i64 44, !43, i64 48, !13, i64 52, !13, i64 56, !43, i64 60, !433, i64 64, !433, i64 72, !43, i64 80, !13, i64 84, !43, i64 88, !43, i64 89, !43, i64 90, !43, i64 91, !43, i64 92, !13, i64 96, !43, i64 100, !43, i64 101, !579, i64 104, !43, i64 108, !580, i64 112, !43, i64 116, !43, i64 117, !43, i64 118, !43, i64 119, !43, i64 120, !43, i64 121, !13, i64 124, !43, i64 128, !43, i64 129, !13, i64 132, !43, i64 136, !13, i64 140, !43, i64 144, !43, i64 145, !43, i64 146}
-!577 = !{!"_ZTS15arith_solver_id", !7, i64 0}
-!578 = !{!"_ZTS15bound_prop_mode", !7, i64 0}
-!579 = !{!"_ZTS20arith_pivot_strategy", !7, i64 0}
-!580 = !{!"_ZTS19arith_prop_strategy", !7, i64 0}
-!581 = !{!"_ZTS19theory_array_params", !43, i64 0, !43, i64 1, !582, i64 4, !43, i64 8, !43, i64 9, !13, i64 12, !43, i64 16, !43, i64 17, !43, i64 18, !43, i64 19, !13, i64 20, !43, i64 24}
-!582 = !{!"_ZTS15array_solver_id", !7, i64 0}
-!583 = !{!"_ZTS16theory_bv_params", !584, i64 0, !43, i64 4, !43, i64 5, !43, i64 6, !43, i64 7, !13, i64 8, !43, i64 12, !43, i64 13, !43, i64 14, !43, i64 15, !13, i64 16}
-!584 = !{!"_ZTS12bv_solver_id", !7, i64 0}
-!585 = !{!"_ZTS17theory_str_params", !43, i64 0, !43, i64 1, !43, i64 2, !43, i64 3, !43, i64 4, !43, i64 5, !43, i64 6, !433, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !43, i64 36, !43, i64 37}
-!586 = !{!"_ZTS17theory_seq_params", !43, i64 0, !43, i64 1, !13, i64 4, !13, i64 8}
-!587 = !{!"_ZTS16theory_pb_params", !13, i64 0, !43, i64 4}
-!588 = !{!"_ZTS22theory_datatype_params", !13, i64 0}
-!589 = !{!"_ZTS16initial_activity", !7, i64 0}
-!590 = !{!"_ZTS15phase_selection", !7, i64 0}
-!591 = !{!"_ZTS19case_split_strategy", !7, i64 0}
-!592 = !{!"_ZTS16restart_strategy", !7, i64 0}
-!593 = !{!"_ZTS17lemma_gc_strategy", !7, i64 0}
-!594 = !{i8 0, i8 2}
-!595 = !{}
-!596 = distinct !{!596, !597}
-!597 = !{!"llvm.loop.mustprogress"}
-!598 = distinct !{!598, !597}
-!599 = !{!574, !42, i64 0}
-!600 = !{!573, !42, i64 0}
-!601 = !{!573, !48, i64 8}
-!602 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!603 = !{!604, !6, i64 0}
-!604 = !{!"_ZTSN3smt16eq_justificationE", !6, i64 0}
-!605 = !{!434, !6, i64 0}
+!561 = distinct !{!561, !562}
+!562 = !{!"llvm.loop.estimated_trip_count"}
+!563 = !{!435, !13, i64 0}
+!564 = !{!26, !29, i64 112}
+!565 = !{!566, !43, i64 772}
+!566 = !{!"_ZTS10smt_params", !567, i64 0, !572, i64 72, !574, i64 104, !578, i64 248, !583, i64 396, !585, i64 424, !587, i64 448, !588, i64 488, !589, i64 500, !590, i64 508, !43, i64 512, !43, i64 513, !43, i64 514, !43, i64 515, !43, i64 516, !43, i64 517, !13, i64 520, !43, i64 524, !13, i64 528, !433, i64 536, !433, i64 544, !13, i64 552, !591, i64 556, !592, i64 560, !13, i64 564, !13, i64 568, !43, i64 572, !13, i64 576, !13, i64 580, !13, i64 584, !13, i64 588, !13, i64 592, !13, i64 596, !43, i64 600, !13, i64 604, !43, i64 608, !43, i64 609, !43, i64 610, !43, i64 611, !43, i64 612, !41, i64 616, !43, i64 624, !43, i64 625, !593, i64 628, !13, i64 632, !43, i64 636, !43, i64 637, !43, i64 638, !43, i64 639, !13, i64 640, !43, i64 644, !594, i64 648, !13, i64 652, !433, i64 656, !43, i64 664, !433, i64 672, !433, i64 680, !595, i64 688, !43, i64 692, !13, i64 696, !13, i64 700, !433, i64 704, !13, i64 712, !13, i64 716, !13, i64 720, !13, i64 724, !13, i64 728, !433, i64 736, !43, i64 744, !43, i64 745, !43, i64 746, !43, i64 747, !41, i64 752, !43, i64 760, !43, i64 761, !43, i64 762, !43, i64 763, !43, i64 764, !43, i64 765, !13, i64 768, !43, i64 772, !43, i64 773, !43, i64 774, !43, i64 775, !43, i64 776, !43, i64 777, !43, i64 778, !43, i64 779, !43, i64 780, !433, i64 784, !43, i64 792, !41, i64 800}
+!567 = !{!"_ZTS19preprocessor_params", !568, i64 0, !570, i64 38, !571, i64 40, !571, i64 44, !43, i64 48, !43, i64 49, !43, i64 50, !43, i64 51, !43, i64 52, !43, i64 53, !43, i64 54, !43, i64 55, !43, i64 56, !43, i64 57, !43, i64 58, !43, i64 59, !43, i64 60, !43, i64 61, !43, i64 62, !43, i64 63, !43, i64 64, !43, i64 65, !43, i64 66}
+!568 = !{!"_ZTS24pattern_inference_params", !43, i64 0, !13, i64 4, !43, i64 8, !43, i64 9, !569, i64 12, !43, i64 16, !13, i64 20, !13, i64 24, !43, i64 28, !13, i64 32, !43, i64 36, !43, i64 37}
+!569 = !{!"_ZTS28arith_pattern_inference_kind", !7, i64 0}
+!570 = !{!"_ZTS18bit_blaster_params", !43, i64 0, !43, i64 1}
+!571 = !{!"_ZTS13lift_ite_kind", !7, i64 0}
+!572 = !{!"_ZTS14dyn_ack_params", !573, i64 0, !43, i64 4, !433, i64 8, !13, i64 16, !13, i64 20, !433, i64 24}
+!573 = !{!"_ZTS16dyn_ack_strategy", !7, i64 0}
+!574 = !{!"_ZTS9qi_params", !575, i64 0, !575, i64 32, !433, i64 64, !433, i64 72, !13, i64 80, !13, i64 84, !43, i64 88, !13, i64 92, !577, i64 96, !43, i64 100, !43, i64 101, !13, i64 104, !43, i64 108, !43, i64 109, !43, i64 110, !43, i64 111, !13, i64 112, !13, i64 116, !13, i64 120, !43, i64 124, !13, i64 128, !42, i64 136}
+!575 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !576, i64 0, !48, i64 8, !7, i64 16}
+!576 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !42, i64 0}
+!577 = !{!"_ZTS18quick_checker_mode", !7, i64 0}
+!578 = !{!"_ZTS19theory_arith_params", !43, i64 0, !43, i64 1, !579, i64 4, !43, i64 8, !13, i64 12, !43, i64 16, !580, i64 20, !43, i64 24, !43, i64 25, !13, i64 28, !13, i64 32, !43, i64 36, !43, i64 37, !13, i64 40, !13, i64 44, !43, i64 48, !13, i64 52, !13, i64 56, !43, i64 60, !433, i64 64, !433, i64 72, !43, i64 80, !13, i64 84, !43, i64 88, !43, i64 89, !43, i64 90, !43, i64 91, !43, i64 92, !13, i64 96, !43, i64 100, !43, i64 101, !581, i64 104, !43, i64 108, !582, i64 112, !43, i64 116, !43, i64 117, !43, i64 118, !43, i64 119, !43, i64 120, !43, i64 121, !13, i64 124, !43, i64 128, !43, i64 129, !13, i64 132, !43, i64 136, !13, i64 140, !43, i64 144, !43, i64 145, !43, i64 146}
+!579 = !{!"_ZTS15arith_solver_id", !7, i64 0}
+!580 = !{!"_ZTS15bound_prop_mode", !7, i64 0}
+!581 = !{!"_ZTS20arith_pivot_strategy", !7, i64 0}
+!582 = !{!"_ZTS19arith_prop_strategy", !7, i64 0}
+!583 = !{!"_ZTS19theory_array_params", !43, i64 0, !43, i64 1, !584, i64 4, !43, i64 8, !43, i64 9, !13, i64 12, !43, i64 16, !43, i64 17, !43, i64 18, !43, i64 19, !13, i64 20, !43, i64 24}
+!584 = !{!"_ZTS15array_solver_id", !7, i64 0}
+!585 = !{!"_ZTS16theory_bv_params", !586, i64 0, !43, i64 4, !43, i64 5, !43, i64 6, !43, i64 7, !13, i64 8, !43, i64 12, !43, i64 13, !43, i64 14, !43, i64 15, !13, i64 16}
+!586 = !{!"_ZTS12bv_solver_id", !7, i64 0}
+!587 = !{!"_ZTS17theory_str_params", !43, i64 0, !43, i64 1, !43, i64 2, !43, i64 3, !43, i64 4, !43, i64 5, !43, i64 6, !433, i64 8, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 28, !13, i64 32, !43, i64 36, !43, i64 37}
+!588 = !{!"_ZTS17theory_seq_params", !43, i64 0, !43, i64 1, !13, i64 4, !13, i64 8}
+!589 = !{!"_ZTS16theory_pb_params", !13, i64 0, !43, i64 4}
+!590 = !{!"_ZTS22theory_datatype_params", !13, i64 0}
+!591 = !{!"_ZTS16initial_activity", !7, i64 0}
+!592 = !{!"_ZTS15phase_selection", !7, i64 0}
+!593 = !{!"_ZTS19case_split_strategy", !7, i64 0}
+!594 = !{!"_ZTS16restart_strategy", !7, i64 0}
+!595 = !{!"_ZTS17lemma_gc_strategy", !7, i64 0}
+!596 = !{i8 0, i8 2}
+!597 = !{}
+!598 = distinct !{!598, !599, !562}
+!599 = !{!"llvm.loop.mustprogress"}
+!600 = distinct !{!600, !599, !562}
+!601 = !{!576, !42, i64 0}
+!602 = !{!575, !42, i64 0}
+!603 = !{!575, !48, i64 8}
+!604 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!605 = !{!606, !6, i64 0}
+!606 = !{!"_ZTSN3smt16eq_justificationE", !6, i64 0}
+!607 = !{!434, !6, i64 0}

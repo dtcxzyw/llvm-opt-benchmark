@@ -318,7 +318,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %inc.i.i.i = add nuw nsw i32 %__value.addr.06.i.i.i, 1
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.05.i.i.i, i64 4
   %cmp.i.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %6
-  br i1 %cmp.i.not.i.i.i, label %__cxx_global_var_init.1.exit, label %for.body.i.i.i, !llvm.loop !6
+  br i1 %cmp.i.not.i.i.i, label %__cxx_global_var_init.1.exit, label %for.body.i.i.i, !llvm.loop !7
 
 __cxx_global_var_init.1.exit:                     ; preds = %for.body.i.i.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit.i.i
   ret void
@@ -362,6 +362,7 @@ attributes #18 = { builtin allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

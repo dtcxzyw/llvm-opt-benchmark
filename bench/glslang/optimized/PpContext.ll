@@ -173,7 +173,7 @@ _ZN7glslang10TPpContext8popInputEv.exit:          ; preds = %.lr.ph, %22
   store ptr %27, ptr %8, align 8
   %28 = load ptr, ptr %7, align 8
   %29 = icmp eq ptr %28, %27
-  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %29, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZN7glslang10TPpContext8popInputEv.exit, %6
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 584
@@ -200,7 +200,7 @@ _ZN7glslang10TPpContext8popInputEv.exit:          ; preds = %.lr.ph, %22
   tail call void @_ZdlPvm(ptr noundef %41, i64 noundef 512) #12
   %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   %43 = icmp ult ptr %.06.i.i.i.i, %38
-  br i1 %43, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIPN7glslang7TShader8Includer13IncludeResultESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, !llvm.loop !7
+  br i1 %43, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIPN7glslang7TShader8Includer13IncludeResultESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, !llvm.loop !8
 
 _ZNSt11_Deque_baseIPN7glslang7TShader8Includer13IncludeResultESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %32, align 8
@@ -418,7 +418,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiSt4pairIKiN7glslang10TPpContext11Macro
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -460,8 +460,9 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

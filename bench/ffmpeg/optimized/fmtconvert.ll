@@ -53,7 +53,7 @@ define internal void @int32_to_float_fmul_array8_c(ptr noundef readonly captures
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %12 = trunc nuw i64 %indvars.iv.next to i32
   %13 = icmp sgt i32 %4, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -80,6 +80,7 @@ attributes #3 = { nounwind }
 !11 = !{!"int", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"float", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}

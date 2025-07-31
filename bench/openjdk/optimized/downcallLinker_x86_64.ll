@@ -525,7 +525,7 @@ _ZN13GrowableArrayI9VMStorageEC2Ev.exit:          ; preds = %.lr.ph.i.i.i
   %196 = load i32, ptr %195, align 4
   %197 = sext i32 %196 to i64
   %198 = icmp slt i64 %indvars.iv.next, %197
-  br i1 %198, label %181, label %.loopexit, !llvm.loop !8
+  br i1 %198, label %181, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %193, %151, %140
   %199 = load i32, ptr %70, align 4
@@ -1444,6 +1444,7 @@ attributes #10 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

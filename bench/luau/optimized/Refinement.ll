@@ -30,14 +30,14 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena8variadicERKSt6vectorIPNS
   %8 = or i1 %.01028, %7
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.023.027, i64 8
   %.not = icmp eq ptr %9, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 10:                                               ; preds = %._crit_edge
   %11 = ptrtoint ptr %5 to i64
   %12 = ptrtoint ptr %3 to i64
   %13 = sub i64 %11, %12
   %14 = icmp ugt i64 %13, 9223372036854775800
-  br i1 %14, label %.noexc.i.i, label %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EEC2ERKSB_.exit, !prof !12
+  br i1 %14, label %.noexc.i.i, label %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EEC2ERKSB_.exit, !prof !14
 
 .noexc.i.i:                                       ; preds = %10
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #10
@@ -48,7 +48,7 @@ _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %15, ptr align 8 %3, i64 %13, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load i64, ptr %17, align 8, !tbaa !13
+  %18 = load i64, ptr %17, align 8, !tbaa !15
   %19 = icmp ugt i64 %18, 1023
   br i1 %19, label %20, label %_ZN4Luau8VariadicD2Ev.exit
 
@@ -57,7 +57,7 @@ _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_
           to label %.noexc unwind label %_ZN4Luau8VariadicD2Ev.exit13
 
 .noexc:                                           ; preds = %20
-  %.pre.i = load i64, ptr %17, align 8, !tbaa !13
+  %.pre.i = load i64, ptr %17, align 8, !tbaa !15
   br label %_ZN4Luau8VariadicD2Ev.exit
 
 _ZN4Luau8VariadicD2Ev.exit:                       ; preds = %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EEC2ERKSB_.exit, %.noexc
@@ -67,15 +67,15 @@ _ZN4Luau8VariadicD2Ev.exit:                       ; preds = %_ZNSt6vectorIPN4Lua
   %24 = getelementptr inbounds i8, ptr %23, i64 -8
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %25, i64 %21
-  store i32 0, ptr %26, align 8, !tbaa !21
+  store i32 0, ptr %26, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %15, ptr %27, align 8, !tbaa !24
+  store ptr %15, ptr %27, align 8, !tbaa !26
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %16, ptr %28, align 8, !tbaa !25
+  store ptr %16, ptr %28, align 8, !tbaa !27
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %16, ptr %29, align 8, !tbaa !26
+  store ptr %16, ptr %29, align 8, !tbaa !28
   %30 = add i64 %21, 1
-  store i64 %30, ptr %17, align 8, !tbaa !13
+  store i64 %30, ptr %17, align 8, !tbaa !15
   br label %.critedge
 
 _ZN4Luau8VariadicD2Ev.exit13:                     ; preds = %20
@@ -98,13 +98,13 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena8negationEPNS_7VariantIJN
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i64, ptr %4, align 8, !tbaa !13
+  %5 = load i64, ptr %4, align 8, !tbaa !15
   %6 = icmp ugt i64 %5, 1023
   br i1 %6, label %7, label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS3_EEEPS8_DpOT_.exit
 
 7:                                                ; preds = %3
   tail call void @_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE11appendBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %.pre.i = load i64, ptr %4, align 8, !tbaa !13
+  %.pre.i = load i64, ptr %4, align 8, !tbaa !15
   br label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS3_EEEPS8_DpOT_.exit
 
 _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS3_EEEPS8_DpOT_.exit: ; preds = %3, %7
@@ -114,12 +114,12 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %12, i64 %8
-  store i32 1, ptr %13, align 8, !tbaa !21
+  store i32 1, ptr %13, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = ptrtoint ptr %1 to i64
   store i64 %15, ptr %14, align 8, !tbaa !10
   %16 = add i64 %8, 1
-  store i64 %16, ptr %4, align 8, !tbaa !13
+  store i64 %16, ptr %4, align 8, !tbaa !15
   br label %17
 
 17:                                               ; preds = %2, %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS3_EEEPS8_DpOT_.exit
@@ -136,13 +136,13 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena11conjunctionEPNS_7Varian
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !13
+  %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = icmp ugt i64 %8, 1023
   br i1 %9, label %10, label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS4_EEEPS8_DpOT_.exit
 
 10:                                               ; preds = %6
   tail call void @_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE11appendBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %.pre.i = load i64, ptr %7, align 8, !tbaa !13
+  %.pre.i = load i64, ptr %7, align 8, !tbaa !15
   br label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS4_EEEPS8_DpOT_.exit
 
 _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS4_EEEPS8_DpOT_.exit: ; preds = %6, %10
@@ -152,13 +152,13 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %15, i64 %11
-  store i32 2, ptr %16, align 8, !tbaa !21
+  store i32 2, ptr %16, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %17, align 8, !tbaa !10
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
   %18 = add i64 %11, 1
-  store i64 %18, ptr %7, align 8, !tbaa !13
+  store i64 %18, ptr %7, align 8, !tbaa !15
   br label %19
 
 19:                                               ; preds = %3, %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS4_EEEPS8_DpOT_.exit
@@ -175,13 +175,13 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena11disjunctionEPNS_7Varian
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !13
+  %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = icmp ugt i64 %8, 1023
   br i1 %9, label %10, label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS5_EEEPS8_DpOT_.exit
 
 10:                                               ; preds = %6
   tail call void @_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE11appendBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %.pre.i = load i64, ptr %7, align 8, !tbaa !13
+  %.pre.i = load i64, ptr %7, align 8, !tbaa !15
   br label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS5_EEEPS8_DpOT_.exit
 
 _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS5_EEEPS8_DpOT_.exit: ; preds = %6, %10
@@ -191,13 +191,13 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %15, i64 %11
-  store i32 3, ptr %16, align 8, !tbaa !21
+  store i32 3, ptr %16, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %17, align 8, !tbaa !10
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
   %18 = add i64 %11, 1
-  store i64 %18, ptr %7, align 8, !tbaa !13
+  store i64 %18, ptr %7, align 8, !tbaa !15
   br label %19
 
 19:                                               ; preds = %3, %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS5_EEEPS8_DpOT_.exit
@@ -214,13 +214,13 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena11equivalenceEPNS_7Varian
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !13
+  %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = icmp ugt i64 %8, 1023
   br i1 %9, label %10, label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS6_EEEPS8_DpOT_.exit
 
 10:                                               ; preds = %6
   tail call void @_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE11appendBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %.pre.i = load i64, ptr %7, align 8, !tbaa !13
+  %.pre.i = load i64, ptr %7, align 8, !tbaa !15
   br label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS6_EEEPS8_DpOT_.exit
 
 _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS6_EEEPS8_DpOT_.exit: ; preds = %6, %10
@@ -230,13 +230,13 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %14 = getelementptr inbounds i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %15, i64 %11
-  store i32 4, ptr %16, align 8, !tbaa !21
+  store i32 4, ptr %16, align 8, !tbaa !23
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %1, ptr %17, align 8, !tbaa !10
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !10
   %18 = add i64 %11, 1
-  store i64 %18, ptr %7, align 8, !tbaa !13
+  store i64 %18, ptr %7, align 8, !tbaa !15
   br label %19
 
 19:                                               ; preds = %3, %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS6_EEEPS8_DpOT_.exit
@@ -251,13 +251,13 @@ define dso_local noundef ptr @_ZN4Luau15RefinementArena11propositionEPKNS_13Refi
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i64, ptr %5, align 8, !tbaa !13
+  %6 = load i64, ptr %5, align 8, !tbaa !15
   %7 = icmp ugt i64 %6, 1023
   br i1 %7, label %8, label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS7_EEEPS8_DpOT_.exit
 
 8:                                                ; preds = %4
   tail call void @_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE11appendBlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  %.pre.i = load i64, ptr %5, align 8, !tbaa !13
+  %.pre.i = load i64, ptr %5, align 8, !tbaa !15
   br label %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS7_EEEPS8_DpOT_.exit
 
 _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS7_EEEPS8_DpOT_.exit: ; preds = %4, %8
@@ -267,13 +267,13 @@ _ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11Conjunction
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw %"class.Luau::Variant", ptr %13, i64 %9
-  store i32 5, ptr %14, align 8, !tbaa !21
+  store i32 5, ptr %14, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %1, ptr %15, align 8, !tbaa !27
+  store ptr %1, ptr %15, align 8, !tbaa !29
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !29
+  store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !31
   %16 = add i64 %9, 1
-  store i64 %16, ptr %5, align 8, !tbaa !13
+  store i64 %16, ptr %5, align 8, !tbaa !15
   br label %17
 
 17:                                               ; preds = %3, %_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEE8allocateIJS7_EEEPS8_DpOT_.exit
@@ -301,27 +301,27 @@ define linkonce_odr dso_local void @_ZN4Luau14TypedAllocatorINS_7VariantIJNS_8Va
 
 3:                                                ; preds = %1
   %4 = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %4, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %4, align 8, !tbaa !33
   tail call void @__cxa_throw(ptr nonnull %4, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #10
   unreachable
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !25
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !26
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %.not.i = icmp eq ptr %8, %10
   br i1 %.not.i, label %13, label %11
 
 11:                                               ; preds = %5
   store ptr %2, ptr %8, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %12, ptr %7, align 8, !tbaa !25
+  store ptr %12, ptr %7, align 8, !tbaa !27
   br label %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit
 
 13:                                               ; preds = %5
-  %14 = load ptr, ptr %6, align 8, !tbaa !24
+  %14 = load ptr, ptr %6, align 8, !tbaa !26
   %15 = ptrtoint ptr %8 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -362,15 +362,15 @@ _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_
   br label %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit16.i.i
-  store ptr %26, ptr %6, align 8, !tbaa !24
-  store ptr %30, ptr %7, align 8, !tbaa !25
+  store ptr %26, ptr %6, align 8, !tbaa !26
+  store ptr %30, ptr %7, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
-  store ptr %32, ptr %9, align 8, !tbaa !26
+  store ptr %32, ptr %9, align 8, !tbaa !28
   br label %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit
 
 _ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE12emplace_backIJS9_EEERS9_DpOT_.exit: ; preds = %11, %_ZNSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %33, align 8, !tbaa !13
+  store i64 0, ptr %33, align 8, !tbaa !15
   ret void
 }
 
@@ -425,24 +425,26 @@ attributes #13 = { nounwind }
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 _ZTSN4Luau7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEE", !7, i64 0}
-!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!13 = !{!14, !20, i64 32}
-!14 = !{!"_ZTSN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEEE", !15, i64 0, !16, i64 8, !20, i64 32}
-!15 = !{!"bool", !8, i64 0}
-!16 = !{!"_ZTSSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE", !17, i64 0}
-!17 = !{!"_ZTSSt12_Vector_baseIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE", !18, i64 0}
-!18 = !{!"_ZTSNSt12_Vector_baseIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE12_Vector_implE", !19, i64 0}
-!19 = !{!"_ZTSNSt12_Vector_baseIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
-!20 = !{!"long", !8, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"_ZTSN4Luau7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEE", !23, i64 0, !8, i64 8}
-!23 = !{!"int", !8, i64 0}
-!24 = !{!19, !5, i64 0}
-!25 = !{!19, !5, i64 8}
-!26 = !{!19, !5, i64 16}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTSN4Luau13RefinementKeyE", !7, i64 0}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = !{!16, !22, i64 32}
+!16 = !{!"_ZTSN4Luau14TypedAllocatorINS_7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEEEE", !17, i64 0, !18, i64 8, !22, i64 32}
+!17 = !{!"bool", !8, i64 0}
+!18 = !{!"_ZTSSt6vectorIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE", !19, i64 0}
+!19 = !{!"_ZTSSt12_Vector_baseIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE", !20, i64 0}
+!20 = !{!"_ZTSNSt12_Vector_baseIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE12_Vector_implE", !21, i64 0}
+!21 = !{!"_ZTSNSt12_Vector_baseIPN4Luau7VariantIJNS0_8VariadicENS0_8NegationENS0_11ConjunctionENS0_11DisjunctionENS0_11EquivalenceENS0_11PropositionEEEESaIS9_EE17_Vector_impl_dataE", !5, i64 0, !5, i64 8, !5, i64 16}
+!22 = !{!"long", !8, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTSN4Luau7VariantIJNS_8VariadicENS_8NegationENS_11ConjunctionENS_11DisjunctionENS_11EquivalenceENS_11PropositionEEEE", !25, i64 0, !8, i64 8}
+!25 = !{!"int", !8, i64 0}
+!26 = !{!21, !5, i64 0}
+!27 = !{!21, !5, i64 8}
+!28 = !{!21, !5, i64 16}
 !29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTSN4Luau4TypeE", !7, i64 0}
+!30 = !{!"p1 _ZTSN4Luau13RefinementKeyE", !7, i64 0}
 !31 = !{!32, !32, i64 0}
-!32 = !{!"vtable pointer", !9, i64 0}
+!32 = !{!"p1 _ZTSN4Luau4TypeE", !7, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"vtable pointer", !9, i64 0}

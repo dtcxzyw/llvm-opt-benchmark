@@ -994,11 +994,11 @@ define i32 @exr_encoding_run(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %222 = load i64, ptr %201, align 8, !tbaa !51
   %223 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store i64 %222, ptr %223, align 8, !tbaa !45
-  store i64 0, ptr %215, align 8, !tbaa !69
+  store i64 0, ptr %215, align 8, !tbaa !70
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %225 = load ptr, ptr %224, align 8, !tbaa !56
   store ptr %225, ptr %217, align 8, !tbaa !49
-  store i64 0, ptr %218, align 8, !tbaa !70
+  store i64 0, ptr %218, align 8, !tbaa !71
   %226 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %227 = load i32, ptr %226, align 8, !tbaa !58
   %228 = sext i32 %227 to i64
@@ -1064,7 +1064,7 @@ define range(i32 0, 3) i32 @exr_encoding_destroy(ptr noundef readonly captures(a
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !71
+  %10 = load ptr, ptr %9, align 8, !tbaa !72
   tail call void %10(ptr noundef %6) #5
   br label %11
 
@@ -1184,8 +1184,9 @@ attributes #5 = { nounwind }
 !64 = !{!61, !9, i64 0}
 !65 = !{!61, !19, i64 30}
 !66 = !{!61, !5, i64 25}
-!67 = distinct !{!67, !68}
+!67 = distinct !{!67, !68, !69}
 !68 = !{!"llvm.loop.mustprogress"}
-!69 = !{!28, !12, i64 184}
-!70 = !{!28, !12, i64 160}
-!71 = !{!4, !10, i64 96}
+!69 = !{!"llvm.loop.estimated_trip_count"}
+!70 = !{!28, !12, i64 184}
+!71 = !{!28, !12, i64 160}
+!72 = !{!4, !10, i64 96}

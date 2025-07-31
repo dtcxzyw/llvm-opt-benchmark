@@ -2032,7 +2032,7 @@ lean_dec.exit:                                    ; preds = %61, %60, %58, %lean
 
 lean_inc.exit:                                    ; preds = %67, %66, %64, %lean_dec.exit
   %68 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.0, ptr noundef %26, ptr noundef %36) #3
-  br label %6
+  br label %6, !llvm.loop !16
 }
 
 declare ptr @lean_apply_3(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -2543,7 +2543,7 @@ lean_dec.exit28:                                  ; preds = %lean_dec.exit28.bac
   %15 = ptrtoint ptr %.023 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !16
+  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !18
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit28
   %.not55 = icmp ult ptr %.023, %14
@@ -2668,7 +2668,7 @@ lean_array_fget.exit42:                           ; preds = %lean_array_fget.exi
 
 lean_inc.exit:                                    ; preds = %58, %57, %55, %lean_array_fget.exit42
   %59 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.025, ptr noundef %34, ptr noundef %44) #3
-  br i1 %.not, label %69, label %60, !prof !16
+  br i1 %.not, label %69, label %60, !prof !18
 
 60:                                               ; preds = %lean_inc.exit
   %61 = add nuw i64 %32, 1
@@ -3575,7 +3575,7 @@ lean_dec.exit28:                                  ; preds = %lean_dec.exit28.bac
   %15 = ptrtoint ptr %.023 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !16
+  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !18
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit28
   %.not55 = icmp ult ptr %.023, %14
@@ -3700,7 +3700,7 @@ lean_array_fget.exit42:                           ; preds = %lean_array_fget.exi
 
 lean_inc.exit:                                    ; preds = %58, %57, %55, %lean_array_fget.exit42
   %59 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.025, ptr noundef %34, ptr noundef %44) #3
-  br i1 %.not, label %69, label %60, !prof !16
+  br i1 %.not, label %69, label %60, !prof !18
 
 60:                                               ; preds = %lean_inc.exit
   %61 = add nuw i64 %32, 1
@@ -4187,7 +4187,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_SSet_fold___spec__2___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10)
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -4841,7 +4841,7 @@ lean_dec.exit28:                                  ; preds = %lean_dec.exit28.bac
   %15 = ptrtoint ptr %.023 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !16
+  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !18
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit28
   %.not55 = icmp ult ptr %.023, %14
@@ -4966,7 +4966,7 @@ lean_array_fget.exit42:                           ; preds = %lean_array_fget.exi
 
 lean_inc.exit:                                    ; preds = %58, %57, %55, %lean_array_fget.exit42
   %59 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.025, ptr noundef %34, ptr noundef %44) #3
-  br i1 %.not, label %69, label %60, !prof !16
+  br i1 %.not, label %69, label %60, !prof !18
 
 60:                                               ; preds = %lean_inc.exit
   %61 = add nuw i64 %32, 1
@@ -6244,7 +6244,7 @@ lean_dec.exit:                                    ; preds = %61, %60, %58, %lean
 
 lean_inc.exit:                                    ; preds = %67, %66, %64, %lean_dec.exit
   %68 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.0, ptr noundef %26, ptr noundef %36) #3
-  br label %6
+  br label %6, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6753,7 +6753,7 @@ lean_dec.exit28:                                  ; preds = %lean_dec.exit28.bac
   %15 = ptrtoint ptr %.023 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !16
+  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !18
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit28
   %.not55 = icmp ult ptr %.023, %14
@@ -6878,7 +6878,7 @@ lean_array_fget.exit42:                           ; preds = %lean_array_fget.exi
 
 lean_inc.exit:                                    ; preds = %58, %57, %55, %lean_array_fget.exit42
   %59 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.025, ptr noundef %34, ptr noundef %44) #3
-  br i1 %.not, label %69, label %60, !prof !16
+  br i1 %.not, label %69, label %60, !prof !18
 
 60:                                               ; preds = %lean_inc.exit
   %61 = add nuw i64 %32, 1
@@ -7785,7 +7785,7 @@ lean_dec.exit28:                                  ; preds = %lean_dec.exit28.bac
   %15 = ptrtoint ptr %.023 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !16
+  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !18
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit28
   %.not55 = icmp ult ptr %.023, %14
@@ -7910,7 +7910,7 @@ lean_array_fget.exit42:                           ; preds = %lean_array_fget.exi
 
 lean_inc.exit:                                    ; preds = %58, %57, %55, %lean_array_fget.exit42
   %59 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.025, ptr noundef %34, ptr noundef %44) #3
-  br i1 %.not, label %69, label %60, !prof !16
+  br i1 %.not, label %69, label %60, !prof !18
 
 60:                                               ; preds = %lean_inc.exit
   %61 = add nuw i64 %32, 1
@@ -8397,7 +8397,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_SSet_toList___spec__2___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10)
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -9051,7 +9051,7 @@ lean_dec.exit28:                                  ; preds = %lean_dec.exit28.bac
   %15 = ptrtoint ptr %.023 to i64
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !16
+  br i1 %.not, label %lean_dec.exit30.thread, label %lean_dec.exit30, !prof !18
 
 lean_dec.exit30:                                  ; preds = %lean_dec.exit28
   %.not55 = icmp ult ptr %.023, %14
@@ -9176,7 +9176,7 @@ lean_array_fget.exit42:                           ; preds = %lean_array_fget.exi
 
 lean_inc.exit:                                    ; preds = %58, %57, %55, %lean_array_fget.exit42
   %59 = tail call ptr @lean_apply_3(ptr noundef %0, ptr noundef %.025, ptr noundef %34, ptr noundef %44) #3
-  br i1 %.not, label %69, label %60, !prof !16
+  br i1 %.not, label %69, label %60, !prof !18
 
 60:                                               ; preds = %lean_inc.exit
   %61 = add nuw i64 %32, 1
@@ -10465,7 +10465,7 @@ lean_inc.exit21:                                  ; preds = %67, %66, %64, %lean
 
 lean_inc.exit:                                    ; preds = %73, %72, %70, %lean_inc.exit21
   %74 = tail call ptr @l_Lean_SMap_insert___rarg(ptr noundef %0, ptr noundef %1, ptr noundef %.0, ptr noundef %36, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
-  br label %9
+  br label %9, !llvm.loop !23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -10933,7 +10933,11 @@ attributes #5 = { "function-inline-cost-multiplier"="2" }
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !7, i64 0}
-!16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !18}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !17}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !17}

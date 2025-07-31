@@ -180,7 +180,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   %70 = or i1 %69, %68
   %71 = select i1 %70, i16 %66, i16 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #11
-  store i32 0, ptr %5, align 4, !annotation !8
+  store i32 0, ptr %5, align 4, !annotation !9
   %72 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %59, i32 noundef 12, ptr noundef nonnull %5) #11
   %73 = load i32, ptr %5, align 4
   %74 = icmp sgt i32 %72, -1
@@ -478,7 +478,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   %223 = load i16, ptr %11, align 2
   %224 = zext i16 %223 to i32
   %225 = icmp samesign ult i32 %222, %224
-  br i1 %225, label %29, label %.loopexit54, !llvm.loop !9
+  br i1 %225, label %29, label %.loopexit54, !llvm.loop !10
 
 .loopexit54:                                      ; preds = %.thread, %4
   %226 = and i32 %3, 12
@@ -602,7 +602,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   %309 = icmp eq i8 %306, 0
   %310 = icmp eq i8 %307, 0
   %311 = select i1 %309, i1 %310, i1 false
-  br i1 %311, label %.loopexit50, label %240, !llvm.loop !10
+  br i1 %311, label %.loopexit50, label %240, !llvm.loop !11
 
 .loopexit50:                                      ; preds = %305, %240, %228
   %312 = phi i8 [ %231, %228 ], [ 0, %305 ], [ %245, %240 ]
@@ -677,7 +677,7 @@ define dso_local noundef i32 @snd_hda_parse_pin_defcfg(ptr noundef %0, ptr nound
   %361 = icmp eq i8 %358, 0
   %362 = icmp eq i8 %359, 0
   %363 = select i1 %361, i1 %362, i1 false
-  br i1 %363, label %.loopexit49, label %319, !llvm.loop !11
+  br i1 %363, label %.loopexit49, label %319, !llvm.loop !12
 
 .loopexit49:                                      ; preds = %357, %319, %.loopexit50, %.loopexit54
   %364 = load i32, ptr %1, align 4
@@ -722,7 +722,7 @@ thread-pre-split.thread:                          ; preds = %366
   %sext86 = shl i64 %indvars.iv, 32
   %387 = ashr exact i64 %sext86, 32
   %388 = icmp slt i64 %indvars.iv.next81, %387
-  br i1 %388, label %.preheader47, label %.loopexit46, !llvm.loop !12
+  br i1 %388, label %.preheader47, label %.loopexit46, !llvm.loop !13
 
 389:                                              ; preds = %380
   %390 = add i32 %381, 1
@@ -739,7 +739,7 @@ thread-pre-split.thread:                          ; preds = %366
   %396 = ashr exact i64 %sext, 30
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %377, ptr align 4 %378, i64 %396, i1 false)
   %397 = icmp slt i64 %indvars.iv80, %indvars.iv.next
-  br i1 %397, label %380, label %.loopexit46.loopexit, !llvm.loop !12
+  br i1 %397, label %380, label %.loopexit46.loopexit, !llvm.loop !14
 
 .loopexit46.loopexit:                             ; preds = %389
   %sext85 = shl i64 %indvars.iv.next, 32
@@ -783,7 +783,7 @@ thread-pre-split:                                 ; preds = %404, %.loopexit46, 
   store i16 %415, ptr %416, align 2
   %417 = add nuw nsw i64 %413, 1
   %418 = icmp eq i64 %417, %411
-  br i1 %418, label %.loopexit45, label %412, !llvm.loop !13
+  br i1 %418, label %.loopexit45, label %412, !llvm.loop !15
 
 .loopexit45:                                      ; preds = %412, %thread-pre-split.thread, %thread-pre-split
   %419 = phi ptr [ %373, %thread-pre-split.thread ], [ %407, %thread-pre-split ], [ %407, %412 ]
@@ -807,7 +807,7 @@ thread-pre-split:                                 ; preds = %404, %.loopexit46, 
   store i16 %430, ptr %431, align 2
   %432 = add nuw nsw i64 %428, 1
   %433 = icmp eq i64 %432, %426
-  br i1 %433, label %.loopexit44, label %427, !llvm.loop !13
+  br i1 %433, label %.loopexit44, label %427, !llvm.loop !16
 
 .loopexit44:                                      ; preds = %427, %.loopexit45
   %434 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -830,7 +830,7 @@ thread-pre-split:                                 ; preds = %404, %.loopexit46, 
   store i16 %444, ptr %445, align 2
   %446 = add nuw nsw i64 %442, 1
   %447 = icmp eq i64 %446, %440
-  br i1 %447, label %.loopexit43, label %441, !llvm.loop !13
+  br i1 %447, label %.loopexit43, label %441, !llvm.loop !17
 
 .loopexit43:                                      ; preds = %441, %.loopexit44
   %448 = load i32, ptr %1, align 4
@@ -1010,7 +1010,7 @@ thread-pre-split:                                 ; preds = %404, %.loopexit46, 
   %570 = load i32, ptr %491, align 4
   %571 = sext i32 %570 to i64
   %572 = icmp slt i64 %569, %571
-  br i1 %572, label %.preheader, label %.loopexit, !llvm.loop !14
+  br i1 %572, label %.preheader, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %560
   %573 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -1213,7 +1213,7 @@ define dso_local ptr @hda_get_autocfg_input_label(ptr noundef %0, ptr noundef re
   %71 = load i32, ptr %46, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %70, %72
-  br i1 %73, label %.preheader, label %.thread, !llvm.loop !15
+  br i1 %73, label %.preheader, label %.thread, !llvm.loop !19
 
 .thread:                                          ; preds = %.thread5, %61, %17, %22, %45, %42, %40, %40, %31, %29
   %74 = phi i32 [ 1, %29 ], [ 1, %42 ], [ 1, %40 ], [ 1, %40 ], [ 1, %31 ], [ 0, %45 ], [ 0, %22 ], [ 0, %17 ], [ 1, %61 ], [ 0, %.thread5 ]
@@ -1444,7 +1444,7 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
   %42 = load i32, ptr %27, align 4
   %43 = sext i32 %42 to i64
   %44 = icmp slt i64 %indvars.iv.next, %43
-  br i1 %44, label %.preheader, label %hda_get_input_pin_label.exit.thread, !llvm.loop !16
+  br i1 %44, label %.preheader, label %hda_get_input_pin_label.exit.thread, !llvm.loop !20
 
 45:                                               ; preds = %13
   %46 = icmp eq ptr %2, null
@@ -1483,7 +1483,7 @@ define dso_local noundef range(i32 0, 2) i32 @snd_hda_get_pin_label(ptr noundef 
   %65 = add nuw nsw i64 %55, 1
   %66 = sext i32 %64 to i64
   %67 = icmp slt i64 %65, %66
-  br i1 %67, label %53, label %.loopexit, !llvm.loop !17
+  br i1 %67, label %53, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %63, %45, %47
   %68 = tail call i32 @snd_hda_codec_get_pincfg(ptr noundef %0, i16 noundef zeroext %1) #11
@@ -1642,7 +1642,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 48:                                               ; preds = %43
   %49 = add nuw nsw i64 %44, 1
   %50 = icmp eq i64 %49, %42
-  br i1 %50, label %.thread21, label %43, !llvm.loop !18
+  br i1 %50, label %.thread21, label %43, !llvm.loop !22
 
 51:                                               ; preds = %43
   %52 = trunc i64 %44 to i32
@@ -1692,7 +1692,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 76:                                               ; preds = %71
   %77 = add nuw nsw i64 %72, 1
   %78 = icmp eq i64 %77, %70
-  br i1 %78, label %.thread27, label %71, !llvm.loop !18
+  br i1 %78, label %.thread27, label %71, !llvm.loop !23
 
 79:                                               ; preds = %71
   %80 = trunc i64 %72 to i32
@@ -1773,7 +1773,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
 117:                                              ; preds = %112
   %118 = add nuw nsw i64 %113, 1
   %119 = icmp eq i64 %118, %111
-  br i1 %119, label %.thread25, label %112, !llvm.loop !18
+  br i1 %119, label %.thread25, label %112, !llvm.loop !24
 
 120:                                              ; preds = %112
   %121 = trunc i64 %113 to i32
@@ -1829,7 +1829,7 @@ define internal fastcc void @fill_audio_out_name(ptr noundef %0, i16 noundef zer
   %147 = add i32 %129, %146
   %148 = add nuw nsw i64 %128, 1
   %149 = icmp eq i64 %148, %126
-  br i1 %149, label %.loopexit, label %127, !llvm.loop !19
+  br i1 %149, label %.loopexit, label %127, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread51, %123
   %150 = phi i32 [ 0, %123 ], [ %147, %.thread51 ]
@@ -1904,7 +1904,7 @@ define dso_local void @snd_hda_apply_verbs(ptr noundef %0) #0 align 16 {
   %18 = getelementptr i8, ptr %14, i64 %17
   %19 = load i32, ptr %2, align 8
   %20 = icmp ult i32 %13, %19
-  br i1 %20, label %9, label %.loopexit, !llvm.loop !20
+  br i1 %20, label %9, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %9, %1
   ret void
@@ -1928,7 +1928,7 @@ define dso_local void @snd_hda_apply_pincfgs(ptr noundef %0, ptr noundef readonl
   %10 = getelementptr i8, ptr %6, i64 8
   %11 = load i16, ptr %10, align 4
   %12 = icmp eq i16 %11, 0
-  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %2
   ret void
@@ -2003,7 +2003,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   %42 = getelementptr i8, ptr %38, i64 8
   %43 = load i16, ptr %42, align 4
   %44 = icmp eq i16 %43, 0
-  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !21
+  br i1 %44, label %.loopexit, label %.preheader, !llvm.loop !28
 
 45:                                               ; preds = %27
   br i1 %6, label %46, label %.loopexit
@@ -2056,7 +2056,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   %72 = getelementptr i8, ptr %68, i64 8
   %73 = load i16, ptr %72, align 4
   %74 = icmp eq i16 %73, 0
-  br i1 %74, label %.loopexit, label %.preheader9, !llvm.loop !22
+  br i1 %74, label %.loopexit, label %.preheader9, !llvm.loop !29
 
 75:                                               ; preds = %27
   %76 = load ptr, ptr %9, align 8
@@ -2073,7 +2073,7 @@ define dso_local void @__snd_hda_apply_fixup(ptr noundef %0, i32 noundef %1, i32
   %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %82 = load i32, ptr %81, align 8
   %83 = icmp sgt i32 %82, -1
-  br i1 %83, label %.lr.ph, label %.critedge
+  br i1 %83, label %.lr.ph, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %80, %.loopexit, %.lr.ph, %4
   ret void
@@ -2172,13 +2172,13 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   %51 = and i32 %50, -268435456
   %52 = icmp ne i32 %51, 1073741824
   %53 = select i1 %3, i1 %52, i1 false
-  br i1 %53, label %.split14.us.loopexit, label %.thread.us, !llvm.loop !23
+  br i1 %53, label %.split14.us.loopexit, label %.thread.us, !llvm.loop !31
 
 .thread.us:                                       ; preds = %.thread.us.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.thread.us.lr.ph ], [ %indvars.iv.next, %46 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = icmp eq i64 %indvars.iv.next, %45
-  br i1 %54, label %.critedge, label %46, !llvm.loop !23
+  br i1 %54, label %.critedge, label %46, !llvm.loop !31
 
 .split:                                           ; preds = %35, %.thread
   %55 = phi i1 [ %87, %.thread ], [ false, %35 ]
@@ -2192,7 +2192,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
 
 62:                                               ; preds = %.preheader
   %63 = icmp eq i16 %77, %58
-  br i1 %63, label %.loopexit9, label %.preheader, !llvm.loop !25
+  br i1 %63, label %.loopexit9, label %.preheader, !llvm.loop !33
 
 .loopexit9:                                       ; preds = %62, %.split
   %64 = phi ptr [ %32, %.split ], [ %76, %62 ]
@@ -2215,7 +2215,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   %76 = getelementptr i8, ptr %75, i64 8
   %77 = load i16, ptr %76, align 4
   %78 = icmp eq i16 %77, 0
-  br i1 %78, label %.loopexit, label %62, !llvm.loop !25
+  br i1 %78, label %.loopexit, label %62, !llvm.loop !34
 
 .loopexit:                                        ; preds = %.preheader
   %79 = and i32 %60, -268435456
@@ -2231,7 +2231,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   %86 = getelementptr i8, ptr %36, i64 %85
   %87 = icmp uge i32 %82, %33
   %88 = icmp eq i32 %82, %33
-  br i1 %88, label %.split14.us, label %.split, !llvm.loop !26
+  br i1 %88, label %.split14.us, label %.split, !llvm.loop !35
 
 .split14.us.loopexit:                             ; preds = %46
   %89 = icmp samesign uge i64 %indvars.iv.next, %45
@@ -2254,7 +2254,7 @@ define dso_local void @snd_hda_pick_pin_fixup(ptr noundef captures(none) %0, ptr
   %94 = getelementptr i8, ptr %22, i64 28
   %95 = load i16, ptr %94, align 4
   %96 = icmp eq i16 %95, 0
-  br i1 %96, label %.loopexit10, label %20, !llvm.loop !27
+  br i1 %96, label %.loopexit10, label %20, !llvm.loop !36
 
 .loopexit10:                                      ; preds = %.critedge16, %.critedge, %8, %4
   ret void
@@ -2272,8 +2272,8 @@ define dso_local void @snd_hda_pick_fixup(ptr noundef captures(none) %0, ptr nou
   br i1 %9, label %10, label %69
 
 10:                                               ; preds = %4
-  store i32 0, ptr %5, align 4, !annotation !8
-  store i32 0, ptr %6, align 4, !annotation !8
+  store i32 0, ptr %5, align 4, !annotation !9
+  store i32 0, ptr %6, align 4, !annotation !9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
@@ -2310,7 +2310,7 @@ define dso_local void @snd_hda_pick_fixup(ptr noundef captures(none) %0, ptr nou
   %30 = getelementptr i8, ptr %23, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !28
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %28, %18, %17
   %33 = icmp eq ptr %2, null
@@ -2433,27 +2433,36 @@ attributes #12 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = distinct !{!23, !6, !7, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7}
-!27 = distinct !{!27, !6, !7}
-!28 = distinct !{!28, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !6, !7, !8, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}

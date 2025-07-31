@@ -1124,7 +1124,7 @@ IDecError.exit59.i:                               ; preds = %290, %287
   store i32 %295, ptr %192, align 4, !tbaa !74
   %296 = load i32, ptr %193, align 4, !tbaa !75
   %297 = icmp slt i32 %295, %296
-  br i1 %297, label %207, label %._crit_edge70.i, !llvm.loop !88
+  br i1 %297, label %207, label %._crit_edge70.i, !llvm.loop !89
 
 ._crit_edge70.i:                                  ; preds = %293, %.preheader.i
   %298 = call i32 @VP8ExitCritical(ptr noundef nonnull %187, ptr noundef nonnull %189) #7
@@ -1147,7 +1147,7 @@ IDecError.exit60.i:                               ; preds = %._crit_edge70.i
 
 304:                                              ; preds = %299
   %305 = getelementptr inbounds nuw i8, ptr %302, i64 48
-  %306 = load i32, ptr %305, align 4, !tbaa !89
+  %306 = load i32, ptr %305, align 4, !tbaa !90
   %.not25.i.i = icmp eq i32 %306, 0
   br i1 %.not25.i.i, label %309, label %307
 
@@ -1171,7 +1171,7 @@ IDecError.exit60.i:                               ; preds = %._crit_edge70.i
 
 .thread.i.i:                                      ; preds = %312
   %315 = load ptr, ptr %310, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %303, ptr noundef nonnull align 8 dereferenceable(120) %315, i64 120, i1 false), !tbaa.struct !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %303, ptr noundef nonnull align 8 dereferenceable(120) %315, i64 120, i1 false), !tbaa.struct !92
   store ptr null, ptr %310, align 8, !tbaa !22
   br label %DecodeRemaining.exitthread-pre-split
 
@@ -1209,7 +1209,7 @@ DecodeRemaining.exit:                             ; preds = %DecodeRemaining.exi
   br i1 %.not.i31, label %333, label %346
 
 333:                                              ; preds = %331
-  %334 = load i32, ptr %321, align 8, !tbaa !92
+  %334 = load i32, ptr %321, align 8, !tbaa !93
   %335 = icmp eq i32 %334, 3
   br i1 %335, label %336, label %339
 
@@ -1244,7 +1244,7 @@ IDecError.exit.i.i:                               ; preds = %343, %.thread32.i
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %351 = load ptr, ptr %350, align 8, !tbaa !69
   %352 = call i32 @WebPAllocateDecBuffer(i32 noundef %347, i32 noundef %349, ptr noundef %351, ptr noundef %323) #7
-  store i32 %352, ptr %321, align 8, !tbaa !92
+  store i32 %352, ptr %321, align 8, !tbaa !93
   %.not29.i = icmp eq i32 %352, 0
   br i1 %.not29.i, label %DecodeVP8LHeader.exit.thread54, label %353
 
@@ -1267,7 +1267,7 @@ DecodeVP8LHeader.exit.thread54:                   ; preds = %346
   br label %360
 
 DecodeVP8LHeader.exit.sink.split:                 ; preds = %336, %318
-  store i32 5, ptr %321, align 8, !tbaa !92
+  store i32 5, ptr %321, align 8, !tbaa !93
   br label %DecodeVP8LHeader.exit
 
 DecodeVP8LHeader.exit:                            ; preds = %DecodeVP8LHeader.exit.sink.split, %111, %339, %DecodeRemaining.exit
@@ -1289,10 +1289,10 @@ DecodeVP8LHeader.exit:                            ; preds = %DecodeVP8LHeader.ex
   %368 = icmp ult i64 %365, %367
   %369 = zext i1 %368 to i32
   %370 = getelementptr inbounds nuw i8, ptr %362, i64 80
-  store i32 %369, ptr %370, align 8, !tbaa !103
+  store i32 %369, ptr %370, align 8, !tbaa !104
   %371 = call i32 @VP8LDecodeImage(ptr noundef %362) #7
   %.not.i36 = icmp eq i32 %371, 0
-  %372 = load i32, ptr %362, align 8, !tbaa !92
+  %372 = load i32, ptr %362, align 8, !tbaa !93
   br i1 %.not.i36, label %373, label %382
 
 373:                                              ; preds = %360
@@ -1330,7 +1330,7 @@ IDecError.exit.i.i45:                             ; preds = %378, %375
 
 389:                                              ; preds = %384
   %390 = getelementptr inbounds nuw i8, ptr %387, i64 48
-  %391 = load i32, ptr %390, align 4, !tbaa !89
+  %391 = load i32, ptr %390, align 4, !tbaa !90
   %.not25.i.i38 = icmp eq i32 %391, 0
   br i1 %.not25.i.i38, label %394, label %392
 
@@ -1354,7 +1354,7 @@ IDecError.exit.i.i45:                             ; preds = %378, %375
 
 .thread.i.i43:                                    ; preds = %397
   %400 = load ptr, ptr %395, align 8, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %388, ptr noundef nonnull align 8 dereferenceable(120) %400, i64 120, i1 false), !tbaa.struct !91
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %388, ptr noundef nonnull align 8 dereferenceable(120) %400, i64 120, i1 false), !tbaa.struct !92
   store ptr null, ptr %395, align 8, !tbaa !22
   br label %.critedge
 
@@ -1484,7 +1484,7 @@ GetOutputBuffer.exit:                             ; preds = %5, %7, %11, %14, %1
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !104
+  %27 = load i32, ptr %26, align 4, !tbaa !105
   store i32 %27, ptr %3, align 4, !tbaa !82
   br label %28
 
@@ -1494,7 +1494,7 @@ GetOutputBuffer.exit:                             ; preds = %5, %7, %11, %14, %1
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i32, ptr %30, align 8, !tbaa !105
+  %31 = load i32, ptr %30, align 8, !tbaa !106
   br label %.sink.split
 
 32:                                               ; preds = %23
@@ -1556,7 +1556,7 @@ GetOutputBuffer.exit:                             ; preds = %14
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load i32, ptr %25, align 8, !tbaa !105
+  %26 = load i32, ptr %25, align 8, !tbaa !106
   store i32 %26, ptr %1, align 4, !tbaa !82
   br label %27
 
@@ -1566,7 +1566,7 @@ GetOutputBuffer.exit:                             ; preds = %14
 
 28:                                               ; preds = %27
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !104
+  %30 = load i32, ptr %29, align 4, !tbaa !105
   store i32 %30, ptr %2, align 4, !tbaa !82
   br label %31
 
@@ -1576,7 +1576,7 @@ GetOutputBuffer.exit:                             ; preds = %14
 
 32:                                               ; preds = %31
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %34 = load i32, ptr %33, align 8, !tbaa !106
+  %34 = load i32, ptr %33, align 8, !tbaa !107
   store i32 %34, ptr %3, align 4, !tbaa !82
   br label %35
 
@@ -1639,7 +1639,7 @@ GetOutputBuffer.exit:                             ; preds = %19
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %31 = load i32, ptr %30, align 8, !tbaa !105
+  %31 = load i32, ptr %30, align 8, !tbaa !106
   store i32 %31, ptr %1, align 4, !tbaa !82
   br label %32
 
@@ -1679,7 +1679,7 @@ GetOutputBuffer.exit:                             ; preds = %19
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !104
+  %47 = load i32, ptr %46, align 4, !tbaa !105
   store i32 %47, ptr %5, align 4, !tbaa !82
   br label %48
 
@@ -1689,7 +1689,7 @@ GetOutputBuffer.exit:                             ; preds = %19
 
 49:                                               ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !106
+  %51 = load i32, ptr %50, align 8, !tbaa !107
   store i32 %51, ptr %6, align 4, !tbaa !82
   br label %52
 
@@ -1745,13 +1745,13 @@ define hidden range(i32 0, 2) i32 @WebPISetIOHooks(ptr noundef captures(address_
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store ptr %1, ptr %10, align 8, !tbaa !107
+  store ptr %1, ptr %10, align 8, !tbaa !108
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %2, ptr %11, align 8, !tbaa !108
+  store ptr %2, ptr %11, align 8, !tbaa !109
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %3, ptr %12, align 8, !tbaa !109
+  store ptr %3, ptr %12, align 8, !tbaa !110
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr %4, ptr %13, align 8, !tbaa !110
+  store ptr %4, ptr %13, align 8, !tbaa !111
   br label %14
 
 14:                                               ; preds = %5, %7, %9
@@ -1821,7 +1821,7 @@ define internal fastcc void @DoRemap(ptr noundef nonnull captures(none) initiali
   tail call void @VP8RemapBitReader(ptr noundef nonnull %24, i64 noundef %1) #7
   %25 = add i32 %.058, 1
   %.not49 = icmp ugt i32 %25, %20
-  br i1 %.not49, label %26, label %22, !llvm.loop !111
+  br i1 %.not49, label %26, label %22, !llvm.loop !112
 
 26:                                               ; preds = %22
   %27 = load i32, ptr %3, align 8, !tbaa !20
@@ -1870,7 +1870,7 @@ NeedCompressedAlpha.exit:                         ; preds = %47
 
 53:                                               ; preds = %NeedCompressedAlpha.exit
   %54 = getelementptr inbounds nuw i8, ptr %14, i64 2960
-  %55 = load ptr, ptr %54, align 8, !tbaa !112
+  %55 = load ptr, ptr %54, align 8, !tbaa !113
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 2968
   %57 = load ptr, ptr %56, align 8, !tbaa !32
   %58 = getelementptr inbounds i8, ptr %57, i64 %1
@@ -1880,13 +1880,13 @@ NeedCompressedAlpha.exit:                         ; preds = %47
 
 59:                                               ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !113
+  %61 = load ptr, ptr %60, align 8, !tbaa !114
   %.not52 = icmp eq ptr %61, null
   br i1 %.not52, label %NeedCompressedAlpha.exit.thread, label %62
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !116
+  %64 = load i32, ptr %63, align 8, !tbaa !117
   %65 = icmp eq i32 %64, 1
   br i1 %65, label %66, label %NeedCompressedAlpha.exit.thread
 
@@ -2049,34 +2049,35 @@ attributes #7 = { nounwind }
 !83 = !{!11, !11, i64 0}
 !84 = !{!85, !10, i64 16}
 !85 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!86 = distinct !{!86, !87}
+!86 = distinct !{!86, !87, !88}
 !87 = !{!"llvm.loop.mustprogress"}
-!88 = distinct !{!88, !87}
-!89 = !{!90, !5, i64 48}
-!90 = !{!"WebPDecoderOptions", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !6, i64 56}
-!91 = !{i64 0, i64 4, !82, i64 4, i64 4, !82, i64 8, i64 4, !82, i64 12, i64 4, !82, i64 16, i64 80, !31, i64 96, i64 16, !31, i64 112, i64 8, !83}
-!92 = !{!93, !5, i64 0}
-!93 = !{!"VP8LDecoder", !5, i64 0, !5, i64 4, !94, i64 8, !9, i64 16, !95, i64 24, !95, i64 32, !96, i64 40, !5, i64 80, !96, i64 88, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !97, i64 152, !5, i64 272, !6, i64 280, !5, i64 376, !11, i64 384, !13, i64 392}
-!94 = !{!"p1 _ZTS5VP8Io", !10, i64 0}
-!95 = !{!"p1 int", !10, i64 0}
-!96 = !{!"", !15, i64 0, !11, i64 8, !15, i64 16, !15, i64 24, !5, i64 32, !5, i64 36}
-!97 = !{!"", !5, i64 0, !98, i64 8, !98, i64 24, !5, i64 40, !5, i64 44, !5, i64 48, !95, i64 56, !5, i64 64, !99, i64 72, !100, i64 80}
-!98 = !{!"", !95, i64 0, !5, i64 8, !5, i64 12}
-!99 = !{!"p1 _ZTS10HTreeGroup", !10, i64 0}
-!100 = !{!"HuffmanTables", !101, i64 0, !102, i64 32}
-!101 = !{!"HuffmanTablesSegment", !10, i64 0, !10, i64 8, !102, i64 16, !5, i64 24}
-!102 = !{!"p1 _ZTS20HuffmanTablesSegment", !10, i64 0}
-!103 = !{!93, !5, i64 80}
-!104 = !{!17, !5, i64 4}
-!105 = !{!4, !5, i64 40}
-!106 = !{!17, !5, i64 8}
-!107 = !{!4, !10, i64 200}
-!108 = !{!4, !10, i64 208}
-!109 = !{!4, !10, i64 216}
-!110 = !{!4, !10, i64 192}
-!111 = distinct !{!111, !87}
-!112 = !{!33, !44, i64 2960}
-!113 = !{!114, !115, i64 24}
-!114 = !{!"ALPHDecoder", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !115, i64 24, !14, i64 32, !5, i64 192, !11, i64 200, !11, i64 208}
-!115 = !{!"p1 _ZTS11VP8LDecoder", !10, i64 0}
-!116 = !{!114, !5, i64 8}
+!88 = !{!"llvm.loop.estimated_trip_count"}
+!89 = distinct !{!89, !87, !88}
+!90 = !{!91, !5, i64 48}
+!91 = !{!"WebPDecoderOptions", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !6, i64 56}
+!92 = !{i64 0, i64 4, !82, i64 4, i64 4, !82, i64 8, i64 4, !82, i64 12, i64 4, !82, i64 16, i64 80, !31, i64 96, i64 16, !31, i64 112, i64 8, !83}
+!93 = !{!94, !5, i64 0}
+!94 = !{!"VP8LDecoder", !5, i64 0, !5, i64 4, !95, i64 8, !9, i64 16, !96, i64 24, !96, i64 32, !97, i64 40, !5, i64 80, !97, i64 88, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !98, i64 152, !5, i64 272, !6, i64 280, !5, i64 376, !11, i64 384, !13, i64 392}
+!95 = !{!"p1 _ZTS5VP8Io", !10, i64 0}
+!96 = !{!"p1 int", !10, i64 0}
+!97 = !{!"", !15, i64 0, !11, i64 8, !15, i64 16, !15, i64 24, !5, i64 32, !5, i64 36}
+!98 = !{!"", !5, i64 0, !99, i64 8, !99, i64 24, !5, i64 40, !5, i64 44, !5, i64 48, !96, i64 56, !5, i64 64, !100, i64 72, !101, i64 80}
+!99 = !{!"", !96, i64 0, !5, i64 8, !5, i64 12}
+!100 = !{!"p1 _ZTS10HTreeGroup", !10, i64 0}
+!101 = !{!"HuffmanTables", !102, i64 0, !103, i64 32}
+!102 = !{!"HuffmanTablesSegment", !10, i64 0, !10, i64 8, !103, i64 16, !5, i64 24}
+!103 = !{!"p1 _ZTS20HuffmanTablesSegment", !10, i64 0}
+!104 = !{!94, !5, i64 80}
+!105 = !{!17, !5, i64 4}
+!106 = !{!4, !5, i64 40}
+!107 = !{!17, !5, i64 8}
+!108 = !{!4, !10, i64 200}
+!109 = !{!4, !10, i64 208}
+!110 = !{!4, !10, i64 216}
+!111 = !{!4, !10, i64 192}
+!112 = distinct !{!112, !87, !88}
+!113 = !{!33, !44, i64 2960}
+!114 = !{!115, !116, i64 24}
+!115 = !{!"ALPHDecoder", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !116, i64 24, !14, i64 32, !5, i64 192, !11, i64 200, !11, i64 208}
+!116 = !{!"p1 _ZTS11VP8LDecoder", !10, i64 0}
+!117 = !{!115, !5, i64 8}

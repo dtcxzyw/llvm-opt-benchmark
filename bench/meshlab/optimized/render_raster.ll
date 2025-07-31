@@ -697,7 +697,7 @@ _ZN11RasterPlaneD2Ev.exit:                        ; preds = %46, %_ZN9QtPrivate8
   %58 = sub nsw i32 %57, %54
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next, %59
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %53, %1
   %.lcssa = phi ptr [ %4, %1 ], [ %55, %53 ]
@@ -788,6 +788,7 @@ attributes #18 = { noreturn }
 !8 = !{!9}
 !9 = distinct !{!9, !10, !"_ZNK5QListIP11RasterPlaneE3endEv: argument 0"}
 !10 = distinct !{!10, !"_ZNK5QListIP11RasterPlaneE3endEv"}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}

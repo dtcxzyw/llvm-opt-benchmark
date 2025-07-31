@@ -774,7 +774,7 @@ ConfigOptionIsVisible.exit.i:                     ; preds = %54, %52, %29, %21
   %57 = load i32, ptr %6, align 4
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next.i, %58
-  br i1 %59, label %21, label %ShowAllGUCConfig.exit, !llvm.loop !8
+  br i1 %59, label %21, label %ShowAllGUCConfig.exit, !llvm.loop !9
 
 ShowAllGUCConfig.exit:                            ; preds = %ConfigOptionIsVisible.exit.i, %11
   call void @end_tup_output(ptr noundef %14) #7
@@ -1532,7 +1532,7 @@ define dso_local noundef i64 @show_all_file_settings(ptr noundef %0) local_unnam
   %58 = load ptr, ptr %57, align 8
   %59 = add i32 %.031, 1
   %.not = icmp eq ptr %58, null
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %54, %1
   ret i64 0
@@ -1608,7 +1608,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

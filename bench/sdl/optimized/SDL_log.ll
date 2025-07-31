@@ -116,7 +116,7 @@ CleanupLogPriorities.exit:                        ; preds = %CleanupLogPrioritie
 11:                                               ; preds = %10, %CleanupLogPriorities.exit
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %CleanupLogPrefixes.exit, label %CleanupLogPriorities.exit, !llvm.loop !5
+  br i1 %exitcond.not.i, label %CleanupLogPrefixes.exit, label %CleanupLogPriorities.exit, !llvm.loop !6
 
 CleanupLogPrefixes.exit:                          ; preds = %11
   %12 = load ptr, ptr @SDL_log_lock, align 8
@@ -186,7 +186,7 @@ CleanupLogPriorities.exit:                        ; preds = %.lr.ph.i, %1
   store i32 %0, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %8, label %10, !llvm.loop !6
+  br i1 %exitcond.not, label %8, label %10, !llvm.loop !7
 }
 
 ; Function Attrs: nounwind uwtable
@@ -264,7 +264,7 @@ define hidden void @SDL_SetLogPriority_REAL(i32 noundef %0, i32 noundef %1) loca
   %13 = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %.0 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !8
 
 .critedge:                                        ; preds = %12, %.preheader
   %14 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #8
@@ -322,7 +322,7 @@ define hidden i32 @SDL_GetLogPriority_REAL(i32 noundef %0) local_unnamed_addr #0
   %13 = getelementptr inbounds nuw i8, ptr %.01826, i64 8
   %.018 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !9
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %.01826, i64 4
@@ -412,7 +412,7 @@ CleanupLogPriorities.exit:                        ; preds = %.lr.ph.i, %0
 29:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %ParseLogPriorities.exit, label %.preheader.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %ParseLogPriorities.exit, label %.preheader.i.i, !llvm.loop !10
 
 .loopexit.sink.split.i.i:                         ; preds = %27, %20, %19, %16
   %.2.ph.i = phi i32 [ 8, %20 ], [ 8, %16 ], [ %28, %27 ], [ %17, %19 ]
@@ -443,7 +443,7 @@ CleanupLogPriorities.exit.i.i:                    ; preds = %.lr.ph.i.i.i, %.loo
   store i32 %.2.ph.i, ptr %37, align 4
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i37.i, 1
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i38.i, 19
-  br i1 %exitcond.not.i39.i, label %SDL_SetLogPriorities_REAL.exit.i, label %36, !llvm.loop !6
+  br i1 %exitcond.not.i39.i, label %SDL_SetLogPriorities_REAL.exit.i, label %36, !llvm.loop !7
 
 SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
   %38 = load ptr, ptr @SDL_log_lock, align 8
@@ -493,7 +493,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
 60:                                               ; preds = %.preheader.i43.i
   %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i44.i, 1
   %exitcond.not.i46.i = icmp eq i64 %indvars.iv.next.i45.i, 10
-  br i1 %exitcond.not.i46.i, label %ParseLogCategory.exit.i, label %.preheader.i43.i, !llvm.loop !10
+  br i1 %exitcond.not.i46.i, label %ParseLogCategory.exit.i, label %.preheader.i43.i, !llvm.loop !11
 
 61:                                               ; preds = %58, %51, %49
   %.267.ph.i = phi i32 [ -1, %51 ], [ %50, %49 ], [ %59, %58 ]
@@ -548,7 +548,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
 87:                                               ; preds = %.preheader.i52.i
   %indvars.iv.next.i54.i = add nuw nsw i64 %indvars.iv.i53.i, 1
   %exitcond.not.i55.i = icmp eq i64 %indvars.iv.next.i54.i, 8
-  br i1 %exitcond.not.i55.i, label %ParseLogCategory.exit.i, label %.preheader.i52.i, !llvm.loop !9
+  br i1 %exitcond.not.i55.i, label %ParseLogCategory.exit.i, label %.preheader.i52.i, !llvm.loop !10
 
 .loopexit.sink.split.i50.i:                       ; preds = %85, %78, %77, %74
   %.3.ph.i = phi i32 [ 8, %78 ], [ 8, %74 ], [ %86, %85 ], [ %75, %77 ]
@@ -573,7 +573,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
 94:                                               ; preds = %93, %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 19
-  br i1 %exitcond.not.i, label %89, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %89, label %.preheader.i, !llvm.loop !12
 
 95:                                               ; preds = %.loopexit.sink.split.i50.i
   tail call fastcc void @SDL_CheckInitLog()
@@ -608,7 +608,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
   %106 = getelementptr inbounds nuw i8, ptr %.025.i.i, i64 8
   %.0.i.i = load ptr, ptr %106, align 8
   %.not.i58.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i58.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !7
+  br i1 %.not.i58.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .critedge.i.i:                                    ; preds = %105, %.preheader.i57.i
   %107 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 16) #8
@@ -631,7 +631,7 @@ SDL_SetLogPriority_REAL.exit.i:                   ; preds = %108, %.critedge.i.i
   br label %ParseLogCategory.exit.i
 
 ParseLogCategory.exit.i:                          ; preds = %60, %87, %SDL_SetLogPriority_REAL.exit.i, %89, %77
-  br i1 %.not35.i, label %ParseLogPriorities.exit, label %.preheader84.i, !llvm.loop !12
+  br i1 %.not35.i, label %ParseLogPriorities.exit, label %.preheader84.i, !llvm.loop !13
 
 ParseLogPriorities.exit:                          ; preds = %ParseLogCategory.exit.i, %.preheader84.i, %29, %SDL_SetLogPriorities_REAL.exit.i, %19, %CleanupLogPriorities.exit
   %113 = load i32, ptr @SDL_log_default_priority, align 4
@@ -682,7 +682,7 @@ ParseLogPriorities.exit:                          ; preds = %ParseLogCategory.ex
 126:                                              ; preds = %.sink.split, %118
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %116, label %118, !llvm.loop !13
+  br i1 %exitcond.not, label %116, label %118, !llvm.loop !14
 }
 
 declare ptr @SDL_GetHint_REAL(ptr noundef) local_unnamed_addr #1
@@ -799,7 +799,7 @@ define hidden void @SDL_LogMessageV_REAL(i32 noundef %0, i32 noundef %1, ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %.01826.i, i64 8
   %.018.i = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %.018.i, null
-  br i1 %.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !9
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %.01826.i, i64 4
@@ -1101,14 +1101,15 @@ attributes #9 = { cold nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}

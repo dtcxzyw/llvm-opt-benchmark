@@ -253,7 +253,7 @@ b2AddKeyHaveCapacity.exit.i:                      ; preds = %52, %.lr.ph.i.b2Fin
 62:                                               ; preds = %b2AddKeyHaveCapacity.exit.i, %.lr.ph.i15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %b2GrowTable.exit, label %.lr.ph.i15, !llvm.loop !18
+  br i1 %exitcond.not.i, label %b2GrowTable.exit, label %.lr.ph.i15, !llvm.loop !19
 
 b2GrowTable.exit:                                 ; preds = %62, %32
   %63 = shl i32 %.val13, 4
@@ -394,7 +394,7 @@ define hidden noundef zeroext i1 @b2RemoveKey(ptr noundef captures(none) %0, i64
 47:                                               ; preds = %46, %45
   %48 = sext i32 %.04051 to i64
   %49 = getelementptr inbounds %struct.b2SetItem, ptr %.val, i64 %48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false), !tbaa.struct !20
   store i64 0, ptr %41, align 8, !tbaa !15
   store i32 0, ptr %40, align 8, !tbaa !12
   br label %50
@@ -408,7 +408,7 @@ define hidden noundef zeroext i1 @b2RemoveKey(ptr noundef captures(none) %0, i64
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !12
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.loopexit, label %.lr.ph
+  br i1 %57, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %20, %50, %2, %26
   %58 = phi i1 [ true, %26 ], [ false, %2 ], [ true, %50 ], [ false, %20 ]
@@ -450,9 +450,11 @@ attributes #9 = { nounwind }
 !13 = !{!"b2SetItem", !14, i64 0, !9, i64 8}
 !14 = !{!"long", !7, i64 0}
 !15 = !{!13, !14, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{i64 0, i64 8, !20, i64 8, i64 4, !21}
-!20 = !{!14, !14, i64 0}
-!21 = !{!9, !9, i64 0}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{i64 0, i64 8, !21, i64 8, i64 4, !22}
+!21 = !{!14, !14, i64 0}
+!22 = !{!9, !9, i64 0}
+!23 = distinct !{!23, !18}

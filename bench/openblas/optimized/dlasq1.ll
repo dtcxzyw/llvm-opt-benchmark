@@ -119,7 +119,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %55 = select i1 %54, double %51, double %53
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !11
+  br i1 %exitcond149.not, label %._crit_edge125, label %.lr.ph124, !llvm.loop !12
 
 ._crit_edge125:                                   ; preds = %.lr.ph124
   store double %55, ptr %11, align 8
@@ -159,7 +159,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %71, ptr %69, align 8, !tbaa !7
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond154.not = icmp eq i64 %indvars.iv.next151, %wide.trip.count153
-  br i1 %exitcond154.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !12
+  br i1 %exitcond154.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !13
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %._crit_edge125
   %72 = sext i32 %67 to i64
@@ -189,7 +189,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %81 = load i32, ptr %6, align 4, !tbaa !3
   %82 = sext i32 %81 to i64
   %.not116.not = icmp slt i64 %indvars.iv158, %82
-  br i1 %.not116.not, label %.lr.ph140, label %._crit_edge141, !llvm.loop !13
+  br i1 %.not116.not, label %.lr.ph140, label %._crit_edge141, !llvm.loop !14
 
 ._crit_edge141:                                   ; preds = %.lr.ph140, %75
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull @c__1, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %9) #4
@@ -221,7 +221,7 @@ define void @dlasq1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %93 = load i32, ptr %6, align 4, !tbaa !3
   %94 = sext i32 %93 to i64
   %.not115.not = icmp slt i64 %indvars.iv155, %94
-  br i1 %.not115.not, label %.lr.ph135, label %._crit_edge136, !llvm.loop !14
+  br i1 %.not115.not, label %.lr.ph135, label %._crit_edge136, !llvm.loop !15
 
 ._crit_edge136:                                   ; preds = %.lr.ph135, %83
   call void @dlascl_(ptr noundef nonnull @.str.4, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %8, ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull @c__1, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %9) #4
@@ -278,9 +278,10 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

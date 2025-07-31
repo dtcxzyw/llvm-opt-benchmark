@@ -310,7 +310,7 @@ parallel_vacuum_compute_workers.exit.thread:      ; preds = %._crit_edge.i, %7, 
   %.1 = phi i32 [ %.0158174, %127 ], [ %spec.select, %153 ], [ %spec.select, %151 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !9
 
 157:                                              ; preds = %._crit_edge
   %158 = tail call i32 @llvm.smin.i32(i32 %40, i32 %.1)
@@ -485,7 +485,7 @@ define dso_local void @parallel_vacuum_end(ptr noundef %0, ptr noundef writeonly
   %25 = load i32, ptr %3, align 8
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %12, label %._crit_edge, !llvm.loop !9
+  br i1 %27, label %12, label %._crit_edge, !llvm.loop !10
 }
 
 declare void @TidStoreDestroy(ptr noundef) local_unnamed_addr #2
@@ -645,7 +645,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %57 = load i32, ptr %20, align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next, %58
-  br i1 %59, label %31, label %._crit_edge, !llvm.loop !10
+  br i1 %59, label %31, label %._crit_edge, !llvm.loop !11
 
 60:                                               ; preds = %._crit_edge
   %61 = icmp sgt i32 %1, 0
@@ -726,7 +726,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   br i1 %.not.i, label %105, label %103
 
 103:                                              ; preds = %101
-  %104 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 1, ptr nonnull elementtype(i32) %102) #10, !srcloc !11
+  %104 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %102, i32 1, ptr nonnull elementtype(i32) %102) #10, !srcloc !12
   br label %105
 
 105:                                              ; preds = %103, %101
@@ -767,7 +767,7 @@ parallel_vacuum_index_is_parallel_safe.exit:      ; preds = %44, %47, %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %124 = sext i32 %123 to i64
   %125 = icmp slt i64 %indvars.iv.next.i, %124
-  br i1 %125, label %111, label %._crit_edge.i, !llvm.loop !12
+  br i1 %125, label %111, label %._crit_edge.i, !llvm.loop !13
 
 parallel_vacuum_process_unsafe_indexes.exit:      ; preds = %._crit_edge.i
   %126 = atomicrmw sub ptr %110, i32 1 seq_cst, align 4
@@ -776,13 +776,13 @@ parallel_vacuum_process_unsafe_indexes.exit:      ; preds = %._crit_edge.i
   br i1 %.not.i87, label %parallel_vacuum_process_unsafe_indexes.exit.thread, label %127
 
 127:                                              ; preds = %parallel_vacuum_process_unsafe_indexes.exit
-  %128 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr, i32 1, ptr nonnull elementtype(i32) %.pr) #10, !srcloc !11
+  %128 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr, i32 1, ptr nonnull elementtype(i32) %.pr) #10, !srcloc !12
   br label %parallel_vacuum_process_unsafe_indexes.exit.thread
 
 parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %127, %parallel_vacuum_process_unsafe_indexes.exit
   %129 = load ptr, ptr %27, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 44
-  %131 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 1, ptr nonnull elementtype(i32) %130) #10, !srcloc !11
+  %131 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 1, ptr nonnull elementtype(i32) %130) #10, !srcloc !12
   %132 = load i32, ptr %20, align 8
   %.not1318.i = icmp slt i32 %131, %132
   br i1 %.not1318.i, label %.lr.ph.i89, label %._crit_edge.i88
@@ -812,7 +812,7 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
 147:                                              ; preds = %143, %135
   %148 = load ptr, ptr %27, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 44
-  %150 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 1, ptr nonnull elementtype(i32) %149) #10, !srcloc !11
+  %150 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 1, ptr nonnull elementtype(i32) %149) #10, !srcloc !12
   %151 = load i32, ptr %20, align 8
   %.not13.i = icmp slt i32 %150, %151
   br i1 %.not13.i, label %135, label %._crit_edge.i88
@@ -853,7 +853,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i
   %169 = load i32, ptr %168, align 4
   %170 = sext i32 %169 to i64
   %171 = icmp slt i64 %indvars.iv.next118, %170
-  br i1 %171, label %162, label %parallel_vacuum_process_safe_indexes.exit104, !llvm.loop !13
+  br i1 %171, label %162, label %parallel_vacuum_process_safe_indexes.exit104, !llvm.loop !14
 
 .critedge:                                        ; preds = %._crit_edge
   %172 = load ptr, ptr @VacuumActiveNWorkers, align 8
@@ -861,7 +861,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i
   br i1 %.not.i90, label %175, label %173
 
 173:                                              ; preds = %.critedge
-  %174 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %172, i32 1, ptr nonnull elementtype(i32) %172) #10, !srcloc !11
+  %174 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %172, i32 1, ptr nonnull elementtype(i32) %172) #10, !srcloc !12
   br label %175
 
 175:                                              ; preds = %173, %.critedge
@@ -902,7 +902,7 @@ parallel_vacuum_process_safe_indexes.exit:        ; preds = %153, %._crit_edge.i
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i94, 1
   %194 = sext i32 %193 to i64
   %195 = icmp slt i64 %indvars.iv.next.i96, %194
-  br i1 %195, label %181, label %._crit_edge.i91, !llvm.loop !12
+  br i1 %195, label %181, label %._crit_edge.i91, !llvm.loop !13
 
 parallel_vacuum_process_unsafe_indexes.exit97:    ; preds = %._crit_edge.i91
   %196 = atomicrmw sub ptr %180, i32 1 seq_cst, align 4
@@ -911,13 +911,13 @@ parallel_vacuum_process_unsafe_indexes.exit97:    ; preds = %._crit_edge.i91
   br i1 %.not.i98, label %parallel_vacuum_process_unsafe_indexes.exit97.thread, label %197
 
 197:                                              ; preds = %parallel_vacuum_process_unsafe_indexes.exit97
-  %198 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr106, i32 1, ptr nonnull elementtype(i32) %.pr106) #10, !srcloc !11
+  %198 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %.pr106, i32 1, ptr nonnull elementtype(i32) %.pr106) #10, !srcloc !12
   br label %parallel_vacuum_process_unsafe_indexes.exit97.thread
 
 parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91, %197, %parallel_vacuum_process_unsafe_indexes.exit97
   %199 = load ptr, ptr %27, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 44
-  %201 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %200, i32 1, ptr nonnull elementtype(i32) %200) #10, !srcloc !11
+  %201 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %200, i32 1, ptr nonnull elementtype(i32) %200) #10, !srcloc !12
   %202 = load i32, ptr %20, align 8
   %.not1318.i99 = icmp slt i32 %201, %202
   br i1 %.not1318.i99, label %.lr.ph.i102, label %._crit_edge.i100
@@ -947,7 +947,7 @@ parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91
 217:                                              ; preds = %213, %205
   %218 = load ptr, ptr %27, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 44
-  %220 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %219, i32 1, ptr nonnull elementtype(i32) %219) #10, !srcloc !11
+  %220 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %219, i32 1, ptr nonnull elementtype(i32) %219) #10, !srcloc !12
   %221 = load i32, ptr %20, align 8
   %.not13.i103 = icmp slt i32 %220, %221
   br i1 %.not13.i103, label %205, label %._crit_edge.i100
@@ -1003,7 +1003,7 @@ parallel_vacuum_process_safe_indexes.exit104:     ; preds = %162, %parallel_vacu
   %244 = load i32, ptr %20, align 8
   %245 = sext i32 %244 to i64
   %246 = icmp slt i64 %indvars.iv.next121, %245
-  br i1 %246, label %229, label %._crit_edge114, !llvm.loop !14
+  br i1 %246, label %229, label %._crit_edge114, !llvm.loop !15
 
 247:                                              ; preds = %._crit_edge114
   %248 = load volatile i32, ptr %228, align 4
@@ -1132,13 +1132,13 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   br i1 %.not.i, label %61, label %59
 
 59:                                               ; preds = %21
-  %60 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 1, ptr nonnull elementtype(i32) %58) #10, !srcloc !11
+  %60 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %58, i32 1, ptr nonnull elementtype(i32) %58) #10, !srcloc !12
   br label %61
 
 61:                                               ; preds = %59, %21
   %62 = load ptr, ptr %35, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 44
-  %64 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 1, ptr nonnull elementtype(i32) %63) #10, !srcloc !11
+  %64 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 1, ptr nonnull elementtype(i32) %63) #10, !srcloc !12
   %65 = load i32, ptr %33, align 8
   %.not1318.i = icmp slt i32 %64, %65
   br i1 %.not1318.i, label %.lr.ph.i, label %._crit_edge.i
@@ -1163,7 +1163,7 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
 77:                                               ; preds = %73, %.lr.ph.i
   %78 = load ptr, ptr %35, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 44
-  %80 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, i32 1, ptr nonnull elementtype(i32) %79) #10, !srcloc !11
+  %80 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %79, i32 1, ptr nonnull elementtype(i32) %79) #10, !srcloc !12
   %81 = load i32, ptr %33, align 8
   %.not13.i = icmp slt i32 %80, %81
   br i1 %.not13.i, label %.lr.ph.i, label %._crit_edge.i
@@ -1436,12 +1436,13 @@ attributes #12 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i64 1652082, i64 1652099}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 1652082, i64 1652099}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

@@ -229,13 +229,13 @@ define noundef zeroext i1 @_ZN5boost7process2v211environment6detail13is_executab
   unreachable
 
 _ZN5boost10filesystem15is_regular_fileERKNS0_4pathERNS_6system10error_codeE.exit: ; preds = %2
-  %7 = load i32, ptr %3, align 4, !tbaa !20
+  %7 = load i32, ptr %3, align 4, !tbaa !21
   %8 = icmp eq i32 %7, 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %_ZN5boost10filesystem15is_regular_fileERKNS0_4pathERNS_6system10error_codeE.exit
-  %10 = load ptr, ptr %0, align 8, !tbaa !24
+  %10 = load ptr, ptr %0, align 8, !tbaa !25
   %11 = call i32 @access(ptr noundef %10, i32 noundef 1) #18
   %12 = icmp eq i32 %11, 0
   br label %13
@@ -256,14 +256,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category
   %7 = tail call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) #18
   %8 = extractvalue { i32, ptr } %7, 0
   %9 = extractvalue { i32, ptr } %7, 1
-  %10 = load i32, ptr %2, align 8, !tbaa !27
+  %10 = load i32, ptr %2, align 8, !tbaa !28
   %.not.i = icmp eq i32 %8, %10
   br i1 %.not.i, label %11, label %_ZN5boost6systemeqERKNS0_15error_conditionES3_.exit
 
 11:                                               ; preds = %3
   %12 = icmp eq ptr %9, null
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !29
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %14, null
   br i1 %12, label %15, label %20
 
@@ -304,7 +304,7 @@ _ZN5boost6systemeqERKNS0_15error_conditionES3_.exit: ; preds = %3, %15, %16, %_Z
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category10equivalentERKNS0_10error_codeEi(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !30
+  %5 = load i64, ptr %4, align 8, !tbaa !31
   switch i64 %5, label %25 [
     i64 0, label %6
     i64 1, label %12
@@ -327,7 +327,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category
 _ZNK5boost6system10error_code5valueEv.exit.i:     ; preds = %12
   %16 = load i32, ptr %1, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
+  %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = ptrtoint ptr %18 to i64
   %20 = urem i64 %19, 2097143
   %21 = trunc nuw nsw i64 %20 to i32
@@ -374,12 +374,12 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost6system6detail21system_error_c
 define linkonce_odr hidden void @_ZNK5boost6system6detail21system_error_category7messageB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(52) %1, i32 noundef %2) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca [128 x i8], align 16
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #18, !noalias !40
-  %6 = call ptr @strerror_r(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 128) #18, !noalias !40
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %5) #18, !noalias !41
+  %6 = call ptr @strerror_r(i32 noundef %2, ptr noundef nonnull %5, i64 noundef 128) #18, !noalias !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %7, ptr %0, align 8, !tbaa !41, !alias.scope !40
+  store ptr %7, ptr %0, align 8, !tbaa !42, !alias.scope !41
   %8 = icmp eq ptr %6, null
   br i1 %8, label %.noexc.i.i, label %9
 
@@ -389,16 +389,16 @@ define linkonce_odr hidden void @_ZNK5boost6system6detail21system_error_category
 
 9:                                                ; preds = %3
   %10 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18, !noalias !40
-  store i64 %10, ptr %4, align 8, !tbaa !14, !noalias !40
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18, !noalias !41
+  store i64 %10, ptr %4, align 8, !tbaa !14, !noalias !41
   %11 = icmp ugt i64 %10, 15
   br i1 %11, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %9
   %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %12, ptr %0, align 8, !tbaa !24, !alias.scope !40
-  %13 = load i64, ptr %4, align 8, !tbaa !14, !noalias !40
-  store i64 %13, ptr %7, align 8, !tbaa !13, !alias.scope !40
+  store ptr %12, ptr %0, align 8, !tbaa !25, !alias.scope !41
+  %13 = load i64, ptr %4, align 8, !tbaa !14, !noalias !41
+  store i64 %13, ptr %7, align 8, !tbaa !13, !alias.scope !41
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %9
@@ -418,14 +418,14 @@ define linkonce_odr hidden void @_ZNK5boost6system6detail21system_error_category
   br label %_ZN5boost6system6detail29system_error_category_messageB5cxx11Ei.exit
 
 _ZN5boost6system6detail29system_error_category_messageB5cxx11Ei.exit: ; preds = %._crit_edge.i.i.i.i, %15, %17
-  %18 = load i64, ptr %4, align 8, !tbaa !14, !noalias !40
+  %18 = load i64, ptr %4, align 8, !tbaa !14, !noalias !41
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %18, ptr %19, align 8, !tbaa !42, !alias.scope !40
-  %20 = load ptr, ptr %0, align 8, !tbaa !24, !alias.scope !40
+  store i64 %18, ptr %19, align 8, !tbaa !43, !alias.scope !41
+  %20 = load ptr, ptr %0, align 8, !tbaa !25, !alias.scope !41
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %18
   store i8 0, ptr %21, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18, !noalias !40
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #18, !noalias !40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18, !noalias !41
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %5) #18, !noalias !41
   ret void
 }
 
@@ -514,28 +514,29 @@ attributes #20 = { noreturn }
 !15 = !{!"long", !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"any pointer", !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"_ZTSN5boost10filesystem11file_statusE", !22, i64 0, !23, i64 4}
-!22 = !{!"_ZTSN5boost10filesystem9file_typeE", !6, i64 0}
-!23 = !{!"_ZTSN5boost10filesystem5permsE", !6, i64 0}
-!24 = !{!25, !17, i64 0}
-!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !26, i64 0, !15, i64 8, !6, i64 16}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
-!27 = !{!28, !10, i64 0}
-!28 = !{!"_ZTSN5boost6system15error_conditionE", !10, i64 0, !17, i64 8}
-!29 = !{!28, !17, i64 8}
-!30 = !{!31, !15, i64 16}
-!31 = !{!"_ZTSN5boost6system10error_codeE", !6, i64 0, !15, i64 16}
-!32 = !{!33, !17, i64 8}
-!33 = !{!"_ZTSSt10error_code", !10, i64 0, !17, i64 8}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN5boost6system6detail29system_error_category_messageB5cxx11Ei: argument 0"}
-!36 = distinct !{!36, !"_ZN5boost6system6detail29system_error_category_messageB5cxx11Ei"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei: argument 0"}
-!39 = distinct !{!39, !"_ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei"}
-!40 = !{!38, !35}
-!41 = !{!26, !17, i64 0}
-!42 = !{!25, !15, i64 8}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSN5boost10filesystem11file_statusE", !23, i64 0, !24, i64 4}
+!23 = !{!"_ZTSN5boost10filesystem9file_typeE", !6, i64 0}
+!24 = !{!"_ZTSN5boost10filesystem5permsE", !6, i64 0}
+!25 = !{!26, !17, i64 0}
+!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !27, i64 0, !15, i64 8, !6, i64 16}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !17, i64 0}
+!28 = !{!29, !10, i64 0}
+!29 = !{!"_ZTSN5boost6system15error_conditionE", !10, i64 0, !17, i64 8}
+!30 = !{!29, !17, i64 8}
+!31 = !{!32, !15, i64 16}
+!32 = !{!"_ZTSN5boost6system10error_codeE", !6, i64 0, !15, i64 16}
+!33 = !{!34, !17, i64 8}
+!34 = !{!"_ZTSSt10error_code", !10, i64 0, !17, i64 8}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"_ZN5boost6system6detail29system_error_category_messageB5cxx11Ei: argument 0"}
+!37 = distinct !{!37, !"_ZN5boost6system6detail29system_error_category_messageB5cxx11Ei"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei: argument 0"}
+!40 = distinct !{!40, !"_ZN5boost6system6detail30generic_error_category_messageB5cxx11Ei"}
+!41 = !{!39, !36}
+!42 = !{!27, !17, i64 0}
+!43 = !{!26, !15, i64 8}

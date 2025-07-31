@@ -309,7 +309,7 @@ define void @_ZN3p2t8Triangle5ClearEv(ptr noundef nonnull align 8 captures(addre
 _ZN3p2t8Triangle13ClearNeighborEPKS0_.exit:       ; preds = %16, %15, %10, %4
   %.0.add = add nuw nsw i64 %.0.idx13, 8
   %.not = icmp eq i64 %.0.add, 56
-  br i1 %.not, label %2, label %4
+  br i1 %.not, label %2, label %4, !llvm.loop !3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -777,7 +777,7 @@ define noundef zeroext i1 @_ZN3p2t8Triangle21GetConstrainedEdgeCCWERKNS_5PointE(
   %spec.select.idx = zext i1 %8 to i64
   %.0.in.in.v = select i1 %5, i64 2, i64 %spec.select.idx
   %.0.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.in.v
-  %.0.in = load i8, ptr %.0.in.in, align 1, !range !3, !noundef !4
+  %.0.in = load i8, ptr %.0.in.in, align 1, !range !5, !noundef !6
   %.0 = trunc nuw i8 %.0.in to i1
   ret i1 %.0
 }
@@ -793,7 +793,7 @@ define noundef zeroext i1 @_ZN3p2t8Triangle20GetConstrainedEdgeCWERKNS_5PointE(p
   %spec.select.idx = select i1 %8, i64 2, i64 0
   %.0.in.in.v = select i1 %5, i64 1, i64 %spec.select.idx
   %.0.in.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0.in.in.v
-  %.0.in = load i8, ptr %.0.in.in, align 1, !range !3, !noundef !4
+  %.0.in = load i8, ptr %.0.in.in, align 1, !range !5, !noundef !6
   %.0 = trunc nuw i8 %.0.in to i1
   ret i1 %.0
 }
@@ -873,7 +873,7 @@ define noundef zeroext i1 @_ZN3p2t8Triangle17GetDelunayEdgeCCWERKNS_5PointE(ptr 
   %. = select i1 %8, i64 3, i64 4
   %.sink = select i1 %5, i64 5, i64 %.
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %.0.in = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %.0.in = load i8, ptr %9, align 1, !range !5, !noundef !6
   %.0 = trunc nuw i8 %.0.in to i1
   ret i1 %.0
 }
@@ -889,7 +889,7 @@ define noundef zeroext i1 @_ZN3p2t8Triangle16GetDelunayEdgeCWERKNS_5PointE(ptr n
   %. = select i1 %8, i64 5, i64 3
   %.sink = select i1 %5, i64 4, i64 %.
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %.0.in = load i8, ptr %9, align 1, !range !3, !noundef !4
+  %.0.in = load i8, ptr %9, align 1, !range !5, !noundef !6
   %.0 = trunc nuw i8 %.0.in to i1
   ret i1 %.0
 }
@@ -1113,7 +1113,7 @@ define noundef zeroext i1 @_ZN3p2t10IsDelaunayERKSt6vectorIPNS_8TriangleESaIS2_E
 25:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond, label %.loopexit, label %26, !llvm.loop !5
+  br i1 %exitcond, label %.loopexit, label %26, !llvm.loop !7
 
 26:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
@@ -1152,12 +1152,12 @@ define noundef zeroext i1 @_ZN3p2t10IsDelaunayERKSt6vectorIPNS_8TriangleESaIS2_E
 .loopexit:                                        ; preds = %25, %9
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.028.048, i64 8
   %.not41 = icmp eq ptr %57, %4
-  br i1 %.not41, label %._crit_edge, label %9
+  br i1 %.not41, label %._crit_edge, label %9, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.032.050, i64 8
   %.not = icmp eq ptr %58, %4
-  br i1 %.not, label %.loopexit42, label %.lr.ph
+  br i1 %.not, label %.loopexit42, label %.lr.ph, !llvm.loop !10
 
 .loopexit42:                                      ; preds = %._crit_edge, %26, %1
   %.not45 = phi i1 [ true, %1 ], [ false, %26 ], [ true, %._crit_edge ]
@@ -1208,7 +1208,11 @@ attributes #14 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i8 0, i8 2}
-!4 = !{}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{i8 0, i8 2}
+!6 = !{}
+!7 = distinct !{!7, !8, !4}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}

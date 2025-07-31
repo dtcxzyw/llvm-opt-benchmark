@@ -410,7 +410,7 @@ i2r_TARGETS.exit:                                 ; preds = %i2r_TARGET.exit.i, 
   %131 = add nuw nsw i32 %.010, 1
   %132 = call i32 @OPENSSL_sk_num(ptr noundef %1) #4
   %133 = icmp slt i32 %131, %132
-  br i1 %133, label %15, label %._crit_edge, !llvm.loop !37
+  br i1 %133, label %15, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %i2r_TARGETS.exit, %4
   ret i32 1
@@ -528,6 +528,7 @@ attributes #4 = { nounwind }
 !32 = !{!5, !5, i64 0}
 !33 = !{!34, !12, i64 160}
 !34 = !{!"evp_pkey_asn1_method_st", !5, i64 0, !5, i64 4, !20, i64 8, !19, i64 16, !19, i64 24, !12, i64 32, !12, i64 40, !12, i64 48, !12, i64 56, !12, i64 64, !12, i64 72, !12, i64 80, !12, i64 88, !12, i64 96, !12, i64 104, !12, i64 112, !12, i64 120, !12, i64 128, !12, i64 136, !12, i64 144, !12, i64 152, !12, i64 160, !12, i64 168, !12, i64 176, !12, i64 184, !12, i64 192, !12, i64 200, !12, i64 208, !12, i64 216, !12, i64 224, !12, i64 232, !12, i64 240, !12, i64 248, !12, i64 256, !12, i64 264, !12, i64 272, !12, i64 280, !12, i64 288, !12, i64 296, !12, i64 304, !12, i64 312}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}

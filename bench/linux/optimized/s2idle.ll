@@ -123,13 +123,13 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %3 = alloca %struct.guid_t, align 8
   %4 = load ptr, ptr @lps0_device_handle, align 8
   %5 = icmp ne ptr %4, null
-  %6 = load i8, ptr @sleep_no_lps0, align 1, !range !8
+  %6 = load i8, ptr @sleep_no_lps0, align 1, !range !9
   %7 = icmp eq i8 %6, 0
   %8 = select i1 %5, i1 %7, i1 false
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %0
-  %10 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %10 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %11 = icmp ne i8 %10, 0
   %12 = load i32, ptr @lpi_constraints_table_size, align 4
   %13 = icmp sgt i32 %12, 0
@@ -184,7 +184,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %45 = load i32, ptr @lpi_constraints_table_size, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %42, %46
-  br i1 %47, label %17, label %.loopexit10, !llvm.loop !10
+  br i1 %47, label %17, label %.loopexit10, !llvm.loop !11
 
 .loopexit10:                                      ; preds = %41, %9
   %48 = load i32, ptr @lps0_dsm_func_mask, align 4
@@ -222,7 +222,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %68 = zext i1 %67 to i64
   %69 = call ptr @acpi_evaluate_dsm(ptr noundef %66, ptr noundef nonnull %3, i64 noundef %68, i64 noundef 3, ptr noundef null) #8
   call void @kfree(ptr noundef %69) #8
-  %70 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %70 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %82, label %72
 
@@ -279,7 +279,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %104 = zext i1 %103 to i64
   %105 = call ptr @acpi_evaluate_dsm(ptr noundef %102, ptr noundef nonnull %2, i64 noundef %104, i64 noundef 7, ptr noundef null) #8
   call void @kfree(ptr noundef %105) #8
-  %106 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %106 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %107 = icmp eq i8 %106, 0
   %.pre11 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   br i1 %107, label %117, label %108
@@ -316,7 +316,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
   %127 = zext i1 %126 to i64
   %128 = call ptr @acpi_evaluate_dsm(ptr noundef %125, ptr noundef nonnull %1, i64 noundef %127, i64 noundef 5, ptr noundef null) #8
   call void @kfree(ptr noundef %128) #8
-  %129 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %129 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %130 = icmp eq i8 %129, 0
   br i1 %130, label %141, label %131
 
@@ -356,7 +356,7 @@ define dso_local noundef i32 @acpi_s2idle_prepare_late() #1 align 16 {
 150:                                              ; preds = %149, %.preheader
   %151 = load ptr, ptr %145, align 8
   %152 = icmp eq ptr %151, @lps0_s2idle_devops_head
-  br i1 %152, label %.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %152, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %150, %142, %0
   ret i32 0
@@ -380,7 +380,7 @@ define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef range(i32 2, 7)
   %14 = zext nneg i32 %0 to i64
   %15 = call ptr @acpi_evaluate_dsm(ptr noundef %11, ptr noundef nonnull %5, i64 noundef %13, i64 noundef %14, ptr noundef null) #8
   call void @kfree(ptr noundef %15) #8
-  %16 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %16 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %38, label %18
 
@@ -445,7 +445,7 @@ define internal fastcc void @acpi_sleep_run_lps0_dsm(i32 noundef range(i32 2, 7)
 define dso_local void @acpi_s2idle_check() #1 align 16 {
   %1 = load ptr, ptr @lps0_device_handle, align 8
   %2 = icmp eq ptr %1, null
-  %3 = load i8, ptr @sleep_no_lps0, align 1, !range !8
+  %3 = load i8, ptr @sleep_no_lps0, align 1, !range !9
   %4 = icmp ne i8 %3, 0
   %5 = select i1 %2, i1 true, i1 %4
   %6 = load ptr, ptr @lps0_s2idle_devops_head, align 8
@@ -467,7 +467,7 @@ define dso_local void @acpi_s2idle_check() #1 align 16 {
 14:                                               ; preds = %13, %.preheader
   %15 = load ptr, ptr %9, align 8
   %16 = icmp eq ptr %15, @lps0_s2idle_devops_head
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit:                                        ; preds = %14, %0
   ret void
@@ -480,7 +480,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %3 = alloca %struct.guid_t, align 8
   %4 = load ptr, ptr @lps0_device_handle, align 8
   %5 = icmp ne ptr %4, null
-  %6 = load i8, ptr @sleep_no_lps0, align 1, !range !8
+  %6 = load i8, ptr @sleep_no_lps0, align 1, !range !9
   %7 = icmp eq i8 %6, 0
   %8 = select i1 %5, i1 %7, i1 false
   br i1 %8, label %9, label %111
@@ -504,7 +504,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
 17:                                               ; preds = %16, %.preheader
   %18 = load ptr, ptr %12, align 8
   %19 = icmp eq ptr %18, @lps0_s2idle_devops_head
-  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !13
+  br i1 %19, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .loopexit:                                        ; preds = %17, %9
   %20 = load i32, ptr @lps0_dsm_func_mask, align 4
@@ -546,7 +546,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %40 = zext i1 %39 to i64
   %41 = call ptr @acpi_evaluate_dsm(ptr noundef %38, ptr noundef nonnull %3, i64 noundef %40, i64 noundef 6, ptr noundef null) #8
   call void @kfree(ptr noundef %41) #8
-  %42 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %42 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %43 = icmp eq i8 %42, 0
   %.pr.pre10 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   br i1 %43, label %53, label %44
@@ -592,7 +592,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %64 = zext i1 %63 to i64
   %65 = call ptr @acpi_evaluate_dsm(ptr noundef %62, ptr noundef nonnull %2, i64 noundef %64, i64 noundef 8, ptr noundef null) #8
   call void @kfree(ptr noundef %65) #8
-  %66 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %66 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %67 = icmp eq i8 %66, 0
   %.pr8.pre12 = load i32, ptr @lps0_dsm_func_mask_microsoft, align 4
   br i1 %67, label %77, label %68
@@ -634,7 +634,7 @@ define dso_local void @acpi_s2idle_restore_early() #1 align 16 {
   %88 = zext i1 %87 to i64
   %89 = call ptr @acpi_evaluate_dsm(ptr noundef %86, ptr noundef nonnull %1, i64 noundef %88, i64 noundef 4, ptr noundef null) #8
   call void @kfree(ptr noundef %89) #8
-  %90 = load i8, ptr @pm_debug_messages_on, align 1, !range !8, !noundef !9
+  %90 = load i8, ptr @pm_debug_messages_on, align 1, !range !9, !noundef !10
   %91 = icmp eq i8 %90, 0
   br i1 %91, label %102, label %92
 
@@ -690,7 +690,7 @@ declare dso_local void @s2idle_set_ops(ptr noundef) local_unnamed_addr #3
 define dso_local noundef range(i32 -19, 1) i32 @acpi_register_lps0_dev(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr @lps0_device_handle, align 8
   %3 = icmp ne ptr %2, null
-  %4 = load i8, ptr @sleep_no_lps0, align 1, !range !8
+  %4 = load i8, ptr @sleep_no_lps0, align 1, !range !9
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %3, i1 %5, i1 false
   br i1 %6, label %7, label %12
@@ -722,7 +722,7 @@ declare dso_local void @unlock_system_sleep(i32 noundef) local_unnamed_addr #3
 define dso_local void @acpi_unregister_lps0_dev(ptr noundef captures(none) %0) #1 align 16 {
   %2 = load ptr, ptr @lps0_device_handle, align 8
   %3 = icmp ne ptr %2, null
-  %4 = load i8, ptr @sleep_no_lps0, align 1, !range !8
+  %4 = load i8, ptr @sleep_no_lps0, align 1, !range !9
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %3, i1 %5, i1 false
   br i1 %6, label %7, label %13
@@ -827,7 +827,7 @@ define internal noundef i32 @lps0_device_attach(ptr noundef %0, ptr readnone cap
   store ptr %40, ptr @lps0_device_attach.dev_id, align 8
   %41 = load i8, ptr %40, align 8
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %split.thread, label %29, !llvm.loop !14
+  br i1 %42, label %split.thread, label %29, !llvm.loop !15
 
 split:                                            ; preds = %35
   %.pre = load ptr, ptr @lps0_device_attach.dev_id, align 8
@@ -883,7 +883,7 @@ split.thread:                                     ; preds = %38, %44, %split
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %64
-  %70 = load i8, ptr %48, align 1, !range !8, !noundef !9
+  %70 = load i8, ptr %48, align 1, !range !9, !noundef !10
   %71 = icmp eq i8 %70, 0
   br i1 %71, label %75, label %72
 
@@ -1075,7 +1075,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %186 = phi i32 [ %182, %179 ], [ %166, %176 ], [ %166, %172 ], [ %166, %165 ]
   %187 = add nuw i32 %169, 1
   %188 = icmp eq i32 %187, %160
-  br i1 %188, label %189, label %165, !llvm.loop !15
+  br i1 %188, label %189, label %165, !llvm.loop !16
 
 189:                                              ; preds = %183
   %190 = icmp ne i32 %185, 0
@@ -1105,13 +1105,13 @@ split.thread:                                     ; preds = %38, %44, %split
   %203 = add nuw i32 %153, 1
   %204 = load i32, ptr %139, align 4
   %205 = icmp ult i32 %203, %204
-  br i1 %205, label %150, label %.loopexit, !llvm.loop !16
+  br i1 %205, label %150, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.thread35, %126, %145
   %206 = add nuw i32 %127, 1
   %207 = load i32, ptr %121, align 4
   %208 = icmp ult i32 %206, %207
-  br i1 %208, label %126, label %.thread34.sink.split, !llvm.loop !17
+  br i1 %208, label %126, label %.thread34.sink.split, !llvm.loop !18
 
 209:                                              ; preds = %108
   %210 = tail call ptr @acpi_evaluate_dsm(ptr noundef %109, ptr noundef nonnull @lps0_dsm_guid, i64 noundef 1, i64 noundef 1, ptr noundef null) #8
@@ -1201,7 +1201,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %265 = phi i32 [ %242, %240 ], [ %258, %256 ], [ %242, %253 ], [ %242, %249 ]
   %266 = add nuw i32 %241, 1
   %267 = icmp eq i32 %266, %235
-  br i1 %267, label %268, label %240, !llvm.loop !18
+  br i1 %267, label %268, label %240, !llvm.loop !19
 
 268:                                              ; preds = %261
   %269 = icmp ne i32 %263, 0
@@ -1257,7 +1257,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %.pr = phi i32 [ %300, %295 ], [ %.pr59, %291 ], [ %.pr59, %286 ]
   %302 = add nuw nsw i64 %287, 1
   %303 = icmp eq i64 %302, %285
-  br i1 %303, label %304, label %286, !llvm.loop !19
+  br i1 %303, label %304, label %286, !llvm.loop !20
 
 304:                                              ; preds = %301
   %305 = icmp slt i32 %.pr, 0
@@ -1273,7 +1273,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %309 = add nuw i32 %228, 1
   %310 = load i32, ptr %216, align 4
   %311 = icmp ult i32 %309, %310
-  br i1 %311, label %227, label %.thread34.sink.split, !llvm.loop !20
+  br i1 %311, label %227, label %.thread34.sink.split, !llvm.loop !21
 
 .thread34.sink.split:                             ; preds = %.thread40, %.loopexit, %138, %120, %215, %222, %136, %212, %117
   %.sink = phi ptr [ %115, %117 ], [ %210, %212 ], [ %115, %120 ], [ %210, %222 ], [ %210, %215 ], [ %115, %136 ], [ %115, %138 ], [ %115, %.loopexit ], [ %210, %.thread40 ]
@@ -1287,7 +1287,7 @@ split.thread:                                     ; preds = %38, %44, %split
   %315 = load i32, ptr @mem_sleep_default, align 4
   %316 = icmp sgt i32 %315, 3
   %317 = select i1 %314, i1 %316, i1 false
-  %318 = load i8, ptr @acpi_sleep_default_s3, align 1, !range !8
+  %318 = load i8, ptr @acpi_sleep_default_s3, align 1, !range !9
   %319 = icmp eq i8 %318, 0
   %320 = select i1 %317, i1 %319, i1 false
   br i1 %320, label %321, label %323
@@ -1366,19 +1366,20 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = distinct !{!20, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}

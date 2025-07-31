@@ -342,7 +342,7 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
   %175 = add nuw i32 %160, 1
   %176 = getelementptr i8, ptr %161, i64 24
   %177 = icmp eq i32 %175, %137
-  br i1 %177, label %.loopexit, label %159, !llvm.loop !8
+  br i1 %177, label %.loopexit, label %159, !llvm.loop !9
 
 .loopexit:                                        ; preds = %174, %164, %152, %148, %131, %118, %106, %75, %58, %43, %30, %12
   %178 = phi i32 [ -61, %12 ], [ -61, %30 ], [ -61, %43 ], [ -22, %58 ], [ -61, %75 ], [ -61, %118 ], [ -22, %131 ], [ -61, %148 ], [ -61, %106 ], [ 0, %164 ], [ 0, %152 ], [ 0, %174 ]
@@ -446,7 +446,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
   tail call void @intel_guc_write_barrier(ptr noundef %53) #6
   %54 = load ptr, ptr %38, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 672
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, ptr nonnull elementtype(i32) %55) #6, !srcloc !9
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, ptr nonnull elementtype(i32) %55) #6, !srcloc !10
   br label %60
 
 56:                                               ; preds = %37
@@ -532,15 +532,15 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  %113 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %112, i32 1, ptr nonnull elementtype(i32) %112) #6, !srcloc !10
+  %113 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %112, i32 1, ptr nonnull elementtype(i32) %112) #6, !srcloc !11
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %119, label %115, !prof !11
+  br i1 %114, label %119, label %115, !prof !12
 
 115:                                              ; preds = %111
   %116 = add i32 %113, 1
   %117 = or i32 %116, %113
   %118 = icmp sgt i32 %117, -1
-  br i1 %118, label %121, label %119, !prof !12
+  br i1 %118, label %121, label %119, !prof !13
 
 119:                                              ; preds = %115, %111
   %120 = phi i32 [ 2, %111 ], [ 1, %115 ]
@@ -549,7 +549,7 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 121:                                              ; preds = %119, %115, %108
   %122 = icmp eq i32 %109, 0
-  br i1 %122, label %125, label %123, !prof !12
+  br i1 %122, label %125, label %123, !prof !13
 
 123:                                              ; preds = %121
   %124 = tail call zeroext i1 @i915_request_set_error_once(ptr noundef %69, i32 noundef %109) #6
@@ -569,20 +569,20 @@ define dso_local i32 @intel_gsc_uc_fw_upload(ptr noundef %0) local_unnamed_addr 
 
 131:                                              ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  %133 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %132, i32 -1, ptr nonnull elementtype(i32) %132) #6, !srcloc !13
+  %133 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %132, i32 -1, ptr nonnull elementtype(i32) %132) #6, !srcloc !14
   %134 = icmp eq i32 %133, 1
   br i1 %134, label %138, label %135
 
 135:                                              ; preds = %131
   %136 = icmp sgt i32 %133, 0
-  br i1 %136, label %.thread26, label %137, !prof !12
+  br i1 %136, label %.thread26, label %137, !prof !13
 
 137:                                              ; preds = %135
   tail call void @refcount_warn_saturate(ptr noundef nonnull %132, i32 noundef 3) #6
   br label %.thread26
 
 138:                                              ; preds = %131
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !15
   tail call void @dma_fence_release(ptr noundef nonnull %132) #6
   br label %.thread26
 
@@ -681,9 +681,9 @@ define internal fastcc i32 @gsc_fw_query_compatibility_version(ptr noundef %0) u
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 -48
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
-  store ptr null, ptr %2, align 8, !annotation !15
+  store ptr null, ptr %2, align 8, !annotation !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store ptr null, ptr %3, align 8, !annotation !15
+  store ptr null, ptr %3, align 8, !annotation !16
   %5 = getelementptr i8, ptr %0, i64 584
   %6 = call i32 @intel_guc_allocate_and_map_vma(ptr noundef %5, i32 noundef 8192, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %7 = icmp eq i32 %6, 0
@@ -880,14 +880,15 @@ attributes #7 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i64 2148820368, i64 2148820407, i64 2148820428, i64 2148820465, i64 2148820488, i64 2148820358}
-!10 = !{i64 2148830493, i64 2148830532, i64 2148830553, i64 2148830590, i64 2148830613, i64 2148830622}
-!11 = !{!"branch_weights", i32 1, i32 2000}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = !{i64 2148832678, i64 2148832717, i64 2148832738, i64 2148832775, i64 2148832798, i64 2148832807}
-!14 = !{i64 2151310074}
-!15 = !{!"auto-init"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{i64 2148820368, i64 2148820407, i64 2148820428, i64 2148820465, i64 2148820488, i64 2148820358}
+!11 = !{i64 2148830493, i64 2148830532, i64 2148830553, i64 2148830590, i64 2148830613, i64 2148830622}
+!12 = !{!"branch_weights", i32 1, i32 2000}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i64 2148832678, i64 2148832717, i64 2148832738, i64 2148832775, i64 2148832798, i64 2148832807}
+!15 = !{i64 2151310074}
+!16 = !{!"auto-init"}

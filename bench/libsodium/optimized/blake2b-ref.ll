@@ -214,7 +214,7 @@ _sodium_blake2b_init_param.exit:                  ; preds = %20
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 noundef 0, i64 noundef 128, i1 noundef false) #8
   %28 = zext nneg i8 %3 to i64
-  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %28, i64 noundef 128) #8, !alias.scope !6
+  %29 = call ptr @__memcpy_chk(ptr noundef nonnull %6, ptr noundef nonnull %2, i64 noundef %28, i64 noundef 128) #8, !alias.scope !7
   %30 = call i32 @_sodium_blake2b_update(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 128)
   call void @sodium_memzero(ptr noundef nonnull %6, i64 noundef 128) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #8
@@ -270,7 +270,7 @@ define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %0, ptr noundef re
   %28 = trunc nuw i128 %27 to i64
   store i64 %28, ptr %7, align 1
   %29 = load ptr, ptr @blake2b_compress, align 8
-  %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %5) #8, !callees !10
+  %30 = tail call i32 %29(ptr noundef nonnull %0, ptr noundef nonnull %5) #8, !callees !11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %5, ptr noundef nonnull align 1 dereferenceable(128) %8, i64 noundef 128, i1 noundef false) #8
   %31 = load i64, ptr %4, align 1
   %32 = add i64 %31, -128
@@ -278,7 +278,7 @@ define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %0, ptr noundef re
   store i64 %32, ptr %4, align 1
   %.1 = getelementptr i8, ptr %.035, i64 %11
   %.not = icmp eq i64 %33, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %16, %.thread, %3
   ret i32 0
@@ -368,7 +368,7 @@ _sodium_blake2b_init_param.exit:                  ; preds = %30
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %8, i8 noundef 0, i64 noundef 128, i1 noundef false) #8
   %38 = zext nneg i8 %3 to i64
-  %39 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef %38, i64 noundef 128) #8, !alias.scope !12
+  %39 = call ptr @__memcpy_chk(ptr noundef nonnull %8, ptr noundef nonnull %2, i64 noundef %38, i64 noundef 128) #8, !alias.scope !13
   %40 = call i32 @_sodium_blake2b_update(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 128)
   call void @sodium_memzero(ptr noundef nonnull %8, i64 noundef 128) #8
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #8
@@ -417,7 +417,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_blake2b_final(ptr noundef %0, ptr no
   store i64 %25, ptr %15, align 1
   %26 = load ptr, ptr @blake2b_compress, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %28 = tail call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %27) #8, !callees !10
+  %28 = tail call i32 %26(ptr noundef nonnull %0, ptr noundef nonnull %27) #8, !callees !11
   %29 = load i64, ptr %10, align 1
   %30 = add i64 %29, -128
   store i64 %30, ptr %10, align 1
@@ -460,7 +460,7 @@ blake2b_set_lastblock.exit:                       ; preds = %32, %49
   %53 = sub i64 256, %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %52, i8 noundef 0, i64 noundef %53, i1 noundef false) #8
   %54 = load ptr, ptr @blake2b_compress, align 8
-  %55 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef nonnull %51) #8, !callees !10
+  %55 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef nonnull %51) #8, !callees !11
   %56 = load i64, ptr %0, align 1
   store i64 %56, ptr %4, align 16
   %57 = getelementptr i8, ptr %0, i64 8
@@ -784,15 +784,16 @@ attributes #9 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !9}
-!7 = distinct !{!7, !8, !"memcpy.inline: argument 0"}
-!8 = distinct !{!8, !"memcpy.inline"}
-!9 = distinct !{!9, !8, !"memcpy.inline: argument 1"}
-!10 = !{ptr @_sodium_blake2b_compress_avx2, ptr @_sodium_blake2b_compress_ref, ptr @_sodium_blake2b_compress_sse41, ptr @_sodium_blake2b_compress_ssse3}
-!11 = distinct !{!11, !5}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !10}
+!8 = distinct !{!8, !9, !"memcpy.inline: argument 0"}
+!9 = distinct !{!9, !"memcpy.inline"}
+!10 = distinct !{!10, !9, !"memcpy.inline: argument 1"}
+!11 = !{ptr @_sodium_blake2b_compress_avx2, ptr @_sodium_blake2b_compress_ref, ptr @_sodium_blake2b_compress_sse41, ptr @_sodium_blake2b_compress_ssse3}
+!12 = distinct !{!12, !5, !6}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}

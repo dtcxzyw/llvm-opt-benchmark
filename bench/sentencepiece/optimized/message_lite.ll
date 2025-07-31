@@ -3453,9 +3453,9 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
   br i1 %12, label %41, label %13
 
 13:                                               ; preds = %_ZN6google8protobuf8internal12ShutdownData3getEv.exit
-  %14 = load ptr, ptr %11, align 8, !tbaa !98
+  %14 = load ptr, ptr %11, align 8, !tbaa !99
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !98
+  %16 = load ptr, ptr %15, align 8, !tbaa !99
   %17 = icmp ne ptr %14, %16
   %.sroa.0.08.i.i.i = getelementptr inbounds i8, ptr %16, i64 -16
   %18 = icmp ult ptr %14, %.sroa.0.08.i.i.i
@@ -3466,24 +3466,24 @@ _ZN6google8protobuf8internal12ShutdownData3getEv.exit: ; preds = %1, %4, %8
   %.sroa.0.011.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.08.i.i.i, %13 ]
   %.pn10.i.i.i = phi ptr [ %.sroa.0.011.i.i.i, %.lr.ph.i.i.i ], [ %16, %13 ]
   %.sroa.05.09.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i ], [ %14, %13 ]
-  %19 = load ptr, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !99
-  %20 = load ptr, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !99
-  store ptr %20, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !99
-  store ptr %19, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !99
+  %19 = load ptr, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !100
+  %20 = load ptr, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !100
+  store ptr %20, ptr %.sroa.05.09.i.i.i, align 8, !tbaa !100
+  store ptr %19, ptr %.sroa.0.011.i.i.i, align 8, !tbaa !100
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 8
   %22 = getelementptr inbounds i8, ptr %.pn10.i.i.i, i64 -8
-  %23 = load ptr, ptr %21, align 8, !tbaa !99
-  %24 = load ptr, ptr %22, align 8, !tbaa !99
-  store ptr %24, ptr %21, align 8, !tbaa !99
-  store ptr %23, ptr %22, align 8, !tbaa !99
+  %23 = load ptr, ptr %21, align 8, !tbaa !100
+  %24 = load ptr, ptr %22, align 8, !tbaa !100
+  store ptr %24, ptr %21, align 8, !tbaa !100
+  store ptr %23, ptr %22, align 8, !tbaa !100
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i.i, i64 16
   %.sroa.0.0.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.011.i.i.i, i64 -16
   %26 = icmp ult ptr %25, %.sroa.0.0.i.i.i
-  br i1 %26, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i, !llvm.loop !100
+  br i1 %26, label %.lr.ph.i.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i, !llvm.loop !101
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i
-  %.pre.i = load ptr, ptr %11, align 8, !tbaa !98
-  %.pre10.i = load ptr, ptr %15, align 8, !tbaa !98
+  %.pre.i = load ptr, ptr %11, align 8, !tbaa !99
+  %.pre10.i = load ptr, ptr %15, align 8, !tbaa !99
   br label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.i
 
 _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.i: ; preds = %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit.loopexit.i, %13
@@ -3521,7 +3521,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPSt4pairIPFvPKvES4_ESt6vectorIS7_SaI
 36:                                               ; preds = %.lr.ph.i
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i, i64 16
   %.not.i2 = icmp eq ptr %37, %27
-  br i1 %.not.i2, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  br i1 %.not.i2, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !102
 
 38:                                               ; preds = %.lr.ph.i
   %39 = landingpad { ptr, i32 }
@@ -3606,8 +3606,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !101
-  %14 = load ptr, ptr %8, align 8, !tbaa !102
+  %13 = load ptr, ptr %12, align 8, !tbaa !103
+  %14 = load ptr, ptr %8, align 8, !tbaa !104
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
@@ -3618,7 +3618,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
 19:                                               ; preds = %11
   %20 = zext nneg i32 %9 to i64
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 %20
-  store ptr %21, ptr %8, align 8, !tbaa !102
+  store ptr %21, ptr %8, align 8, !tbaa !104
   br label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
 
 22:                                               ; preds = %11
@@ -3634,10 +3634,10 @@ define linkonce_odr void @_ZN6google8protobuf24ZeroCopyCodedInputStream6BackUpEi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !45
   %5 = sub nsw i32 0, %1
-  %6 = load ptr, ptr %4, align 8, !tbaa !102
+  %6 = load ptr, ptr %4, align 8, !tbaa !104
   %7 = sext i32 %5 to i64
   %8 = getelementptr inbounds i8, ptr %6, i64 %7
-  store ptr %8, ptr %4, align 8, !tbaa !102
+  store ptr %8, ptr %4, align 8, !tbaa !104
   ret void
 }
 
@@ -3650,8 +3650,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !101
-  %9 = load ptr, ptr %4, align 8, !tbaa !102
+  %8 = load ptr, ptr %7, align 8, !tbaa !103
+  %9 = load ptr, ptr %4, align 8, !tbaa !104
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -3662,7 +3662,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6google8protobuf24ZeroCopyCodedInputS
 14:                                               ; preds = %6
   %15 = zext nneg i32 %1 to i64
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
-  store ptr %16, ptr %4, align 8, !tbaa !102
+  store ptr %16, ptr %4, align 8, !tbaa !104
   br label %_ZN6google8protobuf2io16CodedInputStream4SkipEi.exit
 
 17:                                               ; preds = %6
@@ -3898,10 +3898,12 @@ attributes #24 = { noreturn nounwind }
 !93 = distinct !{!93, !94, !"_ZSt19__relocate_object_aISt4pairIPFvPKvES2_ES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
 !94 = distinct !{!94, !"_ZSt19__relocate_object_aISt4pairIPFvPKvES2_ES5_SaIS5_EEvPT_PT0_RT1_"}
 !95 = distinct !{!95, !94, !"_ZSt19__relocate_object_aISt4pairIPFvPKvES2_ES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!96 = distinct !{!96, !97}
+!96 = distinct !{!96, !97, !98}
 !97 = !{!"llvm.loop.mustprogress"}
-!98 = !{!89, !89, i64 0}
-!99 = !{!11, !11, i64 0}
-!100 = distinct !{!100, !97}
-!101 = !{!50, !10, i64 8}
-!102 = !{!50, !10, i64 0}
+!98 = !{!"llvm.loop.estimated_trip_count"}
+!99 = !{!89, !89, i64 0}
+!100 = !{!11, !11, i64 0}
+!101 = distinct !{!101, !97, !98}
+!102 = distinct !{!102, !98}
+!103 = !{!50, !10, i64 8}
+!104 = !{!50, !10, i64 0}

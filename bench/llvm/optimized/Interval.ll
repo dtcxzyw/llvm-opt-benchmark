@@ -171,7 +171,7 @@ define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEEC2ENS_8Arra
 22:                                               ; preds = %15, %21, %14
   %.0 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not = icmp eq ptr %.0, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -377,7 +377,7 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE12
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !18
   br label %46
 
 7:                                                ; preds = %2
@@ -487,11 +487,11 @@ _ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit: ; preds = 
 _ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit.thread: ; preds = %11, %8, %3, %_ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  store ptr %27, ptr %0, align 8, !tbaa !17
+  store ptr %27, ptr %0, align 8, !tbaa !19
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %29, align 4, !tbaa !20
-  store i32 1, ptr %28, align 8, !tbaa !21
+  store i32 2, ptr %29, align 4, !tbaa !22
+  store i32 1, ptr %28, align 8, !tbaa !23
   br label %84
 
 30:                                               ; preds = %_ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit
@@ -502,11 +502,11 @@ _ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit.thread: ; p
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  store ptr %34, ptr %0, align 8, !tbaa !17
+  store ptr %34, ptr %0, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %36, align 4, !tbaa !20
-  store i32 1, ptr %35, align 8, !tbaa !21
+  store i32 2, ptr %36, align 4, !tbaa !22
+  store i32 1, ptr %35, align 8, !tbaa !23
   br label %84
 
 37:                                               ; preds = %30
@@ -521,11 +521,11 @@ _ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit.thread: ; p
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %45) #6
-  store ptr %45, ptr %0, align 8, !tbaa !17
+  store ptr %45, ptr %0, align 8, !tbaa !19
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %47, align 4, !tbaa !20
-  store i32 1, ptr %46, align 8, !tbaa !21
+  store i32 2, ptr %47, align 4, !tbaa !22
+  store i32 1, ptr %46, align 8, !tbaa !23
   br label %84
 
 48:                                               ; preds = %37
@@ -533,11 +533,11 @@ _ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit.thread: ; p
   %50 = extractvalue { ptr, ptr } %49, 0
   %51 = extractvalue { ptr, ptr } %49, 1
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %52, ptr %0, align 8, !tbaa !17
+  store ptr %52, ptr %0, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %53, align 8, !tbaa !21
+  store i32 0, ptr %53, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %54, align 4, !tbaa !20
+  store i32 2, ptr %54, align 4, !tbaa !22
   %55 = load ptr, ptr %1, align 8, !tbaa !3
   %.not = icmp eq ptr %55, %50
   br i1 %.not, label %69, label %56
@@ -546,10 +546,10 @@ _ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit.thread: ; p
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %57 = tail call noundef ptr @_ZNK4llvm9sandboxir11Instruction11getPrevNodeEv(ptr noundef nonnull align 8 dereferenceable(36) %50) #6
   store ptr %57, ptr %4, align 8, !tbaa !10
-  %58 = load i32, ptr %53, align 8, !tbaa !21
-  %59 = load i32, ptr %54, align 4, !tbaa !20
+  %58 = load i32, ptr %53, align 8, !tbaa !23
+  %59 = load i32, ptr %54, align 4, !tbaa !22
   %.not.i = icmp ult i32 %58, %59
-  br i1 %.not.i, label %62, label %60, !prof !22
+  br i1 %.not.i, label %62, label %60, !prof !24
 
 60:                                               ; preds = %56
   %61 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE18growAndEmplaceBackIJRPS3_S7_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %4)
@@ -557,13 +557,13 @@ _ZNK4llvm9sandboxir8IntervalINS0_11InstructionEE8disjointERKS3_.exit.thread: ; p
 
 62:                                               ; preds = %56
   %63 = zext i32 %58 to i64
-  %64 = load ptr, ptr %0, align 8, !tbaa !17
+  %64 = load ptr, ptr %0, align 8, !tbaa !19
   %65 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval", ptr %64, i64 %63
   %66 = load ptr, ptr %1, align 8, !tbaa !10
   tail call void @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEEC1EPS2_S4_(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef %66, ptr noundef %57) #6
-  %67 = load i32, ptr %53, align 8, !tbaa !21
+  %67 = load i32, ptr %53, align 8, !tbaa !23
   %68 = add i32 %67, 1
-  store i32 %68, ptr %53, align 8, !tbaa !21
+  store i32 %68, ptr %53, align 8, !tbaa !23
   br label %_ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_11InstructionEEEE12emplace_backIJRPS3_S7_EEERS4_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_11InstructionEEEE12emplace_backIJRPS3_S7_EEERS4_DpOT_.exit: ; preds = %60, %62
@@ -579,10 +579,10 @@ _ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_11InstructionEEEE12emplace_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %72 = call noundef ptr @_ZNK4llvm9sandboxir11Instruction11getNextNodeEv(ptr noundef nonnull align 8 dereferenceable(36) %51) #6
   store ptr %72, ptr %5, align 8, !tbaa !10
-  %73 = load i32, ptr %53, align 8, !tbaa !21
-  %74 = load i32, ptr %54, align 4, !tbaa !20
+  %73 = load i32, ptr %53, align 8, !tbaa !23
+  %74 = load i32, ptr %54, align 4, !tbaa !22
   %.not.i18 = icmp ult i32 %73, %74
-  br i1 %.not.i18, label %77, label %75, !prof !22
+  br i1 %.not.i18, label %77, label %75, !prof !24
 
 75:                                               ; preds = %71
   %76 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE18growAndEmplaceBackIJPS3_RS7_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -590,13 +590,13 @@ _ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_11InstructionEEEE12emplace_
 
 77:                                               ; preds = %71
   %78 = zext i32 %73 to i64
-  %79 = load ptr, ptr %0, align 8, !tbaa !17
+  %79 = load ptr, ptr %0, align 8, !tbaa !19
   %80 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval", ptr %79, i64 %78
   %81 = load ptr, ptr %19, align 8, !tbaa !10
   call void @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEEC1EPS2_S4_(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef %72, ptr noundef %81) #6
-  %82 = load i32, ptr %53, align 8, !tbaa !21
+  %82 = load i32, ptr %53, align 8, !tbaa !23
   %83 = add i32 %82, 1
-  store i32 %83, ptr %53, align 8, !tbaa !21
+  store i32 %83, ptr %53, align 8, !tbaa !23
   br label %_ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_11InstructionEEEE12emplace_backIJPS3_RS7_EEERS4_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_11InstructionEEEE12emplace_backIJPS3_RS7_EEERS4_DpOT_.exit: ; preds = %75, %77
@@ -614,7 +614,7 @@ define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEE13g
   %3 = alloca %"class.llvm::SmallVector", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #6
   call void @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEEmiERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
+  %4 = load ptr, ptr %3, align 8, !tbaa !19
   %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !10
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !10
@@ -641,7 +641,7 @@ define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEE16g
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !18
   br label %28
 
 7:                                                ; preds = %2
@@ -650,7 +650,7 @@ define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_11InstructionEE16g
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !18
   br label %28
 
 11:                                               ; preds = %7
@@ -694,18 +694,18 @@ define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC2Ev(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC2EPS2_S4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat($_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC5EPS2_S4_) align 2 {
-  store ptr %1, ptr %0, align 8, !tbaa !23
+  store ptr %1, ptr %0, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %4, align 8, !tbaa !26
+  store ptr %2, ptr %4, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC2ENS_8ArrayRefIPS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, i64 %2) unnamed_addr #0 comdat($_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC5ENS_8ArrayRefIPS2_EE) align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !27
-  store ptr %4, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %1, align 8, !tbaa !29
+  store ptr %4, ptr %0, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %4, ptr %5, align 8, !tbaa !26
+  store ptr %4, ptr %5, align 8, !tbaa !28
   %.idx = shl nuw nsw i64 %2, 3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %.not16 = icmp eq i64 %2, 1
@@ -720,12 +720,12 @@ define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC2ENS_8ArrayRe
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
   %.017 = phi ptr [ %.0, %30 ], [ %.015, %.lr.ph.preheader ]
-  %7 = load ptr, ptr %.017, align 8, !tbaa !27
-  %8 = load ptr, ptr %0, align 8, !tbaa !23
+  %7 = load ptr, ptr %.017, align 8, !tbaa !29
+  %8 = load ptr, ptr %0, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !28
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -734,14 +734,14 @@ define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC2ENS_8ArrayRe
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %.lr.ph
-  store ptr %7, ptr %0, align 8, !tbaa !23
+  store ptr %7, ptr %0, align 8, !tbaa !25
   br label %30
 
 19:                                               ; preds = %.lr.ph
-  %20 = load ptr, ptr %5, align 8, !tbaa !26
+  %20 = load ptr, ptr %5, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !28
-  %23 = load ptr, ptr %9, align 8, !tbaa !28
+  %22 = load ptr, ptr %21, align 8, !tbaa !30
+  %23 = load ptr, ptr %9, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -750,25 +750,25 @@ define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC2ENS_8ArrayRe
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %19
-  store ptr %7, ptr %5, align 8, !tbaa !26
+  store ptr %7, ptr %5, align 8, !tbaa !28
   br label %30
 
 30:                                               ; preds = %19, %29, %18
   %.0 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %.not = icmp eq ptr %.0, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   %3 = icmp eq ptr %2, null
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8containsEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !23
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
   %4 = icmp eq ptr %3, null
   br i1 %4, label %31, label %5
 
@@ -778,9 +778,9 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -790,15 +790,15 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 
 17:                                               ; preds = %7, %5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !26
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = icmp eq ptr %1, %19
   br i1 %20, label %31, label %21
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %23 = load ptr, ptr %22, align 8, !tbaa !30
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !11
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -813,20 +813,20 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE3topEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef ptr @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE6bottomEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -835,13 +835,13 @@ define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEE5begin
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -853,7 +853,7 @@ define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEE3endEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
+  %2 = load ptr, ptr %0, align 8, !tbaa !25
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %2, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %0, 1
   ret { ptr, ptr } %.fca.1.insert
@@ -862,13 +862,13 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE5begi
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %6 = load ptr, ptr %5, align 8, !tbaa !33
+  %6 = load ptr, ptr %5, align 8, !tbaa !36
   br label %7
 
 7:                                                ; preds = %1, %4
@@ -880,8 +880,8 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE3endE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !23
-  %4 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
+  %4 = load ptr, ptr %1, align 8, !tbaa !25
   %5 = icmp eq ptr %3, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -894,8 +894,8 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEEneERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !23
-  %4 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %0, align 8, !tbaa !25
+  %4 = load ptr, ptr %1, align 8, !tbaa !25
   %5 = icmp ne ptr %3, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -909,12 +909,12 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE11comesBeforeERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
-  %5 = load ptr, ptr %1, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %5 = load ptr, ptr %1, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !30
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !30
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -925,22 +925,22 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !23
+  %3 = load ptr, ptr %1, align 8, !tbaa !25
   %4 = icmp eq ptr %3, null
   br i1 %4, label %33, label %5
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr %0, align 8, !tbaa !23
+  %6 = load ptr, ptr %0, align 8, !tbaa !25
   %7 = icmp eq ptr %6, null
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !26
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !28
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -950,12 +950,12 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 
 20:                                               ; preds = %8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !26
-  %23 = load ptr, ptr %1, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
+  %23 = load ptr, ptr %1, align 8, !tbaa !25
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -971,16 +971,16 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeE
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE12intersectionERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %"class.llvm::sandboxir::Interval.0", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !42
   br label %62
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !23
+  %8 = load ptr, ptr %1, align 8, !tbaa !25
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -990,11 +990,11 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE12int
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !30
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -1004,12 +1004,12 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE12int
 
 23:                                               ; preds = %11
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
-  %26 = load ptr, ptr %0, align 8, !tbaa !23
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
+  %26 = load ptr, ptr %0, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !28
+  %30 = load ptr, ptr %29, align 8, !tbaa !30
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -1022,12 +1022,12 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE12int
   br label %62
 
 37:                                               ; preds = %23
-  %38 = load ptr, ptr %0, align 8, !tbaa !23
-  %39 = load ptr, ptr %1, align 8, !tbaa !23
+  %38 = load ptr, ptr %0, align 8, !tbaa !25
+  %39 = load ptr, ptr %1, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !28
+  %41 = load ptr, ptr %40, align 8, !tbaa !30
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !28
+  %43 = load ptr, ptr %42, align 8, !tbaa !30
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !11
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -1036,12 +1036,12 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE12int
   %.val = load ptr, ptr %1, align 8
   %.val11 = load ptr, ptr %0, align 8
   %49 = select i1 %48, ptr %.val, ptr %.val11
-  %50 = load ptr, ptr %12, align 8, !tbaa !26
-  %51 = load ptr, ptr %24, align 8, !tbaa !26
+  %50 = load ptr, ptr %12, align 8, !tbaa !28
+  %51 = load ptr, ptr %24, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !28
+  %53 = load ptr, ptr %52, align 8, !tbaa !30
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !28
+  %55 = load ptr, ptr %54, align 8, !tbaa !30
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -1065,22 +1065,22 @@ define weak_odr { ptr, ptr } @_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE12int
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEmiERKS3_(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallVector.4") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca ptr, align 8
-  %5 = load ptr, ptr %2, align 8, !tbaa !23
+  %5 = load ptr, ptr %2, align 8, !tbaa !25
   %6 = icmp eq ptr %5, null
   br i1 %6, label %_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = load ptr, ptr %1, align 8, !tbaa !23
+  %8 = load ptr, ptr %1, align 8, !tbaa !25
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit.thread, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !28
+  %16 = load ptr, ptr %15, align 8, !tbaa !30
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1090,12 +1090,12 @@ define weak_odr void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEmiERKS3_(ptr d
 
 _ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit: ; preds = %10
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
-  %24 = load ptr, ptr %2, align 8, !tbaa !23
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
+  %24 = load ptr, ptr %2, align 8, !tbaa !25
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %28 = load ptr, ptr %27, align 8, !tbaa !30
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !11
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -1106,30 +1106,30 @@ _ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit: ; preds = %10
 _ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit.thread: ; preds = %10, %7, %3, %_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  store ptr %34, ptr %0, align 8, !tbaa !17
+  store ptr %34, ptr %0, align 8, !tbaa !19
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %36, align 4, !tbaa !20
-  store i32 1, ptr %35, align 8, !tbaa !21
+  store i32 2, ptr %36, align 4, !tbaa !22
+  store i32 1, ptr %35, align 8, !tbaa !23
   br label %82
 
 37:                                               ; preds = %_ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit
-  %38 = load ptr, ptr %2, align 8, !tbaa !23
+  %38 = load ptr, ptr %2, align 8, !tbaa !25
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  store ptr %41, ptr %0, align 8, !tbaa !17
+  store ptr %41, ptr %0, align 8, !tbaa !19
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %43, align 4, !tbaa !20
-  store i32 1, ptr %42, align 8, !tbaa !21
+  store i32 2, ptr %43, align 4, !tbaa !22
+  store i32 1, ptr %42, align 8, !tbaa !23
   br label %82
 
 44:                                               ; preds = %37
-  %45 = load ptr, ptr %1, align 8, !tbaa !23
+  %45 = load ptr, ptr %1, align 8, !tbaa !25
   %46 = icmp eq ptr %45, %38
   %47 = load ptr, ptr %22, align 8
   %48 = load ptr, ptr %11, align 8
@@ -1140,11 +1140,11 @@ _ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit.thread: ; pred
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %52) #6
-  store ptr %52, ptr %0, align 8, !tbaa !17
+  store ptr %52, ptr %0, align 8, !tbaa !19
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %54, align 4, !tbaa !20
-  store i32 1, ptr %53, align 8, !tbaa !21
+  store i32 2, ptr %54, align 4, !tbaa !22
+  store i32 1, ptr %53, align 8, !tbaa !23
   br label %82
 
 55:                                               ; preds = %44
@@ -1152,38 +1152,38 @@ _ZNK4llvm9sandboxir8IntervalINS0_9MemDGNodeEE8disjointERKS3_.exit.thread: ; pred
   %57 = extractvalue { ptr, ptr } %56, 0
   %58 = extractvalue { ptr, ptr } %56, 1
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %59, ptr %0, align 8, !tbaa !17
+  store ptr %59, ptr %0, align 8, !tbaa !19
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %60, align 8, !tbaa !21
+  store i32 0, ptr %60, align 8, !tbaa !23
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 2, ptr %61, align 4, !tbaa !20
-  %62 = load ptr, ptr %1, align 8, !tbaa !23
+  store i32 2, ptr %61, align 4, !tbaa !22
+  %62 = load ptr, ptr %1, align 8, !tbaa !25
   %.not = icmp eq ptr %62, %57
   br i1 %.not, label %67, label %_ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_9MemDGNodeEEEE12emplace_backIJRPS3_S7_EEERS4_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_9MemDGNodeEEEE12emplace_backIJRPS3_S7_EEERS4_DpOT_.exit: ; preds = %55
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %64 = load ptr, ptr %63, align 8, !tbaa !40
+  %64 = load ptr, ptr %63, align 8, !tbaa !43
   tail call void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC1EPS2_S4_(ptr noundef nonnull align 8 dereferenceable(16) %59, ptr noundef %62, ptr noundef %64) #6
-  %65 = load i32, ptr %60, align 8, !tbaa !21
+  %65 = load i32, ptr %60, align 8, !tbaa !23
   %66 = add i32 %65, 1
-  store i32 %66, ptr %60, align 8, !tbaa !21
+  store i32 %66, ptr %60, align 8, !tbaa !23
   br label %67
 
 67:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_9MemDGNodeEEEE12emplace_backIJRPS3_S7_EEERS4_DpOT_.exit, %55
   %68 = phi i32 [ %66, %_ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_9MemDGNodeEEEE12emplace_backIJRPS3_S7_EEERS4_DpOT_.exit ], [ 0, %55 ]
-  %69 = load ptr, ptr %22, align 8, !tbaa !26
+  %69 = load ptr, ptr %22, align 8, !tbaa !28
   %.not14 = icmp eq ptr %58, %69
   br i1 %.not14, label %82, label %70
 
 70:                                               ; preds = %67
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %72 = load ptr, ptr %71, align 8, !tbaa !33
-  store ptr %72, ptr %4, align 8, !tbaa !27
-  %73 = load i32, ptr %61, align 4, !tbaa !20
+  %72 = load ptr, ptr %71, align 8, !tbaa !36
+  store ptr %72, ptr %4, align 8, !tbaa !29
+  %73 = load i32, ptr %61, align 4, !tbaa !22
   %.not.i18 = icmp ult i32 %68, %73
-  br i1 %.not.i18, label %76, label %74, !prof !22
+  br i1 %.not.i18, label %76, label %74, !prof !24
 
 74:                                               ; preds = %70
   %75 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_9MemDGNodeEEELb1EE18growAndEmplaceBackIJPS3_RS7_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %22)
@@ -1191,12 +1191,12 @@ _ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_9MemDGNodeEEEE12emplace_bac
 
 76:                                               ; preds = %70
   %77 = zext i32 %68 to i64
-  %78 = load ptr, ptr %0, align 8, !tbaa !17
+  %78 = load ptr, ptr %0, align 8, !tbaa !19
   %79 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval.0", ptr %78, i64 %77
   tail call void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC1EPS2_S4_(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef %72, ptr noundef %69) #6
-  %80 = load i32, ptr %60, align 8, !tbaa !21
+  %80 = load i32, ptr %60, align 8, !tbaa !23
   %81 = add i32 %80, 1
-  store i32 %81, ptr %60, align 8, !tbaa !21
+  store i32 %81, ptr %60, align 8, !tbaa !23
   br label %_ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_9MemDGNodeEEEE12emplace_backIJPS3_RS7_EEERS4_DpOT_.exit
 
 _ZN4llvm15SmallVectorImplINS_9sandboxir8IntervalINS1_9MemDGNodeEEEE12emplace_backIJPS3_RS7_EEERS4_DpOT_.exit: ; preds = %74, %76
@@ -1212,10 +1212,10 @@ define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEE13getS
   %3 = alloca %"class.llvm::SmallVector.4", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #6
   call void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEmiERKS3_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallVector.4") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  %4 = load ptr, ptr %3, align 8, !tbaa !17
-  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !27
+  %4 = load ptr, ptr %3, align 8, !tbaa !19
+  %.sroa.0.0.copyload = load ptr, ptr %4, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !27
+  %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !29
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZN4llvm11SmallVectorINS_9sandboxir8IntervalINS1_9MemDGNodeEEELj2EED2Ev.exit, label %7
@@ -1234,28 +1234,28 @@ _ZN4llvm11SmallVectorINS_9sandboxir8IntervalINS1_9MemDGNodeEEELj2EED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEE16getUnionIntervalERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %"class.llvm::sandboxir::Interval.0", align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !23
+  %4 = load ptr, ptr %0, align 8, !tbaa !25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !42
   br label %36
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %1, align 8, !tbaa !23
+  %8 = load ptr, ptr %1, align 8, !tbaa !25
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !42
   br label %36
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !28
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -1265,13 +1265,13 @@ define weak_odr { ptr, ptr } @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEE16getU
   %.val10 = load ptr, ptr %1, align 8
   %21 = select i1 %20, ptr %.val, ptr %.val10
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !28
+  %29 = load ptr, ptr %28, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !11
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -1309,32 +1309,32 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !21
+  %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !20
+  %13 = load i32, ptr %12, align 4, !tbaa !22
   %.not.i.i.not.i = icmp ult i32 %11, %13
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit, label %14, !prof !22
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit, label %14, !prof !24
 
 14:                                               ; preds = %3
   %15 = zext i32 %11 to i64
   %16 = add nuw nsw i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #6
-  %.pre.i = load i32, ptr %10, align 8, !tbaa !21
+  %.pre.i = load i32, ptr %10, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit: ; preds = %3, %14
   %18 = phi i32 [ %11, %3 ], [ %.pre.i, %14 ]
-  %19 = load ptr, ptr %0, align 8, !tbaa !17
+  %19 = load ptr, ptr %0, align 8, !tbaa !19
   %20 = zext i32 %18 to i64
   %21 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval", ptr %19, i64 %20
   store ptr %7, ptr %21, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %9, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %22 = load i32, ptr %10, align 8, !tbaa !21
+  %22 = load i32, ptr %10, align 8, !tbaa !23
   %23 = add i32 %22, 1
-  store i32 %23, ptr %10, align 8, !tbaa !21
-  %24 = load ptr, ptr %0, align 8, !tbaa !17
+  store i32 %23, ptr %10, align 8, !tbaa !23
+  %24 = load ptr, ptr %0, align 8, !tbaa !19
   %25 = zext i32 %23 to i64
   %26 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval", ptr %24, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -1351,32 +1351,32 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !21
+  %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !20
+  %13 = load i32, ptr %12, align 4, !tbaa !22
   %.not.i.i.not.i = icmp ult i32 %11, %13
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit, label %14, !prof !22
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit, label %14, !prof !24
 
 14:                                               ; preds = %3
   %15 = zext i32 %11 to i64
   %16 = add nuw nsw i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #6
-  %.pre.i = load i32, ptr %10, align 8, !tbaa !21
+  %.pre.i = load i32, ptr %10, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1EE9push_backES4_.exit: ; preds = %3, %14
   %18 = phi i32 [ %11, %3 ], [ %.pre.i, %14 ]
-  %19 = load ptr, ptr %0, align 8, !tbaa !17
+  %19 = load ptr, ptr %0, align 8, !tbaa !19
   %20 = zext i32 %18 to i64
   %21 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval", ptr %19, i64 %20
   store ptr %7, ptr %21, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %9, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %22 = load i32, ptr %10, align 8, !tbaa !21
+  %22 = load i32, ptr %10, align 8, !tbaa !23
   %23 = add i32 %22, 1
-  store i32 %23, ptr %10, align 8, !tbaa !21
-  %24 = load ptr, ptr %0, align 8, !tbaa !17
+  store i32 %23, ptr %10, align 8, !tbaa !23
+  %24 = load ptr, ptr %0, align 8, !tbaa !19
   %25 = zext i32 %23 to i64
   %26 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval", ptr %24, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -1386,39 +1386,39 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_11InstructionEEELb1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_9MemDGNodeEEELb1EE18growAndEmplaceBackIJPS3_RS7_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 comdat align 2 {
   %4 = alloca %"class.llvm::sandboxir::Interval.0", align 8
-  %5 = load ptr, ptr %1, align 8, !tbaa !27
-  %6 = load ptr, ptr %2, align 8, !tbaa !27
+  %5 = load ptr, ptr %1, align 8, !tbaa !29
+  %6 = load ptr, ptr %2, align 8, !tbaa !29
   call void @_ZN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEC1EPS2_S4_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef %6) #6
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i32, ptr %10, align 8, !tbaa !21
+  %11 = load i32, ptr %10, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !20
+  %13 = load i32, ptr %12, align 4, !tbaa !22
   %.not.i.i.not.i = icmp ult i32 %11, %13
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_9MemDGNodeEEELb1EE9push_backES4_.exit, label %14, !prof !22
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_9MemDGNodeEEELb1EE9push_backES4_.exit, label %14, !prof !24
 
 14:                                               ; preds = %3
   %15 = zext i32 %11 to i64
   %16 = add nuw nsw i64 %15, 1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %17, i64 noundef %16, i64 noundef 16) #6
-  %.pre.i = load i32, ptr %10, align 8, !tbaa !21
+  %.pre.i = load i32, ptr %10, align 8, !tbaa !23
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_9MemDGNodeEEELb1EE9push_backES4_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir8IntervalINS1_9MemDGNodeEEELb1EE9push_backES4_.exit: ; preds = %3, %14
   %18 = phi i32 [ %11, %3 ], [ %.pre.i, %14 ]
-  %19 = load ptr, ptr %0, align 8, !tbaa !17
+  %19 = load ptr, ptr %0, align 8, !tbaa !19
   %20 = zext i32 %18 to i64
   %21 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval.0", ptr %19, i64 %20
   store ptr %7, ptr %21, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %9, ptr %.sroa.2.0..sroa_idx.i, align 1
-  %22 = load i32, ptr %10, align 8, !tbaa !21
+  %22 = load i32, ptr %10, align 8, !tbaa !23
   %23 = add i32 %22, 1
-  store i32 %23, ptr %10, align 8, !tbaa !21
-  %24 = load ptr, ptr %0, align 8, !tbaa !17
+  store i32 %23, ptr %10, align 8, !tbaa !23
+  %24 = load ptr, ptr %0, align 8, !tbaa !19
   %25 = zext i32 %23 to i64
   %26 = getelementptr inbounds nuw %"class.llvm::sandboxir::Interval.0", ptr %24, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -1454,28 +1454,31 @@ attributes #6 = { nounwind }
 !13 = !{!"_ZTSN4llvm9sandboxir5Value7ClassIDE", !7, i64 0}
 !14 = !{!"p1 _ZTSN4llvm5ValueE", !6, i64 0}
 !15 = !{!"p1 _ZTSN4llvm9sandboxir7ContextE", !6, i64 0}
-!16 = !{i64 0, i64 8, !10, i64 8, i64 8, !10}
-!17 = !{!18, !6, i64 0}
-!18 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !19, i64 8, !19, i64 12}
-!19 = !{!"int", !7, i64 0}
-!20 = !{!18, !19, i64 12}
-!21 = !{!18, !19, i64 8}
-!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"_ZTSN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEE", !25, i64 0, !25, i64 8}
-!25 = !{!"p1 _ZTSN4llvm9sandboxir9MemDGNodeE", !6, i64 0}
-!26 = !{!24, !25, i64 8}
-!27 = !{!25, !25, i64 0}
-!28 = !{!29, !5, i64 8}
-!29 = !{!"_ZTSN4llvm9sandboxir6DGNodeE", !5, i64 8, !30, i64 16, !19, i64 20, !31, i64 24, !32, i64 32}
-!30 = !{!"_ZTSN4llvm9sandboxir8DGNodeIDE", !7, i64 0}
-!31 = !{!"bool", !7, i64 0}
-!32 = !{!"p1 _ZTSN4llvm9sandboxir11SchedBundleE", !6, i64 0}
-!33 = !{!34, !25, i64 48}
-!34 = !{!"_ZTSN4llvm9sandboxir9MemDGNodeE", !29, i64 0, !25, i64 40, !25, i64 48, !35, i64 56}
-!35 = !{!"_ZTSN4llvm8DenseSetIPNS_9sandboxir9MemDGNodeENS_12DenseMapInfoIS3_vEEEE", !36, i64 0}
-!36 = !{!"_ZTSN4llvm6detail12DenseSetImplIPNS_9sandboxir9MemDGNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_EE", !37, i64 0}
-!37 = !{!"_ZTSN4llvm8DenseMapIPNS_9sandboxir9MemDGNodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEE", !38, i64 0, !19, i64 8, !19, i64 12, !19, i64 16}
-!38 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPNS_9sandboxir9MemDGNodeEEE", !6, i64 0}
-!39 = !{i64 0, i64 8, !27, i64 8, i64 8, !27}
-!40 = !{!34, !25, i64 40}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{i64 0, i64 8, !10, i64 8, i64 8, !10}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !21, i64 8, !21, i64 12}
+!21 = !{!"int", !7, i64 0}
+!22 = !{!20, !21, i64 12}
+!23 = !{!20, !21, i64 8}
+!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"_ZTSN4llvm9sandboxir8IntervalINS0_9MemDGNodeEEE", !27, i64 0, !27, i64 8}
+!27 = !{!"p1 _ZTSN4llvm9sandboxir9MemDGNodeE", !6, i64 0}
+!28 = !{!26, !27, i64 8}
+!29 = !{!27, !27, i64 0}
+!30 = !{!31, !5, i64 8}
+!31 = !{!"_ZTSN4llvm9sandboxir6DGNodeE", !5, i64 8, !32, i64 16, !21, i64 20, !33, i64 24, !34, i64 32}
+!32 = !{!"_ZTSN4llvm9sandboxir8DGNodeIDE", !7, i64 0}
+!33 = !{!"bool", !7, i64 0}
+!34 = !{!"p1 _ZTSN4llvm9sandboxir11SchedBundleE", !6, i64 0}
+!35 = distinct !{!35, !17}
+!36 = !{!37, !27, i64 48}
+!37 = !{!"_ZTSN4llvm9sandboxir9MemDGNodeE", !31, i64 0, !27, i64 40, !27, i64 48, !38, i64 56}
+!38 = !{!"_ZTSN4llvm8DenseSetIPNS_9sandboxir9MemDGNodeENS_12DenseMapInfoIS3_vEEEE", !39, i64 0}
+!39 = !{!"_ZTSN4llvm6detail12DenseSetImplIPNS_9sandboxir9MemDGNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_EE", !40, i64 0}
+!40 = !{!"_ZTSN4llvm8DenseMapIPNS_9sandboxir9MemDGNodeENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEE", !41, i64 0, !21, i64 8, !21, i64 12, !21, i64 16}
+!41 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairIPNS_9sandboxir9MemDGNodeEEE", !6, i64 0}
+!42 = !{i64 0, i64 8, !29, i64 8, i64 8, !29}
+!43 = !{!37, !27, i64 40}

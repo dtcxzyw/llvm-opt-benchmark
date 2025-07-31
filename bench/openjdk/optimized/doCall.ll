@@ -2711,7 +2711,7 @@ _ZNK10ciMetadata9is_loadedEv.exit:                ; preds = %34
 44:                                               ; preds = %45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit286, label %45, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit286, label %45, !llvm.loop !9
 
 45:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
@@ -2766,7 +2766,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i:          ; preds = %.loopexit286
   store i32 %69, ptr %67, align 4
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i85, %58
-  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i83, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i83, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = %.loopexit286, %.lr.ph19.preheader.i, %.preheader16.i
   %.sroa.17.3 = phi ptr [ %57, %.lr.ph19.preheader.i ], [ %57, %.preheader16.i ], [ %.sroa.17.0294, %.loopexit286 ]
@@ -2835,7 +2835,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i87:        ; preds = %_ZNK10ciMetadata9is
   store i32 %102, ptr %100, align 4
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next.i100, %91
-  br i1 %exitcond322.not, label %.preheader16.i89, label %.lr.ph.i98, !llvm.loop !9
+  br i1 %exitcond322.not, label %.preheader16.i89, label %.lr.ph.i98, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit38: ; preds = %.lr.ph19.preheader.i94, %.preheader16.i89, %_ZNK10ciMetadata9is_loadedEv.exit.thread
   %.sroa.14.3 = phi i32 [ %.sroa.14.0303, %_ZNK10ciMetadata9is_loadedEv.exit.thread ], [ %.0.i.i.i.i36, %.preheader16.i89 ], [ %.0.i.i.i.i36, %.lr.ph19.preheader.i94 ]
@@ -2890,7 +2890,7 @@ _ZN13GrowableArrayIPK4TypeE8allocateEv.exit.i:    ; preds = %_ZN26GrowableArrayW
   store ptr %127, ptr %125, align 8
   %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i115, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next.i116, %116
-  br i1 %exitcond324.not, label %.preheader16.i105, label %.lr.ph.i114, !llvm.loop !10
+  br i1 %exitcond324.not, label %.preheader16.i105, label %.lr.ph.i114, !llvm.loop !11
 
 _ZN26GrowableArrayWithAllocatorIPK4Type13GrowableArrayIS2_EE6appendERKS2_.exit: ; preds = %.lr.ph19.preheader.i110, %.preheader16.i105, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit38
   %.sroa.13.3 = phi i32 [ %.sroa.13.0292, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit38 ], [ %.0.i.i.i.i40, %.preheader16.i105 ], [ %.0.i.i.i.i40, %.lr.ph19.preheader.i110 ]
@@ -2918,7 +2918,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit:     ; preds = %45, %_ZN26GrowableA
   %132 = load i32, ptr %14, align 8
   %133 = load i32, ptr %15, align 4
   %.not = icmp slt i32 %132, %133
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZNK17GrowableArrayViewIiE8containsERKi.exit
   %134 = icmp eq i32 %.sroa.0218.1, %.sroa.13.1
@@ -2982,7 +2982,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit.i119:       ; preds = %135
   store i32 %157, ptr %155, align 4
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i131, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next.i132, %146
-  br i1 %exitcond326.not, label %.preheader16.i121, label %.lr.ph.i130, !llvm.loop !9
+  br i1 %exitcond326.not, label %.preheader16.i121, label %.lr.ph.i130, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit45: ; preds = %._ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit45_crit_edge, %.lr.ph19.preheader.i126, %.preheader16.i121
   %.sroa.0218.0.lcssa343373 = phi i32 [ %.sroa.0218.0.lcssa343374, %._ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit45_crit_edge ], [ %.sroa.0218.1, %.lr.ph19.preheader.i126 ], [ %.sroa.0218.1, %.preheader16.i121 ]
@@ -3051,7 +3051,7 @@ _ZN13GrowableArrayIPK4TypeE8allocateEv.exit.i136: ; preds = %_ZN26GrowableArrayW
   store ptr %190, ptr %188, align 8
   %indvars.iv.next.i149 = add nuw nsw i64 %indvars.iv.i148, 1
   %exitcond328.not = icmp eq i64 %indvars.iv.next.i149, %179
-  br i1 %exitcond328.not, label %.preheader16.i138, label %.lr.ph.i147, !llvm.loop !10
+  br i1 %exitcond328.not, label %.preheader16.i138, label %.lr.ph.i147, !llvm.loop !11
 
 _ZN26GrowableArrayWithAllocatorIPK4Type13GrowableArrayIS2_EE6appendERKS2_.exit49: ; preds = %.lr.ph19.preheader.i143, %.preheader16.i138, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit45
   %.sroa.24.4 = phi ptr [ %.sroa.24.0.lcssa350365, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit45 ], [ %177, %.preheader16.i138 ], [ %177, %.lr.ph19.preheader.i143 ]
@@ -3404,7 +3404,7 @@ _ZN12CreateExNodeC2EPK4TypeP4NodeS4_.exit:        ; preds = %376, %368, %_ZN4Nod
 385:                                              ; preds = %.lr.ph.i60
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i61
-  br i1 %exitcond.not.i64, label %.loopexit, label %.lr.ph.i60, !llvm.loop !8
+  br i1 %exitcond.not.i64, label %.loopexit, label %.lr.ph.i60, !llvm.loop !9
 
 .lr.ph.i60:                                       ; preds = %_ZN12CreateExNodeC2EPK4TypeP4NodeS4_.exit, %385
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %385 ], [ 0, %_ZN12CreateExNodeC2EPK4TypeP4NodeS4_.exit ]
@@ -3448,7 +3448,7 @@ _ZNK17GrowableArrayViewIiE8containsERKi.exit65:   ; preds = %.lr.ph.i60
   call void @_ZN16PreserveJVMStateD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond331.not, label %._crit_edge320, label %236, !llvm.loop !12
+  br i1 %exitcond331.not, label %._crit_edge320, label %236, !llvm.loop !13
 
 ._crit_edge320:                                   ; preds = %404, %220
   %405 = load ptr, ptr %221, align 8
@@ -3676,7 +3676,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %33, %_ZNK10ciMetada
   store i32 %55, ptr %2, align 8
   %56 = load i32, ptr %7, align 4
   %.not7 = icmp slt i32 %55, %56
-  br i1 %.not7, label %11, label %.loopexit, !llvm.loop !13
+  br i1 %.not7, label %11, label %.loopexit, !llvm.loop !14
 
 .loopexit.sink.split:                             ; preds = %26, %44
   %.sink20 = phi i32 [ %45, %44 ], [ %12, %26 ]
@@ -4222,7 +4222,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %_ZN4Node8init_reqEj
   %206 = load i32, ptr %142, align 8
   %207 = zext i32 %206 to i64
   %208 = icmp samesign ult i64 %indvars.iv.next, %207
-  br i1 %208, label %147, label %._crit_edge, !llvm.loop !14
+  br i1 %208, label %147, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZN4Node8init_reqEjPS_.exit, %_ZN7PhiNodeC2EP4NodePK4TypePK7TypePtriiii.exit
   %209 = load ptr, ptr %12, align 8
@@ -4453,7 +4453,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %_ZN4Node7del_outEPS
   %332 = load i32, ptr %48, align 8
   %333 = load i32, ptr %52, align 4
   %.not = icmp slt i32 %332, %333
-  br i1 %.not, label %219, label %_ZNK10ciMetadata9is_loadedEv.exit.thread._crit_edge, !llvm.loop !15
+  br i1 %.not, label %219, label %_ZNK10ciMetadata9is_loadedEv.exit.thread._crit_edge, !llvm.loop !16
 
 _ZNK10ciMetadata9is_loadedEv.exit.thread._crit_edge: ; preds = %_ZN8GraphKit11set_controlEP4Node.exit, %_ZNK10ciMetadata9is_loadedEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit.thread, %213
   call void @_ZN8GraphKit16kill_dead_localsEv(ptr noundef nonnull align 8 dereferenceable(84) %0) #11
@@ -5000,13 +5000,14 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

@@ -212,7 +212,7 @@ define hidden noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly cap
   %43 = add nuw nsw i64 %.147, 1
   %.135 = add i64 %.13548, 2
   %exitcond52.not = icmp eq i64 %43, %3
-  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %44 = add i64 %.13548, 3
@@ -252,6 +252,7 @@ attributes #9 = { nounwind willreturn memory(read) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!5, !5, i64 0}
 !9 = !{!6, !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}

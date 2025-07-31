@@ -105,7 +105,7 @@ _count_diagonal_entries.exit:                     ; preds = %30, %9
   store i64 %64, ptr %gep24.i.i, align 8, !tbaa !13
   %65 = load i64, ptr %11, align 8, !tbaa !11
   %66 = icmp slt i64 %57, %65
-  br i1 %66, label %56, label %_kkt_colcount_block.exit.i, !llvm.loop !17
+  br i1 %66, label %56, label %_kkt_colcount_block.exit.i, !llvm.loop !18
 
 _kkt_colcount_block.exit.i:                       ; preds = %56
   %67 = icmp sgt i64 %65, 0
@@ -145,7 +145,7 @@ _kkt_colcount_block.exit.i:                       ; preds = %56
 86:                                               ; preds = %82, %77
   %87 = phi i64 [ %70, %77 ], [ %.pre.i.i, %82 ]
   %88 = icmp slt i64 %73, %87
-  br i1 %88, label %69, label %_kkt_colcount_missing_diag.exit.i, !llvm.loop !18
+  br i1 %88, label %69, label %_kkt_colcount_missing_diag.exit.i, !llvm.loop !19
 
 _kkt_colcount_missing_diag.exit.i:                ; preds = %86, %_kkt_colcount_block.exit.i, %._crit_edge.i
   %89 = load ptr, ptr %34, align 8, !tbaa !12
@@ -174,7 +174,7 @@ _kkt_colcount_missing_diag.exit.i:                ; preds = %86, %_kkt_colcount_
   store i64 %103, ptr %gep.i.i, align 8, !tbaa !13
   %104 = add nuw nsw i64 %.020.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %104, %93
-  br i1 %exitcond.not.i.i, label %_kkt_colcount_block.exit33.i, label %99, !llvm.loop !19
+  br i1 %exitcond.not.i.i, label %_kkt_colcount_block.exit33.i, label %99, !llvm.loop !20
 
 _kkt_colcount_block.exit33.i:                     ; preds = %99, %_kkt_colcount_missing_diag.exit.i
   %105 = icmp sgt i64 %44, 0
@@ -193,7 +193,7 @@ _kkt_colcount_block.exit33.i:                     ; preds = %99, %_kkt_colcount_
   store i64 %111, ptr %109, align 8, !tbaa !13
   %112 = add nsw i64 %.06.i.i, 1
   %113 = icmp slt i64 %112, %46
-  br i1 %113, label %108, label %_kkt_colcount_diag.exit.i, !llvm.loop !20
+  br i1 %113, label %108, label %_kkt_colcount_diag.exit.i, !llvm.loop !21
 
 _kkt_colcount_diag.exit.i:                        ; preds = %108, %_kkt_colcount_block.exit33.i
   %114 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -216,7 +216,7 @@ _kkt_colcount_diag.exit.i:                        ; preds = %108, %_kkt_colcount
   %122 = add nuw nsw i64 %.0911.i.i, 1
   %123 = load i64, ptr %114, align 8, !tbaa !11
   %.not.not.i.i = icmp slt i64 %.0911.i.i, %123
-  br i1 %.not.not.i.i, label %118, label %_kkt_colcount_to_colptr.exit.i, !llvm.loop !21
+  br i1 %.not.not.i.i, label %118, label %_kkt_colcount_to_colptr.exit.i, !llvm.loop !22
 
 _kkt_colcount_to_colptr.exit.i:                   ; preds = %118, %_kkt_colcount_diag.exit.i
   %124 = load i64, ptr %11, align 8, !tbaa !11
@@ -252,13 +252,13 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %118, %_kkt_colcount
   %.pr.i = phi i64 [ %.pre54.i.i, %.loopexit.us.loopexit.i.i ], [ %132, %.lr.ph43.split.us.i.i ]
   %138 = phi i64 [ %158, %.loopexit.us.loopexit.i.i ], [ %136, %.lr.ph43.split.us.i.i ]
   %139 = icmp slt i64 %134, %.pr.i
-  br i1 %139, label %.lr.ph43.split.us.i.i, label %_kkt_fill_block.exit.i, !llvm.loop !22
+  br i1 %139, label %.lr.ph43.split.us.i.i, label %_kkt_fill_block.exit.i, !llvm.loop !23
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph43.split.us.i.i
   %140 = load ptr, ptr %128, align 8, !tbaa !12
   %141 = load ptr, ptr %129, align 8, !tbaa !14
-  %142 = load ptr, ptr %130, align 8, !tbaa !24
-  %143 = load ptr, ptr %131, align 8, !tbaa !24
+  %142 = load ptr, ptr %130, align 8, !tbaa !25
+  %143 = load ptr, ptr %131, align 8, !tbaa !25
   %144 = load ptr, ptr %127, align 8, !tbaa !14
   %gep.us.us.i.i = getelementptr i64, ptr %140, i64 %.042.us.i.i
   br label %145
@@ -273,9 +273,9 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %118, %_kkt_colcount
   %150 = getelementptr inbounds i64, ptr %141, i64 %148
   store i64 %147, ptr %150, align 8, !tbaa !13
   %151 = getelementptr inbounds double, ptr %142, i64 %.03437.us.us.i.i
-  %152 = load double, ptr %151, align 8, !tbaa !25
+  %152 = load double, ptr %151, align 8, !tbaa !26
   %153 = getelementptr inbounds double, ptr %143, i64 %148
-  store double %152, ptr %153, align 8, !tbaa !25
+  store double %152, ptr %153, align 8, !tbaa !26
   br i1 %.not36.i.i, label %156, label %154
 
 154:                                              ; preds = %145
@@ -287,7 +287,7 @@ _kkt_colcount_to_colptr.exit.i:                   ; preds = %118, %_kkt_colcount
   %157 = add nsw i64 %.03437.us.us.i.i, 1
   %158 = load i64, ptr %135, align 8, !tbaa !13
   %159 = icmp slt i64 %157, %158
-  br i1 %159, label %145, label %.loopexit.us.loopexit.i.i, !llvm.loop !27
+  br i1 %159, label %145, label %.loopexit.us.loopexit.i.i, !llvm.loop !28
 
 _kkt_fill_block.exit.i:                           ; preds = %.loopexit.us.i.i
   %160 = icmp sgt i64 %.pr.i, 0
@@ -319,9 +319,9 @@ _kkt_fill_block.exit.i:                           ; preds = %.loopexit.us.i.i
   %177 = load ptr, ptr %129, align 8, !tbaa !14
   %178 = getelementptr inbounds i64, ptr %177, i64 %176
   store i64 %.022.i.i, ptr %178, align 8, !tbaa !13
-  %179 = load ptr, ptr %131, align 8, !tbaa !24
+  %179 = load ptr, ptr %131, align 8, !tbaa !25
   %180 = getelementptr inbounds double, ptr %179, i64 %176
-  store double 0.000000e+00, ptr %180, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %180, align 8, !tbaa !26
   %181 = load i64, ptr %175, align 8, !tbaa !13
   %182 = add nsw i64 %181, 1
   store i64 %182, ptr %175, align 8, !tbaa !13
@@ -331,7 +331,7 @@ _kkt_fill_block.exit.i:                           ; preds = %.loopexit.us.i.i
 183:                                              ; preds = %173, %168
   %184 = phi i64 [ %161, %168 ], [ %.pre.i38.i, %173 ]
   %185 = icmp slt i64 %164, %184
-  br i1 %185, label %.lr.ph.i36.i, label %_kkt_fill_missing_diag_zeros.exit.i, !llvm.loop !28
+  br i1 %185, label %.lr.ph.i36.i, label %_kkt_fill_missing_diag_zeros.exit.i, !llvm.loop !29
 
 _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %183, %_kkt_fill_block.exit.i, %_kkt_colcount_to_colptr.exit.i
   %186 = load i64, ptr %90, align 8, !tbaa !11
@@ -366,14 +366,14 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %183, %_kkt_fill_blo
   %199 = phi i64 [ %.pre52.i.i, %.loopexit.us45.loopexit.i.i ], [ %193, %.lr.ph43.split.split.us.i.i ]
   %200 = phi i64 [ %217, %.loopexit.us45.loopexit.i.i ], [ %197, %.lr.ph43.split.split.us.i.i ]
   %201 = icmp slt i64 %195, %199
-  br i1 %201, label %.lr.ph43.split.split.us.i.i, label %_kkt_fill_block.exit45.i, !llvm.loop !29
+  br i1 %201, label %.lr.ph43.split.split.us.i.i, label %_kkt_fill_block.exit45.i, !llvm.loop !30
 
 .lr.ph.us46.i.i:                                  ; preds = %.lr.ph43.split.split.us.i.i
   %202 = load ptr, ptr %189, align 8, !tbaa !12
   %invariant.gep.us47.i.i = getelementptr i64, ptr %202, i64 %45
   %203 = load ptr, ptr %190, align 8, !tbaa !14
-  %204 = load ptr, ptr %191, align 8, !tbaa !24
-  %205 = load ptr, ptr %192, align 8, !tbaa !24
+  %204 = load ptr, ptr %191, align 8, !tbaa !25
+  %205 = load ptr, ptr %192, align 8, !tbaa !25
   %206 = load ptr, ptr %188, align 8, !tbaa !14
   br label %207
 
@@ -388,13 +388,13 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %183, %_kkt_fill_blo
   %212 = getelementptr inbounds i64, ptr %203, i64 %210
   store i64 %.042.us44.i.i, ptr %212, align 8, !tbaa !13
   %213 = getelementptr inbounds double, ptr %204, i64 %.03437.us38.us.i.i
-  %214 = load double, ptr %213, align 8, !tbaa !25
+  %214 = load double, ptr %213, align 8, !tbaa !26
   %215 = getelementptr inbounds double, ptr %205, i64 %210
-  store double %214, ptr %215, align 8, !tbaa !25
+  store double %214, ptr %215, align 8, !tbaa !26
   %216 = add nsw i64 %.03437.us38.us.i.i, 1
   %217 = load i64, ptr %196, align 8, !tbaa !13
   %218 = icmp slt i64 %216, %217
-  br i1 %218, label %207, label %.loopexit.us45.loopexit.i.i, !llvm.loop !30
+  br i1 %218, label %207, label %.loopexit.us45.loopexit.i.i, !llvm.loop !31
 
 .loopexit.loopexit.i.i:                           ; preds = %233
   %.pre50.i.i = load i64, ptr %90, align 8, !tbaa !11
@@ -404,7 +404,7 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %183, %_kkt_fill_blo
   %219 = phi i64 [ %.pre50.i.i, %.loopexit.loopexit.i.i ], [ %222, %.lr.ph43.split.split.i.i ]
   %220 = phi i64 [ %244, %.loopexit.loopexit.i.i ], [ %226, %.lr.ph43.split.split.i.i ]
   %221 = icmp slt i64 %224, %219
-  br i1 %221, label %.lr.ph43.split.split.i.i, label %_kkt_fill_block.exit45.i, !llvm.loop !31
+  br i1 %221, label %.lr.ph43.split.split.i.i, label %_kkt_fill_block.exit45.i, !llvm.loop !32
 
 .lr.ph43.split.split.i.i:                         ; preds = %.lr.ph43.i39.i, %.loopexit.i.i
   %222 = phi i64 [ %219, %.loopexit.i.i ], [ %186, %.lr.ph43.i39.i ]
@@ -420,8 +420,8 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %183, %_kkt_fill_blo
   %228 = load ptr, ptr %189, align 8, !tbaa !12
   %invariant.gep.i43.i = getelementptr i64, ptr %228, i64 %45
   %229 = load ptr, ptr %190, align 8, !tbaa !14
-  %230 = load ptr, ptr %191, align 8, !tbaa !24
-  %231 = load ptr, ptr %192, align 8, !tbaa !24
+  %230 = load ptr, ptr %191, align 8, !tbaa !25
+  %231 = load ptr, ptr %192, align 8, !tbaa !25
   %232 = load ptr, ptr %188, align 8, !tbaa !14
   br label %233
 
@@ -436,15 +436,15 @@ _kkt_fill_missing_diag_zeros.exit.i:              ; preds = %183, %_kkt_fill_blo
   %238 = getelementptr inbounds i64, ptr %229, i64 %236
   store i64 %.042.i.i, ptr %238, align 8, !tbaa !13
   %239 = getelementptr inbounds double, ptr %230, i64 %.03437.i.i
-  %240 = load double, ptr %239, align 8, !tbaa !25
+  %240 = load double, ptr %239, align 8, !tbaa !26
   %241 = getelementptr inbounds double, ptr %231, i64 %236
-  store double %240, ptr %241, align 8, !tbaa !25
+  store double %240, ptr %241, align 8, !tbaa !26
   %242 = getelementptr inbounds i64, ptr %7, i64 %.03437.i.i
   store i64 %236, ptr %242, align 8, !tbaa !13
   %243 = add nsw i64 %.03437.i.i, 1
   %244 = load i64, ptr %225, align 8, !tbaa !13
   %245 = icmp slt i64 %243, %244
-  br i1 %245, label %233, label %.loopexit.loopexit.i.i, !llvm.loop !32
+  br i1 %245, label %233, label %.loopexit.loopexit.i.i, !llvm.loop !33
 
 _kkt_fill_block.exit45.i:                         ; preds = %.loopexit.i.i, %.loopexit.us45.i.i, %_kkt_fill_missing_diag_zeros.exit.i
   %246 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -455,7 +455,7 @@ _kkt_fill_block.exit45.i:                         ; preds = %.loopexit.i.i, %.lo
   %248 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %249 = load ptr, ptr %248, align 8, !tbaa !14
   %250 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %251 = load ptr, ptr %250, align 8, !tbaa !24
+  %251 = load ptr, ptr %250, align 8, !tbaa !25
   %.not.i47.i = icmp eq ptr %8, null
   br i1 %.not.i47.i, label %.lr.ph.split.us.i.i, label %.lr.ph.split.i.i
 
@@ -467,13 +467,13 @@ _kkt_fill_block.exit45.i:                         ; preds = %.loopexit.i.i, %.lo
   %255 = getelementptr inbounds i64, ptr %249, i64 %254
   store i64 %252, ptr %255, align 8, !tbaa !13
   %256 = getelementptr inbounds double, ptr %251, i64 %254
-  store double 0.000000e+00, ptr %256, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %256, align 8, !tbaa !26
   %257 = load i64, ptr %253, align 8, !tbaa !13
   %258 = add nsw i64 %257, 1
   store i64 %258, ptr %253, align 8, !tbaa !13
   %259 = add nuw nsw i64 %.018.us.i.i, 1
   %exitcond20.not.i.i = icmp eq i64 %259, %44
-  br i1 %exitcond20.not.i.i, label %_kkt_fill_diag_zeros.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !33
+  br i1 %exitcond20.not.i.i, label %_kkt_fill_diag_zeros.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !34
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i46.i, %.lr.ph.split.i.i
   %.018.i.i = phi i64 [ %268, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i46.i ]
@@ -483,7 +483,7 @@ _kkt_fill_block.exit45.i:                         ; preds = %.loopexit.i.i, %.lo
   %263 = getelementptr inbounds i64, ptr %249, i64 %262
   store i64 %260, ptr %263, align 8, !tbaa !13
   %264 = getelementptr inbounds double, ptr %251, i64 %262
-  store double 0.000000e+00, ptr %264, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %264, align 8, !tbaa !26
   %265 = load i64, ptr %261, align 8, !tbaa !13
   %266 = add nsw i64 %265, 1
   store i64 %266, ptr %261, align 8, !tbaa !13
@@ -491,7 +491,7 @@ _kkt_fill_block.exit45.i:                         ; preds = %.loopexit.i.i, %.lo
   store i64 %262, ptr %267, align 8, !tbaa !13
   %268 = add nuw nsw i64 %.018.i.i, 1
   %exitcond.not.i48.i = icmp eq i64 %268, %44
-  br i1 %exitcond.not.i48.i, label %_kkt_fill_diag_zeros.exit.i, label %.lr.ph.split.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i48.i, label %_kkt_fill_diag_zeros.exit.i, label %.lr.ph.split.i.i, !llvm.loop !35
 
 _kkt_fill_diag_zeros.exit.i:                      ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %_kkt_fill_block.exit45.i
   %269 = load i64, ptr %114, align 8, !tbaa !11
@@ -511,7 +511,7 @@ _kkt_fill_diag_zeros.exit.i:                      ; preds = %.lr.ph.split.i.i, %
   store i64 %276, ptr %274, align 8, !tbaa !13
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %277 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %277, label %273, label %_kkt_assemble_csc.exit, !llvm.loop !35
+  br i1 %277, label %273, label %_kkt_assemble_csc.exit, !llvm.loop !36
 
 _kkt_assemble_csc.exit:                           ; preds = %273, %_kkt_fill_diag_zeros.exit.i
   store i64 0, ptr %247, align 8, !tbaa !13
@@ -519,7 +519,7 @@ _kkt_assemble_csc.exit:                           ; preds = %273, %_kkt_fill_dia
 
 .lr.ph.i47:                                       ; preds = %_kkt_assemble_csc.exit
   %278 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %279 = load ptr, ptr %278, align 8, !tbaa !24
+  %279 = load ptr, ptr %278, align 8, !tbaa !25
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %247, i64 8
   %invariant.gep = getelementptr i8, ptr %279, i64 -8
   br label %280
@@ -529,12 +529,12 @@ _kkt_assemble_csc.exit:                           ; preds = %273, %_kkt_fill_dia
   %gep.i = getelementptr inbounds nuw i64, ptr %invariant.gep.i, i64 %.09.i
   %281 = load i64, ptr %gep.i, align 8, !tbaa !13
   %gep = getelementptr double, ptr %invariant.gep, i64 %281
-  %282 = load double, ptr %gep, align 8, !tbaa !25
+  %282 = load double, ptr %gep, align 8, !tbaa !26
   %283 = fadd double %3, %282
-  store double %283, ptr %gep, align 8, !tbaa !25
+  store double %283, ptr %gep, align 8, !tbaa !26
   %284 = add nuw nsw i64 %.09.i, 1
   %exitcond.not.i48 = icmp eq i64 %284, %12
-  br i1 %exitcond.not.i48, label %_kkt_shifts_param1.exit, label %280, !llvm.loop !36
+  br i1 %exitcond.not.i48, label %_kkt_shifts_param1.exit, label %280, !llvm.loop !37
 
 _kkt_shifts_param1.exit:                          ; preds = %280, %_kkt_assemble_csc.exit
   %.not.i49 = icmp eq ptr %4, null
@@ -546,7 +546,7 @@ _kkt_shifts_param1.exit:                          ; preds = %280, %_kkt_assemble
 
 .lr.ph.i50:                                       ; preds = %.preheader23.i
   %286 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %287 = load ptr, ptr %286, align 8, !tbaa !24
+  %287 = load ptr, ptr %286, align 8, !tbaa !25
   %invariant.gep.i51 = getelementptr i64, ptr %247, i64 %12
   %invariant.gep26.i = getelementptr i8, ptr %invariant.gep.i51, i64 8
   %invariant.gep152 = getelementptr i8, ptr %287, i64 -8
@@ -557,7 +557,7 @@ _kkt_shifts_param1.exit:                          ; preds = %280, %_kkt_assemble
 
 .lr.ph29.i:                                       ; preds = %.preheader.i
   %288 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %289 = load ptr, ptr %288, align 8, !tbaa !24
+  %289 = load ptr, ptr %288, align 8, !tbaa !25
   %invariant.gep30.i = getelementptr i64, ptr %247, i64 %12
   %invariant.gep31.i = getelementptr i8, ptr %invariant.gep30.i, i64 8
   %invariant.gep154 = getelementptr i8, ptr %289, i64 -8
@@ -566,28 +566,28 @@ _kkt_shifts_param1.exit:                          ; preds = %280, %_kkt_assemble
 290:                                              ; preds = %290, %.lr.ph.i50
   %.025.i = phi i64 [ 0, %.lr.ph.i50 ], [ %296, %290 ]
   %291 = getelementptr inbounds nuw double, ptr %4, i64 %.025.i
-  %292 = load double, ptr %291, align 8, !tbaa !25
+  %292 = load double, ptr %291, align 8, !tbaa !26
   %gep27.i = getelementptr i64, ptr %invariant.gep26.i, i64 %.025.i
   %293 = load i64, ptr %gep27.i, align 8, !tbaa !13
   %gep153 = getelementptr double, ptr %invariant.gep152, i64 %293
-  %294 = load double, ptr %gep153, align 8, !tbaa !25
+  %294 = load double, ptr %gep153, align 8, !tbaa !26
   %295 = fsub double %294, %292
-  store double %295, ptr %gep153, align 8, !tbaa !25
+  store double %295, ptr %gep153, align 8, !tbaa !26
   %296 = add nuw nsw i64 %.025.i, 1
   %exitcond.not.i52 = icmp eq i64 %296, %10
-  br i1 %exitcond.not.i52, label %_kkt_shifts_param2.exit, label %290, !llvm.loop !37
+  br i1 %exitcond.not.i52, label %_kkt_shifts_param2.exit, label %290, !llvm.loop !38
 
 297:                                              ; preds = %297, %.lr.ph29.i
   %.128.i = phi i64 [ 0, %.lr.ph29.i ], [ %301, %297 ]
   %gep32.i = getelementptr i64, ptr %invariant.gep31.i, i64 %.128.i
   %298 = load i64, ptr %gep32.i, align 8, !tbaa !13
   %gep155 = getelementptr double, ptr %invariant.gep154, i64 %298
-  %299 = load double, ptr %gep155, align 8, !tbaa !25
+  %299 = load double, ptr %gep155, align 8, !tbaa !26
   %300 = fsub double %299, %5
-  store double %300, ptr %gep155, align 8, !tbaa !25
+  store double %300, ptr %gep155, align 8, !tbaa !26
   %301 = add nuw nsw i64 %.128.i, 1
   %exitcond34.not.i = icmp eq i64 %301, %10
-  br i1 %exitcond34.not.i, label %_kkt_shifts_param2.exit, label %297, !llvm.loop !38
+  br i1 %exitcond34.not.i, label %_kkt_shifts_param2.exit, label %297, !llvm.loop !39
 
 .split41:                                         ; preds = %42
   br i1 %.not56.i, label %._crit_edge.i55, label %.lr.ph.i53
@@ -643,7 +643,7 @@ _kkt_shifts_param1.exit:                          ; preds = %280, %_kkt_assemble
 329:                                              ; preds = %324, %319
   %330 = phi i64 [ %312, %319 ], [ %.pre.i.i113, %324 ]
   %331 = icmp slt i64 %315, %330
-  br i1 %331, label %311, label %_kkt_colcount_missing_diag.exit.i56, !llvm.loop !18
+  br i1 %331, label %311, label %_kkt_colcount_missing_diag.exit.i56, !llvm.loop !19
 
 _kkt_colcount_missing_diag.exit.i56:              ; preds = %329, %._crit_edge.i55
   %332 = phi i64 [ %306, %._crit_edge.i55 ], [ %330, %329 ]
@@ -669,7 +669,7 @@ _kkt_colcount_missing_diag.exit.i56:              ; preds = %329, %._crit_edge.i
   store i64 %344, ptr %gep.i.i108, align 8, !tbaa !13
   %345 = add nuw nsw i64 %.020.i.i107, 1
   %exitcond.not.i.i109 = icmp eq i64 %345, %334
-  br i1 %exitcond.not.i.i109, label %_kkt_colcount_block.exit.i57, label %340, !llvm.loop !19
+  br i1 %exitcond.not.i.i109, label %_kkt_colcount_block.exit.i57, label %340, !llvm.loop !20
 
 _kkt_colcount_block.exit.i57:                     ; preds = %340, %_kkt_colcount_missing_diag.exit.i56
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -697,7 +697,7 @@ _kkt_colcount_block.exit.i57:                     ; preds = %340, %_kkt_colcount
   store i64 %360, ptr %gep24.i.i106, align 8, !tbaa !13
   %361 = load i64, ptr %346, align 8, !tbaa !11
   %362 = icmp slt i64 %353, %361
-  br i1 %362, label %352, label %_kkt_colcount_block.exit32.i, !llvm.loop !17
+  br i1 %362, label %352, label %_kkt_colcount_block.exit32.i, !llvm.loop !18
 
 _kkt_colcount_block.exit32.i:                     ; preds = %352, %_kkt_colcount_block.exit.i57
   %363 = icmp sgt i64 %44, 0
@@ -716,7 +716,7 @@ _kkt_colcount_block.exit32.i:                     ; preds = %352, %_kkt_colcount
   store i64 %369, ptr %367, align 8, !tbaa !13
   %370 = add nsw i64 %.06.i.i103, 1
   %371 = icmp slt i64 %370, %46
-  br i1 %371, label %366, label %_kkt_colcount_diag.exit.i58, !llvm.loop !20
+  br i1 %371, label %366, label %_kkt_colcount_diag.exit.i58, !llvm.loop !21
 
 _kkt_colcount_diag.exit.i58:                      ; preds = %366, %_kkt_colcount_block.exit32.i
   %372 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -739,7 +739,7 @@ _kkt_colcount_diag.exit.i58:                      ; preds = %366, %_kkt_colcount
   %380 = add nuw nsw i64 %.0911.i.i62, 1
   %381 = load i64, ptr %372, align 8, !tbaa !11
   %.not.not.i.i63 = icmp slt i64 %.0911.i.i62, %381
-  br i1 %.not.not.i.i63, label %376, label %_kkt_colcount_to_colptr.exit.i64, !llvm.loop !21
+  br i1 %.not.not.i.i63, label %376, label %_kkt_colcount_to_colptr.exit.i64, !llvm.loop !22
 
 _kkt_colcount_to_colptr.exit.i64:                 ; preds = %376, %_kkt_colcount_diag.exit.i58
   %382 = load i64, ptr %11, align 8, !tbaa !11
@@ -779,9 +779,9 @@ _kkt_colcount_to_colptr.exit.i64:                 ; preds = %376, %_kkt_colcount
   %405 = load ptr, ptr %386, align 8, !tbaa !14
   %406 = getelementptr inbounds i64, ptr %405, i64 %404
   store i64 %.022.i.i83, ptr %406, align 8, !tbaa !13
-  %407 = load ptr, ptr %387, align 8, !tbaa !24
+  %407 = load ptr, ptr %387, align 8, !tbaa !25
   %408 = getelementptr inbounds double, ptr %407, i64 %404
-  store double 0.000000e+00, ptr %408, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %408, align 8, !tbaa !26
   %409 = load i64, ptr %403, align 8, !tbaa !13
   %410 = add nsw i64 %409, 1
   store i64 %410, ptr %403, align 8, !tbaa !13
@@ -791,7 +791,7 @@ _kkt_colcount_to_colptr.exit.i64:                 ; preds = %376, %_kkt_colcount
 411:                                              ; preds = %401, %396
   %.pr.i84 = phi i64 [ %389, %396 ], [ %.pre.i37.i, %401 ]
   %412 = icmp slt i64 %392, %.pr.i84
-  br i1 %412, label %388, label %_kkt_fill_missing_diag_zeros.exit.i85, !llvm.loop !28
+  br i1 %412, label %388, label %_kkt_fill_missing_diag_zeros.exit.i85, !llvm.loop !29
 
 _kkt_fill_missing_diag_zeros.exit.i85:            ; preds = %411
   %413 = icmp sgt i64 %.pr.i84, 0
@@ -821,13 +821,13 @@ _kkt_fill_missing_diag_zeros.exit.i85:            ; preds = %411
   %421 = phi i64 [ %.pre52.i.i102, %.loopexit.us45.loopexit.i.i101 ], [ %415, %.lr.ph43.split.split.us.i.i95 ]
   %422 = phi i64 [ %439, %.loopexit.us45.loopexit.i.i101 ], [ %419, %.lr.ph43.split.split.us.i.i95 ]
   %423 = icmp slt i64 %417, %421
-  br i1 %423, label %.lr.ph43.split.split.us.i.i95, label %_kkt_fill_block.exit.i65, !llvm.loop !29
+  br i1 %423, label %.lr.ph43.split.split.us.i.i95, label %_kkt_fill_block.exit.i65, !llvm.loop !30
 
 .lr.ph.us46.i.i98:                                ; preds = %.lr.ph43.split.split.us.i.i95
   %424 = load ptr, ptr %385, align 8, !tbaa !12
   %425 = load ptr, ptr %386, align 8, !tbaa !14
-  %426 = load ptr, ptr %414, align 8, !tbaa !24
-  %427 = load ptr, ptr %387, align 8, !tbaa !24
+  %426 = load ptr, ptr %414, align 8, !tbaa !25
+  %427 = load ptr, ptr %387, align 8, !tbaa !25
   %428 = load ptr, ptr %384, align 8, !tbaa !14
   br label %429
 
@@ -842,13 +842,13 @@ _kkt_fill_missing_diag_zeros.exit.i85:            ; preds = %411
   %434 = getelementptr inbounds i64, ptr %425, i64 %432
   store i64 %.042.us44.i.i96, ptr %434, align 8, !tbaa !13
   %435 = getelementptr inbounds double, ptr %426, i64 %.03437.us38.us.i.i99
-  %436 = load double, ptr %435, align 8, !tbaa !25
+  %436 = load double, ptr %435, align 8, !tbaa !26
   %437 = getelementptr inbounds double, ptr %427, i64 %432
-  store double %436, ptr %437, align 8, !tbaa !25
+  store double %436, ptr %437, align 8, !tbaa !26
   %438 = add nsw i64 %.03437.us38.us.i.i99, 1
   %439 = load i64, ptr %418, align 8, !tbaa !13
   %440 = icmp slt i64 %438, %439
-  br i1 %440, label %429, label %.loopexit.us45.loopexit.i.i101, !llvm.loop !30
+  br i1 %440, label %429, label %.loopexit.us45.loopexit.i.i101, !llvm.loop !31
 
 .loopexit.loopexit.i.i93:                         ; preds = %455
   %.pre50.i.i94 = load i64, ptr %11, align 8, !tbaa !11
@@ -858,7 +858,7 @@ _kkt_fill_missing_diag_zeros.exit.i85:            ; preds = %411
   %441 = phi i64 [ %.pre50.i.i94, %.loopexit.loopexit.i.i93 ], [ %444, %.lr.ph43.split.split.i.i89 ]
   %442 = phi i64 [ %466, %.loopexit.loopexit.i.i93 ], [ %448, %.lr.ph43.split.split.i.i89 ]
   %443 = icmp slt i64 %446, %441
-  br i1 %443, label %.lr.ph43.split.split.i.i89, label %_kkt_fill_block.exit.i65, !llvm.loop !31
+  br i1 %443, label %.lr.ph43.split.split.i.i89, label %_kkt_fill_block.exit.i65, !llvm.loop !32
 
 .lr.ph43.split.split.i.i89:                       ; preds = %.lr.ph43.i.i86, %.loopexit.i.i91
   %444 = phi i64 [ %441, %.loopexit.i.i91 ], [ %.pr.i84, %.lr.ph43.i.i86 ]
@@ -873,8 +873,8 @@ _kkt_fill_missing_diag_zeros.exit.i85:            ; preds = %411
 .lr.ph.i38.i:                                     ; preds = %.lr.ph43.split.split.i.i89
   %450 = load ptr, ptr %385, align 8, !tbaa !12
   %451 = load ptr, ptr %386, align 8, !tbaa !14
-  %452 = load ptr, ptr %414, align 8, !tbaa !24
-  %453 = load ptr, ptr %387, align 8, !tbaa !24
+  %452 = load ptr, ptr %414, align 8, !tbaa !25
+  %453 = load ptr, ptr %387, align 8, !tbaa !25
   %454 = load ptr, ptr %384, align 8, !tbaa !14
   br label %455
 
@@ -889,15 +889,15 @@ _kkt_fill_missing_diag_zeros.exit.i85:            ; preds = %411
   %460 = getelementptr inbounds i64, ptr %451, i64 %458
   store i64 %.042.i.i90, ptr %460, align 8, !tbaa !13
   %461 = getelementptr inbounds double, ptr %452, i64 %.03437.i.i92
-  %462 = load double, ptr %461, align 8, !tbaa !25
+  %462 = load double, ptr %461, align 8, !tbaa !26
   %463 = getelementptr inbounds double, ptr %453, i64 %458
-  store double %462, ptr %463, align 8, !tbaa !25
+  store double %462, ptr %463, align 8, !tbaa !26
   %464 = getelementptr inbounds i64, ptr %6, i64 %.03437.i.i92
   store i64 %458, ptr %464, align 8, !tbaa !13
   %465 = add nsw i64 %.03437.i.i92, 1
   %466 = load i64, ptr %447, align 8, !tbaa !13
   %467 = icmp slt i64 %465, %466
-  br i1 %467, label %455, label %.loopexit.loopexit.i.i93, !llvm.loop !32
+  br i1 %467, label %455, label %.loopexit.loopexit.i.i93, !llvm.loop !33
 
 _kkt_fill_block.exit.i65:                         ; preds = %.loopexit.i.i91, %.loopexit.us45.i.i97, %_kkt_fill_missing_diag_zeros.exit.i85, %_kkt_colcount_to_colptr.exit.i64
   %468 = load i64, ptr %346, align 8, !tbaa !11
@@ -933,13 +933,13 @@ _kkt_fill_block.exit.i65:                         ; preds = %.loopexit.i.i91, %.
   %482 = phi i64 [ %.pre54.i.i81, %.loopexit.us.loopexit.i.i80 ], [ %476, %.lr.ph43.split.us.i.i74 ]
   %483 = phi i64 [ %503, %.loopexit.us.loopexit.i.i80 ], [ %480, %.lr.ph43.split.us.i.i74 ]
   %484 = icmp slt i64 %478, %482
-  br i1 %484, label %.lr.ph43.split.us.i.i74, label %_kkt_fill_block.exit43.i, !llvm.loop !22
+  br i1 %484, label %.lr.ph43.split.us.i.i74, label %_kkt_fill_block.exit43.i, !llvm.loop !23
 
 .lr.ph.us.i.i77:                                  ; preds = %.lr.ph43.split.us.i.i74
   %485 = load ptr, ptr %472, align 8, !tbaa !12
   %486 = load ptr, ptr %473, align 8, !tbaa !14
-  %487 = load ptr, ptr %474, align 8, !tbaa !24
-  %488 = load ptr, ptr %475, align 8, !tbaa !24
+  %487 = load ptr, ptr %474, align 8, !tbaa !25
+  %488 = load ptr, ptr %475, align 8, !tbaa !25
   %489 = load ptr, ptr %471, align 8, !tbaa !14
   %gep.us.us.i.i78 = getelementptr i64, ptr %485, i64 %.042.us.i.i75
   br label %490
@@ -955,9 +955,9 @@ _kkt_fill_block.exit.i65:                         ; preds = %.loopexit.i.i91, %.
   %495 = getelementptr inbounds i64, ptr %486, i64 %493
   store i64 %.033.us.us.i.i, ptr %495, align 8, !tbaa !13
   %496 = getelementptr inbounds double, ptr %487, i64 %.03437.us.us.i.i79
-  %497 = load double, ptr %496, align 8, !tbaa !25
+  %497 = load double, ptr %496, align 8, !tbaa !26
   %498 = getelementptr inbounds double, ptr %488, i64 %493
-  store double %497, ptr %498, align 8, !tbaa !25
+  store double %497, ptr %498, align 8, !tbaa !26
   br i1 %.not36.i41.i, label %501, label %499
 
 499:                                              ; preds = %490
@@ -969,7 +969,7 @@ _kkt_fill_block.exit.i65:                         ; preds = %.loopexit.i.i91, %.
   %502 = add nsw i64 %.03437.us.us.i.i79, 1
   %503 = load i64, ptr %479, align 8, !tbaa !13
   %504 = icmp slt i64 %502, %503
-  br i1 %504, label %490, label %.loopexit.us.loopexit.i.i80, !llvm.loop !27
+  br i1 %504, label %490, label %.loopexit.us.loopexit.i.i80, !llvm.loop !28
 
 _kkt_fill_block.exit43.i:                         ; preds = %.loopexit.us.i.i76, %_kkt_fill_block.exit.i65
   %505 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -980,7 +980,7 @@ _kkt_fill_block.exit43.i:                         ; preds = %.loopexit.us.i.i76,
   %507 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %508 = load ptr, ptr %507, align 8, !tbaa !14
   %509 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %510 = load ptr, ptr %509, align 8, !tbaa !24
+  %510 = load ptr, ptr %509, align 8, !tbaa !25
   %.not.i45.i = icmp eq ptr %8, null
   br i1 %.not.i45.i, label %.lr.ph.split.us.i.i71, label %.lr.ph.split.i.i69
 
@@ -992,13 +992,13 @@ _kkt_fill_block.exit43.i:                         ; preds = %.loopexit.us.i.i76,
   %514 = getelementptr inbounds i64, ptr %508, i64 %513
   store i64 %511, ptr %514, align 8, !tbaa !13
   %515 = getelementptr inbounds double, ptr %510, i64 %513
-  store double 0.000000e+00, ptr %515, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %515, align 8, !tbaa !26
   %516 = load i64, ptr %512, align 8, !tbaa !13
   %517 = add nsw i64 %516, 1
   store i64 %517, ptr %512, align 8, !tbaa !13
   %518 = add nuw nsw i64 %.018.us.i.i72, 1
   %exitcond20.not.i.i73 = icmp eq i64 %518, %44
-  br i1 %exitcond20.not.i.i73, label %_kkt_fill_diag_zeros.exit.i66, label %.lr.ph.split.us.i.i71, !llvm.loop !33
+  br i1 %exitcond20.not.i.i73, label %_kkt_fill_diag_zeros.exit.i66, label %.lr.ph.split.us.i.i71, !llvm.loop !34
 
 .lr.ph.split.i.i69:                               ; preds = %.lr.ph.i44.i, %.lr.ph.split.i.i69
   %.018.i.i70 = phi i64 [ %527, %.lr.ph.split.i.i69 ], [ 0, %.lr.ph.i44.i ]
@@ -1008,7 +1008,7 @@ _kkt_fill_block.exit43.i:                         ; preds = %.loopexit.us.i.i76,
   %522 = getelementptr inbounds i64, ptr %508, i64 %521
   store i64 %519, ptr %522, align 8, !tbaa !13
   %523 = getelementptr inbounds double, ptr %510, i64 %521
-  store double 0.000000e+00, ptr %523, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %523, align 8, !tbaa !26
   %524 = load i64, ptr %520, align 8, !tbaa !13
   %525 = add nsw i64 %524, 1
   store i64 %525, ptr %520, align 8, !tbaa !13
@@ -1016,7 +1016,7 @@ _kkt_fill_block.exit43.i:                         ; preds = %.loopexit.us.i.i76,
   store i64 %521, ptr %526, align 8, !tbaa !13
   %527 = add nuw nsw i64 %.018.i.i70, 1
   %exitcond.not.i46.i = icmp eq i64 %527, %44
-  br i1 %exitcond.not.i46.i, label %_kkt_fill_diag_zeros.exit.i66, label %.lr.ph.split.i.i69, !llvm.loop !34
+  br i1 %exitcond.not.i46.i, label %_kkt_fill_diag_zeros.exit.i66, label %.lr.ph.split.i.i69, !llvm.loop !35
 
 _kkt_fill_diag_zeros.exit.i66:                    ; preds = %.lr.ph.split.i.i69, %.lr.ph.split.us.i.i71, %_kkt_fill_block.exit43.i
   %528 = load i64, ptr %372, align 8, !tbaa !11
@@ -1036,7 +1036,7 @@ _kkt_fill_diag_zeros.exit.i66:                    ; preds = %.lr.ph.split.i.i69,
   store i64 %535, ptr %533, align 8, !tbaa !13
   %indvars.iv.next.i.i68 = add nsw i64 %indvars.iv.i.i67, -1
   %536 = icmp samesign ugt i64 %indvars.iv.i.i67, 1
-  br i1 %536, label %532, label %_kkt_assemble_csr.exit, !llvm.loop !35
+  br i1 %536, label %532, label %_kkt_assemble_csr.exit, !llvm.loop !36
 
 _kkt_assemble_csr.exit:                           ; preds = %532, %_kkt_fill_diag_zeros.exit.i66
   store i64 0, ptr %506, align 8, !tbaa !13
@@ -1044,7 +1044,7 @@ _kkt_assemble_csr.exit:                           ; preds = %532, %_kkt_fill_dia
 
 .lr.ph.i115:                                      ; preds = %_kkt_assemble_csr.exit
   %537 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %538 = load ptr, ptr %537, align 8, !tbaa !24
+  %538 = load ptr, ptr %537, align 8, !tbaa !25
   br label %539
 
 539:                                              ; preds = %539, %.lr.ph.i115
@@ -1052,12 +1052,12 @@ _kkt_assemble_csr.exit:                           ; preds = %532, %_kkt_fill_dia
   %gep.i118 = getelementptr inbounds nuw i64, ptr %506, i64 %.09.i117
   %540 = load i64, ptr %gep.i118, align 8, !tbaa !13
   %541 = getelementptr inbounds double, ptr %538, i64 %540
-  %542 = load double, ptr %541, align 8, !tbaa !25
+  %542 = load double, ptr %541, align 8, !tbaa !26
   %543 = fadd double %3, %542
-  store double %543, ptr %541, align 8, !tbaa !25
+  store double %543, ptr %541, align 8, !tbaa !26
   %544 = add nuw nsw i64 %.09.i117, 1
   %exitcond.not.i119 = icmp eq i64 %544, %12
-  br i1 %exitcond.not.i119, label %_kkt_shifts_param1.exit120, label %539, !llvm.loop !36
+  br i1 %exitcond.not.i119, label %_kkt_shifts_param1.exit120, label %539, !llvm.loop !37
 
 _kkt_shifts_param1.exit120:                       ; preds = %539, %_kkt_assemble_csr.exit
   %.not.i121 = icmp eq ptr %4, null
@@ -1069,7 +1069,7 @@ _kkt_shifts_param1.exit120:                       ; preds = %539, %_kkt_assemble
 
 .lr.ph.i123:                                      ; preds = %.preheader23.i122
   %546 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %547 = load ptr, ptr %546, align 8, !tbaa !24
+  %547 = load ptr, ptr %546, align 8, !tbaa !25
   %invariant.gep.i124 = getelementptr i64, ptr %506, i64 %12
   br label %550
 
@@ -1078,35 +1078,35 @@ _kkt_shifts_param1.exit120:                       ; preds = %539, %_kkt_assemble
 
 .lr.ph29.i130:                                    ; preds = %.preheader.i129
   %548 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %549 = load ptr, ptr %548, align 8, !tbaa !24
+  %549 = load ptr, ptr %548, align 8, !tbaa !25
   %invariant.gep30.i131 = getelementptr i64, ptr %506, i64 %12
   br label %558
 
 550:                                              ; preds = %550, %.lr.ph.i123
   %.025.i126 = phi i64 [ 0, %.lr.ph.i123 ], [ %557, %550 ]
   %551 = getelementptr inbounds nuw double, ptr %4, i64 %.025.i126
-  %552 = load double, ptr %551, align 8, !tbaa !25
+  %552 = load double, ptr %551, align 8, !tbaa !26
   %gep27.i127 = getelementptr i64, ptr %invariant.gep.i124, i64 %.025.i126
   %553 = load i64, ptr %gep27.i127, align 8, !tbaa !13
   %554 = getelementptr inbounds double, ptr %547, i64 %553
-  %555 = load double, ptr %554, align 8, !tbaa !25
+  %555 = load double, ptr %554, align 8, !tbaa !26
   %556 = fsub double %555, %552
-  store double %556, ptr %554, align 8, !tbaa !25
+  store double %556, ptr %554, align 8, !tbaa !26
   %557 = add nuw nsw i64 %.025.i126, 1
   %exitcond.not.i128 = icmp eq i64 %557, %10
-  br i1 %exitcond.not.i128, label %_kkt_shifts_param2.exit, label %550, !llvm.loop !37
+  br i1 %exitcond.not.i128, label %_kkt_shifts_param2.exit, label %550, !llvm.loop !38
 
 558:                                              ; preds = %558, %.lr.ph29.i130
   %.128.i133 = phi i64 [ 0, %.lr.ph29.i130 ], [ %563, %558 ]
   %gep32.i134 = getelementptr i64, ptr %invariant.gep30.i131, i64 %.128.i133
   %559 = load i64, ptr %gep32.i134, align 8, !tbaa !13
   %560 = getelementptr inbounds double, ptr %549, i64 %559
-  %561 = load double, ptr %560, align 8, !tbaa !25
+  %561 = load double, ptr %560, align 8, !tbaa !26
   %562 = fsub double %561, %5
-  store double %562, ptr %560, align 8, !tbaa !25
+  store double %562, ptr %560, align 8, !tbaa !26
   %563 = add nuw nsw i64 %.128.i133, 1
   %exitcond34.not.i135 = icmp eq i64 %563, %10
-  br i1 %exitcond34.not.i135, label %_kkt_shifts_param2.exit, label %558, !llvm.loop !38
+  br i1 %exitcond34.not.i135, label %_kkt_shifts_param2.exit, label %558, !llvm.loop !39
 
 _kkt_shifts_param2.exit:                          ; preds = %550, %558, %290, %297, %.preheader.i129, %.preheader23.i122, %.preheader.i, %.preheader23.i, %_count_diagonal_entries.exit
   ret ptr %41
@@ -1124,9 +1124,9 @@ define void @update_KKT_P(ptr noundef readonly captures(none) %0, ptr noundef re
   %11 = icmp eq i64 %6, 0
   %12 = zext i1 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1138,9 +1138,9 @@ define void @update_KKT_P(ptr noundef readonly captures(none) %0, ptr noundef re
   %21 = getelementptr inbounds nuw i64, ptr %4, i64 %.031.us
   %22 = load i64, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw double, ptr %14, i64 %.031.us
-  %24 = load double, ptr %23, align 8, !tbaa !25
+  %24 = load double, ptr %23, align 8, !tbaa !26
   %25 = getelementptr inbounds double, ptr %16, i64 %22
-  store double %24, ptr %25, align 8, !tbaa !25
+  store double %24, ptr %25, align 8, !tbaa !26
   %26 = getelementptr inbounds nuw i64, ptr %18, i64 %.031.us
   %27 = load i64, ptr %26, align 8, !tbaa !13
   %28 = getelementptr inbounds i64, ptr %20, i64 %27
@@ -1159,13 +1159,13 @@ define void @update_KKT_P(ptr noundef readonly captures(none) %0, ptr noundef re
 
 38:                                               ; preds = %33
   %39 = fadd double %5, %24
-  store double %39, ptr %25, align 8, !tbaa !25
+  store double %39, ptr %25, align 8, !tbaa !26
   br label %40
 
 40:                                               ; preds = %38, %33, %.split.us
   %41 = add nuw nsw i64 %.031.us, 1
   %exitcond33.not = icmp eq i64 %41, %3
-  br i1 %exitcond33.not, label %.loopexit, label %.split.us, !llvm.loop !39
+  br i1 %exitcond33.not, label %.loopexit, label %.split.us, !llvm.loop !40
 
 .split:                                           ; preds = %9, %63
   %.031 = phi i64 [ %64, %63 ], [ 0, %9 ]
@@ -1174,9 +1174,9 @@ define void @update_KKT_P(ptr noundef readonly captures(none) %0, ptr noundef re
   %44 = getelementptr inbounds i64, ptr %4, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !13
   %46 = getelementptr inbounds double, ptr %14, i64 %43
-  %47 = load double, ptr %46, align 8, !tbaa !25
+  %47 = load double, ptr %46, align 8, !tbaa !26
   %48 = getelementptr inbounds double, ptr %16, i64 %45
-  store double %47, ptr %48, align 8, !tbaa !25
+  store double %47, ptr %48, align 8, !tbaa !26
   %49 = getelementptr inbounds i64, ptr %18, i64 %43
   %50 = load i64, ptr %49, align 8, !tbaa !13
   %51 = getelementptr inbounds i64, ptr %20, i64 %50
@@ -1195,13 +1195,13 @@ define void @update_KKT_P(ptr noundef readonly captures(none) %0, ptr noundef re
 
 61:                                               ; preds = %56
   %62 = fadd double %5, %47
-  store double %62, ptr %48, align 8, !tbaa !25
+  store double %62, ptr %48, align 8, !tbaa !26
   br label %63
 
 63:                                               ; preds = %.split, %56, %61
   %64 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %64, %3
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !41
 
 .loopexit:                                        ; preds = %63, %40, %7
   ret void
@@ -1215,9 +1215,9 @@ define void @update_KKT_A(ptr noundef readonly captures(none) %0, ptr noundef re
 7:                                                ; preds = %5
   %8 = icmp eq ptr %2, null
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %12 = load ptr, ptr %11, align 8, !tbaa !25
   br i1 %8, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %7, %.split.us
@@ -1225,12 +1225,12 @@ define void @update_KKT_A(ptr noundef readonly captures(none) %0, ptr noundef re
   %13 = getelementptr inbounds nuw i64, ptr %4, i64 %.016.us
   %14 = load i64, ptr %13, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw double, ptr %10, i64 %.016.us
-  %16 = load double, ptr %15, align 8, !tbaa !25
+  %16 = load double, ptr %15, align 8, !tbaa !26
   %17 = getelementptr inbounds double, ptr %12, i64 %14
-  store double %16, ptr %17, align 8, !tbaa !25
+  store double %16, ptr %17, align 8, !tbaa !26
   %18 = add nuw nsw i64 %.016.us, 1
   %exitcond18.not = icmp eq i64 %18, %3
-  br i1 %exitcond18.not, label %.loopexit, label %.split.us, !llvm.loop !41
+  br i1 %exitcond18.not, label %.loopexit, label %.split.us, !llvm.loop !42
 
 .split:                                           ; preds = %7, %.split
   %.016 = phi i64 [ %26, %.split ], [ 0, %7 ]
@@ -1239,12 +1239,12 @@ define void @update_KKT_A(ptr noundef readonly captures(none) %0, ptr noundef re
   %21 = getelementptr inbounds i64, ptr %4, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds double, ptr %10, i64 %20
-  %24 = load double, ptr %23, align 8, !tbaa !25
+  %24 = load double, ptr %23, align 8, !tbaa !26
   %25 = getelementptr inbounds double, ptr %12, i64 %22
-  store double %24, ptr %25, align 8, !tbaa !25
+  store double %24, ptr %25, align 8, !tbaa !26
   %26 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %26, %3
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !42
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.split, %.split.us, %5
   ret void
@@ -1261,7 +1261,7 @@ define void @update_KKT_param2(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph:                                           ; preds = %.preheader16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !24
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   br label %12
 
 .preheader:                                       ; preds = %5
@@ -1270,31 +1270,31 @@ define void @update_KKT_param2(ptr noundef readonly captures(none) %0, ptr nound
 .lr.ph20:                                         ; preds = %.preheader
   %9 = fneg double %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !24
+  %11 = load ptr, ptr %10, align 8, !tbaa !25
   br label %20
 
 12:                                               ; preds = %.lr.ph, %12
   %.018 = phi i64 [ 0, %.lr.ph ], [ %19, %12 ]
   %13 = getelementptr inbounds nuw double, ptr %1, i64 %.018
-  %14 = load double, ptr %13, align 8, !tbaa !25
+  %14 = load double, ptr %13, align 8, !tbaa !26
   %15 = fneg double %14
   %16 = getelementptr inbounds nuw i64, ptr %3, i64 %.018
   %17 = load i64, ptr %16, align 8, !tbaa !13
   %18 = getelementptr inbounds double, ptr %8, i64 %17
-  store double %15, ptr %18, align 8, !tbaa !25
+  store double %15, ptr %18, align 8, !tbaa !26
   %19 = add nuw nsw i64 %.018, 1
   %exitcond.not = icmp eq i64 %19, %4
-  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !43
+  br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !44
 
 20:                                               ; preds = %.lr.ph20, %20
   %.119 = phi i64 [ 0, %.lr.ph20 ], [ %24, %20 ]
   %21 = getelementptr inbounds nuw i64, ptr %3, i64 %.119
   %22 = load i64, ptr %21, align 8, !tbaa !13
   %23 = getelementptr inbounds double, ptr %11, i64 %22
-  store double %9, ptr %23, align 8, !tbaa !25
+  store double %9, ptr %23, align 8, !tbaa !26
   %24 = add nuw nsw i64 %.119, 1
   %exitcond22.not = icmp eq i64 %24, %4
-  br i1 %exitcond22.not, label %.loopexit, label %20, !llvm.loop !44
+  br i1 %exitcond22.not, label %.loopexit, label %20, !llvm.loop !45
 
 .loopexit:                                        ; preds = %12, %20, %.preheader16, %.preheader
   ret void
@@ -1327,33 +1327,34 @@ attributes #5 = { nounwind }
 !12 = !{!4, !8, i64 16}
 !13 = !{!5, !5, i64 0}
 !14 = !{!4, !8, i64 24}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16}
-!20 = distinct !{!20, !16}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = !{!4, !10, i64 32}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"double", !6, i64 0}
-!27 = distinct !{!27, !16, !23}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16, !23}
-!30 = distinct !{!30, !16, !23}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
-!33 = distinct !{!33, !16, !23}
-!34 = distinct !{!34, !16}
-!35 = distinct !{!35, !16}
-!36 = distinct !{!36, !16}
-!37 = distinct !{!37, !16}
-!38 = distinct !{!38, !16}
-!39 = distinct !{!39, !16, !23}
-!40 = distinct !{!40, !16}
-!41 = distinct !{!41, !16, !23}
-!42 = distinct !{!42, !16}
-!43 = distinct !{!43, !16}
-!44 = distinct !{!44, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !16, !17}
+!21 = distinct !{!21, !16, !17}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = !{!4, !10, i64 32}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"double", !6, i64 0}
+!28 = distinct !{!28, !16, !17, !24}
+!29 = distinct !{!29, !16, !17}
+!30 = distinct !{!30, !16, !17, !24}
+!31 = distinct !{!31, !16, !17, !24}
+!32 = distinct !{!32, !16, !17}
+!33 = distinct !{!33, !16, !17}
+!34 = distinct !{!34, !16, !17, !24}
+!35 = distinct !{!35, !16, !17}
+!36 = distinct !{!36, !16, !17}
+!37 = distinct !{!37, !16, !17}
+!38 = distinct !{!38, !16, !17}
+!39 = distinct !{!39, !16, !17}
+!40 = distinct !{!40, !16, !17, !24}
+!41 = distinct !{!41, !16, !17}
+!42 = distinct !{!42, !16, !17, !24}
+!43 = distinct !{!43, !16, !17}
+!44 = distinct !{!44, !16, !17}
+!45 = distinct !{!45, !16, !17}

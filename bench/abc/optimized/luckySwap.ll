@@ -146,20 +146,20 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
 
 37:                                               ; preds = %31
   %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %39 = load i32, ptr %38, align 4, !tbaa !9
+  %39 = load i32, ptr %38, align 4, !tbaa !10
   %40 = add nsw i32 %39, %29
-  store i32 %40, ptr %38, align 4, !tbaa !9
+  store i32 %40, ptr %38, align 4, !tbaa !10
   br label %41
 
 41:                                               ; preds = %37, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.us, label %31, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %41
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge72, label %.lr.ph.us, !llvm.loop !12
+  br i1 %exitcond96.not, label %._crit_edge72, label %.lr.ph.us, !llvm.loop !13
 
 42:                                               ; preds = %3
   %43 = icmp sgt i32 %1, 0
@@ -182,7 +182,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %58 = add nuw nsw i64 %57, %56
   %59 = trunc i64 %58 to i32
   %60 = and i32 %59, 255
-  store i32 %60, ptr %2, align 4, !tbaa !9
+  store i32 %60, ptr %2, align 4, !tbaa !10
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %.thread67, label %61
 
@@ -207,7 +207,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %79 = trunc i64 %78 to i32
   %80 = and i32 %79, 255
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %80, ptr %81, align 4, !tbaa !9
+  store i32 %80, ptr %81, align 4, !tbaa !10
   %82 = icmp samesign ugt i32 %1, 2
   br i1 %82, label %83, label %.thread67
 
@@ -231,7 +231,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 255
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %101, ptr %102, align 4, !tbaa !9
+  store i32 %101, ptr %102, align 4, !tbaa !10
   %.not68 = icmp eq i32 %1, 3
   br i1 %.not68, label %.thread67, label %103
 
@@ -255,7 +255,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %120 = trunc i64 %119 to i32
   %121 = and i32 %120, 255
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %121, ptr %122, align 4, !tbaa !9
+  store i32 %121, ptr %122, align 4, !tbaa !10
   %123 = icmp samesign ugt i32 %1, 4
   br i1 %123, label %124, label %.thread67
 
@@ -279,7 +279,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %141 = trunc i64 %140 to i32
   %142 = and i32 %141, 255
   %143 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %142, ptr %143, align 4, !tbaa !9
+  store i32 %142, ptr %143, align 4, !tbaa !10
   %144 = icmp eq i32 %1, 6
   br i1 %144, label %145, label %.thread67
 
@@ -303,7 +303,7 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %162 = trunc i64 %161 to i32
   %163 = and i32 %162, 255
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %163, ptr %164, align 4, !tbaa !9
+  store i32 %163, ptr %164, align 4, !tbaa !10
   br label %.thread67
 
 ._crit_edge72:                                    ; preds = %._crit_edge.us
@@ -317,12 +317,12 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %169 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %170 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %.promoted = load i32, ptr %2, align 4, !tbaa !9
-  %.promoted75 = load i32, ptr %167, align 4, !tbaa !9
-  %.promoted77 = load i32, ptr %168, align 4, !tbaa !9
-  %.promoted79 = load i32, ptr %169, align 4, !tbaa !9
-  %.promoted81 = load i32, ptr %170, align 4, !tbaa !9
-  %.promoted83 = load i32, ptr %171, align 4, !tbaa !9
+  %.promoted = load i32, ptr %2, align 4, !tbaa !10
+  %.promoted75 = load i32, ptr %167, align 4, !tbaa !10
+  %.promoted77 = load i32, ptr %168, align 4, !tbaa !10
+  %.promoted79 = load i32, ptr %169, align 4, !tbaa !10
+  %.promoted81 = load i32, ptr %170, align 4, !tbaa !10
+  %.promoted83 = load i32, ptr %171, align 4, !tbaa !10
   br label %172
 
 172:                                              ; preds = %.lr.ph, %172
@@ -476,15 +476,15 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) 
   %318 = getelementptr inbounds nuw i8, ptr %.074, i64 16
   %319 = add nsw i32 %.173, -1
   %320 = icmp samesign ugt i32 %.173, 1
-  br i1 %320, label %172, label %..thread67.loopexit_crit_edge, !llvm.loop !14
+  br i1 %320, label %172, label %..thread67.loopexit_crit_edge, !llvm.loop !15
 
 ..thread67.loopexit_crit_edge:                    ; preds = %172
-  store i32 %203, ptr %2, align 4, !tbaa !9
-  store i32 %226, ptr %167, align 4, !tbaa !9
-  store i32 %249, ptr %168, align 4, !tbaa !9
-  store i32 %272, ptr %169, align 4, !tbaa !9
-  store i32 %295, ptr %170, align 4, !tbaa !9
-  store i32 %317, ptr %171, align 4, !tbaa !9
+  store i32 %203, ptr %2, align 4, !tbaa !10
+  store i32 %226, ptr %167, align 4, !tbaa !10
+  store i32 %249, ptr %168, align 4, !tbaa !10
+  store i32 %272, ptr %169, align 4, !tbaa !10
+  store i32 %295, ptr %170, align 4, !tbaa !10
+  store i32 %317, ptr %171, align 4, !tbaa !10
   br label %.thread67
 
 .thread67:                                        ; preds = %.preheader, %._crit_edge72, %..thread67.loopexit_crit_edge, %42, %44, %61, %83, %103, %124, %145
@@ -531,7 +531,7 @@ define void @Kit_TruthChangePhase_64bit(ptr noundef captures(none) %0, i32 nound
   store i64 %24, ptr %18, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !16
 
 25:                                               ; preds = %3
   %26 = add nsw i32 %2, -6
@@ -557,7 +557,7 @@ define void @Kit_TruthChangePhase_64bit(ptr noundef captures(none) %0, i32 nound
   %36 = getelementptr inbounds i64, ptr %.036, i64 %33
   %37 = add nsw i32 %.135, %32
   %38 = icmp slt i32 %37, %8
-  br i1 %38, label %34, label %.loopexit, !llvm.loop !16
+  br i1 %38, label %34, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %34, %17, %25, %.preheader
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %4)
@@ -588,7 +588,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %10 = xor i64 %9, -1
   store i64 %10, ptr %8, align 8, !tbaa !3
   %11 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %11, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !17
+  br i1 %11, label %select.unfold, label %select.unfold._crit_edge, !llvm.loop !18
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %2
   ret void
@@ -648,7 +648,7 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef captures(none) %0, i32 
   store i64 %30, ptr %22, align 8, !tbaa !3
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !19
 
 31:                                               ; preds = %3
   %.not = icmp eq i32 %2, 5
@@ -690,7 +690,7 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef captures(none) %0, i32 
   %49 = getelementptr inbounds i64, ptr %.060, i64 %46
   %50 = add nsw i32 %.159, %45
   %51 = icmp slt i32 %50, %8
-  br i1 %51, label %47, label %.loopexit, !llvm.loop !19
+  br i1 %51, label %47, label %.loopexit, !llvm.loop !20
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
   %indvars.iv = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next, %.lr.ph62 ]
@@ -708,7 +708,7 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef captures(none) %0, i32 
   store i64 %61, ptr %52, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %62 = icmp samesign ult i64 %indvars.iv.next, %33
-  br i1 %62, label %.lr.ph62, label %.loopexit, !llvm.loop !20
+  br i1 %62, label %.lr.ph62, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %47, %.lr.ph62, %21, %.preheader, %34, %10
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
@@ -773,7 +773,7 @@ select.unfold.i72:                                ; preds = %Kit_TruthCountOnes_
   %39 = xor i64 %38, -1
   store i64 %39, ptr %37, align 8, !tbaa !3
   %40 = icmp samesign ugt i64 %indvars.iv.i73, 1
-  br i1 %40, label %select.unfold.i72, label %Kit_TruthNot_64bit.exit, !llvm.loop !17
+  br i1 %40, label %select.unfold.i72, label %Kit_TruthNot_64bit.exit, !llvm.loop !18
 
 Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i72
   %41 = shl nuw i32 1, %1
@@ -804,7 +804,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
 
 .lr.ph96.us:                                      ; preds = %.lr.ph96.us.preheader, %._crit_edge.us
   %.3.us = phi i32 [ %.5.us, %._crit_edge.us ], [ %.2, %.lr.ph96.us.preheader ]
-  %.pre = load i32, ptr %6, align 16, !tbaa !9
+  %.pre = load i32, ptr %6, align 16, !tbaa !10
   br label %46
 
 46:                                               ; preds = %.lr.ph96.us, %115
@@ -814,20 +814,20 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %.05994.us = phi i32 [ 0, %.lr.ph96.us ], [ %.160.us, %115 ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %48 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv.next104
-  %49 = load i32, ptr %48, align 4, !tbaa !9
+  %49 = load i32, ptr %48, align 4, !tbaa !10
   %.not67.us = icmp sgt i32 %47, %49
   br i1 %.not67.us, label %50, label %115
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv103
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv103
-  %53 = load i8, ptr %52, align 1, !tbaa !21
+  %53 = load i8, ptr %52, align 1, !tbaa !22
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next104
-  %55 = load i8, ptr %54, align 1, !tbaa !21
-  store i8 %55, ptr %52, align 1, !tbaa !21
-  store i8 %53, ptr %54, align 1, !tbaa !21
-  store i32 %49, ptr %51, align 4, !tbaa !9
-  store i32 %47, ptr %48, align 4, !tbaa !9
+  %55 = load i8, ptr %54, align 1, !tbaa !22
+  store i8 %55, ptr %52, align 1, !tbaa !22
+  store i8 %53, ptr %54, align 1, !tbaa !22
+  store i32 %49, ptr %51, align 4, !tbaa !10
+  store i32 %47, ptr %48, align 4, !tbaa !10
   %56 = trunc nuw nsw i64 %indvars.iv103 to i32
   %57 = lshr i32 %.495.us, %56
   %58 = shl nuw i32 2, %56
@@ -876,7 +876,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %83 = getelementptr inbounds i64, ptr %.060.i.us, i64 %80
   %84 = add nsw i32 %.159.i.us, %79
   %85 = icmp slt i32 %84, %10
-  br i1 %85, label %81, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !19
+  br i1 %85, label %81, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !20
 
 .preheader.i78.us:                                ; preds = %66
   br i1 %11, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
@@ -897,7 +897,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   store i64 %95, ptr %86, align 8, !tbaa !3
   %indvars.iv.next.i80.us = add nuw nsw i64 %indvars.iv.i79.us, 2
   %96 = icmp samesign ult i64 %indvars.iv.next.i80.us, %wide.trip.count.i
-  br i1 %96, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !20
+  br i1 %96, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !21
 
 97:                                               ; preds = %50
   br i1 %11, label %.lr.ph64.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
@@ -926,7 +926,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   store i64 %114, ptr %106, align 8, !tbaa !3
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %exitcond.not.i82.us = icmp eq i64 %indvars.iv.next69.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i82.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, label %105, !llvm.loop !18
+  br i1 %exitcond.not.i82.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, label %105, !llvm.loop !19
 
 Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us, %105, %97, %.preheader.i78.us, %67
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
@@ -937,17 +937,17 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us,
   %.160.us = phi i32 [ %.05994.us, %46 ], [ 1, %Kit_TruthSwapAdjacentVars_64bit.exit.us ]
   %.5.us = phi i32 [ %.495.us, %46 ], [ %.6.us, %Kit_TruthSwapAdjacentVars_64bit.exit.us ]
   %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
-  br i1 %exitcond107.not, label %._crit_edge.us, label %46, !llvm.loop !22
+  br i1 %exitcond107.not, label %._crit_edge.us, label %46, !llvm.loop !23
 
 ._crit_edge.us:                                   ; preds = %115
   %.not.us = icmp eq i32 %.160.us, 0
-  br i1 %.not.us, label %.split.us, label %.lr.ph96.us, !llvm.loop !23
+  br i1 %.not.us, label %.split.us, label %.lr.ph96.us, !llvm.loop !24
 
 117:                                              ; preds = %.lr.ph, %152
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %152 ]
   %.192 = phi i32 [ %.0, %.lr.ph ], [ %.2, %152 ]
   %118 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 0, i64 %indvars.iv
-  %119 = load i32, ptr %118, align 4, !tbaa !9
+  %119 = load i32, ptr %118, align 4, !tbaa !10
   %120 = sub nsw i32 %.058, %119
   %.not69 = icmp slt i32 %119, %120
   br i1 %.not69, label %121, label %152
@@ -956,7 +956,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us,
   %122 = trunc nuw nsw i64 %indvars.iv to i32
   %123 = shl nuw i32 1, %122
   %124 = or i32 %.192, %123
-  store i32 %120, ptr %118, align 4, !tbaa !9
+  store i32 %120, ptr %118, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   %125 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %125, label %.preheader.i, label %138
@@ -983,7 +983,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us,
   store i64 %137, ptr %131, align 8, !tbaa !3
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i76, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Kit_TruthChangePhase_64bit.exit, label %130, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Kit_TruthChangePhase_64bit.exit, label %130, !llvm.loop !16
 
 138:                                              ; preds = %121
   %139 = trunc i64 %indvars.iv to i32
@@ -1009,7 +1009,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %81, %.lr.ph62.i.us,
   %149 = getelementptr inbounds i64, ptr %.036.i, i64 %146
   %150 = add nsw i32 %.135.i, %145
   %151 = icmp slt i32 %150, %10
-  br i1 %151, label %147, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !16
+  br i1 %151, label %147, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !17
 
 Kit_TruthChangePhase_64bit.exit:                  ; preds = %147, %130, %.preheader.i, %138
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
@@ -1019,7 +1019,7 @@ Kit_TruthChangePhase_64bit.exit:                  ; preds = %147, %130, %.prehea
   %.2 = phi i32 [ %.192, %117 ], [ %124, %Kit_TruthChangePhase_64bit.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %117, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader, label %117, !llvm.loop !25
 
 .split.us:                                        ; preds = %._crit_edge.us, %Kit_TruthCountOnes_64bit.exit.thread, %.preheader
   %.us-phi = phi i32 [ %.2, %.preheader ], [ %.0, %Kit_TruthCountOnes_64bit.exit.thread ], [ %.5.us, %._crit_edge.us ]
@@ -1092,7 +1092,7 @@ select.unfold.i92:                                ; preds = %40, %select.unfold.
   %44 = xor i64 %43, -1
   store i64 %44, ptr %42, align 8, !tbaa !3
   %45 = icmp samesign ugt i64 %indvars.iv.i93, 1
-  br i1 %45, label %select.unfold.i92, label %Kit_TruthNot_64bit.exit, !llvm.loop !17
+  br i1 %45, label %select.unfold.i92, label %Kit_TruthNot_64bit.exit, !llvm.loop !18
 
 Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   %46 = shl nuw i32 1, %1
@@ -1127,24 +1127,24 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   %.4118.us = phi i32 [ %.2, %.lr.ph119.us.preheader ], [ %.5.us, %.lr.ph119.us.backedge ]
   %.081116.us = phi i32 [ 0, %.lr.ph119.us.preheader ], [ %.081116.us.be, %.lr.ph119.us.backedge ]
   %52 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv126
-  %53 = load i32, ptr %52, align 4, !tbaa !9
+  %53 = load i32, ptr %52, align 4, !tbaa !10
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %54 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next127
-  %55 = load i32, ptr %54, align 4, !tbaa !9
+  %55 = load i32, ptr %54, align 4, !tbaa !10
   %.not88.us = icmp sgt i32 %53, %55
   br i1 %.not88.us, label %56, label %122
 
 56:                                               ; preds = %.lr.ph119.us
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv126
-  %58 = load i8, ptr %57, align 1, !tbaa !21
+  %58 = load i8, ptr %57, align 1, !tbaa !22
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next127
-  %60 = load i8, ptr %59, align 1, !tbaa !21
-  store i8 %60, ptr %57, align 1, !tbaa !21
-  store i8 %58, ptr %59, align 1, !tbaa !21
-  %61 = load i32, ptr %52, align 4, !tbaa !9
-  %62 = load i32, ptr %54, align 4, !tbaa !9
-  store i32 %62, ptr %52, align 4, !tbaa !9
-  store i32 %61, ptr %54, align 4, !tbaa !9
+  %60 = load i8, ptr %59, align 1, !tbaa !22
+  store i8 %60, ptr %57, align 1, !tbaa !22
+  store i8 %58, ptr %59, align 1, !tbaa !22
+  %61 = load i32, ptr %52, align 4, !tbaa !10
+  %62 = load i32, ptr %54, align 4, !tbaa !10
+  store i32 %62, ptr %52, align 4, !tbaa !10
+  store i32 %61, ptr %54, align 4, !tbaa !10
   %63 = trunc nuw nsw i64 %indvars.iv126 to i32
   %64 = lshr i32 %.4118.us, %63
   %65 = shl nuw i32 2, %63
@@ -1193,7 +1193,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   %90 = getelementptr inbounds i64, ptr %.060.i.us, i64 %87
   %91 = add nsw i32 %.159.i.us, %86
   %92 = icmp slt i32 %91, %10
-  br i1 %92, label %88, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !19
+  br i1 %92, label %88, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !20
 
 .preheader.i98.us:                                ; preds = %73
   br i1 %11, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
@@ -1214,7 +1214,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   store i64 %102, ptr %93, align 8, !tbaa !3
   %indvars.iv.next.i100.us = add nuw nsw i64 %indvars.iv.i99.us, 2
   %103 = icmp samesign ult i64 %indvars.iv.next.i100.us, %wide.trip.count.i
-  br i1 %103, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !20
+  br i1 %103, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !21
 
 104:                                              ; preds = %56
   br i1 %11, label %.lr.ph64.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
@@ -1243,7 +1243,7 @@ Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i92
   store i64 %121, ptr %113, align 8, !tbaa !3
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %exitcond.not.i102.us = icmp eq i64 %indvars.iv.next69.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i102.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, label %112, !llvm.loop !18
+  br i1 %exitcond.not.i102.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, label %112, !llvm.loop !19
 
 Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us, %112, %104, %.preheader.i98.us, %74
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %5)
@@ -1258,7 +1258,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us,
 .lr.ph119.us.backedge:                            ; preds = %122, %._crit_edge.us
   %indvars.iv126.be = phi i64 [ %indvars.iv.next127, %122 ], [ 0, %._crit_edge.us ]
   %.081116.us.be = phi i32 [ %.182.us, %122 ], [ 0, %._crit_edge.us ]
-  br label %.lr.ph119.us, !llvm.loop !25
+  br label %.lr.ph119.us, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %122
   %.not.us = icmp eq i32 %.182.us, 0
@@ -1268,7 +1268,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us,
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %164 ]
   %.1115 = phi i32 [ %.0, %.lr.ph ], [ %.2, %164 ]
   %124 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  %125 = load i32, ptr %124, align 4, !tbaa !9
+  %125 = load i32, ptr %124, align 4, !tbaa !10
   %126 = shl nsw i32 %125, 1
   %127 = icmp eq i32 %126, %.080
   br i1 %127, label %128, label %130
@@ -1286,7 +1286,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us,
   %134 = trunc nuw nsw i64 %indvars.iv to i32
   %135 = shl nuw i32 1, %134
   %136 = or i32 %.1115, %135
-  store i32 %131, ptr %124, align 4, !tbaa !9
+  store i32 %131, ptr %124, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %6)
   %137 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %137, label %.preheader.i, label %150
@@ -1313,7 +1313,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us,
   store i64 %149, ptr %143, align 8, !tbaa !3
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Kit_TruthChangePhase_64bit.exit, label %142, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Kit_TruthChangePhase_64bit.exit, label %142, !llvm.loop !16
 
 150:                                              ; preds = %133
   %151 = trunc i64 %indvars.iv to i32
@@ -1339,7 +1339,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %88, %.lr.ph62.i.us,
   %161 = getelementptr inbounds i64, ptr %.036.i, i64 %158
   %162 = add nsw i32 %.135.i, %157
   %163 = icmp slt i32 %162, %10
-  br i1 %163, label %159, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !16
+  br i1 %163, label %159, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !17
 
 Kit_TruthChangePhase_64bit.exit:                  ; preds = %159, %142, %.preheader.i, %150
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %6)
@@ -1349,7 +1349,7 @@ Kit_TruthChangePhase_64bit.exit:                  ; preds = %159, %142, %.prehea
   %.2 = phi i32 [ %129, %128 ], [ %.1115, %130 ], [ %136, %Kit_TruthChangePhase_64bit.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %123, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader, label %123, !llvm.loop !27
 
 .split.us:                                        ; preds = %._crit_edge.us, %.thread, %.preheader
   %.us-phi = phi i32 [ %.2, %.preheader ], [ %.0, %.thread ], [ %.5.us, %._crit_edge.us ]
@@ -1412,7 +1412,7 @@ select.unfold.i60:                                ; preds = %Kit_TruthCountOnes_
   %38 = xor i64 %37, -1
   store i64 %38, ptr %36, align 8, !tbaa !3
   %39 = icmp samesign ugt i64 %indvars.iv.i61, 1
-  br i1 %39, label %select.unfold.i60, label %Kit_TruthNot_64bit.exit, !llvm.loop !17
+  br i1 %39, label %select.unfold.i60, label %Kit_TruthNot_64bit.exit, !llvm.loop !18
 
 Kit_TruthNot_64bit.exit:                          ; preds = %select.unfold.i60
   %40 = shl nsw i32 %9, 6
@@ -1443,16 +1443,16 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %indvars.iv87 = phi i64 [ 0, %.lr.ph82.us.preheader ], [ %indvars.iv87.be, %.lr.ph82.us.backedge ]
   %.04781.us = phi i32 [ 0, %.lr.ph82.us.preheader ], [ %.04781.us.be, %.lr.ph82.us.backedge ]
   %44 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv87
-  %45 = load i32, ptr %44, align 4, !tbaa !9
+  %45 = load i32, ptr %44, align 4, !tbaa !10
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %46 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next88
-  %47 = load i32, ptr %46, align 4, !tbaa !9
+  %47 = load i32, ptr %46, align 4, !tbaa !10
   %.not56.us = icmp sgt i32 %45, %47
   br i1 %.not56.us, label %48, label %101
 
 48:                                               ; preds = %.lr.ph82.us
-  store i32 %47, ptr %44, align 4, !tbaa !9
-  store i32 %45, ptr %46, align 4, !tbaa !9
+  store i32 %47, ptr %44, align 4, !tbaa !10
+  store i32 %45, ptr %46, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4)
   %49 = icmp samesign ult i64 %indvars.iv87, 5
   br i1 %49, label %81, label %50
@@ -1490,7 +1490,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   %67 = getelementptr inbounds i64, ptr %.060.i.us, i64 %64
   %68 = add nsw i32 %.159.i.us, %63
   %69 = icmp slt i32 %68, %9
-  br i1 %69, label %65, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !19
+  br i1 %69, label %65, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !20
 
 .preheader.i66.us:                                ; preds = %50
   br i1 %10, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
@@ -1511,7 +1511,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   store i64 %79, ptr %70, align 8, !tbaa !3
   %indvars.iv.next.i68.us = add nuw nsw i64 %indvars.iv.i67.us, 2
   %80 = icmp samesign ult i64 %indvars.iv.next.i68.us, %wide.trip.count.i
-  br i1 %80, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !20
+  br i1 %80, label %.lr.ph62.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, !llvm.loop !21
 
 81:                                               ; preds = %48
   br i1 %10, label %.lr.ph64.i.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us
@@ -1542,7 +1542,7 @@ Kit_TruthCountOnes_64bit.exit.thread:             ; preds = %3, %Kit_TruthNot_64
   store i64 %100, ptr %92, align 8, !tbaa !3
   %indvars.iv.next69.i.us = add nuw nsw i64 %indvars.iv68.i.us, 1
   %exitcond.not.i70.us = icmp eq i64 %indvars.iv.next69.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i70.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, label %91, !llvm.loop !18
+  br i1 %exitcond.not.i70.us, label %Kit_TruthSwapAdjacentVars_64bit.exit.us, label %91, !llvm.loop !19
 
 Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %65, %.lr.ph62.i.us, %91, %81, %.preheader.i66.us, %51
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4)
@@ -1556,7 +1556,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %65, %.lr.ph62.i.us,
 .lr.ph82.us.backedge:                             ; preds = %101, %._crit_edge.us
   %indvars.iv87.be = phi i64 [ %indvars.iv.next88, %101 ], [ 0, %._crit_edge.us ]
   %.04781.us.be = phi i32 [ %.1.us, %101 ], [ 0, %._crit_edge.us ]
-  br label %.lr.ph82.us, !llvm.loop !27
+  br label %.lr.ph82.us, !llvm.loop !28
 
 ._crit_edge.us:                                   ; preds = %101
   %.not.us = icmp eq i32 %.1.us, 0
@@ -1565,13 +1565,13 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %65, %.lr.ph62.i.us,
 102:                                              ; preds = %.lr.ph, %136
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %136 ]
   %103 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %104 = load i32, ptr %103, align 4, !tbaa !9
+  %104 = load i32, ptr %103, align 4, !tbaa !10
   %105 = sub nsw i32 %.0, %104
   %.not57 = icmp slt i32 %104, %105
   br i1 %.not57, label %106, label %136
 
 106:                                              ; preds = %102
-  store i32 %105, ptr %103, align 4, !tbaa !9
+  store i32 %105, ptr %103, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5)
   %107 = icmp samesign ult i64 %indvars.iv, 6
   br i1 %107, label %.preheader.i, label %122
@@ -1600,7 +1600,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %65, %.lr.ph62.i.us,
   store i64 %121, ptr %115, align 8, !tbaa !3
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i63, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Kit_TruthChangePhase_64bit.exit, label %114, !llvm.loop !15
+  br i1 %exitcond.not.i, label %Kit_TruthChangePhase_64bit.exit, label %114, !llvm.loop !16
 
 122:                                              ; preds = %106
   %123 = trunc i64 %indvars.iv to i32
@@ -1626,7 +1626,7 @@ Kit_TruthSwapAdjacentVars_64bit.exit.us:          ; preds = %65, %.lr.ph62.i.us,
   %133 = getelementptr inbounds i64, ptr %.036.i, i64 %130
   %134 = add nsw i32 %.135.i, %129
   %135 = icmp slt i32 %134, %9
-  br i1 %135, label %131, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !16
+  br i1 %135, label %131, label %Kit_TruthChangePhase_64bit.exit, !llvm.loop !17
 
 Kit_TruthChangePhase_64bit.exit:                  ; preds = %131, %114, %.preheader.i, %122
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
@@ -1635,7 +1635,7 @@ Kit_TruthChangePhase_64bit.exit:                  ; preds = %131, %114, %.prehea
 136:                                              ; preds = %102, %Kit_TruthChangePhase_64bit.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %102, !llvm.loop !28
+  br i1 %exitcond.not, label %.preheader, label %102, !llvm.loop !29
 
 .split.us:                                        ; preds = %._crit_edge.us, %Kit_TruthCountOnes_64bit.exit.thread, %.preheader
   ret void
@@ -1659,25 +1659,26 @@ attributes #7 = { nounwind }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = !{!5, !5, i64 0}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8, !13}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8, !13}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8, !13}
-!28 = distinct !{!28, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = !{!5, !5, i64 0}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9, !14}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9, !14}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9, !14}
+!29 = distinct !{!29, !8, !9}

@@ -183,7 +183,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
 60:                                               ; preds = %.lr.ph, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !127
 
 61:                                               ; preds = %53
   %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv
@@ -193,11 +193,11 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   br label %136
 
 .critedge:                                        ; preds = %60, %.preheader
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !127
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !129
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %66 = call ptr %64(ptr noundef %65, ptr noundef nonnull %10, i64 noundef %47) #9
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = load i16, ptr %67, align 8, !tbaa !128
+  %68 = load i16, ptr %67, align 8, !tbaa !130
   switch i16 %68, label %69 [
     i16 2, label %70
     i16 8, label %70
@@ -222,13 +222,13 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %77 = load i32, ptr %76, align 8, !tbaa !130
+  %77 = load i32, ptr %76, align 8, !tbaa !132
   %78 = uitofp i32 %77 to float
   %79 = fmul float %78, 0x4039666660000000
   %80 = fdiv float %79, 9.600000e+01
   %81 = fptosi float %80 to i32
   %82 = getelementptr inbounds nuw i8, ptr %66, i64 20
-  %83 = load i32, ptr %82, align 4, !tbaa !131
+  %83 = load i32, ptr %82, align 4, !tbaa !133
   %84 = uitofp i32 %83 to float
   %85 = fmul float %84, 0x4039666660000000
   %86 = fdiv float %85, 9.600000e+01
@@ -239,7 +239,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   %.189 = phi i32 [ %81, %75 ], [ %.088, %70 ]
   %.187 = phi i32 [ %87, %75 ], [ %.086, %70 ]
   %89 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !132
+  %90 = load ptr, ptr %89, align 8, !tbaa !134
   %91 = call ptr @_glfwAllocMonitor(ptr noundef %90, i32 noundef %.189, i32 noundef %.187) #9
   %92 = load ptr, ptr %33, align 8, !tbaa !108
   %93 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv119
@@ -248,14 +248,14 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   store i64 %94, ptr %95, align 8, !tbaa !117
   %96 = load i64, ptr %46, align 8, !tbaa !113
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 296
-  store i64 %96, ptr %97, align 8, !tbaa !133
+  store i64 %96, ptr %97, align 8, !tbaa !135
   %98 = load i32, ptr %1, align 4, !tbaa !93
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.lr.ph104, label %.loopexit
 
 .lr.ph104:                                        ; preds = %88
   %100 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %101 = load i32, ptr %100, align 8, !tbaa !134
+  %101 = load i32, ptr %100, align 8, !tbaa !136
   %102 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %103 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %104 = getelementptr inbounds nuw i8, ptr %66, i64 20
@@ -266,45 +266,45 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   %indvars.iv114 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next115, %132 ]
   %106 = getelementptr inbounds nuw %struct.XineramaScreenInfo, ptr %.082, i64 %indvars.iv114
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %108 = load i16, ptr %107, align 4, !tbaa !135
+  %108 = load i16, ptr %107, align 4, !tbaa !137
   %109 = sext i16 %108 to i32
   %110 = icmp eq i32 %101, %109
   br i1 %110, label %111, label %132
 
 111:                                              ; preds = %105
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 6
-  %113 = load i16, ptr %112, align 2, !tbaa !137
+  %113 = load i16, ptr %112, align 2, !tbaa !139
   %114 = sext i16 %113 to i32
-  %115 = load i32, ptr %102, align 4, !tbaa !138
+  %115 = load i32, ptr %102, align 4, !tbaa !140
   %116 = icmp eq i32 %115, %114
   br i1 %116, label %117, label %132
 
 117:                                              ; preds = %111
   %118 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %119 = load i16, ptr %118, align 4, !tbaa !139
+  %119 = load i16, ptr %118, align 4, !tbaa !141
   %120 = sext i16 %119 to i32
-  %121 = load i32, ptr %103, align 8, !tbaa !130
+  %121 = load i32, ptr %103, align 8, !tbaa !132
   %122 = icmp eq i32 %121, %120
   br i1 %122, label %123, label %132
 
 123:                                              ; preds = %117
   %124 = getelementptr inbounds nuw i8, ptr %106, i64 10
-  %125 = load i16, ptr %124, align 2, !tbaa !140
+  %125 = load i16, ptr %124, align 2, !tbaa !142
   %126 = sext i16 %125 to i32
-  %127 = load i32, ptr %104, align 4, !tbaa !131
+  %127 = load i32, ptr %104, align 4, !tbaa !133
   %128 = icmp eq i32 %127, %126
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %123
   %130 = trunc nuw nsw i64 %indvars.iv114 to i32
   %131 = getelementptr inbounds nuw i8, ptr %91, i64 312
-  store i32 %130, ptr %131, align 8, !tbaa !141
+  store i32 %130, ptr %131, align 8, !tbaa !143
   br label %.loopexit
 
 132:                                              ; preds = %105, %111, %117, %123
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %.loopexit, label %105
+  br i1 %exitcond118.not, label %.loopexit, label %105, !llvm.loop !144
 
 .loopexit:                                        ; preds = %132, %88, %129
   %133 = icmp ne i64 %94, %14
@@ -312,7 +312,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   call void @_glfwInputMonitor(ptr noundef %91, i32 noundef 262145, i32 noundef %.) #9
   %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
   call void %134(ptr noundef %42) #9
-  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   call void %135(ptr noundef %66) #9
   br label %136
 
@@ -321,10 +321,10 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   %137 = load i32, ptr %30, align 8, !tbaa !102
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next120, %138
-  br i1 %139, label %36, label %._crit_edge
+  br i1 %139, label %36, label %._crit_edge, !llvm.loop !146
 
 140:                                              ; preds = %._crit_edge
-  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !147
   %142 = call i32 %141(ptr noundef nonnull %.082) #9
   br label %143
 
@@ -355,19 +355,19 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
 148:                                              ; preds = %.lr.ph109, %147
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge110, label %.lr.ph109
+  br i1 %exitcond126.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !148
 
 149:                                              ; preds = %0
   %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 232
-  %152 = load ptr, ptr %151, align 8, !tbaa !144
-  %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %152 = load ptr, ptr %151, align 8, !tbaa !149
+  %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154
   %154 = sext i32 %153 to i64
   %155 = getelementptr inbounds %struct.Screen, ptr %152, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
-  %157 = load i32, ptr %156, align 8, !tbaa !150
+  %157 = load i32, ptr %156, align 8, !tbaa !155
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 36
-  %159 = load i32, ptr %158, align 4, !tbaa !153
+  %159 = load i32, ptr %158, align 4, !tbaa !158
   %160 = tail call ptr @_glfwAllocMonitor(ptr noundef nonnull @.str, i32 noundef %157, i32 noundef %159) #9
   tail call void @_glfwInputMonitor(ptr noundef %160, i32 noundef 262145, i32 noundef 0) #9
   br label %161
@@ -417,18 +417,18 @@ define hidden void @_glfwSetVideoModeX11(ptr noundef %0, ptr noundef %1) local_u
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
   %18 = call ptr %15(ptr noundef %16, i64 noundef %17) #9
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !127
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !129
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %23 = load i64, ptr %22, align 8, !tbaa !133
+  %23 = load i64, ptr %22, align 8, !tbaa !135
   %24 = call ptr %19(ptr noundef %20, ptr noundef %18, i64 noundef %23) #9
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142168), align 8, !tbaa !107
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %27 = load i64, ptr %21, align 8, !tbaa !117
   %28 = call ptr %25(ptr noundef %26, ptr noundef %18, i64 noundef %27) #9
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  %30 = load i32, ptr %29, align 8, !tbaa !154
+  %30 = load i32, ptr %29, align 8, !tbaa !159
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph, label %.loopexit.thread
 
@@ -447,42 +447,42 @@ define hidden void @_glfwSetVideoModeX11(ptr noundef %0, ptr noundef %1) local_u
 41:                                               ; preds = %.lr.ph, %.thread
   %42 = phi i32 [ %30, %.lr.ph ], [ %85, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %43 = load ptr, ptr %32, align 8, !tbaa !155
+  %43 = load ptr, ptr %32, align 8, !tbaa !160
   %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !109
-  %46 = load i32, ptr %33, align 8, !tbaa !156
+  %46 = load i32, ptr %33, align 8, !tbaa !161
   %.not11.i = icmp sgt i32 %46, 0
   br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit
 
 .lr.ph.i:                                         ; preds = %41
-  %47 = load ptr, ptr %34, align 8, !tbaa !157
+  %47 = load ptr, ptr %34, align 8, !tbaa !162
   %wide.trip.count.i = zext nneg i32 %46 to i64
   br label %49
 
 48:                                               ; preds = %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit, label %49
+  br i1 %exitcond.not.i, label %getModeInfo.exit, label %49, !llvm.loop !163
 
 49:                                               ; preds = %48, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
   %50 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %47, i64 %indvars.iv.i
-  %51 = load i64, ptr %50, align 8, !tbaa !158
+  %51 = load i64, ptr %50, align 8, !tbaa !164
   %52 = icmp eq i64 %51, %45
   br i1 %52, label %getModeInfo.exit, label %48
 
 getModeInfo.exit:                                 ; preds = %48, %49, %41
   %spec.select.i = phi ptr [ null, %41 ], [ null, %48 ], [ %50, %49 ]
   %53 = getelementptr i8, ptr %spec.select.i, i64 72
-  %.val39 = load i64, ptr %53, align 8, !tbaa !160
+  %.val39 = load i64, ptr %53, align 8, !tbaa !166
   %54 = and i64 %.val39, 16
   %.not = icmp eq i64 %54, 0
   br i1 %.not, label %55, label %.thread
 
 55:                                               ; preds = %getModeInfo.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
-  %.val = load i16, ptr %35, align 8, !tbaa !128
-  call void @llvm.experimental.noalias.scope.decl(metadata !161)
+  %.val = load i16, ptr %35, align 8, !tbaa !130
+  call void @llvm.experimental.noalias.scope.decl(metadata !167)
   switch i16 %.val, label %56 [
     i16 2, label %57
     i16 8, label %57
@@ -495,25 +495,25 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
   %.sink54 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
   %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
   %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink54
-  %.sink52 = load i32, ptr %58, align 4, !tbaa !93, !noalias !161
-  store i32 %.sink52, ptr %4, align 4, !tbaa !164, !alias.scope !161
+  %.sink52 = load i32, ptr %58, align 4, !tbaa !93, !noalias !167
+  store i32 %.sink52, ptr %4, align 4, !tbaa !170, !alias.scope !167
   %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
-  %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !161
-  store i32 %.sink.i, ptr %36, align 4, !tbaa !165, !alias.scope !161
+  %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !167
+  store i32 %.sink.i, ptr %36, align 4, !tbaa !171, !alias.scope !167
   %60 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !166, !noalias !161
+  %61 = load i32, ptr %60, align 8, !tbaa !172, !noalias !167
   %.not.i.i = icmp eq i32 %61, 0
   br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %62
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
-  %64 = load i32, ptr %63, align 8, !tbaa !167, !noalias !161
+  %64 = load i32, ptr %63, align 8, !tbaa !173, !noalias !167
   %.not7.i.i = icmp eq i32 %64, 0
   br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !168, !noalias !161
+  %67 = load i64, ptr %66, align 8, !tbaa !174, !noalias !167
   %68 = uitofp i64 %67 to double
   %69 = uitofp i32 %61 to double
   %70 = uitofp i32 %64 to double
@@ -525,14 +525,14 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
 
 vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   %.0.i.i = phi i32 [ %74, %65 ], [ 0, %62 ], [ 0, %57 ]
-  store i32 %.0.i.i, ptr %37, align 4, !tbaa !169, !alias.scope !161
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !161
+  store i32 %.0.i.i, ptr %37, align 4, !tbaa !175, !alias.scope !167
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !167
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 232
-  %77 = load ptr, ptr %76, align 8, !tbaa !144, !noalias !161
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !161
+  %77 = load ptr, ptr %76, align 8, !tbaa !149, !noalias !167
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154, !noalias !167
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds %struct.Screen, ptr %77, i64 %79, i32 9
-  %81 = load i32, ptr %80, align 8, !tbaa !170, !noalias !161
+  %81 = load i32, ptr %80, align 8, !tbaa !176, !noalias !167
   call void @_glfwSplitBPP(i32 noundef %81, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40) #9
   %82 = call i32 @_glfwCompareVideoModes(ptr noundef %10, ptr noundef nonnull %4) #9
   %83 = icmp eq i32 %82, 0
@@ -540,7 +540,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
 
 84:                                               ; preds = %vidmodeFromModeInfo.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
-  %.pre = load i32, ptr %29, align 8, !tbaa !154
+  %.pre = load i32, ptr %29, align 8, !tbaa !159
   br label %.thread
 
 .thread:                                          ; preds = %getModeInfo.exit, %84
@@ -548,47 +548,47 @@ vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %86 = sext i32 %85 to i64
   %87 = icmp slt i64 %indvars.iv.next, %86
-  br i1 %87, label %41, label %.loopexit.thread
+  br i1 %87, label %41, label %.loopexit.thread, !llvm.loop !177
 
 .loopexit:                                        ; preds = %vidmodeFromModeInfo.exit
-  %88 = load i64, ptr %spec.select.i, align 8, !tbaa !158
+  %88 = load i64, ptr %spec.select.i, align 8, !tbaa !164
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #9
   %.not38 = icmp eq i64 %88, 0
   br i1 %.not38, label %.loopexit.thread, label %89
 
 89:                                               ; preds = %.loopexit
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %91 = load i64, ptr %90, align 8, !tbaa !171
+  %91 = load i64, ptr %90, align 8, !tbaa !178
   %92 = icmp eq i64 %91, 0
   br i1 %92, label %93, label %96
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %95 = load i64, ptr %94, align 8, !tbaa !172
-  store i64 %95, ptr %90, align 8, !tbaa !171
+  %95 = load i64, ptr %94, align 8, !tbaa !179
+  store i64 %95, ptr %90, align 8, !tbaa !178
   br label %96
 
 96:                                               ; preds = %93, %89
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !173
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !180
   %98 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %99 = load i64, ptr %22, align 8, !tbaa !133
+  %99 = load i64, ptr %22, align 8, !tbaa !135
   %100 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %101 = load i32, ptr %100, align 8, !tbaa !134
+  %101 = load i32, ptr %100, align 8, !tbaa !136
   %102 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %103 = load i32, ptr %102, align 4, !tbaa !138
+  %103 = load i32, ptr %102, align 4, !tbaa !140
   %104 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %105 = load i16, ptr %104, align 8, !tbaa !128
+  %105 = load i16, ptr %104, align 8, !tbaa !130
   %106 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %107 = load ptr, ptr %106, align 8, !tbaa !174
+  %107 = load ptr, ptr %106, align 8, !tbaa !181
   %108 = getelementptr inbounds nuw i8, ptr %24, i64 36
-  %109 = load i32, ptr %108, align 4, !tbaa !175
+  %109 = load i32, ptr %108, align 4, !tbaa !182
   %110 = call i32 %97(ptr noundef %98, ptr noundef %18, i64 noundef %99, i64 noundef 0, i32 noundef %101, i32 noundef %103, i64 noundef %88, i16 noundef zeroext %105, ptr noundef %107, i32 noundef %109) #9
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.thread, %14, %96, %.loopexit
   %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
   call void %111(ptr noundef %28) #9
-  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   call void %112(ptr noundef %24) #9
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   call void %113(ptr noundef %18) #9
@@ -619,45 +619,45 @@ define hidden range(i32 0, 2) i32 @_glfwGetVideoModeX11(ptr noundef readonly cap
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
   %12 = tail call ptr %9(ptr noundef %10, i64 noundef %11) #9
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !127
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !129
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %16 = load i64, ptr %15, align 8, !tbaa !133
+  %16 = load i64, ptr %15, align 8, !tbaa !135
   %17 = tail call ptr %13(ptr noundef %14, ptr noundef %12, i64 noundef %16) #9
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.thread, label %18
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !172
+  %20 = load i64, ptr %19, align 8, !tbaa !179
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %22 = load i32, ptr %21, align 8, !tbaa !156
+  %22 = load i32, ptr %21, align 8, !tbaa !161
   %.not11.i = icmp sgt i32 %22, 0
   br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit.thread
 
 .lr.ph.i:                                         ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !157
+  %24 = load ptr, ptr %23, align 8, !tbaa !162
   %wide.trip.count.i = zext nneg i32 %22 to i64
   br label %26
 
 25:                                               ; preds = %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit.thread, label %26
+  br i1 %exitcond.not.i, label %getModeInfo.exit.thread, label %26, !llvm.loop !163
 
 26:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %27 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %24, i64 %indvars.iv.i
-  %28 = load i64, ptr %27, align 8, !tbaa !158
+  %28 = load i64, ptr %27, align 8, !tbaa !164
   %29 = icmp eq i64 %28, %20
   br i1 %29, label %getModeInfo.exit, label %25
 
 getModeInfo.exit:                                 ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
   %30 = getelementptr i8, ptr %17, i64 32
-  %.val = load i16, ptr %30, align 8, !tbaa !128
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
+  %.val = load i16, ptr %30, align 8, !tbaa !130
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   switch i16 %.val, label %31 [
     i16 2, label %32
     i16 8, label %32
@@ -670,26 +670,26 @@ getModeInfo.exit:                                 ; preds = %26
   %.sink41 = phi i64 [ 8, %31 ], [ 12, %getModeInfo.exit ], [ 12, %getModeInfo.exit ]
   %.sink = phi i64 [ 12, %31 ], [ 8, %getModeInfo.exit ], [ 8, %getModeInfo.exit ]
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink41
-  %.sink38 = load i32, ptr %33, align 4, !tbaa !93, !noalias !176
-  store i32 %.sink38, ptr %3, align 4, !tbaa !164, !alias.scope !176
+  %.sink38 = load i32, ptr %33, align 4, !tbaa !93, !noalias !183
+  store i32 %.sink38, ptr %3, align 4, !tbaa !170, !alias.scope !183
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 %.sink
-  %.sink.i = load i32, ptr %34, align 4, !tbaa !93, !noalias !176
+  %.sink.i = load i32, ptr %34, align 4, !tbaa !93, !noalias !183
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %.sink.i, ptr %35, align 4, !tbaa !165, !alias.scope !176
+  store i32 %.sink.i, ptr %35, align 4, !tbaa !171, !alias.scope !183
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %37 = load i32, ptr %36, align 8, !tbaa !166, !noalias !176
+  %37 = load i32, ptr %36, align 8, !tbaa !172, !noalias !183
   %.not.i.i = icmp eq i32 %37, 0
   br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %38
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %40 = load i32, ptr %39, align 8, !tbaa !167, !noalias !176
+  %40 = load i32, ptr %39, align 8, !tbaa !173, !noalias !183
   %.not7.i.i = icmp eq i32 %40, 0
   br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %41
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !168, !noalias !176
+  %43 = load i64, ptr %42, align 8, !tbaa !174, !noalias !183
   %44 = uitofp i64 %43 to double
   %45 = uitofp i32 %37 to double
   %46 = uitofp i32 %40 to double
@@ -702,28 +702,28 @@ getModeInfo.exit:                                 ; preds = %26
 vidmodeFromModeInfo.exit:                         ; preds = %32, %38, %41
   %.0.i.i = phi i32 [ %50, %41 ], [ 0, %38 ], [ 0, %32 ]
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  store i32 %.0.i.i, ptr %51, align 4, !tbaa !169, !alias.scope !176
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !176
+  store i32 %.0.i.i, ptr %51, align 4, !tbaa !175, !alias.scope !183
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !183
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 232
-  %54 = load ptr, ptr %53, align 8, !tbaa !144, !noalias !176
-  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !176
+  %54 = load ptr, ptr %53, align 8, !tbaa !149, !noalias !183
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154, !noalias !183
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds %struct.Screen, ptr %54, i64 %56, i32 9
-  %58 = load i32, ptr %57, align 8, !tbaa !170, !noalias !176
+  %58 = load i32, ptr %57, align 8, !tbaa !176, !noalias !183
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_glfwSplitBPP(i32 noundef %58, ptr noundef nonnull %59, ptr noundef nonnull %60, ptr noundef nonnull %61) #9
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !179
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !186
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
-  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   call void %62(ptr noundef nonnull %17) #9
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   call void %63(ptr noundef %12) #9
   br label %.thread32
 
 getModeInfo.exit.thread:                          ; preds = %25, %18
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   tail call void %64(ptr noundef nonnull %17) #9
   br label %.thread
 
@@ -736,20 +736,20 @@ getModeInfo.exit.thread:                          ; preds = %25, %18
 66:                                               ; preds = %2
   %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 232
-  %69 = load ptr, ptr %68, align 8, !tbaa !144
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %69 = load ptr, ptr %68, align 8, !tbaa !149
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds %struct.Screen, ptr %69, i64 %71, i32 3
-  %73 = load i32, ptr %72, align 8, !tbaa !180
-  store i32 %73, ptr %1, align 4, !tbaa !164
+  %73 = load i32, ptr %72, align 8, !tbaa !187
+  store i32 %73, ptr %1, align 4, !tbaa !170
   %74 = getelementptr inbounds %struct.Screen, ptr %69, i64 %71, i32 4
-  %75 = load i32, ptr %74, align 4, !tbaa !181
+  %75 = load i32, ptr %74, align 4, !tbaa !188
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %75, ptr %76, align 4, !tbaa !165
+  store i32 %75, ptr %76, align 4, !tbaa !171
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 0, ptr %77, align 4, !tbaa !169
+  store i32 0, ptr %77, align 4, !tbaa !175
   %78 = getelementptr inbounds %struct.Screen, ptr %69, i64 %71, i32 9
-  %79 = load i32, ptr %78, align 8, !tbaa !170
+  %79 = load i32, ptr %78, align 8, !tbaa !176
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -774,7 +774,7 @@ define hidden void @_glfwRestoreVideoModeX11(ptr noundef captures(none) %0) loca
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %8 = load i64, ptr %7, align 8, !tbaa !171
+  %8 = load i64, ptr %7, align 8, !tbaa !178
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %37, label %10
 
@@ -783,31 +783,31 @@ define hidden void @_glfwRestoreVideoModeX11(ptr noundef captures(none) %0) loca
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
   %14 = tail call ptr %11(ptr noundef %12, i64 noundef %13) #9
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !127
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !129
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %18 = load i64, ptr %17, align 8, !tbaa !133
+  %18 = load i64, ptr %17, align 8, !tbaa !135
   %19 = tail call ptr %15(ptr noundef %16, ptr noundef %14, i64 noundef %18) #9
-  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !173
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142216), align 8, !tbaa !180
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %22 = load i64, ptr %17, align 8, !tbaa !133
+  %22 = load i64, ptr %17, align 8, !tbaa !135
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %24 = load i32, ptr %23, align 8, !tbaa !134
+  %24 = load i32, ptr %23, align 8, !tbaa !136
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %26 = load i32, ptr %25, align 4, !tbaa !138
-  %27 = load i64, ptr %7, align 8, !tbaa !171
+  %26 = load i32, ptr %25, align 4, !tbaa !140
+  %27 = load i64, ptr %7, align 8, !tbaa !178
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  %29 = load i16, ptr %28, align 8, !tbaa !128
+  %29 = load i16, ptr %28, align 8, !tbaa !130
   %30 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %31 = load ptr, ptr %30, align 8, !tbaa !174
+  %31 = load ptr, ptr %30, align 8, !tbaa !181
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 36
-  %33 = load i32, ptr %32, align 4, !tbaa !175
+  %33 = load i32, ptr %32, align 4, !tbaa !182
   %34 = tail call i32 %20(ptr noundef %21, ptr noundef %14, i64 noundef %22, i64 noundef 0, i32 noundef %24, i32 noundef %26, i64 noundef %27, i16 noundef zeroext %29, ptr noundef %31, i32 noundef %33) #9
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   tail call void %35(ptr noundef %19) #9
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   tail call void %36(ptr noundef %14) #9
-  store i64 0, ptr %7, align 8, !tbaa !171
+  store i64 0, ptr %7, align 8, !tbaa !178
   br label %37
 
 37:                                               ; preds = %6, %10, %1
@@ -833,10 +833,10 @@ define hidden void @_glfwGetMonitorPosX11(ptr noundef readonly captures(none) %0
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
   %12 = tail call ptr %9(ptr noundef %10, i64 noundef %11) #9
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !127
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !129
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %16 = load i64, ptr %15, align 8, !tbaa !133
+  %16 = load i64, ptr %15, align 8, !tbaa !135
   %17 = tail call ptr %13(ptr noundef %14, ptr noundef %12, i64 noundef %16) #9
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %28, label %18
@@ -847,7 +847,7 @@ define hidden void @_glfwGetMonitorPosX11(ptr noundef readonly captures(none) %0
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !134
+  %21 = load i32, ptr %20, align 8, !tbaa !136
   store i32 %21, ptr %1, align 4, !tbaa !93
   br label %22
 
@@ -857,12 +857,12 @@ define hidden void @_glfwGetMonitorPosX11(ptr noundef readonly captures(none) %0
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !138
+  %25 = load i32, ptr %24, align 4, !tbaa !140
   store i32 %25, ptr %2, align 4, !tbaa !93
   br label %26
 
 26:                                               ; preds = %23, %22
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   tail call void %27(ptr noundef nonnull %17) #9
   br label %28
 
@@ -881,8 +881,8 @@ define hidden void @_glfwGetMonitorContentScaleX11(ptr noundef readnone captures
   br i1 %.not, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = load float, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137864), align 8, !tbaa !182
-  store float %5, ptr %1, align 4, !tbaa !183
+  %5 = load float, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137864), align 8, !tbaa !189
+  store float %5, ptr %1, align 4, !tbaa !190
   br label %6
 
 6:                                                ; preds = %4, %3
@@ -890,8 +890,8 @@ define hidden void @_glfwGetMonitorContentScaleX11(ptr noundef readnone captures
   br i1 %.not5, label %9, label %7
 
 7:                                                ; preds = %6
-  %8 = load float, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137868), align 4, !tbaa !184
-  store float %8, ptr %2, align 4, !tbaa !183
+  %8 = load float, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137868), align 4, !tbaa !191
+  store float %8, ptr %2, align 4, !tbaa !190
   br label %9
 
 9:                                                ; preds = %7, %6
@@ -914,44 +914,44 @@ define hidden void @_glfwGetMonitorWorkareaX11(ptr noundef readonly captures(non
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
   %16 = tail call ptr %13(ptr noundef %14, i64 noundef %15) #9
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !127
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !129
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %20 = load i64, ptr %19, align 8, !tbaa !133
+  %20 = load i64, ptr %19, align 8, !tbaa !135
   %21 = tail call ptr %17(ptr noundef %18, ptr noundef %16, i64 noundef %20) #9
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i32, ptr %22, align 8, !tbaa !134
+  %23 = load i32, ptr %22, align 8, !tbaa !136
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %25 = load i32, ptr %24, align 4, !tbaa !138
+  %25 = load i32, ptr %24, align 4, !tbaa !140
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %27 = load i64, ptr %26, align 8, !tbaa !172
+  %27 = load i64, ptr %26, align 8, !tbaa !179
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %29 = load i32, ptr %28, align 8, !tbaa !156
+  %29 = load i32, ptr %28, align 8, !tbaa !161
   %.not11.i = icmp sgt i32 %29, 0
   br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit
 
 .lr.ph.i:                                         ; preds = %12
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !157
+  %31 = load ptr, ptr %30, align 8, !tbaa !162
   %wide.trip.count.i = zext nneg i32 %29 to i64
   br label %33
 
 32:                                               ; preds = %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit, label %33
+  br i1 %exitcond.not.i, label %getModeInfo.exit, label %33, !llvm.loop !163
 
 33:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %34 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %31, i64 %indvars.iv.i
-  %35 = load i64, ptr %34, align 8, !tbaa !158
+  %35 = load i64, ptr %34, align 8, !tbaa !164
   %36 = icmp eq i64 %35, %27
   br i1 %36, label %getModeInfo.exit, label %32
 
 getModeInfo.exit:                                 ; preds = %32, %33, %12
   %spec.select.i = phi ptr [ null, %12 ], [ null, %32 ], [ %34, %33 ]
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %38 = load i16, ptr %37, align 8, !tbaa !128
+  %38 = load i16, ptr %37, align 8, !tbaa !130
   switch i16 %38, label %39 [
     i16 2, label %40
     i16 8, label %40
@@ -967,7 +967,7 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   %42 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
   %.062 = load i32, ptr %41, align 4, !tbaa !93
   %.066 = load i32, ptr %42, align 4, !tbaa !93
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   tail call void %43(ptr noundef nonnull %21) #9
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   tail call void %44(ptr noundef %16) #9
@@ -976,14 +976,14 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
 45:                                               ; preds = %5
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 232
-  %48 = load ptr, ptr %47, align 8, !tbaa !144
-  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %48 = load ptr, ptr %47, align 8, !tbaa !149
+  %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds %struct.Screen, ptr %48, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %53 = load i32, ptr %52, align 8, !tbaa !180
+  %53 = load i32, ptr %52, align 8, !tbaa !187
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 28
-  %55 = load i32, ptr %54, align 4, !tbaa !181
+  %55 = load i32, ptr %54, align 4, !tbaa !188
   br label %56
 
 56:                                               ; preds = %45, %40
@@ -991,7 +991,7 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   %.163 = phi i32 [ %53, %45 ], [ %.062, %40 ]
   %.058 = phi i32 [ 0, %45 ], [ %25, %40 ]
   %.0 = phi i32 [ 0, %45 ], [ %23, %40 ]
-  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !185
+  %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141104), align 8, !tbaa !192
   %58 = icmp ne i64 %57, 0
   %59 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8
   %60 = icmp ne i64 %59, 0
@@ -1000,13 +1000,13 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
 
 61:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  store ptr null, ptr %6, align 8, !tbaa !186
+  store ptr null, ptr %6, align 8, !tbaa !193
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store ptr null, ptr %7, align 8, !tbaa !186
+  store ptr null, ptr %7, align 8, !tbaa !193
   %62 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
   %63 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %62, i64 noundef %57, i64 noundef 6, ptr noundef nonnull %6) #9
   %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
-  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !187
+  %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141112), align 8, !tbaa !194
   %66 = call i64 @_glfwGetWindowPropertyX11(i64 noundef %64, i64 noundef %65, i64 noundef 6, ptr noundef nonnull %7) #9
   %67 = icmp ne i64 %66, 0
   %68 = icmp ugt i64 %63, 3
@@ -1014,15 +1014,15 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   br i1 %or.cond5, label %69, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %61
-  %.pre = load ptr, ptr %6, align 8, !tbaa !186
+  %.pre = load ptr, ptr %6, align 8, !tbaa !193
   br label %100
 
 69:                                               ; preds = %61
-  %70 = load ptr, ptr %7, align 8, !tbaa !186
+  %70 = load ptr, ptr %7, align 8, !tbaa !193
   %71 = load i64, ptr %70, align 8, !tbaa !109
   %72 = lshr i64 %63, 2
   %73 = icmp ult i64 %71, %72
-  %.pre89 = load ptr, ptr %6, align 8, !tbaa !186
+  %.pre89 = load ptr, ptr %6, align 8, !tbaa !193
   br i1 %73, label %.thread, label %100
 
 .thread:                                          ; preds = %69
@@ -1074,7 +1074,7 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   %.36597 = phi i32 [ %.5, %.thread ], [ %.163, %100 ]
   %.36995 = phi i32 [ %.571, %.thread ], [ %.167, %100 ]
   %103 = phi ptr [ %.pre89, %.thread ], [ %101, %100 ]
-  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !147
   %105 = call i32 %104(ptr noundef nonnull %103) #9
   br label %106
 
@@ -1083,12 +1083,12 @@ getModeInfo.exit:                                 ; preds = %32, %33, %12
   %.260100 = phi i32 [ %.26099, %102 ], [ %.058, %100 ]
   %.36598 = phi i32 [ %.36597, %102 ], [ %.163, %100 ]
   %.36996 = phi i32 [ %.36995, %102 ], [ %.167, %100 ]
-  %107 = load ptr, ptr %7, align 8, !tbaa !186
+  %107 = load ptr, ptr %7, align 8, !tbaa !193
   %.not84 = icmp eq ptr %107, null
   br i1 %.not84, label %111, label %108
 
 108:                                              ; preds = %106
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !143
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !147
   %110 = call i32 %109(ptr noundef nonnull %107) #9
   br label %111
 
@@ -1155,21 +1155,21 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %11 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137856), align 8, !tbaa !96
   %12 = tail call ptr %9(ptr noundef %10, i64 noundef %11) #9
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !127
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142160), align 8, !tbaa !129
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %17 = load i64, ptr %16, align 8, !tbaa !133
+  %17 = load i64, ptr %16, align 8, !tbaa !135
   %18 = tail call ptr %13(ptr noundef %14, ptr noundef %12, i64 noundef %17) #9
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142168), align 8, !tbaa !107
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %21 = load i64, ptr %15, align 8, !tbaa !117
   %22 = tail call ptr %19(ptr noundef %20, ptr noundef %12, i64 noundef %21) #9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  %24 = load i32, ptr %23, align 8, !tbaa !154
+  %24 = load i32, ptr %23, align 8, !tbaa !159
   %25 = sext i32 %24 to i64
   %26 = tail call ptr @_glfw_calloc(i64 noundef %25, i64 noundef 24) #9
-  %27 = load i32, ptr %23, align 8, !tbaa !154
+  %27 = load i32, ptr %23, align 8, !tbaa !159
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph41, label %._crit_edge42
 
@@ -1188,7 +1188,7 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
 ._crit_edge42:                                    ; preds = %96, %8
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
   call void %38(ptr noundef nonnull %22) #9
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !142
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142112), align 8, !tbaa !145
   call void %39(ptr noundef %18) #9
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142136), align 8, !tbaa !106
   call void %40(ptr noundef %12) #9
@@ -1197,42 +1197,42 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
 41:                                               ; preds = %.lr.ph41, %96
   %42 = phi i32 [ %27, %.lr.ph41 ], [ %97, %96 ]
   %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %96 ]
-  %43 = load ptr, ptr %29, align 8, !tbaa !155
+  %43 = load ptr, ptr %29, align 8, !tbaa !160
   %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv44
   %45 = load i64, ptr %44, align 8, !tbaa !109
-  %46 = load i32, ptr %30, align 8, !tbaa !156
+  %46 = load i32, ptr %30, align 8, !tbaa !161
   %.not11.i = icmp sgt i32 %46, 0
   br i1 %.not11.i, label %.lr.ph.i, label %getModeInfo.exit
 
 .lr.ph.i:                                         ; preds = %41
-  %47 = load ptr, ptr %31, align 8, !tbaa !157
+  %47 = load ptr, ptr %31, align 8, !tbaa !162
   %wide.trip.count.i = zext nneg i32 %46 to i64
   br label %49
 
 48:                                               ; preds = %49
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %getModeInfo.exit, label %49
+  br i1 %exitcond.not.i, label %getModeInfo.exit, label %49, !llvm.loop !163
 
 49:                                               ; preds = %48, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
   %50 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %47, i64 %indvars.iv.i
-  %51 = load i64, ptr %50, align 8, !tbaa !158
+  %51 = load i64, ptr %50, align 8, !tbaa !164
   %52 = icmp eq i64 %51, %45
   br i1 %52, label %getModeInfo.exit, label %48
 
 getModeInfo.exit:                                 ; preds = %48, %49, %41
   %spec.select.i = phi ptr [ null, %41 ], [ null, %48 ], [ %50, %49 ]
   %53 = getelementptr i8, ptr %spec.select.i, i64 72
-  %.val35 = load i64, ptr %53, align 8, !tbaa !160
+  %.val35 = load i64, ptr %53, align 8, !tbaa !166
   %54 = and i64 %.val35, 16
   %.not = icmp eq i64 %54, 0
   br i1 %.not, label %55, label %96
 
 55:                                               ; preds = %getModeInfo.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #9
-  %.val = load i16, ptr %32, align 8, !tbaa !128
-  call void @llvm.experimental.noalias.scope.decl(metadata !188)
+  %.val = load i16, ptr %32, align 8, !tbaa !130
+  call void @llvm.experimental.noalias.scope.decl(metadata !195)
   switch i16 %.val, label %56 [
     i16 2, label %57
     i16 8, label %57
@@ -1245,25 +1245,25 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
   %.sink51 = phi i64 [ 8, %56 ], [ 12, %55 ], [ 12, %55 ]
   %.sink = phi i64 [ 12, %56 ], [ 8, %55 ], [ 8, %55 ]
   %58 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink51
-  %.sink50 = load i32, ptr %58, align 4, !tbaa !93, !noalias !188
-  store i32 %.sink50, ptr %3, align 4, !tbaa !164, !alias.scope !188
+  %.sink50 = load i32, ptr %58, align 4, !tbaa !93, !noalias !195
+  store i32 %.sink50, ptr %3, align 4, !tbaa !170, !alias.scope !195
   %59 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 %.sink
-  %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !188
-  store i32 %.sink.i, ptr %33, align 4, !tbaa !165, !alias.scope !188
+  %.sink.i = load i32, ptr %59, align 4, !tbaa !93, !noalias !195
+  store i32 %.sink.i, ptr %33, align 4, !tbaa !171, !alias.scope !195
   %60 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
-  %61 = load i32, ptr %60, align 8, !tbaa !166, !noalias !188
+  %61 = load i32, ptr %60, align 8, !tbaa !172, !noalias !195
   %.not.i.i = icmp eq i32 %61, 0
   br i1 %.not.i.i, label %vidmodeFromModeInfo.exit, label %62
 
 62:                                               ; preds = %57
   %63 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
-  %64 = load i32, ptr %63, align 8, !tbaa !167, !noalias !188
+  %64 = load i32, ptr %63, align 8, !tbaa !173, !noalias !195
   %.not7.i.i = icmp eq i32 %64, 0
   br i1 %.not7.i.i, label %vidmodeFromModeInfo.exit, label %65
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !168, !noalias !188
+  %67 = load i64, ptr %66, align 8, !tbaa !174, !noalias !195
   %68 = uitofp i64 %67 to double
   %69 = uitofp i32 %61 to double
   %70 = uitofp i32 %64 to double
@@ -1275,14 +1275,14 @@ getModeInfo.exit:                                 ; preds = %48, %49, %41
 
 vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   %.0.i.i = phi i32 [ %74, %65 ], [ 0, %62 ], [ 0, %57 ]
-  store i32 %.0.i.i, ptr %34, align 4, !tbaa !169, !alias.scope !188
-  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !188
+  store i32 %.0.i.i, ptr %34, align 4, !tbaa !175, !alias.scope !195
+  %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95, !noalias !195
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 232
-  %77 = load ptr, ptr %76, align 8, !tbaa !144, !noalias !188
-  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !188
+  %77 = load ptr, ptr %76, align 8, !tbaa !149, !noalias !195
+  %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154, !noalias !195
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds %struct.Screen, ptr %77, i64 %79, i32 9
-  %81 = load i32, ptr %80, align 8, !tbaa !170, !noalias !188
+  %81 = load i32, ptr %80, align 8, !tbaa !176, !noalias !195
   call void @_glfwSplitBPP(i32 noundef %81, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37) #9
   %82 = load i32, ptr %1, align 4, !tbaa !93
   %83 = icmp sgt i32 %82, 0
@@ -1300,7 +1300,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = sext i32 %.pre.pre to i64
   %89 = icmp slt i64 %indvars.iv.next, %88
-  br i1 %89, label %.lr.ph, label %._crit_edge
+  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !198
 
 ._crit_edge:                                      ; preds = %87, %.lr.ph
   %.0.lcssa.ph.in = phi i64 [ %indvars.iv.next, %87 ], [ %indvars.iv, %.lr.ph ]
@@ -1314,12 +1314,12 @@ vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   store i32 %92, ptr %1, align 4, !tbaa !93
   %93 = sext i32 %91 to i64
   %94 = getelementptr inbounds %struct.GLFWvidmode, ptr %26, i64 %93
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %94, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !179
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %94, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !186
   br label %95
 
 95:                                               ; preds = %._crit_edge, %._crit_edge.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #9
-  %.pre48 = load i32, ptr %23, align 8, !tbaa !154
+  %.pre48 = load i32, ptr %23, align 8, !tbaa !159
   br label %96
 
 96:                                               ; preds = %getModeInfo.exit, %95
@@ -1327,7 +1327,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %57, %62, %65
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next45, %98
-  br i1 %99, label %41, label %._crit_edge42
+  br i1 %99, label %41, label %._crit_edge42, !llvm.loop !199
 
 100:                                              ; preds = %2
   store i32 1, ptr %1, align 4, !tbaa !93
@@ -1355,59 +1355,59 @@ define hidden range(i32 0, 2) i32 @_glfwGetGammaRampX11(ptr noundef readonly cap
   br i1 %or.cond, label %32, label %8
 
 8:                                                ; preds = %2
-  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142152), align 8, !tbaa !191
+  %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142152), align 8, !tbaa !200
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %12 = load i64, ptr %11, align 8, !tbaa !133
+  %12 = load i64, ptr %11, align 8, !tbaa !135
   %13 = tail call i32 %9(ptr noundef %10, i64 noundef %12) #9
   %14 = sext i32 %13 to i64
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142144), align 8, !tbaa !192
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142144), align 8, !tbaa !201
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %17 = load i64, ptr %11, align 8, !tbaa !133
+  %17 = load i64, ptr %11, align 8, !tbaa !135
   %18 = tail call ptr %15(ptr noundef %16, i64 noundef %17) #9
   tail call void @_glfwAllocGammaArrays(ptr noundef %1, i32 noundef %13) #9
-  %19 = load ptr, ptr %1, align 8, !tbaa !193
+  %19 = load ptr, ptr %1, align 8, !tbaa !202
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !194
+  %21 = load ptr, ptr %20, align 8, !tbaa !203
   %22 = shl nsw i64 %14, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %19, ptr align 2 %21, i64 %22, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !196
+  %24 = load ptr, ptr %23, align 8, !tbaa !205
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !197
+  %26 = load ptr, ptr %25, align 8, !tbaa !206
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %24, ptr align 2 %26, i64 %22, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !198
+  %28 = load ptr, ptr %27, align 8, !tbaa !207
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !199
+  %30 = load ptr, ptr %29, align 8, !tbaa !208
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %28, ptr align 2 %30, i64 %22, i1 false)
-  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142120), align 8, !tbaa !200
+  %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142120), align 8, !tbaa !209
   tail call void %31(ptr noundef %18) #9
   br label %52
 
 32:                                               ; preds = %2
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142512), align 8, !tbaa !201
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142512), align 8, !tbaa !210
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %51, label %34
 
 34:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142560), align 8, !tbaa !202
+  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142560), align 8, !tbaa !211
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %37 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154
   %38 = call i32 %35(ptr noundef %36, i32 noundef %37, ptr noundef nonnull %3) #9
   %39 = load i32, ptr %3, align 4, !tbaa !93
   call void @_glfwAllocGammaArrays(ptr noundef %1, i32 noundef %39) #9
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142544), align 8, !tbaa !203
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142544), align 8, !tbaa !212
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %44 = load i32, ptr %43, align 8, !tbaa !204
-  %45 = load ptr, ptr %1, align 8, !tbaa !193
+  %44 = load i32, ptr %43, align 8, !tbaa !213
+  %45 = load ptr, ptr %1, align 8, !tbaa !202
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !196
+  %47 = load ptr, ptr %46, align 8, !tbaa !205
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !198
+  %49 = load ptr, ptr %48, align 8, !tbaa !207
   %50 = call i32 %40(ptr noundef %41, i32 noundef %42, i32 noundef %44, ptr noundef %45, ptr noundef %47, ptr noundef %49) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   br label %52
@@ -1433,13 +1433,13 @@ define hidden void @_glfwSetGammaRampX11(ptr noundef readonly captures(none) %0,
   br i1 %or.cond, label %43, label %7
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142152), align 8, !tbaa !191
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142152), align 8, !tbaa !200
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %11 = load i64, ptr %10, align 8, !tbaa !133
+  %11 = load i64, ptr %10, align 8, !tbaa !135
   %12 = tail call i32 %8(ptr noundef %9, i64 noundef %11) #9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !204
+  %14 = load i32, ptr %13, align 8, !tbaa !213
   %.not = icmp eq i32 %12, %14
   br i1 %.not, label %16, label %15
 
@@ -1448,55 +1448,55 @@ define hidden void @_glfwSetGammaRampX11(ptr noundef readonly captures(none) %0,
   br label %58
 
 16:                                               ; preds = %7
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142104), align 8, !tbaa !205
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142104), align 8, !tbaa !214
   %18 = tail call ptr %17(i32 noundef %12) #9
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !194
-  %21 = load ptr, ptr %1, align 8, !tbaa !193
-  %22 = load i32, ptr %13, align 8, !tbaa !204
+  %20 = load ptr, ptr %19, align 8, !tbaa !203
+  %21 = load ptr, ptr %1, align 8, !tbaa !202
+  %22 = load i32, ptr %13, align 8, !tbaa !213
   %23 = zext i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %20, ptr align 2 %21, i64 %24, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !197
+  %26 = load ptr, ptr %25, align 8, !tbaa !206
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !196
-  %29 = load i32, ptr %13, align 8, !tbaa !204
+  %28 = load ptr, ptr %27, align 8, !tbaa !205
+  %29 = load i32, ptr %13, align 8, !tbaa !213
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %26, ptr align 2 %28, i64 %31, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !199
+  %33 = load ptr, ptr %32, align 8, !tbaa !208
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !198
-  %36 = load i32, ptr %13, align 8, !tbaa !204
+  %35 = load ptr, ptr %34, align 8, !tbaa !207
+  %36 = load i32, ptr %13, align 8, !tbaa !213
   %37 = zext i32 %36 to i64
   %38 = shl nuw nsw i64 %37, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %33, ptr align 2 %35, i64 %38, i1 false)
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142224), align 8, !tbaa !206
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142224), align 8, !tbaa !215
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %41 = load i64, ptr %10, align 8, !tbaa !133
+  %41 = load i64, ptr %10, align 8, !tbaa !135
   tail call void %39(ptr noundef %40, i64 noundef %41, ptr noundef %18) #9
-  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142120), align 8, !tbaa !200
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142120), align 8, !tbaa !209
   tail call void %42(ptr noundef %18) #9
   br label %58
 
 43:                                               ; preds = %2
-  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142512), align 8, !tbaa !201
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142512), align 8, !tbaa !210
   %.not20 = icmp eq i32 %44, 0
   br i1 %.not20, label %57, label %45
 
 45:                                               ; preds = %43
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142552), align 8, !tbaa !207
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142552), align 8, !tbaa !216
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
-  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
+  %48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !154
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %50 = load i32, ptr %49, align 8, !tbaa !204
-  %51 = load ptr, ptr %1, align 8, !tbaa !193
+  %50 = load i32, ptr %49, align 8, !tbaa !213
+  %51 = load ptr, ptr %1, align 8, !tbaa !202
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !196
+  %53 = load ptr, ptr %52, align 8, !tbaa !205
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !198
+  %55 = load ptr, ptr %54, align 8, !tbaa !207
   %56 = tail call i32 %46(ptr noundef %47, i32 noundef %48, i32 noundef %50, ptr noundef %51, ptr noundef %53, ptr noundef %55) #9
   br label %58
 
@@ -1510,7 +1510,7 @@ define hidden void @_glfwSetGammaRampX11(ptr noundef readonly captures(none) %0,
 
 ; Function Attrs: nounwind uwtable
 define i64 @glfwGetX11Adapter(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !208
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !217
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1519,7 +1519,7 @@ define i64 @glfwGetX11Adapter(ptr noundef readonly captures(none) %0) local_unna
   br label %10
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !209
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !218
   %.not2 = icmp eq i32 %5, 393220
   br i1 %.not2, label %7, label %6
 
@@ -1529,7 +1529,7 @@ define i64 @glfwGetX11Adapter(ptr noundef readonly captures(none) %0) local_unna
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %9 = load i64, ptr %8, align 8, !tbaa !133
+  %9 = load i64, ptr %8, align 8, !tbaa !135
   br label %10
 
 10:                                               ; preds = %7, %6, %3
@@ -1539,7 +1539,7 @@ define i64 @glfwGetX11Adapter(ptr noundef readonly captures(none) %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define i64 @glfwGetX11Monitor(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !208
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !217
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1548,7 +1548,7 @@ define i64 @glfwGetX11Monitor(ptr noundef readonly captures(none) %0) local_unna
   br label %10
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !209
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !218
   %.not2 = icmp eq i32 %5, 393220
   br i1 %.not2, label %7, label %6
 
@@ -1715,86 +1715,95 @@ attributes #9 = { nounwind }
 !124 = !{!"p1 _ZTS9wl_output", !9, i64 0}
 !125 = !{!"_GLFWmonitorX11", !16, i64 0, !16, i64 8, !16, i64 16, !5, i64 24}
 !126 = !{!"_GLFWmonitorNull", !121, i64 0}
-!127 = !{!4, !9, i64 142160}
-!128 = !{!129, !112, i64 32}
-!129 = !{!"_XRRCrtcInfo", !16, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !16, i64 24, !112, i64 32, !5, i64 36, !104, i64 40, !112, i64 48, !5, i64 52, !104, i64 56}
-!130 = !{!129, !5, i64 16}
-!131 = !{!129, !5, i64 20}
-!132 = !{!111, !18, i64 16}
-!133 = !{!118, !16, i64 296}
-!134 = !{!129, !5, i64 8}
-!135 = !{!136, !112, i64 4}
-!136 = !{!"", !5, i64 0, !112, i64 4, !112, i64 6, !112, i64 8, !112, i64 10}
-!137 = !{!136, !112, i64 6}
-!138 = !{!129, !5, i64 12}
-!139 = !{!136, !112, i64 8}
-!140 = !{!136, !112, i64 10}
-!141 = !{!118, !5, i64 312}
-!142 = !{!4, !9, i64 142112}
-!143 = !{!4, !9, i64 141552}
-!144 = !{!145, !9, i64 232}
-!145 = !{!"", !146, i64 0, !147, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !18, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !5, i64 64, !9, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !9, i64 104, !5, i64 112, !5, i64 116, !147, i64 120, !147, i64 128, !5, i64 136, !16, i64 144, !16, i64 152, !18, i64 160, !18, i64 168, !18, i64 176, !18, i64 184, !5, i64 192, !148, i64 200, !9, i64 208, !18, i64 216, !5, i64 224, !5, i64 228, !9, i64 232, !16, i64 240, !16, i64 248, !5, i64 256, !5, i64 260, !18, i64 264, !18, i64 272, !5, i64 280, !18, i64 288}
-!146 = !{!"p1 _ZTS9_XExtData", !9, i64 0}
-!147 = !{!"p1 _ZTS9_XPrivate", !9, i64 0}
-!148 = !{!"p1 _ZTS17_XrmHashBucketRec", !9, i64 0}
-!149 = !{!4, !5, i64 137848}
-!150 = !{!151, !5, i64 32}
-!151 = !{!"", !146, i64 0, !73, i64 8, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !5, i64 56, !9, i64 64, !152, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !16, i64 120}
-!152 = !{!"p1 _ZTS4_XGC", !9, i64 0}
-!153 = !{!151, !5, i64 36}
-!154 = !{!111, !5, i64 80}
-!155 = !{!111, !104, i64 88}
-!156 = !{!103, !5, i64 48}
-!157 = !{!103, !105, i64 56}
-!158 = !{!159, !16, i64 0}
-!159 = !{!"_XRRModeInfo", !16, i64 0, !5, i64 8, !5, i64 12, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !18, i64 56, !5, i64 64, !16, i64 72}
-!160 = !{!159, !16, i64 72}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"vidmodeFromModeInfo: argument 0"}
-!163 = distinct !{!163, !"vidmodeFromModeInfo"}
-!164 = !{!120, !5, i64 0}
-!165 = !{!120, !5, i64 4}
-!166 = !{!159, !5, i64 32}
-!167 = !{!159, !5, i64 48}
-!168 = !{!159, !16, i64 16}
-!169 = !{!120, !5, i64 20}
-!170 = !{!151, !5, i64 56}
-!171 = !{!118, !16, i64 304}
-!172 = !{!129, !16, i64 24}
-!173 = !{!4, !9, i64 142216}
-!174 = !{!129, !104, i64 40}
-!175 = !{!129, !5, i64 36}
-!176 = !{!177}
-!177 = distinct !{!177, !178, !"vidmodeFromModeInfo: argument 0"}
-!178 = distinct !{!178, !"vidmodeFromModeInfo"}
-!179 = !{i64 0, i64 4, !93, i64 4, i64 4, !93, i64 8, i64 4, !93, i64 12, i64 4, !93, i64 16, i64 4, !93, i64 20, i64 4, !93}
-!180 = !{!151, !5, i64 24}
-!181 = !{!151, !5, i64 28}
-!182 = !{!4, !74, i64 137864}
-!183 = !{!74, !74, i64 0}
-!184 = !{!4, !74, i64 137868}
-!185 = !{!4, !16, i64 141104}
-!186 = !{!104, !104, i64 0}
-!187 = !{!4, !16, i64 141112}
-!188 = !{!189}
-!189 = distinct !{!189, !190, !"vidmodeFromModeInfo: argument 0"}
-!190 = distinct !{!190, !"vidmodeFromModeInfo"}
-!191 = !{!4, !9, i64 142152}
-!192 = !{!4, !9, i64 142144}
-!193 = !{!121, !122, i64 0}
-!194 = !{!195, !122, i64 8}
-!195 = !{!"_XRRCrtcGamma", !5, i64 0, !122, i64 8, !122, i64 16, !122, i64 24}
-!196 = !{!121, !122, i64 8}
-!197 = !{!195, !122, i64 16}
-!198 = !{!121, !122, i64 16}
-!199 = !{!195, !122, i64 24}
-!200 = !{!4, !9, i64 142120}
-!201 = !{!4, !5, i64 142512}
-!202 = !{!4, !9, i64 142560}
-!203 = !{!4, !9, i64 142544}
-!204 = !{!121, !5, i64 24}
-!205 = !{!4, !9, i64 142104}
-!206 = !{!4, !9, i64 142224}
-!207 = !{!4, !9, i64 142552}
-!208 = !{!4, !5, i64 0}
-!209 = !{!4, !5, i64 40}
+!127 = distinct !{!127, !128}
+!128 = !{!"llvm.loop.estimated_trip_count"}
+!129 = !{!4, !9, i64 142160}
+!130 = !{!131, !112, i64 32}
+!131 = !{!"_XRRCrtcInfo", !16, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !16, i64 24, !112, i64 32, !5, i64 36, !104, i64 40, !112, i64 48, !5, i64 52, !104, i64 56}
+!132 = !{!131, !5, i64 16}
+!133 = !{!131, !5, i64 20}
+!134 = !{!111, !18, i64 16}
+!135 = !{!118, !16, i64 296}
+!136 = !{!131, !5, i64 8}
+!137 = !{!138, !112, i64 4}
+!138 = !{!"", !5, i64 0, !112, i64 4, !112, i64 6, !112, i64 8, !112, i64 10}
+!139 = !{!138, !112, i64 6}
+!140 = !{!131, !5, i64 12}
+!141 = !{!138, !112, i64 8}
+!142 = !{!138, !112, i64 10}
+!143 = !{!118, !5, i64 312}
+!144 = distinct !{!144, !128}
+!145 = !{!4, !9, i64 142112}
+!146 = distinct !{!146, !128}
+!147 = !{!4, !9, i64 141552}
+!148 = distinct !{!148, !128}
+!149 = !{!150, !9, i64 232}
+!150 = !{!"", !151, i64 0, !152, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !18, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !5, i64 64, !9, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !5, i64 92, !5, i64 96, !9, i64 104, !5, i64 112, !5, i64 116, !152, i64 120, !152, i64 128, !5, i64 136, !16, i64 144, !16, i64 152, !18, i64 160, !18, i64 168, !18, i64 176, !18, i64 184, !5, i64 192, !153, i64 200, !9, i64 208, !18, i64 216, !5, i64 224, !5, i64 228, !9, i64 232, !16, i64 240, !16, i64 248, !5, i64 256, !5, i64 260, !18, i64 264, !18, i64 272, !5, i64 280, !18, i64 288}
+!151 = !{!"p1 _ZTS9_XExtData", !9, i64 0}
+!152 = !{!"p1 _ZTS9_XPrivate", !9, i64 0}
+!153 = !{!"p1 _ZTS17_XrmHashBucketRec", !9, i64 0}
+!154 = !{!4, !5, i64 137848}
+!155 = !{!156, !5, i64 32}
+!156 = !{!"", !151, i64 0, !73, i64 8, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !5, i64 56, !9, i64 64, !157, i64 72, !16, i64 80, !16, i64 88, !16, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !16, i64 120}
+!157 = !{!"p1 _ZTS4_XGC", !9, i64 0}
+!158 = !{!156, !5, i64 36}
+!159 = !{!111, !5, i64 80}
+!160 = !{!111, !104, i64 88}
+!161 = !{!103, !5, i64 48}
+!162 = !{!103, !105, i64 56}
+!163 = distinct !{!163, !128}
+!164 = !{!165, !16, i64 0}
+!165 = !{!"_XRRModeInfo", !16, i64 0, !5, i64 8, !5, i64 12, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !18, i64 56, !5, i64 64, !16, i64 72}
+!166 = !{!165, !16, i64 72}
+!167 = !{!168}
+!168 = distinct !{!168, !169, !"vidmodeFromModeInfo: argument 0"}
+!169 = distinct !{!169, !"vidmodeFromModeInfo"}
+!170 = !{!120, !5, i64 0}
+!171 = !{!120, !5, i64 4}
+!172 = !{!165, !5, i64 32}
+!173 = !{!165, !5, i64 48}
+!174 = !{!165, !16, i64 16}
+!175 = !{!120, !5, i64 20}
+!176 = !{!156, !5, i64 56}
+!177 = distinct !{!177, !128}
+!178 = !{!118, !16, i64 304}
+!179 = !{!131, !16, i64 24}
+!180 = !{!4, !9, i64 142216}
+!181 = !{!131, !104, i64 40}
+!182 = !{!131, !5, i64 36}
+!183 = !{!184}
+!184 = distinct !{!184, !185, !"vidmodeFromModeInfo: argument 0"}
+!185 = distinct !{!185, !"vidmodeFromModeInfo"}
+!186 = !{i64 0, i64 4, !93, i64 4, i64 4, !93, i64 8, i64 4, !93, i64 12, i64 4, !93, i64 16, i64 4, !93, i64 20, i64 4, !93}
+!187 = !{!156, !5, i64 24}
+!188 = !{!156, !5, i64 28}
+!189 = !{!4, !74, i64 137864}
+!190 = !{!74, !74, i64 0}
+!191 = !{!4, !74, i64 137868}
+!192 = !{!4, !16, i64 141104}
+!193 = !{!104, !104, i64 0}
+!194 = !{!4, !16, i64 141112}
+!195 = !{!196}
+!196 = distinct !{!196, !197, !"vidmodeFromModeInfo: argument 0"}
+!197 = distinct !{!197, !"vidmodeFromModeInfo"}
+!198 = distinct !{!198, !128}
+!199 = distinct !{!199, !128}
+!200 = !{!4, !9, i64 142152}
+!201 = !{!4, !9, i64 142144}
+!202 = !{!121, !122, i64 0}
+!203 = !{!204, !122, i64 8}
+!204 = !{!"_XRRCrtcGamma", !5, i64 0, !122, i64 8, !122, i64 16, !122, i64 24}
+!205 = !{!121, !122, i64 8}
+!206 = !{!204, !122, i64 16}
+!207 = !{!121, !122, i64 16}
+!208 = !{!204, !122, i64 24}
+!209 = !{!4, !9, i64 142120}
+!210 = !{!4, !5, i64 142512}
+!211 = !{!4, !9, i64 142560}
+!212 = !{!4, !9, i64 142544}
+!213 = !{!121, !5, i64 24}
+!214 = !{!4, !9, i64 142104}
+!215 = !{!4, !9, i64 142224}
+!216 = !{!4, !9, i64 142552}
+!217 = !{!4, !5, i64 0}
+!218 = !{!4, !5, i64 40}

@@ -1476,7 +1476,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %_Z
 598:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204
   %sext.mask = and i32 %597, 255
   %599 = icmp eq i32 %sext.mask, 27
-  br i1 %599, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit148, label %462
+  br i1 %599, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit148, label %462, !llvm.loop !55
 
 600:                                              ; preds = %_ZNSolsEPFRSoS_E.exit190
   %601 = landingpad { ptr, i32 }
@@ -1622,7 +1622,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %642 = getelementptr inbounds i8, ptr %5, i64 %641
   store ptr %639, ptr %642, align 8, !tbaa !4
   %643 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %643, align 8, !tbaa !55
+  store i64 0, ptr %643, align 8, !tbaa !57
   %644 = getelementptr inbounds nuw i8, ptr %5, i64 128
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %644) #17
   call void @llvm.lifetime.end.p0(i64 392, ptr nonnull %5) #17
@@ -1789,7 +1789,7 @@ define hidden noundef double @_Z7getPSNRRKN2cv3MatES2_(ptr noundef nonnull align
           to label %27 unwind label %52
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr %8, align 8, !tbaa !57
+  %28 = load ptr, ptr %8, align 8, !tbaa !59
   %29 = load ptr, ptr %28, align 8, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
@@ -1867,7 +1867,7 @@ define hidden noundef double @_Z7getPSNRRKN2cv3MatES2_(ptr noundef nonnull align
   br label %76
 
 59:                                               ; preds = %39
-  %60 = load i32, ptr %0, align 8, !tbaa !69
+  %60 = load i32, ptr %0, align 8, !tbaa !71
   %61 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %0)
           to label %62 unwind label %73
 
@@ -2021,7 +2021,7 @@ define hidden void @_Z8getMSSIMRKN2cv3MatES2_(ptr dead_on_unwind noalias writabl
 
 83:                                               ; preds = %79
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #17
-  %84 = load ptr, ptr %18, align 8, !tbaa !57, !noalias !70
+  %84 = load ptr, ptr %18, align 8, !tbaa !59, !noalias !72
   %85 = load ptr, ptr %84, align 8, !tbaa !4
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load ptr, ptr %86, align 8
@@ -2059,7 +2059,7 @@ define hidden void @_Z8getMSSIMRKN2cv3MatES2_(ptr dead_on_unwind noalias writabl
 
 96:                                               ; preds = %89
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #17
-  %97 = load ptr, ptr %21, align 8, !tbaa !57, !noalias !73
+  %97 = load ptr, ptr %21, align 8, !tbaa !59, !noalias !75
   %98 = load ptr, ptr %97, align 8, !tbaa !4
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8
@@ -2097,7 +2097,7 @@ define hidden void @_Z8getMSSIMRKN2cv3MatES2_(ptr dead_on_unwind noalias writabl
 
 109:                                              ; preds = %102
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %23) #17
-  %110 = load ptr, ptr %24, align 8, !tbaa !57, !noalias !76
+  %110 = load ptr, ptr %24, align 8, !tbaa !59, !noalias !78
   %111 = load ptr, ptr %110, align 8, !tbaa !4
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %113 = load ptr, ptr %112, align 8
@@ -2179,7 +2179,7 @@ define hidden void @_Z8getMSSIMRKN2cv3MatES2_(ptr dead_on_unwind noalias writabl
 
 134:                                              ; preds = %130
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %32) #17
-  %135 = load ptr, ptr %33, align 8, !tbaa !57, !noalias !79
+  %135 = load ptr, ptr %33, align 8, !tbaa !59, !noalias !81
   %136 = load ptr, ptr %135, align 8, !tbaa !4
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = load ptr, ptr %137, align 8
@@ -2217,7 +2217,7 @@ define hidden void @_Z8getMSSIMRKN2cv3MatES2_(ptr dead_on_unwind noalias writabl
 
 147:                                              ; preds = %140
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %35) #17
-  %148 = load ptr, ptr %36, align 8, !tbaa !57, !noalias !82
+  %148 = load ptr, ptr %36, align 8, !tbaa !59, !noalias !84
   %149 = load ptr, ptr %148, align 8, !tbaa !4
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %151 = load ptr, ptr %150, align 8
@@ -2255,7 +2255,7 @@ define hidden void @_Z8getMSSIMRKN2cv3MatES2_(ptr dead_on_unwind noalias writabl
 
 160:                                              ; preds = %153
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %38) #17
-  %161 = load ptr, ptr %39, align 8, !tbaa !57, !noalias !85
+  %161 = load ptr, ptr %39, align 8, !tbaa !59, !noalias !87
   %162 = load ptr, ptr %161, align 8, !tbaa !4
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %164 = load ptr, ptr %163, align 8
@@ -2463,7 +2463,7 @@ define hidden void @_Z8getMSSIMRKN2cv3MatES2_(ptr dead_on_unwind noalias writabl
           to label %220 unwind label %346
 
 220:                                              ; preds = %218
-  %221 = load ptr, ptr %53, align 8, !tbaa !57
+  %221 = load ptr, ptr %53, align 8, !tbaa !59
   %222 = load ptr, ptr %221, align 8, !tbaa !4
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
   %224 = load ptr, ptr %223, align 8
@@ -2500,7 +2500,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %220
           to label %233 unwind label %354
 
 233:                                              ; preds = %231
-  %234 = load ptr, ptr %56, align 8, !tbaa !57
+  %234 = load ptr, ptr %56, align 8, !tbaa !59
   %235 = load ptr, ptr %234, align 8, !tbaa !4
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %237 = load ptr, ptr %236, align 8
@@ -2536,7 +2536,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %220
           to label %248 unwind label %360
 
 248:                                              ; preds = %238
-  %249 = load ptr, ptr %59, align 8, !tbaa !57
+  %249 = load ptr, ptr %59, align 8, !tbaa !59
   %250 = load ptr, ptr %249, align 8, !tbaa !4
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %252 = load ptr, ptr %251, align 8
@@ -2566,7 +2566,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit157:              ; preds = %248
           to label %258 unwind label %367
 
 258:                                              ; preds = %256
-  %259 = load ptr, ptr %61, align 8, !tbaa !57
+  %259 = load ptr, ptr %61, align 8, !tbaa !59
   %260 = load ptr, ptr %259, align 8, !tbaa !4
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %262 = load ptr, ptr %261, align 8
@@ -2603,7 +2603,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit159:              ; preds = %258
           to label %271 unwind label %375
 
 271:                                              ; preds = %269
-  %272 = load ptr, ptr %64, align 8, !tbaa !57
+  %272 = load ptr, ptr %64, align 8, !tbaa !59
   %273 = load ptr, ptr %272, align 8, !tbaa !4
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load ptr, ptr %274, align 8
@@ -2639,7 +2639,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit159:              ; preds = %258
           to label %286 unwind label %381
 
 286:                                              ; preds = %276
-  %287 = load ptr, ptr %67, align 8, !tbaa !57
+  %287 = load ptr, ptr %67, align 8, !tbaa !59
   %288 = load ptr, ptr %287, align 8, !tbaa !4
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %290 = load ptr, ptr %289, align 8
@@ -3274,36 +3274,38 @@ attributes #18 = { builtin nounwind }
 !52 = !{!53, !17, i64 0}
 !53 = !{!"_ZTSN2cv11_InputArrayE", !17, i64 0, !15, i64 8, !50, i64 16}
 !54 = !{!53, !15, i64 8}
-!55 = !{!56, !10, i64 8}
-!56 = !{!"_ZTSSi", !10, i64 8}
-!57 = !{!58, !59, i64 0}
-!58 = !{!"_ZTSN2cv7MatExprE", !59, i64 0, !17, i64 8, !60, i64 16, !60, i64 112, !60, i64 208, !48, i64 304, !48, i64 312, !66, i64 320}
-!59 = !{!"p1 _ZTSN2cv5MatOpE", !15, i64 0}
-!60 = !{!"_ZTSN2cv3MatE", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !61, i64 48, !62, i64 56, !63, i64 64, !64, i64 72}
-!61 = !{!"p1 _ZTSN2cv12MatAllocatorE", !15, i64 0}
-!62 = !{!"p1 _ZTSN2cv8UMatDataE", !15, i64 0}
-!63 = !{!"_ZTSN2cv7MatSizeE", !31, i64 0}
-!64 = !{!"_ZTSN2cv7MatStepE", !65, i64 0, !11, i64 8}
-!65 = !{!"p1 long", !15, i64 0}
-!66 = !{!"_ZTSN2cv7Scalar_IdEE", !67, i64 0}
-!67 = !{!"_ZTSN2cv3VecIdLi4EEE", !68, i64 0}
-!68 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !11, i64 0}
-!69 = !{!60, !17, i64 0}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!72 = distinct !{!72, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!75 = distinct !{!75, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!78 = distinct !{!78, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!81 = distinct !{!81, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!84 = distinct !{!84, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!87 = distinct !{!87, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!55 = distinct !{!55, !56}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!58, !10, i64 8}
+!58 = !{!"_ZTSSi", !10, i64 8}
+!59 = !{!60, !61, i64 0}
+!60 = !{!"_ZTSN2cv7MatExprE", !61, i64 0, !17, i64 8, !62, i64 16, !62, i64 112, !62, i64 208, !48, i64 304, !48, i64 312, !68, i64 320}
+!61 = !{!"p1 _ZTSN2cv5MatOpE", !15, i64 0}
+!62 = !{!"_ZTSN2cv3MatE", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !35, i64 16, !35, i64 24, !35, i64 32, !35, i64 40, !63, i64 48, !64, i64 56, !65, i64 64, !66, i64 72}
+!63 = !{!"p1 _ZTSN2cv12MatAllocatorE", !15, i64 0}
+!64 = !{!"p1 _ZTSN2cv8UMatDataE", !15, i64 0}
+!65 = !{!"_ZTSN2cv7MatSizeE", !31, i64 0}
+!66 = !{!"_ZTSN2cv7MatStepE", !67, i64 0, !11, i64 8}
+!67 = !{!"p1 long", !15, i64 0}
+!68 = !{!"_ZTSN2cv7Scalar_IdEE", !69, i64 0}
+!69 = !{!"_ZTSN2cv3VecIdLi4EEE", !70, i64 0}
+!70 = !{!"_ZTSN2cv4MatxIdLi4ELi1EEE", !11, i64 0}
+!71 = !{!62, !17, i64 0}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!74 = distinct !{!74, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!77 = distinct !{!77, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!80 = distinct !{!80, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!83 = distinct !{!83, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!86 = distinct !{!86, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!89 = distinct !{!89, !"_ZNK2cv7MatExprcvNS_3MatEEv"}

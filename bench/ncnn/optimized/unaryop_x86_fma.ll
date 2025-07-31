@@ -828,24 +828,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph52, label %.preheader, !llvm.loop !48
+  br i1 %49, label %.lr.ph52, label %.preheader, !llvm.loop !49
 
 .lr.ph58:                                         ; preds = %.preheader, %.lr.ph58
   %.257 = phi i32 [ %53, %.lr.ph58 ], [ %.1.lcssa, %.preheader ]
   %.23256 = phi ptr [ %52, %.lr.ph58 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23256, align 4, !tbaa !49
+  %50 = load float, ptr %.23256, align 4, !tbaa !50
   %51 = call fast noundef float @llvm.fabs.f32(float %50)
-  store float %51, ptr %.23256, align 4, !tbaa !49
+  store float %51, ptr %.23256, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23256, i64 4
   %53 = add nuw nsw i32 %.257, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph58, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond68.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond68.not, label %._crit_edge61, label %.noexc
+  br i1 %exitcond68.not, label %._crit_edge61, label %.noexc, !llvm.loop !53
 
 ._crit_edge61:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -874,7 +874,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #8
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
-declare !callback !52 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #8
+declare !callback !54 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #9
@@ -919,10 +919,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !54
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !54
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !56
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !56
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !54
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !56
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -947,7 +947,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !57
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !59
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -967,24 +967,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !58
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !60
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = fneg fast float %50
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !61
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !62
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1038,10 +1038,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !60
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !60
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !63
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !63
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !60
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !63
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -1066,7 +1066,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !63
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !66
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -1086,24 +1086,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !64
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !67
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = call fast noundef float @llvm.floor.f32(float %50)
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !69
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1166,10 +1166,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !66
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !66
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !70
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !70
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !66
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !70
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -1194,7 +1194,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !69
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !73
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -1214,24 +1214,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !70
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !74
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = call fast noundef float @llvm.ceil.f32(float %50)
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !76
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1288,10 +1288,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor15
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !72
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !72
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !77
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !77
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !72
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !77
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -1316,7 +1316,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor15
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !75
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !80
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -1336,24 +1336,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor15
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !76
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !81
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = fmul fast float %50, %50
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !77
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !83
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1407,10 +1407,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !78
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !78
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !84
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !84
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !78
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !84
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -1435,7 +1435,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !81
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !87
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -1455,24 +1455,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !82
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !88
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = call fast noundef float @llvm.sqrt.f32(float %50)
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !90
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1535,10 +1535,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !84
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !84
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !91
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !91
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !84
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !91
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -1563,7 +1563,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !87
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !94
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -1583,25 +1583,25 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !88
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !95
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %54, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %53, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = call fast float @llvm.sqrt.f32(float %50)
   %52 = fdiv fast float 1.000000e+00, %51
-  store float %52, ptr %.23252, align 4, !tbaa !49
+  store float %52, ptr %.23252, align 4, !tbaa !50
   %53 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %54 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %54, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !89
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !97
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1661,10 +1661,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %63, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !90
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !90
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !98
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !98
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !90
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !98
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -1711,7 +1711,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %60 = or disjoint i32 %59, 7
   %61 = load i32, ptr %4, align 4, !tbaa !32
   %62 = icmp slt i32 %60, %61
-  br i1 %62, label %.lr.ph, label %.preheader110, !llvm.loop !93
+  br i1 %62, label %.lr.ph, label %.preheader110, !llvm.loop !101
 
 .preheader:                                       ; preds = %.lr.ph116, %.preheader110
   %63 = phi i32 [ %31, %.preheader110 ], [ %94, %.lr.ph116 ]
@@ -1755,24 +1755,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %93 = or disjoint i32 %92, 3
   %94 = load i32, ptr %4, align 4, !tbaa !32
   %95 = icmp slt i32 %93, %94
-  br i1 %95, label %.lr.ph116, label %.preheader, !llvm.loop !94
+  br i1 %95, label %.lr.ph116, label %.preheader, !llvm.loop !102
 
 .lr.ph122:                                        ; preds = %.preheader, %.lr.ph122
   %.2121 = phi i32 [ %99, %.lr.ph122 ], [ %.1.lcssa, %.preheader ]
   %.232120 = phi ptr [ %98, %.lr.ph122 ], [ %.131.lcssa, %.preheader ]
-  %96 = load float, ptr %.232120, align 4, !tbaa !49
+  %96 = load float, ptr %.232120, align 4, !tbaa !50
   %97 = call fast noundef float @llvm.exp.f32(float %96)
-  store float %97, ptr %.232120, align 4, !tbaa !49
+  store float %97, ptr %.232120, align 4, !tbaa !50
   %98 = getelementptr inbounds nuw i8, ptr %.232120, i64 4
   %99 = add nuw nsw i32 %.2121, 1
   %exitcond.not = icmp eq i32 %99, %63
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph122, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph122, !llvm.loop !103
 
 ._crit_edge:                                      ; preds = %.lr.ph122, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond132.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond132.not, label %._crit_edge125, label %.noexc
+  br i1 %exitcond132.not, label %._crit_edge125, label %.noexc, !llvm.loop !104
 
 ._crit_edge125:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -1853,10 +1853,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %70, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !96
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !96
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !105
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !105
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !96
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !105
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -1912,7 +1912,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %67 = or disjoint i32 %66, 7
   %68 = load i32, ptr %4, align 4, !tbaa !32
   %69 = icmp slt i32 %67, %68
-  br i1 %69, label %.lr.ph, label %.preheader112, !llvm.loop !99
+  br i1 %69, label %.lr.ph, label %.preheader112, !llvm.loop !108
 
 .preheader:                                       ; preds = %.lr.ph118, %.preheader112
   %70 = phi i32 [ %31, %.preheader112 ], [ %108, %.lr.ph118 ]
@@ -1963,24 +1963,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %107 = or disjoint i32 %106, 3
   %108 = load i32, ptr %4, align 4, !tbaa !32
   %109 = icmp slt i32 %107, %108
-  br i1 %109, label %.lr.ph118, label %.preheader, !llvm.loop !100
+  br i1 %109, label %.lr.ph118, label %.preheader, !llvm.loop !109
 
 .lr.ph124:                                        ; preds = %.preheader, %.lr.ph124
   %.2123 = phi i32 [ %113, %.lr.ph124 ], [ %.1.lcssa, %.preheader ]
   %.232122 = phi ptr [ %112, %.lr.ph124 ], [ %.131.lcssa, %.preheader ]
-  %110 = load float, ptr %.232122, align 4, !tbaa !49
+  %110 = load float, ptr %.232122, align 4, !tbaa !50
   %111 = call fast noundef float @llvm.log.f32(float %110)
-  store float %111, ptr %.232122, align 4, !tbaa !49
+  store float %111, ptr %.232122, align 4, !tbaa !50
   %112 = getelementptr inbounds nuw i8, ptr %.232122, i64 4
   %113 = add nuw nsw i32 %.2123, 1
   %exitcond.not = icmp eq i32 %113, %70
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph124, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph124, !llvm.loop !110
 
 ._crit_edge:                                      ; preds = %.lr.ph124, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond134.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond134.not, label %._crit_edge127, label %.noexc
+  br i1 %exitcond134.not, label %._crit_edge127, label %.noexc, !llvm.loop !111
 
 ._crit_edge127:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2037,10 +2037,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %79, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !102
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !102
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !112
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !112
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !102
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !112
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -2103,7 +2103,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %76 = or disjoint i32 %75, 7
   %77 = load i32, ptr %4, align 4, !tbaa !32
   %78 = icmp slt i32 %76, %77
-  br i1 %78, label %.lr.ph, label %.preheader105, !llvm.loop !105
+  br i1 %78, label %.lr.ph, label %.preheader105, !llvm.loop !115
 
 .preheader:                                       ; preds = %.lr.ph111, %.preheader105
   %79 = phi i32 [ %31, %.preheader105 ], [ %114, %.lr.ph111 ]
@@ -2152,24 +2152,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %113 = or disjoint i32 %112, 3
   %114 = load i32, ptr %4, align 4, !tbaa !32
   %115 = icmp slt i32 %113, %114
-  br i1 %115, label %.lr.ph111, label %.preheader, !llvm.loop !106
+  br i1 %115, label %.lr.ph111, label %.preheader, !llvm.loop !116
 
 .lr.ph117:                                        ; preds = %.preheader, %.lr.ph117
   %.2116 = phi i32 [ %119, %.lr.ph117 ], [ %.1.lcssa, %.preheader ]
   %.232115 = phi ptr [ %118, %.lr.ph117 ], [ %.131.lcssa, %.preheader ]
-  %116 = load float, ptr %.232115, align 4, !tbaa !49
+  %116 = load float, ptr %.232115, align 4, !tbaa !50
   %117 = call fast noundef float @llvm.sin.f32(float %116)
-  store float %117, ptr %.232115, align 4, !tbaa !49
+  store float %117, ptr %.232115, align 4, !tbaa !50
   %118 = getelementptr inbounds nuw i8, ptr %.232115, i64 4
   %119 = add nuw nsw i32 %.2116, 1
   %exitcond.not = icmp eq i32 %119, %79
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph117, !llvm.loop !107
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph117, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %.lr.ph117, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond127.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond127.not, label %._crit_edge120, label %.noexc
+  br i1 %exitcond127.not, label %._crit_edge120, label %.noexc, !llvm.loop !118
 
 ._crit_edge120:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2226,10 +2226,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %90, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !108
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !108
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !119
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !119
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !108
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !119
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -2304,7 +2304,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %87 = or disjoint i32 %86, 7
   %88 = load i32, ptr %4, align 4, !tbaa !32
   %89 = icmp slt i32 %87, %88
-  br i1 %89, label %.lr.ph, label %.preheader99, !llvm.loop !111
+  br i1 %89, label %.lr.ph, label %.preheader99, !llvm.loop !122
 
 .preheader:                                       ; preds = %.lr.ph105, %.preheader99
   %90 = phi i32 [ %31, %.preheader99 ], [ %126, %.lr.ph105 ]
@@ -2354,24 +2354,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %125 = or disjoint i32 %124, 3
   %126 = load i32, ptr %4, align 4, !tbaa !32
   %127 = icmp slt i32 %125, %126
-  br i1 %127, label %.lr.ph105, label %.preheader, !llvm.loop !112
+  br i1 %127, label %.lr.ph105, label %.preheader, !llvm.loop !123
 
 .lr.ph111:                                        ; preds = %.preheader, %.lr.ph111
   %.2110 = phi i32 [ %131, %.lr.ph111 ], [ %.1.lcssa, %.preheader ]
   %.232109 = phi ptr [ %130, %.lr.ph111 ], [ %.131.lcssa, %.preheader ]
-  %128 = load float, ptr %.232109, align 4, !tbaa !49
+  %128 = load float, ptr %.232109, align 4, !tbaa !50
   %129 = call fast noundef float @llvm.cos.f32(float %128)
-  store float %129, ptr %.232109, align 4, !tbaa !49
+  store float %129, ptr %.232109, align 4, !tbaa !50
   %130 = getelementptr inbounds nuw i8, ptr %.232109, i64 4
   %131 = add nuw nsw i32 %.2110, 1
   %exitcond.not = icmp eq i32 %131, %90
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph111, !llvm.loop !113
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph111, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %.lr.ph111, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond121.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond121.not, label %._crit_edge114, label %.noexc
+  br i1 %exitcond121.not, label %._crit_edge114, label %.noexc, !llvm.loop !125
 
 ._crit_edge114:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2428,10 +2428,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %102, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !114
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !114
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !126
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !126
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !114
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !126
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -2518,7 +2518,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %99 = or disjoint i32 %98, 7
   %100 = load i32, ptr %4, align 4, !tbaa !32
   %101 = icmp slt i32 %99, %100
-  br i1 %101, label %.lr.ph, label %.preheader127, !llvm.loop !117
+  br i1 %101, label %.lr.ph, label %.preheader127, !llvm.loop !129
 
 .preheader:                                       ; preds = %.lr.ph133, %.preheader127
   %102 = phi i32 [ %31, %.preheader127 ], [ %150, %.lr.ph133 ]
@@ -2580,24 +2580,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor12
   %149 = or disjoint i32 %148, 3
   %150 = load i32, ptr %4, align 4, !tbaa !32
   %151 = icmp slt i32 %149, %150
-  br i1 %151, label %.lr.ph133, label %.preheader, !llvm.loop !118
+  br i1 %151, label %.lr.ph133, label %.preheader, !llvm.loop !130
 
 .lr.ph139:                                        ; preds = %.preheader, %.lr.ph139
   %.2138 = phi i32 [ %155, %.lr.ph139 ], [ %.1.lcssa, %.preheader ]
   %.232137 = phi ptr [ %154, %.lr.ph139 ], [ %.131.lcssa, %.preheader ]
-  %152 = load float, ptr %.232137, align 4, !tbaa !49
+  %152 = load float, ptr %.232137, align 4, !tbaa !50
   %153 = call fast noundef float @llvm.tan.f32(float %152)
-  store float %153, ptr %.232137, align 4, !tbaa !49
+  store float %153, ptr %.232137, align 4, !tbaa !50
   %154 = getelementptr inbounds nuw i8, ptr %.232137, i64 4
   %155 = add nuw nsw i32 %.2138, 1
   %exitcond.not = icmp eq i32 %155, %102
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph139, !llvm.loop !119
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph139, !llvm.loop !131
 
 ._crit_edge:                                      ; preds = %.lr.ph139, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond149.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond149.not, label %._crit_edge142, label %.noexc
+  br i1 %exitcond149.not, label %._crit_edge142, label %.noexc, !llvm.loop !132
 
 ._crit_edge142:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2654,10 +2654,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %62, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !120
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !120
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !133
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !133
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !120
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !133
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -2703,7 +2703,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %59 = or disjoint i32 %58, 7
   %60 = load i32, ptr %4, align 4, !tbaa !32
   %61 = icmp slt i32 %59, %60
-  br i1 %61, label %.lr.ph, label %.preheader88, !llvm.loop !123
+  br i1 %61, label %.lr.ph, label %.preheader88, !llvm.loop !136
 
 .preheader:                                       ; preds = %.lr.ph94, %.preheader88
   %62 = phi i32 [ %31, %.preheader88 ], [ %90, %.lr.ph94 ]
@@ -2744,24 +2744,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %89 = or disjoint i32 %88, 3
   %90 = load i32, ptr %4, align 4, !tbaa !32
   %91 = icmp slt i32 %89, %90
-  br i1 %91, label %.lr.ph94, label %.preheader, !llvm.loop !124
+  br i1 %91, label %.lr.ph94, label %.preheader, !llvm.loop !137
 
 .lr.ph100:                                        ; preds = %.preheader, %.lr.ph100
   %.299 = phi i32 [ %95, %.lr.ph100 ], [ %.1.lcssa, %.preheader ]
   %.23298 = phi ptr [ %94, %.lr.ph100 ], [ %.131.lcssa, %.preheader ]
-  %92 = load float, ptr %.23298, align 4, !tbaa !49
+  %92 = load float, ptr %.23298, align 4, !tbaa !50
   %93 = call fast noundef float @llvm.asin.f32(float %92)
-  store float %93, ptr %.23298, align 4, !tbaa !49
+  store float %93, ptr %.23298, align 4, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %.23298, i64 4
   %95 = add nuw nsw i32 %.299, 1
   %exitcond.not = icmp eq i32 %95, %62
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !125
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph100, !llvm.loop !138
 
 ._crit_edge:                                      ; preds = %.lr.ph100, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond110.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond110.not, label %._crit_edge103, label %.noexc
+  br i1 %exitcond110.not, label %._crit_edge103, label %.noexc, !llvm.loop !139
 
 ._crit_edge103:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2818,10 +2818,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %65, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !126
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !126
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !140
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !140
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !126
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !140
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -2873,7 +2873,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %62 = or disjoint i32 %61, 7
   %63 = load i32, ptr %4, align 4, !tbaa !32
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %.lr.ph, label %.preheader78, !llvm.loop !129
+  br i1 %64, label %.lr.ph, label %.preheader78, !llvm.loop !143
 
 .preheader:                                       ; preds = %.lr.ph84, %.preheader78
   %65 = phi i32 [ %31, %.preheader78 ], [ %96, %.lr.ph84 ]
@@ -2920,24 +2920,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %95 = or disjoint i32 %94, 3
   %96 = load i32, ptr %4, align 4, !tbaa !32
   %97 = icmp slt i32 %95, %96
-  br i1 %97, label %.lr.ph84, label %.preheader, !llvm.loop !130
+  br i1 %97, label %.lr.ph84, label %.preheader, !llvm.loop !144
 
 .lr.ph90:                                         ; preds = %.preheader, %.lr.ph90
   %.289 = phi i32 [ %101, %.lr.ph90 ], [ %.1.lcssa, %.preheader ]
   %.23288 = phi ptr [ %100, %.lr.ph90 ], [ %.131.lcssa, %.preheader ]
-  %98 = load float, ptr %.23288, align 4, !tbaa !49
+  %98 = load float, ptr %.23288, align 4, !tbaa !50
   %99 = call fast noundef float @llvm.acos.f32(float %98)
-  store float %99, ptr %.23288, align 4, !tbaa !49
+  store float %99, ptr %.23288, align 4, !tbaa !50
   %100 = getelementptr inbounds nuw i8, ptr %.23288, i64 4
   %101 = add nuw nsw i32 %.289, 1
   %exitcond.not = icmp eq i32 %101, %65
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph90, !llvm.loop !145
 
 ._crit_edge:                                      ; preds = %.lr.ph90, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond100.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond100.not, label %._crit_edge93, label %.noexc
+  br i1 %exitcond100.not, label %._crit_edge93, label %.noexc, !llvm.loop !146
 
 ._crit_edge93:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -2994,10 +2994,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %62, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !132
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !132
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !147
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !147
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !132
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !147
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -3043,7 +3043,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %59 = or disjoint i32 %58, 7
   %60 = load i32, ptr %4, align 4, !tbaa !32
   %61 = icmp slt i32 %59, %60
-  br i1 %61, label %.lr.ph, label %.preheader92, !llvm.loop !135
+  br i1 %61, label %.lr.ph, label %.preheader92, !llvm.loop !150
 
 .preheader:                                       ; preds = %.lr.ph98, %.preheader92
   %62 = phi i32 [ %31, %.preheader92 ], [ %90, %.lr.ph98 ]
@@ -3084,24 +3084,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %89 = or disjoint i32 %88, 3
   %90 = load i32, ptr %4, align 4, !tbaa !32
   %91 = icmp slt i32 %89, %90
-  br i1 %91, label %.lr.ph98, label %.preheader, !llvm.loop !136
+  br i1 %91, label %.lr.ph98, label %.preheader, !llvm.loop !151
 
 .lr.ph104:                                        ; preds = %.preheader, %.lr.ph104
   %.2103 = phi i32 [ %95, %.lr.ph104 ], [ %.1.lcssa, %.preheader ]
   %.232102 = phi ptr [ %94, %.lr.ph104 ], [ %.131.lcssa, %.preheader ]
-  %92 = load float, ptr %.232102, align 4, !tbaa !49
+  %92 = load float, ptr %.232102, align 4, !tbaa !50
   %93 = call fast noundef float @llvm.atan.f32(float %92)
-  store float %93, ptr %.232102, align 4, !tbaa !49
+  store float %93, ptr %.232102, align 4, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %.232102, i64 4
   %95 = add nuw nsw i32 %.2103, 1
   %exitcond.not = icmp eq i32 %95, %62
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph104, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph104, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.lr.ph104, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond114.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond114.not, label %._crit_edge107, label %.noexc
+  br i1 %exitcond114.not, label %._crit_edge107, label %.noexc, !llvm.loop !153
 
 ._crit_edge107:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -3158,10 +3158,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor19
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !138
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !138
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !154
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !154
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !138
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !154
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -3186,7 +3186,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor19
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !141
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !157
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -3206,24 +3206,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor19
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !142
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !158
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = fdiv fast float 1.000000e+00, %50
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !143
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !159
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !160
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -3277,10 +3277,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %67, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !144
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !144
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !161
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !161
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !144
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !161
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -3331,7 +3331,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %64 = or disjoint i32 %63, 7
   %65 = load i32, ptr %4, align 4, !tbaa !32
   %66 = icmp slt i32 %64, %65
-  br i1 %66, label %.lr.ph, label %.preheader90, !llvm.loop !147
+  br i1 %66, label %.lr.ph, label %.preheader90, !llvm.loop !164
 
 .preheader:                                       ; preds = %.lr.ph96, %.preheader90
   %67 = phi i32 [ %31, %.preheader90 ], [ %102, %.lr.ph96 ]
@@ -3379,24 +3379,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor13
   %101 = or disjoint i32 %100, 3
   %102 = load i32, ptr %4, align 4, !tbaa !32
   %103 = icmp slt i32 %101, %102
-  br i1 %103, label %.lr.ph96, label %.preheader, !llvm.loop !148
+  br i1 %103, label %.lr.ph96, label %.preheader, !llvm.loop !165
 
 .lr.ph102:                                        ; preds = %.preheader, %.lr.ph102
   %.2101 = phi i32 [ %107, %.lr.ph102 ], [ %.1.lcssa, %.preheader ]
   %.232100 = phi ptr [ %106, %.lr.ph102 ], [ %.131.lcssa, %.preheader ]
-  %104 = load float, ptr %.232100, align 4, !tbaa !49
+  %104 = load float, ptr %.232100, align 4, !tbaa !50
   %105 = call fast noundef float @llvm.tanh.f32(float %104)
-  store float %105, ptr %.232100, align 4, !tbaa !49
+  store float %105, ptr %.232100, align 4, !tbaa !50
   %106 = getelementptr inbounds nuw i8, ptr %.232100, i64 4
   %107 = add nuw nsw i32 %.2101, 1
   %exitcond.not = icmp eq i32 %107, %67
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph102, !llvm.loop !149
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph102, !llvm.loop !166
 
 ._crit_edge:                                      ; preds = %.lr.ph102, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond112.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond112.not, label %._crit_edge105, label %.noexc
+  br i1 %exitcond112.not, label %._crit_edge105, label %.noexc, !llvm.loop !167
 
 ._crit_edge105:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -3453,10 +3453,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %71, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !150
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !150
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !168
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !168
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !150
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !168
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -3513,7 +3513,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %68 = or disjoint i32 %67, 7
   %69 = load i32, ptr %4, align 4, !tbaa !32
   %70 = icmp slt i32 %68, %69
-  br i1 %70, label %.lr.ph, label %.preheader105, !llvm.loop !153
+  br i1 %70, label %.lr.ph, label %.preheader105, !llvm.loop !171
 
 .preheader:                                       ; preds = %.lr.ph111, %.preheader105
   %71 = phi i32 [ %31, %.preheader105 ], [ %110, %.lr.ph111 ]
@@ -3565,24 +3565,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %109 = or disjoint i32 %108, 3
   %110 = load i32, ptr %4, align 4, !tbaa !32
   %111 = icmp slt i32 %109, %110
-  br i1 %111, label %.lr.ph111, label %.preheader, !llvm.loop !154
+  br i1 %111, label %.lr.ph111, label %.preheader, !llvm.loop !172
 
 .lr.ph117:                                        ; preds = %.preheader, %.lr.ph117
   %.2116 = phi i32 [ %115, %.lr.ph117 ], [ %.1.lcssa, %.preheader ]
   %.232115 = phi ptr [ %114, %.lr.ph117 ], [ %.131.lcssa, %.preheader ]
-  %112 = load float, ptr %.232115, align 4, !tbaa !49
+  %112 = load float, ptr %.232115, align 4, !tbaa !50
   %113 = call fast noundef float @llvm.log10.f32(float %112)
-  store float %113, ptr %.232115, align 4, !tbaa !49
+  store float %113, ptr %.232115, align 4, !tbaa !50
   %114 = getelementptr inbounds nuw i8, ptr %.232115, i64 4
   %115 = add nuw nsw i32 %.2116, 1
   %exitcond.not = icmp eq i32 %115, %71
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph117, !llvm.loop !155
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph117, !llvm.loop !173
 
 ._crit_edge:                                      ; preds = %.lr.ph117, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond127.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond127.not, label %._crit_edge120, label %.noexc
+  br i1 %exitcond127.not, label %._crit_edge120, label %.noexc, !llvm.loop !174
 
 ._crit_edge120:                                   ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -3639,10 +3639,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !156
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !156
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !175
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !175
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !156
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !175
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -3667,7 +3667,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !159
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !178
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -3687,24 +3687,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !160
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !179
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = call fast noundef float @llvm.nearbyint.f32(float %50)
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !161
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !181
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -3761,10 +3761,10 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
 .noexc:                                           ; preds = %.noexc.lr.ph, %._crit_edge
   %23 = phi i32 [ %.pre, %.noexc.lr.ph ], [ %41, %._crit_edge ]
   %indvars.iv = phi i64 [ %21, %.noexc.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !162
-  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !162
+  %24 = load ptr, ptr %3, align 8, !tbaa !39, !noalias !182
+  %25 = load i64, ptr %19, align 8, !tbaa !43, !noalias !182
   %26 = mul i64 %25, %indvars.iv
-  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !162
+  %27 = load i64, ptr %20, align 8, !tbaa !44, !noalias !182
   %28 = mul i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 %28
   %30 = icmp sgt i32 %23, 7
@@ -3789,7 +3789,7 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %38 = or disjoint i32 %37, 7
   %39 = load i32, ptr %4, align 4, !tbaa !32
   %40 = icmp slt i32 %38, %39
-  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !165
+  br i1 %40, label %.lr.ph, label %.preheader42, !llvm.loop !185
 
 .preheader:                                       ; preds = %.lr.ph48, %.preheader42
   %41 = phi i32 [ %31, %.preheader42 ], [ %48, %.lr.ph48 ]
@@ -3809,24 +3809,24 @@ define internal void @_ZN4ncnnL16unary_op_inplaceINS_23UnaryOp_x86_fma_functor14
   %47 = or disjoint i32 %46, 3
   %48 = load i32, ptr %4, align 4, !tbaa !32
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !166
+  br i1 %49, label %.lr.ph48, label %.preheader, !llvm.loop !186
 
 .lr.ph54:                                         ; preds = %.preheader, %.lr.ph54
   %.253 = phi i32 [ %53, %.lr.ph54 ], [ %.1.lcssa, %.preheader ]
   %.23252 = phi ptr [ %52, %.lr.ph54 ], [ %.131.lcssa, %.preheader ]
-  %50 = load float, ptr %.23252, align 4, !tbaa !49
+  %50 = load float, ptr %.23252, align 4, !tbaa !50
   %51 = call fast noundef float @llvm.trunc.f32(float %50)
-  store float %51, ptr %.23252, align 4, !tbaa !49
+  store float %51, ptr %.23252, align 4, !tbaa !50
   %52 = getelementptr inbounds nuw i8, ptr %.23252, i64 4
   %53 = add nuw nsw i32 %.253, 1
   %exitcond.not = icmp eq i32 %53, %41
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !167
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !187
 
 ._crit_edge:                                      ; preds = %.lr.ph54, %.preheader
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond64.not = icmp eq i32 %22, %lftr.wideiv
-  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc
+  br i1 %exitcond64.not, label %._crit_edge57, label %.noexc, !llvm.loop !188
 
 ._crit_edge57:                                    ; preds = %._crit_edge, %13
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %15)
@@ -3919,125 +3919,146 @@ attributes #14 = { nounwind willreturn memory(read) }
 !43 = !{!27, !15, i64 64}
 !44 = !{!27, !15, i64 16}
 !45 = !{!8, !8, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"float", !8, i64 0}
-!51 = distinct !{!51, !47}
-!52 = !{!53}
-!53 = !{i64 2, i64 -1, i64 -1, i1 true}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"float", !8, i64 0}
+!52 = distinct !{!52, !47, !48}
+!53 = distinct !{!53, !48}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!56 = distinct !{!56, !"_ZN4ncnn3Mat7channelEi"}
-!57 = distinct !{!57, !47}
-!58 = distinct !{!58, !47}
-!59 = distinct !{!59, !47}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!62 = distinct !{!62, !"_ZN4ncnn3Mat7channelEi"}
-!63 = distinct !{!63, !47}
-!64 = distinct !{!64, !47}
-!65 = distinct !{!65, !47}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!68 = distinct !{!68, !"_ZN4ncnn3Mat7channelEi"}
-!69 = distinct !{!69, !47}
-!70 = distinct !{!70, !47}
-!71 = distinct !{!71, !47}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!74 = distinct !{!74, !"_ZN4ncnn3Mat7channelEi"}
-!75 = distinct !{!75, !47}
-!76 = distinct !{!76, !47}
-!77 = distinct !{!77, !47}
-!78 = !{!79}
-!79 = distinct !{!79, !80, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!80 = distinct !{!80, !"_ZN4ncnn3Mat7channelEi"}
-!81 = distinct !{!81, !47}
-!82 = distinct !{!82, !47}
-!83 = distinct !{!83, !47}
+!55 = !{i64 2, i64 -1, i64 -1, i1 true}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!58 = distinct !{!58, !"_ZN4ncnn3Mat7channelEi"}
+!59 = distinct !{!59, !47, !48}
+!60 = distinct !{!60, !47, !48}
+!61 = distinct !{!61, !47, !48}
+!62 = distinct !{!62, !48}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!65 = distinct !{!65, !"_ZN4ncnn3Mat7channelEi"}
+!66 = distinct !{!66, !47, !48}
+!67 = distinct !{!67, !47, !48}
+!68 = distinct !{!68, !47, !48}
+!69 = distinct !{!69, !48}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!72 = distinct !{!72, !"_ZN4ncnn3Mat7channelEi"}
+!73 = distinct !{!73, !47, !48}
+!74 = distinct !{!74, !47, !48}
+!75 = distinct !{!75, !47, !48}
+!76 = distinct !{!76, !48}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!79 = distinct !{!79, !"_ZN4ncnn3Mat7channelEi"}
+!80 = distinct !{!80, !47, !48}
+!81 = distinct !{!81, !47, !48}
+!82 = distinct !{!82, !47, !48}
+!83 = distinct !{!83, !48}
 !84 = !{!85}
 !85 = distinct !{!85, !86, !"_ZN4ncnn3Mat7channelEi: argument 0"}
 !86 = distinct !{!86, !"_ZN4ncnn3Mat7channelEi"}
-!87 = distinct !{!87, !47}
-!88 = distinct !{!88, !47}
-!89 = distinct !{!89, !47}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!92 = distinct !{!92, !"_ZN4ncnn3Mat7channelEi"}
-!93 = distinct !{!93, !47}
-!94 = distinct !{!94, !47}
-!95 = distinct !{!95, !47}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!98 = distinct !{!98, !"_ZN4ncnn3Mat7channelEi"}
-!99 = distinct !{!99, !47}
-!100 = distinct !{!100, !47}
-!101 = distinct !{!101, !47}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!104 = distinct !{!104, !"_ZN4ncnn3Mat7channelEi"}
-!105 = distinct !{!105, !47}
-!106 = distinct !{!106, !47}
-!107 = distinct !{!107, !47}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!110 = distinct !{!110, !"_ZN4ncnn3Mat7channelEi"}
-!111 = distinct !{!111, !47}
-!112 = distinct !{!112, !47}
-!113 = distinct !{!113, !47}
-!114 = !{!115}
-!115 = distinct !{!115, !116, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!116 = distinct !{!116, !"_ZN4ncnn3Mat7channelEi"}
-!117 = distinct !{!117, !47}
-!118 = distinct !{!118, !47}
-!119 = distinct !{!119, !47}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!122 = distinct !{!122, !"_ZN4ncnn3Mat7channelEi"}
-!123 = distinct !{!123, !47}
-!124 = distinct !{!124, !47}
-!125 = distinct !{!125, !47}
+!87 = distinct !{!87, !47, !48}
+!88 = distinct !{!88, !47, !48}
+!89 = distinct !{!89, !47, !48}
+!90 = distinct !{!90, !48}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!93 = distinct !{!93, !"_ZN4ncnn3Mat7channelEi"}
+!94 = distinct !{!94, !47, !48}
+!95 = distinct !{!95, !47, !48}
+!96 = distinct !{!96, !47, !48}
+!97 = distinct !{!97, !48}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!100 = distinct !{!100, !"_ZN4ncnn3Mat7channelEi"}
+!101 = distinct !{!101, !47, !48}
+!102 = distinct !{!102, !47, !48}
+!103 = distinct !{!103, !47, !48}
+!104 = distinct !{!104, !48}
+!105 = !{!106}
+!106 = distinct !{!106, !107, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!107 = distinct !{!107, !"_ZN4ncnn3Mat7channelEi"}
+!108 = distinct !{!108, !47, !48}
+!109 = distinct !{!109, !47, !48}
+!110 = distinct !{!110, !47, !48}
+!111 = distinct !{!111, !48}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!114 = distinct !{!114, !"_ZN4ncnn3Mat7channelEi"}
+!115 = distinct !{!115, !47, !48}
+!116 = distinct !{!116, !47, !48}
+!117 = distinct !{!117, !47, !48}
+!118 = distinct !{!118, !48}
+!119 = !{!120}
+!120 = distinct !{!120, !121, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!121 = distinct !{!121, !"_ZN4ncnn3Mat7channelEi"}
+!122 = distinct !{!122, !47, !48}
+!123 = distinct !{!123, !47, !48}
+!124 = distinct !{!124, !47, !48}
+!125 = distinct !{!125, !48}
 !126 = !{!127}
 !127 = distinct !{!127, !128, !"_ZN4ncnn3Mat7channelEi: argument 0"}
 !128 = distinct !{!128, !"_ZN4ncnn3Mat7channelEi"}
-!129 = distinct !{!129, !47}
-!130 = distinct !{!130, !47}
-!131 = distinct !{!131, !47}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!134 = distinct !{!134, !"_ZN4ncnn3Mat7channelEi"}
-!135 = distinct !{!135, !47}
-!136 = distinct !{!136, !47}
-!137 = distinct !{!137, !47}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!140 = distinct !{!140, !"_ZN4ncnn3Mat7channelEi"}
-!141 = distinct !{!141, !47}
-!142 = distinct !{!142, !47}
-!143 = distinct !{!143, !47}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!146 = distinct !{!146, !"_ZN4ncnn3Mat7channelEi"}
-!147 = distinct !{!147, !47}
-!148 = distinct !{!148, !47}
-!149 = distinct !{!149, !47}
-!150 = !{!151}
-!151 = distinct !{!151, !152, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!152 = distinct !{!152, !"_ZN4ncnn3Mat7channelEi"}
-!153 = distinct !{!153, !47}
-!154 = distinct !{!154, !47}
-!155 = distinct !{!155, !47}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!158 = distinct !{!158, !"_ZN4ncnn3Mat7channelEi"}
-!159 = distinct !{!159, !47}
-!160 = distinct !{!160, !47}
-!161 = distinct !{!161, !47}
-!162 = !{!163}
-!163 = distinct !{!163, !164, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!164 = distinct !{!164, !"_ZN4ncnn3Mat7channelEi"}
-!165 = distinct !{!165, !47}
-!166 = distinct !{!166, !47}
-!167 = distinct !{!167, !47}
+!129 = distinct !{!129, !47, !48}
+!130 = distinct !{!130, !47, !48}
+!131 = distinct !{!131, !47, !48}
+!132 = distinct !{!132, !48}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!135 = distinct !{!135, !"_ZN4ncnn3Mat7channelEi"}
+!136 = distinct !{!136, !47, !48}
+!137 = distinct !{!137, !47, !48}
+!138 = distinct !{!138, !47, !48}
+!139 = distinct !{!139, !48}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!142 = distinct !{!142, !"_ZN4ncnn3Mat7channelEi"}
+!143 = distinct !{!143, !47, !48}
+!144 = distinct !{!144, !47, !48}
+!145 = distinct !{!145, !47, !48}
+!146 = distinct !{!146, !48}
+!147 = !{!148}
+!148 = distinct !{!148, !149, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!149 = distinct !{!149, !"_ZN4ncnn3Mat7channelEi"}
+!150 = distinct !{!150, !47, !48}
+!151 = distinct !{!151, !47, !48}
+!152 = distinct !{!152, !47, !48}
+!153 = distinct !{!153, !48}
+!154 = !{!155}
+!155 = distinct !{!155, !156, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!156 = distinct !{!156, !"_ZN4ncnn3Mat7channelEi"}
+!157 = distinct !{!157, !47, !48}
+!158 = distinct !{!158, !47, !48}
+!159 = distinct !{!159, !47, !48}
+!160 = distinct !{!160, !48}
+!161 = !{!162}
+!162 = distinct !{!162, !163, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!163 = distinct !{!163, !"_ZN4ncnn3Mat7channelEi"}
+!164 = distinct !{!164, !47, !48}
+!165 = distinct !{!165, !47, !48}
+!166 = distinct !{!166, !47, !48}
+!167 = distinct !{!167, !48}
+!168 = !{!169}
+!169 = distinct !{!169, !170, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!170 = distinct !{!170, !"_ZN4ncnn3Mat7channelEi"}
+!171 = distinct !{!171, !47, !48}
+!172 = distinct !{!172, !47, !48}
+!173 = distinct !{!173, !47, !48}
+!174 = distinct !{!174, !48}
+!175 = !{!176}
+!176 = distinct !{!176, !177, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!177 = distinct !{!177, !"_ZN4ncnn3Mat7channelEi"}
+!178 = distinct !{!178, !47, !48}
+!179 = distinct !{!179, !47, !48}
+!180 = distinct !{!180, !47, !48}
+!181 = distinct !{!181, !48}
+!182 = !{!183}
+!183 = distinct !{!183, !184, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!184 = distinct !{!184, !"_ZN4ncnn3Mat7channelEi"}
+!185 = distinct !{!185, !47, !48}
+!186 = distinct !{!186, !47, !48}
+!187 = distinct !{!187, !47, !48}
+!188 = distinct !{!188, !48}

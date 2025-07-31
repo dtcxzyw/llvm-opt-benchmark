@@ -935,7 +935,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   %43 = lshr i32 %.171.i, 1
   %44 = and i32 %.171.i, 2
   %.not48.i = icmp eq i32 %44, 0
-  br i1 %.not48.i, label %..loopexit66_crit_edge.i, label %.lr.ph72.i, !llvm.loop !5
+  br i1 %.not48.i, label %..loopexit66_crit_edge.i, label %.lr.ph72.i, !llvm.loop !6
 
 ..loopexit66_crit_edge.i:                         ; preds = %.lr.ph72.i
   store i8 %42, ptr %35, align 4
@@ -972,7 +972,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   %52 = lshr exact i32 %.276.i, 1
   %53 = and i32 %.276.i, 2
   %.not50.i = icmp eq i32 %53, 0
-  br i1 %.not50.i, label %.lr.ph77.i, label %..preheader62_crit_edge.i, !llvm.loop !6
+  br i1 %.not50.i, label %.lr.ph77.i, label %..preheader62_crit_edge.i, !llvm.loop !7
 
 .lr.ph83.i:                                       ; preds = %.lr.ph83.i.preheader, %.lr.ph83.i
   %54 = phi i8 [ %55, %.lr.ph83.i ], [ 0, %.lr.ph83.i.preheader ]
@@ -981,7 +981,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   %56 = lshr i32 %.382.i, 1
   %57 = and i32 %.382.i, 2
   %.not51.i = icmp eq i32 %57, 0
-  br i1 %.not51.i, label %..loopexit63_crit_edge.i, label %.lr.ph83.i, !llvm.loop !7
+  br i1 %.not51.i, label %..loopexit63_crit_edge.i, label %.lr.ph83.i, !llvm.loop !8
 
 ..loopexit63_crit_edge.i:                         ; preds = %.lr.ph83.i
   store i8 %55, ptr %48, align 1
@@ -1018,7 +1018,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   %65 = lshr exact i32 %.487.i, 1
   %66 = and i32 %.487.i, 2
   %.not53.i = icmp eq i32 %66, 0
-  br i1 %.not53.i, label %.lr.ph88.i, label %..preheader59_crit_edge.i, !llvm.loop !8
+  br i1 %.not53.i, label %.lr.ph88.i, label %..preheader59_crit_edge.i, !llvm.loop !9
 
 .lr.ph94.i:                                       ; preds = %.lr.ph94.i.preheader, %.lr.ph94.i
   %67 = phi i8 [ %68, %.lr.ph94.i ], [ 0, %.lr.ph94.i.preheader ]
@@ -1027,7 +1027,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   %69 = lshr i32 %.593.i, 1
   %70 = and i32 %.593.i, 2
   %.not54.i = icmp eq i32 %70, 0
-  br i1 %.not54.i, label %..loopexit60_crit_edge.i, label %.lr.ph94.i, !llvm.loop !9
+  br i1 %.not54.i, label %..loopexit60_crit_edge.i, label %.lr.ph94.i, !llvm.loop !10
 
 ..loopexit60_crit_edge.i:                         ; preds = %.lr.ph94.i
   store i8 %68, ptr %61, align 2
@@ -1064,7 +1064,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   %78 = lshr exact i32 %.698.i, 1
   %79 = and i32 %.698.i, 2
   %.not56.i = icmp eq i32 %79, 0
-  br i1 %.not56.i, label %.lr.ph99.i, label %..preheader_crit_edge.i, !llvm.loop !10
+  br i1 %.not56.i, label %.lr.ph99.i, label %..preheader_crit_edge.i, !llvm.loop !11
 
 .lr.ph105.i:                                      ; preds = %.lr.ph105.i.preheader, %.lr.ph105.i
   %80 = phi i8 [ %81, %.lr.ph105.i ], [ 0, %.lr.ph105.i.preheader ]
@@ -1073,7 +1073,7 @@ define hidden ptr @SDL_GetPixelFormatDetails_REAL(i32 noundef %0) local_unnamed_
   %82 = lshr i32 %.7104.i, 1
   %83 = and i32 %.7104.i, 2
   %.not57.i = icmp eq i32 %83, 0
-  br i1 %.not57.i, label %..loopexit_crit_edge.i, label %.lr.ph105.i, !llvm.loop !11
+  br i1 %.not57.i, label %..loopexit_crit_edge.i, label %.lr.ph105.i, !llvm.loop !12
 
 ..loopexit_crit_edge.i:                           ; preds = %.lr.ph105.i
   store i8 %81, ptr %74, align 1
@@ -1609,7 +1609,7 @@ define hidden void @SDL_DitherPalette(ptr noundef readonly captures(none) %0) lo
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %4, label %.loopexit, !llvm.loop !12
+  br i1 %32, label %4, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %4, %1
   ret void
@@ -1671,7 +1671,7 @@ define hidden zeroext i8 @SDL_FindColor(ptr noundef readonly captures(none) %0, 
   %.2 = phi i8 [ %.034, %14 ], [ %40, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %42, %39, %5
   %.1 = phi i8 [ 0, %5 ], [ %40, %39 ], [ %.2, %42 ]
@@ -1750,7 +1750,7 @@ define hidden zeroext i8 @SDL_LookupRGBAColor(ptr noundef %0, i32 noundef %1, pt
   %.2.i = phi i8 [ %.034.i, %23 ], [ %49, %48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_FindColor.exit, label %23, !llvm.loop !13
+  br i1 %exitcond.not.i, label %SDL_FindColor.exit, label %23, !llvm.loop !14
 
 SDL_FindColor.exit:                               ; preds = %48, %51, %12
   %.1.i = phi i8 [ 0, %12 ], [ %.2.i, %51 ], [ %49, %48 ]
@@ -1780,7 +1780,7 @@ define hidden void @SDL_DetectPalette(ptr noundef readonly captures(none) %0, pt
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge39, label %8, !llvm.loop !14
+  br i1 %exitcond.not, label %.critedge39, label %8, !llvm.loop !15
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -1792,7 +1792,7 @@ define hidden void @SDL_DetectPalette(ptr noundef readonly captures(none) %0, pt
 .critedge:                                        ; preds = %.lr.ph47
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
-  br i1 %exitcond53.not, label %.critedge39, label %.lr.ph47, !llvm.loop !15
+  br i1 %exitcond53.not, label %.critedge39, label %.lr.ph47, !llvm.loop !16
 
 .lr.ph47:                                         ; preds = %8, %.critedge
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %.critedge ], [ 0, %8 ]
@@ -1898,7 +1898,7 @@ define hidden i32 @SDL_MapRGB_REAL(ptr noundef readonly captures(address_is_null
   %.2.i = phi i8 [ %.034.i, %24 ], [ %50, %49 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_FindColor.exit.loopexit, label %24, !llvm.loop !13
+  br i1 %exitcond.not.i, label %SDL_FindColor.exit.loopexit, label %24, !llvm.loop !14
 
 SDL_FindColor.exit.loopexit:                      ; preds = %52, %49
   %.1.i.ph = phi i8 [ %50, %49 ], [ %.2.i, %52 ]
@@ -2075,7 +2075,7 @@ define hidden i32 @SDL_MapRGBA_REAL(ptr noundef readonly captures(address_is_nul
   %.2.i = phi i8 [ %.034.i, %26 ], [ %52, %51 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %SDL_FindColor.exit.loopexit, label %26, !llvm.loop !13
+  br i1 %exitcond.not.i, label %SDL_FindColor.exit.loopexit, label %26, !llvm.loop !14
 
 SDL_FindColor.exit.loopexit:                      ; preds = %54, %51
   %.1.i.ph = phi i8 [ %52, %51 ], [ %.2.i, %54 ]
@@ -2962,7 +2962,7 @@ SDL_FindColor.exit.preheader.i:                   ; preds = %.lr.ph.i
   %.2.i.us.i = phi i8 [ %.034.i.us.i, %76 ], [ %102, %101 ]
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %SDL_FindColor.exit.loopexit.us.i, label %76, !llvm.loop !13
+  br i1 %exitcond.not.i.us.i, label %SDL_FindColor.exit.loopexit.us.i, label %76, !llvm.loop !14
 
 SDL_FindColor.exit.loopexit.us.i:                 ; preds = %104, %101
   %.1.i.ph.us.i = phi i8 [ %.2.i.us.i, %104 ], [ %102, %101 ]
@@ -2970,7 +2970,7 @@ SDL_FindColor.exit.loopexit.us.i:                 ; preds = %104, %101
   store i8 %.1.i.ph.us.i, ptr %105, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i.us.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i.us.i, !llvm.loop !17
 
 .thread:                                          ; preds = %36
   store i32 1, ptr %3, align 8
@@ -3279,7 +3279,7 @@ Map1toN.exit.thread107:                           ; preds = %.preheader.i91
 317:                                              ; preds = %279, %264, %.thread.i, %.thread131.i, %187
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i93
-  br i1 %exitcond.not.i96, label %Map1toN.exit, label %162, !llvm.loop !18
+  br i1 %exitcond.not.i96, label %Map1toN.exit, label %162, !llvm.loop !19
 
 Map1toN.exit.thread:                              ; preds = %121, %137
   store ptr null, ptr %12, align 8
@@ -3422,19 +3422,20 @@ attributes #16 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !4, !5}

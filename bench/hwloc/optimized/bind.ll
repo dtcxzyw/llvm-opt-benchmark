@@ -699,10 +699,10 @@ hwloc_get_next_obj_by_depth.exit.i.i:             ; preds = %26, %21
 
 hwloc_get_next_obj_covering_cpuset_by_depth.exit.i: ; preds = %.preheader.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !54
+  %36 = load i32, ptr %35, align 8, !tbaa !55
   %37 = tail call i32 @hwloc_bitmap_set(ptr noundef %1, i32 noundef %36) #14
   %38 = icmp slt i32 %37, 0
-  br i1 %38, label %hwloc_cpuset_to_nodeset.exit, label %20, !llvm.loop !55
+  br i1 %38, label %hwloc_cpuset_to_nodeset.exit, label %20, !llvm.loop !56
 
 hwloc_cpuset_to_nodeset.exit:                     ; preds = %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i, %hwloc_get_next_obj_by_depth.exit.i.i, %23, %32, %16, %12, %7
   %.0 = phi i32 [ -1, %7 ], [ 0, %16 ], [ -1, %12 ], [ 0, %32 ], [ 0, %23 ], [ 0, %hwloc_get_next_obj_by_depth.exit.i.i ], [ 0, %hwloc_get_next_obj_covering_cpuset_by_depth.exit.i ]
@@ -759,7 +759,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %19, %14
 
 22:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %24 = load i32, ptr %23, align 8, !tbaa !54
+  %24 = load i32, ptr %23, align 8, !tbaa !55
   %25 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %9, i32 noundef %24) #13
   %.not12.i = icmp eq i32 %25, 0
   br i1 %.not12.i, label %.backedge, label %26
@@ -772,7 +772,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %19, %14
   br i1 %30, label %hwloc_cpuset_from_nodeset.exit, label %.backedge
 
 .backedge:                                        ; preds = %26, %22
-  br label %13, !llvm.loop !56
+  br label %13, !llvm.loop !57
 
 hwloc_cpuset_from_nodeset.exit:                   ; preds = %26, %hwloc_get_next_obj_by_depth.exit.i, %16, %8
   tail call void @hwloc_bitmap_free(ptr noundef %9) #14
@@ -800,7 +800,7 @@ define internal fastcc i32 @hwloc_get_membind_by_nodeset(ptr noundef %0, ptr nou
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %11 = load ptr, ptr %10, align 8, !tbaa !57
+  %11 = load ptr, ptr %10, align 8, !tbaa !58
   %.not41 = icmp eq ptr %11, null
   br i1 %.not41, label %35, label %12
 
@@ -815,7 +815,7 @@ define internal fastcc i32 @hwloc_get_membind_by_nodeset(ptr noundef %0, ptr nou
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %18 = load ptr, ptr %17, align 8, !tbaa !58
+  %18 = load ptr, ptr %17, align 8, !tbaa !59
   %.not40 = icmp eq ptr %18, null
   br i1 %.not40, label %35, label %19
 
@@ -825,7 +825,7 @@ define internal fastcc i32 @hwloc_get_membind_by_nodeset(ptr noundef %0, ptr nou
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %23 = load ptr, ptr %22, align 8, !tbaa !57
+  %23 = load ptr, ptr %22, align 8, !tbaa !58
   %.not37 = icmp eq ptr %23, null
   br i1 %.not37, label %30, label %24
 
@@ -842,7 +842,7 @@ define internal fastcc i32 @hwloc_get_membind_by_nodeset(ptr noundef %0, ptr nou
 
 30:                                               ; preds = %27, %21
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %32 = load ptr, ptr %31, align 8, !tbaa !58
+  %32 = load ptr, ptr %31, align 8, !tbaa !59
   %.not39 = icmp eq ptr %32, null
   br i1 %.not39, label %35, label %33
 
@@ -933,7 +933,7 @@ hwloc_fix_membind.exit:                           ; preds = %14
 
 19:                                               ; preds = %hwloc_fix_membind.exit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %21 = load ptr, ptr %20, align 8, !tbaa !59
+  %21 = load ptr, ptr %20, align 8, !tbaa !60
   %.not15 = icmp eq ptr %21, null
   br i1 %.not15, label %24, label %22
 
@@ -968,7 +968,7 @@ define i32 @hwloc_get_proc_membind(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %12 = load ptr, ptr %11, align 8, !tbaa !60
+  %12 = load ptr, ptr %11, align 8, !tbaa !61
   %.not9.i = icmp eq ptr %12, null
   br i1 %.not9.i, label %15, label %13
 
@@ -988,7 +988,7 @@ define i32 @hwloc_get_proc_membind(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %21 = load ptr, ptr %20, align 8, !tbaa !60
+  %21 = load ptr, ptr %20, align 8, !tbaa !61
   %.not9.i19 = icmp eq ptr %21, null
   br i1 %.not9.i19, label %hwloc_cpuset_from_nodeset.exit.sink.split, label %hwloc_get_proc_membind_by_nodeset.exit20
 
@@ -1029,7 +1029,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %31, %26
 
 34:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !54
+  %36 = load i32, ptr %35, align 8, !tbaa !55
   %37 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %18, i32 noundef %36) #13
   %.not12.i = icmp eq i32 %37, 0
   br i1 %.not12.i, label %.backedge, label %38
@@ -1042,7 +1042,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %31, %26
   br i1 %42, label %hwloc_cpuset_from_nodeset.exit, label %.backedge
 
 .backedge:                                        ; preds = %38, %34
-  br label %25, !llvm.loop !56
+  br label %25, !llvm.loop !57
 
 hwloc_cpuset_from_nodeset.exit.sink.split:        ; preds = %19, %17
   %.sink = phi i32 [ 22, %17 ], [ 38, %19 ]
@@ -1137,7 +1137,7 @@ hwloc_fix_membind.exit:                           ; preds = %16
 
 21:                                               ; preds = %hwloc_fix_membind.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %23 = load ptr, ptr %22, align 8, !tbaa !61
+  %23 = load ptr, ptr %22, align 8, !tbaa !62
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %26, label %24
 
@@ -1181,7 +1181,7 @@ define i32 @hwloc_get_area_membind(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %16 = load ptr, ptr %15, align 8, !tbaa !62
+  %16 = load ptr, ptr %15, align 8, !tbaa !63
   %.not13.i = icmp eq ptr %16, null
   br i1 %.not13.i, label %19, label %17
 
@@ -1203,7 +1203,7 @@ define i32 @hwloc_get_area_membind(ptr noundef %0, ptr noundef %1, i64 noundef %
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %25 = load ptr, ptr %24, align 8, !tbaa !62
+  %25 = load ptr, ptr %24, align 8, !tbaa !63
   %.not13.i22 = icmp eq ptr %25, null
   br i1 %.not13.i22, label %hwloc_cpuset_from_nodeset.exit.sink.split, label %hwloc_get_area_membind_by_nodeset.exit23
 
@@ -1244,7 +1244,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %35, %30
 
 38:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %39 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !54
+  %40 = load i32, ptr %39, align 8, !tbaa !55
   %41 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %22, i32 noundef %40) #13
   %.not12.i26 = icmp eq i32 %41, 0
   br i1 %.not12.i26, label %.backedge, label %42
@@ -1257,7 +1257,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %35, %30
   br i1 %46, label %hwloc_cpuset_from_nodeset.exit, label %.backedge
 
 .backedge:                                        ; preds = %42, %38
-  br label %29, !llvm.loop !56
+  br label %29, !llvm.loop !57
 
 hwloc_cpuset_from_nodeset.exit.sink.split:        ; preds = %23, %21
   %.sink = phi i32 [ 22, %21 ], [ 38, %23 ]
@@ -1296,7 +1296,7 @@ define i32 @hwloc_get_area_memlocation(ptr noundef %0, ptr noundef %1, i64 nound
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %13 = load ptr, ptr %12, align 8, !tbaa !63
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
   %.not12.i = icmp eq ptr %13, null
   br i1 %.not12.i, label %16, label %14
 
@@ -1320,7 +1320,7 @@ define i32 @hwloc_get_area_memlocation(ptr noundef %0, ptr noundef %1, i64 nound
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
+  %23 = load ptr, ptr %22, align 8, !tbaa !64
   %.not12.i20 = icmp eq ptr %23, null
   br i1 %.not12.i20, label %hwloc_cpuset_from_nodeset.exit.sink.split, label %hwloc_get_area_memlocation_by_nodeset.exit21
 
@@ -1361,7 +1361,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %32, %27
 
 35:                                               ; preds = %hwloc_get_next_obj_by_depth.exit.i
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %37 = load i32, ptr %36, align 8, !tbaa !54
+  %37 = load i32, ptr %36, align 8, !tbaa !55
   %38 = tail call i32 @hwloc_bitmap_isset(ptr noundef readonly %19, i32 noundef %37) #13
   %.not12.i24 = icmp eq i32 %38, 0
   br i1 %.not12.i24, label %.backedge, label %39
@@ -1374,7 +1374,7 @@ hwloc_get_next_obj_by_depth.exit.i:               ; preds = %32, %27
   br i1 %43, label %hwloc_cpuset_from_nodeset.exit, label %.backedge
 
 .backedge:                                        ; preds = %39, %35
-  br label %26, !llvm.loop !56
+  br label %26, !llvm.loop !57
 
 hwloc_cpuset_from_nodeset.exit.sink.split:        ; preds = %21, %18
   %.sink = phi i32 [ 22, %18 ], [ 38, %21 ]
@@ -1396,7 +1396,7 @@ hwloc_get_area_memlocation_by_nodeset.exit:       ; preds = %16, %14, %10, %8, %
 define hidden ptr @hwloc_alloc_heap(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store ptr null, ptr %3, align 8, !tbaa !64
+  store ptr null, ptr %3, align 8, !tbaa !65
   %4 = tail call i64 @sysconf(i32 noundef 30) #14
   %5 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef %4, i64 noundef %1) #14
   %6 = tail call ptr @__errno_location() #12
@@ -1455,7 +1455,7 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 define ptr @hwloc_alloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %5 = load ptr, ptr %4, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !66
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -1465,7 +1465,7 @@ define ptr @hwloc_alloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store ptr null, ptr %3, align 8, !tbaa !64
+  store ptr null, ptr %3, align 8, !tbaa !65
   %9 = tail call i64 @sysconf(i32 noundef 30) #14
   %10 = call i32 @posix_memalign(ptr noundef nonnull %3, i64 noundef %9, i64 noundef %1) #14
   %11 = tail call ptr @__errno_location() #12
@@ -1505,7 +1505,7 @@ define noalias ptr @hwloc_alloc_membind(ptr noundef %0, i64 noundef %1, ptr noun
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %17 = load ptr, ptr %16, align 8, !tbaa !65
+  %17 = load ptr, ptr %16, align 8, !tbaa !66
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %20, label %18
 
@@ -1515,7 +1515,7 @@ define noalias ptr @hwloc_alloc_membind(ptr noundef %0, i64 noundef %1, ptr noun
 
 20:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  store ptr null, ptr %6, align 8, !tbaa !64
+  store ptr null, ptr %6, align 8, !tbaa !65
   %21 = tail call i64 @sysconf(i32 noundef 30) #14
   %22 = call i32 @posix_memalign(ptr noundef nonnull %6, i64 noundef %21, i64 noundef %1) #14
   %23 = tail call ptr @__errno_location() #12
@@ -1580,7 +1580,7 @@ hwloc_fix_membind.exit:                           ; preds = %14
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %21 = load ptr, ptr %20, align 8, !tbaa !66
+  %21 = load ptr, ptr %20, align 8, !tbaa !67
   %.not36 = icmp eq ptr %21, null
   br i1 %.not36, label %24, label %22
 
@@ -1590,13 +1590,13 @@ hwloc_fix_membind.exit:                           ; preds = %14
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %26 = load ptr, ptr %25, align 8, !tbaa !61
+  %26 = load ptr, ptr %25, align 8, !tbaa !62
   %.not37 = icmp eq ptr %26, null
   br i1 %.not37, label %hwloc_fix_membind.exit.thread.sink.split, label %27
 
 27:                                               ; preds = %24
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %29 = load ptr, ptr %28, align 8, !tbaa !65
+  %29 = load ptr, ptr %28, align 8, !tbaa !66
   %.not.i43 = icmp eq ptr %29, null
   br i1 %.not.i43, label %32, label %30
 
@@ -1606,7 +1606,7 @@ hwloc_fix_membind.exit:                           ; preds = %14
 
 32:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  store ptr null, ptr %7, align 8, !tbaa !64
+  store ptr null, ptr %7, align 8, !tbaa !65
   %33 = tail call i64 @sysconf(i32 noundef 30) #14
   %34 = call i32 @posix_memalign(ptr noundef nonnull %7, i64 noundef %33, i64 noundef %1) #14
   %35 = tail call ptr @__errno_location() #12
@@ -1622,7 +1622,7 @@ hwloc_alloc.exit:                                 ; preds = %32, %30
   br i1 %.not38, label %hwloc_alloc.exit49, label %36
 
 36:                                               ; preds = %hwloc_alloc.exit
-  %37 = load ptr, ptr %25, align 8, !tbaa !61
+  %37 = load ptr, ptr %25, align 8, !tbaa !62
   %38 = call i32 %37(ptr noundef nonnull %0, ptr noundef nonnull %.0.i44, i64 noundef %1, ptr noundef nonnull %..i42, i32 noundef %3, i32 noundef %4) #14
   %.not39 = icmp eq i32 %38, 0
   %39 = and i32 %4, 4
@@ -1650,7 +1650,7 @@ hwloc_fix_membind.exit.thread:                    ; preds = %hwloc_fix_membind.e
 
 45:                                               ; preds = %hwloc_fix_membind.exit.thread
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %47 = load ptr, ptr %46, align 8, !tbaa !65
+  %47 = load ptr, ptr %46, align 8, !tbaa !66
   %.not.i45 = icmp eq ptr %47, null
   br i1 %.not.i45, label %50, label %48
 
@@ -1660,7 +1660,7 @@ hwloc_fix_membind.exit.thread:                    ; preds = %hwloc_fix_membind.e
 
 50:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  store ptr null, ptr %6, align 8, !tbaa !64
+  store ptr null, ptr %6, align 8, !tbaa !65
   %51 = tail call i64 @sysconf(i32 noundef 30) #14
   %52 = call i32 @posix_memalign(ptr noundef nonnull %6, i64 noundef %51, i64 noundef %1) #14
   %53 = tail call ptr @__errno_location() #12
@@ -1679,7 +1679,7 @@ hwloc_alloc.exit49:                               ; preds = %32, %50, %48, %hwlo
 ; Function Attrs: nounwind uwtable
 define i32 @hwloc_free(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %4, align 8, !tbaa !68
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
 
@@ -1707,62 +1707,62 @@ declare void @hwloc_set_linuxfs_hooks(ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %3 = load i64, ptr %2, align 8, !tbaa !68
+  %3 = load i64, ptr %2, align 8, !tbaa !69
   %4 = and i64 %3, 1
   %.not = icmp eq i64 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 464
   br i1 %.not, label %.thread, label %27
 
 .thread:                                          ; preds = %1
-  store ptr @dontset_thisproc_cpubind, ptr %5, align 8, !tbaa !69
+  store ptr @dontset_thisproc_cpubind, ptr %5, align 8, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  store ptr @dontget_thisproc_cpubind, ptr %6, align 8, !tbaa !70
+  store ptr @dontget_thisproc_cpubind, ptr %6, align 8, !tbaa !71
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store ptr @dontset_thisthread_cpubind, ptr %7, align 8, !tbaa !71
+  store ptr @dontset_thisthread_cpubind, ptr %7, align 8, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  store ptr @dontget_thisthread_cpubind, ptr %8, align 8, !tbaa !72
+  store ptr @dontget_thisthread_cpubind, ptr %8, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  store ptr @dontset_proc_cpubind, ptr %9, align 8, !tbaa !73
+  store ptr @dontset_proc_cpubind, ptr %9, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  store ptr @dontget_proc_cpubind, ptr %10, align 8, !tbaa !74
+  store ptr @dontget_proc_cpubind, ptr %10, align 8, !tbaa !75
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  store ptr @dontset_thread_cpubind, ptr %11, align 8, !tbaa !75
+  store ptr @dontset_thread_cpubind, ptr %11, align 8, !tbaa !76
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  store ptr @dontget_thread_cpubind, ptr %12, align 8, !tbaa !76
+  store ptr @dontget_thread_cpubind, ptr %12, align 8, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store ptr @dontget_thisproc_cpubind, ptr %13, align 8, !tbaa !77
+  store ptr @dontget_thisproc_cpubind, ptr %13, align 8, !tbaa !78
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store ptr @dontget_thisthread_cpubind, ptr %14, align 8, !tbaa !78
+  store ptr @dontget_thisthread_cpubind, ptr %14, align 8, !tbaa !79
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store ptr @dontget_proc_cpubind, ptr %15, align 8, !tbaa !79
+  store ptr @dontget_proc_cpubind, ptr %15, align 8, !tbaa !80
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store ptr @dontset_thisproc_membind, ptr %16, align 8, !tbaa !80
+  store ptr @dontset_thisproc_membind, ptr %16, align 8, !tbaa !81
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  store ptr @dontget_thisproc_membind, ptr %17, align 8, !tbaa !81
+  store ptr @dontget_thisproc_membind, ptr %17, align 8, !tbaa !82
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @dontset_thisthread_membind, ptr %18, align 8, !tbaa !82
+  store ptr @dontset_thisthread_membind, ptr %18, align 8, !tbaa !83
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store ptr @dontget_thisthread_membind, ptr %19, align 8, !tbaa !83
+  store ptr @dontget_thisthread_membind, ptr %19, align 8, !tbaa !84
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store ptr @dontset_proc_membind, ptr %20, align 8, !tbaa !84
+  store ptr @dontset_proc_membind, ptr %20, align 8, !tbaa !85
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr @dontget_proc_membind, ptr %21, align 8, !tbaa !85
+  store ptr @dontget_proc_membind, ptr %21, align 8, !tbaa !86
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @dontset_area_membind, ptr %22, align 8, !tbaa !86
+  store ptr @dontset_area_membind, ptr %22, align 8, !tbaa !87
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr @dontget_area_membind, ptr %23, align 8, !tbaa !87
+  store ptr @dontget_area_membind, ptr %23, align 8, !tbaa !88
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr @dontget_area_memlocation, ptr %24, align 8, !tbaa !88
+  store ptr @dontget_area_memlocation, ptr %24, align 8, !tbaa !89
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store ptr @dontalloc_membind, ptr %25, align 8, !tbaa !89
+  store ptr @dontalloc_membind, ptr %25, align 8, !tbaa !90
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr @dontfree_membind, ptr %26, align 8, !tbaa !90
+  store ptr @dontfree_membind, ptr %26, align 8, !tbaa !91
   br label %175
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 656
   tail call void @hwloc_set_linuxfs_hooks(ptr noundef nonnull %5, ptr noundef nonnull %28) #14
-  %.pre = load i64, ptr %2, align 8, !tbaa !68
+  %.pre = load i64, ptr %2, align 8, !tbaa !69
   %.pre70 = and i64 %.pre, 1
   %29 = icmp eq i64 %.pre70, 0
   br i1 %29, label %175, label %30
@@ -1775,8 +1775,8 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %35 = load ptr, ptr %34, align 8, !tbaa !91
-  store i8 1, ptr %35, align 1, !tbaa !92
+  %35 = load ptr, ptr %34, align 8, !tbaa !92
+  store i8 1, ptr %35, align 1, !tbaa !93
   br label %36
 
 36:                                               ; preds = %33, %30
@@ -1787,9 +1787,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %41 = load ptr, ptr %40, align 8, !tbaa !91
+  %41 = load ptr, ptr %40, align 8, !tbaa !92
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
-  store i8 1, ptr %42, align 1, !tbaa !94
+  store i8 1, ptr %42, align 1, !tbaa !95
   br label %43
 
 43:                                               ; preds = %39, %36
@@ -1800,9 +1800,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %48 = load ptr, ptr %47, align 8, !tbaa !91
+  %48 = load ptr, ptr %47, align 8, !tbaa !92
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  store i8 1, ptr %49, align 1, !tbaa !95
+  store i8 1, ptr %49, align 1, !tbaa !96
   br label %50
 
 50:                                               ; preds = %46, %43
@@ -1813,9 +1813,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %55 = load ptr, ptr %54, align 8, !tbaa !91
+  %55 = load ptr, ptr %54, align 8, !tbaa !92
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 3
-  store i8 1, ptr %56, align 1, !tbaa !96
+  store i8 1, ptr %56, align 1, !tbaa !97
   br label %57
 
 57:                                               ; preds = %53, %50
@@ -1826,9 +1826,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %62 = load ptr, ptr %61, align 8, !tbaa !91
+  %62 = load ptr, ptr %61, align 8, !tbaa !92
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i8 1, ptr %63, align 1, !tbaa !97
+  store i8 1, ptr %63, align 1, !tbaa !98
   br label %64
 
 64:                                               ; preds = %60, %57
@@ -1839,9 +1839,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 67:                                               ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %69 = load ptr, ptr %68, align 8, !tbaa !91
+  %69 = load ptr, ptr %68, align 8, !tbaa !92
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 5
-  store i8 1, ptr %70, align 1, !tbaa !98
+  store i8 1, ptr %70, align 1, !tbaa !99
   br label %71
 
 71:                                               ; preds = %67, %64
@@ -1852,9 +1852,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %76 = load ptr, ptr %75, align 8, !tbaa !91
+  %76 = load ptr, ptr %75, align 8, !tbaa !92
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 6
-  store i8 1, ptr %77, align 1, !tbaa !99
+  store i8 1, ptr %77, align 1, !tbaa !100
   br label %78
 
 78:                                               ; preds = %74, %71
@@ -1865,9 +1865,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %83 = load ptr, ptr %82, align 8, !tbaa !91
+  %83 = load ptr, ptr %82, align 8, !tbaa !92
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 7
-  store i8 1, ptr %84, align 1, !tbaa !100
+  store i8 1, ptr %84, align 1, !tbaa !101
   br label %85
 
 85:                                               ; preds = %81, %78
@@ -1878,9 +1878,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 88:                                               ; preds = %85
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %90 = load ptr, ptr %89, align 8, !tbaa !91
+  %90 = load ptr, ptr %89, align 8, !tbaa !92
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store i8 1, ptr %91, align 1, !tbaa !101
+  store i8 1, ptr %91, align 1, !tbaa !102
   br label %92
 
 92:                                               ; preds = %88, %85
@@ -1891,9 +1891,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %97 = load ptr, ptr %96, align 8, !tbaa !91
+  %97 = load ptr, ptr %96, align 8, !tbaa !92
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 9
-  store i8 1, ptr %98, align 1, !tbaa !102
+  store i8 1, ptr %98, align 1, !tbaa !103
   br label %99
 
 99:                                               ; preds = %95, %92
@@ -1904,9 +1904,9 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %104 = load ptr, ptr %103, align 8, !tbaa !91
+  %104 = load ptr, ptr %103, align 8, !tbaa !92
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 10
-  store i8 1, ptr %105, align 1, !tbaa !103
+  store i8 1, ptr %105, align 1, !tbaa !104
   br label %106
 
 106:                                              ; preds = %102, %99
@@ -1917,21 +1917,21 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %111 = load ptr, ptr %110, align 8, !tbaa !104
-  store i8 1, ptr %111, align 1, !tbaa !105
+  %111 = load ptr, ptr %110, align 8, !tbaa !105
+  store i8 1, ptr %111, align 1, !tbaa !106
   br label %112
 
 112:                                              ; preds = %109, %106
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %114 = load ptr, ptr %113, align 8, !tbaa !57
+  %114 = load ptr, ptr %113, align 8, !tbaa !58
   %.not61 = icmp eq ptr %114, null
   br i1 %.not61, label %119, label %115
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %117 = load ptr, ptr %116, align 8, !tbaa !104
+  %117 = load ptr, ptr %116, align 8, !tbaa !105
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
-  store i8 1, ptr %118, align 1, !tbaa !107
+  store i8 1, ptr %118, align 1, !tbaa !108
   br label %119
 
 119:                                              ; preds = %115, %112
@@ -1942,100 +1942,100 @@ define hidden void @hwloc_set_binding_hooks(ptr noundef %0) local_unnamed_addr #
 
 122:                                              ; preds = %119
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %124 = load ptr, ptr %123, align 8, !tbaa !104
+  %124 = load ptr, ptr %123, align 8, !tbaa !105
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  store i8 1, ptr %125, align 1, !tbaa !108
+  store i8 1, ptr %125, align 1, !tbaa !109
   br label %126
 
 126:                                              ; preds = %122, %119
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %128 = load ptr, ptr %127, align 8, !tbaa !58
+  %128 = load ptr, ptr %127, align 8, !tbaa !59
   %.not63 = icmp eq ptr %128, null
   br i1 %.not63, label %133, label %129
 
 129:                                              ; preds = %126
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %131 = load ptr, ptr %130, align 8, !tbaa !104
+  %131 = load ptr, ptr %130, align 8, !tbaa !105
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 5
-  store i8 1, ptr %132, align 1, !tbaa !109
+  store i8 1, ptr %132, align 1, !tbaa !110
   br label %133
 
 133:                                              ; preds = %129, %126
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %135 = load ptr, ptr %134, align 8, !tbaa !59
+  %135 = load ptr, ptr %134, align 8, !tbaa !60
   %.not64 = icmp eq ptr %135, null
   br i1 %.not64, label %140, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %138 = load ptr, ptr %137, align 8, !tbaa !104
+  %138 = load ptr, ptr %137, align 8, !tbaa !105
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 2
-  store i8 1, ptr %139, align 1, !tbaa !110
+  store i8 1, ptr %139, align 1, !tbaa !111
   br label %140
 
 140:                                              ; preds = %136, %133
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %142 = load ptr, ptr %141, align 8, !tbaa !60
+  %142 = load ptr, ptr %141, align 8, !tbaa !61
   %.not65 = icmp eq ptr %142, null
   br i1 %.not65, label %147, label %143
 
 143:                                              ; preds = %140
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %145 = load ptr, ptr %144, align 8, !tbaa !104
+  %145 = load ptr, ptr %144, align 8, !tbaa !105
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 3
-  store i8 1, ptr %146, align 1, !tbaa !111
+  store i8 1, ptr %146, align 1, !tbaa !112
   br label %147
 
 147:                                              ; preds = %143, %140
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %149 = load ptr, ptr %148, align 8, !tbaa !61
+  %149 = load ptr, ptr %148, align 8, !tbaa !62
   %.not66 = icmp eq ptr %149, null
   br i1 %.not66, label %154, label %150
 
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %152 = load ptr, ptr %151, align 8, !tbaa !104
+  %152 = load ptr, ptr %151, align 8, !tbaa !105
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 7
-  store i8 1, ptr %153, align 1, !tbaa !112
+  store i8 1, ptr %153, align 1, !tbaa !113
   br label %154
 
 154:                                              ; preds = %150, %147
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %156 = load ptr, ptr %155, align 8, !tbaa !62
+  %156 = load ptr, ptr %155, align 8, !tbaa !63
   %.not67 = icmp eq ptr %156, null
   br i1 %.not67, label %161, label %157
 
 157:                                              ; preds = %154
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %159 = load ptr, ptr %158, align 8, !tbaa !104
+  %159 = load ptr, ptr %158, align 8, !tbaa !105
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store i8 1, ptr %160, align 1, !tbaa !113
+  store i8 1, ptr %160, align 1, !tbaa !114
   br label %161
 
 161:                                              ; preds = %157, %154
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %163 = load ptr, ptr %162, align 8, !tbaa !63
+  %163 = load ptr, ptr %162, align 8, !tbaa !64
   %.not68 = icmp eq ptr %163, null
   br i1 %.not68, label %168, label %164
 
 164:                                              ; preds = %161
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %166 = load ptr, ptr %165, align 8, !tbaa !104
+  %166 = load ptr, ptr %165, align 8, !tbaa !105
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 9
-  store i8 1, ptr %167, align 1, !tbaa !114
+  store i8 1, ptr %167, align 1, !tbaa !115
   br label %168
 
 168:                                              ; preds = %164, %161
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %170 = load ptr, ptr %169, align 8, !tbaa !66
+  %170 = load ptr, ptr %169, align 8, !tbaa !67
   %.not69 = icmp eq ptr %170, null
   br i1 %.not69, label %175, label %171
 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %173 = load ptr, ptr %172, align 8, !tbaa !104
+  %173 = load ptr, ptr %172, align 8, !tbaa !105
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 6
-  store i8 1, ptr %174, align 1, !tbaa !115
+  store i8 1, ptr %174, align 1, !tbaa !116
   br label %175
 
 175:                                              ; preds = %.thread, %168, %171, %27
@@ -2272,67 +2272,68 @@ attributes #15 = { nounwind allocsize(0) }
 !49 = !{!"p2 _ZTS9hwloc_obj", !10, i64 0}
 !50 = !{!45, !48, i64 56}
 !51 = !{!45, !13, i64 184}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = !{!45, !4, i64 16}
-!55 = distinct !{!55, !53}
-!56 = distinct !{!56, !53}
-!57 = !{!8, !10, i64 560}
-!58 = !{!8, !10, i64 576}
-!59 = !{!8, !10, i64 584}
-!60 = !{!8, !10, i64 592}
-!61 = !{!8, !10, i64 600}
-!62 = !{!8, !10, i64 608}
-!63 = !{!8, !10, i64 616}
-!64 = !{!10, !10, i64 0}
-!65 = !{!8, !10, i64 624}
-!66 = !{!8, !10, i64 632}
-!67 = !{!8, !10, i64 640}
-!68 = !{!8, !12, i64 200}
-!69 = !{!14, !10, i64 0}
-!70 = !{!14, !10, i64 8}
-!71 = !{!14, !10, i64 16}
-!72 = !{!14, !10, i64 24}
-!73 = !{!14, !10, i64 32}
-!74 = !{!14, !10, i64 40}
-!75 = !{!14, !10, i64 48}
-!76 = !{!14, !10, i64 56}
-!77 = !{!14, !10, i64 64}
-!78 = !{!14, !10, i64 72}
-!79 = !{!14, !10, i64 80}
-!80 = !{!14, !10, i64 88}
-!81 = !{!14, !10, i64 96}
-!82 = !{!14, !10, i64 104}
-!83 = !{!14, !10, i64 112}
-!84 = !{!14, !10, i64 120}
-!85 = !{!14, !10, i64 128}
-!86 = !{!14, !10, i64 136}
-!87 = !{!14, !10, i64 144}
-!88 = !{!14, !10, i64 152}
-!89 = !{!14, !10, i64 168}
-!90 = !{!14, !10, i64 176}
-!91 = !{!8, !17, i64 664}
-!92 = !{!93, !5, i64 0}
-!93 = !{!"hwloc_topology_cpubind_support", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 9, !5, i64 10}
-!94 = !{!93, !5, i64 1}
-!95 = !{!93, !5, i64 2}
-!96 = !{!93, !5, i64 3}
-!97 = !{!93, !5, i64 4}
-!98 = !{!93, !5, i64 5}
-!99 = !{!93, !5, i64 6}
-!100 = !{!93, !5, i64 7}
-!101 = !{!93, !5, i64 8}
-!102 = !{!93, !5, i64 9}
-!103 = !{!93, !5, i64 10}
-!104 = !{!8, !18, i64 672}
-!105 = !{!106, !5, i64 0}
-!106 = !{!"hwloc_topology_membind_support", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 12, !5, i64 13, !5, i64 14, !5, i64 15}
-!107 = !{!106, !5, i64 1}
-!108 = !{!106, !5, i64 4}
-!109 = !{!106, !5, i64 5}
-!110 = !{!106, !5, i64 2}
-!111 = !{!106, !5, i64 3}
-!112 = !{!106, !5, i64 7}
-!113 = !{!106, !5, i64 8}
-!114 = !{!106, !5, i64 9}
-!115 = !{!106, !5, i64 6}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = !{!45, !4, i64 16}
+!56 = distinct !{!56, !53, !54}
+!57 = distinct !{!57, !53, !54}
+!58 = !{!8, !10, i64 560}
+!59 = !{!8, !10, i64 576}
+!60 = !{!8, !10, i64 584}
+!61 = !{!8, !10, i64 592}
+!62 = !{!8, !10, i64 600}
+!63 = !{!8, !10, i64 608}
+!64 = !{!8, !10, i64 616}
+!65 = !{!10, !10, i64 0}
+!66 = !{!8, !10, i64 624}
+!67 = !{!8, !10, i64 632}
+!68 = !{!8, !10, i64 640}
+!69 = !{!8, !12, i64 200}
+!70 = !{!14, !10, i64 0}
+!71 = !{!14, !10, i64 8}
+!72 = !{!14, !10, i64 16}
+!73 = !{!14, !10, i64 24}
+!74 = !{!14, !10, i64 32}
+!75 = !{!14, !10, i64 40}
+!76 = !{!14, !10, i64 48}
+!77 = !{!14, !10, i64 56}
+!78 = !{!14, !10, i64 64}
+!79 = !{!14, !10, i64 72}
+!80 = !{!14, !10, i64 80}
+!81 = !{!14, !10, i64 88}
+!82 = !{!14, !10, i64 96}
+!83 = !{!14, !10, i64 104}
+!84 = !{!14, !10, i64 112}
+!85 = !{!14, !10, i64 120}
+!86 = !{!14, !10, i64 128}
+!87 = !{!14, !10, i64 136}
+!88 = !{!14, !10, i64 144}
+!89 = !{!14, !10, i64 152}
+!90 = !{!14, !10, i64 168}
+!91 = !{!14, !10, i64 176}
+!92 = !{!8, !17, i64 664}
+!93 = !{!94, !5, i64 0}
+!94 = !{!"hwloc_topology_cpubind_support", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 9, !5, i64 10}
+!95 = !{!94, !5, i64 1}
+!96 = !{!94, !5, i64 2}
+!97 = !{!94, !5, i64 3}
+!98 = !{!94, !5, i64 4}
+!99 = !{!94, !5, i64 5}
+!100 = !{!94, !5, i64 6}
+!101 = !{!94, !5, i64 7}
+!102 = !{!94, !5, i64 8}
+!103 = !{!94, !5, i64 9}
+!104 = !{!94, !5, i64 10}
+!105 = !{!8, !18, i64 672}
+!106 = !{!107, !5, i64 0}
+!107 = !{!"hwloc_topology_membind_support", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3, !5, i64 4, !5, i64 5, !5, i64 6, !5, i64 7, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !5, i64 12, !5, i64 13, !5, i64 14, !5, i64 15}
+!108 = !{!107, !5, i64 1}
+!109 = !{!107, !5, i64 4}
+!110 = !{!107, !5, i64 5}
+!111 = !{!107, !5, i64 2}
+!112 = !{!107, !5, i64 3}
+!113 = !{!107, !5, i64 7}
+!114 = !{!107, !5, i64 8}
+!115 = !{!107, !5, i64 9}
+!116 = !{!107, !5, i64 6}

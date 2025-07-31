@@ -37268,7 +37268,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
 11:                                               ; preds = %lean_obj_tag.exit
   %12 = getelementptr inbounds nuw i8, ptr %.017, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !4
-  br label %2
+  br label %2, !llvm.loop !19
 
 14:                                               ; preds = %lean_obj_tag.exit
   %15 = getelementptr inbounds nuw i8, ptr %.017, i64 8
@@ -37881,7 +37881,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %21 = ptrtoint ptr %16 to i64
   %22 = and i64 %4, %21
   %or.cond.not = icmp eq i64 %22, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %23, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %23, !prof !21
 
 23:                                               ; preds = %14
   %24 = icmp eq ptr %16, %0
@@ -37978,7 +37978,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not = icmp eq i64 %20, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %21, !prof !21
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -37989,7 +37989,7 @@ lean_nat_eq.exit:                                 ; preds = %14
   br i1 %23, label %24, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %lean_nat_eq.exit, %21
-  br label %.backedge
+  br label %.backedge, !llvm.loop !22
 
 24:                                               ; preds = %21, %lean_nat_eq.exit, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %lean_nat_eq.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %21 ]
@@ -38475,7 +38475,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !23
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -38821,7 +38821,7 @@ lean_array_uset.exit106:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit106, %lean_array_uset.exit
   %.068.be = phi ptr [ %20, %lean_array_uset.exit ], [ %66, %lean_array_uset.exit106 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i103, %lean_array_uset.exit106 ]
-  br label %3
+  br label %3, !llvm.loop !24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -39118,7 +39118,7 @@ lean_obj_tag.exit19:                              ; preds = %23, %26
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
   %or.cond = select i1 %37, i1 %40, i1 false
-  br i1 %or.cond, label %41, label %.critedge.i, !prof !20
+  br i1 %or.cond, label %41, label %.critedge.i, !prof !25
 
 41:                                               ; preds = %30
   %42 = icmp eq ptr %32, %34
@@ -39181,7 +39181,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %29 = and i64 %28, 1
   %30 = icmp ne i64 %29, 0
   %or.cond = select i1 %27, i1 %30, i1 false
-  br i1 %or.cond, label %31, label %lean_nat_eq.exit, !prof !20
+  br i1 %or.cond, label %31, label %lean_nat_eq.exit, !prof !25
 
 31:                                               ; preds = %14
   %32 = icmp eq ptr %20, %23
@@ -39267,7 +39267,7 @@ lean_obj_tag.exit19.i:                            ; preds = %58, %55
   %71 = and i64 %70, 1
   %72 = icmp ne i64 %71, 0
   %or.cond.i = select i1 %69, i1 %72, i1 false
-  br i1 %or.cond.i, label %73, label %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, !prof !20
+  br i1 %or.cond.i, label %73, label %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, !prof !25
 
 73:                                               ; preds = %62
   %74 = icmp eq ptr %64, %66
@@ -39280,7 +39280,7 @@ l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_
   br i1 %cond.fr, label %.critedge, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, %lean_obj_tag.exit15.i, %73, %lean_obj_tag.exit19.i, %lean_nat_eq.exit, %31
-  br label %.backedge
+  br label %.backedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, %lean_obj_tag.exit15.i, %73, %lean_obj_tag.exit
   %.1 = phi i8 [ 0, %lean_obj_tag.exit ], [ 1, %73 ], [ 1, %lean_obj_tag.exit15.i ], [ 1, %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit ]
@@ -39766,7 +39766,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -40431,7 +40431,7 @@ lean_array_uset.exit245:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit245, %lean_array_uset.exit261, %lean_array_uset.exit, %lean_array_uset.exit213
   %.0146.be = phi ptr [ %19, %lean_array_uset.exit213 ], [ %19, %lean_array_uset.exit ], [ %158, %lean_array_uset.exit261 ], [ %158, %lean_array_uset.exit245 ]
   %.0.be = phi ptr [ %.0.i.i210, %lean_array_uset.exit213 ], [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i258, %lean_array_uset.exit261 ], [ %.0.i.i242, %lean_array_uset.exit245 ]
-  br label %3
+  br label %3, !llvm.loop !28
 
 270:                                              ; preds = %lean_obj_tag.exit235
   %271 = getelementptr inbounds nuw i8, ptr %204, i64 8
@@ -45393,7 +45393,7 @@ lean_alloc_ctor.exit192:                          ; preds = %lean_dec.exit127
   store i32 16842768, ptr %132, align 4
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %103, ptr %133, align 8, !tbaa !4
-  br label %7
+  br label %7, !llvm.loop !29
 
 134:                                              ; preds = %lean_obj_tag.exit
   br i1 %.not.i183, label %135, label %lean_dec.exit126
@@ -50558,7 +50558,7 @@ lean_obj_tag.exit19.i:                            ; preds = %141, %138
   %154 = and i64 %153, 1
   %155 = icmp ne i64 %154, 0
   %or.cond.i = select i1 %152, i1 %155, i1 false
-  br i1 %or.cond.i, label %156, label %.critedge.i.i, !prof !20
+  br i1 %or.cond.i, label %156, label %.critedge.i.i, !prof !25
 
 156:                                              ; preds = %145
   %157 = icmp eq ptr %147, %149
@@ -51070,7 +51070,7 @@ lean_obj_tag.exit19.i210:                         ; preds = %333, %330
   %346 = and i64 %345, 1
   %347 = icmp ne i64 %346, 0
   %or.cond.i212 = select i1 %344, i1 %347, i1 false
-  br i1 %or.cond.i212, label %348, label %.critedge.i.i213, !prof !20
+  br i1 %or.cond.i212, label %348, label %.critedge.i.i213, !prof !25
 
 348:                                              ; preds = %337
   %349 = icmp eq ptr %339, %341
@@ -55478,7 +55478,7 @@ lean_obj_tag.exit:                                ; preds = %7, %10
   %31 = and i64 %30, 1
   %32 = icmp ne i64 %31, 0
   %or.cond = select i1 %29, i1 %32, i1 false
-  br i1 %or.cond, label %33, label %lean_nat_eq.exit, !prof !20
+  br i1 %or.cond, label %33, label %lean_nat_eq.exit, !prof !25
 
 33:                                               ; preds = %14
   %34 = icmp eq ptr %22, %25
@@ -55563,7 +55563,7 @@ lean_obj_tag.exit19.i:                            ; preds = %60, %57
   %73 = and i64 %72, 1
   %74 = icmp ne i64 %73, 0
   %or.cond.i = select i1 %71, i1 %74, i1 false
-  br i1 %or.cond.i, label %75, label %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, !prof !20
+  br i1 %or.cond.i, label %75, label %l_Option_beqOption____x40_Init_Data_Option_Basic___hyg_160____at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__8.exit, !prof !25
 
 75:                                               ; preds = %64
   %76 = icmp eq ptr %66, %68
@@ -85217,7 +85217,7 @@ lean_dec.exit59:                                  ; preds = %22, %21, %19, %13
   %43 = ptrtoint ptr %0 to i64
   %44 = and i64 %42, %43
   %or.cond.not = icmp eq i64 %44, 0
-  br i1 %or.cond.not, label %lean_nat_eq.exit, label %45, !prof !19
+  br i1 %or.cond.not, label %lean_nat_eq.exit, label %45, !prof !21
 
 45:                                               ; preds = %40
   %46 = icmp eq ptr %35, %0
@@ -85384,7 +85384,7 @@ lean_dec.exit55:                                  ; preds = %98, %97, %95, %lean
   %100 = and i64 %99, 1
   %101 = and i64 %100, %84
   %or.cond92.not = icmp eq i64 %101, 0
-  br i1 %or.cond92.not, label %lean_nat_eq.exit76, label %102, !prof !19
+  br i1 %or.cond92.not, label %lean_nat_eq.exit76, label %102, !prof !21
 
 102:                                              ; preds = %lean_dec.exit55
   %103 = icmp eq ptr %35, %0
@@ -127779,7 +127779,7 @@ lean_string_dec_eq.exit:                          ; preds = %19
   br i1 %22, label %lean_string_dec_eq.exit.thread, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %lean_string_dec_eq.exit, %19
-  br label %.critedge
+  br label %.critedge, !llvm.loop !30
 
 lean_string_dec_eq.exit.thread:                   ; preds = %13, %lean_string_dec_eq.exit, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %lean_string_dec_eq.exit ], [ 0, %lean_obj_tag.exit ], [ 1, %13 ]
@@ -128102,7 +128102,7 @@ lean_array_uset.exit103:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit103, %lean_array_uset.exit
   %.068.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit103 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i100, %lean_array_uset.exit103 ]
-  br label %3
+  br label %3, !llvm.loop !31
 }
 
 declare i64 @lean_string_hash(ptr noundef) local_unnamed_addr #3
@@ -129051,7 +129051,7 @@ lean_string_dec_eq.exit.i:                        ; preds = %160
   br i1 %163, label %234, label %.critedge.i32067.backedge
 
 .critedge.i32067.backedge:                        ; preds = %lean_string_dec_eq.exit.i, %160
-  br label %.critedge.i32067
+  br label %.critedge.i32067, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit: ; preds = %lean_obj_tag.exit.i
   %164 = ptrtoint ptr %55 to i64
@@ -129710,7 +129710,7 @@ lean_string_dec_eq.exit.i32131:                   ; preds = %421
   br i1 %424, label %495, label %.critedge.i32123.backedge
 
 .critedge.i32123.backedge:                        ; preds = %lean_string_dec_eq.exit.i32131, %421
-  br label %.critedge.i32123
+  br label %.critedge.i32123, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit32134: ; preds = %lean_obj_tag.exit.i32126
   %425 = ptrtoint ptr %55 to i64
@@ -130645,7 +130645,7 @@ lean_string_dec_eq.exit.i32228:                   ; preds = %786
   br i1 %789, label %898, label %.critedge.i32220.backedge
 
 .critedge.i32220.backedge:                        ; preds = %lean_string_dec_eq.exit.i32228, %786
-  br label %.critedge.i32220
+  br label %.critedge.i32220, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit32231: ; preds = %lean_obj_tag.exit.i32223
   %790 = ptrtoint ptr %55 to i64
@@ -132135,7 +132135,7 @@ lean_string_dec_eq.exit.i32365:                   ; preds = %1368
   br i1 %1371, label %1518, label %.critedge.i32357.backedge
 
 .critedge.i32357.backedge:                        ; preds = %lean_string_dec_eq.exit.i32365, %1368
-  br label %.critedge.i32357
+  br label %.critedge.i32357, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit32368: ; preds = %lean_obj_tag.exit.i32360
   br i1 %.not42486, label %1382, label %1372, !prof !17
@@ -132869,9 +132869,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_dec.exit26125
   %1660 = getelementptr inbounds nuw i8, ptr %1656, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___lambda__1___boxed, ptr %1660, align 8, !tbaa !4
   %1661 = getelementptr inbounds nuw i8, ptr %1656, i64 16
-  store i16 2, ptr %1661, align 8, !tbaa !21
+  store i16 2, ptr %1661, align 8, !tbaa !32
   %1662 = getelementptr inbounds nuw i8, ptr %1656, i64 18
-  store i16 1, ptr %1662, align 2, !tbaa !21
+  store i16 1, ptr %1662, align 2, !tbaa !32
   %1663 = getelementptr inbounds nuw i8, ptr %1656, i64 24
   store ptr %0, ptr %1663, align 8, !tbaa !4
   %1664 = load ptr, ptr @l_Lean_Firefox_categories, align 8, !tbaa !4
@@ -133993,7 +133993,7 @@ lean_obj_tag.exit.i32520:                         ; preds = %2098, %2095
   %2107 = ptrtoint ptr %2104 to i64
   %2108 = and i64 %1727, %2107
   %or.cond.not.i = icmp eq i64 %2108, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %2109, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %2109, !prof !21
 
 2109:                                             ; preds = %2102
   %2110 = icmp eq ptr %2104, %.923868
@@ -134004,7 +134004,7 @@ lean_nat_eq.exit.i:                               ; preds = %2102
   br i1 %2111, label %16814, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %2109
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit: ; preds = %lean_obj_tag.exit.i32520
   br i1 %.not42558, label %2122, label %2112, !prof !17
@@ -189281,7 +189281,7 @@ lean_obj_tag.exit.i36796:                         ; preds = %24584, %24581
   %24593 = ptrtoint ptr %24590 to i64
   %24594 = and i64 %1727, %24593
   %or.cond.not.i36798 = icmp eq i64 %24594, 0
-  br i1 %or.cond.not.i36798, label %lean_nat_eq.exit.i36801, label %24595, !prof !19
+  br i1 %or.cond.not.i36798, label %lean_nat_eq.exit.i36801, label %24595, !prof !21
 
 24595:                                            ; preds = %24588
   %24596 = icmp eq ptr %24590, %.923868
@@ -189292,7 +189292,7 @@ lean_nat_eq.exit.i36801:                          ; preds = %24588
   br i1 %24597, label %29714, label %.backedge.i36799.backedge
 
 .backedge.i36799.backedge:                        ; preds = %lean_nat_eq.exit.i36801, %24595
-  br label %.backedge.i36799
+  br label %.backedge.i36799, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit36803: ; preds = %lean_obj_tag.exit.i36796
   br i1 %.not42558, label %24608, label %24598, !prof !17
@@ -210301,7 +210301,7 @@ lean_obj_tag.exit.i38336:                         ; preds = %32834, %32831
   %32843 = ptrtoint ptr %32840 to i64
   %32844 = and i64 %1727, %32843
   %or.cond.not.i38338 = icmp eq i64 %32844, 0
-  br i1 %or.cond.not.i38338, label %lean_nat_eq.exit.i38341, label %32845, !prof !19
+  br i1 %or.cond.not.i38338, label %lean_nat_eq.exit.i38341, label %32845, !prof !21
 
 32845:                                            ; preds = %32838
   %32846 = icmp eq ptr %32840, %.923868
@@ -210312,7 +210312,7 @@ lean_nat_eq.exit.i38341:                          ; preds = %32838
   br i1 %32847, label %38016, label %.backedge.i38339.backedge
 
 .backedge.i38339.backedge:                        ; preds = %lean_nat_eq.exit.i38341, %32845
-  br label %.backedge.i38339
+  br label %.backedge.i38339, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit38343: ; preds = %lean_obj_tag.exit.i38336
   br i1 %.not42558, label %32858, label %32848, !prof !17
@@ -258373,7 +258373,7 @@ lean_obj_tag.exit.i:                              ; preds = %10, %7
   %19 = ptrtoint ptr %16 to i64
   %20 = and i64 %4, %19
   %or.cond.not.i = icmp eq i64 %20, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %21, !prof !21
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %16, %0
@@ -258384,7 +258384,7 @@ lean_nat_eq.exit.i:                               ; preds = %14
   br i1 %23, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %21
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit: ; preds = %lean_obj_tag.exit.i, %21, %lean_nat_eq.exit.i
   %.1.i = phi i64 [ 3, %lean_nat_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ], [ 3, %21 ]
@@ -258514,7 +258514,7 @@ lean_obj_tag.exit19.i:                            ; preds = %26, %23
   %39 = and i64 %38, 1
   %40 = icmp ne i64 %39, 0
   %or.cond.i = select i1 %37, i1 %40, i1 false
-  br i1 %or.cond.i, label %41, label %.critedge.i.i, !prof !20
+  br i1 %or.cond.i, label %41, label %.critedge.i.i, !prof !25
 
 41:                                               ; preds = %30
   %42 = icmp eq ptr %32, %34
@@ -261906,7 +261906,7 @@ lean_string_dec_eq.exit.i:                        ; preds = %19
   br i1 %22, label %l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit, label %.critedge.i.backedge
 
 .critedge.i.backedge:                             ; preds = %lean_string_dec_eq.exit.i, %19
-  br label %.critedge.i
+  br label %.critedge.i, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit: ; preds = %lean_obj_tag.exit.i, %13, %lean_string_dec_eq.exit.i
   %.1.i = phi i64 [ 3, %lean_string_dec_eq.exit.i ], [ 1, %lean_obj_tag.exit.i ], [ 3, %13 ]
@@ -263201,7 +263201,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !34
 }
 
 ; Function Attrs: nounwind uwtable
@@ -263522,7 +263522,7 @@ lean_array_uset.exit108:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit108, %lean_array_uset.exit
   %.070.be = phi ptr [ %19, %lean_array_uset.exit ], [ %59, %lean_array_uset.exit108 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i105, %lean_array_uset.exit108 ]
-  br label %3
+  br label %3, !llvm.loop !35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -269624,9 +269624,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_box_float.exit
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__12___lambda__1___boxed, ptr %19, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i16 3, ptr %20, align 8, !tbaa !21
+  store i16 3, ptr %20, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 18
-  store i16 1, ptr %21, align 2, !tbaa !21
+  store i16 1, ptr %21, align 2, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %12, ptr %22, align 8, !tbaa !4
   %23 = ptrtoint ptr %.040129 to i64
@@ -269817,7 +269817,7 @@ lean_nat_le.exit.thread:                          ; preds = %81
 
 86:                                               ; preds = %lean_nat_le.exit
   %87 = tail call ptr @l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__12(double noundef %0, ptr noundef %1, ptr noundef %63, ptr noundef %.040129, ptr noundef %53, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not94, label %99, label %88, !prof !23
+  br i1 %.not94, label %99, label %88, !prof !36
 
 88:                                               ; preds = %86, %.thread76
   %89 = phi ptr [ %85, %.thread76 ], [ %87, %86 ]
@@ -270039,9 +270039,9 @@ lean_alloc_closure.exit:                          ; preds = %lean_box_float.exit
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__12___lambda__1___boxed, ptr %19, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i16 3, ptr %20, align 8, !tbaa !21
+  store i16 3, ptr %20, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 18
-  store i16 1, ptr %21, align 2, !tbaa !21
+  store i16 1, ptr %21, align 2, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %12, ptr %22, align 8, !tbaa !4
   %23 = ptrtoint ptr %.040129 to i64
@@ -270232,7 +270232,7 @@ lean_nat_le.exit.thread:                          ; preds = %81
 
 86:                                               ; preds = %lean_nat_le.exit
   %87 = tail call ptr @l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__13(double noundef %0, ptr noundef %1, ptr noundef %63, ptr noundef %.040129, ptr noundef %53, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not94, label %99, label %88, !prof !23
+  br i1 %.not94, label %99, label %88, !prof !36
 
 88:                                               ; preds = %86, %.thread76
   %89 = phi ptr [ %85, %.thread76 ], [ %87, %86 ]
@@ -270430,7 +270430,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %18, ptr %42, align 8, !tbaa !4
   %43 = tail call ptr @lean_array_push(ptr noundef %.0, ptr noundef nonnull %37) #8
-  br label %3
+  br label %3, !llvm.loop !37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -272086,7 +272086,7 @@ lean_nat_le.exit.thread:                          ; preds = %62
 
 67:                                               ; preds = %lean_nat_le.exit
   %68 = tail call ptr @l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__17(ptr noundef %0, ptr noundef %44, ptr noundef %.035, ptr noundef %34, ptr nonnull poison, ptr nonnull poison)
-  br i1 %.not88, label %80, label %69, !prof !23
+  br i1 %.not88, label %80, label %69, !prof !36
 
 69:                                               ; preds = %67, %.thread69
   %70 = phi ptr [ %66, %.thread69 ], [ %68, %67 ]
@@ -274657,7 +274657,7 @@ lean_string_dec_eq.exit.i:                        ; preds = %138
   br i1 %141, label %214, label %.critedge.i1161.backedge
 
 .critedge.i1161.backedge:                         ; preds = %lean_string_dec_eq.exit.i, %138
-  br label %.critedge.i1161
+  br label %.critedge.i1161, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit: ; preds = %lean_obj_tag.exit.i
   %142 = ptrtoint ptr %53 to i64
@@ -275244,7 +275244,7 @@ lean_string_dec_eq.exit.i1215:                    ; preds = %373
   br i1 %376, label %449, label %.critedge.i1207.backedge
 
 .critedge.i1207.backedge:                         ; preds = %lean_string_dec_eq.exit.i1215, %373
-  br label %.critedge.i1207
+  br label %.critedge.i1207, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit1218: ; preds = %lean_obj_tag.exit.i1210
   %377 = ptrtoint ptr %53 to i64
@@ -276104,7 +276104,7 @@ lean_string_dec_eq.exit.i1300:                    ; preds = %710
   br i1 %713, label %792, label %.critedge.i1292.backedge
 
 .critedge.i1292.backedge:                         ; preds = %lean_string_dec_eq.exit.i1300, %710
-  br label %.critedge.i1292
+  br label %.critedge.i1292, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit1303: ; preds = %lean_obj_tag.exit.i1295
   %714 = ptrtoint ptr %53 to i64
@@ -277512,7 +277512,7 @@ lean_string_dec_eq.exit.i1423:                    ; preds = %1254
   br i1 %1257, label %1371, label %.critedge.i1415.backedge
 
 .critedge.i1415.backedge:                         ; preds = %lean_string_dec_eq.exit.i1423, %1254
-  br label %.critedge.i1415
+  br label %.critedge.i1415, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit1426: ; preds = %lean_obj_tag.exit.i1418
   br i1 %.not1689, label %1268, label %1258, !prof !17
@@ -279191,7 +279191,7 @@ lean_string_dec_eq.exit.i1573:                    ; preds = %1895
   br i1 %1898, label %2058, label %.critedge.i1565.backedge
 
 .critedge.i1565.backedge:                         ; preds = %lean_string_dec_eq.exit.i1573, %1895
-  br label %.critedge.i1565
+  br label %.critedge.i1565, !llvm.loop !30
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__37.exit1576: ; preds = %lean_obj_tag.exit.i1568
   br i1 %.not1661, label %1909, label %1899, !prof !17
@@ -281460,7 +281460,7 @@ lean_obj_tag.exit.i:                              ; preds = %572, %569
   %581 = ptrtoint ptr %578 to i64
   %582 = and i64 %320, %581
   %or.cond.not.i = icmp eq i64 %582, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %583, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %583, !prof !21
 
 583:                                              ; preds = %576
   %584 = icmp eq ptr %578, %318
@@ -281471,7 +281471,7 @@ lean_nat_eq.exit.i:                               ; preds = %576
   br i1 %585, label %654, label %.backedge.i.backedge
 
 .backedge.i.backedge:                             ; preds = %lean_nat_eq.exit.i, %583
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit: ; preds = %lean_obj_tag.exit.i
   br i1 %.not4251, label %596, label %586, !prof !17
@@ -282342,7 +282342,7 @@ lean_obj_tag.exit.i3040:                          ; preds = %923, %920
   %932 = ptrtoint ptr %929 to i64
   %933 = and i64 %320, %932
   %or.cond.not.i3042 = icmp eq i64 %933, 0
-  br i1 %or.cond.not.i3042, label %lean_nat_eq.exit.i3045, label %934, !prof !19
+  br i1 %or.cond.not.i3042, label %lean_nat_eq.exit.i3045, label %934, !prof !21
 
 934:                                              ; preds = %927
   %935 = icmp eq ptr %929, %318
@@ -282353,7 +282353,7 @@ lean_nat_eq.exit.i3045:                           ; preds = %927
   br i1 %936, label %1005, label %.backedge.i3043.backedge
 
 .backedge.i3043.backedge:                         ; preds = %lean_nat_eq.exit.i3045, %934
-  br label %.backedge.i3043
+  br label %.backedge.i3043, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit3047: ; preds = %lean_obj_tag.exit.i3040
   br i1 %.not4241, label %947, label %937, !prof !17
@@ -283494,7 +283494,7 @@ lean_obj_tag.exit.i3157:                          ; preds = %1374, %1371
   %1383 = ptrtoint ptr %1380 to i64
   %1384 = and i64 %320, %1383
   %or.cond.not.i3159 = icmp eq i64 %1384, 0
-  br i1 %or.cond.not.i3159, label %lean_nat_eq.exit.i3162, label %1385, !prof !19
+  br i1 %or.cond.not.i3159, label %lean_nat_eq.exit.i3162, label %1385, !prof !21
 
 1385:                                             ; preds = %1378
   %1386 = icmp eq ptr %1380, %318
@@ -283505,7 +283505,7 @@ lean_nat_eq.exit.i3162:                           ; preds = %1378
   br i1 %1387, label %1462, label %.backedge.i3160.backedge
 
 .backedge.i3160.backedge:                         ; preds = %lean_nat_eq.exit.i3162, %1385
-  br label %.backedge.i3160
+  br label %.backedge.i3160, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit3164: ; preds = %lean_obj_tag.exit.i3157
   br i1 %.not4218, label %1398, label %1388, !prof !17
@@ -285174,7 +285174,7 @@ lean_obj_tag.exit.i3315:                          ; preds = %2027, %2024
   %2036 = ptrtoint ptr %2033 to i64
   %2037 = and i64 %320, %2036
   %or.cond.not.i3317 = icmp eq i64 %2037, 0
-  br i1 %or.cond.not.i3317, label %lean_nat_eq.exit.i3320, label %2038, !prof !19
+  br i1 %or.cond.not.i3317, label %lean_nat_eq.exit.i3320, label %2038, !prof !21
 
 2038:                                             ; preds = %2031
   %2039 = icmp eq ptr %2033, %318
@@ -285185,7 +285185,7 @@ lean_nat_eq.exit.i3320:                           ; preds = %2031
   br i1 %2040, label %2149, label %.backedge.i3318.backedge
 
 .backedge.i3318.backedge:                         ; preds = %lean_nat_eq.exit.i3320, %2038
-  br label %.backedge.i3318
+  br label %.backedge.i3318, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit3322: ; preds = %lean_obj_tag.exit.i3315
   br i1 %.not4172, label %2051, label %2041, !prof !17
@@ -287119,7 +287119,7 @@ lean_obj_tag.exit.i3503:                          ; preds = %2778, %2775
   %2787 = ptrtoint ptr %2784 to i64
   %2788 = and i64 %320, %2787
   %or.cond.not.i3505 = icmp eq i64 %2788, 0
-  br i1 %or.cond.not.i3505, label %lean_nat_eq.exit.i3508, label %2789, !prof !19
+  br i1 %or.cond.not.i3505, label %lean_nat_eq.exit.i3508, label %2789, !prof !21
 
 2789:                                             ; preds = %2782
   %2790 = icmp eq ptr %2784, %318
@@ -287130,7 +287130,7 @@ lean_nat_eq.exit.i3508:                           ; preds = %2782
   br i1 %2791, label %2943, label %.backedge.i3506.backedge
 
 .backedge.i3506.backedge:                         ; preds = %lean_nat_eq.exit.i3508, %2789
-  br label %.backedge.i3506
+  br label %.backedge.i3506, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit3510: ; preds = %lean_obj_tag.exit.i3503
   br i1 %.not4140, label %2802, label %2792, !prof !17
@@ -294498,7 +294498,7 @@ lean_obj_tag.exit.i:                              ; preds = %386, %383
   %395 = ptrtoint ptr %392 to i64
   %396 = and i64 %103, %395
   %or.cond.not.i = icmp eq i64 %396, 0
-  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %397, !prof !19
+  br i1 %or.cond.not.i, label %lean_nat_eq.exit.i, label %397, !prof !21
 
 397:                                              ; preds = %390
   %398 = icmp eq ptr %392, %101
@@ -294509,7 +294509,7 @@ lean_nat_eq.exit.i:                               ; preds = %390
   br i1 %399, label %550, label %lean_array_uget.exit2472.backedge
 
 lean_array_uget.exit2472.backedge:                ; preds = %lean_nat_eq.exit.i, %397
-  br label %lean_array_uget.exit2472
+  br label %lean_array_uget.exit2472, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit: ; preds = %lean_obj_tag.exit.i
   %400 = ptrtoint ptr %363 to i64
@@ -295110,7 +295110,7 @@ lean_obj_tag.exit.i2521:                          ; preds = %652, %649
   %661 = ptrtoint ptr %658 to i64
   %662 = and i64 %103, %661
   %or.cond.not.i2523 = icmp eq i64 %662, 0
-  br i1 %or.cond.not.i2523, label %lean_nat_eq.exit.i2526, label %663, !prof !19
+  br i1 %or.cond.not.i2523, label %lean_nat_eq.exit.i2526, label %663, !prof !21
 
 663:                                              ; preds = %656
   %664 = icmp eq ptr %658, %101
@@ -295121,7 +295121,7 @@ lean_nat_eq.exit.i2526:                           ; preds = %656
   br i1 %665, label %826, label %lean_array_uget.exit2518.backedge
 
 lean_array_uget.exit2518.backedge:                ; preds = %lean_nat_eq.exit.i2526, %663
-  br label %lean_array_uget.exit2518
+  br label %lean_array_uget.exit2518, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit2528: ; preds = %lean_obj_tag.exit.i2521
   br i1 %.not4139, label %676, label %666, !prof !17
@@ -296217,7 +296217,7 @@ lean_obj_tag.exit.i2628:                          ; preds = %1107, %1104
   %1116 = ptrtoint ptr %1113 to i64
   %1117 = and i64 %103, %1116
   %or.cond.not.i2630 = icmp eq i64 %1117, 0
-  br i1 %or.cond.not.i2630, label %lean_nat_eq.exit.i2633, label %1118, !prof !19
+  br i1 %or.cond.not.i2630, label %lean_nat_eq.exit.i2633, label %1118, !prof !21
 
 1118:                                             ; preds = %1111
   %1119 = icmp eq ptr %1113, %101
@@ -296228,7 +296228,7 @@ lean_nat_eq.exit.i2633:                           ; preds = %1111
   br i1 %1120, label %1289, label %lean_array_uget.exit2625.backedge
 
 lean_array_uget.exit2625.backedge:                ; preds = %lean_nat_eq.exit.i2633, %1118
-  br label %lean_array_uget.exit2625
+  br label %lean_array_uget.exit2625, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit2635: ; preds = %lean_obj_tag.exit.i2628
   br i1 %.not4124, label %1131, label %1121, !prof !17
@@ -297800,7 +297800,7 @@ lean_obj_tag.exit.i2785:                          ; preds = %1751, %1748
   %1760 = ptrtoint ptr %1757 to i64
   %1761 = and i64 %103, %1760
   %or.cond.not.i2787 = icmp eq i64 %1761, 0
-  br i1 %or.cond.not.i2787, label %lean_nat_eq.exit.i2790, label %1762, !prof !19
+  br i1 %or.cond.not.i2787, label %lean_nat_eq.exit.i2790, label %1762, !prof !21
 
 1762:                                             ; preds = %1755
   %1763 = icmp eq ptr %1757, %101
@@ -297811,7 +297811,7 @@ lean_nat_eq.exit.i2790:                           ; preds = %1755
   br i1 %1764, label %1933, label %lean_array_uget.exit2782.backedge
 
 lean_array_uget.exit2782.backedge:                ; preds = %lean_nat_eq.exit.i2790, %1762
-  br label %lean_array_uget.exit2782
+  br label %lean_array_uget.exit2782, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit2792: ; preds = %lean_obj_tag.exit.i2785
   br i1 %.not4105, label %1775, label %1765, !prof !17
@@ -299756,7 +299756,7 @@ lean_obj_tag.exit.i2989:                          ; preds = %2539, %2536
   %2548 = ptrtoint ptr %2545 to i64
   %2549 = and i64 %103, %2548
   %or.cond.not.i2991 = icmp eq i64 %2549, 0
-  br i1 %or.cond.not.i2991, label %lean_nat_eq.exit.i2994, label %2550, !prof !19
+  br i1 %or.cond.not.i2991, label %lean_nat_eq.exit.i2994, label %2550, !prof !21
 
 2550:                                             ; preds = %2543
   %2551 = icmp eq ptr %2545, %101
@@ -299767,7 +299767,7 @@ lean_nat_eq.exit.i2994:                           ; preds = %2543
   br i1 %2552, label %2721, label %lean_array_uget.exit2986.backedge
 
 lean_array_uget.exit2986.backedge:                ; preds = %lean_nat_eq.exit.i2994, %2550
-  br label %lean_array_uget.exit2986
+  br label %lean_array_uget.exit2986, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit2996: ; preds = %lean_obj_tag.exit.i2989
   br i1 %.not4077, label %2563, label %2553, !prof !17
@@ -301879,7 +301879,7 @@ lean_obj_tag.exit.i3212:                          ; preds = %3387, %3384
   %3396 = ptrtoint ptr %3393 to i64
   %3397 = and i64 %103, %3396
   %or.cond.not.i3214 = icmp eq i64 %3397, 0
-  br i1 %or.cond.not.i3214, label %lean_nat_eq.exit.i3217, label %3398, !prof !19
+  br i1 %or.cond.not.i3214, label %lean_nat_eq.exit.i3217, label %3398, !prof !21
 
 3398:                                             ; preds = %3391
   %3399 = icmp eq ptr %3393, %101
@@ -301890,7 +301890,7 @@ lean_nat_eq.exit.i3217:                           ; preds = %3391
   br i1 %3400, label %3581, label %lean_array_uget.exit3209.backedge
 
 lean_array_uget.exit3209.backedge:                ; preds = %lean_nat_eq.exit.i3217, %3398
-  br label %lean_array_uget.exit3209
+  br label %lean_array_uget.exit3209, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at___private_Lean_Util_Profiler_0__Lean_Firefox_addTrace_go___spec__2.exit3219: ; preds = %lean_obj_tag.exit.i3212
   br i1 %.not4046, label %3411, label %3401, !prof !17
@@ -309228,9 +309228,9 @@ _init_l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lea
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____lambda__1___boxed, ptr %34, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i16 1, ptr %35, align 8, !tbaa !21
+  store i16 1, ptr %35, align 8, !tbaa !32
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 18
-  store i16 0, ptr %36, align 2, !tbaa !21
+  store i16 0, ptr %36, align 2, !tbaa !32
   store ptr %30, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____closed__6, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %30) #8
   %37 = load ptr, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230____closed__5, align 8, !tbaa !4
@@ -309328,9 +309328,9 @@ _init_l_Lean_Firefox_instFromJsonCategory___closed__1.exit: ; preds = %_init_l__
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonCategory____x40_Lean_Util_Profiler___hyg_230_, ptr %84, align 8, !tbaa !4
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store i16 1, ptr %85, align 8, !tbaa !21
+  store i16 1, ptr %85, align 8, !tbaa !32
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 18
-  store i16 0, ptr %86, align 2, !tbaa !21
+  store i16 0, ptr %86, align 2, !tbaa !32
   store ptr %80, ptr @l_Lean_Firefox_instFromJsonCategory___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %80) #8
   %87 = load ptr, ptr @l_Lean_Firefox_instFromJsonCategory___closed__1, align 8, !tbaa !4
@@ -309355,9 +309355,9 @@ _init_l_Lean_Firefox_instToJsonCategory___closed__1.exit: ; preds = %_init_l_Lea
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonCategory____x40_Lean_Util_Profiler___hyg_375_, ptr %93, align 8, !tbaa !4
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store i16 1, ptr %94, align 8, !tbaa !21
+  store i16 1, ptr %94, align 8, !tbaa !32
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 18
-  store i16 0, ptr %95, align 2, !tbaa !21
+  store i16 0, ptr %95, align 2, !tbaa !32
   store ptr %89, ptr @l_Lean_Firefox_instToJsonCategory___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %89) #8
   %96 = load ptr, ptr @l_Lean_Firefox_instToJsonCategory___closed__1, align 8, !tbaa !4
@@ -309464,9 +309464,9 @@ _init_l_Lean_Firefox_instFromJsonSampleUnits___closed__1.exit: ; preds = %_init_
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonSampleUnits____x40_Lean_Util_Profiler___hyg_472_, ptr %148, align 8, !tbaa !4
   %149 = getelementptr inbounds nuw i8, ptr %144, i64 16
-  store i16 1, ptr %149, align 8, !tbaa !21
+  store i16 1, ptr %149, align 8, !tbaa !32
   %150 = getelementptr inbounds nuw i8, ptr %144, i64 18
-  store i16 0, ptr %150, align 2, !tbaa !21
+  store i16 0, ptr %150, align 2, !tbaa !32
   store ptr %144, ptr @l_Lean_Firefox_instFromJsonSampleUnits___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %144) #8
   %151 = load ptr, ptr @l_Lean_Firefox_instFromJsonSampleUnits___closed__1, align 8, !tbaa !4
@@ -309488,9 +309488,9 @@ _init_l_Lean_Firefox_instToJsonSampleUnits___closed__1.exit: ; preds = %_init_l_
   %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonSampleUnits____x40_Lean_Util_Profiler___hyg_617____boxed, ptr %156, align 8, !tbaa !4
   %157 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store i16 1, ptr %157, align 8, !tbaa !21
+  store i16 1, ptr %157, align 8, !tbaa !32
   %158 = getelementptr inbounds nuw i8, ptr %152, i64 18
-  store i16 0, ptr %158, align 2, !tbaa !21
+  store i16 0, ptr %158, align 2, !tbaa !32
   store ptr %152, ptr @l_Lean_Firefox_instToJsonSampleUnits___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %152) #8
   %159 = load ptr, ptr @l_Lean_Firefox_instToJsonSampleUnits___closed__1, align 8, !tbaa !4
@@ -309707,9 +309707,9 @@ _init_l_Lean_Firefox_instFromJsonProfileMeta___closed__1.exit: ; preds = %_init_
   %271 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonProfileMeta____x40_Lean_Util_Profiler___hyg_776_, ptr %271, align 8, !tbaa !4
   %272 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  store i16 1, ptr %272, align 8, !tbaa !21
+  store i16 1, ptr %272, align 8, !tbaa !32
   %273 = getelementptr inbounds nuw i8, ptr %267, i64 18
-  store i16 0, ptr %273, align 2, !tbaa !21
+  store i16 0, ptr %273, align 2, !tbaa !32
   store ptr %267, ptr @l_Lean_Firefox_instFromJsonProfileMeta___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %267) #8
   %274 = load ptr, ptr @l_Lean_Firefox_instFromJsonProfileMeta___closed__1, align 8, !tbaa !4
@@ -309731,9 +309731,9 @@ _init_l_Lean_Firefox_instToJsonProfileMeta___closed__1.exit: ; preds = %_init_l_
   %279 = getelementptr inbounds nuw i8, ptr %275, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonProfileMeta____x40_Lean_Util_Profiler___hyg_1116_, ptr %279, align 8, !tbaa !4
   %280 = getelementptr inbounds nuw i8, ptr %275, i64 16
-  store i16 1, ptr %280, align 8, !tbaa !21
+  store i16 1, ptr %280, align 8, !tbaa !32
   %281 = getelementptr inbounds nuw i8, ptr %275, i64 18
-  store i16 0, ptr %281, align 2, !tbaa !21
+  store i16 0, ptr %281, align 2, !tbaa !32
   store ptr %275, ptr @l_Lean_Firefox_instToJsonProfileMeta___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %275) #8
   %282 = load ptr, ptr @l_Lean_Firefox_instToJsonProfileMeta___closed__1, align 8, !tbaa !4
@@ -309901,9 +309901,9 @@ _init_l_Lean_Firefox_instFromJsonStackTable___closed__1.exit: ; preds = %_init_l
   %363 = getelementptr inbounds nuw i8, ptr %359, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonStackTable____x40_Lean_Util_Profiler___hyg_1303_, ptr %363, align 8, !tbaa !4
   %364 = getelementptr inbounds nuw i8, ptr %359, i64 16
-  store i16 1, ptr %364, align 8, !tbaa !21
+  store i16 1, ptr %364, align 8, !tbaa !32
   %365 = getelementptr inbounds nuw i8, ptr %359, i64 18
-  store i16 0, ptr %365, align 2, !tbaa !21
+  store i16 0, ptr %365, align 2, !tbaa !32
   store ptr %359, ptr @l_Lean_Firefox_instFromJsonStackTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %359) #8
   %366 = load ptr, ptr @l_Lean_Firefox_instFromJsonStackTable___closed__1, align 8, !tbaa !4
@@ -309925,9 +309925,9 @@ _init_l_Lean_Firefox_instToJsonStackTable___closed__1.exit: ; preds = %_init_l_L
   %371 = getelementptr inbounds nuw i8, ptr %367, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonStackTable____x40_Lean_Util_Profiler___hyg_1526_, ptr %371, align 8, !tbaa !4
   %372 = getelementptr inbounds nuw i8, ptr %367, i64 16
-  store i16 1, ptr %372, align 8, !tbaa !21
+  store i16 1, ptr %372, align 8, !tbaa !32
   %373 = getelementptr inbounds nuw i8, ptr %367, i64 18
-  store i16 0, ptr %373, align 2, !tbaa !21
+  store i16 0, ptr %373, align 2, !tbaa !32
   store ptr %367, ptr @l_Lean_Firefox_instToJsonStackTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %367) #8
   %374 = load ptr, ptr @l_Lean_Firefox_instToJsonStackTable___closed__1, align 8, !tbaa !4
@@ -310064,9 +310064,9 @@ _init_l_Lean_Firefox_instFromJsonSamplesTable___closed__1.exit: ; preds = %_init
   %444 = getelementptr inbounds nuw i8, ptr %440, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonSamplesTable____x40_Lean_Util_Profiler___hyg_1677_, ptr %444, align 8, !tbaa !4
   %445 = getelementptr inbounds nuw i8, ptr %440, i64 16
-  store i16 1, ptr %445, align 8, !tbaa !21
+  store i16 1, ptr %445, align 8, !tbaa !32
   %446 = getelementptr inbounds nuw i8, ptr %440, i64 18
-  store i16 0, ptr %446, align 2, !tbaa !21
+  store i16 0, ptr %446, align 2, !tbaa !32
   store ptr %440, ptr @l_Lean_Firefox_instFromJsonSamplesTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %440) #8
   %447 = load ptr, ptr @l_Lean_Firefox_instFromJsonSamplesTable___closed__1, align 8, !tbaa !4
@@ -310088,9 +310088,9 @@ _init_l_Lean_Firefox_instToJsonSamplesTable___closed__1.exit: ; preds = %_init_l
   %452 = getelementptr inbounds nuw i8, ptr %448, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonSamplesTable____x40_Lean_Util_Profiler___hyg_1939_, ptr %452, align 8, !tbaa !4
   %453 = getelementptr inbounds nuw i8, ptr %448, i64 16
-  store i16 1, ptr %453, align 8, !tbaa !21
+  store i16 1, ptr %453, align 8, !tbaa !32
   %454 = getelementptr inbounds nuw i8, ptr %448, i64 18
-  store i16 0, ptr %454, align 2, !tbaa !21
+  store i16 0, ptr %454, align 2, !tbaa !32
   store ptr %448, ptr @l_Lean_Firefox_instToJsonSamplesTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %448) #8
   %455 = load ptr, ptr @l_Lean_Firefox_instToJsonSamplesTable___closed__1, align 8, !tbaa !4
@@ -310283,9 +310283,9 @@ _init_l_Lean_Firefox_instFromJsonFuncTable___closed__1.exit: ; preds = %_init_l_
   %555 = getelementptr inbounds nuw i8, ptr %551, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonFuncTable____x40_Lean_Util_Profiler___hyg_2143_, ptr %555, align 8, !tbaa !4
   %556 = getelementptr inbounds nuw i8, ptr %551, i64 16
-  store i16 1, ptr %556, align 8, !tbaa !21
+  store i16 1, ptr %556, align 8, !tbaa !32
   %557 = getelementptr inbounds nuw i8, ptr %551, i64 18
-  store i16 0, ptr %557, align 2, !tbaa !21
+  store i16 0, ptr %557, align 2, !tbaa !32
   store ptr %551, ptr @l_Lean_Firefox_instFromJsonFuncTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %551) #8
   %558 = load ptr, ptr @l_Lean_Firefox_instFromJsonFuncTable___closed__1, align 8, !tbaa !4
@@ -310307,9 +310307,9 @@ _init_l_Lean_Firefox_instToJsonFuncTable___closed__1.exit: ; preds = %_init_l_Le
   %563 = getelementptr inbounds nuw i8, ptr %559, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonFuncTable____x40_Lean_Util_Profiler___hyg_2483_, ptr %563, align 8, !tbaa !4
   %564 = getelementptr inbounds nuw i8, ptr %559, i64 16
-  store i16 1, ptr %564, align 8, !tbaa !21
+  store i16 1, ptr %564, align 8, !tbaa !32
   %565 = getelementptr inbounds nuw i8, ptr %559, i64 18
-  store i16 0, ptr %565, align 2, !tbaa !21
+  store i16 0, ptr %565, align 2, !tbaa !32
   store ptr %559, ptr @l_Lean_Firefox_instToJsonFuncTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %559) #8
   %566 = load ptr, ptr @l_Lean_Firefox_instToJsonFuncTable___closed__1, align 8, !tbaa !4
@@ -310556,9 +310556,9 @@ _init_l_Lean_Firefox_instFromJsonFrameTable___closed__1.exit: ; preds = %_init_l
   %696 = getelementptr inbounds nuw i8, ptr %692, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonFrameTable____x40_Lean_Util_Profiler___hyg_2850_, ptr %696, align 8, !tbaa !4
   %697 = getelementptr inbounds nuw i8, ptr %692, i64 16
-  store i16 1, ptr %697, align 8, !tbaa !21
+  store i16 1, ptr %697, align 8, !tbaa !32
   %698 = getelementptr inbounds nuw i8, ptr %692, i64 18
-  store i16 0, ptr %698, align 2, !tbaa !21
+  store i16 0, ptr %698, align 2, !tbaa !32
   store ptr %692, ptr @l_Lean_Firefox_instFromJsonFrameTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %692) #8
   %699 = load ptr, ptr @l_Lean_Firefox_instFromJsonFrameTable___closed__1, align 8, !tbaa !4
@@ -310580,9 +310580,9 @@ _init_l_Lean_Firefox_instToJsonFrameTable___closed__1.exit: ; preds = %_init_l_L
   %704 = getelementptr inbounds nuw i8, ptr %700, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonFrameTable____x40_Lean_Util_Profiler___hyg_3307_, ptr %704, align 8, !tbaa !4
   %705 = getelementptr inbounds nuw i8, ptr %700, i64 16
-  store i16 1, ptr %705, align 8, !tbaa !21
+  store i16 1, ptr %705, align 8, !tbaa !32
   %706 = getelementptr inbounds nuw i8, ptr %700, i64 18
-  store i16 0, ptr %706, align 2, !tbaa !21
+  store i16 0, ptr %706, align 2, !tbaa !32
   store ptr %700, ptr @l_Lean_Firefox_instToJsonFrameTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %700) #8
   %707 = load ptr, ptr @l_Lean_Firefox_instToJsonFrameTable___closed__1, align 8, !tbaa !4
@@ -310717,9 +310717,9 @@ _init_l_Lean_Firefox_instFromJsonRawMarkerTable___closed__1.exit: ; preds = %_in
   %770 = getelementptr inbounds nuw i8, ptr %766, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonRawMarkerTable____x40_Lean_Util_Profiler___hyg_3586_, ptr %770, align 8, !tbaa !4
   %771 = getelementptr inbounds nuw i8, ptr %766, i64 16
-  store i16 1, ptr %771, align 8, !tbaa !21
+  store i16 1, ptr %771, align 8, !tbaa !32
   %772 = getelementptr inbounds nuw i8, ptr %766, i64 18
-  store i16 0, ptr %772, align 2, !tbaa !21
+  store i16 0, ptr %772, align 2, !tbaa !32
   store ptr %766, ptr @l_Lean_Firefox_instFromJsonRawMarkerTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %766) #8
   %773 = load ptr, ptr @l_Lean_Firefox_instFromJsonRawMarkerTable___closed__1, align 8, !tbaa !4
@@ -310741,9 +310741,9 @@ _init_l_Lean_Firefox_instToJsonRawMarkerTable___closed__1.exit: ; preds = %_init
   %778 = getelementptr inbounds nuw i8, ptr %774, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonRawMarkerTable____x40_Lean_Util_Profiler___hyg_3731_, ptr %778, align 8, !tbaa !4
   %779 = getelementptr inbounds nuw i8, ptr %774, i64 16
-  store i16 1, ptr %779, align 8, !tbaa !21
+  store i16 1, ptr %779, align 8, !tbaa !32
   %780 = getelementptr inbounds nuw i8, ptr %774, i64 18
-  store i16 0, ptr %780, align 2, !tbaa !21
+  store i16 0, ptr %780, align 2, !tbaa !32
   store ptr %774, ptr @l_Lean_Firefox_instToJsonRawMarkerTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %774) #8
   %781 = load ptr, ptr @l_Lean_Firefox_instToJsonRawMarkerTable___closed__1, align 8, !tbaa !4
@@ -310816,9 +310816,9 @@ _init_l_Lean_Firefox_instFromJsonResourceTable___closed__1.exit: ; preds = %_ini
   %815 = getelementptr inbounds nuw i8, ptr %811, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonResourceTable____x40_Lean_Util_Profiler___hyg_3825_, ptr %815, align 8, !tbaa !4
   %816 = getelementptr inbounds nuw i8, ptr %811, i64 16
-  store i16 1, ptr %816, align 8, !tbaa !21
+  store i16 1, ptr %816, align 8, !tbaa !32
   %817 = getelementptr inbounds nuw i8, ptr %811, i64 18
-  store i16 0, ptr %817, align 2, !tbaa !21
+  store i16 0, ptr %817, align 2, !tbaa !32
   store ptr %811, ptr @l_Lean_Firefox_instFromJsonResourceTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %811) #8
   %818 = load ptr, ptr @l_Lean_Firefox_instFromJsonResourceTable___closed__1, align 8, !tbaa !4
@@ -310840,9 +310840,9 @@ _init_l_Lean_Firefox_instToJsonResourceTable___closed__1.exit: ; preds = %_init_
   %823 = getelementptr inbounds nuw i8, ptr %819, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonResourceTable____x40_Lean_Util_Profiler___hyg_3931_, ptr %823, align 8, !tbaa !4
   %824 = getelementptr inbounds nuw i8, ptr %819, i64 16
-  store i16 1, ptr %824, align 8, !tbaa !21
+  store i16 1, ptr %824, align 8, !tbaa !32
   %825 = getelementptr inbounds nuw i8, ptr %819, i64 18
-  store i16 0, ptr %825, align 2, !tbaa !21
+  store i16 0, ptr %825, align 2, !tbaa !32
   store ptr %819, ptr @l_Lean_Firefox_instToJsonResourceTable___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %819) #8
   %826 = load ptr, ptr @l_Lean_Firefox_instToJsonResourceTable___closed__1, align 8, !tbaa !4
@@ -311079,9 +311079,9 @@ _init_l_Lean_Firefox_instFromJsonThread___closed__1.exit: ; preds = %_init_l_Lea
   %950 = getelementptr inbounds nuw i8, ptr %946, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonThread____x40_Lean_Util_Profiler___hyg_4084_, ptr %950, align 8, !tbaa !4
   %951 = getelementptr inbounds nuw i8, ptr %946, i64 16
-  store i16 1, ptr %951, align 8, !tbaa !21
+  store i16 1, ptr %951, align 8, !tbaa !32
   %952 = getelementptr inbounds nuw i8, ptr %946, i64 18
-  store i16 0, ptr %952, align 2, !tbaa !21
+  store i16 0, ptr %952, align 2, !tbaa !32
   store ptr %946, ptr @l_Lean_Firefox_instFromJsonThread___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %946) #8
   %953 = load ptr, ptr @l_Lean_Firefox_instFromJsonThread___closed__1, align 8, !tbaa !4
@@ -311103,9 +311103,9 @@ _init_l_Lean_Firefox_instToJsonThread___closed__1.exit: ; preds = %_init_l_Lean_
   %958 = getelementptr inbounds nuw i8, ptr %954, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonThread____x40_Lean_Util_Profiler___hyg_4502_, ptr %958, align 8, !tbaa !4
   %959 = getelementptr inbounds nuw i8, ptr %954, i64 16
-  store i16 1, ptr %959, align 8, !tbaa !21
+  store i16 1, ptr %959, align 8, !tbaa !32
   %960 = getelementptr inbounds nuw i8, ptr %954, i64 18
-  store i16 0, ptr %960, align 2, !tbaa !21
+  store i16 0, ptr %960, align 2, !tbaa !32
   store ptr %954, ptr @l_Lean_Firefox_instToJsonThread___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %954) #8
   %961 = load ptr, ptr @l_Lean_Firefox_instToJsonThread___closed__1, align 8, !tbaa !4
@@ -311212,9 +311212,9 @@ _init_l_Lean_Firefox_instFromJsonProfile___closed__1.exit: ; preds = %_init_l_Le
   %1013 = getelementptr inbounds nuw i8, ptr %1009, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_fromJsonProfile____x40_Lean_Util_Profiler___hyg_4702_, ptr %1013, align 8, !tbaa !4
   %1014 = getelementptr inbounds nuw i8, ptr %1009, i64 16
-  store i16 1, ptr %1014, align 8, !tbaa !21
+  store i16 1, ptr %1014, align 8, !tbaa !32
   %1015 = getelementptr inbounds nuw i8, ptr %1009, i64 18
-  store i16 0, ptr %1015, align 2, !tbaa !21
+  store i16 0, ptr %1015, align 2, !tbaa !32
   store ptr %1009, ptr @l_Lean_Firefox_instFromJsonProfile___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1009) #8
   %1016 = load ptr, ptr @l_Lean_Firefox_instFromJsonProfile___closed__1, align 8, !tbaa !4
@@ -311236,9 +311236,9 @@ _init_l_Lean_Firefox_instToJsonProfile___closed__1.exit: ; preds = %_init_l_Lean
   %1021 = getelementptr inbounds nuw i8, ptr %1017, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_toJsonProfile____x40_Lean_Util_Profiler___hyg_4847_, ptr %1021, align 8, !tbaa !4
   %1022 = getelementptr inbounds nuw i8, ptr %1017, i64 16
-  store i16 1, ptr %1022, align 8, !tbaa !21
+  store i16 1, ptr %1022, align 8, !tbaa !32
   %1023 = getelementptr inbounds nuw i8, ptr %1017, i64 18
-  store i16 0, ptr %1023, align 2, !tbaa !21
+  store i16 0, ptr %1023, align 2, !tbaa !32
   store ptr %1017, ptr @l_Lean_Firefox_instToJsonProfile___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1017) #8
   %1024 = load ptr, ptr @l_Lean_Firefox_instToJsonProfile___closed__1, align 8, !tbaa !4
@@ -311595,9 +311595,9 @@ _init_l___private_Lean_Util_Profiler_0__Lean_Firefox_getFirstStart_x3f___lambda_
   %1164 = getelementptr inbounds nuw i8, ptr %1160, i64 8
   store ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_getFirstStart_x3f___lambda__1___boxed, ptr %1164, align 8, !tbaa !4
   %1165 = getelementptr inbounds nuw i8, ptr %1160, i64 16
-  store i16 1, ptr %1165, align 8, !tbaa !21
+  store i16 1, ptr %1165, align 8, !tbaa !32
   %1166 = getelementptr inbounds nuw i8, ptr %1160, i64 18
-  store i16 0, ptr %1166, align 2, !tbaa !21
+  store i16 0, ptr %1166, align 2, !tbaa !32
   store ptr %1160, ptr @l___private_Lean_Util_Profiler_0__Lean_Firefox_getFirstStart_x3f___lambda__2___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1160) #8
   tail call void @lean_inc_heartbeat() #8
@@ -312258,9 +312258,9 @@ _init_l_Array_groupByKey___at_Lean_Firefox_Profile_export___spec__1___closed__1.
   %1395 = getelementptr inbounds nuw i8, ptr %1391, i64 8
   store ptr @l_instDecidableEqUInt64___boxed, ptr %1395, align 8, !tbaa !4
   %1396 = getelementptr inbounds nuw i8, ptr %1391, i64 16
-  store i16 2, ptr %1396, align 8, !tbaa !21
+  store i16 2, ptr %1396, align 8, !tbaa !32
   %1397 = getelementptr inbounds nuw i8, ptr %1391, i64 18
-  store i16 0, ptr %1397, align 2, !tbaa !21
+  store i16 0, ptr %1397, align 2, !tbaa !32
   store ptr %1391, ptr @l_Array_groupByKey___at_Lean_Firefox_Profile_export___spec__1___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1391) #8
   %1398 = load ptr, ptr @l_Array_groupByKey___at_Lean_Firefox_Profile_export___spec__1___closed__1, align 8, !tbaa !4
@@ -312280,9 +312280,9 @@ _init_l_Array_groupByKey___at_Lean_Firefox_Profile_export___spec__1___closed__2.
   %1403 = getelementptr inbounds nuw i8, ptr %1399, i64 8
   store ptr @l_instBEqOfDecidableEq___rarg, ptr %1403, align 8, !tbaa !4
   %1404 = getelementptr inbounds nuw i8, ptr %1399, i64 16
-  store i16 3, ptr %1404, align 8, !tbaa !21
+  store i16 3, ptr %1404, align 8, !tbaa !32
   %1405 = getelementptr inbounds nuw i8, ptr %1399, i64 18
-  store i16 1, ptr %1405, align 2, !tbaa !21
+  store i16 1, ptr %1405, align 2, !tbaa !32
   %1406 = getelementptr inbounds nuw i8, ptr %1399, i64 24
   store ptr %1398, ptr %1406, align 8, !tbaa !4
   store ptr %1399, ptr @l_Array_groupByKey___at_Lean_Firefox_Profile_export___spec__1___closed__2, align 8, !tbaa !4
@@ -312380,9 +312380,9 @@ _init_l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__17___closed__1
   %1439 = getelementptr inbounds nuw i8, ptr %1435, i64 8
   store ptr @l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__17___lambda__1___boxed, ptr %1439, align 8, !tbaa !4
   %1440 = getelementptr inbounds nuw i8, ptr %1435, i64 16
-  store i16 2, ptr %1440, align 8, !tbaa !21
+  store i16 2, ptr %1440, align 8, !tbaa !32
   %1441 = getelementptr inbounds nuw i8, ptr %1435, i64 18
-  store i16 0, ptr %1441, align 2, !tbaa !21
+  store i16 0, ptr %1441, align 2, !tbaa !32
   store ptr %1435, ptr @l_Array_qsort_sort___at_Lean_Firefox_Profile_export___spec__17___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1435) #8
   tail call void @lean_inc_heartbeat() #8
@@ -312401,9 +312401,9 @@ _init_l_Lean_Firefox_Profile_export___closed__1.exit: ; preds = %_init_l_Array_q
   %1446 = getelementptr inbounds nuw i8, ptr %1442, i64 8
   store ptr @l_Lean_Firefox_Profile_export___lambda__1___boxed, ptr %1446, align 8, !tbaa !4
   %1447 = getelementptr inbounds nuw i8, ptr %1442, i64 16
-  store i16 1, ptr %1447, align 8, !tbaa !21
+  store i16 1, ptr %1447, align 8, !tbaa !32
   %1448 = getelementptr inbounds nuw i8, ptr %1442, i64 18
-  store i16 0, ptr %1448, align 2, !tbaa !21
+  store i16 0, ptr %1448, align 2, !tbaa !32
   store ptr %1442, ptr @l_Lean_Firefox_Profile_export___closed__1, align 8, !tbaa !4
   tail call void @lean_mark_persistent(ptr noundef nonnull %1442) #8
   %1449 = tail call double @l_Float_ofScientific(ptr noundef nonnull inttoptr (i64 2000000001 to ptr), i8 noundef zeroext 0, ptr noundef nonnull inttoptr (i64 1 to ptr)) #8
@@ -312737,8 +312737,22 @@ attributes #9 = { noreturn nounwind }
 !16 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !18 = !{!6, !6, i64 0}
-!19 = !{!"branch_weights", i32 4001, i32 4000000}
-!20 = !{!"branch_weights", i32 4000000, i32 4001}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !6, i64 0}
-!23 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!"branch_weights", i32 4001, i32 4000000}
+!22 = distinct !{!22, !20}
+!23 = distinct !{!23, !20}
+!24 = distinct !{!24, !20}
+!25 = !{!"branch_weights", i32 4000000, i32 4001}
+!26 = distinct !{!26, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !20}
+!29 = distinct !{!29, !20}
+!30 = distinct !{!30, !20}
+!31 = distinct !{!31, !20}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"short", !6, i64 0}
+!34 = distinct !{!34, !20}
+!35 = distinct !{!35, !20}
+!36 = !{!"branch_weights", !"expected", i32 1073204, i32 2146410444}
+!37 = distinct !{!37, !20}

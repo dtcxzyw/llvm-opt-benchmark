@@ -231,7 +231,7 @@ PutI4Mode.exit:                                   ; preds = %62, %77, %84, %98, 
   %126 = getelementptr inbounds i8, ptr %.047, i64 %55
   %127 = add nuw nsw i32 %.03446, 1
   %exitcond49.not = icmp eq i32 %127, 4
-  br i1 %exitcond49.not, label %.loopexit, label %58, !llvm.loop !37
+  br i1 %exitcond49.not, label %.loopexit, label %58, !llvm.loop !38
 
 .loopexit:                                        ; preds = %125, %44
   %128 = load i8, ptr %12, align 4
@@ -259,7 +259,7 @@ PutI4Mode.exit:                                   ; preds = %62, %77, %84, %98, 
 PutUVMode.exit:                                   ; preds = %.loopexit, %134, %138
   %142 = call i32 @VP8IteratorNext(ptr noundef nonnull %2) #6
   %.not39 = icmp eq i32 %142, 0
-  br i1 %.not39, label %143, label %11, !llvm.loop !38
+  br i1 %.not39, label %143, label %11, !llvm.loop !39
 
 143:                                              ; preds = %PutUVMode.exit
   call void @llvm.lifetime.end.p0(i64 3848, ptr nonnull %2) #6
@@ -321,22 +321,22 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr noundef readonly captures
 26:                                               ; preds = %24, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %27, label %13, !llvm.loop !39
+  br i1 %exitcond.not, label %27, label %13, !llvm.loop !40
 
 27:                                               ; preds = %26
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %28, label %.preheader, !llvm.loop !40
+  br i1 %exitcond43.not, label %28, label %.preheader, !llvm.loop !41
 
 28:                                               ; preds = %27
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, 8
-  br i1 %exitcond47.not, label %29, label %.preheader33, !llvm.loop !41
+  br i1 %exitcond47.not, label %29, label %.preheader33, !llvm.loop !42
 
 29:                                               ; preds = %28
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 4
-  br i1 %exitcond51.not, label %30, label %.preheader34, !llvm.loop !42
+  br i1 %exitcond51.not, label %30, label %.preheader34, !llvm.loop !43
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 19884
@@ -347,7 +347,7 @@ define hidden void @VP8WriteProbas(ptr noundef %0, ptr noundef readonly captures
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %36 = load i8, ptr %35, align 1, !tbaa !43
+  %36 = load i8, ptr %35, align 1, !tbaa !44
   %37 = zext i8 %36 to i32
   tail call void @VP8PutBits(ptr noundef %0, i32 noundef %37, i32 noundef 8) #6
   br label %38
@@ -405,12 +405,13 @@ attributes #6 = { nounwind }
 !32 = !{!20, !7, i64 23500}
 !33 = !{!20, !5, i64 3619}
 !34 = !{!20, !7, i64 56}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = distinct !{!38, !36}
-!39 = distinct !{!39, !36}
-!40 = distinct !{!40, !36}
-!41 = distinct !{!41, !36}
-!42 = distinct !{!42, !36}
-!43 = !{!4, !5, i64 3}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}
+!39 = distinct !{!39, !36, !37}
+!40 = distinct !{!40, !36, !37}
+!41 = distinct !{!41, !36, !37}
+!42 = distinct !{!42, !36, !37}
+!43 = distinct !{!43, !36, !37}
+!44 = !{!4, !5, i64 3}

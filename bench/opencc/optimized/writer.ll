@@ -575,7 +575,7 @@ _ZNK6marisa8grimoire2io6Writer7is_openEv.exit.thread: ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %.037, i64 %20
   %30 = sub i64 %.02036, %20
   %.not32 = icmp eq i64 %30, 0
-  br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %.not32, label %.loopexit, label %.preheader, !llvm.loop !34
 
 31:                                               ; preds = %17
   br i1 %.not.i, label %32, label %49
@@ -633,7 +633,7 @@ _ZNK6marisa8grimoire2io6Writer7is_openEv.exit.thread: ; preds = %3
   %55 = load i64, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %51, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = load i32, ptr %57, align 8, !tbaa !34
+  %58 = load i32, ptr %57, align 8, !tbaa !35
   %59 = and i32 %58, 5
   %.not = icmp eq i32 %59, 0
   br i1 %.not, label %.loopexit, label %60
@@ -804,16 +804,17 @@ attributes #23 = { builtin nounwind }
 !28 = !{!9, !9, i64 0}
 !29 = !{!10, !10, i64 0}
 !30 = !{!11, !11, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = distinct !{!33, !32}
-!34 = !{!35, !38, i64 32}
-!35 = !{!"_ZTSSt8ios_base", !36, i64 8, !36, i64 16, !37, i64 24, !38, i64 28, !38, i64 32, !39, i64 40, !40, i64 48, !7, i64 64, !9, i64 192, !41, i64 200, !42, i64 208}
-!36 = !{!"long", !7, i64 0}
-!37 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
-!38 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
-!39 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !6, i64 0}
-!40 = !{!"_ZTSNSt8ios_base6_WordsE", !6, i64 0, !36, i64 8}
-!41 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
-!42 = !{!"_ZTSSt6locale", !43, i64 0}
-!43 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !32, !33}
+!35 = !{!36, !39, i64 32}
+!36 = !{!"_ZTSSt8ios_base", !37, i64 8, !37, i64 16, !38, i64 24, !39, i64 28, !39, i64 32, !40, i64 40, !41, i64 48, !7, i64 64, !9, i64 192, !42, i64 200, !43, i64 208}
+!37 = !{!"long", !7, i64 0}
+!38 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
+!39 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
+!40 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !6, i64 0}
+!41 = !{!"_ZTSNSt8ios_base6_WordsE", !6, i64 0, !37, i64 8}
+!42 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !6, i64 0}
+!43 = !{!"_ZTSSt6locale", !44, i64 0}
+!44 = !{!"p1 _ZTSNSt6locale5_ImplE", !6, i64 0}

@@ -846,7 +846,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.5, i32 noundef 29) #10
@@ -1046,7 +1046,7 @@ define internal fastcc ptr @llvm_debug_vector_type(ptr noundef readonly captures
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 37
-  br i1 %53, label %8, label %._crit_edge, !llvm.loop !7
+  br i1 %53, label %8, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %33, %2
   %.024.lcssa = phi ptr [ null, %2 ], [ %36, %33 ]
@@ -1240,7 +1240,7 @@ define internal fastcc noundef ptr @llvm_debug_enum_type(ptr noundef readonly ca
   store ptr %53, ptr %82, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %77, %3, %42
   %.060.lcssa = phi ptr [ null, %42 ], [ null, %3 ], [ %80, %77 ]
@@ -1301,7 +1301,7 @@ define internal fastcc ptr @llvm_debug_func_type(ptr noundef readonly captures(n
   %15 = tail call fastcc ptr @llvm_get_debug_type_internal(ptr noundef %0, ptr noundef %13, ptr noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %10, %2, %6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1622,7 +1622,7 @@ expand_.exit131:                                  ; preds = %153, %158
   store ptr %179, ptr %187, align 8
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next148, %wide.trip.count150
-  br i1 %exitcond151.not, label %._crit_edge143, label %153, !llvm.loop !11
+  br i1 %exitcond151.not, label %._crit_edge143, label %153, !llvm.loop !13
 
 ._crit_edge143:                                   ; preds = %186, %146, %149
   %188 = phi ptr [ %147, %149 ], [ %147, %146 ], [ %180, %186 ]
@@ -1829,7 +1829,7 @@ define internal fastcc ptr @llvm_debug_structlike_type(ptr noundef readonly capt
   store ptr %57, ptr %86, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %81, %3, %34
   %.079.lcssa = phi ptr [ null, %34 ], [ null, %3 ], [ %84, %81 ]
@@ -2096,7 +2096,7 @@ define internal fastcc ptr @llvm_debug_array_type(ptr noundef readonly captures(
   %45 = load ptr, ptr %5, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8
-  br label %4, !llvm.loop !13
+  br label %4, !llvm.loop !15
 
 48:                                               ; preds = %4
   %49 = getelementptr inbounds nuw i8, ptr %.034, i64 48
@@ -2423,9 +2423,11 @@ attributes #10 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}
+!13 = distinct !{!13, !10, !8}
+!14 = distinct !{!14, !10, !8}
+!15 = distinct !{!15, !10, !8}

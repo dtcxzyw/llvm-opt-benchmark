@@ -98,7 +98,7 @@ define dso_local i64 @__siphash_unaligned(ptr noundef %0, i64 noundef %1, ptr no
   br i1 %60, label %69, label %61
 
 61:                                               ; preds = %.loopexit
-  %62 = tail call i64 asm sideeffect "1:\09mov $1, $0\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 20 \0A .popsection\0A", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %55) #3, !srcloc !8
+  %62 = tail call i64 asm sideeffect "1:\09mov $1, $0\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 20 \0A .popsection\0A", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %55) #3, !srcloc !9
   %63 = shl nuw nsw i8 %7, 3
   %64 = zext nneg i8 %63 to i64
   %65 = shl nsw i64 -1, %64
@@ -1166,7 +1166,7 @@ define dso_local i32 @__hsiphash_unaligned(ptr noundef %0, i64 noundef %1, ptr n
   %38 = xor i64 %31, %22
   %39 = getelementptr i8, ptr %21, i64 8
   %40 = icmp eq ptr %39, %5
-  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %40, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %3
   %41 = phi ptr [ %0, %3 ], [ %5, %.preheader ]
@@ -1178,7 +1178,7 @@ define dso_local i32 @__hsiphash_unaligned(ptr noundef %0, i64 noundef %1, ptr n
   br i1 %46, label %55, label %47
 
 47:                                               ; preds = %.loopexit
-  %48 = tail call i64 asm sideeffect "1:\09mov $1, $0\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 20 \0A .popsection\0A", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41) #3, !srcloc !8
+  %48 = tail call i64 asm sideeffect "1:\09mov $1, $0\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 20 \0A .popsection\0A", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41) #3, !srcloc !9
   %49 = shl nuw nsw i8 %7, 3
   %50 = zext nneg i8 %49 to i64
   %51 = shl nsw i64 -1, %50
@@ -1634,8 +1634,9 @@ attributes #3 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 2817127, i64 2817156, i64 2150301961, i64 2150302005, i64 2150302028, i64 2150302061, i64 2150302092, i64 2150302131}
-!9 = distinct !{!9, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2817127, i64 2817156, i64 2150301961, i64 2150302005, i64 2150302028, i64 2150302061, i64 2150302092, i64 2150302131}
+!10 = distinct !{!10, !6, !7, !8}

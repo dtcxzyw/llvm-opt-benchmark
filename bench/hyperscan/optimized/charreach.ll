@@ -35,7 +35,7 @@ define hidden void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_
   store i64 %14, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 1
   %.not = icmp eq ptr %15, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -56,7 +56,7 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnu
   %.012.add.i.i = add nuw nsw i64 %.012.idx14.i.i, 8
   %.not.i.i = icmp ne i64 %.012.add.i.i, 32
   %or.cond.not.i.i = select i1 %.not13.i.i, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %2, label %_ZNK3ue29CharReach4noneEv.exit
+  br i1 %or.cond.not.i.i, label %2, label %_ZNK3ue29CharReach4noneEv.exit, !llvm.loop !7
 
 _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %2
   br i1 %.not13.i.i, label %.loopexit, label %.preheader
@@ -71,7 +71,7 @@ _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %2
 6:                                                ; preds = %.preheader
   %7 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %7, 4
-  br i1 %exitcond.i.i, label %.loopexit, label %.preheader, !llvm.loop !5
+  br i1 %exitcond.i.i, label %.loopexit, label %.preheader, !llvm.loop !8
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
   %8 = shl nuw nsw i64 %.0710.i.i, 6
@@ -123,7 +123,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
   %28 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0.i.i
   %29 = load i64, ptr %28, align 8
   %.not22.i.i = icmp eq i64 %29, 0
-  br i1 %.not22.i.i, label %25, label %30, !llvm.loop !7
+  br i1 %.not22.i.i, label %25, label %30, !llvm.loop !10
 
 30:                                               ; preds = %27
   %31 = shl nuw nsw i64 %.0.i.i, 6
@@ -138,7 +138,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %23, %30
   %35 = and i8 %34, -33
   %36 = add i8 %35, -65
   %37 = icmp ult i8 %36, 26
-  br i1 %37, label %.lr.ph42, label %.loopexit, !llvm.loop !8
+  br i1 %37, label %.lr.ph42, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %6, %_ZNK3ue29CharReach9find_nextEm.exit, %.lr.ph42, %25, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit, %_ZNK3ue29CharReach4noneEv.exit
   %.06 = phi i1 [ false, %_ZNK3ue29CharReach4noneEv.exit ], [ true, %_ZNK3ue29CharReach10find_firstEv.exit ], [ false, %.lr.ph.preheader ], [ true, %25 ], [ %.not.i.i11, %.lr.ph42 ], [ %.not.i.i11, %_ZNK3ue29CharReach9find_nextEm.exit ], [ true, %6 ]
@@ -174,7 +174,7 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr nound
 18:                                               ; preds = %.preheader
   %19 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %19, 4
-  br i1 %exitcond.i.i, label %_ZNK3ue29CharReach9find_nextEm.exit, label %.preheader, !llvm.loop !5
+  br i1 %exitcond.i.i, label %_ZNK3ue29CharReach9find_nextEm.exit, label %.preheader, !llvm.loop !8
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
   %20 = shl nuw nsw i64 %.0710.i.i, 6
@@ -211,7 +211,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
   %32 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0.i.i
   %33 = load i64, ptr %32, align 8
   %.not22.i.i = icmp eq i64 %33, 0
-  br i1 %.not22.i.i, label %30, label %34, !llvm.loop !7
+  br i1 %.not22.i.i, label %30, label %34, !llvm.loop !10
 
 34:                                               ; preds = %31
   %35 = shl nuw nsw i64 %.0.i.i, 6
@@ -253,7 +253,7 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach17isBit5InsensitiveEv(ptr no
 5:                                                ; preds = %2
   %6 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %6, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %2, !llvm.loop !5
+  br i1 %exitcond.i.i, label %._crit_edge, label %2, !llvm.loop !8
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %2
   %7 = shl nuw nsw i64 %.0710.i.i, 6
@@ -308,7 +308,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %2
   %29 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0.i.i
   %30 = load i64, ptr %29, align 8
   %.not22.i.i = icmp eq i64 %30, 0
-  br i1 %.not22.i.i, label %26, label %31, !llvm.loop !7
+  br i1 %.not22.i.i, label %26, label %31, !llvm.loop !10
 
 31:                                               ; preds = %28
   %32 = shl nuw nsw i64 %.0.i.i, 6
@@ -327,7 +327,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %24, %31
   %40 = shl nuw i64 1, %39
   %41 = and i64 %38, %40
   %.not8.not = icmp eq i64 %41, 0
-  br i1 %.not8.not, label %._crit_edge, label %.lr.ph39, !llvm.loop !9
+  br i1 %.not8.not, label %._crit_edge, label %.lr.ph39, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %5, %_ZNK3ue29CharReach9find_nextEm.exit, %.lr.ph39, %26, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
   %.not.lcssa = phi i1 [ true, %_ZNK3ue29CharReach10find_firstEv.exit ], [ false, %.lr.ph.preheader ], [ true, %26 ], [ %.not.i.i7, %.lr.ph39 ], [ %.not.i.i7, %_ZNK3ue29CharReach9find_nextEm.exit ], [ true, %5 ]
@@ -353,7 +353,7 @@ define hidden void @_ZNK3ue29CharReach9to_stringB5cxx11Ev(ptr dead_on_unwind noa
 8:                                                ; preds = %5
   %9 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %9, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %5, !llvm.loop !5
+  br i1 %exitcond.i.i, label %._crit_edge, label %5, !llvm.loop !8
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %5
   %10 = shl nuw nsw i64 %.0710.i.i, 6
@@ -452,7 +452,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   %48 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %.0.i.i
   %49 = load i64, ptr %48, align 8
   %.not22.i.i = icmp eq i64 %49, 0
-  br i1 %.not22.i.i, label %45, label %50, !llvm.loop !7
+  br i1 %.not22.i.i, label %45, label %50, !llvm.loop !10
 
 50:                                               ; preds = %47
   %51 = shl nuw nsw i64 %.0.i.i, 6
@@ -475,30 +475,30 @@ declare i32 @__gxx_personality_v0(...)
 define hidden noundef zeroext i1 @_ZN3ue28overlapsERKNS_9CharReachES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #4 {
   %3 = alloca %"class.ue2::CharReach", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %4 = load i64, ptr %1, align 8, !noalias !10
-  %5 = load i64, ptr %3, align 8, !alias.scope !10
+  %4 = load i64, ptr %1, align 8, !noalias !13
+  %5 = load i64, ptr %3, align 8, !alias.scope !13
   %6 = and i64 %5, %4
-  store i64 %6, ptr %3, align 8, !alias.scope !10
+  store i64 %6, ptr %3, align 8, !alias.scope !13
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !noalias !10
+  %8 = load i64, ptr %7, align 8, !noalias !13
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load i64, ptr %9, align 8, !alias.scope !10
+  %10 = load i64, ptr %9, align 8, !alias.scope !13
   %11 = and i64 %10, %8
-  store i64 %11, ptr %9, align 8, !alias.scope !10
+  store i64 %11, ptr %9, align 8, !alias.scope !13
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !10
+  %13 = load i64, ptr %12, align 8, !noalias !13
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = load i64, ptr %14, align 8, !alias.scope !10
+  %15 = load i64, ptr %14, align 8, !alias.scope !13
   %16 = and i64 %15, %13
-  store i64 %16, ptr %14, align 8, !alias.scope !10
+  store i64 %16, ptr %14, align 8, !alias.scope !13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8, !noalias !10
+  %18 = load i64, ptr %17, align 8, !noalias !13
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = load i64, ptr %19, align 8, !alias.scope !10
+  %20 = load i64, ptr %19, align 8, !alias.scope !13
   %21 = and i64 %20, %18
-  store i64 %21, ptr %19, align 8, !alias.scope !10
+  store i64 %21, ptr %19, align 8, !alias.scope !13
   br label %22
 
 22:                                               ; preds = %22, %2
@@ -509,7 +509,7 @@ define hidden noundef zeroext i1 @_ZN3ue28overlapsERKNS_9CharReachES2_(ptr nound
   %.012.add.i.i.i = add nuw nsw i64 %.012.idx14.i.i.i, 8
   %.not.i.i.i = icmp ne i64 %.012.add.i.i.i, 32
   %or.cond.not.i.i.i = select i1 %.not13.i.i.i, i1 %.not.i.i.i, i1 false
-  br i1 %or.cond.not.i.i.i, label %22, label %_ZNK3ue29CharReach3anyEv.exit
+  br i1 %or.cond.not.i.i.i, label %22, label %_ZNK3ue29CharReach3anyEv.exit, !llvm.loop !7
 
 _ZNK3ue29CharReach3anyEv.exit:                    ; preds = %22
   %24 = xor i1 %.not13.i.i.i, true
@@ -521,42 +521,8 @@ _ZNK3ue29CharReach3anyEv.exit:                    ; preds = %22
 define hidden noundef zeroext i1 @_ZN3ue210isSubsetOfERKNS_9CharReachES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 {
   %3 = alloca %"class.ue2::bitfield", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
-  %4 = load i64, ptr %0, align 8, !noalias !13
-  %5 = load i64, ptr %3, align 8, !alias.scope !13
-  %6 = and i64 %5, %4
-  store i64 %6, ptr %3, align 8, !alias.scope !13
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !noalias !13
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load i64, ptr %9, align 8, !alias.scope !13
-  %11 = and i64 %10, %8
-  store i64 %11, ptr %9, align 8, !alias.scope !13
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !noalias !13
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = load i64, ptr %14, align 8, !alias.scope !13
-  %16 = and i64 %15, %13
-  store i64 %16, ptr %14, align 8, !alias.scope !13
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load i64, ptr %17, align 8, !noalias !13
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %20 = load i64, ptr %19, align 8, !alias.scope !13
-  %21 = and i64 %20, %18
-  store i64 %21, ptr %19, align 8, !alias.scope !13
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32)
-  %.not9.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
-  ret i1 %.not9.i.i.i.i.i.i.i
-}
-
-; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
-  %3 = alloca %"class.ue2::bitfield", align 8
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = load i64, ptr %0, align 8, !noalias !16
   %5 = load i64, ptr %3, align 8, !alias.scope !16
   %6 = and i64 %5, %4
@@ -579,6 +545,40 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr nound
   %20 = load i64, ptr %19, align 8, !alias.scope !16
   %21 = and i64 %20, %18
   store i64 %21, ptr %19, align 8, !alias.scope !16
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32)
+  %.not9.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
+  ret i1 %.not9.i.i.i.i.i.i.i
+}
+
+; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define hidden noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
+  %3 = alloca %"class.ue2::bitfield", align 8
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  %4 = load i64, ptr %0, align 8, !noalias !19
+  %5 = load i64, ptr %3, align 8, !alias.scope !19
+  %6 = and i64 %5, %4
+  store i64 %6, ptr %3, align 8, !alias.scope !19
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load i64, ptr %7, align 8, !noalias !19
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = load i64, ptr %9, align 8, !alias.scope !19
+  %11 = and i64 %10, %8
+  store i64 %11, ptr %9, align 8, !alias.scope !19
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !noalias !19
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = load i64, ptr %14, align 8, !alias.scope !19
+  %16 = and i64 %15, %13
+  store i64 %16, ptr %14, align 8, !alias.scope !19
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = load i64, ptr %17, align 8, !noalias !19
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %20 = load i64, ptr %19, align 8, !alias.scope !19
+  %21 = and i64 %20, %18
+  store i64 %21, ptr %19, align 8, !alias.scope !19
   %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32)
   %.not9.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17
@@ -636,7 +636,7 @@ define hidden void @_ZN3ue213make_caselessEPNS_9CharReachE(ptr noundef captures(
 24:                                               ; preds = %11, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 91
-  br i1 %exitcond.not, label %2, label %3, !llvm.loop !19
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -658,32 +658,32 @@ _ZN3ue29CharReachC2Ehh.exit:
   store i64 %5, ptr %.0.ptr.i.i.i, align 8
   %.0.add.i.i.i = add nuw nsw i64 %.0.idx9.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %.0.add.i.i.i, 32
-  br i1 %.not.i.i.i, label %_ZNK3ue29CharReachcoEv.exit, label %3
+  br i1 %.not.i.i.i, label %_ZNK3ue29CharReachcoEv.exit, label %3, !llvm.loop !23
 
 _ZNK3ue29CharReachcoEv.exit:                      ; preds = %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   %6 = load i64, ptr %.sroa.0, align 8
-  %7 = load i64, ptr %1, align 8, !alias.scope !20
+  %7 = load i64, ptr %1, align 8, !alias.scope !24
   %8 = and i64 %7, %6
-  store i64 %8, ptr %1, align 8, !alias.scope !20
+  store i64 %8, ptr %1, align 8, !alias.scope !24
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !alias.scope !20
+  %12 = load i64, ptr %11, align 8, !alias.scope !24
   %13 = and i64 %12, %10
-  store i64 %13, ptr %11, align 8, !alias.scope !20
+  store i64 %13, ptr %11, align 8, !alias.scope !24
   %14 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = load i64, ptr %16, align 8, !alias.scope !20
+  %17 = load i64, ptr %16, align 8, !alias.scope !24
   %18 = and i64 %17, %15
-  store i64 %18, ptr %16, align 8, !alias.scope !20
+  store i64 %18, ptr %16, align 8, !alias.scope !24
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %22 = load i64, ptr %21, align 8, !alias.scope !20
+  %22 = load i64, ptr %21, align 8, !alias.scope !24
   %23 = and i64 %22, %20
-  store i64 %23, ptr %21, align 8, !alias.scope !20
+  store i64 %23, ptr %21, align 8, !alias.scope !24
   br label %24
 
 24:                                               ; preds = %24, %_ZNK3ue29CharReachcoEv.exit
@@ -694,7 +694,7 @@ _ZNK3ue29CharReachcoEv.exit:                      ; preds = %3
   %.012.add.i.i = add nuw nsw i64 %.012.idx14.i.i, 8
   %.not.i.i = icmp ne i64 %.012.add.i.i, 32
   %or.cond.not.i.i = select i1 %.not13.i.i, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %24, label %_ZNK3ue29CharReach4noneEv.exit
+  br i1 %or.cond.not.i.i, label %24, label %_ZNK3ue29CharReach4noneEv.exit, !llvm.loop !7
 
 _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #17
@@ -708,7 +708,7 @@ _ZN3ue29CharReachC2Ehh.exit:
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 0, ptr %2, align 8, !alias.scope !23
+  store i64 0, ptr %2, align 8, !alias.scope !27
   br label %3
 
 3:                                                ; preds = %3, %_ZN3ue29CharReachC2Ehh.exit
@@ -719,7 +719,7 @@ _ZN3ue29CharReachC2Ehh.exit:
   %.012.add.i.i = add nuw nsw i64 %.012.idx14.i.i, 8
   %.not.i.i = icmp ne i64 %.012.add.i.i, 32
   %or.cond.not.i.i = select i1 %.not13.i.i, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %3, label %_ZNK3ue29CharReach4noneEv.exit
+  br i1 %or.cond.not.i.i, label %3, label %_ZNK3ue29CharReach4noneEv.exit, !llvm.loop !7
 
 _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #17
@@ -741,7 +741,7 @@ define hidden void @_ZN3ue214fill_bitvectorERKNS_9CharReachEPh(ptr noundef nonnu
 6:                                                ; preds = %3
   %7 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %7, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %3, !llvm.loop !5
+  br i1 %exitcond.i.i, label %._crit_edge, label %3, !llvm.loop !8
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %3
   %8 = shl nuw nsw i64 %.0710.i.i, 6
@@ -797,7 +797,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %3
   %30 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0.i.i
   %31 = load i64, ptr %30, align 8
   %.not22.i.i = icmp eq i64 %31, 0
-  br i1 %.not22.i.i, label %27, label %32, !llvm.loop !7
+  br i1 %.not22.i.i, label %27, label %32, !llvm.loop !10
 
 32:                                               ; preds = %29
   %33 = shl nuw nsw i64 %.0.i.i, 6
@@ -817,7 +817,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %25, %32
   %42 = or i8 %41, %38
   store i8 %42, ptr %40, align 1
   %.not.i.i7 = icmp samesign ult i64 %.sink25, 256
-  br i1 %.not.i.i7, label %.lr.ph34, label %._crit_edge, !llvm.loop !26
+  br i1 %.not.i.i7, label %.lr.ph34, label %._crit_edge, !llvm.loop !30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -834,7 +834,7 @@ define hidden void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef
 7:                                                ; preds = %4
   %8 = add nuw nsw i64 %.0710.i.i, 1
   %exitcond.i.i = icmp eq i64 %8, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %4, !llvm.loop !5
+  br i1 %exitcond.i.i, label %._crit_edge, label %4, !llvm.loop !8
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
   %9 = shl nuw nsw i64 %.0710.i.i, 6
@@ -891,7 +891,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
   %29 = getelementptr inbounds nuw [4 x i64], ptr %0, i64 0, i64 %.0.i.i
   %30 = load i64, ptr %29, align 8
   %.not22.i.i = icmp eq i64 %30, 0
-  br i1 %.not22.i.i, label %26, label %31, !llvm.loop !7
+  br i1 %.not22.i.i, label %26, label %31, !llvm.loop !10
 
 31:                                               ; preds = %28
   %32 = shl nuw nsw i64 %.0.i.i, 6
@@ -906,7 +906,7 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %24, %31
   %36 = or i8 %16, %35
   %37 = and i8 %15, %35
   %.not.i.i14 = icmp samesign ult i64 %.sink41, 256
-  br i1 %.not.i.i14, label %.lr.ph54, label %._crit_edge, !llvm.loop !27
+  br i1 %.not.i.i14, label %.lr.ph54, label %._crit_edge, !llvm.loop !31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -962,25 +962,29 @@ attributes #17 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
 !7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
-!12 = distinct !{!12, !"_ZNK3ue29CharReachanERKS0_"}
+!8 = distinct !{!8, !9, !6}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !6}
+!11 = distinct !{!11, !9, !6}
+!12 = distinct !{!12, !9, !6}
 !13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK3ue28bitfieldILm256EEanERKS1_: argument 0"}
-!15 = distinct !{!15, !"_ZNK3ue28bitfieldILm256EEanERKS1_"}
+!14 = distinct !{!14, !15, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
+!15 = distinct !{!15, !"_ZNK3ue29CharReachanERKS0_"}
 !16 = !{!17}
 !17 = distinct !{!17, !18, !"_ZNK3ue28bitfieldILm256EEanERKS1_: argument 0"}
 !18 = distinct !{!18, !"_ZNK3ue28bitfieldILm256EEanERKS1_"}
-!19 = distinct !{!19, !6}
-!20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
-!22 = distinct !{!22, !"_ZNK3ue29CharReachanERKS0_"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
-!25 = distinct !{!25, !"_ZNK3ue29CharReachanERKS0_"}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK3ue28bitfieldILm256EEanERKS1_: argument 0"}
+!21 = distinct !{!21, !"_ZNK3ue28bitfieldILm256EEanERKS1_"}
+!22 = distinct !{!22, !9, !6}
+!23 = distinct !{!23, !6}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
+!26 = distinct !{!26, !"_ZNK3ue29CharReachanERKS0_"}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK3ue29CharReachanERKS0_: argument 0"}
+!29 = distinct !{!29, !"_ZNK3ue29CharReachanERKS0_"}
+!30 = distinct !{!30, !9, !6}
+!31 = distinct !{!31, !9, !6}

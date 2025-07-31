@@ -407,7 +407,7 @@ Gia_ManSwiSimInfoRandom.exit.i:                   ; preds = %.lr.ph.i.i
   %118 = sub nsw i32 %.val12.val.i, %.val11.i
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next, %119
-  br i1 %120, label %.lr.ph.split.i, label %.preheader.i.loopexit, !llvm.loop !56
+  br i1 %120, label %.lr.ph.split.i, label %.preheader.i.loopexit, !llvm.loop !57
 
 .lr.ph27.split.i:                                 ; preds = %.lr.ph27.split.i.preheader, %.lr.ph27.split.i
   %indvars.iv293 = phi i64 [ %110, %.lr.ph27.split.i.preheader ], [ %indvars.iv.next294, %.lr.ph27.split.i ]
@@ -418,7 +418,7 @@ Gia_ManSwiSimInfoRandom.exit.i:                   ; preds = %.lr.ph.i.i
   %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
   %123 = sext i32 %.val.val.pre.i to i64
   %124 = icmp slt i64 %indvars.iv.next294, %123
-  br i1 %124, label %.lr.ph27.split.i, label %Gia_ManSwiSimInfoInit.exit, !llvm.loop !58
+  br i1 %124, label %.lr.ph27.split.i, label %Gia_ManSwiSimInfoInit.exit, !llvm.loop !59
 
 Gia_ManSwiSimInfoInit.exit:                       ; preds = %.lr.ph27.split.i, %.lr.ph.i, %.preheader.i
   %.val12.lcssa.i348 = phi ptr [ %.val12.lcssa.i, %.preheader.i ], [ %.val1220.i, %.lr.ph.i ], [ %.val12.lcssa.i, %.lr.ph27.split.i ]
@@ -458,7 +458,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
   br i1 %141, label %.lr.ph.i134, label %Gia_ManSwiSimulateRound.exit
 
 .lr.ph.i134:                                      ; preds = %Gia_ManSwiSimInfoZero.exit.i133
-  %.val35.i = load ptr, ptr %133, align 8, !tbaa !59
+  %.val35.i = load ptr, ptr %133, align 8, !tbaa !60
   br label %142
 
 142:                                              ; preds = %284, %.lr.ph.i134
@@ -471,7 +471,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
 
 145:                                              ; preds = %142
   %146 = getelementptr i8, ptr %143, i64 8
-  %.val42.i = load i32, ptr %146, align 4, !tbaa !60
+  %.val42.i = load i32, ptr %146, align 4, !tbaa !61
   %147 = mul nsw i32 %.val42.i, %28
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds i32, ptr %35, i64 %148
@@ -513,7 +513,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
   %170 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.next.i.i137
   store i32 %169, ptr %170, align 4, !tbaa !53
   %171 = icmp samesign ugt i64 %indvars.iv.i.i136, 1
-  br i1 %171, label %.lr.ph.i.i135, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !62
+  br i1 %171, label %.lr.ph.i.i135, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !63
 
 .lr.ph9.i.i:                                      ; preds = %.preheader3.i.i, %.lr.ph9.i.i
   %indvars.iv18.i.i = phi i64 [ %indvars.iv.next19.i.i, %.lr.ph9.i.i ], [ %130, %.preheader3.i.i ]
@@ -527,7 +527,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
   %178 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.next19.i.i
   store i32 %177, ptr %178, align 4, !tbaa !53
   %179 = icmp samesign ugt i64 %indvars.iv18.i.i, 1
-  br i1 %179, label %.lr.ph9.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !63
+  br i1 %179, label %.lr.ph9.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !64
 
 180:                                              ; preds = %145
   br i1 %.not44.i.i, label %.preheader.i.i, label %.preheader1.i.i
@@ -550,7 +550,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
   %187 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.next22.i.i
   store i32 %186, ptr %187, align 4, !tbaa !53
   %188 = icmp samesign ugt i64 %indvars.iv21.i.i, 1
-  br i1 %188, label %.lr.ph11.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !64
+  br i1 %188, label %.lr.ph11.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !65
 
 .lr.ph13.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph13.i.i
   %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %.lr.ph13.i.i ], [ %130, %.preheader.i.i ]
@@ -563,7 +563,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
   %194 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.next25.i.i
   store i32 %193, ptr %194, align 4, !tbaa !53
   %195 = icmp samesign ugt i64 %indvars.iv24.i.i, 1
-  br i1 %195, label %.lr.ph13.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !65
+  br i1 %195, label %.lr.ph13.i.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !66
 
 196:                                              ; preds = %142
   %197 = and i64 %.val36.i, 536870911
@@ -605,7 +605,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
   %214 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.next.i61.i
   store i32 %213, ptr %214, align 4, !tbaa !53
   %215 = icmp samesign ugt i64 %indvars.iv.i60.i, 1
-  br i1 %215, label %.lr.ph.i59.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !66
+  br i1 %215, label %.lr.ph.i59.i, label %Gia_ManSwiSimulateNode.exit.i, !llvm.loop !67
 
 216:                                              ; preds = %196
   br i1 %129, label %Gia_ManSwiSimulateNode.exit.i, label %.lr.ph.i64.i.preheader
@@ -615,7 +615,7 @@ Gia_ManSwiSimInfoZero.exit.i133:                  ; preds = %.lr.ph.preheader.i.
   %218 = sext i32 %217 to i64
   %219 = getelementptr i32, ptr %42, i64 %218
   %220 = getelementptr i8, ptr %143, i64 8
-  %.val48.i = load i32, ptr %220, align 4, !tbaa !60
+  %.val48.i = load i32, ptr %220, align 4, !tbaa !61
   %221 = mul i32 %.val48.i, %28
   %222 = sext i32 %221 to i64
   %223 = getelementptr i32, ptr %35, i64 %222
@@ -638,7 +638,7 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   %229 = load i32, ptr %134, align 4, !tbaa !12
   %.not32.i = icmp eq i32 %229, 0
   %230 = getelementptr i8, ptr %143, i64 8
-  %.val38.i = load i32, ptr %230, align 4, !tbaa !60
+  %.val38.i = load i32, ptr %230, align 4, !tbaa !61
   %231 = mul nsw i32 %.val38.i, %28
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds i32, ptr %35, i64 %232
@@ -673,7 +673,7 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   %254 = shl nuw nsw i32 %253, 1
   %255 = add nuw nsw i32 %254, %.02.i.i
   %256 = icmp samesign ugt i64 %indvars.iv.i71.i, 1
-  br i1 %256, label %.lr.ph.i70.i, label %.sink.split.i, !llvm.loop !67
+  br i1 %256, label %.lr.ph.i70.i, label %.sink.split.i, !llvm.loop !68
 
 257:                                              ; preds = %228
   br i1 %129, label %.sink.split.i, label %.lr.ph.i75.i
@@ -705,7 +705,7 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   %278 = add nuw nsw i32 %277, %.02.i77.i
   %279 = add nuw nsw i32 %278, %276
   %280 = icmp samesign ugt i64 %indvars.iv.i76.i, 1
-  br i1 %280, label %.lr.ph.i75.i, label %.sink.split.i, !llvm.loop !68
+  br i1 %280, label %.lr.ph.i75.i, label %.sink.split.i, !llvm.loop !69
 
 .sink.split.i:                                    ; preds = %.lr.ph.i70.i, %.lr.ph.i75.i, %257, %234
   %.0.lcssa.i73.sink.i = phi i32 [ 0, %234 ], [ 0, %257 ], [ %279, %.lr.ph.i75.i ], [ %255, %.lr.ph.i70.i ]
@@ -720,7 +720,7 @@ Gia_ManSwiSimulateNode.exit.i:                    ; preds = %.lr.ph.i59.i, %.lr.
   %285 = load i32, ptr %132, align 8, !tbaa !47
   %286 = sext i32 %285 to i64
   %287 = icmp slt i64 %indvars.iv.next.i, %286
-  br i1 %287, label %142, label %Gia_ManSwiSimulateRound.exit, !llvm.loop !69
+  br i1 %287, label %142, label %Gia_ManSwiSimulateRound.exit, !llvm.loop !70
 
 Gia_ManSwiSimulateRound.exit:                     ; preds = %284, %Gia_ManSwiSimInfoZero.exit.i133
   %288 = add nsw i32 %138, -1
@@ -775,7 +775,7 @@ Gia_ManSwiSimulateRound.exit:                     ; preds = %284, %Gia_ManSwiSim
   %315 = or disjoint i32 %314, %312
   store i32 %315, ptr %310, align 4, !tbaa !53
   %316 = icmp samesign ugt i64 %indvars.iv.i.us.i, 1
-  br i1 %316, label %.lr.ph21.i.us.i, label %Gia_ManSwiSimInfoRandomShift.exit.us.i, !llvm.loop !70
+  br i1 %316, label %.lr.ph21.i.us.i, label %Gia_ManSwiSimInfoRandomShift.exit.us.i, !llvm.loop !71
 
 Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.loopexit.i.us.i
   %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
@@ -786,7 +786,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.
   %318 = sub nsw i32 %.val20.val.us.i, %.val19.us.i
   %319 = sext i32 %318 to i64
   %320 = icmp slt i64 %indvars.iv.next303, %319
-  br i1 %320, label %.loopexit.i.us.i, label %.preheader.i139.loopexit, !llvm.loop !71
+  br i1 %320, label %.loopexit.i.us.i, label %.preheader.i139.loopexit, !llvm.loop !72
 
 .lr.ph.split.i145:                                ; preds = %.lr.ph.i144
   %321 = icmp sgt i32 %292, -1
@@ -806,7 +806,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.
   %326 = and i32 %325, %.118.i.us.i
   %327 = add nuw nsw i32 %.019.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i32 %327, %292
-  br i1 %exitcond.not.i.us.i, label %.loopexit.i.us43.i, label %.lr.ph.i.us.i, !llvm.loop !73
+  br i1 %exitcond.not.i.us.i, label %.loopexit.i.us43.i, label %.lr.ph.i.us.i, !llvm.loop !74
 
 .loopexit.i.us43.i:                               ; preds = %.lr.ph.i.us.i, %.lr.ph.split.split.us.i
   %.016.i.us44.i = phi i32 [ %324, %.lr.ph.split.split.us.i ], [ %326, %.lr.ph.i.us.i ]
@@ -823,7 +823,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us.i:           ; preds = %.lr.ph21.i.us.i, %.
   %333 = or disjoint i32 %332, %330
   store i32 %333, ptr %328, align 4, !tbaa !53
   %334 = icmp samesign ugt i64 %indvars.iv.i.us47.i, 1
-  br i1 %334, label %.lr.ph21.i.us46.i, label %Gia_ManSwiSimInfoRandomShift.exit.us49.i, !llvm.loop !70
+  br i1 %334, label %.lr.ph21.i.us46.i, label %Gia_ManSwiSimInfoRandomShift.exit.us49.i, !llvm.loop !71
 
 Gia_ManSwiSimInfoRandomShift.exit.us49.i:         ; preds = %.lr.ph21.i.us46.i, %.loopexit.i.us43.i
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
@@ -834,7 +834,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us49.i:         ; preds = %.lr.ph21.i.us46.i, 
   %336 = sub nsw i32 %.val20.val.us52.i, %.val19.us50.i
   %337 = sext i32 %336 to i64
   %338 = icmp slt i64 %indvars.iv.next300, %337
-  br i1 %338, label %.lr.ph.split.split.us.i, label %.preheader.i139.loopexit280, !llvm.loop !74
+  br i1 %338, label %.lr.ph.split.split.us.i, label %.preheader.i139.loopexit280, !llvm.loop !75
 
 .lr.ph.split.split.i:                             ; preds = %.lr.ph.split.i145
   br i1 %129, label %Gia_ManSwiSimInfoTransferShift.exit, label %.loopexit.i.i
@@ -882,7 +882,7 @@ Gia_ManSwiSimInfoRandomShift.exit.us49.i:         ; preds = %.lr.ph21.i.us46.i, 
   %352 = or disjoint i32 %351, %350
   store i32 %352, ptr %348, align 4, !tbaa !53
   %353 = icmp samesign ugt i64 %indvars.iv.i.i148, 1
-  br i1 %353, label %.lr.ph21.i.i, label %Gia_ManSwiSimInfoRandomShift.exit.loopexit.i, !llvm.loop !70
+  br i1 %353, label %.lr.ph21.i.i, label %Gia_ManSwiSimInfoRandomShift.exit.loopexit.i, !llvm.loop !71
 
 Gia_ManSwiSimInfoRandomShift.exit.loopexit.i:     ; preds = %.lr.ph21.i.i
   %.val19.pre.i = load i32, ptr %99, align 8, !tbaa !52
@@ -891,7 +891,7 @@ Gia_ManSwiSimInfoRandomShift.exit.loopexit.i:     ; preds = %.lr.ph21.i.i
   %354 = sub nsw i32 %.val20.val.pre.i, %.val19.pre.i
   %355 = sext i32 %354 to i64
   %356 = icmp slt i64 %indvars.iv.next297, %355
-  br i1 %356, label %.loopexit.i.i, label %.preheader.i139.loopexit281, !llvm.loop !75
+  br i1 %356, label %.loopexit.i.i, label %.preheader.i139.loopexit281, !llvm.loop !76
 
 .lr.ph71.split.i:                                 ; preds = %.lr.ph71.split.i.preheader, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i
   %indvars.iv305 = phi i64 [ %344, %.lr.ph71.split.i.preheader ], [ %indvars.iv.next306, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
@@ -914,14 +914,14 @@ Gia_ManSwiSimInfoRandomShift.exit.loopexit.i:     ; preds = %.lr.ph21.i.i
   %368 = or disjoint i32 %367, %364
   store i32 %368, ptr %362, align 4, !tbaa !53
   %369 = icmp samesign ugt i64 %indvars.iv.i31.i, 1
-  br i1 %369, label %.lr.ph.i30.i, label %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i, !llvm.loop !76
+  br i1 %369, label %.lr.ph.i30.i, label %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i, !llvm.loop !77
 
 Gia_ManSwiSimInfoCopyShift.exit.loopexit.i:       ; preds = %.lr.ph.i30.i
   %.val.val.pre.i143 = load i32, ptr %342, align 4, !tbaa !43
   %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
   %370 = sext i32 %.val.val.pre.i143 to i64
   %371 = icmp slt i64 %indvars.iv.next306, %370
-  br i1 %371, label %.lr.ph71.split.i, label %Gia_ManSwiSimInfoTransferShift.exit, !llvm.loop !77
+  br i1 %371, label %.lr.ph71.split.i, label %Gia_ManSwiSimInfoTransferShift.exit, !llvm.loop !78
 
 372:                                              ; preds = %290
   %373 = getelementptr i8, ptr %.val18.i152, i64 4
@@ -958,7 +958,7 @@ Gia_ManSwiSimInfoCopyShift.exit.loopexit.i:       ; preds = %.lr.ph.i30.i
   %390 = xor i32 %389, %387
   store i32 %390, ptr %388, align 4, !tbaa !53
   %391 = icmp samesign ugt i64 %indvars.iv41.i.us.i, 1
-  br i1 %391, label %.lr.ph34.i.us.i, label %Gia_ManSwiSimInfoRandom.exit.us.i, !llvm.loop !78
+  br i1 %391, label %.lr.ph34.i.us.i, label %Gia_ManSwiSimInfoRandom.exit.us.i, !llvm.loop !79
 
 Gia_ManSwiSimInfoRandom.exit.us.i:                ; preds = %.lr.ph34.i.us.i, %.lr.ph.split.us.i182
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
@@ -969,7 +969,7 @@ Gia_ManSwiSimInfoRandom.exit.us.i:                ; preds = %.lr.ph34.i.us.i, %.
   %393 = sub nsw i32 %.val20.val.us.i187, %.val19.us.i185
   %394 = sext i32 %393 to i64
   %395 = icmp slt i64 %indvars.iv.next315, %394
-  br i1 %395, label %.lr.ph.split.us.i182, label %.preheader.i154.loopexit, !llvm.loop !79
+  br i1 %395, label %.lr.ph.split.us.i182, label %.preheader.i154.loopexit, !llvm.loop !80
 
 .lr.ph.split.i164:                                ; preds = %.lr.ph.i163
   %396 = icmp sgt i32 %292, 0
@@ -987,7 +987,7 @@ Gia_ManSwiSimInfoRandom.exit.us.i:                ; preds = %.lr.ph34.i.us.i, %.
   %400 = and i32 %399, %.02429.i.us.i
   %401 = add nuw nsw i32 %.030.i.us.i, 1
   %exitcond.not.i.us.i181 = icmp eq i32 %401, %292
-  br i1 %exitcond.not.i.us.i181, label %402, label %398, !llvm.loop !80
+  br i1 %exitcond.not.i.us.i181, label %402, label %398, !llvm.loop !81
 
 402:                                              ; preds = %398
   %403 = mul nsw i64 %indvars.iv311, %136
@@ -1002,7 +1002,7 @@ Gia_ManSwiSimInfoRandom.exit.us.i:                ; preds = %.lr.ph34.i.us.i, %.
   %407 = xor i32 %406, %400
   store i32 %407, ptr %405, align 4, !tbaa !53
   %408 = icmp samesign ugt i64 %indvars.iv38.i.us.i, 1
-  br i1 %408, label %.lr.ph32.i.us.i, label %Gia_ManSwiSimInfoRandom.exit.us46.i, !llvm.loop !81
+  br i1 %408, label %.lr.ph32.i.us.i, label %Gia_ManSwiSimInfoRandom.exit.us46.i, !llvm.loop !82
 
 Gia_ManSwiSimInfoRandom.exit.us46.i:              ; preds = %.lr.ph32.i.us.i, %402
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
@@ -1013,7 +1013,7 @@ Gia_ManSwiSimInfoRandom.exit.us46.i:              ; preds = %.lr.ph32.i.us.i, %4
   %410 = sub nsw i32 %.val20.val.us49.i, %.val19.us47.i
   %411 = sext i32 %410 to i64
   %412 = icmp slt i64 %indvars.iv.next312, %411
-  br i1 %412, label %.lr.ph.split.split.us.i180, label %.preheader.i154.loopexit277, !llvm.loop !82
+  br i1 %412, label %.lr.ph.split.split.us.i180, label %.preheader.i154.loopexit277, !llvm.loop !83
 
 .lr.ph.split.split.i165:                          ; preds = %.lr.ph.split.i164
   br i1 %376, label %.lr.ph.split.split.split.i, label %.lr.ph.split.split.split.us.i166
@@ -1075,7 +1075,7 @@ Gia_ManSwiSimInfoRandom.exit.i169:                ; preds = %.lr.ph.i.i175
   %427 = sub nsw i32 %.val20.val.i172, %.val19.i170
   %428 = sext i32 %427 to i64
   %429 = icmp slt i64 %indvars.iv.next309, %428
-  br i1 %429, label %.lr.ph.split.split.split.split.i, label %.preheader.i154.loopexit278, !llvm.loop !83
+  br i1 %429, label %.lr.ph.split.split.split.split.i, label %.preheader.i154.loopexit278, !llvm.loop !84
 
 .lr.ph78.split.i:                                 ; preds = %.lr.ph78.split.i.preheader, %.lr.ph78.split.i
   %indvar = phi i32 [ 0, %.lr.ph78.split.i.preheader ], [ %indvar.next, %.lr.ph78.split.i ]
@@ -1095,7 +1095,7 @@ Gia_ManSwiSimInfoRandom.exit.i169:                ; preds = %.lr.ph.i.i175
   %438 = add nuw nsw i32 %.177.i, 1
   %439 = icmp slt i32 %438, %.val.val.pre.i162
   %indvar.next = add i32 %indvar, 1
-  br i1 %439, label %.lr.ph78.split.i, label %Gia_ManSwiSimInfoTransferShift.exit, !llvm.loop !84
+  br i1 %439, label %.lr.ph78.split.i, label %Gia_ManSwiSimInfoTransferShift.exit, !llvm.loop !85
 
 Gia_ManSwiSimInfoTransferShift.exit:              ; preds = %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i, %.lr.ph78.split.i, %.preheader.i154, %.lr.ph.split.split.split.i, %.preheader.i139, %.lr.ph.split.split.i
   %.val18.i152342 = phi ptr [ %.val18.i152340, %.preheader.i154 ], [ %.val18.i152, %.lr.ph.split.split.split.i ], [ %.val18.i152343, %.preheader.i139 ], [ %.val18.i152, %.lr.ph.split.split.i ], [ %.val18.i152340, %.lr.ph78.split.i ], [ %.val18.i152343, %Gia_ManSwiSimInfoCopyShift.exit.loopexit.i ]
@@ -1103,7 +1103,7 @@ Gia_ManSwiSimInfoTransferShift.exit:              ; preds = %Gia_ManSwiSimInfoCo
   %440 = add nuw nsw i32 %.0254, 1
   %441 = load i32, ptr %125, align 4, !tbaa !8
   %442 = icmp slt i32 %440, %441
-  br i1 %442, label %137, label %Gia_ManSwiSimulateRound.exit._crit_edge, !llvm.loop !85
+  br i1 %442, label %137, label %Gia_ManSwiSimulateRound.exit._crit_edge, !llvm.loop !86
 
 Gia_ManSwiSimulateRound.exit._crit_edge:          ; preds = %Gia_ManSwiSimInfoTransferShift.exit, %Gia_ManSwiSimulateRound.exit, %Gia_ManSwiSimInfoInit.exit
   %.lcssa251 = phi i32 [ %126, %Gia_ManSwiSimInfoInit.exit ], [ %138, %Gia_ManSwiSimulateRound.exit ], [ %441, %Gia_ManSwiSimInfoTransferShift.exit ]
@@ -1145,13 +1145,13 @@ Abc_Clock.exit189:                                ; preds = %444, %449
   %or.cond.i.i = icmp ult i32 %461, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val114
   %462 = getelementptr inbounds nuw i8, ptr %460, i64 4
-  store i32 %spec.store.select.i.i, ptr %460, align 8, !tbaa !86
+  store i32 %spec.store.select.i.i, ptr %460, align 8, !tbaa !87
   %.not.i.i190 = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i190, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %459
   %463 = getelementptr inbounds nuw i8, ptr %460, i64 8
-  store ptr null, ptr %463, align 8, !tbaa !87
+  store ptr null, ptr %463, align 8, !tbaa !88
   store i32 %.val114, ptr %462, align 4, !tbaa !43
   br label %Vec_IntStart.exit
 
@@ -1160,7 +1160,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %459
   %465 = shl nsw i64 %464, 2
   %466 = call noalias ptr @malloc(i64 noundef %465) #18
   %467 = getelementptr inbounds nuw i8, ptr %460, i64 8
-  store ptr %466, ptr %467, align 8, !tbaa !87
+  store ptr %466, ptr %467, align 8, !tbaa !88
   store i32 %.val114, ptr %462, align 4, !tbaa !43
   %.not.i191 = icmp eq ptr %466, null
   br i1 %.not.i191, label %Vec_IntStart.exit, label %468
@@ -1183,7 +1183,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph257:                                        ; preds = %.preheader229
   %474 = getelementptr i8, ptr %0, i64 32
-  %.val116 = load ptr, ptr %474, align 8, !tbaa !59
+  %.val116 = load ptr, ptr %474, align 8, !tbaa !60
   %.not108 = icmp eq ptr %.val116, null
   br i1 %.not108, label %.critedge, label %.lr.ph257.split
 
@@ -1206,10 +1206,10 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %486 = sitofp i32 %485 to float
   %487 = fdiv float %486, %482
   %488 = getelementptr inbounds nuw float, ptr %471, i64 %indvars.iv318
-  store float %487, ptr %488, align 4, !tbaa !88
+  store float %487, ptr %488, align 4, !tbaa !89
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %483, !llvm.loop !89
+  br i1 %exitcond.not, label %.critedge, label %483, !llvm.loop !90
 
 .critedge:                                        ; preds = %483, %.lr.ph257, %.preheader229
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1221,9 +1221,9 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph260:                                        ; preds = %.critedge
   %493 = getelementptr i8, ptr %0, i64 32
-  %.val120 = load ptr, ptr %493, align 8, !tbaa !59
+  %.val120 = load ptr, ptr %493, align 8, !tbaa !60
   %494 = getelementptr i8, ptr %490, i64 8
-  %.val121.val = load ptr, ptr %494, align 8, !tbaa !87
+  %.val121.val = load ptr, ptr %494, align 8, !tbaa !88
   %.not109 = icmp eq ptr %.val120, null
   br i1 %.not109, label %.critedge2, label %.lr.ph260.split.preheader
 
@@ -1245,14 +1245,14 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %sext221 = shl i64 %reass.add224, 32
   %501 = ashr exact i64 %sext221, 30
   %502 = getelementptr inbounds i8, ptr %471, i64 %501
-  %503 = load float, ptr %502, align 4, !tbaa !88
+  %503 = load float, ptr %502, align 4, !tbaa !89
   %504 = fsub float 1.000000e+00, %503
   %.sink = select i1 %.not110, float %503, float %504
   %505 = getelementptr inbounds float, ptr %471, i64 %497
-  store float %.sink, ptr %505, align 4, !tbaa !88
+  store float %.sink, ptr %505, align 4, !tbaa !89
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond325.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count324
-  br i1 %exitcond325.not, label %.critedge2, label %.lr.ph260.split, !llvm.loop !90
+  br i1 %exitcond325.not, label %.critedge2, label %.lr.ph260.split, !llvm.loop !91
 
 506:                                              ; preds = %Vec_IntStart.exit
   %507 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1266,7 +1266,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph263:                                        ; preds = %.preheader226
   %510 = getelementptr i8, ptr %0, i64 32
-  %.val117 = load ptr, ptr %510, align 8, !tbaa !59
+  %.val117 = load ptr, ptr %510, align 8, !tbaa !60
   %.not107 = icmp eq ptr %.val117, null
   br i1 %.not107, label %.critedge2, label %.lr.ph263.split
 
@@ -1287,7 +1287,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph266:                                        ; preds = %.preheader
   %519 = getelementptr i8, ptr %0, i64 32
-  %.val118 = load ptr, ptr %519, align 8, !tbaa !59
+  %.val118 = load ptr, ptr %519, align 8, !tbaa !60
   %.not106 = icmp eq ptr %.val118, null
   br i1 %.not106, label %.critedge2, label %.lr.ph266.split
 
@@ -1310,10 +1310,10 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %531 = sitofp i32 %530 to float
   %532 = fdiv float %531, %518
   %533 = getelementptr inbounds nuw float, ptr %471, i64 %indvars.iv326
-  store float %532, ptr %533, align 4, !tbaa !88
+  store float %532, ptr %533, align 4, !tbaa !89
   %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
   %exitcond330.not = icmp eq i64 %indvars.iv.next327, %wide.trip.count329
-  br i1 %exitcond330.not, label %.critedge2, label %528, !llvm.loop !91
+  br i1 %exitcond330.not, label %.critedge2, label %528, !llvm.loop !92
 
 534:                                              ; preds = %.lr.ph266.split, %534
   %indvars.iv331 = phi i64 [ 0, %.lr.ph266.split ], [ %indvars.iv.next332, %534 ]
@@ -1327,10 +1327,10 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %542 = fmul float %539, %541
   %543 = fdiv float %542, %527
   %544 = getelementptr inbounds nuw float, ptr %471, i64 %indvars.iv331
-  store float %543, ptr %544, align 4, !tbaa !88
+  store float %543, ptr %544, align 4, !tbaa !89
   %indvars.iv.next332 = add nuw nsw i64 %indvars.iv331, 1
   %exitcond335.not = icmp eq i64 %indvars.iv.next332, %wide.trip.count334
-  br i1 %exitcond335.not, label %.critedge2, label %534, !llvm.loop !92
+  br i1 %exitcond335.not, label %.critedge2, label %534, !llvm.loop !93
 
 .critedge2:                                       ; preds = %.lr.ph260.split, %528, %534, %.critedge, %.lr.ph260, %.preheader226, %.lr.ph263, %.preheader, %.lr.ph266
   call void @Gia_ManSwiDelete(ptr noundef nonnull %calloc.i)
@@ -1357,7 +1357,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
 
 8:                                                ; preds = %5
   %9 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #17
-  %10 = load ptr, ptr @stdout, align 8, !tbaa !93
+  %10 = load ptr, ptr @stdout, align 8, !tbaa !94
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #20
   %12 = trunc i64 %11 to i32
   %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #17
@@ -1365,7 +1365,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #10 {
   br label %17
 
 14:                                               ; preds = %5
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !93, !noalias !95
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !94, !noalias !96
   %16 = call i32 @vfprintf(ptr noundef %15, ptr noundef %1, ptr noundef nonnull %3) #17
   br label %17
 
@@ -1495,21 +1495,21 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %11
   %18 = call noalias noundef ptr @Gia_ManSwiSimulate(ptr noundef %6, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #17
   %19 = getelementptr i8, ptr %0, i64 32
-  %.val20 = load ptr, ptr %19, align 8, !tbaa !98
+  %.val20 = load ptr, ptr %19, align 8, !tbaa !99
   %20 = getelementptr i8, ptr %.val20, i64 4
-  %.val20.val = load i32, ptr %20, align 4, !tbaa !105
+  %.val20.val = load i32, ptr %20, align 4, !tbaa !106
   %21 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %22 = add i32 %.val20.val, -1
   %or.cond.i.i = icmp ult i32 %22, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %.val20.val
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 %spec.store.select.i.i, ptr %21, align 8, !tbaa !86
+  store i32 %spec.store.select.i.i, ptr %21, align 8, !tbaa !87
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
   br i1 %.not.i.i, label %Vec_IntAlloc.exit.thread.i, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.thread.i:                       ; preds = %Gia_ManComputeSwitchProbs.exit
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr null, ptr %24, align 8, !tbaa !87
+  store ptr null, ptr %24, align 8, !tbaa !88
   store i32 %.val20.val, ptr %23, align 4, !tbaa !43
   br label %Vec_IntStart.exit
 
@@ -1518,7 +1518,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %Gia_ManComputeSwitc
   %26 = shl nsw i64 %25, 2
   %27 = call noalias ptr @malloc(i64 noundef %26) #18
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %27, ptr %28, align 8, !tbaa !87
+  store ptr %27, ptr %28, align 8, !tbaa !88
   store i32 %.val20.val, ptr %23, align 4, !tbaa !43
   %.not.i23 = icmp eq ptr %27, null
   br i1 %.not.i23, label %Vec_IntStart.exit, label %29
@@ -1536,7 +1536,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph:                                           ; preds = %Vec_IntStart.exit
   %33 = getelementptr i8, ptr %.val20, i64 8
-  %.val21 = load ptr, ptr %33, align 8, !tbaa !107
+  %.val21 = load ptr, ptr %33, align 8, !tbaa !108
   %34 = getelementptr i8, ptr %18, i64 8
   %35 = zext nneg i32 %.val20.val to i64
   br label %36
@@ -1544,15 +1544,15 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 36:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
   %37 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8, !tbaa !108
+  %38 = load ptr, ptr %37, align 8, !tbaa !109
   %39 = icmp eq ptr %38, null
   br i1 %39, label %48, label %40
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %42 = load i32, ptr %41, align 8, !tbaa !109
+  %42 = load i32, ptr %41, align 8, !tbaa !110
   %43 = ashr i32 %42, 1
-  %.val = load ptr, ptr %34, align 8, !tbaa !87
+  %.val = load ptr, ptr %34, align 8, !tbaa !88
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds i32, ptr %.val, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !53
@@ -1563,11 +1563,11 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 48:                                               ; preds = %40, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %49, label %36, label %.critedge, !llvm.loop !110
+  br i1 %49, label %36, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %48, %Vec_IntStart.exit
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !87
+  %51 = load ptr, ptr %50, align 8, !tbaa !88
   %.not.i24 = icmp eq ptr %51, null
   br i1 %.not.i24, label %Vec_IntFree.exit, label %52
 
@@ -1586,13 +1586,13 @@ declare ptr @Gia_ManFromAigSwitch(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define float @Gia_ManEvaluateSwitching(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %3 = load ptr, ptr %2, align 8, !tbaa !111
+  %3 = load ptr, ptr %2, align 8, !tbaa !112
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
   tail call void @free(ptr noundef nonnull %3) #17
-  store ptr null, ptr %2, align 8, !tbaa !111
+  store ptr null, ptr %2, align 8, !tbaa !112
   br label %5
 
 5:                                                ; preds = %1, %4
@@ -1604,14 +1604,14 @@ define float @Gia_ManEvaluateSwitching(ptr noundef %0) local_unnamed_addr #2 {
 
 .lr.ph:                                           ; preds = %5
   %9 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %9, align 8, !tbaa !59
+  %.val = load ptr, ptr %9, align 8, !tbaa !60
   %.not17 = icmp eq ptr %.val, null
   br i1 %.not17, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %.val19 = load ptr, ptr %2, align 8, !tbaa !111
-  %11 = load ptr, ptr %10, align 8, !tbaa !112
+  %.val19 = load ptr, ptr %2, align 8, !tbaa !112
+  %11 = load ptr, ptr %10, align 8, !tbaa !113
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %12
 
@@ -1623,14 +1623,14 @@ define float @Gia_ManEvaluateSwitching(ptr noundef %0) local_unnamed_addr #2 {
   %14 = load i32, ptr %13, align 4, !tbaa !53
   %15 = sitofp i32 %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
-  %17 = load i8, ptr %16, align 1, !tbaa !109
+  %17 = load i8, ptr %16, align 1, !tbaa !110
   %18 = uitofp i8 %17 to float
   %19 = fmul float %15, %18
   %20 = fdiv float %19, 2.550000e+02
   %21 = fadd float %.01420, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !113
+  br i1 %exitcond.not, label %.critedge, label %12, !llvm.loop !114
 
 .critedge:                                        ; preds = %12, %.lr.ph, %5
   %.014.lcssa = phi float [ 0.000000e+00, %5 ], [ 0.000000e+00, %.lr.ph ], [ %21, %12 ]
@@ -1675,9 +1675,9 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   %17 = call noalias noundef ptr @Gia_ManSwiSimulate(ptr noundef %0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #17
   %18 = getelementptr i8, ptr %17, i64 8
-  %.val45 = load ptr, ptr %18, align 8, !tbaa !87
+  %.val45 = load ptr, ptr %18, align 8, !tbaa !88
   %19 = getelementptr i8, ptr %0, i64 264
-  %.val46 = load ptr, ptr %19, align 8, !tbaa !114
+  %.val46 = load ptr, ptr %19, align 8, !tbaa !115
   %.not55 = icmp eq ptr %.val46, null
   %20 = getelementptr i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !47
@@ -1689,7 +1689,7 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
 
 .lr.ph64:                                         ; preds = %.preheader58
   %23 = getelementptr i8, ptr %.val46, i64 8
-  %.val47.val = load ptr, ptr %23, align 8, !tbaa !87
+  %.val47.val = load ptr, ptr %23, align 8, !tbaa !88
   %wide.trip.count77 = zext nneg i32 %21 to i64
   br label %26
 
@@ -1699,7 +1699,7 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
 
 .lr.ph68:                                         ; preds = %.preheader
   %25 = getelementptr i8, ptr %0, i64 32
-  %.val44 = load ptr, ptr %25, align 8, !tbaa !59
+  %.val44 = load ptr, ptr %25, align 8, !tbaa !60
   %.not41 = icmp eq ptr %.val44, null
   br i1 %.not41, label %.critedge2, label %.lr.ph68.split.preheader
 
@@ -1734,17 +1734,17 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   %36 = load i32, ptr %35, align 4, !tbaa !53
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds float, ptr %.val45, i64 %37
-  %39 = load float, ptr %38, align 4, !tbaa !88
+  %39 = load float, ptr %38, align 4, !tbaa !89
   %40 = fadd float %.161, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !115
+  br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !116
 
 .critedge:                                        ; preds = %34, %.preheader57, %26
   %.2 = phi float [ %.063, %26 ], [ %.063, %.preheader57 ], [ %40, %34 ]
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %.critedge2, label %26, !llvm.loop !116
+  br i1 %exitcond78.not, label %.critedge2, label %26, !llvm.loop !117
 
 .lr.ph68.split:                                   ; preds = %.lr.ph68.split.preheader, %59
   %indvars.iv79 = phi i64 [ 0, %.lr.ph68.split.preheader ], [ %indvars.iv.next80, %59 ]
@@ -1764,14 +1764,14 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   %sext = shl i64 %47, 32
   %48 = ashr exact i64 %sext, 30
   %49 = getelementptr inbounds i8, ptr %.val45, i64 %48
-  %50 = load float, ptr %49, align 4, !tbaa !88
+  %50 = load float, ptr %49, align 4, !tbaa !89
   %51 = lshr i64 %.val50, 32
   %52 = and i64 %51, 536870911
   %53 = sub nsw i64 %indvars.iv79, %52
   %sext84 = shl i64 %53, 32
   %54 = ashr exact i64 %sext84, 30
   %55 = getelementptr inbounds i8, ptr %.val45, i64 %54
-  %56 = load float, ptr %55, align 4, !tbaa !88
+  %56 = load float, ptr %55, align 4, !tbaa !89
   %57 = fadd float %50, %56
   %58 = fadd float %.467, %57
   br label %59
@@ -1780,7 +1780,7 @@ Gia_ManComputeSwitchProbs.exit:                   ; preds = %4, %10
   %.5 = phi float [ %58, %45 ], [ %.467, %.lr.ph68.split ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %.critedge2, label %.lr.ph68.split, !llvm.loop !117
+  br i1 %exitcond83.not, label %.critedge2, label %.lr.ph68.split, !llvm.loop !118
 
 .critedge2:                                       ; preds = %.critedge, %59, %.preheader58, %.preheader, %.lr.ph68
   %.3 = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph68 ], [ 0.000000e+00, %.preheader58 ], [ %.5, %59 ], [ %.2, %.critedge ]
@@ -1946,67 +1946,68 @@ attributes #20 = { nounwind willreturn memory(read) }
 !51 = !{!50, !36, i64 8}
 !52 = !{!23, !5, i64 16}
 !53 = !{!5, !5, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55, !57}
-!57 = !{!"llvm.loop.unswitch.partial.disable"}
-!58 = distinct !{!58, !55, !57}
-!59 = !{!23, !25, i64 32}
-!60 = !{!61, !5, i64 8}
-!61 = !{!"Gia_Obj_t_", !5, i64 0, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 4, !5, i64 7, !5, i64 7, !5, i64 7, !5, i64 8}
-!62 = distinct !{!62, !55}
-!63 = distinct !{!63, !55}
-!64 = distinct !{!64, !55}
-!65 = distinct !{!65, !55}
-!66 = distinct !{!66, !55}
-!67 = distinct !{!67, !55}
-!68 = distinct !{!68, !55}
-!69 = distinct !{!69, !55}
-!70 = distinct !{!70, !55}
-!71 = distinct !{!71, !55, !72}
-!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!73 = distinct !{!73, !55}
-!74 = distinct !{!74, !55, !72}
-!75 = distinct !{!75, !55, !57}
-!76 = distinct !{!76, !55}
-!77 = distinct !{!77, !55, !57}
-!78 = distinct !{!78, !55}
-!79 = distinct !{!79, !55, !72}
-!80 = distinct !{!80, !55}
-!81 = distinct !{!81, !55}
-!82 = distinct !{!82, !55, !72}
-!83 = distinct !{!83, !55, !57}
-!84 = distinct !{!84, !55, !57}
-!85 = distinct !{!85, !55}
-!86 = !{!27, !5, i64 0}
-!87 = !{!27, !19, i64 8}
-!88 = !{!34, !34, i64 0}
-!89 = distinct !{!89, !55}
-!90 = distinct !{!90, !55}
-!91 = distinct !{!91, !55}
-!92 = distinct !{!92, !55}
-!93 = !{!94, !94, i64 0}
-!94 = !{!"p1 _ZTS8_IO_FILE", !17, i64 0}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"vprintf: argument 0"}
-!97 = distinct !{!97, !"vprintf"}
-!98 = !{!99, !31, i64 32}
-!99 = !{!"Aig_Man_t_", !24, i64 0, !24, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !100, i64 48, !101, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !102, i64 160, !5, i64 168, !19, i64 176, !5, i64 184, !35, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !19, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !102, i64 248, !102, i64 256, !5, i64 264, !103, i64 272, !26, i64 280, !5, i64 288, !17, i64 296, !17, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !102, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !17, i64 360, !19, i64 368, !19, i64 376, !31, i64 384, !26, i64 392, !26, i64 400, !30, i64 408, !31, i64 416, !104, i64 424, !31, i64 432, !5, i64 440, !26, i64 448, !35, i64 456, !26, i64 464, !26, i64 472, !5, i64 480, !36, i64 488, !36, i64 496, !36, i64 504, !31, i64 512, !31, i64 520}
-!100 = !{!"p1 _ZTS10Aig_Obj_t_", !17, i64 0}
-!101 = !{!"Aig_Obj_t_", !6, i64 0, !100, i64 8, !100, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
-!102 = !{!"p2 _ZTS10Aig_Obj_t_", !17, i64 0}
-!103 = !{!"p1 _ZTS14Aig_MmFixed_t_", !17, i64 0}
-!104 = !{!"p1 _ZTS10Aig_Man_t_", !17, i64 0}
-!105 = !{!106, !5, i64 4}
-!106 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !17, i64 8}
-!107 = !{!106, !17, i64 8}
-!108 = !{!17, !17, i64 0}
-!109 = !{!6, !6, i64 0}
-!110 = distinct !{!110, !55}
-!111 = !{!23, !19, i64 144}
-!112 = !{!23, !24, i64 512}
-!113 = distinct !{!113, !55}
-!114 = !{!23, !26, i64 264}
-!115 = distinct !{!115, !55}
-!116 = distinct !{!116, !55}
-!117 = distinct !{!117, !55}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = distinct !{!57, !55, !56, !58}
+!58 = !{!"llvm.loop.unswitch.partial.disable"}
+!59 = distinct !{!59, !55, !56, !58}
+!60 = !{!23, !25, i64 32}
+!61 = !{!62, !5, i64 8}
+!62 = !{!"Gia_Obj_t_", !5, i64 0, !5, i64 3, !5, i64 3, !5, i64 3, !5, i64 4, !5, i64 7, !5, i64 7, !5, i64 7, !5, i64 8}
+!63 = distinct !{!63, !55, !56}
+!64 = distinct !{!64, !55, !56}
+!65 = distinct !{!65, !55, !56}
+!66 = distinct !{!66, !55, !56}
+!67 = distinct !{!67, !55, !56}
+!68 = distinct !{!68, !55, !56}
+!69 = distinct !{!69, !55, !56}
+!70 = distinct !{!70, !55, !56}
+!71 = distinct !{!71, !55, !56}
+!72 = distinct !{!72, !55, !56, !73}
+!73 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!74 = distinct !{!74, !55, !56}
+!75 = distinct !{!75, !55, !56, !73}
+!76 = distinct !{!76, !55, !56, !58}
+!77 = distinct !{!77, !55, !56}
+!78 = distinct !{!78, !55, !56, !58}
+!79 = distinct !{!79, !55, !56}
+!80 = distinct !{!80, !55, !56, !73}
+!81 = distinct !{!81, !55, !56}
+!82 = distinct !{!82, !55, !56}
+!83 = distinct !{!83, !55, !56, !73}
+!84 = distinct !{!84, !55, !56, !58}
+!85 = distinct !{!85, !55, !56, !58}
+!86 = distinct !{!86, !55, !56}
+!87 = !{!27, !5, i64 0}
+!88 = !{!27, !19, i64 8}
+!89 = !{!34, !34, i64 0}
+!90 = distinct !{!90, !55, !56}
+!91 = distinct !{!91, !55, !56}
+!92 = distinct !{!92, !55, !56}
+!93 = distinct !{!93, !55, !56}
+!94 = !{!95, !95, i64 0}
+!95 = !{!"p1 _ZTS8_IO_FILE", !17, i64 0}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"vprintf: argument 0"}
+!98 = distinct !{!98, !"vprintf"}
+!99 = !{!100, !31, i64 32}
+!100 = !{!"Aig_Man_t_", !24, i64 0, !24, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !101, i64 48, !102, i64 56, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !6, i64 128, !5, i64 156, !103, i64 160, !5, i64 168, !19, i64 176, !5, i64 184, !35, i64 192, !5, i64 200, !5, i64 204, !5, i64 208, !19, i64 216, !5, i64 224, !5, i64 228, !5, i64 232, !5, i64 236, !5, i64 240, !103, i64 248, !103, i64 256, !5, i64 264, !104, i64 272, !26, i64 280, !5, i64 288, !17, i64 296, !17, i64 304, !5, i64 312, !5, i64 316, !5, i64 320, !103, i64 328, !17, i64 336, !17, i64 344, !17, i64 352, !17, i64 360, !19, i64 368, !19, i64 376, !31, i64 384, !26, i64 392, !26, i64 400, !30, i64 408, !31, i64 416, !105, i64 424, !31, i64 432, !5, i64 440, !26, i64 448, !35, i64 456, !26, i64 464, !26, i64 472, !5, i64 480, !36, i64 488, !36, i64 496, !36, i64 504, !31, i64 512, !31, i64 520}
+!101 = !{!"p1 _ZTS10Aig_Obj_t_", !17, i64 0}
+!102 = !{!"Aig_Obj_t_", !6, i64 0, !101, i64 8, !101, i64 16, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 24, !5, i64 28, !5, i64 31, !5, i64 32, !5, i64 36, !6, i64 40}
+!103 = !{!"p2 _ZTS10Aig_Obj_t_", !17, i64 0}
+!104 = !{!"p1 _ZTS14Aig_MmFixed_t_", !17, i64 0}
+!105 = !{!"p1 _ZTS10Aig_Man_t_", !17, i64 0}
+!106 = !{!107, !5, i64 4}
+!107 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !17, i64 8}
+!108 = !{!107, !17, i64 8}
+!109 = !{!17, !17, i64 0}
+!110 = !{!6, !6, i64 0}
+!111 = distinct !{!111, !55, !56}
+!112 = !{!23, !19, i64 144}
+!113 = !{!23, !24, i64 512}
+!114 = distinct !{!114, !55, !56}
+!115 = !{!23, !26, i64 264}
+!116 = distinct !{!116, !55, !56}
+!117 = distinct !{!117, !55, !56}
+!118 = distinct !{!118, !55, !56}

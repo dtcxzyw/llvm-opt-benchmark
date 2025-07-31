@@ -223,7 +223,7 @@ define internal i32 @dissect_pn532_hci(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv.next = add nsw i32 %indvars.iv, -1
   %77 = and i32 %indvars.iv.next, 65535
   %.not179 = icmp eq i32 %77, 0
-  br i1 %.not179, label %._crit_edge, label %.lr.ph193, !llvm.loop !8
+  br i1 %.not179, label %._crit_edge, label %.lr.ph193, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph193, %54
   %78 = load i32, ptr @hf_data_checksum, align 4
@@ -270,7 +270,7 @@ define internal i32 @dissect_pn532_hci(ptr noundef %0, ptr noundef %1, ptr nound
   %106 = add nsw i16 %.2195, -1
   %.not177 = icmp eq i16 %106, 0
   %indvars.iv.next209 = add nsw i32 %indvars.iv208, -1
-  br i1 %.not177, label %._crit_edge199, label %.lr.ph198, !llvm.loop !9
+  br i1 %.not177, label %._crit_edge199, label %.lr.ph198, !llvm.loop !10
 
 ._crit_edge199:                                   ; preds = %.lr.ph198, %82
   %.1.lcssa = phi i8 [ %101, %82 ], [ %105, %.lr.ph198 ]
@@ -309,7 +309,7 @@ define internal i32 @dissect_pn532_hci(ptr noundef %0, ptr noundef %1, ptr nound
   %121 = add nuw nsw i32 %.1170, %120
   %122 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %121)
   %123 = icmp sgt i32 %122, 1
-  br i1 %123, label %.lr.ph202, label %.critedge2, !llvm.loop !10
+  br i1 %123, label %.lr.ph202, label %.critedge2, !llvm.loop !11
 
 .critedge2:                                       ; preds = %118, %.lr.ph202
   %.4.lcssa = phi i16 [ %119, %118 ], [ %.4201, %.lr.ph202 ]
@@ -431,8 +431,9 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

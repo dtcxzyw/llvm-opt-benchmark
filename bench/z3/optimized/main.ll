@@ -480,7 +480,7 @@ sub_0.i:                                          ; preds = %74, %71
   br i1 %102, label %103, label %sub_0169.i
 
 103:                                              ; preds = %100
-  store i32 1, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 1, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.noexc49
 
 sub_0169.i:                                       ; preds = %100
@@ -502,7 +502,7 @@ sub_1170.i:                                       ; preds = %sub_0169.i
   br i1 %108, label %109, label %.tail172.thread.i
 
 109:                                              ; preds = %.tail168.i
-  store i32 2, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 2, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.noexc49
 
 sub_1174.i:                                       ; preds = %sub_0169.i
@@ -527,7 +527,7 @@ sub_1174.i:                                       ; preds = %sub_0169.i
   br i1 %117, label %118, label %119
 
 118:                                              ; preds = %.tail172.thread.i
-  store i32 3, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 3, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.noexc49
 
 119:                                              ; preds = %.tail172.thread.i
@@ -536,7 +536,7 @@ sub_1174.i:                                       ; preds = %sub_0169.i
   br i1 %121, label %122, label %123
 
 122:                                              ; preds = %119
-  store i32 4, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 4, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.noexc49
 
 123:                                              ; preds = %119
@@ -545,7 +545,7 @@ sub_1174.i:                                       ; preds = %sub_0169.i
   br i1 %125, label %126, label %sub_0178.i
 
 126:                                              ; preds = %123
-  store i32 5, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 5, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.noexc49
 
 sub_0178.i:                                       ; preds = %123
@@ -565,7 +565,7 @@ sub_1179.i:                                       ; preds = %sub_0178.i
   br i1 %131, label %132, label %.thread.i
 
 132:                                              ; preds = %.tail177.i
-  store i32 6, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 6, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.noexc49
 
 .tail177.thread.i:                                ; preds = %sub_0178.i
@@ -584,7 +584,7 @@ sub_1179.i:                                       ; preds = %sub_0178.i
   br i1 %138, label %139, label %.tail182.thread.i
 
 139:                                              ; preds = %.thread.i, %.tail177.thread.thread.i, %.tail177.thread.i
-  store i32 7, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 7, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.noexc49
 
 sub_0183.i:                                       ; preds = %.tail177.thread.i
@@ -604,7 +604,7 @@ sub_1184.i:                                       ; preds = %sub_0183.i
   br i1 %144, label %145, label %.tail182.thread.i
 
 145:                                              ; preds = %.tail182.i
-  store i8 1, ptr @g_display_statistics, align 1, !tbaa !20
+  store i8 1, ptr @g_display_statistics, align 1, !tbaa !21
   br label %.invoke
 
 .tail182.thread.i:                                ; preds = %.tail182.i, %sub_1184.i, %sub_0183.i, %.thread.i, %.tail177.thread.thread.i
@@ -613,7 +613,7 @@ sub_1184.i:                                       ; preds = %sub_0183.i
   br i1 %147, label %148, label %149
 
 148:                                              ; preds = %.tail182.thread.i
-  store i8 1, ptr @g_display_model, align 1, !tbaa !20
+  store i8 1, ptr @g_display_model, align 1, !tbaa !21
   br label %.noexc49
 
 149:                                              ; preds = %.tail182.thread.i
@@ -641,7 +641,7 @@ sub_0188.i:                                       ; preds = %149
   %157 = add i8 %156, -58
   %or.cond.i.i = icmp ult i8 %157, -10
   %158 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  br i1 %or.cond.i.i, label %_ZL17validate_is_ulongPKc.exit.i, label %.split.i, !llvm.loop !22
+  br i1 %or.cond.i.i, label %_ZL17validate_is_ulongPKc.exit.i, label %.split.i, !llvm.loop !23
 
 _ZL17validate_is_ulongPKc.exit.i:                 ; preds = %.split.i
   %.not.le.i.i = icmp eq i8 %156, 0
@@ -691,7 +691,7 @@ sub_0192.i:                                       ; preds = %.tail187.thread.i
   %172 = add i8 %171, -58
   %or.cond.i145.i = icmp ult i8 %172, -10
   %173 = getelementptr inbounds nuw i8, ptr %.0.i144.i, i64 1
-  br i1 %or.cond.i145.i, label %_ZL17validate_is_ulongPKc.exit147.i, label %.split111.i, !llvm.loop !22
+  br i1 %or.cond.i145.i, label %_ZL17validate_is_ulongPKc.exit147.i, label %.split111.i, !llvm.loop !23
 
 _ZL17validate_is_ulongPKc.exit147.i:              ; preds = %.split111.i
   %.not.le.i146.i = icmp eq i8 %171, 0
@@ -961,7 +961,7 @@ sub_1215.i:                                       ; preds = %sub_0214.i
   %253 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.010.i.i, i32 noundef 46) #23
   %.not.i.i = icmp eq ptr %253, null
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 1
-  br i1 %.not.i.i, label %_Z13get_extensionPKc.exit.i, label %.preheader.i.i, !llvm.loop !23
+  br i1 %.not.i.i, label %_Z13get_extensionPKc.exit.i, label %.preheader.i.i, !llvm.loop !24
 
 _Z13get_extensionPKc.exit.i:                      ; preds = %.preheader.i.i
   br i1 %.08.i.i, label %260, label %.preheader.i152.i
@@ -972,7 +972,7 @@ _Z13get_extensionPKc.exit.i:                      ; preds = %.preheader.i.i
   %255 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.010.i153.i, i32 noundef 46) #23
   %.not.i155.i = icmp eq ptr %255, null
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 1
-  br i1 %.not.i155.i, label %_Z13get_extensionPKc.exit157.i, label %.preheader.i152.i, !llvm.loop !23
+  br i1 %.not.i155.i, label %_Z13get_extensionPKc.exit157.i, label %.preheader.i152.i, !llvm.loop !24
 
 _Z13get_extensionPKc.exit157.i:                   ; preds = %.preheader.i152.i
   %257 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.08.i154.i, ptr noundef nonnull dereferenceable(5) @.str.104) #23
@@ -980,7 +980,7 @@ _Z13get_extensionPKc.exit157.i:                   ; preds = %.preheader.i152.i
   br i1 %258, label %259, label %260
 
 259:                                              ; preds = %_Z13get_extensionPKc.exit157.i
-  store i32 8, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 8, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   store ptr %10, ptr @_ZL17g_drat_input_file, align 8, !tbaa !14
   br label %.noexc49
 
@@ -1002,7 +1002,7 @@ _Z13get_extensionPKc.exit157.i:                   ; preds = %.preheader.i152.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   %indvars.iv.next380.i = add nuw nsw i64 %indvars.iv379.i, 1
-  br i1 %exitcond.not.i, label %.thread159.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.thread159.i, label %.lr.ph.i, !llvm.loop !25
 
 .thread159.i:                                     ; preds = %.noexc49, %22, %._crit_edge.i
   %.0240.i = phi i64 [ %.0289.i, %._crit_edge.i ], [ %.0289.i, %22 ], [ %.4.i, %.noexc49 ]
@@ -1076,7 +1076,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %or.cond3, label %278, label %.invoke386
 
 278:                                              ; preds = %277
-  %279 = load i32, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  %279 = load i32, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   switch i32 %279, label %326 [
     i32 0, label %280
     i32 1, label %.thread
@@ -1090,7 +1090,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   ]
 
 280:                                              ; preds = %278
-  store i32 1, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 1, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   %281 = icmp eq ptr %267, null
   br i1 %281, label %.thread, label %.preheader.i
 
@@ -1100,7 +1100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %282 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %.010.i, i32 noundef 46) #23
   %.not.i = icmp eq ptr %282, null
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 1
-  br i1 %.not.i, label %_Z13get_extensionPKc.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %.not.i, label %_Z13get_extensionPKc.exit, label %.preheader.i, !llvm.loop !24
 
 _Z13get_extensionPKc.exit:                        ; preds = %.preheader.i
   %.not = icmp eq ptr %.08.i, null
@@ -1129,7 +1129,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %292, label %.thread118, label %.tail.thread
 
 .thread118:                                       ; preds = %284, %.tail
-  store i32 2, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 2, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %320
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
@@ -1143,7 +1143,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %297, label %.thread114, label %298
 
 .thread114:                                       ; preds = %.tail.thread, %295
-  store i32 3, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 3, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %314
 
 298:                                              ; preds = %295
@@ -1152,7 +1152,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %300, label %.thread115, label %301
 
 .thread115:                                       ; preds = %298
-  store i32 4, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 4, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %.invoke389
 
 301:                                              ; preds = %298
@@ -1161,7 +1161,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %303, label %.thread116, label %sub_0122
 
 .thread116:                                       ; preds = %301
-  store i32 5, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 5, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %316
 
 sub_0122:                                         ; preds = %301
@@ -1181,7 +1181,7 @@ sub_1123:                                         ; preds = %sub_0122
   br i1 %308, label %.thread117, label %.tail121.thread
 
 .thread117:                                       ; preds = %.tail121
-  store i32 6, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 6, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %317
 
 .tail121.thread:                                  ; preds = %sub_1123, %sub_0122, %.tail121
@@ -1190,7 +1190,7 @@ sub_1123:                                         ; preds = %sub_0122
   br i1 %310, label %.thread119, label %.thread
 
 .thread119:                                       ; preds = %.tail121.thread
-  store i32 7, ptr @_ZL12g_input_kind, align 4, !tbaa !18
+  store i32 7, ptr @_ZL12g_input_kind, align 4, !tbaa !19
   br label %322
 
 .thread:                                          ; preds = %.tail121.thread, %278, %_Z13get_extensionPKc.exit, %280
@@ -1282,7 +1282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %357
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %340
-  %343 = load ptr, ptr %341, align 8, !tbaa !24
+  %343 = load ptr, ptr %341, align 8, !tbaa !26
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 16
   %345 = load ptr, ptr %344, align 8
   %346 = call noundef ptr %345(ptr noundef nonnull align 8 dereferenceable(8) %341) #21
@@ -1301,7 +1301,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit90: ; preds = %348
   br i1 %350, label %352, label %359
 
 352:                                              ; preds = %351
-  %353 = load ptr, ptr %341, align 8, !tbaa !24
+  %353 = load ptr, ptr %341, align 8, !tbaa !26
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 24
   %355 = load ptr, ptr %354, align 8
   %356 = invoke noundef i32 %355(ptr noundef nonnull align 8 dereferenceable(8) %341)
@@ -1696,7 +1696,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit: ; preds 
   %.0 = phi i64 [ %spec.store.select.i, %26 ], [ %11, %23 ], [ %11, %21 ]
   %28 = add nuw i64 %.0, 1
   %29 = icmp slt i64 %28, 0
-  br i1 %29, label %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, !prof !26
+  br i1 %29, label %30, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit, !prof !28
 
 30:                                               ; preds = %27
   tail call void @_ZSt17__throw_bad_allocv() #22
@@ -1862,14 +1862,16 @@ attributes #27 = { builtin allocsize(0) }
 !13 = !{!8, !8, i64 0}
 !14 = !{!6, !6, i64 0}
 !15 = !{!11, !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"_ZTS10input_kind", !8, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"bool", !8, i64 0}
-!22 = distinct !{!22, !17}
-!23 = distinct !{!23, !17}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"vtable pointer", !9, i64 0}
-!26 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"_ZTS10input_kind", !8, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"bool", !8, i64 0}
+!23 = distinct !{!23, !17, !18}
+!24 = distinct !{!24, !17, !18}
+!25 = distinct !{!25, !18}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"vtable pointer", !9, i64 0}
+!28 = !{!"branch_weights", !"expected", i32 1, i32 2000}

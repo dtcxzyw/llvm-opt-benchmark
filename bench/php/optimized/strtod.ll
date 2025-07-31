@@ -22,7 +22,7 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
 7:                                                ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %.03243, i64 1
   %9 = icmp ult ptr %8, %5
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %7, %.lr.ph, %3
   %.032.lcssa = phi ptr [ %0, %3 ], [ %.03243, %.lr.ph ], [ %8, %7 ]
@@ -42,7 +42,7 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
 16:                                               ; preds = %14
   %17 = load i8, ptr %.1, align 1, !tbaa !4
   %.not34 = icmp eq i8 %17, 48
-  br i1 %.not34, label %14, label %18
+  br i1 %.not34, label %14, label %18, !llvm.loop !9
 
 18:                                               ; preds = %16, %14
   %19 = ptrtoint ptr %.1 to i64
@@ -82,7 +82,7 @@ define hidden double @lexbor_strtod_internal(ptr noundef %0, i64 noundef %1, i32
   %41 = icmp ult ptr %35, %34
   %42 = icmp ult i64 %40, 1844674407370955161
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.lr.ph.i.i.i, label %lexbor_strtod_read_uint64.exit.i.i
+  br i1 %43, label %.lr.ph.i.i.i, label %lexbor_strtod_read_uint64.exit.i.i, !llvm.loop !10
 
 lexbor_strtod_read_uint64.exit.i.i:               ; preds = %.lr.ph.i.i.i
   %44 = ptrtoint ptr %35 to i64
@@ -118,7 +118,7 @@ lexbor_strtod_diyfp_read.exit.i:                  ; preds = %46, %lexbor_strtod_
   %58 = add i64 %.010.i.i.i, 1
   %59 = shl nuw i64 %.069.i.i.i, 1
   %60 = icmp sgt i64 %59, -1
-  br i1 %60, label %.lr.ph.i.i90.i, label %lexbor_diyfp_normalize.exit.i
+  br i1 %60, label %.lr.ph.i.i90.i, label %lexbor_diyfp_normalize.exit.i, !llvm.loop !11
 
 lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i90.i, %.preheader.i.i.i, %lexbor_strtod_diyfp_read.exit.i
   %.07.i.i.i = phi i64 [ 64, %lexbor_strtod_diyfp_read.exit.i ], [ 0, %.preheader.i.i.i ], [ %58, %.lr.ph.i.i90.i ]
@@ -134,7 +134,7 @@ lexbor_diyfp_normalize.exit.i:                    ; preds = %.lr.ph.i.i90.i, %.p
   %68 = call { i64, i32 } @lexbor_cached_power_dec(i32 noundef %53, ptr noundef nonnull %4) #4
   %69 = extractvalue { i64, i32 } %68, 0
   %70 = extractvalue { i64, i32 } %68, 1
-  %71 = load i32, ptr %4, align 4, !tbaa !7
+  %71 = load i32, ptr %4, align 4, !tbaa !12
   %.not.i = icmp eq i32 %71, %53
   br i1 %.not.i, label %91, label %72
 
@@ -214,7 +214,7 @@ lexbor_strtod_adjust_pow10.exit.i:                ; preds = %72, %switch.lookup
   %116 = add i64 %.010.i.i102.i, 1
   %117 = shl nuw i64 %.069.i.i103.i, 1
   %118 = icmp sgt i64 %117, -1
-  br i1 %118, label %.lr.ph.i.i101.i, label %lexbor_diyfp_normalize.exit104.i
+  br i1 %118, label %.lr.ph.i.i101.i, label %lexbor_diyfp_normalize.exit104.i, !llvm.loop !11
 
 lexbor_diyfp_normalize.exit104.i:                 ; preds = %.lr.ph.i.i101.i, %.preheader.i.i97.i, %91
   %.07.i.i98.i = phi i64 [ 64, %91 ], [ 0, %.preheader.i.i97.i ], [ %116, %.lr.ph.i.i101.i ]
@@ -270,7 +270,7 @@ lexbor_diyfp_normalize.exit104.i:                 ; preds = %.lr.ph.i.i101.i, %.
   %150 = lshr i64 %.01621.i.i, 1
   %151 = add nsw i32 %.01720.i.i, 1
   %152 = icmp ugt i64 %.01621.i.i, 18014398509481983
-  br i1 %152, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %152, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %137
   %.017.lcssa.i.i = phi i32 [ %146, %137 ], [ %151, %.lr.ph.i.i ]
@@ -298,7 +298,7 @@ lexbor_diyfp_normalize.exit104.i:                 ; preds = %.lr.ph.i.i101.i, %.
   %163 = and i64 %.124.i.i, 2251799813685248
   %164 = icmp eq i64 %163, 0
   %165 = select i1 %162, i1 %164, i1 false
-  br i1 %165, label %.lr.ph25.i.i, label %._crit_edge26.i.i
+  br i1 %165, label %.lr.ph25.i.i, label %._crit_edge26.i.i, !llvm.loop !15
 
 ._crit_edge26.i.i:                                ; preds = %.lr.ph25.i.i, %.preheader.i.i
   %.118.lcssa.i.i = phi i32 [ %.017.lcssa.i.i, %.preheader.i.i ], [ %161, %.lr.ph25.i.i ]
@@ -351,5 +351,12 @@ attributes #4 = { nounwind }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"int", !5, i64 0}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !8}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !8}

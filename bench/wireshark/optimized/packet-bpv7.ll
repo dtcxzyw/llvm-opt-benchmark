@@ -2059,7 +2059,7 @@ proto_item_set_generated.exit357:                 ; preds = %proto_item_set_gene
 proto_item_set_generated.exit360:                 ; preds = %338, %335, %332, %329, %.lr.ph
   %342 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0278405)
   %.not319 = icmp eq ptr %342, null
-  br i1 %.not319, label %.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %.not319, label %.thread, label %.lr.ph, !llvm.loop !9
 
 .thread:                                          ; preds = %proto_item_set_generated.exit360, %326, %bp_bundle_ident_new.exit, %299, %proto_item_set_generated.exit357
   %343 = load ptr, ptr @bp_history, align 8
@@ -2190,7 +2190,7 @@ label_type_field.exit.i:                          ; preds = %407, %401, %398
   %410 = getelementptr %struct.blocktype_limit, ptr @blocktype_limits, i64 %indvars.iv.next.i
   %411 = load i64, ptr %410, align 16
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %.loopexit201.i, label %412
+  br i1 %exitcond.i, label %.loopexit201.i, label %412, !llvm.loop !10
 
 412:                                              ; preds = %409, %label_type_field.exit.i
   %indvars.iv.i = phi i64 [ 0, %label_type_field.exit.i ], [ %indvars.iv.next.i, %409 ]
@@ -2224,7 +2224,7 @@ label_type_field.exit.i:                          ; preds = %407, %401, %398
   %.2.i = add i64 %.1169206.i, %424
   %425 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0170205.i)
   %.not184.i = icmp eq ptr %425, null
-  br i1 %.not184.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not184.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %420, %.loopexit201.i
   %.0168.i = phi i64 [ 1, %.loopexit201.i ], [ 1, %420 ], [ %.2.i, %.lr.ph.i ]
@@ -2459,7 +2459,7 @@ proto_item_set_generated.exit363:                 ; preds = %366, %349, %367, %3
   %547 = add i64 %.0272407, 1
   %548 = load i32, ptr %13, align 4
   %.not313 = icmp slt i32 %548, %38
-  br i1 %.not313, label %66, label %._crit_edge
+  br i1 %.not313, label %66, label %._crit_edge, !llvm.loop !12
 
 .thread387:                                       ; preds = %dissect_block_primary.exit, %dissect_block_canonical.exit, %70, %._crit_edge
   %.0272400 = phi i64 [ %.0272407, %70 ], [ %.0272.lcssa, %._crit_edge ], [ 0, %dissect_block_primary.exit ], [ %.0272407, %dissect_block_canonical.exit ]
@@ -2722,7 +2722,7 @@ cmp_address.exit:                                 ; preds = %620
 699:                                              ; preds = %683, %686, %674, %670
   %700 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0285411)
   %.not331 = icmp eq ptr %700, null
-  br i1 %.not331, label %._crit_edge414, label %670, !llvm.loop !10
+  br i1 %.not331, label %._crit_edge414, label %670, !llvm.loop !13
 
 ._crit_edge419:                                   ; preds = %.lr.ph418, %._crit_edge414
   call void @wmem_array_sort(ptr noundef %667, ptr noundef nonnull @block_dissect_sort)
@@ -2744,7 +2744,7 @@ cmp_address.exit:                                 ; preds = %620
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
   %705 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0280416)
   %.not332 = icmp eq ptr %705, null
-  br i1 %.not332, label %._crit_edge419, label %.lr.ph418, !llvm.loop !11
+  br i1 %.not332, label %._crit_edge419, label %.lr.ph418, !llvm.loop !14
 
 706:                                              ; preds = %.lr.ph422, %767
   %.1282420 = phi i32 [ 0, %.lr.ph422 ], [ %768, %767 ]
@@ -2871,7 +2871,7 @@ cmp_address.exit:                                 ; preds = %620
   %768 = add nuw i32 %.1282420, 1
   %769 = call i32 @wmem_array_get_count(ptr noundef %667)
   %770 = icmp ult i32 %768, %769
-  br i1 %770, label %706, label %._crit_edge423, !llvm.loop !12
+  br i1 %770, label %706, label %._crit_edge423, !llvm.loop !15
 
 ._crit_edge423:                                   ; preds = %767, %._crit_edge419
   %771 = load ptr, ptr %549, align 8
@@ -2945,7 +2945,7 @@ cmp_address.exit:                                 ; preds = %620
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #19
   %801 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0275425)
   %.not333 = icmp eq ptr %801, null
-  br i1 %.not333, label %._crit_edge428, label %793, !llvm.loop !13
+  br i1 %.not333, label %._crit_edge428, label %793, !llvm.loop !16
 
 802:                                              ; preds = %._crit_edge428
   %803 = getelementptr inbounds nuw i8, ptr %30, i64 72
@@ -3923,7 +3923,7 @@ define internal i32 @dissect_block_payload(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not84, label %82, label %17
 
 17:                                               ; preds = %5
-  %18 = load i8, ptr @bp_reassemble_payload, align 1, !range !14, !noundef !15
+  %18 = load i8, ptr @bp_reassemble_payload, align 1, !range !17, !noundef !18
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %79
 
@@ -4886,7 +4886,7 @@ define internal fastcc i32 @dissect_carried_data(ptr noundef %0, ptr noundef %1,
 18:                                               ; preds = %.sink.split, %15, %11
   %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ %.0.ph, %.sink.split ]
   %19 = icmp slt i32 %.0, 1
-  %20 = load i8, ptr @bp_payload_try_heur, align 1, !range !14
+  %20 = load i8, ptr @bp_payload_try_heur, align 1, !range !17
   %21 = trunc nuw i8 %20 to i1
   %or.cond = select i1 %19, i1 %21, i1 false
   br i1 %or.cond, label %22, label %28
@@ -5067,7 +5067,7 @@ define internal fastcc void @show_crc_info(ptr noundef %0, ptr noundef %1, ptr n
 
 14:                                               ; preds = %8, %12, %10
   %.0 = phi i32 [ %11, %10 ], [ %13, %12 ], [ -1, %8 ]
-  %15 = load i8, ptr @bp_compute_crc, align 1, !range !14, !noundef !15
+  %15 = load i8, ptr @bp_compute_crc, align 1, !range !17, !noundef !18
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %38
 
@@ -5546,7 +5546,7 @@ define internal fastcc zeroext i1 @dissect_status_assertion(ptr noundef %0, i32 
   br i1 %.not, label %28, label %25
 
 25:                                               ; preds = %16
-  %26 = load i8, ptr %22, align 1, !range !14, !noundef !15
+  %26 = load i8, ptr %22, align 1, !range !17, !noundef !18
   %27 = trunc nuw i8 %26 to i1
   br label %28
 
@@ -5626,13 +5626,16 @@ attributes #21 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i8 0, i8 2}
-!15 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = !{i8 0, i8 2}
+!18 = !{}

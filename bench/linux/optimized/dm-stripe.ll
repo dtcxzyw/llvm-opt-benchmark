@@ -751,7 +751,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr noundef read
   %130 = load i32, ptr %6, align 4
   %131 = zext i32 %130 to i64
   %132 = icmp samesign ult i64 %129, %131
-  br i1 %132, label %101, label %.loopexit9, !llvm.loop !18
+  br i1 %132, label %101, label %.loopexit9, !llvm.loop !19
 
 .loopexit9:                                       ; preds = %128, %95
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -786,7 +786,7 @@ define internal void @stripe_dtr(ptr noundef %0) #0 align 16 {
   %13 = load i32, ptr %3, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %8, label %.loopexit, !llvm.loop !19
+  br i1 %15, label %8, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %8, %1
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -848,7 +848,7 @@ define internal noundef i32 @stripe_end_io(ptr noundef readonly captures(none) %
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, ptr nonnull elementtype(i32) %42) #10, !srcloc !20
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %42, ptr nonnull elementtype(i32) %42) #10, !srcloc !21
   %43 = load volatile i32, ptr %42, align 4
   %44 = icmp slt i32 %43, 15
   br i1 %44, label %45, label %48
@@ -863,7 +863,7 @@ define internal noundef i32 @stripe_end_io(ptr noundef readonly captures(none) %
   %50 = load i32, ptr %6, align 8
   %51 = zext i32 %50 to i64
   %52 = icmp samesign ult i64 %49, %51
-  br i1 %52, label %34, label %.loopexit, !llvm.loop !21
+  br i1 %52, label %34, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %48, %16, %9, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
@@ -926,7 +926,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %38 = add nuw nsw i64 %22, 1
   %39 = zext i32 %35 to i64
   %40 = icmp samesign ult i64 %38, %39
-  br i1 %40, label %20, label %.loopexit16, !llvm.loop !22
+  br i1 %40, label %20, label %.loopexit16, !llvm.loop !23
 
 .loopexit16:                                      ; preds = %34, %14
   %41 = phi i32 [ 0, %14 ], [ %35, %34 ]
@@ -982,7 +982,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %76 = add nuw nsw i64 %59, 1
   %77 = zext i32 %73 to i64
   %78 = icmp samesign ult i64 %76, %77
-  br i1 %78, label %57, label %.loopexit, !llvm.loop !23
+  br i1 %78, label %57, label %.loopexit, !llvm.loop !24
 
 79:                                               ; preds = %5
   %80 = icmp eq i32 %4, 0
@@ -1035,7 +1035,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %114 = add nuw nsw i64 %96, 1
   %115 = zext i32 %111 to i64
   %116 = icmp samesign ult i64 %114, %115
-  br i1 %116, label %94, label %.loopexit, !llvm.loop !24
+  br i1 %116, label %94, label %.loopexit, !llvm.loop !25
 
 117:                                              ; preds = %5
   %118 = icmp eq i32 %4, 0
@@ -1149,7 +1149,7 @@ define internal void @stripe_status(ptr noundef readonly captures(none) %0, i32 
   %196 = load i32, ptr %7, align 8
   %197 = zext i32 %196 to i64
   %198 = icmp samesign ult i64 %195, %197
-  br i1 %198, label %152, label %.loopexit18, !llvm.loop !25
+  br i1 %198, label %152, label %.loopexit18, !llvm.loop !26
 
 .loopexit18:                                      ; preds = %192, %145
   %199 = phi i32 [ %147, %145 ], [ %194, %192 ]
@@ -1192,7 +1192,7 @@ define internal i32 @stripe_iterate_devices(ptr noundef %0, ptr noundef readonly
   %19 = load i32, ptr %5, align 8
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %18, %20
-  br i1 %21, label %8, label %22, !llvm.loop !26
+  br i1 %21, label %8, label %22, !llvm.loop !27
 
 22:                                               ; preds = %17, %8
   ret i32 %15
@@ -1307,15 +1307,16 @@ attributes #13 = { nounwind memory(read) }
 !12 = !{!"auto-init"}
 !13 = !{i32 0, i32 33}
 !14 = !{i64 1075672}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16, !17, !18}
 !16 = !{!"llvm.loop.mustprogress"}
 !17 = !{!"llvm.loop.unroll.disable"}
-!18 = distinct !{!18, !16, !17}
-!19 = distinct !{!19, !16, !17}
-!20 = !{i64 2149046745, i64 2149046784, i64 2149046805, i64 2149046842, i64 2149046865, i64 2149046735}
-!21 = distinct !{!21, !16, !17}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !16, !17}
-!24 = distinct !{!24, !16, !17}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !16, !17, !18}
+!20 = distinct !{!20, !16, !17, !18}
+!21 = !{i64 2149046745, i64 2149046784, i64 2149046805, i64 2149046842, i64 2149046865, i64 2149046735}
+!22 = distinct !{!22, !16, !17, !18}
+!23 = distinct !{!23, !16, !17, !18}
+!24 = distinct !{!24, !16, !17, !18}
+!25 = distinct !{!25, !16, !17, !18}
+!26 = distinct !{!26, !16, !17, !18}
+!27 = distinct !{!27, !16, !17, !18}

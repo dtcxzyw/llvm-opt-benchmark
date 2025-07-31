@@ -277,7 +277,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
   tail call void @llvm.write_register.i64(metadata !0, i64 %86)
   %87 = add nuw nsw i64 %66, 1
   %88 = icmp eq i64 %87, 16
-  br i1 %88, label %.loopexit, label %65, !llvm.loop !12
+  br i1 %88, label %.loopexit, label %65, !llvm.loop !13
 
 89:                                               ; preds = %35
   store i8 17, ptr @vga_video_type, align 1
@@ -403,7 +403,7 @@ define internal void @vgacon_init(ptr noundef initializes((432, 440), (532, 536)
 23:                                               ; preds = %20, %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store i16 30464, ptr %24, align 8
-  %25 = load i8, ptr @vga_512_chars, align 1, !range !13, !noundef !14
+  %25 = load i8, ptr @vga_512_chars, align 1, !range !14, !noundef !15
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %29, label %27
 
@@ -468,9 +468,9 @@ define internal void @vgacon_deinit(ptr noundef %0) #1 align 16 {
   store i64 %4, ptr %5, align 8
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %7 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 12, i16 %7) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 12, i16 %7) #13, !srcloc !16
   %8 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 13, i16 %8) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 13, i16 %8) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %6) #13
   br label %9
 
@@ -540,9 +540,9 @@ define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 
   %25 = and i16 %21, -256
   %26 = or disjoint i16 %25, 12
   %27 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %26, i16 %27) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %26, i16 %27) #13, !srcloc !16
   %28 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %24, i16 %28) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %24, i16 %28) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %22) #13
   br label %29
 
@@ -568,9 +568,9 @@ define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 
   %42 = and i16 %38, -256
   %43 = or disjoint i16 %42, 14
   %44 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %43, i16 %44) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %43, i16 %44) #13, !srcloc !16
   %45 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %41, i16 %45) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %41, i16 %45) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %39) #13
   %46 = load i8, ptr @vga_video_type, align 1
   %47 = icmp ugt i8 %46, 33
@@ -597,9 +597,9 @@ define internal void @vgacon_cursor(ptr noundef %0, i32 noundef %1) #1 align 16 
   %60 = and i16 %56, -256
   %61 = or disjoint i16 %60, 14
   %62 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %61, i16 %62) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %61, i16 %62) #13, !srcloc !16
   %63 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %59, i16 %63) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %59, i16 %63) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %57) #13
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %65 = load i32, ptr %64, align 4
@@ -689,7 +689,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   br i1 %16, label %17, label %106
 
 17:                                               ; preds = %13
-  %18 = load i8, ptr @vga_hardscroll_enabled, align 1, !range !13, !noundef !14
+  %18 = load i8, ptr @vga_hardscroll_enabled, align 1, !range !14, !noundef !15
   %19 = icmp ne i8 %18, 0
   %20 = lshr i32 %2, 1
   %21 = icmp ugt i32 %20, %4
@@ -748,7 +748,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   %59 = load i16, ptr %58, align 8
   %60 = lshr i32 %28, 1
   %61 = zext nneg i32 %60 to i64
-  %62 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosw", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %59, ptr %57, i64 %61) #13, !srcloc !16
+  %62 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosw", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %59, ptr %57, i64 %61) #13, !srcloc !17
   br label %93
 
 63:                                               ; preds = %23
@@ -795,7 +795,7 @@ define internal noundef zeroext i1 @vgacon_scroll(ptr noundef %0, i32 noundef %1
   %89 = load i16, ptr %88, align 8
   %90 = lshr i32 %28, 1
   %91 = zext nneg i32 %90 to i64
-  %92 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosw", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %89, ptr %87, i64 %91) #13, !srcloc !16
+  %92 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosw", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %89, ptr %87, i64 %91) #13, !srcloc !17
   br label %93
 
 93:                                               ; preds = %84, %51
@@ -1019,7 +1019,7 @@ define internal noundef range(i32 0, 2) i32 @vgacon_blank(ptr noundef captures(n
   %85 = zext i8 %84 to i16
   %86 = shl nuw i16 %85, 8
   %87 = or disjoint i16 %86, 1
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %87, i16 964) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %87, i16 964) #13, !srcloc !16
   %88 = load i8, ptr @vga_state.0, align 1
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %88, i16 964) #13, !srcloc !8
   %89 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -1089,7 +1089,7 @@ define internal noundef range(i32 0, 2) i32 @vgacon_blank(ptr noundef captures(n
   tail call void @llvm.write_register.i64(metadata !0, i64 %132)
   %133 = add nuw nsw i64 %105, 1
   %134 = icmp eq i64 %133, 16
-  br i1 %134, label %vga_set_palette.exit, label %104, !llvm.loop !17
+  br i1 %134, label %vga_set_palette.exit, label %104, !llvm.loop !18
 
 vga_set_palette.exit:                             ; preds = %104
   store i1 false, ptr @vga_palette_blanked, align 1
@@ -1139,7 +1139,7 @@ vga_set_palette.exit:                             ; preds = %104
   tail call void @llvm.write_register.i64(metadata !0, i64 %159)
   %160 = add nuw nsw i32 %146, 1
   %161 = icmp eq i32 %160, 16
-  br i1 %161, label %162, label %145, !llvm.loop !18
+  br i1 %161, label %162, label %145, !llvm.loop !19
 
 162:                                              ; preds = %145
   store i1 true, ptr @vga_palette_blanked, align 1
@@ -1166,9 +1166,9 @@ vga_set_palette.exit:                             ; preds = %104
   store i64 %171, ptr %173, align 8
   %174 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %175 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 12, i16 %175) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 12, i16 %175) #13, !srcloc !16
   %176 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 13, i16 %176) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 13, i16 %176) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %174) #13
   store i32 0, ptr @vga_rolled_over, align 4
   br label %177
@@ -1180,7 +1180,7 @@ vga_set_palette.exit:                             ; preds = %104
   %181 = load i32, ptr %180, align 8
   %182 = lshr i32 %181, 1
   %183 = zext nneg i32 %182 to i64
-  %184 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosw", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 32, ptr %179, i64 %183) #13, !srcloc !16
+  %184 = tail call { i64, i64 } asm sideeffect "rep\0A\09stosw", "=&{cx},=&{di},{ax},1,0,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 32, ptr %179, i64 %183) #13, !srcloc !17
   br i1 %137, label %359, label %185
 
 185:                                              ; preds = %177
@@ -1344,7 +1344,7 @@ vga_set_palette.exit:                             ; preds = %104
   %289 = zext i8 %288 to i16
   %290 = shl nuw i16 %289, 8
   %291 = or disjoint i16 %290, 1
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %291, i16 964) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %291, i16 964) #13, !srcloc !16
   %292 = load i8, ptr @vga_state.2, align 1
   %293 = icmp sgt i8 %292, -1
   br i1 %293, label %299, label %294
@@ -1525,7 +1525,7 @@ define internal noundef range(i32 -22, 1) i32 @vgacon_font_get(ptr noundef reado
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %10, ptr %11, align 4
-  %12 = load i8, ptr @vga_512_chars, align 1, !range !13, !noundef !14
+  %12 = load i8, ptr @vga_512_chars, align 1, !range !14, !noundef !15
   %13 = icmp eq i8 %12, 0
   %14 = select i1 %13, i32 256, i32 512
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1674,7 +1674,7 @@ define internal void @vgacon_set_palette(ptr noundef %0, ptr noundef readonly ca
   tail call void @llvm.write_register.i64(metadata !0, i64 %42)
   %43 = add nuw nsw i64 %15, 1
   %44 = icmp eq i64 %43, 16
-  br i1 %44, label %vga_set_palette.exit, label %14, !llvm.loop !17
+  br i1 %44, label %vga_set_palette.exit, label %14, !llvm.loop !18
 
 vga_set_palette.exit:                             ; preds = %14, %7, %5, %2
   ret void
@@ -1699,9 +1699,9 @@ define internal void @vgacon_scrolldelta(ptr noundef %0, i32 noundef %1) #1 alig
   %16 = and i16 %12, -256
   %17 = or disjoint i16 %16, 12
   %18 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %17, i16 %18) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %17, i16 %18) #13, !srcloc !16
   %19 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %15, i16 %19) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %15, i16 %19) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %13) #13
   ret void
 }
@@ -1728,9 +1728,9 @@ define internal noundef range(i32 0, 2) i32 @vgacon_set_origin(ptr noundef write
   store i64 %9, ptr %11, align 8
   %12 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %13 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 12, i16 %13) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 12, i16 %13) #13, !srcloc !16
   %14 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 13, i16 %14) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 13, i16 %14) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %12) #13
   store i32 0, ptr @vga_rolled_over, align 4
   br label %15
@@ -1885,7 +1885,7 @@ define internal void @vgacon_invert_region(ptr readnone captures(none) %0, ptr n
   %17 = getelementptr i8, ptr %7, i64 2
   store i16 %16, ptr %7, align 2
   %18 = icmp eq i32 %8, 0
-  br i1 %18, label %.loopexit, label %.preheader.split.us, !llvm.loop !19
+  br i1 %18, label %.loopexit, label %.preheader.split.us, !llvm.loop !20
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %19 = phi i32 [ %21, %.preheader.split ], [ %2, %.preheader ]
@@ -1899,7 +1899,7 @@ define internal void @vgacon_invert_region(ptr readnone captures(none) %0, ptr n
   %27 = getelementptr i8, ptr %20, i64 2
   store i16 %26, ptr %20, align 2
   %28 = icmp eq i32 %21, 0
-  br i1 %28, label %.loopexit, label %.preheader.split, !llvm.loop !21
+  br i1 %28, label %.loopexit, label %.preheader.split, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader.split, %.preheader.split.us, %3
   ret void
@@ -1955,9 +1955,9 @@ define internal fastcc void @vga_set_mem_top(i64 %.456.val) unnamed_addr #10 ali
   %8 = and i16 %4, -256
   %9 = or disjoint i16 %8, 12
   %10 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %9, i16 %10) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %9, i16 %10) #13, !srcloc !16
   %11 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %7, i16 %11) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %7, i16 %11) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %5) #13
   ret void
 }
@@ -1994,9 +1994,9 @@ define internal fastcc void @vgacon_restore_screen(ptr noundef %0) unnamed_addr 
   %20 = and i16 %16, -256
   %21 = or disjoint i16 %20, 12
   %22 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %21, i16 %22) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %21, i16 %22) #13, !srcloc !16
   %23 = load i16, ptr @vga_video_port_reg, align 2
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19, i16 %23) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %19, i16 %23) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %17) #13
   br label %24
 
@@ -2295,13 +2295,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
 
 14:                                               ; preds = %3
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @vga_lock) #13
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 256, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 1026, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 1796, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 768, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 516, i16 974) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 5, i16 974) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 6, i16 974) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 256, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 1026, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 1796, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 768, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 516, i16 974) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 5, i16 974) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 6, i16 974) #13, !srcloc !16
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull @vga_lock) #13
   %15 = icmp eq i32 %1, 0
   br i1 %15, label %.preheader7, label %.preheader9
@@ -2315,7 +2315,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %20 = tail call i32 @__SCT__cond_resched() #13
   %21 = add nuw nsw i64 %16, 1
   %22 = icmp eq i64 %21, 8192
-  br i1 %22, label %.loopexit8.thread, label %.preheader9, !llvm.loop !22
+  br i1 %22, label %.loopexit8.thread, label %.preheader9, !llvm.loop !23
 
 .preheader7:                                      ; preds = %14, %.preheader7
   %23 = phi i64 [ %28, %.preheader7 ], [ 0, %14 ]
@@ -2326,7 +2326,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %27 = tail call i32 @__SCT__cond_resched() #13
   %28 = add nuw nsw i64 %23, 1
   %29 = icmp eq i64 %28, 8192
-  br i1 %29, label %.loopexit8, label %.preheader7, !llvm.loop !23
+  br i1 %29, label %.loopexit8, label %.preheader7, !llvm.loop !24
 
 .loopexit8:                                       ; preds = %.preheader7
   br i1 %2, label %32, label %.loopexit4
@@ -2353,7 +2353,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %39 = tail call i32 @__SCT__cond_resched() #13
   %40 = add nuw nsw i64 %35, 1
   %41 = icmp eq i64 %40, 8192
-  br i1 %41, label %.loopexit4, label %.preheader5, !llvm.loop !24
+  br i1 %41, label %.loopexit4, label %.preheader5, !llvm.loop !25
 
 .preheader:                                       ; preds = %32, %.preheader
   %42 = phi i64 [ %47, %.preheader ], [ 0, %32 ]
@@ -2364,26 +2364,26 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   %46 = tail call i32 @__SCT__cond_resched() #13
   %47 = add nuw nsw i64 %42, 1
   %48 = icmp eq i64 %47, 8192
-  br i1 %48, label %.loopexit4, label %.preheader, !llvm.loop !25
+  br i1 %48, label %.loopexit4, label %.preheader, !llvm.loop !26
 
 .loopexit4:                                       ; preds = %.preheader5, %.preheader, %.loopexit8.thread, %.loopexit8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @vga_lock) #13
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 256, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 770, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 772, i16 964) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 256, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 770, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 772, i16 964) #13, !srcloc !16
   br i1 %15, label %79, label %49
 
 49:                                               ; preds = %.loopexit4
   %50 = select i1 %2, i16 1027, i16 3
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %50, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 768, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4, i16 974) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4101, i16 974) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %50, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 768, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4, i16 974) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4101, i16 974) #13, !srcloc !16
   %51 = zext nneg i8 %12 to i16
   %52 = shl nuw nsw i16 %51, 8
   %53 = or disjoint i16 %52, 6
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %53, i16 974) #13, !srcloc !15
-  %54 = load i8, ptr @vga_512_chars, align 1, !range !13, !noundef !14
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %53, i16 974) #13, !srcloc !16
+  %54 = load i8, ptr @vga_512_chars, align 1, !range !14, !noundef !15
   %55 = icmp eq i8 %54, %4
   br i1 %55, label %83, label %56
 
@@ -2425,13 +2425,13 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
   br label %84
 
 79:                                               ; preds = %.loopexit4
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 768, i16 964) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4, i16 974) #13, !srcloc !15
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4101, i16 974) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 768, i16 964) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4, i16 974) #13, !srcloc !16
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 4101, i16 974) #13, !srcloc !16
   %80 = zext nneg i8 %12 to i16
   %81 = shl nuw nsw i16 %80, 8
   %82 = or disjoint i16 %81, 6
-  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %82, i16 974) #13, !srcloc !15
+  tail call void asm sideeffect "outw ${0:w}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i16 %82, i16 974) #13, !srcloc !16
   br label %83
 
 83:                                               ; preds = %79, %49
@@ -2461,7 +2461,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vgacon_do_font_op(ptr noun
 95:                                               ; preds = %93, %89, %84
   %96 = add nuw nsw i64 %85, 1
   %97 = icmp eq i64 %96, 63
-  br i1 %97, label %.loopexit, label %84, !llvm.loop !26
+  br i1 %97, label %.loopexit, label %84, !llvm.loop !27
 
 .loopexit:                                        ; preds = %95, %83, %3
   %98 = phi i32 [ -22, %3 ], [ 0, %83 ], [ 0, %95 ]
@@ -2590,7 +2590,7 @@ define internal fastcc void @vgacon_adjust_height(i32 %.432.val, i32 noundef %0)
 79:                                               ; preds = %75, %65, %60
   %80 = add nuw nsw i64 %61, 1
   %81 = icmp eq i64 %80, 63
-  br i1 %81, label %82, label %60, !llvm.loop !27
+  br i1 %81, label %82, label %60, !llvm.loop !28
 
 82:                                               ; preds = %79
   ret void
@@ -2638,22 +2638,23 @@ attributes #13 = { nounwind }
 !6 = !{i64 2154752459}
 !7 = !{i64 2149832330, i64 2149832358, i64 2149832364, i64 2149832560, i64 2149832611, i64 2149832632, i64 2149832657, i64 2149832380, i64 2149832396, i64 2149832423, i64 2149832869, i64 2149831621, i64 2149832875, i64 2149832923, i64 2149832987, i64 2149833051, i64 2149833108, i64 2149831702, i64 2149831727, i64 2149833392, i64 2149833521, i64 2149833453, i64 2149833535, i64 2149831819}
 !8 = !{i64 2154752263}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{i8 0, i8 2}
-!14 = !{}
-!15 = !{i64 2154753104}
-!16 = !{i64 934382, i64 934388}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !10, !11}
-!22 = distinct !{!22, !10, !11}
-!23 = distinct !{!23, !10, !11}
-!24 = distinct !{!24, !10, !11}
-!25 = distinct !{!25, !10, !11}
-!26 = distinct !{!26, !10, !11}
-!27 = distinct !{!27, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !10, !11, !12}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{i64 2154753104}
+!17 = !{i64 934382, i64 934388}
+!18 = distinct !{!18, !10, !11, !12}
+!19 = distinct !{!19, !10, !11, !12}
+!20 = distinct !{!20, !10, !11, !12, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !10, !11, !12}
+!23 = distinct !{!23, !10, !11, !12}
+!24 = distinct !{!24, !10, !11, !12}
+!25 = distinct !{!25, !10, !11, !12}
+!26 = distinct !{!26, !10, !11, !12}
+!27 = distinct !{!27, !10, !11, !12}
+!28 = distinct !{!28, !10, !11, !12}

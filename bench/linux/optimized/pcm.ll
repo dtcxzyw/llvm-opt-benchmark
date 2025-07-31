@@ -496,7 +496,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) #1 align 16 {
-  %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef %5), !range !12
+  %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext false, ptr noundef %5), !range !13
   ret i32 %7
 }
 
@@ -543,12 +543,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @_snd_pcm_new(ptr noundef %
   br label %28
 
 28:                                               ; preds = %25, %17
-  %29 = tail call i32 @snd_pcm_new_stream(ptr noundef nonnull %15, i32 noundef 0, i32 noundef %3), !range !12
+  %29 = tail call i32 @snd_pcm_new_stream(ptr noundef nonnull %15, i32 noundef 0, i32 noundef %3), !range !13
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %40, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @snd_pcm_new_stream(ptr noundef nonnull %15, i32 noundef 1, i32 noundef %4), !range !12
+  %32 = tail call i32 @snd_pcm_new_stream(ptr noundef nonnull %15, i32 noundef 1, i32 noundef %4), !range !13
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %40, label %34
 
@@ -594,7 +594,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @_snd_pcm_new(ptr noundef %
   tail call void @snd_pcm_timer_done(ptr noundef nonnull %52) #13
   tail call void @kfree(ptr noundef nonnull %52) #13
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit.i, label %.preheader.i, !llvm.loop !13
+  br i1 %55, label %.loopexit.i, label %.preheader.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.preheader.i, %46
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 224
@@ -639,7 +639,7 @@ snd_pcm_free_stream.exit:                         ; preds = %64, %68
   tail call void @snd_pcm_timer_done(ptr noundef nonnull %76) #13
   tail call void @kfree(ptr noundef nonnull %76) #13
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.loopexit.i9, label %.preheader.i8, !llvm.loop !13
+  br i1 %79, label %.loopexit.i9, label %.preheader.i8, !llvm.loop !14
 
 .loopexit.i9:                                     ; preds = %.preheader.i8, %snd_pcm_free_stream.exit
   %80 = getelementptr i8, ptr %15, i64 280
@@ -678,7 +678,7 @@ snd_pcm_free_stream.exit10:                       ; preds = %88, %92
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_new_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) #1 align 16 {
-  %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true, ptr noundef %5), !range !12
+  %7 = tail call fastcc i32 @_snd_pcm_new(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true, ptr noundef %5), !range !13
   ret i32 %7
 }
 
@@ -733,7 +733,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
   %36 = getelementptr inbounds nuw i8, ptr %39, i64 224
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit, label %.preheader18, !llvm.loop !14
+  br i1 %38, label %.loopexit, label %.preheader18, !llvm.loop !15
 
 .preheader18:                                     ; preds = %28, %35
   %39 = phi ptr [ %37, %35 ], [ %33, %28 ]
@@ -769,7 +769,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 224
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.thread, label %.split.us, !llvm.loop !15
+  br i1 %59, label %.thread, label %.split.us, !llvm.loop !16
 
 60:                                               ; preds = %.loopexit
   %61 = icmp slt i32 %.fr30, 0
@@ -796,7 +796,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 224
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread, label %.preheader, !llvm.loop !17
+  br i1 %75, label %.thread, label %.preheader, !llvm.loop !18
 
 76:                                               ; preds = %65
   %77 = load ptr, ptr %14, align 8
@@ -833,7 +833,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
   %94 = getelementptr inbounds nuw i8, ptr %85, i64 224
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %.thread, label %.split, !llvm.loop !18
+  br i1 %96, label %.thread, label %.split, !llvm.loop !19
 
 .split27.us:                                      ; preds = %89, %.split.us
   %.us-phi = phi ptr [ %52, %.split.us ], [ %85, %89 ]
@@ -891,7 +891,7 @@ define dso_local noundef range(i32 -77, 1) i32 @snd_pcm_attach_substream(ptr nou
   %122 = load i32, ptr %43, align 8
   %123 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 328
   store i32 %122, ptr %123, align 8
-  %124 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !19
+  %124 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
   %125 = inttoptr i64 %124 to ptr
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 1416
   %127 = load ptr, ptr %126, align 8
@@ -934,15 +934,15 @@ define internal fastcc noundef ptr @get_pid(ptr noundef returned %0) unnamed_add
   br i1 %2, label %12, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #13, !srcloc !20
+  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %0, i32 1, ptr nonnull elementtype(i32) %0) #13, !srcloc !21
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %10, label %6, !prof !21
+  br i1 %5, label %10, label %6, !prof !22
 
 6:                                                ; preds = %3
   %7 = add i32 %4, 1
   %8 = or i32 %7, %4
   %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %12, label %10, !prof !22
+  br i1 %9, label %12, label %10, !prof !23
 
 10:                                               ; preds = %6, %3
   %11 = phi i32 [ 2, %3 ], [ 1, %6 ]
@@ -1052,7 +1052,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
 5:                                                ; preds = %4
   %6 = tail call i64 @llvm.read_register.i64(metadata !0)
   %7 = inttoptr i64 %3 to ptr
-  %8 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %7, i64 4, i64 %6) #13, !srcloc !23
+  %8 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %7, i64 4, i64 %6) #13, !srcloc !24
   %9 = extractvalue { ptr, i32, i64 } %8, 0
   %10 = extractvalue { ptr, i32, i64 } %8, 1
   %11 = extractvalue { ptr, i32, i64 } %8, 2
@@ -1088,13 +1088,13 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
   %29 = load i32, ptr %22, align 8
   %30 = load i32, ptr %0, align 8
   %31 = icmp sgt i32 %29, %30
-  br i1 %31, label %32, label %16, !llvm.loop !24
+  br i1 %31, label %32, label %16, !llvm.loop !25
 
 32:                                               ; preds = %28, %24, %16
   %33 = phi i32 [ %26, %24 ], [ -1, %28 ], [ -1, %16 ]
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #13
   %34 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %35 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %7, i32 %33, i64 4, i64 %34) #13, !srcloc !25
+  %35 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %7, i32 %33, i64 4, i64 %34) #13, !srcloc !26
   %36 = extractvalue { ptr, i64 } %35, 0
   %37 = extractvalue { ptr, i64 } %35, 1
   %38 = ptrtoint ptr %36 to i64
@@ -1107,7 +1107,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
 42:                                               ; preds = %4
   %43 = inttoptr i64 %3 to ptr
   %44 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %45 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %43, i64 4, i64 %44) #13, !srcloc !26
+  %45 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %43, i64 4, i64 %44) #13, !srcloc !27
   %46 = extractvalue { ptr, i32, i64 } %45, 0
   %47 = extractvalue { ptr, i32, i64 } %45, 1
   %48 = extractvalue { ptr, i32, i64 } %45, 2
@@ -1120,7 +1120,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
 52:                                               ; preds = %42
   %53 = tail call i64 @llvm.read_register.i64(metadata !0)
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %55 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54, i64 4, i64 %53) #13, !srcloc !27
+  %55 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %54, i64 4, i64 %53) #13, !srcloc !28
   %56 = extractvalue { ptr, i32, i64 } %55, 0
   %57 = extractvalue { ptr, i32, i64 } %55, 1
   %58 = extractvalue { ptr, i32, i64 } %55, 2
@@ -1136,11 +1136,11 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
   br i1 %64, label %65, label %130
 
 65:                                               ; preds = %63
-  %66 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 2, i64 %60) #13, !srcloc !28
+  %66 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 2, i64 %60) #13, !srcloc !29
   %67 = and i64 %66, %60
   %68 = tail call i64 @llvm.read_register.i64(metadata !0)
   %69 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %70 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %69, i64 4, i64 %68) #13, !srcloc !29
+  %70 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %69, i64 4, i64 %68) #13, !srcloc !30
   %71 = extractvalue { ptr, i32, i64 } %70, 0
   %72 = extractvalue { ptr, i32, i64 } %70, 1
   %73 = extractvalue { ptr, i32, i64 } %70, 2
@@ -1172,7 +1172,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
 88:                                               ; preds = %84, %.preheader9
   %89 = load ptr, ptr %80, align 8
   %90 = icmp eq ptr %89, @snd_pcm_devices
-  br i1 %90, label %.thread, label %.preheader9, !llvm.loop !30
+  br i1 %90, label %.thread, label %.preheader9, !llvm.loop !31
 
 91:                                               ; preds = %84
   %92 = getelementptr i8, ptr %80, i64 -8
@@ -1208,7 +1208,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 224
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, null
-  br i1 %113, label %.thread, label %.preheader, !llvm.loop !31
+  br i1 %113, label %.thread, label %.preheader, !llvm.loop !32
 
 114:                                              ; preds = %.preheader
   %115 = getelementptr i8, ptr %80, i64 288
@@ -1225,7 +1225,7 @@ define internal i32 @snd_pcm_control_ioctl(ptr noundef readonly captures(address
 118:                                              ; preds = %4
   %119 = tail call i64 @llvm.read_register.i64(metadata !0)
   %120 = inttoptr i64 %3 to ptr
-  %121 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %120, i64 4, i64 %119) #13, !srcloc !32
+  %121 = tail call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %120, i64 4, i64 %119) #13, !srcloc !33
   %122 = extractvalue { ptr, i32, i64 } %121, 0
   %123 = extractvalue { ptr, i32, i64 } %121, 2
   %124 = ptrtoint ptr %122 to i64
@@ -1695,7 +1695,7 @@ define internal noundef i32 @snd_pcm_dev_free(ptr noundef readonly captures(none
   tail call void @snd_pcm_timer_done(ptr noundef nonnull %16) #13
   tail call void @kfree(ptr noundef nonnull %16) #13
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit.i, label %.preheader.i, !llvm.loop !13
+  br i1 %19, label %.loopexit.i, label %.preheader.i, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %.preheader.i, %10
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 224
@@ -1740,7 +1740,7 @@ snd_pcm_free_stream.exit:                         ; preds = %28, %32
   tail call void @snd_pcm_timer_done(ptr noundef nonnull %40) #13
   tail call void @kfree(ptr noundef nonnull %40) #13
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.loopexit.i3, label %.preheader.i2, !llvm.loop !13
+  br i1 %43, label %.loopexit.i3, label %.preheader.i2, !llvm.loop !14
 
 .loopexit.i3:                                     ; preds = %.preheader.i2, %snd_pcm_free_stream.exit
   %44 = getelementptr i8, ptr %3, i64 280
@@ -1848,7 +1848,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly captures(address_
 .thread6:                                         ; preds = %27, %.thread
   %42 = load ptr, ptr %18, align 8
   %43 = icmp eq ptr %42, @snd_pcm_devices
-  br i1 %43, label %.loopexit13, label %17, !llvm.loop !33
+  br i1 %43, label %.loopexit13, label %17, !llvm.loop !34
 
 .loopexit13:                                      ; preds = %.thread6, %11
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1899,7 +1899,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly captures(address_
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 224
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %75, label %.loopexit, label %.preheader, !llvm.loop !35
 
 76:                                               ; preds = %61
   %77 = load ptr, ptr %51, align 8
@@ -1913,7 +1913,7 @@ define internal i32 @snd_pcm_dev_register(ptr noundef readonly captures(address_
 
 .loopexit:                                        ; preds = %.preheader, %52, %69
   %.ph = phi i32 [ %67, %69 ], [ %56, %52 ], [ %67, %.preheader ]
-  br i1 %54, label %52, label %.loopexit11, !llvm.loop !35
+  br i1 %54, label %52, label %.loopexit11, !llvm.loop !36
 
 .loopexit11:                                      ; preds = %22, %.loopexit, %76
   %80 = phi i32 [ %67, %76 ], [ %.ph, %.loopexit ], [ -16, %22 ]
@@ -1999,10 +1999,10 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr noundef readonly capture
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.loopexit12, label %.preheader11, !llvm.loop !36
+  br i1 %38, label %.loopexit12, label %.preheader11, !llvm.loop !37
 
 .loopexit12:                                      ; preds = %35, %12
-  br i1 %13, label %12, label %.preheader10, !llvm.loop !37
+  br i1 %13, label %12, label %.preheader10, !llvm.loop !38
 
 .preheader10:                                     ; preds = %.loopexit12, %.loopexit
   %39 = phi i1 [ false, %.loopexit ], [ true, %.loopexit12 ]
@@ -2018,10 +2018,10 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr noundef readonly capture
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 224
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.loopexit, label %.preheader9, !llvm.loop !38
+  br i1 %45, label %.loopexit, label %.preheader9, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.preheader9, %.preheader10
-  br i1 %39, label %.preheader10, label %.preheader.preheader, !llvm.loop !39
+  br i1 %39, label %.preheader10, label %.preheader.preheader, !llvm.loop !40
 
 .preheader.preheader:                             ; preds = %.loopexit
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -2055,7 +2055,7 @@ define internal noundef i32 @snd_pcm_dev_disconnect(ptr noundef readonly capture
   br label %64
 
 64:                                               ; preds = %59, %55
-  br i1 %47, label %.preheader, label %65, !llvm.loop !40
+  br i1 %47, label %.preheader, label %65, !llvm.loop !41
 
 65:                                               ; preds = %64
   tail call void @mutex_unlock(ptr noundef nonnull %4) #13
@@ -2210,7 +2210,7 @@ define internal void @snd_pcm_proc_read(ptr readnone captures(none) %0, ptr noun
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %30, ptr noundef nonnull @.str.143) #13
   %31 = load ptr, ptr %5, align 8
   %32 = icmp eq ptr %31, @snd_pcm_devices
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !41
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !42
 
 .loopexit:                                        ; preds = %29, %2
   tail call void @mutex_unlock(ptr noundef nonnull @register_mutex) #13
@@ -2251,36 +2251,37 @@ attributes #17 = { nounwind memory(none) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = !{!"auto-init"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i32 -2147483648, i32 1}
-!13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = !{i64 2147978645}
-!20 = !{i64 2148910240, i64 2148910279, i64 2148910300, i64 2148910337, i64 2148910360, i64 2148910369}
-!21 = !{!"branch_weights", i32 1, i32 2000}
-!22 = !{!"branch_weights", i32 2000, i32 1}
-!23 = !{i64 2154913112}
-!24 = distinct !{!24, !10, !11}
-!25 = !{i64 2154915433}
-!26 = !{i64 2154917288}
-!27 = !{i64 2154919317}
-!28 = !{i64 904960}
-!29 = !{i64 2154924106}
-!30 = distinct !{!30, !10, !11}
-!31 = distinct !{!31, !10, !11}
-!32 = !{i64 2154926949}
-!33 = distinct !{!33, !10, !11}
-!34 = distinct !{!34, !10, !11}
-!35 = distinct !{!35, !10, !11}
-!36 = distinct !{!36, !10, !11}
-!37 = distinct !{!37, !10, !11}
-!38 = distinct !{!38, !10, !11}
-!39 = distinct !{!39, !10, !11}
-!40 = distinct !{!40, !10, !11}
-!41 = distinct !{!41, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i32 -2147483648, i32 1}
+!14 = distinct !{!14, !10, !11, !12}
+!15 = distinct !{!15, !10, !11, !12}
+!16 = distinct !{!16, !10, !11, !12, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!18 = distinct !{!18, !10, !11, !12}
+!19 = distinct !{!19, !10, !11, !12}
+!20 = !{i64 2147978645}
+!21 = !{i64 2148910240, i64 2148910279, i64 2148910300, i64 2148910337, i64 2148910360, i64 2148910369}
+!22 = !{!"branch_weights", i32 1, i32 2000}
+!23 = !{!"branch_weights", i32 2000, i32 1}
+!24 = !{i64 2154913112}
+!25 = distinct !{!25, !10, !11, !12}
+!26 = !{i64 2154915433}
+!27 = !{i64 2154917288}
+!28 = !{i64 2154919317}
+!29 = !{i64 904960}
+!30 = !{i64 2154924106}
+!31 = distinct !{!31, !10, !11, !12}
+!32 = distinct !{!32, !10, !11, !12}
+!33 = !{i64 2154926949}
+!34 = distinct !{!34, !10, !11, !12}
+!35 = distinct !{!35, !10, !11, !12}
+!36 = distinct !{!36, !10, !11, !12}
+!37 = distinct !{!37, !10, !11, !12}
+!38 = distinct !{!38, !10, !11, !12}
+!39 = distinct !{!39, !10, !11, !12}
+!40 = distinct !{!40, !10, !11, !12}
+!41 = distinct !{!41, !10, !11, !12}
+!42 = distinct !{!42, !10, !11, !12}

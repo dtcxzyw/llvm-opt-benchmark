@@ -512,7 +512,7 @@ declare noundef i32 @_ZN3zmq5msg_t9init_sizeEm(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE6encodeEPPhm(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 comdat align 2 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !33
+  %4 = load ptr, ptr %1, align 8, !tbaa !34
   %.not = icmp eq ptr %4, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -553,11 +553,11 @@ define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE6enc
   %24 = load ptr, ptr %11, align 8, !tbaa !16
   %25 = tail call noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64) %24)
   %.not38 = icmp eq i32 %25, 0
-  br i1 %.not38, label %34, label %26, !prof !34
+  br i1 %.not38, label %34, label %26, !prof !35
 
 26:                                               ; preds = %23
   %27 = tail call ptr @__errno_location() #19
-  %28 = load i32, ptr %27, align 4, !tbaa !35
+  %28 = load i32, ptr %27, align 4, !tbaa !36
   %29 = tail call ptr @strerror(i32 noundef %28) #16
   %30 = load ptr, ptr @stderr, align 8, !tbaa !18
   %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.3, ptr noundef %29, ptr noundef nonnull @.str.1, i32 noundef 63) #15
@@ -570,11 +570,11 @@ define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE6enc
   %35 = load ptr, ptr %11, align 8, !tbaa !16
   %36 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %35)
   %.not39 = icmp eq i32 %36, 0
-  br i1 %.not39, label %45, label %37, !prof !34
+  br i1 %.not39, label %45, label %37, !prof !35
 
 37:                                               ; preds = %34
   %38 = tail call ptr @__errno_location() #19
-  %39 = load i32, ptr %38, align 4, !tbaa !35
+  %39 = load i32, ptr %38, align 4, !tbaa !36
   %40 = tail call ptr @strerror(i32 noundef %39) #16
   %41 = load ptr, ptr @stderr, align 8, !tbaa !18
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %41, ptr noundef nonnull @.str.3, ptr noundef %40, ptr noundef nonnull @.str.1, i32 noundef 65) #15
@@ -609,7 +609,7 @@ define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE6enc
 56:                                               ; preds = %54, %49
   %57 = phi ptr [ %53, %49 ], [ %55, %54 ]
   tail call void %57(ptr noundef nonnull align 8 dereferenceable(168) %47)
-  %.pre54.pre = load i64, ptr %14, align 8, !tbaa !37
+  %.pre54.pre = load i64, ptr %14, align 8, !tbaa !38
   br label %58
 
 58:                                               ; preds = %56, %18
@@ -622,7 +622,7 @@ define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE6enc
   br label %62
 
 59:                                               ; preds = %58
-  %60 = load ptr, ptr %1, align 8, !tbaa !33
+  %60 = load ptr, ptr %1, align 8, !tbaa !34
   %.not41 = icmp ne ptr %60, null
   %.not42 = icmp ult i64 %.pre54, %10
   %or.cond = select i1 %.not41, i1 true, i1 %.not42
@@ -630,7 +630,7 @@ define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE6enc
   br i1 %or.cond, label %62, label %61
 
 61:                                               ; preds = %59
-  store ptr %.pre56, ptr %1, align 8, !tbaa !33
+  store ptr %.pre56, ptr %1, align 8, !tbaa !34
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   br label %72
 
@@ -648,11 +648,11 @@ define linkonce_odr noundef i64 @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE6enc
   %70 = sub i64 %69, %.sroa.speculated
   store i64 %70, ptr %14, align 8, !tbaa !30
   %71 = icmp ult i64 %66, %10
-  br i1 %71, label %18, label %.loopexit, !llvm.loop !38
+  br i1 %71, label %18, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %62, %.preheader, %45
   %.03046 = phi i64 [ %.03049, %45 ], [ 0, %.preheader ], [ %66, %62 ]
-  store ptr %7, ptr %1, align 8, !tbaa !33
+  store ptr %7, ptr %1, align 8, !tbaa !34
   br label %72
 
 72:                                               ; preds = %61, %.loopexit, %3
@@ -665,7 +665,7 @@ define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEE8load_msgEP
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !16
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %10, label %5, !prof !34
+  br i1 %.not, label %10, label %5, !prof !35
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -805,11 +805,12 @@ attributes #19 = { nounwind willreturn memory(none) }
 !28 = !{}
 !29 = !{!7, !9, i64 8}
 !30 = !{!7, !12, i64 16}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!9, !9, i64 0}
-!34 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"int", !11, i64 0}
-!37 = !{!12, !12, i64 0}
-!38 = distinct !{!38, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!9, !9, i64 0}
+!35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"int", !11, i64 0}
+!38 = !{!12, !12, i64 0}
+!39 = distinct !{!39, !32, !33}

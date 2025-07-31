@@ -70,7 +70,7 @@ define internal i32 @scalarproduct_and_madd_int32_c(ptr noundef captures(none) %
   %8 = load i16, ptr %.013, align 2, !tbaa !10
   %9 = sext i16 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %.016, i64 4
-  %11 = load i32, ptr %.016, align 4, !tbaa !14
+  %11 = load i32, ptr %.016, align 4, !tbaa !15
   %12 = mul i32 %11, %9
   %13 = add i32 %12, %.0
   %14 = getelementptr inbounds nuw i8, ptr %.015, i64 2
@@ -82,7 +82,7 @@ define internal i32 @scalarproduct_and_madd_int32_c(ptr noundef captures(none) %
   %19 = load i16, ptr %16, align 2, !tbaa !10
   %20 = sext i16 %19 to i32
   %21 = getelementptr inbounds nuw i8, ptr %.016, i64 8
-  %22 = load i32, ptr %10, align 4, !tbaa !14
+  %22 = load i32, ptr %10, align 4, !tbaa !15
   %23 = mul i32 %22, %20
   %24 = add i32 %13, %23
   %25 = getelementptr inbounds nuw i8, ptr %.015, i64 4
@@ -93,7 +93,7 @@ define internal i32 @scalarproduct_and_madd_int32_c(ptr noundef captures(none) %
   store i16 %29, ptr %16, align 2, !tbaa !10
   %30 = add nsw i32 %.014, -2
   %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %31, label %7, !llvm.loop !16
+  br i1 %.not, label %31, label %7, !llvm.loop !17
 
 31:                                               ; preds = %7
   ret i32 %24
@@ -116,8 +116,9 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !9 = !{!5, !6, i64 8}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"short", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"int", !7, i64 0}
-!16 = distinct !{!16, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = distinct !{!17, !13, !14}

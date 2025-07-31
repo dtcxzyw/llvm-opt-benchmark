@@ -157,7 +157,7 @@ define noundef ptr @lv_menu_page_create(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !32
 
 3:                                                ; preds = %2
   %4 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_menu_page_class, ptr noundef nonnull %0) #4
@@ -176,7 +176,7 @@ define noundef ptr @lv_menu_page_create(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not18.i, label %.preheader19.i, label %lv_menu_set_page_title.exit
 
 .preheader19.i:                                   ; preds = %7, %.preheader19.i
-  br label %.preheader19.i
+  br label %.preheader19.i, !llvm.loop !34
 
 lv_menu_set_page_title.exit:                      ; preds = %3, %7
   ret ptr %4
@@ -188,7 +188,7 @@ define void @lv_menu_set_page_title(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !35
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -220,7 +220,7 @@ define void @lv_menu_set_page_title(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not18, label %.preheader19, label %17
 
 .preheader19:                                     ; preds = %12, %.preheader19
-  br label %.preheader19
+  br label %.preheader19, !llvm.loop !34
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -238,7 +238,7 @@ define noundef ptr @lv_menu_cont_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !36
 
 2:                                                ; preds = %1
   %3 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_menu_cont_class, ptr noundef nonnull %0) #4
@@ -252,7 +252,7 @@ define noundef ptr @lv_menu_section_create(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !37
 
 2:                                                ; preds = %1
   %3 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_menu_section_class, ptr noundef nonnull %0) #4
@@ -266,7 +266,7 @@ define noundef ptr @lv_menu_separator_create(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !38
 
 2:                                                ; preds = %1
   %3 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_menu_separator_class, ptr noundef nonnull %0) #4
@@ -280,7 +280,7 @@ define void @lv_menu_set_page(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !39
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -305,10 +305,10 @@ define void @lv_menu_set_page(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not47, label %.preheader54, label %13
 
 .preheader54:                                     ; preds = %11, %.preheader54
-  br label %.preheader54
+  br label %.preheader54, !llvm.loop !40
 
 13:                                               ; preds = %11
-  store ptr %1, ptr %12, align 8, !tbaa !32
+  store ptr %1, ptr %12, align 8, !tbaa !41
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %15 = load i8, ptr %14, align 8, !tbaa !3
   %16 = add i8 %15, 1
@@ -333,7 +333,7 @@ lv_menu_clear_history.exit:                       ; preds = %9
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  %25 = load ptr, ptr %24, align 8, !tbaa !43
   %.not49 = icmp eq ptr %25, null
   br i1 %.not49, label %27, label %26
 
@@ -347,7 +347,7 @@ lv_menu_clear_history.exit:                       ; preds = %9
 
 28:                                               ; preds = %26, %27, %20
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %30 = load ptr, ptr %29, align 8, !tbaa !34
+  %30 = load ptr, ptr %29, align 8, !tbaa !43
   %.not50 = icmp eq ptr %30, null
   br i1 %.not50, label %53, label %31
 
@@ -362,18 +362,18 @@ lv_menu_clear_history.exit:                       ; preds = %9
   %36 = and i8 %33, 16
   %.not53 = icmp eq i8 %36, 0
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %38 = load ptr, ptr %37, align 8, !tbaa !35
+  %38 = load ptr, ptr %37, align 8, !tbaa !44
   br i1 %.not53, label %41, label %39
 
 39:                                               ; preds = %35
   tail call void @lv_obj_remove_flag(ptr noundef %38, i32 noundef 1) #4
-  %40 = load ptr, ptr %37, align 8, !tbaa !35
+  %40 = load ptr, ptr %37, align 8, !tbaa !44
   tail call void @lv_obj_add_flag(ptr noundef %40, i32 noundef 2) #4
   br label %43
 
 41:                                               ; preds = %35
   tail call void @lv_obj_add_flag(ptr noundef %38, i32 noundef 1) #4
-  %42 = load ptr, ptr %37, align 8, !tbaa !35
+  %42 = load ptr, ptr %37, align 8, !tbaa !44
   tail call void @lv_obj_remove_flag(ptr noundef %42, i32 noundef 2) #4
   br label %43
 
@@ -442,7 +442,7 @@ define void @lv_menu_clear_history(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !45
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -527,7 +527,7 @@ define void @lv_menu_set_sidebar_page(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !46
 
 3:                                                ; preds = %2
   %.not48 = icmp eq ptr %1, null
@@ -549,7 +549,7 @@ define void @lv_menu_set_sidebar_page(ptr noundef %0, ptr noundef %1) local_unna
   tail call void @lv_obj_add_flag(ptr noundef %9, i32 noundef 16384) #4
   tail call void @lv_obj_remove_flag(ptr noundef %9, i32 noundef 2) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %9, ptr %10, align 8, !tbaa !36
+  store ptr %9, ptr %10, align 8, !tbaa !47
   %11 = tail call ptr @lv_obj_class_create_obj(ptr noundef nonnull @lv_menu_sidebar_header_cont_class, ptr noundef %9) #4
   tail call void @lv_obj_class_init_obj(ptr noundef %11) #4
   tail call void @lv_obj_set_size(ptr noundef %11, i32 noundef 536871012, i32 noundef 1073741823) #4
@@ -558,20 +558,20 @@ define void @lv_menu_set_sidebar_page(ptr noundef %0, ptr noundef %1) local_unna
   tail call void @lv_obj_remove_flag(ptr noundef %11, i32 noundef 2) #4
   tail call void @lv_obj_add_flag(ptr noundef %11, i32 noundef 16384) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %11, ptr %12, align 8, !tbaa !37
+  store ptr %11, ptr %12, align 8, !tbaa !48
   %13 = tail call ptr @lv_button_create(ptr noundef %11) #4
   %14 = tail call ptr @lv_obj_add_event_cb(ptr noundef %13, ptr noundef nonnull @lv_menu_back_event_cb, i32 noundef 10, ptr noundef nonnull %0) #4
   tail call void @lv_obj_add_flag(ptr noundef %13, i32 noundef 16384) #4
   tail call void @lv_obj_set_flex_flow(ptr noundef %13, i32 noundef 0) #4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %13, ptr %15, align 8, !tbaa !35
+  store ptr %13, ptr %15, align 8, !tbaa !44
   %16 = tail call ptr @lv_image_create(ptr noundef %13) #4
   tail call void @lv_image_set_src(ptr noundef %16, ptr noundef nonnull @.str.5) #4
-  %17 = load ptr, ptr %12, align 8, !tbaa !37
+  %17 = load ptr, ptr %12, align 8, !tbaa !48
   %18 = tail call ptr @lv_label_create(ptr noundef %17) #4
   tail call void @lv_obj_add_flag(ptr noundef %18, i32 noundef 1) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %18, ptr %19, align 8, !tbaa !38
+  store ptr %18, ptr %19, align 8, !tbaa !49
   %20 = load i8, ptr %4, align 2
   %21 = or i8 %20, 1
   store i8 %21, ptr %4, align 2
@@ -579,7 +579,7 @@ define void @lv_menu_set_sidebar_page(ptr noundef %0, ptr noundef %1) local_unna
 
 22:                                               ; preds = %8, %7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %24 = load ptr, ptr %23, align 8, !tbaa !47
   tail call void @lv_obj_set_parent(ptr noundef nonnull %1, ptr noundef %24) #4
   tail call fastcc void @lv_menu_refr_sidebar_header_mode(ptr noundef %0)
   br label %35
@@ -589,12 +589,12 @@ define void @lv_menu_set_sidebar_page(ptr noundef %0, ptr noundef %1) local_unna
 
 26:                                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %28 = load ptr, ptr %27, align 8, !tbaa !34
+  %28 = load ptr, ptr %27, align 8, !tbaa !43
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load ptr, ptr %29, align 8, !tbaa !19
   tail call void @lv_obj_set_parent(ptr noundef %28, ptr noundef %30) #4
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %32 = load ptr, ptr %31, align 8, !tbaa !36
+  %32 = load ptr, ptr %31, align 8, !tbaa !47
   tail call void @lv_obj_delete(ptr noundef %32) #4
   %33 = load i8, ptr %4, align 2
   %34 = and i8 %33, -2
@@ -603,14 +603,14 @@ define void @lv_menu_set_sidebar_page(ptr noundef %0, ptr noundef %1) local_unna
 
 35:                                               ; preds = %25, %26, %22
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %1, ptr %36, align 8, !tbaa !34
+  store ptr %1, ptr %36, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %38 = tail call ptr @lv_ll_get_head(ptr noundef nonnull %37) #4
   %.not.i = icmp eq ptr %38, null
   br i1 %.not.i, label %lv_menu_refr.exit, label %39
 
 39:                                               ; preds = %35
-  %40 = load ptr, ptr %38, align 8, !tbaa !32
+  %40 = load ptr, ptr %38, align 8, !tbaa !41
   tail call void @lv_ll_remove(ptr noundef nonnull %37, ptr noundef nonnull %38) #4
   tail call void @lv_free(ptr noundef nonnull %38) #4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -653,7 +653,7 @@ define internal void @lv_menu_back_event_cb(ptr noundef %0) #0 {
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = icmp eq ptr %5, %12
   br i1 %13, label %.thread, label %.critedge
 
@@ -663,7 +663,7 @@ define internal void @lv_menu_back_event_cb(ptr noundef %0) #0 {
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 185
   store i8 %16, ptr %17, align 1, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %19 = load ptr, ptr %18, align 8, !tbaa !35
+  %19 = load ptr, ptr %18, align 8, !tbaa !44
   %20 = icmp eq ptr %5, %19
   %21 = icmp ult i8 %16, 2
   %or.cond = select i1 %20, i1 true, i1 %21
@@ -693,7 +693,7 @@ lv_menu_back_button_is_root.exit:                 ; preds = %14
   %31 = load i8, ptr %15, align 8, !tbaa !3
   %32 = add i8 %31, -1
   store i8 %32, ptr %15, align 8, !tbaa !3
-  %33 = load ptr, ptr %27, align 8, !tbaa !32
+  %33 = load ptr, ptr %27, align 8, !tbaa !41
   tail call void @lv_menu_set_page(ptr noundef nonnull %6, ptr noundef %33)
   tail call void @lv_free(ptr noundef nonnull %27) #4
   br label %.critedge
@@ -711,13 +711,13 @@ declare ptr @lv_label_create(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @lv_menu_refr_sidebar_header_mode(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %7 = load ptr, ptr %6, align 8, !tbaa !34
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = icmp eq ptr %7, null
   br i1 %8, label %29, label %9
 
@@ -738,19 +738,19 @@ switch.lookup:                                    ; preds = %9
   %switch.downshift = lshr i24 65537, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
   tail call void @lv_obj_move_to_index(ptr noundef nonnull %3, i32 noundef %switch.load) #4
-  %17 = load ptr, ptr %6, align 8, !tbaa !34
+  %17 = load ptr, ptr %6, align 8, !tbaa !43
   tail call void @lv_obj_set_flex_grow(ptr noundef %17, i8 noundef zeroext %switch.masked) #4
   br label %18
 
 18:                                               ; preds = %9, %switch.lookup
-  %19 = load ptr, ptr %2, align 8, !tbaa !37
+  %19 = load ptr, ptr %2, align 8, !tbaa !48
   %20 = tail call zeroext i1 @lv_obj_refr_size(ptr noundef %19) #4
-  %21 = load ptr, ptr %6, align 8, !tbaa !34
+  %21 = load ptr, ptr %6, align 8, !tbaa !43
   %22 = tail call zeroext i1 @lv_obj_refr_size(ptr noundef %21) #4
-  %23 = load ptr, ptr %2, align 8, !tbaa !37
+  %23 = load ptr, ptr %2, align 8, !tbaa !48
   %24 = tail call i32 @lv_obj_get_content_height(ptr noundef %23) #4
   %25 = icmp eq i32 %24, 0
-  %26 = load ptr, ptr %2, align 8, !tbaa !37
+  %26 = load ptr, ptr %2, align 8, !tbaa !48
   br i1 %25, label %27, label %28
 
 27:                                               ; preds = %18
@@ -773,7 +773,7 @@ define void @lv_menu_set_mode_header(ptr noundef captures(address_is_null) %0, i
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !50
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -811,7 +811,7 @@ define void @lv_menu_set_mode_root_back_button(ptr noundef %0, i32 noundef %1) l
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !51
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 186
@@ -835,7 +835,7 @@ define void @lv_menu_set_mode_root_back_button(ptr noundef %0, i32 noundef %1) l
   br i1 %.not.i, label %lv_menu_refr.exit, label %17
 
 17:                                               ; preds = %9
-  %18 = load ptr, ptr %16, align 8, !tbaa !32
+  %18 = load ptr, ptr %16, align 8, !tbaa !41
   tail call void @lv_ll_remove(ptr noundef nonnull %15, ptr noundef nonnull %16) #4
   tail call void @lv_free(ptr noundef nonnull %16) #4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -859,7 +859,7 @@ define void @lv_menu_set_load_page_event(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !52
 
 4:                                                ; preds = %3
   tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 2) #4
@@ -884,13 +884,13 @@ define void @lv_menu_set_load_page_event(ptr noundef %0, ptr noundef %1, ptr nou
 12:                                               ; preds = %.lr.ph
   %13 = add nuw i32 %.027, 1
   %exitcond.not = icmp eq i32 %13, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !53
 
 .loopexit:                                        ; preds = %12, %4, %9
   %14 = tail call ptr @lv_malloc(i64 noundef 16) #4
-  store ptr %0, ptr %14, align 8, !tbaa !41
+  store ptr %0, ptr %14, align 8, !tbaa !55
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr %2, ptr %15, align 8, !tbaa !43
+  store ptr %2, ptr %15, align 8, !tbaa !57
   %16 = tail call ptr @lv_obj_add_event_cb(ptr noundef %1, ptr noundef nonnull @lv_menu_load_page_event_cb, i32 noundef 10, ptr noundef nonnull %14) #4
   %17 = tail call ptr @lv_obj_add_event_cb(ptr noundef %1, ptr noundef nonnull @lv_menu_obj_delete_event_cb, i32 noundef 41, ptr noundef nonnull %14) #4
   ret void
@@ -906,11 +906,11 @@ declare ptr @lv_event_dsc_get_cb(ptr noundef) local_unnamed_addr #1
 define internal void @lv_menu_load_page_event_cb(ptr noundef %0) #0 {
   %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #4
   %3 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #4
-  %4 = load ptr, ptr %3, align 8, !tbaa !41
+  %4 = load ptr, ptr %3, align 8, !tbaa !55
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.critedge, label %.preheader
 
@@ -926,7 +926,7 @@ define internal void @lv_menu_load_page_event_cb(ptr noundef %0) #0 {
 
 11:                                               ; preds = %.lr.ph, %14
   %.032 = phi ptr [ %2, %.lr.ph ], [ %15, %14 ]
-  %12 = load ptr, ptr %10, align 8, !tbaa !36
+  %12 = load ptr, ptr %10, align 8, !tbaa !47
   %13 = icmp eq ptr %.032, %12
   br i1 %13, label %17, label %14
 
@@ -935,7 +935,7 @@ define internal void @lv_menu_load_page_event_cb(ptr noundef %0) #0 {
   %.not25 = icmp eq ptr %15, null
   %16 = icmp eq ptr %15, %4
   %or.cond = or i1 %.not25, %16
-  br i1 %or.cond, label %.critedge, label %11, !llvm.loop !44
+  br i1 %or.cond, label %.critedge, label %11, !llvm.loop !58
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 152
@@ -964,7 +964,7 @@ lv_menu_clear_history.exit:                       ; preds = %17, %20
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %.critedge
-  %25 = load ptr, ptr %7, align 8, !tbaa !34
+  %25 = load ptr, ptr %7, align 8, !tbaa !43
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
 
@@ -998,7 +998,7 @@ define void @lv_menu_set_page_title_static(ptr noundef captures(address_is_null)
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !59
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1031,7 +1031,7 @@ define ptr @lv_menu_get_cur_main_page(ptr noundef readonly captures(address_is_n
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !60
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1045,11 +1045,11 @@ define ptr @lv_menu_get_cur_sidebar_page(ptr noundef readonly captures(address_i
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !61
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %4 = load ptr, ptr %3, align 8, !tbaa !34
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   ret ptr %4
 }
 
@@ -1059,7 +1059,7 @@ define ptr @lv_menu_get_main_header(ptr noundef readonly captures(address_is_nul
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !62
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1073,7 +1073,7 @@ define ptr @lv_menu_get_main_header_back_button(ptr noundef readonly captures(ad
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !63
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1087,11 +1087,11 @@ define ptr @lv_menu_get_sidebar_header(ptr noundef readonly captures(address_is_
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !64
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !48
   ret ptr %4
 }
 
@@ -1101,11 +1101,11 @@ define ptr @lv_menu_get_sidebar_header_back_button(ptr noundef readonly captures
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !65
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %4 = load ptr, ptr %3, align 8, !tbaa !35
+  %4 = load ptr, ptr %3, align 8, !tbaa !44
   ret ptr %4
 }
 
@@ -1115,11 +1115,11 @@ define noundef zeroext i1 @lv_menu_back_button_is_root(ptr noundef readonly capt
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !66
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %5 = load ptr, ptr %4, align 8, !tbaa !35
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
   %6 = icmp eq ptr %1, %5
   br i1 %6, label %16, label %7
 
@@ -1166,7 +1166,7 @@ define internal void @lv_menu_value_changed_event_cb(ptr noundef %0) #0 {
   br i1 %.not.i, label %.preheader.i, label %lv_menu_get_cur_main_page.exit
 
 .preheader.i:                                     ; preds = %1, %.preheader.i
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !60
 
 lv_menu_get_cur_main_page.exit:                   ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -1198,13 +1198,13 @@ lv_menu_get_cur_main_page.exit:                   ; preds = %1
 
 lv_menu_get_cur_sidebar_page.exit:                ; preds = %lv_menu_get_cur_main_page.exit, %5, %13, %11
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %15 = load ptr, ptr %14, align 8, !tbaa !34
+  %15 = load ptr, ptr %14, align 8, !tbaa !43
   %.not25 = icmp eq ptr %15, null
   br i1 %.not25, label %25, label %16
 
 16:                                               ; preds = %lv_menu_get_cur_sidebar_page.exit
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %18 = load ptr, ptr %17, align 8, !tbaa !38
+  %18 = load ptr, ptr %17, align 8, !tbaa !49
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %25, label %19
 
@@ -1216,7 +1216,7 @@ lv_menu_get_cur_sidebar_page.exit:                ; preds = %lv_menu_get_cur_mai
 
 22:                                               ; preds = %19
   tail call void @lv_label_set_text(ptr noundef nonnull %18, ptr noundef nonnull %21) #4
-  %23 = load ptr, ptr %17, align 8, !tbaa !38
+  %23 = load ptr, ptr %17, align 8, !tbaa !49
   tail call void @lv_obj_remove_flag(ptr noundef %23, i32 noundef 1) #4
   br label %25
 
@@ -1293,16 +1293,38 @@ attributes #4 = { nounwind }
 !29 = !{i8 0, i8 2}
 !30 = !{}
 !31 = !{!27, !17, i64 64}
-!32 = !{!33, !10, i64 0}
-!33 = !{!"_lv_menu_history_t", !10, i64 0}
-!34 = !{!4, !10, i64 120}
-!35 = !{!4, !10, i64 136}
-!36 = !{!4, !10, i64 112}
-!37 = !{!4, !10, i64 128}
-!38 = !{!4, !10, i64 144}
-!39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.mustprogress"}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = distinct !{!34, !33}
+!35 = distinct !{!35, !33}
+!36 = distinct !{!36, !33}
+!37 = distinct !{!37, !33}
+!38 = distinct !{!38, !33}
+!39 = distinct !{!39, !33}
+!40 = distinct !{!40, !33}
 !41 = !{!42, !10, i64 0}
-!42 = !{!"_lv_menu_load_page_event_data_t", !10, i64 0, !10, i64 8}
-!43 = !{!42, !10, i64 8}
-!44 = distinct !{!44, !40}
+!42 = !{!"_lv_menu_history_t", !10, i64 0}
+!43 = !{!4, !10, i64 120}
+!44 = !{!4, !10, i64 136}
+!45 = distinct !{!45, !33}
+!46 = distinct !{!46, !33}
+!47 = !{!4, !10, i64 112}
+!48 = !{!4, !10, i64 128}
+!49 = !{!4, !10, i64 144}
+!50 = distinct !{!50, !33}
+!51 = distinct !{!51, !33}
+!52 = distinct !{!52, !33}
+!53 = distinct !{!53, !54, !33}
+!54 = !{!"llvm.loop.mustprogress"}
+!55 = !{!56, !10, i64 0}
+!56 = !{!"_lv_menu_load_page_event_data_t", !10, i64 0, !10, i64 8}
+!57 = !{!56, !10, i64 8}
+!58 = distinct !{!58, !54, !33}
+!59 = distinct !{!59, !33}
+!60 = distinct !{!60, !33}
+!61 = distinct !{!61, !33}
+!62 = distinct !{!62, !33}
+!63 = distinct !{!63, !33}
+!64 = distinct !{!64, !33}
+!65 = distinct !{!65, !33}
+!66 = distinct !{!66, !33}

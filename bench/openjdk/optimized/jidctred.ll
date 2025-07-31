@@ -288,7 +288,7 @@ define hidden void @jRD4x4(ptr noundef readonly captures(none) %0, ptr noundef r
   %.2 = getelementptr inbounds nuw i8, ptr %.1124134, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %218, label %122, !llvm.loop !8
+  br i1 %exitcond.not, label %218, label %122, !llvm.loop !9
 
 218:                                              ; preds = %216
   ret void
@@ -404,7 +404,7 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %79 = getelementptr inbounds nuw i8, ptr %.07982, i64 4
   %80 = add nsw i32 %.085, -1
   %81 = icmp samesign ugt i32 %.085, 1
-  br i1 %81, label %13, label %.preheader, !llvm.loop !9
+  br i1 %81, label %13, label %.preheader, !llvm.loop !10
 
 82:                                               ; preds = %.preheader, %136
   %83 = phi i1 [ true, %.preheader ], [ false, %136 ]
@@ -481,7 +481,7 @@ define hidden void @jRD2x2(ptr noundef readonly captures(none) %0, ptr noundef r
   %137 = getelementptr inbounds nuw i8, ptr %86, i64 1
   store i8 %.sink95, ptr %137, align 1
   %.2 = getelementptr inbounds nuw i8, ptr %.18086, i64 32
-  br i1 %83, label %82, label %138, !llvm.loop !10
+  br i1 %83, label %82, label %138, !llvm.loop !11
 
 138:                                              ; preds = %136
   ret void
@@ -522,8 +522,9 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

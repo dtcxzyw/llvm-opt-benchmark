@@ -68,7 +68,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %27 = call i32 @isspace(i32 noundef %26) #9
   %.not456 = icmp eq i32 %27, 0
   %28 = getelementptr inbounds nuw i8, ptr %.1396, i64 1
-  br i1 %.not456, label %29, label %24, !llvm.loop !8
+  br i1 %.not456, label %29, label %24, !llvm.loop !9
 
 29:                                               ; preds = %24
   %30 = icmp eq i8 %25, 37
@@ -142,7 +142,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %isdigittmp = add nsw i32 %48, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
   %49 = getelementptr inbounds nuw i8, ptr %.3398, i64 1
-  br i1 %isdigit, label %.preheader, label %50, !llvm.loop !9
+  br i1 %isdigit, label %.preheader, label %50, !llvm.loop !10
 
 50:                                               ; preds = %.preheader
   %51 = ptrtoint ptr %.3398 to i64
@@ -162,7 +162,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %.2397 = getelementptr inbounds nuw i8, ptr %.4399, i64 1
   %58 = load i8, ptr %.2397, align 1
   %.not458 = icmp eq i8 %58, 0
-  br i1 %.not458, label %.thread, label %.lr.ph655, !llvm.loop !10
+  br i1 %.not458, label %.thread, label %.lr.ph655, !llvm.loop !11
 
 59:                                               ; preds = %.lr.ph655
   %.not460 = icmp ne i8 %32, 37
@@ -212,7 +212,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %79 = call i32 %78(ptr noundef nonnull %0) #8
   %80 = call i32 @isspace(i32 noundef %79) #9
   %.not488 = icmp eq i32 %80, 0
-  br i1 %.not488, label %._crit_edge670, label %.lr.ph669, !llvm.loop !11
+  br i1 %.not488, label %._crit_edge670, label %.lr.ph669, !llvm.loop !12
 
 ._crit_edge670:                                   ; preds = %.lr.ph669, %76
   %.4577.lcssa = phi i32 [ %.2575, %76 ], [ %79, %.lr.ph669 ]
@@ -257,7 +257,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %indvars.iv.next790 = add nuw nsw i64 %indvars.iv789, 1
   %95 = load ptr, ptr %10, align 8
   %96 = call i32 %95(ptr noundef nonnull %0) #8
-  br label %83, !llvm.loop !12
+  br label %83, !llvm.loop !13
 
 .critedge:                                        ; preds = %87, %84, %88
   br i1 %61, label %101, label %97
@@ -335,7 +335,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %130 = icmp samesign ult i64 %indvars.iv.next, %123
   %131 = icmp sgt i32 %129, 0
   %132 = select i1 %130, i1 %131, i1 false
-  br i1 %132, label %.lr.ph664, label %._crit_edge, !llvm.loop !13
+  br i1 %132, label %.lr.ph664, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %127
   %133 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -510,7 +510,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %208 = call i32 %207(ptr noundef nonnull %0) #8
   %209 = call i32 @isspace(i32 noundef %208) #9
   %.not470 = icmp eq i32 %209, 0
-  br i1 %.not470, label %._crit_edge675, label %.lr.ph674, !llvm.loop !14
+  br i1 %.not470, label %._crit_edge675, label %.lr.ph674, !llvm.loop !15
 
 ._crit_edge675:                                   ; preds = %.lr.ph674, %205
   %.8581.lcssa = phi i32 [ %.2575, %205 ], [ %208, %.lr.ph674 ]
@@ -577,7 +577,7 @@ define i32 @lib_vscanf(ptr noundef %0, ptr noundef writeonly captures(address_is
   %228 = load ptr, ptr %10, align 8
   %229 = call i32 %228(ptr noundef nonnull %0) #8
   %.not898 = icmp slt i32 %225, %spec.store.select87
-  br i1 %.not898, label %.lr.ph710, label %.loopexit, !llvm.loop !15
+  br i1 %.not898, label %.lr.ph710, label %.loopexit, !llvm.loop !16
 
 230:                                              ; preds = %211, %211
   %231 = icmp slt i32 %spec.store.select87, 1
@@ -641,7 +641,7 @@ switch.early.test:                                ; preds = %236
   %243 = load ptr, ptr %10, align 8
   %244 = call i32 %243(ptr noundef nonnull %0) #8
   %.not895 = icmp slt i32 %240, %spec.store.select87
-  br i1 %.not895, label %.lr.ph694, label %.loopexit, !llvm.loop !16
+  br i1 %.not895, label %.lr.ph694, label %.loopexit, !llvm.loop !17
 
 .lr.ph686:                                        ; preds = %.preheader619, %248
   %.7388684 = phi i32 [ %250, %248 ], [ 0, %.preheader619 ]
@@ -669,7 +669,7 @@ switch.early.test:                                ; preds = %236
   %253 = load ptr, ptr %10, align 8
   %254 = call i32 %253(ptr noundef nonnull %0) #8
   %.not893 = icmp slt i32 %250, %spec.store.select87
-  br i1 %.not893, label %.lr.ph686, label %.loopexit, !llvm.loop !17
+  br i1 %.not893, label %.lr.ph686, label %.loopexit, !llvm.loop !18
 
 .lr.ph680:                                        ; preds = %.preheader621, %258
   %.9390678 = phi i32 [ %260, %258 ], [ 0, %.preheader621 ]
@@ -697,7 +697,7 @@ switch.early.test:                                ; preds = %236
   %263 = load ptr, ptr %10, align 8
   %264 = call i32 %263(ptr noundef nonnull %0) #8
   %.not892 = icmp slt i32 %260, %spec.store.select87
-  br i1 %.not892, label %.lr.ph680, label %.loopexit, !llvm.loop !18
+  br i1 %.not892, label %.lr.ph680, label %.loopexit, !llvm.loop !19
 
 .lr.ph702:                                        ; preds = %.preheader616, %.thread612
   %.2349700 = phi i32 [ %.3350608, %.thread612 ], [ 0, %.preheader616 ]
@@ -765,7 +765,7 @@ switch.early.test:                                ; preds = %236
   %285 = load ptr, ptr %10, align 8
   %286 = call i32 %285(ptr noundef nonnull %0) #8
   %.not897 = icmp slt i32 %282, %spec.store.select87
-  br i1 %.not897, label %.lr.ph702, label %.loopexit, !llvm.loop !19
+  br i1 %.not897, label %.lr.ph702, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %255, %256, %258, %245, %246, %248, %232, %switch.early.test, %238, %.thread598, %265, %278, %280, %.thread612, %220, %221, %223, %.preheader621, %.preheader619, %230, %.preheader616, %218
   %.11584 = phi i32 [ %.8581.lcssa, %218 ], [ %.8581.lcssa, %.preheader616 ], [ %.8581.lcssa, %230 ], [ %.8581.lcssa, %.preheader619 ], [ %.8581.lcssa, %.preheader621 ], [ %.9582706, %220 ], [ %.9582706, %221 ], [ %229, %223 ], [ %.18697, %265 ], [ %.18697, %278 ], [ %.18697, %280 ], [ %286, %.thread612 ], [ %.12585689, %232 ], [ %.12585689, %switch.early.test ], [ %.12585689, %238 ], [ %244, %.thread598 ], [ %.14587683, %245 ], [ %.14587683, %246 ], [ %254, %248 ], [ %.16677, %255 ], [ %.16677, %256 ], [ %264, %258 ]
@@ -938,7 +938,7 @@ switch.early.test:                                ; preds = %236
   %359 = call i32 %358(ptr noundef nonnull %0) #8
   %360 = call i32 @isspace(i32 noundef %359) #9
   %.not467 = icmp eq i32 %360, 0
-  br i1 %.not467, label %._crit_edge716, label %.lr.ph715, !llvm.loop !20
+  br i1 %.not467, label %._crit_edge716, label %.lr.ph715, !llvm.loop !21
 
 ._crit_edge716:                                   ; preds = %.lr.ph715, %356
   %.20.lcssa = phi i32 [ %.2575, %356 ], [ %359, %.lr.ph715 ]
@@ -996,7 +996,7 @@ switch.early.test:                                ; preds = %236
   %377 = load ptr, ptr %10, align 8
   %378 = call i32 %377(ptr noundef nonnull %0) #8
   %.not899 = icmp slt i32 %374, %spec.store.select88
-  br i1 %.not899, label %.lr.ph725, label %._crit_edge726.loopexit, !llvm.loop !21
+  br i1 %.not899, label %.lr.ph725, label %._crit_edge726.loopexit, !llvm.loop !22
 
 ._crit_edge726.loopexit:                          ; preds = %369, %368, %365, %371, %372
   %.14860 = phi i32 [ %374, %372 ], [ %.13719, %371 ], [ %.13719, %365 ], [ %.13719, %368 ], [ %.13719, %369 ]
@@ -1269,7 +1269,7 @@ switch.early.test:                                ; preds = %236
   %.3 = phi float [ %.1, %485 ], [ %.0325747, %489 ]
   %493 = load i8, ptr %.5400, align 1
   %.not = icmp eq i8 %493, 0
-  br i1 %.not, label %._crit_edge751.loopexit, label %16, !llvm.loop !22
+  br i1 %.not, label %._crit_edge751.loopexit, label %16, !llvm.loop !23
 
 ._crit_edge751.loopexit:                          ; preds = %487, %481, %492
   %.0404.lcssa.ph = phi i32 [ %.6410, %492 ], [ %.0404732, %481 ], [ %.0404732, %487 ]
@@ -1351,20 +1351,21 @@ attributes #9 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}

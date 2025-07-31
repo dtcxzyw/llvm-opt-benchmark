@@ -35,7 +35,7 @@ define noalias noundef ptr @Fraig_HashTableCreate(i32 noundef %0) local_unnamed_
   %6 = add nuw nsw i32 %.01116.i, 2
   %7 = mul nuw nsw i32 %6, %6
   %.not.i = icmp ugt i32 %7, %3
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %5
   %.01116.i = phi i32 [ %6, %5 ], [ 3, %.preheader.i ]
@@ -45,11 +45,11 @@ define noalias noundef ptr @Fraig_HashTableCreate(i32 noundef %0) local_unnamed_
 
 Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %5
   %10 = getelementptr inbounds nuw i8, ptr %calloc11, i64 8
-  store i32 %3, ptr %10, align 8, !tbaa !6
+  store i32 %3, ptr %10, align 8, !tbaa !7
   %11 = sext i32 %3 to i64
   %12 = shl nsw i64 %11, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %12)
-  store ptr %calloc, ptr %calloc11, align 8, !tbaa !13
+  store ptr %calloc, ptr %calloc11, align 8, !tbaa !14
   ret ptr %calloc11
 }
 
@@ -61,7 +61,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @Fraig_HashTableFree(ptr noundef captures(none) %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !13
+  %2 = load ptr, ptr %0, align 8, !tbaa !14
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -81,15 +81,15 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #4 {
   %5 = alloca %struct.timespec, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = load i32, ptr %10, align 8, !tbaa !27
+  %11 = load i32, ptr %10, align 8, !tbaa !28
   %12 = ptrtoint ptr %2 to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
-  %15 = load i32, ptr %14, align 8, !tbaa !27
+  %15 = load i32, ptr %14, align 8, !tbaa !28
   %16 = icmp sgt i32 %11, %15
   %spec.select = select i1 %16, ptr %1, ptr %2
   %spec.select42 = select i1 %16, ptr %2, ptr %1
@@ -98,42 +98,42 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
   %19 = mul i64 %18, 12582917
   %20 = add i64 %19, %17
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !6
+  %22 = load i32, ptr %21, align 8, !tbaa !7
   %23 = sext i32 %22 to i64
   %24 = urem i64 %20, %23
-  %25 = load ptr, ptr %7, align 8, !tbaa !13
+  %25 = load ptr, ptr %7, align 8, !tbaa !14
   %26 = and i64 %24, 4294967295
   %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
-  %.03747 = load ptr, ptr %27, align 8, !tbaa !29
+  %.03747 = load ptr, ptr %27, align 8, !tbaa !30
   %.not48 = icmp eq ptr %.03747, null
   br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %36
   %.03749 = phi ptr [ %.037, %36 ], [ %.03747, %4 ]
   %28 = getelementptr inbounds nuw i8, ptr %.03749, i64 32
-  %29 = load ptr, ptr %28, align 8, !tbaa !30
+  %29 = load ptr, ptr %28, align 8, !tbaa !31
   %30 = icmp eq ptr %29, %spec.select42
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw i8, ptr %.03749, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !31
+  %33 = load ptr, ptr %32, align 8, !tbaa !32
   %34 = icmp eq ptr %33, %spec.select
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
-  store ptr %.03749, ptr %3, align 8, !tbaa !29
+  store ptr %.03749, ptr %3, align 8, !tbaa !30
   br label %82
 
 36:                                               ; preds = %.lr.ph, %31
   %37 = getelementptr inbounds nuw i8, ptr %.03749, i64 56
-  %.037 = load ptr, ptr %37, align 8, !tbaa !29
+  %.037 = load ptr, ptr %37, align 8, !tbaa !30
   %.not = icmp eq ptr %.037, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %36, %4
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !33
+  %39 = load i32, ptr %38, align 4, !tbaa !34
   %40 = shl nsw i32 %22, 1
   %.not41 = icmp slt i32 %39, %40
   br i1 %.not41, label %74, label %41
@@ -142,7 +142,7 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
   %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
-  %43 = load i32, ptr %21, align 8, !tbaa !6
+  %43 = load i32, ptr %21, align 8, !tbaa !7
   %44 = shl nsw i32 %43, 1
   %45 = add i32 %44, -1
   br label %.loopexit.i.i
@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
   %49 = add nuw nsw i32 %.01116.i.i, 2
   %50 = mul nuw nsw i32 %49, %49
   %.not.i.i = icmp ugt i32 %50, %46
-  br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !6
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %48
   %.01116.i.i = phi i32 [ %49, %48 ], [ 3, %.preheader.i.i ]
@@ -178,7 +178,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %48
   %54 = shl nsw i64 %53, 3
   %calloc.i = call ptr @calloc(i64 1, i64 %54)
   %55 = icmp sgt i32 %43, 0
-  %.pre.i = load ptr, ptr %7, align 8, !tbaa !13
+  %.pre.i = load ptr, ptr %7, align 8, !tbaa !14
   br i1 %55, label %.lr.ph47.i, label %._crit_edge48.i
 
 .lr.ph47.i:                                       ; preds = %Abc_PrimeCudd.exit.i
@@ -188,35 +188,35 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %48
 56:                                               ; preds = %._crit_edge.i, %.lr.ph47.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph47.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %57 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %indvars.iv.i
-  %58 = load ptr, ptr %57, align 8, !tbaa !29
+  %58 = load ptr, ptr %57, align 8, !tbaa !30
   %.not36.i = icmp eq ptr %58, null
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.i
   %.sink56.i = phi ptr [ %60, %.lr.ph.i ], [ %58, %56 ]
   %59 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 56
-  %60 = load ptr, ptr %59, align 8, !tbaa !34
+  %60 = load ptr, ptr %59, align 8, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 32
-  %62 = load ptr, ptr %61, align 8, !tbaa !30
+  %62 = load ptr, ptr %61, align 8, !tbaa !31
   %63 = ptrtoint ptr %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 40
-  %65 = load ptr, ptr %64, align 8, !tbaa !31
+  %65 = load ptr, ptr %64, align 8, !tbaa !32
   %66 = ptrtoint ptr %65 to i64
   %67 = mul i64 %66, 12582917
   %68 = add i64 %67, %63
   %69 = urem i64 %68, %53
   %70 = and i64 %69, 4294967295
   %71 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !29
-  store ptr %72, ptr %59, align 8, !tbaa !34
-  store ptr %.sink56.i, ptr %71, align 8, !tbaa !29
+  %72 = load ptr, ptr %71, align 8, !tbaa !30
+  store ptr %72, ptr %59, align 8, !tbaa !35
+  store ptr %.sink56.i, ptr %71, align 8, !tbaa !30
   %.not38.i = icmp eq ptr %60, null
-  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !35
+  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge48.i.thread, label %56, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge48.i.thread, label %56, !llvm.loop !37
 
 ._crit_edge48.i:                                  ; preds = %Abc_PrimeCudd.exit.i
   %.not.i = icmp eq ptr %.pre.i, null
@@ -227,8 +227,8 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %48
   br label %Fraig_TableResizeS.exit
 
 Fraig_TableResizeS.exit:                          ; preds = %._crit_edge48.i, %._crit_edge48.i.thread
-  store ptr %calloc.i, ptr %7, align 8, !tbaa !13
-  store i32 %46, ptr %21, align 8, !tbaa !6
+  store ptr %calloc.i, ptr %7, align 8, !tbaa !14
+  store i32 %46, ptr %21, align 8, !tbaa !7
   %73 = urem i64 %20, %53
   %.pre = and i64 %73, 4294967295
   br label %74
@@ -236,16 +236,16 @@ Fraig_TableResizeS.exit:                          ; preds = %._crit_edge48.i, %.
 74:                                               ; preds = %Fraig_TableResizeS.exit, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %Fraig_TableResizeS.exit ], [ %26, %._crit_edge ]
   %75 = call ptr @Fraig_NodeCreate(ptr noundef %0, ptr noundef %spec.select42, ptr noundef %spec.select) #14
-  %76 = load ptr, ptr %7, align 8, !tbaa !13
+  %76 = load ptr, ptr %7, align 8, !tbaa !14
   %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi
-  %78 = load ptr, ptr %77, align 8, !tbaa !29
+  %78 = load ptr, ptr %77, align 8, !tbaa !30
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 56
-  store ptr %78, ptr %79, align 8, !tbaa !34
-  store ptr %75, ptr %77, align 8, !tbaa !29
-  store ptr %75, ptr %3, align 8, !tbaa !29
-  %80 = load i32, ptr %38, align 4, !tbaa !33
+  store ptr %78, ptr %79, align 8, !tbaa !35
+  store ptr %75, ptr %77, align 8, !tbaa !30
+  store ptr %75, ptr %3, align 8, !tbaa !30
+  %80 = load i32, ptr %38, align 4, !tbaa !34
   %81 = add nsw i32 %80, 1
-  store i32 %81, ptr %38, align 4, !tbaa !33
+  store i32 %81, ptr %38, align 4, !tbaa !34
   br label %82
 
 82:                                               ; preds = %74, %35
@@ -258,22 +258,22 @@ declare ptr @Fraig_NodeCreate(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define ptr @Fraig_HashTableLookupF(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
+  %4 = load ptr, ptr %3, align 8, !tbaa !38
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %6 = load i32, ptr %5, align 8, !tbaa !38
+  %6 = load i32, ptr %5, align 8, !tbaa !39
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !6
+  %8 = load i32, ptr %7, align 8, !tbaa !7
   %9 = urem i32 %6, %8
-  %10 = load ptr, ptr %4, align 8, !tbaa !13
+  %10 = load ptr, ptr %4, align 8, !tbaa !14
   %11 = zext i32 %9 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
-  %.03454 = load ptr, ptr %12, align 8, !tbaa !29
+  %.03454 = load ptr, ptr %12, align 8, !tbaa !30
   %.not55 = icmp eq ptr %.03454, null
   br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %14 = load i32, ptr %13, align 8, !tbaa !39
+  %14 = load i32, ptr %13, align 8, !tbaa !40
   %.fr61 = freeze i32 %14
   %15 = icmp sgt i32 %.fr61, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -283,50 +283,50 @@ define ptr @Fraig_HashTableLookupF(ptr noundef readonly captures(none) %0, ptr n
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit47.us
   %.03456.us = phi ptr [ %.034.us, %.loopexit47.us ], [ %.03454, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %.03456.us, i64 96
-  %18 = load i32, ptr %17, align 8, !tbaa !38
+  %18 = load i32, ptr %17, align 8, !tbaa !39
   %.not22.i.us = icmp eq i32 %6, %18
   br i1 %.not22.i.us, label %.preheader24.i.us, label %.loopexit47.us
 
 .preheader24.i.us:                                ; preds = %.lr.ph.split.us
-  %19 = load ptr, ptr %16, align 8, !tbaa !40
+  %19 = load ptr, ptr %16, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %.03456.us, i64 104
-  %21 = load ptr, ptr %20, align 8, !tbaa !40
+  %21 = load ptr, ptr %20, align 8, !tbaa !41
   br label %22
 
 22:                                               ; preds = %28, %.preheader24.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.preheader24.i.us ], [ %indvars.iv.next.i.us, %28 ]
   %23 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i.us
-  %24 = load i32, ptr %23, align 4, !tbaa !41
+  %24 = load i32, ptr %23, align 4, !tbaa !42
   %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i.us
-  %26 = load i32, ptr %25, align 4, !tbaa !41
+  %26 = load i32, ptr %25, align 4, !tbaa !42
   %.not23.i.us = icmp eq i32 %24, %26
   br i1 %.not23.i.us, label %28, label %.loopexit47.us
 
 .loopexit47.us:                                   ; preds = %22, %.lr.ph.split.us
   %27 = getelementptr inbounds nuw i8, ptr %.03456.us, i64 64
-  %.034.us = load ptr, ptr %27, align 8, !tbaa !29
+  %.034.us = load ptr, ptr %27, align 8, !tbaa !30
   %.not.us = icmp eq ptr %.034.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !42
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !43
 
 28:                                               ; preds = %22
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Fraig_CompareSimInfo.exit, label %22, !llvm.loop !44
+  br i1 %exitcond.not.i.us, label %Fraig_CompareSimInfo.exit, label %22, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %58
   %.03456 = phi ptr [ %.034, %58 ], [ %.03454, %.lr.ph ]
   %29 = getelementptr inbounds nuw i8, ptr %.03456, i64 96
-  %30 = load i32, ptr %29, align 8, !tbaa !38
+  %30 = load i32, ptr %29, align 8, !tbaa !39
   %.not22.i = icmp eq i32 %6, %30
   br i1 %.not22.i, label %Fraig_CompareSimInfo.exit, label %58
 
 Fraig_CompareSimInfo.exit:                        ; preds = %.lr.ph.split, %28
   %.03453 = phi ptr [ %.03456.us, %28 ], [ %.03456, %.lr.ph.split ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %32 = load i32, ptr %31, align 8, !tbaa !45
+  %32 = load i32, ptr %31, align 8, !tbaa !46
   %.fr = freeze i32 %32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %34 = load i32, ptr %33, align 4, !tbaa !46
+  %34 = load i32, ptr %33, align 4, !tbaa !47
   %35 = icmp sgt i32 %.fr, 0
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %wide.trip.count41.i = zext nneg i32 %.fr to i64
@@ -335,80 +335,80 @@ Fraig_CompareSimInfo.exit:                        ; preds = %.lr.ph.split, %28
 Fraig_CompareSimInfo.exit.split.us:               ; preds = %Fraig_CompareSimInfo.exit, %.loopexit.us
   %.03358.us = phi ptr [ %48, %.loopexit.us ], [ %.03453, %Fraig_CompareSimInfo.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %.03358.us, i64 100
-  %38 = load i32, ptr %37, align 4, !tbaa !46
+  %38 = load i32, ptr %37, align 4, !tbaa !47
   %.not20.i.us = icmp eq i32 %34, %38
   br i1 %.not20.i.us, label %.preheader.i.us, label %.loopexit.us
 
 .preheader.i.us:                                  ; preds = %Fraig_CompareSimInfo.exit.split.us
-  %39 = load ptr, ptr %36, align 8, !tbaa !47
+  %39 = load ptr, ptr %36, align 8, !tbaa !48
   %40 = getelementptr inbounds nuw i8, ptr %.03358.us, i64 112
-  %41 = load ptr, ptr %40, align 8, !tbaa !47
+  %41 = load ptr, ptr %40, align 8, !tbaa !48
   br label %42
 
 42:                                               ; preds = %49, %.preheader.i.us
   %indvars.iv38.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next39.i.us, %49 ]
   %43 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv38.i.us
-  %44 = load i32, ptr %43, align 4, !tbaa !41
+  %44 = load i32, ptr %43, align 4, !tbaa !42
   %45 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv38.i.us
-  %46 = load i32, ptr %45, align 4, !tbaa !41
+  %46 = load i32, ptr %45, align 4, !tbaa !42
   %.not21.i.us = icmp eq i32 %44, %46
   br i1 %.not21.i.us, label %49, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %42, %Fraig_CompareSimInfo.exit.split.us
   %47 = getelementptr inbounds nuw i8, ptr %.03358.us, i64 72
-  %48 = load ptr, ptr %47, align 8, !tbaa !48
+  %48 = load ptr, ptr %47, align 8, !tbaa !49
   %.not38.us = icmp eq ptr %48, null
-  br i1 %.not38.us, label %.split.us, label %Fraig_CompareSimInfo.exit.split.us, !llvm.loop !49
+  br i1 %.not38.us, label %.split.us, label %Fraig_CompareSimInfo.exit.split.us, !llvm.loop !50
 
 49:                                               ; preds = %42
   %indvars.iv.next39.i.us = add nuw nsw i64 %indvars.iv38.i.us, 1
   %exitcond42.not.i.us = icmp eq i64 %indvars.iv.next39.i.us, %wide.trip.count41.i
-  br i1 %exitcond42.not.i.us, label %Fraig_CompareSimInfo.exit41, label %42, !llvm.loop !50
+  br i1 %exitcond42.not.i.us, label %Fraig_CompareSimInfo.exit41, label %42, !llvm.loop !51
 
 Fraig_CompareSimInfo.exit.split:                  ; preds = %Fraig_CompareSimInfo.exit, %52
   %.03358 = phi ptr [ %54, %52 ], [ %.03453, %Fraig_CompareSimInfo.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %.03358, i64 100
-  %51 = load i32, ptr %50, align 4, !tbaa !46
+  %51 = load i32, ptr %50, align 4, !tbaa !47
   %.not20.i = icmp eq i32 %34, %51
   br i1 %.not20.i, label %Fraig_CompareSimInfo.exit41, label %52
 
 52:                                               ; preds = %Fraig_CompareSimInfo.exit.split
   %53 = getelementptr inbounds nuw i8, ptr %.03358, i64 72
-  %54 = load ptr, ptr %53, align 8, !tbaa !48
+  %54 = load ptr, ptr %53, align 8, !tbaa !49
   %.not38 = icmp eq ptr %54, null
-  br i1 %.not38, label %.split.us, label %Fraig_CompareSimInfo.exit.split, !llvm.loop !51
+  br i1 %.not38, label %.split.us, label %Fraig_CompareSimInfo.exit.split, !llvm.loop !52
 
 .split.us:                                        ; preds = %52, %.loopexit.us
   %55 = getelementptr inbounds nuw i8, ptr %.03453, i64 72
-  %56 = load ptr, ptr %55, align 8, !tbaa !48
+  %56 = load ptr, ptr %55, align 8, !tbaa !49
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %56, ptr %57, align 8, !tbaa !48
-  store ptr %1, ptr %55, align 8, !tbaa !48
+  store ptr %56, ptr %57, align 8, !tbaa !49
+  store ptr %1, ptr %55, align 8, !tbaa !49
   br label %Fraig_CompareSimInfo.exit41
 
 58:                                               ; preds = %.lr.ph.split
   %59 = getelementptr inbounds nuw i8, ptr %.03456, i64 64
-  %.034 = load ptr, ptr %59, align 8, !tbaa !29
+  %.034 = load ptr, ptr %59, align 8, !tbaa !30
   %.not = icmp eq ptr %.034, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !52
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %58, %.loopexit47.us, %2
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %61 = load i32, ptr %60, align 4, !tbaa !33
+  %61 = load i32, ptr %60, align 4, !tbaa !34
   %62 = shl nsw i32 %8, 1
   %.not36 = icmp slt i32 %61, %62
   br i1 %.not36, label %67, label %63
 
 63:                                               ; preds = %._crit_edge
   tail call fastcc void @Fraig_TableResizeF(ptr noundef nonnull %4, i32 noundef 1)
-  %64 = load i32, ptr %5, align 8, !tbaa !38
-  %65 = load i32, ptr %7, align 8, !tbaa !6
+  %64 = load i32, ptr %5, align 8, !tbaa !39
+  %65 = load i32, ptr %7, align 8, !tbaa !7
   %66 = urem i32 %64, %65
-  %.pre = load ptr, ptr %4, align 8, !tbaa !13
+  %.pre = load ptr, ptr %4, align 8, !tbaa !14
   %.pre70 = zext i32 %66 to i64
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.pre70
-  %.pre71 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !29
-  %.pre72 = load i32, ptr %60, align 4, !tbaa !33
+  %.pre71 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
+  %.pre72 = load i32, ptr %60, align 4, !tbaa !34
   br label %67
 
 67:                                               ; preds = %63, %._crit_edge
@@ -418,10 +418,10 @@ Fraig_CompareSimInfo.exit.split:                  ; preds = %Fraig_CompareSimInf
   %70 = phi ptr [ %.pre, %63 ], [ %10, %._crit_edge ]
   %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.pre-phi
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %69, ptr %72, align 8, !tbaa !53
-  store ptr %1, ptr %71, align 8, !tbaa !29
+  store ptr %69, ptr %72, align 8, !tbaa !54
+  store ptr %1, ptr %71, align 8, !tbaa !30
   %73 = add nsw i32 %68, 1
-  store i32 %73, ptr %60, align 4, !tbaa !33
+  store i32 %73, ptr %60, align 4, !tbaa !34
   br label %Fraig_CompareSimInfo.exit41
 
 Fraig_CompareSimInfo.exit41:                      ; preds = %Fraig_CompareSimInfo.exit.split, %49, %67, %.split.us
@@ -436,9 +436,9 @@ define range(i32 0, 2) i32 @Fraig_CompareSimInfo(ptr noundef readonly captures(n
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load i32, ptr %6, align 8, !tbaa !38
+  %7 = load i32, ptr %6, align 8, !tbaa !39
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %9 = load i32, ptr %8, align 8, !tbaa !38
+  %9 = load i32, ptr %8, align 8, !tbaa !39
   %.not22 = icmp eq i32 %7, %9
   br i1 %.not22, label %.preheader24, label %.loopexit
 
@@ -448,31 +448,31 @@ define range(i32 0, 2) i32 @Fraig_CompareSimInfo(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.preheader24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %12 = load ptr, ptr %11, align 8, !tbaa !40
+  %12 = load ptr, ptr %11, align 8, !tbaa !41
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %16
 
 15:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !45
 
 16:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4, !tbaa !41
+  %18 = load i32, ptr %17, align 4, !tbaa !42
   %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4, !tbaa !41
+  %20 = load i32, ptr %19, align 4, !tbaa !42
   %.not23 = icmp eq i32 %18, %20
   br i1 %.not23, label %15, label %.loopexit
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %23 = load i32, ptr %22, align 4, !tbaa !46
+  %23 = load i32, ptr %22, align 4, !tbaa !47
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %25 = load i32, ptr %24, align 4, !tbaa !46
+  %25 = load i32, ptr %24, align 4, !tbaa !47
   %.not20 = icmp eq i32 %23, %25
   br i1 %.not20, label %.preheader, label %.loopexit
 
@@ -482,23 +482,23 @@ define range(i32 0, 2) i32 @Fraig_CompareSimInfo(ptr noundef readonly captures(n
 
 .lr.ph31:                                         ; preds = %.preheader
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %28 = load ptr, ptr %27, align 8, !tbaa !47
+  %28 = load ptr, ptr %27, align 8, !tbaa !48
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %30 = load ptr, ptr %29, align 8, !tbaa !47
+  %30 = load ptr, ptr %29, align 8, !tbaa !48
   %wide.trip.count41 = zext nneg i32 %2 to i64
   br label %32
 
 31:                                               ; preds = %32
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count41
-  br i1 %exitcond42.not, label %.loopexit, label %32, !llvm.loop !50
+  br i1 %exitcond42.not, label %.loopexit, label %32, !llvm.loop !51
 
 32:                                               ; preds = %.lr.ph31, %31
   %indvars.iv38 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next39, %31 ]
   %33 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv38
-  %34 = load i32, ptr %33, align 4, !tbaa !41
+  %34 = load i32, ptr %33, align 4, !tbaa !42
   %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv38
-  %36 = load i32, ptr %35, align 4, !tbaa !41
+  %36 = load i32, ptr %35, align 4, !tbaa !42
   %.not21 = icmp eq i32 %34, %36
   br i1 %.not21, label %31, label %.loopexit
 
@@ -515,7 +515,7 @@ Abc_Clock.exit:
   %3 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !6
+  %5 = load i32, ptr %4, align 8, !tbaa !7
   %6 = shl nsw i32 %5, 1
   %7 = add i32 %6, -1
   br label %.loopexit.i
@@ -538,7 +538,7 @@ Abc_Clock.exit:
   %11 = add nuw nsw i32 %.01116.i, 2
   %12 = mul nuw nsw i32 %11, %11
   %.not.i = icmp ugt i32 %12, %8
-  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.i, label %Abc_PrimeCudd.exit, label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %10
   %.01116.i = phi i32 [ %11, %10 ], [ 3, %.preheader.i ]
@@ -551,7 +551,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   %16 = shl nsw i64 %15, 3
   %calloc = call ptr @calloc(i64 1, i64 %16)
   %17 = icmp sgt i32 %5, 0
-  %.pre = load ptr, ptr %0, align 8, !tbaa !13
+  %.pre = load ptr, ptr %0, align 8, !tbaa !14
   br i1 %17, label %.lr.ph51, label %._crit_edge52
 
 .lr.ph51:                                         ; preds = %Abc_PrimeCudd.exit
@@ -563,30 +563,30 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
 18:                                               ; preds = %.lr.ph51, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next, %._crit_edge ]
   %19 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
+  %20 = load ptr, ptr %19, align 8, !tbaa !30
   %.not39 = icmp eq ptr %20, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %.sink60 = phi ptr [ %22, %.lr.ph ], [ %20, %18 ]
   %21 = getelementptr inbounds nuw i8, ptr %.sink60, i64 64
-  %22 = load ptr, ptr %21, align 8, !tbaa !53
+  %22 = load ptr, ptr %21, align 8, !tbaa !54
   %.pn.in = getelementptr inbounds nuw i8, ptr %.sink60, i64 %.pn.in.v
-  %.pn = load i32, ptr %.pn.in, align 4, !tbaa !41
+  %.pn = load i32, ptr %.pn.in, align 4, !tbaa !42
   %.0 = urem i32 %.pn, %8
   %23 = zext i32 %.0 to i64
   %24 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %23
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw i8, ptr %.sink60, i64 64
-  store ptr %25, ptr %26, align 8, !tbaa !53
-  store ptr %.sink60, ptr %24, align 8, !tbaa !29
+  store ptr %25, ptr %26, align 8, !tbaa !54
+  store ptr %.sink60, ptr %24, align 8, !tbaa !30
   %.not42 = icmp eq ptr %22, null
-  br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge52, label %18, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge52, label %18, !llvm.loop !56
 
 ._crit_edge52:                                    ; preds = %._crit_edge, %Abc_PrimeCudd.exit
   %.not = icmp eq ptr %.pre, null
@@ -597,30 +597,30 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %10
   br label %28
 
 28:                                               ; preds = %._crit_edge52, %27
-  store ptr %calloc, ptr %0, align 8, !tbaa !13
-  store i32 %8, ptr %4, align 8, !tbaa !6
+  store ptr %calloc, ptr %0, align 8, !tbaa !14
+  store i32 %8, ptr %4, align 8, !tbaa !7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @Fraig_HashTableLookupF0(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %6 = load i32, ptr %5, align 4, !tbaa !46
+  %6 = load i32, ptr %5, align 4, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !6
+  %8 = load i32, ptr %7, align 8, !tbaa !7
   %9 = urem i32 %6, %8
-  %10 = load ptr, ptr %4, align 8, !tbaa !13
+  %10 = load ptr, ptr %4, align 8, !tbaa !14
   %11 = zext i32 %9 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
-  %.02333 = load ptr, ptr %12, align 8, !tbaa !29
+  %.02333 = load ptr, ptr %12, align 8, !tbaa !30
   %.not34 = icmp eq ptr %.02333, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %14 = load i32, ptr %13, align 8, !tbaa !45
+  %14 = load i32, ptr %13, align 8, !tbaa !46
   %.fr38 = freeze i32 %14
   %15 = icmp sgt i32 %.fr38, 0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -630,66 +630,66 @@ define ptr @Fraig_HashTableLookupF0(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
   %.02335.us = phi ptr [ %.023.us, %.loopexit.us ], [ %.02333, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %.02335.us, i64 100
-  %18 = load i32, ptr %17, align 4, !tbaa !46
+  %18 = load i32, ptr %17, align 4, !tbaa !47
   %.not20.i.us = icmp eq i32 %6, %18
   br i1 %.not20.i.us, label %.preheader.i.us, label %.loopexit.us
 
 .preheader.i.us:                                  ; preds = %.lr.ph.split.us
-  %19 = load ptr, ptr %16, align 8, !tbaa !47
+  %19 = load ptr, ptr %16, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %.02335.us, i64 112
-  %21 = load ptr, ptr %20, align 8, !tbaa !47
+  %21 = load ptr, ptr %20, align 8, !tbaa !48
   br label %22
 
 22:                                               ; preds = %28, %.preheader.i.us
   %indvars.iv38.i.us = phi i64 [ 0, %.preheader.i.us ], [ %indvars.iv.next39.i.us, %28 ]
   %23 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv38.i.us
-  %24 = load i32, ptr %23, align 4, !tbaa !41
+  %24 = load i32, ptr %23, align 4, !tbaa !42
   %25 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv38.i.us
-  %26 = load i32, ptr %25, align 4, !tbaa !41
+  %26 = load i32, ptr %25, align 4, !tbaa !42
   %.not21.i.us = icmp eq i32 %24, %26
   br i1 %.not21.i.us, label %28, label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %22, %.lr.ph.split.us
   %27 = getelementptr inbounds nuw i8, ptr %.02335.us, i64 64
-  %.023.us = load ptr, ptr %27, align 8, !tbaa !29
+  %.023.us = load ptr, ptr %27, align 8, !tbaa !30
   %.not.us = icmp eq ptr %.023.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !57
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !58
 
 28:                                               ; preds = %22
   %indvars.iv.next39.i.us = add nuw nsw i64 %indvars.iv38.i.us, 1
   %exitcond42.not.i.us = icmp eq i64 %indvars.iv.next39.i.us, %wide.trip.count41.i
-  br i1 %exitcond42.not.i.us, label %Fraig_CompareSimInfo.exit, label %22, !llvm.loop !50
+  br i1 %exitcond42.not.i.us, label %Fraig_CompareSimInfo.exit, label %22, !llvm.loop !51
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %31
   %.02335 = phi ptr [ %.023, %31 ], [ %.02333, %.lr.ph ]
   %29 = getelementptr inbounds nuw i8, ptr %.02335, i64 100
-  %30 = load i32, ptr %29, align 4, !tbaa !46
+  %30 = load i32, ptr %29, align 4, !tbaa !47
   %.not20.i = icmp eq i32 %6, %30
   br i1 %.not20.i, label %Fraig_CompareSimInfo.exit, label %31
 
 31:                                               ; preds = %.lr.ph.split
   %32 = getelementptr inbounds nuw i8, ptr %.02335, i64 64
-  %.023 = load ptr, ptr %32, align 8, !tbaa !29
+  %.023 = load ptr, ptr %32, align 8, !tbaa !30
   %.not = icmp eq ptr %.023, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %31, %.loopexit.us, %2
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %34 = load i32, ptr %33, align 4, !tbaa !33
+  %34 = load i32, ptr %33, align 4, !tbaa !34
   %35 = shl nsw i32 %8, 1
   %.not25 = icmp slt i32 %34, %35
   br i1 %.not25, label %40, label %36
 
 36:                                               ; preds = %._crit_edge
   tail call fastcc void @Fraig_TableResizeF(ptr noundef nonnull %4, i32 noundef 0)
-  %37 = load i32, ptr %5, align 4, !tbaa !46
-  %38 = load i32, ptr %7, align 8, !tbaa !6
+  %37 = load i32, ptr %5, align 4, !tbaa !47
+  %38 = load i32, ptr %7, align 8, !tbaa !7
   %39 = urem i32 %37, %38
-  %.pre = load ptr, ptr %4, align 8, !tbaa !13
+  %.pre = load ptr, ptr %4, align 8, !tbaa !14
   %.pre44 = zext i32 %39 to i64
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.pre44
-  %.pre45 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !29
-  %.pre46 = load i32, ptr %33, align 4, !tbaa !33
+  %.pre45 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !30
+  %.pre46 = load i32, ptr %33, align 4, !tbaa !34
   br label %40
 
 40:                                               ; preds = %36, %._crit_edge
@@ -699,10 +699,10 @@ define ptr @Fraig_HashTableLookupF0(ptr noundef readonly captures(none) %0, ptr 
   %43 = phi ptr [ %.pre, %36 ], [ %10, %._crit_edge ]
   %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %.pre-phi
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %42, ptr %45, align 8, !tbaa !53
-  store ptr %1, ptr %44, align 8, !tbaa !29
+  store ptr %42, ptr %45, align 8, !tbaa !54
+  store ptr %1, ptr %44, align 8, !tbaa !30
   %46 = add nsw i32 %41, 1
-  store i32 %46, ptr %33, align 4, !tbaa !33
+  store i32 %46, ptr %33, align 4, !tbaa !34
   br label %Fraig_CompareSimInfo.exit
 
 Fraig_CompareSimInfo.exit:                        ; preds = %.lr.ph.split, %28, %40
@@ -713,23 +713,23 @@ Fraig_CompareSimInfo.exit:                        ; preds = %.lr.ph.split, %28, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Fraig_HashTableInsertF0(ptr noundef readonly captures(none) %0, ptr noundef initializes((64, 72)) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %6 = load i32, ptr %5, align 4, !tbaa !46
+  %6 = load i32, ptr %5, align 4, !tbaa !47
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !6
+  %8 = load i32, ptr %7, align 8, !tbaa !7
   %9 = urem i32 %6, %8
-  %10 = load ptr, ptr %4, align 8, !tbaa !13
+  %10 = load ptr, ptr %4, align 8, !tbaa !14
   %11 = zext i32 %9 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !29
+  %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %13, ptr %14, align 8, !tbaa !53
-  store ptr %1, ptr %12, align 8, !tbaa !29
+  store ptr %13, ptr %14, align 8, !tbaa !54
+  store ptr %1, ptr %12, align 8, !tbaa !30
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !33
+  %16 = load i32, ptr %15, align 4, !tbaa !34
   %17 = add nsw i32 %16, 1
-  store i32 %17, ptr %15, align 4, !tbaa !33
+  store i32 %17, ptr %15, align 4, !tbaa !34
   ret void
 }
 
@@ -755,9 +755,9 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph:                                           ; preds = %.preheader98
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %16 = load ptr, ptr %15, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %18 = load ptr, ptr %17, align 8, !tbaa !40
+  %18 = load ptr, ptr %17, align 8, !tbaa !41
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %23
 
@@ -766,18 +766,18 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph112:                                        ; preds = %.preheader94
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %20 = load ptr, ptr %19, align 8, !tbaa !47
+  %20 = load ptr, ptr %19, align 8, !tbaa !48
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %22 = load ptr, ptr %21, align 8, !tbaa !47
+  %22 = load ptr, ptr %21, align 8, !tbaa !48
   %wide.trip.count136 = zext nneg i32 %3 to i64
   br label %37
 
 23:                                               ; preds = %.lr.ph, %.loopexit97
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit97 ]
   %24 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %25 = load i32, ptr %24, align 4, !tbaa !41
+  %25 = load i32, ptr %24, align 4, !tbaa !42
   %26 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4, !tbaa !41
+  %27 = load i32, ptr %26, align 4, !tbaa !42
   %28 = xor i32 %27, %25
   %.not84 = icmp eq i32 %28, -1
   br i1 %.not84, label %.loopexit97, label %.preheader96
@@ -798,19 +798,19 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 35:                                               ; preds = %.preheader96
   %36 = add nuw nsw i32 %.0108, 1
   %exitcond.not = icmp eq i32 %36, 32
-  br i1 %exitcond.not, label %.loopexit97, label %.preheader96, !llvm.loop !59
+  br i1 %exitcond.not, label %.loopexit97, label %.preheader96, !llvm.loop !60
 
 .loopexit97:                                      ; preds = %35, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond131.not, label %.loopexit87, label %23, !llvm.loop !60
+  br i1 %exitcond131.not, label %.loopexit87, label %23, !llvm.loop !61
 
 37:                                               ; preds = %.lr.ph112, %.loopexit93
   %indvars.iv133 = phi i64 [ 0, %.lr.ph112 ], [ %indvars.iv.next134, %.loopexit93 ]
   %38 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv133
-  %39 = load i32, ptr %38, align 4, !tbaa !41
+  %39 = load i32, ptr %38, align 4, !tbaa !42
   %40 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv133
-  %41 = load i32, ptr %40, align 4, !tbaa !41
+  %41 = load i32, ptr %40, align 4, !tbaa !42
   %42 = xor i32 %41, %39
   %.not82 = icmp eq i32 %42, -1
   br i1 %.not82, label %.loopexit93, label %.preheader92
@@ -831,12 +831,12 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 49:                                               ; preds = %.preheader92
   %50 = add nuw nsw i32 %.1110, 1
   %exitcond132.not = icmp eq i32 %50, 32
-  br i1 %exitcond132.not, label %.loopexit93, label %.preheader92, !llvm.loop !61
+  br i1 %exitcond132.not, label %.loopexit93, label %.preheader92, !llvm.loop !62
 
 .loopexit93:                                      ; preds = %49, %37
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count136
-  br i1 %exitcond137.not, label %.loopexit87, label %37, !llvm.loop !62
+  br i1 %exitcond137.not, label %.loopexit87, label %37, !llvm.loop !63
 
 51:                                               ; preds = %5
   br i1 %.not76, label %.preheader86, label %.preheader90
@@ -846,9 +846,9 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph115:                                        ; preds = %.preheader90
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %53 = load ptr, ptr %52, align 8, !tbaa !40
+  %53 = load ptr, ptr %52, align 8, !tbaa !41
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %55 = load ptr, ptr %54, align 8, !tbaa !40
+  %55 = load ptr, ptr %54, align 8, !tbaa !41
   %wide.trip.count142 = zext nneg i32 %3 to i64
   br label %60
 
@@ -857,18 +857,18 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 
 .lr.ph118:                                        ; preds = %.preheader86
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %57 = load ptr, ptr %56, align 8, !tbaa !47
+  %57 = load ptr, ptr %56, align 8, !tbaa !48
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %59 = load ptr, ptr %58, align 8, !tbaa !47
+  %59 = load ptr, ptr %58, align 8, !tbaa !48
   %wide.trip.count148 = zext nneg i32 %3 to i64
   br label %75
 
 60:                                               ; preds = %.lr.ph115, %.loopexit89
   %indvars.iv139 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next140, %.loopexit89 ]
   %61 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv139
-  %62 = load i32, ptr %61, align 4, !tbaa !41
+  %62 = load i32, ptr %61, align 4, !tbaa !42
   %63 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv139
-  %64 = load i32, ptr %63, align 4, !tbaa !41
+  %64 = load i32, ptr %63, align 4, !tbaa !42
   %.not79 = icmp eq i32 %62, %64
   br i1 %.not79, label %.loopexit89, label %.preheader88
 
@@ -892,19 +892,19 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 73:                                               ; preds = %66
   %74 = add nuw nsw i32 %.2113, 1
   %exitcond138.not = icmp eq i32 %74, 32
-  br i1 %exitcond138.not, label %.loopexit89, label %66, !llvm.loop !63
+  br i1 %exitcond138.not, label %.loopexit89, label %66, !llvm.loop !64
 
 .loopexit89:                                      ; preds = %73, %60
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %.loopexit87, label %60, !llvm.loop !64
+  br i1 %exitcond143.not, label %.loopexit87, label %60, !llvm.loop !65
 
 75:                                               ; preds = %.lr.ph118, %.loopexit
   %indvars.iv145 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next146, %.loopexit ]
   %76 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv145
-  %77 = load i32, ptr %76, align 4, !tbaa !41
+  %77 = load i32, ptr %76, align 4, !tbaa !42
   %78 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv145
-  %79 = load i32, ptr %78, align 4, !tbaa !41
+  %79 = load i32, ptr %78, align 4, !tbaa !42
   %.not77 = icmp eq i32 %77, %79
   br i1 %.not77, label %.loopexit, label %.preheader
 
@@ -928,12 +928,12 @@ define i32 @Fraig_FindFirstDiff(ptr noundef readonly captures(none) %0, ptr noun
 88:                                               ; preds = %81
   %89 = add nuw nsw i32 %.3116, 1
   %exitcond144.not = icmp eq i32 %89, 32
-  br i1 %exitcond144.not, label %.loopexit, label %81, !llvm.loop !65
+  br i1 %exitcond144.not, label %.loopexit, label %81, !llvm.loop !66
 
 .loopexit:                                        ; preds = %88, %75
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit87, label %75, !llvm.loop !66
+  br i1 %exitcond149.not, label %.loopexit87, label %75, !llvm.loop !67
 
 .loopexit87:                                      ; preds = %.loopexit97, %.loopexit93, %.loopexit89, %.loopexit, %.preheader98, %.preheader94, %.preheader90, %.preheader86, %84, %69, %45, %31
   %.075 = phi i32 [ %34, %31 ], [ %48, %45 ], [ %72, %69 ], [ %87, %84 ], [ -1, %.preheader86 ], [ -1, %.preheader90 ], [ -1, %.preheader94 ], [ -1, %.preheader98 ], [ -1, %.loopexit ], [ -1, %.loopexit89 ], [ -1, %.loopexit93 ], [ -1, %.loopexit97 ]
@@ -945,9 +945,9 @@ define range(i32 0, 2) i32 @Fraig_CompareSimInfoUnderMask(ptr noundef readonly c
   %.not = icmp eq i32 %3, 0
   %.in.v = select i1 %.not, i64 112, i64 104
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %6 = load ptr, ptr %.in, align 8, !tbaa !67
+  %6 = load ptr, ptr %.in, align 8, !tbaa !68
   %.in18 = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
-  %7 = load ptr, ptr %.in18, align 8, !tbaa !67
+  %7 = load ptr, ptr %.in18, align 8, !tbaa !68
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -958,16 +958,16 @@ define range(i32 0, 2) i32 @Fraig_CompareSimInfoUnderMask(ptr noundef readonly c
 9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
   %10 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !41
+  %11 = load i32, ptr %10, align 4, !tbaa !42
   %12 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4, !tbaa !41
+  %13 = load i32, ptr %12, align 4, !tbaa !42
   %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !41
+  %15 = load i32, ptr %14, align 4, !tbaa !42
   %16 = xor i32 %15, %11
   %17 = and i32 %16, %13
   %.not19 = icmp eq i32 %17, 0
@@ -983,9 +983,9 @@ define void @Fraig_CollectXors(ptr noundef readonly captures(none) %0, ptr nound
   %.not = icmp eq i32 %3, 0
   %.in.v = select i1 %.not, i64 112, i64 104
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %6 = load ptr, ptr %.in, align 8, !tbaa !67
+  %6 = load ptr, ptr %.in, align 8, !tbaa !68
   %.in14 = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v
-  %7 = load ptr, ptr %.in14, align 8, !tbaa !67
+  %7 = load ptr, ptr %.in14, align 8, !tbaa !68
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -996,15 +996,15 @@ define void @Fraig_CollectXors(ptr noundef readonly captures(none) %0, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
-  %10 = load i32, ptr %9, align 4, !tbaa !41
+  %10 = load i32, ptr %9, align 4, !tbaa !42
   %11 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
-  %12 = load i32, ptr %11, align 4, !tbaa !41
+  %12 = load i32, ptr %11, align 4, !tbaa !42
   %13 = xor i32 %12, %10
   %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  store i32 %13, ptr %14, align 4, !tbaa !41
+  store i32 %13, ptr %14, align 4, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -1013,21 +1013,21 @@ define void @Fraig_CollectXors(ptr noundef readonly captures(none) %0, ptr nound
 ; Function Attrs: nofree nounwind uwtable
 define void @Fraig_TablePrintStatsS(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !14
+  %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !6
+  %5 = load i32, ptr %4, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !33
+  %7 = load i32, ptr %6, align 4, !tbaa !34
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %5, i32 noundef %7)
-  %9 = load i32, ptr %4, align 8, !tbaa !6
+  %9 = load i32, ptr %4, align 8, !tbaa !7
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph22, label %._crit_edge23
 
 .lr.ph22:                                         ; preds = %1, %._crit_edge.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.thread ], [ 0, %1 ]
-  %11 = load ptr, ptr %3, align 8, !tbaa !13
+  %11 = load ptr, ptr %3, align 8, !tbaa !14
   %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
-  %.01516 = load ptr, ptr %12, align 8, !tbaa !29
+  %.01516 = load ptr, ptr %12, align 8, !tbaa !30
   %.not17 = icmp eq ptr %.01516, null
   br i1 %.not17, label %._crit_edge.thread, label %.lr.ph
 
@@ -1036,9 +1036,9 @@ define void @Fraig_TablePrintStatsS(ptr noundef readonly captures(none) %0) loca
   %.018 = phi i32 [ %13, %.lr.ph ], [ 0, %.lr.ph22 ]
   %13 = add nuw nsw i32 %.018, 1
   %14 = getelementptr inbounds nuw i8, ptr %.01519, i64 56
-  %.015 = load ptr, ptr %14, align 8, !tbaa !29
+  %.015 = load ptr, ptr %14, align 8, !tbaa !30
   %.not = icmp eq ptr %.015, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not26 = icmp eq i32 %.018, 0
@@ -1056,10 +1056,10 @@ define void @Fraig_TablePrintStatsS(ptr noundef readonly captures(none) %0) loca
 
 ._crit_edge.thread:                               ; preds = %.lr.ph22, %._crit_edge, %18, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = load i32, ptr %4, align 8, !tbaa !6
+  %21 = load i32, ptr %4, align 8, !tbaa !7
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph22, label %._crit_edge23, !llvm.loop !71
+  br i1 %23, label %.lr.ph22, label %._crit_edge23, !llvm.loop !72
 
 ._crit_edge23:                                    ; preds = %._crit_edge.thread, %1
   %putchar = tail call i32 @putchar(i32 10)
@@ -1072,22 +1072,22 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: nofree nounwind uwtable
 define void @Fraig_TablePrintStatsF(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !37
+  %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !6
+  %5 = load i32, ptr %4, align 8, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !33
+  %7 = load i32, ptr %6, align 4, !tbaa !34
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %5, i32 noundef %7)
-  %9 = load i32, ptr %4, align 8, !tbaa !6
+  %9 = load i32, ptr %4, align 8, !tbaa !7
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph20, label %._crit_edge21
 
 .lr.ph20:                                         ; preds = %1, %._crit_edge.thread
   %11 = phi i32 [ %18, %._crit_edge.thread ], [ %9, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.thread ], [ 0, %1 ]
-  %12 = load ptr, ptr %3, align 8, !tbaa !13
+  %12 = load ptr, ptr %3, align 8, !tbaa !14
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  %.01314 = load ptr, ptr %13, align 8, !tbaa !29
+  %.01314 = load ptr, ptr %13, align 8, !tbaa !30
   %.not15 = icmp eq ptr %.01314, null
   br i1 %.not15, label %._crit_edge.thread, label %.lr.ph
 
@@ -1096,9 +1096,9 @@ define void @Fraig_TablePrintStatsF(ptr noundef readonly captures(none) %0) loca
   %.016 = phi i32 [ %14, %.lr.ph ], [ 0, %.lr.ph20 ]
   %14 = add nuw nsw i32 %.016, 1
   %15 = getelementptr inbounds nuw i8, ptr %.01317, i64 64
-  %.013 = load ptr, ptr %15, align 8, !tbaa !29
+  %.013 = load ptr, ptr %15, align 8, !tbaa !30
   %.not = icmp eq ptr %.013, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not24 = icmp eq i32 %.016, 0
@@ -1106,7 +1106,7 @@ define void @Fraig_TablePrintStatsF(ptr noundef readonly captures(none) %0) loca
 
 16:                                               ; preds = %._crit_edge
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %14)
-  %.pre = load i32, ptr %4, align 8, !tbaa !6
+  %.pre = load i32, ptr %4, align 8, !tbaa !7
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph20, %._crit_edge, %16
@@ -1114,7 +1114,7 @@ define void @Fraig_TablePrintStatsF(ptr noundef readonly captures(none) %0) loca
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph20, label %._crit_edge21, !llvm.loop !73
+  br i1 %20, label %.lr.ph20, label %._crit_edge21, !llvm.loop !74
 
 ._crit_edge21:                                    ; preds = %._crit_edge.thread, %1
   %putchar = tail call i32 @putchar(i32 10)
@@ -1125,11 +1125,11 @@ define void @Fraig_TablePrintStatsF(ptr noundef readonly captures(none) %0) loca
 define void @Fraig_TablePrintStatsF0(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
 ._crit_edge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %2 = load ptr, ptr %1, align 8, !tbaa !56
+  %2 = load ptr, ptr %1, align 8, !tbaa !57
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !6
+  %4 = load i32, ptr %3, align 8, !tbaa !7
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !33
+  %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %4, i32 noundef %6)
   %putchar = tail call i32 @putchar(i32 10)
   ret void
@@ -1138,14 +1138,14 @@ define void @Fraig_TablePrintStatsF0(ptr noundef readonly captures(none) %0) loc
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !56
+  %4 = load ptr, ptr %3, align 8, !tbaa !57
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !6
+  %6 = load i32, ptr %5, align 8, !tbaa !7
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %8)
   %9 = icmp sgt i32 %6, 0
-  %.pre = load ptr, ptr %4, align 8, !tbaa !13
+  %.pre = load ptr, ptr %4, align 8, !tbaa !14
   br i1 %9, label %.lr.ph98, label %._crit_edge99
 
 .lr.ph98:                                         ; preds = %2
@@ -1156,48 +1156,48 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr noundef readonly captures(no
 .lr.ph98.split.us:                                ; preds = %.lr.ph98, %._crit_edge.split.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %._crit_edge.split.us.us ], [ 0, %.lr.ph98 ]
   %10 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv104
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %.not64.us = icmp eq ptr %11, null
   br i1 %.not64.us, label %._crit_edge.split.us.us, label %.split.us.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %.split83.us.us.us, %.lr.ph98.split.us
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge99, label %.lr.ph98.split.us, !llvm.loop !74
+  br i1 %exitcond108.not, label %._crit_edge99, label %.lr.ph98.split.us, !llvm.loop !75
 
 .split.us.us.us:                                  ; preds = %.lr.ph98.split.us, %.split83.us.us.us
   %.sink116 = phi ptr [ %13, %.split83.us.us.us ], [ %11, %.lr.ph98.split.us ]
   %12 = getelementptr inbounds nuw i8, ptr %.sink116, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !53
+  %13 = load ptr, ptr %12, align 8, !tbaa !54
   br label %.thread.us.us.us
 
 .thread.us.us.us:                                 ; preds = %.thread.us.us.us, %.split.us.us.us
   %.sink117 = phi ptr [ %.sink116, %.split.us.us.us ], [ %15, %.thread.us.us.us ]
   %14 = getelementptr inbounds nuw i8, ptr %.sink117, i64 72
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !49
   %16 = getelementptr inbounds nuw i8, ptr %.sink117, i64 100
-  %17 = load i32, ptr %16, align 4, !tbaa !46
+  %17 = load i32, ptr %16, align 4, !tbaa !47
   %18 = urem i32 %17, %6
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %19
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %.sink117, i64 64
-  store ptr %21, ptr %22, align 8, !tbaa !53
-  store ptr %.sink117, ptr %20, align 8, !tbaa !29
+  store ptr %21, ptr %22, align 8, !tbaa !54
+  store ptr %.sink117, ptr %20, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %.sink117, i64 72
-  store ptr null, ptr %23, align 8, !tbaa !48
+  store ptr null, ptr %23, align 8, !tbaa !49
   %.not71.us.us.us = icmp eq ptr %15, null
-  br i1 %.not71.us.us.us, label %.split83.us.us.us, label %.thread.us.us.us, !llvm.loop !75
+  br i1 %.not71.us.us.us, label %.split83.us.us.us, label %.thread.us.us.us, !llvm.loop !76
 
 .split83.us.us.us:                                ; preds = %.thread.us.us.us
   %.not67.us.us = icmp eq ptr %13, null
-  br i1 %.not67.us.us, label %._crit_edge.split.us.us, label %.split.us.us.us, !llvm.loop !76
+  br i1 %.not67.us.us, label %._crit_edge.split.us.us, label %.split.us.us.us, !llvm.loop !77
 
 .lr.ph98.split:                                   ; preds = %.lr.ph98, %._crit_edge.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.lr.ph98 ]
   %.05294 = phi i32 [ %.153.lcssa, %._crit_edge.split ], [ 0, %.lr.ph98 ]
   %24 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !30
   %.not64 = icmp eq ptr %25, null
   br i1 %.not64, label %._crit_edge.split, label %.split
 
@@ -1205,66 +1205,66 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr noundef readonly captures(no
   %.sink118 = phi ptr [ %27, %.split83 ], [ %25, %.lr.ph98.split ]
   %.15387 = phi i32 [ %.557, %.split83 ], [ %.05294, %.lr.ph98.split ]
   %26 = getelementptr inbounds nuw i8, ptr %.sink118, i64 64
-  %27 = load ptr, ptr %26, align 8, !tbaa !53
+  %27 = load ptr, ptr %26, align 8, !tbaa !54
   br label %28
 
 28:                                               ; preds = %46, %.split
   %.sink119 = phi ptr [ %.sink118, %.split ], [ %30, %46 ]
   %.25480 = phi i32 [ %.15387, %.split ], [ %.557, %46 ]
   %29 = getelementptr inbounds nuw i8, ptr %.sink119, i64 72
-  %30 = load ptr, ptr %29, align 8, !tbaa !48
+  %30 = load ptr, ptr %29, align 8, !tbaa !49
   %31 = getelementptr inbounds nuw i8, ptr %.sink119, i64 100
-  %32 = load i32, ptr %31, align 4, !tbaa !46
+  %32 = load i32, ptr %31, align 4, !tbaa !47
   %33 = urem i32 %32, %6
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %34
-  %.05875 = load ptr, ptr %35, align 8, !tbaa !29
+  %.05875 = load ptr, ptr %35, align 8, !tbaa !30
   %.not6976 = icmp eq ptr %.05875, null
   br i1 %.not6976, label %.thread.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %38
   %.05877 = phi ptr [ %.058, %38 ], [ %.05875, %28 ]
   %36 = getelementptr inbounds nuw i8, ptr %.05877, i64 100
-  %37 = load i32, ptr %36, align 4, !tbaa !46
+  %37 = load i32, ptr %36, align 4, !tbaa !47
   %.not70 = icmp eq i32 %32, %37
   br i1 %.not70, label %40, label %38
 
 38:                                               ; preds = %.lr.ph
   %39 = getelementptr inbounds nuw i8, ptr %.05877, i64 64
-  %.058 = load ptr, ptr %39, align 8, !tbaa !29
+  %.058 = load ptr, ptr %39, align 8, !tbaa !30
   %.not69 = icmp eq ptr %.058, null
-  br i1 %.not69, label %.thread.loopexit, label %.lr.ph, !llvm.loop !77
+  br i1 %.not69, label %.thread.loopexit, label %.lr.ph, !llvm.loop !78
 
 40:                                               ; preds = %.lr.ph
   %41 = getelementptr inbounds nuw i8, ptr %.05877, i64 72
-  %42 = load ptr, ptr %41, align 8, !tbaa !48
+  %42 = load ptr, ptr %41, align 8, !tbaa !49
   %43 = getelementptr inbounds nuw i8, ptr %.sink119, i64 72
-  store ptr %42, ptr %43, align 8, !tbaa !48
-  store ptr %.sink119, ptr %41, align 8, !tbaa !48
+  store ptr %42, ptr %43, align 8, !tbaa !49
+  store ptr %.sink119, ptr %41, align 8, !tbaa !49
   br label %46
 
 .thread.loopexit:                                 ; preds = %38, %28
   %44 = getelementptr inbounds nuw i8, ptr %.sink119, i64 64
-  store ptr %.05875, ptr %44, align 8, !tbaa !53
-  store ptr %.sink119, ptr %35, align 8, !tbaa !29
+  store ptr %.05875, ptr %44, align 8, !tbaa !54
+  store ptr %.sink119, ptr %35, align 8, !tbaa !30
   %45 = getelementptr inbounds nuw i8, ptr %.sink119, i64 72
-  store ptr null, ptr %45, align 8, !tbaa !48
+  store ptr null, ptr %45, align 8, !tbaa !49
   br label %46
 
 46:                                               ; preds = %40, %.thread.loopexit
   %.557 = phi i32 [ 1, %40 ], [ %.25480, %.thread.loopexit ]
   %.not71 = icmp eq ptr %30, null
-  br i1 %.not71, label %.split83, label %28, !llvm.loop !78
+  br i1 %.not71, label %.split83, label %28, !llvm.loop !79
 
 .split83:                                         ; preds = %46
   %.not67 = icmp eq ptr %27, null
-  br i1 %.not67, label %._crit_edge.split, label %.split, !llvm.loop !79
+  br i1 %.not67, label %._crit_edge.split, label %.split, !llvm.loop !80
 
 ._crit_edge.split:                                ; preds = %.split83, %.lr.ph98.split
   %.153.lcssa = phi i32 [ %.05294, %.lr.ph98.split ], [ %.557, %.split83 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count107
-  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !80
+  br i1 %exitcond.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !81
 
 ._crit_edge99:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %2
   %.052.lcssa = phi i32 [ 0, %2 ], [ 0, %._crit_edge.split.us.us ], [ %.153.lcssa, %._crit_edge.split ]
@@ -1276,7 +1276,7 @@ define range(i32 0, 2) i32 @Fraig_TableRehashF0(ptr noundef readonly captures(no
   br label %48
 
 48:                                               ; preds = %._crit_edge99, %47
-  store ptr %calloc, ptr %4, align 8, !tbaa !13
+  store ptr %calloc, ptr %4, align 8, !tbaa !14
   ret i32 %.052.lcssa
 }
 
@@ -1310,81 +1310,82 @@ attributes #14 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !12, i64 8}
-!7 = !{!"Fraig_HashTableStruct_t_", !8, i64 0, !12, i64 8, !12, i64 12}
-!8 = !{!"p2 _ZTS19Fraig_NodeStruct_t_", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!7, !8, i64 0}
-!14 = !{!15, !19, i64 48}
-!15 = !{!"Fraig_ManStruct_t_", !16, i64 0, !16, i64 8, !16, i64 16, !17, i64 24, !18, i64 32, !18, i64 40, !19, i64 48, !19, i64 56, !19, i64 64, !12, i64 72, !12, i64 76, !12, i64 80, !12, i64 84, !12, i64 88, !12, i64 92, !12, i64 96, !12, i64 100, !12, i64 104, !12, i64 108, !12, i64 112, !12, i64 116, !20, i64 120, !12, i64 128, !12, i64 132, !12, i64 136, !12, i64 140, !12, i64 144, !16, i64 152, !21, i64 160, !22, i64 168, !22, i64 176, !22, i64 184, !12, i64 192, !23, i64 200, !23, i64 208, !24, i64 216, !24, i64 224, !25, i64 232, !21, i64 240, !12, i64 248, !22, i64 256, !21, i64 264, !26, i64 272, !21, i64 280, !12, i64 288, !12, i64 292, !12, i64 296, !12, i64 300, !12, i64 304, !12, i64 308, !12, i64 312, !12, i64 316, !12, i64 320, !12, i64 324, !12, i64 328, !12, i64 332, !12, i64 336, !12, i64 340, !12, i64 344, !12, i64 348, !12, i64 352, !12, i64 356, !12, i64 360, !20, i64 368, !20, i64 376, !20, i64 384, !20, i64 392, !20, i64 400, !20, i64 408, !20, i64 416, !20, i64 424, !20, i64 432, !20, i64 440, !20, i64 448, !20, i64 456}
-!16 = !{!"p1 _ZTS22Fraig_NodeVecStruct_t_", !9, i64 0}
-!17 = !{!"p1 _ZTS19Fraig_NodeStruct_t_", !9, i64 0}
-!18 = !{!"p2 omnipotent char", !9, i64 0}
-!19 = !{!"p1 _ZTS24Fraig_HashTableStruct_t_", !9, i64 0}
-!20 = !{!"long", !10, i64 0}
-!21 = !{!"p1 _ZTS14Msat_IntVec_t_", !9, i64 0}
-!22 = !{!"p1 int", !9, i64 0}
-!23 = !{!"p2 int", !9, i64 0}
-!24 = !{!"p1 _ZTS17Fraig_MemFixed_t_", !9, i64 0}
-!25 = !{!"p1 _ZTS14Msat_Solver_t_", !9, i64 0}
-!26 = !{!"p1 _ZTS17Msat_ClauseVec_t_", !9, i64 0}
-!27 = !{!28, !12, i64 0}
-!28 = !{!"Fraig_NodeStruct_t_", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !12, i64 20, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 24, !12, i64 25, !12, i64 25, !12, i64 25, !12, i64 25, !17, i64 32, !17, i64 40, !16, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !12, i64 96, !12, i64 100, !22, i64 104, !22, i64 112, !17, i64 120, !17, i64 128, !17, i64 136, !17, i64 144, !17, i64 152}
-!29 = !{!17, !17, i64 0}
-!30 = !{!28, !17, i64 32}
-!31 = !{!28, !17, i64 40}
-!32 = distinct !{!32, !4}
-!33 = !{!7, !12, i64 12}
-!34 = !{!28, !17, i64 56}
-!35 = distinct !{!35, !4}
-!36 = distinct !{!36, !4}
-!37 = !{!15, !19, i64 56}
-!38 = !{!28, !12, i64 96}
-!39 = !{!15, !12, i64 72}
-!40 = !{!28, !22, i64 104}
-!41 = !{!12, !12, i64 0}
-!42 = distinct !{!42, !4, !43}
-!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!44 = distinct !{!44, !4}
-!45 = !{!15, !12, i64 136}
-!46 = !{!28, !12, i64 100}
-!47 = !{!28, !22, i64 112}
-!48 = !{!28, !17, i64 72}
-!49 = distinct !{!49, !4, !43}
-!50 = distinct !{!50, !4}
-!51 = distinct !{!51, !4}
-!52 = distinct !{!52, !4}
-!53 = !{!28, !17, i64 64}
-!54 = distinct !{!54, !4}
-!55 = distinct !{!55, !4}
-!56 = !{!15, !19, i64 64}
-!57 = distinct !{!57, !4, !43}
-!58 = distinct !{!58, !4}
-!59 = distinct !{!59, !4}
-!60 = distinct !{!60, !4}
-!61 = distinct !{!61, !4}
-!62 = distinct !{!62, !4}
-!63 = distinct !{!63, !4}
-!64 = distinct !{!64, !4}
-!65 = distinct !{!65, !4}
-!66 = distinct !{!66, !4}
-!67 = !{!22, !22, i64 0}
-!68 = distinct !{!68, !4}
-!69 = distinct !{!69, !4}
-!70 = distinct !{!70, !4}
-!71 = distinct !{!71, !4}
-!72 = distinct !{!72, !4}
-!73 = distinct !{!73, !4}
-!74 = distinct !{!74, !4, !43}
-!75 = distinct !{!75, !4, !43}
-!76 = distinct !{!76, !4, !43}
-!77 = distinct !{!77, !4}
-!78 = distinct !{!78, !4}
-!79 = distinct !{!79, !4}
-!80 = distinct !{!80, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{!8, !13, i64 8}
+!8 = !{!"Fraig_HashTableStruct_t_", !9, i64 0, !13, i64 8, !13, i64 12}
+!9 = !{!"p2 _ZTS19Fraig_NodeStruct_t_", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C/C++ TBAA"}
+!13 = !{!"int", !11, i64 0}
+!14 = !{!8, !9, i64 0}
+!15 = !{!16, !20, i64 48}
+!16 = !{!"Fraig_ManStruct_t_", !17, i64 0, !17, i64 8, !17, i64 16, !18, i64 24, !19, i64 32, !19, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !13, i64 72, !13, i64 76, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !13, i64 112, !13, i64 116, !21, i64 120, !13, i64 128, !13, i64 132, !13, i64 136, !13, i64 140, !13, i64 144, !17, i64 152, !22, i64 160, !23, i64 168, !23, i64 176, !23, i64 184, !13, i64 192, !24, i64 200, !24, i64 208, !25, i64 216, !25, i64 224, !26, i64 232, !22, i64 240, !13, i64 248, !23, i64 256, !22, i64 264, !27, i64 272, !22, i64 280, !13, i64 288, !13, i64 292, !13, i64 296, !13, i64 300, !13, i64 304, !13, i64 308, !13, i64 312, !13, i64 316, !13, i64 320, !13, i64 324, !13, i64 328, !13, i64 332, !13, i64 336, !13, i64 340, !13, i64 344, !13, i64 348, !13, i64 352, !13, i64 356, !13, i64 360, !21, i64 368, !21, i64 376, !21, i64 384, !21, i64 392, !21, i64 400, !21, i64 408, !21, i64 416, !21, i64 424, !21, i64 432, !21, i64 440, !21, i64 448, !21, i64 456}
+!17 = !{!"p1 _ZTS22Fraig_NodeVecStruct_t_", !10, i64 0}
+!18 = !{!"p1 _ZTS19Fraig_NodeStruct_t_", !10, i64 0}
+!19 = !{!"p2 omnipotent char", !10, i64 0}
+!20 = !{!"p1 _ZTS24Fraig_HashTableStruct_t_", !10, i64 0}
+!21 = !{!"long", !11, i64 0}
+!22 = !{!"p1 _ZTS14Msat_IntVec_t_", !10, i64 0}
+!23 = !{!"p1 int", !10, i64 0}
+!24 = !{!"p2 int", !10, i64 0}
+!25 = !{!"p1 _ZTS17Fraig_MemFixed_t_", !10, i64 0}
+!26 = !{!"p1 _ZTS14Msat_Solver_t_", !10, i64 0}
+!27 = !{!"p1 _ZTS17Msat_ClauseVec_t_", !10, i64 0}
+!28 = !{!29, !13, i64 0}
+!29 = !{!"Fraig_NodeStruct_t_", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20, !13, i64 24, !13, i64 24, !13, i64 24, !13, i64 24, !13, i64 24, !13, i64 24, !13, i64 24, !13, i64 24, !13, i64 25, !13, i64 25, !13, i64 25, !13, i64 25, !18, i64 32, !18, i64 40, !17, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !13, i64 96, !13, i64 100, !23, i64 104, !23, i64 112, !18, i64 120, !18, i64 128, !18, i64 136, !18, i64 144, !18, i64 152}
+!30 = !{!18, !18, i64 0}
+!31 = !{!29, !18, i64 32}
+!32 = !{!29, !18, i64 40}
+!33 = distinct !{!33, !4, !5}
+!34 = !{!8, !13, i64 12}
+!35 = !{!29, !18, i64 56}
+!36 = distinct !{!36, !4, !5}
+!37 = distinct !{!37, !4, !5}
+!38 = !{!16, !20, i64 56}
+!39 = !{!29, !13, i64 96}
+!40 = !{!16, !13, i64 72}
+!41 = !{!29, !23, i64 104}
+!42 = !{!13, !13, i64 0}
+!43 = distinct !{!43, !4, !5, !44}
+!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!45 = distinct !{!45, !4, !5}
+!46 = !{!16, !13, i64 136}
+!47 = !{!29, !13, i64 100}
+!48 = !{!29, !23, i64 112}
+!49 = !{!29, !18, i64 72}
+!50 = distinct !{!50, !4, !5, !44}
+!51 = distinct !{!51, !4, !5}
+!52 = distinct !{!52, !4, !5}
+!53 = distinct !{!53, !4, !5}
+!54 = !{!29, !18, i64 64}
+!55 = distinct !{!55, !4, !5}
+!56 = distinct !{!56, !4, !5}
+!57 = !{!16, !20, i64 64}
+!58 = distinct !{!58, !4, !5, !44}
+!59 = distinct !{!59, !4, !5}
+!60 = distinct !{!60, !4, !5}
+!61 = distinct !{!61, !4, !5}
+!62 = distinct !{!62, !4, !5}
+!63 = distinct !{!63, !4, !5}
+!64 = distinct !{!64, !4, !5}
+!65 = distinct !{!65, !4, !5}
+!66 = distinct !{!66, !4, !5}
+!67 = distinct !{!67, !4, !5}
+!68 = !{!23, !23, i64 0}
+!69 = distinct !{!69, !4, !5}
+!70 = distinct !{!70, !4, !5}
+!71 = distinct !{!71, !4, !5}
+!72 = distinct !{!72, !4, !5}
+!73 = distinct !{!73, !4, !5}
+!74 = distinct !{!74, !4, !5}
+!75 = distinct !{!75, !4, !5, !44}
+!76 = distinct !{!76, !4, !5, !44}
+!77 = distinct !{!77, !4, !5, !44}
+!78 = distinct !{!78, !4, !5}
+!79 = distinct !{!79, !4, !5}
+!80 = distinct !{!80, !4, !5}
+!81 = distinct !{!81, !4, !5}

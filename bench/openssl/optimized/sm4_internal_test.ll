@@ -54,7 +54,7 @@ define internal range(i32 0, 2) i32 @test_sm4_ecb() #0 {
   call void @ossl_sm4_decrypt(ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef nonnull %1) #4
   %8 = add nuw nsw i32 %.112, 1
   %.not8 = icmp eq i32 %8, 1000000
-  br i1 %.not8, label %9, label %.preheader, !llvm.loop !6
+  br i1 %.not8, label %9, label %.preheader, !llvm.loop !7
 
 9:                                                ; preds = %.preheader
   %10 = call i32 @test_mem_eq(ptr noundef nonnull @.str.1, i32 noundef 73, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, ptr noundef nonnull %2, i64 noundef 16, ptr noundef nonnull @test_sm4_ecb.input, i64 noundef 16) #4
@@ -98,6 +98,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

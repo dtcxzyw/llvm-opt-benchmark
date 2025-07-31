@@ -538,7 +538,7 @@ define hidden void @_ZNK5zxing31GreyscaleRotatedLuminanceSource9getMatrixEv(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !35
+  %6 = load i32, ptr %5, align 8, !tbaa !36
   %7 = mul nsw i32 %6, %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %8, align 8, !tbaa !6
@@ -628,7 +628,7 @@ _ZN5zxing8ArrayRefIcEC2Ei.exit:                   ; preds = %_ZNSt6vectorIcSaIcE
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %.pre22 = load i32, ptr %5, align 8, !tbaa !35
+  %.pre22 = load i32, ptr %5, align 8, !tbaa !36
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph18.split
@@ -637,7 +637,7 @@ _ZN5zxing8ArrayRefIcEC2Ei.exit:                   ; preds = %_ZNSt6vectorIcSaIcE
   %44 = phi i32 [ %54, %._crit_edge.loopexit ], [ %29, %.lr.ph18.split ]
   %45 = add nuw nsw i32 %.01417, 1
   %46 = icmp slt i32 %45, %42
-  br i1 %46, label %.lr.ph18.split, label %._crit_edge19, !llvm.loop !36
+  br i1 %46, label %.lr.ph18.split, label %._crit_edge19, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -656,7 +656,7 @@ _ZN5zxing8ArrayRefIcEC2Ei.exit:                   ; preds = %_ZNSt6vectorIcSaIcE
   %56 = load i32, ptr %3, align 4, !tbaa !27
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !38
+  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge19:                                    ; preds = %._crit_edge, %.lr.ph18, %_ZN5zxing8ArrayRefIcEC2Ei.exit
   ret void
@@ -669,7 +669,7 @@ define hidden void @_ZNK5zxing31GreyscaleRotatedLuminanceSource13getByteMatrixEv
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load i32, ptr %7, align 8, !tbaa !35
+  %8 = load i32, ptr %7, align 8, !tbaa !36
   %9 = load ptr, ptr %1, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
@@ -685,7 +685,7 @@ define hidden void @_ZNK5zxing31GreyscaleRotatedLuminanceSource13getByteMatrixEv
   %15 = load i32, ptr %14, align 8, !tbaa !6
   %16 = add i32 %15, 1
   store i32 %16, ptr %14, align 8, !tbaa !6
-  store ptr %4, ptr %0, align 8, !tbaa !39
+  store ptr %4, ptr %0, align 8, !tbaa !40
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIcEE, i64 16), ptr %3, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !10
@@ -862,7 +862,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !42
+  %3 = load i32, ptr %2, align 4, !tbaa !43
   ret i32 %3
 }
 
@@ -1012,13 +1012,14 @@ attributes #14 = { noreturn }
 !30 = !{!29, !23, i64 0}
 !31 = !{!29, !23, i64 16}
 !32 = !{!9, !9, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!16, !8, i64 16}
-!36 = distinct !{!36, !34, !37}
-!37 = !{!"llvm.loop.unswitch.partial.disable"}
-!38 = distinct !{!38, !34}
-!39 = !{!40, !41, i64 0}
-!40 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !41, i64 0}
-!41 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
-!42 = !{!20, !8, i64 12}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!16, !8, i64 16}
+!37 = distinct !{!37, !34, !35, !38}
+!38 = !{!"llvm.loop.unswitch.partial.disable"}
+!39 = distinct !{!39, !34, !35}
+!40 = !{!41, !42, i64 0}
+!41 = !{!"_ZTSN5zxing3RefINS_10ByteMatrixEEE", !42, i64 0}
+!42 = !{!"p1 _ZTSN5zxing10ByteMatrixE", !13, i64 0}
+!43 = !{!20, !8, i64 12}

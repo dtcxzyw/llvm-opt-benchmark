@@ -136,7 +136,7 @@ AddLength.exit:                                   ; preds = %7, %12
   store i32 %35, ptr %34, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %36 = icmp samesign ult i64 %indvars.iv.i, 60
-  br i1 %36, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
+  br i1 %36, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   tail call fastcc void @Transform_Sha256(ptr noundef %0, ptr noundef %16)
@@ -176,7 +176,7 @@ ByteReverseWords.exit68.loopexit.us:              ; preds = %.lr.ph26.i64.us
   %45 = add i32 %.14871.us, -64
   tail call fastcc void @Transform_Sha256(ptr noundef %0, ptr noundef %16)
   %46 = icmp ugt i32 %45, 63
-  br i1 %46, label %.lr.ph26.i64.preheader.us, label %._crit_edge, !llvm.loop !16
+  br i1 %46, label %.lr.ph26.i64.preheader.us, label %._crit_edge, !llvm.loop !17
 
 .lr.ph.i59.preheader:                             ; preds = %.lr.ph, %ByteReverseWords.exit68.loopexit69
   %.172 = phi ptr [ %50, %ByteReverseWords.exit68.loopexit69 ], [ %.046, %.lr.ph ]
@@ -192,14 +192,14 @@ ByteReverseWords.exit68.loopexit.us:              ; preds = %.lr.ph26.i64.us
   store i32 %48, ptr %47, align 1
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i60, 4
   %49 = icmp samesign ult i64 %indvars.iv.i60, 60
-  br i1 %49, label %.lr.ph.i59, label %ByteReverseWords.exit68.loopexit69, !llvm.loop !15
+  br i1 %49, label %.lr.ph.i59, label %ByteReverseWords.exit68.loopexit69, !llvm.loop !16
 
 ByteReverseWords.exit68.loopexit69:               ; preds = %.lr.ph.i59
   %50 = getelementptr inbounds nuw i8, ptr %.172, i64 64
   %51 = add i32 %.14871, -64
   tail call fastcc void @Transform_Sha256(ptr noundef %0, ptr noundef %16)
   %52 = icmp ugt i32 %51, 63
-  br i1 %52, label %.lr.ph.i59.preheader, label %._crit_edge
+  br i1 %52, label %.lr.ph.i59.preheader, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %ByteReverseWords.exit68.loopexit69, %ByteReverseWords.exit68.loopexit.us, %37
   %.148.lcssa = phi i32 [ %.047, %37 ], [ %45, %ByteReverseWords.exit68.loopexit.us ], [ %51, %ByteReverseWords.exit68.loopexit69 ]
@@ -253,7 +253,7 @@ define range(i32 -173, 1) i32 @wc_Sha256FinalRaw(ptr noundef %0, ptr noundef wri
   store i32 %14, ptr %15, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %16 = icmp samesign ult i64 %indvars.iv.i, 28
-  br i1 %16, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
+  br i1 %16, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
@@ -304,7 +304,7 @@ define range(i32 -192, 1) i32 @wc_Sha256Final(ptr noundef %0, ptr noundef writeo
   store i32 %14, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %15 = icmp samesign ult i64 %indvars.iv.i, 28
-  br i1 %15, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
+  br i1 %15, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %0, i64 32, i1 false)
@@ -349,7 +349,7 @@ define internal fastcc range(i32 -192, 1) i32 @Sha256Final(ptr noundef nonnull %
   store i32 %7, ptr %2, align 16, !tbaa !7
   %8 = zext nneg i32 %3 to i64
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
-  store i8 -128, ptr %9, align 1, !tbaa !18
+  store i8 -128, ptr %9, align 1, !tbaa !20
   %10 = load i32, ptr %2, align 16, !tbaa !7
   %11 = icmp ugt i32 %10, 56
   br i1 %11, label %12, label %._crit_edge
@@ -395,7 +395,7 @@ define internal fastcc range(i32 -192, 1) i32 @Sha256Final(ptr noundef nonnull %
   store i32 %26, ptr %25, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %27 = icmp samesign ult i64 %indvars.iv.i, 60
-  br i1 %27, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
+  br i1 %27, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   tail call fastcc void @Transform_Sha256(ptr noundef %0, ptr noundef %6)
@@ -439,7 +439,7 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
   store i32 %44, ptr %43, align 1
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i39, 4
   %45 = icmp samesign ult i64 %indvars.iv.i39, 52
-  br i1 %45, label %.lr.ph.i38, label %ByteReverseWords.exit47, !llvm.loop !15
+  br i1 %45, label %.lr.ph.i38, label %ByteReverseWords.exit47, !llvm.loop !16
 
 ByteReverseWords.exit47:                          ; preds = %.lr.ph.i38, %.lr.ph26.i43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -549,7 +549,7 @@ define range(i32 -192, 1) i32 @wc_Sha224Final(ptr noundef %0, ptr noundef writeo
   store i32 %14, ptr %13, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
   %15 = icmp samesign ult i64 %indvars.iv.i, 24
-  br i1 %15, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !15
+  br i1 %15, label %.lr.ph.i, label %ByteReverseWords.exit, !llvm.loop !16
 
 ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %1, ptr noundef nonnull align 16 dereferenceable(28) %0, i64 28, i1 false)
@@ -640,9 +640,9 @@ define void @wc_Sha224Free(ptr noundef %0) local_unnamed_addr #5 {
   %.01625.i = phi ptr [ %10, %.lr.ph.i ], [ %0, %3 ]
   %9 = add nsw i32 %.126.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
-  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !18
+  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !20
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %12, 0
@@ -652,19 +652,19 @@ define void @wc_Sha224Free(ptr noundef %0) local_unnamed_addr #5 {
   %.01528.i = phi ptr [ %11, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
   %.01827.i = phi i32 [ %12, %.lr.ph29.i ], [ %8, %.lr.ph29.i.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !20
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !22
   %12 = add nsw i32 %.01827.i, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !22
+  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !24
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %15, %.lr.ph35.i ], [ %11, %.preheader.i ]
   %.11933.i = phi i32 [ %14, %.lr.ph35.i ], [ %12, %.preheader.i ]
   %14 = add i32 %.11933.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !18
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !20
   %.not22.i = icmp eq i32 %14, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !23
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !25
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %1
   ret void
@@ -729,9 +729,9 @@ define void @wc_Sha256Free(ptr noundef %0) local_unnamed_addr #5 {
   %.01625.i = phi ptr [ %10, %.lr.ph.i ], [ %0, %3 ]
   %9 = add nsw i32 %.126.i, -1
   %10 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 1
-  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !18
+  store volatile i8 0, ptr %.01625.i, align 1, !tbaa !20
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !19
+  br i1 %.not.i, label %.lr.ph29.i.preheader, label %.lr.ph.i, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %.lr.ph29.i
   %.not2232.i = icmp eq i32 %12, 0
@@ -741,19 +741,19 @@ define void @wc_Sha256Free(ptr noundef %0) local_unnamed_addr #5 {
   %.01528.i = phi ptr [ %11, %.lr.ph29.i ], [ %.01528.i.ph, %.lr.ph29.i.preheader ]
   %.01827.i = phi i32 [ %12, %.lr.ph29.i ], [ %8, %.lr.ph29.i.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !20
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !22
   %12 = add nsw i32 %.01827.i, -8
   %13 = icmp ugt i32 %12, 7
-  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !22
+  br i1 %13, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !24
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
   %.11734.i = phi ptr [ %15, %.lr.ph35.i ], [ %11, %.preheader.i ]
   %.11933.i = phi i32 [ %14, %.lr.ph35.i ], [ %12, %.preheader.i ]
   %14 = add i32 %.11933.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
-  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !18
+  store volatile i8 0, ptr %.11734.i, align 1, !tbaa !20
   %.not22.i = icmp eq i32 %14, 0
-  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !23
+  br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !25
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %1
   ret void
@@ -795,10 +795,10 @@ ByteReverseWords.exit.i:                          ; preds = %.lr.ph26.i.i
   %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %3, %.lr.ph29.i.i.preheader ]
   %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ 128, %.lr.ph29.i.i.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !20
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !22
   %12 = add nsw i32 %.01827.i.i, -8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %wc_Sha224Free.exit, label %.lr.ph29.i.i, !llvm.loop !22
+  br i1 %.not, label %wc_Sha224Free.exit, label %.lr.ph29.i.i, !llvm.loop !24
 
 wc_Sha224Free.exit:                               ; preds = %.lr.ph29.i.i, %2
   %.07 = phi i32 [ -173, %2 ], [ %7, %.lr.ph29.i.i ]
@@ -858,10 +858,10 @@ ByteReverseWords.exit.i:                          ; preds = %.lr.ph26.i.i
   %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %3, %.lr.ph29.i.i.preheader ]
   %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ 128, %.lr.ph29.i.i.preheader ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
-  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !20
+  store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !22
   %12 = add nsw i32 %.01827.i.i, -8
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %wc_Sha256Free.exit, label %.lr.ph29.i.i, !llvm.loop !22
+  br i1 %.not, label %wc_Sha256Free.exit, label %.lr.ph29.i.i, !llvm.loop !24
 
 wc_Sha256Free.exit:                               ; preds = %.lr.ph29.i.i, %2
   %.07 = phi i32 [ -173, %2 ], [ %7, %.lr.ph29.i.i ]
@@ -947,7 +947,7 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   store i32 %33, ptr %34, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %.preheader67, label %.preheader68, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader67, label %.preheader68, !llvm.loop !26
 
 .preheader:                                       ; preds = %35
   store i32 %186, ptr %4, align 4, !tbaa !3
@@ -1203,7 +1203,7 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   %274 = add i32 %272, %262
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 8
   %275 = icmp samesign ult i64 %indvars.iv99, 56
-  br i1 %275, label %35, label %.preheader, !llvm.loop !25
+  br i1 %275, label %35, label %.preheader, !llvm.loop !27
 
 276:                                              ; preds = %.preheader, %276
   %indvars.iv102 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next103, %276 ]
@@ -1215,7 +1215,7 @@ define internal fastcc void @Transform_Sha256(ptr noundef nonnull captures(none)
   store i32 %281, ptr %279, align 4, !tbaa !3
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next103, 8
-  br i1 %exitcond105.not, label %282, label %276, !llvm.loop !26
+  br i1 %exitcond105.not, label %282, label %276, !llvm.loop !28
 
 282:                                              ; preds = %276
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #9
@@ -1258,17 +1258,19 @@ attributes #9 = { nounwind }
 !10 = !{!8, !4, i64 100}
 !11 = !{!8, !4, i64 104}
 !12 = !{!8, !9, i64 112}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !14}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"long", !5, i64 0}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14}
-!26 = distinct !{!26, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !15, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !15}
+!20 = !{!5, !5, i64 0}
+!21 = distinct !{!21, !14, !15}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !5, i64 0}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}
+!26 = distinct !{!26, !14, !15}
+!27 = distinct !{!27, !14, !15}
+!28 = distinct !{!28, !14, !15}

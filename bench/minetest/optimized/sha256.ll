@@ -1366,7 +1366,7 @@ for.end:                                          ; preds = %for.body
   %add278 = add i32 %add8.i994, %7
   store i32 %add278, ptr %arrayidx15, align 4
   %tobool.not = icmp eq i64 %dec1597, 0
-  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
+  br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
 
 while.end:                                        ; preds = %for.end
   ret void
@@ -1431,7 +1431,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %add.ptr13 = getelementptr inbounds nuw i8, ptr %md.addr.041, i64 4
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, 8
-  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 sw.default:                                       ; preds = %if.end
   %cmp16 = icmp ugt i32 %3, 32
@@ -1454,7 +1454,7 @@ for.body24:                                       ; preds = %for.cond20.preheade
   %div33 = lshr i32 %6, 2
   %7 = zext nneg i32 %div33 to i64
   %cmp22 = icmp samesign ult i64 %indvars.iv.next, %7
-  br i1 %cmp22, label %for.body24, label %return, !llvm.loop !9
+  br i1 %cmp22, label %for.body24, label %return, !llvm.loop !10
 
 return:                                           ; preds = %for.body24, %for.body, %for.cond20.preheader, %sw.default
   %retval.0 = phi i32 [ 0, %sw.default ], [ 1, %for.cond20.preheader ], [ 1, %for.body ], [ 1, %for.body24 ]
@@ -1567,7 +1567,7 @@ for.body.i:                                       ; preds = %if.end.i7, %for.bod
   %add.ptr13.i = getelementptr inbounds nuw i8, ptr %md.addr.041.i, i64 4
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next46.i, 8
-  br i1 %exitcond.not.i, label %SHA256_Final.exit, label %for.body.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %SHA256_Final.exit, label %for.body.i, !llvm.loop !9
 
 sw.default.i:                                     ; preds = %if.end.i7
   %6 = add i32 %4, -33
@@ -1589,7 +1589,7 @@ for.body24.i:                                     ; preds = %for.body24.i.prehea
   %add.ptr28.i = getelementptr inbounds nuw i8, ptr %md.addr.139.i, i64 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %7
-  br i1 %exitcond.not, label %SHA256_Final.exit, label %for.body24.i, !llvm.loop !9
+  br i1 %exitcond.not, label %SHA256_Final.exit, label %for.body24.i, !llvm.loop !10
 
 SHA256_Final.exit:                                ; preds = %for.body24.i, %for.body.i, %sw.default.i
   ret ptr %spec.store.select
@@ -1615,8 +1615,9 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}

@@ -386,12 +386,12 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   store ptr %94, ptr %95, align 8, !tbaa !8
   %96 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 202, ptr noundef nonnull @.str.29, ptr noundef %94) #6
   %.not82 = icmp eq i32 %96, 0
-  br i1 %.not82, label %.loopexit, label %.preheader106, !llvm.loop !12
+  br i1 %.not82, label %.loopexit, label %.preheader106, !llvm.loop !13
 
 97:                                               ; preds = %.preheader104
   %98 = add nuw nsw i64 %.2110, 1
   %exitcond119.not = icmp eq i64 %98, 3
-  br i1 %exitcond119.not, label %.preheader102, label %.preheader104, !llvm.loop !13
+  br i1 %exitcond119.not, label %.preheader102, label %.preheader104, !llvm.loop !14
 
 .preheader104:                                    ; preds = %.preheader106, %97
   %.2110 = phi i64 [ %98, %97 ], [ 0, %.preheader106 ]
@@ -432,7 +432,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   %119 = call i32 @ossl_crypto_thread_clean(ptr noundef %118) #6
   %120 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 212, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.11, i32 noundef %119, i32 noundef 1) #6
   %.not80 = icmp eq i32 %120, 0
-  br i1 %.not80, label %.loopexit, label %.preheader102, !llvm.loop !14
+  br i1 %.not80, label %.loopexit, label %.preheader102, !llvm.loop !15
 
 121:                                              ; preds = %.preheader102
   %122 = call i32 @OSSL_set_max_threads(ptr noundef null, i64 noundef 2) #6
@@ -455,12 +455,12 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   store ptr %128, ptr %129, align 8, !tbaa !8
   %130 = call i32 @test_ptr(ptr noundef nonnull @.str.4, i32 noundef 224, ptr noundef nonnull @.str.29, ptr noundef %128) #6
   %.not77 = icmp eq i32 %130, 0
-  br i1 %.not77, label %.loopexit, label %.preheader100, !llvm.loop !15
+  br i1 %.not77, label %.loopexit, label %.preheader100, !llvm.loop !16
 
 131:                                              ; preds = %.preheader98
   %132 = add nuw nsw i64 %.5111, 1
   %exitcond122.not = icmp eq i64 %132, 3
-  br i1 %exitcond122.not, label %.preheader, label %.preheader98, !llvm.loop !16
+  br i1 %exitcond122.not, label %.preheader, label %.preheader98, !llvm.loop !17
 
 .preheader98:                                     ; preds = %.preheader100, %131
   %.5111 = phi i64 [ %132, %131 ], [ 0, %.preheader100 ]
@@ -501,7 +501,7 @@ define internal range(i32 0, 2) i32 @test_thread_internal() #0 {
   %153 = call i32 @ossl_crypto_thread_clean(ptr noundef %152) #6
   %154 = call i32 @test_int_eq(ptr noundef nonnull @.str.4, i32 noundef 234, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.11, i32 noundef %153, i32 noundef 1) #6
   %.not75 = icmp eq i32 %154, 0
-  br i1 %.not75, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %.not75, label %.loopexit, label %.preheader, !llvm.loop !18
 
 155:                                              ; preds = %.preheader
   %156 = call i32 @OSSL_set_max_threads(ptr noundef null, i64 noundef 0) #6
@@ -603,11 +603,12 @@ attributes #6 = { nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"any pointer", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}

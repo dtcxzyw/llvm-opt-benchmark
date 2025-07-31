@@ -485,7 +485,7 @@ dissect_mojito_store_request.exit:                ; preds = %.lr.ph.i, %116, %98
   %175 = sub i32 %173, %.02.i
   call void @proto_item_set_len(ptr noundef %174, i32 noundef %175)
   %exitcond.not.i51 = icmp eq i32 %150, %wide.trip.count.i48
-  br i1 %exitcond.not.i51, label %dissect_mojito_store_response.exit, label %.lr.ph.i49, !llvm.loop !8
+  br i1 %exitcond.not.i51, label %dissect_mojito_store_response.exit, label %.lr.ph.i49, !llvm.loop !9
 
 dissect_mojito_store_response.exit:               ; preds = %162, %144
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
@@ -525,7 +525,7 @@ dissect_mojito_store_response.exit:               ; preds = %162, %144
   %195 = add i32 %193, %.032.i
   %exitcond.not.i57 = icmp eq i32 %192, %wide.trip.count.i54
   %or.cond.i = select i1 %194, i1 true, i1 %exitcond.not.i57
-  br i1 %or.cond.i, label %dissect_mojito_find_node_response.exit, label %.lr.ph.i55, !llvm.loop !9
+  br i1 %or.cond.i, label %dissect_mojito_find_node_response.exit, label %.lr.ph.i55, !llvm.loop !10
 
 196:                                              ; preds = %72
   %.not.i58 = icmp eq ptr %76, null
@@ -555,7 +555,7 @@ dissect_mojito_store_response.exit:               ; preds = %162, %144
   %212 = add i32 %.02.i60, 20
   %213 = add nuw i8 %.0241.i, 1
   %exitcond.not.i61 = icmp eq i8 %213, %201
-  br i1 %exitcond.not.i61, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !10
+  br i1 %exitcond.not.i61, label %._crit_edge.i, label %.lr.ph.i59, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i59, %197
   %.0.lcssa.i = phi i32 [ %209, %197 ], [ %212, %.lr.ph.i59 ]
@@ -619,7 +619,7 @@ dissect_mojito_store_response.exit:               ; preds = %162, %144
   %256 = sub i32 %254, %.082.i
   call void @proto_item_set_len(ptr noundef %255, i32 noundef %256)
   %exitcond.not.i67 = icmp eq i32 %225, %wide.trip.count.i64
-  br i1 %exitcond.not.i67, label %._crit_edge.i68, label %.lr.ph.i65, !llvm.loop !11
+  br i1 %exitcond.not.i67, label %._crit_edge.i68, label %.lr.ph.i65, !llvm.loop !12
 
 ._crit_edge.i68:                                  ; preds = %229, %216
   %.0.lcssa.i69 = phi i32 [ %223, %216 ], [ %254, %229 ]
@@ -646,7 +646,7 @@ dissect_mojito_store_response.exit:               ; preds = %162, %144
   %268 = add i32 %.184.i, 20
   %269 = add nuw i8 %.17683.i, 1
   %exitcond90.not.i = icmp eq i8 %269, %257
-  br i1 %exitcond90.not.i, label %dissect_mojito_find_value_response.exit, label %.lr.ph86.i, !llvm.loop !12
+  br i1 %exitcond90.not.i, label %dissect_mojito_find_value_response.exit, label %.lr.ph86.i, !llvm.loop !13
 
 dissect_mojito_find_value_response.exit:          ; preds = %.lr.ph.i65, %.lr.ph86.i, %._crit_edge.i68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
@@ -867,10 +867,11 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

@@ -433,7 +433,7 @@ define internal void @vc1_inv_trans_8x8_c(ptr noundef captures(none) %0) #1 {
   %204 = getelementptr inbounds nuw i8, ptr %.1147, i64 2
   %205 = add nuw nsw i32 %.1124145, 1
   %exitcond152.not = icmp eq i32 %205, 8
-  br i1 %exitcond152.not, label %206, label %.preheader, !llvm.loop !38
+  br i1 %exitcond152.not, label %206, label %.preheader, !llvm.loop !39
 
 206:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #7
@@ -498,7 +498,7 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %45 = getelementptr i8, ptr %.0148, i64 16
   %46 = add nuw nsw i32 %.0112146, 1
   %exitcond.not = icmp eq i32 %46, 8
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !40
 
 47:                                               ; preds = %.preheader, %47
   %.1151 = phi ptr [ %2, %.preheader ], [ %180, %47 ]
@@ -571,7 +571,7 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %110 = add nsw i32 %108, %109
   %111 = shl nsw i32 %91, 4
   %112 = sub nsw i32 %110, %111
-  %113 = load i8, ptr %.0111150, align 1, !tbaa !40
+  %113 = load i8, ptr %.0111150, align 1, !tbaa !41
   %114 = zext i8 %113 to i32
   %115 = add nsw i32 %93, %71
   %116 = ashr i32 %115, 7
@@ -581,9 +581,9 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %118 = sext i1 %isnotneg.i to i8
   %119 = trunc nuw i32 %117 to i8
   %.0.i = select i1 %.not.i, i8 %119, i8 %118
-  store i8 %.0.i, ptr %.0111150, align 1, !tbaa !40
+  store i8 %.0.i, ptr %.0111150, align 1, !tbaa !41
   %120 = getelementptr inbounds i8, ptr %.0111150, i64 %1
-  %121 = load i8, ptr %120, align 1, !tbaa !40
+  %121 = load i8, ptr %120, align 1, !tbaa !41
   %122 = zext i8 %121 to i32
   %123 = add nsw i32 %99, %72
   %124 = ashr i32 %123, 7
@@ -593,9 +593,9 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %126 = sext i1 %isnotneg.i117 to i8
   %127 = trunc nuw i32 %125 to i8
   %.0.i118 = select i1 %.not.i116, i8 %127, i8 %126
-  store i8 %.0.i118, ptr %120, align 1, !tbaa !40
+  store i8 %.0.i118, ptr %120, align 1, !tbaa !41
   %128 = getelementptr inbounds i8, ptr %.0111150, i64 %4
-  %129 = load i8, ptr %128, align 1, !tbaa !40
+  %129 = load i8, ptr %128, align 1, !tbaa !41
   %130 = zext i8 %129 to i32
   %131 = add nsw i32 %106, %73
   %132 = ashr i32 %131, 7
@@ -605,9 +605,9 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %134 = sext i1 %isnotneg.i120 to i8
   %135 = trunc nuw i32 %133 to i8
   %.0.i121 = select i1 %.not.i119, i8 %135, i8 %134
-  store i8 %.0.i121, ptr %128, align 1, !tbaa !40
+  store i8 %.0.i121, ptr %128, align 1, !tbaa !41
   %136 = getelementptr inbounds i8, ptr %.0111150, i64 %5
-  %137 = load i8, ptr %136, align 1, !tbaa !40
+  %137 = load i8, ptr %136, align 1, !tbaa !41
   %138 = zext i8 %137 to i32
   %139 = add nsw i32 %112, %74
   %140 = ashr i32 %139, 7
@@ -617,9 +617,9 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %142 = sext i1 %isnotneg.i123 to i8
   %143 = trunc nuw i32 %141 to i8
   %.0.i124 = select i1 %.not.i122, i8 %143, i8 %142
-  store i8 %.0.i124, ptr %136, align 1, !tbaa !40
+  store i8 %.0.i124, ptr %136, align 1, !tbaa !41
   %144 = getelementptr inbounds i8, ptr %.0111150, i64 %6
-  %145 = load i8, ptr %144, align 1, !tbaa !40
+  %145 = load i8, ptr %144, align 1, !tbaa !41
   %146 = zext i8 %145 to i32
   %147 = or disjoint i32 %74, 1
   %148 = sub nsw i32 %147, %112
@@ -630,9 +630,9 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %151 = sext i1 %isnotneg.i126 to i8
   %152 = trunc nuw i32 %150 to i8
   %.0.i127 = select i1 %.not.i125, i8 %152, i8 %151
-  store i8 %.0.i127, ptr %144, align 1, !tbaa !40
+  store i8 %.0.i127, ptr %144, align 1, !tbaa !41
   %153 = getelementptr inbounds i8, ptr %.0111150, i64 %7
-  %154 = load i8, ptr %153, align 1, !tbaa !40
+  %154 = load i8, ptr %153, align 1, !tbaa !41
   %155 = zext i8 %154 to i32
   %156 = or disjoint i32 %73, 1
   %157 = sub nsw i32 %156, %106
@@ -643,9 +643,9 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %160 = sext i1 %isnotneg.i129 to i8
   %161 = trunc nuw i32 %159 to i8
   %.0.i130 = select i1 %.not.i128, i8 %161, i8 %160
-  store i8 %.0.i130, ptr %153, align 1, !tbaa !40
+  store i8 %.0.i130, ptr %153, align 1, !tbaa !41
   %162 = getelementptr inbounds i8, ptr %.0111150, i64 %8
-  %163 = load i8, ptr %162, align 1, !tbaa !40
+  %163 = load i8, ptr %162, align 1, !tbaa !41
   %164 = zext i8 %163 to i32
   %165 = or disjoint i32 %72, 1
   %166 = sub nsw i32 %165, %99
@@ -656,9 +656,9 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %169 = sext i1 %isnotneg.i132 to i8
   %170 = trunc nuw i32 %168 to i8
   %.0.i133 = select i1 %.not.i131, i8 %170, i8 %169
-  store i8 %.0.i133, ptr %162, align 1, !tbaa !40
+  store i8 %.0.i133, ptr %162, align 1, !tbaa !41
   %171 = getelementptr inbounds i8, ptr %.0111150, i64 %9
-  %172 = load i8, ptr %171, align 1, !tbaa !40
+  %172 = load i8, ptr %171, align 1, !tbaa !41
   %173 = zext i8 %172 to i32
   %174 = or disjoint i32 %71, 1
   %175 = sub nsw i32 %174, %93
@@ -669,12 +669,12 @@ define internal void @vc1_inv_trans_4x8_c(ptr noundef captures(none) %0, i64 nou
   %178 = sext i1 %isnotneg.i135 to i8
   %179 = trunc nuw i32 %177 to i8
   %.0.i136 = select i1 %.not.i134, i8 %179, i8 %178
-  store i8 %.0.i136, ptr %171, align 1, !tbaa !40
+  store i8 %.0.i136, ptr %171, align 1, !tbaa !41
   %180 = getelementptr inbounds nuw i8, ptr %.1151, i64 2
   %181 = getelementptr inbounds nuw i8, ptr %.0111150, i64 1
   %182 = add nuw nsw i32 %.1113149, 1
   %exitcond154.not = icmp eq i32 %182, 4
-  br i1 %exitcond154.not, label %183, label %47, !llvm.loop !41
+  br i1 %exitcond154.not, label %183, label %47, !llvm.loop !42
 
 183:                                              ; preds = %47
   ret void
@@ -794,7 +794,7 @@ define internal void @vc1_inv_trans_8x4_c(ptr noundef captures(none) %0, i64 nou
   %96 = getelementptr i8, ptr %.0120, i64 16
   %97 = add nuw nsw i32 %.0100118, 1
   %exitcond.not = icmp eq i32 %97, 4
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !42
+  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !43
 
 98:                                               ; preds = %.preheader, %98
   %.1123 = phi ptr [ %2, %.preheader ], [ %152, %98 ]
@@ -823,7 +823,7 @@ define internal void @vc1_inv_trans_8x4_c(ptr noundef captures(none) %0, i64 nou
   %119 = mul nsw i32 %116, 22
   %.neg = mul nsw i32 %112, -10
   %120 = add nsw i32 %119, %.neg
-  %121 = load i8, ptr %.099122, align 1, !tbaa !40
+  %121 = load i8, ptr %.099122, align 1, !tbaa !41
   %122 = zext i8 %121 to i32
   %123 = add nsw i32 %118, %106
   %124 = ashr i32 %123, 7
@@ -833,9 +833,9 @@ define internal void @vc1_inv_trans_8x4_c(ptr noundef captures(none) %0, i64 nou
   %126 = sext i1 %isnotneg.i to i8
   %127 = trunc nuw i32 %125 to i8
   %.0.i = select i1 %.not.i, i8 %127, i8 %126
-  store i8 %.0.i, ptr %.099122, align 1, !tbaa !40
+  store i8 %.0.i, ptr %.099122, align 1, !tbaa !41
   %128 = getelementptr inbounds i8, ptr %.099122, i64 %1
-  %129 = load i8, ptr %128, align 1, !tbaa !40
+  %129 = load i8, ptr %128, align 1, !tbaa !41
   %130 = zext i8 %129 to i32
   %131 = sub nsw i32 %109, %120
   %132 = ashr i32 %131, 7
@@ -845,9 +845,9 @@ define internal void @vc1_inv_trans_8x4_c(ptr noundef captures(none) %0, i64 nou
   %134 = sext i1 %isnotneg.i105 to i8
   %135 = trunc nuw i32 %133 to i8
   %.0.i106 = select i1 %.not.i104, i8 %135, i8 %134
-  store i8 %.0.i106, ptr %128, align 1, !tbaa !40
+  store i8 %.0.i106, ptr %128, align 1, !tbaa !41
   %136 = getelementptr inbounds i8, ptr %.099122, i64 %4
-  %137 = load i8, ptr %136, align 1, !tbaa !40
+  %137 = load i8, ptr %136, align 1, !tbaa !41
   %138 = zext i8 %137 to i32
   %139 = add nsw i32 %120, %109
   %140 = ashr i32 %139, 7
@@ -857,9 +857,9 @@ define internal void @vc1_inv_trans_8x4_c(ptr noundef captures(none) %0, i64 nou
   %142 = sext i1 %isnotneg.i108 to i8
   %143 = trunc nuw i32 %141 to i8
   %.0.i109 = select i1 %.not.i107, i8 %143, i8 %142
-  store i8 %.0.i109, ptr %136, align 1, !tbaa !40
+  store i8 %.0.i109, ptr %136, align 1, !tbaa !41
   %144 = getelementptr inbounds i8, ptr %.099122, i64 %5
-  %145 = load i8, ptr %144, align 1, !tbaa !40
+  %145 = load i8, ptr %144, align 1, !tbaa !41
   %146 = zext i8 %145 to i32
   %147 = sub nsw i32 %106, %118
   %148 = ashr i32 %147, 7
@@ -869,12 +869,12 @@ define internal void @vc1_inv_trans_8x4_c(ptr noundef captures(none) %0, i64 nou
   %150 = sext i1 %isnotneg.i111 to i8
   %151 = trunc nuw i32 %149 to i8
   %.0.i112 = select i1 %.not.i110, i8 %151, i8 %150
-  store i8 %.0.i112, ptr %144, align 1, !tbaa !40
+  store i8 %.0.i112, ptr %144, align 1, !tbaa !41
   %152 = getelementptr inbounds nuw i8, ptr %.1123, i64 2
   %153 = getelementptr inbounds nuw i8, ptr %.099122, i64 1
   %154 = add nuw nsw i32 %.1101121, 1
   %exitcond126.not = icmp eq i32 %154, 8
-  br i1 %exitcond126.not, label %155, label %98, !llvm.loop !43
+  br i1 %exitcond126.not, label %155, label %98, !llvm.loop !44
 
 155:                                              ; preds = %98
   ret void
@@ -934,7 +934,7 @@ define internal void @vc1_inv_trans_4x4_c(ptr noundef captures(none) %0, i64 nou
   %41 = getelementptr i8, ptr %.078, i64 16
   %42 = add nuw nsw i32 %.06376, 1
   %exitcond.not = icmp eq i32 %42, 4
-  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !44
+  br i1 %exitcond.not, label %.preheader, label %6, !llvm.loop !45
 
 43:                                               ; preds = %.preheader, %43
   %.181 = phi ptr [ %2, %.preheader ], [ %97, %43 ]
@@ -963,7 +963,7 @@ define internal void @vc1_inv_trans_4x4_c(ptr noundef captures(none) %0, i64 nou
   %64 = mul nsw i32 %61, 22
   %.neg = mul nsw i32 %57, -10
   %65 = add nsw i32 %64, %.neg
-  %66 = load i8, ptr %.06579, align 1, !tbaa !40
+  %66 = load i8, ptr %.06579, align 1, !tbaa !41
   %67 = zext i8 %66 to i32
   %68 = add nsw i32 %63, %51
   %69 = ashr i32 %68, 7
@@ -973,9 +973,9 @@ define internal void @vc1_inv_trans_4x4_c(ptr noundef captures(none) %0, i64 nou
   %71 = sext i1 %isnotneg.i to i8
   %72 = trunc nuw i32 %70 to i8
   %.0.i = select i1 %.not.i, i8 %72, i8 %71
-  store i8 %.0.i, ptr %.06579, align 1, !tbaa !40
+  store i8 %.0.i, ptr %.06579, align 1, !tbaa !41
   %73 = getelementptr inbounds i8, ptr %.06579, i64 %1
-  %74 = load i8, ptr %73, align 1, !tbaa !40
+  %74 = load i8, ptr %73, align 1, !tbaa !41
   %75 = zext i8 %74 to i32
   %76 = sub nsw i32 %54, %65
   %77 = ashr i32 %76, 7
@@ -985,9 +985,9 @@ define internal void @vc1_inv_trans_4x4_c(ptr noundef captures(none) %0, i64 nou
   %79 = sext i1 %isnotneg.i68 to i8
   %80 = trunc nuw i32 %78 to i8
   %.0.i69 = select i1 %.not.i67, i8 %80, i8 %79
-  store i8 %.0.i69, ptr %73, align 1, !tbaa !40
+  store i8 %.0.i69, ptr %73, align 1, !tbaa !41
   %81 = getelementptr inbounds i8, ptr %.06579, i64 %4
-  %82 = load i8, ptr %81, align 1, !tbaa !40
+  %82 = load i8, ptr %81, align 1, !tbaa !41
   %83 = zext i8 %82 to i32
   %84 = add nsw i32 %65, %54
   %85 = ashr i32 %84, 7
@@ -997,9 +997,9 @@ define internal void @vc1_inv_trans_4x4_c(ptr noundef captures(none) %0, i64 nou
   %87 = sext i1 %isnotneg.i71 to i8
   %88 = trunc nuw i32 %86 to i8
   %.0.i72 = select i1 %.not.i70, i8 %88, i8 %87
-  store i8 %.0.i72, ptr %81, align 1, !tbaa !40
+  store i8 %.0.i72, ptr %81, align 1, !tbaa !41
   %89 = getelementptr inbounds i8, ptr %.06579, i64 %5
-  %90 = load i8, ptr %89, align 1, !tbaa !40
+  %90 = load i8, ptr %89, align 1, !tbaa !41
   %91 = zext i8 %90 to i32
   %92 = sub nsw i32 %51, %63
   %93 = ashr i32 %92, 7
@@ -1009,12 +1009,12 @@ define internal void @vc1_inv_trans_4x4_c(ptr noundef captures(none) %0, i64 nou
   %95 = sext i1 %isnotneg.i74 to i8
   %96 = trunc nuw i32 %94 to i8
   %.0.i75 = select i1 %.not.i73, i8 %96, i8 %95
-  store i8 %.0.i75, ptr %89, align 1, !tbaa !40
+  store i8 %.0.i75, ptr %89, align 1, !tbaa !41
   %97 = getelementptr inbounds nuw i8, ptr %.181, i64 2
   %98 = getelementptr inbounds nuw i8, ptr %.06579, i64 1
   %99 = add nuw nsw i32 %.16480, 1
   %exitcond82.not = icmp eq i32 %99, 4
-  br i1 %exitcond82.not, label %100, label %43, !llvm.loop !45
+  br i1 %exitcond82.not, label %100, label %43, !llvm.loop !46
 
 100:                                              ; preds = %43
   ret void
@@ -1037,7 +1037,7 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %.053.lver.orig = phi i32 [ %59, %.ph.lver.orig ], [ 0, %.lver.check ]
   %.03052.lver.orig = phi ptr [ %58, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %11 = load i8, ptr %.03052.lver.orig, align 1, !tbaa !40
+  %11 = load i8, ptr %.03052.lver.orig, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %10, %12
   %.not.i.lver.orig = icmp ult i32 %13, 256
@@ -1045,9 +1045,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %14 = sext i1 %isnotneg.i.lver.orig to i8
   %15 = trunc nuw i32 %13 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %15, i8 %14
-  store i8 %.0.i.lver.orig, ptr %.03052.lver.orig, align 1, !tbaa !40
+  store i8 %.0.i.lver.orig, ptr %.03052.lver.orig, align 1, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = add nsw i32 %10, %18
   %.not.i31.lver.orig = icmp ult i32 %19, 256
@@ -1055,9 +1055,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %20 = sext i1 %isnotneg.i32.lver.orig to i8
   %21 = trunc nuw i32 %19 to i8
   %.0.i33.lver.orig = select i1 %.not.i31.lver.orig, i8 %21, i8 %20
-  store i8 %.0.i33.lver.orig, ptr %16, align 1, !tbaa !40
+  store i8 %.0.i33.lver.orig, ptr %16, align 1, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %10, %24
   %.not.i34.lver.orig = icmp ult i32 %25, 256
@@ -1065,9 +1065,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %26 = sext i1 %isnotneg.i35.lver.orig to i8
   %27 = trunc nuw i32 %25 to i8
   %.0.i36.lver.orig = select i1 %.not.i34.lver.orig, i8 %27, i8 %26
-  store i8 %.0.i36.lver.orig, ptr %22, align 1, !tbaa !40
+  store i8 %.0.i36.lver.orig, ptr %22, align 1, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !40
+  %29 = load i8, ptr %28, align 1, !tbaa !41
   %30 = zext i8 %29 to i32
   %31 = add nsw i32 %10, %30
   %.not.i37.lver.orig = icmp ult i32 %31, 256
@@ -1075,9 +1075,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %32 = sext i1 %isnotneg.i38.lver.orig to i8
   %33 = trunc nuw i32 %31 to i8
   %.0.i39.lver.orig = select i1 %.not.i37.lver.orig, i8 %33, i8 %32
-  store i8 %.0.i39.lver.orig, ptr %28, align 1, !tbaa !40
+  store i8 %.0.i39.lver.orig, ptr %28, align 1, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 4
-  %35 = load i8, ptr %34, align 1, !tbaa !40
+  %35 = load i8, ptr %34, align 1, !tbaa !41
   %36 = zext i8 %35 to i32
   %37 = add nsw i32 %10, %36
   %.not.i40.lver.orig = icmp ult i32 %37, 256
@@ -1085,9 +1085,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %38 = sext i1 %isnotneg.i41.lver.orig to i8
   %39 = trunc nuw i32 %37 to i8
   %.0.i42.lver.orig = select i1 %.not.i40.lver.orig, i8 %39, i8 %38
-  store i8 %.0.i42.lver.orig, ptr %34, align 1, !tbaa !40
+  store i8 %.0.i42.lver.orig, ptr %34, align 1, !tbaa !41
   %40 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 5
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i32
   %43 = add nsw i32 %10, %42
   %.not.i43.lver.orig = icmp ult i32 %43, 256
@@ -1095,9 +1095,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %44 = sext i1 %isnotneg.i44.lver.orig to i8
   %45 = trunc nuw i32 %43 to i8
   %.0.i45.lver.orig = select i1 %.not.i43.lver.orig, i8 %45, i8 %44
-  store i8 %.0.i45.lver.orig, ptr %40, align 1, !tbaa !40
+  store i8 %.0.i45.lver.orig, ptr %40, align 1, !tbaa !41
   %46 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 6
-  %47 = load i8, ptr %46, align 1, !tbaa !40
+  %47 = load i8, ptr %46, align 1, !tbaa !41
   %48 = zext i8 %47 to i32
   %49 = add nsw i32 %10, %48
   %.not.i46.lver.orig = icmp ult i32 %49, 256
@@ -1105,9 +1105,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %50 = sext i1 %isnotneg.i47.lver.orig to i8
   %51 = trunc nuw i32 %49 to i8
   %.0.i48.lver.orig = select i1 %.not.i46.lver.orig, i8 %51, i8 %50
-  store i8 %.0.i48.lver.orig, ptr %46, align 1, !tbaa !40
+  store i8 %.0.i48.lver.orig, ptr %46, align 1, !tbaa !41
   %52 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 7
-  %53 = load i8, ptr %52, align 1, !tbaa !40
+  %53 = load i8, ptr %52, align 1, !tbaa !41
   %54 = zext i8 %53 to i32
   %55 = add nsw i32 %10, %54
   %.not.i49.lver.orig = icmp ult i32 %55, 256
@@ -1115,11 +1115,11 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %56 = sext i1 %isnotneg.i50.lver.orig to i8
   %57 = trunc nuw i32 %55 to i8
   %.0.i51.lver.orig = select i1 %.not.i49.lver.orig, i8 %57, i8 %56
-  store i8 %.0.i51.lver.orig, ptr %52, align 1, !tbaa !40
+  store i8 %.0.i51.lver.orig, ptr %52, align 1, !tbaa !41
   %58 = getelementptr inbounds i8, ptr %.03052.lver.orig, i64 %1
   %59 = add nuw nsw i32 %.053.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %59, 8
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !46
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !47
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -1130,7 +1130,7 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i51, %60 ]
   %.053 = phi i32 [ 0, %.ph ], [ %108, %60 ]
   %.03052 = phi ptr [ %0, %.ph ], [ %107, %60 ]
-  %61 = load i8, ptr %.03052, align 1, !tbaa !40
+  %61 = load i8, ptr %.03052, align 1, !tbaa !41
   %62 = zext i8 %61 to i32
   %63 = add nsw i32 %10, %62
   %.not.i = icmp ult i32 %63, 256
@@ -1138,9 +1138,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %64 = sext i1 %isnotneg.i to i8
   %65 = trunc nuw i32 %63 to i8
   %.0.i = select i1 %.not.i, i8 %65, i8 %64
-  store i8 %.0.i, ptr %.03052, align 1, !tbaa !40
+  store i8 %.0.i, ptr %.03052, align 1, !tbaa !41
   %66 = getelementptr inbounds nuw i8, ptr %.03052, i64 1
-  %67 = load i8, ptr %66, align 1, !tbaa !40
+  %67 = load i8, ptr %66, align 1, !tbaa !41
   %68 = zext i8 %67 to i32
   %69 = add nsw i32 %10, %68
   %.not.i31 = icmp ult i32 %69, 256
@@ -1148,9 +1148,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %70 = sext i1 %isnotneg.i32 to i8
   %71 = trunc nuw i32 %69 to i8
   %.0.i33 = select i1 %.not.i31, i8 %71, i8 %70
-  store i8 %.0.i33, ptr %66, align 1, !tbaa !40
+  store i8 %.0.i33, ptr %66, align 1, !tbaa !41
   %72 = getelementptr inbounds nuw i8, ptr %.03052, i64 2
-  %73 = load i8, ptr %72, align 1, !tbaa !40
+  %73 = load i8, ptr %72, align 1, !tbaa !41
   %74 = zext i8 %73 to i32
   %75 = add nsw i32 %10, %74
   %.not.i34 = icmp ult i32 %75, 256
@@ -1158,9 +1158,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %76 = sext i1 %isnotneg.i35 to i8
   %77 = trunc nuw i32 %75 to i8
   %.0.i36 = select i1 %.not.i34, i8 %77, i8 %76
-  store i8 %.0.i36, ptr %72, align 1, !tbaa !40
+  store i8 %.0.i36, ptr %72, align 1, !tbaa !41
   %78 = getelementptr inbounds nuw i8, ptr %.03052, i64 3
-  %79 = load i8, ptr %78, align 1, !tbaa !40
+  %79 = load i8, ptr %78, align 1, !tbaa !41
   %80 = zext i8 %79 to i32
   %81 = add nsw i32 %10, %80
   %.not.i37 = icmp ult i32 %81, 256
@@ -1168,9 +1168,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %82 = sext i1 %isnotneg.i38 to i8
   %83 = trunc nuw i32 %81 to i8
   %.0.i39 = select i1 %.not.i37, i8 %83, i8 %82
-  store i8 %.0.i39, ptr %78, align 1, !tbaa !40
+  store i8 %.0.i39, ptr %78, align 1, !tbaa !41
   %84 = getelementptr inbounds nuw i8, ptr %.03052, i64 4
-  %85 = load i8, ptr %84, align 1, !tbaa !40
+  %85 = load i8, ptr %84, align 1, !tbaa !41
   %86 = zext i8 %85 to i32
   %87 = add nsw i32 %10, %86
   %.not.i40 = icmp ult i32 %87, 256
@@ -1178,9 +1178,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %88 = sext i1 %isnotneg.i41 to i8
   %89 = trunc nuw i32 %87 to i8
   %.0.i42 = select i1 %.not.i40, i8 %89, i8 %88
-  store i8 %.0.i42, ptr %84, align 1, !tbaa !40
+  store i8 %.0.i42, ptr %84, align 1, !tbaa !41
   %90 = getelementptr inbounds nuw i8, ptr %.03052, i64 5
-  %91 = load i8, ptr %90, align 1, !tbaa !40
+  %91 = load i8, ptr %90, align 1, !tbaa !41
   %92 = zext i8 %91 to i32
   %93 = add nsw i32 %10, %92
   %.not.i43 = icmp ult i32 %93, 256
@@ -1188,7 +1188,7 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %94 = sext i1 %isnotneg.i44 to i8
   %95 = trunc nuw i32 %93 to i8
   %.0.i45 = select i1 %.not.i43, i8 %95, i8 %94
-  store i8 %.0.i45, ptr %90, align 1, !tbaa !40
+  store i8 %.0.i45, ptr %90, align 1, !tbaa !41
   %96 = getelementptr inbounds nuw i8, ptr %.03052, i64 6
   %97 = zext i8 %store_forwarded to i32
   %98 = add nsw i32 %10, %97
@@ -1197,9 +1197,9 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %99 = sext i1 %isnotneg.i47 to i8
   %100 = trunc nuw i32 %98 to i8
   %.0.i48 = select i1 %.not.i46, i8 %100, i8 %99
-  store i8 %.0.i48, ptr %96, align 1, !tbaa !40
+  store i8 %.0.i48, ptr %96, align 1, !tbaa !41
   %101 = getelementptr inbounds nuw i8, ptr %.03052, i64 7
-  %102 = load i8, ptr %101, align 1, !tbaa !40
+  %102 = load i8, ptr %101, align 1, !tbaa !41
   %103 = zext i8 %102 to i32
   %104 = add nsw i32 %10, %103
   %.not.i49 = icmp ult i32 %104, 256
@@ -1207,11 +1207,11 @@ define internal void @vc1_inv_trans_8x8_dc_c(ptr noundef captures(none) %0, i64 
   %105 = sext i1 %isnotneg.i50 to i8
   %106 = trunc nuw i32 %104 to i8
   %.0.i51 = select i1 %.not.i49, i8 %106, i8 %105
-  store i8 %.0.i51, ptr %101, align 1, !tbaa !40
+  store i8 %.0.i51, ptr %101, align 1, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %.03052, i64 %1
   %108 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %108, 8
-  br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !46
+  br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %60
   ret void
@@ -1234,7 +1234,7 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %.029.lver.orig = phi i32 [ %35, %.ph.lver.orig ], [ 0, %.lver.check ]
   %.01828.lver.orig = phi ptr [ %34, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %11 = load i8, ptr %.01828.lver.orig, align 1, !tbaa !40
+  %11 = load i8, ptr %.01828.lver.orig, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %10, %12
   %.not.i.lver.orig = icmp ult i32 %13, 256
@@ -1242,9 +1242,9 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %14 = sext i1 %isnotneg.i.lver.orig to i8
   %15 = trunc nuw i32 %13 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %15, i8 %14
-  store i8 %.0.i.lver.orig, ptr %.01828.lver.orig, align 1, !tbaa !40
+  store i8 %.0.i.lver.orig, ptr %.01828.lver.orig, align 1, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %.01828.lver.orig, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = add nsw i32 %10, %18
   %.not.i19.lver.orig = icmp ult i32 %19, 256
@@ -1252,9 +1252,9 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %20 = sext i1 %isnotneg.i20.lver.orig to i8
   %21 = trunc nuw i32 %19 to i8
   %.0.i21.lver.orig = select i1 %.not.i19.lver.orig, i8 %21, i8 %20
-  store i8 %.0.i21.lver.orig, ptr %16, align 1, !tbaa !40
+  store i8 %.0.i21.lver.orig, ptr %16, align 1, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %.01828.lver.orig, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %10, %24
   %.not.i22.lver.orig = icmp ult i32 %25, 256
@@ -1262,9 +1262,9 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %26 = sext i1 %isnotneg.i23.lver.orig to i8
   %27 = trunc nuw i32 %25 to i8
   %.0.i24.lver.orig = select i1 %.not.i22.lver.orig, i8 %27, i8 %26
-  store i8 %.0.i24.lver.orig, ptr %22, align 1, !tbaa !40
+  store i8 %.0.i24.lver.orig, ptr %22, align 1, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %.01828.lver.orig, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !40
+  %29 = load i8, ptr %28, align 1, !tbaa !41
   %30 = zext i8 %29 to i32
   %31 = add nsw i32 %10, %30
   %.not.i25.lver.orig = icmp ult i32 %31, 256
@@ -1272,11 +1272,11 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %32 = sext i1 %isnotneg.i26.lver.orig to i8
   %33 = trunc nuw i32 %31 to i8
   %.0.i27.lver.orig = select i1 %.not.i25.lver.orig, i8 %33, i8 %32
-  store i8 %.0.i27.lver.orig, ptr %28, align 1, !tbaa !40
+  store i8 %.0.i27.lver.orig, ptr %28, align 1, !tbaa !41
   %34 = getelementptr inbounds i8, ptr %.01828.lver.orig, i64 %1
   %35 = add nuw nsw i32 %.029.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %35, 8
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !47
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !48
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr nuw i8, ptr %0, i64 2
@@ -1287,7 +1287,7 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i27, %36 ]
   %.029 = phi i32 [ 0, %.ph ], [ %60, %36 ]
   %.01828 = phi ptr [ %0, %.ph ], [ %59, %36 ]
-  %37 = load i8, ptr %.01828, align 1, !tbaa !40
+  %37 = load i8, ptr %.01828, align 1, !tbaa !41
   %38 = zext i8 %37 to i32
   %39 = add nsw i32 %10, %38
   %.not.i = icmp ult i32 %39, 256
@@ -1295,9 +1295,9 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %40 = sext i1 %isnotneg.i to i8
   %41 = trunc nuw i32 %39 to i8
   %.0.i = select i1 %.not.i, i8 %41, i8 %40
-  store i8 %.0.i, ptr %.01828, align 1, !tbaa !40
+  store i8 %.0.i, ptr %.01828, align 1, !tbaa !41
   %42 = getelementptr inbounds nuw i8, ptr %.01828, i64 1
-  %43 = load i8, ptr %42, align 1, !tbaa !40
+  %43 = load i8, ptr %42, align 1, !tbaa !41
   %44 = zext i8 %43 to i32
   %45 = add nsw i32 %10, %44
   %.not.i19 = icmp ult i32 %45, 256
@@ -1305,7 +1305,7 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %46 = sext i1 %isnotneg.i20 to i8
   %47 = trunc nuw i32 %45 to i8
   %.0.i21 = select i1 %.not.i19, i8 %47, i8 %46
-  store i8 %.0.i21, ptr %42, align 1, !tbaa !40
+  store i8 %.0.i21, ptr %42, align 1, !tbaa !41
   %48 = getelementptr inbounds nuw i8, ptr %.01828, i64 2
   %49 = zext i8 %store_forwarded to i32
   %50 = add nsw i32 %10, %49
@@ -1314,9 +1314,9 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %51 = sext i1 %isnotneg.i23 to i8
   %52 = trunc nuw i32 %50 to i8
   %.0.i24 = select i1 %.not.i22, i8 %52, i8 %51
-  store i8 %.0.i24, ptr %48, align 1, !tbaa !40
+  store i8 %.0.i24, ptr %48, align 1, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %.01828, i64 3
-  %54 = load i8, ptr %53, align 1, !tbaa !40
+  %54 = load i8, ptr %53, align 1, !tbaa !41
   %55 = zext i8 %54 to i32
   %56 = add nsw i32 %10, %55
   %.not.i25 = icmp ult i32 %56, 256
@@ -1324,11 +1324,11 @@ define internal void @vc1_inv_trans_4x8_dc_c(ptr noundef captures(none) %0, i64 
   %57 = sext i1 %isnotneg.i26 to i8
   %58 = trunc nuw i32 %56 to i8
   %.0.i27 = select i1 %.not.i25, i8 %58, i8 %57
-  store i8 %.0.i27, ptr %53, align 1, !tbaa !40
+  store i8 %.0.i27, ptr %53, align 1, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %.01828, i64 %1
   %60 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %60, 8
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %36
   ret void
@@ -1351,7 +1351,7 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %.053.lver.orig = phi i32 [ %59, %.ph.lver.orig ], [ 0, %.lver.check ]
   %.03052.lver.orig = phi ptr [ %58, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %11 = load i8, ptr %.03052.lver.orig, align 1, !tbaa !40
+  %11 = load i8, ptr %.03052.lver.orig, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %10, %12
   %.not.i.lver.orig = icmp ult i32 %13, 256
@@ -1359,9 +1359,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %14 = sext i1 %isnotneg.i.lver.orig to i8
   %15 = trunc nuw i32 %13 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %15, i8 %14
-  store i8 %.0.i.lver.orig, ptr %.03052.lver.orig, align 1, !tbaa !40
+  store i8 %.0.i.lver.orig, ptr %.03052.lver.orig, align 1, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = add nsw i32 %10, %18
   %.not.i31.lver.orig = icmp ult i32 %19, 256
@@ -1369,9 +1369,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %20 = sext i1 %isnotneg.i32.lver.orig to i8
   %21 = trunc nuw i32 %19 to i8
   %.0.i33.lver.orig = select i1 %.not.i31.lver.orig, i8 %21, i8 %20
-  store i8 %.0.i33.lver.orig, ptr %16, align 1, !tbaa !40
+  store i8 %.0.i33.lver.orig, ptr %16, align 1, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %10, %24
   %.not.i34.lver.orig = icmp ult i32 %25, 256
@@ -1379,9 +1379,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %26 = sext i1 %isnotneg.i35.lver.orig to i8
   %27 = trunc nuw i32 %25 to i8
   %.0.i36.lver.orig = select i1 %.not.i34.lver.orig, i8 %27, i8 %26
-  store i8 %.0.i36.lver.orig, ptr %22, align 1, !tbaa !40
+  store i8 %.0.i36.lver.orig, ptr %22, align 1, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !40
+  %29 = load i8, ptr %28, align 1, !tbaa !41
   %30 = zext i8 %29 to i32
   %31 = add nsw i32 %10, %30
   %.not.i37.lver.orig = icmp ult i32 %31, 256
@@ -1389,9 +1389,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %32 = sext i1 %isnotneg.i38.lver.orig to i8
   %33 = trunc nuw i32 %31 to i8
   %.0.i39.lver.orig = select i1 %.not.i37.lver.orig, i8 %33, i8 %32
-  store i8 %.0.i39.lver.orig, ptr %28, align 1, !tbaa !40
+  store i8 %.0.i39.lver.orig, ptr %28, align 1, !tbaa !41
   %34 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 4
-  %35 = load i8, ptr %34, align 1, !tbaa !40
+  %35 = load i8, ptr %34, align 1, !tbaa !41
   %36 = zext i8 %35 to i32
   %37 = add nsw i32 %10, %36
   %.not.i40.lver.orig = icmp ult i32 %37, 256
@@ -1399,9 +1399,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %38 = sext i1 %isnotneg.i41.lver.orig to i8
   %39 = trunc nuw i32 %37 to i8
   %.0.i42.lver.orig = select i1 %.not.i40.lver.orig, i8 %39, i8 %38
-  store i8 %.0.i42.lver.orig, ptr %34, align 1, !tbaa !40
+  store i8 %.0.i42.lver.orig, ptr %34, align 1, !tbaa !41
   %40 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 5
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i32
   %43 = add nsw i32 %10, %42
   %.not.i43.lver.orig = icmp ult i32 %43, 256
@@ -1409,9 +1409,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %44 = sext i1 %isnotneg.i44.lver.orig to i8
   %45 = trunc nuw i32 %43 to i8
   %.0.i45.lver.orig = select i1 %.not.i43.lver.orig, i8 %45, i8 %44
-  store i8 %.0.i45.lver.orig, ptr %40, align 1, !tbaa !40
+  store i8 %.0.i45.lver.orig, ptr %40, align 1, !tbaa !41
   %46 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 6
-  %47 = load i8, ptr %46, align 1, !tbaa !40
+  %47 = load i8, ptr %46, align 1, !tbaa !41
   %48 = zext i8 %47 to i32
   %49 = add nsw i32 %10, %48
   %.not.i46.lver.orig = icmp ult i32 %49, 256
@@ -1419,9 +1419,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %50 = sext i1 %isnotneg.i47.lver.orig to i8
   %51 = trunc nuw i32 %49 to i8
   %.0.i48.lver.orig = select i1 %.not.i46.lver.orig, i8 %51, i8 %50
-  store i8 %.0.i48.lver.orig, ptr %46, align 1, !tbaa !40
+  store i8 %.0.i48.lver.orig, ptr %46, align 1, !tbaa !41
   %52 = getelementptr inbounds nuw i8, ptr %.03052.lver.orig, i64 7
-  %53 = load i8, ptr %52, align 1, !tbaa !40
+  %53 = load i8, ptr %52, align 1, !tbaa !41
   %54 = zext i8 %53 to i32
   %55 = add nsw i32 %10, %54
   %.not.i49.lver.orig = icmp ult i32 %55, 256
@@ -1429,11 +1429,11 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %56 = sext i1 %isnotneg.i50.lver.orig to i8
   %57 = trunc nuw i32 %55 to i8
   %.0.i51.lver.orig = select i1 %.not.i49.lver.orig, i8 %57, i8 %56
-  store i8 %.0.i51.lver.orig, ptr %52, align 1, !tbaa !40
+  store i8 %.0.i51.lver.orig, ptr %52, align 1, !tbaa !41
   %58 = getelementptr inbounds i8, ptr %.03052.lver.orig, i64 %1
   %59 = add nuw nsw i32 %.053.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %59, 4
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !48
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !49
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -1444,7 +1444,7 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i51, %60 ]
   %.053 = phi i32 [ 0, %.ph ], [ %108, %60 ]
   %.03052 = phi ptr [ %0, %.ph ], [ %107, %60 ]
-  %61 = load i8, ptr %.03052, align 1, !tbaa !40
+  %61 = load i8, ptr %.03052, align 1, !tbaa !41
   %62 = zext i8 %61 to i32
   %63 = add nsw i32 %10, %62
   %.not.i = icmp ult i32 %63, 256
@@ -1452,9 +1452,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %64 = sext i1 %isnotneg.i to i8
   %65 = trunc nuw i32 %63 to i8
   %.0.i = select i1 %.not.i, i8 %65, i8 %64
-  store i8 %.0.i, ptr %.03052, align 1, !tbaa !40
+  store i8 %.0.i, ptr %.03052, align 1, !tbaa !41
   %66 = getelementptr inbounds nuw i8, ptr %.03052, i64 1
-  %67 = load i8, ptr %66, align 1, !tbaa !40
+  %67 = load i8, ptr %66, align 1, !tbaa !41
   %68 = zext i8 %67 to i32
   %69 = add nsw i32 %10, %68
   %.not.i31 = icmp ult i32 %69, 256
@@ -1462,9 +1462,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %70 = sext i1 %isnotneg.i32 to i8
   %71 = trunc nuw i32 %69 to i8
   %.0.i33 = select i1 %.not.i31, i8 %71, i8 %70
-  store i8 %.0.i33, ptr %66, align 1, !tbaa !40
+  store i8 %.0.i33, ptr %66, align 1, !tbaa !41
   %72 = getelementptr inbounds nuw i8, ptr %.03052, i64 2
-  %73 = load i8, ptr %72, align 1, !tbaa !40
+  %73 = load i8, ptr %72, align 1, !tbaa !41
   %74 = zext i8 %73 to i32
   %75 = add nsw i32 %10, %74
   %.not.i34 = icmp ult i32 %75, 256
@@ -1472,9 +1472,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %76 = sext i1 %isnotneg.i35 to i8
   %77 = trunc nuw i32 %75 to i8
   %.0.i36 = select i1 %.not.i34, i8 %77, i8 %76
-  store i8 %.0.i36, ptr %72, align 1, !tbaa !40
+  store i8 %.0.i36, ptr %72, align 1, !tbaa !41
   %78 = getelementptr inbounds nuw i8, ptr %.03052, i64 3
-  %79 = load i8, ptr %78, align 1, !tbaa !40
+  %79 = load i8, ptr %78, align 1, !tbaa !41
   %80 = zext i8 %79 to i32
   %81 = add nsw i32 %10, %80
   %.not.i37 = icmp ult i32 %81, 256
@@ -1482,9 +1482,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %82 = sext i1 %isnotneg.i38 to i8
   %83 = trunc nuw i32 %81 to i8
   %.0.i39 = select i1 %.not.i37, i8 %83, i8 %82
-  store i8 %.0.i39, ptr %78, align 1, !tbaa !40
+  store i8 %.0.i39, ptr %78, align 1, !tbaa !41
   %84 = getelementptr inbounds nuw i8, ptr %.03052, i64 4
-  %85 = load i8, ptr %84, align 1, !tbaa !40
+  %85 = load i8, ptr %84, align 1, !tbaa !41
   %86 = zext i8 %85 to i32
   %87 = add nsw i32 %10, %86
   %.not.i40 = icmp ult i32 %87, 256
@@ -1492,9 +1492,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %88 = sext i1 %isnotneg.i41 to i8
   %89 = trunc nuw i32 %87 to i8
   %.0.i42 = select i1 %.not.i40, i8 %89, i8 %88
-  store i8 %.0.i42, ptr %84, align 1, !tbaa !40
+  store i8 %.0.i42, ptr %84, align 1, !tbaa !41
   %90 = getelementptr inbounds nuw i8, ptr %.03052, i64 5
-  %91 = load i8, ptr %90, align 1, !tbaa !40
+  %91 = load i8, ptr %90, align 1, !tbaa !41
   %92 = zext i8 %91 to i32
   %93 = add nsw i32 %10, %92
   %.not.i43 = icmp ult i32 %93, 256
@@ -1502,7 +1502,7 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %94 = sext i1 %isnotneg.i44 to i8
   %95 = trunc nuw i32 %93 to i8
   %.0.i45 = select i1 %.not.i43, i8 %95, i8 %94
-  store i8 %.0.i45, ptr %90, align 1, !tbaa !40
+  store i8 %.0.i45, ptr %90, align 1, !tbaa !41
   %96 = getelementptr inbounds nuw i8, ptr %.03052, i64 6
   %97 = zext i8 %store_forwarded to i32
   %98 = add nsw i32 %10, %97
@@ -1511,9 +1511,9 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %99 = sext i1 %isnotneg.i47 to i8
   %100 = trunc nuw i32 %98 to i8
   %.0.i48 = select i1 %.not.i46, i8 %100, i8 %99
-  store i8 %.0.i48, ptr %96, align 1, !tbaa !40
+  store i8 %.0.i48, ptr %96, align 1, !tbaa !41
   %101 = getelementptr inbounds nuw i8, ptr %.03052, i64 7
-  %102 = load i8, ptr %101, align 1, !tbaa !40
+  %102 = load i8, ptr %101, align 1, !tbaa !41
   %103 = zext i8 %102 to i32
   %104 = add nsw i32 %10, %103
   %.not.i49 = icmp ult i32 %104, 256
@@ -1521,11 +1521,11 @@ define internal void @vc1_inv_trans_8x4_dc_c(ptr noundef captures(none) %0, i64 
   %105 = sext i1 %isnotneg.i50 to i8
   %106 = trunc nuw i32 %104 to i8
   %.0.i51 = select i1 %.not.i49, i8 %106, i8 %105
-  store i8 %.0.i51, ptr %101, align 1, !tbaa !40
+  store i8 %.0.i51, ptr %101, align 1, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %.03052, i64 %1
   %108 = add nuw nsw i32 %.053, 1
   %exitcond.not = icmp eq i32 %108, 4
-  br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !48
+  br i1 %exitcond.not, label %.loopexit, label %60, !llvm.loop !49
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %60
   ret void
@@ -1548,7 +1548,7 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
 .ph.lver.orig:                                    ; preds = %.lver.check, %.ph.lver.orig
   %.029.lver.orig = phi i32 [ %35, %.ph.lver.orig ], [ 0, %.lver.check ]
   %.01828.lver.orig = phi ptr [ %34, %.ph.lver.orig ], [ %0, %.lver.check ]
-  %11 = load i8, ptr %.01828.lver.orig, align 1, !tbaa !40
+  %11 = load i8, ptr %.01828.lver.orig, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %10, %12
   %.not.i.lver.orig = icmp ult i32 %13, 256
@@ -1556,9 +1556,9 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %14 = sext i1 %isnotneg.i.lver.orig to i8
   %15 = trunc nuw i32 %13 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %15, i8 %14
-  store i8 %.0.i.lver.orig, ptr %.01828.lver.orig, align 1, !tbaa !40
+  store i8 %.0.i.lver.orig, ptr %.01828.lver.orig, align 1, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %.01828.lver.orig, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = add nsw i32 %10, %18
   %.not.i19.lver.orig = icmp ult i32 %19, 256
@@ -1566,9 +1566,9 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %20 = sext i1 %isnotneg.i20.lver.orig to i8
   %21 = trunc nuw i32 %19 to i8
   %.0.i21.lver.orig = select i1 %.not.i19.lver.orig, i8 %21, i8 %20
-  store i8 %.0.i21.lver.orig, ptr %16, align 1, !tbaa !40
+  store i8 %.0.i21.lver.orig, ptr %16, align 1, !tbaa !41
   %22 = getelementptr inbounds nuw i8, ptr %.01828.lver.orig, i64 2
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nsw i32 %10, %24
   %.not.i22.lver.orig = icmp ult i32 %25, 256
@@ -1576,9 +1576,9 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %26 = sext i1 %isnotneg.i23.lver.orig to i8
   %27 = trunc nuw i32 %25 to i8
   %.0.i24.lver.orig = select i1 %.not.i22.lver.orig, i8 %27, i8 %26
-  store i8 %.0.i24.lver.orig, ptr %22, align 1, !tbaa !40
+  store i8 %.0.i24.lver.orig, ptr %22, align 1, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %.01828.lver.orig, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !40
+  %29 = load i8, ptr %28, align 1, !tbaa !41
   %30 = zext i8 %29 to i32
   %31 = add nsw i32 %10, %30
   %.not.i25.lver.orig = icmp ult i32 %31, 256
@@ -1586,11 +1586,11 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %32 = sext i1 %isnotneg.i26.lver.orig to i8
   %33 = trunc nuw i32 %31 to i8
   %.0.i27.lver.orig = select i1 %.not.i25.lver.orig, i8 %33, i8 %32
-  store i8 %.0.i27.lver.orig, ptr %28, align 1, !tbaa !40
+  store i8 %.0.i27.lver.orig, ptr %28, align 1, !tbaa !41
   %34 = getelementptr inbounds i8, ptr %.01828.lver.orig, i64 %1
   %35 = add nuw nsw i32 %.029.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %35, 4
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !49
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !50
 
 .ph:                                              ; preds = %.lver.check
   %scevgep = getelementptr nuw i8, ptr %0, i64 2
@@ -1601,7 +1601,7 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %store_forwarded = phi i8 [ %load_initial, %.ph ], [ %.0.i27, %36 ]
   %.029 = phi i32 [ 0, %.ph ], [ %60, %36 ]
   %.01828 = phi ptr [ %0, %.ph ], [ %59, %36 ]
-  %37 = load i8, ptr %.01828, align 1, !tbaa !40
+  %37 = load i8, ptr %.01828, align 1, !tbaa !41
   %38 = zext i8 %37 to i32
   %39 = add nsw i32 %10, %38
   %.not.i = icmp ult i32 %39, 256
@@ -1609,9 +1609,9 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %40 = sext i1 %isnotneg.i to i8
   %41 = trunc nuw i32 %39 to i8
   %.0.i = select i1 %.not.i, i8 %41, i8 %40
-  store i8 %.0.i, ptr %.01828, align 1, !tbaa !40
+  store i8 %.0.i, ptr %.01828, align 1, !tbaa !41
   %42 = getelementptr inbounds nuw i8, ptr %.01828, i64 1
-  %43 = load i8, ptr %42, align 1, !tbaa !40
+  %43 = load i8, ptr %42, align 1, !tbaa !41
   %44 = zext i8 %43 to i32
   %45 = add nsw i32 %10, %44
   %.not.i19 = icmp ult i32 %45, 256
@@ -1619,7 +1619,7 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %46 = sext i1 %isnotneg.i20 to i8
   %47 = trunc nuw i32 %45 to i8
   %.0.i21 = select i1 %.not.i19, i8 %47, i8 %46
-  store i8 %.0.i21, ptr %42, align 1, !tbaa !40
+  store i8 %.0.i21, ptr %42, align 1, !tbaa !41
   %48 = getelementptr inbounds nuw i8, ptr %.01828, i64 2
   %49 = zext i8 %store_forwarded to i32
   %50 = add nsw i32 %10, %49
@@ -1628,9 +1628,9 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %51 = sext i1 %isnotneg.i23 to i8
   %52 = trunc nuw i32 %50 to i8
   %.0.i24 = select i1 %.not.i22, i8 %52, i8 %51
-  store i8 %.0.i24, ptr %48, align 1, !tbaa !40
+  store i8 %.0.i24, ptr %48, align 1, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %.01828, i64 3
-  %54 = load i8, ptr %53, align 1, !tbaa !40
+  %54 = load i8, ptr %53, align 1, !tbaa !41
   %55 = zext i8 %54 to i32
   %56 = add nsw i32 %10, %55
   %.not.i25 = icmp ult i32 %56, 256
@@ -1638,11 +1638,11 @@ define internal void @vc1_inv_trans_4x4_dc_c(ptr noundef captures(none) %0, i64 
   %57 = sext i1 %isnotneg.i26 to i8
   %58 = trunc nuw i32 %56 to i8
   %.0.i27 = select i1 %.not.i25, i8 %58, i8 %57
-  store i8 %.0.i27, ptr %53, align 1, !tbaa !40
+  store i8 %.0.i27, ptr %53, align 1, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %.01828, i64 %1
   %60 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %60, 4
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %36
   ret void
@@ -1659,15 +1659,15 @@ define internal void @vc1_h_overlap_c(ptr noundef captures(none) %0, i64 noundef
   %.02835.lver.orig = phi ptr [ %31, %.ph.lver.orig ], [ %0, %.lver.check ]
   %.02934.lver.orig = phi i32 [ %33, %.ph.lver.orig ], [ 0, %.lver.check ]
   %2 = getelementptr inbounds i8, ptr %.02835.lver.orig, i64 -2
-  %3 = load i8, ptr %2, align 1, !tbaa !40
+  %3 = load i8, ptr %2, align 1, !tbaa !41
   %4 = zext i8 %3 to i32
   %5 = getelementptr inbounds i8, ptr %.02835.lver.orig, i64 -1
-  %6 = load i8, ptr %5, align 1, !tbaa !40
+  %6 = load i8, ptr %5, align 1, !tbaa !41
   %7 = zext i8 %6 to i32
-  %8 = load i8, ptr %.02835.lver.orig, align 1, !tbaa !40
+  %8 = load i8, ptr %.02835.lver.orig, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %.02835.lver.orig, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 %4, %12
   %14 = add nuw nsw i32 %.036.lver.orig, 3
@@ -1680,28 +1680,28 @@ define internal void @vc1_h_overlap_c(ptr noundef captures(none) %0, i64 noundef
   %21 = ashr i32 %20, 3
   %22 = trunc i32 %16 to i8
   %23 = sub i8 %3, %22
-  store i8 %23, ptr %2, align 1, !tbaa !40
+  store i8 %23, ptr %2, align 1, !tbaa !41
   %24 = sub nsw i32 %7, %21
   %.not.i.lver.orig = icmp ult i32 %24, 256
   %isnotneg.i.lver.orig = icmp sgt i32 %24, -1
   %25 = sext i1 %isnotneg.i.lver.orig to i8
   %26 = trunc nuw i32 %24 to i8
   %.0.i.lver.orig = select i1 %.not.i.lver.orig, i8 %26, i8 %25
-  store i8 %.0.i.lver.orig, ptr %5, align 1, !tbaa !40
+  store i8 %.0.i.lver.orig, ptr %5, align 1, !tbaa !41
   %27 = add nsw i32 %21, %9
   %.not.i30.lver.orig = icmp ult i32 %27, 256
   %isnotneg.i31.lver.orig = icmp sgt i32 %27, -1
   %28 = sext i1 %isnotneg.i31.lver.orig to i8
   %29 = trunc nuw i32 %27 to i8
   %.0.i32.lver.orig = select i1 %.not.i30.lver.orig, i8 %29, i8 %28
-  store i8 %.0.i32.lver.orig, ptr %.02835.lver.orig, align 1, !tbaa !40
+  store i8 %.0.i32.lver.orig, ptr %.02835.lver.orig, align 1, !tbaa !41
   %30 = add i8 %11, %22
-  store i8 %30, ptr %10, align 1, !tbaa !40
+  store i8 %30, ptr %10, align 1, !tbaa !41
   %31 = getelementptr inbounds i8, ptr %.02835.lver.orig, i64 %1
   %32 = xor i32 %.036.lver.orig, 1
   %33 = add nuw nsw i32 %.02934.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %33, 8
-  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !50
+  br i1 %exitcond.not.lver.orig, label %.loopexit, label %.ph.lver.orig, !llvm.loop !51
 
 .ph:                                              ; preds = %.lver.check
   %load_initial = load i8, ptr %0, align 1
@@ -1713,14 +1713,14 @@ define internal void @vc1_h_overlap_c(ptr noundef captures(none) %0, i64 noundef
   %.02835 = phi ptr [ %0, %.ph ], [ %63, %34 ]
   %.02934 = phi i32 [ 0, %.ph ], [ %65, %34 ]
   %35 = getelementptr inbounds i8, ptr %.02835, i64 -2
-  %36 = load i8, ptr %35, align 1, !tbaa !40
+  %36 = load i8, ptr %35, align 1, !tbaa !41
   %37 = zext i8 %36 to i32
   %38 = getelementptr inbounds i8, ptr %.02835, i64 -1
-  %39 = load i8, ptr %38, align 1, !tbaa !40
+  %39 = load i8, ptr %38, align 1, !tbaa !41
   %40 = zext i8 %39 to i32
   %41 = zext i8 %store_forwarded to i32
   %42 = getelementptr inbounds nuw i8, ptr %.02835, i64 1
-  %43 = load i8, ptr %42, align 1, !tbaa !40
+  %43 = load i8, ptr %42, align 1, !tbaa !41
   %44 = zext i8 %43 to i32
   %45 = sub nsw i32 %37, %44
   %46 = add nuw nsw i32 %.036, 3
@@ -1733,28 +1733,28 @@ define internal void @vc1_h_overlap_c(ptr noundef captures(none) %0, i64 noundef
   %53 = ashr i32 %52, 3
   %54 = trunc i32 %48 to i8
   %55 = sub i8 %36, %54
-  store i8 %55, ptr %35, align 1, !tbaa !40
+  store i8 %55, ptr %35, align 1, !tbaa !41
   %56 = sub nsw i32 %40, %53
   %.not.i = icmp ult i32 %56, 256
   %isnotneg.i = icmp sgt i32 %56, -1
   %57 = sext i1 %isnotneg.i to i8
   %58 = trunc nuw i32 %56 to i8
   %.0.i = select i1 %.not.i, i8 %58, i8 %57
-  store i8 %.0.i, ptr %38, align 1, !tbaa !40
+  store i8 %.0.i, ptr %38, align 1, !tbaa !41
   %59 = add nsw i32 %53, %41
   %.not.i30 = icmp ult i32 %59, 256
   %isnotneg.i31 = icmp sgt i32 %59, -1
   %60 = sext i1 %isnotneg.i31 to i8
   %61 = trunc nuw i32 %59 to i8
   %.0.i32 = select i1 %.not.i30, i8 %61, i8 %60
-  store i8 %.0.i32, ptr %.02835, align 1, !tbaa !40
+  store i8 %.0.i32, ptr %.02835, align 1, !tbaa !41
   %62 = add i8 %43, %54
-  store i8 %62, ptr %42, align 1, !tbaa !40
+  store i8 %62, ptr %42, align 1, !tbaa !41
   %63 = getelementptr inbounds nuw i8, ptr %.02835, i64 %1
   %64 = xor i32 %.036, 1
   %65 = add nuw nsw i32 %.02934, 1
   %exitcond.not = icmp eq i32 %65, 8
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !50
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.ph.lver.orig, %34
   ret void
@@ -1771,15 +1771,15 @@ define internal void @vc1_v_overlap_c(ptr noundef captures(none) %0, i64 noundef
   %.03340 = phi ptr [ %0, %2 ], [ %35, %5 ]
   %.03439 = phi i32 [ 0, %2 ], [ %37, %5 ]
   %6 = getelementptr inbounds i8, ptr %.03340, i64 %3
-  %7 = load i8, ptr %6, align 1, !tbaa !40
+  %7 = load i8, ptr %6, align 1, !tbaa !41
   %8 = zext i8 %7 to i32
   %9 = getelementptr inbounds i8, ptr %.03340, i64 %4
-  %10 = load i8, ptr %9, align 1, !tbaa !40
+  %10 = load i8, ptr %9, align 1, !tbaa !41
   %11 = zext i8 %10 to i32
-  %12 = load i8, ptr %.03340, align 1, !tbaa !40
+  %12 = load i8, ptr %.03340, align 1, !tbaa !41
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds i8, ptr %.03340, i64 %1
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
   %17 = sub nsw i32 %8, %16
   %18 = add nuw nsw i32 %.041, 3
@@ -1792,28 +1792,28 @@ define internal void @vc1_v_overlap_c(ptr noundef captures(none) %0, i64 noundef
   %25 = ashr i32 %24, 3
   %26 = trunc i32 %20 to i8
   %27 = sub i8 %7, %26
-  store i8 %27, ptr %6, align 1, !tbaa !40
+  store i8 %27, ptr %6, align 1, !tbaa !41
   %28 = sub nsw i32 %11, %25
   %.not.i = icmp ult i32 %28, 256
   %isnotneg.i = icmp sgt i32 %28, -1
   %29 = sext i1 %isnotneg.i to i8
   %30 = trunc nuw i32 %28 to i8
   %.0.i = select i1 %.not.i, i8 %30, i8 %29
-  store i8 %.0.i, ptr %9, align 1, !tbaa !40
+  store i8 %.0.i, ptr %9, align 1, !tbaa !41
   %31 = add nsw i32 %25, %13
   %.not.i35 = icmp ult i32 %31, 256
   %isnotneg.i36 = icmp sgt i32 %31, -1
   %32 = sext i1 %isnotneg.i36 to i8
   %33 = trunc nuw i32 %31 to i8
   %.0.i37 = select i1 %.not.i35, i8 %33, i8 %32
-  store i8 %.0.i37, ptr %.03340, align 1, !tbaa !40
+  store i8 %.0.i37, ptr %.03340, align 1, !tbaa !41
   %34 = add i8 %15, %26
-  store i8 %34, ptr %14, align 1, !tbaa !40
+  store i8 %34, ptr %14, align 1, !tbaa !41
   %35 = getelementptr inbounds nuw i8, ptr %.03340, i64 1
   %36 = xor i32 %.041, 1
   %37 = add nuw nsw i32 %.03439, 1
   %exitcond.not = icmp eq i32 %37, 8
-  br i1 %exitcond.not, label %38, label %5, !llvm.loop !51
+  br i1 %exitcond.not, label %38, label %5, !llvm.loop !52
 
 38:                                               ; preds = %5
   ret void
@@ -1874,7 +1874,7 @@ define internal void @vc1_h_s_overlap_c(ptr noundef captures(none) %0, ptr nound
   %44 = getelementptr inbounds i16, ptr %.03846.us, i64 %2
   %45 = add nuw nsw i32 %.04044.us, 1
   %exitcond52.not = icmp eq i32 %45, 8
-  br i1 %exitcond52.not, label %.split50.us, label %.split.us, !llvm.loop !52
+  br i1 %exitcond52.not, label %.split50.us, label %.split.us, !llvm.loop !53
 
 .split:                                           ; preds = %5, %.split
   %.048 = phi i32 [ %81, %.split ], [ %8, %5 ]
@@ -1925,7 +1925,7 @@ define internal void @vc1_h_s_overlap_c(ptr noundef captures(none) %0, ptr nound
   %82 = xor i32 %.03647, 7
   %83 = add nuw nsw i32 %.04044, 1
   %exitcond.not = icmp eq i32 %83, 8
-  br i1 %exitcond.not, label %.split50.us, label %.split, !llvm.loop !54
+  br i1 %exitcond.not, label %.split50.us, label %.split, !llvm.loop !55
 
 .split50.us:                                      ; preds = %.split, %.split.us
   ret void
@@ -1984,7 +1984,7 @@ define internal void @vc1_v_s_overlap_c(ptr noundef captures(none) %0, ptr nound
   %40 = xor i32 %.03140, 7
   %41 = add nuw nsw i32 %.03437, 1
   %exitcond.not = icmp eq i32 %41, 8
-  br i1 %exitcond.not, label %42, label %3, !llvm.loop !55
+  br i1 %exitcond.not, label %42, label %3, !llvm.loop !56
 
 42:                                               ; preds = %3
   ret void
@@ -2037,25 +2037,25 @@ define internal void @put_pixels16x16_c(ptr noundef writeonly captures(none) %0,
   %.017 = phi i32 [ 0, %4 ], [ %18, %5 ]
   %.01316 = phi ptr [ %0, %4 ], [ %17, %5 ]
   %.01415 = phi ptr [ %1, %4 ], [ %16, %5 ]
-  %6 = load i32, ptr %.01415, align 1, !tbaa !40
-  store i32 %6, ptr %.01316, align 4, !tbaa !56
+  %6 = load i32, ptr %.01415, align 1, !tbaa !41
+  store i32 %6, ptr %.01316, align 4, !tbaa !57
   %7 = getelementptr inbounds nuw i8, ptr %.01415, i64 4
-  %8 = load i32, ptr %7, align 1, !tbaa !40
+  %8 = load i32, ptr %7, align 1, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %.01316, i64 4
-  store i32 %8, ptr %9, align 4, !tbaa !56
+  store i32 %8, ptr %9, align 4, !tbaa !57
   %10 = getelementptr inbounds nuw i8, ptr %.01415, i64 8
-  %11 = load i32, ptr %10, align 1, !tbaa !40
+  %11 = load i32, ptr %10, align 1, !tbaa !41
   %12 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
-  store i32 %11, ptr %12, align 4, !tbaa !56
+  store i32 %11, ptr %12, align 4, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %.01415, i64 12
-  %14 = load i32, ptr %13, align 1, !tbaa !40
+  %14 = load i32, ptr %13, align 1, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %.01316, i64 12
-  store i32 %14, ptr %15, align 4, !tbaa !56
+  store i32 %14, ptr %15, align 4, !tbaa !57
   %16 = getelementptr inbounds i8, ptr %.01415, i64 %2
   %17 = getelementptr inbounds i8, ptr %.01316, i64 %2
   %18 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %18, 16
-  br i1 %exitcond.not, label %19, label %5, !llvm.loop !58
+  br i1 %exitcond.not, label %19, label %5, !llvm.loop !59
 
 19:                                               ; preds = %5
   ret void
@@ -2069,49 +2069,49 @@ define internal void @avg_pixels16x16_c(ptr noundef captures(none) %0, ptr nound
   %.021 = phi i32 [ 0, %4 ], [ %42, %5 ]
   %.01720 = phi ptr [ %0, %4 ], [ %41, %5 ]
   %.01819 = phi ptr [ %1, %4 ], [ %40, %5 ]
-  %6 = load i32, ptr %.01720, align 4, !tbaa !56
-  %7 = load i32, ptr %.01819, align 1, !tbaa !40
+  %6 = load i32, ptr %.01720, align 4, !tbaa !57
+  %7 = load i32, ptr %.01819, align 1, !tbaa !41
   %8 = or i32 %7, %6
   %9 = xor i32 %7, %6
   %10 = lshr i32 %9, 1
   %11 = and i32 %10, 2139062143
   %12 = sub i32 %8, %11
-  store i32 %12, ptr %.01720, align 4, !tbaa !56
+  store i32 %12, ptr %.01720, align 4, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %.01720, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !56
+  %14 = load i32, ptr %13, align 4, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %.01819, i64 4
-  %16 = load i32, ptr %15, align 1, !tbaa !40
+  %16 = load i32, ptr %15, align 1, !tbaa !41
   %17 = or i32 %16, %14
   %18 = xor i32 %16, %14
   %19 = lshr i32 %18, 1
   %20 = and i32 %19, 2139062143
   %21 = sub i32 %17, %20
-  store i32 %21, ptr %13, align 4, !tbaa !56
+  store i32 %21, ptr %13, align 4, !tbaa !57
   %22 = getelementptr inbounds nuw i8, ptr %.01720, i64 8
-  %23 = load i32, ptr %22, align 4, !tbaa !56
+  %23 = load i32, ptr %22, align 4, !tbaa !57
   %24 = getelementptr inbounds nuw i8, ptr %.01819, i64 8
-  %25 = load i32, ptr %24, align 1, !tbaa !40
+  %25 = load i32, ptr %24, align 1, !tbaa !41
   %26 = or i32 %25, %23
   %27 = xor i32 %25, %23
   %28 = lshr i32 %27, 1
   %29 = and i32 %28, 2139062143
   %30 = sub i32 %26, %29
-  store i32 %30, ptr %22, align 4, !tbaa !56
+  store i32 %30, ptr %22, align 4, !tbaa !57
   %31 = getelementptr inbounds nuw i8, ptr %.01720, i64 12
-  %32 = load i32, ptr %31, align 4, !tbaa !56
+  %32 = load i32, ptr %31, align 4, !tbaa !57
   %33 = getelementptr inbounds nuw i8, ptr %.01819, i64 12
-  %34 = load i32, ptr %33, align 1, !tbaa !40
+  %34 = load i32, ptr %33, align 1, !tbaa !41
   %35 = or i32 %34, %32
   %36 = xor i32 %34, %32
   %37 = lshr i32 %36, 1
   %38 = and i32 %37, 2139062143
   %39 = sub i32 %35, %38
-  store i32 %39, ptr %31, align 4, !tbaa !56
+  store i32 %39, ptr %31, align 4, !tbaa !57
   %40 = getelementptr inbounds i8, ptr %.01819, i64 %2
   %41 = getelementptr inbounds i8, ptr %.01720, i64 %2
   %42 = add nuw nsw i32 %.021, 1
   %exitcond.not = icmp eq i32 %42, 16
-  br i1 %exitcond.not, label %43, label %5, !llvm.loop !59
+  br i1 %exitcond.not, label %43, label %5, !llvm.loop !60
 
 43:                                               ; preds = %5
   ret void
@@ -2125,17 +2125,17 @@ define internal void @put_pixels8x8_c(ptr noundef writeonly captures(none) %0, p
   %.013 = phi i32 [ 0, %4 ], [ %12, %5 ]
   %.0912 = phi ptr [ %0, %4 ], [ %11, %5 ]
   %.01011 = phi ptr [ %1, %4 ], [ %10, %5 ]
-  %6 = load i32, ptr %.01011, align 1, !tbaa !40
-  store i32 %6, ptr %.0912, align 4, !tbaa !56
+  %6 = load i32, ptr %.01011, align 1, !tbaa !41
+  store i32 %6, ptr %.0912, align 4, !tbaa !57
   %7 = getelementptr inbounds nuw i8, ptr %.01011, i64 4
-  %8 = load i32, ptr %7, align 1, !tbaa !40
+  %8 = load i32, ptr %7, align 1, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
-  store i32 %8, ptr %9, align 4, !tbaa !56
+  store i32 %8, ptr %9, align 4, !tbaa !57
   %10 = getelementptr inbounds i8, ptr %.01011, i64 %2
   %11 = getelementptr inbounds i8, ptr %.0912, i64 %2
   %12 = add nuw nsw i32 %.013, 1
   %exitcond.not = icmp eq i32 %12, 8
-  br i1 %exitcond.not, label %13, label %5, !llvm.loop !60
+  br i1 %exitcond.not, label %13, label %5, !llvm.loop !61
 
 13:                                               ; preds = %5
   ret void
@@ -2149,29 +2149,29 @@ define internal void @avg_pixels8x8_c(ptr noundef captures(none) %0, ptr noundef
   %.015 = phi i32 [ 0, %4 ], [ %24, %5 ]
   %.01114 = phi ptr [ %0, %4 ], [ %23, %5 ]
   %.01213 = phi ptr [ %1, %4 ], [ %22, %5 ]
-  %6 = load i32, ptr %.01114, align 4, !tbaa !56
-  %7 = load i32, ptr %.01213, align 1, !tbaa !40
+  %6 = load i32, ptr %.01114, align 4, !tbaa !57
+  %7 = load i32, ptr %.01213, align 1, !tbaa !41
   %8 = or i32 %7, %6
   %9 = xor i32 %7, %6
   %10 = lshr i32 %9, 1
   %11 = and i32 %10, 2139062143
   %12 = sub i32 %8, %11
-  store i32 %12, ptr %.01114, align 4, !tbaa !56
+  store i32 %12, ptr %.01114, align 4, !tbaa !57
   %13 = getelementptr inbounds nuw i8, ptr %.01114, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !56
+  %14 = load i32, ptr %13, align 4, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %.01213, i64 4
-  %16 = load i32, ptr %15, align 1, !tbaa !40
+  %16 = load i32, ptr %15, align 1, !tbaa !41
   %17 = or i32 %16, %14
   %18 = xor i32 %16, %14
   %19 = lshr i32 %18, 1
   %20 = and i32 %19, 2139062143
   %21 = sub i32 %17, %20
-  store i32 %21, ptr %13, align 4, !tbaa !56
+  store i32 %21, ptr %13, align 4, !tbaa !57
   %22 = getelementptr inbounds i8, ptr %.01213, i64 %2
   %23 = getelementptr inbounds i8, ptr %.01114, i64 %2
   %24 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %24, 8
-  br i1 %exitcond.not, label %25, label %5, !llvm.loop !61
+  br i1 %exitcond.not, label %25, label %5, !llvm.loop !62
 
 25:                                               ; preds = %5
   ret void
@@ -2199,17 +2199,17 @@ define internal void @put_vc1_mspel_mc01_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.175.i6, i64 %indvars.iv
   %13 = getelementptr inbounds i8, ptr %12, i64 %6
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %12, align 1, !tbaa !40
+  %16 = load i8, ptr %12, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nuw nsw i32 %17, 53
   %19 = getelementptr inbounds i8, ptr %12, i64 %7
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = mul nuw nsw i32 %21, 18
   %23 = getelementptr inbounds i8, ptr %12, i64 %9
-  %24 = load i8, ptr %23, align 1, !tbaa !40
+  %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i32
   %.neg.i = mul nsw i32 %25, -3
   %26 = shl nuw nsw i32 %15, 2
@@ -2224,17 +2224,17 @@ define internal void @put_vc1_mspel_mc01_c(ptr noundef writeonly captures(none) 
   %33 = trunc nuw i32 %31 to i8
   %.0.i82.i = select i1 %.not.i80.i, i8 %33, i8 %32
   %34 = getelementptr inbounds nuw i8, ptr %.166.i8, i64 %indvars.iv
-  store i8 %.0.i82.i, ptr %34, align 1, !tbaa !40
+  store i8 %.0.i82.i, ptr %34, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %35, label %11, !llvm.loop !62
+  br i1 %exitcond.not, label %35, label %11, !llvm.loop !63
 
 35:                                               ; preds = %11
   %36 = getelementptr inbounds i8, ptr %.175.i6, i64 %2
   %37 = getelementptr inbounds i8, ptr %.166.i8, i64 %2
   %38 = add nuw nsw i32 %.269.i7, 1
   %exitcond11.not = icmp eq i32 %38, 8
-  br i1 %exitcond11.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !63
+  br i1 %exitcond11.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !64
 
 put_vc1_mspel_mc.exit:                            ; preds = %35
   ret void
@@ -2262,17 +2262,17 @@ define internal void @put_vc1_mspel_mc01_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.175.i6, i64 %indvars.iv
   %13 = getelementptr inbounds i8, ptr %12, i64 %6
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %12, align 1, !tbaa !40
+  %16 = load i8, ptr %12, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nuw nsw i32 %17, 53
   %19 = getelementptr inbounds i8, ptr %12, i64 %7
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = mul nuw nsw i32 %21, 18
   %23 = getelementptr inbounds i8, ptr %12, i64 %9
-  %24 = load i8, ptr %23, align 1, !tbaa !40
+  %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i32
   %.neg.i94.i = mul nsw i32 %25, -3
   %26 = shl nuw nsw i32 %15, 2
@@ -2287,17 +2287,17 @@ define internal void @put_vc1_mspel_mc01_16_c(ptr noundef writeonly captures(non
   %33 = trunc nuw i32 %31 to i8
   %.0.i82.i = select i1 %.not.i80.i, i8 %33, i8 %32
   %34 = getelementptr inbounds nuw i8, ptr %.166.i8, i64 %indvars.iv
-  store i8 %.0.i82.i, ptr %34, align 1, !tbaa !40
+  store i8 %.0.i82.i, ptr %34, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %35, label %11, !llvm.loop !64
+  br i1 %exitcond.not, label %35, label %11, !llvm.loop !65
 
 35:                                               ; preds = %11
   %36 = getelementptr inbounds i8, ptr %.175.i6, i64 %2
   %37 = getelementptr inbounds i8, ptr %.166.i8, i64 %2
   %38 = add nuw nsw i32 %.269.i7, 1
   %exitcond11.not = icmp eq i32 %38, 16
-  br i1 %exitcond11.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond11.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !66
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %35
   ret void
@@ -2324,21 +2324,21 @@ define internal void @avg_vc1_mspel_mc01_c(ptr noundef captures(none) %0, ptr no
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.172.i8, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %.181.i6, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 %6
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
-  %19 = load i8, ptr %15, align 1, !tbaa !40
+  %19 = load i8, ptr %15, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 53
   %22 = getelementptr inbounds i8, ptr %15, i64 %7
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 18
   %26 = getelementptr inbounds i8, ptr %15, i64 %9
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %.neg.i100.i = mul nsw i32 %28, -3
   %29 = shl nuw nsw i32 %18, 2
@@ -2357,17 +2357,17 @@ define internal void @avg_vc1_mspel_mc01_c(ptr noundef captures(none) %0, ptr no
   %39 = add nuw nsw i16 %38, %37
   %40 = lshr i16 %39, 1
   %41 = trunc nuw i16 %40 to i8
-  store i8 %41, ptr %12, align 1, !tbaa !40
+  store i8 %41, ptr %12, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %42, label %11, !llvm.loop !66
+  br i1 %exitcond.not, label %42, label %11, !llvm.loop !67
 
 42:                                               ; preds = %11
   %43 = getelementptr inbounds i8, ptr %.181.i6, i64 %2
   %44 = getelementptr inbounds i8, ptr %.172.i8, i64 %2
   %45 = add nuw nsw i32 %.275.i7, 1
   %exitcond11.not = icmp eq i32 %45, 8
-  br i1 %exitcond11.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !67
+  br i1 %exitcond11.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !68
 
 avg_vc1_mspel_mc.exit:                            ; preds = %42
   ret void
@@ -2394,21 +2394,21 @@ define internal void @avg_vc1_mspel_mc01_16_c(ptr noundef captures(none) %0, ptr
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.172.i8, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %.181.i6, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 %6
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
-  %19 = load i8, ptr %15, align 1, !tbaa !40
+  %19 = load i8, ptr %15, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 53
   %22 = getelementptr inbounds i8, ptr %15, i64 %7
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 18
   %26 = getelementptr inbounds i8, ptr %15, i64 %9
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %.neg.i100.i = mul nsw i32 %28, -3
   %29 = shl nuw nsw i32 %18, 2
@@ -2427,17 +2427,17 @@ define internal void @avg_vc1_mspel_mc01_16_c(ptr noundef captures(none) %0, ptr
   %39 = add nuw nsw i16 %38, %37
   %40 = lshr i16 %39, 1
   %41 = trunc nuw i16 %40 to i8
-  store i8 %41, ptr %12, align 1, !tbaa !40
+  store i8 %41, ptr %12, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %42, label %11, !llvm.loop !68
+  br i1 %exitcond.not, label %42, label %11, !llvm.loop !69
 
 42:                                               ; preds = %11
   %43 = getelementptr inbounds i8, ptr %.181.i6, i64 %2
   %44 = getelementptr inbounds i8, ptr %.172.i8, i64 %2
   %45 = add nuw nsw i32 %.275.i7, 1
   %exitcond11.not = icmp eq i32 %45, 16
-  br i1 %exitcond11.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !69
+  br i1 %exitcond11.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !70
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %42
   ret void
@@ -2465,15 +2465,15 @@ define internal void @put_vc1_mspel_mc02_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.175.i5, i64 %indvars.iv
   %13 = getelementptr inbounds i8, ptr %12, i64 %6
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %12, align 1, !tbaa !40
+  %16 = load i8, ptr %12, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds i8, ptr %12, i64 %7
-  %19 = load i8, ptr %18, align 1, !tbaa !40
+  %19 = load i8, ptr %18, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds i8, ptr %12, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %20, %17
   %25 = mul nuw nsw i32 %24, 9
@@ -2488,17 +2488,17 @@ define internal void @put_vc1_mspel_mc02_c(ptr noundef writeonly captures(none) 
   %31 = trunc nuw i32 %29 to i8
   %.0.i82.i = select i1 %.not.i80.i, i8 %31, i8 %30
   %32 = getelementptr inbounds nuw i8, ptr %.166.i7, i64 %indvars.iv
-  store i8 %.0.i82.i, ptr %32, align 1, !tbaa !40
+  store i8 %.0.i82.i, ptr %32, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %33, label %11, !llvm.loop !62
+  br i1 %exitcond.not, label %33, label %11, !llvm.loop !63
 
 33:                                               ; preds = %11
   %34 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %35 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %36 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %36, 8
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !63
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !64
 
 put_vc1_mspel_mc.exit:                            ; preds = %33
   ret void
@@ -2526,15 +2526,15 @@ define internal void @put_vc1_mspel_mc02_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.175.i5, i64 %indvars.iv
   %13 = getelementptr inbounds i8, ptr %12, i64 %6
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %12, align 1, !tbaa !40
+  %16 = load i8, ptr %12, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds i8, ptr %12, i64 %7
-  %19 = load i8, ptr %18, align 1, !tbaa !40
+  %19 = load i8, ptr %18, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds i8, ptr %12, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = add nuw nsw i32 %20, %17
   %25 = mul nuw nsw i32 %24, 9
@@ -2549,17 +2549,17 @@ define internal void @put_vc1_mspel_mc02_16_c(ptr noundef writeonly captures(non
   %31 = trunc nuw i32 %29 to i8
   %.0.i82.i = select i1 %.not.i80.i, i8 %31, i8 %30
   %32 = getelementptr inbounds nuw i8, ptr %.166.i7, i64 %indvars.iv
-  store i8 %.0.i82.i, ptr %32, align 1, !tbaa !40
+  store i8 %.0.i82.i, ptr %32, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %33, label %11, !llvm.loop !64
+  br i1 %exitcond.not, label %33, label %11, !llvm.loop !65
 
 33:                                               ; preds = %11
   %34 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %35 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %36 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %36, 16
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !66
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %33
   ret void
@@ -2586,19 +2586,19 @@ define internal void @avg_vc1_mspel_mc02_c(ptr noundef captures(none) %0, ptr no
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.172.i7, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %.181.i5, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 %6
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
-  %19 = load i8, ptr %15, align 1, !tbaa !40
+  %19 = load i8, ptr %15, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds i8, ptr %15, i64 %7
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = getelementptr inbounds i8, ptr %15, i64 %9
-  %25 = load i8, ptr %24, align 1, !tbaa !40
+  %25 = load i8, ptr %24, align 1, !tbaa !41
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %23, %20
   %28 = mul nuw nsw i32 %27, 9
@@ -2617,17 +2617,17 @@ define internal void @avg_vc1_mspel_mc02_c(ptr noundef captures(none) %0, ptr no
   %37 = add nuw nsw i16 %36, %35
   %38 = lshr i16 %37, 1
   %39 = trunc nuw i16 %38 to i8
-  store i8 %39, ptr %12, align 1, !tbaa !40
+  store i8 %39, ptr %12, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %40, label %11, !llvm.loop !66
+  br i1 %exitcond.not, label %40, label %11, !llvm.loop !67
 
 40:                                               ; preds = %11
   %41 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %42 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %43 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %43, 8
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !67
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !68
 
 avg_vc1_mspel_mc.exit:                            ; preds = %40
   ret void
@@ -2654,19 +2654,19 @@ define internal void @avg_vc1_mspel_mc02_16_c(ptr noundef captures(none) %0, ptr
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.172.i7, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %.181.i5, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 %6
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
-  %19 = load i8, ptr %15, align 1, !tbaa !40
+  %19 = load i8, ptr %15, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = getelementptr inbounds i8, ptr %15, i64 %7
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = getelementptr inbounds i8, ptr %15, i64 %9
-  %25 = load i8, ptr %24, align 1, !tbaa !40
+  %25 = load i8, ptr %24, align 1, !tbaa !41
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %23, %20
   %28 = mul nuw nsw i32 %27, 9
@@ -2685,17 +2685,17 @@ define internal void @avg_vc1_mspel_mc02_16_c(ptr noundef captures(none) %0, ptr
   %37 = add nuw nsw i16 %36, %35
   %38 = lshr i16 %37, 1
   %39 = trunc nuw i16 %38 to i8
-  store i8 %39, ptr %12, align 1, !tbaa !40
+  store i8 %39, ptr %12, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %40, label %11, !llvm.loop !68
+  br i1 %exitcond.not, label %40, label %11, !llvm.loop !69
 
 40:                                               ; preds = %11
   %41 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %42 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %43 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %43, 16
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !69
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !70
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %40
   ret void
@@ -2723,18 +2723,18 @@ define internal void @put_vc1_mspel_mc03_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.175.i5, i64 %indvars.iv
   %13 = getelementptr inbounds i8, ptr %12, i64 %6
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %15, -3
-  %17 = load i8, ptr %12, align 1, !tbaa !40
+  %17 = load i8, ptr %12, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = mul nuw nsw i32 %18, 18
   %20 = getelementptr inbounds i8, ptr %12, i64 %7
-  %21 = load i8, ptr %20, align 1, !tbaa !40
+  %21 = load i8, ptr %20, align 1, !tbaa !41
   %22 = zext i8 %21 to i32
   %23 = mul nuw nsw i32 %22, 53
   %24 = getelementptr inbounds i8, ptr %12, i64 %9
-  %25 = load i8, ptr %24, align 1, !tbaa !40
+  %25 = load i8, ptr %24, align 1, !tbaa !41
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 2
   %28 = xor i32 %27, -1
@@ -2749,17 +2749,17 @@ define internal void @put_vc1_mspel_mc03_c(ptr noundef writeonly captures(none) 
   %34 = trunc nuw i32 %32 to i8
   %.0.i82.i = select i1 %.not.i80.i, i8 %34, i8 %33
   %35 = getelementptr inbounds nuw i8, ptr %.166.i7, i64 %indvars.iv
-  store i8 %.0.i82.i, ptr %35, align 1, !tbaa !40
+  store i8 %.0.i82.i, ptr %35, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %36, label %11, !llvm.loop !62
+  br i1 %exitcond.not, label %36, label %11, !llvm.loop !63
 
 36:                                               ; preds = %11
   %37 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %38 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %39 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %39, 8
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !63
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !64
 
 put_vc1_mspel_mc.exit:                            ; preds = %36
   ret void
@@ -2787,18 +2787,18 @@ define internal void @put_vc1_mspel_mc03_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.175.i5, i64 %indvars.iv
   %13 = getelementptr inbounds i8, ptr %12, i64 %6
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %15, -3
-  %17 = load i8, ptr %12, align 1, !tbaa !40
+  %17 = load i8, ptr %12, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = mul nuw nsw i32 %18, 18
   %20 = getelementptr inbounds i8, ptr %12, i64 %7
-  %21 = load i8, ptr %20, align 1, !tbaa !40
+  %21 = load i8, ptr %20, align 1, !tbaa !41
   %22 = zext i8 %21 to i32
   %23 = mul nuw nsw i32 %22, 53
   %24 = getelementptr inbounds i8, ptr %12, i64 %9
-  %25 = load i8, ptr %24, align 1, !tbaa !40
+  %25 = load i8, ptr %24, align 1, !tbaa !41
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 2
   %28 = xor i32 %27, -1
@@ -2813,17 +2813,17 @@ define internal void @put_vc1_mspel_mc03_16_c(ptr noundef writeonly captures(non
   %34 = trunc nuw i32 %32 to i8
   %.0.i82.i = select i1 %.not.i80.i, i8 %34, i8 %33
   %35 = getelementptr inbounds nuw i8, ptr %.166.i7, i64 %indvars.iv
-  store i8 %.0.i82.i, ptr %35, align 1, !tbaa !40
+  store i8 %.0.i82.i, ptr %35, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %36, label %11, !llvm.loop !64
+  br i1 %exitcond.not, label %36, label %11, !llvm.loop !65
 
 36:                                               ; preds = %11
   %37 = getelementptr inbounds i8, ptr %.175.i5, i64 %2
   %38 = getelementptr inbounds i8, ptr %.166.i7, i64 %2
   %39 = add nuw nsw i32 %.269.i6, 1
   %exitcond9.not = icmp eq i32 %39, 16
-  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !65
+  br i1 %exitcond9.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !66
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %36
   ret void
@@ -2850,22 +2850,22 @@ define internal void @avg_vc1_mspel_mc03_c(ptr noundef captures(none) %0, ptr no
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.172.i7, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %.181.i5, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 %6
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = mul nsw i32 %18, -3
-  %20 = load i8, ptr %15, align 1, !tbaa !40
+  %20 = load i8, ptr %15, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = mul nuw nsw i32 %21, 18
   %23 = getelementptr inbounds i8, ptr %15, i64 %7
-  %24 = load i8, ptr %23, align 1, !tbaa !40
+  %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, 53
   %27 = getelementptr inbounds i8, ptr %15, i64 %9
-  %28 = load i8, ptr %27, align 1, !tbaa !40
+  %28 = load i8, ptr %27, align 1, !tbaa !41
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 2
   %31 = xor i32 %30, -1
@@ -2884,17 +2884,17 @@ define internal void @avg_vc1_mspel_mc03_c(ptr noundef captures(none) %0, ptr no
   %40 = add nuw nsw i16 %39, %38
   %41 = lshr i16 %40, 1
   %42 = trunc nuw i16 %41 to i8
-  store i8 %42, ptr %12, align 1, !tbaa !40
+  store i8 %42, ptr %12, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %43, label %11, !llvm.loop !66
+  br i1 %exitcond.not, label %43, label %11, !llvm.loop !67
 
 43:                                               ; preds = %11
   %44 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %45 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %46 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %46, 8
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !67
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !68
 
 avg_vc1_mspel_mc.exit:                            ; preds = %43
   ret void
@@ -2921,22 +2921,22 @@ define internal void @avg_vc1_mspel_mc03_16_c(ptr noundef captures(none) %0, ptr
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
   %12 = getelementptr inbounds nuw i8, ptr %.172.i7, i64 %indvars.iv
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i16
   %15 = getelementptr inbounds nuw i8, ptr %.181.i5, i64 %indvars.iv
   %16 = getelementptr inbounds i8, ptr %15, i64 %6
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = mul nsw i32 %18, -3
-  %20 = load i8, ptr %15, align 1, !tbaa !40
+  %20 = load i8, ptr %15, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = mul nuw nsw i32 %21, 18
   %23 = getelementptr inbounds i8, ptr %15, i64 %7
-  %24 = load i8, ptr %23, align 1, !tbaa !40
+  %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i32
   %26 = mul nuw nsw i32 %25, 53
   %27 = getelementptr inbounds i8, ptr %15, i64 %9
-  %28 = load i8, ptr %27, align 1, !tbaa !40
+  %28 = load i8, ptr %27, align 1, !tbaa !41
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 2
   %31 = xor i32 %30, -1
@@ -2955,17 +2955,17 @@ define internal void @avg_vc1_mspel_mc03_16_c(ptr noundef captures(none) %0, ptr
   %40 = add nuw nsw i16 %39, %38
   %41 = lshr i16 %40, 1
   %42 = trunc nuw i16 %41 to i8
-  store i8 %42, ptr %12, align 1, !tbaa !40
+  store i8 %42, ptr %12, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %43, label %11, !llvm.loop !68
+  br i1 %exitcond.not, label %43, label %11, !llvm.loop !69
 
 43:                                               ; preds = %11
   %44 = getelementptr inbounds i8, ptr %.181.i5, i64 %2
   %45 = getelementptr inbounds i8, ptr %.172.i7, i64 %2
   %46 = add nuw nsw i32 %.275.i6, 1
   %exitcond9.not = icmp eq i32 %46, 16
-  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !69
+  br i1 %exitcond9.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !70
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %43
   ret void
@@ -2985,18 +2985,18 @@ define internal void @put_vc1_mspel_mc10_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.276.i5, i64 %indvars.iv
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !40
+  %8 = load i8, ptr %7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
-  %10 = load i8, ptr %6, align 1, !tbaa !40
+  %10 = load i8, ptr %6, align 1, !tbaa !41
   %11 = zext i8 %10 to i32
   %12 = mul nuw nsw i32 %11, 53
   %.neg8 = mul nsw i32 %9, -4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nuw nsw i32 %15, 18
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %18 = load i8, ptr %17, align 1, !tbaa !40
+  %18 = load i8, ptr %17, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %.neg.i = mul nsw i32 %19, -3
   %reass.sub = sub i32 %.neg8, %3
@@ -3011,17 +3011,17 @@ define internal void @put_vc1_mspel_mc10_c(ptr noundef writeonly captures(none) 
   %26 = trunc nuw i32 %24 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %26, i8 %25
   %27 = getelementptr inbounds nuw i8, ptr %.2.i7, i64 %indvars.iv
-  store i8 %.0.i.i, ptr %27, align 1, !tbaa !40
+  store i8 %.0.i.i, ptr %27, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %28, label %5, !llvm.loop !70
+  br i1 %exitcond.not, label %28, label %5, !llvm.loop !71
 
 28:                                               ; preds = %5
   %29 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %30 = getelementptr inbounds i8, ptr %.276.i5, i64 %2
   %31 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %31, 8
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !72
 
 put_vc1_mspel_mc.exit:                            ; preds = %28
   ret void
@@ -3041,18 +3041,18 @@ define internal void @put_vc1_mspel_mc10_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.276.i5, i64 %indvars.iv
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !40
+  %8 = load i8, ptr %7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
-  %10 = load i8, ptr %6, align 1, !tbaa !40
+  %10 = load i8, ptr %6, align 1, !tbaa !41
   %11 = zext i8 %10 to i32
   %12 = mul nuw nsw i32 %11, 53
   %.neg8 = mul nsw i32 %9, -4
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !40
+  %14 = load i8, ptr %13, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nuw nsw i32 %15, 18
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %18 = load i8, ptr %17, align 1, !tbaa !40
+  %18 = load i8, ptr %17, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %.neg.i91.i = mul nsw i32 %19, -3
   %reass.sub = sub i32 %.neg8, %3
@@ -3067,17 +3067,17 @@ define internal void @put_vc1_mspel_mc10_16_c(ptr noundef writeonly captures(non
   %26 = trunc nuw i32 %24 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %26, i8 %25
   %27 = getelementptr inbounds nuw i8, ptr %.2.i7, i64 %indvars.iv
-  store i8 %.0.i.i, ptr %27, align 1, !tbaa !40
+  store i8 %.0.i.i, ptr %27, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %28, label %5, !llvm.loop !72
+  br i1 %exitcond.not, label %28, label %5, !llvm.loop !73
 
 28:                                               ; preds = %5
   %29 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %30 = getelementptr inbounds i8, ptr %.276.i5, i64 %2
   %31 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %31, 16
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !73
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !74
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %28
   ret void
@@ -3096,22 +3096,22 @@ define internal void @avg_vc1_mspel_mc10_c(ptr noundef captures(none) %0, ptr no
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.2.i7, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !40
+  %7 = load i8, ptr %6, align 1, !tbaa !41
   %8 = zext i8 %7 to i16
   %9 = getelementptr inbounds nuw i8, ptr %.282.i5, i64 %indvars.iv
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
-  %13 = load i8, ptr %9, align 1, !tbaa !40
+  %13 = load i8, ptr %9, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, 53
   %.neg8 = mul nsw i32 %12, -4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = mul nuw nsw i32 %18, 18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %21 = load i8, ptr %20, align 1, !tbaa !40
+  %21 = load i8, ptr %20, align 1, !tbaa !41
   %22 = zext i8 %21 to i32
   %.neg.i97.i = mul nsw i32 %22, -3
   %reass.sub = sub i32 %.neg8, %3
@@ -3130,17 +3130,17 @@ define internal void @avg_vc1_mspel_mc10_c(ptr noundef captures(none) %0, ptr no
   %32 = add nuw nsw i16 %31, %30
   %33 = lshr i16 %32, 1
   %34 = trunc nuw i16 %33 to i8
-  store i8 %34, ptr %6, align 1, !tbaa !40
+  store i8 %34, ptr %6, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %35, label %5, !llvm.loop !74
+  br i1 %exitcond.not, label %35, label %5, !llvm.loop !75
 
 35:                                               ; preds = %5
   %36 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %37 = getelementptr inbounds i8, ptr %.282.i5, i64 %2
   %38 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %38, 8
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !75
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !76
 
 avg_vc1_mspel_mc.exit:                            ; preds = %35
   ret void
@@ -3159,22 +3159,22 @@ define internal void @avg_vc1_mspel_mc10_16_c(ptr noundef captures(none) %0, ptr
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.2.i7, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !40
+  %7 = load i8, ptr %6, align 1, !tbaa !41
   %8 = zext i8 %7 to i16
   %9 = getelementptr inbounds nuw i8, ptr %.282.i5, i64 %indvars.iv
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
-  %13 = load i8, ptr %9, align 1, !tbaa !40
+  %13 = load i8, ptr %9, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, 53
   %.neg8 = mul nsw i32 %12, -4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = mul nuw nsw i32 %18, 18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %21 = load i8, ptr %20, align 1, !tbaa !40
+  %21 = load i8, ptr %20, align 1, !tbaa !41
   %22 = zext i8 %21 to i32
   %.neg.i97.i = mul nsw i32 %22, -3
   %reass.sub = sub i32 %.neg8, %3
@@ -3193,17 +3193,17 @@ define internal void @avg_vc1_mspel_mc10_16_c(ptr noundef captures(none) %0, ptr
   %32 = add nuw nsw i16 %31, %30
   %33 = lshr i16 %32, 1
   %34 = trunc nuw i16 %33 to i8
-  store i8 %34, ptr %6, align 1, !tbaa !40
+  store i8 %34, ptr %6, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %35, label %5, !llvm.loop !76
+  br i1 %exitcond.not, label %35, label %5, !llvm.loop !77
 
 35:                                               ; preds = %5
   %36 = getelementptr inbounds i8, ptr %.2.i7, i64 %2
   %37 = getelementptr inbounds i8, ptr %.282.i5, i64 %2
   %38 = add nuw nsw i32 %.3.i6, 1
   %exitcond10.not = icmp eq i32 %38, 16
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !77
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !78
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %35
   ret void
@@ -3234,17 +3234,17 @@ define internal void @put_vc1_mspel_mc11_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -3258,14 +3258,14 @@ define internal void @put_vc1_mspel_mc11_c(ptr noundef writeonly captures(none) 
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !78
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !79
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %39 = add nuw nsw i32 %.067.i12, 1
   %exitcond21.not = icmp eq i32 %39, 8
-  br i1 %exitcond21.not, label %40, label %.preheader9, !llvm.loop !79
+  br i1 %exitcond21.not, label %40, label %.preheader9, !llvm.loop !80
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3307,17 +3307,17 @@ define internal void @put_vc1_mspel_mc11_c(ptr noundef writeonly captures(none) 
   %62 = trunc nuw i32 %60 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %62, i8 %61
   %63 = getelementptr inbounds nuw i8, ptr %.065.i16, i64 %indvars.iv22
-  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !41
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %64, label %42, !llvm.loop !80
+  br i1 %exitcond25.not, label %64, label %42, !llvm.loop !81
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %67 = add nuw nsw i32 %.168.i15, 1
   %exitcond26.not = icmp eq i32 %67, 8
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %64
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -3349,17 +3349,17 @@ define internal void @put_vc1_mspel_mc11_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i8, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -3373,14 +3373,14 @@ define internal void @put_vc1_mspel_mc11_16_c(ptr noundef writeonly captures(non
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !82
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !83
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i8, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %39 = add nuw nsw i32 %.067.i9, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !83
+  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !84
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3422,17 +3422,17 @@ define internal void @put_vc1_mspel_mc11_16_c(ptr noundef writeonly captures(non
   %62 = trunc nuw i32 %60 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %62, i8 %61
   %63 = getelementptr inbounds nuw i8, ptr %.065.i13, i64 %indvars.iv19
-  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %64, label %42, !llvm.loop !84
+  br i1 %exitcond22.not, label %64, label %42, !llvm.loop !85
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i13, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %67 = add nuw nsw i32 %.168.i12, 1
   %exitcond23.not = icmp eq i32 %67, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %64
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -3464,17 +3464,17 @@ define internal void @avg_vc1_mspel_mc11_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i8, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -3488,14 +3488,14 @@ define internal void @avg_vc1_mspel_mc11_c(ptr noundef captures(none) %0, ptr no
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !86
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !87
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 22
   %39 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %39, 8
-  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !87
+  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !88
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3510,7 +3510,7 @@ define internal void @avg_vc1_mspel_mc11_c(ptr noundef captures(none) %0, ptr no
 42:                                               ; preds = %.preheader, %42
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.071.i13, i64 %indvars.iv19
-  %44 = load i8, ptr %43, align 1, !tbaa !40
+  %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = zext i8 %44 to i16
   %46 = getelementptr inbounds nuw i16, ptr %.1.i14, i64 %indvars.iv19
   %47 = getelementptr inbounds i8, ptr %46, i64 -2
@@ -3544,17 +3544,17 @@ define internal void @avg_vc1_mspel_mc11_c(ptr noundef captures(none) %0, ptr no
   %68 = add nuw nsw i16 %67, %66
   %69 = lshr i16 %68, 1
   %70 = trunc nuw i16 %69 to i8
-  store i8 %70, ptr %43, align 1, !tbaa !40
+  store i8 %70, ptr %43, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !88
+  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !89
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 22
   %74 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %74, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %71
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -3586,17 +3586,17 @@ define internal void @avg_vc1_mspel_mc11_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i8, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -3610,14 +3610,14 @@ define internal void @avg_vc1_mspel_mc11_16_c(ptr noundef captures(none) %0, ptr
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !90
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !91
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %39 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !91
+  br i1 %exitcond18.not, label %40, label %.preheader6, !llvm.loop !92
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3632,7 +3632,7 @@ define internal void @avg_vc1_mspel_mc11_16_c(ptr noundef captures(none) %0, ptr
 42:                                               ; preds = %.preheader, %42
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.071.i13, i64 %indvars.iv19
-  %44 = load i8, ptr %43, align 1, !tbaa !40
+  %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = zext i8 %44 to i16
   %46 = getelementptr inbounds nuw i16, ptr %.1.i14, i64 %indvars.iv19
   %47 = getelementptr inbounds i8, ptr %46, i64 -2
@@ -3666,17 +3666,17 @@ define internal void @avg_vc1_mspel_mc11_16_c(ptr noundef captures(none) %0, ptr
   %68 = add nuw nsw i16 %67, %66
   %69 = lshr i16 %68, 1
   %70 = trunc nuw i16 %69 to i8
-  store i8 %70, ptr %43, align 1, !tbaa !40
+  store i8 %70, ptr %43, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !92
+  br i1 %exitcond22.not, label %71, label %42, !llvm.loop !93
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %74 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %74, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %71
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -3708,15 +3708,15 @@ define internal void @put_vc1_mspel_mc12_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader10 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.074.i12, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -3729,14 +3729,14 @@ define internal void @put_vc1_mspel_mc12_c(ptr noundef writeonly captures(none) 
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !78
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !79
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i12, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 22
   %36 = add nuw nsw i32 %.067.i13, 1
   %exitcond21.not = icmp eq i32 %36, 8
-  br i1 %exitcond21.not, label %37, label %.preheader10, !llvm.loop !79
+  br i1 %exitcond21.not, label %37, label %.preheader10, !llvm.loop !80
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3778,17 +3778,17 @@ define internal void @put_vc1_mspel_mc12_c(ptr noundef writeonly captures(none) 
   %59 = trunc nuw i32 %57 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %59, i8 %58
   %60 = getelementptr inbounds nuw i8, ptr %.065.i17, i64 %indvars.iv22
-  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !41
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !80
+  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !81
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i17, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i18, i64 22
   %64 = add nuw nsw i32 %.168.i16, 1
   %exitcond26.not = icmp eq i32 %64, 8
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %61
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -3820,15 +3820,15 @@ define internal void @put_vc1_mspel_mc12_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader8 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.074.i10, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -3841,14 +3841,14 @@ define internal void @put_vc1_mspel_mc12_16_c(ptr noundef writeonly captures(non
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !82
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !83
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i10, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 38
   %36 = add nuw nsw i32 %.067.i11, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !83
+  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !84
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3890,17 +3890,17 @@ define internal void @put_vc1_mspel_mc12_16_c(ptr noundef writeonly captures(non
   %59 = trunc nuw i32 %57 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %59, i8 %58
   %60 = getelementptr inbounds nuw i8, ptr %.065.i15, i64 %indvars.iv20
-  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !41
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %61, label %39, !llvm.loop !84
+  br i1 %exitcond23.not, label %61, label %39, !llvm.loop !85
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i15, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 38
   %64 = add nuw nsw i32 %.168.i14, 1
   %exitcond24.not = icmp eq i32 %64, 16
-  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %61
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -3932,15 +3932,15 @@ define internal void @avg_vc1_mspel_mc12_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader8 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.080.i10, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -3953,14 +3953,14 @@ define internal void @avg_vc1_mspel_mc12_c(ptr noundef captures(none) %0, ptr no
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !86
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !87
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i10, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 22
   %36 = add nuw nsw i32 %.073.i11, 1
   %exitcond19.not = icmp eq i32 %36, 8
-  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !87
+  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !88
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -3975,7 +3975,7 @@ define internal void @avg_vc1_mspel_mc12_c(ptr noundef captures(none) %0, ptr no
 39:                                               ; preds = %.preheader, %39
   %indvars.iv20 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next21, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.071.i15, i64 %indvars.iv20
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i16
   %43 = getelementptr inbounds nuw i16, ptr %.1.i16, i64 %indvars.iv20
   %44 = getelementptr inbounds i8, ptr %43, i64 -2
@@ -4009,17 +4009,17 @@ define internal void @avg_vc1_mspel_mc12_c(ptr noundef captures(none) %0, ptr no
   %65 = add nuw nsw i16 %64, %63
   %66 = lshr i16 %65, 1
   %67 = trunc nuw i16 %66 to i8
-  store i8 %67, ptr %40, align 1, !tbaa !40
+  store i8 %67, ptr %40, align 1, !tbaa !41
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 8
-  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !88
+  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !89
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i15, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 22
   %71 = add nuw nsw i32 %.174.i14, 1
   %exitcond24.not = icmp eq i32 %71, 8
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %68
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -4051,15 +4051,15 @@ define internal void @avg_vc1_mspel_mc12_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader8 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.080.i10, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -4072,14 +4072,14 @@ define internal void @avg_vc1_mspel_mc12_16_c(ptr noundef captures(none) %0, ptr
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !90
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !91
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i10, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 38
   %36 = add nuw nsw i32 %.073.i11, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !91
+  br i1 %exitcond19.not, label %37, label %.preheader8, !llvm.loop !92
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4094,7 +4094,7 @@ define internal void @avg_vc1_mspel_mc12_16_c(ptr noundef captures(none) %0, ptr
 39:                                               ; preds = %.preheader, %39
   %indvars.iv20 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next21, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.071.i15, i64 %indvars.iv20
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i16
   %43 = getelementptr inbounds nuw i16, ptr %.1.i16, i64 %indvars.iv20
   %44 = getelementptr inbounds i8, ptr %43, i64 -2
@@ -4128,17 +4128,17 @@ define internal void @avg_vc1_mspel_mc12_16_c(ptr noundef captures(none) %0, ptr
   %65 = add nuw nsw i16 %64, %63
   %66 = lshr i16 %65, 1
   %67 = trunc nuw i16 %66 to i8
-  store i8 %67, ptr %40, align 1, !tbaa !40
+  store i8 %67, ptr %40, align 1, !tbaa !41
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !92
+  br i1 %exitcond23.not, label %68, label %39, !llvm.loop !93
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i15, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 38
   %71 = add nuw nsw i32 %.174.i14, 1
   %exitcond24.not = icmp eq i32 %71, 16
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %68
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -4170,18 +4170,18 @@ define internal void @put_vc1_mspel_mc13_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader8 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i10, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -4194,14 +4194,14 @@ define internal void @put_vc1_mspel_mc13_c(ptr noundef writeonly captures(none) 
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !78
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !79
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i10, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 22
   %40 = add nuw nsw i32 %.067.i11, 1
   %exitcond20.not = icmp eq i32 %40, 8
-  br i1 %exitcond20.not, label %41, label %.preheader8, !llvm.loop !79
+  br i1 %exitcond20.not, label %41, label %.preheader8, !llvm.loop !80
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4243,17 +4243,17 @@ define internal void @put_vc1_mspel_mc13_c(ptr noundef writeonly captures(none) 
   %63 = trunc nuw i32 %61 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %63, i8 %62
   %64 = getelementptr inbounds nuw i8, ptr %.065.i15, i64 %indvars.iv21
-  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !80
+  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !81
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i15, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i16, i64 22
   %68 = add nuw nsw i32 %.168.i14, 1
   %exitcond25.not = icmp eq i32 %68, 8
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %65
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -4285,18 +4285,18 @@ define internal void @put_vc1_mspel_mc13_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i8, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -4309,14 +4309,14 @@ define internal void @put_vc1_mspel_mc13_16_c(ptr noundef writeonly captures(non
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !82
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !83
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i8, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %40 = add nuw nsw i32 %.067.i9, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !83
+  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !84
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4358,17 +4358,17 @@ define internal void @put_vc1_mspel_mc13_16_c(ptr noundef writeonly captures(non
   %63 = trunc nuw i32 %61 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %63, i8 %62
   %64 = getelementptr inbounds nuw i8, ptr %.065.i13, i64 %indvars.iv19
-  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %65, label %43, !llvm.loop !84
+  br i1 %exitcond22.not, label %65, label %43, !llvm.loop !85
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i13, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %68 = add nuw nsw i32 %.168.i12, 1
   %exitcond23.not = icmp eq i32 %68, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %65
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -4400,18 +4400,18 @@ define internal void @avg_vc1_mspel_mc13_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i8, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -4424,14 +4424,14 @@ define internal void @avg_vc1_mspel_mc13_c(ptr noundef captures(none) %0, ptr no
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !86
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !87
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 22
   %40 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %40, 8
-  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !87
+  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !88
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4446,7 +4446,7 @@ define internal void @avg_vc1_mspel_mc13_c(ptr noundef captures(none) %0, ptr no
 43:                                               ; preds = %.preheader, %43
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.071.i13, i64 %indvars.iv19
-  %45 = load i8, ptr %44, align 1, !tbaa !40
+  %45 = load i8, ptr %44, align 1, !tbaa !41
   %46 = zext i8 %45 to i16
   %47 = getelementptr inbounds nuw i16, ptr %.1.i14, i64 %indvars.iv19
   %48 = getelementptr inbounds i8, ptr %47, i64 -2
@@ -4480,17 +4480,17 @@ define internal void @avg_vc1_mspel_mc13_c(ptr noundef captures(none) %0, ptr no
   %69 = add nuw nsw i16 %68, %67
   %70 = lshr i16 %69, 1
   %71 = trunc nuw i16 %70 to i8
-  store i8 %71, ptr %44, align 1, !tbaa !40
+  store i8 %71, ptr %44, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !88
+  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !89
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 22
   %75 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %75, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %72
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -4522,18 +4522,18 @@ define internal void @avg_vc1_mspel_mc13_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader6 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i8, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -4546,14 +4546,14 @@ define internal void @avg_vc1_mspel_mc13_16_c(ptr noundef captures(none) %0, ptr
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !90
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !91
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i8, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i10, i64 38
   %40 = add nuw nsw i32 %.073.i9, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !91
+  br i1 %exitcond18.not, label %41, label %.preheader6, !llvm.loop !92
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4568,7 +4568,7 @@ define internal void @avg_vc1_mspel_mc13_16_c(ptr noundef captures(none) %0, ptr
 43:                                               ; preds = %.preheader, %43
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.071.i13, i64 %indvars.iv19
-  %45 = load i8, ptr %44, align 1, !tbaa !40
+  %45 = load i8, ptr %44, align 1, !tbaa !41
   %46 = zext i8 %45 to i16
   %47 = getelementptr inbounds nuw i16, ptr %.1.i14, i64 %indvars.iv19
   %48 = getelementptr inbounds i8, ptr %47, i64 -2
@@ -4602,17 +4602,17 @@ define internal void @avg_vc1_mspel_mc13_16_c(ptr noundef captures(none) %0, ptr
   %69 = add nuw nsw i16 %68, %67
   %70 = lshr i16 %69, 1
   %71 = trunc nuw i16 %70 to i8
-  store i8 %71, ptr %44, align 1, !tbaa !40
+  store i8 %71, ptr %44, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !92
+  br i1 %exitcond22.not, label %72, label %43, !llvm.loop !93
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i13, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i14, i64 38
   %75 = add nuw nsw i32 %.174.i12, 1
   %exitcond23.not = icmp eq i32 %75, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %72
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -4633,15 +4633,15 @@ define internal void @put_vc1_mspel_mc20_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.276.i8, i64 %indvars.iv
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !40
+  %8 = load i8, ptr %7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
-  %10 = load i8, ptr %6, align 1, !tbaa !40
+  %10 = load i8, ptr %6, align 1, !tbaa !41
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = add nuw nsw i32 %14, %11
   %19 = mul nuw nsw i32 %18, 9
@@ -4656,17 +4656,17 @@ define internal void @put_vc1_mspel_mc20_c(ptr noundef writeonly captures(none) 
   %25 = trunc nuw i32 %23 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %25, i8 %24
   %26 = getelementptr inbounds nuw i8, ptr %.2.i10, i64 %indvars.iv
-  store i8 %.0.i.i, ptr %26, align 1, !tbaa !40
+  store i8 %.0.i.i, ptr %26, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %27, label %5, !llvm.loop !70
+  br i1 %exitcond.not, label %27, label %5, !llvm.loop !71
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %29 = getelementptr inbounds i8, ptr %.276.i8, i64 %2
   %30 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %30, 8
-  br i1 %exitcond12.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond12.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !72
 
 put_vc1_mspel_mc.exit:                            ; preds = %27
   ret void
@@ -4686,15 +4686,15 @@ define internal void @put_vc1_mspel_mc20_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.276.i8, i64 %indvars.iv
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !40
+  %8 = load i8, ptr %7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
-  %10 = load i8, ptr %6, align 1, !tbaa !40
+  %10 = load i8, ptr %6, align 1, !tbaa !41
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = add nuw nsw i32 %14, %11
   %19 = mul nuw nsw i32 %18, 9
@@ -4709,17 +4709,17 @@ define internal void @put_vc1_mspel_mc20_16_c(ptr noundef writeonly captures(non
   %25 = trunc nuw i32 %23 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %25, i8 %24
   %26 = getelementptr inbounds nuw i8, ptr %.2.i10, i64 %indvars.iv
-  store i8 %.0.i.i, ptr %26, align 1, !tbaa !40
+  store i8 %.0.i.i, ptr %26, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %27, label %5, !llvm.loop !72
+  br i1 %exitcond.not, label %27, label %5, !llvm.loop !73
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %29 = getelementptr inbounds i8, ptr %.276.i8, i64 %2
   %30 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %30, 16
-  br i1 %exitcond12.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !73
+  br i1 %exitcond12.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !74
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %27
   ret void
@@ -4738,19 +4738,19 @@ define internal void @avg_vc1_mspel_mc20_c(ptr noundef captures(none) %0, ptr no
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.2.i10, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !40
+  %7 = load i8, ptr %6, align 1, !tbaa !41
   %8 = zext i8 %7 to i16
   %9 = getelementptr inbounds nuw i8, ptr %.282.i8, i64 %indvars.iv
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
-  %13 = load i8, ptr %9, align 1, !tbaa !40
+  %13 = load i8, ptr %9, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !40
+  %19 = load i8, ptr %18, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %17, %14
   %22 = mul nuw nsw i32 %21, 9
@@ -4769,17 +4769,17 @@ define internal void @avg_vc1_mspel_mc20_c(ptr noundef captures(none) %0, ptr no
   %31 = add nuw nsw i16 %30, %29
   %32 = lshr i16 %31, 1
   %33 = trunc nuw i16 %32 to i8
-  store i8 %33, ptr %6, align 1, !tbaa !40
+  store i8 %33, ptr %6, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %34, label %5, !llvm.loop !74
+  br i1 %exitcond.not, label %34, label %5, !llvm.loop !75
 
 34:                                               ; preds = %5
   %35 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %36 = getelementptr inbounds i8, ptr %.282.i8, i64 %2
   %37 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %37, 8
-  br i1 %exitcond12.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !75
+  br i1 %exitcond12.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !76
 
 avg_vc1_mspel_mc.exit:                            ; preds = %34
   ret void
@@ -4798,19 +4798,19 @@ define internal void @avg_vc1_mspel_mc20_16_c(ptr noundef captures(none) %0, ptr
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.2.i10, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !40
+  %7 = load i8, ptr %6, align 1, !tbaa !41
   %8 = zext i8 %7 to i16
   %9 = getelementptr inbounds nuw i8, ptr %.282.i8, i64 %indvars.iv
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
-  %13 = load i8, ptr %9, align 1, !tbaa !40
+  %13 = load i8, ptr %9, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !40
+  %19 = load i8, ptr %18, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %17, %14
   %22 = mul nuw nsw i32 %21, 9
@@ -4829,17 +4829,17 @@ define internal void @avg_vc1_mspel_mc20_16_c(ptr noundef captures(none) %0, ptr
   %31 = add nuw nsw i16 %30, %29
   %32 = lshr i16 %31, 1
   %33 = trunc nuw i16 %32 to i8
-  store i8 %33, ptr %6, align 1, !tbaa !40
+  store i8 %33, ptr %6, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %34, label %5, !llvm.loop !76
+  br i1 %exitcond.not, label %34, label %5, !llvm.loop !77
 
 34:                                               ; preds = %5
   %35 = getelementptr inbounds i8, ptr %.2.i10, i64 %2
   %36 = getelementptr inbounds i8, ptr %.282.i8, i64 %2
   %37 = add nuw nsw i32 %.3.i9, 1
   %exitcond12.not = icmp eq i32 %37, 16
-  br i1 %exitcond12.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !77
+  br i1 %exitcond12.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !78
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %34
   ret void
@@ -4870,17 +4870,17 @@ define internal void @put_vc1_mspel_mc21_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader11 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i13, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i = mul nuw nsw i32 %27, 524285
   %28 = shl nuw nsw i32 %17, 2
@@ -4894,14 +4894,14 @@ define internal void @put_vc1_mspel_mc21_c(ptr noundef writeonly captures(none) 
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !78
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !79
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %39 = add nuw nsw i32 %.067.i14, 1
   %exitcond22.not = icmp eq i32 %39, 8
-  br i1 %exitcond22.not, label %40, label %.preheader11, !llvm.loop !79
+  br i1 %exitcond22.not, label %40, label %.preheader11, !llvm.loop !80
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -4940,17 +4940,17 @@ define internal void @put_vc1_mspel_mc21_c(ptr noundef writeonly captures(none) 
   %62 = trunc nuw i32 %60 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %62, i8 %61
   %63 = getelementptr inbounds nuw i8, ptr %.065.i18, i64 %indvars.iv23
-  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !41
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %64, label %42, !llvm.loop !80
+  br i1 %exitcond26.not, label %64, label %42, !llvm.loop !81
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %67 = add nuw nsw i32 %.168.i17, 1
   %exitcond27.not = icmp eq i32 %67, 8
-  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %64
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -4982,17 +4982,17 @@ define internal void @put_vc1_mspel_mc21_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 524285
   %28 = shl nuw nsw i32 %17, 2
@@ -5006,14 +5006,14 @@ define internal void @put_vc1_mspel_mc21_16_c(ptr noundef writeonly captures(non
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !82
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !83
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %39 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %39, 16
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !83
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !84
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5052,17 +5052,17 @@ define internal void @put_vc1_mspel_mc21_16_c(ptr noundef writeonly captures(non
   %62 = trunc nuw i32 %60 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %62, i8 %61
   %63 = getelementptr inbounds nuw i8, ptr %.065.i16, i64 %indvars.iv21
-  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %63, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %64, label %42, !llvm.loop !84
+  br i1 %exitcond24.not, label %64, label %42, !llvm.loop !85
 
 64:                                               ; preds = %42
   %65 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %66 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %67 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %67, 16
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %64
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5094,17 +5094,17 @@ define internal void @avg_vc1_mspel_mc21_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 524285
   %28 = shl nuw nsw i32 %17, 2
@@ -5118,14 +5118,14 @@ define internal void @avg_vc1_mspel_mc21_c(ptr noundef captures(none) %0, ptr no
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !86
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !87
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %39 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %39, 8
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !87
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !88
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5140,7 +5140,7 @@ define internal void @avg_vc1_mspel_mc21_c(ptr noundef captures(none) %0, ptr no
 42:                                               ; preds = %.preheader, %42
   %indvars.iv21 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next22, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.071.i16, i64 %indvars.iv21
-  %44 = load i8, ptr %43, align 1, !tbaa !40
+  %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = zext i8 %44 to i16
   %46 = getelementptr inbounds nuw i16, ptr %.1.i17, i64 %indvars.iv21
   %47 = getelementptr inbounds i8, ptr %46, i64 -2
@@ -5171,17 +5171,17 @@ define internal void @avg_vc1_mspel_mc21_c(ptr noundef captures(none) %0, ptr no
   %68 = add nuw nsw i16 %67, %66
   %69 = lshr i16 %68, 1
   %70 = trunc nuw i16 %69 to i8
-  store i8 %70, ptr %43, align 1, !tbaa !40
+  store i8 %70, ptr %43, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !88
+  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !89
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %74 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %74, 8
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %71
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5213,17 +5213,17 @@ define internal void @avg_vc1_mspel_mc21_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 524285
   %28 = shl nuw nsw i32 %17, 2
@@ -5237,14 +5237,14 @@ define internal void @avg_vc1_mspel_mc21_16_c(ptr noundef captures(none) %0, ptr
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !90
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !91
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %39 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %39, 16
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !91
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !92
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5259,7 +5259,7 @@ define internal void @avg_vc1_mspel_mc21_16_c(ptr noundef captures(none) %0, ptr
 42:                                               ; preds = %.preheader, %42
   %indvars.iv21 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next22, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.071.i16, i64 %indvars.iv21
-  %44 = load i8, ptr %43, align 1, !tbaa !40
+  %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = zext i8 %44 to i16
   %46 = getelementptr inbounds nuw i16, ptr %.1.i17, i64 %indvars.iv21
   %47 = getelementptr inbounds i8, ptr %46, i64 -2
@@ -5290,17 +5290,17 @@ define internal void @avg_vc1_mspel_mc21_16_c(ptr noundef captures(none) %0, ptr
   %68 = add nuw nsw i16 %67, %66
   %69 = lshr i16 %68, 1
   %70 = trunc nuw i16 %69 to i8
-  store i8 %70, ptr %43, align 1, !tbaa !40
+  store i8 %70, ptr %43, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !92
+  br i1 %exitcond24.not, label %71, label %42, !llvm.loop !93
 
 71:                                               ; preds = %42
   %72 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %73 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %74 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %74, 16
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %71
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5331,15 +5331,15 @@ define internal void @put_vc1_mspel_mc22_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader13 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.074.i15, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -5352,14 +5352,14 @@ define internal void @put_vc1_mspel_mc22_c(ptr noundef writeonly captures(none) 
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !78
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !79
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i15, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i17, i64 22
   %36 = add nuw nsw i32 %.067.i16, 1
   %exitcond23.not = icmp eq i32 %36, 8
-  br i1 %exitcond23.not, label %37, label %.preheader13, !llvm.loop !79
+  br i1 %exitcond23.not, label %37, label %.preheader13, !llvm.loop !80
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5398,17 +5398,17 @@ define internal void @put_vc1_mspel_mc22_c(ptr noundef writeonly captures(none) 
   %59 = trunc nuw i32 %57 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %59, i8 %58
   %60 = getelementptr inbounds nuw i8, ptr %.065.i20, i64 %indvars.iv24
-  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !41
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 8
-  br i1 %exitcond27.not, label %61, label %39, !llvm.loop !80
+  br i1 %exitcond27.not, label %61, label %39, !llvm.loop !81
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i20, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i21, i64 22
   %64 = add nuw nsw i32 %.168.i19, 1
   %exitcond28.not = icmp eq i32 %64, 8
-  br i1 %exitcond28.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond28.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %61
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5439,15 +5439,15 @@ define internal void @put_vc1_mspel_mc22_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader11 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.074.i13, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -5460,14 +5460,14 @@ define internal void @put_vc1_mspel_mc22_16_c(ptr noundef writeonly captures(non
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !82
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !83
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 38
   %36 = add nuw nsw i32 %.067.i14, 1
   %exitcond21.not = icmp eq i32 %36, 16
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !83
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !84
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5506,17 +5506,17 @@ define internal void @put_vc1_mspel_mc22_16_c(ptr noundef writeonly captures(non
   %59 = trunc nuw i32 %57 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %59, i8 %58
   %60 = getelementptr inbounds nuw i8, ptr %.065.i18, i64 %indvars.iv22
-  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %60, align 1, !tbaa !41
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 16
-  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !84
+  br i1 %exitcond25.not, label %61, label %39, !llvm.loop !85
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %63 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 38
   %64 = add nuw nsw i32 %.168.i17, 1
   %exitcond26.not = icmp eq i32 %64, 16
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %61
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5547,15 +5547,15 @@ define internal void @avg_vc1_mspel_mc22_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader11 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.080.i13, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -5568,14 +5568,14 @@ define internal void @avg_vc1_mspel_mc22_c(ptr noundef captures(none) %0, ptr no
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !86
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !87
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %36 = add nuw nsw i32 %.073.i14, 1
   %exitcond21.not = icmp eq i32 %36, 8
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !87
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !88
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5590,7 +5590,7 @@ define internal void @avg_vc1_mspel_mc22_c(ptr noundef captures(none) %0, ptr no
 39:                                               ; preds = %.preheader, %39
   %indvars.iv22 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next23, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.071.i18, i64 %indvars.iv22
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i16
   %43 = getelementptr inbounds nuw i16, ptr %.1.i19, i64 %indvars.iv22
   %44 = getelementptr inbounds i8, ptr %43, i64 -2
@@ -5621,17 +5621,17 @@ define internal void @avg_vc1_mspel_mc22_c(ptr noundef captures(none) %0, ptr no
   %65 = add nuw nsw i16 %64, %63
   %66 = lshr i16 %65, 1
   %67 = trunc nuw i16 %66 to i8
-  store i8 %67, ptr %40, align 1, !tbaa !40
+  store i8 %67, ptr %40, align 1, !tbaa !41
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !88
+  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !89
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i18, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %71 = add nuw nsw i32 %.174.i17, 1
   %exitcond26.not = icmp eq i32 %71, 8
-  br i1 %exitcond26.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond26.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %68
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5662,15 +5662,15 @@ define internal void @avg_vc1_mspel_mc22_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader11 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.080.i13, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -5683,14 +5683,14 @@ define internal void @avg_vc1_mspel_mc22_16_c(ptr noundef captures(none) %0, ptr
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !90
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !91
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 38
   %36 = add nuw nsw i32 %.073.i14, 1
   %exitcond21.not = icmp eq i32 %36, 16
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !91
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !92
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5705,7 +5705,7 @@ define internal void @avg_vc1_mspel_mc22_16_c(ptr noundef captures(none) %0, ptr
 39:                                               ; preds = %.preheader, %39
   %indvars.iv22 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next23, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.071.i18, i64 %indvars.iv22
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i16
   %43 = getelementptr inbounds nuw i16, ptr %.1.i19, i64 %indvars.iv22
   %44 = getelementptr inbounds i8, ptr %43, i64 -2
@@ -5736,17 +5736,17 @@ define internal void @avg_vc1_mspel_mc22_16_c(ptr noundef captures(none) %0, ptr
   %65 = add nuw nsw i16 %64, %63
   %66 = lshr i16 %65, 1
   %67 = trunc nuw i16 %66 to i8
-  store i8 %67, ptr %40, align 1, !tbaa !40
+  store i8 %67, ptr %40, align 1, !tbaa !41
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 16
-  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !92
+  br i1 %exitcond25.not, label %68, label %39, !llvm.loop !93
 
 68:                                               ; preds = %39
   %69 = getelementptr inbounds i8, ptr %.071.i18, i64 %2
   %70 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 38
   %71 = add nuw nsw i32 %.174.i17, 1
   %exitcond26.not = icmp eq i32 %71, 16
-  br i1 %exitcond26.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond26.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %68
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -5778,18 +5778,18 @@ define internal void @put_vc1_mspel_mc23_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader11 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i13, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -5802,14 +5802,14 @@ define internal void @put_vc1_mspel_mc23_c(ptr noundef writeonly captures(none) 
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !78
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !79
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %40 = add nuw nsw i32 %.067.i14, 1
   %exitcond22.not = icmp eq i32 %40, 8
-  br i1 %exitcond22.not, label %41, label %.preheader11, !llvm.loop !79
+  br i1 %exitcond22.not, label %41, label %.preheader11, !llvm.loop !80
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5848,17 +5848,17 @@ define internal void @put_vc1_mspel_mc23_c(ptr noundef writeonly captures(none) 
   %63 = trunc nuw i32 %61 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %63, i8 %62
   %64 = getelementptr inbounds nuw i8, ptr %.065.i18, i64 %indvars.iv23
-  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !41
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %65, label %43, !llvm.loop !80
+  br i1 %exitcond26.not, label %65, label %43, !llvm.loop !81
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %68 = add nuw nsw i32 %.168.i17, 1
   %exitcond27.not = icmp eq i32 %68, 8
-  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond27.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %65
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -5890,18 +5890,18 @@ define internal void @put_vc1_mspel_mc23_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -5914,14 +5914,14 @@ define internal void @put_vc1_mspel_mc23_16_c(ptr noundef writeonly captures(non
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !82
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !83
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %40 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %40, 16
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !83
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !84
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -5960,17 +5960,17 @@ define internal void @put_vc1_mspel_mc23_16_c(ptr noundef writeonly captures(non
   %63 = trunc nuw i32 %61 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %63, i8 %62
   %64 = getelementptr inbounds nuw i8, ptr %.065.i16, i64 %indvars.iv21
-  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %64, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !84
+  br i1 %exitcond24.not, label %65, label %43, !llvm.loop !85
 
 65:                                               ; preds = %43
   %66 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %67 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %68 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %68, 16
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %65
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6002,18 +6002,18 @@ define internal void @avg_vc1_mspel_mc23_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -6026,14 +6026,14 @@ define internal void @avg_vc1_mspel_mc23_c(ptr noundef captures(none) %0, ptr no
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !86
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !87
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %40 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %40, 8
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !87
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !88
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6048,7 +6048,7 @@ define internal void @avg_vc1_mspel_mc23_c(ptr noundef captures(none) %0, ptr no
 43:                                               ; preds = %.preheader, %43
   %indvars.iv21 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next22, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.071.i16, i64 %indvars.iv21
-  %45 = load i8, ptr %44, align 1, !tbaa !40
+  %45 = load i8, ptr %44, align 1, !tbaa !41
   %46 = zext i8 %45 to i16
   %47 = getelementptr inbounds nuw i16, ptr %.1.i17, i64 %indvars.iv21
   %48 = getelementptr inbounds i8, ptr %47, i64 -2
@@ -6079,17 +6079,17 @@ define internal void @avg_vc1_mspel_mc23_c(ptr noundef captures(none) %0, ptr no
   %69 = add nuw nsw i16 %68, %67
   %70 = lshr i16 %69, 1
   %71 = trunc nuw i16 %70 to i8
-  store i8 %71, ptr %44, align 1, !tbaa !40
+  store i8 %71, ptr %44, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !88
+  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !89
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %75 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %75, 8
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %72
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -6121,18 +6121,18 @@ define internal void @avg_vc1_mspel_mc23_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -6145,14 +6145,14 @@ define internal void @avg_vc1_mspel_mc23_16_c(ptr noundef captures(none) %0, ptr
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !90
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !91
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %40 = add nuw nsw i32 %.073.i12, 1
   %exitcond20.not = icmp eq i32 %40, 16
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !91
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !92
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6167,7 +6167,7 @@ define internal void @avg_vc1_mspel_mc23_16_c(ptr noundef captures(none) %0, ptr
 43:                                               ; preds = %.preheader, %43
   %indvars.iv21 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next22, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.071.i16, i64 %indvars.iv21
-  %45 = load i8, ptr %44, align 1, !tbaa !40
+  %45 = load i8, ptr %44, align 1, !tbaa !41
   %46 = zext i8 %45 to i16
   %47 = getelementptr inbounds nuw i16, ptr %.1.i17, i64 %indvars.iv21
   %48 = getelementptr inbounds i8, ptr %47, i64 -2
@@ -6198,17 +6198,17 @@ define internal void @avg_vc1_mspel_mc23_16_c(ptr noundef captures(none) %0, ptr
   %69 = add nuw nsw i16 %68, %67
   %70 = lshr i16 %69, 1
   %71 = trunc nuw i16 %70 to i8
-  store i8 %71, ptr %44, align 1, !tbaa !40
+  store i8 %71, ptr %44, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 16
-  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !92
+  br i1 %exitcond24.not, label %72, label %43, !llvm.loop !93
 
 72:                                               ; preds = %43
   %73 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %74 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %75 = add nuw nsw i32 %.174.i15, 1
   %exitcond25.not = icmp eq i32 %75, 16
-  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond25.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %72
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6229,18 +6229,18 @@ define internal void @put_vc1_mspel_mc30_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.276.i6, i64 %indvars.iv
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !40
+  %8 = load i8, ptr %7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
   %10 = mul nsw i32 %9, -3
-  %11 = load i8, ptr %6, align 1, !tbaa !40
+  %11 = load i8, ptr %6, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = mul nuw nsw i32 %12, 18
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %16, 53
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !40
+  %19 = load i8, ptr %18, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %reass.sub = sub i32 %10, %3
   %21 = add i32 %reass.sub, 32
@@ -6255,17 +6255,17 @@ define internal void @put_vc1_mspel_mc30_c(ptr noundef writeonly captures(none) 
   %28 = trunc nuw i32 %26 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %28, i8 %27
   %29 = getelementptr inbounds nuw i8, ptr %.2.i8, i64 %indvars.iv
-  store i8 %.0.i.i, ptr %29, align 1, !tbaa !40
+  store i8 %.0.i.i, ptr %29, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %30, label %5, !llvm.loop !70
+  br i1 %exitcond.not, label %30, label %5, !llvm.loop !71
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %32 = getelementptr inbounds i8, ptr %.276.i6, i64 %2
   %33 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %33, 8
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !71
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !72
 
 put_vc1_mspel_mc.exit:                            ; preds = %30
   ret void
@@ -6285,18 +6285,18 @@ define internal void @put_vc1_mspel_mc30_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.276.i6, i64 %indvars.iv
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !40
+  %8 = load i8, ptr %7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
   %10 = mul nsw i32 %9, -3
-  %11 = load i8, ptr %6, align 1, !tbaa !40
+  %11 = load i8, ptr %6, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = mul nuw nsw i32 %12, 18
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
   %17 = mul nuw nsw i32 %16, 53
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !40
+  %19 = load i8, ptr %18, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %reass.sub = sub i32 %10, %3
   %21 = add i32 %reass.sub, 32
@@ -6311,17 +6311,17 @@ define internal void @put_vc1_mspel_mc30_16_c(ptr noundef writeonly captures(non
   %28 = trunc nuw i32 %26 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %28, i8 %27
   %29 = getelementptr inbounds nuw i8, ptr %.2.i8, i64 %indvars.iv
-  store i8 %.0.i.i, ptr %29, align 1, !tbaa !40
+  store i8 %.0.i.i, ptr %29, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %30, label %5, !llvm.loop !72
+  br i1 %exitcond.not, label %30, label %5, !llvm.loop !73
 
 30:                                               ; preds = %5
   %31 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %32 = getelementptr inbounds i8, ptr %.276.i6, i64 %2
   %33 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %33, 16
-  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !73
+  br i1 %exitcond10.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !74
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %30
   ret void
@@ -6340,22 +6340,22 @@ define internal void @avg_vc1_mspel_mc30_c(ptr noundef captures(none) %0, ptr no
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.2.i8, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !40
+  %7 = load i8, ptr %6, align 1, !tbaa !41
   %8 = zext i8 %7 to i16
   %9 = getelementptr inbounds nuw i8, ptr %.282.i6, i64 %indvars.iv
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = mul nsw i32 %12, -3
-  %14 = load i8, ptr %9, align 1, !tbaa !40
+  %14 = load i8, ptr %9, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nuw nsw i32 %15, 18
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !40
+  %18 = load i8, ptr %17, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %reass.sub = sub i32 %13, %3
   %24 = add i32 %reass.sub, 32
@@ -6374,17 +6374,17 @@ define internal void @avg_vc1_mspel_mc30_c(ptr noundef captures(none) %0, ptr no
   %34 = add nuw nsw i16 %33, %32
   %35 = lshr i16 %34, 1
   %36 = trunc nuw i16 %35 to i8
-  store i8 %36, ptr %6, align 1, !tbaa !40
+  store i8 %36, ptr %6, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %37, label %5, !llvm.loop !74
+  br i1 %exitcond.not, label %37, label %5, !llvm.loop !75
 
 37:                                               ; preds = %5
   %38 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %39 = getelementptr inbounds i8, ptr %.282.i6, i64 %2
   %40 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %40, 8
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !75
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !76
 
 avg_vc1_mspel_mc.exit:                            ; preds = %37
   ret void
@@ -6403,22 +6403,22 @@ define internal void @avg_vc1_mspel_mc30_16_c(ptr noundef captures(none) %0, ptr
 5:                                                ; preds = %.preheader, %5
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %5 ]
   %6 = getelementptr inbounds nuw i8, ptr %.2.i8, i64 %indvars.iv
-  %7 = load i8, ptr %6, align 1, !tbaa !40
+  %7 = load i8, ptr %6, align 1, !tbaa !41
   %8 = zext i8 %7 to i16
   %9 = getelementptr inbounds nuw i8, ptr %.282.i6, i64 %indvars.iv
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
-  %11 = load i8, ptr %10, align 1, !tbaa !40
+  %11 = load i8, ptr %10, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = mul nsw i32 %12, -3
-  %14 = load i8, ptr %9, align 1, !tbaa !40
+  %14 = load i8, ptr %9, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nuw nsw i32 %15, 18
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !40
+  %18 = load i8, ptr %17, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %reass.sub = sub i32 %13, %3
   %24 = add i32 %reass.sub, 32
@@ -6437,17 +6437,17 @@ define internal void @avg_vc1_mspel_mc30_16_c(ptr noundef captures(none) %0, ptr
   %34 = add nuw nsw i16 %33, %32
   %35 = lshr i16 %34, 1
   %36 = trunc nuw i16 %35 to i8
-  store i8 %36, ptr %6, align 1, !tbaa !40
+  store i8 %36, ptr %6, align 1, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %37, label %5, !llvm.loop !76
+  br i1 %exitcond.not, label %37, label %5, !llvm.loop !77
 
 37:                                               ; preds = %5
   %38 = getelementptr inbounds i8, ptr %.2.i8, i64 %2
   %39 = getelementptr inbounds i8, ptr %.282.i6, i64 %2
   %40 = add nuw nsw i32 %.3.i7, 1
   %exitcond10.not = icmp eq i32 %40, 16
-  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !77
+  br i1 %exitcond10.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !78
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %37
   ret void
@@ -6478,17 +6478,17 @@ define internal void @put_vc1_mspel_mc31_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -6502,14 +6502,14 @@ define internal void @put_vc1_mspel_mc31_c(ptr noundef writeonly captures(none) 
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !78
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !79
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %39 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %39, 8
-  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !79
+  br i1 %exitcond20.not, label %40, label %.preheader9, !llvm.loop !80
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6551,17 +6551,17 @@ define internal void @put_vc1_mspel_mc31_c(ptr noundef writeonly captures(none) 
   %64 = trunc nuw i32 %62 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %64, i8 %63
   %65 = getelementptr inbounds nuw i8, ptr %.065.i16, i64 %indvars.iv21
-  store i8 %.0.i85.i, ptr %65, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %65, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %66, label %42, !llvm.loop !80
+  br i1 %exitcond24.not, label %66, label %42, !llvm.loop !81
 
 66:                                               ; preds = %42
   %67 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %68 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %69 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %69, 8
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %66
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -6593,17 +6593,17 @@ define internal void @put_vc1_mspel_mc31_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader7 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i9, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -6617,14 +6617,14 @@ define internal void @put_vc1_mspel_mc31_16_c(ptr noundef writeonly captures(non
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !82
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !83
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.074.i9, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %39 = add nuw nsw i32 %.067.i10, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !83
+  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !84
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6666,17 +6666,17 @@ define internal void @put_vc1_mspel_mc31_16_c(ptr noundef writeonly captures(non
   %64 = trunc nuw i32 %62 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %64, i8 %63
   %65 = getelementptr inbounds nuw i8, ptr %.065.i14, i64 %indvars.iv19
-  store i8 %.0.i85.i, ptr %65, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %65, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %66, label %42, !llvm.loop !84
+  br i1 %exitcond22.not, label %66, label %42, !llvm.loop !85
 
 66:                                               ; preds = %42
   %67 = getelementptr inbounds i8, ptr %.065.i14, i64 %2
   %68 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %69 = add nuw nsw i32 %.168.i13, 1
   %exitcond23.not = icmp eq i32 %69, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %66
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6708,17 +6708,17 @@ define internal void @avg_vc1_mspel_mc31_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader7 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i9, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -6732,14 +6732,14 @@ define internal void @avg_vc1_mspel_mc31_c(ptr noundef captures(none) %0, ptr no
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !86
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !87
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 22
   %39 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %39, 8
-  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !87
+  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !88
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6754,7 +6754,7 @@ define internal void @avg_vc1_mspel_mc31_c(ptr noundef captures(none) %0, ptr no
 42:                                               ; preds = %.preheader, %42
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.071.i14, i64 %indvars.iv19
-  %44 = load i8, ptr %43, align 1, !tbaa !40
+  %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = zext i8 %44 to i16
   %46 = getelementptr inbounds nuw i16, ptr %.1.i15, i64 %indvars.iv19
   %47 = getelementptr inbounds i8, ptr %46, i64 -2
@@ -6788,17 +6788,17 @@ define internal void @avg_vc1_mspel_mc31_c(ptr noundef captures(none) %0, ptr no
   %70 = add nuw nsw i16 %69, %68
   %71 = lshr i16 %70, 1
   %72 = trunc nuw i16 %71 to i8
-  store i8 %72, ptr %43, align 1, !tbaa !40
+  store i8 %72, ptr %43, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !88
+  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !89
 
 73:                                               ; preds = %42
   %74 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %75 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 22
   %76 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %76, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %73
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -6830,17 +6830,17 @@ define internal void @avg_vc1_mspel_mc31_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader7 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i9, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
-  %18 = load i8, ptr %14, align 1, !tbaa !40
+  %18 = load i8, ptr %14, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nuw nsw i32 %19, 53
   %21 = getelementptr inbounds i8, ptr %14, i64 %9
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, 18
   %25 = getelementptr inbounds i8, ptr %14, i64 %11
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %.neg.i.i = mul nuw nsw i32 %27, 2097149
   %28 = shl nuw nsw i32 %17, 2
@@ -6854,14 +6854,14 @@ define internal void @avg_vc1_mspel_mc31_16_c(ptr noundef captures(none) %0, ptr
   store i16 %34, ptr %35, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %36, label %13, !llvm.loop !90
+  br i1 %exitcond.not, label %36, label %13, !llvm.loop !91
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %38 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %39 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %39, 16
-  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !91
+  br i1 %exitcond18.not, label %40, label %.preheader7, !llvm.loop !92
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -6876,7 +6876,7 @@ define internal void @avg_vc1_mspel_mc31_16_c(ptr noundef captures(none) %0, ptr
 42:                                               ; preds = %.preheader, %42
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.071.i14, i64 %indvars.iv19
-  %44 = load i8, ptr %43, align 1, !tbaa !40
+  %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = zext i8 %44 to i16
   %46 = getelementptr inbounds nuw i16, ptr %.1.i15, i64 %indvars.iv19
   %47 = getelementptr inbounds i8, ptr %46, i64 -2
@@ -6910,17 +6910,17 @@ define internal void @avg_vc1_mspel_mc31_16_c(ptr noundef captures(none) %0, ptr
   %70 = add nuw nsw i16 %69, %68
   %71 = lshr i16 %70, 1
   %72 = trunc nuw i16 %71 to i8
-  store i8 %72, ptr %43, align 1, !tbaa !40
+  store i8 %72, ptr %43, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !92
+  br i1 %exitcond22.not, label %73, label %42, !llvm.loop !93
 
 73:                                               ; preds = %42
   %74 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %75 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %76 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %76, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %73
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -6952,15 +6952,15 @@ define internal void @put_vc1_mspel_mc32_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader11 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.074.i13, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -6973,14 +6973,14 @@ define internal void @put_vc1_mspel_mc32_c(ptr noundef writeonly captures(none) 
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !78
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !79
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i13, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 22
   %36 = add nuw nsw i32 %.067.i14, 1
   %exitcond21.not = icmp eq i32 %36, 8
-  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !79
+  br i1 %exitcond21.not, label %37, label %.preheader11, !llvm.loop !80
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7022,17 +7022,17 @@ define internal void @put_vc1_mspel_mc32_c(ptr noundef writeonly captures(none) 
   %61 = trunc nuw i32 %59 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %61, i8 %60
   %62 = getelementptr inbounds nuw i8, ptr %.065.i18, i64 %indvars.iv22
-  store i8 %.0.i85.i, ptr %62, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %62, align 1, !tbaa !41
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next23, 8
-  br i1 %exitcond25.not, label %63, label %39, !llvm.loop !80
+  br i1 %exitcond25.not, label %63, label %39, !llvm.loop !81
 
 63:                                               ; preds = %39
   %64 = getelementptr inbounds i8, ptr %.065.i18, i64 %2
   %65 = getelementptr inbounds nuw i8, ptr %.1.i19, i64 22
   %66 = add nuw nsw i32 %.168.i17, 1
   %exitcond26.not = icmp eq i32 %66, 8
-  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond26.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %63
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7064,15 +7064,15 @@ define internal void @put_vc1_mspel_mc32_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.074.i11, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -7085,14 +7085,14 @@ define internal void @put_vc1_mspel_mc32_16_c(ptr noundef writeonly captures(non
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !82
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !83
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %36 = add nuw nsw i32 %.067.i12, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !83
+  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !84
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7134,17 +7134,17 @@ define internal void @put_vc1_mspel_mc32_16_c(ptr noundef writeonly captures(non
   %61 = trunc nuw i32 %59 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %61, i8 %60
   %62 = getelementptr inbounds nuw i8, ptr %.065.i16, i64 %indvars.iv20
-  store i8 %.0.i85.i, ptr %62, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %62, align 1, !tbaa !41
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %63, label %39, !llvm.loop !84
+  br i1 %exitcond23.not, label %63, label %39, !llvm.loop !85
 
 63:                                               ; preds = %39
   %64 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %65 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %66 = add nuw nsw i32 %.168.i15, 1
   %exitcond24.not = icmp eq i32 %66, 16
-  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond24.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %63
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -7176,15 +7176,15 @@ define internal void @avg_vc1_mspel_mc32_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.080.i11, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -7197,14 +7197,14 @@ define internal void @avg_vc1_mspel_mc32_c(ptr noundef captures(none) %0, ptr no
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !86
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !87
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %36 = add nuw nsw i32 %.073.i12, 1
   %exitcond19.not = icmp eq i32 %36, 8
-  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !87
+  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !88
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7219,7 +7219,7 @@ define internal void @avg_vc1_mspel_mc32_c(ptr noundef captures(none) %0, ptr no
 39:                                               ; preds = %.preheader, %39
   %indvars.iv20 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next21, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.071.i16, i64 %indvars.iv20
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i16
   %43 = getelementptr inbounds nuw i16, ptr %.1.i17, i64 %indvars.iv20
   %44 = getelementptr inbounds i8, ptr %43, i64 -2
@@ -7253,17 +7253,17 @@ define internal void @avg_vc1_mspel_mc32_c(ptr noundef captures(none) %0, ptr no
   %67 = add nuw nsw i16 %66, %65
   %68 = lshr i16 %67, 1
   %69 = trunc nuw i16 %68 to i8
-  store i8 %69, ptr %40, align 1, !tbaa !40
+  store i8 %69, ptr %40, align 1, !tbaa !41
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 8
-  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !88
+  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !89
 
 70:                                               ; preds = %39
   %71 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %72 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %73 = add nuw nsw i32 %.174.i15, 1
   %exitcond24.not = icmp eq i32 %73, 8
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %70
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7295,15 +7295,15 @@ define internal void @avg_vc1_mspel_mc32_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw i8, ptr %.080.i11, i64 %indvars.iv
   %14 = getelementptr inbounds i8, ptr %13, i64 %8
-  %15 = load i8, ptr %14, align 1, !tbaa !40
+  %15 = load i8, ptr %14, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
-  %17 = load i8, ptr %13, align 1, !tbaa !40
+  %17 = load i8, ptr %13, align 1, !tbaa !41
   %18 = zext i8 %17 to i32
   %19 = getelementptr inbounds i8, ptr %13, i64 %9
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = getelementptr inbounds i8, ptr %13, i64 %11
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %21, %18
   %26 = mul nuw nsw i32 %25, 9
@@ -7316,14 +7316,14 @@ define internal void @avg_vc1_mspel_mc32_16_c(ptr noundef captures(none) %0, ptr
   store i16 %31, ptr %32, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %33, label %12, !llvm.loop !90
+  br i1 %exitcond.not, label %33, label %12, !llvm.loop !91
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds i8, ptr %.080.i11, i64 %2
   %35 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 38
   %36 = add nuw nsw i32 %.073.i12, 1
   %exitcond19.not = icmp eq i32 %36, 16
-  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !91
+  br i1 %exitcond19.not, label %37, label %.preheader9, !llvm.loop !92
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7338,7 +7338,7 @@ define internal void @avg_vc1_mspel_mc32_16_c(ptr noundef captures(none) %0, ptr
 39:                                               ; preds = %.preheader, %39
   %indvars.iv20 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next21, %39 ]
   %40 = getelementptr inbounds nuw i8, ptr %.071.i16, i64 %indvars.iv20
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i16
   %43 = getelementptr inbounds nuw i16, ptr %.1.i17, i64 %indvars.iv20
   %44 = getelementptr inbounds i8, ptr %43, i64 -2
@@ -7372,17 +7372,17 @@ define internal void @avg_vc1_mspel_mc32_16_c(ptr noundef captures(none) %0, ptr
   %67 = add nuw nsw i16 %66, %65
   %68 = lshr i16 %67, 1
   %69 = trunc nuw i16 %68 to i8
-  store i8 %69, ptr %40, align 1, !tbaa !40
+  store i8 %69, ptr %40, align 1, !tbaa !41
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %exitcond23.not = icmp eq i64 %indvars.iv.next21, 16
-  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !92
+  br i1 %exitcond23.not, label %70, label %39, !llvm.loop !93
 
 70:                                               ; preds = %39
   %71 = getelementptr inbounds i8, ptr %.071.i16, i64 %2
   %72 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 38
   %73 = add nuw nsw i32 %.174.i15, 1
   %exitcond24.not = icmp eq i32 %73, 16
-  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond24.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %70
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -7414,18 +7414,18 @@ define internal void @put_vc1_mspel_mc33_c(ptr noundef writeonly captures(none) 
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i11, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -7438,14 +7438,14 @@ define internal void @put_vc1_mspel_mc33_c(ptr noundef writeonly captures(none) 
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !78
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !79
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i11, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i13, i64 22
   %40 = add nuw nsw i32 %.067.i12, 1
   %exitcond20.not = icmp eq i32 %40, 8
-  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !79
+  br i1 %exitcond20.not, label %41, label %.preheader9, !llvm.loop !80
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7487,17 +7487,17 @@ define internal void @put_vc1_mspel_mc33_c(ptr noundef writeonly captures(none) 
   %65 = trunc nuw i32 %63 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %65, i8 %64
   %66 = getelementptr inbounds nuw i8, ptr %.065.i16, i64 %indvars.iv21
-  store i8 %.0.i85.i, ptr %66, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %66, align 1, !tbaa !41
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 8
-  br i1 %exitcond24.not, label %67, label %43, !llvm.loop !80
+  br i1 %exitcond24.not, label %67, label %43, !llvm.loop !81
 
 67:                                               ; preds = %43
   %68 = getelementptr inbounds i8, ptr %.065.i16, i64 %2
   %69 = getelementptr inbounds nuw i8, ptr %.1.i17, i64 22
   %70 = add nuw nsw i32 %.168.i15, 1
   %exitcond25.not = icmp eq i32 %70, 8
-  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !81
+  br i1 %exitcond25.not, label %put_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !82
 
 put_vc1_mspel_mc.exit:                            ; preds = %67
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7529,18 +7529,18 @@ define internal void @put_vc1_mspel_mc33_16_c(ptr noundef writeonly captures(non
   %indvars.iv = phi i64 [ 0, %.preheader7 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.074.i9, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -7553,14 +7553,14 @@ define internal void @put_vc1_mspel_mc33_16_c(ptr noundef writeonly captures(non
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !82
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !83
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.074.i9, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %40 = add nuw nsw i32 %.067.i10, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !83
+  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !84
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7602,17 +7602,17 @@ define internal void @put_vc1_mspel_mc33_16_c(ptr noundef writeonly captures(non
   %65 = trunc nuw i32 %63 to i8
   %.0.i85.i = select i1 %.not.i83.i, i8 %65, i8 %64
   %66 = getelementptr inbounds nuw i8, ptr %.065.i14, i64 %indvars.iv19
-  store i8 %.0.i85.i, ptr %66, align 1, !tbaa !40
+  store i8 %.0.i85.i, ptr %66, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %67, label %43, !llvm.loop !84
+  br i1 %exitcond22.not, label %67, label %43, !llvm.loop !85
 
 67:                                               ; preds = %43
   %68 = getelementptr inbounds i8, ptr %.065.i14, i64 %2
   %69 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %70 = add nuw nsw i32 %.168.i13, 1
   %exitcond23.not = icmp eq i32 %70, 16
-  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !85
+  br i1 %exitcond23.not, label %put_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !86
 
 put_vc1_mspel_mc_16.exit:                         ; preds = %67
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -7644,18 +7644,18 @@ define internal void @avg_vc1_mspel_mc33_c(ptr noundef captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.preheader7 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i9, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -7668,14 +7668,14 @@ define internal void @avg_vc1_mspel_mc33_c(ptr noundef captures(none) %0, ptr no
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !86
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !87
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 22
   %40 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %40, 8
-  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !87
+  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !88
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7690,7 +7690,7 @@ define internal void @avg_vc1_mspel_mc33_c(ptr noundef captures(none) %0, ptr no
 43:                                               ; preds = %.preheader, %43
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.071.i14, i64 %indvars.iv19
-  %45 = load i8, ptr %44, align 1, !tbaa !40
+  %45 = load i8, ptr %44, align 1, !tbaa !41
   %46 = zext i8 %45 to i16
   %47 = getelementptr inbounds nuw i16, ptr %.1.i15, i64 %indvars.iv19
   %48 = getelementptr inbounds i8, ptr %47, i64 -2
@@ -7724,17 +7724,17 @@ define internal void @avg_vc1_mspel_mc33_c(ptr noundef captures(none) %0, ptr no
   %71 = add nuw nsw i16 %70, %69
   %72 = lshr i16 %71, 1
   %73 = trunc nuw i16 %72 to i8
-  store i8 %73, ptr %44, align 1, !tbaa !40
+  store i8 %73, ptr %44, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !88
+  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !89
 
 74:                                               ; preds = %43
   %75 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %76 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 22
   %77 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %77, 8
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !89
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc.exit, label %.preheader, !llvm.loop !90
 
 avg_vc1_mspel_mc.exit:                            ; preds = %74
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %5) #7
@@ -7766,18 +7766,18 @@ define internal void @avg_vc1_mspel_mc33_16_c(ptr noundef captures(none) %0, ptr
   %indvars.iv = phi i64 [ 0, %.preheader7 ], [ %indvars.iv.next, %13 ]
   %14 = getelementptr inbounds nuw i8, ptr %.080.i9, i64 %indvars.iv
   %15 = getelementptr inbounds i8, ptr %14, i64 %8
-  %16 = load i8, ptr %15, align 1, !tbaa !40
+  %16 = load i8, ptr %15, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %17, -3
-  %19 = load i8, ptr %14, align 1, !tbaa !40
+  %19 = load i8, ptr %14, align 1, !tbaa !41
   %20 = zext i8 %19 to i32
   %21 = mul nuw nsw i32 %20, 18
   %22 = getelementptr inbounds i8, ptr %14, i64 %9
-  %23 = load i8, ptr %22, align 1, !tbaa !40
+  %23 = load i8, ptr %22, align 1, !tbaa !41
   %24 = zext i8 %23 to i32
   %25 = mul nuw nsw i32 %24, 53
   %26 = getelementptr inbounds i8, ptr %14, i64 %11
-  %27 = load i8, ptr %26, align 1, !tbaa !40
+  %27 = load i8, ptr %26, align 1, !tbaa !41
   %28 = zext i8 %27 to i32
   %29 = add i32 %12, %18
   %30 = add i32 %29, %21
@@ -7790,14 +7790,14 @@ define internal void @avg_vc1_mspel_mc33_16_c(ptr noundef captures(none) %0, ptr
   store i16 %35, ptr %36, align 2, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %37, label %13, !llvm.loop !90
+  br i1 %exitcond.not, label %37, label %13, !llvm.loop !91
 
 37:                                               ; preds = %13
   %38 = getelementptr inbounds i8, ptr %.080.i9, i64 %2
   %39 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 38
   %40 = add nuw nsw i32 %.073.i10, 1
   %exitcond18.not = icmp eq i32 %40, 16
-  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !91
+  br i1 %exitcond18.not, label %41, label %.preheader7, !llvm.loop !92
 
 41:                                               ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 2
@@ -7812,7 +7812,7 @@ define internal void @avg_vc1_mspel_mc33_16_c(ptr noundef captures(none) %0, ptr
 43:                                               ; preds = %.preheader, %43
   %indvars.iv19 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next20, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.071.i14, i64 %indvars.iv19
-  %45 = load i8, ptr %44, align 1, !tbaa !40
+  %45 = load i8, ptr %44, align 1, !tbaa !41
   %46 = zext i8 %45 to i16
   %47 = getelementptr inbounds nuw i16, ptr %.1.i15, i64 %indvars.iv19
   %48 = getelementptr inbounds i8, ptr %47, i64 -2
@@ -7846,17 +7846,17 @@ define internal void @avg_vc1_mspel_mc33_16_c(ptr noundef captures(none) %0, ptr
   %71 = add nuw nsw i16 %70, %69
   %72 = lshr i16 %71, 1
   %73 = trunc nuw i16 %72 to i8
-  store i8 %73, ptr %44, align 1, !tbaa !40
+  store i8 %73, ptr %44, align 1, !tbaa !41
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !92
+  br i1 %exitcond22.not, label %74, label %43, !llvm.loop !93
 
 74:                                               ; preds = %43
   %75 = getelementptr inbounds i8, ptr %.071.i14, i64 %2
   %76 = getelementptr inbounds nuw i8, ptr %.1.i15, i64 38
   %77 = add nuw nsw i32 %.174.i13, 1
   %exitcond23.not = icmp eq i32 %77, 16
-  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !93
+  br i1 %exitcond23.not, label %avg_vc1_mspel_mc_16.exit, label %.preheader, !llvm.loop !94
 
 avg_vc1_mspel_mc_16.exit:                         ; preds = %74
   call void @llvm.lifetime.end.p0(i64 608, ptr nonnull %5) #7
@@ -7878,19 +7878,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %.0106 = phi i32 [ %183, %.lr.ph ], [ 0, %6 ]
   %.0102105 = phi ptr [ %182, %.lr.ph ], [ %0, %6 ]
   %.0103104 = phi ptr [ %21, %.lr.ph ], [ %1, %6 ]
-  %14 = load i8, ptr %.0103104, align 1, !tbaa !40
+  %14 = load i8, ptr %.0103104, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %.0103104, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !40
+  %18 = load i8, ptr %17, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nsw i32 %10, %19
   %21 = getelementptr inbounds i8, ptr %.0103104, i64 %2
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nsw i32 %11, %23
   %25 = getelementptr i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %28 = mul nsw i32 %12, %27
   %29 = add i32 %16, 28
@@ -7899,19 +7899,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %32 = add i32 %31, %28
   %33 = lshr i32 %32, 6
   %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %.0102105, align 1, !tbaa !40
-  %35 = load i8, ptr %17, align 1, !tbaa !40
+  store i8 %34, ptr %.0102105, align 1, !tbaa !41
+  %35 = load i8, ptr %17, align 1, !tbaa !41
   %36 = zext i8 %35 to i32
   %37 = mul nsw i32 %9, %36
   %38 = getelementptr inbounds nuw i8, ptr %.0103104, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !40
+  %39 = load i8, ptr %38, align 1, !tbaa !41
   %40 = zext i8 %39 to i32
   %41 = mul nsw i32 %10, %40
-  %42 = load i8, ptr %25, align 1, !tbaa !40
+  %42 = load i8, ptr %25, align 1, !tbaa !41
   %43 = zext i8 %42 to i32
   %44 = mul nsw i32 %11, %43
   %45 = getelementptr i8, ptr %21, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !40
+  %46 = load i8, ptr %45, align 1, !tbaa !41
   %47 = zext i8 %46 to i32
   %48 = mul nsw i32 %12, %47
   %49 = add i32 %37, 28
@@ -7921,19 +7921,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %53 = lshr i32 %52, 6
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %.0102105, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !40
-  %56 = load i8, ptr %38, align 1, !tbaa !40
+  store i8 %54, ptr %55, align 1, !tbaa !41
+  %56 = load i8, ptr %38, align 1, !tbaa !41
   %57 = zext i8 %56 to i32
   %58 = mul nsw i32 %9, %57
   %59 = getelementptr inbounds nuw i8, ptr %.0103104, i64 3
-  %60 = load i8, ptr %59, align 1, !tbaa !40
+  %60 = load i8, ptr %59, align 1, !tbaa !41
   %61 = zext i8 %60 to i32
   %62 = mul nsw i32 %10, %61
-  %63 = load i8, ptr %45, align 1, !tbaa !40
+  %63 = load i8, ptr %45, align 1, !tbaa !41
   %64 = zext i8 %63 to i32
   %65 = mul nsw i32 %11, %64
   %66 = getelementptr i8, ptr %21, i64 3
-  %67 = load i8, ptr %66, align 1, !tbaa !40
+  %67 = load i8, ptr %66, align 1, !tbaa !41
   %68 = zext i8 %67 to i32
   %69 = mul nsw i32 %12, %68
   %70 = add i32 %58, 28
@@ -7943,19 +7943,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %74 = lshr i32 %73, 6
   %75 = trunc i32 %74 to i8
   %76 = getelementptr inbounds nuw i8, ptr %.0102105, i64 2
-  store i8 %75, ptr %76, align 1, !tbaa !40
-  %77 = load i8, ptr %59, align 1, !tbaa !40
+  store i8 %75, ptr %76, align 1, !tbaa !41
+  %77 = load i8, ptr %59, align 1, !tbaa !41
   %78 = zext i8 %77 to i32
   %79 = mul nsw i32 %9, %78
   %80 = getelementptr inbounds nuw i8, ptr %.0103104, i64 4
-  %81 = load i8, ptr %80, align 1, !tbaa !40
+  %81 = load i8, ptr %80, align 1, !tbaa !41
   %82 = zext i8 %81 to i32
   %83 = mul nsw i32 %10, %82
-  %84 = load i8, ptr %66, align 1, !tbaa !40
+  %84 = load i8, ptr %66, align 1, !tbaa !41
   %85 = zext i8 %84 to i32
   %86 = mul nsw i32 %11, %85
   %87 = getelementptr i8, ptr %21, i64 4
-  %88 = load i8, ptr %87, align 1, !tbaa !40
+  %88 = load i8, ptr %87, align 1, !tbaa !41
   %89 = zext i8 %88 to i32
   %90 = mul nsw i32 %12, %89
   %91 = add i32 %79, 28
@@ -7965,19 +7965,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %95 = lshr i32 %94, 6
   %96 = trunc i32 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %.0102105, i64 3
-  store i8 %96, ptr %97, align 1, !tbaa !40
-  %98 = load i8, ptr %80, align 1, !tbaa !40
+  store i8 %96, ptr %97, align 1, !tbaa !41
+  %98 = load i8, ptr %80, align 1, !tbaa !41
   %99 = zext i8 %98 to i32
   %100 = mul nsw i32 %9, %99
   %101 = getelementptr inbounds nuw i8, ptr %.0103104, i64 5
-  %102 = load i8, ptr %101, align 1, !tbaa !40
+  %102 = load i8, ptr %101, align 1, !tbaa !41
   %103 = zext i8 %102 to i32
   %104 = mul nsw i32 %10, %103
-  %105 = load i8, ptr %87, align 1, !tbaa !40
+  %105 = load i8, ptr %87, align 1, !tbaa !41
   %106 = zext i8 %105 to i32
   %107 = mul nsw i32 %11, %106
   %108 = getelementptr i8, ptr %21, i64 5
-  %109 = load i8, ptr %108, align 1, !tbaa !40
+  %109 = load i8, ptr %108, align 1, !tbaa !41
   %110 = zext i8 %109 to i32
   %111 = mul nsw i32 %12, %110
   %112 = add i32 %100, 28
@@ -7987,19 +7987,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %116 = lshr i32 %115, 6
   %117 = trunc i32 %116 to i8
   %118 = getelementptr inbounds nuw i8, ptr %.0102105, i64 4
-  store i8 %117, ptr %118, align 1, !tbaa !40
-  %119 = load i8, ptr %101, align 1, !tbaa !40
+  store i8 %117, ptr %118, align 1, !tbaa !41
+  %119 = load i8, ptr %101, align 1, !tbaa !41
   %120 = zext i8 %119 to i32
   %121 = mul nsw i32 %9, %120
   %122 = getelementptr inbounds nuw i8, ptr %.0103104, i64 6
-  %123 = load i8, ptr %122, align 1, !tbaa !40
+  %123 = load i8, ptr %122, align 1, !tbaa !41
   %124 = zext i8 %123 to i32
   %125 = mul nsw i32 %10, %124
-  %126 = load i8, ptr %108, align 1, !tbaa !40
+  %126 = load i8, ptr %108, align 1, !tbaa !41
   %127 = zext i8 %126 to i32
   %128 = mul nsw i32 %11, %127
   %129 = getelementptr i8, ptr %21, i64 6
-  %130 = load i8, ptr %129, align 1, !tbaa !40
+  %130 = load i8, ptr %129, align 1, !tbaa !41
   %131 = zext i8 %130 to i32
   %132 = mul nsw i32 %12, %131
   %133 = add i32 %121, 28
@@ -8009,19 +8009,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %137 = lshr i32 %136, 6
   %138 = trunc i32 %137 to i8
   %139 = getelementptr inbounds nuw i8, ptr %.0102105, i64 5
-  store i8 %138, ptr %139, align 1, !tbaa !40
-  %140 = load i8, ptr %122, align 1, !tbaa !40
+  store i8 %138, ptr %139, align 1, !tbaa !41
+  %140 = load i8, ptr %122, align 1, !tbaa !41
   %141 = zext i8 %140 to i32
   %142 = mul nsw i32 %9, %141
   %143 = getelementptr inbounds nuw i8, ptr %.0103104, i64 7
-  %144 = load i8, ptr %143, align 1, !tbaa !40
+  %144 = load i8, ptr %143, align 1, !tbaa !41
   %145 = zext i8 %144 to i32
   %146 = mul nsw i32 %10, %145
-  %147 = load i8, ptr %129, align 1, !tbaa !40
+  %147 = load i8, ptr %129, align 1, !tbaa !41
   %148 = zext i8 %147 to i32
   %149 = mul nsw i32 %11, %148
   %150 = getelementptr i8, ptr %21, i64 7
-  %151 = load i8, ptr %150, align 1, !tbaa !40
+  %151 = load i8, ptr %150, align 1, !tbaa !41
   %152 = zext i8 %151 to i32
   %153 = mul nsw i32 %12, %152
   %154 = add i32 %142, 28
@@ -8031,19 +8031,19 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %158 = lshr i32 %157, 6
   %159 = trunc i32 %158 to i8
   %160 = getelementptr inbounds nuw i8, ptr %.0102105, i64 6
-  store i8 %159, ptr %160, align 1, !tbaa !40
-  %161 = load i8, ptr %143, align 1, !tbaa !40
+  store i8 %159, ptr %160, align 1, !tbaa !41
+  %161 = load i8, ptr %143, align 1, !tbaa !41
   %162 = zext i8 %161 to i32
   %163 = mul nsw i32 %9, %162
   %164 = getelementptr inbounds nuw i8, ptr %.0103104, i64 8
-  %165 = load i8, ptr %164, align 1, !tbaa !40
+  %165 = load i8, ptr %164, align 1, !tbaa !41
   %166 = zext i8 %165 to i32
   %167 = mul nsw i32 %10, %166
-  %168 = load i8, ptr %150, align 1, !tbaa !40
+  %168 = load i8, ptr %150, align 1, !tbaa !41
   %169 = zext i8 %168 to i32
   %170 = mul nsw i32 %11, %169
   %171 = getelementptr i8, ptr %21, i64 8
-  %172 = load i8, ptr %171, align 1, !tbaa !40
+  %172 = load i8, ptr %171, align 1, !tbaa !41
   %173 = zext i8 %172 to i32
   %174 = mul nsw i32 %12, %173
   %175 = add i32 %163, 28
@@ -8053,11 +8053,11 @@ define internal void @put_no_rnd_vc1_chroma_mc8_c(ptr noundef writeonly captures
   %179 = lshr i32 %178, 6
   %180 = trunc i32 %179 to i8
   %181 = getelementptr inbounds nuw i8, ptr %.0102105, i64 7
-  store i8 %180, ptr %181, align 1, !tbaa !40
+  store i8 %180, ptr %181, align 1, !tbaa !41
   %182 = getelementptr inbounds i8, ptr %.0102105, i64 %2
   %183 = add nuw nsw i32 %.0106, 1
   %exitcond.not = icmp eq i32 %183, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -8082,21 +8082,21 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %.0114.lver.orig = phi i32 [ %223, %.lr.ph.lver.orig ], [ 0, %.lr.ph.lver.check ]
   %.0110113.lver.orig = phi ptr [ %222, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
   %.0111112.lver.orig = phi ptr [ %23, %.lr.ph.lver.orig ], [ %1, %.lr.ph.lver.check ]
-  %14 = load i8, ptr %.0110113.lver.orig, align 1, !tbaa !40
+  %14 = load i8, ptr %.0110113.lver.orig, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %.0111112.lver.orig, align 1, !tbaa !40
+  %16 = load i8, ptr %.0111112.lver.orig, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %9, %17
   %19 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = mul nsw i32 %10, %21
   %23 = getelementptr inbounds i8, ptr %.0111112.lver.orig, i64 %2
-  %24 = load i8, ptr %23, align 1, !tbaa !40
+  %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %11, %25
   %27 = getelementptr i8, ptr %23, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !40
+  %28 = load i8, ptr %27, align 1, !tbaa !41
   %29 = zext i8 %28 to i32
   %30 = mul nsw i32 %12, %29
   %31 = add i32 %18, 28
@@ -8108,22 +8108,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %37 = add nuw nsw i32 %36, %35
   %38 = lshr i32 %37, 1
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.0110113.lver.orig, align 1, !tbaa !40
+  store i8 %39, ptr %.0110113.lver.orig, align 1, !tbaa !41
   %40 = getelementptr inbounds nuw i8, ptr %.0110113.lver.orig, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i32
-  %43 = load i8, ptr %19, align 1, !tbaa !40
+  %43 = load i8, ptr %19, align 1, !tbaa !41
   %44 = zext i8 %43 to i32
   %45 = mul nsw i32 %9, %44
   %46 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 2
-  %47 = load i8, ptr %46, align 1, !tbaa !40
+  %47 = load i8, ptr %46, align 1, !tbaa !41
   %48 = zext i8 %47 to i32
   %49 = mul nsw i32 %10, %48
-  %50 = load i8, ptr %27, align 1, !tbaa !40
+  %50 = load i8, ptr %27, align 1, !tbaa !41
   %51 = zext i8 %50 to i32
   %52 = mul nsw i32 %11, %51
   %53 = getelementptr i8, ptr %23, i64 2
-  %54 = load i8, ptr %53, align 1, !tbaa !40
+  %54 = load i8, ptr %53, align 1, !tbaa !41
   %55 = zext i8 %54 to i32
   %56 = mul nsw i32 %12, %55
   %57 = add i32 %45, 28
@@ -8135,22 +8135,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %63 = add nuw nsw i32 %62, %61
   %64 = lshr i32 %63, 1
   %65 = trunc i32 %64 to i8
-  store i8 %65, ptr %40, align 1, !tbaa !40
+  store i8 %65, ptr %40, align 1, !tbaa !41
   %66 = getelementptr inbounds nuw i8, ptr %.0110113.lver.orig, i64 2
-  %67 = load i8, ptr %66, align 1, !tbaa !40
+  %67 = load i8, ptr %66, align 1, !tbaa !41
   %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %46, align 1, !tbaa !40
+  %69 = load i8, ptr %46, align 1, !tbaa !41
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %9, %70
   %72 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 3
-  %73 = load i8, ptr %72, align 1, !tbaa !40
+  %73 = load i8, ptr %72, align 1, !tbaa !41
   %74 = zext i8 %73 to i32
   %75 = mul nsw i32 %10, %74
-  %76 = load i8, ptr %53, align 1, !tbaa !40
+  %76 = load i8, ptr %53, align 1, !tbaa !41
   %77 = zext i8 %76 to i32
   %78 = mul nsw i32 %11, %77
   %79 = getelementptr i8, ptr %23, i64 3
-  %80 = load i8, ptr %79, align 1, !tbaa !40
+  %80 = load i8, ptr %79, align 1, !tbaa !41
   %81 = zext i8 %80 to i32
   %82 = mul nsw i32 %12, %81
   %83 = add i32 %71, 28
@@ -8162,22 +8162,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %89 = add nuw nsw i32 %88, %87
   %90 = lshr i32 %89, 1
   %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %66, align 1, !tbaa !40
+  store i8 %91, ptr %66, align 1, !tbaa !41
   %92 = getelementptr inbounds nuw i8, ptr %.0110113.lver.orig, i64 3
-  %93 = load i8, ptr %92, align 1, !tbaa !40
+  %93 = load i8, ptr %92, align 1, !tbaa !41
   %94 = zext i8 %93 to i32
-  %95 = load i8, ptr %72, align 1, !tbaa !40
+  %95 = load i8, ptr %72, align 1, !tbaa !41
   %96 = zext i8 %95 to i32
   %97 = mul nsw i32 %9, %96
   %98 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 4
-  %99 = load i8, ptr %98, align 1, !tbaa !40
+  %99 = load i8, ptr %98, align 1, !tbaa !41
   %100 = zext i8 %99 to i32
   %101 = mul nsw i32 %10, %100
-  %102 = load i8, ptr %79, align 1, !tbaa !40
+  %102 = load i8, ptr %79, align 1, !tbaa !41
   %103 = zext i8 %102 to i32
   %104 = mul nsw i32 %11, %103
   %105 = getelementptr i8, ptr %23, i64 4
-  %106 = load i8, ptr %105, align 1, !tbaa !40
+  %106 = load i8, ptr %105, align 1, !tbaa !41
   %107 = zext i8 %106 to i32
   %108 = mul nsw i32 %12, %107
   %109 = add i32 %97, 28
@@ -8189,22 +8189,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %115 = add nuw nsw i32 %114, %113
   %116 = lshr i32 %115, 1
   %117 = trunc i32 %116 to i8
-  store i8 %117, ptr %92, align 1, !tbaa !40
+  store i8 %117, ptr %92, align 1, !tbaa !41
   %118 = getelementptr inbounds nuw i8, ptr %.0110113.lver.orig, i64 4
-  %119 = load i8, ptr %118, align 1, !tbaa !40
+  %119 = load i8, ptr %118, align 1, !tbaa !41
   %120 = zext i8 %119 to i32
-  %121 = load i8, ptr %98, align 1, !tbaa !40
+  %121 = load i8, ptr %98, align 1, !tbaa !41
   %122 = zext i8 %121 to i32
   %123 = mul nsw i32 %9, %122
   %124 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 5
-  %125 = load i8, ptr %124, align 1, !tbaa !40
+  %125 = load i8, ptr %124, align 1, !tbaa !41
   %126 = zext i8 %125 to i32
   %127 = mul nsw i32 %10, %126
-  %128 = load i8, ptr %105, align 1, !tbaa !40
+  %128 = load i8, ptr %105, align 1, !tbaa !41
   %129 = zext i8 %128 to i32
   %130 = mul nsw i32 %11, %129
   %131 = getelementptr i8, ptr %23, i64 5
-  %132 = load i8, ptr %131, align 1, !tbaa !40
+  %132 = load i8, ptr %131, align 1, !tbaa !41
   %133 = zext i8 %132 to i32
   %134 = mul nsw i32 %12, %133
   %135 = add i32 %123, 28
@@ -8216,22 +8216,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %141 = add nuw nsw i32 %140, %139
   %142 = lshr i32 %141, 1
   %143 = trunc i32 %142 to i8
-  store i8 %143, ptr %118, align 1, !tbaa !40
+  store i8 %143, ptr %118, align 1, !tbaa !41
   %144 = getelementptr inbounds nuw i8, ptr %.0110113.lver.orig, i64 5
-  %145 = load i8, ptr %144, align 1, !tbaa !40
+  %145 = load i8, ptr %144, align 1, !tbaa !41
   %146 = zext i8 %145 to i32
-  %147 = load i8, ptr %124, align 1, !tbaa !40
+  %147 = load i8, ptr %124, align 1, !tbaa !41
   %148 = zext i8 %147 to i32
   %149 = mul nsw i32 %9, %148
   %150 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 6
-  %151 = load i8, ptr %150, align 1, !tbaa !40
+  %151 = load i8, ptr %150, align 1, !tbaa !41
   %152 = zext i8 %151 to i32
   %153 = mul nsw i32 %10, %152
-  %154 = load i8, ptr %131, align 1, !tbaa !40
+  %154 = load i8, ptr %131, align 1, !tbaa !41
   %155 = zext i8 %154 to i32
   %156 = mul nsw i32 %11, %155
   %157 = getelementptr i8, ptr %23, i64 6
-  %158 = load i8, ptr %157, align 1, !tbaa !40
+  %158 = load i8, ptr %157, align 1, !tbaa !41
   %159 = zext i8 %158 to i32
   %160 = mul nsw i32 %12, %159
   %161 = add i32 %149, 28
@@ -8243,22 +8243,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %167 = add nuw nsw i32 %166, %165
   %168 = lshr i32 %167, 1
   %169 = trunc i32 %168 to i8
-  store i8 %169, ptr %144, align 1, !tbaa !40
+  store i8 %169, ptr %144, align 1, !tbaa !41
   %170 = getelementptr inbounds nuw i8, ptr %.0110113.lver.orig, i64 6
-  %171 = load i8, ptr %170, align 1, !tbaa !40
+  %171 = load i8, ptr %170, align 1, !tbaa !41
   %172 = zext i8 %171 to i32
-  %173 = load i8, ptr %150, align 1, !tbaa !40
+  %173 = load i8, ptr %150, align 1, !tbaa !41
   %174 = zext i8 %173 to i32
   %175 = mul nsw i32 %9, %174
   %176 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 7
-  %177 = load i8, ptr %176, align 1, !tbaa !40
+  %177 = load i8, ptr %176, align 1, !tbaa !41
   %178 = zext i8 %177 to i32
   %179 = mul nsw i32 %10, %178
-  %180 = load i8, ptr %157, align 1, !tbaa !40
+  %180 = load i8, ptr %157, align 1, !tbaa !41
   %181 = zext i8 %180 to i32
   %182 = mul nsw i32 %11, %181
   %183 = getelementptr i8, ptr %23, i64 7
-  %184 = load i8, ptr %183, align 1, !tbaa !40
+  %184 = load i8, ptr %183, align 1, !tbaa !41
   %185 = zext i8 %184 to i32
   %186 = mul nsw i32 %12, %185
   %187 = add i32 %175, 28
@@ -8270,22 +8270,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %193 = add nuw nsw i32 %192, %191
   %194 = lshr i32 %193, 1
   %195 = trunc i32 %194 to i8
-  store i8 %195, ptr %170, align 1, !tbaa !40
+  store i8 %195, ptr %170, align 1, !tbaa !41
   %196 = getelementptr inbounds nuw i8, ptr %.0110113.lver.orig, i64 7
-  %197 = load i8, ptr %196, align 1, !tbaa !40
+  %197 = load i8, ptr %196, align 1, !tbaa !41
   %198 = zext i8 %197 to i32
-  %199 = load i8, ptr %176, align 1, !tbaa !40
+  %199 = load i8, ptr %176, align 1, !tbaa !41
   %200 = zext i8 %199 to i32
   %201 = mul nsw i32 %9, %200
   %202 = getelementptr inbounds nuw i8, ptr %.0111112.lver.orig, i64 8
-  %203 = load i8, ptr %202, align 1, !tbaa !40
+  %203 = load i8, ptr %202, align 1, !tbaa !41
   %204 = zext i8 %203 to i32
   %205 = mul nsw i32 %10, %204
-  %206 = load i8, ptr %183, align 1, !tbaa !40
+  %206 = load i8, ptr %183, align 1, !tbaa !41
   %207 = zext i8 %206 to i32
   %208 = mul nsw i32 %11, %207
   %209 = getelementptr i8, ptr %23, i64 8
-  %210 = load i8, ptr %209, align 1, !tbaa !40
+  %210 = load i8, ptr %209, align 1, !tbaa !41
   %211 = zext i8 %210 to i32
   %212 = mul nsw i32 %12, %211
   %213 = add i32 %201, 28
@@ -8297,11 +8297,11 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %219 = add nuw nsw i32 %218, %217
   %220 = lshr i32 %219, 1
   %221 = trunc i32 %220 to i8
-  store i8 %221, ptr %196, align 1, !tbaa !40
+  store i8 %221, ptr %196, align 1, !tbaa !41
   %222 = getelementptr inbounds i8, ptr %.0110113.lver.orig, i64 %2
   %223 = add nuw nsw i32 %.0114.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %223, %3
-  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !95
+  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !96
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 6
@@ -8313,21 +8313,21 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %.0114 = phi i32 [ 0, %.lr.ph.ph ], [ %432, %.lr.ph ]
   %.0110113 = phi ptr [ %0, %.lr.ph.ph ], [ %431, %.lr.ph ]
   %.0111112 = phi ptr [ %1, %.lr.ph.ph ], [ %233, %.lr.ph ]
-  %224 = load i8, ptr %.0110113, align 1, !tbaa !40
+  %224 = load i8, ptr %.0110113, align 1, !tbaa !41
   %225 = zext i8 %224 to i32
-  %226 = load i8, ptr %.0111112, align 1, !tbaa !40
+  %226 = load i8, ptr %.0111112, align 1, !tbaa !41
   %227 = zext i8 %226 to i32
   %228 = mul nsw i32 %9, %227
   %229 = getelementptr inbounds nuw i8, ptr %.0111112, i64 1
-  %230 = load i8, ptr %229, align 1, !tbaa !40
+  %230 = load i8, ptr %229, align 1, !tbaa !41
   %231 = zext i8 %230 to i32
   %232 = mul nsw i32 %10, %231
   %233 = getelementptr inbounds nuw i8, ptr %.0111112, i64 %2
-  %234 = load i8, ptr %233, align 1, !tbaa !40
+  %234 = load i8, ptr %233, align 1, !tbaa !41
   %235 = zext i8 %234 to i32
   %236 = mul nsw i32 %11, %235
   %237 = getelementptr i8, ptr %233, i64 1
-  %238 = load i8, ptr %237, align 1, !tbaa !40
+  %238 = load i8, ptr %237, align 1, !tbaa !41
   %239 = zext i8 %238 to i32
   %240 = mul nsw i32 %12, %239
   %241 = add i32 %228, 28
@@ -8339,22 +8339,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %247 = add nuw nsw i32 %246, %245
   %248 = lshr i32 %247, 1
   %249 = trunc i32 %248 to i8
-  store i8 %249, ptr %.0110113, align 1, !tbaa !40
+  store i8 %249, ptr %.0110113, align 1, !tbaa !41
   %250 = getelementptr inbounds nuw i8, ptr %.0110113, i64 1
-  %251 = load i8, ptr %250, align 1, !tbaa !40
+  %251 = load i8, ptr %250, align 1, !tbaa !41
   %252 = zext i8 %251 to i32
-  %253 = load i8, ptr %229, align 1, !tbaa !40
+  %253 = load i8, ptr %229, align 1, !tbaa !41
   %254 = zext i8 %253 to i32
   %255 = mul nsw i32 %9, %254
   %256 = getelementptr inbounds nuw i8, ptr %.0111112, i64 2
-  %257 = load i8, ptr %256, align 1, !tbaa !40
+  %257 = load i8, ptr %256, align 1, !tbaa !41
   %258 = zext i8 %257 to i32
   %259 = mul nsw i32 %10, %258
-  %260 = load i8, ptr %237, align 1, !tbaa !40
+  %260 = load i8, ptr %237, align 1, !tbaa !41
   %261 = zext i8 %260 to i32
   %262 = mul nsw i32 %11, %261
   %263 = getelementptr i8, ptr %233, i64 2
-  %264 = load i8, ptr %263, align 1, !tbaa !40
+  %264 = load i8, ptr %263, align 1, !tbaa !41
   %265 = zext i8 %264 to i32
   %266 = mul nsw i32 %12, %265
   %267 = add i32 %255, 28
@@ -8366,22 +8366,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %273 = add nuw nsw i32 %272, %271
   %274 = lshr i32 %273, 1
   %275 = trunc i32 %274 to i8
-  store i8 %275, ptr %250, align 1, !tbaa !40
+  store i8 %275, ptr %250, align 1, !tbaa !41
   %276 = getelementptr inbounds nuw i8, ptr %.0110113, i64 2
-  %277 = load i8, ptr %276, align 1, !tbaa !40
+  %277 = load i8, ptr %276, align 1, !tbaa !41
   %278 = zext i8 %277 to i32
-  %279 = load i8, ptr %256, align 1, !tbaa !40
+  %279 = load i8, ptr %256, align 1, !tbaa !41
   %280 = zext i8 %279 to i32
   %281 = mul nsw i32 %9, %280
   %282 = getelementptr inbounds nuw i8, ptr %.0111112, i64 3
-  %283 = load i8, ptr %282, align 1, !tbaa !40
+  %283 = load i8, ptr %282, align 1, !tbaa !41
   %284 = zext i8 %283 to i32
   %285 = mul nsw i32 %10, %284
-  %286 = load i8, ptr %263, align 1, !tbaa !40
+  %286 = load i8, ptr %263, align 1, !tbaa !41
   %287 = zext i8 %286 to i32
   %288 = mul nsw i32 %11, %287
   %289 = getelementptr i8, ptr %233, i64 3
-  %290 = load i8, ptr %289, align 1, !tbaa !40
+  %290 = load i8, ptr %289, align 1, !tbaa !41
   %291 = zext i8 %290 to i32
   %292 = mul nsw i32 %12, %291
   %293 = add i32 %281, 28
@@ -8393,22 +8393,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %299 = add nuw nsw i32 %298, %297
   %300 = lshr i32 %299, 1
   %301 = trunc i32 %300 to i8
-  store i8 %301, ptr %276, align 1, !tbaa !40
+  store i8 %301, ptr %276, align 1, !tbaa !41
   %302 = getelementptr inbounds nuw i8, ptr %.0110113, i64 3
-  %303 = load i8, ptr %302, align 1, !tbaa !40
+  %303 = load i8, ptr %302, align 1, !tbaa !41
   %304 = zext i8 %303 to i32
-  %305 = load i8, ptr %282, align 1, !tbaa !40
+  %305 = load i8, ptr %282, align 1, !tbaa !41
   %306 = zext i8 %305 to i32
   %307 = mul nsw i32 %9, %306
   %308 = getelementptr inbounds nuw i8, ptr %.0111112, i64 4
-  %309 = load i8, ptr %308, align 1, !tbaa !40
+  %309 = load i8, ptr %308, align 1, !tbaa !41
   %310 = zext i8 %309 to i32
   %311 = mul nsw i32 %10, %310
-  %312 = load i8, ptr %289, align 1, !tbaa !40
+  %312 = load i8, ptr %289, align 1, !tbaa !41
   %313 = zext i8 %312 to i32
   %314 = mul nsw i32 %11, %313
   %315 = getelementptr i8, ptr %233, i64 4
-  %316 = load i8, ptr %315, align 1, !tbaa !40
+  %316 = load i8, ptr %315, align 1, !tbaa !41
   %317 = zext i8 %316 to i32
   %318 = mul nsw i32 %12, %317
   %319 = add i32 %307, 28
@@ -8420,22 +8420,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %325 = add nuw nsw i32 %324, %323
   %326 = lshr i32 %325, 1
   %327 = trunc i32 %326 to i8
-  store i8 %327, ptr %302, align 1, !tbaa !40
+  store i8 %327, ptr %302, align 1, !tbaa !41
   %328 = getelementptr inbounds nuw i8, ptr %.0110113, i64 4
-  %329 = load i8, ptr %328, align 1, !tbaa !40
+  %329 = load i8, ptr %328, align 1, !tbaa !41
   %330 = zext i8 %329 to i32
-  %331 = load i8, ptr %308, align 1, !tbaa !40
+  %331 = load i8, ptr %308, align 1, !tbaa !41
   %332 = zext i8 %331 to i32
   %333 = mul nsw i32 %9, %332
   %334 = getelementptr inbounds nuw i8, ptr %.0111112, i64 5
-  %335 = load i8, ptr %334, align 1, !tbaa !40
+  %335 = load i8, ptr %334, align 1, !tbaa !41
   %336 = zext i8 %335 to i32
   %337 = mul nsw i32 %10, %336
-  %338 = load i8, ptr %315, align 1, !tbaa !40
+  %338 = load i8, ptr %315, align 1, !tbaa !41
   %339 = zext i8 %338 to i32
   %340 = mul nsw i32 %11, %339
   %341 = getelementptr i8, ptr %233, i64 5
-  %342 = load i8, ptr %341, align 1, !tbaa !40
+  %342 = load i8, ptr %341, align 1, !tbaa !41
   %343 = zext i8 %342 to i32
   %344 = mul nsw i32 %12, %343
   %345 = add i32 %333, 28
@@ -8447,22 +8447,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %351 = add nuw nsw i32 %350, %349
   %352 = lshr i32 %351, 1
   %353 = trunc i32 %352 to i8
-  store i8 %353, ptr %328, align 1, !tbaa !40
+  store i8 %353, ptr %328, align 1, !tbaa !41
   %354 = getelementptr inbounds nuw i8, ptr %.0110113, i64 5
-  %355 = load i8, ptr %354, align 1, !tbaa !40
+  %355 = load i8, ptr %354, align 1, !tbaa !41
   %356 = zext i8 %355 to i32
-  %357 = load i8, ptr %334, align 1, !tbaa !40
+  %357 = load i8, ptr %334, align 1, !tbaa !41
   %358 = zext i8 %357 to i32
   %359 = mul nsw i32 %9, %358
   %360 = getelementptr inbounds nuw i8, ptr %.0111112, i64 6
-  %361 = load i8, ptr %360, align 1, !tbaa !40
+  %361 = load i8, ptr %360, align 1, !tbaa !41
   %362 = zext i8 %361 to i32
   %363 = mul nsw i32 %10, %362
-  %364 = load i8, ptr %341, align 1, !tbaa !40
+  %364 = load i8, ptr %341, align 1, !tbaa !41
   %365 = zext i8 %364 to i32
   %366 = mul nsw i32 %11, %365
   %367 = getelementptr i8, ptr %233, i64 6
-  %368 = load i8, ptr %367, align 1, !tbaa !40
+  %368 = load i8, ptr %367, align 1, !tbaa !41
   %369 = zext i8 %368 to i32
   %370 = mul nsw i32 %12, %369
   %371 = add i32 %359, 28
@@ -8474,21 +8474,21 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %377 = add nuw nsw i32 %376, %375
   %378 = lshr i32 %377, 1
   %379 = trunc i32 %378 to i8
-  store i8 %379, ptr %354, align 1, !tbaa !40
+  store i8 %379, ptr %354, align 1, !tbaa !41
   %380 = getelementptr inbounds nuw i8, ptr %.0110113, i64 6
   %381 = zext i8 %store_forwarded to i32
-  %382 = load i8, ptr %360, align 1, !tbaa !40
+  %382 = load i8, ptr %360, align 1, !tbaa !41
   %383 = zext i8 %382 to i32
   %384 = mul nsw i32 %9, %383
   %385 = getelementptr inbounds nuw i8, ptr %.0111112, i64 7
-  %386 = load i8, ptr %385, align 1, !tbaa !40
+  %386 = load i8, ptr %385, align 1, !tbaa !41
   %387 = zext i8 %386 to i32
   %388 = mul nsw i32 %10, %387
-  %389 = load i8, ptr %367, align 1, !tbaa !40
+  %389 = load i8, ptr %367, align 1, !tbaa !41
   %390 = zext i8 %389 to i32
   %391 = mul nsw i32 %11, %390
   %392 = getelementptr i8, ptr %233, i64 7
-  %393 = load i8, ptr %392, align 1, !tbaa !40
+  %393 = load i8, ptr %392, align 1, !tbaa !41
   %394 = zext i8 %393 to i32
   %395 = mul nsw i32 %12, %394
   %396 = add i32 %384, 28
@@ -8500,22 +8500,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %402 = add nuw nsw i32 %401, %400
   %403 = lshr i32 %402, 1
   %404 = trunc i32 %403 to i8
-  store i8 %404, ptr %380, align 1, !tbaa !40
+  store i8 %404, ptr %380, align 1, !tbaa !41
   %405 = getelementptr inbounds nuw i8, ptr %.0110113, i64 7
-  %406 = load i8, ptr %405, align 1, !tbaa !40
+  %406 = load i8, ptr %405, align 1, !tbaa !41
   %407 = zext i8 %406 to i32
-  %408 = load i8, ptr %385, align 1, !tbaa !40
+  %408 = load i8, ptr %385, align 1, !tbaa !41
   %409 = zext i8 %408 to i32
   %410 = mul nsw i32 %9, %409
   %411 = getelementptr inbounds nuw i8, ptr %.0111112, i64 8
-  %412 = load i8, ptr %411, align 1, !tbaa !40
+  %412 = load i8, ptr %411, align 1, !tbaa !41
   %413 = zext i8 %412 to i32
   %414 = mul nsw i32 %10, %413
-  %415 = load i8, ptr %392, align 1, !tbaa !40
+  %415 = load i8, ptr %392, align 1, !tbaa !41
   %416 = zext i8 %415 to i32
   %417 = mul nsw i32 %11, %416
   %418 = getelementptr i8, ptr %233, i64 8
-  %419 = load i8, ptr %418, align 1, !tbaa !40
+  %419 = load i8, ptr %418, align 1, !tbaa !41
   %420 = zext i8 %419 to i32
   %421 = mul nsw i32 %12, %420
   %422 = add i32 %410, 28
@@ -8527,11 +8527,11 @@ define internal void @avg_no_rnd_vc1_chroma_mc8_c(ptr noundef captures(none) %0,
   %428 = add nuw nsw i32 %427, %426
   %429 = lshr i32 %428, 1
   %430 = trunc i32 %429 to i8
-  store i8 %430, ptr %405, align 1, !tbaa !40
+  store i8 %430, ptr %405, align 1, !tbaa !41
   %431 = getelementptr inbounds nuw i8, ptr %.0110113, i64 %2
   %432 = add nuw nsw i32 %.0114, 1
   %exitcond.not = icmp eq i32 %432, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph.lver.orig, %.lr.ph, %6
   ret void
@@ -8552,19 +8552,19 @@ define internal void @put_no_rnd_vc1_chroma_mc4_c(ptr noundef writeonly captures
   %.062 = phi i32 [ %99, %.lr.ph ], [ 0, %6 ]
   %.05861 = phi ptr [ %98, %.lr.ph ], [ %0, %6 ]
   %.05960 = phi ptr [ %21, %.lr.ph ], [ %1, %6 ]
-  %14 = load i8, ptr %.05960, align 1, !tbaa !40
+  %14 = load i8, ptr %.05960, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
   %16 = mul nsw i32 %9, %15
   %17 = getelementptr inbounds nuw i8, ptr %.05960, i64 1
-  %18 = load i8, ptr %17, align 1, !tbaa !40
+  %18 = load i8, ptr %17, align 1, !tbaa !41
   %19 = zext i8 %18 to i32
   %20 = mul nsw i32 %10, %19
   %21 = getelementptr inbounds i8, ptr %.05960, i64 %2
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = mul nsw i32 %11, %23
   %25 = getelementptr i8, ptr %21, i64 1
-  %26 = load i8, ptr %25, align 1, !tbaa !40
+  %26 = load i8, ptr %25, align 1, !tbaa !41
   %27 = zext i8 %26 to i32
   %28 = mul nsw i32 %12, %27
   %29 = add i32 %16, 28
@@ -8573,19 +8573,19 @@ define internal void @put_no_rnd_vc1_chroma_mc4_c(ptr noundef writeonly captures
   %32 = add i32 %31, %28
   %33 = lshr i32 %32, 6
   %34 = trunc i32 %33 to i8
-  store i8 %34, ptr %.05861, align 1, !tbaa !40
-  %35 = load i8, ptr %17, align 1, !tbaa !40
+  store i8 %34, ptr %.05861, align 1, !tbaa !41
+  %35 = load i8, ptr %17, align 1, !tbaa !41
   %36 = zext i8 %35 to i32
   %37 = mul nsw i32 %9, %36
   %38 = getelementptr inbounds nuw i8, ptr %.05960, i64 2
-  %39 = load i8, ptr %38, align 1, !tbaa !40
+  %39 = load i8, ptr %38, align 1, !tbaa !41
   %40 = zext i8 %39 to i32
   %41 = mul nsw i32 %10, %40
-  %42 = load i8, ptr %25, align 1, !tbaa !40
+  %42 = load i8, ptr %25, align 1, !tbaa !41
   %43 = zext i8 %42 to i32
   %44 = mul nsw i32 %11, %43
   %45 = getelementptr i8, ptr %21, i64 2
-  %46 = load i8, ptr %45, align 1, !tbaa !40
+  %46 = load i8, ptr %45, align 1, !tbaa !41
   %47 = zext i8 %46 to i32
   %48 = mul nsw i32 %12, %47
   %49 = add i32 %37, 28
@@ -8595,19 +8595,19 @@ define internal void @put_no_rnd_vc1_chroma_mc4_c(ptr noundef writeonly captures
   %53 = lshr i32 %52, 6
   %54 = trunc i32 %53 to i8
   %55 = getelementptr inbounds nuw i8, ptr %.05861, i64 1
-  store i8 %54, ptr %55, align 1, !tbaa !40
-  %56 = load i8, ptr %38, align 1, !tbaa !40
+  store i8 %54, ptr %55, align 1, !tbaa !41
+  %56 = load i8, ptr %38, align 1, !tbaa !41
   %57 = zext i8 %56 to i32
   %58 = mul nsw i32 %9, %57
   %59 = getelementptr inbounds nuw i8, ptr %.05960, i64 3
-  %60 = load i8, ptr %59, align 1, !tbaa !40
+  %60 = load i8, ptr %59, align 1, !tbaa !41
   %61 = zext i8 %60 to i32
   %62 = mul nsw i32 %10, %61
-  %63 = load i8, ptr %45, align 1, !tbaa !40
+  %63 = load i8, ptr %45, align 1, !tbaa !41
   %64 = zext i8 %63 to i32
   %65 = mul nsw i32 %11, %64
   %66 = getelementptr i8, ptr %21, i64 3
-  %67 = load i8, ptr %66, align 1, !tbaa !40
+  %67 = load i8, ptr %66, align 1, !tbaa !41
   %68 = zext i8 %67 to i32
   %69 = mul nsw i32 %12, %68
   %70 = add i32 %58, 28
@@ -8617,19 +8617,19 @@ define internal void @put_no_rnd_vc1_chroma_mc4_c(ptr noundef writeonly captures
   %74 = lshr i32 %73, 6
   %75 = trunc i32 %74 to i8
   %76 = getelementptr inbounds nuw i8, ptr %.05861, i64 2
-  store i8 %75, ptr %76, align 1, !tbaa !40
-  %77 = load i8, ptr %59, align 1, !tbaa !40
+  store i8 %75, ptr %76, align 1, !tbaa !41
+  %77 = load i8, ptr %59, align 1, !tbaa !41
   %78 = zext i8 %77 to i32
   %79 = mul nsw i32 %9, %78
   %80 = getelementptr inbounds nuw i8, ptr %.05960, i64 4
-  %81 = load i8, ptr %80, align 1, !tbaa !40
+  %81 = load i8, ptr %80, align 1, !tbaa !41
   %82 = zext i8 %81 to i32
   %83 = mul nsw i32 %10, %82
-  %84 = load i8, ptr %66, align 1, !tbaa !40
+  %84 = load i8, ptr %66, align 1, !tbaa !41
   %85 = zext i8 %84 to i32
   %86 = mul nsw i32 %11, %85
   %87 = getelementptr i8, ptr %21, i64 4
-  %88 = load i8, ptr %87, align 1, !tbaa !40
+  %88 = load i8, ptr %87, align 1, !tbaa !41
   %89 = zext i8 %88 to i32
   %90 = mul nsw i32 %12, %89
   %91 = add i32 %79, 28
@@ -8639,11 +8639,11 @@ define internal void @put_no_rnd_vc1_chroma_mc4_c(ptr noundef writeonly captures
   %95 = lshr i32 %94, 6
   %96 = trunc i32 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %.05861, i64 3
-  store i8 %96, ptr %97, align 1, !tbaa !40
+  store i8 %96, ptr %97, align 1, !tbaa !41
   %98 = getelementptr inbounds i8, ptr %.05861, i64 %2
   %99 = add nuw nsw i32 %.062, 1
   %exitcond.not = icmp eq i32 %99, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -8668,21 +8668,21 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %.066.lver.orig = phi i32 [ %119, %.lr.ph.lver.orig ], [ 0, %.lr.ph.lver.check ]
   %.06265.lver.orig = phi ptr [ %118, %.lr.ph.lver.orig ], [ %0, %.lr.ph.lver.check ]
   %.06364.lver.orig = phi ptr [ %23, %.lr.ph.lver.orig ], [ %1, %.lr.ph.lver.check ]
-  %14 = load i8, ptr %.06265.lver.orig, align 1, !tbaa !40
+  %14 = load i8, ptr %.06265.lver.orig, align 1, !tbaa !41
   %15 = zext i8 %14 to i32
-  %16 = load i8, ptr %.06364.lver.orig, align 1, !tbaa !40
+  %16 = load i8, ptr %.06364.lver.orig, align 1, !tbaa !41
   %17 = zext i8 %16 to i32
   %18 = mul nsw i32 %9, %17
   %19 = getelementptr inbounds nuw i8, ptr %.06364.lver.orig, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = mul nsw i32 %10, %21
   %23 = getelementptr inbounds i8, ptr %.06364.lver.orig, i64 %2
-  %24 = load i8, ptr %23, align 1, !tbaa !40
+  %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = zext i8 %24 to i32
   %26 = mul nsw i32 %11, %25
   %27 = getelementptr i8, ptr %23, i64 1
-  %28 = load i8, ptr %27, align 1, !tbaa !40
+  %28 = load i8, ptr %27, align 1, !tbaa !41
   %29 = zext i8 %28 to i32
   %30 = mul nsw i32 %12, %29
   %31 = add i32 %18, 28
@@ -8694,22 +8694,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %37 = add nuw nsw i32 %36, %35
   %38 = lshr i32 %37, 1
   %39 = trunc i32 %38 to i8
-  store i8 %39, ptr %.06265.lver.orig, align 1, !tbaa !40
+  store i8 %39, ptr %.06265.lver.orig, align 1, !tbaa !41
   %40 = getelementptr inbounds nuw i8, ptr %.06265.lver.orig, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !40
+  %41 = load i8, ptr %40, align 1, !tbaa !41
   %42 = zext i8 %41 to i32
-  %43 = load i8, ptr %19, align 1, !tbaa !40
+  %43 = load i8, ptr %19, align 1, !tbaa !41
   %44 = zext i8 %43 to i32
   %45 = mul nsw i32 %9, %44
   %46 = getelementptr inbounds nuw i8, ptr %.06364.lver.orig, i64 2
-  %47 = load i8, ptr %46, align 1, !tbaa !40
+  %47 = load i8, ptr %46, align 1, !tbaa !41
   %48 = zext i8 %47 to i32
   %49 = mul nsw i32 %10, %48
-  %50 = load i8, ptr %27, align 1, !tbaa !40
+  %50 = load i8, ptr %27, align 1, !tbaa !41
   %51 = zext i8 %50 to i32
   %52 = mul nsw i32 %11, %51
   %53 = getelementptr i8, ptr %23, i64 2
-  %54 = load i8, ptr %53, align 1, !tbaa !40
+  %54 = load i8, ptr %53, align 1, !tbaa !41
   %55 = zext i8 %54 to i32
   %56 = mul nsw i32 %12, %55
   %57 = add i32 %45, 28
@@ -8721,22 +8721,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %63 = add nuw nsw i32 %62, %61
   %64 = lshr i32 %63, 1
   %65 = trunc i32 %64 to i8
-  store i8 %65, ptr %40, align 1, !tbaa !40
+  store i8 %65, ptr %40, align 1, !tbaa !41
   %66 = getelementptr inbounds nuw i8, ptr %.06265.lver.orig, i64 2
-  %67 = load i8, ptr %66, align 1, !tbaa !40
+  %67 = load i8, ptr %66, align 1, !tbaa !41
   %68 = zext i8 %67 to i32
-  %69 = load i8, ptr %46, align 1, !tbaa !40
+  %69 = load i8, ptr %46, align 1, !tbaa !41
   %70 = zext i8 %69 to i32
   %71 = mul nsw i32 %9, %70
   %72 = getelementptr inbounds nuw i8, ptr %.06364.lver.orig, i64 3
-  %73 = load i8, ptr %72, align 1, !tbaa !40
+  %73 = load i8, ptr %72, align 1, !tbaa !41
   %74 = zext i8 %73 to i32
   %75 = mul nsw i32 %10, %74
-  %76 = load i8, ptr %53, align 1, !tbaa !40
+  %76 = load i8, ptr %53, align 1, !tbaa !41
   %77 = zext i8 %76 to i32
   %78 = mul nsw i32 %11, %77
   %79 = getelementptr i8, ptr %23, i64 3
-  %80 = load i8, ptr %79, align 1, !tbaa !40
+  %80 = load i8, ptr %79, align 1, !tbaa !41
   %81 = zext i8 %80 to i32
   %82 = mul nsw i32 %12, %81
   %83 = add i32 %71, 28
@@ -8748,22 +8748,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %89 = add nuw nsw i32 %88, %87
   %90 = lshr i32 %89, 1
   %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %66, align 1, !tbaa !40
+  store i8 %91, ptr %66, align 1, !tbaa !41
   %92 = getelementptr inbounds nuw i8, ptr %.06265.lver.orig, i64 3
-  %93 = load i8, ptr %92, align 1, !tbaa !40
+  %93 = load i8, ptr %92, align 1, !tbaa !41
   %94 = zext i8 %93 to i32
-  %95 = load i8, ptr %72, align 1, !tbaa !40
+  %95 = load i8, ptr %72, align 1, !tbaa !41
   %96 = zext i8 %95 to i32
   %97 = mul nsw i32 %9, %96
   %98 = getelementptr inbounds nuw i8, ptr %.06364.lver.orig, i64 4
-  %99 = load i8, ptr %98, align 1, !tbaa !40
+  %99 = load i8, ptr %98, align 1, !tbaa !41
   %100 = zext i8 %99 to i32
   %101 = mul nsw i32 %10, %100
-  %102 = load i8, ptr %79, align 1, !tbaa !40
+  %102 = load i8, ptr %79, align 1, !tbaa !41
   %103 = zext i8 %102 to i32
   %104 = mul nsw i32 %11, %103
   %105 = getelementptr i8, ptr %23, i64 4
-  %106 = load i8, ptr %105, align 1, !tbaa !40
+  %106 = load i8, ptr %105, align 1, !tbaa !41
   %107 = zext i8 %106 to i32
   %108 = mul nsw i32 %12, %107
   %109 = add i32 %97, 28
@@ -8775,11 +8775,11 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %115 = add nuw nsw i32 %114, %113
   %116 = lshr i32 %115, 1
   %117 = trunc i32 %116 to i8
-  store i8 %117, ptr %92, align 1, !tbaa !40
+  store i8 %117, ptr %92, align 1, !tbaa !41
   %118 = getelementptr inbounds i8, ptr %.06265.lver.orig, i64 %2
   %119 = add nuw nsw i32 %.066.lver.orig, 1
   %exitcond.not.lver.orig = icmp eq i32 %119, %3
-  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !97
+  br i1 %exitcond.not.lver.orig, label %._crit_edge, label %.lr.ph.lver.orig, !llvm.loop !98
 
 .lr.ph.ph:                                        ; preds = %.lr.ph.lver.check
   %scevgep = getelementptr i8, ptr %0, i64 2
@@ -8791,21 +8791,21 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %.066 = phi i32 [ 0, %.lr.ph.ph ], [ %224, %.lr.ph ]
   %.06265 = phi ptr [ %0, %.lr.ph.ph ], [ %223, %.lr.ph ]
   %.06364 = phi ptr [ %1, %.lr.ph.ph ], [ %129, %.lr.ph ]
-  %120 = load i8, ptr %.06265, align 1, !tbaa !40
+  %120 = load i8, ptr %.06265, align 1, !tbaa !41
   %121 = zext i8 %120 to i32
-  %122 = load i8, ptr %.06364, align 1, !tbaa !40
+  %122 = load i8, ptr %.06364, align 1, !tbaa !41
   %123 = zext i8 %122 to i32
   %124 = mul nsw i32 %9, %123
   %125 = getelementptr inbounds nuw i8, ptr %.06364, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !40
+  %126 = load i8, ptr %125, align 1, !tbaa !41
   %127 = zext i8 %126 to i32
   %128 = mul nsw i32 %10, %127
   %129 = getelementptr inbounds nuw i8, ptr %.06364, i64 %2
-  %130 = load i8, ptr %129, align 1, !tbaa !40
+  %130 = load i8, ptr %129, align 1, !tbaa !41
   %131 = zext i8 %130 to i32
   %132 = mul nsw i32 %11, %131
   %133 = getelementptr i8, ptr %129, i64 1
-  %134 = load i8, ptr %133, align 1, !tbaa !40
+  %134 = load i8, ptr %133, align 1, !tbaa !41
   %135 = zext i8 %134 to i32
   %136 = mul nsw i32 %12, %135
   %137 = add i32 %124, 28
@@ -8817,22 +8817,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %143 = add nuw nsw i32 %142, %141
   %144 = lshr i32 %143, 1
   %145 = trunc i32 %144 to i8
-  store i8 %145, ptr %.06265, align 1, !tbaa !40
+  store i8 %145, ptr %.06265, align 1, !tbaa !41
   %146 = getelementptr inbounds nuw i8, ptr %.06265, i64 1
-  %147 = load i8, ptr %146, align 1, !tbaa !40
+  %147 = load i8, ptr %146, align 1, !tbaa !41
   %148 = zext i8 %147 to i32
-  %149 = load i8, ptr %125, align 1, !tbaa !40
+  %149 = load i8, ptr %125, align 1, !tbaa !41
   %150 = zext i8 %149 to i32
   %151 = mul nsw i32 %9, %150
   %152 = getelementptr inbounds nuw i8, ptr %.06364, i64 2
-  %153 = load i8, ptr %152, align 1, !tbaa !40
+  %153 = load i8, ptr %152, align 1, !tbaa !41
   %154 = zext i8 %153 to i32
   %155 = mul nsw i32 %10, %154
-  %156 = load i8, ptr %133, align 1, !tbaa !40
+  %156 = load i8, ptr %133, align 1, !tbaa !41
   %157 = zext i8 %156 to i32
   %158 = mul nsw i32 %11, %157
   %159 = getelementptr i8, ptr %129, i64 2
-  %160 = load i8, ptr %159, align 1, !tbaa !40
+  %160 = load i8, ptr %159, align 1, !tbaa !41
   %161 = zext i8 %160 to i32
   %162 = mul nsw i32 %12, %161
   %163 = add i32 %151, 28
@@ -8844,21 +8844,21 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %169 = add nuw nsw i32 %168, %167
   %170 = lshr i32 %169, 1
   %171 = trunc i32 %170 to i8
-  store i8 %171, ptr %146, align 1, !tbaa !40
+  store i8 %171, ptr %146, align 1, !tbaa !41
   %172 = getelementptr inbounds nuw i8, ptr %.06265, i64 2
   %173 = zext i8 %store_forwarded to i32
-  %174 = load i8, ptr %152, align 1, !tbaa !40
+  %174 = load i8, ptr %152, align 1, !tbaa !41
   %175 = zext i8 %174 to i32
   %176 = mul nsw i32 %9, %175
   %177 = getelementptr inbounds nuw i8, ptr %.06364, i64 3
-  %178 = load i8, ptr %177, align 1, !tbaa !40
+  %178 = load i8, ptr %177, align 1, !tbaa !41
   %179 = zext i8 %178 to i32
   %180 = mul nsw i32 %10, %179
-  %181 = load i8, ptr %159, align 1, !tbaa !40
+  %181 = load i8, ptr %159, align 1, !tbaa !41
   %182 = zext i8 %181 to i32
   %183 = mul nsw i32 %11, %182
   %184 = getelementptr i8, ptr %129, i64 3
-  %185 = load i8, ptr %184, align 1, !tbaa !40
+  %185 = load i8, ptr %184, align 1, !tbaa !41
   %186 = zext i8 %185 to i32
   %187 = mul nsw i32 %12, %186
   %188 = add i32 %176, 28
@@ -8870,22 +8870,22 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %194 = add nuw nsw i32 %193, %192
   %195 = lshr i32 %194, 1
   %196 = trunc i32 %195 to i8
-  store i8 %196, ptr %172, align 1, !tbaa !40
+  store i8 %196, ptr %172, align 1, !tbaa !41
   %197 = getelementptr inbounds nuw i8, ptr %.06265, i64 3
-  %198 = load i8, ptr %197, align 1, !tbaa !40
+  %198 = load i8, ptr %197, align 1, !tbaa !41
   %199 = zext i8 %198 to i32
-  %200 = load i8, ptr %177, align 1, !tbaa !40
+  %200 = load i8, ptr %177, align 1, !tbaa !41
   %201 = zext i8 %200 to i32
   %202 = mul nsw i32 %9, %201
   %203 = getelementptr inbounds nuw i8, ptr %.06364, i64 4
-  %204 = load i8, ptr %203, align 1, !tbaa !40
+  %204 = load i8, ptr %203, align 1, !tbaa !41
   %205 = zext i8 %204 to i32
   %206 = mul nsw i32 %10, %205
-  %207 = load i8, ptr %184, align 1, !tbaa !40
+  %207 = load i8, ptr %184, align 1, !tbaa !41
   %208 = zext i8 %207 to i32
   %209 = mul nsw i32 %11, %208
   %210 = getelementptr i8, ptr %129, i64 4
-  %211 = load i8, ptr %210, align 1, !tbaa !40
+  %211 = load i8, ptr %210, align 1, !tbaa !41
   %212 = zext i8 %211 to i32
   %213 = mul nsw i32 %12, %212
   %214 = add i32 %202, 28
@@ -8897,11 +8897,11 @@ define internal void @avg_no_rnd_vc1_chroma_mc4_c(ptr noundef captures(none) %0,
   %220 = add nuw nsw i32 %219, %218
   %221 = lshr i32 %220, 1
   %222 = trunc i32 %221 to i8
-  store i8 %222, ptr %197, align 1, !tbaa !40
+  store i8 %222, ptr %197, align 1, !tbaa !41
   %223 = getelementptr inbounds nuw i8, ptr %.06265, i64 %2
   %224 = add nuw nsw i32 %.066, 1
   %exitcond.not = icmp eq i32 %224, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph.lver.orig, %.lr.ph, %6
   ret void
@@ -8920,10 +8920,10 @@ define internal void @sprite_h_c(ptr noundef writeonly captures(none) %0, ptr no
   %7 = ashr i32 %.01115, 16
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !40
+  %10 = load i8, ptr %9, align 1, !tbaa !41
   %11 = zext i8 %10 to i32
   %12 = getelementptr i8, ptr %9, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !40
+  %13 = load i8, ptr %12, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = sub nsw i32 %14, %11
   %16 = and i32 %.01115, 65535
@@ -8932,10 +8932,10 @@ define internal void @sprite_h_c(ptr noundef writeonly captures(none) %0, ptr no
   %19 = trunc i32 %18 to i8
   %20 = add i8 %10, %19
   %21 = getelementptr inbounds nuw i8, ptr %.016, i64 1
-  store i8 %20, ptr %.016, align 1, !tbaa !40
+  store i8 %20, ptr %.016, align 1, !tbaa !41
   %22 = add nsw i32 %.01115, %3
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   ret void
@@ -8953,10 +8953,10 @@ define internal void @sprite_v_single_c(ptr noundef writeonly captures(none) %0,
   %.025.i5 = phi ptr [ %10, %.lr.ph ], [ %2, %5 ]
   %6 = add nsw i32 %.024.i6, -1
   %7 = getelementptr inbounds nuw i8, ptr %.022.i7, i64 1
-  %8 = load i8, ptr %.022.i7, align 1, !tbaa !40
+  %8 = load i8, ptr %.022.i7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %.025.i5, i64 1
-  %11 = load i8, ptr %.025.i5, align 1, !tbaa !40
+  %11 = load i8, ptr %.025.i5, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 %12, %9
   %14 = mul nsw i32 %13, %3
@@ -8964,9 +8964,9 @@ define internal void @sprite_v_single_c(ptr noundef writeonly captures(none) %0,
   %16 = trunc i32 %15 to i8
   %17 = add i8 %8, %16
   %18 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 1
-  store i8 %17, ptr %.0.i8, align 1, !tbaa !40
+  store i8 %17, ptr %.0.i8, align 1, !tbaa !41
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !100
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %5
   ret void
@@ -8984,10 +8984,10 @@ define internal void @sprite_v_double_noscale_c(ptr noundef writeonly captures(n
   %.027.i5 = phi ptr [ %10, %.lr.ph ], [ %2, %5 ]
   %6 = add nsw i32 %.024.i6, -1
   %7 = getelementptr inbounds nuw i8, ptr %.022.i7, i64 1
-  %8 = load i8, ptr %.022.i7, align 1, !tbaa !40
+  %8 = load i8, ptr %.022.i7, align 1, !tbaa !41
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %.027.i5, i64 1
-  %11 = load i8, ptr %.027.i5, align 1, !tbaa !40
+  %11 = load i8, ptr %.027.i5, align 1, !tbaa !41
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 %12, %9
   %14 = mul nsw i32 %13, %3
@@ -8995,9 +8995,9 @@ define internal void @sprite_v_double_noscale_c(ptr noundef writeonly captures(n
   %16 = trunc i32 %15 to i8
   %17 = add i8 %8, %16
   %18 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 1
-  store i8 %17, ptr %.0.i8, align 1, !tbaa !40
+  store i8 %17, ptr %.0.i8, align 1, !tbaa !41
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !100
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %5
   ret void
@@ -9016,17 +9016,17 @@ define internal void @sprite_v_double_onescale_c(ptr noundef writeonly captures(
   %.027.i7 = phi ptr [ %19, %.lr.ph ], [ %4, %7 ]
   %8 = add nsw i32 %.024.i9, -1
   %9 = getelementptr inbounds nuw i8, ptr %.022.i10, i64 1
-  %10 = load i8, ptr %.022.i10, align 1, !tbaa !40
+  %10 = load i8, ptr %.022.i10, align 1, !tbaa !41
   %11 = zext i8 %10 to i32
   %12 = getelementptr inbounds nuw i8, ptr %.025.i8, i64 1
-  %13 = load i8, ptr %.025.i8, align 1, !tbaa !40
+  %13 = load i8, ptr %.025.i8, align 1, !tbaa !41
   %14 = zext i8 %13 to i32
   %15 = sub nsw i32 %14, %11
   %16 = mul nsw i32 %15, %3
   %17 = ashr i32 %16, 16
   %18 = add nsw i32 %17, %11
   %19 = getelementptr inbounds nuw i8, ptr %.027.i7, i64 1
-  %20 = load i8, ptr %.027.i7, align 1, !tbaa !40
+  %20 = load i8, ptr %.027.i7, align 1, !tbaa !41
   %21 = zext i8 %20 to i32
   %22 = sub nsw i32 %21, %18
   %23 = mul nsw i32 %22, %5
@@ -9034,9 +9034,9 @@ define internal void @sprite_v_double_onescale_c(ptr noundef writeonly captures(
   %25 = add nsw i32 %24, %18
   %26 = trunc i32 %25 to i8
   %27 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 1
-  store i8 %26, ptr %.0.i11, align 1, !tbaa !40
+  store i8 %26, ptr %.0.i11, align 1, !tbaa !41
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !100
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %7
   ret void
@@ -9056,20 +9056,20 @@ define internal void @sprite_v_double_twoscale_c(ptr noundef writeonly captures(
   %.029.i9 = phi ptr [ %24, %.lr.ph ], [ %5, %9 ]
   %10 = add nsw i32 %.024.i12, -1
   %11 = getelementptr inbounds nuw i8, ptr %.022.i13, i64 1
-  %12 = load i8, ptr %.022.i13, align 1, !tbaa !40
+  %12 = load i8, ptr %.022.i13, align 1, !tbaa !41
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %.025.i11, i64 1
-  %15 = load i8, ptr %.025.i11, align 1, !tbaa !40
+  %15 = load i8, ptr %.025.i11, align 1, !tbaa !41
   %16 = zext i8 %15 to i32
   %17 = sub nsw i32 %16, %13
   %18 = mul nsw i32 %17, %3
   %19 = ashr i32 %18, 16
   %20 = add nsw i32 %19, %13
   %21 = getelementptr inbounds nuw i8, ptr %.027.i10, i64 1
-  %22 = load i8, ptr %.027.i10, align 1, !tbaa !40
+  %22 = load i8, ptr %.027.i10, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %.029.i9, i64 1
-  %25 = load i8, ptr %.029.i9, align 1, !tbaa !40
+  %25 = load i8, ptr %.029.i9, align 1, !tbaa !41
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 %26, %23
   %28 = mul nsw i32 %27, %6
@@ -9081,9 +9081,9 @@ define internal void @sprite_v_double_twoscale_c(ptr noundef writeonly captures(
   %34 = add nsw i32 %33, %20
   %35 = trunc i32 %34 to i8
   %36 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 1
-  store i8 %35, ptr %.0.i14, align 1, !tbaa !40
+  store i8 %35, ptr %.0.i14, align 1, !tbaa !41
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !99
+  br i1 %.not.i, label %sprite_v_template.exit, label %.lr.ph, !llvm.loop !100
 
 sprite_v_template.exit:                           ; preds = %.lr.ph, %9
   ret void
@@ -9109,18 +9109,18 @@ define internal i32 @vc1_unescape_buffer(ptr noundef readonly captures(none) %0,
   %.03046 = phi ptr [ %9, %.lr.ph ], [ %2, %.preheader ]
   %.03245 = phi ptr [ %7, %.lr.ph ], [ %0, %.preheader ]
   %7 = getelementptr inbounds nuw i8, ptr %.03245, i64 1
-  %8 = load i8, ptr %.03245, align 1, !tbaa !40
+  %8 = load i8, ptr %.03245, align 1, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %.03046, i64 1
-  store i8 %8, ptr %.03046, align 1, !tbaa !40
+  store i8 %8, ptr %.03046, align 1, !tbaa !41
   %10 = add nuw nsw i32 %.02847, 1
   %exitcond.not = icmp eq i32 %10, %1
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !100
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !101
 
 11:                                               ; preds = %.preheader40, %31
   %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %31 ]
   %.044 = phi i32 [ 0, %.preheader40 ], [ %32, %31 ]
   %.13342 = phi ptr [ %0, %.preheader40 ], [ %33, %31 ]
-  %12 = load i8, ptr %.13342, align 1, !tbaa !40
+  %12 = load i8, ptr %.13342, align 1, !tbaa !41
   %13 = icmp eq i8 %12, 3
   %14 = icmp sgt i32 %.044, 1
   %or.cond = and i1 %14, %13
@@ -9128,13 +9128,13 @@ define internal i32 @vc1_unescape_buffer(ptr noundef readonly captures(none) %0,
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds i8, ptr %.13342, i64 -1
-  %17 = load i8, ptr %16, align 1, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !41
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %18, label %29
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %.13342, i64 -2
-  %20 = load i8, ptr %19, align 1, !tbaa !40
+  %20 = load i8, ptr %19, align 1, !tbaa !41
   %.not37 = icmp eq i8 %20, 0
   %21 = icmp slt i32 %.044, %5
   %or.cond39 = select i1 %.not37, i1 %21, i1 false
@@ -9142,19 +9142,19 @@ define internal i32 @vc1_unescape_buffer(ptr noundef readonly captures(none) %0,
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.13342, i64 1
-  %24 = load i8, ptr %23, align 1, !tbaa !40
+  %24 = load i8, ptr %23, align 1, !tbaa !41
   %25 = icmp ult i8 %24, 4
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  store i8 %24, ptr %27, align 1, !tbaa !40
+  store i8 %24, ptr %27, align 1, !tbaa !41
   %28 = add nuw nsw i32 %.044, 1
   br label %31
 
 29:                                               ; preds = %22, %18, %15, %11
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  store i8 %12, ptr %30, align 1, !tbaa !40
+  store i8 %12, ptr %30, align 1, !tbaa !41
   br label %31
 
 31:                                               ; preds = %26, %29
@@ -9164,7 +9164,7 @@ define internal i32 @vc1_unescape_buffer(ptr noundef readonly captures(none) %0,
   %32 = add nsw i32 %.1, 1
   %33 = getelementptr inbounds nuw i8, ptr %.234, i64 1
   %34 = icmp slt i32 %32, %1
-  br i1 %34, label %11, label %.loopexit.loopexit48, !llvm.loop !101
+  br i1 %34, label %11, label %.loopexit.loopexit48, !llvm.loop !102
 
 .loopexit.loopexit48:                             ; preds = %31
   %35 = trunc nuw i64 %indvars.iv.next to i32
@@ -9203,17 +9203,17 @@ define internal fastcc void @vc1_loop_filter(ptr noundef captures(none) %0, i32 
   %.02169 = phi i32 [ 0, %5 ], [ %328, %vc1_filter_line.exit66 ]
   %20 = getelementptr inbounds i8, ptr %.070, i64 %7
   %21 = getelementptr inbounds i8, ptr %20, i64 %8
-  %22 = load i8, ptr %21, align 1, !tbaa !40
+  %22 = load i8, ptr %21, align 1, !tbaa !41
   %23 = zext i8 %22 to i32
   %24 = getelementptr inbounds i8, ptr %20, i64 %2
-  %25 = load i8, ptr %24, align 1, !tbaa !40
+  %25 = load i8, ptr %24, align 1, !tbaa !41
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 %23, %26
   %28 = shl nsw i32 %27, 1
   %29 = getelementptr inbounds i8, ptr %20, i64 %9
-  %30 = load i8, ptr %29, align 1, !tbaa !40
+  %30 = load i8, ptr %29, align 1, !tbaa !41
   %31 = zext i8 %30 to i32
-  %32 = load i8, ptr %20, align 1, !tbaa !40
+  %32 = load i8, ptr %20, align 1, !tbaa !41
   %33 = zext i8 %32 to i32
   %34 = sub nsw i32 %31, %33
   %.neg.i = mul nsw i32 %34, -5
@@ -9228,12 +9228,12 @@ define internal fastcc void @vc1_loop_filter(ptr noundef captures(none) %0, i32 
 
 42:                                               ; preds = %19
   %43 = getelementptr inbounds i8, ptr %20, i64 %12
-  %44 = load i8, ptr %43, align 1, !tbaa !40
+  %44 = load i8, ptr %43, align 1, !tbaa !41
   %45 = zext i8 %44 to i32
   %46 = sub nsw i32 %45, %31
   %47 = shl nsw i32 %46, 1
   %48 = getelementptr inbounds i8, ptr %20, i64 %13
-  %49 = load i8, ptr %48, align 1, !tbaa !40
+  %49 = load i8, ptr %48, align 1, !tbaa !41
   %50 = zext i8 %49 to i32
   %51 = sub nsw i32 %50, %23
   %.neg117.i = mul nsw i32 %51, -5
@@ -9242,12 +9242,12 @@ define internal fastcc void @vc1_loop_filter(ptr noundef captures(none) %0, i32 
   %54 = ashr i32 %53, 3
   %55 = tail call i32 @llvm.abs.i32(i32 %54, i1 true)
   %56 = getelementptr inbounds i8, ptr %20, i64 %14
-  %57 = load i8, ptr %56, align 1, !tbaa !40
+  %57 = load i8, ptr %56, align 1, !tbaa !41
   %58 = zext i8 %57 to i32
   %59 = sub nsw i32 %33, %58
   %60 = shl nsw i32 %59, 1
   %61 = getelementptr inbounds i8, ptr %20, i64 %15
-  %62 = load i8, ptr %61, align 1, !tbaa !40
+  %62 = load i8, ptr %61, align 1, !tbaa !41
   %63 = zext i8 %62 to i32
   %64 = sub nsw i32 %26, %63
   %.neg118.i = mul nsw i32 %64, -5
@@ -9290,8 +9290,8 @@ define internal fastcc void @vc1_loop_filter(ptr noundef captures(none) %0, i32 
   %90 = sext i1 %isnotneg.i123.i to i8
   %91 = trunc nuw i32 %89 to i8
   %.0.i124.i = select i1 %.not.i122.i, i8 %91, i8 %90
-  store i8 %.0.i124.i, ptr %29, align 1, !tbaa !40
-  %92 = load i8, ptr %20, align 1, !tbaa !40
+  store i8 %.0.i124.i, ptr %29, align 1, !tbaa !41
+  %92 = load i8, ptr %20, align 1, !tbaa !41
   %93 = zext i8 %92 to i32
   %94 = add nsw i32 %88, %93
   %.not.i.i = icmp ult i32 %94, 256
@@ -9299,22 +9299,22 @@ define internal fastcc void @vc1_loop_filter(ptr noundef captures(none) %0, i32 
   %95 = sext i1 %isnotneg.i.i to i8
   %96 = trunc nuw i32 %94 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %96, i8 %95
-  store i8 %.0.i.i, ptr %20, align 1, !tbaa !40
+  store i8 %.0.i.i, ptr %20, align 1, !tbaa !41
   br label %vc1_filter_line.exit
 
 vc1_filter_line.exit:                             ; preds = %82, %76
   %97 = getelementptr inbounds i8, ptr %.070, i64 %8
-  %98 = load i8, ptr %97, align 1, !tbaa !40
+  %98 = load i8, ptr %97, align 1, !tbaa !41
   %99 = zext i8 %98 to i32
   %100 = getelementptr inbounds i8, ptr %.070, i64 %2
-  %101 = load i8, ptr %100, align 1, !tbaa !40
+  %101 = load i8, ptr %100, align 1, !tbaa !41
   %102 = zext i8 %101 to i32
   %103 = sub nsw i32 %99, %102
   %104 = shl nsw i32 %103, 1
   %105 = getelementptr inbounds i8, ptr %.070, i64 %9
-  %106 = load i8, ptr %105, align 1, !tbaa !40
+  %106 = load i8, ptr %105, align 1, !tbaa !41
   %107 = zext i8 %106 to i32
-  %108 = load i8, ptr %.070, align 1, !tbaa !40
+  %108 = load i8, ptr %.070, align 1, !tbaa !41
   %109 = zext i8 %108 to i32
   %110 = sub nsw i32 %107, %109
   %.neg.i22 = mul nsw i32 %110, -5
@@ -9329,12 +9329,12 @@ vc1_filter_line.exit:                             ; preds = %82, %76
 
 118:                                              ; preds = %vc1_filter_line.exit
   %119 = getelementptr inbounds i8, ptr %.070, i64 %12
-  %120 = load i8, ptr %119, align 1, !tbaa !40
+  %120 = load i8, ptr %119, align 1, !tbaa !41
   %121 = zext i8 %120 to i32
   %122 = sub nsw i32 %121, %107
   %123 = shl nsw i32 %122, 1
   %124 = getelementptr inbounds i8, ptr %.070, i64 %13
-  %125 = load i8, ptr %124, align 1, !tbaa !40
+  %125 = load i8, ptr %124, align 1, !tbaa !41
   %126 = zext i8 %125 to i32
   %127 = sub nsw i32 %126, %99
   %.neg117.i24 = mul nsw i32 %127, -5
@@ -9343,12 +9343,12 @@ vc1_filter_line.exit:                             ; preds = %82, %76
   %130 = ashr i32 %129, 3
   %131 = tail call i32 @llvm.abs.i32(i32 %130, i1 true)
   %132 = getelementptr inbounds i8, ptr %.070, i64 %14
-  %133 = load i8, ptr %132, align 1, !tbaa !40
+  %133 = load i8, ptr %132, align 1, !tbaa !41
   %134 = zext i8 %133 to i32
   %135 = sub nsw i32 %109, %134
   %136 = shl nsw i32 %135, 1
   %137 = getelementptr inbounds i8, ptr %.070, i64 %15
-  %138 = load i8, ptr %137, align 1, !tbaa !40
+  %138 = load i8, ptr %137, align 1, !tbaa !41
   %139 = zext i8 %138 to i32
   %140 = sub nsw i32 %102, %139
   %.neg118.i25 = mul nsw i32 %140, -5
@@ -9391,8 +9391,8 @@ vc1_filter_line.exit:                             ; preds = %82, %76
   %166 = sext i1 %isnotneg.i123.i31 to i8
   %167 = trunc nuw i32 %165 to i8
   %.0.i124.i32 = select i1 %.not.i122.i30, i8 %167, i8 %166
-  store i8 %.0.i124.i32, ptr %105, align 1, !tbaa !40
-  %168 = load i8, ptr %.070, align 1, !tbaa !40
+  store i8 %.0.i124.i32, ptr %105, align 1, !tbaa !41
+  %168 = load i8, ptr %.070, align 1, !tbaa !41
   %169 = zext i8 %168 to i32
   %170 = add nsw i32 %164, %169
   %.not.i.i33 = icmp ult i32 %170, 256
@@ -9400,23 +9400,23 @@ vc1_filter_line.exit:                             ; preds = %82, %76
   %171 = sext i1 %isnotneg.i.i34 to i8
   %172 = trunc nuw i32 %170 to i8
   %.0.i.i35 = select i1 %.not.i.i33, i8 %172, i8 %171
-  store i8 %.0.i.i35, ptr %.070, align 1, !tbaa !40
+  store i8 %.0.i.i35, ptr %.070, align 1, !tbaa !41
   br label %vc1_filter_line.exit36
 
 vc1_filter_line.exit36:                           ; preds = %118, %147, %152, %158, %vc1_filter_line.exit
   %173 = getelementptr inbounds i8, ptr %.070, i64 %16
   %174 = getelementptr inbounds i8, ptr %173, i64 %8
-  %175 = load i8, ptr %174, align 1, !tbaa !40
+  %175 = load i8, ptr %174, align 1, !tbaa !41
   %176 = zext i8 %175 to i32
   %177 = getelementptr inbounds i8, ptr %173, i64 %2
-  %178 = load i8, ptr %177, align 1, !tbaa !40
+  %178 = load i8, ptr %177, align 1, !tbaa !41
   %179 = zext i8 %178 to i32
   %180 = sub nsw i32 %176, %179
   %181 = shl nsw i32 %180, 1
   %182 = getelementptr inbounds i8, ptr %173, i64 %9
-  %183 = load i8, ptr %182, align 1, !tbaa !40
+  %183 = load i8, ptr %182, align 1, !tbaa !41
   %184 = zext i8 %183 to i32
-  %185 = load i8, ptr %173, align 1, !tbaa !40
+  %185 = load i8, ptr %173, align 1, !tbaa !41
   %186 = zext i8 %185 to i32
   %187 = sub nsw i32 %184, %186
   %.neg.i37 = mul nsw i32 %187, -5
@@ -9431,12 +9431,12 @@ vc1_filter_line.exit36:                           ; preds = %118, %147, %152, %1
 
 195:                                              ; preds = %vc1_filter_line.exit36
   %196 = getelementptr inbounds i8, ptr %173, i64 %12
-  %197 = load i8, ptr %196, align 1, !tbaa !40
+  %197 = load i8, ptr %196, align 1, !tbaa !41
   %198 = zext i8 %197 to i32
   %199 = sub nsw i32 %198, %184
   %200 = shl nsw i32 %199, 1
   %201 = getelementptr inbounds i8, ptr %173, i64 %13
-  %202 = load i8, ptr %201, align 1, !tbaa !40
+  %202 = load i8, ptr %201, align 1, !tbaa !41
   %203 = zext i8 %202 to i32
   %204 = sub nsw i32 %203, %176
   %.neg117.i39 = mul nsw i32 %204, -5
@@ -9445,12 +9445,12 @@ vc1_filter_line.exit36:                           ; preds = %118, %147, %152, %1
   %207 = ashr i32 %206, 3
   %208 = tail call i32 @llvm.abs.i32(i32 %207, i1 true)
   %209 = getelementptr inbounds i8, ptr %173, i64 %14
-  %210 = load i8, ptr %209, align 1, !tbaa !40
+  %210 = load i8, ptr %209, align 1, !tbaa !41
   %211 = zext i8 %210 to i32
   %212 = sub nsw i32 %186, %211
   %213 = shl nsw i32 %212, 1
   %214 = getelementptr inbounds i8, ptr %173, i64 %15
-  %215 = load i8, ptr %214, align 1, !tbaa !40
+  %215 = load i8, ptr %214, align 1, !tbaa !41
   %216 = zext i8 %215 to i32
   %217 = sub nsw i32 %179, %216
   %.neg118.i40 = mul nsw i32 %217, -5
@@ -9493,8 +9493,8 @@ vc1_filter_line.exit36:                           ; preds = %118, %147, %152, %1
   %243 = sext i1 %isnotneg.i123.i46 to i8
   %244 = trunc nuw i32 %242 to i8
   %.0.i124.i47 = select i1 %.not.i122.i45, i8 %244, i8 %243
-  store i8 %.0.i124.i47, ptr %182, align 1, !tbaa !40
-  %245 = load i8, ptr %173, align 1, !tbaa !40
+  store i8 %.0.i124.i47, ptr %182, align 1, !tbaa !41
+  %245 = load i8, ptr %173, align 1, !tbaa !41
   %246 = zext i8 %245 to i32
   %247 = add nsw i32 %241, %246
   %.not.i.i48 = icmp ult i32 %247, 256
@@ -9502,23 +9502,23 @@ vc1_filter_line.exit36:                           ; preds = %118, %147, %152, %1
   %248 = sext i1 %isnotneg.i.i49 to i8
   %249 = trunc nuw i32 %247 to i8
   %.0.i.i50 = select i1 %.not.i.i48, i8 %249, i8 %248
-  store i8 %.0.i.i50, ptr %173, align 1, !tbaa !40
+  store i8 %.0.i.i50, ptr %173, align 1, !tbaa !41
   br label %vc1_filter_line.exit51
 
 vc1_filter_line.exit51:                           ; preds = %195, %224, %229, %235, %vc1_filter_line.exit36
   %250 = getelementptr inbounds i8, ptr %.070, i64 %18
   %251 = getelementptr inbounds i8, ptr %250, i64 %8
-  %252 = load i8, ptr %251, align 1, !tbaa !40
+  %252 = load i8, ptr %251, align 1, !tbaa !41
   %253 = zext i8 %252 to i32
   %254 = getelementptr inbounds i8, ptr %250, i64 %2
-  %255 = load i8, ptr %254, align 1, !tbaa !40
+  %255 = load i8, ptr %254, align 1, !tbaa !41
   %256 = zext i8 %255 to i32
   %257 = sub nsw i32 %253, %256
   %258 = shl nsw i32 %257, 1
   %259 = getelementptr inbounds i8, ptr %250, i64 %9
-  %260 = load i8, ptr %259, align 1, !tbaa !40
+  %260 = load i8, ptr %259, align 1, !tbaa !41
   %261 = zext i8 %260 to i32
-  %262 = load i8, ptr %250, align 1, !tbaa !40
+  %262 = load i8, ptr %250, align 1, !tbaa !41
   %263 = zext i8 %262 to i32
   %264 = sub nsw i32 %261, %263
   %.neg.i52 = mul nsw i32 %264, -5
@@ -9533,12 +9533,12 @@ vc1_filter_line.exit51:                           ; preds = %195, %224, %229, %2
 
 272:                                              ; preds = %vc1_filter_line.exit51
   %273 = getelementptr inbounds i8, ptr %250, i64 %12
-  %274 = load i8, ptr %273, align 1, !tbaa !40
+  %274 = load i8, ptr %273, align 1, !tbaa !41
   %275 = zext i8 %274 to i32
   %276 = sub nsw i32 %275, %261
   %277 = shl nsw i32 %276, 1
   %278 = getelementptr inbounds i8, ptr %250, i64 %13
-  %279 = load i8, ptr %278, align 1, !tbaa !40
+  %279 = load i8, ptr %278, align 1, !tbaa !41
   %280 = zext i8 %279 to i32
   %281 = sub nsw i32 %280, %253
   %.neg117.i54 = mul nsw i32 %281, -5
@@ -9547,12 +9547,12 @@ vc1_filter_line.exit51:                           ; preds = %195, %224, %229, %2
   %284 = ashr i32 %283, 3
   %285 = tail call i32 @llvm.abs.i32(i32 %284, i1 true)
   %286 = getelementptr inbounds i8, ptr %250, i64 %14
-  %287 = load i8, ptr %286, align 1, !tbaa !40
+  %287 = load i8, ptr %286, align 1, !tbaa !41
   %288 = zext i8 %287 to i32
   %289 = sub nsw i32 %263, %288
   %290 = shl nsw i32 %289, 1
   %291 = getelementptr inbounds i8, ptr %250, i64 %15
-  %292 = load i8, ptr %291, align 1, !tbaa !40
+  %292 = load i8, ptr %291, align 1, !tbaa !41
   %293 = zext i8 %292 to i32
   %294 = sub nsw i32 %256, %293
   %.neg118.i55 = mul nsw i32 %294, -5
@@ -9595,8 +9595,8 @@ vc1_filter_line.exit51:                           ; preds = %195, %224, %229, %2
   %320 = sext i1 %isnotneg.i123.i61 to i8
   %321 = trunc nuw i32 %319 to i8
   %.0.i124.i62 = select i1 %.not.i122.i60, i8 %321, i8 %320
-  store i8 %.0.i124.i62, ptr %259, align 1, !tbaa !40
-  %322 = load i8, ptr %250, align 1, !tbaa !40
+  store i8 %.0.i124.i62, ptr %259, align 1, !tbaa !41
+  %322 = load i8, ptr %250, align 1, !tbaa !41
   %323 = zext i8 %322 to i32
   %324 = add nsw i32 %318, %323
   %.not.i.i63 = icmp ult i32 %324, 256
@@ -9604,14 +9604,14 @@ vc1_filter_line.exit51:                           ; preds = %195, %224, %229, %2
   %325 = sext i1 %isnotneg.i.i64 to i8
   %326 = trunc nuw i32 %324 to i8
   %.0.i.i65 = select i1 %.not.i.i63, i8 %326, i8 %325
-  store i8 %.0.i.i65, ptr %250, align 1, !tbaa !40
+  store i8 %.0.i.i65, ptr %250, align 1, !tbaa !41
   br label %vc1_filter_line.exit66
 
 vc1_filter_line.exit66:                           ; preds = %42, %71, %19, %vc1_filter_line.exit51, %312, %306, %301, %272
   %327 = getelementptr inbounds i8, ptr %.070, i64 %11
   %328 = add nuw nsw i32 %.02169, 4
   %329 = icmp samesign ult i32 %328, %3
-  br i1 %329, label %19, label %330, !llvm.loop !102
+  br i1 %329, label %19, label %330, !llvm.loop !103
 
 330:                                              ; preds = %vc1_filter_line.exit66
   ret void
@@ -9673,70 +9673,71 @@ attributes #7 = { nounwind }
 !33 = !{!5, !6, i64 752}
 !34 = !{!35, !35, i64 0}
 !35 = !{!"short", !7, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = distinct !{!38, !37}
-!39 = distinct !{!39, !37}
-!40 = !{!7, !7, i64 0}
-!41 = distinct !{!41, !37}
-!42 = distinct !{!42, !37}
-!43 = distinct !{!43, !37}
-!44 = distinct !{!44, !37}
-!45 = distinct !{!45, !37}
-!46 = distinct !{!46, !37}
-!47 = distinct !{!47, !37}
-!48 = distinct !{!48, !37}
-!49 = distinct !{!49, !37}
-!50 = distinct !{!50, !37}
-!51 = distinct !{!51, !37}
-!52 = distinct !{!52, !37, !53}
-!53 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!54 = distinct !{!54, !37}
-!55 = distinct !{!55, !37}
-!56 = !{!57, !57, i64 0}
-!57 = !{!"int", !7, i64 0}
-!58 = distinct !{!58, !37}
-!59 = distinct !{!59, !37}
-!60 = distinct !{!60, !37}
-!61 = distinct !{!61, !37}
-!62 = distinct !{!62, !37}
-!63 = distinct !{!63, !37}
-!64 = distinct !{!64, !37}
-!65 = distinct !{!65, !37}
-!66 = distinct !{!66, !37}
-!67 = distinct !{!67, !37}
-!68 = distinct !{!68, !37}
-!69 = distinct !{!69, !37}
-!70 = distinct !{!70, !37}
-!71 = distinct !{!71, !37}
-!72 = distinct !{!72, !37}
-!73 = distinct !{!73, !37}
-!74 = distinct !{!74, !37}
-!75 = distinct !{!75, !37}
-!76 = distinct !{!76, !37}
-!77 = distinct !{!77, !37}
-!78 = distinct !{!78, !37}
-!79 = distinct !{!79, !37}
-!80 = distinct !{!80, !37}
-!81 = distinct !{!81, !37}
-!82 = distinct !{!82, !37}
-!83 = distinct !{!83, !37}
-!84 = distinct !{!84, !37}
-!85 = distinct !{!85, !37}
-!86 = distinct !{!86, !37}
-!87 = distinct !{!87, !37}
-!88 = distinct !{!88, !37}
-!89 = distinct !{!89, !37}
-!90 = distinct !{!90, !37}
-!91 = distinct !{!91, !37}
-!92 = distinct !{!92, !37}
-!93 = distinct !{!93, !37}
-!94 = distinct !{!94, !37}
-!95 = distinct !{!95, !37}
-!96 = distinct !{!96, !37}
-!97 = distinct !{!97, !37}
-!98 = distinct !{!98, !37}
-!99 = distinct !{!99, !37}
-!100 = distinct !{!100, !37}
-!101 = distinct !{!101, !37}
-!102 = distinct !{!102, !37}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !37, !38}
+!40 = distinct !{!40, !37, !38}
+!41 = !{!7, !7, i64 0}
+!42 = distinct !{!42, !37, !38}
+!43 = distinct !{!43, !37, !38}
+!44 = distinct !{!44, !37, !38}
+!45 = distinct !{!45, !37, !38}
+!46 = distinct !{!46, !37, !38}
+!47 = distinct !{!47, !37, !38}
+!48 = distinct !{!48, !37, !38}
+!49 = distinct !{!49, !37, !38}
+!50 = distinct !{!50, !37, !38}
+!51 = distinct !{!51, !37, !38}
+!52 = distinct !{!52, !37, !38}
+!53 = distinct !{!53, !37, !38, !54}
+!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!55 = distinct !{!55, !37, !38}
+!56 = distinct !{!56, !37, !38}
+!57 = !{!58, !58, i64 0}
+!58 = !{!"int", !7, i64 0}
+!59 = distinct !{!59, !37, !38}
+!60 = distinct !{!60, !37, !38}
+!61 = distinct !{!61, !37, !38}
+!62 = distinct !{!62, !37, !38}
+!63 = distinct !{!63, !37, !38}
+!64 = distinct !{!64, !37, !38}
+!65 = distinct !{!65, !37, !38}
+!66 = distinct !{!66, !37, !38}
+!67 = distinct !{!67, !37, !38}
+!68 = distinct !{!68, !37, !38}
+!69 = distinct !{!69, !37, !38}
+!70 = distinct !{!70, !37, !38}
+!71 = distinct !{!71, !37, !38}
+!72 = distinct !{!72, !37, !38}
+!73 = distinct !{!73, !37, !38}
+!74 = distinct !{!74, !37, !38}
+!75 = distinct !{!75, !37, !38}
+!76 = distinct !{!76, !37, !38}
+!77 = distinct !{!77, !37, !38}
+!78 = distinct !{!78, !37, !38}
+!79 = distinct !{!79, !37, !38}
+!80 = distinct !{!80, !37, !38}
+!81 = distinct !{!81, !37, !38}
+!82 = distinct !{!82, !37, !38}
+!83 = distinct !{!83, !37, !38}
+!84 = distinct !{!84, !37, !38}
+!85 = distinct !{!85, !37, !38}
+!86 = distinct !{!86, !37, !38}
+!87 = distinct !{!87, !37, !38}
+!88 = distinct !{!88, !37, !38}
+!89 = distinct !{!89, !37, !38}
+!90 = distinct !{!90, !37, !38}
+!91 = distinct !{!91, !37, !38}
+!92 = distinct !{!92, !37, !38}
+!93 = distinct !{!93, !37, !38}
+!94 = distinct !{!94, !37, !38}
+!95 = distinct !{!95, !37, !38}
+!96 = distinct !{!96, !37, !38}
+!97 = distinct !{!97, !37, !38}
+!98 = distinct !{!98, !37, !38}
+!99 = distinct !{!99, !37, !38}
+!100 = distinct !{!100, !37, !38}
+!101 = distinct !{!101, !37, !38}
+!102 = distinct !{!102, !37, !38}
+!103 = distinct !{!103, !37, !38}

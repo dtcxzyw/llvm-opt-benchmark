@@ -95,7 +95,7 @@ define dso_local i32 @tool_ssls_load(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not69, label %.loopexit80, label %.lr.ph88.backedge
 
 .lr.ph88.backedge:                                ; preds = %.backedge, %.outer
-  br label %.lr.ph88, !llvm.loop !13
+  br label %.lr.ph88, !llvm.loop !14
 
 27:                                               ; preds = %22
   store i8 0, ptr %24, align 1, !tbaa !10
@@ -133,7 +133,7 @@ define dso_local i32 @tool_ssls_load(ptr noundef %0, ptr noundef %1, ptr noundef
   store i8 0, ptr %.057.ptr84, align 1, !tbaa !10
   %.057.add = add nsw i64 %.057.idx83, -1
   %36 = icmp sgt i64 %.057.idx83, 2
-  br i1 %36, label %.lr.ph, label %.critedge4, !llvm.loop !14
+  br i1 %36, label %.lr.ph, label %.critedge4, !llvm.loop !15
 
 .critedge4:                                       ; preds = %.critedge6, %34, %30
   %37 = call i32 @curlx_base64_decode(ptr noundef nonnull %.ptr74, ptr noundef nonnull %8, ptr noundef nonnull %10) #5
@@ -146,9 +146,9 @@ define dso_local i32 @tool_ssls_load(ptr noundef %0, ptr noundef %1, ptr noundef
 
 39:                                               ; preds = %.critedge4
   %40 = load ptr, ptr %7, align 8, !tbaa !4
-  %41 = load i64, ptr %9, align 8, !tbaa !15
+  %41 = load i64, ptr %9, align 8, !tbaa !16
   %42 = load ptr, ptr %8, align 8, !tbaa !4
-  %43 = load i64, ptr %10, align 8, !tbaa !15
+  %43 = load i64, ptr %10, align 8, !tbaa !16
   %44 = call i32 @curl_easy_ssls_import(ptr noundef %.pre95, ptr noundef null, ptr noundef %40, i64 noundef %41, ptr noundef %42, i64 noundef %43) #5
   %.not78 = icmp eq i32 %44, 0
   br i1 %.not78, label %.outer, label %45
@@ -220,7 +220,7 @@ define internal fastcc i32 @tool_ssls_easy(ptr noundef %0, ptr noundef %1, ptr n
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %10 = load i32, ptr %9, align 4, !tbaa !17
+  %10 = load i32, ptr %9, align 4, !tbaa !18
   %.not21 = icmp eq i32 %10, 0
   br i1 %.not21, label %18, label %11
 
@@ -272,12 +272,12 @@ define dso_local i32 @tool_ssls_save(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
-  store ptr %0, ptr %5, align 8, !tbaa !25
+  store ptr %0, ptr %5, align 8, !tbaa !26
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %7, align 8, !tbaa !28
+  store i32 0, ptr %7, align 8, !tbaa !29
   %8 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.6)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %8, ptr %9, align 8, !tbaa !29
+  store ptr %8, ptr %9, align 8, !tbaa !30
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.thread, label %10
 
@@ -305,7 +305,7 @@ thread-pre-split:                                 ; preds = %10, %12
   br label %15
 
 15:                                               ; preds = %14, %thread-pre-split
-  %.pr = load ptr, ptr %9, align 8, !tbaa !29
+  %.pr = load ptr, ptr %9, align 8, !tbaa !30
   %.not13 = icmp eq ptr %.pr, null
   br i1 %.not13, label %18, label %16
 
@@ -330,13 +330,13 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
   store ptr null, ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !28
+  %15 = load i32, ptr %14, align 8, !tbaa !29
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %20
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !30
   %19 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 126, i64 1, ptr %18)
   br label %20
 
@@ -346,16 +346,16 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
   br i1 %.not20, label %22, label %47
 
 22:                                               ; preds = %20
-  %23 = load i64, ptr %13, align 8, !tbaa !15
+  %23 = load i64, ptr %13, align 8, !tbaa !16
   %24 = load ptr, ptr %12, align 8, !tbaa !4
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
+  %26 = load ptr, ptr %25, align 8, !tbaa !30
   %27 = call i64 @fwrite(ptr noundef %24, i64 noundef 1, i64 noundef %23, ptr noundef %26)
   %.not21 = icmp eq i64 %23, %27
   br i1 %.not21, label %28, label %47
 
 28:                                               ; preds = %22
-  %29 = load ptr, ptr %25, align 8, !tbaa !29
+  %29 = load ptr, ptr %25, align 8, !tbaa !30
   %30 = call i32 @fputc(i32 noundef 58, ptr noundef %29)
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %47, label %32
@@ -368,28 +368,28 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
   br i1 %.not22, label %35, label %47
 
 35:                                               ; preds = %32
-  %36 = load i64, ptr %13, align 8, !tbaa !15
+  %36 = load i64, ptr %13, align 8, !tbaa !16
   %37 = load ptr, ptr %12, align 8, !tbaa !4
-  %38 = load ptr, ptr %25, align 8, !tbaa !29
+  %38 = load ptr, ptr %25, align 8, !tbaa !30
   %39 = call i64 @fwrite(ptr noundef %37, i64 noundef 1, i64 noundef %36, ptr noundef %38)
   %.not23 = icmp eq i64 %36, %39
   br i1 %.not23, label %40, label %47
 
 40:                                               ; preds = %35
-  %41 = load ptr, ptr %25, align 8, !tbaa !29
+  %41 = load ptr, ptr %25, align 8, !tbaa !30
   %42 = call i32 @fputc(i32 noundef 10, ptr noundef %41)
   %43 = icmp eq i32 %42, -1
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %40
-  %45 = load i32, ptr %14, align 8, !tbaa !28
+  %45 = load i32, ptr %14, align 8, !tbaa !29
   %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %14, align 8, !tbaa !28
+  store i32 %46, ptr %14, align 8, !tbaa !29
   br label %49
 
 47:                                               ; preds = %20, %22, %28, %32, %35, %40
   %.0.ph = phi i32 [ 23, %40 ], [ 23, %35 ], [ %34, %32 ], [ 23, %28 ], [ 23, %22 ], [ %21, %20 ]
-  %48 = load ptr, ptr %1, align 8, !tbaa !25
+  %48 = load ptr, ptr %1, align 8, !tbaa !26
   call void (ptr, ptr, ...) @warnf(ptr noundef %48, ptr noundef nonnull @.str.12, ptr noundef %2, i32 noundef %.0.ph) #5
   br label %49
 
@@ -439,22 +439,23 @@ attributes #6 = { nounwind willreturn memory(read) }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!6, !6, i64 0}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !7, i64 0}
-!17 = !{!18, !21, i64 28}
-!18 = !{!"GlobalConfig", !19, i64 0, !19, i64 1, !19, i64 2, !19, i64 3, !7, i64 4, !5, i64 8, !20, i64 16, !19, i64 24, !21, i64 28, !19, i64 32, !19, i64 33, !21, i64 36, !5, i64 40, !19, i64 48, !19, i64 49, !16, i64 56, !5, i64 64, !19, i64 72, !22, i64 74, !19, i64 76, !5, i64 80, !23, i64 88, !24, i64 96, !24, i64 104, !24, i64 112}
-!19 = !{!"_Bool", !7, i64 0}
-!20 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!"short", !7, i64 0}
-!23 = !{!"p1 _ZTS8tool_var", !6, i64 0}
-!24 = !{!"p1 _ZTS15OperationConfig", !6, i64 0}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"tool_ssls_ctx", !27, i64 0, !20, i64 8, !21, i64 16}
-!27 = !{!"p1 _ZTS12GlobalConfig", !6, i64 0}
-!28 = !{!26, !21, i64 16}
-!29 = !{!26, !20, i64 8}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !7, i64 0}
+!18 = !{!19, !22, i64 28}
+!19 = !{!"GlobalConfig", !20, i64 0, !20, i64 1, !20, i64 2, !20, i64 3, !7, i64 4, !5, i64 8, !21, i64 16, !20, i64 24, !22, i64 28, !20, i64 32, !20, i64 33, !22, i64 36, !5, i64 40, !20, i64 48, !20, i64 49, !17, i64 56, !5, i64 64, !20, i64 72, !23, i64 74, !20, i64 76, !5, i64 80, !24, i64 88, !25, i64 96, !25, i64 104, !25, i64 112}
+!20 = !{!"_Bool", !7, i64 0}
+!21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!22 = !{!"int", !7, i64 0}
+!23 = !{!"short", !7, i64 0}
+!24 = !{!"p1 _ZTS8tool_var", !6, i64 0}
+!25 = !{!"p1 _ZTS15OperationConfig", !6, i64 0}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"tool_ssls_ctx", !28, i64 0, !21, i64 8, !22, i64 16}
+!28 = !{!"p1 _ZTS12GlobalConfig", !6, i64 0}
+!29 = !{!27, !22, i64 16}
+!30 = !{!27, !21, i64 8}

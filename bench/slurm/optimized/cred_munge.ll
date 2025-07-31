@@ -161,7 +161,7 @@ define internal fastcc ptr @_encode(ptr noundef readonly captures(none) %0) unna
 
 17:                                               ; preds = %15, %12
   %18 = call i32 @usleep(i32 noundef 100000) #7
-  br label %6
+  br label %6, !llvm.loop !8
 
 19:                                               ; preds = %10
   %20 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #7
@@ -406,7 +406,7 @@ define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef
 
 20:                                               ; preds = %18, %15
   %21 = call i32 @usleep(i32 noundef 100000) #7
-  br label %.preheader
+  br label %.preheader, !llvm.loop !10
 
 .critedge.thread:                                 ; preds = %13
   %22 = call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.10) #7
@@ -740,3 +740,6 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}

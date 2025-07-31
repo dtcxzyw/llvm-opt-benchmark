@@ -1107,11 +1107,11 @@ _.exit336.thread406:                              ; preds = %236, %246, %229, %2
   %.1 = phi i32 [ %.2, %_.exit336 ], [ %479, %move_array.exit384 ], [ %479, %478 ], [ %.0483, %473 ], [ %.0483, %_.exit363 ], [ %.0483, %411 ], [ %.0483, %204 ], [ %.0483, %229 ], [ %.0483, %246 ], [ %.0483, %236 ]
   %493 = add nsw i32 %.1214, 1
   %494 = icmp slt i32 %493, %.1
-  br i1 %494, label %158, label %._crit_edge486, !llvm.loop !67
+  br i1 %494, label %158, label %._crit_edge486, !llvm.loop !68
 
 ._crit_edge486:                                   ; preds = %_.exit336.thread406
   %495 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %496 = load i64, ptr %495, align 8, !tbaa !68
+  %496 = load i64, ptr %495, align 8, !tbaa !69
   %.not263 = icmp eq i64 %496, 0
   br i1 %.not263, label %499, label %497
 
@@ -1146,7 +1146,7 @@ _.exit336.thread406:                              ; preds = %236, %246, %229, %2
   %511 = load ptr, ptr @the_repository, align 8, !tbaa !21
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 384
   %513 = load ptr, ptr %512, align 8, !tbaa !31
-  store ptr %513, ptr %27, align 8, !tbaa !71
+  store ptr %513, ptr %27, align 8, !tbaa !72
   %514 = load i32, ptr %10, align 4, !tbaa !4
   %.not268 = icmp eq i32 %514, 0
   br i1 %.not268, label %516, label %515
@@ -1355,7 +1355,7 @@ _.exit336.thread406:                              ; preds = %236, %246, %229, %2
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %27) #12
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
-  br i1 %exitcond524.not, label %._crit_edge493.loopexit, label %502, !llvm.loop !75
+  br i1 %exitcond524.not, label %._crit_edge493.loopexit, label %502, !llvm.loop !76
 
 ._crit_edge493.loopexit:                          ; preds = %.thread415
   %631 = icmp eq i32 %.1219, 0
@@ -1365,7 +1365,7 @@ _.exit336.thread406:                              ; preds = %236, %246, %229, %2
   %.0218.lcssa = phi i1 [ true, %499 ], [ %631, %._crit_edge493.loopexit ]
   %632 = load ptr, ptr %18, align 8, !tbaa !24
   %633 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %634 = load i64, ptr %633, align 8, !tbaa !76
+  %634 = load i64, ptr %633, align 8, !tbaa !77
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.remove_empty_src_dirs.a_src_dir, i64 24, i1 false)
   %.not.i388 = icmp eq i64 %634, 0
@@ -1384,7 +1384,7 @@ _.exit336.thread406:                              ; preds = %236, %246, %229, %2
   %640 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %639) #14
   call void @strbuf_add(ptr noundef nonnull %5, ptr noundef nonnull %639, i64 noundef %640) #12
   %641 = load ptr, ptr %635, align 8, !tbaa !63
-  %642 = load i64, ptr %636, align 8, !tbaa !77
+  %642 = load i64, ptr %636, align 8, !tbaa !78
   %643 = trunc i64 %642 to i32
   %644 = call fastcc i32 @index_range_of_same_dir(ptr noundef %641, i32 noundef %643, ptr noundef %6, ptr noundef %6)
   %645 = icmp slt i32 %644, 1
@@ -1395,7 +1395,7 @@ _.exit336.thread406:                              ; preds = %236, %246, %229, %2
   br label %648
 
 648:                                              ; preds = %646, %637
-  store i64 0, ptr %636, align 8, !tbaa !77
+  store i64 0, ptr %636, align 8, !tbaa !78
   %649 = load ptr, ptr %635, align 8, !tbaa !63
   %.not9.i.i = icmp eq ptr %649, @strbuf_slopbuf
   br i1 %.not9.i.i, label %strbuf_setlen.exit.i, label %650
@@ -1408,13 +1408,13 @@ strbuf_setlen.exit.i:                             ; preds = %650, %648
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   %651 = add nuw i64 %.04.i, 1
   %exitcond.not.i = icmp eq i64 %651, %634
-  br i1 %exitcond.not.i, label %remove_empty_src_dirs.exit, label %637, !llvm.loop !78
+  br i1 %exitcond.not.i, label %remove_empty_src_dirs.exit, label %637, !llvm.loop !79
 
 remove_empty_src_dirs.exit:                       ; preds = %strbuf_setlen.exit.i, %._crit_edge493
   call void @strbuf_release(ptr noundef nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #12
   %652 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %653 = load i64, ptr %652, align 8, !tbaa !68
+  %653 = load i64, ptr %652, align 8, !tbaa !69
   %.not265 = icmp eq i64 %653, 0
   br i1 %.not265, label %655, label %654
 
@@ -1559,7 +1559,7 @@ define internal fastcc void @internal_prefix_pathspec(ptr noundef nonnull %0, pt
   tail call void @free(ptr noundef %16) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count65
-  br i1 %exitcond.not, label %.split39.us, label %.critedge.us, !llvm.loop !79
+  br i1 %exitcond.not, label %.split39.us, label %.critedge.us, !llvm.loop !80
 
 .split.split.us:                                  ; preds = %9, %30
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %30 ], [ 0, %9 ]
@@ -1594,12 +1594,12 @@ define internal fastcc void @internal_prefix_pathspec(ptr noundef nonnull %0, pt
   tail call void @free(ptr noundef %27) #12
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next63, %wide.trip.count65
-  br i1 %exitcond66.not, label %.split39.us, label %.split.split.us, !llvm.loop !81
+  br i1 %exitcond66.not, label %.split39.us, label %.split.split.us, !llvm.loop !82
 
 34:                                               ; preds = %.lr.ph.us
   %35 = add i64 %.02733.us, -1
   %.not57 = icmp eq i64 %35, 0
-  br i1 %.not57, label %.critedge.us45, label %.lr.ph.us, !llvm.loop !82
+  br i1 %.not57, label %.critedge.us45, label %.lr.ph.us, !llvm.loop !83
 
 .split39.us:                                      ; preds = %19, %30
   ret void
@@ -1666,7 +1666,7 @@ add_slash.exit:                                   ; preds = %st_add.exit.i, %14
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 384
   %27 = load ptr, ptr %26, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  %29 = load i32, ptr %28, align 4, !tbaa !83
+  %29 = load i32, ptr %28, align 4, !tbaa !84
   %.not = icmp ugt i32 %29, %24
   br i1 %.not, label %30, label %42
 
@@ -1776,7 +1776,7 @@ add_slash.exit:                                   ; preds = %st_add.exit.i, %17
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 384
   %31 = load ptr, ptr %30, align 8, !tbaa !31
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %33 = load i32, ptr %32, align 4, !tbaa !83
+  %33 = load i32, ptr %32, align 4, !tbaa !84
   %34 = icmp ugt i32 %33, %28
   br i1 %34, label %.lr.ph, label %._crit_edge
 
@@ -1799,7 +1799,7 @@ add_slash.exit:                                   ; preds = %st_add.exit.i, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %33, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %38, !llvm.loop !85
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %38
   %44 = trunc nuw i64 %indvars.iv to i32
@@ -1977,23 +1977,24 @@ attributes #14 = { nounwind willreturn memory(read) }
 !62 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
 !63 = !{!64, !10, i64 16}
 !64 = !{!"strbuf", !12, i64 0, !12, i64 8, !10, i64 16}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = distinct !{!67, !66}
-!68 = !{!69, !12, i64 8}
-!69 = !{!"string_list", !70, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !11, i64 32}
-!70 = !{!"p1 _ZTS16string_list_item", !11, i64 0}
-!71 = !{!72, !45, i64 0}
-!72 = !{!"checkout", !45, i64 0, !10, i64 8, !5, i64 16, !10, i64 24, !73, i64 32, !74, i64 40, !5, i64 120, !5, i64 120, !5, i64 120, !5, i64 120, !5, i64 120}
-!73 = !{!"p1 _ZTS16delayed_checkout", !11, i64 0}
-!74 = !{!"checkout_metadata", !10, i64 0, !56, i64 8, !56, i64 44}
-!75 = distinct !{!75, !66}
-!76 = !{!25, !12, i64 8}
-!77 = !{!64, !12, i64 8}
-!78 = distinct !{!78, !66}
-!79 = distinct !{!79, !66, !80}
-!80 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!81 = distinct !{!81, !66, !80}
-!82 = distinct !{!82, !66}
-!83 = !{!50, !5, i64 12}
-!84 = distinct !{!84, !66}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = distinct !{!68, !66, !67}
+!69 = !{!70, !12, i64 8}
+!70 = !{!"string_list", !71, i64 0, !12, i64 8, !12, i64 16, !5, i64 24, !11, i64 32}
+!71 = !{!"p1 _ZTS16string_list_item", !11, i64 0}
+!72 = !{!73, !45, i64 0}
+!73 = !{!"checkout", !45, i64 0, !10, i64 8, !5, i64 16, !10, i64 24, !74, i64 32, !75, i64 40, !5, i64 120, !5, i64 120, !5, i64 120, !5, i64 120, !5, i64 120}
+!74 = !{!"p1 _ZTS16delayed_checkout", !11, i64 0}
+!75 = !{!"checkout_metadata", !10, i64 0, !56, i64 8, !56, i64 44}
+!76 = distinct !{!76, !66, !67}
+!77 = !{!25, !12, i64 8}
+!78 = !{!64, !12, i64 8}
+!79 = distinct !{!79, !66, !67}
+!80 = distinct !{!80, !66, !67, !81}
+!81 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!82 = distinct !{!82, !66, !67, !81}
+!83 = distinct !{!83, !66, !67}
+!84 = !{!50, !5, i64 12}
+!85 = distinct !{!85, !66, !67}

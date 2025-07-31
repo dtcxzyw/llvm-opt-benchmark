@@ -1885,7 +1885,7 @@ define internal fastcc void @dissect_fcels_rscn(ptr noundef %0, ptr noundef read
   %33 = add nuw nsw i32 %.0371, 4
   %34 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %34, %.zext
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %4, %5
   ret void
@@ -1961,7 +1961,7 @@ define internal fastcc void @dissect_fcels_rnft(ptr noundef %0, ptr noundef read
   %30 = add nuw nsw i32 %.02, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %10, %4
   ret void
@@ -2150,7 +2150,7 @@ define internal fastcc void @dissect_fcels_rpsc(ptr noundef %0, ptr noundef read
   %24 = add nuw nsw i32 %.0241, 1
   %25 = add nuw nsw i32 %.02, 4
   %exitcond.not = icmp eq i32 %24, %12
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %4, %5
   ret void
@@ -2353,7 +2353,7 @@ define internal fastcc void @dissect_fcels_logi(ptr noundef %0, ptr noundef read
   %71 = add nuw nsw i32 %.02, 16
   %72 = add nuw nsw i32 %.0871, 1
   %exitcond.not = icmp eq i32 %72, 5
-  br i1 %exitcond.not, label %73, label %37, !llvm.loop !11
+  br i1 %exitcond.not, label %73, label %37, !llvm.loop !12
 
 73:                                               ; preds = %70
   %74 = and i16 %14, 1
@@ -2490,7 +2490,7 @@ dissect_prlilo_flags.exit:                        ; preds = %21, %34
 61:                                               ; preds = %47, %57, %58, %54
   %62 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %62, %15
-  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %61, %4
   ret void
@@ -2560,10 +2560,11 @@ attributes #6 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

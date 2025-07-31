@@ -541,17 +541,17 @@ define range(i32 0, 2) i32 @ossl_rand_pool_adin_mix_in(ptr noundef readonly capt
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.020 = phi i64 [ %21, %.lr.ph ], [ 0, %9 ]
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.020
-  %14 = load i8, ptr %13, align 1, !tbaa !21
+  %14 = load i8, ptr %13, align 1, !tbaa !22
   %15 = load ptr, ptr %0, align 8, !tbaa !13
   %16 = load i64, ptr %10, align 8, !tbaa !16
   %17 = urem i64 %.020, %16
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !21
+  %19 = load i8, ptr %18, align 1, !tbaa !22
   %20 = xor i8 %19, %14
-  store i8 %20, ptr %18, align 1, !tbaa !21
+  store i8 %20, ptr %18, align 1, !tbaa !22
   %21 = add nuw i64 %.020, 1
   %exitcond.not = icmp eq i64 %21, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit.sink.split:                             ; preds = %9, %6
   %.sink21 = phi i32 [ 429, %6 ], [ 434, %9 ]
@@ -604,7 +604,8 @@ attributes #6 = { nounwind }
 !16 = !{!4, !9, i64 8}
 !17 = !{!4, !10, i64 16}
 !18 = !{!4, !9, i64 48}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!7, !7, i64 0}
+!23 = distinct !{!23, !20, !21}

@@ -4466,7 +4466,7 @@ lean_inc.exit80:                                  ; preds = %91, %90, %88, %85
   br i1 %.not.i102, label %92, label %lean_dec.exit72.backedge
 
 lean_dec.exit72.backedge:                         ; preds = %lean_inc.exit80, %95, %97, %98
-  br label %lean_dec.exit72
+  br label %lean_dec.exit72, !llvm.loop !18
 
 92:                                               ; preds = %lean_inc.exit80
   %93 = load i32, ptr %.062, align 4, !tbaa !11
@@ -4577,7 +4577,7 @@ lean_inc.exit78:                                  ; preds = %122, %121, %119, %l
 
 lean_dec.exit70:                                  ; preds = %129, %128, %126, %lean_inc.exit78
   %130 = tail call ptr @lean_array_push(ptr noundef %.064.ph, ptr noundef %114) #5
-  br label %lean_dec.exit72.outer
+  br label %lean_dec.exit72.outer, !llvm.loop !18
 
 131:                                              ; preds = %lean_obj_tag.exit
   br i1 %.not155, label %132, label %lean_inc.exit77
@@ -8217,7 +8217,7 @@ lean_inc.exit:                                    ; preds = %35, %34, %32, %lean
 
 lean_dec.exit:                                    ; preds = %42, %41, %39, %lean_inc.exit
   %43 = tail call ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef %.012, ptr noundef %17) #5
-  br label %3
+  br label %3, !llvm.loop !20
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #2
@@ -8928,3 +8928,6 @@ attributes #7 = { "function-inline-cost-multiplier"="2" }
 !15 = !{!6, !6, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !6, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !19}

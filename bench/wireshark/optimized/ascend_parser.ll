@@ -656,7 +656,7 @@ yy_reduce.exit.i:                                 ; preds = %356, %350, %326, %3
   store i16 %380, ptr %381, align 4
   %382 = getelementptr i8, ptr %371, i64 82
   store i8 %367, ptr %382, align 2
-  br label %49
+  br label %49, !llvm.loop !9
 
 383:                                              ; preds = %yy_find_shift_action.exit.i
   %384 = icmp eq i32 %44, 0
@@ -680,7 +680,7 @@ yy_reduce.exit.i:                                 ; preds = %356, %350, %326, %3
   %393 = phi ptr [ %394, %.lr.ph.i.i.i ], [ %387, %391 ]
   %394 = getelementptr i8, ptr %393, i64 -80
   %395 = icmp ugt ptr %394, %41
-  br i1 %395, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !8
+  br i1 %395, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !10
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   store ptr %394, ptr %24, align 8
@@ -741,7 +741,7 @@ AscendParser.exit.thread38:                       ; preds = %414
   %417 = phi ptr [ %418, %.lr.ph.i.i ], [ %.promoted.i.i, %415 ]
   %418 = getelementptr i8, ptr %417, i64 -80
   %419 = icmp ugt ptr %418, %41
-  br i1 %419, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
+  br i1 %419, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   store ptr %418, ptr %24, align 8
@@ -771,7 +771,7 @@ AscendParser.exit:                                ; preds = %yy_shift.exit.i, %4
 424:                                              ; preds = %422
   %425 = load i32, ptr %20, align 4
   %426 = icmp ult i32 %425, 128
-  br i1 %426, label %42, label %.critedge, !llvm.loop !10
+  br i1 %426, label %42, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %422, %420, %AscendParser.exit, %424, %AscendParser.exit.thread
   br i1 %.not.i, label %AscendParserFree.exit, label %427
@@ -880,8 +880,10 @@ attributes #13 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

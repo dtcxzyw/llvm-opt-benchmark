@@ -945,7 +945,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %12, ptr %16, align 8, !tbaa !83
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4496
-  store i64 %12, ptr %17, align 8, !tbaa !125
+  store i64 %12, ptr %17, align 8, !tbaa !126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br label %rtsp_parse_transport.exit
 
@@ -974,7 +974,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
 
 .critedge4:                                       ; preds = %23, %23
   %25 = getelementptr inbounds nuw i8, ptr %.060, i64 1
-  br label %23, !llvm.loop !126
+  br label %23, !llvm.loop !127
 
 26:                                               ; preds = %23
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.4) #7
@@ -998,7 +998,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   %.pr = load i8, ptr %31, align 1, !tbaa !7
-  br label %.preheader, !llvm.loop !127
+  br label %.preheader, !llvm.loop !128
 
 .critedge6:                                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %28
   %32 = ptrtoint ptr %.059 to i64
@@ -1056,7 +1056,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
 .critedge4.i:                                     ; preds = %.preheader.i, %.preheader.i
   %50 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %.pr.i = load i8, ptr %50, align 1, !tbaa !7
-  br label %.preheader.i, !llvm.loop !128
+  br label %.preheader.i, !llvm.loop !129
 
 .critedge2.i:                                     ; preds = %.preheader.i
   %51 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.i, i32 noundef 59) #8
@@ -1136,7 +1136,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   store i8 %89, ptr %87, align 1, !tbaa !7
   %90 = add i64 %.05679.i, 1
   %exitcond.not.i = icmp eq i64 %.05679.i, %.05583.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph80.i, !llvm.loop !129
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph80.i, !llvm.loop !130
 
 91:                                               ; preds = %53
   %.not69.i = icmp eq ptr %0, null
@@ -1267,7 +1267,7 @@ define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %0, ptr noundef %1, i64 
   %.0110249 = phi ptr [ %1, %.lr.ph ], [ %.2112, %.critedge169 ]
   %.0113248 = phi i64 [ %2, %.lr.ph ], [ %.2115, %.critedge169 ]
   %.0134247 = phi i64 [ 0, %.lr.ph ], [ %.2136, %.critedge169 ]
-  %20 = load i32, ptr %9, align 4, !tbaa !130
+  %20 = load i32, ptr %9, align 4, !tbaa !131
   %.not151 = icmp eq i32 %20, 0
   br i1 %.not151, label %31, label %21
 
@@ -1283,7 +1283,7 @@ define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %0, ptr noundef %1, i64 
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %24
-  %28 = load i64, ptr %11, align 8, !tbaa !131
+  %28 = load i64, ptr %11, align 8, !tbaa !132
   %29 = icmp sge i64 %28, %25
   %30 = freeze i1 %29
   br label %31
@@ -1317,7 +1317,7 @@ define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %0, ptr noundef %1, i64 
   %38 = add i64 %.1114240.us, -1
   %39 = add i64 %.1135239.us, 1
   %.not161.us = icmp eq i64 %38, 0
-  br i1 %.not161.us, label %.critedge169.thread.loopexit277, label %.preheader.split.us, !llvm.loop !132
+  br i1 %.not161.us, label %.critedge169.thread.loopexit277, label %.preheader.split.us, !llvm.loop !133
 
 .preheader.split:                                 ; preds = %.preheader, %50
   %.1111241 = phi ptr [ %53, %50 ], [ %.0110249, %.preheader ]
@@ -1355,7 +1355,7 @@ define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %0, ptr noundef %1, i64 
   %54 = add i64 %.1114240, -1
   %55 = add i64 %.1135239, 1
   %.not161 = icmp eq i64 %54, 0
-  br i1 %.not161, label %.critedge169.thread.loopexit, label %.preheader.split, !llvm.loop !134
+  br i1 %.not161, label %.critedge169.thread.loopexit, label %.preheader.split, !llvm.loop !135
 
 .critedge:                                        ; preds = %.preheader.split.us, %.preheader.split
   %.us-phi = phi i64 [ %.1135239, %.preheader.split ], [ %.1135239.us, %.preheader.split.us ]
@@ -1383,7 +1383,7 @@ define internal fastcc i32 @rtsp_filter_rtp(ptr noundef %0, ptr noundef %1, i64 
   br i1 %66, label %67, label %rtp_write_body_junk.exit.thread
 
 67:                                               ; preds = %64
-  %68 = load i64, ptr %11, align 8, !tbaa !131
+  %68 = load i64, ptr %11, align 8, !tbaa !132
   %69 = icmp slt i64 %68, %65
   br i1 %69, label %rtp_write_body_junk.exit, label %rtp_write_body_junk.exit.thread
 
@@ -1430,7 +1430,7 @@ rtp_write_body_junk.exit.thread:                  ; preds = %64, %59, %56, %67, 
 
 92:                                               ; preds = %89
   %93 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #7
-  %94 = load i32, ptr %9, align 4, !tbaa !130
+  %94 = load i32, ptr %9, align 4, !tbaa !131
   %.not.i170 = icmp eq i32 %94, 0
   br i1 %.not.i170, label %rtp_write_body_junk.exit175.thread, label %95
 
@@ -1448,7 +1448,7 @@ rtp_write_body_junk.exit.thread:                  ; preds = %64, %59, %56, %67, 
   br i1 %102, label %103, label %rtp_write_body_junk.exit175.thread
 
 103:                                              ; preds = %100
-  %104 = load i64, ptr %11, align 8, !tbaa !131
+  %104 = load i64, ptr %11, align 8, !tbaa !132
   %105 = icmp slt i64 %104, %101
   br i1 %105, label %rtp_write_body_junk.exit175, label %rtp_write_body_junk.exit175.thread
 
@@ -1463,7 +1463,7 @@ rtp_write_body_junk.exit175.thread:               ; preds = %100, %95, %92, %103
   br label %.critedge169
 
 107:                                              ; preds = %78
-  store i32 %80, ptr %17, align 8, !tbaa !135
+  store i32 %80, ptr %17, align 8, !tbaa !136
   %108 = tail call i32 @Curl_dyn_addn(ptr noundef nonnull %7, ptr noundef nonnull %.0110249, i64 noundef 1) #7
   %.not160 = icmp eq i32 %108, 0
   br i1 %.not160, label %109, label %rtp_write_body_junk.exit183
@@ -1503,13 +1503,13 @@ rtp_write_body_junk.exit175.thread:               ; preds = %100, %95, %92, %103
   %131 = zext i8 %130 to i64
   %132 = or disjoint i64 %128, %131
   %133 = add nuw nsw i64 %132, 4
-  store i64 %133, ptr %13, align 8, !tbaa !136
+  store i64 %133, ptr %13, align 8, !tbaa !137
   store i32 3, ptr %12, align 8, !tbaa !121
   br label %.critedge169
 
 134:                                              ; preds = %31
   %135 = tail call i64 @Curl_dyn_len(ptr noundef nonnull %7) #7
-  %136 = load i64, ptr %13, align 8, !tbaa !136
+  %136 = load i64, ptr %13, align 8, !tbaa !137
   %137 = sub i64 %136, %135
   %.not153 = icmp ugt i64 %137, %.0113248
   br i1 %.not153, label %157, label %138
@@ -1526,17 +1526,17 @@ rtp_write_body_junk.exit175.thread:               ; preds = %100, %95, %92, %103
   %143 = getelementptr inbounds nuw i8, ptr %.0110249, i64 %137
   %144 = sub i64 %.0113248, %137
   %145 = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %7) #7
-  %146 = load i64, ptr %13, align 8, !tbaa !136
+  %146 = load i64, ptr %13, align 8, !tbaa !137
   %147 = icmp eq i64 %146, 0
   br i1 %147, label %rtp_client_write.exit, label %148
 
 148:                                              ; preds = %140
-  %149 = load ptr, ptr %14, align 8, !tbaa !137
+  %149 = load ptr, ptr %14, align 8, !tbaa !138
   %.not.i176 = icmp eq ptr %149, null
   br i1 %.not.i176, label %150, label %152
 
 150:                                              ; preds = %148
-  %151 = load ptr, ptr %15, align 8, !tbaa !138
+  %151 = load ptr, ptr %15, align 8, !tbaa !139
   br label %152
 
 152:                                              ; preds = %150, %148
@@ -1606,7 +1606,7 @@ rtp_client_write.exit:                            ; preds = %140, %152, %156
   %168 = getelementptr inbounds i8, ptr %.8, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 300
-  %171 = load i32, ptr %170, align 4, !tbaa !130
+  %171 = load i32, ptr %170, align 4, !tbaa !131
   %.not.i178 = icmp eq i32 %171, 0
   br i1 %.not.i178, label %rtp_write_body_junk.exit183, label %172
 
@@ -1625,7 +1625,7 @@ rtp_client_write.exit:                            ; preds = %140, %152, %156
 
 180:                                              ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %182 = load i64, ptr %181, align 8, !tbaa !131
+  %182 = load i64, ptr %181, align 8, !tbaa !132
   %183 = icmp slt i64 %182, %178
   br i1 %183, label %.critedge.i181, label %rtp_write_body_junk.exit183
 
@@ -1794,19 +1794,20 @@ attributes #8 = { nounwind willreturn memory(read) }
 !120 = !{!9, !11, i64 240}
 !121 = !{!122, !10, i64 48}
 !122 = !{!"rtsp_conn", !56, i64 0, !10, i64 32, !11, i64 40, !10, i64 48, !10, i64 52}
-!123 = distinct !{!123, !124}
+!123 = distinct !{!123, !124, !125}
 !124 = !{!"llvm.loop.mustprogress"}
-!125 = !{!9, !11, i64 4496}
-!126 = distinct !{!126, !124}
-!127 = distinct !{!127, !124}
-!128 = distinct !{!128, !124}
-!129 = distinct !{!129, !124}
-!130 = !{!9, !10, i64 300}
-!131 = !{!9, !11, i64 256}
-!132 = distinct !{!132, !124, !133}
-!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!134 = distinct !{!134, !124}
-!135 = !{!122, !10, i64 32}
-!136 = !{!122, !11, i64 40}
-!137 = !{!9, !4, i64 576}
-!138 = !{!9, !4, i64 560}
+!125 = !{!"llvm.loop.estimated_trip_count"}
+!126 = !{!9, !11, i64 4496}
+!127 = distinct !{!127, !124, !125}
+!128 = distinct !{!128, !124, !125}
+!129 = distinct !{!129, !124, !125}
+!130 = distinct !{!130, !124, !125}
+!131 = !{!9, !10, i64 300}
+!132 = !{!9, !11, i64 256}
+!133 = distinct !{!133, !124, !125, !134}
+!134 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!135 = distinct !{!135, !124, !125}
+!136 = !{!122, !10, i64 32}
+!137 = !{!122, !11, i64 40}
+!138 = !{!9, !4, i64 576}
+!139 = !{!9, !4, i64 560}

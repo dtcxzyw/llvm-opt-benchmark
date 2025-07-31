@@ -493,12 +493,12 @@ b2DestroyContactsBetweenBodies.exit:              ; preds = %93, %70
   br label %94
 
 94:                                               ; preds = %b2DestroyContactsBetweenBodies.exit, %7
-  %95 = load i32, ptr %20, align 4, !tbaa !128
+  %95 = load i32, ptr %20, align 4, !tbaa !129
   %96 = add nsw i32 %95, 1
   %97 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %98 = load i16, ptr %97, align 4, !tbaa !129
+  %98 = load i16, ptr %97, align 4, !tbaa !130
   %99 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %100 = load i16, ptr %99, align 4, !tbaa !130
+  %100 = load i16, ptr %99, align 4, !tbaa !131
   %101 = zext i16 %100 to i64
   %102 = shl nuw i64 %101, 48
   %103 = zext i16 %98 to i64
@@ -525,15 +525,15 @@ define internal fastcc { ptr, ptr } @b2CreateJoint(ptr noundef %0, ptr noundef c
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 108
   %12 = load i32, ptr %11, align 4, !tbaa !121
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !131
+  %14 = load i32, ptr %13, align 8, !tbaa !132
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %16 = load i32, ptr %15, align 8, !tbaa !131
+  %16 = load i32, ptr %15, align 8, !tbaa !132
   %17 = tail call noundef i32 @llvm.smax.i32(i32 %14, i32 %16)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %19 = tail call i32 @b2AllocId(ptr noundef nonnull %18) #10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %22 = load i32, ptr %21, align 8, !tbaa !132
+  %22 = load i32, ptr %21, align 8, !tbaa !133
   %23 = icmp eq i32 %19, %22
   br i1 %23, label %24, label %43
 
@@ -562,7 +562,7 @@ define internal fastcc { ptr, ptr } @b2CreateJoint(ptr noundef %0, ptr noundef c
   %36 = tail call ptr @b2GrowAlloc(ptr noundef %.pre9.i, i32 noundef %34, i32 noundef %35) #10
   store ptr %36, ptr %20, align 8, !tbaa !10
   store i32 %32, ptr %25, align 4, !tbaa !3
-  %.pre10.i = load i32, ptr %21, align 8, !tbaa !133
+  %.pre10.i = load i32, ptr %21, align 8, !tbaa !134
   br label %b2JointArray_Push.exit
 
 b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reserve.exit_crit_edge.i, %28, %33
@@ -571,9 +571,9 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds %struct.b2Joint, ptr %38, i64 %39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %40, i8 0, i64 72, i1 false)
-  %41 = load i32, ptr %21, align 8, !tbaa !133
+  %41 = load i32, ptr %21, align 8, !tbaa !134
   %42 = add nsw i32 %41, 1
-  store i32 %42, ptr %21, align 8, !tbaa !133
+  store i32 %42, ptr %21, align 8, !tbaa !134
   br label %43
 
 43:                                               ; preds = %b2JointArray_Push.exit, %7
@@ -581,12 +581,12 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   %44 = sext i32 %19 to i64
   %45 = getelementptr inbounds %struct.b2Joint, ptr %.val148, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 44
-  store i32 %19, ptr %46, align 4, !tbaa !134
-  store ptr %3, ptr %45, align 8, !tbaa !135
+  store i32 %19, ptr %46, align 4, !tbaa !135
+  store ptr %3, ptr %45, align 8, !tbaa !136
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 68
-  %48 = load i16, ptr %47, align 4, !tbaa !130
+  %48 = load i16, ptr %47, align 4, !tbaa !131
   %49 = add i16 %48, 1
-  store i16 %49, ptr %47, align 4, !tbaa !130
+  store i16 %49, ptr %47, align 4, !tbaa !131
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 -1, ptr %50, align 8, !tbaa !53
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 12
@@ -594,27 +594,27 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i32 -1, ptr %52, align 8, !tbaa !59
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  store i32 -1, ptr %53, align 8, !tbaa !136
+  store i32 -1, ptr %53, align 8, !tbaa !137
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 52
-  store i32 -1, ptr %54, align 4, !tbaa !137
+  store i32 -1, ptr %54, align 4, !tbaa !138
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  store i32 -1, ptr %55, align 8, !tbaa !138
+  store i32 -1, ptr %55, align 8, !tbaa !139
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 60
-  store float %4, ptr %56, align 4, !tbaa !139
+  store float %4, ptr %56, align 4, !tbaa !140
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  store i32 %5, ptr %57, align 8, !tbaa !140
+  store i32 %5, ptr %57, align 8, !tbaa !141
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 71
-  store i8 %8, ptr %58, align 1, !tbaa !141
+  store i8 %8, ptr %58, align 1, !tbaa !142
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 70
-  store i8 0, ptr %59, align 2, !tbaa !142
+  store i8 0, ptr %59, align 2, !tbaa !143
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 20
-  store i32 %10, ptr %60, align 4, !tbaa !143
+  store i32 %10, ptr %60, align 4, !tbaa !144
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 -1, ptr %61, align 4, !tbaa !145
+  store i32 -1, ptr %61, align 4, !tbaa !146
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %63 = load i32, ptr %62, align 4, !tbaa !146
+  %63 = load i32, ptr %62, align 4, !tbaa !147
   %64 = getelementptr inbounds nuw i8, ptr %45, i64 28
-  store i32 %63, ptr %64, align 4, !tbaa !147
+  store i32 %63, ptr %64, align 4, !tbaa !148
   %65 = shl i32 %19, 1
   %.not = icmp eq i32 %63, -1
   br i1 %.not, label %72, label %66
@@ -626,23 +626,23 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   %70 = trunc i32 %63 to i1
   %.offs = select i1 %70, i64 16, i64 4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 %.offs
-  store i32 %65, ptr %71, align 4, !tbaa !145
+  store i32 %65, ptr %71, align 4, !tbaa !146
   br label %72
 
 72:                                               ; preds = %66, %43
-  store i32 %65, ptr %62, align 4, !tbaa !146
+  store i32 %65, ptr %62, align 4, !tbaa !147
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %74 = load i32, ptr %73, align 8, !tbaa !148
+  %74 = load i32, ptr %73, align 8, !tbaa !149
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %73, align 8, !tbaa !148
+  store i32 %75, ptr %73, align 8, !tbaa !149
   %76 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  store i32 %12, ptr %76, align 4, !tbaa !143
+  store i32 %12, ptr %76, align 4, !tbaa !144
   %77 = getelementptr inbounds nuw i8, ptr %45, i64 36
-  store i32 -1, ptr %77, align 4, !tbaa !145
+  store i32 -1, ptr %77, align 4, !tbaa !146
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %79 = load i32, ptr %78, align 4, !tbaa !146
+  %79 = load i32, ptr %78, align 4, !tbaa !147
   %80 = getelementptr inbounds nuw i8, ptr %45, i64 40
-  store i32 %79, ptr %80, align 4, !tbaa !147
+  store i32 %79, ptr %80, align 4, !tbaa !148
   %81 = or disjoint i32 %65, 1
   %.not142 = icmp eq i32 %79, -1
   br i1 %.not142, label %88, label %82
@@ -654,21 +654,21 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   %86 = trunc i32 %79 to i1
   %.offs143 = select i1 %86, i64 16, i64 4
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 %.offs143
-  store i32 %81, ptr %87, align 4, !tbaa !145
+  store i32 %81, ptr %87, align 4, !tbaa !146
   br label %88
 
 88:                                               ; preds = %82, %72
-  store i32 %81, ptr %78, align 4, !tbaa !146
+  store i32 %81, ptr %78, align 4, !tbaa !147
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %90 = load i32, ptr %89, align 8, !tbaa !148
+  %90 = load i32, ptr %89, align 8, !tbaa !149
   %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %89, align 8, !tbaa !148
-  %92 = load i32, ptr %13, align 8, !tbaa !131
+  store i32 %91, ptr %89, align 8, !tbaa !149
+  %92 = load i32, ptr %13, align 8, !tbaa !132
   %93 = icmp eq i32 %92, 1
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %88
-  %95 = load i32, ptr %15, align 8, !tbaa !131
+  %95 = load i32, ptr %15, align 8, !tbaa !132
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %122
 
@@ -678,7 +678,7 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   store i32 1, ptr %50, align 8, !tbaa !53
   %99 = getelementptr inbounds nuw i8, ptr %.val153, i64 120
   %100 = getelementptr inbounds nuw i8, ptr %.val153, i64 128
-  %101 = load i32, ptr %100, align 8, !tbaa !149
+  %101 = load i32, ptr %100, align 8, !tbaa !150
   store i32 %101, ptr %52, align 8, !tbaa !59
   %102 = getelementptr inbounds nuw i8, ptr %.val153, i64 132
   %103 = load i32, ptr %102, align 4, !tbaa !11
@@ -704,23 +704,23 @@ b2JointArray_Push.exit:                           ; preds = %.b2JointArray_Reser
   %113 = tail call ptr @b2GrowAlloc(ptr noundef %.pre10.i156, i32 noundef %111, i32 noundef %112) #10
   store ptr %113, ptr %99, align 8, !tbaa !14
   store i32 %109, ptr %102, align 4, !tbaa !11
-  %.pre.i157 = load i32, ptr %100, align 8, !tbaa !159
+  %.pre.i157 = load i32, ptr %100, align 8, !tbaa !160
   br label %b2JointSimArray_Add.exit
 
 b2JointSimArray_Add.exit:                         ; preds = %.b2JointSimArray_Reserve.exit_crit_edge.i, %105, %110
   %114 = phi ptr [ %113, %110 ], [ %.pre10.i156, %105 ], [ %.pre9.i154, %.b2JointSimArray_Reserve.exit_crit_edge.i ]
   %115 = phi i32 [ %.pre.i157, %110 ], [ %101, %105 ], [ %101, %.b2JointSimArray_Reserve.exit_crit_edge.i ]
   %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %100, align 8, !tbaa !159
+  store i32 %116, ptr %100, align 8, !tbaa !160
   %117 = sext i32 %115 to i64
   %118 = getelementptr inbounds %struct.b2JointSim, ptr %114, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %119, i8 0, i64 160, i1 false)
-  store i32 %19, ptr %118, align 4, !tbaa !128
+  store i32 %19, ptr %118, align 4, !tbaa !129
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 4
-  store i32 %10, ptr %120, align 4, !tbaa !160
+  store i32 %10, ptr %120, align 4, !tbaa !161
   %121 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  store i32 %12, ptr %121, align 4, !tbaa !161
+  store i32 %12, ptr %121, align 4, !tbaa !162
   br label %197
 
 122:                                              ; preds = %94
@@ -734,7 +734,7 @@ b2JointSimArray_Add.exit:                         ; preds = %.b2JointSimArray_Re
   store i32 0, ptr %50, align 8, !tbaa !53
   %126 = getelementptr inbounds nuw i8, ptr %.val152, i64 32
   %127 = getelementptr inbounds nuw i8, ptr %.val152, i64 40
-  %128 = load i32, ptr %127, align 8, !tbaa !149
+  %128 = load i32, ptr %127, align 8, !tbaa !150
   store i32 %128, ptr %52, align 8, !tbaa !59
   %129 = getelementptr inbounds nuw i8, ptr %.val152, i64 44
   %130 = load i32, ptr %129, align 4, !tbaa !11
@@ -760,23 +760,23 @@ b2JointSimArray_Add.exit:                         ; preds = %.b2JointSimArray_Re
   %140 = tail call ptr @b2GrowAlloc(ptr noundef %.pre10.i161, i32 noundef %138, i32 noundef %139) #10
   store ptr %140, ptr %126, align 8, !tbaa !14
   store i32 %136, ptr %129, align 4, !tbaa !11
-  %.pre.i162 = load i32, ptr %127, align 8, !tbaa !159
+  %.pre.i162 = load i32, ptr %127, align 8, !tbaa !160
   br label %b2JointSimArray_Add.exit163
 
 b2JointSimArray_Add.exit163:                      ; preds = %.b2JointSimArray_Reserve.exit_crit_edge.i158, %132, %137
   %141 = phi ptr [ %140, %137 ], [ %.pre10.i161, %132 ], [ %.pre9.i159, %.b2JointSimArray_Reserve.exit_crit_edge.i158 ]
   %142 = phi i32 [ %.pre.i162, %137 ], [ %128, %132 ], [ %128, %.b2JointSimArray_Reserve.exit_crit_edge.i158 ]
   %143 = add nsw i32 %142, 1
-  store i32 %143, ptr %127, align 8, !tbaa !159
+  store i32 %143, ptr %127, align 8, !tbaa !160
   %144 = sext i32 %142 to i64
   %145 = getelementptr inbounds %struct.b2JointSim, ptr %141, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %146, i8 0, i64 160, i1 false)
-  store i32 %19, ptr %145, align 4, !tbaa !128
+  store i32 %19, ptr %145, align 4, !tbaa !129
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 4
-  store i32 %10, ptr %147, align 4, !tbaa !160
+  store i32 %10, ptr %147, align 4, !tbaa !161
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store i32 %12, ptr %148, align 4, !tbaa !161
+  store i32 %12, ptr %148, align 4, !tbaa !162
   br label %197
 
 149:                                              ; preds = %122
@@ -796,11 +796,11 @@ b2JointSimArray_Add.exit163:                      ; preds = %.b2JointSimArray_Re
 155:                                              ; preds = %154, %152
   store i32 2, ptr %50, align 8, !tbaa !53
   %156 = tail call ptr @b2CreateJointInGraph(ptr noundef nonnull %0, ptr noundef nonnull %45) #10
-  store i32 %19, ptr %156, align 4, !tbaa !128
+  store i32 %19, ptr %156, align 4, !tbaa !129
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  store i32 %10, ptr %157, align 4, !tbaa !160
+  store i32 %10, ptr %157, align 4, !tbaa !161
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 %12, ptr %158, align 4, !tbaa !161
+  store i32 %12, ptr %158, align 4, !tbaa !162
   br label %197
 
 159:                                              ; preds = %149
@@ -811,7 +811,7 @@ b2JointSimArray_Add.exit163:                      ; preds = %.b2JointSimArray_Re
   store i32 %17, ptr %50, align 8, !tbaa !53
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 32
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 40
-  %165 = load i32, ptr %164, align 8, !tbaa !149
+  %165 = load i32, ptr %164, align 8, !tbaa !150
   store i32 %165, ptr %52, align 8, !tbaa !59
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 44
   %167 = load i32, ptr %166, align 4, !tbaa !11
@@ -837,25 +837,25 @@ b2JointSimArray_Add.exit163:                      ; preds = %.b2JointSimArray_Re
   %177 = tail call ptr @b2GrowAlloc(ptr noundef %.pre10.i167, i32 noundef %175, i32 noundef %176) #10
   store ptr %177, ptr %163, align 8, !tbaa !14
   store i32 %173, ptr %166, align 4, !tbaa !11
-  %.pre.i168 = load i32, ptr %164, align 8, !tbaa !159
+  %.pre.i168 = load i32, ptr %164, align 8, !tbaa !160
   br label %b2JointSimArray_Add.exit169
 
 b2JointSimArray_Add.exit169:                      ; preds = %.b2JointSimArray_Reserve.exit_crit_edge.i164, %169, %174
   %178 = phi ptr [ %177, %174 ], [ %.pre10.i167, %169 ], [ %.pre9.i165, %.b2JointSimArray_Reserve.exit_crit_edge.i164 ]
   %179 = phi i32 [ %.pre.i168, %174 ], [ %165, %169 ], [ %165, %.b2JointSimArray_Reserve.exit_crit_edge.i164 ]
   %180 = add nsw i32 %179, 1
-  store i32 %180, ptr %164, align 8, !tbaa !159
+  store i32 %180, ptr %164, align 8, !tbaa !160
   %181 = sext i32 %179 to i64
   %182 = getelementptr inbounds %struct.b2JointSim, ptr %178, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(160) %183, i8 0, i64 160, i1 false)
-  store i32 %19, ptr %182, align 4, !tbaa !128
+  store i32 %19, ptr %182, align 4, !tbaa !129
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  store i32 %10, ptr %184, align 4, !tbaa !160
+  store i32 %10, ptr %184, align 4, !tbaa !161
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
-  store i32 %12, ptr %185, align 4, !tbaa !161
-  %186 = load i32, ptr %13, align 8, !tbaa !131
-  %187 = load i32, ptr %15, align 8, !tbaa !131
+  store i32 %12, ptr %185, align 4, !tbaa !162
+  %186 = load i32, ptr %13, align 8, !tbaa !132
+  %187 = load i32, ptr %15, align 8, !tbaa !132
   %.not144 = icmp ne i32 %186, %187
   %188 = icmp sgt i32 %186, 2
   %or.cond145 = and i1 %188, %.not144
@@ -865,7 +865,7 @@ b2JointSimArray_Add.exit169:                      ; preds = %.b2JointSimArray_Re
 
 190:                                              ; preds = %b2JointSimArray_Add.exit169
   tail call void @b2MergeSolverSets(ptr noundef nonnull %0, i32 noundef %186, i32 noundef %187) #10
-  %191 = load i32, ptr %13, align 8, !tbaa !131
+  %191 = load i32, ptr %13, align 8, !tbaa !132
   %.val150 = load ptr, ptr %160, align 8, !tbaa !56
   %192 = sext i32 %191 to i64
   %193 = getelementptr inbounds %struct.b2SolverSet, ptr %.val150, i64 %192, i32 2
@@ -907,9 +907,9 @@ define i64 @b2CreateMotorJoint(i32 %0, ptr noundef readonly captures(none) %1) l
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %3, i64 %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !162
+  %14 = load ptr, ptr %13, align 8, !tbaa !163
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %16 = load i8, ptr %15, align 8, !tbaa !163, !range !103, !noundef !104
+  %16 = load i8, ptr %15, align 8, !tbaa !164, !range !103, !noundef !104
   %17 = trunc nuw i8 %16 to i1
   %18 = tail call fastcc { ptr, ptr } @b2CreateJoint(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %12, ptr noundef %14, float noundef 1.000000e+00, i32 noundef 1, i1 noundef zeroext %17)
   %19 = extractvalue { ptr, ptr } %18, 0
@@ -924,7 +924,7 @@ define i64 @b2CreateMotorJoint(i32 %0, ptr noundef readonly captures(none) %1) l
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %23, align 4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %27 = load float, ptr %26, align 8, !tbaa !164
+  %27 = load float, ptr %26, align 8, !tbaa !165
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store float %27, ptr %28, align 4, !tbaa !109
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -943,7 +943,7 @@ define i64 @b2CreateMotorJoint(i32 %0, ptr noundef readonly captures(none) %1) l
   %40 = select i1 %37, float 0.000000e+00, float %39
   %41 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store float %40, ptr %41, align 4, !tbaa !109
-  %42 = load i8, ptr %15, align 8, !tbaa !163, !range !103, !noundef !104
+  %42 = load i8, ptr %15, align 8, !tbaa !164, !range !103, !noundef !104
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %68
 
@@ -999,12 +999,12 @@ b2DestroyContactsBetweenBodies.exit:              ; preds = %67, %44
   br label %68
 
 68:                                               ; preds = %b2DestroyContactsBetweenBodies.exit, %7
-  %69 = load i32, ptr %20, align 4, !tbaa !128
+  %69 = load i32, ptr %20, align 4, !tbaa !129
   %70 = add nsw i32 %69, 1
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %72 = load i16, ptr %71, align 4, !tbaa !129
+  %72 = load i16, ptr %71, align 4, !tbaa !130
   %73 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %74 = load i16, ptr %73, align 4, !tbaa !130
+  %74 = load i16, ptr %73, align 4, !tbaa !131
   %75 = zext i16 %74 to i64
   %76 = shl nuw i64 %75, 48
   %77 = zext i16 %72 to i64
@@ -1040,9 +1040,9 @@ define i64 @b2CreateMouseJoint(i32 %0, ptr noundef readonly captures(none) %1) l
   %17 = extractvalue { <2 x float>, <2 x float> } %16, 0
   %18 = extractvalue { <2 x float>, <2 x float> } %16, 1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !165
+  %20 = load ptr, ptr %19, align 8, !tbaa !166
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %22 = load i8, ptr %21, align 4, !tbaa !166, !range !103, !noundef !104
+  %22 = load i8, ptr %21, align 4, !tbaa !167, !range !103, !noundef !104
   %23 = trunc nuw i8 %22 to i1
   %24 = tail call fastcc { ptr, ptr } @b2CreateJoint(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %12, ptr noundef %20, float noundef 1.000000e+00, i32 noundef 2, i1 noundef zeroext %23)
   %25 = extractvalue { ptr, ptr } %24, 0
@@ -1102,12 +1102,12 @@ define i64 @b2CreateMouseJoint(i32 %0, ptr noundef readonly captures(none) %1) l
   %64 = load float, ptr %63, align 8, !tbaa !33
   %65 = getelementptr inbounds nuw i8, ptr %26, i64 64
   store float %64, ptr %65, align 4, !tbaa !109
-  %66 = load i32, ptr %26, align 4, !tbaa !128
+  %66 = load i32, ptr %26, align 4, !tbaa !129
   %67 = add nsw i32 %66, 1
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %69 = load i16, ptr %68, align 4, !tbaa !129
+  %69 = load i16, ptr %68, align 4, !tbaa !130
   %70 = getelementptr inbounds nuw i8, ptr %25, i64 68
-  %71 = load i16, ptr %70, align 4, !tbaa !130
+  %71 = load i16, ptr %70, align 4, !tbaa !131
   %72 = zext i16 %71 to i64
   %73 = shl nuw i64 %72, 48
   %74 = zext i16 %69 to i64
@@ -1139,7 +1139,7 @@ define i64 @b2CreateNullJoint(i32 %0, ptr noundef readonly captures(none) %1) lo
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %3, i64 %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !167
+  %14 = load ptr, ptr %13, align 8, !tbaa !168
   %15 = tail call fastcc { ptr, ptr } @b2CreateJoint(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %12, ptr noundef %14, float noundef 1.000000e+00, i32 noundef 3, i1 noundef zeroext false)
   %16 = extractvalue { ptr, ptr } %15, 0
   %17 = extractvalue { ptr, ptr } %15, 1
@@ -1147,12 +1147,12 @@ define i64 @b2CreateNullJoint(i32 %0, ptr noundef readonly captures(none) %1) lo
   store i32 3, ptr %18, align 4, !tbaa !107
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %20 = load i32, ptr %17, align 4, !tbaa !128
+  %20 = load i32, ptr %17, align 4, !tbaa !129
   %21 = add nsw i32 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %23 = load i16, ptr %22, align 4, !tbaa !129
+  %23 = load i16, ptr %22, align 4, !tbaa !130
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 68
-  %25 = load i16, ptr %24, align 4, !tbaa !130
+  %25 = load i16, ptr %24, align 4, !tbaa !131
   %26 = zext i16 %25 to i64
   %27 = shl nuw i64 %26, 48
   %28 = zext i16 %23 to i64
@@ -1182,11 +1182,11 @@ define i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef readonly captures(none) %1
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %3, i64 %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !168
+  %14 = load ptr, ptr %13, align 8, !tbaa !169
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load float, ptr %15, align 8, !tbaa !39
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %18 = load i8, ptr %17, align 4, !tbaa !169, !range !103, !noundef !104
+  %18 = load i8, ptr %17, align 4, !tbaa !170, !range !103, !noundef !104
   %19 = trunc nuw i8 %18 to i1
   %20 = tail call fastcc { ptr, ptr } @b2CreateJoint(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %12, ptr noundef %14, float noundef %16, i32 noundef 5, i1 noundef zeroext %19)
   %21 = extractvalue { ptr, ptr } %20, 0
@@ -1204,7 +1204,7 @@ define i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef readonly captures(none) %1
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %30, i8 0, i64 108, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load float, ptr %31, align 8, !tbaa !170
+  %32 = load float, ptr %31, align 8, !tbaa !171
   %33 = fcmp olt float %32, 0xC00921FB60000000
   %34 = fcmp ogt float %32, 0x400921FB60000000
   %35 = select i1 %34, float 0x400921FB60000000, float %32
@@ -1215,23 +1215,23 @@ define i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef readonly captures(none) %1
   store float 0.000000e+00, ptr %38, align 4, !tbaa !109
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  %40 = load float, ptr %39, align 8, !tbaa !171
+  %40 = load float, ptr %39, align 8, !tbaa !172
   %41 = getelementptr inbounds nuw i8, ptr %22, i64 72
   store float %40, ptr %41, align 4, !tbaa !109
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %43 = load float, ptr %42, align 4, !tbaa !172
+  %43 = load float, ptr %42, align 4, !tbaa !173
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 76
   store float %43, ptr %44, align 4, !tbaa !109
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %46 = load float, ptr %45, align 4, !tbaa !173
+  %46 = load float, ptr %45, align 4, !tbaa !174
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %48 = load float, ptr %47, align 8, !tbaa !174
+  %48 = load float, ptr %47, align 8, !tbaa !175
   %49 = fcmp olt float %46, %48
   %50 = select i1 %49, float %46, float %48
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 92
   store float %50, ptr %51, align 4, !tbaa !109
-  %52 = load float, ptr %45, align 4, !tbaa !173
-  %53 = load float, ptr %47, align 8, !tbaa !174
+  %52 = load float, ptr %45, align 4, !tbaa !174
+  %53 = load float, ptr %47, align 8, !tbaa !175
   %54 = fcmp ogt float %52, %53
   %55 = select i1 %54, float %52, float %53
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 96
@@ -1246,26 +1246,26 @@ define i64 @b2CreateRevoluteJoint(i32 %0, ptr noundef readonly captures(none) %1
   %64 = select i1 %61, float 0xC00921FB60000000, float %63
   store float %64, ptr %56, align 4, !tbaa !109
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %66 = load float, ptr %65, align 8, !tbaa !175
+  %66 = load float, ptr %65, align 8, !tbaa !176
   %67 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store float %66, ptr %67, align 4, !tbaa !109
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %69 = load float, ptr %68, align 4, !tbaa !176
+  %69 = load float, ptr %68, align 4, !tbaa !177
   %70 = getelementptr inbounds nuw i8, ptr %22, i64 84
   store float %69, ptr %70, align 4, !tbaa !109
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %72 = load i8, ptr %71, align 4, !tbaa !177, !range !103, !noundef !104
+  %72 = load i8, ptr %71, align 4, !tbaa !178, !range !103, !noundef !104
   %73 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store i8 %72, ptr %73, align 4, !tbaa !109
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %75 = load i8, ptr %74, align 8, !tbaa !178, !range !103, !noundef !104
+  %75 = load i8, ptr %74, align 8, !tbaa !179, !range !103, !noundef !104
   %76 = getelementptr inbounds nuw i8, ptr %22, i64 154
   store i8 %75, ptr %76, align 2, !tbaa !109
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %78 = load i8, ptr %77, align 4, !tbaa !179, !range !103, !noundef !104
+  %78 = load i8, ptr %77, align 4, !tbaa !180, !range !103, !noundef !104
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 153
   store i8 %78, ptr %79, align 1, !tbaa !109
-  %80 = load i8, ptr %17, align 4, !tbaa !169, !range !103, !noundef !104
+  %80 = load i8, ptr %17, align 4, !tbaa !170, !range !103, !noundef !104
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %82, label %106
 
@@ -1321,12 +1321,12 @@ b2DestroyContactsBetweenBodies.exit:              ; preds = %105, %82
   br label %106
 
 106:                                              ; preds = %b2DestroyContactsBetweenBodies.exit, %7
-  %107 = load i32, ptr %22, align 4, !tbaa !128
+  %107 = load i32, ptr %22, align 4, !tbaa !129
   %108 = add nsw i32 %107, 1
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %110 = load i16, ptr %109, align 4, !tbaa !129
+  %110 = load i16, ptr %109, align 4, !tbaa !130
   %111 = getelementptr inbounds nuw i8, ptr %21, i64 68
-  %112 = load i16, ptr %111, align 4, !tbaa !130
+  %112 = load i16, ptr %111, align 4, !tbaa !131
   %113 = zext i16 %112 to i64
   %114 = shl nuw i64 %113, 48
   %115 = zext i16 %110 to i64
@@ -1356,9 +1356,9 @@ define i64 @b2CreatePrismaticJoint(i32 %0, ptr noundef readonly captures(none) %
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %3, i64 %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %14 = load ptr, ptr %13, align 8, !tbaa !180
+  %14 = load ptr, ptr %13, align 8, !tbaa !181
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %16 = load i8, ptr %15, align 8, !tbaa !181, !range !103, !noundef !104
+  %16 = load i8, ptr %15, align 8, !tbaa !182, !range !103, !noundef !104
   %17 = trunc nuw i8 %16 to i1
   %18 = tail call fastcc { ptr, ptr } @b2CreateJoint(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %12, ptr noundef %14, float noundef 1.000000e+00, i32 noundef 4, i1 noundef zeroext %17)
   %19 = extractvalue { ptr, ptr } %18, 0
@@ -1399,7 +1399,7 @@ b2Normalize.exit:                                 ; preds = %7, %36
   %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %36 ], [ zeroinitializer, %7 ]
   store <2 x float> %.sroa.012.0.i, ptr %28, align 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %41 = load float, ptr %40, align 8, !tbaa !182
+  %41 = load float, ptr %40, align 8, !tbaa !183
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 96
   store float %41, ptr %42, align 4, !tbaa !109
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 56
@@ -1407,42 +1407,42 @@ b2Normalize.exit:                                 ; preds = %7, %36
   store float 0.000000e+00, ptr %44, align 4, !tbaa !109
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %43, i8 0, i64 24, i1 false)
-  %46 = load float, ptr %45, align 8, !tbaa !183
+  %46 = load float, ptr %45, align 8, !tbaa !184
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store float %46, ptr %47, align 4, !tbaa !109
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %49 = load float, ptr %48, align 4, !tbaa !184
+  %49 = load float, ptr %48, align 4, !tbaa !185
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 84
   store float %49, ptr %50, align 4, !tbaa !109
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %52 = load float, ptr %51, align 4, !tbaa !185
+  %52 = load float, ptr %51, align 4, !tbaa !186
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 100
   store float %52, ptr %53, align 4, !tbaa !109
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %55 = load float, ptr %54, align 8, !tbaa !186
+  %55 = load float, ptr %54, align 8, !tbaa !187
   %56 = getelementptr inbounds nuw i8, ptr %20, i64 104
   store float %55, ptr %56, align 4, !tbaa !109
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %58 = load float, ptr %57, align 8, !tbaa !187
+  %58 = load float, ptr %57, align 8, !tbaa !188
   %59 = getelementptr inbounds nuw i8, ptr %20, i64 88
   store float %58, ptr %59, align 4, !tbaa !109
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %61 = load float, ptr %60, align 4, !tbaa !188
+  %61 = load float, ptr %60, align 4, !tbaa !189
   %62 = getelementptr inbounds nuw i8, ptr %20, i64 92
   store float %61, ptr %62, align 4, !tbaa !109
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %64 = load i8, ptr %63, align 4, !tbaa !189, !range !103, !noundef !104
+  %64 = load i8, ptr %63, align 4, !tbaa !190, !range !103, !noundef !104
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 168
   store i8 %64, ptr %65, align 4, !tbaa !109
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %67 = load i8, ptr %66, align 8, !tbaa !190, !range !103, !noundef !104
+  %67 = load i8, ptr %66, align 8, !tbaa !191, !range !103, !noundef !104
   %68 = getelementptr inbounds nuw i8, ptr %20, i64 169
   store i8 %67, ptr %68, align 1, !tbaa !109
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %70 = load i8, ptr %69, align 4, !tbaa !191, !range !103, !noundef !104
+  %70 = load i8, ptr %69, align 4, !tbaa !192, !range !103, !noundef !104
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 170
   store i8 %70, ptr %71, align 2, !tbaa !109
-  %72 = load i8, ptr %15, align 8, !tbaa !181, !range !103, !noundef !104
+  %72 = load i8, ptr %15, align 8, !tbaa !182, !range !103, !noundef !104
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %74, label %98
 
@@ -1498,12 +1498,12 @@ b2DestroyContactsBetweenBodies.exit:              ; preds = %97, %74
   br label %98
 
 98:                                               ; preds = %b2DestroyContactsBetweenBodies.exit, %b2Normalize.exit
-  %99 = load i32, ptr %20, align 4, !tbaa !128
+  %99 = load i32, ptr %20, align 4, !tbaa !129
   %100 = add nsw i32 %99, 1
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %102 = load i16, ptr %101, align 4, !tbaa !129
+  %102 = load i16, ptr %101, align 4, !tbaa !130
   %103 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %104 = load i16, ptr %103, align 4, !tbaa !130
+  %104 = load i16, ptr %103, align 4, !tbaa !131
   %105 = zext i16 %104 to i64
   %106 = shl nuw i64 %105, 48
   %107 = zext i16 %102 to i64
@@ -1533,9 +1533,9 @@ define i64 @b2CreateWeldJoint(i32 %0, ptr noundef readonly captures(none) %1) lo
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %3, i64 %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %14 = load ptr, ptr %13, align 8, !tbaa !192
+  %14 = load ptr, ptr %13, align 8, !tbaa !193
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %16 = load i8, ptr %15, align 4, !tbaa !193, !range !103, !noundef !104
+  %16 = load i8, ptr %15, align 4, !tbaa !194, !range !103, !noundef !104
   %17 = trunc nuw i8 %16 to i1
   %18 = tail call fastcc { ptr, ptr } @b2CreateJoint(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %12, ptr noundef %14, float noundef 1.000000e+00, i32 noundef 6, i1 noundef zeroext %17)
   %19 = extractvalue { ptr, ptr } %18, 0
@@ -1553,29 +1553,29 @@ define i64 @b2CreateWeldJoint(i32 %0, ptr noundef readonly captures(none) %1) lo
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %28, i8 0, i64 96, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %30 = load float, ptr %29, align 8, !tbaa !194
+  %30 = load float, ptr %29, align 8, !tbaa !195
   store float %30, ptr %28, align 4, !tbaa !109
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %32 = load float, ptr %31, align 4, !tbaa !195
+  %32 = load float, ptr %31, align 4, !tbaa !196
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 52
   store float %32, ptr %33, align 4, !tbaa !109
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %35 = load float, ptr %34, align 4, !tbaa !196
+  %35 = load float, ptr %34, align 4, !tbaa !197
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store float %35, ptr %36, align 4, !tbaa !109
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %38 = load float, ptr %37, align 8, !tbaa !197
+  %38 = load float, ptr %37, align 8, !tbaa !198
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 60
   store float %38, ptr %39, align 4, !tbaa !109
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %41 = load float, ptr %40, align 8, !tbaa !198
+  %41 = load float, ptr %40, align 8, !tbaa !199
   %42 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store float %41, ptr %42, align 4, !tbaa !109
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 92
   store i64 0, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 100
   store float 0.000000e+00, ptr %44, align 4, !tbaa !109
-  %45 = load i8, ptr %15, align 4, !tbaa !193, !range !103, !noundef !104
+  %45 = load i8, ptr %15, align 4, !tbaa !194, !range !103, !noundef !104
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %47, label %71
 
@@ -1631,12 +1631,12 @@ b2DestroyContactsBetweenBodies.exit:              ; preds = %70, %47
   br label %71
 
 71:                                               ; preds = %b2DestroyContactsBetweenBodies.exit, %7
-  %72 = load i32, ptr %20, align 4, !tbaa !128
+  %72 = load i32, ptr %20, align 4, !tbaa !129
   %73 = add nsw i32 %72, 1
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %75 = load i16, ptr %74, align 4, !tbaa !129
+  %75 = load i16, ptr %74, align 4, !tbaa !130
   %76 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %77 = load i16, ptr %76, align 4, !tbaa !130
+  %77 = load i16, ptr %76, align 4, !tbaa !131
   %78 = zext i16 %77 to i64
   %79 = shl nuw i64 %78, 48
   %80 = zext i16 %75 to i64
@@ -1666,9 +1666,9 @@ define i64 @b2CreateWheelJoint(i32 %0, ptr noundef readonly captures(none) %1) l
   %11 = load i64, ptr %10, align 8
   %12 = tail call ptr @b2GetBodyFullId(ptr noundef nonnull %3, i64 %11) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = load ptr, ptr %13, align 8, !tbaa !199
+  %14 = load ptr, ptr %13, align 8, !tbaa !200
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %16 = load i8, ptr %15, align 4, !tbaa !200, !range !103, !noundef !104
+  %16 = load i8, ptr %15, align 4, !tbaa !201, !range !103, !noundef !104
   %17 = trunc nuw i8 %16 to i1
   %18 = tail call fastcc { ptr, ptr } @b2CreateJoint(ptr noundef nonnull %3, ptr noundef %9, ptr noundef %12, ptr noundef %14, float noundef 1.000000e+00, i32 noundef 7, i1 noundef zeroext %17)
   %19 = extractvalue { ptr, ptr } %18, 0
@@ -1719,19 +1719,19 @@ b2Normalize.exit:                                 ; preds = %7, %36
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store float 0.000000e+00, ptr %44, align 4, !tbaa !109
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %46 = load float, ptr %45, align 8, !tbaa !201
+  %46 = load float, ptr %45, align 8, !tbaa !202
   %47 = getelementptr inbounds nuw i8, ptr %20, i64 84
   store float %46, ptr %47, align 4, !tbaa !109
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %49 = load float, ptr %48, align 4, !tbaa !202
+  %49 = load float, ptr %48, align 4, !tbaa !203
   %50 = getelementptr inbounds nuw i8, ptr %20, i64 88
   store float %49, ptr %50, align 4, !tbaa !109
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %52 = load float, ptr %51, align 4, !tbaa !203
+  %52 = load float, ptr %51, align 4, !tbaa !204
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store float %52, ptr %53, align 4, !tbaa !109
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %55 = load float, ptr %54, align 8, !tbaa !204
+  %55 = load float, ptr %54, align 8, !tbaa !205
   %56 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store float %55, ptr %56, align 4, !tbaa !109
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1747,14 +1747,14 @@ b2Normalize.exit:                                 ; preds = %7, %36
   %65 = getelementptr inbounds nuw i8, ptr %20, i64 164
   store i8 %64, ptr %65, align 4, !tbaa !109
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %67 = load i8, ptr %66, align 4, !tbaa !205, !range !103, !noundef !104
+  %67 = load i8, ptr %66, align 4, !tbaa !206, !range !103, !noundef !104
   %68 = getelementptr inbounds nuw i8, ptr %20, i64 166
   store i8 %67, ptr %68, align 2, !tbaa !109
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %70 = load i8, ptr %69, align 8, !tbaa !206, !range !103, !noundef !104
+  %70 = load i8, ptr %69, align 8, !tbaa !207, !range !103, !noundef !104
   %71 = getelementptr inbounds nuw i8, ptr %20, i64 165
   store i8 %70, ptr %71, align 1, !tbaa !109
-  %72 = load i8, ptr %15, align 4, !tbaa !200, !range !103, !noundef !104
+  %72 = load i8, ptr %15, align 4, !tbaa !201, !range !103, !noundef !104
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %74, label %98
 
@@ -1810,12 +1810,12 @@ b2DestroyContactsBetweenBodies.exit:              ; preds = %97, %74
   br label %98
 
 98:                                               ; preds = %b2DestroyContactsBetweenBodies.exit, %b2Normalize.exit
-  %99 = load i32, ptr %20, align 4, !tbaa !128
+  %99 = load i32, ptr %20, align 4, !tbaa !129
   %100 = add nsw i32 %99, 1
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 1780
-  %102 = load i16, ptr %101, align 4, !tbaa !129
+  %102 = load i16, ptr %101, align 4, !tbaa !130
   %103 = getelementptr inbounds nuw i8, ptr %19, i64 68
-  %104 = load i16, ptr %103, align 4, !tbaa !130
+  %104 = load i16, ptr %103, align 4, !tbaa !131
   %105 = zext i16 %104 to i64
   %106 = shl nuw i64 %105, 48
   %107 = zext i16 %102 to i64
@@ -1833,25 +1833,25 @@ b2DestroyContactsBetweenBodies.exit:              ; preds = %97, %74
 ; Function Attrs: nounwind uwtable
 define hidden void @b2DestroyJointInternal(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %5 = load i32, ptr %4, align 4, !tbaa !134
+  %5 = load i32, ptr %4, align 4, !tbaa !135
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load i32, ptr %6, align 4, !tbaa !143
-  %9 = load i32, ptr %7, align 4, !tbaa !143
+  %8 = load i32, ptr %6, align 4, !tbaa !144
+  %9 = load i32, ptr %7, align 4, !tbaa !144
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  %.val100 = load ptr, ptr %10, align 8, !tbaa !207
+  %.val100 = load ptr, ptr %10, align 8, !tbaa !208
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds %struct.b2Body, ptr %.val100, i64 %11
   %13 = sext i32 %9 to i64
   %14 = getelementptr inbounds %struct.b2Body, ptr %.val100, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %16 = load i32, ptr %15, align 4, !tbaa !145
+  %16 = load i32, ptr %15, align 4, !tbaa !146
   %.not = icmp eq i32 %16, -1
   br i1 %.not, label %._crit_edge, label %17
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !147
+  %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !148
   br label %26
 
 17:                                               ; preds = %3
@@ -1861,11 +1861,11 @@ define hidden void @b2DestroyJointInternal(ptr noundef %0, ptr noundef %1, i1 no
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %struct.b2Joint, ptr %.val98, i64 %20, i32 4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %23 = load i32, ptr %22, align 4, !tbaa !147
+  %23 = load i32, ptr %22, align 4, !tbaa !148
   %24 = trunc i32 %16 to i1
   %.offs = select i1 %24, i64 20, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 %.offs
-  store i32 %23, ptr %25, align 4, !tbaa !147
+  store i32 %23, ptr %25, align 4, !tbaa !148
   br label %26
 
 26:                                               ; preds = %._crit_edge, %17
@@ -1882,33 +1882,33 @@ define hidden void @b2DestroyJointInternal(ptr noundef %0, ptr noundef %1, i1 no
   %33 = trunc i32 %27 to i1
   %.offs88 = select i1 %33, i64 16, i64 4
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %.offs88
-  store i32 %16, ptr %34, align 4, !tbaa !145
+  store i32 %16, ptr %34, align 4, !tbaa !146
   br label %35
 
 35:                                               ; preds = %28, %26
   %36 = shl i32 %5, 1
   %37 = getelementptr inbounds nuw i8, ptr %12, i64 68
-  %38 = load i32, ptr %37, align 4, !tbaa !146
+  %38 = load i32, ptr %37, align 4, !tbaa !147
   %39 = icmp eq i32 %38, %36
   br i1 %39, label %40, label %41
 
 40:                                               ; preds = %35
-  store i32 %27, ptr %37, align 4, !tbaa !146
+  store i32 %27, ptr %37, align 4, !tbaa !147
   br label %41
 
 41:                                               ; preds = %40, %35
   %42 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %43 = load i32, ptr %42, align 8, !tbaa !148
+  %43 = load i32, ptr %42, align 8, !tbaa !149
   %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %42, align 8, !tbaa !148
+  store i32 %44, ptr %42, align 8, !tbaa !149
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %46 = load i32, ptr %45, align 4, !tbaa !145
+  %46 = load i32, ptr %45, align 4, !tbaa !146
   %.not89 = icmp eq i32 %46, -1
   br i1 %.not89, label %._crit_edge105, label %47
 
 ._crit_edge105:                                   ; preds = %41
   %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.pre107 = load i32, ptr %.phi.trans.insert106, align 4, !tbaa !147
+  %.pre107 = load i32, ptr %.phi.trans.insert106, align 4, !tbaa !148
   br label %56
 
 47:                                               ; preds = %41
@@ -1918,11 +1918,11 @@ define hidden void @b2DestroyJointInternal(ptr noundef %0, ptr noundef %1, i1 no
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds %struct.b2Joint, ptr %.val96, i64 %50, i32 4
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %53 = load i32, ptr %52, align 4, !tbaa !147
+  %53 = load i32, ptr %52, align 4, !tbaa !148
   %54 = trunc i32 %46 to i1
   %.offs90 = select i1 %54, i64 20, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.offs90
-  store i32 %53, ptr %55, align 4, !tbaa !147
+  store i32 %53, ptr %55, align 4, !tbaa !148
   br label %56
 
 56:                                               ; preds = %._crit_edge105, %47
@@ -1939,27 +1939,27 @@ define hidden void @b2DestroyJointInternal(ptr noundef %0, ptr noundef %1, i1 no
   %63 = trunc i32 %57 to i1
   %.offs92 = select i1 %63, i64 16, i64 4
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %.offs92
-  store i32 %46, ptr %64, align 4, !tbaa !145
+  store i32 %46, ptr %64, align 4, !tbaa !146
   br label %65
 
 65:                                               ; preds = %58, %56
   %66 = or disjoint i32 %36, 1
   %67 = getelementptr inbounds nuw i8, ptr %14, i64 68
-  %68 = load i32, ptr %67, align 4, !tbaa !146
+  %68 = load i32, ptr %67, align 4, !tbaa !147
   %69 = icmp eq i32 %68, %66
   br i1 %69, label %70, label %71
 
 70:                                               ; preds = %65
-  store i32 %57, ptr %67, align 4, !tbaa !146
+  store i32 %57, ptr %67, align 4, !tbaa !147
   br label %71
 
 71:                                               ; preds = %70, %65
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %73 = load i32, ptr %72, align 8, !tbaa !148
+  %73 = load i32, ptr %72, align 8, !tbaa !149
   %74 = add nsw i32 %73, -1
-  store i32 %74, ptr %72, align 8, !tbaa !148
+  store i32 %74, ptr %72, align 8, !tbaa !149
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %76 = load i32, ptr %75, align 8, !tbaa !136
+  %76 = load i32, ptr %75, align 8, !tbaa !137
   %.not93 = icmp eq i32 %76, -1
   br i1 %.not93, label %78, label %77
 
@@ -1976,8 +1976,8 @@ define hidden void @b2DestroyJointInternal(ptr noundef %0, ptr noundef %1, i1 no
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %78
-  %85 = load i32, ptr %6, align 4, !tbaa !143
-  %86 = load i32, ptr %7, align 4, !tbaa !143
+  %85 = load i32, ptr %6, align 4, !tbaa !144
+  %86 = load i32, ptr %7, align 4, !tbaa !144
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %88 = load i32, ptr %87, align 4, !tbaa !55
   tail call void @b2RemoveJointFromGraph(ptr noundef nonnull %0, i32 noundef %85, i32 noundef %86, i32 noundef %88, i32 noundef %82) #10
@@ -1989,13 +1989,13 @@ define hidden void @b2DestroyJointInternal(ptr noundef %0, ptr noundef %1, i1 no
   %91 = sext i32 %80 to i64
   %92 = getelementptr inbounds %struct.b2SolverSet, ptr %.val99, i64 %91, i32 2
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load i32, ptr %93, align 8, !tbaa !159
+  %94 = load i32, ptr %93, align 8, !tbaa !160
   %95 = add nsw i32 %94, -1
   %.not.i = icmp eq i32 %82, %95
   br i1 %.not.i, label %b2JointSimArray_RemoveSwap.exit.thread, label %b2JointSimArray_RemoveSwap.exit
 
 b2JointSimArray_RemoveSwap.exit.thread:           ; preds = %89
-  store i32 %82, ptr %93, align 8, !tbaa !159
+  store i32 %82, ptr %93, align 8, !tbaa !160
   br label %108
 
 b2JointSimArray_RemoveSwap.exit:                  ; preds = %89
@@ -2004,17 +2004,17 @@ b2JointSimArray_RemoveSwap.exit:                  ; preds = %89
   %98 = getelementptr inbounds %struct.b2JointSim, ptr %96, i64 %97
   %99 = sext i32 %95 to i64
   %100 = getelementptr inbounds %struct.b2JointSim, ptr %96, i64 %99
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(172) %98, ptr noundef nonnull align 4 dereferenceable(172) %100, i64 172, i1 false), !tbaa.struct !208
-  %.pre.i = load i32, ptr %93, align 8, !tbaa !159
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(172) %98, ptr noundef nonnull align 4 dereferenceable(172) %100, i64 172, i1 false), !tbaa.struct !209
+  %.pre.i = load i32, ptr %93, align 8, !tbaa !160
   %.pre10.i = add nsw i32 %.pre.i, -1
-  store i32 %.pre10.i, ptr %93, align 8, !tbaa !159
+  store i32 %.pre10.i, ptr %93, align 8, !tbaa !160
   %.not94 = icmp eq i32 %94, 0
   br i1 %.not94, label %108, label %101
 
 101:                                              ; preds = %b2JointSimArray_RemoveSwap.exit
-  %102 = load ptr, ptr %92, align 8, !tbaa !210
+  %102 = load ptr, ptr %92, align 8, !tbaa !211
   %103 = getelementptr inbounds %struct.b2JointSim, ptr %102, i64 %97
-  %104 = load i32, ptr %103, align 4, !tbaa !128
+  %104 = load i32, ptr %103, align 4, !tbaa !129
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %.val = load ptr, ptr %105, align 8, !tbaa !10
   %106 = sext i32 %104 to i64
@@ -2027,7 +2027,7 @@ b2JointSimArray_RemoveSwap.exit:                  ; preds = %89
   store i32 -1, ptr %81, align 8, !tbaa !59
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 -1, ptr %109, align 4, !tbaa !55
-  store i32 -1, ptr %4, align 4, !tbaa !134
+  store i32 -1, ptr %4, align 4, !tbaa !135
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   tail call void @b2FreeId(ptr noundef nonnull %110, i32 noundef %5) #10
   br i1 %2, label %111, label %114
@@ -2089,7 +2089,7 @@ define i32 @b2Joint_GetType(i64 %0) local_unnamed_addr #0 {
   %sext.i = add i64 %6, -4294967296
   %7 = ashr exact i64 %sext.i, 32
   %8 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %7, i32 10
-  %9 = load i32, ptr %8, align 8, !tbaa !140
+  %9 = load i32, ptr %8, align 8, !tbaa !141
   ret i32 %9
 }
 
@@ -2105,7 +2105,7 @@ define i64 @b2Joint_GetBodyA(i64 %0) local_unnamed_addr #0 {
   %sext.i = add i64 %6, -4294967296
   %7 = ashr exact i64 %sext.i, 32
   %8 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %7, i32 4
-  %9 = load i32, ptr %8, align 4, !tbaa !143
+  %9 = load i32, ptr %8, align 4, !tbaa !144
   %10 = tail call i64 @b2MakeBodyId(ptr noundef %4, i32 noundef %9) #10
   ret i64 %10
 }
@@ -2124,7 +2124,7 @@ define i64 @b2Joint_GetBodyB(i64 %0) local_unnamed_addr #0 {
   %sext.i = add i64 %6, -4294967296
   %7 = ashr exact i64 %sext.i, 32
   %8 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %7, i32 4, i64 1
-  %9 = load i32, ptr %8, align 4, !tbaa !143
+  %9 = load i32, ptr %8, align 4, !tbaa !144
   %10 = tail call i64 @b2MakeBodyId(ptr noundef %4, i32 noundef %9) #10
   ret i64 %10
 }
@@ -2137,7 +2137,7 @@ define i32 @b2Joint_GetWorld(i64 %0) local_unnamed_addr #0 {
   %3 = tail call ptr @b2GetWorld(i32 noundef %2) #10
   %4 = add i32 %.sroa.1.0.extract.trunc, 1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1592
-  %6 = load i16, ptr %5, align 8, !tbaa !211
+  %6 = load i16, ptr %5, align 8, !tbaa !212
   %.sroa.2.0.insert.ext = zext i16 %6 to i32
   %.sroa.2.0.insert.shift = shl nuw i32 %.sroa.2.0.insert.ext, 16
   %.sroa.02.0.insert.ext = and i32 %4, 65535
@@ -2251,33 +2251,33 @@ define void @b2Joint_SetCollideConnected(i64 %0, i1 noundef zeroext %1) local_un
   %11 = ashr exact i64 %sext.i, 32
   %12 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 71
-  %14 = load i8, ptr %13, align 1, !tbaa !141, !range !103, !noundef !104
+  %14 = load i8, ptr %13, align 1, !tbaa !142, !range !103, !noundef !104
   %15 = icmp eq i8 %14, %3
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %8
-  store i8 %3, ptr %13, align 1, !tbaa !141
+  store i8 %3, ptr %13, align 1, !tbaa !142
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 1032
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !143
-  %.val29 = load ptr, ptr %17, align 8, !tbaa !207
+  %19 = load i32, ptr %18, align 4, !tbaa !144
+  %.val29 = load ptr, ptr %17, align 8, !tbaa !208
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds %struct.b2Body, ptr %.val29, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %23 = load i32, ptr %22, align 4, !tbaa !143
+  %23 = load i32, ptr %22, align 4, !tbaa !144
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds %struct.b2Body, ptr %.val29, i64 %24
   br i1 %1, label %26, label %62
 
 26:                                               ; preds = %16
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 60
-  %28 = load i32, ptr %27, align 4, !tbaa !212
+  %28 = load i32, ptr %27, align 4, !tbaa !213
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 60
-  %30 = load i32, ptr %29, align 4, !tbaa !212
+  %30 = load i32, ptr %29, align 4, !tbaa !213
   %31 = icmp slt i32 %28, %30
   %. = select i1 %31, ptr %21, ptr %25
   %.in = getelementptr inbounds nuw i8, ptr %., i64 56
-  %.032 = load i32, ptr %.in, align 4, !tbaa !209
+  %.032 = load i32, ptr %.in, align 4, !tbaa !210
   %.not33 = icmp eq i32 %.032, -1
   br i1 %.not33, label %.loopexit, label %.lr.ph
 
@@ -2291,11 +2291,11 @@ define void @b2Joint_SetCollideConnected(i64 %0, i1 noundef zeroext %1) local_un
 
 37:                                               ; preds = %.lr.ph, %b2BufferMove.exit
   %.034 = phi i32 [ %.032, %.lr.ph ], [ %.0, %b2BufferMove.exit ]
-  %.val30 = load ptr, ptr %32, align 8, !tbaa !213
+  %.val30 = load ptr, ptr %32, align 8, !tbaa !214
   %38 = sext i32 %.034 to i64
   %39 = getelementptr inbounds %struct.b2Shape, ptr %.val30, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 88
-  %41 = load i32, ptr %40, align 8, !tbaa !214
+  %41 = load i32, ptr %40, align 8, !tbaa !215
   %.not28 = icmp eq i32 %41, -1
   br i1 %.not28, label %b2BufferMove.exit, label %42
 
@@ -2306,8 +2306,8 @@ define void @b2Joint_SetCollideConnected(i64 %0, i1 noundef zeroext %1) local_un
   br i1 %45, label %b2BufferMove.exit, label %46
 
 46:                                               ; preds = %42
-  %47 = load i32, ptr %35, align 8, !tbaa !218
-  %48 = load i32, ptr %36, align 4, !tbaa !219
+  %47 = load i32, ptr %35, align 8, !tbaa !219
+  %48 = load i32, ptr %36, align 4, !tbaa !220
   %49 = icmp eq i32 %47, %48
   br i1 %49, label %50, label %b2IntArray_Push.exit.i
 
@@ -2317,25 +2317,25 @@ define void @b2Joint_SetCollideConnected(i64 %0, i1 noundef zeroext %1) local_un
   %53 = add nuw nsw i32 %52, %47
   %54 = select i1 %51, i32 2, i32 %53
   tail call void @b2IntArray_Reserve(ptr noundef nonnull %34, i32 noundef %54) #10
-  %.pre.i.i = load i32, ptr %35, align 8, !tbaa !218
+  %.pre.i.i = load i32, ptr %35, align 8, !tbaa !219
   br label %b2IntArray_Push.exit.i
 
 b2IntArray_Push.exit.i:                           ; preds = %50, %46
   %55 = phi i32 [ %.pre.i.i, %50 ], [ %47, %46 ]
-  %56 = load ptr, ptr %34, align 8, !tbaa !220
+  %56 = load ptr, ptr %34, align 8, !tbaa !221
   %57 = sext i32 %55 to i64
   %58 = getelementptr inbounds i32, ptr %56, i64 %57
-  store i32 %41, ptr %58, align 4, !tbaa !209
-  %59 = load i32, ptr %35, align 8, !tbaa !218
+  store i32 %41, ptr %58, align 4, !tbaa !210
+  %59 = load i32, ptr %35, align 8, !tbaa !219
   %60 = add nsw i32 %59, 1
-  store i32 %60, ptr %35, align 8, !tbaa !218
+  store i32 %60, ptr %35, align 8, !tbaa !219
   br label %b2BufferMove.exit
 
 b2BufferMove.exit:                                ; preds = %b2IntArray_Push.exit.i, %42, %37
   %61 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  %.0 = load i32, ptr %61, align 4, !tbaa !209
+  %.0 = load i32, ptr %61, align 4, !tbaa !210
   %.not = icmp eq i32 %.0, -1
-  br i1 %.not, label %.loopexit, label %37, !llvm.loop !221
+  br i1 %.not, label %.loopexit, label %37, !llvm.loop !222
 
 62:                                               ; preds = %16
   %63 = getelementptr inbounds nuw i8, ptr %21, i64 52
@@ -2406,7 +2406,7 @@ define zeroext i1 @b2Joint_GetCollideConnected(i64 %0) local_unnamed_addr #0 {
   %sext.i = add i64 %6, -4294967296
   %7 = ashr exact i64 %sext.i, 32
   %8 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %7, i32 13
-  %9 = load i8, ptr %8, align 1, !tbaa !141, !range !103, !noundef !104
+  %9 = load i8, ptr %8, align 1, !tbaa !142, !range !103, !noundef !104
   %10 = trunc nuw i8 %9 to i1
   ret i1 %10
 }
@@ -2423,7 +2423,7 @@ define void @b2Joint_SetUserData(i64 %0, ptr noundef %1) local_unnamed_addr #0 {
   %sext.i = add i64 %7, -4294967296
   %8 = ashr exact i64 %sext.i, 32
   %9 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %8
-  store ptr %1, ptr %9, align 8, !tbaa !135
+  store ptr %1, ptr %9, align 8, !tbaa !136
   ret void
 }
 
@@ -2439,7 +2439,7 @@ define ptr @b2Joint_GetUserData(i64 %0) local_unnamed_addr #0 {
   %sext.i = add i64 %6, -4294967296
   %7 = ashr exact i64 %sext.i, 32
   %8 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !135
+  %9 = load ptr, ptr %8, align 8, !tbaa !136
   ret ptr %9
 }
 
@@ -2461,12 +2461,12 @@ define void @b2Joint_WakeBodies(i64 %0) local_unnamed_addr #0 {
   %10 = getelementptr inbounds %struct.b2Joint, ptr %.val.i, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 1032
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  %13 = load i32, ptr %12, align 4, !tbaa !143
-  %.val10 = load ptr, ptr %11, align 8, !tbaa !207
+  %13 = load i32, ptr %12, align 4, !tbaa !144
+  %.val10 = load ptr, ptr %11, align 8, !tbaa !208
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds %struct.b2Body, ptr %.val10, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %17 = load i32, ptr %16, align 4, !tbaa !143
+  %17 = load i32, ptr %16, align 4, !tbaa !144
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %struct.b2Body, ptr %.val10, i64 %18
   %20 = tail call zeroext i1 @b2WakeBody(ptr noundef nonnull %4, ptr noundef %15) #10
@@ -2518,7 +2518,7 @@ b2GetJointSim.exit:                               ; preds = %12, %18
   %22 = sext i32 %.sink13.i to i64
   %23 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %25 = load i32, ptr %24, align 8, !tbaa !140
+  %25 = load i32, ptr %24, align 8, !tbaa !141
   switch i32 %25, label %40 [
     i32 0, label %26
     i32 1, label %28
@@ -2617,7 +2617,7 @@ b2GetJointSim.exit:                               ; preds = %12, %18
   %22 = sext i32 %.sink13.i to i64
   %23 = getelementptr inbounds %struct.b2JointSim, ptr %.val11.sink.i, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %25 = load i32, ptr %24, align 8, !tbaa !140
+  %25 = load i32, ptr %24, align 8, !tbaa !141
   switch i32 %25, label %38 [
     i32 7, label %36
     i32 1, label %26
@@ -2851,11 +2851,11 @@ declare void @b2SolveWheelJoint(ptr noundef, ptr noundef, i1 noundef zeroext) lo
 ; Function Attrs: nounwind uwtable
 define hidden void @b2PrepareOverflowJoints(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !222
+  %3 = load ptr, ptr %2, align 8, !tbaa !223
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 648
-  %5 = load ptr, ptr %4, align 8, !tbaa !232
+  %5 = load ptr, ptr %4, align 8, !tbaa !233
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 656
-  %7 = load i32, ptr %6, align 8, !tbaa !234
+  %7 = load i32, ptr %6, align 8, !tbaa !235
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2872,17 +2872,17 @@ define hidden void @b2PrepareOverflowJoints(ptr noundef %0) local_unnamed_addr #
   tail call void @b2PrepareJoint(ptr noundef %9, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !235
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !236
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2WarmStartOverflowJoints(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !222
+  %3 = load ptr, ptr %2, align 8, !tbaa !223
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 648
-  %5 = load ptr, ptr %4, align 8, !tbaa !232
+  %5 = load ptr, ptr %4, align 8, !tbaa !233
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 656
-  %7 = load i32, ptr %6, align 8, !tbaa !234
+  %7 = load i32, ptr %6, align 8, !tbaa !235
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2899,17 +2899,17 @@ define hidden void @b2WarmStartOverflowJoints(ptr noundef %0) local_unnamed_addr
   tail call void @b2WarmStartJoint(ptr noundef %9, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !236
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !237
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2SolveOverflowJoints(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !222
+  %4 = load ptr, ptr %3, align 8, !tbaa !223
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 648
-  %6 = load ptr, ptr %5, align 8, !tbaa !232
+  %6 = load ptr, ptr %5, align 8, !tbaa !233
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 656
-  %8 = load i32, ptr %7, align 8, !tbaa !234
+  %8 = load i32, ptr %7, align 8, !tbaa !235
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2926,29 +2926,29 @@ define hidden void @b2SolveOverflowJoints(ptr noundef %0, i1 noundef zeroext %1)
   tail call void @b2SolveJoint(ptr noundef %10, ptr noundef nonnull %0, i1 noundef zeroext %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !237
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !238
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @b2DrawJoint(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !143
-  %.val83 = load ptr, ptr %4, align 8, !tbaa !207
+  %6 = load i32, ptr %5, align 4, !tbaa !144
+  %.val83 = load ptr, ptr %4, align 8, !tbaa !208
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds %struct.b2Body, ptr %.val83, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %10 = load i32, ptr %9, align 4, !tbaa !143
+  %10 = load i32, ptr %9, align 4, !tbaa !144
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds %struct.b2Body, ptr %.val83, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %14 = load i32, ptr %13, align 8, !tbaa !131
+  %14 = load i32, ptr %13, align 8, !tbaa !132
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %118, label %16
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %18 = load i32, ptr %17, align 8, !tbaa !131
+  %18 = load i32, ptr %17, align 8, !tbaa !132
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %118, label %20
 
@@ -3026,7 +3026,7 @@ b2GetJointSim.exit:                               ; preds = %24, %30
   %.sroa.011.0.vec.insert.i90 = insertelement <2 x float> poison, float %59, i64 0
   %.sroa.011.4.vec.insert.i91 = insertelement <2 x float> %.sroa.011.0.vec.insert.i90, float %63, i64 1
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %65 = load i32, ptr %64, align 8, !tbaa !140
+  %65 = load i32, ptr %64, align 8, !tbaa !141
   switch i32 %65, label %88 [
     i32 0, label %66
     i32 2, label %67
@@ -3044,24 +3044,24 @@ b2GetJointSim.exit:                               ; preds = %24, %30
   %68 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %.sroa.05.0.copyload = load <2 x float>, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %70 = load ptr, ptr %69, align 8, !tbaa !238
+  %70 = load ptr, ptr %69, align 8, !tbaa !239
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %72 = load ptr, ptr %71, align 8, !tbaa !240
+  %72 = load ptr, ptr %71, align 8, !tbaa !241
   tail call void %70(<2 x float> %.sroa.05.0.copyload, float noundef 4.000000e+00, i32 noundef 32768, ptr noundef %72) #10
-  %73 = load ptr, ptr %69, align 8, !tbaa !238
-  %74 = load ptr, ptr %71, align 8, !tbaa !240
+  %73 = load ptr, ptr %69, align 8, !tbaa !239
+  %74 = load ptr, ptr %71, align 8, !tbaa !241
   tail call void %73(<2 x float> %.sroa.011.4.vec.insert.i91, float noundef 4.000000e+00, i32 noundef 32768, ptr noundef %74) #10
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %76 = load ptr, ptr %75, align 8, !tbaa !241
-  %77 = load ptr, ptr %71, align 8, !tbaa !240
+  %76 = load ptr, ptr %75, align 8, !tbaa !242
+  %77 = load ptr, ptr %71, align 8, !tbaa !241
   tail call void %76(<2 x float> %.sroa.05.0.copyload, <2 x float> %.sroa.011.4.vec.insert.i91, i32 noundef 13882323, ptr noundef %77) #10
   br label %97
 
 78:                                               ; preds = %b2GetJointSim.exit
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %80 = load ptr, ptr %79, align 8, !tbaa !241
+  %80 = load ptr, ptr %79, align 8, !tbaa !242
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %82 = load ptr, ptr %81, align 8, !tbaa !240
+  %82 = load ptr, ptr %81, align 8, !tbaa !241
   tail call void %80(<2 x float> %.sroa.011.4.vec.insert.i, <2 x float> %.sroa.011.4.vec.insert.i91, i32 noundef 16766720, ptr noundef %82) #10
   br label %97
 
@@ -3071,7 +3071,7 @@ b2GetJointSim.exit:                               ; preds = %24, %30
 
 84:                                               ; preds = %b2GetJointSim.exit
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  %86 = load float, ptr %85, align 4, !tbaa !139
+  %86 = load float, ptr %85, align 4, !tbaa !140
   tail call void @b2DrawRevoluteJoint(ptr noundef %0, ptr noundef nonnull %35, <2 x float> %37, <2 x float> %38, <2 x float> %40, <2 x float> %41, float noundef %86) #10
   br label %97
 
@@ -3081,21 +3081,21 @@ b2GetJointSim.exit:                               ; preds = %24, %30
 
 88:                                               ; preds = %b2GetJointSim.exit
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %90 = load ptr, ptr %89, align 8, !tbaa !241
+  %90 = load ptr, ptr %89, align 8, !tbaa !242
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %92 = load ptr, ptr %91, align 8, !tbaa !240
+  %92 = load ptr, ptr %91, align 8, !tbaa !241
   tail call void %90(<2 x float> %37, <2 x float> %.sroa.011.4.vec.insert.i, i32 noundef 9419919, ptr noundef %92) #10
-  %93 = load ptr, ptr %89, align 8, !tbaa !241
-  %94 = load ptr, ptr %91, align 8, !tbaa !240
+  %93 = load ptr, ptr %89, align 8, !tbaa !242
+  %94 = load ptr, ptr %91, align 8, !tbaa !241
   tail call void %93(<2 x float> %.sroa.011.4.vec.insert.i, <2 x float> %.sroa.011.4.vec.insert.i91, i32 noundef 9419919, ptr noundef %94) #10
-  %95 = load ptr, ptr %89, align 8, !tbaa !241
-  %96 = load ptr, ptr %91, align 8, !tbaa !240
+  %95 = load ptr, ptr %89, align 8, !tbaa !242
+  %96 = load ptr, ptr %91, align 8, !tbaa !241
   tail call void %95(<2 x float> %40, <2 x float> %.sroa.011.4.vec.insert.i91, i32 noundef 9419919, ptr noundef %96) #10
   br label %97
 
 97:                                               ; preds = %88, %87, %84, %83, %78, %67, %66
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %99 = load i8, ptr %98, align 8, !tbaa !242, !range !103, !noundef !104
+  %99 = load i8, ptr %98, align 8, !tbaa !243, !range !103, !noundef !104
   %100 = trunc nuw i8 %99 to i1
   br i1 %100, label %101, label %118
 
@@ -3115,12 +3115,12 @@ b2GetJointSim.exit:                               ; preds = %24, %30
   %110 = fadd float %108, %109
   %.sroa.05.4.vec.insert.i = insertelement <2 x float> %.sroa.05.0.vec.insert.i, float %110, i64 1
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %112 = load ptr, ptr %111, align 8, !tbaa !238
+  %112 = load ptr, ptr %111, align 8, !tbaa !239
   %113 = sext i32 %103 to i64
   %114 = getelementptr inbounds [12 x i32], ptr @__const.b2DrawJoint.colors, i64 0, i64 %113
-  %115 = load i32, ptr %114, align 4, !tbaa !209
+  %115 = load i32, ptr %114, align 4, !tbaa !210
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %117 = load ptr, ptr %116, align 8, !tbaa !240
+  %117 = load ptr, ptr %116, align 8, !tbaa !241
   tail call void %112(<2 x float> %.sroa.05.4.vec.insert.i, float noundef 5.000000e+00, i32 noundef %115, ptr noundef %117) #10
   br label %118
 
@@ -3298,120 +3298,121 @@ attributes #10 = { nounwind }
 !123 = !{!124, !9, i64 8}
 !124 = !{!"b2ContactEdge", !9, i64 0, !9, i64 4, !9, i64 8}
 !125 = !{!124, !9, i64 0}
-!126 = distinct !{!126, !127}
+!126 = distinct !{!126, !127, !128}
 !127 = !{!"llvm.loop.mustprogress"}
-!128 = !{!108, !9, i64 0}
-!129 = !{!61, !18, i64 1780}
-!130 = !{!54, !18, i64 68}
-!131 = !{!119, !9, i64 40}
-!132 = !{!61, !9, i64 1120}
-!133 = !{!4, !9, i64 8}
-!134 = !{!54, !9, i64 44}
-!135 = !{!54, !6, i64 0}
-!136 = !{!54, !9, i64 48}
-!137 = !{!54, !9, i64 52}
-!138 = !{!54, !9, i64 56}
-!139 = !{!54, !20, i64 60}
-!140 = !{!54, !9, i64 64}
-!141 = !{!54, !21, i64 71}
-!142 = !{!54, !21, i64 70}
-!143 = !{!144, !9, i64 0}
-!144 = !{!"b2JointEdge", !9, i64 0, !9, i64 4, !9, i64 8}
-!145 = !{!144, !9, i64 4}
-!146 = !{!119, !9, i64 68}
-!147 = !{!144, !9, i64 8}
-!148 = !{!119, !9, i64 72}
-!149 = !{!150, !9, i64 40}
-!150 = !{!"b2SolverSet", !151, i64 0, !153, i64 16, !12, i64 32, !155, i64 48, !157, i64 64, !9, i64 80}
-!151 = !{!"", !152, i64 0, !9, i64 8, !9, i64 12}
-!152 = !{!"p1 _ZTS9b2BodySim", !6, i64 0}
-!153 = !{!"", !154, i64 0, !9, i64 8, !9, i64 12}
-!154 = !{!"p1 _ZTS11b2BodyState", !6, i64 0}
-!155 = !{!"", !156, i64 0, !9, i64 8, !9, i64 12}
-!156 = !{!"p1 _ZTS12b2ContactSim", !6, i64 0}
-!157 = !{!"", !158, i64 0, !9, i64 8, !9, i64 12}
-!158 = !{!"p1 _ZTS11b2IslandSim", !6, i64 0}
-!159 = !{!12, !9, i64 8}
-!160 = !{!108, !9, i64 4}
-!161 = !{!108, !9, i64 8}
-!162 = !{!26, !6, i64 48}
-!163 = !{!26, !21, i64 40}
-!164 = !{!26, !20, i64 24}
-!165 = !{!31, !6, i64 40}
-!166 = !{!31, !21, i64 36}
-!167 = !{!36, !6, i64 16}
-!168 = !{!40, !6, i64 80}
-!169 = !{!40, !21, i64 76}
-!170 = !{!40, !20, i64 32}
-!171 = !{!40, !20, i64 40}
-!172 = !{!40, !20, i64 44}
-!173 = !{!40, !20, i64 52}
-!174 = !{!40, !20, i64 56}
-!175 = !{!40, !20, i64 64}
-!176 = !{!40, !20, i64 68}
-!177 = !{!40, !21, i64 36}
-!178 = !{!40, !21, i64 48}
-!179 = !{!40, !21, i64 60}
-!180 = !{!38, !6, i64 88}
-!181 = !{!38, !21, i64 80}
-!182 = !{!38, !20, i64 40}
-!183 = !{!38, !20, i64 48}
-!184 = !{!38, !20, i64 52}
-!185 = !{!38, !20, i64 60}
-!186 = !{!38, !20, i64 64}
-!187 = !{!38, !20, i64 72}
-!188 = !{!38, !20, i64 76}
-!189 = !{!38, !21, i64 44}
-!190 = !{!38, !21, i64 56}
-!191 = !{!38, !21, i64 68}
-!192 = !{!43, !6, i64 56}
-!193 = !{!43, !21, i64 52}
-!194 = !{!43, !20, i64 32}
-!195 = !{!43, !20, i64 36}
-!196 = !{!43, !20, i64 44}
-!197 = !{!43, !20, i64 40}
-!198 = !{!43, !20, i64 48}
-!199 = !{!45, !6, i64 80}
-!200 = !{!45, !21, i64 76}
-!201 = !{!45, !20, i64 56}
-!202 = !{!45, !20, i64 60}
-!203 = !{!45, !20, i64 68}
-!204 = !{!45, !20, i64 72}
-!205 = !{!45, !21, i64 52}
-!206 = !{!45, !21, i64 64}
-!207 = !{!76, !77, i64 0}
-!208 = !{i64 0, i64 4, !209, i64 4, i64 4, !209, i64 8, i64 4, !209, i64 12, i64 4, !209, i64 16, i64 4, !22, i64 20, i64 4, !22, i64 24, i64 4, !22, i64 28, i64 4, !22, i64 32, i64 4, !22, i64 36, i64 4, !22, i64 40, i64 4, !22, i64 44, i64 4, !22, i64 48, i64 124, !109}
-!209 = !{!9, !9, i64 0}
-!210 = !{!150, !13, i64 32}
-!211 = !{!61, !18, i64 1592}
-!212 = !{!119, !9, i64 60}
-!213 = !{!82, !83, i64 0}
-!214 = !{!215, !9, i64 88}
-!215 = !{!"b2Shape", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !20, i64 40, !9, i64 44, !216, i64 48, !216, i64 64, !19, i64 80, !9, i64 88, !217, i64 96, !6, i64 120, !9, i64 128, !7, i64 132, !18, i64 276, !21, i64 278, !21, i64 279, !21, i64 280, !21, i64 281}
-!216 = !{!"b2AABB", !19, i64 0, !19, i64 8}
-!217 = !{!"b2Filter", !52, i64 0, !52, i64 8, !9, i64 16}
-!218 = !{!69, !9, i64 8}
-!219 = !{!69, !9, i64 12}
-!220 = !{!69, !70, i64 0}
-!221 = distinct !{!221, !127}
-!222 = !{!223, !226, i64 72}
-!223 = !{!"b2StepContext", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !9, i64 16, !224, i64 20, !224, i64 32, !224, i64 44, !20, i64 56, !20, i64 60, !225, i64 64, !226, i64 72, !154, i64 80, !152, i64 88, !70, i64 96, !9, i64 104, !70, i64 112, !73, i64 120, !227, i64 128, !228, i64 136, !229, i64 144, !9, i64 152, !9, i64 156, !230, i64 160, !9, i64 168, !21, i64 172, !7, i64 173, !231, i64 240, !7, i64 244}
-!224 = !{!"b2Softness", !20, i64 0, !20, i64 4, !20, i64 8}
-!225 = !{!"p1 _ZTS7b2World", !6, i64 0}
-!226 = !{!"p1 _ZTS17b2ConstraintGraph", !6, i64 0}
-!227 = !{!"p2 _ZTS10b2JointSim", !6, i64 0}
-!228 = !{!"p2 _ZTS12b2ContactSim", !6, i64 0}
-!229 = !{!"p1 _ZTS23b2ContactConstraintSIMD", !6, i64 0}
-!230 = !{!"p1 _ZTS13b2SolverStage", !6, i64 0}
-!231 = !{!"b2AtomicU32", !9, i64 0}
-!232 = !{!233, !13, i64 32}
-!233 = !{!"b2GraphColor", !100, i64 0, !155, i64 16, !12, i64 32, !7, i64 48}
-!234 = !{!233, !9, i64 40}
-!235 = distinct !{!235, !127}
-!236 = distinct !{!236, !127}
-!237 = distinct !{!237, !127}
-!238 = !{!239, !6, i64 56}
-!239 = !{!"b2DebugDraw", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !216, i64 72, !21, i64 88, !21, i64 89, !21, i64 90, !21, i64 91, !21, i64 92, !21, i64 93, !21, i64 94, !21, i64 95, !21, i64 96, !21, i64 97, !21, i64 98, !21, i64 99, !6, i64 104}
-!240 = !{!239, !6, i64 104}
-!241 = !{!239, !6, i64 40}
-!242 = !{!239, !21, i64 96}
+!128 = !{!"llvm.loop.estimated_trip_count"}
+!129 = !{!108, !9, i64 0}
+!130 = !{!61, !18, i64 1780}
+!131 = !{!54, !18, i64 68}
+!132 = !{!119, !9, i64 40}
+!133 = !{!61, !9, i64 1120}
+!134 = !{!4, !9, i64 8}
+!135 = !{!54, !9, i64 44}
+!136 = !{!54, !6, i64 0}
+!137 = !{!54, !9, i64 48}
+!138 = !{!54, !9, i64 52}
+!139 = !{!54, !9, i64 56}
+!140 = !{!54, !20, i64 60}
+!141 = !{!54, !9, i64 64}
+!142 = !{!54, !21, i64 71}
+!143 = !{!54, !21, i64 70}
+!144 = !{!145, !9, i64 0}
+!145 = !{!"b2JointEdge", !9, i64 0, !9, i64 4, !9, i64 8}
+!146 = !{!145, !9, i64 4}
+!147 = !{!119, !9, i64 68}
+!148 = !{!145, !9, i64 8}
+!149 = !{!119, !9, i64 72}
+!150 = !{!151, !9, i64 40}
+!151 = !{!"b2SolverSet", !152, i64 0, !154, i64 16, !12, i64 32, !156, i64 48, !158, i64 64, !9, i64 80}
+!152 = !{!"", !153, i64 0, !9, i64 8, !9, i64 12}
+!153 = !{!"p1 _ZTS9b2BodySim", !6, i64 0}
+!154 = !{!"", !155, i64 0, !9, i64 8, !9, i64 12}
+!155 = !{!"p1 _ZTS11b2BodyState", !6, i64 0}
+!156 = !{!"", !157, i64 0, !9, i64 8, !9, i64 12}
+!157 = !{!"p1 _ZTS12b2ContactSim", !6, i64 0}
+!158 = !{!"", !159, i64 0, !9, i64 8, !9, i64 12}
+!159 = !{!"p1 _ZTS11b2IslandSim", !6, i64 0}
+!160 = !{!12, !9, i64 8}
+!161 = !{!108, !9, i64 4}
+!162 = !{!108, !9, i64 8}
+!163 = !{!26, !6, i64 48}
+!164 = !{!26, !21, i64 40}
+!165 = !{!26, !20, i64 24}
+!166 = !{!31, !6, i64 40}
+!167 = !{!31, !21, i64 36}
+!168 = !{!36, !6, i64 16}
+!169 = !{!40, !6, i64 80}
+!170 = !{!40, !21, i64 76}
+!171 = !{!40, !20, i64 32}
+!172 = !{!40, !20, i64 40}
+!173 = !{!40, !20, i64 44}
+!174 = !{!40, !20, i64 52}
+!175 = !{!40, !20, i64 56}
+!176 = !{!40, !20, i64 64}
+!177 = !{!40, !20, i64 68}
+!178 = !{!40, !21, i64 36}
+!179 = !{!40, !21, i64 48}
+!180 = !{!40, !21, i64 60}
+!181 = !{!38, !6, i64 88}
+!182 = !{!38, !21, i64 80}
+!183 = !{!38, !20, i64 40}
+!184 = !{!38, !20, i64 48}
+!185 = !{!38, !20, i64 52}
+!186 = !{!38, !20, i64 60}
+!187 = !{!38, !20, i64 64}
+!188 = !{!38, !20, i64 72}
+!189 = !{!38, !20, i64 76}
+!190 = !{!38, !21, i64 44}
+!191 = !{!38, !21, i64 56}
+!192 = !{!38, !21, i64 68}
+!193 = !{!43, !6, i64 56}
+!194 = !{!43, !21, i64 52}
+!195 = !{!43, !20, i64 32}
+!196 = !{!43, !20, i64 36}
+!197 = !{!43, !20, i64 44}
+!198 = !{!43, !20, i64 40}
+!199 = !{!43, !20, i64 48}
+!200 = !{!45, !6, i64 80}
+!201 = !{!45, !21, i64 76}
+!202 = !{!45, !20, i64 56}
+!203 = !{!45, !20, i64 60}
+!204 = !{!45, !20, i64 68}
+!205 = !{!45, !20, i64 72}
+!206 = !{!45, !21, i64 52}
+!207 = !{!45, !21, i64 64}
+!208 = !{!76, !77, i64 0}
+!209 = !{i64 0, i64 4, !210, i64 4, i64 4, !210, i64 8, i64 4, !210, i64 12, i64 4, !210, i64 16, i64 4, !22, i64 20, i64 4, !22, i64 24, i64 4, !22, i64 28, i64 4, !22, i64 32, i64 4, !22, i64 36, i64 4, !22, i64 40, i64 4, !22, i64 44, i64 4, !22, i64 48, i64 124, !109}
+!210 = !{!9, !9, i64 0}
+!211 = !{!151, !13, i64 32}
+!212 = !{!61, !18, i64 1592}
+!213 = !{!119, !9, i64 60}
+!214 = !{!82, !83, i64 0}
+!215 = !{!216, !9, i64 88}
+!216 = !{!"b2Shape", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !20, i64 40, !9, i64 44, !217, i64 48, !217, i64 64, !19, i64 80, !9, i64 88, !218, i64 96, !6, i64 120, !9, i64 128, !7, i64 132, !18, i64 276, !21, i64 278, !21, i64 279, !21, i64 280, !21, i64 281}
+!217 = !{!"b2AABB", !19, i64 0, !19, i64 8}
+!218 = !{!"b2Filter", !52, i64 0, !52, i64 8, !9, i64 16}
+!219 = !{!69, !9, i64 8}
+!220 = !{!69, !9, i64 12}
+!221 = !{!69, !70, i64 0}
+!222 = distinct !{!222, !127, !128}
+!223 = !{!224, !227, i64 72}
+!224 = !{!"b2StepContext", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !9, i64 16, !225, i64 20, !225, i64 32, !225, i64 44, !20, i64 56, !20, i64 60, !226, i64 64, !227, i64 72, !155, i64 80, !153, i64 88, !70, i64 96, !9, i64 104, !70, i64 112, !73, i64 120, !228, i64 128, !229, i64 136, !230, i64 144, !9, i64 152, !9, i64 156, !231, i64 160, !9, i64 168, !21, i64 172, !7, i64 173, !232, i64 240, !7, i64 244}
+!225 = !{!"b2Softness", !20, i64 0, !20, i64 4, !20, i64 8}
+!226 = !{!"p1 _ZTS7b2World", !6, i64 0}
+!227 = !{!"p1 _ZTS17b2ConstraintGraph", !6, i64 0}
+!228 = !{!"p2 _ZTS10b2JointSim", !6, i64 0}
+!229 = !{!"p2 _ZTS12b2ContactSim", !6, i64 0}
+!230 = !{!"p1 _ZTS23b2ContactConstraintSIMD", !6, i64 0}
+!231 = !{!"p1 _ZTS13b2SolverStage", !6, i64 0}
+!232 = !{!"b2AtomicU32", !9, i64 0}
+!233 = !{!234, !13, i64 32}
+!234 = !{!"b2GraphColor", !100, i64 0, !156, i64 16, !12, i64 32, !7, i64 48}
+!235 = !{!234, !9, i64 40}
+!236 = distinct !{!236, !127, !128}
+!237 = distinct !{!237, !127, !128}
+!238 = distinct !{!238, !127, !128}
+!239 = !{!240, !6, i64 56}
+!240 = !{!"b2DebugDraw", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !217, i64 72, !21, i64 88, !21, i64 89, !21, i64 90, !21, i64 91, !21, i64 92, !21, i64 93, !21, i64 94, !21, i64 95, !21, i64 96, !21, i64 97, !21, i64 98, !21, i64 99, !6, i64 104}
+!241 = !{!240, !6, i64 104}
+!242 = !{!240, !6, i64 40}
+!243 = !{!240, !21, i64 96}

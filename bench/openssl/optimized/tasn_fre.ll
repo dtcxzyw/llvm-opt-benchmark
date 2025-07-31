@@ -227,7 +227,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 define void @ossl_asn1_template_free(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = load i64, ptr %1, align 8, !tbaa !23
+  %5 = load i64, ptr %1, align 8, !tbaa !24
   %6 = trunc i64 %5 to i32
   %7 = and i32 %6, 4096
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
@@ -259,14 +259,14 @@ define void @ossl_asn1_template_free(ptr noundef %0, ptr noundef readonly captur
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
   %17 = call ptr @OPENSSL_sk_value(ptr noundef %12, i32 noundef %.018) #4
   store ptr %17, ptr %4, align 8, !tbaa !3
-  %18 = load ptr, ptr %15, align 8, !tbaa !25
+  %18 = load ptr, ptr %15, align 8, !tbaa !26
   %19 = call ptr %18() #4
   call void @ossl_asn1_item_embed_free(ptr noundef nonnull %4, ptr noundef %19, i32 noundef %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   %20 = add nuw nsw i32 %.018, 1
   %21 = call i32 @OPENSSL_sk_num(ptr noundef %12) #4
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %16, label %._crit_edge, !llvm.loop !26
+  br i1 %22, label %16, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %16, %11
   call void @OPENSSL_sk_free(ptr noundef %12) #4
@@ -275,7 +275,7 @@ define void @ossl_asn1_template_free(ptr noundef %0, ptr noundef readonly captur
 
 23:                                               ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %25 = load ptr, ptr %24, align 8, !tbaa !25
+  %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = tail call ptr %25() #4
   call void @ossl_asn1_item_embed_free(ptr noundef %.016, ptr noundef %26, i32 noundef %7)
   br label %27
@@ -302,7 +302,7 @@ define void @ossl_asn1_primitive_free(ptr noundef %0, ptr noundef %1, i32 nounde
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %.not50 = icmp eq ptr %10, null
   br i1 %.not50, label %21, label %11
 
@@ -315,7 +315,7 @@ define void @ossl_asn1_primitive_free(ptr noundef %0, ptr noundef %1, i32 nounde
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !29
+  %15 = load ptr, ptr %14, align 8, !tbaa !30
   %.not48 = icmp eq ptr %15, null
   br i1 %.not48, label %21, label %16
 
@@ -325,7 +325,7 @@ define void @ossl_asn1_primitive_free(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .critedge54:                                      ; preds = %3
   %17 = load ptr, ptr %0, align 8, !tbaa !3
-  %18 = load i32, ptr %17, align 8, !tbaa !30
+  %18 = load i32, ptr %17, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %.not51 = icmp eq ptr %20, null
@@ -343,7 +343,7 @@ define void @ossl_asn1_primitive_free(ptr noundef %0, ptr noundef %1, i32 nounde
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !32
+  %29 = load i64, ptr %28, align 8, !tbaa !33
   %30 = trunc i64 %29 to i32
   %.not52 = icmp eq i32 %30, 1
   br i1 %.not52, label %.thread63, label %31
@@ -374,14 +374,14 @@ define void @ossl_asn1_primitive_free(ptr noundef %0, ptr noundef %1, i32 nounde
 .thread63:                                        ; preds = %27, %37
   %.06265 = phi ptr [ %.0, %37 ], [ %0, %27 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %39 = load i64, ptr %38, align 8, !tbaa !33
+  %39 = load i64, ptr %38, align 8, !tbaa !34
   %40 = trunc i64 %39 to i32
   br label %41
 
 41:                                               ; preds = %37, %.thread63
   %.06266 = phi ptr [ %.06265, %.thread63 ], [ %.0, %37 ]
   %storemerge = phi i32 [ %40, %.thread63 ], [ -1, %37 ]
-  store i32 %storemerge, ptr %.06266, align 4, !tbaa !34
+  store i32 %storemerge, ptr %.06266, align 4, !tbaa !35
   br label %.critedge
 
 42:                                               ; preds = %34
@@ -463,17 +463,18 @@ attributes #5 = { noreturn nounwind }
 !18 = !{!9, !10, i64 24}
 !19 = !{!20, !5, i64 16}
 !20 = !{!"ASN1_EXTERN_FUNCS_st", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !10, i64 0}
-!24 = !{!"ASN1_TEMPLATE_st", !10, i64 0, !10, i64 8, !10, i64 16, !12, i64 24, !5, i64 32}
-!25 = !{!24, !5, i64 32}
-!26 = distinct !{!26, !22}
-!27 = !{!28, !5, i64 32}
-!28 = !{!"ASN1_PRIMITIVE_FUNCS_st", !5, i64 0, !10, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
-!29 = !{!28, !5, i64 24}
-!30 = !{!31, !16, i64 0}
-!31 = !{!"asn1_type_st", !16, i64 0, !6, i64 8}
-!32 = !{!9, !10, i64 8}
-!33 = !{!9, !10, i64 40}
-!34 = !{!16, !16, i64 0}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25, !10, i64 0}
+!25 = !{!"ASN1_TEMPLATE_st", !10, i64 0, !10, i64 8, !10, i64 16, !12, i64 24, !5, i64 32}
+!26 = !{!25, !5, i64 32}
+!27 = distinct !{!27, !22, !23}
+!28 = !{!29, !5, i64 32}
+!29 = !{!"ASN1_PRIMITIVE_FUNCS_st", !5, i64 0, !10, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56}
+!30 = !{!29, !5, i64 24}
+!31 = !{!32, !16, i64 0}
+!32 = !{!"asn1_type_st", !16, i64 0, !6, i64 8}
+!33 = !{!9, !10, i64 8}
+!34 = !{!9, !10, i64 40}
+!35 = !{!16, !16, i64 0}

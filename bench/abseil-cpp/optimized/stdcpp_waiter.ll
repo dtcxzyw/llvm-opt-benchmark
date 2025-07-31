@@ -152,7 +152,7 @@ _ZNSt18condition_variable8wait_forIlSt5ratioILl1ELl1000000000EEEESt9cv_statusRSt
   %storemerge.in = load i32, ptr %10, align 8, !tbaa !4
   %storemerge = add nsw i32 %storemerge.in, -1
   store i32 %storemerge, ptr %10, align 8, !tbaa !4
-  %52 = load i8, ptr %7, align 8, !tbaa !19, !range !28, !noundef !29
+  %52 = load i8, ptr %7, align 8, !tbaa !19, !range !29, !noundef !30
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -171,7 +171,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit, %54, %56
 
 58:                                               ; preds = %45, %47, %19
   %.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %46, %45 ], [ %48, %47 ]
-  %59 = load i8, ptr %7, align 8, !tbaa !19, !range !28, !noundef !29
+  %59 = load i8, ptr %7, align 8, !tbaa !19, !range !29, !noundef !30
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %_ZNSt11unique_lockISt5mutexED2Ev.exit16
 
@@ -340,7 +340,8 @@ attributes #8 = { noreturn }
 !23 = !{!24, !22, i64 0}
 !24 = !{!"_ZTS8timespec", !22, i64 0, !22, i64 8}
 !25 = !{!24, !22, i64 8}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{i8 0, i8 2}
-!29 = !{}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{i8 0, i8 2}
+!30 = !{}

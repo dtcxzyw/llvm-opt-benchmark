@@ -839,7 +839,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 42:                                               ; preds = %41
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %12) #13
-  %43 = load ptr, ptr %13, align 8, !tbaa !41, !noalias !56
+  %43 = load ptr, ptr %13, align 8, !tbaa !41, !noalias !57
   %44 = load ptr, ptr %43, align 8, !tbaa !47
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
@@ -1013,7 +1013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store double %41, ptr %42, align 8, !tbaa !22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6
-  br i1 %exitcond.not.i.i, label %_ZN2cv3VecIdLi6EEC2EPKd.exit, label %.preheader, !llvm.loop !59
+  br i1 %exitcond.not.i.i, label %_ZN2cv3VecIdLi6EEC2EPKd.exit, label %.preheader, !llvm.loop !60
 
 43:                                               ; preds = %38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false), !tbaa !22
@@ -1150,9 +1150,10 @@ attributes #15 = { builtin nounwind }
 !51 = !{!50, !5, i64 4}
 !52 = !{!50, !5, i64 8}
 !53 = !{!50, !5, i64 12}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
-!58 = distinct !{!58, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
-!59 = distinct !{!59, !55}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZNK2cv7MatExprcvNS_3MatEEv: argument 0"}
+!59 = distinct !{!59, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
+!60 = distinct !{!60, !55, !56}

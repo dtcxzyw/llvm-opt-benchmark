@@ -528,26 +528,26 @@ select_file_type.exit:                            ; preds = %107, %124, %126, %1
 183:                                              ; preds = %.lr.ph80, %183
   %184 = load ptr, ptr %181, align 8, !tbaa !51
   %185 = call i32 %184(ptr noundef nonnull %3, ptr noundef nonnull %.0.i) #9
-  %186 = load ptr, ptr %182, align 8, !tbaa !55
+  %186 = load ptr, ptr %182, align 8, !tbaa !56
   %187 = call i32 @jpeg12_write_scanlines(ptr noundef nonnull %3, ptr noundef %186, i32 noundef %185) #9
   %188 = load i32, ptr %174, align 8, !tbaa !49
   %189 = load i32, ptr %175, align 4, !tbaa !50
   %190 = icmp ult i32 %188, %189
-  br i1 %190, label %183, label %.loopexit, !llvm.loop !56
+  br i1 %190, label %183, label %.loopexit, !llvm.loop !57
 
 191:                                              ; preds = %.lr.ph, %191
   %192 = load ptr, ptr %179, align 8, !tbaa !51
   %193 = call i32 %192(ptr noundef nonnull %3, ptr noundef nonnull %.0.i) #9
-  %194 = load ptr, ptr %180, align 8, !tbaa !57
+  %194 = load ptr, ptr %180, align 8, !tbaa !58
   %195 = call i32 @jpeg16_write_scanlines(ptr noundef nonnull %3, ptr noundef %194, i32 noundef %193) #9
   %196 = load i32, ptr %174, align 8, !tbaa !49
   %197 = load i32, ptr %175, align 4, !tbaa !50
   %198 = icmp ult i32 %196, %197
-  br i1 %198, label %191, label %.loopexit, !llvm.loop !58
+  br i1 %198, label %191, label %.loopexit, !llvm.loop !59
 
 .loopexit:                                        ; preds = %191, %183, %164, %.preheader78, %.preheader76, %.preheader
   %199 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %200 = load ptr, ptr %199, align 8, !tbaa !59
+  %200 = load ptr, ptr %199, align 8, !tbaa !60
   call void %200(ptr noundef nonnull %3, ptr noundef nonnull %.0.i) #9
   call void @jpeg_finish_compress(ptr noundef nonnull %3) #9
   call void @jpeg_destroy_compress(ptr noundef nonnull %3) #9
@@ -593,7 +593,7 @@ select_file_type.exit:                            ; preds = %107, %124, %126, %1
 218:                                              ; preds = %213, %212
   call void @free(ptr noundef %.054) #9
   %219 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  %220 = load i64, ptr %219, align 8, !tbaa !60
+  %220 = load i64, ptr %219, align 8, !tbaa !61
   %.not75 = icmp eq i64 %220, 0
   %221 = select i1 %.not75, i32 0, i32 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
@@ -625,9 +625,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   %12 = alloca i8, align 1
   %13 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  store i32 0, ptr %5, align 4, !tbaa !61
+  store i32 0, ptr %5, align 4, !tbaa !62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !61
+  store i32 0, ptr %6, align 4, !tbaa !62
   store i1 false, ptr @is_targa, align 4
   store ptr null, ptr @icc_filename, align 8, !tbaa !4
   store ptr null, ptr @outfilename, align 8, !tbaa !4
@@ -636,7 +636,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   store i1 false, ptr @strict, align 4
   %14 = load ptr, ptr %0, align 8, !tbaa !12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 124
-  store i32 0, ptr %15, align 4, !tbaa !62
+  store i32 0, ptr %15, align 4, !tbaa !63
   %16 = icmp sgt i32 %1, 1
   br i1 %16, label %.lr.ph, label %._crit_edge.thread
 
@@ -682,7 +682,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   br i1 %.not168, label %37, label %36
 
 36:                                               ; preds = %33
-  store i32 1, ptr %17, align 4, !tbaa !63
+  store i32 1, ptr %17, align 4, !tbaa !64
   br label %267
 
 37:                                               ; preds = %33
@@ -713,7 +713,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   br i1 %.not214, label %50, label %49
 
 49:                                               ; preds = %44
-  store i32 0, ptr %18, align 4, !tbaa !64
+  store i32 0, ptr %18, align 4, !tbaa !65
   br label %267
 
 50:                                               ; preds = %44
@@ -723,7 +723,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   br i1 %.not215, label %54, label %53
 
 53:                                               ; preds = %50
-  store i32 1, ptr %18, align 4, !tbaa !64
+  store i32 1, ptr %18, align 4, !tbaa !65
   br label %267
 
 54:                                               ; preds = %50
@@ -733,7 +733,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   br i1 %.not216, label %58, label %57
 
 57:                                               ; preds = %54
-  store i32 2, ptr %18, align 4, !tbaa !64
+  store i32 2, ptr %18, align 4, !tbaa !65
   br label %267
 
 58:                                               ; preds = %54
@@ -769,9 +769,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
 73:                                               ; preds = %64, %63
   %74 = load ptr, ptr %0, align 8, !tbaa !12
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 124
-  %76 = load i32, ptr %75, align 4, !tbaa !62
+  %76 = load i32, ptr %75, align 4, !tbaa !63
   %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %75, align 4, !tbaa !62
+  store i32 %77, ptr %75, align 4, !tbaa !63
   br label %267
 
 78:                                               ; preds = %61
@@ -873,7 +873,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
 118:                                              ; preds = %116
   %119 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.not210 = icmp eq i8 %117, 44
-  br i1 %.not210, label %.critedge, label %116, !llvm.loop !65
+  br i1 %.not210, label %.critedge, label %116, !llvm.loop !66
 
 .critedge:                                        ; preds = %118
   %.pr = load i8, ptr %119, align 1, !tbaa !11
@@ -925,9 +925,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   %137 = mul nsw i64 %.pre, 1000
   %spec.select = select i1 %or.cond5, i64 %137, i64 %.pre
   %138 = mul nsw i64 %spec.select, 1000
-  %139 = load ptr, ptr %19, align 8, !tbaa !66
+  %139 = load ptr, ptr %19, align 8, !tbaa !67
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 88
-  store i64 %138, ptr %140, align 8, !tbaa !67
+  store i64 %138, ptr %140, align 8, !tbaa !68
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   br label %267
@@ -943,7 +943,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   br i1 %.not181, label %146, label %145
 
 145:                                              ; preds = %143, %141
-  store i32 1, ptr %20, align 8, !tbaa !69
+  store i32 1, ptr %20, align 8, !tbaa !70
   br label %267
 
 146:                                              ; preds = %143
@@ -995,7 +995,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   unreachable
 
 166:                                              ; preds = %160
-  %167 = load i32, ptr %10, align 4, !tbaa !61
+  %167 = load i32, ptr %10, align 4, !tbaa !62
   %168 = add i32 %167, -17
   %or.cond7 = icmp ult i32 %168, -15
   br i1 %or.cond7, label %169, label %170
@@ -1138,12 +1138,12 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   br i1 %or.cond12, label %225, label %226
 
 225:                                              ; preds = %221
-  store i32 %224, ptr %23, align 8, !tbaa !70
+  store i32 %224, ptr %23, align 8, !tbaa !71
   br label %226
 
 226:                                              ; preds = %221, %225
   %storemerge = phi i32 [ 0, %225 ], [ %224, %221 ]
-  store i32 %storemerge, ptr %22, align 4, !tbaa !71
+  store i32 %storemerge, ptr %22, align 4, !tbaa !72
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
   br label %267
@@ -1216,7 +1216,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   unreachable
 
 256:                                              ; preds = %250
-  %257 = load i32, ptr %13, align 4, !tbaa !61
+  %257 = load i32, ptr %13, align 4, !tbaa !62
   %or.cond14 = icmp ugt i32 %257, 100
   br i1 %or.cond14, label %258, label %259
 
@@ -1225,7 +1225,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   unreachable
 
 259:                                              ; preds = %256
-  store i32 %257, ptr %24, align 8, !tbaa !72
+  store i32 %257, ptr %24, align 8, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #9
   br label %267
 
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
   %.1150 = phi ptr [ %.0149431, %32 ], [ %.0149431, %36 ], [ %.0149431, %49 ], [ %.0149431, %53 ], [ %.0149431, %57 ], [ %.0149431, %73 ], [ %.0149431, %87 ], [ %.0149431, %90 ], [ %.0149431, %96 ], [ %.0149431, %.critedge.thread ], [ %.0149431, %134 ], [ %.0149431, %145 ], [ %.0149431, %151 ], [ %.0149431, %170 ], [ %.0149431, %175 ], [ %.0149431, %181 ], [ %.0149431, %190 ], [ %.0149431, %199 ], [ %.0149431, %205 ], [ %.0149431, %226 ], [ %.0149431, %232 ], [ %244, %241 ], [ %.0149431, %259 ], [ %.0149431, %262 ], [ %.0149431, %265 ], [ %.0149431, %37 ], [ %.0149431, %171 ]
   %268 = add nsw i32 %.1164, 1
   %269 = icmp slt i32 %268, %1
-  br i1 %269, label %25, label %._crit_edge, !llvm.loop !73
+  br i1 %269, label %25, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %267, %30
   %.0163.lcssa.ph = phi i32 [ %268, %267 ], [ %.0163424, %30 ]
@@ -1343,12 +1343,12 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
 .thread516:                                       ; preds = %._crit_edge.thread, %288, %287
   %.0163.lcssa457481491506513521 = phi i32 [ %.0163.lcssa.ph, %288 ], [ %.0163.lcssa.ph, %287 ], [ 1, %._crit_edge.thread ]
   %.0149.lcssa465475495503515520 = phi ptr [ %.0149.lcssa.ph, %288 ], [ %.0149.lcssa.ph, %287 ], [ null, %._crit_edge.thread ]
-  %289 = load i32, ptr %5, align 4, !tbaa !61
+  %289 = load i32, ptr %5, align 4, !tbaa !62
   %.not227 = icmp eq i32 %289, 0
   br i1 %.not227, label %292, label %290
 
 290:                                              ; preds = %.thread516
-  %291 = load i32, ptr %6, align 4, !tbaa !61
+  %291 = load i32, ptr %6, align 4, !tbaa !62
   call void @jpeg_enable_lossless(ptr noundef nonnull %0, i32 noundef %289, i32 noundef %291) #9
   br label %292
 
@@ -1375,12 +1375,12 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @parse_switches(p
 ; Function Attrs: nounwind uwtable
 define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #0 {
   %3 = icmp slt i32 %1, 0
-  %4 = load ptr, ptr %0, align 8, !tbaa !74
+  %4 = load ptr, ptr %0, align 8, !tbaa !75
   br i1 %3, label %.sink.split, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 124
-  %7 = load i32, ptr %6, align 4, !tbaa !62
+  %7 = load i32, ptr %6, align 4, !tbaa !63
   %.not = icmp slt i32 %7, %1
   br i1 %.not, label %10, label %8
 
@@ -1390,7 +1390,7 @@ define internal void @my_emit_message(ptr noundef %0, i32 noundef %1) #0 {
 
 .sink.split:                                      ; preds = %2, %8
   %.sink.in = phi ptr [ %9, %8 ], [ %4, %2 ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !76
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !77
   tail call void %.sink(ptr noundef nonnull %0) #9
   br label %10
 
@@ -1646,27 +1646,28 @@ attributes #14 = { noreturn nounwind }
 !50 = !{!13, !17, i64 52}
 !51 = !{!46, !6, i64 8}
 !52 = !{!46, !32, i64 32}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!46, !47, i64 40}
-!56 = distinct !{!56, !54}
-!57 = !{!46, !47, i64 48}
-!58 = distinct !{!58, !54}
-!59 = !{!46, !6, i64 16}
-!60 = !{!31, !10, i64 128}
-!61 = !{!17, !17, i64 0}
-!62 = !{!31, !17, i64 124}
-!63 = !{!13, !17, i64 260}
-!64 = !{!13, !17, i64 276}
-!65 = distinct !{!65, !54}
-!66 = !{!13, !15, i64 8}
-!67 = !{!68, !10, i64 88}
-!68 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !10, i64 88, !10, i64 96}
-!69 = !{!13, !17, i64 264}
-!70 = !{!13, !17, i64 280}
-!71 = !{!13, !17, i64 284}
-!72 = !{!13, !17, i64 272}
-!73 = distinct !{!73, !54}
-!74 = !{!75, !14, i64 0}
-!75 = !{!"jpeg_common_struct", !14, i64 0, !15, i64 8, !16, i64 16, !6, i64 24, !17, i64 32, !17, i64 36}
-!76 = !{!6, !6, i64 0}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!46, !47, i64 40}
+!57 = distinct !{!57, !54, !55}
+!58 = !{!46, !47, i64 48}
+!59 = distinct !{!59, !54, !55}
+!60 = !{!46, !6, i64 16}
+!61 = !{!31, !10, i64 128}
+!62 = !{!17, !17, i64 0}
+!63 = !{!31, !17, i64 124}
+!64 = !{!13, !17, i64 260}
+!65 = !{!13, !17, i64 276}
+!66 = distinct !{!66, !54, !55}
+!67 = !{!13, !15, i64 8}
+!68 = !{!69, !10, i64 88}
+!69 = !{!"jpeg_memory_mgr", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !10, i64 88, !10, i64 96}
+!70 = !{!13, !17, i64 264}
+!71 = !{!13, !17, i64 280}
+!72 = !{!13, !17, i64 284}
+!73 = !{!13, !17, i64 272}
+!74 = distinct !{!74, !54, !55}
+!75 = !{!76, !14, i64 0}
+!76 = !{!"jpeg_common_struct", !14, i64 0, !15, i64 8, !16, i64 16, !6, i64 24, !17, i64 32, !17, i64 36}
+!77 = !{!6, !6, i64 0}

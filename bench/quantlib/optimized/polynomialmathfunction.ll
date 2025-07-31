@@ -537,7 +537,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !35
+  store ptr %0, ptr %this, align 8, !tbaa !36
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -594,9 +594,9 @@ declare void @_ZN8QuantLib5ErrorC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !36
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib5ErrorE, i64 16), ptr %this, align 8, !tbaa !37
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %pn.i, align 8, !tbaa !38
+  %0 = load ptr, ptr %pn.i, align 8, !tbaa !39
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit, label %if.then.i.i
 
@@ -607,7 +607,7 @@ if.then.i.i:                                      ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
-  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !36
+  %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !37
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -620,7 +620,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
-  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !36
+  %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !37
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -673,7 +673,7 @@ if.then:                                          ; preds = %entry
 
 cond.true.i.i:                                    ; preds = %if.then
   %cmp.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, !prof !40
+  br i1 %cmp.i.i.i.i, label %if.then3.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i, !prof !41
 
 if.then3.i.i.i.i:                                 ; preds = %cond.true.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #20
@@ -786,7 +786,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = fmul double %t, %tPower.07
   %inc = add nuw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc, %0
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !41
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !42
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -819,7 +819,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = fmul double %t, %tPower.07
   %inc = add nuw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc, %sub
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !42
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -850,7 +850,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %mul = fmul double %t, %tPower.08
   %inc = add nuw i64 %i.09, 1
   %exitcond.not = icmp eq i64 %inc, %1
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !43
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -877,7 +877,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %mul.i = fmul double %t2, %tPower.08.i
   %inc.i = add nuw i64 %i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %1
-  br i1 %exitcond.not.i, label %for.body.i5, label %for.body.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %for.body.i5, label %for.body.i, !llvm.loop !44
 
 for.body.i5:                                      ; preds = %for.body.i, %for.body.i5
   %i.09.i6 = phi i64 [ %inc.i11, %for.body.i5 ], [ 0, %for.body.i ]
@@ -889,7 +889,7 @@ for.body.i5:                                      ; preds = %for.body.i, %for.bo
   %mul.i10 = fmul double %t1, %tPower.08.i7
   %inc.i11 = add nuw i64 %i.09.i6, 1
   %exitcond.not.i12 = icmp eq i64 %inc.i11, %1
-  br i1 %exitcond.not.i12, label %_ZNK8QuantLib18PolynomialFunction9primitiveEd.exit14, label %for.body.i5, !llvm.loop !43
+  br i1 %exitcond.not.i12, label %_ZNK8QuantLib18PolynomialFunction9primitiveEd.exit14, label %for.body.i5, !llvm.loop !44
 
 _ZNK8QuantLib18PolynomialFunction9primitiveEd.exit14: ; preds = %for.body.i5, %entry
   %result.0.lcssa.i16 = phi double [ %0, %entry ], [ %4, %for.body.i5 ]
@@ -924,7 +924,7 @@ for.cond.cleanup5:                                ; preds = %for.body6, %for.con
   %2 = phi i64 [ %1, %for.cond2.preheader ], [ %7, %for.body6 ]
   %inc13 = add nuw i64 %i.014, 1
   %cmp = icmp ult i64 %inc13, %2
-  br i1 %cmp, label %for.cond2.preheader, label %for.cond.cleanup, !llvm.loop !44
+  br i1 %cmp, label %for.cond2.preheader, label %for.cond.cleanup, !llvm.loop !45
 
 for.body6:                                        ; preds = %for.cond2.preheader, %for.body6
   %j.012 = phi i64 [ %add, %for.body6 ], [ %i.014, %for.cond2.preheader ]
@@ -932,7 +932,7 @@ for.body6:                                        ; preds = %for.cond2.preheader
   %mul = fmul double %sub, %tau.011
   %add = add nuw i64 %j.012, 1
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN8QuantLib14PascalTriangle3getEm(i64 noundef %add)
-  %3 = load ptr, ptr %call, align 8, !tbaa !45
+  %3 = load ptr, ptr %call, align 8, !tbaa !46
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %3, i64 %i.014
   %4 = load i64, ptr %add.ptr.i, align 8, !tbaa !32
   %conv = uitofp i64 %4 to double
@@ -940,14 +940,14 @@ for.body6:                                        ; preds = %for.cond2.preheader
   %conv10 = uitofp i64 %add to double
   %div = fdiv double %mul8, %conv10
   %5 = load ptr, ptr %eqs_, align 8, !tbaa !3
-  %6 = load i64, ptr %columns_.i.i, align 8, !tbaa !47
+  %6 = load i64, ptr %columns_.i.i, align 8, !tbaa !48
   %mul.i.i = mul i64 %6, %i.014
   %add.ptr.i.i = getelementptr inbounds nuw double, ptr %5, i64 %mul.i.i
   %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j.012
   store double %div, ptr %arrayidx, align 8, !tbaa !27
   %7 = load i64, ptr %this, align 8, !tbaa !13
   %cmp4 = icmp ult i64 %add, %7
-  br i1 %cmp4, label %for.body6, label %for.cond.cleanup5, !llvm.loop !48
+  br i1 %cmp4, label %for.body6, label %for.cond.cleanup5, !llvm.loop !49
 }
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN8QuantLib14PascalTriangle3getEm(i64 noundef) local_unnamed_addr #2
@@ -962,7 +962,7 @@ entry:
   %0 = load ptr, ptr %c_, align 8, !tbaa !3
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  store ptr null, ptr %k, align 8, !tbaa !49
+  store ptr null, ptr %k, align 8, !tbaa !50
   %n_.i = getelementptr inbounds nuw i8, ptr %k, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -1006,7 +1006,7 @@ for.cond.cleanup5.i:                              ; preds = %call.i.noexc, %for.
   %7 = phi i64 [ %6, %for.cond2.preheader.i ], [ %12, %call.i.noexc ]
   %inc13.i = add nuw i64 %i.014.i, 1
   %cmp.i = icmp ult i64 %inc13.i, %7
-  br i1 %cmp.i, label %for.cond2.preheader.i, label %invoke.cont, !llvm.loop !44
+  br i1 %cmp.i, label %for.cond2.preheader.i, label %invoke.cont, !llvm.loop !45
 
 for.body6.i:                                      ; preds = %for.cond2.preheader.i, %call.i.noexc
   %j.012.i = phi i64 [ %add.i, %call.i.noexc ], [ %i.014.i, %for.cond2.preheader.i ]
@@ -1017,7 +1017,7 @@ for.body6.i:                                      ; preds = %for.cond2.preheader
 
 call.i.noexc:                                     ; preds = %for.body6.i
   %mul.i = fmul double %sub.i, %tau.011.i
-  %8 = load ptr, ptr %call.i3, align 8, !tbaa !45
+  %8 = load ptr, ptr %call.i3, align 8, !tbaa !46
   %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %i.014.i
   %9 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !32
   %conv.i = uitofp i64 %9 to double
@@ -1025,14 +1025,14 @@ call.i.noexc:                                     ; preds = %for.body6.i
   %conv10.i = uitofp i64 %add.i to double
   %div.i = fdiv double %mul8.i, %conv10.i
   %10 = load ptr, ptr %eqs_.i, align 8, !tbaa !3
-  %11 = load i64, ptr %columns_.i.i.i, align 8, !tbaa !47
+  %11 = load i64, ptr %columns_.i.i.i, align 8, !tbaa !48
   %mul.i.i.i = mul i64 %11, %i.014.i
   %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %mul.i.i.i
   %arrayidx.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i, i64 %j.012.i
   store double %div.i, ptr %arrayidx.i, align 8, !tbaa !27
   %12 = load i64, ptr %this, align 8, !tbaa !13
   %cmp4.i = icmp ult i64 %add.i, %12
-  br i1 %cmp4.i, label %for.body6.i, label %for.cond.cleanup5.i, !llvm.loop !48
+  br i1 %cmp4.i, label %for.body6.i, label %for.cond.cleanup5.i, !llvm.loop !49
 
 invoke.cont:                                      ; preds = %for.cond.cleanup5.i, %_ZN8QuantLib5ArrayC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SA_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %coeff) #19
@@ -1043,7 +1043,7 @@ invoke.cont:                                      ; preds = %for.cond.cleanup5.i
 invoke.cont9:                                     ; preds = %invoke.cont
   %13 = load ptr, ptr %coeff, align 8, !tbaa !3
   %n_.i4 = getelementptr inbounds nuw i8, ptr %coeff, i64 8
-  %14 = load i64, ptr %n_.i4, align 8, !tbaa !50
+  %14 = load i64, ptr %n_.i4, align 8, !tbaa !51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr.i.idx = shl nuw nsw i64 %14, 3
   %cmp.not.i.i.i = icmp eq i64 %14, 0
@@ -1143,9 +1143,9 @@ entry:
   %ref.tmp25 = alloca %"class.std::allocator.2", align 1
   %ref.tmp28 = alloca %"class.std::__cxx11::basic_string", align 8
   %n_.i = getelementptr inbounds nuw i8, ptr %v, i64 8
-  %0 = load i64, ptr %n_.i, align 8, !tbaa !50
+  %0 = load i64, ptr %n_.i, align 8, !tbaa !51
   %columns_.i = getelementptr inbounds nuw i8, ptr %m, i64 16
-  %1 = load i64, ptr %columns_.i, align 8, !tbaa !47
+  %1 = load i64, ptr %columns_.i, align 8, !tbaa !48
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.end, label %if.then
 
@@ -1156,7 +1156,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  %2 = load i64, ptr %n_.i, align 8, !tbaa !50
+  %2 = load i64, ptr %n_.i, align 8, !tbaa !51
   %call.i17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, i64 noundef %2)
           to label %invoke.cont5 unwind label %lpad
 
@@ -1166,7 +1166,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %rows_.i = getelementptr inbounds nuw i8, ptr %m, i64 8
-  %3 = load i64, ptr %rows_.i, align 8, !tbaa !52
+  %3 = load i64, ptr %rows_.i, align 8, !tbaa !53
   %call.i21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i17, i64 noundef %3)
           to label %invoke.cont11 unwind label %lpad
 
@@ -1175,7 +1175,7 @@ invoke.cont11:                                    ; preds = %invoke.cont7
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  %4 = load i64, ptr %columns_.i, align 8, !tbaa !47
+  %4 = load i64, ptr %columns_.i, align 8, !tbaa !48
   %call.i27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i21, i64 noundef %4)
           to label %invoke.cont17 unwind label %lpad
 
@@ -1335,14 +1335,14 @@ ehcleanup42:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 do.end:                                           ; preds = %entry
   %rows_.i46 = getelementptr inbounds nuw i8, ptr %m, i64 8
-  %26 = load i64, ptr %rows_.i46, align 8, !tbaa !52
+  %26 = load i64, ptr %rows_.i46, align 8, !tbaa !53
   %cmp.not.i = icmp eq i64 %26, 0
   br i1 %cmp.not.i, label %_ZN8QuantLib5ArrayC2Em.exit.thread, label %for.body.lr.ph
 
 _ZN8QuantLib5ArrayC2Em.exit.thread:               ; preds = %do.end
   store ptr null, ptr %agg.result, align 8, !tbaa !3
   %n_.i4775 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %26, ptr %n_.i4775, align 8, !tbaa !50
+  store i64 %26, ptr %n_.i4775, align 8, !tbaa !51
   br label %nrvo.skipdtor
 
 for.body.lr.ph:                                   ; preds = %do.end
@@ -1352,7 +1352,7 @@ for.body.lr.ph:                                   ; preds = %do.end
   %call.i = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #22
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !3
   %n_.i47 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i64 %26, ptr %n_.i47, align 8, !tbaa !50
+  store i64 %26, ptr %n_.i47, align 8, !tbaa !51
   %30 = load ptr, ptr %v, align 8, !tbaa !3
   %add.ptr.i.idx = shl nuw nsw i64 %0, 3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %30, i64 %add.ptr.i.idx
@@ -1381,14 +1381,14 @@ for.body.i:                                       ; preds = %for.body, %for.body
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__first1.addr.06.i, i64 8
   %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %__first2.addr.07.i, i64 8
   %cmp.not.i52 = icmp eq ptr %incdec.ptr.i, %add.ptr.i
-  br i1 %cmp.not.i52, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit, label %for.body.i, !llvm.loop !53
+  br i1 %cmp.not.i52, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit, label %for.body.i, !llvm.loop !54
 
 _ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit: ; preds = %for.body.i
   %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i, i64 %i.072
   store double %35, ptr %arrayidx.i, align 8, !tbaa !27
   %inc = add nuw i64 %i.072, 1
   %exitcond.not = icmp eq i64 %inc, %26
-  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !54
+  br i1 %exitcond.not, label %nrvo.skipdtor, label %for.body, !llvm.loop !55
 
 nrvo.skipdtor:                                    ; preds = %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.loopexit, %_ZN8QuantLib5ArrayC2Em.exit.thread, %for.body.us.preheader
   ret void
@@ -1408,7 +1408,7 @@ entry:
   %0 = load ptr, ptr %c_, align 8, !tbaa !3
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
-  store ptr null, ptr %k, align 8, !tbaa !49
+  store ptr null, ptr %k, align 8, !tbaa !50
   %n_.i = getelementptr inbounds nuw i8, ptr %k, i64 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %0 to i64
@@ -1452,7 +1452,7 @@ for.cond.cleanup5.i:                              ; preds = %call.i.noexc, %for.
   %7 = phi i64 [ %6, %for.cond2.preheader.i ], [ %12, %call.i.noexc ]
   %inc13.i = add nuw i64 %i.014.i, 1
   %cmp.i = icmp ult i64 %inc13.i, %7
-  br i1 %cmp.i, label %for.cond2.preheader.i, label %invoke.cont, !llvm.loop !44
+  br i1 %cmp.i, label %for.cond2.preheader.i, label %invoke.cont, !llvm.loop !45
 
 for.body6.i:                                      ; preds = %for.cond2.preheader.i, %call.i.noexc
   %j.012.i = phi i64 [ %add.i, %call.i.noexc ], [ %i.014.i, %for.cond2.preheader.i ]
@@ -1463,7 +1463,7 @@ for.body6.i:                                      ; preds = %for.cond2.preheader
 
 call.i.noexc:                                     ; preds = %for.body6.i
   %mul.i = fmul double %sub.i, %tau.011.i
-  %8 = load ptr, ptr %call.i5, align 8, !tbaa !45
+  %8 = load ptr, ptr %call.i5, align 8, !tbaa !46
   %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %i.014.i
   %9 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !32
   %conv.i = uitofp i64 %9 to double
@@ -1471,14 +1471,14 @@ call.i.noexc:                                     ; preds = %for.body6.i
   %conv10.i = uitofp i64 %add.i to double
   %div.i = fdiv double %mul8.i, %conv10.i
   %10 = load ptr, ptr %eqs_.i, align 8, !tbaa !3
-  %11 = load i64, ptr %columns_.i.i.i, align 8, !tbaa !47
+  %11 = load i64, ptr %columns_.i.i.i, align 8, !tbaa !48
   %mul.i.i.i = mul i64 %11, %i.014.i
   %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %10, i64 %mul.i.i.i
   %arrayidx.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i, i64 %j.012.i
   store double %div.i, ptr %arrayidx.i, align 8, !tbaa !27
   %12 = load i64, ptr %this, align 8, !tbaa !13
   %cmp4.i = icmp ult i64 %add.i, %12
-  br i1 %cmp4.i, label %for.body6.i, label %for.cond.cleanup5.i, !llvm.loop !48
+  br i1 %cmp4.i, label %for.body6.i, label %for.cond.cleanup5.i, !llvm.loop !49
 
 invoke.cont:                                      ; preds = %for.cond.cleanup5.i, %_ZN8QuantLib5ArrayC2IN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEEET_SA_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %coeff) #19
@@ -1504,7 +1504,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %invoke.cont11, %_ZN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #19
   %14 = load ptr, ptr %coeff, align 8, !tbaa !3
   %n_.i7 = getelementptr inbounds nuw i8, ptr %coeff, i64 8
-  %15 = load i64, ptr %n_.i7, align 8, !tbaa !50
+  %15 = load i64, ptr %n_.i7, align 8, !tbaa !51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %add.ptr.i.idx = shl nuw nsw i64 %15, 3
   %cmp.not.i.i.i = icmp eq i64 %15, 0
@@ -1729,25 +1729,26 @@ attributes #23 = { noreturn nounwind }
 !30 = !{!18, !4, i64 8}
 !31 = !{!14, !19, i64 80}
 !32 = !{!10, !10, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!9, !4, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"vtable pointer", !6, i64 0}
-!38 = !{!39, !4, i64 0}
-!39 = !{!"_ZTSN5boost6detail12shared_countE", !4, i64 0}
-!40 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!41 = distinct !{!41, !34}
-!42 = distinct !{!42, !34}
-!43 = distinct !{!43, !34}
-!44 = distinct !{!44, !34}
-!45 = !{!46, !4, i64 0}
-!46 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
-!47 = !{!20, !10, i64 16}
-!48 = distinct !{!48, !34}
-!49 = !{!26, !4, i64 0}
-!50 = !{!51, !10, i64 8}
-!51 = !{!"_ZTSN8QuantLib5ArrayE", !21, i64 0, !10, i64 8}
-!52 = !{!20, !10, i64 8}
-!53 = distinct !{!53, !34}
-!54 = distinct !{!54, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!9, !4, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"vtable pointer", !6, i64 0}
+!39 = !{!40, !4, i64 0}
+!40 = !{!"_ZTSN5boost6detail12shared_countE", !4, i64 0}
+!41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!42 = distinct !{!42, !34, !35}
+!43 = distinct !{!43, !34, !35}
+!44 = distinct !{!44, !34, !35}
+!45 = distinct !{!45, !34, !35}
+!46 = !{!47, !4, i64 0}
+!47 = !{!"_ZTSNSt12_Vector_baseImSaImEE17_Vector_impl_dataE", !4, i64 0, !4, i64 8, !4, i64 16}
+!48 = !{!20, !10, i64 16}
+!49 = distinct !{!49, !34, !35}
+!50 = !{!26, !4, i64 0}
+!51 = !{!52, !10, i64 8}
+!52 = !{!"_ZTSN8QuantLib5ArrayE", !21, i64 0, !10, i64 8}
+!53 = !{!20, !10, i64 8}
+!54 = distinct !{!54, !34, !35}
+!55 = distinct !{!55, !34, !35}

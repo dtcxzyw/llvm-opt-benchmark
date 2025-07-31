@@ -6043,5 +6043,6 @@ attributes #21 = { builtin nounwind }
 !34 = !{!16, !16, i64 0}
 !35 = !{!36, !5, i64 0}
 !36 = !{!"_ZTSNSt8__detail15_List_node_baseE", !5, i64 0, !5, i64 8}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!"llvm.loop.estimated_trip_count"}

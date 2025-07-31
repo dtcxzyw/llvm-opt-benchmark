@@ -925,7 +925,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %122 = add nsw i32 %.02730.i, -6
   %123 = add i32 %.031.i, 6
   %.not.i94 = icmp eq i32 %122, 0
-  br i1 %.not.i94, label %.loopexit, label %.lr.ph.i93, !llvm.loop !8
+  br i1 %.not.i94, label %.loopexit, label %.lr.ph.i93, !llvm.loop !9
 
 124:                                              ; preds = %23
   %125 = add nuw nsw i32 %19, 2
@@ -968,7 +968,7 @@ define internal void @dissect_hello_mt_port_cap_clv(ptr noundef %0, ptr noundef 
   %154 = sub nsw i32 %17, %19
   %155 = add i32 %18, %19
   %156 = icmp sgt i32 %154, 1
-  br i1 %156, label %.lr.ph, label %.loopexit99
+  br i1 %156, label %.lr.ph, label %.loopexit99, !llvm.loop !10
 
 .loopexit99:                                      ; preds = %.loopexit, %8, %.thread, %6
   ret void
@@ -1158,7 +1158,7 @@ define internal void @dissect_hello_bfd_enabled_clv(ptr noundef %0, ptr readnone
   %13 = add nsw i32 %.012, -3
   %14 = add i32 %.01011, 3
   %15 = icmp samesign ugt i32 %.012, 5
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -1251,13 +1251,13 @@ define internal fastcc void @parse_vlan_bitmap(ptr noundef %0, ptr noundef %1, i
   %24 = lshr i32 %.02233, 1
   %25 = add nuw nsw i8 %.035, 1
   %exitcond.not = icmp eq i8 %25, 8
-  br i1 %exitcond.not, label %26, label %9, !llvm.loop !10
+  br i1 %exitcond.not, label %26, label %9, !llvm.loop !12
 
 26:                                               ; preds = %22
   %27 = add i32 %.02936, 1
   %28 = add nsw i32 %.02837, -1
   %29 = icmp sgt i32 %.02837, 1
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %26
   %30 = icmp sgt i32 %.227, 1
@@ -1307,7 +1307,7 @@ define internal void @dissect_hello_is_neighbors_clv(ptr noundef %0, ptr noundef
   %14 = add i32 %.01114, 6
   %15 = add nsw i32 %.015, -6
   %.not = icmp eq i32 %.015, 6
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %11, %6, %9
   ret void
@@ -1353,7 +1353,7 @@ define internal void @dissect_hello_trill_neighbor_clv(ptr noundef %0, ptr readn
   %32 = add i32 %.03638, 9
   %33 = add nsw i32 %.039, -9
   %.not = icmp slt i32 %33, %18
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   ret void
@@ -1411,11 +1411,13 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

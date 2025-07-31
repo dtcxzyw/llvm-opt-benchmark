@@ -618,7 +618,7 @@ abAppend.exit76.i:                                ; preds = %94, %.lr.ph103.i
   %100 = zext i32 %99 to i64
   %101 = load i64, ptr %14, align 8, !tbaa !17
   %102 = icmp ugt i64 %101, %100
-  br i1 %102, label %.lr.ph103.i, label %abAppend.exit77.i.sink.split, !llvm.loop !34
+  br i1 %102, label %.lr.ph103.i, label %abAppend.exit77.i.sink.split, !llvm.loop !35
 
 103:                                              ; preds = %abAppend.exit75.i
   %.b.i.i = load i1, ptr @reverse_search_mode_enabled, align 4
@@ -630,7 +630,7 @@ abAppend.exit76.i:                                ; preds = %94, %.lr.ph103.i
   %106 = load ptr, ptr %105, align 8, !tbaa !20
   call void @searchInHistory(ptr dead_on_unwind nonnull writable sret(%struct.linenoiseHistorySearchResult) align 8 %4, ptr noundef %106)
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !35
+  %108 = load ptr, ptr %107, align 8, !tbaa !36
   %109 = icmp eq ptr %108, null
   %110 = load i32, ptr %4, align 8
   %111 = icmp eq i32 %110, 0
@@ -654,11 +654,11 @@ abAppend.exit76.i:                                ; preds = %94, %.lr.ph103.i
 116:                                              ; preds = %113
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %119 = load i32, ptr %118, align 8, !tbaa !37
+  %119 = load i32, ptr %118, align 8, !tbaa !38
   %120 = add nsw i32 %119, 1
   %121 = sext i32 %120 to i64
   %122 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %121) #28
-  %123 = load i32, ptr %117, align 4, !tbaa !38
+  %123 = load i32, ptr %117, align 4, !tbaa !39
   %124 = add nsw i32 %123, 1
   %125 = sext i32 %124 to i64
   %126 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %125) #28
@@ -997,7 +997,7 @@ abAppend.exit28.i:                                ; preds = %294, %.lr.ph50.i
   %297 = phi i32 [ %288, %.lr.ph50.i ], [ %290, %294 ]
   %298 = phi ptr [ %287, %.lr.ph50.i ], [ %292, %294 ]
   %.not26.i = icmp eq i64 %289, 0
-  br i1 %.not26.i, label %abAppend.exit29.i.sink.split, label %.lr.ph50.i, !llvm.loop !39
+  br i1 %.not26.i, label %abAppend.exit29.i.sink.split, label %.lr.ph50.i, !llvm.loop !40
 
 299:                                              ; preds = %abAppend.exit27.i
   %300 = trunc i64 %269 to i32
@@ -1158,9 +1158,9 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
   br i1 %4, label %5, label %48
 
 5:                                                ; preds = %2
-  %6 = load ptr, ptr @history, align 8, !tbaa !40
+  %6 = load ptr, ptr @history, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load i32, ptr %7, align 8, !tbaa !41
+  %8 = load i32, ptr %7, align 8, !tbaa !42
   %9 = xor i32 %8, -1
   %10 = add i32 %3, %9
   %11 = sext i32 %10 to i64
@@ -1170,7 +1170,7 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !20
   %16 = tail call noalias ptr @strdup(ptr noundef %15) #24
-  %17 = load i32, ptr %7, align 8, !tbaa !41
+  %17 = load i32, ptr %7, align 8, !tbaa !42
   %18 = xor i32 %17, -1
   %19 = add i32 %3, %18
   %20 = sext i32 %19 to i64
@@ -1179,12 +1179,12 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
   %22 = icmp eq i32 %1, 1
   %23 = select i1 %22, i32 1, i32 -1
   %24 = add nsw i32 %17, %23
-  store i32 %24, ptr %7, align 8, !tbaa !41
+  store i32 %24, ptr %7, align 8, !tbaa !42
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %27
 
 26:                                               ; preds = %5
-  store i32 0, ptr %7, align 8, !tbaa !41
+  store i32 0, ptr %7, align 8, !tbaa !42
   br label %48
 
 27:                                               ; preds = %5
@@ -1193,7 +1193,7 @@ define dso_local void @linenoiseEditHistoryNext(ptr noundef captures(none) %0, i
 
 28:                                               ; preds = %27
   %29 = add nsw i32 %3, -1
-  store i32 %29, ptr %7, align 8, !tbaa !41
+  store i32 %29, ptr %7, align 8, !tbaa !42
   br label %48
 
 30:                                               ; preds = %27
@@ -1324,7 +1324,7 @@ define dso_local void @linenoiseEditDeletePrevWord(ptr noundef captures(none) %0
   %11 = add i64 %7, -1
   store i64 %11, ptr %2, align 8, !tbaa !26
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %.critedge..critedge2_crit_edge, label %6, !llvm.loop !42
+  br i1 %.not, label %.critedge..critedge2_crit_edge, label %6, !llvm.loop !43
 
 .critedge..critedge2_crit_edge:                   ; preds = %10, %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1348,7 +1348,7 @@ define dso_local void @linenoiseEditDeletePrevWord(ptr noundef captures(none) %0
   %18 = add i64 %15, -1
   store i64 %18, ptr %2, align 8, !tbaa !26
   %.not22 = icmp eq i64 %18, 0
-  br i1 %.not22, label %.critedge2, label %14, !llvm.loop !43
+  br i1 %.not22, label %.critedge2, label %14, !llvm.loop !44
 
 .critedge2:                                       ; preds = %14, %17, %.critedge..critedge2_crit_edge
   %19 = phi ptr [ %.pre, %.critedge..critedge2_crit_edge ], [ %13, %17 ], [ %13, %14 ]
@@ -1401,17 +1401,17 @@ define dso_local void @linenoisePrintKeyCodes() local_unnamed_addr #10 {
 
 11:                                               ; preds = %9
   %12 = tail call ptr @__ctype_b_loc() #29
-  %13 = load ptr, ptr %12, align 8, !tbaa !44
+  %13 = load ptr, ptr %12, align 8, !tbaa !45
   %14 = sext i8 %10 to i32
   %15 = sext i8 %10 to i64
   %16 = getelementptr inbounds i16, ptr %13, i64 %15
-  %17 = load i16, ptr %16, align 2, !tbaa !46
+  %17 = load i16, ptr %16, align 2, !tbaa !47
   %18 = and i16 %17, 16384
   %.not = icmp eq i16 %18, 0
   %19 = select i1 %.not, i32 63, i32 %14
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %19, i32 noundef %14, i32 noundef %14)
   %putchar = tail call i32 @putchar(i32 13)
-  %21 = load ptr, ptr @stdout, align 8, !tbaa !48
+  %21 = load ptr, ptr @stdout, align 8, !tbaa !49
   %22 = tail call i32 @fflush(ptr noundef %21)
   br label %23
 
@@ -1469,22 +1469,22 @@ define internal fastcc range(i32 -1, 1) i32 @enableRawMode() unnamed_addr #10 {
   br i1 %10, label %28, label %11
 
 11:                                               ; preds = %8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %1, ptr noundef nonnull align 4 dereferenceable(60) @orig_termios, i64 60, i1 false), !tbaa.struct !50
-  %12 = load i32, ptr %1, align 4, !tbaa !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %1, ptr noundef nonnull align 4 dereferenceable(60) @orig_termios, i64 60, i1 false), !tbaa.struct !51
+  %12 = load i32, ptr %1, align 4, !tbaa !52
   %13 = and i32 %12, -1331
-  store i32 %13, ptr %1, align 4, !tbaa !51
+  store i32 %13, ptr %1, align 4, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !53
+  %15 = load i32, ptr %14, align 4, !tbaa !54
   %16 = and i32 %15, -2
-  store i32 %16, ptr %14, align 4, !tbaa !53
+  store i32 %16, ptr %14, align 4, !tbaa !54
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %18 = load i32, ptr %17, align 4, !tbaa !54
+  %18 = load i32, ptr %17, align 4, !tbaa !55
   %19 = or i32 %18, 48
-  store i32 %19, ptr %17, align 4, !tbaa !54
+  store i32 %19, ptr %17, align 4, !tbaa !55
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !55
+  %21 = load i32, ptr %20, align 4, !tbaa !56
   %22 = and i32 %21, -32780
-  store i32 %22, ptr %20, align 4, !tbaa !55
+  store i32 %22, ptr %20, align 4, !tbaa !56
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 23
   store i8 1, ptr %23, align 1, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 22
@@ -1574,7 +1574,7 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #10 {
 27:                                               ; preds = %21, %.preheader
   %.133.i = phi i64 [ %.032.i, %.preheader ], [ %24, %21 ]
   %.131.i = phi ptr [ %.030.i, %.preheader ], [ %25, %21 ]
-  %28 = load ptr, ptr @stdin, align 8, !tbaa !48
+  %28 = load ptr, ptr @stdin, align 8, !tbaa !49
   %29 = tail call i32 @fgetc(ptr noundef %28)
   switch i32 %29, label %35 [
     i32 -1, label %30
@@ -1605,7 +1605,7 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #10 {
   switch i32 %29, label %.preheader [
     i32 -1, label %linenoiseNoTTY.exit
     i32 10, label %linenoiseNoTTY.exit
-  ]
+  ], !llvm.loop !57
 
 .thread.sink.split.i:                             ; preds = %30, %26
   %.030.lcssa.sink.i = phi ptr [ %.030.i, %26 ], [ %.131.i, %30 ]
@@ -1625,7 +1625,7 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #10 {
 46:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i14 = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i14, label %isUnsupportedTerm.exit.thread, label %.preheader.i, !llvm.loop !56
+  br i1 %.not.i14, label %isUnsupportedTerm.exit.thread, label %.preheader.i, !llvm.loop !58
 
 .preheader.i:                                     ; preds = %43, %46
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %43 ]
@@ -1637,9 +1637,9 @@ define dso_local ptr @linenoise(ptr noundef %0) local_unnamed_addr #10 {
 
 isUnsupportedTerm.exit:                           ; preds = %.preheader.i
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %0)
-  %51 = load ptr, ptr @stdout, align 8, !tbaa !48
+  %51 = load ptr, ptr @stdout, align 8, !tbaa !49
   %52 = tail call i32 @fflush(ptr noundef %51)
-  %53 = load ptr, ptr @stdin, align 8, !tbaa !48
+  %53 = load ptr, ptr @stdin, align 8, !tbaa !49
   %54 = call ptr @fgets(ptr noundef nonnull %15, i32 noundef 4096, ptr noundef %53)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %linenoiseNoTTY.exit, label %56
@@ -1662,7 +1662,7 @@ isUnsupportedTerm.exit:                           ; preds = %.preheader.i
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
   store i8 0, ptr %59, align 1, !tbaa !21
   %.not13 = icmp eq i64 %58, 0
-  br i1 %.not13, label %.critedge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not13, label %.critedge, label %.lr.ph, !llvm.loop !59
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %56
   %61 = call noalias ptr @strdup(ptr noundef nonnull %15) #24
@@ -1675,7 +1675,7 @@ isUnsupportedTerm.exit.thread:                    ; preds = %46, %43, %40
 
 64:                                               ; preds = %isUnsupportedTerm.exit.thread
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %12) #24
-  store i32 0, ptr %12, align 8, !tbaa !58
+  store i32 0, ptr %12, align 8, !tbaa !60
   %65 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 1, ptr %65, align 4, !tbaa !28
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1715,7 +1715,7 @@ isUnsupportedTerm.exit.thread:                    ; preds = %46, %43, %40
 82:                                               ; preds = %85
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 31
-  br i1 %exitcond.not.i.i.i.i, label %88, label %.preheader.i.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i.i.i.i, label %88, label %.preheader.i.i.i.i, !llvm.loop !61
 
 .preheader.i.i.i.i:                               ; preds = %80, %82
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %82 ], [ 0, %80 ]
@@ -1777,7 +1777,7 @@ getCursorPosition.exit.i.i.i:                     ; preds = %95
 104:                                              ; preds = %107
   %indvars.iv.next.i32.i.i.i = add nuw nsw i64 %indvars.iv.i26.i.i.i, 1
   %exitcond.not.i33.i.i.i = icmp eq i64 %indvars.iv.next.i32.i.i.i, 31
-  br i1 %exitcond.not.i33.i.i.i, label %110, label %.preheader.i25.i.i.i, !llvm.loop !59
+  br i1 %exitcond.not.i33.i.i.i, label %110, label %.preheader.i25.i.i.i, !llvm.loop !61
 
 .preheader.i25.i.i.i:                             ; preds = %102, %104
   %indvars.iv.i26.i.i.i = phi i64 [ %indvars.iv.next.i32.i.i.i, %104 ], [ 0, %102 ]
@@ -1849,7 +1849,7 @@ getColumns.exit.i.i:                              ; preds = %129, %124, %122, %g
   %133 = getelementptr inbounds nuw i8, ptr %12, i64 80
   store i64 0, ptr %133, align 8, !tbaa !31
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  store i32 0, ptr %134, align 8, !tbaa !41
+  store i32 0, ptr %134, align 8, !tbaa !42
   %135 = load ptr, ptr %66, align 8, !tbaa !20
   store i8 0, ptr %135, align 1, !tbaa !21
   %136 = load i64, ptr %67, align 8, !tbaa !25
@@ -1865,7 +1865,7 @@ getColumns.exit.i.i:                              ; preds = %129, %124, %122, %g
 .preheader.i.i:                                   ; preds = %getColumns.exit.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #24
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #24
-  %143 = load i32, ptr %12, align 8, !tbaa !58
+  %143 = load i32, ptr %12, align 8, !tbaa !60
   %144 = call i64 @read(i32 noundef %143, ptr noundef nonnull %13, i64 noundef 1) #24
   %145 = trunc i64 %144 to i32
   %146 = icmp slt i32 %145, 1
@@ -1906,9 +1906,9 @@ getColumns.exit.i.i:                              ; preds = %129, %124, %122, %g
   br i1 %162, label %163, label %.preheader.i.i.i
 
 163:                                              ; preds = %159
-  %164 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %164 = load ptr, ptr @stderr, align 8, !tbaa !49
   %fputc.i.i.i.i = call i32 @fputc(i32 7, ptr %164)
-  %165 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %165 = load ptr, ptr @stderr, align 8, !tbaa !49
   %166 = call i32 @fflush(ptr noundef %165)
   br label %.critedge.i.i.i
 
@@ -1920,8 +1920,8 @@ getColumns.exit.i.i:                              ; preds = %129, %124, %122, %g
 
 169:                                              ; preds = %.preheader.i.i.i
   %.sroa.3.0.copyload.i.i.i = load ptr, ptr %66, align 8, !tbaa !15
-  %.sroa.41.0.copyload.i.i.i = load i64, ptr %71, align 8, !tbaa !60
-  %.sroa.52.0.copyload.i.i.i = load i64, ptr %72, align 8, !tbaa !60
+  %.sroa.41.0.copyload.i.i.i = load i64, ptr %71, align 8, !tbaa !62
+  %.sroa.52.0.copyload.i.i.i = load i64, ptr %72, align 8, !tbaa !62
   %170 = load ptr, ptr %147, align 8, !tbaa !10
   %171 = getelementptr inbounds nuw ptr, ptr %170, i64 %.03344.i.i.i
   %172 = load ptr, ptr %171, align 8, !tbaa !15
@@ -1940,7 +1940,7 @@ getColumns.exit.i.i:                              ; preds = %129, %124, %122, %g
   br label %175
 
 175:                                              ; preds = %174, %169
-  %176 = load i32, ptr %12, align 8, !tbaa !58
+  %176 = load i32, ptr %12, align 8, !tbaa !60
   %177 = call i64 @read(i32 noundef %176, ptr noundef nonnull %3, i64 noundef 1) #24
   %178 = trunc i64 %177 to i32
   %179 = icmp slt i32 %178, 1
@@ -1960,7 +1960,7 @@ getColumns.exit.i.i:                              ; preds = %129, %124, %122, %g
   %185 = add nuw i64 %.07.i.i.i.i, 1
   %186 = load i64, ptr %2, align 8, !tbaa !14
   %187 = icmp ult i64 %185, %186
-  br i1 %187, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !61
+  br i1 %187, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !63
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %180
   %188 = load ptr, ptr %147, align 8, !tbaa !10
@@ -1988,9 +1988,9 @@ completeLine.exit.thread.i.i:                     ; preds = %._crit_edge.i.i.i.i
   br i1 %196, label %197, label %.preheader.i.i.i.backedge
 
 197:                                              ; preds = %191
-  %198 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %198 = load ptr, ptr @stderr, align 8, !tbaa !49
   %fputc.i37.i.i.i = call i32 @fputc(i32 7, ptr %198)
-  %199 = load ptr, ptr @stderr, align 8, !tbaa !48
+  %199 = load ptr, ptr @stderr, align 8, !tbaa !49
   %200 = call i32 @fflush(ptr noundef %199)
   %.pre.pre.i.i = load i64, ptr %2, align 8, !tbaa !14
   br label %.preheader.i.i.i.backedge
@@ -1998,7 +1998,7 @@ completeLine.exit.thread.i.i:                     ; preds = %._crit_edge.i.i.i.i
 .preheader.i.i.i.backedge:                        ; preds = %197, %191
   %.be = phi i64 [ %.pre.pre.i.i, %197 ], [ %193, %191 ]
   %.03344.i.i.i.be = phi i64 [ %193, %197 ], [ %195, %191 ]
-  br label %.preheader.i.i.i, !llvm.loop !62
+  br label %.preheader.i.i.i, !llvm.loop !64
 
 201:                                              ; preds = %189
   %202 = load i64, ptr %2, align 8, !tbaa !14
@@ -2045,7 +2045,7 @@ completeLine.exit.thread.i.i:                     ; preds = %._crit_edge.i.i.i.i
   %222 = add nuw i64 %.07.i40.i.i.i, 1
   %223 = load i64, ptr %2, align 8, !tbaa !14
   %224 = icmp ult i64 %222, %223
-  br i1 %224, label %.lr.ph.i39.i.i.i, label %._crit_edge.i41.i.i.i, !llvm.loop !61
+  br i1 %224, label %.lr.ph.i39.i.i.i, label %._crit_edge.i41.i.i.i, !llvm.loop !63
 
 ._crit_edge.i41.i.i.i:                            ; preds = %.lr.ph.i39.i.i.i, %.critedge.i.i.i
   %225 = load ptr, ptr %147, align 8, !tbaa !10
@@ -2123,7 +2123,7 @@ thread-pre-split.i.i:                             ; preds = %230, %154
 
 disableReverseSearchMode.exit.i.i:                ; preds = %235, %234
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %238 = load ptr, ptr %150, align 8, !tbaa !63
+  %238 = load ptr, ptr %150, align 8, !tbaa !65
   store ptr %238, ptr %68, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
@@ -2134,7 +2134,7 @@ disableReverseSearchMode.exit.i.i:                ; preds = %235, %234
   %240 = load i32, ptr @history_len, align 4, !tbaa !4
   %241 = add nsw i32 %240, -1
   store i32 %241, ptr @history_len, align 4, !tbaa !4
-  %242 = load ptr, ptr @history, align 8, !tbaa !40
+  %242 = load ptr, ptr @history, align 8, !tbaa !41
   %243 = sext i32 %241 to i64
   %244 = getelementptr inbounds ptr, ptr %242, i64 %243
   %245 = load ptr, ptr %244, align 8, !tbaa !15
@@ -2185,7 +2185,7 @@ linenoiseEditMoveEnd.exit.i.i:                    ; preds = %250, %247, %239
 
 disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %258 = load ptr, ptr %150, align 8, !tbaa !63
+  %258 = load ptr, ptr %150, align 8, !tbaa !65
   store ptr %258, ptr %68, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
@@ -2206,7 +2206,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   store i64 0, ptr %72, align 8, !tbaa !17
   store i64 0, ptr %71, align 8, !tbaa !26
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %264 = load ptr, ptr %150, align 8, !tbaa !63
+  %264 = load ptr, ptr %150, align 8, !tbaa !65
   store ptr %264, ptr %68, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
@@ -2276,7 +2276,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   %298 = load i32, ptr @history_len, align 4, !tbaa !4
   %299 = add nsw i32 %298, -1
   store i32 %299, ptr @history_len, align 4, !tbaa !4
-  %300 = load ptr, ptr @history, align 8, !tbaa !40
+  %300 = load ptr, ptr @history, align 8, !tbaa !41
   %301 = sext i32 %299 to i64
   %302 = getelementptr inbounds ptr, ptr %300, i64 %301
   %303 = load ptr, ptr %302, align 8, !tbaa !15
@@ -2358,7 +2358,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   store i64 0, ptr %71, align 8, !tbaa !26
   store i1 true, ptr @reverse_search_mode_enabled, align 4
   %333 = load ptr, ptr %68, align 8, !tbaa !29
-  store ptr %333, ptr %150, align 8, !tbaa !63
+  store ptr %333, ptr %150, align 8, !tbaa !65
   %334 = select i1 %328, ptr @.str.28, ptr @.str.29
   store ptr %334, ptr %68, align 8, !tbaa !29
   call fastcc void @refreshLine(ptr noundef nonnull %12)
@@ -2373,7 +2373,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   store i64 0, ptr %72, align 8, !tbaa !17
   store i64 0, ptr %71, align 8, !tbaa !26
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %337 = load ptr, ptr %150, align 8, !tbaa !63
+  %337 = load ptr, ptr %150, align 8, !tbaa !65
   store ptr %337, ptr %68, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
@@ -2385,13 +2385,13 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   br label %linenoiseEditBackspace.exit.i.i
 
 339:                                              ; preds = %thread-pre-split.i.i
-  %340 = load i32, ptr %12, align 8, !tbaa !58
+  %340 = load i32, ptr %12, align 8, !tbaa !60
   %341 = call i64 @read(i32 noundef %340, ptr noundef nonnull %14, i64 noundef 1) #24
   %342 = icmp eq i64 %341, -1
   br i1 %342, label %linenoiseEditBackspace.exit.i.i, label %343
 
 343:                                              ; preds = %339
-  %344 = load i32, ptr %12, align 8, !tbaa !58
+  %344 = load i32, ptr %12, align 8, !tbaa !60
   %345 = call i64 @read(i32 noundef %344, ptr noundef nonnull %148, i64 noundef 1) #24
   %346 = icmp eq i64 %345, -1
   br i1 %346, label %linenoiseEditBackspace.exit.i.i, label %347
@@ -2405,7 +2405,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   store i64 0, ptr %72, align 8, !tbaa !17
   store i64 0, ptr %71, align 8, !tbaa !26
   store i1 false, ptr @reverse_search_mode_enabled, align 4
-  %349 = load ptr, ptr %150, align 8, !tbaa !63
+  %349 = load ptr, ptr %150, align 8, !tbaa !65
   store ptr %349, ptr %68, align 8, !tbaa !29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result, i8 0, i64 4096, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @search_result_friendly, i8 0, i64 4096, i1 false)
@@ -2426,7 +2426,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   br i1 %or.cond7.i.i, label %355, label %363
 
 355:                                              ; preds = %352
-  %356 = load i32, ptr %12, align 8, !tbaa !58
+  %356 = load i32, ptr %12, align 8, !tbaa !60
   %357 = call i64 @read(i32 noundef %356, ptr noundef nonnull %149, i64 noundef 1) #24
   %358 = icmp ne i64 %357, -1
   %359 = load i8, ptr %149, align 1
@@ -2598,7 +2598,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   %413 = add i64 %409, -1
   store i64 %413, ptr %71, align 8, !tbaa !26
   %.not.i90.i.i = icmp eq i64 %413, 0
-  br i1 %.not.i90.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %408, !llvm.loop !42
+  br i1 %.not.i90.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %408, !llvm.loop !43
 
 .lr.ph28.i.i.i:                                   ; preds = %408, %416
   %414 = phi i64 [ %417, %416 ], [ %409, %408 ]
@@ -2611,7 +2611,7 @@ disableReverseSearchMode.exit69.i.i:              ; preds = %255, %254
   %417 = add i64 %414, -1
   store i64 %417, ptr %71, align 8, !tbaa !26
   %.not22.i89.i.i = icmp eq i64 %417, 0
-  br i1 %.not22.i89.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph28.i.i.i, !llvm.loop !43
+  br i1 %.not22.i89.i.i, label %linenoiseEditDeletePrevWord.exit.i.i, label %.lr.ph28.i.i.i, !llvm.loop !44
 
 linenoiseEditDeletePrevWord.exit.i.i:             ; preds = %412, %416, %.lr.ph28.i.i.i, %406
   %.lcssa.i.i.i = phi i64 [ 0, %406 ], [ 0, %416 ], [ %414, %.lr.ph28.i.i.i ], [ 0, %412 ]
@@ -2640,7 +2640,7 @@ linenoiseEditBackspace.exit.i.i:                  ; preds = %linenoiseEditDelete
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #24
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #24
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %14) #24
-  %425 = load i32, ptr %12, align 8, !tbaa !58
+  %425 = load i32, ptr %12, align 8, !tbaa !60
   %426 = call i64 @read(i32 noundef %425, ptr noundef nonnull %13, i64 noundef 1) #24
   %427 = trunc i64 %426 to i32
   %428 = icmp slt i32 %427, 1
@@ -2693,7 +2693,7 @@ define dso_local void @linenoiseFree(ptr noundef captures(none) %0) local_unname
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr @history_max_len, align 4, !tbaa !4
-  %4 = load ptr, ptr @history, align 8, !tbaa !40
+  %4 = load ptr, ptr @history, align 8, !tbaa !41
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %16
 
@@ -2701,20 +2701,20 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr noundef readonly c
   %7 = zext nneg i32 %3 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #26
-  store ptr %9, ptr @history, align 8, !tbaa !40
+  store ptr %9, ptr @history, align 8, !tbaa !41
   %10 = icmp eq ptr %9, null
   br i1 %10, label %43, label %11
 
 11:                                               ; preds = %6
   %12 = shl nuw nsw i64 %7, 2
   %calloc = tail call ptr @calloc(i64 1, i64 %12)
-  store ptr %calloc, ptr @history_sensitive, align 8, !tbaa !64
+  store ptr %calloc, ptr @history_sensitive, align 8, !tbaa !66
   %13 = icmp eq ptr %calloc, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %11
   tail call void @free(ptr noundef nonnull %9) #24
-  store ptr null, ptr @history, align 8, !tbaa !40
+  store ptr null, ptr @history, align 8, !tbaa !41
   br label %43
 
 15:                                               ; preds = %11
@@ -2743,7 +2743,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistoryAdd(ptr noundef readonly c
 
 27:                                               ; preds = %25
   %28 = icmp eq i32 %18, %3
-  %.pre = load ptr, ptr @history_sensitive, align 8, !tbaa !64
+  %.pre = load ptr, ptr @history_sensitive, align 8, !tbaa !66
   br i1 %28, label %29, label %37
 
 29:                                               ; preds = %27
@@ -2784,7 +2784,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   br i1 %2, label %.critedge, label %3
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr @history, align 8, !tbaa !40
+  %4 = load ptr, ptr @history, align 8, !tbaa !41
   %.not = icmp eq ptr %4, null
   %.pre = load i32, ptr @history_len, align 4, !tbaa !4
   br i1 %.not, label %28, label %5
@@ -2826,7 +2826,7 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   tail call void @free(ptr noundef %20) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %.preheader
   %.pre-phi = phi i32 [ %17, %.preheader ], [ 0, %15 ], [ %17, %.lr.ph ]
@@ -2838,14 +2838,14 @@ define dso_local range(i32 0, 2) i32 @linenoiseHistorySetMaxLen(i32 noundef %0) 
   %23 = sext i32 %.028 to i64
   %24 = shl nsw i64 %23, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %8, ptr nonnull align 8 %22, i64 %24, i1 false)
-  %25 = load ptr, ptr @history_sensitive, align 8, !tbaa !64
+  %25 = load ptr, ptr @history_sensitive, align 8, !tbaa !66
   %26 = getelementptr inbounds nuw i32, ptr %25, i64 %21
   %27 = shl nsw i64 %23, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %12, ptr align 4 %26, i64 %27, i1 false)
   tail call void @free(ptr noundef nonnull %4) #24
   tail call void @free(ptr noundef %25) #24
-  store ptr %8, ptr @history, align 8, !tbaa !40
-  store ptr %12, ptr @history_sensitive, align 8, !tbaa !64
+  store ptr %8, ptr @history, align 8, !tbaa !41
+  store ptr %12, ptr @history_sensitive, align 8, !tbaa !66
   br label %28
 
 28:                                               ; preds = %.loopexit, %3
@@ -2878,7 +2878,7 @@ define dso_local range(i32 -1, 1) i32 @linenoiseHistorySave(ptr noundef readonly
   br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %6
-  %.pre14 = load ptr, ptr @history_sensitive, align 8, !tbaa !64
+  %.pre14 = load ptr, ptr @history_sensitive, align 8, !tbaa !66
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
@@ -2891,11 +2891,11 @@ define dso_local range(i32 -1, 1) i32 @linenoiseHistorySave(ptr noundef readonly
   br i1 %.not, label %15, label %20
 
 15:                                               ; preds = %.lr.ph
-  %16 = load ptr, ptr @history, align 8, !tbaa !40
+  %16 = load ptr, ptr @history, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.10, ptr noundef %18) #24
-  %.pre = load ptr, ptr @history_sensitive, align 8, !tbaa !64
+  %.pre = load ptr, ptr @history_sensitive, align 8, !tbaa !66
   %.pre15 = load i32, ptr @history_len, align 4, !tbaa !4
   br label %20
 
@@ -2905,7 +2905,7 @@ define dso_local range(i32 -1, 1) i32 @linenoiseHistorySave(ptr noundef readonly
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = sext i32 %21 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !67
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %20, %6
   %25 = tail call i32 @fclose(ptr noundef nonnull %3)
@@ -2966,7 +2966,7 @@ define dso_local range(i32 -1, 1) i32 @linenoiseHistoryLoad(ptr noundef readonly
   %10 = call i32 @linenoiseHistoryAdd(ptr noundef nonnull %2, i32 noundef 0)
   %11 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 4096, ptr noundef nonnull %3)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %9, %.preheader
   %12 = call i32 @fclose(ptr noundef nonnull %3)
@@ -3001,7 +3001,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 .split.us:                                        ; preds = %5
   %6 = load i32, ptr @search_result_history_index, align 4, !tbaa !4
   %.pre = load i32, ptr @reverse_search_direction, align 4
-  %7 = load ptr, ptr @history, align 8, !tbaa !40
+  %7 = load ptr, ptr @history, align 8, !tbaa !41
   %8 = icmp eq i32 %.pre, 1
   %9 = sext i32 %6 to i64
   %10 = getelementptr inbounds ptr, ptr %7, i64 %9
@@ -3039,13 +3039,13 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %30 = icmp eq i32 %29, 0
   %31 = icmp eq ptr %28, null
   %or.cond.us = select i1 %31, i1 true, i1 %30
-  br i1 %or.cond.us, label %.lr.ph42, label %.split30.us, !llvm.loop !69
+  br i1 %or.cond.us, label %.lr.ph42, label %.split30.us, !llvm.loop !71
 
 .split:                                           ; preds = %5
   %32 = load i32, ptr @reverse_search_direction, align 4, !tbaa !4
   %33 = icmp eq i32 %32, -1
   %34 = select i1 %33, i32 %.pre62, i32 0
-  %35 = load ptr, ptr @history, align 8, !tbaa !40
+  %35 = load ptr, ptr @history, align 8, !tbaa !41
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds ptr, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !15
@@ -3072,7 +3072,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %45 = load ptr, ptr %44, align 8, !tbaa !15
   %46 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %1) #25
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %.lr.ph.split.us, label %.split30.us.loopexit47, !llvm.loop !71
+  br i1 %47, label %.lr.ph.split.us, label %.split30.us.loopexit47, !llvm.loop !73
 
 .split30.us.loopexit47:                           ; preds = %43
   %48 = trunc nsw i64 %indvars.iv.next60 to i32
@@ -3091,16 +3091,16 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %52 = sub i64 %50, %51
   %53 = trunc i64 %52 to i32
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.us-phi31, ptr %54, align 8, !tbaa !35
+  store ptr %.us-phi31, ptr %54, align 8, !tbaa !36
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.us-phi31) #25
   %56 = trunc i64 %55 to i32
-  store i32 %56, ptr %0, align 8, !tbaa !72
+  store i32 %56, ptr %0, align 8, !tbaa !74
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %53, ptr %57, align 8, !tbaa !37
+  store i32 %53, ptr %57, align 8, !tbaa !38
   %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #25
   %59 = trunc i64 %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %59, ptr %60, align 4, !tbaa !38
+  store i32 %59, ptr %60, align 4, !tbaa !39
   store i32 %.us-phi, ptr @search_result_history_index, align 4, !tbaa !4
   br label %.loopexit
 
@@ -3115,7 +3115,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   %65 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(1) %1) #25
   %66 = icmp eq ptr %65, null
-  br i1 %66, label %.lr.ph.split, label %.split30.us.loopexit49
+  br i1 %66, label %.lr.ph.split, label %.split30.us.loopexit49, !llvm.loop !75
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %21, %19, %.split30.us, %2, %4
   ret void
@@ -3148,7 +3148,7 @@ define internal void @linenoiseAtExit() #10 {
   br label %disableRawMode.exit
 
 disableRawMode.exit:                              ; preds = %0, %1, %3
-  %4 = load ptr, ptr @history, align 8, !tbaa !40
+  %4 = load ptr, ptr @history, align 8, !tbaa !41
   %.not.i1 = icmp eq ptr %4, null
   br i1 %.not.i1, label %freeHistory.exit, label %.preheader.i
 
@@ -3168,11 +3168,11 @@ disableRawMode.exit:                              ; preds = %0, %1, %3
   tail call void @free(ptr noundef %8) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !73
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !76
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   tail call void @free(ptr noundef nonnull %4) #24
-  %9 = load ptr, ptr @history_sensitive, align 8, !tbaa !64
+  %9 = load ptr, ptr @history_sensitive, align 8, !tbaa !66
   tail call void @free(ptr noundef %9) #24
   br label %freeHistory.exit
 
@@ -3281,45 +3281,48 @@ attributes #29 = { nounwind willreturn memory(none) }
 !29 = !{!18, !16, i64 32}
 !30 = !{!18, !12, i64 56}
 !31 = !{!18, !12, i64 80}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = !{!36, !16, i64 8}
-!36 = !{!"", !5, i64 0, !16, i64 8, !5, i64 16, !5, i64 20}
-!37 = !{!36, !5, i64 16}
-!38 = !{!36, !5, i64 20}
-!39 = distinct !{!39, !33}
-!40 = !{!13, !13, i64 0}
-!41 = !{!18, !5, i64 88}
-!42 = distinct !{!42, !33}
-!43 = distinct !{!43, !33}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 short", !9, i64 0}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"short", !6, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!50 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 1, !21, i64 17, i64 32, !21, i64 52, i64 4, !4, i64 56, i64 4, !4}
-!51 = !{!52, !5, i64 0}
-!52 = !{!"termios", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 17, !5, i64 52, !5, i64 56}
-!53 = !{!52, !5, i64 4}
-!54 = !{!52, !5, i64 8}
-!55 = !{!52, !5, i64 12}
-!56 = distinct !{!56, !33}
-!57 = distinct !{!57, !33}
-!58 = !{!18, !5, i64 0}
-!59 = distinct !{!59, !33}
-!60 = !{!12, !12, i64 0}
-!61 = distinct !{!61, !33}
-!62 = distinct !{!62, !33}
-!63 = !{!18, !16, i64 24}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 int", !9, i64 0}
-!66 = distinct !{!66, !33}
-!67 = distinct !{!67, !33}
-!68 = distinct !{!68, !33}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!71 = distinct !{!71, !70}
-!72 = !{!36, !5, i64 0}
-!73 = distinct !{!73, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = !{!37, !16, i64 8}
+!37 = !{!"", !5, i64 0, !16, i64 8, !5, i64 16, !5, i64 20}
+!38 = !{!37, !5, i64 16}
+!39 = !{!37, !5, i64 20}
+!40 = distinct !{!40, !33, !34}
+!41 = !{!13, !13, i64 0}
+!42 = !{!18, !5, i64 88}
+!43 = distinct !{!43, !33, !34}
+!44 = distinct !{!44, !33, !34}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 short", !9, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"short", !6, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!51 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 1, !21, i64 17, i64 32, !21, i64 52, i64 4, !4, i64 56, i64 4, !4}
+!52 = !{!53, !5, i64 0}
+!53 = !{!"termios", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 17, !5, i64 52, !5, i64 56}
+!54 = !{!53, !5, i64 4}
+!55 = !{!53, !5, i64 8}
+!56 = !{!53, !5, i64 12}
+!57 = distinct !{!57, !34}
+!58 = distinct !{!58, !33, !34}
+!59 = distinct !{!59, !33, !34}
+!60 = !{!18, !5, i64 0}
+!61 = distinct !{!61, !33, !34}
+!62 = !{!12, !12, i64 0}
+!63 = distinct !{!63, !33, !34}
+!64 = distinct !{!64, !33, !34}
+!65 = !{!18, !16, i64 24}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"p1 int", !9, i64 0}
+!68 = distinct !{!68, !33, !34}
+!69 = distinct !{!69, !33, !34}
+!70 = distinct !{!70, !33, !34}
+!71 = distinct !{!71, !34, !72}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !34, !72}
+!74 = !{!37, !5, i64 0}
+!75 = distinct !{!75, !34}
+!76 = distinct !{!76, !33, !34}

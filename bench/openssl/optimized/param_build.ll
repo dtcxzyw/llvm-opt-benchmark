@@ -78,7 +78,7 @@ free_all_params.exit:                             ; preds = %.lr.ph.i, %3
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  store i32 %2, ptr %4, align 4, !tbaa !12
+  store i32 %2, ptr %4, align 4, !tbaa !13
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 4, i32 noundef 1)
   ret i32 %5
 }
@@ -90,19 +90,19 @@ define internal fastcc range(i32 0, 2) i32 @param_push_num(ptr noundef captures(
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %5
-  store ptr %1, ptr %6, align 8, !tbaa !14
+  store ptr %1, ptr %6, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %4, ptr %9, align 8, !tbaa !18
+  store i32 %4, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %3, ptr %10, align 8, !tbaa !19
+  store i64 %3, ptr %10, align 8, !tbaa !20
   %11 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %3) #7
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %11, ptr %12, align 8, !tbaa !20
+  store i64 %11, ptr %12, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %13, align 4, !tbaa !21
-  %14 = load i64, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %13, align 4, !tbaa !22
+  %14 = load i64, ptr %0, align 8, !tbaa !23
   %15 = add i64 %14, %11
-  store i64 %15, ptr %0, align 8, !tbaa !22
+  store i64 %15, ptr %0, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = tail call i32 @OPENSSL_sk_push(ptr noundef %17, ptr noundef nonnull %6) #7
@@ -132,7 +132,7 @@ param_push.exit:                                  ; preds = %8
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  store i32 %2, ptr %4, align 4, !tbaa !12
+  store i32 %2, ptr %4, align 4, !tbaa !13
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 4, i32 noundef 2)
   ret i32 %5
 }
@@ -140,7 +140,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint(ptr noundef captures(none) 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_long(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  store i64 %2, ptr %4, align 8, !tbaa !23
+  store i64 %2, ptr %4, align 8, !tbaa !24
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 8, i32 noundef 1)
   ret i32 %5
 }
@@ -148,7 +148,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_long(ptr noundef captures(none) 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_ulong(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  store i64 %2, ptr %4, align 8, !tbaa !23
+  store i64 %2, ptr %4, align 8, !tbaa !24
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 8, i32 noundef 2)
   ret i32 %5
 }
@@ -156,7 +156,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_ulong(ptr noundef captures(none)
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int32(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  store i32 %2, ptr %4, align 4, !tbaa !12
+  store i32 %2, ptr %4, align 4, !tbaa !13
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 4, i32 noundef 1)
   ret i32 %5
 }
@@ -164,7 +164,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int32(ptr noundef captures(none)
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint32(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  store i32 %2, ptr %4, align 4, !tbaa !12
+  store i32 %2, ptr %4, align 4, !tbaa !13
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 4, i32 noundef 2)
   ret i32 %5
 }
@@ -172,7 +172,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint32(ptr noundef captures(none
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  store i64 %2, ptr %4, align 8, !tbaa !23
+  store i64 %2, ptr %4, align 8, !tbaa !24
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 8, i32 noundef 1)
   ret i32 %5
 }
@@ -180,7 +180,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_int64(ptr noundef captures(none)
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  store i64 %2, ptr %4, align 8, !tbaa !23
+  store i64 %2, ptr %4, align 8, !tbaa !24
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 8, i32 noundef 2)
   ret i32 %5
 }
@@ -188,7 +188,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_uint64(ptr noundef captures(none
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_size_t(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  store i64 %2, ptr %4, align 8, !tbaa !23
+  store i64 %2, ptr %4, align 8, !tbaa !24
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 8, i32 noundef 2)
   ret i32 %5
 }
@@ -196,7 +196,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_size_t(ptr noundef captures(none
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_time_t(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  store i64 %2, ptr %4, align 8, !tbaa !23
+  store i64 %2, ptr %4, align 8, !tbaa !24
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 8, i32 noundef 1)
   ret i32 %5
 }
@@ -204,7 +204,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_time_t(ptr noundef captures(none
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_double(ptr noundef captures(none) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
-  store double %2, ptr %4, align 8, !tbaa !24
+  store double %2, ptr %4, align 8, !tbaa !25
   %5 = call fastcc i32 @param_push_num(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef 8, i32 noundef 3)
   ret i32 %5
 }
@@ -234,19 +234,19 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_BN(ptr noundef captures(none) %0
   br i1 %14, label %push_BN.exit, label %15
 
 15:                                               ; preds = %.split11
-  store ptr %1, ptr %13, align 8, !tbaa !14
+  store ptr %1, ptr %13, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 2, ptr %16, align 8, !tbaa !18
+  store i32 2, ptr %16, align 8, !tbaa !19
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i64 0, ptr %17, align 8, !tbaa !19
+  store i64 0, ptr %17, align 8, !tbaa !20
   %18 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef 0) #7
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 %18, ptr %19, align 8, !tbaa !20
+  store i64 %18, ptr %19, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 0, ptr %20, align 4, !tbaa !21
-  %21 = load i64, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %20, align 4, !tbaa !22
+  %21 = load i64, ptr %0, align 8, !tbaa !23
   %22 = add i64 %21, %18
-  store i64 %22, ptr %0, align 8, !tbaa !22
+  store i64 %22, ptr %0, align 8, !tbaa !23
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = tail call i32 @OPENSSL_sk_push(ptr noundef %24, ptr noundef nonnull %13) #7
@@ -259,7 +259,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_BN(ptr noundef captures(none) %0
 
 param_push.exit.i:                                ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %28, align 8, !tbaa !26
+  store ptr null, ptr %28, align 8, !tbaa !27
   br label %push_BN.exit
 
 .split:                                           ; preds = %4
@@ -333,30 +333,30 @@ define internal fastcc range(i32 0, 2) i32 @push_BN(ptr noundef captures(none) %
   br i1 %26, label %param_push.exit.thread, label %27
 
 27:                                               ; preds = %24
-  store ptr %1, ptr %25, align 8, !tbaa !14
+  store ptr %1, ptr %25, align 8, !tbaa !15
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 %4, ptr %28, align 8, !tbaa !18
+  store i32 %4, ptr %28, align 8, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i64 %.022, ptr %29, align 8, !tbaa !19
+  store i64 %.022, ptr %29, align 8, !tbaa !20
   %30 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %.022) #7
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store i64 %30, ptr %31, align 8, !tbaa !20
+  store i64 %30, ptr %31, align 8, !tbaa !21
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  store i32 %.021, ptr %32, align 4, !tbaa !21
+  store i32 %.021, ptr %32, align 4, !tbaa !22
   %.not.i = icmp eq i32 %.021, 0
   br i1 %.not.i, label %37, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !27
+  %35 = load i64, ptr %34, align 8, !tbaa !28
   %36 = add i64 %35, %30
-  store i64 %36, ptr %34, align 8, !tbaa !27
+  store i64 %36, ptr %34, align 8, !tbaa !28
   br label %40
 
 37:                                               ; preds = %27
-  %38 = load i64, ptr %0, align 8, !tbaa !22
+  %38 = load i64, ptr %0, align 8, !tbaa !23
   %39 = add i64 %38, %30
-  store i64 %39, ptr %0, align 8, !tbaa !22
+  store i64 %39, ptr %0, align 8, !tbaa !23
   br label %40
 
 40:                                               ; preds = %37, %33
@@ -372,7 +372,7 @@ define internal fastcc range(i32 0, 2) i32 @push_BN(ptr noundef captures(none) %
 
 param_push.exit:                                  ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %2, ptr %46, align 8, !tbaa !26
+  store ptr %2, ptr %46, align 8, !tbaa !27
   br label %param_push.exit.thread
 
 param_push.exit.thread:                           ; preds = %45, %24, %param_push.exit, %20, %14, %10
@@ -393,19 +393,19 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_BN_pad(ptr noundef captures(none
   br i1 %6, label %push_BN.exit, label %7
 
 7:                                                ; preds = %.split
-  store ptr %1, ptr %5, align 8, !tbaa !14
+  store ptr %1, ptr %5, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 2, ptr %8, align 8, !tbaa !18
+  store i32 2, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %3, ptr %9, align 8, !tbaa !19
+  store i64 %3, ptr %9, align 8, !tbaa !20
   %10 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %3) #7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %10, ptr %11, align 8, !tbaa !20
+  store i64 %10, ptr %11, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %12, align 4, !tbaa !21
-  %13 = load i64, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %12, align 4, !tbaa !22
+  %13 = load i64, ptr %0, align 8, !tbaa !23
   %14 = add i64 %13, %10
-  store i64 %14, ptr %0, align 8, !tbaa !22
+  store i64 %14, ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = tail call i32 @OPENSSL_sk_push(ptr noundef %16, ptr noundef nonnull %5) #7
@@ -418,7 +418,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_BN_pad(ptr noundef captures(none
 
 param_push.exit.i:                                ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr null, ptr %20, align 8, !tbaa !26
+  store ptr null, ptr %20, align 8, !tbaa !27
   br label %push_BN.exit
 
 21:                                               ; preds = %4
@@ -461,30 +461,30 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef captures
 
 12:                                               ; preds = %8
   %13 = add i64 %.011, 1
-  store ptr %1, ptr %10, align 8, !tbaa !14
+  store ptr %1, ptr %10, align 8, !tbaa !15
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 4, ptr %14, align 8, !tbaa !18
+  store i32 4, ptr %14, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 %.011, ptr %15, align 8, !tbaa !19
+  store i64 %.011, ptr %15, align 8, !tbaa !20
   %16 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %13) #7
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 %16, ptr %17, align 8, !tbaa !20
+  store i64 %16, ptr %17, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 %9, ptr %18, align 4, !tbaa !21
+  store i32 %9, ptr %18, align 4, !tbaa !22
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %23, label %19
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !27
+  %21 = load i64, ptr %20, align 8, !tbaa !28
   %22 = add i64 %21, %16
-  store i64 %22, ptr %20, align 8, !tbaa !27
+  store i64 %22, ptr %20, align 8, !tbaa !28
   br label %26
 
 23:                                               ; preds = %12
-  %24 = load i64, ptr %0, align 8, !tbaa !22
+  %24 = load i64, ptr %0, align 8, !tbaa !23
   %25 = add i64 %24, %16
-  store i64 %25, ptr %0, align 8, !tbaa !22
+  store i64 %25, ptr %0, align 8, !tbaa !23
   br label %26
 
 26:                                               ; preds = %23, %19
@@ -500,7 +500,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_utf8_string(ptr noundef captures
 
 param_push.exit:                                  ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr %2, ptr %32, align 8, !tbaa !28
+  store ptr %2, ptr %32, align 8, !tbaa !29
   br label %param_push.exit.thread
 
 param_push.exit.thread:                           ; preds = %31, %8, %param_push.exit
@@ -529,19 +529,19 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_utf8_ptr(ptr noundef captures(no
   br i1 %10, label %param_push.exit.thread, label %11
 
 11:                                               ; preds = %8
-  store ptr %1, ptr %9, align 8, !tbaa !14
+  store ptr %1, ptr %9, align 8, !tbaa !15
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 6, ptr %12, align 8, !tbaa !18
+  store i32 6, ptr %12, align 8, !tbaa !19
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %.08, ptr %13, align 8, !tbaa !19
+  store i64 %.08, ptr %13, align 8, !tbaa !20
   %14 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef 8) #7
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 %14, ptr %15, align 8, !tbaa !20
+  store i64 %14, ptr %15, align 8, !tbaa !21
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 0, ptr %16, align 4, !tbaa !21
-  %17 = load i64, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %16, align 4, !tbaa !22
+  %17 = load i64, ptr %0, align 8, !tbaa !23
   %18 = add i64 %17, %14
-  store i64 %18, ptr %0, align 8, !tbaa !22
+  store i64 %18, ptr %0, align 8, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %21 = tail call i32 @OPENSSL_sk_push(ptr noundef %20, ptr noundef nonnull %9) #7
@@ -554,7 +554,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_utf8_ptr(ptr noundef captures(no
 
 param_push.exit:                                  ; preds = %11
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr %2, ptr %24, align 8, !tbaa !28
+  store ptr %2, ptr %24, align 8, !tbaa !29
   br label %param_push.exit.thread
 
 param_push.exit.thread:                           ; preds = %23, %8, %param_push.exit
@@ -570,30 +570,30 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef capture
   br i1 %7, label %param_push.exit.thread, label %8
 
 8:                                                ; preds = %4
-  store ptr %1, ptr %6, align 8, !tbaa !14
+  store ptr %1, ptr %6, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 5, ptr %9, align 8, !tbaa !18
+  store i32 5, ptr %9, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %3, ptr %10, align 8, !tbaa !19
+  store i64 %3, ptr %10, align 8, !tbaa !20
   %11 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %3) #7
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %11, ptr %12, align 8, !tbaa !20
+  store i64 %11, ptr %12, align 8, !tbaa !21
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %5, ptr %13, align 4, !tbaa !21
+  store i32 %5, ptr %13, align 4, !tbaa !22
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %18, label %14
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !27
+  %16 = load i64, ptr %15, align 8, !tbaa !28
   %17 = add i64 %16, %11
-  store i64 %17, ptr %15, align 8, !tbaa !27
+  store i64 %17, ptr %15, align 8, !tbaa !28
   br label %21
 
 18:                                               ; preds = %8
-  %19 = load i64, ptr %0, align 8, !tbaa !22
+  %19 = load i64, ptr %0, align 8, !tbaa !23
   %20 = add i64 %19, %11
-  store i64 %20, ptr %0, align 8, !tbaa !22
+  store i64 %20, ptr %0, align 8, !tbaa !23
   br label %21
 
 21:                                               ; preds = %18, %14
@@ -609,7 +609,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef capture
 
 param_push.exit:                                  ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr %2, ptr %27, align 8, !tbaa !28
+  store ptr %2, ptr %27, align 8, !tbaa !29
   br label %param_push.exit.thread
 
 param_push.exit.thread:                           ; preds = %26, %4, %param_push.exit
@@ -624,19 +624,19 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_octet_ptr(ptr noundef captures(n
   br i1 %6, label %param_push.exit.thread, label %7
 
 7:                                                ; preds = %4
-  store ptr %1, ptr %5, align 8, !tbaa !14
+  store ptr %1, ptr %5, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 7, ptr %8, align 8, !tbaa !18
+  store i32 7, ptr %8, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %3, ptr %9, align 8, !tbaa !19
+  store i64 %3, ptr %9, align 8, !tbaa !20
   %10 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef 8) #7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %10, ptr %11, align 8, !tbaa !20
+  store i64 %10, ptr %11, align 8, !tbaa !21
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 0, ptr %12, align 4, !tbaa !21
-  %13 = load i64, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %12, align 4, !tbaa !22
+  %13 = load i64, ptr %0, align 8, !tbaa !23
   %14 = add i64 %13, %10
-  store i64 %14, ptr %0, align 8, !tbaa !22
+  store i64 %14, ptr %0, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !3
   %17 = tail call i32 @OPENSSL_sk_push(ptr noundef %16, ptr noundef nonnull %5) #7
@@ -649,7 +649,7 @@ define range(i32 0, 2) i32 @OSSL_PARAM_BLD_push_octet_ptr(ptr noundef captures(n
 
 param_push.exit:                                  ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %2, ptr %20, align 8, !tbaa !28
+  store ptr %2, ptr %20, align 8, !tbaa !29
   br label %param_push.exit.thread
 
 param_push.exit.thread:                           ; preds = %19, %4, %param_push.exit
@@ -667,11 +667,11 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
   %7 = sext i32 %6 to i64
   %8 = mul nsw i64 %7, 40
   %9 = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %8) #7
-  %10 = load i64, ptr %0, align 8, !tbaa !22
+  %10 = load i64, ptr %0, align 8, !tbaa !23
   %11 = add i64 %10, %9
   %12 = shl i64 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !tbaa !27
+  %14 = load i64, ptr %13, align 8, !tbaa !28
   %15 = shl i64 %14, 3
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %20, label %16
@@ -715,33 +715,33 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
   %29 = load ptr, ptr %3, align 8, !tbaa !3
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   %31 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %30) #7
-  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  %32 = load ptr, ptr %31, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %indvars.iv.i
-  store ptr %32, ptr %33, align 8, !tbaa !29
+  store ptr %32, ptr %33, align 8, !tbaa !30
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %35 = load i32, ptr %34, align 8, !tbaa !18
+  %35 = load i32, ptr %34, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 %35, ptr %36, align 8, !tbaa !31
+  store i32 %35, ptr %36, align 8, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %38 = load i64, ptr %37, align 8, !tbaa !19
+  %38 = load i64, ptr %37, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  store i64 %38, ptr %39, align 8, !tbaa !32
+  store i64 %38, ptr %39, align 8, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store i64 -1, ptr %40, align 8, !tbaa !33
+  store i64 -1, ptr %40, align 8, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !21
+  %42 = load i32, ptr %41, align 4, !tbaa !22
   %.not.i = icmp eq i32 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %44 = load i64, ptr %43, align 8, !tbaa !20
+  %44 = load i64, ptr %43, align 8, !tbaa !21
   %.162.idx.i = select i1 %.not.i, i64 0, i64 %44
   %.162.i = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %.06173.i, i64 %.162.idx.i
   %.1.idx.i = select i1 %.not.i, i64 %44, i64 0
   %.1.i = getelementptr inbounds nuw %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %.06074.i, i64 %.1.idx.i
   %.0.i = select i1 %.not.i, ptr %.06074.i, ptr %.06173.i
   %45 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %.0.i, ptr %45, align 8, !tbaa !34
+  store ptr %.0.i, ptr %45, align 8, !tbaa !35
   %46 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !26
+  %47 = load ptr, ptr %46, align 8, !tbaa !27
   %.not69.i = icmp eq ptr %47, null
   br i1 %.not69.i, label %55, label %48
 
@@ -768,13 +768,13 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
 
 56:                                               ; preds = %55, %55
   %57 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %58 = load ptr, ptr %57, align 8, !tbaa !28
-  store ptr %58, ptr %.0.i, align 8, !tbaa !35
+  %58 = load ptr, ptr %57, align 8, !tbaa !29
+  store ptr %58, ptr %.0.i, align 8, !tbaa !36
   br label %76
 
 59:                                               ; preds = %55, %55
   %60 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %61 = load ptr, ptr %60, align 8, !tbaa !28
+  %61 = load ptr, ptr %60, align 8, !tbaa !29
   %.not71.i = icmp eq ptr %61, null
   br i1 %.not71.i, label %63, label %62
 
@@ -787,14 +787,14 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
   br label %64
 
 64:                                               ; preds = %63, %62
-  %65 = load i32, ptr %34, align 8, !tbaa !18
+  %65 = load i32, ptr %34, align 8, !tbaa !19
   %66 = icmp eq i32 %65, 4
   br i1 %66, label %67, label %76
 
 67:                                               ; preds = %64
-  %68 = load i64, ptr %37, align 8, !tbaa !19
+  %68 = load i64, ptr %37, align 8, !tbaa !20
   %69 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %68
-  store i8 0, ptr %69, align 1, !tbaa !36
+  store i8 0, ptr %69, align 1, !tbaa !37
   br label %76
 
 70:                                               ; preds = %55
@@ -817,14 +817,14 @@ define ptr @OSSL_PARAM_BLD_to_param(ptr noundef captures(none) %0) local_unnamed
 76:                                               ; preds = %74, %73, %72, %67, %64, %56, %53, %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %param_bld_convert.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %param_bld_convert.exit, label %.lr.ph.i, !llvm.loop !38
 
 param_bld_convert.exit:                           ; preds = %76, %24
   %.063.lcssa.i = phi i64 [ 0, %24 ], [ %wide.trip.count.i, %76 ]
   %77 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %.063.lcssa.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #7
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !38
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !39
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #7
   call void @ossl_param_set_secure_block(ptr noundef nonnull %77, ptr noundef %.024, i64 noundef %15) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -914,33 +914,34 @@ attributes #8 = { nounwind willreturn memory(read) }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"p1 _ZTS27stack_st_OSSL_PARAM_BLD_DEF", !9, i64 0}
 !9 = !{!"any pointer", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"int", !6, i64 0}
-!14 = !{!15, !16, i64 0}
-!15 = !{!"", !16, i64 0, !13, i64 8, !13, i64 12, !5, i64 16, !5, i64 24, !17, i64 32, !9, i64 40, !6, i64 48}
-!16 = !{!"p1 omnipotent char", !9, i64 0}
-!17 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
-!18 = !{!15, !13, i64 8}
-!19 = !{!15, !5, i64 16}
-!20 = !{!15, !5, i64 24}
-!21 = !{!15, !13, i64 12}
-!22 = !{!4, !5, i64 0}
-!23 = !{!5, !5, i64 0}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"double", !6, i64 0}
-!26 = !{!15, !17, i64 32}
-!27 = !{!4, !5, i64 8}
-!28 = !{!15, !9, i64 40}
-!29 = !{!30, !16, i64 0}
-!30 = !{!"ossl_param_st", !16, i64 0, !13, i64 8, !9, i64 16, !5, i64 24, !5, i64 32}
-!31 = !{!30, !13, i64 8}
-!32 = !{!30, !5, i64 24}
-!33 = !{!30, !5, i64 32}
-!34 = !{!30, !9, i64 16}
-!35 = !{!9, !9, i64 0}
-!36 = !{!6, !6, i64 0}
-!37 = distinct !{!37, !11}
-!38 = !{i64 0, i64 8, !39, i64 8, i64 4, !12, i64 16, i64 8, !35, i64 24, i64 8, !23, i64 32, i64 8, !23}
-!39 = !{!16, !16, i64 0}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"", !17, i64 0, !14, i64 8, !14, i64 12, !5, i64 16, !5, i64 24, !18, i64 32, !9, i64 40, !6, i64 48}
+!17 = !{!"p1 omnipotent char", !9, i64 0}
+!18 = !{!"p1 _ZTS9bignum_st", !9, i64 0}
+!19 = !{!16, !14, i64 8}
+!20 = !{!16, !5, i64 16}
+!21 = !{!16, !5, i64 24}
+!22 = !{!16, !14, i64 12}
+!23 = !{!4, !5, i64 0}
+!24 = !{!5, !5, i64 0}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"double", !6, i64 0}
+!27 = !{!16, !18, i64 32}
+!28 = !{!4, !5, i64 8}
+!29 = !{!16, !9, i64 40}
+!30 = !{!31, !17, i64 0}
+!31 = !{!"ossl_param_st", !17, i64 0, !14, i64 8, !9, i64 16, !5, i64 24, !5, i64 32}
+!32 = !{!31, !14, i64 8}
+!33 = !{!31, !5, i64 24}
+!34 = !{!31, !5, i64 32}
+!35 = !{!31, !9, i64 16}
+!36 = !{!9, !9, i64 0}
+!37 = !{!6, !6, i64 0}
+!38 = distinct !{!38, !11, !12}
+!39 = !{i64 0, i64 8, !40, i64 8, i64 4, !13, i64 16, i64 8, !36, i64 24, i64 8, !24, i64 32, i64 8, !24}
+!40 = !{!17, !17, i64 0}

@@ -273,14 +273,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_le
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i ], [ %29, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i ], [ %5, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %31 = load i16, ptr %.0911.i.i.i.i.i, align 2, !alias.scope !10, !noalias !7
-  store i16 %31, ptr %.012.i.i.i.i.i, align 2, !alias.scope !7, !noalias !10
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  %31 = load i16, ptr %.0911.i.i.i.i.i, align 2, !alias.scope !11, !noalias !8
+  store i16 %31, ptr %.012.i.i.i.i.i, align 2, !alias.scope !8, !noalias !11
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 2
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 2
   %.not.i.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagESaIS5_EE12_M_check_lenEmPKc.exit.i
   %.not.i31.i = icmp eq ptr %5, null
@@ -616,14 +616,14 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_le
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i.i
   %.012.i.i.i.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i.i.i.i ], [ %45, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
   %.0911.i.i.i.i.i.i = phi ptr [ %47, %.lr.ph.i.i.i.i.i.i ], [ %25, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %46 = load i8, ptr %.0911.i.i.i.i.i.i, align 1, !alias.scope !16, !noalias !13
-  store i8 %46, ptr %.012.i.i.i.i.i.i, align 1, !alias.scope !13, !noalias !16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %46 = load i8, ptr %.0911.i.i.i.i.i.i, align 1, !alias.scope !17, !noalias !14
+  store i8 %46, ptr %.012.i.i.i.i.i.i, align 1, !alias.scope !14, !noalias !17
   %47 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 1
   %48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 1
   %.not.i.i.i.i.i.i = icmp eq ptr %47, %24
-  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !18
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !19
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagESaIS5_EE12_M_check_lenEmPKc.exit.i.i
   %.not.i31.i.i = icmp eq ptr %25, null
@@ -731,7 +731,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   store i32 %36, ptr %37, align 4
   %indvars.iv.next41 = add nsw i64 %indvars.iv40, 1
   %38 = icmp samesign ugt i64 %indvars.iv42, 2
-  br i1 %38, label %.lr.ph29, label %.loopexit.loopexit, !llvm.loop !19
+  br i1 %38, label %.lr.ph29, label %.loopexit.loopexit, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv35 = phi i64 [ %25, %.lr.ph.preheader ], [ %indvars.iv.next36, %.lr.ph ]
@@ -744,7 +744,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   store i32 %41, ptr %42, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit34, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit.loopexit34, label %.lr.ph, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %.lr.ph29
   %43 = trunc nsw i64 %indvars.iv.next41 to i32
@@ -760,7 +760,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %45 = load i32, ptr %3, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next48, %46
-  br i1 %47, label %9, label %._crit_edge, !llvm.loop !21
+  br i1 %47, label %9, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   ret i1 true
@@ -830,7 +830,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %39 = load i32, ptr %5, align 8
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %15, label %.loopexit56, !llvm.loop !22
+  br i1 %41, label %15, label %.loopexit56, !llvm.loop !23
 
 .loopexit56:                                      ; preds = %37, %11, %8, %2
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -891,7 +891,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %74 = load i32, ptr %42, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next70, %75
-  br i1 %76, label %52, label %.loopexit54, !llvm.loop !23
+  br i1 %76, label %52, label %.loopexit54, !llvm.loop !24
 
 .loopexit54:                                      ; preds = %73, %48, %45, %.loopexit56
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -926,7 +926,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %97 = load i32, ptr %77, align 8
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next73, %98
-  br i1 %99, label %83, label %.loopexit, !llvm.loop !24
+  br i1 %99, label %83, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %83, %.loopexit54
   ret i1 true
@@ -1021,7 +1021,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   store i32 %38, ptr %39, align 4
   %indvars.iv.next58 = add nsw i64 %indvars.iv57, 1
   %40 = icmp samesign ugt i64 %indvars.iv59, 2
-  br i1 %40, label %.lr.ph43, label %.loopexit.loopexit, !llvm.loop !25
+  br i1 %40, label %.lr.ph43, label %.loopexit.loopexit, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv52 = phi i64 [ %29, %.lr.ph.preheader ], [ %indvars.iv.next53, %.lr.ph ]
@@ -1033,7 +1033,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   store i32 %42, ptr %43, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit51, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit.loopexit51, label %.lr.ph, !llvm.loop !27
 
 .loopexit.loopexit:                               ; preds = %.lr.ph43
   %44 = trunc nsw i64 %indvars.iv.next58 to i32
@@ -1048,14 +1048,14 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Far22TopologyRefinerFactoryINS
   %46 = add nuw nsw i32 %.03046, 1
   %47 = load i32, ptr %9, align 4
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %.lr.ph47, label %._crit_edge, !llvm.loop !27
+  br i1 %48, label %.lr.ph47, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.loopexit, %11
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %49 = load i32, ptr %3, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next65, %50
-  br i1 %51, label %11, label %.loopexit37, !llvm.loop !28
+  br i1 %51, label %11, label %.loopexit37, !llvm.loop !29
 
 .loopexit37:                                      ; preds = %._crit_edge, %2
   ret i1 true
@@ -1107,27 +1107,28 @@ attributes #16 = { nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = !{!8}
-!8 = distinct !{!8, !9, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!9 = distinct !{!9, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_"}
-!10 = !{!11}
-!11 = distinct !{!11, !9, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!12 = distinct !{!12, !6}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!15 = distinct !{!15, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_"}
-!16 = !{!17}
-!17 = distinct !{!17, !15, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!10 = distinct !{!10, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_"}
+!11 = !{!12}
+!12 = distinct !{!12, !10, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4VTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!13 = distinct !{!13, !6, !7}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_"}
+!17 = !{!18}
+!18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Vtr8internal5Level4FTagES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}

@@ -301,7 +301,7 @@ png_get_uint_31.exit:                             ; preds = %1
 
 png_check_chunk_name.exit:                        ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %52 = load i64, ptr %51, align 8, !alias.scope !11
+  %52 = load i64, ptr %51, align 8, !alias.scope !12
   %53 = add i64 %52, -1
   %or.cond.i11 = icmp ult i64 %53, 2147483646
   %.026.i = select i1 %or.cond.i11, i64 %52, i64 2147483647
@@ -310,25 +310,25 @@ png_check_chunk_name.exit:                        ; preds = %48
 
 55:                                               ; preds = %png_check_chunk_name.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %57 = load i32, ptr %56, align 8, !alias.scope !11
+  %57 = load i32, ptr %56, align 8, !alias.scope !12
   %58 = zext i32 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 523
-  %60 = load i8, ptr %59, align 1, !alias.scope !11
+  %60 = load i8, ptr %59, align 1, !alias.scope !12
   %61 = zext i8 %60 to i64
   %62 = mul nuw nsw i64 %61, %58
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %64 = load i8, ptr %63, align 8, !alias.scope !11
+  %64 = load i8, ptr %63, align 8, !alias.scope !12
   %65 = icmp ugt i8 %64, 8
   %66 = zext i1 %65 to i64
   %67 = shl nuw nsw i64 %62, %66
   %68 = add nuw nsw i64 %67, 1
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  %70 = load i8, ptr %69, align 4, !alias.scope !11
+  %70 = load i8, ptr %69, align 4, !alias.scope !12
   %.not29.i = icmp eq i8 %70, 0
   %71 = select i1 %.not29.i, i64 0, i64 6
   %72 = add nuw nsw i64 %68, %71
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  %74 = load i32, ptr %73, align 4, !alias.scope !11
+  %74 = load i32, ptr %73, align 4, !alias.scope !12
   %75 = zext i32 %74 to i64
   %76 = udiv i64 4294967295, %72
   %77 = icmp samesign ult i64 %76, %75
@@ -484,19 +484,19 @@ png_crc_read.exit:                                ; preds = %2, %png_crc_read.ex
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %7) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %7) #12
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %png_crc_read.exit, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %png_crc_read.exit, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %png_crc_read.exit, %2
-  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %9 = load i32, ptr %8, align 8, !alias.scope !15
+  %9 = load i32, ptr %8, align 8, !alias.scope !16
   %10 = and i32 %9, 536870912
   %.not.i = icmp eq i32 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %12 = load i32, ptr %11, align 8, !alias.scope !15
+  %12 = load i32, ptr %11, align 8, !alias.scope !16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1028
-  store i32 129, ptr %13, align 4, !alias.scope !15
+  store i32 129, ptr %13, align 4, !alias.scope !16
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 4) #12
   br i1 %.not.i, label %17, label %14
 
@@ -515,25 +515,25 @@ png_crc_error.exit.thread:                        ; preds = %17, %14
   br label %49
 
 png_crc_error.exit:                               ; preds = %14, %17
-  %19 = load i8, ptr %3, align 1, !noalias !15
+  %19 = load i8, ptr %3, align 1, !noalias !16
   %20 = zext i8 %19 to i32
   %21 = shl nuw i32 %20, 24
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %23 = load i8, ptr %22, align 1, !noalias !15
+  %23 = load i8, ptr %22, align 1, !noalias !16
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 16
   %26 = or disjoint i32 %25, %21
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %28 = load i8, ptr %27, align 1, !noalias !15
+  %28 = load i8, ptr %27, align 1, !noalias !16
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 8
   %31 = or disjoint i32 %26, %30
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %33 = load i8, ptr %32, align 1, !noalias !15
+  %33 = load i8, ptr %32, align 1, !noalias !16
   %34 = zext i8 %33 to i32
   %35 = or disjoint i32 %31, %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 492
-  %37 = load i32, ptr %36, align 4, !alias.scope !15
+  %37 = load i32, ptr %36, align 4, !alias.scope !16
   %.not21 = icmp eq i32 %35, %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br i1 %.not21, label %49, label %38
@@ -694,7 +694,7 @@ png_crc_read.exit:                                ; preds = %9
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 13) #12
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 13) #12
   %12 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0)
-  %13 = load i8, ptr %4, align 1, !noalias !18
+  %13 = load i8, ptr %4, align 1, !noalias !19
   %14 = zext i8 %13 to i32
   %15 = shl nuw i32 %14, 24
   %16 = icmp slt i32 %15, 0
@@ -706,21 +706,21 @@ png_crc_read.exit:                                ; preds = %9
 
 png_get_uint_31.exit:                             ; preds = %png_crc_read.exit
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %19 = load i8, ptr %18, align 1, !noalias !18
+  %19 = load i8, ptr %18, align 1, !noalias !19
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 16
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %23 = load i8, ptr %22, align 1, !noalias !18
+  %23 = load i8, ptr %22, align 1, !noalias !19
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 8
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  %27 = load i8, ptr %26, align 1, !noalias !18
+  %27 = load i8, ptr %26, align 1, !noalias !19
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %21, %28
   %30 = or disjoint i32 %29, %25
   %31 = or disjoint i32 %30, %15
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %33 = load i8, ptr %32, align 1, !noalias !21
+  %33 = load i8, ptr %32, align 1, !noalias !22
   %34 = zext i8 %33 to i32
   %35 = shl nuw i32 %34, 24
   %36 = icmp slt i32 %35, 0
@@ -732,15 +732,15 @@ png_get_uint_31.exit:                             ; preds = %png_crc_read.exit
 
 png_get_uint_31.exit46:                           ; preds = %png_get_uint_31.exit
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %39 = load i8, ptr %38, align 1, !noalias !21
+  %39 = load i8, ptr %38, align 1, !noalias !22
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 16
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %43 = load i8, ptr %42, align 1, !noalias !21
+  %43 = load i8, ptr %42, align 1, !noalias !22
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 8
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 7
-  %47 = load i8, ptr %46, align 1, !noalias !21
+  %47 = load i8, ptr %46, align 1, !noalias !22
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %41, %48
   %50 = or disjoint i32 %49, %45
@@ -921,7 +921,7 @@ png_crc_read.exit:                                ; preds = %png_crc_read.exit.p
   %51 = add nuw nsw i32 %.05275, 1
   %52 = getelementptr inbounds nuw i8, ptr %.076, i64 3
   %exitcond.not = icmp eq i32 %51, %spec.select
-  br i1 %exitcond.not, label %._crit_edge, label %png_crc_read.exit, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %png_crc_read.exit, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %png_crc_read.exit, %42
   %.neg = mul i32 %spec.select, -3
@@ -1185,7 +1185,7 @@ png_crc_read.exit:                                ; preds = %32
 42:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %40
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %.preheader, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.preheader ]
@@ -1676,18 +1676,18 @@ define hidden void @png_handle_sPLT(ptr noalias noundef %0, ptr noalias noundef 
   %25 = add i32 %2, 1
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %28 = load ptr, ptr %27, align 8, !alias.scope !26
+  %28 = load ptr, ptr %27, align 8, !alias.scope !27
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %34, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %31 = load i64, ptr %30, align 8, !alias.scope !26
+  %31 = load i64, ptr %30, align 8, !alias.scope !27
   %32 = icmp ult i64 %31, %26
   br i1 %32, label %33, label %png_crc_read.exit
 
 33:                                               ; preds = %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !27
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %28) #12
   br label %34
 
@@ -1698,9 +1698,9 @@ define hidden void @png_handle_sPLT(ptr noalias noundef %0, ptr noalias noundef 
 
 36:                                               ; preds = %34
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 range(i64 0, 4294967296) %26, i1 false)
-  store ptr %35, ptr %27, align 8, !alias.scope !26
+  store ptr %35, ptr %27, align 8, !alias.scope !27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  store i64 %26, ptr %37, align 8, !alias.scope !26
+  store i64 %26, ptr %37, align 8, !alias.scope !27
   br label %png_crc_read.exit
 
 png_read_buffer.exit:                             ; preds = %34
@@ -1859,7 +1859,7 @@ png_crc_read.exit:                                ; preds = %36, %29
   store i16 %128, ptr %129, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %130, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %130, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %120, %.preheader
   store ptr %.1.i.ph, ptr %4, align 8
@@ -2393,7 +2393,7 @@ png_crc_read.exit:                                ; preds = %png_crc_read.exit.p
   store i16 %39, ptr %40, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %png_crc_read.exit, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %png_crc_read.exit, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %png_crc_read.exit, %.preheader
   %41 = call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0)
@@ -2714,18 +2714,18 @@ define hidden void @png_handle_pCAL(ptr noalias noundef %0, ptr noalias noundef 
   %21 = add i32 %2, 1
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %24 = load ptr, ptr %23, align 8, !alias.scope !31
+  %24 = load ptr, ptr %23, align 8, !alias.scope !32
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %30, label %25
 
 25:                                               ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %27 = load i64, ptr %26, align 8, !alias.scope !31
+  %27 = load i64, ptr %26, align 8, !alias.scope !32
   %28 = icmp ult i64 %27, %22
   br i1 %28, label %29, label %png_crc_read.exit
 
 29:                                               ; preds = %25
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !alias.scope !31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !alias.scope !32
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %24) #12
   br label %30
 
@@ -2736,9 +2736,9 @@ define hidden void @png_handle_pCAL(ptr noalias noundef %0, ptr noalias noundef 
 
 32:                                               ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 range(i64 0, 4294967296) %22, i1 false)
-  store ptr %31, ptr %23, align 8, !alias.scope !31
+  store ptr %31, ptr %23, align 8, !alias.scope !32
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  store i64 %22, ptr %33, align 8, !alias.scope !31
+  store i64 %22, ptr %33, align 8, !alias.scope !32
   br label %png_crc_read.exit
 
 png_read_buffer.exit:                             ; preds = %30
@@ -2939,7 +2939,7 @@ png_crc_read.exit:                                ; preds = %32, %25
 147:                                              ; preds = %.lr.ph
   %148 = getelementptr inbounds nuw i8, ptr %.3136, i64 1
   %.not129 = icmp ugt ptr %148, %38
-  br i1 %.not129, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not129, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph140, %147
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %141) #12
@@ -2949,7 +2949,7 @@ png_crc_read.exit:                                ; preds = %32, %25
 .critedge:                                        ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge141, label %.lr.ph140, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge141, label %.lr.ph140, !llvm.loop !36
 
 ._crit_edge141:                                   ; preds = %.critedge, %.preheader
   tail call void @png_set_pCAL(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %.1.i.ph, i32 noundef %78, i32 noundef %115, i32 noundef %121, i32 noundef %123, ptr noundef nonnull %120, ptr noundef nonnull %141) #12
@@ -3015,18 +3015,18 @@ define hidden void @png_handle_sCAL(ptr noalias noundef %0, ptr noalias noundef 
   %27 = add i32 %2, 1
   %28 = zext i32 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %30 = load ptr, ptr %29, align 8, !alias.scope !36
+  %30 = load ptr, ptr %29, align 8, !alias.scope !37
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %36, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %33 = load i64, ptr %32, align 8, !alias.scope !36
+  %33 = load i64, ptr %32, align 8, !alias.scope !37
   %34 = icmp ult i64 %33, %28
   br i1 %34, label %35, label %png_crc_read.exit
 
 35:                                               ; preds = %31
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !36
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !37
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %30) #12
   br label %36
 
@@ -3037,9 +3037,9 @@ define hidden void @png_handle_sCAL(ptr noalias noundef %0, ptr noalias noundef 
 
 38:                                               ; preds = %36
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %37, i8 0, i64 range(i64 0, 4294967296) %28, i1 false)
-  store ptr %37, ptr %29, align 8, !alias.scope !36
+  store ptr %37, ptr %29, align 8, !alias.scope !37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  store i64 %28, ptr %39, align 8, !alias.scope !36
+  store i64 %28, ptr %39, align 8, !alias.scope !37
   br label %png_crc_read.exit
 
 png_read_buffer.exit:                             ; preds = %36
@@ -3285,18 +3285,18 @@ define hidden void @png_handle_tEXt(ptr noalias noundef %0, ptr noalias noundef 
   %25 = add i32 %2, 1
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %28 = load ptr, ptr %27, align 8, !alias.scope !39
+  %28 = load ptr, ptr %27, align 8, !alias.scope !40
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %34, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  %31 = load i64, ptr %30, align 8, !alias.scope !39
+  %31 = load i64, ptr %30, align 8, !alias.scope !40
   %32 = icmp ult i64 %31, %26
   br i1 %32, label %33, label %png_crc_read.exit
 
 33:                                               ; preds = %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !39
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !40
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %28) #12
   br label %34
 
@@ -3307,9 +3307,9 @@ define hidden void @png_handle_tEXt(ptr noalias noundef %0, ptr noalias noundef 
 
 36:                                               ; preds = %34
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 range(i64 0, 4294967296) %26, i1 false)
-  store ptr %35, ptr %27, align 8, !alias.scope !39
+  store ptr %35, ptr %27, align 8, !alias.scope !40
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1016
-  store i64 %26, ptr %37, align 8, !alias.scope !39
+  store i64 %26, ptr %37, align 8, !alias.scope !40
   br label %png_crc_read.exit
 
 38:                                               ; preds = %34
@@ -3847,7 +3847,7 @@ define hidden void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 
   %128 = sub nuw nsw i64 %.0238, %111
   %129 = getelementptr inbounds nuw i8, ptr %.0221, i64 1
   %130 = getelementptr inbounds nuw i8, ptr %.0231, i64 1
-  br label %112
+  br label %112, !llvm.loop !43
 
 131:                                              ; preds = %81
   %132 = and i32 %6, 7
@@ -3926,7 +3926,7 @@ select.unfold:                                    ; preds = %143, %134
   %165 = load i8, ptr %163, align 1
   store i8 %165, ptr %162, align 1
   %.not285 = icmp ugt i64 %164, %160
-  br i1 %.not285, label %.lr.ph343, label %.loopexit312
+  br i1 %.not285, label %.lr.ph343, label %.loopexit312, !llvm.loop !44
 
 166:                                              ; preds = %.preheader320, %171
   %.2240 = phi i64 [ %174, %171 ], [ %140, %.preheader320 ]
@@ -3946,7 +3946,7 @@ select.unfold:                                    ; preds = %143, %134
   %173 = getelementptr inbounds nuw i8, ptr %.2, i64 %159
   %174 = sub nuw i64 %.2240, %159
   %175 = icmp ugt i64 %174, 1
-  br i1 %175, label %166, label %176, !llvm.loop !42
+  br i1 %175, label %166, label %176, !llvm.loop !45
 
 176:                                              ; preds = %171
   %177 = load i8, ptr %172, align 1
@@ -3971,7 +3971,7 @@ select.unfold:                                    ; preds = %143, %134
   %187 = getelementptr inbounds nuw i8, ptr %179, i64 2
   store i8 %186, ptr %187, align 1
   %.not283 = icmp ugt i64 %180, %151
-  br i1 %.not283, label %.lr.ph, label %.loopexit312
+  br i1 %.not283, label %.lr.ph, label %.loopexit312, !llvm.loop !46
 
 188:                                              ; preds = %select.unfold
   %189 = icmp samesign ult i32 %.0245, 16
@@ -4031,7 +4031,7 @@ select.unfold:                                    ; preds = %143, %134
   store i32 %218, ptr %.1230, align 4
   %220 = add i64 %.0226, -4
   %.not291 = icmp eq i64 %220, 0
-  br i1 %.not291, label %221, label %216, !llvm.loop !43
+  br i1 %.not291, label %221, label %216, !llvm.loop !47
 
 221:                                              ; preds = %216
   %.not292 = icmp ugt i64 %.4242, %203
@@ -4042,7 +4042,7 @@ select.unfold:                                    ; preds = %143, %134
   %224 = getelementptr inbounds nuw i32, ptr %217, i64 %214
   %225 = sub nuw i64 %.4242, %203
   %.not293 = icmp ult i64 %225, %199
-  br i1 %.not293, label %.preheader, label %215, !llvm.loop !44
+  br i1 %.not293, label %.preheader, label %215, !llvm.loop !48
 
 .preheader:                                       ; preds = %222, %.preheader
   %.5243 = phi i64 [ %229, %.preheader ], [ %225, %222 ]
@@ -4054,7 +4054,7 @@ select.unfold:                                    ; preds = %143, %134
   store i8 %227, ptr %.4, align 1
   %229 = add i64 %.5243, -1
   %.not294 = icmp eq i64 %229, 0
-  br i1 %.not294, label %.loopexit312, label %.preheader, !llvm.loop !45
+  br i1 %.not294, label %.loopexit312, label %.preheader, !llvm.loop !49
 
 230:                                              ; preds = %206
   %231 = lshr i32 %211, 1
@@ -4077,7 +4077,7 @@ select.unfold:                                    ; preds = %143, %134
   store i16 %236, ptr %.1225, align 2
   %238 = add i64 %.0, -2
   %.not287 = icmp eq i64 %238, 0
-  br i1 %.not287, label %239, label %234, !llvm.loop !46
+  br i1 %.not287, label %239, label %234, !llvm.loop !50
 
 239:                                              ; preds = %234
   %.not288 = icmp ugt i64 %.6244, %203
@@ -4088,7 +4088,7 @@ select.unfold:                                    ; preds = %143, %134
   %242 = getelementptr inbounds nuw i16, ptr %235, i64 %232
   %243 = sub nuw i64 %.6244, %203
   %.not289 = icmp ult i64 %243, %199
-  br i1 %.not289, label %.preheader314, label %233, !llvm.loop !47
+  br i1 %.not289, label %.preheader314, label %233, !llvm.loop !51
 
 .preheader314:                                    ; preds = %240, %.preheader314
   %.7 = phi i64 [ %247, %.preheader314 ], [ %243, %240 ]
@@ -4100,7 +4100,7 @@ select.unfold:                                    ; preds = %143, %134
   store i8 %245, ptr %.5, align 1
   %247 = add i64 %.7, -1
   %.not290 = icmp eq i64 %247, 0
-  br i1 %.not290, label %.loopexit312, label %.preheader314, !llvm.loop !48
+  br i1 %.not290, label %.loopexit312, label %.preheader314, !llvm.loop !52
 
 248:                                              ; preds = %202, %198, %194, %190, %188
   %249 = zext nneg i32 %150 to i64
@@ -4120,7 +4120,7 @@ select.unfold:                                    ; preds = %143, %134
   %spec.select309311 = tail call i64 @llvm.umin.i64(i64 %254, i64 %251)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %253, ptr align 1 %252, i64 %spec.select309311, i1 false)
   %.not286 = icmp ugt i64 %254, %249
-  br i1 %.not286, label %.lr.ph348, label %.loopexit312
+  br i1 %.not286, label %.lr.ph348, label %.loopexit312, !llvm.loop !53
 
 255:                                              ; preds = %72, %73, %66, %63
   %256 = icmp ugt i8 %5, 7
@@ -4258,7 +4258,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
   %.2.us = getelementptr inbounds i8, ptr %.1152232.us, i64 %.2.idx.us
   %51 = add nuw nsw i32 %.0197230.us, 1
   %exitcond268.not = icmp eq i32 %51, %smax267
-  br i1 %exitcond268.not, label %._crit_edge.us242, label %40, !llvm.loop !49
+  br i1 %exitcond268.not, label %._crit_edge.us242, label %40, !llvm.loop !54
 
 ._crit_edge.us242:                                ; preds = %40
   %52 = icmp eq i32 %.1154236.us, %.0177
@@ -4269,7 +4269,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
   %54 = add nuw i32 %.0181234.us, 1
   %55 = load i32, ptr %0, align 8
   %56 = icmp ult i32 %54, %55
-  br i1 %56, label %.lr.ph.us241, label %.loopexitthread-pre-split, !llvm.loop !50
+  br i1 %56, label %.lr.ph.us241, label %.loopexitthread-pre-split, !llvm.loop !55
 
 57:                                               ; preds = %7
   %58 = add i32 %8, -1
@@ -4346,7 +4346,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
   %.3188.us = select i1 %94, i32 %.0184, i32 %95
   %96 = add nuw nsw i32 %.0178218.us, 1
   %exitcond266.not = icmp eq i32 %96, %smax265
-  br i1 %exitcond266.not, label %._crit_edge.us228, label %85, !llvm.loop !52
+  br i1 %exitcond266.not, label %._crit_edge.us228, label %85, !llvm.loop !57
 
 ._crit_edge.us228:                                ; preds = %85
   %97 = icmp eq i32 %.1190222.us, %.0183
@@ -4357,7 +4357,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
   %99 = add nuw i32 %.0180224.us, 1
   %100 = load i32, ptr %0, align 8
   %101 = icmp ult i32 %99, %100
-  br i1 %101, label %.lr.ph.us227, label %.loopexitthread-pre-split, !llvm.loop !53
+  br i1 %101, label %.lr.ph.us227, label %.loopexitthread-pre-split, !llvm.loop !58
 
 102:                                              ; preds = %7
   %103 = add i32 %8, -1
@@ -4431,7 +4431,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
   %.3168.us = select i1 %136, i32 %.0164, i32 %137
   %138 = add nuw nsw i32 %.0156207.us, 1
   %exitcond.not = icmp eq i32 %138, %smax
-  br i1 %exitcond.not, label %._crit_edge.us, label %127, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge.us, label %127, !llvm.loop !59
 
 ._crit_edge.us:                                   ; preds = %127
   %139 = icmp eq i32 %.1170211.us, %.0163
@@ -4442,7 +4442,7 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
   %141 = add nuw i32 %.0161213.us, 1
   %142 = load i32, ptr %0, align 8
   %143 = icmp ult i32 %141, %142
-  br i1 %143, label %.lr.ph.us, label %.loopexitthread-pre-split, !llvm.loop !55
+  br i1 %143, label %.lr.ph.us, label %.loopexitthread-pre-split, !llvm.loop !60
 
 144:                                              ; preds = %7
   %145 = lshr i8 %14, 3
@@ -4477,14 +4477,14 @@ define hidden void @png_do_read_interlace(ptr noundef captures(address_is_null) 
   %157 = getelementptr inbounds i8, ptr %.1149244.us, i64 %147
   %158 = add nuw nsw i32 %.0245.us, 1
   %exitcond270.not = icmp eq i32 %158, %smax269
-  br i1 %exitcond270.not, label %._crit_edge.us252, label %156, !llvm.loop !56
+  br i1 %exitcond270.not, label %._crit_edge.us252, label %156, !llvm.loop !61
 
 ._crit_edge.us252:                                ; preds = %156
   %159 = getelementptr inbounds i8, ptr %.0150246.us, i64 %147
   %160 = add nuw i32 %.0146248.us, 1
   %161 = load i32, ptr %0, align 8
   %162 = icmp ult i32 %160, %161
-  br i1 %162, label %.lr.ph.us251, label %.loopexitthread-pre-split, !llvm.loop !57
+  br i1 %162, label %.lr.ph.us251, label %.loopexitthread-pre-split, !llvm.loop !62
 
 .loopexitthread-pre-split:                        ; preds = %._crit_edge.us, %._crit_edge.us228, %._crit_edge.us242, %._crit_edge.us252, %35, %80, %122
   %.pr = load i8, ptr %13, align 1
@@ -4534,19 +4534,19 @@ define hidden void @png_read_filter_row(ptr noalias noundef captures(none) %0, p
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 522
-  %13 = load i8, ptr %12, align 2, !alias.scope !58
+  %13 = load i8, ptr %12, align 2, !alias.scope !63
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %14, 7
-  store ptr @png_read_filter_row_sub, ptr %8, align 8, !alias.scope !58
+  store ptr @png_read_filter_row_sub, ptr %8, align 8, !alias.scope !63
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  store ptr @png_read_filter_row_up, ptr %16, align 8, !alias.scope !58
+  store ptr @png_read_filter_row_up, ptr %16, align 8, !alias.scope !63
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  store ptr @png_read_filter_row_avg, ptr %17, align 8, !alias.scope !58
+  store ptr @png_read_filter_row_avg, ptr %17, align 8, !alias.scope !63
   %.mask.i = and i32 %15, 504
   %18 = icmp eq i32 %.mask.i, 8
   %spec.select.i = select i1 %18, ptr @png_read_filter_row_paeth_1byte_pixel, ptr @png_read_filter_row_paeth_multibyte_pixel
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  store ptr %spec.select.i, ptr %19, align 8, !alias.scope !58
+  store ptr %spec.select.i, ptr %19, align 8, !alias.scope !63
   br label %20
 
 20:                                               ; preds = %11, %7
@@ -4603,14 +4603,14 @@ define hidden void @png_read_IDAT_data(ptr noalias noundef initializes((336, 348
   br i1 %28, label %29, label %67
 
 29:                                               ; preds = %.preheader
-  call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !61
-  %30 = load i32, ptr %12, align 8, !alias.scope !67
+  call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !66
+  %30 = load i32, ptr %12, align 8, !alias.scope !72
   %31 = and i32 %30, 536870912
   %.not.i.i = icmp eq i32 %31, 0
-  %32 = load i32, ptr %13, align 8, !alias.scope !67
-  store i32 129, ptr %14, align 4, !alias.scope !67
+  %32 = load i32, ptr %13, align 8, !alias.scope !72
+  store i32 129, ptr %14, align 4, !alias.scope !72
   call void @png_read_data(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 4) #12
   br i1 %.not.i.i, label %36, label %33
 
@@ -4625,34 +4625,34 @@ define hidden void @png_read_IDAT_data(ptr noalias noundef initializes((336, 348
   br i1 %.not9.not.i.i, label %png_crc_error.exit.i, label %png_crc_error.exit.thread.i
 
 png_crc_error.exit.thread.i:                      ; preds = %36, %33
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !61
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !66
   br label %png_crc_finish.exit
 
 png_crc_error.exit.i:                             ; preds = %36, %33
-  %38 = load i8, ptr %4, align 1, !noalias !67
+  %38 = load i8, ptr %4, align 1, !noalias !72
   %39 = zext i8 %38 to i32
   %40 = shl nuw i32 %39, 24
-  %41 = load i8, ptr %15, align 1, !noalias !67
+  %41 = load i8, ptr %15, align 1, !noalias !72
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 16
   %44 = or disjoint i32 %43, %40
-  %45 = load i8, ptr %16, align 1, !noalias !67
+  %45 = load i8, ptr %16, align 1, !noalias !72
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 8
   %48 = or disjoint i32 %44, %47
-  %49 = load i8, ptr %17, align 1, !noalias !67
+  %49 = load i8, ptr %17, align 1, !noalias !72
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %48, %50
-  %52 = load i32, ptr %18, align 4, !alias.scope !67
+  %52 = load i32, ptr %18, align 4, !alias.scope !72
   %.not21.i = icmp eq i32 %51, %52
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !61
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !66
   br i1 %.not21.i, label %png_crc_finish.exit, label %53
 
 53:                                               ; preds = %png_crc_error.exit.i
-  %54 = load i32, ptr %12, align 8, !alias.scope !61
+  %54 = load i32, ptr %12, align 8, !alias.scope !66
   %55 = and i32 %54, 536870912
   %.not17.i = icmp eq i32 %55, 0
-  %56 = load i32, ptr %13, align 8, !alias.scope !61
+  %56 = load i32, ptr %13, align 8, !alias.scope !66
   br i1 %.not17.i, label %60, label %57
 
 57:                                               ; preds = %53
@@ -4678,7 +4678,7 @@ png_crc_finish.exit:                              ; preds = %png_crc_error.exit.
   store i32 %64, ptr %11, align 8
   %65 = load i32, ptr %12, align 8
   %.not72 = icmp eq i32 %65, 1229209940
-  br i1 %.not72, label %.preheader, label %66, !llvm.loop !68
+  br i1 %.not72, label %.preheader, label %66, !llvm.loop !73
 
 66:                                               ; preds = %png_crc_finish.exit
   call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.45) #11
@@ -4688,17 +4688,17 @@ png_crc_finish.exit:                              ; preds = %png_crc_error.exit.
   %68 = load i32, ptr %19, align 8
   %spec.select73 = call i32 @llvm.umin.i32(i32 %68, i32 %27)
   %69 = zext i32 %spec.select73 to i64
-  %70 = load ptr, ptr %20, align 8, !alias.scope !69
+  %70 = load ptr, ptr %20, align 8, !alias.scope !74
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %75, label %71
 
 71:                                               ; preds = %67
-  %72 = load i64, ptr %21, align 8, !alias.scope !69
+  %72 = load i64, ptr %21, align 8, !alias.scope !74
   %73 = icmp ult i64 %72, %69
   br i1 %73, label %74, label %png_crc_read.exit
 
 74:                                               ; preds = %71
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !69
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false), !alias.scope !74
   call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %70) #12
   br label %75
 
@@ -4709,8 +4709,8 @@ png_crc_finish.exit:                              ; preds = %png_crc_error.exit.
 
 77:                                               ; preds = %75
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %76, i8 0, i64 range(i64 0, 4294967296) %69, i1 false)
-  store ptr %76, ptr %20, align 8, !alias.scope !69
-  store i64 %69, ptr %21, align 8, !alias.scope !69
+  store ptr %76, ptr %20, align 8, !alias.scope !74
+  store i64 %69, ptr %21, align 8, !alias.scope !74
   br label %png_crc_read.exit
 
 78:                                               ; preds = %75
@@ -4747,24 +4747,24 @@ png_crc_read.exit:                                ; preds = %71, %77
   %storemerge = phi i32 [ 1024, %85 ], [ %spec.select74, %83 ]
   %.2 = phi i64 [ %.1, %85 ], [ %84, %83 ]
   store i32 %storemerge, ptr %8, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %87 = load i8, ptr %22, align 1, !alias.scope !72
+  call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  %87 = load i8, ptr %22, align 1, !alias.scope !77
   %.not.i75 = icmp eq i8 %87, 0
   %brmerge = select i1 %.not.i75, i1 true, i1 %.not7.i
   br i1 %brmerge, label %94, label %88
 
 88:                                               ; preds = %86
-  %89 = load ptr, ptr %6, align 8, !alias.scope !72
-  %90 = load i8, ptr %89, align 1, !noalias !72
+  %89 = load ptr, ptr %6, align 8, !alias.scope !77
+  %90 = load i8, ptr %89, align 1, !noalias !77
   %91 = icmp slt i8 %90, 0
   br i1 %91, label %92, label %93
 
 92:                                               ; preds = %88
-  store ptr @.str.4, ptr %23, align 8, !alias.scope !72
+  store ptr @.str.4, ptr %23, align 8, !alias.scope !77
   br label %png_zlib_inflate.exit
 
 93:                                               ; preds = %88
-  store i8 0, ptr %22, align 1, !alias.scope !72
+  store i8 0, ptr %22, align 1, !alias.scope !77
   br label %94
 
 94:                                               ; preds = %86, %93
@@ -4818,7 +4818,7 @@ png_zlib_inflate.exit:                            ; preds = %92, %94
 
 113:                                              ; preds = %png_zlib_inflate.exit
   %cond = icmp eq i64 %.3, 0
-  br i1 %cond, label %.loopexit, label %24
+  br i1 %cond, label %.loopexit, label %24, !llvm.loop !80
 
 114:                                              ; preds = %107, %109
   %.not71 = icmp eq i64 %.3, 0
@@ -4963,7 +4963,7 @@ define hidden void @png_read_finish_row(ptr noalias noundef %0) local_unnamed_ad
   %53 = icmp ult i32 %51, %45
   %54 = icmp ult i32 %36, %30
   %or.cond = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond, label %.critedge, label %png_read_finish_IDAT.exit.loopexit, !llvm.loop !75
+  br i1 %or.cond, label %.critedge, label %png_read_finish_IDAT.exit.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.critedge
   store i8 %23, ptr %17, align 1
@@ -4971,7 +4971,7 @@ define hidden void @png_read_finish_row(ptr noalias noundef %0) local_unnamed_ad
 
 55:                                               ; preds = %.loopexit, %8
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %57 = load i32, ptr %56, align 8, !alias.scope !76
+  %57 = load i32, ptr %56, align 8, !alias.scope !82
   %58 = and i32 %57, 8
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %70
@@ -4979,35 +4979,35 @@ define hidden void @png_read_finish_row(ptr noalias noundef %0) local_unnamed_ad
 60:                                               ; preds = %55
   tail call void @png_read_IDAT_data(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr null, ptr %61, align 8, !alias.scope !76
-  %62 = load i32, ptr %56, align 8, !alias.scope !76
+  store ptr null, ptr %61, align 8, !alias.scope !82
+  %62 = load i32, ptr %56, align 8, !alias.scope !82
   %63 = and i32 %62, 8
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %67 = load i32, ptr %66, align 4, !alias.scope !76
+  %67 = load i32, ptr %66, align 4, !alias.scope !82
   %68 = or i32 %67, 8
-  store i32 %68, ptr %66, align 4, !alias.scope !76
+  store i32 %68, ptr %66, align 4, !alias.scope !82
   %69 = or disjoint i32 %62, 8
-  store i32 %69, ptr %56, align 8, !alias.scope !76
+  store i32 %69, ptr %56, align 8, !alias.scope !82
   br label %70
 
 70:                                               ; preds = %65, %60, %55
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %72 = load i32, ptr %71, align 8, !alias.scope !76
+  %72 = load i32, ptr %71, align 8, !alias.scope !82
   %73 = icmp eq i32 %72, 1229209940
   br i1 %73, label %74, label %png_read_finish_IDAT.exit
 
 74:                                               ; preds = %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store ptr null, ptr %75, align 8, !alias.scope !76
+  store ptr null, ptr %75, align 8, !alias.scope !82
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 0, ptr %76, align 8, !alias.scope !76
-  store i32 0, ptr %71, align 8, !alias.scope !76
+  store i32 0, ptr %76, align 8, !alias.scope !82
+  store i32 0, ptr %71, align 8, !alias.scope !82
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %78 = load i32, ptr %77, align 8, !alias.scope !76
+  %78 = load i32, ptr %77, align 8, !alias.scope !82
   %79 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %78)
   br label %png_read_finish_IDAT.exit
 
@@ -5351,44 +5351,44 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
   br label %175
 
 175:                                              ; preds = %174, %168
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %177 = load i32, ptr %176, align 8, !alias.scope !79
+  %177 = load i32, ptr %176, align 8, !alias.scope !85
   %.not.i = icmp eq i32 %177, 0
   br i1 %.not.i, label %190, label %178
 
 178:                                              ; preds = %175
   %179 = lshr i32 %177, 24
   %180 = trunc nuw i32 %179 to i8
-  store i8 %180, ptr %2, align 16, !noalias !79
+  store i8 %180, ptr %2, align 16, !noalias !85
   %181 = lshr i32 %177, 16
   %182 = trunc i32 %181 to i8
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 %182, ptr %183, align 1, !noalias !79
+  store i8 %182, ptr %183, align 1, !noalias !85
   %184 = lshr i32 %177, 8
   %185 = trunc i32 %184 to i8
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 %185, ptr %186, align 2, !noalias !79
+  store i8 %185, ptr %186, align 2, !noalias !85
   %187 = trunc i32 %177 to i8
   %188 = getelementptr inbounds nuw i8, ptr %2, i64 3
-  store i8 %187, ptr %188, align 1, !noalias !79
-  %189 = call i64 @png_safecat(ptr noundef nonnull %2, i64 noundef 64, i64 noundef 4, ptr noundef nonnull @.str.52) #12, !noalias !79
+  store i8 %187, ptr %188, align 1, !noalias !85
+  %189 = call i64 @png_safecat(ptr noundef nonnull %2, i64 noundef 64, i64 noundef 4, ptr noundef nonnull @.str.52) #12, !noalias !85
   call void @png_chunk_warning(ptr noundef nonnull %0, ptr noundef nonnull %2) #12
-  store i32 0, ptr %176, align 8, !alias.scope !79
+  store i32 0, ptr %176, align 8, !alias.scope !85
   br label %190
 
 190:                                              ; preds = %178, %175
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store ptr null, ptr %191, align 8, !alias.scope !79
+  store ptr null, ptr %191, align 8, !alias.scope !85
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store i32 0, ptr %192, align 8, !alias.scope !79
+  store i32 0, ptr %192, align 8, !alias.scope !85
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store ptr null, ptr %193, align 8, !alias.scope !79
+  store ptr null, ptr %193, align 8, !alias.scope !85
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 0, ptr %194, align 8, !alias.scope !79
+  store i32 0, ptr %194, align 8, !alias.scope !85
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %196 = load i32, ptr %195, align 8, !alias.scope !79
+  %196 = load i32, ptr %195, align 8, !alias.scope !85
   %197 = and i32 %196, 2
   %.not25.i = icmp eq i32 %197, 0
   br i1 %.not25.i, label %198, label %203
@@ -5399,7 +5399,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
   br i1 %200, label %.thread.i, label %206
 
 .thread.i:                                        ; preds = %198
-  %201 = load i32, ptr %195, align 8, !alias.scope !79
+  %201 = load i32, ptr %195, align 8, !alias.scope !85
   %202 = or i32 %201, 2
   br label %209
 
@@ -5423,7 +5423,7 @@ define hidden void @png_read_start_row(ptr noalias noundef %0) local_unnamed_add
 
 209:                                              ; preds = %._crit_edge, %.thread.i
   %210 = phi i32 [ %.pre147, %._crit_edge ], [ %202, %.thread.i ]
-  store i32 1229209940, ptr %176, align 8, !alias.scope !79
+  store i32 1229209940, ptr %176, align 8, !alias.scope !85
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %211 = or i32 %210, 64
   store i32 %211, ptr %195, align 8
@@ -5466,7 +5466,7 @@ define internal void @png_read_filter_row_sub(ptr noundef readonly captures(none
   %18 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %19 = add nuw i64 %.01213, 1
   %exitcond.not = icmp eq i64 %19, %5
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !82
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %14, %3
   ret void
@@ -5491,7 +5491,7 @@ define internal void @png_read_filter_row_up(ptr noundef readonly captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %.0912, i64 1
   %10 = add nuw i64 %.01011, 1
   %exitcond.not = icmp eq i64 %10, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5533,7 +5533,7 @@ define internal void @png_read_filter_row_avg(ptr noundef readonly captures(none
   %17 = getelementptr inbounds nuw i8, ptr %.02028, i64 1
   %18 = add nuw nsw i64 %.029, 1
   %exitcond.not = icmp eq i64 %18, %8
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !90
 
 19:                                               ; preds = %.lr.ph34, %19
   %.133 = phi i64 [ 0, %.lr.ph34 ], [ %30, %19 ]
@@ -5554,7 +5554,7 @@ define internal void @png_read_filter_row_avg(ptr noundef readonly captures(none
   %29 = getelementptr inbounds nuw i8, ptr %.12132, i64 1
   %30 = add nuw i64 %.133, 1
   %exitcond37.not = icmp eq i64 %30, %11
-  br i1 %exitcond37.not, label %._crit_edge, label %19, !llvm.loop !85
+  br i1 %exitcond37.not, label %._crit_edge, label %19, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %19, %.preheader
   ret void
@@ -5606,7 +5606,7 @@ define internal void @png_read_filter_row_paeth_1byte_pixel(ptr noundef readonly
   store i8 %28, ptr %.051, align 1
   %.0 = getelementptr inbounds nuw i8, ptr %.051, i64 1
   %29 = icmp ult ptr %.0, %6
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !86
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -5633,7 +5633,7 @@ define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr noundef read
   %14 = getelementptr inbounds nuw i8, ptr %.056, i64 1
   store i8 %13, ptr %.056, align 1
   %15 = icmp ult ptr %14, %9
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !87
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.045.lcssa = phi ptr [ %2, %3 ], [ %11, %.lr.ph ]
@@ -5676,7 +5676,7 @@ define internal void @png_read_filter_row_paeth_multibyte_pixel(ptr noundef read
   %41 = getelementptr inbounds nuw i8, ptr %.159, i64 1
   store i8 %40, ptr %.159, align 1
   %42 = icmp ult ptr %41, %18
-  br i1 %42, label %21, label %._crit_edge62, !llvm.loop !88
+  br i1 %42, label %21, label %._crit_edge62, !llvm.loop !94
 
 ._crit_edge62:                                    ; preds = %21, %._crit_edge
   ret void
@@ -5747,83 +5747,89 @@ attributes #13 = { nounwind willreturn memory(read) }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"png_get_uint_31: argument 0"}
 !8 = distinct !{!8, !"png_get_uint_31"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"png_check_chunk_length: argument 0"}
-!13 = distinct !{!13, !"png_check_chunk_length"}
-!14 = distinct !{!14, !10}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"png_crc_error: argument 0"}
-!17 = distinct !{!17, !"png_crc_error"}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"png_get_uint_31: argument 0"}
-!20 = distinct !{!20, !"png_get_uint_31"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"png_get_uint_31: argument 0"}
-!23 = distinct !{!23, !"png_get_uint_31"}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"png_read_buffer: argument 0"}
-!28 = distinct !{!28, !"png_read_buffer"}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"png_read_buffer: argument 0"}
-!33 = distinct !{!33, !"png_read_buffer"}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"png_read_buffer: argument 0"}
-!38 = distinct !{!38, !"png_read_buffer"}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"png_read_buffer: argument 0"}
-!41 = distinct !{!41, !"png_read_buffer"}
-!42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10}
-!44 = distinct !{!44, !10}
-!45 = distinct !{!45, !10}
-!46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10}
-!48 = distinct !{!48, !10}
-!49 = distinct !{!49, !10}
-!50 = distinct !{!50, !10, !51}
-!51 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!52 = distinct !{!52, !10}
-!53 = distinct !{!53, !10, !51}
-!54 = distinct !{!54, !10}
-!55 = distinct !{!55, !10, !51}
-!56 = distinct !{!56, !10}
-!57 = distinct !{!57, !10, !51}
-!58 = !{!59}
-!59 = distinct !{!59, !60, !"png_init_filter_functions: argument 0"}
-!60 = distinct !{!60, !"png_init_filter_functions"}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"png_crc_finish: argument 0"}
-!63 = distinct !{!63, !"png_crc_finish"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"png_crc_error: argument 0"}
-!66 = distinct !{!66, !"png_crc_error"}
-!67 = !{!65, !62}
-!68 = distinct !{!68, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"png_check_chunk_length: argument 0"}
+!14 = distinct !{!14, !"png_check_chunk_length"}
+!15 = distinct !{!15, !10, !11}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"png_crc_error: argument 0"}
+!18 = distinct !{!18, !"png_crc_error"}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"png_get_uint_31: argument 0"}
+!21 = distinct !{!21, !"png_get_uint_31"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"png_get_uint_31: argument 0"}
+!24 = distinct !{!24, !"png_get_uint_31"}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"png_read_buffer: argument 0"}
+!29 = distinct !{!29, !"png_read_buffer"}
+!30 = distinct !{!30, !10, !11}
+!31 = distinct !{!31, !10, !11}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"png_read_buffer: argument 0"}
+!34 = distinct !{!34, !"png_read_buffer"}
+!35 = distinct !{!35, !10, !11}
+!36 = distinct !{!36, !10, !11}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"png_read_buffer: argument 0"}
+!39 = distinct !{!39, !"png_read_buffer"}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"png_read_buffer: argument 0"}
+!42 = distinct !{!42, !"png_read_buffer"}
+!43 = distinct !{!43, !11}
+!44 = distinct !{!44, !11}
+!45 = distinct !{!45, !10, !11}
+!46 = distinct !{!46, !11}
+!47 = distinct !{!47, !10, !11}
+!48 = distinct !{!48, !10, !11}
+!49 = distinct !{!49, !10, !11}
+!50 = distinct !{!50, !10, !11}
+!51 = distinct !{!51, !10, !11}
+!52 = distinct !{!52, !10, !11}
+!53 = distinct !{!53, !11}
+!54 = distinct !{!54, !10, !11}
+!55 = distinct !{!55, !10, !11, !56}
+!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!57 = distinct !{!57, !10, !11}
+!58 = distinct !{!58, !10, !11, !56}
+!59 = distinct !{!59, !10, !11}
+!60 = distinct !{!60, !10, !11, !56}
+!61 = distinct !{!61, !10, !11}
+!62 = distinct !{!62, !10, !11, !56}
+!63 = !{!64}
+!64 = distinct !{!64, !65, !"png_init_filter_functions: argument 0"}
+!65 = distinct !{!65, !"png_init_filter_functions"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"png_crc_finish: argument 0"}
+!68 = distinct !{!68, !"png_crc_finish"}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"png_read_buffer: argument 0"}
-!71 = distinct !{!71, !"png_read_buffer"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"png_zlib_inflate: argument 0"}
-!74 = distinct !{!74, !"png_zlib_inflate"}
-!75 = distinct !{!75, !10}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"png_read_finish_IDAT: argument 0"}
-!78 = distinct !{!78, !"png_read_finish_IDAT"}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"png_inflate_claim: argument 0"}
-!81 = distinct !{!81, !"png_inflate_claim"}
-!82 = distinct !{!82, !10}
-!83 = distinct !{!83, !10}
-!84 = distinct !{!84, !10}
-!85 = distinct !{!85, !10}
-!86 = distinct !{!86, !10}
-!87 = distinct !{!87, !10}
-!88 = distinct !{!88, !10}
+!70 = distinct !{!70, !71, !"png_crc_error: argument 0"}
+!71 = distinct !{!71, !"png_crc_error"}
+!72 = !{!70, !67}
+!73 = distinct !{!73, !10, !11}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"png_read_buffer: argument 0"}
+!76 = distinct !{!76, !"png_read_buffer"}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"png_zlib_inflate: argument 0"}
+!79 = distinct !{!79, !"png_zlib_inflate"}
+!80 = distinct !{!80, !11}
+!81 = distinct !{!81, !11}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"png_read_finish_IDAT: argument 0"}
+!84 = distinct !{!84, !"png_read_finish_IDAT"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"png_inflate_claim: argument 0"}
+!87 = distinct !{!87, !"png_inflate_claim"}
+!88 = distinct !{!88, !10, !11}
+!89 = distinct !{!89, !10, !11}
+!90 = distinct !{!90, !10, !11}
+!91 = distinct !{!91, !10, !11}
+!92 = distinct !{!92, !10, !11}
+!93 = distinct !{!93, !10, !11}
+!94 = distinct !{!94, !10, !11}

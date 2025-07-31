@@ -822,7 +822,7 @@ thread-pre-split:                                 ; preds = %.noexc21, %_ZSt6fil
   %55 = sdiv i64 %.01824, %51
   %.0 = add nsw i32 %.025, -1
   %56 = icmp sgt i32 %.025, 0
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %50, %29
   %.018.lcssa = phi i64 [ %1, %29 ], [ %55, %50 ]
@@ -1016,7 +1016,7 @@ define void @_ZN10open_spiel8FindFileERKNSt7__cxx1112basic_stringIcSt11char_trai
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %.sink) #21
   %39 = add nuw i32 %.01116, 1
   %exitcond.not = icmp eq i32 %.01116, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.critedge, %3
   store i8 0, ptr %0, align 8
@@ -1090,9 +1090,9 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %4 = bitcast double %1 to i64
   %5 = inttoptr i64 %4 to ptr
-  store ptr %5, ptr %2, align 8, !noalias !8
+  store ptr %5, ptr %2, align 8, !noalias !9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIdEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %6, align 8, !noalias !8
+  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIdEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %6, align 8, !noalias !9
   call void @_ZN4absl7debian219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull @.str.22, i64 5, ptr nonnull %2, i64 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 46, i64 noundef 0) #21
@@ -1129,7 +1129,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   %22 = icmp ugt i64 %21, %11
-  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !11
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph, %20, %.preheader, %13
   ret void
@@ -1220,7 +1220,7 @@ define void @_ZN10open_spiel9NormalizeEN4absl7debian24SpanIdEE(ptr captures(addr
   %15 = fadd double %.09.i.i, %14
   %16 = getelementptr inbounds nuw i8, ptr %.068.i.i, i64 8
   %.not.i.i = icmp eq ptr %16, %13
-  br i1 %.not.i.i, label %_ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %_ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit: ; preds = %.lr.ph.i.i
   %17 = fcmp uno double %15, 0.000000e+00
@@ -1251,7 +1251,7 @@ _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit
   store double %24, ptr %.06.i.i.us, align 8
   %26 = getelementptr inbounds nuw i8, ptr %.06.i.i.us, i64 8
   %.not.i.i8.us = icmp eq ptr %26, %13
-  br i1 %.not.i.i8.us, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i7.us, !llvm.loop !13
+  br i1 %.not.i.i8.us, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i7.us, !llvm.loop !14
 
 .lr.ph.i.i7:                                      ; preds = %22, %.lr.ph.i.i7
   %.06.i.i = phi ptr [ %29, %.lr.ph.i.i7 ], [ %0, %22 ]
@@ -1260,7 +1260,7 @@ _ZN4absl7debian212c_accumulateINS0_4SpanIdEEdEENSt5decayIT0_E4typeERKT_OS5_.exit
   store double %28, ptr %.06.i.i, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %.not.i.i8 = icmp eq ptr %29, %13
-  br i1 %.not.i.i8, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i7, !llvm.loop !15
+  br i1 %.not.i.i8, label %"_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit", label %.lr.ph.i.i7, !llvm.loop !16
 
 "_ZN4absl7debian210c_for_eachIRNS0_4SpanIdEEZN10open_spiel9NormalizeES3_E3$_0EENSt5decayIT0_E4typeEOT_OS8_.exit": ; preds = %.lr.ph.i.i7, %.lr.ph.i.i7.us
   ret void
@@ -1469,7 +1469,7 @@ define noundef zeroext i1 @_ZN10open_spiel21StrContainsIgnoreCaseERKNSt7__cxx111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #21
   %16 = icmp ugt i64 %15, %indvars.iv.next
-  br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !16
+  br i1 %16, label %.lr.ph, label %.preheader, !llvm.loop !17
 
 17:                                               ; preds = %2
   %18 = landingpad { ptr, i32 }
@@ -1509,7 +1509,7 @@ define noundef zeroext i1 @_ZN10open_spiel21StrContainsIgnoreCaseERKNSt7__cxx111
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %28 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #21
   %29 = icmp ugt i64 %28, %indvars.iv.next24
-  br i1 %29, label %.lr.ph20, label %._crit_edge, !llvm.loop !17
+  br i1 %29, label %.lr.ph20, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %26, %.preheader
   %30 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findERKS4_m(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef 0) #21
@@ -1570,7 +1570,7 @@ _ZNK4absl7debian24SpanIKdEixEm.exit:              ; preds = %_ZNKSt8functionIFdv
 19:                                               ; preds = %_ZNK4absl7debian24SpanIKdEixEm.exit
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %2
-  br i1 %exitcond.not, label %._crit_edge, label %_ZNK4absl7debian24SpanIKdEixEm.exit, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %_ZNK4absl7debian24SpanIKdEixEm.exit, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %19, %_ZNKSt8functionIFdvEEclEv.exit
   %20 = and i64 %2, 4294967295
@@ -1596,7 +1596,7 @@ _ZNK4absl7debian24SpanIKdEixEm.exit22:            ; preds = %23
   %27 = getelementptr inbounds nuw double, ptr %1, i64 %24
   %28 = load double, ptr %27, align 8
   %29 = fcmp ogt double %28, 0.000000e+00
-  br i1 %29, label %.loopexit, label %21, !llvm.loop !19
+  br i1 %29, label %.loopexit, label %21, !llvm.loop !20
 
 30:                                               ; preds = %21
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
@@ -1847,19 +1847,20 @@ attributes #26 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN4absl7debian29StrFormatIJdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_: argument 0"}
-!10 = distinct !{!10, !"_ZN4absl7debian29StrFormatIJdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_"}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN4absl7debian29StrFormatIJdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_: argument 0"}
+!11 = distinct !{!11, !"_ZN4absl7debian29StrFormatIJdEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_19str_format_internal18FormatSpecTemplateIJXspclsr19str_format_internalE14ArgumentToConvIT_EEEEEEDpRKSA_"}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}

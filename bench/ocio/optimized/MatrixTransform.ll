@@ -773,7 +773,7 @@ define void @_ZN19OpenColorIO_v2_5dev15MatrixTransform3FitEPdS1_PKdS3_S3_S3_(ptr
   store double %48, ptr %49, align 8, !tbaa !67
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond91.not = icmp eq i64 %indvars.iv.next89, 4
-  br i1 %exitcond91.not, label %.loopexit, label %.split.split.us, !llvm.loop !72
+  br i1 %exitcond91.not, label %.loopexit, label %.split.split.us, !llvm.loop !73
 
 .split.split:                                     ; preds = %.split.split.preheader, %84
   %indvars.iv = phi i64 [ 0, %.split.split.preheader ], [ %indvars.iv.next, %84 ]
@@ -902,7 +902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %72
   store double %99, ptr %100, align 8, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.split.split, !llvm.loop !73
+  br i1 %exitcond.not, label %.loopexit, label %.split.split, !llvm.loop !74
 
 .loopexit:                                        ; preds = %84, %38, %31, %11, %6
   ret void
@@ -1138,7 +1138,7 @@ _ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit: ; preds = %19
   store double 1.000000e+00, ptr %gep, align 8, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !75
 
 30:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #27
@@ -1170,7 +1170,7 @@ _ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit: ; preds = %19
   store double %48, ptr %46, align 8, !tbaa !67
   %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next60, 3
-  br i1 %exitcond62.not, label %31, label %40, !llvm.loop !75
+  br i1 %exitcond62.not, label %31, label %40, !llvm.loop !76
 
 49:                                               ; preds = %31
   %50 = fdiv double %32, %38
@@ -1191,7 +1191,7 @@ _ZN19OpenColorIO_v2_5dev15MatrixTransform8IdentityEPdS1_.exit: ; preds = %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %scevgep, ptr noundef nonnull align 16 dereferenceable(24) %5, i64 24, i1 false), !tbaa !67
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond67.not = icmp eq i64 %indvar.next, 3
-  br i1 %exitcond67.not, label %54, label %.preheader, !llvm.loop !76
+  br i1 %exitcond67.not, label %54, label %.preheader, !llvm.loop !77
 
 54:                                               ; preds = %.preheader
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -1228,7 +1228,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_5devl
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 16, ptr %17, align 8, !tbaa !77
+  store i64 16, ptr %17, align 8, !tbaa !78
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.5, i64 noundef 17)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -1254,7 +1254,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit22: ; preds = %_ZStl
   %29 = load i64, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !86
+  %32 = load i32, ptr %31, align 8, !tbaa !87
   %33 = or i32 %32, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %30, i32 noundef %33)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit24 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1286,7 +1286,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26: ; preds = %_ZStl
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %50 = load i32, ptr %49, align 8, !tbaa !86
+  %50 = load i32, ptr %49, align 8, !tbaa !87
   %51 = or i32 %50, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %48, i32 noundef %51)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit30 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1318,7 +1318,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32: ; preds = %_ZStl
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %68 = load i32, ptr %67, align 8, !tbaa !86
+  %68 = load i32, ptr %67, align 8, !tbaa !87
   %69 = or i32 %68, 1
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264) %66, i32 noundef %69)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1355,7 +1355,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43: ; preds = %_ZNSo
 _ZNSolsEd.exit45:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %76, label %_ZNSolsEd.exit.preheader, !llvm.loop !87
+  br i1 %exitcond.not, label %76, label %_ZNSolsEd.exit.preheader, !llvm.loop !88
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit41: ; preds = %76
   %82 = load double, ptr %4, align 16, !tbaa !67
@@ -1380,7 +1380,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %_ZNSo
 _ZNSolsEd.exit53:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next61, 4
-  br i1 %exitcond63.not, label %84, label %_ZNSolsEd.exit47.preheader, !llvm.loop !88
+  br i1 %exitcond63.not, label %84, label %_ZNSolsEd.exit47.preheader, !llvm.loop !89
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit49: ; preds = %84
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #27
@@ -1451,13 +1451,13 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vecto
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !89
+  %5 = load ptr, ptr %4, align 8, !tbaa !90
   %6 = load ptr, ptr %1, align 8, !tbaa !66
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !90
+  %11 = load ptr, ptr %10, align 8, !tbaa !91
   %12 = load ptr, ptr %0, align 8, !tbaa !66
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -1493,12 +1493,12 @@ _ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSaIdEE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKdS1_EEEEPdmT_S9_.exit, %22
   store ptr %20, ptr %0, align 8, !tbaa !66
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 %9
-  store ptr %23, ptr %10, align 8, !tbaa !90
+  store ptr %23, ptr %10, align 8, !tbaa !91
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !89
+  %26 = load ptr, ptr %25, align 8, !tbaa !90
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %27, %14
   %.not24 = icmp ult i64 %28, %9
@@ -1519,9 +1519,9 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %_ZNSt6vectorIdSa
 32:                                               ; preds = %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %12, ptr align 8 %6, i64 %28, i1 false)
   %.pre = load ptr, ptr %1, align 8, !tbaa !66
-  %.pre26 = load ptr, ptr %25, align 8, !tbaa !89
+  %.pre26 = load ptr, ptr %25, align 8, !tbaa !90
   %.pre27 = load ptr, ptr %0, align 8, !tbaa !66
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !89
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !90
   %.pre29 = ptrtoint ptr %.pre26 to i64
   %.pre30 = ptrtoint ptr %.pre27 to i64
   %.pre32 = sub i64 %.pre29, %.pre30
@@ -1547,7 +1547,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
   %41 = load ptr, ptr %0, align 8, !tbaa !66
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %9
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %42, ptr %43, align 8, !tbaa !89
+  store ptr %42, ptr %43, align 8, !tbaa !90
   br label %44
 
 44:                                               ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T_SB_SA_.exit, %2
@@ -1618,9 +1618,9 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19MatrixTransformImplEPFvPNS0_15MatrixTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !91
+  %3 = load ptr, ptr %2, align 8, !tbaa !92
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !92
+  %5 = load ptr, ptr %4, align 8, !tbaa !93
   invoke void %3(ptr noundef %5)
           to label %6 unwind label %7
 
@@ -1645,7 +1645,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19Matri
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19MatrixTransformImplEPFvPNS0_15MatrixTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !94
+  %4 = load ptr, ptr %3, align 8, !tbaa !95
   %5 = icmp eq ptr %4, @_ZTSPFvPN19OpenColorIO_v2_5dev15MatrixTransformEE
   br i1 %5, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %6
 
@@ -1793,30 +1793,31 @@ attributes #30 = { builtin nounwind }
 !66 = !{!57, !58, i64 0}
 !67 = !{!68, !68, i64 0}
 !68 = !{!"double", !10, i64 0}
-!69 = distinct !{!69, !70, !71}
+!69 = distinct !{!69, !70, !71, !72}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!72 = distinct !{!72, !70, !71}
-!73 = distinct !{!73, !70}
-!74 = distinct !{!74, !70}
-!75 = distinct !{!75, !70}
-!76 = distinct !{!76, !70}
-!77 = !{!78, !40, i64 8}
-!78 = !{!"_ZTSSt8ios_base", !40, i64 8, !40, i64 16, !79, i64 24, !80, i64 28, !80, i64 32, !81, i64 40, !82, i64 48, !10, i64 64, !16, i64 192, !83, i64 200, !84, i64 208}
-!79 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
-!80 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
-!81 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
-!82 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !40, i64 8}
-!83 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
-!84 = !{!"_ZTSSt6locale", !85, i64 0}
-!85 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
-!86 = !{!78, !80, i64 32}
-!87 = distinct !{!87, !70}
-!88 = distinct !{!88, !70}
-!89 = !{!57, !58, i64 8}
-!90 = !{!57, !58, i64 16}
-!91 = !{!9, !9, i64 0}
-!92 = !{!93, !22, i64 24}
-!93 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19MatrixTransformImplEPFvPNS0_15MatrixTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
-!94 = !{!95, !39, i64 8}
-!95 = !{!"_ZTSSt9type_info", !39, i64 8}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!73 = distinct !{!73, !70, !71, !72}
+!74 = distinct !{!74, !70, !71}
+!75 = distinct !{!75, !70, !71}
+!76 = distinct !{!76, !70, !71}
+!77 = distinct !{!77, !70, !71}
+!78 = !{!79, !40, i64 8}
+!79 = !{!"_ZTSSt8ios_base", !40, i64 8, !40, i64 16, !80, i64 24, !81, i64 28, !81, i64 32, !82, i64 40, !83, i64 48, !10, i64 64, !16, i64 192, !84, i64 200, !85, i64 208}
+!80 = !{!"_ZTSSt13_Ios_Fmtflags", !10, i64 0}
+!81 = !{!"_ZTSSt12_Ios_Iostate", !10, i64 0}
+!82 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !9, i64 0}
+!83 = !{!"_ZTSNSt8ios_base6_WordsE", !9, i64 0, !40, i64 8}
+!84 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !9, i64 0}
+!85 = !{!"_ZTSSt6locale", !86, i64 0}
+!86 = !{!"p1 _ZTSNSt6locale5_ImplE", !9, i64 0}
+!87 = !{!79, !81, i64 32}
+!88 = distinct !{!88, !70, !71}
+!89 = distinct !{!89, !70, !71}
+!90 = !{!57, !58, i64 8}
+!91 = !{!57, !58, i64 16}
+!92 = !{!9, !9, i64 0}
+!93 = !{!94, !22, i64 24}
+!94 = !{!"_ZTSSt19_Sp_counted_deleterIPN19OpenColorIO_v2_5dev19MatrixTransformImplEPFvPNS0_15MatrixTransformEESaIvELN9__gnu_cxx12_Lock_policyE2EE", !15, i64 0, !21, i64 16}
+!95 = !{!96, !39, i64 8}
+!96 = !{!"_ZTSSt9type_info", !39, i64 8}

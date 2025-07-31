@@ -151,7 +151,7 @@ _free_undo_data.exit.i:                           ; preds = %20, %15
 
 23:                                               ; preds = %_free_undo_data.exit.i, %.lr.ph.i
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !60
 
 24:                                               ; preds = %._crit_edge.i
   %25 = load ptr, ptr %0, align 8, !tbaa !52
@@ -203,7 +203,7 @@ _free_undo_data.exit.i14:                         ; preds = %42, %37
 
 45:                                               ; preds = %_free_undo_data.exit.i14, %.lr.ph.i10
   %.not.i15 = icmp eq ptr %33, null
-  br i1 %.not.i15, label %._crit_edge.i16, label %.lr.ph.i10
+  br i1 %.not.i15, label %._crit_edge.i16, label %.lr.ph.i10, !llvm.loop !60
 
 46:                                               ; preds = %._crit_edge.i16
   %47 = load ptr, ptr %27, align 8, !tbaa !52
@@ -295,44 +295,44 @@ define internal fastcc void @_undo_record(ptr noundef %0, ptr noundef %1, i32 no
 
 17:                                               ; preds = %9
   %18 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #10
-  store ptr %1, ptr %18, align 8, !tbaa !60
+  store ptr %1, ptr %18, align 8, !tbaa !62
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %2, ptr %19, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %3, ptr %20, align 8, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr %5, ptr %21, align 8, !tbaa !61
+  store ptr %5, ptr %21, align 8, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %6, ptr %22, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #11
   %23 = call i32 @gettimeofday(ptr noundef nonnull %8, ptr noundef null) #11
-  %24 = load i64, ptr %8, align 8, !tbaa !62
+  %24 = load i64, ptr %8, align 8, !tbaa !64
   %25 = add nsw i64 %24, -1290608000
   %26 = sitofp i64 %25 to double
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !64
+  %28 = load i64, ptr %27, align 8, !tbaa !66
   %29 = sitofp i64 %28 to double
   %30 = fmul reassoc nsz arcp contract afn double %29, 0x3EB0C6F7A0B5ED8D
   %31 = fadd reassoc nsz arcp contract afn double %30, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  store double %31, ptr %32, align 8, !tbaa !65
+  store double %31, ptr %32, align 8, !tbaa !67
   %33 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i32 %4, ptr %33, align 8, !tbaa !66
-  %34 = load ptr, ptr %0, align 8, !tbaa !67
+  store i32 %4, ptr %33, align 8, !tbaa !68
+  %34 = load ptr, ptr %0, align 8, !tbaa !69
   %35 = tail call ptr @g_list_prepend(ptr noundef %34, ptr noundef nonnull %18) #11
-  store ptr %35, ptr %0, align 8, !tbaa !67
+  store ptr %35, ptr %0, align 8, !tbaa !69
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !68
+  %37 = load ptr, ptr %36, align 8, !tbaa !70
   tail call void @g_list_free_full(ptr noundef %37, ptr noundef nonnull @_free_undo_data) #11
-  store ptr null, ptr %36, align 8, !tbaa !68
+  store ptr null, ptr %36, align 8, !tbaa !70
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !16
   %39 = and i32 %38, 524288
   %.not31 = icmp eq i32 %39, 0
   br i1 %.not31, label %43, label %40
 
 40:                                               ; preds = %17
-  %41 = load ptr, ptr %0, align 8, !tbaa !67
+  %41 = load ptr, ptr %0, align 8, !tbaa !69
   %42 = tail call i32 @g_list_length(ptr noundef %41) #11
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.4, i32 noundef %2, i32 noundef %42, ptr noundef nonnull @.str.6) #11
   br label %43
@@ -460,7 +460,7 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
 
 26:                                               ; preds = %.lr.ph
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %28 = load i32, ptr %27, align 8, !tbaa !66
+  %28 = load i32, ptr %27, align 8, !tbaa !68
   %.not100 = icmp eq i32 %28, 0
   br i1 %.not100, label %55, label %29
 
@@ -484,14 +484,14 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   %39 = call ptr @g_list_remove(ptr noundef %38, ptr noundef %35) #11
   store ptr %39, ptr %10, align 8, !tbaa !52
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %41 = load i32, ptr %40, align 8, !tbaa !66
+  %41 = load i32, ptr %40, align 8, !tbaa !68
   %.not111 = icmp eq i32 %41, 0
   br i1 %.not111, label %42, label %50
 
 42:                                               ; preds = %.lr.ph126
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !61
-  %45 = load ptr, ptr %35, align 8, !tbaa !60
+  %44 = load ptr, ptr %43, align 8, !tbaa !63
+  %45 = load ptr, ptr %35, align 8, !tbaa !62
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !56
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -505,11 +505,11 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   store ptr %52, ptr %11, align 8, !tbaa !52
   %53 = icmp ne ptr %37, null
   %54 = and i1 %.not111, %53
-  br i1 %54, label %.lr.ph126, label %.critedge
+  br i1 %54, label %.lr.ph126, label %.critedge, !llvm.loop !71
 
 55:                                               ; preds = %26
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %57 = load double, ptr %56, align 8, !tbaa !65
+  %57 = load double, ptr %56, align 8, !tbaa !67
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.backedge, %55
@@ -523,14 +523,14 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   %61 = call ptr @g_list_remove(ptr noundef %58, ptr noundef nonnull %.090) #11
   store ptr %61, ptr %10, align 8, !tbaa !52
   %62 = getelementptr inbounds nuw i8, ptr %.090, i64 32
-  %63 = load i32, ptr %62, align 8, !tbaa !66
+  %63 = load i32, ptr %62, align 8, !tbaa !68
   %.not101 = icmp eq i32 %63, 0
   br i1 %.not101, label %64, label %72
 
 64:                                               ; preds = %.critedge2
   %65 = getelementptr inbounds nuw i8, ptr %.090, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !61
-  %67 = load ptr, ptr %.090, align 8, !tbaa !60
+  %66 = load ptr, ptr %65, align 8, !tbaa !63
+  %67 = load ptr, ptr %.090, align 8, !tbaa !62
   %68 = getelementptr inbounds nuw i8, ptr %.090, i64 8
   %69 = load i32, ptr %68, align 8, !tbaa !56
   %70 = getelementptr inbounds nuw i8, ptr %.090, i64 16
@@ -560,7 +560,7 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 24
-  %83 = load double, ptr %82, align 8, !tbaa !65
+  %83 = load double, ptr %82, align 8, !tbaa !67
   %84 = fsub reassoc nsz arcp contract afn double %83, %57
   %85 = call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %84)
   %86 = fcmp reassoc nsz arcp contract afn olt double %85, 5.000000e-01
@@ -570,13 +570,13 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   %.not102.be = phi i32 [ 0, %80 ], [ 1, %81 ]
   %.084.be = phi i32 [ 1, %80 ], [ 0, %81 ]
   %.pre = load ptr, ptr %10, align 8, !tbaa !52
-  br label %.critedge2
+  br label %.critedge2, !llvm.loop !72
 
 .thread115:                                       ; preds = %.lr.ph
   %87 = getelementptr inbounds nuw i8, ptr %.083124, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !55
   %.not98 = icmp eq ptr %88, null
-  br i1 %.not98, label %.critedge, label %.lr.ph
+  br i1 %.not98, label %.critedge, label %.lr.ph, !llvm.loop !73
 
 .critedge:                                        ; preds = %.thread115, %50, %81, %75, %72, %20, %29
   %89 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #11
@@ -591,7 +591,7 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   br i1 %.not108131, label %.loopexit, label %.lr.ph133.preheader
 
 .lr.ph133.preheader:                              ; preds = %91
-  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !69
+  %93 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !74
   %94 = load ptr, ptr %92, align 8, !tbaa !53
   %95 = ptrtoint ptr %94 to i64
   %96 = trunc i64 %95 to i32
@@ -602,7 +602,7 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   br i1 %.not109127157, label %.loopexit.loopexit, label %.lr.ph128.preheader
 
 .lr.ph133.loopexit:                               ; preds = %.lr.ph128
-  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !69
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !74
   %100 = load ptr, ptr %107, align 8, !tbaa !53
   %101 = ptrtoint ptr %100 to i64
   %102 = trunc i64 %101 to i32
@@ -610,7 +610,7 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   %103 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !55
   %.not109127 = icmp eq ptr %104, null
-  br i1 %.not109127, label %.loopexit.loopexit, label %.lr.ph128.preheader
+  br i1 %.not109127, label %.loopexit.loopexit, label %.lr.ph128.preheader, !llvm.loop !75
 
 .lr.ph128.preheader:                              ; preds = %.lr.ph133.preheader, %.lr.ph133.loopexit
   %105 = phi ptr [ %104, %.lr.ph133.loopexit ], [ %98, %.lr.ph133.preheader ]
@@ -631,7 +631,7 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
   store ptr %113, ptr %4, align 8, !tbaa !52
   %114 = load ptr, ptr %106, align 8, !tbaa !55
   %.not109 = icmp eq ptr %114, null
-  br i1 %.not109, label %.loopexit.loopexit, label %.lr.ph128
+  br i1 %.not109, label %.loopexit.loopexit, label %.lr.ph128, !llvm.loop !76
 
 .loopexit.loopexit:                               ; preds = %.lr.ph133.loopexit, %111, %.lr.ph133.preheader
   %.pre140 = load ptr, ptr %4, align 8, !tbaa !52
@@ -639,7 +639,7 @@ define internal fastcc void @_undo_do_undo_redo(ptr noundef %0, i32 noundef %1, 
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %91, %.critedge
   %115 = phi ptr [ %.pre140, %.loopexit.loopexit ], [ null, %91 ], [ null, %.critedge ]
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !70
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 160), align 8, !tbaa !77
   call void @dt_collection_update_query(ptr noundef %116, i32 noundef 3, i32 noundef 43, ptr noundef %115) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   br label %117
@@ -667,7 +667,7 @@ define void @dt_undo_iterate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %6) #11
-  %8 = load ptr, ptr %0, align 8, !tbaa !67
+  %8 = load ptr, ptr %0, align 8, !tbaa !69
   %.not13.i = icmp eq ptr %8, null
   br i1 %.not13.i, label %_undo_iterate.exit, label %.lr.ph.i
 
@@ -675,7 +675,7 @@ define void @dt_undo_iterate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %.014.i = phi ptr [ %21, %19 ], [ %8, %5 ]
   %9 = load ptr, ptr %.014.i, align 8, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !66
+  %11 = load i32, ptr %10, align 8, !tbaa !68
   %.not11.i = icmp eq i32 %11, 0
   br i1 %.not11.i, label %12, label %19
 
@@ -696,11 +696,11 @@ define void @dt_undo_iterate(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %20 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !55
   %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %_undo_iterate.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_undo_iterate.exit, label %.lr.ph.i, !llvm.loop !78
 
 _undo_iterate.exit:                               ; preds = %19, %5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !68
+  %23 = load ptr, ptr %22, align 8, !tbaa !70
   %.not13.i10 = icmp eq ptr %23, null
   br i1 %.not13.i10, label %_undo_iterate.exit16, label %.lr.ph.i11
 
@@ -708,7 +708,7 @@ _undo_iterate.exit:                               ; preds = %19, %5
   %.014.i12 = phi ptr [ %36, %34 ], [ %23, %_undo_iterate.exit ]
   %24 = load ptr, ptr %.014.i12, align 8, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !66
+  %26 = load i32, ptr %25, align 8, !tbaa !68
   %.not11.i13 = icmp eq i32 %26, 0
   br i1 %.not11.i13, label %27, label %34
 
@@ -729,7 +729,7 @@ _undo_iterate.exit:                               ; preds = %19, %5
   %35 = getelementptr inbounds nuw i8, ptr %.014.i12, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !55
   %.not.i14 = icmp eq ptr %36, null
-  br i1 %.not.i14, label %_undo_iterate.exit16, label %.lr.ph.i11
+  br i1 %.not.i14, label %_undo_iterate.exit16, label %.lr.ph.i11, !llvm.loop !78
 
 _undo_iterate.exit16:                             ; preds = %34, %_undo_iterate.exit
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %6) #11
@@ -872,14 +872,22 @@ attributes #11 = { nounwind }
 !57 = !{!"dt_undo_item_t", !9, i64 0, !12, i64 8, !9, i64 16, !44, i64 24, !12, i64 32, !9, i64 40, !9, i64 48}
 !58 = !{!57, !9, i64 48}
 !59 = !{!57, !9, i64 16}
-!60 = !{!57, !9, i64 0}
-!61 = !{!57, !9, i64 40}
-!62 = !{!63, !48, i64 0}
-!63 = !{!"timeval", !48, i64 0, !48, i64 8}
-!64 = !{!63, !48, i64 8}
-!65 = !{!57, !44, i64 24}
-!66 = !{!57, !12, i64 32}
-!67 = !{!7, !8, i64 0}
-!68 = !{!7, !8, i64 8}
-!69 = !{!17, !28, i64 120}
-!70 = !{!17, !33, i64 160}
+!60 = distinct !{!60, !61}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!57, !9, i64 0}
+!63 = !{!57, !9, i64 40}
+!64 = !{!65, !48, i64 0}
+!65 = !{!"timeval", !48, i64 0, !48, i64 8}
+!66 = !{!65, !48, i64 8}
+!67 = !{!57, !44, i64 24}
+!68 = !{!57, !12, i64 32}
+!69 = !{!7, !8, i64 0}
+!70 = !{!7, !8, i64 8}
+!71 = distinct !{!71, !61}
+!72 = distinct !{!72, !61}
+!73 = distinct !{!73, !61}
+!74 = !{!17, !28, i64 120}
+!75 = distinct !{!75, !61}
+!76 = distinct !{!76, !61}
+!77 = !{!17, !33, i64 160}
+!78 = distinct !{!78, !61}

@@ -183,7 +183,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   %.1 = phi i32 [ %.2, %.loopexit ], [ %.05186, %16 ]
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count
-  br i1 %exitcond109.not, label %.preheader, label %16, !llvm.loop !8
+  br i1 %exitcond109.not, label %.preheader, label %16, !llvm.loop !9
 
 75:                                               ; preds = %.lr.ph95, %75
   %indvars.iv110 = phi i64 [ %15, %.lr.ph95 ], [ %indvars.iv.next111, %75 ]
@@ -199,7 +199,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   %spec.select66 = add i32 %.394, %79
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge, label %75, !llvm.loop !9
+  br i1 %exitcond113.not, label %._crit_edge, label %75, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %75, %.preheader
   %.355.lcssa = phi i1 [ %.052.lcssa, %.preheader ], [ %spec.select65, %75 ]
@@ -275,7 +275,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
 
 118:                                              ; preds = %112, %94
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %check_attrmap_match.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %check_attrmap_match.exit, label %.lr.ph.i, !llvm.loop !11
 
 check_attrmap_match.exit:                         ; preds = %118, %.preheader.i
   tail call void @pfree(ptr noundef %11) #5
@@ -402,7 +402,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 55:                                               ; preds = %37, %30
   %56 = add nuw nsw i32 %.04254.us, 1
   %exitcond78.not = icmp eq i32 %56, %.fr67
-  br i1 %exitcond78.not, label %..loopexit_crit_edge.us, label %30, !llvm.loop !11
+  br i1 %exitcond78.not, label %..loopexit_crit_edge.us, label %30, !llvm.loop !12
 
 57:                                               ; preds = %..loopexit_crit_edge.us, %.lr.ph59.split.us
   %58 = phi ptr [ %13, %.lr.ph59.split.us ], [ %51, %..loopexit_crit_edge.us ]
@@ -410,7 +410,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %.1.us = phi i32 [ %.04357.us, %.lr.ph59.split.us ], [ %spec.store.select.us, %..loopexit_crit_edge.us ]
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
-  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph59.split.us, !llvm.loop !12
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph59.split.us, !llvm.loop !13
 
 .lr.ph59.split:                                   ; preds = %.lr.ph59
   %60 = load i32, ptr %1, align 8
@@ -475,7 +475,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 90:                                               ; preds = %.loopexit, %.lr.ph59.split.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph59.split.split, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph59.split.split, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %90, %57, %.lr.ph59.split, %3
   ret ptr %6
@@ -558,7 +558,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
 
 41:                                               ; preds = %35, %16
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %check_attrmap_match.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %check_attrmap_match.exit, label %.lr.ph.i, !llvm.loop !11
 
 check_attrmap_match.exit:                         ; preds = %41, %.preheader.i.check_attrmap_match.exit_crit_edge
   %42 = phi ptr [ %.pre, %.preheader.i.check_attrmap_match.exit_crit_edge ], [ %17, %41 ]
@@ -591,12 +591,13 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !7, !8}

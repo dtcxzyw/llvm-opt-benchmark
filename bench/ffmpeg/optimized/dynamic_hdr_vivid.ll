@@ -466,7 +466,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
   %325 = load i32, ptr %81, align 4, !tbaa !15
   %326 = sext i32 %325 to i64
   %327 = icmp slt i64 %indvars.iv.next357, %326
-  br i1 %327, label %85, label %.thread312, !llvm.loop !28
+  br i1 %327, label %85, label %.thread312, !llvm.loop !29
 
 .thread312:                                       ; preds = %.loopexit, %.preheader
   %.sroa.34.2 = phi i32 [ %69, %.preheader ], [ %.sroa.34.6, %.loopexit ]
@@ -481,14 +481,14 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
   %336 = add i32 %.sroa.34.2, 1
   %337 = tail call i32 @llvm.umin.i32(i32 %8, i32 %336)
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  store i32 %335, ptr %338, align 4, !tbaa !29
+  store i32 %335, ptr %338, align 4, !tbaa !30
   %.not178 = icmp sgt i32 %334, -1
   br i1 %.not178, label %.thread321, label %339
 
 339:                                              ; preds = %.thread312
   %340 = sub nsw i32 %.018.i.i, %337
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  %342 = load i32, ptr %341, align 4, !tbaa !30
+  %342 = load i32, ptr %341, align 4, !tbaa !31
   %343 = shl nsw i32 %342, 3
   %344 = or disjoint i32 %343, 3
   %345 = icmp slt i32 %340, %344
@@ -503,7 +503,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
   %352 = and i32 %337, 7
   %353 = shl i32 %351, %352
   %354 = lshr i32 %353, 29
-  store i32 %354, ptr %341, align 4, !tbaa !30
+  store i32 %354, ptr %341, align 4, !tbaa !31
   %.not352 = icmp ult i32 %353, 536870912
   br i1 %.not352, label %.thread321, label %.lr.ph348
 
@@ -533,7 +533,7 @@ define range(i32 -1094995529, 1) i32 @ff_parse_itu_t_t35_to_dynamic_hdr_vivid(pt
   store i32 128, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !10
   %indvars.iv.next360 = add nuw nsw i64 %indvars.iv359, 1
   %371 = icmp samesign ult i64 %indvars.iv.next360, %358
-  br i1 %371, label %359, label %.thread321, !llvm.loop !31
+  br i1 %371, label %359, label %.thread321, !llvm.loop !32
 
 .thread321:                                       ; preds = %236, %223, %110, %85, %266, %359, %339, %71, %346, %.thread312, %10, %.preheader331, %15, %4, %3
   %.0 = phi i32 [ -12, %3 ], [ -1094995529, %4 ], [ -1094995529, %15 ], [ -1094995529, %.preheader331 ], [ 0, %10 ], [ -1094995529, %71 ], [ -1094995529, %339 ], [ 0, %346 ], [ 0, %.thread312 ], [ 0, %359 ], [ -1094995529, %266 ], [ -1094995529, %85 ], [ -1094995529, %110 ], [ -1094995529, %223 ], [ -1094995529, %236 ]
@@ -577,9 +577,10 @@ attributes #1 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !23 = !{!17, !11, i64 80}
 !24 = !{!25, !11, i64 0}
 !25 = !{!"AVHDRVivid3SplineParams", !11, i64 0, !14, i64 4, !14, i64 12, !14, i64 20, !14, i64 28, !14, i64 36}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = !{!13, !11, i64 384}
-!30 = !{!13, !11, i64 388}
-!31 = distinct !{!31, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = !{!13, !11, i64 384}
+!31 = !{!13, !11, i64 388}
+!32 = distinct !{!32, !27, !28}

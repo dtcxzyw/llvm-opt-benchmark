@@ -1612,7 +1612,7 @@ init_frag.exit.i:                                 ; preds = %148
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load ptr, ptr %181, align 8
   %.not.i.i = icmp eq ptr %182, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %init_frag.exit.i
   %.0.lcssa.i.i = phi i32 [ 0, %init_frag.exit.i ], [ %177, %.lr.ph.i.i ]
@@ -1655,7 +1655,7 @@ find_tail.exit.i:                                 ; preds = %._crit_edge.i.i
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8
   %.not.i156.i = icmp eq ptr %206, null
-  br i1 %.not.i156.i, label %._crit_edge.i157.i, label %.lr.ph.i155.i, !llvm.loop !11
+  br i1 %.not.i156.i, label %._crit_edge.i157.i, label %.lr.ph.i155.i, !llvm.loop !12
 
 ._crit_edge.i157.i:                               ; preds = %.lr.ph.i155.i, %188
   %.0209.i = phi i16 [ %189, %188 ], [ %201, %.lr.ph.i155.i ]
@@ -1744,7 +1744,7 @@ init_frag.exit160.i:                              ; preds = %218
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8
   %.not.i166.i = icmp eq ptr %256, null
-  br i1 %.not.i166.i, label %._crit_edge.i167.i, label %.lr.ph.i163.i, !llvm.loop !11
+  br i1 %.not.i166.i, label %._crit_edge.i167.i, label %.lr.ph.i163.i, !llvm.loop !12
 
 ._crit_edge.i167.i:                               ; preds = %.lr.ph.i163.i, %init_frag.exit160.i
   %.1210.i = phi i16 [ %239, %init_frag.exit160.i ], [ %251, %.lr.ph.i163.i ]
@@ -1836,7 +1836,7 @@ init_frag.exit173.i:                              ; preds = %270
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load ptr, ptr %301, align 8
   %.not.i183.i = icmp eq ptr %302, null
-  br i1 %.not.i183.i, label %._crit_edge.i184.i, label %.lr.ph.i178.i, !llvm.loop !10
+  br i1 %.not.i183.i, label %._crit_edge.i184.i, label %.lr.ph.i178.i, !llvm.loop !11
 
 ._crit_edge.i184.i:                               ; preds = %.lr.ph.i178.i, %init_frag.exit173.i
   %.0.lcssa.i185.i = phi i32 [ 0, %init_frag.exit173.i ], [ %297, %.lr.ph.i178.i ]
@@ -2015,7 +2015,7 @@ call_rlc.exit:                                    ; preds = %360, %359, %356, %3
   %364 = load i32, ptr %11, align 4
   %365 = zext i32 %364 to i64
   %366 = icmp samesign ult i64 %indvars.iv.next, %365
-  br i1 %366, label %87, label %._crit_edge, !llvm.loop !12
+  br i1 %366, label %87, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %call_rlc.exit, %ss_interpretation.exit
   %.091.lcssa = phi i32 [ 0, %ss_interpretation.exit ], [ %363, %call_rlc.exit ]
@@ -2937,7 +2937,7 @@ mac_is_copy.exit64:                               ; preds = %.lr.ph
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   %.not = icmp eq ptr %83, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %mac_is_copy.exit64, %mac_is_copy.exit
   %.057.lcssa = phi i16 [ %49, %mac_is_copy.exit ], [ %78, %mac_is_copy.exit64 ]
@@ -3037,7 +3037,7 @@ define internal fastcc noundef ptr @add_to_tree(ptr noundef %0, ptr noundef %1, 
   %34 = getelementptr inbounds nuw i8, ptr %.04447, i64 24
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 switch.lookup:                                    ; preds = %7
   %36 = zext i16 %5 to i32
@@ -3189,10 +3189,11 @@ attributes #10 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}

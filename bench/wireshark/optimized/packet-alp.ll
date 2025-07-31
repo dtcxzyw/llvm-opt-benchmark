@@ -398,7 +398,7 @@ proto_item_set_generated.exit.i:                  ; preds = %30, %27, %19
   %85 = tail call i32 @call_dissector(ptr noundef %84, ptr noundef %83, ptr noundef %1, ptr noundef %2)
   %86 = add i8 %77, -1
   %.not89.us.i = icmp eq i8 %86, 0
-  br i1 %.not89.us.i, label %._crit_edge100.i, label %.lr.ph99.split.us.i, !llvm.loop !8
+  br i1 %.not89.us.i, label %._crit_edge100.i, label %.lr.ph99.split.us.i, !llvm.loop !9
 
 .lr.ph99.split.i:                                 ; preds = %.lr.ph99.split.i, %.lr.ph99.split.preheader.i
   %.sroa.4.0.i = phi i8 [ %.sroa.4.0.extract.trunc.i, %.lr.ph99.split.preheader.i ], [ %93, %.lr.ph99.split.i ]
@@ -422,7 +422,7 @@ proto_item_set_generated.exit.i:                  ; preds = %30, %27, %19
   %99 = tail call i32 @call_dissector(ptr noundef %98, ptr noundef %97, ptr noundef %1, ptr noundef %2)
   %100 = add i8 %87, -1
   %.not89.i = icmp eq i8 %100, 0
-  br i1 %.not89.i, label %._crit_edge100.i, label %.lr.ph99.split.i, !llvm.loop !10
+  br i1 %.not89.i, label %._crit_edge100.i, label %.lr.ph99.split.i, !llvm.loop !11
 
 ._crit_edge100.i:                                 ; preds = %.lr.ph99.split.i, %.lr.ph99.split.us.i, %._crit_edge.i
   %.1.lcssa.i = phi i32 [ %71, %._crit_edge.i ], [ %82, %.lr.ph99.split.us.i ], [ %96, %.lr.ph99.split.i ]
@@ -813,13 +813,13 @@ proto_item_set_generated.exit409:                 ; preds = %309, %321, %324
   %.2384 = add i32 %spec.select396, %356
   %357 = add nuw i8 %.0385424, 1
   %exitcond.not = icmp eq i8 %357, %334
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %351, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %351, !llvm.loop !12
 
 ._crit_edge430:                                   ; preds = %398, %._crit_edge
   %.9.lcssa = phi i32 [ %350, %._crit_edge ], [ %.11, %398 ]
   %358 = add nuw nsw i8 %.0381432, 1
   %exitcond439 = icmp eq i8 %.0381432, %316
-  br i1 %exitcond439, label %.loopexit, label %332, !llvm.loop !12
+  br i1 %exitcond439, label %.loopexit, label %332, !llvm.loop !13
 
 .lr.ph429:                                        ; preds = %.lr.ph429.preheader, %398
   %indvars.iv = phi i32 [ 0, %.lr.ph429.preheader ], [ %indvars.iv.next, %398 ]
@@ -882,7 +882,7 @@ proto_item_set_generated.exit409:                 ; preds = %309, %321, %324
   %.11 = phi i32 [ %397, %394 ], [ %.10, %393 ]
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond438.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond438.not, label %._crit_edge430, label %.lr.ph429, !llvm.loop !13
+  br i1 %exitcond438.not, label %._crit_edge430, label %.lr.ph429, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge430, %288, %286
   %.6 = phi i32 [ %.4, %286 ], [ %307, %288 ], [ %.9.lcssa, %._crit_edge430 ]
@@ -1030,11 +1030,12 @@ attributes #6 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

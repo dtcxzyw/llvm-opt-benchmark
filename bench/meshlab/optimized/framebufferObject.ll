@@ -706,7 +706,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %11, %_ZNSt6vectorIj
   %35 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !7
+  br i1 %36, label %.lr.ph, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %.preheader, %1
   %37 = zext i32 %0 to i64
@@ -780,6 +780,7 @@ attributes #20 = { builtin allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

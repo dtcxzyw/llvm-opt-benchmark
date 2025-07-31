@@ -200,7 +200,7 @@ define void @Ivy_TableInsert(ptr noundef captures(none) %0, ptr noundef readonly
   br i1 %.not.not.i.i, label %.preheader.i.i, label %.loopexit.i.i.backedge
 
 .loopexit.i.i.backedge:                           ; preds = %.lr.ph.i.i, %.loopexit.i.i
-  br label %.loopexit.i.i, !llvm.loop !28
+  br label %.loopexit.i.i, !llvm.loop !29
 
 .preheader.i.i:                                   ; preds = %.loopexit.i.i
   %.not15.i.i = icmp ult i32 %36, 9
@@ -210,13 +210,13 @@ define void @Ivy_TableInsert(ptr noundef captures(none) %0, ptr noundef readonly
   %39 = add nuw nsw i32 %.01116.i.i, 2
   %40 = mul nuw nsw i32 %39, %39
   %.not.i.i = icmp ugt i32 %40, %36
-  br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %.not.i.i, label %Abc_PrimeCudd.exit.i, label %.lr.ph.i.i, !llvm.loop !30
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %38
   %.01116.i.i = phi i32 [ %39, %38 ], [ 3, %.preheader.i.i ]
   %41 = urem i32 %36, %.01116.i.i
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.loopexit.i.i.backedge, label %38, !llvm.loop !28
+  br i1 %42, label %.loopexit.i.i.backedge, label %38, !llvm.loop !29
 
 Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %38
   store i32 %36, ptr %12, align 8, !tbaa !12
@@ -308,7 +308,7 @@ Ivy_Hash.exit.i.i:                                ; preds = %65, %Ivy_ObjFaninId
 
 92:                                               ; preds = %.lr.ph.i
   %93 = icmp eq i32 %98, %90
-  br i1 %93, label %Ivy_TableFind.exit.i, label %.lr.ph.i, !llvm.loop !30
+  br i1 %93, label %Ivy_TableFind.exit.i, label %.lr.ph.i, !llvm.loop !31
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i26.i, %92
   %.014.i30.i = phi i32 [ %95, %92 ], [ %86, %.lr.ph.i26.i ]
@@ -318,10 +318,10 @@ Ivy_Hash.exit.i.i:                                ; preds = %65, %Ivy_ObjFaninId
   %97 = getelementptr inbounds i32, ptr %calloc.i, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !21
   %.not.i27.i = icmp eq i32 %98, 0
-  br i1 %.not.i27.i, label %.Ivy_TableFind.exit.loopexit_crit_edge.i, label %92, !llvm.loop !30
+  br i1 %.not.i27.i, label %.Ivy_TableFind.exit.loopexit_crit_edge.i, label %92, !llvm.loop !31
 
 .Ivy_TableFind.exit.loopexit_crit_edge.i:         ; preds = %.lr.ph.i
-  br label %Ivy_TableFind.exit.i, !llvm.loop !30
+  br label %Ivy_TableFind.exit.i, !llvm.loop !31
 
 Ivy_TableFind.exit.i:                             ; preds = %92, %.Ivy_TableFind.exit.loopexit_crit_edge.i, %.lr.ph.i26.i, %Ivy_Hash.exit.i.i
   %.lcssa12.i.i = phi i64 [ %87, %Ivy_Hash.exit.i.i ], [ %96, %.Ivy_TableFind.exit.loopexit_crit_edge.i ], [ %87, %.lr.ph.i26.i ], [ %96, %92 ]
@@ -332,7 +332,7 @@ Ivy_TableFind.exit.i:                             ; preds = %92, %.Ivy_TableFind
 100:                                              ; preds = %Ivy_TableFind.exit.i, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %47, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %47, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %100, %Abc_PrimeCudd.exit.i
   %.not.i = icmp eq ptr %27, null
@@ -406,7 +406,7 @@ Ivy_Hash.exit.i:                                  ; preds = %112, %Ivy_ObjFaninI
 
 140:                                              ; preds = %.lr.ph
   %141 = icmp eq i32 %146, %.pre
-  br i1 %141, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
+  br i1 %141, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %Ivy_Hash.exit.i, %140
   %.014.i17 = phi i32 [ %143, %140 ], [ %133, %Ivy_Hash.exit.i ]
@@ -416,10 +416,10 @@ Ivy_Hash.exit.i:                                  ; preds = %112, %Ivy_ObjFaninI
   %145 = getelementptr inbounds i32, ptr %135, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !21
   %.not.i11 = icmp eq i32 %146, 0
-  br i1 %.not.i11, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %140, !llvm.loop !30
+  br i1 %.not.i11, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %140, !llvm.loop !31
 
 .Ivy_TableFind.exit.loopexit_crit_edge:           ; preds = %.lr.ph
-  br label %Ivy_TableFind.exit, !llvm.loop !30
+  br label %Ivy_TableFind.exit, !llvm.loop !31
 
 Ivy_TableFind.exit:                               ; preds = %140, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
   %.lcssa12.i = phi i64 [ %136, %Ivy_Hash.exit.i ], [ %144, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %144, %140 ]
@@ -504,7 +504,7 @@ Ivy_Hash.exit.i:                                  ; preds = %17, %Ivy_ObjFaninId
 
 45:                                               ; preds = %.lr.ph
   %46 = icmp eq i32 %51, %43
-  br i1 %46, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
+  br i1 %46, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %45
   %.014.i21 = phi i32 [ %48, %45 ], [ %37, %.lr.ph.i ]
@@ -514,10 +514,10 @@ Ivy_Hash.exit.i:                                  ; preds = %17, %Ivy_ObjFaninId
   %50 = getelementptr inbounds i32, ptr %39, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %.not.i = icmp eq i32 %51, 0
-  br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %45, !llvm.loop !30
+  br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %45, !llvm.loop !31
 
 .Ivy_TableFind.exit.loopexit_crit_edge:           ; preds = %.lr.ph
-  br label %Ivy_TableFind.exit, !llvm.loop !30
+  br label %Ivy_TableFind.exit, !llvm.loop !31
 
 Ivy_TableFind.exit:                               ; preds = %45, %.lr.ph.i, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
   %.lcssa12.i = phi i64 [ %40, %Ivy_Hash.exit.i ], [ %49, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %40, %.lr.ph.i ], [ %49, %45 ]
@@ -557,7 +557,7 @@ Ivy_TableFind.exit:                               ; preds = %45, %.lr.ph.i, %.Iv
   %73 = getelementptr inbounds i32, ptr %71, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !21
   %.not19 = icmp eq i32 %74, 0
-  br i1 %.not19, label %.loopexit, label %61, !llvm.loop !32
+  br i1 %.not19, label %.loopexit, label %61, !llvm.loop !33
 
 .loopexit:                                        ; preds = %61, %Ivy_TableFind.exit, %2
   ret void
@@ -636,7 +636,7 @@ Ivy_Hash.exit.i:                                  ; preds = %18, %Ivy_ObjFaninId
 
 46:                                               ; preds = %.lr.ph
   %47 = icmp eq i32 %52, %44
-  br i1 %47, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !30
+  br i1 %47, label %Ivy_TableFind.exit, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %46
   %.014.i4 = phi i32 [ %49, %46 ], [ %38, %.lr.ph.i ]
@@ -646,10 +646,10 @@ Ivy_Hash.exit.i:                                  ; preds = %18, %Ivy_ObjFaninId
   %51 = getelementptr inbounds i32, ptr %40, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !21
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %46, !llvm.loop !30
+  br i1 %.not.i, label %.Ivy_TableFind.exit.loopexit_crit_edge, label %46, !llvm.loop !31
 
 .Ivy_TableFind.exit.loopexit_crit_edge:           ; preds = %.lr.ph
-  br label %Ivy_TableFind.exit, !llvm.loop !30
+  br label %Ivy_TableFind.exit, !llvm.loop !31
 
 Ivy_TableFind.exit:                               ; preds = %46, %.lr.ph.i, %.Ivy_TableFind.exit.loopexit_crit_edge, %Ivy_Hash.exit.i
   %.lcssa12.i = phi i64 [ %41, %Ivy_Hash.exit.i ], [ %50, %.Ivy_TableFind.exit.loopexit_crit_edge ], [ %41, %.lr.ph.i ], [ %50, %46 ]
@@ -684,7 +684,7 @@ define i32 @Ivy_TableCountEntries(ptr noundef readonly captures(none) %0) local_
   %12 = add nuw nsw i32 %.08, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %7, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %12, %7 ]
@@ -731,7 +731,7 @@ define void @Ivy_TableProfile(ptr noundef readonly captures(none) %0) local_unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %6, label %._crit_edge, !llvm.loop !34
+  br i1 %19, label %6, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %16, %1
   ret void
@@ -788,12 +788,13 @@ attributes #9 = { nounwind }
 !23 = !{!24, !9, i64 8}
 !24 = !{!"Vec_Ptr_t_", !5, i64 0, !5, i64 4, !9, i64 8}
 !25 = !{!9, !9, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
-!32 = distinct !{!32, !27}
-!33 = distinct !{!33, !27}
-!34 = distinct !{!34, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = distinct !{!30, !27, !28}
+!31 = distinct !{!31, !27, !28}
+!32 = distinct !{!32, !27, !28}
+!33 = distinct !{!33, !27, !28}
+!34 = distinct !{!34, !27, !28}
+!35 = distinct !{!35, !27, !28}

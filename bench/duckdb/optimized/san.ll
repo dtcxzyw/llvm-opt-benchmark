@@ -187,7 +187,7 @@ san_stashed_corrupted.exit.thread:                ; preds = %6, %12, %san_stashe
 16:                                               ; preds = %san_stashed_corrupted.exit.thread, %san_stashed_corrupted.exit
   %17 = add nuw i64 %.09, 1
   %exitcond.not = icmp eq i64 %17, %1
-  br i1 %exitcond.not, label %._crit_edge, label %6
+  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !16
 }
 
 declare void @duckdb_je_safety_check_fail(ptr noundef, ...) local_unnamed_addr #1
@@ -241,3 +241,5 @@ attributes #4 = { nounwind }
 !13 = !{!8, !8, i64 0}
 !14 = !{!"branch_weights", i32 2146410443, i32 1073205}
 !15 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}

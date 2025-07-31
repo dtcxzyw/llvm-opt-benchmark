@@ -101,7 +101,7 @@ define internal i32 @tmv_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %45 = getelementptr inbounds i8, ptr %.03441.us, i64 %44
   %46 = add nuw i32 %.03640.us, 1
   %exitcond48.not = icmp eq i32 %46, %umax47
-  br i1 %exitcond48.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !37
+  br i1 %exitcond48.not, label %._crit_edge43, label %.preheader.us, !llvm.loop !38
 
 ._crit_edge43:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %22
   store i32 1, ptr %2, align 4, !tbaa !32
@@ -173,7 +173,8 @@ attributes #6 = { nounwind }
 !32 = !{!10, !10, i64 0}
 !33 = !{!14, !14, i64 0}
 !34 = !{!8, !8, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}

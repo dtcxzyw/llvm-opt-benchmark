@@ -1642,12 +1642,12 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; p
   %58 = getelementptr inbounds i8, ptr %57, i64 -4128
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #21
   %59 = getelementptr inbounds nuw i8, ptr %.011, i64 16
-  call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %60 = load ptr, ptr %59, align 8, !tbaa !34, !noalias !83
+  call void @llvm.experimental.noalias.scope.decl(metadata !78)
+  call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  %60 = load ptr, ptr %59, align 8, !tbaa !34, !noalias !84
   %61 = getelementptr inbounds nuw i8, ptr %.011, i64 24
-  %62 = load i64, ptr %61, align 8, !tbaa !10, !noalias !83
-  store ptr %23, ptr %8, align 8, !tbaa !4, !alias.scope !83
+  %62 = load i64, ptr %61, align 8, !tbaa !10, !noalias !84
+  store ptr %23, ptr %8, align 8, !tbaa !4, !alias.scope !84
   %63 = icmp eq ptr %60, null
   %64 = icmp ne i64 %62, 0
   %or.cond.i.i.i = and i1 %63, %64
@@ -1661,8 +1661,8 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; p
   unreachable
 
 65:                                               ; preds = %_ZNSt6vectorI19gmx_file_position_tSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21, !noalias !83
-  store i64 %62, ptr %7, align 8, !tbaa !44, !noalias !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21, !noalias !84
+  store i64 %62, ptr %7, align 8, !tbaa !44, !noalias !84
   %66 = icmp ugt i64 %62, 15
   br i1 %66, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -1671,9 +1671,9 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; p
           to label %.noexc22 unwind label %.loopexit34
 
 .noexc22:                                         ; preds = %.noexc.i.i.i
-  store ptr %67, ptr %8, align 8, !tbaa !34, !alias.scope !83
-  %68 = load i64, ptr %7, align 8, !tbaa !44, !noalias !83
-  store i64 %68, ptr %23, align 8, !tbaa !13, !alias.scope !83
+  store ptr %67, ptr %8, align 8, !tbaa !34, !alias.scope !84
+  %68 = load i64, ptr %7, align 8, !tbaa !44, !noalias !84
+  store i64 %68, ptr %23, align 8, !tbaa !13, !alias.scope !84
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc22, %65
@@ -1693,12 +1693,12 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit: ; p
   br label %73
 
 73:                                               ; preds = %72, %70, %._crit_edge.i.i.i.i
-  %74 = load i64, ptr %7, align 8, !tbaa !44, !noalias !83
-  store i64 %74, ptr %24, align 8, !tbaa !10, !alias.scope !83
-  %75 = load ptr, ptr %8, align 8, !tbaa !34, !alias.scope !83
+  %74 = load i64, ptr %7, align 8, !tbaa !44, !noalias !84
+  store i64 %74, ptr %24, align 8, !tbaa !10, !alias.scope !84
+  %75 = load ptr, ptr %8, align 8, !tbaa !34, !alias.scope !84
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %74
   store i8 0, ptr %76, align 1, !tbaa !13
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21, !noalias !84
   %77 = load ptr, ptr %8, align 8, !tbaa !34
   %78 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %77, i64 noundef 4095) #21
   %79 = icmp eq ptr %77, %23
@@ -1829,9 +1829,9 @@ _ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i:   ; preds = %_ZL17gmx_fio_int_fl
           to label %118 unwind label %.loopexit
 
 118:                                              ; preds = %115
-  %119 = load ptr, ptr %21, align 8, !tbaa !84
+  %119 = load ptr, ptr %21, align 8, !tbaa !85
   %120 = getelementptr inbounds i8, ptr %119, i64 -8
-  store i32 %117, ptr %120, align 8, !tbaa !85
+  store i32 %117, ptr %120, align 8, !tbaa !86
   br label %122
 
 .loopexit:                                        ; preds = %115, %_ZNKSt6vectorI19gmx_file_position_tSaIS0_EE12_M_check_lenEmPKc.exit.i.i, %_ZL17gmx_fio_int_flushP8t_fileio.exit.thread.i, %127, %.noexc30
@@ -2415,16 +2415,17 @@ attributes #27 = { cold nounwind }
 !72 = distinct !{!72, !73, !"_ZSt19__relocate_object_aI19gmx_file_position_tS0_SaIS0_EEvPT_PT0_RT1_: argument 0"}
 !73 = distinct !{!73, !"_ZSt19__relocate_object_aI19gmx_file_position_tS0_SaIS0_EEvPT_PT0_RT1_"}
 !74 = distinct !{!74, !73, !"_ZSt19__relocate_object_aI19gmx_file_position_tS0_SaIS0_EEvPT_PT0_RT1_: argument 1"}
-!75 = distinct !{!75, !76}
+!75 = distinct !{!75, !76, !77}
 !76 = !{!"llvm.loop.mustprogress"}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZNKSt10filesystem7__cxx114path6stringEv: argument 0"}
-!79 = distinct !{!79, !"_ZNKSt10filesystem7__cxx114path6stringEv"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
-!82 = distinct !{!82, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}
-!83 = !{!81, !78}
-!84 = !{!67, !67, i64 0}
-!85 = !{!86, !29, i64 4120}
-!86 = !{!"_ZTS19gmx_file_position_t", !8, i64 0, !12, i64 4096, !87, i64 4104, !29, i64 4120}
-!87 = !{!"_ZTSSt5arrayIhLm16EE", !8, i64 0}
+!77 = !{!"llvm.loop.estimated_trip_count"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZNKSt10filesystem7__cxx114path6stringEv: argument 0"}
+!80 = distinct !{!80, !"_ZNKSt10filesystem7__cxx114path6stringEv"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_: argument 0"}
+!83 = distinct !{!83, !"_ZNKSt10filesystem7__cxx114path6stringIcSt11char_traitsIcESaIcEEENSt7__cxx1112basic_stringIT_T0_T1_EERKSA_"}
+!84 = !{!82, !79}
+!85 = !{!67, !67, i64 0}
+!86 = !{!87, !29, i64 4120}
+!87 = !{!"_ZTS19gmx_file_position_t", !8, i64 0, !12, i64 4096, !88, i64 4104, !29, i64 4120}
+!88 = !{!"_ZTSSt5arrayIhLm16EE", !8, i64 0}

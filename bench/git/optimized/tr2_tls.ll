@@ -526,5 +526,6 @@ attributes #13 = { noreturn nounwind }
 !25 = !{!9, !10, i64 0}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"p1 _ZTS17tr2tls_thread_ctx", !11, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
+!30 = !{!"llvm.loop.estimated_trip_count"}

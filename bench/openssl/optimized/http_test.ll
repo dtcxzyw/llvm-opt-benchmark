@@ -1156,7 +1156,7 @@ define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef sign
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) @__const.test_http_resp_hdr_limit.mock_args, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr null, ptr %5, align 8, !tbaa !25
+  store ptr null, ptr %5, align 8, !tbaa !26
   %10 = icmp eq ptr %7, null
   %11 = icmp eq ptr %9, null
   %or.cond = select i1 %10, i1 true, i1 %11
@@ -1189,7 +1189,7 @@ define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef sign
   br i1 %.not32, label %36, label %22
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %5, align 8, !tbaa !25
+  %23 = load ptr, ptr %5, align 8, !tbaa !26
   %24 = call i32 @OSSL_HTTP_is_alive(ptr noundef %23) #9
   %25 = call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 269, ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.114, i32 noundef %24, i32 noundef 0) #9
   %26 = icmp ne i32 %25, 0
@@ -1201,7 +1201,7 @@ define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef sign
   br i1 %.not, label %36, label %29
 
 29:                                               ; preds = %27
-  %30 = load ptr, ptr %5, align 8, !tbaa !25
+  %30 = load ptr, ptr %5, align 8, !tbaa !26
   %31 = call i32 @OSSL_HTTP_is_alive(ptr noundef %30) #9
   %32 = icmp ne i32 %.02933, 0
   %33 = zext i1 %32 to i32
@@ -1216,11 +1216,11 @@ define internal fastcc range(i32 0, 2) i32 @test_http_keep_alive(i8 noundef sign
   %39 = add nuw nsw i32 %.02834, 1
   %40 = icmp samesign ult i32 %.02834, 2
   %41 = select i1 %.2.shrunk, i1 %40, i1 false
-  br i1 %41, label %17, label %42, !llvm.loop !27
+  br i1 %41, label %17, label %42, !llvm.loop !28
 
 42:                                               ; preds = %36
   %.2 = zext i1 %.2.shrunk to i32
-  %43 = load ptr, ptr %5, align 8, !tbaa !25
+  %43 = load ptr, ptr %5, align 8, !tbaa !26
   %44 = call i32 @OSSL_HTTP_close(ptr noundef %43, i32 noundef %.2) #9
   br label %45
 
@@ -1352,8 +1352,9 @@ attributes #10 = { nounwind willreturn memory(read) }
 !20 = !{!17, !12, i64 8}
 !21 = !{!17, !7, i64 24}
 !22 = !{!17, !14, i64 28}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS20ossl_http_req_ctx_st", !6, i64 0}
-!27 = distinct !{!27, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS20ossl_http_req_ctx_st", !6, i64 0}
+!28 = distinct !{!28, !24, !25}

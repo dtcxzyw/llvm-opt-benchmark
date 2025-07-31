@@ -58,7 +58,7 @@ define dso_local void @acpi_ut_strupr(ptr noundef captures(address_is_null) %0) 
   %15 = getelementptr i8, ptr %7, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %3, %1
   ret void
@@ -90,7 +90,7 @@ define dso_local range(i32 -255, 256) i32 @acpi_ut_stricmp(ptr noundef readonly 
   %22 = icmp eq i8 %12, %19
   %23 = icmp ne i8 %12, 0
   %24 = and i1 %23, %22
-  br i1 %24, label %3, label %25, !llvm.loop !9
+  br i1 %24, label %3, label %25, !llvm.loop !10
 
 25:                                               ; preds = %3
   %26 = zext i8 %12 to i32
@@ -109,8 +109,9 @@ attributes #1 = { fn_ret_thunk_extern nofree norecurse nosync nounwind null_poin
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}

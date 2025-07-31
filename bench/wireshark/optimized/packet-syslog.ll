@@ -626,7 +626,7 @@ dissect_rfc5424_syslog_message.exit:              ; preds = %115, %118, %129, %1
 222:                                              ; preds = %211
   %223 = add i32 %.02447.i, 1
   %exitcond.not.i = icmp eq i32 %223, %208
-  br i1 %exitcond.not.i, label %.loopexit.i, label %211, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.loopexit.i, label %211, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %222, %217, %204
   %.1.i = phi i32 [ %221, %217 ], [ %207, %204 ], [ %207, %222 ]
@@ -767,7 +767,7 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   %or.cond = and i1 %18, %19
   %20 = add nuw nsw i32 %.040, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %or.cond, label %.thread48, label %6
+  br i1 %or.cond, label %.thread48, label %6, !llvm.loop !10
 
 .thread:                                          ; preds = %11, %6
   %.not51 = icmp eq i32 %.040, 0
@@ -793,7 +793,7 @@ define internal i32 @get_framed_syslog_pdu_len(ptr noundef readonly captures(non
   %31 = mul i32 %.03753, 10
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
   %32 = icmp eq i64 %indvars.iv.next56, 0
-  br i1 %32, label %33, label %25, !llvm.loop !9
+  br i1 %32, label %33, label %25, !llvm.loop !11
 
 33:                                               ; preds = %25
   %.not43 = icmp eq i32 %30, 0
@@ -1061,7 +1061,7 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   store i32 %96, ptr %3, align 4
   %97 = add i32 %.0118163, 1
   %98 = icmp ult i32 %96, %40
-  br i1 %98, label %.lr.ph, label %.thread
+  br i1 %98, label %.lr.ph, label %.thread, !llvm.loop !12
 
 .thread.sink.split:                               ; preds = %68, %.lr.ph
   store i32 %43, ptr %3, align 4
@@ -1080,13 +1080,13 @@ define internal fastcc noundef zeroext i1 @dissect_syslog_sd(ptr noundef %0, ptr
   %101 = add i32 %.1121164, 1
   %102 = load i32, ptr %3, align 4
   %103 = icmp ult i32 %102, %40
-  br i1 %103, label %.lr.ph165, label %.loopexit
+  br i1 %103, label %.lr.ph165, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.thread.thread, %38, %.thread149
   %104 = phi i32 [ %43, %.thread149 ], [ %49, %38 ], [ %102, %.thread.thread ]
   %.1121162 = phi i32 [ %.1121164, %.thread149 ], [ %.0120167, %38 ], [ %101, %.thread.thread ]
   %105 = icmp ult i32 %104, %26
-  br i1 %105, label %38, label %._crit_edge, !llvm.loop !10
+  br i1 %105, label %38, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit
   %106 = icmp eq i32 %.1121162, 1
@@ -1142,8 +1142,12 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}

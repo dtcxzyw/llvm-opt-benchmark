@@ -92,7 +92,7 @@ define dso_local void @pkcs7_free_message(ptr noundef %0) #0 align 16 {
   tail call void @x509_free_certificate(ptr noundef nonnull %16) #12
   %18 = load ptr, ptr %6, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.loopexit5, label %.preheader4, !llvm.loop !8
+  br i1 %19, label %.loopexit5, label %.preheader4, !llvm.loop !9
 
 .preheader:                                       ; preds = %.loopexit5, %.preheader
   %20 = phi ptr [ %24, %.preheader ], [ %14, %.loopexit5 ]
@@ -104,7 +104,7 @@ define dso_local void @pkcs7_free_message(ptr noundef %0) #0 align 16 {
   tail call void @kfree(ptr noundef nonnull %20) #12
   %24 = load ptr, ptr %13, align 8
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit5
   tail call void @kfree(ptr noundef nonnull %0) #12
@@ -212,7 +212,7 @@ define dso_local ptr @pkcs7_parse_message(ptr noundef %0, i64 noundef %1) #0 ali
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   %56 = xor i1 %45, %55
-  br i1 %56, label %48, label %.thread, !llvm.loop !10
+  br i1 %56, label %48, label %.thread, !llvm.loop !11
 
 .thread:                                          ; preds = %52, %37
   %57 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.34) #14
@@ -236,7 +236,7 @@ define dso_local ptr @pkcs7_parse_message(ptr noundef %0, i64 noundef %1) #0 ali
   tail call void @x509_free_certificate(ptr noundef nonnull %64) #12
   %66 = load ptr, ptr %27, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %thread-pre-split, label %.preheader, !llvm.loop !11
+  br i1 %67, label %thread-pre-split, label %.preheader, !llvm.loop !12
 
 thread-pre-split:                                 ; preds = %.preheader, %60
   %.pr = load ptr, ptr %13, align 8
@@ -311,7 +311,7 @@ define dso_local noundef i32 @pkcs7_note_OID(ptr noundef captures(none) initiali
 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6) #12
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %6, i8 0, i64 50, i1 false), !annotation !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %6, i8 0, i64 50, i1 false), !annotation !13
   %11 = call i32 @sprint_oid(ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 50) #12
   %12 = ptrtoint ptr %3 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -740,7 +740,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr noundef readonly cap
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %12 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %11, i64 0) #12, !srcloc !13
+  %12 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %11, i64 0) #12, !srcloc !14
   %13 = icmp ult i8 %12, 2
   tail call void @llvm.assume(i1 %13)
   %14 = icmp eq i8 %12, 0
@@ -762,7 +762,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr noundef readonly cap
 
 25:                                               ; preds = %5
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %27 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %26, i64 1) #12, !srcloc !13
+  %27 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %26, i64 1) #12, !srcloc !14
   %28 = icmp ult i8 %27, 2
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i8 %27, 0
@@ -775,7 +775,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr noundef readonly cap
 
 33:                                               ; preds = %5
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %35 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 2) #12, !srcloc !13
+  %35 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %34, i64 2) #12, !srcloc !14
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
   %37 = icmp eq i8 %35, 0
@@ -795,7 +795,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr noundef readonly cap
 
 44:                                               ; preds = %5
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %46 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 3) #12, !srcloc !13
+  %46 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 3) #12, !srcloc !14
   %47 = icmp ult i8 %46, 2
   tail call void @llvm.assume(i1 %47)
   %48 = icmp eq i8 %46, 0
@@ -814,7 +814,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr noundef readonly cap
 
 56:                                               ; preds = %5
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %58 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %57, i64 4) #12, !srcloc !13
+  %58 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %57, i64 4) #12, !srcloc !14
   %59 = icmp ult i8 %58, 2
   tail call void @llvm.assume(i1 %59)
   %60 = icmp eq i8 %58, 0
@@ -822,7 +822,7 @@ define dso_local i32 @pkcs7_sig_note_authenticated_attr(ptr noundef readonly cap
 
 61:                                               ; preds = %5
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %63 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %62, i64 5) #12, !srcloc !13
+  %63 = tail call i8 asm " btsq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %62, i64 5) #12, !srcloc !14
   %64 = icmp ult i8 %63, 2
   tail call void @llvm.assume(i1 %64)
   %65 = icmp eq i8 %63, 0
@@ -988,7 +988,7 @@ define dso_local i32 @pkcs7_note_signed_info(ptr noundef captures(none) %0, i64 
 
 18:                                               ; preds = %12, %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %20 = load i8, ptr %19, align 4, !range !14, !noundef !15
+  %20 = load i8, ptr %19, align 4, !range !15, !noundef !16
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %34
 
@@ -1099,14 +1099,15 @@ attributes #15 = { nounwind allocsize(1) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{!"auto-init"}
-!13 = !{i64 2147807928, i64 2147808005}
-!14 = !{i8 0, i8 2}
-!15 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"auto-init"}
+!14 = !{i64 2147807928, i64 2147808005}
+!15 = !{i8 0, i8 2}
+!16 = !{}

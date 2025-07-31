@@ -145,7 +145,7 @@ pq_less.exit45:                                   ; preds = %44, %48
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %56 = load i64, ptr %4, align 8, !tbaa !17
   %57 = icmp ult i64 %.136, %56
-  br i1 %57, label %.lr.ph, label %.thread
+  br i1 %57, label %.lr.ph, label %.thread, !llvm.loop !19
 
 .thread:                                          ; preds = %52, %50, %1
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.copyload, 0
@@ -160,7 +160,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local range(i32 -13, 1) i32 @merged_iter_pqueue_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !19
+  %5 = load i64, ptr %4, align 8, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !17
   %8 = add i64 %7, 1
@@ -194,7 +194,7 @@ st_mult.exit.i:                                   ; preds = %10
 .thread:                                          ; preds = %st_mult.exit.i
   tail call void @reftable_free(ptr noundef %spec.select47) #7
   store ptr null, ptr %0, align 8, !tbaa !12
-  store i64 0, ptr %4, align 8, !tbaa !19
+  store i64 0, ptr %4, align 8, !tbaa !21
   br label %.thread43
 
 thread-pre-split:                                 ; preds = %2
@@ -205,7 +205,7 @@ thread-pre-split:                                 ; preds = %2
   %22 = phi i64 [ %7, %thread-pre-split ], [ %18, %st_mult.exit.i ]
   %23 = phi ptr [ %.pr, %thread-pre-split ], [ %spec.select47, %st_mult.exit.i ]
   %storemerge = phi i64 [ %5, %thread-pre-split ], [ %spec.select, %st_mult.exit.i ]
-  store i64 %storemerge, ptr %4, align 8, !tbaa !19
+  store i64 %storemerge, ptr %4, align 8, !tbaa !21
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %.thread43, label %24
 
@@ -254,7 +254,7 @@ pq_less.exit:                                     ; preds = %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %47, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not35 = icmp ult i64 %29, 2
-  br i1 %.not35, label %.thread43, label %.lr.ph
+  br i1 %.not35, label %.thread43, label %.lr.ph, !llvm.loop !22
 
 .thread43:                                        ; preds = %44, %pq_less.exit, %40, %24, %.thread, %21
   %.0 = phi i32 [ -13, %21 ], [ -13, %.thread ], [ 0, %24 ], [ 0, %40 ], [ 0, %pq_less.exit ], [ 0, %44 ]
@@ -313,4 +313,7 @@ attributes #8 = { noreturn nounwind }
 !16 = !{!9, !9, i64 0}
 !17 = !{!13, !6, i64 8}
 !18 = !{i64 0, i64 8, !15, i64 8, i64 8, !16}
-!19 = !{!13, !6, i64 16}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!13, !6, i64 16}
+!22 = distinct !{!22, !20}

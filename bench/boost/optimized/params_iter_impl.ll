@@ -146,7 +146,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl5setupEv(ptr noundef nonnull
   %.3 = phi ptr [ %41, %39 ], [ %36, %.lr.ph33 ]
   %44 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %45 = icmp eq ptr %44, %5
-  br i1 %45, label %._crit_edge34, label %.lr.ph33, !llvm.loop !18
+  br i1 %45, label %._crit_edge34, label %.lr.ph33, !llvm.loop !19
 
 ._crit_edge34:                                    ; preds = %42, %.lr.ph33, %28
   %46 = phi i64 [ %.promoted30, %28 ], [ %37, %.lr.ph33 ], [ %43, %42 ]
@@ -171,7 +171,7 @@ define void @_ZN5boost4urls6detail16params_iter_implC2ERKNS1_9query_refEi(ptr no
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = tail call noundef i64 @_ZNK5boost4urls6detail9query_ref6nparamEv(ptr noundef nonnull align 8 dereferenceable(41) %1) #8
-  store i64 %6, ptr %5, align 8, !tbaa !19
+  store i64 %6, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = tail call noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr noundef nonnull align 8 dereferenceable(41) %1) #8
   store i64 %8, ptr %7, align 8, !tbaa !12
@@ -186,7 +186,7 @@ define void @_ZN5boost4urls6detail16params_iter_implC2ERKNS1_9query_refEmm(ptr n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %3, ptr %6, align 8, !tbaa !19
+  store i64 %3, ptr %6, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %2, ptr %7, align 8, !tbaa !12
   %8 = tail call noundef i64 @_ZNK5boost4urls6detail9query_ref6nparamEv(ptr noundef nonnull align 8 dereferenceable(41) %1) #8
@@ -219,9 +219,9 @@ define void @_ZN5boost4urls6detail16params_iter_impl9incrementEv(ptr noundef non
   %9 = add i64 %6, %8
   store i64 %9, ptr %7, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load i64, ptr %10, align 8, !tbaa !19
+  %11 = load i64, ptr %10, align 8, !tbaa !20
   %12 = add i64 %11, 1
-  store i64 %12, ptr %10, align 8, !tbaa !19
+  store i64 %12, ptr %10, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = tail call noundef i64 @_ZNK5boost4urls6detail9query_ref6nparamEv(ptr noundef nonnull align 8 dereferenceable(41) %13) #8
   %15 = icmp ult i64 %12, %14
@@ -238,9 +238,9 @@ define void @_ZN5boost4urls6detail16params_iter_impl9incrementEv(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5boost4urls6detail16params_iter_impl9decrementEv(ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 104)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load i64, ptr %2, align 8, !tbaa !19
+  %3 = load i64, ptr %2, align 8, !tbaa !20
   %4 = add i64 %3, -1
-  store i64 %4, ptr %2, align 8, !tbaa !19
+  store i64 %4, ptr %2, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 1, ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -312,7 +312,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl9decrementEv(ptr noundef non
 39:                                               ; preds = %.lr.ph, %37
   %40 = phi i64 [ %21, %.lr.ph ], [ %38, %37 ]
   %41 = icmp eq ptr %22, %8
-  br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge48:                                    ; preds = %72, %31
   %42 = phi i64 [ %21, %31 ], [ %74, %72 ]
@@ -381,7 +381,7 @@ define void @_ZN5boost4urls6detail16params_iter_impl9decrementEv(ptr noundef non
   %74 = phi i64 [ %55, %.lr.ph47 ], [ %.ph71, %.sink.split ]
   %75 = phi i64 [ %54, %.lr.ph47 ], [ %.sink, %.sink.split ]
   %76 = icmp eq ptr %56, %8
-  br i1 %76, label %._crit_edge48, label %.lr.ph47, !llvm.loop !21
+  br i1 %76, label %._crit_edge48, label %.lr.ph47, !llvm.loop !22
 
 77:                                               ; preds = %58, %._crit_edge48, %24, %._crit_edge
   %.sink74 = phi i64 [ %65, %58 ], [ %52, %._crit_edge48 ], [ %27, %24 ], [ %17, %._crit_edge ]
@@ -425,7 +425,7 @@ define void @_ZNK5boost4urls6detail16params_iter_impl11dereferenceEv(ptr dead_on
   %.sroa.513.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %20, ptr %.sroa.513.0..sroa_idx, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i8 1, ptr %22, align 8, !tbaa !22
+  store i8 1, ptr %22, align 8, !tbaa !23
   br label %28
 
 23:                                               ; preds = %2
@@ -470,11 +470,11 @@ define void @_ZNK5boost4urls6detail16params_iter_impl3keyEv(ptr dead_on_unwind n
   %10 = add i64 %9, -1
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %12 = load i64, ptr %11, align 8, !tbaa !3
-  store ptr %7, ptr %0, align 8, !tbaa !27, !alias.scope !28
+  store ptr %7, ptr %0, align 8, !tbaa !28, !alias.scope !29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %10, ptr %13, align 8, !tbaa !31, !alias.scope !28
+  store i64 %10, ptr %13, align 8, !tbaa !32, !alias.scope !29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %12, ptr %14, align 8, !tbaa !32, !alias.scope !28
+  store i64 %12, ptr %14, align 8, !tbaa !33, !alias.scope !29
   ret void
 }
 
@@ -512,20 +512,21 @@ attributes #9 = { noreturn nounwind }
 !13 = !{!7, !7, i64 0}
 !14 = !{!4, !9, i64 72}
 !15 = !{!4, !9, i64 80}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!4, !9, i64 56}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
-!22 = !{!23, !10, i64 48}
-!23 = !{!"_ZTSN5boost4urls14param_pct_viewE", !24, i64 0, !24, i64 24, !10, i64 48}
-!24 = !{!"_ZTSN5boost4urls15pct_string_viewE", !25, i64 0, !9, i64 16}
-!25 = !{!"_ZTSN5boost4urls7grammar16string_view_baseE", !26, i64 0}
-!26 = !{!"_ZTSN5boost4core17basic_string_viewIcEE", !6, i64 0, !9, i64 8}
-!27 = !{!26, !6, i64 0}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
-!30 = distinct !{!30, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
-!31 = !{!26, !9, i64 8}
-!32 = !{!24, !9, i64 16}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!4, !9, i64 56}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = !{!24, !10, i64 48}
+!24 = !{!"_ZTSN5boost4urls14param_pct_viewE", !25, i64 0, !25, i64 24, !10, i64 48}
+!25 = !{!"_ZTSN5boost4urls15pct_string_viewE", !26, i64 0, !9, i64 16}
+!26 = !{!"_ZTSN5boost4urls7grammar16string_view_baseE", !27, i64 0}
+!27 = !{!"_ZTSN5boost4core17basic_string_viewIcEE", !6, i64 0, !9, i64 8}
+!28 = !{!27, !6, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm: argument 0"}
+!31 = distinct !{!31, !"_ZN5boost4urls27make_pct_string_view_unsafeEPKcmm"}
+!32 = !{!27, !9, i64 8}
+!33 = !{!25, !9, i64 16}

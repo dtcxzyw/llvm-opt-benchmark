@@ -84,7 +84,7 @@ thread-pre-split.i:                               ; preds = %10, %32
 .preheader.i:                                     ; preds = %15, %17
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %17 ], [ 0, %15 ]
   %18 = getelementptr inbounds nuw [14 x %struct.anon], ptr @webvtt_tag_replace, i64 0, i64 %indvars.iv.i
-  %19 = load ptr, ptr %18, align 16, !tbaa !33
+  %19 = load ptr, ptr %18, align 16, !tbaa !34
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #5
   %21 = call i32 @strncmp(ptr noundef nonnull %.024.i, ptr noundef nonnull %19, i64 noundef %20) #5
   %.not35.not.i = icmp eq i32 %21, 0
@@ -92,12 +92,12 @@ thread-pre-split.i:                               ; preds = %10, %32
 
 .loopexit.i:                                      ; preds = %.preheader.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !35
+  %23 = load ptr, ptr %22, align 8, !tbaa !36
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef %23) #4
   %24 = getelementptr inbounds nuw i8, ptr %.024.i, i64 %20
   %.pre.i = load i8, ptr %24, align 1, !tbaa !30
   %.not36.i = icmp eq i8 %.pre.i, 0
-  br i1 %.not36.i, label %.loopexit, label %15, !llvm.loop !36
+  br i1 %.not36.i, label %.loopexit, label %15, !llvm.loop !37
 
 .loopexit.thread.i:                               ; preds = %17
   switch i8 %16, label %30 [
@@ -139,17 +139,17 @@ thread-pre-split.i:                               ; preds = %10, %32
 32:                                               ; preds = %.thread49.i, %31, %.thread47.i, %30, %29, %25, %.loopexit.thread.i
   %.127.i = phi i32 [ 0, %25 ], [ %.026.i, %29 ], [ 1, %30 ], [ 0, %.thread49.i ], [ 0, %31 ], [ 1, %.thread47.i ], [ 1, %.loopexit.thread.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
-  br label %thread-pre-split.i, !llvm.loop !36
+  br label %thread-pre-split.i, !llvm.loop !37
 
 .thread:                                          ; preds = %10, %4
   %34 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   br label %41
 
 .loopexit:                                        ; preds = %.loopexit.thread.i, %.loopexit.i, %15
-  %35 = load ptr, ptr %5, align 8, !tbaa !37
-  %36 = load i32, ptr %9, align 4, !tbaa !39
+  %35 = load ptr, ptr %5, align 8, !tbaa !38
+  %36 = load i32, ptr %9, align 4, !tbaa !40
   %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %9, align 4, !tbaa !39
+  store i32 %37, ptr %9, align 4, !tbaa !40
   %38 = call i32 @ff_ass_add_rect(ptr noundef %1, ptr noundef %35, i32 noundef %36, i32 noundef 0, ptr noundef null, ptr noundef null) #4
   %39 = call i32 @av_bprint_finalize(ptr noundef nonnull %5, ptr noundef null) #4
   %40 = icmp slt i32 %38, 0
@@ -157,10 +157,10 @@ thread-pre-split.i:                               ; preds = %10, %32
 
 41:                                               ; preds = %.thread, %.loopexit
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !41
+  %43 = load i32, ptr %42, align 4, !tbaa !42
   %44 = icmp ne i32 %43, 0
   %45 = zext i1 %44 to i32
-  store i32 %45, ptr %2, align 4, !tbaa !45
+  store i32 %45, ptr %2, align 4, !tbaa !46
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %47 = load i32, ptr %46, align 8, !tbaa !29
   br label %48
@@ -235,18 +235,19 @@ attributes #5 = { nounwind willreturn memory(read) }
 !28 = !{!"any p2 pointer", !7, i64 0}
 !29 = !{!5, !12, i64 32}
 !30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!34, !11, i64 0}
-!34 = !{!"", !11, i64 0, !11, i64 8}
-!35 = !{!34, !11, i64 8}
-!36 = distinct !{!36, !32}
-!37 = !{!38, !11, i64 0}
-!38 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
-!39 = !{!40, !12, i64 0}
-!40 = !{!"FFASSDecoderContext", !12, i64 0}
-!41 = !{!42, !12, i64 12}
-!42 = !{!"AVSubtitle", !43, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !44, i64 16, !10, i64 24}
-!43 = !{!"short", !8, i64 0}
-!44 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
-!45 = !{!12, !12, i64 0}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!35, !11, i64 0}
+!35 = !{!"", !11, i64 0, !11, i64 8}
+!36 = !{!35, !11, i64 8}
+!37 = distinct !{!37, !32, !33}
+!38 = !{!39, !11, i64 0}
+!39 = !{!"AVBPrint", !11, i64 0, !12, i64 8, !12, i64 12, !12, i64 16, !8, i64 20, !8, i64 21}
+!40 = !{!41, !12, i64 0}
+!41 = !{!"FFASSDecoderContext", !12, i64 0}
+!42 = !{!43, !12, i64 12}
+!43 = !{!"AVSubtitle", !44, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !45, i64 16, !10, i64 24}
+!44 = !{!"short", !8, i64 0}
+!45 = !{!"p2 _ZTS14AVSubtitleRect", !28, i64 0}
+!46 = !{!12, !12, i64 0}

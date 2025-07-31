@@ -274,40 +274,40 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 .lr.ph.i.i.i29:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i35
   %.012.i.i.i30 = phi ptr [ %72, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i35 ], [ %57, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i31 = phi ptr [ %71, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i35 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
   %58 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 16
-  store ptr %58, ptr %.012.i.i.i30, align 8, !tbaa !13, !alias.scope !31, !noalias !34
-  %59 = load ptr, ptr %.0911.i.i.i31, align 8, !tbaa !16, !alias.scope !34, !noalias !31
+  store ptr %58, ptr %.012.i.i.i30, align 8, !tbaa !13, !alias.scope !32, !noalias !35
+  %59 = load ptr, ptr %.0911.i.i.i31, align 8, !tbaa !16, !alias.scope !35, !noalias !32
   %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 16
   %61 = icmp eq ptr %59, %60
   br i1 %61, label %62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i32
 
 62:                                               ; preds = %.lr.ph.i.i.i29
   %63 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 8
-  %64 = load i64, ptr %63, align 8, !tbaa !19, !alias.scope !34, !noalias !31
+  %64 = load i64, ptr %63, align 8, !tbaa !19, !alias.scope !35, !noalias !32
   %65 = icmp ult i64 %64, 16
   tail call void @llvm.assume(i1 %65)
   %66 = add nuw nsw i64 %64, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(1) %60, i64 %66, i1 false), !alias.scope !36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(1) %60, i64 %66, i1 false), !alias.scope !37
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i35
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i32: ; preds = %.lr.ph.i.i.i29
-  store ptr %59, ptr %.012.i.i.i30, align 8, !tbaa !16, !alias.scope !31, !noalias !34
-  %67 = load i64, ptr %60, align 8, !tbaa !21, !alias.scope !34, !noalias !31
-  store i64 %67, ptr %58, align 8, !tbaa !21, !alias.scope !31, !noalias !34
+  store ptr %59, ptr %.012.i.i.i30, align 8, !tbaa !16, !alias.scope !32, !noalias !35
+  %67 = load i64, ptr %60, align 8, !tbaa !21, !alias.scope !35, !noalias !32
+  store i64 %67, ptr %58, align 8, !tbaa !21, !alias.scope !32, !noalias !35
   %.phi.trans.insert.i.i.i.i33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 8
-  %.pre.i.i.i.i34 = load i64, ptr %.phi.trans.insert.i.i.i.i33, align 8, !tbaa !19, !alias.scope !34, !noalias !31
+  %.pre.i.i.i.i34 = load i64, ptr %.phi.trans.insert.i.i.i.i33, align 8, !tbaa !19, !alias.scope !35, !noalias !32
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i35
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i35: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i32, %62
   %68 = phi i64 [ %64, %62 ], [ %.pre.i.i.i.i34, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i32 ]
   %69 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 8
-  store i64 %68, ptr %70, align 8, !tbaa !19, !alias.scope !31, !noalias !34
-  store ptr %60, ptr %.0911.i.i.i31, align 8, !tbaa !16, !alias.scope !34, !noalias !31
-  store i64 0, ptr %69, align 8, !tbaa !19, !alias.scope !34, !noalias !31
-  store i8 0, ptr %60, align 1, !tbaa !21, !alias.scope !34, !noalias !31
+  store i64 %68, ptr %70, align 8, !tbaa !19, !alias.scope !32, !noalias !35
+  store ptr %60, ptr %.0911.i.i.i31, align 8, !tbaa !16, !alias.scope !35, !noalias !32
+  store i64 0, ptr %69, align 8, !tbaa !19, !alias.scope !35, !noalias !32
+  store i8 0, ptr %60, align 1, !tbaa !21, !alias.scope !35, !noalias !32
   %71 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i31, i64 32
   %72 = getelementptr inbounds nuw i8, ptr %.012.i.i.i30, i64 32
   %.not.i.i.i36 = icmp eq ptr %71, %5
@@ -560,11 +560,12 @@ attributes #15 = { noreturn nounwind }
 !26 = !{!27}
 !27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
 !28 = !{!24, !27}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!33 = distinct !{!33, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!34 = !{!35}
-!35 = distinct !{!35, !33, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!36 = !{!32, !35}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!34 = distinct !{!34, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!35 = !{!36}
+!36 = distinct !{!36, !34, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!37 = !{!33, !36}

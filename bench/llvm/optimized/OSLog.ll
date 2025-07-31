@@ -557,7 +557,7 @@ _ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_ba
 256:                                              ; preds = %_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsERKhEEERS3_DpOT_.exit.i, %_ZN4llvm15SmallVectorImplIN5clang14analyze_os_log15OSLogBufferItemEE12emplace_backIJRKNS3_4KindERKPKNS1_4ExprERNS1_9CharUnitsERKhEEERS3_DpOT_.exit.i
   %257 = getelementptr inbounds nuw i8, ptr %.078.i, i64 96
   %.not.i = icmp eq ptr %257, %75
-  br i1 %.not.i, label %_ZNK12_GLOBAL__N_124OSLogFormatStringHandler13computeLayoutERN5clang10ASTContextERNS1_14analyze_os_log17OSLogBufferLayoutE.exit.loopexit, label %78
+  br i1 %.not.i, label %_ZNK12_GLOBAL__N_124OSLogFormatStringHandler13computeLayoutERN5clang10ASTContextERNS1_14analyze_os_log17OSLogBufferLayoutE.exit.loopexit, label %78, !llvm.loop !420
 
 _ZNK12_GLOBAL__N_124OSLogFormatStringHandler13computeLayoutERN5clang10ASTContextERNS1_14analyze_os_log17OSLogBufferLayoutE.exit.loopexit: ; preds = %256
   %.pre = load ptr, ptr %60, align 8, !tbaa !22
@@ -680,7 +680,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang21analyze_format_string1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124OSLogFormatStringHandler21HandlePrintfSpecifierERKN5clang14analyze_printf15PrintfSpecifierEPKcjRKNS1_10TargetInfoE(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %1, ptr readnone captures(none) %2, i32 %3, ptr nonnull readnone align 1 captures(none) %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %7 = load i32, ptr %6, align 8, !tbaa !420
+  %7 = load i32, ptr %6, align 8, !tbaa !422
   switch i32 %7, label %_ZNK5clang14analyze_printf15PrintfSpecifier20consumesDataArgumentEv.exit.thread [
     i32 24, label %139
     i32 0, label %139
@@ -711,16 +711,16 @@ _ZNK5clang14analyze_printf15PrintfSpecifier20consumesDataArgumentEv.exit.thread:
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12emplace_backIJEEERS3_DpOT_.exit: ; preds = %13, %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %20 = load i32, ptr %19, align 4, !tbaa !423
+  %20 = load i32, ptr %19, align 4, !tbaa !425
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  %24 = load i64, ptr %23, align 8, !tbaa !429
+  %24 = load i64, ptr %23, align 8, !tbaa !431
   %25 = icmp ugt i64 %24, %21
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12emplace_backIJEEERS3_DpOT_.exit
-  %27 = load ptr, ptr %22, align 8, !tbaa !431
+  %27 = load ptr, ptr %22, align 8, !tbaa !433
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %21
   %29 = load ptr, ptr %28, align 8, !tbaa !15
   %.val = load ptr, ptr %8, align 8, !tbaa !22
@@ -732,7 +732,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12e
   br label %33
 
 33:                                               ; preds = %26, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_124OSLogFormatStringHandler7ArgDataEE12emplace_backIJEEERS3_DpOT_.exit
-  %34 = load i32, ptr %6, align 8, !tbaa !420
+  %34 = load i32, ptr %6, align 8, !tbaa !422
   switch i32 %34, label %39 [
     i32 21, label %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit
     i32 26, label %35
@@ -789,7 +789,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   br label %139
 
 .critedge:                                        ; preds = %_ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_string19ConversionSpecifier4KindE.exit, %51
-  %56 = load i32, ptr %6, align 8, !tbaa !420
+  %56 = load i32, ptr %6, align 8, !tbaa !422
   switch i32 %56, label %87 [
     i32 21, label %57
     i32 26, label %57
@@ -798,7 +798,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 57:                                               ; preds = %.critedge, %.critedge
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %59 = load i32, ptr %58, align 4, !tbaa !432
+  %59 = load i32, ptr %58, align 4, !tbaa !434
   switch i32 %59, label %.critedge32 [
     i32 3, label %139
     i32 1, label %60
@@ -807,7 +807,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %62 = load i32, ptr %61, align 8, !tbaa !433
+  %62 = load i32, ptr %61, align 8, !tbaa !435
   %63 = getelementptr inbounds i8, ptr %44, i64 -80
   %.sroa.077.0.insert.ext = zext i32 %62 to i64
   %.sroa.077.0.insert.insert = or disjoint i64 %.sroa.077.0.insert.ext, 4294967296
@@ -816,9 +816,9 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %66 = load i32, ptr %65, align 8, !tbaa !433
+  %66 = load i32, ptr %65, align 8, !tbaa !435
   %67 = zext i32 %66 to i64
-  %68 = load ptr, ptr %22, align 8, !tbaa !431
+  %68 = load ptr, ptr %22, align 8, !tbaa !433
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8, !tbaa !15
   %71 = getelementptr inbounds i8, ptr %44, i64 -72
@@ -829,7 +829,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 72:                                               ; preds = %.critedge
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %74 = load i32, ptr %73, align 4, !tbaa !432
+  %74 = load i32, ptr %73, align 4, !tbaa !434
   switch i32 %74, label %.critedge32 [
     i32 0, label %139
     i32 1, label %75
@@ -839,7 +839,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %77 = load i32, ptr %76, align 8, !tbaa !433
+  %77 = load i32, ptr %76, align 8, !tbaa !435
   %78 = getelementptr inbounds i8, ptr %44, i64 -80
   %.sroa.070.0.insert.ext = zext i32 %77 to i64
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.070.0.insert.ext, 4294967296
@@ -848,9 +848,9 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 79:                                               ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %81 = load i32, ptr %80, align 8, !tbaa !433
+  %81 = load i32, ptr %80, align 8, !tbaa !435
   %82 = zext i32 %81 to i64
-  %83 = load ptr, ptr %22, align 8, !tbaa !431
+  %83 = load ptr, ptr %22, align 8, !tbaa !433
   %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !15
   %86 = getelementptr inbounds i8, ptr %44, i64 -72
@@ -861,15 +861,15 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 87:                                               ; preds = %.critedge
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 356
-  %89 = load i32, ptr %88, align 4, !tbaa !432
+  %89 = load i32, ptr %88, align 4, !tbaa !434
   %90 = icmp eq i32 %89, 2
   br i1 %90, label %91, label %.critedge32
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %93 = load i32, ptr %92, align 8, !tbaa !433
+  %93 = load i32, ptr %92, align 8, !tbaa !435
   %94 = zext i32 %93 to i64
-  %95 = load ptr, ptr %22, align 8, !tbaa !431
+  %95 = load ptr, ptr %22, align 8, !tbaa !433
   %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %94
   %97 = load ptr, ptr %96, align 8, !tbaa !15
   %98 = getelementptr inbounds i8, ptr %44, i64 -56
@@ -880,15 +880,15 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 .critedge32:                                      ; preds = %72, %75, %79, %57, %60, %64, %87, %91
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %100 = load i32, ptr %99, align 4, !tbaa !432
+  %100 = load i32, ptr %99, align 4, !tbaa !434
   %101 = icmp eq i32 %100, 2
   br i1 %101, label %102, label %112
 
 102:                                              ; preds = %.critedge32
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %104 = load i32, ptr %103, align 8, !tbaa !433
+  %104 = load i32, ptr %103, align 8, !tbaa !435
   %105 = zext i32 %104 to i64
-  %106 = load ptr, ptr %22, align 8, !tbaa !431
+  %106 = load ptr, ptr %22, align 8, !tbaa !433
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8, !tbaa !15
   %.val52 = load ptr, ptr %8, align 8, !tbaa !22
@@ -903,7 +903,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 112:                                              ; preds = %102, %.critedge32
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %114 = load i8, ptr %113, align 8, !tbaa !434, !range !401, !noundef !402
+  %114 = load i8, ptr %113, align 8, !tbaa !436, !range !401, !noundef !402
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %119
 
@@ -916,7 +916,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 119:                                              ; preds = %112
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %121 = load i8, ptr %120, align 8, !tbaa !434, !range !401, !noundef !402
+  %121 = load i8, ptr %120, align 8, !tbaa !436, !range !401, !noundef !402
   %122 = trunc nuw i8 %121 to i1
   br i1 %122, label %123, label %126
 
@@ -929,7 +929,7 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
 
 126:                                              ; preds = %119
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %128 = load i8, ptr %127, align 8, !tbaa !434, !range !401, !noundef !402
+  %128 = load i8, ptr %127, align 8, !tbaa !436, !range !401, !noundef !402
   %129 = trunc nuw i8 %128 to i1
   %.val60.pre = load ptr, ptr %8, align 8, !tbaa !22
   %.val61.pre = load i32, ptr %9, align 8, !tbaa !24
@@ -946,9 +946,9 @@ _ZN12_GLOBAL__N_124OSLogFormatStringHandler7getKindEN5clang21analyze_format_stri
   %.pre-phi.ph = phi i64 [ %124, %123 ], [ %130, %131 ], [ %117, %116 ]
   %.val60.ph = phi ptr [ %.val56, %123 ], [ %.val60.pre, %131 ], [ %.val54, %116 ]
   %133 = getelementptr inbounds i8, ptr %.sink93, i64 -24
-  %134 = load i8, ptr %133, align 8, !tbaa !436
+  %134 = load i8, ptr %133, align 8, !tbaa !438
   %135 = or i8 %134, %.sink92
-  store i8 %135, ptr %133, align 8, !tbaa !436
+  store i8 %135, ptr %133, align 8, !tbaa !438
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.sink.split, %126
@@ -1015,7 +1015,7 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_124
   %11 = icmp uge ptr %2, %.val.pre4.i
   %12 = icmp ult ptr %2, %10
   %spec.select.i.i.i.i.i = and i1 %11, %12
-  br i1 %spec.select.i.i.i.i.i, label %13, label %.critedge.i.i.i, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %13, label %.critedge.i.i.i, !prof !439
 
 13:                                               ; preds = %9
   %14 = ptrtoint ptr %2 to i64
@@ -1083,7 +1083,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %22 = icmp uge ptr %7, %.pre3.i
   %23 = icmp ult ptr %7, %21
   %spec.select.i.i.i.i.i = and i1 %22, %23
-  br i1 %spec.select.i.i.i.i.i, label %24, label %.critedge.i.i.i, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %24, label %.critedge.i.i.i, !prof !439
 
 24:                                               ; preds = %20
   %25 = ptrtoint ptr %7 to i64
@@ -1153,7 +1153,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %23 = icmp uge ptr %6, %.pre3.i
   %24 = icmp ult ptr %6, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
-  br i1 %spec.select.i.i.i.i.i, label %25, label %.critedge.i.i.i, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %25, label %.critedge.i.i.i, !prof !439
 
 25:                                               ; preds = %21
   %26 = ptrtoint ptr %6 to i64
@@ -1225,7 +1225,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %23 = icmp uge ptr %5, %.pre3.i
   %24 = icmp ult ptr %5, %22
   %spec.select.i.i.i.i.i = and i1 %23, %24
-  br i1 %spec.select.i.i.i.i.i, label %25, label %.critedge.i.i.i, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %25, label %.critedge.i.i.i, !prof !439
 
 25:                                               ; preds = %21
   %26 = ptrtoint ptr %5 to i64
@@ -1296,7 +1296,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %24 = icmp uge ptr %6, %.pre3.i
   %25 = icmp ult ptr %6, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
-  br i1 %spec.select.i.i.i.i.i, label %26, label %.critedge.i.i.i, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %26, label %.critedge.i.i.i, !prof !439
 
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %6 to i64
@@ -1367,7 +1367,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   %24 = icmp uge ptr %6, %.pre3.i
   %25 = icmp ult ptr %6, %23
   %spec.select.i.i.i.i.i = and i1 %24, %25
-  br i1 %spec.select.i.i.i.i.i, label %26, label %.critedge.i.i.i, !prof !437
+  br i1 %spec.select.i.i.i.i.i, label %26, label %.critedge.i.i.i, !prof !439
 
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %6 to i64
@@ -1845,21 +1845,23 @@ attributes #12 = { builtin nounwind }
 !417 = !{!"_ZTSSt8optionalIPKN5clang4ExprEE", !418, i64 0}
 !418 = !{!"_ZTSSt14_Optional_baseIPKN5clang4ExprELb1ELb1EE", !419, i64 0}
 !419 = !{!"_ZTSSt17_Optional_payloadIPKN5clang4ExprELb1ELb1ELb1EE", !400, i64 0}
-!420 = !{!421, !422, i64 24}
-!421 = !{!"_ZTSN5clang21analyze_format_string19ConversionSpecifierE", !278, i64 0, !180, i64 8, !180, i64 16, !422, i64 24}
-!422 = !{!"_ZTSN5clang21analyze_format_string19ConversionSpecifier4KindE", !8, i64 0}
-!423 = !{!424, !13, i64 100}
-!424 = !{!"_ZTSN5clang21analyze_format_string15FormatSpecifierE", !425, i64 0, !427, i64 16, !421, i64 40, !427, i64 72, !278, i64 96, !13, i64 100}
-!425 = !{!"_ZTSN5clang21analyze_format_string14LengthModifierE", !180, i64 0, !426, i64 8}
-!426 = !{!"_ZTSN5clang21analyze_format_string14LengthModifier4KindE", !8, i64 0}
-!427 = !{!"_ZTSN5clang21analyze_format_string14OptionalAmountE", !180, i64 0, !13, i64 8, !428, i64 12, !13, i64 16, !278, i64 20, !278, i64 21}
-!428 = !{!"_ZTSN5clang21analyze_format_string14OptionalAmount12HowSpecifiedE", !8, i64 0}
-!429 = !{!430, !29, i64 8}
-!430 = !{!"_ZTSN4llvm8ArrayRefIPKN5clang4ExprEEE", !27, i64 0, !29, i64 8}
-!431 = !{!430, !27, i64 0}
-!432 = !{!427, !428, i64 12}
-!433 = !{!427, !13, i64 16}
-!434 = !{!435, !278, i64 16}
-!435 = !{!"_ZTSN5clang21analyze_format_string12OptionalFlagE", !180, i64 0, !180, i64 8, !278, i64 16}
-!436 = !{!410, !8, i64 72}
-!437 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!420 = distinct !{!420, !421}
+!421 = !{!"llvm.loop.estimated_trip_count"}
+!422 = !{!423, !424, i64 24}
+!423 = !{!"_ZTSN5clang21analyze_format_string19ConversionSpecifierE", !278, i64 0, !180, i64 8, !180, i64 16, !424, i64 24}
+!424 = !{!"_ZTSN5clang21analyze_format_string19ConversionSpecifier4KindE", !8, i64 0}
+!425 = !{!426, !13, i64 100}
+!426 = !{!"_ZTSN5clang21analyze_format_string15FormatSpecifierE", !427, i64 0, !429, i64 16, !423, i64 40, !429, i64 72, !278, i64 96, !13, i64 100}
+!427 = !{!"_ZTSN5clang21analyze_format_string14LengthModifierE", !180, i64 0, !428, i64 8}
+!428 = !{!"_ZTSN5clang21analyze_format_string14LengthModifier4KindE", !8, i64 0}
+!429 = !{!"_ZTSN5clang21analyze_format_string14OptionalAmountE", !180, i64 0, !13, i64 8, !430, i64 12, !13, i64 16, !278, i64 20, !278, i64 21}
+!430 = !{!"_ZTSN5clang21analyze_format_string14OptionalAmount12HowSpecifiedE", !8, i64 0}
+!431 = !{!432, !29, i64 8}
+!432 = !{!"_ZTSN4llvm8ArrayRefIPKN5clang4ExprEEE", !27, i64 0, !29, i64 8}
+!433 = !{!432, !27, i64 0}
+!434 = !{!429, !430, i64 12}
+!435 = !{!429, !13, i64 16}
+!436 = !{!437, !278, i64 16}
+!437 = !{!"_ZTSN5clang21analyze_format_string12OptionalFlagE", !180, i64 0, !180, i64 8, !278, i64 16}
+!438 = !{!410, !8, i64 72}
+!439 = !{!"branch_weights", !"expected", i32 1, i32 2000}

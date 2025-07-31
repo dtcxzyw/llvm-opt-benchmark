@@ -122,7 +122,7 @@ define hidden { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_L
   br i1 %exitcond, label %78, label %8, !llvm.loop !36
 
 78:                                               ; preds = %76
-  %79 = load ptr, ptr %2, align 8, !tbaa !38
+  %79 = load ptr, ptr %2, align 8, !tbaa !39
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %79, i32 noundef 2050)
   br label %.loopexit
 
@@ -184,6 +184,7 @@ attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 !33 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE12_Vector_implE", !34, i64 0}
 !34 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !35, i64 0, !35, i64 8, !35, i64 16}
 !35 = !{!"p1 _ZTS16PJCoordOperation", !6, i64 0}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!4, !5, i64 0}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!4, !5, i64 0}

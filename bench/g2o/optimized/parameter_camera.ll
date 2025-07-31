@@ -203,19 +203,19 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   store double %83, ptr %81, align 16, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #15
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #15
-  store double 1.000000e+00, ptr %4, align 16, !tbaa !6, !alias.scope !12
+  store double 1.000000e+00, ptr %4, align 16, !tbaa !6, !alias.scope !13
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 32, i1 false), !alias.scope !12
-  store double 1.000000e+00, ptr %85, align 8, !tbaa !6, !alias.scope !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %84, i8 0, i64 32, i1 false), !alias.scope !13
+  store double 1.000000e+00, ptr %85, align 8, !tbaa !6, !alias.scope !13
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %87 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %86, i8 0, i64 32, i1 false), !alias.scope !12
-  store double 1.000000e+00, ptr %87, align 16, !tbaa !6, !alias.scope !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %86, i8 0, i64 32, i1 false), !alias.scope !13
+  store double 1.000000e+00, ptr %87, align 16, !tbaa !6, !alias.scope !13
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false), !alias.scope !12
-  store double 1.000000e+00, ptr %89, align 8, !tbaa !6, !alias.scope !12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %88, i8 0, i64 32, i1 false), !alias.scope !13
+  store double 1.000000e+00, ptr %89, align 8, !tbaa !6, !alias.scope !13
   call void @_ZN3g2o18ParameterSE3Offset9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE(ptr noundef nonnull align 16 dereferenceable(488) %0, ptr noundef nonnull align 16 dereferenceable(128) %4)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #15
   %90 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -532,7 +532,7 @@ define noundef zeroext i1 @_ZN3g2o15ParameterCamera4readERSi(ptr noundef nonnull
   %13 = getelementptr i8, ptr %12, i64 -24
   %14 = load i64, ptr %13, align 8
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %14
-  %15 = load i32, ptr %gep.i, align 8, !tbaa !15
+  %15 = load i32, ptr %gep.i, align 8, !tbaa !16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit
 
@@ -541,10 +541,10 @@ define noundef zeroext i1 @_ZN3g2o15ParameterCamera4readERSi(ptr noundef nonnull
   %19 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi10_M_extractIdEERSiRT_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %11, !llvm.loop !27
+  br i1 %exitcond.not.i, label %..critedge_crit_edge.i, label %11, !llvm.loop !28
 
 ..critedge_crit_edge.i:                           ; preds = %17
-  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !27
+  br label %_ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit, !llvm.loop !28
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %11, %..critedge_crit_edge.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -782,7 +782,7 @@ _ZN3g2o15ParameterCamera7setKcamEdddd.exit:       ; preds = %146
   %181 = load i64, ptr %180, align 8
   %182 = getelementptr inbounds i8, ptr %1, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 32
-  %184 = load i32, ptr %183, align 8, !tbaa !15
+  %184 = load i32, ptr %183, align 8, !tbaa !16
   %185 = icmp eq i32 %184, 0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
@@ -810,7 +810,7 @@ define noundef zeroext i1 @_ZNK3g2o15ParameterCamera5writeERSo(ptr noundef nonnu
   %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str, i64 noundef 1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit, label %5, !llvm.loop !28
+  br i1 %exitcond.not.i, label %_ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit, label %5, !llvm.loop !29
 
 _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSoRKNS2_9DenseBaseIT_EE.exit: ; preds = %5
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3) #15
@@ -835,7 +835,7 @@ _ZN3g2o8internal11writeVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSoRKNS2_
   %28 = load i64, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %1, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %31 = load i32, ptr %30, align 8, !tbaa !15
+  %31 = load i32, ptr %30, align 8, !tbaa !16
   %32 = icmp eq i32 %31, 0
   ret i1 %32
 }
@@ -849,8 +849,8 @@ define noundef zeroext i1 @_ZN3g2o11CacheCamera19resolveDependenciesEv(ptr nound
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 16, !tbaa !29
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %5 = load ptr, ptr %4, align 16, !tbaa !30
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
 
@@ -861,7 +861,7 @@ define noundef zeroext i1 @_ZN3g2o11CacheCamera19resolveDependenciesEv(ptr nound
 10:                                               ; preds = %3, %8
   %11 = phi ptr [ %9, %8 ], [ null, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr %11, ptr %12, align 16, !tbaa !34
+  store ptr %11, ptr %12, align 16, !tbaa !35
   %13 = icmp ne ptr %11, null
   br label %14
 
@@ -880,7 +880,7 @@ define void @_ZN3g2o11CacheCamera10updateImplEv(ptr noundef nonnull align 16 der
   %2 = alloca %"class.Eigen::Matrix.314", align 16
   tail call void @_ZN3g2o14CacheSE3Offset10updateImplEv(ptr noundef nonnull align 16 dereferenceable(464) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %4 = load ptr, ptr %3, align 16, !tbaa !34
+  %4 = load ptr, ptr %3, align 16, !tbaa !35
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2) #15
@@ -930,7 +930,7 @@ define void @_ZN3g2o11CacheCamera10updateImplEv(ptr noundef nonnull align 16 der
   store double %43, ptr %38, align 8, !tbaa !6
   %44 = add nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %44, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i.preheader, label %19, !llvm.loop !57
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i.preheader, label %19, !llvm.loop !58
 
 _ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i.preheader: ; preds = %19
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -950,7 +950,7 @@ _ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3E
   store double %51, ptr %49, align 16, !tbaa !6
   %52 = add nuw nsw i64 %.08.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %52, 4
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEaSINS_7ProductINS1_IdLi3ELi3ELi0ELi3ELi3EEENS0_IKS2_Li3ELi4ELb0EEELi0EEEEERS3_RKNS_9DenseBaseIT_EE.exit, label %_ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i, !llvm.loop !58
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen5BlockINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEaSINS_7ProductINS1_IdLi3ELi3ELi0ELi3ELi3EEENS0_IKS2_Li3ELi4ELb0EEELi0EEEEERS3_RKNS_9DenseBaseIT_EE.exit, label %_ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i, !llvm.loop !59
 
 _ZN5Eigen5BlockINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEaSINS_7ProductINS1_IdLi3ELi3ELi0ELi3ELi3EEENS0_IKS2_Li3ELi4ELb0EEELi0EEEEERS3_RKNS_9DenseBaseIT_EE.exit: ; preds = %_ZN5Eigen6MatrixIdLi3ELi4ELi0ELi3ELi4EEC2INS_7ProductINS0_IdLi3ELi3ELi0ELi3ELi3EEENS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EEELi3ELi4ELb0EEELi0EEEEERKT_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %2) #15
@@ -979,13 +979,13 @@ define linkonce_odr noundef i32 @_ZNK3g2o9Parameter11elementTypeEv(ptr noundef n
 define linkonce_odr void @_ZN3g2o5CacheD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3g2o5CacheE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !60
+  %6 = load ptr, ptr %5, align 8, !tbaa !61
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -994,13 +994,13 @@ define linkonce_odr void @_ZN3g2o5CacheD2Ev(ptr noundef nonnull align 8 derefere
 
 _ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit:      ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   %.not.i.i.i1 = icmp eq ptr %11, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorIPN3g2o9ParameterESaIS2_EED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !61
+  %14 = load ptr, ptr %13, align 8, !tbaa !62
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -1015,13 +1015,13 @@ _ZNSt6vectorIPN3g2o9ParameterESaIS2_EED2Ev.exit:  ; preds = %_ZNSt6vectorIPN3g2o
 define linkonce_odr void @_ZN3g2o11CacheCameraD0Ev(ptr noundef nonnull align 16 dereferenceable(600) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3g2o5CacheE, i64 16), ptr %0, align 16, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !60
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !60
+  %6 = load ptr, ptr %5, align 8, !tbaa !61
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1030,13 +1030,13 @@ define linkonce_odr void @_ZN3g2o11CacheCameraD0Ev(ptr noundef nonnull align 16 
 
 _ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i:    ; preds = %4, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load ptr, ptr %10, align 16, !tbaa !29
+  %11 = load ptr, ptr %10, align 16, !tbaa !30
   %.not.i.i.i1.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i1.i, label %_ZN3g2o5CacheD2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIPN3g2o5CacheESaIS2_EED2Ev.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 16, !tbaa !61
+  %14 = load ptr, ptr %13, align 16, !tbaa !62
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -1111,55 +1111,56 @@ attributes #16 = { builtin nounwind }
 !7 = !{!"double", !8, i64 0}
 !8 = !{!"omnipotent char", !5, i64 0}
 !9 = !{!8, !8, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN5Eigen9TransformIdLi3ELi1ELi0EE8IdentityEv: argument 0"}
-!14 = distinct !{!14, !"_ZN5Eigen9TransformIdLi3ELi1ELi0EE8IdentityEv"}
-!15 = !{!16, !19, i64 32}
-!16 = !{!"_ZTSSt8ios_base", !17, i64 8, !17, i64 16, !18, i64 24, !19, i64 28, !19, i64 32, !20, i64 40, !22, i64 48, !8, i64 64, !23, i64 192, !24, i64 200, !25, i64 208}
-!17 = !{!"long", !8, i64 0}
-!18 = !{!"_ZTSSt13_Ios_Fmtflags", !8, i64 0}
-!19 = !{!"_ZTSSt12_Ios_Iostate", !8, i64 0}
-!20 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !21, i64 0}
-!21 = !{!"any pointer", !8, i64 0}
-!22 = !{!"_ZTSNSt8ios_base6_WordsE", !21, i64 0, !17, i64 8}
-!23 = !{!"int", !8, i64 0}
-!24 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !21, i64 0}
-!25 = !{!"_ZTSSt6locale", !26, i64 0}
-!26 = !{!"p1 _ZTSNSt6locale5_ImplE", !21, i64 0}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
-!29 = !{!30, !31, i64 0}
-!30 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE17_Vector_impl_dataE", !31, i64 0, !31, i64 8, !31, i64 16}
-!31 = !{!"p2 _ZTSN3g2o9ParameterE", !21, i64 0}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTSN3g2o9ParameterE", !21, i64 0}
-!34 = !{!35, !56, i64 592}
-!35 = !{!"_ZTSN3g2o11CacheCameraE", !36, i64 0, !55, i64 464, !56, i64 592}
-!36 = !{!"_ZTSN3g2o14CacheSE3OffsetE", !37, i64 0, !49, i64 72, !50, i64 80, !50, i64 208, !50, i64 336}
-!37 = !{!"_ZTSN3g2o5CacheE", !38, i64 0, !39, i64 8, !40, i64 16, !43, i64 40, !48, i64 64}
-!38 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
-!39 = !{!"bool", !8, i64 0}
-!40 = !{!"_ZTSSt6vectorIPN3g2o9ParameterESaIS2_EE", !41, i64 0}
-!41 = !{!"_ZTSSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE", !42, i64 0}
-!42 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE12_Vector_implE", !30, i64 0}
-!43 = !{!"_ZTSSt6vectorIPN3g2o5CacheESaIS2_EE", !44, i64 0}
-!44 = !{!"_ZTSSt12_Vector_baseIPN3g2o5CacheESaIS2_EE", !45, i64 0}
-!45 = !{!"_ZTSNSt12_Vector_baseIPN3g2o5CacheESaIS2_EE12_Vector_implE", !46, i64 0}
-!46 = !{!"_ZTSNSt12_Vector_baseIPN3g2o5CacheESaIS2_EE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
-!47 = !{!"p2 _ZTSN3g2o5CacheE", !21, i64 0}
-!48 = !{!"p1 _ZTSN3g2o14CacheContainerE", !21, i64 0}
-!49 = !{!"p1 _ZTSN3g2o18ParameterSE3OffsetE", !21, i64 0}
-!50 = !{!"_ZTSN5Eigen9TransformIdLi3ELi1ELi0EEE", !51, i64 0}
-!51 = !{!"_ZTSN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEE", !52, i64 0}
-!52 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEE", !53, i64 0}
-!53 = !{!"_ZTSN5Eigen12DenseStorageIdLi16ELi4ELi4ELi0EEE", !54, i64 0}
-!54 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi16ELi0ELi16EEE", !8, i64 0}
-!55 = !{!"_ZTSN5Eigen9TransformIdLi3ELi2ELi0EEE", !51, i64 0}
-!56 = !{!"p1 _ZTSN3g2o15ParameterCameraE", !21, i64 0}
-!57 = distinct !{!57, !11}
-!58 = distinct !{!58, !11}
-!59 = !{!46, !47, i64 0}
-!60 = !{!46, !47, i64 16}
-!61 = !{!30, !31, i64 16}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN5Eigen9TransformIdLi3ELi1ELi0EE8IdentityEv: argument 0"}
+!15 = distinct !{!15, !"_ZN5Eigen9TransformIdLi3ELi1ELi0EE8IdentityEv"}
+!16 = !{!17, !20, i64 32}
+!17 = !{!"_ZTSSt8ios_base", !18, i64 8, !18, i64 16, !19, i64 24, !20, i64 28, !20, i64 32, !21, i64 40, !23, i64 48, !8, i64 64, !24, i64 192, !25, i64 200, !26, i64 208}
+!18 = !{!"long", !8, i64 0}
+!19 = !{!"_ZTSSt13_Ios_Fmtflags", !8, i64 0}
+!20 = !{!"_ZTSSt12_Ios_Iostate", !8, i64 0}
+!21 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !22, i64 0}
+!22 = !{!"any pointer", !8, i64 0}
+!23 = !{!"_ZTSNSt8ios_base6_WordsE", !22, i64 0, !18, i64 8}
+!24 = !{!"int", !8, i64 0}
+!25 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !22, i64 0}
+!26 = !{!"_ZTSSt6locale", !27, i64 0}
+!27 = !{!"p1 _ZTSNSt6locale5_ImplE", !22, i64 0}
+!28 = distinct !{!28, !11, !12}
+!29 = distinct !{!29, !11, !12}
+!30 = !{!31, !32, i64 0}
+!31 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE17_Vector_impl_dataE", !32, i64 0, !32, i64 8, !32, i64 16}
+!32 = !{!"p2 _ZTSN3g2o9ParameterE", !22, i64 0}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTSN3g2o9ParameterE", !22, i64 0}
+!35 = !{!36, !57, i64 592}
+!36 = !{!"_ZTSN3g2o11CacheCameraE", !37, i64 0, !56, i64 464, !57, i64 592}
+!37 = !{!"_ZTSN3g2o14CacheSE3OffsetE", !38, i64 0, !50, i64 72, !51, i64 80, !51, i64 208, !51, i64 336}
+!38 = !{!"_ZTSN3g2o5CacheE", !39, i64 0, !40, i64 8, !41, i64 16, !44, i64 40, !49, i64 64}
+!39 = !{!"_ZTSN3g2o10HyperGraph17HyperGraphElementE"}
+!40 = !{!"bool", !8, i64 0}
+!41 = !{!"_ZTSSt6vectorIPN3g2o9ParameterESaIS2_EE", !42, i64 0}
+!42 = !{!"_ZTSSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE", !43, i64 0}
+!43 = !{!"_ZTSNSt12_Vector_baseIPN3g2o9ParameterESaIS2_EE12_Vector_implE", !31, i64 0}
+!44 = !{!"_ZTSSt6vectorIPN3g2o5CacheESaIS2_EE", !45, i64 0}
+!45 = !{!"_ZTSSt12_Vector_baseIPN3g2o5CacheESaIS2_EE", !46, i64 0}
+!46 = !{!"_ZTSNSt12_Vector_baseIPN3g2o5CacheESaIS2_EE12_Vector_implE", !47, i64 0}
+!47 = !{!"_ZTSNSt12_Vector_baseIPN3g2o5CacheESaIS2_EE17_Vector_impl_dataE", !48, i64 0, !48, i64 8, !48, i64 16}
+!48 = !{!"p2 _ZTSN3g2o5CacheE", !22, i64 0}
+!49 = !{!"p1 _ZTSN3g2o14CacheContainerE", !22, i64 0}
+!50 = !{!"p1 _ZTSN3g2o18ParameterSE3OffsetE", !22, i64 0}
+!51 = !{!"_ZTSN5Eigen9TransformIdLi3ELi1ELi0EEE", !52, i64 0}
+!52 = !{!"_ZTSN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEE", !53, i64 0}
+!53 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEE", !54, i64 0}
+!54 = !{!"_ZTSN5Eigen12DenseStorageIdLi16ELi4ELi4ELi0EEE", !55, i64 0}
+!55 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi16ELi0ELi16EEE", !8, i64 0}
+!56 = !{!"_ZTSN5Eigen9TransformIdLi3ELi2ELi0EEE", !52, i64 0}
+!57 = !{!"p1 _ZTSN3g2o15ParameterCameraE", !22, i64 0}
+!58 = distinct !{!58, !11, !12}
+!59 = distinct !{!59, !11, !12}
+!60 = !{!47, !48, i64 0}
+!61 = !{!47, !48, i64 16}
+!62 = !{!31, !32, i64 16}

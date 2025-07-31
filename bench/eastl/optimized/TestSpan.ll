@@ -211,7 +211,7 @@ for.body:                                         ; preds = %entry, %for.body
   %call = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp3, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @.str.31)
   %__begin1.0.add = add nuw nsw i64 %__begin1.0.idx265, 4
   %cmp.not = icmp eq i64 %__begin1.0.add, 40
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
   %call.i = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 167, ptr noundef nonnull @.str.106)
@@ -469,7 +469,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %land
   %incdec.ptr2.i.i = getelementptr inbounds nuw i8, ptr %first2.addr.06.i.i, i64 4
   %cmp.not.i.i = icmp ne i64 %first1.addr.05.i.i.add, 32
   %or.cond.not = select i1 %cmp1.i.i, i1 %cmp.not.i.i, i1 false
-  br i1 %or.cond.not, label %for.body.i.i, label %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, !llvm.loop !5
+  br i1 %or.cond.not, label %for.body.i.i, label %_ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, !llvm.loop !7
 
 _ZN5eastlneIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i
   %call2 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1.i.i, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 339, ptr noundef nonnull @.str.63)
@@ -492,7 +492,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i10
 for.inc.i.i11:                                    ; preds = %if.end.i.i
   %first2.addr.017.i.i.add = add nuw nsw i64 %first2.addr.017.i.i.idx, 4
   %cmp.i.i13.not = icmp eq i64 %first2.addr.017.i.i.add, 20
-  br i1 %cmp.i.i13.not, label %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i10, !llvm.loop !7
+  br i1 %cmp.i.i13.not, label %_ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i10, !llvm.loop !9
 
 _ZN5eastlltIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i10, %if.end.i.i, %for.inc.i.i11
   %retval.0.i.i = phi i1 [ true, %for.inc.i.i11 ], [ false, %if.end.i.i ], [ true, %for.body.i.i10 ]
@@ -513,7 +513,7 @@ if.end.i.i.i:                                     ; preds = %for.body.i.i.i17
   %first2.addr.017.i.i.i.add = add nuw nsw i64 %first2.addr.017.i.i.i.idx, 4
   %cmp1.i.i.i.not = icmp eq i64 %first2.addr.017.i.i.i.add, 20
   %or.cond = select i1 %cmp3.i.i.i, i1 true, i1 %cmp1.i.i.i.not
-  br i1 %or.cond, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i17, !llvm.loop !7
+  br i1 %or.cond, label %_ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i17, !llvm.loop !9
 
 _ZN5eastlleIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i17, %if.end.i.i.i
   %call14 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.66)
@@ -535,7 +535,7 @@ if.end.i.i.i34:                                   ; preds = %for.body.i.i.i31
 for.inc.i.i.i36:                                  ; preds = %if.end.i.i.i34
   %first2.addr.017.i.i.i32.add = add nuw nsw i64 %first2.addr.017.i.i.i32.idx, 4
   %cmp.i.i.i39.not = icmp eq i64 %first2.addr.017.i.i.i32.add, 20
-  br i1 %cmp.i.i.i39.not, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i31, !llvm.loop !7
+  br i1 %cmp.i.i.i39.not, label %_ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i31, !llvm.loop !9
 
 _ZN5eastlgtIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i31, %if.end.i.i.i34, %for.inc.i.i.i36
   %retval.0.i.i.i30 = phi i1 [ true, %for.inc.i.i.i36 ], [ false, %if.end.i.i.i34 ], [ true, %for.body.i.i.i31 ]
@@ -556,7 +556,7 @@ if.end.i.i.i56:                                   ; preds = %for.body.i.i.i52
   %first2.addr.017.i.i.i53.add = add nuw nsw i64 %first2.addr.017.i.i.i53.idx, 4
   %cmp1.i.i.i62.not = icmp eq i64 %first2.addr.017.i.i.i53.add, 20
   %or.cond72 = select i1 %cmp3.i.i.i57, i1 true, i1 %cmp1.i.i.i62.not
-  br i1 %or.cond72, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i52, !llvm.loop !7
+  br i1 %or.cond72, label %_ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit, label %for.body.i.i.i52, !llvm.loop !9
 
 _ZN5eastlgeIiLm18446744073709551615EiLm18446744073709551615EEEbNS_4spanIT_XT0_EEENS1_IT1_XT2_EEE.exit: ; preds = %for.body.i.i.i52, %if.end.i.i.i56
   %call22 = tail call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2.i.i.not.i55.not.not.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 344, ptr noundef nonnull @.str.68)
@@ -666,5 +666,7 @@ attributes #4 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !8, !6}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8, !6}

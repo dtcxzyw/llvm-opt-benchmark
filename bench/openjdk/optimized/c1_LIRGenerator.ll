@@ -782,7 +782,7 @@ define hidden void @_ZN11PhiResolverD2Ev(ptr noundef nonnull align 8 captures(no
 
 19:                                               ; preds = %8, %17
   %20 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %20, label %8, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %20, label %8, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %19
   %.pre = load ptr, ptr %2, align 8
@@ -802,7 +802,7 @@ define hidden void @_ZN11PhiResolverD2Ev(ptr noundef nonnull align 8 captures(no
 
 .loopexit:                                        ; preds = %_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo.exit, %28
   %27 = icmp sgt i64 %indvars.iv33, 1
-  br i1 %27, label %28, label %._crit_edge28, !llvm.loop !9
+  br i1 %27, label %28, label %._crit_edge28, !llvm.loop !10
 
 28:                                               ; preds = %.lr.ph27, %.loopexit
   %indvars.iv33 = phi i64 [ %26, %.lr.ph27 ], [ %indvars.iv.next34, %.loopexit ]
@@ -1022,7 +1022,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit.i:   ; preds = %126, %122, %118
   %141 = load i32, ptr %45, align 8
   %142 = sext i32 %141 to i64
   %143 = icmp slt i64 %indvars.iv.next.i, %142
-  br i1 %143, label %136, label %.preheader16.loopexit.i, !llvm.loop !10
+  br i1 %143, label %136, label %.preheader16.loopexit.i, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %144 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -1038,7 +1038,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit.i:   ; preds = %126, %122, %118
   %147 = load i32, ptr %104, align 4
   %148 = trunc nuw i64 %indvars.iv.next22.i to i32
   %149 = icmp sgt i32 %147, %148
-  br i1 %149, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !11
+  br i1 %149, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !12
 
 150:                                              ; preds = %.preheader.i
   %151 = load i64, ptr %115, align 8
@@ -1064,7 +1064,7 @@ _ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo.exit: ; preds = %._ZN8LIR_List4move
   %158 = getelementptr inbounds ptr, ptr %154, i64 %157
   store ptr %.0.i.i.i.i, ptr %158, align 8
   %159 = icmp samesign ugt i64 %indvars.iv30, 1
-  br i1 %159, label %39, label %.loopexit, !llvm.loop !12
+  br i1 %159, label %39, label %.loopexit, !llvm.loop !13
 
 ._crit_edge28:                                    ; preds = %.loopexit, %._crit_edge
   ret void
@@ -1129,7 +1129,7 @@ define hidden noundef ptr @_ZN11PhiResolver11create_nodeE7LIR_Oprb(ptr noundef n
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %26, %lftr.wideiv.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !13
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %27, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %27, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre17.i, %.._crit_edge_crit_edge.i ], [ %26, %27 ]
@@ -1218,7 +1218,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %51, %53
 74:                                               ; preds = %75
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, %wide.trip.count.i
-  br i1 %exitcond.not.i9, label %.loopexit, label %75, !llvm.loop !14
+  br i1 %exitcond.not.i9, label %.loopexit, label %75, !llvm.loop !15
 
 75:                                               ; preds = %74, %.lr.ph.i6
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.i6 ], [ %indvars.iv.next.i8, %74 ]
@@ -2248,7 +2248,7 @@ define hidden void @_ZN12LIRGenerator15block_do_epilogEP10BlockBegin(ptr noundef
   %13 = load i32, ptr %3, align 8
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %8, label %._crit_edge, !llvm.loop !15
+  br i1 %15, label %8, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %8, %2
   store i32 0, ptr %3, align 8
@@ -2346,7 +2346,7 @@ _ZN12LIRGenerator7do_rootEP11Instruction.exit:    ; preds = %40, %36, %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %.012, i64 32
   %47 = load ptr, ptr %46, align 8
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN12LIRGenerator7do_rootEP11Instruction.exit
   store ptr null, ptr %33, align 8
@@ -2371,7 +2371,7 @@ _ZN12LIRGenerator7do_rootEP11Instruction.exit:    ; preds = %40, %36, %.lr.ph
   %58 = load i32, ptr %48, align 8
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %indvars.iv.next.i, %59
-  br i1 %60, label %53, label %_ZN12LIRGenerator15block_do_epilogEP10BlockBegin.exit, !llvm.loop !15
+  br i1 %60, label %53, label %_ZN12LIRGenerator15block_do_epilogEP10BlockBegin.exit, !llvm.loop !16
 
 _ZN12LIRGenerator15block_do_epilogEP10BlockBegin.exit: ; preds = %53, %._crit_edge
   store i32 0, ptr %48, align 8
@@ -2563,7 +2563,7 @@ _ZN12LIRGenerator4walkEP11Instruction.exit:       ; preds = %42, %48, %51
   %61 = phi i32 [ %59, %55 ], [ 1, %17 ]
   %62 = add nsw i32 %61, %.05071
   %63 = icmp slt i32 %62, %14
-  br i1 %63, label %17, label %.critedge, !llvm.loop !17
+  br i1 %63, label %17, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %60, %12
   %64 = getelementptr inbounds nuw i8, ptr %.075, i64 16
@@ -2734,13 +2734,13 @@ _ZN12LIRGenerator4walkEP11Instruction.exit66:     ; preds = %134, %140, %143
   %157 = phi i32 [ %155, %153 ], [ 1, %.thread ], [ 1, %95 ]
   %158 = add nsw i32 %157, %.172
   %159 = icmp slt i32 %158, %92
-  br i1 %159, label %95, label %.critedge2, !llvm.loop !18
+  br i1 %159, label %95, label %.critedge2, !llvm.loop !19
 
 .critedge2:                                       ; preds = %156, %90, %9, %9, %88
   %160 = getelementptr inbounds nuw i8, ptr %.075, i64 8
   %161 = load ptr, ptr %160, align 8
   %.not = icmp eq ptr %161, null
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.critedge2, %4
   %162 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5420,7 +5420,7 @@ _ZL14as_array_klassP6ciType.exit202:              ; preds = %_ZNK10ciMetadata9is
   %65 = add nuw nsw i32 %.011.i, 1
   %66 = tail call noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 dereferenceable(104) %54) #17
   %67 = icmp slt i32 %65, %66
-  br i1 %67, label %.lr.ph.i, label %_ZL17phi_declared_typeP3Phi.exit.thread259, !llvm.loop !20
+  br i1 %67, label %.lr.ph.i, label %_ZL17phi_declared_typeP3Phi.exit.thread259, !llvm.loop !21
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %64
   %.011.i = phi i32 [ %65, %64 ], [ 1, %.preheader.i ]
@@ -5542,7 +5542,7 @@ _ZL14as_array_klassP6ciType.exit218:              ; preds = %_ZNK10ciMetadata9is
   %131 = add nuw nsw i32 %.011.i222, 1
   %132 = tail call noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 dereferenceable(104) %120) #17
   %133 = icmp slt i32 %131, %132
-  br i1 %133, label %.lr.ph.i221, label %_ZL17phi_declared_typeP3Phi.exit224.thread266, !llvm.loop !20
+  br i1 %133, label %.lr.ph.i221, label %_ZL17phi_declared_typeP3Phi.exit224.thread266, !llvm.loop !21
 
 .lr.ph.i221:                                      ; preds = %.preheader.i219, %130
   %.011.i222 = phi i32 [ %131, %130 ], [ 1, %.preheader.i219 ]
@@ -6889,7 +6889,7 @@ define hidden void @_ZN12LIRGenerator11move_to_phiEP11PhiResolverP11InstructionS
   %35 = add nuw nsw i32 %.035, 1
   %36 = tail call noundef i32 @_ZNK3Phi13operand_countEv(ptr noundef nonnull align 8 dereferenceable(104) %8) #17
   %37 = icmp slt i32 %35, %36
-  br i1 %37, label %24, label %.loopexit, !llvm.loop !21
+  br i1 %37, label %24, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %34, %.preheader, %17
   %38 = load ptr, ptr %2, align 8
@@ -7127,7 +7127,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %2
   %48 = phi i32 [ %46, %39 ], [ 1, %34 ]
   %49 = add nsw i32 %48, %.038
   %50 = icmp slt i32 %49, %30
-  br i1 %50, label %34, label %.critedge, !llvm.loop !22
+  br i1 %50, label %34, label %.critedge, !llvm.loop !23
 
 .critedge:                                        ; preds = %47, %19
   %51 = getelementptr inbounds nuw i8, ptr %28, i64 24
@@ -7170,7 +7170,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit:           ; preds = %2
   %74 = phi i32 [ %72, %70 ], [ 1, %61 ], [ 1, %56 ]
   %75 = add nsw i32 %74, %.139
   %76 = icmp slt i32 %75, %52
-  br i1 %76, label %56, label %.critedge2, !llvm.loop !23
+  br i1 %76, label %56, label %.critedge2, !llvm.loop !24
 
 .critedge2:                                       ; preds = %73, %.critedge
   call void @_ZN11PhiResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #17
@@ -7438,7 +7438,7 @@ define hidden void @_ZN12LIRGenerator18do_ExceptionObjectEP15ExceptionObject(ptr
   %40 = phi i32 [ %38, %34 ], [ 1, %11 ]
   %41 = add nsw i32 %40, %.073
   %42 = icmp slt i32 %41, %8
-  br i1 %42, label %11, label %.critedge, !llvm.loop !24
+  br i1 %42, label %11, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %39, %2
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -7503,7 +7503,7 @@ define hidden void @_ZN12LIRGenerator18do_ExceptionObjectEP15ExceptionObject(ptr
   %80 = phi i32 [ %78, %76 ], [ 1, %70 ], [ 1, %47 ]
   %81 = add nsw i32 %80, %.174
   %82 = icmp slt i32 %81, %44
-  br i1 %82, label %47, label %.critedge2, !llvm.loop !25
+  br i1 %82, label %47, label %.critedge2, !llvm.loop !26
 
 .critedge2:                                       ; preds = %79, %.critedge
   %83 = tail call i64 @_ZN12LIRGenerator16getThreadPointerEv(ptr noundef nonnull align 8 dereferenceable(232) %0) #17
@@ -8631,7 +8631,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %55 = load i32, ptr %2, align 4
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %37, label %._crit_edge, !llvm.loop !26
+  br i1 %57, label %37, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %54, %27
   %.not34 = icmp eq ptr %5, null
@@ -12214,7 +12214,7 @@ define hidden i64 @_ZN12LIRGenerator13load_constantEP9LIR_Const(ptr noundef nonn
   %25 = load i32, ptr %7, align 8
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next65, %26
-  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !27
+  br i1 %27, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !28
 
 .lr.ph.split.us38:                                ; preds = %.lr.ph.split.us38.preheader, %56
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %56 ], [ 0, %.lr.ph.split.us38.preheader ]
@@ -12265,7 +12265,7 @@ define hidden i64 @_ZN12LIRGenerator13load_constantEP9LIR_Const(ptr noundef nonn
   %57 = load i32, ptr %7, align 8
   %58 = sext i32 %57 to i64
   %59 = icmp slt i64 %indvars.iv.next62, %58
-  br i1 %59, label %.lr.ph.split.us38, label %._crit_edge, !llvm.loop !29
+  br i1 %59, label %.lr.ph.split.us38, label %._crit_edge, !llvm.loop !30
 
 .lr.ph.split.us42:                                ; preds = %.lr.ph, %72
   %indvars.iv = phi i64 [ %indvars.iv.next, %72 ], [ 0, %.lr.ph ]
@@ -12291,7 +12291,7 @@ define hidden i64 @_ZN12LIRGenerator13load_constantEP9LIR_Const(ptr noundef nonn
   %73 = load i32, ptr %7, align 8
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph.split.us42, label %._crit_edge, !llvm.loop !30
+  br i1 %75, label %.lr.ph.split.us42, label %._crit_edge, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %88
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %88 ], [ 0, %.lr.ph ]
@@ -12318,7 +12318,7 @@ define hidden i64 @_ZN12LIRGenerator13load_constantEP9LIR_Const(ptr noundef nonn
   %89 = load i32, ptr %7, align 8
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next68, %90
-  br i1 %91, label %.lr.ph.split, label %._crit_edge, !llvm.loop !31
+  br i1 %91, label %.lr.ph.split, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %72, %56, %24, %88, %2
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -14628,7 +14628,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %133 = load i32, ptr %132, align 4
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next, %134
-  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %135, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %switch.lookup
   %136 = call noundef ptr @_ZN12LIRGenerator9state_forEP11InstructionP10ValueStackb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull %1, ptr noundef %121, i1 noundef zeroext false)
@@ -17866,7 +17866,7 @@ _ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit52: ; preds = %_ZN2
 170:                                              ; preds = %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit, %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit52, %_ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %170, %4
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -18217,7 +18217,7 @@ _ZN22CompilationResourceObjnwEm.exit35:           ; preds = %87, %89
   %.1 = phi ptr [ %.04344, %52 ], [ %.0.i.i.i34, %92 ], [ null, %_ZN22CompilationResourceObjnwEm.exit35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %96
   %97 = load i32, ptr %3, align 4
@@ -18454,7 +18454,7 @@ _ZN22CompilationResourceObjnwEm.exit38:           ; preds = %97, %99
   %.1 = phi ptr [ %.04748, %61 ], [ %.0.i.i.i37, %102 ], [ null, %_ZN22CompilationResourceObjnwEm.exit38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %105, %47
   %.047.lcssa = phi ptr [ %.0.i.i.i, %47 ], [ %.1, %105 ]
@@ -18836,7 +18836,7 @@ _ZN11LIR_OprFact11intptrConstEl.exit71:           ; preds = %_ZN22CompilationRes
   call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 0, i64 %184, i64 %.sroa.015.0.i.i.i63, i64 %.sroa.015.0.i.i.i92, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
   %185 = add nuw nsw i32 %.089, 1
   %exitcond.not = icmp eq i32 %185, %55
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %_ZN11LIR_OprFact11intptrConstEl.exit71, %_ZN11LIR_OprFact11intptrConstEl.exit
   %186 = load i32, ptr %76, align 8
@@ -19424,7 +19424,7 @@ _ZN11LIR_OprFact11intptrConstEl.exit70:           ; preds = %_ZN22CompilationRes
   call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %165, i32 noundef 0, i64 %188, i64 %.sroa.015.0.i.i.i62, i64 %.sroa.015.0.i.i.i92, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %132, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge, label %132, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %_ZN11LIR_OprFact11intptrConstEl.exit70, %_ZN11LIR_OprFact11intptrConstEl.exit
   %189 = load i32, ptr %74, align 8
@@ -19645,7 +19645,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i: ; preds = %14
   %43 = load i32, ptr %3, align 8
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next.i, %44
-  br i1 %45, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !38
+  br i1 %45, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !39
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %46 = load ptr, ptr %21, align 8
@@ -19660,7 +19660,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i: ; preds = %14
   %48 = load i32, ptr %20, align 4
   %49 = trunc nuw i64 %indvars.iv.next22.i to i32
   %50 = icmp sgt i32 %48, %49
-  br i1 %50, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !39
+  br i1 %50, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !40
 
 51:                                               ; preds = %.preheader.i
   %52 = load i64, ptr %22, align 8
@@ -20743,7 +20743,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZNK7LIR_Opr4typeEv
   %103 = trunc i64 %102 to i32
   %104 = sdiv i32 %103, 2
   %105 = icmp slt i32 %.1, %104
-  br i1 %105, label %38, label %_ZN11Compilation18profile_parametersEv.exit.thread, !llvm.loop !40
+  br i1 %105, label %38, label %_ZN11Compilation18profile_parametersEv.exit.thread, !llvm.loop !41
 
 _ZN11Compilation18profile_parametersEv.exit.thread: ; preds = %_Z17is_reference_type9BasicTypeb.exit, %26, %2, %13, %_ZN11Compilation18profile_parametersEv.exit
   ret void
@@ -20892,7 +20892,7 @@ switch.lookup152:                                 ; preds = %switch.hole_check
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %17, label %._crit_edge.loopexit, !llvm.loop !41
+  br i1 %73, label %17, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %switch.lookup152
   %.pre = load ptr, ptr %6, align 8
@@ -20967,7 +20967,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i: ; preds = %80
   %105 = load i32, ptr %3, align 8
   %106 = sext i32 %105 to i64
   %107 = icmp slt i64 %indvars.iv.next.i, %106
-  br i1 %107, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !38
+  br i1 %107, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !39
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %108 = load ptr, ptr %83, align 8
@@ -20982,7 +20982,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i: ; preds = %80
   %110 = load i32, ptr %82, align 4
   %111 = trunc nuw i64 %indvars.iv.next22.i to i32
   %112 = icmp sgt i32 %110, %111
-  br i1 %112, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !39
+  br i1 %112, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !40
 
 113:                                              ; preds = %.preheader.i
   %114 = load i64, ptr %84, align 8
@@ -21082,7 +21082,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i105: ; preds = %143, %139, %135
   %155 = load i32, ptr %3, align 8
   %156 = sext i32 %155 to i64
   %157 = icmp slt i64 %indvars.iv.next.i118, %156
-  br i1 %157, label %.lr.ph.i116, label %.preheader16.loopexit.i119, !llvm.loop !38
+  br i1 %157, label %.lr.ph.i116, label %.preheader16.loopexit.i119, !llvm.loop !39
 
 .preheader.i109:                                  ; preds = %.lr.ph19.i113, %.preheader16.i107
   %158 = load ptr, ptr %83, align 8
@@ -21097,7 +21097,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit.i105: ; preds = %143, %139, %135
   %160 = load i32, ptr %82, align 4
   %161 = trunc nuw i64 %indvars.iv.next22.i115 to i32
   %162 = icmp sgt i32 %160, %161
-  br i1 %162, label %.lr.ph19.i113, label %.preheader.i109, !llvm.loop !39
+  br i1 %162, label %.lr.ph19.i113, label %.preheader.i109, !llvm.loop !40
 
 163:                                              ; preds = %.preheader.i109
   %164 = load i64, ptr %84, align 8
@@ -22227,7 +22227,7 @@ _ZN7LIRItem14load_for_storeE9BasicType.exit:      ; preds = %_ZNK7LIR_Opr11is_co
   %65 = load i32, ptr %2, align 4
   %66 = trunc nuw i64 %indvars.iv.next to i32
   %67 = icmp sgt i32 %65, %66
-  br i1 %67, label %15, label %._crit_edge.loopexit, !llvm.loop !42
+  br i1 %67, label %15, label %._crit_edge.loopexit, !llvm.loop !43
 
 ._crit_edge.loopexit:                             ; preds = %64
   %.pre = load ptr, ptr %5, align 8
@@ -22595,7 +22595,7 @@ _ZN26GrowableArrayWithAllocatorIP7LIRItem13GrowableArrayIS1_EE6appendERKS1_.exit
   %154 = load i32, ptr %153, align 4
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next, %155
-  br i1 %156, label %84, label %._crit_edge, !llvm.loop !43
+  br i1 %156, label %84, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIP7LIRItem13GrowableArrayIS1_EE6appendERKS1_.exit27, %77
   ret ptr %3
@@ -24128,7 +24128,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit.i: ; preds = %_ZN12LIRGenerator
   %92 = load i32, ptr %91, align 4
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next.i, %93
-  br i1 %94, label %62, label %_ZN12LIRGenerator12do_blackholeEP9Intrinsic.exit, !llvm.loop !44
+  br i1 %94, label %62, label %_ZN12LIRGenerator12do_blackholeEP9Intrinsic.exit, !llvm.loop !45
 
 _ZN12LIRGenerator12do_blackholeEP9Intrinsic.exit: ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit.i, %52
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
@@ -24740,7 +24740,7 @@ _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit: ; preds = %13, %_ZN12LIRGenera
   %43 = load i32, ptr %42, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %13, label %._crit_edge, !llvm.loop !44
+  br i1 %45, label %13, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %_ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit, %2
   ret void
@@ -25055,7 +25055,7 @@ _ZN17ciSignatureStream4nextEv.exit.i:             ; preds = %_ZN17ciSignatureStr
   %.not.i.i = icmp sle i32 %.sroa.3.1, %193
   %194 = zext i1 %.not.i.i to i32
   %spec.select92 = add nsw i32 %.sroa.3.1, %194
-  br label %.preheader.i, !llvm.loop !45
+  br label %.preheader.i, !llvm.loop !46
 
 195:                                              ; preds = %_ZN17ciSignatureStream4typeEv.exit.i
   %196 = trunc nuw nsw i64 %indvars.iv to i32
@@ -25115,7 +25115,7 @@ _ZN17ciSignatureStream4nextEv.exit.i81:           ; preds = %_ZN17ciSignatureStr
   %.not.i.i80 = icmp sle i32 %.sroa.389.1, %219
   %220 = zext i1 %.not.i.i80 to i32
   %spec.select95 = add nsw i32 %.sroa.389.1, %220
-  br label %.preheader.i74, !llvm.loop !45
+  br label %.preheader.i74, !llvm.loop !46
 
 221:                                              ; preds = %_ZN17ciSignatureStream4typeEv.exit.i77
   %222 = icmp eq i32 %.sroa.389.1, %219
@@ -25149,7 +25149,7 @@ _ZN17ciSignatureStream10next_klassEv.exit86:      ; preds = %_ZN17ciSignatureStr
 230:                                              ; preds = %_ZN17ciSignatureStream10next_klassEv.exit86, %229
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %159, !llvm.loop !46
+  br i1 %exitcond.not, label %.critedge, label %159, !llvm.loop !47
 
 .critedge:                                        ; preds = %230, %_ZNK11ProfileCall16nb_profiled_argsEv.exit, %159, %.critedge62, %2, %15, %38, %43, %_ZN11Compilation17profile_argumentsEv.exit
   ret void
@@ -25337,7 +25337,7 @@ _ZN17ciSignatureStream4nextEv.exit.i:             ; preds = %_ZN17ciSignatureStr
   %.not.i.i = icmp sle i32 %.sroa.3.1, %100
   %101 = zext i1 %.not.i.i to i32
   %spec.select = add nsw i32 %.sroa.3.1, %101
-  br label %.preheader.i, !llvm.loop !45
+  br label %.preheader.i, !llvm.loop !46
 
 102:                                              ; preds = %_ZN17ciSignatureStream4typeEv.exit.i
   %103 = icmp eq i32 %.sroa.3.1, %100
@@ -25392,7 +25392,7 @@ _ZN17ciSignatureStream10next_klassEv.exit:        ; preds = %_ZN17ciSignatureStr
   %128 = icmp eq i64 %127, 0
   %.0.i.i54.not = select i1 %or.cond.i.i, i1 %128, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %76, !llvm.loop !47
+  br label %76, !llvm.loop !48
 
 _ZN11Compilation18profile_parametersEv.exit.thread: ; preds = %111, %2, %17, %21, %13, %_ZN11Compilation18profile_parametersEv.exit
   ret void
@@ -26920,7 +26920,7 @@ _ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exi
   %154 = load i32, ptr %153, align 4
   %155 = sext i32 %154 to i64
   %156 = icmp slt i64 %indvars.iv.next, %155
-  br i1 %156, label %66, label %._crit_edge, !llvm.loop !48
+  br i1 %156, label %66, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorI9BasicType13GrowableArrayIS0_EE6appendERKS0_.exit38, %60
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -27716,7 +27716,7 @@ _ZN7LIRItem14load_for_storeE9BasicType.exit:      ; preds = %_ZNK7LIR_Opr11is_co
   %81 = load i32, ptr %2, align 4
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %37, label %._crit_edge, !llvm.loop !49
+  br i1 %83, label %37, label %._crit_edge, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %80, %27
   %.not35 = icmp eq ptr %5, null
@@ -28372,7 +28372,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %69, %71
   %85 = and i32 %.0.i42, %83
   %86 = icmp eq i32 %85, 0
   %87 = shl i32 %.0.i42, 1
-  br i1 %86, label %84, label %_ZN5Klass29layout_helper_boolean_diffbitEv.exit, !llvm.loop !50
+  br i1 %86, label %84, label %_ZN5Klass29layout_helper_boolean_diffbitEv.exit, !llvm.loop !51
 
 _ZN5Klass29layout_helper_boolean_diffbitEv.exit:  ; preds = %84
   %88 = load ptr, ptr %6, align 8
@@ -28647,7 +28647,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !10
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !11
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28663,7 +28663,7 @@ _ZN13GrowableArrayIP6LIR_OpE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !11
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !12
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -28991,7 +28991,7 @@ _ZN13GrowableArrayIP11ResolveNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !51
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !52
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29007,7 +29007,7 @@ _ZN13GrowableArrayIP11ResolveNodeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !52
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !53
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -29090,7 +29090,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !38
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !39
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29106,7 +29106,7 @@ _ZN13GrowableArrayI9BasicTypeE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !39
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !40
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -29187,7 +29187,7 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !53
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !54
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29203,7 +29203,7 @@ _ZN13GrowableArrayI7LIR_OprE8allocateEv.exit:     ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !54
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !55
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -29284,7 +29284,7 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !55
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !56
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29300,7 +29300,7 @@ _ZN13GrowableArrayIP11InstructionE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !56
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !57
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -29381,7 +29381,7 @@ _ZN13GrowableArrayIP9LIR_ConstE8allocateEv.exit:  ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !57
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !58
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29397,7 +29397,7 @@ _ZN13GrowableArrayIP9LIR_ConstE8allocateEv.exit:  ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !58
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !59
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -29478,7 +29478,7 @@ _ZN13GrowableArrayIP13C1SwitchRangeE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !59
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !60
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29494,7 +29494,7 @@ _ZN13GrowableArrayIP13C1SwitchRangeE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !60
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !61
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -29575,7 +29575,7 @@ _ZN13GrowableArrayIP7LIRItemE8allocateEv.exit:    ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !61
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !62
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29591,7 +29591,7 @@ _ZN13GrowableArrayIP7LIRItemE8allocateEv.exit:    ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !62
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !63
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -29657,60 +29657,61 @@ attributes #18 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7, !28}
-!28 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!29 = distinct !{!29, !7, !28}
-!30 = distinct !{!30, !7, !28}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !7, !8, !29}
+!31 = distinct !{!31, !7, !8, !29}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}

@@ -327,7 +327,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %168 = zext i1 %167 to i32
   %.1677 = add nsw i32 %158, %168
   %169 = icmp sgt i32 %.1677, %159
-  br i1 %169, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %169, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph, %160
   %170 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -376,7 +376,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %194 = zext i1 %193 to i32
   %.1673 = add nsw i32 %184, %194
   %195 = icmp sgt i32 %.1673, %185
-  br i1 %195, label %._crit_edge764.loopexit, label %.lr.ph763
+  br i1 %195, label %._crit_edge764.loopexit, label %.lr.ph763, !llvm.loop !13
 
 ._crit_edge764.loopexit:                          ; preds = %.lr.ph763, %186
   %196 = trunc nsw i64 %indvars.iv.next899 to i32
@@ -535,7 +535,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %286 = load i32, ptr %24, align 4, !tbaa !3
   %287 = sext i32 %286 to i64
   %.not712.us.not = icmp slt i64 %indvars.iv901, %287
-  br i1 %.not712.us.not, label %.lr.ph773.us, label %._crit_edge774.us, !llvm.loop !11
+  br i1 %.not712.us.not, label %.lr.ph773.us, label %._crit_edge774.us, !llvm.loop !14
 
 ._crit_edge774.us:                                ; preds = %.lr.ph773.us, %283
   store i32 %227, ptr %24, align 4, !tbaa !3
@@ -555,7 +555,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %291 = load i32, ptr %24, align 4, !tbaa !3
   %292 = sext i32 %291 to i64
   %.not713.us.not = icmp slt i64 %indvars.iv904, %292
-  br i1 %.not713.us.not, label %288, label %.lr.ph787.us.preheader, !llvm.loop !12
+  br i1 %.not713.us.not, label %288, label %.lr.ph787.us.preheader, !llvm.loop !15
 
 .lr.ph787.us.preheader:                           ; preds = %288
   store i32 %227, ptr %24, align 4, !tbaa !3
@@ -582,7 +582,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %300 = load i32, ptr %24, align 4, !tbaa !3
   %301 = sext i32 %300 to i64
   %.not714.us.not = icmp slt i64 %indvars.iv907, %301
-  br i1 %.not714.us.not, label %.lr.ph787.us, label %._crit_edge788.us, !llvm.loop !13
+  br i1 %.not714.us.not, label %.lr.ph787.us, label %._crit_edge788.us, !llvm.loop !16
 
 ._crit_edge788.us:                                ; preds = %.lr.ph787.us, %._crit_edge774.us
   %302 = load i32, ptr %3, align 4, !tbaa !3
@@ -602,7 +602,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %305 = load i32, ptr %24, align 4, !tbaa !3
   %306 = sext i32 %305 to i64
   %.not715.us.not = icmp slt i64 %indvars.iv910, %306
-  br i1 %.not715.us.not, label %.lr.ph796.us, label %._crit_edge797.us, !llvm.loop !14
+  br i1 %.not715.us.not, label %.lr.ph796.us, label %._crit_edge797.us, !llvm.loop !17
 
 ._crit_edge797.us:                                ; preds = %.lr.ph796.us, %._crit_edge788.us
   %307 = load double, ptr %34, align 8, !tbaa !7
@@ -650,7 +650,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .backedge949:                                     ; preds = %315, %.thread941
   %indvars.iv913.be = add nsw i64 %indvars.iv913, -1
-  br label %253, !llvm.loop !15
+  br label %253, !llvm.loop !18
 
 .thread941:                                       ; preds = %311
   %327 = icmp sgt i64 %indvars.iv913, 1
@@ -736,7 +736,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.3 = phi double [ %353, %351 ], [ %.2827, %360 ], [ %.2827, %358 ]
   %366 = add nuw nsw i32 %.1828, 1
   %.not710.not = icmp samesign ult i32 %.1828, %111
-  br i1 %.not710.not, label %218, label %.loopexit753, !llvm.loop !16
+  br i1 %.not710.not, label %218, label %.loopexit753, !llvm.loop !19
 
 367:                                              ; preds = %._crit_edge764
   store double 1.000000e+00, ptr %16, align 8, !tbaa !7
@@ -855,7 +855,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %435 = load i32, ptr %24, align 4, !tbaa !3
   %436 = sext i32 %435 to i64
   %.not706.not = icmp slt i64 %indvars.iv919, %436
-  br i1 %.not706.not, label %.lr.ph838, label %._crit_edge839, !llvm.loop !17
+  br i1 %.not706.not, label %.lr.ph838, label %._crit_edge839, !llvm.loop !20
 
 ._crit_edge839:                                   ; preds = %.lr.ph838, %431
   store i32 %407, ptr %24, align 4, !tbaa !3
@@ -880,7 +880,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %440 = load i32, ptr %24, align 4, !tbaa !3
   %441 = sext i32 %440 to i64
   %.not707.not = icmp slt i64 %indvars.iv922, %441
-  br i1 %.not707.not, label %.lr.ph847, label %.lr.ph852.preheader, !llvm.loop !18
+  br i1 %.not707.not, label %.lr.ph847, label %.lr.ph852.preheader, !llvm.loop !21
 
 .lr.ph852.preheader:                              ; preds = %.lr.ph847
   store i32 %407, ptr %24, align 4, !tbaa !3
@@ -905,7 +905,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %449 = load i32, ptr %24, align 4, !tbaa !3
   %450 = sext i32 %449 to i64
   %.not708.not = icmp slt i64 %indvars.iv925, %450
-  br i1 %.not708.not, label %.lr.ph852, label %._crit_edge853, !llvm.loop !19
+  br i1 %.not708.not, label %.lr.ph852, label %._crit_edge853, !llvm.loop !22
 
 ._crit_edge853:                                   ; preds = %.lr.ph852, %._crit_edge839
   %451 = load i32, ptr %3, align 4, !tbaa !3
@@ -929,7 +929,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %455 = load i32, ptr %24, align 4, !tbaa !3
   %456 = sext i32 %455 to i64
   %.not709.not = icmp slt i64 %indvars.iv928, %456
-  br i1 %.not709.not, label %.lr.ph861, label %._crit_edge862, !llvm.loop !20
+  br i1 %.not709.not, label %.lr.ph861, label %._crit_edge862, !llvm.loop !23
 
 ._crit_edge862:                                   ; preds = %.lr.ph861, %._crit_edge853
   %457 = load double, ptr %34, align 8, !tbaa !7
@@ -973,7 +973,7 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .backedge:                                        ; preds = %462, %466
   %indvars.iv931.be = add nsw i64 %indvars.iv931, -1
-  br label %402, !llvm.loop !21
+  br label %402, !llvm.loop !24
 
 .loopexit753:                                     ; preds = %365, %.thread945, %.lr.ph876, %367
   store double %93, ptr %18, align 8, !tbaa !7
@@ -1041,16 +1041,19 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}

@@ -104,8 +104,8 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he670292c9b012ff9E(pt
   store ptr %0, ptr %8, align 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 1, ptr %29, align 8
-  %.val = load ptr, ptr %2, align 8, !nonnull !6, !align !7, !noundef !6
-  %30 = load ptr, ptr %.val, align 8, !align !7, !noundef !6
+  %.val = load ptr, ptr %2, align 8, !nonnull !7, !align !8, !noundef !7
+  %30 = load ptr, ptr %.val, align 8, !align !8, !noundef !7
   store ptr null, ptr %.val, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
@@ -118,7 +118,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he670292c9b012ff9E(pt
   unreachable
 
 33:                                               ; preds = %.split19.us
-  %34 = load ptr, ptr %30, align 8, !nonnull !6, !noundef !6
+  %34 = load ptr, ptr %30, align 8, !nonnull !7, !noundef !7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   invoke void %34(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %6)
           to label %37 unwind label %35
@@ -159,7 +159,7 @@ define hidden void @_ZN3std3sys4sync4once5futex4Once4call17he670292c9b012ff9E(pt
 
 .split.backedge:                                  ; preds = %42, %22, %40
   %.sroa.0.0.be = phi i32 [ %44, %42 ], [ %.sroa.08.0.i, %22 ], [ %.sroa.08.0.i15, %40 ]
-  br label %.split
+  br label %.split, !llvm.loop !9
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
@@ -419,7 +419,9 @@ attributes #13 = { nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.81.0 (eeb90cda1 2024-09-04)"}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!6 = !{}
-!7 = !{i64 8}
+!4 = distinct !{!4, !5, !6}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = !{}
+!8 = !{i64 8}
+!9 = distinct !{!9, !5}

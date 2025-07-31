@@ -1086,9 +1086,9 @@ define void @_ZN6icu_7715ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %14 = load i32, ptr %13, align 4, !tbaa !33
+  %14 = load i32, ptr %13, align 4, !tbaa !34
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %16 = load i8, ptr %15, align 8, !tbaa !34
+  %16 = load i8, ptr %15, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
   %17 = load ptr, ptr %0, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 456
@@ -1550,7 +1550,7 @@ define noundef ptr @_ZNK6icu_7715ChineseCalendar20getTemporalMonthCodeER10UError
 11:                                               ; preds = %7
   %12 = sext i32 %8 to i64
   %13 = getelementptr inbounds [13 x ptr], ptr @_ZN6icu_77L23gTemporalLeapMonthCodesE, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !35
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
   br label %17
 
 15:                                               ; preds = %6
@@ -1595,7 +1595,7 @@ define void @_ZN6icu_7715ChineseCalendar20setTemporalMonthCodeEPKcR10UErrorCode(
 .preheader:                                       ; preds = %11, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %11 ]
   %15 = getelementptr inbounds nuw [13 x ptr], ptr @_ZN6icu_77L23gTemporalLeapMonthCodesE, i64 0, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !35
+  %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %16) #9
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %21
@@ -1609,7 +1609,7 @@ define void @_ZN6icu_7715ChineseCalendar20setTemporalMonthCodeEPKcR10UErrorCode(
 21:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not19 = icmp eq i64 %indvars.iv.next, 12
-  br i1 %.not19, label %.critedge, label %.preheader, !llvm.loop !37
+  br i1 %.not19, label %.critedge, label %.preheader, !llvm.loop !38
 
 .critedge:                                        ; preds = %21
   store i32 1, ptr %2, align 4, !tbaa !21
@@ -1791,7 +1791,7 @@ define void @_ZNK6icu_7715ChineseCalendar10getSettingER10UErrorCode(ptr dead_on_
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
-  store ptr @.str.16, ptr %5, align 8, !tbaa !38
+  store ptr @.str.16, ptr %5, align 8, !tbaa !39
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext 1, ptr noundef nonnull %5, i32 noundef -1)
           to label %13 unwind label %15
 
@@ -1800,14 +1800,14 @@ define void @_ZNK6icu_7715ChineseCalendar10getSettingER10UErrorCode(ptr dead_on_
           to label %.critedge15.i.i unwind label %17
 
 .thread.i.i:                                      ; preds = %10
-  store ptr null, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !41
+  store ptr null, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !42
   br label %_ZN6icu_7712_GLOBAL__N_122initAstronomerTimeZoneEv.exit.i
 
 .critedge15.i.i:                                  ; preds = %13
-  store ptr %11, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !41
+  store ptr %11, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !42
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #8
-  %14 = load ptr, ptr %5, align 8, !tbaa !38
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #8, !srcloc !42
+  %14 = load ptr, ptr %5, align 8, !tbaa !39
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %14) #8, !srcloc !43
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
   br label %_ZN6icu_7712_GLOBAL__N_122initAstronomerTimeZoneEv.exit.i
 
@@ -1824,8 +1824,8 @@ define void @_ZNK6icu_7715ChineseCalendar10getSettingER10UErrorCode(ptr dead_on_
 
 19:                                               ; preds = %17, %15
   %.pn.i.i = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ]
-  %20 = load ptr, ptr %5, align 8, !tbaa !38
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #8, !srcloc !42
+  %20 = load ptr, ptr %5, align 8, !tbaa !39
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %20) #8, !srcloc !43
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %11) #8
   resume { ptr, i32 } %.pn.i.i
@@ -1838,10 +1838,10 @@ _ZN6icu_7712_GLOBAL__N_122initAstronomerTimeZoneEv.exit.i: ; preds = %.critedge1
 
 _ZN6icu_7712_GLOBAL__N_121getAstronomerTimeZoneEv.exit: ; preds = %3, %8, %_ZN6icu_7712_GLOBAL__N_122initAstronomerTimeZoneEv.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load ptr, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !41
+  %22 = load ptr, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !42
   store ptr %22, ptr %21, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @_ZL20gWinterSolsticeCache, ptr %23, align 8, !tbaa !43
+  store ptr @_ZL20gWinterSolsticeCache, ptr %23, align 8, !tbaa !44
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZL13gNewYearCache, ptr %24, align 8, !tbaa !29
   ret void
@@ -2275,7 +2275,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKN
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !43
+  %13 = load ptr, ptr %12, align 8, !tbaa !44
   %14 = tail call noundef i32 @_ZN6icu_7713CalendarCache3getEPPS0_iR10UErrorCode(ptr noundef %13, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %15 = load i32, ptr %2, align 4, !tbaa !21
   %16 = icmp slt i32 %15, 1
@@ -2368,7 +2368,7 @@ _ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit: ; pre
 
 53:                                               ; preds = %49
   %54 = fptosi double %43 to i32
-  %55 = load ptr, ptr %12, align 8, !tbaa !43
+  %55 = load ptr, ptr %12, align 8, !tbaa !44
   call void @_ZN6icu_7713CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef %55, i32 noundef %1, i32 noundef %54, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %.pre = load i32, ptr %2, align 4, !tbaa !21
   %56 = icmp sgt i32 %.pre, 0
@@ -2416,7 +2416,7 @@ declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef signext i8 @_ZL24calendar_chinese_cleanupv() #3 {
-  %1 = load ptr, ptr @_ZL20gWinterSolsticeCache, align 8, !tbaa !44
+  %1 = load ptr, ptr @_ZL20gWinterSolsticeCache, align 8, !tbaa !45
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %2
 
@@ -2425,11 +2425,11 @@ define internal noundef signext i8 @_ZL24calendar_chinese_cleanupv() #3 {
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %1) #8
-  store ptr null, ptr @_ZL20gWinterSolsticeCache, align 8, !tbaa !44
+  store ptr null, ptr @_ZL20gWinterSolsticeCache, align 8, !tbaa !45
   br label %6
 
 6:                                                ; preds = %2, %0
-  %7 = load ptr, ptr @_ZL13gNewYearCache, align 8, !tbaa !44
+  %7 = load ptr, ptr @_ZL13gNewYearCache, align 8, !tbaa !45
   %.not3 = icmp eq ptr %7, null
   br i1 %.not3, label %12, label %8
 
@@ -2438,11 +2438,11 @@ define internal noundef signext i8 @_ZL24calendar_chinese_cleanupv() #3 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %7) #8
-  store ptr null, ptr @_ZL13gNewYearCache, align 8, !tbaa !44
+  store ptr null, ptr @_ZL13gNewYearCache, align 8, !tbaa !45
   br label %12
 
 12:                                               ; preds = %8, %6
-  %13 = load ptr, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !41
+  %13 = load ptr, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !42
   %.not4 = icmp eq ptr %13, null
   br i1 %.not4, label %18, label %14
 
@@ -2451,7 +2451,7 @@ define internal noundef signext i8 @_ZL24calendar_chinese_cleanupv() #3 {
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(72) %13) #8
-  store ptr null, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !41
+  store ptr null, ptr @_ZL19gAstronomerTimeZone, align 8, !tbaa !42
   br label %18
 
 18:                                               ; preds = %14, %12
@@ -2503,18 +2503,19 @@ attributes #9 = { nounwind willreturn memory(read) }
 !28 = !{!25, !12, i64 8}
 !29 = !{!25, !26, i64 24}
 !30 = !{!11, !11, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!8, !17, i64 164}
-!34 = !{!8, !10, i64 168}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 omnipotent char", !13, i64 0}
-!37 = distinct !{!37, !32}
-!38 = !{!39, !40, i64 0}
-!39 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !40, i64 0}
-!40 = !{!"p1 char16_t", !13, i64 0}
-!41 = !{!12, !12, i64 0}
-!42 = !{i64 2150335606}
-!43 = !{!25, !26, i64 16}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !13, i64 0}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!8, !17, i64 164}
+!35 = !{!8, !10, i64 168}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 omnipotent char", !13, i64 0}
+!38 = distinct !{!38, !32, !33}
+!39 = !{!40, !41, i64 0}
+!40 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !41, i64 0}
+!41 = !{!"p1 char16_t", !13, i64 0}
+!42 = !{!12, !12, i64 0}
+!43 = !{i64 2150335606}
+!44 = !{!25, !26, i64 16}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTSN6icu_7713CalendarCacheE", !13, i64 0}

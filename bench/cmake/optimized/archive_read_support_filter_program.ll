@@ -330,7 +330,7 @@ define internal i64 @program_filter_read(ptr noundef readonly captures(none) %0,
   ]
 
 .backedge.i.backedge:                             ; preds = %24, %.critedge45.i, %62, %60, %54, %38, %32
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !37
 
 .critedge.i:                                      ; preds = %.backedge.i
   %27 = icmp sgt i64 %22, 0
@@ -341,7 +341,7 @@ define internal i64 @program_filter_read(ptr noundef readonly captures(none) %0,
   br i1 %29, label %child_read.exit, label %.critedge43.i
 
 .critedge43.i:                                    ; preds = %24, %28
-  %30 = load i32, ptr %20, align 4, !tbaa !37
+  %30 = load i32, ptr %20, align 4, !tbaa !39
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %34
 
@@ -351,24 +351,24 @@ define internal i64 @program_filter_read(ptr noundef readonly captures(none) %0,
   br label %.backedge.i.backedge
 
 34:                                               ; preds = %.critedge43.i
-  %35 = load ptr, ptr %11, align 8, !tbaa !38
+  %35 = load ptr, ptr %11, align 8, !tbaa !40
   %36 = call ptr @__archive_read_filter_ahead(ptr noundef %35, i64 noundef 1, ptr noundef nonnull %3) #15
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %.preheader.i
 
 38:                                               ; preds = %34
-  %39 = load i32, ptr %20, align 4, !tbaa !37
+  %39 = load i32, ptr %20, align 4, !tbaa !39
   %40 = call i32 @close(i32 noundef %39) #15
-  store i32 -1, ptr %20, align 4, !tbaa !37
+  store i32 -1, ptr %20, align 4, !tbaa !39
   %41 = load i32, ptr %19, align 8, !tbaa !35
   %42 = call i32 (i32, i32, ...) @fcntl(i32 noundef %41, i32 noundef 4, i32 noundef 0) #15
-  %43 = load i64, ptr %3, align 8, !tbaa !39
+  %43 = load i64, ptr %3, align 8, !tbaa !41
   %44 = icmp slt i64 %43, 0
   br i1 %44, label %child_read.exit.thread, label %.backedge.i.backedge
 
 .preheader.i:                                     ; preds = %34, %49
-  %45 = load i32, ptr %20, align 4, !tbaa !37
-  %46 = load i64, ptr %3, align 8, !tbaa !39
+  %45 = load i32, ptr %20, align 4, !tbaa !39
+  %46 = load i64, ptr %3, align 8, !tbaa !41
   %47 = call i64 @write(i32 noundef %45, ptr noundef nonnull %36, i64 noundef %46) #15
   %48 = icmp eq i64 %47, -1
   br i1 %48, label %49, label %.critedge2.i
@@ -377,20 +377,20 @@ define internal i64 @program_filter_read(ptr noundef readonly captures(none) %0,
   %50 = tail call ptr @__errno_location() #18
   %51 = load i32, ptr %50, align 4, !tbaa !36
   %52 = icmp eq i32 %51, 4
-  br i1 %52, label %.preheader.i, label %57, !llvm.loop !40
+  br i1 %52, label %.preheader.i, label %57, !llvm.loop !42
 
 .critedge2.i:                                     ; preds = %.preheader.i
   %53 = icmp sgt i64 %47, 0
   br i1 %53, label %54, label %.critedge45.i
 
 54:                                               ; preds = %.critedge2.i
-  %55 = load ptr, ptr %11, align 8, !tbaa !38
+  %55 = load ptr, ptr %11, align 8, !tbaa !40
   %56 = call i64 @__archive_read_filter_consume(ptr noundef %55, i64 noundef %47) #15
   br label %.backedge.i.backedge
 
 57:                                               ; preds = %49
   %58 = icmp eq i32 %51, 11
-  %59 = load i32, ptr %20, align 4, !tbaa !37
+  %59 = load i32, ptr %20, align 4, !tbaa !39
   br i1 %58, label %60, label %62
 
 60:                                               ; preds = %57
@@ -400,7 +400,7 @@ define internal i64 @program_filter_read(ptr noundef readonly captures(none) %0,
 
 62:                                               ; preds = %57
   %63 = call i32 @close(i32 noundef %59) #15
-  store i32 -1, ptr %20, align 4, !tbaa !37
+  store i32 -1, ptr %20, align 4, !tbaa !39
   %64 = load i32, ptr %19, align 8, !tbaa !35
   %65 = call i32 (i32, i32, ...) @fcntl(i32 noundef %64, i32 noundef 4, i32 noundef 0) #15
   %66 = load i32, ptr %50, align 4, !tbaa !36
@@ -408,9 +408,9 @@ define internal i64 @program_filter_read(ptr noundef readonly captures(none) %0,
   br i1 %.not41.i, label %.backedge.i.backedge, label %child_read.exit.thread
 
 .critedge45.i:                                    ; preds = %.critedge2.i
-  %67 = load i32, ptr %20, align 4, !tbaa !37
+  %67 = load i32, ptr %20, align 4, !tbaa !39
   %68 = call i32 @close(i32 noundef %67) #15
-  store i32 -1, ptr %20, align 4, !tbaa !37
+  store i32 -1, ptr %20, align 4, !tbaa !39
   %69 = load i32, ptr %19, align 8, !tbaa !35
   %70 = call i32 (i32, i32, ...) @fcntl(i32 noundef %69, i32 noundef 4, i32 noundef 0) #15
   br label %.backedge.i.backedge
@@ -431,12 +431,12 @@ child_read.exit:                                  ; preds = %28, %24
   %75 = getelementptr inbounds nuw i8, ptr %.049, i64 %22
   %76 = load i32, ptr %7, align 8, !tbaa !35
   %.not = icmp eq i32 %76, -1
-  br i1 %.not, label %.critedge, label %12, !llvm.loop !42
+  br i1 %.not, label %.critedge, label %12, !llvm.loop !44
 
 .critedge:                                        ; preds = %12, %73, %2, %child_read.exit
   %.01841 = phi i64 [ %.01848, %child_read.exit ], [ 0, %2 ], [ %.01848, %12 ], [ %74, %73 ]
   %77 = load ptr, ptr %6, align 8, !tbaa !26
-  store ptr %77, ptr %1, align 8, !tbaa !43
+  store ptr %77, ptr %1, align 8, !tbaa !45
   br label %78
 
 78:                                               ; preds = %child_read.exit.thread, %child_read.exit, %.critedge
@@ -466,13 +466,13 @@ declare ptr @__errno_location() local_unnamed_addr #11
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -20, 1) i32 @child_stop(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %4 = load i32, ptr %3, align 4, !tbaa !37
+  %4 = load i32, ptr %3, align 4, !tbaa !39
   %.not = icmp eq i32 %4, -1
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i32 @close(i32 noundef %4) #15
-  store i32 -1, ptr %3, align 4, !tbaa !37
+  store i32 -1, ptr %3, align 4, !tbaa !39
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -488,13 +488,13 @@ define internal fastcc range(i32 -20, 1) i32 @child_stop(ptr noundef readonly ca
 
 12:                                               ; preds = %10, %7
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !44
+  %14 = load i32, ptr %13, align 8, !tbaa !46
   %.not27 = icmp eq i32 %14, 0
   br i1 %.not27, label %._crit_edge, label %.preheader
 
 ._crit_edge:                                      ; preds = %12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !45
+  %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !47
   br label %25
 
 .preheader:                                       ; preds = %12
@@ -503,9 +503,9 @@ define internal fastcc range(i32 -20, 1) i32 @child_stop(ptr noundef readonly ca
   br label %17
 
 17:                                               ; preds = %.preheader, %21
-  %18 = load i32, ptr %13, align 8, !tbaa !44
+  %18 = load i32, ptr %13, align 8, !tbaa !46
   %19 = tail call i32 @waitpid(i32 noundef %18, ptr noundef nonnull %15, i32 noundef 0) #15
-  store i32 %19, ptr %16, align 8, !tbaa !45
+  store i32 %19, ptr %16, align 8, !tbaa !47
   %20 = icmp eq i32 %19, -1
   br i1 %20, label %21, label %.critedge
 
@@ -513,10 +513,10 @@ define internal fastcc range(i32 -20, 1) i32 @child_stop(ptr noundef readonly ca
   %22 = tail call ptr @__errno_location() #18
   %23 = load i32, ptr %22, align 4, !tbaa !36
   %24 = icmp eq i32 %23, 4
-  br i1 %24, label %17, label %.critedge, !llvm.loop !46
+  br i1 %24, label %17, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %17, %21
-  store i32 0, ptr %13, align 8, !tbaa !44
+  store i32 0, ptr %13, align 8, !tbaa !46
   br label %25
 
 25:                                               ; preds = %._crit_edge, %.critedge
@@ -532,7 +532,7 @@ define internal fastcc range(i32 -20, 1) i32 @child_stop(ptr noundef readonly ca
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %33 = load i32, ptr %32, align 4, !tbaa !47
+  %33 = load i32, ptr %32, align 4, !tbaa !49
   %34 = and i32 %33, 127
   %35 = shl nuw nsw i32 %34, 24
   %sext = add nuw i32 %35, 16777216
@@ -648,14 +648,16 @@ attributes #18 = { nounwind willreturn memory(none) }
 !34 = !{!15, !16, i64 8}
 !35 = !{!21, !11, i64 40}
 !36 = !{!11, !11, i64 0}
-!37 = !{!21, !11, i64 36}
-!38 = !{!15, !17, i64 16}
-!39 = !{!10, !10, i64 0}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.mustprogress"}
-!42 = distinct !{!42, !41}
-!43 = !{!7, !7, i64 0}
-!44 = !{!21, !11, i64 24}
-!45 = !{!21, !11, i64 32}
-!46 = distinct !{!46, !41}
-!47 = !{!21, !11, i64 28}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!21, !11, i64 36}
+!40 = !{!15, !17, i64 16}
+!41 = !{!10, !10, i64 0}
+!42 = distinct !{!42, !43, !38}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = distinct !{!44, !43, !38}
+!45 = !{!7, !7, i64 0}
+!46 = !{!21, !11, i64 24}
+!47 = !{!21, !11, i64 32}
+!48 = distinct !{!48, !43, !38}
+!49 = !{!21, !11, i64 28}

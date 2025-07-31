@@ -444,7 +444,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h44257f8513bdcb73E(ptr
   store ptr %13, ptr %5, align 8
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h0169712f32fbc8e1E"(ptr align 8 %1, ptr nonnull align 8 %3)
-          to label %6 unwind label %10
+          to label %6 unwind label %10, !llvm.loop !4
 
 14:                                               ; preds = %6
   invoke void @"_ZN4core3ptr574drop_in_place$LT$core..iter..adapters..map..map_fold$LT$cranelift_isle..lexer..Pos$C$cranelift_isle..error..Span$C$$LP$$RP$$C$cranelift_isle..error..Span..new_single$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..error..Span$C$alloc..vec..Vec$LT$cranelift_isle..error..Span$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..lexer..Pos$GT$$C$cranelift_isle..error..Span..new_single$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h88de41473a321b50E"(ptr align 8 %1)
@@ -518,7 +518,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h53447aac3fdeb645E(ptr
 13:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false)
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h80d8bf5d477c0a0bE"(ptr align 8 %1, ptr nonnull align 16 %3)
-          to label %7 unwind label %.loopexit3
+          to label %7 unwind label %.loopexit3, !llvm.loop !6
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread"
   invoke void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$cranelift_isle..trie_again..Binding$GT$$GT$17h552ba7444a9f7a59E"(ptr nonnull align 16 %4)
@@ -596,7 +596,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h7b4032206c6f3dd8E(ptr
 13:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, ptr noundef nonnull align 16 dereferenceable(48) %4, i64 48, i1 false)
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7d249b707ba75878E"(ptr align 8 %1, ptr nonnull align 16 %3)
-          to label %7 unwind label %.loopexit3
+          to label %7 unwind label %.loopexit3, !llvm.loop !7
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread"
   invoke void @"_ZN4core3ptr84drop_in_place$LT$core..option..Option$LT$cranelift_isle..trie_again..Binding$GT$$GT$17h552ba7444a9f7a59E"(ptr nonnull align 16 %4)
@@ -655,7 +655,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17ha78c4879d252a5ffE(ptr
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h905c1b6aec5976d9E"(ptr align 8 %1, i16 %13, i64 %15)
-          to label %5 unwind label %9
+          to label %5 unwind label %9, !llvm.loop !8
 
 16:                                               ; preds = %5
   invoke void @"_ZN4core3ptr914drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$C$cranelift_isle..trie_again..BindingId$C$$LP$$RP$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_create_variant..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_create_variant..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc27faa36511c5c9bE"(ptr align 8 %1)
@@ -710,7 +710,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hf741260a22f8a3ffE(ptr
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i64, ptr %14, align 8, !noundef !3
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb02520b1f2ef25e6E"(ptr align 8 %1, i16 %13, i64 %15)
-          to label %5 unwind label %9
+          to label %5 unwind label %9, !llvm.loop !9
 
 16:                                               ; preds = %5
   invoke void @"_ZN4core3ptr904drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$C$cranelift_isle..trie_again..BindingId$C$$LP$$RP$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_construct..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$cranelift_isle..trie_again..BindingId$C$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..sema..TypeId$RP$$GT$$C$$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cranelift_isle..sema..ExprVisitor$GT$..add_construct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6ed6d38bc14cecf3E"(ptr align 8 %1)
@@ -796,7 +796,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb40179eb7
   %31 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %32 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %33 = icmp eq ptr %32, %31
-  br i1 %33, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit"
+  br i1 %33, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit", !llvm.loop !10
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread"
   %34 = phi ptr [ %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread" ], [ %storemerge9, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit" ]
@@ -880,7 +880,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf004c123c
   %31 = load ptr, ptr %12, align 8, !nonnull !3, !noundef !3
   %32 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %33 = icmp eq ptr %32, %31
-  br i1 %33, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit"
+  br i1 %33, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread", label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit", !llvm.loop !11
 
 .loopexit:                                        ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit", %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread"
   %34 = phi ptr [ %19, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit.thread" ], [ %storemerge9, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE.exit" ]
@@ -1250,3 +1250,11 @@ attributes #17 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}

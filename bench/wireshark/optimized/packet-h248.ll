@@ -2541,7 +2541,7 @@ define hidden ptr @gcp_ctx(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %47 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %48 = load ptr, ptr %47, align 8
   %.not90 = icmp eq ptr %48, null
-  br i1 %.not90, label %49, label %42, !llvm.loop !10
+  br i1 %.not90, label %49, label %42, !llvm.loop !11
 
 49:                                               ; preds = %46
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.26, i32 noundef 792, ptr noundef nonnull @.str.29) #12
@@ -2733,7 +2733,7 @@ define hidden ptr @gcp_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %28 = getelementptr inbounds nuw i8, ptr %.082, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not81 = icmp eq ptr %29, null
-  br i1 %.not81, label %30, label %.preheader, !llvm.loop !11
+  br i1 %.not81, label %30, label %.preheader, !llvm.loop !12
 
 30:                                               ; preds = %27
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.26, i32 noundef 879, ptr noundef nonnull @.str.31) #12
@@ -2883,7 +2883,7 @@ define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly capture
   %24 = getelementptr inbounds nuw i8, ptr %.0135, i64 8
   %.0 = load ptr, ptr %24, align 8
   %.not115 = icmp eq ptr %.0, null
-  br i1 %.not115, label %.loopexit, label %.lr.ph137, !llvm.loop !12
+  br i1 %.not115, label %.loopexit, label %.lr.ph137, !llvm.loop !13
 
 .lr.ph137:                                        ; preds = %22, %23
   %.0135 = phi ptr [ %.0, %23 ], [ %.0133, %22 ]
@@ -2913,7 +2913,7 @@ define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly capture
   %37 = getelementptr inbounds nuw i8, ptr %.1130, i64 8
   %.1 = load ptr, ptr %37, align 8
   %.not113 = icmp eq ptr %.1, null
-  br i1 %.not113, label %.loopexit, label %.lr.ph132, !llvm.loop !13
+  br i1 %.not113, label %.loopexit, label %.lr.ph132, !llvm.loop !14
 
 38:                                               ; preds = %11
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -2943,7 +2943,7 @@ define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly capture
   %52 = getelementptr inbounds nuw i8, ptr %.2123, i64 8
   %.2 = load ptr, ptr %52, align 8
   %.not109 = icmp eq ptr %.2, null
-  br i1 %.not109, label %.critedge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not109, label %.critedge, label %.lr.ph, !llvm.loop !15
 
 .critedge:                                        ; preds = %51, %38
   %53 = icmp eq i32 %4, 2
@@ -3069,7 +3069,7 @@ define hidden ptr @gcp_cmd_add_term(ptr noundef %0, ptr noundef readonly capture
   %130 = getelementptr inbounds nuw i8, ptr %.3126, i64 8
   %.3 = load ptr, ptr %130, align 8
   %.not111 = icmp eq ptr %.3, null
-  br i1 %.not111, label %._crit_edge, label %80, !llvm.loop !15
+  br i1 %.not111, label %._crit_edge, label %80, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %129, %76
   %131 = tail call ptr @wmem_file_scope()
@@ -3321,7 +3321,7 @@ define hidden ptr @gcp_msg_to_str(ptr noundef readonly captures(address) %0, ptr
   %56 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 8
   %.0.i.i = load ptr, ptr %56, align 8
   %.not25.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not25.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
+  br i1 %.not25.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %51
   %.1.lcssa.i.i = phi ptr [ %.021.i.i, %51 ], [ %55, %.lr.ph.i.i ]
@@ -3364,7 +3364,7 @@ gcp_cmd_to_str.exit.i:                            ; preds = %.sink.split.i.i, %6
   %70 = getelementptr inbounds nuw i8, ptr %.038.i, i64 8
   %.0.i = load ptr, ptr %70, align 8
   %.not34.i = icmp eq ptr %.0.i, null
-  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %69, %18
   tail call void @wmem_strbuf_append(ptr noundef %9, ptr noundef nonnull @.str.767)
@@ -3391,7 +3391,7 @@ gcp_trx_to_str.exit:                              ; preds = %.lr.ph, %75
   %77 = getelementptr inbounds nuw i8, ptr %.01217, i64 8
   %.012 = load ptr, ptr %77, align 8
   %.not14 = icmp eq ptr %.012, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %gcp_trx_to_str.exit, %4
   %78 = tail call ptr @wmem_strbuf_finalize(ptr noundef %5)
@@ -3477,7 +3477,7 @@ define hidden void @gcp_analyze_msg(ptr noundef %0, ptr noundef %1, ptr noundef 
   %33 = getelementptr inbounds nuw i8, ptr %.092139, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not120 = icmp eq ptr %34, null
-  br i1 %.not120, label %.critedge, label %27, !llvm.loop !19
+  br i1 %.not120, label %.critedge, label %27, !llvm.loop !20
 
 .critedge:                                        ; preds = %32, %.lr.ph144
   %35 = load ptr, ptr %8, align 8
@@ -3492,14 +3492,14 @@ define hidden void @gcp_analyze_msg(ptr noundef %0, ptr noundef %1, ptr noundef 
   %38 = getelementptr inbounds nuw i8, ptr %.093143, i64 8
   %.093 = load ptr, ptr %38, align 8
   %.not119 = icmp eq ptr %.093, null
-  br i1 %.not119, label %._crit_edge, label %.lr.ph144, !llvm.loop !20
+  br i1 %.not119, label %._crit_edge, label %.lr.ph144, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.loopexit137, %19
   %.sroa.3.1.lcssa = phi ptr [ %.sroa.3.0147, %19 ], [ %.sroa.3.2, %.loopexit137 ]
   %39 = getelementptr inbounds nuw i8, ptr %.0148, i64 8
   %.0 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.preheader, label %19, !llvm.loop !21
+  br i1 %.not, label %.preheader, label %19, !llvm.loop !22
 
 40:                                               ; preds = %.lr.ph160, %.loopexit
   %.1159 = phi ptr [ %.sroa.3.1.lcssa, %.lr.ph160 ], [ %160, %.loopexit ]
@@ -3590,7 +3590,7 @@ proto_item_set_generated.exit123:                 ; preds = %71, %72, %75
   %85 = getelementptr inbounds nuw i8, ptr %.194154, i64 8
   %.194 = load ptr, ptr %85, align 8
   %.not107 = icmp eq ptr %.194, null
-  br i1 %.not107, label %.loopexit136, label %.lr.ph156, !llvm.loop !22
+  br i1 %.not107, label %.loopexit136, label %.lr.ph156, !llvm.loop !23
 
 .loopexit136:                                     ; preds = %84, %57, %proto_item_set_generated.exit
   %86 = getelementptr inbounds nuw i8, ptr %41, i64 40
@@ -3738,13 +3738,13 @@ proto_item_set_generated.exit135:                 ; preds = %142, %139, %136, %p
   %157 = getelementptr inbounds nuw i8, ptr %.095157, i64 8
   %158 = load ptr, ptr %157, align 8
   %.not109 = icmp eq ptr %158, null
-  br i1 %.not109, label %.loopexit, label %91, !llvm.loop !23
+  br i1 %.not109, label %.loopexit, label %91, !llvm.loop !24
 
 .loopexit:                                        ; preds = %156, %.loopexit136
   %159 = getelementptr inbounds nuw i8, ptr %.1159, i64 8
   %160 = load ptr, ptr %159, align 8
   %.not105 = icmp eq ptr %160, null
-  br i1 %.not105, label %._crit_edge161, label %40, !llvm.loop !24
+  br i1 %.not105, label %._crit_edge161, label %40, !llvm.loop !25
 
 ._crit_edge161:                                   ; preds = %.loopexit, %6, %.preheader
   ret void
@@ -4062,7 +4062,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %.not151 = icmp eq ptr %41, null
-  br i1 %.not151, label %.critedge, label %31, !llvm.loop !25
+  br i1 %.not151, label %.critedge, label %31, !llvm.loop !26
 
 .critedge:                                        ; preds = %31, %36
   %storemerge.lcssa169 = phi i32 [ %storemerge171, %31 ], [ %37, %36 ]
@@ -4102,7 +4102,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %62 = add i32 %.0177, 1
   %exitcond.not = icmp eq i32 %62, %53
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph178, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph178, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph178, %43
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -4149,7 +4149,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not154 = icmp eq ptr %86, null
-  br i1 %.not154, label %.critedge2, label %76, !llvm.loop !27
+  br i1 %.not154, label %.critedge2, label %76, !llvm.loop !28
 
 .critedge2:                                       ; preds = %76, %81
   %storemerge153.lcssa179 = phi i32 [ %storemerge153181, %76 ], [ %82, %81 ]
@@ -4189,7 +4189,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   %indvars.iv.next197 = add nsw i64 %indvars.iv196, 1
   %107 = add i32 %.1190, 1
   %exitcond199.not = icmp eq i32 %107, %98
-  br i1 %exitcond199.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !28
+  br i1 %exitcond199.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !29
 
 ._crit_edge193:                                   ; preds = %.lr.ph192, %88
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -4211,7 +4211,7 @@ define void @h248_register_package(ptr noundef %0, i32 noundef %1) local_unnamed
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8
   %.not149 = icmp eq ptr %119, null
-  br i1 %.not149, label %.loopexit.loopexit, label %8, !llvm.loop !29
+  br i1 %.not149, label %.loopexit.loopexit, label %8, !llvm.loop !30
 
 .loopexit.loopexit:                               ; preds = %109
   %.pre = load ptr, ptr @packages, align 8
@@ -4855,7 +4855,7 @@ define internal i32 @dissect_h248_MtpAddress(i1 noundef zeroext %0, ptr noundef 
   %17 = or disjoint i32 %13, %16
   %18 = add nuw nsw i32 %.03136, 1
   %exitcond.not = icmp eq i32 %18, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.032.lcssa = phi i32 [ 0, %10 ], [ %17, %.lr.ph ]
@@ -5088,7 +5088,7 @@ define internal fastcc noundef i32 @dissect_h248_trx_id(i1 noundef zeroext %0, p
   %25 = add i32 %.03237, 1
   %26 = load i32, ptr %10, align 4
   %.not = icmp ugt i32 %25, %26
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = icmp ugt i64 %20, 4294967295
@@ -5187,7 +5187,7 @@ define internal noundef i32 @dissect_h248_ContextId(i1 noundef zeroext %0, ptr n
   %27 = add i32 %.03942.i, 1
   %28 = load i32, ptr %10, align 4
   %.not.i = icmp ugt i32 %27, %28
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %29 = icmp ugt i64 %22, 4294967295
@@ -5731,7 +5731,7 @@ define internal i32 @dissect_h248_PropertyID(i1 zeroext %0, ptr noundef %1, i32 
 43:                                               ; preds = %40
   %44 = getelementptr i8, ptr %.048, i64 32
   %.not39 = icmp eq ptr %44, null
-  br i1 %.not39, label %.critedge, label %37, !llvm.loop !33
+  br i1 %.not39, label %.critedge, label %37, !llvm.loop !34
 
 .loopexit:                                        ; preds = %40, %29
   %.ph = phi ptr [ @hf_h248_param, %29 ], [ %39, %40 ]
@@ -6394,7 +6394,7 @@ find_package_id.exit:                             ; preds = %10, %20
   %45 = getelementptr i8, ptr %.04356, i64 48
   %46 = load ptr, ptr %45, align 8
   %.not51 = icmp eq ptr %46, null
-  br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %.not51, label %.loopexit, label %.lr.ph, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %.preheader, %31
   %.1 = phi ptr [ @no_event, %31 ], [ @no_event, %.preheader ], [ %.04356, %.lr.ph ], [ @no_event, %43 ]
@@ -6640,7 +6640,7 @@ define internal i32 @dissect_h248_EventParameterName(i1 noundef zeroext %0, ptr 
   %40 = getelementptr i8, ptr %.02036, i64 40
   %41 = load ptr, ptr %40, align 8
   %.not30 = icmp eq ptr %41, null
-  br i1 %.not30, label %.loopexit.thread, label %.lr.ph, !llvm.loop !35
+  br i1 %.not30, label %.loopexit.thread, label %.lr.ph, !llvm.loop !36
 
 .loopexit.thread:                                 ; preds = %38, %37, %30, %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -6868,7 +6868,7 @@ find_package_id.exit:                             ; preds = %10, %20
   %45 = getelementptr i8, ptr %.04357, i64 48
   %46 = load ptr, ptr %45, align 8
   %.not52 = icmp eq ptr %46, null
-  br i1 %.not52, label %.loopexit, label %.lr.ph, !llvm.loop !36
+  br i1 %.not52, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %43, %.preheader, %31
   %storemerge51 = phi ptr [ @no_package, %31 ], [ %.0.i, %.preheader ], [ %.0.i, %43 ], [ %.0.i, %.lr.ph ]
@@ -7032,7 +7032,7 @@ define internal i32 @dissect_h248_SigParameterName(i1 noundef zeroext %0, ptr no
   %39 = getelementptr i8, ptr %.02035, i64 40
   %40 = load ptr, ptr %39, align 8
   %.not28 = icmp eq ptr %40, null
-  br i1 %.not28, label %.thread32, label %.lr.ph, !llvm.loop !37
+  br i1 %.not28, label %.thread32, label %.lr.ph, !llvm.loop !38
 
 .thread32:                                        ; preds = %37, %.preheader, %36, %29
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -7911,33 +7911,34 @@ attributes #13 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}

@@ -109,9 +109,9 @@ define void @_ZN3fmt3v1113buffered_fileC2ENS0_18basic_cstring_viewIcEES3_(ptr no
 12:                                               ; preds = %8
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %14 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !14
   %15 = ptrtoint ptr %1 to i64
-  store i64 %15, ptr %4, align 16, !noalias !13
+  store i64 %15, ptr %4, align 16, !noalias !14
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %13, i32 noundef %14, ptr nonnull @.str.2, i64 19, i64 12, ptr nonnull %4)
           to label %17 unwind label %.thread17
 
@@ -122,7 +122,7 @@ define void @_ZN3fmt3v1113buffered_fileC2ENS0_18basic_cstring_viewIcEES3_(ptr no
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !14
   call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -166,12 +166,12 @@ define void @_ZN3fmt3v1113buffered_file5closeEv(ptr noundef nonnull align 8 capt
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %8 = tail call ptr @__errno_location() #16
   %9 = load i32, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !17
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %7, i32 noundef %9, ptr nonnull @.str, i64 17, i64 0, ptr nonnull %2)
           to label %10 unwind label %11
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !17
   call void @__cxa_throw(ptr %7, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -197,12 +197,12 @@ define noundef range(i32 0, -1) i32 @_ZNK3fmt3v1113buffered_file10descriptorEv(p
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %8 = tail call ptr @__errno_location() #16
   %9 = load i32, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !20
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %7, i32 noundef %9, ptr nonnull @.str.3, i64 26, i64 0, ptr nonnull %2)
           to label %10 unwind label %11
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !20
   call void @__cxa_throw(ptr %7, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -226,7 +226,7 @@ define void @_ZN3fmt3v114fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnul
 
 5:                                                ; preds = %8, %3
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef %2, i32 noundef 438)
-  store i32 %6, ptr %0, align 4, !tbaa !22
+  store i32 %6, ptr %0, align 4, !tbaa !23
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %.critedge
 
@@ -234,14 +234,14 @@ define void @_ZN3fmt3v114fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnul
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %12, !llvm.loop !24
+  br i1 %11, label %5, label %12, !llvm.loop !25
 
 12:                                               ; preds = %8
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %14 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !25
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !26
   %15 = ptrtoint ptr %1 to i64
-  store i64 %15, ptr %4, align 16, !noalias !25
+  store i64 %15, ptr %4, align 16, !noalias !26
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %13, i32 noundef %14, ptr nonnull @.str.2, i64 19, i64 12, ptr nonnull %4)
           to label %17 unwind label %.thread15
 
@@ -252,7 +252,7 @@ define void @_ZN3fmt3v114fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnul
   resume { ptr, i32 } %16
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !25
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !26
   call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -265,7 +265,7 @@ declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3fmt3v114fileD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i32, ptr %0, align 4, !tbaa !22
+  %2 = load i32, ptr %0, align 4, !tbaa !23
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %9, label %3
 
@@ -299,13 +299,13 @@ declare i32 @close(i32 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.fmt::v11::detail::format_arg_store.41", align 16
-  %3 = load i32, ptr %0, align 4, !tbaa !22
+  %3 = load i32, ptr %0, align 4, !tbaa !23
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
   %6 = tail call i32 @close(i32 noundef %3)
-  store i32 -1, ptr %0, align 4, !tbaa !22
+  store i32 -1, ptr %0, align 4, !tbaa !23
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %14, label %7
 
@@ -313,12 +313,12 @@ define void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 captures(none)
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !28
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !29
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %8, i32 noundef %10, ptr nonnull @.str, i64 17, i64 0, ptr nonnull %2)
           to label %11 unwind label %12
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !28
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !29
   call void @__cxa_throw(ptr %8, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -338,7 +338,7 @@ define noundef i64 @_ZNK3fmt3v114file4sizeEv(ptr noundef nonnull readonly align 
   %3 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
-  %4 = load i32, ptr %0, align 4, !tbaa !22
+  %4 = load i32, ptr %0, align 4, !tbaa !23
   %5 = call i32 @fstat(i32 noundef %4, ptr noundef nonnull %3) #17
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %14
@@ -347,12 +347,12 @@ define noundef i64 @_ZNK3fmt3v114file4sizeEv(ptr noundef nonnull readonly align 
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !31
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !32
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %8, i32 noundef %10, ptr nonnull @.str.4, i64 26, i64 0, ptr nonnull %2)
           to label %11 unwind label %12
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !31
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !32
   call void @__cxa_throw(ptr %8, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -365,7 +365,7 @@ define noundef i64 @_ZNK3fmt3v114file4sizeEv(ptr noundef nonnull readonly align 
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !34
+  %16 = load i64, ptr %15, align 8, !tbaa !35
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #17
   ret i64 %16
 }
@@ -382,7 +382,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file4readEPvm
   br label %5
 
 5:                                                ; preds = %9, %3
-  %6 = load i32, ptr %0, align 4, !tbaa !22
+  %6 = load i32, ptr %0, align 4, !tbaa !23
   %7 = tail call i64 @read(i32 noundef %6, ptr noundef %1, i64 noundef %2)
   %8 = icmp eq i64 %7, -1
   br i1 %8, label %9, label %.critedge
@@ -391,7 +391,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file4readEPvm
   %10 = tail call ptr @__errno_location() #16
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %.critedge.thread, !llvm.loop !38
+  br i1 %12, label %5, label %.critedge.thread, !llvm.loop !39
 
 .critedge:                                        ; preds = %5
   %13 = icmp slt i64 %7, 0
@@ -401,12 +401,12 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file4readEPvm
   %14 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %15 = tail call ptr @__errno_location() #16
   %16 = load i32, ptr %15, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !39
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !40
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %14, i32 noundef %16, ptr nonnull @.str.5, i64 21, i64 0, ptr nonnull %4)
           to label %17 unwind label %18
 
 17:                                               ; preds = %.critedge.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !39
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !40
   call void @__cxa_throw(ptr %14, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -429,7 +429,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file5writeEPK
   br label %5
 
 5:                                                ; preds = %9, %3
-  %6 = load i32, ptr %0, align 4, !tbaa !22
+  %6 = load i32, ptr %0, align 4, !tbaa !23
   %7 = tail call i64 @write(i32 noundef %6, ptr noundef %1, i64 noundef %2)
   %8 = icmp eq i64 %7, -1
   br i1 %8, label %9, label %.critedge
@@ -438,7 +438,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file5writeEPK
   %10 = tail call ptr @__errno_location() #16
   %11 = load i32, ptr %10, align 4, !tbaa !9
   %12 = icmp eq i32 %11, 4
-  br i1 %12, label %5, label %.critedge.thread, !llvm.loop !42
+  br i1 %12, label %5, label %.critedge.thread, !llvm.loop !43
 
 .critedge:                                        ; preds = %5
   %13 = icmp slt i64 %7, 0
@@ -448,12 +448,12 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v114file5writeEPK
   %14 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %15 = tail call ptr @__errno_location() #16
   %16 = load i32, ptr %15, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !43
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !44
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %14, i32 noundef %16, ptr nonnull @.str.6, i64 20, i64 0, ptr nonnull %4)
           to label %17 unwind label %18
 
 17:                                               ; preds = %.critedge.thread
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !43
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !44
   call void @__cxa_throw(ptr %14, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -481,14 +481,14 @@ define void @_ZN3fmt3v114file3dupEi(ptr dead_on_unwind noalias writable writeonl
   %7 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %8 = tail call ptr @__errno_location() #16
   %9 = load i32, ptr %8, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17, !noalias !46
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17, !noalias !47
   %.sroa.01.0.insert.ext.i.i = zext i32 %1 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i, ptr %3, align 16, !noalias !46
+  store i64 %.sroa.01.0.insert.ext.i.i, ptr %3, align 16, !noalias !47
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %7, i32 noundef %9, ptr nonnull @.str.7, i64 35, i64 1, ptr nonnull %3)
           to label %10 unwind label %11
 
 10:                                               ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17, !noalias !46
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #17, !noalias !47
   call void @__cxa_throw(ptr %7, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -499,7 +499,7 @@ define void @_ZN3fmt3v114file3dupEi(ptr dead_on_unwind noalias writable writeonl
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %2
-  store i32 %4, ptr %0, align 4, !tbaa !22
+  store i32 %4, ptr %0, align 4, !tbaa !23
   ret void
 }
 
@@ -512,7 +512,7 @@ define void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull readonly align 4 captur
   br label %4
 
 4:                                                ; preds = %8, %2
-  %5 = load i32, ptr %0, align 4, !tbaa !22
+  %5 = load i32, ptr %0, align 4, !tbaa !23
   %6 = tail call i32 @dup2(i32 noundef %5, i32 noundef %1) #17
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %.critedge5
@@ -521,24 +521,24 @@ define void @_ZN3fmt3v114file4dup2Ei(ptr noundef nonnull readonly align 4 captur
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %4, label %12, !llvm.loop !49
+  br i1 %11, label %4, label %12, !llvm.loop !50
 
 12:                                               ; preds = %8
   %13 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %14 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17, !noalias !50
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  %15 = load i32, ptr %0, align 4, !tbaa !9, !noalias !56
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #17, !noalias !51
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  %15 = load i32, ptr %0, align 4, !tbaa !9, !noalias !57
   %.sroa.01.0.insert.ext.i.i = zext i32 %15 to i64
-  store i64 %.sroa.01.0.insert.ext.i.i, ptr %3, align 16, !alias.scope !53, !noalias !50
+  store i64 %.sroa.01.0.insert.ext.i.i, ptr %3, align 16, !alias.scope !54, !noalias !51
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.01.0.insert.ext.i4.i = zext i32 %1 to i64
-  store i64 %.sroa.01.0.insert.ext.i4.i, ptr %16, align 16, !alias.scope !53, !noalias !50
+  store i64 %.sroa.01.0.insert.ext.i4.i, ptr %16, align 16, !alias.scope !54, !noalias !51
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %13, i32 noundef %14, ptr nonnull @.str.8, i64 41, i64 17, ptr nonnull %3)
           to label %17 unwind label %18
 
 17:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17, !noalias !50
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #17, !noalias !51
   call void @__cxa_throw(ptr %13, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -560,7 +560,7 @@ define void @_ZN3fmt3v114file4dup2EiRSt10error_code(ptr noundef nonnull readonly
   br label %4
 
 4:                                                ; preds = %8, %3
-  %5 = load i32, ptr %0, align 4, !tbaa !22
+  %5 = load i32, ptr %0, align 4, !tbaa !23
   %6 = tail call i32 @dup2(i32 noundef %5, i32 noundef %1) #17
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %.critedge4
@@ -569,13 +569,13 @@ define void @_ZN3fmt3v114file4dup2EiRSt10error_code(ptr noundef nonnull readonly
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %4, label %.critedge, !llvm.loop !57
+  br i1 %11, label %4, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %8
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #16
   store i32 %10, ptr %2, align 8, !tbaa !9
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %12, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !58
+  store ptr %12, ptr %.sroa.45.0..sroa_idx, align 8, !tbaa !59
   br label %.critedge4
 
 .critedge4:                                       ; preds = %4, %.critedge
@@ -588,7 +588,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categ
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3fmt3v114file6fdopenEPKc(ptr dead_on_unwind noalias writable writeonly sret(%"class.fmt::v11::buffered_file") align 8 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.fmt::v11::detail::format_arg_store.41", align 16
-  %5 = load i32, ptr %1, align 4, !tbaa !22
+  %5 = load i32, ptr %1, align 4, !tbaa !23
   %6 = tail call noalias ptr @fdopen(i32 noundef %5, ptr noundef %2) #17
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %14
@@ -597,12 +597,12 @@ define void @_ZN3fmt3v114file6fdopenEPKc(ptr dead_on_unwind noalias writable wri
   %8 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !60
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #17, !noalias !61
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %8, i32 noundef %10, ptr nonnull @.str.9, i64 44, i64 0, ptr nonnull %4)
           to label %11 unwind label %12
 
 11:                                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !60
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #17, !noalias !61
   call void @__cxa_throw(ptr %8, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -614,7 +614,7 @@ define void @_ZN3fmt3v114file6fdopenEPKc(ptr dead_on_unwind noalias writable wri
 
 14:                                               ; preds = %3
   store ptr %6, ptr %0, align 8, !tbaa !3
-  store i32 -1, ptr %1, align 4, !tbaa !22
+  store i32 -1, ptr %1, align 4, !tbaa !23
   ret void
 }
 
@@ -627,9 +627,9 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
   %3 = alloca [2 x i32], align 8
   %4 = alloca %"class.fmt::v11::file", align 4
   %5 = alloca %"class.fmt::v11::file", align 4
-  store i32 -1, ptr %0, align 4, !tbaa !22
+  store i32 -1, ptr %0, align 4, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -1, ptr %6, align 4, !tbaa !22
+  store i32 -1, ptr %6, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 0, ptr %3, align 8
   %7 = call i32 @pipe(ptr noundef nonnull %3) #17
@@ -640,12 +640,12 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
   %9 = call ptr @__cxa_allocate_exception(i64 32) #17
   %10 = tail call ptr @__errno_location() #16
   %11 = load i32, ptr %10, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !63
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17, !noalias !64
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %9, i32 noundef %11, ptr nonnull @.str.10, i64 18, i64 0, ptr nonnull %2)
           to label %12 unwind label %15
 
 12:                                               ; preds = %8
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !63
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #17, !noalias !64
   invoke void @__cxa_throw(ptr %9, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
           to label %28 unwind label %13
 
@@ -663,25 +663,25 @@ define void @_ZN3fmt3v114pipeC2Ev(ptr noundef nonnull align 4 dereferenceable(8)
 17:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   %18 = load i32, ptr %3, align 8, !tbaa !9
-  store i32 %18, ptr %4, align 4, !tbaa !22
+  store i32 %18, ptr %4, align 4, !tbaa !23
   invoke void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %0)
           to label %19 unwind label %23
 
 19:                                               ; preds = %17
-  store i32 %18, ptr %0, align 4, !tbaa !22
-  store i32 -1, ptr %4, align 4, !tbaa !22
+  store i32 %18, ptr %0, align 4, !tbaa !23
+  store i32 -1, ptr %4, align 4, !tbaa !23
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !9
-  store i32 %21, ptr %5, align 4, !tbaa !22
+  store i32 %21, ptr %5, align 4, !tbaa !23
   invoke void @_ZN3fmt3v114file5closeEv(ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %22 unwind label %25
 
 22:                                               ; preds = %19
-  store i32 %21, ptr %6, align 4, !tbaa !22
-  store i32 -1, ptr %5, align 4, !tbaa !22
+  store i32 %21, ptr %6, align 4, !tbaa !23
+  store i32 -1, ptr %5, align 4, !tbaa !23
   call void @_ZN3fmt3v114fileD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
@@ -726,12 +726,12 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v1111getpagesizeE
   %5 = tail call ptr @__cxa_allocate_exception(i64 32) #17
   %6 = tail call ptr @__errno_location() #16
   %7 = load i32, ptr %6, align 4, !tbaa !9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #17, !noalias !66
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #17, !noalias !67
   invoke void @_ZN3fmt3v1113vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr dead_on_unwind writable sret(%"class.std::system_error") align 8 %5, i32 noundef %7, ptr nonnull @.str.11, i64 27, i64 0, ptr nonnull %1)
           to label %8 unwind label %9
 
 8:                                                ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #17, !noalias !66
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #17, !noalias !67
   call void @__cxa_throw(ptr %5, ptr nonnull @_ZTISt12system_error, ptr nonnull @_ZNSt12system_errorD1Ev) #19
   unreachable
 
@@ -751,9 +751,9 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3fmt3v116detail11file_buffer4growERNS1_6bufferIcEEm(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i64 %1) #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !69
+  %4 = load i64, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !72
+  %6 = load i64, ptr %5, align 8, !tbaa !73
   %7 = icmp ne i64 %4, %6
   %8 = icmp eq i64 %4, 0
   %or.cond = or i1 %8, %7
@@ -761,9 +761,9 @@ define void @_ZN3fmt3v116detail11file_buffer4growERNS1_6bufferIcEEm(ptr noundef 
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %0, align 8, !tbaa !73
+  %11 = load ptr, ptr %0, align 8, !tbaa !74
   %12 = tail call noundef i64 @_ZN3fmt3v114file5writeEPKvm(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef %11, i64 noundef %4)
-  store i64 0, ptr %3, align 8, !tbaa !69
+  store i64 0, ptr %3, align 8, !tbaa !70
   br label %_ZN3fmt3v116detail11file_buffer5flushEv.exit
 
 _ZN3fmt3v116detail11file_buffer5flushEv.exit:     ; preds = %9, %2
@@ -774,19 +774,19 @@ _ZN3fmt3v116detail11file_buffer5flushEv.exit:     ; preds = %9, %2
 define void @_ZN3fmt3v116detail11file_bufferC2ENS0_18basic_cstring_viewIcEERKNS1_14ostream_paramsE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %0, ptr %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  store ptr @_ZN3fmt3v116detail11file_buffer4growERNS1_6bufferIcEEm, ptr %4, align 8, !tbaa !74
+  store ptr @_ZN3fmt3v116detail11file_buffer4growERNS1_6bufferIcEEm, ptr %4, align 8, !tbaa !75
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %2, align 8, !tbaa !75
+  %6 = load i32, ptr %2, align 8, !tbaa !76
   tail call void @_ZN3fmt3v114fileC1ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnull align 4 dereferenceable(4) %5, ptr %1, i32 noundef %6)
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !77
+  %8 = load i64, ptr %7, align 8, !tbaa !78
   %9 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %8) #20
           to label %10 unwind label %12
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %0, align 8, !tbaa !73
-  store i64 %8, ptr %11, align 8, !tbaa !72
+  store ptr %9, ptr %0, align 8, !tbaa !74
+  store i64 %8, ptr %11, align 8, !tbaa !73
   ret void
 
 12:                                               ; preds = %3
@@ -801,23 +801,23 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3fmt3v116detail11file_bufferC2EOS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %1) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !73
+  %3 = load ptr, ptr %1, align 8, !tbaa !74
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !69
+  %5 = load i64, ptr %4, align 8, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !72
-  store ptr %3, ptr %0, align 8, !tbaa !73
+  %7 = load i64, ptr %6, align 8, !tbaa !73
+  store ptr %3, ptr %0, align 8, !tbaa !74
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %5, ptr %8, align 8, !tbaa !69
+  store i64 %5, ptr %8, align 8, !tbaa !70
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %7, ptr %9, align 8, !tbaa !72
+  store i64 %7, ptr %9, align 8, !tbaa !73
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @_ZN3fmt3v116detail11file_buffer4growERNS1_6bufferIcEEm, ptr %10, align 8, !tbaa !74
+  store ptr @_ZN3fmt3v116detail11file_buffer4growERNS1_6bufferIcEEm, ptr %10, align 8, !tbaa !75
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %13 = load i32, ptr %12, align 8, !tbaa !22
-  store i32 %13, ptr %11, align 8, !tbaa !22
-  store i32 -1, ptr %12, align 8, !tbaa !22
+  %13 = load i32, ptr %12, align 8, !tbaa !23
+  store i32 %13, ptr %11, align 8, !tbaa !23
+  store i32 -1, ptr %12, align 8, !tbaa !23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   ret void
 }
@@ -825,22 +825,22 @@ define void @_ZN3fmt3v116detail11file_bufferC2EOS2_(ptr noundef nonnull writeonl
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3fmt3v116detail11file_bufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !69
+  %3 = load i64, ptr %2, align 8, !tbaa !70
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %_ZN3fmt3v116detail11file_buffer5flushEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %0, align 8, !tbaa !73
+  %7 = load ptr, ptr %0, align 8, !tbaa !74
   %8 = invoke noundef i64 @_ZN3fmt3v114file5writeEPKvm(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef %7, i64 noundef %3)
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %5
-  store i64 0, ptr %2, align 8, !tbaa !69
+  store i64 0, ptr %2, align 8, !tbaa !70
   br label %_ZN3fmt3v116detail11file_buffer5flushEv.exit
 
 _ZN3fmt3v116detail11file_buffer5flushEv.exit:     ; preds = %.noexc, %1
-  %9 = load ptr, ptr %0, align 8, !tbaa !73
+  %9 = load ptr, ptr %0, align 8, !tbaa !74
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
 
@@ -911,70 +911,71 @@ attributes #21 = { builtin nounwind }
 !8 = !{!"Simple C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"int", !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_: argument 0"}
-!15 = distinct !{!15, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_"}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!18 = distinct !{!18, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!21 = distinct !{!21, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!22 = !{!23, !10, i64 0}
-!23 = !{!"_ZTSN3fmt3v114fileE", !10, i64 0}
-!24 = distinct !{!24, !12}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_: argument 0"}
-!27 = distinct !{!27, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!30 = distinct !{!30, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!33 = distinct !{!33, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!34 = !{!35, !36, i64 48}
-!35 = !{!"_ZTS4stat", !36, i64 0, !36, i64 8, !36, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !36, i64 40, !36, i64 48, !36, i64 56, !36, i64 64, !37, i64 72, !37, i64 88, !37, i64 104, !7, i64 120}
-!36 = !{!"long", !7, i64 0}
-!37 = !{!"_ZTS8timespec", !36, i64 0, !36, i64 8}
-!38 = distinct !{!38, !12}
-!39 = !{!40}
-!40 = distinct !{!40, !41, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!41 = distinct !{!41, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!42 = distinct !{!42, !12}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!45 = distinct !{!45, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZN3fmt3v1112system_errorIJRiEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_: argument 0"}
-!48 = distinct !{!48, !"_ZN3fmt3v1112system_errorIJRiEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_"}
-!49 = distinct !{!49, !12}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZN3fmt3v1112system_errorIJRiS2_EEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_: argument 0"}
-!52 = distinct !{!52, !"_ZN3fmt3v1112system_errorIJRiS2_EEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN3fmt3v1116make_format_argsINS0_7contextEJiiELm2ELm0ELy17ETnNSt9enable_ifIXeqT2_Li0EEiE4typeELi0EEENS0_6detail16format_arg_storeIT_XT1_ELm0EXT3_EEEDpRT0_: argument 0"}
-!55 = distinct !{!55, !"_ZN3fmt3v1116make_format_argsINS0_7contextEJiiELm2ELm0ELy17ETnNSt9enable_ifIXeqT2_Li0EEiE4typeELi0EEENS0_6detail16format_arg_storeIT_XT1_ELm0EXT3_EEEDpRT0_"}
-!56 = !{!54, !51}
-!57 = distinct !{!57, !12}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"p1 _ZTSNSt3_V214error_categoryE", !6, i64 0}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!62 = distinct !{!62, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!65 = distinct !{!65, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
-!68 = distinct !{!68, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
-!69 = !{!70, !36, i64 8}
-!70 = !{!"_ZTSN3fmt3v116detail6bufferIcEE", !71, i64 0, !36, i64 8, !36, i64 16, !6, i64 24}
-!71 = !{!"p1 omnipotent char", !6, i64 0}
-!72 = !{!70, !36, i64 16}
-!73 = !{!70, !71, i64 0}
-!74 = !{!70, !6, i64 24}
-!75 = !{!76, !10, i64 0}
-!76 = !{!"_ZTSN3fmt3v116detail14ostream_paramsE", !10, i64 0, !36, i64 8}
-!77 = !{!76, !36, i64 8}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_: argument 0"}
+!16 = distinct !{!16, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_"}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!19 = distinct !{!19, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!22 = distinct !{!22, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!23 = !{!24, !10, i64 0}
+!24 = !{!"_ZTSN3fmt3v114fileE", !10, i64 0}
+!25 = distinct !{!25, !12, !13}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_: argument 0"}
+!28 = distinct !{!28, !"_ZN3fmt3v1112system_errorIJPKcEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS7_"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!31 = distinct !{!31, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!34 = distinct !{!34, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!35 = !{!36, !37, i64 48}
+!36 = !{!"_ZTS4stat", !37, i64 0, !37, i64 8, !37, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !37, i64 40, !37, i64 48, !37, i64 56, !37, i64 64, !38, i64 72, !38, i64 88, !38, i64 104, !7, i64 120}
+!37 = !{!"long", !7, i64 0}
+!38 = !{!"_ZTS8timespec", !37, i64 0, !37, i64 8}
+!39 = distinct !{!39, !12, !13}
+!40 = !{!41}
+!41 = distinct !{!41, !42, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!42 = distinct !{!42, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!43 = distinct !{!43, !12, !13}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!46 = distinct !{!46, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZN3fmt3v1112system_errorIJRiEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_: argument 0"}
+!49 = distinct !{!49, !"_ZN3fmt3v1112system_errorIJRiEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_"}
+!50 = distinct !{!50, !12, !13}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZN3fmt3v1112system_errorIJRiS2_EEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_: argument 0"}
+!53 = distinct !{!53, !"_ZN3fmt3v1112system_errorIJRiS2_EEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS6_"}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN3fmt3v1116make_format_argsINS0_7contextEJiiELm2ELm0ELy17ETnNSt9enable_ifIXeqT2_Li0EEiE4typeELi0EEENS0_6detail16format_arg_storeIT_XT1_ELm0EXT3_EEEDpRT0_: argument 0"}
+!56 = distinct !{!56, !"_ZN3fmt3v1116make_format_argsINS0_7contextEJiiELm2ELm0ELy17ETnNSt9enable_ifIXeqT2_Li0EEiE4typeELi0EEENS0_6detail16format_arg_storeIT_XT1_ELm0EXT3_EEEDpRT0_"}
+!57 = !{!55, !52}
+!58 = distinct !{!58, !12, !13}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"p1 _ZTSNSt3_V214error_categoryE", !6, i64 0}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!63 = distinct !{!63, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!66 = distinct !{!66, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_: argument 0"}
+!69 = distinct !{!69, !"_ZN3fmt3v1112system_errorIJEEESt12system_erroriNS0_19basic_format_stringIcJDpNS0_13type_identityIT_E4typeEEEEDpOS5_"}
+!70 = !{!71, !37, i64 8}
+!71 = !{!"_ZTSN3fmt3v116detail6bufferIcEE", !72, i64 0, !37, i64 8, !37, i64 16, !6, i64 24}
+!72 = !{!"p1 omnipotent char", !6, i64 0}
+!73 = !{!71, !37, i64 16}
+!74 = !{!71, !72, i64 0}
+!75 = !{!71, !6, i64 24}
+!76 = !{!77, !10, i64 0}
+!77 = !{!"_ZTSN3fmt3v116detail14ostream_paramsE", !10, i64 0, !37, i64 8}
+!78 = !{!77, !37, i64 8}

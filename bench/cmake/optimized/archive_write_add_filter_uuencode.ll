@@ -194,7 +194,7 @@ atol8.exit:                                       ; preds = %atol8.exit.loopexit
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %34, align 8, !tbaa !34
+  store i64 0, ptr %34, align 8, !tbaa !35
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #8
   %36 = tail call ptr @archive_strncat(ptr noundef nonnull %33, ptr noundef nonnull %2, i64 noundef %35) #6
   br label %37
@@ -213,7 +213,7 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %9 = load i64, ptr %8, align 8, !tbaa !35
+  %9 = load i64, ptr %8, align 8, !tbaa !36
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %24, label %.preheader
 
@@ -232,14 +232,14 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
   %14 = getelementptr inbounds nuw i8, ptr %.151, i64 1
   %15 = load i8, ptr %.151, align 1, !tbaa !31
   %16 = add nuw nsw i64 %13, 1
-  store i64 %16, ptr %8, align 8, !tbaa !35
+  store i64 %16, ptr %8, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw [45 x i8], ptr %11, i64 0, i64 %13
   store i8 %15, ptr %17, align 1, !tbaa !31
   %18 = add i64 %.14350, -1
   %19 = icmp samesign ult i64 %13, 44
   %20 = icmp ne i64 %18, 0
   %21 = select i1 %19, i1 %20, i1 false
-  br i1 %21, label %12, label %._crit_edge, !llvm.loop !36
+  br i1 %21, label %12, label %._crit_edge, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %12
   br i1 %19, label %.loopexit, label %._crit_edge.thread
@@ -250,7 +250,7 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call fastcc void @uu_encode(ptr noundef nonnull %22, ptr noundef nonnull %23, i64 noundef 45)
-  store i64 0, ptr %8, align 8, !tbaa !35
+  store i64 0, ptr %8, align 8, !tbaa !36
   br label %24
 
 24:                                               ; preds = %._crit_edge.thread, %7
@@ -270,7 +270,7 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
   %28 = add i64 %.24454, -45
   %29 = getelementptr inbounds nuw i8, ptr %.255, i64 45
   %30 = icmp ugt i64 %28, 44
-  br i1 %30, label %27, label %._crit_edge58, !llvm.loop !37
+  br i1 %30, label %27, label %._crit_edge58, !llvm.loop !38
 
 ._crit_edge58:                                    ; preds = %27, %24
   %.244.lcssa = phi i64 [ %.042, %24 ], [ %28, %27 ]
@@ -281,13 +281,13 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
 31:                                               ; preds = %._crit_edge58
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr align 1 %.2.lcssa, i64 %.244.lcssa, i1 false)
-  store i64 %.244.lcssa, ptr %8, align 8, !tbaa !35
+  store i64 %.244.lcssa, ptr %8, align 8, !tbaa !36
   br label %33
 
 33:                                               ; preds = %31, %._crit_edge58
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %36 = load i64, ptr %34, align 8, !tbaa !38
+  %36 = load i64, ptr %34, align 8, !tbaa !39
   %37 = load i64, ptr %35, align 8, !tbaa !29
   %.not4961 = icmp ult i64 %36, %37
   br i1 %.not4961, label %.loopexit, label %.lr.ph63
@@ -299,21 +299,21 @@ define internal i32 @archive_filter_uuencode_write(ptr noundef readonly captures
 
 40:                                               ; preds = %.lr.ph63, %40
   %41 = phi i64 [ %37, %.lr.ph63 ], [ %50, %40 ]
-  %42 = load ptr, ptr %39, align 8, !tbaa !39
-  %43 = load ptr, ptr %38, align 8, !tbaa !40
+  %42 = load ptr, ptr %39, align 8, !tbaa !40
+  %43 = load ptr, ptr %38, align 8, !tbaa !41
   %44 = tail call i32 @__archive_write_filter(ptr noundef %42, ptr noundef %43, i64 noundef %41) #6
-  %45 = load ptr, ptr %38, align 8, !tbaa !40
+  %45 = load ptr, ptr %38, align 8, !tbaa !41
   %46 = load i64, ptr %35, align 8, !tbaa !29
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
-  %48 = load i64, ptr %34, align 8, !tbaa !38
+  %48 = load i64, ptr %34, align 8, !tbaa !39
   %49 = sub i64 %48, %46
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %45, ptr align 1 %47, i64 %49, i1 false)
   %50 = load i64, ptr %35, align 8, !tbaa !29
-  %51 = load i64, ptr %34, align 8, !tbaa !38
+  %51 = load i64, ptr %34, align 8, !tbaa !39
   %52 = sub i64 %51, %50
-  store i64 %52, ptr %34, align 8, !tbaa !38
+  store i64 %52, ptr %34, align 8, !tbaa !39
   %.not49 = icmp ult i64 %52, %50
-  br i1 %.not49, label %.loopexit, label %40, !llvm.loop !41
+  br i1 %.not49, label %.loopexit, label %40, !llvm.loop !42
 
 .loopexit:                                        ; preds = %40, %33, %._crit_edge, %3
   %.041 = phi i32 [ 0, %3 ], [ 0, %._crit_edge ], [ 0, %33 ], [ %44, %40 ]
@@ -325,7 +325,7 @@ define internal i32 @archive_filter_uuencode_close(ptr noundef readonly captures
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %5 = load i64, ptr %4, align 8, !tbaa !35
+  %5 = load i64, ptr %4, align 8, !tbaa !36
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %9, label %6
 
@@ -342,10 +342,10 @@ define internal i32 @archive_filter_uuencode_close(ptr noundef readonly captures
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = tail call i32 @archive_write_set_bytes_in_last_block(ptr noundef %12, i32 noundef 1) #6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !39
-  %16 = load ptr, ptr %10, align 8, !tbaa !40
+  %15 = load ptr, ptr %14, align 8, !tbaa !40
+  %16 = load ptr, ptr %10, align 8, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !38
+  %18 = load i64, ptr %17, align 8, !tbaa !39
   %19 = tail call i32 @__archive_write_filter(ptr noundef %15, ptr noundef %16, i64 noundef %18) #6
   ret i32 %19
 }
@@ -425,7 +425,7 @@ define internal fastcc void @uu_encode(ptr noundef %0, ptr noundef readonly capt
   %32 = getelementptr inbounds nuw i8, ptr %.04772, i64 3
   %33 = add i64 %.073, -3
   %34 = icmp ugt i64 %33, 2
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not48 = icmp eq i64 %33, 0
@@ -542,14 +542,15 @@ attributes #8 = { nounwind willreturn memory(read) }
 !29 = !{!15, !6, i64 56}
 !30 = !{!15, !12, i64 8}
 !31 = !{!7, !7, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!15, !6, i64 16}
-!35 = !{!15, !6, i64 64}
-!36 = distinct !{!36, !33}
-!37 = distinct !{!37, !33}
-!38 = !{!15, !6, i64 40}
-!39 = !{!5, !11, i64 16}
-!40 = !{!15, !12, i64 32}
-!41 = distinct !{!41, !33}
-!42 = distinct !{!42, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!15, !6, i64 16}
+!36 = !{!15, !6, i64 64}
+!37 = distinct !{!37, !33, !34}
+!38 = distinct !{!38, !33, !34}
+!39 = !{!15, !6, i64 40}
+!40 = !{!5, !11, i64 16}
+!41 = !{!15, !12, i64 32}
+!42 = distinct !{!42, !33, !34}
+!43 = distinct !{!43, !33, !34}

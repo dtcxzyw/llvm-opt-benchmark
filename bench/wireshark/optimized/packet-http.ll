@@ -798,7 +798,7 @@ define void @http_add_path_components_to_tree(ptr noundef %0, ptr readnone captu
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %48, ptr noundef %0, i32 noundef %.175, i32 noundef %49, i32 noundef 0)
   %51 = add i32 %spec.select72, 1
   %52 = icmp slt i32 %51, %6
-  br i1 %52, label %.lr.ph76, label %.loopexit, !llvm.loop !8
+  br i1 %52, label %.lr.ph76, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph76, %35, %.loopexit73, %5
   ret void
@@ -1397,7 +1397,7 @@ define internal i32 @dissect_http_tls(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .split11:                                         ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %9 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %9 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   %11 = tail call fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6, i1 noundef zeroext %10, ptr noundef nonnull %3)
   br label %12
@@ -1561,7 +1561,7 @@ define internal void @header_fields_post_update_cb() #0 {
   %12 = load i32, ptr @dynamic_hf_size, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next.i, %13
-  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !11
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !12
 
 15:                                               ; preds = %._crit_edge.i, %0
   %16 = load ptr, ptr @header_fields_hash, align 8
@@ -1646,7 +1646,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %54 = load i32, ptr @dynamic_hf_size, align 4
   %55 = zext i32 %54 to i64
   %56 = icmp samesign ult i64 %indvars.iv.next, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
+  br i1 %56, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
 
 57:                                               ; preds = %._crit_edge, %deregister_header_fields.exit
   ret void
@@ -1690,7 +1690,7 @@ define internal void @header_fields_reset_cb() #0 {
   %12 = load i32, ptr @dynamic_hf_size, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next.i, %13
-  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !11
+  br i1 %14, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !12
 
 15:                                               ; preds = %._crit_edge.i, %0
   %16 = load ptr, ptr @header_fields_hash, align 8
@@ -2279,7 +2279,7 @@ determine_http_location_target.exit:              ; preds = %21, %28, %32, %54, 
   %94 = load ptr, ptr %6, align 8
   %95 = load ptr, ptr @refstats_node_id_to_parent_node_id_hash, align 8
   %96 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef %95, ptr noundef %94, ptr noundef null, ptr noundef nonnull %6)
-  br i1 %96, label %.lr.ph, label %determine_http_location_target.exit.thread, !llvm.loop !13
+  br i1 %96, label %.lr.ph, label %determine_http_location_target.exit.thread, !llvm.loop !14
 
 determine_http_location_target.exit.thread:       ; preds = %.lr.ph, %81, %63, %60, %59, %25, %13, %determine_http_location_target.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
@@ -2325,7 +2325,7 @@ determine_http_location_target.exit.thread:       ; preds = %.lr.ph, %81, %63, %
   %119 = load ptr, ptr %7, align 8
   %120 = load ptr, ptr @refstats_node_id_to_parent_node_id_hash, align 8
   %121 = call zeroext i1 @wmem_map_lookup_extended(ptr noundef %120, ptr noundef %119, ptr noundef null, ptr noundef nonnull %7)
-  br i1 %121, label %.lr.ph42, label %._crit_edge, !llvm.loop !14
+  br i1 %121, label %.lr.ph42, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %106
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
@@ -2434,7 +2434,7 @@ define internal i32 @dissect_message_http(ptr noundef %0, ptr noundef readonly c
   %18 = call ptr @proto_tree_add_format_text(ptr noundef %12, ptr noundef %0, i32 noundef %.018, i32 noundef %15)
   %19 = load i32, ptr %5, align 4
   %20 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %19)
-  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %17, %8, %4
   %21 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -2505,7 +2505,7 @@ define internal noundef zeroext i1 @dissect_http_heur_tls(ptr noundef %0, ptr no
 
 .split11.i:                                       ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %15 = load i8, ptr %14, align 1, !range !9, !noundef !10
+  %15 = load i8, ptr %14, align 1, !range !10, !noundef !11
   %16 = trunc nuw i8 %15 to i1
   %17 = tail call fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %12, i1 noundef zeroext %16, ptr noundef nonnull readonly %3)
   br label %dissect_http_tls.exit
@@ -2544,7 +2544,7 @@ dissect_http_tls.exit:                            ; preds = %.split.i, %.split11
 
 .split11.i23:                                     ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 5
-  %29 = load i8, ptr %28, align 1, !range !9, !noundef !10
+  %29 = load i8, ptr %28, align 1, !range !10, !noundef !11
   %30 = trunc nuw i8 %29 to i1
   %31 = call fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %26, i1 noundef zeroext %30, ptr noundef nonnull readonly %3)
   br label %dissect_http_tls.exit26
@@ -2699,7 +2699,7 @@ define internal fastcc i32 @dissect_http_on_stream(ptr noundef %0, ptr noundef %
   tail call void @col_set_fence(ptr noundef %48, i32 noundef 25)
   %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %47)
   %50 = icmp sgt i32 %49, 0
-  br i1 %50, label %13, label %.thread, !llvm.loop !16
+  br i1 %50, label %13, label %.thread, !llvm.loop !17
 
 51:                                               ; preds = %42
   %52 = icmp eq i32 %44, -2
@@ -2944,9 +2944,9 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
   br i1 %121, label %122, label %129
 
 122:                                              ; preds = %118
-  %123 = load i8, ptr @http_desegment_headers, align 1, !range !9, !noundef !10
+  %123 = load i8, ptr @http_desegment_headers, align 1, !range !10, !noundef !11
   %124 = trunc nuw i8 %123 to i1
-  %125 = load i8, ptr @http_desegment_body, align 1, !range !9, !noundef !10
+  %125 = load i8, ptr @http_desegment_body, align 1, !range !10, !noundef !11
   %126 = trunc nuw i8 %125 to i1
   %127 = load ptr, ptr @streaming_content_type_dissector_table, align 8
   %128 = call zeroext i1 @req_resp_hdrs_do_reassembly(ptr noundef %0, i32 noundef %.0713, ptr noundef %2, i1 noundef zeroext %124, i1 noundef zeroext %126, i1 noundef zeroext false, ptr noundef nonnull %23, ptr noundef %127, ptr noundef nonnull %21)
@@ -2973,9 +2973,9 @@ cmp_address.exit.thread.thread:                   ; preds = %cmp_address.exit.th
 
 140:                                              ; preds = %137, %135, %129
   %.0761 = phi ptr [ null, %129 ], [ null, %135 ], [ %139, %137 ]
-  %141 = load i8, ptr @http_desegment_body, align 1, !range !9, !noundef !10
+  %141 = load i8, ptr @http_desegment_body, align 1, !range !10, !noundef !11
   %142 = trunc nuw i8 %141 to i1
-  %143 = load i8, ptr @http_dechunk_body, align 1, !range !9
+  %143 = load i8, ptr @http_dechunk_body, align 1, !range !10
   %144 = trunc nuw i8 %143 to i1
   %or.cond5 = select i1 %142, i1 %144, i1 false
   br i1 %or.cond5, label %145, label %.thread1006
@@ -3090,7 +3090,7 @@ starts_with_chunk_size.exit:                      ; preds = %155
   br label %193
 
 193:                                              ; preds = %188, %187
-  %194 = load i8, ptr @http_desegment_body, align 1, !range !9, !noundef !10
+  %194 = load i8, ptr @http_desegment_body, align 1, !range !10, !noundef !11
   %195 = trunc nuw i8 %194 to i1
   %196 = xor i1 %7, true
   %197 = and i1 %196, %195
@@ -3191,7 +3191,7 @@ switch.early.test:                                ; preds = %230, %233
 
 236:                                              ; preds = %235, %switch.early.test, %193
   %.0747 = phi i1 [ %197, %193 ], [ false, %235 ], [ %197, %switch.early.test ]
-  %237 = load i8, ptr @http_desegment_headers, align 1, !range !9, !noundef !10
+  %237 = load i8, ptr @http_desegment_headers, align 1, !range !10, !noundef !11
   %238 = trunc nuw i8 %237 to i1
   %239 = load i32, ptr %18, align 4
   %240 = icmp eq i32 %239, 1
@@ -3217,10 +3217,10 @@ switch.early.test:                                ; preds = %230, %233
 253:                                              ; preds = %236
   %254 = load ptr, ptr %21, align 8
   %255 = icmp ne ptr %254, null
-  %256 = load i8, ptr @http_desegment_body, align 1, !range !9
+  %256 = load i8, ptr @http_desegment_body, align 1, !range !10
   %257 = trunc nuw i8 %256 to i1
   %or.cond23 = select i1 %255, i1 %257, i1 false
-  %258 = load i8, ptr @http_dechunk_body, align 1, !range !9
+  %258 = load i8, ptr @http_dechunk_body, align 1, !range !10
   %259 = trunc nuw i8 %258 to i1
   %or.cond25 = select i1 %or.cond23, i1 %259, i1 false
   %spec.select899 = select i1 %or.cond25, i8 1, i8 %.0777
@@ -3505,11 +3505,11 @@ is_token_char.exit.i:                             ; preds = %387
 is_token_char.exit.thread.i:                      ; preds = %is_token_char.exit.i, %387
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %valid_header_name.exit, label %383, !llvm.loop !17
+  br i1 %exitcond.not.i, label %valid_header_name.exit, label %383, !llvm.loop !18
 
 valid_header_name.exit:                           ; preds = %is_token_char.exit.thread.i, %379, %.preheader.i
   %393 = add i32 %.27151243, %.pre1365
-  %394 = load i8, ptr @http_check_ascii_headers, align 1, !range !9, !noundef !10
+  %394 = load i8, ptr @http_check_ascii_headers, align 1, !range !10, !noundef !11
   %395 = trunc nuw i8 %394 to i1
   br i1 %395, label %.lr.ph.preheader, label %.loopexit
 
@@ -3521,7 +3521,7 @@ valid_header_name.exit:                           ; preds = %is_token_char.exit.
 396:                                              ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %396
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %396 ]
@@ -3699,7 +3699,7 @@ push_res.exit:                                    ; preds = %461, %464, %468
   %485 = load i32, ptr %17, align 4
   %486 = load i32, ptr %18, align 4
   %487 = call fastcc zeroext i1 @process_header(ptr noundef %0, i32 noundef %.27151243, i32 noundef %485, ptr noundef %371, i32 noundef %368, i32 noundef %.0742, ptr noundef %2, ptr noundef %.4722, ptr noundef %.1746, ptr noundef %4, i32 noundef %486, ptr noundef %.1784, i1 noundef zeroext %344)
-  %488 = load i8, ptr @http_check_ascii_headers, align 1, !range !9, !noundef !10
+  %488 = load i8, ptr @http_check_ascii_headers, align 1, !range !10, !noundef !11
   %489 = trunc nuw i8 %488 to i1
   %.not42 = xor i1 %489, true
   %or.cond44 = or i1 %487, %.not42
@@ -3710,7 +3710,7 @@ push_res.exit:                                    ; preds = %461, %464, %468
   %.3765 = phi ptr [ %.17631235, %484 ], [ %.2764, %483 ], [ %.2764, %481 ]
   %491 = load i32, ptr %17, align 4
   %492 = call zeroext i1 @tvb_offset_exists(ptr noundef %0, i32 noundef %491)
-  br i1 %492, label %366, label %.valid_header_name.exit.thread.thread.loopexit_crit_edge, !llvm.loop !19
+  br i1 %492, label %366, label %.valid_header_name.exit.thread.thread.loopexit_crit_edge, !llvm.loop !20
 
 .valid_header_name.exit.thread.thread.loopexit_crit_edge: ; preds = %490
   %493 = trunc nuw nsw i32 %374 to i8
@@ -3791,7 +3791,7 @@ valid_header_name.exit.thread.thread:             ; preds = %380, %383, %is_toke
 
 534:                                              ; preds = %533
   %535 = getelementptr inbounds nuw i8, ptr %.27691224, i64 72
-  %536 = load i8, ptr %535, align 8, !range !9, !noundef !10
+  %536 = load i8, ptr %535, align 8, !range !10, !noundef !11
   %537 = trunc nuw i8 %536 to i1
   br i1 %537, label %.sink.split1463, label %539
 
@@ -3856,7 +3856,7 @@ proto_item_set_hidden.exit922:                    ; preds = %548, %551, %554
 
 562:                                              ; preds = %558
   %563 = getelementptr inbounds nuw i8, ptr %.27691224, i64 73
-  %564 = load i8, ptr %563, align 1, !range !9, !noundef !10
+  %564 = load i8, ptr %563, align 1, !range !10, !noundef !11
   %565 = trunc nuw i8 %564 to i1
   br i1 %565, label %566, label %proto_item_set_generated.exit935
 
@@ -3963,7 +3963,7 @@ proto_item_set_generated.exit930:                 ; preds = %proto_item_set_gene
 
 proto_item_set_generated.exit935:                 ; preds = %558, %562, %566
   %623 = getelementptr inbounds nuw i8, ptr %.27691224, i64 73
-  %624 = load i8, ptr %623, align 1, !range !9, !noundef !10
+  %624 = load i8, ptr %623, align 1, !range !10, !noundef !11
   %625 = trunc nuw i8 %624 to i1
   br i1 %625, label %proto_item_set_hidden.exit, label %626
 
@@ -4107,7 +4107,7 @@ proto_item_set_hidden.exit953:                    ; preds = %677, %683, %686
 
 692:                                              ; preds = %690
   %693 = getelementptr inbounds nuw i8, ptr %.27691224, i64 72
-  %694 = load i8, ptr %693, align 8, !range !9, !noundef !10
+  %694 = load i8, ptr %693, align 8, !range !10, !noundef !11
   %695 = trunc nuw i8 %694 to i1
   br i1 %695, label %696, label %710
 
@@ -4136,7 +4136,7 @@ proto_item_set_hidden.exit953:                    ; preds = %677, %683, %686
 
 710:                                              ; preds = %690, %692
   %711 = getelementptr inbounds nuw i8, ptr %.27691224, i64 73
-  %712 = load i8, ptr %711, align 1, !range !9, !noundef !10
+  %712 = load i8, ptr %711, align 1, !range !10, !noundef !11
   %713 = trunc nuw i8 %712 to i1
   br i1 %713, label %proto_item_set_generated.exit956, label %714
 
@@ -4244,7 +4244,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_hidd
   %760 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3716)
   %761 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3716)
   %762 = getelementptr inbounds nuw i8, ptr %.1746, i64 16
-  %763 = load i8, ptr %762, align 8, !range !9, !noundef !10
+  %763 = load i8, ptr %762, align 8, !range !10, !noundef !11
   %764 = trunc nuw i8 %763 to i1
   br i1 %764, label %765, label %774
 
@@ -4314,10 +4314,10 @@ switch.early.test911:                             ; preds = %780
   %793 = load ptr, ptr %21, align 8
   %794 = icmp ne ptr %793, null
   %or.cond55 = select i1 %.not53, i1 %794, i1 false
-  %795 = load i8, ptr @http_dechunk_body, align 1, !range !9
+  %795 = load i8, ptr @http_dechunk_body, align 1, !range !10
   %796 = trunc nuw i8 %795 to i1
   %or.cond57 = select i1 %or.cond55, i1 %796, i1 false
-  %797 = load i8, ptr @http_desegment_body, align 1, !range !9
+  %797 = load i8, ptr @http_desegment_body, align 1, !range !10
   %798 = trunc nuw i8 %797 to i1
   %or.cond59 = select i1 %or.cond57, i1 %798, i1 false
   br i1 %or.cond59, label %799, label %803
@@ -4399,12 +4399,12 @@ switch.early.test911:                             ; preds = %780
   %.17861096 = phi ptr [ %.1786, %831 ], [ %.07851034, %343 ]
   %833 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.17141109, i32 noundef %.07491104, i32 noundef %.07541103)
   %834 = getelementptr inbounds nuw i8, ptr %.1746, i64 40
-  %835 = load i8, ptr %834, align 8, !range !9, !noundef !10
+  %835 = load i8, ptr %834, align 8, !range !10, !noundef !11
   %836 = trunc nuw i8 %835 to i1
   br i1 %836, label %837, label %948
 
 837:                                              ; preds = %.thread1085
-  %838 = load i8, ptr @http_dechunk_body, align 1, !range !9, !noundef !10
+  %838 = load i8, ptr @http_dechunk_body, align 1, !range !10, !noundef !11
   %839 = trunc nuw i8 %838 to i1
   br i1 %839, label %842, label %840
 
@@ -4547,7 +4547,7 @@ chunked_encoding_dissector.exit.thread:           ; preds = %842
   %910 = sub i32 %905, %909
   %911 = call i32 @tvb_find_line_end(ptr noundef nonnull %833, i32 noundef %908, i32 noundef %910, ptr noundef nonnull %12, i1 noundef zeroext true)
   %912 = icmp sgt i32 %911, 0
-  br i1 %912, label %907, label %913, !llvm.loop !20
+  br i1 %912, label %907, label %913, !llvm.loop !21
 
 913:                                              ; preds = %907
   %914 = icmp sgt i32 %909, 0
@@ -4590,7 +4590,7 @@ chunked_encoding_dissector.exit.thread:           ; preds = %842
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #21
   %.0116.neg.i = sub i32 -2, %903
   %.not.i974 = icmp eq i32 %905, 0
-  br i1 %.not.i974, label %.loopexit.i, label %852
+  br i1 %.not.i974, label %.loopexit.i, label %852, !llvm.loop !22
 
 .loopexit.i:                                      ; preds = %927, %.thread.i, %844
   %.1131.i = phi i32 [ %.2132.ph.i, %.thread.i ], [ -1, %844 ], [ %.3133.i, %927 ]
@@ -4665,7 +4665,7 @@ chunked_encoding_dissector.exit:                  ; preds = %933, %935, %942
 958:                                              ; preds = %956
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #21
   store ptr null, ptr %25, align 8
-  %959 = load i8, ptr @http_decompress_body, align 1, !range !9, !noundef !10
+  %959 = load i8, ptr @http_decompress_body, align 1, !range !10, !noundef !11
   %960 = trunc nuw i8 %959 to i1
   br i1 %960, label %961, label %980
 
@@ -4700,7 +4700,7 @@ chunked_encoding_dissector.exit:                  ; preds = %933, %935, %942
 
 980:                                              ; preds = %977, %973, %958
   %.0729 = phi ptr [ %979, %977 ], [ null, %973 ], [ null, %958 ]
-  %981 = load i8, ptr @http_decompress_body, align 1, !range !9, !noundef !10
+  %981 = load i8, ptr @http_decompress_body, align 1, !range !10, !noundef !11
   %982 = trunc nuw i8 %981 to i1
   br i1 %982, label %983, label %990
 
@@ -4717,7 +4717,7 @@ chunked_encoding_dissector.exit:                  ; preds = %933, %935, %942
 
 990:                                              ; preds = %987, %983, %980
   %.1730 = phi ptr [ %989, %987 ], [ %.0729, %983 ], [ %.0729, %980 ]
-  %991 = load i8, ptr @http_decompress_body, align 1, !range !9, !noundef !10
+  %991 = load i8, ptr @http_decompress_body, align 1, !range !10, !noundef !11
   %992 = trunc nuw i8 %991 to i1
   br i1 %992, label %993, label %1000
 
@@ -4734,7 +4734,7 @@ chunked_encoding_dissector.exit:                  ; preds = %933, %935, %942
 
 1000:                                             ; preds = %997, %993, %990
   %.2731 = phi ptr [ %999, %997 ], [ %.1730, %993 ], [ %.1730, %990 ]
-  %1001 = load i8, ptr @http_decompress_body, align 1, !range !9, !noundef !10
+  %1001 = load i8, ptr @http_decompress_body, align 1, !range !10, !noundef !11
   %1002 = trunc nuw i8 %1001 to i1
   br i1 %1002, label %1003, label %1010
 
@@ -4751,7 +4751,7 @@ chunked_encoding_dissector.exit:                  ; preds = %933, %935, %942
 
 1010:                                             ; preds = %1007, %1003, %1000
   %.3732 = phi ptr [ %1009, %1007 ], [ %.2731, %1003 ], [ %.2731, %1000 ]
-  %1011 = load i8, ptr @http_decompress_body, align 1, !range !9, !noundef !10
+  %1011 = load i8, ptr @http_decompress_body, align 1, !range !10, !noundef !11
   %1012 = trunc nuw i8 %1011 to i1
   br i1 %1012, label %1013, label %1037
 
@@ -4800,7 +4800,7 @@ chunked_encoding_dissector.exit:                  ; preds = %933, %935, %942
   %1033 = add i32 %1020, %1025
   %1034 = call i32 @tvb_captured_length_remaining(ptr noundef %.0999, i32 noundef %1033)
   %1035 = icmp sgt i32 %1034, 7
-  br i1 %1035, label %.lr.ph1264, label %._crit_edge, !llvm.loop !21
+  br i1 %1035, label %.lr.ph1264, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %1032, %.lr.ph1264, %1022, %1024, %.preheader
   %.5734.lcssa = phi ptr [ %.3732, %.preheader ], [ %.57341262, %1024 ], [ %.57341262, %1022 ], [ %.57341262, %.lr.ph1264 ], [ %.6735, %1032 ]
@@ -4830,7 +4830,7 @@ chunked_encoding_dissector.exit:                  ; preds = %933, %935, %942
   br label %1051
 
 1045:                                             ; preds = %1037
-  %1046 = load i8, ptr @http_decompress_body, align 1, !range !9, !noundef !10
+  %1046 = load i8, ptr @http_decompress_body, align 1, !range !10, !noundef !11
   %1047 = trunc nuw i8 %1046 to i1
   %1048 = load ptr, ptr %25, align 8
   %ei_http_decompression_failed.ei_http_decompression_disabled = select i1 %1047, ptr @ei_http_decompression_failed, ptr @ei_http_decompression_disabled
@@ -5312,7 +5312,7 @@ sub_120:                                          ; preds = %sub_019
   %36 = getelementptr i8, ptr %.012832, i64 1
   %37 = add nuw nsw i32 %.033, 1
   %exitcond.not = icmp eq i32 %37, %.013131049
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %35, %.lr.ph
   %.0.lcssa = phi i32 [ %.013131049, %35 ], [ %.033, %.lr.ph ]
@@ -5727,10 +5727,10 @@ is_token_char.exit.i:                             ; preds = %56
 is_token_char.exit.thread.i:                      ; preds = %is_token_char.exit.i, %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %valid_header_name.exit, label %52, !llvm.loop !17
+  br i1 %exitcond.not.i, label %valid_header_name.exit, label %52, !llvm.loop !18
 
 .loopexit:                                        ; preds = %is_token_char.exit.i, %52, %44
-  %62 = load i8, ptr @http_check_ascii_headers, align 1, !range !9, !noundef !10
+  %62 = load i8, ptr @http_check_ascii_headers, align 1, !range !10, !noundef !11
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %.critedge502, label %64
 
@@ -5773,7 +5773,7 @@ valid_header_name.exit:                           ; preds = %is_token_char.exit.
 81:                                               ; preds = %78, %73
   %indvars.iv.next.i506 = add nuw nsw i64 %indvars.iv.i505, 1
   %exitcond.not.i507 = icmp eq i64 %indvars.iv.next.i506, 32
-  br i1 %exitcond.not.i507, label %find_header_hf_value.exit, label %73, !llvm.loop !23
+  br i1 %exitcond.not.i507, label %find_header_hf_value.exit, label %73, !llvm.loop !25
 
 .split.loop.exit14.i:                             ; preds = %78
   %82 = trunc nuw nsw i64 %indvars.iv.i505 to i32
@@ -5805,7 +5805,7 @@ find_header_hf_value.exit:                        ; preds = %81, %.split.loop.ex
   %indvars.iv.next = add i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %47, %lftr.wideiv
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !26
 
 .critedge:                                        ; preds = %90, %.lr.ph, %find_header_hf_value.exit
   %.0434.lcssa = phi i32 [ %.0434540, %find_header_hf_value.exit ], [ %85, %.lr.ph ], [ %47, %90 ]
@@ -5828,7 +5828,7 @@ find_header_hf_value.exit:                        ; preds = %81, %.split.loop.ex
   %102 = sext i32 %91 to i64
   %103 = icmp ne i32 %96, -1
   call void @llvm.assume(i1 %103)
-  %104 = call ptr @__memcpy_chk(ptr noundef %98, ptr noundef %101, i64 noundef range(i64 -2147483648, 2147483648) %102, i64 noundef %97) #21, !alias.scope !25
+  %104 = call ptr @__memcpy_chk(ptr noundef %98, ptr noundef %101, i64 noundef range(i64 -2147483648, 2147483648) %102, i64 noundef %97) #21, !alias.scope !27
   %105 = getelementptr i8, ptr %98, i64 %102
   store i8 0, ptr %105, align 1
   %106 = load ptr, ptr %27, align 8
@@ -6124,7 +6124,7 @@ proto_item_set_hidden.exit512:                    ; preds = %proto_item_set_hidd
   store i8 %249, ptr %247, align 1
   %indvars.iv.next568 = add nuw nsw i64 %indvars.iv567, 1
   %exitcond570.not = icmp eq i64 %indvars.iv.next568, %wide.trip.count
-  br i1 %exitcond570.not, label %._crit_edge.loopexit, label %236, !llvm.loop !29
+  br i1 %exitcond570.not, label %._crit_edge.loopexit, label %236, !llvm.loop !31
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %236
   %250 = trunc nuw nsw i64 %indvars.iv567 to i32
@@ -6174,7 +6174,7 @@ proto_item_set_hidden.exit512:                    ; preds = %proto_item_set_hidd
   %indvars.iv.next572 = add nsw i64 %indvars.iv571, 1
   %lftr.wideiv574 = trunc i64 %indvars.iv.next572 to i32
   %exitcond575.not = icmp eq i32 %lftr.wideiv574, %109
-  br i1 %exitcond575.not, label %.critedge498, label %259, !llvm.loop !30
+  br i1 %exitcond575.not, label %.critedge498, label %259, !llvm.loop !32
 
 269:                                              ; preds = %263
   %270 = getelementptr i8, ptr %256, i64 %indvars.iv571
@@ -6277,7 +6277,7 @@ proto_item_set_generated.exit:                    ; preds = %295, %302, %305
 
 318:                                              ; preds = %proto_item_set_hidden.exit512
   %319 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %320 = load i8, ptr %319, align 8, !range !9, !noundef !10
+  %320 = load i8, ptr %319, align 8, !range !10, !noundef !11
   %321 = trunc nuw i8 %320 to i1
   br i1 %321, label %322, label %324
 
@@ -6363,7 +6363,7 @@ proto_item_set_generated.exit:                    ; preds = %295, %302, %305
 
 .preheader.backedge:                              ; preds = %.critedge15, %362
   %.3.be = phi i32 [ %360, %.critedge15 ], [ %373, %362 ]
-  br label %.preheader, !llvm.loop !31
+  br label %.preheader, !llvm.loop !33
 
 361:                                              ; preds = %355
   %.not485 = icmp slt i32 %.3, %109
@@ -6689,7 +6689,7 @@ proto_item_set_generated.exit:                    ; preds = %295, %302, %305
   %512 = getelementptr inbounds nuw i8, ptr %.0428544, i64 8
   %513 = load ptr, ptr %512, align 8
   %.not466 = icmp eq ptr %513, null
-  br i1 %.not466, label %.thread528, label %507, !llvm.loop !32
+  br i1 %.not466, label %.thread528, label %507, !llvm.loop !34
 
 514:                                              ; preds = %507
   %515 = icmp ne i64 %506, 0
@@ -6744,7 +6744,7 @@ proto_item_set_generated.exit:                    ; preds = %295, %302, %305
 
 548:                                              ; preds = %.preheader535
   %.not468 = icmp eq ptr %547, null
-  br i1 %.not468, label %.critedge500, label %.preheader535, !llvm.loop !33
+  br i1 %.not468, label %.critedge500, label %.preheader535, !llvm.loop !35
 
 .critedge500:                                     ; preds = %548, %.preheader535
   %.1 = phi ptr [ %547, %.preheader535 ], [ null, %548 ]
@@ -7161,7 +7161,7 @@ define internal fastcc noundef zeroext i1 @check_auth_ntlmssp(ptr noundef %0, pt
   %6 = getelementptr i8, ptr %.01521, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.not = icmp eq ptr %7, null
-  br i1 %.not.not, label %.loopexit, label %8, !llvm.loop !34
+  br i1 %.not.not, label %.loopexit, label %8, !llvm.loop !36
 
 8:                                                ; preds = %4, %5
   %9 = phi ptr [ @.str.468, %4 ], [ %7, %5 ]
@@ -7656,7 +7656,7 @@ define internal fastcc noundef zeroext i1 @check_auth_digest(ptr noundef %0, ptr
   %21 = sub i32 %.0202, %19
   %22 = add nuw i32 %16, 1
   %23 = icmp sgt i32 %21, 0
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !35
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %12, %5
   ret i1 %7
@@ -7710,7 +7710,7 @@ define internal fastcc zeroext i1 @http_parse_transfer_coding(ptr noundef %0, pt
 .preheader.backedge:                              ; preds = %.critedge, %11
   %.be = phi i8 [ %.pr, %.critedge ], [ %13, %11 ]
   %.132.be = phi ptr [ %8, %.critedge ], [ %12, %11 ]
-  br label %.preheader, !llvm.loop !36
+  br label %.preheader, !llvm.loop !38
 
 9:                                                ; preds = %.preheader
   %10 = tail call i32 @g_str_has_prefix(ptr noundef %.132, ptr noundef nonnull @.str.489)
@@ -7776,7 +7776,7 @@ define internal fastcc zeroext i1 @http_parse_transfer_coding(ptr noundef %0, pt
   %.2 = phi i1 [ false, %28 ], [ %.0.ph56, %.outer.sink.split ]
   %31 = load i8, ptr %.233, align 1
   %.not51 = icmp eq i8 %31, 0
-  br i1 %.not51, label %.loopexit, label %.preheader.lr.ph, !llvm.loop !36
+  br i1 %.not51, label %.loopexit, label %.preheader.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %.outer, %14, %28, %11, %.preheader, %2
   %.1 = phi i1 [ true, %2 ], [ %.0.ph56, %.preheader ], [ %.0.ph56, %11 ], [ %.2, %.outer ], [ false, %14 ], [ false, %28 ]
@@ -8112,34 +8112,36 @@ attributes #28 = { nounwind returns_twice }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = !{!26, !28}
-!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
-!27 = distinct !{!27, !"memcpy.inline"}
-!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = !{!28, !30}
+!28 = distinct !{!28, !29, !"memcpy.inline: argument 0"}
+!29 = distinct !{!29, !"memcpy.inline"}
+!30 = distinct !{!30, !29, !"memcpy.inline: argument 1"}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}

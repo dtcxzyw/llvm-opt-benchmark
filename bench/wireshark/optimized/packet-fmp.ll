@@ -650,7 +650,7 @@ dissect_fmp_status.exit:                          ; preds = %4
   %66 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %65, i32 noundef %64, ptr noundef null)
   %67 = add nuw nsw i32 %.034.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %67, %57
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph38.i.i
   %.1.lcssa.i.i = phi i32 [ %60, %.lr.ph38.i.i ], [ %66, %.lr.ph.i.i ]
@@ -658,7 +658,7 @@ dissect_fmp_status.exit:                          ; preds = %4
   %69 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %68, i32 noundef %.1.lcssa.i.i)
   %70 = add nuw nsw i32 %.03136.i.i, 1
   %exitcond42.not.i.i = icmp eq i32 %70, %50
-  br i1 %exitcond42.not.i.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph38.i.i, !llvm.loop !9
+  br i1 %exitcond42.not.i.i, label %dissect_fmp_vmInfo.exit, label %.lr.ph38.i.i, !llvm.loop !10
 
 71:                                               ; preds = %8
   %72 = tail call fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %14, ptr noundef %2)
@@ -1925,7 +1925,7 @@ define internal fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %
   %40 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %18, i32 noundef %39, i32 noundef %38, ptr noundef null)
   %41 = add nuw nsw i32 %.08697.i, 1
   %exitcond106.not.i = icmp eq i32 %41, %31
-  br i1 %exitcond106.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph99.i, !llvm.loop !10
+  br i1 %exitcond106.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph99.i, !llvm.loop !11
 
 42:                                               ; preds = %20
   %43 = load i32, ptr @hf_fmp_devSerial_query_cmd, align 4
@@ -1968,7 +1968,7 @@ define internal fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %
   %71 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %70, i32 noundef %.294.i)
   %72 = add nuw nsw i32 %.18793.i, 1
   %exitcond105.not.i = icmp eq i32 %72, %65
-  br i1 %exitcond105.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph95.i, !llvm.loop !11
+  br i1 %exitcond105.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph95.i, !llvm.loop !12
 
 73:                                               ; preds = %.lr.ph
   %74 = load i32, ptr @hf_fmp_volID, align 4
@@ -1987,13 +1987,13 @@ define internal fastcc i32 @dissect_fmp_Hiervolume(ptr noundef %0, i32 noundef %
   %82 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %18, i32 noundef %81, i32 noundef %.392.i)
   %83 = add nuw nsw i32 %.28891.i, 1
   %exitcond.not.i = icmp eq i32 %83, %76
-  br i1 %exitcond.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %dissect_fmp_VolumeDescription.exit, label %.lr.ph.i, !llvm.loop !13
 
 dissect_fmp_VolumeDescription.exit:               ; preds = %.lr.ph.i, %.lr.ph95.i, %.lr.ph99.i, %.lr.ph, %20, %28, %42, %51, %60, %73
   %.1.i = phi i32 [ %19, %.lr.ph ], [ %27, %20 ], [ %27, %42 ], [ %59, %51 ], [ %34, %28 ], [ %68, %60 ], [ %79, %73 ], [ %40, %.lr.ph99.i ], [ %71, %.lr.ph95.i ], [ %82, %.lr.ph.i ]
   %84 = add i32 %.027, -1
   %.not = icmp eq i32 %84, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %dissect_fmp_VolumeDescription.exit, %3
   %.020.lcssa = phi i32 [ %13, %3 ], [ %.1.i, %dissect_fmp_VolumeDescription.exit ]
@@ -2032,7 +2032,7 @@ define internal fastcc i32 @dissect_fmp_extentList(ptr noundef %0, i32 noundef %
   %22 = load i32, ptr @hf_fmp_extent_state, align 4
   %23 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %13, i32 noundef %22, i32 noundef %21)
   %exitcond.not = icmp eq i32 %11, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.018.lcssa = phi i32 [ %10, %3 ], [ %23, %.lr.ph ]
@@ -2107,7 +2107,7 @@ define internal fastcc noundef i32 @dissect_fmp_flushCmd(ptr noundef %0, i32 nou
   %.1 = phi i32 [ %19, %20 ], [ %.01824, %.lr.ph ]
   %23 = add nuw nsw i32 %.025, 1
   %24 = icmp samesign ult i32 %.025, 31
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %16, %22
   %.129 = phi i32 [ %.1, %22 ], [ 0, %16 ]
@@ -2204,7 +2204,7 @@ define internal fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef
   %17 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %7, i32 noundef %16, i32 noundef %15)
   %18 = add nuw i32 %.02, 1
   %exitcond.not = icmp eq i32 %18, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.024.lcssa = phi i32 [ %5, %3 ], [ %17, %.lr.ph ]
@@ -2224,14 +2224,15 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

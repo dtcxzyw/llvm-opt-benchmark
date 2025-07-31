@@ -1319,7 +1319,7 @@ BufferGetPage.exit101.i:                          ; preds = %741, %735, %729, %B
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
   %761 = zext i16 %760 to i64
   %762 = icmp samesign ult i64 %indvars.iv.next.i38, %761
-  br i1 %762, label %.lr.ph.i, label %._crit_edge.i39, !llvm.loop !8
+  br i1 %762, label %.lr.ph.i, label %._crit_edge.i39, !llvm.loop !9
 
 ._crit_edge.i39:                                  ; preds = %759, %BufferGetPage.exit101.i
   %.not.i40 = icmp eq ptr %.088.i, null
@@ -1657,7 +1657,7 @@ BufferGetPage.exit.i47:                           ; preds = %935, %929
   %959 = load i16, ptr %913, align 4
   %960 = zext i16 %959 to i64
   %961 = icmp samesign ult i64 %indvars.iv.next.i52, %960
-  br i1 %961, label %947, label %._crit_edge.i53.loopexit, !llvm.loop !9
+  br i1 %961, label %947, label %._crit_edge.i53.loopexit, !llvm.loop !10
 
 ._crit_edge.i53.loopexit:                         ; preds = %947
   %962 = zext i16 %959 to i32
@@ -1697,7 +1697,7 @@ BufferGetPage.exit.i47:                           ; preds = %935, %929
   %979 = load i16, ptr %919, align 2
   %980 = zext i16 %979 to i64
   %981 = icmp samesign ult i64 %indvars.iv.next68.i, %980
-  br i1 %981, label %965, label %._crit_edge62.i, !llvm.loop !10
+  br i1 %981, label %965, label %._crit_edge62.i, !llvm.loop !11
 
 ._crit_edge62.i:                                  ; preds = %965, %._crit_edge.i53
   %982 = lshr i64 %891, 32
@@ -1873,7 +1873,7 @@ BufferGetPage.exit.i58:                           ; preds = %1048, %1042
   %1074 = load i16, ptr %1026, align 4
   %1075 = zext i16 %1074 to i64
   %1076 = icmp samesign ult i64 %indvars.iv.next.i63, %1075
-  br i1 %1076, label %1060, label %._crit_edge.i64, !llvm.loop !11
+  br i1 %1076, label %1060, label %._crit_edge.i64, !llvm.loop !12
 
 ._crit_edge.i64:                                  ; preds = %1060, %BufferGetPage.exit.i58
   %.lcssa.i65 = phi i16 [ 0, %BufferGetPage.exit.i58 ], [ %1074, %1060 ]
@@ -1920,7 +1920,7 @@ BufferGetPage.exit.i58:                           ; preds = %1048, %1042
   store i16 %1099, ptr %1104, align 2
   %1105 = add nuw nsw i32 %.151.i, 1
   %exitcond.not.i68 = icmp eq i32 %.151.i, %1093
-  br i1 %exitcond.not.i68, label %._crit_edge54.loopexit.i, label %.lr.ph53.i, !llvm.loop !12
+  br i1 %exitcond.not.i68, label %._crit_edge54.loopexit.i, label %.lr.ph53.i, !llvm.loop !13
 
 ._crit_edge54.loopexit.i:                         ; preds = %.lr.ph53.i
   %.pre.i69 = load i16, ptr %1084, align 2
@@ -2153,10 +2153,11 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

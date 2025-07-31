@@ -463,7 +463,7 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   %177 = load ptr, ptr %.val.i, align 8
   %178 = load volatile i32, ptr @InterruptPending, align 4
   %.not17.i = icmp eq i32 %178, 0
-  br i1 %.not17.i, label %refresh_matview_datafill.exit, label %179, !prof !8
+  br i1 %.not17.i, label %refresh_matview_datafill.exit, label %179, !prof !9
 
 179:                                              ; preds = %175
   call void @ProcessInterrupts() #8
@@ -803,7 +803,7 @@ is_usable_unique_index.exit.i:                    ; preds = %306
   %.3.i102 = phi i8 [ 1, %361 ], [ %.2117.i, %354 ]
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i100, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, %wide.trip.count.i99
-  br i1 %exitcond.not.i104, label %is_usable_unique_index.exit.thread.i, label %322, !llvm.loop !9
+  br i1 %exitcond.not.i104, label %is_usable_unique_index.exit.thread.i, label %322, !llvm.loop !10
 
 is_usable_unique_index.exit.thread.i:             ; preds = %307, %365, %is_usable_unique_index.exit.i, %301, %298, %294, %288, %284, %.lr.ph126
   %.1.i = phi i8 [ %.0119.i125, %301 ], [ %.0119.i125, %298 ], [ %.0119.i125, %294 ], [ %.0119.i125, %288 ], [ %.0119.i125, %284 ], [ %.0119.i125, %.lr.ph126 ], [ %.0119.i125, %is_usable_unique_index.exit.i ], [ %.3.i102, %365 ], [ %.0119.i125, %307 ]
@@ -1220,7 +1220,8 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !7, !8}

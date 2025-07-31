@@ -483,7 +483,7 @@ define void @_ZNK4pkpy10CodeObject8_gc_markEv(ptr noundef nonnull readonly align
 19:                                               ; preds = %.lr.ph, %9, %18, %13
   %20 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %.not = icmp eq ptr %20, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %19, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -499,7 +499,7 @@ define void @_ZNK4pkpy10CodeObject8_gc_markEv(ptr noundef nonnull readonly align
   tail call void @_ZNK4pkpy8FuncDecl8_gc_markEv(ptr noundef nonnull align 8 dereferenceable(272) %25)
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.016.025, i64 16
   %.not21 = icmp eq ptr %26, %24
-  br i1 %.not21, label %._crit_edge28, label %.lr.ph27
+  br i1 %.not21, label %._crit_edge28, label %.lr.ph27, !llvm.loop !8
 
 ._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge
   ret void
@@ -602,5 +602,8 @@ attributes #12 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}

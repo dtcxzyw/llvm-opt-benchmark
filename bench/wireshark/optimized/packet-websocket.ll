@@ -1443,13 +1443,13 @@ define internal fastcc noundef zeroext i1 @websocket_uncompress(ptr noundef %0, 
   %47 = select i1 %46, i64 0, i64 %45
   %48 = icmp ne i64 %47, -1
   tail call void @llvm.assume(i1 %48)
-  %49 = tail call ptr @__memcpy_chk(ptr noundef %43, ptr noundef %27, i64 noundef range(i64 1, 4294967296) %44, i64 noundef %47) #10, !alias.scope !10
+  %49 = tail call ptr @__memcpy_chk(ptr noundef %43, ptr noundef %27, i64 noundef range(i64 1, 4294967296) %44, i64 noundef %47) #10, !alias.scope !11
   br label %50
 
 50:                                               ; preds = %34, %36
   %.266 = phi i32 [ %39, %36 ], [ %.064, %34 ]
   %.2 = phi ptr [ %41, %36 ], [ %.063, %34 ]
-  br i1 %33, label %31, label %.thread, !llvm.loop !14
+  br i1 %33, label %31, label %.thread, !llvm.loop !15
 
 .thread:                                          ; preds = %31, %50
   %.272 = phi ptr [ %.2, %50 ], [ %.063, %31 ]
@@ -1565,10 +1565,11 @@ attributes #14 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = distinct !{!15, !9, !10}

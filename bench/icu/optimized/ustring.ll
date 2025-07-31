@@ -118,12 +118,12 @@ define ptr @u_strFindFirst_77(ptr noundef readonly captures(address, ret: addres
   %55 = getelementptr inbounds nuw i8, ptr %.096167, i64 2
   %56 = load i16, ptr %55, align 2, !tbaa !3
   %57 = icmp eq i16 %56, 0
-  br i1 %57, label %._crit_edge, label %.lr.ph168, !llvm.loop !9
+  br i1 %57, label %._crit_edge, label %.lr.ph168, !llvm.loop !10
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread: ; preds = %52, %45, %36, %.lr.ph172
   %58 = load i16, ptr %34, align 2, !tbaa !3
   %.not117 = icmp eq i16 %58, 0
-  br i1 %.not117, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph172, !llvm.loop !10
+  br i1 %.not117, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph172, !llvm.loop !11
 
 59:                                               ; preds = %10
   %60 = icmp slt i32 %3, 0
@@ -134,7 +134,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread: ; preds = %52, %45, %36, %.lr
   %61 = load i16, ptr %.0.i125, align 2, !tbaa !3
   %.not.i126 = icmp eq i16 %61, 0
   %62 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 2
-  br i1 %.not.i126, label %u_strlen_77.exit, label %.preheader149, !llvm.loop !11
+  br i1 %.not.i126, label %u_strlen_77.exit, label %.preheader149, !llvm.loop !12
 
 u_strlen_77.exit:                                 ; preds = %.preheader149
   %63 = ptrtoint ptr %.0.i125 to i64
@@ -187,7 +187,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %.09.i, i64 2
   %.not.i127 = icmp eq ptr %91, %86
-  br i1 %.not.i127, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %87, !llvm.loop !12
+  br i1 %.not.i127, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %87, !llvm.loop !13
 
 92:                                               ; preds = %70
   br i1 %11, label %.preheader142, label %117
@@ -213,7 +213,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 2
   %101 = load i16, ptr %97, align 2, !tbaa !3
   %.not114.us = icmp eq i16 %101, 0
-  br i1 %.not114.us, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph199.split.us, !llvm.loop !13
+  br i1 %.not114.us, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph199.split.us, !llvm.loop !14
 
 .preheader.us:                                    ; preds = %.lr.ph199.split.us
   %102 = tail call fastcc noundef signext i8 @_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_(ptr noundef %0, ptr noundef %.193198.us, ptr noundef %97, ptr noundef null)
@@ -248,13 +248,13 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
   %112 = getelementptr inbounds nuw i8, ptr %.1100192, i64 2
   %113 = getelementptr inbounds nuw i8, ptr %.197193, i64 2
   %114 = icmp eq ptr %113, %75
-  br i1 %114, label %._crit_edge195, label %.preheader, !llvm.loop !15
+  br i1 %114, label %._crit_edge195, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %109, %._crit_edge195, %.lr.ph199.split
   %115 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %116 = load i16, ptr %104, align 2, !tbaa !3
   %.not114 = icmp eq i16 %116, 0
-  br i1 %.not114, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph199.split, !llvm.loop !16
+  br i1 %.not114, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph199.split, !llvm.loop !17
 
 117:                                              ; preds = %92
   %.not.not = icmp slt i32 %1, %.095
@@ -326,11 +326,11 @@ u_strlen_77.exit:                                 ; preds = %.preheader149
   %147 = getelementptr inbounds nuw i8, ptr %.2101178, i64 2
   %148 = getelementptr inbounds nuw i8, ptr %.298179, i64 2
   %149 = icmp eq ptr %148, %75
-  br i1 %149, label %._crit_edge181, label %.lr.ph180, !llvm.loop !17
+  br i1 %149, label %._crit_edge181, label %.lr.ph180, !llvm.loop !18
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread: ; preds = %.lr.ph180, %140, %130, %126
   %.not = icmp eq ptr %127, %121
-  br i1 %.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %126, !llvm.loop !18
+  br i1 %.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %126, !llvm.loop !19
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit:       ; preds = %29, %.lr.ph, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, %41, %45, %.lr.ph168, %90, %87, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread, %135, %140, %._crit_edge195, %.loopexit, %.preheader, %.preheader.us, %99, %.preheader155, %.preheader152, %118, %.preheader142, %82, %117, %80, %68, %13, %7, %4
   %.0 = phi ptr [ %0, %4 ], [ null, %7 ], [ %0, %13 ], [ %0, %68 ], [ %81, %80 ], [ null, %117 ], [ null, %82 ], [ null, %.preheader142 ], [ null, %118 ], [ null, %.preheader152 ], [ %0, %.preheader155 ], [ %.193198.us, %.preheader.us ], [ null, %99 ], [ null, %.preheader ], [ %.193198, %._crit_edge195 ], [ null, %.loopexit ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit132.thread ], [ %.2184, %135 ], [ %.2184, %140 ], [ null, %90 ], [ %.09.i, %87 ], [ null, %.lr.ph168 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ %.092171, %41 ], [ %.092171, %45 ], [ %30, %29 ], [ null, %.lr.ph ]
@@ -401,7 +401,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split: ; preds = %.l
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread: ; preds = %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split, %21
   %25 = phi i16 [ %.pr, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split ], [ %22, %21 ]
   %.not114.i = icmp eq i16 %25, 0
-  br i1 %.not114.i, label %u_strFindFirst_77.exit, label %.lr.ph29, !llvm.loop !16
+  br i1 %.not114.i, label %u_strFindFirst_77.exit, label %.lr.ph29, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader13, %28
   %26 = phi i16 [ %30, %28 ], [ %5, %.preheader13 ]
@@ -468,7 +468,7 @@ define i32 @u_strlen_77(ptr noundef %0) local_unnamed_addr #2 {
   %3 = load i16, ptr %.0, align 2, !tbaa !3
   %.not = icmp eq i16 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  br i1 %.not, label %5, label %2, !llvm.loop !11
+  br i1 %.not, label %5, label %2, !llvm.loop !12
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %.0 to i64
@@ -509,7 +509,7 @@ define ptr @u_memchr_77(ptr noundef readonly captures(address, ret: address, pro
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.09, i64 2
   %.not = icmp eq ptr %18, %13
-  br i1 %.not, label %.loopexit, label %14, !llvm.loop !12
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !13
 
 .loopexit:                                        ; preds = %14, %17, %3, %9
   %.0 = phi ptr [ %10, %9 ], [ null, %3 ], [ null, %17 ], [ %.09, %14 ]
@@ -598,7 +598,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.usthread-pre-split: ; preds 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.usthread-pre-split, %29
   %33 = phi i16 [ %.pr, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.usthread-pre-split ], [ %30, %29 ]
   %.not117.i.us = icmp eq i16 %33, 0
-  br i1 %.not117.i.us, label %u_strFindFirst_77.exit, label %.lr.ph172.i.us, !llvm.loop !19
+  br i1 %.not117.i.us, label %u_strFindFirst_77.exit, label %.lr.ph172.i.us, !llvm.loop !20
 
 .lr.ph172.preheader.i.split:                      ; preds = %.lr.ph172.preheader.i
   br i1 %19, label %.lr.ph172.i.us5, label %.lr.ph172.i
@@ -627,7 +627,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %_ZL19isMatchA
   %43 = getelementptr inbounds nuw i8, ptr %.096167.i.us, i64 2
   %44 = load i16, ptr %43, align 2, !tbaa !3
   %45 = icmp eq i16 %44, 0
-  br i1 %45, label %._crit_edge.i.loopexit.us, label %.lr.ph168.i.us, !llvm.loop !9
+  br i1 %45, label %._crit_edge.i.loopexit.us, label %.lr.ph168.i.us, !llvm.loop !10
 
 46:                                               ; preds = %._crit_edge.i.loopexit.us
   %47 = load i16, ptr %42, align 2, !tbaa !3
@@ -638,7 +638,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %_ZL19isMatchA
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9: ; preds = %40, %46, %.lr.ph172.i.us5
   %50 = load i16, ptr %35, align 2, !tbaa !3
   %.not117.i.us10 = icmp eq i16 %50, 0
-  br i1 %.not117.i.us10, label %u_strFindFirst_77.exit, label %.lr.ph172.i.us5, !llvm.loop !20
+  br i1 %.not117.i.us10, label %u_strFindFirst_77.exit, label %.lr.ph172.i.us5, !llvm.loop !21
 
 ._crit_edge.i.loopexit.us:                        ; preds = %41
   %51 = and i16 %37, -1024
@@ -703,12 +703,12 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9: ; preds = %40, %46, %.l
   %78 = getelementptr inbounds nuw i8, ptr %.096167.i, i64 2
   %79 = load i16, ptr %78, align 2, !tbaa !3
   %80 = icmp eq i16 %79, 0
-  br i1 %80, label %._crit_edge.i.loopexit, label %.lr.ph168.i, !llvm.loop !9
+  br i1 %80, label %._crit_edge.i.loopexit, label %.lr.ph168.i, !llvm.loop !10
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i: ; preds = %75, %68, %61, %.lr.ph172.i
   %81 = load i16, ptr %59, align 2, !tbaa !3
   %.not117.i = icmp eq i16 %81, 0
-  br i1 %.not117.i, label %u_strFindFirst_77.exit, label %.lr.ph172.i, !llvm.loop !10
+  br i1 %.not117.i, label %u_strFindFirst_77.exit, label %.lr.ph172.i, !llvm.loop !11
 
 u_strFindFirst_77.exit:                           ; preds = %.lr.ph.i, %54, %66, %68, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i, %.lr.ph168.i, %._crit_edge.i.loopexit.us, %46, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9, %.lr.ph168.i.us, %23, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us, %29, %28, %2, %4, %6, %.preheader155.i, %.preheader152.i
   %.0.i = phi ptr [ %0, %2 ], [ null, %4 ], [ %0, %6 ], [ null, %.preheader152.i ], [ %0, %.preheader155.i ], [ %.092171.i.us, %23 ], [ %.092171.i.us, %29 ], [ %.092171.i.us, %28 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ null, %.lr.ph168.i.us ], [ %.092171.i.us6, %46 ], [ %.092171.i.us6, %._crit_edge.i.loopexit.us ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us9 ], [ null, %.lr.ph168.i ], [ %.092171.i, %68 ], [ %.092171.i, %66 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i ], [ null, %.lr.ph.i ], [ %55, %54 ]
@@ -769,7 +769,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i.us: ; preds 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %17, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i.us
   %21 = phi i16 [ %.pr.i.us, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i.us ], [ %18, %17 ]
   %.not114.i.i.us = icmp eq i16 %21, 0
-  br i1 %.not114.i.i.us, label %u_strchr_77.exit, label %.lr.ph29.i.us, !llvm.loop !21
+  br i1 %.not114.i.i.us, label %u_strchr_77.exit, label %.lr.ph29.i.us, !llvm.loop !22
 
 .lr.ph29.i:                                       ; preds = %.lr.ph29.preheader.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i
   %22 = phi i16 [ %.pr.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i ], [ %12, %.lr.ph29.preheader.i ]
@@ -792,7 +792,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %17, %_ZL19isM
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i: ; preds = %25, %.lr.ph29.i
   %.pr.i = load i16, ptr %23, align 2, !tbaa !3
   %.not114.i.i = icmp eq i16 %.pr.i, 0
-  br i1 %.not114.i.i, label %u_strchr_77.exit, label %.lr.ph29.i, !llvm.loop !16
+  br i1 %.not114.i.i, label %u_strchr_77.exit, label %.lr.ph29.i, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %.preheader13.i, %32
   %30 = phi i16 [ %34, %32 ], [ %8, %.preheader13.i ]
@@ -833,7 +833,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i: ; preds = %
 
 50:                                               ; preds = %.lr.ph
   %.not = icmp eq i16 %.pre, 0
-  br i1 %.not, label %u_strchr_77.exit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %u_strchr_77.exit, label %.lr.ph, !llvm.loop !23
 
 u_strchr_77.exit:                                 ; preds = %50, %.lr.ph, %32, %.lr.ph.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us, %17, %.preheader.i.us, %.preheader.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i, %25, %38, %.preheader11.split.i, %10, %.preheader13.i, %36
   %.0 = phi ptr [ null, %36 ], [ null, %10 ], [ null, %.preheader11.split.i ], [ %0, %.preheader13.i ], [ null, %38 ], [ %0, %.preheader.i ], [ %.193.i28.i, %25 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.threadthread-pre-split.i ], [ %.193.i28.i.us, %.preheader.i.us ], [ %.193.i28.i.us, %17 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ %33, %32 ], [ null, %.lr.ph.i ], [ null, %50 ], [ %.01221, %.lr.ph ]
@@ -876,7 +876,7 @@ define ptr @u_memchr32_77(ptr noundef readonly captures(address, ret: address, p
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.09.i, i64 2
   %.not.i = icmp eq ptr %21, %16
-  br i1 %.not.i, label %u_memchr_77.exit, label %17, !llvm.loop !12
+  br i1 %.not.i, label %u_memchr_77.exit, label %17, !llvm.loop !13
 
 u_memchr_77.exit:                                 ; preds = %17, %20, %6, %12
   %.0.i = phi ptr [ %13, %12 ], [ null, %6 ], [ %.09.i, %17 ], [ null, %20 ]
@@ -916,7 +916,7 @@ u_memchr_77.exit:                                 ; preds = %17, %20, %6, %12
 42:                                               ; preds = %33, %37
   %43 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   %.not = icmp eq ptr %43, %28
-  br i1 %.not, label %.loopexit, label %33, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %33, !llvm.loop !24
 
 .loopexit:                                        ; preds = %37, %42, %22, %u_memchr_77.exit
   %.0 = phi ptr [ %.0.i, %u_memchr_77.exit ], [ null, %22 ], [ null, %42 ], [ %.017, %37 ]
@@ -945,7 +945,7 @@ define ptr @u_strFindLast_77(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %12 = load i16, ptr %.0.i, align 2, !tbaa !3
   %.not.i = icmp eq i16 %12, 0
   %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
-  br i1 %.not.i, label %u_strlen_77.exit, label %.preheader79, !llvm.loop !11
+  br i1 %.not.i, label %u_strlen_77.exit, label %.preheader79, !llvm.loop !12
 
 u_strlen_77.exit:                                 ; preds = %.preheader79
   %14 = ptrtoint ptr %.0.i to i64
@@ -985,7 +985,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader79
   %spec.select.i = select i1 %33, ptr %.07.i, ptr %.06.i
   %34 = icmp eq i16 %32, 0
   %35 = getelementptr inbounds nuw i8, ptr %.07.i, i64 2
-  br i1 %34, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.preheader75, !llvm.loop !24
+  br i1 %34, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.preheader75, !llvm.loop !25
 
 36:                                               ; preds = %31
   %37 = icmp eq i32 %1, 0
@@ -1005,7 +1005,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader79
 
 45:                                               ; preds = %41
   %.not.i66 = icmp eq ptr %0, %42
-  br i1 %.not.i66, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %41, !llvm.loop !25
+  br i1 %.not.i66, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %41, !llvm.loop !26
 
 46:                                               ; preds = %21
   br i1 %30, label %.preheader74, label %54
@@ -1015,7 +1015,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader79
   %47 = load i16, ptr %.0.i67, align 2, !tbaa !3
   %.not.i68 = icmp eq i16 %47, 0
   %48 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 2
-  br i1 %.not.i68, label %u_strlen_77.exit69, label %.preheader74, !llvm.loop !11
+  br i1 %.not.i68, label %u_strlen_77.exit69, label %.preheader74, !llvm.loop !12
 
 u_strlen_77.exit69:                               ; preds = %.preheader74
   %49 = ptrtoint ptr %.0.i67 to i64
@@ -1056,7 +1056,7 @@ u_strlen_77.exit69:                               ; preds = %.preheader74
 
 .preheader:                                       ; preds = %.lr.ph103
   %66 = icmp eq ptr %81, %2
-  br i1 %66, label %.preheader._crit_edge, label %.lr.ph103, !llvm.loop !26
+  br i1 %66, label %.preheader._crit_edge, label %.lr.ph103, !llvm.loop !27
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.lcssa = phi i16 [ %25, %.preheader.preheader ], [ %80, %.preheader ]
@@ -1093,11 +1093,11 @@ u_strlen_77.exit69:                               ; preds = %.preheader74
   %81 = getelementptr inbounds i8, ptr %.050102, i64 -2
   %82 = load i16, ptr %81, align 2, !tbaa !3
   %.not60 = icmp eq i16 %80, %82
-  br i1 %.not60, label %.preheader, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, !llvm.loop !26
+  br i1 %.not60, label %.preheader, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, !llvm.loop !27
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread: ; preds = %.lr.ph103, %75, %69, %.lr.ph
   %.not = icmp eq ptr %59, %63
-  br i1 %.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit, label %.lr.ph, !llvm.loop !28
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit:       ; preds = %45, %41, %.preheader75, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread, %74, %75, %55, %36, %54, %19, %7, %4
   %.0 = phi ptr [ %0, %4 ], [ null, %7 ], [ %0, %19 ], [ null, %54 ], [ null, %36 ], [ null, %55 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread ], [ %.051.lcssa, %74 ], [ %.051.lcssa, %75 ], [ %spec.select.i, %.preheader75 ], [ null, %45 ], [ %42, %41 ]
@@ -1119,7 +1119,7 @@ define ptr @u_strrchr_77(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_a
   %7 = load i16, ptr %.0.i67.i, align 2, !tbaa !3
   %.not.i68.i = icmp eq i16 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %.0.i67.i, i64 2
-  br i1 %.not.i68.i, label %u_strlen_77.exit69.i, label %.preheader74.i, !llvm.loop !11
+  br i1 %.not.i68.i, label %u_strlen_77.exit69.i, label %.preheader74.i, !llvm.loop !12
 
 u_strlen_77.exit69.i:                             ; preds = %.preheader74.i
   %9 = ptrtoint ptr %.0.i67.i to i64
@@ -1154,7 +1154,7 @@ u_strlen_77.exit69.i:                             ; preds = %.preheader74.i
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %22, %.lr.ph.i.us
   %.not.i.us = icmp eq ptr %0, %19
-  br i1 %.not.i.us, label %u_strFindLast_77.exit, label %.lr.ph.i.us, !llvm.loop !28
+  br i1 %.not.i.us, label %u_strFindLast_77.exit, label %.lr.ph.i.us, !llvm.loop !29
 
 .preheader.i.preheader.us:                        ; preds = %.lr.ph.i.us
   %.not.i70.i.us = icmp eq ptr %0, %19
@@ -1176,7 +1176,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us: ; preds = %22, %.lr.ph.i
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18: ; preds = %30, %.lr.ph.i.us16
   %.not.i.us19 = icmp eq ptr %0, %27
-  br i1 %.not.i.us19, label %u_strFindLast_77.exit, label %.lr.ph.i.us16, !llvm.loop !29
+  br i1 %.not.i.us19, label %u_strFindLast_77.exit, label %.lr.ph.i.us16, !llvm.loop !30
 
 .preheader.i.preheader.us20:                      ; preds = %.lr.ph.i.us16
   %.not10.i.i.us = icmp eq ptr %.05282.i.us17, %16
@@ -1190,7 +1190,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18: ; preds = %30, %.lr.ph
   %spec.select = select i1 %35, ptr %.07, ptr %.06
   %36 = icmp eq i16 %34, 0
   %37 = getelementptr inbounds nuw i8, ptr %.07, i64 2
-  br i1 %36, label %u_strFindLast_77.exit, label %.preheader, !llvm.loop !24
+  br i1 %36, label %u_strFindLast_77.exit, label %.preheader, !llvm.loop !25
 
 u_strFindLast_77.exit:                            ; preds = %.preheader, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us, %22, %.preheader.i.preheader.us, %.preheader.i.preheader.us20, %30, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18, %u_strlen_77.exit69.i, %5
   %.0 = phi ptr [ null, %5 ], [ null, %u_strlen_77.exit69.i ], [ %27, %30 ], [ %27, %.preheader.i.preheader.us20 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18 ], [ %19, %.preheader.i.preheader.us ], [ %19, %22 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us ], [ %spec.select, %.preheader ]
@@ -1227,7 +1227,7 @@ define ptr @u_memrchr_77(ptr noundef readonly %0, i16 noundef zeroext %1, i32 no
 
 18:                                               ; preds = %14
   %.not = icmp eq ptr %0, %15
-  br i1 %.not, label %.loopexit, label %14, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !26
 
 .loopexit:                                        ; preds = %14, %18, %3, %9
   %.09 = phi ptr [ %10, %9 ], [ null, %3 ], [ null, %18 ], [ %15, %14 ]
@@ -1260,7 +1260,7 @@ define ptr @u_strrchr32_77(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2
   %10 = load i16, ptr %.0.i67.i.i, align 2, !tbaa !3
   %.not.i68.i.i = icmp eq i16 %10, 0
   %11 = getelementptr inbounds nuw i8, ptr %.0.i67.i.i, i64 2
-  br i1 %.not.i68.i.i, label %u_strlen_77.exit69.i.i, label %.preheader74.i.i, !llvm.loop !11
+  br i1 %.not.i68.i.i, label %u_strlen_77.exit69.i.i, label %.preheader74.i.i, !llvm.loop !12
 
 u_strlen_77.exit69.i.i:                           ; preds = %.preheader74.i.i
   %12 = ptrtoint ptr %.0.i67.i.i to i64
@@ -1295,7 +1295,7 @@ u_strlen_77.exit69.i.i:                           ; preds = %.preheader74.i.i
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.i: ; preds = %25, %.lr.ph.i.us.i
   %.not.i.us.i = icmp eq ptr %0, %22
-  br i1 %.not.i.us.i, label %u_strrchr_77.exit, label %.lr.ph.i.us.i, !llvm.loop !28
+  br i1 %.not.i.us.i, label %u_strrchr_77.exit, label %.lr.ph.i.us.i, !llvm.loop !29
 
 .preheader.i.preheader.us.i:                      ; preds = %.lr.ph.i.us.i
   %.not.i70.i.us.i = icmp eq ptr %0, %22
@@ -1317,7 +1317,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.i: ; preds = %25, %.lr.ph
 
 _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i: ; preds = %33, %.lr.ph.i.us16.i
   %.not.i.us19.i = icmp eq ptr %0, %30
-  br i1 %.not.i.us19.i, label %u_strrchr_77.exit, label %.lr.ph.i.us16.i, !llvm.loop !29
+  br i1 %.not.i.us19.i, label %u_strrchr_77.exit, label %.lr.ph.i.us16.i, !llvm.loop !30
 
 .preheader.i.preheader.us20.i:                    ; preds = %.lr.ph.i.us16.i
   %.not10.i.i.us.i = icmp eq ptr %.05282.i.us17.i, %19
@@ -1331,7 +1331,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i: ; preds = %33, %.lr.
   %spec.select.i = select i1 %38, ptr %.07.i, ptr %.06.i
   %39 = icmp eq i16 %37, 0
   %40 = getelementptr inbounds nuw i8, ptr %.07.i, i64 2
-  br i1 %39, label %u_strrchr_77.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %39, label %u_strrchr_77.exit, label %.preheader.i, !llvm.loop !25
 
 41:                                               ; preds = %2
   %42 = icmp ult i32 %1, 1114112
@@ -1359,7 +1359,7 @@ _ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i: ; preds = %33, %.lr.
   %55 = select i1 %52, i1 %54, i1 false
   %.1 = select i1 %55, ptr %.01324, ptr %.01423
   %.not = icmp eq i16 %.pre, 0
-  br i1 %.not, label %u_strrchr_77.exit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %u_strrchr_77.exit, label %.lr.ph, !llvm.loop !31
 
 u_strrchr_77.exit:                                ; preds = %.lr.ph, %.preheader.i, %.preheader.i.preheader.us.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.i, %25, %.preheader.i.preheader.us20.i, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i, %33, %43, %u_strlen_77.exit69.i.i, %8, %41
   %.0 = phi ptr [ null, %41 ], [ null, %8 ], [ null, %u_strlen_77.exit69.i.i ], [ null, %43 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us18.i ], [ %30, %.preheader.i.preheader.us20.i ], [ %30, %33 ], [ null, %_ZL19isMatchAtCPBoundaryPKDsS0_S0_S0_.exit.thread.i.us.i ], [ %22, %25 ], [ %22, %.preheader.i.preheader.us.i ], [ %spec.select.i, %.preheader.i ], [ %.1, %.lr.ph ]
@@ -1402,7 +1402,7 @@ define ptr @u_memrchr32_77(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
 
 21:                                               ; preds = %17
   %.not.i = icmp eq ptr %0, %18
-  br i1 %.not.i, label %u_memrchr_77.exit, label %17, !llvm.loop !25
+  br i1 %.not.i, label %u_memrchr_77.exit, label %17, !llvm.loop !26
 
 u_memrchr_77.exit:                                ; preds = %17, %21, %6, %12
   %.09.i = phi ptr [ %13, %12 ], [ null, %6 ], [ %18, %17 ], [ null, %21 ]
@@ -1442,7 +1442,7 @@ u_memrchr_77.exit:                                ; preds = %17, %21, %6, %12
 42:                                               ; preds = %33, %37
   %43 = getelementptr inbounds i8, ptr %.017, i64 -2
   %.not = icmp eq ptr %0, %43
-  br i1 %.not, label %.loopexit, label %33, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %33, !llvm.loop !32
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %37
   %44 = getelementptr inbounds i8, ptr %.017, i64 -2
@@ -1478,7 +1478,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   %10 = and i1 %7, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next150 = add nuw i32 %indvars.iv149, 1
-  br i1 %10, label %4, label %.preheader102, !llvm.loop !32
+  br i1 %10, label %4, label %.preheader102, !llvm.loop !33
 
 .preheader102:                                    ; preds = %4, %.preheader102
   %indvars.iv151 = phi i32 [ %indvars.iv.next152, %.preheader102 ], [ %indvars.iv149, %4 ]
@@ -1488,7 +1488,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   %.not = icmp eq i16 %12, 0
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %indvars.iv.next152 = add nuw i32 %indvars.iv151, 1
-  br i1 %.not, label %.preheader101, label %.preheader102, !llvm.loop !33
+  br i1 %.not, label %.preheader101, label %.preheader102, !llvm.loop !34
 
 .preheader101:                                    ; preds = %.preheader102
   %13 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1516,7 +1516,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 22:                                               ; preds = %.lr.ph111.us
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next166, %wide.trip.count169
-  br i1 %exitcond170.not, label %.loopexit96, label %.lr.ph111.us, !llvm.loop !34
+  br i1 %exitcond170.not, label %.loopexit96, label %.lr.ph111.us, !llvm.loop !35
 
 .lr.ph111.us:                                     ; preds = %.preheader95.us, %22
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %22 ], [ 0, %.preheader95.us ]
@@ -1588,7 +1588,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   %.7.us = phi i32 [ %44, %43 ], [ %59, %58 ], [ %44, %51 ]
   %.3.us = phi i32 [ %48, %43 ], [ %62, %58 ], [ %48, %51 ]
   %64 = icmp eq i32 %.073.us, %.3.us
-  br i1 %64, label %.loopexit.us, label %41, !llvm.loop !35
+  br i1 %64, label %.loopexit.us, label %41, !llvm.loop !36
 
 .loopexit.us:                                     ; preds = %.lr.ph111.us, %63
   %.179.us = phi i32 [ %.280.us, %63 ], [ %19, %.lr.ph111.us ]
@@ -1597,7 +1597,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   %67 = load i16, ptr %66, align 2, !tbaa !3
   %68 = zext i16 %67 to i32
   %.not86.us = icmp eq i16 %67, 0
-  br i1 %.not86.us, label %._crit_edge, label %.lr.ph115.split.us, !llvm.loop !36
+  br i1 %.not86.us, label %._crit_edge, label %.lr.ph115.split.us, !llvm.loop !37
 
 .preheader95.us:                                  ; preds = %.lr.ph115.split.us
   br i1 %.not122, label %.loopexit96, label %.lr.ph111.us
@@ -1617,7 +1617,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
 74:                                               ; preds = %.lr.ph
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count169
-  br i1 %exitcond.not, label %.loopexit94, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit94, label %.lr.ph, !llvm.loop !38
 
 .lr.ph:                                           ; preds = %.preheader98, %74
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %74 ], [ 0, %.preheader98 ]
@@ -1689,7 +1689,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   %.4 = phi i32 [ %96, %95 ], [ %111, %110 ], [ %96, %103 ]
   %.1 = phi i32 [ %100, %95 ], [ %114, %110 ], [ %100, %103 ]
   %116 = icmp eq i32 %.073, %.1
-  br i1 %116, label %117, label %93, !llvm.loop !38
+  br i1 %116, label %117, label %93, !llvm.loop !39
 
 117:                                              ; preds = %115
   %118 = icmp samesign ult i32 %.073, 65536
@@ -1710,7 +1710,7 @@ define internal fastcc noundef i32 @_ZL13_matchFromSetPKDsS0_a(ptr noundef reado
   %124 = load i16, ptr %123, align 2, !tbaa !3
   %125 = zext i16 %124 to i32
   %.not86 = icmp eq i16 %124, 0
-  br i1 %.not86, label %._crit_edge, label %.lr.ph115.split, !llvm.loop !39
+  br i1 %.not86, label %._crit_edge, label %.lr.ph115.split, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.loopexit94, %.loopexit.us, %.preheader101
   %.078.lcssa = phi i32 [ 0, %.preheader101 ], [ %.179.us, %.loopexit.us ], [ %.179, %.loopexit94 ]
@@ -1744,11 +1744,11 @@ define noundef ptr @u_strtok_r_77(ptr noundef %0, ptr noundef readonly captures(
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %3
-  store ptr %0, ptr %2, align 8, !tbaa !40
+  store ptr %0, ptr %2, align 8, !tbaa !41
   br label %7
 
 5:                                                ; preds = %3
-  %6 = load ptr, ptr %2, align 8, !tbaa !40
+  %6 = load ptr, ptr %2, align 8, !tbaa !41
   %.not26 = icmp eq ptr %6, null
   br i1 %.not26, label %20, label %7
 
@@ -1778,7 +1778,7 @@ define noundef ptr @u_strtok_r_77(ptr noundef %0, ptr noundef readonly captures(
 .sink.split:                                      ; preds = %7, %13, %16
   %.sink = phi ptr [ %19, %16 ], [ null, %13 ], [ null, %7 ]
   %.0.ph = phi ptr [ %11, %16 ], [ %11, %13 ], [ null, %7 ]
-  store ptr %.sink, ptr %2, align 8, !tbaa !40
+  store ptr %.sink, ptr %2, align 8, !tbaa !41
   br label %20
 
 20:                                               ; preds = %.sink.split, %5
@@ -1795,7 +1795,7 @@ define noundef ptr @u_strcat_77(ptr noundef returned captures(ret: address, prov
   %4 = load i16, ptr %.0, align 2, !tbaa !3
   %.not = icmp eq i16 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %.0, i64 2
-  br i1 %.not, label %.preheader, label %3, !llvm.loop !43
+  br i1 %.not, label %.preheader, label %3, !llvm.loop !44
 
 .preheader:                                       ; preds = %3, %.preheader
   %.06 = phi ptr [ %6, %.preheader ], [ %1, %3 ]
@@ -1805,7 +1805,7 @@ define noundef ptr @u_strcat_77(ptr noundef returned captures(ret: address, prov
   %8 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i16 %7, ptr %.1, align 2, !tbaa !3
   %.not7 = icmp eq i16 %7, 0
-  br i1 %.not7, label %9, label %.preheader, !llvm.loop !44
+  br i1 %.not7, label %9, label %.preheader, !llvm.loop !45
 
 9:                                                ; preds = %.preheader
   ret ptr %0
@@ -1821,7 +1821,7 @@ define noundef ptr @u_strncat_77(ptr noundef returned captures(ret: address, pro
   %5 = load i16, ptr %.014, align 2, !tbaa !3
   %.not = icmp eq i16 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %.014, i64 2
-  br i1 %.not, label %.preheader, label %.preheader17, !llvm.loop !45
+  br i1 %.not, label %.preheader, label %.preheader17, !llvm.loop !46
 
 .preheader:                                       ; preds = %.preheader17
   %7 = load i16, ptr %1, align 2, !tbaa !3
@@ -1834,7 +1834,7 @@ define noundef ptr @u_strncat_77(ptr noundef returned captures(ret: address, pro
   %10 = load i16, ptr %9, align 2, !tbaa !3
   store i16 %10, ptr %11, align 2, !tbaa !3
   %.not16 = icmp eq i16 %10, 0
-  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !46
+  br i1 %.not16, label %.loopexit, label %.lr.ph, !llvm.loop !47
 
 .lr.ph:                                           ; preds = %.preheader, %8
   %.01221 = phi i32 [ %12, %8 ], [ %2, %.preheader ]
@@ -1867,7 +1867,7 @@ define range(i32 -65535, 65536) i32 @u_strcmp_77(ptr noundef readonly captures(n
   %8 = icmp ne i16 %5, %7
   %9 = icmp eq i16 %5, 0
   %or.cond = or i1 %9, %8
-  br i1 %or.cond, label %10, label %3, !llvm.loop !47
+  br i1 %or.cond, label %10, label %3, !llvm.loop !48
 
 10:                                               ; preds = %3
   %11 = zext i16 %5 to i32
@@ -1907,7 +1907,7 @@ define range(i32 -65535, 65536) i32 @uprv_strCompare_77(ptr noundef %0, i32 noun
   %19 = load i16, ptr %17, align 2, !tbaa !3
   %20 = load i16, ptr %18, align 2, !tbaa !3
   %.not133 = icmp eq i16 %19, %20
-  br i1 %.not133, label %.lr.ph, label %.loopexit, !llvm.loop !48
+  br i1 %.not133, label %.lr.ph, label %.loopexit, !llvm.loop !49
 
 21:                                               ; preds = %6
   %.not = icmp eq i8 %4, 0
@@ -1938,7 +1938,7 @@ define range(i32 -65535, 65536) i32 @uprv_strCompare_77(ptr noundef %0, i32 noun
   %33 = getelementptr inbounds nuw i8, ptr %.2110166, i64 2
   %34 = icmp eq ptr %32, %26
   %or.cond175 = select i1 %31, i1 true, i1 %34
-  br i1 %or.cond175, label %.critedge, label %.lr.ph168, !llvm.loop !49
+  br i1 %or.cond175, label %.critedge, label %.lr.ph168, !llvm.loop !50
 
 35:                                               ; preds = %.lr.ph168
   %36 = getelementptr inbounds i16, ptr %2, i64 %25
@@ -1952,7 +1952,7 @@ define range(i32 -65535, 65536) i32 @uprv_strCompare_77(ptr noundef %0, i32 noun
   %38 = load i16, ptr %.0.i, align 2, !tbaa !3
   %.not.i = icmp eq i16 %38, 0
   %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
-  br i1 %.not.i, label %u_strlen_77.exit, label %.preheader143, !llvm.loop !11
+  br i1 %.not.i, label %u_strlen_77.exit, label %.preheader143, !llvm.loop !12
 
 u_strlen_77.exit:                                 ; preds = %.preheader143
   %40 = ptrtoint ptr %.0.i to i64
@@ -1971,7 +1971,7 @@ u_strlen_77.exit:                                 ; preds = %.preheader143
   %46 = load i16, ptr %.0.i139, align 2, !tbaa !3
   %.not.i140 = icmp eq i16 %46, 0
   %47 = getelementptr inbounds nuw i8, ptr %.0.i139, i64 2
-  br i1 %.not.i140, label %u_strlen_77.exit141, label %.preheader142, !llvm.loop !11
+  br i1 %.not.i140, label %u_strlen_77.exit141, label %.preheader142, !llvm.loop !12
 
 u_strlen_77.exit141:                              ; preds = %.preheader142
   %48 = ptrtoint ptr %.0.i139 to i64
@@ -2005,7 +2005,7 @@ u_strlen_77.exit141:                              ; preds = %.preheader142
   %61 = getelementptr inbounds nuw i8, ptr %.4106171, i64 2
   %62 = getelementptr inbounds nuw i8, ptr %.4112170, i64 2
   %63 = icmp eq ptr %61, %55
-  br i1 %63, label %.critedge, label %.lr.ph172, !llvm.loop !50
+  br i1 %63, label %.critedge, label %.lr.ph172, !llvm.loop !51
 
 64:                                               ; preds = %.lr.ph172
   %65 = sext i32 %.0107 to i64
@@ -2119,26 +2119,26 @@ define i32 @u_strCompareIter_77(ptr noundef %0, ptr noundef %1, i8 noundef signe
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %9 = load ptr, ptr %8, align 8, !tbaa !51
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = tail call noundef i32 %9(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !51
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = tail call noundef i32 %12(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %16
 
 16:                                               ; preds = %21, %7
-  %17 = load ptr, ptr %14, align 8, !tbaa !54
+  %17 = load ptr, ptr %14, align 8, !tbaa !55
   %18 = tail call noundef i32 %17(ptr noundef nonnull %0)
-  %19 = load ptr, ptr %15, align 8, !tbaa !54
+  %19 = load ptr, ptr %15, align 8, !tbaa !55
   %20 = tail call noundef i32 %19(ptr noundef nonnull %1)
   %.not = icmp eq i32 %18, %20
   br i1 %.not, label %21, label %23
 
 21:                                               ; preds = %16
   %22 = icmp eq i32 %18, -1
-  br i1 %22, label %.loopexit, label %16, !llvm.loop !55
+  br i1 %22, label %.loopexit, label %16, !llvm.loop !56
 
 23:                                               ; preds = %16
   %24 = icmp sgt i32 %18, 55295
@@ -2154,7 +2154,7 @@ define i32 @u_strCompareIter_77(ptr noundef %0, ptr noundef %1, i8 noundef signe
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %31 = load ptr, ptr %30, align 8, !tbaa !56
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = tail call noundef i32 %31(ptr noundef nonnull %0)
   %33 = and i32 %32, -1024
   %34 = icmp eq i32 %33, 56320
@@ -2167,9 +2167,9 @@ define i32 @u_strCompareIter_77(ptr noundef %0, ptr noundef %1, i8 noundef signe
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %40 = load ptr, ptr %39, align 8, !tbaa !57
+  %40 = load ptr, ptr %39, align 8, !tbaa !58
   %41 = tail call noundef i32 %40(ptr noundef nonnull %0)
-  %42 = load ptr, ptr %39, align 8, !tbaa !57
+  %42 = load ptr, ptr %39, align 8, !tbaa !58
   %43 = tail call noundef i32 %42(ptr noundef nonnull %0)
   %44 = and i32 %43, -1024
   %45 = icmp eq i32 %44, 55296
@@ -2186,7 +2186,7 @@ define i32 @u_strCompareIter_77(ptr noundef %0, ptr noundef %1, i8 noundef signe
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %52 = load ptr, ptr %51, align 8, !tbaa !56
+  %52 = load ptr, ptr %51, align 8, !tbaa !57
   %53 = tail call noundef i32 %52(ptr noundef nonnull %1)
   %54 = and i32 %53, -1024
   %55 = icmp eq i32 %54, 56320
@@ -2199,9 +2199,9 @@ define i32 @u_strCompareIter_77(ptr noundef %0, ptr noundef %1, i8 noundef signe
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %61 = load ptr, ptr %60, align 8, !tbaa !57
+  %61 = load ptr, ptr %60, align 8, !tbaa !58
   %62 = tail call noundef i32 %61(ptr noundef nonnull %1)
-  %63 = load ptr, ptr %60, align 8, !tbaa !57
+  %63 = load ptr, ptr %60, align 8, !tbaa !58
   %64 = tail call noundef i32 %63(ptr noundef nonnull %1)
   %65 = and i32 %64, -1024
   %66 = icmp eq i32 %65, 55296
@@ -2266,7 +2266,7 @@ define range(i32 -65535, 65536) i32 @u_strcmpCodePointOrder_77(ptr noundef reado
   %11 = load i16, ptr %9, align 2, !tbaa !3
   %12 = load i16, ptr %10, align 2, !tbaa !3
   %.not133.i = icmp eq i16 %11, %12
-  br i1 %.not133.i, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !48
+  br i1 %.not133.i, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !49
 
 .loopexit.i:                                      ; preds = %8, %.preheader145.i
   %.1109.i = phi ptr [ %1, %.preheader145.i ], [ %10, %8 ]
@@ -2385,7 +2385,7 @@ define range(i32 -65535, 65536) i32 @u_strncmp_77(ptr noundef readonly captures(
   %.not = icmp ne i32 %20, 0
   %21 = icmp eq i16 %16, 0
   %or.cond = or i1 %21, %.not
-  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %or.cond, label %.loopexit, label %.lr.ph, !llvm.loop !59
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %.preheader, %3
   %.0 = phi i32 [ 0, %3 ], [ %9, %.preheader ], [ 0, %.lr.ph ], [ %20, %13 ]
@@ -2410,7 +2410,7 @@ define noundef ptr @u_strcpy_77(ptr noundef returned writeonly captures(ret: add
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 2
   store i16 %5, ptr %.0, align 2, !tbaa !3
   %.not = icmp eq i16 %5, 0
-  br i1 %.not, label %7, label %3, !llvm.loop !59
+  br i1 %.not, label %7, label %3, !llvm.loop !60
 
 7:                                                ; preds = %3
   ret ptr %0
@@ -2433,7 +2433,7 @@ define noundef ptr @u_strncpy_77(ptr noundef returned writeonly captures(ret: ad
   %8 = add nsw i32 %.058, -1
   %9 = icmp samesign ugt i32 %.058, 1
   %or.cond = select i1 %.not, i1 %9, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !60
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !61
 
 .critedge:                                        ; preds = %.lr.ph, %3
   ret ptr %0
@@ -2487,7 +2487,7 @@ define i32 @u_countChar32_77(ptr noundef readonly captures(address_is_null) %0, 
   %21 = getelementptr inbounds nuw i8, ptr %.02435, i64 %.sink44
   %22 = add nsw i32 %.02236, %.sink
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph38, !llvm.loop !61
+  br i1 %.not, label %.loopexit, label %.lr.ph38, !llvm.loop !62
 
 .lr.ph:                                           ; preds = %.preheader30, %33
   %23 = phi i16 [ %34, %33 ], [ %7, %.preheader30 ]
@@ -2511,7 +2511,7 @@ define i32 @u_countChar32_77(ptr noundef readonly captures(address_is_null) %0, 
   %.3 = phi ptr [ %24, %.lr.ph ], [ %spec.select, %28 ]
   %34 = load i16, ptr %.3, align 2, !tbaa !3
   %35 = icmp eq i16 %34, 0
-  br i1 %35, label %.loopexit, label %.lr.ph, !llvm.loop !62
+  br i1 %35, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
 .loopexit:                                        ; preds = %33, %20, %.preheader30, %.preheader, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %.preheader ], [ 0, %.preheader30 ], [ %9, %20 ], [ %25, %33 ]
@@ -2564,7 +2564,7 @@ define signext range(i8 0, 2) i8 @u_strHasMoreChar32Than_77(ptr noundef readonly
   %24 = add nsw i32 %.03354, -1
   %25 = load i16, ptr %.131, align 2, !tbaa !3
   %26 = icmp eq i16 %25, 0
-  br i1 %26, label %.loopexit, label %.lr.ph56, !llvm.loop !63
+  br i1 %26, label %.loopexit, label %.lr.ph56, !llvm.loop !64
 
 27:                                               ; preds = %8
   %28 = add nuw nsw i32 %1, 1
@@ -2617,7 +2617,7 @@ define signext range(i8 0, 2) i8 @u_strHasMoreChar32Than_77(ptr noundef readonly
   %.1 = phi i32 [ %50, %48 ], [ %.049, %44 ], [ %.049, %39 ]
   %53 = add nsw i32 %.13447, -1
   %54 = icmp eq ptr %.3, %36
-  br i1 %54, label %.loopexit, label %.lr.ph, !llvm.loop !64
+  br i1 %54, label %.loopexit, label %.lr.ph, !llvm.loop !65
 
 .loopexit:                                        ; preds = %48, %.lr.ph, %52, %.lr.ph56, %23, %34, %.preheader, %27, %31, %5, %3
   %.028 = phi i8 [ 1, %3 ], [ 0, %5 ], [ 1, %27 ], [ 0, %31 ], [ 0, %.preheader ], [ 0, %34 ], [ 1, %.lr.ph56 ], [ 0, %23 ], [ 0, %48 ], [ 1, %.lr.ph ], [ 0, %52 ]
@@ -2676,7 +2676,7 @@ define noundef ptr @u_memset_77(ptr noundef returned writeonly captures(address,
   %7 = getelementptr inbounds nuw i8, ptr %.09, i64 2
   store i16 %1, ptr %.09, align 2, !tbaa !3
   %8 = icmp ult ptr %7, %6
-  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !65
+  br i1 %8, label %.lr.ph, label %.loopexit, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph, %3
   ret ptr %0
@@ -2708,7 +2708,7 @@ define range(i32 -65535, 65536) i32 @u_memcmp_77(ptr noundef readonly captures(a
   %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
   %14 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
   %15 = icmp ult ptr %13, %6
-  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !66
+  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !67
 
 .thread:                                          ; preds = %.lr.ph, %12, %3
   %.1 = phi i32 [ 0, %3 ], [ %11, %.lr.ph ], [ 0, %12 ]
@@ -2724,7 +2724,7 @@ define range(i32 -65535, 65536) i32 @u_memcmpCodePointOrder_77(ptr noundef reado
 ; Function Attrs: mustprogress uwtable
 define i32 @u_unescapeAt_77(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = alloca i32, align 4
-  %6 = load i32, ptr %1, align 4, !tbaa !67
+  %6 = load i32, ptr %1, align 4, !tbaa !68
   %7 = icmp sgt i32 %6, -1
   %.not = icmp slt i32 %6, %2
   %or.cond138 = and i1 %7, %.not
@@ -2732,7 +2732,7 @@ define i32 @u_unescapeAt_77(ptr noundef readonly captures(none) %0, ptr noundef 
 
 8:                                                ; preds = %4
   %9 = add nuw nsw i32 %6, 1
-  store i32 %9, ptr %1, align 4, !tbaa !67
+  store i32 %9, ptr %1, align 4, !tbaa !68
   %10 = tail call noundef zeroext i16 %0(i32 noundef %6, ptr noundef %3)
   %11 = zext i16 %10 to i32
   switch i16 %10, label %22 [
@@ -2745,7 +2745,7 @@ define i32 @u_unescapeAt_77(ptr noundef readonly captures(none) %0, ptr noundef 
   br label %26
 
 13:                                               ; preds = %8
-  %14 = load i32, ptr %1, align 4, !tbaa !67
+  %14 = load i32, ptr %1, align 4, !tbaa !68
   %15 = icmp slt i32 %14, %2
   br i1 %15, label %16, label %26
 
@@ -2755,9 +2755,9 @@ define i32 @u_unescapeAt_77(ptr noundef readonly captures(none) %0, ptr noundef 
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %16
-  %20 = load i32, ptr %1, align 4, !tbaa !67
+  %20 = load i32, ptr %1, align 4, !tbaa !68
   %21 = add nsw i32 %20, 1
-  store i32 %21, ptr %1, align 4, !tbaa !67
+  store i32 %21, ptr %1, align 4, !tbaa !68
   br label %26
 
 22:                                               ; preds = %8
@@ -2771,13 +2771,13 @@ define i32 @u_unescapeAt_77(ptr noundef readonly captures(none) %0, ptr noundef 
   %.0112 = phi i32 [ 8, %12 ], [ 1, %19 ], [ 4, %8 ], [ 1, %16 ], [ 1, %13 ]
   %.0111 = phi i32 [ 8, %12 ], [ 8, %19 ], [ 4, %8 ], [ 2, %16 ], [ 2, %13 ]
   %.not136 = phi i1 [ true, %12 ], [ false, %19 ], [ true, %8 ], [ true, %16 ], [ true, %13 ]
-  %27 = load i32, ptr %1, align 4, !tbaa !67
+  %27 = load i32, ptr %1, align 4, !tbaa !68
   %28 = icmp slt i32 %27, %2
   br i1 %28, label %.lr.ph.split, label %_ZL8_digit16Ds.exit.thread.thread
 
 .thread189:                                       ; preds = %22
   %29 = add nsw i32 %11, -48
-  %30 = load i32, ptr %1, align 4, !tbaa !67
+  %30 = load i32, ptr %1, align 4, !tbaa !68
   %31 = icmp slt i32 %30, %2
   br i1 %31, label %.lr.ph.split.us.preheader, label %.thread230
 
@@ -2797,7 +2797,7 @@ define i32 @u_unescapeAt_77(ptr noundef readonly captures(none) %0, ptr noundef 
   %or.cond.i141.us = icmp ne i16 %38, 48
   %39 = icmp ult i16 %36, 48
   %or.cond181 = or i1 %or.cond.i141.us, %39
-  br i1 %or.cond181, label %_ZL8_digit16Ds.exit.thread.loopexit, label %.lr.ph, !llvm.loop !68
+  br i1 %or.cond181, label %_ZL8_digit16Ds.exit.thread.loopexit, label %.lr.ph, !llvm.loop !69
 
 .lr.ph:                                           ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %40 = phi i32 [ %37, %.lr.ph.split.us ], [ %33, %.lr.ph.split.us.preheader ]
@@ -2806,14 +2806,14 @@ define i32 @u_unescapeAt_77(ptr noundef readonly captures(none) %0, ptr noundef 
   %41 = add nsw i32 %40, -48
   %42 = shl i32 %.1116156.us250, 3
   %43 = or disjoint i32 %41, %42
-  %44 = load i32, ptr %1, align 4, !tbaa !67
+  %44 = load i32, ptr %1, align 4, !tbaa !68
   %45 = add nsw i32 %44, 1
-  store i32 %45, ptr %1, align 4, !tbaa !67
+  store i32 %45, ptr %1, align 4, !tbaa !68
   %46 = add i8 %.1114157.us249, 1
   %47 = icmp slt i32 %45, %2
   %48 = icmp slt i8 %46, 3
   %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph.split.us, label %._ZL8_digit16Ds.exit.thread.loopexit_crit_edge, !llvm.loop !68
+  br i1 %49, label %.lr.ph.split.us, label %._ZL8_digit16Ds.exit.thread.loopexit_crit_edge, !llvm.loop !69
 
 .lr.ph.split:                                     ; preds = %26, %66
   %50 = phi i32 [ %73, %66 ], [ 0, %26 ]
@@ -2853,19 +2853,19 @@ _ZL8_digit16Ds.exit:                              ; preds = %61, %59, %55
 66:                                               ; preds = %_ZL8_digit16Ds.exit
   %67 = shl i32 %.1116156, 4
   %68 = or i32 %64, %67
-  %69 = load i32, ptr %1, align 4, !tbaa !67
+  %69 = load i32, ptr %1, align 4, !tbaa !68
   %70 = add nsw i32 %69, 1
-  store i32 %70, ptr %1, align 4, !tbaa !67
+  store i32 %70, ptr %1, align 4, !tbaa !68
   %71 = add i8 %.1114157, 1
   %72 = icmp slt i32 %70, %2
   %73 = sext i8 %71 to i32
   %74 = icmp sgt i32 %.0111, %73
   %75 = select i1 %72, i1 %74, i1 false
-  br i1 %75, label %.lr.ph.split, label %_ZL8_digit16Ds.exit.thread, !llvm.loop !69
+  br i1 %75, label %.lr.ph.split, label %_ZL8_digit16Ds.exit.thread, !llvm.loop !70
 
 ._ZL8_digit16Ds.exit.thread.loopexit_crit_edge:   ; preds = %.lr.ph
   %76 = sext i8 %46 to i32
-  br label %_ZL8_digit16Ds.exit.thread, !llvm.loop !68
+  br label %_ZL8_digit16Ds.exit.thread, !llvm.loop !69
 
 _ZL8_digit16Ds.exit.thread.loopexit:              ; preds = %.lr.ph.split.us
   %77 = sext i8 %46 to i32
@@ -2888,9 +2888,9 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %.not137, label %81, label %_ZL8_digit16Ds.exit.thread.thread
 
 81:                                               ; preds = %80
-  %82 = load i32, ptr %1, align 4, !tbaa !67
+  %82 = load i32, ptr %1, align 4, !tbaa !68
   %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %1, align 4, !tbaa !67
+  store i32 %83, ptr %1, align 4, !tbaa !68
   br label %.thread230
 
 .thread230:                                       ; preds = %.thread189, %81, %79
@@ -2899,7 +2899,7 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %or.cond, label %_ZL8_digit16Ds.exit.thread.thread, label %84
 
 84:                                               ; preds = %.thread230
-  %85 = load i32, ptr %1, align 4, !tbaa !67
+  %85 = load i32, ptr %1, align 4, !tbaa !68
   %86 = icmp slt i32 %85, %2
   %87 = and i32 %.1116.lcssa228234, 2096128
   %88 = icmp eq i32 %87, 55296
@@ -2909,7 +2909,7 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
 89:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   %90 = add nsw i32 %85, 1
-  store i32 %90, ptr %5, align 4, !tbaa !67
+  store i32 %90, ptr %5, align 4, !tbaa !68
   %91 = tail call noundef zeroext i16 %0(i32 noundef %85, ptr noundef %3)
   %92 = zext i16 %91 to i32
   %93 = icmp eq i16 %91, 92
@@ -2932,8 +2932,8 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %101, label %102, label %.thread
 
 102:                                              ; preds = %99
-  %103 = load i32, ptr %5, align 4, !tbaa !67
-  store i32 %103, ptr %1, align 4, !tbaa !67
+  %103 = load i32, ptr %5, align 4, !tbaa !68
+  store i32 %103, ptr %1, align 4, !tbaa !68
   %104 = shl nuw nsw i32 %.1116.lcssa228234, 10
   %105 = add nsw i32 %104, -56613888
   %106 = add nuw nsw i32 %105, %.2104
@@ -2956,7 +2956,7 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %112 = icmp samesign ult i64 %indvars.iv, 14
   %or.cond180 = select i1 %111, i1 %112, i1 false
-  br i1 %or.cond180, label %.critedge.preheader, label %119, !llvm.loop !70
+  br i1 %or.cond180, label %.critedge.preheader, label %119, !llvm.loop !71
 
 113:                                              ; preds = %.critedge.preheader
   %114 = and i64 %indvars.iv, 4294967294
@@ -2971,13 +2971,13 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %120, label %121, label %146
 
 121:                                              ; preds = %119
-  %122 = load i32, ptr %1, align 4, !tbaa !67
+  %122 = load i32, ptr %1, align 4, !tbaa !68
   %123 = icmp slt i32 %122, %2
   br i1 %123, label %124, label %.thread151
 
 124:                                              ; preds = %121
   %125 = add nsw i32 %122, 1
-  store i32 %125, ptr %1, align 4, !tbaa !67
+  store i32 %125, ptr %1, align 4, !tbaa !68
   %126 = tail call noundef zeroext i16 %0(i32 noundef %122, ptr noundef %3)
   %127 = zext i16 %126 to i32
   %128 = and i32 %127, 64512
@@ -2985,7 +2985,7 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %129, label %130, label %144
 
 130:                                              ; preds = %124
-  %131 = load i32, ptr %1, align 4, !tbaa !67
+  %131 = load i32, ptr %1, align 4, !tbaa !68
   %132 = icmp slt i32 %131, %2
   br i1 %132, label %133, label %144
 
@@ -2997,9 +2997,9 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %137, label %138, label %144
 
 138:                                              ; preds = %133
-  %139 = load i32, ptr %1, align 4, !tbaa !67
+  %139 = load i32, ptr %1, align 4, !tbaa !68
   %140 = add nsw i32 %139, 1
-  store i32 %140, ptr %1, align 4, !tbaa !67
+  store i32 %140, ptr %1, align 4, !tbaa !68
   %141 = shl nuw nsw i32 %127, 10
   %142 = add nsw i32 %141, -56613888
   %143 = add nuw nsw i32 %142, %135
@@ -3016,7 +3016,7 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %148, label %149, label %.thread151
 
 149:                                              ; preds = %146
-  %150 = load i32, ptr %1, align 4, !tbaa !67
+  %150 = load i32, ptr %1, align 4, !tbaa !68
   %151 = icmp slt i32 %150, %2
   br i1 %151, label %152, label %.thread151
 
@@ -3028,16 +3028,16 @@ _ZL8_digit16Ds.exit.thread:                       ; preds = %66, %_ZL8_digit16Ds
   br i1 %.not135, label %.thread152, label %.thread151
 
 .thread152:                                       ; preds = %152
-  %156 = load i32, ptr %1, align 4, !tbaa !67
+  %156 = load i32, ptr %1, align 4, !tbaa !68
   %157 = add nsw i32 %156, 1
-  store i32 %157, ptr %1, align 4, !tbaa !67
+  store i32 %157, ptr %1, align 4, !tbaa !68
   %158 = shl nuw nsw i32 %11, 10
   %159 = add nsw i32 %158, -56613888
   %160 = add nuw nsw i32 %159, %154
   br label %.thread151
 
 _ZL8_digit16Ds.exit.thread.thread:                ; preds = %26, %.thread230, %80, %_ZL8_digit16Ds.exit.thread, %4
-  store i32 %6, ptr %1, align 4, !tbaa !67
+  store i32 %6, ptr %1, align 4, !tbaa !68
   br label %.thread151
 
 .thread151:                                       ; preds = %121, %146, %149, %152, %.thread152, %113, %84, %.thread, %_ZL8_digit16Ds.exit.thread.thread, %144
@@ -3058,7 +3058,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 .split.us:                                        ; preds = %.split.us.outer, %18
   %.063.us = phi ptr [ %19, %18 ], [ %.063.us.ph, %.split.us.outer ]
-  %5 = load i8, ptr %.063.us, align 1, !tbaa !71
+  %5 = load i8, ptr %.063.us, align 1, !tbaa !72
   switch i8 %5, label %18 [
     i8 0, label %.split99.us
     i8 92, label %6
@@ -3066,12 +3066,12 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 6:                                                ; preds = %.split.us
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  store i32 0, ptr %4, align 4, !tbaa !67
+  store i32 0, ptr %4, align 4, !tbaa !68
   %7 = getelementptr inbounds nuw i8, ptr %.063.us, i64 1
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #15
   %9 = trunc i64 %8 to i32
   %10 = call i32 @u_unescapeAt_77(ptr noundef nonnull @_ZL15_charPtr_charAtiPv, ptr noundef nonnull %4, i32 noundef %9, ptr noundef nonnull %7)
-  %11 = load i32, ptr %4, align 4, !tbaa !67
+  %11 = load i32, ptr %4, align 4, !tbaa !68
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.split103.us, label %.thread.us
 
@@ -3089,15 +3089,15 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %17 = select i1 %16, i32 1, i32 2
   %.266.ph.us = add nsw i32 %17, %.165.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  br label %.split.us.outer, !llvm.loop !72
+  br label %.split.us.outer, !llvm.loop !73
 
 18:                                               ; preds = %.split.us
   %19 = getelementptr inbounds nuw i8, ptr %.063.us, i64 1
-  br label %.split.us, !llvm.loop !72
+  br label %.split.us, !llvm.loop !73
 
 .split.split:                                     ; preds = %.split.split.outer, %59
   %.063 = phi ptr [ %60, %59 ], [ %.063.ph, %.split.split.outer ]
-  %20 = load i8, ptr %.063, align 1, !tbaa !71
+  %20 = load i8, ptr %.063, align 1, !tbaa !72
   switch i8 %20, label %59 [
     i8 0, label %.split99.us
     i8 92, label %21
@@ -3105,7 +3105,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 21:                                               ; preds = %.split.split
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
-  store i32 0, ptr %4, align 4, !tbaa !67
+  store i32 0, ptr %4, align 4, !tbaa !68
   %.not82 = icmp eq ptr %.063, %.063.ph
   br i1 %.not82, label %31, label %22
 
@@ -3129,7 +3129,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #15
   %34 = trunc i64 %33 to i32
   %35 = call i32 @u_unescapeAt_77(ptr noundef nonnull @_ZL15_charPtr_charAtiPv, ptr noundef nonnull %4, i32 noundef %34, ptr noundef nonnull %32)
-  %36 = load i32, ptr %4, align 4, !tbaa !67
+  %36 = load i32, ptr %4, align 4, !tbaa !68
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %.split103.us, label %38
 
@@ -3170,7 +3170,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %.pn = phi i32 [ 2, %49 ], [ 1, %45 ], [ %42, %38 ]
   %.266.ph = add nsw i32 %.pn, %.165
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
-  br label %.split.split.outer, !llvm.loop !73
+  br label %.split.split.outer, !llvm.loop !74
 
 .split.split.outer:                               ; preds = %3, %.thread
   %.064.ph = phi i32 [ %.266.ph, %.thread ], [ 0, %3 ]
@@ -3179,7 +3179,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
 
 59:                                               ; preds = %.split.split
   %60 = getelementptr inbounds nuw i8, ptr %.063, i64 1
-  br label %.split.split, !llvm.loop !73
+  br label %.split.split, !llvm.loop !74
 
 .split99.us:                                      ; preds = %.split.split, %.split.us
   %.us-phi = phi ptr [ %.063.us.ph, %.split.us ], [ %.063.ph, %.split.split ]
@@ -3275,7 +3275,7 @@ define noundef i32 @u_terminateUChars_77(ptr noundef writeonly captures(none) %0
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr %3, align 4, !tbaa !74
+  %6 = load i32, ptr %3, align 4, !tbaa !75
   %7 = icmp sgt i32 %6, 0
   %8 = icmp slt i32 %2, 0
   %or.cond = or i1 %8, %7
@@ -3299,7 +3299,7 @@ define noundef i32 @u_terminateUChars_77(ptr noundef writeonly captures(none) %0
 
 .sink.split:                                      ; preds = %15, %11
   %.sink = phi i32 [ 0, %11 ], [ %., %15 ]
-  store i32 %.sink, ptr %3, align 4, !tbaa !74
+  store i32 %.sink, ptr %3, align 4, !tbaa !75
   br label %17
 
 17:                                               ; preds = %.sink.split, %4, %5, %11
@@ -3312,7 +3312,7 @@ define noundef i32 @u_terminateChars_77(ptr noundef writeonly captures(none) %0,
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr %3, align 4, !tbaa !74
+  %6 = load i32, ptr %3, align 4, !tbaa !75
   %7 = icmp sgt i32 %6, 0
   %8 = icmp slt i32 %2, 0
   %or.cond = or i1 %8, %7
@@ -3325,8 +3325,8 @@ define noundef i32 @u_terminateChars_77(ptr noundef writeonly captures(none) %0,
 11:                                               ; preds = %9
   %12 = zext nneg i32 %2 to i64
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
-  store i8 0, ptr %13, align 1, !tbaa !71
-  %14 = load i32, ptr %3, align 4, !tbaa !74
+  store i8 0, ptr %13, align 1, !tbaa !72
+  %14 = load i32, ptr %3, align 4, !tbaa !75
   %15 = icmp eq i32 %14, -124
   br i1 %15, label %.sink.split, label %18
 
@@ -3337,7 +3337,7 @@ define noundef i32 @u_terminateChars_77(ptr noundef writeonly captures(none) %0,
 
 .sink.split:                                      ; preds = %16, %11
   %.sink = phi i32 [ 0, %11 ], [ %., %16 ]
-  store i32 %.sink, ptr %3, align 4, !tbaa !74
+  store i32 %.sink, ptr %3, align 4, !tbaa !75
   br label %18
 
 18:                                               ; preds = %.sink.split, %4, %5, %11
@@ -3350,7 +3350,7 @@ define noundef i32 @u_terminateUChar32s_77(ptr noundef writeonly captures(none) 
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr %3, align 4, !tbaa !74
+  %6 = load i32, ptr %3, align 4, !tbaa !75
   %7 = icmp sgt i32 %6, 0
   %8 = icmp slt i32 %2, 0
   %or.cond = or i1 %8, %7
@@ -3363,7 +3363,7 @@ define noundef i32 @u_terminateUChar32s_77(ptr noundef writeonly captures(none) 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %2 to i64
   %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
-  store i32 0, ptr %13, align 4, !tbaa !67
+  store i32 0, ptr %13, align 4, !tbaa !68
   %14 = icmp eq i32 %6, -124
   br i1 %14, label %.sink.split, label %17
 
@@ -3374,7 +3374,7 @@ define noundef i32 @u_terminateUChar32s_77(ptr noundef writeonly captures(none) 
 
 .sink.split:                                      ; preds = %15, %11
   %.sink = phi i32 [ 0, %11 ], [ %., %15 ]
-  store i32 %.sink, ptr %3, align 4, !tbaa !74
+  store i32 %.sink, ptr %3, align 4, !tbaa !75
   br label %17
 
 17:                                               ; preds = %.sink.split, %4, %5, %11
@@ -3387,7 +3387,7 @@ define noundef i32 @u_terminateWChars_77(ptr noundef writeonly captures(none) %0
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %4
-  %6 = load i32, ptr %3, align 4, !tbaa !74
+  %6 = load i32, ptr %3, align 4, !tbaa !75
   %7 = icmp sgt i32 %6, 0
   %8 = icmp slt i32 %2, 0
   %or.cond = or i1 %8, %7
@@ -3400,7 +3400,7 @@ define noundef i32 @u_terminateWChars_77(ptr noundef writeonly captures(none) %0
 11:                                               ; preds = %9
   %12 = zext nneg i32 %2 to i64
   %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
-  store i32 0, ptr %13, align 4, !tbaa !76
+  store i32 0, ptr %13, align 4, !tbaa !77
   %14 = icmp eq i32 %6, -124
   br i1 %14, label %.sink.split, label %17
 
@@ -3411,7 +3411,7 @@ define noundef i32 @u_terminateWChars_77(ptr noundef writeonly captures(none) %0
 
 .sink.split:                                      ; preds = %15, %11
   %.sink = phi i32 [ 0, %11 ], [ %., %15 ]
-  store i32 %.sink, ptr %3, align 4, !tbaa !74
+  store i32 %.sink, ptr %3, align 4, !tbaa !75
   br label %17
 
 17:                                               ; preds = %.sink.split, %4, %5, %11
@@ -3446,7 +3446,7 @@ define i32 @ustr_hashUCharsN_77(ptr noundef readonly captures(address) %0, i32 n
   %15 = getelementptr i16, ptr %.01214, i64 %9
   %16 = getelementptr i8, ptr %15, i64 2
   %17 = icmp ult ptr %16, %5
-  br i1 %17, label %10, label %.loopexit, !llvm.loop !78
+  br i1 %17, label %10, label %.loopexit, !llvm.loop !79
 
 .loopexit:                                        ; preds = %10, %3, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %14, %10 ]
@@ -3474,13 +3474,13 @@ define i32 @ustr_hashCharsN_77(ptr noundef readonly captures(address) %0, i32 no
   %.115 = phi i32 [ 0, %.lr.ph ], [ %14, %10 ]
   %.01214 = phi ptr [ %0, %.lr.ph ], [ %16, %10 ]
   %11 = mul i32 %.115, 37
-  %12 = load i8, ptr %.01214, align 1, !tbaa !71
+  %12 = load i8, ptr %.01214, align 1, !tbaa !72
   %13 = zext i8 %12 to i32
   %14 = add i32 %11, %13
   %15 = getelementptr i8, ptr %.01214, i64 %9
   %16 = getelementptr i8, ptr %15, i64 1
   %17 = icmp ult ptr %16, %5
-  br i1 %17, label %10, label %.loopexit, !llvm.loop !79
+  br i1 %17, label %10, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %10, %3, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %14, %10 ]
@@ -3508,14 +3508,14 @@ define i32 @ustr_hashICharsN_77(ptr noundef readonly captures(address) %0, i32 n
   %.115 = phi i32 [ 0, %.lr.ph ], [ %15, %10 ]
   %.01214 = phi ptr [ %0, %.lr.ph ], [ %17, %10 ]
   %11 = mul i32 %.115, 37
-  %12 = load i8, ptr %.01214, align 1, !tbaa !71
+  %12 = load i8, ptr %.01214, align 1, !tbaa !72
   %13 = tail call signext i8 @uprv_asciitolower_77(i8 noundef signext %12)
   %14 = zext i8 %13 to i32
   %15 = add i32 %11, %14
   %16 = getelementptr i8, ptr %.01214, i64 %9
   %17 = getelementptr i8, ptr %16, i64 1
   %18 = icmp ult ptr %17, %5
-  br i1 %18, label %10, label %.loopexit, !llvm.loop !80
+  br i1 %18, label %10, label %.loopexit, !llvm.loop !81
 
 .loopexit:                                        ; preds = %10, %3, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %15, %10 ]
@@ -3561,77 +3561,78 @@ attributes #15 = { nounwind willreturn memory(read) }
 !4 = !{!"char16_t", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8, !14}
-!20 = distinct !{!20, !8, !14}
-!21 = distinct !{!21, !8, !14}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8, !14}
-!29 = distinct !{!29, !8, !14}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
-!35 = distinct !{!35, !8}
-!36 = distinct !{!36, !8, !14}
-!37 = distinct !{!37, !8}
-!38 = distinct !{!38, !8}
-!39 = distinct !{!39, !8}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 char16_t", !42, i64 0}
-!42 = !{!"any pointer", !5, i64 0}
-!43 = distinct !{!43, !8}
-!44 = distinct !{!44, !8}
-!45 = distinct !{!45, !8}
-!46 = distinct !{!46, !8}
-!47 = distinct !{!47, !8}
-!48 = distinct !{!48, !8}
-!49 = distinct !{!49, !8}
-!50 = distinct !{!50, !8}
-!51 = !{!52, !42, i64 40}
-!52 = !{!"_ZTS13UCharIterator", !42, i64 0, !53, i64 8, !53, i64 12, !53, i64 16, !53, i64 20, !53, i64 24, !42, i64 32, !42, i64 40, !42, i64 48, !42, i64 56, !42, i64 64, !42, i64 72, !42, i64 80, !42, i64 88, !42, i64 96, !42, i64 104}
-!53 = !{!"int", !5, i64 0}
-!54 = !{!52, !42, i64 72}
-!55 = distinct !{!55, !8}
-!56 = !{!52, !42, i64 64}
-!57 = !{!52, !42, i64 80}
-!58 = distinct !{!58, !8}
-!59 = distinct !{!59, !8}
-!60 = distinct !{!60, !8}
-!61 = distinct !{!61, !8}
-!62 = distinct !{!62, !8}
-!63 = distinct !{!63, !8}
-!64 = distinct !{!64, !8}
-!65 = distinct !{!65, !8}
-!66 = distinct !{!66, !8}
-!67 = !{!53, !53, i64 0}
-!68 = distinct !{!68, !8, !14}
-!69 = distinct !{!69, !8}
-!70 = distinct !{!70, !8}
-!71 = !{!5, !5, i64 0}
-!72 = distinct !{!72, !8, !14}
-!73 = distinct !{!73, !8}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"_ZTS10UErrorCode", !5, i64 0}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"wchar_t", !5, i64 0}
-!78 = distinct !{!78, !8}
-!79 = distinct !{!79, !8}
-!80 = distinct !{!80, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9, !15}
+!21 = distinct !{!21, !8, !9, !15}
+!22 = distinct !{!22, !8, !9, !15}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9, !15}
+!30 = distinct !{!30, !8, !9, !15}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9, !15}
+!38 = distinct !{!38, !8, !9}
+!39 = distinct !{!39, !8, !9}
+!40 = distinct !{!40, !8, !9}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 char16_t", !43, i64 0}
+!43 = !{!"any pointer", !5, i64 0}
+!44 = distinct !{!44, !8, !9}
+!45 = distinct !{!45, !8, !9}
+!46 = distinct !{!46, !8, !9}
+!47 = distinct !{!47, !8, !9}
+!48 = distinct !{!48, !8, !9}
+!49 = distinct !{!49, !8, !9}
+!50 = distinct !{!50, !8, !9}
+!51 = distinct !{!51, !8, !9}
+!52 = !{!53, !43, i64 40}
+!53 = !{!"_ZTS13UCharIterator", !43, i64 0, !54, i64 8, !54, i64 12, !54, i64 16, !54, i64 20, !54, i64 24, !43, i64 32, !43, i64 40, !43, i64 48, !43, i64 56, !43, i64 64, !43, i64 72, !43, i64 80, !43, i64 88, !43, i64 96, !43, i64 104}
+!54 = !{!"int", !5, i64 0}
+!55 = !{!53, !43, i64 72}
+!56 = distinct !{!56, !8, !9}
+!57 = !{!53, !43, i64 64}
+!58 = !{!53, !43, i64 80}
+!59 = distinct !{!59, !8, !9}
+!60 = distinct !{!60, !8, !9}
+!61 = distinct !{!61, !8, !9}
+!62 = distinct !{!62, !8, !9}
+!63 = distinct !{!63, !8, !9}
+!64 = distinct !{!64, !8, !9}
+!65 = distinct !{!65, !8, !9}
+!66 = distinct !{!66, !8, !9}
+!67 = distinct !{!67, !8, !9}
+!68 = !{!54, !54, i64 0}
+!69 = distinct !{!69, !8, !9, !15}
+!70 = distinct !{!70, !8, !9}
+!71 = distinct !{!71, !8, !9}
+!72 = !{!5, !5, i64 0}
+!73 = distinct !{!73, !8, !9, !15}
+!74 = distinct !{!74, !8, !9}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"_ZTS10UErrorCode", !5, i64 0}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"wchar_t", !5, i64 0}
+!79 = distinct !{!79, !8, !9}
+!80 = distinct !{!80, !8, !9}
+!81 = distinct !{!81, !8, !9}

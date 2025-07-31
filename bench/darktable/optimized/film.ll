@@ -231,7 +231,7 @@ define noalias noundef ptr @dt_sqlite3_escape_wildcards(ptr noundef readonly cap
   %10 = getelementptr inbounds nuw i8, ptr %.02541, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !6
   %.not35 = icmp eq i8 %11, 0
-  br i1 %.not35, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not35, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !59
 
 .preheader:                                       ; preds = %._crit_edge, %15
   %12 = phi i8 [ %.pre, %15 ], [ %2, %._crit_edge ]
@@ -257,7 +257,7 @@ define noalias noundef ptr @dt_sqlite3_escape_wildcards(ptr noundef readonly cap
   store i8 %16, ptr %.1, align 1, !tbaa !6
   %18 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %.pre = load i8, ptr %18, align 1, !tbaa !6
-  br label %.preheader
+  br label %.preheader, !llvm.loop !61
 
 19:                                               ; preds = %.preheader
   store i8 0, ptr %.0, align 1, !tbaa !6
@@ -435,7 +435,7 @@ define noundef i32 @dt_film_open(i32 noundef %0) local_unnamed_addr #0 {
   %59 = call i32 @sqlite3_finalize(ptr noundef %58) #11
   call void @dt_film_set_query(i32 noundef %0)
   call void (...) @dt_control_queue_redraw_center() #11
-  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !59
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !62
   call void @dt_view_manager_reset(ptr noundef %60) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   ret i32 0
@@ -586,7 +586,7 @@ define range(i32 0, -2147483648) i32 @dt_film_new(ptr noundef initializes((0, 4)
 .thread:                                          ; preds = %13, %75
   %81 = phi i32 [ %.pr, %75 ], [ %14, %13 ]
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  store i32 0, ptr %82, align 4, !tbaa !60
+  store i32 0, ptr %82, align 4, !tbaa !63
   br label %.thread33
 
 .thread33:                                        ; preds = %46, %75, %.thread
@@ -604,7 +604,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 define range(i32 0, -2147483648) i32 @dt_film_import(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
-  store ptr null, ptr %2, align 8, !tbaa !61
+  store ptr null, ptr %2, align 8, !tbaa !64
   %3 = tail call noalias dereferenceable_or_null(584) ptr @malloc(i64 noundef 584) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 520
   %5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %4, ptr noundef null) #11
@@ -644,18 +644,18 @@ dt_film_cleanup.exit:                             ; preds = %15, %18
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 572
-  store i32 0, ptr %20, align 4, !tbaa !60
+  store i32 0, ptr %20, align 4, !tbaa !63
   %21 = call ptr @g_dir_open(ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %2) #11
   store ptr %21, ptr %7, align 8, !tbaa !15
-  %22 = load ptr, ptr %2, align 8, !tbaa !61
+  %22 = load ptr, ptr %2, align 8, !tbaa !64
   %.not21 = icmp eq ptr %22, null
   br i1 %.not21, label %30, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !63
+  %25 = load ptr, ptr %24, align 8, !tbaa !66
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.13, ptr noundef nonnull %6, ptr noundef %25) #11
-  %26 = load ptr, ptr %2, align 8, !tbaa !61
+  %26 = load ptr, ptr %2, align 8, !tbaa !64
   call void @g_error_free(ptr noundef %26) #11
   %27 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #11
   %28 = load ptr, ptr %7, align 8, !tbaa !15
@@ -696,7 +696,7 @@ dt_film_cleanup.exit25:                           ; preds = %23, %29
   br label %44
 
 44:                                               ; preds = %38, %34
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !65
+  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !68
   %46 = call ptr @dt_film_import1_create(ptr noundef nonnull %3) #11
   %47 = call i32 @dt_control_add_job(ptr noundef %45, i32 noundef 2, ptr noundef %46) #11
   br label %48
@@ -816,7 +816,7 @@ define void @dt_film_remove(i32 noundef %0) local_unnamed_addr #0 {
   %31 = call i32 @sqlite3_column_int(ptr noundef %29, i32 noundef 0) #11
   %32 = call i32 @dt_image_safe_remove(i32 noundef %31) #11
   %.not19 = icmp eq i32 %32, 0
-  br i1 %.not19, label %33, label %25
+  br i1 %.not19, label %33, label %25, !llvm.loop !69
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %2, align 8, !tbaa !56
@@ -875,14 +875,14 @@ define void @dt_film_remove(i32 noundef %0) local_unnamed_addr #0 {
   %64 = load ptr, ptr %2, align 8, !tbaa !56
   %65 = call i32 @sqlite3_column_int(ptr noundef %64, i32 noundef 0) #11
   %66 = call i32 @dt_image_local_copy_reset(i32 noundef %65) #11
-  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !66
+  %67 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !70
   call void @dt_mipmap_cache_remove(ptr noundef %67, i32 noundef %65) #11
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !67
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !71
   call void @dt_image_cache_remove(ptr noundef %68, i32 noundef %65) #11
   %69 = load ptr, ptr %2, align 8, !tbaa !56
   %70 = call i32 @sqlite3_step(ptr noundef %69) #11
   %71 = icmp eq i32 %70, 100
-  br i1 %71, label %.lr.ph, label %._crit_edge
+  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %.lr.ph, %60
   %72 = load ptr, ptr %2, align 8, !tbaa !56
@@ -930,7 +930,7 @@ define void @dt_film_remove(i32 noundef %0) local_unnamed_addr #0 {
   %98 = call i32 @sqlite3_step(ptr noundef %97) #11
   %99 = load ptr, ptr %2, align 8, !tbaa !56
   %100 = call i32 @sqlite3_finalize(ptr noundef %99) #11
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !68
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !73
   %102 = and i32 %101, 1
   %103 = icmp ne i32 %102, 0
   %104 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3192), align 8
@@ -949,7 +949,7 @@ define void @dt_film_remove(i32 noundef %0) local_unnamed_addr #0 {
   br label %110
 
 110:                                              ; preds = %106, %109, %96
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !74
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %111, i32 noundef 15) #11
   br label %112
 
@@ -1088,12 +1088,12 @@ define void @dt_film_remove_empty() local_unnamed_addr #0 {
   %62 = load ptr, ptr %1, align 8, !tbaa !56
   %63 = call i32 @sqlite3_step(ptr noundef %62) #11
   %64 = icmp eq i32 %63, 100
-  br i1 %64, label %22, label %._crit_edge
+  br i1 %64, label %22, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %61
   %65 = load ptr, ptr %1, align 8, !tbaa !56
   %66 = call i32 @sqlite3_finalize(ptr noundef %65) #11
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !68
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !73
   %68 = and i32 %67, 1
   %69 = icmp ne i32 %68, 0
   %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3200), align 8
@@ -1112,7 +1112,7 @@ define void @dt_film_remove_empty() local_unnamed_addr #0 {
   br label %76
 
 76:                                               ; preds = %72, %75, %._crit_edge
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !69
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !74
   call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %77, i32 noundef 17) #11
   %.not16 = icmp eq ptr %.1, null
   br i1 %.not16, label %81, label %78
@@ -1146,8 +1146,8 @@ declare i32 @g_idle_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal noundef i32 @ask_and_delete(ptr noundef %0) #0 {
   %2 = alloca %struct._GtkTreeIter, align 8
   %3 = tail call i32 @g_list_length(ptr noundef %0) #11
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !70
-  %5 = load ptr, ptr %4, align 8, !tbaa !71
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = tail call ptr @dt_ui_main_window(ptr noundef %5) #11
   %7 = tail call i64 @gtk_window_get_type() #15
   %8 = tail call ptr @g_type_check_instance_cast(ptr noundef %6, i64 noundef %7) #11
@@ -1188,9 +1188,9 @@ define internal noundef i32 @ask_and_delete(ptr noundef %0) #0 {
   %34 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %33) #11
   call void @gtk_scrolled_window_set_policy(ptr noundef %34, i32 noundef 2, i32 noundef 1) #11
   %35 = call ptr @g_type_check_instance_cast(ptr noundef %17, i64 noundef %33) #11
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !70
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !76
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1424
-  %38 = load double, ptr %37, align 8, !tbaa !77
+  %38 = load double, ptr %37, align 8, !tbaa !83
   %39 = fmul reassoc nsz arcp contract afn double %38, 2.500000e+01
   %40 = fptosi double %39 to i32
   call void @gtk_scrolled_window_set_min_content_height(ptr noundef %35, i32 noundef %40) #11
@@ -1208,22 +1208,22 @@ define internal noundef i32 @ask_and_delete(ptr noundef %0) #0 {
   %.03639 = phi ptr [ %47, %.lr.ph ], [ %0, %1 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #11
   call void @gtk_list_store_append(ptr noundef %18, ptr noundef nonnull %2) #11
-  %45 = load ptr, ptr %.03639, align 8, !tbaa !78
+  %45 = load ptr, ptr %.03639, align 8, !tbaa !84
   call void (ptr, ptr, ...) @gtk_list_store_set(ptr noundef %18, ptr noundef nonnull %2, i32 noundef 0, ptr noundef %45, i32 noundef -1) #11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #11
   %46 = getelementptr inbounds nuw i8, ptr %.03639, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !80
+  %47 = load ptr, ptr %46, align 8, !tbaa !86
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
 
 .lr.ph42:                                         ; preds = %._crit_edge, %.lr.ph42
   %.041 = phi ptr [ %51, %.lr.ph42 ], [ %0, %._crit_edge ]
-  %48 = load ptr, ptr %.041, align 8, !tbaa !78
+  %48 = load ptr, ptr %.041, align 8, !tbaa !84
   %49 = call i32 @rmdir(ptr noundef %48) #11
   %50 = getelementptr inbounds nuw i8, ptr %.041, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !80
+  %51 = load ptr, ptr %50, align 8, !tbaa !86
   %.not37 = icmp eq ptr %51, null
-  br i1 %.not37, label %.loopexit, label %.lr.ph42
+  br i1 %.not37, label %.loopexit, label %.lr.ph42, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.lr.ph42, %._crit_edge
   call void @g_list_free_full(ptr noundef %0, ptr noundef nonnull @g_free) #11
@@ -1304,7 +1304,7 @@ define ptr @dt_film_get_image_ids(i32 noundef %0) local_unnamed_addr #0 {
   %34 = load ptr, ptr %2, align 8, !tbaa !56
   %35 = call i32 @sqlite3_step(ptr noundef %34) #11
   %36 = icmp eq i32 %35, 100
-  br i1 %36, label %.lr.ph, label %._crit_edge
+  br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25
   %.0.lcssa = phi ptr [ null, %25 ], [ %33, %.lr.ph ]
@@ -1446,7 +1446,7 @@ define void @dt_film_set_folder_status() local_unnamed_addr #0 {
   %79 = load ptr, ptr %1, align 8, !tbaa !56
   %80 = call i32 @sqlite3_step(ptr noundef %79) #11
   %81 = icmp eq i32 %80, 100
-  br i1 %81, label %.lr.ph, label %._crit_edge
+  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %74, %48
   %82 = load ptr, ptr %1, align 8, !tbaa !56
@@ -1625,25 +1625,35 @@ attributes #15 = { nounwind willreturn memory(none) }
 !56 = !{!57, !57, i64 0}
 !57 = !{!"p1 _ZTS12sqlite3_stmt", !14, i64 0}
 !58 = !{!17, !34, i64 160}
-!59 = !{!17, !24, i64 80}
-!60 = !{!10, !11, i64 572}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS7_GError", !14, i64 0}
-!63 = !{!64, !43, i64 8}
-!64 = !{!"_GError", !11, i64 0, !11, i64 4, !43, i64 8}
-!65 = !{!17, !25, i64 88}
-!66 = !{!17, !28, i64 112}
-!67 = !{!17, !29, i64 120}
-!68 = !{!17, !11, i64 3128}
-!69 = !{!17, !26, i64 96}
-!70 = !{!17, !27, i64 104}
-!71 = !{!72, !73, i64 0}
-!72 = !{!"dt_gui_gtk_t", !73, i64 0, !74, i64 8, !76, i64 56, !11, i64 80, !43, i64 88, !11, i64 96, !7, i64 104, !11, i64 1352, !11, i64 1356, !11, i64 1360, !11, i64 1364, !11, i64 1368, !45, i64 1376, !45, i64 1384, !45, i64 1392, !45, i64 1400, !75, i64 1408, !45, i64 1416, !45, i64 1424, !45, i64 1432, !45, i64 1440, !11, i64 1448, !11, i64 1452, !7, i64 1456, !11, i64 5552, !11, i64 5556, !11, i64 5560, !12, i64 5568}
-!73 = !{!"p1 _ZTS7dt_ui_t", !14, i64 0}
-!74 = !{!"dt_gui_widgets_t", !75, i64 0, !75, i64 8, !75, i64 16, !75, i64 24, !11, i64 32, !11, i64 36, !11, i64 40}
-!75 = !{!"p1 _ZTS10_GtkWidget", !14, i64 0}
-!76 = !{!"dt_gui_scrollbars_t", !75, i64 0, !75, i64 8, !11, i64 16}
-!77 = !{!72, !45, i64 1424}
-!78 = !{!79, !14, i64 0}
-!79 = !{!"_GList", !14, i64 0, !19, i64 8, !19, i64 16}
-!80 = !{!79, !19, i64 8}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !60}
+!62 = !{!17, !24, i64 80}
+!63 = !{!10, !11, i64 572}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTS7_GError", !14, i64 0}
+!66 = !{!67, !43, i64 8}
+!67 = !{!"_GError", !11, i64 0, !11, i64 4, !43, i64 8}
+!68 = !{!17, !25, i64 88}
+!69 = distinct !{!69, !60}
+!70 = !{!17, !28, i64 112}
+!71 = !{!17, !29, i64 120}
+!72 = distinct !{!72, !60}
+!73 = !{!17, !11, i64 3128}
+!74 = !{!17, !26, i64 96}
+!75 = distinct !{!75, !60}
+!76 = !{!17, !27, i64 104}
+!77 = !{!78, !79, i64 0}
+!78 = !{!"dt_gui_gtk_t", !79, i64 0, !80, i64 8, !82, i64 56, !11, i64 80, !43, i64 88, !11, i64 96, !7, i64 104, !11, i64 1352, !11, i64 1356, !11, i64 1360, !11, i64 1364, !11, i64 1368, !45, i64 1376, !45, i64 1384, !45, i64 1392, !45, i64 1400, !81, i64 1408, !45, i64 1416, !45, i64 1424, !45, i64 1432, !45, i64 1440, !11, i64 1448, !11, i64 1452, !7, i64 1456, !11, i64 5552, !11, i64 5556, !11, i64 5560, !12, i64 5568}
+!79 = !{!"p1 _ZTS7dt_ui_t", !14, i64 0}
+!80 = !{!"dt_gui_widgets_t", !81, i64 0, !81, i64 8, !81, i64 16, !81, i64 24, !11, i64 32, !11, i64 36, !11, i64 40}
+!81 = !{!"p1 _ZTS10_GtkWidget", !14, i64 0}
+!82 = !{!"dt_gui_scrollbars_t", !81, i64 0, !81, i64 8, !11, i64 16}
+!83 = !{!78, !45, i64 1424}
+!84 = !{!85, !14, i64 0}
+!85 = !{!"_GList", !14, i64 0, !19, i64 8, !19, i64 16}
+!86 = !{!85, !19, i64 8}
+!87 = distinct !{!87, !60}
+!88 = distinct !{!88, !60}
+!89 = distinct !{!89, !60}
+!90 = distinct !{!90, !60}

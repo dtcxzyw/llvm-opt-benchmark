@@ -356,7 +356,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %48 = getelementptr i8, ptr %.17012.i, i64 1
   %49 = add nsw i64 %.16013.i, -1
   %50 = icmp sgt i64 %.16013.i, 1
-  br i1 %50, label %.lr.ph14.i, label %binascii_a2b_uu_impl.exit
+  br i1 %50, label %.lr.ph14.i, label %binascii_a2b_uu_impl.exit, !llvm.loop !22
 
 51:                                               ; preds = %.lr.ph14.i
   %52 = call ptr @PyModule_GetState(ptr noundef %0) #5
@@ -383,7 +383,7 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %57, %27
 binascii_a2b_uu_impl.exit:                        ; preds = %.backedge.i, %Py_DECREF.exit.sink.split.i, %57, %54, %51, %27, %24, %21, %.preheader.i, %5, %2
   %.0 = phi ptr [ null, %2 ], [ null, %5 ], [ null, %21 ], [ null, %51 ], [ null, %24 ], [ null, %27 ], [ null, %54 ], [ null, %57 ], [ %11, %.preheader.i ], [ null, %Py_DECREF.exit.sink.split.i ], [ %11, %.backedge.i ]
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !21
+  %61 = load ptr, ptr %60, align 8, !tbaa !23
   %.not3 = icmp eq ptr %61, null
   br i1 %.not3, label %63, label %62
 
@@ -407,7 +407,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %9, align 8, !tbaa !22
+  %.val = load i64, ptr %9, align 8, !tbaa !24
   br label %10
 
 10:                                               ; preds = %4, %8
@@ -518,7 +518,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %61 = icmp sgt i64 %59, 0
   %62 = icmp ne i32 %.143.lcssa.us.i, 0
   %63 = or i1 %61, %62
-  br i1 %63, label %.lr.ph58.split.us.i, label %._crit_edge59.i, !llvm.loop !26
+  br i1 %63, label %.lr.ph58.split.us.i, label %._crit_edge59.i, !llvm.loop !28
 
 .lr.ph.us.i:                                      ; preds = %56, %.lr.ph.us.i
   %.249.us.us.i = phi ptr [ %.3.us.us.i, %.lr.ph.us.i ], [ %.155.us.i, %56 ]
@@ -531,7 +531,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %.3.us.us.i = getelementptr i8, ptr %.249.us.us.i, i64 1
   store i8 %68, ptr %.249.us.us.i, align 1, !tbaa !11
   %69 = icmp samesign ugt i32 %.14348.us.us.i, 11
-  br i1 %69, label %.lr.ph.us.i, label %._crit_edge.split.us.us.i, !llvm.loop !28
+  br i1 %69, label %.lr.ph.us.i, label %._crit_edge.split.us.us.i, !llvm.loop !30
 
 .lr.ph58.split.i:                                 ; preds = %.lr.ph58.i, %._crit_edge.split.i
   %70 = phi i1 [ %88, %._crit_edge.split.i ], [ true, %.lr.ph58.i ]
@@ -569,7 +569,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %.3.i = getelementptr i8, ptr %.249.i, i64 1
   store i8 %spec.select.i, ptr %.249.i, align 1, !tbaa !11
   %85 = icmp samesign ugt i32 %.14348.i, 11
-  br i1 %85, label %.lr.ph.i, label %._crit_edge.split.i, !llvm.loop !29
+  br i1 %85, label %.lr.ph.i, label %._crit_edge.split.i, !llvm.loop !31
 
 ._crit_edge.split.i:                              ; preds = %.lr.ph.i, %76
   %.143.lcssa.i = phi i32 [ %77, %76 ], [ %79, %.lr.ph.i ]
@@ -579,7 +579,7 @@ define internal ptr @binascii_b2a_uu(ptr noundef %0, ptr noundef %1, i64 noundef
   %88 = icmp sgt i64 %86, 0
   %89 = icmp ne i32 %.143.lcssa.i, 0
   %90 = or i1 %88, %89
-  br i1 %90, label %.lr.ph58.split.i, label %._crit_edge59.i, !llvm.loop !30
+  br i1 %90, label %.lr.ph58.split.i, label %._crit_edge59.i, !llvm.loop !32
 
 ._crit_edge59.i:                                  ; preds = %._crit_edge.split.i, %._crit_edge.split.us.us.i, %44
   %.1.lcssa.i = phi ptr [ %.038.i, %44 ], [ %.2.lcssa.us.i, %._crit_edge.split.us.us.i ], [ %.2.lcssa.i, %._crit_edge.split.i ]
@@ -596,7 +596,7 @@ binascii_b2a_uu_impl.exit:                        ; preds = %32, %35, %37, %._cr
 93:                                               ; preds = %22, %.thread, %16, %binascii_b2a_uu_impl.exit
   %.023 = phi ptr [ null, %.thread ], [ null, %22 ], [ %.0.i, %binascii_b2a_uu_impl.exit ], [ null, %16 ]
   %94 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %95 = load ptr, ptr %94, align 8, !tbaa !21
+  %95 = load ptr, ptr %94, align 8, !tbaa !23
   %.not31 = icmp eq ptr %95, null
   br i1 %.not31, label %97, label %96
 
@@ -621,7 +621,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %9, align 8, !tbaa !22
+  %.val = load i64, ptr %9, align 8, !tbaa !24
   br label %10
 
 10:                                               ; preds = %4, %8
@@ -774,7 +774,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %.1.us.i = phi i32 [ %74, %73 ], [ %.07335.us.i, %71 ], [ 0, %54 ], [ 0, %58 ], [ 0, %64 ], [ 0, %70 ], [ 0, %53 ], [ %.07335.us.i, %48 ]
   %78 = add nuw i64 %.036.us.i, 1
   %exitcond.not.i = icmp eq i64 %78, %.val33
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.us.split.i, !llvm.loop !33
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %127
   %.036.i = phi i64 [ %128, %127 ], [ 0, %.lr.ph.split.i.preheader ]
@@ -903,7 +903,7 @@ define internal ptr @binascii_a2b_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %.1.i = phi i32 [ %87, %86 ], [ 0, %123 ], [ 0, %117 ], [ 0, %111 ], [ 0, %110 ], [ 0, %109 ], [ %.07335.i, %82 ]
   %128 = add nuw i64 %.036.i, 1
   %exitcond59.not.i = icmp eq i64 %128, %.val33
-  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !32
+  br i1 %exitcond59.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %77, %127
   %.084.lcssa.i = phi ptr [ %.286.i, %127 ], [ %.286.us.i, %77 ]
@@ -952,7 +952,7 @@ binascii_a2b_base64_impl.exit:                    ; preds = %27, %.thread15.i, %
 145:                                              ; preds = %22, %.thread, %16, %binascii_a2b_base64_impl.exit
   %.023 = phi ptr [ null, %22 ], [ %.080.i, %binascii_a2b_base64_impl.exit ], [ null, %.thread ], [ null, %16 ]
   %146 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !21
+  %147 = load ptr, ptr %146, align 8, !tbaa !23
   %.not31 = icmp eq ptr %147, null
   br i1 %.not31, label %149, label %148
 
@@ -977,7 +977,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %9, align 8, !tbaa !22
+  %.val = load i64, ptr %9, align 8, !tbaa !24
   br label %10
 
 10:                                               ; preds = %4, %8
@@ -1073,7 +1073,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %52 = getelementptr i8, ptr %.12.i, i64 1
   store i8 %51, ptr %.12.i, align 1, !tbaa !11
   %53 = icmp samesign ugt i32 %.1401.i, 11
-  br i1 %53, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !33
+  br i1 %53, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph9.i
   %.140.lcssa.i = phi i32 [ %44, %.lr.ph9.i ], [ %46, %.lr.ph.i ]
@@ -1081,7 +1081,7 @@ define internal ptr @binascii_b2a_base64(ptr noundef %0, ptr noundef %1, i64 nou
   %54 = add nsw i64 %.0368.i, -1
   %55 = getelementptr i8, ptr %.0414.i, i64 1
   %56 = icmp sgt i64 %.0368.i, 1
-  br i1 %56, label %.lr.ph9.i, label %._crit_edge10.i, !llvm.loop !34
+  br i1 %56, label %.lr.ph9.i, label %._crit_edge10.i, !llvm.loop !36
 
 ._crit_edge10.i:                                  ; preds = %._crit_edge.i
   switch i32 %.140.lcssa.i, label %._crit_edge10.thread.i [
@@ -1137,7 +1137,7 @@ binascii_b2a_base64_impl.exit:                    ; preds = %30, %33, %35, %76
 78:                                               ; preds = %22, %.thread, %16, %binascii_b2a_base64_impl.exit
   %.023 = phi ptr [ null, %.thread ], [ null, %22 ], [ %.0.i, %binascii_b2a_base64_impl.exit ], [ null, %16 ]
   %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !21
+  %80 = load ptr, ptr %79, align 8, !tbaa !23
   %.not31 = icmp eq ptr %80, null
   br i1 %.not31, label %82, label %81
 
@@ -1170,7 +1170,7 @@ define internal ptr @binascii_a2b_hex(ptr noundef %0, ptr noundef %1) #0 {
 8:                                                ; preds = %2, %5
   %.0 = phi ptr [ %7, %5 ], [ null, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %.not3 = icmp eq ptr %10, null
   br i1 %.not3, label %12, label %11
 
@@ -1193,7 +1193,7 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !22
+  %.val = load i64, ptr %8, align 8, !tbaa !24
   br label %9
 
 9:                                                ; preds = %4, %7
@@ -1256,7 +1256,7 @@ define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %0, ptr nounde
 35:                                               ; preds = %30, %.thread, %16, %32
   %.028 = phi ptr [ null, %.thread ], [ null, %30 ], [ %34, %32 ], [ null, %16 ]
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !21
+  %37 = load ptr, ptr %36, align 8, !tbaa !23
   %.not42 = icmp eq ptr %37, null
   br i1 %.not42, label %39, label %38
 
@@ -1280,7 +1280,7 @@ define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr nounde
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !22
+  %.val = load i64, ptr %8, align 8, !tbaa !24
   br label %9
 
 9:                                                ; preds = %4, %7
@@ -1343,7 +1343,7 @@ define internal ptr @binascii_hexlify(ptr readnone captures(none) %0, ptr nounde
 35:                                               ; preds = %30, %.thread, %16, %32
   %.028 = phi ptr [ null, %.thread ], [ null, %30 ], [ %34, %32 ], [ null, %16 ]
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !21
+  %37 = load ptr, ptr %36, align 8, !tbaa !23
   %.not42 = icmp eq ptr %37, null
   br i1 %.not42, label %39, label %38
 
@@ -1376,7 +1376,7 @@ define internal ptr @binascii_unhexlify(ptr noundef %0, ptr noundef %1) #0 {
 8:                                                ; preds = %2, %5
   %.0 = phi ptr [ %7, %5 ], [ null, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !21
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %.not3 = icmp eq ptr %10, null
   br i1 %.not3, label %12, label %11
 
@@ -1441,11 +1441,11 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %26 = xor i32 %22, %25
   %27 = zext nneg i32 %26 to i64
   %28 = getelementptr [256 x i16], ptr @crctab_hqx, i64 0, i64 %27
-  %29 = load i16, ptr %28, align 2, !tbaa !35
+  %29 = load i16, ptr %28, align 2, !tbaa !37
   %30 = zext i16 %29 to i32
   %31 = xor i32 %21, %30
   %32 = icmp samesign ugt i64 %.03.i, 1
-  br i1 %32, label %.lr.ph.i, label %.sink.split, !llvm.loop !37
+  br i1 %32, label %.lr.ph.i, label %.sink.split, !llvm.loop !39
 
 33:                                               ; preds = %10
   %34 = call ptr @PyErr_Occurred() #5
@@ -1476,11 +1476,11 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
   %44 = xor i32 %40, %43
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr [256 x i16], ptr @crctab_hqx, i64 0, i64 %45
-  %47 = load i16, ptr %46, align 2, !tbaa !35
+  %47 = load i16, ptr %46, align 2, !tbaa !37
   %48 = zext i16 %47 to i32
   %49 = xor i32 %39, %48
   %50 = icmp samesign ugt i64 %.03.i19, 1
-  br i1 %50, label %.lr.ph.i18, label %.sink.split, !llvm.loop !37
+  br i1 %50, label %.lr.ph.i18, label %.sink.split, !llvm.loop !39
 
 .sink.split:                                      ; preds = %.lr.ph.i, %.lr.ph.i18, %.split, %.split9
   %.sink.shrunk = phi i32 [ 65535, %.split9 ], [ %17, %.split ], [ %49, %.lr.ph.i18 ], [ %31, %.lr.ph.i ]
@@ -1491,7 +1491,7 @@ define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %0, ptr nounde
 52:                                               ; preds = %.sink.split, %33, %7, %5
   %.0 = phi ptr [ null, %7 ], [ null, %33 ], [ null, %5 ], [ %51, %.sink.split ]
   %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !21
+  %54 = load ptr, ptr %53, align 8, !tbaa !23
   %.not13 = icmp eq ptr %54, null
   br i1 %.not13, label %56, label %55
 
@@ -1564,7 +1564,7 @@ define internal ptr @binascii_crc32(ptr readnone captures(none) %0, ptr noundef 
   %30 = getelementptr i8, ptr %.0161.i, i64 1073741824
   %31 = add nsw i64 %.0152.i, -1073741824
   %32 = icmp ugt i64 %31, 1073741824
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !38
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %24
   %.016.lcssa.i = phi ptr [ %.val, %24 ], [ %30, %.lr.ph.i ]
@@ -1600,7 +1600,7 @@ binascii_crc32_impl.exit:                         ; preds = %._crit_edge.i, %36
 46:                                               ; preds = %42, %19, %8, %6, %44
   %.0 = phi ptr [ null, %8 ], [ null, %42 ], [ %45, %44 ], [ null, %19 ], [ null, %6 ]
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !21
+  %48 = load ptr, ptr %47, align 8, !tbaa !23
   %.not17 = icmp eq ptr %48, null
   br i1 %.not17, label %50, label %49
 
@@ -1623,7 +1623,7 @@ define internal ptr @binascii_a2b_qp(ptr readnone captures(none) %0, ptr noundef
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !22
+  %.val = load i64, ptr %8, align 8, !tbaa !24
   br label %9
 
 9:                                                ; preds = %4, %7
@@ -1714,7 +1714,7 @@ define internal ptr @binascii_a2b_qp(ptr readnone captures(none) %0, ptr noundef
 45:                                               ; preds = %.lr.ph.i
   %46 = add nsw i64 %.27.i, 1
   %exitcond.not.i = icmp eq i64 %46, %.val33
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !41
 
 .critedge.i:                                      ; preds = %45, %.lr.ph.i, %40
   %.1.i = phi i64 [ %39, %40 ], [ %.27.i, %.lr.ph.i ], [ %.val33, %45 ]
@@ -1824,7 +1824,7 @@ switch.early.test5.i:                             ; preds = %58
   %.186.i = phi i64 [ %50, %49 ], [ %72, %62 ], [ %75, %74 ], [ %80, %79 ], [ %86, %83 ], [ %.08510.i, %.critedge.i ]
   %.3.i = phi i64 [ %52, %49 ], [ %71, %62 ], [ %39, %74 ], [ %82, %79 ], [ %85, %83 ], [ %spec.select.i, %.critedge.i ]
   %88 = icmp slt i64 %.3.i, %.val33
-  br i1 %88, label %34, label %._crit_edge.i, !llvm.loop !40
+  br i1 %88, label %34, label %._crit_edge.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %87, %38, %.preheader6.i
   %.085.lcssa.i = phi i64 [ 0, %.preheader6.i ], [ %.186.i, %87 ], [ %.08510.i, %38 ]
@@ -1835,7 +1835,7 @@ switch.early.test5.i:                             ; preds = %58
 binascii_a2b_qp_impl.exit:                        ; preds = %._crit_edge.i, %32, %22, %.thread, %16
   %.023 = phi ptr [ null, %22 ], [ null, %.thread ], [ null, %16 ], [ null, %32 ], [ %89, %._crit_edge.i ]
   %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !21
+  %91 = load ptr, ptr %90, align 8, !tbaa !23
   %.not31 = icmp eq ptr %91, null
   br i1 %.not31, label %93, label %92
 
@@ -1859,7 +1859,7 @@ define internal ptr @binascii_b2a_qp(ptr readnone captures(none) %0, ptr noundef
 
 7:                                                ; preds = %4
   %8 = getelementptr i8, ptr %3, i64 16
-  %.val = load i64, ptr %8, align 8, !tbaa !22
+  %.val = load i64, ptr %8, align 8, !tbaa !24
   br label %9
 
 9:                                                ; preds = %4, %7
@@ -2414,7 +2414,7 @@ switch.early.test310.i:                           ; preds = %148, %145
   %.6.i = phi i32 [ %179, %.thread4.i ], [ 0, %217 ], [ 0, %219 ], [ %237, %241 ], [ %237, %242 ]
   %.3225.i = phi i64 [ %178, %.thread4.i ], [ %218, %217 ], [ %220, %219 ], [ %.pre-phi.i, %241 ], [ %.pre-phi.i, %242 ]
   %244 = icmp slt i64 %.3225.i, %.val57
-  br i1 %244, label %.preheader.i, label %._crit_edge14.i, !llvm.loop !41
+  br i1 %244, label %.preheader.i, label %._crit_edge14.i, !llvm.loop !43
 
 ._crit_edge14.i:                                  ; preds = %243, %._crit_edge.thread.i
   %245 = phi ptr [ %124, %._crit_edge.thread.i ], [ %122, %243 ]
@@ -2426,7 +2426,7 @@ switch.early.test310.i:                           ; preds = %148, %145
 binascii_b2a_qp_impl.exit:                        ; preds = %._crit_edge14.i, %126, %.thread1.i, %38, %34, %26, %.thread, %17
   %.037 = phi ptr [ null, %.thread ], [ null, %26 ], [ null, %34 ], [ null, %38 ], [ null, %17 ], [ null, %126 ], [ %246, %._crit_edge14.i ], [ null, %.thread1.i ]
   %247 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %248 = load ptr, ptr %247, align 8, !tbaa !21
+  %248 = load ptr, ptr %247, align 8, !tbaa !23
   %.not55 = icmp eq ptr %248, null
   br i1 %.not55, label %250, label %249
 
@@ -2457,9 +2457,9 @@ define internal fastcc range(i32 0, 131073) i32 @ascii_buffer_converter(ptr noun
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %0, i64 8
-  %.val = load ptr, ptr %6, align 8, !tbaa !42
+  %.val = load ptr, ptr %6, align 8, !tbaa !44
   %7 = getelementptr i8, ptr %.val, i64 168
-  %.val16 = load i64, ptr %7, align 8, !tbaa !43
+  %.val16 = load i64, ptr %7, align 8, !tbaa !45
   %8 = and i64 %.val16, 268435456
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %22, label %9
@@ -2494,11 +2494,11 @@ _PyUnicode_DATA.exit:                             ; preds = %16, %17
   %.0.i = phi ptr [ %.0.i.i, %16 ], [ %.val4.i, %17 ]
   store ptr %.0.i, ptr %1, align 8, !tbaa !12
   %19 = getelementptr i8, ptr %0, i64 16
-  %.val18 = load i64, ptr %19, align 8, !tbaa !48
+  %.val18 = load i64, ptr %19, align 8, !tbaa !50
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %.val18, ptr %20, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr null, ptr %21, align 8, !tbaa !21
+  store ptr null, ptr %21, align 8, !tbaa !23
   br label %29
 
 22:                                               ; preds = %5
@@ -2508,9 +2508,9 @@ _PyUnicode_DATA.exit:                             ; preds = %16, %17
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !10
-  %.val15 = load ptr, ptr %6, align 8, !tbaa !42
+  %.val15 = load ptr, ptr %6, align 8, !tbaa !44
   %26 = getelementptr inbounds nuw i8, ptr %.val15, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !51
+  %27 = load ptr, ptr %26, align 8, !tbaa !53
   %28 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %25, ptr noundef nonnull @.str.15, ptr noundef %27) #5
   br label %29
 
@@ -2606,7 +2606,7 @@ define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %0, ptr readonly c
   store i8 %31, ptr %33, align 1, !tbaa !11
   %34 = add i64 %.0298, 2
   %35 = icmp slt i64 %34, %.16.val
-  br i1 %35, label %.lr.ph, label %Py_DECREF.exit, !llvm.loop !52
+  br i1 %35, label %.lr.ph, label %Py_DECREF.exit, !llvm.loop !54
 
 36:                                               ; preds = %26
   %37 = load ptr, ptr %27, align 8, !tbaa !3
@@ -2717,37 +2717,39 @@ attributes #6 = { nounwind willreturn memory(read) }
 !16 = !{!"p1 omnipotent char", !6, i64 0}
 !17 = !{!"p1 long", !6, i64 0}
 !18 = !{!13, !14, i64 16}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!13, !5, i64 8}
-!22 = !{!23, !14, i64 16}
-!23 = !{!"", !24, i64 0, !14, i64 16}
-!24 = !{!"_object", !7, i64 0, !25, i64 8}
-!25 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
-!26 = distinct !{!26, !20, !27}
-!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!28 = distinct !{!28, !20, !27}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20, !27}
-!32 = distinct !{!32, !20}
-!33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"short", !7, i64 0}
-!37 = distinct !{!37, !20}
-!38 = distinct !{!38, !20}
-!39 = distinct !{!39, !20}
-!40 = distinct !{!40, !20}
-!41 = distinct !{!41, !20}
-!42 = !{!24, !25, i64 8}
-!43 = !{!44, !14, i64 168}
-!44 = !{!"_typeobject", !23, i64 0, !16, i64 24, !14, i64 32, !14, i64 40, !6, i64 48, !14, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !16, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !14, i64 208, !6, i64 216, !6, i64 224, !45, i64 232, !46, i64 240, !47, i64 248, !25, i64 256, !5, i64 264, !6, i64 272, !6, i64 280, !14, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !6, i64 360, !5, i64 368, !6, i64 376, !15, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !36, i64 410}
-!45 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
-!46 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
-!47 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
-!48 = !{!49, !14, i64 16}
-!49 = !{!"", !24, i64 0, !14, i64 16, !14, i64 24, !50, i64 32}
-!50 = !{!"", !36, i64 0, !36, i64 2, !36, i64 2, !36, i64 2, !36, i64 2}
-!51 = !{!44, !16, i64 24}
-!52 = distinct !{!52, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !21}
+!23 = !{!13, !5, i64 8}
+!24 = !{!25, !14, i64 16}
+!25 = !{!"", !26, i64 0, !14, i64 16}
+!26 = !{!"_object", !7, i64 0, !27, i64 8}
+!27 = !{!"p1 _ZTS11_typeobject", !6, i64 0}
+!28 = distinct !{!28, !20, !21, !29}
+!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!30 = distinct !{!30, !20, !21, !29}
+!31 = distinct !{!31, !20, !21}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21, !29}
+!34 = distinct !{!34, !20, !21}
+!35 = distinct !{!35, !20, !21}
+!36 = distinct !{!36, !20, !21}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"short", !7, i64 0}
+!39 = distinct !{!39, !20, !21}
+!40 = distinct !{!40, !20, !21}
+!41 = distinct !{!41, !20, !21}
+!42 = distinct !{!42, !20, !21}
+!43 = distinct !{!43, !20, !21}
+!44 = !{!26, !27, i64 8}
+!45 = !{!46, !14, i64 168}
+!46 = !{!"_typeobject", !25, i64 0, !16, i64 24, !14, i64 32, !14, i64 40, !6, i64 48, !14, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !14, i64 168, !16, i64 176, !6, i64 184, !6, i64 192, !6, i64 200, !14, i64 208, !6, i64 216, !6, i64 224, !47, i64 232, !48, i64 240, !49, i64 248, !27, i64 256, !5, i64 264, !6, i64 272, !6, i64 280, !14, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !6, i64 360, !5, i64 368, !6, i64 376, !15, i64 384, !6, i64 392, !6, i64 400, !7, i64 408, !38, i64 410}
+!47 = !{!"p1 _ZTS11PyMethodDef", !6, i64 0}
+!48 = !{!"p1 _ZTS11PyMemberDef", !6, i64 0}
+!49 = !{!"p1 _ZTS11PyGetSetDef", !6, i64 0}
+!50 = !{!51, !14, i64 16}
+!51 = !{!"", !26, i64 0, !14, i64 16, !14, i64 24, !52, i64 32}
+!52 = !{!"", !38, i64 0, !38, i64 2, !38, i64 2, !38, i64 2, !38, i64 2}
+!53 = !{!46, !16, i64 24}
+!54 = distinct !{!54, !20, !21}

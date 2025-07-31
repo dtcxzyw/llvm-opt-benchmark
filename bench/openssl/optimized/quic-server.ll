@@ -326,7 +326,7 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
 
 120:                                              ; preds = %ossl_time_from_timeval.exit
   store i64 %.sroa.03.0.i142, ptr @fake_now.0, align 8, !tbaa !9
-  br label %64
+  br label %64, !llvm.loop !14
 
 121:                                              ; preds = %108
   store i64 %.sroa.013.0, ptr @fake_now.0, align 8, !tbaa !9
@@ -384,7 +384,7 @@ ossl_time_from_timeval.exit:                      ; preds = %110, %113
   call void @SSL_free(ptr noundef %144) #7
   %145 = add nuw i64 %.0103178, 1
   %exitcond.not = icmp eq i64 %145, %.0117195
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
   call void @ERR_clear_error() #7
@@ -493,4 +493,6 @@ attributes #7 = { nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"int", !7, i64 0}
 !14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.mustprogress"}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !17, !15}
+!17 = !{!"llvm.loop.mustprogress"}

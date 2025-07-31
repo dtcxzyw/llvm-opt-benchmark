@@ -215,7 +215,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
 ._crit_edge.us:                                   ; preds = %90
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
-  br i1 %exitcond122.not, label %._crit_edge100, label %.lr.ph.us, !llvm.loop !58
+  br i1 %exitcond122.not, label %._crit_edge100, label %.lr.ph.us, !llvm.loop !59
 
 .lr.ph99.split:                                   ; preds = %.lr.ph99.split.preheader, %.lr.ph99.split
   %indvars.iv123 = phi i64 [ 0, %.lr.ph99.split.preheader ], [ %indvars.iv.next124, %.lr.ph99.split ]
@@ -224,7 +224,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   store ptr %94, ptr %95, align 8, !tbaa !49
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond127.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count126
-  br i1 %exitcond127.not, label %._crit_edge100, label %.lr.ph99.split, !llvm.loop !60
+  br i1 %exitcond127.not, label %._crit_edge100, label %.lr.ph99.split, !llvm.loop !61
 
 ._crit_edge100:                                   ; preds = %._crit_edge.us, %.lr.ph99.split, %67
   %96 = call ptr @nl_langinfo(i32 noundef 14) #15
@@ -232,7 +232,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %.not89 = icmp eq i32 %97, 0
   %98 = zext i1 %.not89 to i32
   %99 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %98, ptr %99, align 8, !tbaa !61
+  store i32 %98, ptr %99, align 8, !tbaa !62
   call void @output_draw(ptr noundef nonnull %0) #15
   %100 = load i32, ptr %81, align 8, !tbaa !47
   %101 = icmp sgt i32 %100, 0
@@ -272,7 +272,7 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   %113 = load i32, ptr %81, align 8, !tbaa !47
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next138, %114
-  br i1 %115, label %.preheader95.us, label %.preheader, !llvm.loop !62
+  br i1 %115, label %.preheader95.us, label %.preheader, !llvm.loop !63
 
 .lr.ph.us109:                                     ; preds = %.preheader95.us, %set_color.exit.us.us
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %set_color.exit.us.us ], [ 0, %.preheader95.us ]
@@ -300,15 +300,15 @@ define hidden range(i32 -1, 1) i32 @output_ascii(ptr noundef %0, ptr noundef %1)
   br i1 %or.cond.i.us.us, label %167, label %129
 
 129:                                              ; preds = %124
-  %130 = load i32, ptr %123, align 8, !tbaa !63
+  %130 = load i32, ptr %123, align 8, !tbaa !64
   %131 = icmp sgt i32 %130, 223
   %132 = zext i1 %131 to i32
   %133 = getelementptr inbounds nuw i8, ptr %123, i64 4
-  %134 = load i32, ptr %133, align 4, !tbaa !65
+  %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = icmp sgt i32 %134, 223
   %136 = zext i1 %135 to i32
   %137 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %138 = load i32, ptr %137, align 8, !tbaa !66
+  %138 = load i32, ptr %137, align 8, !tbaa !67
   %139 = icmp sgt i32 %138, 223
   %140 = zext i1 %139 to i32
   %141 = load ptr, ptr @cur_term, align 8, !tbaa !26
@@ -449,7 +449,7 @@ set_color.exit.us.us:                             ; preds = %.sink.split.i.us.us
   %214 = load i32, ptr %76, align 4, !tbaa !45
   %215 = sext i32 %214 to i64
   %216 = icmp slt i64 %indvars.iv.next135, %215
-  br i1 %216, label %.lr.ph.us109, label %._crit_edge.split.us.us, !llvm.loop !67
+  br i1 %216, label %.lr.ph.us109, label %._crit_edge.split.us.us, !llvm.loop !68
 
 .preheader95:                                     ; preds = %.preheader95.lr.ph, %._crit_edge.split
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %._crit_edge.split ], [ 0, %.preheader95.lr.ph ]
@@ -474,7 +474,7 @@ set_color.exit:                                   ; preds = %.preheader95, %set_
   %227 = load i32, ptr %76, align 4, !tbaa !45
   %228 = sext i32 %227 to i64
   %229 = icmp slt i64 %indvars.iv.next129, %228
-  br i1 %229, label %set_color.exit, label %._crit_edge.split, !llvm.loop !68
+  br i1 %229, label %set_color.exit, label %._crit_edge.split, !llvm.loop !69
 
 ._crit_edge.split:                                ; preds = %set_color.exit, %.preheader95
   %230 = call i32 @putwc(i32 noundef 10, ptr noundef nonnull %6) #15
@@ -482,7 +482,7 @@ set_color.exit:                                   ; preds = %.preheader95, %set_
   %231 = load i32, ptr %81, align 8, !tbaa !47
   %232 = sext i32 %231 to i64
   %233 = icmp slt i64 %indvars.iv.next132, %232
-  br i1 %233, label %.preheader95, label %.preheader, !llvm.loop !69
+  br i1 %233, label %.preheader95, label %.preheader, !llvm.loop !70
 
 .lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph112 ], [ 0, %.preheader ]
@@ -494,7 +494,7 @@ set_color.exit:                                   ; preds = %.preheader95, %set_
   %237 = load i32, ptr %81, align 8, !tbaa !47
   %238 = sext i32 %237 to i64
   %239 = icmp slt i64 %indvars.iv.next141, %238
-  br i1 %239, label %.lr.ph112, label %._crit_edge, !llvm.loop !70
+  br i1 %239, label %.lr.ph112, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph112, %._crit_edge100, %.preheader
   %240 = load ptr, ptr %85, align 8, !tbaa !48
@@ -583,11 +583,11 @@ declare void @destroy_colors(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ascii_declare_color(ptr readnone captures(none) %0, ptr noundef initializes((16, 20)) %1) #0 {
-  %3 = load i32, ptr %1, align 8, !tbaa !63
+  %3 = load i32, ptr %1, align 8, !tbaa !64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !65
+  %5 = load i32, ptr %4, align 4, !tbaa !66
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !66
+  %7 = load i32, ptr %6, align 8, !tbaa !67
   %8 = load i32, ptr @ascii_color_index, align 4, !tbaa !21
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %8, ptr %9, align 8, !tbaa !36
@@ -626,7 +626,7 @@ define internal noundef i32 @ascii_declare_color(ptr readnone captures(none) %0,
   br label %26
 
 26:                                               ; preds = %.sink.split, %21, %23, %19
-  %27 = load ptr, ptr @default_color, align 8, !tbaa !71
+  %27 = load ptr, ptr @default_color, align 8, !tbaa !72
   %28 = icmp ne ptr %27, null
   %29 = icmp ne i32 %3, 0
   %or.cond = select i1 %28, i1 true, i1 %29
@@ -637,7 +637,7 @@ define internal noundef i32 @ascii_declare_color(ptr readnone captures(none) %0,
   br i1 %or.cond5, label %33, label %32
 
 32:                                               ; preds = %26
-  store ptr %1, ptr @default_color, align 8, !tbaa !71
+  store ptr %1, ptr @default_color, align 8, !tbaa !72
   br label %33
 
 33:                                               ; preds = %32, %26
@@ -676,7 +676,7 @@ define internal void @ascii_box(ptr noundef readonly captures(none) %0, ptr noun
   tail call fastcc void @merge(ptr noundef %11, i32 noundef %24, i32 noundef %21, i32 noundef 12, i32 noundef 1, ptr noundef %1)
   %25 = add nuw i32 %.06266, 1
   %exitcond.not = icmp eq i32 %25, %18
-  br i1 %exitcond.not, label %.preheader65, label %.lr.ph, !llvm.loop !72
+  br i1 %exitcond.not, label %.preheader65, label %.lr.ph, !llvm.loop !73
 
 .preheader64:                                     ; preds = %.lr.ph68, %.preheader65
   %.172 = add nuw nsw i32 %16, 1
@@ -725,12 +725,12 @@ define internal void @ascii_box(ptr noundef readonly captures(none) %0, ptr noun
 put.exit.us78:                                    ; preds = %35, %33, %.lr.ph71.split.us81
   %.163.us79 = add nuw i32 %.16370.us75, 1
   %exitcond85.not = icmp eq i32 %.163.us79, %19
-  br i1 %exitcond85.not, label %..loopexit_crit_edge.us, label %.lr.ph71.split.us81, !llvm.loop !73
+  br i1 %exitcond85.not, label %..loopexit_crit_edge.us, label %.lr.ph71.split.us81, !llvm.loop !74
 
 ..loopexit_crit_edge.us:                          ; preds = %put.exit.us78, %put.exit.us.us
   %.1.us = add nuw i32 %.173.us, 1
   %exitcond87.not = icmp eq i32 %.1.us, %21
-  br i1 %exitcond87.not, label %._crit_edge, label %.preheader.us, !llvm.loop !74
+  br i1 %exitcond87.not, label %._crit_edge, label %.preheader.us, !llvm.loop !75
 
 .lr.ph71.split.us.us:                             ; preds = %.preheader.us, %put.exit.us.us
   %.16370.us.us = phi i32 [ %.163.us.us, %put.exit.us.us ], [ %.16369, %.preheader.us ]
@@ -754,7 +754,7 @@ put.exit.us78:                                    ; preds = %35, %33, %.lr.ph71.
 put.exit.us.us:                                   ; preds = %44, %42, %.lr.ph71.split.us.us
   %.163.us.us = add nuw i32 %.16370.us.us, 1
   %exitcond86.not = icmp eq i32 %.163.us.us, %19
-  br i1 %exitcond86.not, label %..loopexit_crit_edge.us, label %.lr.ph71.split.us.us, !llvm.loop !75
+  br i1 %exitcond86.not, label %..loopexit_crit_edge.us, label %.lr.ph71.split.us.us, !llvm.loop !76
 
 .lr.ph68:                                         ; preds = %.preheader65, %.lr.ph68
   %.067 = phi i32 [ %51, %.lr.ph68 ], [ 1, %.preheader65 ]
@@ -763,7 +763,7 @@ put.exit.us.us:                                   ; preds = %44, %42, %.lr.ph71.
   tail call fastcc void @merge(ptr noundef %11, i32 noundef %19, i32 noundef %50, i32 noundef 3, i32 noundef 4, ptr noundef %1)
   %51 = add nuw i32 %.067, 1
   %exitcond84.not = icmp eq i32 %51, %20
-  br i1 %exitcond84.not, label %.preheader64, label %.lr.ph68, !llvm.loop !76
+  br i1 %exitcond84.not, label %.preheader64, label %.lr.ph68, !llvm.loop !77
 
 ._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.preheader.lr.ph, %.preheader64
   ret void
@@ -805,7 +805,7 @@ define internal void @ascii_line(ptr noundef readonly captures(none) %0, i32 %1,
   tail call fastcc void @merge(ptr noundef %10, i32 noundef %spec.select58, i32 noundef %.063, i32 noundef 3, i32 noundef 0, ptr noundef null)
   %.0 = add nuw nsw i32 %.063, 1
   %exitcond66.not = icmp eq i32 %.0, %.050
-  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph64, !llvm.loop !77
+  br i1 %exitcond66.not, label %.loopexit, label %.lr.ph64, !llvm.loop !78
 
 23:                                               ; preds = %8
   br i1 %18, label %24, label %.loopexit
@@ -822,7 +822,7 @@ define internal void @ascii_line(ptr noundef readonly captures(none) %0, i32 %1,
   tail call fastcc void @merge(ptr noundef %10, i32 noundef %.04661, i32 noundef %.048, i32 noundef 12, i32 noundef 0, ptr noundef null)
   %.046 = add nuw nsw i32 %.04661, 1
   %exitcond.not = icmp eq i32 %.046, %spec.select
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !78
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !79
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph64, %24, %21, %23
   ret void
@@ -879,7 +879,7 @@ put.exit.us:                                      ; preds = %30, %28, %.lr.ph.sp
   %36 = getelementptr inbounds nuw i8, ptr %.020.us, i64 4
   %37 = load i32, ptr %36, align 4, !tbaa !21
   %.not.us = icmp eq i32 %37, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !79
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !80
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %put.exit
   %38 = phi i32 [ %50, %put.exit ], [ %18, %.lr.ph ]
@@ -909,7 +909,7 @@ put.exit:                                         ; preds = %42, %.lr.ph.split, 
   %49 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !21
   %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !80
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %put.exit, %put.exit.us, %9
   tail call void @free(ptr noundef %16) #15
@@ -949,7 +949,7 @@ define internal fastcc void @merge(ptr noundef readonly captures(none) %0, i32 n
   %19 = getelementptr inbounds %struct.cell, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !51
   %21 = getelementptr i8, ptr %0, i64 16
-  %.val = load i32, ptr %21, align 8, !tbaa !61
+  %.val = load i32, ptr %21, align 8, !tbaa !62
   %.not.i = icmp eq i32 %.val, 0
   br i1 %.not.i, label %38, label %22
 
@@ -1150,28 +1150,29 @@ attributes #20 = { nounwind willreturn memory(read) }
 !53 = !{!"p1 _ZTS12lstopo_color", !7, i64 0}
 !54 = !{!52, !53, i64 8}
 !55 = !{!52, !53, i64 16}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57, !59}
-!59 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!60 = distinct !{!60, !57}
-!61 = !{!38, !10, i64 16}
-!62 = distinct !{!62, !57, !59}
-!63 = !{!64, !10, i64 0}
-!64 = !{!"lstopo_color", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !8, i64 16, !53, i64 24}
-!65 = !{!64, !10, i64 4}
-!66 = !{!64, !10, i64 8}
-!67 = distinct !{!67, !57, !59}
-!68 = distinct !{!68, !57}
-!69 = distinct !{!69, !57}
-!70 = distinct !{!70, !57}
-!71 = !{!53, !53, i64 0}
-!72 = distinct !{!72, !57}
-!73 = distinct !{!73, !57}
-!74 = distinct !{!74, !57, !59}
-!75 = distinct !{!75, !57, !59}
-!76 = distinct !{!76, !57}
-!77 = distinct !{!77, !57}
-!78 = distinct !{!78, !57}
-!79 = distinct !{!79, !57, !59}
-!80 = distinct !{!80, !57}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !57, !58, !60}
+!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!61 = distinct !{!61, !57, !58}
+!62 = !{!38, !10, i64 16}
+!63 = distinct !{!63, !57, !58, !60}
+!64 = !{!65, !10, i64 0}
+!65 = !{!"lstopo_color", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !8, i64 16, !53, i64 24}
+!66 = !{!65, !10, i64 4}
+!67 = !{!65, !10, i64 8}
+!68 = distinct !{!68, !57, !58, !60}
+!69 = distinct !{!69, !57, !58}
+!70 = distinct !{!70, !57, !58}
+!71 = distinct !{!71, !57, !58}
+!72 = !{!53, !53, i64 0}
+!73 = distinct !{!73, !57, !58}
+!74 = distinct !{!74, !57, !58}
+!75 = distinct !{!75, !57, !58, !60}
+!76 = distinct !{!76, !57, !58, !60}
+!77 = distinct !{!77, !57, !58}
+!78 = distinct !{!78, !57, !58}
+!79 = distinct !{!79, !57, !58}
+!80 = distinct !{!80, !57, !58, !60}
+!81 = distinct !{!81, !57, !58}

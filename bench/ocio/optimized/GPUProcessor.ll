@@ -1288,7 +1288,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84.i: ; preds = %_
 316:                                              ; preds = %.lr.ph
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.025.031, i64 16
   %.not = icmp eq ptr %317, %31
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 318:                                              ; preds = %.lr.ph
   %319 = landingpad { ptr, i32 }
@@ -1584,7 +1584,7 @@ define void @_ZN19OpenColorIO_v2_5dev12GPUProcessorC2Ev(ptr noundef nonnull writ
   store i8 0, ptr %7, align 1, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
-  store ptr %2, ptr %0, align 8, !tbaa !65
+  store ptr %2, ptr %0, align 8, !tbaa !67
   ret void
 
 10:                                               ; preds = %1
@@ -1599,7 +1599,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_5dev12GPUProcessorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !65
+  %2 = load ptr, ptr %0, align 8, !tbaa !67
   %3 = icmp eq ptr %2, null
   br i1 %3, label %14, label %4
 
@@ -1629,31 +1629,31 @@ _ZN19OpenColorIO_v2_5dev12GPUProcessor4ImplD2Ev.exit: ; preds = %_ZNKSt7__cxx111
   br label %14
 
 14:                                               ; preds = %_ZN19OpenColorIO_v2_5dev12GPUProcessor4ImplD2Ev.exit, %1
-  store ptr null, ptr %0, align 8, !tbaa !65
+  store ptr null, ptr %0, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12GPUProcessor6isNoOpEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !65
+  %2 = load ptr, ptr %0, align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %4 = load i8, ptr %3, align 8, !tbaa !3, !range !68, !noundef !69
+  %4 = load i8, ptr %3, align 8, !tbaa !3, !range !70, !noundef !71
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev12GPUProcessor19hasChannelCrosstalkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !65
+  %2 = load ptr, ptr %0, align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 145
-  %4 = load i8, ptr %3, align 1, !tbaa !33, !range !68, !noundef !69
+  %4 = load i8, ptr %3, align 1, !tbaa !33, !range !70, !noundef !71
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK19OpenColorIO_v2_5dev12GPUProcessor10getCacheIDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !65
+  %2 = load ptr, ptr %0, align 8, !tbaa !67
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   ret ptr %4
@@ -1663,49 +1663,49 @@ define noundef ptr @_ZNK19OpenColorIO_v2_5dev12GPUProcessor10getCacheIDEv(ptr no
 define void @_ZNK19OpenColorIO_v2_5dev12GPUProcessor20extractGpuShaderInfoERSt10shared_ptrINS_13GpuShaderDescEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.16", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #22
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
-  %4 = load ptr, ptr %1, align 8, !tbaa !76, !noalias !79
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  %4 = load ptr, ptr %1, align 8, !tbaa !78, !noalias !81
   %.not.not.i.i = icmp eq ptr %4, null
   br i1 %.not.not.i.i, label %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev16GpuShaderCreatorEEC2INS0_13GpuShaderDescEEERKS_IT_EPS1_.exit.i.i, label %5
 
 5:                                                ; preds = %2
-  store ptr %4, ptr %3, align 8, !tbaa !56, !alias.scope !79
+  store ptr %4, ptr %3, align 8, !tbaa !56, !alias.scope !81
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !80, !noalias !79
-  store ptr %8, ptr %6, align 8, !tbaa !80, !alias.scope !79
+  %8 = load ptr, ptr %7, align 8, !tbaa !82, !noalias !81
+  store ptr %8, ptr %6, align 8, !tbaa !82, !alias.scope !81
   %.not.i.i.i.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i.i.i.i, label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E.exit, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36, !noalias !79
+  %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !36, !noalias !81
   %.not.i.i.i.i.i.i = icmp eq i8 %11, 0
   br i1 %.not.i.i.i.i.i.i, label %15, label %12
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %10, align 4, !tbaa !81, !noalias !79
+  %13 = load i32, ptr %10, align 4, !tbaa !83, !noalias !81
   %14 = add nsw i32 %13, 1
-  store i32 %14, ptr %10, align 4, !tbaa !81, !noalias !79
+  store i32 %14, ptr %10, align 4, !tbaa !83, !noalias !81
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E.exit
 
 15:                                               ; preds = %9
-  %16 = atomicrmw volatile add ptr %10, i32 1 acq_rel, align 4, !noalias !79
+  %16 = atomicrmw volatile add ptr %10, i32 1 acq_rel, align 4, !noalias !81
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E.exit
 
 _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev16GpuShaderCreatorEEC2INS0_13GpuShaderDescEEERKS_IT_EPS1_.exit.i.i: ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !79
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !alias.scope !81
   br label %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E.exit
 
 _ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E.exit: ; preds = %5, %12, %15, %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev16GpuShaderCreatorEEC2INS0_13GpuShaderDescEEERKS_IT_EPS1_.exit.i.i
-  %17 = load ptr, ptr %0, align 8, !tbaa !65
+  %17 = load ptr, ptr %0, align 8, !tbaa !67
   invoke void @_ZNK19OpenColorIO_v2_5dev12GPUProcessor4Impl20extractGpuShaderInfoERSt10shared_ptrINS_16GpuShaderCreatorEE(ptr noundef nonnull align 8 dereferenceable(224) %17, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %18 unwind label %42
 
 18:                                               ; preds = %_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E.exit
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !80
+  %20 = load ptr, ptr %19, align 8, !tbaa !82
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16GpuShaderCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %21
 
@@ -1717,9 +1717,9 @@ _ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDes
   br i1 %24, label %26, label %34
 
 26:                                               ; preds = %21
-  store i32 0, ptr %22, align 8, !tbaa !83
+  store i32 0, ptr %22, align 8, !tbaa !85
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 0, ptr %27, align 4, !tbaa !85
+  store i32 0, ptr %27, align 4, !tbaa !87
   %28 = load ptr, ptr %20, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
@@ -1737,7 +1737,7 @@ _ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDes
 
 36:                                               ; preds = %34
   %37 = add nsw i32 %25, -1
-  store i32 %37, ptr %22, align 4, !tbaa !81
+  store i32 %37, ptr %22, align 4, !tbaa !83
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 38:                                               ; preds = %34
@@ -1768,7 +1768,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16GpuShaderCreatorELN9__gnu_cxx12_Lock
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16GpuShaderCreatorELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !80
+  %3 = load ptr, ptr %2, align 8, !tbaa !82
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %4
 
@@ -1780,9 +1780,9 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16Gpu
   br i1 %7, label %9, label %17
 
 9:                                                ; preds = %4
-  store i32 0, ptr %5, align 8, !tbaa !83
+  store i32 0, ptr %5, align 8, !tbaa !85
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %10, align 4, !tbaa !85
+  store i32 0, ptr %10, align 4, !tbaa !87
   %11 = load ptr, ptr %3, align 8, !tbaa !51
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1800,7 +1800,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev16Gpu
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !81
+  store i32 %20, ptr %5, align 4, !tbaa !83
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1880,7 +1880,7 @@ define void @_ZNK19OpenColorIO_v2_5dev12GPUProcessor20extractGpuShaderInfoERSt10
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %25
   store i8 0, ptr %28, align 1, !tbaa !36
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #22
-  %29 = load ptr, ptr %0, align 8, !tbaa !65
+  %29 = load ptr, ptr %0, align 8, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 152
   %31 = load ptr, ptr %30, align 8, !tbaa !34
   %32 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #22
@@ -2240,7 +2240,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   %180 = getelementptr inbounds nuw i8, ptr %.sroa.043.062.i.i.i.i, i64 4
   %181 = add nsw i64 %.063.i.i.i.i, -1
   %182 = icmp sgt i64 %.063.i.i.i.i, 1
-  br i1 %182, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !86
+  br i1 %182, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !88
 
 ._crit_edge.i.i.i.i:                              ; preds = %179, %152
   %.sroa.043.0.lcssa.i.i.i.i = phi ptr [ %153, %152 ], [ %scevgep.i.i.i.i, %179 ]
@@ -2330,7 +2330,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
   %.sroa.013.2.i.i = phi ptr [ %.sroa.013.128.i.i, %.lr.ph.i.i ], [ %208, %207 ]
   %.sroa.07.0.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.029.i.i, i64 1
   %.not.i.i = icmp eq ptr %.sroa.07.0.i.i, %156
-  br i1 %.not.i.i, label %.loopexit.loopexit, label %.lr.ph.i.i, !llvm.loop !88
+  br i1 %.not.i.i, label %.loopexit.loopexit, label %.lr.ph.i.i, !llvm.loop !90
 
 .loopexit.loopexit:                               ; preds = %209
   %.pre67 = load ptr, ptr %5, align 8, !tbaa !34
@@ -2354,7 +2354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZN
           to label %220 unwind label %148
 
 220:                                              ; preds = %.loopexit
-  %221 = load ptr, ptr %0, align 8, !tbaa !65
+  %221 = load ptr, ptr %0, align 8, !tbaa !67
   invoke void @_ZNK19OpenColorIO_v2_5dev12GPUProcessor4Impl20extractGpuShaderInfoERSt10shared_ptrINS_16GpuShaderCreatorEE(ptr noundef nonnull align 8 dereferenceable(224) %221, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %237 unwind label %222
 
@@ -2709,16 +2709,16 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVecD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN19OpenColorIO_v2_5dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #22
-  %3 = load ptr, ptr %0, align 8, !tbaa !89
+  %3 = load ptr, ptr %0, align 8, !tbaa !91
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
+  %5 = load ptr, ptr %4, align 8, !tbaa !92
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %_ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %29, %_ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i ], [ %3, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !80
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
   %.not.i.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i, label %8
 
@@ -2730,9 +2730,9 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVecD2Ev(ptr no
   br i1 %11, label %13, label %21
 
 13:                                               ; preds = %8
-  store i32 0, ptr %9, align 8, !tbaa !83
+  store i32 0, ptr %9, align 8, !tbaa !85
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 0, ptr %14, align 4, !tbaa !85
+  store i32 0, ptr %14, align 4, !tbaa !87
   %15 = load ptr, ptr %7, align 8, !tbaa !51
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -2750,7 +2750,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev10OpRcPtrVecD2Ev(ptr no
 
 23:                                               ; preds = %21
   %24 = add nsw i32 %12, -1
-  store i32 %24, ptr %9, align 4, !tbaa !81
+  store i32 %24, ptr %9, align 4, !tbaa !83
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i
 
 25:                                               ; preds = %21
@@ -2769,10 +2769,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 _ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i: ; preds = %28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %13, %.lr.ph.i.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !91
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !93
 
 _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEEEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %0, align 8, !tbaa !89
+  %.pr.i = load ptr, ptr %0, align 8, !tbaa !91
   br label %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %1
@@ -2782,7 +2782,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit
 
 31:                                               ; preds = %_ZSt8_DestroyIPSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEES3_EvT_S5_RSaIT0_E.exit.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !92
+  %33 = load ptr, ptr %32, align 8, !tbaa !94
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %30 to i64
   %36 = sub i64 %34, %35
@@ -2808,9 +2808,9 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !81
+  %8 = load i32, ptr %5, align 4, !tbaa !83
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !81
+  store i32 %9, ptr %5, align 4, !tbaa !83
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -2977,31 +2977,33 @@ attributes #27 = { noreturn nounwind }
 !62 = !{!63, !64, i64 0}
 !63 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EE", !64, i64 0, !59, i64 8}
 !64 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev2OpE", !11, i64 0}
-!65 = !{!66, !67, i64 0}
-!66 = !{!"_ZTSN19OpenColorIO_v2_5dev12GPUProcessorE", !67, i64 0}
-!67 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev12GPUProcessor4ImplE", !11, i64 0}
-!68 = !{i8 0, i8 2}
-!69 = !{}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!72 = distinct !{!72, !"_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev16GpuShaderCreatorENS0_13GpuShaderDescEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
-!75 = distinct !{!75, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev16GpuShaderCreatorENS0_13GpuShaderDescEESt10shared_ptrIT_ERKS3_IT0_E"}
-!76 = !{!77, !78, i64 0}
-!77 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev13GpuShaderDescELN9__gnu_cxx12_Lock_policyE2EE", !78, i64 0, !59, i64 8}
-!78 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev13GpuShaderDescE", !11, i64 0}
-!79 = !{!74, !71}
-!80 = !{!59, !60, i64 0}
-!81 = !{!82, !82, i64 0}
-!82 = !{!"int", !12, i64 0}
-!83 = !{!84, !82, i64 8}
-!84 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !82, i64 8, !82, i64 12}
-!85 = !{!84, !82, i64 12}
-!86 = distinct !{!86, !87}
-!87 = !{!"llvm.loop.mustprogress"}
-!88 = distinct !{!88, !87}
-!89 = !{!9, !10, i64 0}
-!90 = !{!9, !10, i64 8}
-!91 = distinct !{!91, !87}
-!92 = !{!9, !10, i64 16}
+!65 = distinct !{!65, !66}
+!66 = !{!"llvm.loop.estimated_trip_count"}
+!67 = !{!68, !69, i64 0}
+!68 = !{!"_ZTSN19OpenColorIO_v2_5dev12GPUProcessorE", !69, i64 0}
+!69 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev12GPUProcessor4ImplE", !11, i64 0}
+!70 = !{i8 0, i8 2}
+!71 = !{}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!74 = distinct !{!74, !"_ZN19OpenColorIO_v2_5dev14DynamicPtrCastINS_16GpuShaderCreatorENS_13GpuShaderDescEEESt10shared_ptrIT_ERKS3_IT0_E"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev16GpuShaderCreatorENS0_13GpuShaderDescEESt10shared_ptrIT_ERKS3_IT0_E: argument 0"}
+!77 = distinct !{!77, !"_ZSt20dynamic_pointer_castIN19OpenColorIO_v2_5dev16GpuShaderCreatorENS0_13GpuShaderDescEESt10shared_ptrIT_ERKS3_IT0_E"}
+!78 = !{!79, !80, i64 0}
+!79 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev13GpuShaderDescELN9__gnu_cxx12_Lock_policyE2EE", !80, i64 0, !59, i64 8}
+!80 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev13GpuShaderDescE", !11, i64 0}
+!81 = !{!76, !73}
+!82 = !{!59, !60, i64 0}
+!83 = !{!84, !84, i64 0}
+!84 = !{!"int", !12, i64 0}
+!85 = !{!86, !84, i64 8}
+!86 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !84, i64 8, !84, i64 12}
+!87 = !{!86, !84, i64 12}
+!88 = distinct !{!88, !89, !66}
+!89 = !{!"llvm.loop.mustprogress"}
+!90 = distinct !{!90, !89, !66}
+!91 = !{!9, !10, i64 0}
+!92 = !{!9, !10, i64 8}
+!93 = distinct !{!93, !89, !66}
+!94 = !{!9, !10, i64 16}

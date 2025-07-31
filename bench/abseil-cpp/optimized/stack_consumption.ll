@@ -181,7 +181,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit32: ; pr
 
 55:                                               ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_119GetStackConsumptionEPKv.exit32
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %57 = load i32, ptr %56, align 8, !tbaa !20
+  %57 = load i32, ptr %56, align 8, !tbaa !21
   %58 = and i32 %57, 2
   %.not23 = icmp eq i32 %58, 0
   br i1 %.not23, label %61, label %59
@@ -305,6 +305,7 @@ attributes #6 = { nounwind }
 !15 = !{!"_ZTS9sigaction", !8, i64 0, !16, i64 8, !10, i64 136, !7, i64 144}
 !16 = !{!"_ZTS10__sigset_t", !8, i64 0}
 !17 = !{!8, !8, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!6, !10, i64 8}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!6, !10, i64 8}

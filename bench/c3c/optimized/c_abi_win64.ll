@@ -212,7 +212,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.2, i32 noundef 29) #6
@@ -398,7 +398,7 @@ define dso_local ptr @win64_create_params(ptr noundef readonly captures(address_
   store ptr %14, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %.thread, label %11, !llvm.loop !7
+  br i1 %exitcond.not, label %.thread, label %11, !llvm.loop !9
 
 .thread:                                          ; preds = %11, %3, %4
   %.018 = phi ptr [ null, %4 ], [ null, %3 ], [ %10, %11 ]
@@ -496,7 +496,7 @@ define dso_local void @c_abi_func_create_win64(ptr noundef captures(none) initia
   store ptr %.sink29, ptr %45, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %32
-  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %35, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader.i.preheader, label %35, !llvm.loop !11
 
 .preheader.i.preheader:                           ; preds = %44
   %.promoted = load i32, ptr %7, align 4
@@ -543,7 +543,7 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
   store ptr %.0.i.i, ptr %49, align 8
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %exitcond57.not.i = icmp eq i64 %indvars.iv.next54.i, %32
-  br i1 %exitcond57.not.i, label %win64_vector_call_args.exit.sink.split, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond57.not.i, label %win64_vector_call_args.exit.sink.split, label %.preheader.i, !llvm.loop !12
 
 63:                                               ; preds = %24
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -572,7 +572,7 @@ win64_reclassify_hva_arg.exit.i:                  ; preds = %59, %57, %55, %.pre
   store ptr %76, ptr %77, align 8
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %70
-  br i1 %exitcond.not.i21, label %win64_create_params.exit, label %73, !llvm.loop !7
+  br i1 %exitcond.not.i21, label %win64_create_params.exit, label %73, !llvm.loop !9
 
 win64_create_params.exit:                         ; preds = %73, %63, %66
   %.018.i = phi ptr [ null, %66 ], [ null, %63 ], [ %72, %73 ]
@@ -604,7 +604,7 @@ win64_create_params.exit:                         ; preds = %73, %63, %66
   store ptr %91, ptr %92, align 8
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %85
-  br i1 %exitcond.not.i26, label %win64_vector_call_args.exit.sink.split, label %88, !llvm.loop !7
+  br i1 %exitcond.not.i26, label %win64_vector_call_args.exit.sink.split, label %88, !llvm.loop !9
 
 win64_vector_call_args.exit.sink.split:           ; preds = %88, %win64_reclassify_hva_arg.exit.i, %81, %win64_create_params.exit
   %.sink31 = phi i64 [ 80, %win64_create_params.exit ], [ 80, %81 ], [ 72, %win64_reclassify_hva_arg.exit.i ], [ 80, %88 ]
@@ -655,6 +655,8 @@ attributes #6 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}

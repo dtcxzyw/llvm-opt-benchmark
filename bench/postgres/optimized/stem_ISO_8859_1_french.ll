@@ -1428,7 +1428,7 @@ r_un_double.exit.thread:                          ; preds = %.r_un_double.exit.t
   %514 = tail call i32 @out_grouping_b(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 251, i32 noundef 0) #3
   %.not.i210 = icmp eq i32 %514, 0
   %515 = add i32 %.028.i, -1
-  br i1 %.not.i210, label %513, label %516
+  br i1 %.not.i210, label %513, label %516, !llvm.loop !3
 
 516:                                              ; preds = %513
   %517 = icmp slt i32 %.028.i, 1
@@ -1620,3 +1620,5 @@ attributes #3 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

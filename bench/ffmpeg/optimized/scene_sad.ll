@@ -41,11 +41,11 @@ define void @ff_scene_sad16_c(ptr noundef readonly captures(none) %0, i64 nounde
   %24 = getelementptr inbounds i16, ptr %.02939.us, i64 %9
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, %5
-  br i1 %exitcond49.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !10
+  br i1 %exitcond49.not, label %._crit_edge41, label %.preheader.us, !llvm.loop !11
 
 ._crit_edge41:                                    ; preds = %._crit_edge.us, %7
   %.031.lcssa = phi i64 [ 0, %7 ], [ %22, %._crit_edge.us ]
-  store i64 %.031.lcssa, ptr %6, align 8, !tbaa !12
+  store i64 %.031.lcssa, ptr %6, align 8, !tbaa !13
   ret void
 }
 
@@ -67,10 +67,10 @@ define void @ff_scene_sad_c(ptr noundef readonly captures(none) %0, i64 noundef 
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %.131.us = phi i64 [ %.02535.us, %.preheader.us ], [ %20, %10 ]
   %11 = getelementptr inbounds nuw i8, ptr %.02634.us, i64 %indvars.iv
-  %12 = load i8, ptr %11, align 1, !tbaa !14
+  %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = zext i8 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %.02733.us, i64 %indvars.iv
-  %15 = load i8, ptr %14, align 1, !tbaa !14
+  %15 = load i8, ptr %14, align 1, !tbaa !15
   %16 = zext i8 %15 to i32
   %17 = sub nsw i32 %13, %16
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
@@ -78,18 +78,18 @@ define void @ff_scene_sad_c(ptr noundef readonly captures(none) %0, i64 noundef 
   %20 = add i64 %.131.us, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.us, label %10, !llvm.loop !16
 
 ._crit_edge.us:                                   ; preds = %10
   %21 = getelementptr inbounds i8, ptr %.02634.us, i64 %1
   %22 = getelementptr inbounds i8, ptr %.02733.us, i64 %3
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, %5
-  br i1 %exitcond45.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond45.not, label %._crit_edge37, label %.preheader.us, !llvm.loop !17
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %7
   %.025.lcssa = phi i64 [ 0, %7 ], [ %20, %._crit_edge.us ]
-  store i64 %.025.lcssa, ptr %6, align 8, !tbaa !12
+  store i64 %.025.lcssa, ptr %6, align 8, !tbaa !13
   ret void
 }
 
@@ -119,12 +119,13 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !6, i64 0}
-!14 = !{!6, !6, i64 0}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9, !11}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!6, !6, i64 0}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10, !12}

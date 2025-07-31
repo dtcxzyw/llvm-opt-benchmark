@@ -121,133 +121,133 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #3 {
-  %4 = load i64, ptr %1, align 8, !tbaa !12
-  %5 = load i64, ptr %0, align 8, !tbaa !12
+  %4 = load i64, ptr %1, align 8, !tbaa !13
+  %5 = load i64, ptr %0, align 8, !tbaa !13
   %6 = xor i64 %5, %4
-  store i64 %6, ptr %0, align 8, !tbaa !12
+  store i64 %6, ptr %0, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !12
+  %8 = load i64, ptr %7, align 8, !tbaa !13
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !12
+  %10 = load i64, ptr %9, align 8, !tbaa !13
   %11 = xor i64 %10, %8
-  store i64 %11, ptr %9, align 8, !tbaa !12
+  store i64 %11, ptr %9, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !12
+  %13 = load i64, ptr %12, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !12
+  %15 = load i64, ptr %14, align 8, !tbaa !13
   %16 = xor i64 %15, %13
-  store i64 %16, ptr %14, align 8, !tbaa !12
+  store i64 %16, ptr %14, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !12
+  %18 = load i64, ptr %17, align 8, !tbaa !13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load i64, ptr %19, align 8, !tbaa !12
+  %20 = load i64, ptr %19, align 8, !tbaa !13
   %21 = xor i64 %20, %18
-  store i64 %21, ptr %19, align 8, !tbaa !12
+  store i64 %21, ptr %19, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = load i64, ptr %22, align 8, !tbaa !12
+  %23 = load i64, ptr %22, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load i64, ptr %24, align 8, !tbaa !12
+  %25 = load i64, ptr %24, align 8, !tbaa !13
   %26 = xor i64 %25, %23
-  store i64 %26, ptr %24, align 8, !tbaa !12
+  store i64 %26, ptr %24, align 8, !tbaa !13
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %28 = load i64, ptr %27, align 8, !tbaa !12
+  %28 = load i64, ptr %27, align 8, !tbaa !13
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !12
+  %30 = load i64, ptr %29, align 8, !tbaa !13
   %31 = xor i64 %30, %28
-  store i64 %31, ptr %29, align 8, !tbaa !12
+  store i64 %31, ptr %29, align 8, !tbaa !13
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %33 = load i64, ptr %32, align 8, !tbaa !12
+  %33 = load i64, ptr %32, align 8, !tbaa !13
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %35 = load i64, ptr %34, align 8, !tbaa !12
+  %35 = load i64, ptr %34, align 8, !tbaa !13
   %36 = xor i64 %35, %33
-  store i64 %36, ptr %34, align 8, !tbaa !12
+  store i64 %36, ptr %34, align 8, !tbaa !13
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %38 = load i64, ptr %37, align 8, !tbaa !12
+  %38 = load i64, ptr %37, align 8, !tbaa !13
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %40 = load i64, ptr %39, align 8, !tbaa !12
+  %40 = load i64, ptr %39, align 8, !tbaa !13
   %41 = xor i64 %40, %38
-  store i64 %41, ptr %39, align 8, !tbaa !12
+  store i64 %41, ptr %39, align 8, !tbaa !13
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %43 = load i64, ptr %42, align 8, !tbaa !12
+  %43 = load i64, ptr %42, align 8, !tbaa !13
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %45 = load i64, ptr %44, align 8, !tbaa !12
+  %45 = load i64, ptr %44, align 8, !tbaa !13
   %46 = xor i64 %45, %43
-  store i64 %46, ptr %44, align 8, !tbaa !12
+  store i64 %46, ptr %44, align 8, !tbaa !13
   %47 = icmp samesign ugt i64 %2, 72
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %49 = load i64, ptr %48, align 8, !tbaa !12
+  %49 = load i64, ptr %48, align 8, !tbaa !13
   br i1 %47, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.promoted80.i.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !12
+  %.promoted80.i.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !13
   %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.promoted100.i.pre = load i64, ptr %.phi.trans.insert90, align 8, !tbaa !12
+  %.promoted100.i.pre = load i64, ptr %.phi.trans.insert90, align 8, !tbaa !13
   %.phi.trans.insert92 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.promoted110.i.pre = load i64, ptr %.phi.trans.insert92, align 8, !tbaa !12
+  %.promoted110.i.pre = load i64, ptr %.phi.trans.insert92, align 8, !tbaa !13
   br label %98
 
 50:                                               ; preds = %3
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %52 = load i64, ptr %51, align 8, !tbaa !12
+  %52 = load i64, ptr %51, align 8, !tbaa !13
   %53 = xor i64 %49, %52
-  store i64 %53, ptr %48, align 8, !tbaa !12
+  store i64 %53, ptr %48, align 8, !tbaa !13
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %55 = load i64, ptr %54, align 8, !tbaa !12
+  %55 = load i64, ptr %54, align 8, !tbaa !13
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %57 = load i64, ptr %56, align 8, !tbaa !12
+  %57 = load i64, ptr %56, align 8, !tbaa !13
   %58 = xor i64 %57, %55
-  store i64 %58, ptr %56, align 8, !tbaa !12
+  store i64 %58, ptr %56, align 8, !tbaa !13
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %60 = load i64, ptr %59, align 8, !tbaa !12
+  %60 = load i64, ptr %59, align 8, !tbaa !13
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %62 = load i64, ptr %61, align 8, !tbaa !12
+  %62 = load i64, ptr %61, align 8, !tbaa !13
   %63 = xor i64 %62, %60
-  store i64 %63, ptr %61, align 8, !tbaa !12
+  store i64 %63, ptr %61, align 8, !tbaa !13
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %65 = load i64, ptr %64, align 8, !tbaa !12
+  %65 = load i64, ptr %64, align 8, !tbaa !13
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %67 = load i64, ptr %66, align 8, !tbaa !12
+  %67 = load i64, ptr %66, align 8, !tbaa !13
   %68 = xor i64 %67, %65
-  store i64 %68, ptr %66, align 8, !tbaa !12
+  store i64 %68, ptr %66, align 8, !tbaa !13
   %69 = icmp samesign ugt i64 %2, 104
   br i1 %69, label %70, label %98
 
 70:                                               ; preds = %50
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %72 = load i64, ptr %71, align 8, !tbaa !12
+  %72 = load i64, ptr %71, align 8, !tbaa !13
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %74 = load i64, ptr %73, align 8, !tbaa !12
+  %74 = load i64, ptr %73, align 8, !tbaa !13
   %75 = xor i64 %74, %72
-  store i64 %75, ptr %73, align 8, !tbaa !12
+  store i64 %75, ptr %73, align 8, !tbaa !13
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %77 = load i64, ptr %76, align 8, !tbaa !12
+  %77 = load i64, ptr %76, align 8, !tbaa !13
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %79 = load i64, ptr %78, align 8, !tbaa !12
+  %79 = load i64, ptr %78, align 8, !tbaa !13
   %80 = xor i64 %79, %77
-  store i64 %80, ptr %78, align 8, !tbaa !12
+  store i64 %80, ptr %78, align 8, !tbaa !13
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %82 = load i64, ptr %81, align 8, !tbaa !12
+  %82 = load i64, ptr %81, align 8, !tbaa !13
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %84 = load i64, ptr %83, align 8, !tbaa !12
+  %84 = load i64, ptr %83, align 8, !tbaa !13
   %85 = xor i64 %84, %82
-  store i64 %85, ptr %83, align 8, !tbaa !12
+  store i64 %85, ptr %83, align 8, !tbaa !13
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %87 = load i64, ptr %86, align 8, !tbaa !12
+  %87 = load i64, ptr %86, align 8, !tbaa !13
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %89 = load i64, ptr %88, align 8, !tbaa !12
+  %89 = load i64, ptr %88, align 8, !tbaa !13
   %90 = xor i64 %89, %87
-  store i64 %90, ptr %88, align 8, !tbaa !12
+  store i64 %90, ptr %88, align 8, !tbaa !13
   %91 = icmp samesign ugt i64 %2, 136
   br i1 %91, label %92, label %98
 
 92:                                               ; preds = %70
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %94 = load i64, ptr %93, align 8, !tbaa !12
+  %94 = load i64, ptr %93, align 8, !tbaa !13
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %96 = load i64, ptr %95, align 8, !tbaa !12
+  %96 = load i64, ptr %95, align 8, !tbaa !13
   %97 = xor i64 %96, %94
-  store i64 %97, ptr %95, align 8, !tbaa !12
+  store i64 %97, ptr %95, align 8, !tbaa !13
   br label %98
 
 98:                                               ; preds = %._crit_edge, %50, %92, %70
@@ -267,18 +267,18 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nounde
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.promoted82.i = load i64, ptr %99, align 8, !tbaa !12
-  %.promoted84.i = load i64, ptr %100, align 8, !tbaa !12
-  %.promoted90.i = load i64, ptr %101, align 8, !tbaa !12
-  %.promoted92.i = load i64, ptr %102, align 8, !tbaa !12
-  %.promoted94.i = load i64, ptr %103, align 8, !tbaa !12
-  %.promoted102.i = load i64, ptr %104, align 8, !tbaa !12
-  %.promoted104.i = load i64, ptr %105, align 8, !tbaa !12
-  %.promoted112.i = load i64, ptr %106, align 8, !tbaa !12
-  %.promoted114.i = load i64, ptr %107, align 8, !tbaa !12
-  %.promoted120.i = load i64, ptr %108, align 8, !tbaa !12
-  %.promoted122.i = load i64, ptr %109, align 8, !tbaa !12
-  %.promoted124.i = load i64, ptr %110, align 8, !tbaa !12
+  %.promoted82.i = load i64, ptr %99, align 8, !tbaa !13
+  %.promoted84.i = load i64, ptr %100, align 8, !tbaa !13
+  %.promoted90.i = load i64, ptr %101, align 8, !tbaa !13
+  %.promoted92.i = load i64, ptr %102, align 8, !tbaa !13
+  %.promoted94.i = load i64, ptr %103, align 8, !tbaa !13
+  %.promoted102.i = load i64, ptr %104, align 8, !tbaa !13
+  %.promoted104.i = load i64, ptr %105, align 8, !tbaa !13
+  %.promoted112.i = load i64, ptr %106, align 8, !tbaa !13
+  %.promoted114.i = load i64, ptr %107, align 8, !tbaa !13
+  %.promoted120.i = load i64, ptr %108, align 8, !tbaa !13
+  %.promoted122.i = load i64, ptr %109, align 8, !tbaa !13
+  %.promoted124.i = load i64, ptr %110, align 8, !tbaa !13
   br label %111
 
 111:                                              ; preds = %111, %98
@@ -482,43 +482,43 @@ define internal fastcc void @rhash_sha3_process_block(ptr noundef %0, ptr nounde
   %308 = and i64 %219, %307
   %309 = xor i64 %308, %232
   %310 = getelementptr inbounds nuw [24 x i64], ptr @keccak_round_constants, i64 0, i64 %indvars.iv.i
-  %311 = load i64, ptr %310, align 8, !tbaa !12
+  %311 = load i64, ptr %310, align 8, !tbaa !13
   %312 = xor i64 %311, %237
   %313 = xor i64 %312, %187
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
-  br i1 %exitcond.not.i, label %rhash_sha3_permutation.exit, label %111, !llvm.loop !14
+  br i1 %exitcond.not.i, label %rhash_sha3_permutation.exit, label %111, !llvm.loop !15
 
 rhash_sha3_permutation.exit:                      ; preds = %111
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %240, ptr %9, align 8, !tbaa !12
-  store i64 %255, ptr %34, align 8, !tbaa !12
-  store i64 %270, ptr %317, align 8, !tbaa !12
-  store i64 %285, ptr %99, align 8, !tbaa !12
-  store i64 %300, ptr %100, align 8, !tbaa !12
-  store i64 %249, ptr %24, align 8, !tbaa !12
-  store i64 %264, ptr %316, align 8, !tbaa !12
-  store i64 %279, ptr %101, align 8, !tbaa !12
-  store i64 %294, ptr %102, align 8, !tbaa !12
-  store i64 %309, ptr %103, align 8, !tbaa !12
-  store i64 %243, ptr %14, align 8, !tbaa !12
-  store i64 %258, ptr %39, align 8, !tbaa !12
-  store i64 %273, ptr %315, align 8, !tbaa !12
-  store i64 %288, ptr %104, align 8, !tbaa !12
-  store i64 %303, ptr %105, align 8, !tbaa !12
-  store i64 %313, ptr %0, align 8, !tbaa !12
-  store i64 %252, ptr %29, align 8, !tbaa !12
-  store i64 %267, ptr %314, align 8, !tbaa !12
-  store i64 %282, ptr %106, align 8, !tbaa !12
-  store i64 %297, ptr %107, align 8, !tbaa !12
-  store i64 %246, ptr %19, align 8, !tbaa !12
-  store i64 %261, ptr %44, align 8, !tbaa !12
-  store i64 %276, ptr %108, align 8, !tbaa !12
-  store i64 %291, ptr %109, align 8, !tbaa !12
-  store i64 %306, ptr %110, align 8, !tbaa !12
+  store i64 %240, ptr %9, align 8, !tbaa !13
+  store i64 %255, ptr %34, align 8, !tbaa !13
+  store i64 %270, ptr %317, align 8, !tbaa !13
+  store i64 %285, ptr %99, align 8, !tbaa !13
+  store i64 %300, ptr %100, align 8, !tbaa !13
+  store i64 %249, ptr %24, align 8, !tbaa !13
+  store i64 %264, ptr %316, align 8, !tbaa !13
+  store i64 %279, ptr %101, align 8, !tbaa !13
+  store i64 %294, ptr %102, align 8, !tbaa !13
+  store i64 %309, ptr %103, align 8, !tbaa !13
+  store i64 %243, ptr %14, align 8, !tbaa !13
+  store i64 %258, ptr %39, align 8, !tbaa !13
+  store i64 %273, ptr %315, align 8, !tbaa !13
+  store i64 %288, ptr %104, align 8, !tbaa !13
+  store i64 %303, ptr %105, align 8, !tbaa !13
+  store i64 %313, ptr %0, align 8, !tbaa !13
+  store i64 %252, ptr %29, align 8, !tbaa !13
+  store i64 %267, ptr %314, align 8, !tbaa !13
+  store i64 %282, ptr %106, align 8, !tbaa !13
+  store i64 %297, ptr %107, align 8, !tbaa !13
+  store i64 %246, ptr %19, align 8, !tbaa !13
+  store i64 %261, ptr %44, align 8, !tbaa !13
+  store i64 %276, ptr %108, align 8, !tbaa !13
+  store i64 %291, ptr %109, align 8, !tbaa !13
+  store i64 %306, ptr %110, align 8, !tbaa !13
   ret void
 }
 
@@ -544,14 +544,14 @@ define dso_local void @rhash_sha3_final(ptr noundef %0, ptr noundef writeonly ca
   %16 = load i32, ptr %8, align 8, !tbaa !9
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 %17
-  %19 = load i8, ptr %18, align 1, !tbaa !15
+  %19 = load i8, ptr %18, align 1, !tbaa !16
   %20 = or i8 %19, 6
-  store i8 %20, ptr %18, align 1, !tbaa !15
+  store i8 %20, ptr %18, align 1, !tbaa !16
   %21 = getelementptr i8, ptr %12, i64 %11
   %22 = getelementptr i8, ptr %21, i64 -1
-  %23 = load i8, ptr %22, align 1, !tbaa !15
+  %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = or i8 %23, -128
-  store i8 %24, ptr %22, align 1, !tbaa !15
+  store i8 %24, ptr %22, align 1, !tbaa !16
   tail call fastcc void @rhash_sha3_process_block(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %11)
   store i32 -2147483648, ptr %8, align 8, !tbaa !9
   br label %25
@@ -596,9 +596,10 @@ attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"int", !6, i64 0}
 !9 = !{!5, !8, i64 392}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"long", !6, i64 0}
-!14 = distinct !{!14, !11}
-!15 = !{!6, !6, i64 0}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = distinct !{!15, !11, !12}
+!16 = !{!6, !6, i64 0}

@@ -384,7 +384,7 @@ sub_1:                                            ; preds = %sub_0
   %129 = getelementptr inbounds nuw [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
   %130 = load ptr, ptr %129, align 8, !tbaa !23
   %exitcond = icmp eq i64 %indvars.iv.next, 91
-  br i1 %exitcond, label %.loopexit, label %sub_0
+  br i1 %exitcond, label %.loopexit, label %sub_0, !llvm.loop !24
 
 .loopexit:                                        ; preds = %128, %1
   ret ptr %2
@@ -466,7 +466,7 @@ sub_1:                                            ; preds = %sub_0
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !24
+  %26 = load ptr, ptr %25, align 8, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !10
   %29 = and i32 %28, %23
@@ -531,7 +531,7 @@ sub_1:                                            ; preds = %sub_0
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !24
+  %51 = load ptr, ptr %50, align 8, !tbaa !26
   %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %53 = load i32, ptr %52, align 8, !tbaa !10
   %54 = and i32 %53, %48
@@ -564,7 +564,7 @@ sub_1:                                            ; preds = %sub_0
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !24
+  %65 = load ptr, ptr %64, align 8, !tbaa !26
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %67 = load i32, ptr %66, align 8, !tbaa !10
   %68 = and i32 %67, %62
@@ -597,7 +597,7 @@ sub_1:                                            ; preds = %sub_0
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !24
+  %79 = load ptr, ptr %78, align 8, !tbaa !26
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %81 = load i32, ptr %80, align 8, !tbaa !10
   %82 = and i32 %81, %76
@@ -630,7 +630,7 @@ sub_1:                                            ; preds = %sub_0
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !24
+  %93 = load ptr, ptr %92, align 8, !tbaa !26
   %94 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %95 = load i32, ptr %94, align 8, !tbaa !10
   %96 = and i32 %95, %90
@@ -663,7 +663,7 @@ sub_1:                                            ; preds = %sub_0
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !24
+  %107 = load ptr, ptr %106, align 8, !tbaa !26
   %108 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %109 = load i32, ptr %108, align 8, !tbaa !10
   %110 = and i32 %109, %104
@@ -696,7 +696,7 @@ sub_1:                                            ; preds = %sub_0
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %121 = load ptr, ptr %120, align 8, !tbaa !24
+  %121 = load ptr, ptr %120, align 8, !tbaa !26
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %123 = load i32, ptr %122, align 8, !tbaa !10
   %124 = and i32 %123, %118
@@ -729,7 +729,7 @@ sub_1:                                            ; preds = %sub_0
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !24
+  %135 = load ptr, ptr %134, align 8, !tbaa !26
   %136 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %137 = load i32, ptr %136, align 8, !tbaa !10
   %138 = and i32 %137, %132
@@ -762,7 +762,7 @@ sub_1:                                            ; preds = %sub_0
 
 147:                                              ; preds = %145
   %148 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %149 = load ptr, ptr %148, align 8, !tbaa !24
+  %149 = load ptr, ptr %148, align 8, !tbaa !26
   %150 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %151 = load i32, ptr %150, align 8, !tbaa !10
   %152 = and i32 %151, %146
@@ -787,7 +787,7 @@ sub_1:                                            ; preds = %sub_0
   %155 = getelementptr inbounds nuw [92 x %struct.dconf_module], ptr @modules, i64 0, i64 %indvars.iv.next
   %156 = load ptr, ptr %155, align 8, !tbaa !23
   %exitcond = icmp eq i64 %indvars.iv.next, 91
-  br i1 %exitcond, label %157, label %sub_0
+  br i1 %exitcond, label %157, label %sub_0, !llvm.loop !27
 
 157:                                              ; preds = %154
   ret void
@@ -834,8 +834,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %22, label %23, label %128
 
 23:                                               ; preds = %20
-  %24 = load i32, ptr %6, align 4, !tbaa !25
-  %25 = load ptr, ptr %9, align 8, !tbaa !26
+  %24 = load i32, ptr %6, align 4, !tbaa !28
+  %25 = load ptr, ptr %9, align 8, !tbaa !29
   store i32 %24, ptr %25, align 4, !tbaa !11
   br label %26
 
@@ -855,8 +855,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %31, label %32, label %128
 
 32:                                               ; preds = %29
-  %33 = load i32, ptr %6, align 4, !tbaa !25
-  %34 = load ptr, ptr %9, align 8, !tbaa !26
+  %33 = load i32, ptr %6, align 4, !tbaa !28
+  %34 = load ptr, ptr %9, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %33, ptr %35, align 4, !tbaa !13
   br label %36
@@ -877,8 +877,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %41, label %42, label %128
 
 42:                                               ; preds = %39
-  %43 = load i32, ptr %6, align 4, !tbaa !25
-  %44 = load ptr, ptr %9, align 8, !tbaa !26
+  %43 = load i32, ptr %6, align 4, !tbaa !28
+  %44 = load ptr, ptr %9, align 8, !tbaa !29
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i32 %43, ptr %45, align 4, !tbaa !14
   br label %46
@@ -899,8 +899,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %51, label %52, label %128
 
 52:                                               ; preds = %49
-  %53 = load i32, ptr %6, align 4, !tbaa !25
-  %54 = load ptr, ptr %9, align 8, !tbaa !26
+  %53 = load i32, ptr %6, align 4, !tbaa !28
+  %54 = load ptr, ptr %9, align 8, !tbaa !29
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i32 %53, ptr %55, align 4, !tbaa !15
   br label %56
@@ -921,8 +921,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %61, label %62, label %128
 
 62:                                               ; preds = %59
-  %63 = load i32, ptr %6, align 4, !tbaa !25
-  %64 = load ptr, ptr %9, align 8, !tbaa !26
+  %63 = load i32, ptr %6, align 4, !tbaa !28
+  %64 = load ptr, ptr %9, align 8, !tbaa !29
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i32 %63, ptr %65, align 4, !tbaa !16
   br label %66
@@ -943,8 +943,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %71, label %72, label %128
 
 72:                                               ; preds = %69
-  %73 = load i32, ptr %6, align 4, !tbaa !25
-  %74 = load ptr, ptr %9, align 8, !tbaa !26
+  %73 = load i32, ptr %6, align 4, !tbaa !28
+  %74 = load ptr, ptr %9, align 8, !tbaa !29
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
   store i32 %73, ptr %75, align 4, !tbaa !17
   br label %76
@@ -965,8 +965,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %81, label %82, label %128
 
 82:                                               ; preds = %79
-  %83 = load i32, ptr %6, align 4, !tbaa !25
-  %84 = load ptr, ptr %9, align 8, !tbaa !26
+  %83 = load i32, ptr %6, align 4, !tbaa !28
+  %84 = load ptr, ptr %9, align 8, !tbaa !29
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i32 %83, ptr %85, align 4, !tbaa !18
   br label %86
@@ -987,8 +987,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %91, label %92, label %128
 
 92:                                               ; preds = %89
-  %93 = load i32, ptr %6, align 4, !tbaa !25
-  %94 = load ptr, ptr %9, align 8, !tbaa !26
+  %93 = load i32, ptr %6, align 4, !tbaa !28
+  %94 = load ptr, ptr %9, align 8, !tbaa !29
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 28
   store i32 %93, ptr %95, align 4, !tbaa !19
   br label %96
@@ -1009,8 +1009,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %101, label %102, label %128
 
 102:                                              ; preds = %99
-  %103 = load i32, ptr %6, align 4, !tbaa !25
-  %104 = load ptr, ptr %9, align 8, !tbaa !26
+  %103 = load i32, ptr %6, align 4, !tbaa !28
+  %104 = load ptr, ptr %9, align 8, !tbaa !29
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store i32 %103, ptr %105, align 4, !tbaa !20
   br label %106
@@ -1031,8 +1031,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %111, label %112, label %128
 
 112:                                              ; preds = %109
-  %113 = load i32, ptr %6, align 4, !tbaa !25
-  %114 = load ptr, ptr %9, align 8, !tbaa !26
+  %113 = load i32, ptr %6, align 4, !tbaa !28
+  %114 = load ptr, ptr %9, align 8, !tbaa !29
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 36
   store i32 %113, ptr %115, align 4, !tbaa !21
   br label %116
@@ -1053,8 +1053,8 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %119
-  %123 = load i32, ptr %6, align 4, !tbaa !25
-  %124 = load ptr, ptr %9, align 8, !tbaa !26
+  %123 = load i32, ptr %6, align 4, !tbaa !28
+  %124 = load ptr, ptr %9, align 8, !tbaa !29
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
   store i32 %123, ptr %125, align 4, !tbaa !22
   br label %126
@@ -1062,7 +1062,7 @@ define range(i32 0, 5) i32 @cli_dconf_load(ptr noundef %0, ptr noundef readonly 
 126:                                              ; preds = %122, %117, %116
   %127 = call ptr @cli_dbgets(ptr noundef nonnull %5, i32 noundef 8192, ptr noundef %0, ptr noundef %3) #9
   %.not = icmp eq ptr %127, null
-  br i1 %.not, label %.loopexit, label %15
+  br i1 %.not, label %.loopexit, label %15, !llvm.loop !51
 
 128:                                              ; preds = %119, %109, %99, %89, %79, %69, %59, %49, %39, %29, %20
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.40, i32 noundef %16) #9
@@ -1087,11 +1087,11 @@ define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) un
 
 3:                                                ; preds = %1
   %4 = tail call ptr @__ctype_b_loc() #11
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
-  %6 = load i8, ptr %2, align 1, !tbaa !50
+  %5 = load ptr, ptr %4, align 8, !tbaa !52
+  %6 = load i8, ptr %2, align 1, !tbaa !54
   %7 = sext i8 %6 to i64
   %8 = getelementptr inbounds i16, ptr %5, i64 %7
-  %9 = load i16, ptr %8, align 2, !tbaa !51
+  %9 = load i16, ptr %8, align 2, !tbaa !55
   %10 = and i16 %9, 2048
   %.not16 = icmp eq i16 %10, 0
   br i1 %.not16, label %11, label %12
@@ -1113,11 +1113,11 @@ define internal fastcc range(i32 0, 2) i32 @chkflevel(ptr noundef nonnull %0) un
   br i1 %.not17, label %30, label %18
 
 18:                                               ; preds = %16
-  %19 = load ptr, ptr %4, align 8, !tbaa !48
-  %20 = load i8, ptr %17, align 1, !tbaa !50
+  %19 = load ptr, ptr %4, align 8, !tbaa !52
+  %20 = load i8, ptr %17, align 1, !tbaa !54
   %21 = sext i8 %20 to i64
   %22 = getelementptr inbounds i16, ptr %19, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !51
+  %23 = load i16, ptr %22, align 2, !tbaa !55
   %24 = and i16 %23, 2048
   %.not18 = icmp eq i16 %24, 0
   br i1 %.not18, label %25, label %26
@@ -1197,32 +1197,36 @@ attributes #11 = { nounwind willreturn memory(none) }
 !21 = !{!12, !9, i64 36}
 !22 = !{!12, !9, i64 40}
 !23 = !{!4, !5, i64 0}
-!24 = !{!4, !5, i64 8}
-!25 = !{!9, !9, i64 0}
-!26 = !{!27, !34, i64 168}
-!27 = !{!"cl_engine", !9, i64 0, !9, i64 4, !9, i64 8, !7, i64 12, !9, i64 20, !9, i64 24, !9, i64 28, !5, i64 32, !9, i64 40, !28, i64 48, !9, i64 56, !9, i64 60, !28, i64 64, !28, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !29, i64 96, !30, i64 104, !30, i64 112, !30, i64 120, !30, i64 128, !31, i64 136, !32, i64 144, !32, i64 152, !33, i64 160, !34, i64 168, !35, i64 176, !35, i64 184, !36, i64 192, !30, i64 200, !30, i64 208, !5, i64 216, !37, i64 224, !38, i64 232, !39, i64 240, !28, i64 248, !40, i64 256, !41, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !43, i64 416, !7, i64 936, !7, i64 992, !9, i64 1020, !9, i64 1024, !9, i64 1028, !9, i64 1032, !28, i64 1040, !28, i64 1048, !28, i64 1056, !28, i64 1064, !28, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !9, i64 1152, !9, i64 1156, !9, i64 1160, !28, i64 1168, !28, i64 1176, !28, i64 1184, !47, i64 1192}
-!28 = !{!"long", !7, i64 0}
-!29 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!30 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
-!31 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!32 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!33 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!34 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
-!35 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!36 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!37 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!38 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!39 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!40 = !{!"p1 _ZTS2MP", !6, i64 0}
-!41 = !{!"", !42, i64 0, !9, i64 8}
-!42 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!43 = !{!"cli_all_bc", !44, i64 0, !9, i64 8, !45, i64 16, !46, i64 24, !9, i64 516}
-!44 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!45 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!46 = !{!"cli_environment", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!47 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 short", !6, i64 0}
-!50 = !{!7, !7, i64 0}
-!51 = !{!52, !52, i64 0}
-!52 = !{!"short", !7, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!4, !5, i64 8}
+!27 = distinct !{!27, !25}
+!28 = !{!9, !9, i64 0}
+!29 = !{!30, !37, i64 168}
+!30 = !{!"cl_engine", !9, i64 0, !9, i64 4, !9, i64 8, !7, i64 12, !9, i64 20, !9, i64 24, !9, i64 28, !5, i64 32, !9, i64 40, !31, i64 48, !9, i64 56, !9, i64 60, !31, i64 64, !31, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !32, i64 96, !33, i64 104, !33, i64 112, !33, i64 120, !33, i64 128, !34, i64 136, !35, i64 144, !35, i64 152, !36, i64 160, !37, i64 168, !38, i64 176, !38, i64 184, !39, i64 192, !33, i64 200, !33, i64 208, !5, i64 216, !40, i64 224, !41, i64 232, !42, i64 240, !31, i64 248, !43, i64 256, !44, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !46, i64 416, !7, i64 936, !7, i64 992, !9, i64 1020, !9, i64 1024, !9, i64 1028, !9, i64 1032, !31, i64 1040, !31, i64 1048, !31, i64 1056, !31, i64 1064, !31, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !9, i64 1152, !9, i64 1156, !9, i64 1160, !31, i64 1168, !31, i64 1176, !31, i64 1184, !50, i64 1192}
+!31 = !{!"long", !7, i64 0}
+!32 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!33 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
+!34 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!35 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!36 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!37 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
+!38 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!39 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!40 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!41 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!42 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!43 = !{!"p1 _ZTS2MP", !6, i64 0}
+!44 = !{!"", !45, i64 0, !9, i64 8}
+!45 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!46 = !{!"cli_all_bc", !47, i64 0, !9, i64 8, !48, i64 16, !49, i64 24, !9, i64 516}
+!47 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!48 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!49 = !{!"cli_environment", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!50 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!51 = distinct !{!51, !25}
+!52 = !{!53, !53, i64 0}
+!53 = !{!"p1 short", !6, i64 0}
+!54 = !{!7, !7, i64 0}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"short", !7, i64 0}

@@ -97,10 +97,10 @@ define dso_local noundef i64 @_ZN19btGenericMemoryPool24allocate_from_free_nodes
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef i64 @_ZN19btGenericMemoryPool18allocate_from_poolEm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i64, ptr %3, align 8, !tbaa !17
+  %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = add i64 %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %7 = load i64, ptr %6, align 8, !tbaa !18
+  %7 = load i64, ptr %6, align 8, !tbaa !19
   %8 = icmp ugt i64 %5, %7
   br i1 %8, label %15, label %9
 
@@ -109,9 +109,9 @@ define dso_local noundef i64 @_ZN19btGenericMemoryPool18allocate_from_poolEm(ptr
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = getelementptr inbounds nuw i64, ptr %11, i64 %4
   store i64 %1, ptr %12, align 8, !tbaa !14
-  %13 = load i64, ptr %3, align 8, !tbaa !17
+  %13 = load i64, ptr %3, align 8, !tbaa !18
   %14 = add i64 %13, %1
-  store i64 %14, ptr %3, align 8, !tbaa !17
+  store i64 %14, ptr %3, align 8, !tbaa !18
   br label %15
 
 15:                                               ; preds = %2, %9
@@ -124,23 +124,23 @@ define dso_local void @_ZN19btGenericMemoryPool9init_poolEmm(ptr noundef nonnull
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store i64 %1, ptr %5, align 8, !tbaa !19
+  store i64 %1, ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %2, ptr %6, align 8, !tbaa !18
+  store i64 %2, ptr %6, align 8, !tbaa !19
   %7 = mul i64 %2, %1
   %8 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %7, i32 noundef 16)
-  store ptr %8, ptr %0, align 8, !tbaa !20
-  %9 = load i64, ptr %6, align 8, !tbaa !18
+  store ptr %8, ptr %0, align 8, !tbaa !21
+  %9 = load i64, ptr %6, align 8, !tbaa !19
   %10 = shl i64 %9, 3
   %11 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %10, i32 noundef 16)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !13
-  %13 = load i64, ptr %6, align 8, !tbaa !18
+  %13 = load i64, ptr %6, align 8, !tbaa !19
   %14 = shl i64 %13, 3
   %15 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %14, i32 noundef 16)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8, !tbaa !12
-  %17 = load i64, ptr %6, align 8, !tbaa !18
+  %17 = load i64, ptr %6, align 8, !tbaa !19
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -152,16 +152,16 @@ define dso_local void @_ZN19btGenericMemoryPool9init_poolEmm(ptr noundef nonnull
   %18 = getelementptr inbounds nuw i64, ptr %15, i64 %.05
   store i64 0, ptr %18, align 8, !tbaa !14
   %19 = add nuw i64 %.05, 1
-  %20 = load i64, ptr %6, align 8, !tbaa !18
+  %20 = load i64, ptr %6, align 8, !tbaa !19
   %21 = icmp ult i64 %19, %20
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 }
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN19btGenericMemoryPool8end_poolEv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((24, 40)) %0) local_unnamed_addr #2 align 2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !20
+  %2 = load ptr, ptr %0, align 8, !tbaa !21
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !13
@@ -179,7 +179,7 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @_ZN19btGenericMemoryPool8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load i64, ptr %3, align 8, !tbaa !19
+  %4 = load i64, ptr %3, align 8, !tbaa !20
   %5 = urem i64 %1, %4
   %6 = udiv i64 %1, %4
   %.not = icmp ne i64 %5, 0
@@ -247,18 +247,18 @@ _ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit: ; preds = %30, %34
   br i1 %.not14, label %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.thread, label %41
 
 41:                                               ; preds = %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit
-  %42 = load ptr, ptr %0, align 8, !tbaa !20
-  %43 = load i64, ptr %3, align 8, !tbaa !19
+  %42 = load ptr, ptr %0, align 8, !tbaa !21
+  %43 = load i64, ptr %3, align 8, !tbaa !20
   %44 = mul i64 %43, %27
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 %44
   br label %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.thread
 
 _ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.thread: ; preds = %24, %2, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !17
+  %47 = load i64, ptr %46, align 8, !tbaa !18
   %48 = add i64 %47, %spec.select
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %50 = load i64, ptr %49, align 8, !tbaa !18
+  %50 = load i64, ptr %49, align 8, !tbaa !19
   %51 = icmp ugt i64 %48, %50
   br i1 %51, label %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.thread, label %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit
 
@@ -267,15 +267,15 @@ _ZN19btGenericMemoryPool18allocate_from_poolEm.exit: ; preds = %_ZN19btGenericMe
   %53 = load ptr, ptr %52, align 8, !tbaa !12
   %54 = getelementptr inbounds nuw i64, ptr %53, i64 %47
   store i64 %spec.select, ptr %54, align 8, !tbaa !14
-  %55 = load i64, ptr %46, align 8, !tbaa !17
+  %55 = load i64, ptr %46, align 8, !tbaa !18
   %56 = add i64 %55, %spec.select
-  store i64 %56, ptr %46, align 8, !tbaa !17
+  store i64 %56, ptr %46, align 8, !tbaa !18
   %57 = icmp eq i64 %47, 4294967295
   br i1 %57, label %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.thread, label %58
 
 58:                                               ; preds = %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit
-  %59 = load ptr, ptr %0, align 8, !tbaa !20
-  %60 = load i64, ptr %3, align 8, !tbaa !19
+  %59 = load ptr, ptr %0, align 8, !tbaa !21
+  %60 = load i64, ptr %3, align 8, !tbaa !20
   %61 = mul i64 %60, %47
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
   br label %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.thread
@@ -287,7 +287,7 @@ _ZN19btGenericMemoryPool18allocate_from_poolEm.exit.thread: ; preds = %_ZN19btGe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN19btGenericMemoryPool10freeMemoryEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !20
+  %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = icmp ult ptr %1, %3
   br i1 %4, label %23, label %5
 
@@ -296,9 +296,9 @@ define dso_local noundef zeroext i1 @_ZN19btGenericMemoryPool10freeMemoryEPv(ptr
   %7 = ptrtoint ptr %3 to i64
   %8 = sub i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = load i64, ptr %9, align 8, !tbaa !19
+  %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load i64, ptr %11, align 8, !tbaa !18
+  %12 = load i64, ptr %11, align 8, !tbaa !19
   %13 = mul i64 %12, %10
   %.not = icmp ult i64 %8, %13
   br i1 %.not, label %14, label %23
@@ -337,9 +337,9 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %_ZN22btGenericPoolAllocatorD2Ev.exit, label %.lr.ph.i
 
@@ -350,8 +350,8 @@ define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align
 5:                                                ; preds = %16, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %16 ]
   %6 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %.06.i
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
           to label %.noexc.i unwind label %20
 
@@ -370,15 +370,15 @@ define dso_local void @_ZN22btGenericPoolAllocatorD0Ev(ptr noundef nonnull align
 13:                                               ; preds = %.noexc4.i
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = load ptr, ptr %6, align 8, !tbaa !26
+  %15 = load ptr, ptr %6, align 8, !tbaa !27
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %15)
           to label %16 unwind label %20
 
 16:                                               ; preds = %13
   %17 = add nuw i64 %.06.i, 1
-  %18 = load i64, ptr %2, align 8, !tbaa !24
+  %18 = load i64, ptr %2, align 8, !tbaa !25
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %5, label %_ZN22btGenericPoolAllocatorD2Ev.exit, !llvm.loop !28
+  br i1 %19, label %5, label %_ZN22btGenericPoolAllocatorD2Ev.exit, !llvm.loop !29
 
 20:                                               ; preds = %13, %.noexc4.i, %.noexc.i, %5
   %21 = landingpad { ptr, i32 }
@@ -398,40 +398,40 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN22btGenericPoolAllocator13push_new_poolEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %4 = icmp ugt i64 %3, 15
   br i1 %4, label %34, label %5
 
 5:                                                ; preds = %1
   %6 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 56, i32 noundef 16)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i64, ptr %2, align 8, !tbaa !24
+  %8 = load i64, ptr %2, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %8
-  store ptr %6, ptr %9, align 8, !tbaa !26
+  store ptr %6, ptr %9, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !29
+  %11 = load i64, ptr %10, align 8, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load i64, ptr %12, align 8, !tbaa !30
+  %13 = load i64, ptr %12, align 8, !tbaa !31
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store i64 %11, ptr %15, align 8, !tbaa !19
+  store i64 %11, ptr %15, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 %13, ptr %16, align 8, !tbaa !18
+  store i64 %13, ptr %16, align 8, !tbaa !19
   %17 = mul i64 %13, %11
   %18 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %17, i32 noundef 16)
-  store ptr %18, ptr %6, align 8, !tbaa !20
-  %19 = load i64, ptr %16, align 8, !tbaa !18
+  store ptr %18, ptr %6, align 8, !tbaa !21
+  %19 = load i64, ptr %16, align 8, !tbaa !19
   %20 = shl i64 %19, 3
   %21 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %20, i32 noundef 16)
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %21, ptr %22, align 8, !tbaa !13
-  %23 = load i64, ptr %16, align 8, !tbaa !18
+  %23 = load i64, ptr %16, align 8, !tbaa !19
   %24 = shl i64 %23, 3
   %25 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %24, i32 noundef 16)
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !12
-  %27 = load i64, ptr %16, align 8, !tbaa !18
+  %27 = load i64, ptr %16, align 8, !tbaa !19
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %_ZN19btGenericMemoryPool9init_poolEmm.exit, label %.lr.ph.i
 
@@ -440,14 +440,14 @@ define dso_local noundef ptr @_ZN22btGenericPoolAllocator13push_new_poolEv(ptr n
   %28 = getelementptr inbounds nuw i64, ptr %25, i64 %.05.i
   store i64 0, ptr %28, align 8, !tbaa !14
   %29 = add nuw i64 %.05.i, 1
-  %30 = load i64, ptr %16, align 8, !tbaa !18
+  %30 = load i64, ptr %16, align 8, !tbaa !19
   %31 = icmp ult i64 %29, %30
-  br i1 %31, label %.lr.ph.i, label %_ZN19btGenericMemoryPool9init_poolEmm.exit, !llvm.loop !21
+  br i1 %31, label %.lr.ph.i, label %_ZN19btGenericMemoryPool9init_poolEmm.exit, !llvm.loop !22
 
 _ZN19btGenericMemoryPool9init_poolEmm.exit:       ; preds = %.lr.ph.i, %5
-  %32 = load i64, ptr %2, align 8, !tbaa !24
+  %32 = load i64, ptr %2, align 8, !tbaa !25
   %33 = add i64 %32, 1
-  store i64 %33, ptr %2, align 8, !tbaa !24
+  store i64 %33, ptr %2, align 8, !tbaa !25
   br label %34
 
 34:                                               ; preds = %1, %_ZN19btGenericMemoryPool9init_poolEmm.exit
@@ -458,9 +458,9 @@ _ZN19btGenericMemoryPool9init_poolEmm.exit:       ; preds = %.lr.ph.i, %5
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN22btGenericPoolAllocator14failback_allocEm(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !29
+  %4 = load i64, ptr %3, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !30
+  %6 = load i64, ptr %5, align 8, !tbaa !31
   %7 = mul i64 %6, %4
   %.not = icmp ugt i64 %1, %7
   br i1 %.not, label %.thread, label %8
@@ -476,7 +476,7 @@ define dso_local noundef ptr @_ZN22btGenericPoolAllocator14failback_allocEm(ptr 
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %14 = load i64, ptr %13, align 8, !tbaa !19
+  %14 = load i64, ptr %13, align 8, !tbaa !20
   %15 = urem i64 %1, %14
   %16 = udiv i64 %1, %14
   %.not.i = icmp ne i64 %15, 0
@@ -544,18 +544,18 @@ _ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i: ; preds = %44, %40
   br i1 %.not14.i, label %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.thread.i, label %51
 
 51:                                               ; preds = %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i
-  %52 = load ptr, ptr %9, align 8, !tbaa !20
-  %53 = load i64, ptr %13, align 8, !tbaa !19
+  %52 = load ptr, ptr %9, align 8, !tbaa !21
+  %53 = load i64, ptr %13, align 8, !tbaa !20
   %54 = mul i64 %53, %37
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 %54
   br label %_ZN19btGenericMemoryPool8allocateEm.exit
 
 _ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.thread.i: ; preds = %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i, %34, %12
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %57 = load i64, ptr %56, align 8, !tbaa !17
+  %57 = load i64, ptr %56, align 8, !tbaa !18
   %58 = add i64 %57, %spec.select.i
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %60 = load i64, ptr %59, align 8, !tbaa !18
+  %60 = load i64, ptr %59, align 8, !tbaa !19
   %61 = icmp ugt i64 %58, %60
   br i1 %61, label %_ZN19btGenericMemoryPool8allocateEm.exit, label %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i
 
@@ -564,15 +564,15 @@ _ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i: ; preds = %_ZN19btGeneric
   %63 = load ptr, ptr %62, align 8, !tbaa !12
   %64 = getelementptr inbounds nuw i64, ptr %63, i64 %57
   store i64 %spec.select.i, ptr %64, align 8, !tbaa !14
-  %65 = load i64, ptr %56, align 8, !tbaa !17
+  %65 = load i64, ptr %56, align 8, !tbaa !18
   %66 = add i64 %65, %spec.select.i
-  store i64 %66, ptr %56, align 8, !tbaa !17
+  store i64 %66, ptr %56, align 8, !tbaa !18
   %67 = icmp eq i64 %57, 4294967295
   br i1 %67, label %_ZN19btGenericMemoryPool8allocateEm.exit, label %68
 
 68:                                               ; preds = %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i
-  %69 = load ptr, ptr %9, align 8, !tbaa !20
-  %70 = load i64, ptr %13, align 8, !tbaa !19
+  %69 = load ptr, ptr %9, align 8, !tbaa !21
+  %70 = load i64, ptr %13, align 8, !tbaa !20
   %71 = mul i64 %70, %57
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 %71
   br label %_ZN19btGenericMemoryPool8allocateEm.exit
@@ -591,7 +591,7 @@ define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator13failback_freeE
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN22btGenericPoolAllocator8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %4 = load i64, ptr %3, align 8, !tbaa !24
+  %4 = load i64, ptr %3, align 8, !tbaa !25
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
@@ -602,9 +602,9 @@ define dso_local noundef ptr @_ZN22btGenericPoolAllocator8allocateEm(ptr noundef
 6:                                                ; preds = %.lr.ph, %_ZN19btGenericMemoryPool8allocateEm.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %63, %_ZN19btGenericMemoryPool8allocateEm.exit ]
   %7 = getelementptr inbounds nuw [16 x ptr], ptr %5, i64 0, i64 %.012
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load i64, ptr %9, align 8, !tbaa !19
+  %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = urem i64 %1, %10
   %12 = udiv i64 %1, %10
   %.not.i = icmp ne i64 %11, 0
@@ -673,10 +673,10 @@ _ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i: ; preds = %40, %36
 
 _ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.thread.i: ; preds = %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i, %30, %6
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %48 = load i64, ptr %47, align 8, !tbaa !17
+  %48 = load i64, ptr %47, align 8, !tbaa !18
   %49 = add i64 %48, %spec.select.i
   %50 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %51 = load i64, ptr %50, align 8, !tbaa !18
+  %51 = load i64, ptr %50, align 8, !tbaa !19
   %52 = icmp ugt i64 %49, %51
   br i1 %52, label %_ZN19btGenericMemoryPool8allocateEm.exit, label %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i
 
@@ -685,16 +685,16 @@ _ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i: ; preds = %_ZN19btGeneric
   %54 = load ptr, ptr %53, align 8, !tbaa !12
   %55 = getelementptr inbounds nuw i64, ptr %54, i64 %48
   store i64 %spec.select.i, ptr %55, align 8, !tbaa !14
-  %56 = load i64, ptr %47, align 8, !tbaa !17
+  %56 = load i64, ptr %47, align 8, !tbaa !18
   %57 = add i64 %56, %spec.select.i
-  store i64 %57, ptr %47, align 8, !tbaa !17
+  store i64 %57, ptr %47, align 8, !tbaa !18
   %58 = icmp eq i64 %48, 4294967295
   br i1 %58, label %_ZN19btGenericMemoryPool8allocateEm.exit, label %_ZN19btGenericMemoryPool8allocateEm.exit.sink.split
 
 _ZN19btGenericMemoryPool8allocateEm.exit.sink.split: ; preds = %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i
   %.sink20 = phi i64 [ %33, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.i ], [ %48, %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i ]
-  %59 = load ptr, ptr %8, align 8, !tbaa !20
-  %60 = load i64, ptr %9, align 8, !tbaa !19
+  %59 = load ptr, ptr %8, align 8, !tbaa !21
+  %60 = load i64, ptr %9, align 8, !tbaa !20
   %61 = mul i64 %60, %.sink20
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 %61
   br label %_ZN19btGenericMemoryPool8allocateEm.exit
@@ -702,11 +702,11 @@ _ZN19btGenericMemoryPool8allocateEm.exit.sink.split: ; preds = %_ZN19btGenericMe
 _ZN19btGenericMemoryPool8allocateEm.exit:         ; preds = %_ZN19btGenericMemoryPool8allocateEm.exit.sink.split, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.thread.i, %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i
   %.011.i = phi ptr [ null, %_ZN19btGenericMemoryPool18allocate_from_poolEm.exit.i ], [ null, %_ZN19btGenericMemoryPool24allocate_from_free_nodesEm.exit.thread.i ], [ %62, %_ZN19btGenericMemoryPool8allocateEm.exit.sink.split ]
   %63 = add nuw i64 %.012, 1
-  %64 = load i64, ptr %3, align 8, !tbaa !24
+  %64 = load i64, ptr %3, align 8, !tbaa !25
   %65 = icmp ult i64 %63, %64
   %66 = icmp eq ptr %.011.i, null
   %67 = and i1 %66, %65
-  br i1 %67, label %6, label %._crit_edge, !llvm.loop !31
+  br i1 %67, label %6, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN19btGenericMemoryPool8allocateEm.exit
   br i1 %66, label %._crit_edge.thread, label %69
@@ -723,7 +723,7 @@ _ZN19btGenericMemoryPool8allocateEm.exit:         ; preds = %_ZN19btGenericMemor
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator10freeMemoryEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %4 = load i64, ptr %3, align 8, !tbaa !24
+  %4 = load i64, ptr %3, align 8, !tbaa !25
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.critedge, label %.lr.ph
 
@@ -735,8 +735,8 @@ define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator10freeMemoryEPv(
 8:                                                ; preds = %.lr.ph, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit
   %.011 = phi i64 [ 0, %.lr.ph ], [ %29, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit ]
   %9 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %.011
-  %10 = load ptr, ptr %9, align 8, !tbaa !26
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %11 = load ptr, ptr %10, align 8, !tbaa !21
   %12 = icmp ult ptr %1, %11
   br i1 %12, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit, label %13
 
@@ -744,9 +744,9 @@ define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator10freeMemoryEPv(
   %14 = ptrtoint ptr %11 to i64
   %15 = sub i64 %7, %14
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !19
+  %17 = load i64, ptr %16, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !18
+  %19 = load i64, ptr %18, align 8, !tbaa !19
   %20 = mul i64 %19, %17
   %.not.i = icmp ult i64 %15, %20
   br i1 %.not.i, label %._crit_edge.thread, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit
@@ -767,7 +767,7 @@ define dso_local noundef zeroext i1 @_ZN22btGenericPoolAllocator10freeMemoryEPv(
 _ZN19btGenericMemoryPool10freeMemoryEPv.exit:     ; preds = %8, %13
   %29 = add nuw i64 %.011, 1
   %.not = icmp ult i64 %29, %4
-  br i1 %.not, label %8, label %.critedge, !llvm.loop !32
+  br i1 %.not, label %8, label %.critedge, !llvm.loop !33
 
 .critedge:                                        ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit, %2
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %1)
@@ -779,9 +779,9 @@ _ZN19btGenericMemoryPool10freeMemoryEPv.exit:     ; preds = %8, %13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -792,8 +792,8 @@ define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr noundef nonnull align
 5:                                                ; preds = %.lr.ph, %16
   %.06 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
   %6 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %.06
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
           to label %.noexc unwind label %20
 
@@ -812,15 +812,15 @@ define dso_local void @_ZN22btGenericPoolAllocatorD2Ev(ptr noundef nonnull align
 13:                                               ; preds = %.noexc4
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = load ptr, ptr %6, align 8, !tbaa !26
+  %15 = load ptr, ptr %6, align 8, !tbaa !27
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %15)
           to label %16 unwind label %20
 
 16:                                               ; preds = %13
   %17 = add nuw i64 %.06, 1
-  %18 = load i64, ptr %2, align 8, !tbaa !24
+  %18 = load i64, ptr %2, align 8, !tbaa !25
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %5, label %._crit_edge, !llvm.loop !28
+  br i1 %19, label %5, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %16, %1
   ret void
@@ -847,7 +847,7 @@ define dso_local noundef ptr @_Z13btPoolReallocPvmm(ptr noundef %0, i64 noundef 
   %4 = tail call noundef ptr @_ZN22btGenericPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(160) @g_main_allocator, i64 noundef %2)
   %5 = tail call i64 @llvm.umin.i64(i64 %1, i64 %2)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr align 1 %0, i64 %5, i1 false)
-  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 152), align 8, !tbaa !24
+  %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 152), align 8, !tbaa !25
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.critedge.i.i, label %.lr.ph.i.i
 
@@ -858,8 +858,8 @@ define dso_local noundef ptr @_Z13btPoolReallocPvmm(ptr noundef %0, i64 noundef 
 9:                                                ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i, %.lr.ph.i.i
   %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %30, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i ]
   %10 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %.011.i.i
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
-  %12 = load ptr, ptr %11, align 8, !tbaa !20
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
+  %12 = load ptr, ptr %11, align 8, !tbaa !21
   %13 = icmp ult ptr %0, %12
   br i1 %13, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i, label %14
 
@@ -867,9 +867,9 @@ define dso_local noundef ptr @_Z13btPoolReallocPvmm(ptr noundef %0, i64 noundef 
   %15 = ptrtoint ptr %12 to i64
   %16 = sub i64 %8, %15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  %18 = load i64, ptr %17, align 8, !tbaa !19
+  %18 = load i64, ptr %17, align 8, !tbaa !20
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %20 = load i64, ptr %19, align 8, !tbaa !18
+  %20 = load i64, ptr %19, align 8, !tbaa !19
   %21 = mul i64 %20, %18
   %.not.i.i.i = icmp ult i64 %16, %21
   br i1 %.not.i.i.i, label %._crit_edge.thread.i.i, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i
@@ -890,7 +890,7 @@ define dso_local noundef ptr @_Z13btPoolReallocPvmm(ptr noundef %0, i64 noundef 
 _ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i: ; preds = %14, %9
   %30 = add nuw i64 %.011.i.i, 1
   %exitcond.not.i = icmp eq i64 %30, %6
-  br i1 %exitcond.not.i, label %.critedge.i.i, label %9, !llvm.loop !32
+  br i1 %exitcond.not.i, label %.critedge.i.i, label %9, !llvm.loop !33
 
 .critedge.i.i:                                    ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i.i, %3
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
@@ -905,7 +905,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_Z10btPoolFreePv(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 152), align 8, !tbaa !24
+  %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 152), align 8, !tbaa !25
   %3 = icmp eq i64 %2, 0
   br i1 %3, label %.critedge.i, label %.lr.ph.i
 
@@ -916,8 +916,8 @@ define dso_local void @_Z10btPoolFreePv(ptr noundef %0) local_unnamed_addr #2 {
 5:                                                ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %26, %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i ]
   %6 = getelementptr inbounds nuw [16 x ptr], ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 24), i64 0, i64 %.011.i
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   %9 = icmp ult ptr %0, %8
   br i1 %9, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i, label %10
 
@@ -925,9 +925,9 @@ define dso_local void @_Z10btPoolFreePv(ptr noundef %0) local_unnamed_addr #2 {
   %11 = ptrtoint ptr %8 to i64
   %12 = sub i64 %4, %11
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %14 = load i64, ptr %13, align 8, !tbaa !19
+  %14 = load i64, ptr %13, align 8, !tbaa !20
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !18
+  %16 = load i64, ptr %15, align 8, !tbaa !19
   %17 = mul i64 %16, %14
   %.not.i.i = icmp ult i64 %12, %17
   br i1 %.not.i.i, label %._crit_edge.thread.i, label %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i
@@ -948,7 +948,7 @@ define dso_local void @_Z10btPoolFreePv(ptr noundef %0) local_unnamed_addr #2 {
 _ZN19btGenericMemoryPool10freeMemoryEPv.exit.i:   ; preds = %10, %5
   %26 = add nuw i64 %.011.i, 1
   %exitcond.not = icmp eq i64 %26, %2
-  br i1 %exitcond.not, label %.critedge.i, label %5, !llvm.loop !32
+  br i1 %exitcond.not, label %.critedge.i, label %5, !llvm.loop !33
 
 .critedge.i:                                      ; preds = %_ZN19btGenericMemoryPool10freeMemoryEPv.exit.i, %1
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef %0)
@@ -960,9 +960,9 @@ _ZN22btGenericPoolAllocator10freeMemoryEPv.exit:  ; preds = %._crit_edge.thread.
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %0, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22btGenericPoolAllocator, i64 16), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %3 = load i64, ptr %2, align 8, !tbaa !24
+  %3 = load i64, ptr %2, align 8, !tbaa !25
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %_ZN22btGenericPoolAllocatorD2Ev.exit, label %.lr.ph.i
 
@@ -973,8 +973,8 @@ define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD0Ev(ptr noundef 
 5:                                                ; preds = %16, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %16 ]
   %6 = getelementptr inbounds nuw [16 x ptr], ptr %4, i64 0, i64 %.06.i
-  %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load ptr, ptr %7, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %8)
           to label %.noexc.i unwind label %20
 
@@ -993,15 +993,15 @@ define linkonce_odr dso_local void @_ZN22GIM_STANDARD_ALLOCATORD0Ev(ptr noundef 
 13:                                               ; preds = %.noexc4.i
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = load ptr, ptr %6, align 8, !tbaa !26
+  %15 = load ptr, ptr %6, align 8, !tbaa !27
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %15)
           to label %16 unwind label %20
 
 16:                                               ; preds = %13
   %17 = add nuw i64 %.06.i, 1
-  %18 = load i64, ptr %2, align 8, !tbaa !24
+  %18 = load i64, ptr %2, align 8, !tbaa !25
   %19 = icmp ult i64 %17, %18
-  br i1 %19, label %5, label %_ZN22btGenericPoolAllocatorD2Ev.exit, !llvm.loop !28
+  br i1 %19, label %5, label %_ZN22btGenericPoolAllocatorD2Ev.exit, !llvm.loop !29
 
 20:                                               ; preds = %13, %.noexc4.i, %.noexc.i, %5
   %21 = landingpad { ptr, i32 }
@@ -1017,10 +1017,10 @@ _ZN22btGenericPoolAllocatorD2Ev.exit:             ; preds = %16, %1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @_GLOBAL__sub_I_btGenericPoolAllocator.cpp() #11 section ".text.startup" {
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 152), align 8, !tbaa !24
-  store i64 8, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 8), align 8, !tbaa !29
-  store i64 32768, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 16), align 8, !tbaa !30
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i64 16), ptr @g_main_allocator, align 8, !tbaa !22
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 152), align 8, !tbaa !25
+  store i64 8, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 8), align 8, !tbaa !30
+  store i64 32768, ptr getelementptr inbounds nuw (i8, ptr @g_main_allocator, i64 16), align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i64 16), ptr @g_main_allocator, align 8, !tbaa !23
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN22btGenericPoolAllocatorD2Ev, ptr nonnull @g_main_allocator, ptr nonnull @__dso_handle) #14
   ret void
 }
@@ -1066,21 +1066,22 @@ attributes #16 = { builtin nounwind }
 !12 = !{!5, !10, i64 16}
 !13 = !{!5, !10, i64 8}
 !14 = !{!11, !11, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!5, !11, i64 24}
-!18 = !{!5, !11, i64 48}
-!19 = !{!5, !11, i64 40}
-!20 = !{!5, !6, i64 0}
-!21 = distinct !{!21, !16}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"vtable pointer", !9, i64 0}
-!24 = !{!25, !11, i64 152}
-!25 = !{!"_ZTS22btGenericPoolAllocator", !11, i64 8, !11, i64 16, !8, i64 24, !11, i64 152}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS19btGenericMemoryPool", !7, i64 0}
-!28 = distinct !{!28, !16}
-!29 = !{!25, !11, i64 8}
-!30 = !{!25, !11, i64 16}
-!31 = distinct !{!31, !16}
-!32 = distinct !{!32, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!5, !11, i64 24}
+!19 = !{!5, !11, i64 48}
+!20 = !{!5, !11, i64 40}
+!21 = !{!5, !6, i64 0}
+!22 = distinct !{!22, !16, !17}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"vtable pointer", !9, i64 0}
+!25 = !{!26, !11, i64 152}
+!26 = !{!"_ZTS22btGenericPoolAllocator", !11, i64 8, !11, i64 16, !8, i64 24, !11, i64 152}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS19btGenericMemoryPool", !7, i64 0}
+!29 = distinct !{!29, !16, !17}
+!30 = !{!26, !11, i64 8}
+!31 = !{!26, !11, i64 16}
+!32 = distinct !{!32, !16, !17}
+!33 = distinct !{!33, !16, !17}

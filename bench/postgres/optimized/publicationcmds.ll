@@ -1214,7 +1214,7 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %13 = trunc nuw i8 %12 to i1
   %14 = load volatile i32, ptr @InterruptPending, align 4
   %.not107 = icmp eq i32 %14, 0
-  br i1 %.not107, label %16, label %15, !prof !12
+  br i1 %.not107, label %16, label %15, !prof !13
 
 .critedge:                                        ; preds = %.critedge122, %.lr.ph169, %1
   %.088.lcssa = phi ptr [ null, %1 ], [ null, %.lr.ph169 ], [ %.189, %.critedge122 ]
@@ -1350,7 +1350,7 @@ define internal fastcc ptr @OpenTableList(ptr noundef readonly captures(address_
   %78 = load i32, ptr %77, align 8
   %79 = load volatile i32, ptr @InterruptPending, align 4
   %.not113 = icmp eq i32 %79, 0
-  br i1 %.not113, label %81, label %80, !prof !12
+  br i1 %.not113, label %81, label %80, !prof !13
 
 80:                                               ; preds = %.lr.ph242
   tail call void @ProcessInterrupts() #9
@@ -1771,7 +1771,7 @@ define internal fastcc void @LockSchemaList(ptr noundef readonly captures(addres
   %12 = load i32, ptr %11, align 8
   %13 = load volatile i32, ptr @InterruptPending, align 4
   %.not10 = icmp eq i32 %13, 0
-  br i1 %.not10, label %15, label %14, !prof !12
+  br i1 %.not10, label %15, label %14, !prof !13
 
 .critedge:                                        ; preds = %6, %.lr.ph, %1
   ret void
@@ -1893,7 +1893,7 @@ list_length.exit:                                 ; preds = %1
   %10 = load i32, ptr %2, align 4
   %11 = sext i32 %10 to i64
   %12 = icmp slt i64 %indvars.iv.next, %11
-  br i1 %12, label %.critedge9, label %.critedge, !llvm.loop !13
+  br i1 %12, label %.critedge9, label %.critedge, !llvm.loop !14
 
 13:                                               ; preds = %list_length.exit
   tail call void @CacheInvalidateRelcacheAll() #9
@@ -2173,7 +2173,7 @@ define dso_local void @AlterPublication(ptr noundef %0, ptr noundef %1) local_un
   %150 = load i32, ptr %139, align 4
   %151 = sext i32 %150 to i64
   %.not76.i = icmp slt i64 %indvars.iv.next99.i, %151
-  br i1 %.not76.i, label %145, label %.critedge79.i, !llvm.loop !14
+  br i1 %.not76.i, label %145, label %.critedge79.i, !llvm.loop !15
 
 .critedge79.i:                                    ; preds = %145, %142, %.preheader.i
   %.066.i = phi ptr [ %144, %142 ], [ null, %.preheader.i ], [ %149, %145 ]
@@ -2207,7 +2207,7 @@ list_length.exit.i.i:                             ; preds = %.critedge79.i
   %163 = load i32, ptr %155, align 4
   %164 = sext i32 %163 to i64
   %165 = icmp slt i64 %indvars.iv.next.i.i, %164
-  br i1 %165, label %.critedge9.i.i, label %InvalidatePublicationRels.exit.i, !llvm.loop !13
+  br i1 %165, label %.critedge9.i.i, label %InvalidatePublicationRels.exit.i, !llvm.loop !14
 
 InvalidatePublicationRels.exit.sink.split.i:      ; preds = %list_length.exit.i.i, %124
   call void @CacheInvalidateRelcacheAll() #9
@@ -2829,7 +2829,7 @@ list_length.exit.i:                               ; preds = %8
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !13
+  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !14
 
 28:                                               ; preds = %list_length.exit.i
   tail call void @CacheInvalidateRelcacheAll() #9
@@ -2942,7 +2942,7 @@ list_length.exit.i:                               ; preds = %8
   %25 = load i32, ptr %17, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next.i, %26
-  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !13
+  br i1 %27, label %.critedge9.i, label %InvalidatePublicationRels.exit, !llvm.loop !14
 
 28:                                               ; preds = %list_length.exit.i
   tail call void @CacheInvalidateRelcacheAll() #9
@@ -3533,7 +3533,8 @@ attributes #12 = { noreturn nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
 !10 = distinct !{!10, !9}
-!11 = distinct !{!11, !7}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!11 = distinct !{!11, !7, !12}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!14 = distinct !{!14, !7, !12}
+!15 = distinct !{!15, !7, !12}

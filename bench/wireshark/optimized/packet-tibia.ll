@@ -1154,7 +1154,7 @@ ipv4tonl.exit:                                    ; preds = %40
   %57 = load i32, ptr @nrsakeys, align 4
   %58 = zext i32 %57 to i64
   %59 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %56, %0, %54, %.critedge
   ret void
@@ -1194,7 +1194,7 @@ define internal i32 @rsakey_hash(ptr noundef readonly captures(none) %0) #3 {
   %16 = xor i32 %15, %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !12
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ %4, %1 ], [ %16, %.lr.ph.i ]
@@ -1333,7 +1333,7 @@ define internal noundef zeroext i1 @xteakeys_uat_fld_key_chk_cb(ptr readnone cap
   %21 = getelementptr i8, ptr %.014, i64 1
   %22 = load i8, ptr %21, align 1
   %.not17 = icmp eq i8 %22, 0
-  br i1 %.not17, label %23, label %9, !llvm.loop !12
+  br i1 %.not17, label %23, label %9, !llvm.loop !13
 
 23:                                               ; preds = %16, %20
   %24 = phi i8 [ 0, %20 ], [ %10, %16 ]
@@ -1458,7 +1458,7 @@ define internal void @xtea_parse_uat() #0 {
   %21 = load i32, ptr @nxteakeys, align 4
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %4, label %._crit_edge, !llvm.loop !13
+  br i1 %23, label %4, label %._crit_edge, !llvm.loop !14
 
 24:                                               ; preds = %.lr.ph
   %25 = zext i8 %10 to i64
@@ -1488,7 +1488,7 @@ define internal void @xtea_parse_uat() #0 {
   %.1 = phi ptr [ %.021, %24 ], [ %11, %29 ]
   %40 = getelementptr i8, ptr %.1, i64 1
   %.not = icmp eq i8 %39, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind null_pointer_is_valid willreturn memory(none)
@@ -2108,7 +2108,7 @@ proto_item_set_generated.exit138.i:               ; preds = %257, %254, %251, %2
   %271 = getelementptr i8, ptr %.0146.i, i64 8
   %272 = add i32 %.2145.i, 8
   %273 = icmp slt i32 %272, %261
-  br i1 %273, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !15
+  br i1 %273, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !16
 
 274:                                              ; preds = %240
   %275 = load i32, ptr @hf_tibia_undecoded_xtea_data, align 4
@@ -2283,7 +2283,7 @@ ipv4tonl.exit.i.i:                                ; preds = %363
   call void @ptvcursor_pop_subtree(ptr noundef %304)
   call fastcc void @register_gameserv_addr(ptr noundef readonly %.0.i, i32 noundef %370, i16 noundef zeroext %376)
   %.not118.i.i = icmp eq i8 %369, 0
-  br i1 %.not118.i.i, label %381, label %345, !llvm.loop !16
+  br i1 %.not118.i.i, label %381, label %345, !llvm.loop !17
 
 381:                                              ; preds = %ipv4tonl.exit.i.i
   call void @ptvcursor_pop_subtree(ptr noundef %304)
@@ -2316,7 +2316,7 @@ ipv4tonl.exit.i.i:                                ; preds = %363
   %400 = call ptr @ptvcursor_add(ptr noundef %304, i32 noundef %397, i32 noundef 2, i32 noundef %399)
   call void @ptvcursor_pop_subtree(ptr noundef %304)
   %.not120.i.i = icmp eq i8 %392, 0
-  br i1 %.not120.i.i, label %401, label %391, !llvm.loop !17
+  br i1 %.not120.i.i, label %401, label %391, !llvm.loop !18
 
 401:                                              ; preds = %391
   call void @ptvcursor_pop_subtree(ptr noundef %304)
@@ -2357,7 +2357,7 @@ ipv4tonl.exit.i.i:                                ; preds = %363
   call void @ptvcursor_pop_subtree(ptr noundef %304)
   call fastcc void @register_gameserv_addr(ptr noundef readonly %.0.i, i32 noundef %422, i16 noundef zeroext %426)
   %.not116.i.i = icmp eq i8 %410, 0
-  br i1 %.not116.i.i, label %429, label %409, !llvm.loop !18
+  br i1 %.not116.i.i, label %429, label %409, !llvm.loop !19
 
 429:                                              ; preds = %409
   call void @ptvcursor_pop_subtree(ptr noundef %304)
@@ -2389,7 +2389,7 @@ ipv4tonl.exit.i.i:                                ; preds = %363
 443:                                              ; preds = %439
   %444 = load ptr, ptr %151, align 8
   call void @col_append_str(ptr noundef %444, i32 noundef 25, ptr noundef nonnull @.str.393)
-  br label %311
+  br label %311, !llvm.loop !20
 
 dissect_loginserv_packet.exit.i:                  ; preds = %439, %301
   %445 = call i32 @ptvcursor_current_offset(ptr noundef %304)
@@ -2772,7 +2772,7 @@ dissect_loginserv_packet.exit.i:                  ; preds = %439, %301
 672:                                              ; preds = %668
   %673 = load ptr, ptr %151, align 8
   call void @col_append_str(ptr noundef %673, i32 noundef 25, ptr noundef nonnull @.str.393)
-  br label %465
+  br label %465, !llvm.loop !21
 
 dissect_gameserv_packet.exit.i:                   ; preds = %668, %455
   %674 = call i32 @ptvcursor_current_offset(ptr noundef %458)
@@ -2850,7 +2850,7 @@ dissect_gameserv_packet.exit.i:                   ; preds = %668, %455
 717:                                              ; preds = %713
   %718 = load ptr, ptr %151, align 8
   call void @col_append_str(ptr noundef %718, i32 noundef 25, ptr noundef nonnull @.str.393)
-  br label %685
+  br label %685, !llvm.loop !22
 
 dissect_client_packet.exit.i:                     ; preds = %713, %675
   %719 = call i32 @ptvcursor_current_offset(ptr noundef %678)
@@ -3718,14 +3718,18 @@ attributes #20 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}

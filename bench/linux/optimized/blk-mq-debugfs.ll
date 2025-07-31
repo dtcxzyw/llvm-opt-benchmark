@@ -278,18 +278,18 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
   %63 = phi i8 [ 1, %59 ], [ 1, %60 ], [ %46, %44 ]
   %64 = add nuw nsw i64 %45, 1
   %65 = icmp eq i64 %64, 64
-  br i1 %65, label %66, label %44, !llvm.loop !5
+  br i1 %65, label %66, label %44, !llvm.loop !9
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %68 = load volatile i32, ptr %67, align 8
   %69 = icmp ugt i32 %68, 2
-  br i1 %69, label %70, label %71, !prof !8
+  br i1 %69, label %70, label %71, !prof !10
 
 70:                                               ; preds = %66
-  tail call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #9, !srcloc !9
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.46, i32 274, i32 2307, i64 12) #9, !srcloc !10
-  tail call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_end\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #9, !srcloc !11
+  tail call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #9, !srcloc !11
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.46, i32 274, i32 2307, i64 12) #9, !srcloc !12
+  tail call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_end\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #9, !srcloc !13
   br label %75
 
 71:                                               ; preds = %66
@@ -372,7 +372,7 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %18 = getelementptr i8, ptr %14, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit18, label %12, !llvm.loop !12
+  br i1 %20, label %.loopexit18, label %12, !llvm.loop !14
 
 .loopexit18:                                      ; preds = %12, %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -425,7 +425,7 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %53 = getelementptr i8, ptr %49, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.loopexit17, label %.preheader16, !llvm.loop !12
+  br i1 %55, label %.loopexit17, label %.preheader16, !llvm.loop !15
 
 .loopexit17:                                      ; preds = %.preheader16, %41, %36, %31, %28, %24, %.loopexit18
   store i64 0, ptr %2, align 8
@@ -495,12 +495,12 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %96 = getelementptr i8, ptr %92, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %.loopexit13, label %.preheader12, !llvm.loop !12
+  br i1 %98, label %.loopexit13, label %.preheader12, !llvm.loop !16
 
 .loopexit13:                                      ; preds = %.preheader12, %84, %79, %74, %71, %67, %64
   %99 = call ptr @xa_find_after(ptr noundef nonnull %56, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #9
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %.loopexit15, label %.preheader14, !llvm.loop !13
+  br i1 %100, label %.loopexit15, label %.preheader14, !llvm.loop !17
 
 .loopexit15:                                      ; preds = %.loopexit13, %.loopexit17
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -514,7 +514,7 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %107, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
@@ -565,7 +565,7 @@ define dso_local void @blk_mq_debugfs_register_sched(ptr noundef %0) local_unnam
   %30 = getelementptr i8, ptr %26, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.preheader, %18, %12, %5, %1
   ret void
@@ -585,7 +585,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
   br i1 %7, label %.loopexit3, label %8
 
 8:                                                ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false), !annotation !20
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 340
   %10 = load i32, ptr %9, align 4
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 20, ptr noundef nonnull @.str.9, i32 noundef %10) #9
@@ -614,7 +614,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
   %28 = getelementptr i8, ptr %24, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.loopexit4, label %22, !llvm.loop !12
+  br i1 %30, label %.loopexit4, label %22, !llvm.loop !21
 
 .loopexit4:                                       ; preds = %22, %8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 254
@@ -632,7 +632,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
   %39 = getelementptr ptr, ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #9
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !15
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !20
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load i32, ptr %41, align 64
   %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str.122, i32 noundef %42) #9
@@ -659,7 +659,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
   %59 = getelementptr i8, ptr %55, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %.loopexit, label %53, !llvm.loop !12
+  br i1 %61, label %.loopexit, label %53, !llvm.loop !22
 
 .loopexit:                                        ; preds = %53, %36
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #9
@@ -667,7 +667,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
   %63 = load i16, ptr %31, align 2
   %64 = zext i16 %63 to i64
   %65 = icmp samesign ult i64 %62, %64
-  br i1 %65, label %36, label %.loopexit3, !llvm.loop !16
+  br i1 %65, label %36, label %.loopexit3, !llvm.loop !23
 
 .loopexit3:                                       ; preds = %.loopexit, %.loopexit4, %2
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #9
@@ -718,7 +718,7 @@ define dso_local void @blk_mq_debugfs_register_sched_hctx(ptr noundef readonly c
   %31 = getelementptr i8, ptr %27, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %19, %13, %6, %2
   ret void
@@ -807,7 +807,7 @@ define dso_local void @blk_mq_debugfs_register_rqos(ptr noundef %0) local_unname
   %49 = getelementptr i8, ptr %45, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %51, label %.loopexit, label %.preheader, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader, %35, %29, %16, %11
   ret void
@@ -860,7 +860,7 @@ define dso_local void @blk_mq_debugfs_register_hctxs(ptr noundef %0) local_unnam
   call void @blk_mq_debugfs_register_hctx(ptr noundef %0, ptr noundef nonnull %6)
   %7 = call ptr @xa_find_after(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #9
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %8, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
@@ -896,7 +896,7 @@ define dso_local void @blk_mq_debugfs_unregister_hctxs(ptr noundef %0) local_unn
 15:                                               ; preds = %12, %.preheader
   %16 = call ptr @xa_find_after(ptr noundef nonnull %3, ptr noundef nonnull %2, i64 noundef -1, i32 noundef 8) #9
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %17, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %15, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
@@ -1028,12 +1028,12 @@ define internal i32 @blk_mq_debugfs_open(ptr noundef readonly captures(none) %0,
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %28, !prof !8
+  br i1 %26, label %27, label %28, !prof !10
 
 27:                                               ; preds = %23
-  tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #9, !srcloc !19
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.46, i32 576, i32 2307, i64 12) #9, !srcloc !20
-  tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_end\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #9, !srcloc !21
+  tail call void asm sideeffect "433: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 433b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 433) #9, !srcloc !28
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.46, i32 576, i32 2307, i64 12) #9, !srcloc !29
+  tail call void asm sideeffect "434: nop\0A\09.pushsection .discard.instr_end\0A\09.long 434b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 434) #9, !srcloc !30
   br label %30
 
 28:                                               ; preds = %23
@@ -1157,7 +1157,7 @@ define internal noundef i32 @queue_state_show(ptr noundef readonly captures(none
   %24 = phi i8 [ 1, %20 ], [ 1, %21 ], [ %7, %5 ]
   %25 = add nuw nsw i64 %6, 1
   %26 = icmp eq i64 %25, 64
-  br i1 %26, label %27, label %5, !llvm.loop !5
+  br i1 %26, label %27, label %5, !llvm.loop !31
 
 27:                                               ; preds = %23
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.57) #9
@@ -1340,7 +1340,7 @@ define internal noundef i32 @hctx_state_show(ptr noundef readonly captures(none)
   %24 = phi i8 [ 1, %20 ], [ 1, %21 ], [ %7, %5 ]
   %25 = add nuw nsw i64 %6, 1
   %26 = icmp eq i64 %25, 64
-  br i1 %26, label %27, label %5, !llvm.loop !5
+  br i1 %26, label %27, label %5, !llvm.loop !32
 
 27:                                               ; preds = %23
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.57) #9
@@ -1405,7 +1405,7 @@ define internal noundef i32 @hctx_flags_show(ptr noundef readonly captures(none)
   %34 = phi i8 [ 1, %30 ], [ 1, %31 ], [ %17, %15 ]
   %35 = add nuw nsw i64 %16, 1
   %36 = icmp eq i64 %35, 64
-  br i1 %36, label %37, label %15, !llvm.loop !5
+  br i1 %36, label %37, label %15, !llvm.loop !33
 
 37:                                               ; preds = %33
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.57) #9
@@ -1786,20 +1786,32 @@ attributes #10 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"branch_weights", i32 1, i32 2000}
-!9 = !{i64 2156317643, i64 2156317452, i64 2156317504, i64 2156317550, i64 2156317578}
-!10 = !{i64 2156317717, i64 2156317746, i64 2156317792, i64 2156317850, i64 2156317904, i64 2156317958, i64 2156318013, i64 2156318044, i64 2156318352, i64 2156318358, i64 2156318405, i64 2156318428, i64 2156318454}
-!11 = !{i64 2156318909, i64 2156318720, i64 2156318770, i64 2156318816, i64 2156318844}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = !{!"auto-init"}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = !{i64 2156334904, i64 2156334713, i64 2156334765, i64 2156334811, i64 2156334839}
-!20 = !{i64 2156334978, i64 2156335007, i64 2156335053, i64 2156335111, i64 2156335165, i64 2156335219, i64 2156335274, i64 2156335305, i64 2156335613, i64 2156335619, i64 2156335666, i64 2156335689, i64 2156335715}
-!21 = !{i64 2156336170, i64 2156335981, i64 2156336031, i64 2156336077, i64 2156336105}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = !{i64 2156317643, i64 2156317452, i64 2156317504, i64 2156317550, i64 2156317578}
+!12 = !{i64 2156317717, i64 2156317746, i64 2156317792, i64 2156317850, i64 2156317904, i64 2156317958, i64 2156318013, i64 2156318044, i64 2156318352, i64 2156318358, i64 2156318405, i64 2156318428, i64 2156318454}
+!13 = !{i64 2156318909, i64 2156318720, i64 2156318770, i64 2156318816, i64 2156318844}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = !{!"auto-init"}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = !{i64 2156334904, i64 2156334713, i64 2156334765, i64 2156334811, i64 2156334839}
+!29 = !{i64 2156334978, i64 2156335007, i64 2156335053, i64 2156335111, i64 2156335165, i64 2156335219, i64 2156335274, i64 2156335305, i64 2156335613, i64 2156335619, i64 2156335666, i64 2156335689, i64 2156335715}
+!30 = !{i64 2156336170, i64 2156335981, i64 2156336031, i64 2156336077, i64 2156336105}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}

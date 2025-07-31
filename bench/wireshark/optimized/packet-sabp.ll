@@ -1001,7 +1001,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_Broadcast_Message_
   %41 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %40, ptr noundef nonnull %9, i32 noundef %25, i32 noundef 1, i32 noundef 0)
   %42 = add nuw nsw i32 %.041.i.i, 83
   %exitcond.not.i.i = icmp eq i32 %21, %16
-  br i1 %exitcond.not.i.i, label %dissect_sabp_Broadcast_Message_Content.exit, label %19, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %dissect_sabp_Broadcast_Message_Content.exit, label %19, !llvm.loop !11
 
 dissect_sabp_Broadcast_Message_Content.exit:      ; preds = %39, %4, %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #3
@@ -1897,6 +1897,7 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

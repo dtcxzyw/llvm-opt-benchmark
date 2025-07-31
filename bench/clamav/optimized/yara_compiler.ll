@@ -86,12 +86,12 @@ define range(i32 0, 24) i32 @_yr_compiler_push_file_name(ptr noundef captures(no
 7:                                                ; preds = %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !24
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %9 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %10) #9
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %7
@@ -115,7 +115,7 @@ define range(i32 0, 24) i32 @_yr_compiler_push_file_name(ptr noundef captures(no
   %20 = load i32, ptr %3, align 8, !tbaa !23
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds [16 x ptr], ptr %19, i64 0, i64 %21
-  store ptr %16, ptr %22, align 8, !tbaa !24
+  store ptr %16, ptr %22, align 8, !tbaa !26
   %23 = add nsw i32 %20, 1
   store i32 %23, ptr %3, align 8, !tbaa !23
   br label %26
@@ -148,12 +148,12 @@ define void @_yr_compiler_pop_file_name(ptr noundef captures(none) %0) local_unn
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = zext nneg i32 %6 to i64
   %9 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   tail call void @free(ptr noundef %10) #10
   %11 = load i32, ptr %2, align 8, !tbaa !23
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds [16 x ptr], ptr %7, i64 0, i64 %12
-  store ptr null, ptr %13, align 8, !tbaa !24
+  store ptr null, ptr %13, align 8, !tbaa !26
   br label %14
 
 14:                                               ; preds = %5, %1
@@ -175,7 +175,7 @@ define ptr @yr_compiler_get_current_file_name(ptr noundef readonly captures(none
   %7 = add nsw i32 %3, -1
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   br label %11
 
 11:                                               ; preds = %1, %5
@@ -186,7 +186,7 @@ define ptr @yr_compiler_get_current_file_name(ptr noundef readonly captures(none
 ; Function Attrs: nofree nounwind uwtable
 define noundef ptr @yr_compiler_get_error_message(ptr noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !25
+  %5 = load i32, ptr %4, align 8, !tbaa !27
   switch i32 %5, label %79 [
     i32 1, label %6
     i32 14, label %9
@@ -372,5 +372,7 @@ attributes #10 = { nounwind }
 !21 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !22 = !{!4, !5, i64 16}
 !23 = !{!4, !5, i64 552}
-!24 = !{!13, !13, i64 0}
-!25 = !{!4, !5, i64 8}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!13, !13, i64 0}
+!27 = !{!4, !5, i64 8}

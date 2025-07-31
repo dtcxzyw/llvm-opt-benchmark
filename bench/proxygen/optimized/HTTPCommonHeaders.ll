@@ -369,7 +369,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %en
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur.ptr) #8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 32
   %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 2856
-  br i1 %arrayctor.done, label %for.cond.preheader, label %arrayctor.loop
+  br i1 %arrayctor.done, label %for.cond.preheader, label %arrayctor.loop, !llvm.loop !7
 
 for.cond.preheader:                               ; preds = %arrayctor.loop
   %.ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -390,7 +390,7 @@ for.body.us:                                      ; preds = %for.cond.preheader,
   tail call void @_ZN5folly12toLowerAsciiEPcm(ptr noundef %call23.us, i64 noundef %call26.us)
   %inc.us = add nuw nsw i64 %j.09.us, 1
   %exitcond11.not = icmp eq i64 %inc.us, 87
-  br i1 %exitcond11.not, label %for.end, label %for.body.us, !llvm.loop !6
+  br i1 %exitcond11.not, label %for.end, label %for.body.us, !llvm.loop !8
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %j.09 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
@@ -403,7 +403,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18, ptr noundef %3)
   %inc = add nuw nsw i64 %j.09, 1
   %exitcond.not = icmp eq i64 %inc, 87
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %for.body.us
   ret ptr %.ptr
@@ -444,7 +444,7 @@ entry:
 sw.bb:                                            ; preds = %entry
   %0 = load atomic i8, ptr @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11 acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %return, !prof !9
+  br i1 %guard.uninitialized, label %init.check, label %return, !prof !11
 
 init.check:                                       ; preds = %sw.bb
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14camelcaseTableB5cxx11) #8
@@ -467,7 +467,7 @@ lpad:                                             ; preds = %init
 sw.bb1:                                           ; preds = %entry
   %3 = load atomic i8, ptr @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11 acquire, align 8
   %guard.uninitialized2 = icmp eq i8 %3, 0
-  br i1 %guard.uninitialized2, label %init.check3, label %return, !prof !9
+  br i1 %guard.uninitialized2, label %init.check3, label %return, !prof !11
 
 init.check3:                                      ; preds = %sw.bb1
   %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeEE14lowercaseTableB5cxx11) #8
@@ -554,9 +554,11 @@ attributes #9 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", i32 1, i32 1048575}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !5, !6, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !6}
+!11 = !{!"branch_weights", i32 1, i32 1048575}

@@ -205,7 +205,7 @@ switch.early.test:                                ; preds = %.lr.ph
 30:                                               ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %.pre-phi192
-  br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !20
 
 switch.early.test._crit_edge.split.loop.exit201:  ; preds = %switch.early.test
   %31 = trunc nuw nsw i64 %indvars.iv to i32
@@ -340,13 +340,13 @@ switch.early.test._crit_edge:                     ; preds = %30, %switch.early.t
   %85 = shl i8 %84, 4
   %86 = or i8 %85, %.0113
   store i8 %86, ptr %gep206, align 1, !tbaa !16
-  br i1 %71, label %70, label %87, !llvm.loop !20
+  br i1 %71, label %70, label %87, !llvm.loop !21
 
 87:                                               ; preds = %83
   %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 2
   %exitcond191.not = icmp eq i64 %indvars.iv.next186, %wide.trip.count190
-  br i1 %exitcond191.not, label %._crit_edge149, label %.preheader, !llvm.loop !21
+  br i1 %exitcond191.not, label %._crit_edge149, label %.preheader, !llvm.loop !22
 
 ._crit_edge149:                                   ; preds = %87, %67
   br i1 %26, label %88, label %91
@@ -354,7 +354,7 @@ switch.early.test._crit_edge:                     ; preds = %30, %switch.early.t
 88:                                               ; preds = %._crit_edge149
   %89 = tail call i32 @BIO_gets(ptr noundef %0, ptr noundef %2, i32 noundef %3) #5
   %90 = icmp slt i32 %89, 1
-  br i1 %90, label %._crit_edge162, label %9
+  br i1 %90, label %._crit_edge162, label %9, !llvm.loop !23
 
 91:                                               ; preds = %._crit_edge149
   store i32 %49, ptr %1, align 8, !tbaa !14
@@ -420,8 +420,10 @@ attributes #6 = { nounwind allocsize(0) }
 !14 = !{!7, !8, i64 0}
 !15 = !{!7, !11, i64 8}
 !16 = !{!9, !9, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !19}

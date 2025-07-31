@@ -877,7 +877,7 @@ _ZN6icu_7715SimpleFormatterC2Ev.exit:             ; preds = %3
 
 _ZN6icu_7715SimpleFormatterC2Ev.exit16:           ; preds = %_ZN6icu_7715SimpleFormatterC2Ev.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr null, ptr %10, align 8, !tbaa !50
+  store ptr null, ptr %10, align 8, !tbaa !51
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
   invoke void @_ZN6icu_7712ZNStringPoolC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %12 unwind label %25
@@ -889,16 +889,16 @@ _ZN6icu_7715SimpleFormatterC2Ev.exit16:           ; preds = %_ZN6icu_7715SimpleF
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  store i8 0, ptr %15, align 8, !tbaa !64
+  store i8 0, ptr %15, align 8, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 488
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %16)
           to label %17 unwind label %29
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 0, ptr %18, align 8, !tbaa !65
+  store i32 0, ptr %18, align 8, !tbaa !66
   %19 = load ptr, ptr %16, align 8, !tbaa !3
-  store i8 0, ptr %19, align 1, !tbaa !66
+  store i8 0, ptr %19, align 1, !tbaa !67
   invoke void @_ZN6icu_778TZGNCore10initializeERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %20 unwind label %31
 
@@ -991,7 +991,7 @@ define void @_ZN6icu_778TZGNCore10initializeERKNS_6LocaleER10UErrorCode(ptr noun
 14:                                               ; preds = %3
   %15 = tail call noundef ptr @_ZN6icu_7713TimeZoneNames14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %15, ptr %16, align 8, !tbaa !67
+  store ptr %15, ptr %16, align 8, !tbaa !68
   %17 = load i32, ptr %2, align 4, !tbaa !13
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %19, label %196
@@ -1016,7 +1016,7 @@ define void @_ZN6icu_778TZGNCore10initializeERKNS_6LocaleER10UErrorCode(ptr noun
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #20
   store i32 0, ptr %8, align 4, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !68
+  %25 = load ptr, ptr %24, align 8, !tbaa !69
   %26 = invoke ptr @ures_open_77(ptr noundef nonnull @.str, ptr noundef %25, ptr noundef nonnull %8)
           to label %27 unwind label %57
 
@@ -1052,7 +1052,7 @@ define void @_ZN6icu_778TZGNCore10initializeERKNS_6LocaleER10UErrorCode(ptr noun
 
 .noexc:                                           ; preds = %41
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %43 = load i16, ptr %42, align 8, !tbaa !66
+  %43 = load i16, ptr %42, align 8, !tbaa !67
   %44 = icmp slt i16 %43, 0
   %45 = ashr i16 %43, 5
   %46 = sext i16 %45 to i32
@@ -1110,7 +1110,7 @@ _ZN6icu_7713UnicodeString5setToEPKDsi.exit:       ; preds = %.noexc, %39, %34
 
 .noexc75:                                         ; preds = %69
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %71 = load i16, ptr %70, align 8, !tbaa !66
+  %71 = load i16, ptr %70, align 8, !tbaa !67
   %72 = icmp slt i16 %71, 0
   %73 = ashr i16 %71, 5
   %74 = sext i16 %73 to i32
@@ -1146,7 +1146,7 @@ _ZN6icu_7713UnicodeString5setToEPKDsi.exit77:     ; preds = %.noexc75, %62, %67,
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %92 = load ptr, ptr %91, align 8, !tbaa !50
+  %92 = load ptr, ptr %91, align 8, !tbaa !51
   %93 = icmp eq ptr %92, null
   br i1 %93, label %98, label %94
 
@@ -1158,7 +1158,7 @@ _ZN6icu_7713UnicodeString5setToEPKDsi.exit77:     ; preds = %.noexc75, %62, %67,
   br label %98
 
 98:                                               ; preds = %94, %90
-  %99 = load ptr, ptr %16, align 8, !tbaa !67
+  %99 = load ptr, ptr %16, align 8, !tbaa !68
   %100 = icmp eq ptr %99, null
   br i1 %100, label %105, label %101
 
@@ -1179,19 +1179,19 @@ _ZN6icu_7713UnicodeString5setToEPKDsi.exit77:     ; preds = %.noexc75, %62, %67,
 
 _ZN6icu_7718LocaleDisplayNames14createInstanceERKNS_6LocaleE.exit: ; preds = %107
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store ptr %108, ptr %109, align 8, !tbaa !50
+  store ptr %108, ptr %109, align 8, !tbaa !51
   %110 = invoke ptr @uhash_open_77(ptr noundef nonnull @uhash_hashUChars_77, ptr noundef nonnull @uhash_compareUChars_77, ptr noundef null, ptr noundef nonnull %2)
           to label %111 unwind label %57
 
 111:                                              ; preds = %_ZN6icu_7718LocaleDisplayNames14createInstanceERKNS_6LocaleE.exit
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %110, ptr %112, align 8, !tbaa !69
+  store ptr %110, ptr %112, align 8, !tbaa !70
   %113 = load i32, ptr %2, align 4, !tbaa !13
   %114 = icmp slt i32 %113, 1
   br i1 %114, label %132, label %115
 
 115:                                              ; preds = %111
-  %116 = load ptr, ptr %109, align 8, !tbaa !50
+  %116 = load ptr, ptr %109, align 8, !tbaa !51
   %117 = icmp eq ptr %116, null
   br i1 %117, label %122, label %118
 
@@ -1203,7 +1203,7 @@ _ZN6icu_7718LocaleDisplayNames14createInstanceERKNS_6LocaleE.exit: ; preds = %10
   br label %122
 
 122:                                              ; preds = %118, %115
-  %123 = load ptr, ptr %16, align 8, !tbaa !67
+  %123 = load ptr, ptr %16, align 8, !tbaa !68
   %124 = icmp eq ptr %123, null
   br i1 %124, label %.invoke, label %125
 
@@ -1216,13 +1216,13 @@ _ZN6icu_7718LocaleDisplayNames14createInstanceERKNS_6LocaleE.exit: ; preds = %10
 
 .invoke:                                          ; preds = %122, %125, %105
   %.in = phi ptr [ %106, %105 ], [ %112, %125 ], [ %112, %122 ]
-  %129 = load ptr, ptr %.in, align 8, !tbaa !69
+  %129 = load ptr, ptr %.in, align 8, !tbaa !70
   invoke void @uhash_close_77(ptr noundef %129)
           to label %.noexc81.invoke unwind label %57
 
 .noexc81.invoke:                                  ; preds = %.invoke
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %131 = load ptr, ptr %130, align 8, !tbaa !70
+  %131 = load ptr, ptr %130, align 8, !tbaa !71
   invoke void @uhash_close_77(ptr noundef %131)
           to label %_ZN6icu_778TZGNCore7cleanupEv.exit unwind label %57
 
@@ -1232,7 +1232,7 @@ _ZN6icu_7718LocaleDisplayNames14createInstanceERKNS_6LocaleE.exit: ; preds = %10
 
 134:                                              ; preds = %132
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr %133, ptr %135, align 8, !tbaa !70
+  store ptr %133, ptr %135, align 8, !tbaa !71
   %136 = load i32, ptr %2, align 4, !tbaa !13
   %137 = icmp slt i32 %136, 1
   br i1 %137, label %139, label %138
@@ -1255,14 +1255,14 @@ _ZN6icu_7718LocaleDisplayNames14createInstanceERKNS_6LocaleE.exit: ; preds = %10
 146:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #20
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %148 = load ptr, ptr %147, align 8, !tbaa !68
+  %148 = load ptr, ptr %147, align 8, !tbaa !69
   invoke void @_Z27ulocimp_addLikelySubtags_77PKcR10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::CharString") align 8 %9, ptr noundef %148, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %149 unwind label %159
 
 149:                                              ; preds = %146
   %150 = load ptr, ptr %9, align 8, !tbaa !3
   %151 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %152 = load i32, ptr %151, align 8, !tbaa !65
+  %152 = load i32, ptr %151, align 8, !tbaa !66
   %153 = sext i32 %152 to i64
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 488
   invoke void @_Z21ulocimp_getSubtags_77St17basic_string_viewIcSt11char_traitsIcEEPN6icu_7710CharStringES5_S5_S5_PPKcR10UErrorCode(i64 %153, ptr %150, ptr noundef null, ptr noundef null, ptr noundef nonnull %154, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
@@ -1431,7 +1431,7 @@ declare void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 define void @_ZN6icu_778TZGNCoreD2Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_778TZGNCoreE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -1444,7 +1444,7 @@ define void @_ZN6icu_778TZGNCoreD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
 
@@ -1457,13 +1457,13 @@ define void @_ZN6icu_778TZGNCoreD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 17:                                               ; preds = %13, %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  %19 = load ptr, ptr %18, align 8, !tbaa !70
   invoke void @uhash_close_77(ptr noundef %19)
           to label %.noexc unwind label %28
 
 .noexc:                                           ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %21 = load ptr, ptr %20, align 8, !tbaa !70
+  %21 = load ptr, ptr %20, align 8, !tbaa !71
   invoke void @uhash_close_77(ptr noundef %21)
           to label %_ZN6icu_778TZGNCore7cleanupEv.exit unwind label %28
 
@@ -1493,7 +1493,7 @@ _ZN6icu_778TZGNCore7cleanupEv.exit:               ; preds = %.noexc
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_778TZGNCore7cleanupEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(552) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -1506,7 +1506,7 @@ define void @_ZN6icu_778TZGNCore7cleanupEv(ptr noundef nonnull readonly align 8 
 
 9:                                                ; preds = %5, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
 
@@ -1519,10 +1519,10 @@ define void @_ZN6icu_778TZGNCore7cleanupEv(ptr noundef nonnull readonly align 8 
 
 17:                                               ; preds = %13, %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %19 = load ptr, ptr %18, align 8, !tbaa !69
+  %19 = load ptr, ptr %18, align 8, !tbaa !70
   tail call void @uhash_close_77(ptr noundef %19)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %21 = load ptr, ptr %20, align 8, !tbaa !70
+  %21 = load ptr, ptr %20, align 8, !tbaa !71
   tail call void @uhash_close_77(ptr noundef %21)
   ret void
 }
@@ -1565,18 +1565,18 @@ define internal noundef i32 @_ZN6icu_77L22hashPartialLocationKeyE8UElement(ptr r
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i16 2, ptr %6, align 8, !tbaa !66
-  %7 = load ptr, ptr %0, align 8, !tbaa !71
+  store i16 2, ptr %6, align 8, !tbaa !67
+  %7 = load ptr, ptr %0, align 8, !tbaa !72
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %12, %.preheader.i.i ], [ 0, %1 ]
   %9 = getelementptr inbounds nuw i16, ptr %7, i64 %.0.i.i.i.i
-  %10 = load i16, ptr %9, align 2, !tbaa !72
+  %10 = load i16, ptr %9, align 2, !tbaa !73
   %11 = icmp eq i16 %10, 0
   %12 = add i64 %.0.i.i.i.i, 1
-  br i1 %11, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !73
+  br i1 %11, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !74
 
 .loopexit.i:                                      ; preds = %.preheader.i.i, %1
   %.sroa.02.0.i.i = phi i64 [ 0, %1 ], [ %.0.i.i.i.i, %.preheader.i.i ]
@@ -1595,31 +1595,31 @@ common.resume:                                    ; preds = %33, %14
 
 _ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit:     ; preds = %.loopexit.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  store i16 38, ptr %4, align 2, !tbaa !72
+  store i16 38, ptr %4, align 2, !tbaa !73
   %16 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %4, i32 noundef 0, i32 noundef 1)
           to label %17 unwind label %29
 
 17:                                               ; preds = %_ZN6icu_7713UnicodeStringC2IPKDsvEERKT_.exit
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !74
+  %19 = load ptr, ptr %18, align 8, !tbaa !75
   %20 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %19, i32 noundef 0, i32 noundef -1)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %31
 
 _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %17
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
-  store i16 35, ptr %3, align 2, !tbaa !72
+  store i16 35, ptr %3, align 2, !tbaa !73
   %21 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull %3, i32 noundef 0, i32 noundef 1)
           to label %22 unwind label %31
 
 22:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %24 = load i8, ptr %23, align 8, !tbaa !76
+  %24 = load i8, ptr %23, align 8, !tbaa !77
   %.not = icmp eq i8 %24, 0
   %25 = select i1 %.not, i16 83, i16 76
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %2)
-  store i16 %25, ptr %2, align 2, !tbaa !72
+  store i16 %25, ptr %2, align 2, !tbaa !73
   %26 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull %2, i32 noundef 0, i32 noundef 1)
           to label %27 unwind label %31
 
@@ -1664,24 +1664,24 @@ define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_77L25comparePartialLo
   br i1 %or.cond, label %24, label %7
 
 7:                                                ; preds = %4
-  %8 = load ptr, ptr %0, align 8, !tbaa !77
-  %9 = load ptr, ptr %1, align 8, !tbaa !77
+  %8 = load ptr, ptr %0, align 8, !tbaa !78
+  %9 = load ptr, ptr %1, align 8, !tbaa !78
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !74
+  %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !74
+  %15 = load ptr, ptr %14, align 8, !tbaa !75
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %17, label %24
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i8, ptr %18, align 8, !tbaa !76
+  %19 = load i8, ptr %18, align 8, !tbaa !77
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = load i8, ptr %20, align 8, !tbaa !76
+  %21 = load i8, ptr %20, align 8, !tbaa !77
   %22 = icmp eq i8 %19, %21
   %23 = zext i1 %22 to i8
   br label %24
@@ -1717,13 +1717,13 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %4, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 2, ptr %7, align 8, !tbaa !66
+  store i16 2, ptr %7, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i16 2, ptr %8, align 8, !tbaa !66
+  store i16 2, ptr %8, align 8, !tbaa !67
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %10 = load ptr, ptr %9, align 8, !tbaa !67
+  %10 = load ptr, ptr %9, align 8, !tbaa !68
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
@@ -1764,7 +1764,7 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
   br label %82
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr %9, align 8, !tbaa !67
+  %30 = load ptr, ptr %9, align 8, !tbaa !68
   %31 = load ptr, ptr %15, align 8, !tbaa !3
   %32 = load ptr, ptr %30, align 8, !tbaa !18
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 64
@@ -1773,13 +1773,13 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
           to label %36 unwind label %.loopexit24
 
 36:                                               ; preds = %29
-  %37 = load i16, ptr %16, align 8, !tbaa !66
+  %37 = load i16, ptr %16, align 8, !tbaa !67
   %38 = and i16 %37, 1
   %.not.i.i = icmp eq i16 %38, 0
   br i1 %.not.i.i, label %42, label %39
 
 39:                                               ; preds = %36
-  %40 = load i16, ptr %7, align 8, !tbaa !66
+  %40 = load i16, ptr %7, align 8, !tbaa !67
   %41 = and i16 %40, 1
   %.not27 = icmp eq i16 %41, 0
   br i1 %.not27, label %.critedge.preheader.preheader, label %.loopexit
@@ -1790,7 +1790,7 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
   %45 = sext i16 %44 to i32
   %46 = load i32, ptr %17, align 4
   %47 = select i1 %43, i32 %46, i32 %45
-  %48 = load i16, ptr %7, align 8, !tbaa !66
+  %48 = load i16, ptr %7, align 8, !tbaa !67
   %49 = icmp slt i16 %48, 0
   %50 = ashr i16 %48, 5
   %51 = sext i16 %50 to i32
@@ -1820,8 +1820,8 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
 .critedge.preheader:                              ; preds = %.critedge.preheader.preheader, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.critedge.preheader.preheader ]
   %62 = getelementptr inbounds nuw [3 x i32], ptr @__const._ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE.genNonLocTypes, i64 0, i64 %indvars.iv
-  %63 = load i32, ptr %62, align 4, !tbaa !78
-  %64 = load ptr, ptr %9, align 8, !tbaa !67
+  %63 = load i32, ptr %62, align 4, !tbaa !79
+  %64 = load ptr, ptr %9, align 8, !tbaa !68
   %65 = load ptr, ptr %64, align 8, !tbaa !18
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 72
   %67 = load ptr, ptr %66, align 8
@@ -1829,7 +1829,7 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
           to label %69 unwind label %76
 
 69:                                               ; preds = %.critedge.preheader
-  %70 = load i16, ptr %8, align 8, !tbaa !66
+  %70 = load i16, ptr %8, align 8, !tbaa !67
   %71 = icmp ugt i16 %70, 31
   br i1 %71, label %72, label %.critedge
 
@@ -1847,10 +1847,10 @@ define void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef 
 .critedge:                                        ; preds = %69, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not20 = icmp eq i64 %indvars.iv.next, 2
-  br i1 %.not20, label %.loopexit, label %.critedge.preheader, !llvm.loop !80
+  br i1 %.not20, label %.loopexit, label %.critedge.preheader, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.critedge, %39, %61
-  br label %21, !llvm.loop !81
+  br label %21, !llvm.loop !82
 
 78:                                               ; preds = %26
   %79 = load ptr, ptr %14, align 8, !tbaa !18
@@ -1935,7 +1935,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore14ge
 23:                                               ; preds = %5, %5
   %24 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore28formatGenericNonLocationNameERKNS_8TimeZoneE24UTimeZoneGenericNameTypedRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4)
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %26 = load i16, ptr %25, align 8, !tbaa !66
+  %26 = load i16, ptr %25, align 8, !tbaa !67
   %27 = icmp ugt i16 %26, 31
   br i1 %27, label %41, label %28
 
@@ -1990,7 +1990,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore14ge
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeStringERS1_(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull returned align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i16, ptr %4, align 8, !tbaa !66
+  %5 = load i16, ptr %4, align 8, !tbaa !67
   %6 = icmp ugt i16 %5, 31
   br i1 %6, label %8, label %7
 
@@ -2013,7 +2013,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore22ge
   %13 = tail call i32 @u_strlen_77(ptr noundef nonnull %9)
   tail call void @_ZN6icu_7713UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %2)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i16, ptr %14, align 8, !tbaa !66
+  %15 = load i16, ptr %14, align 8, !tbaa !67
   %16 = icmp slt i16 %15, 0
   %17 = ashr i16 %15, 5
   %18 = sext i16 %17 to i32
@@ -2064,7 +2064,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore28fo
   %29 = icmp eq i32 %2, 2
   %30 = select i1 %29, i32 1, i32 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %32 = load ptr, ptr %31, align 8, !tbaa !67
+  %32 = load ptr, ptr %31, align 8, !tbaa !68
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load ptr, ptr %34, align 8
@@ -2073,7 +2073,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore28fo
 
 37:                                               ; preds = %27
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load i16, ptr %38, align 8, !tbaa !66
+  %39 = load i16, ptr %38, align 8, !tbaa !67
   %40 = icmp ugt i16 %39, 31
   br i1 %40, label %282, label %46
 
@@ -2096,7 +2096,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore28fo
           to label %47 unwind label %64
 
 47:                                               ; preds = %46
-  %48 = load ptr, ptr %31, align 8, !tbaa !67
+  %48 = load ptr, ptr %31, align 8, !tbaa !68
   %49 = load ptr, ptr %48, align 8, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
@@ -2105,7 +2105,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore28fo
 
 53:                                               ; preds = %47
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %55 = load i16, ptr %54, align 8, !tbaa !66
+  %55 = load i16, ptr %54, align 8, !tbaa !67
   %56 = icmp ugt i16 %55, 31
   br i1 %56, label %57, label %279
 
@@ -2366,7 +2366,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore28fo
 
 164:                                              ; preds = %163
   %165 = select i1 %29, i32 2, i32 16
-  %166 = load ptr, ptr %31, align 8, !tbaa !67
+  %166 = load ptr, ptr %31, align 8, !tbaa !68
   %167 = load ptr, ptr %166, align 8, !tbaa !18
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 96
   %169 = load ptr, ptr %168, align 8
@@ -2375,7 +2375,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore28fo
 
 171:                                              ; preds = %164
   %172 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %173 = load i16, ptr %172, align 8, !tbaa !66
+  %173 = load i16, ptr %172, align 8, !tbaa !67
   %174 = icmp ugt i16 %173, 31
   br i1 %174, label %175, label %198
 
@@ -2390,7 +2390,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %175
           to label %177 unwind label %192
 
 177:                                              ; preds = %_ZN6icu_7713UnicodeString5setToERKS0_.exit
-  %178 = load ptr, ptr %31, align 8, !tbaa !67
+  %178 = load ptr, ptr %31, align 8, !tbaa !68
   %179 = load ptr, ptr %178, align 8, !tbaa !18
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 72
   %181 = load ptr, ptr %180, align 8
@@ -2458,7 +2458,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %175
   br label %278
 
 .thread:                                          ; preds = %70, %198, %159
-  %201 = load i16, ptr %38, align 8, !tbaa !66
+  %201 = load i16, ptr %38, align 8, !tbaa !67
   %202 = icmp ugt i16 %201, 31
   br i1 %202, label %.sink.split, label %203
 
@@ -2468,7 +2468,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %175
           to label %204 unwind label %257
 
 204:                                              ; preds = %203
-  %205 = load ptr, ptr %31, align 8, !tbaa !67
+  %205 = load ptr, ptr %31, align 8, !tbaa !68
   %206 = load ptr, ptr %205, align 8, !tbaa !18
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 72
   %208 = load ptr, ptr %207, align 8
@@ -2477,7 +2477,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %175
 
 210:                                              ; preds = %204
   %211 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %212 = load i16, ptr %211, align 8, !tbaa !66
+  %212 = load i16, ptr %211, align 8, !tbaa !67
   %213 = icmp ugt i16 %212, 31
   br i1 %213, label %214, label %275
 
@@ -2488,7 +2488,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %175
           to label %215 unwind label %261
 
 215:                                              ; preds = %214
-  %216 = load ptr, ptr %31, align 8, !tbaa !67
+  %216 = load ptr, ptr %31, align 8, !tbaa !68
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %218 = load ptr, ptr %217, align 8, !tbaa !3
   %219 = load ptr, ptr %216, align 8, !tbaa !18
@@ -2499,7 +2499,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %175
 
 223:                                              ; preds = %215
   %224 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %225 = load i16, ptr %224, align 8, !tbaa !66
+  %225 = load i16, ptr %224, align 8, !tbaa !67
   %226 = icmp ugt i16 %225, 31
   br i1 %226, label %227, label %271
 
@@ -2697,7 +2697,7 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
   %10 = alloca %"class.icu_77::UnicodeString", align 8
   %11 = alloca %"class.icu_77::UnicodeString", align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i16, ptr %12, align 8, !tbaa !66
+  %13 = load i16, ptr %12, align 8, !tbaa !67
   %14 = icmp slt i16 %13, 0
   %15 = ashr i16 %13, 5
   %16 = sext i16 %15 to i32
@@ -2711,18 +2711,18 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
   store i32 0, ptr %3, align 4, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 258, ptr nonnull %4) #20
-  store ptr %4, ptr %5, align 8, !tbaa !82
+  store ptr %4, ptr %5, align 8, !tbaa !83
   %22 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull %5, i32 noundef 129, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %23 unwind label %32
 
 23:                                               ; preds = %21
-  %24 = load ptr, ptr %5, align 8, !tbaa !82
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #20, !srcloc !84
+  %24 = load ptr, ptr %5, align 8, !tbaa !83
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %24) #20, !srcloc !85
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds [129 x i16], ptr %4, i64 0, i64 %25
-  store i16 0, ptr %26, align 2, !tbaa !72
+  store i16 0, ptr %26, align 2, !tbaa !73
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %28 = load ptr, ptr %27, align 8, !tbaa !69
+  %28 = load ptr, ptr %27, align 8, !tbaa !70
   %29 = call ptr @uhash_get_77(ptr noundef %28, ptr noundef nonnull %4)
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %35, label %30
@@ -2735,31 +2735,31 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
 32:                                               ; preds = %21
   %33 = landingpad { ptr, i32 }
           cleanup
-  %34 = load ptr, ptr %5, align 8, !tbaa !82
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #20, !srcloc !84
+  %34 = load ptr, ptr %5, align 8, !tbaa !83
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %34) #20, !srcloc !85
   br label %125
 
 35:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !18
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 2, ptr %36, align 8, !tbaa !66
+  store i16 2, ptr %36, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 2, ptr %37, align 8, !tbaa !66
+  store i16 2, ptr %37, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #20
-  store i8 0, ptr %8, align 1, !tbaa !66
+  store i8 0, ptr %8, align 1, !tbaa !67
   %38 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778ZoneMeta19getCanonicalCountryERKNS_13UnicodeStringERS1_Pa(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull %8)
           to label %39 unwind label %66
 
 39:                                               ; preds = %35
-  %40 = load i16, ptr %37, align 8, !tbaa !66
+  %40 = load i16, ptr %37, align 8, !tbaa !67
   %41 = icmp ugt i16 %40, 31
   br i1 %41, label %42, label %90
 
 42:                                               ; preds = %39
-  %43 = load i8, ptr %8, align 1, !tbaa !66
+  %43 = load i8, ptr %8, align 1, !tbaa !67
   %.not38 = icmp eq i8 %43, 0
   br i1 %.not38, label %73, label %44
 
@@ -2777,13 +2777,13 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
 52:                                               ; preds = %44
   %53 = sext i32 %51 to i64
   %54 = getelementptr inbounds [4 x i8], ptr %9, i64 0, i64 %53
-  store i8 0, ptr %54, align 1, !tbaa !66
+  store i8 0, ptr %54, align 1, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !18
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i16 2, ptr %55, align 8, !tbaa !66
+  store i16 2, ptr %55, align 8, !tbaa !67
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %57 = load ptr, ptr %56, align 8, !tbaa !50
+  %57 = load ptr, ptr %56, align 8, !tbaa !51
   %58 = load ptr, ptr %57, align 8, !tbaa !18
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 88
   %60 = load ptr, ptr %59, align 8
@@ -2827,9 +2827,9 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %11, align 8, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i16 2, ptr %74, align 8, !tbaa !66
+  store i16 2, ptr %74, align 8, !tbaa !67
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %76 = load ptr, ptr %75, align 8, !tbaa !67
+  %76 = load ptr, ptr %75, align 8, !tbaa !68
   %77 = load ptr, ptr %76, align 8, !tbaa !18
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 88
   %79 = load ptr, ptr %78, align 8
@@ -2859,7 +2859,7 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
   br i1 %89, label %90, label %122
 
 90:                                               ; preds = %87, %39
-  %91 = load i16, ptr %36, align 8, !tbaa !66
+  %91 = load i16, ptr %36, align 8, !tbaa !67
   %92 = icmp ugt i16 %91, 31
   br i1 %92, label %93, label %96
 
@@ -2880,7 +2880,7 @@ define noundef ptr @_ZN6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeSt
 
 102:                                              ; preds = %100
   %103 = icmp eq ptr %97, null
-  %104 = load ptr, ptr %27, align 8, !tbaa !69
+  %104 = load ptr, ptr %27, align 8, !tbaa !70
   br i1 %103, label %105, label %109
 
 105:                                              ; preds = %102
@@ -2998,9 +2998,9 @@ declare void @_ZN6icu_7718TimeZoneTransitionD1Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef signext i8 @_ZNK6icu_7713UnicodeString11caseCompareERKS0_j(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2) local_unnamed_addr #2 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i16, ptr %4, align 8, !tbaa !66
+  %5 = load i16, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i16, ptr %6, align 8, !tbaa !66
+  %7 = load i16, ptr %6, align 8, !tbaa !67
   %8 = and i16 %7, 1
   %.not.i = icmp eq i16 %8, 0
   br i1 %.not.i, label %.sink.split.i.i, label %9
@@ -3043,14 +3043,14 @@ _ZNK6icu_7713UnicodeString13doCaseCompareEiiRKS0_iij.exit: ; preds = %9, %.sink.
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZNK6icu_7713UnicodeStringneERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #2 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i16, ptr %3, align 8, !tbaa !66
+  %4 = load i16, ptr %3, align 8, !tbaa !67
   %5 = and i16 %4, 1
   %.not.i = icmp eq i16 %5, 0
   br i1 %.not.i, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load i16, ptr %7, align 8, !tbaa !66
+  %8 = load i16, ptr %7, align 8, !tbaa !67
   %9 = and i16 %8, 1
   %10 = icmp ne i16 %9, 0
   br label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit
@@ -3063,7 +3063,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK6icu_7713UnicodeStringneERKS0_(ptr n
   %16 = load i32, ptr %15, align 4
   %17 = select i1 %12, i32 %16, i32 %14
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %19 = load i16, ptr %18, align 8, !tbaa !66
+  %19 = load i16, ptr %18, align 8, !tbaa !67
   %20 = icmp slt i16 %19, 0
   %21 = ashr i16 %19, 5
   %22 = sext i16 %21 to i32
@@ -3100,7 +3100,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore22ge
   %7 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   tail call void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %5)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i16, ptr %8, align 8, !tbaa !66
+  %9 = load i16, ptr %8, align 8, !tbaa !67
   %10 = icmp ugt i16 %9, 31
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i16, ptr %11, align 8
@@ -3155,14 +3155,14 @@ define noundef ptr @_ZN6icu_778TZGNCore22getPartialLocationNameERKNS_13UnicodeSt
   %12 = alloca %"class.icu_77::UnicodeString", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #20
   %13 = tail call noundef ptr @_ZN6icu_778ZoneMeta14findTimeZoneIDERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  store ptr %13, ptr %6, align 8, !tbaa !77
+  store ptr %13, ptr %6, align 8, !tbaa !78
   %14 = tail call noundef ptr @_ZN6icu_778ZoneMeta14findMetaZoneIDERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %2)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %14, ptr %15, align 8, !tbaa !74
+  store ptr %14, ptr %15, align 8, !tbaa !75
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 %3, ptr %16, align 8, !tbaa !76
+  store i8 %3, ptr %16, align 8, !tbaa !77
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %18 = load ptr, ptr %17, align 8, !tbaa !70
+  %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = call ptr @uhash_get_77(ptr noundef %18, ptr noundef nonnull %6)
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %146
@@ -3171,16 +3171,16 @@ define noundef ptr @_ZN6icu_778TZGNCore22getPartialLocationNameERKNS_13UnicodeSt
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %7, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i16 2, ptr %21, align 8, !tbaa !66
+  store i16 2, ptr %21, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 2, ptr %22, align 8, !tbaa !66
+  store i16 2, ptr %22, align 8, !tbaa !67
   %23 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_778ZoneMeta19getCanonicalCountryERKNS_13UnicodeStringERS1_Pa(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef null)
           to label %24 unwind label %77
 
 24:                                               ; preds = %20
-  %25 = load i16, ptr %22, align 8, !tbaa !66
+  %25 = load i16, ptr %22, align 8, !tbaa !67
   %26 = icmp ugt i16 %25, 31
   br i1 %26, label %27, label %90
 
@@ -3198,13 +3198,13 @@ define noundef ptr @_ZN6icu_778TZGNCore22getPartialLocationNameERKNS_13UnicodeSt
 35:                                               ; preds = %27
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds [4 x i8], ptr %9, i64 0, i64 %36
-  store i8 0, ptr %37, align 1, !tbaa !66
+  store i8 0, ptr %37, align 1, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i16 2, ptr %38, align 8, !tbaa !66
+  store i16 2, ptr %38, align 8, !tbaa !67
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %40 = load ptr, ptr %39, align 8, !tbaa !67
+  %40 = load ptr, ptr %39, align 8, !tbaa !68
   %41 = load ptr, ptr %40, align 8, !tbaa !18
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8
@@ -3213,13 +3213,13 @@ define noundef ptr @_ZN6icu_778TZGNCore22getPartialLocationNameERKNS_13UnicodeSt
 
 45:                                               ; preds = %35
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load i16, ptr %46, align 8, !tbaa !66
+  %47 = load i16, ptr %46, align 8, !tbaa !67
   %48 = and i16 %47, 1
   %.not.i = icmp eq i16 %48, 0
   br i1 %.not.i, label %52, label %49
 
 49:                                               ; preds = %45
-  %50 = load i16, ptr %38, align 8, !tbaa !66
+  %50 = load i16, ptr %38, align 8, !tbaa !67
   %51 = and i16 %50, 1
   %.not54 = icmp eq i16 %51, 0
   br i1 %.not54, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.invoke, label %75
@@ -3231,7 +3231,7 @@ define noundef ptr @_ZN6icu_778TZGNCore22getPartialLocationNameERKNS_13UnicodeSt
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = select i1 %53, i32 %57, i32 %55
-  %59 = load i16, ptr %38, align 8, !tbaa !66
+  %59 = load i16, ptr %38, align 8, !tbaa !67
   %60 = icmp slt i16 %59, 0
   %61 = ashr i16 %59, 5
   %62 = sext i16 %61 to i32
@@ -3282,7 +3282,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %68
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.invoke: ; preds = %_ZNK6icu_7713UnicodeStringeqERKS0_.exit, %49, %52, %75
   %.sink.in = phi ptr [ %76, %75 ], [ %39, %52 ], [ %39, %49 ], [ %39, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ]
   %83 = phi ptr [ %9, %75 ], [ %1, %52 ], [ %1, %49 ], [ %1, %_ZNK6icu_7713UnicodeStringeqERKS0_.exit ]
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !85
+  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !86
   %84 = load ptr, ptr %.sink, align 8, !tbaa !18
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 88
   %86 = load ptr, ptr %85, align 8
@@ -3302,7 +3302,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.invoke: ; preds = %_ZNK6icu_7713U
 
 90:                                               ; preds = %24
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %92 = load ptr, ptr %91, align 8, !tbaa !67
+  %92 = load ptr, ptr %91, align 8, !tbaa !68
   %93 = load ptr, ptr %92, align 8, !tbaa !18
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 88
   %95 = load ptr, ptr %94, align 8
@@ -3310,7 +3310,7 @@ _ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread.invoke: ; preds = %_ZNK6icu_7713U
           to label %97 unwind label %77
 
 97:                                               ; preds = %90
-  %98 = load i16, ptr %21, align 8, !tbaa !66
+  %98 = load i16, ptr %21, align 8, !tbaa !67
   %99 = icmp ugt i16 %98, 31
   br i1 %99, label %_ZN6icu_7713UnicodeString5setToERKS0_.exit, label %100
 
@@ -3324,7 +3324,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %100, %97, %88
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %12, align 8, !tbaa !18
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i16 2, ptr %102, align 8, !tbaa !66
+  store i16 2, ptr %102, align 8, !tbaa !67
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %104 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7715SimpleFormatter6formatERKNS_13UnicodeStringES3_RS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %103, ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %105 unwind label %108
@@ -3358,15 +3358,15 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %100, %97, %88
   br i1 %.not44, label %143, label %119
 
 119:                                              ; preds = %118
-  %120 = load ptr, ptr %6, align 8, !tbaa !77
-  store ptr %120, ptr %117, align 8, !tbaa !77
-  %121 = load ptr, ptr %15, align 8, !tbaa !74
+  %120 = load ptr, ptr %6, align 8, !tbaa !78
+  store ptr %120, ptr %117, align 8, !tbaa !78
+  %121 = load ptr, ptr %15, align 8, !tbaa !75
   %122 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %121, ptr %122, align 8, !tbaa !74
-  %123 = load i8, ptr %16, align 8, !tbaa !76
+  store ptr %121, ptr %122, align 8, !tbaa !75
+  %123 = load i8, ptr %16, align 8, !tbaa !77
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 16
-  store i8 %123, ptr %124, align 8, !tbaa !76
-  %125 = load ptr, ptr %17, align 8, !tbaa !70
+  store i8 %123, ptr %124, align 8, !tbaa !77
+  %125 = load ptr, ptr %17, align 8, !tbaa !71
   %126 = invoke ptr @uhash_put_77(ptr noundef %125, ptr noundef nonnull %117, ptr noundef %112, ptr noundef nonnull %11)
           to label %127 unwind label %131
 
@@ -3396,7 +3396,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %100, %97, %88
   %.not47 = icmp eq i8 %3, 0
   %137 = select i1 %.not47, i32 4, i32 2
   store i32 %137, ptr %134, align 8, !tbaa !28
-  %138 = load ptr, ptr %6, align 8, !tbaa !77
+  %138 = load ptr, ptr %6, align 8, !tbaa !78
   %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %138, ptr %139, align 8, !tbaa !33
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -3450,7 +3450,7 @@ define noundef i32 @_ZNK6icu_778TZGNCore13findBestMatchERKNS_13UnicodeStringEijR
   %8 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %9 = alloca %"class.icu_77::UnicodeString", align 8
   %10 = alloca %"class.icu_77::UnicodeString", align 8
-  store i32 0, ptr %5, align 4, !tbaa !86
+  store i32 0, ptr %5, align 4, !tbaa !87
   tail call void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   %11 = load i32, ptr %6, align 4, !tbaa !13
   %12 = icmp slt i32 %11, 1
@@ -3464,7 +3464,7 @@ define noundef i32 @_ZNK6icu_778TZGNCore13findBestMatchERKNS_13UnicodeStringEijR
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i16 2, ptr %14, align 8, !tbaa !66
+  store i16 2, ptr %14, align 8, !tbaa !67
   br label %91
 
 _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exit: ; preds = %13
@@ -3476,7 +3476,7 @@ _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exi
   %17 = or disjoint i32 %spec.select.i, 24
   %.1.i = select i1 %.not11.i, i32 %spec.select.i, i32 %17
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %19 = load ptr, ptr %18, align 8, !tbaa !67
+  %19 = load ptr, ptr %18, align 8, !tbaa !68
   %20 = load ptr, ptr %19, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
@@ -3489,7 +3489,7 @@ _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exi
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %9, align 8, !tbaa !18
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i16 2, ptr %26, align 8, !tbaa !66
+  store i16 2, ptr %26, align 8, !tbaa !67
   %.not107 = icmp eq ptr %23, null
   br i1 %.not107, label %91, label %27
 
@@ -3497,7 +3497,7 @@ _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exi
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #20
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %10, align 8, !tbaa !18
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i16 2, ptr %28, align 8, !tbaa !66
+  store i16 2, ptr %28, align 8, !tbaa !67
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 488
   br label %31
@@ -3544,7 +3544,7 @@ _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exi
   br i1 %.not109, label %56, label %47
 
 47:                                               ; preds = %46
-  %48 = load ptr, ptr %29, align 8, !tbaa !67
+  %48 = load ptr, ptr %29, align 8, !tbaa !68
   %49 = load ptr, ptr %30, align 8, !tbaa !3
   %50 = load ptr, ptr %48, align 8, !tbaa !18
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
@@ -3590,7 +3590,7 @@ _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exi
   %.682140 = phi i32 [ %.177, %39 ], [ 2, %64 ], [ 0, %65 ], [ 1, %63 ], [ 1, %63 ]
   %.5102139 = phi i8 [ %.097, %39 ], [ %.097, %64 ], [ %.097, %65 ], [ 1, %63 ], [ 1, %63 ]
   %66 = add nuw nsw i32 %.084, 1
-  br label %31, !llvm.loop !87
+  br label %31, !llvm.loop !88
 
 67:                                               ; preds = %58, %33
   %.273 = phi i32 [ %.172, %33 ], [ %38, %58 ]
@@ -3609,7 +3609,7 @@ _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exi
 
 75:                                               ; preds = %67
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %77 = load i16, ptr %76, align 8, !tbaa !66
+  %77 = load i16, ptr %76, align 8, !tbaa !67
   %78 = icmp slt i16 %77, 0
   %79 = ashr i16 %77, 5
   %80 = sext i16 %79 to i32
@@ -3627,7 +3627,7 @@ _ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeStringEijR10UErrorCode.exi
           to label %_ZN6icu_7713UnicodeString5setToERKS0_.exit unwind label %73
 
 _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %87
-  store i32 %.177, ptr %5, align 4, !tbaa !86
+  store i32 %.177, ptr %5, align 4, !tbaa !87
   br label %.thread143
 
 .thread143:                                       ; preds = %_ZN6icu_7713UnicodeString5setToERKS0_.exit, %67
@@ -3768,7 +3768,7 @@ _ZNK6icu_7728TimeZoneGenericNameMatchInfo13getTimeZoneIDEiRNS_13UnicodeStringE.e
   %133 = add nuw nsw i32 %.067165, 1
   %134 = load ptr, ptr %92, align 8, !tbaa !15
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %.critedge, label %_ZNK6icu_7728TimeZoneGenericNameMatchInfo4sizeEv.exit, !llvm.loop !88
+  br i1 %135, label %.critedge, label %_ZNK6icu_7728TimeZoneGenericNameMatchInfo4sizeEv.exit, !llvm.loop !89
 
 .critedge:                                        ; preds = %_ZNK6icu_7728TimeZoneGenericNameMatchInfo4sizeEv.exit, %132, %.preheader
   %.8.lcssa = phi i32 [ %.076, %.preheader ], [ %.9, %132 ], [ %.8163, %_ZNK6icu_7728TimeZoneGenericNameMatchInfo4sizeEv.exit ]
@@ -3784,7 +3784,7 @@ _ZNK6icu_7728TimeZoneGenericNameMatchInfo13getTimeZoneIDEiRNS_13UnicodeStringE.e
   br i1 %137, label %138, label %_ZN6icu_7713UnicodeString5setToERKS0_.exit133
 
 138:                                              ; preds = %136
-  store i32 %.783, ptr %5, align 4, !tbaa !86
+  store i32 %.783, ptr %5, align 4, !tbaa !87
   %139 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %9, i8 noundef signext 0)
           to label %_ZN6icu_7713UnicodeString5setToERKS0_.exit133 unwind label %96
 
@@ -3819,7 +3819,7 @@ define noundef ptr @_ZNK6icu_778TZGNCore17findTimeZoneNamesERKNS_13UnicodeString
   %9 = or disjoint i32 %spec.select, 24
   %.1 = select i1 %.not11, i32 %spec.select, i32 %9
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %11 = load ptr, ptr %10, align 8, !tbaa !67
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = load ptr, ptr %11, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
@@ -3880,7 +3880,7 @@ define noundef ptr @_ZNK6icu_778TZGNCore9findLocalERKNS_13UnicodeStringEijR10UEr
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load i16, ptr %21, align 8, !tbaa !66
+  %22 = load i16, ptr %21, align 8, !tbaa !67
   %23 = icmp slt i16 %22, 0
   %24 = ashr i16 %22, 5
   %25 = sext i16 %24 to i32
@@ -3928,7 +3928,7 @@ define noundef ptr @_ZNK6icu_778TZGNCore9findLocalERKNS_13UnicodeStringEijR10UEr
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %48 = load i8, ptr %47, align 8, !tbaa !64
+  %48 = load i8, ptr %47, align 8, !tbaa !65
   %.not59 = icmp eq i8 %48, 0
   br i1 %.not59, label %49, label %.thread
 
@@ -3967,7 +3967,7 @@ define noundef ptr @_ZNK6icu_778TZGNCore9findLocalERKNS_13UnicodeStringEijR10UEr
 
 65:                                               ; preds = %58
   invoke void @_ZN6icu_778TZGNCore11loadStringsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(64) %57)
-          to label %.preheader unwind label %63, !llvm.loop !89
+          to label %.preheader unwind label %63, !llvm.loop !90
 
 66:                                               ; preds = %51
   %67 = icmp eq ptr %50, null
@@ -3983,7 +3983,7 @@ define noundef ptr @_ZNK6icu_778TZGNCore9findLocalERKNS_13UnicodeStringEijR10UEr
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %.loopexit
-  store i8 1, ptr %47, align 8, !tbaa !64
+  store i8 1, ptr %47, align 8, !tbaa !65
   br label %.thread
 
 .thread:                                          ; preds = %66, %.loopexit, %72, %46
@@ -4062,7 +4062,7 @@ declare noundef ptr @_ZN6icu_778TimeZone27createTimeZoneIDEnumerationE19USystemT
 define void @_ZN6icu_7720TimeZoneGenericNamesC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7720TimeZoneGenericNamesE, i64 16), ptr %0, align 8, !tbaa !18
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %2, align 8, !tbaa !90
+  store ptr null, ptr %2, align 8, !tbaa !91
   ret void
 }
 
@@ -4074,11 +4074,11 @@ define void @_ZN6icu_7720TimeZoneGenericNamesD2Ev(ptr noundef nonnull align 8 ca
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !93
+  %6 = load i32, ptr %5, align 8, !tbaa !94
   %7 = add nsw i32 %6, -1
-  store i32 %7, ptr %5, align 8, !tbaa !93
+  store i32 %7, ptr %5, align 8, !tbaa !94
   invoke void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L9gTZGNLockE)
           to label %8 unwind label %9
 
@@ -4136,7 +4136,7 @@ define noundef ptr @_ZN6icu_7720TimeZoneGenericNames14createInstanceERKNS_6Local
           to label %16 unwind label %25
 
 16:                                               ; preds = %14
-  store ptr %15, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  store ptr %15, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %17 = load i32, ptr %1, align 4, !tbaa !13
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.thread, label %19
@@ -4146,7 +4146,7 @@ define noundef ptr @_ZN6icu_7720TimeZoneGenericNames14createInstanceERKNS_6Local
           to label %21 unwind label %25
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  %22 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %23 = invoke ptr @uhash_setValueDeleter_77(ptr noundef %22, ptr noundef nonnull @_ZN6icu_77L17deleteTZGNCoreRefEPv)
           to label %24 unwind label %25
 
@@ -4174,8 +4174,8 @@ define noundef ptr @_ZN6icu_7720TimeZoneGenericNames14createInstanceERKNS_6Local
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = load ptr, ptr %33, align 8, !tbaa !68
-  %35 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  %34 = load ptr, ptr %33, align 8, !tbaa !69
+  %35 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %36 = invoke ptr @uhash_get_77(ptr noundef %35, ptr noundef %34)
           to label %37 unwind label %.loopexit.split-lp
 
@@ -4243,16 +4243,16 @@ define noundef ptr @_ZN6icu_7720TimeZoneGenericNames14createInstanceERKNS_6Local
   br i1 %61, label %.thread106.sink.split, label %62
 
 62:                                               ; preds = %60
-  store ptr %40, ptr %59, align 8, !tbaa !98
+  store ptr %40, ptr %59, align 8, !tbaa !99
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 1, ptr %63, align 8, !tbaa !93
+  store i32 1, ptr %63, align 8, !tbaa !94
   %64 = invoke double @uprv_getUTCtime_77()
           to label %65 unwind label %53
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store double %64, ptr %66, align 8, !tbaa !99
-  %67 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  store double %64, ptr %66, align 8, !tbaa !100
+  %67 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %68 = invoke ptr @uhash_put_77(ptr noundef %67, ptr noundef nonnull %50, ptr noundef nonnull %59, ptr noundef nonnull %1)
           to label %69 unwind label %53
 
@@ -4294,15 +4294,15 @@ define noundef ptr @_ZN6icu_7720TimeZoneGenericNames14createInstanceERKNS_6Local
 
 77:                                               ; preds = %37
   %78 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %79 = load i32, ptr %78, align 8, !tbaa !93
+  %79 = load i32, ptr %78, align 8, !tbaa !94
   %80 = add nsw i32 %79, 1
-  store i32 %80, ptr %78, align 8, !tbaa !93
+  store i32 %80, ptr %78, align 8, !tbaa !94
   %81 = invoke double @uprv_getUTCtime_77()
           to label %82 unwind label %.loopexit.split-lp
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store double %81, ptr %83, align 8, !tbaa !99
+  store double %81, ptr %83, align 8, !tbaa !100
   br label %84
 
 84:                                               ; preds = %.thread123, %69, %76, %75, %82
@@ -4320,7 +4320,7 @@ define noundef ptr @_ZN6icu_7720TimeZoneGenericNames14createInstanceERKNS_6Local
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %88
-  %90 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  %90 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %91 = invoke ptr @uhash_nextElement_77(ptr noundef %90, ptr noundef nonnull %3)
           to label %.noexc86 unwind label %.loopexit.split-lp
 
@@ -4331,32 +4331,32 @@ define noundef ptr @_ZN6icu_7720TimeZoneGenericNames14createInstanceERKNS_6Local
 .lr.ph.i:                                         ; preds = %.noexc86, %.noexc88
   %92 = phi ptr [ %107, %.noexc88 ], [ %91, %.noexc86 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !66
+  %94 = load ptr, ptr %93, align 8, !tbaa !67
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load i32, ptr %95, align 8, !tbaa !93
+  %96 = load i32, ptr %95, align 8, !tbaa !94
   %97 = icmp slt i32 %96, 1
   br i1 %97, label %98, label %.noexc87
 
 98:                                               ; preds = %.lr.ph.i
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %100 = load double, ptr %99, align 8, !tbaa !99
+  %100 = load double, ptr %99, align 8, !tbaa !100
   %101 = fsub double %89, %100
   %102 = fcmp ogt double %101, 1.800000e+05
   br i1 %102, label %103, label %.noexc87
 
 103:                                              ; preds = %98
-  %104 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  %104 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %105 = invoke ptr @uhash_removeElement_77(ptr noundef %104, ptr noundef nonnull %92)
           to label %.noexc87 unwind label %.loopexit
 
 .noexc87:                                         ; preds = %103, %98, %.lr.ph.i
-  %106 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  %106 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %107 = invoke ptr @uhash_nextElement_77(ptr noundef %106, ptr noundef nonnull %3)
           to label %.noexc88 unwind label %.loopexit
 
 .noexc88:                                         ; preds = %.noexc87
   %.not.i = icmp eq ptr %107, null
-  br i1 %.not.i, label %.loopexit92, label %.lr.ph.i, !llvm.loop !100
+  br i1 %.not.i, label %.loopexit92, label %.lr.ph.i, !llvm.loop !101
 
 .loopexit92:                                      ; preds = %.noexc88, %.noexc86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
@@ -4404,7 +4404,7 @@ _ZN6icu_775MutexD2Ev.exit:                        ; preds = %108
 
 123:                                              ; preds = %113
   %124 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %.051, ptr %124, align 8, !tbaa !90
+  store ptr %.051, ptr %124, align 8, !tbaa !91
   br label %125
 
 _ZN6icu_775MutexD2Ev.exit89:                      ; preds = %119, %11
@@ -4424,7 +4424,7 @@ declare ptr @uhash_setValueDeleter_77(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6icu_77L17deleteTZGNCoreRefEPv(ptr noundef %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !98
+  %2 = load ptr, ptr %0, align 8, !tbaa !99
   %3 = icmp eq ptr %2, null
   br i1 %3, label %8, label %4
 
@@ -4444,13 +4444,13 @@ declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef signext i8 @_ZN6icu_77L16tzgnCore_cleanupEv() #1 {
-  %1 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  %1 = load ptr, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %0
   tail call void @uhash_close_77(ptr noundef nonnull %1)
-  store ptr null, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !97
+  store ptr null, ptr @_ZN6icu_77L14gTZGNCoreCacheE, align 8, !tbaa !98
   br label %3
 
 3:                                                ; preds = %2, %0
@@ -4466,9 +4466,9 @@ declare double @uprv_getUTCtime_77() local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_7720TimeZoneGenericNameseqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !90
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !90
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %7 = icmp eq ptr %4, %6
   ret i1 %7
 }
@@ -4486,13 +4486,13 @@ define noundef ptr @_ZNK6icu_7720TimeZoneGenericNames5cloneEv(ptr noundef nonnul
 5:                                                ; preds = %4
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZN6icu_77L9gTZGNLockE)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !93
+  %9 = load i32, ptr %8, align 8, !tbaa !94
   %10 = add nsw i32 %9, 1
-  store i32 %10, ptr %8, align 8, !tbaa !93
+  store i32 %10, ptr %8, align 8, !tbaa !94
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %7, ptr %11, align 8, !tbaa !90
+  store ptr %7, ptr %11, align 8, !tbaa !91
   tail call void @umtx_unlock_77(ptr noundef nonnull @_ZN6icu_77L9gTZGNLockE)
   br label %.thread
 
@@ -4509,8 +4509,8 @@ define noundef ptr @_ZNK6icu_7720TimeZoneGenericNames5cloneEv(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7720TimeZoneGenericNames14getDisplayNameERKNS_8TimeZoneE24UTimeZoneGenericNameTypedRNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull returned align 8 dereferenceable(64) %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
-  %8 = load ptr, ptr %7, align 8, !tbaa !98
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
+  %8 = load ptr, ptr %7, align 8, !tbaa !99
   %9 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore14getDisplayNameERKNS_8TimeZoneE24UTimeZoneGenericNameTypedRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(552) %8, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4)
   ret ptr %4
 }
@@ -4518,8 +4518,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7720TimeZoneGen
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7720TimeZoneGenericNames22getGenericLocationNameERKNS_13UnicodeStringERS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull returned align 8 dereferenceable(64) %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !90
-  %6 = load ptr, ptr %5, align 8, !tbaa !98
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
+  %6 = load ptr, ptr %5, align 8, !tbaa !99
   %7 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_778TZGNCore22getGenericLocationNameERKNS_13UnicodeStringERS1_(ptr noundef nonnull align 8 dereferenceable(552) %6, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %2)
   ret ptr %2
 }
@@ -4527,8 +4527,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7720TimeZoneGen
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7720TimeZoneGenericNames13findBestMatchERKNS_13UnicodeStringEijRS1_R23UTimeZoneFormatTimeTypeR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %5, ptr noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #1 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !90
-  %10 = load ptr, ptr %9, align 8, !tbaa !98
+  %9 = load ptr, ptr %8, align 8, !tbaa !91
+  %10 = load ptr, ptr %9, align 8, !tbaa !99
   %11 = tail call noundef i32 @_ZNK6icu_778TZGNCore13findBestMatchERKNS_13UnicodeStringEijRS1_R23UTimeZoneFormatTimeTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(552) %10, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
   ret i32 %11
 }
@@ -4654,56 +4654,57 @@ attributes #23 = { nounwind willreturn memory(read) }
 !45 = !{!"short", !7, i64 0}
 !46 = !{!43, !7, i64 14}
 !47 = !{!25, !27, i64 12}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!51, !58, i64 400}
-!51 = !{!"_ZTSN6icu_778TZGNCoreE", !52, i64 8, !53, i64 232, !54, i64 240, !54, i64 248, !55, i64 256, !55, i64 328, !58, i64 400, !59, i64 408, !61, i64 424, !7, i64 480, !63, i64 488}
-!52 = !{!"_ZTSN6icu_776LocaleE", !22, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
-!53 = !{!"p1 _ZTSN6icu_7713TimeZoneNamesE", !6, i64 0}
-!54 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
-!55 = !{!"_ZTSN6icu_7715SimpleFormatterE", !56, i64 8}
-!56 = !{!"_ZTSN6icu_7713UnicodeStringE", !57, i64 0, !7, i64 8}
-!57 = !{!"_ZTSN6icu_7711ReplaceableE", !22, i64 0}
-!58 = !{!"p1 _ZTSN6icu_7718LocaleDisplayNamesE", !6, i64 0}
-!59 = !{!"_ZTSN6icu_7712ZNStringPoolE", !60, i64 0, !54, i64 8}
-!60 = !{!"p1 _ZTSN6icu_7717ZNStringPoolChunkE", !6, i64 0}
-!61 = !{!"_ZTSN6icu_7711TextTrieMapE", !7, i64 8, !62, i64 16, !9, i64 24, !9, i64 28, !17, i64 32, !7, i64 40, !6, i64 48}
-!62 = !{!"p1 _ZTSN6icu_7713CharacterNodeE", !6, i64 0}
-!63 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
-!64 = !{!51, !7, i64 480}
-!65 = !{!63, !9, i64 56}
-!66 = !{!7, !7, i64 0}
-!67 = !{!51, !53, i64 232}
-!68 = !{!52, !5, i64 40}
-!69 = !{!51, !54, i64 240}
-!70 = !{!51, !54, i64 248}
-!71 = !{!31, !31, i64 0}
-!72 = !{!44, !44, i64 0}
-!73 = distinct !{!73, !49}
-!74 = !{!75, !31, i64 8}
-!75 = !{!"_ZTSN6icu_7718PartialLocationKeyE", !31, i64 0, !31, i64 8, !7, i64 16}
-!76 = !{!75, !7, i64 16}
-!77 = !{!75, !31, i64 0}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"_ZTS17UTimeZoneNameType", !7, i64 0}
-!80 = distinct !{!80, !49}
-!81 = distinct !{!81, !49}
-!82 = !{!83, !31, i64 0}
-!83 = !{!"_ZTSN6icu_779Char16PtrE", !31, i64 0}
-!84 = !{i64 2150218852}
-!85 = !{!6, !6, i64 0}
-!86 = !{!27, !27, i64 0}
-!87 = distinct !{!87, !49}
-!88 = distinct !{!88, !49}
-!89 = distinct !{!89, !49}
-!90 = !{!91, !92, i64 8}
-!91 = !{!"_ZTSN6icu_7720TimeZoneGenericNamesE", !92, i64 8}
-!92 = !{!"p1 _ZTSN6icu_7711TZGNCoreRefE", !6, i64 0}
-!93 = !{!94, !9, i64 8}
-!94 = !{!"_ZTSN6icu_7711TZGNCoreRefE", !95, i64 0, !9, i64 8, !96, i64 16}
-!95 = !{!"p1 _ZTSN6icu_778TZGNCoreE", !6, i64 0}
-!96 = !{!"double", !7, i64 0}
-!97 = !{!54, !54, i64 0}
-!98 = !{!94, !95, i64 0}
-!99 = !{!94, !96, i64 16}
-!100 = distinct !{!100, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!52, !59, i64 400}
+!52 = !{!"_ZTSN6icu_778TZGNCoreE", !53, i64 8, !54, i64 232, !55, i64 240, !55, i64 248, !56, i64 256, !56, i64 328, !59, i64 400, !60, i64 408, !62, i64 424, !7, i64 480, !64, i64 488}
+!53 = !{!"_ZTSN6icu_776LocaleE", !22, i64 0, !7, i64 8, !7, i64 20, !7, i64 26, !9, i64 32, !5, i64 40, !7, i64 48, !5, i64 208, !7, i64 216}
+!54 = !{!"p1 _ZTSN6icu_7713TimeZoneNamesE", !6, i64 0}
+!55 = !{!"p1 _ZTS10UHashtable", !6, i64 0}
+!56 = !{!"_ZTSN6icu_7715SimpleFormatterE", !57, i64 8}
+!57 = !{!"_ZTSN6icu_7713UnicodeStringE", !58, i64 0, !7, i64 8}
+!58 = !{!"_ZTSN6icu_7711ReplaceableE", !22, i64 0}
+!59 = !{!"p1 _ZTSN6icu_7718LocaleDisplayNamesE", !6, i64 0}
+!60 = !{!"_ZTSN6icu_7712ZNStringPoolE", !61, i64 0, !55, i64 8}
+!61 = !{!"p1 _ZTSN6icu_7717ZNStringPoolChunkE", !6, i64 0}
+!62 = !{!"_ZTSN6icu_7711TextTrieMapE", !7, i64 8, !63, i64 16, !9, i64 24, !9, i64 28, !17, i64 32, !7, i64 40, !6, i64 48}
+!63 = !{!"p1 _ZTSN6icu_7713CharacterNodeE", !6, i64 0}
+!64 = !{!"_ZTSN6icu_7710CharStringE", !4, i64 0, !9, i64 56}
+!65 = !{!52, !7, i64 480}
+!66 = !{!64, !9, i64 56}
+!67 = !{!7, !7, i64 0}
+!68 = !{!52, !54, i64 232}
+!69 = !{!53, !5, i64 40}
+!70 = !{!52, !55, i64 240}
+!71 = !{!52, !55, i64 248}
+!72 = !{!31, !31, i64 0}
+!73 = !{!44, !44, i64 0}
+!74 = distinct !{!74, !49, !50}
+!75 = !{!76, !31, i64 8}
+!76 = !{!"_ZTSN6icu_7718PartialLocationKeyE", !31, i64 0, !31, i64 8, !7, i64 16}
+!77 = !{!76, !7, i64 16}
+!78 = !{!76, !31, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"_ZTS17UTimeZoneNameType", !7, i64 0}
+!81 = distinct !{!81, !49, !50}
+!82 = distinct !{!82, !49, !50}
+!83 = !{!84, !31, i64 0}
+!84 = !{!"_ZTSN6icu_779Char16PtrE", !31, i64 0}
+!85 = !{i64 2150218852}
+!86 = !{!6, !6, i64 0}
+!87 = !{!27, !27, i64 0}
+!88 = distinct !{!88, !49, !50}
+!89 = distinct !{!89, !49, !50}
+!90 = distinct !{!90, !49, !50}
+!91 = !{!92, !93, i64 8}
+!92 = !{!"_ZTSN6icu_7720TimeZoneGenericNamesE", !93, i64 8}
+!93 = !{!"p1 _ZTSN6icu_7711TZGNCoreRefE", !6, i64 0}
+!94 = !{!95, !9, i64 8}
+!95 = !{!"_ZTSN6icu_7711TZGNCoreRefE", !96, i64 0, !9, i64 8, !97, i64 16}
+!96 = !{!"p1 _ZTSN6icu_778TZGNCoreE", !6, i64 0}
+!97 = !{!"double", !7, i64 0}
+!98 = !{!55, !55, i64 0}
+!99 = !{!95, !96, i64 0}
+!100 = !{!95, !97, i64 16}
+!101 = distinct !{!101, !49, !50}

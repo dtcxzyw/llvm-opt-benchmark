@@ -562,7 +562,7 @@ _ZNSt10unique_ptrIN4llvm3pdb21PDBSymbolCompilandEnvESt14default_deleteIS2_EED2Ev
   call void %157(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.10") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %42) #13
   %158 = load ptr, ptr %9, align 8, !tbaa !38
   %.not282 = icmp eq ptr %158, null
-  br i1 %.not282, label %_ZNSt10unique_ptrIN4llvm3pdb21PDBSymbolCompilandEnvESt14default_deleteIS2_EED2Ev.exit.thread, label %61, !llvm.loop !43
+  br i1 %.not282, label %_ZNSt10unique_ptrIN4llvm3pdb21PDBSymbolCompilandEnvESt14default_deleteIS2_EED2Ev.exit.thread, label %61, !llvm.loop !50
 
 159:                                              ; preds = %_ZNSt10unique_ptrIN4llvm3pdb21PDBSymbolCompilandEnvESt14default_deleteIS2_EED2Ev.exit.thread
   %160 = load ptr, ptr %8, align 8, !tbaa !6
@@ -619,7 +619,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
 180:                                              ; preds = %179, %.lr.ph.i
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i, i64 1
   %.not.i50 = icmp eq ptr %181, %176
-  br i1 %.not.i50, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i, !llvm.loop !50
+  br i1 %.not.i50, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i, !llvm.loop !52
 
 _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit: ; preds = %180, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #13
@@ -759,14 +759,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
 226:                                              ; preds = %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_21PDBSymbolCompilandEnvEEESt14default_deleteIS4_EED2Ev.exit.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #13
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %228 = load ptr, ptr %227, align 8, !tbaa !51
+  %228 = load ptr, ptr %227, align 8, !tbaa !53
   %229 = load ptr, ptr %7, align 8, !tbaa !6
   %230 = load i64, ptr %31, align 8, !tbaa !13
   %231 = load ptr, ptr %228, align 8, !tbaa !3
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 128
   %233 = load ptr, ptr %232, align 8
   call void %233(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.26") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %228, ptr noundef nonnull %1, ptr %229, i64 %230, i32 noundef 2) #13
-  %234 = load ptr, ptr %18, align 8, !tbaa !52
+  %234 = load ptr, ptr %18, align 8, !tbaa !54
   %.not283 = icmp eq ptr %234, null
   br i1 %.not283, label %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit68, label %235
 
@@ -775,7 +775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %21
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %238 = load ptr, ptr %237, align 8
   call void %238(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %234) #13
-  %239 = load ptr, ptr %18, align 8, !tbaa !52
+  %239 = load ptr, ptr %18, align 8, !tbaa !54
   %.not.i65 = icmp eq ptr %239, null
   br i1 %.not.i65, label %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb14IPDBSourceFileEEclEPS2_.exit.i
 
@@ -795,31 +795,31 @@ _ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit68
   br label %243
 
 243:                                              ; preds = %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit68, %_ZNSt10unique_ptrIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_21PDBSymbolCompilandEnvEEESt14default_deleteIS4_EED2Ev.exit
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13, !noalias !54
-  %244 = load ptr, ptr %26, align 8, !tbaa !20, !noalias !54
-  %245 = load ptr, ptr %244, align 8, !tbaa !3, !noalias !54
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13, !noalias !56
+  %244 = load ptr, ptr %26, align 8, !tbaa !20, !noalias !56
+  %245 = load ptr, ptr %244, align 8, !tbaa !3, !noalias !56
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %247 = load ptr, ptr %246, align 8, !noalias !54
-  call void %247(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %244, i32 noundef 3) #13, !noalias !54
-  %248 = load ptr, ptr %4, align 8, !noalias !54
+  %247 = load ptr, ptr %246, align 8, !noalias !56
+  call void %247(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %244, i32 noundef 3) #13, !noalias !56
+  %248 = load ptr, ptr %4, align 8, !noalias !56
   %.not.i.i = icmp eq ptr %248, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13, !noalias !54
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13, !noalias !56
   br i1 %.not.i.i, label %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit.thread, label %_ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_25PDBSymbolCompilandDetailsEEEEclEPS4_.exit.i.i
 
 _ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_25PDBSymbolCompilandDetailsEEEEclEPS4_.exit.i.i: ; preds = %243
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13, !noalias !59
-  %249 = load ptr, ptr %248, align 8, !tbaa !3, !noalias !59
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13, !noalias !61
+  %249 = load ptr, ptr %248, align 8, !tbaa !3, !noalias !61
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
-  %251 = load ptr, ptr %250, align 8, !noalias !59
-  call void %251(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.53") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %248) #13, !noalias !59
-  %252 = load ptr, ptr %3, align 8, !tbaa !62, !noalias !59
+  %251 = load ptr, ptr %250, align 8, !noalias !61
+  call void %251(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.53") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %248) #13, !noalias !61
+  %252 = load ptr, ptr %3, align 8, !tbaa !64, !noalias !61
   %.not.i.i.i.i = icmp eq ptr %252, null
   br i1 %.not.i.i.i.i, label %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit, label %253
 
 253:                                              ; preds = %_ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_25PDBSymbolCompilandDetailsEEEEclEPS4_.exit.i.i
-  %254 = call noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(32) %252) #13, !noalias !64
+  %254 = call noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(32) %252) #13, !noalias !66
   %255 = icmp eq i32 %254, 3
-  %256 = load ptr, ptr %3, align 8, !tbaa !62, !noalias !59
+  %256 = load ptr, ptr %3, align 8, !tbaa !64, !noalias !61
   br i1 %255, label %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit, label %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i
 
 _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i: ; preds = %253
@@ -827,19 +827,19 @@ _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSym
   br i1 %.not.i.i.i, label %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit, label %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i.i: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i
-  %257 = load ptr, ptr %256, align 8, !tbaa !3, !noalias !59
+  %257 = load ptr, ptr %256, align 8, !tbaa !3, !noalias !61
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
-  %259 = load ptr, ptr %258, align 8, !noalias !59
-  call void %259(ptr noundef nonnull align 8 dereferenceable(32) %256) #13, !noalias !59
+  %259 = load ptr, ptr %258, align 8, !noalias !61
+  call void %259(ptr noundef nonnull align 8 dereferenceable(32) %256) #13, !noalias !61
   br label %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit
 
 _ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit: ; preds = %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i, %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i.i, %253, %_ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_25PDBSymbolCompilandDetailsEEEEclEPS4_.exit.i.i
   %.sroa.0226.0 = phi ptr [ null, %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.i.i ], [ null, %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i.i.i ], [ null, %_ZNKSt14default_deleteIN4llvm3pdb24ConcreteSymbolEnumeratorINS1_25PDBSymbolCompilandDetailsEEEEclEPS4_.exit.i.i ], [ %256, %253 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13, !noalias !59
-  %260 = load ptr, ptr %248, align 8, !tbaa !3, !noalias !71
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13, !noalias !61
+  %260 = load ptr, ptr %248, align 8, !tbaa !3, !noalias !73
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
-  %262 = load ptr, ptr %261, align 8, !noalias !71
-  call void %262(ptr noundef nonnull align 8 dereferenceable(8) %248) #13, !noalias !71
+  %262 = load ptr, ptr %261, align 8, !noalias !73
+  call void %262(ptr noundef nonnull align 8 dereferenceable(8) %248) #13, !noalias !73
   %.not284 = icmp eq ptr %.sroa.0226.0, null
   br i1 %.not284, label %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit.thread, label %263
 
@@ -858,12 +858,12 @@ _ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10uniq
   %271 = phi i32 [ %270, %263 ], [ 1, %_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv.exit ], [ 1, %243 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #13
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %273 = load ptr, ptr %272, align 8, !tbaa !51
+  %273 = load ptr, ptr %272, align 8, !tbaa !53
   %274 = load ptr, ptr %273, align 8, !tbaa !3
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 160
   %276 = load ptr, ptr %275, align 8
   call void %276(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.42") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %273, ptr noundef nonnull align 8 dereferenceable(32) %1) #13
-  %277 = load ptr, ptr %19, align 8, !tbaa !72
+  %277 = load ptr, ptr %19, align 8, !tbaa !74
   %.not285 = icmp eq ptr %277, null
   br i1 %.not285, label %340, label %.preheader
 
@@ -899,12 +899,12 @@ _ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10uniq
 290:                                              ; preds = %.preheader, %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit159
   %.sroa.22.0 = phi i16 [ %.sroa.22.10, %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit159 ], [ undef, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #13
-  %291 = load ptr, ptr %19, align 8, !tbaa !72
+  %291 = load ptr, ptr %19, align 8, !tbaa !74
   %292 = load ptr, ptr %291, align 8, !tbaa !3
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 32
   %294 = load ptr, ptr %293, align 8
   call void %294(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.26") align 8 %20, ptr noundef nonnull align 8 dereferenceable(8) %291) #13
-  %295 = load ptr, ptr %20, align 8, !tbaa !52
+  %295 = load ptr, ptr %20, align 8, !tbaa !54
   %.not286 = icmp eq ptr %295, null
   br i1 %.not286, label %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit159.thread, label %296
 
@@ -1044,7 +1044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153: ; preds = %_Z
   br i1 %.0.i.not, label %324, label %329
 
 324:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit153
-  %325 = load ptr, ptr %20, align 8, !tbaa !52
+  %325 = load ptr, ptr %20, align 8, !tbaa !54
   %326 = load ptr, ptr %325, align 8, !tbaa !3
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 16
   %328 = load ptr, ptr %327, align 8
@@ -1071,7 +1071,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 336:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i154, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i155
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #13
-  %.pr255 = load ptr, ptr %20, align 8, !tbaa !52
+  %.pr255 = load ptr, ptr %20, align 8, !tbaa !54
   %.not.i157 = icmp eq ptr %.pr255, null
   br i1 %.not.i157, label %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit159, label %_ZNKSt14default_deleteIN4llvm3pdb14IPDBSourceFileEEclEPS2_.exit.i158
 
@@ -1118,7 +1118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit161: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit161
-  %351 = load ptr, ptr %19, align 8, !tbaa !72
+  %351 = load ptr, ptr %19, align 8, !tbaa !74
   %.not.i162 = icmp eq ptr %351, null
   br i1 %.not.i162, label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBSourceFileEEESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBSourceFileEEEEclEPS4_.exit.i
 
@@ -1399,24 +1399,24 @@ define linkonce_odr hidden void @_ZNK4llvm3pdb24ConcreteSymbolEnumeratorINS0_21P
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.53") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %2) #13
-  call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %10 = load ptr, ptr %4, align 8, !tbaa !62
+  call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  %10 = load ptr, ptr %4, align 8, !tbaa !64
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit.thread, label %11
 
 11:                                               ; preds = %3
-  %12 = call noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13, !noalias !77
+  %12 = call noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #13, !noalias !79
   %13 = icmp eq i32 %12, 4
-  %14 = load ptr, ptr %4, align 8, !tbaa !62
+  %14 = load ptr, ptr %4, align 8, !tbaa !64
   br i1 %13, label %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit.thread, label %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit
 
 _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit.thread: ; preds = %11, %3
   %storemerge.i.ph = phi ptr [ null, %3 ], [ %14, %11 ]
-  store ptr %storemerge.i.ph, ptr %0, align 8, !tbaa !38, !alias.scope !74
+  store ptr %storemerge.i.ph, ptr %0, align 8, !tbaa !38, !alias.scope !76
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
 
 _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_.exit: ; preds = %11
-  store ptr null, ptr %0, align 8, !tbaa !38, !alias.scope !74
+  store ptr null, ptr %0, align 8, !tbaa !38, !alias.scope !76
   %.not.i1 = icmp eq ptr %14, null
   br i1 %.not.i1, label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i
 
@@ -1442,25 +1442,25 @@ define linkonce_odr hidden void @_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_21PD
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.53") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %9 = load ptr, ptr %3, align 8, !tbaa !62
+  call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  call void @llvm.experimental.noalias.scope.decl(metadata !85)
+  %9 = load ptr, ptr %3, align 8, !tbaa !64
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.thread, label %10
 
 10:                                               ; preds = %2
-  %11 = call noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13, !noalias !86
+  %11 = call noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13, !noalias !88
   %12 = icmp eq i32 %11, 4
-  %13 = load ptr, ptr %3, align 8, !tbaa !62
+  %13 = load ptr, ptr %3, align 8, !tbaa !64
   br i1 %12, label %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.thread, label %_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit
 
 _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit.thread: ; preds = %10, %2
   %storemerge.i.i.ph = phi ptr [ null, %2 ], [ %13, %10 ]
-  store ptr %storemerge.i.i.ph, ptr %0, align 8, !tbaa !38, !alias.scope !89
+  store ptr %storemerge.i.i.ph, ptr %0, align 8, !tbaa !38, !alias.scope !91
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
 
 _ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE.exit: ; preds = %10
-  store ptr null, ptr %0, align 8, !tbaa !38, !alias.scope !89
+  store ptr null, ptr %0, align 8, !tbaa !38, !alias.scope !91
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i
 
@@ -1573,43 +1573,45 @@ attributes #16 = { noreturn nounwind }
 !47 = !{!"_ZTSN4llvm5TwineE", !11, i64 0, !11, i64 16, !48, i64 32, !48, i64 33}
 !48 = !{!"_ZTSN4llvm5Twine8NodeKindE", !11, i64 0}
 !49 = !{!47, !48, i64 33}
-!50 = distinct !{!50, !44}
-!51 = !{!21, !22, i64 8}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"p1 _ZTSN4llvm3pdb14IPDBSourceFileE", !10, i64 0}
-!54 = !{!55, !57}
-!55 = distinct !{!55, !56, !"_ZNK4llvm3pdb9PDBSymbol15findAllChildrenINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrINS0_24ConcreteSymbolEnumeratorIT_EESt14default_deleteIS7_EEv: argument 0"}
-!56 = distinct !{!56, !"_ZNK4llvm3pdb9PDBSymbol15findAllChildrenINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrINS0_24ConcreteSymbolEnumeratorIT_EESt14default_deleteIS7_EEv"}
-!57 = distinct !{!57, !58, !"_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv: argument 0"}
-!58 = distinct !{!58, !"_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv"}
-!59 = !{!60, !57}
-!60 = distinct !{!60, !61, !"_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_25PDBSymbolCompilandDetailsEE7getNextEv: argument 0"}
-!61 = distinct !{!61, !"_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_25PDBSymbolCompilandDetailsEE7getNextEv"}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTSN4llvm3pdb9PDBSymbolE", !10, i64 0}
-!64 = !{!65, !67, !69, !60, !57}
-!65 = distinct !{!65, !66, !"_ZN4llvm15unique_dyn_castINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
-!66 = distinct !{!66, !"_ZN4llvm15unique_dyn_castINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
-!67 = distinct !{!67, !68, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
-!68 = distinct !{!68, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
-!69 = distinct !{!69, !70, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE: argument 0"}
-!70 = distinct !{!70, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE"}
-!71 = !{!57}
-!72 = !{!73, !73, i64 0}
-!73 = !{!"p1 _ZTSN4llvm3pdb16IPDBEnumChildrenINS0_14IPDBSourceFileEEE", !10, i64 0}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
-!76 = distinct !{!76, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
-!77 = !{!78, !75}
-!78 = distinct !{!78, !79, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
-!79 = distinct !{!79, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE: argument 0"}
-!82 = distinct !{!82, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE"}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
-!85 = distinct !{!85, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
-!86 = !{!87, !84, !81}
-!87 = distinct !{!87, !88, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
-!88 = distinct !{!88, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
-!89 = !{!84, !81}
+!50 = distinct !{!50, !44, !51}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = distinct !{!52, !44, !51}
+!53 = !{!21, !22, i64 8}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"p1 _ZTSN4llvm3pdb14IPDBSourceFileE", !10, i64 0}
+!56 = !{!57, !59}
+!57 = distinct !{!57, !58, !"_ZNK4llvm3pdb9PDBSymbol15findAllChildrenINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrINS0_24ConcreteSymbolEnumeratorIT_EESt14default_deleteIS7_EEv: argument 0"}
+!58 = distinct !{!58, !"_ZNK4llvm3pdb9PDBSymbol15findAllChildrenINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrINS0_24ConcreteSymbolEnumeratorIT_EESt14default_deleteIS7_EEv"}
+!59 = distinct !{!59, !60, !"_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv: argument 0"}
+!60 = distinct !{!60, !"_ZNK4llvm3pdb9PDBSymbol12findOneChildINS0_25PDBSymbolCompilandDetailsEEESt10unique_ptrIT_St14default_deleteIS5_EEv"}
+!61 = !{!62, !59}
+!62 = distinct !{!62, !63, !"_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_25PDBSymbolCompilandDetailsEE7getNextEv: argument 0"}
+!63 = distinct !{!63, !"_ZN4llvm3pdb24ConcreteSymbolEnumeratorINS0_25PDBSymbolCompilandDetailsEE7getNextEv"}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"p1 _ZTSN4llvm3pdb9PDBSymbolE", !10, i64 0}
+!66 = !{!67, !69, !71, !62, !59}
+!67 = distinct !{!67, !68, !"_ZN4llvm15unique_dyn_castINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
+!68 = distinct !{!68, !"_ZN4llvm15unique_dyn_castINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
+!69 = distinct !{!69, !70, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
+!70 = distinct !{!70, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
+!71 = distinct !{!71, !72, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE: argument 0"}
+!72 = distinct !{!72, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb25PDBSymbolCompilandDetailsENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE"}
+!73 = !{!59}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"p1 _ZTSN4llvm3pdb16IPDBEnumChildrenINS0_14IPDBSourceFileEEE", !10, i64 0}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
+!78 = distinct !{!78, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
+!79 = !{!80, !77}
+!80 = distinct !{!80, !81, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
+!81 = distinct !{!81, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE: argument 0"}
+!84 = distinct !{!84, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEEDaOSt10unique_ptrIT0_St14default_deleteIS5_EE"}
+!85 = !{!86}
+!86 = distinct !{!86, !87, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
+!87 = distinct !{!87, !"_ZN4llvm23unique_dyn_cast_or_nullINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
+!88 = !{!89, !86, !83}
+!89 = distinct !{!89, !90, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_: argument 0"}
+!90 = distinct !{!90, !"_ZN4llvm15unique_dyn_castINS_3pdb21PDBSymbolCompilandEnvENS1_9PDBSymbolEEENS_8CastInfoIT_St10unique_ptrIT0_St14default_deleteIS7_EEvE14CastResultTypeERSA_"}
+!91 = !{!86, !83}

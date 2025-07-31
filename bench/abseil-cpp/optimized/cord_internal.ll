@@ -132,7 +132,7 @@ _ZN4absl13cord_internal16RefcountAndFlags9DecrementEv.exit: ; preds = %8
   br i1 %14, label %.critedge.backedge, label %.loopexit
 
 .critedge.backedge:                               ; preds = %_ZN4absl13cord_internal16RefcountAndFlags9DecrementEv.exit, %8
-  br label %.critedge
+  br label %.critedge, !llvm.loop !28
 
 15:                                               ; preds = %.critedge
   tail call void @_ZN4absl13cord_internal10CordRepCrc7DestroyEPS1_(ptr noundef nonnull %.012)
@@ -208,3 +208,5 @@ attributes #8 = { builtin nounwind }
 !25 = !{!26, !27, i64 24}
 !26 = !{!"_ZTSN4absl13cord_internal16CordRepSubstringE", !5, i64 0, !6, i64 16, !27, i64 24}
 !27 = !{!"p1 _ZTSN4absl13cord_internal7CordRepE", !16, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}

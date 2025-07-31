@@ -234,7 +234,7 @@ isJvmIdentifier.exit.thread51:                    ; preds = %.thread, %41, %7, %
   %.133 = phi ptr [ %9, %isJvmIdentifier.exit ], [ %.2, %53 ], [ %44, %isJvmIdentifier.exit46 ], [ %9, %7 ], [ %40, %.thread ], [ %44, %41 ]
   %.031 = phi i16 [ %8, %isJvmIdentifier.exit ], [ 47, %53 ], [ %43, %isJvmIdentifier.exit46 ], [ %8, %7 ], [ 128, %.thread ], [ %43, %41 ]
   %.not = icmp eq ptr %.133, %4
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %isJvmIdentifier.exit.thread51
   %57 = icmp eq i16 %.031, 0
@@ -317,7 +317,7 @@ next_utf2unicode.exit:                            ; preds = %19, %11, %8, %8, %8
   %.16 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.0511, %4 ], [ %.0511, %6 ]
   %.1 = phi i8 [ %.012, %next_utf2unicode.exit ], [ 1, %4 ], [ %.012, %6 ]
   %.not = icmp eq i32 %.16, 0
-  br i1 %.not, label %.critedge, label %2, !llvm.loop !9
+  br i1 %.not, label %.critedge, label %2, !llvm.loop !10
 
 .critedge:                                        ; preds = %2, %24
   %.05.lcssa = phi i1 [ true, %2 ], [ false, %24 ]
@@ -392,7 +392,7 @@ next_utf2unicode.exit:                            ; preds = %17, %9, %6, %6, %6,
   %.14 = phi ptr [ %21, %next_utf2unicode.exit ], [ %5, %4 ]
   %.1 = phi i32 [ %.2, %next_utf2unicode.exit ], [ %.07, %4 ]
   %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %.critedge, label %2, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %2, !llvm.loop !11
 
 .critedge:                                        ; preds = %2, %22
   ret void
@@ -416,8 +416,9 @@ attributes #5 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

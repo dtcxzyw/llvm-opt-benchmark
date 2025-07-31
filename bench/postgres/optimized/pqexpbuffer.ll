@@ -288,7 +288,7 @@ initPQExpBuffer.exit.i:                           ; preds = %14, %13
   call void @llvm.va_start.p0(ptr nonnull %3)
   %20 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br i1 %20, label %resetPQExpBuffer.exit, label %.preheader, !llvm.loop !5
+  br i1 %20, label %resetPQExpBuffer.exit, label %.preheader, !llvm.loop !6
 
 resetPQExpBuffer.exit:                            ; preds = %.preheader, %2, %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
@@ -317,7 +317,7 @@ define noundef zeroext i1 @appendPQExpBufferVA(ptr noundef captures(none) %0, pt
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %7
   %14 = tail call i32 @pg_vsnprintf(ptr noundef %13, i64 noundef %11, ptr noundef %1, ptr noundef %2) #17
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %19, !prof !6
+  br i1 %15, label %16, label %19, !prof !7
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
@@ -346,7 +346,7 @@ markPQExpBufferBroken.exit:                       ; preds = %16, %18
 
 25:                                               ; preds = %19
   %26 = icmp eq i32 %14, 2147483647
-  br i1 %26, label %27, label %30, !prof !6
+  br i1 %26, label %27, label %30, !prof !7
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %0, align 8
@@ -460,7 +460,7 @@ define void @appendPQExpBuffer(ptr noundef captures(address_is_null) %0, ptr nou
   call void @llvm.va_start.p0(ptr nonnull %3)
   %11 = call zeroext i1 @appendPQExpBufferVA(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %3)
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %2, %7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #17
@@ -698,8 +698,9 @@ attributes #20 = { nounwind willreturn memory(read) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = distinct !{!7, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = distinct !{!8, !4, !5}

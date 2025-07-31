@@ -105,7 +105,7 @@ for.body23:                                       ; preds = %for.end, %for.body2
   %6 = call noundef i64 @llvm.x86.rdtsc()
   %inc31 = add nuw nsw i32 %c.024, 1
   %exitcond25.not = icmp eq i32 %inc31, 8
-  br i1 %exitcond25.not, label %for.end32, label %for.body23, !llvm.loop !7
+  br i1 %exitcond25.not, label %for.end32, label %for.body23, !llvm.loop !8
 
 for.end32:                                        ; preds = %for.body23
   ret void
@@ -840,6 +840,7 @@ attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}

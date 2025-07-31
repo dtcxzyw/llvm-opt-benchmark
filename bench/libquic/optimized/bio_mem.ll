@@ -448,13 +448,13 @@ define internal i64 @mem_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i64
 
 32:                                               ; preds = %4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %34 = load i32, ptr %33, align 4, !tbaa !28
+  %34 = load i32, ptr %33, align 4, !tbaa !29
   %.not.i = icmp eq i32 %34, 0
   br i1 %.not.i, label %mem_free.exit, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i32, ptr %36, align 8, !tbaa !29
+  %37 = load i32, ptr %36, align 8, !tbaa !30
   %.not11.i = icmp eq i32 %37, 0
   %38 = icmp eq ptr %6, null
   %or.cond = select i1 %.not11.i, i1 true, i1 %38
@@ -478,7 +478,7 @@ define internal i64 @mem_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i64
 
 mem_free.exit:                                    ; preds = %32, %35, %45
   %46 = trunc i64 %2 to i32
-  store i32 %46, ptr %33, align 4, !tbaa !28
+  store i32 %46, ptr %33, align 4, !tbaa !29
   store ptr %3, ptr %5, align 8, !tbaa !6
   br label %59
 
@@ -492,14 +492,14 @@ mem_free.exit:                                    ; preds = %32, %35, %45
 
 49:                                               ; preds = %4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %51 = load i32, ptr %50, align 4, !tbaa !28
+  %51 = load i32, ptr %50, align 4, !tbaa !29
   %52 = sext i32 %51 to i64
   br label %59
 
 53:                                               ; preds = %4
   %54 = trunc i64 %2 to i32
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %54, ptr %55, align 4, !tbaa !28
+  store i32 %54, ptr %55, align 4, !tbaa !29
   br label %59
 
 56:                                               ; preds = %4
@@ -522,9 +522,9 @@ define internal range(i32 0, 2) i32 @mem_new(ptr noundef writeonly captures(none
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 1, ptr %5, align 4, !tbaa !28
+  store i32 1, ptr %5, align 4, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 1, ptr %6, align 8, !tbaa !29
+  store i32 1, ptr %6, align 8, !tbaa !30
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 -1, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -543,13 +543,13 @@ define internal range(i32 0, 2) i32 @mem_free(ptr noundef captures(address_is_nu
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %5 = load i32, ptr %4, align 4, !tbaa !28
+  %5 = load i32, ptr %4, align 4, !tbaa !29
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %20, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8, !tbaa !29
+  %8 = load i32, ptr %7, align 8, !tbaa !30
   %.not11 = icmp eq i32 %8, 0
   br i1 %.not11, label %20, label %9
 
@@ -642,7 +642,8 @@ attributes #9 = { nounwind }
 !23 = !{!12, !12, i64 0}
 !24 = !{!15, !15, i64 0}
 !25 = !{!10, !10, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!7, !13, i64 28}
-!29 = !{!7, !13, i64 24}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!7, !13, i64 28}
+!30 = !{!7, !13, i64 24}

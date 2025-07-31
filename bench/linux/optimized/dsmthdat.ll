@@ -57,7 +57,7 @@ define dso_local void @acpi_ds_method_data_init(ptr noundef writeonly captures(n
   store i16 8, ptr %26, align 2
   %27 = add nuw nsw i64 %18, 1
   %28 = icmp eq i64 %27, 8
-  br i1 %28, label %29, label %17, !llvm.loop !8
+  br i1 %28, label %29, label %17, !llvm.loop !9
 
 29:                                               ; preds = %17
   ret void
@@ -92,7 +92,7 @@ define dso_local void @acpi_ds_method_data_delete_all(ptr noundef %0) local_unna
 11:                                               ; preds = %10, %5
   %12 = add nuw nsw i64 %6, 1
   %13 = icmp eq i64 %12, 8
-  br i1 %13, label %3, label %5, !llvm.loop !9
+  br i1 %13, label %3, label %5, !llvm.loop !10
 
 14:                                               ; preds = %20, %3
   %15 = phi i64 [ 0, %3 ], [ %21, %20 ]
@@ -108,7 +108,7 @@ define dso_local void @acpi_ds_method_data_delete_all(ptr noundef %0) local_unna
 20:                                               ; preds = %19, %14
   %21 = add nuw nsw i64 %15, 1
   %22 = icmp eq i64 %21, 7
-  br i1 %22, label %23, label %14, !llvm.loop !10
+  br i1 %22, label %23, label %14, !llvm.loop !11
 
 23:                                               ; preds = %20
   ret void
@@ -143,7 +143,7 @@ define dso_local noundef i32 @acpi_ds_method_data_init_args(ptr noundef readonly
   store ptr %14, ptr %17, align 8
   %18 = add nuw nsw i64 %12, 1
   %19 = icmp eq i64 %18, %10
-  br i1 %19, label %.loopexit, label %11, !llvm.loop !11
+  br i1 %19, label %.loopexit, label %11, !llvm.loop !12
 
 .loopexit:                                        ; preds = %16, %11, %3
   ret i32 0
@@ -509,10 +509,11 @@ attributes #5 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}

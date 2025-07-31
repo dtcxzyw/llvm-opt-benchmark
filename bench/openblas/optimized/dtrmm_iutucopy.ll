@@ -866,7 +866,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %603 = add nsw i64 %.11892, 16
   %604 = add nsw i64 %.01907, -1
   %605 = icmp sgt i64 %.01907, 1
-  br i1 %605, label %.preheader2056, label %.loopexit2057, !llvm.loop !9
+  br i1 %605, label %.preheader2056, label %.loopexit2057, !llvm.loop !10
 
 .loopexit2057:                                    ; preds = %602, %122
   %.21914 = phi ptr [ %.11913, %122 ], [ %.41916, %602 ]
@@ -970,7 +970,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %659 = getelementptr inbounds nuw i8, ptr %.719192067, i64 128
   %660 = add nuw nsw i64 %.119012068, 1
   %exitcond2095.not = icmp eq i64 %660, %12
-  br i1 %exitcond2095.not, label %.thread2018, label %.preheader2055, !llvm.loop !10
+  br i1 %exitcond2095.not, label %.thread2018, label %.preheader2055, !llvm.loop !11
 
 661:                                              ; preds = %610
   store double 1.000000e+00, ptr %.21914, align 8, !tbaa !3
@@ -1485,7 +1485,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1004 = add nsw i64 %.11938, 16
   %1005 = add nsw i64 %.01906, -1
   %1006 = icmp sgt i64 %.01906, 1
-  br i1 %1006, label %55, label %.loopexit2059, !llvm.loop !11
+  br i1 %1006, label %55, label %.loopexit2059, !llvm.loop !12
 
 .loopexit2059:                                    ; preds = %.thread2018, %7
   %.01937 = phi i64 [ %5, %7 ], [ %1004, %.thread2018 ]
@@ -1598,7 +1598,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1073 = getelementptr inbounds nuw i8, ptr %.252070, i64 64
   %1074 = add nuw nsw i64 %.219022071, 1
   %exitcond2096.not = icmp eq i64 %1074, 8
-  br i1 %exitcond2096.not, label %1075, label %.preheader2051, !llvm.loop !12
+  br i1 %exitcond2096.not, label %1075, label %.preheader2051, !llvm.loop !13
 
 1075:                                             ; preds = %.preheader2051
   %1076 = getelementptr inbounds double, ptr %.71868, i64 %1035
@@ -1769,7 +1769,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1185 = add nsw i64 %.31894, 8
   %1186 = add nsw i64 %.11908, -1
   %1187 = icmp sgt i64 %.11908, 1
-  br i1 %1187, label %1036, label %.loopexit2053.loopexit, !llvm.loop !13
+  br i1 %1187, label %1036, label %.loopexit2053.loopexit, !llvm.loop !14
 
 .loopexit2053.loopexit:                           ; preds = %1184
   %1188 = and i64 %0, -8
@@ -1841,7 +1841,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1220 = getelementptr inbounds nuw i8, ptr %.272073, i64 64
   %1221 = add nuw nsw i64 %.319032074, 1
   %exitcond2097.not = icmp eq i64 %1221, %1190
-  br i1 %exitcond2097.not, label %.thread2032, label %.preheader2050, !llvm.loop !14
+  br i1 %exitcond2097.not, label %.thread2032, label %.preheader2050, !llvm.loop !15
 
 1222:                                             ; preds = %1195
   store double 1.000000e+00, ptr %.221934, align 8, !tbaa !3
@@ -2056,7 +2056,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1343 = getelementptr inbounds nuw i8, ptr %.372076, i64 32
   %1344 = add nuw nsw i64 %.419042077, 1
   %exitcond2098.not = icmp eq i64 %1344, 4
-  br i1 %exitcond2098.not, label %1345, label %.preheader2047, !llvm.loop !15
+  br i1 %exitcond2098.not, label %1345, label %.preheader2047, !llvm.loop !16
 
 1345:                                             ; preds = %.preheader2047
   %1346 = getelementptr inbounds double, ptr %.111872, i64 %1321
@@ -2115,7 +2115,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1377 = add nsw i64 %.51896, 4
   %1378 = add nsw i64 %.21909, -1
   %1379 = icmp sgt i64 %.21909, 1
-  br i1 %1379, label %1322, label %.loopexit2049.loopexit, !llvm.loop !16
+  br i1 %1379, label %1322, label %.loopexit2049.loopexit, !llvm.loop !17
 
 .loopexit2049.loopexit:                           ; preds = %1376
   %1380 = and i64 %0, -4
@@ -2167,7 +2167,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1400 = getelementptr inbounds nuw i8, ptr %.392079, i64 32
   %1401 = add nuw nsw i64 %.519052080, 1
   %exitcond2099.not = icmp eq i64 %1401, %1382
-  br i1 %exitcond2099.not, label %.thread2034, label %.preheader2046, !llvm.loop !17
+  br i1 %exitcond2099.not, label %.thread2034, label %.preheader2046, !llvm.loop !18
 
 1402:                                             ; preds = %1387
   store double 1.000000e+00, ptr %.34, align 8, !tbaa !3
@@ -2287,7 +2287,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1459 = add nsw i64 %.71898, 2
   %1460 = add nsw i64 %.31910, -1
   %1461 = icmp sgt i64 %.31910, 1
-  br i1 %1461, label %1432, label %.loopexit2045.loopexit, !llvm.loop !18
+  br i1 %1461, label %1432, label %.loopexit2045.loopexit, !llvm.loop !19
 
 .loopexit2045.loopexit:                           ; preds = %1458
   %1462 = and i64 %0, -2
@@ -2391,7 +2391,7 @@ define noundef i32 @dtrmm_iutucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %1504 = add nsw i64 %.81899, 1
   %1505 = add nsw i64 %.41911, -1
   %1506 = icmp sgt i64 %.41911, 1
-  br i1 %1506, label %.preheader, label %.loopexit, !llvm.loop !19
+  br i1 %1506, label %.preheader, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %1503, %1484
   ret i32 0
@@ -2419,16 +2419,17 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}

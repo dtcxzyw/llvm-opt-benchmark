@@ -191,51 +191,51 @@ define void @lv_freetype_set_cbs_image_font(ptr noundef captures(address_is_null
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !63
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !62
+  %3 = load i32, ptr %0, align 8, !tbaa !64
   %4 = icmp eq i32 %3, 1600079444
   br i1 %4, label %5, label %.preheader4
 
 .preheader4:                                      ; preds = %2, %.preheader4
-  br label %.preheader4
+  br label %.preheader4, !llvm.loop !65
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr @freetype_get_glyph_bitmap_cb, ptr %6, align 8, !tbaa !63
+  store ptr @freetype_get_glyph_bitmap_cb, ptr %6, align 8, !tbaa !66
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr @freetype_image_release_cb, ptr %7, align 8, !tbaa !64
+  store ptr @freetype_image_release_cb, ptr %7, align 8, !tbaa !67
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._lv_freetype_image_cache_data_t, align 8
-  %4 = load ptr, ptr %0, align 8, !tbaa !65
+  %4 = load ptr, ptr %0, align 8, !tbaa !68
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !67
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !71
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %6, align 8, !tbaa !62
+  %8 = load i32, ptr %6, align 8, !tbaa !64
   %9 = icmp eq i32 %8, 1600079444
   br i1 %9, label %10, label %.preheader13
 
 .preheader13:                                     ; preds = %7, %.preheader13
-  br label %.preheader13
+  br label %.preheader13, !llvm.loop !72
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load i32, ptr %11, align 8, !tbaa !68
+  %12 = load i32, ptr %11, align 8, !tbaa !73
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  %16 = load ptr, ptr %15, align 8, !tbaa !69
+  %16 = load ptr, ptr %15, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #5
   store i32 %12, ptr %3, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -246,7 +246,7 @@ define internal ptr @freetype_get_glyph_bitmap_cb(ptr noundef captures(none) %0,
   store ptr null, ptr %20, align 8, !tbaa !54
   %21 = call ptr @lv_cache_acquire_or_create(ptr noundef %16, ptr noundef nonnull %3, ptr noundef nonnull %6) #5
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %21, ptr %22, align 8, !tbaa !70
+  store ptr %21, ptr %22, align 8, !tbaa !75
   %23 = call ptr @lv_cache_entry_get_data(ptr noundef %21) #5
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !54
@@ -260,19 +260,19 @@ define internal void @freetype_image_release_cb(ptr noundef readonly captures(ad
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !76
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !67
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !69
+  %9 = load ptr, ptr %8, align 8, !tbaa !74
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !70
+  %11 = load ptr, ptr %10, align 8, !tbaa !75
   tail call void @lv_cache_release(ptr noundef %9, ptr noundef %11, ptr noundef null) #5
-  store ptr null, ptr %10, align 8, !tbaa !70
+  store ptr null, ptr %10, align 8, !tbaa !75
   ret void
 }
 
@@ -371,14 +371,20 @@ attributes #5 = { nounwind }
 !57 = !{!"", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 4, !5, i64 6, !5, i64 8, !5, i64 10}
 !58 = !{!"p1 _ZTS23_lv_draw_buf_handlers_t", !9, i64 0}
 !59 = !{!45, !20, i64 64}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!12, !5, i64 0}
-!63 = !{!12, !9, i64 16}
-!64 = !{!12, !9, i64 24}
-!65 = !{!66, !14, i64 0}
-!66 = !{!"", !14, i64 0, !30, i64 8, !30, i64 10, !30, i64 12, !30, i64 14, !30, i64 16, !5, i64 20, !6, i64 24, !6, i64 24, !6, i64 32, !17, i64 40}
-!67 = !{!13, !9, i64 40}
-!68 = !{!6, !6, i64 0}
-!69 = !{!19, !22, i64 48}
-!70 = !{!66, !17, i64 40}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = distinct !{!63, !62}
+!64 = !{!12, !5, i64 0}
+!65 = distinct !{!65, !62}
+!66 = !{!12, !9, i64 16}
+!67 = !{!12, !9, i64 24}
+!68 = !{!69, !14, i64 0}
+!69 = !{!"", !14, i64 0, !30, i64 8, !30, i64 10, !30, i64 12, !30, i64 14, !30, i64 16, !5, i64 20, !6, i64 24, !6, i64 24, !6, i64 32, !17, i64 40}
+!70 = !{!13, !9, i64 40}
+!71 = distinct !{!71, !62}
+!72 = distinct !{!72, !62}
+!73 = !{!6, !6, i64 0}
+!74 = !{!19, !22, i64 48}
+!75 = !{!69, !17, i64 40}
+!76 = distinct !{!76, !62}

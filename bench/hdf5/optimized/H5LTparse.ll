@@ -104,7 +104,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %.1.shrunk = phi i8 [ %.in, %1051 ], [ %70, %68 ]
   %.1 = zext i8 %.1.shrunk to i32
   %9 = getelementptr inbounds nuw i8, ptr %.1249, i64 1
-  br label %10
+  br label %10, !llvm.loop !7
 
 10:                                               ; preds = %8, %0
   %.0258 = phi ptr [ %2, %0 ], [ %.1259, %8 ]
@@ -114,7 +114,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %.0242 = phi i64 [ 200, %0 ], [ %.1243, %8 ]
   %.0238 = phi i32 [ 0, %0 ], [ %.1, %8 ]
   %11 = trunc nuw i32 %.0238 to i8
-  store i8 %11, ptr %.0248, align 1, !tbaa !7
+  store i8 %11, ptr %.0248, align 1, !tbaa !9
   %12 = getelementptr inbounds i8, ptr %.0245, i64 %.0242
   %13 = getelementptr inbounds i8, ptr %12, i64 -1
   %.not = icmp ugt ptr %13, %.0248
@@ -170,7 +170,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 36:                                               ; preds = %.thread343
   %37 = zext nneg i32 %.0238 to i64
   %38 = getelementptr inbounds nuw [151 x i16], ptr @yypact, i64 0, i64 %37
-  %39 = load i16, ptr %38, align 2, !tbaa !8
+  %39 = load i16, ptr %38, align 2, !tbaa !10
   %40 = sext i16 %39 to i32
   %41 = icmp eq i16 %39, -24
   br i1 %41, label %73, label %42
@@ -209,7 +209,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 56:                                               ; preds = %54
   %57 = zext nneg i32 %48 to i64
   %58 = getelementptr inbounds nuw [327 x i8], ptr @yytranslate, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1, !tbaa !7
+  %59 = load i8, ptr %58, align 1, !tbaa !9
   %60 = sext i8 %59 to i32
   br label %61
 
@@ -222,34 +222,34 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 63:                                               ; preds = %61
   %64 = zext nneg i32 %62 to i64
   %65 = getelementptr inbounds nuw [240 x i8], ptr @yycheck, i64 0, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !7
+  %66 = load i8, ptr %65, align 1, !tbaa !9
   %67 = sext i8 %66 to i32
   %.not301 = icmp eq i32 %.0268, %67
   br i1 %.not301, label %68, label %73
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw [240 x i8], ptr @yytable, i64 0, i64 %64
-  %70 = load i8, ptr %69, align 1, !tbaa !7
+  %70 = load i8, ptr %69, align 1, !tbaa !9
   %71 = getelementptr inbounds nuw i8, ptr %.2260, i64 8
-  %72 = load i64, ptr @H5LTyylval, align 8, !tbaa !7
-  store i64 %72, ptr %71, align 8, !tbaa !7
+  %72 = load i64, ptr @H5LTyylval, align 8, !tbaa !9
+  store i64 %72, ptr %71, align 8, !tbaa !9
   store i32 -2, ptr @H5LTyychar, align 4, !tbaa !3
   br label %8
 
 73:                                               ; preds = %61, %63, %36
   %74 = getelementptr inbounds nuw [151 x i8], ptr @yydefact, i64 0, i64 %37
-  %75 = load i8, ptr %74, align 1, !tbaa !7
+  %75 = load i8, ptr %74, align 1, !tbaa !9
   %76 = icmp eq i8 %75, 0
   br i1 %76, label %1052, label %77
 
 77:                                               ; preds = %73
   %78 = sext i8 %75 to i64
   %79 = getelementptr inbounds [107 x i8], ptr @yyr2, i64 0, i64 %78
-  %80 = load i8, ptr %79, align 1, !tbaa !7
+  %80 = load i8, ptr %79, align 1, !tbaa !9
   %81 = sext i8 %80 to i64
   %82 = sub nsw i64 1, %81
   %83 = getelementptr inbounds %union.YYSTYPE, ptr %.2260, i64 %82
-  %.sroa.0.0.copyload = load ptr, ptr %83, align 8, !tbaa !7
+  %.sroa.0.0.copyload = load ptr, ptr %83, align 8, !tbaa !9
   switch i8 %75, label %1026 [
     i8 2, label %84
     i8 3, label %85
@@ -343,667 +343,667 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %1058
 
 87:                                               ; preds = %77
-  %88 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %88 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %89 = trunc nuw i8 %88 to i1
-  %90 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %90 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %91 = trunc nuw i8 %90 to i1
   %92 = select i1 %89, i1 true, i1 %91
-  br i1 %92, label %95, label %93, !prof !14
+  br i1 %92, label %95, label %93, !prof !16
 
 93:                                               ; preds = %87
   %94 = call i32 @H5open() #9
   br label %95
 
 95:                                               ; preds = %87, %93
-  %96 = load i64, ptr @H5T_STD_I8BE_g, align 8, !tbaa !15
+  %96 = load i64, ptr @H5T_STD_I8BE_g, align 8, !tbaa !17
   %97 = call i64 @H5Tcopy(i64 noundef %96) #9
   %98 = inttoptr i64 %97 to ptr
   br label %1026
 
 99:                                               ; preds = %77
-  %100 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %100 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %101 = trunc nuw i8 %100 to i1
-  %102 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %102 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %103 = trunc nuw i8 %102 to i1
   %104 = select i1 %101, i1 true, i1 %103
-  br i1 %104, label %107, label %105, !prof !14
+  br i1 %104, label %107, label %105, !prof !16
 
 105:                                              ; preds = %99
   %106 = call i32 @H5open() #9
   br label %107
 
 107:                                              ; preds = %99, %105
-  %108 = load i64, ptr @H5T_STD_I8LE_g, align 8, !tbaa !15
+  %108 = load i64, ptr @H5T_STD_I8LE_g, align 8, !tbaa !17
   %109 = call i64 @H5Tcopy(i64 noundef %108) #9
   %110 = inttoptr i64 %109 to ptr
   br label %1026
 
 111:                                              ; preds = %77
-  %112 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %112 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %113 = trunc nuw i8 %112 to i1
-  %114 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %114 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %115 = trunc nuw i8 %114 to i1
   %116 = select i1 %113, i1 true, i1 %115
-  br i1 %116, label %119, label %117, !prof !14
+  br i1 %116, label %119, label %117, !prof !16
 
 117:                                              ; preds = %111
   %118 = call i32 @H5open() #9
   br label %119
 
 119:                                              ; preds = %111, %117
-  %120 = load i64, ptr @H5T_STD_I16BE_g, align 8, !tbaa !15
+  %120 = load i64, ptr @H5T_STD_I16BE_g, align 8, !tbaa !17
   %121 = call i64 @H5Tcopy(i64 noundef %120) #9
   %122 = inttoptr i64 %121 to ptr
   br label %1026
 
 123:                                              ; preds = %77
-  %124 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %124 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %125 = trunc nuw i8 %124 to i1
-  %126 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %126 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %127 = trunc nuw i8 %126 to i1
   %128 = select i1 %125, i1 true, i1 %127
-  br i1 %128, label %131, label %129, !prof !14
+  br i1 %128, label %131, label %129, !prof !16
 
 129:                                              ; preds = %123
   %130 = call i32 @H5open() #9
   br label %131
 
 131:                                              ; preds = %123, %129
-  %132 = load i64, ptr @H5T_STD_I16LE_g, align 8, !tbaa !15
+  %132 = load i64, ptr @H5T_STD_I16LE_g, align 8, !tbaa !17
   %133 = call i64 @H5Tcopy(i64 noundef %132) #9
   %134 = inttoptr i64 %133 to ptr
   br label %1026
 
 135:                                              ; preds = %77
-  %136 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %136 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %137 = trunc nuw i8 %136 to i1
-  %138 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %138 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %139 = trunc nuw i8 %138 to i1
   %140 = select i1 %137, i1 true, i1 %139
-  br i1 %140, label %143, label %141, !prof !14
+  br i1 %140, label %143, label %141, !prof !16
 
 141:                                              ; preds = %135
   %142 = call i32 @H5open() #9
   br label %143
 
 143:                                              ; preds = %135, %141
-  %144 = load i64, ptr @H5T_STD_I32BE_g, align 8, !tbaa !15
+  %144 = load i64, ptr @H5T_STD_I32BE_g, align 8, !tbaa !17
   %145 = call i64 @H5Tcopy(i64 noundef %144) #9
   %146 = inttoptr i64 %145 to ptr
   br label %1026
 
 147:                                              ; preds = %77
-  %148 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %148 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %149 = trunc nuw i8 %148 to i1
-  %150 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %150 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %151 = trunc nuw i8 %150 to i1
   %152 = select i1 %149, i1 true, i1 %151
-  br i1 %152, label %155, label %153, !prof !14
+  br i1 %152, label %155, label %153, !prof !16
 
 153:                                              ; preds = %147
   %154 = call i32 @H5open() #9
   br label %155
 
 155:                                              ; preds = %147, %153
-  %156 = load i64, ptr @H5T_STD_I32LE_g, align 8, !tbaa !15
+  %156 = load i64, ptr @H5T_STD_I32LE_g, align 8, !tbaa !17
   %157 = call i64 @H5Tcopy(i64 noundef %156) #9
   %158 = inttoptr i64 %157 to ptr
   br label %1026
 
 159:                                              ; preds = %77
-  %160 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %160 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %161 = trunc nuw i8 %160 to i1
-  %162 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %162 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %163 = trunc nuw i8 %162 to i1
   %164 = select i1 %161, i1 true, i1 %163
-  br i1 %164, label %167, label %165, !prof !14
+  br i1 %164, label %167, label %165, !prof !16
 
 165:                                              ; preds = %159
   %166 = call i32 @H5open() #9
   br label %167
 
 167:                                              ; preds = %159, %165
-  %168 = load i64, ptr @H5T_STD_I64BE_g, align 8, !tbaa !15
+  %168 = load i64, ptr @H5T_STD_I64BE_g, align 8, !tbaa !17
   %169 = call i64 @H5Tcopy(i64 noundef %168) #9
   %170 = inttoptr i64 %169 to ptr
   br label %1026
 
 171:                                              ; preds = %77
-  %172 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %172 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %173 = trunc nuw i8 %172 to i1
-  %174 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %174 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %175 = trunc nuw i8 %174 to i1
   %176 = select i1 %173, i1 true, i1 %175
-  br i1 %176, label %179, label %177, !prof !14
+  br i1 %176, label %179, label %177, !prof !16
 
 177:                                              ; preds = %171
   %178 = call i32 @H5open() #9
   br label %179
 
 179:                                              ; preds = %171, %177
-  %180 = load i64, ptr @H5T_STD_I64LE_g, align 8, !tbaa !15
+  %180 = load i64, ptr @H5T_STD_I64LE_g, align 8, !tbaa !17
   %181 = call i64 @H5Tcopy(i64 noundef %180) #9
   %182 = inttoptr i64 %181 to ptr
   br label %1026
 
 183:                                              ; preds = %77
-  %184 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %184 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %185 = trunc nuw i8 %184 to i1
-  %186 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %186 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %187 = trunc nuw i8 %186 to i1
   %188 = select i1 %185, i1 true, i1 %187
-  br i1 %188, label %191, label %189, !prof !14
+  br i1 %188, label %191, label %189, !prof !16
 
 189:                                              ; preds = %183
   %190 = call i32 @H5open() #9
   br label %191
 
 191:                                              ; preds = %183, %189
-  %192 = load i64, ptr @H5T_STD_U8BE_g, align 8, !tbaa !15
+  %192 = load i64, ptr @H5T_STD_U8BE_g, align 8, !tbaa !17
   %193 = call i64 @H5Tcopy(i64 noundef %192) #9
   %194 = inttoptr i64 %193 to ptr
   br label %1026
 
 195:                                              ; preds = %77
-  %196 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %196 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %197 = trunc nuw i8 %196 to i1
-  %198 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %198 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %199 = trunc nuw i8 %198 to i1
   %200 = select i1 %197, i1 true, i1 %199
-  br i1 %200, label %203, label %201, !prof !14
+  br i1 %200, label %203, label %201, !prof !16
 
 201:                                              ; preds = %195
   %202 = call i32 @H5open() #9
   br label %203
 
 203:                                              ; preds = %195, %201
-  %204 = load i64, ptr @H5T_STD_U8LE_g, align 8, !tbaa !15
+  %204 = load i64, ptr @H5T_STD_U8LE_g, align 8, !tbaa !17
   %205 = call i64 @H5Tcopy(i64 noundef %204) #9
   %206 = inttoptr i64 %205 to ptr
   br label %1026
 
 207:                                              ; preds = %77
-  %208 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %208 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %209 = trunc nuw i8 %208 to i1
-  %210 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %210 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %211 = trunc nuw i8 %210 to i1
   %212 = select i1 %209, i1 true, i1 %211
-  br i1 %212, label %215, label %213, !prof !14
+  br i1 %212, label %215, label %213, !prof !16
 
 213:                                              ; preds = %207
   %214 = call i32 @H5open() #9
   br label %215
 
 215:                                              ; preds = %207, %213
-  %216 = load i64, ptr @H5T_STD_U16BE_g, align 8, !tbaa !15
+  %216 = load i64, ptr @H5T_STD_U16BE_g, align 8, !tbaa !17
   %217 = call i64 @H5Tcopy(i64 noundef %216) #9
   %218 = inttoptr i64 %217 to ptr
   br label %1026
 
 219:                                              ; preds = %77
-  %220 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %220 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %221 = trunc nuw i8 %220 to i1
-  %222 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %222 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %223 = trunc nuw i8 %222 to i1
   %224 = select i1 %221, i1 true, i1 %223
-  br i1 %224, label %227, label %225, !prof !14
+  br i1 %224, label %227, label %225, !prof !16
 
 225:                                              ; preds = %219
   %226 = call i32 @H5open() #9
   br label %227
 
 227:                                              ; preds = %219, %225
-  %228 = load i64, ptr @H5T_STD_U16LE_g, align 8, !tbaa !15
+  %228 = load i64, ptr @H5T_STD_U16LE_g, align 8, !tbaa !17
   %229 = call i64 @H5Tcopy(i64 noundef %228) #9
   %230 = inttoptr i64 %229 to ptr
   br label %1026
 
 231:                                              ; preds = %77
-  %232 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %232 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %233 = trunc nuw i8 %232 to i1
-  %234 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %234 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %235 = trunc nuw i8 %234 to i1
   %236 = select i1 %233, i1 true, i1 %235
-  br i1 %236, label %239, label %237, !prof !14
+  br i1 %236, label %239, label %237, !prof !16
 
 237:                                              ; preds = %231
   %238 = call i32 @H5open() #9
   br label %239
 
 239:                                              ; preds = %231, %237
-  %240 = load i64, ptr @H5T_STD_U32BE_g, align 8, !tbaa !15
+  %240 = load i64, ptr @H5T_STD_U32BE_g, align 8, !tbaa !17
   %241 = call i64 @H5Tcopy(i64 noundef %240) #9
   %242 = inttoptr i64 %241 to ptr
   br label %1026
 
 243:                                              ; preds = %77
-  %244 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %244 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %245 = trunc nuw i8 %244 to i1
-  %246 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %246 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %247 = trunc nuw i8 %246 to i1
   %248 = select i1 %245, i1 true, i1 %247
-  br i1 %248, label %251, label %249, !prof !14
+  br i1 %248, label %251, label %249, !prof !16
 
 249:                                              ; preds = %243
   %250 = call i32 @H5open() #9
   br label %251
 
 251:                                              ; preds = %243, %249
-  %252 = load i64, ptr @H5T_STD_U32LE_g, align 8, !tbaa !15
+  %252 = load i64, ptr @H5T_STD_U32LE_g, align 8, !tbaa !17
   %253 = call i64 @H5Tcopy(i64 noundef %252) #9
   %254 = inttoptr i64 %253 to ptr
   br label %1026
 
 255:                                              ; preds = %77
-  %256 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %256 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %257 = trunc nuw i8 %256 to i1
-  %258 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %258 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %259 = trunc nuw i8 %258 to i1
   %260 = select i1 %257, i1 true, i1 %259
-  br i1 %260, label %263, label %261, !prof !14
+  br i1 %260, label %263, label %261, !prof !16
 
 261:                                              ; preds = %255
   %262 = call i32 @H5open() #9
   br label %263
 
 263:                                              ; preds = %255, %261
-  %264 = load i64, ptr @H5T_STD_U64BE_g, align 8, !tbaa !15
+  %264 = load i64, ptr @H5T_STD_U64BE_g, align 8, !tbaa !17
   %265 = call i64 @H5Tcopy(i64 noundef %264) #9
   %266 = inttoptr i64 %265 to ptr
   br label %1026
 
 267:                                              ; preds = %77
-  %268 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %268 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %269 = trunc nuw i8 %268 to i1
-  %270 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %270 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %271 = trunc nuw i8 %270 to i1
   %272 = select i1 %269, i1 true, i1 %271
-  br i1 %272, label %275, label %273, !prof !14
+  br i1 %272, label %275, label %273, !prof !16
 
 273:                                              ; preds = %267
   %274 = call i32 @H5open() #9
   br label %275
 
 275:                                              ; preds = %267, %273
-  %276 = load i64, ptr @H5T_STD_U64LE_g, align 8, !tbaa !15
+  %276 = load i64, ptr @H5T_STD_U64LE_g, align 8, !tbaa !17
   %277 = call i64 @H5Tcopy(i64 noundef %276) #9
   %278 = inttoptr i64 %277 to ptr
   br label %1026
 
 279:                                              ; preds = %77
-  %280 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %280 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %281 = trunc nuw i8 %280 to i1
-  %282 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %282 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %283 = trunc nuw i8 %282 to i1
   %284 = select i1 %281, i1 true, i1 %283
-  br i1 %284, label %287, label %285, !prof !14
+  br i1 %284, label %287, label %285, !prof !16
 
 285:                                              ; preds = %279
   %286 = call i32 @H5open() #9
   br label %287
 
 287:                                              ; preds = %279, %285
-  %288 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !15
+  %288 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !17
   %289 = call i64 @H5Tcopy(i64 noundef %288) #9
   %290 = inttoptr i64 %289 to ptr
   br label %1026
 
 291:                                              ; preds = %77
-  %292 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %292 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %293 = trunc nuw i8 %292 to i1
-  %294 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %294 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %295 = trunc nuw i8 %294 to i1
   %296 = select i1 %293, i1 true, i1 %295
-  br i1 %296, label %299, label %297, !prof !14
+  br i1 %296, label %299, label %297, !prof !16
 
 297:                                              ; preds = %291
   %298 = call i32 @H5open() #9
   br label %299
 
 299:                                              ; preds = %291, %297
-  %300 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !15
+  %300 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !17
   %301 = call i64 @H5Tcopy(i64 noundef %300) #9
   %302 = inttoptr i64 %301 to ptr
   br label %1026
 
 303:                                              ; preds = %77
-  %304 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %304 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %305 = trunc nuw i8 %304 to i1
-  %306 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %306 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %307 = trunc nuw i8 %306 to i1
   %308 = select i1 %305, i1 true, i1 %307
-  br i1 %308, label %311, label %309, !prof !14
+  br i1 %308, label %311, label %309, !prof !16
 
 309:                                              ; preds = %303
   %310 = call i32 @H5open() #9
   br label %311
 
 311:                                              ; preds = %303, %309
-  %312 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8, !tbaa !15
+  %312 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8, !tbaa !17
   %313 = call i64 @H5Tcopy(i64 noundef %312) #9
   %314 = inttoptr i64 %313 to ptr
   br label %1026
 
 315:                                              ; preds = %77
-  %316 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %316 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %317 = trunc nuw i8 %316 to i1
-  %318 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %318 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %319 = trunc nuw i8 %318 to i1
   %320 = select i1 %317, i1 true, i1 %319
-  br i1 %320, label %323, label %321, !prof !14
+  br i1 %320, label %323, label %321, !prof !16
 
 321:                                              ; preds = %315
   %322 = call i32 @H5open() #9
   br label %323
 
 323:                                              ; preds = %315, %321
-  %324 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8, !tbaa !15
+  %324 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8, !tbaa !17
   %325 = call i64 @H5Tcopy(i64 noundef %324) #9
   %326 = inttoptr i64 %325 to ptr
   br label %1026
 
 327:                                              ; preds = %77
-  %328 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %328 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %329 = trunc nuw i8 %328 to i1
-  %330 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %330 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %331 = trunc nuw i8 %330 to i1
   %332 = select i1 %329, i1 true, i1 %331
-  br i1 %332, label %335, label %333, !prof !14
+  br i1 %332, label %335, label %333, !prof !16
 
 333:                                              ; preds = %327
   %334 = call i32 @H5open() #9
   br label %335
 
 335:                                              ; preds = %327, %333
-  %336 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8, !tbaa !15
+  %336 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8, !tbaa !17
   %337 = call i64 @H5Tcopy(i64 noundef %336) #9
   %338 = inttoptr i64 %337 to ptr
   br label %1026
 
 339:                                              ; preds = %77
-  %340 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %340 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %341 = trunc nuw i8 %340 to i1
-  %342 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %342 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %343 = trunc nuw i8 %342 to i1
   %344 = select i1 %341, i1 true, i1 %343
-  br i1 %344, label %347, label %345, !prof !14
+  br i1 %344, label %347, label %345, !prof !16
 
 345:                                              ; preds = %339
   %346 = call i32 @H5open() #9
   br label %347
 
 347:                                              ; preds = %339, %345
-  %348 = load i64, ptr @H5T_NATIVE_INT_g, align 8, !tbaa !15
+  %348 = load i64, ptr @H5T_NATIVE_INT_g, align 8, !tbaa !17
   %349 = call i64 @H5Tcopy(i64 noundef %348) #9
   %350 = inttoptr i64 %349 to ptr
   br label %1026
 
 351:                                              ; preds = %77
-  %352 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %352 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %353 = trunc nuw i8 %352 to i1
-  %354 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %354 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %355 = trunc nuw i8 %354 to i1
   %356 = select i1 %353, i1 true, i1 %355
-  br i1 %356, label %359, label %357, !prof !14
+  br i1 %356, label %359, label %357, !prof !16
 
 357:                                              ; preds = %351
   %358 = call i32 @H5open() #9
   br label %359
 
 359:                                              ; preds = %351, %357
-  %360 = load i64, ptr @H5T_NATIVE_UINT_g, align 8, !tbaa !15
+  %360 = load i64, ptr @H5T_NATIVE_UINT_g, align 8, !tbaa !17
   %361 = call i64 @H5Tcopy(i64 noundef %360) #9
   %362 = inttoptr i64 %361 to ptr
   br label %1026
 
 363:                                              ; preds = %77
-  %364 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %364 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %365 = trunc nuw i8 %364 to i1
-  %366 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %366 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %367 = trunc nuw i8 %366 to i1
   %368 = select i1 %365, i1 true, i1 %367
-  br i1 %368, label %371, label %369, !prof !14
+  br i1 %368, label %371, label %369, !prof !16
 
 369:                                              ; preds = %363
   %370 = call i32 @H5open() #9
   br label %371
 
 371:                                              ; preds = %363, %369
-  %372 = load i64, ptr @H5T_NATIVE_LONG_g, align 8, !tbaa !15
+  %372 = load i64, ptr @H5T_NATIVE_LONG_g, align 8, !tbaa !17
   %373 = call i64 @H5Tcopy(i64 noundef %372) #9
   %374 = inttoptr i64 %373 to ptr
   br label %1026
 
 375:                                              ; preds = %77
-  %376 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %376 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %377 = trunc nuw i8 %376 to i1
-  %378 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %378 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %379 = trunc nuw i8 %378 to i1
   %380 = select i1 %377, i1 true, i1 %379
-  br i1 %380, label %383, label %381, !prof !14
+  br i1 %380, label %383, label %381, !prof !16
 
 381:                                              ; preds = %375
   %382 = call i32 @H5open() #9
   br label %383
 
 383:                                              ; preds = %375, %381
-  %384 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8, !tbaa !15
+  %384 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8, !tbaa !17
   %385 = call i64 @H5Tcopy(i64 noundef %384) #9
   %386 = inttoptr i64 %385 to ptr
   br label %1026
 
 387:                                              ; preds = %77
-  %388 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %388 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %389 = trunc nuw i8 %388 to i1
-  %390 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %390 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %391 = trunc nuw i8 %390 to i1
   %392 = select i1 %389, i1 true, i1 %391
-  br i1 %392, label %395, label %393, !prof !14
+  br i1 %392, label %395, label %393, !prof !16
 
 393:                                              ; preds = %387
   %394 = call i32 @H5open() #9
   br label %395
 
 395:                                              ; preds = %387, %393
-  %396 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8, !tbaa !15
+  %396 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8, !tbaa !17
   %397 = call i64 @H5Tcopy(i64 noundef %396) #9
   %398 = inttoptr i64 %397 to ptr
   br label %1026
 
 399:                                              ; preds = %77
-  %400 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %400 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %401 = trunc nuw i8 %400 to i1
-  %402 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %402 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %403 = trunc nuw i8 %402 to i1
   %404 = select i1 %401, i1 true, i1 %403
-  br i1 %404, label %407, label %405, !prof !14
+  br i1 %404, label %407, label %405, !prof !16
 
 405:                                              ; preds = %399
   %406 = call i32 @H5open() #9
   br label %407
 
 407:                                              ; preds = %399, %405
-  %408 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8, !tbaa !15
+  %408 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8, !tbaa !17
   %409 = call i64 @H5Tcopy(i64 noundef %408) #9
   %410 = inttoptr i64 %409 to ptr
   br label %1026
 
 411:                                              ; preds = %77
-  %412 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %412 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %413 = trunc nuw i8 %412 to i1
-  %414 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %414 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %415 = trunc nuw i8 %414 to i1
   %416 = select i1 %413, i1 true, i1 %415
-  br i1 %416, label %419, label %417, !prof !14
+  br i1 %416, label %419, label %417, !prof !16
 
 417:                                              ; preds = %411
   %418 = call i32 @H5open() #9
   br label %419
 
 419:                                              ; preds = %411, %417
-  %420 = load i64, ptr @H5T_IEEE_F16BE_g, align 8, !tbaa !15
+  %420 = load i64, ptr @H5T_IEEE_F16BE_g, align 8, !tbaa !17
   %421 = call i64 @H5Tcopy(i64 noundef %420) #9
   %422 = inttoptr i64 %421 to ptr
   br label %1026
 
 423:                                              ; preds = %77
-  %424 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %424 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %425 = trunc nuw i8 %424 to i1
-  %426 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %426 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %427 = trunc nuw i8 %426 to i1
   %428 = select i1 %425, i1 true, i1 %427
-  br i1 %428, label %431, label %429, !prof !14
+  br i1 %428, label %431, label %429, !prof !16
 
 429:                                              ; preds = %423
   %430 = call i32 @H5open() #9
   br label %431
 
 431:                                              ; preds = %423, %429
-  %432 = load i64, ptr @H5T_IEEE_F16LE_g, align 8, !tbaa !15
+  %432 = load i64, ptr @H5T_IEEE_F16LE_g, align 8, !tbaa !17
   %433 = call i64 @H5Tcopy(i64 noundef %432) #9
   %434 = inttoptr i64 %433 to ptr
   br label %1026
 
 435:                                              ; preds = %77
-  %436 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %436 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %437 = trunc nuw i8 %436 to i1
-  %438 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %438 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %439 = trunc nuw i8 %438 to i1
   %440 = select i1 %437, i1 true, i1 %439
-  br i1 %440, label %443, label %441, !prof !14
+  br i1 %440, label %443, label %441, !prof !16
 
 441:                                              ; preds = %435
   %442 = call i32 @H5open() #9
   br label %443
 
 443:                                              ; preds = %435, %441
-  %444 = load i64, ptr @H5T_IEEE_F32BE_g, align 8, !tbaa !15
+  %444 = load i64, ptr @H5T_IEEE_F32BE_g, align 8, !tbaa !17
   %445 = call i64 @H5Tcopy(i64 noundef %444) #9
   %446 = inttoptr i64 %445 to ptr
   br label %1026
 
 447:                                              ; preds = %77
-  %448 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %448 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %449 = trunc nuw i8 %448 to i1
-  %450 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %450 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %451 = trunc nuw i8 %450 to i1
   %452 = select i1 %449, i1 true, i1 %451
-  br i1 %452, label %455, label %453, !prof !14
+  br i1 %452, label %455, label %453, !prof !16
 
 453:                                              ; preds = %447
   %454 = call i32 @H5open() #9
   br label %455
 
 455:                                              ; preds = %447, %453
-  %456 = load i64, ptr @H5T_IEEE_F32LE_g, align 8, !tbaa !15
+  %456 = load i64, ptr @H5T_IEEE_F32LE_g, align 8, !tbaa !17
   %457 = call i64 @H5Tcopy(i64 noundef %456) #9
   %458 = inttoptr i64 %457 to ptr
   br label %1026
 
 459:                                              ; preds = %77
-  %460 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %460 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %461 = trunc nuw i8 %460 to i1
-  %462 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %462 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %463 = trunc nuw i8 %462 to i1
   %464 = select i1 %461, i1 true, i1 %463
-  br i1 %464, label %467, label %465, !prof !14
+  br i1 %464, label %467, label %465, !prof !16
 
 465:                                              ; preds = %459
   %466 = call i32 @H5open() #9
   br label %467
 
 467:                                              ; preds = %459, %465
-  %468 = load i64, ptr @H5T_IEEE_F64BE_g, align 8, !tbaa !15
+  %468 = load i64, ptr @H5T_IEEE_F64BE_g, align 8, !tbaa !17
   %469 = call i64 @H5Tcopy(i64 noundef %468) #9
   %470 = inttoptr i64 %469 to ptr
   br label %1026
 
 471:                                              ; preds = %77
-  %472 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %472 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %473 = trunc nuw i8 %472 to i1
-  %474 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %474 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %475 = trunc nuw i8 %474 to i1
   %476 = select i1 %473, i1 true, i1 %475
-  br i1 %476, label %479, label %477, !prof !14
+  br i1 %476, label %479, label %477, !prof !16
 
 477:                                              ; preds = %471
   %478 = call i32 @H5open() #9
   br label %479
 
 479:                                              ; preds = %471, %477
-  %480 = load i64, ptr @H5T_IEEE_F64LE_g, align 8, !tbaa !15
+  %480 = load i64, ptr @H5T_IEEE_F64LE_g, align 8, !tbaa !17
   %481 = call i64 @H5Tcopy(i64 noundef %480) #9
   %482 = inttoptr i64 %481 to ptr
   br label %1026
 
 483:                                              ; preds = %77
-  %484 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %484 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %485 = trunc nuw i8 %484 to i1
-  %486 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %486 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %487 = trunc nuw i8 %486 to i1
   %488 = select i1 %485, i1 true, i1 %487
-  br i1 %488, label %491, label %489, !prof !14
+  br i1 %488, label %491, label %489, !prof !16
 
 489:                                              ; preds = %483
   %490 = call i32 @H5open() #9
   br label %491
 
 491:                                              ; preds = %483, %489
-  %492 = load i64, ptr @H5T_NATIVE_FLOAT16_g, align 8, !tbaa !15
+  %492 = load i64, ptr @H5T_NATIVE_FLOAT16_g, align 8, !tbaa !17
   %493 = call i64 @H5Tcopy(i64 noundef %492) #9
   %494 = inttoptr i64 %493 to ptr
   br label %1026
 
 495:                                              ; preds = %77
-  %496 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %496 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %497 = trunc nuw i8 %496 to i1
-  %498 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %498 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %499 = trunc nuw i8 %498 to i1
   %500 = select i1 %497, i1 true, i1 %499
-  br i1 %500, label %503, label %501, !prof !14
+  br i1 %500, label %503, label %501, !prof !16
 
 501:                                              ; preds = %495
   %502 = call i32 @H5open() #9
   br label %503
 
 503:                                              ; preds = %495, %501
-  %504 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8, !tbaa !15
+  %504 = load i64, ptr @H5T_NATIVE_FLOAT_g, align 8, !tbaa !17
   %505 = call i64 @H5Tcopy(i64 noundef %504) #9
   %506 = inttoptr i64 %505 to ptr
   br label %1026
 
 507:                                              ; preds = %77
-  %508 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %508 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %509 = trunc nuw i8 %508 to i1
-  %510 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %510 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %511 = trunc nuw i8 %510 to i1
   %512 = select i1 %509, i1 true, i1 %511
-  br i1 %512, label %515, label %513, !prof !14
+  br i1 %512, label %515, label %513, !prof !16
 
 513:                                              ; preds = %507
   %514 = call i32 @H5open() #9
   br label %515
 
 515:                                              ; preds = %507, %513
-  %516 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8, !tbaa !15
+  %516 = load i64, ptr @H5T_NATIVE_DOUBLE_g, align 8, !tbaa !17
   %517 = call i64 @H5Tcopy(i64 noundef %516) #9
   %518 = inttoptr i64 %517 to ptr
   br label %1026
 
 519:                                              ; preds = %77
-  %520 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %520 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %521 = trunc nuw i8 %520 to i1
-  %522 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %522 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %523 = trunc nuw i8 %522 to i1
   %524 = select i1 %521, i1 true, i1 %523
-  br i1 %524, label %527, label %525, !prof !14
+  br i1 %524, label %527, label %525, !prof !16
 
 525:                                              ; preds = %519
   %526 = call i32 @H5open() #9
   br label %527
 
 527:                                              ; preds = %519, %525
-  %528 = load i64, ptr @H5T_NATIVE_LDOUBLE_g, align 8, !tbaa !15
+  %528 = load i64, ptr @H5T_NATIVE_LDOUBLE_g, align 8, !tbaa !17
   %529 = call i64 @H5Tcopy(i64 noundef %528) #9
   %530 = inttoptr i64 %529 to ptr
   br label %1026
@@ -1016,18 +1016,18 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %535 = load i32, ptr @csindex, align 4, !tbaa !3
   %536 = sext i32 %535 to i64
   %537 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %536
-  store i64 %534, ptr %537, align 16, !tbaa !17
+  store i64 %534, ptr %537, align 16, !tbaa !19
   br label %1026
 
 538:                                              ; preds = %77
   %539 = load i32, ptr @csindex, align 4, !tbaa !3
   %540 = sext i32 %539 to i64
   %541 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %540
-  %542 = load i64, ptr %541, align 16, !tbaa !17
+  %542 = load i64, ptr %541, align 16, !tbaa !19
   %543 = inttoptr i64 %542 to ptr
-  store i64 0, ptr %541, align 16, !tbaa !17
+  store i64 0, ptr %541, align 16, !tbaa !19
   %544 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %540, i32 2
-  store i8 1, ptr %544, align 1, !tbaa !19
+  store i8 1, ptr %544, align 1, !tbaa !21
   %545 = add nsw i32 %539, -1
   store i32 %545, ptr @csindex, align 4, !tbaa !3
   br label %1026
@@ -1036,101 +1036,101 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %547 = load i32, ptr @csindex, align 4, !tbaa !3
   %548 = sext i32 %547 to i64
   %549 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %548, i32 1
-  store i8 1, ptr %549, align 8, !tbaa !20
+  store i8 1, ptr %549, align 8, !tbaa !22
   br label %1026
 
 550:                                              ; preds = %77
   %551 = load i32, ptr @csindex, align 4, !tbaa !3
   %552 = sext i32 %551 to i64
   %553 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %552
-  %554 = load i64, ptr %553, align 16, !tbaa !17
+  %554 = load i64, ptr %553, align 16, !tbaa !19
   %555 = getelementptr inbounds nuw i8, ptr %553, i64 9
-  %556 = load i8, ptr %555, align 1, !tbaa !19, !range !12, !noundef !13
+  %556 = load i8, ptr %555, align 1, !tbaa !21, !range !14, !noundef !15
   %557 = trunc nuw i8 %556 to i1
   br i1 %557, label %558, label %576
 
 558:                                              ; preds = %550
   %559 = getelementptr inbounds i8, ptr %.2260, i64 -32
-  %560 = load i64, ptr %559, align 8, !tbaa !7
+  %560 = load i64, ptr %559, align 8, !tbaa !9
   %561 = call i64 @H5Tget_size(i64 noundef %560) #9
   %562 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %563 = load i32, ptr %562, align 8, !tbaa !7
+  %563 = load i32, ptr %562, align 8, !tbaa !9
   %564 = sext i32 %563 to i64
   %565 = add i64 %561, %564
   %566 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %565) #9
   %567 = getelementptr inbounds i8, ptr %.2260, i64 -16
-  %568 = load ptr, ptr %567, align 8, !tbaa !7
-  %569 = load i32, ptr %562, align 8, !tbaa !7
+  %568 = load ptr, ptr %567, align 8, !tbaa !9
+  %569 = load i32, ptr %562, align 8, !tbaa !9
   %570 = sext i32 %569 to i64
-  %571 = load i64, ptr %559, align 8, !tbaa !7
+  %571 = load i64, ptr %559, align 8, !tbaa !9
   %572 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %568, i64 noundef %570, i64 noundef %571) #9
   %573 = load i32, ptr @csindex, align 4, !tbaa !3
   %574 = sext i32 %573 to i64
   %575 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %574, i32 2
-  store i8 0, ptr %575, align 1, !tbaa !19
+  store i8 0, ptr %575, align 1, !tbaa !21
   br label %604
 
 576:                                              ; preds = %550
   %577 = call i64 @H5Tget_size(i64 noundef %554) #9
   %578 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %579 = load i32, ptr %578, align 8, !tbaa !7
+  %579 = load i32, ptr %578, align 8, !tbaa !9
   %580 = icmp eq i32 %579, 0
   br i1 %580, label %581, label %591
 
 581:                                              ; preds = %576
   %582 = getelementptr inbounds i8, ptr %.2260, i64 -32
-  %583 = load i64, ptr %582, align 8, !tbaa !7
+  %583 = load i64, ptr %582, align 8, !tbaa !9
   %584 = call i64 @H5Tget_size(i64 noundef %583) #9
   %585 = add i64 %584, %577
   %586 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %585) #9
   %587 = getelementptr inbounds i8, ptr %.2260, i64 -16
-  %588 = load ptr, ptr %587, align 8, !tbaa !7
-  %589 = load i64, ptr %582, align 8, !tbaa !7
+  %588 = load ptr, ptr %587, align 8, !tbaa !9
+  %589 = load i64, ptr %582, align 8, !tbaa !9
   %590 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %588, i64 noundef %577, i64 noundef %589) #9
   br label %604
 
 591:                                              ; preds = %576
   %592 = sext i32 %579 to i64
   %593 = getelementptr inbounds i8, ptr %.2260, i64 -32
-  %594 = load i64, ptr %593, align 8, !tbaa !7
+  %594 = load i64, ptr %593, align 8, !tbaa !9
   %595 = call i64 @H5Tget_size(i64 noundef %594) #9
   %596 = add i64 %595, %592
   %597 = call i32 @H5Tset_size(i64 noundef %554, i64 noundef %596) #9
   %598 = getelementptr inbounds i8, ptr %.2260, i64 -16
-  %599 = load ptr, ptr %598, align 8, !tbaa !7
-  %600 = load i32, ptr %578, align 8, !tbaa !7
+  %599 = load ptr, ptr %598, align 8, !tbaa !9
+  %600 = load i32, ptr %578, align 8, !tbaa !9
   %601 = sext i32 %600 to i64
-  %602 = load i64, ptr %593, align 8, !tbaa !7
+  %602 = load i64, ptr %593, align 8, !tbaa !9
   %603 = call i32 @H5Tinsert(i64 noundef %554, ptr noundef %599, i64 noundef %601, i64 noundef %602) #9
   br label %604
 
 604:                                              ; preds = %581, %591, %558
   %605 = getelementptr inbounds i8, ptr %.2260, i64 -16
-  %606 = load ptr, ptr %605, align 8, !tbaa !7
+  %606 = load ptr, ptr %605, align 8, !tbaa !9
   %.not322 = icmp eq ptr %606, null
   br i1 %.not322, label %608, label %607
 
 607:                                              ; preds = %604
   call void @free(ptr noundef nonnull %606) #9
-  store ptr null, ptr %605, align 8, !tbaa !7
+  store ptr null, ptr %605, align 8, !tbaa !9
   br label %608
 
 608:                                              ; preds = %607, %604
   %609 = load i32, ptr @csindex, align 4, !tbaa !3
   %610 = sext i32 %609 to i64
   %611 = getelementptr inbounds [16 x %struct.cmpd_info], ptr @cmpd_stack, i64 0, i64 %610, i32 1
-  store i8 0, ptr %611, align 8, !tbaa !20
+  store i8 0, ptr %611, align 8, !tbaa !22
   %612 = getelementptr inbounds i8, ptr %.2260, i64 -32
-  %613 = load i64, ptr %612, align 8, !tbaa !7
+  %613 = load i64, ptr %612, align 8, !tbaa !9
   %614 = call i32 @H5Tclose(i64 noundef %613) #9
   %615 = call i64 @H5Tget_size(i64 noundef %554) #9
   br label %1026
 
 616:                                              ; preds = %77
-  %617 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
+  %617 = load ptr, ptr @H5LTyylval, align 8, !tbaa !9
   %618 = call noalias ptr @strdup(ptr noundef %617) #9
   call void @free(ptr noundef %617) #9
-  store ptr null, ptr @H5LTyylval, align 8, !tbaa !7
+  store ptr null, ptr @H5LTyylval, align 8, !tbaa !9
   br label %1026
 
 619:                                              ; preds = %77
@@ -1140,7 +1140,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %1026
 
 622:                                              ; preds = %77
-  %623 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
+  %623 = load i32, ptr @H5LTyylval, align 8, !tbaa !9
   %624 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %.sroa.0.0.insert.ext = zext i32 %623 to i64
   %.sroa.0.0.insert.mask96 = and i64 %624, -4294967296
@@ -1156,21 +1156,21 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 629:                                              ; preds = %77
   %630 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %631 = load i64, ptr %630, align 8, !tbaa !7
+  %631 = load i64, ptr %630, align 8, !tbaa !9
   %632 = load i32, ptr @asindex, align 4, !tbaa !3
   %633 = sext i32 %632 to i64
   %634 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %633
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 256
-  %636 = load i32, ptr %635, align 8, !tbaa !21
+  %636 = load i32, ptr %635, align 8, !tbaa !23
   %637 = call i64 @H5Tarray_create2(i64 noundef %631, i32 noundef %636, ptr noundef nonnull %634) #9
   %638 = inttoptr i64 %637 to ptr
   %639 = load i32, ptr @asindex, align 4, !tbaa !3
   %640 = sext i32 %639 to i64
   %641 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %640, i32 1
-  store i32 0, ptr %641, align 8, !tbaa !21
+  store i32 0, ptr %641, align 8, !tbaa !23
   %642 = add nsw i32 %639, -1
   store i32 %642, ptr @asindex, align 4, !tbaa !3
-  %643 = load i64, ptr %630, align 8, !tbaa !7
+  %643 = load i64, ptr %630, align 8, !tbaa !9
   %644 = call i32 @H5Tclose(i64 noundef %643) #9
   br label %1026
 
@@ -1178,7 +1178,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %646 = load i32, ptr @asindex, align 4, !tbaa !3
   %647 = sext i32 %646 to i64
   %648 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %647, i32 2
-  store i8 1, ptr %648, align 4, !tbaa !23
+  store i8 1, ptr %648, align 4, !tbaa !25
   br label %1026
 
 649:                                              ; preds = %77
@@ -1186,201 +1186,201 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %651 = sext i32 %650 to i64
   %652 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %651
   %653 = getelementptr inbounds nuw i8, ptr %652, i64 256
-  %654 = load i32, ptr %653, align 8, !tbaa !21
-  %655 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
+  %654 = load i32, ptr %653, align 8, !tbaa !23
+  %655 = load i32, ptr @H5LTyylval, align 8, !tbaa !9
   %656 = sext i32 %655 to i64
   %657 = zext i32 %654 to i64
   %658 = getelementptr inbounds nuw [32 x i64], ptr %652, i64 0, i64 %657
-  store i64 %656, ptr %658, align 8, !tbaa !15
+  store i64 %656, ptr %658, align 8, !tbaa !17
   %659 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %651, i32 1
   %660 = add i32 %654, 1
-  store i32 %660, ptr %659, align 8, !tbaa !21
+  store i32 %660, ptr %659, align 8, !tbaa !23
   %661 = getelementptr inbounds [16 x %struct.arr_info], ptr @arr_stack, i64 0, i64 %651, i32 2
-  store i8 0, ptr %661, align 4, !tbaa !23
+  store i8 0, ptr %661, align 4, !tbaa !25
   br label %1026
 
 662:                                              ; preds = %77
   %663 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %664 = load i64, ptr %663, align 8, !tbaa !7
+  %664 = load i64, ptr %663, align 8, !tbaa !9
   %665 = call i64 @H5Tvlen_create(i64 noundef %664) #9
   %666 = inttoptr i64 %665 to ptr
-  %667 = load i64, ptr %663, align 8, !tbaa !7
+  %667 = load i64, ptr %663, align 8, !tbaa !9
   %668 = call i32 @H5Tclose(i64 noundef %667) #9
   br label %1026
 
 669:                                              ; preds = %77
-  %670 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %670 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %671 = trunc nuw i8 %670 to i1
-  %672 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %672 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %673 = trunc nuw i8 %672 to i1
   %674 = select i1 %671, i1 true, i1 %673
-  br i1 %674, label %677, label %675, !prof !14
+  br i1 %674, label %677, label %675, !prof !16
 
 675:                                              ; preds = %669
   %676 = call i32 @H5open() #9
   br label %677
 
 677:                                              ; preds = %669, %675
-  %678 = load i64, ptr @H5T_NATIVE_FLOAT_COMPLEX_g, align 8, !tbaa !15
+  %678 = load i64, ptr @H5T_NATIVE_FLOAT_COMPLEX_g, align 8, !tbaa !17
   %679 = call i64 @H5Tcopy(i64 noundef %678) #9
   %680 = inttoptr i64 %679 to ptr
   br label %1026
 
 681:                                              ; preds = %77
-  %682 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %682 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %683 = trunc nuw i8 %682 to i1
-  %684 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %684 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %685 = trunc nuw i8 %684 to i1
   %686 = select i1 %683, i1 true, i1 %685
-  br i1 %686, label %689, label %687, !prof !14
+  br i1 %686, label %689, label %687, !prof !16
 
 687:                                              ; preds = %681
   %688 = call i32 @H5open() #9
   br label %689
 
 689:                                              ; preds = %681, %687
-  %690 = load i64, ptr @H5T_NATIVE_DOUBLE_COMPLEX_g, align 8, !tbaa !15
+  %690 = load i64, ptr @H5T_NATIVE_DOUBLE_COMPLEX_g, align 8, !tbaa !17
   %691 = call i64 @H5Tcopy(i64 noundef %690) #9
   %692 = inttoptr i64 %691 to ptr
   br label %1026
 
 693:                                              ; preds = %77
-  %694 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %694 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %695 = trunc nuw i8 %694 to i1
-  %696 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %696 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %697 = trunc nuw i8 %696 to i1
   %698 = select i1 %695, i1 true, i1 %697
-  br i1 %698, label %701, label %699, !prof !14
+  br i1 %698, label %701, label %699, !prof !16
 
 699:                                              ; preds = %693
   %700 = call i32 @H5open() #9
   br label %701
 
 701:                                              ; preds = %693, %699
-  %702 = load i64, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_g, align 8, !tbaa !15
+  %702 = load i64, ptr @H5T_NATIVE_LDOUBLE_COMPLEX_g, align 8, !tbaa !17
   %703 = call i64 @H5Tcopy(i64 noundef %702) #9
   %704 = inttoptr i64 %703 to ptr
   br label %1026
 
 705:                                              ; preds = %77
-  %706 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %706 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %707 = trunc nuw i8 %706 to i1
-  %708 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %708 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %709 = trunc nuw i8 %708 to i1
   %710 = select i1 %707, i1 true, i1 %709
-  br i1 %710, label %713, label %711, !prof !14
+  br i1 %710, label %713, label %711, !prof !16
 
 711:                                              ; preds = %705
   %712 = call i32 @H5open() #9
   br label %713
 
 713:                                              ; preds = %705, %711
-  %714 = load i64, ptr @H5T_COMPLEX_IEEE_F16LE_g, align 8, !tbaa !15
+  %714 = load i64, ptr @H5T_COMPLEX_IEEE_F16LE_g, align 8, !tbaa !17
   %715 = call i64 @H5Tcopy(i64 noundef %714) #9
   %716 = inttoptr i64 %715 to ptr
   br label %1026
 
 717:                                              ; preds = %77
-  %718 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %718 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %719 = trunc nuw i8 %718 to i1
-  %720 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %720 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %721 = trunc nuw i8 %720 to i1
   %722 = select i1 %719, i1 true, i1 %721
-  br i1 %722, label %725, label %723, !prof !14
+  br i1 %722, label %725, label %723, !prof !16
 
 723:                                              ; preds = %717
   %724 = call i32 @H5open() #9
   br label %725
 
 725:                                              ; preds = %717, %723
-  %726 = load i64, ptr @H5T_COMPLEX_IEEE_F16BE_g, align 8, !tbaa !15
+  %726 = load i64, ptr @H5T_COMPLEX_IEEE_F16BE_g, align 8, !tbaa !17
   %727 = call i64 @H5Tcopy(i64 noundef %726) #9
   %728 = inttoptr i64 %727 to ptr
   br label %1026
 
 729:                                              ; preds = %77
-  %730 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %730 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %731 = trunc nuw i8 %730 to i1
-  %732 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %732 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %733 = trunc nuw i8 %732 to i1
   %734 = select i1 %731, i1 true, i1 %733
-  br i1 %734, label %737, label %735, !prof !14
+  br i1 %734, label %737, label %735, !prof !16
 
 735:                                              ; preds = %729
   %736 = call i32 @H5open() #9
   br label %737
 
 737:                                              ; preds = %729, %735
-  %738 = load i64, ptr @H5T_COMPLEX_IEEE_F32LE_g, align 8, !tbaa !15
+  %738 = load i64, ptr @H5T_COMPLEX_IEEE_F32LE_g, align 8, !tbaa !17
   %739 = call i64 @H5Tcopy(i64 noundef %738) #9
   %740 = inttoptr i64 %739 to ptr
   br label %1026
 
 741:                                              ; preds = %77
-  %742 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %742 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %743 = trunc nuw i8 %742 to i1
-  %744 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %744 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %745 = trunc nuw i8 %744 to i1
   %746 = select i1 %743, i1 true, i1 %745
-  br i1 %746, label %749, label %747, !prof !14
+  br i1 %746, label %749, label %747, !prof !16
 
 747:                                              ; preds = %741
   %748 = call i32 @H5open() #9
   br label %749
 
 749:                                              ; preds = %741, %747
-  %750 = load i64, ptr @H5T_COMPLEX_IEEE_F32BE_g, align 8, !tbaa !15
+  %750 = load i64, ptr @H5T_COMPLEX_IEEE_F32BE_g, align 8, !tbaa !17
   %751 = call i64 @H5Tcopy(i64 noundef %750) #9
   %752 = inttoptr i64 %751 to ptr
   br label %1026
 
 753:                                              ; preds = %77
-  %754 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %754 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %755 = trunc nuw i8 %754 to i1
-  %756 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %756 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %757 = trunc nuw i8 %756 to i1
   %758 = select i1 %755, i1 true, i1 %757
-  br i1 %758, label %761, label %759, !prof !14
+  br i1 %758, label %761, label %759, !prof !16
 
 759:                                              ; preds = %753
   %760 = call i32 @H5open() #9
   br label %761
 
 761:                                              ; preds = %753, %759
-  %762 = load i64, ptr @H5T_COMPLEX_IEEE_F64LE_g, align 8, !tbaa !15
+  %762 = load i64, ptr @H5T_COMPLEX_IEEE_F64LE_g, align 8, !tbaa !17
   %763 = call i64 @H5Tcopy(i64 noundef %762) #9
   %764 = inttoptr i64 %763 to ptr
   br label %1026
 
 765:                                              ; preds = %77
-  %766 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %766 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %767 = trunc nuw i8 %766 to i1
-  %768 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %768 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %769 = trunc nuw i8 %768 to i1
   %770 = select i1 %767, i1 true, i1 %769
-  br i1 %770, label %773, label %771, !prof !14
+  br i1 %770, label %773, label %771, !prof !16
 
 771:                                              ; preds = %765
   %772 = call i32 @H5open() #9
   br label %773
 
 773:                                              ; preds = %765, %771
-  %774 = load i64, ptr @H5T_COMPLEX_IEEE_F64BE_g, align 8, !tbaa !15
+  %774 = load i64, ptr @H5T_COMPLEX_IEEE_F64BE_g, align 8, !tbaa !17
   %775 = call i64 @H5Tcopy(i64 noundef %774) #9
   %776 = inttoptr i64 %775 to ptr
   br label %1026
 
 777:                                              ; preds = %77
   %778 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %779 = load i64, ptr %778, align 8, !tbaa !7
+  %779 = load i64, ptr %778, align 8, !tbaa !9
   %780 = call i64 @H5Tcomplex_create(i64 noundef %779) #9
   %781 = inttoptr i64 %780 to ptr
-  %782 = load i64, ptr %778, align 8, !tbaa !7
+  %782 = load i64, ptr %778, align 8, !tbaa !9
   %783 = call i32 @H5Tclose(i64 noundef %782) #9
   br label %1026
 
 784:                                              ; preds = %77
-  %785 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
+  %785 = load i32, ptr @H5LTyylval, align 8, !tbaa !9
   %786 = sext i32 %785 to i64
   %787 = call i64 @H5Tcreate(i32 noundef 5, i64 noundef %786) #9
   %788 = inttoptr i64 %787 to ptr
@@ -1388,23 +1388,23 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 789:                                              ; preds = %77
   %790 = getelementptr inbounds i8, ptr %.2260, i64 -24
-  %791 = load i64, ptr %790, align 8, !tbaa !7
-  %792 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
+  %791 = load i64, ptr %790, align 8, !tbaa !9
+  %792 = load ptr, ptr @H5LTyylval, align 8, !tbaa !9
   %793 = call i32 @H5Tset_tag(i64 noundef %791, ptr noundef %792) #9
-  %794 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
+  %794 = load ptr, ptr @H5LTyylval, align 8, !tbaa !9
   call void @free(ptr noundef %794) #9
-  store ptr null, ptr @H5LTyylval, align 8, !tbaa !7
+  store ptr null, ptr @H5LTyylval, align 8, !tbaa !9
   br label %1026
 
 795:                                              ; preds = %77
   %796 = getelementptr inbounds i8, ptr %.2260, i64 -40
-  %797 = load i64, ptr %796, align 8, !tbaa !7
+  %797 = load i64, ptr %796, align 8, !tbaa !9
   %798 = inttoptr i64 %797 to ptr
   br label %1026
 
 799:                                              ; preds = %77
   %800 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %801 = load i32, ptr %800, align 8, !tbaa !7
+  %801 = load i32, ptr %800, align 8, !tbaa !9
   %802 = icmp eq i32 %801, 309
   br i1 %802, label %803, label %804
 
@@ -1413,14 +1413,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %1026
 
 804:                                              ; preds = %799
-  %805 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
+  %805 = load i32, ptr @H5LTyylval, align 8, !tbaa !9
   %806 = sext i32 %805 to i64
-  store i64 %806, ptr @str_size, align 8, !tbaa !15
+  store i64 %806, ptr @str_size, align 8, !tbaa !17
   br label %1026
 
 807:                                              ; preds = %77
   %808 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %809 = load i32, ptr %808, align 8, !tbaa !7
+  %809 = load i32, ptr %808, align 8, !tbaa !9
   switch i32 %809, label %1026 [
     i32 310, label %810
     i32 311, label %811
@@ -1441,7 +1441,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 813:                                              ; preds = %77
   %814 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %815 = load i32, ptr %814, align 8, !tbaa !7
+  %815 = load i32, ptr %814, align 8, !tbaa !9
   switch i32 %815, label %1026 [
     i32 313, label %816
     i32 314, label %817
@@ -1457,51 +1457,51 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 818:                                              ; preds = %77
   %819 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %820 = load i64, ptr %819, align 8, !tbaa !7
+  %820 = load i64, ptr %819, align 8, !tbaa !9
   switch i64 %820, label %1026 [
     i64 315, label %821
     i64 316, label %833
   ]
 
 821:                                              ; preds = %818
-  %822 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %822 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %823 = trunc nuw i8 %822 to i1
-  %824 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %824 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %825 = trunc nuw i8 %824 to i1
   %826 = select i1 %823, i1 true, i1 %825
-  br i1 %826, label %829, label %827, !prof !14
+  br i1 %826, label %829, label %827, !prof !16
 
 827:                                              ; preds = %821
   %828 = call i32 @H5open() #9
   br label %829
 
 829:                                              ; preds = %821, %827
-  %830 = load i64, ptr @H5T_C_S1_g, align 8, !tbaa !15
+  %830 = load i64, ptr @H5T_C_S1_g, align 8, !tbaa !17
   %831 = call i64 @H5Tcopy(i64 noundef %830) #9
   %832 = inttoptr i64 %831 to ptr
   br label %1026
 
 833:                                              ; preds = %818
-  %834 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %834 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %835 = trunc nuw i8 %834 to i1
-  %836 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %836 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %837 = trunc nuw i8 %836 to i1
   %838 = select i1 %835, i1 true, i1 %837
-  br i1 %838, label %841, label %839, !prof !14
+  br i1 %838, label %841, label %839, !prof !16
 
 839:                                              ; preds = %833
   %840 = call i32 @H5open() #9
   br label %841
 
 841:                                              ; preds = %833, %839
-  %842 = load i64, ptr @H5T_FORTRAN_S1_g, align 8, !tbaa !15
+  %842 = load i64, ptr @H5T_FORTRAN_S1_g, align 8, !tbaa !17
   %843 = call i64 @H5Tcopy(i64 noundef %842) #9
   %844 = inttoptr i64 %843 to ptr
   br label %1026
 
 845:                                              ; preds = %77
   %846 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %847 = load i64, ptr %846, align 8, !tbaa !7
+  %847 = load i64, ptr %846, align 8, !tbaa !9
   %.b321 = load i1, ptr @is_variable, align 1
   br i1 %.b321, label %848, label %850
 
@@ -1511,7 +1511,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br label %853
 
 850:                                              ; preds = %845
-  %851 = load i64, ptr @str_size, align 8, !tbaa !15
+  %851 = load i64, ptr @str_size, align 8, !tbaa !17
   %852 = call i32 @H5Tset_size(i64 noundef %847, i64 noundef %851) #9
   br label %853
 
@@ -1575,44 +1575,44 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 879:                                              ; preds = %77
   store i1 true, ptr @is_enum, align 1
   %880 = getelementptr inbounds i8, ptr %.2260, i64 -8
-  %881 = load i64, ptr %880, align 8, !tbaa !7
+  %881 = load i64, ptr %880, align 8, !tbaa !9
   %882 = call i64 @H5Tenum_create(i64 noundef %881) #9
-  store i64 %882, ptr @enum_id, align 8, !tbaa !15
-  %883 = load i64, ptr %880, align 8, !tbaa !7
+  store i64 %882, ptr @enum_id, align 8, !tbaa !17
+  %883 = load i64, ptr %880, align 8, !tbaa !9
   %884 = call i32 @H5Tclose(i64 noundef %883) #9
   br label %1026
 
 885:                                              ; preds = %77
   store i1 false, ptr @is_enum, align 1
-  %886 = load i64, ptr @enum_id, align 8, !tbaa !15
+  %886 = load i64, ptr @enum_id, align 8, !tbaa !17
   %887 = inttoptr i64 %886 to ptr
   br label %1026
 
 888:                                              ; preds = %77
   store i1 true, ptr @is_enum_memb, align 1
-  %889 = load ptr, ptr @H5LTyylval, align 8, !tbaa !7
+  %889 = load ptr, ptr @H5LTyylval, align 8, !tbaa !9
   %890 = call noalias ptr @strdup(ptr noundef %889) #9
-  store ptr %890, ptr @enum_memb_symbol, align 8, !tbaa !24
+  store ptr %890, ptr @enum_memb_symbol, align 8, !tbaa !26
   call void @free(ptr noundef %889) #9
-  store ptr null, ptr @H5LTyylval, align 8, !tbaa !7
+  store ptr null, ptr @H5LTyylval, align 8, !tbaa !9
   br label %1026
 
 891:                                              ; preds = %77
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
-  %892 = load i32, ptr @H5LTyylval, align 8, !tbaa !7
+  %892 = load i32, ptr @H5LTyylval, align 8, !tbaa !9
   %893 = trunc i32 %892 to i8
-  store i8 %893, ptr %3, align 1, !tbaa !7
+  store i8 %893, ptr %3, align 1, !tbaa !9
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #9
   %894 = trunc i32 %892 to i16
-  store i16 %894, ptr %4, align 2, !tbaa !8
+  store i16 %894, ptr %4, align 2, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
   store i32 %892, ptr %5, align 4, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
   %895 = sext i32 %892 to i64
-  store i64 %895, ptr %6, align 8, !tbaa !15
+  store i64 %895, ptr %6, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
-  store i64 %895, ptr %7, align 8, !tbaa !27
-  %896 = load i64, ptr @enum_id, align 8, !tbaa !15
+  store i64 %895, ptr %7, align 8, !tbaa !29
+  %896 = load i64, ptr @enum_id, align 8, !tbaa !17
   %897 = call i64 @H5Tget_super(i64 noundef %896) #9
   %898 = call i64 @H5Tget_native_type(i64 noundef %897, i32 noundef 1) #9
   %899 = call i32 @H5Tget_order(i64 noundef %897) #9
@@ -1623,37 +1623,37 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %or.cond5, label %901, label %1023
 
 901:                                              ; preds = %891
-  %902 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %902 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %903 = trunc nuw i8 %902 to i1
-  %904 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %904 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %905 = trunc nuw i8 %904 to i1
   %906 = select i1 %903, i1 true, i1 %905
-  br i1 %906, label %909, label %907, !prof !14
+  br i1 %906, label %909, label %907, !prof !16
 
 907:                                              ; preds = %901
   %908 = call i32 @H5open() #9
   br label %909
 
 909:                                              ; preds = %901, %907
-  %910 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !15
+  %910 = load i64, ptr @H5T_NATIVE_SCHAR_g, align 8, !tbaa !17
   %911 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %910) #9
   %.not305 = icmp eq i32 %911, 0
   br i1 %.not305, label %912, label %923
 
 912:                                              ; preds = %909
-  %913 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %913 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %914 = trunc nuw i8 %913 to i1
-  %915 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %915 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %916 = trunc nuw i8 %915 to i1
   %917 = select i1 %914, i1 true, i1 %916
-  br i1 %917, label %920, label %918, !prof !14
+  br i1 %917, label %920, label %918, !prof !16
 
 918:                                              ; preds = %912
   %919 = call i32 @H5open() #9
   br label %920
 
 920:                                              ; preds = %912, %918
-  %921 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8, !tbaa !15
+  %921 = load i64, ptr @H5T_NATIVE_UCHAR_g, align 8, !tbaa !17
   %922 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %921) #9
   %.not306 = icmp eq i32 %922, 0
   br i1 %.not306, label %924, label %923
@@ -1663,37 +1663,37 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not319, label %.sink.split, label %.sink.split.sink.split
 
 924:                                              ; preds = %920
-  %925 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %925 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %926 = trunc nuw i8 %925 to i1
-  %927 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %927 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %928 = trunc nuw i8 %927 to i1
   %929 = select i1 %926, i1 true, i1 %928
-  br i1 %929, label %932, label %930, !prof !14
+  br i1 %929, label %932, label %930, !prof !16
 
 930:                                              ; preds = %924
   %931 = call i32 @H5open() #9
   br label %932
 
 932:                                              ; preds = %924, %930
-  %933 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8, !tbaa !15
+  %933 = load i64, ptr @H5T_NATIVE_SHORT_g, align 8, !tbaa !17
   %934 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %933) #9
   %.not307 = icmp eq i32 %934, 0
   br i1 %.not307, label %935, label %946
 
 935:                                              ; preds = %932
-  %936 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %936 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %937 = trunc nuw i8 %936 to i1
-  %938 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %938 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %939 = trunc nuw i8 %938 to i1
   %940 = select i1 %937, i1 true, i1 %939
-  br i1 %940, label %943, label %941, !prof !14
+  br i1 %940, label %943, label %941, !prof !16
 
 941:                                              ; preds = %935
   %942 = call i32 @H5open() #9
   br label %943
 
 943:                                              ; preds = %935, %941
-  %944 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8, !tbaa !15
+  %944 = load i64, ptr @H5T_NATIVE_USHORT_g, align 8, !tbaa !17
   %945 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %944) #9
   %.not308 = icmp eq i32 %945, 0
   br i1 %.not308, label %947, label %946
@@ -1703,37 +1703,37 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not318, label %.sink.split, label %.sink.split.sink.split
 
 947:                                              ; preds = %943
-  %948 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %948 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %949 = trunc nuw i8 %948 to i1
-  %950 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %950 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %951 = trunc nuw i8 %950 to i1
   %952 = select i1 %949, i1 true, i1 %951
-  br i1 %952, label %955, label %953, !prof !14
+  br i1 %952, label %955, label %953, !prof !16
 
 953:                                              ; preds = %947
   %954 = call i32 @H5open() #9
   br label %955
 
 955:                                              ; preds = %947, %953
-  %956 = load i64, ptr @H5T_NATIVE_INT_g, align 8, !tbaa !15
+  %956 = load i64, ptr @H5T_NATIVE_INT_g, align 8, !tbaa !17
   %957 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %956) #9
   %.not309 = icmp eq i32 %957, 0
   br i1 %.not309, label %958, label %969
 
 958:                                              ; preds = %955
-  %959 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %959 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %960 = trunc nuw i8 %959 to i1
-  %961 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %961 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %962 = trunc nuw i8 %961 to i1
   %963 = select i1 %960, i1 true, i1 %962
-  br i1 %963, label %966, label %964, !prof !14
+  br i1 %963, label %966, label %964, !prof !16
 
 964:                                              ; preds = %958
   %965 = call i32 @H5open() #9
   br label %966
 
 966:                                              ; preds = %958, %964
-  %967 = load i64, ptr @H5T_NATIVE_UINT_g, align 8, !tbaa !15
+  %967 = load i64, ptr @H5T_NATIVE_UINT_g, align 8, !tbaa !17
   %968 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %967) #9
   %.not310 = icmp eq i32 %968, 0
   br i1 %.not310, label %970, label %969
@@ -1743,37 +1743,37 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not317, label %.sink.split, label %.sink.split.sink.split
 
 970:                                              ; preds = %966
-  %971 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %971 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %972 = trunc nuw i8 %971 to i1
-  %973 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %973 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %974 = trunc nuw i8 %973 to i1
   %975 = select i1 %972, i1 true, i1 %974
-  br i1 %975, label %978, label %976, !prof !14
+  br i1 %975, label %978, label %976, !prof !16
 
 976:                                              ; preds = %970
   %977 = call i32 @H5open() #9
   br label %978
 
 978:                                              ; preds = %970, %976
-  %979 = load i64, ptr @H5T_NATIVE_LONG_g, align 8, !tbaa !15
+  %979 = load i64, ptr @H5T_NATIVE_LONG_g, align 8, !tbaa !17
   %980 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %979) #9
   %.not311 = icmp eq i32 %980, 0
   br i1 %.not311, label %981, label %992
 
 981:                                              ; preds = %978
-  %982 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %982 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %983 = trunc nuw i8 %982 to i1
-  %984 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %984 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %985 = trunc nuw i8 %984 to i1
   %986 = select i1 %983, i1 true, i1 %985
-  br i1 %986, label %989, label %987, !prof !14
+  br i1 %986, label %989, label %987, !prof !16
 
 987:                                              ; preds = %981
   %988 = call i32 @H5open() #9
   br label %989
 
 989:                                              ; preds = %981, %987
-  %990 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8, !tbaa !15
+  %990 = load i64, ptr @H5T_NATIVE_ULONG_g, align 8, !tbaa !17
   %991 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %990) #9
   %.not312 = icmp eq i32 %991, 0
   br i1 %.not312, label %993, label %992
@@ -1783,37 +1783,37 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   br i1 %.not316, label %.sink.split, label %.sink.split.sink.split
 
 993:                                              ; preds = %989
-  %994 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %994 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %995 = trunc nuw i8 %994 to i1
-  %996 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %996 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %997 = trunc nuw i8 %996 to i1
   %998 = select i1 %995, i1 true, i1 %997
-  br i1 %998, label %1001, label %999, !prof !14
+  br i1 %998, label %1001, label %999, !prof !16
 
 999:                                              ; preds = %993
   %1000 = call i32 @H5open() #9
   br label %1001
 
 1001:                                             ; preds = %993, %999
-  %1002 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8, !tbaa !15
+  %1002 = load i64, ptr @H5T_NATIVE_LLONG_g, align 8, !tbaa !17
   %1003 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %1002) #9
   %.not313 = icmp eq i32 %1003, 0
   br i1 %.not313, label %1004, label %1015
 
 1004:                                             ; preds = %1001
-  %1005 = load i8, ptr @H5_libinit_g, align 1, !tbaa !10, !range !12, !noundef !13
+  %1005 = load i8, ptr @H5_libinit_g, align 1, !tbaa !12, !range !14, !noundef !15
   %1006 = trunc nuw i8 %1005 to i1
-  %1007 = load i8, ptr @H5_libterm_g, align 1, !range !12
+  %1007 = load i8, ptr @H5_libterm_g, align 1, !range !14
   %1008 = trunc nuw i8 %1007 to i1
   %1009 = select i1 %1006, i1 true, i1 %1008
-  br i1 %1009, label %1012, label %1010, !prof !14
+  br i1 %1009, label %1012, label %1010, !prof !16
 
 1010:                                             ; preds = %1004
   %1011 = call i32 @H5open() #9
   br label %1012
 
 1012:                                             ; preds = %1004, %1010
-  %1013 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8, !tbaa !15
+  %1013 = load i64, ptr @H5T_NATIVE_ULLONG_g, align 8, !tbaa !17
   %1014 = call i32 @H5Tequal(i64 noundef %898, i64 noundef %1013) #9
   %.not314 = icmp eq i32 %1014, 0
   br i1 %.not314, label %1020, label %1015
@@ -1829,14 +1829,14 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %1015, %992, %969, %946, %923
   %.sink405 = phi ptr [ %3, %923 ], [ %4, %946 ], [ %5, %969 ], [ %6, %992 ], [ %7, %1015 ], [ %.sink, %.sink.split.sink.split ]
-  %1017 = load i64, ptr @enum_id, align 8, !tbaa !15
-  %1018 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !24
+  %1017 = load i64, ptr @enum_id, align 8, !tbaa !17
+  %1018 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !26
   %1019 = call i32 @H5Tenum_insert(i64 noundef %1017, ptr noundef %1018, ptr noundef nonnull %.sink405) #9
   br label %1020
 
 1020:                                             ; preds = %.sink.split, %1012
   store i1 false, ptr @is_enum_memb, align 1
-  %1021 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !24
+  %1021 = load ptr, ptr @enum_memb_symbol, align 8, !tbaa !26
   %.not320 = icmp eq ptr %1021, null
   br i1 %.not320, label %1023, label %1022
 
@@ -1860,15 +1860,15 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
   %1028 = getelementptr inbounds %union.YYSTYPE, ptr %.2260, i64 %1027
   %1029 = getelementptr inbounds i8, ptr %.2250, i64 %1027
   %1030 = getelementptr inbounds nuw i8, ptr %1028, i64 8
-  store ptr %.sroa.0.0, ptr %1030, align 8, !tbaa !7
+  store ptr %.sroa.0.0, ptr %1030, align 8, !tbaa !9
   %1031 = getelementptr inbounds [107 x i8], ptr @yyr1, i64 0, i64 %78
-  %1032 = load i8, ptr %1031, align 1, !tbaa !7
+  %1032 = load i8, ptr %1031, align 1, !tbaa !9
   %1033 = sext i8 %1032 to i64
   %1034 = add nsw i64 %1033, -78
   %1035 = getelementptr inbounds [44 x i16], ptr @yypgoto, i64 0, i64 %1034
-  %1036 = load i16, ptr %1035, align 2, !tbaa !8
+  %1036 = load i16, ptr %1035, align 2, !tbaa !10
   %1037 = sext i16 %1036 to i32
-  %1038 = load i8, ptr %1029, align 1, !tbaa !7
+  %1038 = load i8, ptr %1029, align 1, !tbaa !9
   %1039 = zext i8 %1038 to i32
   %1040 = add nsw i32 %1039, %1037
   %or.cond7 = icmp ult i32 %1040, 240
@@ -1877,7 +1877,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 1041:                                             ; preds = %1026
   %1042 = zext nneg i32 %1040 to i64
   %1043 = getelementptr inbounds nuw [240 x i8], ptr @yycheck, i64 0, i64 %1042
-  %1044 = load i8, ptr %1043, align 1, !tbaa !7
+  %1044 = load i8, ptr %1043, align 1, !tbaa !9
   %1045 = sext i8 %1044 to i32
   %1046 = icmp eq i32 %1045, %1039
   br i1 %1046, label %1047, label %1049
@@ -1892,7 +1892,7 @@ define i64 @H5LTyyparse() local_unnamed_addr #0 {
 
 1051:                                             ; preds = %1049, %1047
   %.in.in = phi ptr [ %1048, %1047 ], [ %1050, %1049 ]
-  %.in = load i8, ptr %.in.in, align 1, !tbaa !7
+  %.in = load i8, ptr %.in.in, align 1, !tbaa !9
   br label %8
 
 1052:                                             ; preds = %73
@@ -2014,25 +2014,27 @@ attributes #10 = { nounwind allocsize(0) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!5, !5, i64 0}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"short", !5, i64 0}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!5, !5, i64 0}
 !10 = !{!11, !11, i64 0}
-!11 = !{!"_Bool", !5, i64 0}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !5, i64 0}
-!17 = !{!18, !16, i64 0}
-!18 = !{!"cmpd_info", !16, i64 0, !11, i64 8, !11, i64 9}
-!19 = !{!18, !11, i64 9}
-!20 = !{!18, !11, i64 8}
-!21 = !{!22, !4, i64 256}
-!22 = !{!"arr_info", !5, i64 0, !4, i64 256, !11, i64 260}
-!23 = !{!22, !11, i64 260}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 omnipotent char", !26, i64 0}
-!26 = !{!"any pointer", !5, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"long long", !5, i64 0}
+!11 = !{!"short", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"_Bool", !5, i64 0}
+!14 = !{i8 0, i8 2}
+!15 = !{}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !5, i64 0}
+!19 = !{!20, !18, i64 0}
+!20 = !{!"cmpd_info", !18, i64 0, !13, i64 8, !13, i64 9}
+!21 = !{!20, !13, i64 9}
+!22 = !{!20, !13, i64 8}
+!23 = !{!24, !4, i64 256}
+!24 = !{!"arr_info", !5, i64 0, !4, i64 256, !13, i64 260}
+!25 = !{!24, !13, i64 260}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 omnipotent char", !28, i64 0}
+!28 = !{!"any pointer", !5, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"long long", !5, i64 0}

@@ -489,7 +489,7 @@ _ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE10SetRowSizeEii.exit36.i: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr nonnull align 4 %63, i64 %67, i1 false)
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 12
-  br i1 %exitcond47.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIfEEvRNS1_12SparseMatrixIT_EEii.exit.preheader, label %70, !llvm.loop !7
+  br i1 %exitcond47.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIfEEvRNS1_12SparseMatrixIT_EEii.exit.preheader, label %70, !llvm.loop !8
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIfEEvRNS1_12SparseMatrixIT_EEii.exit.preheader: ; preds = %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE10SetRowSizeEii.exit36.i
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -554,17 +554,17 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIfEEvRNS1_12Spars
   store float %161, ptr %159, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIfEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIfEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIfEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i: ; preds = %.lr.ph.i.i, %138, %134
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 15
-  br i1 %exitcond.not.i15, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIfEEvRNS1_12SparseMatrixIT_EEiRKS6_iPKiPKS5_.exit, label %134, !llvm.loop !9
+  br i1 %exitcond.not.i15, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIfEEvRNS1_12SparseMatrixIT_EEiRKS6_iPKiPKS5_.exit, label %134, !llvm.loop !10
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIfEEvRNS1_12SparseMatrixIT_EEiRKS6_iPKiPKS5_.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIfEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %163, label %123, !llvm.loop !10
+  br i1 %exitcond.not, label %163, label %123, !llvm.loop !11
 
 .loopexit:                                        ; preds = %94, %107
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1146,7 +1146,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
   store float %270, ptr %gep.i, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInteriorPointWeightsEiiPfS4_S4_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInteriorPointWeightsEiiPfS4_S4_.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInteriorPointWeightsEiiPfS4_S4_.exit: ; preds = %.lr.ph.i.i.i, %257, %250
   %275 = load ptr, ptr %6, align 8
@@ -1166,7 +1166,7 @@ _ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInteriorPointWeightsEiiPfS4_S4
   %285 = icmp ne i8 %284, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %286, label %56, !llvm.loop !12
+  br i1 %exitcond.not, label %286, label %56, !llvm.loop !13
 
 286:                                              ; preds = %279
   br i1 %285, label %287, label %288
@@ -1210,7 +1210,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16convertToGregoryIfEEvRKNS1
   store ptr null, ptr %9, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 168
   %10 = icmp samesign eq i64 %.add.i, 528
-  br i1 %10, label %11, label %4
+  br i1 %10, label %11, label %4, !llvm.loop !14
 
 11:                                               ; preds = %4
   invoke void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE10InitializeERKNS1_11SourcePatchE(ptr noundef nonnull align 8 dereferenceable(528) %3, ptr noundef nonnull align 4 dereferenceable(88) %0)
@@ -1234,7 +1234,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16convertToGregoryIfEEvRKNS1
   %19 = getelementptr inbounds nuw i8, ptr %.ptr15.i, i64 36
   store i32 30, ptr %19, align 4
   %20 = icmp eq i64 %.add14.i, 24
-  br i1 %20, label %common.resume, label %14
+  br i1 %20, label %common.resume, label %14, !llvm.loop !15
 
 common.resume:                                    ; preds = %14, %29
   %common.resume.op = phi { ptr, i32 } [ %28, %29 ], [ %13, %14 ]
@@ -1257,7 +1257,7 @@ _ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfEC2ERKNS1_11SourcePatchE.exit: 
   %25 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 36
   store i32 30, ptr %25, align 4
   %26 = icmp eq i64 %.add.i4, 24
-  br i1 %26, label %_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfED2Ev.exit, label %.preheader
+  br i1 %26, label %_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfED2Ev.exit, label %.preheader, !llvm.loop !16
 
 _ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfED2Ev.exit: ; preds = %.preheader
   ret void
@@ -1280,7 +1280,7 @@ _ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfED2Ev.exit: ; preds = %.prehead
   %34 = getelementptr inbounds nuw i8, ptr %.ptr1.i7, i64 36
   store i32 30, ptr %34, align 4
   %35 = icmp eq i64 %.add.i6, 24
-  br i1 %35, label %common.resume, label %29
+  br i1 %35, label %common.resume, label %29, !llvm.loop !16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1646,7 +1646,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i, align 4
   %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %32, %31
-  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !17
 
 33:                                               ; preds = %14
   %34 = icmp eq i64 %2, %18
@@ -1663,7 +1663,7 @@ _ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i32 %15, ptr %.06.i.i.i.i.i.i.i, align 4
   %38 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %37
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !17
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
   %39 = phi ptr [ %9, %33 ], [ %37, %.lr.ph.i.i.i.i.i.i.i ]
@@ -1688,7 +1688,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   store i32 %15, ptr %.06.i.i.i72, align 4
   %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 4
   %.not.i.i.i73 = icmp eq ptr %43, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !13
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPiiEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !17
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %0, align 8
@@ -1732,7 +1732,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %44
   store i32 %65, ptr %.06.i.i.i.i.i.i.i77, align 4
   %66 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i77, i64 4
   %.not.i.i.i.i.i.i.i78 = icmp eq ptr %66, %64
-  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !13
+  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !17
 
 _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.lr.ph.i.i.i.i.i.i.i76
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %1, %45
@@ -2006,7 +2006,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeBoun
   store float %66, ptr %67, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   %68 = load float, ptr %2, align 4
@@ -2069,7 +2069,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeBoun
   store float %102, ptr %103, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !15
+  br i1 %exitcond104.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !19
 
 ._crit_edge98:                                    ; preds = %.lr.ph97, %89
   %104 = load float, ptr %2, align 4
@@ -2171,7 +2171,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInte
   store float %38, ptr %gep, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_NS1_6Crease4RuleE.exit, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_NS1_6Crease4RuleE.exit, label %.lr.ph.i.i, !llvm.loop !12
 
 44:                                               ; preds = %5
   %45 = add nsw i32 %0, 1
@@ -2245,7 +2245,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInte
   store float %78, ptr %79, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 80:                                               ; preds = %56
   %81 = landingpad { ptr, i32 }
@@ -2385,7 +2385,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeVa
   %.1 = phi i32 [ %47, %41 ], [ %.068104, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %49, %25
   %.068.lcssa = phi i32 [ 0, %25 ], [ %.1, %49 ]
@@ -2701,7 +2701,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %151, %_ZNSt6
   %.170 = phi ptr [ %.069106, %179 ], [ %185, %183 ]
   %187 = add nuw nsw i32 %.066108, 1
   %exitcond117.not = icmp eq i32 %187, %31
-  br i1 %exitcond117.not, label %.loopexit, label %.lr.ph111, !llvm.loop !18
+  br i1 %exitcond117.not, label %.loopexit, label %.lr.ph111, !llvm.loop !22
 
 188:                                              ; preds = %160
   %189 = sext i32 %31 to i64
@@ -2713,7 +2713,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %151, %_ZNSt6
 .loopexit:                                        ; preds = %186, %169, %188
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
-  br i1 %exitcond122.not, label %._crit_edge115.loopexit, label %25, !llvm.loop !19
+  br i1 %exitcond122.not, label %._crit_edge115.loopexit, label %25, !llvm.loop !23
 
 ._crit_edge115.loopexit:                          ; preds = %.loopexit
   %.pre123 = load i32, ptr %0, align 8
@@ -2897,7 +2897,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store float %37, ptr %46, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !12
 
 47:                                               ; preds = %4
   %48 = icmp eq i32 %3, 4
@@ -2932,7 +2932,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store float %58, ptr %62, align 4
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i19, %60
-  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %61, !llvm.loop !20
+  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %61, !llvm.loop !24
 
 _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.exit: ; preds = %61, %.._crit_edge_crit_edge.i
   %63 = phi float [ %.pre, %.._crit_edge_crit_edge.i ], [ %58, %61 ]
@@ -2947,7 +2947,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.
   %67 = load float, ptr %66, align 4
   %68 = fcmp ugt float %67, %63
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
-  br i1 %68, label %.preheader, label %65, !llvm.loop !21
+  br i1 %68, label %.preheader, label %65, !llvm.loop !25
 
 .preheader:                                       ; preds = %65, %.preheader
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %.preheader ], [ %52, %65 ]
@@ -2955,7 +2955,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.
   %69 = getelementptr inbounds float, ptr %54, i64 %indvars.iv.next11.i
   %70 = load float, ptr %69, align 4
   %71 = fcmp ugt float %70, %63
-  br i1 %71, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader, !llvm.loop !22
+  br i1 %71, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader, !llvm.loop !26
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; preds = %.preheader
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2977,7 +2977,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; pred
   store float 0.000000e+00, ptr %77, align 4
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count.i23
-  br i1 %exitcond.not.i27, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i24, !llvm.loop !23
+  br i1 %exitcond.not.i27, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i24, !llvm.loop !27
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit: ; preds = %.lr.ph.i24, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit
   %78 = load ptr, ptr %2, align 8
@@ -3077,7 +3077,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store float %40, ptr %49, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit: ; preds = %.lr.ph.i, %13, %27
   %50 = load i32, ptr %1, align 4
@@ -3160,7 +3160,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskI
   store float %94, ptr %97, align 4
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i27
-  br i1 %exitcond.not.i31, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i28, !llvm.loop !24
+  br i1 %exitcond.not.i31, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i28, !llvm.loop !28
 
 98:                                               ; preds = %6
   %99 = icmp eq i32 %5, 4
@@ -3195,7 +3195,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskI
   store float %109, ptr %113, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i34, %111
-  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %112, !llvm.loop !20
+  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %112, !llvm.loop !24
 
 _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.exit: ; preds = %112, %.._crit_edge_crit_edge.i
   %114 = phi float [ %.pre, %.._crit_edge_crit_edge.i ], [ %109, %112 ]
@@ -3210,7 +3210,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.
   %118 = load float, ptr %117, align 4
   %119 = fcmp ugt float %118, %114
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
-  br i1 %119, label %120, label %116, !llvm.loop !21
+  br i1 %119, label %120, label %116, !llvm.loop !25
 
 120:                                              ; preds = %116
   %121 = trunc nuw nsw i64 %indvars.iv.i35 to i32
@@ -3223,7 +3223,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIfE11LimitVertex19GetSharpnessPerEdgeEPf.
   %123 = getelementptr inbounds float, ptr %105, i64 %indvars.iv.next11.i
   %124 = load float, ptr %123, align 4
   %125 = fcmp ugt float %124, %114
-  br i1 %125, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %122, !llvm.loop !22
+  br i1 %125, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %122, !llvm.loop !26
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -3248,7 +3248,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; pred
   store float 0.000000e+00, ptr %133, align 4
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i38
-  br i1 %exitcond.not.i42, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i39, !llvm.loop !23
+  br i1 %exitcond.not.i42, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i39, !llvm.loop !27
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit: ; preds = %.lr.ph.i39, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit
   %134 = load ptr, ptr %2, align 8
@@ -3312,7 +3312,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskI
   store float 0.000000e+00, ptr %165, align 4
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i44
-  br i1 %exitcond.not.i48, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i45, !llvm.loop !25
+  br i1 %exitcond.not.i48, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i45, !llvm.loop !29
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit: ; preds = %.lr.ph.i45, %.lr.ph.i28, %142, %81, %56, %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit
   ret void
@@ -3347,7 +3347,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store float 0.000000e+00, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %14 = load i32, ptr %4, align 4
@@ -3379,7 +3379,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   %31 = load i32, ptr %4, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next96, %32
-  br i1 %33, label %.lr.ph85, label %._crit_edge86, !llvm.loop !27
+  br i1 %33, label %.lr.ph85, label %._crit_edge86, !llvm.loop !31
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge
   %.lcssa = phi i32 [ %26, %._crit_edge ], [ %31, %.lr.ph85 ]
@@ -3451,7 +3451,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store float %77, ptr %83, align 4
   %84 = add nuw nsw i32 %.07687, 1
   %exitcond98.not = icmp eq i32 %84, %35
-  br i1 %exitcond98.not, label %.loopexit, label %72, !llvm.loop !28
+  br i1 %exitcond98.not, label %.loopexit, label %72, !llvm.loop !32
 
 85:                                               ; preds = %50
   %86 = icmp eq i32 %36, 1
@@ -3513,7 +3513,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next100 to i32
   %exitcond102.not = icmp eq i32 %7, %lftr.wideiv
-  br i1 %exitcond102.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !29
+  br i1 %exitcond102.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !33
 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %.loopexit
   ret void
@@ -3728,7 +3728,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 95:                                               ; preds = %87, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader66, label %83, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader66, label %83, !llvm.loop !34
 
 .preheader:                                       ; preds = %109
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3765,7 +3765,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 109:                                              ; preds = %104, %.thread86
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
-  br i1 %exitcond79.not, label %.preheader, label %.preheader66, !llvm.loop !31
+  br i1 %exitcond79.not, label %.preheader, label %.preheader66, !llvm.loop !35
 
 110:                                              ; preds = %.preheader, %186
   %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %186 ]
@@ -3900,7 +3900,7 @@ _ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEi
 
 186:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIfEE.exit, %182
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, 3
-  br i1 %exitcond84.not, label %187, label %110, !llvm.loop !32
+  br i1 %exitcond84.not, label %187, label %110, !llvm.loop !36
 
 187:                                              ; preds = %186
   %188 = load ptr, ptr %4, align 8
@@ -4093,7 +4093,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
   %94 = add nuw nsw i32 %.0101118, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !33
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !37
 
 .preheader:                                       ; preds = %86, %156
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %156 ], [ 0, %86 ]
@@ -4198,7 +4198,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
 
 156:                                              ; preds = %.sink.split, %116, %142
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, 3
-  br i1 %exitcond132.not, label %157, label %.preheader, !llvm.loop !34
+  br i1 %exitcond132.not, label %157, label %.preheader, !llvm.loop !38
 
 157:                                              ; preds = %156
   %158 = icmp eq i32 %.1, 1
@@ -4543,7 +4543,7 @@ _ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25getIrregularFacePointSizeEi
   %174 = add i32 %173, %126
   %175 = add nsw i32 %174, %.sink128
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
-  br i1 %exitcond.not, label %176, label %5, !llvm.loop !35
+  br i1 %exitcond.not, label %176, label %5, !llvm.loop !39
 
 176:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE25getIrregularFacePointSizeEii.exit115
   %177 = load i32, ptr %0, align 8
@@ -4963,7 +4963,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   store float %71, ptr %73, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %57, !llvm.loop !36
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %57, !llvm.loop !40
 
 74:                                               ; preds = %40
   %75 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -5048,7 +5048,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   store float %120, ptr %122, align 4
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
-  br i1 %exitcond.not.i38, label %.loopexit10.i, label %.lr.ph.i35, !llvm.loop !37
+  br i1 %exitcond.not.i38, label %.loopexit10.i, label %.lr.ph.i35, !llvm.loop !41
 
 .loopexit10.i:                                    ; preds = %.lr.ph.i35, %108, %.preheader9.i
   %123 = load float, ptr %86, align 4
@@ -5090,7 +5090,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE26c
   store float %136, ptr %138, align 4
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %.lr.ph15.i, !llvm.loop !38
+  br i1 %exitcond21.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIfEES7_S7_Pf.exit, label %.lr.ph15.i, !llvm.loop !42
 
 139:                                              ; preds = %74
   store i32 %1, ptr %14, align 4
@@ -5285,7 +5285,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE23a
   br label %86
 
 86:                                               ; preds = %.sink.split, %22
-  br i1 %.not, label %22, label %87, !llvm.loop !39
+  br i1 %.not, label %22, label %87, !llvm.loop !43
 
 87:                                               ; preds = %86
   ret void
@@ -5534,7 +5534,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE28c
   store i32 %59, ptr %60, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %50
-  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !40
+  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !44
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i: ; preds = %.lr.ph.i.i, %5
   %61 = icmp sgt i32 %32, 0
@@ -5560,7 +5560,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   store i32 %71, ptr %72, align 4
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next.i35.i, %62
-  br i1 %exitcond20.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !40
+  br i1 %exitcond20.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !44
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i: ; preds = %.lr.ph.i33.i, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i
   %73 = icmp sgt i32 %46, 0
@@ -5604,7 +5604,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %.1.i = phi i32 [ %81, %80 ], [ %.03038.i, %77 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %77, !llvm.loop !41
+  br i1 %exitcond.not.i, label %.preheader.i, label %77, !llvm.loop !45
 
 89:                                               ; preds = %89, %.lr.ph42.i
   %indvars.iv44.i = phi i64 [ %75, %.lr.ph42.i ], [ %indvars.iv.next45.i, %89 ]
@@ -5614,7 +5614,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   store float 0.000000e+00, ptr %91, align 4
   %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, 1
   %92 = icmp slt i64 %indvars.iv.next45.i, %76
-  br i1 %92, label %89, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, !llvm.loop !42
+  br i1 %92, label %89, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, !llvm.loop !46
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit: ; preds = %89, %.preheader.i
   ret void
@@ -5701,7 +5701,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE31p
   store float %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %.lr.ph, !llvm.loop !47
 
 53:                                               ; preds = %43
   %54 = load i32, ptr %0, align 8
@@ -5727,7 +5727,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE31p
   store i32 %65, ptr %66, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next.i.i, %24
-  br i1 %exitcond52.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !40
+  br i1 %exitcond52.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !44
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i: ; preds = %.lr.ph.i.i, %53
   %67 = icmp sgt i32 %33, 0
@@ -5753,7 +5753,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   store i32 %77, ptr %78, align 4
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next.i35.i, %68
-  br i1 %exitcond53.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !40
+  br i1 %exitcond53.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !44
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i: ; preds = %.lr.ph.i33.i, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i
   %79 = icmp sgt i32 %54, 0
@@ -5797,7 +5797,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %.1.i = phi i32 [ %87, %86 ], [ %.03038.i, %83 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %83, !llvm.loop !41
+  br i1 %exitcond.not.i, label %.preheader.i, label %83, !llvm.loop !45
 
 95:                                               ; preds = %95, %.lr.ph42.i
   %indvars.iv44.i = phi i64 [ %81, %.lr.ph42.i ], [ %indvars.iv.next45.i, %95 ]
@@ -5807,15 +5807,15 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   store float 0.000000e+00, ptr %97, align 4
   %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next45.i, %82
-  br i1 %exitcond54.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %95, !llvm.loop !42
+  br i1 %exitcond54.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %95, !llvm.loop !46
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit: ; preds = %95, %.lr.ph, %47, %.preheader.i
-  br i1 %.not, label %25, label %98, !llvm.loop !44
+  br i1 %.not, label %25, label %98, !llvm.loop !48
 
 98:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIfEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
-  br i1 %exitcond61.not, label %99, label %9, !llvm.loop !45
+  br i1 %exitcond61.not, label %99, label %9, !llvm.loop !49
 
 99:                                               ; preds = %98
   ret void
@@ -5919,7 +5919,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %43, %41, %39, %37
 _ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE10SetRowSizeEii.exit: ; preds = %11, %50, %52, %54, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond.not, label %57, label %11, !llvm.loop !46
+  br i1 %exitcond.not, label %57, label %11, !llvm.loop !50
 
 57:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIfE10SetRowSizeEii.exit
   ret void
@@ -5979,7 +5979,7 @@ define internal fastcc void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIfE
   %.val.i = load i32, ptr %4, align 8
   %48 = sext i32 %.val.i to i64
   %49 = icmp slt i64 %indvars.iv.next.i, %48
-  br i1 %49, label %35, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit, !llvm.loop !40
+  br i1 %49, label %35, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit, !llvm.loop !44
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit: ; preds = %35, %11
   %.val12.i62 = load i32, ptr %5, align 8
@@ -6011,7 +6011,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %.val.i66 = load i32, ptr %5, align 8
   %66 = sext i32 %.val.i66 to i64
   %67 = icmp slt i64 %indvars.iv.next.i65, %66
-  br i1 %67, label %53, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67, !llvm.loop !40
+  br i1 %67, label %53, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67, !llvm.loop !44
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67: ; preds = %53, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit
   %.val12.i68 = load i32, ptr %6, align 8
@@ -6043,7 +6043,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %.val.i72 = load i32, ptr %6, align 8
   %84 = sext i32 %.val.i72 to i64
   %85 = icmp slt i64 %indvars.iv.next.i71, %84
-  br i1 %85, label %71, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73, !llvm.loop !40
+  br i1 %85, label %71, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73, !llvm.loop !44
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73: ; preds = %71, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67
   %86 = add i32 %2, -1
@@ -6106,7 +6106,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %.1 = phi i32 [ %116, %115 ], [ %.05974, %112 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %112, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %125, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73
   %.059.lcssa = phi i32 [ 0, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73 ], [ %.1, %125 ]
@@ -6136,7 +6136,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIfEEvPT_RKNS2_
   %.val61 = load i32, ptr %7, align 8
   %138 = sext i32 %.val61 to i64
   %139 = icmp slt i64 %indvars.iv.next82, %138
-  br i1 %139, label %133, label %.loopexit, !llvm.loop !48
+  br i1 %139, label %133, label %.loopexit, !llvm.loop !52
 
 .loopexit:                                        ; preds = %133, %._crit_edge
   ret void
@@ -6277,7 +6277,7 @@ _ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit.i: ; preds = %51
   store i32 %69, ptr %68, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !49
+  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !53
 
 70:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit36.i, %.preheader.i
   %indvars.iv44.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next45.i, %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit36.i ]
@@ -6374,7 +6374,7 @@ _ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit36.i: ; preds = %
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %119, ptr nonnull align 4 %63, i64 %67, i1 false)
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 12
-  br i1 %exitcond47.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIdEEvRNS1_12SparseMatrixIT_EEii.exit.preheader, label %70, !llvm.loop !50
+  br i1 %exitcond47.not.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIdEEvRNS1_12SparseMatrixIT_EEii.exit.preheader, label %70, !llvm.loop !54
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIdEEvRNS1_12SparseMatrixIT_EEii.exit.preheader: ; preds = %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit36.i
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6439,17 +6439,17 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_121_initializeFullMatrixIdEEvRNS1_12Spars
   store double %161, ptr %159, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIdEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i, label %.lr.ph.i.i, !llvm.loop !51
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIdEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i, label %.lr.ph.i.i, !llvm.loop !55
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIdEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i: ; preds = %.lr.ph.i.i, %138, %134
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 15
-  br i1 %exitcond.not.i15, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIdEEvRNS1_12SparseMatrixIT_EEiRKS6_iPKiPKS5_.exit, label %134, !llvm.loop !52
+  br i1 %exitcond.not.i15, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIdEEvRNS1_12SparseMatrixIT_EEiRKS6_iPKiPKS5_.exit, label %134, !llvm.loop !56
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_130_combineSparseMatrixRowsInFullIdEEvRNS1_12SparseMatrixIT_EEiRKS6_iPKiPKS5_.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_119_addSparseRowToFullIdEEvPT_RKNS1_12SparseMatrixIS4_EEiS4_.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
-  br i1 %exitcond.not, label %163, label %123, !llvm.loop !53
+  br i1 %exitcond.not, label %163, label %123, !llvm.loop !57
 
 .loopexit:                                        ; preds = %94, %107
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -7028,7 +7028,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
   store double %269, ptr %gep.i, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInteriorPointWeightsEiiPdS4_S4_.exit, label %.lr.ph.i.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i.i, label %_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInteriorPointWeightsEiiPdS4_S4_.exit, label %.lr.ph.i.i.i, !llvm.loop !58
 
 _ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInteriorPointWeightsEiiPdS4_S4_.exit: ; preds = %.lr.ph.i.i.i, %257, %250
   %272 = load ptr, ptr %6, align 8
@@ -7049,7 +7049,7 @@ _ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInteriorPointWeightsEiiPdS4_S4
   %283 = icmp ne i8 %282, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %284, label %56, !llvm.loop !55
+  br i1 %exitcond.not, label %284, label %56, !llvm.loop !59
 
 284:                                              ; preds = %277
   br i1 %283, label %285, label %286
@@ -7093,7 +7093,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16convertToGregoryIdEEvRKNS1
   store ptr null, ptr %9, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 176
   %10 = icmp samesign eq i64 %.add.i, 552
-  br i1 %10, label %11, label %4
+  br i1 %10, label %11, label %4, !llvm.loop !60
 
 11:                                               ; preds = %4
   invoke void @_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE10InitializeERKNS1_11SourcePatchE(ptr noundef nonnull align 8 dereferenceable(552) %3, ptr noundef nonnull align 4 dereferenceable(88) %0)
@@ -7117,7 +7117,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16convertToGregoryIdEEvRKNS1
   %19 = getelementptr inbounds nuw i8, ptr %.ptr15.i, i64 44
   store i32 30, ptr %19, align 4
   %20 = icmp eq i64 %.add14.i, 24
-  br i1 %20, label %common.resume, label %14
+  br i1 %20, label %common.resume, label %14, !llvm.loop !61
 
 common.resume:                                    ; preds = %14, %29
   %common.resume.op = phi { ptr, i32 } [ %28, %29 ], [ %13, %14 ]
@@ -7140,7 +7140,7 @@ _ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdEC2ERKNS1_11SourcePatchE.exit: 
   %25 = getelementptr inbounds nuw i8, ptr %.ptr1.i, i64 44
   store i32 30, ptr %25, align 4
   %26 = icmp eq i64 %.add.i4, 24
-  br i1 %26, label %_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdED2Ev.exit, label %.preheader
+  br i1 %26, label %_ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdED2Ev.exit, label %.preheader, !llvm.loop !62
 
 _ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdED2Ev.exit: ; preds = %.preheader
   ret void
@@ -7163,7 +7163,7 @@ _ZN10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdED2Ev.exit: ; preds = %.prehead
   %34 = getelementptr inbounds nuw i8, ptr %.ptr1.i7, i64 44
   store i32 30, ptr %34, align 4
   %35 = icmp eq i64 %.add.i6, 24
-  br i1 %35, label %common.resume, label %29
+  br i1 %35, label %common.resume, label %29, !llvm.loop !62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7575,7 +7575,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeBoun
   store double %65, ptr %66, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %.lr.ph, %55
   %67 = load double, ptr %2, align 8
@@ -7637,7 +7637,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeBoun
   store double %100, ptr %101, align 8
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
-  br i1 %exitcond104.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !57
+  br i1 %exitcond104.not, label %._crit_edge98, label %.lr.ph97, !llvm.loop !64
 
 ._crit_edge98:                                    ; preds = %.lr.ph97, %88
   %102 = load double, ptr %2, align 8
@@ -7728,7 +7728,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInte
   store double %31, ptr %gep, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_NS1_6Crease4RuleE.exit, label %.lr.ph.i.i, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_NS1_6Crease4RuleE.exit, label %.lr.ph.i.i, !llvm.loop !58
 
 35:                                               ; preds = %5
   %36 = add nsw i32 %0, 1
@@ -7790,7 +7790,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInte
   store double %64, ptr %gep110, align 8
   %indvars.iv.next.i.i64 = add nuw nsw i64 %indvars.iv.i.i63, 1
   %exitcond.not.i.i65 = icmp eq i64 %indvars.iv.next.i.i64, %wide.trip.count.i.i61
-  br i1 %exitcond.not.i.i65, label %.lr.ph.preheader.i26.i, label %.lr.ph.i.i62, !llvm.loop !54
+  br i1 %exitcond.not.i.i65, label %.lr.ph.preheader.i26.i, label %.lr.ph.i.i62, !llvm.loop !58
 
 68:                                               ; preds = %47
   store double 5.000000e-01, ptr %2, align 8
@@ -7862,7 +7862,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInte
   store double %94, ptr %gep114, align 8
   %indvars.iv.next.i30.i = add nuw nsw i64 %indvars.iv.i29.i, 1
   %exitcond.not.i31.i = icmp eq i64 %indvars.iv.next.i30.i, %wide.trip.count.i.i61
-  br i1 %exitcond.not.i31.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_SF_NS1_6Crease4RuleE.exit, label %.lr.ph.i28.i, !llvm.loop !58
+  br i1 %exitcond.not.i31.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_SF_NS1_6Crease4RuleE.exit, label %.lr.ph.i28.i, !llvm.loop !65
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_SF_NS1_6Crease4RuleE.exit: ; preds = %.lr.ph.i28.i, %68, %87
   %.pre-phi = phi double [ %.pre, %68 ], [ %53, %87 ], [ %53, %.lr.ph.i28.i ]
@@ -7889,7 +7889,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMask
   store double %104, ptr %105, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_SF_NS1_6Crease4RuleE.exit
   %106 = sub nsw i32 %0, %1
@@ -8022,7 +8022,7 @@ define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_125_removeVa
   %.1 = phi i32 [ %47, %41 ], [ %.068104, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %49, %25
   %.068.lcssa = phi i32 [ 0, %25 ], [ %.1, %49 ]
@@ -8338,7 +8338,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i: ; preds = %151, %_ZNSt6
   %.170 = phi ptr [ %.069106, %179 ], [ %185, %183 ]
   %187 = add nuw nsw i32 %.066108, 1
   %exitcond117.not = icmp eq i32 %187, %31
-  br i1 %exitcond117.not, label %.loopexit, label %.lr.ph111, !llvm.loop !61
+  br i1 %exitcond117.not, label %.loopexit, label %.lr.ph111, !llvm.loop !68
 
 188:                                              ; preds = %160
   %189 = sext i32 %31 to i64
@@ -8351,7 +8351,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36.i: ; preds = %151, %_ZNSt6
 .loopexit:                                        ; preds = %186, %169, %188
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %exitcond122.not = icmp eq i64 %indvars.iv.next119, %wide.trip.count121
-  br i1 %exitcond122.not, label %._crit_edge115.loopexit, label %25, !llvm.loop !62
+  br i1 %exitcond122.not, label %._crit_edge115.loopexit, label %25, !llvm.loop !69
 
 ._crit_edge115.loopexit:                          ; preds = %.loopexit
   %.pre123 = load i32, ptr %0, align 8
@@ -8532,7 +8532,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store double %36, ptr %43, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !54
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !58
 
 44:                                               ; preds = %4
   %45 = icmp eq i32 %3, 4
@@ -8567,7 +8567,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store float %55, ptr %59, align 4
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i19, %57
-  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %58, !llvm.loop !63
+  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %58, !llvm.loop !70
 
 _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.exit: ; preds = %58, %.._crit_edge_crit_edge.i
   %60 = phi float [ %.pre, %.._crit_edge_crit_edge.i ], [ %55, %58 ]
@@ -8582,7 +8582,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.
   %64 = load float, ptr %63, align 4
   %65 = fcmp ugt float %64, %60
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
-  br i1 %65, label %.preheader, label %62, !llvm.loop !21
+  br i1 %65, label %.preheader, label %62, !llvm.loop !25
 
 .preheader:                                       ; preds = %62, %.preheader
   %indvars.iv10.i = phi i64 [ %indvars.iv.next11.i, %.preheader ], [ %49, %62 ]
@@ -8590,7 +8590,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.
   %66 = getelementptr inbounds float, ptr %51, i64 %indvars.iv.next11.i
   %67 = load float, ptr %66, align 4
   %68 = fcmp ugt float %67, %60
-  br i1 %68, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader, !llvm.loop !22
+  br i1 %68, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %.preheader, !llvm.loop !26
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; preds = %.preheader
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -8612,7 +8612,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; pred
   store double 0.000000e+00, ptr %74, align 8
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %wide.trip.count.i23
-  br i1 %exitcond.not.i27, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i24, !llvm.loop !64
+  br i1 %exitcond.not.i27, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i24, !llvm.loop !71
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit: ; preds = %.lr.ph.i24, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit
   %75 = load ptr, ptr %2, align 8
@@ -8709,7 +8709,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store double %39, ptr %46, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !54
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit, label %.lr.ph.i, !llvm.loop !58
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit: ; preds = %.lr.ph.i, %13, %27
   %47 = load i32, ptr %1, align 4
@@ -8790,7 +8790,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskI
   store double %89, ptr %92, align 8
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i27
-  br i1 %exitcond.not.i31, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i28, !llvm.loop !58
+  br i1 %exitcond.not.i31, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i28, !llvm.loop !65
 
 93:                                               ; preds = %6
   %94 = icmp eq i32 %5, 4
@@ -8825,7 +8825,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskI
   store float %104, ptr %108, align 4
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i34, %106
-  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %107, !llvm.loop !63
+  br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.exit, label %107, !llvm.loop !70
 
 _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.exit: ; preds = %107, %.._crit_edge_crit_edge.i
   %109 = phi float [ %.pre, %.._crit_edge_crit_edge.i ], [ %104, %107 ]
@@ -8840,7 +8840,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.
   %113 = load float, ptr %112, align 4
   %114 = fcmp ugt float %113, %109
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i35, 1
-  br i1 %114, label %115, label %111, !llvm.loop !21
+  br i1 %114, label %115, label %111, !llvm.loop !25
 
 115:                                              ; preds = %111
   %116 = trunc nuw nsw i64 %indvars.iv.i35 to i32
@@ -8853,7 +8853,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10LoopLimitsIdE11LimitVertex19GetSharpnessPerEdgeEPf.
   %118 = getelementptr inbounds float, ptr %100, i64 %indvars.iv.next11.i
   %119 = load float, ptr %118, align 4
   %120 = fcmp ugt float %119, %109
-  br i1 %120, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %117, !llvm.loop !22
+  br i1 %120, label %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit, label %117, !llvm.loop !26
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -8878,7 +8878,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit: ; pred
   store double 0.000000e+00, ptr %128, align 8
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, %wide.trip.count.i38
-  br i1 %exitcond.not.i42, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i39, !llvm.loop !64
+  br i1 %exitcond.not.i42, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit, label %.lr.ph.i39, !llvm.loop !71
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit: ; preds = %.lr.ph.i39, %_ZNK10OpenSubdiv6v3_6_03Sdc6Crease24GetSharpEdgePairOfCreaseEPKfiPi.exit
   %129 = load ptr, ptr %2, align 8
@@ -8942,7 +8942,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskI
   store double 0.000000e+00, ptr %160, align 8
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i48 = icmp eq i64 %indvars.iv.next.i47, %wide.trip.count.i44
-  br i1 %exitcond.not.i48, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i45, !llvm.loop !65
+  br i1 %exitcond.not.i48, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit, label %.lr.ph.i45, !llvm.loop !72
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit: ; preds = %.lr.ph.i45, %.lr.ph.i28, %137, %78, %53, %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignCreaseLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_PKi.exit
   ret void
@@ -8971,7 +8971,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store double 0.000000e+00, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %14 = load i32, ptr %4, align 4
@@ -9003,7 +9003,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   %31 = load i32, ptr %4, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next96, %32
-  br i1 %33, label %.lr.ph85, label %._crit_edge86, !llvm.loop !67
+  br i1 %33, label %.lr.ph85, label %._crit_edge86, !llvm.loop !74
 
 ._crit_edge86:                                    ; preds = %.lr.ph85, %._crit_edge
   %.lcssa = phi i32 [ %26, %._crit_edge ], [ %31, %.lr.ph85 ]
@@ -9073,7 +9073,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   store double %75, ptr %81, align 8
   %82 = add nuw nsw i32 %.07687, 1
   %exitcond98.not = icmp eq i32 %82, %35
-  br i1 %exitcond98.not, label %.loopexit, label %71, !llvm.loop !68
+  br i1 %exitcond98.not, label %.loopexit, label %71, !llvm.loop !75
 
 83:                                               ; preds = %50
   %84 = icmp eq i32 %36, 1
@@ -9135,7 +9135,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next100 to i32
   %exitcond102.not = icmp eq i32 %7, %lftr.wideiv
-  br i1 %exitcond102.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !69
+  br i1 %exitcond102.not, label %._crit_edge92, label %.lr.ph91, !llvm.loop !76
 
 ._crit_edge92:                                    ; preds = %.lr.ph91, %.loopexit
   ret void
@@ -9339,7 +9339,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 96:                                               ; preds = %88, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader66, label %84, !llvm.loop !70
+  br i1 %exitcond.not, label %.preheader66, label %84, !llvm.loop !77
 
 .preheader:                                       ; preds = %110
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -9376,7 +9376,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj128ELb1EEC2Ej.exit: ; preds 
 110:                                              ; preds = %105, %.thread86
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
-  br i1 %exitcond79.not, label %.preheader, label %.preheader66, !llvm.loop !71
+  br i1 %exitcond79.not, label %.preheader, label %.preheader66, !llvm.loop !78
 
 111:                                              ; preds = %.preheader, %187
   %indvars.iv80 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next81, %187 ]
@@ -9512,7 +9512,7 @@ _ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEi
 
 187:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25assignRegularMidEdgePointEiRNS1_12SparseMatrixIdEE.exit, %183
   %exitcond84.not = icmp eq i64 %indvars.iv.next81, 3
-  br i1 %exitcond84.not, label %188, label %111, !llvm.loop !72
+  br i1 %exitcond84.not, label %188, label %111, !llvm.loop !79
 
 188:                                              ; preds = %187
   %189 = load ptr, ptr %4, align 8
@@ -9705,7 +9705,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
   %94 = add nuw nsw i32 %.0101118, %93
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !73
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !80
 
 .preheader:                                       ; preds = %86, %156
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %156 ], [ 0, %86 ]
@@ -9810,7 +9810,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIiLj30ELb1EE7SetSizeEj.exit: ; p
 
 156:                                              ; preds = %.sink.split, %116, %142
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, 3
-  br i1 %exitcond132.not, label %157, label %.preheader, !llvm.loop !74
+  br i1 %exitcond132.not, label %157, label %.preheader, !llvm.loop !81
 
 157:                                              ; preds = %156
   %158 = icmp eq i32 %.1, 1
@@ -10155,7 +10155,7 @@ _ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25getIrregularFacePointSizeEi
   %174 = add i32 %173, %126
   %175 = add nsw i32 %174, %.sink128
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 3
-  br i1 %exitcond.not, label %176, label %5, !llvm.loop !75
+  br i1 %exitcond.not, label %176, label %5, !llvm.loop !82
 
 176:                                              ; preds = %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE25getIrregularFacePointSizeEii.exit115
   %177 = load i32, ptr %0, align 8
@@ -10577,7 +10577,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   store double %71, ptr %73, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %57, !llvm.loop !76
+  br i1 %exitcond.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %57, !llvm.loop !83
 
 74:                                               ; preds = %40
   %75 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -10662,7 +10662,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   store double %120, ptr %122, align 8
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i34
-  br i1 %exitcond.not.i38, label %.loopexit10.i, label %.lr.ph.i35, !llvm.loop !77
+  br i1 %exitcond.not.i38, label %.loopexit10.i, label %.lr.ph.i35, !llvm.loop !84
 
 .loopexit10.i:                                    ; preds = %.lr.ph.i35, %108, %.preheader9.i
   %123 = load double, ptr %86, align 8
@@ -10704,7 +10704,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE26c
   store double %136, ptr %138, align 8
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %.lr.ph15.i, !llvm.loop !78
+  br i1 %exitcond21.not.i, label %_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE34computeIrregularInteriorEdgePointsEiRNS1_12_GLOBAL__N_115SparseMatrixRowIdEES7_S7_Pd.exit, label %.lr.ph15.i, !llvm.loop !85
 
 139:                                              ; preds = %74
   store i32 %1, ptr %14, align 4
@@ -10901,7 +10901,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE23a
   br label %86
 
 86:                                               ; preds = %.sink.split, %22
-  br i1 %.not, label %22, label %87, !llvm.loop !79
+  br i1 %.not, label %22, label %87, !llvm.loop !86
 
 87:                                               ; preds = %86
   ret void
@@ -11153,7 +11153,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE28c
   store i32 %60, ptr %61, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i, %51
-  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !80
+  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !87
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i: ; preds = %.lr.ph.i.i, %5
   %62 = icmp sgt i32 %32, 0
@@ -11179,7 +11179,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   store i32 %72, ptr %73, align 4
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next.i35.i, %63
-  br i1 %exitcond20.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !80
+  br i1 %exitcond20.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !87
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i: ; preds = %.lr.ph.i33.i, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i
   %74 = icmp sgt i32 %46, 0
@@ -11223,7 +11223,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   %.1.i = phi i32 [ %82, %81 ], [ %.03038.i, %78 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %78, !llvm.loop !81
+  br i1 %exitcond.not.i, label %.preheader.i, label %78, !llvm.loop !88
 
 90:                                               ; preds = %90, %.lr.ph42.i
   %indvars.iv44.i = phi i64 [ %76, %.lr.ph42.i ], [ %indvars.iv.next45.i, %90 ]
@@ -11233,7 +11233,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   store double 0.000000e+00, ptr %92, align 8
   %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, 1
   %93 = icmp slt i64 %indvars.iv.next45.i, %77
-  br i1 %93, label %90, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, !llvm.loop !82
+  br i1 %93, label %90, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, !llvm.loop !89
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit: ; preds = %90, %.preheader.i
   ret void
@@ -11344,7 +11344,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE31p
   store double %63, ptr %64, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %.lr.ph, !llvm.loop !90
 
 65:                                               ; preds = %55
   %66 = load i32, ptr %0, align 8
@@ -11371,7 +11371,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE31p
   store i32 %78, ptr %79, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next.i.i, %36
-  br i1 %exitcond52.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !80
+  br i1 %exitcond52.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i, label %.lr.ph.i.i, !llvm.loop !87
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i: ; preds = %.lr.ph.i.i, %65
   %80 = icmp sgt i32 %45, 0
@@ -11397,7 +11397,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   store i32 %90, ptr %91, align 4
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next.i35.i, %81
-  br i1 %exitcond53.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !80
+  br i1 %exitcond53.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i, label %.lr.ph.i33.i, !llvm.loop !87
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit37.i: ; preds = %.lr.ph.i33.i, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit.i
   %92 = icmp sgt i32 %66, 0
@@ -11441,7 +11441,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   %.1.i = phi i32 [ %100, %99 ], [ %.03038.i, %96 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %96, !llvm.loop !81
+  br i1 %exitcond.not.i, label %.preheader.i, label %96, !llvm.loop !88
 
 108:                                              ; preds = %108, %.lr.ph42.i
   %indvars.iv44.i = phi i64 [ %94, %.lr.ph42.i ], [ %indvars.iv.next45.i, %108 ]
@@ -11451,15 +11451,15 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   store double 0.000000e+00, ptr %110, align 8
   %indvars.iv.next45.i = add nsw i64 %indvars.iv44.i, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next45.i, %95
-  br i1 %exitcond54.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %108, !llvm.loop !82
+  br i1 %exitcond54.not, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit, label %108, !llvm.loop !89
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit: ; preds = %108, %.lr.ph, %59, %.preheader.i
-  br i1 %.not, label %37, label %111, !llvm.loop !84
+  br i1 %.not, label %37, label %111, !llvm.loop !91
 
 111:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_129_combineSparsePointsInFullRowIdEEvRNS2_15SparseMatrixRowIT_EES5_RKS6_S5_S9_iPS5_Pi.exit
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
-  br i1 %exitcond61.not, label %112, label %21, !llvm.loop !85
+  br i1 %exitcond61.not, label %112, label %21, !llvm.loop !92
 
 112:                                              ; preds = %111
   ret void
@@ -11563,7 +11563,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i:             ; preds = %43, %41, %39, %37
 _ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit: ; preds = %11, %50, %52, %54, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 18
-  br i1 %exitcond.not, label %57, label %11, !llvm.loop !86
+  br i1 %exitcond.not, label %57, label %11, !llvm.loop !93
 
 57:                                               ; preds = %_ZN10OpenSubdiv6v3_6_03Far12SparseMatrixIdE10SetRowSizeEii.exit
   ret void
@@ -11624,7 +11624,7 @@ define internal fastcc void @_ZNK10OpenSubdiv6v3_6_03Far19GregoryTriConverterIdE
   %.val.i = load i32, ptr %4, align 8
   %49 = sext i32 %.val.i to i64
   %50 = icmp slt i64 %indvars.iv.next.i, %49
-  br i1 %50, label %36, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit, !llvm.loop !80
+  br i1 %50, label %36, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit, !llvm.loop !87
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit: ; preds = %36, %11
   %.val12.i62 = load i32, ptr %5, align 8
@@ -11656,7 +11656,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   %.val.i66 = load i32, ptr %5, align 8
   %67 = sext i32 %.val.i66 to i64
   %68 = icmp slt i64 %indvars.iv.next.i65, %67
-  br i1 %68, label %54, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67, !llvm.loop !80
+  br i1 %68, label %54, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67, !llvm.loop !87
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67: ; preds = %54, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit
   %.val12.i68 = load i32, ptr %6, align 8
@@ -11688,7 +11688,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   %.val.i72 = load i32, ptr %6, align 8
   %85 = sext i32 %.val.i72 to i64
   %86 = icmp slt i64 %indvars.iv.next.i71, %85
-  br i1 %86, label %72, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73, !llvm.loop !80
+  br i1 %86, label %72, label %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73, !llvm.loop !87
 
 _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73: ; preds = %72, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit67
   %87 = add i32 %2, -1
@@ -11751,7 +11751,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   %.1 = phi i32 [ %117, %116 ], [ %.05974, %113 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !87
+  br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !94
 
 ._crit_edge:                                      ; preds = %126, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73
   %.059.lcssa = phi i32 [ 0, %_ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_15SparseMatrixRowIS4_EES4_Pi.exit73 ], [ %.1, %126 ]
@@ -11781,7 +11781,7 @@ _ZN10OpenSubdiv6v3_6_03Far12_GLOBAL__N_124_addSparsePointToFullRowIdEEvPT_RKNS2_
   %.val61 = load i32, ptr %7, align 8
   %139 = sext i32 %.val61 to i64
   %140 = icmp slt i64 %indvars.iv.next82, %139
-  br i1 %140, label %134, label %.loopexit, !llvm.loop !88
+  br i1 %140, label %134, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %134, %._crit_edge
   ret void
@@ -11834,87 +11834,94 @@ attributes #20 = { builtin allocsize(0) }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
-!21 = distinct !{!21, !6}
-!22 = distinct !{!22, !6}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = distinct !{!27, !6}
-!28 = distinct !{!28, !6}
-!29 = distinct !{!29, !6}
-!30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}
-!32 = distinct !{!32, !6}
-!33 = distinct !{!33, !6}
-!34 = distinct !{!34, !6}
-!35 = distinct !{!35, !6}
-!36 = distinct !{!36, !6}
-!37 = distinct !{!37, !6}
-!38 = distinct !{!38, !6}
-!39 = distinct !{!39, !6}
-!40 = distinct !{!40, !6}
-!41 = distinct !{!41, !6}
-!42 = distinct !{!42, !6}
-!43 = distinct !{!43, !6}
-!44 = distinct !{!44, !6}
-!45 = distinct !{!45, !6}
-!46 = distinct !{!46, !6}
-!47 = distinct !{!47, !6}
-!48 = distinct !{!48, !6}
-!49 = distinct !{!49, !6}
-!50 = distinct !{!50, !6}
-!51 = distinct !{!51, !6}
-!52 = distinct !{!52, !6}
-!53 = distinct !{!53, !6}
-!54 = distinct !{!54, !6}
-!55 = distinct !{!55, !6}
-!56 = distinct !{!56, !6}
-!57 = distinct !{!57, !6}
-!58 = distinct !{!58, !6}
-!59 = distinct !{!59, !6}
-!60 = distinct !{!60, !6}
-!61 = distinct !{!61, !6}
-!62 = distinct !{!62, !6}
-!63 = distinct !{!63, !6}
-!64 = distinct !{!64, !6}
-!65 = distinct !{!65, !6}
-!66 = distinct !{!66, !6}
-!67 = distinct !{!67, !6}
-!68 = distinct !{!68, !6}
-!69 = distinct !{!69, !6}
-!70 = distinct !{!70, !6}
-!71 = distinct !{!71, !6}
-!72 = distinct !{!72, !6}
-!73 = distinct !{!73, !6}
-!74 = distinct !{!74, !6}
-!75 = distinct !{!75, !6}
-!76 = distinct !{!76, !6}
-!77 = distinct !{!77, !6}
-!78 = distinct !{!78, !6}
-!79 = distinct !{!79, !6}
-!80 = distinct !{!80, !6}
-!81 = distinct !{!81, !6}
-!82 = distinct !{!82, !6}
-!83 = distinct !{!83, !6}
-!84 = distinct !{!84, !6}
-!85 = distinct !{!85, !6}
-!86 = distinct !{!86, !6}
-!87 = distinct !{!87, !6}
-!88 = distinct !{!88, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !7}
+!15 = distinct !{!15, !7}
+!16 = distinct !{!16, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}
+!23 = distinct !{!23, !6, !7}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = distinct !{!28, !6, !7}
+!29 = distinct !{!29, !6, !7}
+!30 = distinct !{!30, !6, !7}
+!31 = distinct !{!31, !6, !7}
+!32 = distinct !{!32, !6, !7}
+!33 = distinct !{!33, !6, !7}
+!34 = distinct !{!34, !6, !7}
+!35 = distinct !{!35, !6, !7}
+!36 = distinct !{!36, !6, !7}
+!37 = distinct !{!37, !6, !7}
+!38 = distinct !{!38, !6, !7}
+!39 = distinct !{!39, !6, !7}
+!40 = distinct !{!40, !6, !7}
+!41 = distinct !{!41, !6, !7}
+!42 = distinct !{!42, !6, !7}
+!43 = distinct !{!43, !6, !7}
+!44 = distinct !{!44, !6, !7}
+!45 = distinct !{!45, !6, !7}
+!46 = distinct !{!46, !6, !7}
+!47 = distinct !{!47, !6, !7}
+!48 = distinct !{!48, !6, !7}
+!49 = distinct !{!49, !6, !7}
+!50 = distinct !{!50, !6, !7}
+!51 = distinct !{!51, !6, !7}
+!52 = distinct !{!52, !6, !7}
+!53 = distinct !{!53, !6, !7}
+!54 = distinct !{!54, !6, !7}
+!55 = distinct !{!55, !6, !7}
+!56 = distinct !{!56, !6, !7}
+!57 = distinct !{!57, !6, !7}
+!58 = distinct !{!58, !6, !7}
+!59 = distinct !{!59, !6, !7}
+!60 = distinct !{!60, !7}
+!61 = distinct !{!61, !7}
+!62 = distinct !{!62, !7}
+!63 = distinct !{!63, !6, !7}
+!64 = distinct !{!64, !6, !7}
+!65 = distinct !{!65, !6, !7}
+!66 = distinct !{!66, !6, !7}
+!67 = distinct !{!67, !6, !7}
+!68 = distinct !{!68, !6, !7}
+!69 = distinct !{!69, !6, !7}
+!70 = distinct !{!70, !6, !7}
+!71 = distinct !{!71, !6, !7}
+!72 = distinct !{!72, !6, !7}
+!73 = distinct !{!73, !6, !7}
+!74 = distinct !{!74, !6, !7}
+!75 = distinct !{!75, !6, !7}
+!76 = distinct !{!76, !6, !7}
+!77 = distinct !{!77, !6, !7}
+!78 = distinct !{!78, !6, !7}
+!79 = distinct !{!79, !6, !7}
+!80 = distinct !{!80, !6, !7}
+!81 = distinct !{!81, !6, !7}
+!82 = distinct !{!82, !6, !7}
+!83 = distinct !{!83, !6, !7}
+!84 = distinct !{!84, !6, !7}
+!85 = distinct !{!85, !6, !7}
+!86 = distinct !{!86, !6, !7}
+!87 = distinct !{!87, !6, !7}
+!88 = distinct !{!88, !6, !7}
+!89 = distinct !{!89, !6, !7}
+!90 = distinct !{!90, !6, !7}
+!91 = distinct !{!91, !6, !7}
+!92 = distinct !{!92, !6, !7}
+!93 = distinct !{!93, !6, !7}
+!94 = distinct !{!94, !6, !7}
+!95 = distinct !{!95, !6, !7}

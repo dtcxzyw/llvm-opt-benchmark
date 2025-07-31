@@ -67,7 +67,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__add_seekpoints(ptr
   br i1 %21, label %22, label %.thread61
 
 22:                                               ; preds = %.critedge.thread, %.critedge
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !13
   %24 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %23, i32 noundef 1, ptr noundef nonnull @.str.1, ptr noundef %0) #4
   tail call void @FLAC__metadata_iterator_delete(ptr noundef %6) #4
   br label %88
@@ -87,7 +87,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__add_seekpoints(ptr
 29:                                               ; preds = %.preheader, %29
   %30 = tail call i32 @FLAC__metadata_iterator_prev(ptr noundef %6) #4
   %.not42 = icmp eq i32 %30, 0
-  br i1 %.not42, label %31, label %29, !llvm.loop !15
+  br i1 %.not42, label %31, label %29, !llvm.loop !16
 
 31:                                               ; preds = %29
   %32 = tail call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %6, ptr noundef %26) #4
@@ -110,26 +110,26 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__add_seekpoints(ptr
   br i1 %.not44, label %35, label %38
 
 35:                                               ; preds = %.thread61
-  %36 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !13
   %37 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %36, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %0) #4
   br label %88
 
 38:                                               ; preds = %.thread61
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #4
   %39 = getelementptr inbounds nuw i8, ptr %.037, i64 16
-  store ptr %39, ptr %5, align 8, !tbaa !16
+  store ptr %39, ptr %5, align 8, !tbaa !17
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %40, align 8, !tbaa !19
+  store i64 0, ptr %40, align 8, !tbaa !20
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 0, ptr %41, align 8, !tbaa !20
+  store i32 0, ptr %41, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 0, ptr %42, align 4, !tbaa !21
+  store i32 0, ptr %42, align 4, !tbaa !22
   %43 = tail call ptr @FLAC__stream_decoder_new() #4
   %44 = icmp eq ptr %43, null
   br i1 %44, label %populate_seekpoint_values.exit.thread, label %47
 
 populate_seekpoint_values.exit.thread:            ; preds = %38
-  %45 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %45 = load ptr, ptr @stderr, align 8, !tbaa !13
   %46 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %45, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %0) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #4
   br label %88
@@ -142,7 +142,7 @@ populate_seekpoint_values.exit.thread:            ; preds = %38
   br i1 %.not.not.i, label %.critedge.i, label %51
 
 51:                                               ; preds = %47
-  %52 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %52 = load ptr, ptr @stderr, align 8, !tbaa !13
   %53 = call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef nonnull %43) #4
   %54 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %52, i32 noundef 1, ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef %53) #4
   br label %65
@@ -153,7 +153,7 @@ populate_seekpoint_values.exit.thread:            ; preds = %38
   br i1 %.not.i, label %56, label %.critedge35.i
 
 56:                                               ; preds = %.critedge.i
-  %57 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %57 = load ptr, ptr @stderr, align 8, !tbaa !13
   %58 = call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef nonnull %43) #4
   %59 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %57, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef %58) #4
   br label %65
@@ -165,27 +165,27 @@ populate_seekpoint_values.exit.thread:            ; preds = %38
   br i1 %.not31.i, label %62, label %.critedge37.i
 
 62:                                               ; preds = %.critedge35.i
-  %63 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %63 = load ptr, ptr @stderr, align 8, !tbaa !13
   %64 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %63, i32 noundef 1, ptr noundef nonnull @.str.8, ptr noundef %0) #4
   br label %65
 
 65:                                               ; preds = %62, %56, %51
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %67 = load i64, ptr %66, align 8, !tbaa !22
+  %67 = load i64, ptr %66, align 8, !tbaa !23
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %67, ptr %68, align 8, !tbaa !23
+  store i64 %67, ptr %68, align 8, !tbaa !24
   br label %populate_seekpoint_values.exit.thread69
 
 .critedge37.i:                                    ; preds = %.critedge35.i
-  %69 = load i64, ptr %60, align 8, !tbaa !22
+  %69 = load i64, ptr %60, align 8, !tbaa !23
   %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %69, ptr %70, align 8, !tbaa !23
+  store i64 %69, ptr %70, align 8, !tbaa !24
   %71 = call i32 @FLAC__stream_decoder_process_until_end_of_stream(ptr noundef nonnull %43) #4
   %.not33.i = icmp eq i32 %71, 0
   br i1 %.not33.i, label %72, label %76
 
 72:                                               ; preds = %.critedge37.i
-  %73 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %73 = load ptr, ptr @stderr, align 8, !tbaa !13
   %74 = call ptr @FLAC__stream_decoder_get_resolved_state_string(ptr noundef nonnull %43) #4
   %75 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %73, i32 noundef 1, ptr noundef nonnull @.str.7, ptr noundef %0, ptr noundef %74) #4
   br label %populate_seekpoint_values.exit.thread69
@@ -196,23 +196,23 @@ populate_seekpoint_values.exit.thread:            ; preds = %38
   br i1 %.not40.i, label %86, label %78
 
 78:                                               ; preds = %76
-  %79 = load ptr, ptr @stderr, align 8, !tbaa !12
+  %79 = load ptr, ptr @stderr, align 8, !tbaa !13
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %81 = load i32, ptr %80, align 8, !tbaa !24
+  %81 = load i32, ptr %80, align 8, !tbaa !25
   %82 = zext i32 %81 to i64
   %83 = getelementptr inbounds nuw [0 x ptr], ptr @FLAC__StreamDecoderErrorStatusString, i64 0, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !25
+  %84 = load ptr, ptr %83, align 8, !tbaa !26
   %85 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %79, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %0, i32 noundef %81, ptr noundef %84) #4
   br label %populate_seekpoint_values.exit.thread69
 
 populate_seekpoint_values.exit.thread69:          ; preds = %78, %72, %65
-  store i32 1, ptr %3, align 4, !tbaa !27
+  store i32 1, ptr %3, align 4, !tbaa !28
   call void @FLAC__stream_decoder_delete(ptr noundef nonnull %43) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #4
   br label %88
 
 86:                                               ; preds = %76
-  store i32 1, ptr %3, align 4, !tbaa !27
+  store i32 1, ptr %3, align 4, !tbaa !28
   call void @FLAC__stream_decoder_delete(ptr noundef nonnull %43) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #4
   %87 = call i32 @FLAC__format_seektable_sort(ptr noundef nonnull %39) #4
@@ -268,27 +268,27 @@ declare i32 @FLAC__stream_decoder_init_file(ptr noundef, ptr noundef, ptr nounde
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 0, 2) i32 @write_callback_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !21
+  %6 = load i32, ptr %5, align 4, !tbaa !22
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %38
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %1, align 8, !tbaa !28
+  %8 = load i32, ptr %1, align 8, !tbaa !29
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %10 = load i64, ptr %9, align 8, !tbaa !19
+  %10 = load i64, ptr %9, align 8, !tbaa !20
   %11 = zext i32 %8 to i64
   %12 = add i64 %10, %11
   %13 = add i64 %12, -1
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %15 = load i32, ptr %14, align 8, !tbaa !20
-  %16 = load ptr, ptr %3, align 8, !tbaa !16
-  %17 = load i32, ptr %16, align 8, !tbaa !33
+  %15 = load i32, ptr %14, align 8, !tbaa !21
+  %16 = load ptr, ptr %3, align 8, !tbaa !17
+  %17 = load i32, ptr %16, align 8, !tbaa !34
   %18 = icmp ult i32 %15, %17
   br i1 %18, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !35
+  %20 = load ptr, ptr %19, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = zext i32 %15 to i64
@@ -299,7 +299,7 @@ define internal range(i32 0, 2) i32 @write_callback_(ptr noundef %0, ptr noundef
   %storemerge.in = phi i32 [ %15, %.lr.ph ], [ %storemerge, %35 ]
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %20, i64 %indvars.iv
-  %26 = load i64, ptr %25, align 8, !tbaa !36
+  %26 = load i64, ptr %25, align 8, !tbaa !37
   %27 = icmp ugt i64 %26, %13
   br i1 %27, label %._crit_edge, label %28
 
@@ -308,25 +308,25 @@ define internal range(i32 0, 2) i32 @write_callback_(ptr noundef %0, ptr noundef
   br i1 %.not35, label %35, label %29
 
 29:                                               ; preds = %28
-  store i64 %10, ptr %25, align 8, !tbaa !36
-  %30 = load i64, ptr %21, align 8, !tbaa !23
-  %31 = load i64, ptr %22, align 8, !tbaa !22
+  store i64 %10, ptr %25, align 8, !tbaa !37
+  %30 = load i64, ptr %21, align 8, !tbaa !24
+  %31 = load i64, ptr %22, align 8, !tbaa !23
   %32 = sub i64 %30, %31
   %33 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %20, i64 %indvars.iv, i32 1
-  store i64 %32, ptr %33, align 8, !tbaa !38
+  store i64 %32, ptr %33, align 8, !tbaa !39
   %34 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %20, i64 %indvars.iv, i32 2
-  store i32 %8, ptr %34, align 8, !tbaa !39
+  store i32 %8, ptr %34, align 8, !tbaa !40
   br label %35
 
 35:                                               ; preds = %28, %29
   %storemerge = add i32 %storemerge.in, 1
-  store i32 %storemerge, ptr %14, align 8, !tbaa !20
+  store i32 %storemerge, ptr %14, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %24, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %35, %24, %7
-  store i64 %12, ptr %9, align 8, !tbaa !19
+  store i64 %12, ptr %9, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %37 = tail call i32 @FLAC__stream_decoder_get_decode_position(ptr noundef %0, ptr noundef nonnull %36) #4
   %.not36 = icmp eq i32 %37, 0
@@ -341,14 +341,14 @@ define internal range(i32 0, 2) i32 @write_callback_(ptr noundef %0, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal void @error_callback_(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
-  %5 = load i32, ptr %4, align 4, !tbaa !21
+  %5 = load i32, ptr %4, align 4, !tbaa !22
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
 
 6:                                                ; preds = %3
-  store i32 1, ptr %4, align 4, !tbaa !21
+  store i32 1, ptr %4, align 4, !tbaa !22
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 %1, ptr %7, align 8, !tbaa !24
+  store i32 %1, ptr %7, align 8, !tbaa !25
   br label %8
 
 8:                                                ; preds = %6, %3
@@ -383,34 +383,35 @@ attributes #4 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!7, !7, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS8_IO_FILE", !14, i64 0}
-!14 = !{!"any pointer", !7, i64 0}
-!15 = distinct !{!15, !11}
-!16 = !{!17, !14, i64 0}
-!17 = !{!"", !14, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !6, i64 32, !6, i64 36, !6, i64 40}
-!18 = !{!"long", !7, i64 0}
-!19 = !{!17, !18, i64 8}
-!20 = !{!17, !6, i64 32}
-!21 = !{!17, !6, i64 36}
-!22 = !{!17, !18, i64 16}
-!23 = !{!17, !18, i64 24}
-!24 = !{!17, !6, i64 40}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 omnipotent char", !14, i64 0}
-!27 = !{!6, !6, i64 0}
-!28 = !{!29, !6, i64 0}
-!29 = !{!"", !30, i64 0, !7, i64 40, !31, i64 3624}
-!30 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !7, i64 24, !7, i64 32}
-!31 = !{!"", !32, i64 0}
-!32 = !{!"short", !7, i64 0}
-!33 = !{!34, !6, i64 0}
-!34 = !{!"", !6, i64 0, !14, i64 8}
-!35 = !{!34, !14, i64 8}
-!36 = !{!37, !18, i64 0}
-!37 = !{!"", !18, i64 0, !18, i64 8, !6, i64 16}
-!38 = !{!37, !18, i64 8}
-!39 = !{!37, !6, i64 16}
-!40 = distinct !{!40, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !15, i64 0}
+!15 = !{!"any pointer", !7, i64 0}
+!16 = distinct !{!16, !11, !12}
+!17 = !{!18, !15, i64 0}
+!18 = !{!"", !15, i64 0, !19, i64 8, !19, i64 16, !19, i64 24, !6, i64 32, !6, i64 36, !6, i64 40}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{!18, !6, i64 32}
+!22 = !{!18, !6, i64 36}
+!23 = !{!18, !19, i64 16}
+!24 = !{!18, !19, i64 24}
+!25 = !{!18, !6, i64 40}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 omnipotent char", !15, i64 0}
+!28 = !{!6, !6, i64 0}
+!29 = !{!30, !6, i64 0}
+!30 = !{!"", !31, i64 0, !7, i64 40, !32, i64 3624}
+!31 = !{!"", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !7, i64 24, !7, i64 32}
+!32 = !{!"", !33, i64 0}
+!33 = !{!"short", !7, i64 0}
+!34 = !{!35, !6, i64 0}
+!35 = !{!"", !6, i64 0, !15, i64 8}
+!36 = !{!35, !15, i64 8}
+!37 = !{!38, !19, i64 0}
+!38 = !{!"", !19, i64 0, !19, i64 8, !6, i64 16}
+!39 = !{!38, !19, i64 8}
+!40 = !{!38, !6, i64 16}
+!41 = distinct !{!41, !11, !12}

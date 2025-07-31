@@ -105,7 +105,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %60 = add nsw i64 %53, -1
   %61 = trunc i64 %60 to i32
   %62 = icmp ult i32 %27, %61
-  br i1 %62, label %52, label %.loopexit24, !llvm.loop !8
+  br i1 %62, label %52, label %.loopexit24, !llvm.loop !9
 
 63:                                               ; preds = %16
   %64 = icmp ugt i32 %22, %19
@@ -149,7 +149,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   store i32 %84, ptr %88, align 4
   %89 = add nuw nsw i64 %83, 1
   %90 = icmp eq i64 %89, %75
-  br i1 %90, label %76, label %82, !llvm.loop !9
+  br i1 %90, label %76, label %82, !llvm.loop !10
 
 91:                                               ; preds = %116, %79
   %92 = phi i64 [ 0, %79 ], [ %117, %116 ]
@@ -186,12 +186,12 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   store i8 %108, ptr %113, align 1
   %114 = add nuw nsw i64 %103, 1
   %115 = icmp eq i64 %114, 4
-  br i1 %115, label %116, label %102, !llvm.loop !10
+  br i1 %115, label %116, label %102, !llvm.loop !11
 
 116:                                              ; preds = %102
   %117 = add nuw nsw i64 %92, 4
   %118 = icmp samesign ult i64 %117, %81
-  br i1 %118, label %91, label %93, !llvm.loop !11
+  br i1 %118, label %91, label %93, !llvm.loop !12
 
 119:                                              ; preds = %119, %98
   %120 = phi i64 [ %100, %98 ], [ %130, %119 ]
@@ -208,7 +208,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   store i8 %124, ptr %129, align 1
   %130 = add nuw nsw i64 %120, 1
   %131 = icmp eq i64 %130, %101
-  br i1 %131, label %.loopexit23, label %119, !llvm.loop !12
+  br i1 %131, label %.loopexit23, label %119, !llvm.loop !13
 
 .loopexit23:                                      ; preds = %119, %95
   %132 = load i32, ptr %3, align 4
@@ -293,7 +293,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %180 = add i32 %171, 1
   %181 = add nuw nsw i64 %170, 1
   %182 = icmp eq i64 %181, %161
-  br i1 %182, label %.loopexit17, label %169, !llvm.loop !13
+  br i1 %182, label %.loopexit17, label %169, !llvm.loop !14
 
 183:                                              ; preds = %183, %157
   %184 = phi i64 [ 0, %157 ], [ %199, %183 ]
@@ -317,7 +317,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %198 = add i32 %185, 2
   %199 = add nuw nsw i64 %184, 1
   %200 = icmp eq i64 %199, %158
-  br i1 %200, label %.loopexit17, label %183, !llvm.loop !14
+  br i1 %200, label %.loopexit17, label %183, !llvm.loop !15
 
 201:                                              ; preds = %201, %152
   %202 = phi i64 [ 0, %152 ], [ %216, %201 ]
@@ -337,7 +337,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %215 = add i32 %203, 4
   %216 = add nuw nsw i64 %202, 1
   %217 = icmp eq i64 %216, %155
-  br i1 %217, label %.loopexit17, label %201, !llvm.loop !15
+  br i1 %217, label %.loopexit17, label %201, !llvm.loop !16
 
 218:                                              ; preds = %218, %147
   %219 = phi i64 [ 0, %147 ], [ %234, %218 ]
@@ -359,7 +359,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %233 = add i32 %220, 8
   %234 = add nuw nsw i64 %219, 1
   %235 = icmp eq i64 %234, %150
-  br i1 %235, label %.loopexit17, label %218, !llvm.loop !16
+  br i1 %235, label %.loopexit17, label %218, !llvm.loop !17
 
 236:                                              ; preds = %.loopexit, %163
   %237 = phi i64 [ 0, %163 ], [ %260, %.loopexit ]
@@ -392,13 +392,13 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   store i64 %247, ptr %256, align 1
   %257 = add nuw nsw i64 %252, 16
   %258 = icmp slt i64 %257, %167
-  br i1 %258, label %251, label %.loopexit, !llvm.loop !17
+  br i1 %258, label %251, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %251, %236
   %259 = add i32 %238, %142
   %260 = add nuw nsw i64 %237, 1
   %261 = icmp eq i64 %260, %168
-  br i1 %261, label %.loopexit17, label %236, !llvm.loop !18
+  br i1 %261, label %.loopexit17, label %236, !llvm.loop !19
 
 .loopexit17:                                      ; preds = %218, %201, %183, %169, %.loopexit, %162, %159, %156, %151, %146
   %262 = add i32 %139, %137
@@ -406,7 +406,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %264 = add i32 %263, %136
   %265 = add nuw nsw i64 %135, 1
   %266 = icmp eq i64 %265, %75
-  br i1 %266, label %.loopexit22, label %134, !llvm.loop !19
+  br i1 %266, label %.loopexit22, label %134, !llvm.loop !20
 
 .loopexit22:                                      ; preds = %.loopexit17, %63, %11, %6
   %267 = phi i64 [ -44, %6 ], [ %14, %11 ], [ -44, %63 ], [ %14, %.loopexit17 ]
@@ -550,7 +550,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
 
 .thread17:                                        ; preds = %68
   %74 = zext i8 %72 to i32
-  %75 = tail call i32 @llvm.ctlz.i32(i32 %74, i1 true), !range !20
+  %75 = tail call i32 @llvm.ctlz.i32(i32 %74, i1 true), !range !21
   %76 = trunc nuw nsw i64 %3 to i32
   %77 = shl nuw nsw i32 %76, 3
   %78 = sub nsw i32 %75, %77
@@ -559,7 +559,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
 
 80:                                               ; preds = %19
   %81 = zext i8 %22 to i32
-  %82 = tail call i32 @llvm.ctlz.i32(i32 %81, i1 true), !range !20
+  %82 = tail call i32 @llvm.ctlz.i32(i32 %81, i1 true), !range !21
   %83 = xor i32 %82, 31
   %84 = sub nuw nsw i32 8, %83
   %85 = getelementptr i8, ptr %20, i64 -8
@@ -675,7 +675,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
   %174 = getelementptr i8, ptr %98, i64 4
   store i8 %170, ptr %163, align 1
   %175 = icmp ugt i32 %173, 64
-  br i1 %175, label %.thread19, label %.lr.ph, !llvm.loop !21
+  br i1 %175, label %.thread19, label %.lr.ph, !llvm.loop !22
 
 176:                                              ; preds = %88
   %177 = icmp ult ptr %89, %17
@@ -744,7 +744,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
   %225 = getelementptr i8, ptr %213, i64 1
   store i8 %221, ptr %213, align 1
   %226 = icmp ult ptr %225, %11
-  br i1 %226, label %212, label %.loopexit, !llvm.loop !22
+  br i1 %226, label %212, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %212, %.thread19
   %227 = phi i32 [ %204, %.thread19 ], [ %224, %212 ]
@@ -818,13 +818,13 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %18 = getelementptr i8, ptr %17, i64 -3
   %19 = getelementptr i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !24
   %20 = load i16, ptr %2, align 1
   %21 = zext i16 %20 to i64
   %22 = getelementptr i8, ptr %2, i64 2
@@ -875,7 +875,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %57 = lshr i64 %56, 56
   %58 = trunc nuw nsw i64 %57 to i32
   %59 = icmp ult i64 %56, 72057594037927936
-  %60 = tail call i32 @llvm.ctlz.i32(i32 %58, i1 true), !range !20
+  %60 = tail call i32 @llvm.ctlz.i32(i32 %58, i1 true), !range !21
   %61 = xor i32 %60, 31
   %62 = sub nuw nsw i32 8, %61
   %63 = select i1 %59, i32 0, i32 %62
@@ -962,7 +962,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
 115:                                              ; preds = %110
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %117 = zext i8 %113 to i32
-  %118 = tail call i32 @llvm.ctlz.i32(i32 %117, i1 true), !range !20
+  %118 = tail call i32 @llvm.ctlz.i32(i32 %117, i1 true), !range !21
   %119 = xor i32 %118, 31
   %120 = shl nuw nsw i16 %20, 3
   %121 = sub nuw nsw i16 64, %120
@@ -997,7 +997,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %138 = lshr i64 %137, 56
   %139 = trunc nuw nsw i64 %138 to i32
   %140 = icmp ult i64 %137, 72057594037927936
-  %141 = tail call i32 @llvm.ctlz.i32(i32 %139, i1 true), !range !20
+  %141 = tail call i32 @llvm.ctlz.i32(i32 %139, i1 true), !range !21
   %142 = xor i32 %141, 31
   %143 = sub nuw nsw i32 8, %142
   %144 = select i1 %140, i32 0, i32 %143
@@ -1084,7 +1084,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
 196:                                              ; preds = %191
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %198 = zext i8 %194 to i32
-  %199 = tail call i32 @llvm.ctlz.i32(i32 %198, i1 true), !range !20
+  %199 = tail call i32 @llvm.ctlz.i32(i32 %198, i1 true), !range !21
   %200 = xor i32 %199, 31
   %201 = shl nuw nsw i16 %23, 3
   %202 = sub nuw nsw i16 64, %201
@@ -1119,7 +1119,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %219 = lshr i64 %218, 56
   %220 = trunc nuw nsw i64 %219 to i32
   %221 = icmp ult i64 %218, 72057594037927936
-  %222 = tail call i32 @llvm.ctlz.i32(i32 %220, i1 true), !range !20
+  %222 = tail call i32 @llvm.ctlz.i32(i32 %220, i1 true), !range !21
   %223 = xor i32 %222, 31
   %224 = sub nuw nsw i32 8, %223
   %225 = select i1 %221, i32 0, i32 %224
@@ -1206,7 +1206,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
 277:                                              ; preds = %272
   %278 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %279 = zext i8 %275 to i32
-  %280 = tail call i32 @llvm.ctlz.i32(i32 %279, i1 true), !range !20
+  %280 = tail call i32 @llvm.ctlz.i32(i32 %279, i1 true), !range !21
   %281 = xor i32 %280, 31
   %282 = shl nuw nsw i16 %26, 3
   %283 = sub nuw nsw i16 64, %282
@@ -1220,7 +1220,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %287 = phi ptr [ %34, %277 ], [ %216, %215 ]
   %288 = phi i32 [ %285, %277 ], [ %224, %215 ]
   %289 = phi i64 [ %273, %277 ], [ %218, %215 ]
-  %290 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %10, ptr noundef %35, i64 noundef %31), !range !24
+  %290 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %10, ptr noundef %35, i64 noundef %31), !range !25
   %291 = icmp ult i64 %290, -119
   br i1 %291, label %292, label %.thread
 
@@ -1465,7 +1465,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %507 = getelementptr i8, ptr %324, i64 4
   store i8 %503, ptr %463, align 1
   %508 = icmp ult ptr %319, %50
-  br i1 %508, label %516, label %509, !prof !25
+  br i1 %508, label %516, label %509, !prof !26
 
 509:                                              ; preds = %315
   %510 = lshr i32 %473, 3
@@ -1482,7 +1482,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %519 = phi i64 [ %515, %509 ], [ %328, %315 ]
   %520 = phi i32 [ 0, %509 ], [ 3, %315 ]
   %521 = icmp ult ptr %318, %131
-  br i1 %521, label %529, label %522, !prof !25
+  br i1 %521, label %529, label %522, !prof !26
 
 522:                                              ; preds = %516
   %523 = lshr i32 %484, 3
@@ -1500,7 +1500,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %533 = phi i32 [ 0, %522 ], [ 3, %516 ]
   %534 = or i32 %533, %520
   %535 = icmp ult ptr %317, %212
-  br i1 %535, label %543, label %536, !prof !25
+  br i1 %535, label %543, label %536, !prof !26
 
 536:                                              ; preds = %529
   %537 = lshr i32 %495, 3
@@ -1518,7 +1518,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %547 = phi i32 [ 0, %536 ], [ 3, %529 ]
   %548 = or i32 %534, %547
   %549 = icmp ult ptr %316, %312
-  br i1 %549, label %557, label %550, !prof !25
+  br i1 %549, label %557, label %550, !prof !26
 
 550:                                              ; preds = %543
   %551 = lshr i32 %506, 3
@@ -1538,7 +1538,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %563 = icmp ne i32 %562, 0
   %564 = icmp uge ptr %507, %18
   %565 = or i1 %564, %563
-  br i1 %565, label %566, label %315, !llvm.loop !26
+  br i1 %565, label %566, label %315, !llvm.loop !27
 
 566:                                              ; preds = %557
   store i32 %518, ptr %300, align 8
@@ -1710,10 +1710,10 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   store i8 %682, ptr %673, align 1
   %687 = load i32, ptr %594, align 8
   %688 = icmp ugt i32 %687, 64
-  br i1 %688, label %.thread52, label %.lr.ph, !llvm.loop !21
+  br i1 %688, label %.thread52, label %.lr.ph, !llvm.loop !28
 
 689:                                              ; preds = %588
-  %690 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %690 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   br label %.thread52
 
 .thread52:                                        ; preds = %631, %636, %612, %593, %689
@@ -1746,7 +1746,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %712 = getelementptr i8, ptr %699, i64 1
   store i8 %708, ptr %699, align 1
   %713 = icmp ult ptr %712, %38
-  br i1 %713, label %698, label %.loopexit68, !llvm.loop !22
+  br i1 %713, label %698, label %.loopexit68, !llvm.loop !30
 
 .loopexit68:                                      ; preds = %698, %.thread52
   %714 = ptrtoint ptr %39 to i64
@@ -1879,10 +1879,10 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   store i8 %808, ptr %799, align 1
   %813 = load i32, ptr %719, align 8
   %814 = icmp ugt i32 %813, 64
-  br i1 %814, label %.thread54, label %.lr.ph92, !llvm.loop !21
+  br i1 %814, label %.thread54, label %.lr.ph92, !llvm.loop !31
 
 815:                                              ; preds = %.loopexit68
-  %816 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %816 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   br label %.thread54
 
 .thread54:                                        ; preds = %757, %762, %738, %718, %815
@@ -1915,7 +1915,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %838 = getelementptr i8, ptr %825, i64 1
   store i8 %834, ptr %825, align 1
   %839 = icmp ult ptr %838, %39
-  br i1 %839, label %824, label %.loopexit67, !llvm.loop !22
+  br i1 %839, label %824, label %.loopexit67, !llvm.loop !32
 
 .loopexit67:                                      ; preds = %824, %.thread54
   %840 = ptrtoint ptr %581 to i64
@@ -2047,10 +2047,10 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   store i8 %933, ptr %924, align 1
   %938 = load i32, ptr %844, align 8
   %939 = icmp ugt i32 %938, 64
-  br i1 %939, label %.thread56, label %.lr.ph98, !llvm.loop !21
+  br i1 %939, label %.thread56, label %.lr.ph98, !llvm.loop !33
 
 940:                                              ; preds = %.loopexit67
-  %941 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %941 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   br label %.thread56
 
 .thread56:                                        ; preds = %882, %887, %863, %843, %940
@@ -2083,7 +2083,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %963 = getelementptr i8, ptr %950, i64 1
   store i8 %959, ptr %950, align 1
   %964 = icmp ult ptr %963, %40
-  br i1 %964, label %949, label %.loopexit66, !llvm.loop !22
+  br i1 %964, label %949, label %.loopexit66, !llvm.loop !34
 
 .loopexit66:                                      ; preds = %949, %.thread56
   %965 = ptrtoint ptr %582 to i64
@@ -2216,10 +2216,10 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   store i8 %1059, ptr %1050, align 1
   %1064 = load i32, ptr %969, align 8
   %1065 = icmp ugt i32 %1064, 64
-  br i1 %1065, label %.thread58, label %.lr.ph104, !llvm.loop !21
+  br i1 %1065, label %.thread58, label %.lr.ph104, !llvm.loop !35
 
 1066:                                             ; preds = %.loopexit66
-  %1067 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !27
+  %1067 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !29
   br label %.thread58
 
 .thread58:                                        ; preds = %1008, %1013, %989, %968, %1066
@@ -2252,7 +2252,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %1089 = getelementptr i8, ptr %1076, i64 1
   store i8 %1085, ptr %1076, align 1
   %1090 = icmp ult ptr %1089, %17
-  br i1 %1090, label %1075, label %.loopexit, !llvm.loop !22
+  br i1 %1090, label %1075, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %1075, %.thread58
   %1091 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -2358,8 +2358,8 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   br i1 %20, label %388, label %21
 
 21:                                               ; preds = %16
-  store i32 0, ptr %7, align 4, !annotation !23
-  store i32 0, ptr %8, align 4, !annotation !23
+  store i32 0, ptr %7, align 4, !annotation !24
+  store i32 0, ptr %8, align 4, !annotation !24
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 992
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 1248
   %24 = call i64 @HUF_readStats_wksp(ptr noundef nonnull %22, i64 noundef 256, ptr noundef nonnull %19, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %23, i64 noundef 872, i32 noundef %5) #17
@@ -2388,7 +2388,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %41 = add i32 %34, -1
   %42 = add i32 %33, 1
   %43 = add i32 %32, -1
-  br i1 %39, label %31, label %44, !llvm.loop !28
+  br i1 %39, label %31, label %44, !llvm.loop !37
 
 44:                                               ; preds = %31
   %45 = icmp samesign ult i32 %27, 12
@@ -2413,7 +2413,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i32 %55, ptr %59, align 4
   %60 = add nuw nsw i64 %54, 1
   %61 = icmp eq i64 %60, %52
-  br i1 %61, label %.loopexit28, label %53, !llvm.loop !29
+  br i1 %61, label %.loopexit28, label %53, !llvm.loop !38
 
 .loopexit28:                                      ; preds = %53, %44
   %62 = phi i32 [ 0, %44 ], [ %58, %53 ]
@@ -2445,7 +2445,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i8 %78, ptr %80, align 1
   %81 = add nuw nsw i64 %71, 1
   %82 = icmp eq i64 %81, %69
-  br i1 %82, label %.loopexit27, label %70, !llvm.loop !30
+  br i1 %82, label %.loopexit27, label %70, !llvm.loop !39
 
 .loopexit27:                                      ; preds = %70, %.loopexit28
   store i32 0, ptr %18, align 4
@@ -2470,7 +2470,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i32 %89, ptr %96, align 4
   %97 = add nuw nsw i64 %88, 1
   %98 = icmp eq i64 %97, %86
-  br i1 %98, label %.loopexit26, label %87, !llvm.loop !31
+  br i1 %98, label %.loopexit26, label %87, !llvm.loop !40
 
 .loopexit26:                                      ; preds = %87
   %99 = sub i32 %30, %35
@@ -2500,13 +2500,13 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i32 %113, ptr %114, align 4
   %115 = add nuw nsw i64 %110, 1
   %116 = icmp eq i64 %115, %103
-  br i1 %116, label %.loopexit24.us, label %109, !llvm.loop !32
+  br i1 %116, label %.loopexit24.us, label %109, !llvm.loop !41
 
 .loopexit24.us:                                   ; preds = %109
   %117 = add nuw nsw i64 %106, 1
   %lftr.wideiv = trunc i64 %117 to i32
   %exitcond = icmp eq i32 %105, %lftr.wideiv
-  br i1 %exitcond, label %.loopexit25, label %.split.us, !llvm.loop !33
+  br i1 %exitcond, label %.loopexit25, label %.split.us, !llvm.loop !42
 
 .loopexit25:                                      ; preds = %.loopexit24.us, %.loopexit26
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 736
@@ -2595,7 +2595,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i64 %161, ptr %174, align 2
   %175 = add nuw nsw i64 %170, 8
   %176 = icmp samesign ult i64 %175, %166
-  br i1 %176, label %169, label %.loopexit16, !llvm.loop !35
+  br i1 %176, label %169, label %.loopexit16, !llvm.loop !44
 
 177:                                              ; preds = %167, %157
   %178 = phi ptr [ %168, %167 ], [ %153, %157 ]
@@ -2694,7 +2694,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i32 %.reass20.reass.i.reass.reass, ptr %223, align 2
   %229 = getelementptr i8, ptr %224, i64 1
   %230 = icmp eq ptr %229, %196
-  br i1 %230, label %HUF_fillDTableX2ForWeight.exit, label %222, !llvm.loop !36
+  br i1 %230, label %HUF_fillDTableX2ForWeight.exit, label %222, !llvm.loop !45
 
 231:                                              ; preds = %231, %210
   %232 = phi ptr [ %192, %210 ], [ %238, %231 ]
@@ -2709,7 +2709,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %238 = getelementptr i8, ptr %232, i64 8
   %239 = getelementptr i8, ptr %233, i64 1
   %240 = icmp eq ptr %239, %196
-  br i1 %240, label %HUF_fillDTableX2ForWeight.exit, label %231, !llvm.loop !37
+  br i1 %240, label %HUF_fillDTableX2ForWeight.exit, label %231, !llvm.loop !46
 
 241:                                              ; preds = %241, %206
   %242 = phi ptr [ %192, %206 ], [ %250, %241 ]
@@ -2726,7 +2726,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %250 = getelementptr i8, ptr %242, i64 16
   %251 = getelementptr i8, ptr %243, i64 1
   %252 = icmp eq ptr %251, %196
-  br i1 %252, label %HUF_fillDTableX2ForWeight.exit, label %241, !llvm.loop !38
+  br i1 %252, label %HUF_fillDTableX2ForWeight.exit, label %241, !llvm.loop !47
 
 253:                                              ; preds = %253, %202
   %254 = phi ptr [ %192, %202 ], [ %264, %253 ]
@@ -2747,7 +2747,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %264 = getelementptr i8, ptr %254, i64 32
   %265 = getelementptr i8, ptr %255, i64 1
   %266 = icmp eq ptr %265, %196
-  br i1 %266, label %HUF_fillDTableX2ForWeight.exit, label %253, !llvm.loop !39
+  br i1 %266, label %HUF_fillDTableX2ForWeight.exit, label %253, !llvm.loop !48
 
 267:                                              ; preds = %283, %218
   %268 = phi ptr [ %192, %218 ], [ %275, %283 ]
@@ -2772,22 +2772,22 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   store i64 %274, ptr %280, align 2
   %281 = getelementptr i8, ptr %277, i64 32
   %282 = icmp eq ptr %281, %275
-  br i1 %282, label %283, label %276, !llvm.loop !40
+  br i1 %282, label %283, label %276, !llvm.loop !49
 
 283:                                              ; preds = %276
   %284 = getelementptr i8, ptr %269, i64 1
   %285 = icmp eq ptr %284, %196
-  br i1 %285, label %HUF_fillDTableX2ForWeight.exit, label %267, !llvm.loop !41
+  br i1 %285, label %HUF_fillDTableX2ForWeight.exit, label %267, !llvm.loop !50
 
 HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %222, %283, %201, %205, %209, %213, %217
   %286 = icmp eq i64 %184, %63
-  br i1 %286, label %.loopexit, label %180, !llvm.loop !42
+  br i1 %286, label %.loopexit, label %180, !llvm.loop !51
 
 .loopexit:                                        ; preds = %HUF_fillDTableX2ForWeight.exit, %.loopexit16
   %287 = add i32 %151, %133
   %288 = add i32 %150, 1
   %289 = icmp eq i32 %288, %126
-  br i1 %289, label %HUF_fillDTableX2ForWeight.exit10, label %149, !llvm.loop !43
+  br i1 %289, label %HUF_fillDTableX2ForWeight.exit10, label %149, !llvm.loop !52
 
 290:                                              ; preds = %.preheader22
   %291 = getelementptr i32, ptr %3, i64 %121
@@ -2834,7 +2834,7 @@ HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %2
   %316 = getelementptr i8, ptr %306, i64 32
   %317 = getelementptr i8, ptr %307, i64 1
   %318 = icmp eq ptr %317, %298
-  br i1 %318, label %HUF_fillDTableX2ForWeight.exit10, label %.split.us.i, !llvm.loop !44
+  br i1 %318, label %HUF_fillDTableX2ForWeight.exit10, label %.split.us.i, !llvm.loop !53
 
 319:                                              ; preds = %290
   br i1 %301, label %HUF_fillDTableX2ForWeight.exit10, label %320
@@ -2858,7 +2858,7 @@ HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %2
   %331 = getelementptr i8, ptr %323, i64 16
   %332 = getelementptr i8, ptr %324, i64 1
   %333 = icmp eq ptr %332, %298
-  br i1 %333, label %HUF_fillDTableX2ForWeight.exit10, label %.split12.us.i, !llvm.loop !45
+  br i1 %333, label %HUF_fillDTableX2ForWeight.exit10, label %.split12.us.i, !llvm.loop !54
 
 334:                                              ; preds = %290
   br i1 %301, label %HUF_fillDTableX2ForWeight.exit10, label %335
@@ -2880,7 +2880,7 @@ HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %2
   %344 = getelementptr i8, ptr %338, i64 8
   %345 = getelementptr i8, ptr %339, i64 1
   %346 = icmp eq ptr %345, %298
-  br i1 %346, label %HUF_fillDTableX2ForWeight.exit10, label %.split15.us.i, !llvm.loop !46
+  br i1 %346, label %HUF_fillDTableX2ForWeight.exit10, label %.split15.us.i, !llvm.loop !55
 
 347:                                              ; preds = %290
   br i1 %301, label %HUF_fillDTableX2ForWeight.exit10, label %348
@@ -2900,7 +2900,7 @@ HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %2
   store i32 %355, ptr %351, align 2
   %357 = getelementptr i8, ptr %352, i64 1
   %358 = icmp eq ptr %357, %298
-  br i1 %358, label %HUF_fillDTableX2ForWeight.exit10, label %.split18.us.i, !llvm.loop !47
+  br i1 %358, label %HUF_fillDTableX2ForWeight.exit10, label %.split18.us.i, !llvm.loop !56
 
 359:                                              ; preds = %290
   br i1 %301, label %HUF_fillDTableX2ForWeight.exit10, label %360
@@ -2933,16 +2933,16 @@ HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %2
   store i64 %371, ptr %377, align 2
   %378 = getelementptr i8, ptr %374, i64 32
   %379 = icmp eq ptr %378, %372
-  br i1 %379, label %380, label %373, !llvm.loop !40
+  br i1 %379, label %380, label %373, !llvm.loop !49
 
 380:                                              ; preds = %373
   %381 = getelementptr i8, ptr %366, i64 1
   %382 = icmp eq ptr %381, %298
-  br i1 %382, label %HUF_fillDTableX2ForWeight.exit10, label %364, !llvm.loop !41
+  br i1 %382, label %HUF_fillDTableX2ForWeight.exit10, label %364, !llvm.loop !50
 
 HUF_fillDTableX2ForWeight.exit10:                 ; preds = %.loopexit, %.split.us.i, %.split12.us.i, %.split15.us.i, %.split18.us.i, %380, %359, %347, %334, %319, %302, %131
   %383 = icmp eq i64 %124, %63
-  br i1 %383, label %.loopexit23, label %.preheader22, !llvm.loop !48
+  br i1 %383, label %.loopexit23, label %.preheader22, !llvm.loop !57
 
 .loopexit23:                                      ; preds = %HUF_fillDTableX2ForWeight.exit10, %.loopexit27, %.loopexit25
   %384 = trunc nuw nsw i32 %48 to i8
@@ -3078,7 +3078,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
 
 .thread29:                                        ; preds = %64
   %70 = zext i8 %68 to i32
-  %71 = tail call i32 @llvm.ctlz.i32(i32 %70, i1 true), !range !20
+  %71 = tail call i32 @llvm.ctlz.i32(i32 %70, i1 true), !range !21
   %72 = trunc nuw nsw i64 %3 to i32
   %73 = shl nuw nsw i32 %72, 3
   %74 = sub nsw i32 %71, %73
@@ -3087,7 +3087,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
 
 76:                                               ; preds = %15
   %77 = zext i8 %18 to i32
-  %78 = tail call i32 @llvm.ctlz.i32(i32 %77, i1 true), !range !20
+  %78 = tail call i32 @llvm.ctlz.i32(i32 %77, i1 true), !range !21
   %79 = xor i32 %78, 31
   %80 = sub nuw nsw i32 8, %79
   %81 = getelementptr i8, ptr %16, i64 -8
@@ -3244,7 +3244,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %204 = zext i8 %203 to i64
   %205 = getelementptr i8, ptr %191, i64 %204
   %206 = icmp ugt i32 %201, 64
-  br i1 %206, label %.thread31, label %.lr.ph61, !llvm.loop !49
+  br i1 %206, label %.thread31, label %.lr.ph61, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %239
   %207 = phi ptr [ %295, %239 ], [ %0, %.lr.ph.preheader ]
@@ -3351,7 +3351,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %294 = zext i8 %293 to i64
   %295 = getelementptr i8, ptr %281, i64 %294
   %296 = icmp ugt i32 %291, 64
-  br i1 %296, label %.thread31, label %.lr.ph, !llvm.loop !50
+  br i1 %296, label %.thread31, label %.lr.ph, !llvm.loop !59
 
 297:                                              ; preds = %84
   %298 = icmp ult ptr %85, %13
@@ -3477,7 +3477,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %387 = zext i8 %386 to i64
   %388 = getelementptr i8, ptr %338, i64 %387
   %389 = icmp ugt i32 %384, 64
-  br i1 %389, label %.thread35, label %.lr.ph76, !llvm.loop !51
+  br i1 %389, label %.thread35, label %.lr.ph76, !llvm.loop !60
 
 .preheader:                                       ; preds = %.thread35, %.preheader
   %390 = phi ptr [ %405, %.preheader ], [ %.lcssa45, %.thread35 ]
@@ -3498,7 +3498,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %404 = zext i8 %403 to i64
   %405 = getelementptr i8, ptr %390, i64 %404
   %406 = icmp ugt ptr %405, %332
-  br i1 %406, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %406, label %.loopexit, label %.preheader, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.preheader, %.thread35, %.thread31
   %407 = phi i64 [ %324, %.thread31 ], [ %372, %.thread35 ], [ %372, %.preheader ]
@@ -3615,13 +3615,13 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %18 = getelementptr i8, ptr %17, i64 -7
   %19 = getelementptr i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, i8 0, i64 40, i1 false), !annotation !24
   %20 = load i16, ptr %2, align 1
   %21 = zext i16 %20 to i64
   %22 = getelementptr i8, ptr %2, i64 2
@@ -3673,7 +3673,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %58 = lshr i64 %57, 56
   %59 = trunc nuw nsw i64 %58 to i32
   %60 = icmp ult i64 %57, 72057594037927936
-  %61 = tail call i32 @llvm.ctlz.i32(i32 %59, i1 true), !range !20
+  %61 = tail call i32 @llvm.ctlz.i32(i32 %59, i1 true), !range !21
   %62 = xor i32 %61, 31
   %63 = sub nuw nsw i32 8, %62
   %64 = select i1 %60, i32 0, i32 %63
@@ -3760,7 +3760,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %118 = zext i8 %114 to i32
-  %119 = tail call i32 @llvm.ctlz.i32(i32 %118, i1 true), !range !20
+  %119 = tail call i32 @llvm.ctlz.i32(i32 %118, i1 true), !range !21
   %120 = xor i32 %119, 31
   %121 = shl nuw nsw i16 %20, 3
   %122 = sub nuw nsw i16 64, %121
@@ -3795,7 +3795,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %139 = lshr i64 %138, 56
   %140 = trunc nuw nsw i64 %139 to i32
   %141 = icmp ult i64 %138, 72057594037927936
-  %142 = tail call i32 @llvm.ctlz.i32(i32 %140, i1 true), !range !20
+  %142 = tail call i32 @llvm.ctlz.i32(i32 %140, i1 true), !range !21
   %143 = xor i32 %142, 31
   %144 = sub nuw nsw i32 8, %143
   %145 = select i1 %141, i32 0, i32 %144
@@ -3883,7 +3883,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
 197:                                              ; preds = %192
   %198 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %199 = zext i8 %195 to i32
-  %200 = tail call i32 @llvm.ctlz.i32(i32 %199, i1 true), !range !20
+  %200 = tail call i32 @llvm.ctlz.i32(i32 %199, i1 true), !range !21
   %201 = xor i32 %200, 31
   %202 = shl nuw nsw i16 %23, 3
   %203 = sub nuw nsw i16 64, %202
@@ -3918,7 +3918,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %220 = lshr i64 %219, 56
   %221 = trunc nuw nsw i64 %220 to i32
   %222 = icmp ult i64 %219, 72057594037927936
-  %223 = tail call i32 @llvm.ctlz.i32(i32 %221, i1 true), !range !20
+  %223 = tail call i32 @llvm.ctlz.i32(i32 %221, i1 true), !range !21
   %224 = xor i32 %223, 31
   %225 = sub nuw nsw i32 8, %224
   %226 = select i1 %222, i32 0, i32 %225
@@ -4005,7 +4005,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
 278:                                              ; preds = %273
   %279 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %280 = zext i8 %276 to i32
-  %281 = tail call i32 @llvm.ctlz.i32(i32 %280, i1 true), !range !20
+  %281 = tail call i32 @llvm.ctlz.i32(i32 %280, i1 true), !range !21
   %282 = xor i32 %281, 31
   %283 = shl nuw nsw i16 %26, 3
   %284 = sub nuw nsw i16 64, %283
@@ -4019,7 +4019,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %288 = phi ptr [ %34, %278 ], [ %217, %216 ]
   %289 = phi i32 [ %286, %278 ], [ %225, %216 ]
   %290 = phi i64 [ %274, %278 ], [ %219, %216 ]
-  %291 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %10, ptr noundef %35, i64 noundef %31), !range !24
+  %291 = call fastcc i64 @BIT_initDStream(ptr noundef nonnull %10, ptr noundef %35, i64 noundef %31), !range !25
   %292 = icmp ult i64 %291, -119
   br i1 %292, label %293, label %.thread
 
@@ -4194,7 +4194,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %443 = zext i8 %442 to i64
   %444 = getelementptr i8, ptr %430, i64 %443
   %445 = icmp ult ptr %322, %51
-  br i1 %445, label %453, label %446, !prof !25
+  br i1 %445, label %453, label %446, !prof !26
 
 446:                                              ; preds = %316
   %447 = lshr i32 %384, 3
@@ -4214,7 +4214,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %456 = phi i64 [ %452, %446 ], [ %329, %316 ]
   %457 = phi i32 [ 0, %446 ], [ 3, %316 ]
   %458 = icmp ult ptr %321, %132
-  br i1 %458, label %466, label %459, !prof !25
+  br i1 %458, label %466, label %459, !prof !26
 
 459:                                              ; preds = %453
   %460 = lshr i32 %440, 3
@@ -4356,7 +4356,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %582 = zext i8 %581 to i64
   %583 = getelementptr i8, ptr %569, i64 %582
   %584 = icmp ult ptr %318, %213
-  br i1 %584, label %592, label %585, !prof !25
+  br i1 %584, label %592, label %585, !prof !26
 
 585:                                              ; preds = %466
   %586 = lshr i32 %523, 3
@@ -4377,7 +4377,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %596 = phi i32 [ 0, %585 ], [ 3, %466 ]
   %597 = or i32 %471, %596
   %598 = icmp ult ptr %317, %313
-  br i1 %598, label %606, label %599, !prof !25
+  br i1 %598, label %606, label %599, !prof !26
 
 599:                                              ; preds = %592
   %600 = lshr i32 %579, 3
@@ -4397,7 +4397,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %612 = icmp ne i32 %611, 0
   %613 = icmp uge ptr %583, %18
   %614 = or i1 %613, %612
-  br i1 %614, label %615, label %316, !llvm.loop !53
+  br i1 %614, label %615, label %316, !llvm.loop !62
 
 615:                                              ; preds = %606
   store i32 %608, ptr %309, align 8
@@ -4434,7 +4434,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
 
 637:                                              ; preds = %632
   %638 = icmp samesign ult i32 %43, 12
-  %639 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %639 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   %640 = icmp eq i32 %639, 0
   br i1 %638, label %650, label %641
 
@@ -4557,11 +4557,11 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %739 = load i8, ptr %738, align 1
   %740 = zext i8 %739 to i64
   %741 = getelementptr i8, ptr %725, i64 %740
-  %742 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %742 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   %743 = icmp eq i32 %742, 0
   %744 = icmp ult ptr %741, %651
   %745 = and i1 %743, %744
-  br i1 %745, label %659, label %.loopexit107, !llvm.loop !49
+  br i1 %745, label %659, label %.loopexit107, !llvm.loop !63
 
 746:                                              ; preds = %746, %645
   %747 = phi ptr [ %623, %645 ], [ %812, %746 ]
@@ -4638,14 +4638,14 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %810 = load i8, ptr %809, align 1
   %811 = zext i8 %810 to i64
   %812 = getelementptr i8, ptr %796, i64 %811
-  %813 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %813 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   %814 = icmp eq i32 %813, 0
   %815 = icmp ult ptr %812, %642
   %816 = and i1 %814, %815
-  br i1 %816, label %746, label %.loopexit107, !llvm.loop !50
+  br i1 %816, label %746, label %.loopexit107, !llvm.loop !64
 
 817:                                              ; preds = %632
-  %818 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %818 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   br label %.loopexit107
 
 .loopexit107:                                     ; preds = %746, %659, %817, %650, %641
@@ -4743,7 +4743,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %882 = zext i8 %881 to i64
   %883 = getelementptr i8, ptr %831, i64 %882
   %884 = icmp ugt i32 %879, 64
-  br i1 %884, label %.thread78, label %.lr.ph, !llvm.loop !51
+  br i1 %884, label %.thread78, label %.lr.ph, !llvm.loop !65
 
 .preheader105:                                    ; preds = %.thread78, %.preheader105
   %885 = phi i32 [ %898, %.preheader105 ], [ %866, %.thread78 ]
@@ -4767,7 +4767,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %901 = zext i8 %900 to i64
   %902 = getelementptr i8, ptr %886, i64 %901
   %903 = icmp ugt ptr %902, %825
-  br i1 %903, label %.loopexit106, label %.preheader105, !llvm.loop !52
+  br i1 %903, label %.loopexit106, label %.preheader105, !llvm.loop !66
 
 .loopexit106:                                     ; preds = %.preheader105, %.thread78, %.loopexit107
   %904 = phi ptr [ %819, %.loopexit107 ], [ %.lcssa121, %.thread78 ], [ %902, %.preheader105 ]
@@ -4828,7 +4828,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
 
 944:                                              ; preds = %939
   %945 = icmp samesign ult i32 %43, 12
-  %946 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %946 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   %947 = icmp eq i32 %946, 0
   br i1 %945, label %957, label %948
 
@@ -4951,11 +4951,11 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1046 = load i8, ptr %1045, align 1
   %1047 = zext i8 %1046 to i64
   %1048 = getelementptr i8, ptr %1032, i64 %1047
-  %1049 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %1049 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   %1050 = icmp eq i32 %1049, 0
   %1051 = icmp ult ptr %1048, %958
   %1052 = and i1 %1050, %1051
-  br i1 %1052, label %966, label %.loopexit103, !llvm.loop !49
+  br i1 %1052, label %966, label %.loopexit103, !llvm.loop !67
 
 1053:                                             ; preds = %1053, %952
   %1054 = phi ptr [ %624, %952 ], [ %1119, %1053 ]
@@ -5032,14 +5032,14 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1117 = load i8, ptr %1116, align 1
   %1118 = zext i8 %1117 to i64
   %1119 = getelementptr i8, ptr %1103, i64 %1118
-  %1120 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %1120 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   %1121 = icmp eq i32 %1120, 0
   %1122 = icmp ult ptr %1119, %949
   %1123 = and i1 %1121, %1122
-  br i1 %1123, label %1053, label %.loopexit103, !llvm.loop !50
+  br i1 %1123, label %1053, label %.loopexit103, !llvm.loop !68
 
 1124:                                             ; preds = %939
-  %1125 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %1125 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   br label %.loopexit103
 
 .loopexit103:                                     ; preds = %1053, %966, %1124, %957, %948
@@ -5137,7 +5137,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1189 = zext i8 %1188 to i64
   %1190 = getelementptr i8, ptr %1138, i64 %1189
   %1191 = icmp ugt i32 %1186, 64
-  br i1 %1191, label %.thread81, label %.lr.ph135, !llvm.loop !51
+  br i1 %1191, label %.thread81, label %.lr.ph135, !llvm.loop !69
 
 .preheader101:                                    ; preds = %.thread81, %.preheader101
   %1192 = phi i32 [ %1205, %.preheader101 ], [ %1173, %.thread81 ]
@@ -5161,7 +5161,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1208 = zext i8 %1207 to i64
   %1209 = getelementptr i8, ptr %1193, i64 %1208
   %1210 = icmp ugt ptr %1209, %1132
-  br i1 %1210, label %.loopexit102, label %.preheader101, !llvm.loop !52
+  br i1 %1210, label %.loopexit102, label %.preheader101, !llvm.loop !70
 
 .loopexit102:                                     ; preds = %.preheader101, %.thread81, %.loopexit103
   %1211 = phi ptr [ %1126, %.loopexit103 ], [ %.lcssa117, %.thread81 ], [ %1209, %.preheader101 ]
@@ -5221,7 +5221,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
 
 1250:                                             ; preds = %1246
   %1251 = icmp samesign ult i32 %43, 12
-  %1252 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %1252 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   %1253 = icmp eq i32 %1252, 0
   br i1 %1251, label %1263, label %1254
 
@@ -5344,11 +5344,11 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1352 = load i8, ptr %1351, align 1
   %1353 = zext i8 %1352 to i64
   %1354 = getelementptr i8, ptr %1338, i64 %1353
-  %1355 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %1355 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   %1356 = icmp eq i32 %1355, 0
   %1357 = icmp ult ptr %1354, %1264
   %1358 = and i1 %1356, %1357
-  br i1 %1358, label %1272, label %.loopexit99, !llvm.loop !49
+  br i1 %1358, label %1272, label %.loopexit99, !llvm.loop !71
 
 1359:                                             ; preds = %1359, %1258
   %1360 = phi ptr [ %625, %1258 ], [ %1425, %1359 ]
@@ -5425,14 +5425,14 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1423 = load i8, ptr %1422, align 1
   %1424 = zext i8 %1423 to i64
   %1425 = getelementptr i8, ptr %1409, i64 %1424
-  %1426 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %1426 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   %1427 = icmp eq i32 %1426, 0
   %1428 = icmp ult ptr %1425, %1255
   %1429 = and i1 %1427, %1428
-  br i1 %1429, label %1359, label %.loopexit99, !llvm.loop !50
+  br i1 %1429, label %1359, label %.loopexit99, !llvm.loop !72
 
 1430:                                             ; preds = %1246
-  %1431 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %1431 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   br label %.loopexit99
 
 .loopexit99:                                      ; preds = %1359, %1272, %1430, %1263, %1254
@@ -5530,7 +5530,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1495 = zext i8 %1494 to i64
   %1496 = getelementptr i8, ptr %1444, i64 %1495
   %1497 = icmp ugt i32 %1492, 64
-  br i1 %1497, label %.thread84, label %.lr.ph141, !llvm.loop !51
+  br i1 %1497, label %.thread84, label %.lr.ph141, !llvm.loop !73
 
 .preheader97:                                     ; preds = %.thread84, %.preheader97
   %1498 = phi i32 [ %1511, %.preheader97 ], [ %1479, %.thread84 ]
@@ -5554,7 +5554,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1514 = zext i8 %1513 to i64
   %1515 = getelementptr i8, ptr %1499, i64 %1514
   %1516 = icmp ugt ptr %1515, %1438
-  br i1 %1516, label %.loopexit98, label %.preheader97, !llvm.loop !52
+  br i1 %1516, label %.loopexit98, label %.preheader97, !llvm.loop !74
 
 .loopexit98:                                      ; preds = %.preheader97, %.thread84, %.loopexit99
   %1517 = phi ptr [ %1432, %.loopexit99 ], [ %.lcssa113, %.thread84 ], [ %1515, %.preheader97 ]
@@ -5617,7 +5617,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   br i1 %1557, label %1568, label %1558
 
 1558:                                             ; preds = %1556
-  %1559 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !27
+  %1559 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !29
   %1560 = icmp eq i32 %1559, 0
   %1561 = icmp ult ptr %626, %18
   %1562 = and i1 %1561, %1560
@@ -5632,7 +5632,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
 
 1568:                                             ; preds = %1556
   %1569 = getelementptr i8, ptr %17, i64 -9
-  %1570 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !27
+  %1570 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !29
   %1571 = icmp eq i32 %1570, 0
   %1572 = icmp ult ptr %626, %1569
   %1573 = and i1 %1572, %1571
@@ -5738,11 +5738,11 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1659 = load i8, ptr %1658, align 1
   %1660 = zext i8 %1659 to i64
   %1661 = getelementptr i8, ptr %1645, i64 %1660
-  %1662 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !27
+  %1662 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !29
   %1663 = icmp eq i32 %1662, 0
   %1664 = icmp ult ptr %1661, %1569
   %1665 = and i1 %1663, %1664
-  br i1 %1665, label %1579, label %.loopexit95, !llvm.loop !49
+  br i1 %1665, label %1579, label %.loopexit95, !llvm.loop !75
 
 1666:                                             ; preds = %1666, %1563
   %1667 = phi ptr [ %626, %1563 ], [ %1732, %1666 ]
@@ -5819,14 +5819,14 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1730 = load i8, ptr %1729, align 1
   %1731 = zext i8 %1730 to i64
   %1732 = getelementptr i8, ptr %1716, i64 %1731
-  %1733 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !27
+  %1733 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !29
   %1734 = icmp eq i32 %1733, 0
   %1735 = icmp ult ptr %1732, %18
   %1736 = and i1 %1734, %1735
-  br i1 %1736, label %1666, label %.loopexit95, !llvm.loop !50
+  br i1 %1736, label %1666, label %.loopexit95, !llvm.loop !76
 
 1737:                                             ; preds = %1552
-  %1738 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !27
+  %1738 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %10), !range !29
   br label %.loopexit95
 
 .loopexit95:                                      ; preds = %1666, %1579, %1737, %1568, %1558
@@ -5926,7 +5926,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1804 = zext i8 %1803 to i64
   %1805 = getelementptr i8, ptr %1753, i64 %1804
   %1806 = icmp ugt i32 %1801, 64
-  br i1 %1806, label %.thread87, label %.lr.ph147, !llvm.loop !51
+  br i1 %1806, label %.thread87, label %.lr.ph147, !llvm.loop !77
 
 .preheader:                                       ; preds = %.thread87, %.preheader
   %1807 = phi i32 [ %1820, %.preheader ], [ %1788, %.thread87 ]
@@ -5950,7 +5950,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1823 = zext i8 %1822 to i64
   %1824 = getelementptr i8, ptr %1808, i64 %1823
   %1825 = icmp ugt ptr %1824, %1745
-  br i1 %1825, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %1825, label %.loopexit, label %.preheader, !llvm.loop !78
 
 .loopexit:                                        ; preds = %.preheader, %.thread87, %.loopexit95
   %1826 = phi ptr [ %1739, %.loopexit95 ], [ %.lcssa109, %.thread87 ], [ %1824, %.preheader ]
@@ -6548,7 +6548,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
 
 .thread17:                                        ; preds = %63
   %69 = zext i8 %67 to i32
-  %70 = tail call i32 @llvm.ctlz.i32(i32 %69, i1 true), !range !20
+  %70 = tail call i32 @llvm.ctlz.i32(i32 %69, i1 true), !range !21
   %71 = trunc nuw nsw i64 %3 to i32
   %72 = shl nuw nsw i32 %71, 3
   %73 = sub nsw i32 %70, %72
@@ -6557,7 +6557,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
 
 75:                                               ; preds = %14
   %76 = zext i8 %17 to i32
-  %77 = tail call i32 @llvm.ctlz.i32(i32 %76, i1 true), !range !20
+  %77 = tail call i32 @llvm.ctlz.i32(i32 %76, i1 true), !range !21
   %78 = xor i32 %77, 31
   %79 = sub nuw nsw i32 8, %78
   %80 = getelementptr i8, ptr %15, i64 -8
@@ -6673,7 +6673,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
   %169 = getelementptr i8, ptr %93, i64 4
   store i8 %165, ptr %158, align 1
   %170 = icmp ugt i32 %168, 64
-  br i1 %170, label %.thread19, label %.lr.ph, !llvm.loop !21
+  br i1 %170, label %.thread19, label %.lr.ph, !llvm.loop !79
 
 171:                                              ; preds = %83
   %172 = icmp ult ptr %84, %12
@@ -6742,7 +6742,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
   %220 = getelementptr i8, ptr %208, i64 1
   store i8 %216, ptr %208, align 1
   %221 = icmp ult ptr %220, %6
-  br i1 %221, label %207, label %.loopexit, !llvm.loop !22
+  br i1 %221, label %207, label %.loopexit, !llvm.loop !80
 
 .loopexit:                                        ; preds = %207, %.thread19
   %222 = phi i32 [ %199, %.thread19 ], [ %219, %207 ]
@@ -6786,7 +6786,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @BIT_initDStream(ptr noundef 
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   %19 = zext i8 %17 to i32
-  %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !20
+  %20 = tail call i32 @llvm.ctlz.i32(i32 %19, i1 true), !range !21
   %21 = xor i32 %20, 31
   %22 = sub nuw nsw i32 8, %21
   %23 = select i1 %18, i32 0, i32 %22
@@ -6874,7 +6874,7 @@ define internal fastcc noundef range(i64 1, 0) i64 @BIT_initDStream(ptr noundef 
   %73 = load i8, ptr %72, align 1
   %74 = icmp eq i8 %73, 0
   %75 = zext i8 %73 to i32
-  %76 = tail call i32 @llvm.ctlz.i32(i32 %75, i1 true), !range !20
+  %76 = tail call i32 @llvm.ctlz.i32(i32 %75, i1 true), !range !21
   %77 = xor i32 %76, 31
   %78 = sub nuw nsw i32 8, %77
   %79 = select i1 %74, i32 0, i32 %78
@@ -6981,13 +6981,13 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %13 = getelementptr i8, ptr %12, i64 -3
   %14 = getelementptr i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !24
   %15 = load i16, ptr %2, align 1
   %16 = zext i16 %15 to i64
   %17 = getelementptr i8, ptr %2, i64 2
@@ -7038,7 +7038,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %52 = lshr i64 %51, 56
   %53 = trunc nuw nsw i64 %52 to i32
   %54 = icmp ult i64 %51, 72057594037927936
-  %55 = tail call i32 @llvm.ctlz.i32(i32 %53, i1 true), !range !20
+  %55 = tail call i32 @llvm.ctlz.i32(i32 %53, i1 true), !range !21
   %56 = xor i32 %55, 31
   %57 = sub nuw nsw i32 8, %56
   %58 = select i1 %54, i32 0, i32 %57
@@ -7125,7 +7125,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
 110:                                              ; preds = %105
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %112 = zext i8 %108 to i32
-  %113 = tail call i32 @llvm.ctlz.i32(i32 %112, i1 true), !range !20
+  %113 = tail call i32 @llvm.ctlz.i32(i32 %112, i1 true), !range !21
   %114 = xor i32 %113, 31
   %115 = shl nuw nsw i16 %15, 3
   %116 = sub nuw nsw i16 64, %115
@@ -7160,7 +7160,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %133 = lshr i64 %132, 56
   %134 = trunc nuw nsw i64 %133 to i32
   %135 = icmp ult i64 %132, 72057594037927936
-  %136 = tail call i32 @llvm.ctlz.i32(i32 %134, i1 true), !range !20
+  %136 = tail call i32 @llvm.ctlz.i32(i32 %134, i1 true), !range !21
   %137 = xor i32 %136, 31
   %138 = sub nuw nsw i32 8, %137
   %139 = select i1 %135, i32 0, i32 %138
@@ -7247,7 +7247,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
 191:                                              ; preds = %186
   %192 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %193 = zext i8 %189 to i32
-  %194 = tail call i32 @llvm.ctlz.i32(i32 %193, i1 true), !range !20
+  %194 = tail call i32 @llvm.ctlz.i32(i32 %193, i1 true), !range !21
   %195 = xor i32 %194, 31
   %196 = shl nuw nsw i16 %18, 3
   %197 = sub nuw nsw i16 64, %196
@@ -7282,7 +7282,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %214 = lshr i64 %213, 56
   %215 = trunc nuw nsw i64 %214 to i32
   %216 = icmp ult i64 %213, 72057594037927936
-  %217 = tail call i32 @llvm.ctlz.i32(i32 %215, i1 true), !range !20
+  %217 = tail call i32 @llvm.ctlz.i32(i32 %215, i1 true), !range !21
   %218 = xor i32 %217, 31
   %219 = sub nuw nsw i32 8, %218
   %220 = select i1 %216, i32 0, i32 %219
@@ -7369,7 +7369,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
 272:                                              ; preds = %267
   %273 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %274 = zext i8 %270 to i32
-  %275 = tail call i32 @llvm.ctlz.i32(i32 %274, i1 true), !range !20
+  %275 = tail call i32 @llvm.ctlz.i32(i32 %274, i1 true), !range !21
   %276 = xor i32 %275, 31
   %277 = shl nuw nsw i16 %21, 3
   %278 = sub nuw nsw i16 64, %277
@@ -7405,7 +7405,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
   %296 = lshr i64 %295, 56
   %297 = trunc nuw nsw i64 %296 to i32
   %298 = icmp ult i64 %295, 72057594037927936
-  %299 = tail call i32 @llvm.ctlz.i32(i32 %297, i1 true), !range !20
+  %299 = tail call i32 @llvm.ctlz.i32(i32 %297, i1 true), !range !21
   %300 = xor i32 %299, 31
   %301 = sub nuw nsw i32 8, %300
   %302 = select i1 %298, i32 0, i32 %301
@@ -7493,7 +7493,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal_bmi2(ptr noun
 BIT_initDStream.exit.thread52:                    ; preds = %349
   %355 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %356 = zext i8 %353 to i32
-  %357 = tail call i32 @llvm.ctlz.i32(i32 %356, i1 true), !range !20
+  %357 = tail call i32 @llvm.ctlz.i32(i32 %356, i1 true), !range !21
   %358 = xor i32 %357, 31
   %359 = trunc nuw nsw i64 %26 to i32
   %360 = shl nuw nsw i32 %359, 3
@@ -7745,7 +7745,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %577 = getelementptr i8, ptr %394, i64 4
   store i8 %573, ptr %533, align 1
   %578 = icmp ult ptr %389, %45
-  br i1 %578, label %586, label %579, !prof !25
+  br i1 %578, label %586, label %579, !prof !26
 
 579:                                              ; preds = %385
   %580 = lshr i32 %543, 3
@@ -7762,7 +7762,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %589 = phi i64 [ %585, %579 ], [ %398, %385 ]
   %590 = phi i32 [ 0, %579 ], [ 3, %385 ]
   %591 = icmp ult ptr %388, %126
-  br i1 %591, label %599, label %592, !prof !25
+  br i1 %591, label %599, label %592, !prof !26
 
 592:                                              ; preds = %586
   %593 = lshr i32 %554, 3
@@ -7780,7 +7780,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %603 = phi i32 [ 0, %592 ], [ 3, %586 ]
   %604 = or i32 %603, %590
   %605 = icmp ult ptr %387, %207
-  br i1 %605, label %613, label %606, !prof !25
+  br i1 %605, label %613, label %606, !prof !26
 
 606:                                              ; preds = %599
   %607 = lshr i32 %565, 3
@@ -7798,7 +7798,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %617 = phi i32 [ 0, %606 ], [ 3, %599 ]
   %618 = or i32 %604, %617
   %619 = icmp ult ptr %386, %288
-  br i1 %619, label %627, label %620, !prof !25
+  br i1 %619, label %627, label %620, !prof !26
 
 620:                                              ; preds = %613
   %621 = lshr i32 %576, 3
@@ -7818,7 +7818,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %633 = icmp ne i32 %632, 0
   %634 = icmp uge ptr %577, %13
   %635 = or i1 %634, %633
-  br i1 %635, label %636, label %385, !llvm.loop !26
+  br i1 %635, label %636, label %385, !llvm.loop !81
 
 636:                                              ; preds = %627
   store i32 %588, ptr %374, align 8
@@ -7990,10 +7990,10 @@ BIT_initDStream.exit:                             ; preds = %291
   store i8 %752, ptr %743, align 1
   %757 = load i32, ptr %664, align 8
   %758 = icmp ugt i32 %757, 64
-  br i1 %758, label %.thread54, label %.lr.ph, !llvm.loop !21
+  br i1 %758, label %.thread54, label %.lr.ph, !llvm.loop !82
 
 759:                                              ; preds = %658
-  %760 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %6), !range !27
+  %760 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %6), !range !29
   br label %.thread54
 
 .thread54:                                        ; preds = %701, %706, %682, %663, %759
@@ -8026,7 +8026,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %782 = getelementptr i8, ptr %769, i64 1
   store i8 %778, ptr %769, align 1
   %783 = icmp ult ptr %782, %33
-  br i1 %783, label %768, label %.loopexit71, !llvm.loop !22
+  br i1 %783, label %768, label %.loopexit71, !llvm.loop !83
 
 .loopexit71:                                      ; preds = %768, %.thread54
   %784 = ptrtoint ptr %34 to i64
@@ -8159,10 +8159,10 @@ BIT_initDStream.exit:                             ; preds = %291
   store i8 %878, ptr %869, align 1
   %883 = load i32, ptr %789, align 8
   %884 = icmp ugt i32 %883, 64
-  br i1 %884, label %.thread56, label %.lr.ph95, !llvm.loop !21
+  br i1 %884, label %.thread56, label %.lr.ph95, !llvm.loop !84
 
 885:                                              ; preds = %.loopexit71
-  %886 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %886 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   br label %.thread56
 
 .thread56:                                        ; preds = %827, %832, %808, %788, %885
@@ -8195,7 +8195,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %908 = getelementptr i8, ptr %895, i64 1
   store i8 %904, ptr %895, align 1
   %909 = icmp ult ptr %908, %34
-  br i1 %909, label %894, label %.loopexit70, !llvm.loop !22
+  br i1 %909, label %894, label %.loopexit70, !llvm.loop !85
 
 .loopexit70:                                      ; preds = %894, %.thread56
   %910 = ptrtoint ptr %651 to i64
@@ -8327,10 +8327,10 @@ BIT_initDStream.exit:                             ; preds = %291
   store i8 %1003, ptr %994, align 1
   %1008 = load i32, ptr %914, align 8
   %1009 = icmp ugt i32 %1008, 64
-  br i1 %1009, label %.thread58, label %.lr.ph101, !llvm.loop !21
+  br i1 %1009, label %.thread58, label %.lr.ph101, !llvm.loop !86
 
 1010:                                             ; preds = %.loopexit70
-  %1011 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %1011 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   br label %.thread58
 
 .thread58:                                        ; preds = %952, %957, %933, %913, %1010
@@ -8363,7 +8363,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1033 = getelementptr i8, ptr %1020, i64 1
   store i8 %1029, ptr %1020, align 1
   %1034 = icmp ult ptr %1033, %35
-  br i1 %1034, label %1019, label %.loopexit69, !llvm.loop !22
+  br i1 %1034, label %1019, label %.loopexit69, !llvm.loop !87
 
 .loopexit69:                                      ; preds = %1019, %.thread58
   %1035 = ptrtoint ptr %652 to i64
@@ -8494,10 +8494,10 @@ BIT_initDStream.exit:                             ; preds = %291
   store i8 %1127, ptr %1118, align 1
   %1132 = load i32, ptr %1039, align 8
   %1133 = icmp ugt i32 %1132, 64
-  br i1 %1133, label %.thread60, label %.lr.ph107, !llvm.loop !21
+  br i1 %1133, label %.thread60, label %.lr.ph107, !llvm.loop !88
 
 1134:                                             ; preds = %.loopexit69
-  %1135 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %1135 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   br label %.thread60
 
 .thread60:                                        ; preds = %1076, %1081, %1057, %1038, %1134
@@ -8530,7 +8530,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1157 = getelementptr i8, ptr %1144, i64 1
   store i8 %1153, ptr %1144, align 1
   %1158 = icmp ult ptr %1157, %12
-  br i1 %1158, label %1143, label %.loopexit, !llvm.loop !22
+  br i1 %1158, label %1143, label %.loopexit, !llvm.loop !89
 
 .loopexit:                                        ; preds = %1143, %.thread60
   %1159 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8676,7 +8676,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
 
 .thread30:                                        ; preds = %59
   %65 = zext i8 %63 to i32
-  %66 = tail call i32 @llvm.ctlz.i32(i32 %65, i1 true), !range !20
+  %66 = tail call i32 @llvm.ctlz.i32(i32 %65, i1 true), !range !21
   %67 = trunc nuw nsw i64 %3 to i32
   %68 = shl nuw nsw i32 %67, 3
   %69 = sub nsw i32 %66, %68
@@ -8685,7 +8685,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
 
 71:                                               ; preds = %10
   %72 = zext i8 %13 to i32
-  %73 = tail call i32 @llvm.ctlz.i32(i32 %72, i1 true), !range !20
+  %73 = tail call i32 @llvm.ctlz.i32(i32 %72, i1 true), !range !21
   %74 = xor i32 %73, 31
   %75 = sub nuw nsw i32 8, %74
   %76 = getelementptr i8, ptr %11, i64 -8
@@ -8842,7 +8842,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %199 = zext i8 %198 to i64
   %200 = getelementptr i8, ptr %186, i64 %199
   %201 = icmp ugt i32 %196, 64
-  br i1 %201, label %.thread32, label %.lr.ph62, !llvm.loop !49
+  br i1 %201, label %.thread32, label %.lr.ph62, !llvm.loop !90
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %234
   %202 = phi ptr [ %290, %234 ], [ %0, %.lr.ph.preheader ]
@@ -8949,7 +8949,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %289 = zext i8 %288 to i64
   %290 = getelementptr i8, ptr %276, i64 %289
   %291 = icmp ugt i32 %286, 64
-  br i1 %291, label %.thread32, label %.lr.ph, !llvm.loop !50
+  br i1 %291, label %.thread32, label %.lr.ph, !llvm.loop !91
 
 292:                                              ; preds = %79
   %293 = icmp ult ptr %80, %8
@@ -9075,7 +9075,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %382 = zext i8 %381 to i64
   %383 = getelementptr i8, ptr %333, i64 %382
   %384 = icmp ugt i32 %379, 64
-  br i1 %384, label %.thread36, label %.lr.ph77, !llvm.loop !51
+  br i1 %384, label %.thread36, label %.lr.ph77, !llvm.loop !92
 
 .preheader:                                       ; preds = %.thread36, %.preheader
   %385 = phi ptr [ %400, %.preheader ], [ %.lcssa46, %.thread36 ]
@@ -9096,7 +9096,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %399 = zext i8 %398 to i64
   %400 = getelementptr i8, ptr %385, i64 %399
   %401 = icmp ugt ptr %400, %327
-  br i1 %401, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %401, label %.loopexit, label %.preheader, !llvm.loop !93
 
 .loopexit:                                        ; preds = %.preheader, %.thread36, %.thread32
   %402 = phi i64 [ %319, %.thread32 ], [ %367, %.thread36 ], [ %367, %.preheader ]
@@ -9168,13 +9168,13 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %13 = getelementptr i8, ptr %12, i64 -7
   %14 = getelementptr i8, ptr %4, i64 4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, i8 0, i64 24, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false), !annotation !24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !23
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false), !annotation !24
   %15 = load i16, ptr %2, align 1
   %16 = zext i16 %15 to i64
   %17 = getelementptr i8, ptr %2, i64 2
@@ -9226,7 +9226,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %53 = lshr i64 %52, 56
   %54 = trunc nuw nsw i64 %53 to i32
   %55 = icmp ult i64 %52, 72057594037927936
-  %56 = tail call i32 @llvm.ctlz.i32(i32 %54, i1 true), !range !20
+  %56 = tail call i32 @llvm.ctlz.i32(i32 %54, i1 true), !range !21
   %57 = xor i32 %56, 31
   %58 = sub nuw nsw i32 8, %57
   %59 = select i1 %55, i32 0, i32 %58
@@ -9313,7 +9313,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
 111:                                              ; preds = %106
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %113 = zext i8 %109 to i32
-  %114 = tail call i32 @llvm.ctlz.i32(i32 %113, i1 true), !range !20
+  %114 = tail call i32 @llvm.ctlz.i32(i32 %113, i1 true), !range !21
   %115 = xor i32 %114, 31
   %116 = shl nuw nsw i16 %15, 3
   %117 = sub nuw nsw i16 64, %116
@@ -9348,7 +9348,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %134 = lshr i64 %133, 56
   %135 = trunc nuw nsw i64 %134 to i32
   %136 = icmp ult i64 %133, 72057594037927936
-  %137 = tail call i32 @llvm.ctlz.i32(i32 %135, i1 true), !range !20
+  %137 = tail call i32 @llvm.ctlz.i32(i32 %135, i1 true), !range !21
   %138 = xor i32 %137, 31
   %139 = sub nuw nsw i32 8, %138
   %140 = select i1 %136, i32 0, i32 %139
@@ -9435,7 +9435,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
 192:                                              ; preds = %187
   %193 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %194 = zext i8 %190 to i32
-  %195 = tail call i32 @llvm.ctlz.i32(i32 %194, i1 true), !range !20
+  %195 = tail call i32 @llvm.ctlz.i32(i32 %194, i1 true), !range !21
   %196 = xor i32 %195, 31
   %197 = shl nuw nsw i16 %18, 3
   %198 = sub nuw nsw i16 64, %197
@@ -9470,7 +9470,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %215 = lshr i64 %214, 56
   %216 = trunc nuw nsw i64 %215 to i32
   %217 = icmp ult i64 %214, 72057594037927936
-  %218 = tail call i32 @llvm.ctlz.i32(i32 %216, i1 true), !range !20
+  %218 = tail call i32 @llvm.ctlz.i32(i32 %216, i1 true), !range !21
   %219 = xor i32 %218, 31
   %220 = sub nuw nsw i32 8, %219
   %221 = select i1 %217, i32 0, i32 %220
@@ -9557,7 +9557,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
 273:                                              ; preds = %268
   %274 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %275 = zext i8 %271 to i32
-  %276 = tail call i32 @llvm.ctlz.i32(i32 %275, i1 true), !range !20
+  %276 = tail call i32 @llvm.ctlz.i32(i32 %275, i1 true), !range !21
   %277 = xor i32 %276, 31
   %278 = shl nuw nsw i16 %21, 3
   %279 = sub nuw nsw i16 64, %278
@@ -9593,7 +9593,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
   %297 = lshr i64 %296, 56
   %298 = trunc nuw nsw i64 %297 to i32
   %299 = icmp ult i64 %296, 72057594037927936
-  %300 = tail call i32 @llvm.ctlz.i32(i32 %298, i1 true), !range !20
+  %300 = tail call i32 @llvm.ctlz.i32(i32 %298, i1 true), !range !21
   %301 = xor i32 %300, 31
   %302 = sub nuw nsw i32 8, %301
   %303 = select i1 %299, i32 0, i32 %302
@@ -9681,7 +9681,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal_bmi2(ptr noun
 BIT_initDStream.exit.thread89:                    ; preds = %350
   %356 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %357 = zext i8 %354 to i32
-  %358 = tail call i32 @llvm.ctlz.i32(i32 %357, i1 true), !range !20
+  %358 = tail call i32 @llvm.ctlz.i32(i32 %357, i1 true), !range !21
   %359 = xor i32 %358, 31
   %360 = trunc nuw nsw i64 %26 to i32
   %361 = shl nuw nsw i32 %360, 3
@@ -9863,7 +9863,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %513 = zext i8 %512 to i64
   %514 = getelementptr i8, ptr %500, i64 %513
   %515 = icmp ult ptr %392, %46
-  br i1 %515, label %523, label %516, !prof !25
+  br i1 %515, label %523, label %516, !prof !26
 
 516:                                              ; preds = %386
   %517 = lshr i32 %454, 3
@@ -9883,7 +9883,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %526 = phi i64 [ %522, %516 ], [ %399, %386 ]
   %527 = phi i32 [ 0, %516 ], [ 3, %386 ]
   %528 = icmp ult ptr %391, %127
-  br i1 %528, label %536, label %529, !prof !25
+  br i1 %528, label %536, label %529, !prof !26
 
 529:                                              ; preds = %523
   %530 = lshr i32 %510, 3
@@ -10025,7 +10025,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %652 = zext i8 %651 to i64
   %653 = getelementptr i8, ptr %639, i64 %652
   %654 = icmp ult ptr %388, %208
-  br i1 %654, label %662, label %655, !prof !25
+  br i1 %654, label %662, label %655, !prof !26
 
 655:                                              ; preds = %536
   %656 = lshr i32 %593, 3
@@ -10046,7 +10046,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %666 = phi i32 [ 0, %655 ], [ 3, %536 ]
   %667 = or i32 %541, %666
   %668 = icmp ult ptr %387, %289
-  br i1 %668, label %676, label %669, !prof !25
+  br i1 %668, label %676, label %669, !prof !26
 
 669:                                              ; preds = %662
   %670 = lshr i32 %649, 3
@@ -10066,7 +10066,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %682 = icmp ne i32 %681, 0
   %683 = icmp uge ptr %653, %13
   %684 = or i1 %683, %682
-  br i1 %684, label %685, label %386, !llvm.loop !53
+  br i1 %684, label %685, label %386, !llvm.loop !94
 
 685:                                              ; preds = %676
   store i32 %678, ptr %383, align 8
@@ -10103,7 +10103,7 @@ BIT_initDStream.exit:                             ; preds = %292
 
 707:                                              ; preds = %702
   %708 = icmp samesign ult i32 %38, 12
-  %709 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %6), !range !27
+  %709 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %6), !range !29
   %710 = icmp eq i32 %709, 0
   br i1 %708, label %721, label %711
 
@@ -10283,7 +10283,7 @@ BIT_reloadDStream.exit:                           ; preds = %819, %828
   store i64 %storemerge110, ptr %6, align 8
   %845 = icmp ult ptr %813, %722
   %846 = and i1 %845, %844
-  br i1 %846, label %731, label %BIT_reloadDStream.exit.thread, !llvm.loop !49
+  br i1 %846, label %731, label %BIT_reloadDStream.exit.thread, !llvm.loop !95
 
 847:                                              ; preds = %BIT_reloadDStream.exit75, %715
   %848 = phi i32 [ %.pre210, %715 ], [ %storemerge109, %BIT_reloadDStream.exit75 ]
@@ -10411,10 +10411,10 @@ BIT_reloadDStream.exit75:                         ; preds = %919, %928
   store i64 %storemerge, ptr %6, align 8
   %945 = icmp ult ptr %913, %712
   %946 = and i1 %945, %944
-  br i1 %946, label %847, label %BIT_reloadDStream.exit.thread, !llvm.loop !50
+  br i1 %946, label %847, label %BIT_reloadDStream.exit.thread, !llvm.loop !96
 
 947:                                              ; preds = %702
-  %948 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %6), !range !27
+  %948 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %6), !range !29
   br label %BIT_reloadDStream.exit.thread
 
 BIT_reloadDStream.exit.thread:                    ; preds = %925, %847, %BIT_reloadDStream.exit75, %825, %731, %BIT_reloadDStream.exit, %947, %721, %711
@@ -10512,7 +10512,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %925, %847, %BIT_rel
   %1012 = zext i8 %1011 to i64
   %1013 = getelementptr i8, ptr %961, i64 %1012
   %1014 = icmp ugt i32 %1009, 64
-  br i1 %1014, label %.thread93, label %.lr.ph, !llvm.loop !51
+  br i1 %1014, label %.thread93, label %.lr.ph, !llvm.loop !97
 
 .preheader140:                                    ; preds = %.thread93, %.preheader140
   %1015 = phi i32 [ %1028, %.preheader140 ], [ %996, %.thread93 ]
@@ -10536,7 +10536,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %925, %847, %BIT_rel
   %1031 = zext i8 %1030 to i64
   %1032 = getelementptr i8, ptr %1016, i64 %1031
   %1033 = icmp ugt ptr %1032, %955
-  br i1 %1033, label %.loopexit141, label %.preheader140, !llvm.loop !52
+  br i1 %1033, label %.loopexit141, label %.preheader140, !llvm.loop !98
 
 .loopexit141:                                     ; preds = %.preheader140, %.thread93, %BIT_reloadDStream.exit.thread
   %1034 = phi ptr [ %949, %BIT_reloadDStream.exit.thread ], [ %.lcssa155, %.thread93 ], [ %1032, %.preheader140 ]
@@ -10597,7 +10597,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %925, %847, %BIT_rel
 
 1074:                                             ; preds = %1069
   %1075 = icmp samesign ult i32 %38, 12
-  %1076 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %1076 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   %1077 = icmp eq i32 %1076, 0
   br i1 %1075, label %1088, label %1078
 
@@ -10777,7 +10777,7 @@ BIT_reloadDStream.exit76:                         ; preds = %1186, %1195
   store i64 %storemerge116, ptr %7, align 8
   %1212 = icmp ult ptr %1180, %1089
   %1213 = and i1 %1212, %1211
-  br i1 %1213, label %1098, label %BIT_reloadDStream.exit76.thread, !llvm.loop !49
+  br i1 %1213, label %1098, label %BIT_reloadDStream.exit76.thread, !llvm.loop !99
 
 1214:                                             ; preds = %BIT_reloadDStream.exit77, %1082
   %1215 = phi i32 [ %.pre214, %1082 ], [ %storemerge115, %BIT_reloadDStream.exit77 ]
@@ -10905,10 +10905,10 @@ BIT_reloadDStream.exit77:                         ; preds = %1286, %1295
   store i64 %storemerge114, ptr %7, align 8
   %1312 = icmp ult ptr %1280, %1079
   %1313 = and i1 %1312, %1311
-  br i1 %1313, label %1214, label %BIT_reloadDStream.exit76.thread, !llvm.loop !50
+  br i1 %1313, label %1214, label %BIT_reloadDStream.exit76.thread, !llvm.loop !100
 
 1314:                                             ; preds = %1069
-  %1315 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !27
+  %1315 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %7), !range !29
   br label %BIT_reloadDStream.exit76.thread
 
 BIT_reloadDStream.exit76.thread:                  ; preds = %1292, %1214, %BIT_reloadDStream.exit77, %1192, %1098, %BIT_reloadDStream.exit76, %1314, %1088, %1078
@@ -11006,7 +11006,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1292, %1214, %BIT_r
   %1379 = zext i8 %1378 to i64
   %1380 = getelementptr i8, ptr %1328, i64 %1379
   %1381 = icmp ugt i32 %1376, 64
-  br i1 %1381, label %.thread98, label %.lr.ph169, !llvm.loop !51
+  br i1 %1381, label %.thread98, label %.lr.ph169, !llvm.loop !101
 
 .preheader137:                                    ; preds = %.thread98, %.preheader137
   %1382 = phi i32 [ %1395, %.preheader137 ], [ %1363, %.thread98 ]
@@ -11030,7 +11030,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1292, %1214, %BIT_r
   %1398 = zext i8 %1397 to i64
   %1399 = getelementptr i8, ptr %1383, i64 %1398
   %1400 = icmp ugt ptr %1399, %1322
-  br i1 %1400, label %.loopexit138, label %.preheader137, !llvm.loop !52
+  br i1 %1400, label %.loopexit138, label %.preheader137, !llvm.loop !102
 
 .loopexit138:                                     ; preds = %.preheader137, %.thread98, %BIT_reloadDStream.exit76.thread
   %1401 = phi ptr [ %1316, %BIT_reloadDStream.exit76.thread ], [ %.lcssa151, %.thread98 ], [ %1399, %.preheader137 ]
@@ -11090,7 +11090,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1292, %1214, %BIT_r
 
 1440:                                             ; preds = %1436
   %1441 = icmp samesign ult i32 %38, 12
-  %1442 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %1442 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   %1443 = icmp eq i32 %1442, 0
   br i1 %1441, label %1454, label %1444
 
@@ -11270,7 +11270,7 @@ BIT_reloadDStream.exit78:                         ; preds = %1552, %1561
   store i64 %storemerge122, ptr %8, align 8
   %1578 = icmp ult ptr %1546, %1455
   %1579 = and i1 %1578, %1577
-  br i1 %1579, label %1464, label %BIT_reloadDStream.exit78.thread, !llvm.loop !49
+  br i1 %1579, label %1464, label %BIT_reloadDStream.exit78.thread, !llvm.loop !103
 
 1580:                                             ; preds = %BIT_reloadDStream.exit79, %1448
   %1581 = phi i32 [ %.pre218, %1448 ], [ %storemerge121, %BIT_reloadDStream.exit79 ]
@@ -11398,10 +11398,10 @@ BIT_reloadDStream.exit79:                         ; preds = %1652, %1661
   store i64 %storemerge120, ptr %8, align 8
   %1678 = icmp ult ptr %1646, %1445
   %1679 = and i1 %1678, %1677
-  br i1 %1679, label %1580, label %BIT_reloadDStream.exit78.thread, !llvm.loop !50
+  br i1 %1679, label %1580, label %BIT_reloadDStream.exit78.thread, !llvm.loop !104
 
 1680:                                             ; preds = %1436
-  %1681 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !27
+  %1681 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %8), !range !29
   br label %BIT_reloadDStream.exit78.thread
 
 BIT_reloadDStream.exit78.thread:                  ; preds = %1658, %1580, %BIT_reloadDStream.exit79, %1558, %1464, %BIT_reloadDStream.exit78, %1680, %1454, %1444
@@ -11499,7 +11499,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1658, %1580, %BIT_r
   %1745 = zext i8 %1744 to i64
   %1746 = getelementptr i8, ptr %1694, i64 %1745
   %1747 = icmp ugt i32 %1742, 64
-  br i1 %1747, label %.thread103, label %.lr.ph175, !llvm.loop !51
+  br i1 %1747, label %.thread103, label %.lr.ph175, !llvm.loop !105
 
 .preheader134:                                    ; preds = %.thread103, %.preheader134
   %1748 = phi i32 [ %1761, %.preheader134 ], [ %1729, %.thread103 ]
@@ -11523,7 +11523,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1658, %1580, %BIT_r
   %1764 = zext i8 %1763 to i64
   %1765 = getelementptr i8, ptr %1749, i64 %1764
   %1766 = icmp ugt ptr %1765, %1688
-  br i1 %1766, label %.loopexit135, label %.preheader134, !llvm.loop !52
+  br i1 %1766, label %.loopexit135, label %.preheader134, !llvm.loop !106
 
 .loopexit135:                                     ; preds = %.preheader134, %.thread103, %BIT_reloadDStream.exit78.thread
   %1767 = phi ptr [ %1682, %BIT_reloadDStream.exit78.thread ], [ %.lcssa147, %.thread103 ], [ %1765, %.preheader134 ]
@@ -11586,7 +11586,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1658, %1580, %BIT_r
   br i1 %1807, label %1819, label %1808
 
 1808:                                             ; preds = %1806
-  %1809 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %1809 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   %1810 = icmp eq i32 %1809, 0
   %1811 = icmp ult ptr %696, %13
   %1812 = and i1 %1811, %1810
@@ -11604,7 +11604,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1658, %1580, %BIT_r
 
 1819:                                             ; preds = %1806
   %1820 = getelementptr i8, ptr %12, i64 -9
-  %1821 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %1821 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   %1822 = icmp eq i32 %1821, 0
   %1823 = icmp ult ptr %696, %1820
   %1824 = and i1 %1823, %1822
@@ -11764,7 +11764,7 @@ BIT_reloadDStream.exit80:                         ; preds = %1919, %1928
   store i64 %storemerge128, ptr %9, align 8
   %1945 = icmp ult ptr %1913, %1820
   %1946 = and i1 %1945, %1944
-  br i1 %1946, label %1831, label %BIT_reloadDStream.exit80.thread, !llvm.loop !49
+  br i1 %1946, label %1831, label %BIT_reloadDStream.exit80.thread, !llvm.loop !107
 
 1947:                                             ; preds = %BIT_reloadDStream.exit81, %1813
   %1948 = phi i32 [ %.pre222, %1813 ], [ %storemerge127, %BIT_reloadDStream.exit81 ]
@@ -11892,10 +11892,10 @@ BIT_reloadDStream.exit81:                         ; preds = %2019, %2028
   store i64 %storemerge126, ptr %9, align 8
   %2045 = icmp ult ptr %2013, %13
   %2046 = and i1 %2045, %2044
-  br i1 %2046, label %1947, label %BIT_reloadDStream.exit80.thread, !llvm.loop !50
+  br i1 %2046, label %1947, label %BIT_reloadDStream.exit80.thread, !llvm.loop !108
 
 2047:                                             ; preds = %1802
-  %2048 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !27
+  %2048 = call fastcc i32 @BIT_reloadDStream(ptr noundef nonnull %9), !range !29
   br label %BIT_reloadDStream.exit80.thread
 
 BIT_reloadDStream.exit80.thread:                  ; preds = %2025, %1947, %BIT_reloadDStream.exit81, %1925, %1831, %BIT_reloadDStream.exit80, %2047, %1819, %1808
@@ -11993,7 +11993,7 @@ BIT_reloadDStream.exit80.thread:                  ; preds = %2025, %1947, %BIT_r
   %2112 = zext i8 %2111 to i64
   %2113 = getelementptr i8, ptr %2061, i64 %2112
   %2114 = icmp ugt i32 %2109, 64
-  br i1 %2114, label %.thread108, label %.lr.ph181, !llvm.loop !51
+  br i1 %2114, label %.thread108, label %.lr.ph181, !llvm.loop !109
 
 .preheader:                                       ; preds = %.thread108, %.preheader
   %2115 = phi i32 [ %2128, %.preheader ], [ %2096, %.thread108 ]
@@ -12017,7 +12017,7 @@ BIT_reloadDStream.exit80.thread:                  ; preds = %2025, %1947, %BIT_r
   %2131 = zext i8 %2130 to i64
   %2132 = getelementptr i8, ptr %2116, i64 %2131
   %2133 = icmp ugt ptr %2132, %2055
-  br i1 %2133, label %.loopexit, label %.preheader, !llvm.loop !52
+  br i1 %2133, label %.loopexit, label %.preheader, !llvm.loop !110
 
 .loopexit:                                        ; preds = %.preheader, %.thread108, %BIT_reloadDStream.exit80.thread
   %2134 = phi ptr [ %2049, %BIT_reloadDStream.exit80.thread ], [ %.lcssa143, %.thread108 ], [ %2132, %.preheader ]
@@ -12152,52 +12152,109 @@ attributes #17 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
-!19 = distinct !{!19, !6, !7}
-!20 = !{i32 0, i32 33}
-!21 = distinct !{!21, !6, !7}
-!22 = distinct !{!22, !6, !7}
-!23 = !{!"auto-init"}
-!24 = !{i64 1, i64 0}
-!25 = !{!"branch_weights", i32 1, i32 2000}
-!26 = distinct !{!26, !6, !7}
-!27 = !{i32 0, i32 4}
-!28 = distinct !{!28, !6, !7}
-!29 = distinct !{!29, !6, !7}
-!30 = distinct !{!30, !6, !7}
-!31 = distinct !{!31, !6, !7}
-!32 = distinct !{!32, !6, !7}
-!33 = distinct !{!33, !6, !7, !34}
-!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!35 = distinct !{!35, !6, !7}
-!36 = distinct !{!36, !6, !7}
-!37 = distinct !{!37, !6, !7}
-!38 = distinct !{!38, !6, !7}
-!39 = distinct !{!39, !6, !7}
-!40 = distinct !{!40, !6, !7}
-!41 = distinct !{!41, !6, !7}
-!42 = distinct !{!42, !6, !7}
-!43 = distinct !{!43, !6, !7}
-!44 = distinct !{!44, !6, !7, !34}
-!45 = distinct !{!45, !6, !7, !34}
-!46 = distinct !{!46, !6, !7, !34}
-!47 = distinct !{!47, !6, !7, !34}
-!48 = distinct !{!48, !6, !7}
-!49 = distinct !{!49, !6, !7}
-!50 = distinct !{!50, !6, !7}
-!51 = distinct !{!51, !6, !7}
-!52 = distinct !{!52, !6, !7}
-!53 = distinct !{!53, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = !{i32 0, i32 33}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = !{!"auto-init"}
+!25 = !{i64 1, i64 0}
+!26 = !{!"branch_weights", i32 1, i32 2000}
+!27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = !{i32 0, i32 4}
+!30 = distinct !{!30, !6, !7, !8}
+!31 = distinct !{!31, !6, !7, !8}
+!32 = distinct !{!32, !6, !7, !8}
+!33 = distinct !{!33, !6, !7, !8}
+!34 = distinct !{!34, !6, !7, !8}
+!35 = distinct !{!35, !6, !7, !8}
+!36 = distinct !{!36, !6, !7, !8}
+!37 = distinct !{!37, !6, !7, !8}
+!38 = distinct !{!38, !6, !7, !8}
+!39 = distinct !{!39, !6, !7, !8}
+!40 = distinct !{!40, !6, !7, !8}
+!41 = distinct !{!41, !6, !7, !8}
+!42 = distinct !{!42, !6, !7, !8, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !6, !7, !8}
+!45 = distinct !{!45, !6, !7, !8}
+!46 = distinct !{!46, !6, !7, !8}
+!47 = distinct !{!47, !6, !7, !8}
+!48 = distinct !{!48, !6, !7, !8}
+!49 = distinct !{!49, !6, !7, !8}
+!50 = distinct !{!50, !6, !7, !8}
+!51 = distinct !{!51, !6, !7, !8}
+!52 = distinct !{!52, !6, !7, !8}
+!53 = distinct !{!53, !6, !7, !8, !43}
+!54 = distinct !{!54, !6, !7, !8, !43}
+!55 = distinct !{!55, !6, !7, !8, !43}
+!56 = distinct !{!56, !6, !7, !8, !43}
+!57 = distinct !{!57, !6, !7, !8}
+!58 = distinct !{!58, !6, !7, !8}
+!59 = distinct !{!59, !6, !7, !8}
+!60 = distinct !{!60, !6, !7, !8}
+!61 = distinct !{!61, !6, !7, !8}
+!62 = distinct !{!62, !6, !7, !8}
+!63 = distinct !{!63, !6, !7, !8}
+!64 = distinct !{!64, !6, !7, !8}
+!65 = distinct !{!65, !6, !7, !8}
+!66 = distinct !{!66, !6, !7, !8}
+!67 = distinct !{!67, !6, !7, !8}
+!68 = distinct !{!68, !6, !7, !8}
+!69 = distinct !{!69, !6, !7, !8}
+!70 = distinct !{!70, !6, !7, !8}
+!71 = distinct !{!71, !6, !7, !8}
+!72 = distinct !{!72, !6, !7, !8}
+!73 = distinct !{!73, !6, !7, !8}
+!74 = distinct !{!74, !6, !7, !8}
+!75 = distinct !{!75, !6, !7, !8}
+!76 = distinct !{!76, !6, !7, !8}
+!77 = distinct !{!77, !6, !7, !8}
+!78 = distinct !{!78, !6, !7, !8}
+!79 = distinct !{!79, !6, !7, !8}
+!80 = distinct !{!80, !6, !7, !8}
+!81 = distinct !{!81, !6, !7, !8}
+!82 = distinct !{!82, !6, !7, !8}
+!83 = distinct !{!83, !6, !7, !8}
+!84 = distinct !{!84, !6, !7, !8}
+!85 = distinct !{!85, !6, !7, !8}
+!86 = distinct !{!86, !6, !7, !8}
+!87 = distinct !{!87, !6, !7, !8}
+!88 = distinct !{!88, !6, !7, !8}
+!89 = distinct !{!89, !6, !7, !8}
+!90 = distinct !{!90, !6, !7, !8}
+!91 = distinct !{!91, !6, !7, !8}
+!92 = distinct !{!92, !6, !7, !8}
+!93 = distinct !{!93, !6, !7, !8}
+!94 = distinct !{!94, !6, !7, !8}
+!95 = distinct !{!95, !6, !7, !8}
+!96 = distinct !{!96, !6, !7, !8}
+!97 = distinct !{!97, !6, !7, !8}
+!98 = distinct !{!98, !6, !7, !8}
+!99 = distinct !{!99, !6, !7, !8}
+!100 = distinct !{!100, !6, !7, !8}
+!101 = distinct !{!101, !6, !7, !8}
+!102 = distinct !{!102, !6, !7, !8}
+!103 = distinct !{!103, !6, !7, !8}
+!104 = distinct !{!104, !6, !7, !8}
+!105 = distinct !{!105, !6, !7, !8}
+!106 = distinct !{!106, !6, !7, !8}
+!107 = distinct !{!107, !6, !7, !8}
+!108 = distinct !{!108, !6, !7, !8}
+!109 = distinct !{!109, !6, !7, !8}
+!110 = distinct !{!110, !6, !7, !8}

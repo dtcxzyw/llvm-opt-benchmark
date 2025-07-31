@@ -249,7 +249,7 @@ define range(i32 0, 2) i32 @ossl_store_register_loader_int(ptr noundef %0) local
   br label %64
 
 48:                                               ; preds = %42
-  %49 = load ptr, ptr @registry_lock, align 8, !tbaa !27
+  %49 = load ptr, ptr @registry_lock, align 8, !tbaa !28
   %50 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %49) #9
   %.not28 = icmp eq i32 %50, 0
   br i1 %.not28, label %64, label %51
@@ -260,13 +260,13 @@ define range(i32 0, 2) i32 @ossl_store_register_loader_int(ptr noundef %0) local
   br i1 %.not29, label %61, label %53
 
 53:                                               ; preds = %51
-  %54 = load ptr, ptr @loader_register, align 8, !tbaa !28
+  %54 = load ptr, ptr @loader_register, align 8, !tbaa !29
   %55 = tail call ptr @OPENSSL_LH_insert(ptr noundef %54, ptr noundef nonnull %0) #9
   %.not30 = icmp eq ptr %55, null
   br i1 %.not30, label %56, label %60
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr @loader_register, align 8, !tbaa !28
+  %57 = load ptr, ptr @loader_register, align 8, !tbaa !29
   %58 = tail call i32 @OPENSSL_LH_error(ptr noundef %57) #9
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %61
@@ -276,7 +276,7 @@ define range(i32 0, 2) i32 @ossl_store_register_loader_int(ptr noundef %0) local
 
 61:                                               ; preds = %60, %56, %51
   %.0 = phi i32 [ 1, %60 ], [ 0, %56 ], [ 0, %51 ]
-  %62 = load ptr, ptr @registry_lock, align 8, !tbaa !27
+  %62 = load ptr, ptr @registry_lock, align 8, !tbaa !28
   %63 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %62) #9
   br label %64
 
@@ -294,10 +294,10 @@ declare i32 @CRYPTO_THREAD_run_once(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @do_registry_init_ossl_() #0 {
   %1 = tail call ptr @CRYPTO_THREAD_lock_new() #9
-  store ptr %1, ptr @registry_lock, align 8, !tbaa !27
+  store ptr %1, ptr @registry_lock, align 8, !tbaa !28
   %2 = icmp ne ptr %1, null
   %3 = zext i1 %2 to i32
-  store i32 %3, ptr @do_registry_init_ossl_ret_, align 4, !tbaa !30
+  store i32 %3, ptr @do_registry_init_ossl_ret_, align 4, !tbaa !31
   ret void
 }
 
@@ -305,14 +305,14 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ossl_store_register_init() unnamed_addr #0 {
-  %1 = load ptr, ptr @loader_register, align 8, !tbaa !28
+  %1 = load ptr, ptr @loader_register, align 8, !tbaa !29
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %8
 
 3:                                                ; preds = %0
   %4 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #9
   %5 = tail call ptr @OPENSSL_LH_set_thunks(ptr noundef %4, ptr noundef nonnull @lh_OSSL_STORE_LOADER_hfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_cfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_arg_thunk) #9
-  store ptr %5, ptr @loader_register, align 8, !tbaa !28
+  store ptr %5, ptr @loader_register, align 8, !tbaa !29
   %6 = icmp ne ptr %5, null
   %7 = zext i1 %6 to i32
   br label %8
@@ -355,20 +355,20 @@ define ptr @ossl_store_get0_loader_int(ptr noundef %0) local_unnamed_addr #0 {
   br label %27
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr @registry_lock, align 8, !tbaa !27
+  %12 = load ptr, ptr @registry_lock, align 8, !tbaa !28
   %13 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %12) #9
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %27, label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr @loader_register, align 8, !tbaa !28
+  %15 = load ptr, ptr @loader_register, align 8, !tbaa !29
   %16 = icmp eq ptr %15, null
   br i1 %16, label %ossl_store_register_init.exit, label %ossl_store_register_init.exit.thread
 
 ossl_store_register_init.exit:                    ; preds = %14
   %17 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #9
   %18 = tail call ptr @OPENSSL_LH_set_thunks(ptr noundef %17, ptr noundef nonnull @lh_OSSL_STORE_LOADER_hfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_cfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_arg_thunk) #9
-  store ptr %18, ptr @loader_register, align 8, !tbaa !28
+  store ptr %18, ptr @loader_register, align 8, !tbaa !29
   %.not9 = icmp eq ptr %18, null
   br i1 %.not9, label %19, label %ossl_store_register_init.exit.thread
 
@@ -392,7 +392,7 @@ ossl_store_register_init.exit.thread:             ; preds = %14, %ossl_store_reg
 
 24:                                               ; preds = %ossl_store_register_init.exit.thread, %23, %19
   %.0 = phi ptr [ null, %23 ], [ %21, %ossl_store_register_init.exit.thread ], [ null, %19 ]
-  %25 = load ptr, ptr @registry_lock, align 8, !tbaa !27
+  %25 = load ptr, ptr @registry_lock, align 8, !tbaa !28
   %26 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %25) #9
   br label %27
 
@@ -427,20 +427,20 @@ define ptr @ossl_store_unregister_loader_int(ptr noundef %0) local_unnamed_addr 
   br label %27
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr @registry_lock, align 8, !tbaa !27
+  %12 = load ptr, ptr @registry_lock, align 8, !tbaa !28
   %13 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %12) #9
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %27, label %14
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr @loader_register, align 8, !tbaa !28
+  %15 = load ptr, ptr @loader_register, align 8, !tbaa !29
   %16 = icmp eq ptr %15, null
   br i1 %16, label %ossl_store_register_init.exit, label %ossl_store_register_init.exit.thread
 
 ossl_store_register_init.exit:                    ; preds = %14
   %17 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #9
   %18 = tail call ptr @OPENSSL_LH_set_thunks(ptr noundef %17, ptr noundef nonnull @lh_OSSL_STORE_LOADER_hfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_cfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_arg_thunk) #9
-  store ptr %18, ptr @loader_register, align 8, !tbaa !28
+  store ptr %18, ptr @loader_register, align 8, !tbaa !29
   %.not9 = icmp eq ptr %18, null
   br i1 %.not9, label %19, label %ossl_store_register_init.exit.thread
 
@@ -464,7 +464,7 @@ ossl_store_register_init.exit.thread:             ; preds = %14, %ossl_store_reg
 
 24:                                               ; preds = %ossl_store_register_init.exit.thread, %23, %19
   %.0 = phi ptr [ null, %23 ], [ %21, %ossl_store_register_init.exit.thread ], [ null, %19 ]
-  %25 = load ptr, ptr @registry_lock, align 8, !tbaa !27
+  %25 = load ptr, ptr @registry_lock, align 8, !tbaa !28
   %26 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %25) #9
   br label %27
 
@@ -482,12 +482,12 @@ define ptr @OSSL_STORE_unregister_loader(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_store_destroy_loaders_int() local_unnamed_addr #0 {
-  %1 = load ptr, ptr @loader_register, align 8, !tbaa !28
+  %1 = load ptr, ptr @loader_register, align 8, !tbaa !29
   tail call void @OPENSSL_LH_free(ptr noundef %1) #9
-  store ptr null, ptr @loader_register, align 8, !tbaa !28
-  %2 = load ptr, ptr @registry_lock, align 8, !tbaa !27
+  store ptr null, ptr @loader_register, align 8, !tbaa !29
+  %2 = load ptr, ptr @registry_lock, align 8, !tbaa !28
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %2) #9
-  store ptr null, ptr @registry_lock, align 8, !tbaa !27
+  store ptr null, ptr @registry_lock, align 8, !tbaa !28
   ret void
 }
 
@@ -495,14 +495,14 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @OSSL_STORE_do_all_loaders(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr @loader_register, align 8, !tbaa !28
+  %3 = load ptr, ptr @loader_register, align 8, !tbaa !29
   %4 = icmp eq ptr %3, null
   br i1 %4, label %ossl_store_register_init.exit, label %ossl_store_register_init.exit.thread
 
 ossl_store_register_init.exit:                    ; preds = %2
   %5 = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #9
   %6 = tail call ptr @OPENSSL_LH_set_thunks(ptr noundef %5, ptr noundef nonnull @lh_OSSL_STORE_LOADER_hfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_cfn_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_thunk, ptr noundef nonnull @lh_OSSL_STORE_LOADER_doall_arg_thunk) #9
-  store ptr %6, ptr @loader_register, align 8, !tbaa !28
+  store ptr %6, ptr @loader_register, align 8, !tbaa !29
   %.not3 = icmp eq ptr %6, null
   br i1 %.not3, label %8, label %ossl_store_register_init.exit.thread
 
@@ -625,9 +625,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !22 = !{!4, !6, i64 72}
 !23 = !{!4, !6, i64 80}
 !24 = !{!7, !7, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!6, !6, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"p1 _ZTS26lhash_st_OSSL_STORE_LOADER", !6, i64 0}
-!30 = !{!11, !11, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!6, !6, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS26lhash_st_OSSL_STORE_LOADER", !6, i64 0}
+!31 = !{!11, !11, i64 0}

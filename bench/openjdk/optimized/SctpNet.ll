@@ -685,7 +685,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
   store ptr %storemerge, ptr %4, align 8
   %71 = add nuw nsw i32 %.02530, 1
   %exitcond.not = icmp eq i32 %71, %7
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !9
 
 .thread:                                          ; preds = %64, %55, %.lr.ph
   %72 = load ptr, ptr @nio_sctp_freeladdrs, align 8
@@ -810,7 +810,7 @@ initializeISA.exit:                               ; preds = %18, %24, %36
   store ptr %storemerge, ptr %4, align 8
   %71 = add nuw nsw i32 %.02631, 1
   %exitcond.not = icmp eq i32 %71, %7
-  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !10
 
 .thread:                                          ; preds = %64, %55, %.lr.ph
   %72 = load ptr, ptr @nio_sctp_freepaddrs, align 8
@@ -835,7 +835,7 @@ define hidden range(i32 -1, 1) i32 @mapSocketOption(i32 noundef %0, ptr noundef 
 4:                                                ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %5, !llvm.loop !11
 
 5:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
@@ -868,7 +868,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr noun
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %13, label %9, !llvm.loop !10
+  br i1 %exitcond.not.i, label %13, label %9, !llvm.loop !11
 
 9:                                                ; preds = %8, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %8 ]
@@ -926,7 +926,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr nound
 8:                                                ; preds = %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %13, label %9, !llvm.loop !10
+  br i1 %exitcond.not.i, label %13, label %9, !llvm.loop !11
 
 9:                                                ; preds = %8, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
@@ -1216,8 +1216,9 @@ attributes #11 = { nounwind allocsize(0,1) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

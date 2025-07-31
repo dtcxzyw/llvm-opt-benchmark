@@ -175,7 +175,7 @@ define zeroext i1 @pg_u_prop_alphabetic(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i = phi i32 [ %17, %16 ], [ %.01418.i, %21 ]
   %.1.i = phi i32 [ %.019.i, %16 ], [ %22, %21 ]
   %.not.not.i = icmp slt i32 %.1.i, %.115.i
-  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !6
 
 range_search.exit:                                ; preds = %23, %18, %3
   %.0 = phi i1 [ %8, %3 ], [ false, %23 ], [ true, %18 ]
@@ -221,7 +221,7 @@ define zeroext i1 @pg_u_prop_lowercase(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i = phi i32 [ %14, %13 ], [ %.01418.i, %18 ]
   %.1.i = phi i32 [ %.019.i, %13 ], [ %19, %18 ]
   %.not.not.i = icmp slt i32 %.1.i, %.115.i
-  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !6
 
 range_search.exit:                                ; preds = %20, %15, %3
   %.0 = phi i1 [ %5, %3 ], [ false, %20 ], [ true, %15 ]
@@ -267,7 +267,7 @@ define zeroext i1 @pg_u_prop_uppercase(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i = phi i32 [ %14, %13 ], [ %.01418.i, %18 ]
   %.1.i = phi i32 [ %.019.i, %13 ], [ %19, %18 ]
   %.not.not.i = icmp slt i32 %.1.i, %.115.i
-  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !6
 
 range_search.exit:                                ; preds = %20, %15, %3
   %.0 = phi i1 [ %5, %3 ], [ false, %20 ], [ true, %15 ]
@@ -356,7 +356,7 @@ unicode_category.exit:                            ; preds = %18
   %.115.i.i = phi i32 [ %35, %34 ], [ %.01418.i.i, %39 ]
   %.1.i.i = phi i32 [ %.019.i.i, %34 ], [ %40, %39 ]
   %.not.not.i.i = icmp slt i32 %.1.i.i, %.115.i.i
-  br i1 %.not.not.i.i, label %.lr.ph.i.i7, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i, label %.lr.ph.i.i7, label %.lr.ph.i.i, !llvm.loop !6
 
 .lr.ph.i.i7:                                      ; preds = %41, %56
   %.019.i.i8 = phi i32 [ %.1.i.i12, %56 ], [ 650, %41 ]
@@ -387,7 +387,7 @@ unicode_category.exit:                            ; preds = %18
   %.115.i.i11 = phi i32 [ %50, %49 ], [ %.01418.i.i9, %54 ]
   %.1.i.i12 = phi i32 [ %.019.i.i8, %49 ], [ %55, %54 ]
   %.not.not.i.i13 = icmp slt i32 %.1.i.i12, %.115.i.i11
-  br i1 %.not.not.i.i13, label %pg_u_prop_uppercase.exit, label %.lr.ph.i.i7, !llvm.loop !5
+  br i1 %.not.not.i.i13, label %pg_u_prop_uppercase.exit, label %.lr.ph.i.i7, !llvm.loop !6
 
 pg_u_prop_uppercase.exit:                         ; preds = %36, %56, %51, %unicode_category.exit, %3
   %.0 = phi i1 [ %8, %3 ], [ true, %unicode_category.exit ], [ true, %51 ], [ false, %56 ], [ true, %36 ]
@@ -436,7 +436,7 @@ define zeroext i1 @pg_u_prop_case_ignorable(i32 noundef %0) local_unnamed_addr #
   %.115.i = phi i32 [ %17, %16 ], [ %.01418.i, %21 ]
   %.1.i = phi i32 [ %.019.i, %16 ], [ %22, %21 ]
   %.not.not.i = icmp slt i32 %.1.i, %.115.i
-  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !6
 
 range_search.exit:                                ; preds = %23, %18, %3
   %.0 = phi i1 [ %8, %3 ], [ false, %23 ], [ true, %18 ]
@@ -485,7 +485,7 @@ define zeroext i1 @pg_u_prop_white_space(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i = phi i32 [ %17, %16 ], [ %.01418.i, %21 ]
   %.1.i = phi i32 [ %.019.i, %16 ], [ %22, %21 ]
   %.not.not.i = icmp slt i32 %.1.i, %.115.i
-  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !6
 
 range_search.exit:                                ; preds = %23, %18, %3
   %.0 = phi i1 [ %8, %3 ], [ false, %23 ], [ true, %18 ]
@@ -533,7 +533,7 @@ define zeroext i1 @pg_u_prop_hex_digit(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i = phi i32 [ %16, %15 ], [ %.01418.i, %20 ]
   %.1.i = phi i32 [ %.019.i, %15 ], [ %21, %20 ]
   %.not.not.i = icmp slt i32 %.1.i, %.115.i
-  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %.not.not.i, label %range_search.exit, label %.lr.ph.i, !llvm.loop !6
 
 range_search.exit:                                ; preds = %22, %17, %3
   %.0 = phi i1 [ %7, %3 ], [ false, %22 ], [ true, %17 ]
@@ -655,7 +655,7 @@ define zeroext i1 @pg_u_isalpha(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i.i = phi i32 [ %17, %16 ], [ %.01418.i.i, %21 ]
   %.1.i.i = phi i32 [ %.019.i.i, %16 ], [ %22, %21 ]
   %.not.not.i.i = icmp slt i32 %.1.i.i, %.115.i.i
-  br i1 %.not.not.i.i, label %pg_u_prop_alphabetic.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i, label %pg_u_prop_alphabetic.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 pg_u_prop_alphabetic.exit:                        ; preds = %18, %23, %3
   %.0.i = phi i1 [ %8, %3 ], [ true, %18 ], [ false, %23 ]
@@ -696,7 +696,7 @@ define zeroext i1 @pg_u_isalnum(i32 noundef %0, i1 noundef zeroext %1) local_unn
   %.115.i.i.i = phi i32 [ %12, %11 ], [ %.01418.i.i.i, %16 ]
   %.1.i.i.i = phi i32 [ %.019.i.i.i, %11 ], [ %17, %16 ]
   %.not.not.i.i.i = icmp slt i32 %.1.i.i.i, %.115.i.i.i
-  br i1 %.not.not.i.i.i, label %pg_u_isalpha.exit.thread4, label %.lr.ph.i.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i.i, label %pg_u_isalpha.exit.thread4, label %.lr.ph.i.i.i, !llvm.loop !6
 
 pg_u_isalpha.exit:                                ; preds = %2
   %19 = zext nneg i32 %0 to i64
@@ -856,7 +856,7 @@ unicode_category.exit.thread:                     ; preds = %1
   %.115.i.i.i = phi i32 [ %37, %36 ], [ %.01418.i.i.i, %41 ]
   %.1.i.i.i = phi i32 [ %.019.i.i.i, %36 ], [ %42, %41 ]
   %.not.not.i.i.i = icmp slt i32 %.1.i.i.i, %.115.i.i.i
-  br i1 %.not.not.i.i.i, label %48, label %.lr.ph.i.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i.i, label %48, label %.lr.ph.i.i.i, !llvm.loop !6
 
 pg_u_isalpha.exit:                                ; preds = %unicode_category.exit.thread
   %44 = getelementptr inbounds nuw [128 x %struct.pg_unicode_properties], ptr @unicode_opt_ascii, i64 0, i64 %24, i32 1
@@ -914,7 +914,7 @@ define zeroext i1 @pg_u_isupper(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i.i = phi i32 [ %14, %13 ], [ %.01418.i.i, %18 ]
   %.1.i.i = phi i32 [ %.019.i.i, %13 ], [ %19, %18 ]
   %.not.not.i.i = icmp slt i32 %.1.i.i, %.115.i.i
-  br i1 %.not.not.i.i, label %pg_u_prop_uppercase.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i, label %pg_u_prop_uppercase.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 pg_u_prop_uppercase.exit:                         ; preds = %15, %20, %3
   %.0.i = phi i1 [ %5, %3 ], [ true, %15 ], [ false, %20 ]
@@ -960,7 +960,7 @@ define zeroext i1 @pg_u_islower(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i.i = phi i32 [ %14, %13 ], [ %.01418.i.i, %18 ]
   %.1.i.i = phi i32 [ %.019.i.i, %13 ], [ %19, %18 ]
   %.not.not.i.i = icmp slt i32 %.1.i.i, %.115.i.i
-  br i1 %.not.not.i.i, label %pg_u_prop_lowercase.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i, label %pg_u_prop_lowercase.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 pg_u_prop_lowercase.exit:                         ; preds = %15, %20, %3
   %.0.i = phi i1 [ %5, %3 ], [ true, %15 ], [ false, %20 ]
@@ -1169,7 +1169,7 @@ unicode_category.exit.thread:                     ; preds = %1
   %.115.i.i.i = phi i32 [ %37, %36 ], [ %.01418.i.i.i, %41 ]
   %.1.i.i.i = phi i32 [ %.019.i.i.i, %36 ], [ %42, %41 ]
   %.not.not.i.i.i = icmp slt i32 %.1.i.i.i, %.115.i.i.i
-  br i1 %.not.not.i.i.i, label %pg_u_isspace.exit.thread8, label %.lr.ph.i.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i.i, label %pg_u_isspace.exit.thread8, label %.lr.ph.i.i.i, !llvm.loop !6
 
 pg_u_isspace.exit:                                ; preds = %unicode_category.exit.thread
   %44 = getelementptr inbounds nuw [128 x %struct.pg_unicode_properties], ptr @unicode_opt_ascii, i64 0, i64 %24, i32 1
@@ -1229,7 +1229,7 @@ define zeroext i1 @pg_u_isspace(i32 noundef %0) local_unnamed_addr #0 {
   %.115.i.i = phi i32 [ %17, %16 ], [ %.01418.i.i, %21 ]
   %.1.i.i = phi i32 [ %.019.i.i, %16 ], [ %22, %21 ]
   %.not.not.i.i = icmp slt i32 %.1.i.i, %.115.i.i
-  br i1 %.not.not.i.i, label %pg_u_prop_white_space.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i, label %pg_u_prop_white_space.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 pg_u_prop_white_space.exit:                       ; preds = %18, %23, %3
   %.0.i = phi i1 [ %8, %3 ], [ true, %18 ], [ false, %23 ]
@@ -1376,7 +1376,7 @@ unicode_category.exit.thread.i:                   ; preds = %unicode_category.ex
   %.115.i.i.i.i = phi i32 [ %58, %57 ], [ %.01418.i.i.i.i, %62 ]
   %.1.i.i.i.i = phi i32 [ %.019.i.i.i.i, %57 ], [ %63, %62 ]
   %.not.not.i.i.i.i = icmp slt i32 %.1.i.i.i.i, %.115.i.i.i.i
-  br i1 %.not.not.i.i.i.i, label %pg_u_isgraph.exit, label %.lr.ph.i.i.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i.i.i, label %pg_u_isgraph.exit, label %.lr.ph.i.i.i.i, !llvm.loop !6
 
 pg_u_isspace.exit.i:                              ; preds = %unicode_category.exit.thread.i
   %65 = getelementptr inbounds nuw [128 x %struct.pg_unicode_properties], ptr @unicode_opt_ascii, i64 0, i64 %45, i32 1
@@ -1475,7 +1475,7 @@ define zeroext i1 @pg_u_ispunct(i32 noundef %0, i1 noundef zeroext %1) local_unn
   %.115.i.i.i = phi i32 [ %13, %12 ], [ %.01418.i.i.i, %17 ]
   %.1.i.i.i = phi i32 [ %.019.i.i.i, %12 ], [ %18, %17 ]
   %.not.not.i.i.i = icmp slt i32 %.1.i.i.i, %.115.i.i.i
-  br i1 %.not.not.i.i.i, label %.preheader.i, label %.lr.ph.i.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i.i, label %.preheader.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
 pg_u_isalpha.exit:                                ; preds = %4
   %20 = zext nneg i32 %0 to i64
@@ -1698,7 +1698,7 @@ unicode_category.exit.thread:                     ; preds = %30, %unicode_catego
   %.115.i.i = phi i32 [ %45, %44 ], [ %.01418.i.i, %49 ]
   %.1.i.i = phi i32 [ %.019.i.i, %44 ], [ %50, %49 ]
   %.not.not.i.i = icmp slt i32 %.1.i.i, %.115.i.i
-  br i1 %.not.not.i.i, label %pg_u_prop_hex_digit.exit, label %.lr.ph.i.i, !llvm.loop !5
+  br i1 %.not.not.i.i, label %pg_u_prop_hex_digit.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 pg_u_prop_hex_digit.exit:                         ; preds = %51, %46, %32, %unicode_category.exit, %6, %3
   %.0 = phi i1 [ %8, %6 ], [ true, %3 ], [ true, %unicode_category.exit ], [ %36, %32 ], [ true, %46 ], [ false, %51 ]
@@ -1745,6 +1745,7 @@ attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}

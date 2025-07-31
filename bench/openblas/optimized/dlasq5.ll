@@ -128,7 +128,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %85 = select i1 %84, double %82, double %.2601700
   %indvars.iv.next = add nsw i64 %indvars.iv, 4
   %.not653.not = icmp slt i64 %indvars.iv, %69
-  br i1 %.not653.not, label %.lr.ph, label %.loopexit689, !llvm.loop !11
+  br i1 %.not653.not, label %.lr.ph, label %.loopexit689, !llvm.loop !12
 
 .loopexit689:                                     ; preds = %.lr.ph, %.lr.ph708, %67, %48
   %.1600 = phi double [ %37, %67 ], [ %37, %48 ], [ %66, %.lr.ph708 ], [ %85, %.lr.ph ]
@@ -228,7 +228,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %148 = select i1 %147, double %.3602719, double %146
   %indvars.iv.next779 = add nsw i64 %indvars.iv778, 4
   %.not652.not = icmp slt i64 %indvars.iv778, %129
-  br i1 %.not652.not, label %.lr.ph722, label %.loopexit685, !llvm.loop !12
+  br i1 %.not652.not, label %.lr.ph722, label %.loopexit685, !llvm.loop !13
 
 149:                                              ; preds = %126
   br i1 %.not652718, label %.loopexit685, label %.lr.ph715.preheader
@@ -270,7 +270,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %170 = select i1 %169, double %.5604712, double %168
   %indvars.iv.next776 = add nsw i64 %indvars.iv775, 4
   %.not651.not = icmp slt i64 %indvars.iv775, %151
-  br i1 %.not651.not, label %.lr.ph715, label %.loopexit685, !llvm.loop !13
+  br i1 %.not651.not, label %.lr.ph715, label %.loopexit685, !llvm.loop !14
 
 .loopexit685:                                     ; preds = %157, %136, %149, %127
   %.4603 = phi double [ %37, %149 ], [ %37, %127 ], [ %148, %136 ], [ %170, %157 ]
@@ -401,7 +401,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %256 = select i1 %255, double %254, double %.7606733
   %indvars.iv.next785 = add nsw i64 %indvars.iv784, 4
   %.not649.not = icmp slt i64 %indvars.iv784, %238
-  br i1 %.not649.not, label %.lr.ph736, label %.loopexit683, !llvm.loop !14
+  br i1 %.not649.not, label %.lr.ph736, label %.loopexit683, !llvm.loop !15
 
 257:                                              ; preds = %235
   br i1 %.not647746, label %.loopexit683, label %.lr.ph729.preheader
@@ -440,7 +440,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %277 = select i1 %276, double %274, double %.9608726
   %indvars.iv.next782 = add nsw i64 %indvars.iv781, 4
   %.not648.not = icmp slt i64 %indvars.iv781, %259
-  br i1 %.not648.not, label %.lr.ph729, label %.loopexit683, !llvm.loop !15
+  br i1 %.not648.not, label %.lr.ph729, label %.loopexit683, !llvm.loop !16
 
 .loopexit683:                                     ; preds = %.lr.ph729, %.lr.ph736, %257, %236
   %.8607 = phi double [ %225, %257 ], [ %225, %236 ], [ %256, %.lr.ph736 ], [ %277, %.lr.ph729 ]
@@ -542,7 +542,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %342 = select i1 %341, double %.10609747, double %340
   %indvars.iv.next791 = add nsw i64 %indvars.iv790, 4
   %.not647.not = icmp slt i64 %indvars.iv790, %321
-  br i1 %.not647.not, label %.lr.ph750, label %.loopexit, !llvm.loop !16
+  br i1 %.not647.not, label %.lr.ph750, label %.loopexit, !llvm.loop !17
 
 343:                                              ; preds = %318
   br i1 %.not647746, label %.loopexit, label %.lr.ph743.preheader
@@ -586,7 +586,7 @@ define void @dlasq5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %366 = select i1 %365, double %.12611740, double %364
   %indvars.iv.next788 = add nsw i64 %indvars.iv787, 4
   %.not646.not = icmp slt i64 %indvars.iv787, %345
-  br i1 %.not646.not, label %.lr.ph743, label %.loopexit, !llvm.loop !17
+  br i1 %.not646.not, label %.lr.ph743, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %351, %328, %343, %319
   %.11610 = phi double [ %225, %343 ], [ %225, %319 ], [ %342, %328 ], [ %366, %351 ]
@@ -706,12 +706,13 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}

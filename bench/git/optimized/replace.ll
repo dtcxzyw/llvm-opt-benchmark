@@ -669,7 +669,7 @@ _.exit.i.i:                                       ; preds = %245, %243
   %259 = or i16 %258, 8
   store i16 %259, ptr %257, align 8
   %260 = getelementptr inbounds nuw i8, ptr %12, i64 84
-  store i32 %241, ptr %260, align 4, !tbaa !33
+  store i32 %241, ptr %260, align 4, !tbaa !34
   %261 = call i32 @run_command(ptr noundef nonnull %12) #16
   %.not8.i.i = icmp eq i32 %261, 0
   br i1 %.not8.i.i, label %268, label %262
@@ -749,9 +749,9 @@ _.exit.i31.i:                                     ; preds = %281, %279
   %290 = or i16 %289, 8
   store i16 %290, ptr %288, align 8
   %291 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  store i32 %277, ptr %291, align 8, !tbaa !37
+  store i32 %277, ptr %291, align 8, !tbaa !38
   %292 = getelementptr inbounds nuw i8, ptr %9, i64 84
-  store i32 -1, ptr %292, align 4, !tbaa !33
+  store i32 -1, ptr %292, align 4, !tbaa !34
   %293 = call i32 @start_command(ptr noundef nonnull %9) #16
   %.not.i29.i = icmp eq i32 %293, 0
   br i1 %.not.i29.i, label %300, label %294
@@ -772,12 +772,12 @@ _.exit28.i.i:                                     ; preds = %297, %294
   br label %.critedge.i.i
 
 300:                                              ; preds = %286
-  %301 = load i32, ptr %292, align 4, !tbaa !33
+  %301 = load i32, ptr %292, align 4, !tbaa !34
   %302 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 400
-  %304 = load ptr, ptr %303, align 8, !tbaa !38
+  %304 = load ptr, ptr %303, align 8, !tbaa !39
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 24
-  %306 = load i64, ptr %305, align 8, !tbaa !56
+  %306 = load i64, ptr %305, align 8, !tbaa !57
   %307 = add i64 %306, 1
   %308 = call i64 @strbuf_read(ptr noundef nonnull %10, i32 noundef %301, i64 noundef %307) #16
   %309 = icmp slt i64 %308, 0
@@ -796,12 +796,12 @@ _.exit31.i.i:                                     ; preds = %312, %310
   %.0.i30.i.i = phi ptr [ %313, %312 ], [ @.str.58, %310 ]
   %314 = call i32 (ptr, ...) @error_errno(ptr noundef %.0.i30.i.i) #16
   %315 = call i32 @close(i32 noundef %277) #16
-  %316 = load i32, ptr %292, align 4, !tbaa !33
+  %316 = load i32, ptr %292, align 4, !tbaa !34
   %317 = call i32 @close(i32 noundef %316) #16
   br label %.critedge.i.i
 
 318:                                              ; preds = %300
-  %319 = load i32, ptr %292, align 4, !tbaa !33
+  %319 = load i32, ptr %292, align 4, !tbaa !34
   %320 = call i32 @close(i32 noundef %319) #16
   %321 = call i32 @finish_command(ptr noundef nonnull %9) #16
   %.not23.i.i = icmp eq i32 %321, 0
@@ -873,7 +873,7 @@ _.exit40.i.i:                                     ; preds = %343, %341
 347:                                              ; preds = %338
   %348 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 384
-  %350 = load ptr, ptr %349, align 8, !tbaa !59
+  %350 = load ptr, ptr %349, align 8, !tbaa !60
   %351 = call i32 @index_fd(ptr noundef %350, ptr noundef nonnull %14, i32 noundef %277, ptr noundef nonnull %11, i32 noundef range(i32 0, -2147483648) %229, ptr noundef null, i32 noundef 3) #16
   %352 = icmp slt i32 %351, 0
   br i1 %352, label %353, label %358
@@ -996,13 +996,13 @@ edit_and_replace.exit:                            ; preds = %_.exit.i43, %_.exit
 
 389:                                              ; preds = %385
   call void @strvec_split(ptr noundef nonnull %8, ptr noundef nonnull %386) #16
-  %390 = load i64, ptr %384, align 8, !tbaa !60
+  %390 = load i64, ptr %384, align 8, !tbaa !61
   %.not10.i = icmp eq i64 %390, 0
   br i1 %.not10.i, label %397, label %391
 
 391:                                              ; preds = %389
   %392 = trunc i64 %390 to i32
-  %393 = load ptr, ptr %8, align 8, !tbaa !61
+  %393 = load ptr, ptr %8, align 8, !tbaa !62
   %394 = call fastcc i32 @create_graft(i32 noundef %392, ptr noundef %393, i32 noundef %122, i32 noundef 1)
   %.not11.i = icmp eq i32 %394, 0
   br i1 %.not11.i, label %397, label %395
@@ -1019,7 +1019,7 @@ edit_and_replace.exit:                            ; preds = %_.exit.i43, %_.exit
 .backedge.i:                                      ; preds = %397, %385
   %398 = call i32 @strbuf_getline(ptr noundef nonnull %6, ptr noundef nonnull %380) #16
   %.not8.i = icmp eq i32 %398, -1
-  br i1 %.not8.i, label %._crit_edge.i, label %385, !llvm.loop !62
+  br i1 %.not8.i, label %._crit_edge.i, label %385, !llvm.loop !63
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %381
   %399 = call i32 @fclose(ptr noundef nonnull %380)
@@ -1072,11 +1072,11 @@ convert_graft_file.exit:                          ; preds = %377, %402, %_.exit.
   %417 = load ptr, ptr %1, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
   %418 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  store ptr %418, ptr %5, align 8, !tbaa !63
+  store ptr %418, ptr %5, align 8, !tbaa !64
   %.not.i51 = icmp eq ptr %417, null
   %spec.store.select.i = select i1 %.not.i51, ptr @.str.78, ptr %417
   %419 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %spec.store.select.i, ptr %419, align 8, !tbaa !65
+  store ptr %spec.store.select.i, ptr %419, align 8, !tbaa !66
   %420 = icmp eq ptr %116, null
   br i1 %420, label %435, label %421
 
@@ -1117,7 +1117,7 @@ _.exit.i56:                                       ; preds = %432, %430
 435:                                              ; preds = %428, %426, %424, %421, %416
   %.sink.i = phi i32 [ 0, %424 ], [ 0, %421 ], [ 0, %416 ], [ 1, %426 ], [ 2, %428 ]
   %436 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.sink.i, ptr %436, align 8, !tbaa !66
+  store i32 %.sink.i, ptr %436, align 8, !tbaa !67
   %437 = call ptr @get_main_ref_store(ptr noundef %418) #16
   %438 = call i32 @refs_for_each_replace_ref(ptr noundef %437, ptr noundef nonnull @show_reference, ptr noundef nonnull %5) #16
   br label %list_replace_refs.exit
@@ -1233,7 +1233,7 @@ _.exit31:                                         ; preds = %24, %26
 29:                                               ; preds = %21
   %30 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %31 = call ptr @repo_get_commit_buffer(ptr noundef %30, ptr noundef nonnull %23, ptr noundef nonnull %11) #16
-  %32 = load i64, ptr %11, align 8, !tbaa !67
+  %32 = load i64, ptr %11, align 8, !tbaa !68
   call void @strbuf_add(ptr noundef nonnull %10, ptr noundef %31, i64 noundef %32) #16
   %33 = load ptr, ptr @the_repository, align 8, !tbaa !22
   call void @repo_unuse_commit_buffer(ptr noundef %33, ptr noundef nonnull %23, ptr noundef %31) #16
@@ -1243,9 +1243,9 @@ _.exit31:                                         ; preds = %24, %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.convert_graft_file.err, i64 24, i1 false)
   %36 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 400
-  %38 = load ptr, ptr %37, align 8, !tbaa !38
+  %38 = load ptr, ptr %37, align 8, !tbaa !39
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %40 = load i64, ptr %39, align 8, !tbaa !56
+  %40 = load i64, ptr %39, align 8, !tbaa !57
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !29
   %43 = add i64 %40, 6
@@ -1274,7 +1274,7 @@ _.exit31:                                         ; preds = %24, %26
   %51 = getelementptr inbounds nuw i8, ptr %.02634.i, i64 %48
   %52 = call i32 @starts_with(ptr noundef %51, ptr noundef nonnull @.str.69) #16
   %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %.preheader.i, label %50, !llvm.loop !68
+  br i1 %.not.i, label %.preheader.i, label %50, !llvm.loop !69
 
 .lr.ph38.i:                                       ; preds = %75, %.lr.ph38.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph38.preheader.i ], [ %indvars.iv.next.i, %75 ]
@@ -1333,7 +1333,7 @@ _.exit31.i:                                       ; preds = %71, %68
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph38.i, !llvm.loop !69
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph38.i, !llvm.loop !70
 
 ._crit_edge.loopexit.i:                           ; preds = %75
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1391,9 +1391,9 @@ _.exit37:                                         ; preds = %_.exit34, %94
 
 96:                                               ; preds = %_.exit37, %79
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
-  store i32 %0, ptr %5, align 8, !tbaa !70
+  store i32 %0, ptr %5, align 8, !tbaa !71
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %97, align 8, !tbaa !72
+  store ptr %1, ptr %97, align 8, !tbaa !73
   %98 = call i32 @for_each_mergetag(ptr noundef nonnull @check_one_mergetag, ptr noundef nonnull %23, ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %.not25 = icmp eq i32 %98, 0
@@ -1650,7 +1650,7 @@ _.exit:                                           ; preds = %13, %15
 24:                                               ; preds = %19
   %25 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 400
-  %27 = load ptr, ptr %26, align 8, !tbaa !38
+  %27 = load ptr, ptr %26, align 8, !tbaa !39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   br label %28
 
@@ -1663,7 +1663,7 @@ _.exit:                                           ; preds = %13, %15
 30:                                               ; preds = %28
   %31 = add nuw nsw i64 %.0811.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %31, 3
-  br i1 %exitcond.not.i.i, label %oidclr.exit, label %28, !llvm.loop !73
+  br i1 %exitcond.not.i.i, label %oidclr.exit, label %28, !llvm.loop !74
 
 .split.loop.exit9.i.i:                            ; preds = %28
   %32 = trunc nuw nsw i64 %.0811.i.i to i32
@@ -1672,7 +1672,7 @@ _.exit:                                           ; preds = %13, %15
 oidclr.exit:                                      ; preds = %30, %.split.loop.exit9.i.i
   %.2.i.i = phi i32 [ %32, %.split.loop.exit9.i.i ], [ 0, %30 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %.2.i.i, ptr %33, align 4, !tbaa !74
+  store i32 %.2.i.i, ptr %33, align 4, !tbaa !75
   br label %41
 
 34:                                               ; preds = %19
@@ -1788,16 +1788,16 @@ define internal range(i32 -1, 1) i32 @check_one_mergetag(ptr readnone captures(n
   %4 = alloca %struct.object_id, align 4
   %5 = alloca %struct.object_id, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %6, align 8, !tbaa !73
   %8 = load ptr, ptr %7, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %4) #16
   %9 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 400
-  %11 = load ptr, ptr %10, align 8, !tbaa !38
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !76
+  %13 = load ptr, ptr %12, align 8, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !79
+  %15 = load i64, ptr %14, align 8, !tbaa !80
   call void @hash_object_file(ptr noundef %11, ptr noundef %13, i64 noundef %15, i32 noundef 4, ptr noundef nonnull %4) #16
   %16 = load ptr, ptr @the_repository, align 8, !tbaa !22
   %17 = call ptr @lookup_tag(ptr noundef %16, ptr noundef nonnull %4) #16
@@ -1820,14 +1820,14 @@ _.exit:                                           ; preds = %18, %20
 
 23:                                               ; preds = %3
   %24 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  %25 = load ptr, ptr %12, align 8, !tbaa !76
-  %26 = load i64, ptr %14, align 8, !tbaa !79
+  %25 = load ptr, ptr %12, align 8, !tbaa !77
+  %26 = load i64, ptr %14, align 8, !tbaa !80
   %27 = call i32 @parse_tag_buffer(ptr noundef %24, ptr noundef nonnull %17, ptr noundef %25, i64 noundef %26) #16
   %.not23 = icmp eq i32 %27, 0
   br i1 %.not23, label %.preheader, label %30
 
 .preheader:                                       ; preds = %23
-  %28 = load i32, ptr %2, align 8, !tbaa !70
+  %28 = load i32, ptr %2, align 8, !tbaa !71
   %29 = icmp sgt i32 %28, 1
   br i1 %29, label %.lr.ph, label %._crit_edge
 
@@ -1847,16 +1847,16 @@ _.exit27:                                         ; preds = %30, %32
 
 35:                                               ; preds = %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr %2, align 8, !tbaa !70
+  %36 = load i32, ptr %2, align 8, !tbaa !71
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !80
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !81
 
 .lr.ph:                                           ; preds = %.preheader, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 1, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #16
   %39 = load ptr, ptr @the_repository, align 8, !tbaa !22
-  %40 = load ptr, ptr %6, align 8, !tbaa !72
+  %40 = load ptr, ptr %6, align 8, !tbaa !73
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !8
   %43 = call i32 @repo_get_oid(ptr noundef %39, ptr noundef %42, ptr noundef nonnull %5) #16
@@ -1874,7 +1874,7 @@ _.exit27:                                         ; preds = %30, %32
 
 .thread:                                          ; preds = %47, %45
   %.0.i29 = phi ptr [ %48, %47 ], [ @.str.44, %45 ]
-  %49 = load ptr, ptr %6, align 8, !tbaa !72
+  %49 = load ptr, ptr %6, align 8, !tbaa !73
   %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !8
   %52 = call i32 (ptr, ...) @error(ptr noundef %.0.i29, ptr noundef %51) #16
@@ -1943,14 +1943,14 @@ declare i32 @refs_for_each_replace_ref(ptr noundef, ptr noundef, ptr noundef) lo
 define internal range(i32 -1, 1) i32 @show_reference(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = alloca %struct.object_id, align 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !65
+  %8 = load ptr, ptr %7, align 8, !tbaa !66
   %9 = tail call i32 @wildmatch(ptr noundef %8, ptr noundef %0, i32 noundef 0) #16
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %34
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !66
+  %12 = load i32, ptr %11, align 8, !tbaa !67
   switch i32 %12, label %17 [
     i32 0, label %13
     i32 1, label %14
@@ -1967,7 +1967,7 @@ define internal range(i32 -1, 1) i32 @show_reference(ptr noundef %0, ptr readnon
 
 17:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6) #16
-  %18 = load ptr, ptr %4, align 8, !tbaa !63
+  %18 = load ptr, ptr %4, align 8, !tbaa !64
   %19 = call i32 @repo_get_oid(ptr noundef %18, ptr noundef %0, ptr noundef nonnull %6) #16
   %.not21 = icmp eq i32 %19, 0
   br i1 %.not21, label %.thread, label %20
@@ -1982,9 +1982,9 @@ define internal range(i32 -1, 1) i32 @show_reference(ptr noundef %0, ptr readnon
   br label %32
 
 .thread:                                          ; preds = %17
-  %24 = load ptr, ptr %4, align 8, !tbaa !63
+  %24 = load ptr, ptr %4, align 8, !tbaa !64
   %25 = call i32 @oid_object_info(ptr noundef %24, ptr noundef nonnull %6, ptr noundef null) #16
-  %26 = load ptr, ptr %4, align 8, !tbaa !63
+  %26 = load ptr, ptr %4, align 8, !tbaa !64
   %27 = call i32 @oid_object_info(ptr noundef %26, ptr noundef %2, ptr noundef null) #16
   %28 = call ptr @type_name(i32 noundef %25) #16
   %29 = call ptr @oid_to_hex(ptr noundef %2) #16
@@ -2071,53 +2071,54 @@ attributes #18 = { nounwind willreturn memory(read) }
 !28 = !{!27, !13, i64 0}
 !29 = !{!27, !9, i64 16}
 !30 = !{!6, !6, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!34, !5, i64 84}
-!34 = !{!"child_process", !35, i64 0, !35, i64 24, !5, i64 48, !5, i64 52, !13, i64 56, !9, i64 64, !9, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !9, i64 96, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 105, !5, i64 105, !10, i64 112}
-!35 = !{!"strvec", !36, i64 0, !13, i64 8, !13, i64 16}
-!36 = !{!"p2 omnipotent char", !10, i64 0}
-!37 = !{!34, !5, i64 80}
-!38 = !{!39, !54, i64 400}
-!39 = !{!"repository", !9, i64 0, !9, i64 8, !40, i64 16, !41, i64 24, !42, i64 32, !43, i64 40, !43, i64 104, !47, i64 168, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !48, i64 256, !50, i64 368, !51, i64 376, !52, i64 384, !53, i64 392, !54, i64 400, !54, i64 408, !5, i64 416, !5, i64 420, !5, i64 424, !9, i64 432, !55, i64 440, !5, i64 448, !5, i64 452, !5, i64 456}
-!40 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
-!41 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
-!42 = !{!"p1 _ZTS9ref_store", !10, i64 0}
-!43 = !{!"strmap", !44, i64 0, !46, i64 48, !5, i64 56}
-!44 = !{!"hashmap", !45, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
-!45 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
-!46 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
-!47 = !{!"repo_path_cache", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
-!48 = !{!"repo_settings", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !49, i64 48, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !13, i64 88, !13, i64 96, !13, i64 104}
-!49 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
-!50 = !{!"p1 _ZTS10config_set", !10, i64 0}
-!51 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
-!52 = !{!"p1 _ZTS11index_state", !10, i64 0}
-!53 = !{!"p1 _ZTS12remote_state", !10, i64 0}
-!54 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
-!55 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
-!56 = !{!57, !13, i64 24}
-!57 = !{!"git_hash_algo", !9, i64 0, !5, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !58, i64 80, !58, i64 88, !58, i64 96, !54, i64 104}
-!58 = !{!"p1 _ZTS9object_id", !10, i64 0}
-!59 = !{!39, !52, i64 384}
-!60 = !{!35, !13, i64 8}
-!61 = !{!35, !36, i64 0}
-!62 = distinct !{!62, !32}
-!63 = !{!64, !23, i64 0}
-!64 = !{!"show_data", !23, i64 0, !9, i64 8, !5, i64 16}
-!65 = !{!64, !9, i64 8}
-!66 = !{!64, !5, i64 16}
-!67 = !{!13, !13, i64 0}
-!68 = distinct !{!68, !32}
-!69 = distinct !{!69, !32}
-!70 = !{!71, !5, i64 0}
-!71 = !{!"check_mergetag_data", !5, i64 0, !36, i64 8}
-!72 = !{!71, !36, i64 8}
-!73 = distinct !{!73, !32}
-!74 = !{!75, !5, i64 32}
-!75 = !{!"object_id", !6, i64 0, !5, i64 32}
-!76 = !{!77, !9, i64 16}
-!77 = !{!"commit_extra_header", !78, i64 0, !9, i64 8, !9, i64 16, !13, i64 24}
-!78 = !{!"p1 _ZTS19commit_extra_header", !10, i64 0}
-!79 = !{!77, !13, i64 24}
-!80 = distinct !{!80, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!35, !5, i64 84}
+!35 = !{!"child_process", !36, i64 0, !36, i64 24, !5, i64 48, !5, i64 52, !13, i64 56, !9, i64 64, !9, i64 72, !5, i64 80, !5, i64 84, !5, i64 88, !9, i64 96, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 104, !5, i64 105, !5, i64 105, !10, i64 112}
+!36 = !{!"strvec", !37, i64 0, !13, i64 8, !13, i64 16}
+!37 = !{!"p2 omnipotent char", !10, i64 0}
+!38 = !{!35, !5, i64 80}
+!39 = !{!40, !55, i64 400}
+!40 = !{!"repository", !9, i64 0, !9, i64 8, !41, i64 16, !42, i64 24, !43, i64 32, !44, i64 40, !44, i64 104, !48, i64 168, !9, i64 224, !9, i64 232, !9, i64 240, !9, i64 248, !49, i64 256, !51, i64 368, !52, i64 376, !53, i64 384, !54, i64 392, !55, i64 400, !55, i64 408, !5, i64 416, !5, i64 420, !5, i64 424, !9, i64 432, !56, i64 440, !5, i64 448, !5, i64 452, !5, i64 456}
+!41 = !{!"p1 _ZTS16raw_object_store", !10, i64 0}
+!42 = !{!"p1 _ZTS18parsed_object_pool", !10, i64 0}
+!43 = !{!"p1 _ZTS9ref_store", !10, i64 0}
+!44 = !{!"strmap", !45, i64 0, !47, i64 48, !5, i64 56}
+!45 = !{!"hashmap", !46, i64 0, !10, i64 8, !10, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40}
+!46 = !{!"p2 _ZTS13hashmap_entry", !10, i64 0}
+!47 = !{!"p1 _ZTS8mem_pool", !10, i64 0}
+!48 = !{!"repo_path_cache", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48}
+!49 = !{!"repo_settings", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !50, i64 48, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !5, i64 80, !13, i64 88, !13, i64 96, !13, i64 104}
+!50 = !{!"p1 _ZTS18fsmonitor_settings", !10, i64 0}
+!51 = !{!"p1 _ZTS10config_set", !10, i64 0}
+!52 = !{!"p1 _ZTS15submodule_cache", !10, i64 0}
+!53 = !{!"p1 _ZTS11index_state", !10, i64 0}
+!54 = !{!"p1 _ZTS12remote_state", !10, i64 0}
+!55 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
+!56 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
+!57 = !{!58, !13, i64 24}
+!58 = !{!"git_hash_algo", !9, i64 0, !5, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !10, i64 40, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !59, i64 80, !59, i64 88, !59, i64 96, !55, i64 104}
+!59 = !{!"p1 _ZTS9object_id", !10, i64 0}
+!60 = !{!40, !53, i64 384}
+!61 = !{!36, !13, i64 8}
+!62 = !{!36, !37, i64 0}
+!63 = distinct !{!63, !32, !33}
+!64 = !{!65, !23, i64 0}
+!65 = !{!"show_data", !23, i64 0, !9, i64 8, !5, i64 16}
+!66 = !{!65, !9, i64 8}
+!67 = !{!65, !5, i64 16}
+!68 = !{!13, !13, i64 0}
+!69 = distinct !{!69, !32, !33}
+!70 = distinct !{!70, !32, !33}
+!71 = !{!72, !5, i64 0}
+!72 = !{!"check_mergetag_data", !5, i64 0, !37, i64 8}
+!73 = !{!72, !37, i64 8}
+!74 = distinct !{!74, !32, !33}
+!75 = !{!76, !5, i64 32}
+!76 = !{!"object_id", !6, i64 0, !5, i64 32}
+!77 = !{!78, !9, i64 16}
+!78 = !{!"commit_extra_header", !79, i64 0, !9, i64 8, !9, i64 16, !13, i64 24}
+!79 = !{!"p1 _ZTS19commit_extra_header", !10, i64 0}
+!80 = !{!78, !13, i64 24}
+!81 = distinct !{!81, !32, !33}

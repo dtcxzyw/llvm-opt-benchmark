@@ -184,22 +184,22 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @Curl_ssl_version(ptr noundef nonnull @curl_version_info.ssl_buffer, i64 noundef 80) #7
-  store ptr @curl_version_info.ssl_buffer, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 40), align 8, !tbaa !11
+  store ptr @curl_version_info.ssl_buffer, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 40), align 8, !tbaa !12
   %2 = tail call ptr @zlibVersion() #7
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 56), align 8, !tbaa !16
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 56), align 8, !tbaa !17
   %3 = tail call ptr @idn2_check_version(ptr noundef nonnull @.str.2) #8
-  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 88), align 8, !tbaa !17
+  store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 88), align 8, !tbaa !18
   %4 = tail call i32 @BrotliDecoderVersion() #7
-  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 112), align 8, !tbaa !18
+  store i32 %4, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 112), align 8, !tbaa !19
   %5 = tail call i32 @BrotliDecoderVersion() #7
   %6 = lshr i32 %5, 24
   %7 = lshr i32 %5, 12
   %8 = and i32 %7, 4095
   %9 = and i32 %5, 4095
   %10 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull @curl_version_info.brotli_buffer, i64 noundef 80, ptr noundef nonnull @.str.3, i32 noundef %6, i32 noundef %8, i32 noundef %9) #7
-  store ptr @curl_version_info.brotli_buffer, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 120), align 8, !tbaa !19
+  store ptr @curl_version_info.brotli_buffer, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 120), align 8, !tbaa !20
   %11 = tail call i32 @ZSTD_versionNumber() #7
-  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 168), align 8, !tbaa !20
+  store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 168), align 8, !tbaa !21
   %12 = tail call i32 @ZSTD_versionNumber() #7
   %13 = udiv i32 %12, 10000
   %.neg.i = mul i32 %13, -10000
@@ -208,7 +208,7 @@ define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr
   %.neg10.i = mul i32 %15, -100
   %16 = add i32 %.neg10.i, %14
   %17 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull @curl_version_info.zstd_buffer, i64 noundef 80, ptr noundef nonnull @.str.4, i32 noundef %13, i32 noundef %15, i32 noundef %16) #7
-  store ptr @curl_version_info.zstd_buffer, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 176), align 8, !tbaa !21
+  store ptr @curl_version_info.zstd_buffer, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 176), align 8, !tbaa !22
   br label %18
 
 18:                                               ; preds = %1, %30
@@ -217,7 +217,7 @@ define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr
   %.0916 = phi ptr [ @features_table, %1 ], [ %31, %30 ]
   %.01015 = phi i64 [ 0, %1 ], [ %.111, %30 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0916, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
   %.not13 = icmp eq ptr %21, null
   br i1 %.not13, label %24, label %22
 
@@ -228,7 +228,7 @@ define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr
 
 24:                                               ; preds = %22, %18
   %25 = getelementptr inbounds nuw i8, ptr %.0916, i64 16
-  %26 = load i32, ptr %25, align 8, !tbaa !24
+  %26 = load i32, ptr %25, align 8, !tbaa !25
   %27 = or i32 %26, %.017
   %28 = add i64 %.01015, 1
   %29 = getelementptr inbounds nuw [17 x ptr], ptr @feature_names, i64 0, i64 %.01015
@@ -239,14 +239,14 @@ define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr
   %.111 = phi i64 [ %28, %24 ], [ %.01015, %22 ]
   %.1 = phi i32 [ %27, %24 ], [ %.017, %22 ]
   %31 = getelementptr inbounds nuw i8, ptr %.0916, i64 24
-  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %33, label %18, !llvm.loop !26
+  br i1 %.not, label %33, label %18, !llvm.loop !27
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw [17 x ptr], ptr @feature_names, i64 0, i64 %.111
   store ptr null, ptr %34, align 8, !tbaa !3
-  store i32 %.1, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 32), align 8, !tbaa !27
+  store i32 %.1, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 32), align 8, !tbaa !28
   ret ptr @version_info
 }
 
@@ -269,7 +269,7 @@ define internal range(i32 0, 2) i32 @https_proxy_present(ptr readnone captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @idn_present(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !17
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = icmp ne ptr %3, null
   %5 = zext i1 %4 to i32
   ret i32 %5
@@ -298,22 +298,23 @@ attributes #8 = { nounwind willreturn memory(read) }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !4, i64 40}
-!12 = !{!"curl_version_info_data", !13, i64 0, !4, i64 8, !13, i64 16, !4, i64 24, !13, i64 32, !4, i64 40, !14, i64 48, !4, i64 56, !15, i64 64, !4, i64 72, !13, i64 80, !4, i64 88, !13, i64 96, !4, i64 104, !13, i64 112, !4, i64 120, !13, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !13, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !15, i64 200, !4, i64 208}
-!13 = !{!"int", !6, i64 0}
-!14 = !{!"long", !6, i64 0}
-!15 = !{!"p2 omnipotent char", !5, i64 0}
-!16 = !{!12, !4, i64 56}
-!17 = !{!12, !4, i64 88}
-!18 = !{!12, !13, i64 112}
-!19 = !{!12, !4, i64 120}
-!20 = !{!12, !13, i64 168}
-!21 = !{!12, !4, i64 176}
-!22 = !{!23, !5, i64 8}
-!23 = !{!"feat", !4, i64 0, !5, i64 8, !13, i64 16}
-!24 = !{!23, !13, i64 16}
-!25 = !{!23, !4, i64 0}
-!26 = distinct !{!26, !10}
-!27 = !{!12, !13, i64 32}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !4, i64 40}
+!13 = !{!"curl_version_info_data", !14, i64 0, !4, i64 8, !14, i64 16, !4, i64 24, !14, i64 32, !4, i64 40, !15, i64 48, !4, i64 56, !16, i64 64, !4, i64 72, !14, i64 80, !4, i64 88, !14, i64 96, !4, i64 104, !14, i64 112, !4, i64 120, !14, i64 128, !4, i64 136, !4, i64 144, !4, i64 152, !4, i64 160, !14, i64 168, !4, i64 176, !4, i64 184, !4, i64 192, !16, i64 200, !4, i64 208}
+!14 = !{!"int", !6, i64 0}
+!15 = !{!"long", !6, i64 0}
+!16 = !{!"p2 omnipotent char", !5, i64 0}
+!17 = !{!13, !4, i64 56}
+!18 = !{!13, !4, i64 88}
+!19 = !{!13, !14, i64 112}
+!20 = !{!13, !4, i64 120}
+!21 = !{!13, !14, i64 168}
+!22 = !{!13, !4, i64 176}
+!23 = !{!24, !5, i64 8}
+!24 = !{!"feat", !4, i64 0, !5, i64 8, !14, i64 16}
+!25 = !{!24, !14, i64 16}
+!26 = !{!24, !4, i64 0}
+!27 = distinct !{!27, !10, !11}
+!28 = !{!13, !14, i64 32}

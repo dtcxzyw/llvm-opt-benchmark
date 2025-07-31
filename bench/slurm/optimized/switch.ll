@@ -182,7 +182,7 @@ define dso_local noundef i32 @switch_g_init(i1 noundef zeroext %0) local_unnamed
 ._crit_edge:                                      ; preds = %41, %35
   %55 = icmp ult i32 %40, 100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %55, label %56, label %34, !llvm.loop !11
+  br i1 %55, label %56, label %34, !llvm.loop !12
 
 56:                                               ; preds = %._crit_edge
   %57 = load ptr, ptr @switch_context, align 8
@@ -334,7 +334,7 @@ define dso_local i32 @switch_g_fini() local_unnamed_addr #0 {
   %13 = load i32, ptr @switch_context_cnt, align 4
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %12, %.lr.ph ]
@@ -769,7 +769,7 @@ define dso_local range(i32 -1, 1) i32 @switch_g_unpack_stepinfo(ptr noundef writ
 42:                                               ; preds = %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %42, %.preheader
   br i1 %9, label %43, label %48
@@ -1152,9 +1152,10 @@ attributes #10 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}

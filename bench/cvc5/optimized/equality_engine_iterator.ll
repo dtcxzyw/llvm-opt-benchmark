@@ -195,7 +195,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, i64 } @_ZN4cvc58internal6theory2eq17EqClassesIteratorppEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !29
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !30
   %.sroa.2.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..0..sroa_idx, align 8, !tbaa !16
   %storemerge5.i = add i64 %.sroa.2.0.copyload, 1
@@ -265,25 +265,25 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq17EqClassesIterato
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory2eq15EqClassIteratorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
-  store ptr null, ptr %0, align 8, !tbaa !30
+  store ptr null, ptr %0, align 8, !tbaa !31
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1, ptr %2, align 8, !tbaa !32
+  store i32 -1, ptr %2, align 8, !tbaa !33
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 -1, ptr %3, align 4, !tbaa !33
+  store i32 -1, ptr %3, align 4, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal6theory2eq15EqClassIteratorC2ENS0_12NodeTemplateILb1EEEPKNS2_14EqualityEngineE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cvc5::internal::NodeTemplate.126", align 8
-  store ptr %2, ptr %0, align 8, !tbaa !30
+  store ptr %2, ptr %0, align 8, !tbaa !31
   %5 = load ptr, ptr %1, align 8, !tbaa !22
-  store ptr %5, ptr %4, align 8, !tbaa !34
+  store ptr %5, ptr %4, align 8, !tbaa !35
   %6 = call noundef i32 @_ZNK4cvc58internal6theory2eq14EqualityEngine9getNodeIdENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(1784) %2, ptr noundef nonnull %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %6, ptr %7, align 8, !tbaa !32
+  store i32 %6, ptr %7, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %6, ptr %8, align 4, !tbaa !33
+  store i32 %6, ptr %8, align 4, !tbaa !34
   ret void
 }
 
@@ -293,10 +293,10 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK4cvc58internal6theory2eq15EqClassIteratordeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !30
+  %3 = load ptr, ptr %1, align 8, !tbaa !31
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 448
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !33
+  %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %4, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %8, i64 %7
@@ -334,8 +334,8 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %16, %22, %24
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIteratoreqERKS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !30
-  %4 = load ptr, ptr %1, align 8, !tbaa !30
+  %3 = load ptr, ptr %0, align 8, !tbaa !31
+  %4 = load ptr, ptr %1, align 8, !tbaa !31
   %5 = icmp eq ptr %3, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
@@ -348,8 +348,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIteratore
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIteratorneERKS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !30
-  %4 = load ptr, ptr %1, align 8, !tbaa !30
+  %3 = load ptr, ptr %0, align 8, !tbaa !31
+  %4 = load ptr, ptr %1, align 8, !tbaa !31
   %5 = icmp ne ptr %3, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
@@ -363,8 +363,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIteratorn
 ; Function Attrs: mustprogress uwtable
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq15EqClassIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.pre = load ptr, ptr %0, align 8, !tbaa !30
-  %.pre2 = load i32, ptr %2, align 4, !tbaa !33
+  %.pre = load ptr, ptr %0, align 8, !tbaa !31
+  %.pre2 = load i32, ptr %2, align 4, !tbaa !34
   br label %3
 
 3:                                                ; preds = %3, %1
@@ -372,9 +372,9 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   %5 = phi ptr [ %9, %3 ], [ %.pre, %1 ]
   %6 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %5, i32 noundef %4)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load i32, ptr %7, align 4, !tbaa !36
-  store i32 %8, ptr %2, align 4, !tbaa !33
-  %9 = load ptr, ptr %0, align 8, !tbaa !30
+  %8 = load i32, ptr %7, align 4, !tbaa !37
+  store i32 %8, ptr %2, align 4, !tbaa !34
+  %9 = load ptr, ptr %0, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1088
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = lshr i32 %8, 6
@@ -386,16 +386,16 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
   %17 = load i64, ptr %13, align 8, !tbaa !16
   %18 = and i64 %17, %16
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %19, label %3, !llvm.loop !37
+  br i1 %.not, label %19, label %3, !llvm.loop !38
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !32
+  %21 = load i32, ptr %20, align 8, !tbaa !33
   %22 = icmp eq i32 %8, %21
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %19
-  store i32 -1, ptr %2, align 4, !tbaa !33
+  store i32 -1, ptr %2, align 4, !tbaa !34
   br label %24
 
 24:                                               ; preds = %23, %19
@@ -404,7 +404,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal
 
 ; Function Attrs: mustprogress uwtable
 define hidden { ptr, i64 } @_ZN4cvc58internal6theory2eq15EqClassIteratorppEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !29
+  %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !tbaa !30
   %.sroa.2.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..0..sroa_idx, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -417,9 +417,9 @@ define hidden { ptr, i64 } @_ZN4cvc58internal6theory2eq15EqClassIteratorppEi(ptr
   %8 = phi ptr [ %12, %6 ], [ %.sroa.0.0.copyload, %2 ]
   %9 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK4cvc58internal6theory2eq14EqualityEngine15getEqualityNodeEj(ptr noundef nonnull align 8 dereferenceable(1784) %8, i32 noundef %7)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !36
-  store i32 %11, ptr %3, align 4, !tbaa !33
-  %12 = load ptr, ptr %0, align 8, !tbaa !30
+  %11 = load i32, ptr %10, align 4, !tbaa !37
+  store i32 %11, ptr %3, align 4, !tbaa !34
+  %12 = load ptr, ptr %0, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1088
   %14 = load ptr, ptr %13, align 8, !tbaa !13
   %15 = lshr i32 %11, 6
@@ -431,15 +431,15 @@ define hidden { ptr, i64 } @_ZN4cvc58internal6theory2eq15EqClassIteratorppEi(ptr
   %20 = load i64, ptr %16, align 8, !tbaa !16
   %21 = and i64 %20, %19
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %22, label %6, !llvm.loop !37
+  br i1 %.not.i, label %22, label %6, !llvm.loop !38
 
 22:                                               ; preds = %6
-  %23 = load i32, ptr %.sroa.2.0..0..sroa_idx, align 8, !tbaa !32
+  %23 = load i32, ptr %.sroa.2.0..0..sroa_idx, align 8, !tbaa !33
   %24 = icmp eq i32 %11, %23
   br i1 %24, label %25, label %_ZN4cvc58internal6theory2eq15EqClassIteratorppEv.exit
 
 25:                                               ; preds = %22
-  store i32 -1, ptr %3, align 4, !tbaa !33
+  store i32 -1, ptr %3, align 4, !tbaa !34
   br label %_ZN4cvc58internal6theory2eq15EqClassIteratorppEv.exit
 
 _ZN4cvc58internal6theory2eq15EqClassIteratorppEv.exit: ; preds = %22, %25
@@ -451,7 +451,7 @@ _ZN4cvc58internal6theory2eq15EqClassIteratorppEv.exit: ; preds = %22, %25
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory2eq15EqClassIterator10isFinishedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !33
+  %3 = load i32, ptr %2, align 4, !tbaa !34
   %4 = icmp eq i32 %3, -1
   ret i1 %4
 }
@@ -508,14 +508,15 @@ attributes #9 = { nounwind }
 !24 = !{!"p1 _ZTSN4cvc58internal4expr9NodeValueE", !6, i64 0}
 !25 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !26 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!5, !5, i64 0}
-!30 = !{!31, !5, i64 0}
-!31 = !{!"_ZTSN4cvc58internal6theory2eq15EqClassIteratorE", !5, i64 0, !12, i64 8, !12, i64 12}
-!32 = !{!31, !12, i64 8}
-!33 = !{!31, !12, i64 12}
-!34 = !{!35, !24, i64 0}
-!35 = !{!"_ZTSN4cvc58internal12NodeTemplateILb0EEE", !24, i64 0}
-!36 = !{!18, !12, i64 8}
-!37 = distinct !{!37, !28}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!5, !5, i64 0}
+!31 = !{!32, !5, i64 0}
+!32 = !{!"_ZTSN4cvc58internal6theory2eq15EqClassIteratorE", !5, i64 0, !12, i64 8, !12, i64 12}
+!33 = !{!32, !12, i64 8}
+!34 = !{!32, !12, i64 12}
+!35 = !{!36, !24, i64 0}
+!36 = !{!"_ZTSN4cvc58internal12NodeTemplateILb0EEE", !24, i64 0}
+!37 = !{!18, !12, i64 8}
+!38 = distinct !{!38, !28, !29}

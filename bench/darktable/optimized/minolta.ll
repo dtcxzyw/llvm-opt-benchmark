@@ -173,30 +173,30 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %128 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %129 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %130 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i16 %130, ptr %98, align 2, !tbaa !76
+  store i16 %130, ptr %98, align 2, !tbaa !77
   %131 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  store i16 %131, ptr %99, align 4, !tbaa !77
+  store i16 %131, ptr %99, align 4, !tbaa !78
   %132 = load ptr, ptr %3, align 8, !tbaa !71
   %133 = load ptr, ptr %132, align 8, !tbaa !72
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 56
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef i32 %135(ptr noundef nonnull align 8 dereferenceable(8) %132)
   %137 = trunc i32 %136 to i16
-  store i16 %137, ptr %100, align 2, !tbaa !78
+  store i16 %137, ptr %100, align 2, !tbaa !79
   %138 = load ptr, ptr %3, align 8, !tbaa !71
   %139 = load ptr, ptr %138, align 8, !tbaa !72
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
   %141 = load ptr, ptr %140, align 8
   %142 = tail call noundef i32 %141(ptr noundef nonnull align 8 dereferenceable(8) %138)
   %143 = trunc i32 %142 to i16
-  store i16 %143, ptr %101, align 8, !tbaa !79
+  store i16 %143, ptr %101, align 8, !tbaa !80
   %144 = load ptr, ptr %3, align 8, !tbaa !71
   %145 = load ptr, ptr %144, align 8, !tbaa !72
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 56
   %147 = load ptr, ptr %146, align 8
   %148 = tail call noundef i32 %147(ptr noundef nonnull align 8 dereferenceable(8) %144)
   %149 = trunc i32 %148 to i16
-  store i16 %149, ptr %102, align 2, !tbaa !80
+  store i16 %149, ptr %102, align 2, !tbaa !81
   %150 = load ptr, ptr %3, align 8, !tbaa !71
   %151 = load ptr, ptr %150, align 8, !tbaa !72
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 32
@@ -208,7 +208,7 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %158 = load ptr, ptr %157, align 8
   %159 = tail call noundef i32 %158(ptr noundef nonnull align 8 dereferenceable(8) %155)
   %160 = trunc i32 %159 to i16
-  store i16 %160, ptr %55, align 4, !tbaa !81
+  store i16 %160, ptr %55, align 4, !tbaa !82
   br label %.loopexit
 
 161:                                              ; preds = %121
@@ -219,52 +219,52 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %166 = tail call noundef i32 %165(ptr noundef nonnull align 8 dereferenceable(8) %162, i64 noundef 8, i32 noundef 1)
   %167 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %168 = zext i16 %167 to i32
-  store i32 %168, ptr %57, align 4, !tbaa !82
+  store i32 %168, ptr %57, align 4, !tbaa !83
   %169 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %170 = zext i16 %169 to i32
-  store i32 %170, ptr %58, align 4, !tbaa !82
+  store i32 %170, ptr %58, align 4, !tbaa !83
   %171 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %172 = zext i16 %171 to i32
-  store i32 %172, ptr %59, align 4, !tbaa !82
+  store i32 %172, ptr %59, align 4, !tbaa !83
   %173 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %174 = zext i16 %173 to i32
-  store i32 %174, ptr %60, align 4, !tbaa !82
+  store i32 %174, ptr %60, align 4, !tbaa !83
   %175 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %176 = zext i16 %175 to i32
-  store i32 %176, ptr %61, align 4, !tbaa !82
+  store i32 %176, ptr %61, align 4, !tbaa !83
   %177 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %178 = zext i16 %177 to i32
-  store i32 %178, ptr %62, align 4, !tbaa !82
+  store i32 %178, ptr %62, align 4, !tbaa !83
   %179 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %180 = zext i16 %179 to i32
-  store i32 %180, ptr %63, align 4, !tbaa !82
+  store i32 %180, ptr %63, align 4, !tbaa !83
   %181 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %182 = zext i16 %181 to i32
-  store i32 %182, ptr %64, align 4, !tbaa !82
+  store i32 %182, ptr %64, align 4, !tbaa !83
   %183 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %184 = zext i16 %183 to i32
-  store i32 %184, ptr %65, align 4, !tbaa !82
+  store i32 %184, ptr %65, align 4, !tbaa !83
   %185 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %186 = zext i16 %185 to i32
-  store i32 %186, ptr %66, align 4, !tbaa !82
+  store i32 %186, ptr %66, align 4, !tbaa !83
   %187 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %188 = zext i16 %187 to i32
-  store i32 %188, ptr %67, align 4, !tbaa !82
+  store i32 %188, ptr %67, align 4, !tbaa !83
   %189 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %190 = zext i16 %189 to i32
-  store i32 %190, ptr %68, align 4, !tbaa !82
-  store i32 256, ptr %69, align 8, !tbaa !82
-  store i32 256, ptr %70, align 8, !tbaa !82
-  store i32 256, ptr %71, align 8, !tbaa !82
-  store i32 256, ptr %72, align 8, !tbaa !82
-  store i32 256, ptr %73, align 8, !tbaa !82
-  store i32 256, ptr %74, align 8, !tbaa !82
-  store i32 256, ptr %75, align 8, !tbaa !82
-  store i32 256, ptr %76, align 8, !tbaa !82
-  store i32 256, ptr %77, align 8, !tbaa !82
-  store i32 256, ptr %78, align 8, !tbaa !82
-  store i32 256, ptr %79, align 8, !tbaa !82
-  store i32 256, ptr %80, align 8, !tbaa !82
+  store i32 %190, ptr %68, align 4, !tbaa !83
+  store i32 256, ptr %69, align 8, !tbaa !83
+  store i32 256, ptr %70, align 8, !tbaa !83
+  store i32 256, ptr %71, align 8, !tbaa !83
+  store i32 256, ptr %72, align 8, !tbaa !83
+  store i32 256, ptr %73, align 8, !tbaa !83
+  store i32 256, ptr %74, align 8, !tbaa !83
+  store i32 256, ptr %75, align 8, !tbaa !83
+  store i32 256, ptr %76, align 8, !tbaa !83
+  store i32 256, ptr %77, align 8, !tbaa !83
+  store i32 256, ptr %78, align 8, !tbaa !83
+  store i32 256, ptr %79, align 8, !tbaa !83
+  store i32 256, ptr %80, align 8, !tbaa !83
   %191 = tail call i32 @strncasecmp(ptr noundef nonnull %81, ptr noundef nonnull @.str, i64 noundef 9) #4
   %.not42 = icmp eq i32 %191, 0
   br i1 %.not42, label %192, label %.loopexit
@@ -272,41 +272,41 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
 192:                                              ; preds = %161
   %193 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %194 = zext i16 %193 to i32
-  store i32 %194, ptr %82, align 4, !tbaa !82
+  store i32 %194, ptr %82, align 4, !tbaa !83
   %195 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %196 = zext i16 %195 to i32
-  store i32 %196, ptr %83, align 4, !tbaa !82
+  store i32 %196, ptr %83, align 4, !tbaa !83
   %197 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %198 = zext i16 %197 to i32
-  store i32 %198, ptr %84, align 4, !tbaa !82
+  store i32 %198, ptr %84, align 4, !tbaa !83
   %199 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %200 = zext i16 %199 to i32
-  store i32 %200, ptr %85, align 4, !tbaa !82
+  store i32 %200, ptr %85, align 4, !tbaa !83
   %201 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %202 = zext i16 %201 to i32
-  store i32 %202, ptr %86, align 4, !tbaa !82
+  store i32 %202, ptr %86, align 4, !tbaa !83
   %203 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %204 = zext i16 %203 to i32
-  store i32 %204, ptr %87, align 4, !tbaa !82
+  store i32 %204, ptr %87, align 4, !tbaa !83
   %205 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %206 = zext i16 %205 to i32
-  store i32 %206, ptr %88, align 4, !tbaa !82
+  store i32 %206, ptr %88, align 4, !tbaa !83
   %207 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %208 = zext i16 %207 to i32
-  store i32 %208, ptr %89, align 4, !tbaa !82
-  store i32 256, ptr %90, align 8, !tbaa !82
-  store i32 256, ptr %91, align 8, !tbaa !82
-  store i32 256, ptr %92, align 8, !tbaa !82
-  store i32 256, ptr %93, align 8, !tbaa !82
-  store i32 256, ptr %94, align 8, !tbaa !82
-  store i32 256, ptr %95, align 8, !tbaa !82
-  store i32 256, ptr %96, align 8, !tbaa !82
-  store i32 256, ptr %97, align 8, !tbaa !82
+  store i32 %208, ptr %89, align 4, !tbaa !83
+  store i32 256, ptr %90, align 8, !tbaa !83
+  store i32 256, ptr %91, align 8, !tbaa !83
+  store i32 256, ptr %92, align 8, !tbaa !83
+  store i32 256, ptr %93, align 8, !tbaa !83
+  store i32 256, ptr %94, align 8, !tbaa !83
+  store i32 256, ptr %95, align 8, !tbaa !83
+  store i32 256, ptr %96, align 8, !tbaa !83
+  store i32 256, ptr %97, align 8, !tbaa !83
   br label %.loopexit
 
 209:                                              ; preds = %121
   %210 = tail call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
-  %211 = load i16, ptr %55, align 4, !tbaa !81
+  %211 = load i16, ptr %55, align 4, !tbaa !82
   %212 = icmp eq i16 %211, 4
   br i1 %212, label %.preheader, label %.preheader44
 
@@ -319,10 +319,10 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %217 = xor i32 %216, 3
   %218 = zext nneg i32 %217 to i64
   %219 = getelementptr inbounds nuw [4 x float], ptr %56, i64 0, i64 %218
-  store float %214, ptr %219, align 4, !tbaa !83
+  store float %214, ptr %219, align 4, !tbaa !84
   %220 = add nuw nsw i32 %.03053, 1
   %exitcond59.not = icmp eq i32 %220, 4
-  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !84
+  br i1 %exitcond59.not, label %.loopexit, label %.preheader, !llvm.loop !85
 
 .preheader44:                                     ; preds = %209, %.preheader44
   %.13152 = phi i32 [ %227, %.preheader44 ], [ 0, %209 ]
@@ -332,10 +332,10 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %224 = xor i32 %223, %.13152
   %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw [4 x float], ptr %56, i64 0, i64 %225
-  store float %222, ptr %226, align 4, !tbaa !83
+  store float %222, ptr %226, align 4, !tbaa !84
   %227 = add nuw nsw i32 %.13152, 1
   %exitcond58.not = icmp eq i32 %227, 4
-  br i1 %exitcond58.not, label %.loopexit, label %.preheader44, !llvm.loop !85
+  br i1 %exitcond58.not, label %.loopexit, label %.preheader44, !llvm.loop !86
 
 228:                                              ; preds = %121
   %229 = load ptr, ptr %3, align 8, !tbaa !71
@@ -345,7 +345,7 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %233 = tail call noundef i64 %232(ptr noundef nonnull align 8 dereferenceable(8) %229)
   %234 = trunc i64 %233 to i32
   %235 = tail call noundef i32 @_ZN6LibRaw10parse_tiffEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %234)
-  store i64 %52, ptr %54, align 8, !tbaa !86
+  store i64 %52, ptr %54, align 8, !tbaa !87
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader44, %.preheader, %161, %192, %228, %122, %121
@@ -362,15 +362,15 @@ define void @_ZN6LibRaw13parse_minoltaEi(ptr noundef nonnull align 8 dereference
   %244 = load ptr, ptr %243, align 8
   %245 = tail call noundef i64 %244(ptr noundef nonnull align 8 dereferenceable(8) %241)
   %246 = icmp slt i64 %245, %52
-  br i1 %246, label %.preheader46, label %._crit_edge, !llvm.loop !87
+  br i1 %246, label %.preheader46, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %.loopexit, %29
   %.033.lcssa = phi i16 [ 0, %29 ], [ %.134, %.loopexit ]
   %.029.lcssa = phi i16 [ 0, %29 ], [ %.1, %.loopexit ]
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %.029.lcssa, ptr %247, align 8, !tbaa !88
+  store i16 %.029.lcssa, ptr %247, align 8, !tbaa !89
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i16 %.033.lcssa, ptr %248, align 2, !tbaa !89
+  store i16 %.033.lcssa, ptr %248, align 2, !tbaa !90
   store i16 %5, ptr %4, align 8, !tbaa !6
   br label %.loopexit47
 
@@ -472,19 +472,20 @@ attributes #4 = { nounwind willreturn memory(read) }
 !71 = !{!7, !60, i64 381416}
 !72 = !{!73, !73, i64 0}
 !73 = !{!"vtable pointer", !12, i64 0}
-!74 = distinct !{!74, !75}
+!74 = distinct !{!74, !75, !76}
 !75 = !{!"llvm.loop.mustprogress"}
-!76 = !{!7, !14, i64 3650}
-!77 = !{!7, !14, i64 3652}
-!78 = !{!7, !14, i64 3654}
-!79 = !{!7, !14, i64 3656}
-!80 = !{!7, !14, i64 3658}
-!81 = !{!7, !14, i64 3660}
-!82 = !{!15, !15, i64 0}
-!83 = !{!20, !20, i64 0}
-!84 = distinct !{!84, !75}
-!85 = distinct !{!85, !75}
-!86 = !{!7, !24, i64 381584}
-!87 = distinct !{!87, !75}
-!88 = !{!7, !14, i64 16}
-!89 = !{!7, !14, i64 18}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = !{!7, !14, i64 3650}
+!78 = !{!7, !14, i64 3652}
+!79 = !{!7, !14, i64 3654}
+!80 = !{!7, !14, i64 3656}
+!81 = !{!7, !14, i64 3658}
+!82 = !{!7, !14, i64 3660}
+!83 = !{!15, !15, i64 0}
+!84 = !{!20, !20, i64 0}
+!85 = distinct !{!85, !75, !76}
+!86 = distinct !{!86, !75, !76}
+!87 = !{!7, !24, i64 381584}
+!88 = distinct !{!88, !75, !76}
+!89 = !{!7, !14, i64 16}
+!90 = !{!7, !14, i64 18}

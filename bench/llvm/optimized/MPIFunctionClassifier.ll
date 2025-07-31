@@ -2859,7 +2859,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJDnEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 {
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #8
-  %7 = load ptr, ptr %0, align 8, !tbaa !436
+  %7 = load ptr, ptr %0, align 8, !tbaa !437
   %8 = zext i32 %6 to i64
   %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !418
@@ -2881,13 +2881,13 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 8
   %.pre = load ptr, ptr %12, align 8, !tbaa !418
-  br label %.preheader.i.i, !llvm.loop !437
+  br label %.preheader.i.i, !llvm.loop !438
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !438
+  %15 = load i32, ptr %14, align 8, !tbaa !439
   %16 = add i32 %15, -1
-  store i32 %16, ptr %14, align 8, !tbaa !438
+  store i32 %16, ptr %14, align 8, !tbaa !439
   br label %17
 
 17:                                               ; preds = %5, %13
@@ -2932,17 +2932,17 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
 
 _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJDnEEEPS4_NS_9StringRefERT_DpOT0_.exit: ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i, %39
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %2
-  store i8 0, ptr %40, align 1, !tbaa !439
-  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !440
+  store i8 0, ptr %40, align 1, !tbaa !440
+  store i64 %2, ptr %.0.i.i.i.i, align 8, !tbaa !441
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store ptr null, ptr %41, align 8, !tbaa !442
+  store ptr null, ptr %41, align 8, !tbaa !443
   store ptr %.0.i.i.i.i, ptr %9, align 8, !tbaa !418
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !444
+  %43 = load i32, ptr %42, align 4, !tbaa !445
   %44 = add i32 %43, 1
-  store i32 %44, ptr %42, align 4, !tbaa !444
+  store i32 %44, ptr %42, align 4, !tbaa !445
   %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #8
-  %46 = load ptr, ptr %0, align 8, !tbaa !436
+  %46 = load ptr, ptr %0, align 8, !tbaa !437
   %47 = zext i32 %45 to i64
   %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
   br label %.preheader.i.i24
@@ -2958,7 +2958,7 @@ _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocator
 
 .critedge.i.i.i26:                                ; preds = %.preheader.i.i24, %.preheader.i.i24
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i24, !llvm.loop !437
+  br label %.preheader.i.i24, !llvm.loop !438
 
 _ZN4llvm17StringMapIteratorIPN5clang14IdentifierInfoEEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i24, %.preheader.i.i
   %.sroa.031.0.pn = phi ptr [ %.sroa.031.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i24 ]
@@ -3521,14 +3521,15 @@ attributes #8 = { nounwind }
 !431 = !{!432, !433, i64 16}
 !432 = !{!"_ZTSN5clang14IdentifierInfoE", !6, i64 0, !6, i64 1, !6, i64 3, !6, i64 3, !6, i64 3, !6, i64 3, !6, i64 3, !6, i64 3, !6, i64 3, !6, i64 4, !6, i64 4, !6, i64 4, !6, i64 4, !6, i64 4, !6, i64 4, !6, i64 4, !6, i64 4, !6, i64 5, !6, i64 5, !14, i64 8, !433, i64 16}
 !433 = !{!"p1 _ZTSN4llvm14StringMapEntryIPN5clang14IdentifierInfoEEE", !14, i64 0}
-!434 = distinct !{!434, !435}
+!434 = distinct !{!434, !435, !436}
 !435 = !{!"llvm.loop.mustprogress"}
-!436 = !{!154, !155, i64 0}
-!437 = distinct !{!437, !435}
-!438 = !{!154, !6, i64 16}
-!439 = !{!7, !7, i64 0}
-!440 = !{!441, !159, i64 0}
-!441 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !159, i64 0}
-!442 = !{!443, !167, i64 8}
-!443 = !{!"_ZTSN4llvm21StringMapEntryStorageIPN5clang14IdentifierInfoEEE", !441, i64 0, !167, i64 8}
-!444 = !{!154, !6, i64 12}
+!436 = !{!"llvm.loop.estimated_trip_count"}
+!437 = !{!154, !155, i64 0}
+!438 = distinct !{!438, !435, !436}
+!439 = !{!154, !6, i64 16}
+!440 = !{!7, !7, i64 0}
+!441 = !{!442, !159, i64 0}
+!442 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !159, i64 0}
+!443 = !{!444, !167, i64 8}
+!444 = !{!"_ZTSN4llvm21StringMapEntryStorageIPN5clang14IdentifierInfoEEE", !442, i64 0, !167, i64 8}
+!445 = !{!154, !6, i64 12}

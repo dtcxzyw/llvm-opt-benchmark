@@ -229,7 +229,7 @@ define internal noundef i32 @vp8_packet(ptr noundef readonly captures(none) %0, 
 ._crit_edge:                                      ; preds = %._crit_edge64, %19
   %.048.lcssa = phi i32 [ %25, %19 ], [ %.149, %._crit_edge64 ]
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %48 = load i64, ptr %47, align 8, !tbaa !71
+  %48 = load i64, ptr %47, align 8, !tbaa !72
   %49 = and i64 %48, 3221225472
   %.not.i = icmp eq i64 %49, 0
   %50 = lshr i64 %48, 32
@@ -240,9 +240,9 @@ define internal noundef i32 @vp8_packet(ptr noundef readonly captures(none) %0, 
 
 52:                                               ; preds = %._crit_edge
   %53 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6, i32 5
-  %54 = load i32, ptr %53, align 8, !tbaa !72
+  %54 = load i32, ptr %53, align 8, !tbaa !73
   %55 = or i32 %54, 1
-  store i32 %55, ptr %53, align 8, !tbaa !72
+  store i32 %55, ptr %53, align 8, !tbaa !73
   br label %vp8_gptopts.exit
 
 vp8_gptopts.exit:                                 ; preds = %._crit_edge, %52
@@ -250,21 +250,21 @@ vp8_gptopts.exit:                                 ; preds = %._crit_edge, %52
   %57 = sub nsw i64 %50, %56
   %58 = add nsw i64 %57, %.neg.i
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  store i64 %58, ptr %59, align 8, !tbaa !73
+  store i64 %58, ptr %59, align 8, !tbaa !74
   store i64 %58, ptr %13, align 8, !tbaa !65
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !32
   %62 = getelementptr inbounds ptr, ptr %61, i64 %6
   %63 = load ptr, ptr %62, align 8, !tbaa !33
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %65 = load i64, ptr %64, align 8, !tbaa !74
+  %65 = load i64, ptr %64, align 8, !tbaa !75
   %66 = icmp eq i64 %65, -9223372036854775808
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %vp8_gptopts.exit
-  store i64 %58, ptr %64, align 8, !tbaa !74
+  store i64 %58, ptr %64, align 8, !tbaa !75
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %69 = load i64, ptr %68, align 8, !tbaa !75
+  %69 = load i64, ptr %68, align 8, !tbaa !76
   switch i64 %69, label %70 [
     i64 0, label %72
     i64 -9223372036854775808, label %72
@@ -272,7 +272,7 @@ vp8_gptopts.exit:                                 ; preds = %._crit_edge, %52
 
 70:                                               ; preds = %67
   %71 = sub nsw i64 %69, %58
-  store i64 %71, ptr %68, align 8, !tbaa !75
+  store i64 %71, ptr %68, align 8, !tbaa !76
   br label %72
 
 72:                                               ; preds = %vp8_gptopts.exit, %70, %67, %67, %2, %15
@@ -287,7 +287,7 @@ vp8_gptopts.exit:                                 ; preds = %._crit_edge, %52
   %78 = and i8 %77, 1
   %79 = zext nneg i8 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 28
-  store i32 %79, ptr %80, align 4, !tbaa !76
+  store i32 %79, ptr %80, align 4, !tbaa !77
   br label %81
 
 81:                                               ; preds = %75, %72
@@ -311,9 +311,9 @@ define internal range(i64 -1, 4294967296) i64 @vp8_gptopts(ptr noundef readonly 
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds %struct.ogg_stream, ptr %12, i64 %13, i32 5
-  %15 = load i32, ptr %14, align 8, !tbaa !72
+  %15 = load i32, ptr %14, align 8, !tbaa !73
   %16 = or i32 %15, 1
-  store i32 %16, ptr %14, align 8, !tbaa !72
+  store i32 %16, ptr %14, align 8, !tbaa !73
   br label %17
 
 17:                                               ; preds = %9, %4
@@ -321,7 +321,7 @@ define internal range(i64 -1, 4294967296) i64 @vp8_gptopts(ptr noundef readonly 
   br i1 %.not13, label %19, label %18
 
 18:                                               ; preds = %17
-  store i64 %7, ptr %3, align 8, !tbaa !77
+  store i64 %7, ptr %3, align 8, !tbaa !78
   br label %19
 
 19:                                               ; preds = %18, %17
@@ -418,12 +418,13 @@ attributes #5 = { nounwind }
 !66 = !{!29, !13, i64 88}
 !67 = !{!29, !13, i64 112}
 !68 = !{!29, !13, i64 108}
-!69 = distinct !{!69, !70}
+!69 = distinct !{!69, !70, !71}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = !{!29, !19, i64 40}
-!72 = !{!29, !13, i64 24}
-!73 = !{!29, !19, i64 64}
-!74 = !{!38, !19, i64 40}
-!75 = !{!38, !19, i64 48}
-!76 = !{!29, !13, i64 28}
-!77 = !{!19, !19, i64 0}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = !{!29, !19, i64 40}
+!73 = !{!29, !13, i64 24}
+!74 = !{!29, !19, i64 64}
+!75 = !{!38, !19, i64 40}
+!76 = !{!38, !19, i64 48}
+!77 = !{!29, !13, i64 28}
+!78 = !{!19, !19, i64 0}

@@ -33,16 +33,16 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 
 .critedge:                                        ; preds = %7
   %9 = tail call noundef ptr @_Z17pj_get_datums_refv()
-  %10 = load ptr, ptr %9, align 8, !tbaa !39
+  %10 = load ptr, ptr %9, align 8, !tbaa !40
   %.not98120 = icmp eq ptr %10, null
   br i1 %.not98120, label %.critedge112, label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = getelementptr inbounds nuw %struct.PJ_DATUMS, ptr %9, i64 %indvars.iv.next
-  %13 = load ptr, ptr %12, align 8, !tbaa !39
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
   %.not98 = icmp eq ptr %13, null
-  br i1 %.not98, label %.critedge112, label %.lr.ph, !llvm.loop !41
+  br i1 %.not98, label %.critedge112, label %.lr.ph, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.critedge, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.critedge ]
@@ -59,7 +59,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 .critedge4:                                       ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw %struct.PJ_DATUMS, ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %18 = load ptr, ptr %17, align 8, !tbaa !43
   %.not100 = icmp eq ptr %18, null
   br i1 %.not100, label %28, label %19
 
@@ -76,7 +76,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %23 = sub i64 99, %21
   %24 = call ptr @strncpy(ptr noundef nonnull %22, ptr noundef nonnull %18, i64 noundef %23) #8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 99
-  store i8 0, ptr %25, align 1, !tbaa !43
+  store i8 0, ptr %25, align 1, !tbaa !44
   %26 = call noundef ptr @_Z10pj_mkparamPKc(ptr noundef nonnull %4)
   %.not102 = icmp eq ptr %26, null
   br i1 %.not102, label %.thread, label %27
@@ -94,7 +94,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 28:                                               ; preds = %27, %19, %.critedge4
   %.182 = phi ptr [ %26, %27 ], [ %.081, %19 ], [ %.081, %.critedge4 ]
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !44
+  %30 = load ptr, ptr %29, align 8, !tbaa !45
   %.not103 = icmp eq ptr %30, null
   br i1 %.not103, label %.critedge111, label %31
 
@@ -134,7 +134,7 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 536
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %40, i8 0, i64 56, i1 false)
-  %41 = load i8, ptr %.sroa.0.0..sroa.0.0..cast, align 1, !tbaa !43
+  %41 = load i8, ptr %.sroa.0.0..sroa.0.0..cast, align 1, !tbaa !44
   %.not125 = icmp eq i8 %41, 0
   br i1 %.not125, label %._crit_edge.thread, label %.lr.ph124
 
@@ -148,12 +148,12 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %43 = call noundef double @_Z7pj_atofPKc(ptr noundef nonnull %.0123)
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %44 = getelementptr inbounds nuw [7 x double], ptr %40, i64 0, i64 %indvars.iv130
-  store double %43, ptr %44, align 8, !tbaa !45
+  store double %43, ptr %44, align 8, !tbaa !46
   br label %45
 
 45:                                               ; preds = %47, %.lr.ph124
   %.1 = phi ptr [ %.0123, %.lr.ph124 ], [ %48, %47 ]
-  %46 = load i8, ptr %.1, align 1, !tbaa !43
+  %46 = load i8, ptr %.1, align 1, !tbaa !44
   switch i8 %46, label %47 [
     i8 0, label %.critedge6
     i8 44, label %.critedge6
@@ -161,47 +161,47 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %45, !llvm.loop !46
+  br label %45, !llvm.loop !47
 
 .critedge6:                                       ; preds = %45, %45
   %49 = icmp eq i8 %46, 44
   %spec.select.idx = zext i1 %49 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %.1, i64 %spec.select.idx
-  %50 = load i8, ptr %spec.select, align 1, !tbaa !43
+  %50 = load i8, ptr %spec.select, align 1, !tbaa !44
   %51 = icmp ne i8 %50, 0
   %52 = icmp samesign ult i64 %indvars.iv130, 6
   %53 = select i1 %51, i1 %52, i1 false
-  br i1 %53, label %.lr.ph124, label %._crit_edge, !llvm.loop !47
+  br i1 %53, label %.lr.ph124, label %._crit_edge, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.critedge6
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 560
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !45
+  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !46
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %55 = fcmp une double %.pre, 0.000000e+00
   br i1 %55, label %._crit_edge._crit_edge, label %56
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.phi.trans.insert133 = getelementptr inbounds nuw i8, ptr %2, i64 568
-  %.pre134 = load double, ptr %.phi.trans.insert133, align 8, !tbaa !45
+  %.pre134 = load double, ptr %.phi.trans.insert133, align 8, !tbaa !46
   br label %70
 
 56:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %57 = phi ptr [ %42, %._crit_edge.thread ], [ %54, %._crit_edge ]
   %58 = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %.pre, %._crit_edge ]
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 568
-  %60 = load double, ptr %59, align 8, !tbaa !45
+  %60 = load double, ptr %59, align 8, !tbaa !46
   %61 = fcmp une double %60, 0.000000e+00
   br i1 %61, label %70, label %62
 
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 576
-  %64 = load double, ptr %63, align 8, !tbaa !45
+  %64 = load double, ptr %63, align 8, !tbaa !46
   %65 = fcmp une double %64, 0.000000e+00
   br i1 %65, label %70, label %66
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 584
-  %68 = load double, ptr %67, align 8, !tbaa !45
+  %68 = load double, ptr %67, align 8, !tbaa !46
   %69 = fcmp une double %68, 0.000000e+00
   br i1 %69, label %70, label %84
 
@@ -211,19 +211,19 @@ define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8
   %73 = phi double [ %.pre134, %._crit_edge._crit_edge ], [ %60, %66 ], [ %60, %62 ], [ %60, %56 ]
   store i32 2, ptr %5, align 8, !tbaa !3
   %74 = fmul double %72, 0x3ED455A5B2FF8F9D
-  store double %74, ptr %71, align 8, !tbaa !45
+  store double %74, ptr %71, align 8, !tbaa !46
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 568
   %76 = fmul double %73, 0x3ED455A5B2FF8F9D
-  store double %76, ptr %75, align 8, !tbaa !45
+  store double %76, ptr %75, align 8, !tbaa !46
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 576
-  %78 = load double, ptr %77, align 8, !tbaa !45
+  %78 = load double, ptr %77, align 8, !tbaa !46
   %79 = fmul double %78, 0x3ED455A5B2FF8F9D
-  store double %79, ptr %77, align 8, !tbaa !45
+  store double %79, ptr %77, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 584
-  %81 = load double, ptr %80, align 8, !tbaa !45
+  %81 = load double, ptr %80, align 8, !tbaa !46
   %82 = fdiv double %81, 1.000000e+06
   %83 = fadd double %82, 1.000000e+00
-  store double %83, ptr %80, align 8, !tbaa !45
+  store double %83, ptr %80, align 8, !tbaa !46
   br label %.critedge111.thread
 
 84:                                               ; preds = %66
@@ -317,14 +317,15 @@ attributes #8 = { nounwind }
 !34 = !{!"_ZTSNSt12_Vector_baseI16PJCoordOperationSaIS0_EE17_Vector_impl_dataE", !35, i64 0, !35, i64 8, !35, i64 16}
 !35 = !{!"p1 _ZTS16PJCoordOperation", !6, i64 0}
 !36 = !{!10, !10, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{!40, !9, i64 0}
-!40 = !{!"_ZTS9PJ_DATUMS", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
-!41 = distinct !{!41, !38}
-!42 = !{!40, !9, i64 16}
-!43 = !{!7, !7, i64 0}
-!44 = !{!40, !9, i64 8}
-!45 = !{!14, !14, i64 0}
-!46 = distinct !{!46, !38}
-!47 = distinct !{!47, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!41, !9, i64 0}
+!41 = !{!"_ZTS9PJ_DATUMS", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24}
+!42 = distinct !{!42, !38, !39}
+!43 = !{!41, !9, i64 16}
+!44 = !{!7, !7, i64 0}
+!45 = !{!41, !9, i64 8}
+!46 = !{!14, !14, i64 0}
+!47 = distinct !{!47, !38, !39}
+!48 = distinct !{!48, !38, !39}

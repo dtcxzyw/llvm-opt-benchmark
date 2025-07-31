@@ -702,7 +702,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVecto
 74:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %75, %69
-  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit.thread.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !404
+  br i1 %.not.i.i.i.i.i.i, label %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit.thread.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !405
 
 _ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %.not5.i.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i.i, %69
@@ -722,7 +722,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVector
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %85 = load i16, ptr %84, align 8
   %86 = icmp eq i16 %85, 376
-  br i1 %86, label %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !405
+  br i1 %86, label %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !406
 
 87:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i
   %88 = load ptr, ptr %.sroa.088.0.i, align 8, !tbaa !400
@@ -738,18 +738,18 @@ _ZN5clangneENS_22specific_attr_iteratorINS_15UnavailableAttrEN4llvm11SmallVector
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load i16, ptr %95, align 8
   %97 = icmp eq i16 %96, 136
-  br i1 %97, label %_ZNK5clang22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !406
+  br i1 %97, label %_ZNK5clang22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i, label %.lr.ph.i.i.i, !llvm.loop !407
 
 _ZNK5clang22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEdeEv.exit.i: ; preds = %.lr.ph.i.i.i, %87
   %.sroa.088.1.i = phi ptr [ %.sroa.088.0.i, %87 ], [ %93, %.lr.ph.i.i.i ]
   %98 = phi ptr [ %88, %87 ], [ %94, %.lr.ph.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #10
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %100 = load ptr, ptr %99, align 8, !tbaa !407
+  %100 = load ptr, ptr %99, align 8, !tbaa !408
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !414
+  %102 = load ptr, ptr %101, align 8, !tbaa !415
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  %104 = load i64, ptr %102, align 8, !tbaa !417
+  %104 = load i64, ptr %102, align 8, !tbaa !418
   %105 = and i64 %104, 4294967295
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 48
   %.sroa.0.0.copyload.i42.i = load i64, ptr %106, align 8, !tbaa !28
@@ -764,7 +764,7 @@ _ZNK5clang22specific_attr_iteratorINS_16AvailabilityAttrEN4llvm11SmallVectorIPNS
   %.sroa.2.0..sroa_idx.i53.i = getelementptr inbounds nuw i8, ptr %98, i64 88
   %.sroa.2.0.copyload.i54.i = load i64, ptr %.sroa.2.0..sroa_idx.i53.i, align 8, !tbaa !28
   %109 = getelementptr inbounds nuw i8, ptr %98, i64 96
-  %110 = load i8, ptr %109, align 8, !tbaa !419, !range !3, !noundef !8
+  %110 = load i8, ptr %109, align 8, !tbaa !420, !range !3, !noundef !8
   store ptr %11, ptr %4, align 8, !tbaa !14
   store i64 0, ptr %12, align 8, !tbaa !9
   store i64 32, ptr %13, align 8, !tbaa !13
@@ -872,7 +872,7 @@ _ZN5clang16AvailabilityInfoC2EOS0_.exit.i.i:      ; preds = %_ZN4llvm23SmallVect
 131:                                              ; preds = %_ZN5clang16AvailabilityInfoC2EN4llvm9StringRefENS1_12VersionTupleES3_S3_bbb.exit.i
   %132 = load i32, ptr %10, align 4, !tbaa !40
   %.not.i.i61.i = icmp ult i32 %.val6.i.i, %132
-  br i1 %.not.i.i61.i, label %135, label %133, !prof !420
+  br i1 %.not.i.i61.i, label %135, label %133, !prof !421
 
 133:                                              ; preds = %131
   %134 = call noundef nonnull align 8 dereferenceable(107) ptr @_ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE18growAndEmplaceBackIJS2_EEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(107) %4)
@@ -955,7 +955,7 @@ _ZN12_GLOBAL__N_115AvailabilitySet6insertEON5clang16AvailabilityInfoE.exit.i: ; 
 _ZN5clang16AvailabilityInfoD2Ev.exit.i:           ; preds = %157, %_ZN12_GLOBAL__N_115AvailabilitySet6insertEON5clang16AvailabilityInfoE.exit.i
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %4) #10
   %158 = getelementptr inbounds nuw i8, ptr %.sroa.088.1.i, i64 8
-  br label %46
+  br label %46, !llvm.loop !422
 
 _ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %76
   %159 = phi ptr [ %77, %76 ], [ %83, %.lr.ph.i.i.i.i.i ]
@@ -997,7 +997,7 @@ _ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit.thread.i: ; preds = %74
 177:                                              ; preds = %.lr.ph.i.i.i.i.i65.i
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i66.i, i64 8
   %.not.i.i.i.i.i67.i = icmp eq ptr %178, %172
-  br i1 %.not.i.i.i.i.i67.i, label %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread.i, label %.lr.ph.i.i.i.i.i65.i, !llvm.loop !421
+  br i1 %.not.i.i.i.i.i67.i, label %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread.i, label %.lr.ph.i.i.i.i.i65.i, !llvm.loop !423
 
 _ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i65.i
   %.not5.i.i68.i = icmp eq ptr %.sroa.07.1.i.i.i.i66.i, %172
@@ -1017,7 +1017,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorI
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %188 = load i16, ptr %187, align 8
   %189 = icmp eq i16 %188, 193
-  br i1 %189, label %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.i, label %.lr.ph.i.i.i.i69.i, !llvm.loop !422
+  br i1 %189, label %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.i, label %.lr.ph.i.i.i.i69.i, !llvm.loop !424
 
 _ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.i: ; preds = %.lr.ph.i.i.i.i69.i, %179
   %190 = phi ptr [ %180, %179 ], [ %186, %.lr.ph.i.i.i.i69.i ]
@@ -1032,7 +1032,7 @@ _ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.i: ; preds = %.lr.ph.i.i
   br label %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread.i
 
 _ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.thread.i: ; preds = %177, %194, %_ZNK5clang4Decl7getAttrINS_14DeprecatedAttrEEEPT_v.exit.i, %_ZN5clangneENS_22specific_attr_iteratorINS_14DeprecatedAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i.i, %166, %_ZNK5clang4Decl7getAttrINS_15UnavailableAttrEEEPT_v.exit.thread.i
-  %195 = load ptr, ptr %.sroa.090.0115.i, align 8, !tbaa !423
+  %195 = load ptr, ptr %.sroa.090.0115.i, align 8, !tbaa !425
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 40
   %197 = load ptr, ptr %196, align 8
   %198 = call noundef ptr %197(ptr noundef nonnull align 8 dereferenceable(33) %.sroa.090.0115.i) #10
@@ -1051,7 +1051,7 @@ _ZN12_GLOBAL__N_117createInfoForDeclEPKN5clang4DeclERNS_15AvailabilitySetE.exit:
   br i1 %201, label %_ZNK5clang4Decl14getDeclContextEv.exit, label %204
 
 204:                                              ; preds = %_ZN12_GLOBAL__N_117createInfoForDeclEPKN5clang4DeclERNS_15AvailabilitySetE.exit
-  %205 = load ptr, ptr %203, align 8, !tbaa !425
+  %205 = load ptr, ptr %203, align 8, !tbaa !427
   br label %_ZNK5clang4Decl14getDeclContextEv.exit
 
 _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZN12_GLOBAL__N_117createInfoForDeclEPKN5clang4DeclERNS_15AvailabilitySetE.exit, %204
@@ -1062,7 +1062,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %_ZN12_GLOBAL__N_117
 _ZN4llvm12cast_or_nullIN5clang4DeclEKNS1_11DeclContextEEEDaPT0_.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
   %206 = call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull %.0.i.i) #10
   %.not = icmp eq ptr %206, null
-  br i1 %.not, label %._crit_edge.loopexit, label %29, !llvm.loop !428
+  br i1 %.not, label %._crit_edge.loopexit, label %29, !llvm.loop !430
 
 207:                                              ; preds = %._crit_edge
   %208 = load i8, ptr %5, align 8, !tbaa !29, !range !3, !noundef !8
@@ -1139,7 +1139,7 @@ _ZN5clang16AvailabilityInfoC2EOS0_.exit:          ; preds = %207, %217
 
 _ZN5clang16AvailabilityInfoD2Ev.exit.i.i.i:       ; preds = %238, %.lr.ph.i.i.i17
   %.not.i.i.i18 = icmp eq ptr %231, %234
-  br i1 %.not.i.i.i18, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i, label %.lr.ph.i.i.i17, !llvm.loop !429
+  br i1 %.not.i.i.i18, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i, label %.lr.ph.i.i.i17, !llvm.loop !431
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE13destroy_rangeEPS2_S4_.exit.loopexit.i.i: ; preds = %_ZN5clang16AvailabilityInfoD2Ev.exit.i.i.i
   %.pre.i.i19 = load ptr, ptr %7, align 8, !tbaa !38
@@ -1268,7 +1268,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatfor
   %26 = getelementptr inbounds nuw i8, ptr %.029109.i.i.i.i, i64 448
   %27 = add nsw i64 %.0110.i.i.i.i, -1
   %28 = icmp sgt i64 %.0110.i.i.i.i, 1
-  br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !430
+  br i1 %28, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !432
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_115AvailabilitySet14getForPlatformEN4llvm9StringRefEEUlRKN5clang16AvailabilityInfoEE_EclIPS7_EEbT_.exit71.thread.i.i.i.i
   %gepdiff.i = sub nsw i64 %.idx1.i, %6
@@ -1440,7 +1440,7 @@ _ZSt10_ConstructIN5clang16AvailabilityInfoEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i: ; 
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 112
   %33 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 112
   %.not.i.i.i.i.i.i = icmp eq ptr %32, %22
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !431
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !433
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i: ; preds = %_ZSt10_ConstructIN5clang16AvailabilityInfoEJS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !38
@@ -1468,7 +1468,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE18uninitialized
 
 _ZN5clang16AvailabilityInfoD2Ev.exit.i.i:         ; preds = %40, %.lr.ph.i.i
   %.not.i.i = icmp eq ptr %.pre.i, %36
-  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE19moveElementsForGrowEPS2_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !429
+  br i1 %.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE19moveElementsForGrowEPS2_.exit.loopexit, label %.lr.ph.i.i, !llvm.loop !431
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang16AvailabilityInfoELb0EE19moveElementsForGrowEPS2_.exit.loopexit: ; preds = %_ZN5clang16AvailabilityInfoD2Ev.exit.i.i
   %.pre = load ptr, ptr %0, align 8, !tbaa !38
@@ -2033,33 +2033,35 @@ attributes #11 = { nounwind willreturn memory(read) }
 !399 = !{!12, !12, i64 0}
 !400 = !{!401, !401, i64 0}
 !401 = !{!"p1 _ZTSN5clang4AttrE", !11, i64 0}
-!402 = distinct !{!402, !403}
+!402 = distinct !{!402, !403, !404}
 !403 = !{!"llvm.loop.mustprogress"}
-!404 = distinct !{!404, !403}
-!405 = distinct !{!405, !403}
-!406 = distinct !{!406, !403}
-!407 = !{!408, !199, i64 40}
-!408 = !{!"_ZTSN5clang16AvailabilityAttrE", !409, i64 0, !199, i64 40, !23, i64 48, !23, i64 64, !23, i64 80, !5, i64 96, !24, i64 100, !191, i64 104, !5, i64 112, !24, i64 116, !191, i64 120, !24, i64 128, !199, i64 136}
-!409 = !{!"_ZTSN5clang15InheritableAttrE", !410, i64 0}
-!410 = !{!"_ZTSN5clang4AttrE", !411, i64 0, !24, i64 32, !24, i64 34, !24, i64 34, !24, i64 34, !24, i64 34, !24, i64 34}
-!411 = !{!"_ZTSN5clang19AttributeCommonInfoE", !199, i64 0, !199, i64 8, !412, i64 16, !413, i64 24, !24, i64 28, !24, i64 30, !24, i64 30, !24, i64 31, !24, i64 31}
-!412 = !{!"_ZTSN5clang11SourceRangeE", !413, i64 0, !413, i64 4}
-!413 = !{!"_ZTSN5clang14SourceLocationE", !24, i64 0}
-!414 = !{!415, !416, i64 16}
-!415 = !{!"_ZTSN5clang14IdentifierInfoE", !24, i64 0, !24, i64 1, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 5, !24, i64 5, !11, i64 8, !416, i64 16}
-!416 = !{!"p1 _ZTSN4llvm14StringMapEntryIPN5clang14IdentifierInfoEEE", !11, i64 0}
-!417 = !{!418, !12, i64 0}
-!418 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !12, i64 0}
-!419 = !{!408, !5, i64 96}
-!420 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!421 = distinct !{!421, !403}
-!422 = distinct !{!422, !403}
-!423 = !{!424, !424, i64 0}
-!424 = !{!"vtable pointer", !7, i64 0}
-!425 = !{!426, !427, i64 0}
-!426 = !{!"_ZTSN5clang4Decl10MultipleDCE", !427, i64 0, !427, i64 8}
-!427 = !{!"p1 _ZTSN5clang11DeclContextE", !11, i64 0}
-!428 = distinct !{!428, !403}
-!429 = distinct !{!429, !403}
-!430 = distinct !{!430, !403}
-!431 = distinct !{!431, !403}
+!404 = !{!"llvm.loop.estimated_trip_count"}
+!405 = distinct !{!405, !403, !404}
+!406 = distinct !{!406, !403, !404}
+!407 = distinct !{!407, !403, !404}
+!408 = !{!409, !199, i64 40}
+!409 = !{!"_ZTSN5clang16AvailabilityAttrE", !410, i64 0, !199, i64 40, !23, i64 48, !23, i64 64, !23, i64 80, !5, i64 96, !24, i64 100, !191, i64 104, !5, i64 112, !24, i64 116, !191, i64 120, !24, i64 128, !199, i64 136}
+!410 = !{!"_ZTSN5clang15InheritableAttrE", !411, i64 0}
+!411 = !{!"_ZTSN5clang4AttrE", !412, i64 0, !24, i64 32, !24, i64 34, !24, i64 34, !24, i64 34, !24, i64 34, !24, i64 34}
+!412 = !{!"_ZTSN5clang19AttributeCommonInfoE", !199, i64 0, !199, i64 8, !413, i64 16, !414, i64 24, !24, i64 28, !24, i64 30, !24, i64 30, !24, i64 31, !24, i64 31}
+!413 = !{!"_ZTSN5clang11SourceRangeE", !414, i64 0, !414, i64 4}
+!414 = !{!"_ZTSN5clang14SourceLocationE", !24, i64 0}
+!415 = !{!416, !417, i64 16}
+!416 = !{!"_ZTSN5clang14IdentifierInfoE", !24, i64 0, !24, i64 1, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 3, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 4, !24, i64 5, !24, i64 5, !11, i64 8, !417, i64 16}
+!417 = !{!"p1 _ZTSN4llvm14StringMapEntryIPN5clang14IdentifierInfoEEE", !11, i64 0}
+!418 = !{!419, !12, i64 0}
+!419 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !12, i64 0}
+!420 = !{!409, !5, i64 96}
+!421 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!422 = distinct !{!422, !404}
+!423 = distinct !{!423, !403, !404}
+!424 = distinct !{!424, !403, !404}
+!425 = !{!426, !426, i64 0}
+!426 = !{!"vtable pointer", !7, i64 0}
+!427 = !{!428, !429, i64 0}
+!428 = !{!"_ZTSN5clang4Decl10MultipleDCE", !429, i64 0, !429, i64 8}
+!429 = !{!"p1 _ZTSN5clang11DeclContextE", !11, i64 0}
+!430 = distinct !{!430, !403, !404}
+!431 = distinct !{!431, !403, !404}
+!432 = distinct !{!432, !403, !404}
+!433 = distinct !{!433, !403, !404}

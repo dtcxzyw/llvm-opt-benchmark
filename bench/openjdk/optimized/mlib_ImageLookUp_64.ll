@@ -80,7 +80,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %44 = getelementptr inbounds double, ptr %.1514721.us, i64 %22
   %45 = getelementptr inbounds i8, ptr %.1492724.us, i64 %23
   %exitcond814.not = icmp eq i32 %43, %5
-  br i1 %exitcond814.not, label %.loopexit, label %.preheader588.us, !llvm.loop !8
+  br i1 %exitcond814.not, label %.loopexit, label %.preheader588.us, !llvm.loop !9
 
 .lr.ph709.us.us:                                  ; preds = %.preheader588.us, %59
   %indvars.iv809 = phi i64 [ %indvars.iv.next810, %59 ], [ 0, %.preheader588.us ]
@@ -106,7 +106,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
 59:                                               ; preds = %._crit_edge710.us.us, %53
   %indvars.iv.next810 = add nuw nsw i64 %indvars.iv809, 1
   %exitcond813.not = icmp eq i64 %indvars.iv.next810, %wide.trip.count812
-  br i1 %exitcond813.not, label %._crit_edge717.us, label %.lr.ph709.us.us, !llvm.loop !10
+  br i1 %exitcond813.not, label %._crit_edge717.us, label %.lr.ph709.us.us, !llvm.loop !11
 
 60:                                               ; preds = %60, %.lr.ph709.us.us
   %.0570707.us.us = phi ptr [ %.0570702.us.us, %.lr.ph709.us.us ], [ %.0570.us.us, %60 ]
@@ -130,7 +130,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %72 = getelementptr inbounds nuw double, ptr %.0571703.us.us, i64 %18
   %.0570.us.us = getelementptr inbounds nuw i8, ptr %.0570707.us.us, i64 %18
   %73 = icmp slt i32 %71, %19
-  br i1 %73, label %60, label %._crit_edge710.us.us, !llvm.loop !11
+  br i1 %73, label %60, label %._crit_edge710.us.us, !llvm.loop !12
 
 ._crit_edge710.us.us:                             ; preds = %60
   %74 = zext i8 %67 to i64
@@ -164,7 +164,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   store double %93, ptr %94, align 8
   %indvars.iv.next805 = add nuw nsw i64 %indvars.iv804, 1
   %exitcond808.not = icmp eq i64 %indvars.iv.next805, %wide.trip.count807
-  br i1 %exitcond808.not, label %._crit_edge717.us, label %.lr.ph716.split.split.us.us, !llvm.loop !12
+  br i1 %exitcond808.not, label %._crit_edge717.us, label %.lr.ph716.split.split.us.us, !llvm.loop !13
 
 .preheader587:                                    ; preds = %12
   br i1 %14, label %.preheader.lr.ph, label %.loopexit
@@ -191,7 +191,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %100 = getelementptr inbounds double, ptr %.0513748.us, i64 %97
   %101 = getelementptr inbounds i8, ptr %.0491750.us, i64 %98
   %exitcond820.not = icmp eq i32 %99, %5
-  br i1 %exitcond820.not, label %.loopexit, label %.preheader.us, !llvm.loop !13
+  br i1 %exitcond820.not, label %.loopexit, label %.preheader.us, !llvm.loop !14
 
 .lr.ph736.split.us744.us:                         ; preds = %.preheader.us, %.lr.ph736.split.us744.us
   %indvars.iv815 = phi i64 [ %indvars.iv.next816, %.lr.ph736.split.us744.us ], [ 0, %.preheader.us ]
@@ -206,7 +206,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   store double %109, ptr %105, align 8
   %indvars.iv.next816 = add nuw nsw i64 %indvars.iv815, 1
   %exitcond819.not = icmp eq i64 %indvars.iv.next816, %wide.trip.count818
-  br i1 %exitcond819.not, label %._crit_edge743.us, label %.lr.ph736.split.us744.us, !llvm.loop !14
+  br i1 %exitcond819.not, label %._crit_edge743.us, label %.lr.ph736.split.us744.us, !llvm.loop !15
 
 110:                                              ; preds = %8
   switch i32 %6, label %.loopexit [
@@ -299,7 +299,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %155 = add nuw nsw i32 %.0564670, 1
   %156 = getelementptr inbounds nuw i8, ptr %.0552673, i64 1
   %exitcond797.not = icmp eq i32 %155, %143
-  br i1 %exitcond797.not, label %._crit_edge676, label %.lr.ph675, !llvm.loop !15
+  br i1 %exitcond797.not, label %._crit_edge676, label %.lr.ph675, !llvm.loop !16
 
 ._crit_edge676:                                   ; preds = %.lr.ph675, %142
   %.0557.lcssa = phi i32 [ %4, %142 ], [ %144, %.lr.ph675 ]
@@ -348,7 +348,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %185 = getelementptr inbounds nuw i8, ptr %.1555683, i64 32
   %.0562 = getelementptr inbounds nuw i8, ptr %.0562684, i64 4
   %186 = icmp slt i32 %184, %158
-  br i1 %186, label %.lr.ph686, label %._crit_edge687.loopexit, !llvm.loop !16
+  br i1 %186, label %.lr.ph686, label %._crit_edge687.loopexit, !llvm.loop !17
 
 ._crit_edge687.loopexit:                          ; preds = %.lr.ph686
   %187 = and i32 %.0557.lcssa, 2147483644
@@ -406,7 +406,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %218 = getelementptr inbounds nuw i8, ptr %.2556693, i64 8
   %219 = getelementptr inbounds nuw i8, ptr %.1553694, i64 1
   %exitcond798.not = icmp eq i32 %217, %.0557.lcssa
-  br i1 %exitcond798.not, label %._crit_edge697, label %.lr.ph696, !llvm.loop !17
+  br i1 %exitcond798.not, label %._crit_edge697, label %.lr.ph696, !llvm.loop !18
 
 ._crit_edge697:                                   ; preds = %.lr.ph696, %._crit_edge687
   %220 = add nuw nsw i32 %.0563698, 1
@@ -414,7 +414,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %222 = getelementptr inbounds i8, ptr %.2493700, i64 %138
   %indvars.iv.next = sub i2 %indvars.iv, %141
   %exitcond799.not = icmp eq i32 %220, %5
-  br i1 %exitcond799.not, label %.loopexit, label %142, !llvm.loop !18
+  br i1 %exitcond799.not, label %.loopexit, label %142, !llvm.loop !19
 
 223:                                              ; preds = %.lr.ph669, %329
   %.3494668 = phi ptr [ %0, %.lr.ph669 ], [ %332, %329 ]
@@ -514,7 +514,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %280 = getelementptr inbounds nuw i8, ptr %.2536648, i64 32
   %.0547 = getelementptr inbounds nuw i8, ptr %.0547649, i64 4
   %281 = icmp slt i32 %279, %253
-  br i1 %281, label %.lr.ph651, label %._crit_edge652.loopexit, !llvm.loop !19
+  br i1 %281, label %.lr.ph651, label %._crit_edge652.loopexit, !llvm.loop !20
 
 ._crit_edge652.loopexit:                          ; preds = %.lr.ph651
   %282 = and i32 %.1539, 2147483644
@@ -577,7 +577,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %320 = add nuw nsw i32 %.2551657, 2
   %321 = getelementptr inbounds nuw i8, ptr %.2533659, i64 2
   %322 = icmp slt i32 %320, %307
-  br i1 %322, label %.lr.ph661, label %._crit_edge662, !llvm.loop !20
+  br i1 %322, label %.lr.ph661, label %._crit_edge662, !llvm.loop !21
 
 ._crit_edge662:                                   ; preds = %.lr.ph661, %._crit_edge652
   %.2551.lcssa = phi i32 [ %.1550.lcssa, %._crit_edge652 ], [ %320, %.lr.ph661 ]
@@ -599,7 +599,7 @@ define hidden void @mlib_ImageLookUp_U8_D64(ptr noundef %0, i32 noundef %1, ptr 
   %331 = getelementptr double, ptr %.3516667, i64 %133
   %332 = getelementptr inbounds i8, ptr %.3494668, i64 %134
   %exitcond796.not = icmp eq i32 %330, %5
-  br i1 %exitcond796.not, label %.loopexit, label %223, !llvm.loop !21
+  br i1 %exitcond796.not, label %.loopexit, label %223, !llvm.loop !22
 
 333:                                              ; preds = %.lr.ph634, %.critedge
   %.4633 = phi ptr [ %0, %.lr.ph634 ], [ %465, %.critedge ]
@@ -729,7 +729,7 @@ default.unreachable:                              ; preds = %466
   %409 = getelementptr inbounds nuw i8, ptr %.1509618, i64 32
   %.0526 = getelementptr inbounds nuw i8, ptr %.0526619, i64 4
   %410 = icmp slt i32 %408, %382
-  br i1 %410, label %.lr.ph621, label %._crit_edge622.loopexit, !llvm.loop !22
+  br i1 %410, label %.lr.ph621, label %._crit_edge622.loopexit, !llvm.loop !23
 
 ._crit_edge622.loopexit:                          ; preds = %.lr.ph621
   %411 = and i32 %.0512, 2147483644
@@ -820,7 +820,7 @@ default.unreachable:                              ; preds = %466
   %464 = getelementptr inbounds double, ptr %.4517632, i64 %128
   %465 = getelementptr inbounds i8, ptr %.4633, i64 %129
   %exitcond795.not = icmp eq i32 %463, %5
-  br i1 %exitcond795.not, label %.loopexit, label %333, !llvm.loop !23
+  br i1 %exitcond795.not, label %.loopexit, label %333, !llvm.loop !24
 
 466:                                              ; preds = %.lr.ph611, %.critedge585
   %.5610 = phi ptr [ %0, %.lr.ph611 ], [ %599, %.critedge585 ]
@@ -943,7 +943,7 @@ default.unreachable:                              ; preds = %466
   %543 = getelementptr inbounds nuw i8, ptr %.1488602, i64 32
   %.0500 = getelementptr inbounds nuw i8, ptr %.0500603, i64 4
   %544 = icmp slt i32 %542, %516
-  br i1 %544, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !24
+  br i1 %544, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %545 = and i32 %.0490, 2147483644
@@ -1031,7 +1031,7 @@ default.unreachable:                              ; preds = %466
   %598 = getelementptr inbounds double, ptr %.5518608, i64 %119
   %599 = getelementptr inbounds i8, ptr %.5610, i64 %120
   %exitcond.not = icmp eq i32 %597, %5
-  br i1 %exitcond.not, label %.loopexit, label %466, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %466, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.critedge585, %.critedge, %329, %._crit_edge697, %._crit_edge717.us, %._crit_edge743.us, %.preheader.lr.ph, %.preheader588.lr.ph, %.preheader597, %.preheader595, %.preheader593, %.preheader591, %.preheader589, %.preheader587, %110
   ret void
@@ -1056,7 +1056,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %15 = icmp slt i32 %4, 2
@@ -1117,7 +1117,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
   store double %42, ptr %43, align 8
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond174.not = icmp eq i64 %indvars.iv.next171, %wide.trip.count173
-  br i1 %exitcond174.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us135, !llvm.loop !27
+  br i1 %exitcond174.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us135, !llvm.loop !28
 
 .lr.ph120.split.us134:                            ; preds = %.preheader103.us
   br i1 %.not, label %.lr.ph120.split.split.us.us, label %.lr.ph120.split.split.us135
@@ -1127,7 +1127,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
   %45 = getelementptr inbounds double, ptr %.189125.us, i64 %23
   %46 = getelementptr inbounds i16, ptr %.1128.us, i64 %24
   %exitcond185.not = icmp eq i32 %44, %5
-  br i1 %exitcond185.not, label %.loopexit, label %.preheader103.us, !llvm.loop !28
+  br i1 %exitcond185.not, label %.loopexit, label %.preheader103.us, !llvm.loop !29
 
 .lr.ph114.us.us:                                  ; preds = %.preheader103.us, %60
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %60 ], [ 0, %.preheader103.us ]
@@ -1153,7 +1153,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
 60:                                               ; preds = %._crit_edge115.us.us, %54
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
-  br i1 %exitcond184.not, label %._crit_edge121.us, label %.lr.ph114.us.us, !llvm.loop !29
+  br i1 %exitcond184.not, label %._crit_edge121.us, label %.lr.ph114.us.us, !llvm.loop !30
 
 61:                                               ; preds = %61, %.lr.ph114.us.us
   %.086112.us.us = phi ptr [ %.086107.us.us, %.lr.ph114.us.us ], [ %.086.us.us, %61 ]
@@ -1177,7 +1177,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
   %73 = getelementptr inbounds nuw double, ptr %.087109.us.us, i64 %19
   %.086.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us, i64 %19
   %74 = icmp slt i32 %72, %20
-  br i1 %74, label %61, label %._crit_edge115.us.us, !llvm.loop !30
+  br i1 %74, label %61, label %._crit_edge115.us.us, !llvm.loop !31
 
 ._crit_edge115.us.us:                             ; preds = %61
   %75 = sext i16 %68 to i64
@@ -1211,7 +1211,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
   store double %94, ptr %95, align 8
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next176, %wide.trip.count178
-  br i1 %exitcond179.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us.us, !llvm.loop !31
+  br i1 %exitcond179.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us.us, !llvm.loop !32
 
 .preheader102:                                    ; preds = %._crit_edge
   br i1 %16, label %.preheader.lr.ph, label %.loopexit
@@ -1237,7 +1237,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
   %100 = getelementptr inbounds double, ptr %.088152.us, i64 %97
   %101 = getelementptr inbounds i16, ptr %.085154.us, i64 %98
   %exitcond191.not = icmp eq i32 %99, %5
-  br i1 %exitcond191.not, label %.loopexit, label %.preheader.us, !llvm.loop !32
+  br i1 %exitcond191.not, label %.loopexit, label %.preheader.us, !llvm.loop !33
 
 .lr.ph140.split.us148.us:                         ; preds = %.preheader.us, %.lr.ph140.split.us148.us
   %indvars.iv186 = phi i64 [ %indvars.iv.next187, %.lr.ph140.split.us148.us ], [ 0, %.preheader.us ]
@@ -1252,7 +1252,7 @@ define hidden void @mlib_ImageLookUp_S16_D64(ptr noundef readonly captures(none)
   store double %109, ptr %105, align 8
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count189
-  br i1 %exitcond190.not, label %._crit_edge147.us, label %.lr.ph140.split.us148.us, !llvm.loop !33
+  br i1 %exitcond190.not, label %._crit_edge147.us, label %.lr.ph140.split.us148.us, !llvm.loop !34
 
 .loopexit:                                        ; preds = %._crit_edge121.us, %._crit_edge147.us, %.preheader.lr.ph, %.preheader103.lr.ph, %.preheader104, %.preheader102
   ret void
@@ -1329,7 +1329,7 @@ define hidden void @mlib_ImageLookUp_U16_D64(ptr noundef readonly captures(none)
   store double %40, ptr %41, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us135, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us135, !llvm.loop !35
 
 .lr.ph120.split.us134:                            ; preds = %.preheader103.us
   br i1 %.not, label %.lr.ph120.split.split.us.us, label %.lr.ph120.split.split.us135
@@ -1339,7 +1339,7 @@ define hidden void @mlib_ImageLookUp_U16_D64(ptr noundef readonly captures(none)
   %43 = getelementptr inbounds double, ptr %.189125.us, i64 %21
   %44 = getelementptr inbounds i16, ptr %.1128.us, i64 %22
   %exitcond181.not = icmp eq i32 %42, %5
-  br i1 %exitcond181.not, label %.loopexit, label %.preheader103.us, !llvm.loop !35
+  br i1 %exitcond181.not, label %.loopexit, label %.preheader103.us, !llvm.loop !36
 
 .lr.ph114.us.us:                                  ; preds = %.preheader103.us, %58
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %58 ], [ 0, %.preheader103.us ]
@@ -1365,7 +1365,7 @@ define hidden void @mlib_ImageLookUp_U16_D64(ptr noundef readonly captures(none)
 58:                                               ; preds = %._crit_edge115.us.us, %52
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %._crit_edge121.us, label %.lr.ph114.us.us, !llvm.loop !36
+  br i1 %exitcond180.not, label %._crit_edge121.us, label %.lr.ph114.us.us, !llvm.loop !37
 
 59:                                               ; preds = %59, %.lr.ph114.us.us
   %.086112.us.us = phi ptr [ %.086107.us.us, %.lr.ph114.us.us ], [ %.086.us.us, %59 ]
@@ -1389,7 +1389,7 @@ define hidden void @mlib_ImageLookUp_U16_D64(ptr noundef readonly captures(none)
   %71 = getelementptr inbounds nuw double, ptr %.087109.us.us, i64 %17
   %.086.us.us = getelementptr inbounds nuw i16, ptr %.086112.us.us, i64 %17
   %72 = icmp slt i32 %70, %18
-  br i1 %72, label %59, label %._crit_edge115.us.us, !llvm.loop !37
+  br i1 %72, label %59, label %._crit_edge115.us.us, !llvm.loop !38
 
 ._crit_edge115.us.us:                             ; preds = %59
   %73 = zext i16 %66 to i64
@@ -1423,7 +1423,7 @@ define hidden void @mlib_ImageLookUp_U16_D64(ptr noundef readonly captures(none)
   store double %92, ptr %93, align 8
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us.us, !llvm.loop !38
+  br i1 %exitcond175.not, label %._crit_edge121.us, label %.lr.ph120.split.split.us.us, !llvm.loop !39
 
 .preheader102:                                    ; preds = %._crit_edge
   br i1 %14, label %.preheader.lr.ph, label %.loopexit
@@ -1449,7 +1449,7 @@ define hidden void @mlib_ImageLookUp_U16_D64(ptr noundef readonly captures(none)
   %98 = getelementptr inbounds double, ptr %.088152.us, i64 %95
   %99 = getelementptr inbounds i16, ptr %.085154.us, i64 %96
   %exitcond187.not = icmp eq i32 %97, %5
-  br i1 %exitcond187.not, label %.loopexit, label %.preheader.us, !llvm.loop !39
+  br i1 %exitcond187.not, label %.loopexit, label %.preheader.us, !llvm.loop !40
 
 .lr.ph140.split.us148.us:                         ; preds = %.preheader.us, %.lr.ph140.split.us148.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.lr.ph140.split.us148.us ], [ 0, %.preheader.us ]
@@ -1464,7 +1464,7 @@ define hidden void @mlib_ImageLookUp_U16_D64(ptr noundef readonly captures(none)
   store double %107, ptr %103, align 8
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
-  br i1 %exitcond186.not, label %._crit_edge147.us, label %.lr.ph140.split.us148.us, !llvm.loop !40
+  br i1 %exitcond186.not, label %._crit_edge147.us, label %.lr.ph140.split.us148.us, !llvm.loop !41
 
 .loopexit:                                        ; preds = %._crit_edge121.us, %._crit_edge147.us, %.preheader.lr.ph, %.preheader103.lr.ph, %.preheader104, %.preheader102
   ret void
@@ -1489,7 +1489,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %15 = icmp slt i32 %4, 2
@@ -1550,7 +1550,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
   store double %42, ptr %43, align 8
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %wide.trip.count174
-  br i1 %exitcond175.not, label %._crit_edge122.us, label %.lr.ph121.split.split.us136, !llvm.loop !42
+  br i1 %exitcond175.not, label %._crit_edge122.us, label %.lr.ph121.split.split.us136, !llvm.loop !43
 
 .lr.ph121.split.us135:                            ; preds = %.preheader104.us
   br i1 %.not, label %.lr.ph121.split.split.us.us, label %.lr.ph121.split.split.us136
@@ -1560,7 +1560,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
   %45 = getelementptr inbounds double, ptr %.190126.us, i64 %23
   %46 = getelementptr inbounds i32, ptr %.1129.us, i64 %24
   %exitcond186.not = icmp eq i32 %44, %5
-  br i1 %exitcond186.not, label %.loopexit, label %.preheader104.us, !llvm.loop !43
+  br i1 %exitcond186.not, label %.loopexit, label %.preheader104.us, !llvm.loop !44
 
 .lr.ph115.us.us:                                  ; preds = %.preheader104.us, %60
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %60 ], [ 0, %.preheader104.us ]
@@ -1586,7 +1586,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
 60:                                               ; preds = %._crit_edge116.us.us, %54
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge122.us, label %.lr.ph115.us.us, !llvm.loop !44
+  br i1 %exitcond185.not, label %._crit_edge122.us, label %.lr.ph115.us.us, !llvm.loop !45
 
 61:                                               ; preds = %61, %.lr.ph115.us.us
   %.087113.us.us = phi ptr [ %.087108.us.us, %.lr.ph115.us.us ], [ %.087.us.us, %61 ]
@@ -1610,7 +1610,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
   %73 = getelementptr inbounds nuw double, ptr %.088110.us.us, i64 %19
   %.087.us.us = getelementptr inbounds nuw i32, ptr %.087113.us.us, i64 %19
   %74 = icmp slt i32 %72, %20
-  br i1 %74, label %61, label %._crit_edge116.us.us, !llvm.loop !45
+  br i1 %74, label %61, label %._crit_edge116.us.us, !llvm.loop !46
 
 ._crit_edge116.us.us:                             ; preds = %61
   %75 = sext i32 %68 to i64
@@ -1644,7 +1644,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
   store double %94, ptr %95, align 8
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %._crit_edge122.us, label %.lr.ph121.split.split.us.us, !llvm.loop !46
+  br i1 %exitcond180.not, label %._crit_edge122.us, label %.lr.ph121.split.split.us.us, !llvm.loop !47
 
 .preheader103:                                    ; preds = %._crit_edge
   br i1 %16, label %.preheader.lr.ph, label %.loopexit
@@ -1670,7 +1670,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
   %100 = getelementptr inbounds double, ptr %.089153.us, i64 %97
   %101 = getelementptr inbounds i32, ptr %.086155.us, i64 %98
   %exitcond192.not = icmp eq i32 %99, %5
-  br i1 %exitcond192.not, label %.loopexit, label %.preheader.us, !llvm.loop !47
+  br i1 %exitcond192.not, label %.loopexit, label %.preheader.us, !llvm.loop !48
 
 .lr.ph141.split.us149.us:                         ; preds = %.preheader.us, %.lr.ph141.split.us149.us
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph141.split.us149.us ], [ 0, %.preheader.us ]
@@ -1685,7 +1685,7 @@ define hidden void @mlib_ImageLookUp_S32_D64(ptr noundef readonly captures(none)
   store double %109, ptr %105, align 8
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %._crit_edge148.us, label %.lr.ph141.split.us149.us, !llvm.loop !48
+  br i1 %exitcond191.not, label %._crit_edge148.us, label %.lr.ph141.split.us149.us, !llvm.loop !49
 
 .loopexit:                                        ; preds = %._crit_edge122.us, %._crit_edge148.us, %.preheader.lr.ph, %.preheader104.lr.ph, %.preheader105, %.preheader103
   ret void
@@ -1756,7 +1756,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   store double %39, ptr %40, align 8
   %indvars.iv.next786 = add nuw nsw i64 %indvars.iv785, 1
   %exitcond788.not = icmp eq i64 %indvars.iv.next786, %wide.trip.count
-  br i1 %exitcond788.not, label %._crit_edge700.us, label %.lr.ph699.split.split.us712, !llvm.loop !49
+  br i1 %exitcond788.not, label %._crit_edge700.us, label %.lr.ph699.split.split.us712, !llvm.loop !50
 
 .lr.ph699.split.us711:                            ; preds = %.preheader583.us
   br i1 %.not, label %.lr.ph699.split.split.us.us, label %.lr.ph699.split.split.us712
@@ -1766,7 +1766,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %42 = getelementptr inbounds double, ptr %.1532703.us, i64 %21
   %43 = getelementptr inbounds i8, ptr %.1528706.us, i64 %22
   %exitcond799.not = icmp eq i32 %41, %5
-  br i1 %exitcond799.not, label %.loopexit, label %.preheader583.us, !llvm.loop !50
+  br i1 %exitcond799.not, label %.loopexit, label %.preheader583.us, !llvm.loop !51
 
 .lr.ph692.us.us:                                  ; preds = %.preheader583.us, %55
   %indvars.iv794 = phi i64 [ %indvars.iv.next795, %55 ], [ 0, %.preheader583.us ]
@@ -1789,7 +1789,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
 55:                                               ; preds = %._crit_edge693.us.us, %49
   %indvars.iv.next795 = add nuw nsw i64 %indvars.iv794, 1
   %exitcond798.not = icmp eq i64 %indvars.iv.next795, %wide.trip.count797
-  br i1 %exitcond798.not, label %._crit_edge700.us, label %.lr.ph692.us.us, !llvm.loop !51
+  br i1 %exitcond798.not, label %._crit_edge700.us, label %.lr.ph692.us.us, !llvm.loop !52
 
 56:                                               ; preds = %56, %.lr.ph692.us.us
   %.0557690.us.us = phi ptr [ %.0557684.us, %.lr.ph692.us.us ], [ %.0557.us.us, %56 ]
@@ -1814,7 +1814,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %68 = getelementptr inbounds nuw double, ptr %.0556688.us.us, i64 %19
   %.0557.us.us = getelementptr inbounds nuw i8, ptr %.0557690.us.us, i64 2
   %69 = icmp slt i32 %67, %15
-  br i1 %69, label %56, label %._crit_edge693.us.us, !llvm.loop !52
+  br i1 %69, label %56, label %._crit_edge693.us.us, !llvm.loop !53
 
 ._crit_edge693.us.us:                             ; preds = %56
   %70 = zext i8 %63 to i64
@@ -1846,7 +1846,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   store double %87, ptr %88, align 8
   %indvars.iv.next790 = add nuw nsw i64 %indvars.iv789, 1
   %exitcond793.not = icmp eq i64 %indvars.iv.next790, %wide.trip.count792
-  br i1 %exitcond793.not, label %._crit_edge700.us, label %.lr.ph699.split.split.us.us, !llvm.loop !53
+  br i1 %exitcond793.not, label %._crit_edge700.us, label %.lr.ph699.split.split.us.us, !llvm.loop !54
 
 .preheader582:                                    ; preds = %11
   br i1 %13, label %.preheader.lr.ph, label %.loopexit
@@ -1873,7 +1873,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %94 = getelementptr inbounds double, ptr %.0531729.us, i64 %91
   %95 = getelementptr inbounds i8, ptr %.0527731.us, i64 %92
   %exitcond805.not = icmp eq i32 %93, %5
-  br i1 %exitcond805.not, label %.loopexit, label %.preheader.us, !llvm.loop !54
+  br i1 %exitcond805.not, label %.loopexit, label %.preheader.us, !llvm.loop !55
 
 .lr.ph717.split.us725.us:                         ; preds = %.preheader.us, %.lr.ph717.split.us725.us
   %indvars.iv800 = phi i64 [ %indvars.iv.next801, %.lr.ph717.split.us725.us ], [ 0, %.preheader.us ]
@@ -1887,7 +1887,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   store double %102, ptr %98, align 8
   %indvars.iv.next801 = add nuw nsw i64 %indvars.iv800, 1
   %exitcond804.not = icmp eq i64 %indvars.iv.next801, %wide.trip.count803
-  br i1 %exitcond804.not, label %._crit_edge724.us, label %.lr.ph717.split.us725.us, !llvm.loop !55
+  br i1 %exitcond804.not, label %._crit_edge724.us, label %.lr.ph717.split.us725.us, !llvm.loop !56
 
 103:                                              ; preds = %8
   switch i32 %6, label %.loopexit [
@@ -1973,7 +1973,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %147 = add nuw nsw i32 %.0574652, 1
   %148 = getelementptr inbounds nuw i8, ptr %.0563655, i64 1
   %exitcond782.not = icmp eq i32 %147, %129
-  br i1 %exitcond782.not, label %._crit_edge658, label %.lr.ph657, !llvm.loop !56
+  br i1 %exitcond782.not, label %._crit_edge658, label %.lr.ph657, !llvm.loop !57
 
 ._crit_edge658:                                   ; preds = %.lr.ph657, %128
   %.0568.lcssa = phi i32 [ %4, %128 ], [ %130, %.lr.ph657 ]
@@ -2038,7 +2038,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %189 = getelementptr inbounds nuw i8, ptr %.1566665, i64 64
   %.0572 = getelementptr inbounds nuw i8, ptr %.0572666, i64 4
   %190 = icmp slt i32 %188, %150
-  br i1 %190, label %.lr.ph668, label %._crit_edge669.loopexit, !llvm.loop !57
+  br i1 %190, label %.lr.ph668, label %._crit_edge669.loopexit, !llvm.loop !58
 
 ._crit_edge669.loopexit:                          ; preds = %.lr.ph668
   %191 = and i32 %.0568.lcssa, 2147483644
@@ -2118,7 +2118,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %239 = add nuw nsw i32 %.2576674, 1
   %240 = getelementptr inbounds nuw i8, ptr %.1564676, i64 1
   %exitcond783.not = icmp eq i32 %239, %.0568.lcssa
-  br i1 %exitcond783.not, label %._crit_edge679, label %.lr.ph678, !llvm.loop !58
+  br i1 %exitcond783.not, label %._crit_edge679, label %.lr.ph678, !llvm.loop !59
 
 ._crit_edge679:                                   ; preds = %.lr.ph678, %._crit_edge669
   %241 = add nuw nsw i32 %.0573680, 1
@@ -2126,7 +2126,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %243 = getelementptr inbounds i8, ptr %.2529682, i64 %124
   %indvars.iv.next781 = sub i2 %indvars.iv780, %127
   %exitcond784.not = icmp eq i32 %241, %5
-  br i1 %exitcond784.not, label %.loopexit, label %128, !llvm.loop !59
+  br i1 %exitcond784.not, label %.loopexit, label %128, !llvm.loop !60
 
 244:                                              ; preds = %.lr.ph651, %._crit_edge647
   %indvars.iv775 = phi i2 [ %119, %.lr.ph651 ], [ %indvars.iv.next776, %._crit_edge647 ]
@@ -2170,7 +2170,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %269 = add nuw nsw i32 %.0560620, 1
   %270 = getelementptr inbounds nuw i8, ptr %.0547623, i64 1
   %exitcond777.not = icmp eq i32 %269, %245
-  br i1 %exitcond777.not, label %._crit_edge626, label %.lr.ph625, !llvm.loop !60
+  br i1 %exitcond777.not, label %._crit_edge626, label %.lr.ph625, !llvm.loop !61
 
 ._crit_edge626:                                   ; preds = %.lr.ph625, %244
   %.0552.lcssa = phi i32 [ %4, %244 ], [ %246, %.lr.ph625 ]
@@ -2251,7 +2251,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %323 = getelementptr inbounds nuw i8, ptr %.1550633, i64 96
   %.0558 = getelementptr inbounds nuw i8, ptr %.0558634, i64 4
   %324 = icmp slt i32 %322, %272
-  br i1 %324, label %.lr.ph636, label %._crit_edge637.loopexit, !llvm.loop !61
+  br i1 %324, label %.lr.ph636, label %._crit_edge637.loopexit, !llvm.loop !62
 
 ._crit_edge637.loopexit:                          ; preds = %.lr.ph636
   %325 = and i32 %.0552.lcssa, 2147483644
@@ -2353,7 +2353,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %390 = add nuw nsw i32 %.2562642, 1
   %391 = getelementptr inbounds nuw i8, ptr %.1548644, i64 1
   %exitcond778.not = icmp eq i32 %390, %.0552.lcssa
-  br i1 %exitcond778.not, label %._crit_edge647, label %.lr.ph646, !llvm.loop !62
+  br i1 %exitcond778.not, label %._crit_edge647, label %.lr.ph646, !llvm.loop !63
 
 ._crit_edge647:                                   ; preds = %.lr.ph646, %._crit_edge637
   %392 = add nuw nsw i32 %.0559648, 1
@@ -2361,7 +2361,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %394 = getelementptr inbounds i8, ptr %.3650, i64 %117
   %indvars.iv.next776 = sub i2 %indvars.iv775, %120
   %exitcond779.not = icmp eq i32 %392, %5
-  br i1 %exitcond779.not, label %.loopexit, label %244, !llvm.loop !63
+  br i1 %exitcond779.not, label %.loopexit, label %244, !llvm.loop !64
 
 395:                                              ; preds = %.lr.ph619, %._crit_edge615
   %indvars.iv = phi i2 [ %111, %.lr.ph619 ], [ %indvars.iv.next, %._crit_edge615 ]
@@ -2412,7 +2412,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %426 = add nuw nsw i32 %.0544592, 1
   %427 = getelementptr inbounds nuw i8, ptr %.0595, i64 1
   %exitcond.not = icmp eq i32 %426, %396
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %395
   %.0526.lcssa = phi i32 [ %4, %395 ], [ %397, %.lr.ph ]
@@ -2509,7 +2509,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %492 = getelementptr inbounds nuw i8, ptr %.1525601, i64 128
   %.0542 = getelementptr inbounds nuw i8, ptr %.0542602, i64 4
   %493 = icmp slt i32 %491, %429
-  br i1 %493, label %.lr.ph604, label %._crit_edge605.loopexit, !llvm.loop !65
+  br i1 %493, label %.lr.ph604, label %._crit_edge605.loopexit, !llvm.loop !66
 
 ._crit_edge605.loopexit:                          ; preds = %.lr.ph604
   %494 = and i32 %.0526.lcssa, 2147483644
@@ -2633,7 +2633,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %576 = add nuw nsw i32 %.2546610, 1
   %577 = getelementptr inbounds nuw i8, ptr %.1612, i64 1
   %exitcond773.not = icmp eq i32 %576, %.0526.lcssa
-  br i1 %exitcond773.not, label %._crit_edge615, label %.lr.ph614, !llvm.loop !66
+  br i1 %exitcond773.not, label %._crit_edge615, label %.lr.ph614, !llvm.loop !67
 
 ._crit_edge615:                                   ; preds = %.lr.ph614, %._crit_edge605
   %578 = add nuw nsw i32 %.0543616, 1
@@ -2641,7 +2641,7 @@ define hidden void @mlib_ImageLookUpSI_U8_D64(ptr noundef %0, i32 noundef %1, pt
   %580 = getelementptr inbounds i8, ptr %.4618, i64 %109
   %indvars.iv.next = sub i2 %indvars.iv, %112
   %exitcond774.not = icmp eq i32 %578, %5
-  br i1 %exitcond774.not, label %.loopexit, label %395, !llvm.loop !67
+  br i1 %exitcond774.not, label %.loopexit, label %395, !llvm.loop !68
 
 .loopexit:                                        ; preds = %._crit_edge615, %._crit_edge647, %._crit_edge679, %._crit_edge700.us, %._crit_edge724.us, %.preheader.lr.ph, %.preheader583.lr.ph, %.preheader590, %.preheader588, %.preheader586, %.preheader584, %.preheader582, %103
   ret void
@@ -2666,7 +2666,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %15 = icmp slt i32 %4, 2
@@ -2726,7 +2726,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
   store double %41, ptr %42, align 8
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us127, !llvm.loop !69
+  br i1 %exitcond166.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us127, !llvm.loop !70
 
 .lr.ph114.split.us126:                            ; preds = %.preheader96.us
   br i1 %.not, label %.lr.ph114.split.split.us.us, label %.lr.ph114.split.split.us127
@@ -2736,7 +2736,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
   %44 = getelementptr inbounds double, ptr %.182118.us, i64 %23
   %45 = getelementptr inbounds i16, ptr %.1121.us, i64 %24
   %exitcond177.not = icmp eq i32 %43, %5
-  br i1 %exitcond177.not, label %.loopexit, label %.preheader96.us, !llvm.loop !70
+  br i1 %exitcond177.not, label %.loopexit, label %.preheader96.us, !llvm.loop !71
 
 .lr.ph108.us.us:                                  ; preds = %.preheader96.us, %57
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %57 ], [ 0, %.preheader96.us ]
@@ -2759,7 +2759,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
 57:                                               ; preds = %._crit_edge109.us.us, %51
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %._crit_edge115.us, label %.lr.ph108.us.us, !llvm.loop !71
+  br i1 %exitcond176.not, label %._crit_edge115.us, label %.lr.ph108.us.us, !llvm.loop !72
 
 58:                                               ; preds = %58, %.lr.ph108.us.us
   %.079106.us.us = phi ptr [ %.079100.us, %.lr.ph108.us.us ], [ %.079.us.us, %58 ]
@@ -2784,7 +2784,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
   %70 = getelementptr inbounds nuw double, ptr %.080102.us.us, i64 %21
   %.079.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us, i64 4
   %71 = icmp slt i32 %69, %17
-  br i1 %71, label %58, label %._crit_edge109.us.us, !llvm.loop !72
+  br i1 %71, label %58, label %._crit_edge109.us.us, !llvm.loop !73
 
 ._crit_edge109.us.us:                             ; preds = %58
   %72 = sext i16 %65 to i64
@@ -2816,7 +2816,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
   store double %89, ptr %90, align 8
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us.us, !llvm.loop !73
+  br i1 %exitcond171.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us.us, !llvm.loop !74
 
 .preheader95:                                     ; preds = %._crit_edge
   br i1 %16, label %.preheader.lr.ph, label %.loopexit
@@ -2842,7 +2842,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
   %95 = getelementptr inbounds double, ptr %.081144.us, i64 %92
   %96 = getelementptr inbounds i16, ptr %.078146.us, i64 %93
   %exitcond183.not = icmp eq i32 %94, %5
-  br i1 %exitcond183.not, label %.loopexit, label %.preheader.us, !llvm.loop !74
+  br i1 %exitcond183.not, label %.loopexit, label %.preheader.us, !llvm.loop !75
 
 .lr.ph132.split.us140.us:                         ; preds = %.preheader.us, %.lr.ph132.split.us140.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.lr.ph132.split.us140.us ], [ 0, %.preheader.us ]
@@ -2856,7 +2856,7 @@ define hidden void @mlib_ImageLookUpSI_S16_D64(ptr noundef readonly captures(non
   store double %103, ptr %99, align 8
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %._crit_edge139.us, label %.lr.ph132.split.us140.us, !llvm.loop !75
+  br i1 %exitcond182.not, label %._crit_edge139.us, label %.lr.ph132.split.us140.us, !llvm.loop !76
 
 .loopexit:                                        ; preds = %._crit_edge115.us, %._crit_edge139.us, %.preheader.lr.ph, %.preheader96.lr.ph, %.preheader97, %.preheader95
   ret void
@@ -2932,7 +2932,7 @@ define hidden void @mlib_ImageLookUpSI_U16_D64(ptr noundef readonly captures(non
   store double %39, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us127, !llvm.loop !76
+  br i1 %exitcond.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us127, !llvm.loop !77
 
 .lr.ph114.split.us126:                            ; preds = %.preheader96.us
   br i1 %.not, label %.lr.ph114.split.split.us.us, label %.lr.ph114.split.split.us127
@@ -2942,7 +2942,7 @@ define hidden void @mlib_ImageLookUpSI_U16_D64(ptr noundef readonly captures(non
   %42 = getelementptr inbounds double, ptr %.182118.us, i64 %21
   %43 = getelementptr inbounds i16, ptr %.1121.us, i64 %22
   %exitcond173.not = icmp eq i32 %41, %5
-  br i1 %exitcond173.not, label %.loopexit, label %.preheader96.us, !llvm.loop !77
+  br i1 %exitcond173.not, label %.loopexit, label %.preheader96.us, !llvm.loop !78
 
 .lr.ph108.us.us:                                  ; preds = %.preheader96.us, %55
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %55 ], [ 0, %.preheader96.us ]
@@ -2965,7 +2965,7 @@ define hidden void @mlib_ImageLookUpSI_U16_D64(ptr noundef readonly captures(non
 55:                                               ; preds = %._crit_edge109.us.us, %49
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %._crit_edge115.us, label %.lr.ph108.us.us, !llvm.loop !78
+  br i1 %exitcond172.not, label %._crit_edge115.us, label %.lr.ph108.us.us, !llvm.loop !79
 
 56:                                               ; preds = %56, %.lr.ph108.us.us
   %.079106.us.us = phi ptr [ %.079100.us, %.lr.ph108.us.us ], [ %.079.us.us, %56 ]
@@ -2990,7 +2990,7 @@ define hidden void @mlib_ImageLookUpSI_U16_D64(ptr noundef readonly captures(non
   %68 = getelementptr inbounds nuw double, ptr %.080102.us.us, i64 %19
   %.079.us.us = getelementptr inbounds nuw i8, ptr %.079106.us.us, i64 4
   %69 = icmp slt i32 %67, %15
-  br i1 %69, label %56, label %._crit_edge109.us.us, !llvm.loop !79
+  br i1 %69, label %56, label %._crit_edge109.us.us, !llvm.loop !80
 
 ._crit_edge109.us.us:                             ; preds = %56
   %70 = zext i16 %63 to i64
@@ -3022,7 +3022,7 @@ define hidden void @mlib_ImageLookUpSI_U16_D64(ptr noundef readonly captures(non
   store double %87, ptr %88, align 8
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us.us, !llvm.loop !80
+  br i1 %exitcond167.not, label %._crit_edge115.us, label %.lr.ph114.split.split.us.us, !llvm.loop !81
 
 .preheader95:                                     ; preds = %._crit_edge
   br i1 %14, label %.preheader.lr.ph, label %.loopexit
@@ -3048,7 +3048,7 @@ define hidden void @mlib_ImageLookUpSI_U16_D64(ptr noundef readonly captures(non
   %93 = getelementptr inbounds double, ptr %.081144.us, i64 %90
   %94 = getelementptr inbounds i16, ptr %.078146.us, i64 %91
   %exitcond179.not = icmp eq i32 %92, %5
-  br i1 %exitcond179.not, label %.loopexit, label %.preheader.us, !llvm.loop !81
+  br i1 %exitcond179.not, label %.loopexit, label %.preheader.us, !llvm.loop !82
 
 .lr.ph132.split.us140.us:                         ; preds = %.preheader.us, %.lr.ph132.split.us140.us
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %.lr.ph132.split.us140.us ], [ 0, %.preheader.us ]
@@ -3062,7 +3062,7 @@ define hidden void @mlib_ImageLookUpSI_U16_D64(ptr noundef readonly captures(non
   store double %101, ptr %97, align 8
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %._crit_edge139.us, label %.lr.ph132.split.us140.us, !llvm.loop !82
+  br i1 %exitcond178.not, label %._crit_edge139.us, label %.lr.ph132.split.us140.us, !llvm.loop !83
 
 .loopexit:                                        ; preds = %._crit_edge115.us, %._crit_edge139.us, %.preheader.lr.ph, %.preheader96.lr.ph, %.preheader97, %.preheader95
   ret void
@@ -3087,7 +3087,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
   store ptr %13, ptr %14, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8
   %15 = icmp slt i32 %4, 2
@@ -3147,7 +3147,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
   store double %41, ptr %42, align 8
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
-  br i1 %exitcond167.not, label %._crit_edge116.us, label %.lr.ph115.split.split.us128, !llvm.loop !84
+  br i1 %exitcond167.not, label %._crit_edge116.us, label %.lr.ph115.split.split.us128, !llvm.loop !85
 
 .lr.ph115.split.us127:                            ; preds = %.preheader97.us
   br i1 %.not, label %.lr.ph115.split.split.us.us, label %.lr.ph115.split.split.us128
@@ -3157,7 +3157,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
   %44 = getelementptr inbounds double, ptr %.183119.us, i64 %23
   %45 = getelementptr inbounds i32, ptr %.1122.us, i64 %24
   %exitcond178.not = icmp eq i32 %43, %5
-  br i1 %exitcond178.not, label %.loopexit, label %.preheader97.us, !llvm.loop !85
+  br i1 %exitcond178.not, label %.loopexit, label %.preheader97.us, !llvm.loop !86
 
 .lr.ph109.us.us:                                  ; preds = %.preheader97.us, %57
   %indvars.iv173 = phi i64 [ %indvars.iv.next174, %57 ], [ 0, %.preheader97.us ]
@@ -3180,7 +3180,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
 57:                                               ; preds = %._crit_edge110.us.us, %51
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
-  br i1 %exitcond177.not, label %._crit_edge116.us, label %.lr.ph109.us.us, !llvm.loop !86
+  br i1 %exitcond177.not, label %._crit_edge116.us, label %.lr.ph109.us.us, !llvm.loop !87
 
 58:                                               ; preds = %58, %.lr.ph109.us.us
   %.080107.us.us = phi ptr [ %.080101.us, %.lr.ph109.us.us ], [ %.080.us.us, %58 ]
@@ -3205,7 +3205,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
   %70 = getelementptr inbounds nuw double, ptr %.081103.us.us, i64 %21
   %.080.us.us = getelementptr inbounds nuw i8, ptr %.080107.us.us, i64 8
   %71 = icmp slt i32 %69, %17
-  br i1 %71, label %58, label %._crit_edge110.us.us, !llvm.loop !87
+  br i1 %71, label %58, label %._crit_edge110.us.us, !llvm.loop !88
 
 ._crit_edge110.us.us:                             ; preds = %58
   %72 = sext i32 %65 to i64
@@ -3237,7 +3237,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
   store double %89, ptr %90, align 8
   %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
   %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
-  br i1 %exitcond172.not, label %._crit_edge116.us, label %.lr.ph115.split.split.us.us, !llvm.loop !88
+  br i1 %exitcond172.not, label %._crit_edge116.us, label %.lr.ph115.split.split.us.us, !llvm.loop !89
 
 .preheader96:                                     ; preds = %._crit_edge
   br i1 %16, label %.preheader.lr.ph, label %.loopexit
@@ -3263,7 +3263,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
   %95 = getelementptr inbounds double, ptr %.082145.us, i64 %92
   %96 = getelementptr inbounds i32, ptr %.079147.us, i64 %93
   %exitcond184.not = icmp eq i32 %94, %5
-  br i1 %exitcond184.not, label %.loopexit, label %.preheader.us, !llvm.loop !89
+  br i1 %exitcond184.not, label %.loopexit, label %.preheader.us, !llvm.loop !90
 
 .lr.ph133.split.us141.us:                         ; preds = %.preheader.us, %.lr.ph133.split.us141.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %.lr.ph133.split.us141.us ], [ 0, %.preheader.us ]
@@ -3277,7 +3277,7 @@ define hidden void @mlib_ImageLookUpSI_S32_D64(ptr noundef readonly captures(non
   store double %103, ptr %99, align 8
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %exitcond183.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count182
-  br i1 %exitcond183.not, label %._crit_edge140.us, label %.lr.ph133.split.us141.us, !llvm.loop !90
+  br i1 %exitcond183.not, label %._crit_edge140.us, label %.lr.ph133.split.us141.us, !llvm.loop !91
 
 .loopexit:                                        ; preds = %._crit_edge116.us, %._crit_edge140.us, %.preheader.lr.ph, %.preheader97.lr.ph, %.preheader98, %.preheader96
   ret void
@@ -3298,88 +3298,89 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7, !9}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !7, !9}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !9}
-!13 = distinct !{!13, !7, !9}
-!14 = distinct !{!14, !7, !9}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7, !9}
-!29 = distinct !{!29, !7, !9}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7, !9}
-!32 = distinct !{!32, !7, !9}
-!33 = distinct !{!33, !7, !9}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7, !9}
-!36 = distinct !{!36, !7, !9}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7, !9}
-!39 = distinct !{!39, !7, !9}
-!40 = distinct !{!40, !7, !9}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7, !9}
-!44 = distinct !{!44, !7, !9}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7, !9}
-!47 = distinct !{!47, !7, !9}
-!48 = distinct !{!48, !7, !9}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7, !9}
-!51 = distinct !{!51, !7, !9}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7, !9}
-!54 = distinct !{!54, !7, !9}
-!55 = distinct !{!55, !7, !9}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7, !9}
-!71 = distinct !{!71, !7, !9}
-!72 = distinct !{!72, !7}
-!73 = distinct !{!73, !7, !9}
-!74 = distinct !{!74, !7, !9}
-!75 = distinct !{!75, !7, !9}
-!76 = distinct !{!76, !7}
-!77 = distinct !{!77, !7, !9}
-!78 = distinct !{!78, !7, !9}
-!79 = distinct !{!79, !7}
-!80 = distinct !{!80, !7, !9}
-!81 = distinct !{!81, !7, !9}
-!82 = distinct !{!82, !7, !9}
-!83 = distinct !{!83, !7}
-!84 = distinct !{!84, !7}
-!85 = distinct !{!85, !7, !9}
-!86 = distinct !{!86, !7, !9}
-!87 = distinct !{!87, !7}
-!88 = distinct !{!88, !7, !9}
-!89 = distinct !{!89, !7, !9}
-!90 = distinct !{!90, !7, !9}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8, !10}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !7, !8, !10}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !10}
+!14 = distinct !{!14, !7, !8, !10}
+!15 = distinct !{!15, !7, !8, !10}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8, !10}
+!30 = distinct !{!30, !7, !8, !10}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8, !10}
+!33 = distinct !{!33, !7, !8, !10}
+!34 = distinct !{!34, !7, !8, !10}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8, !10}
+!37 = distinct !{!37, !7, !8, !10}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8, !10}
+!40 = distinct !{!40, !7, !8, !10}
+!41 = distinct !{!41, !7, !8, !10}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8, !10}
+!45 = distinct !{!45, !7, !8, !10}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8, !10}
+!48 = distinct !{!48, !7, !8, !10}
+!49 = distinct !{!49, !7, !8, !10}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8, !10}
+!52 = distinct !{!52, !7, !8, !10}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8, !10}
+!55 = distinct !{!55, !7, !8, !10}
+!56 = distinct !{!56, !7, !8, !10}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8, !10}
+!72 = distinct !{!72, !7, !8, !10}
+!73 = distinct !{!73, !7, !8}
+!74 = distinct !{!74, !7, !8, !10}
+!75 = distinct !{!75, !7, !8, !10}
+!76 = distinct !{!76, !7, !8, !10}
+!77 = distinct !{!77, !7, !8}
+!78 = distinct !{!78, !7, !8, !10}
+!79 = distinct !{!79, !7, !8, !10}
+!80 = distinct !{!80, !7, !8}
+!81 = distinct !{!81, !7, !8, !10}
+!82 = distinct !{!82, !7, !8, !10}
+!83 = distinct !{!83, !7, !8, !10}
+!84 = distinct !{!84, !7, !8}
+!85 = distinct !{!85, !7, !8}
+!86 = distinct !{!86, !7, !8, !10}
+!87 = distinct !{!87, !7, !8, !10}
+!88 = distinct !{!88, !7, !8}
+!89 = distinct !{!89, !7, !8, !10}
+!90 = distinct !{!90, !7, !8, !10}
+!91 = distinct !{!91, !7, !8, !10}

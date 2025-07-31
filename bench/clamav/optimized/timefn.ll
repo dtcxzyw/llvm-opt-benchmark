@@ -459,7 +459,7 @@ define void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull writeonly align 8 c
   %34 = getelementptr inbounds nuw i32, ptr %1, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !32
   %.not = icmp eq i32 %35, 0
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !38
 }
 
 declare noundef signext i32 @_Z9etoupperww(i32 noundef signext) local_unnamed_addr #8
@@ -575,6 +575,7 @@ attributes #13 = { nounwind }
 !32 = !{!33, !33, i64 0}
 !33 = !{!"wchar_t", !6, i64 0}
 !34 = !{!11, !11, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}

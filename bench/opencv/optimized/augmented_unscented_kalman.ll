@@ -2344,11 +2344,11 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKa
   store double %52, ptr %53, align 8, !tbaa !78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv47.i
-  br i1 %exitcond.not.i, label %49, label %50, !llvm.loop !85
+  br i1 %exitcond.not.i, label %49, label %50, !llvm.loop !86
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph42.i
   %exitcond62.not.i = icmp eq i64 %indvar.next.i, %wide.trip.count54.i
-  br i1 %exitcond62.not.i, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit, label %.lr.ph42.i, !llvm.loop !86
+  br i1 %exitcond62.not.i, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit, label %.lr.ph42.i, !llvm.loop !87
 
 .lr.ph42.i:                                       ; preds = %.loopexit.i, %.lr.ph42.preheader.i
   %indvar.i = phi i64 [ 0, %.lr.ph42.preheader.i ], [ %indvar.next.i, %.loopexit.i ]
@@ -2430,7 +2430,7 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKa
   %indvars.iv.next50.i56 = add nuw nsw i64 %indvars.iv49.i51, 1
   %indvars.iv.next48.i57 = add nuw nsw i64 %indvars.iv47.i52, 1
   %exitcond55.not.i58 = icmp eq i64 %indvars.iv.next50.i56, %wide.trip.count54.i49
-  br i1 %exitcond55.not.i58, label %._crit_edge.i59, label %.preheader36.i50, !llvm.loop !87
+  br i1 %exitcond55.not.i58, label %._crit_edge.i59, label %.preheader36.i50, !llvm.loop !88
 
 90:                                               ; preds = %90, %.preheader36.i50
   %indvars.iv.i53 = phi i64 [ 0, %.preheader36.i50 ], [ %indvars.iv.next.i54, %90 ]
@@ -2440,11 +2440,11 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKa
   store float %92, ptr %93, align 4, !tbaa !79
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %indvars.iv47.i52
-  br i1 %exitcond.not.i55, label %89, label %90, !llvm.loop !88
+  br i1 %exitcond.not.i55, label %89, label %90, !llvm.loop !89
 
 .loopexit.i67:                                    ; preds = %.lr.ph.i69, %.lr.ph42.i63
   %exitcond62.not.i68 = icmp eq i64 %indvar.next.i65, %wide.trip.count54.i49
-  br i1 %exitcond62.not.i68, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit, label %.lr.ph42.i63, !llvm.loop !89
+  br i1 %exitcond62.not.i68, label %_ZN2cv6detail8tracking21choleskyDecompositionIdEEbPKT_miPS3_m.exit, label %.lr.ph42.i63, !llvm.loop !90
 
 .lr.ph42.i63:                                     ; preds = %.loopexit.i67, %.lr.ph42.preheader.i60
   %indvar.i64 = phi i64 [ 0, %.lr.ph42.preheader.i60 ], [ %indvar.next.i65, %.loopexit.i67 ]
@@ -2515,17 +2515,17 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %_ZN2cv3MataSERKNS_7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #19
   %117 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %117, align 8, !tbaa !90
+  store i32 0, ptr %117, align 8, !tbaa !91
   %118 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i32 0, ptr %118, align 4, !tbaa !91
+  store i32 0, ptr %118, align 4, !tbaa !92
   store i32 16842752, ptr %12, align 8, !tbaa !68
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %8, ptr %119, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #19
   %120 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 0, ptr %120, align 8, !tbaa !90
+  store i32 0, ptr %120, align 8, !tbaa !91
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i32 0, ptr %121, align 4, !tbaa !91
+  store i32 0, ptr %121, align 4, !tbaa !92
   store i32 16842752, ptr %13, align 8, !tbaa !68
   %122 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %6, ptr %122, align 8, !tbaa !71
@@ -2548,17 +2548,17 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit:               ; preds = %_ZN2cv3MataSERKNS_7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #19
   %128 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 0, ptr %128, align 8, !tbaa !90
+  store i32 0, ptr %128, align 8, !tbaa !91
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i32 0, ptr %129, align 4, !tbaa !91
+  store i32 0, ptr %129, align 4, !tbaa !92
   store i32 16842752, ptr %15, align 8, !tbaa !68
   %130 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %10, ptr %130, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #19
   %131 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 0, ptr %131, align 8, !tbaa !90
+  store i32 0, ptr %131, align 8, !tbaa !91
   %132 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  store i32 0, ptr %132, align 4, !tbaa !91
+  store i32 0, ptr %132, align 4, !tbaa !92
   store i32 16842752, ptr %16, align 8, !tbaa !68
   %133 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %6, ptr %133, align 8, !tbaa !71
@@ -2690,13 +2690,13 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKa
   %20 = alloca %"class.cv::MatExpr", align 8
   %21 = alloca %"class.cv::MatExpr", align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #19
-  %22 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !92
+  %22 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !93
   %23 = icmp eq i32 %22, 65536
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !71, !noalias !92
+  %26 = load ptr, ptr %25, align 8, !tbaa !71, !noalias !93
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %26)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
@@ -2838,7 +2838,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit47:             ; preds = %65
   %75 = load i32, ptr %37, align 4, !tbaa !60
   %76 = shl nsw i32 %75, 1
   %.not.not = icmp slt i32 %.057, %76
-  br i1 %.not.not, label %59, label %._crit_edge, !llvm.loop !95
+  br i1 %.not.not, label %59, label %._crit_edge, !llvm.loop !96
 
 77:                                               ; preds = %59
   %78 = landingpad { ptr, i32 }
@@ -2915,9 +2915,9 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit47:             ; preds = %65
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %14) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15) #19
   %104 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 0, ptr %104, align 8, !tbaa !90
+  store i32 0, ptr %104, align 8, !tbaa !91
   %105 = getelementptr inbounds nuw i8, ptr %15, i64 20
-  store i32 0, ptr %105, align 4, !tbaa !91
+  store i32 0, ptr %105, align 4, !tbaa !92
   store i32 16842752, ptr %15, align 8, !tbaa !68
   %106 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %52, ptr %106, align 8, !tbaa !71
@@ -2931,9 +2931,9 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit47:             ; preds = %65
 
 110:                                              ; preds = %100
   %111 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 0, ptr %111, align 8, !tbaa !90
+  store i32 0, ptr %111, align 8, !tbaa !91
   %112 = getelementptr inbounds nuw i8, ptr %16, i64 20
-  store i32 0, ptr %112, align 4, !tbaa !91
+  store i32 0, ptr %112, align 4, !tbaa !92
   store i32 16842752, ptr %16, align 8, !tbaa !68
   %113 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %17, ptr %113, align 8, !tbaa !71
@@ -3151,13 +3151,13 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKa
   %33 = alloca %"class.cv::MatExpr", align 8
   %34 = alloca %"class.cv::MatExpr", align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #19
-  %35 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !96
+  %35 = tail call noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %2), !noalias !97
   %36 = icmp eq i32 %35, 65536
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %3
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !71, !noalias !96
+  %39 = load ptr, ptr %38, align 8, !tbaa !71, !noalias !97
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %39)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
 
@@ -3329,7 +3329,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit76:             ; preds = %91
   %101 = load i32, ptr %57, align 4, !tbaa !60
   %102 = shl nsw i32 %101, 1
   %.not.not = icmp slt i32 %.090, %102
-  br i1 %.not.not, label %83, label %._crit_edge, !llvm.loop !99
+  br i1 %.not.not, label %83, label %._crit_edge, !llvm.loop !100
 
 103:                                              ; preds = %83
   %104 = landingpad { ptr, i32 }
@@ -3405,9 +3405,9 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit76:             ; preds = %91
   call void @llvm.lifetime.end.p0(i64 352, ptr nonnull %16) #19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17) #19
   %129 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i32 0, ptr %129, align 8, !tbaa !90
+  store i32 0, ptr %129, align 8, !tbaa !91
   %130 = getelementptr inbounds nuw i8, ptr %17, i64 20
-  store i32 0, ptr %130, align 4, !tbaa !91
+  store i32 0, ptr %130, align 4, !tbaa !92
   store i32 16842752, ptr %17, align 8, !tbaa !68
   %131 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %74, ptr %131, align 8, !tbaa !71
@@ -3421,9 +3421,9 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit76:             ; preds = %91
 
 135:                                              ; preds = %125
   %136 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 0, ptr %136, align 8, !tbaa !90
+  store i32 0, ptr %136, align 8, !tbaa !91
   %137 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  store i32 0, ptr %137, align 4, !tbaa !91
+  store i32 0, ptr %137, align 4, !tbaa !92
   store i32 16842752, ptr %18, align 8, !tbaa !68
   %138 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %19, ptr %138, align 8, !tbaa !71
@@ -3955,7 +3955,7 @@ define void @_ZN2cv6detail8tracking14kalman_filters36createAugmentedUnscentedKal
           to label %4 unwind label %23
 
 4:                                                ; preds = %2
-  store ptr %3, ptr %0, align 8, !tbaa !100
+  store ptr %3, ptr %0, align 8, !tbaa !101
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8, !tbaa !33
   %6 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
@@ -4000,7 +4000,7 @@ _ZN2cv3PtrINS_6detail8tracking14kalman_filters21UnscentedKalmanFilterEEC2INS3_34
   store i32 1, ptr %21, align 4, !tbaa !38
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt15_Sp_counted_ptrIPN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKalmanFilterImplELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %6, align 8, !tbaa !39
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %3, ptr %22, align 8, !tbaa !103
+  store ptr %3, ptr %22, align 8, !tbaa !104
   store ptr %6, ptr %5, align 8, !tbaa !33
   ret void
 
@@ -4081,7 +4081,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking14k
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKalmanFilterImplELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !104
   %4 = icmp eq ptr %3, null
   br i1 %4, label %9, label %5
 
@@ -4233,26 +4233,27 @@ attributes #23 = { builtin allocsize(0) }
 !80 = !{!"float", !8, i64 0}
 !81 = !{!15, !14, i64 8}
 !82 = !{!10, !10, i64 0}
-!83 = distinct !{!83, !84}
+!83 = distinct !{!83, !84, !85}
 !84 = !{!"llvm.loop.mustprogress"}
-!85 = distinct !{!85, !84}
-!86 = distinct !{!86, !84}
-!87 = distinct !{!87, !84}
-!88 = distinct !{!88, !84}
-!89 = distinct !{!89, !84}
-!90 = !{!70, !14, i64 0}
-!91 = !{!70, !14, i64 4}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!94 = distinct !{!94, !"_ZNK2cv11_InputArray6getMatEi"}
-!95 = distinct !{!95, !84}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!98 = distinct !{!98, !"_ZNK2cv11_InputArray6getMatEi"}
-!99 = distinct !{!99, !84}
-!100 = !{!101, !102, i64 0}
-!101 = !{!"_ZTSSt12__shared_ptrIN2cv6detail8tracking14kalman_filters21UnscentedKalmanFilterELN9__gnu_cxx12_Lock_policyE2EE", !102, i64 0, !27, i64 8}
-!102 = !{!"p1 _ZTSN2cv6detail8tracking14kalman_filters21UnscentedKalmanFilterE", !7, i64 0}
-!103 = !{!104, !105, i64 16}
-!104 = !{!"_ZTSSt15_Sp_counted_ptrIPN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKalmanFilterImplELN9__gnu_cxx12_Lock_policyE2EE", !37, i64 0, !105, i64 16}
-!105 = !{!"p1 _ZTSN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKalmanFilterImplE", !7, i64 0}
+!85 = !{!"llvm.loop.estimated_trip_count"}
+!86 = distinct !{!86, !84, !85}
+!87 = distinct !{!87, !84, !85}
+!88 = distinct !{!88, !84, !85}
+!89 = distinct !{!89, !84, !85}
+!90 = distinct !{!90, !84, !85}
+!91 = !{!70, !14, i64 0}
+!92 = !{!70, !14, i64 4}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!95 = distinct !{!95, !"_ZNK2cv11_InputArray6getMatEi"}
+!96 = distinct !{!96, !84, !85}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!99 = distinct !{!99, !"_ZNK2cv11_InputArray6getMatEi"}
+!100 = distinct !{!100, !84, !85}
+!101 = !{!102, !103, i64 0}
+!102 = !{!"_ZTSSt12__shared_ptrIN2cv6detail8tracking14kalman_filters21UnscentedKalmanFilterELN9__gnu_cxx12_Lock_policyE2EE", !103, i64 0, !27, i64 8}
+!103 = !{!"p1 _ZTSN2cv6detail8tracking14kalman_filters21UnscentedKalmanFilterE", !7, i64 0}
+!104 = !{!105, !106, i64 16}
+!105 = !{!"_ZTSSt15_Sp_counted_ptrIPN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKalmanFilterImplELN9__gnu_cxx12_Lock_policyE2EE", !37, i64 0, !106, i64 16}
+!106 = !{!"p1 _ZTSN2cv6detail8tracking14kalman_filters34AugmentedUnscentedKalmanFilterImplE", !7, i64 0}

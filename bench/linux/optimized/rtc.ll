@@ -214,7 +214,7 @@ define internal noundef range(i32 -19, 1) i32 @add_rtc_cmos() #5 section ".init.
 8:                                                ; preds = %11
   %9 = add nuw nsw i64 %12, 1
   %10 = icmp eq i64 %9, 3
-  br i1 %10, label %3, label %11, !llvm.loop !13
+  br i1 %10, label %3, label %11, !llvm.loop !14
 
 11:                                               ; preds = %8, %.preheader
   %12 = phi i64 [ 0, %.preheader ], [ %9, %8 ]
@@ -270,7 +270,8 @@ attributes #7 = { cold nounwind }
 !7 = !{}
 !8 = !{i64 2154051398}
 !9 = !{i64 2154051594}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}

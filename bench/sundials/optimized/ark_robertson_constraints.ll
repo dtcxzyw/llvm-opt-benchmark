@@ -327,7 +327,7 @@ check_flag.exit125:                               ; preds = %125
   %153 = select i1 %152, double 1.000000e+11, double %151
   %154 = add nuw nsw i32 %.073209, 1
   %exitcond.not = icmp eq i32 %154, 100
-  br i1 %exitcond.not, label %.loopexit, label %125
+  br i1 %exitcond.not, label %.loopexit, label %125, !llvm.loop !22
 
 .loopexit:                                        ; preds = %130, %check_flag.exit125
   %puts92 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -453,27 +453,27 @@ check_flag.exit147:                               ; preds = %check_flag.exit145,
 
 check_flag.exit149:                               ; preds = %check_flag.exit147, %213
   %puts93 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %216 = load i64, ptr %3, align 8, !tbaa !22
-  %217 = load i64, ptr %4, align 8, !tbaa !22
+  %216 = load i64, ptr %3, align 8, !tbaa !24
+  %217 = load i64, ptr %4, align 8, !tbaa !24
   %218 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i64 noundef %216, i64 noundef %217)
-  %219 = load i64, ptr %5, align 8, !tbaa !22
-  %220 = load i64, ptr %6, align 8, !tbaa !22
+  %219 = load i64, ptr %5, align 8, !tbaa !24
+  %220 = load i64, ptr %6, align 8, !tbaa !24
   %221 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, i64 noundef %219, i64 noundef %220)
-  %222 = load i64, ptr %7, align 8, !tbaa !22
+  %222 = load i64, ptr %7, align 8, !tbaa !24
   %223 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i64 noundef %222)
-  %224 = load i64, ptr %9, align 8, !tbaa !22
+  %224 = load i64, ptr %9, align 8, !tbaa !24
   %225 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.41, i64 noundef %224)
-  %226 = load i64, ptr %8, align 8, !tbaa !22
+  %226 = load i64, ptr %8, align 8, !tbaa !24
   %227 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %226)
-  %228 = load i64, ptr %10, align 8, !tbaa !22
+  %228 = load i64, ptr %10, align 8, !tbaa !24
   %229 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i64 noundef %228)
-  %230 = load i64, ptr %11, align 8, !tbaa !22
+  %230 = load i64, ptr %11, align 8, !tbaa !24
   %231 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %230)
-  %232 = load i64, ptr %13, align 8, !tbaa !22
+  %232 = load i64, ptr %13, align 8, !tbaa !24
   %233 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i64 noundef %232)
-  %234 = load i64, ptr %14, align 8, !tbaa !22
+  %234 = load i64, ptr %14, align 8, !tbaa !24
   %235 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i64 noundef %234)
-  %236 = load i64, ptr %12, align 8, !tbaa !22
+  %236 = load i64, ptr %12, align 8, !tbaa !24
   %237 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i64 noundef %236)
   %238 = call fastcc i32 @check_ans(ptr noundef nonnull %23)
   call void @N_VDestroy(ptr noundef nonnull %23) #8
@@ -584,18 +584,18 @@ define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) 
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load double, ptr %14, align 8, !tbaa !20
   %16 = tail call i32 @SUNMatZero(ptr noundef %3) #8
-  %17 = load ptr, ptr %3, align 8, !tbaa !23
+  %17 = load ptr, ptr %3, align 8, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !26
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
+  %20 = load ptr, ptr %19, align 8, !tbaa !31
   store double -4.000000e-02, ptr %20, align 8, !tbaa !20
   %21 = fmul double %15, 1.000000e+04
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !29
+  %23 = load ptr, ptr %22, align 8, !tbaa !31
   store double %21, ptr %23, align 8, !tbaa !20
   %24 = fmul double %13, 1.000000e+04
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !29
+  %26 = load ptr, ptr %25, align 8, !tbaa !31
   store double %24, ptr %26, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store double 4.000000e-02, ptr %27, align 8, !tbaa !20
@@ -769,11 +769,13 @@ attributes #10 = { cold }
 !19 = !{!"p1 double", !5, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"double", !6, i64 0}
-!22 = !{!17, !17, i64 0}
-!23 = !{!24, !5, i64 0}
-!24 = !{!"_generic_SUNMatrix", !5, i64 0, !25, i64 8, !11, i64 16}
-!25 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
-!26 = !{!27, !28, i64 32}
-!27 = !{!"_SUNMatrixContent_Dense", !17, i64 0, !17, i64 8, !19, i64 16, !17, i64 24, !28, i64 32}
-!28 = !{!"p2 double", !5, i64 0}
-!29 = !{!19, !19, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!17, !17, i64 0}
+!25 = !{!26, !5, i64 0}
+!26 = !{!"_generic_SUNMatrix", !5, i64 0, !27, i64 8, !11, i64 16}
+!27 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !5, i64 0}
+!28 = !{!29, !30, i64 32}
+!29 = !{!"_SUNMatrixContent_Dense", !17, i64 0, !17, i64 8, !19, i64 16, !17, i64 24, !30, i64 32}
+!30 = !{!"p2 double", !5, i64 0}
+!31 = !{!19, !19, i64 0}

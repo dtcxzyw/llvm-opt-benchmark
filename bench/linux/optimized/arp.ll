@@ -1576,14 +1576,14 @@ define internal void @arp_solicit(ptr noundef %0, ptr noundef readonly captures(
 
 .loopexit:                                        ; preds = %.preheader, %84
   %91 = phi i32 [ %85, %84 ], [ %88, %.preheader ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
   %92 = load i8, ptr %83, align 1
   %93 = zext i8 %92 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 8 %82, i64 %93, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !24
   %94 = load volatile i32, ptr %81, align 4
   %95 = icmp eq i32 %94, %91
-  br i1 %95, label %.loopexit4, label %84, !llvm.loop !24
+  br i1 %95, label %.loopexit4, label %84, !llvm.loop !25
 
 96:                                               ; preds = %70
   %97 = getelementptr i8, ptr %73, i64 96
@@ -1875,7 +1875,7 @@ thread-pre-split.thread:                          ; preds = %89
   br i1 %116, label %117, label %.thread
 
 117:                                              ; preds = %114
-  %118 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef 0, i32 noundef %60), !range !25
+  %118 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef 0, i32 noundef %60), !range !26
   %119 = icmp eq i32 %118, 0
   br i1 %119, label %120, label %.thread
 
@@ -1906,7 +1906,7 @@ thread-pre-split.thread:                          ; preds = %89
   br i1 %135, label %136, label %162
 
 136:                                              ; preds = %127
-  %137 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef %57, i32 noundef %60), !range !25
+  %137 = tail call fastcc i32 @arp_ignore(ptr noundef nonnull %9, i32 noundef %57, i32 noundef %60), !range !26
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %139, label %.thread
 
@@ -1928,7 +1928,7 @@ thread-pre-split.thread:                          ; preds = %89
   br i1 %151, label %155, label %152
 
 152:                                              ; preds = %148, %139
-  %153 = tail call fastcc i32 @arp_filter(i32 noundef %57, i32 noundef %60, ptr noundef %7), !range !25
+  %153 = tail call fastcc i32 @arp_filter(i32 noundef %57, i32 noundef %60, ptr noundef %7), !range !26
   %154 = icmp eq i32 %153, 0
   br i1 %154, label %155, label %.thread
 
@@ -2043,7 +2043,7 @@ thread-pre-split.thread:                          ; preds = %89
 
 222:                                              ; preds = %.thread11
   %223 = load i32, ptr %3, align 4
-  %224 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %223), !range !25
+  %224 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %223), !range !26
   %225 = icmp eq i32 %224, 0
   br i1 %225, label %231, label %226
 
@@ -2057,7 +2057,7 @@ thread-pre-split.thread:                          ; preds = %89
 231:                                              ; preds = %226, %222
   %232 = phi i1 [ %230, %226 ], [ false, %222 ]
   %233 = load i32, ptr %3, align 4
-  %234 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %233), !range !25
+  %234 = call fastcc i32 @arp_accept(ptr noundef nonnull %9, i32 noundef %233), !range !26
   %235 = icmp eq i32 %234, 0
   %236 = or i1 %221, %235
   br i1 %236, label %252, label %237
@@ -2223,7 +2223,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @arp_filter(i32 noundef %0, i
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 432
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 80
-  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %17, ptr elementtype(i64) %17) #14, !srcloc !26
+  call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %17, ptr elementtype(i64) %17) #14, !srcloc !27
   br label %18
 
 18:                                               ; preds = %14, %11
@@ -2669,7 +2669,7 @@ define internal noundef i32 @arp_seq_show(ptr noundef %0, ptr noundef %1) #1 ali
   store i8 58, ptr %58, align 1
   %59 = add nuw nsw i64 %40, 1
   %60 = icmp eq i64 %59, 9
-  br i1 %60, label %.loopexit, label %38, !llvm.loop !27
+  br i1 %60, label %.loopexit, label %38, !llvm.loop !28
 
 61:                                               ; preds = %38
   %62 = trunc i64 %39 to i32
@@ -2845,12 +2845,13 @@ attributes #14 = { nounwind }
 !16 = !{i32 -6, i32 1}
 !17 = !{i64 2148492639, i64 2148492678, i64 2148492699, i64 2148492736, i64 2148492759, i64 2148492629}
 !18 = !{i64 1983013}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20, !21, !22}
 !20 = !{!"llvm.loop.mustprogress"}
 !21 = !{!"llvm.loop.unroll.disable"}
-!22 = !{i64 2150209314}
-!23 = !{i64 2150197425}
-!24 = distinct !{!24, !20, !21}
-!25 = !{i32 0, i32 2}
-!26 = !{i64 2161000398}
-!27 = distinct !{!27, !20, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{i64 2150209314}
+!24 = !{i64 2150197425}
+!25 = distinct !{!25, !20, !21, !22}
+!26 = !{i32 0, i32 2}
+!27 = !{i64 2161000398}
+!28 = distinct !{!28, !20, !21, !22}

@@ -551,7 +551,7 @@ define internal fastcc void @add_split_lines(ptr noundef readonly captures(none)
   %17 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %1, i32 noundef %.022, i32 noundef %16, ptr noundef %14, ptr noundef nonnull @.str.181, ptr noundef %14)
   %18 = load i32, ptr %6, align 4
   %19 = call zeroext i1 @tvb_offset_exists(ptr noundef %1, i32 noundef %18)
-  br i1 %19, label %9, label %.thread
+  br i1 %19, label %9, label %.thread, !llvm.loop !6
 
 .thread:                                          ; preds = %12, %9, %5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
@@ -798,7 +798,7 @@ define internal fastcc i32 @dissect_samples_im(i1 noundef zeroext %0, ptr nounde
   %134 = add i32 %130, 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %add_rms_values.exit, label %129, !llvm.loop !6
+  br i1 %exitcond.not.i, label %add_rms_values.exit, label %129, !llvm.loop !8
 
 add_rms_values.exit:                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
@@ -833,7 +833,7 @@ add_rms_values.exit:                              ; preds = %129
   %150 = add i32 %146, 4
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, 6
-  br i1 %exitcond.not.i121, label %add_rms_values.exit122, label %145, !llvm.loop !6
+  br i1 %exitcond.not.i121, label %add_rms_values.exit122, label %145, !llvm.loop !8
 
 add_rms_values.exit122:                           ; preds = %145
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #8
@@ -872,7 +872,7 @@ add_rms_values.exit122:                           ; preds = %145
   %166 = add i32 %162, 4
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, 8
-  br i1 %exitcond.not.i126, label %167, label %161, !llvm.loop !6
+  br i1 %exitcond.not.i126, label %167, label %161, !llvm.loop !8
 
 167:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #8
@@ -1077,7 +1077,7 @@ add_timestamp_sample.exit.i:                      ; preds = %276, %264
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %indvars.iv.next.i130 = add nuw nsw i64 %indvars.iv.i129, 1
   %exitcond.not.i131 = icmp eq i64 %indvars.iv.next.i130, 8
-  br i1 %exitcond.not.i131, label %add_timestamps_set.exit, label %197, !llvm.loop !8
+  br i1 %exitcond.not.i131, label %add_timestamps_set.exit, label %197, !llvm.loop !10
 
 add_timestamps_set.exit:                          ; preds = %add_timestamp_sample.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #8
@@ -1238,13 +1238,13 @@ check_ranges.exit.i:                              ; preds = %69, %66
   store i32 %88, ptr %2, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %add_sample_set.exit, label %81, !llvm.loop !9
+  br i1 %exitcond.not.i, label %add_sample_set.exit, label %81, !llvm.loop !11
 
 add_sample_set.exit:                              ; preds = %81
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %15, label %16, !llvm.loop !10
+  br i1 %exitcond.not, label %15, label %16, !llvm.loop !12
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1290,7 +1290,9 @@ attributes #8 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}

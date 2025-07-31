@@ -320,7 +320,7 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %70 = trunc nuw nsw i64 %indvars.iv84 to i32
   %exitcond87.not = icmp eq i64 %indvars.iv.next85, 16
-  br i1 %exitcond87.not, label %.preheader, label %31, !llvm.loop !6
+  br i1 %exitcond87.not, label %.preheader, label %31, !llvm.loop !7
 
 .preheader:                                       ; preds = %31, %.preheader
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.preheader ], [ 0, %31 ]
@@ -346,7 +346,7 @@ define void @_Z20duAppendCylinderWireP11duDebugDrawffffffj(ptr noundef %0, float
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %83, float noundef %5, float noundef %85, i32 noundef %7)
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
   %89 = icmp samesign ult i64 %indvars.iv88, 12
-  br i1 %89, label %.preheader, label %.loopexit, !llvm.loop !7
+  br i1 %89, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader, %8
   ret void
@@ -550,7 +550,7 @@ define void @_Z11duAppendArcP11duDebugDrawfffffffffj(ptr noundef %0, float nound
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %31, float noundef %36, float noundef %37, i32 noundef %10)
   %44 = add nuw nsw i32 %.088, 1
   %exitcond.not = icmp eq i32 %44, 9
-  br i1 %exitcond.not, label %45, label %28, !llvm.loop !8
+  br i1 %exitcond.not, label %45, label %28, !llvm.loop !9
 
 45:                                               ; preds = %28
   %46 = fcmp ogt float %8, 0x3F50624DE0000000
@@ -743,7 +743,7 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   store float %22, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 40
-  br i1 %exitcond.not.i, label %.loopexit31.i.preheader, label %13, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.loopexit31.i.preheader, label %13, !llvm.loop !10
 
 .loopexit31.i.preheader:                          ; preds = %13, %8
   br label %.loopexit31.i
@@ -780,7 +780,7 @@ define void @_Z17duDebugDrawCircleP11duDebugDrawffffjf(ptr noundef %0, float nou
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %49 = trunc nuw nsw i64 %indvars.iv36.i to i32
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next37.i, 40
-  br i1 %exitcond39.not.i, label %_Z14duAppendCircleP11duDebugDrawffffj.exit, label %.loopexit31.i, !llvm.loop !10
+  br i1 %exitcond39.not.i, label %_Z14duAppendCircleP11duDebugDrawffffj.exit, label %.loopexit31.i, !llvm.loop !11
 
 _Z14duAppendCircleP11duDebugDrawffffj.exit:       ; preds = %.loopexit31.i
   %50 = load ptr, ptr %0, align 8
@@ -823,7 +823,7 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   store float %18, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %.loopexit31.preheader, label %9, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit31.preheader, label %9, !llvm.loop !10
 
 .loopexit31.preheader:                            ; preds = %9, %7
   br label %.loopexit31
@@ -860,7 +860,7 @@ define void @_Z14duAppendCircleP11duDebugDrawffffj(ptr noundef %0, float noundef
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %45 = trunc nuw nsw i64 %indvars.iv36 to i32
   %exitcond39.not = icmp eq i64 %indvars.iv.next37, 40
-  br i1 %exitcond39.not, label %.loopexit, label %.loopexit31, !llvm.loop !10
+  br i1 %exitcond39.not, label %.loopexit, label %.loopexit31, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.loopexit31, %6
   ret void
@@ -1081,7 +1081,7 @@ define void @_Z11duAppendBoxP11duDebugDrawffffffPKj(ptr noundef %0, float nounde
   %71 = getelementptr inbounds nuw i8, ptr %.04648, i64 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %34, !llvm.loop !12
 
 .loopexit:                                        ; preds = %34, %8
   ret void
@@ -1138,7 +1138,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   store float %20, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit137, label %11, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit137, label %11, !llvm.loop !13
 
 .loopexit137:                                     ; preds = %11, %9
   %23 = and i32 %7, 255
@@ -1202,7 +1202,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %68, float noundef %2, float noundef %72, i32 noundef %37)
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next145, 16
-  br i1 %exitcond147.not, label %.preheader136, label %46, !llvm.loop !13
+  br i1 %exitcond147.not, label %.preheader136, label %46, !llvm.loop !14
 
 .preheader136:                                    ; preds = %46, %.preheader136
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %.preheader136 ], [ 2, %46 ]
@@ -1240,7 +1240,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   tail call void %104(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %97, float noundef %5, float noundef %101, i32 noundef %7)
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 16
-  br i1 %exitcond151.not, label %.preheader, label %.preheader136, !llvm.loop !14
+  br i1 %exitcond151.not, label %.preheader, label %.preheader136, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader136, %.preheader
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.preheader ], [ 0, %.preheader136 ]
@@ -1306,7 +1306,7 @@ define void @_Z16duAppendCylinderP11duDebugDrawffffffj(ptr noundef %0, float nou
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %157 = trunc nuw nsw i64 %indvars.iv152 to i32
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 16
-  br i1 %exitcond155.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond155.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %8
   ret void
@@ -1353,7 +1353,7 @@ define void @_Z17duDebugDrawGridXZP11duDebugDrawfffiifjf(ptr noundef %0, float n
   tail call void %26(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %15, float noundef %2, float noundef %20, i32 noundef %7)
   %27 = add nuw i32 %.04147, 1
   %exitcond.not = icmp eq i32 %.04147, %5
-  br i1 %exitcond.not, label %.preheader, label %18, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader, label %18, !llvm.loop !17
 
 28:                                               ; preds = %.lr.ph50, %28
   %.049 = phi i32 [ 0, %.lr.ph50 ], [ %37, %28 ]
@@ -1369,7 +1369,7 @@ define void @_Z17duDebugDrawGridXZP11duDebugDrawfffiifjf(ptr noundef %0, float n
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %0, float noundef %30, float noundef %2, float noundef %17, i32 noundef %7)
   %37 = add nuw i32 %.049, 1
   %exitcond51.not = icmp eq i32 %.049, %4
-  br i1 %exitcond51.not, label %._crit_edge, label %28, !llvm.loop !17
+  br i1 %exitcond51.not, label %._crit_edge, label %28, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   %38 = load ptr, ptr %0, align 8
@@ -1883,7 +1883,7 @@ define void @_ZN13duDisplayList4drawEP11duDebugDraw(ptr noundef nonnull readonly
   %33 = load i32, ptr %4, align 8
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %24, label %._crit_edge, !llvm.loop !18
+  br i1 %35, label %24, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %24, %6
   %36 = load ptr, ptr %1, align 8
@@ -1938,18 +1938,19 @@ attributes #17 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}

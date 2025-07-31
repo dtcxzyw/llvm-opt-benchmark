@@ -333,7 +333,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.i:  ; preds = %91
   %105 = icmp ult ptr %2, %.val.i
   %106 = select i1 %105, ptr %2, ptr %.val.i
   %107 = icmp ult ptr %104, %106
-  br i1 %107, label %108, label %91, !llvm.loop !11
+  br i1 %107, label %108, label %91, !llvm.loop !12
 
 108:                                              ; preds = %98
   %109 = getelementptr inbounds nuw i8, ptr %97, i64 792
@@ -507,7 +507,7 @@ _ZL47print_thread_details_for_supposed_stack_addressPKvS0_P12outputStream.exit: 
   %.2 = phi i32 [ %203, %202 ], [ %.123, %59 ]
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, 28
-  br i1 %exitcond.not, label %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit, label %59, !llvm.loop !12
+  br i1 %exitcond.not, label %_ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit, label %59, !llvm.loop !13
 
 _ZNK20CachedNMTInformation6lookupEPKvS1_.exit.thread.loopexit: ; preds = %204
   %205 = icmp sgt i32 %.2, 0
@@ -608,7 +608,7 @@ define internal fastcc void @_ZL20print_thread_detailsmPKcP12outputStream(i64 no
   %13 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 0, i64 %indvars.iv.next
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %12, %3
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #14
@@ -824,8 +824,9 @@ attributes #15 = { nounwind allocsize(1) }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZNK20CachedNMTInformation6lookupEPKvS1_: argument 0"}
 !8 = distinct !{!8, !"_ZNK20CachedNMTInformation6lookupEPKvS1_"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

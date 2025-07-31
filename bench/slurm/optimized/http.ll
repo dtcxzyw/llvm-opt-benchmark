@@ -1516,7 +1516,7 @@ _on_message_complete_request.exit.thread:         ; preds = %90, %93, %87
 
 113:                                              ; preds = %102, %108, %105, %99
   %114 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %115 = load i8, ptr %114, align 4, !range !11, !noundef !12
+  %115 = load i8, ptr %114, align 4, !range !12, !noundef !13
   %116 = trunc nuw i8 %115 to i1
   br i1 %116, label %124, label %117
 
@@ -1655,7 +1655,7 @@ define internal fastcc void @_send_reject(ptr noundef readonly captures(none) %0
 
 27:                                               ; preds = %26, %24
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %29 = load i8, ptr %28, align 4, !range !11, !noundef !12
+  %29 = load i8, ptr %28, align 4, !range !12, !noundef !13
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %35, label %31
 
@@ -2071,8 +2071,9 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = !{i8 0, i8 2}
-!12 = !{}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i8 0, i8 2}
+!13 = !{}

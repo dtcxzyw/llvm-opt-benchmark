@@ -64,7 +64,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %.1 = phi i32 [ %.3, %327 ], [ -2, %62 ]
   %.1260 = sext i8 %.1260.in to i32
   %7 = getelementptr inbounds nuw i8, ptr %.1275, i64 1
-  br label %8
+  br label %8, !llvm.loop !4
 
 8:                                                ; preds = %6, %2
   %.0286 = phi ptr [ %5, %2 ], [ %.1287, %6 ]
@@ -333,7 +333,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %109, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %.2288, i64 -16
-  %112 = load i8, ptr %111, align 8, !range !4, !noundef !5
+  %112 = load i8, ptr %111, align 8, !range !6, !noundef !7
   %113 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store i8 %112, ptr %113, align 8
   %114 = load ptr, ptr %.2288, align 8
@@ -351,7 +351,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %121 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store ptr %120, ptr %121, align 8
   %122 = getelementptr inbounds i8, ptr %.2288, i64 -24
-  %123 = load i8, ptr %122, align 8, !range !4, !noundef !5
+  %123 = load i8, ptr %122, align 8, !range !6, !noundef !7
   %124 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store i8 %123, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %.2288, i64 -8
@@ -815,5 +815,7 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i8 0, i8 2}
-!5 = !{}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}

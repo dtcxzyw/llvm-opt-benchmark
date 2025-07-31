@@ -117,7 +117,7 @@ define dso_local zeroext i1 @pg_is_ascii(ptr noundef readonly captures(none) %0)
   %3 = load i8, ptr %.0, align 1
   %or.cond = icmp sgt i8 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br i1 %or.cond, label %2, label %5, !llvm.loop !6
+  br i1 %or.cond, label %2, label %5, !llvm.loop !7
 
 5:                                                ; preds = %2
   %.not = icmp eq i8 %3, 0
@@ -150,7 +150,7 @@ define dso_local i32 @pg_strip_crlf(ptr noundef captures(none) %0) local_unnamed
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
   store i8 0, ptr %7, align 1
   %8 = icmp sgt i64 %indvars.iv, 1
-  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !7
+  br i1 %8, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph
   %9 = trunc nuw nsw i64 %indvars.iv to i32
@@ -180,7 +180,8 @@ attributes #11 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

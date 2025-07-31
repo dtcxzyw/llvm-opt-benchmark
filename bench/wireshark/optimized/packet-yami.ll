@@ -432,13 +432,13 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %86 = tail call ptr @proto_tree_add_boolean(ptr noundef %9, i32 noundef %82, ptr noundef %0, i32 noundef %84, i32 noundef 1, i64 noundef %85)
   %87 = add nuw nsw i32 %.0300347, 1
   %exitcond373.not = icmp eq i32 %87, 32
-  br i1 %exitcond373.not, label %88, label %77, !llvm.loop !10
+  br i1 %exitcond373.not, label %88, label %77, !llvm.loop !11
 
 88:                                               ; preds = %77
   %89 = add i32 %.1298349, 4
   %90 = add nuw nsw i32 %.0299348, 1
   %exitcond374.not = icmp eq i32 %90, %75
-  br i1 %exitcond374.not, label %._crit_edge352, label %.lr.ph351, !llvm.loop !11
+  br i1 %exitcond374.not, label %._crit_edge352, label %.lr.ph351, !llvm.loop !12
 
 ._crit_edge352:                                   ; preds = %88, %70
   %.1298.lcssa = phi i32 [ %74, %70 ], [ %89, %88 ]
@@ -464,7 +464,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %103 = tail call ptr @proto_tree_add_boolean(ptr noundef %9, i32 noundef %99, ptr noundef %0, i32 noundef %101, i32 noundef 1, i64 noundef %102)
   %104 = add nuw nsw i32 %.1301354, 1
   %exitcond375.not = icmp eq i32 %104, %91
-  br i1 %exitcond375.not, label %105, label %94, !llvm.loop !12
+  br i1 %exitcond375.not, label %105, label %94, !llvm.loop !13
 
 105:                                              ; preds = %94
   %106 = add i32 %.1298.lcssa, 4
@@ -494,7 +494,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %116 = add i32 %.3342, 4
   %117 = add nuw i32 %.0302341, 1
   %exitcond372.not = icmp eq i32 %117, %109
-  br i1 %exitcond372.not, label %._crit_edge345, label %.lr.ph344, !llvm.loop !13
+  br i1 %exitcond372.not, label %._crit_edge345, label %.lr.ph344, !llvm.loop !14
 
 ._crit_edge345:                                   ; preds = %.lr.ph344, %108
   %.3.lcssa = phi i32 [ %112, %108 ], [ %116, %.lr.ph344 ]
@@ -520,7 +520,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %125 = add nuw i32 %.0304335, 1
   %.4 = add i32 %.4336, 8
   %exitcond371.not = icmp eq i32 %125, %119
-  br i1 %exitcond371.not, label %._crit_edge339, label %.lr.ph338, !llvm.loop !14
+  br i1 %exitcond371.not, label %._crit_edge339, label %.lr.ph338, !llvm.loop !15
 
 ._crit_edge339:                                   ; preds = %.lr.ph338, %118
   %.4.lcssa = phi i32 [ %.4334, %118 ], [ %.4, %.lr.ph338 ]
@@ -546,7 +546,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %133 = add nuw i32 %.0305328, 1
   %.5 = add i32 %.5329, 8
   %exitcond370.not = icmp eq i32 %133, %127
-  br i1 %exitcond370.not, label %._crit_edge332, label %.lr.ph331, !llvm.loop !15
+  br i1 %exitcond370.not, label %._crit_edge332, label %.lr.ph331, !llvm.loop !16
 
 ._crit_edge332:                                   ; preds = %.lr.ph331, %126
   %.5.lcssa = phi i32 [ %.5327, %126 ], [ %.5, %.lr.ph331 ]
@@ -577,7 +577,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %147 = add i32 %146, %140
   %148 = add nuw i32 %.0306321, 1
   %exitcond369.not = icmp eq i32 %148, %135
-  br i1 %exitcond369.not, label %._crit_edge325, label %.lr.ph324, !llvm.loop !16
+  br i1 %exitcond369.not, label %._crit_edge325, label %.lr.ph324, !llvm.loop !17
 
 ._crit_edge325:                                   ; preds = %.lr.ph324, %134
   %.6.lcssa = phi i32 [ %138, %134 ], [ %147, %.lr.ph324 ]
@@ -611,7 +611,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
   %165 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %9, i32 noundef %163, ptr noundef %0, i32 noundef %.7318, i32 noundef %164, ptr noundef %156, ptr noundef nonnull @.str.59, ptr noundef %159)
   %166 = add nuw i32 %.0303317, 1
   %exitcond368.not = icmp eq i32 %166, %150
-  br i1 %exitcond368.not, label %._crit_edge, label %.lr.ph319, !llvm.loop !17
+  br i1 %exitcond368.not, label %._crit_edge, label %.lr.ph319, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph319, %149
   %.7.lcssa = phi i32 [ %153, %149 ], [ %162, %.lr.ph319 ]
@@ -630,7 +630,7 @@ define internal fastcc i32 @dissect_yami_parameter(ptr noundef %0, ptr noundef %
 172:                                              ; preds = %.lr.ph
   %173 = add nuw i32 %.0295316, 1
   %exitcond.not = icmp eq i32 %173, %168
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %167, %172
   %.0295316 = phi i32 [ %173, %172 ], [ 0, %167 ]
@@ -702,14 +702,15 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

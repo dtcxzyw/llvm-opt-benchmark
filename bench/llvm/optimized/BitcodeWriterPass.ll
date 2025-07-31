@@ -60,7 +60,7 @@ define dso_local void @_ZN4llvm17BitcodeWriterPass3runERNS_6ModuleERNS_15Analysi
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i, i64 8
   %.sroa.04.0.i12.i.i = load ptr, ptr %15, align 8, !tbaa !104
   %.not.i13.i.i = icmp eq ptr %.sroa.04.0.i12.i.i, %13
-  br i1 %.not.i13.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i
+  br i1 %.not.i13.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i, !llvm.loop !105
 
 _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread: ; preds = %.lr.ph.i10.i.i, %11
   store i8 0, ptr %5, align 8, !tbaa !3
@@ -76,7 +76,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
 
 18:                                               ; preds = %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, %17, %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !105, !range !102, !noundef !103
+  %20 = load i8, ptr %19, align 1, !tbaa !107, !range !102, !noundef !103
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %25
 
@@ -87,36 +87,36 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
 
 25:                                               ; preds = %18, %22
   %26 = phi ptr [ %24, %22 ], [ null, %18 ]
-  %27 = load ptr, ptr %1, align 8, !tbaa !108
+  %27 = load ptr, ptr %1, align 8, !tbaa !110
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %29 = load i8, ptr %28, align 8, !tbaa !109, !range !102, !noundef !103
+  %29 = load i8, ptr %28, align 8, !tbaa !111, !range !102, !noundef !103
   %30 = trunc nuw i8 %29 to i1
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %32 = load i8, ptr %31, align 2, !tbaa !110, !range !102, !noundef !103
+  %32 = load i8, ptr %31, align 2, !tbaa !112, !range !102, !noundef !103
   %33 = trunc nuw i8 %32 to i1
   tail call void @_ZN4llvm18WriteBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamEbPKNS_18ModuleSummaryIndexEbPSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(48) %27, i1 noundef zeroext %30, ptr noundef %26, i1 noundef zeroext %33, ptr noundef null) #12
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !111, !alias.scope !113
+  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !113, !alias.scope !115
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %34, align 8, !tbaa !116, !alias.scope !113
+  store i32 2, ptr %34, align 8, !tbaa !118, !alias.scope !115
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %36, align 8, !tbaa !117, !alias.scope !113
+  store i32 0, ptr %36, align 8, !tbaa !119, !alias.scope !115
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %37, align 4, !tbaa !118, !alias.scope !113
+  store i8 1, ptr %37, align 4, !tbaa !120, !alias.scope !115
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %39, ptr %38, align 8, !tbaa !111, !alias.scope !113
+  store ptr %39, ptr %38, align 8, !tbaa !113, !alias.scope !115
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %40, align 8, !tbaa !116, !alias.scope !113
+  store i32 2, ptr %40, align 8, !tbaa !118, !alias.scope !115
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %41, align 4, !tbaa !119, !alias.scope !113
+  store i32 0, ptr %41, align 4, !tbaa !121, !alias.scope !115
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %42, align 8, !tbaa !117, !alias.scope !113
+  store i32 0, ptr %42, align 8, !tbaa !119, !alias.scope !115
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %43, align 4, !tbaa !118, !alias.scope !113
-  store i32 1, ptr %35, align 4, !tbaa !119, !alias.scope !113, !noalias !120
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !123, !alias.scope !113, !noalias !120
+  store i8 1, ptr %43, align 4, !tbaa !120, !alias.scope !115
+  store i32 1, ptr %35, align 4, !tbaa !121, !alias.scope !115, !noalias !122
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !125, !alias.scope !115, !noalias !122
   %.not.i.i9 = xor i1 %7, true
   %44 = load i8, ptr %5, align 8, !range !102
   %45 = trunc nuw i8 %44 to i1
@@ -137,7 +137,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i14, i64 8
   %.sroa.04.0.i.i.i15 = load ptr, ptr %50, align 8, !tbaa !104
   %.not.i.i.i16 = icmp eq ptr %.sroa.04.0.i.i.i15, %48
-  br i1 %.not.i.i.i16, label %.sink.split.i.i17, label %.lr.ph.i.i.i13
+  br i1 %.not.i.i.i16, label %.sink.split.i.i17, label %.lr.ph.i.i.i13, !llvm.loop !126
 
 51:                                               ; preds = %25
   %or.cond7.i.i19 = select i1 %.not.i.i9, i1 %45, i1 false
@@ -157,7 +157,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %4
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i23, i64 8
   %.sroa.04.0.i12.i.i24 = load ptr, ptr %56, align 8, !tbaa !104
   %.not.i13.i.i25 = icmp eq ptr %.sroa.04.0.i12.i.i24, %54
-  br i1 %.not.i13.i.i25, label %.sink.split.i.i17, label %.lr.ph.i10.i.i22
+  br i1 %.not.i13.i.i25, label %.sink.split.i.i17, label %.lr.ph.i10.i.i22, !llvm.loop !105
 
 .sink.split.i.i17:                                ; preds = %.lr.ph.i.i.i13, %.lr.ph.i10.i.i22, %52, %46
   %.sink.i.i18 = phi i8 [ 1, %46 ], [ 0, %52 ], [ 0, %.lr.ph.i10.i.i22 ], [ 1, %.lr.ph.i.i.i13 ]
@@ -185,13 +185,13 @@ define dso_local void @_ZN4llvm30initializeWriteBitcodePassPassERNS_12PassRegist
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr %0, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
-  store ptr @_ZL34initializeWriteBitcodePassPassOnceRN4llvm12PassRegistryE, ptr %2, align 8, !tbaa !123
+  store ptr @_ZL34initializeWriteBitcodePassPassOnceRN4llvm12PassRegistryE, ptr %2, align 8, !tbaa !125
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %3, ptr %4, align 8, !tbaa !124
+  store ptr %3, ptr %4, align 8, !tbaa !127
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  store ptr %2, ptr %5, align 8, !tbaa !123
+  store ptr %2, ptr %5, align 8, !tbaa !125
   %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
-  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8, !tbaa !123
+  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %6, align 8, !tbaa !125
   %7 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL34InitializeWriteBitcodePassPassFlag, ptr noundef nonnull @__once_proxy) #12
   %.not.i.i = icmp eq i32 %7, 0
   br i1 %.not.i.i, label %_ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit, label %8
@@ -201,8 +201,8 @@ define dso_local void @_ZN4llvm30initializeWriteBitcodePassPassERNS_12PassRegist
   unreachable
 
 _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9once_flagOT_DpOT0_.exit: ; preds = %1
-  store ptr null, ptr %5, align 8, !tbaa !123
-  store ptr null, ptr %6, align 8, !tbaa !123
+  store ptr null, ptr %5, align 8, !tbaa !125
+  store ptr null, ptr %6, align 8, !tbaa !125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret void
@@ -212,21 +212,21 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL34initializeWriteBitcodePassPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   tail call void @_ZN4llvm43initializeModuleSummaryIndexWrapperPassPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #12
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #14
-  store ptr @.str, ptr %2, align 8, !tbaa !126
+  store ptr @.str, ptr %2, align 8, !tbaa !129
   %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 13, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !127
+  store i64 13, ptr %.sroa.25.0..sroa_idx.i, align 8, !tbaa !130
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr @.str.1, ptr %3, align 8, !tbaa !126
+  store ptr @.str.1, ptr %3, align 8, !tbaa !129
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 13, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !127
+  store i64 13, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !130
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %4, align 8, !tbaa !128
+  store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %4, align 8, !tbaa !131
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i8 0, ptr %5, align 8, !tbaa !131
+  store i8 0, ptr %5, align 8, !tbaa !134
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 41
-  store i8 1, ptr %6, align 1, !tbaa !132
+  store i8 1, ptr %6, align 1, !tbaa !135
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_116WriteBitcodePassETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv, ptr %7, align 8, !tbaa !133
+  store ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_116WriteBitcodePassETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv, ptr %7, align 8, !tbaa !136
   tail call void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i1 noundef zeroext true) #12
   ret ptr %2
 }
@@ -238,27 +238,27 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm23createBitcodeWriterPassE
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14
   %6 = zext i1 %1 to i8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %7, align 8, !tbaa !134
+  store ptr null, ptr %7, align 8, !tbaa !137
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %8, align 8, !tbaa !138
+  store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %8, align 8, !tbaa !141
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 4, ptr %9, align 8, !tbaa !139
-  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %5, align 8, !tbaa !140
+  store i32 4, ptr %9, align 8, !tbaa !142
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %5, align 8, !tbaa !143
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %0, ptr %10, align 8, !tbaa !142
+  store ptr %0, ptr %10, align 8, !tbaa !145
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i8 %6, ptr %11, align 8, !tbaa !143
+  store i8 %6, ptr %11, align 8, !tbaa !146
   %12 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
   store ptr %12, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
-  store ptr @_ZL34initializeWriteBitcodePassPassOnceRN4llvm12PassRegistryE, ptr %3, align 8, !tbaa !123
+  store ptr @_ZL34initializeWriteBitcodePassPassOnceRN4llvm12PassRegistryE, ptr %3, align 8, !tbaa !125
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %4, ptr %13, align 8, !tbaa !124
+  store ptr %4, ptr %13, align 8, !tbaa !127
   %14 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  store ptr %3, ptr %14, align 8, !tbaa !123
+  store ptr %3, ptr %14, align 8, !tbaa !125
   %15 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
-  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !123
+  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %15, align 8, !tbaa !125
   %16 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL34InitializeWriteBitcodePassPassFlag, ptr noundef nonnull @__once_proxy) #12
   %.not.i.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_116WriteBitcodePassC2ERN4llvm11raw_ostreamEb.exit, label %17
@@ -268,8 +268,8 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm23createBitcodeWriterPassE
   unreachable
 
 _ZN12_GLOBAL__N_116WriteBitcodePassC2ERN4llvm11raw_ostreamEb.exit: ; preds = %2
-  store ptr null, ptr %14, align 8, !tbaa !123
-  store ptr null, ptr %15, align 8, !tbaa !123
+  store ptr null, ptr %14, align 8, !tbaa !125
+  store ptr null, ptr %15, align 8, !tbaa !125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   ret ptr %5
@@ -281,7 +281,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm19isBitcodeWriterPassEPNS_4PassE(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !138
+  %3 = load ptr, ptr %2, align 8, !tbaa !141
   %4 = icmp eq ptr %3, @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE
   ret i1 %4
 }
@@ -294,26 +294,26 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   %2 = alloca %"class.std::reference_wrapper", align 8
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %4, align 8, !tbaa !134
+  store ptr null, ptr %4, align 8, !tbaa !137
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %5, align 8, !tbaa !138
+  store ptr @_ZN12_GLOBAL__N_116WriteBitcodePass2IDE, ptr %5, align 8, !tbaa !141
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 4, ptr %6, align 8, !tbaa !139
-  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %3, align 8, !tbaa !140
+  store i32 4, ptr %6, align 8, !tbaa !142
+  store ptr getelementptr inbounds nuw inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_116WriteBitcodePassE, i64 16), ptr %3, align 8, !tbaa !143
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() #12
-  store ptr %8, ptr %7, align 8, !tbaa !142
+  store ptr %8, ptr %7, align 8, !tbaa !145
   %9 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store ptr %9, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #12
-  store ptr @_ZL34initializeWriteBitcodePassPassOnceRN4llvm12PassRegistryE, ptr %1, align 8, !tbaa !123
+  store ptr @_ZL34initializeWriteBitcodePassPassOnceRN4llvm12PassRegistryE, ptr %1, align 8, !tbaa !125
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %2, ptr %10, align 8, !tbaa !124
+  store ptr %2, ptr %10, align 8, !tbaa !127
   %11 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  store ptr %1, ptr %11, align 8, !tbaa !123
+  store ptr %1, ptr %11, align 8, !tbaa !125
   %12 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
-  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !123
+  store ptr @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv, ptr %12, align 8, !tbaa !125
   %13 = call noundef i32 @pthread_once(ptr noundef nonnull align 4 dereferenceable(4) @_ZL34InitializeWriteBitcodePassPassFlag, ptr noundef nonnull @__once_proxy) #12
   %.not.i.i.i.i = icmp eq i32 %13, 0
   br i1 %.not.i.i.i.i, label %_ZN12_GLOBAL__N_116WriteBitcodePassC2Ev.exit, label %14
@@ -323,8 +323,8 @@ define internal noalias noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBA
   unreachable
 
 _ZN12_GLOBAL__N_116WriteBitcodePassC2Ev.exit:     ; preds = %0
-  store ptr null, ptr %11, align 8, !tbaa !123
-  store ptr null, ptr %12, align 8, !tbaa !123
+  store ptr null, ptr %11, align 8, !tbaa !125
+  store ptr null, ptr %12, align 8, !tbaa !125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
   ret ptr %3
@@ -374,7 +374,7 @@ declare noundef i32 @_ZNK4llvm10ModulePass27getPotentialPassManagerTypeEv(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZNK12_GLOBAL__N_116WriteBitcodePass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  store i8 1, ptr %3, align 8, !tbaa !146
+  store i8 1, ptr %3, align 8, !tbaa !149
   ret void
 }
 
@@ -415,7 +415,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116WriteBitcodePass11runOnMo
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i, i64 8
   %.sroa.04.0.i12.i.i = load ptr, ptr %13, align 8, !tbaa !104
   %.not.i13.i.i = icmp eq ptr %.sroa.04.0.i12.i.i, %11
-  br i1 %.not.i13.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i
+  br i1 %.not.i13.i.i, label %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, label %.lr.ph.i10.i.i, !llvm.loop !105
 
 _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread: ; preds = %.lr.ph.i10.i.i, %9
   store i8 0, ptr %3, align 8, !tbaa !3
@@ -431,9 +431,9 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %2
 
 16:                                               ; preds = %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit.thread, %15, %_ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !156
+  %18 = load ptr, ptr %17, align 8, !tbaa !159
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i8, ptr %19, align 8, !tbaa !143, !range !102, !noundef !103
+  %20 = load i8, ptr %19, align 8, !tbaa !146, !range !102, !noundef !103
   %21 = trunc nuw i8 %20 to i1
   tail call void @_ZN4llvm18WriteBitcodeToFileERKNS_6ModuleERNS_11raw_ostreamEbPKNS_18ModuleSummaryIndexEbPSt5arrayIjLm5EE(ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(48) %18, i1 noundef zeroext %21, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #12
   %.not.i.i6 = xor i1 %5, true
@@ -456,7 +456,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %2
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i.i.i11, i64 8
   %.sroa.04.0.i.i.i12 = load ptr, ptr %28, align 8, !tbaa !104
   %.not.i.i.i13 = icmp eq ptr %.sroa.04.0.i.i.i12, %26
-  br i1 %.not.i.i.i13, label %.sink.split.i.i14, label %.lr.ph.i.i.i10
+  br i1 %.not.i.i.i13, label %.sink.split.i.i14, label %.lr.ph.i.i.i10, !llvm.loop !126
 
 29:                                               ; preds = %16
   %or.cond7.i.i16 = select i1 %.not.i.i6, i1 %23, i1 false
@@ -476,7 +476,7 @@ _ZN4llvm25ScopedDbgInfoFormatSetterINS_6ModuleEEC2ERS1_b.exit: ; preds = %2
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.04.09.i11.i.i20, i64 8
   %.sroa.04.0.i12.i.i21 = load ptr, ptr %34, align 8, !tbaa !104
   %.not.i13.i.i22 = icmp eq ptr %.sroa.04.0.i12.i.i21, %32
-  br i1 %.not.i13.i.i22, label %.sink.split.i.i14, label %.lr.ph.i10.i.i19
+  br i1 %.not.i13.i.i22, label %.sink.split.i.i14, label %.lr.ph.i10.i.i19, !llvm.loop !105
 
 .sink.split.i.i14:                                ; preds = %.lr.ph.i.i.i10, %.lr.ph.i10.i.i19, %30, %24
   %.sink.i.i15 = phi i8 [ 1, %24 ], [ 0, %30 ], [ 0, %.lr.ph.i10.i.i19 ], [ 1, %.lr.ph.i.i.i10 ]
@@ -507,11 +507,11 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #6 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
-  %2 = load ptr, ptr %1, align 8, !tbaa !123
-  %3 = load ptr, ptr %2, align 8, !tbaa !157
+  %2 = load ptr, ptr %1, align 8, !tbaa !125
+  %3 = load ptr, ptr %2, align 8, !tbaa !160
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !159
-  %6 = load ptr, ptr %5, align 8, !tbaa !160
+  %5 = load ptr, ptr %4, align 8, !tbaa !162
+  %6 = load ptr, ptr %5, align 8, !tbaa !163
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #12
   ret void
 }
@@ -642,61 +642,64 @@ attributes #15 = { builtin nounwind }
 !102 = !{i8 0, i8 2}
 !103 = !{}
 !104 = !{!15, !16, i64 8}
-!105 = !{!106, !68, i64 9}
-!106 = !{!"_ZTSN4llvm17BitcodeWriterPassE", !107, i64 0, !68, i64 8, !68, i64 9, !68, i64 10}
-!107 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !6, i64 0}
-!108 = !{!106, !107, i64 0}
-!109 = !{!106, !68, i64 8}
-!110 = !{!106, !68, i64 10}
-!111 = !{!112, !6, i64 0}
-!112 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !6, i64 0, !51, i64 8, !51, i64 12, !51, i64 16, !68, i64 20}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
-!115 = distinct !{!115, !"_ZN4llvm17PreservedAnalyses3allEv"}
-!116 = !{!112, !51, i64 8}
-!117 = !{!112, !51, i64 16}
-!118 = !{!112, !68, i64 20}
-!119 = !{!112, !51, i64 12}
-!120 = !{!121}
-!121 = distinct !{!121, !122, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
-!122 = distinct !{!122, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
-!123 = !{!6, !6, i64 0}
-!124 = !{!125, !125, i64 0}
-!125 = !{!"p1 _ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !6, i64 0}
-!126 = !{!39, !39, i64 0}
-!127 = !{!40, !40, i64 0}
-!128 = !{!129, !6, i64 32}
-!129 = !{!"_ZTSN4llvm8PassInfoE", !130, i64 0, !130, i64 16, !6, i64 32, !68, i64 40, !68, i64 41, !6, i64 48}
-!130 = !{!"_ZTSN4llvm9StringRefE", !39, i64 0, !40, i64 8}
-!131 = !{!129, !68, i64 40}
-!132 = !{!129, !68, i64 41}
-!133 = !{!129, !6, i64 48}
-!134 = !{!135, !136, i64 8}
-!135 = !{!"_ZTSN4llvm4PassE", !136, i64 8, !6, i64 16, !137, i64 24}
-!136 = !{!"p1 _ZTSN4llvm16AnalysisResolverE", !6, i64 0}
-!137 = !{!"_ZTSN4llvm8PassKindE", !7, i64 0}
-!138 = !{!135, !6, i64 16}
-!139 = !{!135, !137, i64 24}
-!140 = !{!141, !141, i64 0}
-!141 = !{!"vtable pointer", !8, i64 0}
-!142 = !{!107, !107, i64 0}
-!143 = !{!144, !68, i64 40}
-!144 = !{!"_ZTSN12_GLOBAL__N_116WriteBitcodePassE", !145, i64 0, !107, i64 32, !68, i64 40}
-!145 = !{!"_ZTSN4llvm10ModulePassE", !135, i64 0}
-!146 = !{!147, !68, i64 160}
-!147 = !{!"_ZTSN4llvm13AnalysisUsageE", !148, i64 0, !153, i64 80, !153, i64 112, !155, i64 144, !68, i64 160}
-!148 = !{!"_ZTSN4llvm11SmallVectorIPKvLj8EEE", !149, i64 0, !152, i64 16}
-!149 = !{!"_ZTSN4llvm15SmallVectorImplIPKvEE", !150, i64 0}
-!150 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKvLb1EEE", !151, i64 0}
-!151 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKvvEE", !86, i64 0}
-!152 = !{!"_ZTSN4llvm18SmallVectorStorageIPKvLj8EEE", !7, i64 0}
-!153 = !{!"_ZTSN4llvm11SmallVectorIPKvLj2EEE", !149, i64 0, !154, i64 16}
-!154 = !{!"_ZTSN4llvm18SmallVectorStorageIPKvLj2EEE", !7, i64 0}
-!155 = !{!"_ZTSN4llvm11SmallVectorIPKvLj0EEE", !149, i64 0}
-!156 = !{!144, !107, i64 32}
-!157 = !{!158, !6, i64 0}
-!158 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !125, i64 8}
-!159 = !{!158, !125, i64 8}
-!160 = !{!161, !162, i64 0}
-!161 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !162, i64 0}
-!162 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}
+!105 = distinct !{!105, !106}
+!106 = !{!"llvm.loop.estimated_trip_count"}
+!107 = !{!108, !68, i64 9}
+!108 = !{!"_ZTSN4llvm17BitcodeWriterPassE", !109, i64 0, !68, i64 8, !68, i64 9, !68, i64 10}
+!109 = !{!"p1 _ZTSN4llvm11raw_ostreamE", !6, i64 0}
+!110 = !{!108, !109, i64 0}
+!111 = !{!108, !68, i64 8}
+!112 = !{!108, !68, i64 10}
+!113 = !{!114, !6, i64 0}
+!114 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !6, i64 0, !51, i64 8, !51, i64 12, !51, i64 16, !68, i64 20}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
+!117 = distinct !{!117, !"_ZN4llvm17PreservedAnalyses3allEv"}
+!118 = !{!114, !51, i64 8}
+!119 = !{!114, !51, i64 16}
+!120 = !{!114, !68, i64 20}
+!121 = !{!114, !51, i64 12}
+!122 = !{!123}
+!123 = distinct !{!123, !124, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
+!124 = distinct !{!124, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
+!125 = !{!6, !6, i64 0}
+!126 = distinct !{!126, !106}
+!127 = !{!128, !128, i64 0}
+!128 = !{!"p1 _ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !6, i64 0}
+!129 = !{!39, !39, i64 0}
+!130 = !{!40, !40, i64 0}
+!131 = !{!132, !6, i64 32}
+!132 = !{!"_ZTSN4llvm8PassInfoE", !133, i64 0, !133, i64 16, !6, i64 32, !68, i64 40, !68, i64 41, !6, i64 48}
+!133 = !{!"_ZTSN4llvm9StringRefE", !39, i64 0, !40, i64 8}
+!134 = !{!132, !68, i64 40}
+!135 = !{!132, !68, i64 41}
+!136 = !{!132, !6, i64 48}
+!137 = !{!138, !139, i64 8}
+!138 = !{!"_ZTSN4llvm4PassE", !139, i64 8, !6, i64 16, !140, i64 24}
+!139 = !{!"p1 _ZTSN4llvm16AnalysisResolverE", !6, i64 0}
+!140 = !{!"_ZTSN4llvm8PassKindE", !7, i64 0}
+!141 = !{!138, !6, i64 16}
+!142 = !{!138, !140, i64 24}
+!143 = !{!144, !144, i64 0}
+!144 = !{!"vtable pointer", !8, i64 0}
+!145 = !{!109, !109, i64 0}
+!146 = !{!147, !68, i64 40}
+!147 = !{!"_ZTSN12_GLOBAL__N_116WriteBitcodePassE", !148, i64 0, !109, i64 32, !68, i64 40}
+!148 = !{!"_ZTSN4llvm10ModulePassE", !138, i64 0}
+!149 = !{!150, !68, i64 160}
+!150 = !{!"_ZTSN4llvm13AnalysisUsageE", !151, i64 0, !156, i64 80, !156, i64 112, !158, i64 144, !68, i64 160}
+!151 = !{!"_ZTSN4llvm11SmallVectorIPKvLj8EEE", !152, i64 0, !155, i64 16}
+!152 = !{!"_ZTSN4llvm15SmallVectorImplIPKvEE", !153, i64 0}
+!153 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseIPKvLb1EEE", !154, i64 0}
+!154 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonIPKvvEE", !86, i64 0}
+!155 = !{!"_ZTSN4llvm18SmallVectorStorageIPKvLj8EEE", !7, i64 0}
+!156 = !{!"_ZTSN4llvm11SmallVectorIPKvLj2EEE", !152, i64 0, !157, i64 16}
+!157 = !{!"_ZTSN4llvm18SmallVectorStorageIPKvLj2EEE", !7, i64 0}
+!158 = !{!"_ZTSN4llvm11SmallVectorIPKvLj0EEE", !152, i64 0}
+!159 = !{!147, !109, i64 32}
+!160 = !{!161, !6, i64 0}
+!161 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !6, i64 0, !128, i64 8}
+!162 = !{!161, !128, i64 8}
+!163 = !{!164, !165, i64 0}
+!164 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !165, i64 0}
+!165 = !{!"p1 _ZTSN4llvm12PassRegistryE", !6, i64 0}

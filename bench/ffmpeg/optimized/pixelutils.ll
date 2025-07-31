@@ -56,7 +56,7 @@ define internal i32 @block_sad_2x2_c(ptr noundef readonly captures(none) %0, i64
 17:                                               ; preds = %6
   %18 = getelementptr inbounds i8, ptr %.017.i6, i64 %1
   %19 = getelementptr inbounds i8, ptr %.018.i5, i64 %3
-  br i1 %5, label %.preheader, label %sad_wxh.exit, !llvm.loop !11
+  br i1 %5, label %.preheader, label %sad_wxh.exit, !llvm.loop !12
 
 sad_wxh.exit:                                     ; preds = %17
   ret i32 %16
@@ -94,7 +94,7 @@ define internal i32 @block_sad_4x4_c(ptr noundef readonly captures(none) %0, i64
   %17 = getelementptr inbounds i8, ptr %.018.i5, i64 %3
   %18 = add nuw nsw i32 %.015.i7, 1
   %exitcond10.not = icmp eq i32 %18, 4
-  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !12
 
 sad_wxh.exit:                                     ; preds = %15
   ret i32 %14
@@ -132,7 +132,7 @@ define internal i32 @block_sad_8x8_c(ptr noundef readonly captures(none) %0, i64
   %17 = getelementptr inbounds i8, ptr %.018.i5, i64 %3
   %18 = add nuw nsw i32 %.015.i7, 1
   %exitcond10.not = icmp eq i32 %18, 8
-  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !12
 
 sad_wxh.exit:                                     ; preds = %15
   ret i32 %14
@@ -170,7 +170,7 @@ define internal i32 @block_sad_16x16_c(ptr noundef readonly captures(none) %0, i
   %17 = getelementptr inbounds i8, ptr %.018.i5, i64 %3
   %18 = add nuw nsw i32 %.015.i7, 1
   %exitcond10.not = icmp eq i32 %18, 16
-  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !12
 
 sad_wxh.exit:                                     ; preds = %15
   ret i32 %14
@@ -208,7 +208,7 @@ define internal i32 @block_sad_32x32_c(ptr noundef readonly captures(none) %0, i
   %17 = getelementptr inbounds i8, ptr %.018.i5, i64 %3
   %18 = add nuw nsw i32 %.015.i7, 1
   %exitcond10.not = icmp eq i32 %18, 32
-  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond10.not, label %sad_wxh.exit, label %.preheader, !llvm.loop !12
 
 sad_wxh.exit:                                     ; preds = %15
   ret i32 %14
@@ -232,6 +232,7 @@ attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

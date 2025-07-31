@@ -1830,5 +1830,6 @@ attributes #12 = { builtin nounwind }
 !82 = !{!83}
 !83 = distinct !{!83, !84, !"_ZN4llvm5APInt7getZeroEj: argument 0"}
 !84 = distinct !{!84, !"_ZN4llvm5APInt7getZeroEj"}
-!85 = distinct !{!85, !86}
+!85 = distinct !{!85, !86, !87}
 !86 = !{!"llvm.loop.mustprogress"}
+!87 = !{!"llvm.loop.estimated_trip_count"}

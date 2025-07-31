@@ -440,7 +440,7 @@ define internal fastcc ptr @search_plan_tree(ptr noundef readonly captures(addre
   %24 = load i32, ptr %7, align 8
   %25 = sext i32 %24 to i64
   %.not41 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %.not41, label %17, label %.loopexit, !llvm.loop !8
+  br i1 %.not41, label %17, label %.loopexit, !llvm.loop !9
 
 26:                                               ; preds = %5
   br label %.loopexit.sink.split
@@ -498,6 +498,7 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

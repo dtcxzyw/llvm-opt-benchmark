@@ -117,7 +117,7 @@ define ptr @evp_get_cipherbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
   %13 = tail call i32 @ERR_pop_to_mark() #3
   %14 = tail call i32 @ossl_namemap_name2num(ptr noundef %8, ptr noundef %1) #3
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.critedge, label %._crit_edge
+  br i1 %15, label %.critedge, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.lcssa = phi i32 [ %9, %7 ], [ %14, %.lr.ph ]
@@ -182,7 +182,7 @@ define ptr @evp_get_digestbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
 
 5:                                                ; preds = %2
   %6 = tail call ptr @OBJ_NAME_get(ptr noundef %1, i32 noundef 1) #3
-  store ptr %6, ptr %3, align 8, !tbaa !18
+  store ptr %6, ptr %3, align 8, !tbaa !20
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %7, label %.critedge
 
@@ -199,7 +199,7 @@ define ptr @evp_get_digestbyname_ex(ptr noundef %0, ptr noundef %1) local_unname
   %13 = tail call i32 @ERR_pop_to_mark() #3
   %14 = tail call i32 @ossl_namemap_name2num(ptr noundef %8, ptr noundef %1) #3
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.critedge, label %._crit_edge
+  br i1 %15, label %.critedge, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %.lcssa = phi i32 [ %9, %7 ], [ %14, %.lr.ph ]
@@ -221,13 +221,13 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @digest_from_name(ptr noundef %0, ptr noundef captures(none) %1) #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !18
+  %3 = load ptr, ptr %1, align 8, !tbaa !20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %6
 
 4:                                                ; preds = %2
   %5 = tail call ptr @OBJ_NAME_get(ptr noundef %0, i32 noundef 1) #3
-  store ptr %5, ptr %1, align 8, !tbaa !18
+  store ptr %5, ptr %1, align 8, !tbaa !20
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -260,8 +260,8 @@ define void @EVP_CIPHER_do_all(ptr noundef %0, ptr noundef %1) local_unnamed_add
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 4, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !20
-  store ptr %1, ptr %3, align 8, !tbaa !22
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %3, align 8, !tbaa !25
   call void @OBJ_NAME_do_all(i32 noundef 2, ptr noundef nonnull @do_all_cipher_fn, ptr noundef nonnull %3) #3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
   ret void
@@ -272,26 +272,26 @@ declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal void @do_all_cipher_fn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !23
+  %4 = load i32, ptr %3, align 4, !tbaa !26
   %.not = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %7 = load ptr, ptr %1, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %7 = load ptr, ptr %1, align 8, !tbaa !25
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   tail call void %6(ptr noundef null, ptr noundef %10, ptr noundef %12, ptr noundef %7) #3
   br label %18
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
   tail call void %6(ptr noundef %15, ptr noundef %17, ptr noundef null, ptr noundef %7) #3
   br label %18
 
@@ -305,8 +305,8 @@ define void @EVP_CIPHER_do_all_sorted(ptr noundef %0, ptr noundef %1) local_unna
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 4, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !20
-  store ptr %1, ptr %3, align 8, !tbaa !22
+  store ptr %0, ptr %5, align 8, !tbaa !23
+  store ptr %1, ptr %3, align 8, !tbaa !25
   call void @OBJ_NAME_do_all_sorted(i32 noundef 2, ptr noundef nonnull @do_all_cipher_fn, ptr noundef nonnull %3) #3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
   ret void
@@ -320,8 +320,8 @@ define void @EVP_MD_do_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 8, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !27
-  store ptr %1, ptr %3, align 8, !tbaa !29
+  store ptr %0, ptr %5, align 8, !tbaa !30
+  store ptr %1, ptr %3, align 8, !tbaa !32
   call void @OBJ_NAME_do_all(i32 noundef 1, ptr noundef nonnull @do_all_md_fn, ptr noundef nonnull %3) #3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
   ret void
@@ -330,26 +330,26 @@ define void @EVP_MD_do_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define internal void @do_all_md_fn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !23
+  %4 = load i32, ptr %3, align 4, !tbaa !26
   %.not = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !27
-  %7 = load ptr, ptr %1, align 8, !tbaa !29
+  %6 = load ptr, ptr %5, align 8, !tbaa !30
+  %7 = load ptr, ptr %1, align 8, !tbaa !32
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !29
   tail call void %6(ptr noundef null, ptr noundef %10, ptr noundef %12, ptr noundef %7) #3
   br label %18
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %17 = load ptr, ptr %16, align 8, !tbaa !28
   tail call void %6(ptr noundef %15, ptr noundef %17, ptr noundef null, ptr noundef %7) #3
   br label %18
 
@@ -363,8 +363,8 @@ define void @EVP_MD_do_all_sorted(ptr noundef %0, ptr noundef %1) local_unnamed_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #3
   %4 = tail call i32 @OPENSSL_init_crypto(i64 noundef 8, ptr noundef null) #3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %0, ptr %5, align 8, !tbaa !27
-  store ptr %1, ptr %3, align 8, !tbaa !29
+  store ptr %0, ptr %5, align 8, !tbaa !30
+  store ptr %1, ptr %3, align 8, !tbaa !32
   call void @OBJ_NAME_do_all_sorted(i32 noundef 1, ptr noundef nonnull @do_all_md_fn, ptr noundef nonnull %3) #3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
   ret void
@@ -395,15 +395,18 @@ attributes #3 = { nounwind }
 !15 = !{!14, !5, i64 4}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 _ZTS13evp_cipher_st", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 _ZTS9evp_md_st", !9, i64 0}
-!20 = !{!21, !9, i64 8}
-!21 = !{!"doall_cipher", !9, i64 0, !9, i64 8}
-!22 = !{!21, !9, i64 0}
-!23 = !{!24, !5, i64 4}
-!24 = !{!"obj_name_st", !5, i64 0, !5, i64 4, !10, i64 8, !10, i64 16}
-!25 = !{!24, !10, i64 8}
-!26 = !{!24, !10, i64 16}
-!27 = !{!28, !9, i64 8}
-!28 = !{!"doall_md", !9, i64 0, !9, i64 8}
-!29 = !{!28, !9, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 _ZTS9evp_md_st", !9, i64 0}
+!22 = distinct !{!22, !19}
+!23 = !{!24, !9, i64 8}
+!24 = !{!"doall_cipher", !9, i64 0, !9, i64 8}
+!25 = !{!24, !9, i64 0}
+!26 = !{!27, !5, i64 4}
+!27 = !{!"obj_name_st", !5, i64 0, !5, i64 4, !10, i64 8, !10, i64 16}
+!28 = !{!27, !10, i64 8}
+!29 = !{!27, !10, i64 16}
+!30 = !{!31, !9, i64 8}
+!31 = !{!"doall_md", !9, i64 0, !9, i64 8}
+!32 = !{!31, !9, i64 0}

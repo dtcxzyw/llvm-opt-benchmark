@@ -212,7 +212,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %12, align 4, !tbaa !3
   %.not170.not = icmp slt i32 %92, %43
-  br i1 %.not170.not, label %52, label %._crit_edge202, !llvm.loop !11
+  br i1 %.not170.not, label %52, label %._crit_edge202, !llvm.loop !12
 
 ._crit_edge202:                                   ; preds = %91, %._crit_edge.thread, %._crit_edge
   %94 = call double @dlarnd_(ptr noundef nonnull @c__3, ptr noundef %6) #5
@@ -250,7 +250,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dscal_(ptr noundef nonnull %3, ptr noundef nonnull %gep224, ptr noundef %gep226, ptr noundef nonnull %5) #5
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %.not171.not = icmp samesign ult i64 %indvars.iv215, %107
-  br i1 %.not171.not, label %.lr.ph206, label %.loopexit186, !llvm.loop !12
+  br i1 %.not171.not, label %.lr.ph206, label %.loopexit186, !llvm.loop !13
 
 .loopexit186:                                     ; preds = %.lr.ph206, %103, %._crit_edge202
   %or.cond7 = or i1 %.ph, %.ph178
@@ -278,7 +278,7 @@ define void @dlaror_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @dscal_(ptr noundef nonnull %2, ptr noundef nonnull %gep228, ptr noundef %gep208, ptr noundef nonnull @c__1) #5
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
   %.not172.not = icmp samesign ult i64 %indvars.iv218, %112
-  br i1 %.not172.not, label %.lr.ph212, label %.loopexit, !llvm.loop !13
+  br i1 %.not172.not, label %.lr.ph212, label %.loopexit, !llvm.loop !14
 
 .loopexit.sink.split:                             ; preds = %.thread183, %78
   %.sink230 = phi ptr [ %8, %78 ], [ %10, %.thread183 ]
@@ -338,8 +338,9 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

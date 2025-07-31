@@ -21,7 +21,7 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h5dd7380631747930E
   %7 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17hf8e9b6b1bd63531eE(ptr align 8 %0)
   %8 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor5first17h395642da603f25e6E(ptr align 8 %0)
   %9 = call zeroext i1 @"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner28_$u7b$$u7b$closure$u7d$$u7d$17hb0404fe983f7495cE"(ptr nonnull align 1 %2, i32 %8)
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !3
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -42,7 +42,7 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17h5e447841057d2c8eE
   %7 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17hf8e9b6b1bd63531eE(ptr align 8 %0)
   %8 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor5first17h395642da603f25e6E(ptr align 8 %0)
   %9 = call zeroext i1 @"_ZN18ruff_python_trivia9tokenizer15SimpleTokenizer16next_token_inner28_$u7b$$u7b$closure$u7d$$u7d$17hb1c48a7d77731517E"(ptr nonnull align 1 %2, i32 %8)
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -63,7 +63,7 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor9eat_while17hdd7fb11e59cda22cE
   %7 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor4bump17hf8e9b6b1bd63531eE(ptr align 8 %0)
   %8 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor5first17h395642da603f25e6E(ptr align 8 %0)
   %9 = call zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17hec8d9b77c7d4782cE(ptr nonnull align 1 %2, i32 %8)
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -84,7 +84,7 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor14eat_back_while17h3b152b93d39
   %7 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h32d2c7232e8a625bE(ptr align 8 %0)
   %8 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor4last17h22d9ac6b733b6e58E(ptr align 8 %0)
   %9 = call zeroext i1 @"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer10next_token28_$u7b$$u7b$closure$u7d$$u7d$17haad5f58c47860817E"(ptr nonnull align 1 %2, i32 %8)
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -105,7 +105,7 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor14eat_back_while17h6d97632ab9d
   %7 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h32d2c7232e8a625bE(ptr align 8 %0)
   %8 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor4last17h22d9ac6b733b6e58E(ptr align 8 %0)
   %9 = call zeroext i1 @_ZN4core3ops8function5FnMut8call_mut17hec8d9b77c7d4782cE(ptr nonnull align 1 %2, i32 %8)
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -126,7 +126,7 @@ define void @_ZN18ruff_python_trivia6cursor6Cursor14eat_back_while17hb76b7e5fde4
   %7 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor9bump_back17h32d2c7232e8a625bE(ptr align 8 %0)
   %8 = call i32 @_ZN18ruff_python_trivia6cursor6Cursor4last17h22d9ac6b733b6e58E(ptr align 8 %0)
   %9 = call zeroext i1 @"_ZN18ruff_python_trivia9tokenizer18BackwardsTokenizer16next_token_inner28_$u7b$$u7b$closure$u7d$$u7d$17hbb8ab9bdc3d55ebaE"(ptr nonnull align 1 %2, i32 %8)
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
@@ -172,3 +172,10 @@ attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "tar
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.87.0 (17067e9ac 2025-05-09)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}

@@ -142,7 +142,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 define hidden noundef range(i32 1, 6) i32 @_ZN16push_app_ite_cfg10reduce_appEP9func_decljPKP4exprR7obj_refIS2_11ast_managerERS6_I3appS7_E(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %class.obj_ref, align 8
   %8 = alloca %class.obj_ref, align 8
-  %9 = load ptr, ptr %0, align 8, !tbaa !32
+  %9 = load ptr, ptr %0, align 8, !tbaa !33
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(17) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
   br i1 %11, label %12, label %_ZL11has_ite_argR11ast_managerjPKP4expr.exit.thread
@@ -186,7 +186,7 @@ _ZNK11ast_manager6is_iteEPK4expr.exit.i:          ; preds = %20
 _ZNK11ast_manager6is_iteEPK4expr.exit.thread.i:   ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i, %20, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL11has_ite_argR11ast_managerjPKP4expr.exit.thread, label %.lr.ph.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %_ZL11has_ite_argR11ast_managerjPKP4expr.exit.thread, label %.lr.ph.i, !llvm.loop !35
 
 _ZL11has_ite_argR11ast_managerjPKP4expr.exit:     ; preds = %_ZNK11ast_manager6is_iteEPK4expr.exit.i
   %31 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
@@ -206,17 +206,17 @@ _ZL11has_ite_argR11ast_managerjPKP4expr.exit:     ; preds = %_ZNK11ast_manager6i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %40 = tail call noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %.pre, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3)
   %41 = load ptr, ptr %13, align 8, !tbaa !26
-  store ptr %40, ptr %7, align 8, !tbaa !35
+  store ptr %40, ptr %7, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %41, ptr %42, align 8, !tbaa !37
+  store ptr %41, ptr %42, align 8, !tbaa !38
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i:          ; preds = %33
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = load i32, ptr %43, align 4, !tbaa !38
+  %44 = load i32, ptr %43, align 4, !tbaa !39
   %45 = add i32 %44, 1
-  store i32 %45, ptr %43, align 4, !tbaa !38
+  store i32 %45, ptr %43, align 4, !tbaa !39
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %33, %_ZN11ast_manager7inc_refEP3ast.exit.i.i
@@ -227,17 +227,17 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit:  ; preds = %33, %_ZN11ast_manag
 
 47:                                               ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
   %48 = load ptr, ptr %13, align 8, !tbaa !26
-  store ptr %46, ptr %8, align 8, !tbaa !35
+  store ptr %46, ptr %8, align 8, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %48, ptr %49, align 8, !tbaa !37
+  store ptr %48, ptr %49, align 8, !tbaa !38
   %.not.i.i41 = icmp eq ptr %46, null
   br i1 %.not.i.i41, label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit43, label %_ZN11ast_manager7inc_refEP3ast.exit.i.i42
 
 _ZN11ast_manager7inc_refEP3ast.exit.i.i42:        ; preds = %47
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %51 = load i32, ptr %50, align 4, !tbaa !38
+  %51 = load i32, ptr %50, align 4, !tbaa !39
   %52 = add i32 %51, 1
-  store i32 %52, ptr %50, align 4, !tbaa !38
+  store i32 %52, ptr %50, align 4, !tbaa !39
   br label %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit43
 
 _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit43: ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i.i42, %47
@@ -251,23 +251,23 @@ _ZN11ast_manager6mk_iteEP4exprS1_S1_.exit:        ; preds = %_ZN7obj_refI4expr11
 
 _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager6mk_iteEP4exprS1_S1_.exit
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load i32, ptr %54, align 4, !tbaa !38
+  %55 = load i32, ptr %54, align 4, !tbaa !39
   %56 = add i32 %55, 1
-  store i32 %56, ptr %54, align 4, !tbaa !38
+  store i32 %56, ptr %54, align 4, !tbaa !39
   br label %57
 
 57:                                               ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i, %_ZN11ast_manager6mk_iteEP4exprS1_S1_.exit
-  %58 = load ptr, ptr %4, align 8, !tbaa !35
+  %58 = load ptr, ptr %4, align 8, !tbaa !36
   %.not.i4.i = icmp eq ptr %58, null
   br i1 %.not.i4.i, label %67, label %59
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %61 = load ptr, ptr %60, align 8, !tbaa !39
+  %61 = load ptr, ptr %60, align 8, !tbaa !40
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %63 = load i32, ptr %62, align 4, !tbaa !38
+  %63 = load i32, ptr %62, align 4, !tbaa !39
   %64 = add i32 %63, -1
-  store i32 %64, ptr %62, align 4, !tbaa !38
+  store i32 %64, ptr %62, align 4, !tbaa !39
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %66, label %67
 
@@ -276,10 +276,10 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager6mk
           to label %67 unwind label %92
 
 67:                                               ; preds = %59, %57, %66
-  store ptr %53, ptr %4, align 8, !tbaa !35
+  store ptr %53, ptr %4, align 8, !tbaa !36
   %68 = load ptr, ptr %13, align 8, !tbaa !26
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 712
-  %70 = load i32, ptr %69, align 8, !tbaa !40
+  %70 = load i32, ptr %69, align 8, !tbaa !41
   %.not65 = icmp eq i32 %70, 0
   br i1 %.not65, label %94, label %71
 
@@ -288,7 +288,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager6mk
           to label %73 unwind label %92
 
 73:                                               ; preds = %71
-  %74 = load ptr, ptr %4, align 8, !tbaa !35
+  %74 = load ptr, ptr %4, align 8, !tbaa !36
   %75 = invoke noundef ptr @_ZN11ast_manager10mk_rewriteEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %68, ptr noundef %72, ptr noundef %74)
           to label %76 unwind label %92
 
@@ -298,23 +298,23 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %_ZN11ast_manager6mk
 
 _ZN11ast_manager7inc_refEP3ast.exit.i45:          ; preds = %76
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = load i32, ptr %77, align 4, !tbaa !38
+  %78 = load i32, ptr %77, align 4, !tbaa !39
   %79 = add i32 %78, 1
-  store i32 %79, ptr %77, align 4, !tbaa !38
+  store i32 %79, ptr %77, align 4, !tbaa !39
   br label %80
 
 80:                                               ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i45, %76
-  %81 = load ptr, ptr %5, align 8, !tbaa !104
+  %81 = load ptr, ptr %5, align 8, !tbaa !105
   %.not.i4.i46 = icmp eq ptr %81, null
   br i1 %.not.i4.i46, label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit, label %82
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !106
+  %84 = load ptr, ptr %83, align 8, !tbaa !107
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %86 = load i32, ptr %85, align 4, !tbaa !38
+  %86 = load i32, ptr %85, align 4, !tbaa !39
   %87 = add i32 %86, -1
-  store i32 %87, ptr %85, align 4, !tbaa !38
+  store i32 %87, ptr %85, align 4, !tbaa !39
   %88 = icmp eq i32 %87, 0
   br i1 %88, label %89, label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit
 
@@ -323,7 +323,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i45:          ; preds = %76
           to label %_ZN7obj_refI3app11ast_managerEaSEPS0_.exit unwind label %92
 
 _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %89, %80, %82
-  store ptr %75, ptr %5, align 8, !tbaa !104
+  store ptr %75, ptr %5, align 8, !tbaa !105
   br label %94
 
 90:                                               ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit
@@ -342,9 +342,9 @@ _ZN7obj_refI3app11ast_managerEaSEPS0_.exit:       ; preds = %89, %80, %82
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %97 = load i32, ptr %96, align 4, !tbaa !38
+  %97 = load i32, ptr %96, align 4, !tbaa !39
   %98 = add i32 %97, -1
-  store i32 %98, ptr %96, align 4, !tbaa !38
+  store i32 %98, ptr %96, align 4, !tbaa !39
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
@@ -365,9 +365,9 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %94, %95, %100
 
 104:                                              ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %105 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %106 = load i32, ptr %105, align 4, !tbaa !38
+  %106 = load i32, ptr %105, align 4, !tbaa !39
   %107 = add i32 %106, -1
-  store i32 %107, ptr %105, align 4, !tbaa !38
+  store i32 %107, ptr %105, align 4, !tbaa !39
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit50
 
@@ -406,17 +406,17 @@ declare noundef ptr @_ZN11ast_manager10mk_rewriteEP4exprS1_(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !35
+  %2 = load ptr, ptr %0, align 8, !tbaa !36
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !39
+  %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %7 = load i32, ptr %6, align 4, !tbaa !38
+  %7 = load i32, ptr %6, align 4, !tbaa !39
   %8 = add i32 %7, -1
-  store i32 %8, ptr %6, align 4, !tbaa !38
+  store i32 %8, ptr %6, align 4, !tbaa !39
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %_ZN7obj_refI4expr11ast_managerE7dec_refEv.exit
 
@@ -520,7 +520,7 @@ _ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit: ; preds = %_ZNK11ast_
 42:                                               ; preds = %_Z9is_groundPK4expr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count.i
-  br i1 %exitcond.not, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %.lr.ph, !llvm.loop !107
+  br i1 %exitcond.not, label %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit.thread14, label %.lr.ph, !llvm.loop !108
 
 .lr.ph:                                           ; preds = %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %_ZN16push_app_ite_cfg9is_targetEP9func_decljPKP4expr.exit ]
@@ -635,81 +635,82 @@ attributes #13 = { builtin nounwind }
 !27 = !{!"_ZTS16push_app_ite_cfg", !28, i64 8, !17, i64 16}
 !28 = !{!"p1 _ZTS11ast_manager", !11, i64 0}
 !29 = !{i8 0, i8 2}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"vtable pointer", !8, i64 0}
-!34 = distinct !{!34, !31}
-!35 = !{!36, !20, i64 0}
-!36 = !{!"_ZTS7obj_refI4expr11ast_managerE", !20, i64 0, !28, i64 8}
-!37 = !{!28, !28, i64 0}
-!38 = !{!5, !6, i64 8}
-!39 = !{!36, !28, i64 8}
-!40 = !{!41, !82, i64 712}
-!41 = !{!"_ZTS11ast_manager", !42, i64 0, !53, i64 40, !54, i64 560, !66, i64 616, !71, i64 648, !75, i64 672, !79, i64 704, !82, i64 712, !17, i64 716, !83, i64 720, !86, i64 784, !89, i64 808, !89, i64 824, !92, i64 840, !92, i64 848, !93, i64 856, !93, i64 864, !93, i64 872, !6, i64 880, !17, i64 884, !94, i64 888, !99, i64 912, !17, i64 920, !17, i64 921, !28, i64 928, !9, i64 936, !100, i64 944, !103, i64 968}
-!42 = !{!"_ZTS8reslimit", !43, i64 0, !17, i64 4, !45, i64 8, !45, i64 16, !46, i64 24, !49, i64 32}
-!43 = !{!"_ZTSSt6atomicIjE", !44, i64 0}
-!44 = !{!"_ZTSSt13__atomic_baseIjE", !6, i64 0}
-!45 = !{!"long", !7, i64 0}
-!46 = !{!"_ZTS7svectorImjE", !47, i64 0}
-!47 = !{!"_ZTS6vectorImLb0EjE", !48, i64 0}
-!48 = !{!"p1 long", !11, i64 0}
-!49 = !{!"_ZTS10ptr_vectorI8reslimitE", !50, i64 0}
-!50 = !{!"_ZTS6vectorIP8reslimitLb0EjE", !51, i64 0}
-!51 = !{!"p2 _ZTS8reslimit", !52, i64 0}
-!52 = !{!"any p2 pointer", !11, i64 0}
-!53 = !{!"_ZTS22small_object_allocator", !7, i64 0, !7, i64 256, !45, i64 512}
-!54 = !{!"_ZTS14family_manager", !6, i64 0, !55, i64 8, !63, i64 48}
-!55 = !{!"_ZTS12symbol_tableIiE", !56, i64 0, !58, i64 24, !60, i64 32}
-!56 = !{!"_ZTS14core_hashtableIN12symbol_tableIiE10hash_entryENS1_18key_data_hash_procENS1_16key_data_eq_procEE", !57, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
-!57 = !{!"p1 _ZTSN12symbol_tableIiE10hash_entryE", !11, i64 0}
-!58 = !{!"_ZTS6vectorIN12symbol_tableIiE8key_dataELb1EjE", !59, i64 0}
-!59 = !{!"p1 _ZTSN12symbol_tableIiE8key_dataE", !11, i64 0}
-!60 = !{!"_ZTS7svectorIijE", !61, i64 0}
-!61 = !{!"_ZTS6vectorIiLb0EjE", !62, i64 0}
-!62 = !{!"p1 int", !11, i64 0}
-!63 = !{!"_ZTS7svectorI6symboljE", !64, i64 0}
-!64 = !{!"_ZTS6vectorI6symbolLb0EjE", !65, i64 0}
-!65 = !{!"p1 _ZTS6symbol", !11, i64 0}
-!66 = !{!"_ZTS14parray_managerIN11ast_manager17expr_array_configEE", !28, i64 0, !67, i64 8, !68, i64 16, !68, i64 24}
-!67 = !{!"p1 _ZTS22small_object_allocator", !11, i64 0}
-!68 = !{!"_ZTS10ptr_vectorIN14parray_managerIN11ast_manager17expr_array_configEE4cellEE", !69, i64 0}
-!69 = !{!"_ZTS6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE", !70, i64 0}
-!70 = !{!"p2 _ZTSN14parray_managerIN11ast_manager17expr_array_configEE4cellE", !52, i64 0}
-!71 = !{!"_ZTS18dependency_managerIN11ast_manager22expr_dependency_configEE", !28, i64 0, !67, i64 8, !72, i64 16}
-!72 = !{!"_ZTS10ptr_vectorIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE", !73, i64 0}
-!73 = !{!"_ZTS6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE", !74, i64 0}
-!74 = !{!"p2 _ZTSN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE", !52, i64 0}
-!75 = !{!"_ZTS14parray_managerIN11ast_manager28expr_dependency_array_configEE", !28, i64 0, !67, i64 8, !76, i64 16, !76, i64 24}
-!76 = !{!"_ZTS10ptr_vectorIN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cellEE", !77, i64 0}
-!77 = !{!"_ZTS6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cellELb0EjE", !78, i64 0}
-!78 = !{!"p2 _ZTSN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cellE", !52, i64 0}
-!79 = !{!"_ZTS10ptr_vectorI11decl_pluginE", !80, i64 0}
-!80 = !{!"_ZTS6vectorIP11decl_pluginLb0EjE", !81, i64 0}
-!81 = !{!"p2 _ZTS11decl_plugin", !52, i64 0}
-!82 = !{!"_ZTS14proof_gen_mode", !7, i64 0}
-!83 = !{!"_ZTS9ast_table", !84, i64 0}
-!84 = !{!"_ZTS10chashtableIP3ast12obj_ptr_hashIS0_E11ast_eq_procE", !85, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !85, i64 40, !85, i64 48, !85, i64 56}
-!85 = !{!"p1 _ZTSN10chashtableIP3ast12obj_ptr_hashIS0_E11ast_eq_procE4cellE", !11, i64 0}
-!86 = !{!"_ZTS7obj_mapI9func_declP10quantifierE", !87, i64 0}
-!87 = !{!"_ZTS14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE", !88, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
-!88 = !{!"p1 _ZTSN7obj_mapI9func_declP10quantifierE13obj_map_entryE", !11, i64 0}
-!89 = !{!"_ZTS6id_gen", !6, i64 0, !90, i64 8}
-!90 = !{!"_ZTS7svectorIjjE", !91, i64 0}
-!91 = !{!"_ZTS6vectorIjLb0EjE", !62, i64 0}
-!92 = !{!"p1 _ZTS4sort", !11, i64 0}
-!93 = !{!"p1 _ZTS3app", !11, i64 0}
-!94 = !{!"_ZTS5u_mapIjE", !95, i64 0}
-!95 = !{!"_ZTS3mapIjj6u_hash4u_eqE", !96, i64 0}
-!96 = !{!"_ZTS9table2mapI17default_map_entryIjjE6u_hash4u_eqE", !97, i64 0}
-!97 = !{!"_ZTS14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE", !98, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
-!98 = !{!"p1 _ZTS17default_map_entryIjjE", !11, i64 0}
-!99 = !{!"p1 _ZTSSt13basic_fstreamIcSt11char_traitsIcEE", !11, i64 0}
-!100 = !{!"_ZTS7obj_mapI9func_declPS0_E", !101, i64 0}
-!101 = !{!"_ZTS14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE", !102, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
-!102 = !{!"p1 _ZTSN7obj_mapI9func_declPS0_E13obj_map_entryE", !11, i64 0}
-!103 = !{!"p1 _ZTS15some_value_proc", !11, i64 0}
-!104 = !{!105, !93, i64 0}
-!105 = !{!"_ZTS7obj_refI3app11ast_managerE", !93, i64 0, !28, i64 8}
-!106 = !{!105, !28, i64 8}
-!107 = distinct !{!107, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"vtable pointer", !8, i64 0}
+!35 = distinct !{!35, !31, !32}
+!36 = !{!37, !20, i64 0}
+!37 = !{!"_ZTS7obj_refI4expr11ast_managerE", !20, i64 0, !28, i64 8}
+!38 = !{!28, !28, i64 0}
+!39 = !{!5, !6, i64 8}
+!40 = !{!37, !28, i64 8}
+!41 = !{!42, !83, i64 712}
+!42 = !{!"_ZTS11ast_manager", !43, i64 0, !54, i64 40, !55, i64 560, !67, i64 616, !72, i64 648, !76, i64 672, !80, i64 704, !83, i64 712, !17, i64 716, !84, i64 720, !87, i64 784, !90, i64 808, !90, i64 824, !93, i64 840, !93, i64 848, !94, i64 856, !94, i64 864, !94, i64 872, !6, i64 880, !17, i64 884, !95, i64 888, !100, i64 912, !17, i64 920, !17, i64 921, !28, i64 928, !9, i64 936, !101, i64 944, !104, i64 968}
+!43 = !{!"_ZTS8reslimit", !44, i64 0, !17, i64 4, !46, i64 8, !46, i64 16, !47, i64 24, !50, i64 32}
+!44 = !{!"_ZTSSt6atomicIjE", !45, i64 0}
+!45 = !{!"_ZTSSt13__atomic_baseIjE", !6, i64 0}
+!46 = !{!"long", !7, i64 0}
+!47 = !{!"_ZTS7svectorImjE", !48, i64 0}
+!48 = !{!"_ZTS6vectorImLb0EjE", !49, i64 0}
+!49 = !{!"p1 long", !11, i64 0}
+!50 = !{!"_ZTS10ptr_vectorI8reslimitE", !51, i64 0}
+!51 = !{!"_ZTS6vectorIP8reslimitLb0EjE", !52, i64 0}
+!52 = !{!"p2 _ZTS8reslimit", !53, i64 0}
+!53 = !{!"any p2 pointer", !11, i64 0}
+!54 = !{!"_ZTS22small_object_allocator", !7, i64 0, !7, i64 256, !46, i64 512}
+!55 = !{!"_ZTS14family_manager", !6, i64 0, !56, i64 8, !64, i64 48}
+!56 = !{!"_ZTS12symbol_tableIiE", !57, i64 0, !59, i64 24, !61, i64 32}
+!57 = !{!"_ZTS14core_hashtableIN12symbol_tableIiE10hash_entryENS1_18key_data_hash_procENS1_16key_data_eq_procEE", !58, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
+!58 = !{!"p1 _ZTSN12symbol_tableIiE10hash_entryE", !11, i64 0}
+!59 = !{!"_ZTS6vectorIN12symbol_tableIiE8key_dataELb1EjE", !60, i64 0}
+!60 = !{!"p1 _ZTSN12symbol_tableIiE8key_dataE", !11, i64 0}
+!61 = !{!"_ZTS7svectorIijE", !62, i64 0}
+!62 = !{!"_ZTS6vectorIiLb0EjE", !63, i64 0}
+!63 = !{!"p1 int", !11, i64 0}
+!64 = !{!"_ZTS7svectorI6symboljE", !65, i64 0}
+!65 = !{!"_ZTS6vectorI6symbolLb0EjE", !66, i64 0}
+!66 = !{!"p1 _ZTS6symbol", !11, i64 0}
+!67 = !{!"_ZTS14parray_managerIN11ast_manager17expr_array_configEE", !28, i64 0, !68, i64 8, !69, i64 16, !69, i64 24}
+!68 = !{!"p1 _ZTS22small_object_allocator", !11, i64 0}
+!69 = !{!"_ZTS10ptr_vectorIN14parray_managerIN11ast_manager17expr_array_configEE4cellEE", !70, i64 0}
+!70 = !{!"_ZTS6vectorIPN14parray_managerIN11ast_manager17expr_array_configEE4cellELb0EjE", !71, i64 0}
+!71 = !{!"p2 _ZTSN14parray_managerIN11ast_manager17expr_array_configEE4cellE", !53, i64 0}
+!72 = !{!"_ZTS18dependency_managerIN11ast_manager22expr_dependency_configEE", !28, i64 0, !68, i64 8, !73, i64 16}
+!73 = !{!"_ZTS10ptr_vectorIN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE", !74, i64 0}
+!74 = !{!"_ZTS6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE", !75, i64 0}
+!75 = !{!"p2 _ZTSN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE", !53, i64 0}
+!76 = !{!"_ZTS14parray_managerIN11ast_manager28expr_dependency_array_configEE", !28, i64 0, !68, i64 8, !77, i64 16, !77, i64 24}
+!77 = !{!"_ZTS10ptr_vectorIN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cellEE", !78, i64 0}
+!78 = !{!"_ZTS6vectorIPN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cellELb0EjE", !79, i64 0}
+!79 = !{!"p2 _ZTSN14parray_managerIN11ast_manager28expr_dependency_array_configEE4cellE", !53, i64 0}
+!80 = !{!"_ZTS10ptr_vectorI11decl_pluginE", !81, i64 0}
+!81 = !{!"_ZTS6vectorIP11decl_pluginLb0EjE", !82, i64 0}
+!82 = !{!"p2 _ZTS11decl_plugin", !53, i64 0}
+!83 = !{!"_ZTS14proof_gen_mode", !7, i64 0}
+!84 = !{!"_ZTS9ast_table", !85, i64 0}
+!85 = !{!"_ZTS10chashtableIP3ast12obj_ptr_hashIS0_E11ast_eq_procE", !86, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !6, i64 28, !6, i64 32, !86, i64 40, !86, i64 48, !86, i64 56}
+!86 = !{!"p1 _ZTSN10chashtableIP3ast12obj_ptr_hashIS0_E11ast_eq_procE4cellE", !11, i64 0}
+!87 = !{!"_ZTS7obj_mapI9func_declP10quantifierE", !88, i64 0}
+!88 = !{!"_ZTS14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE", !89, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
+!89 = !{!"p1 _ZTSN7obj_mapI9func_declP10quantifierE13obj_map_entryE", !11, i64 0}
+!90 = !{!"_ZTS6id_gen", !6, i64 0, !91, i64 8}
+!91 = !{!"_ZTS7svectorIjjE", !92, i64 0}
+!92 = !{!"_ZTS6vectorIjLb0EjE", !63, i64 0}
+!93 = !{!"p1 _ZTS4sort", !11, i64 0}
+!94 = !{!"p1 _ZTS3app", !11, i64 0}
+!95 = !{!"_ZTS5u_mapIjE", !96, i64 0}
+!96 = !{!"_ZTS3mapIjj6u_hash4u_eqE", !97, i64 0}
+!97 = !{!"_ZTS9table2mapI17default_map_entryIjjE6u_hash4u_eqE", !98, i64 0}
+!98 = !{!"_ZTS14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE", !99, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
+!99 = !{!"p1 _ZTS17default_map_entryIjjE", !11, i64 0}
+!100 = !{!"p1 _ZTSSt13basic_fstreamIcSt11char_traitsIcEE", !11, i64 0}
+!101 = !{!"_ZTS7obj_mapI9func_declPS0_E", !102, i64 0}
+!102 = !{!"_ZTS14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE", !103, i64 0, !6, i64 8, !6, i64 12, !6, i64 16}
+!103 = !{!"p1 _ZTSN7obj_mapI9func_declPS0_E13obj_map_entryE", !11, i64 0}
+!104 = !{!"p1 _ZTS15some_value_proc", !11, i64 0}
+!105 = !{!106, !94, i64 0}
+!106 = !{!"_ZTS7obj_refI3app11ast_managerE", !94, i64 0, !28, i64 8}
+!107 = !{!106, !28, i64 8}
+!108 = distinct !{!108, !31, !32}

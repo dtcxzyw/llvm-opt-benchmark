@@ -192,7 +192,7 @@ define hidden void @png_push_save_buffer(ptr noalias noundef %0) local_unnamed_a
   %11 = getelementptr inbounds nuw i8, ptr %.04963, i64 1
   %12 = getelementptr inbounds nuw i8, ptr %.05062, i64 1
   %exitcond.not = icmp eq i64 %10, %3
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %4, %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 760
@@ -590,7 +590,7 @@ png_push_fill_buffer.exit:                        ; preds = %17, %.thread, %28
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 768
   store i32 6, ptr %108, align 8
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 688
-  %110 = load ptr, ptr %109, align 8, !alias.scope !17, !noalias !20
+  %110 = load ptr, ptr %109, align 8, !alias.scope !18, !noalias !21
   %.not.i195 = icmp eq ptr %110, null
   br i1 %.not.i195, label %png_push_have_end.exit, label %111
 
@@ -663,7 +663,7 @@ png_push_fill_buffer.exit:                        ; preds = %17, %.thread, %28
   store i32 %144, ptr %145, align 8
   store i32 2, ptr %78, align 8
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %147 = load ptr, ptr %146, align 8, !alias.scope !22, !noalias !25
+  %147 = load ptr, ptr %146, align 8, !alias.scope !23, !noalias !26
   %.not.i196 = icmp eq ptr %147, null
   br i1 %.not.i196, label %png_push_have_info.exit, label %148
 
@@ -1436,7 +1436,7 @@ define hidden void @png_process_IDAT_data(ptr noalias noundef %0, ptr noundef %1
 83:                                               ; preds = %80, %78
   %.pr = load i32, ptr %10, align 8
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %.critedge.thread, label %20, !llvm.loop !27
+  br i1 %.not, label %.critedge.thread, label %20, !llvm.loop !28
 
 .critedge:                                        ; preds = %20
   tail call void @png_warning(ptr noundef nonnull %0, ptr noundef nonnull @.str.16) #11
@@ -1631,14 +1631,14 @@ define hidden void @png_push_process_row(ptr noalias noundef %0) local_unnamed_a
   br i1 %89, label %90, label %.critedge
 
 90:                                               ; preds = %87
-  %91 = load ptr, ptr %80, align 8, !alias.scope !28
+  %91 = load ptr, ptr %80, align 8, !alias.scope !29
   %.not.i = icmp eq ptr %91, null
   br i1 %.not.i, label %png_push_have_row.exit, label %92
 
 92:                                               ; preds = %90
   %93 = load ptr, ptr %31, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  %95 = load i32, ptr %86, align 4, !alias.scope !28
+  %95 = load i32, ptr %86, align 4, !alias.scope !29
   call void %91(ptr noundef nonnull %0, ptr noundef nonnull %94, i32 noundef %95, i32 noundef 0) #11
   br label %png_push_have_row.exit
 
@@ -1646,7 +1646,7 @@ png_push_have_row.exit:                           ; preds = %90, %92
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
   %96 = add nuw nsw i32 %.0155239, 1
   %exitcond263.not = icmp eq i32 %96, 8
-  br i1 %exitcond263.not, label %.critedgethread-pre-split, label %87, !llvm.loop !31
+  br i1 %exitcond263.not, label %.critedgethread-pre-split, label %87, !llvm.loop !32
 
 .critedgethread-pre-split:                        ; preds = %png_push_have_row.exit
   %.pr202 = load i8, ptr %71, align 1
@@ -1664,12 +1664,12 @@ png_push_have_row.exit:                           ; preds = %90, %92
   br i1 %100, label %101, label %.critedge2
 
 101:                                              ; preds = %.preheader210
-  %102 = load ptr, ptr %80, align 8, !alias.scope !32
+  %102 = load ptr, ptr %80, align 8, !alias.scope !33
   %.not.i166 = icmp eq ptr %102, null
   br i1 %.not.i166, label %png_push_have_row.exit167, label %103
 
 103:                                              ; preds = %101
-  %104 = load i32, ptr %86, align 4, !alias.scope !32
+  %104 = load i32, ptr %86, align 4, !alias.scope !33
   call void %102(ptr noundef nonnull %0, ptr noundef null, i32 noundef %104, i32 noundef 2) #11
   br label %png_push_have_row.exit167
 
@@ -1677,7 +1677,7 @@ png_push_have_row.exit167:                        ; preds = %101, %103
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
   %105 = add nuw nsw i32 %.1156240, 1
   %exitcond264.not = icmp eq i32 %105, 4
-  br i1 %exitcond264.not, label %.critedge2thread-pre-split.loopexit, label %.preheader210, !llvm.loop !35
+  br i1 %exitcond264.not, label %.critedge2thread-pre-split.loopexit, label %.preheader210, !llvm.loop !36
 
 .critedge2thread-pre-split.loopexit:              ; preds = %png_push_have_row.exit167
   %.pr203.pre = load i8, ptr %71, align 1
@@ -1701,18 +1701,18 @@ png_push_have_row.exit167:                        ; preds = %101, %103
   br i1 %114, label %115, label %.critedge4
 
 115:                                              ; preds = %.preheader
-  %116 = load ptr, ptr %80, align 8, !alias.scope !36
+  %116 = load ptr, ptr %80, align 8, !alias.scope !37
   %.not.i168 = icmp eq ptr %116, null
   br i1 %.not.i168, label %png_push_have_row.exit169, label %117
 
 117:                                              ; preds = %115
-  %118 = load i32, ptr %86, align 4, !alias.scope !36
+  %118 = load i32, ptr %86, align 4, !alias.scope !37
   call void %116(ptr noundef nonnull %0, ptr noundef null, i32 noundef %118, i32 noundef 4) #11
   br label %png_push_have_row.exit169
 
 png_push_have_row.exit169:                        ; preds = %115, %117
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
-  br i1 %112, label %.preheader, label %.critedge4thread-pre-split.loopexit, !llvm.loop !39
+  br i1 %112, label %.preheader, label %.critedge4thread-pre-split.loopexit, !llvm.loop !40
 
 .critedge4thread-pre-split.loopexit:              ; preds = %png_push_have_row.exit169
   %.pr204.pre = load i8, ptr %71, align 1
@@ -1730,12 +1730,12 @@ png_push_have_row.exit169:                        ; preds = %115, %117
   br i1 %124, label %125, label %.critedge8
 
 125:                                              ; preds = %121
-  %126 = load ptr, ptr %80, align 8, !alias.scope !40
+  %126 = load ptr, ptr %80, align 8, !alias.scope !41
   %.not.i170 = icmp eq ptr %126, null
   br i1 %.not.i170, label %.critedge8.sink.split, label %127
 
 127:                                              ; preds = %125
-  %128 = load i32, ptr %86, align 4, !alias.scope !40
+  %128 = load i32, ptr %86, align 4, !alias.scope !41
   call void %126(ptr noundef nonnull %0, ptr noundef null, i32 noundef %128, i32 noundef 6) #11
   br label %.critedge8.sink.split
 
@@ -1746,14 +1746,14 @@ png_push_have_row.exit169:                        ; preds = %115, %117
   br i1 %131, label %132, label %.critedge6
 
 132:                                              ; preds = %129
-  %133 = load ptr, ptr %80, align 8, !alias.scope !43
+  %133 = load ptr, ptr %80, align 8, !alias.scope !44
   %.not.i172 = icmp eq ptr %133, null
   br i1 %.not.i172, label %png_push_have_row.exit173, label %134
 
 134:                                              ; preds = %132
   %135 = load ptr, ptr %31, align 8
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 1
-  %137 = load i32, ptr %85, align 4, !alias.scope !43
+  %137 = load i32, ptr %85, align 4, !alias.scope !44
   call void %133(ptr noundef nonnull %0, ptr noundef nonnull %136, i32 noundef %137, i32 noundef 1) #11
   br label %png_push_have_row.exit173
 
@@ -1761,7 +1761,7 @@ png_push_have_row.exit173:                        ; preds = %132, %134
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
   %138 = add nuw nsw i32 %.0153237, 1
   %exitcond261.not = icmp eq i32 %138, 8
-  br i1 %exitcond261.not, label %.critedge6thread-pre-split, label %129, !llvm.loop !46
+  br i1 %exitcond261.not, label %.critedge6thread-pre-split, label %129, !llvm.loop !47
 
 .critedge6thread-pre-split:                       ; preds = %png_push_have_row.exit173
   %.pr205 = load i8, ptr %71, align 1
@@ -1779,12 +1779,12 @@ png_push_have_row.exit173:                        ; preds = %132, %134
   br i1 %142, label %143, label %.critedge8
 
 143:                                              ; preds = %.preheader212
-  %144 = load ptr, ptr %80, align 8, !alias.scope !47
+  %144 = load ptr, ptr %80, align 8, !alias.scope !48
   %.not.i174 = icmp eq ptr %144, null
   br i1 %.not.i174, label %png_push_have_row.exit175, label %145
 
 145:                                              ; preds = %143
-  %146 = load i32, ptr %85, align 4, !alias.scope !47
+  %146 = load i32, ptr %85, align 4, !alias.scope !48
   call void %144(ptr noundef nonnull %0, ptr noundef null, i32 noundef %146, i32 noundef 2) #11
   br label %png_push_have_row.exit175
 
@@ -1792,7 +1792,7 @@ png_push_have_row.exit175:                        ; preds = %143, %145
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
   %147 = add nuw nsw i32 %.1154238, 1
   %exitcond262.not = icmp eq i32 %147, 4
-  br i1 %exitcond262.not, label %.critedge8, label %.preheader212, !llvm.loop !50
+  br i1 %exitcond262.not, label %.critedge8, label %.preheader212, !llvm.loop !51
 
 148:                                              ; preds = %.preheader216, %png_push_have_row.exit177
   %.0151234 = phi i32 [ 0, %.preheader216 ], [ %157, %png_push_have_row.exit177 ]
@@ -1801,14 +1801,14 @@ png_push_have_row.exit175:                        ; preds = %143, %145
   br i1 %150, label %151, label %.critedge10.preheader
 
 151:                                              ; preds = %148
-  %152 = load ptr, ptr %80, align 8, !alias.scope !51
+  %152 = load ptr, ptr %80, align 8, !alias.scope !52
   %.not.i176 = icmp eq ptr %152, null
   br i1 %.not.i176, label %png_push_have_row.exit177, label %153
 
 153:                                              ; preds = %151
   %154 = load ptr, ptr %31, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 1
-  %156 = load i32, ptr %84, align 4, !alias.scope !51
+  %156 = load i32, ptr %84, align 4, !alias.scope !52
   call void %152(ptr noundef nonnull %0, ptr noundef nonnull %155, i32 noundef %156, i32 noundef 2) #11
   br label %png_push_have_row.exit177
 
@@ -1816,7 +1816,7 @@ png_push_have_row.exit177:                        ; preds = %151, %153
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
   %157 = add nuw nsw i32 %.0151234, 1
   %exitcond259.not = icmp eq i32 %157, 4
-  br i1 %exitcond259.not, label %.critedge10.preheader, label %148, !llvm.loop !54
+  br i1 %exitcond259.not, label %.critedge10.preheader, label %148, !llvm.loop !55
 
 .critedge10.preheader:                            ; preds = %png_push_have_row.exit177, %148
   br label %.critedge10
@@ -1828,12 +1828,12 @@ png_push_have_row.exit177:                        ; preds = %151, %153
   br i1 %159, label %160, label %.critedge12
 
 160:                                              ; preds = %.critedge10
-  %161 = load ptr, ptr %80, align 8, !alias.scope !55
+  %161 = load ptr, ptr %80, align 8, !alias.scope !56
   %.not.i178 = icmp eq ptr %161, null
   br i1 %.not.i178, label %png_push_have_row.exit179, label %162
 
 162:                                              ; preds = %160
-  %163 = load i32, ptr %84, align 4, !alias.scope !55
+  %163 = load i32, ptr %84, align 4, !alias.scope !56
   call void %161(ptr noundef nonnull %0, ptr noundef null, i32 noundef %163, i32 noundef 2) #11
   br label %png_push_have_row.exit179
 
@@ -1841,7 +1841,7 @@ png_push_have_row.exit179:                        ; preds = %160, %162
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
   %164 = add nuw nsw i32 %.1152235, 1
   %exitcond260.not = icmp eq i32 %164, 4
-  br i1 %exitcond260.not, label %.critedge12thread-pre-split, label %.critedge10, !llvm.loop !58
+  br i1 %exitcond260.not, label %.critedge12thread-pre-split, label %.critedge10, !llvm.loop !59
 
 .critedge12thread-pre-split:                      ; preds = %png_push_have_row.exit179
   %.pr206 = load i8, ptr %71, align 1
@@ -1859,18 +1859,18 @@ png_push_have_row.exit179:                        ; preds = %160, %162
   br i1 %169, label %170, label %.critedge8
 
 170:                                              ; preds = %.preheader214
-  %171 = load ptr, ptr %80, align 8, !alias.scope !59
+  %171 = load ptr, ptr %80, align 8, !alias.scope !60
   %.not.i180 = icmp eq ptr %171, null
   br i1 %.not.i180, label %png_push_have_row.exit181, label %172
 
 172:                                              ; preds = %170
-  %173 = load i32, ptr %84, align 4, !alias.scope !59
+  %173 = load i32, ptr %84, align 4, !alias.scope !60
   call void %171(ptr noundef nonnull %0, ptr noundef null, i32 noundef %173, i32 noundef 4) #11
   br label %png_push_have_row.exit181
 
 png_push_have_row.exit181:                        ; preds = %170, %172
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
-  br i1 %167, label %.preheader214, label %.critedge8, !llvm.loop !62
+  br i1 %167, label %.preheader214, label %.critedge8, !llvm.loop !63
 
 174:                                              ; preds = %.preheader219, %png_push_have_row.exit183
   %.0149232 = phi i32 [ 0, %.preheader219 ], [ %183, %png_push_have_row.exit183 ]
@@ -1879,14 +1879,14 @@ png_push_have_row.exit181:                        ; preds = %170, %172
   br i1 %176, label %177, label %.critedge16
 
 177:                                              ; preds = %174
-  %178 = load ptr, ptr %80, align 8, !alias.scope !63
+  %178 = load ptr, ptr %80, align 8, !alias.scope !64
   %.not.i182 = icmp eq ptr %178, null
   br i1 %.not.i182, label %png_push_have_row.exit183, label %179
 
 179:                                              ; preds = %177
   %180 = load ptr, ptr %31, align 8
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 1
-  %182 = load i32, ptr %83, align 4, !alias.scope !63
+  %182 = load i32, ptr %83, align 4, !alias.scope !64
   call void %178(ptr noundef nonnull %0, ptr noundef nonnull %181, i32 noundef %182, i32 noundef 3) #11
   br label %png_push_have_row.exit183
 
@@ -1894,7 +1894,7 @@ png_push_have_row.exit183:                        ; preds = %177, %179
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
   %183 = add nuw nsw i32 %.0149232, 1
   %exitcond.not = icmp eq i32 %183, 4
-  br i1 %exitcond.not, label %.critedge16thread-pre-split, label %174, !llvm.loop !66
+  br i1 %exitcond.not, label %.critedge16thread-pre-split, label %174, !llvm.loop !67
 
 .critedge16thread-pre-split:                      ; preds = %png_push_have_row.exit183
   %.pr207 = load i8, ptr %71, align 1
@@ -1912,18 +1912,18 @@ png_push_have_row.exit183:                        ; preds = %177, %179
   br i1 %188, label %189, label %.critedge8
 
 189:                                              ; preds = %.preheader217
-  %190 = load ptr, ptr %80, align 8, !alias.scope !67
+  %190 = load ptr, ptr %80, align 8, !alias.scope !68
   %.not.i184 = icmp eq ptr %190, null
   br i1 %.not.i184, label %png_push_have_row.exit185, label %191
 
 191:                                              ; preds = %189
-  %192 = load i32, ptr %83, align 4, !alias.scope !67
+  %192 = load i32, ptr %83, align 4, !alias.scope !68
   call void %190(ptr noundef nonnull %0, ptr noundef null, i32 noundef %192, i32 noundef 4) #11
   br label %png_push_have_row.exit185
 
 png_push_have_row.exit185:                        ; preds = %189, %191
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
-  br i1 %186, label %.preheader217, label %.critedge8, !llvm.loop !70
+  br i1 %186, label %.preheader217, label %.critedge8, !llvm.loop !71
 
 193:                                              ; preds = %.preheader220, %png_push_have_row.exit187
   %194 = phi i1 [ true, %.preheader220 ], [ false, %png_push_have_row.exit187 ]
@@ -1932,20 +1932,20 @@ png_push_have_row.exit185:                        ; preds = %189, %191
   br i1 %196, label %197, label %.critedge20.preheader
 
 197:                                              ; preds = %193
-  %198 = load ptr, ptr %80, align 8, !alias.scope !71
+  %198 = load ptr, ptr %80, align 8, !alias.scope !72
   %.not.i186 = icmp eq ptr %198, null
   br i1 %.not.i186, label %png_push_have_row.exit187, label %199
 
 199:                                              ; preds = %197
   %200 = load ptr, ptr %31, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 1
-  %202 = load i32, ptr %82, align 4, !alias.scope !71
+  %202 = load i32, ptr %82, align 4, !alias.scope !72
   call void %198(ptr noundef nonnull %0, ptr noundef nonnull %201, i32 noundef %202, i32 noundef 4) #11
   br label %png_push_have_row.exit187
 
 png_push_have_row.exit187:                        ; preds = %197, %199
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
-  br i1 %194, label %193, label %.critedge20.preheader, !llvm.loop !74
+  br i1 %194, label %193, label %.critedge20.preheader, !llvm.loop !75
 
 .critedge20.preheader:                            ; preds = %png_push_have_row.exit187, %193
   br label %.critedge20
@@ -1957,18 +1957,18 @@ png_push_have_row.exit187:                        ; preds = %197, %199
   br i1 %205, label %206, label %.critedge22
 
 206:                                              ; preds = %.critedge20
-  %207 = load ptr, ptr %80, align 8, !alias.scope !75
+  %207 = load ptr, ptr %80, align 8, !alias.scope !76
   %.not.i188 = icmp eq ptr %207, null
   br i1 %.not.i188, label %png_push_have_row.exit189, label %208
 
 208:                                              ; preds = %206
-  %209 = load i32, ptr %82, align 4, !alias.scope !75
+  %209 = load i32, ptr %82, align 4, !alias.scope !76
   call void %207(ptr noundef nonnull %0, ptr noundef null, i32 noundef %209, i32 noundef 4) #11
   br label %png_push_have_row.exit189
 
 png_push_have_row.exit189:                        ; preds = %206, %208
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
-  br i1 %203, label %.critedge20, label %.critedge22thread-pre-split, !llvm.loop !78
+  br i1 %203, label %.critedge20, label %.critedge22thread-pre-split, !llvm.loop !79
 
 .critedge22thread-pre-split:                      ; preds = %png_push_have_row.exit189
   %.pr208 = load i8, ptr %71, align 1
@@ -1980,12 +1980,12 @@ png_push_have_row.exit189:                        ; preds = %206, %208
   br i1 %211, label %212, label %.critedge8
 
 212:                                              ; preds = %.critedge22
-  %213 = load ptr, ptr %80, align 8, !alias.scope !79
+  %213 = load ptr, ptr %80, align 8, !alias.scope !80
   %.not.i190 = icmp eq ptr %213, null
   br i1 %.not.i190, label %.critedge8.sink.split, label %214
 
 214:                                              ; preds = %212
-  %215 = load i32, ptr %82, align 4, !alias.scope !79
+  %215 = load i32, ptr %82, align 4, !alias.scope !80
   call void %213(ptr noundef nonnull %0, ptr noundef null, i32 noundef %215, i32 noundef 6) #11
   br label %.critedge8.sink.split
 
@@ -1996,20 +1996,20 @@ png_push_have_row.exit189:                        ; preds = %206, %208
   br i1 %219, label %220, label %.critedge24
 
 220:                                              ; preds = %216
-  %221 = load ptr, ptr %80, align 8, !alias.scope !82
+  %221 = load ptr, ptr %80, align 8, !alias.scope !83
   %.not.i192 = icmp eq ptr %221, null
   br i1 %.not.i192, label %png_push_have_row.exit193, label %222
 
 222:                                              ; preds = %220
   %223 = load ptr, ptr %31, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 1
-  %225 = load i32, ptr %81, align 4, !alias.scope !82
+  %225 = load i32, ptr %81, align 4, !alias.scope !83
   call void %221(ptr noundef nonnull %0, ptr noundef nonnull %224, i32 noundef %225, i32 noundef 5) #11
   br label %png_push_have_row.exit193
 
 png_push_have_row.exit193:                        ; preds = %220, %222
   call void @png_read_push_finish_row(ptr noundef nonnull %0)
-  br i1 %217, label %216, label %.critedge24thread-pre-split, !llvm.loop !85
+  br i1 %217, label %216, label %.critedge24thread-pre-split, !llvm.loop !86
 
 .critedge24thread-pre-split:                      ; preds = %png_push_have_row.exit193
   %.pr209 = load i8, ptr %71, align 1
@@ -2021,17 +2021,17 @@ png_push_have_row.exit193:                        ; preds = %220, %222
   br i1 %227, label %228, label %.critedge8
 
 228:                                              ; preds = %.critedge24
-  %229 = load ptr, ptr %80, align 8, !alias.scope !86
+  %229 = load ptr, ptr %80, align 8, !alias.scope !87
   %.not.i194 = icmp eq ptr %229, null
   br i1 %.not.i194, label %.critedge8.sink.split, label %230
 
 230:                                              ; preds = %228
-  %231 = load i32, ptr %81, align 4, !alias.scope !86
+  %231 = load i32, ptr %81, align 4, !alias.scope !87
   call void %229(ptr noundef nonnull %0, ptr noundef null, i32 noundef %231, i32 noundef 6) #11
   br label %.critedge8.sink.split
 
 232:                                              ; preds = %78
-  %233 = load ptr, ptr %80, align 8, !alias.scope !89
+  %233 = load ptr, ptr %80, align 8, !alias.scope !90
   %.not.i196 = icmp eq ptr %233, null
   br i1 %.not.i196, label %png_push_have_row.exit197, label %234
 
@@ -2039,7 +2039,7 @@ png_push_have_row.exit193:                        ; preds = %220, %222
   %235 = load ptr, ptr %31, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 1
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  %238 = load i32, ptr %237, align 4, !alias.scope !89
+  %238 = load i32, ptr %237, align 4, !alias.scope !90
   %239 = zext i8 %79 to i32
   call void %233(ptr noundef nonnull %0, ptr noundef nonnull %236, i32 noundef %238, i32 noundef %239) #11
   br label %png_push_have_row.exit197
@@ -2051,19 +2051,19 @@ png_push_have_row.exit197:                        ; preds = %232, %234
   br i1 %.not165, label %241, label %.critedge8
 
 241:                                              ; preds = %png_push_have_row.exit197
-  %242 = load ptr, ptr %80, align 8, !alias.scope !92
+  %242 = load ptr, ptr %80, align 8, !alias.scope !93
   %.not.i198 = icmp eq ptr %242, null
   br i1 %.not.i198, label %.critedge8.sink.split, label %243
 
 243:                                              ; preds = %241
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  %245 = load i32, ptr %244, align 4, !alias.scope !92
+  %245 = load i32, ptr %244, align 4, !alias.scope !93
   call void %242(ptr noundef nonnull %0, ptr noundef null, i32 noundef %245, i32 noundef 6) #11
   br label %.critedge8.sink.split
 
 246:                                              ; preds = %67, %64
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  %248 = load ptr, ptr %247, align 8, !alias.scope !95
+  %248 = load ptr, ptr %247, align 8, !alias.scope !96
   %.not.i200 = icmp eq ptr %248, null
   br i1 %.not.i200, label %.critedge8.sink.split, label %249
 
@@ -2071,9 +2071,9 @@ png_push_have_row.exit197:                        ; preds = %232, %234
   %250 = load ptr, ptr %31, align 8
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  %253 = load i32, ptr %252, align 4, !alias.scope !95
+  %253 = load i32, ptr %252, align 4, !alias.scope !96
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 517
-  %255 = load i8, ptr %254, align 1, !alias.scope !95
+  %255 = load i8, ptr %254, align 1, !alias.scope !96
   %256 = zext i8 %255 to i32
   call void %248(ptr noundef nonnull %0, ptr noundef nonnull %251, i32 noundef %253, i32 noundef %256) #11
   br label %.critedge8.sink.split
@@ -2222,7 +2222,7 @@ define hidden void @png_read_push_finish_row(ptr noalias noundef captures(none) 
   %65 = icmp ult i32 %49, %43
   %66 = icmp ult i32 %63, %57
   %or.cond = select i1 %65, i1 true, i1 %66
-  br i1 %or.cond, label %.critedge, label %.sink.split, !llvm.loop !98
+  br i1 %or.cond, label %.critedge, label %.sink.split, !llvm.loop !99
 
 .sink.split:                                      ; preds = %53, %35, %37, %.thread32
   %.pr39.sink = phi i8 [ %.pr37, %.thread32 ], [ %39, %37 ], [ 7, %35 ], [ %39, %53 ]
@@ -2324,88 +2324,89 @@ attributes #11 = { nounwind }
 !11 = distinct !{!11, !"png_process_some_data"}
 !12 = !{!13}
 !13 = distinct !{!13, !11, !"png_process_some_data: argument 1"}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = distinct !{!16, !15}
-!17 = !{!18}
-!18 = distinct !{!18, !19, !"png_push_have_end: argument 0"}
-!19 = distinct !{!19, !"png_push_have_end"}
-!20 = !{!21}
-!21 = distinct !{!21, !19, !"png_push_have_end: argument 1"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"png_push_have_info: argument 0"}
-!24 = distinct !{!24, !"png_push_have_info"}
-!25 = !{!26}
-!26 = distinct !{!26, !24, !"png_push_have_info: argument 1"}
-!27 = distinct !{!27, !15}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"png_push_have_row: argument 0"}
-!30 = distinct !{!30, !"png_push_have_row"}
-!31 = distinct !{!31, !15}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"png_push_have_row: argument 0"}
-!34 = distinct !{!34, !"png_push_have_row"}
-!35 = distinct !{!35, !15}
-!36 = !{!37}
-!37 = distinct !{!37, !38, !"png_push_have_row: argument 0"}
-!38 = distinct !{!38, !"png_push_have_row"}
-!39 = distinct !{!39, !15}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"png_push_have_row: argument 0"}
-!42 = distinct !{!42, !"png_push_have_row"}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"png_push_have_row: argument 0"}
-!45 = distinct !{!45, !"png_push_have_row"}
-!46 = distinct !{!46, !15}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"png_push_have_row: argument 0"}
-!49 = distinct !{!49, !"png_push_have_row"}
-!50 = distinct !{!50, !15}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"png_push_have_row: argument 0"}
-!53 = distinct !{!53, !"png_push_have_row"}
-!54 = distinct !{!54, !15}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"png_push_have_row: argument 0"}
-!57 = distinct !{!57, !"png_push_have_row"}
-!58 = distinct !{!58, !15}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"png_push_have_row: argument 0"}
-!61 = distinct !{!61, !"png_push_have_row"}
-!62 = distinct !{!62, !15}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"png_push_have_row: argument 0"}
-!65 = distinct !{!65, !"png_push_have_row"}
-!66 = distinct !{!66, !15}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"png_push_have_row: argument 0"}
-!69 = distinct !{!69, !"png_push_have_row"}
-!70 = distinct !{!70, !15}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"png_push_have_row: argument 0"}
-!73 = distinct !{!73, !"png_push_have_row"}
-!74 = distinct !{!74, !15}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"png_push_have_row: argument 0"}
-!77 = distinct !{!77, !"png_push_have_row"}
-!78 = distinct !{!78, !15}
-!79 = !{!80}
-!80 = distinct !{!80, !81, !"png_push_have_row: argument 0"}
-!81 = distinct !{!81, !"png_push_have_row"}
-!82 = !{!83}
-!83 = distinct !{!83, !84, !"png_push_have_row: argument 0"}
-!84 = distinct !{!84, !"png_push_have_row"}
-!85 = distinct !{!85, !15}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"png_push_have_row: argument 0"}
-!88 = distinct !{!88, !"png_push_have_row"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"png_push_have_row: argument 0"}
-!91 = distinct !{!91, !"png_push_have_row"}
-!92 = !{!93}
-!93 = distinct !{!93, !94, !"png_push_have_row: argument 0"}
-!94 = distinct !{!94, !"png_push_have_row"}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"png_push_have_row: argument 0"}
-!97 = distinct !{!97, !"png_push_have_row"}
-!98 = distinct !{!98, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !15, !16}
+!18 = !{!19}
+!19 = distinct !{!19, !20, !"png_push_have_end: argument 0"}
+!20 = distinct !{!20, !"png_push_have_end"}
+!21 = !{!22}
+!22 = distinct !{!22, !20, !"png_push_have_end: argument 1"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"png_push_have_info: argument 0"}
+!25 = distinct !{!25, !"png_push_have_info"}
+!26 = !{!27}
+!27 = distinct !{!27, !25, !"png_push_have_info: argument 1"}
+!28 = distinct !{!28, !15, !16}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"png_push_have_row: argument 0"}
+!31 = distinct !{!31, !"png_push_have_row"}
+!32 = distinct !{!32, !15, !16}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"png_push_have_row: argument 0"}
+!35 = distinct !{!35, !"png_push_have_row"}
+!36 = distinct !{!36, !15, !16}
+!37 = !{!38}
+!38 = distinct !{!38, !39, !"png_push_have_row: argument 0"}
+!39 = distinct !{!39, !"png_push_have_row"}
+!40 = distinct !{!40, !15, !16}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"png_push_have_row: argument 0"}
+!43 = distinct !{!43, !"png_push_have_row"}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"png_push_have_row: argument 0"}
+!46 = distinct !{!46, !"png_push_have_row"}
+!47 = distinct !{!47, !15, !16}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"png_push_have_row: argument 0"}
+!50 = distinct !{!50, !"png_push_have_row"}
+!51 = distinct !{!51, !15, !16}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"png_push_have_row: argument 0"}
+!54 = distinct !{!54, !"png_push_have_row"}
+!55 = distinct !{!55, !15, !16}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"png_push_have_row: argument 0"}
+!58 = distinct !{!58, !"png_push_have_row"}
+!59 = distinct !{!59, !15, !16}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"png_push_have_row: argument 0"}
+!62 = distinct !{!62, !"png_push_have_row"}
+!63 = distinct !{!63, !15, !16}
+!64 = !{!65}
+!65 = distinct !{!65, !66, !"png_push_have_row: argument 0"}
+!66 = distinct !{!66, !"png_push_have_row"}
+!67 = distinct !{!67, !15, !16}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"png_push_have_row: argument 0"}
+!70 = distinct !{!70, !"png_push_have_row"}
+!71 = distinct !{!71, !15, !16}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"png_push_have_row: argument 0"}
+!74 = distinct !{!74, !"png_push_have_row"}
+!75 = distinct !{!75, !15, !16}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"png_push_have_row: argument 0"}
+!78 = distinct !{!78, !"png_push_have_row"}
+!79 = distinct !{!79, !15, !16}
+!80 = !{!81}
+!81 = distinct !{!81, !82, !"png_push_have_row: argument 0"}
+!82 = distinct !{!82, !"png_push_have_row"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"png_push_have_row: argument 0"}
+!85 = distinct !{!85, !"png_push_have_row"}
+!86 = distinct !{!86, !15, !16}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"png_push_have_row: argument 0"}
+!89 = distinct !{!89, !"png_push_have_row"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"png_push_have_row: argument 0"}
+!92 = distinct !{!92, !"png_push_have_row"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"png_push_have_row: argument 0"}
+!95 = distinct !{!95, !"png_push_have_row"}
+!96 = !{!97}
+!97 = distinct !{!97, !98, !"png_push_have_row: argument 0"}
+!98 = distinct !{!98, !"png_push_have_row"}
+!99 = distinct !{!99, !15, !16}

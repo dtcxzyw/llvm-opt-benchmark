@@ -14,18 +14,18 @@ define noundef i32 @_ZN4base8internal25ThreadPriorityToNiceValueENS_14ThreadPrio
 2:                                                ; preds = %3
   %.011.add = add nuw nsw i64 %.011.idx15, 8
   %.not = icmp eq i64 %.011.add, 32
-  br i1 %.not, label %.loopexit, label %3
+  br i1 %.not, label %.loopexit, label %3, !llvm.loop !3
 
 3:                                                ; preds = %1, %2
   %.011.idx15 = phi i64 [ 0, %1 ], [ %.011.add, %2 ]
   %.011.ptr16 = getelementptr inbounds nuw i8, ptr @_ZN4base8internal29kThreadPriorityToNiceValueMapE, i64 %.011.idx15
-  %4 = load i32, ptr %.011.ptr16, align 8, !tbaa !3
+  %4 = load i32, ptr %.011.ptr16, align 8, !tbaa !5
   %.not12 = icmp eq i32 %4, %0
   br i1 %.not12, label %.thread, label %2
 
 .thread:                                          ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %.011.ptr16, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !9
+  %6 = load i32, ptr %5, align 4, !tbaa !11
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %.thread
@@ -45,9 +45,9 @@ define noundef i32 @_ZN4base8internal25NiceValueToThreadPriorityEi(i32 noundef %
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %.sroa.09.0, i64 -8
   %5 = getelementptr inbounds i8, ptr %.sroa.09.0, i64 -4
-  %6 = load i32, ptr %5, align 4, !tbaa !9
+  %6 = load i32, ptr %5, align 4, !tbaa !11
   %.not = icmp slt i32 %6, %0
-  br i1 %.not, label %2, label %.split.loop.exit15
+  br i1 %.not, label %2, label %.split.loop.exit15, !llvm.loop !12
 
 .split.loop.exit15:                               ; preds = %3
   %7 = load i32, ptr %4, align 4
@@ -65,10 +65,13 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 1}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{!4, !5, i64 0}
-!4 = !{!"_ZTSN4base8internal29ThreadPriorityToNiceValuePairE", !5, i64 0, !8, i64 4}
-!5 = !{!"_ZTSN4base14ThreadPriorityE", !6, i64 0}
-!6 = !{!"omnipotent char", !7, i64 0}
-!7 = !{!"Simple C++ TBAA"}
-!8 = !{!"int", !6, i64 0}
-!9 = !{!4, !8, i64 4}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{!6, !7, i64 0}
+!6 = !{!"_ZTSN4base8internal29ThreadPriorityToNiceValuePairE", !7, i64 0, !10, i64 4}
+!7 = !{!"_ZTSN4base14ThreadPriorityE", !8, i64 0}
+!8 = !{!"omnipotent char", !9, i64 0}
+!9 = !{!"Simple C++ TBAA"}
+!10 = !{!"int", !8, i64 0}
+!11 = !{!6, !10, i64 4}
+!12 = distinct !{!12, !4}

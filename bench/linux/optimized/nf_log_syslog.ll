@@ -571,7 +571,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 
 17:                                               ; preds = %13, %5
   %18 = phi i32 [ %16, %13 ], [ 15, %5 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !9
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 116
@@ -579,7 +579,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %23 = add i32 %4, %22
   %24 = sub i32 %20, %23
   %25 = icmp slt i32 %24, 20
-  br i1 %25, label %26, label %31, !prof !9
+  br i1 %25, label %26, label %31, !prof !10
 
 26:                                               ; preds = %17
   %27 = icmp eq ptr %3, null
@@ -588,7 +588,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 28:                                               ; preds = %26
   %29 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %6, i32 noundef 20) #8
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %.thread, label %.thread14, !prof !9
+  br i1 %30, label %.thread, label %.thread14, !prof !10
 
 31:                                               ; preds = %17
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -721,7 +721,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 
 123:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !9
   %124 = load i8, ptr %38, align 4
   %125 = shl i8 %124, 2
   %126 = and i8 %125, 60
@@ -734,7 +734,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %133 = add i32 %4, %131
   %134 = sub i32 %132, %133
   %135 = icmp slt i32 %134, %128
-  br i1 %135, label %136, label %141, !prof !9
+  br i1 %135, label %136, label %141, !prof !10
 
 136:                                              ; preds = %123
   %137 = icmp eq ptr %3, null
@@ -743,7 +743,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 138:                                              ; preds = %136
   %139 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %129, ptr noundef nonnull %7, i32 noundef %128) #8
   %140 = icmp slt i32 %139, 0
-  br i1 %140, label %.thread17, label %.thread18, !prof !9
+  br i1 %140, label %.thread17, label %.thread18, !prof !10
 
 141:                                              ; preds = %123
   %142 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -771,7 +771,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %157 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.21, i32 noundef %156) #8
   %158 = add nuw nsw i64 %153, 1
   %159 = icmp eq i64 %158, %151
-  br i1 %159, label %.loopexit, label %152, !llvm.loop !10
+  br i1 %159, label %.loopexit, label %152, !llvm.loop !11
 
 .loopexit:                                        ; preds = %152, %.thread18
   %160 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.22) #8
@@ -814,13 +814,13 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %183 = and i8 %182, 60
   %184 = zext nneg i8 %183 to i32
   %185 = add i32 %4, %184
-  %186 = call fastcc i32 @nf_log_dump_udp_header(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %163, i32 noundef %180, i32 noundef %185), !range !11
+  %186 = call fastcc i32 @nf_log_dump_udp_header(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %163, i32 noundef %180, i32 noundef %185), !range !12
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %362, label %413
 
 188:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  store i64 0, ptr %8, align 8, !annotation !8
+  store i64 0, ptr %8, align 8, !annotation !9
   %189 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.23) #8
   %190 = load i16, ptr %90, align 2
   %191 = and i16 %190, -225
@@ -838,7 +838,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %201 = add i32 %200, %198
   %202 = sub i32 %199, %201
   %203 = icmp slt i32 %202, 8
-  br i1 %203, label %204, label %209, !prof !9
+  br i1 %203, label %204, label %209, !prof !10
 
 204:                                              ; preds = %193
   %205 = icmp eq ptr %3, null
@@ -847,7 +847,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 206:                                              ; preds = %204
   %207 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %198, ptr noundef nonnull %8, i32 noundef 8) #8
   %208 = icmp slt i32 %207, 0
-  br i1 %208, label %..thread21_crit_edge, label %.thread22, !prof !9
+  br i1 %208, label %..thread21_crit_edge, label %.thread22, !prof !10
 
 ..thread21_crit_edge:                             ; preds = %206
   %.pre60 = load i32, ptr %19, align 8
@@ -984,7 +984,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 
 288:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, i8 0, i64 12, i1 false), !annotation !9
   %289 = load i16, ptr %90, align 2
   %290 = and i16 %289, -225
   %291 = icmp eq i16 %290, 0
@@ -1002,7 +1002,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %301 = add i32 %300, %298
   %302 = sub i32 %299, %301
   %303 = icmp slt i32 %302, 12
-  br i1 %303, label %304, label %309, !prof !9
+  br i1 %303, label %304, label %309, !prof !10
 
 304:                                              ; preds = %292
   %305 = icmp eq ptr %3, null
@@ -1011,7 +1011,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 306:                                              ; preds = %304
   %307 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %298, ptr noundef nonnull %9, i32 noundef 12) #8
   %308 = icmp slt i32 %307, 0
-  br i1 %308, label %..thread25_crit_edge, label %.thread26, !prof !9
+  br i1 %308, label %..thread25_crit_edge, label %.thread26, !prof !10
 
 ..thread25_crit_edge:                             ; preds = %306
   %.pre58 = load i32, ptr %19, align 8
@@ -1051,7 +1051,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 
 324:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #8
-  store i64 0, ptr %10, align 8, !annotation !8
+  store i64 0, ptr %10, align 8, !annotation !9
   %325 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.34) #8
   %326 = load i16, ptr %90, align 2
   %327 = and i16 %326, -225
@@ -1069,7 +1069,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
   %337 = add i32 %336, %334
   %338 = sub i32 %335, %337
   %339 = icmp slt i32 %338, 8
-  br i1 %339, label %340, label %345, !prof !9
+  br i1 %339, label %340, label %345, !prof !10
 
 340:                                              ; preds = %329
   %341 = icmp eq ptr %3, null
@@ -1078,7 +1078,7 @@ define internal fastcc void @dump_ipv4_packet(ptr noundef readnone captures(addr
 342:                                              ; preds = %340
   %343 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %334, ptr noundef nonnull %10, i32 noundef 8) #8
   %344 = icmp slt i32 %343, 0
-  br i1 %344, label %..thread29_crit_edge, label %.thread30, !prof !9
+  br i1 %344, label %..thread29_crit_edge, label %.thread30, !prof !10
 
 ..thread29_crit_edge:                             ; preds = %342
   %.pre56 = load i32, ptr %19, align 8
@@ -1226,7 +1226,7 @@ define internal fastcc ptr @skb_header_pointer(ptr noundef %0, i32 noundef %1, p
   %8 = add i32 %1, %7
   %9 = sub i32 %5, %8
   %10 = icmp slt i32 %9, 8
-  br i1 %10, label %16, label %11, !prof !9
+  br i1 %10, label %16, label %11, !prof !10
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -1242,7 +1242,7 @@ define internal fastcc ptr @skb_header_pointer(ptr noundef %0, i32 noundef %1, p
 18:                                               ; preds = %16
   %19 = tail call i32 @skb_copy_bits(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, i32 noundef 8) #8
   %20 = icmp slt i32 %19, 0
-  %21 = select i1 %20, ptr null, ptr %2, !prof !9
+  %21 = select i1 %20, ptr null, ptr %2, !prof !10
   br label %22
 
 22:                                               ; preds = %18, %16, %11
@@ -1260,7 +1260,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   br i1 %9, label %10, label %156
 
 10:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !annotation !9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -1268,7 +1268,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %15 = add i32 %3, %14
   %16 = sub i32 %12, %15
   %17 = icmp slt i32 %16, 20
-  br i1 %17, label %18, label %23, !prof !9
+  br i1 %17, label %18, label %23, !prof !10
 
 18:                                               ; preds = %10
   %19 = icmp eq ptr %1, null
@@ -1277,7 +1277,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
 20:                                               ; preds = %18
   %21 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 20) #8
   %22 = icmp slt i32 %21, 0
-  br i1 %22, label %..thread_crit_edge, label %.thread6, !prof !9
+  br i1 %22, label %..thread_crit_edge, label %.thread6, !prof !10
 
 ..thread_crit_edge:                               ; preds = %20
   %.pre21 = load i32, ptr %11, align 8
@@ -1438,7 +1438,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %122 = zext nneg i16 %119 to i32
   %123 = add nsw i32 %122, -20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !9
   %124 = add i32 %3, 20
   %125 = load i32, ptr %11, align 8
   %126 = load i32, ptr %13, align 4
@@ -1446,7 +1446,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %128 = add i32 %3, %126
   %129 = sub i32 %127, %128
   %130 = icmp slt i32 %129, %123
-  br i1 %130, label %131, label %136, !prof !9
+  br i1 %130, label %131, label %136, !prof !10
 
 131:                                              ; preds = %121
   %132 = icmp eq ptr %1, null
@@ -1455,7 +1455,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
 133:                                              ; preds = %131
   %134 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %124, ptr noundef nonnull %7, i32 noundef %123) #8
   %135 = icmp slt i32 %134, 0
-  br i1 %135, label %.thread9, label %.thread10, !prof !9
+  br i1 %135, label %.thread9, label %.thread10, !prof !10
 
 136:                                              ; preds = %121
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -1479,7 +1479,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_tcp_header(ptr n
   %150 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.21, i32 noundef %149) #8
   %151 = add nuw nsw i64 %146, 1
   %152 = icmp eq i64 %151, %144
-  br i1 %152, label %153, label %145, !llvm.loop !12
+  br i1 %152, label %153, label %145, !llvm.loop !13
 
 153:                                              ; preds = %145
   %154 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %0, ptr noundef nonnull @.str.22) #8
@@ -1508,7 +1508,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
   br i1 %10, label %11, label %46
 
 11:                                               ; preds = %5
-  store i64 0, ptr %6, align 8, !annotation !8
+  store i64 0, ptr %6, align 8, !annotation !9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -1516,7 +1516,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
   %16 = add i32 %4, %15
   %17 = sub i32 %13, %16
   %18 = icmp slt i32 %17, 8
-  br i1 %18, label %19, label %24, !prof !9
+  br i1 %18, label %19, label %24, !prof !10
 
 19:                                               ; preds = %11
   %20 = icmp eq ptr %1, null
@@ -1525,7 +1525,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @nf_log_dump_udp_header(ptr n
 21:                                               ; preds = %19
   %22 = call i32 @skb_copy_bits(ptr noundef nonnull %1, i32 noundef %4, ptr noundef nonnull %6, i32 noundef 8) #8
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %..thread_crit_edge, label %.thread2, !prof !9
+  br i1 %23, label %..thread_crit_edge, label %.thread2, !prof !10
 
 ..thread_crit_edge:                               ; preds = %21
   %.pre = load i32, ptr %12, align 8
@@ -1627,9 +1627,9 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %5 = alloca %struct.arppayload, align 1
   %6 = alloca %struct.arphdr, align 8
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %5, i8 0, i64 20, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store i64 0, ptr %6, align 8, !annotation !8
+  store i64 0, ptr %6, align 8, !annotation !9
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 116
@@ -1637,7 +1637,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %11 = add i32 %3, %10
   %12 = sub i32 %8, %11
   %13 = icmp slt i32 %12, 8
-  br i1 %13, label %14, label %19, !prof !9
+  br i1 %13, label %14, label %19, !prof !10
 
 14:                                               ; preds = %4
   %15 = icmp eq ptr %2, null
@@ -1646,7 +1646,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
 16:                                               ; preds = %14
   %17 = call i32 @skb_copy_bits(ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %6, i32 noundef 8) #8
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %.thread, label %.thread3, !prof !9
+  br i1 %18, label %.thread, label %.thread3, !prof !10
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 200
@@ -1744,7 +1744,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
   %90 = add i32 %3, %88
   %91 = sub i32 %89, %90
   %92 = icmp slt i32 %91, 20
-  br i1 %92, label %93, label %98, !prof !9
+  br i1 %92, label %93, label %98, !prof !10
 
 93:                                               ; preds = %85
   %94 = icmp eq ptr %2, null
@@ -1753,7 +1753,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
 95:                                               ; preds = %93
   %96 = call i32 @skb_copy_bits(ptr noundef nonnull %2, i32 noundef %86, ptr noundef nonnull %5, i32 noundef 20) #8
   %97 = icmp slt i32 %96, 0
-  br i1 %97, label %..thread6_crit_edge, label %.thread7, !prof !9
+  br i1 %97, label %..thread6_crit_edge, label %.thread7, !prof !10
 
 ..thread6_crit_edge:                              ; preds = %95
   %.pre = load i32, ptr %7, align 8
@@ -1859,7 +1859,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
 
 19:                                               ; preds = %15, %6
   %20 = phi i32 [ %18, %15 ], [ 15, %6 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %7, i8 0, i64 40, i1 false), !annotation !9
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 116
@@ -1867,7 +1867,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
   %25 = add i32 %4, %24
   %26 = sub i32 %22, %25
   %27 = icmp slt i32 %26, 40
-  br i1 %27, label %28, label %33, !prof !9
+  br i1 %27, label %28, label %33, !prof !10
 
 28:                                               ; preds = %19
   %29 = icmp eq ptr %3, null
@@ -1876,7 +1876,7 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
 30:                                               ; preds = %28
   %31 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %4, ptr noundef nonnull %7, i32 noundef 40) #8
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %.thread, label %.thread15, !prof !9
+  br i1 %32, label %.thread, label %.thread15, !prof !10
 
 33:                                               ; preds = %19
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 200
@@ -1937,13 +1937,13 @@ define internal fastcc void @dump_ipv6_packet(ptr noundef readnone captures(addr
 
 switch.edge:                                      ; preds = %65, %65, %65, %65, %65, %65
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8) #8
-  store i16 0, ptr %8, align 2, !annotation !8
+  store i16 0, ptr %8, align 2, !annotation !9
   %69 = load i32, ptr %21, align 8
   %70 = load i32, ptr %23, align 4
   %71 = add i32 %66, %70
   %72 = sub i32 %69, %71
   %73 = icmp slt i32 %72, 2
-  br i1 %73, label %74, label %78, !prof !9
+  br i1 %73, label %74, label %78, !prof !10
 
 74:                                               ; preds = %switch.edge
   br i1 %62, label %.thread18, label %75
@@ -1951,7 +1951,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 75:                                               ; preds = %74
   %76 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %8, i32 noundef 2) #8
   %77 = icmp slt i32 %76, 0
-  br i1 %77, label %.thread18, label %.thread19, !prof !9
+  br i1 %77, label %.thread18, label %.thread19, !prof !10
 
 78:                                               ; preds = %switch.edge
   %79 = load ptr, ptr %61, align 8
@@ -1984,14 +1984,14 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 
 88:                                               ; preds = %87
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
-  store i64 0, ptr %9, align 8, !annotation !8
+  store i64 0, ptr %9, align 8, !annotation !9
   %89 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.64) #8
   %90 = load i32, ptr %21, align 8
   %91 = load i32, ptr %23, align 4
   %92 = add i32 %66, %91
   %93 = sub i32 %90, %92
   %94 = icmp slt i32 %93, 8
-  br i1 %94, label %95, label %99, !prof !9
+  br i1 %94, label %95, label %99, !prof !10
 
 95:                                               ; preds = %88
   br i1 %62, label %.thread24, label %96
@@ -1999,7 +1999,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 96:                                               ; preds = %95
   %97 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %9, i32 noundef 8) #8
   %98 = icmp slt i32 %97, 0
-  br i1 %98, label %.thread24, label %.thread23, !prof !9
+  br i1 %98, label %.thread24, label %.thread23, !prof !10
 
 99:                                               ; preds = %88
   %100 = load ptr, ptr %61, align 8
@@ -2058,7 +2058,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 
 132:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, i8 0, i64 12, i1 false), !annotation !9
   %133 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.70) #8
   %134 = icmp eq i32 %68, 0
   br i1 %134, label %137, label %135
@@ -2073,7 +2073,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   %140 = add i32 %66, %139
   %141 = sub i32 %138, %140
   %142 = icmp slt i32 %141, 12
-  br i1 %142, label %143, label %147, !prof !9
+  br i1 %142, label %143, label %147, !prof !10
 
 143:                                              ; preds = %137
   br i1 %62, label %.thread27, label %144
@@ -2081,7 +2081,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 144:                                              ; preds = %143
   %145 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %10, i32 noundef 12) #8
   %146 = icmp slt i32 %145, 0
-  br i1 %146, label %..thread27_crit_edge, label %.thread28, !prof !9
+  br i1 %146, label %..thread27_crit_edge, label %.thread28, !prof !10
 
 ..thread27_crit_edge:                             ; preds = %144
   %.pre133 = load i32, ptr %21, align 8
@@ -2114,7 +2114,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 
 161:                                              ; preds = %160
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store i64 0, ptr %11, align 8, !annotation !8
+  store i64 0, ptr %11, align 8, !annotation !9
   %162 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.72) #8
   %163 = icmp eq i32 %68, 0
   br i1 %163, label %166, label %164
@@ -2129,7 +2129,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   %169 = add i32 %66, %168
   %170 = sub i32 %167, %169
   %171 = icmp slt i32 %170, 8
-  br i1 %171, label %172, label %176, !prof !9
+  br i1 %171, label %172, label %176, !prof !10
 
 172:                                              ; preds = %166
   br i1 %62, label %.thread31, label %173
@@ -2137,7 +2137,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
 173:                                              ; preds = %172
   %174 = call i32 @skb_copy_bits(ptr noundef nonnull %3, i32 noundef %66, ptr noundef nonnull %11, i32 noundef 8) #8
   %175 = icmp slt i32 %174, 0
-  br i1 %175, label %..thread31_crit_edge, label %.thread32, !prof !9
+  br i1 %175, label %..thread31_crit_edge, label %.thread32, !prof !10
 
 ..thread31_crit_edge:                             ; preds = %173
   %.pre = load i32, ptr %21, align 8
@@ -2192,7 +2192,7 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   %205 = load i8, ptr %84, align 1
   %206 = add i32 %200, %66
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8) #8
-  br label %65, !llvm.loop !13
+  br label %65, !llvm.loop !14
 
 207:                                              ; preds = %.thread27, %135
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #8
@@ -2208,13 +2208,13 @@ switch.edge:                                      ; preds = %65, %65, %65, %65, 
   br i1 %211, label %266, label %316
 
 212:                                              ; preds = %65, %65
-  %213 = call fastcc i32 @nf_log_dump_udp_header(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %67, i32 noundef %68, i32 noundef %66), !range !11
+  %213 = call fastcc i32 @nf_log_dump_udp_header(ptr noundef %1, ptr noundef %3, i8 noundef zeroext %67, i32 noundef %68, i32 noundef %66), !range !12
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %266, label %316
 
 215:                                              ; preds = %65
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
-  store i64 0, ptr %12, align 8, !annotation !8
+  store i64 0, ptr %12, align 8, !annotation !9
   %216 = call i32 (ptr, ptr, ...) @nf_log_buf_add(ptr noundef %1, ptr noundef nonnull @.str.75) #8
   %217 = icmp eq i32 %68, 0
   br i1 %217, label %218, label %262
@@ -2529,12 +2529,13 @@ attributes #9 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i32 0, i32 2}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = !{!"branch_weights", i32 1, i32 2000}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = !{i32 0, i32 2}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}

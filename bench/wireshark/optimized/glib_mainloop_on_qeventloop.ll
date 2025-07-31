@@ -287,7 +287,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
   store i32 %33, ptr %12, align 4
   %34 = load i32, ptr %11, align 8
   %35 = icmp sgt i32 %33, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.lcssa13 = phi i32 [ %23, %16 ], [ %33, %.lr.ph ]
@@ -359,23 +359,23 @@ define void @_ZN24GLibMainloopOnQEventLoopC2EP7QObject(ptr noundef align 8 deref
 11:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  store i64 ptrtoint (ptr @_ZN10GLibPoller6polledEv to i64), ptr %4, align 8, !noalias !9
+  store i64 ptrtoint (ptr @_ZN10GLibPoller6polledEv to i64), ptr %4, align 8, !noalias !10
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !9
-  store i64 ptrtoint (ptr @_ZN24GLibMainloopOnQEventLoop16checkAndDispatchEv to i64), ptr %5, align 8, !noalias !9
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !10
+  store i64 ptrtoint (ptr @_ZN24GLibMainloopOnQEventLoop16checkAndDispatchEv to i64), ptr %5, align 8, !noalias !10
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !9
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !10
   %12 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #18
           to label %.noexc unwind label %32
 
 .noexc:                                           ; preds = %11
-  store i32 1, ptr %12, align 4, !noalias !9
+  store i32 1, ptr %12, align 4, !noalias !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM24GLibMainloopOnQEventLoopFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %13, align 8, !noalias !9
+  store ptr @_ZN9QtPrivate11QSlotObjectIM24GLibMainloopOnQEventLoopFvvENS_4ListIJEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %13, align 8, !noalias !10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 ptrtoint (ptr @_ZN24GLibMainloopOnQEventLoop16checkAndDispatchEv to i64), ptr %14, align 8, !noalias !9
+  store i64 ptrtoint (ptr @_ZN24GLibMainloopOnQEventLoop16checkAndDispatchEv to i64), ptr %14, align 8, !noalias !10
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !9
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !10
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %6, ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %5, ptr noundef %12, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN10GLibPoller16staticMetaObjectE)
           to label %15 unwind label %32
 
@@ -500,7 +500,7 @@ _ZN11QBasicMutex4lockEv.exit:                     ; preds = %1, %6
   %9 = load ptr, ptr %7, align 8
   %10 = tail call i32 @g_main_context_acquire(ptr noundef %9)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %8, label %11, !llvm.loop !12
+  br i1 %.not, label %8, label %11, !llvm.loop !13
 
 11:                                               ; preds = %8
   %12 = tail call i32 @g_main_depth()
@@ -712,7 +712,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM24GLibMainloopOnQEventLoop
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !13
+  %17 = load ptr, ptr %16, align 8, !nosanitize !14
   br label %_ZN9QtPrivate15FunctionPointerIM24GLibMainloopOnQEventLoopFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -814,11 +814,12 @@ attributes #19 = { cold }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN7QObject7connectIM10GLibPollerFvvEM24GLibMainloopOnQEventLoopFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
-!11 = distinct !{!11, !"_ZN7QObject7connectIM10GLibPollerFvvEM24GLibMainloopOnQEventLoopFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!12 = distinct !{!12, !7}
-!13 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN7QObject7connectIM10GLibPollerFvvEM24GLibMainloopOnQEventLoopFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
+!12 = distinct !{!12, !"_ZN7QObject7connectIM10GLibPollerFvvEM24GLibMainloopOnQEventLoopFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
+!13 = distinct !{!13, !7, !8}
+!14 = !{}

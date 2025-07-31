@@ -1314,7 +1314,7 @@ arcfour_mic_key.exit.i:                           ; preds = %.critedge.i.i, %135
 
 151:                                              ; preds = %arcfour_mic_key.exit.i
   %152 = sext i32 %91 to i64
-  %153 = call ptr @__memcpy_chk(ptr noundef %75, ptr noundef %73, i64 noundef range(i64 -2147483648, 2147483648) %152, i64 noundef %72) #11, !alias.scope !10
+  %153 = call ptr @__memcpy_chk(ptr noundef %75, ptr noundef %73, i64 noundef range(i64 -2147483648, 2147483648) %152, i64 noundef %72) #11, !alias.scope !11
   br label %154
 
 154:                                              ; preds = %151, %145
@@ -1346,7 +1346,7 @@ arcfour_mic_key.exit.i:                           ; preds = %.critedge.i.i, %135
   %165 = add nsw i32 %.020.i.i.i, -1
   %166 = getelementptr i8, ptr %.01519.i.i.i, i64 -1
   %167 = icmp sgt i32 %.020.i.i.i, 1
-  br i1 %167, label %.lr.ph.i.i.i, label %.thread66.i.i, !llvm.loop !14
+  br i1 %167, label %.lr.ph.i.i.i, label %.thread66.i.i, !llvm.loop !15
 
 .thread66.i.i:                                    ; preds = %164, %.preheader.i.i.i
   %168 = sub i32 %91, %160
@@ -1398,7 +1398,7 @@ decrypt_arcfour.exit.i:                           ; preds = %.thread66.i.i, %154
 182:                                              ; preds = %decrypt_arcfour.exit.i, %decrypt_arcfour.exit.thread.i, %82
   %.0.i = load ptr, ptr %.05.i, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.critedge, label %82, !llvm.loop !15
+  br i1 %.not.i, label %.critedge, label %82, !llvm.loop !16
 
 .critedge:                                        ; preds = %182, %174, %65, %49, %41, %54, %40
   ret i32 %.068
@@ -1609,7 +1609,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
 135:                                              ; preds = %132, %127
   %136 = phi i64 [ %128, %132 ], [ 256, %127 ]
   %.034.i.i = phi ptr [ %133, %132 ], [ %6, %127 ]
-  %137 = call ptr @__memcpy_chk(ptr noundef nonnull %.034.i.i, ptr noundef %110, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %136) #11, !alias.scope !16
+  %137 = call ptr @__memcpy_chk(ptr noundef nonnull %.034.i.i, ptr noundef %110, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %136) #11, !alias.scope !17
   %138 = getelementptr i8, ptr %110, i64 %128
   %139 = icmp ne i32 %106, -1
   call void @llvm.assume(i1 %139)
@@ -1620,7 +1620,7 @@ define internal fastcc noundef i32 @dissect_spnego_krb5_cfx_wrap_base(ptr nounde
   %144 = select i1 %143, i64 0, i64 %142
   %145 = icmp ne i64 %144, -1
   call void @llvm.assume(i1 %145)
-  %146 = call ptr @__memcpy_chk(ptr noundef %141, ptr noundef nonnull %.034.i.i, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %144) #11, !alias.scope !20
+  %146 = call ptr @__memcpy_chk(ptr noundef %141, ptr noundef nonnull %.034.i.i, i64 noundef range(i64 -2147483648, 2147483648) %128, i64 noundef %144) #11, !alias.scope !21
   %147 = icmp samesign ugt i32 %125, 256
   br i1 %147, label %148, label %rrc_rotate.exit.i
 
@@ -1888,19 +1888,20 @@ attributes #14 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
+!19 = distinct !{!19, !"memcpy.inline"}
+!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
+!23 = distinct !{!23, !"memcpy.inline"}
+!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}

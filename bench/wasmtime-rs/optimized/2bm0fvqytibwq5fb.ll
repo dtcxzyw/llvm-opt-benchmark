@@ -201,7 +201,7 @@ define align 8 ptr @_ZN22cranelift_codegen_meta8generate17h7c37419d145d31c3E(ptr
 
 63:                                               ; preds = %61
   invoke void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen_meta..cdsl..isa..TargetIsa$GT$17he1112e6491695369E"(ptr nonnull align 8 %11)
-          to label %43 unwind label %.loopexit
+          to label %43 unwind label %.loopexit, !llvm.loop !6
 
 64:                                               ; preds = %62
   invoke void @"_ZN4core3ptr65drop_in_place$LT$cranelift_codegen_meta..cdsl..isa..TargetIsa$GT$17he1112e6491695369E"(ptr nonnull align 8 %11)
@@ -291,3 +291,5 @@ attributes #5 = { cold noreturn nounwind }
 !3 = !{i8 0, i8 5}
 !4 = !{}
 !5 = !{i64 0, i64 -9223372036854775807}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}

@@ -679,7 +679,7 @@ _ZL16btComputeSupportPK13btConvexShapeRK11btTransformS1_S4_RK9btVector3bRS5_S8_S
   br i1 %or.cond3.i.i, label %379, label %380
 
 379:                                              ; preds = %375
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(48) %220, i64 48, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(48) %220, i64 48, i1 false), !tbaa.struct !45
   store i32 0, ptr %98, align 4, !tbaa !40
   store float %359, ptr %.sink.i.i.sroa.gep469, align 8
   br label %_ZL11btDoSimplexP9btSimplexP9btVector3.exit.thread522
@@ -851,11 +851,11 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit.thread522: ; preds = %379, %380
   br i1 %496, label %510, label %509
 
 509:                                              ; preds = %508
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %220, ptr noundef nonnull align 4 dereferenceable(48) %14, i64 48, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %220, ptr noundef nonnull align 4 dereferenceable(48) %14, i64 48, i1 false), !tbaa.struct !45
   br label %.sink.split.i10.i
 
 510:                                              ; preds = %508
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(48) %220, i64 48, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(48) %220, i64 48, i1 false), !tbaa.struct !45
   br label %.sink.split.i10.i
 
 .sink.split.i10.i:                                ; preds = %510, %509
@@ -1070,7 +1070,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 
 645:                                              ; preds = %632
   %646 = fmul float %643, %643
-  %647 = load float, ptr %529, align 4, !tbaa !45
+  %647 = load float, ptr %529, align 4, !tbaa !46
   %648 = fmul float %.0108, %647
   %649 = fcmp ogt float %646, %648
   br i1 %649, label %.thread542, label %650
@@ -1129,7 +1129,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 
 680:                                              ; preds = %676
   %681 = load ptr, ptr %522, align 8, !tbaa !20
-  %682 = load i32, ptr %681, align 4, !tbaa !49
+  %682 = load i32, ptr %681, align 4, !tbaa !50
   %683 = icmp eq i32 %682, 4
   br i1 %683, label %684, label %685
 
@@ -1149,7 +1149,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #15
-  br label %532
+  br label %532, !llvm.loop !55
 
 .thread547:                                       ; preds = %672, %659, %671
   %.sink = phi i32 [ 6, %671 ], [ 3, %659 ], [ 12, %672 ]
@@ -1206,7 +1206,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   %704 = load float, ptr %33, align 8, !tbaa !7
   %705 = fmul float %699, %704
   store float %705, ptr %33, align 8, !tbaa !7
-  %706 = call noundef float @sqrtf(float noundef %.1109534545) #15, !tbaa !54
+  %706 = call noundef float @sqrtf(float noundef %.1109534545) #15, !tbaa !56
   %707 = fdiv float %.0519, %706
   %708 = fmul float %688, %707
   %709 = fmul float %689, %707
@@ -1345,7 +1345,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
   br i1 %787, label %788, label %804
 
 788:                                              ; preds = %786
-  %789 = call noundef float @sqrtf(float noundef %.097) #15, !tbaa !54
+  %789 = call noundef float @sqrtf(float noundef %.097) #15, !tbaa !56
   %790 = fsub float %765, %764
   %791 = fsub float %770, %768
   %792 = fsub float %775, %773
@@ -1496,7 +1496,7 @@ _ZL11btDoSimplexP9btSimplexP9btVector3.exit._crit_edge: ; preds = %_ZL11btDoSimp
 
 864:                                              ; preds = %862
   %865 = fmul float %.2553, %.2553
-  %866 = load float, ptr %529, align 4, !tbaa !45
+  %866 = load float, ptr %529, align 4, !tbaa !46
   %867 = fcmp olt float %865, %866
   br i1 %867, label %868, label %1213
 
@@ -2755,7 +2755,7 @@ _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71
   br i1 %or.cond3, label %147, label %148
 
 147:                                              ; preds = %140
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !45
   store i32 1, ptr %7, align 4, !tbaa !40
   call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %1)
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
@@ -2771,14 +2771,14 @@ _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71
   br i1 %or.cond5, label %155, label %156
 
 155:                                              ; preds = %148
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !45
   store i32 1, ptr %7, align 4, !tbaa !40
   call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %1)
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
 
 156:                                              ; preds = %148
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !45
   store i32 0, ptr %7, align 4, !tbaa !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
@@ -2813,14 +2813,14 @@ _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71
   br i1 %or.cond9, label %180, label %181
 
 180:                                              ; preds = %173
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !45
   store i32 1, ptr %7, align 4, !tbaa !40
   call void @_Z13btTripleCrossPK9btVector3S1_S1_PS_(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %1)
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
 
 181:                                              ; preds = %173
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %10, i64 48, i1 false), !tbaa.struct !45
   store i32 0, ptr %7, align 4, !tbaa !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !34
   br label %_Z8btVec3EqPK9btVector3S1_.exit.thread110
@@ -2845,9 +2845,9 @@ _Z8btVec3EqPK9btVector3S1_.exit80.thread:         ; preds = %_Z5ccdEqff.exit.i71
 
 190:                                              ; preds = %182
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %6, ptr noundef nonnull align 4 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !44
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %6, ptr noundef nonnull align 4 dereferenceable(48) %0, i64 48, i1 false), !tbaa.struct !45
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(48) %11, i64 48, i1 false), !tbaa.struct !45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %11, ptr noundef nonnull align 4 dereferenceable(48) %6, i64 48, i1 false), !tbaa.struct !45
   %.sroa.1094.0..sroa_idx95 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.16.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store float %164, ptr %1, align 4, !tbaa !7
@@ -2984,16 +2984,18 @@ attributes #16 = { builtin nounwind }
 !39 = !{!11, !18, i64 88}
 !40 = !{!41, !18, i64 192}
 !41 = !{!"_ZTS9btSimplex", !9, i64 0, !18, i64 192}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{i64 0, i64 16, !35, i64 16, i64 16, !35, i64 32, i64 16, !35}
-!45 = !{!46, !8, i64 128}
-!46 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface17ClosestPointInputE", !47, i64 0, !47, i64 64, !8, i64 128}
-!47 = !{!"_ZTS11btTransform", !48, i64 0, !13, i64 48}
-!48 = !{!"_ZTS11btMatrix3x3", !9, i64 0}
-!49 = !{!50, !18, i64 0}
-!50 = !{!"_ZTS22btVoronoiSimplexSolver", !18, i64 0, !9, i64 4, !9, i64 84, !9, i64 164, !13, i64 244, !13, i64 260, !13, i64 276, !13, i64 292, !8, i64 308, !19, i64 312, !51, i64 316, !19, i64 356}
-!51 = !{!"_ZTS25btSubSimplexClosestResult", !13, i64 0, !52, i64 16, !9, i64 20, !19, i64 36}
-!52 = !{!"_ZTS15btUsageBitfield", !53, i64 0, !53, i64 0, !53, i64 0, !53, i64 0, !53, i64 0, !53, i64 0, !53, i64 0, !53, i64 0}
-!53 = !{!"short", !9, i64 0}
-!54 = !{!18, !18, i64 0}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{i64 0, i64 16, !35, i64 16, i64 16, !35, i64 32, i64 16, !35}
+!46 = !{!47, !8, i64 128}
+!47 = !{!"_ZTSN36btDiscreteCollisionDetectorInterface17ClosestPointInputE", !48, i64 0, !48, i64 64, !8, i64 128}
+!48 = !{!"_ZTS11btTransform", !49, i64 0, !13, i64 48}
+!49 = !{!"_ZTS11btMatrix3x3", !9, i64 0}
+!50 = !{!51, !18, i64 0}
+!51 = !{!"_ZTS22btVoronoiSimplexSolver", !18, i64 0, !9, i64 4, !9, i64 84, !9, i64 164, !13, i64 244, !13, i64 260, !13, i64 276, !13, i64 292, !8, i64 308, !19, i64 312, !52, i64 316, !19, i64 356}
+!52 = !{!"_ZTS25btSubSimplexClosestResult", !13, i64 0, !53, i64 16, !9, i64 20, !19, i64 36}
+!53 = !{!"_ZTS15btUsageBitfield", !54, i64 0, !54, i64 0, !54, i64 0, !54, i64 0, !54, i64 0, !54, i64 0, !54, i64 0, !54, i64 0}
+!54 = !{!"short", !9, i64 0}
+!55 = distinct !{!55, !44}
+!56 = !{!18, !18, i64 0}

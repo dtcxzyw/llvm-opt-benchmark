@@ -164,7 +164,7 @@ int_ctrl_cmd_is_null.exit.i49.i:                  ; preds = %58, %67
   %69 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 32
   %70 = load i32, ptr %69, align 8, !tbaa !23
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %int_ctrl_cmd_by_num.exit.loopexit.i, label %int_ctrl_cmd_is_null.exit.i49.i, !llvm.loop !28
+  br i1 %71, label %int_ctrl_cmd_by_num.exit.loopexit.i, label %int_ctrl_cmd_is_null.exit.i49.i, !llvm.loop !29
 
 int_ctrl_cmd_by_num.exit.loopexit.i:              ; preds = %67, %int_ctrl_cmd_is_null.exit.i49.i
   %.0.lcssa.i.ph.i = phi i32 [ %68, %67 ], [ %.013.i.i, %int_ctrl_cmd_is_null.exit.i49.i ]
@@ -225,7 +225,7 @@ int_ctrl_cmd_is_null.exit52.i:                    ; preds = %76
 
 93:                                               ; preds = %74
   %94 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %95 = load ptr, ptr %94, align 8, !tbaa !29
+  %95 = load ptr, ptr %94, align 8, !tbaa !30
   %96 = icmp eq ptr %95, null
   %.str.1..i = select i1 %96, ptr @.str.1, ptr %95
   %97 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.str.1..i) #7
@@ -234,7 +234,7 @@ int_ctrl_cmd_is_null.exit52.i:                    ; preds = %76
 
 99:                                               ; preds = %74
   %100 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !29
+  %101 = load ptr, ptr %100, align 8, !tbaa !30
   %102 = icmp eq ptr %101, null
   %.str.1.47.i = select i1 %102, ptr @.str.1, ptr %101
   %103 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %.str.1.47.i) #6
@@ -244,7 +244,7 @@ int_ctrl_cmd_is_null.exit52.i:                    ; preds = %76
 
 106:                                              ; preds = %74
   %107 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %108 = load i32, ptr %107, align 8, !tbaa !30
+  %108 = load i32, ptr %107, align 8, !tbaa !31
   br label %int_ctrl_helper.exit
 
 109:                                              ; preds = %74
@@ -490,12 +490,12 @@ ENGINE_cmd_is_executable.exit:                    ; preds = %19
 
 47:                                               ; preds = %44
   %48 = call i64 @strtol(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef 10) #6
-  %49 = load ptr, ptr %5, align 8, !tbaa !31
+  %49 = load ptr, ptr %5, align 8, !tbaa !32
   %50 = icmp eq ptr %2, %49
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %47
-  %52 = load i8, ptr %49, align 1, !tbaa !32
+  %52 = load i8, ptr %49, align 1, !tbaa !33
   %.not37 = icmp eq i8 %52, 0
   br i1 %.not37, label %54, label %53
 
@@ -566,10 +566,11 @@ attributes #7 = { nounwind willreturn memory(read) }
 !23 = !{!24, !15, i64 0}
 !24 = !{!"ENGINE_CMD_DEFN_st", !15, i64 0, !5, i64 8, !5, i64 16, !15, i64 24}
 !25 = !{!24, !5, i64 8}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = !{!24, !5, i64 16}
-!30 = !{!24, !15, i64 24}
-!31 = !{!5, !5, i64 0}
-!32 = !{!7, !7, i64 0}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = !{!24, !5, i64 16}
+!31 = !{!24, !15, i64 24}
+!32 = !{!5, !5, i64 0}
+!33 = !{!7, !7, i64 0}

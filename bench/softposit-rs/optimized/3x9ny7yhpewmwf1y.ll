@@ -31,7 +31,7 @@ define noundef i8 @"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire
   %5 = add i8 %.02025, 1
   %6 = shl nuw i32 %.124, 1
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %.lr.ph, label %._crit_edge
+  br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %notsub = add i8 %.02025, -19
@@ -122,7 +122,7 @@ define noundef range(i32 -2147483648, 2139095041) i32 @"_ZN89_$LT$softposit..qui
   %6 = add i8 %.0916.i.i, -1
   %7 = shl nuw i8 %.017.i.i, 1
   %8 = icmp sgt i8 %7, -1
-  br i1 %8, label %.lr.ph18.i.i, label %._crit_edge.i.i
+  br i1 %8, label %.lr.ph18.i.i, label %._crit_edge.i.i, !llvm.loop !7
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph18.i.i, %.preheader.i.i
   %.09.lcssa.i.i = phi i8 [ -1, %.preheader.i.i ], [ %6, %.lr.ph18.i.i ]
@@ -136,7 +136,7 @@ define noundef range(i32 -2147483648, 2139095041) i32 @"_ZN89_$LT$softposit..qui
   %10 = add nuw nsw i8 %.11013.i.i, 1
   %11 = shl i8 %.114.i.i, 1
   %12 = icmp sgt i8 %11, -1
-  br i1 %12, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit.i, label %.lr.ph.i.i
+  br i1 %12, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit.i, label %.lr.ph.i.i, !llvm.loop !8
 
 _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.6896929094011925488.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %.preheader12.i.i
   %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %10, %.lr.ph.i.i ]
@@ -163,7 +163,7 @@ _ZN9softposit6quire83ops3fdp17h907619d422d2fb9fE.exit: ; preds = %1, %_ZN9softpo
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
 define noundef i8 @"_ZN89_$LT$softposit..quire8..Q8E0$u20$as$u20$softposit..Quire$LT$softposit..p8e0..P8E0$GT$$GT$8to_posit17h4f1dbaa48ac3f548E"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #0 {
-  %2 = load i32, ptr %0, align 4, !alias.scope !5, !noundef !4
+  %2 = load i32, ptr %0, align 4, !alias.scope !9, !noundef !4
   switch i32 %2, label %.lr.ph.preheader.i [
     i32 0, label %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit"
     i32 -2147483648, label %3
@@ -182,7 +182,7 @@ define noundef i8 @"_ZN89_$LT$softposit..quire8..Q8E0$u20$as$u20$softposit..Quir
   %4 = add i8 %.02025.i, 1
   %5 = shl nuw i32 %.124.i, 1
   %6 = icmp sgt i32 %5, -1
-  br i1 %6, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %6, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %notsub.i = add i8 %.02025.i, -19
@@ -304,7 +304,7 @@ define noundef zeroext i1 @"_ZN62_$LT$softposit..quire8..Q8E0$u20$as$u20$core..f
   %5 = alloca [1 x { ptr, ptr }], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %6 = load i32, ptr %0, align 4, !alias.scope !8, !noundef !4
+  %6 = load i32, ptr %0, align 4, !alias.scope !12, !noundef !4
   switch i32 %6, label %.lr.ph.preheader.i [
     i32 0, label %_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit
     i32 -2147483648, label %"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE.exit.thread5"
@@ -320,7 +320,7 @@ define noundef zeroext i1 @"_ZN62_$LT$softposit..quire8..Q8E0$u20$as$u20$core..f
   %7 = add i8 %.02025.i, 1
   %8 = shl nuw i32 %.124.i, 1
   %9 = icmp sgt i32 %8, -1
-  br i1 %9, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %9, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %notsub.i = add i8 %.02025.i, -19
@@ -408,7 +408,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = 
   %47 = add i8 %.0916.i.i, -1
   %48 = shl nuw i8 %.017.i.i, 1
   %49 = icmp sgt i8 %48, -1
-  br i1 %49, label %.lr.ph18.i.i, label %._crit_edge.i.i
+  br i1 %49, label %.lr.ph18.i.i, label %._crit_edge.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph18.i.i, %.preheader.i.i
   %.09.lcssa.i.i = phi i8 [ -1, %.preheader.i.i ], [ %47, %.lr.ph18.i.i ]
@@ -422,7 +422,7 @@ _ZN9softposit4p8e04P8E016calculate_regime17had5bfa15c986e984E.exit.i: ; preds = 
   %51 = add nuw nsw i8 %.11013.i.i, 1
   %52 = shl i8 %.114.i.i, 1
   %53 = icmp sgt i8 %52, -1
-  br i1 %53, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i, label %.lr.ph.i.i
+  br i1 %53, label %_ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i, label %.lr.ph.i.i, !llvm.loop !16
 
 _ZN9softposit4p8e04P8E017separate_bits_tmp17h7142056595c711ecE.llvm.7290317390364524356.exit.i: ; preds = %.lr.ph.i.i, %._crit_edge.i.i, %.preheader12.i.i
   %.211.i.i = phi i8 [ %.09.lcssa.i.i, %._crit_edge.i.i ], [ 0, %.preheader12.i.i ], [ %51, %.lr.ph.i.i ]
@@ -450,7 +450,7 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %"_ZN9s
   %.val = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val1 = load ptr, ptr %67, align 8, !nonnull !4, !noundef !4
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !11
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !17
   store ptr @anon.09928d69171c268581f923f40d98664b.2, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
@@ -460,8 +460,8 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %"_ZN9s
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %68 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !11
+  %68 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !17
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret i1 %68
@@ -480,7 +480,7 @@ define noundef i64 @_ZN9softposit5p16e14math7acos_pi18to_fixed28_acos_pi17hef468
   %5 = add i32 %.089, -2
   %6 = and i64 %.010, 4096
   %7 = icmp eq i64 %6, 0
-  br i1 %7, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %7, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %8 = and i32 %5, 62
@@ -556,7 +556,7 @@ define hidden noundef range(i32 -512, 512) i32 @_ZN9softposit5p32e24math5sleef6k
   %6 = add i8 %.0916.i, -1
   %7 = shl nuw i32 %.017.i, 1
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %.lr.ph18.i, label %._crit_edge.i
+  br i1 %8, label %.lr.ph18.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %.lr.ph18.i, %.preheader.i
   %.09.lcssa.i = phi i8 [ -1, %.preheader.i ], [ %6, %.lr.ph18.i ]
@@ -570,7 +570,7 @@ define hidden noundef range(i32 -512, 512) i32 @_ZN9softposit5p32e24math5sleef6k
   %10 = add nuw nsw i8 %.11013.i, 1
   %11 = shl i32 %.114.i, 1
   %12 = icmp sgt i32 %11, -1
-  br i1 %12, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.580202203830469859.exit, label %.lr.ph.i
+  br i1 %12, label %_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.580202203830469859.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.580202203830469859.exit: ; preds = %.lr.ph.i, %.preheader12.i, %._crit_edge.i
   %.211.i = phi i8 [ %.09.lcssa.i, %._crit_edge.i ], [ 0, %.preheader12.i ], [ %10, %.lr.ph.i ]
@@ -671,7 +671,7 @@ define hidden { i8, i32 } @_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d6
   %6 = add i8 %.0916, -1
   %7 = shl nuw i32 %.017, 1
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %.lr.ph18, label %._crit_edge
+  br i1 %8, label %.lr.ph18, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph18, %.preheader
   %.09.lcssa = phi i8 [ -1, %.preheader ], [ %6, %.lr.ph18 ]
@@ -692,7 +692,7 @@ define hidden { i8, i32 } @_ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d6
   %12 = add nuw nsw i8 %.11013, 1
   %13 = shl i32 %.114, 1
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %.loopexit, label %.lr.ph
+  br i1 %14, label %.loopexit, label %.lr.ph, !llvm.loop !22
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -738,12 +738,21 @@ attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
 !4 = !{}
-!5 = !{!6}
-!6 = distinct !{!6, !7, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE: argument 0"}
-!7 = distinct !{!7, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE"}
-!8 = !{!9}
-!9 = distinct !{!9, !10, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE: argument 0"}
-!10 = distinct !{!10, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
-!13 = distinct !{!13, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = !{!10}
+!10 = distinct !{!10, !11, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE: argument 0"}
+!11 = distinct !{!11, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE: argument 0"}
+!14 = distinct !{!14, !"_ZN9softposit6quire87convert41_$LT$impl$u20$softposit..quire8..Q8E0$GT$8to_posit17h1f636be8422a0a3fE"}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E: argument 0"}
+!19 = distinct !{!19, !"_ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E"}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}

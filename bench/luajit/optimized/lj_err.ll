@@ -1091,7 +1091,7 @@ default.unreachable:                              ; preds = %43
   %104 = icmp ugt ptr %.137.i, %14
   %105 = icmp ne ptr %.3.i, null
   %106 = select i1 %104, i1 %105, i1 false
-  br i1 %106, label %.preheader.i, label %finderrfunc.exit.thread, !llvm.loop !71
+  br i1 %106, label %.preheader.i, label %finderrfunc.exit.thread, !llvm.loop !72
 
 finderrfunc.exit:                                 ; preds = %99, %80, %37
   %107 = phi i64 [ %81, %80 ], [ %102, %99 ], [ %38, %37 ]
@@ -1326,7 +1326,7 @@ define hidden void @lj_err_optype(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %30 = and i64 %29, -4
   %31 = inttoptr i64 %30 to ptr
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !72
+  %33 = load i64, ptr %32, align 8, !tbaa !73
   %34 = inttoptr i64 %33 to ptr
   %35 = getelementptr inbounds i8, ptr %34, i64 -4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
@@ -1384,7 +1384,7 @@ define hidden void @lj_err_optype_call(ptr noundef %0, ptr noundef %1) local_unn
   %6 = and i64 %5, -4
   %7 = inttoptr i64 %6 to ptr
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !72
+  %9 = load i64, ptr %8, align 8, !tbaa !73
   %10 = and i64 %9, 3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %23, label %11
@@ -1483,7 +1483,7 @@ define hidden void @lj_err_callermsg(ptr noundef %0, ptr noundef %1) local_unnam
   %51 = and i64 %50, -4
   %52 = inttoptr i64 %51 to ptr
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  store i64 %47, ptr %53, align 8, !tbaa !72
+  store i64 %47, ptr %53, align 8, !tbaa !73
   br label %54
 
 54:                                               ; preds = %28, %15, %43, %32, %25, %2
@@ -1887,7 +1887,8 @@ attributes #19 = { noreturn }
 !66 = !{!"GCproto", !5, i64 0, !7, i64 8, !7, i64 9, !7, i64 10, !7, i64 11, !14, i64 12, !14, i64 16, !5, i64 24, !11, i64 32, !11, i64 40, !14, i64 48, !14, i64 52, !14, i64 56, !7, i64 60, !7, i64 61, !48, i64 62, !5, i64 64, !14, i64 72, !14, i64 76, !11, i64 80, !11, i64 88, !11, i64 96}
 !67 = !{!10, !6, i64 48}
 !68 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!69 = distinct !{!69, !70}
+!69 = distinct !{!69, !70, !71}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = distinct !{!71, !70}
-!72 = !{!11, !6, i64 0}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = distinct !{!72, !70, !71}
+!73 = !{!11, !6, i64 0}

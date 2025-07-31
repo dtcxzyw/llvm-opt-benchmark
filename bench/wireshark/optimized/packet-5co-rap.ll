@@ -408,7 +408,7 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   store ptr %70, ptr %72, align 8
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next111, 10
-  br i1 %exitcond113.not, label %73, label %.preheader, !llvm.loop !8
+  br i1 %exitcond113.not, label %73, label %.preheader, !llvm.loop !9
 
 73:                                               ; preds = %.preheader
   %74 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
@@ -545,7 +545,7 @@ define internal i32 @dissect_FiveCoRAP(ptr noundef %0, ptr noundef %1, ptr nound
 29:                                               ; preds = %27
   %30 = call fastcc i32 @dissect_frame(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.0, i32 noundef %.028, i32 noundef %7, ptr noundef nonnull %5)
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %.loopexit, label %27, !llvm.loop !9
+  br i1 %31, label %.loopexit, label %27, !llvm.loop !10
 
 32:                                               ; preds = %27
   %33 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -739,7 +739,7 @@ define internal fastcc i32 @dissect_frame(ptr noundef %0, ptr noundef readonly c
   %19 = add nuw nsw i32 %.021.i, 1
   %20 = add nuw nsw i32 %.0399, 1
   %exitcond.not = icmp eq i32 %19, 4
-  br i1 %exitcond.not, label %get_data_size.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not, label %get_data_size.exit, label %.lr.ph.i, !llvm.loop !11
 
 21:                                               ; preds = %.lr.ph.i
   %22 = mul i32 %.021.i, 7
@@ -780,7 +780,7 @@ get_data_size.exit:                               ; preds = %14, %21
   %40 = add i8 %39, %.078.i
   %41 = add nuw nsw i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %41, %35
-  br i1 %exitcond.not.i, label %checksum_fiveco.exit, label %37, !llvm.loop !11
+  br i1 %exitcond.not.i, label %checksum_fiveco.exit, label %37, !llvm.loop !12
 
 checksum_fiveco.exit:                             ; preds = %37, %31
   %.07.lcssa.i = phi i8 [ 0, %31 ], [ %40, %37 ]
@@ -1001,7 +1001,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %155, ptr noundef nonnull @.str.157, i32 noundef %159)
   %160 = add nuw nsw i32 %.0339430, 1
   %exitcond466.not = icmp eq i32 %160, %144
-  br i1 %exitcond466.not, label %.loopexit, label %.lr.ph431, !llvm.loop !12
+  br i1 %exitcond466.not, label %.loopexit, label %.lr.ph431, !llvm.loop !13
 
 161:                                              ; preds = %._crit_edge470, %.thread
   %.pre-phi475 = phi i32 [ %.pre474, %._crit_edge470 ], [ %144, %.thread ]
@@ -1024,7 +1024,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %164, ptr noundef nonnull @.str.157, i32 noundef %169)
   %170 = add nuw nsw i32 %.1340428, 1
   %exitcond465.not = icmp eq i32 %170, %.pre-phi475
-  br i1 %exitcond465.not, label %.loopexit, label %166, !llvm.loop !13
+  br i1 %exitcond465.not, label %.loopexit, label %166, !llvm.loop !14
 
 .loopexit:                                        ; preds = %166, %.lr.ph431, %146, %161, %156
   %narrow361 = add nuw nsw i8 %129, 2
@@ -1082,7 +1082,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %193, ptr noundef nonnull @.str.159, i32 noundef %201)
   %202 = add nuw nsw i32 %.2341427, 1
   %exitcond464.not = icmp eq i32 %202, %181
-  br i1 %exitcond464.not, label %.loopexit402, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond464.not, label %.loopexit402, label %.lr.ph, !llvm.loop !15
 
 203:                                              ; preds = %._crit_edge, %178
   %.pre-phi477 = phi i32 [ %.pre476, %._crit_edge ], [ %182, %178 ]
@@ -1106,7 +1106,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %207, ptr noundef nonnull @.str.157, i32 noundef %213)
   %214 = add nuw nsw i32 %.3426, 1
   %exitcond463.not = icmp eq i32 %214, %.pre-phi477
-  br i1 %exitcond463.not, label %.loopexit402, label %210, !llvm.loop !15
+  br i1 %exitcond463.not, label %.loopexit402, label %210, !llvm.loop !16
 
 215:                                              ; preds = %203
   %216 = load i32, ptr @hf_fiveco_regcall, align 4
@@ -1236,7 +1236,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   %292 = add nuw nsw i32 %.021.i367, 1
   %293 = add nuw nsw i32 %.1396, 1
   %exitcond468.not = icmp eq i32 %292, 4
-  br i1 %exitcond468.not, label %get_data_size.exit370, label %.lr.ph.i366, !llvm.loop !10
+  br i1 %exitcond468.not, label %get_data_size.exit370, label %.lr.ph.i366, !llvm.loop !11
 
 294:                                              ; preds = %.lr.ph.i366
   %295 = mul i32 %.021.i367, 7
@@ -1276,7 +1276,7 @@ get_data_size.exit370:                            ; preds = %287, %294
   %314 = add nuw nsw i32 %.021.i373, 1
   %315 = add nuw nsw i32 %.3398, 1
   %exitcond467.not = icmp eq i32 %314, 4
-  br i1 %exitcond467.not, label %get_data_size.exit376, label %.lr.ph.i372, !llvm.loop !10
+  br i1 %exitcond467.not, label %get_data_size.exit376, label %.lr.ph.i372, !llvm.loop !11
 
 316:                                              ; preds = %.lr.ph.i372
   %317 = mul i32 %.021.i373, 7
@@ -1351,7 +1351,7 @@ get_data_size.exit376:                            ; preds = %309, %316
 357:                                              ; preds = %355, %222, %229, %236, %243, %247, %251, %.loopexit402, %.loopexit, %126
   %.1 = phi i32 [ %356, %355 ], [ %127, %126 ], [ %172, %.loopexit ], [ %220, %.loopexit402 ], [ %228, %222 ], [ %235, %229 ], [ %242, %236 ], [ %246, %243 ], [ %250, %247 ], [ %278, %251 ]
   %358 = icmp ult i32 %.1, %42
-  br i1 %358, label %103, label %.loopexit404, !llvm.loop !16
+  br i1 %358, label %103, label %.loopexit404, !llvm.loop !17
 
 .loopexit404:                                     ; preds = %279, %221, %357, %91, %27, %get_data_size.exit
   %.0337 = phi i32 [ 0, %get_data_size.exit ], [ 0, %27 ], [ %28, %91 ], [ %42, %279 ], [ %42, %221 ], [ %.1, %357 ]
@@ -1408,14 +1408,15 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

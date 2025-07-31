@@ -172,7 +172,7 @@ select.unfold:                                    ; preds = %9, %select.unfold
   %35 = load i32, ptr @max_worker_processes, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %33, label %.loopexit, !llvm.loop !8
+  br i1 %37, label %33, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %33, %.preheader, %0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %1) #14
@@ -217,7 +217,7 @@ define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_
   br i1 %17, label %18, label %121
 
 18:                                               ; preds = %.lr.ph
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @BackgroundWorkerList, i64 8), align 8
   %.not.i = icmp eq ptr %19, null
   %.not111518.i = icmp eq ptr %19, @BackgroundWorkerList
@@ -236,7 +236,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.016.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not11.i = icmp eq ptr %24, @BackgroundWorkerList
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
 
 25:                                               ; preds = %.lr.ph.i
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 1
@@ -310,7 +310,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
 60:                                               ; preds = %55, %49
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %61, align 4
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !12
   store i8 0, ptr %15, align 8
   %.not59 = icmp eq i32 %51, 0
   br i1 %.not59, label %121, label %62
@@ -428,7 +428,7 @@ dlist_push_head.exit:                             ; preds = %114, %118
   %122 = load i32, ptr @max_worker_processes, align 4
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next, %123
-  br i1 %124, label %.lr.ph, label %ReportBackgroundWorkerPID.exit, !llvm.loop !12
+  br i1 %124, label %.lr.ph, label %ReportBackgroundWorkerPID.exit, !llvm.loop !13
 
 ReportBackgroundWorkerPID.exit.sink.split:        ; preds = %8, %70
   %.sink = phi i32 [ 355, %70 ], [ 262, %8 ]
@@ -508,7 +508,7 @@ define dso_local void @ForgetBackgroundWorker(ptr noundef %0) local_unnamed_addr
   br label %15
 
 15:                                               ; preds = %11, %1
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   store i8 0, ptr %7, align 8
   %16 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %16, label %17, label %19
@@ -577,7 +577,7 @@ define dso_local void @ReportBackgroundWorkerExit(ptr noundef %0) local_unnamed_
   br label %31
 
 31:                                               ; preds = %27, %19
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   store i8 0, ptr %23, align 8
   %32 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %32, label %33, label %ForgetBackgroundWorker.exit
@@ -634,7 +634,7 @@ select.unfold:                                    ; preds = %6, %.lr.ph
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not7 = icmp eq ptr %8, @BackgroundWorkerList
-  br i1 %.not7, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not7, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !15
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %1
   ret void
@@ -691,7 +691,7 @@ define dso_local void @ForgetUnstartedBackgroundWorkers() local_unnamed_addr #0 
   br label %24
 
 24:                                               ; preds = %20, %14
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   store i8 0, ptr %16, align 8
   %25 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %25, label %26, label %ForgetBackgroundWorker.exit
@@ -716,7 +716,7 @@ ForgetBackgroundWorker.exit:                      ; preds = %24, %26
 select.unfold:                                    ; preds = %ForgetBackgroundWorker.exit, %11, %.lr.ph
   %33 = phi ptr [ %.pre, %ForgetBackgroundWorker.exit ], [ %2, %11 ], [ %2, %.lr.ph ]
   %.not13 = icmp eq ptr %.sroa.8.019, @BackgroundWorkerList
-  br i1 %.not13, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not13, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !16
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %0
   ret void
@@ -761,7 +761,7 @@ define dso_local void @ResetBackgroundWorkerCrashTimes() local_unnamed_addr #0 {
   br label %20
 
 20:                                               ; preds = %16, %5
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !13
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !14
   store i8 0, ptr %12, align 8
   %21 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #14
   br i1 %21, label %22, label %ForgetBackgroundWorker.exit
@@ -790,7 +790,7 @@ ForgetBackgroundWorker.exit:                      ; preds = %20, %22
 
 select.unfold:                                    ; preds = %28, %ForgetBackgroundWorker.exit
   %.not10 = icmp eq ptr %.sroa.8.015, @BackgroundWorkerList
-  br i1 %.not10, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not10, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !17
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %0
   ret void
@@ -941,7 +941,7 @@ define internal fastcc ptr @LookupBackgroundWorkerFunction(ptr noundef %0, ptr n
 5:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !17
+  br i1 %exitcond.not, label %13, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %2, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %2 ]
@@ -1359,7 +1359,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
   br label %.thread40
 
 .thread40:                                        ; preds = %40, %32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !18
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !19
   store i8 1, ptr %29, align 8
   %44 = load ptr, ptr @MainLWLockArray, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4224
@@ -1371,7 +1371,7 @@ define dso_local noundef zeroext i1 @RegisterDynamicBackgroundWorker(ptr noundef
 46:                                               ; preds = %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %46, %24
   %47 = load ptr, ptr @MainLWLockArray, align 8
@@ -1460,7 +1460,7 @@ define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef
 4:                                                ; preds = %33, %2
   %5 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %7, label %6, !prof !20
+  br i1 %.not, label %7, label %6, !prof !21
 
 6:                                                ; preds = %4
   tail call void @ProcessInterrupts() #14
@@ -1517,7 +1517,7 @@ GetBackgroundWorkerPid.exit:                      ; preds = %24
 33:                                               ; preds = %GetBackgroundWorkerPid.exit
   %34 = load ptr, ptr @MyLatch, align 8
   tail call void @ResetLatch(ptr noundef %34) #14
-  br label %4
+  br label %4, !llvm.loop !22
 
 GetBackgroundWorkerPid.exit.thread:               ; preds = %24, %GetBackgroundWorkerPid.exit, %.thread.i, %29
   %.06.ph = phi i32 [ 0, %29 ], [ 2, %.thread.i ], [ 2, %24 ], [ 3, %GetBackgroundWorkerPid.exit ]
@@ -1538,7 +1538,7 @@ define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nounde
 3:                                                ; preds = %31, %1
   %4 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5, !prof !20
+  br i1 %.not, label %6, label %5, !prof !21
 
 5:                                                ; preds = %3
   tail call void @ProcessInterrupts() #14
@@ -1589,7 +1589,7 @@ GetBackgroundWorkerPid.exit:                      ; preds = %23
 31:                                               ; preds = %GetBackgroundWorkerPid.exit
   %32 = load ptr, ptr @MyLatch, align 8
   tail call void @ResetLatch(ptr noundef %32) #14
-  br label %3
+  br label %3, !llvm.loop !23
 
 GetBackgroundWorkerPid.exit.thread:               ; preds = %23, %GetBackgroundWorkerPid.exit, %.thread.i
   %.04.ph = phi i32 [ 2, %.thread.i ], [ 2, %23 ], [ 3, %GetBackgroundWorkerPid.exit ]
@@ -1650,7 +1650,7 @@ define dso_local noundef ptr @GetBackgroundWorkerTypeByPid(i32 noundef %0) local
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !24
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
@@ -1724,19 +1724,22 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 2151510542}
-!10 = distinct !{!10, !7}
-!11 = !{i64 2151510631}
-!12 = distinct !{!12, !7}
-!13 = !{i64 2151513699}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i64 2151546712}
-!19 = distinct !{!19, !7}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2151510542}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i64 2151510631}
+!13 = distinct !{!13, !7, !8}
+!14 = !{i64 2151513699}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i64 2151546712}
+!20 = distinct !{!20, !7, !8}
+!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!22 = distinct !{!22, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !7, !8}

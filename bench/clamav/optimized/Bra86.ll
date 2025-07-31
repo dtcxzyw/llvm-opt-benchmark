@@ -41,7 +41,7 @@ define i64 @x86_Convert(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noun
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.087128, i64 1
   %22 = icmp ult ptr %21, %12
-  br i1 %22, label %16, label %._crit_edge
+  br i1 %22, label %16, label %._crit_edge, !llvm.loop !8
 
 23:                                               ; preds = %16
   %24 = ptrtoint ptr %.087128 to i64
@@ -203,3 +203,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}

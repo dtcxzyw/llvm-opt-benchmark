@@ -55,11 +55,11 @@ define void @nxsem_destroyholder(ptr noundef captures(none) %0) local_unnamed_ad
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
-  br i1 %.not.i.i, label %.loopexit25.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %.loopexit25.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i2
   %13 = icmp eq ptr %12, %.010.i
-  br i1 %13, label %.lr.ph.i._crit_edge.i.loopexit, label %.lr.ph.i2, !llvm.loop !8
+  br i1 %13, label %.lr.ph.i._crit_edge.i.loopexit, label %.lr.ph.i2, !llvm.loop !9
 
 .lr.ph.i._crit_edge.i.loopexit:                   ; preds = %.lr.ph.i.i
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -85,7 +85,7 @@ define void @nxsem_destroyholder(ptr noundef captures(none) %0) local_unnamed_ad
 
 20:                                               ; preds = %18
   %21 = icmp eq ptr %19, %.010.i
-  br i1 %21, label %22, label %18, !llvm.loop !9
+  br i1 %21, label %22, label %18, !llvm.loop !10
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %.010.i, align 8
@@ -97,7 +97,7 @@ nxsem_recoverholders.exit:                        ; preds = %18, %22
   store ptr %24, ptr %.010.i, align 8
   store ptr %.010.i, ptr @g_freeholders, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !11
 
 nxsem_foreachholder.exit:                         ; preds = %nxsem_recoverholders.exit, %1
   ret void
@@ -129,7 +129,7 @@ define void @nxsem_add_holder_tcb(ptr noundef %0, ptr noundef %1) local_unnamed_
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %0
-  br i1 %16, label %nxsem_findorallocateholder.exit, label %12, !llvm.loop !11
+  br i1 %16, label %nxsem_findorallocateholder.exit, label %12, !llvm.loop !12
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @g_freeholders, align 8
@@ -137,7 +137,7 @@ define void @nxsem_add_holder_tcb(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not.i7.i, label %.preheader.i.i, label %nxsem_allocholder.exit.i
 
 .preheader.i.i:                                   ; preds = %17, %.preheader.i.i
-  br label %.preheader.i.i
+  br label %.preheader.i.i, !llvm.loop !13
 
 nxsem_allocholder.exit.i:                         ; preds = %17
   %19 = load ptr, ptr %18, align 8
@@ -201,7 +201,7 @@ define void @nxsem_add_holder(ptr noundef %0) local_unnamed_addr #1 {
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %2
-  br i1 %16, label %nxsem_findorallocateholder.exit.i, label %12, !llvm.loop !11
+  br i1 %16, label %nxsem_findorallocateholder.exit.i, label %12, !llvm.loop !12
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @g_freeholders, align 8
@@ -209,7 +209,7 @@ define void @nxsem_add_holder(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i7.i.i, label %.preheader.i.i.i, label %nxsem_allocholder.exit.i.i
 
 .preheader.i.i.i:                                 ; preds = %17, %.preheader.i.i.i
-  br label %.preheader.i.i.i
+  br label %.preheader.i.i.i, !llvm.loop !13
 
 nxsem_allocholder.exit.i.i:                       ; preds = %17
   %19 = load ptr, ptr %18, align 8
@@ -276,7 +276,7 @@ define void @nxsem_boost_priority(ptr noundef readonly captures(none) %0) local_
 
 nxsem_boostholderprio.exit:                       ; preds = %.lr.ph.i, %13
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !11
 
 nxsem_foreachholder.exit:                         ; preds = %nxsem_boostholderprio.exit, %1
   ret void
@@ -309,7 +309,7 @@ define void @nxsem_release_holder(ptr noundef readonly captures(none) %0) local_
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %2
-  br i1 %16, label %17, label %12, !llvm.loop !12
+  br i1 %16, label %17, label %12, !llvm.loop !14
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %.0, i64 32
@@ -363,11 +363,11 @@ define void @nxsem_restore_baseprio(ptr noundef readnone captures(address_is_nul
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i.i, label %.loopexit25.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %.loopexit25.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i
   %21 = icmp eq ptr %20, %.010.i
-  br i1 %21, label %.lr.ph.i._crit_edge.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %21, label %.lr.ph.i._crit_edge.i.i.loopexit, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i._crit_edge.i.i.loopexit:                 ; preds = %.lr.ph.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -393,7 +393,7 @@ define void @nxsem_restore_baseprio(ptr noundef readnone captures(address_is_nul
 
 28:                                               ; preds = %26
   %29 = icmp eq ptr %27, %.010.i
-  br i1 %29, label %30, label %26, !llvm.loop !9
+  br i1 %29, label %30, label %26, !llvm.loop !10
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %.010.i, align 8
@@ -446,7 +446,7 @@ nxsem_freeholder.exit.i.i:                        ; preds = %26, %30
   %52 = getelementptr inbounds nuw i8, ptr %.01526.i.i.i, i64 8
   %.015.i.i.i = load ptr, ptr %52, align 8
   %.not21.i.i.i = icmp eq ptr %.015.i.i.i, null
-  br i1 %.not21.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i6.i.i, !llvm.loop !13
+  br i1 %.not21.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i6.i.i, !llvm.loop !15
 
 ._crit_edge.i.i.i:                                ; preds = %51, %40
   %.0.lcssa.i.i.i = phi i32 [ %41, %40 ], [ %.1.i7.i.i, %51 ]
@@ -455,7 +455,7 @@ nxsem_freeholder.exit.i.i:                        ; preds = %26, %30
 
 nxsem_restoreholderprio_others.exit:              ; preds = %.lr.ph.i, %33, %._crit_edge.i.i.i
   %.not49 = icmp eq ptr %6, null
-  br i1 %.not49, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not49, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !11
 
 nxsem_foreachholder.exit:                         ; preds = %nxsem_restoreholderprio_others.exit
   %.pr = load ptr, ptr %3, align 8
@@ -494,11 +494,11 @@ nxsem_foreachholder.exit:                         ; preds = %nxsem_restoreholder
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not.i.i.i34 = icmp eq ptr %68, null
-  br i1 %.not.i.i.i34, label %.loopexit25.i.i.i39, label %.lr.ph.i.i.i35, !llvm.loop !8
+  br i1 %.not.i.i.i34, label %.loopexit25.i.i.i39, label %.lr.ph.i.i.i35, !llvm.loop !9
 
 .lr.ph.i.i.i35:                                   ; preds = %.lr.ph.i.i33
   %69 = icmp eq ptr %68, %.010.i8
-  br i1 %69, label %.lr.ph.i._crit_edge.i.i37.loopexit, label %.lr.ph.i.i33, !llvm.loop !8
+  br i1 %69, label %.lr.ph.i._crit_edge.i.i37.loopexit, label %.lr.ph.i.i33, !llvm.loop !9
 
 .lr.ph.i._crit_edge.i.i37.loopexit:               ; preds = %.lr.ph.i.i.i35
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -524,7 +524,7 @@ nxsem_foreachholder.exit:                         ; preds = %nxsem_restoreholder
 
 76:                                               ; preds = %74
   %77 = icmp eq ptr %75, %.010.i8
-  br i1 %77, label %78, label %74, !llvm.loop !9
+  br i1 %77, label %78, label %74, !llvm.loop !10
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr %.010.i8, align 8
@@ -577,7 +577,7 @@ nxsem_freeholder.exit.i.i42:                      ; preds = %74, %78
   %100 = getelementptr inbounds nuw i8, ptr %.01526.i.i.i22, i64 8
   %.015.i.i.i27 = load ptr, ptr %100, align 8
   %.not21.i.i.i28 = icmp eq ptr %.015.i.i.i27, null
-  br i1 %.not21.i.i.i28, label %._crit_edge.i.i.i29, label %.lr.ph.i6.i.i21, !llvm.loop !13
+  br i1 %.not21.i.i.i28, label %._crit_edge.i.i.i29, label %.lr.ph.i6.i.i21, !llvm.loop !15
 
 ._crit_edge.i.i.i29:                              ; preds = %99, %88
   %.0.lcssa.i.i.i30 = phi i32 [ %89, %88 ], [ %.1.i7.i.i26, %99 ]
@@ -587,7 +587,7 @@ nxsem_freeholder.exit.i.i42:                      ; preds = %74, %78
 nxsem_restoreholderprio_self.exit:                ; preds = %.lr.ph.i7
   %102 = load ptr, ptr %.010.i8, align 8
   %.not50 = icmp eq ptr %102, null
-  br i1 %.not50, label %nxsem_foreachholder.exit10, label %.lr.ph.i7, !llvm.loop !10
+  br i1 %.not50, label %nxsem_foreachholder.exit10, label %.lr.ph.i7, !llvm.loop !11
 
 103:                                              ; preds = %2
   br i1 %.not.i11, label %nxsem_foreachholder.exit10, label %.lr.ph.i12
@@ -616,11 +616,11 @@ nxsem_restoreholderprio_self.exit:                ; preds = %.lr.ph.i7
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
   %.not.i.i = icmp eq ptr %115, null
-  br i1 %.not.i.i, label %.loopexit25.i.i, label %.lr.ph.i.i45, !llvm.loop !8
+  br i1 %.not.i.i, label %.loopexit25.i.i, label %.lr.ph.i.i45, !llvm.loop !9
 
 .lr.ph.i.i45:                                     ; preds = %.lr.ph.i44
   %116 = icmp eq ptr %115, %.010.i13
-  br i1 %116, label %.lr.ph.i._crit_edge.i.loopexit, label %.lr.ph.i44, !llvm.loop !8
+  br i1 %116, label %.lr.ph.i._crit_edge.i.loopexit, label %.lr.ph.i44, !llvm.loop !9
 
 .lr.ph.i._crit_edge.i.loopexit:                   ; preds = %.lr.ph.i.i45
   %117 = getelementptr inbounds nuw i8, ptr %113, i64 8
@@ -646,7 +646,7 @@ nxsem_restoreholderprio_self.exit:                ; preds = %.lr.ph.i7
 
 123:                                              ; preds = %121
   %124 = icmp eq ptr %122, %.010.i13
-  br i1 %124, label %125, label %121, !llvm.loop !9
+  br i1 %124, label %125, label %121, !llvm.loop !10
 
 125:                                              ; preds = %123
   %126 = load ptr, ptr %.010.i13, align 8
@@ -662,7 +662,7 @@ nxsem_freecount0holder.exit.thread:               ; preds = %121, %125
 nxsem_freecount0holder.exit:                      ; preds = %.lr.ph.i12
   %128 = load ptr, ptr %.010.i13, align 8
   %.not51 = icmp eq ptr %128, null
-  br i1 %.not51, label %nxsem_foreachholder.exit10, label %.lr.ph.i12, !llvm.loop !10
+  br i1 %.not51, label %nxsem_foreachholder.exit10, label %.lr.ph.i12, !llvm.loop !11
 
 nxsem_foreachholder.exit10:                       ; preds = %nxsem_restoreholderprio_self.exit, %nxsem_freecount0holder.exit, %._crit_edge.i.i.i29, %81, %5, %103, %nxsem_freecount0holder.exit.thread, %nxsem_foreachholder.exit
   ret void
@@ -700,11 +700,11 @@ define void @nxsem_canceled(ptr noundef readnone captures(none) %0, ptr noundef 
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %.loopexit25.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i, label %.loopexit25.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i2
   %18 = icmp eq ptr %17, %.010.i
-  br i1 %18, label %.lr.ph.i._crit_edge.i.loopexit, label %.lr.ph.i2, !llvm.loop !8
+  br i1 %18, label %.lr.ph.i._crit_edge.i.loopexit, label %.lr.ph.i2, !llvm.loop !9
 
 .lr.ph.i._crit_edge.i.loopexit:                   ; preds = %.lr.ph.i.i
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -730,7 +730,7 @@ define void @nxsem_canceled(ptr noundef readnone captures(none) %0, ptr noundef 
 
 25:                                               ; preds = %23
   %26 = icmp eq ptr %24, %.010.i
-  br i1 %26, label %27, label %23, !llvm.loop !9
+  br i1 %26, label %27, label %23, !llvm.loop !10
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %.010.i, align 8
@@ -783,7 +783,7 @@ nxsem_freeholder.exit.i:                          ; preds = %23, %27
   %49 = getelementptr inbounds nuw i8, ptr %.01526.i.i, i64 8
   %.015.i.i = load ptr, ptr %49, align 8
   %.not21.i.i = icmp eq ptr %.015.i.i, null
-  br i1 %.not21.i.i, label %._crit_edge.i.i, label %.lr.ph.i6.i, !llvm.loop !13
+  br i1 %.not21.i.i, label %._crit_edge.i.i, label %.lr.ph.i6.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %48, %37
   %.0.lcssa.i.i = phi i32 [ %38, %37 ], [ %.1.i7.i, %48 ]
@@ -792,7 +792,7 @@ nxsem_freeholder.exit.i:                          ; preds = %23, %27
 
 nxsem_restoreholderprio.exit:                     ; preds = %30, %._crit_edge.i.i
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not, label %nxsem_foreachholder.exit, label %.lr.ph.i, !llvm.loop !11
 
 nxsem_foreachholder.exit:                         ; preds = %nxsem_restoreholderprio.exit, %2
   ret void
@@ -825,11 +825,11 @@ define void @nxsem_release_all(ptr noundef readonly captures(none) %0) local_unn
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %.loopexit25.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %.loopexit25.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %15 = icmp eq ptr %14, %4
-  br i1 %15, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %15, label %.lr.ph.i._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph.i._crit_edge.loopexit:                     ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -856,7 +856,7 @@ define void @nxsem_release_all(ptr noundef readonly captures(none) %0) local_unn
 
 23:                                               ; preds = %21
   %24 = icmp eq ptr %22, %4
-  br i1 %24, label %25, label %21, !llvm.loop !9
+  br i1 %24, label %25, label %21, !llvm.loop !10
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr %4, align 8
@@ -872,7 +872,7 @@ nxsem_freeholder.exit:                            ; preds = %21, %25
   store volatile i16 %29, ptr %6, align 8
   %30 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph8, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph8, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %nxsem_freeholder.exit, %1
   ret void
@@ -906,12 +906,14 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

@@ -188,7 +188,7 @@ define dso_local void @snd_pcm_lib_preallocate_free_for_all(ptr noundef readonly
   br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %26, %3
-  br i1 %4, label %3, label %30, !llvm.loop !12
+  br i1 %4, label %3, label %30, !llvm.loop !13
 
 30:                                               ; preds = %.loopexit
   ret void
@@ -202,7 +202,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @snd_pcm_lib_preallocate_pages(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = tail call fastcc i32 @preallocate_pages(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !13
+  %6 = tail call fastcc i32 @preallocate_pages(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !14
   ret void
 }
 
@@ -284,7 +284,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @preallocate_pages(ptr noun
 56:                                               ; preds = %49
   %57 = lshr i64 %50, 1
   %58 = icmp ult i64 %50, 32768
-  br i1 %58, label %.thread8, label %49, !llvm.loop !14
+  br i1 %58, label %.thread8, label %49, !llvm.loop !15
 
 .thread8:                                         ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -392,16 +392,16 @@ define dso_local void @snd_pcm_lib_preallocate_pages_for_all(ptr noundef readonl
   %13 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit2, label %.preheader, !llvm.loop !15
+  br i1 %15, label %.loopexit2, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %7, %12
   %16 = phi ptr [ %14, %12 ], [ %10, %7 ]
-  %17 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !13
+  %17 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !14
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.loopexit, label %12
 
 .loopexit2:                                       ; preds = %12, %7
-  br i1 %8, label %7, label %.loopexit, !llvm.loop !16
+  br i1 %8, label %7, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.loopexit2, %.preheader
   ret void
@@ -409,7 +409,7 @@ define dso_local void @snd_pcm_lib_preallocate_pages_for_all(ptr noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_set_managed_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
-  %6 = tail call fastcc i32 @preallocate_pages(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !13
+  %6 = tail call fastcc i32 @preallocate_pages(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !14
   ret i32 %6
 }
 
@@ -430,16 +430,16 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_set_managed_buffer_all(p
   %13 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.loopexit3, label %.preheader, !llvm.loop !15
+  br i1 %15, label %.loopexit3, label %.preheader, !llvm.loop !18
 
 .preheader:                                       ; preds = %7, %12
   %16 = phi ptr [ %14, %12 ], [ %10, %7 ]
-  %17 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !13
+  %17 = tail call fastcc i32 @preallocate_pages(ptr noundef nonnull %16, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !14
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %.loopexit, label %12
 
 .loopexit3:                                       ; preds = %12, %7
-  br i1 %8, label %7, label %.loopexit, !llvm.loop !16
+  br i1 %8, label %7, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.loopexit3, %.preheader
   %19 = phi i32 [ %17, %.preheader ], [ 0, %.loopexit3 ]
@@ -483,7 +483,7 @@ define dso_local noundef range(i32 -22, 2) i32 @snd_pcm_lib_malloc_pages(ptr nou
   br label %65
 
 24:                                               ; preds = %18
-  %25 = tail call i32 @snd_pcm_lib_free_pages(ptr noundef nonnull %0), !range !17
+  %25 = tail call i32 @snd_pcm_lib_free_pages(ptr noundef nonnull %0), !range !20
   br label %26
 
 26:                                               ; preds = %24, %12
@@ -825,11 +825,11 @@ define internal void @snd_pcm_lib_preallocate_proc_write(ptr noundef readonly ca
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !21
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false), !annotation !21
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 296
   tail call void @mutex_lock(ptr noundef nonnull %10) #8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 192
@@ -984,13 +984,16 @@ attributes #11 = { nounwind allocsize(0) }
 !6 = !{i64 2154892981, i64 2154892790, i64 2154892842, i64 2154892888, i64 2154892916}
 !7 = !{i64 2154893055, i64 2154893084, i64 2154893130, i64 2154893188, i64 2154893242, i64 2154893296, i64 2154893351, i64 2154893382, i64 2154893690, i64 2154893696, i64 2154893743, i64 2154893766, i64 2154893792}
 !8 = !{i64 2154894247, i64 2154894058, i64 2154894108, i64 2154894154, i64 2154894182}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !10, !11}
-!13 = !{i32 -2147483648, i32 1}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = !{i32 -22, i32 1}
-!18 = !{!"auto-init"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !10, !11, !12}
+!14 = !{i32 -2147483648, i32 1}
+!15 = distinct !{!15, !10, !11, !12}
+!16 = distinct !{!16, !10, !11, !12}
+!17 = distinct !{!17, !10, !11, !12}
+!18 = distinct !{!18, !10, !11, !12}
+!19 = distinct !{!19, !10, !11, !12}
+!20 = !{i32 -22, i32 1}
+!21 = !{!"auto-init"}

@@ -2330,7 +2330,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %112 = load ptr, ptr %29, align 8
   %113 = call i32 @llvm.umin.i32(i32 %109, i32 32)
   %114 = zext nneg i32 %113 to i64
-  %115 = call ptr @__memcpy_chk(ptr noundef nonnull %111, ptr noundef %112, i64 noundef range(i64 -2147483648, 4294967296) %114, i64 noundef 416) #21, !alias.scope !10
+  %115 = call ptr @__memcpy_chk(ptr noundef nonnull %111, ptr noundef %112, i64 noundef range(i64 -2147483648, 4294967296) %114, i64 noundef 416) #21, !alias.scope !11
   store ptr %35, ptr @enc_key_list, align 8
   %116 = load ptr, ptr @krb5_ctx, align 8
   %117 = call i32 @krb5_free_keytab_entry_contents(ptr noundef %116, ptr noundef nonnull %3)
@@ -2349,7 +2349,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %124 = load ptr, ptr %2, align 8
   %125 = call i32 @krb5_kt_next_entry(ptr noundef %123, ptr noundef %124, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %33, label %.critedge, !llvm.loop !14
+  br i1 %126, label %33, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %121, %.preheader
   %127 = load ptr, ptr @krb5_ctx, align 8
@@ -2496,7 +2496,7 @@ enc_key_cmp_id.exit.thread:                       ; preds = %24, %enc_key_cmp_id
   %47 = getelementptr inbounds nuw i8, ptr %63, i64 308
   %48 = load i32, ptr %47, align 4
   %49 = icmp slt i32 %32, %48
-  br i1 %49, label %._crit_edge, label %.lr.ph95, !llvm.loop !15
+  br i1 %49, label %._crit_edge, label %.lr.ph95, !llvm.loop !16
 
 .lr.ph95:                                         ; preds = %.lr.ph, %46
   %50 = phi i32 [ %48, %46 ], [ %37, %.lr.ph ]
@@ -2531,7 +2531,7 @@ enc_key_cmp_id.exit51:                            ; preds = %53
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 400
   %63 = load ptr, ptr %62, align 8
   %.not47 = icmp eq ptr %63, null
-  br i1 %.not47, label %.loopexit62, label %46, !llvm.loop !15
+  br i1 %.not47, label %.loopexit62, label %46, !llvm.loop !16
 
 .loopexit62:                                      ; preds = %.thread, %enc_key_cmp_id.exit.thread, %._crit_edge
   %.0.lcssa71.pn = phi ptr [ %.073.lcssa, %._crit_edge ], [ %3, %enc_key_cmp_id.exit.thread ], [ %51, %.thread ]
@@ -2549,7 +2549,7 @@ enc_key_cmp_id.exit51:                            ; preds = %53
   %68 = getelementptr inbounds nuw i8, ptr %.175, i64 400
   %69 = load ptr, ptr %68, align 8
   %.not48 = icmp eq ptr %69, %1
-  br i1 %.not48, label %.loopexit, label %.lr.ph76, !llvm.loop !16
+  br i1 %.not48, label %.loopexit, label %.lr.ph76, !llvm.loop !17
 
 .loopexit:                                        ; preds = %enc_key_cmp_id.exit51, %.lr.ph76, %.loopexit62, %enc_key_cmp_id.exit, %7, %39, %16, %5
   ret void
@@ -3006,7 +3006,7 @@ insert_longterm_keys_into_key_map.exit:           ; preds = %39, %33, %31
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.065.i, i64 400
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not61.i = icmp eq ptr %.0.i, null
-  br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %110
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 152
@@ -4610,7 +4610,7 @@ define internal fastcc void @add_encryption_key(ptr noundef %0, ptr noundef capt
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %43 = tail call i32 @llvm.smin.i32(i32 %6, i32 32)
   %44 = sext i32 %43 to i64
-  %45 = tail call ptr @__memcpy_chk(ptr noundef nonnull %42, ptr noundef %7, i64 noundef range(i64 -2147483648, 4294967296) %44, i64 noundef 416) #21, !alias.scope !18
+  %45 = tail call ptr @__memcpy_chk(ptr noundef nonnull %42, ptr noundef %7, i64 noundef range(i64 -2147483648, 4294967296) %44, i64 noundef 416) #21, !alias.scope !19
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 416
   store ptr %9, ptr %46, align 8
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 424
@@ -5749,7 +5749,7 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %123, %121, %114
 148:                                              ; preds = %141
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
-  br i1 %exitcond.not.i.i, label %keytype_for_cksumtype.exit.i, label %141, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %keytype_for_cksumtype.exit.i, label %141, !llvm.loop !23
 
 keytype_for_cksumtype.exit.i:                     ; preds = %148, %141
   %.2.i.i = phi i32 [ %144, %141 ], [ -1, %148 ]
@@ -5806,7 +5806,7 @@ keytype_for_cksumtype.exit.i:                     ; preds = %148, %141
 179:                                              ; preds = %172
   %indvars.iv.next.i60.i = add nuw nsw i64 %indvars.iv.i57.i, 1
   %exitcond.not.i61.i = icmp eq i64 %indvars.iv.next.i60.i, 3
-  br i1 %exitcond.not.i61.i, label %keytype_for_cksumtype.exit63.i, label %172, !llvm.loop !22
+  br i1 %exitcond.not.i61.i, label %keytype_for_cksumtype.exit63.i, label %172, !llvm.loop !23
 
 keytype_for_cksumtype.exit63.i:                   ; preds = %179, %172
   %.2.i62.i = phi i32 [ %175, %172 ], [ -1, %179 ]
@@ -5884,7 +5884,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %192, %190
 210:                                              ; preds = %203
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
-  br i1 %exitcond.not.i.i.i, label %keytype_for_cksumtype.exit.i.i, label %203, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i, label %keytype_for_cksumtype.exit.i.i, label %203, !llvm.loop !23
 
 keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %.2.i.i.i = phi i32 [ %206, %203 ], [ -1, %210 ]
@@ -6021,7 +6021,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %288 = getelementptr ptr, ptr %283, i64 %287
   %289 = load ptr, ptr %288, align 8
   %.not120.i.i = icmp eq ptr %289, null
-  br i1 %.not120.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
+  br i1 %.not120.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !24
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %285
   %290 = phi ptr [ %289, %285 ], [ %284, %.preheader.i.i ]
@@ -6078,7 +6078,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %316 = getelementptr ptr, ptr %314, i64 %315
   %317 = load ptr, ptr %316, align 8
   %.not117.i.i = icmp eq ptr %317, null
-  br i1 %.not117.i.i, label %.thread138.i.i, label %.lr.ph161.i.i, !llvm.loop !24
+  br i1 %.not117.i.i, label %.thread138.i.i, label %.lr.ph161.i.i, !llvm.loop !25
 
 318:                                              ; preds = %._crit_edge.i.i
   %319 = load ptr, ptr %29, align 8
@@ -6249,7 +6249,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %383, %381
 399:                                              ; preds = %392
   %indvars.iv.next.i.i74.i = add nuw nsw i64 %indvars.iv.i.i72.i, 1
   %exitcond.not.i.i75.i = icmp eq i64 %indvars.iv.next.i.i74.i, 3
-  br i1 %exitcond.not.i.i75.i, label %keytype_for_cksumtype.exit.i76.i, label %392, !llvm.loop !22
+  br i1 %exitcond.not.i.i75.i, label %keytype_for_cksumtype.exit.i76.i, label %392, !llvm.loop !23
 
 keytype_for_cksumtype.exit.i76.i:                 ; preds = %399, %392
   %.2.i.i77.i = phi i32 [ %395, %392 ], [ -1, %399 ]
@@ -6473,7 +6473,7 @@ keytype_for_cksumtype.exit.i76.i:                 ; preds = %399, %392
 .critedge180.i.i:                                 ; preds = %527, %526, %524
   %533 = add nuw nsw i32 %.0170187.i.i, 1
   %exitcond192.not.i.i = icmp eq i32 %533, %473
-  br i1 %exitcond192.not.i.i, label %._crit_edge.i71.i, label %.lr.ph.i68.i, !llvm.loop !25
+  br i1 %exitcond192.not.i.i, label %._crit_edge.i71.i, label %.lr.ph.i68.i, !llvm.loop !26
 
 ._crit_edge.i71.i:                                ; preds = %.critedge180.i.i, %.critedge.i.i
   %534 = load i32, ptr %379, align 8
@@ -6980,7 +6980,7 @@ dissect_krb5_AD_WIN2K_PAC_struct.exit:            ; preds = %588, %603, %dissect
   %819 = add i32 %.02447, 16
   %820 = add nuw i32 %.048, 1
   %exitcond.not = icmp eq i32 %820, %572
-  br i1 %exitcond.not, label %._crit_edge, label %588, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %588, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %dissect_krb5_AD_WIN2K_PAC_struct.exit, %verify_krb5_pac.exit
   %.024.lcssa = phi i32 [ %579, %verify_krb5_pac.exit ], [ %819, %dissect_krb5_AD_WIN2K_PAC_struct.exit ]
@@ -7192,7 +7192,7 @@ define internal fastcc void @used_signing_key(ptr noundef %0, ptr noundef %1, pt
   %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 400
   %.0 = load ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 152
@@ -10149,7 +10149,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
   %30 = getelementptr i8, ptr %.013.i, i64 16
   %31 = load i32, ptr %30, align 8
   %.not10.i = icmp eq i32 %31, 0
-  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !29
 
 call_kerberos_callbacks.exit:                     ; preds = %29, %25, %.preheader.i, %17, %kerberos_get_private_data.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
@@ -10556,7 +10556,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %10
   %30 = getelementptr i8, ptr %.013.i, i64 16
   %31 = load i32, ptr %30, align 8
   %.not10.i = icmp eq i32 %31, 0
-  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not10.i, label %call_kerberos_callbacks.exit, label %.lr.ph.i, !llvm.loop !29
 
 call_kerberos_callbacks.exit:                     ; preds = %29, %25, %.preheader.i, %17, %kerberos_get_private_data.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
@@ -11128,7 +11128,7 @@ define internal void @kerberos_display_key(ptr noundef %0, ptr noundef readonly 
   %.0.in = getelementptr inbounds nuw i8, ptr %.065, i64 400
   %.0 = load ptr, ptr %.0.in, align 8
   %.not61 = icmp eq ptr %.0, null
-  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not61, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84
   ret void
@@ -11238,25 +11238,26 @@ attributes #26 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !13}
-!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
-!12 = distinct !{!12, !"memcpy.inline"}
-!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = !{!19, !21}
-!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
-!20 = distinct !{!20, !"memcpy.inline"}
-!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !14}
+!12 = distinct !{!12, !13, !"memcpy.inline: argument 0"}
+!13 = distinct !{!13, !"memcpy.inline"}
+!14 = distinct !{!14, !13, !"memcpy.inline: argument 1"}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = !{!20, !22}
+!20 = distinct !{!20, !21, !"memcpy.inline: argument 0"}
+!21 = distinct !{!21, !"memcpy.inline"}
+!22 = distinct !{!22, !21, !"memcpy.inline: argument 1"}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}

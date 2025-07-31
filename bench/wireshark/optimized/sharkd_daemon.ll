@@ -497,7 +497,7 @@ define hidden i32 @sharkd_loop(i32 noundef %0, ptr noundef readnone captures(non
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %32, %10
-  br label %.preheader
+  br label %.preheader, !llvm.loop !10
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -573,5 +573,7 @@ attributes #14 = { cold }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}

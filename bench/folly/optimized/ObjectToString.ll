@@ -203,7 +203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit23: ; preds
 _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i: ; preds = %75
   %81 = call i64 @llvm.umax.i64(i64 %.08.i3.i.i.i.i, i64 1)
   %82 = icmp samesign ugt i64 %.08.i3.i.i.i.i, 2
-  br i1 %82, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !26
+  br i1 %82, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !27
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %79, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i
   %spec.select.i11.i.i.i.i = phi i64 [ %81, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i ], [ 20, %79 ]
@@ -216,18 +216,18 @@ _ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i: ; preds = %75
   %84 = udiv i64 %.0.i5.i.i.i.i, 100
   %85 = urem i64 %.0.i5.i.i.i.i, 100
   %86 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %85
-  %87 = load i16, ptr %86, align 2, !tbaa !27
+  %87 = load i16, ptr %86, align 2, !tbaa !28
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 %83
   store i16 %87, ptr %88, align 1
   %89 = icmp ugt i64 %83, 2
-  br i1 %89, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !29, !llvm.loop !30
+  br i1 %89, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !prof !30, !llvm.loop !31
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i
   %spec.select.i10.i.i.i.i = phi i64 [ %81, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i ], [ %spec.select.i11.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %81, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i ], [ %83, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %3, %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i ], [ %84, %.lr.ph.i.i.i.i ]
   %90 = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %.0.i.lcssa.i.i.i.i
-  %91 = load i16, ptr %90, align 2, !tbaa !27
+  %91 = load i16, ptr %90, align 2, !tbaa !28
   %92 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %92, label %93, label %94, !prof !23
 
@@ -377,7 +377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit14.i: ; pr
   store i8 0, ptr %161, align 1, !tbaa !16
   %162 = add nuw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %162, %3
-  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm.exit, label %108, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm.exit, label %108, !llvm.loop !32
 
 _ZN12_GLOBAL__N_113appendHexdumpERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit14.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit25
   %163 = load i64, ptr %97, align 8, !tbaa !7
@@ -535,11 +535,12 @@ attributes #13 = { noreturn nounwind }
 !21 = distinct !{!21, !"_ZN5folly8demangleERKSt9type_info"}
 !22 = !{!14, !14, i64 0}
 !23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!"branch_weights", i32 0, i32 -2147483648}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"short", !12, i64 0}
-!29 = !{!"branch_weights", i32 0, i32 1}
-!30 = distinct !{!30, !25}
-!31 = distinct !{!31, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!"branch_weights", i32 0, i32 -2147483648}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"short", !12, i64 0}
+!30 = !{!"branch_weights", i32 0, i32 1}
+!31 = distinct !{!31, !25, !26}
+!32 = distinct !{!32, !25, !26}

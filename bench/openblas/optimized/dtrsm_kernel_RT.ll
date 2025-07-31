@@ -62,7 +62,7 @@ solve.exit.us317:                                 ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.1152.us311, i64 128
   %36 = add nsw i64 %.0165.us309, -1
   %37 = icmp sgt i64 %.0165.us309, 1
-  br i1 %37, label %.lr.ph51.split.us67.i.us308, label %.loopexit278.us, !llvm.loop !9
+  br i1 %37, label %.lr.ph51.split.us67.i.us308, label %.loopexit278.us, !llvm.loop !10
 
 .preheader275.us:                                 ; preds = %.loopexit278.us, %51
   %.1166.us = phi i64 [ %52, %51 ], [ 8, %.loopexit278.us ]
@@ -105,7 +105,7 @@ solve.exit225.us:                                 ; preds = %44
   %.3154.us = phi ptr [ %50, %solve.exit225.us ], [ %.2153.us, %.preheader275.us ]
   %52 = lshr i64 %.1166.us, 1
   %.not205.us = icmp samesign ult i64 %.1166.us, 2
-  br i1 %.not205.us, label %.loopexit280, label %.preheader275.us, !llvm.loop !10
+  br i1 %.not205.us, label %.loopexit280, label %.preheader275.us, !llvm.loop !11
 
 .lr.ph51.us.i206.preheader.us:                    ; preds = %39, %40
   %53 = mul nsw i64 %.1166.us, %26
@@ -146,7 +146,7 @@ solve.exit.us.us:                                 ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %.1152.us.us, i64 128
   %66 = add nsw i64 %.0165.us.us, -1
   %67 = icmp sgt i64 %.0165.us.us, 1
-  br i1 %67, label %.lr.ph51.split.us67.i.us.us, label %.loopexit278.us, !llvm.loop !11
+  br i1 %67, label %.lr.ph51.split.us67.i.us.us, label %.loopexit278.us, !llvm.loop !12
 
 .preheader279.split:                              ; preds = %.preheader279
   br i1 %.not203, label %.preheader279.split.split.us, label %.preheader275
@@ -210,7 +210,7 @@ solve.exit225:                                    ; preds = %84
   %.3154 = phi ptr [ %90, %solve.exit225 ], [ %.2153, %74 ]
   %92 = lshr i64 %.1166, 1
   %.not205 = icmp samesign ult i64 %.1166, 2
-  br i1 %.not205, label %.loopexit280, label %74, !llvm.loop !10
+  br i1 %.not205, label %.loopexit280, label %74, !llvm.loop !11
 
 .loopexit280:                                     ; preds = %91, %51, %.loopexit278.us, %.preheader279.split.split.us, %9
   %.0173 = phi ptr [ %12, %9 ], [ %22, %.preheader279.split.split.us ], [ %22, %.loopexit278.us ], [ %22, %51 ], [ %22, %91 ]
@@ -306,14 +306,14 @@ solve.exit225:                                    ; preds = %84
   store double %128, ptr %120, align 8, !tbaa !3
   %indvars.iv.next80.i235 = add nuw nsw i64 %indvars.iv79.i233, 1
   %exitcond82.not.i236 = icmp eq i64 %indvars.iv.next80.i235, 16
-  br i1 %exitcond82.not.i236, label %._crit_edge.us.i237, label %.lr.ph.split.us52.us.i232, !llvm.loop !13
+  br i1 %exitcond82.not.i236, label %._crit_edge.us.i237, label %.lr.ph.split.us52.us.i232, !llvm.loop !14
 
 solve.exit246:                                    ; preds = %114
   %129 = getelementptr inbounds i8, ptr %.5160, i64 %.idx194
   %130 = getelementptr inbounds nuw i8, ptr %.5, i64 128
   %131 = add nsw i64 %.2167, -1
   %132 = icmp sgt i64 %.2167, 1
-  br i1 %132, label %107, label %.loopexit272, !llvm.loop !14
+  br i1 %132, label %107, label %.loopexit272, !llvm.loop !15
 
 .loopexit272:                                     ; preds = %solve.exit246, %98
   %.4159 = phi ptr [ %4, %98 ], [ %129, %solve.exit246 ]
@@ -397,7 +397,7 @@ solve.exit246:                                    ; preds = %114
   store double %164, ptr %156, align 8, !tbaa !3
   %indvars.iv.next80.i257 = add nuw nsw i64 %indvars.iv79.i255, 1
   %exitcond82.not.i258 = icmp eq i64 %indvars.iv.next80.i257, %.3168
-  br i1 %exitcond82.not.i258, label %._crit_edge.us.i259, label %.lr.ph.split.us52.us.i254, !llvm.loop !13
+  br i1 %exitcond82.not.i258, label %._crit_edge.us.i259, label %.lr.ph.split.us52.us.i254, !llvm.loop !14
 
 solve.exit268:                                    ; preds = %150
   %165 = mul nsw i64 %.3168, %2
@@ -410,13 +410,13 @@ solve.exit268:                                    ; preds = %150
   %.7 = phi ptr [ %167, %solve.exit268 ], [ %.6, %139 ]
   %169 = lshr i64 %.3168, 1
   %.not199 = icmp samesign ult i64 %.3168, 2
-  br i1 %.not199, label %.loopexit, label %139, !llvm.loop !15
+  br i1 %.not199, label %.loopexit, label %139, !llvm.loop !16
 
 .loopexit:                                        ; preds = %168, %.loopexit272..loopexit_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.loopexit272..loopexit_crit_edge ], [ %136, %168 ]
   %170 = add nsw i64 %.1164, -1
   %171 = icmp sgt i64 %.1164, 1
-  br i1 %171, label %98, label %.loopexit274, !llvm.loop !16
+  br i1 %171, label %98, label %.loopexit274, !llvm.loop !17
 
 .loopexit274:                                     ; preds = %.loopexit, %.loopexit280
   ret i32 0
@@ -441,13 +441,14 @@ attributes #3 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8, !12}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !8, !9, !13}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

@@ -203,13 +203,13 @@ sub_1:                                            ; preds = %sub_0
 
 .critedge7.us:                                    ; preds = %.critedge141.us, %.critedge141.us
   %74 = getelementptr inbounds nuw i8, ptr %.4110.us, i64 1
-  br label %.critedge141.us, !llvm.loop !9
+  br label %.critedge141.us, !llvm.loop !10
 
 75:                                               ; preds = %.critedge.us
   %76 = getelementptr inbounds nuw i8, ptr %.2108.us, i64 1
   %77 = add i64 %.094.us, 1
   %.pre205 = load i8, ptr %76, align 1, !tbaa !4
-  br label %.critedge.us, !llvm.loop !10
+  br label %.critedge.us, !llvm.loop !11
 
 .preheader179:                                    ; preds = %.preheader179.backedge, %.preheader179.preheader
   %78 = phi i8 [ %43, %.preheader179.preheader ], [ %.be, %.preheader179.backedge ]
@@ -244,7 +244,7 @@ sub_1:                                            ; preds = %sub_0
   %82 = getelementptr inbounds nuw i8, ptr %.2108, i64 1
   %83 = add i64 %.094, 1
   %.pre204 = load i8, ptr %82, align 1, !tbaa !4
-  br label %.critedge, !llvm.loop !10
+  br label %.critedge, !llvm.loop !11
 
 .critedge5:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge
   %.not133 = icmp eq i64 %.094, 0
@@ -281,9 +281,9 @@ sub_1:                                            ; preds = %sub_0
 
 .thread147:                                       ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  store i32 0, ptr %3, align 4, !tbaa !11
+  store i32 0, ptr %3, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  store i32 0, ptr %4, align 4, !tbaa !11
+  store i32 0, ptr %4, align 4, !tbaa !12
   br label %125
 
 93:                                               ; preds = %89
@@ -358,9 +358,9 @@ Curl_cidr6_match.exit:                            ; preds = %111, %112
 
 123:                                              ; preds = %89
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  store i32 0, ptr %3, align 4, !tbaa !11
+  store i32 0, ptr %3, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
-  store i32 0, ptr %4, align 4, !tbaa !11
+  store i32 0, ptr %4, align 4, !tbaa !12
   %124 = icmp ugt i32 %92, 32
   br i1 %124, label %.thread173, label %125
 
@@ -382,8 +382,8 @@ Curl_cidr6_match.exit:                            ; preds = %111, %112
 
 131:                                              ; preds = %129
   %132 = sub nuw nsw i32 32, %.0146149
-  %133 = load i32, ptr %3, align 4, !tbaa !11
-  %134 = load i32, ptr %4, align 4, !tbaa !11
+  %133 = load i32, ptr %3, align 4, !tbaa !12
+  %134 = load i32, ptr %4, align 4, !tbaa !12
   %135 = xor i32 %134, %133
   %136 = call i32 @llvm.bswap.i32(i32 %135)
   %137 = lshr i32 %136, %132
@@ -399,8 +399,8 @@ Curl_cidr6_match.exit:                            ; preds = %111, %112
   br label %.critedge141.sink.split
 
 138:                                              ; preds = %129
-  %139 = load i32, ptr %3, align 4, !tbaa !11
-  %140 = load i32, ptr %4, align 4, !tbaa !11
+  %139 = load i32, ptr %3, align 4, !tbaa !12
+  %140 = load i32, ptr %4, align 4, !tbaa !12
   %141 = icmp eq i32 %139, %140
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
@@ -425,7 +425,7 @@ Curl_cidr6_match.exit:                            ; preds = %111, %112
 
 .critedge7:                                       ; preds = %.critedge141, %.critedge141
   %143 = getelementptr inbounds nuw i8, ptr %.4110, i64 1
-  br label %.critedge141, !llvm.loop !9
+  br label %.critedge141, !llvm.loop !10
 
 .preheader:                                       ; preds = %.critedge141, %.preheader
   %.5111182 = phi ptr [ %144, %.preheader ], [ %.4110, %.critedge141 ]
@@ -492,9 +492,10 @@ attributes #10 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}

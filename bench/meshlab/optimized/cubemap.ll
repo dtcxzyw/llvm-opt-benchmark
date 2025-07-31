@@ -135,7 +135,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeOldERNS_8Matrix44IfEE(ptr noundef non
 13:                                               ; preds = %5
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
-  br i1 %exitcond18.not.i.i.i, label %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %exitcond18.not.i.i.i, label %_ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit, label %.preheader.i.i.i, !llvm.loop !11
 
 _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %13
   call void @glMultMatrixf(ptr noundef nonnull %3)
@@ -169,13 +169,13 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %13
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %30, label %21, !llvm.loop !11
+  br i1 %exitcond.not, label %30, label %21, !llvm.loop !12
 
 30:                                               ; preds = %21
   call void @glEnd()
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 6
-  br i1 %exitcond17.not, label %31, label %17, !llvm.loop !12
+  br i1 %exitcond17.not, label %31, label %17, !llvm.loop !13
 
 31:                                               ; preds = %30
   call void @glDepthMask(i8 noundef zeroext 1)
@@ -236,10 +236,10 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeExtERNS_8Matrix44IfEE(ptr noundef non
   %13 = shl i64 %indvars.iv.i.i.i, 2
   %14 = add nuw nsw i64 %13, %indvars.iv15.i.i.i
   %15 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %14
-  %16 = load float, ptr %12, align 4, !alias.scope !13
-  %17 = load float, ptr %15, align 4, !alias.scope !13
-  store float %17, ptr %12, align 4, !alias.scope !13
-  store float %16, ptr %15, align 4, !alias.scope !13
+  %16 = load float, ptr %12, align 4, !alias.scope !14
+  %17 = load float, ptr %15, align 4, !alias.scope !14
+  store float %17, ptr %12, align 4, !alias.scope !14
+  store float %16, ptr %15, align 4, !alias.scope !14
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %indvars.iv15.i.i.i
   br i1 %exitcond.not.i.i.i, label %18, label %10, !llvm.loop !8
@@ -247,7 +247,7 @@ define void @_ZN3vcg9CICubeMap14DrawEnvCubeExtERNS_8Matrix44IfEE(ptr noundef non
 18:                                               ; preds = %10
   %indvars.iv.next16.i.i.i = add nuw nsw i64 %indvars.iv15.i.i.i, 1
   %exitcond18.not.i.i.i = icmp eq i64 %indvars.iv.next16.i.i.i, 4
-  br i1 %exitcond18.not.i.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, label %.preheader.i.i.i, !llvm.loop !10
+  br i1 %exitcond18.not.i.i.i, label %_ZNK3vcg8Matrix44IfE9transposeEv.exit.i, label %.preheader.i.i.i, !llvm.loop !11
 
 _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %18
   call void @glMultMatrixf(ptr noundef nonnull %3)
@@ -283,13 +283,13 @@ _ZN3vcg8glNormalERKNS_6Point3IfEE.exit:           ; preds = %19, %_ZN3vcg8glNorm
   call void @glVertex3fv(ptr noundef nonnull align 4 dereferenceable(12) %24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %33, label %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit, !llvm.loop !16
+  br i1 %exitcond.not, label %33, label %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit, !llvm.loop !17
 
 33:                                               ; preds = %_ZN3vcg8glNormalERKNS_6Point3IfEE.exit
   call void @glEnd()
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 6
-  br i1 %exitcond18.not, label %34, label %19, !llvm.loop !17
+  br i1 %exitcond18.not, label %34, label %19, !llvm.loop !18
 
 34:                                               ; preds = %33
   call void @glMatrixMode(i32 noundef 5890)
@@ -333,7 +333,7 @@ define linkonce_odr void @_ZN12checkGLError9debugInfoEPKc(ptr noundef %0) local_
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %17 = load i64, ptr %16, align 8, !noalias !18
+  %17 = load i64, ptr %16, align 8, !noalias !19
   %18 = getelementptr inbounds i8, ptr %5, i64 %17
   br label %19
 
@@ -916,12 +916,12 @@ define linkonce_odr void @_ZN3vcg7InverseIfEENS_8Matrix44IT_EERKS3_(ptr dead_on_
   store double %11, ptr %12, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %13, label %8, !llvm.loop !21
+  br i1 %exitcond.not.i, label %13, label %8, !llvm.loop !22
 
 13:                                               ; preds = %8
   %indvars.iv.next14.i = add nuw nsw i64 %indvars.iv13.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next14.i, 4
-  br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !22
+  br i1 %exitcond16.not.i, label %_ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit, label %.preheader.i, !llvm.loop !23
 
 _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_.exit: ; preds = %13
   %.sroa.0286.0.copyload.i.i.i.i.i.i.i = load <2 x double>, ptr %3, align 16
@@ -1101,12 +1101,12 @@ _ZNK3vcg8Matrix44IfE13ToEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRT_
   store float %155, ptr %157, align 4
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i7 = icmp eq i64 %indvars.iv.next.i6, 4
-  br i1 %exitcond.not.i7, label %158, label %151, !llvm.loop !23
+  br i1 %exitcond.not.i7, label %158, label %151, !llvm.loop !24
 
 158:                                              ; preds = %151
   %indvars.iv.next14.i8 = add nuw nsw i64 %indvars.iv13.i4, 1
   %exitcond16.not.i9 = icmp eq i64 %indvars.iv.next14.i8, 4
-  br i1 %exitcond16.not.i9, label %_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit, label %.preheader.i3, !llvm.loop !24
+  br i1 %exitcond16.not.i9, label %_ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit, label %.preheader.i3, !llvm.loop !25
 
 _ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRKT_.exit: ; preds = %158
   ret void
@@ -1135,7 +1135,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7GetNameEi7QStringRS1_(ptr nonnull r
   store ptr @_ZN10QArrayData11shared_nullE, ptr %.ptr, align 8
   %.add = add nuw nsw i64 %.idx, 8
   %15 = icmp eq i64 %.add, 48
-  br i1 %15, label %16, label %14
+  br i1 %15, label %16, label %14, !llvm.loop !26
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
@@ -1439,7 +1439,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i54:  ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit59:                           ; preds = %_ZN7QStringD2Ev.exit53, %_ZN9QtPrivate8RefCount5derefEv.exit.i55, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i54
   %91 = icmp eq ptr %86, %11
-  br i1 %91, label %92, label %_ZN7QStringD2Ev.exit53
+  br i1 %91, label %92, label %_ZN7QStringD2Ev.exit53, !llvm.loop !27
 
 92:                                               ; preds = %_ZN7QStringD2Ev.exit59
   ret i1 true
@@ -1453,7 +1453,7 @@ _ZN7QStringD2Ev.exit59:                           ; preds = %_ZN7QStringD2Ev.exi
   %96 = getelementptr inbounds i8, ptr %95, i64 -8
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %96) #12
   %97 = icmp eq ptr %96, %11
-  br i1 %97, label %98, label %94
+  br i1 %97, label %98, label %94, !llvm.loop !28
 
 98:                                               ; preds = %94
   resume { ptr, i32 } %.pn
@@ -1651,7 +1651,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %27, %_ZN9QtPrivate8
   call void @_ZN6QImageD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %54, label %12, !llvm.loop !25
+  br i1 %exitcond, label %54, label %12, !llvm.loop !29
 
 51:                                               ; preds = %47, %46, %44, %42, %40, %38
   %52 = landingpad { ptr, i32 }
@@ -1741,7 +1741,7 @@ define noundef zeroext i1 @_ZN3vcg9CICubeMap7LoadExtEPKc(ptr noundef nonnull ali
 18:                                               ; preds = %_ZN7QStringD2Ev.exit21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %62, label %19, !llvm.loop !26
+  br i1 %exitcond, label %62, label %19, !llvm.loop !30
 
 19:                                               ; preds = %11, %18
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %18 ]
@@ -1972,22 +1972,26 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
 !7 = distinct !{!7, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
-!15 = distinct !{!15, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
-!20 = distinct !{!20, !"_ZNKR7QString11toLocal8BitEv"}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZNK3vcg8Matrix44IfE9transposeEv: argument 0"}
+!16 = distinct !{!16, !"_ZNK3vcg8Matrix44IfE9transposeEv"}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNKR7QString11toLocal8BitEv: argument 0"}
+!21 = distinct !{!21, !"_ZNKR7QString11toLocal8BitEv"}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}

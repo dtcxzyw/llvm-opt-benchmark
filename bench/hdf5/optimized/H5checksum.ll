@@ -64,7 +64,7 @@ define i32 @H5_checksum_fletcher32(ptr noundef readonly captures(none) %0, i64 n
   %30 = lshr i32 %21, 16
   %31 = add nuw nsw i32 %29, %30
   %.not = icmp eq i64 %24, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %.038.lcssa = phi ptr [ %0, %.preheader ], [ %scevgep, %23 ]
@@ -133,14 +133,14 @@ define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef 
   %.1.i.i = select i1 %.not.i.i, i32 %13, i32 %14
   %15 = add nuw nsw i32 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %15, 8
-  br i1 %exitcond.not.i.i, label %16, label %11, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %16, label %11, !llvm.loop !15
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %indvars.iv.i.i
-  store i32 %.1.i.i, ptr %17, align 4, !tbaa !15
+  store i32 %.1.i.i, ptr %17, align 4, !tbaa !16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond17.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond17.not.i.i, label %H5__checksum_crc_make_table.exit.i, label %.preheader.i.i, !llvm.loop !17
+  br i1 %exitcond17.not.i.i, label %H5__checksum_crc_make_table.exit.i, label %.preheader.i.i, !llvm.loop !18
 
 H5__checksum_crc_make_table.exit.i:               ; preds = %16
   store i1 true, ptr @H5_crc_table_computed, align 1
@@ -159,12 +159,12 @@ H5__checksum_crc_make_table.exit.i:               ; preds = %16
   %.narrow.i = xor i8 %20, %.1.tr.i
   %21 = zext i8 %.narrow.i to i64
   %22 = getelementptr inbounds nuw [256 x i32], ptr @H5_crc_table, i64 0, i64 %21
-  %23 = load i32, ptr %22, align 4, !tbaa !15
+  %23 = load i32, ptr %22, align 4, !tbaa !16
   %24 = lshr i32 %.19.i, 8
   %25 = xor i32 %23, %24
   %26 = add nuw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %26, %1
-  br i1 %exitcond.not.i, label %H5__checksum_crc_update.exit.loopexit, label %.lr.ph.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %H5__checksum_crc_update.exit.loopexit, label %.lr.ph.i, !llvm.loop !19
 
 H5__checksum_crc_update.exit.loopexit:            ; preds = %.lr.ph.i
   %27 = xor i32 %25, -1
@@ -281,7 +281,7 @@ define i32 @H5_checksum_lookup3(ptr noundef readonly captures(none) %0, i64 noun
   %95 = add i64 %.0147148, -12
   %96 = getelementptr inbounds nuw i8, ptr %.0146149, i64 12
   %97 = icmp ugt i64 %95, 12
-  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %97, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.0147.lcssa = phi i64 [ %1, %10 ], [ %95, %.lr.ph ]
@@ -478,7 +478,7 @@ define i32 @H5_hash_string(ptr noundef readonly captures(none) %0) local_unnamed
   %13 = add i32 %12, %10
   %14 = load i8, ptr %11, align 1, !tbaa !10
   %.not = icmp eq i8 %14, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %1
   %.04 = phi i32 [ 5381, %1 ], [ 5381, %.preheader ], [ %13, %.lr.ph ]
@@ -508,13 +508,14 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !8 = !{}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"int", !5, i64 0}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"int", !5, i64 0}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}

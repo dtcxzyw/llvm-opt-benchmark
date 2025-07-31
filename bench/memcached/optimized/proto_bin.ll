@@ -700,16 +700,16 @@ define dso_local range(i32 -1, 2) i32 @try_read_command_binary(ptr noundef %0) l
   %66 = load i16, ptr %33, align 2, !tbaa !28
   %67 = zext i16 %66 to i32
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store i32 %67, ptr %68, align 8, !tbaa !72
+  store i32 %67, ptr %68, align 8, !tbaa !73
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %70 = load i32, ptr %69, align 4, !tbaa !28
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  store i32 %70, ptr %71, align 4, !tbaa !73
+  store i32 %70, ptr %71, align 4, !tbaa !74
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store i64 0, ptr %72, align 8, !tbaa !55
   %73 = load volatile i32, ptr @current_time, align 4, !tbaa !32
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %73, ptr %74, align 8, !tbaa !74
+  store i32 %73, ptr %74, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #11
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %76 = load ptr, ptr %8, align 8, !tbaa !69
@@ -761,7 +761,7 @@ write_bin_error.exit.i:                           ; preds = %103, %100
   tail call void @resp_add_iov(ptr noundef %107, ptr noundef nonnull @.str.7, i32 noundef 15) #11
   tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 9) #11
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %108, align 8, !tbaa !75
+  store i8 1, ptr %108, align 8, !tbaa !76
   br label %206
 
 109:                                              ; preds = %96
@@ -820,7 +820,7 @@ write_bin_error.exit156.i:                        ; preds = %128, %125
   tail call void @resp_add_iov(ptr noundef %133, ptr noundef nonnull @.str.14, i32 noundef 13) #11
   tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 9) #11
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %134, align 8, !tbaa !75
+  store i8 1, ptr %134, align 8, !tbaa !76
   br label %206
 
 135:                                              ; preds = %authenticated.exit.i, %109
@@ -1042,9 +1042,9 @@ write_bin_error.exit156.i:                        ; preds = %128, %125
   tail call fastcc void @write_bin_response(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0)
   tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 9) #11
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %190, align 8, !tbaa !75
+  store i8 1, ptr %190, align 8, !tbaa !76
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store i32 1, ptr %191, align 4, !tbaa !76
+  store i32 1, ptr %191, align 4, !tbaa !77
   br label %206
 
 192:                                              ; preds = %147
@@ -1235,7 +1235,7 @@ define internal fastcc void @add_bin_header(ptr noundef readonly captures(none) 
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i32 %16, ptr %17, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 380
-  %19 = load i32, ptr %18, align 4, !tbaa !73
+  %19 = load i32, ptr %18, align 4, !tbaa !74
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 172
   store i32 %19, ptr %20, align 4, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -1274,7 +1274,7 @@ define internal fastcc void @add_bin_header(ptr noundef readonly captures(none) 
   %44 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.3, i32 noundef %43) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %45, label %32, !llvm.loop !77
+  br i1 %exitcond.not, label %45, label %32, !llvm.loop !78
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr @stderr, align 8, !tbaa !58
@@ -1283,7 +1283,7 @@ define internal fastcc void @add_bin_header(ptr noundef readonly captures(none) 
 
 47:                                               ; preds = %45, %5
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 24, ptr %48, align 8, !tbaa !78
+  store i32 24, ptr %48, align 8, !tbaa !79
   tail call void @resp_add_iov(ptr noundef nonnull %7, ptr noundef nonnull %8, i32 noundef 24) #11
   ret void
 }
@@ -1378,13 +1378,13 @@ write_bin_error.exit:                             ; preds = %4, %1
 
 20:                                               ; preds = %12, %write_bin_error.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %21, align 8, !tbaa !75
+  store i8 1, ptr %21, align 8, !tbaa !76
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process_bin_flush(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
-  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 184), align 8, !tbaa !81, !range !53, !noundef !54
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 184), align 8, !tbaa !82, !range !53, !noundef !54
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %15, label %5
 
@@ -1432,7 +1432,7 @@ write_bin_error.exit:                             ; preds = %8, %5
 27:                                               ; preds = %.thread, %22
   %.0.in = phi i32 [ %25, %22 ], [ %26, %.thread ]
   %.0 = add i32 %.0.in, -1
-  store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 36), align 4, !tbaa !82
+  store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 36), align 4, !tbaa !83
   tail call void @item_flush_expired() #11
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %29 = load ptr, ptr %28, align 8, !tbaa !27
@@ -1440,9 +1440,9 @@ write_bin_error.exit:                             ; preds = %8, %5
   %31 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %30) #11
   %32 = load ptr, ptr %28, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 504
-  %34 = load i64, ptr %33, align 8, !tbaa !83
+  %34 = load i64, ptr %33, align 8, !tbaa !84
   %35 = add i64 %34, 1
-  store i64 %35, ptr %33, align 8, !tbaa !83
+  store i64 %35, ptr %33, align 8, !tbaa !84
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 360
   %37 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %36) #11
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 308
@@ -1524,7 +1524,7 @@ define internal fastcc void @process_bin_update(ptr noundef %0, ptr noundef nonn
   %fputc90 = tail call i32 @fputc(i32 %34, ptr %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %35 = load ptr, ptr @stderr, align 8, !tbaa !58
@@ -1534,7 +1534,7 @@ define internal fastcc void @process_bin_update(ptr noundef %0, ptr noundef nonn
   br label %38
 
 38:                                               ; preds = %._crit_edge, %2
-  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !85
+  %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !86
   %.not = icmp eq i32 %39, 0
   br i1 %.not, label %41, label %40
 
@@ -1598,7 +1598,7 @@ write_bin_error.exit:                             ; preds = %60, %64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %70 = load ptr, ptr %69, align 8, !tbaa !27
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 6968
-  %72 = load ptr, ptr %71, align 8, !tbaa !86
+  %72 = load ptr, ptr %71, align 8, !tbaa !87
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %77
 
@@ -1610,7 +1610,7 @@ write_bin_error.exit:                             ; preds = %60, %64
 77:                                               ; preds = %74, %68
   %.0 = phi ptr [ %76, %74 ], [ %72, %68 ]
   %78 = getelementptr inbounds nuw i8, ptr %.0, i64 84
-  %79 = load i16, ptr %78, align 4, !tbaa !87
+  %79 = load i16, ptr %78, align 4, !tbaa !88
   %80 = and i16 %79, 8
   %.not88 = icmp eq i16 %80, 0
   br i1 %.not88, label %89, label %81
@@ -1641,7 +1641,7 @@ write_bin_error.exit:                             ; preds = %60, %64
   tail call void @item_unlink(ptr noundef nonnull %95) #11
   %97 = load ptr, ptr %69, align 8, !tbaa !27
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 6960
-  %99 = load ptr, ptr %98, align 8, !tbaa !90
+  %99 = load ptr, ptr %98, align 8, !tbaa !91
   tail call void @storage_delete(ptr noundef %99, ptr noundef nonnull %95) #11
   tail call void @item_remove(ptr noundef nonnull %95) #11
   br label %100
@@ -1718,7 +1718,7 @@ switch.lookup:                                    ; preds = %109
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %138, ptr %139, align 8, !tbaa !33
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %21, ptr %140, align 8, !tbaa !91
+  store i32 %21, ptr %140, align 8, !tbaa !92
   tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 6) #11
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 3, ptr %141, align 4, !tbaa !4
@@ -1802,9 +1802,9 @@ switch.edge:
 
 51:                                               ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 432
-  %53 = load i64, ptr %52, align 8, !tbaa !92
+  %53 = load i64, ptr %52, align 8, !tbaa !93
   %54 = add i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !92
+  store i64 %54, ptr %52, align 8, !tbaa !93
   %55 = getelementptr inbounds nuw i8, ptr %.0107, i64 40
   %56 = load i8, ptr %55, align 8, !tbaa !28
   %57 = and i8 %56, 63
@@ -1812,16 +1812,16 @@ switch.edge:
   %.idx = shl nuw nsw i64 %58, 6
   %59 = getelementptr i8, ptr %50, i64 656
   %60 = getelementptr i8, ptr %59, i64 %.idx
-  %61 = load i64, ptr %60, align 8, !tbaa !93
+  %61 = load i64, ptr %60, align 8, !tbaa !94
   %62 = add i64 %61, 1
-  store i64 %62, ptr %60, align 8, !tbaa !93
+  store i64 %62, ptr %60, align 8, !tbaa !94
   br label %74
 
 63:                                               ; preds = %42
   %64 = getelementptr inbounds nuw i8, ptr %50, i64 400
-  %65 = load i64, ptr %64, align 8, !tbaa !94
+  %65 = load i64, ptr %64, align 8, !tbaa !95
   %66 = add i64 %65, 1
-  store i64 %66, ptr %64, align 8, !tbaa !94
+  store i64 %66, ptr %64, align 8, !tbaa !95
   %67 = getelementptr inbounds nuw i8, ptr %50, i64 4736
   %68 = getelementptr inbounds nuw i8, ptr %.0107, i64 40
   %69 = load i8, ptr %68, align 8, !tbaa !28
@@ -1979,11 +1979,11 @@ switch.edge:
   br i1 %or.cond, label %163, label %164
 
 163:                                              ; preds = %157
-  store ptr null, ptr %162, align 8, !tbaa !95
+  store ptr null, ptr %162, align 8, !tbaa !96
   br label %.thread124
 
 164:                                              ; preds = %157
-  store ptr %.0107, ptr %162, align 8, !tbaa !95
+  store ptr %.0107, ptr %162, align 8, !tbaa !96
   br label %.thread124
 
 165:                                              ; preds = %130
@@ -1992,9 +1992,9 @@ switch.edge:
   %168 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %167) #11
   %169 = load ptr, ptr %46, align 8, !tbaa !27
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 608
-  %171 = load i64, ptr %170, align 8, !tbaa !96
+  %171 = load i64, ptr %170, align 8, !tbaa !97
   %172 = add i64 %171, 1
-  store i64 %172, ptr %170, align 8, !tbaa !96
+  store i64 %172, ptr %170, align 8, !tbaa !97
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 360
   %174 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %173) #11
   tail call void @item_remove(ptr noundef nonnull %.0107) #11
@@ -2057,7 +2057,7 @@ write_bin_miss_response.exit:                     ; preds = %194, %197
   br label %.thread124
 
 .thread124:                                       ; preds = %163, %164, %191, %write_bin_miss_response.exit, %193
-  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !85
+  %203 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !86
   %.not118 = icmp eq i32 %203, 0
   br i1 %.not118, label %205, label %204
 
@@ -2099,7 +2099,7 @@ define internal fastcc void @process_bin_delete(ptr noundef %0) unnamed_addr #0 
   %fputc36 = tail call i32 @fputc(i32 %16, ptr %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %17 = load ptr, ptr @stderr, align 8, !tbaa !58
@@ -2107,7 +2107,7 @@ define internal fastcc void @process_bin_delete(ptr noundef %0) unnamed_addr #0 
   br label %18
 
 18:                                               ; preds = %._crit_edge, %1
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !85
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !86
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %21, label %20
 
@@ -2153,16 +2153,16 @@ define internal fastcc void @process_bin_delete(ptr noundef %0) unnamed_addr #0 
   %.idx = shl nuw nsw i64 %45, 6
   %46 = getelementptr i8, ptr %41, i64 664
   %47 = getelementptr i8, ptr %46, i64 %.idx
-  %48 = load i64, ptr %47, align 8, !tbaa !98
+  %48 = load i64, ptr %47, align 8, !tbaa !99
   %49 = add i64 %48, 1
-  store i64 %49, ptr %47, align 8, !tbaa !98
+  store i64 %49, ptr %47, align 8, !tbaa !99
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 360
   %51 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %50) #11
   %52 = load i32, ptr %2, align 4, !tbaa !32
   call void @do_item_unlink(ptr noundef nonnull %24, i32 noundef %52) #11
   %53 = load ptr, ptr %22, align 8, !tbaa !27
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6960
-  %55 = load ptr, ptr %54, align 8, !tbaa !90
+  %55 = load ptr, ptr %54, align 8, !tbaa !91
   call void @storage_delete(ptr noundef %55, ptr noundef nonnull %24) #11
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %57 = load i8, ptr %56, align 4, !tbaa !56, !range !53, !noundef !54
@@ -2229,9 +2229,9 @@ write_bin_error.exit39:                           ; preds = %75, %72
   %84 = call i32 @pthread_mutex_lock(ptr noundef nonnull %83) #11
   %85 = load ptr, ptr %22, align 8, !tbaa !27
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 448
-  %87 = load i64, ptr %86, align 8, !tbaa !99
+  %87 = load i64, ptr %86, align 8, !tbaa !100
   %88 = add i64 %87, 1
-  store i64 %88, ptr %86, align 8, !tbaa !99
+  store i64 %88, ptr %86, align 8, !tbaa !100
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 360
   %90 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %89) #11
   br label %91
@@ -2291,7 +2291,7 @@ define internal fastcc void @complete_incr_bin(ptr noundef %0, ptr noundef nonnu
   %fputc = tail call i32 @fputc(i32 %30, ptr %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %19
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %31 = load ptr, ptr @stderr, align 8, !tbaa !58
@@ -2583,7 +2583,7 @@ define internal fastcc void @process_bin_append_prepend(ptr noundef %0) unnamed_
   br label %16
 
 16:                                               ; preds = %13, %1
-  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !85
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !86
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %19, label %18
 
@@ -2693,7 +2693,7 @@ write_bin_error.exit:                             ; preds = %33, %37
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %71, ptr %72, align 8, !tbaa !33
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %10, ptr %73, align 8, !tbaa !91
+  store i32 %10, ptr %73, align 8, !tbaa !92
   tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 6) #11
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 3, ptr %74, align 4, !tbaa !4
@@ -2738,7 +2738,7 @@ define internal fastcc void @process_bin_stat(ptr noundef %0) unnamed_addr #0 {
   %fputc57 = tail call i32 @fputc(i32 %18, ptr %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %19 = load ptr, ptr @stderr, align 8, !tbaa !58
@@ -2829,7 +2829,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %52, label %53, label %.tail.thread
 
 53:                                               ; preds = %.tail
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !85
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !86
   br label %.critedge
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
@@ -2838,7 +2838,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %55, label %56, label %57
 
 56:                                               ; preds = %.tail.thread
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !85
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 96), align 8, !tbaa !86
   br label %.critedge
 
 57:                                               ; preds = %.tail.thread
@@ -2868,7 +2868,7 @@ write_bin_error.exit:                             ; preds = %60, %57
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %72 = load ptr, ptr %71, align 8, !tbaa !102
+  %72 = load ptr, ptr %71, align 8, !tbaa !103
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %75
 
@@ -2878,10 +2878,10 @@ write_bin_error.exit:                             ; preds = %60, %57
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %77 = load i64, ptr %76, align 8, !tbaa !103
+  %77 = load i64, ptr %76, align 8, !tbaa !104
   %78 = trunc i64 %77 to i32
   tail call void @write_and_free(ptr noundef nonnull %0, ptr noundef nonnull %72, i32 noundef %78) #11
-  store ptr null, ptr %71, align 8, !tbaa !102
+  store ptr null, ptr %71, align 8, !tbaa !103
   br label %97
 
 79:                                               ; preds = %67
@@ -2907,7 +2907,7 @@ write_bin_error.exit60:                           ; preds = %82, %79
 .critedge:                                        ; preds = %46, %56, %53, %27, %31, %22
   call void @append_stats(ptr noundef null, i16 noundef zeroext 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %0) #11
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %90 = load ptr, ptr %89, align 8, !tbaa !102
+  %90 = load ptr, ptr %89, align 8, !tbaa !103
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %93
 
@@ -2917,10 +2917,10 @@ write_bin_error.exit60:                           ; preds = %82, %79
 
 93:                                               ; preds = %.critedge
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %95 = load i64, ptr %94, align 8, !tbaa !103
+  %95 = load i64, ptr %94, align 8, !tbaa !104
   %96 = trunc i64 %95 to i32
   call void @write_and_free(ptr noundef nonnull %0, ptr noundef nonnull %90, i32 noundef %96) #11
-  store ptr null, ptr %89, align 8, !tbaa !102
+  store ptr null, ptr %89, align 8, !tbaa !103
   br label %97
 
 97:                                               ; preds = %.thread, %92, %93, %write_bin_error.exit60, %75, %74, %write_bin_error.exit
@@ -3176,7 +3176,7 @@ write_bin_error.exit40:                           ; preds = %66, %70
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %89, ptr %90, align 8, !tbaa !33
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 %30, ptr %91, align 8, !tbaa !91
+  store i32 %30, ptr %91, align 8, !tbaa !92
   tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 6) #11
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 10, ptr %92, align 4, !tbaa !4
@@ -3398,37 +3398,38 @@ attributes #14 = { nounwind willreturn memory(read) }
 !67 = !{!39, !19, i64 528}
 !68 = !{!5, !9, i64 204}
 !69 = !{!5, !20, i64 192}
-!70 = distinct !{!70, !71}
+!70 = distinct !{!70, !71, !72}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!5, !9, i64 384}
-!73 = !{!5, !9, i64 380}
-!74 = !{!5, !9, i64 40}
-!75 = !{!5, !10, i64 16}
-!76 = !{!5, !9, i64 268}
-!77 = distinct !{!77, !71}
-!78 = !{!79, !9, i64 16}
-!79 = !{!"_mc_resp", !46, i64 0, !21, i64 8, !9, i64 16, !9, i64 20, !6, i64 24, !42, i64 32, !80, i64 40, !7, i64 48, !9, i64 112, !7, i64 116, !7, i64 117, !10, i64 118, !10, i64 119, !10, i64 120, !16, i64 122, !16, i64 124, !16, i64 126, !22, i64 128, !9, i64 156, !7, i64 160}
-!80 = !{!"p1 _ZTS8_stritem", !6, i64 0}
-!81 = !{!50, !10, i64 184}
-!82 = !{!50, !9, i64 36}
-!83 = !{!39, !19, i64 504}
-!84 = distinct !{!84, !71}
-!85 = !{!50, !9, i64 96}
-!86 = !{!39, !47, i64 6968}
-!87 = !{!88, !16, i64 84}
-!88 = !{!"_logger", !47, i64 0, !47, i64 8, !7, i64 16, !19, i64 56, !19, i64 64, !19, i64 72, !16, i64 80, !16, i64 82, !16, i64 84, !6, i64 88, !89, i64 96}
-!89 = !{!"p1 _ZTS14_entry_details", !6, i64 0}
-!90 = !{!39, !6, i64 6960}
-!91 = !{!5, !9, i64 232}
-!92 = !{!39, !19, i64 432}
-!93 = !{!30, !19, i64 16}
-!94 = !{!39, !19, i64 400}
-!95 = !{!79, !80, i64 40}
-!96 = !{!39, !19, i64 608}
-!97 = distinct !{!97, !71}
-!98 = !{!30, !19, i64 24}
-!99 = !{!39, !19, i64 448}
-!100 = distinct !{!100, !71}
-!101 = distinct !{!101, !71}
-!102 = !{!5, !20, i64 312}
-!103 = !{!5, !19, i64 328}
+!72 = !{!"llvm.loop.estimated_trip_count"}
+!73 = !{!5, !9, i64 384}
+!74 = !{!5, !9, i64 380}
+!75 = !{!5, !9, i64 40}
+!76 = !{!5, !10, i64 16}
+!77 = !{!5, !9, i64 268}
+!78 = distinct !{!78, !71, !72}
+!79 = !{!80, !9, i64 16}
+!80 = !{!"_mc_resp", !46, i64 0, !21, i64 8, !9, i64 16, !9, i64 20, !6, i64 24, !42, i64 32, !81, i64 40, !7, i64 48, !9, i64 112, !7, i64 116, !7, i64 117, !10, i64 118, !10, i64 119, !10, i64 120, !16, i64 122, !16, i64 124, !16, i64 126, !22, i64 128, !9, i64 156, !7, i64 160}
+!81 = !{!"p1 _ZTS8_stritem", !6, i64 0}
+!82 = !{!50, !10, i64 184}
+!83 = !{!50, !9, i64 36}
+!84 = !{!39, !19, i64 504}
+!85 = distinct !{!85, !71, !72}
+!86 = !{!50, !9, i64 96}
+!87 = !{!39, !47, i64 6968}
+!88 = !{!89, !16, i64 84}
+!89 = !{!"_logger", !47, i64 0, !47, i64 8, !7, i64 16, !19, i64 56, !19, i64 64, !19, i64 72, !16, i64 80, !16, i64 82, !16, i64 84, !6, i64 88, !90, i64 96}
+!90 = !{!"p1 _ZTS14_entry_details", !6, i64 0}
+!91 = !{!39, !6, i64 6960}
+!92 = !{!5, !9, i64 232}
+!93 = !{!39, !19, i64 432}
+!94 = !{!30, !19, i64 16}
+!95 = !{!39, !19, i64 400}
+!96 = !{!80, !81, i64 40}
+!97 = !{!39, !19, i64 608}
+!98 = distinct !{!98, !71, !72}
+!99 = !{!30, !19, i64 24}
+!100 = !{!39, !19, i64 448}
+!101 = distinct !{!101, !71, !72}
+!102 = distinct !{!102, !71, !72}
+!103 = !{!5, !20, i64 312}
+!104 = !{!5, !19, i64 328}

@@ -411,7 +411,7 @@ define range(i32 -22, 1) i32 @ARKodeRootInit(ptr noundef %0, i32 noundef %1, ptr
   store i32 1, ptr %198, align 4, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph170
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph170, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.lr.ph170
   %199 = mul nuw nsw i32 %7, 3
@@ -552,7 +552,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, i32 noundef %10) #8
   %12 = load ptr, ptr %6, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
-  %14 = load i64, ptr %13, align 8, !tbaa !37
+  %14 = load i64, ptr %13, align 8, !tbaa !39
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.7, i64 noundef %14) #8
   %16 = load ptr, ptr %6, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -581,7 +581,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %31 = load i32, ptr %30, align 8, !tbaa !23
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.loopexit89
+  br i1 %33, label %.lr.ph, label %.loopexit89, !llvm.loop !40
 
 .loopexit89:                                      ; preds = %.lr.ph, %.preheader88, %8
   %34 = phi ptr [ %16, %.preheader88 ], [ %16, %8 ], [ %29, %.lr.ph ]
@@ -611,12 +611,12 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %49 = load i32, ptr %48, align 8, !tbaa !23
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next103, %50
-  br i1 %51, label %.lr.ph92, label %.loopexit87
+  br i1 %51, label %.lr.ph92, label %.loopexit87, !llvm.loop !41
 
 .loopexit87:                                      ; preds = %.lr.ph92, %.preheader86, %.loopexit89
   %52 = phi ptr [ %34, %.preheader86 ], [ %34, %.loopexit89 ], [ %47, %.lr.ph92 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
-  %54 = load i32, ptr %53, align 8, !tbaa !38
+  %54 = load i32, ptr %53, align 8, !tbaa !42
   %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.10, i32 noundef %54) #8
   %56 = load ptr, ptr %6, align 8, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 100
@@ -653,20 +653,20 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %79 = load i32, ptr %78, align 8, !tbaa !23
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next106, %80
-  br i1 %81, label %.lr.ph94, label %.loopexit85
+  br i1 %81, label %.lr.ph94, label %.loopexit85, !llvm.loop !43
 
 .loopexit85:                                      ; preds = %.lr.ph94, %.preheader84, %.loopexit87
   %82 = phi ptr [ %64, %.preheader84 ], [ %64, %.loopexit87 ], [ %77, %.lr.ph94 ]
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
-  %84 = load double, ptr %83, align 8, !tbaa !39
+  %84 = load double, ptr %83, align 8, !tbaa !44
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.14, double noundef %84) #8
   %86 = load ptr, ptr %6, align 8, !tbaa !18
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 40
-  %88 = load double, ptr %87, align 8, !tbaa !40
+  %88 = load double, ptr %87, align 8, !tbaa !45
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.15, double noundef %88) #8
   %90 = load ptr, ptr %6, align 8, !tbaa !18
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  %92 = load double, ptr %91, align 8, !tbaa !41
+  %92 = load double, ptr %91, align 8, !tbaa !46
   %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.16, double noundef %92) #8
   %94 = load ptr, ptr %6, align 8, !tbaa !18
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
@@ -686,7 +686,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %102 = load ptr, ptr %101, align 8, !tbaa !31
   %103 = getelementptr inbounds nuw double, ptr %102, i64 %indvars.iv108
-  %104 = load double, ptr %103, align 8, !tbaa !42
+  %104 = load double, ptr %103, align 8, !tbaa !47
   %105 = trunc nuw nsw i64 %indvars.iv108 to i32
   %106 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.17, i32 noundef %105, double noundef %104) #8
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
@@ -695,7 +695,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %109 = load i32, ptr %108, align 8, !tbaa !23
   %110 = sext i32 %109 to i64
   %111 = icmp slt i64 %indvars.iv.next109, %110
-  br i1 %111, label %.lr.ph96, label %.loopexit83
+  br i1 %111, label %.lr.ph96, label %.loopexit83, !llvm.loop !48
 
 .loopexit83:                                      ; preds = %.lr.ph96, %.preheader82, %.loopexit85
   %112 = phi ptr [ %94, %.preheader82 ], [ %94, %.loopexit85 ], [ %107, %.lr.ph96 ]
@@ -716,7 +716,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 64
   %120 = load ptr, ptr %119, align 8, !tbaa !32
   %121 = getelementptr inbounds nuw double, ptr %120, i64 %indvars.iv111
-  %122 = load double, ptr %121, align 8, !tbaa !42
+  %122 = load double, ptr %121, align 8, !tbaa !47
   %123 = trunc nuw nsw i64 %indvars.iv111 to i32
   %124 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.18, i32 noundef %123, double noundef %122) #8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -725,7 +725,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %127 = load i32, ptr %126, align 8, !tbaa !23
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next112, %128
-  br i1 %129, label %.lr.ph98, label %.loopexit81
+  br i1 %129, label %.lr.ph98, label %.loopexit81, !llvm.loop !49
 
 .loopexit81:                                      ; preds = %.lr.ph98, %.preheader80, %.loopexit83
   %130 = phi ptr [ %112, %.preheader80 ], [ %112, %.loopexit83 ], [ %125, %.lr.ph98 ]
@@ -746,7 +746,7 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 72
   %138 = load ptr, ptr %137, align 8, !tbaa !33
   %139 = getelementptr inbounds nuw double, ptr %138, i64 %indvars.iv114
-  %140 = load double, ptr %139, align 8, !tbaa !42
+  %140 = load double, ptr %139, align 8, !tbaa !47
   %141 = trunc nuw nsw i64 %indvars.iv114 to i32
   %142 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.19, i32 noundef %141, double noundef %140) #8
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
@@ -755,16 +755,16 @@ define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(addr
   %145 = load i32, ptr %144, align 8, !tbaa !23
   %146 = sext i32 %145 to i64
   %147 = icmp slt i64 %indvars.iv.next115, %146
-  br i1 %147, label %.lr.ph100, label %.loopexit
+  br i1 %147, label %.lr.ph100, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.lr.ph100, %.preheader, %.loopexit81
   %148 = phi ptr [ %130, %.preheader ], [ %130, %.loopexit81 ], [ %143, %.lr.ph100 ]
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 80
-  %150 = load double, ptr %149, align 8, !tbaa !43
+  %150 = load double, ptr %149, align 8, !tbaa !51
   %151 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.20, double noundef %150) #8
   %152 = load ptr, ptr %6, align 8, !tbaa !18
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 88
-  %154 = load double, ptr %153, align 8, !tbaa !44
+  %154 = load double, ptr %153, align 8, !tbaa !52
   %155 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.21, double noundef %154) #8
   br label %156
 
@@ -806,24 +806,24 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   %14 = load i32, ptr %7, align 8, !tbaa !23
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %12, label %._crit_edge
+  br i1 %16, label %12, label %._crit_edge, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %12, %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %18 = load double, ptr %17, align 8, !tbaa !45
+  %18 = load double, ptr %17, align 8, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %18, ptr %19, align 8, !tbaa !39
+  store double %18, ptr %19, align 8, !tbaa !44
   %20 = tail call double @llvm.fabs.f64(double %18)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %22 = load double, ptr %21, align 8, !tbaa !46
+  %22 = load double, ptr %21, align 8, !tbaa !55
   %23 = tail call double @llvm.fabs.f64(double %22)
   %24 = fadd double %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load double, ptr %25, align 8, !tbaa !47
+  %26 = load double, ptr %25, align 8, !tbaa !56
   %27 = fmul double %26, %24
   %28 = fmul double %27, 1.000000e+02
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store double %28, ptr %29, align 8, !tbaa !44
+  store double %28, ptr %29, align 8, !tbaa !52
   %30 = load ptr, ptr %6, align 8, !tbaa !19
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %32 = load ptr, ptr %31, align 8, !tbaa !17
@@ -833,7 +833,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = tail call i32 %30(double noundef %18, ptr noundef %32, ptr noundef %34, ptr noundef %36) #8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  store i64 1, ptr %38, align 8, !tbaa !37
+  store i64 1, ptr %38, align 8, !tbaa !39
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %.preheader85, label %45
 
@@ -855,21 +855,21 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   br label %47
 
 45:                                               ; preds = %._crit_edge
-  %46 = load double, ptr %17, align 8, !tbaa !45
+  %46 = load double, ptr %17, align 8, !tbaa !54
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -12, i32 noundef 439, ptr noundef nonnull @__func__.arkRootCheck1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, double noundef %46) #8
   br label %.loopexit
 
 47:                                               ; preds = %.outer, %51
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %51 ], [ %indvars.iv94.ph, %.outer ]
   %48 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv94
-  %49 = load double, ptr %48, align 8, !tbaa !42
+  %49 = load double, ptr %48, align 8, !tbaa !47
   %50 = fcmp oeq double %49, 0.000000e+00
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %47
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %52 = icmp slt i64 %indvars.iv.next95, %44
-  br i1 %52, label %47, label %._crit_edge90
+  br i1 %52, label %47, label %._crit_edge90, !llvm.loop !57
 
 .thread:                                          ; preds = %47
   %53 = load ptr, ptr %42, align 8, !tbaa !25
@@ -879,14 +879,14 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next95103 = add nuw nsw i64 %indvars.iv94, 1
   %55 = sext i32 %.pre to i64
   %56 = icmp slt i64 %indvars.iv.next95103, %55
-  br i1 %56, label %.outer, label %._crit_edge90.thread105
+  br i1 %56, label %.outer, label %._crit_edge90.thread105, !llvm.loop !57
 
 ._crit_edge90:                                    ; preds = %51
   br i1 %43, label %.loopexit, label %._crit_edge90.thread105
 
 ._crit_edge90.thread105:                          ; preds = %.thread, %._crit_edge90
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %58 = load i32, ptr %57, align 8, !tbaa !48
+  %58 = load i32, ptr %57, align 8, !tbaa !58
   %.not81 = icmp eq i32 %58, 0
   br i1 %.not81, label %59, label %71
 
@@ -894,48 +894,48 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %61 = load ptr, ptr %60, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %63 = load double, ptr %62, align 8, !tbaa !49
+  %63 = load double, ptr %62, align 8, !tbaa !59
   %64 = load ptr, ptr %31, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %66 = load ptr, ptr %65, align 8, !tbaa !50
+  %66 = load ptr, ptr %65, align 8, !tbaa !60
   %67 = tail call i32 %61(ptr noundef nonnull %0, double noundef %63, ptr noundef %64, ptr noundef %66, i32 noundef 0) #8
   %.not82 = icmp eq i32 %67, 0
   br i1 %.not82, label %70, label %68
 
 68:                                               ; preds = %59
-  %69 = load double, ptr %17, align 8, !tbaa !45
+  %69 = load double, ptr %17, align 8, !tbaa !54
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -8, i32 noundef 462, ptr noundef nonnull @__func__.arkRootCheck1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, double noundef %69) #8
   br label %.loopexit
 
 70:                                               ; preds = %59
-  store i32 1, ptr %57, align 8, !tbaa !48
+  store i32 1, ptr %57, align 8, !tbaa !58
   br label %71
 
 71:                                               ; preds = %70, %._crit_edge90.thread105
-  %72 = load double, ptr %29, align 8, !tbaa !44
-  %73 = load double, ptr %21, align 8, !tbaa !46
+  %72 = load double, ptr %29, align 8, !tbaa !52
+  %73 = load double, ptr %21, align 8, !tbaa !55
   %74 = tail call double @llvm.fabs.f64(double %73)
   %75 = fdiv double %72, %74
   %76 = fcmp ogt double %75, 1.000000e-01
   %77 = select i1 %76, double %75, double 1.000000e-01
   %78 = fmul double %73, %77
-  %79 = load double, ptr %19, align 8, !tbaa !39
+  %79 = load double, ptr %19, align 8, !tbaa !44
   %80 = fadd double %79, %78
   %81 = load ptr, ptr %31, align 8, !tbaa !17
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %83 = load ptr, ptr %82, align 8, !tbaa !50
+  %83 = load ptr, ptr %82, align 8, !tbaa !60
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %85 = load ptr, ptr %84, align 8, !tbaa !51
+  %85 = load ptr, ptr %84, align 8, !tbaa !61
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %81, double noundef %78, ptr noundef %83, ptr noundef %85) #8
   %86 = load ptr, ptr %6, align 8, !tbaa !19
-  %87 = load ptr, ptr %84, align 8, !tbaa !51
+  %87 = load ptr, ptr %84, align 8, !tbaa !61
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !32
   %90 = load ptr, ptr %35, align 8, !tbaa !28
   %91 = tail call i32 %86(double noundef %80, ptr noundef %87, ptr noundef %89, ptr noundef %90) #8
-  %92 = load i64, ptr %38, align 8, !tbaa !37
+  %92 = load i64, ptr %38, align 8, !tbaa !39
   %93 = add nsw i64 %92, 1
-  store i64 %93, ptr %38, align 8, !tbaa !37
+  store i64 %93, ptr %38, align 8, !tbaa !39
   %.not83 = icmp eq i32 %91, 0
   br i1 %.not83, label %.preheader, label %98
 
@@ -950,7 +950,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   br label %100
 
 98:                                               ; preds = %71
-  %99 = load double, ptr %17, align 8, !tbaa !45
+  %99 = load double, ptr %17, align 8, !tbaa !54
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef nonnull %0, i32 noundef -12, i32 noundef 478, ptr noundef nonnull @__func__.arkRootCheck1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, double noundef %99) #8
   br label %.loopexit
 
@@ -965,7 +965,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
 104:                                              ; preds = %100
   %105 = load ptr, ptr %88, align 8, !tbaa !32
   %106 = getelementptr inbounds nuw double, ptr %105, i64 %indvars.iv97
-  %107 = load double, ptr %106, align 8, !tbaa !42
+  %107 = load double, ptr %106, align 8, !tbaa !47
   %108 = fcmp une double %107, 0.000000e+00
   br i1 %108, label %109, label %112
 
@@ -973,7 +973,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   store i32 1, ptr %102, align 4, !tbaa !36
   %110 = load ptr, ptr %33, align 8, !tbaa !31
   %111 = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv97
-  store double %107, ptr %111, align 8, !tbaa !42
+  store double %107, ptr %111, align 8, !tbaa !47
   %.pre100 = load i32, ptr %7, align 8, !tbaa !23
   br label %112
 
@@ -982,7 +982,7 @@ define range(i32 -21, 1) i32 @arkRootCheck1(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next98, %114
-  br i1 %115, label %100, label %.loopexit
+  br i1 %115, label %100, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %112, %.preheader85, %.preheader, %._crit_edge90, %98, %68, %45, %3
   %.0 = phi i32 [ -21, %3 ], [ -12, %45 ], [ -12, %98 ], [ -8, %68 ], [ 0, %._crit_edge90 ], [ 0, %.preheader ], [ 0, %.preheader85 ], [ 0, %112 ]
@@ -1013,22 +1013,22 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %12 = load double, ptr %11, align 8, !tbaa !39
+  %12 = load double, ptr %11, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %14 = load ptr, ptr %13, align 8, !tbaa !51
+  %14 = load ptr, ptr %13, align 8, !tbaa !61
   %15 = tail call i32 @ARKodeGetDky(ptr noundef nonnull %0, double noundef %12, i32 noundef 0, ptr noundef %14) #8
   %16 = load ptr, ptr %6, align 8, !tbaa !19
-  %17 = load double, ptr %11, align 8, !tbaa !39
-  %18 = load ptr, ptr %13, align 8, !tbaa !51
+  %17 = load double, ptr %11, align 8, !tbaa !44
+  %18 = load ptr, ptr %13, align 8, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !31
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %22 = load ptr, ptr %21, align 8, !tbaa !28
   %23 = tail call i32 %16(double noundef %17, ptr noundef %18, ptr noundef %20, ptr noundef %22) #8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %25 = load i64, ptr %24, align 8, !tbaa !37
+  %25 = load i64, ptr %24, align 8, !tbaa !39
   %26 = add nsw i64 %25, 1
-  store i64 %26, ptr %24, align 8, !tbaa !37
+  store i64 %26, ptr %24, align 8, !tbaa !39
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.preheader84, label %.loopexit
 
@@ -1068,7 +1068,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
   %40 = load i32, ptr %27, align 8, !tbaa !23
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %38, label %.preheader83
+  br i1 %42, label %38, label %.preheader83, !llvm.loop !63
 
 43:                                               ; preds = %.outer, %51
   %indvars.iv96 = phi i64 [ %indvars.iv.next97, %51 ], [ %indvars.iv96.ph, %.outer ]
@@ -1080,14 +1080,14 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 46:                                               ; preds = %43
   %47 = load ptr, ptr %19, align 8, !tbaa !31
   %48 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv96
-  %49 = load double, ptr %48, align 8, !tbaa !42
+  %49 = load double, ptr %48, align 8, !tbaa !47
   %50 = fcmp oeq double %49, 0.000000e+00
   br i1 %50, label %.thread, label %51
 
 51:                                               ; preds = %46, %43
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %52 = icmp slt i64 %indvars.iv.next97, %37
-  br i1 %52, label %43, label %._crit_edge
+  br i1 %52, label %43, label %._crit_edge, !llvm.loop !64
 
 .thread:                                          ; preds = %46
   %53 = load ptr, ptr %35, align 8, !tbaa !34
@@ -1097,39 +1097,39 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next97105 = add nuw nsw i64 %indvars.iv96, 1
   %55 = sext i32 %.pre to i64
   %56 = icmp slt i64 %indvars.iv.next97105, %55
-  br i1 %56, label %.outer, label %._crit_edge.thread107
+  br i1 %56, label %.outer, label %._crit_edge.thread107, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %51
   br i1 %36, label %.loopexit, label %._crit_edge.thread107
 
 ._crit_edge.thread107:                            ; preds = %.thread, %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %58 = load double, ptr %57, align 8, !tbaa !45
+  %58 = load double, ptr %57, align 8, !tbaa !54
   %59 = tail call double @llvm.fabs.f64(double %58)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %61 = load double, ptr %60, align 8, !tbaa !46
+  %61 = load double, ptr %60, align 8, !tbaa !55
   %62 = tail call double @llvm.fabs.f64(double %61)
   %63 = fadd double %59, %62
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %65 = load double, ptr %64, align 8, !tbaa !47
+  %65 = load double, ptr %64, align 8, !tbaa !56
   %66 = fmul double %65, %63
   %67 = fmul double %66, 1.000000e+02
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store double %67, ptr %68, align 8, !tbaa !44
+  store double %67, ptr %68, align 8, !tbaa !52
   %69 = fcmp ogt double %61, 0.000000e+00
   %70 = fneg double %67
   %71 = select i1 %69, double %67, double %70
-  %72 = load double, ptr %11, align 8, !tbaa !39
+  %72 = load double, ptr %11, align 8, !tbaa !44
   %73 = fadd double %72, %71
   %74 = fsub double %73, %58
   %75 = fmul double %61, %74
   %76 = fcmp ult double %75, 0.000000e+00
-  %77 = load ptr, ptr %13, align 8, !tbaa !51
+  %77 = load ptr, ptr %13, align 8, !tbaa !61
   br i1 %76, label %81, label %78
 
 78:                                               ; preds = %._crit_edge.thread107
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %80 = load ptr, ptr %79, align 8, !tbaa !50
+  %80 = load ptr, ptr %79, align 8, !tbaa !60
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %77, double noundef %71, ptr noundef %80, ptr noundef %77) #8
   br label %83
 
@@ -1139,14 +1139,14 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 
 83:                                               ; preds = %81, %78
   %84 = load ptr, ptr %6, align 8, !tbaa !19
-  %85 = load ptr, ptr %13, align 8, !tbaa !51
+  %85 = load ptr, ptr %13, align 8, !tbaa !61
   %86 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %87 = load ptr, ptr %86, align 8, !tbaa !32
   %88 = load ptr, ptr %21, align 8, !tbaa !28
   %89 = tail call i32 %84(double noundef %73, ptr noundef %85, ptr noundef %87, ptr noundef %88) #8
-  %90 = load i64, ptr %24, align 8, !tbaa !37
+  %90 = load i64, ptr %24, align 8, !tbaa !39
   %91 = add nsw i64 %90, 1
-  store i64 %91, ptr %24, align 8, !tbaa !37
+  store i64 %91, ptr %24, align 8, !tbaa !39
   %.not79 = icmp eq i32 %89, 0
   br i1 %.not79, label %.preheader, label %.loopexit
 
@@ -1173,7 +1173,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 101:                                              ; preds = %97
   %102 = load ptr, ptr %86, align 8, !tbaa !32
   %103 = getelementptr inbounds nuw double, ptr %102, i64 %indvars.iv99
-  %104 = load double, ptr %103, align 8, !tbaa !42
+  %104 = load double, ptr %103, align 8, !tbaa !47
   %105 = fcmp oeq double %104, 0.000000e+00
   %106 = load ptr, ptr %96, align 8, !tbaa !34
   %107 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv99
@@ -1195,7 +1195,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
 113:                                              ; preds = %112
   %114 = load ptr, ptr %19, align 8, !tbaa !31
   %115 = getelementptr inbounds nuw double, ptr %114, i64 %indvars.iv99
-  store double %104, ptr %115, align 8, !tbaa !42
+  store double %104, ptr %115, align 8, !tbaa !47
   br label %116
 
 116:                                              ; preds = %111, %113, %112, %97
@@ -1204,7 +1204,7 @@ define range(i32 -21, 4) i32 @arkRootCheck2(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next100, %118
-  br i1 %119, label %97, label %.loopexit
+  br i1 %119, label %97, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %110, %116, %.preheader84, %.preheader83, %.preheader, %83, %._crit_edge, %10, %4, %3
   %.0 = phi i32 [ -21, %3 ], [ 0, %4 ], [ -12, %10 ], [ 0, %._crit_edge ], [ -12, %83 ], [ 0, %.preheader ], [ 0, %.preheader83 ], [ 0, %.preheader84 ], [ 3, %110 ], [ %.3, %116 ]
@@ -1226,21 +1226,21 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = load i32, ptr %7, align 8, !tbaa !38
+  %8 = load i32, ptr %7, align 8, !tbaa !42
   %9 = icmp eq i32 %8, 2
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %12 = load double, ptr %11, align 8, !tbaa !45
+  %12 = load double, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store double %12, ptr %13, align 8, !tbaa !40
+  store double %12, ptr %13, align 8, !tbaa !45
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %17 = load ptr, ptr %16, align 8, !tbaa !51
+  %17 = load ptr, ptr %16, align 8, !tbaa !61
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %15, ptr noundef %17) #8
-  %.pr = load i32, ptr %7, align 8, !tbaa !38
+  %.pr = load i32, ptr %7, align 8, !tbaa !42
   br label %18
 
 18:                                               ; preds = %10, %4
@@ -1250,65 +1250,65 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %23 = load double, ptr %22, align 8, !tbaa !43
+  %23 = load double, ptr %22, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %25 = load double, ptr %24, align 8, !tbaa !45
+  %25 = load double, ptr %24, align 8, !tbaa !54
   %26 = fsub double %23, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %28 = load double, ptr %27, align 8, !tbaa !46
+  %28 = load double, ptr %27, align 8, !tbaa !55
   %29 = fmul double %26, %28
   %30 = fcmp ult double %29, 0.000000e+00
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 40
   br i1 %30, label %37, label %32
 
 32:                                               ; preds = %21
-  store double %25, ptr %31, align 8, !tbaa !40
+  store double %25, ptr %31, align 8, !tbaa !45
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %34 = load ptr, ptr %33, align 8, !tbaa !17
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %36 = load ptr, ptr %35, align 8, !tbaa !51
+  %36 = load ptr, ptr %35, align 8, !tbaa !61
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %34, ptr noundef %36) #8
   br label %41
 
 37:                                               ; preds = %21
-  store double %23, ptr %31, align 8, !tbaa !40
+  store double %23, ptr %31, align 8, !tbaa !45
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %39 = load ptr, ptr %38, align 8, !tbaa !51
+  %39 = load ptr, ptr %38, align 8, !tbaa !61
   %40 = tail call i32 @ARKodeGetDky(ptr noundef nonnull %0, double noundef %23, i32 noundef 0, ptr noundef %39) #8
   br label %41
 
 41:                                               ; preds = %32, %37, %18
   %42 = load ptr, ptr %6, align 8, !tbaa !19
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %44 = load double, ptr %43, align 8, !tbaa !40
+  %44 = load double, ptr %43, align 8, !tbaa !45
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %46 = load ptr, ptr %45, align 8, !tbaa !51
+  %46 = load ptr, ptr %45, align 8, !tbaa !61
   %47 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %48 = load ptr, ptr %47, align 8, !tbaa !32
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %50 = load ptr, ptr %49, align 8, !tbaa !28
   %51 = tail call i32 %42(double noundef %44, ptr noundef %46, ptr noundef %48, ptr noundef %50) #8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %53 = load i64, ptr %52, align 8, !tbaa !37
+  %53 = load i64, ptr %52, align 8, !tbaa !39
   %54 = add nsw i64 %53, 1
-  store i64 %54, ptr %52, align 8, !tbaa !37
+  store i64 %54, ptr %52, align 8, !tbaa !39
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %55, label %111
 
 55:                                               ; preds = %41
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 752
-  %57 = load double, ptr %56, align 8, !tbaa !45
+  %57 = load double, ptr %56, align 8, !tbaa !54
   %58 = tail call double @llvm.fabs.f64(double %57)
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %60 = load double, ptr %59, align 8, !tbaa !46
+  %60 = load double, ptr %59, align 8, !tbaa !55
   %61 = tail call double @llvm.fabs.f64(double %60)
   %62 = fadd double %58, %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %64 = load double, ptr %63, align 8, !tbaa !47
+  %64 = load double, ptr %63, align 8, !tbaa !56
   %65 = fmul double %64, %62
   %66 = fmul double %65, 1.000000e+02
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  store double %66, ptr %67, align 8, !tbaa !44
+  store double %66, ptr %67, align 8, !tbaa !52
   %68 = tail call i32 @arkRootfind(ptr noundef nonnull %0)
   %69 = icmp eq i32 %68, -12
   br i1 %69, label %111, label %.preheader
@@ -1321,9 +1321,9 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
 
 ._crit_edge.thread:                               ; preds = %.preheader
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %74 = load double, ptr %73, align 8, !tbaa !41
+  %74 = load double, ptr %73, align 8, !tbaa !46
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %74, ptr %75, align 8, !tbaa !39
+  store double %74, ptr %75, align 8, !tbaa !44
   br label %._crit_edge64
 
 .lr.ph:                                           ; preds = %.preheader
@@ -1343,7 +1343,7 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
 83:                                               ; preds = %79
   %84 = load ptr, ptr %78, align 8, !tbaa !33
   %85 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv
-  %86 = load double, ptr %85, align 8, !tbaa !42
+  %86 = load double, ptr %85, align 8, !tbaa !47
   %87 = fcmp une double %86, 0.000000e+00
   br i1 %87, label %88, label %89
 
@@ -1357,13 +1357,13 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = sext i32 %90 to i64
   %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %79, label %._crit_edge
+  br i1 %92, label %79, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %94 = load double, ptr %93, align 8, !tbaa !41
+  %94 = load double, ptr %93, align 8, !tbaa !46
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store double %94, ptr %95, align 8, !tbaa !39
+  store double %94, ptr %95, align 8, !tbaa !44
   %96 = icmp sgt i32 %90, 0
   br i1 %96, label %.lr.ph63, label %._crit_edge64
 
@@ -1378,12 +1378,12 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
 101:                                              ; preds = %.lr.ph63, %101
   %indvars.iv67 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next68, %101 ]
   %102 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv67
-  %103 = load double, ptr %102, align 8, !tbaa !42
+  %103 = load double, ptr %102, align 8, !tbaa !47
   %104 = getelementptr inbounds nuw double, ptr %100, i64 %indvars.iv67
-  store double %103, ptr %104, align 8, !tbaa !42
+  store double %103, ptr %104, align 8, !tbaa !47
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge64, label %101
+  br i1 %exitcond.not, label %._crit_edge64, label %101, !llvm.loop !67
 
 ._crit_edge64:                                    ; preds = %101, %._crit_edge.thread, %._crit_edge
   %105 = phi ptr [ %73, %._crit_edge.thread ], [ %93, %._crit_edge ], [ %93, %101 ]
@@ -1391,8 +1391,8 @@ define range(i32 -21, 2) i32 @arkRootCheck3(ptr noundef %0) local_unnamed_addr #
   br i1 %106, label %111, label %107
 
 107:                                              ; preds = %._crit_edge64
-  %108 = load double, ptr %105, align 8, !tbaa !41
-  %109 = load ptr, ptr %45, align 8, !tbaa !51
+  %108 = load double, ptr %105, align 8, !tbaa !46
+  %109 = load ptr, ptr %45, align 8, !tbaa !61
   %110 = tail call i32 @ARKodeGetDky(ptr noundef nonnull %0, double noundef %108, i32 noundef 0, ptr noundef %109) #8
   br label %111
 
@@ -1422,9 +1422,9 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 ._crit_edge323.thread:                            ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %11 = load double, ptr %10, align 8, !tbaa !40
+  %11 = load double, ptr %10, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %11, ptr %12, align 8, !tbaa !41
+  store double %11, ptr %12, align 8, !tbaa !46
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %4
@@ -1455,7 +1455,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %15, align 8, !tbaa !32
   %24 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
-  %25 = load double, ptr %24, align 8, !tbaa !42
+  %25 = load double, ptr %24, align 8, !tbaa !47
   %26 = fcmp oeq double %25, 0.000000e+00
   br i1 %26, label %27, label %38
 
@@ -1466,7 +1466,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %31 = sitofp i32 %30 to double
   %32 = load ptr, ptr %16, align 8, !tbaa !31
   %33 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
-  %34 = load double, ptr %33, align 8, !tbaa !42
+  %34 = load double, ptr %33, align 8, !tbaa !47
   %35 = fmul double %34, %31
   %36 = fcmp ugt double %35, 0.000000e+00
   br i1 %36, label %59, label %37
@@ -1477,7 +1477,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 38:                                               ; preds = %22
   %39 = load ptr, ptr %16, align 8, !tbaa !31
   %40 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv
-  %41 = load double, ptr %40, align 8, !tbaa !42
+  %41 = load double, ptr %40, align 8, !tbaa !47
   %42 = fcmp olt double %41, 0.000000e+00
   %43 = fcmp ogt double %25, 0.000000e+00
   %or.cond = and i1 %43, %42
@@ -1509,13 +1509,13 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %.1224 = phi i32 [ 1, %37 ], [ %.0223279, %27 ], [ %.0223279, %54 ], [ %.0223279, %47 ], [ %.0223279, %44 ], [ %.0223279, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %19
+  br i1 %exitcond.not, label %._crit_edge, label %19, !llvm.loop !68
 
 .thread:                                          ; preds = %54
   %60 = trunc nuw nsw i64 %indvars.iv to i32
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not380 = icmp eq i64 %indvars.iv.next379, %wide.trip.count
-  br i1 %exitcond.not380, label %.preheader263, label %.outer426
+  br i1 %exitcond.not380, label %.preheader263, label %.outer426, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %59
   %61 = icmp ne i32 %.1224, 0
@@ -1526,11 +1526,11 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %63 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %65 = load double, ptr %62, align 8, !tbaa !40
-  %66 = load double, ptr %63, align 8, !tbaa !39
+  %65 = load double, ptr %62, align 8, !tbaa !45
+  %66 = load double, ptr %63, align 8, !tbaa !44
   %67 = fsub double %65, %66
   %68 = tail call double @llvm.fabs.f64(double %67)
-  %69 = load double, ptr %64, align 8, !tbaa !44
+  %69 = load double, ptr %64, align 8, !tbaa !52
   %70 = fcmp ugt double %68, %69
   br i1 %70, label %.lr.ph308, label %.lr.ph319.sink.split
 
@@ -1547,9 +1547,9 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph322:                                        ; preds = %._crit_edge
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %80 = load double, ptr %79, align 8, !tbaa !40
+  %80 = load double, ptr %79, align 8, !tbaa !45
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %80, ptr %81, align 8, !tbaa !41
+  store double %80, ptr %81, align 8, !tbaa !46
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %83 = load ptr, ptr %82, align 8, !tbaa !32
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1560,12 +1560,12 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 86:                                               ; preds = %.lr.ph322, %86
   %indvars.iv357 = phi i64 [ 0, %.lr.ph322 ], [ %indvars.iv.next358, %86 ]
   %87 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv357
-  %88 = load double, ptr %87, align 8, !tbaa !42
+  %88 = load double, ptr %87, align 8, !tbaa !47
   %89 = getelementptr inbounds nuw double, ptr %85, i64 %indvars.iv357
-  store double %88, ptr %89, align 8, !tbaa !42
+  store double %88, ptr %89, align 8, !tbaa !47
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
-  br i1 %exitcond361.not, label %._crit_edge323, label %86
+  br i1 %exitcond361.not, label %._crit_edge323, label %86, !llvm.loop !69
 
 ._crit_edge323:                                   ; preds = %86
   %.mux = zext i1 %61 to i32
@@ -1592,14 +1592,14 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 100:                                              ; preds = %96
   %101 = load ptr, ptr %94, align 8, !tbaa !32
   %102 = getelementptr inbounds nuw double, ptr %101, i64 %indvars.iv362
-  %103 = load double, ptr %102, align 8, !tbaa !42
+  %103 = load double, ptr %102, align 8, !tbaa !47
   %104 = fcmp oeq double %103, 0.000000e+00
   br i1 %104, label %105, label %111
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %95, align 8, !tbaa !31
   %107 = getelementptr inbounds nuw double, ptr %106, i64 %indvars.iv362
-  %108 = load double, ptr %107, align 8, !tbaa !42
+  %108 = load double, ptr %107, align 8, !tbaa !47
   %109 = fcmp ogt double %108, 0.000000e+00
   %110 = select i1 %109, i32 -1, i32 1
   store i32 %110, ptr %97, align 4, !tbaa !36
@@ -1610,7 +1610,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %112 = load i32, ptr %7, align 8, !tbaa !23
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next363, %113
-  br i1 %114, label %96, label %.loopexit
+  br i1 %114, label %96, label %.loopexit, !llvm.loop !70
 
 115:                                              ; preds = %.lr.ph308, %.backedge
   %116 = phi double [ %69, %.lr.ph308 ], [ %221, %.backedge ]
@@ -1629,11 +1629,11 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %123 = load ptr, ptr %71, align 8, !tbaa !32
   %124 = sext i32 %.2231303 to i64
   %125 = getelementptr inbounds double, ptr %123, i64 %124
-  %126 = load double, ptr %125, align 8, !tbaa !42
+  %126 = load double, ptr %125, align 8, !tbaa !47
   %127 = fmul double %118, %126
   %128 = load ptr, ptr %72, align 8, !tbaa !31
   %129 = getelementptr inbounds double, ptr %128, i64 %124
-  %130 = load double, ptr %129, align 8, !tbaa !42
+  %130 = load double, ptr %129, align 8, !tbaa !47
   %131 = fneg double %.1
   %132 = tail call double @llvm.fmuladd.f64(double %131, double %130, double %126)
   %133 = fdiv double %127, %132
@@ -1669,16 +1669,16 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 154:                                              ; preds = %149, %145
   %.1234 = phi double [ %153, %149 ], [ %.0233, %145 ]
-  %155 = load ptr, ptr %73, align 8, !tbaa !51
+  %155 = load ptr, ptr %73, align 8, !tbaa !61
   %156 = tail call i32 @ARKodeGetDky(ptr noundef nonnull %0, double noundef %.1234, i32 noundef 0, ptr noundef %155) #8
   %157 = load ptr, ptr %6, align 8, !tbaa !19
-  %158 = load ptr, ptr %73, align 8, !tbaa !51
+  %158 = load ptr, ptr %73, align 8, !tbaa !61
   %159 = load ptr, ptr %74, align 8, !tbaa !33
   %160 = load ptr, ptr %75, align 8, !tbaa !28
   %161 = tail call i32 %157(double noundef %.1234, ptr noundef %158, ptr noundef %159, ptr noundef %160) #8
-  %162 = load i64, ptr %76, align 8, !tbaa !37
+  %162 = load i64, ptr %76, align 8, !tbaa !39
   %163 = add nsw i64 %162, 1
-  store i64 %163, ptr %76, align 8, !tbaa !37
+  store i64 %163, ptr %76, align 8, !tbaa !39
   %.not249 = icmp eq i32 %161, 0
   br i1 %.not249, label %.preheader262, label %.loopexit
 
@@ -1688,7 +1688,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   br i1 %165, label %.lr.ph289, label %.thread420
 
 .thread420:                                       ; preds = %.preheader262
-  store double %.1234, ptr %63, align 8, !tbaa !39
+  store double %.1234, ptr %63, align 8, !tbaa !44
   br label %._crit_edge302
 
 .lr.ph289:                                        ; preds = %.preheader262
@@ -1715,7 +1715,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 171:                                              ; preds = %168
   %172 = load ptr, ptr %74, align 8, !tbaa !33
   %173 = getelementptr inbounds nuw double, ptr %172, i64 %indvars.iv333
-  %174 = load double, ptr %173, align 8, !tbaa !42
+  %174 = load double, ptr %173, align 8, !tbaa !47
   %175 = fcmp oeq double %174, 0.000000e+00
   br i1 %175, label %176, label %187
 
@@ -1726,7 +1726,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %180 = sitofp i32 %179 to double
   %181 = load ptr, ptr %72, align 8, !tbaa !31
   %182 = getelementptr inbounds nuw double, ptr %181, i64 %indvars.iv333
-  %183 = load double, ptr %182, align 8, !tbaa !42
+  %183 = load double, ptr %182, align 8, !tbaa !47
   %184 = fmul double %183, %180
   %185 = fcmp ugt double %184, 0.000000e+00
   br i1 %185, label %208, label %186
@@ -1737,7 +1737,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 187:                                              ; preds = %171
   %188 = load ptr, ptr %72, align 8, !tbaa !31
   %189 = getelementptr inbounds nuw double, ptr %188, i64 %indvars.iv333
-  %190 = load double, ptr %189, align 8, !tbaa !42
+  %190 = load double, ptr %189, align 8, !tbaa !47
   %191 = fcmp olt double %190, 0.000000e+00
   %192 = fcmp ogt double %174, 0.000000e+00
   %or.cond255 = and i1 %192, %191
@@ -1769,20 +1769,20 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %.3226 = phi i32 [ 1, %186 ], [ %.2225287, %176 ], [ %.2225287, %203 ], [ %.2225287, %196 ], [ %.2225287, %193 ], [ %.2225287, %168 ]
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond337.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count336
-  br i1 %exitcond337.not, label %._crit_edge290, label %168
+  br i1 %exitcond337.not, label %._crit_edge290, label %168, !llvm.loop !71
 
 .thread401:                                       ; preds = %203
   %209 = trunc nuw nsw i64 %indvars.iv333 to i32
   %indvars.iv.next334406 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond337.not407 = icmp eq i64 %indvars.iv.next334406, %wide.trip.count336
-  br i1 %exitcond337.not407, label %._crit_edge290.thread411, label %.outer
+  br i1 %exitcond337.not407, label %._crit_edge290.thread411, label %.outer, !llvm.loop !71
 
 ._crit_edge290:                                   ; preds = %208
   br i1 %167, label %225, label %._crit_edge290.thread411
 
 ._crit_edge290.thread411:                         ; preds = %.thread401, %._crit_edge290
   %.4408415 = phi i32 [ %.3232286.ph, %._crit_edge290 ], [ %209, %.thread401 ]
-  store double %.1234, ptr %62, align 8, !tbaa !40
+  store double %.1234, ptr %62, align 8, !tbaa !45
   %210 = load ptr, ptr %74, align 8, !tbaa !33
   %211 = load ptr, ptr %71, align 8, !tbaa !32
   %wide.trip.count341 = zext nneg i32 %164 to i64
@@ -1791,19 +1791,19 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 212:                                              ; preds = %._crit_edge290.thread411, %212
   %indvars.iv338 = phi i64 [ 0, %._crit_edge290.thread411 ], [ %indvars.iv.next339, %212 ]
   %213 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv338
-  %214 = load double, ptr %213, align 8, !tbaa !42
+  %214 = load double, ptr %213, align 8, !tbaa !47
   %215 = getelementptr inbounds nuw double, ptr %211, i64 %indvars.iv338
-  store double %214, ptr %215, align 8, !tbaa !42
+  store double %214, ptr %215, align 8, !tbaa !47
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
-  br i1 %exitcond342.not, label %._crit_edge298, label %212
+  br i1 %exitcond342.not, label %._crit_edge298, label %212, !llvm.loop !72
 
 ._crit_edge298:                                   ; preds = %212
-  %.pre = load double, ptr %62, align 8, !tbaa !40
-  %216 = load double, ptr %63, align 8, !tbaa !39
+  %.pre = load double, ptr %62, align 8, !tbaa !45
+  %216 = load double, ptr %63, align 8, !tbaa !44
   %217 = fsub double %.pre, %216
   %218 = tail call double @llvm.fabs.f64(double %217)
-  %219 = load double, ptr %64, align 8, !tbaa !44
+  %219 = load double, ptr %64, align 8, !tbaa !52
   %220 = fcmp ugt double %218, %219
   br i1 %220, label %.backedge, label %.loopexit261.loopexit
 
@@ -1817,7 +1817,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %.v.be = phi double [ 5.000000e-01, %._crit_edge298 ], [ 2.000000e+00, %._crit_edge302 ]
   %.0228.be = phi i32 [ 1, %._crit_edge298 ], [ 2, %._crit_edge302 ]
   %224 = fcmp ugt double %.pre-phi370, %221
-  br i1 %224, label %115, label %.loopexit261.loopexit
+  br i1 %224, label %115, label %.loopexit261.loopexit, !llvm.loop !73
 
 225:                                              ; preds = %._crit_edge290
   %226 = icmp eq i32 %.3226, 0
@@ -1825,7 +1825,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   br i1 %226, label %.lr.ph301, label %.lr.ph316
 
 .lr.ph316:                                        ; preds = %225
-  store double %.1234, ptr %62, align 8, !tbaa !40
+  store double %.1234, ptr %62, align 8, !tbaa !45
   %227 = load ptr, ptr %74, align 8, !tbaa !33
   %228 = load ptr, ptr %71, align 8, !tbaa !32
   br label %229
@@ -1833,15 +1833,15 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 229:                                              ; preds = %.lr.ph316, %229
   %indvars.iv348 = phi i64 [ 0, %.lr.ph316 ], [ %indvars.iv.next349, %229 ]
   %230 = getelementptr inbounds nuw double, ptr %227, i64 %indvars.iv348
-  %231 = load double, ptr %230, align 8, !tbaa !42
+  %231 = load double, ptr %230, align 8, !tbaa !47
   %232 = getelementptr inbounds nuw double, ptr %228, i64 %indvars.iv348
-  store double %231, ptr %232, align 8, !tbaa !42
+  store double %231, ptr %232, align 8, !tbaa !47
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count346
-  br i1 %exitcond353.not, label %.loopexit261.thread, label %229
+  br i1 %exitcond353.not, label %.loopexit261.thread, label %229, !llvm.loop !74
 
 .lr.ph301:                                        ; preds = %225
-  store double %.1234, ptr %63, align 8, !tbaa !39
+  store double %.1234, ptr %63, align 8, !tbaa !44
   %233 = load ptr, ptr %74, align 8, !tbaa !33
   %234 = load ptr, ptr %72, align 8, !tbaa !31
   br label %235
@@ -1849,42 +1849,42 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 235:                                              ; preds = %.lr.ph301, %235
   %indvars.iv343 = phi i64 [ 0, %.lr.ph301 ], [ %indvars.iv.next344, %235 ]
   %236 = getelementptr inbounds nuw double, ptr %233, i64 %indvars.iv343
-  %237 = load double, ptr %236, align 8, !tbaa !42
+  %237 = load double, ptr %236, align 8, !tbaa !47
   %238 = getelementptr inbounds nuw double, ptr %234, i64 %indvars.iv343
-  store double %237, ptr %238, align 8, !tbaa !42
+  store double %237, ptr %238, align 8, !tbaa !47
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count346
-  br i1 %exitcond347.not, label %._crit_edge302.loopexit, label %235
+  br i1 %exitcond347.not, label %._crit_edge302.loopexit, label %235, !llvm.loop !75
 
 ._crit_edge302.loopexit:                          ; preds = %235
-  %.pre365 = load double, ptr %63, align 8, !tbaa !39
+  %.pre365 = load double, ptr %63, align 8, !tbaa !44
   br label %._crit_edge302
 
 ._crit_edge302:                                   ; preds = %.thread420, %._crit_edge302.loopexit
   %.3232.lcssa399419422 = phi i32 [ %.3232286.ph, %._crit_edge302.loopexit ], [ %.2231303, %.thread420 ]
   %239 = phi double [ %.pre365, %._crit_edge302.loopexit ], [ %.1234, %.thread420 ]
-  %240 = load double, ptr %62, align 8, !tbaa !40
+  %240 = load double, ptr %62, align 8, !tbaa !45
   %241 = fsub double %240, %239
   %242 = tail call double @llvm.fabs.f64(double %241)
-  %243 = load double, ptr %64, align 8, !tbaa !44
+  %243 = load double, ptr %64, align 8, !tbaa !52
   %244 = fcmp ugt double %242, %243
   br i1 %244, label %.backedge, label %.loopexit261.loopexit
 
 .loopexit261.thread:                              ; preds = %229
-  %.pre366 = load double, ptr %62, align 8, !tbaa !40
+  %.pre366 = load double, ptr %62, align 8, !tbaa !45
   br label %.lr.ph319.sink.split
 
 .loopexit261.loopexit:                            ; preds = %._crit_edge302, %._crit_edge298, %.backedge
   %.ph = phi double [ %223, %.backedge ], [ %.pre, %._crit_edge298 ], [ %240, %._crit_edge302 ]
   %245 = icmp sgt i32 %164, 0
   %246 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %.ph, ptr %246, align 8, !tbaa !41
+  store double %.ph, ptr %246, align 8, !tbaa !46
   br i1 %245, label %.lr.ph319, label %.loopexit
 
 .lr.ph319.sink.split:                             ; preds = %.preheader263, %.loopexit261.thread
   %.sink = phi double [ %.pre366, %.loopexit261.thread ], [ %65, %.preheader263 ]
   %247 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %.sink, ptr %247, align 8, !tbaa !41
+  store double %.sink, ptr %247, align 8, !tbaa !46
   br label %.lr.ph319
 
 .lr.ph319:                                        ; preds = %.lr.ph319.sink.split, %.loopexit261.loopexit
@@ -1903,9 +1903,9 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 258:                                              ; preds = %.lr.ph319, %296
   %indvars.iv354 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next355, %296 ]
   %259 = getelementptr inbounds nuw double, ptr %249, i64 %indvars.iv354
-  %260 = load double, ptr %259, align 8, !tbaa !42
+  %260 = load double, ptr %259, align 8, !tbaa !47
   %261 = getelementptr inbounds nuw double, ptr %251, i64 %indvars.iv354
-  store double %260, ptr %261, align 8, !tbaa !42
+  store double %260, ptr %261, align 8, !tbaa !47
   %262 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv354
   store i32 0, ptr %262, align 4, !tbaa !36
   %263 = getelementptr inbounds nuw i32, ptr %255, i64 %indvars.iv354
@@ -1920,7 +1920,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
 
 ._crit_edge368:                                   ; preds = %265
   %.phi.trans.insert = getelementptr inbounds nuw double, ptr %.pre367, i64 %indvars.iv354
-  %.pre369 = load double, ptr %.phi.trans.insert, align 8, !tbaa !42
+  %.pre369 = load double, ptr %.phi.trans.insert, align 8, !tbaa !47
   br label %279
 
 267:                                              ; preds = %265
@@ -1929,7 +1929,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %270 = load i32, ptr %269, align 4, !tbaa !36
   %271 = sitofp i32 %270 to double
   %272 = getelementptr inbounds nuw double, ptr %.pre367, i64 %indvars.iv354
-  %273 = load double, ptr %272, align 8, !tbaa !42
+  %273 = load double, ptr %272, align 8, !tbaa !47
   %274 = fmul double %273, %271
   %275 = fcmp ugt double %274, 0.000000e+00
   br i1 %275, label %279, label %276
@@ -1973,7 +1973,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %297 = load i32, ptr %7, align 8, !tbaa !23
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next355, %298
-  br i1 %299, label %258, label %.loopexit
+  br i1 %299, label %258, label %.loopexit, !llvm.loop !76
 
 .loopexit:                                        ; preds = %154, %296, %111, %._crit_edge323, %._crit_edge323.thread, %.loopexit261.loopexit, %3
   %.0 = phi i32 [ -21, %3 ], [ %.mux, %._crit_edge323 ], [ 1, %.loopexit261.loopexit ], [ 0, %._crit_edge323.thread ], [ 1, %111 ], [ 1, %296 ], [ -12, %154 ]
@@ -2039,18 +2039,43 @@ attributes #9 = { nounwind allocsize(0) }
 !34 = !{!20, !21, i64 16}
 !35 = !{!20, !21, i64 24}
 !36 = !{!10, !10, i64 0}
-!37 = !{!20, !14, i64 104}
-!38 = !{!20, !10, i64 96}
-!39 = !{!20, !9, i64 32}
-!40 = !{!20, !9, i64 40}
-!41 = !{!20, !9, i64 48}
-!42 = !{!9, !9, i64 0}
-!43 = !{!20, !9, i64 80}
-!44 = !{!20, !9, i64 88}
-!45 = !{!4, !9, i64 752}
-!46 = !{!4, !9, i64 704}
-!47 = !{!4, !9, i64 8}
-!48 = !{!4, !10, i64 608}
-!49 = !{!4, !9, i64 896}
-!50 = !{!4, !11, i64 600}
-!51 = !{!4, !11, i64 584}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!20, !14, i64 104}
+!40 = distinct !{!40, !38}
+!41 = distinct !{!41, !38}
+!42 = !{!20, !10, i64 96}
+!43 = distinct !{!43, !38}
+!44 = !{!20, !9, i64 32}
+!45 = !{!20, !9, i64 40}
+!46 = !{!20, !9, i64 48}
+!47 = !{!9, !9, i64 0}
+!48 = distinct !{!48, !38}
+!49 = distinct !{!49, !38}
+!50 = distinct !{!50, !38}
+!51 = !{!20, !9, i64 80}
+!52 = !{!20, !9, i64 88}
+!53 = distinct !{!53, !38}
+!54 = !{!4, !9, i64 752}
+!55 = !{!4, !9, i64 704}
+!56 = !{!4, !9, i64 8}
+!57 = distinct !{!57, !38}
+!58 = !{!4, !10, i64 608}
+!59 = !{!4, !9, i64 896}
+!60 = !{!4, !11, i64 600}
+!61 = !{!4, !11, i64 584}
+!62 = distinct !{!62, !38}
+!63 = distinct !{!63, !38}
+!64 = distinct !{!64, !38}
+!65 = distinct !{!65, !38}
+!66 = distinct !{!66, !38}
+!67 = distinct !{!67, !38}
+!68 = distinct !{!68, !38}
+!69 = distinct !{!69, !38}
+!70 = distinct !{!70, !38}
+!71 = distinct !{!71, !38}
+!72 = distinct !{!72, !38}
+!73 = distinct !{!73, !38}
+!74 = distinct !{!74, !38}
+!75 = distinct !{!75, !38}
+!76 = distinct !{!76, !38}

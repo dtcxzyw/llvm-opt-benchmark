@@ -1236,7 +1236,7 @@ define void @_ZN5folly10symbolizer7ElfFileC2EOS1_(ptr noundef nonnull align 8 de
   store i64 %11, ptr %9, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !84
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !tbaa.struct !85
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %16 = load i64, ptr %15, align 8, !tbaa !74
@@ -1315,7 +1315,7 @@ _ZN5folly10symbolizer7ElfFile5resetEv.exit:       ; preds = %9, %14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i64 %26, ptr %27, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !84
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !tbaa.struct !85
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %30 = load i64, ptr %29, align 8, !tbaa !74
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 568
@@ -1382,7 +1382,7 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit:  ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !85
+  %8 = load i64, ptr %7, align 8, !tbaa !86
   %9 = add i64 %8, 56
   %.not = icmp ult i64 %9, %3
   br i1 %.not, label %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_PhdrEERKT_m.exit, label %.loopexit
@@ -1401,7 +1401,7 @@ _ZNK5folly10symbolizer7ElfFile2atI10Elf64_PhdrEERKT_m.exit: ; preds = %_ZNK5foll
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit14
   %.0717 = phi i64 [ %15, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit14 ], [ 0, %.lr.ph.preheader ]
   %.0816 = phi ptr [ %16, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit14 ], [ %13, %.lr.ph.preheader ]
-  %.08.val = load i32, ptr %.0816, align 8, !tbaa !86
+  %.08.val = load i32, ptr %.0816, align 8, !tbaa !87
   %14 = icmp eq i32 %.08.val, 1
   br i1 %14, label %.loopexit, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit14
 
@@ -1409,7 +1409,7 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit14: ; preds = %.lr.ph
   %15 = add nuw nsw i64 %.0717, 1
   %16 = getelementptr inbounds nuw i8, ptr %.0816, i64 56
   %exitcond.not = icmp eq i64 %15, %12
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !88
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit14, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_PhdrEERKT_m.exit, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit
   %.09 = phi ptr [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit ], [ null, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_PhdrEERKT_m.exit ], [ %.0816, %.lr.ph ], [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit14 ]
@@ -1455,7 +1455,7 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit6: ; preds = %_ZNK5folly10symboli
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZNK5folly10symbolizer7ElfFile19validateStringTableERK10Elf64_Shdr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %4 = load i32, ptr %3, align 4, !tbaa !88
+  %4 = load i32, ptr %3, align 4, !tbaa !89
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %7, label %6
 
@@ -1497,7 +1497,7 @@ define void @_ZNK5folly10symbolizer7ElfFile19validateStringTableERK10Elf64_Shdr(
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !88
+  %5 = load i32, ptr %4, align 4, !tbaa !89
   %6 = icmp eq i32 %5, 3
   br i1 %6, label %8, label %7
 
@@ -1589,7 +1589,7 @@ _ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit: ; preds = %_ZNK5folly1
   %24 = load i32, ptr %1, align 8, !tbaa !81
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !88
+  %27 = load i32, ptr %26, align 4, !tbaa !89
   %28 = icmp eq i32 %27, 3
   br i1 %28, label %30, label %29
 
@@ -1650,9 +1650,9 @@ define { ptr, ptr } @_ZNK5folly10symbolizer7ElfFile22getDefinitionByAddressEm(pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i64 %1, ptr %4, align 8, !tbaa !38
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !89
+  store ptr %3, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !90
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !91
+  store ptr %0, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !92
   %6 = call fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %0, i32 noundef 11, ptr noundef nonnull byval(%class.anon.4) align 8 %4)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %9
@@ -1660,9 +1660,9 @@ define { ptr, ptr } @_ZNK5folly10symbolizer7ElfFile22getDefinitionByAddressEm(pt
 7:                                                ; preds = %2
   store i64 %1, ptr %5, align 8, !tbaa !38
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %3, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !89
+  store ptr %3, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !90
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !91
+  store ptr %0, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !92
   %8 = call fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %0, i32 noundef 2, ptr noundef nonnull byval(%class.anon.4) align 8 %5)
   br label %9
 
@@ -1715,13 +1715,13 @@ _ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i: ; preds = %_ZNK5fo
   %.0732.i = phi i64 [ 0, %.lr.ph.i ], [ %62, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
   %.0831.i = phi ptr [ %15, %.lr.ph.i ], [ %63, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.0831.i, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !88
+  %23 = load i32, ptr %22, align 4, !tbaa !89
   %24 = icmp eq i32 %23, %1
   br i1 %24, label %25, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.0831.i, i64 56
-  %27 = load i64, ptr %26, align 8, !tbaa !93
+  %27 = load i64, ptr %26, align 8, !tbaa !94
   %28 = icmp eq i64 %27, 24
   br i1 %28, label %30, label %29
 
@@ -1756,7 +1756,7 @@ _ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i: ; preds = 
 .lr.ph.split.us.i.i.i.i.i.i:                      ; preds = %_ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i, %56
   %.01311.us.i.i.i.i.i.i = phi ptr [ %57, %56 ], [ %37, %_ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %.01311.us.i.i.i.i.i.i, i64 4
-  %43 = load i8, ptr %42, align 4, !tbaa !94
+  %43 = load i8, ptr %42, align 4, !tbaa !95
   %44 = and i8 %43, 15
   switch i8 %44, label %56 [
     i8 10, label %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.us.i.i.i.i.i.i
@@ -1772,13 +1772,13 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.us.i.i.i.i.i.i: ; preds = %.lr.ph.split.us.i
 
 48:                                               ; preds = %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.us.i.i.i.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %.01311.us.i.i.i.i.i.i, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !96
+  %50 = load i64, ptr %49, align 8, !tbaa !97
   %.not.i.i.us.i.i.i.i.i.i = icmp ult i64 %18, %50
   br i1 %.not.i.i.us.i.i.i.i.i.i, label %56, label %51
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %.01311.us.i.i.i.i.i.i, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !97
+  %53 = load i64, ptr %52, align 8, !tbaa !98
   %54 = add i64 %53, %50
   %55 = icmp ult i64 %18, %54
   br i1 %55, label %"_ZZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_ENKUlRS5_E_clES8_.exit.i", label %56
@@ -1786,21 +1786,21 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.us.i.i.i.i.i.i: ; preds = %.lr.ph.split.us.i
 56:                                               ; preds = %51, %48, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.us.i.i.i.i.i.i, %.lr.ph.split.us.i.i.i.i.i.i
   %57 = getelementptr inbounds nuw i8, ptr %.01311.us.i.i.i.i.i.i, i64 24
   %58 = icmp ult ptr %57, %41
-  br i1 %58, label %.lr.ph.split.us.i.i.i.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, !llvm.loop !98
+  br i1 %58, label %.lr.ph.split.us.i.i.i.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, !llvm.loop !99
 
 "_ZZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_ENKUlRS5_E_clES8_.exit.i": ; preds = %51
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !100
-  store ptr %.0831.i, ptr %60, align 8, !tbaa !102
+  %60 = load ptr, ptr %59, align 8, !tbaa !101
+  store ptr %.0831.i, ptr %60, align 8, !tbaa !103
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %.01311.us.i.i.i.i.i.i, ptr %61, align 8, !tbaa !104
+  store ptr %.01311.us.i.i.i.i.i.i, ptr %61, align 8, !tbaa !105
   br label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_EUlRS6_E_EES7_S8_.exit"
 
 _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i: ; preds = %56, %_ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i, %21
   %62 = add nuw nsw i64 %.0732.i, 1
   %63 = getelementptr inbounds nuw i8, ptr %.0831.i, i64 64
   %exitcond.not.i = icmp eq i64 %62, %14
-  br i1 %exitcond.not.i, label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_EUlRS6_E_EES7_S8_.exit", label %21, !llvm.loop !105
+  br i1 %exitcond.not.i, label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_EUlRS6_E_EES7_S8_.exit", label %21, !llvm.loop !106
 
 "_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_EUlRS6_E_EES7_S8_.exit": ; preds = %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i, %"_ZZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_ENKUlRS5_E_clES8_.exit.i"
   %.09.i = phi ptr [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i ], [ %.0831.i, %"_ZZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_22getDefinitionByAddressEmE3$_0EEPK10Elf64_ShdrjT_ENKUlRS5_E_clES8_.exit.i" ], [ null, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i ], [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
@@ -1819,25 +1819,25 @@ define { ptr, ptr } @_ZNK5folly10symbolizer7ElfFile15getSymbolByNameEPKcSt16init
   store i64 %3, ptr %10, align 8
   store ptr %1, ptr %7, align 8, !tbaa !41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  store ptr %0, ptr %8, align 8, !tbaa !91
+  store ptr %0, ptr %8, align 8, !tbaa !92
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !106
+  store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !107
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %5, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !89
+  store ptr %5, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !90
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %6, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !108
+  store ptr %6, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !109
   %11 = call fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %0, i32 noundef 11, ptr noundef nonnull byval(%class.anon.8) align 8 %8)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %4
-  store ptr %0, ptr %9, align 8, !tbaa !91
+  store ptr %0, ptr %9, align 8, !tbaa !92
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %7, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !106
+  store ptr %7, ptr %.sroa.5.0..sroa_idx2, align 8, !tbaa !107
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %5, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !89
+  store ptr %5, ptr %.sroa.6.0..sroa_idx4, align 8, !tbaa !90
   %.sroa.7.0..sroa_idx6 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr %6, ptr %.sroa.7.0..sroa_idx6, align 8, !tbaa !108
+  store ptr %6, ptr %.sroa.7.0..sroa_idx6, align 8, !tbaa !109
   %13 = call fastcc noundef ptr @"_ZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_"(ptr noundef nonnull align 8 dereferenceable(576) %0, i32 noundef 2, ptr noundef nonnull byval(%class.anon.8) align 8 %9)
   br label %14
 
@@ -1893,21 +1893,21 @@ _ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i: ; preds = %_ZNK5fo
   %.0788.i = phi i64 [ 0, %.lr.ph.i ], [ %182, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
   %.0887.i = phi ptr [ %15, %.lr.ph.i ], [ %183, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
   %24 = getelementptr inbounds nuw i8, ptr %.0887.i, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !88
+  %25 = load i32, ptr %24, align 4, !tbaa !89
   %26 = icmp eq i32 %25, %1
   br i1 %26, label %27, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %.0887.i, i64 40
-  %29 = load i32, ptr %28, align 8, !tbaa !110
+  %29 = load i32, ptr %28, align 8, !tbaa !111
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, label %31
 
 31:                                               ; preds = %27
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %20, align 8, !tbaa !111
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %20, align 8, !tbaa !112
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !38
   %32 = getelementptr inbounds nuw i8, ptr %.0887.i, i64 56
-  %33 = load i64, ptr %32, align 8, !tbaa !93
+  %33 = load i64, ptr %32, align 8, !tbaa !94
   %34 = icmp eq i64 %33, 24
   br i1 %34, label %36, label %35
 
@@ -1963,7 +1963,7 @@ _ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i: ; preds = 
 .lr.ph.i.i.i.split.us.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i, %98
   %.01333.i.i.i.us.i.i.i = phi ptr [ %99, %98 ], [ %43, %.lr.ph.i.i.i.i.i.i ]
   %56 = getelementptr inbounds nuw i8, ptr %.01333.i.i.i.us.i.i.i, i64 4
-  %57 = load i8, ptr %56, align 4, !tbaa !94
+  %57 = load i8, ptr %56, align 4, !tbaa !95
   %58 = and i8 %57, 15
   %59 = zext nneg i8 %58 to i32
   br i1 %.not6.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.us.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.us.i.i.i
@@ -1997,7 +1997,7 @@ _ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i: ; preds = 
   %75 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.us.i.i.i, i64 16
   %76 = add nsw i64 %.047.i.i.i.i.i.i.i.us.i.i.i, -1
   %77 = icmp sgt i64 %.047.i.i.i.i.i.i.i.us.i.i.i, 1
-  br i1 %77, label %.lr.ph.i.i.i.i.i.i.i.us.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.us.i.i.i, !llvm.loop !113
+  br i1 %77, label %.lr.ph.i.i.i.i.i.i.i.us.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.us.i.i.i, !llvm.loop !114
 
 ._crit_edge.i.i.i.i.i.i.i.us.i.i.i:               ; preds = %74, %.lr.ph.i.i.i.split.us.i.i.i
   %.pre-phi56.i.i.i.i.i.i.i.us.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i, %.lr.ph.i.i.i.split.us.i.i.i ], [ %51, %74 ]
@@ -2053,7 +2053,7 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 
 92:                                               ; preds = %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i
   %93 = getelementptr inbounds nuw i8, ptr %.01333.i.i.i.us.i.i.i, i64 6
-  %94 = load i16, ptr %93, align 2, !tbaa !114
+  %94 = load i16, ptr %93, align 2, !tbaa !115
   %95 = icmp eq i16 %94, 0
   %96 = load i32, ptr %.01333.i.i.i.us.i.i.i, align 8
   %97 = icmp eq i32 %96, 0
@@ -2063,7 +2063,7 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 98:                                               ; preds = %92, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.us.i.i.i, %._crit_edge.i.i.i.i.i.i.i.us.i.i.i
   %99 = getelementptr inbounds nuw i8, ptr %.01333.i.i.i.us.i.i.i, i64 24
   %100 = icmp ult ptr %99, %47
-  br i1 %100, label %.lr.ph.i.i.i.split.us.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, !llvm.loop !115
+  br i1 %100, label %.lr.ph.i.i.i.split.us.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, !llvm.loop !116
 
 ._crit_edge.i.i.i.i.i.i.i.us.unreachabledefault.i.i.i: ; preds = %._crit_edge.i.i.i.i.i.i.i.us.i.i.i
   unreachable
@@ -2071,7 +2071,7 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
 .lr.ph.i.i.i.split.i.i.i:                         ; preds = %176, %.lr.ph.i.i.i.split.preheader.i.i.i
   %.01333.i.i.i.i.i.i = phi ptr [ %177, %176 ], [ %43, %.lr.ph.i.i.i.split.preheader.i.i.i ]
   %101 = getelementptr inbounds nuw i8, ptr %.01333.i.i.i.i.i.i, i64 4
-  %102 = load i8, ptr %101, align 4, !tbaa !94
+  %102 = load i8, ptr %101, align 4, !tbaa !95
   %103 = and i8 %102, 15
   %104 = zext nneg i8 %103 to i32
   br i1 %.not6.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i
@@ -2105,7 +2105,7 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.us.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.
   %120 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i.i, i64 16
   %121 = add nsw i64 %.047.i.i.i.i.i.i.i.i.i.i, -1
   %122 = icmp sgt i64 %.047.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %122, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, !llvm.loop !113
+  br i1 %122, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, !llvm.loop !114
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i:                  ; preds = %119, %.lr.ph.i.i.i.split.i.i.i
   %.pre-phi56.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.i, %.lr.ph.i.i.i.split.i.i.i ], [ %51, %119 ]
@@ -2161,7 +2161,7 @@ _ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i:  ; preds = %.lr.ph.i.i.i.i.i.i.
 
 137:                                              ; preds = %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i
   %138 = getelementptr inbounds nuw i8, ptr %.01333.i.i.i.i.i.i, i64 6
-  %139 = load i16, ptr %138, align 2, !tbaa !114
+  %139 = load i16, ptr %138, align 2, !tbaa !115
   %140 = icmp eq i16 %139, 0
   %141 = load i32, ptr %.01333.i.i.i.i.i.i, align 8
   %142 = icmp eq i32 %141, 0
@@ -2192,7 +2192,7 @@ _ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit.i.i.i.i.i.i.i.i: ; pred
 149:                                              ; preds = %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit.i.i.i.i.i.i.i.i
   %150 = zext i32 %141 to i64
   %151 = getelementptr inbounds nuw i8, ptr %gep.i.i.i, i64 4
-  %152 = load i32, ptr %151, align 4, !tbaa !88
+  %152 = load i32, ptr %151, align 4, !tbaa !89
   %153 = icmp eq i32 %152, 3
   br i1 %153, label %155, label %154
 
@@ -2246,21 +2246,21 @@ _ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm.exit.i.i.i.i.i.i.i.i: ;
 176:                                              ; preds = %_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm.exit.i.i.i.i.i.i.i.i, %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit.i.i.i.i.i.i.i.i, %137, %_ZSt4findIPKjiET_S2_S2_RKT0_.exit.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i.i.i
   %177 = getelementptr inbounds nuw i8, ptr %.01333.i.i.i.i.i.i, i64 24
   %178 = icmp ult ptr %177, %47
-  br i1 %178, label %.lr.ph.i.i.i.split.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, !llvm.loop !116
+  br i1 %178, label %.lr.ph.i.i.i.split.i.i.i, label %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, !llvm.loop !117
 
 "_ZZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_ENKUlRS9_E_clESC_.exit.i": ; preds = %_ZNK5folly10symbolizer7ElfFile9getStringERK10Elf64_Shdrm.exit.i.i.i.i.i.i.i.i
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %180 = load ptr, ptr %179, align 8, !tbaa !117
-  store ptr %.0887.i, ptr %180, align 8, !tbaa !102
+  %180 = load ptr, ptr %179, align 8, !tbaa !118
+  store ptr %.0887.i, ptr %180, align 8, !tbaa !103
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  store ptr %.01333.i.i.i.i.i.i, ptr %181, align 8, !tbaa !104
+  store ptr %.01333.i.i.i.i.i.i, ptr %181, align 8, !tbaa !105
   br label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_EUlRSA_E_EESB_SC_.exit"
 
 _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i: ; preds = %176, %98, %_ZNK5folly10symbolizer7ElfFile2atI9Elf64_SymEERKT_m.exit.i.i.i.i.i.i, %27, %23
   %182 = add nuw nsw i64 %.0788.i, 1
   %183 = getelementptr inbounds nuw i8, ptr %.0887.i, i64 64
   %exitcond.not.i = icmp eq i64 %182, %14
-  br i1 %exitcond.not.i, label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_EUlRSA_E_EESB_SC_.exit", label %23, !llvm.loop !119
+  br i1 %exitcond.not.i, label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_EUlRSA_E_EESB_SC_.exit", label %23, !llvm.loop !120
 
 "_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_EUlRSA_E_EESB_SC_.exit": ; preds = %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i, %"_ZZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_ENKUlRS9_E_clESC_.exit.i"
   %.09.i = phi ptr [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i ], [ %.0887.i, %"_ZZNK5folly10symbolizer7ElfFile23iterateSectionsWithTypeIZNKS1_15getSymbolByNameEPKcSt16initializer_listIjEE3$_0EEPK10Elf64_ShdrjT_ENKUlRS9_E_clESC_.exit.i" ], [ null, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i ], [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
@@ -2302,7 +2302,7 @@ _ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i: ; preds = %_ZNK5fo
   %.0719.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
   %.0818.i = phi ptr [ %14, %.lr.ph.i ], [ %22, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ]
   %16 = getelementptr i8, ptr %.0818.i, i64 16
-  %.08.val.i = load i64, ptr %16, align 8, !tbaa !120
+  %.08.val.i = load i64, ptr %16, align 8, !tbaa !121
   %17 = getelementptr i8, ptr %.0818.i, i64 32
   %.08.val11.i = load i64, ptr %17, align 8
   %.not.i16.i = icmp uge i64 %1, %.08.val.i
@@ -2315,7 +2315,7 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i: ; preds = %15
   %21 = add nuw nsw i64 %.0719.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.0818.i, i64 64
   %exitcond.not.i = icmp eq i64 %21, %13
-  br i1 %exitcond.not.i, label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_27getSectionContainingAddressEmE3$_0EEPK10Elf64_ShdrT_.exit", label %15, !llvm.loop !121
+  br i1 %exitcond.not.i, label %"_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_27getSectionContainingAddressEmE3$_0EEPK10Elf64_ShdrT_.exit", label %15, !llvm.loop !122
 
 "_ZNK5folly10symbolizer7ElfFile15iterateSectionsIZNKS1_27getSectionContainingAddressEmE3$_0EEPK10Elf64_ShdrT_.exit": ; preds = %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i, %15, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i
   %.09.i = phi ptr [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit.i ], [ null, %_ZNK5folly10symbolizer7ElfFile2atI10Elf64_ShdrEERKT_m.exit.i ], [ null, %_ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i ], [ %.0818.i, %15 ]
@@ -2324,24 +2324,24 @@ _ZNK5folly10symbolizer7ElfFile9elfHeaderEv.exit15.i: ; preds = %15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK5folly10symbolizer7ElfFile13getSymbolNameERKSt4pairIPK10Elf64_ShdrPK9Elf64_SymE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !102
+  %3 = load ptr, ptr %1, align 8, !tbaa !103
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %57, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !104
+  %6 = load ptr, ptr %5, align 8, !tbaa !105
   %.not14 = icmp eq ptr %6, null
   br i1 %.not14, label %57, label %7
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %6, align 8, !tbaa !122
+  %8 = load i32, ptr %6, align 8, !tbaa !123
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %57, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %12 = load i32, ptr %11, align 8, !tbaa !110
+  %12 = load i32, ptr %11, align 8, !tbaa !111
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %57, label %14
 
@@ -2382,7 +2382,7 @@ _ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit: ; preds = %_ZNK5folly1
 33:                                               ; preds = %_ZNK5folly10symbolizer7ElfFile17getSectionByIndexEm.exit
   %34 = zext i32 %8 to i64
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !88
+  %36 = load i32, ptr %35, align 4, !tbaa !89
   %37 = icmp eq i32 %36, 3
   br i1 %37, label %39, label %38
 
@@ -2605,44 +2605,45 @@ attributes #33 = { nounwind willreturn memory(read) }
 !79 = !{!66, !15, i64 40}
 !80 = !{!76, !15, i64 32}
 !81 = !{!76, !12, i64 0}
-!82 = distinct !{!82, !83}
+!82 = distinct !{!82, !83, !84}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = !{i64 0, i64 8, !38, i64 8, i64 8, !38, i64 16, i64 8, !38, i64 24, i64 8, !38}
-!85 = !{!66, !15, i64 32}
-!86 = !{!73, !12, i64 0}
-!87 = distinct !{!87, !83}
-!88 = !{!76, !12, i64 4}
-!89 = !{!90, !90, i64 0}
-!90 = !{!"p1 _ZTSSt4pairIPK10Elf64_ShdrPK9Elf64_SymE", !14, i64 0}
-!91 = !{!92, !92, i64 0}
-!92 = !{!"p1 _ZTSN5folly10symbolizer7ElfFileE", !14, i64 0}
-!93 = !{!76, !15, i64 56}
-!94 = !{!95, !8, i64 4}
-!95 = !{!"_ZTS9Elf64_Sym", !12, i64 0, !8, i64 4, !8, i64 5, !67, i64 6, !15, i64 8, !15, i64 16}
-!96 = !{!95, !15, i64 8}
-!97 = !{!95, !15, i64 16}
-!98 = distinct !{!98, !83, !99}
-!99 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!100 = !{!101, !90, i64 8}
-!101 = !{!"_ZTSZNK5folly10symbolizer7ElfFile22getDefinitionByAddressEmE3$_0", !15, i64 0, !90, i64 8, !92, i64 16}
-!102 = !{!103, !14, i64 0}
-!103 = !{!"_ZTSSt4pairIPK10Elf64_ShdrPK9Elf64_SymE", !14, i64 0, !14, i64 8}
-!104 = !{!103, !14, i64 8}
-!105 = distinct !{!105, !83}
-!106 = !{!107, !107, i64 0}
-!107 = !{!"p2 omnipotent char", !14, i64 0}
-!108 = !{!109, !109, i64 0}
-!109 = !{!"p1 _ZTSSt16initializer_listIjE", !14, i64 0}
-!110 = !{!76, !12, i64 40}
-!111 = !{!112, !112, i64 0}
-!112 = !{!"p1 int", !14, i64 0}
-!113 = distinct !{!113, !83}
-!114 = !{!95, !67, i64 6}
-!115 = distinct !{!115, !83, !99}
-!116 = distinct !{!116, !83}
-!117 = !{!118, !90, i64 16}
-!118 = !{!"_ZTSZNK5folly10symbolizer7ElfFile15getSymbolByNameEPKcSt16initializer_listIjEE3$_0", !92, i64 0, !107, i64 8, !90, i64 16, !109, i64 24}
-!119 = distinct !{!119, !83}
-!120 = !{!76, !15, i64 16}
-!121 = distinct !{!121, !83}
-!122 = !{!95, !12, i64 0}
+!84 = !{!"llvm.loop.estimated_trip_count"}
+!85 = !{i64 0, i64 8, !38, i64 8, i64 8, !38, i64 16, i64 8, !38, i64 24, i64 8, !38}
+!86 = !{!66, !15, i64 32}
+!87 = !{!73, !12, i64 0}
+!88 = distinct !{!88, !83, !84}
+!89 = !{!76, !12, i64 4}
+!90 = !{!91, !91, i64 0}
+!91 = !{!"p1 _ZTSSt4pairIPK10Elf64_ShdrPK9Elf64_SymE", !14, i64 0}
+!92 = !{!93, !93, i64 0}
+!93 = !{!"p1 _ZTSN5folly10symbolizer7ElfFileE", !14, i64 0}
+!94 = !{!76, !15, i64 56}
+!95 = !{!96, !8, i64 4}
+!96 = !{!"_ZTS9Elf64_Sym", !12, i64 0, !8, i64 4, !8, i64 5, !67, i64 6, !15, i64 8, !15, i64 16}
+!97 = !{!96, !15, i64 8}
+!98 = !{!96, !15, i64 16}
+!99 = distinct !{!99, !83, !84, !100}
+!100 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!101 = !{!102, !91, i64 8}
+!102 = !{!"_ZTSZNK5folly10symbolizer7ElfFile22getDefinitionByAddressEmE3$_0", !15, i64 0, !91, i64 8, !93, i64 16}
+!103 = !{!104, !14, i64 0}
+!104 = !{!"_ZTSSt4pairIPK10Elf64_ShdrPK9Elf64_SymE", !14, i64 0, !14, i64 8}
+!105 = !{!104, !14, i64 8}
+!106 = distinct !{!106, !83, !84}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p2 omnipotent char", !14, i64 0}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"p1 _ZTSSt16initializer_listIjE", !14, i64 0}
+!111 = !{!76, !12, i64 40}
+!112 = !{!113, !113, i64 0}
+!113 = !{!"p1 int", !14, i64 0}
+!114 = distinct !{!114, !83, !84}
+!115 = !{!96, !67, i64 6}
+!116 = distinct !{!116, !83, !84, !100}
+!117 = distinct !{!117, !83, !84}
+!118 = !{!119, !91, i64 16}
+!119 = !{!"_ZTSZNK5folly10symbolizer7ElfFile15getSymbolByNameEPKcSt16initializer_listIjEE3$_0", !93, i64 0, !108, i64 8, !91, i64 16, !110, i64 24}
+!120 = distinct !{!120, !83, !84}
+!121 = !{!76, !15, i64 16}
+!122 = distinct !{!122, !83, !84}
+!123 = !{!96, !12, i64 0}

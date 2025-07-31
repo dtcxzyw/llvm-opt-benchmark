@@ -2718,7 +2718,7 @@ _ZN4llvm11raw_ostreamlsEc.exit65:                 ; preds = %69, %67, %56
   %72 = getelementptr inbounds nuw i8, ptr %14, i64 %71
   %73 = load i8, ptr %72, align 1, !tbaa !28
   %.not57 = icmp eq i8 %73, 0
-  br i1 %.not57, label %.loopexit, label %52, !llvm.loop !83
+  br i1 %.not57, label %.loopexit, label %52, !llvm.loop !84
 
 .loopexit:                                        ; preds = %_ZN4llvm11raw_ostreamlsEc.exit65, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, %4
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #13
@@ -2795,7 +2795,7 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter9printInstEPKNS_6MCInstEmNS_
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %12 = load i64, ptr %11, align 8, !tbaa !84
+  %12 = load i64, ptr %11, align 8, !tbaa !85
   %13 = and i64 %12, 128
   %.not18 = icmp eq i64 %13, 0
   br i1 %.not18, label %28, label %14
@@ -2837,13 +2837,13 @@ define dso_local void @_ZN4llvm19X86IntelInstPrinter9printInstEPKNS_6MCInstEmNS_
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %25, %23, %28, %30, %32
   tail call void @_ZN4llvm13MCInstPrinter15printAnnotationERNS_11raw_ostreamENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %3, i64 %4) #13
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !85
+  %34 = load ptr, ptr %33, align 8, !tbaa !86
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %39, label %35
 
 35:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !86
+  %37 = load ptr, ptr %36, align 8, !tbaa !87
   %38 = tail call noundef zeroext i1 @_ZN4llvm22EmitAnyX86InstCommentsEPKNS_6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(44) %37) #13
   br label %39
 
@@ -2856,7 +2856,7 @@ declare void @_ZN4llvm20X86InstPrinterCommon14printInstFlagsEPKNS_6MCInstERNS_11
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm19X86IntelInstPrinter20printVecCompareInstrEPKNS_6MCInstERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !87
+  %5 = load i32, ptr %4, align 8, !tbaa !88
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %_ZN4llvm11raw_ostreamlsEPKc.exit237, label %7
 
@@ -2874,9 +2874,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm19X86IntelInstPrinter20printVecComp
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !86
+  %19 = load ptr, ptr %18, align 8, !tbaa !87
   %20 = load i32, ptr %1, align 8, !tbaa !3
-  %21 = load ptr, ptr %19, align 8, !tbaa !88
+  %21 = load ptr, ptr %19, align 8, !tbaa !89
   %22 = zext i32 %20 to i64
   %23 = sub nsw i64 0, %22
   %24 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %21, i64 %23
@@ -3176,7 +3176,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %31, %33
   tail call void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %35 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.1)
   %36 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !92
+  %37 = load i64, ptr %36, align 8, !tbaa !93
   %38 = and i64 %37, 127
   %39 = icmp eq i64 %38, 25
   br i1 %39, label %40, label %45
@@ -3230,7 +3230,7 @@ _ZN4llvm11raw_ostreamlsEc.exit204:                ; preds = %52, %54
   tail call void @_ZN4llvm20X86InstPrinterCommon16printCMPMnemonicEPKNS_6MCInstEbRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   tail call void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %57 = load i64, ptr %56, align 8, !tbaa !92
+  %57 = load i64, ptr %56, align 8, !tbaa !93
   %58 = and i64 %57, 2199023255552
   %.not189 = icmp eq i64 %58, 0
   %.pre240 = load ptr, ptr %48, align 8, !tbaa !23
@@ -3318,7 +3318,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit210:              ; preds = %84, %86
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit213
 
 _ZN4llvm11raw_ostreamlsEPKc.exit213:              ; preds = %96, %98
-  %101 = load i64, ptr %56, align 8, !tbaa !92
+  %101 = load i64, ptr %56, align 8, !tbaa !93
   %102 = and i64 %101, 127
   %103 = icmp eq i64 %102, 25
   br i1 %103, label %104, label %152
@@ -3351,7 +3351,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit213:              ; preds = %96, %98
   br label %114
 
 114:                                              ; preds = %112, %113, %109
-  %115 = load i64, ptr %56, align 8, !tbaa !92
+  %115 = load i64, ptr %56, align 8, !tbaa !93
   %116 = and i64 %115, 8796093022208
   %.not196 = icmp eq i64 %116, 0
   br i1 %.not196, label %120, label %117
@@ -3442,7 +3442,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit213:              ; preds = %96, %98
 
 152:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit213
   tail call void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef %89, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  %153 = load i64, ptr %56, align 8, !tbaa !92
+  %153 = load i64, ptr %56, align 8, !tbaa !93
   %154 = and i64 %153, 17592186044416
   %.not190 = icmp eq i64 %154, 0
   br i1 %.not190, label %_ZN4llvm11raw_ostreamlsEPKc.exit237, label %155
@@ -3480,7 +3480,7 @@ _ZN4llvm11raw_ostreamlsEc.exit216:                ; preds = %163, %165
   tail call void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %168 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull @.str.1)
   %169 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %170 = load i64, ptr %169, align 8, !tbaa !92
+  %170 = load i64, ptr %169, align 8, !tbaa !93
   %171 = and i64 %170, 127
   %172 = icmp eq i64 %171, 25
   br i1 %172, label %173, label %174
@@ -3525,7 +3525,7 @@ _ZN4llvm11raw_ostreamlsEc.exit219:                ; preds = %181, %183
   tail call void @_ZN4llvm20X86InstPrinterCommon18printVPCMPMnemonicEPKNS_6MCInstERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   tail call void @_ZN4llvm19X86IntelInstPrinter12printOperandEPKNS_6MCInstEjRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(48) %2)
   %185 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %186 = load i64, ptr %185, align 8, !tbaa !92
+  %186 = load i64, ptr %185, align 8, !tbaa !93
   %187 = and i64 %186, 2199023255552
   %.not = icmp eq i64 %187, 0
   %.pre238 = load ptr, ptr %177, align 8, !tbaa !23
@@ -3613,7 +3613,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit228:              ; preds = %213, %215
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit231
 
 _ZN4llvm11raw_ostreamlsEPKc.exit231:              ; preds = %225, %227
-  %230 = load i64, ptr %185, align 8, !tbaa !92
+  %230 = load i64, ptr %185, align 8, !tbaa !93
   %231 = and i64 %230, 127
   %232 = icmp eq i64 %231, 25
   br i1 %232, label %233, label %282
@@ -3637,7 +3637,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit231:              ; preds = %225, %227
   br label %239
 
 239:                                              ; preds = %238, %237
-  %240 = load i64, ptr %185, align 8, !tbaa !92
+  %240 = load i64, ptr %185, align 8, !tbaa !93
   %241 = and i64 %240, 8796093022208
   %.not184 = icmp eq i64 %241, 0
   br i1 %.not184, label %245, label %242
@@ -3904,7 +3904,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %17, %19
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !28
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %27 = load i8, ptr %26, align 1, !tbaa !35, !range !47, !noalias !94, !noundef !51
+  %27 = load i8, ptr %26, align 1, !tbaa !35, !range !47, !noalias !95, !noundef !51
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %30
 
@@ -4090,19 +4090,20 @@ attributes #14 = { builtin nounwind }
 !78 = !{!77, !66, i64 8}
 !79 = !{!80, !10, i64 64}
 !80 = !{!"_ZTSN4llvm17AliasMatchingDataE", !64, i64 0, !69, i64 16, !73, i64 32, !77, i64 48, !10, i64 64}
-!81 = distinct !{!81, !82}
+!81 = distinct !{!81, !82, !83}
 !82 = !{!"llvm.loop.mustprogress"}
-!83 = distinct !{!83, !82}
-!84 = !{!66, !66, i64 0}
-!85 = !{!36, !34, i64 8}
-!86 = !{!36, !38, i64 24}
-!87 = !{!15, !5, i64 8}
-!88 = !{!89, !90, i64 0}
-!89 = !{!"_ZTSN4llvm11MCInstrInfoE", !90, i64 0, !91, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !5, i64 40}
-!90 = !{!"p1 _ZTSN4llvm11MCInstrDescE", !10, i64 0}
-!91 = !{!"p1 int", !10, i64 0}
-!92 = !{!93, !66, i64 24}
-!93 = !{!"_ZTSN4llvm11MCInstrDescE", !30, i64 0, !30, i64 2, !6, i64 4, !6, i64 5, !30, i64 6, !6, i64 8, !6, i64 9, !30, i64 10, !30, i64 12, !66, i64 16, !66, i64 24}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZNK4llvm13MCInstPrinter9formatImmEl: argument 0"}
-!96 = distinct !{!96, !"_ZNK4llvm13MCInstPrinter9formatImmEl"}
+!83 = !{!"llvm.loop.estimated_trip_count"}
+!84 = distinct !{!84, !82, !83}
+!85 = !{!66, !66, i64 0}
+!86 = !{!36, !34, i64 8}
+!87 = !{!36, !38, i64 24}
+!88 = !{!15, !5, i64 8}
+!89 = !{!90, !91, i64 0}
+!90 = !{!"_ZTSN4llvm11MCInstrInfoE", !91, i64 0, !92, i64 8, !9, i64 16, !9, i64 24, !10, i64 32, !5, i64 40}
+!91 = !{!"p1 _ZTSN4llvm11MCInstrDescE", !10, i64 0}
+!92 = !{!"p1 int", !10, i64 0}
+!93 = !{!94, !66, i64 24}
+!94 = !{!"_ZTSN4llvm11MCInstrDescE", !30, i64 0, !30, i64 2, !6, i64 4, !6, i64 5, !30, i64 6, !6, i64 8, !6, i64 9, !30, i64 10, !30, i64 12, !66, i64 16, !66, i64 24}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZNK4llvm13MCInstPrinter9formatImmEl: argument 0"}
+!97 = distinct !{!97, !"_ZNK4llvm13MCInstPrinter9formatImmEl"}

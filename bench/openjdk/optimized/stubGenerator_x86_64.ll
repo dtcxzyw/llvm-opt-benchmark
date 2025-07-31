@@ -2431,12 +2431,12 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_compress_perm_tableEPKci
   call void @_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %24, i32 noundef -1, i32 noundef 0, i32 noundef 0) #12
   %25 = add i32 %.22944, 1
   %exitcond52.not = icmp eq i32 %25, 8
-  br i1 %exitcond52.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !8
+  br i1 %exitcond52.not, label %._crit_edge46, label %.lr.ph45, !llvm.loop !9
 
 ._crit_edge46:                                    ; preds = %.lr.ph45, %.preheader
   %26 = add nuw nsw i32 %.03047, 1
   %exitcond53.not = icmp eq i32 %26, 256
-  br i1 %exitcond53.not, label %.loopexit, label %.preheader32, !llvm.loop !9
+  br i1 %exitcond53.not, label %.loopexit, label %.preheader32, !llvm.loop !10
 
 .preheader35:                                     ; preds = %3, %._crit_edge
   %.02541 = phi i32 [ %41, %._crit_edge ], [ 0, %3 ]
@@ -2468,7 +2468,7 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_compress_perm_tableEPKci
   %.1 = phi i32 [ %36, %31 ], [ %.02438, %28 ]
   %38 = add nuw nsw i32 %.039, 1
   %exitcond.not = icmp eq i32 %38, 4
-  br i1 %exitcond.not, label %.preheader34, label %28, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader34, label %28, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.preheader34, %.lr.ph
   %.240 = phi i32 [ %40, %.lr.ph ], [ %.1, %.preheader34 ]
@@ -2476,12 +2476,12 @@ define hidden noundef ptr @_ZN13StubGenerator28generate_compress_perm_tableEPKci
   call void @_ZN9Assembler11emit_data64ElN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %39, i64 noundef -1, i32 noundef 0, i32 noundef 0) #12
   %40 = add i32 %.240, 1
   %exitcond49.not = icmp eq i32 %40, 4
-  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond49.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader34
   %41 = add nuw nsw i32 %.02541, 1
   %exitcond50.not = icmp eq i32 %41, 16
-  br i1 %exitcond50.not, label %.loopexit, label %.preheader35, !llvm.loop !12
+  br i1 %exitcond50.not, label %.loopexit, label %.preheader35, !llvm.loop !13
 
 .loopexit:                                        ; preds = %._crit_edge, %._crit_edge46
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
@@ -2524,12 +2524,12 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_expand_perm_tableEPKci(p
   call void @_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %18, i32 noundef %.02233.sink, i32 noundef 0, i32 noundef 0) #12
   %20 = add nuw nsw i32 %.02134, 1
   %exitcond38.not = icmp eq i32 %20, 8
-  br i1 %exitcond38.not, label %21, label %15, !llvm.loop !13
+  br i1 %exitcond38.not, label %21, label %15, !llvm.loop !14
 
 21:                                               ; preds = %15
   %22 = add nuw nsw i32 %.02435, 1
   %exitcond39.not = icmp eq i32 %22, 256
-  br i1 %exitcond39.not, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %exitcond39.not, label %.loopexit, label %.preheader, !llvm.loop !15
 
 .preheader27:                                     ; preds = %3, %35
   %.02032 = phi i32 [ %36, %35 ], [ 0, %3 ]
@@ -2561,12 +2561,12 @@ define hidden noundef ptr @_ZN13StubGenerator26generate_expand_perm_tableEPKci(p
   %.1 = phi i32 [ %31, %27 ], [ %.01930, %32 ]
   %34 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %34, 4
-  br i1 %exitcond.not, label %35, label %23, !llvm.loop !15
+  br i1 %exitcond.not, label %35, label %23, !llvm.loop !16
 
 35:                                               ; preds = %33
   %36 = add nuw nsw i32 %.02032, 1
   %exitcond37.not = icmp eq i32 %36, 16
-  br i1 %exitcond37.not, label %.loopexit, label %.preheader27, !llvm.loop !16
+  br i1 %exitcond37.not, label %.loopexit, label %.preheader27, !llvm.loop !17
 
 .loopexit:                                        ; preds = %35, %21
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #12
@@ -9317,12 +9317,12 @@ define hidden void @_ZN13StubGenerator23generate_compiler_stubsEv(ptr noundef no
   call void @_ZN9Assembler9emit_dataEiN9relocInfo9relocTypeEi(ptr noundef nonnull align 8 dereferenceable(40) %63, i32 noundef %.02233.sink.i, i32 noundef 0, i32 noundef 0) #12
   %65 = add nuw nsw i32 %.02134.i, 1
   %exitcond38.not.i = icmp eq i32 %65, 8
-  br i1 %exitcond38.not.i, label %66, label %60, !llvm.loop !13
+  br i1 %exitcond38.not.i, label %66, label %60, !llvm.loop !14
 
 66:                                               ; preds = %60
   %67 = add nuw nsw i32 %.02435.i, 1
   %exitcond39.not.i = icmp eq i32 %67, 256
-  br i1 %exitcond39.not.i, label %_ZN13StubGenerator26generate_expand_perm_tableEPKci.exit, label %.preheader.i, !llvm.loop !14
+  br i1 %exitcond39.not.i, label %_ZN13StubGenerator26generate_expand_perm_tableEPKci.exit, label %.preheader.i, !llvm.loop !15
 
 _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   call void @_ZN12StubCodeMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #12
@@ -9465,7 +9465,7 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %131, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %132, label %126, !llvm.loop !17
+  br i1 %exitcond.not, label %132, label %126, !llvm.loop !18
 
 132:                                              ; preds = %126
   store ptr @_ZN12StubRoutines3x867_k256_WE, ptr @_ZN12StubRoutines3x8611_k256_W_adrE, align 8
@@ -9662,7 +9662,7 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   store ptr %222, ptr %224, align 8
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 64
-  br i1 %exitcond100.not, label %.loopexit91, label %.preheader90, !llvm.loop !18
+  br i1 %exitcond100.not, label %.loopexit91, label %.preheader90, !llvm.loop !19
 
 .loopexit91:                                      ; preds = %.preheader90, %213, %210
   %225 = load i8, ptr @UseMontgomeryMultiplyIntrinsic, align 1
@@ -9795,7 +9795,7 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
   %286 = phi i64 [ %271, %273 ], [ %271, %273 ], [ %271, %273 ], [ %.pre109, %275 ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 18
-  br i1 %exitcond104.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %exitcond104.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %285
   %.pre111 = load i32, ptr @UseAVX, align 4
@@ -9851,7 +9851,7 @@ _ZN13StubGenerator26generate_expand_perm_tableEPKci.exit: ; preds = %66
 319:                                              ; preds = %291, %293
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 18
-  br i1 %exitcond108.not, label %.thread73, label %291, !llvm.loop !20
+  br i1 %exitcond108.not, label %.thread73, label %291, !llvm.loop !21
 
 .thread73:                                        ; preds = %319, %.thread, %262
   ret void
@@ -10091,18 +10091,19 @@ attributes #13 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

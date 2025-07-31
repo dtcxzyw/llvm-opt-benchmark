@@ -189,7 +189,7 @@ sub_1:                                            ; preds = %sub_0
   %38 = sext i32 %37 to i64
   %39 = load i64, ptr %3, align 8
   %40 = icmp ugt i64 %39, %38
-  br i1 %40, label %.lr.ph42, label %._crit_edge43, !llvm.loop !6
+  br i1 %40, label %.lr.ph42, label %._crit_edge43, !llvm.loop !7
 
 ._crit_edge43:                                    ; preds = %.lr.ph42, %.preheader
   call void @exit(i32 noundef 0) #7
@@ -207,14 +207,14 @@ sub_1:                                            ; preds = %sub_0
   %indvars.iv5063 = phi i64 [ %indvars.iv.next51, %45 ], [ 0, %.preheader34 ]
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv5063, 1
   %exitcond53 = icmp eq i64 %indvars.iv.next51, 23
-  br i1 %exitcond53, label %show_item.exit.thread, label %45, !llvm.loop !7
+  br i1 %exitcond53, label %show_item.exit.thread, label %45, !llvm.loop !8
 
 45:                                               ; preds = %.lr.ph64
   %46 = getelementptr inbounds nuw [24 x %struct.InfoItem], ptr @info_items, i64 0, i64 %indvars.iv.next51
   %47 = load ptr, ptr %46, align 16
   %48 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %47) #6
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %._crit_edge65, label %.lr.ph64, !llvm.loop !7
+  br i1 %49, label %._crit_edge65, label %.lr.ph64, !llvm.loop !8
 
 ._crit_edge65:                                    ; preds = %45, %.preheader34
   %.lcssa = phi ptr [ @info_items, %.preheader34 ], [ %46, %45 ]
@@ -243,7 +243,7 @@ sub_1:                                            ; preds = %sub_0
   %63 = add i32 %.08.i, 1
   %64 = sext i32 %63 to i64
   %65 = icmp ugt i64 %52, %64
-  br i1 %65, label %.lr.ph.i, label %show_item.exit.thread33, !llvm.loop !8
+  br i1 %65, label %.lr.ph.i, label %show_item.exit.thread33, !llvm.loop !9
 
 show_item.exit.thread:                            ; preds = %.lr.ph64
   %66 = load ptr, ptr @stderr, align 8
@@ -259,7 +259,7 @@ show_item.exit.thread:                            ; preds = %.lr.ph64
 show_item.exit.thread33:                          ; preds = %62, %._crit_edge65
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
-  br i1 %exitcond58.not, label %72, label %.preheader34, !llvm.loop !9
+  br i1 %exitcond58.not, label %72, label %.preheader34, !llvm.loop !10
 
 72:                                               ; preds = %show_item.exit.thread33
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #5
@@ -353,9 +353,10 @@ attributes #8 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

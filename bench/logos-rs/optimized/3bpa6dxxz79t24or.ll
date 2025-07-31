@@ -74,7 +74,7 @@ define void @_ZN4core4hash4Hash10hash_slice17h5d5899bc32d7155eE(ptr align 1 %0, 
   call void @_ZN4core4hash6Hasher8write_u817hdb1bc6b9728db45bE(ptr align 8 %2, i8 %12)
   %13 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b7b9355ef733404E"(ptr nonnull align 8 %4)
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %._crit_edge, label %.lr.ph
+  br i1 %14, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -211,7 +211,7 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
   %7 = getelementptr inbounds [0 x { i8, i8 }], ptr %0, i64 0, i64 %.sroa.02.0
   %8 = getelementptr inbounds [0 x { i8, i8 }], ptr %2, i64 0, i64 %.sroa.02.0
   %9 = tail call zeroext i1 @"_ZN75_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd8f3c49de34812b0E"(ptr align 1 %7, ptr align 1 %8)
-  br i1 %9, label %.preheader.split, label %.loopexit
+  br i1 %9, label %.preheader.split, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %5, %.preheader.split, %4
   %.sroa.0.0 = phi i1 [ false, %4 ], [ %.not7.not, %.preheader.split ], [ %.not7.not, %5 ]
@@ -296,3 +296,6 @@ attributes #9 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}

@@ -98,7 +98,7 @@ define hidden void @DES_ede3_cfb64_encrypt(ptr noundef readonly captures(none) %
   %50 = add nsw i32 %.2104122, 1
   %51 = and i32 %50, 7
   %.not111 = icmp eq i64 %35, 0
-  br i1 %.not111, label %.loopexit, label %34, !llvm.loop !13
+  br i1 %.not111, label %.loopexit, label %34, !llvm.loop !14
 
 .loopexit:                                        ; preds = %24, %42, %.preheader113, %.preheader
   %.1103 = phi i32 [ %11, %.preheader ], [ %11, %.preheader113 ], [ %51, %42 ], [ %33, %24 ]
@@ -410,7 +410,7 @@ define hidden void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0,
   %159 = trunc i32 %158 to i8
   store i8 %159, ptr %151, align 1, !tbaa !10
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit330, label %.preheader329, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit330, label %.preheader329, !llvm.loop !15
 
 .loopexit330:                                     ; preds = %.preheader329, %149
   %160 = load i32, ptr %11, align 16
@@ -421,7 +421,7 @@ define hidden void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0,
   %.1290 = phi i32 [ %112, %148 ], [ %160, %.loopexit330 ], [ %.0284336, %146 ]
   %.1285 = phi i32 [ %114, %148 ], [ %161, %.loopexit330 ], [ %112, %146 ]
   %.not325 = icmp ult i64 %63, %14
-  br i1 %.not325, label %.loopexit328, label %62, !llvm.loop !15
+  br i1 %.not325, label %.loopexit328, label %62, !llvm.loop !16
 
 163:                                              ; preds = %.lr.ph348, %262
   %.9347 = phi ptr [ %0, %.lr.ph348 ], [ %211, %262 ]
@@ -562,7 +562,7 @@ define hidden void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0,
   %223 = trunc i32 %222 to i8
   store i8 %223, ptr %215, align 1, !tbaa !10
   %exitcond356.not = icmp eq i64 %indvars.iv.next354, 8
-  br i1 %exitcond356.not, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %exitcond356.not, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %213
   %224 = load i32, ptr %11, align 16
@@ -653,7 +653,7 @@ define hidden void @DES_ede3_cfb_encrypt(ptr noundef readonly captures(none) %0,
   %.10274 = phi ptr [ %231, %226 ], [ %261, %259 ]
   %263 = getelementptr inbounds nuw i8, ptr %.10274, i64 %14
   %.not323 = icmp ult i64 %164, %14
-  br i1 %.not323, label %.loopexit328, label %163, !llvm.loop !17
+  br i1 %.not323, label %.loopexit328, label %163, !llvm.loop !18
 
 .loopexit328:                                     ; preds = %162, %262, %.preheader331, %.preheader327
   %.2291 = phi i32 [ %29, %.preheader327 ], [ %29, %.preheader331 ], [ %.4293, %262 ], [ %.1290, %162 ]
@@ -690,10 +690,11 @@ attributes #4 = { nounwind }
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}

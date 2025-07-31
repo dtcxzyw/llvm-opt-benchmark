@@ -83,7 +83,7 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
   store i32 %48, ptr %51, align 4, !tbaa !3
   %52 = add nuw nsw i32 %.021, 1
   %.not.not = icmp ult i32 %.021, %.0.i18
-  br i1 %.not.not, label %49, label %.loopexit
+  br i1 %.not.not, label %49, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %49, %sz_size2index_compute.exit19, %4
   ret i1 %or.cond
@@ -102,7 +102,7 @@ define void @duckdb_je_bin_shard_sizes_boot(ptr noundef writeonly captures(none)
   store i32 1, ptr %4, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 36
-  br i1 %exitcond.not, label %2, label %3
+  br i1 %exitcond.not, label %2, label %3, !llvm.loop !9
 }
 
 ; Function Attrs: nounwind uwtable
@@ -112,11 +112,11 @@ define noundef zeroext i1 @duckdb_je_bin_init(ptr noundef %0, i32 noundef %1) lo
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr null, ptr %5, align 8, !tbaa !7
+  store ptr null, ptr %5, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @duckdb_je_edata_heap_new(ptr noundef nonnull %6) #6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr null, ptr %7, align 8, !tbaa !18
+  store ptr null, ptr %7, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
   %9 = load i32, ptr @duckdb_je_bin_info_nbatched_sizes, align 4, !tbaa !3
@@ -125,7 +125,7 @@ define noundef zeroext i1 @duckdb_je_bin_init(ptr noundef %0, i32 noundef %1) lo
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %13 = load i64, ptr @duckdb_je_opt_bin_info_remote_free_max, align 8, !tbaa !19
+  %13 = load i64, ptr @duckdb_je_opt_bin_info_remote_free_max, align 8, !tbaa !22
   tail call void @batcher_init(ptr noundef nonnull %12, i64 noundef %13) #6
   br label %14
 
@@ -225,16 +225,19 @@ attributes #6 = { nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !12, i64 224}
-!8 = !{!"bin_s", !9, i64 0, !10, i64 112, !12, i64 224, !14, i64 232, !16, i64 248}
-!9 = !{!"malloc_mutex_s", !5, i64 0}
-!10 = !{!"bin_stats_s", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !11, i64 96, !11, i64 104}
-!11 = !{!"long", !5, i64 0}
-!12 = !{!"p1 _ZTS7edata_s", !13, i64 0}
-!13 = !{!"any pointer", !5, i64 0}
-!14 = !{!"", !15, i64 0}
-!15 = !{!"ph_s", !13, i64 0, !11, i64 8}
-!16 = !{!"", !17, i64 0}
-!17 = !{!"", !12, i64 0}
-!18 = !{!16, !12, i64 0}
-!19 = !{!11, !11, i64 0}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = !{!11, !15, i64 224}
+!11 = !{!"bin_s", !12, i64 0, !13, i64 112, !15, i64 224, !17, i64 232, !19, i64 248}
+!12 = !{!"malloc_mutex_s", !5, i64 0}
+!13 = !{!"bin_stats_s", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104}
+!14 = !{!"long", !5, i64 0}
+!15 = !{!"p1 _ZTS7edata_s", !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = !{!"", !18, i64 0}
+!18 = !{!"ph_s", !16, i64 0, !14, i64 8}
+!19 = !{!"", !20, i64 0}
+!20 = !{!"", !15, i64 0}
+!21 = !{!19, !15, i64 0}
+!22 = !{!14, !14, i64 0}

@@ -129,5 +129,6 @@ attributes #5 = { nounwind }
 !17 = !{!"_ZTSN4llvm5Twine8NodeKindE", !5, i64 0}
 !18 = !{!16, !17, i64 33}
 !19 = !{!5, !5, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
+!22 = !{!"llvm.loop.estimated_trip_count"}

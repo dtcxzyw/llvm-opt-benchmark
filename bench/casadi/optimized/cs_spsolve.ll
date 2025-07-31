@@ -142,12 +142,12 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   store double %81, ptr %78, align 8, !tbaa !16
   %indvars.iv.next126 = add nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.loopexit.us, label %.lr.ph100.us, !llvm.loop !20
+  br i1 %exitcond129.not, label %.loopexit.us, label %.lr.ph100.us, !llvm.loop !21
 
 .loopexit.us:                                     ; preds = %.lr.ph100.us, %58, %55
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, 1
   %exitcond134.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count133
-  br i1 %exitcond134.not, label %.loopexit93, label %.lr.ph108.split.us, !llvm.loop !21
+  br i1 %exitcond134.not, label %.loopexit93, label %.lr.ph108.split.us, !llvm.loop !22
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv111 = phi i64 [ %47, %.lr.ph97.preheader ], [ %indvars.iv.next112, %.lr.ph97 ]
@@ -160,7 +160,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   store double %83, ptr %87, align 8, !tbaa !16
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
-  br i1 %exitcond115.not, label %.preheader, label %.lr.ph97, !llvm.loop !23
+  br i1 %exitcond115.not, label %.preheader, label %.lr.ph97, !llvm.loop !24
 
 .lr.ph108.split:                                  ; preds = %.lr.ph108, %.loopexit
   %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.loopexit ], [ %48, %.lr.ph108 ]
@@ -217,12 +217,12 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next117 to i32
   %exitcond119.not = icmp eq i32 %109, %lftr.wideiv
-  br i1 %exitcond119.not, label %.loopexit, label %.lr.ph100, !llvm.loop !20
+  br i1 %exitcond119.not, label %.loopexit, label %.lr.ph100, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph100, %97, %94
   %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count133
-  br i1 %exitcond124.not, label %.loopexit93, label %.lr.ph108.split, !llvm.loop !24
+  br i1 %exitcond124.not, label %.loopexit93, label %.lr.ph108.split, !llvm.loop !25
 
 .loopexit93:                                      ; preds = %.loopexit, %.loopexit.us, %.preheader, %7, %8, %13
   %.0 = phi i32 [ -1, %13 ], [ -1, %8 ], [ -1, %7 ], [ %34, %.preheader ], [ %34, %.loopexit.us ], [ %34, %.loopexit ]
@@ -259,10 +259,11 @@ attributes #3 = { nounwind }
 !15 = !{!5, !5, i64 0}
 !16 = !{!17, !17, i64 0}
 !17 = !{!"double", !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !19, !20}
+!25 = distinct !{!25, !19, !20}

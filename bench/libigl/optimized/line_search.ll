@@ -140,15 +140,15 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %36
   %.011.i.i = phi i64 [ %66, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
   %59 = getelementptr inbounds nuw double, ptr %43, i64 %.011.i.i
   %60 = getelementptr inbounds nuw double, ptr %44, i64 %.011.i.i
-  %61 = load <2 x double>, ptr %60, align 16, !tbaa !23
+  %61 = load <2 x double>, ptr %60, align 16, !tbaa !24
   %62 = getelementptr inbounds nuw double, ptr %45, i64 %.011.i.i
-  %63 = load <2 x double>, ptr %62, align 16, !tbaa !23
+  %63 = load <2 x double>, ptr %62, align 16, !tbaa !24
   %64 = fmul <2 x double> %49, %63
   %65 = fadd <2 x double> %61, %64
-  store <2 x double> %65, ptr %59, align 16, !tbaa !23
+  store <2 x double> %65, ptr %59, align 16, !tbaa !24
   %66 = add nuw nsw i64 %.011.i.i, 2
   %67 = icmp slt i64 %66, %47
-  br i1 %67, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !24
+  br i1 %67, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !25
 
 common.resume:                                    ; preds = %79, %68
   %common.resume.op = phi { ptr, i32 } [ %69, %68 ], [ %lpad.phi, %79 ]
@@ -266,17 +266,17 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   store double %106, ptr %104, align 8, !tbaa !19
   %107 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %107, %99
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !25
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !26
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %95, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %111, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %95 ]
   %108 = getelementptr inbounds nuw double, ptr %98, i64 %.011.i.i.i.i.i.i.i.i
   %109 = getelementptr inbounds nuw double, ptr %82, i64 %.011.i.i.i.i.i.i.i.i
-  %110 = load <2 x double>, ptr %109, align 16, !tbaa !23
-  store <2 x double> %110, ptr %108, align 16, !tbaa !23
+  %110 = load <2 x double>, ptr %109, align 16, !tbaa !24
+  store <2 x double> %110, ptr %108, align 16, !tbaa !24
   %111 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
   %112 = icmp slt i64 %111, %101
-  br i1 %112, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %112, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i, !llvm.loop !27
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i.i, %77
   %.147 = phi double [ %78, %77 ], [ %.04657, %._crit_edge.i.i.i.i.i.i.i.i ], [ %.04657, %.lr.ph.i.i.i.i.i.i.i.i.i ]
@@ -288,7 +288,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.
   %115 = fcmp oge double %.1, %.0
   %116 = icmp samesign ult i32 %.01858, 11
   %117 = select i1 %115, i1 %116, i1 false
-  br i1 %117, label %25, label %._crit_edge, !llvm.loop !27
+  br i1 %117, label %25, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit, %15
   %.017.lcssa = phi double [ %.0, %15 ], [ %.1, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit ]
@@ -408,10 +408,11 @@ attributes #11 = { nounwind allocsize(0) }
 !18 = !{!12, !13, i64 0}
 !19 = !{!20, !20, i64 0}
 !20 = !{!"double", !6, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!6, !6, i64 0}
-!24 = distinct !{!24, !22}
-!25 = distinct !{!25, !22}
-!26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!6, !6, i64 0}
+!25 = distinct !{!25, !22, !23}
+!26 = distinct !{!26, !22, !23}
+!27 = distinct !{!27, !22, !23}
+!28 = distinct !{!28, !22, !23}

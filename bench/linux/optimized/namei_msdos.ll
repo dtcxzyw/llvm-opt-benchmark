@@ -1227,7 +1227,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noun
 
 93:                                               ; preds = %.preheader16
   %94 = icmp eq i32 %97, 0
-  br i1 %94, label %.critedge11, label %.preheader16, !llvm.loop !10
+  br i1 %94, label %.critedge11, label %.preheader16, !llvm.loop !11
 
 .preheader16:                                     ; preds = %91, %93
   %95 = phi i32 [ %97, %93 ], [ %31, %91 ]
@@ -1236,7 +1236,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noun
   %98 = getelementptr i8, ptr %96, i64 1
   %99 = load i8, ptr %96, align 1
   %100 = icmp eq i8 %99, 46
-  br i1 %100, label %.thread12, label %93, !llvm.loop !10
+  br i1 %100, label %.thread12, label %93, !llvm.loop !12
 
 .thread12:                                        ; preds = %.preheader16, %84, %89
   %101 = phi ptr [ %28, %89 ], [ %85, %84 ], [ %98, %.preheader16 ]
@@ -1330,7 +1330,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noun
   %157 = sub i64 %156, %18
   %158 = icmp slt i64 %157, 11
   %159 = select i1 %155, i1 %158, i1 false
-  br i1 %159, label %.preheader, label %.loopexit, !llvm.loop !11
+  br i1 %159, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %143, %138
   %160 = phi ptr [ %116, %138 ], [ %154, %143 ]
@@ -1635,8 +1635,10 @@ attributes #14 = { nounwind willreturn memory(read) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
 !6 = !{i32 -22, i32 1}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9, !10}

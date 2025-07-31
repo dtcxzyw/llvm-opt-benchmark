@@ -867,7 +867,7 @@ list_length.exit:                                 ; preds = %91, %97
   %103 = tail call ptr @copyObjectImpl(ptr noundef %102) #7
   tail call void @IncrementVarSublevelsUp_rtable(ptr noundef %103, i32 noundef -1, i32 noundef 1) #7
   %104 = getelementptr inbounds nuw i8, ptr %24, i64 208
-  %105 = load i8, ptr %104, align 8, !range !4, !noundef !8
+  %105 = load i8, ptr %104, align 8, !range !4, !noundef !9
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %.preheader, label %pull_up_simple_union_all.exit
 
@@ -1054,7 +1054,7 @@ is_simple_values.exit.thread:                     ; preds = %is_safe_append_memb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #7
   %194 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %195 = load i8, ptr %194, align 8, !range !4, !noundef !8
+  %195 = load i8, ptr %194, align 8, !range !4, !noundef !9
   %196 = trunc nuw i8 %195 to i1
   br i1 %196, label %pull_up_constant_function.exit, label %197
 
@@ -1272,7 +1272,7 @@ define dso_local void @flatten_simple_union_all(ptr noundef %0) local_unnamed_ad
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 602
-  %7 = load i8, ptr %6, align 2, !range !4, !noundef !8
+  %7 = load i8, ptr %6, align 2, !range !4, !noundef !9
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %39, label %9
 
@@ -1292,7 +1292,7 @@ define dso_local void @flatten_simple_union_all(ptr noundef %0) local_unnamed_ad
 13:                                               ; preds = %.preheader
   %14 = load i32, ptr %.0, align 4
   %15 = icmp eq i32 %14, 142
-  br i1 %15, label %.preheader, label %.critedge, !llvm.loop !9
+  br i1 %15, label %.preheader, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.preheader, %13
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 4
@@ -1378,7 +1378,7 @@ tailrecurse:                                      ; preds = %31, %3
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %25 = load i8, ptr %24, align 8, !range !4, !noundef !8
+  %25 = load i8, ptr %24, align 8, !range !4, !noundef !9
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %27, label %.loopexit
 
@@ -1473,7 +1473,7 @@ list_length.exit.i:                               ; preds = %18, %7
   %34 = getelementptr inbounds nuw %union.ListCell, ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 42
-  %37 = load i8, ptr %36, align 2, !range !4, !noundef !8
+  %37 = load i8, ptr %36, align 2, !range !4, !noundef !9
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %45, label %39
 
@@ -1544,7 +1544,7 @@ define dso_local void @reduce_outer_joins(ptr noundef %0) local_unnamed_addr #0 
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load i8, ptr %10, align 8, !range !4, !noundef !8
+  %11 = load i8, ptr %10, align 8, !range !4, !noundef !9
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %16, label %13
 
@@ -1667,8 +1667,8 @@ define internal fastcc noundef ptr @reduce_outer_joins_pass1(ptr noundef readonl
   %25 = tail call ptr @bms_add_members(ptr noundef %23, ptr noundef %24) #7
   store ptr %25, ptr %2, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %27 = load i8, ptr %26, align 8, !range !4, !noundef !8
-  %28 = load i8, ptr %3, align 8, !range !4, !noundef !8
+  %27 = load i8, ptr %26, align 8, !range !4, !noundef !9
+  %28 = load i8, ptr %3, align 8, !range !4, !noundef !9
   %29 = or i8 %28, %27
   store i8 %29, ptr %3, align 8
   %30 = load ptr, ptr %4, align 8
@@ -1705,8 +1705,8 @@ common.ret59:                                     ; preds = %8, %1, %.lr.ph, %12
   %47 = tail call ptr @bms_add_members(ptr noundef %45, ptr noundef %46) #7
   store ptr %47, ptr %2, align 8
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %49 = load i8, ptr %48, align 8, !range !4, !noundef !8
-  %50 = load i8, ptr %3, align 8, !range !4, !noundef !8
+  %49 = load i8, ptr %48, align 8, !range !4, !noundef !9
+  %50 = load i8, ptr %3, align 8, !range !4, !noundef !9
   %51 = or i8 %50, %49
   store i8 %51, ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
@@ -1720,8 +1720,8 @@ common.ret59:                                     ; preds = %8, %1, %.lr.ph, %12
   %59 = tail call ptr @bms_add_members(ptr noundef %57, ptr noundef %58) #7
   store ptr %59, ptr %2, align 8
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %61 = load i8, ptr %60, align 8, !range !4, !noundef !8
-  %62 = load i8, ptr %3, align 8, !range !4, !noundef !8
+  %61 = load i8, ptr %60, align 8, !range !4, !noundef !9
+  %62 = load i8, ptr %3, align 8, !range !4, !noundef !9
   %63 = or i8 %62, %61
   store i8 %63, ptr %3, align 8
   %64 = load ptr, ptr %4, align 8
@@ -1816,7 +1816,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
   %49 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load i8, ptr %51, align 8, !range !4, !noundef !8
+  %52 = load i8, ptr %51, align 8, !range !4, !noundef !9
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %54, label %56
 
@@ -1827,7 +1827,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
 
 56:                                               ; preds = %54, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split, !llvm.loop !10
+  br label %.split.split, !llvm.loop !11
 
 57:                                               ; preds = %11
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1968,13 +1968,13 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
 130:                                              ; preds = %115, %127, %113, %.thread151.thread
   store i32 %.2, ptr %60, align 4
   %131 = getelementptr inbounds nuw i8, ptr %.0128160, i64 8
-  %132 = load i8, ptr %131, align 8, !range !4, !noundef !8
+  %132 = load i8, ptr %131, align 8, !range !4, !noundef !9
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %138, label %134
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %.0127162, i64 8
-  %136 = load i8, ptr %135, align 8, !range !4, !noundef !8
+  %136 = load i8, ptr %135, align 8, !range !4, !noundef !9
   %137 = trunc nuw i8 %136 to i1
   br i1 %137, label %138, label %167
 
@@ -2000,7 +2000,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
 149:                                              ; preds = %138, %146, %139
   %.0124 = phi ptr [ %147, %146 ], [ %142, %139 ], [ null, %138 ]
   %.0123 = phi ptr [ %148, %146 ], [ %144, %139 ], [ null, %138 ]
-  %150 = load i8, ptr %131, align 8, !range !4, !noundef !8
+  %150 = load i8, ptr %131, align 8, !range !4, !noundef !9
   %151 = trunc nuw i8 %150 to i1
   br i1 %151, label %152, label %156
 
@@ -2018,7 +2018,7 @@ define internal fastcc void @reduce_outer_joins_pass2(ptr noundef captures(addre
 
 156:                                              ; preds = %152, %149
   %157 = getelementptr inbounds nuw i8, ptr %.0127162, i64 8
-  %158 = load i8, ptr %157, align 8, !range !4, !noundef !8
+  %158 = load i8, ptr %157, align 8, !range !4, !noundef !9
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %.sink.split
 
@@ -2126,7 +2126,7 @@ define dso_local void @remove_useless_result_rtes(ptr noundef %0) local_unnamed_
   %.sroa.0.1 = phi ptr [ %47, %45 ], [ %22, %26 ]
   %49 = add i32 %.sroa.7.1, 1
   %.not = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2229,14 +2229,14 @@ list_length.exit.thread:                          ; preds = %32, %29, %16, %47, 
   %.1134 = phi ptr [ %.0133215, %45 ], [ %51, %47 ], [ %.0133215, %list_length.exit ], [ %.0133215, %16 ], [ %.0133215, %29 ], [ %.0133215, %32 ]
   %52 = add i32 %.sroa.7.1, 1
   %.not155 = icmp eq ptr %.sroa.064.1, null
-  br i1 %.not155, label %.critedge, label %12, !llvm.loop !12
+  br i1 %.not155, label %.critedge, label %12, !llvm.loop !13
 
 .lr.ph218:                                        ; preds = %.preheader, %.lr.ph218
   %53 = phi i32 [ %54, %.lr.ph218 ], [ %27, %.preheader ]
   tail call fastcc void @remove_result_refs(ptr noundef %0, i32 noundef %53, ptr noundef nonnull %1)
   %54 = tail call i32 @bms_next_member(ptr noundef nonnull %.0133.lcssa, i32 noundef %53) #7
   %55 = icmp sgt i32 %54, -1
-  br i1 %55, label %.lr.ph218, label %.loopexit, !llvm.loop !13
+  br i1 %55, label %.lr.ph218, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph218, %.preheader, %.critedge
   %.pr = load ptr, ptr %8, align 8
@@ -3076,19 +3076,19 @@ define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr nounde
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %18 = load i8, ptr %17, align 4, !range !4, !noundef !8
+  %18 = load i8, ptr %17, align 4, !range !4, !noundef !9
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %.thread50, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 45
-  %22 = load i8, ptr %21, align 1, !range !4, !noundef !8
+  %22 = load i8, ptr %21, align 1, !range !4, !noundef !9
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %.thread50, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  %26 = load i8, ptr %25, align 2, !range !4, !noundef !8
+  %26 = load i8, ptr %25, align 2, !range !4, !noundef !9
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %.thread50, label %28
 
@@ -3136,7 +3136,7 @@ define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr nounde
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 51
-  %51 = load i8, ptr %50, align 1, !range !4, !noundef !8
+  %51 = load i8, ptr %50, align 1, !range !4, !noundef !9
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %.thread50, label %53
 
@@ -3148,13 +3148,13 @@ define internal fastcc zeroext i1 @is_simple_subquery(ptr noundef %0, ptr nounde
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %58 = load i8, ptr %57, align 8, !range !4, !noundef !8
+  %58 = load i8, ptr %57, align 8, !range !4, !noundef !9
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %.thread50, label %60
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %62 = load i8, ptr %61, align 8, !range !4, !noundef !8
+  %62 = load i8, ptr %61, align 8, !range !4, !noundef !9
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %.thread48
 
@@ -3250,7 +3250,7 @@ define internal fastcc ptr @pull_up_simple_subquery(ptr noundef %0, ptr noundef 
   store ptr null, ptr %40, align 8
   tail call void @replace_empty_jointree(ptr noundef %16)
   %41 = getelementptr inbounds nuw i8, ptr %16, i64 47
-  %42 = load i8, ptr %41, align 1, !range !4, !noundef !8
+  %42 = load i8, ptr %41, align 1, !range !4, !noundef !9
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %56
 
@@ -3427,7 +3427,7 @@ list_length.exit:                                 ; preds = %is_safe_append_memb
   %128 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %2, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %130 = load i8, ptr %129, align 8, !range !4, !noundef !8
+  %130 = load i8, ptr %129, align 8, !range !4, !noundef !9
   %131 = trunc nuw i8 %130 to i1
   br i1 %131, label %132, label %151
 
@@ -3512,7 +3512,7 @@ list_length.exit130:                              ; preds = %153, %159
 
 173:                                              ; preds = %172, %169
   call fastcc void @perform_pullup_replace_vars(ptr noundef %0, ptr noundef %9, ptr noundef %4)
-  %174 = load i8, ptr %129, align 8, !range !4, !noundef !8
+  %174 = load i8, ptr %129, align 8, !range !4, !noundef !9
   %175 = trunc nuw i8 %174 to i1
   br i1 %175, label %176, label %.critedge
 
@@ -3684,14 +3684,14 @@ fix_append_rel_relids.exit:                       ; preds = %fix_append_rel_reli
   %258 = call ptr @list_concat(ptr noundef %255, ptr noundef %257) #7
   store ptr %258, ptr %256, align 8
   store ptr null, ptr %14, align 8
-  %259 = load i8, ptr %41, align 1, !range !4, !noundef !8
-  %260 = load i8, ptr %155, align 1, !range !4, !noundef !8
+  %259 = load i8, ptr %41, align 1, !range !4, !noundef !9
+  %260 = load i8, ptr %155, align 1, !range !4, !noundef !9
   %261 = or i8 %260, %259
   store i8 %261, ptr %155, align 1
   %262 = getelementptr inbounds nuw i8, ptr %16, i64 52
-  %263 = load i8, ptr %262, align 4, !range !4, !noundef !8
+  %263 = load i8, ptr %262, align 4, !range !4, !noundef !9
   %264 = getelementptr inbounds nuw i8, ptr %11, i64 52
-  %265 = load i8, ptr %264, align 4, !range !4, !noundef !8
+  %265 = load i8, ptr %264, align 4, !range !4, !noundef !9
   %266 = or i8 %265, %263
   store i8 %266, ptr %264, align 4
   %267 = getelementptr inbounds nuw i8, ptr %16, i64 80
@@ -3843,7 +3843,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr noundef readonly ca
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %8 = load i8, ptr %7, align 4, !range !4, !noundef !8
+  %8 = load i8, ptr %7, align 4, !range !4, !noundef !9
   store i8 0, ptr %7, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -3933,7 +3933,7 @@ define internal fastcc void @perform_pullup_replace_vars(ptr noundef readonly ca
   %67 = load i32, ptr %50, align 4
   %68 = sext i32 %67 to i64
   %.not80 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %.not80, label %53, label %.critedge, !llvm.loop !14
+  br i1 %.not80, label %53, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %53, %.preheader, %47
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -4197,7 +4197,7 @@ define internal fastcc void @replace_vars_in_jointree(ptr noundef captures(addre
   %20 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 208
-  %23 = load i8, ptr %22, align 8, !range !4, !noundef !8
+  %23 = load i8, ptr %22, align 8, !range !4, !noundef !9
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %99
 
@@ -4293,7 +4293,7 @@ define internal fastcc void @replace_vars_in_jointree(ptr noundef captures(addre
 
 76:                                               ; preds = %4
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %78 = load i8, ptr %77, align 4, !range !4, !noundef !8
+  %78 = load i8, ptr %77, align 4, !range !4, !noundef !9
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load ptr, ptr %79, align 8
   tail call fastcc void @replace_vars_in_jointree(ptr noundef %80, ptr noundef %1)
@@ -4351,7 +4351,7 @@ define internal ptr @pullup_replace_vars_callback(ptr noundef readonly captures(
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %14 = load i8, ptr %13, align 4, !range !4, !noundef !8
+  %14 = load i8, ptr %13, align 4, !range !4, !noundef !9
   %15 = trunc nuw i8 %14 to i1
   br label %16
 
@@ -4398,7 +4398,7 @@ list_length.exit:                                 ; preds = %19, %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %38 = load i8, ptr %37, align 4, !range !4, !noundef !8
+  %38 = load i8, ptr %37, align 4, !range !4, !noundef !9
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -4500,7 +4500,7 @@ list_length.exit:                                 ; preds = %19, %22
   %97 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 208
-  %100 = load i8, ptr %99, align 8, !range !4, !noundef !8
+  %100 = load i8, ptr %99, align 8, !range !4, !noundef !9
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %.critedge165
 
@@ -4522,7 +4522,7 @@ list_length.exit:                                 ; preds = %19, %22
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 208
-  %116 = load i8, ptr %115, align 8, !range !4, !noundef !8
+  %116 = load i8, ptr %115, align 8, !range !4, !noundef !9
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %118, label %.critedge165
 
@@ -4557,11 +4557,11 @@ list_length.exit:                                 ; preds = %19, %22
   %139 = getelementptr inbounds nuw ptr, ptr %133, i64 %138
   %140 = load ptr, ptr %139, align 8
   %141 = tail call zeroext i1 @bms_is_subset(ptr noundef %137, ptr noundef %140) #7
-  br i1 %141, label %129, label %.critedge167, !llvm.loop !15
+  br i1 %141, label %129, label %.critedge167, !llvm.loop !16
 
 .critedge:                                        ; preds = %90, %92, %89, %108
   %142 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %143 = load i8, ptr %142, align 4, !range !4, !noundef !8
+  %143 = load i8, ptr %142, align 4, !range !4, !noundef !9
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %.critedge167, label %145
 
@@ -4569,7 +4569,7 @@ list_length.exit:                                 ; preds = %19, %22
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 208
-  %149 = load i8, ptr %148, align 8, !range !4, !noundef !8
+  %149 = load i8, ptr %148, align 8, !range !4, !noundef !9
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %151, label %174
 
@@ -4603,7 +4603,7 @@ list_length.exit:                                 ; preds = %19, %22
   %171 = getelementptr inbounds nuw ptr, ptr %165, i64 %170
   %172 = load ptr, ptr %171, align 8
   %173 = tail call zeroext i1 @bms_is_subset(ptr noundef %169, ptr noundef %172) #7
-  br i1 %173, label %.critedge163, label %161, !llvm.loop !16
+  br i1 %173, label %.critedge163, label %161, !llvm.loop !17
 
 174:                                              ; preds = %145
   %175 = tail call zeroext i1 @contain_vars_of_level(ptr noundef %88, i32 noundef 0) #7
@@ -4689,7 +4689,7 @@ list_length.exit169:                              ; preds = %197
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 208
-  %223 = load i8, ptr %222, align 8, !range !4, !noundef !8
+  %223 = load i8, ptr %222, align 8, !range !4, !noundef !9
   %224 = trunc nuw i8 %223 to i1
   br i1 %224, label %225, label %.loopexit
 
@@ -4726,7 +4726,7 @@ list_length.exit169:                              ; preds = %197
   %.7 = phi ptr [ %.6179, %.lr.ph ], [ %245, %243 ]
   %247 = call i32 @bms_next_member(ptr noundef %232, i32 noundef %235) #7
   %248 = icmp sgt i32 %247, -1
-  br i1 %248, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %248, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %246, %225, %219
   %.5 = phi ptr [ %.0, %219 ], [ %.0, %225 ], [ %.7, %246 ]
@@ -4955,21 +4955,21 @@ find_dependent_phvs_walker.exit.thread15:         ; preds = %10, %27, %find_depe
   %44 = getelementptr i8, ptr %43, i64 -8
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 208
-  %47 = load i8, ptr %46, align 8, !range !4, !noundef !8
+  %47 = load i8, ptr %46, align 8, !range !4, !noundef !9
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %.critedge
 
 49:                                               ; preds = %36
   %50 = call zeroext i1 @range_table_entry_walker_impl(ptr noundef nonnull %45, ptr noundef nonnull @find_dependent_phvs_walker, ptr noundef nonnull %4, i32 noundef 0) #7
-  br i1 %50, label %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, label %.critedge, !llvm.loop !18
+  br i1 %50, label %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, label %.critedge, !llvm.loop !19
 
 .critedge:                                        ; preds = %49, %36
   %51 = call i32 @bms_next_member(ptr noundef %32, i32 noundef %37) #7
   %52 = icmp sgt i32 %51, -1
-  br i1 %52, label %36, label %find_dependent_phvs_walker.exit.thread
+  br i1 %52, label %36, label %find_dependent_phvs_walker.exit.thread, !llvm.loop !20
 
 .find_dependent_phvs_walker.exit.thread.loopexit_crit_edge: ; preds = %49
-  br label %find_dependent_phvs_walker.exit.thread, !llvm.loop !18
+  br label %find_dependent_phvs_walker.exit.thread, !llvm.loop !19
 
 find_dependent_phvs_walker.exit.thread:           ; preds = %.critedge, %find_dependent_phvs_walker.exit.thread15, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge, %21, %27, %find_dependent_phvs_walker.exit, %3
   %.0 = phi i1 [ false, %3 ], [ true, %find_dependent_phvs_walker.exit ], [ true, %27 ], [ true, %21 ], [ true, %.find_dependent_phvs_walker.exit.thread.loopexit_crit_edge ], [ false, %find_dependent_phvs_walker.exit.thread15 ], [ false, %.critedge ]
@@ -5147,16 +5147,18 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !8}

@@ -248,12 +248,12 @@ sub_150.us70:                                     ; preds = %.tail.us68
 .outer.loopexit.split.us73:                       ; preds = %27
   %38 = tail call ptr @readdir(ptr noundef nonnull %6) #10
   %.not59.us = icmp eq ptr %38, null
-  br i1 %.not59.us, label %.split82.us, label %sub_0.lr.ph.us, !llvm.loop !13
+  br i1 %.not59.us, label %.split82.us, label %sub_0.lr.ph.us, !llvm.loop !14
 
 .backedge.us74:                                   ; preds = %.tail.us68, %.tail48.us72, %23, %33, %36, %30, %21
   %39 = tail call ptr @readdir(ptr noundef nonnull %6) #10
   %.not.us75 = icmp eq ptr %39, null
-  br i1 %.not.us75, label %.split82.us, label %sub_0.us66, !llvm.loop !15
+  br i1 %.not.us75, label %.split82.us, label %sub_0.us66, !llvm.loop !16
 
 sub_0.lr.ph:                                      ; preds = %sub_0.lr.ph.lr.ph, %.outer.loopexit.split.us
   %40 = phi ptr [ %64, %.outer.loopexit.split.us ], [ %8, %sub_0.lr.ph.lr.ph ]
@@ -314,12 +314,12 @@ sub_150.us:                                       ; preds = %.tail.us
 .backedge.us:                                     ; preds = %61, %.tail.us, %.tail48.us, %54, %52
   %63 = tail call ptr @readdir(ptr noundef nonnull %6) #10
   %.not.us = icmp eq ptr %63, null
-  br i1 %.not.us, label %.split82.us, label %sub_0.us, !llvm.loop !16
+  br i1 %.not.us, label %.split82.us, label %sub_0.us, !llvm.loop !17
 
 .outer.loopexit.split.us:                         ; preds = %58
   %64 = tail call ptr @readdir(ptr noundef nonnull %6) #10
   %.not59 = icmp eq ptr %64, null
-  br i1 %.not59, label %.split82.us, label %sub_0.lr.ph, !llvm.loop !15
+  br i1 %.not59, label %.split82.us, label %sub_0.lr.ph, !llvm.loop !16
 
 .split.us:                                        ; preds = %58, %27
   %.us-phi = phi i32 [ %29, %27 ], [ %60, %58 ]
@@ -332,7 +332,7 @@ sub_150.us:                                       ; preds = %.tail.us
 .split82.us:                                      ; preds = %.outer.loopexit.split.us, %.backedge.us, %.outer.loopexit.split.us73, %.backedge.us74, %36, %.split.us, %.preheader
   %.2 = phi i32 [ -1, %.split.us ], [ 0, %.preheader ], [ -1, %36 ], [ %.037.ph64.us, %.backedge.us74 ], [ -1, %.outer.loopexit.split.us73 ], [ %.037.ph64, %.backedge.us ], [ -1, %.outer.loopexit.split.us ]
   %67 = tail call i32 @closedir(ptr noundef nonnull %6)
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2648), align 8, !tbaa !17
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 2648), align 8, !tbaa !18
   %69 = icmp eq ptr %68, null
   br i1 %69, label %72, label %70
 
@@ -412,7 +412,7 @@ sub_117:                                          ; preds = %.tail
 16:                                               ; preds = %.tail15, %.tail
   %17 = tail call ptr @readdir(ptr noundef nonnull %3) #10
   %.not12 = icmp eq ptr %17, null
-  br i1 %.not12, label %.sink.split, label %sub_0, !llvm.loop !30
+  br i1 %.not12, label %.sink.split, label %sub_0, !llvm.loop !31
 
 .sink.split:                                      ; preds = %16, %.tail15, %sub_117, %sub_0, %.preheader
   %.0.ph = phi i1 [ true, %.preheader ], [ false, %sub_0 ], [ false, %sub_117 ], [ false, %.tail15 ], [ true, %16 ]
@@ -457,23 +457,24 @@ attributes #13 = { nounwind allocsize(0) }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 omnipotent char", !10, i64 0}
 !10 = !{!"any pointer", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12, !14}
-!17 = !{!18, !9, i64 2648}
-!18 = !{!"", !19, i64 0, !26, i64 272, !19, i64 432, !19, i64 704, !19, i64 976, !19, i64 1248, !28, i64 1520, !19, i64 1528, !28, i64 1800, !19, i64 1808, !19, i64 2080, !19, i64 2352, !25, i64 2624, !29, i64 2632, !9, i64 2640, !9, i64 2648, !29, i64 2656, !4, i64 2660, !4, i64 2664, !4, i64 2668, !4, i64 2672, !4, i64 2676, !4, i64 2680, !4, i64 2684, !4, i64 2688, !4, i64 2692, !4, i64 2696, !4, i64 2700, !4, i64 2704, !4, i64 2708, !4, i64 2712, !4, i64 2716, !4, i64 2720, !4, i64 2724, !4, i64 2728}
-!19 = !{!"pmix_list_t", !20, i64 0, !23, i64 120, !25, i64 264}
-!20 = !{!"pmix_object_t", !5, i64 0, !21, i64 40, !4, i64 48, !22, i64 56}
-!21 = !{!"p1 _ZTS12pmix_class_t", !10, i64 0}
-!22 = !{!"pmix_tma", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56}
-!23 = !{!"pmix_list_item_t", !20, i64 0, !24, i64 120, !24, i64 128, !4, i64 136}
-!24 = !{!"p1 _ZTS16pmix_list_item_t", !10, i64 0}
-!25 = !{!"long", !5, i64 0}
-!26 = !{!"pmix_pointer_array_t", !20, i64 0, !4, i64 120, !4, i64 124, !4, i64 128, !4, i64 132, !4, i64 136, !27, i64 144, !10, i64 152}
-!27 = !{!"p1 long", !10, i64 0}
-!28 = !{!"p2 omnipotent char", !10, i64 0}
-!29 = !{!"_Bool", !5, i64 0}
-!30 = distinct !{!30, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13, !15}
+!18 = !{!19, !9, i64 2648}
+!19 = !{!"", !20, i64 0, !27, i64 272, !20, i64 432, !20, i64 704, !20, i64 976, !20, i64 1248, !29, i64 1520, !20, i64 1528, !29, i64 1800, !20, i64 1808, !20, i64 2080, !20, i64 2352, !26, i64 2624, !30, i64 2632, !9, i64 2640, !9, i64 2648, !30, i64 2656, !4, i64 2660, !4, i64 2664, !4, i64 2668, !4, i64 2672, !4, i64 2676, !4, i64 2680, !4, i64 2684, !4, i64 2688, !4, i64 2692, !4, i64 2696, !4, i64 2700, !4, i64 2704, !4, i64 2708, !4, i64 2712, !4, i64 2716, !4, i64 2720, !4, i64 2724, !4, i64 2728}
+!20 = !{!"pmix_list_t", !21, i64 0, !24, i64 120, !26, i64 264}
+!21 = !{!"pmix_object_t", !5, i64 0, !22, i64 40, !4, i64 48, !23, i64 56}
+!22 = !{!"p1 _ZTS12pmix_class_t", !10, i64 0}
+!23 = !{!"pmix_tma", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40, !10, i64 48, !10, i64 56}
+!24 = !{!"pmix_list_item_t", !21, i64 0, !25, i64 120, !25, i64 128, !4, i64 136}
+!25 = !{!"p1 _ZTS16pmix_list_item_t", !10, i64 0}
+!26 = !{!"long", !5, i64 0}
+!27 = !{!"pmix_pointer_array_t", !21, i64 0, !4, i64 120, !4, i64 124, !4, i64 128, !4, i64 132, !4, i64 136, !28, i64 144, !10, i64 152}
+!28 = !{!"p1 long", !10, i64 0}
+!29 = !{!"p2 omnipotent char", !10, i64 0}
+!30 = !{!"_Bool", !5, i64 0}
+!31 = distinct !{!31, !12, !13}

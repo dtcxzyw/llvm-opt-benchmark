@@ -272,7 +272,7 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %62 = load i32, ptr %61, align 4, !tbaa !41
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next94, %63
-  br i1 %64, label %46, label %.critedge2, !llvm.loop !46
+  br i1 %64, label %46, label %.critedge2, !llvm.loop !47
 
 .critedge2:                                       ; preds = %58, %.preheader80, %.critedge
   %.2 = phi i32 [ %.0.lcssa, %.critedge ], [ %.0.lcssa, %.preheader80 ], [ %.4, %58 ]
@@ -330,7 +330,7 @@ define i32 @Gia_IffObjCount(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %91 = load i32, ptr %90, align 4, !tbaa !41
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next97, %92
-  br i1 %93, label %75, label %.critedge4, !llvm.loop !47
+  br i1 %93, label %75, label %.critedge4, !llvm.loop !48
 
 .critedge4:                                       ; preds = %87, %.preheader, %.critedge2
   %.5 = phi i32 [ %.2, %.critedge2 ], [ %.2, %.preheader ], [ %.7, %87 ]
@@ -341,7 +341,7 @@ declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
-  %5 = load ptr, ptr %0, align 8, !tbaa !48
+  %5 = load ptr, ptr %0, align 8, !tbaa !49
   %6 = getelementptr i8, ptr %5, i64 264
   %.val66 = load ptr, ptr %6, align 8, !tbaa !40
   %7 = getelementptr i8, ptr %.val66, i64 8
@@ -377,7 +377,7 @@ define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noun
   %.val70.val = load ptr, ptr %21, align 8, !tbaa !31
   %22 = sext i32 %19 to i64
   %23 = getelementptr inbounds float, ptr %.val70.val, i64 %22
-  %24 = load float, ptr %23, align 4, !tbaa !49
+  %24 = load float, ptr %23, align 4, !tbaa !50
   %25 = fcmp olt float %.078, %24
   br i1 %25, label %26, label %27
 
@@ -388,7 +388,7 @@ define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noun
   %.1 = phi float [ %24, %26 ], [ %.078, %20 ], [ %.078, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !50
+  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !51
 
 .critedge:                                        ; preds = %27, %4
   %.0.lcssa = phi float [ -1.000000e+09, %4 ], [ %.1, %27 ]
@@ -425,7 +425,7 @@ define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noun
   %.val72.val = load ptr, ptr %42, align 8, !tbaa !31
   %43 = sext i32 %40 to i64
   %44 = getelementptr inbounds float, ptr %.val72.val, i64 %43
-  %45 = load float, ptr %44, align 4, !tbaa !49
+  %45 = load float, ptr %44, align 4, !tbaa !50
   %46 = fcmp olt float %.281, %45
   br i1 %46, label %47, label %48
 
@@ -436,7 +436,7 @@ define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noun
   %.3 = phi float [ %45, %47 ], [ %.281, %41 ], [ %.281, %38 ]
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
-  br i1 %exitcond93.not, label %.critedge2, label %38, !llvm.loop !51
+  br i1 %exitcond93.not, label %.critedge2, label %38, !llvm.loop !52
 
 .critedge2:                                       ; preds = %48, %.preheader76
   %.2.lcssa = phi float [ %.0.lcssa, %.preheader76 ], [ %.3, %48 ]
@@ -473,7 +473,7 @@ define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noun
   %.val74.val = load ptr, ptr %63, align 8, !tbaa !31
   %64 = sext i32 %61 to i64
   %65 = getelementptr inbounds float, ptr %.val74.val, i64 %64
-  %66 = load float, ptr %65, align 4, !tbaa !49
+  %66 = load float, ptr %65, align 4, !tbaa !50
   %67 = fcmp olt float %.485, %66
   br i1 %67, label %68, label %69
 
@@ -484,7 +484,7 @@ define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noun
   %.5 = phi float [ %66, %68 ], [ %.485, %62 ], [ %.485, %59 ]
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.critedge4, label %59, !llvm.loop !52
+  br i1 %exitcond98.not, label %.critedge4, label %59, !llvm.loop !53
 
 .critedge4:                                       ; preds = %69, %.preheader, %.critedge2, %.critedge
   %.056 = phi float [ %.0.lcssa, %.critedge ], [ %.2.lcssa, %.critedge2 ], [ %.2.lcssa, %.preheader ], [ %.5, %69 ]
@@ -495,7 +495,7 @@ define float @Gia_IffObjTimeOne(ptr noundef readonly captures(none) %0, i32 noun
 define float @Gia_IffObjTimeTwo(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, float noundef %3) local_unnamed_addr #5 {
   store i32 -1, ptr %2, align 4, !tbaa !41
   %5 = sext i32 %1 to i64
-  %6 = load ptr, ptr %0, align 8, !tbaa !48
+  %6 = load ptr, ptr %0, align 8, !tbaa !49
   %7 = getelementptr i8, ptr %6, i64 264
   %.val38 = load ptr, ptr %7, align 8, !tbaa !40
   %8 = getelementptr i8, ptr %.val38, i64 8
@@ -525,7 +525,7 @@ define float @Gia_IffObjTimeTwo(ptr noundef readonly captures(none) %0, i32 noun
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !41
   %25 = getelementptr i8, ptr %21, i64 32
-  %.val27 = load ptr, ptr %25, align 8, !tbaa !53
+  %.val27 = load ptr, ptr %25, align 8, !tbaa !54
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val27, i64 %26
   %.val28 = load i64, ptr %27, align 4
@@ -557,7 +557,7 @@ define float @Gia_IffObjTimeTwo(ptr noundef readonly captures(none) %0, i32 noun
   %.val70.val.i = load ptr, ptr %35, align 8, !tbaa !31
   %36 = sext i32 %33 to i64
   %37 = getelementptr inbounds float, ptr %.val70.val.i, i64 %36
-  %38 = load float, ptr %37, align 4, !tbaa !49
+  %38 = load float, ptr %37, align 4, !tbaa !50
   %39 = fcmp olt float %.078.i, %38
   br i1 %39, label %40, label %41
 
@@ -568,7 +568,7 @@ define float @Gia_IffObjTimeTwo(ptr noundef readonly captures(none) %0, i32 noun
   %.1.i = phi float [ %38, %40 ], [ %.078.i, %34 ], [ %.078.i, %31 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %31, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.critedge.i, label %31, !llvm.loop !51
 
 .critedge.i:                                      ; preds = %41, %29
   %.0.lcssa.i = phi float [ -1.000000e+09, %29 ], [ %.1.i, %41 ]
@@ -603,7 +603,7 @@ define float @Gia_IffObjTimeTwo(ptr noundef readonly captures(none) %0, i32 noun
   %.val72.val.i = load ptr, ptr %54, align 8, !tbaa !31
   %55 = sext i32 %52 to i64
   %56 = getelementptr inbounds float, ptr %.val72.val.i, i64 %55
-  %57 = load float, ptr %56, align 4, !tbaa !49
+  %57 = load float, ptr %56, align 4, !tbaa !50
   %58 = fcmp olt float %.281.i, %57
   br i1 %58, label %59, label %60
 
@@ -614,7 +614,7 @@ define float @Gia_IffObjTimeTwo(ptr noundef readonly captures(none) %0, i32 noun
   %.3.i = phi float [ %57, %59 ], [ %.281.i, %53 ], [ %.281.i, %50 ]
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count92.i
-  br i1 %exitcond93.not.i, label %Gia_IffObjTimeOne.exit, label %50, !llvm.loop !51
+  br i1 %exitcond93.not.i, label %Gia_IffObjTimeOne.exit, label %50, !llvm.loop !52
 
 Gia_IffObjTimeOne.exit:                           ; preds = %60, %.preheader76.i, %.critedge.i
   %.056.i = phi float [ %.0.lcssa.i, %.critedge.i ], [ %.0.lcssa.i, %.preheader76.i ], [ %.3.i, %60 ]
@@ -731,15 +731,15 @@ Gia_IffObjTimeOne.exit:                           ; preds = %60, %.preheader76.i
   %116 = load i32, ptr %115, align 4, !tbaa !41
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next94.i, %117
-  br i1 %118, label %100, label %Gia_IffObjCount.exit, !llvm.loop !46
+  br i1 %118, label %100, label %Gia_IffObjCount.exit, !llvm.loop !47
 
 Gia_IffObjCount.exit:                             ; preds = %112, %.critedge.i29, %.preheader80.i
   %.2.i = phi i32 [ %.0.lcssa.i30, %.critedge.i29 ], [ %.0.lcssa.i30, %.preheader80.i ], [ %.4.i, %112 ]
-  %119 = load ptr, ptr %16, align 8, !tbaa !54
+  %119 = load ptr, ptr %16, align 8, !tbaa !55
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 148
   %121 = sext i32 %.2.i to i64
   %122 = getelementptr inbounds [33 x [33 x float]], ptr %120, i64 0, i64 %121
-  %123 = load float, ptr %122, align 4, !tbaa !49
+  %123 = load float, ptr %122, align 4, !tbaa !50
   %124 = fadd float %.056.i, %123
   %125 = fcmp ogt float %.041, %124
   br i1 %125, label %126, label %127
@@ -751,7 +751,7 @@ Gia_IffObjCount.exit:                             ; preds = %112, %.critedge.i29
 127:                                              ; preds = %Gia_IffObjCount.exit, %126, %17
   %.1 = phi float [ %.041, %17 ], [ %124, %126 ], [ %.041, %Gia_IffObjCount.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %128 = load ptr, ptr %0, align 8, !tbaa !48
+  %128 = load ptr, ptr %0, align 8, !tbaa !49
   %129 = getelementptr i8, ptr %128, i64 264
   %.val = load ptr, ptr %129, align 8, !tbaa !40
   %130 = getelementptr i8, ptr %.val, i64 8
@@ -763,7 +763,7 @@ Gia_IffObjCount.exit:                             ; preds = %112, %.critedge.i29
   %135 = load i32, ptr %134, align 4, !tbaa !41
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %17, label %.critedge, !llvm.loop !55
+  br i1 %137, label %17, label %.critedge, !llvm.loop !56
 
 .critedge:                                        ; preds = %127, %4
   %.0.lcssa = phi float [ %3, %4 ], [ %.1, %127 ]
@@ -775,7 +775,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
   store i32 -1, ptr %2, align 4, !tbaa !41
   store i32 -1, ptr %3, align 4, !tbaa !41
   %6 = sext i32 %1 to i64
-  %7 = load ptr, ptr %0, align 8, !tbaa !48
+  %7 = load ptr, ptr %0, align 8, !tbaa !49
   %8 = getelementptr i8, ptr %7, i64 264
   %.val4875 = load ptr, ptr %8, align 8, !tbaa !40
   %9 = getelementptr i8, ptr %.val4875, i64 8
@@ -837,7 +837,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
 
 41:                                               ; preds = %32
   %42 = getelementptr i8, ptr %36, i64 32
-  %.val52 = load ptr, ptr %42, align 8, !tbaa !53
+  %.val52 = load ptr, ptr %42, align 8, !tbaa !54
   %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val52, i64 %28
   %.val54 = load i64, ptr %43, align 4
   %44 = and i64 %.val54, 2684354559
@@ -876,7 +876,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
   %.val70.val.i = load ptr, ptr %55, align 8, !tbaa !31
   %56 = sext i32 %53 to i64
   %57 = getelementptr inbounds float, ptr %.val70.val.i, i64 %56
-  %58 = load float, ptr %57, align 4, !tbaa !49
+  %58 = load float, ptr %57, align 4, !tbaa !50
   %59 = fcmp olt float %.078.i, %58
   br i1 %59, label %60, label %61
 
@@ -887,7 +887,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
   %.1.i = phi float [ %58, %60 ], [ %.078.i, %54 ], [ %.078.i, %51 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.i, label %51, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.critedge.i, label %51, !llvm.loop !51
 
 .critedge.i:                                      ; preds = %61, %49
   %.0.lcssa.i = phi float [ -1.000000e+09, %49 ], [ %.1.i, %61 ]
@@ -921,7 +921,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
   %.val72.val.i = load ptr, ptr %73, align 8, !tbaa !31
   %74 = sext i32 %71 to i64
   %75 = getelementptr inbounds float, ptr %.val72.val.i, i64 %74
-  %76 = load float, ptr %75, align 4, !tbaa !49
+  %76 = load float, ptr %75, align 4, !tbaa !50
   %77 = fcmp olt float %.281.i, %76
   br i1 %77, label %78, label %79
 
@@ -932,7 +932,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
   %.3.i = phi float [ %76, %78 ], [ %.281.i, %72 ], [ %.281.i, %69 ]
   %indvars.iv.next90.i = add nuw nsw i64 %indvars.iv89.i, 1
   %exitcond93.not.i = icmp eq i64 %indvars.iv.next90.i, %wide.trip.count92.i
-  br i1 %exitcond93.not.i, label %.critedge2.i, label %69, !llvm.loop !51
+  br i1 %exitcond93.not.i, label %.critedge2.i, label %69, !llvm.loop !52
 
 .critedge2.i:                                     ; preds = %79, %.preheader76.i
   %.2.lcssa.i = phi float [ %.0.lcssa.i, %.preheader76.i ], [ %.3.i, %79 ]
@@ -967,7 +967,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
   %.val74.val.i = load ptr, ptr %92, align 8, !tbaa !31
   %93 = sext i32 %90 to i64
   %94 = getelementptr inbounds float, ptr %.val74.val.i, i64 %93
-  %95 = load float, ptr %94, align 4, !tbaa !49
+  %95 = load float, ptr %94, align 4, !tbaa !50
   %96 = fcmp olt float %.485.i, %95
   br i1 %96, label %97, label %98
 
@@ -978,7 +978,7 @@ define float @Gia_IffObjTimeThree(ptr noundef readonly captures(none) %0, i32 no
   %.5.i = phi float [ %95, %97 ], [ %.485.i, %91 ], [ %.485.i, %88 ]
   %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
   %exitcond98.not.i = icmp eq i64 %indvars.iv.next95.i, %wide.trip.count97.i
-  br i1 %exitcond98.not.i, label %Gia_IffObjTimeOne.exit, label %88, !llvm.loop !52
+  br i1 %exitcond98.not.i, label %Gia_IffObjTimeOne.exit, label %88, !llvm.loop !53
 
 Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %.critedge2.i, %.preheader.i
   %.056.i = phi float [ %.0.lcssa.i, %.critedge.i ], [ %.2.lcssa.i, %.critedge2.i ], [ %.2.lcssa.i, %.preheader.i ], [ %.5.i, %98 ]
@@ -1093,7 +1093,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
   %152 = load i32, ptr %151, align 4, !tbaa !41
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next94.i, %153
-  br i1 %154, label %136, label %.critedge2.i58, !llvm.loop !46
+  br i1 %154, label %136, label %.critedge2.i58, !llvm.loop !47
 
 .critedge2.i58:                                   ; preds = %148, %.preheader80.i, %.critedge.i56
   %.2.i = phi i32 [ %.0.lcssa.i57, %.critedge.i56 ], [ %.0.lcssa.i57, %.preheader80.i ], [ %.4.i, %148 ]
@@ -1151,15 +1151,15 @@ Gia_IffObjTimeOne.exit:                           ; preds = %98, %.critedge.i, %
   %181 = load i32, ptr %180, align 4, !tbaa !41
   %182 = sext i32 %181 to i64
   %183 = icmp slt i64 %indvars.iv.next97.i, %182
-  br i1 %183, label %165, label %Gia_IffObjCount.exit, !llvm.loop !47
+  br i1 %183, label %165, label %Gia_IffObjCount.exit, !llvm.loop !48
 
 Gia_IffObjCount.exit:                             ; preds = %177, %.critedge2.i58, %.preheader.i60
   %.5.i59 = phi i32 [ %.2.i, %.critedge2.i58 ], [ %.2.i, %.preheader.i60 ], [ %.7.i, %177 ]
-  %184 = load ptr, ptr %17, align 8, !tbaa !54
+  %184 = load ptr, ptr %17, align 8, !tbaa !55
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 148
   %186 = sext i32 %.5.i59 to i64
   %187 = getelementptr inbounds [33 x [33 x float]], ptr %185, i64 0, i64 %186
-  %188 = load float, ptr %187, align 4, !tbaa !49
+  %188 = load float, ptr %187, align 4, !tbaa !50
   %189 = fadd float %.056.i, %188
   %190 = fcmp ogt float %.173, %189
   br i1 %190, label %191, label %192
@@ -1172,7 +1172,7 @@ Gia_IffObjCount.exit:                             ; preds = %177, %.critedge2.i5
 192:                                              ; preds = %Gia_IffObjCount.exit, %191, %45, %41, %32
   %.2 = phi float [ %.173, %32 ], [ %.173, %41 ], [ %.173, %45 ], [ %189, %191 ], [ %.173, %Gia_IffObjCount.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %193 = load ptr, ptr %0, align 8, !tbaa !48
+  %193 = load ptr, ptr %0, align 8, !tbaa !49
   %194 = getelementptr i8, ptr %193, i64 264
   %.val = load ptr, ptr %194, align 8, !tbaa !40
   %195 = getelementptr i8, ptr %.val, i64 8
@@ -1184,7 +1184,7 @@ Gia_IffObjCount.exit:                             ; preds = %177, %.critedge2.i5
   %200 = load i32, ptr %199, align 4, !tbaa !41
   %201 = sext i32 %200 to i64
   %202 = icmp slt i64 %indvars.iv.next, %201
-  br i1 %202, label %32, label %.critedge2, !llvm.loop !56
+  br i1 %202, label %32, label %.critedge2, !llvm.loop !57
 
 .critedge2:                                       ; preds = %192, %..critedge2_crit_edge
   %.pre-phi103 = phi i64 [ %.pre102, %..critedge2_crit_edge ], [ %201, %192 ]
@@ -1197,7 +1197,7 @@ Gia_IffObjCount.exit:                             ; preds = %177, %.critedge2.i5
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %204 = getelementptr inbounds i32, ptr %.val48.val.pre97, i64 %.pre-phi
   %205 = icmp slt i64 %indvars.iv.next83, %.pre-phi103
-  br i1 %205, label %18, label %.critedge, !llvm.loop !57
+  br i1 %205, label %18, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %.critedge2, %5
   %.0.lcssa = phi float [ %4, %5 ], [ %.1.lcssa, %.critedge2 ]
@@ -1213,18 +1213,18 @@ define noalias noundef ptr @Gia_ManIffPerform(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #15
   %9 = tail call ptr @Gia_ManIffStart(ptr noundef %0)
-  store ptr %0, ptr %9, align 8, !tbaa !48
+  store ptr %0, ptr %9, align 8, !tbaa !49
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %1, ptr %10, align 8, !tbaa !54
+  store ptr %1, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 %3, ptr %11, align 8, !tbaa !58
+  store i32 %3, ptr %11, align 8, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store i32 %4, ptr %12, align 4, !tbaa !59
+  store i32 %4, ptr %12, align 4, !tbaa !60
   %13 = getelementptr i8, ptr %9, i64 24
   %.val98 = load ptr, ptr %13, align 8, !tbaa !33
   %14 = getelementptr i8, ptr %.val98, i64 8
   %.val98.val = load ptr, ptr %14, align 8, !tbaa !31
-  store float 0.000000e+00, ptr %.val98.val, align 4, !tbaa !49
+  store float 0.000000e+00, ptr %.val98.val, align 4, !tbaa !50
   tail call void @Tim_ManIncrementTravId(ptr noundef %2) #15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !3
@@ -1245,7 +1245,7 @@ define noalias noundef ptr @Gia_ManIffPerform(ptr noundef %0, ptr noundef %1, pt
   %.082120 = phi i32 [ 0, %.lr.ph ], [ %.183, %114 ]
   %.084119 = phi i32 [ 0, %.lr.ph ], [ %.185, %114 ]
   %.086118 = phi i32 [ 0, %.lr.ph ], [ %.187, %114 ]
-  %.val96 = load ptr, ptr %18, align 8, !tbaa !53
+  %.val96 = load ptr, ptr %18, align 8, !tbaa !54
   %24 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val96, i64 %indvars.iv
   %.val101 = load i64, ptr %24, align 4
   %25 = and i64 %.val101, 2147483648
@@ -1289,7 +1289,7 @@ define noalias noundef ptr @Gia_ManIffPerform(ptr noundef %0, ptr noundef %1, pt
   %.val70.val.i = load ptr, ptr %14, align 8, !tbaa !31
   %43 = sext i32 %41 to i64
   %44 = getelementptr inbounds float, ptr %.val70.val.i, i64 %43
-  %45 = load float, ptr %44, align 4, !tbaa !49
+  %45 = load float, ptr %44, align 4, !tbaa !50
   %46 = fcmp olt float %.078.i, %45
   br i1 %46, label %47, label %48
 
@@ -1300,13 +1300,13 @@ define noalias noundef ptr @Gia_ManIffPerform(ptr noundef %0, ptr noundef %1, pt
   %.1.i = phi float [ %45, %47 ], [ %.078.i, %42 ], [ %.078.i, %39 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Gia_IffObjTimeOne.exit, label %39, !llvm.loop !50
+  br i1 %exitcond.not.i, label %Gia_IffObjTimeOne.exit, label %39, !llvm.loop !51
 
 Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %.0.lcssa.i = phi float [ -1.000000e+09, %32 ], [ %.1.i, %48 ]
   %49 = sext i32 %36 to i64
   %50 = getelementptr inbounds [33 x [33 x float]], ptr %20, i64 0, i64 %49
-  %51 = load float, ptr %50, align 4, !tbaa !49
+  %51 = load float, ptr %50, align 4, !tbaa !50
   %52 = fadd float %.0.lcssa.i, %51
   %53 = trunc nuw nsw i64 %indvars.iv to i32
   %54 = call float @Gia_IffObjTimeTwo(ptr noundef nonnull %9, i32 noundef %53, ptr noundef nonnull %6, float noundef %52)
@@ -1318,7 +1318,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
 55:                                               ; preds = %Gia_IffObjTimeOne.exit
   %.val99.val = load ptr, ptr %14, align 8, !tbaa !31
   %56 = getelementptr inbounds nuw float, ptr %.val99.val, i64 %indvars.iv
-  store float %54, ptr %56, align 4, !tbaa !49
+  store float %54, ptr %56, align 4, !tbaa !50
   %57 = fcmp olt float %54, %52
   br i1 %57, label %58, label %114
 
@@ -1336,7 +1336,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %65 = call float @Gia_IffObjTimeThree(ptr noundef nonnull %9, i32 noundef %53, ptr noundef nonnull %7, ptr noundef nonnull %8, float noundef %54)
   %.val100.val = load ptr, ptr %14, align 8, !tbaa !31
   %66 = getelementptr inbounds nuw float, ptr %.val100.val, i64 %indvars.iv
-  store float %65, ptr %66, align 4, !tbaa !49
+  store float %65, ptr %66, align 4, !tbaa !50
   %67 = fcmp oeq float %65, %52
   br i1 %67, label %114, label %68
 
@@ -1376,7 +1376,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %87 = trunc nuw i64 %86 to i32
   %88 = and i32 %87, 536870911
   %89 = tail call float @Tim_ManGetCiArrival(ptr noundef %2, i32 noundef %88) #15
-  %.val105.val = load ptr, ptr %18, align 8, !tbaa !53
+  %.val105.val = load ptr, ptr %18, align 8, !tbaa !54
   %.val106.val = load ptr, ptr %14, align 8, !tbaa !31
   %90 = ptrtoint ptr %24 to i64
   %91 = ptrtoint ptr %.val105.val to i64
@@ -1385,7 +1385,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %sext.i = shl i64 %93, 32
   %94 = ashr exact i64 %sext.i, 30
   %95 = getelementptr inbounds i8, ptr %.val106.val, i64 %94
-  store float %89, ptr %95, align 4, !tbaa !49
+  store float %89, ptr %95, align 4, !tbaa !50
   br label %114
 
 96:                                               ; preds = %83
@@ -1401,12 +1401,12 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %sext = shl i64 %100, 32
   %101 = ashr exact i64 %sext, 30
   %102 = getelementptr inbounds i8, ptr %.val95.val, i64 %101
-  %103 = load float, ptr %102, align 4, !tbaa !49
+  %103 = load float, ptr %102, align 4, !tbaa !50
   %104 = lshr i64 %.val101, 32
   %105 = trunc nuw i64 %104 to i32
   %106 = and i32 %105, 536870911
   tail call void @Tim_ManSetCoArrival(ptr noundef %2, i32 noundef %106, float noundef %103) #15
-  %.val107.val = load ptr, ptr %18, align 8, !tbaa !53
+  %.val107.val = load ptr, ptr %18, align 8, !tbaa !54
   %.val108.val = load ptr, ptr %14, align 8, !tbaa !31
   %107 = ptrtoint ptr %.val107.val to i64
   %108 = sub i64 %98, %107
@@ -1414,7 +1414,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %sext.i117 = shl i64 %109, 32
   %110 = ashr exact i64 %sext.i117, 30
   %111 = getelementptr inbounds i8, ptr %.val108.val, i64 %110
-  store float %103, ptr %111, align 4, !tbaa !49
+  store float %103, ptr %111, align 4, !tbaa !50
   %112 = fcmp ogt float %.0122, %103
   %113 = select i1 %112, float %.0122, float %103
   br label %114
@@ -1428,7 +1428,7 @@ Gia_IffObjTimeOne.exit:                           ; preds = %48, %32
   %115 = load i32, ptr %15, align 8, !tbaa !3
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %23, label %.critedge.loopexit, !llvm.loop !60
+  br i1 %117, label %23, label %.critedge.loopexit, !llvm.loop !61
 
 .critedge.loopexit:                               ; preds = %114
   %118 = fpext float %.1 to double
@@ -1459,7 +1459,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_ManIffSelect_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !48
+  %4 = load ptr, ptr %0, align 8, !tbaa !49
   %5 = getelementptr i8, ptr %4, i64 176
   %.val127 = load i32, ptr %5, align 8, !tbaa !42
   %6 = getelementptr i8, ptr %4, i64 616
@@ -1508,7 +1508,7 @@ define void @Gia_ManIffSelect_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %33 = load i32, ptr %32, align 4, !tbaa !41
   tail call void @Gia_ManIffSelect_rec(ptr noundef nonnull %0, i32 noundef %33, ptr noundef %2)
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
-  %34 = load ptr, ptr %0, align 8, !tbaa !48
+  %34 = load ptr, ptr %0, align 8, !tbaa !49
   %35 = getelementptr i8, ptr %34, i64 264
   %.val120 = load ptr, ptr %35, align 8, !tbaa !40
   %36 = getelementptr i8, ptr %.val120, i64 8
@@ -1520,7 +1520,7 @@ define void @Gia_ManIffSelect_rec(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %41 = load i32, ptr %40, align 4, !tbaa !41
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next229, %42
-  br i1 %43, label %.lr.ph213, label %.critedge, !llvm.loop !61
+  br i1 %43, label %.lr.ph213, label %.critedge, !llvm.loop !62
 
 .critedge:                                        ; preds = %.lr.ph213, %.preheader
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1669,7 +1669,7 @@ Vec_IntPush.exit139:                              ; preds = %Vec_IntPush.exit139
 
 113:                                              ; preds = %.lr.ph205
   tail call void @Gia_ManIffSelect_rec(ptr noundef nonnull %0, i32 noundef %112, ptr noundef %2)
-  %.pre237 = load ptr, ptr %0, align 8, !tbaa !48
+  %.pre237 = load ptr, ptr %0, align 8, !tbaa !49
   br label %114
 
 114:                                              ; preds = %.lr.ph205, %113
@@ -1686,7 +1686,7 @@ Vec_IntPush.exit139:                              ; preds = %Vec_IntPush.exit139
   %122 = load i32, ptr %121, align 4, !tbaa !41
   %123 = sext i32 %122 to i64
   %124 = icmp slt i64 %indvars.iv.next223, %123
-  br i1 %124, label %.lr.ph205, label %.critedge2.preheader, !llvm.loop !62
+  br i1 %124, label %.lr.ph205, label %.critedge2.preheader, !llvm.loop !63
 
 .critedge2:                                       ; preds = %.critedge2.preheader, %.critedge2
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %.critedge2 ], [ 0, %.critedge2.preheader ]
@@ -1696,7 +1696,7 @@ Vec_IntPush.exit139:                              ; preds = %Vec_IntPush.exit139
   %128 = load i32, ptr %127, align 4, !tbaa !41
   tail call void @Gia_ManIffSelect_rec(ptr noundef nonnull %0, i32 noundef %128, ptr noundef %2)
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
-  %129 = load ptr, ptr %0, align 8, !tbaa !48
+  %129 = load ptr, ptr %0, align 8, !tbaa !49
   %130 = getelementptr i8, ptr %129, i64 264
   %.val118 = load ptr, ptr %130, align 8, !tbaa !40
   %131 = getelementptr i8, ptr %.val118, i64 8
@@ -1708,7 +1708,7 @@ Vec_IntPush.exit139:                              ; preds = %Vec_IntPush.exit139
   %136 = load i32, ptr %135, align 4, !tbaa !41
   %137 = sext i32 %136 to i64
   %138 = icmp slt i64 %indvars.iv.next226, %137
-  br i1 %138, label %.critedge2, label %.critedge4, !llvm.loop !63
+  br i1 %138, label %.critedge2, label %.critedge4, !llvm.loop !64
 
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %139 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1878,7 +1878,7 @@ Vec_IntPush.exit160:                              ; preds = %Vec_IntPush.exit160
 
 217:                                              ; preds = %.lr.ph
   tail call void @Gia_ManIffSelect_rec(ptr noundef nonnull %0, i32 noundef %216, ptr noundef %2)
-  %.pre = load ptr, ptr %0, align 8, !tbaa !48
+  %.pre = load ptr, ptr %0, align 8, !tbaa !49
   br label %218
 
 218:                                              ; preds = %.lr.ph, %217
@@ -1895,7 +1895,7 @@ Vec_IntPush.exit160:                              ; preds = %Vec_IntPush.exit160
   %226 = load i32, ptr %225, align 4, !tbaa !41
   %227 = sext i32 %226 to i64
   %228 = icmp slt i64 %indvars.iv.next, %227
-  br i1 %228, label %.lr.ph, label %.critedge6.preheader, !llvm.loop !64
+  br i1 %228, label %.lr.ph, label %.critedge6.preheader, !llvm.loop !65
 
 .critedge8.preheader:                             ; preds = %.critedge6, %.critedge6.preheader
   %.val.val199 = phi ptr [ %.val116.val195, %.critedge6.preheader ], [ %.val116.val, %.critedge6 ]
@@ -1921,7 +1921,7 @@ Vec_IntPush.exit160:                              ; preds = %Vec_IntPush.exit160
 
 242:                                              ; preds = %.lr.ph197
   tail call void @Gia_ManIffSelect_rec(ptr noundef nonnull %0, i32 noundef %241, ptr noundef %2)
-  %.pre233 = load ptr, ptr %0, align 8, !tbaa !48
+  %.pre233 = load ptr, ptr %0, align 8, !tbaa !49
   br label %.critedge6
 
 .critedge6:                                       ; preds = %.lr.ph197, %242
@@ -1938,7 +1938,7 @@ Vec_IntPush.exit160:                              ; preds = %Vec_IntPush.exit160
   %250 = load i32, ptr %249, align 4, !tbaa !41
   %251 = sext i32 %250 to i64
   %252 = icmp slt i64 %indvars.iv.next217, %251
-  br i1 %252, label %.lr.ph197, label %.critedge8.preheader, !llvm.loop !65
+  br i1 %252, label %.lr.ph197, label %.critedge8.preheader, !llvm.loop !66
 
 .lr.ph201:                                        ; preds = %.critedge8.preheader, %.critedge8
   %253 = phi ptr [ %259, %.critedge8 ], [ %229, %.critedge8.preheader ]
@@ -1952,7 +1952,7 @@ Vec_IntPush.exit160:                              ; preds = %Vec_IntPush.exit160
 
 258:                                              ; preds = %.lr.ph201
   tail call void @Gia_ManIffSelect_rec(ptr noundef nonnull %0, i32 noundef %257, ptr noundef %2)
-  %.pre236 = load ptr, ptr %0, align 8, !tbaa !48
+  %.pre236 = load ptr, ptr %0, align 8, !tbaa !49
   br label %.critedge8
 
 .critedge8:                                       ; preds = %.lr.ph201, %258
@@ -1969,7 +1969,7 @@ Vec_IntPush.exit160:                              ; preds = %Vec_IntPush.exit160
   %266 = load i32, ptr %265, align 4, !tbaa !41
   %267 = sext i32 %266 to i64
   %268 = icmp slt i64 %indvars.iv.next220, %267
-  br i1 %268, label %.lr.ph201, label %.critedge10, !llvm.loop !66
+  br i1 %268, label %.lr.ph201, label %.critedge10, !llvm.loop !67
 
 .critedge10:                                      ; preds = %.critedge8, %.critedge8.preheader
   %269 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2168,7 +2168,7 @@ Vec_IntPush.exit188:                              ; preds = %Vec_IntPush.exit188
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Gia_ManIffSelect(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !48
+  %2 = load ptr, ptr %0, align 8, !tbaa !49
   %3 = getelementptr i8, ptr %2, i64 24
   %.val = load i32, ptr %3, align 8, !tbaa !3
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
@@ -2200,14 +2200,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 1, ptr %6, align 4, !tbaa !38
   store i32 0, ptr %13, align 4, !tbaa !41
   tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %2) #15
-  %14 = load ptr, ptr %0, align 8, !tbaa !48
+  %14 = load ptr, ptr %0, align 8, !tbaa !49
   %15 = getelementptr i8, ptr %14, i64 176
   %.val25 = load i32, ptr %15, align 8, !tbaa !42
   %16 = getelementptr i8, ptr %14, i64 616
   %.val26 = load ptr, ptr %16, align 8, !tbaa !43
   store i32 %.val25, ptr %.val26, align 4, !tbaa !41
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !67
+  %18 = load ptr, ptr %17, align 8, !tbaa !68
   %19 = getelementptr i8, ptr %18, i64 4
   %.val2834 = load i32, ptr %19, align 4, !tbaa !38
   %20 = icmp sgt i32 %.val2834, 0
@@ -2215,7 +2215,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit
   %21 = getelementptr i8, ptr %14, i64 32
-  %.val30 = load ptr, ptr %21, align 8, !tbaa !53
+  %.val30 = load ptr, ptr %21, align 8, !tbaa !54
   %.not = icmp eq ptr %.val30, null
   br i1 %.not, label %.critedge, label %.lr.ph.split
 
@@ -2237,11 +2237,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val28 = load i32, ptr %19, align 4, !tbaa !38
   %29 = sext i32 %.val28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %23, label %.critedge, !llvm.loop !68
+  br i1 %30, label %23, label %.critedge, !llvm.loop !69
 
 .critedge:                                        ; preds = %23, %.lr.ph, %Vec_IntPush.exit
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %32 = load ptr, ptr %31, align 8, !tbaa !69
+  %32 = load ptr, ptr %31, align 8, !tbaa !70
   %33 = getelementptr i8, ptr %32, i64 4
   %.val2937 = load i32, ptr %33, align 4, !tbaa !38
   %34 = icmp sgt i32 %.val2937, 0
@@ -2252,7 +2252,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %35 = phi ptr [ %49, %38 ], [ %32, %.critedge ]
   %36 = phi ptr [ %47, %38 ], [ %14, %.critedge ]
   %37 = getelementptr i8, ptr %36, i64 32
-  %.val32 = load ptr, ptr %37, align 8, !tbaa !53
+  %.val32 = load ptr, ptr %37, align 8, !tbaa !54
   %.not24 = icmp eq ptr %.val32, null
   br i1 %.not24, label %.critedge2, label %38
 
@@ -2269,14 +2269,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %46 = sub nsw i32 %41, %45
   tail call void @Gia_ManIffSelect_rec(ptr noundef nonnull %0, i32 noundef %46, ptr noundef nonnull %4)
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %47 = load ptr, ptr %0, align 8, !tbaa !48
+  %47 = load ptr, ptr %0, align 8, !tbaa !49
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 72
-  %49 = load ptr, ptr %48, align 8, !tbaa !69
+  %49 = load ptr, ptr %48, align 8, !tbaa !70
   %50 = getelementptr i8, ptr %49, i64 4
   %.val29 = load i32, ptr %50, align 4, !tbaa !38
   %51 = sext i32 %.val29 to i64
   %52 = icmp slt i64 %indvars.iv.next43, %51
-  br i1 %52, label %.lr.ph39, label %.critedge2, !llvm.loop !70
+  br i1 %52, label %.lr.ph39, label %.critedge2, !llvm.loop !71
 
 .critedge2:                                       ; preds = %.lr.ph39, %38, %.critedge
   ret ptr %4
@@ -2286,14 +2286,14 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 define void @Gia_ManIffTest(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
-  store ptr null, ptr %4, align 8, !tbaa !71
+  store ptr null, ptr %4, align 8, !tbaa !72
   %5 = tail call i32 @Gia_ManLutSizeMax(ptr noundef %0) #15
   %6 = icmp slt i32 %5, 5
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !73
+  %9 = load i32, ptr %8, align 8, !tbaa !74
   switch i32 %9, label %11 [
     i32 7, label %20
     i32 10, label %10
@@ -2312,7 +2312,7 @@ define void @Gia_ManIffTest(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !73
+  %16 = load i32, ptr %15, align 8, !tbaa !74
   switch i32 %16, label %18 [
     i32 11, label %20
     i32 16, label %17
@@ -2341,34 +2341,34 @@ define void @Gia_ManIffTest(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 
 23:                                               ; preds = %21, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 736
-  %25 = load ptr, ptr %24, align 8, !tbaa !75
+  %25 = load ptr, ptr %24, align 8, !tbaa !76
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %23
   %28 = getelementptr i8, ptr %0, i64 64
-  %.val = load ptr, ptr %28, align 8, !tbaa !67
+  %.val = load ptr, ptr %28, align 8, !tbaa !68
   %29 = getelementptr i8, ptr %.val, i64 4
   %.val.val = load i32, ptr %29, align 4, !tbaa !38
   %30 = getelementptr i8, ptr %0, i64 72
-  %.val32 = load ptr, ptr %30, align 8, !tbaa !69
+  %.val32 = load ptr, ptr %30, align 8, !tbaa !70
   %31 = getelementptr i8, ptr %.val32, i64 4
   %.val32.val = load i32, ptr %31, align 4, !tbaa !38
   %32 = tail call ptr @Tim_ManStart(i32 noundef %.val.val, i32 noundef %.val32.val) #15
-  store ptr %32, ptr %4, align 8, !tbaa !71
-  store ptr %32, ptr %24, align 8, !tbaa !75
+  store ptr %32, ptr %4, align 8, !tbaa !72
+  store ptr %32, ptr %24, align 8, !tbaa !76
   br label %33
 
 33:                                               ; preds = %27, %23
   %34 = phi ptr [ %32, %27 ], [ null, %23 ]
   %35 = phi ptr [ %32, %27 ], [ %25, %23 ]
   %36 = tail call ptr @Gia_ManIffPerform(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %35, i32 noundef %.0, i32 noundef %.026)
-  %37 = load ptr, ptr %24, align 8, !tbaa !75
+  %37 = load ptr, ptr %24, align 8, !tbaa !76
   %38 = icmp eq ptr %37, %34
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %33
-  store ptr null, ptr %24, align 8, !tbaa !75
+  store ptr null, ptr %24, align 8, !tbaa !76
   br label %40
 
 40:                                               ; preds = %39, %33
@@ -2399,7 +2399,7 @@ define void @Gia_ManIffTest(ptr noundef %0, ptr noundef %1, i32 noundef %2) loca
 
 Vec_IntFreeP.exit:                                ; preds = %40, %49
   %51 = call ptr @Gia_ManIffSelect(ptr noundef %36)
-  store ptr %51, ptr %41, align 8, !tbaa !76
+  store ptr %51, ptr %41, align 8, !tbaa !77
   call void @Gia_ManIffStop(ptr noundef %36)
   br i1 %.not, label %53, label %52
 
@@ -2496,36 +2496,37 @@ attributes #16 = { nounwind allocsize(1) }
 !41 = !{!9, !9, i64 0}
 !42 = !{!4, !9, i64 176}
 !43 = !{!4, !11, i64 616}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = !{!34, !19, i64 0}
-!49 = !{!21, !21, i64 0}
-!50 = distinct !{!50, !45}
-!51 = distinct !{!51, !45}
-!52 = distinct !{!52, !45}
-!53 = !{!4, !10, i64 32}
-!54 = !{!34, !35, i64 8}
-!55 = distinct !{!55, !45}
-!56 = distinct !{!56, !45}
-!57 = distinct !{!57, !45}
-!58 = !{!34, !9, i64 16}
-!59 = !{!34, !9, i64 20}
-!60 = distinct !{!60, !45}
-!61 = distinct !{!61, !45}
-!62 = distinct !{!62, !45}
-!63 = distinct !{!63, !45}
-!64 = distinct !{!64, !45}
-!65 = distinct !{!65, !45}
-!66 = distinct !{!66, !45}
-!67 = !{!4, !12, i64 64}
-!68 = distinct !{!68, !45}
-!69 = !{!4, !12, i64 72}
-!70 = distinct !{!70, !45}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS10Tim_Man_t_", !6, i64 0}
-!73 = !{!74, !9, i64 8}
-!74 = !{!"If_LibLut_t_", !5, i64 0, !9, i64 8, !9, i64 12, !7, i64 16, !7, i64 148}
-!75 = !{!4, !6, i64 736}
-!76 = !{!4, !12, i64 304}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = !{!34, !19, i64 0}
+!50 = !{!21, !21, i64 0}
+!51 = distinct !{!51, !45, !46}
+!52 = distinct !{!52, !45, !46}
+!53 = distinct !{!53, !45, !46}
+!54 = !{!4, !10, i64 32}
+!55 = !{!34, !35, i64 8}
+!56 = distinct !{!56, !45, !46}
+!57 = distinct !{!57, !45, !46}
+!58 = distinct !{!58, !45, !46}
+!59 = !{!34, !9, i64 16}
+!60 = !{!34, !9, i64 20}
+!61 = distinct !{!61, !45, !46}
+!62 = distinct !{!62, !45, !46}
+!63 = distinct !{!63, !45, !46}
+!64 = distinct !{!64, !45, !46}
+!65 = distinct !{!65, !45, !46}
+!66 = distinct !{!66, !45, !46}
+!67 = distinct !{!67, !45, !46}
+!68 = !{!4, !12, i64 64}
+!69 = distinct !{!69, !45, !46}
+!70 = !{!4, !12, i64 72}
+!71 = distinct !{!71, !45, !46}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTS10Tim_Man_t_", !6, i64 0}
+!74 = !{!75, !9, i64 8}
+!75 = !{!"If_LibLut_t_", !5, i64 0, !9, i64 8, !9, i64 12, !7, i64 16, !7, i64 148}
+!76 = !{!4, !6, i64 736}
+!77 = !{!4, !12, i64 304}

@@ -250,7 +250,7 @@ tailrecurse.i.i.i:                                ; preds = %142, %76
   %97 = getelementptr inbounds nuw i8, ptr %.04966.i.i.i.i, i64 8
   %98 = load ptr, ptr %97, align 8
   %.not55.i.i.i.i = icmp eq ptr %98, null
-  br i1 %.not55.i.i.i.i, label %.lr.ph73.i.i.i.i, label %88, !llvm.loop !10
+  br i1 %.not55.i.i.i.i, label %.lr.ph73.i.i.i.i, label %88, !llvm.loop !11
 
 .loopexit.i.i.i.i:                                ; preds = %110, %.lr.ph.i.i.i
   %99 = getelementptr inbounds nuw i8, ptr %101, i64 24
@@ -283,7 +283,7 @@ tailrecurse.i.i.i:                                ; preds = %142, %76
   %111 = getelementptr inbounds nuw i8, ptr %.169.i.i.i.i, i64 8
   %.1.i.i.i.i = load ptr, ptr %111, align 8
   %.not58.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not58.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph70.i.i.i.i, !llvm.loop !11
+  br i1 %.not58.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph70.i.i.i.i, !llvm.loop !12
 
 .critedge.i.i.i.i:                                ; preds = %.loopexit.i.i.i.i, %.lr.ph73.i.i.i.i, %tailrecurse.i.i.i
   %112 = call noalias dereferenceable_or_null(32) ptr @g_malloc(i64 noundef 32) #7
@@ -349,13 +349,13 @@ find_stat_node.exit.i.i.i:                        ; preds = %91, %105, %.critedg
   %143 = load i32, ptr %139, align 8
   %144 = load i32, ptr @pc_proto_id, align 4
   %.not28.i.i.i = icmp eq i32 %143, %144
-  br i1 %.not28.i.i.i, label %.backedge.i.i.i, label %tailrecurse.i.i.i, !llvm.loop !12
+  br i1 %.not28.i.i.i, label %.backedge.i.i.i, label %tailrecurse.i.i.i, !llvm.loop !13
 
 .backedge.i.i.i:                                  ; preds = %142, %137, %.lr.ph42.i.i.i
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.041.i.i.i, i64 16
   %.0.i9.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not25.i.i.i = icmp eq ptr %.0.i9.i.i, null
-  br i1 %.not25.i.i.i, label %process_node.exit.i.i, label %.lr.ph42.i.i.i, !llvm.loop !12
+  br i1 %.not25.i.i.i, label %process_node.exit.i.i, label %.lr.ph42.i.i.i, !llvm.loop !13
 
 process_node.exit.i.i:                            ; preds = %124, %.backedge.i.i.i
   %145 = getelementptr inbounds nuw i8, ptr %79, i64 12
@@ -415,7 +415,7 @@ process_record.exit:                              ; preds = %process_tree.exit.i
   %174 = add i32 %.068108, 1
   %175 = load i32, ptr %21, align 8
   %.not76 = icmp ugt i32 %174, %175
-  br i1 %.not76, label %.loopexit, label %29, !llvm.loop !13
+  br i1 %.not76, label %.loopexit, label %29, !llvm.loop !14
 
 .loopexit:                                        ; preds = %172, %46, %process_record.exit.thread
   call void @wtap_rec_cleanup(ptr noundef nonnull %3)
@@ -577,9 +577,10 @@ attributes #7 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

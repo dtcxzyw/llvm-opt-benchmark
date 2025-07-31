@@ -181,7 +181,7 @@ if.end17:                                         ; preds = %_ZNK4llvh3sys14Unic
   %retval.0.i.ph = phi i32 [ %spec.select.i, %_ZNK4llvh3sys14UnicodeCharSet8containsEj.exit27.i ], [ 1, %_ZSt13__lower_boundIPKN4llvh3sys16UnicodeCharRangeEjN9__gnu_cxx5__ops14_Iter_less_valEET_S8_S8_RKT0_T1_.exit.i.i21.i ], [ 0, %_ZNK4llvh3sys14UnicodeCharSet8containsEj.exit.i ]
   %add18 = add i32 %retval.0.i.ph, %ColumnWidth.016
   %cmp = icmp ult i64 %add, %Text.coerce1
-  br i1 %cmp, label %for.body, label %return, !llvm.loop !6
+  br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
 return:                                           ; preds = %lor.lhs.false, %for.body, %if.end, %if.end17, %if.end12, %_ZN4llvh3sys7unicode11isPrintableEi.exit.i, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ -1, %_ZN4llvh3sys7unicode11isPrintableEi.exit.i ], [ -1, %if.end12 ], [ %add18, %if.end17 ], [ -2, %if.end ], [ -2, %for.body ], [ -2, %lor.lhs.false ]
@@ -203,6 +203,7 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

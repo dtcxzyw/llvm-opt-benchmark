@@ -1243,7 +1243,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
 49:                                               ; preds = %40
   %50 = tail call zeroext i1 @is_member_of_role_nosuper(i32 noundef %2, i32 noundef %43) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %50, label %.split186, label %.split.split, !llvm.loop !8
+  br i1 %50, label %.split186, label %.split.split, !llvm.loop !9
 
 .split186:                                        ; preds = %49
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1277,7 +1277,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   %67 = load i32, ptr %57, align 8
   %68 = sext i32 %67 to i64
   %69 = icmp slt i64 %indvars.iv.next.i, %68
-  br i1 %69, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !9
+  br i1 %69, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !10
 
 initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %55, %60
   %70 = phi i32 [ 0, %55 ], [ %64, %60 ], [ %67, %.lr.ph.i ]
@@ -1351,7 +1351,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %55, %60
   %indvars.iv.next.i160 = add nuw nsw i64 %indvars.iv.i159, 1
   %105 = sext i32 %104 to i64
   %106 = icmp slt i64 %indvars.iv.next.i160, %105
-  br i1 %106, label %.lr.ph.i158, label %plan_member_revoke.exit.loopexit, !llvm.loop !10
+  br i1 %106, label %.lr.ph.i158, label %plan_member_revoke.exit.loopexit, !llvm.loop !11
 
 plan_member_revoke.exit.loopexit:                 ; preds = %102
   %.pre = load i32, ptr %17, align 4
@@ -1395,7 +1395,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
 130:                                              ; preds = %111, %122, %126
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %130, %.critedge
   %131 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
@@ -1627,7 +1627,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8) #11
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  br label %.split196, !llvm.loop !12
+  br label %.split196, !llvm.loop !13
 }
 
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
@@ -2527,7 +2527,7 @@ define internal fastcc void @DelRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   %28 = load i32, ptr %18, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i, %29
-  br i1 %30, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !9
+  br i1 %30, label %.lr.ph.i, label %initialize_revoke_actions.exit, !llvm.loop !10
 
 initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
   %.08.i = phi ptr [ null, %8 ], [ %24, %21 ], [ %24, %.lr.ph.i ]
@@ -2650,7 +2650,7 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %8, %21
 97:                                               ; preds = %80, %69
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i63, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %plan_single_revoke.exit, label %69, !llvm.loop !13
+  br i1 %exitcond.not.i, label %plan_single_revoke.exit, label %69, !llvm.loop !14
 
 plan_single_revoke.exit:                          ; preds = %97, %62
   %98 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #11
@@ -2665,7 +2665,7 @@ plan_single_revoke.exit:                          ; preds = %97, %62
 
 plan_single_revoke.exit.thread:                   ; preds = %88, %94, %92, %plan_single_revoke.exit, %99
   %103 = add i32 %.sroa.10.0, 1
-  br label %36, !llvm.loop !14
+  br label %36, !llvm.loop !15
 
 104:                                              ; preds = %.lr.ph, %131
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
@@ -2743,7 +2743,7 @@ plan_single_revoke.exit.thread:                   ; preds = %88, %94, %92, %plan
   %132 = load i32, ptr %18, align 8
   %133 = sext i32 %132 to i64
   %134 = icmp slt i64 %indvars.iv.next, %133
-  br i1 %134, label %104, label %._crit_edge, !llvm.loop !15
+  br i1 %134, label %104, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %131, %.preheader
   call void @ReleaseCatCacheList(ptr noundef nonnull %17) #11
@@ -3092,7 +3092,7 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
   call void @CatalogTupleDelete(ptr noundef %14, ptr noundef nonnull %112) #11
   %113 = call ptr @systable_getnext(ptr noundef %103) #11
   %.not79 = icmp eq ptr %113, null
-  br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not79, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %101
   call void @systable_endscan(ptr noundef %103) #11
@@ -3116,7 +3116,7 @@ define dso_local void @DropRole(ptr noundef readonly captures(none) %0) local_un
   call void @CatalogTupleDelete(ptr noundef %14, ptr noundef nonnull %123) #11
   %124 = call ptr @systable_getnext(ptr noundef %114) #11
   %.not80 = icmp eq ptr %124, null
-  br i1 %.not80, label %._crit_edge110, label %.lr.ph109, !llvm.loop !17
+  br i1 %.not80, label %._crit_edge110, label %.lr.ph109, !llvm.loop !18
 
 ._crit_edge110:                                   ; preds = %.lr.ph109, %._crit_edge
   call void @systable_endscan(ptr noundef %114) #11
@@ -4224,7 +4224,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 53:                                               ; preds = %50, %39
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %54 = icmp samesign ult i64 %indvars.iv.next69, %38
-  br i1 %54, label %39, label %.thread55, !llvm.loop !18
+  br i1 %54, label %39, label %.thread55, !llvm.loop !19
 
 55:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
@@ -4256,7 +4256,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
 74:                                               ; preds = %55, %66, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph61, label %55, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph61, label %55, !llvm.loop !21
 
 .lr.ph61.split:                                   ; preds = %.lr.ph61, %96
   %75 = phi i32 [ %97, %96 ], [ %31, %.lr.ph61 ]
@@ -4301,7 +4301,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next66, %98
-  br i1 %99, label %.lr.ph61.split, label %.thread55, !llvm.loop !21
+  br i1 %99, label %.lr.ph61.split, label %.thread55, !llvm.loop !22
 
 .thread55:                                        ; preds = %70, %96, %53, %29, %24, %20, %5
   ret void
@@ -4340,19 +4340,20 @@ attributes #15 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

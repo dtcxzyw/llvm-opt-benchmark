@@ -747,7 +747,7 @@ define internal fastcc ptr @_expand_source(ptr noundef %0, ptr noundef nonnull c
   %.not32 = icmp eq i8 %44, 0
   %.not33 = icmp eq i8 %44, %2
   %or.cond38 = or i1 %.not32, %.not33
-  br i1 %or.cond38, label %.critedge2, label %.lr.ph
+  br i1 %or.cond38, label %.critedge2, label %.lr.ph, !llvm.loop !127
 
 .critedge2:                                       ; preds = %40, %.preheader
   %45 = phi i8 [ %11, %.preheader ], [ %44, %40 ]
@@ -1137,7 +1137,7 @@ _grow_buffer.exit40:                              ; preds = %223, %233
   %.not30 = icmp eq i8 %243, 0
   %.not31 = icmp eq i8 %243, %2
   %or.cond = or i1 %.not30, %.not31
-  br i1 %or.cond, label %.critedge, label %.preheader
+  br i1 %or.cond, label %.critedge, label %.preheader, !llvm.loop !129
 
 .critedge:                                        ; preds = %241, %7
   %.069.lcssa = phi ptr [ %5, %7 ], [ %.574, %241 ]
@@ -1159,20 +1159,20 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define void @dt_variables_params_init(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0(i64 noundef 48) #18
-  store ptr %2, ptr %0, align 8, !tbaa !127
+  store ptr %2, ptr %0, align 8, !tbaa !130
   %3 = tail call noalias dereferenceable_or_null(256) ptr @g_malloc0(i64 noundef 256) #18
-  %4 = load ptr, ptr %0, align 8, !tbaa !127
+  %4 = load ptr, ptr %0, align 8, !tbaa !130
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %3, ptr %5, align 8, !tbaa !11
   %6 = tail call ptr @g_date_time_new_now_local() #16
-  %7 = load ptr, ptr %0, align 8, !tbaa !127
+  %7 = load ptr, ptr %0, align 8, !tbaa !130
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !11
-  store ptr %6, ptr %9, align 8, !tbaa !129
+  store ptr %6, ptr %9, align 8, !tbaa !132
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr null, ptr %10, align 8, !tbaa !124
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 -1, ptr %11, align 4, !tbaa !130
+  store i32 -1, ptr %11, align 4, !tbaa !133
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr null, ptr %12, align 8, !tbaa !38
   ret void
@@ -1187,7 +1187,7 @@ declare ptr @g_date_time_new_now_local() local_unnamed_addr #3
 define void @dt_variables_params_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !11
-  %4 = load ptr, ptr %3, align 8, !tbaa !129
+  %4 = load ptr, ptr %3, align 8, !tbaa !132
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
 
@@ -1265,7 +1265,7 @@ define void @dt_variables_set_time(ptr noundef readonly captures(none) %0, ptr n
   %4 = tail call ptr @dt_datetime_exif_to_gdatetime(ptr noundef %1, ptr noundef %3) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !11
-  store ptr %4, ptr %6, align 8, !tbaa !129
+  store ptr %4, ptr %6, align 8, !tbaa !132
   ret void
 }
 
@@ -1361,7 +1361,7 @@ define void @dt_variables_set_tags_flags(ptr noundef readonly captures(none) %0,
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
-  store i32 %1, ptr %5, align 8, !tbaa !131
+  store i32 %1, ptr %5, align 8, !tbaa !134
   ret void
 }
 
@@ -1421,7 +1421,7 @@ define internal fastcc ptr @_get_base_value(ptr noundef readonly %0, ptr noundef
   %.not = icmp eq i32 %17, 0
   %.in.idx = select i1 %.not, i64 0, i64 152
   %.in = getelementptr inbounds nuw i8, ptr %15, i64 %.in.idx
-  %18 = load ptr, ptr %.in, align 8, !tbaa !132
+  %18 = load ptr, ptr %.in, align 8, !tbaa !135
   %19 = load ptr, ptr %1, align 8, !tbaa !6
   %20 = tail call i32 @g_str_has_prefix(ptr noundef %19, ptr noundef nonnull @.str.9) #16
   %.not.i = icmp eq i32 %20, 0
@@ -1456,7 +1456,7 @@ _has_prefix.exit653:                              ; preds = %27
   %.sink = phi ptr [ %30, %_has_prefix.exit653 ], [ %26, %_has_prefix.exit651 ], [ %22, %_has_prefix.exit ]
   store ptr %.sink, ptr %1, align 8, !tbaa !6
   %32 = load ptr, ptr %14, align 8, !tbaa !11
-  %33 = load ptr, ptr %32, align 8, !tbaa !129
+  %33 = load ptr, ptr %32, align 8, !tbaa !132
   %34 = tail call noalias ptr @g_date_time_format(ptr noundef %33, ptr noundef nonnull @.str.12) #16
   store ptr %34, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1479,7 +1479,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 41:                                               ; preds = %_has_prefix.exit655, %39
   %42 = load ptr, ptr %14, align 8, !tbaa !11
-  %43 = load ptr, ptr %42, align 8, !tbaa !129
+  %43 = load ptr, ptr %42, align 8, !tbaa !132
   %44 = tail call noalias ptr @g_date_time_format(ptr noundef %43, ptr noundef nonnull @.str.15) #16
   store ptr %44, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1496,7 +1496,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 49:                                               ; preds = %47, %45
   %50 = load ptr, ptr %14, align 8, !tbaa !11
-  %51 = load ptr, ptr %50, align 8, !tbaa !129
+  %51 = load ptr, ptr %50, align 8, !tbaa !132
   %52 = tail call noalias ptr @g_date_time_format(ptr noundef %51, ptr noundef nonnull @.str.18) #16
   store ptr %52, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1513,7 +1513,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 57:                                               ; preds = %55, %53
   %58 = load ptr, ptr %14, align 8, !tbaa !11
-  %59 = load ptr, ptr %58, align 8, !tbaa !129
+  %59 = load ptr, ptr %58, align 8, !tbaa !132
   %60 = tail call noalias ptr @g_date_time_format(ptr noundef %59, ptr noundef nonnull @.str.21) #16
   store ptr %60, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1530,7 +1530,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 65:                                               ; preds = %63, %61
   %66 = load ptr, ptr %14, align 8, !tbaa !11
-  %67 = load ptr, ptr %66, align 8, !tbaa !129
+  %67 = load ptr, ptr %66, align 8, !tbaa !132
   %68 = tail call noalias ptr @g_date_time_format(ptr noundef %67, ptr noundef nonnull @.str.24) #16
   store ptr %68, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1547,7 +1547,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 73:                                               ; preds = %71, %69
   %74 = load ptr, ptr %14, align 8, !tbaa !11
-  %75 = load ptr, ptr %74, align 8, !tbaa !129
+  %75 = load ptr, ptr %74, align 8, !tbaa !132
   %76 = tail call noalias ptr @g_date_time_format(ptr noundef %75, ptr noundef nonnull @.str.27) #16
   store ptr %76, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1564,7 +1564,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 81:                                               ; preds = %79, %77
   %82 = load ptr, ptr %14, align 8, !tbaa !11
-  %83 = load ptr, ptr %82, align 8, !tbaa !129
+  %83 = load ptr, ptr %82, align 8, !tbaa !132
   %84 = tail call noalias ptr @g_date_time_format(ptr noundef %83, ptr noundef nonnull @.str.30) #16
   store ptr %84, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1581,7 +1581,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 89:                                               ; preds = %87, %85
   %90 = load ptr, ptr %14, align 8, !tbaa !11
-  %91 = load ptr, ptr %90, align 8, !tbaa !129
+  %91 = load ptr, ptr %90, align 8, !tbaa !132
   %92 = tail call noalias ptr @g_date_time_format(ptr noundef %91, ptr noundef nonnull @.str.33) #16
   store ptr %92, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1598,7 +1598,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 97:                                               ; preds = %95, %93
   %98 = load ptr, ptr %14, align 8, !tbaa !11
-  %99 = load ptr, ptr %98, align 8, !tbaa !129
+  %99 = load ptr, ptr %98, align 8, !tbaa !132
   %100 = tail call noalias ptr @g_date_time_format(ptr noundef %99, ptr noundef nonnull @.str.36) #16
   store ptr %100, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1615,7 +1615,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 105:                                              ; preds = %103, %101
   %106 = load ptr, ptr %14, align 8, !tbaa !11
-  %107 = load ptr, ptr %106, align 8, !tbaa !129
+  %107 = load ptr, ptr %106, align 8, !tbaa !132
   %108 = tail call noalias ptr @g_date_time_format(ptr noundef %107, ptr noundef nonnull @.str.39) #16
   store ptr %108, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -1627,7 +1627,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr %14, align 8, !tbaa !11
-  %113 = load ptr, ptr %112, align 8, !tbaa !129
+  %113 = load ptr, ptr %112, align 8, !tbaa !132
   %114 = tail call noalias ptr @g_date_time_format(ptr noundef %113, ptr noundef nonnull @.str.41) #16
   store ptr %114, ptr %3, align 8, !tbaa !6
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 3
@@ -1645,7 +1645,7 @@ _has_prefix.exit655:                              ; preds = %35
   %121 = load i32, ptr %120, align 4, !tbaa !36
   %.not647 = icmp eq i32 %121, 0
   %122 = select i1 %.not647, i64 20, i64 24
-  %123 = load ptr, ptr %119, align 8, !tbaa !129
+  %123 = load ptr, ptr %119, align 8, !tbaa !132
   %124 = call i32 @dt_datetime_gdatetime_to_exif(ptr noundef nonnull %4, i64 noundef %122, ptr noundef %123) #16
   %125 = call noalias ptr @g_strdup(ptr noundef nonnull %4) #16
   store ptr %125, ptr %3, align 8, !tbaa !6
@@ -1909,14 +1909,14 @@ _has_prefix.exit655:                              ; preds = %35
 
 233:                                              ; preds = %231
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %235 = load ptr, ptr %234, align 8, !tbaa !133
+  %235 = load ptr, ptr %234, align 8, !tbaa !136
   %236 = tail call i32 @g_strcmp0(ptr noundef %235, ptr noundef nonnull @.str.79) #16
   %237 = icmp eq i32 %236, 0
   br i1 %237, label %238, label %245
 
 238:                                              ; preds = %233
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %240 = load i32, ptr %239, align 4, !tbaa !134
+  %240 = load i32, ptr %239, align 4, !tbaa !137
   %.not645 = icmp eq i32 %240, 0
   br i1 %.not645, label %243, label %241
 
@@ -1983,7 +1983,7 @@ _has_prefix.exit655:                              ; preds = %35
   %272 = tail call ptr @dt_util_format_exposure(float noundef %271) #16
   store ptr %272, ptr %3, align 8, !tbaa !6
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %274 = load ptr, ptr %273, align 8, !tbaa !133
+  %274 = load ptr, ptr %273, align 8, !tbaa !136
   %275 = tail call i32 @g_strcmp0(ptr noundef %274, ptr noundef nonnull @.str.79) #16
   %.not644 = icmp eq i32 %275, 0
   br i1 %.not644, label %thread-pre-split, label %276
@@ -2284,7 +2284,7 @@ _has_prefix.exit655:                              ; preds = %35
   call void @g_free(ptr noundef %423) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !138
 
 424:                                              ; preds = %391
   %425 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.113)
@@ -2347,7 +2347,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 453:                                              ; preds = %451
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #16
-  %454 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !135
+  %454 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !139
   %455 = and i32 %454, 256
   %.not642 = icmp eq i32 %455, 0
   br i1 %.not642, label %457, label %456
@@ -2357,35 +2357,35 @@ _has_prefix.exit655:                              ; preds = %35
   br label %457
 
 457:                                              ; preds = %456, %453
-  %458 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !136
+  %458 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !140
   %459 = tail call ptr @dt_database_get(ptr noundef %458) #16
   %460 = call i32 @sqlite3_prepare_v2(ptr noundef %459, ptr noundef nonnull @.str.122, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #16
   %.not643 = icmp eq i32 %460, 0
   br i1 %.not643, label %467, label %461
 
 461:                                              ; preds = %457
-  %462 = load ptr, ptr @stderr, align 8, !tbaa !137
-  %463 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !136
+  %462 = load ptr, ptr @stderr, align 8, !tbaa !141
+  %463 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !140
   %464 = call ptr @dt_database_get(ptr noundef %463) #16
   %465 = call ptr @sqlite3_errmsg(ptr noundef %464) #16
   %466 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %462, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i32 noundef 559, ptr noundef nonnull @__FUNCTION__._get_base_value, ptr noundef nonnull @.str.122, ptr noundef %465) #20
   br label %467
 
 467:                                              ; preds = %461, %457
-  %468 = load ptr, ptr %6, align 8, !tbaa !139
+  %468 = load ptr, ptr %6, align 8, !tbaa !143
   %469 = call i32 @sqlite3_step(ptr noundef %468) #16
   %470 = icmp eq i32 %469, 100
   br i1 %470, label %471, label %475
 
 471:                                              ; preds = %467
-  %472 = load ptr, ptr %6, align 8, !tbaa !139
+  %472 = load ptr, ptr %6, align 8, !tbaa !143
   %473 = call i32 @sqlite3_column_int(ptr noundef %472, i32 noundef 0) #16
   %474 = add nsw i32 %473, 1
   br label %475
 
 475:                                              ; preds = %471, %467
   %.0404 = phi i32 [ %474, %471 ], [ 1, %467 ]
-  %476 = load ptr, ptr %6, align 8, !tbaa !139
+  %476 = load ptr, ptr %6, align 8, !tbaa !143
   %477 = call i32 @sqlite3_finalize(ptr noundef %476) #16
   %478 = call fastcc zeroext i8 @_get_var_parameter(ptr noundef %1)
   %479 = zext i8 %478 to i32
@@ -2468,7 +2468,7 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not640, label %520, label %517
 
 517:                                              ; preds = %513
-  %518 = load ptr, ptr %516, align 8, !tbaa !141
+  %518 = load ptr, ptr %516, align 8, !tbaa !145
   %519 = tail call noalias ptr @g_strdup(ptr noundef %518) #16
   store ptr %519, ptr %3, align 8, !tbaa !6
   br label %520
@@ -2489,7 +2489,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 525:                                              ; preds = %523, %521
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
-  %526 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !135
+  %526 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !139
   %527 = and i32 %526, 256
   %.not637 = icmp eq i32 %527, 0
   br i1 %.not637, label %529, label %528
@@ -2499,22 +2499,22 @@ _has_prefix.exit655:                              ; preds = %35
   br label %529
 
 529:                                              ; preds = %528, %525
-  %530 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !136
+  %530 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !140
   %531 = tail call ptr @dt_database_get(ptr noundef %530) #16
   %532 = call i32 @sqlite3_prepare_v2(ptr noundef %531, ptr noundef nonnull @.str.133, i32 noundef -1, ptr noundef nonnull %8, ptr noundef null) #16
   %.not638 = icmp eq i32 %532, 0
   br i1 %.not638, label %539, label %533
 
 533:                                              ; preds = %529
-  %534 = load ptr, ptr @stderr, align 8, !tbaa !137
-  %535 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !136
+  %534 = load ptr, ptr @stderr, align 8, !tbaa !141
+  %535 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !140
   %536 = call ptr @dt_database_get(ptr noundef %535) #16
   %537 = call ptr @sqlite3_errmsg(ptr noundef %536) #16
   %538 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %534, ptr noundef nonnull @.str.123, ptr noundef nonnull @.str.121, i32 noundef 612, ptr noundef nonnull @__FUNCTION__._get_base_value, ptr noundef nonnull @.str.133, ptr noundef %537) #20
   br label %539
 
 539:                                              ; preds = %533, %529
-  %540 = load ptr, ptr %8, align 8, !tbaa !139
+  %540 = load ptr, ptr %8, align 8, !tbaa !143
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %542 = load i32, ptr %541, align 8, !tbaa !37
   %543 = call i32 @sqlite3_bind_int(ptr noundef %540, i32 noundef 1, i32 noundef %542) #16
@@ -2522,21 +2522,21 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not639, label %550, label %544
 
 544:                                              ; preds = %539
-  %545 = load ptr, ptr @stderr, align 8, !tbaa !137
-  %546 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !136
+  %545 = load ptr, ptr @stderr, align 8, !tbaa !141
+  %546 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !140
   %547 = call ptr @dt_database_get(ptr noundef %546) #16
   %548 = call ptr @sqlite3_errmsg(ptr noundef %547) #16
   %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %545, ptr noundef nonnull @.str.134, ptr noundef nonnull @.str.121, i32 noundef 614, ptr noundef nonnull @__FUNCTION__._get_base_value, ptr noundef %548) #20
   br label %550
 
 550:                                              ; preds = %544, %539
-  %551 = load ptr, ptr %8, align 8, !tbaa !139
+  %551 = load ptr, ptr %8, align 8, !tbaa !143
   %552 = call i32 @sqlite3_step(ptr noundef %551) #16
   %553 = icmp eq i32 %552, 100
   br i1 %553, label %554, label %563
 
 554:                                              ; preds = %550
-  %555 = load ptr, ptr %8, align 8, !tbaa !139
+  %555 = load ptr, ptr %8, align 8, !tbaa !143
   %556 = call i32 @sqlite3_column_int(ptr noundef %555, i32 noundef 0) #16
   %557 = icmp sgt i32 %556, 1
   br i1 %557, label %558, label %563
@@ -2550,7 +2550,7 @@ _has_prefix.exit655:                              ; preds = %35
   br label %563
 
 563:                                              ; preds = %554, %558, %550
-  %564 = load ptr, ptr %8, align 8, !tbaa !139
+  %564 = load ptr, ptr %8, align 8, !tbaa !143
   %565 = call i32 @sqlite3_finalize(ptr noundef %564) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   br label %thread-pre-split
@@ -2575,7 +2575,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 575:                                              ; preds = %573
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %577 = load ptr, ptr %576, align 8, !tbaa !133
+  %577 = load ptr, ptr %576, align 8, !tbaa !136
   %578 = tail call noalias ptr @g_strdup(ptr noundef %577) #16
   store ptr %578, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -2712,12 +2712,12 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not550, label %672, label %633
 
 633:                                              ; preds = %631
-  %634 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
+  %634 = load ptr, ptr @g_ascii_table, align 8, !tbaa !147
   %635 = load ptr, ptr %1, align 8, !tbaa !6
   %636 = load i8, ptr %635, align 1, !tbaa !105
   %637 = zext i8 %636 to i64
   %638 = getelementptr inbounds nuw i16, ptr %634, i64 %637
-  %639 = load i16, ptr %638, align 2, !tbaa !145
+  %639 = load i16, ptr %638, align 2, !tbaa !149
   %640 = and i16 %639, 8
   %.not627 = icmp eq i16 %640, 0
   br i1 %.not627, label %644, label %641
@@ -2774,7 +2774,7 @@ _has_prefix.exit655:                              ; preds = %35
   %.0405 = phi i8 [ %642, %641 ], [ %.1406, %659 ], [ 4, %644 ]
   %661 = zext i8 %.0405 to i32
   %662 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %663 = load i32, ptr %662, align 4, !tbaa !130
+  %663 = load i32, ptr %662, align 4, !tbaa !133
   %664 = icmp sgt i32 %663, -1
   br i1 %664, label %669, label %665
 
@@ -2878,7 +2878,7 @@ _has_prefix.exit655:                              ; preds = %35
 711:                                              ; preds = %709
   %712 = load ptr, ptr %14, align 8, !tbaa !11
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 148
-  %714 = load i32, ptr %713, align 4, !tbaa !146
+  %714 = load i32, ptr %713, align 4, !tbaa !150
   %715 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %714) #16
   store ptr %715, ptr %3, align 8, !tbaa !6
   br label %1072
@@ -2901,7 +2901,7 @@ _has_prefix.exit655:                              ; preds = %35
 722:                                              ; preds = %720, %718, %716
   %723 = load ptr, ptr %14, align 8, !tbaa !11
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 148
-  %725 = load i32, ptr %724, align 4, !tbaa !146
+  %725 = load i32, ptr %724, align 4, !tbaa !150
   switch i32 %725, label %738 [
     i32 -1, label %726
     i32 1, label %728
@@ -2968,7 +2968,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 748:                                              ; preds = %746, %744, %742, %740
   %749 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %750 = load ptr, ptr %749, align 8, !tbaa !133
+  %750 = load ptr, ptr %749, align 8, !tbaa !136
   %751 = tail call i32 @g_strcmp0(ptr noundef %750, ptr noundef nonnull @.str.79) #16
   %752 = icmp eq i32 %751, 0
   br i1 %752, label %753, label %771
@@ -2986,18 +2986,18 @@ _has_prefix.exit655:                              ; preds = %35
 
 .lr.ph663:                                        ; preds = %753, %.lr.ph663
   %.0411661 = phi ptr [ %770, %.lr.ph663 ], [ %756, %753 ]
-  %757 = load ptr, ptr %.0411661, align 8, !tbaa !141
+  %757 = load ptr, ptr %.0411661, align 8, !tbaa !145
   %758 = ptrtoint ptr %757 to i64
-  %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !147
+  %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !151
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 944
   %sext = shl i64 %758, 32
   %761 = ashr exact i64 %sext, 32
   %762 = getelementptr inbounds [5 x %struct._GdkRGBA], ptr %760, i64 0, i64 %761
-  %.sroa.0.0.copyload = load double, ptr %762, align 8, !tbaa !148
+  %.sroa.0.0.copyload = load double, ptr %762, align 8, !tbaa !152
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %762, i64 8
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !148
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !152
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %762, i64 16
-  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !148
+  %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !152
   %763 = fmul reassoc nsz arcp contract afn double %.sroa.0.0.copyload, 2.550000e+02
   %764 = fptoui double %763 to i32
   %765 = fmul reassoc nsz arcp contract afn double %.sroa.4.0.copyload, 2.550000e+02
@@ -3006,9 +3006,9 @@ _has_prefix.exit655:                              ; preds = %35
   %768 = fptoui double %767 to i32
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.175, i32 noundef %764, i32 noundef %766, i32 noundef %768) #16
   %769 = getelementptr inbounds nuw i8, ptr %.0411661, i64 8
-  %770 = load ptr, ptr %769, align 8, !tbaa !149
+  %770 = load ptr, ptr %769, align 8, !tbaa !153
   %.not626 = icmp eq ptr %770, null
-  br i1 %.not626, label %._crit_edge664, label %.lr.ph663
+  br i1 %.not626, label %._crit_edge664, label %.lr.ph663, !llvm.loop !154
 
 771:                                              ; preds = %748, %746
   %772 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.176)
@@ -3032,16 +3032,16 @@ _has_prefix.exit655:                              ; preds = %35
 .preheader658:                                    ; preds = %773, %.preheader658
   %.0412666 = phi ptr [ %785, %.preheader658 ], [ null, %773 ]
   %.0413665 = phi ptr [ %787, %.preheader658 ], [ %776, %773 ]
-  %780 = load ptr, ptr %.0413665, align 8, !tbaa !141
+  %780 = load ptr, ptr %.0413665, align 8, !tbaa !145
   %781 = ptrtoint ptr %780 to i64
   %782 = trunc i64 %781 to i32
   %783 = tail call ptr @dt_colorlabels_to_string(i32 noundef %782) #16
   %784 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %783, i32 noundef 5) #16
   %785 = tail call ptr @g_list_prepend(ptr noundef %.0412666, ptr noundef %784) #16
   %786 = getelementptr inbounds nuw i8, ptr %.0413665, i64 8
-  %787 = load ptr, ptr %786, align 8, !tbaa !149
+  %787 = load ptr, ptr %786, align 8, !tbaa !153
   %.not625 = icmp eq ptr %787, null
-  br i1 %.not625, label %777, label %.preheader658
+  br i1 %.not625, label %777, label %.preheader658, !llvm.loop !155
 
 788:                                              ; preds = %777, %773
   tail call void @g_list_free(ptr noundef %776) #16
@@ -3065,7 +3065,7 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not623, label %800, label %797
 
 797:                                              ; preds = %793
-  %798 = load ptr, ptr %796, align 8, !tbaa !141
+  %798 = load ptr, ptr %796, align 8, !tbaa !145
   %799 = tail call noalias ptr @g_strdup(ptr noundef %798) #16
   store ptr %799, ptr %3, align 8, !tbaa !6
   br label %800
@@ -3092,7 +3092,7 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not622, label %812, label %809
 
 809:                                              ; preds = %805
-  %810 = load ptr, ptr %808, align 8, !tbaa !141
+  %810 = load ptr, ptr %808, align 8, !tbaa !145
   %811 = tail call noalias ptr @g_strdup(ptr noundef %810) #16
   store ptr %811, ptr %3, align 8, !tbaa !6
   br label %812
@@ -3119,7 +3119,7 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not621, label %824, label %821
 
 821:                                              ; preds = %817
-  %822 = load ptr, ptr %820, align 8, !tbaa !141
+  %822 = load ptr, ptr %820, align 8, !tbaa !145
   %823 = tail call noalias ptr @g_strdup(ptr noundef %822) #16
   store ptr %823, ptr %3, align 8, !tbaa !6
   br label %824
@@ -3146,7 +3146,7 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not620, label %836, label %833
 
 833:                                              ; preds = %829
-  %834 = load ptr, ptr %832, align 8, !tbaa !141
+  %834 = load ptr, ptr %832, align 8, !tbaa !145
   %835 = tail call noalias ptr @g_strdup(ptr noundef %834) #16
   store ptr %835, ptr %3, align 8, !tbaa !6
   br label %836
@@ -3173,7 +3173,7 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not619, label %848, label %845
 
 845:                                              ; preds = %841
-  %846 = load ptr, ptr %844, align 8, !tbaa !141
+  %846 = load ptr, ptr %844, align 8, !tbaa !145
   %847 = tail call noalias ptr @g_strdup(ptr noundef %846) #16
   store ptr %847, ptr %3, align 8, !tbaa !6
   br label %848
@@ -3384,12 +3384,12 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not601, label %1001, label %948
 
 948:                                              ; preds = %946
-  %949 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
+  %949 = load ptr, ptr @g_ascii_table, align 8, !tbaa !147
   %950 = load ptr, ptr %1, align 8, !tbaa !6
   %951 = load i8, ptr %950, align 1, !tbaa !105
   %952 = zext i8 %951 to i64
   %953 = getelementptr inbounds nuw i16, ptr %949, i64 %952
-  %954 = load i16, ptr %953, align 2, !tbaa !145
+  %954 = load i16, ptr %953, align 2, !tbaa !149
   %955 = and i16 %954, 8
   %.not614 = icmp eq i16 %955, 0
   br i1 %.not614, label %978, label %956
@@ -3454,7 +3454,7 @@ _has_prefix.exit655:                              ; preds = %35
   %986 = load i8, ptr %981, align 1, !tbaa !105
   %987 = zext i8 %986 to i64
   %988 = getelementptr inbounds nuw i16, ptr %949, i64 %987
-  %989 = load i16, ptr %988, align 2, !tbaa !145
+  %989 = load i16, ptr %988, align 2, !tbaa !149
   %990 = and i16 %989, 8
   %.not615 = icmp eq i16 %990, 0
   br i1 %.not615, label %1000, label %991
@@ -3493,7 +3493,7 @@ _has_prefix.exit655:                              ; preds = %35
   %1005 = load i32, ptr %1004, align 8, !tbaa !37
   %1006 = load ptr, ptr %14, align 8, !tbaa !11
   %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 248
-  %1008 = load i32, ptr %1007, align 8, !tbaa !131
+  %1008 = load i32, ptr %1007, align 8, !tbaa !134
   %1009 = tail call ptr @dt_tag_get_hierarchical_export(i32 noundef %1005, i32 noundef %1008) #16
   %1010 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.112, ptr noundef %1009) #16
   store ptr %1010, ptr %3, align 8, !tbaa !6
@@ -3515,7 +3515,7 @@ _has_prefix.exit655:                              ; preds = %35
   %1017 = load i32, ptr %1016, align 8, !tbaa !37
   %1018 = load ptr, ptr %14, align 8, !tbaa !11
   %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 248
-  %1020 = load i32, ptr %1019, align 8, !tbaa !131
+  %1020 = load i32, ptr %1019, align 8, !tbaa !134
   %1021 = tail call ptr @dt_tag_get_list_export(i32 noundef %1017, i32 noundef %1020) #16
   %1022 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.112, ptr noundef %1021) #16
   tail call void @g_list_free_full(ptr noundef %1021, ptr noundef nonnull @g_free) #16
@@ -3531,7 +3531,7 @@ _has_prefix.exit655:                              ; preds = %35
 
 1026:                                             ; preds = %1024
   %1027 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1028 = load ptr, ptr %1027, align 8, !tbaa !133
+  %1028 = load ptr, ptr %1027, align 8, !tbaa !136
   %1029 = tail call i32 @g_strcmp0(ptr noundef %1028, ptr noundef nonnull @.str.79) #16
   %1030 = icmp eq i32 %1029, 0
   br i1 %1030, label %1031, label %1047
@@ -3597,12 +3597,12 @@ _has_prefix.exit655:                              ; preds = %35
   br i1 %.not610, label %.preheader, label %1063
 
 .preheader:                                       ; preds = %1055
-  %1057 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
+  %1057 = load ptr, ptr @g_ascii_table, align 8, !tbaa !147
   %.promoted = load ptr, ptr %1, align 8, !tbaa !6
   %1058 = load i8, ptr %.promoted, align 1, !tbaa !105
   %1059 = zext i8 %1058 to i64
   %1060 = getelementptr inbounds nuw i16, ptr %1057, i64 %1059
-  %1061 = load i16, ptr %1060, align 2, !tbaa !145
+  %1061 = load i16, ptr %1060, align 2, !tbaa !149
   %1062 = and i16 %1061, 2
   %.not611667 = icmp eq i16 %1062, 0
   br i1 %.not611667, label %thread-pre-split, label %.lr.ph668
@@ -3619,10 +3619,10 @@ _has_prefix.exit655:                              ; preds = %35
   %1067 = load i8, ptr %1066, align 1, !tbaa !105
   %1068 = zext i8 %1067 to i64
   %1069 = getelementptr inbounds nuw i16, ptr %1057, i64 %1068
-  %1070 = load i16, ptr %1069, align 2, !tbaa !145
+  %1070 = load i16, ptr %1069, align 2, !tbaa !149
   %1071 = and i16 %1070, 2
   %.not611 = icmp eq i16 %1071, 0
-  br i1 %.not611, label %thread-pre-split, label %.lr.ph668
+  br i1 %.not611, label %thread-pre-split, label %.lr.ph668, !llvm.loop !156
 
 thread-pre-split:                                 ; preds = %.lr.ph668, %.preheader, %249, %268, %._crit_edge, %563, %592, %606, %788, %812, %836, %1003, %1015, %1000, %978, %848, %824, %800, %._crit_edge664, %616, %600, %583, %585, %520, %621, %618, %977, %956, %1045, %1036
   %.ph = phi i1 [ true, %1036 ], [ true, %1045 ], [ true, %956 ], [ true, %977 ], [ true, %618 ], [ true, %621 ], [ true, %1015 ], [ true, %1003 ], [ true, %978 ], [ true, %1000 ], [ true, %848 ], [ true, %836 ], [ true, %824 ], [ true, %812 ], [ true, %800 ], [ true, %788 ], [ false, %._crit_edge664 ], [ true, %616 ], [ true, %606 ], [ true, %600 ], [ true, %592 ], [ true, %583 ], [ true, %585 ], [ true, %563 ], [ true, %520 ], [ true, %._crit_edge ], [ true, %268 ], [ true, %249 ], [ true, %.preheader ], [ true, %.lr.ph668 ]
@@ -3644,7 +3644,7 @@ thread-pre-split:                                 ; preds = %.lr.ph668, %.prehea
   %1077 = phi ptr [ %1076, %1075 ], [ %1073, %1072 ], [ %211, %210 ], [ %114, %111 ]
   %1078 = phi i1 [ %1074, %1075 ], [ %1074, %1072 ], [ true, %210 ], [ true, %111 ]
   %1079 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1080 = load i32, ptr %1079, align 8, !tbaa !150
+  %1080 = load i32, ptr %1079, align 8, !tbaa !157
   %1081 = icmp ne i32 %1080, 0
   %or.cond3 = and i1 %1078, %1081
   br i1 %or.cond3, label %1082, label %1085
@@ -3748,7 +3748,7 @@ define internal fastcc ptr @_variables_get_longitude(ptr noundef readonly captur
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !133
+  %13 = load ptr, ptr %12, align 8, !tbaa !136
   %14 = tail call i32 @g_strcmp0(ptr noundef %13, ptr noundef nonnull @.str.79) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %22
@@ -3796,7 +3796,7 @@ define internal fastcc ptr @_variables_get_latitude(ptr noundef readonly capture
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !133
+  %13 = load ptr, ptr %12, align 8, !tbaa !136
   %14 = tail call i32 @g_strcmp0(ptr noundef %13, ptr noundef nonnull @.str.79) #16
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %22
@@ -3943,7 +3943,7 @@ define internal fastcc void @_get_parameters_n_m(ptr noundef nonnull captures(no
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = icmp ne ptr %29, null
   %31 = and i1 %30, %23
-  br i1 %31, label %.lr.ph, label %._crit_edge
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %27, %15
   tail call void @g_strfreev(ptr noundef nonnull %20) #16
@@ -4164,27 +4164,35 @@ attributes #20 = { cold nounwind }
 !124 = !{!16, !17, i64 8}
 !125 = !{!16, !7, i64 16}
 !126 = !{!16, !7, i64 24}
-!127 = !{!128, !128, i64 0}
-!128 = !{!"p1 _ZTS21dt_variables_params_t", !8, i64 0}
-!129 = !{!16, !17, i64 0}
-!130 = !{!12, !13, i64 20}
-!131 = !{!16, !13, i64 248}
-!132 = !{!17, !17, i64 0}
-!133 = !{!12, !7, i64 8}
-!134 = !{!12, !13, i64 36}
-!135 = !{!40, !13, i64 8}
-!136 = !{!40, !54, i64 136}
-!137 = !{!138, !138, i64 0}
-!138 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
-!139 = !{!140, !140, i64 0}
-!140 = !{!"p1 _ZTS12sqlite3_stmt", !8, i64 0}
-!141 = !{!142, !8, i64 0}
-!142 = !{!"_GList", !8, i64 0, !42, i64 8, !42, i64 16}
+!127 = distinct !{!127, !128}
+!128 = !{!"llvm.loop.estimated_trip_count"}
+!129 = distinct !{!129, !128}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTS21dt_variables_params_t", !8, i64 0}
+!132 = !{!16, !17, i64 0}
+!133 = !{!12, !13, i64 20}
+!134 = !{!16, !13, i64 248}
+!135 = !{!17, !17, i64 0}
+!136 = !{!12, !7, i64 8}
+!137 = !{!12, !13, i64 36}
+!138 = distinct !{!138, !128}
+!139 = !{!40, !13, i64 8}
+!140 = !{!40, !54, i64 136}
+!141 = !{!142, !142, i64 0}
+!142 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
 !143 = !{!144, !144, i64 0}
-!144 = !{!"p1 short", !8, i64 0}
-!145 = !{!80, !80, i64 0}
-!146 = !{!16, !13, i64 148}
-!147 = !{!40, !53, i64 128}
-!148 = !{!19, !19, i64 0}
-!149 = !{!142, !42, i64 8}
-!150 = !{!12, !13, i64 32}
+!144 = !{!"p1 _ZTS12sqlite3_stmt", !8, i64 0}
+!145 = !{!146, !8, i64 0}
+!146 = !{!"_GList", !8, i64 0, !42, i64 8, !42, i64 16}
+!147 = !{!148, !148, i64 0}
+!148 = !{!"p1 short", !8, i64 0}
+!149 = !{!80, !80, i64 0}
+!150 = !{!16, !13, i64 148}
+!151 = !{!40, !53, i64 128}
+!152 = !{!19, !19, i64 0}
+!153 = !{!146, !42, i64 8}
+!154 = distinct !{!154, !128}
+!155 = distinct !{!155, !128}
+!156 = distinct !{!156, !128}
+!157 = !{!12, !13, i64 32}
+!158 = distinct !{!158, !128}

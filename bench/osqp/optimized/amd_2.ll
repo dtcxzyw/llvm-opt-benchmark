@@ -77,7 +77,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
 46:                                               ; preds = %45, %.lr.ph.i
   %47 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %47, %0
-  br i1 %exitcond.not.i, label %.lr.ph1044, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.lr.ph1044, label %.lr.ph.i, !llvm.loop !14
 
 .preheader1039:                                   ; preds = %73, %28
   %48 = phi i64 [ 9223372036854775807, %28 ], [ %42, %73 ]
@@ -146,7 +146,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
   %.1874 = phi i64 [ %.08731043, %53 ], [ %61, %60 ], [ %.08731043, %71 ]
   %74 = add nuw nsw i64 %.18851042, 1
   %exitcond1258.not = icmp eq i64 %74, %0
-  br i1 %exitcond1258.not, label %.preheader1039, label %.lr.ph1044, !llvm.loop !14
+  br i1 %exitcond1258.not, label %.preheader1039, label %.lr.ph1044, !llvm.loop !15
 
 .preheader1038:                                   ; preds = %.preheader1038.lr.ph, %478
   %.08121212 = phi i64 [ %5, %.preheader1038.lr.ph ], [ %spec.select997, %478 ]
@@ -174,7 +174,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
 78:                                               ; preds = %.lr.ph1047
   %79 = add i64 %.08231046, 1
   %exitcond1259.not = icmp eq i64 %79, %0
-  br i1 %exitcond1259.not, label %._crit_edge1048, label %.lr.ph1047, !llvm.loop !15
+  br i1 %exitcond1259.not, label %._crit_edge1048, label %.lr.ph1047, !llvm.loop !16
 
 ._crit_edge1048:                                  ; preds = %78, %.lr.ph1047, %.preheader1038
   %.0823.lcssa = phi i64 [ %.09031202, %.preheader1038 ], [ %.08231046, %.lr.ph1047 ], [ %0, %78 ]
@@ -264,7 +264,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
   %124 = load i64, ptr %97, align 8, !tbaa !9
   %125 = add nsw i64 %124, %95
   %.not970.not = icmp slt i64 %123, %125
-  br i1 %.not970.not, label %.lr.ph1113, label %.loopexit1037, !llvm.loop !16
+  br i1 %.not970.not, label %.lr.ph1113, label %.loopexit1037, !llvm.loop !17
 
 126:                                              ; preds = %84
   %127 = getelementptr inbounds i64, ptr %3, i64 %.2908
@@ -381,7 +381,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
 172:                                              ; preds = %.lr.ph1056, %168
   %173 = add nuw nsw i64 %.09101054, 1
   %exitcond1260.not = icmp eq i64 %173, %0
-  br i1 %exitcond1260.not, label %.preheader1030, label %.lr.ph1056, !llvm.loop !17
+  br i1 %exitcond1260.not, label %.preheader1030, label %.lr.ph1056, !llvm.loop !18
 
 .preheader1029:                                   ; preds = %.loopexit1028, %.preheader1030
   %.0819.lcssa = phi i64 [ 0, %.preheader1030 ], [ %.1820, %.loopexit1028 ]
@@ -424,13 +424,13 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
   store i64 %188, ptr %189, align 8, !tbaa !9
   %.2821 = add i64 %.28211061, 1
   %exitcond1264.not = icmp eq i64 %.2821, %185
-  br i1 %exitcond1264.not, label %.loopexit1028, label %.lr.ph1063, !llvm.loop !18
+  br i1 %exitcond1264.not, label %.loopexit1028, label %.lr.ph1063, !llvm.loop !19
 
 .loopexit1028:                                    ; preds = %.lr.ph1063, %179, %.lr.ph1069
   %.1820 = phi i64 [ %.08191067, %.lr.ph1069 ], [ %.28211057, %179 ], [ %185, %.lr.ph1063 ]
   %.1 = phi i64 [ %174, %.lr.ph1069 ], [ %174, %179 ], [ %186, %.lr.ph1063 ]
   %.not965.not = icmp slt i64 %.1, %.28011085
-  br i1 %.not965.not, label %.lr.ph1069, label %.preheader1029, !llvm.loop !19
+  br i1 %.not965.not, label %.lr.ph1069, label %.preheader1029, !llvm.loop !20
 
 .lr.ph1074:                                       ; preds = %.preheader1029, %.lr.ph1074
   %.31073 = phi i64 [ %194, %.lr.ph1074 ], [ %.28011085, %.preheader1029 ]
@@ -442,7 +442,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
   store i64 %191, ptr %193, align 8, !tbaa !9
   %194 = add nsw i64 %.31073, 1
   %exitcond1266.not = icmp eq i64 %194, %.38151083
-  br i1 %exitcond1266.not, label %._crit_edge1075, label %.lr.ph1074, !llvm.loop !20
+  br i1 %exitcond1266.not, label %._crit_edge1075, label %.lr.ph1074, !llvm.loop !21
 
 ._crit_edge1075:                                  ; preds = %.lr.ph1074, %.preheader1029
   %.3822.lcssa = phi i64 [ %.0819.lcssa, %.preheader1029 ], [ %192, %.lr.ph1074 ]
@@ -499,7 +499,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
   %.4803 = phi i64 [ %.3802, %209 ], [ %.3802, %211 ], [ %.28011085, %146 ]
   %216 = add nuw i64 %.09161078, 1
   %exitcond1267.not = icmp eq i64 %.09161078, %.0909
-  br i1 %exitcond1267.not, label %._crit_edge1088, label %146, !llvm.loop !21
+  br i1 %exitcond1267.not, label %._crit_edge1088, label %146, !llvm.loop !22
 
 ._crit_edge1088:                                  ; preds = %215, %143
   %.3870.lcssa = phi i64 [ %.28691096, %143 ], [ %.5872, %215 ]
@@ -520,7 +520,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
 220:                                              ; preds = %._crit_edge1088, %217
   %221 = add nuw i64 %.09171095, 1
   %exitcond1268 = icmp eq i64 %.09171095, %132
-  br i1 %exitcond1268, label %._crit_edge1103, label %133, !llvm.loop !22
+  br i1 %exitcond1268, label %._crit_edge1103, label %133, !llvm.loop !23
 
 ._crit_edge1103:                                  ; preds = %220, %126
   %.2869.lcssa = phi i64 [ %.08671205, %126 ], [ %.3870.lcssa, %220 ]
@@ -568,7 +568,7 @@ define void @amd_l2(i64 noundef %0, ptr noundef %1, ptr noundef captures(none) %
 233:                                              ; preds = %232, %.lr.ph.i999
   %234 = add nuw nsw i64 %.013.i1000, 1
   %exitcond.not.i1002 = icmp eq i64 %234, %0
-  br i1 %exitcond.not.i1002, label %clear_flag.exit1003, label %.lr.ph.i999, !llvm.loop !13
+  br i1 %exitcond.not.i1002, label %clear_flag.exit1003, label %.lr.ph.i999, !llvm.loop !14
 
 clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   %.010.i = phi i64 [ %.0879.mux, %.loopexit1037 ], [ 2, %233 ]
@@ -626,12 +626,12 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   %259 = load i64, ptr %244, align 8, !tbaa !9
   %260 = add nsw i64 %259, %239
   %.not990.not = icmp slt i64 %258, %260
-  br i1 %.not990.not, label %.lr.ph1119, label %.loopexit1035, !llvm.loop !23
+  br i1 %.not990.not, label %.lr.ph1119, label %.loopexit1035, !llvm.loop !24
 
 .loopexit1035:                                    ; preds = %257, %.lr.ph1122
   %261 = add i64 %.08041121, 1
   %exitcond1269.not = icmp eq i64 %.08041121, %.2798
-  br i1 %exitcond1269.not, label %.lr.ph1156, label %.lr.ph1122, !llvm.loop !24
+  br i1 %exitcond1269.not, label %.lr.ph1156, label %.lr.ph1122, !llvm.loop !25
 
 262:                                              ; preds = %.lr.ph1156, %348
   %.18051155 = phi i64 [ %.0799, %.lr.ph1156 ], [ %349, %348 ]
@@ -691,7 +691,7 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   %.1793 = phi i64 [ %279, %277 ], [ %.07921127, %282 ], [ %.07921127, %.lr.ph1128 ]
   %285 = add nsw i64 %.78451125, 1
   %.not988.not = icmp slt i64 %285, %269
-  br i1 %.not988.not, label %.lr.ph1128, label %.loopexit1032, !llvm.loop !25
+  br i1 %.not988.not, label %.lr.ph1128, label %.loopexit1032, !llvm.loop !26
 
 .lr.ph1137:                                       ; preds = %.preheader1031, %296
   %.37951136 = phi i64 [ %.4, %296 ], [ %266, %.preheader1031 ]
@@ -720,7 +720,7 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   %.4 = phi i64 [ %293, %290 ], [ %.37951136, %.lr.ph1137 ]
   %297 = add nsw i64 %.81134, 1
   %.not986.not = icmp slt i64 %297, %269
-  br i1 %.not986.not, label %.lr.ph1137, label %.loopexit1032, !llvm.loop !26
+  br i1 %.not986.not, label %.lr.ph1137, label %.loopexit1032, !llvm.loop !27
 
 .loopexit1032:                                    ; preds = %284, %296, %.preheader1033, %.preheader1031
   %.2860 = phi i64 [ 0, %.preheader1031 ], [ 0, %.preheader1033 ], [ %.4862, %296 ], [ %.1859, %284 ]
@@ -761,7 +761,7 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   %.6 = phi i64 [ %310, %308 ], [ %.51144, %.lr.ph1146 ]
   %314 = add nsw i64 %.91142, 1
   %315 = icmp slt i64 %314, %301
-  br i1 %315, label %.lr.ph1146, label %._crit_edge1147.loopexit, !llvm.loop !27
+  br i1 %315, label %.lr.ph1146, label %._crit_edge1147.loopexit, !llvm.loop !28
 
 ._crit_edge1147.loopexit:                         ; preds = %313
   %.pre = load i64, ptr %267, align 8, !tbaa !9
@@ -837,7 +837,7 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
   %.7837 = phi i64 [ %322, %319 ], [ %.68361154, %346 ]
   %349 = add i64 %.18051155, 1
   %exitcond1270.not = icmp eq i64 %.18051155, %.2798
-  br i1 %exitcond1270.not, label %._crit_edge1157, label %262, !llvm.loop !28
+  br i1 %exitcond1270.not, label %._crit_edge1157, label %262, !llvm.loop !29
 
 ._crit_edge1157:                                  ; preds = %348, %clear_flag.exit1003
   %.3898.lcssa = phi i64 [ %91, %clear_flag.exit1003 ], [ %.4899, %348 ]
@@ -867,7 +867,7 @@ clear_flag.exit1003:                              ; preds = %233, %.loopexit1037
 356:                                              ; preds = %355, %.lr.ph.i1008
   %357 = add nuw nsw i64 %.013.i1009, 1
   %exitcond.not.i1011 = icmp eq i64 %357, %0
-  br i1 %exitcond.not.i1011, label %clear_flag.exit1012, label %.lr.ph.i1008, !llvm.loop !13
+  br i1 %exitcond.not.i1011, label %clear_flag.exit1012, label %.lr.ph.i1008, !llvm.loop !14
 
 clear_flag.exit1012:                              ; preds = %356, %._crit_edge1157
   %.010.i1007 = phi i64 [ %.mux, %._crit_edge1157 ], [ 2, %356 ]
@@ -941,7 +941,7 @@ clear_flag.exit1012:                              ; preds = %356, %._crit_edge11
   %389 = load i64, ptr %382, align 8, !tbaa !9
   %390 = add i64 %384, %389
   %.not980.not = icmp slt i64 %.10, %390
-  br i1 %.not980.not, label %.lr.ph1164, label %._crit_edge1165, !llvm.loop !29
+  br i1 %.not980.not, label %.lr.ph1164, label %._crit_edge1165, !llvm.loop !30
 
 ._crit_edge1165:                                  ; preds = %.lr.ph1164
   %.pre1281 = load i64, ptr %375, align 8, !tbaa !9
@@ -1017,19 +1017,19 @@ select.unfold:                                    ; preds = %405
   %.1921 = phi i64 [ %.09201173, %.critedge2 ], [ %.19111174, %.critedge996 ]
   %.2912 = phi i64 [ %416, %.critedge2 ], [ %419, %.critedge996 ]
   %.not981 = icmp eq i64 %.2912, -1
-  br i1 %.not981, label %._crit_edge1177, label %395, !llvm.loop !30
+  br i1 %.not981, label %._crit_edge1177, label %395, !llvm.loop !31
 
 ._crit_edge1177:                                  ; preds = %420
   %.pre1282 = load i64, ptr %375, align 8, !tbaa !9
   %421 = add nsw i64 %.28811180, 1
   %.not978 = icmp eq i64 %.pre1282, -1
-  br i1 %.not978, label %.critedge, label %.lr.ph1182, !llvm.loop !31
+  br i1 %.not978, label %.critedge, label %.lr.ph1182, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph1182, %._crit_edge1177, %363, %._crit_edge1177.thread, %372, %.lr.ph1189
   %.3882 = phi i64 [ %.18801187, %.lr.ph1189 ], [ %.18801187, %372 ], [ %391, %._crit_edge1177.thread ], [ %.18801187, %363 ], [ %.28811180, %.lr.ph1182 ], [ %421, %._crit_edge1177 ]
   %422 = add i64 %.28061188, 1
   %exitcond1271.not = icmp eq i64 %.28061188, %.2798
-  br i1 %exitcond1271.not, label %._crit_edge1190, label %.lr.ph1189, !llvm.loop !32
+  br i1 %exitcond1271.not, label %._crit_edge1190, label %.lr.ph1189, !llvm.loop !33
 
 ._crit_edge1190:                                  ; preds = %.critedge
   %423 = sub nsw i64 %0, %.3898.lcssa
@@ -1082,7 +1082,7 @@ select.unfold:                                    ; preds = %405
   %.13 = phi i64 [ %444, %440 ], [ %.121194, %.lr.ph1197 ]
   %447 = add i64 %.38071195, 1
   %exitcond1272.not = icmp eq i64 %.38071195, %.2798
-  br i1 %exitcond1272.not, label %._crit_edge1198, label %.lr.ph1197, !llvm.loop !33
+  br i1 %exitcond1272.not, label %._crit_edge1198, label %.lr.ph1197, !llvm.loop !34
 
 ._crit_edge1198.thread:                           ; preds = %clear_flag.exit1012
   store i64 %.0893.lcssa, ptr %88, align 8, !tbaa !9
@@ -1146,7 +1146,7 @@ select.unfold:                                    ; preds = %405
   %.1850 = phi double [ %459, %453 ], [ %.08491210, %452 ]
   %.1847 = phi double [ %464, %453 ], [ %.08461211, %452 ]
   %479 = icmp slt i64 %.3898.lcssa, %0
-  br i1 %479, label %.preheader1038, label %._crit_edge1213.loopexit, !llvm.loop !34
+  br i1 %479, label %.preheader1038, label %._crit_edge1213.loopexit, !llvm.loop !35
 
 ._crit_edge1213.loopexit:                         ; preds = %478
   %480 = sitofp i64 %.1868 to double
@@ -1210,7 +1210,7 @@ select.unfold:                                    ; preds = %405
   store i64 %507, ptr %505, align 8, !tbaa !9
   %508 = add nuw nsw i64 %.48881220, 1
   %exitcond1273.not = icmp eq i64 %508, %0
-  br i1 %exitcond1273.not, label %.lr.ph1224, label %.lr.ph1222, !llvm.loop !35
+  br i1 %exitcond1273.not, label %.lr.ph1224, label %.lr.ph1222, !llvm.loop !36
 
 .lr.ph1224:                                       ; preds = %.lr.ph1222, %.lr.ph1224
   %.58891223 = phi i64 [ %512, %.lr.ph1224 ], [ 0, %.lr.ph1222 ]
@@ -1220,7 +1220,7 @@ select.unfold:                                    ; preds = %405
   store i64 %511, ptr %509, align 8, !tbaa !9
   %512 = add nuw nsw i64 %.58891223, 1
   %exitcond1274.not = icmp eq i64 %512, %0
-  br i1 %exitcond1274.not, label %.lr.ph1232, label %.lr.ph1224, !llvm.loop !36
+  br i1 %exitcond1274.not, label %.lr.ph1232, label %.lr.ph1224, !llvm.loop !37
 
 .lr.ph1232:                                       ; preds = %.lr.ph1224, %.loopexit
   %.68901230 = phi i64 [ %533, %.loopexit ], [ 0, %.lr.ph1224 ]
@@ -1252,7 +1252,7 @@ select.unfold:                                    ; preds = %405
   %525 = getelementptr inbounds i64, ptr %6, i64 %524
   %526 = load i64, ptr %525, align 8, !tbaa !9
   %527 = icmp eq i64 %526, 0
-  br i1 %527, label %.lr.ph1226, label %.lr.ph1229.preheader, !llvm.loop !37
+  br i1 %527, label %.lr.ph1226, label %.lr.ph1229.preheader, !llvm.loop !38
 
 .lr.ph1229:                                       ; preds = %.lr.ph1229.preheader, %.lr.ph1229
   %.49141228 = phi i64 [ %529, %.lr.ph1229 ], [ %.68901230, %.lr.ph1229.preheader ]
@@ -1262,12 +1262,12 @@ select.unfold:                                    ; preds = %405
   %530 = getelementptr inbounds i64, ptr %6, i64 %529
   %531 = load i64, ptr %530, align 8, !tbaa !9
   %532 = icmp eq i64 %531, 0
-  br i1 %532, label %.lr.ph1229, label %.loopexit, !llvm.loop !38
+  br i1 %532, label %.lr.ph1229, label %.loopexit, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph1229, %.lr.ph1232, %516
   %533 = add nuw nsw i64 %.68901230, 1
   %exitcond1275.not = icmp eq i64 %533, %0
-  br i1 %exitcond1275.not, label %._crit_edge1233, label %.lr.ph1232, !llvm.loop !39
+  br i1 %exitcond1275.not, label %._crit_edge1233, label %.lr.ph1232, !llvm.loop !40
 
 ._crit_edge1233:                                  ; preds = %.loopexit
   tail call void @amd_l_postorder(i64 noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef %10, ptr noundef %12, ptr noundef %9, ptr noundef %7, ptr noundef %8) #5
@@ -1281,7 +1281,7 @@ select.unfold:                                    ; preds = %405
   store i64 -1, ptr %535, align 8, !tbaa !9
   %536 = add nuw nsw i64 %.09181234, 1
   %exitcond1276.not = icmp eq i64 %536, %0
-  br i1 %exitcond1276.not, label %.lr.ph1238, label %.lr.ph1236, !llvm.loop !40
+  br i1 %exitcond1276.not, label %.lr.ph1238, label %.lr.ph1236, !llvm.loop !41
 
 .lr.ph1238:                                       ; preds = %.lr.ph1236, %541
   %.18781237 = phi i64 [ %542, %541 ], [ 0, %.lr.ph1236 ]
@@ -1298,7 +1298,7 @@ select.unfold:                                    ; preds = %405
 541:                                              ; preds = %.lr.ph1238, %539
   %542 = add nuw nsw i64 %.18781237, 1
   %exitcond1277.not = icmp eq i64 %542, %0
-  br i1 %exitcond1277.not, label %.lr.ph1241, label %.lr.ph1238, !llvm.loop !41
+  br i1 %exitcond1277.not, label %.lr.ph1241, label %.lr.ph1238, !llvm.loop !42
 
 .lr.ph1241:                                       ; preds = %541, %546
   %.59001240 = phi i64 [ %550, %546 ], [ 0, %541 ]
@@ -1316,7 +1316,7 @@ select.unfold:                                    ; preds = %405
   %550 = add nsw i64 %549, %.59001240
   %551 = add nuw nsw i64 %.19191239, 1
   %exitcond1278.not = icmp eq i64 %551, %0
-  br i1 %exitcond1278.not, label %.lr.ph1249.preheader, label %.lr.ph1241, !llvm.loop !42
+  br i1 %exitcond1278.not, label %.lr.ph1249.preheader, label %.lr.ph1241, !llvm.loop !43
 
 .lr.ph1249.preheader:                             ; preds = %546, %.lr.ph1241
   %.69011246.ph = phi i64 [ %.59001240, %.lr.ph1241 ], [ %550, %546 ]
@@ -1355,7 +1355,7 @@ select.unfold:                                    ; preds = %405
   %.7902 = phi i64 [ %.69011246, %558 ], [ %564, %563 ], [ %.69011246, %.lr.ph1249 ]
   %567 = add nuw nsw i64 %.78911247, 1
   %exitcond1279.not = icmp eq i64 %567, %0
-  br i1 %exitcond1279.not, label %.lr.ph1251, label %.lr.ph1249, !llvm.loop !43
+  br i1 %exitcond1279.not, label %.lr.ph1251, label %.lr.ph1249, !llvm.loop !44
 
 .lr.ph1251:                                       ; preds = %566, %.lr.ph1251
   %.88921250 = phi i64 [ %571, %.lr.ph1251 ], [ 0, %566 ]
@@ -1365,7 +1365,7 @@ select.unfold:                                    ; preds = %405
   store i64 %.88921250, ptr %570, align 8, !tbaa !9
   %571 = add nuw nsw i64 %.88921250, 1
   %exitcond1280.not = icmp eq i64 %571, %0
-  br i1 %exitcond1280.not, label %._crit_edge1252, label %.lr.ph1251, !llvm.loop !44
+  br i1 %exitcond1280.not, label %._crit_edge1252, label %.lr.ph1251, !llvm.loop !45
 
 ._crit_edge1252:                                  ; preds = %.lr.ph1251, %._crit_edge1233.thread
   ret void
@@ -1405,37 +1405,38 @@ attributes #5 = { nounwind }
 !8 = !{!"int", !5, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"long long", !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12}
-!27 = distinct !{!27, !12}
-!28 = distinct !{!28, !12}
-!29 = distinct !{!29, !12}
-!30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12}
-!32 = distinct !{!32, !12}
-!33 = distinct !{!33, !12}
-!34 = distinct !{!34, !12}
-!35 = distinct !{!35, !12}
-!36 = distinct !{!36, !12}
-!37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12}
-!39 = distinct !{!39, !12}
-!40 = distinct !{!40, !12}
-!41 = distinct !{!41, !12}
-!42 = distinct !{!42, !12}
-!43 = distinct !{!43, !12}
-!44 = distinct !{!44, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13}
+!24 = distinct !{!24, !12, !13}
+!25 = distinct !{!25, !12, !13}
+!26 = distinct !{!26, !12, !13}
+!27 = distinct !{!27, !12, !13}
+!28 = distinct !{!28, !12, !13}
+!29 = distinct !{!29, !12, !13}
+!30 = distinct !{!30, !12, !13}
+!31 = distinct !{!31, !12, !13}
+!32 = distinct !{!32, !12, !13}
+!33 = distinct !{!33, !12, !13}
+!34 = distinct !{!34, !12, !13}
+!35 = distinct !{!35, !12, !13}
+!36 = distinct !{!36, !12, !13}
+!37 = distinct !{!37, !12, !13}
+!38 = distinct !{!38, !12, !13}
+!39 = distinct !{!39, !12, !13}
+!40 = distinct !{!40, !12, !13}
+!41 = distinct !{!41, !12, !13}
+!42 = distinct !{!42, !12, !13}
+!43 = distinct !{!43, !12, !13}
+!44 = distinct !{!44, !12, !13}
+!45 = distinct !{!45, !12, !13}

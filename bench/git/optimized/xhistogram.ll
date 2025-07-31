@@ -102,41 +102,41 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %indvars.iv190 = phi i64 [ %37, %.preheader71 ], [ %indvars.iv.next191, %38 ]
   %.154129 = phi i32 [ %.053116, %.preheader71 ], [ %39, %38 ]
   %39 = add nsw i32 %.154129, -1
-  %40 = load ptr, ptr %36, align 8, !tbaa !24
+  %40 = load ptr, ptr %36, align 8, !tbaa !25
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, 1
   %41 = getelementptr i8, ptr %40, i64 %indvars.iv190
   %42 = getelementptr i8, ptr %41, i64 -1
   store i8 1, ptr %42, align 1, !tbaa !21
   %.not64 = icmp eq i32 %39, 0
-  br i1 %.not64, label %.loopexit, label %38, !llvm.loop !25
+  br i1 %.not64, label %.loopexit, label %38, !llvm.loop !26
 
 43:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %11, i8 0, i64 88, i1 false)
-  store ptr %1, ptr %12, align 8, !tbaa !26
-  store ptr %0, ptr %13, align 8, !tbaa !32
+  store ptr %1, ptr %12, align 8, !tbaa !27
+  store ptr %0, ptr %13, align 8, !tbaa !33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %44 = call i32 @xdl_hashbits(i32 noundef range(i32 1, 0) %.053116) #6
-  store i32 %44, ptr %16, align 8, !tbaa !33
+  store i32 %44, ptr %16, align 8, !tbaa !34
   %45 = shl nuw i32 1, %44
-  store i32 %45, ptr %17, align 4, !tbaa !34
+  store i32 %45, ptr %17, align 4, !tbaa !35
   %46 = zext i32 %45 to i64
   %47 = call ptr @xcalloc(i64 noundef %46, i64 noundef 8) #6
-  store ptr %47, ptr %8, align 8, !tbaa !35
+  store ptr %47, ptr %8, align 8, !tbaa !36
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %find_lcs.exit, label %48
 
 48:                                               ; preds = %43
-  store i32 %.053116, ptr %18, align 8, !tbaa !36
+  store i32 %.053116, ptr %18, align 8, !tbaa !37
   %49 = zext i32 %.053116 to i64
   %50 = call ptr @xcalloc(i64 noundef %49, i64 noundef 8) #6
-  store ptr %50, ptr %14, align 8, !tbaa !37
+  store ptr %50, ptr %14, align 8, !tbaa !38
   %.not19.i = icmp eq ptr %50, null
   br i1 %.not19.i, label %find_lcs.exit, label %51
 
 51:                                               ; preds = %48
   %52 = call ptr @xcalloc(i64 noundef %49, i64 noundef 4) #6
-  store ptr %52, ptr %19, align 8, !tbaa !38
+  store ptr %52, ptr %19, align 8, !tbaa !39
   %.not20.i = icmp eq ptr %52, null
   br i1 %.not20.i, label %find_lcs.exit, label %53
 
@@ -149,8 +149,8 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %58, label %find_lcs.exit, label %59
 
 59:                                               ; preds = %53
-  store i32 %.056115, ptr %20, align 4, !tbaa !39
-  store i32 64, ptr %21, align 4, !tbaa !40
+  store i32 %.056115, ptr %20, align 4, !tbaa !40
+  store i32 64, ptr %21, align 4, !tbaa !41
   %.05063.i.i = add i32 %25, -1
   %.not64.i.i = icmp ugt i32 %.056115, %.05063.i.i
   br i1 %.not64.i.i, label %.loopexit.i, label %.lr.ph68.i.i
@@ -159,65 +159,65 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %60 = phi i32 [ %106, %104 ], [ %.056115, %59 ]
   %.05066.i.i = phi i32 [ %.050.i.i, %104 ], [ %.05063.i.i, %59 ]
   %.050.in65.i.i = phi i32 [ %.05066.i.i, %104 ], [ %25, %59 ]
-  %61 = load ptr, ptr %12, align 8, !tbaa !26
+  %61 = load ptr, ptr %12, align 8, !tbaa !27
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
-  %63 = load ptr, ptr %62, align 8, !tbaa !41
+  %63 = load ptr, ptr %62, align 8, !tbaa !42
   %64 = add i32 %.050.in65.i.i, -2
   %65 = zext i32 %64 to i64
   %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %65
-  %67 = load ptr, ptr %66, align 8, !tbaa !42
+  %67 = load ptr, ptr %66, align 8, !tbaa !43
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load i64, ptr %68, align 8, !tbaa !44
-  %70 = load i32, ptr %16, align 8, !tbaa !33
+  %69 = load i64, ptr %68, align 8, !tbaa !45
+  %70 = load i32, ptr %16, align 8, !tbaa !34
   %71 = zext i32 %70 to i64
   %72 = lshr i64 %69, %71
   %73 = add i64 %72, %69
   %notmask.i.i = shl nsw i64 -1, %71
-  %74 = load ptr, ptr %8, align 8, !tbaa !35
+  %74 = load ptr, ptr %8, align 8, !tbaa !36
   %75 = and i64 %notmask.i.i, 4294967295
   %76 = xor i64 %75, 4294967295
   %77 = and i64 %76, %73
   %78 = getelementptr inbounds nuw ptr, ptr %74, i64 %77
-  %.059.i.i = load ptr, ptr %78, align 8, !tbaa !46
+  %.059.i.i = load ptr, ptr %78, align 8, !tbaa !47
   %.not5260.i.i = icmp eq ptr %.059.i.i, null
   br i1 %.not5260.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph68.i.i, %93
   %.062.i.i = phi ptr [ %.0.i.i, %93 ], [ %.059.i.i, %.lr.ph68.i.i ]
   %.04961.i.i = phi i32 [ %95, %93 ], [ 0, %.lr.ph68.i.i ]
-  %79 = load i32, ptr %.062.i.i, align 8, !tbaa !48
+  %79 = load i32, ptr %.062.i.i, align 8, !tbaa !49
   %80 = add i32 %79, -1
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw ptr, ptr %63, i64 %81
-  %83 = load ptr, ptr %82, align 8, !tbaa !42
+  %83 = load ptr, ptr %82, align 8, !tbaa !43
   %84 = getelementptr i8, ptr %83, i64 24
-  %.val.i.i = load i64, ptr %84, align 8, !tbaa !44
+  %.val.i.i = load i64, ptr %84, align 8, !tbaa !45
   %.not56.i.i = icmp eq i64 %.val.i.i, %69
   br i1 %.not56.i.i, label %85, label %93
 
 85:                                               ; preds = %.lr.ph.i.i
-  %86 = load ptr, ptr %19, align 8, !tbaa !38
+  %86 = load ptr, ptr %19, align 8, !tbaa !39
   %87 = sub i32 %.05066.i.i, %60
   %88 = zext i32 %87 to i64
   %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
-  store i32 %79, ptr %89, align 4, !tbaa !50
-  store i32 %.05066.i.i, ptr %.062.i.i, align 8, !tbaa !48
+  store i32 %79, ptr %89, align 4, !tbaa !51
+  store i32 %.05066.i.i, ptr %.062.i.i, align 8, !tbaa !49
   %90 = getelementptr inbounds nuw i8, ptr %.062.i.i, i64 4
-  %91 = load i32, ptr %90, align 4, !tbaa !51
+  %91 = load i32, ptr %90, align 4, !tbaa !52
   %92 = add i32 %91, 1
-  store i32 %92, ptr %90, align 4, !tbaa !51
+  store i32 %92, ptr %90, align 4, !tbaa !52
   br label %104
 
 93:                                               ; preds = %.lr.ph.i.i
   %94 = getelementptr inbounds nuw i8, ptr %.062.i.i, i64 8
   %95 = add i32 %.04961.i.i, 1
-  %.0.i.i = load ptr, ptr %94, align 8, !tbaa !46
+  %.0.i.i = load ptr, ptr %94, align 8, !tbaa !47
   %.not52.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not52.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !52
+  br i1 %.not52.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !53
 
 ._crit_edge.i.i:                                  ; preds = %93, %.lr.ph68.i.i
   %.049.lcssa.i.i = phi i32 [ 0, %.lr.ph68.i.i ], [ %95, %93 ]
-  %96 = load i32, ptr %21, align 4, !tbaa !40
+  %96 = load i32, ptr %21, align 4, !tbaa !41
   %97 = icmp eq i32 %.049.lcssa.i.i, %96
   br i1 %97, label %find_lcs.exit, label %98
 
@@ -227,46 +227,46 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not53.i.i, label %find_lcs.exit, label %100
 
 100:                                              ; preds = %98
-  store i32 %.05066.i.i, ptr %99, align 8, !tbaa !48
+  store i32 %.05066.i.i, ptr %99, align 8, !tbaa !49
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  store i32 1, ptr %101, align 4, !tbaa !51
-  %102 = load ptr, ptr %78, align 8, !tbaa !46
+  store i32 1, ptr %101, align 4, !tbaa !52
+  %102 = load ptr, ptr %78, align 8, !tbaa !47
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store ptr %102, ptr %103, align 8, !tbaa !53
-  store ptr %99, ptr %78, align 8, !tbaa !46
+  store ptr %102, ptr %103, align 8, !tbaa !54
+  store ptr %99, ptr %78, align 8, !tbaa !47
   br label %104
 
 104:                                              ; preds = %100, %85
   %.062.lcssa.sink.i.i = phi ptr [ %.062.i.i, %85 ], [ %99, %100 ]
-  %105 = load ptr, ptr %14, align 8, !tbaa !37
-  %106 = load i32, ptr %20, align 4, !tbaa !39
+  %105 = load ptr, ptr %14, align 8, !tbaa !38
+  %106 = load i32, ptr %20, align 4, !tbaa !40
   %107 = sub i32 %.05066.i.i, %106
   %108 = zext i32 %107 to i64
   %109 = getelementptr inbounds nuw ptr, ptr %105, i64 %108
-  store ptr %.062.lcssa.sink.i.i, ptr %109, align 8, !tbaa !46
+  store ptr %.062.lcssa.sink.i.i, ptr %109, align 8, !tbaa !47
   %.050.i.i = add i32 %.05066.i.i, -1
   %.not.i.i = icmp ugt i32 %.056115, %.050.i.i
-  br i1 %.not.i.i, label %.loopexit.loopexit.i, label %.lr.ph68.i.i, !llvm.loop !54
+  br i1 %.not.i.i, label %.loopexit.loopexit.i, label %.lr.ph68.i.i, !llvm.loop !55
 
 .loopexit.loopexit.i:                             ; preds = %104
-  %.pre.i = load i32, ptr %21, align 4, !tbaa !40
+  %.pre.i = load i32, ptr %21, align 4, !tbaa !41
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %59
   %110 = phi i32 [ %.pre.i, %.loopexit.loopexit.i ], [ 64, %59 ]
   %111 = add i32 %110, 1
-  store i32 %111, ptr %22, align 8, !tbaa !55
+  store i32 %111, ptr %22, align 8, !tbaa !56
   %112 = add i32 %.049118, %.050117
   %.not22.not56.i = icmp sgt i32 %.049118, 0
   br i1 %.not22.not56.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.loopexit.i
-  %113 = load ptr, ptr %8, align 8, !tbaa !35
-  %114 = load ptr, ptr %12, align 8, !tbaa !26
+  %113 = load ptr, ptr %8, align 8, !tbaa !36
+  %114 = load ptr, ptr %12, align 8, !tbaa !27
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 232
-  %116 = load ptr, ptr %115, align 8, !tbaa !56
+  %116 = load ptr, ptr %115, align 8, !tbaa !57
   %invariant.gep.i = getelementptr i8, ptr %116, i64 -8
-  %117 = load i32, ptr %16, align 8, !tbaa !33
+  %117 = load i32, ptr %16, align 8, !tbaa !34
   %118 = zext i32 %117 to i64
   %notmask.i24.i = shl nsw i64 -1, %118
   %119 = xor i64 %notmask.i24.i, -1
@@ -289,14 +289,14 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %128 = add nsw i32 %.01858.i, 1
   %129 = sext i32 %.01858.i to i64
   %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %129
-  %130 = load ptr, ptr %gep.i, align 8, !tbaa !42
+  %130 = load ptr, ptr %gep.i, align 8, !tbaa !43
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  %132 = load i64, ptr %131, align 8, !tbaa !44
+  %132 = load i64, ptr %131, align 8, !tbaa !45
   %133 = lshr i64 %132, %118
   %134 = add i64 %133, %132
   %135 = and i64 %134, %119
   %136 = getelementptr inbounds nuw ptr, ptr %113, i64 %135
-  %.0109166.i.i = load ptr, ptr %136, align 8, !tbaa !46
+  %.0109166.i.i = load ptr, ptr %136, align 8, !tbaa !47
   %.not167.i.i = icmp eq ptr %.0109166.i.i, null
   br i1 %.not167.i.i, label %try_lcs.exit.i, label %.lr.ph170.i.i
 
@@ -318,7 +318,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %.0109169.i.i = phi ptr [ %.0109166.i.i, %.lr.ph170.i.i ], [ %.0109.i.i, %.thread.i.i ]
   %.0110168.i.i = phi i32 [ %128, %.lr.ph170.i.i ], [ %.1111.i.i, %.thread.i.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.0109169.i.i, i64 4
-  %144 = load i32, ptr %143, align 4, !tbaa !51
+  %144 = load i32, ptr %143, align 4, !tbaa !52
   %145 = icmp ugt i32 %144, %142
   br i1 %145, label %146, label %157
 
@@ -327,33 +327,33 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %.not125.i.i, label %147, label %.thread.i.i
 
 147:                                              ; preds = %146
-  %148 = load ptr, ptr %120, align 8, !tbaa !41
-  %149 = load i32, ptr %.0109169.i.i, align 8, !tbaa !48
+  %148 = load ptr, ptr %120, align 8, !tbaa !42
+  %149 = load i32, ptr %.0109169.i.i, align 8, !tbaa !49
   %150 = add i32 %149, -1
   %151 = zext i32 %150 to i64
   %152 = getelementptr inbounds nuw ptr, ptr %148, i64 %151
-  %153 = load ptr, ptr %152, align 8, !tbaa !42
+  %153 = load ptr, ptr %152, align 8, !tbaa !43
   %154 = getelementptr i8, ptr %153, i64 24
-  %.val.i28.i = load i64, ptr %154, align 8, !tbaa !44
+  %.val.i28.i = load i64, ptr %154, align 8, !tbaa !45
   %155 = icmp eq i64 %.val.i28.i, %132
   %156 = zext i1 %155 to i32
-  store i32 %156, ptr %23, align 4, !tbaa !57
+  store i32 %156, ptr %23, align 4, !tbaa !58
   br label %.thread.i.i
 
 157:                                              ; preds = %140
-  %158 = load i32, ptr %.0109169.i.i, align 8, !tbaa !48
-  %159 = load ptr, ptr %120, align 8, !tbaa !41
+  %158 = load i32, ptr %.0109169.i.i, align 8, !tbaa !49
+  %159 = load ptr, ptr %120, align 8, !tbaa !42
   %160 = add i32 %158, -1
   %161 = zext i32 %160 to i64
   %162 = getelementptr inbounds nuw ptr, ptr %159, i64 %161
-  %163 = load ptr, ptr %162, align 8, !tbaa !42
+  %163 = load ptr, ptr %162, align 8, !tbaa !43
   %164 = getelementptr i8, ptr %163, i64 24
-  %.val127.i.i = load i64, ptr %164, align 8, !tbaa !44
+  %.val127.i.i = load i64, ptr %164, align 8, !tbaa !45
   %.not134.i.i = icmp eq i64 %.val127.i.i, %132
   br i1 %.not134.i.i, label %165, label %.thread.i.i
 
 165:                                              ; preds = %157
-  store i32 1, ptr %23, align 4, !tbaa !57
+  store i32 1, ptr %23, align 4, !tbaa !58
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %165
@@ -370,7 +370,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %168 = sub i32 %.0107.i.i, %125
   %169 = zext i32 %168 to i64
   %170 = getelementptr inbounds nuw i32, ptr %124, i64 %169
-  %171 = load i32, ptr %170, align 4, !tbaa !50
+  %171 = load i32, ptr %170, align 4, !tbaa !51
   %172 = icmp ult i32 %.056115, %.0107.i.i
   %or.cond141.i.i = and i1 %137, %172
   br i1 %or.cond141.i.i, label %.lr.ph.preheader.i.i, label %.critedge.i.i
@@ -386,15 +386,15 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %174 = add nsw i64 %indvars.iv179.i.i, 4294967294
   %175 = and i64 %174, 4294967295
   %176 = getelementptr inbounds nuw ptr, ptr %159, i64 %175
-  %177 = load ptr, ptr %176, align 8, !tbaa !42
+  %177 = load ptr, ptr %176, align 8, !tbaa !43
   %178 = add nsw i64 %indvars.iv.i.i, 4294967294
   %179 = and i64 %178, 4294967295
   %180 = getelementptr inbounds nuw ptr, ptr %116, i64 %179
-  %181 = load ptr, ptr %180, align 8, !tbaa !42
+  %181 = load ptr, ptr %180, align 8, !tbaa !43
   %182 = getelementptr i8, ptr %177, i64 24
-  %.val129.i.i = load i64, ptr %182, align 8, !tbaa !44
+  %.val129.i.i = load i64, ptr %182, align 8, !tbaa !45
   %183 = getelementptr i8, ptr %181, i64 24
-  %.val130.i.i = load i64, ptr %183, align 8, !tbaa !44
+  %.val130.i.i = load i64, ptr %183, align 8, !tbaa !45
   %.not135.i.i = icmp eq i64 %.val129.i.i, %.val130.i.i
   br i1 %.not135.i.i, label %184, label %.critedge.loopexit.split.loop.exit196.i.i
 
@@ -410,9 +410,9 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %187 = sub i32 %indvars182.i.i, %125
   %188 = zext i32 %187 to i64
   %189 = getelementptr inbounds nuw ptr, ptr %126, i64 %188
-  %190 = load ptr, ptr %189, align 8, !tbaa !46
+  %190 = load ptr, ptr %189, align 8, !tbaa !47
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  %192 = load i32, ptr %191, align 4, !tbaa !51
+  %192 = load i32, ptr %191, align 4, !tbaa !52
   %.0101..i.i = call i32 @llvm.umin.i32(i32 %.0101144.i.i, i32 %192)
   br label %193
 
@@ -421,7 +421,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %194 = icmp ult i32 %.056115, %indvars182.i.i
   %195 = icmp ult i32 %.050117, %indvars.i.i
   %or.cond.i.i = and i1 %194, %195
-  br i1 %or.cond.i.i, label %.lr.ph.i27.i, label %.critedge.i.i, !llvm.loop !58
+  br i1 %or.cond.i.i, label %.lr.ph.i27.i, label %.critedge.i.i, !llvm.loop !59
 
 .critedge.loopexit.split.loop.exit196.i.i:        ; preds = %.lr.ph.i27.i
   %196 = trunc nuw i64 %indvars.iv179.i.i to i32
@@ -447,14 +447,14 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %indvars.iv.next187.i.i = add nuw nsw i64 %indvars.iv186.i.i, 1
   %indvars190.i.i = trunc i64 %indvars.iv.next187.i.i to i32
   %200 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv186.i.i
-  %201 = load ptr, ptr %200, align 8, !tbaa !42
+  %201 = load ptr, ptr %200, align 8, !tbaa !43
   %indvars.iv.next185.i.i = add nuw nsw i64 %indvars.iv184.i.i, 1
   %202 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv184.i.i
-  %203 = load ptr, ptr %202, align 8, !tbaa !42
+  %203 = load ptr, ptr %202, align 8, !tbaa !43
   %204 = getelementptr i8, ptr %201, i64 24
-  %.val131.i.i = load i64, ptr %204, align 8, !tbaa !44
+  %.val131.i.i = load i64, ptr %204, align 8, !tbaa !45
   %205 = getelementptr i8, ptr %203, i64 24
-  %.val132.i.i = load i64, ptr %205, align 8, !tbaa !44
+  %.val132.i.i = load i64, ptr %205, align 8, !tbaa !45
   %.not136.i.i = icmp eq i64 %.val131.i.i, %.val132.i.i
   br i1 %.not136.i.i, label %206, label %.critedge2.loopexit.split.loop.exit200.i.i
 
@@ -466,9 +466,9 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %209 = sub i32 %indvars190.i.i, %125
   %210 = zext i32 %209 to i64
   %211 = getelementptr inbounds nuw ptr, ptr %126, i64 %210
-  %212 = load ptr, ptr %211, align 8, !tbaa !46
+  %212 = load ptr, ptr %211, align 8, !tbaa !47
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  %214 = load i32, ptr %213, align 4, !tbaa !51
+  %214 = load i32, ptr %213, align 4, !tbaa !52
   %.2..i.i = call i32 @llvm.umin.i32(i32 %.2154.i.i, i32 %214)
   br label %215
 
@@ -477,7 +477,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %216 = icmp samesign ult i64 %indvars.iv.next187.i.i, %123
   %217 = icmp samesign ult i64 %indvars.iv.next185.i.i, %122
   %or.cond137.i.i = select i1 %216, i1 %217, i1 false
-  br i1 %or.cond137.i.i, label %.lr.ph155.i.i, label %.critedge2.loopexit.i.i, !llvm.loop !59
+  br i1 %or.cond137.i.i, label %.lr.ph155.i.i, label %.critedge2.loopexit.i.i, !llvm.loop !60
 
 .critedge2.loopexit.split.loop.exit200.i.i:       ; preds = %.lr.ph155.i.i
   %218 = trunc nuw i64 %indvars.iv186.i.i to i32
@@ -506,7 +506,7 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %or.cond174.i.i, label %223, label %224
 
 223:                                              ; preds = %.critedge2.i.i
-  store i32 %.2.lcssa.i.i, ptr %22, align 8, !tbaa !55
+  store i32 %.2.lcssa.i.i, ptr %22, align 8, !tbaa !56
   br label %224
 
 224:                                              ; preds = %223, %.critedge2.i.i
@@ -530,9 +530,9 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %229 = sub i32 %.0102.i.i, %125
   %230 = zext i32 %229 to i64
   %231 = getelementptr inbounds nuw i32, ptr %124, i64 %230
-  %232 = load i32, ptr %231, align 4, !tbaa !50
+  %232 = load i32, ptr %231, align 4, !tbaa !51
   %233 = icmp eq i32 %232, 0
-  br i1 %233, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !60
+  br i1 %233, label %.thread.i.i, label %.preheader.i.i, !llvm.loop !61
 
 .thread.i.i:                                      ; preds = %224, %228, %157, %147, %146
   %.sroa.0.4 = phi i32 [ %.sroa.0.3, %147 ], [ %.sroa.0.3, %146 ], [ %.sroa.0.3, %157 ], [ %.sroa.0.7, %228 ], [ %.sroa.0.7, %224 ]
@@ -544,9 +544,9 @@ define internal fastcc i32 @histogram_diff(ptr noundef %0, ptr noundef %1, i32 n
   %235 = phi i32 [ %142, %147 ], [ %142, %146 ], [ %142, %157 ], [ %225, %228 ], [ %225, %224 ]
   %.1111.i.i = phi i32 [ %.0110168.i.i, %147 ], [ %.0110168.i.i, %146 ], [ %.0110168.i.i, %157 ], [ %spec.select.i.i, %228 ], [ %spec.select.i.i, %224 ]
   %236 = getelementptr inbounds nuw i8, ptr %.0109169.i.i, i64 8
-  %.0109.i.i = load ptr, ptr %236, align 8, !tbaa !46
+  %.0109.i.i = load ptr, ptr %236, align 8, !tbaa !47
   %.not.i25.i = icmp eq ptr %.0109.i.i, null
-  br i1 %.not.i25.i, label %try_lcs.exit.i, label %140, !llvm.loop !61
+  br i1 %.not.i25.i, label %try_lcs.exit.i, label %140, !llvm.loop !62
 
 try_lcs.exit.i:                                   ; preds = %.thread.i.i, %127
   %.sroa.0.5 = phi i32 [ %.sroa.0.2, %127 ], [ %.sroa.0.4, %.thread.i.i ]
@@ -556,7 +556,7 @@ try_lcs.exit.i:                                   ; preds = %.thread.i.i, %127
   %.promoted172.i53.i = phi i32 [ %.promoted172.i5457.i, %127 ], [ %.promoted172.i49.i, %.thread.i.i ]
   %.0110.lcssa.i.i = phi i32 [ %128, %127 ], [ %.1111.i.i, %.thread.i.i ]
   %.not22.not.i = icmp slt i32 %.0110.lcssa.i.i, %112
-  br i1 %.not22.not.i, label %127, label %._crit_edge.i, !llvm.loop !62
+  br i1 %.not22.not.i, label %127, label %._crit_edge.i, !llvm.loop !63
 
 ._crit_edge.i:                                    ; preds = %try_lcs.exit.i, %.loopexit.i
   %.sroa.0.1 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.0.5, %try_lcs.exit.i ]
@@ -564,7 +564,7 @@ try_lcs.exit.i:                                   ; preds = %.thread.i.i, %127
   %.sroa.9.1 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.9.5, %try_lcs.exit.i ]
   %.sroa.11.1 = phi i32 [ 0, %.loopexit.i ], [ %.sroa.11.5, %try_lcs.exit.i ]
   %237 = phi i32 [ %111, %.loopexit.i ], [ %.promoted172.i53.i, %try_lcs.exit.i ]
-  %238 = load i32, ptr %23, align 4, !tbaa !57
+  %238 = load i32, ptr %23, align 4, !tbaa !58
   %.not23.i = icmp ne i32 %238, 0
   %239 = icmp ult i32 %110, %237
   %or.cond.i = select i1 %.not23.i, i1 %239, i1 false
@@ -577,11 +577,11 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   %.sroa.9.8 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.9.1, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
   %.sroa.11.8 = phi i32 [ 0, %43 ], [ 0, %48 ], [ 0, %51 ], [ 0, %53 ], [ %.sroa.11.1, %._crit_edge.i ], [ 0, %98 ], [ 0, %._crit_edge.i.i ]
   %.0.i = phi i32 [ -1, %43 ], [ -1, %48 ], [ -1, %51 ], [ -1, %53 ], [ %spec.select.i, %._crit_edge.i ], [ -1, %98 ], [ -1, %._crit_edge.i.i ]
-  %240 = load ptr, ptr %8, align 8, !tbaa !35
+  %240 = load ptr, ptr %8, align 8, !tbaa !36
   call void @free(ptr noundef %240) #6
-  %241 = load ptr, ptr %14, align 8, !tbaa !37
+  %241 = load ptr, ptr %14, align 8, !tbaa !38
   call void @free(ptr noundef %241) #6
-  %242 = load ptr, ptr %19, align 8, !tbaa !38
+  %242 = load ptr, ptr %19, align 8, !tbaa !39
   call void @free(ptr noundef %242) #6
   call void @xdl_cha_free(ptr noundef nonnull %15) #6
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #6
@@ -593,12 +593,12 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   br i1 %.not65, label %249, label %245
 
 245:                                              ; preds = %244
-  %.val = load i64, ptr %0, align 8, !tbaa !63
+  %.val = load i64, ptr %0, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   %246 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %246, i8 0, i64 32, i1 false)
   %247 = and i64 %.val, -49153
-  store i64 %247, ptr %7, align 8, !tbaa !63
+  store i64 %247, ptr %7, align 8, !tbaa !64
   %248 = call i32 @xdl_fall_back_diff(ptr noundef %1, ptr noundef nonnull %7, i32 noundef %.056115, i32 noundef range(i32 1, 0) %.053116, i32 noundef %.050117, i32 noundef range(i32 1, 0) %.049118) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   br label %.loopexit
@@ -623,13 +623,13 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   %indvars.iv = phi i64 [ %253, %.preheader75 ], [ %indvars.iv.next, %256 ]
   %.255125 = phi i32 [ %.053116, %.preheader75 ], [ %257, %256 ]
   %257 = add nsw i32 %.255125, -1
-  %258 = load ptr, ptr %252, align 8, !tbaa !24
+  %258 = load ptr, ptr %252, align 8, !tbaa !25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %259 = getelementptr i8, ptr %258, i64 %indvars.iv
   %260 = getelementptr i8, ptr %259, i64 -1
   store i8 1, ptr %260, align 1, !tbaa !21
   %.not67 = icmp eq i32 %257, 0
-  br i1 %.not67, label %.preheader73, label %256, !llvm.loop !67
+  br i1 %.not67, label %.preheader73, label %256, !llvm.loop !68
 
 261:                                              ; preds = %.preheader73, %261
   %indvars.iv183 = phi i64 [ %255, %.preheader73 ], [ %indvars.iv.next184, %261 ]
@@ -641,7 +641,7 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   %265 = getelementptr i8, ptr %264, i64 -1
   store i8 1, ptr %265, align 1, !tbaa !21
   %.not68 = icmp eq i32 %262, 0
-  br i1 %.not68, label %.loopexit, label %261, !llvm.loop !68
+  br i1 %.not68, label %.loopexit, label %261, !llvm.loop !69
 
 266:                                              ; preds = %249
   %267 = sub i32 %.sroa.0.8, %.056115
@@ -661,7 +661,7 @@ find_lcs.exit:                                    ; preds = %._crit_edge.i.i, %9
   %278 = icmp slt i32 %272, 1
   %279 = icmp slt i32 %276, 1
   %or.cond = select i1 %278, i1 %279, i1 false
-  br i1 %or.cond, label %.loopexit, label %24
+  br i1 %or.cond, label %.loopexit, label %24, !llvm.loop !70
 
 .loopexit:                                        ; preds = %270, %24, %266, %find_lcs.exit, %261, %38, %30, %6, %.preheader, %245
   %.048 = phi i32 [ %248, %245 ], [ 0, %.preheader ], [ 0, %6 ], [ 0, %30 ], [ 0, %38 ], [ 0, %261 ], [ 0, %270 ], [ -1, %24 ], [ %269, %266 ], [ -1, %find_lcs.exit ]
@@ -727,50 +727,52 @@ attributes #6 = { nounwind }
 !19 = !{!5, !12, i64 224}
 !20 = !{!5, !15, i64 240}
 !21 = !{!10, !10, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!5, !15, i64 104}
-!25 = distinct !{!25, !23}
-!26 = !{!27, !30, i64 112}
-!27 = !{!"histindex", !28, i64 0, !28, i64 8, !7, i64 16, !29, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !30, i64 112, !31, i64 120}
-!28 = !{!"p2 _ZTS6record", !9, i64 0}
-!29 = !{!"p1 int", !9, i64 0}
-!30 = !{!"p1 _ZTS8s_xdfenv", !9, i64 0}
-!31 = !{!"p1 _ZTS9s_xpparam", !9, i64 0}
-!32 = !{!27, !31, i64 120}
-!33 = !{!27, !13, i64 80}
-!34 = !{!27, !13, i64 84}
-!35 = !{!27, !28, i64 0}
-!36 = !{!27, !13, i64 88}
-!37 = !{!27, !28, i64 8}
-!38 = !{!27, !29, i64 72}
-!39 = !{!27, !13, i64 100}
-!40 = !{!27, !13, i64 92}
-!41 = !{!5, !14, i64 96}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p1 _ZTS9s_xrecord", !9, i64 0}
-!44 = !{!45, !12, i64 24}
-!45 = !{!"s_xrecord", !43, i64 0, !15, i64 8, !12, i64 16, !12, i64 24}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS6record", !9, i64 0}
-!48 = !{!49, !13, i64 0}
-!49 = !{!"record", !13, i64 0, !13, i64 4, !47, i64 8}
-!50 = !{!13, !13, i64 0}
-!51 = !{!49, !13, i64 4}
-!52 = distinct !{!52, !23}
-!53 = !{!49, !47, i64 8}
-!54 = distinct !{!54, !23}
-!55 = !{!27, !13, i64 104}
-!56 = !{!5, !14, i64 232}
-!57 = !{!27, !13, i64 108}
-!58 = distinct !{!58, !23}
-!59 = distinct !{!59, !23}
-!60 = distinct !{!60, !23}
-!61 = distinct !{!61, !23}
-!62 = distinct !{!62, !23}
-!63 = !{!64, !12, i64 0}
-!64 = !{!"s_xpparam", !12, i64 0, !65, i64 8, !12, i64 16, !66, i64 24, !12, i64 32}
-!65 = !{!"p2 _ZTS17re_pattern_buffer", !9, i64 0}
-!66 = !{!"p2 omnipotent char", !9, i64 0}
-!67 = distinct !{!67, !23}
-!68 = distinct !{!68, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!5, !15, i64 104}
+!26 = distinct !{!26, !23, !24}
+!27 = !{!28, !31, i64 112}
+!28 = !{!"histindex", !29, i64 0, !29, i64 8, !7, i64 16, !30, i64 72, !13, i64 80, !13, i64 84, !13, i64 88, !13, i64 92, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !31, i64 112, !32, i64 120}
+!29 = !{!"p2 _ZTS6record", !9, i64 0}
+!30 = !{!"p1 int", !9, i64 0}
+!31 = !{!"p1 _ZTS8s_xdfenv", !9, i64 0}
+!32 = !{!"p1 _ZTS9s_xpparam", !9, i64 0}
+!33 = !{!28, !32, i64 120}
+!34 = !{!28, !13, i64 80}
+!35 = !{!28, !13, i64 84}
+!36 = !{!28, !29, i64 0}
+!37 = !{!28, !13, i64 88}
+!38 = !{!28, !29, i64 8}
+!39 = !{!28, !30, i64 72}
+!40 = !{!28, !13, i64 100}
+!41 = !{!28, !13, i64 92}
+!42 = !{!5, !14, i64 96}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p1 _ZTS9s_xrecord", !9, i64 0}
+!45 = !{!46, !12, i64 24}
+!46 = !{!"s_xrecord", !44, i64 0, !15, i64 8, !12, i64 16, !12, i64 24}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS6record", !9, i64 0}
+!49 = !{!50, !13, i64 0}
+!50 = !{!"record", !13, i64 0, !13, i64 4, !48, i64 8}
+!51 = !{!13, !13, i64 0}
+!52 = !{!50, !13, i64 4}
+!53 = distinct !{!53, !23, !24}
+!54 = !{!50, !48, i64 8}
+!55 = distinct !{!55, !23, !24}
+!56 = !{!28, !13, i64 104}
+!57 = !{!5, !14, i64 232}
+!58 = !{!28, !13, i64 108}
+!59 = distinct !{!59, !23, !24}
+!60 = distinct !{!60, !23, !24}
+!61 = distinct !{!61, !23, !24}
+!62 = distinct !{!62, !23, !24}
+!63 = distinct !{!63, !23, !24}
+!64 = !{!65, !12, i64 0}
+!65 = !{!"s_xpparam", !12, i64 0, !66, i64 8, !12, i64 16, !67, i64 24, !12, i64 32}
+!66 = !{!"p2 _ZTS17re_pattern_buffer", !9, i64 0}
+!67 = !{!"p2 omnipotent char", !9, i64 0}
+!68 = distinct !{!68, !23, !24}
+!69 = distinct !{!69, !23, !24}
+!70 = distinct !{!70, !24}

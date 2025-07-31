@@ -101,7 +101,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
 35:                                               ; preds = %34, %30
   %36 = getelementptr inbounds nuw i8, ptr %.042.i, i64 40
   %.not.i = icmp eq ptr %36, %21
-  br i1 %.not.i, label %._crit_edge.i, label %30
+  br i1 %.not.i, label %._crit_edge.i, label %30, !llvm.loop !50
 
 37:                                               ; preds = %._crit_edge48.i, %.lr.ph53.i
   %.sroa.031.051.i = phi ptr [ %.sroa.031.049.i, %.lr.ph53.i ], [ %.sroa.031.0.i, %._crit_edge48.i ]
@@ -124,7 +124,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
 43:                                               ; preds = %41, %37
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.031.051.i, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.031.051.i, i64 24
-  %.sroa.027.043.i = load ptr, ptr %44, align 8, !tbaa !50
+  %.sroa.027.043.i = load ptr, ptr %44, align 8, !tbaa !52
   %.not3944.i = icmp eq ptr %.sroa.027.043.i, %45
   br i1 %.not3944.i, label %._crit_edge48.i, label %.lr.ph47.i
 
@@ -132,7 +132,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.031.051.i, i64 8
   %.sroa.031.0.i = load ptr, ptr %46, align 8, !tbaa !44
   %.not37.i = icmp eq ptr %.sroa.031.0.i, %25
-  br i1 %.not37.i, label %_ZN12_GLOBAL__N_116nameInstructionsERN4llvm8FunctionE.exit, label %37
+  br i1 %.not37.i, label %_ZN12_GLOBAL__N_116nameInstructionsERN4llvm8FunctionE.exit, label %37, !llvm.loop !55
 
 .lr.ph47.i:                                       ; preds = %43, %59
   %.sroa.027.045.i = phi ptr [ %.sroa.027.0.i, %59 ], [ %.sroa.027.043.i, %43 ]
@@ -145,7 +145,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
 
 51:                                               ; preds = %.lr.ph47.i
   %52 = getelementptr inbounds i8, ptr %.sroa.027.045.i, i64 -16
-  %53 = load ptr, ptr %52, align 8, !tbaa !53
+  %53 = load ptr, ptr %52, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 255
@@ -163,33 +163,33 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
 
 59:                                               ; preds = %58, %51, %.lr.ph47.i
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.027.045.i, i64 8
-  %.sroa.027.0.i = load ptr, ptr %60, align 8, !tbaa !50
+  %.sroa.027.0.i = load ptr, ptr %60, align 8, !tbaa !52
   %.not39.i = icmp eq ptr %.sroa.027.0.i, %45
-  br i1 %.not39.i, label %._crit_edge48.i, label %.lr.ph47.i
+  br i1 %.not39.i, label %._crit_edge48.i, label %.lr.ph47.i, !llvm.loop !57
 
 _ZN12_GLOBAL__N_116nameInstructionsERN4llvm8FunctionE.exit: ; preds = %._crit_edge48.i, %._crit_edge.i
   %.ptr1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !54, !alias.scope !56
+  store ptr %.ptr1.i, ptr %0, align 8, !tbaa !58, !alias.scope !60
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %61, align 8, !tbaa !59, !alias.scope !56
+  store i32 2, ptr %61, align 8, !tbaa !63, !alias.scope !60
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %63, align 8, !tbaa !60, !alias.scope !56
+  store i32 0, ptr %63, align 8, !tbaa !64, !alias.scope !60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %64, align 4, !tbaa !61, !alias.scope !56
+  store i8 1, ptr %64, align 4, !tbaa !65, !alias.scope !60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %66, ptr %65, align 8, !tbaa !54, !alias.scope !56
+  store ptr %66, ptr %65, align 8, !tbaa !58, !alias.scope !60
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %67, align 8, !tbaa !59, !alias.scope !56
+  store i32 2, ptr %67, align 8, !tbaa !63, !alias.scope !60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %68, align 4, !tbaa !62, !alias.scope !56
+  store i32 0, ptr %68, align 4, !tbaa !66, !alias.scope !60
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %69, align 8, !tbaa !60, !alias.scope !56
+  store i32 0, ptr %69, align 8, !tbaa !64, !alias.scope !60
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %70, align 4, !tbaa !61, !alias.scope !56
-  store i32 1, ptr %62, align 4, !tbaa !62, !alias.scope !56, !noalias !63
-  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !66, !alias.scope !56, !noalias !63
+  store i8 1, ptr %70, align 4, !tbaa !65, !alias.scope !60
+  store i32 1, ptr %62, align 4, !tbaa !66, !alias.scope !60, !noalias !67
+  store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !70, !alias.scope !60, !noalias !67
   ret void
 }
 
@@ -260,20 +260,24 @@ attributes #3 = { nounwind }
 !47 = !{!"_ZTSN4llvm5Twine8NodeKindE", !5, i64 0}
 !48 = !{!5, !5, i64 0}
 !49 = !{!46, !47, i64 32}
-!50 = !{!51, !52, i64 8}
-!51 = !{!"_ZTSN4llvm12ilist_detail18node_base_prevnextINS_15ilist_node_baseILb0ENS_10BasicBlockEEELb0EEE", !52, i64 0, !52, i64 8}
-!52 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb0ENS_10BasicBlockEEE", !10, i64 0}
-!53 = !{!4, !9, i64 8}
-!54 = !{!55, !10, i64 0}
-!55 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !10, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !41, i64 20}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
-!58 = distinct !{!58, !"_ZN4llvm17PreservedAnalyses3allEv"}
-!59 = !{!55, !8, i64 8}
-!60 = !{!55, !8, i64 16}
-!61 = !{!55, !41, i64 20}
-!62 = !{!55, !8, i64 12}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
-!65 = distinct !{!65, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
-!66 = !{!10, !10, i64 0}
+!50 = distinct !{!50, !51}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!53, !54, i64 8}
+!53 = !{!"_ZTSN4llvm12ilist_detail18node_base_prevnextINS_15ilist_node_baseILb0ENS_10BasicBlockEEELb0EEE", !54, i64 0, !54, i64 8}
+!54 = !{!"p1 _ZTSN4llvm15ilist_node_baseILb0ENS_10BasicBlockEEE", !10, i64 0}
+!55 = distinct !{!55, !51}
+!56 = !{!4, !9, i64 8}
+!57 = distinct !{!57, !51}
+!58 = !{!59, !10, i64 0}
+!59 = !{!"_ZTSN4llvm19SmallPtrSetImplBaseE", !10, i64 0, !8, i64 8, !8, i64 12, !8, i64 16, !41, i64 20}
+!60 = !{!61}
+!61 = distinct !{!61, !62, !"_ZN4llvm17PreservedAnalyses3allEv: argument 0"}
+!62 = distinct !{!62, !"_ZN4llvm17PreservedAnalyses3allEv"}
+!63 = !{!59, !8, i64 8}
+!64 = !{!59, !8, i64 16}
+!65 = !{!59, !41, i64 20}
+!66 = !{!59, !8, i64 12}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_: argument 0"}
+!69 = distinct !{!69, !"_ZN4llvm15SmallPtrSetImplIPvE6insertES1_"}
+!70 = !{!10, !10, i64 0}

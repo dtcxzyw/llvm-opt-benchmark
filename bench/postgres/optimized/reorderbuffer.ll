@@ -486,7 +486,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %73, %55, %ReorderBu
 
 102:                                              ; preds = %99
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 46
-  %104 = load i8, ptr %103, align 2, !range !6, !noundef !7
+  %104 = load i8, ptr %103, align 2, !range !7, !noundef !8
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %107
 
@@ -743,7 +743,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
   %105 = getelementptr i8, ptr %0, i64 224
   %.val.i = load ptr, ptr %105, align 8
   %106 = getelementptr i8, ptr %.val.i, i64 280
-  %.val.val.i = load i8, ptr %106, align 8, !range !6, !noundef !7
+  %.val.val.i = load i8, ptr %106, align 8, !range !7, !noundef !8
   %107 = trunc nuw i8 %.val.val.i to i1
   br i1 %107, label %108, label %ReorderBufferProcessPartialChange.exit
 
@@ -774,7 +774,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %ReorderBufferChange
 
 117:                                              ; preds = %116, %116, %116
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %119 = load i8, ptr %118, align 4, !range !6, !noundef !7
+  %119 = load i8, ptr %118, align 4, !range !7, !noundef !8
   %120 = trunc nuw i8 %119 to i1
   br i1 %120, label %121, label %thread-pre-split
 
@@ -826,7 +826,7 @@ thread-pre-split:                                 ; preds = %.sink.split.i, %117
 138:                                              ; preds = %132
   %.val.i.i = load ptr, ptr %105, align 8
   %139 = getelementptr i8, ptr %.val.i.i, i64 280
-  %.val.val.i.i = load i8, ptr %139, align 8, !range !6, !noundef !7
+  %.val.val.i.i = load i8, ptr %139, align 8, !range !7, !noundef !8
   %140 = trunc nuw i8 %.val.val.i.i to i1
   br i1 %140, label %141, label %ReorderBufferProcessPartialChange.exit
 
@@ -904,7 +904,7 @@ ReorderBufferCheckAndTruncateAbortedTXN.exit.i:   ; preds = %ReorderBufferCheckA
 180:                                              ; preds = %.critedge.i
   %.val.i.i39 = load ptr, ptr %105, align 8
   %181 = getelementptr i8, ptr %.val.i.i39, i64 280
-  %.val.val.i.i40 = load i8, ptr %181, align 8, !range !6, !noundef !7
+  %.val.val.i.i40 = load i8, ptr %181, align 8, !range !7, !noundef !8
   %182 = trunc nuw i8 %.val.val.i.i40 to i1
   br i1 %182, label %183, label %ReorderBufferCanStartStreaming.exit.thread.i
 
@@ -953,7 +953,7 @@ ReorderBufferCanStartStreaming.exit.i42:          ; preds = %183
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.0.031.i.i, i64 8
   %198 = load ptr, ptr %197, align 8
   %.not20.i.i = icmp eq ptr %198, %165
-  br i1 %.not20.i.i, label %ReorderBufferLargestStreamableTopTXN.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not20.i.i, label %ReorderBufferLargestStreamableTopTXN.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ReorderBufferLargestStreamableTopTXN.exit.i:      ; preds = %196
   %.not18.i = icmp eq ptr %.116.i.i, null
@@ -962,7 +962,7 @@ ReorderBufferLargestStreamableTopTXN.exit.i:      ; preds = %196
 199:                                              ; preds = %ReorderBufferLargestStreamableTopTXN.exit.i
   %200 = load i32, ptr @debug_logical_replication_streaming, align 4
   %201 = icmp eq i32 %200, 1
-  br i1 %201, label %ReorderBufferCheckAndTruncateAbortedTXN.exit.thread.i, label %202, !prof !9
+  br i1 %201, label %ReorderBufferCheckAndTruncateAbortedTXN.exit.thread.i, label %202, !prof !10
 
 202:                                              ; preds = %199
   %203 = load i32, ptr %.116.i.i, align 8
@@ -1012,7 +1012,7 @@ ReorderBufferCanStartStreaming.exit.thread.i:     ; preds = %ReorderBufferLarges
   %221 = getelementptr inbounds i8, ptr %220, i64 -272
   %222 = load i32, ptr @debug_logical_replication_streaming, align 4
   %223 = icmp eq i32 %222, 1
-  br i1 %223, label %ReorderBufferCheckAndTruncateAbortedTXN.exit27.thread.i, label %224, !prof !9
+  br i1 %223, label %ReorderBufferCheckAndTruncateAbortedTXN.exit27.thread.i, label %224, !prof !10
 
 224:                                              ; preds = %ReorderBufferCanStartStreaming.exit.thread.i
   %225 = load i32, ptr %221, align 8
@@ -1057,7 +1057,7 @@ ReorderBufferCheckAndTruncateAbortedTXN.exit27.thread.i: ; preds = %.sink.split.
   br label %ReorderBufferCheckAndTruncateAbortedTXN.exit.i.backedge
 
 ReorderBufferCheckAndTruncateAbortedTXN.exit.i.backedge: ; preds = %ReorderBufferCheckAndTruncateAbortedTXN.exit27.thread.i, %.sink.split.i24.i, %227, %ReorderBufferCheckAndTruncateAbortedTXN.exit.thread.i, %.sink.split.i.i, %205
-  br label %ReorderBufferCheckAndTruncateAbortedTXN.exit.i, !llvm.loop !10
+  br label %ReorderBufferCheckAndTruncateAbortedTXN.exit.i, !llvm.loop !11
 
 ReorderBufferCheckMemoryLimit.exit:               ; preds = %172, %156, %9
   ret void
@@ -1093,7 +1093,7 @@ define internal fastcc ptr @ReorderBufferTXNByXid(ptr noundef %0, i32 noundef %1
   %18 = load ptr, ptr %0, align 8
   %19 = zext i1 %2 to i32
   %20 = call ptr @hash_search(ptr noundef %18, ptr noundef nonnull %7, i32 noundef %19, ptr noundef nonnull %8) #19
-  %21 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %21 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %26
 
@@ -1173,7 +1173,7 @@ dlist_push_tail.exit:                             ; preds = %46, %52
   br i1 %.not35, label %62, label %59
 
 59:                                               ; preds = %56
-  %60 = load i8, ptr %8, align 1, !range !6, !noundef !7
+  %60 = load i8, ptr %8, align 1, !range !7, !noundef !8
   %61 = xor i8 %60, 1
   br label %.sink.split
 
@@ -1348,7 +1348,7 @@ define dso_local void @ReorderBufferAssignChild(ptr noundef %0, i32 noundef %1, 
 15:                                               ; preds = %12, %4
   %16 = load ptr, ptr %0, align 8
   %17 = call ptr @hash_search(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #19
-  %18 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %18 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %ReorderBufferTXNByXid.exit.thread24, label %ReorderBufferTXNByXid.exit
 
@@ -1394,7 +1394,7 @@ ReorderBufferTXNByXid.exit:                       ; preds = %15
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store i64 %39, ptr %40, align 8
-  %.pre23 = load i8, ptr %6, align 1, !range !6
+  %.pre23 = load i8, ptr %6, align 1, !range !7
   %41 = trunc nuw i8 %.pre23 to i1
   store i32 %34, ptr %9, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1562,7 +1562,7 @@ define dso_local void @ReorderBufferCommitChild(ptr noundef %0, i32 noundef %1, 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %0, align 8
   %16 = call ptr @hash_search(ptr noundef %15, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %7) #19
-  %17 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %17 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread15
 
@@ -1625,7 +1625,7 @@ define dso_local void @ReorderBufferCommit(ptr noundef %0, i32 noundef %1, i64 n
 16:                                               ; preds = %7
   %17 = load ptr, ptr %0, align 8
   %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9) #19
-  %19 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %19 = load i8, ptr %9, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread14
 
@@ -1750,7 +1750,7 @@ define dso_local noundef zeroext i1 @ReorderBufferRememberPrepareInfo(ptr nounde
 16:                                               ; preds = %7
   %17 = load ptr, ptr %0, align 8
   %18 = call ptr @hash_search(ptr noundef %17, ptr noundef nonnull %8, i32 noundef 0, ptr noundef nonnull %9) #19
-  %19 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %19 = load i8, ptr %9, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread19
 
@@ -1822,7 +1822,7 @@ define dso_local void @ReorderBufferSkipPrepare(ptr noundef captures(none) %0, i
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8
   %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #19
-  %14 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %14 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread7
 
@@ -1883,7 +1883,7 @@ define dso_local void @ReorderBufferPrepare(ptr noundef %0, i32 noundef %1, ptr 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
   %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #19
-  %15 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %15 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread22
 
@@ -1968,7 +1968,7 @@ define dso_local void @ReorderBufferFinishPrepared(ptr noundef %0, i32 noundef %
 19:                                               ; preds = %10
   %20 = load ptr, ptr %0, align 8
   %21 = call ptr @hash_search(ptr noundef %20, ptr noundef nonnull %11, i32 noundef 0, ptr noundef nonnull %12) #19
-  %22 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %22 = load i8, ptr %12, align 1, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread49
 
@@ -2055,7 +2055,7 @@ ReorderBufferTXNByXid.exit.thread46:              ; preds = %16, %ReorderBufferT
   call void @LocalExecuteInvalidationMessage(ptr noundef %62) #19
   %63 = add nuw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %63, %58
-  br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i, !llvm.loop !12
 
 ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i, %56
   call fastcc void @ReorderBufferCleanupTXN(ptr noundef nonnull %0, ptr noundef nonnull %.0.i48)
@@ -2084,7 +2084,7 @@ define internal fastcc void @ReorderBufferCleanupTXN(ptr noundef captures(none) 
   %7 = getelementptr inbounds i8, ptr %.sroa.0.073, i64 -240
   tail call fastcc void @ReorderBufferCleanupTXN(ptr noundef %0, ptr noundef nonnull %7)
   %.not59 = icmp eq ptr %.sroa.20.0, %4
-  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -2184,7 +2184,7 @@ ReorderBufferChangeSize.exit:                     ; preds = %.lr.ph78, %23, %24,
   %60 = add i64 %.0.i, %.075
   tail call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext false)
   %.not61 = icmp eq ptr %.sroa.20.1, %8
-  br i1 %.not61, label %._crit_edge79, label %.lr.ph78, !llvm.loop !13
+  br i1 %.not61, label %._crit_edge79, label %.lr.ph78, !llvm.loop !14
 
 ._crit_edge79:                                    ; preds = %ReorderBufferChangeSize.exit
   %.old.i = icmp eq i64 %60, 0
@@ -2245,7 +2245,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %._crit_edge, %._cri
   %86 = getelementptr inbounds i8, ptr %.sroa.0.281, i64 -64
   tail call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %86, i1 noundef zeroext true)
   %.not63 = icmp eq ptr %.sroa.20.2, %83
-  br i1 %.not63, label %._crit_edge83, label %.lr.ph82, !llvm.loop !14
+  br i1 %.not63, label %._crit_edge83, label %.lr.ph82, !llvm.loop !15
 
 ._crit_edge83:                                    ; preds = %.lr.ph82, %ReorderBufferChangeMemoryUpdate.exit
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -2273,7 +2273,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %._crit_edge, %._cri
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 46
-  %101 = load i8, ptr %100, align 2, !range !6, !noundef !7
+  %101 = load i8, ptr %100, align 2, !range !7, !noundef !8
   %102 = trunc nuw i8 %101 to i1
   br i1 %102, label %103, label %104
 
@@ -2405,7 +2405,7 @@ define dso_local void @ReorderBufferAbort(ptr noundef %0, i32 noundef %1, i64 no
 13:                                               ; preds = %4
   %14 = load ptr, ptr %0, align 8
   %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #19
-  %16 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread24
 
@@ -2469,7 +2469,7 @@ ReorderBufferTXNByXid.exit.thread21:              ; preds = %10, %ReorderBufferT
   call void @LocalExecuteInvalidationMessage(ptr noundef %39) #19
   %40 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %40, %32
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %36, label %41, label %ReorderBufferImmediateInvalidation.exit
@@ -2509,7 +2509,7 @@ define dso_local void @ReorderBufferImmediateInvalidation(ptr noundef readnone c
   tail call void @LocalExecuteInvalidationMessage(ptr noundef %7) #19
   %8 = add nuw i32 %.07, 1
   %exitcond.not = icmp eq i32 %8, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge
   br i1 %4, label %9, label %10
@@ -2612,7 +2612,7 @@ define dso_local void @ReorderBufferForget(ptr noundef captures(none) %0, i32 no
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
   %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #19
-  %15 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %15 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread18
 
@@ -2673,7 +2673,7 @@ ReorderBufferTXNByXid.exit.thread15:              ; preds = %9, %ReorderBufferTX
   call void @LocalExecuteInvalidationMessage(ptr noundef %36) #19
   %37 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %37, %29
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %33, label %38, label %ReorderBufferImmediateInvalidation.exit
@@ -2715,7 +2715,7 @@ define dso_local void @ReorderBufferInvalidate(ptr noundef captures(none) %0, i3
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
   %14 = call ptr @hash_search(ptr noundef %13, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5) #19
-  %15 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %15 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread14
 
@@ -2774,7 +2774,7 @@ ReorderBufferTXNByXid.exit.thread11:              ; preds = %9, %ReorderBufferTX
   call void @LocalExecuteInvalidationMessage(ptr noundef %35) #19
   %36 = add nuw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %36, %28
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %32, label %37, label %ReorderBufferImmediateInvalidation.exit
@@ -2857,7 +2857,7 @@ define dso_local void @ReorderBufferSetBaseSnapshot(ptr noundef %0, i32 noundef 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %0, align 8
   %22 = call ptr @hash_search(ptr noundef %21, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #19
-  %23 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %23 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %28
 
@@ -3158,7 +3158,7 @@ define dso_local ptr @ReorderBufferGetCatalogChangesXacts(ptr noundef readonly c
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not16 = icmp eq ptr %16, %2
-  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.014.lcssa = phi i64 [ 0, %5 ], [ %13, %.lr.ph ]
@@ -3199,7 +3199,7 @@ define dso_local zeroext i1 @ReorderBufferXidHasCatalogChanges(ptr noundef captu
 11:                                               ; preds = %2
   %12 = load ptr, ptr %0, align 8
   %13 = call ptr @hash_search(ptr noundef %12, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #19
-  %14 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %14 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread9
 
@@ -3263,7 +3263,7 @@ define dso_local zeroext i1 @ReorderBufferXidHasBaseSnapshot(ptr noundef capture
 13:                                               ; preds = %2
   %14 = load ptr, ptr %0, align 8
   %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 0, ptr noundef nonnull %6) #19
-  %16 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %ReorderBufferTXNByXid.exit, label %ReorderBufferTXNByXid.exit.thread19
 
@@ -3310,7 +3310,7 @@ ReorderBufferTXNByXid.exit.thread16:              ; preds = %10, %ReorderBufferT
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8
   %35 = call ptr @hash_search(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %4) #19
-  %36 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %36 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %41
 
@@ -3380,7 +3380,7 @@ sub_18:                                           ; preds = %.tail
 .backedge:                                        ; preds = %.tail, %.tail6, %16, %.tail6.thread
   %14 = tail call ptr @ReadDir(ptr noundef %1, ptr noundef nonnull @.str.8) #19
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !18
 
 .tail6.thread:                                    ; preds = %sub_0, %sub_18, %.tail6
   %15 = tail call zeroext i1 @ReplicationSlotValidateName(ptr noundef nonnull %4, i32 noundef 13) #19
@@ -3478,12 +3478,12 @@ sub_0.i:                                          ; preds = %.lr.ph36, %86
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 21
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %86, label %.tail39.thread.i, !llvm.loop !18
+  br i1 %46, label %86, label %.tail39.thread.i, !llvm.loop !19
 
 .tail39.thread.i:                                 ; preds = %.tail.i, %.tail39.i, %sub_0.i
   %47 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(5) @.str.39, i64 noundef 4) #21
   %.not34.i = icmp eq i32 %47, 0
-  br i1 %.not34.i, label %48, label %86, !llvm.loop !18
+  br i1 %.not34.i, label %48, label %86, !llvm.loop !19
 
 48:                                               ; preds = %.tail39.thread.i
   %49 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %40, ptr noundef nonnull @.str.40, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %14, ptr noundef nonnull %15) #19
@@ -3509,12 +3509,12 @@ sub_0.i:                                          ; preds = %.lr.ph36, %86
   %61 = load i32, ptr %13, align 4
   %.not37.i = icmp eq i32 %61, %33
   %or.cond.i = select i1 %.not36.i, i1 %.not37.i, i1 false
-  br i1 %or.cond.i, label %62, label %86, !llvm.loop !18
+  br i1 %or.cond.i, label %62, label %86, !llvm.loop !19
 
 62:                                               ; preds = %53
   %63 = load i32, ptr %15, align 4
   %64 = call zeroext i1 @TransactionIdDidCommit(i32 noundef %63) #19
-  br i1 %64, label %65, label %86, !llvm.loop !18
+  br i1 %64, label %65, label %86, !llvm.loop !19
 
 65:                                               ; preds = %62
   %66 = load i32, ptr %14, align 4
@@ -3552,7 +3552,7 @@ sub_0.i:                                          ; preds = %.lr.ph36, %86
   %.118.i.i.i = phi i64 [ %.01720.i.i.i, %77 ], [ %71, %.lr.ph.i.i.i ]
   %.1.i.i.i = phi i64 [ %78, %77 ], [ %.01621.i.i.i, %.lr.ph.i.i.i ]
   %80 = icmp ult i64 %.1.i.i.i, %.118.i.i.i
-  br i1 %80, label %.lr.ph.i.i.i, label %TransactionIdInArray.exit.thread.i, !llvm.loop !19
+  br i1 %80, label %.lr.ph.i.i.i, label %TransactionIdInArray.exit.thread.i, !llvm.loop !20
 
 TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
@@ -3577,7 +3577,7 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #19
   %87 = call ptr @ReadDir(ptr noundef %37, ptr noundef nonnull @.str.38) #19
   %.not.i = icmp eq ptr %87, null
-  br i1 %.not.i, label %._crit_edge.i, label %sub_0.i
+  br i1 %.not.i, label %._crit_edge.i, label %sub_0.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %86, %.lr.ph36
   %.0.lcssa.i = phi ptr [ null, %.lr.ph36 ], [ %.1.i, %86 ]
@@ -3677,7 +3677,7 @@ TransactionIdInArray.exit.thread.i:               ; preds = %79, %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %30, ptr noundef nonnull readonly align 2 dereferenceable(6) %32, i64 6, i1 false)
   %131 = call ptr @hash_search(ptr noundef nonnull %0, ptr noundef nonnull %9, i32 noundef 1, ptr noundef nonnull %10) #19
-  %132 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %132 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %144, label %134
 
@@ -3868,7 +3868,7 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %14, %.thread.i, %42
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.058, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not40 = icmp eq ptr %50, %7
-  br i1 %.not40, label %._crit_edge, label %14, !llvm.loop !20
+  br i1 %.not40, label %._crit_edge, label %14, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %ReorderBufferTransferSnapToParent.exit, %6
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -3937,7 +3937,7 @@ ReorderBufferTransferSnapToParent.exit:           ; preds = %14, %.thread.i, %42
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 8
   %92 = load ptr, ptr %91, align 8
   %.not36.i = icmp eq ptr %92, %7
-  br i1 %.not36.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not36.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i45 = load ptr, ptr %78, align 8
@@ -4017,7 +4017,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %53, %._crit_edge.lo
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i50, i64 8
   %140 = load ptr, ptr %139, align 8
   %.not36.i52 = icmp eq ptr %140, %128
-  br i1 %.not36.i52, label %._crit_edge.loopexit.i53, label %.lr.ph.i49, !llvm.loop !21
+  br i1 %.not36.i52, label %._crit_edge.loopexit.i53, label %.lr.ph.i49, !llvm.loop !23
 
 ._crit_edge.loopexit.i53:                         ; preds = %.lr.ph.i49
   %.pre.i54 = load ptr, ptr %124, align 8
@@ -4032,7 +4032,7 @@ ReorderBufferCopySnap.exit55:                     ; preds = %97, %._crit_edge.lo
   store i32 %99, ptr %144, align 8
   %145 = load ptr, ptr %3, align 8
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 46
-  %147 = load i8, ptr %146, align 2, !range !6, !noundef !7
+  %147 = load i8, ptr %146, align 2, !range !7, !noundef !8
   %148 = trunc nuw i8 %147 to i1
   br i1 %148, label %149, label %150
 
@@ -4162,7 +4162,7 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %40, ptr noundef nonnull readonly align 2 dereferenceable(6) %43, i64 6, i1 false)
   %44 = load ptr, ptr %38, align 8
   %45 = call ptr @hash_search(ptr noundef %44, ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %11) #19
-  %46 = load i8, ptr %11, align 1, !range !6, !noundef !7
+  %46 = load i8, ptr %11, align 1, !range !7, !noundef !8
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %55, label %48
 
@@ -4189,7 +4189,7 @@ define internal fastcc void @ReorderBufferProcessTXN(ptr noundef %0, ptr noundef
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.025.i, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not23.i = icmp eq ptr %59, %24
-  br i1 %.not23.i, label %ReorderBufferBuildTupleCidHash.exit, label %41, !llvm.loop !22
+  br i1 %.not23.i, label %ReorderBufferBuildTupleCidHash.exit, label %41, !llvm.loop !24
 
 ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9) #19
@@ -4256,7 +4256,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.0102.i, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not91.i = icmp eq ptr %86, %79
-  br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph.i266, !llvm.loop !23
+  br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph.i266, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i266, %76
   %.1.lcssa.i = phi i64 [ %spec.select.i, %76 ], [ %spec.select99.i, %.lr.ph.i266 ]
@@ -4290,7 +4290,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %102 = sext i32 %101 to i64
   %103 = load i64, ptr %92, align 8
   %104 = icmp ugt i64 %103, %102
-  br i1 %104, label %96, label %._crit_edge107.loopexit.i, !llvm.loop !24
+  br i1 %104, label %96, label %._crit_edge107.loopexit.i, !llvm.loop !26
 
 ._crit_edge107.loopexit.i:                        ; preds = %96
   %105 = trunc i64 %103 to i32
@@ -4395,7 +4395,7 @@ ReorderBufferBuildTupleCidHash.exit:              ; preds = %55, %6, %23, %29
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.0.1111.i, i64 8
   %150 = load ptr, ptr %149, align 8
   %.not95.i = icmp eq ptr %150, %79
-  br i1 %.not95.i, label %ReorderBufferIterTXNInit.exit, label %126, !llvm.loop !25
+  br i1 %.not95.i, label %ReorderBufferIterTXNInit.exit, label %126, !llvm.loop !27
 
 ReorderBufferIterTXNInit.exit:                    ; preds = %148, %123
   %151 = load ptr, ptr %91, align 8
@@ -4556,7 +4556,7 @@ dlist_push_tail.exit.i:                           ; preds = %211, %205
 243:                                              ; preds = %196, %237, %240
   %244 = load volatile i32, ptr @InterruptPending, align 4
   %.not249 = icmp eq i32 %244, 0
-  br i1 %.not249, label %246, label %245, !prof !26
+  br i1 %.not249, label %246, label %245, !prof !28
 
 245:                                              ; preds = %243
   call void @ProcessInterrupts() #19
@@ -4724,7 +4724,7 @@ SetupCheckXidLive.exit:                           ; preds = %.sink.split.i, %._c
   br i1 %.not257, label %325, label %322
 
 322:                                              ; preds = %318
-  %323 = load i8, ptr %162, align 8, !range !6, !noundef !7
+  %323 = load i8, ptr %162, align 8, !range !7, !noundef !8
   %324 = trunc nuw i8 %323 to i1
   br i1 %324, label %325, label %606
 
@@ -4878,7 +4878,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
 
 417:                                              ; preds = %.lr.ph117.i
   %418 = getelementptr inbounds nuw i8, ptr %413, i64 91
-  %419 = load i8, ptr %418, align 1, !range !6, !noundef !7
+  %419 = load i8, ptr %418, align 1, !range !7, !noundef !8
   %420 = trunc nuw i8 %419 to i1
   br i1 %420, label %478, label %421
 
@@ -4890,7 +4890,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
 
 424:                                              ; preds = %421
   %425 = getelementptr inbounds nuw i8, ptr %402, i64 %indvars.iv.i
-  %426 = load i8, ptr %425, align 1, !range !6, !noundef !7
+  %426 = load i8, ptr %425, align 1, !range !7, !noundef !8
   %427 = trunc nuw i8 %426 to i1
   br i1 %427, label %478, label %428
 
@@ -4955,7 +4955,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %466 = getelementptr inbounds nuw i8, ptr %.sroa.0.0114.i, i64 8
   %467 = load ptr, ptr %466, align 8
   %.not97.i276 = icmp eq ptr %467, %446
-  br i1 %.not97.i276, label %._crit_edge.loopexit.i, label %450, !llvm.loop !27
+  br i1 %.not97.i276, label %._crit_edge.loopexit.i, label %450, !llvm.loop !29
 
 ._crit_edge.loopexit.i:                           ; preds = %450
   %468 = trunc i64 %465 to i32
@@ -4987,7 +4987,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %479 = load i32, ptr %381, align 8
   %480 = sext i32 %479 to i64
   %481 = icmp slt i64 %indvars.iv.next.i, %480
-  br i1 %481, label %.lr.ph117.i, label %._crit_edge118.i271, !llvm.loop !28
+  br i1 %481, label %.lr.ph117.i, label %._crit_edge118.i271, !llvm.loop !30
 
 ._crit_edge118.i271:                              ; preds = %478, %393
   %482 = call ptr @heap_form_tuple(ptr noundef nonnull %381, ptr noundef %399, ptr noundef %402) #19
@@ -5010,7 +5010,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %492 = phi i32 [ %501, %500 ], [ %490, %._crit_edge118.i271 ]
   %indvars.iv125.i = phi i64 [ %indvars.iv.next126.i, %500 ], [ 0, %._crit_edge118.i271 ]
   %493 = getelementptr inbounds nuw i8, ptr %405, i64 %indvars.iv125.i
-  %494 = load i8, ptr %493, align 1, !range !6, !noundef !7
+  %494 = load i8, ptr %493, align 1, !range !7, !noundef !8
   %495 = trunc nuw i8 %494 to i1
   br i1 %495, label %496, label %500
 
@@ -5027,7 +5027,7 @@ ReorderBufferChangeSize.exit.i:                   ; preds = %374, %363, %358, %3
   %indvars.iv.next126.i = add nuw nsw i64 %indvars.iv125.i, 1
   %502 = sext i32 %501 to i64
   %503 = icmp slt i64 %indvars.iv.next126.i, %502
-  br i1 %503, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !29
+  br i1 %503, label %.lr.ph121.i, label %._crit_edge122.i, !llvm.loop !31
 
 ._crit_edge122.i:                                 ; preds = %500, %._crit_edge118.i271
   call void @pfree(ptr noundef %399) #19
@@ -5198,7 +5198,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
   %589 = load ptr, ptr %168, align 8
   call void %589(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %295, ptr noundef nonnull %.1) #19
   %590 = getelementptr inbounds nuw i8, ptr %.1, i64 44
-  %591 = load i8, ptr %590, align 4, !range !6, !noundef !7
+  %591 = load i8, ptr %590, align 4, !range !7, !noundef !8
   %592 = trunc nuw i8 %591 to i1
   br i1 %592, label %593, label %606
 
@@ -5350,7 +5350,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
   %.1233 = phi i32 [ %651, %650 ], [ %.0232373, %648 ], [ %.0232373, %645 ], [ %.0232373, %639 ], [ %.0232373, %636 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %628, !llvm.loop !30
+  br i1 %exitcond.not, label %._crit_edge, label %628, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %654
   %655 = load ptr, ptr %161, align 8
@@ -5369,7 +5369,7 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
   call void @RelationClose(ptr noundef %658) #19
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
   %exitcond408.not = icmp eq i64 %indvars.iv.next405, %wide.trip.count407
-  br i1 %exitcond408.not, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph377, !llvm.loop !31
+  br i1 %exitcond408.not, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph377, !llvm.loop !33
 
 659:                                              ; preds = %SetupCheckXidLive.exit
   %660 = load i64, ptr %190, align 8
@@ -5398,20 +5398,20 @@ ReorderBufferToastReplace.exit:                   ; preds = %331, %ReorderBuffer
   call void @LocalExecuteInvalidationMessage(ptr noundef %674) #19
   %675 = add nuw i32 %.04.i, 1
   %exitcond.not.i = icmp eq i32 %675, %670
-  br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i282, !llvm.loop !11
+  br i1 %exitcond.not.i, label %ReorderBufferExecuteInvalidations.exit, label %.lr.ph.i282, !llvm.loop !12
 
 676:                                              ; preds = %SetupCheckXidLive.exit
   call void @TeardownHistoricSnapshot(i1 noundef zeroext false) #19
   %.0..0..0..0.128 = load volatile ptr, ptr %12, align 8
   %677 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.128, i64 46
-  %678 = load i8, ptr %677, align 2, !range !6, !noundef !7
+  %678 = load i8, ptr %677, align 2, !range !7, !noundef !8
   %679 = trunc nuw i8 %678 to i1
   br i1 %679, label %680, label %727
 
 680:                                              ; preds = %676
   %.0..0..0..0.129 = load volatile ptr, ptr %12, align 8
   %681 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.129, i64 46
-  %682 = load i8, ptr %681, align 2, !range !6, !noundef !7
+  %682 = load i8, ptr %681, align 2, !range !7, !noundef !8
   %683 = trunc nuw i8 %682 to i1
   br i1 %683, label %684, label %685
 
@@ -5484,7 +5484,7 @@ ReorderBufferFreeSnap.exit:                       ; preds = %684, %685
   %722 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i, i64 8
   %723 = load ptr, ptr %722, align 8
   %.not36.i = icmp eq ptr %723, %79
-  br i1 %.not36.i, label %._crit_edge.loopexit.i286, label %.lr.ph.i285, !llvm.loop !21
+  br i1 %.not36.i, label %._crit_edge.loopexit.i286, label %.lr.ph.i285, !llvm.loop !23
 
 ._crit_edge.loopexit.i286:                        ; preds = %.lr.ph.i285
   %.pre.i287 = load ptr, ptr %710, align 8
@@ -5501,7 +5501,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %728 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %729 = load ptr, ptr %728, align 8
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 46
-  %731 = load i8, ptr %730, align 2, !range !6, !noundef !7
+  %731 = load i8, ptr %730, align 2, !range !7, !noundef !8
   %732 = trunc nuw i8 %731 to i1
   br i1 %732, label %733, label %774
 
@@ -5564,7 +5564,7 @@ ReorderBufferCopySnap.exit:                       ; preds = %ReorderBufferFreeSn
   %768 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i293, i64 8
   %769 = load ptr, ptr %768, align 8
   %.not36.i295 = icmp eq ptr %769, %79
-  br i1 %.not36.i295, label %._crit_edge.loopexit.i296, label %.lr.ph.i292, !llvm.loop !21
+  br i1 %.not36.i295, label %._crit_edge.loopexit.i296, label %.lr.ph.i292, !llvm.loop !23
 
 ._crit_edge.loopexit.i296:                        ; preds = %.lr.ph.i292
   %.pre.i297 = load ptr, ptr %756, align 8
@@ -5603,7 +5603,7 @@ ReorderBufferCopySnap.exit299:                    ; preds = %733, %._crit_edge.l
   store volatile i32 %778, ptr %13, align 4
   %.0..0..0..0.131 = load volatile ptr, ptr %12, align 8
   %781 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.131, i64 46
-  %782 = load i8, ptr %781, align 2, !range !6, !noundef !7
+  %782 = load i8, ptr %781, align 2, !range !7, !noundef !8
   %783 = trunc nuw i8 %782 to i1
   br i1 %783, label %825, label %784
 
@@ -5667,7 +5667,7 @@ ReorderBufferCopySnap.exit299:                    ; preds = %733, %._crit_edge.l
   %819 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i304, i64 8
   %820 = load ptr, ptr %819, align 8
   %.not36.i306 = icmp eq ptr %820, %79
-  br i1 %.not36.i306, label %._crit_edge.loopexit.i307, label %.lr.ph.i303, !llvm.loop !21
+  br i1 %.not36.i306, label %._crit_edge.loopexit.i307, label %.lr.ph.i303, !llvm.loop !23
 
 ._crit_edge.loopexit.i307:                        ; preds = %.lr.ph.i303
   %.pre.i308 = load ptr, ptr %807, align 8
@@ -5719,7 +5719,7 @@ ReorderBufferExecuteInvalidations.exit:           ; preds = %.lr.ph.i282, %.lr.p
   %837 = load ptr, ptr %.0..0..0., align 8
   %838 = load i32, ptr %837, align 8
   %839 = icmp eq i32 %838, 0
-  br i1 %839, label %ReorderBufferIterTXNNext.exit, label %170, !llvm.loop !32
+  br i1 %839, label %ReorderBufferIterTXNNext.exit, label %170, !llvm.loop !34
 
 ReorderBufferIterTXNNext.exit:                    ; preds = %836, %ReorderBufferIterTXNInit.exit
   %.0..0..0.346 = load volatile ptr, ptr %14, align 8
@@ -5752,7 +5752,7 @@ ReorderBufferIterTXNNext.exit:                    ; preds = %836, %ReorderBuffer
   %851 = add i32 %.014.i, 1
   %852 = sext i32 %851 to i64
   %853 = icmp ugt i64 %850, %852
-  br i1 %853, label %843, label %._crit_edge.i314, !llvm.loop !33
+  br i1 %853, label %843, label %._crit_edge.i314, !llvm.loop !35
 
 ._crit_edge.i314:                                 ; preds = %849, %ReorderBufferIterTXNNext.exit
   %854 = getelementptr inbounds nuw i8, ptr %.0..0..0.346, i64 16
@@ -5802,7 +5802,7 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i314, %
   br i1 %5, label %879, label %884
 
 879:                                              ; preds = %873
-  %.0..0..0..0.90 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
+  %.0..0..0..0.90 = load volatile i8, ptr %17, align 1, !range !7, !noundef !8
   %880 = trunc nuw i8 %.0..0..0..0.90 to i1
   br i1 %880, label %881, label %895
 
@@ -5857,7 +5857,7 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i314, %
   %903 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %.0..0..0..0.125, ptr %903, align 8
   %904 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.135, i64 46
-  %905 = load i8, ptr %904, align 2, !range !6, !noundef !7
+  %905 = load i8, ptr %904, align 2, !range !7, !noundef !8
   %906 = trunc nuw i8 %905 to i1
   br i1 %906, label %ReorderBufferSaveTXNSnapshot.exit, label %907
 
@@ -5921,7 +5921,7 @@ ReorderBufferIterTXNFinish.exit:                  ; preds = %._crit_edge.i314, %
   %944 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i.i, i64 8
   %945 = load ptr, ptr %944, align 8
   %.not36.i.i318 = icmp eq ptr %945, %79
-  br i1 %.not36.i.i318, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !21
+  br i1 %.not36.i.i318, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
   %.pre.i.i = load ptr, ptr %931, align 8
@@ -5944,14 +5944,14 @@ ReorderBufferSaveTXNSnapshot.exit:                ; preds = %902, %ReorderBuffer
 
 951:                                              ; preds = %901
   %952 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.135, i64 46
-  %953 = load i8, ptr %952, align 2, !range !6, !noundef !7
+  %953 = load i8, ptr %952, align 2, !range !7, !noundef !8
   %954 = trunc nuw i8 %953 to i1
   br i1 %954, label %955, label %ReorderBufferFreeSnap.exit320
 
 955:                                              ; preds = %951
   %.0..0..0..0.137 = load volatile ptr, ptr %12, align 8
   %956 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.137, i64 46
-  %957 = load i8, ptr %956, align 2, !range !6, !noundef !7
+  %957 = load i8, ptr %956, align 2, !range !7, !noundef !8
   %958 = trunc nuw i8 %957 to i1
   br i1 %958, label %959, label %960
 
@@ -5980,7 +5980,7 @@ ReorderBufferFreeSnap.exit320:                    ; preds = %960, %959, %951, %R
   call void @LocalExecuteInvalidationMessage(ptr noundef %966) #19
   %967 = add nuw i32 %.04.i323, 1
   %exitcond.not.i324 = icmp eq i32 %967, %962
-  br i1 %exitcond.not.i324, label %ReorderBufferExecuteInvalidations.exit326, label %.lr.ph.i322, !llvm.loop !11
+  br i1 %exitcond.not.i324, label %ReorderBufferExecuteInvalidations.exit326, label %.lr.ph.i322, !llvm.loop !12
 
 ReorderBufferExecuteInvalidations.exit326:        ; preds = %.lr.ph.i322, %ReorderBufferFreeSnap.exit320
   br i1 %62, label %968, label %969
@@ -6073,7 +6073,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit:           ; preds = %.ReorderBufferMaybe
   %1001 = add i32 %.014.i330, 1
   %1002 = sext i32 %1001 to i64
   %1003 = icmp ugt i64 %1000, %1002
-  br i1 %1003, label %993, label %._crit_edge.i334, !llvm.loop !33
+  br i1 %1003, label %993, label %._crit_edge.i334, !llvm.loop !35
 
 ._crit_edge.i334:                                 ; preds = %999, %989
   %1004 = getelementptr inbounds nuw i8, ptr %.0..0..0.348, i64 16
@@ -6119,7 +6119,7 @@ ReorderBufferIterTXNFinish.exit336:               ; preds = %._crit_edge.i334, %
   call void @LocalExecuteInvalidationMessage(ptr noundef %1023) #19
   %1024 = add nuw i32 %.04.i339, 1
   %exitcond.not.i340 = icmp eq i32 %1024, %1019
-  br i1 %exitcond.not.i340, label %ReorderBufferExecuteInvalidations.exit342, label %.lr.ph.i338, !llvm.loop !11
+  br i1 %exitcond.not.i340, label %ReorderBufferExecuteInvalidations.exit342, label %.lr.ph.i338, !llvm.loop !12
 
 ReorderBufferExecuteInvalidations.exit342:        ; preds = %.lr.ph.i338, %1017
   br i1 %62, label %1025, label %1026
@@ -6135,7 +6135,7 @@ ReorderBufferExecuteInvalidations.exit342:        ; preds = %.lr.ph.i338, %1017
   br i1 %1029, label %1030, label %1110
 
 1030:                                             ; preds = %1026
-  %.0..0..0..0.91 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
+  %.0..0..0..0.91 = load volatile i8, ptr %17, align 1, !range !7, !noundef !8
   %1031 = trunc nuw i8 %.0..0..0..0.91 to i1
   br i1 %1031, label %1035, label %1032
 
@@ -6152,7 +6152,7 @@ ReorderBufferExecuteInvalidations.exit342:        ; preds = %.lr.ph.i338, %1017
   %1036 = load i32, ptr %.0..0..0..0.89, align 8
   %1037 = or i32 %1036, 2048
   store i32 %1037, ptr %.0..0..0..0.89, align 8
-  %.0..0..0..0.92 = load volatile i8, ptr %17, align 1, !range !6, !noundef !7
+  %.0..0..0..0.92 = load volatile i8, ptr %17, align 1, !range !7, !noundef !8
   %1038 = trunc nuw i8 %.0..0..0..0.92 to i1
   br i1 %1038, label %1039, label %ReorderBufferMaybeMarkTXNStreamed.exit344
 
@@ -6204,7 +6204,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit344:        ; preds = %1046, %1043, %1035
   %1059 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store i32 %.0..0..0..0.126, ptr %1059, align 8
   %1060 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.138, i64 46
-  %1061 = load i8, ptr %1060, align 2, !range !6, !noundef !7
+  %1061 = load i8, ptr %1060, align 2, !range !7, !noundef !8
   %1062 = trunc nuw i8 %1061 to i1
   br i1 %1062, label %ReorderBufferSaveTXNSnapshot.exit.i, label %1063
 
@@ -6271,7 +6271,7 @@ ReorderBufferMaybeMarkTXNStreamed.exit344:        ; preds = %1046, %1043, %1035
   %1103 = getelementptr inbounds nuw i8, ptr %.sroa.0.03.i.i.i, i64 8
   %1104 = load ptr, ptr %1103, align 8
   %.not36.i.i.i = icmp eq ptr %1104, %1092
-  br i1 %.not36.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !21
+  br i1 %.not36.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %.pre.i.i.i = load ptr, ptr %1088, align 8
@@ -6346,7 +6346,7 @@ define internal fastcc void @ReorderBufferToastReset(ptr noundef captures(none) 
 .loopexit:                                        ; preds = %.lr.ph, %14
   %9 = call ptr @hash_seq_search(ptr noundef nonnull %3) #19
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph25, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph25, !llvm.loop !36
 
 .lr.ph25:                                         ; preds = %7, %.loopexit
   %10 = phi ptr [ %9, %.loopexit ], [ %8, %7 ]
@@ -6380,7 +6380,7 @@ define internal fastcc void @ReorderBufferToastReset(ptr noundef captures(none) 
   store ptr %21, ptr %.sroa.8.0, align 8
   call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %18, i1 noundef zeroext true)
   %.not21 = icmp eq ptr %.sroa.8.0, %15
-  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %.not21, label %.loopexit, label %.lr.ph, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %.loopexit, %7
   %22 = load ptr, ptr %4, align 8
@@ -6432,7 +6432,7 @@ define internal fastcc void @ReorderBufferToastAppendChunk(ptr noundef readonly 
   %23 = trunc i64 %22 to i32
   %24 = load ptr, ptr %8, align 8
   %25 = call ptr @hash_search(ptr noundef %24, ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %5) #19
-  %26 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %26 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %27 = trunc nuw i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   br i1 %27, label %37, label %29
@@ -6586,7 +6586,7 @@ define internal fastcc void @ReorderBufferTruncateTXN(ptr noundef captures(none)
 ReorderBufferMaybeMarkTXNStreamed.exit:           ; preds = %11, %14
   tail call fastcc void @ReorderBufferTruncateTXN(ptr noundef %0, ptr noundef nonnull %7, i1 noundef zeroext %2)
   %.not57 = icmp eq ptr %.sroa.20.0, %4
-  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %.not57, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %ReorderBufferMaybeMarkTXNStreamed.exit, %3
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -6691,7 +6691,7 @@ ReorderBufferChangeSize.exit:                     ; preds = %.lr.ph74, %35, %36,
   %72 = add i64 %.0.i, %.071
   tail call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %20, i1 noundef zeroext false)
   %.not59 = icmp eq ptr %.sroa.20.1, %17
-  br i1 %.not59, label %._crit_edge75, label %.lr.ph74, !llvm.loop !37
+  br i1 %.not59, label %._crit_edge75, label %.lr.ph74, !llvm.loop !39
 
 ._crit_edge75:                                    ; preds = %ReorderBufferChangeSize.exit
   %.old.i = icmp eq i64 %72, 0
@@ -6760,7 +6760,7 @@ ReorderBufferChangeMemoryUpdate.exit:             ; preds = %._crit_edge, %._cri
   store ptr %102, ptr %.sroa.20.2, align 8
   tail call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %99, i1 noundef zeroext true)
   %.not61 = icmp eq ptr %.sroa.20.2, %96
-  br i1 %.not61, label %.loopexit, label %.lr.ph79, !llvm.loop !38
+  br i1 %.not61, label %.loopexit, label %.lr.ph79, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph79, %95, %ReorderBufferChangeMemoryUpdate.exit
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -6850,7 +6850,7 @@ define internal fastcc void @ReorderBufferSerializeTXN(ptr noundef captures(none
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.024.070, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not56 = icmp eq ptr %20, %15
-  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !39
+  br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %14
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -7299,7 +7299,7 @@ ReorderBufferSerializeChange.exit:                ; preds = %228, %233
   call void @ReorderBufferReturnChange(ptr noundef nonnull %0, ptr noundef nonnull %30, i1 noundef zeroext false)
   %238 = add i64 %.05274, 1
   %.not58 = icmp eq ptr %.sroa.8.079, %21
-  br i1 %.not58, label %._crit_edge82.loopexit, label %29, !llvm.loop !40
+  br i1 %.not58, label %._crit_edge82.loopexit, label %29, !llvm.loop !42
 
 ._crit_edge82.loopexit:                           ; preds = %ReorderBufferSerializeChange.exit
   %239 = icmp eq i64 %238, 0
@@ -7411,7 +7411,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr noundef captures(non
   store ptr %14, ptr %.sroa.8.0, align 8
   tail call void @ReorderBufferReturnChange(ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext true)
   %.not67 = icmp eq ptr %.sroa.8.0, %8
-  br i1 %.not67, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not67, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -7444,7 +7444,7 @@ define internal fastcc i64 @ReorderBufferRestoreChanges(ptr noundef captures(non
 35:                                               ; preds = %33
   %36 = load volatile i32, ptr @InterruptPending, align 4
   %.not69 = icmp eq i32 %36, 0
-  br i1 %.not69, label %38, label %37, !prof !26
+  br i1 %.not69, label %38, label %37, !prof !28
 
 37:                                               ; preds = %35
   call void @ProcessInterrupts() #19
@@ -7561,7 +7561,7 @@ ReorderBufferSerializeReserve.exit:               ; preds = %79, %.sink.split.i
   %92 = load i64, ptr %3, align 8
   %93 = add i64 %92, 1
   store i64 %93, ptr %3, align 8
-  br label %320, !llvm.loop !42
+  br label %320, !llvm.loop !44
 
 94:                                               ; preds = %ReorderBufferSerializeReserve.exit
   %95 = icmp slt i32 %88, 0
@@ -7965,7 +7965,7 @@ ReorderBufferRestoreChange.exit:                  ; preds = %ReorderBufferChange
 320:                                              ; preds = %.critedge73, %ReorderBufferRestoreChange.exit, %90
   %.1 = phi i64 [ %.06192, %90 ], [ %319, %ReorderBufferRestoreChange.exit ], [ %.06192, %.critedge73 ]
   %321 = icmp ult i64 %.1, 4096
-  br i1 %321, label %33, label %.critedge
+  br i1 %321, label %33, label %.critedge, !llvm.loop !45
 
 .critedge:                                        ; preds = %320, %33
   %.061.lcssa = phi i64 [ %.1, %320 ], [ %.06192, %33 ]
@@ -8039,7 +8039,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1,
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %23 = load i8, ptr %22, align 2, !range !6, !noundef !7
+  %23 = load i8, ptr %22, align 2, !range !7, !noundef !8
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %26 = load i16, ptr %25, align 4
@@ -8175,7 +8175,7 @@ define internal fastcc void @ReorderBufferRestoreCleanup(ptr noundef readonly ca
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %2) #19
   %32 = add i64 %.02, 1
   %.not = icmp ugt i64 %32, %10
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %31, %1
   ret void
@@ -8267,43 +8267,46 @@ attributes #24 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
 !19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6}
+!43 = distinct !{!43, !5, !6}
+!44 = distinct !{!44, !5}
+!45 = distinct !{!45, !6}
+!46 = distinct !{!46, !5, !6}

@@ -402,7 +402,7 @@ define internal fastcc ptr @unpack_to_rootfs(ptr noundef %0, i64 noundef %1) unn
   %37 = sub i64 %20, %36
   %38 = getelementptr i8, ptr %19, i64 %37
   %.pre = load ptr, ptr @message, align 8
-  br label %73, !llvm.loop !12
+  br label %73, !llvm.loop !13
 
 39:                                               ; preds = %.preheader
   %40 = icmp eq i8 %22, 0
@@ -413,7 +413,7 @@ define internal fastcc ptr @unpack_to_rootfs(ptr noundef %0, i64 noundef %1) unn
   %43 = add i64 %20, -1
   %44 = add i64 %21, 1
   store i64 %44, ptr @this_header, align 8
-  br label %73, !llvm.loop !12
+  br label %73, !llvm.loop !13
 
 45:                                               ; preds = %39
   store i64 0, ptr @this_header, align 8
@@ -474,7 +474,7 @@ define internal fastcc ptr @unpack_to_rootfs(ptr noundef %0, i64 noundef %1) unn
   %77 = icmp eq ptr %74, null
   %78 = icmp ne i64 %75, 0
   %79 = select i1 %77, i1 %78, i1 false
-  br i1 %79, label %.preheader, label %.loopexit
+  br i1 %79, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %73, %17
   call fastcc void @dir_utime() #23
@@ -575,7 +575,7 @@ define internal noundef i64 @flush_buffer(ptr noundef %0, i64 noundef %1) #1 sec
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12() #21
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %8, label %15, !llvm.loop !9
+  br i1 %14, label %8, label %15, !llvm.loop !15
 
 15:                                               ; preds = %8
   %16 = load i64, ptr @byte_count, align 8
@@ -601,11 +601,11 @@ define internal noundef i64 @flush_buffer(ptr noundef %0, i64 noundef %1) #1 sec
   %25 = phi i32 [ 0, %.loopexit1.loopexit ], [ 7, %22 ]
   %26 = getelementptr i8, ptr %6, i64 %17
   store i32 %25, ptr @state, align 4
-  br label %.preheader, !llvm.loop !13
+  br label %.preheader, !llvm.loop !16
 
 27:                                               ; preds = %22
   store ptr @.str.26, ptr @message, align 8
-  br label %7, !llvm.loop !13
+  br label %7, !llvm.loop !17
 
 .loopexit:                                        ; preds = %15, %2
   %28 = phi i64 [ -1, %2 ], [ %1, %15 ]
@@ -664,7 +664,7 @@ define internal fastcc void @dir_utime() unnamed_addr #1 section ".init.text" al
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #21
   call void @kfree(ptr noundef %9) #21
   %18 = icmp eq ptr %10, @dir_list
-  br i1 %18, label %.loopexit, label %8, !llvm.loop !14
+  br i1 %18, label %.loopexit, label %8, !llvm.loop !18
 
 .loopexit:                                        ; preds = %8, %0
   ret void
@@ -1182,7 +1182,7 @@ define internal noundef i32 @do_reset() #13 section ".init.text" align 16 {
   %11 = getelementptr i8, ptr %16, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 0
-  br i1 %13, label %14, label %20, !llvm.loop !15
+  br i1 %13, label %14, label %20, !llvm.loop !19
 
 14:                                               ; preds = %9, %7
   %15 = phi i64 [ %.pre, %7 ], [ %10, %9 ]
@@ -1190,7 +1190,7 @@ define internal noundef i32 @do_reset() #13 section ".init.text" align 16 {
   %17 = phi i64 [ %1, %7 ], [ %18, %9 ]
   %18 = add i64 %17, -1
   %19 = icmp eq i64 %18, 0
-  br i1 %19, label %29, label %9, !llvm.loop !15
+  br i1 %19, label %29, label %9, !llvm.loop !20
 
 20:                                               ; preds = %9
   store ptr %11, ptr @victim, align 8
@@ -1247,7 +1247,7 @@ define internal fastcc void @parse_header(ptr noundef readonly captures(none) %0
   %12 = add nuw nsw i64 %7, 1
   %13 = getelementptr i8, ptr %8, i64 8
   %14 = icmp eq i64 %12, 13
-  br i1 %14, label %15, label %6, !llvm.loop !16
+  br i1 %14, label %15, label %6, !llvm.loop !21
 
 15:                                               ; preds = %6
   %16 = load i64, ptr %2, align 16
@@ -1333,12 +1333,12 @@ define internal fastcc void @free_hash() unnamed_addr #1 section ".init.text" al
   tail call void @kfree(ptr noundef nonnull %5) #21
   %8 = load ptr, ptr %2, align 8
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %9, label %.loopexit, label %.preheader, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.preheader, %1
   %10 = getelementptr i8, ptr %2, i64 8
   %11 = icmp ult ptr %10, getelementptr inbounds nuw (i8, ptr @head, i64 256)
-  br i1 %11, label %1, label %12, !llvm.loop !18
+  br i1 %11, label %1, label %12, !llvm.loop !23
 
 12:                                               ; preds = %.loopexit
   ret void
@@ -1522,7 +1522,7 @@ define internal fastcc ptr @find_link(i32 noundef %0, i32 noundef %1, i32 nounde
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %.loopexit.loopexit, label %.preheader, !llvm.loop !19
+  br i1 %37, label %.loopexit.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit.loopexit:                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1592,7 +1592,7 @@ define internal fastcc i64 @xwrite(ptr noundef %0, ptr noundef %1, i64 noundef %
   switch i64 %8, label %31 [
     i64 -4, label %34
     i64 -11, label %34
-  ], !llvm.loop !20
+  ], !llvm.loop !25
 
 11:                                               ; preds = %.preheader
   %12 = icmp eq i64 %8, 0
@@ -1615,7 +1615,7 @@ define internal fastcc i64 @xwrite(ptr noundef %0, ptr noundef %1, i64 noundef %
   %23 = add i32 %19, %22
   %24 = add nuw nsw i64 %18, 1
   %25 = icmp eq i64 %24, %8
-  br i1 %25, label %26, label %17, !llvm.loop !21
+  br i1 %25, label %26, label %17, !llvm.loop !26
 
 26:                                               ; preds = %17
   store i32 %23, ptr @io_csum, align 4
@@ -1637,7 +1637,7 @@ define internal fastcc i64 @xwrite(ptr noundef %0, ptr noundef %1, i64 noundef %
   %.ph3 = phi i64 [ %6, %10 ], [ %6, %10 ], [ %30, %27 ]
   %.ph4 = phi i64 [ %5, %10 ], [ %5, %10 ], [ %29, %27 ]
   %35 = icmp eq i64 %.ph3, 0
-  br i1 %35, label %.thread6, label %.preheader, !llvm.loop !20
+  br i1 %35, label %.thread6, label %.preheader, !llvm.loop !27
 
 .thread6:                                         ; preds = %11, %34, %31, %3
   %36 = phi i64 [ 0, %3 ], [ %33, %31 ], [ %5, %11 ], [ %.ph4, %34 ]
@@ -1716,16 +1716,22 @@ attributes #26 = { nounwind allocsize(0) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = !{!"auto-init"}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = distinct !{!12, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
 !13 = distinct !{!13, !10, !11}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
-!18 = distinct !{!18, !10, !11}
-!19 = distinct !{!19, !10, !11}
+!14 = distinct !{!14, !12}
+!15 = distinct !{!15, !10, !11, !12}
+!16 = distinct !{!16, !10, !11, !12}
+!17 = distinct !{!17, !10, !11, !12}
+!18 = distinct !{!18, !10, !11, !12}
+!19 = distinct !{!19, !10, !11, !12}
 !20 = distinct !{!20, !10, !11}
-!21 = distinct !{!21, !10, !11}
+!21 = distinct !{!21, !10, !11, !12}
+!22 = distinct !{!22, !10, !11, !12}
+!23 = distinct !{!23, !10, !11, !12}
+!24 = distinct !{!24, !10, !11, !12}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11, !12}
+!27 = distinct !{!27, !10, !11, !12}

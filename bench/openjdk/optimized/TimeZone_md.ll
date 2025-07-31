@@ -146,7 +146,7 @@ thread-pre-split.i.i:                             ; preds = %.critedge2.i.i, %th
   %50 = getelementptr inbounds nuw i8, ptr %.120.i.i, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 47
-  br i1 %52, label %47, label %.critedge.i.i.preheader, !llvm.loop !8
+  br i1 %52, label %47, label %.critedge.i.i.preheader, !llvm.loop !9
 
 .critedge.i.i.preheader:                          ; preds = %49, %47
   br label %.critedge.i.i
@@ -170,7 +170,7 @@ thread-pre-split.i.i:                             ; preds = %.critedge2.i.i, %th
   %57 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
   %58 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   store i8 %53, ptr %.1.i.i, align 1
-  br label %.critedge.i.i, !llvm.loop !9
+  br label %.critedge.i.i, !llvm.loop !10
 
 59:                                               ; preds = %.critedge.i.i
   store i8 0, ptr %.1.i.i, align 1
@@ -179,7 +179,7 @@ thread-pre-split.i.i:                             ; preds = %.critedge2.i.i, %th
 .critedge2.i.i:                                   ; preds = %54
   %60 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
   %61 = icmp ult ptr %60, %44
-  br i1 %61, label %thread-pre-split.i.i, label %removeDuplicateSlashes.exit.i, !llvm.loop !10
+  br i1 %61, label %thread-pre-split.i.i, label %removeDuplicateSlashes.exit.i, !llvm.loop !11
 
 removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59, %40
   call void @collapse(ptr noundef nonnull %4) #14
@@ -201,7 +201,7 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   %71 = tail call ptr @__errno_location() #16
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 4
-  br i1 %73, label %67, label %.thread25, !llvm.loop !11
+  br i1 %73, label %67, label %.thread25, !llvm.loop !12
 
 .critedge54.i:                                    ; preds = %67, %76
   %74 = call i32 @fstat64(i32 noundef %68, ptr noundef nonnull %2) #14
@@ -212,7 +212,7 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   %77 = tail call ptr @__errno_location() #16
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 4
-  br i1 %79, label %.critedge54.i, label %.critedge4.i, !llvm.loop !12
+  br i1 %79, label %.critedge54.i, label %.critedge4.i, !llvm.loop !13
 
 .critedge4.i:                                     ; preds = %76
   %80 = call i32 @close(i32 noundef %68) #14
@@ -239,7 +239,7 @@ removeDuplicateSlashes.exit.i:                    ; preds = %.critedge2.i.i, %59
   %91 = tail call ptr @__errno_location() #16
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, 4
-  br i1 %93, label %.preheader.i, label %.critedge6.i, !llvm.loop !13
+  br i1 %93, label %.preheader.i, label %.critedge6.i, !llvm.loop !14
 
 .critedge6.i:                                     ; preds = %90, %.preheader.i
   %sext51.i = shl i64 %87, 32
@@ -465,7 +465,7 @@ define internal fastcc ptr @findZoneinfoFile(ptr noundef readonly captures(none)
   br i1 %.not41, label %getPathName.exit.thread, label %.loopexit46
 
 getPathName.exit.thread:                          ; preds = %.preheader45, %14
-  br i1 %6, label %.preheader45, label %.loopexit, !llvm.loop !14
+  br i1 %6, label %.preheader45, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %getPathName.exit.thread, %3
   %18 = tail call ptr @opendir(ptr noundef nonnull %2)
@@ -502,7 +502,7 @@ getPathName.exit.thread:                          ; preds = %.preheader45, %14
 .backedge:                                        ; preds = %25, %28, %31, %.lr.ph, %42
   %34 = tail call ptr @readdir64(ptr noundef nonnull %18) #14
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %getPathName.exit44.thread, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %getPathName.exit44.thread, label %.lr.ph, !llvm.loop !16
 
 35:                                               ; preds = %31
   %36 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #15
@@ -554,7 +554,7 @@ define internal fastcc ptr @isFileIdentical(ptr noundef readonly captures(none) 
   %9 = tail call ptr @__errno_location() #16
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %5, label %.critedge, !llvm.loop !16
+  br i1 %11, label %5, label %.critedge, !llvm.loop !17
 
 .critedge37:                                      ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -590,7 +590,7 @@ define internal fastcc ptr @isFileIdentical(ptr noundef readonly captures(none) 
   %27 = tail call ptr @__errno_location() #16
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 4
-  br i1 %29, label %.preheader, label %.critedge2, !llvm.loop !17
+  br i1 %29, label %.preheader, label %.critedge2, !llvm.loop !18
 
 .critedge38:                                      ; preds = %.preheader, %33
   %30 = tail call i64 @read(i32 noundef %24, ptr noundef nonnull %22, i64 noundef %1) #14
@@ -602,7 +602,7 @@ define internal fastcc ptr @isFileIdentical(ptr noundef readonly captures(none) 
   %34 = tail call ptr @__errno_location() #16
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 4
-  br i1 %36, label %.critedge38, label %.critedge4, !llvm.loop !18
+  br i1 %36, label %.critedge38, label %.critedge4, !llvm.loop !19
 
 .critedge4:                                       ; preds = %.critedge38, %33
   %sext = shl i64 %30, 32
@@ -689,16 +689,17 @@ attributes #17 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

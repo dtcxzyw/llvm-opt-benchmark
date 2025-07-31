@@ -121,7 +121,7 @@ define internal fastcc ptr @ESS_CERT_ID_new_init(ptr noundef %0, i32 noundef %1)
   br label %49
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %4, align 8, !tbaa !12
+  %12 = load ptr, ptr %4, align 8, !tbaa !13
   %13 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %12, ptr noundef nonnull %3, i32 noundef 20) #6
   %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %14, label %15
@@ -138,13 +138,13 @@ define internal fastcc ptr @ESS_CERT_ID_new_init(ptr noundef %0, i32 noundef %1)
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
   %21 = call ptr @ESS_ISSUER_SERIAL_new() #6
-  store ptr %21, ptr %17, align 8, !tbaa !16
+  store ptr %21, ptr %17, align 8, !tbaa !17
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %24
 
@@ -166,11 +166,11 @@ define internal fastcc ptr @ESS_CERT_ID_new_init(ptr noundef %0, i32 noundef %1)
   br label %49
 
 28:                                               ; preds = %24
-  store i32 4, ptr %25, align 8, !tbaa !17
+  store i32 4, ptr %25, align 8, !tbaa !18
   %29 = call ptr @X509_get_issuer_name(ptr noundef %0) #6
   %30 = call ptr @X509_NAME_dup(ptr noundef %29) #6
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %30, ptr %31, align 8, !tbaa !20
+  store ptr %30, ptr %31, align 8, !tbaa !21
   %32 = icmp eq ptr %30, null
   br i1 %32, label %33, label %34
 
@@ -181,8 +181,8 @@ define internal fastcc ptr @ESS_CERT_ID_new_init(ptr noundef %0, i32 noundef %1)
   br label %49
 
 34:                                               ; preds = %28
-  %35 = load ptr, ptr %17, align 8, !tbaa !16
-  %36 = load ptr, ptr %35, align 8, !tbaa !21
+  %35 = load ptr, ptr %17, align 8, !tbaa !17
+  %36 = load ptr, ptr %35, align 8, !tbaa !22
   %37 = call i32 @OPENSSL_sk_push(ptr noundef %36, ptr noundef nonnull %25) #6
   %.not22 = icmp eq i32 %37, 0
   br i1 %.not22, label %38, label %39
@@ -194,15 +194,15 @@ define internal fastcc ptr @ESS_CERT_ID_new_init(ptr noundef %0, i32 noundef %1)
   br label %49
 
 39:                                               ; preds = %34
-  %40 = load ptr, ptr %17, align 8, !tbaa !16
+  %40 = load ptr, ptr %17, align 8, !tbaa !17
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !24
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
   call void @ASN1_INTEGER_free(ptr noundef %42) #6
   %43 = call ptr @X509_get0_serialNumber(ptr noundef %0) #6
   %44 = call ptr @ASN1_INTEGER_dup(ptr noundef %43) #6
-  %45 = load ptr, ptr %17, align 8, !tbaa !16
+  %45 = load ptr, ptr %17, align 8, !tbaa !17
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %44, ptr %46, align 8, !tbaa !24
+  store ptr %44, ptr %46, align 8, !tbaa !25
   %47 = icmp eq ptr %44, null
   br i1 %47, label %48, label %50
 
@@ -249,7 +249,7 @@ define ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef %0, ptr noundef %1, pt
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = load ptr, ptr %5, align 8, !tbaa !25
+  %11 = load ptr, ptr %5, align 8, !tbaa !26
   %12 = tail call i32 @OPENSSL_sk_push(ptr noundef %11, ptr noundef nonnull %8) #6
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.thread, label %.preheader
@@ -263,7 +263,7 @@ define ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef %0, ptr noundef %1, pt
   %16 = add nuw nsw i32 %.02033, 1
   %17 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #6
   %18 = icmp slt i32 %16, %17
-  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !28
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.preheader, %15
   %.02033 = phi i32 [ %16, %15 ], [ 0, %.preheader ]
@@ -273,7 +273,7 @@ define ptr @OSSL_ESS_signing_cert_v2_new_init(ptr noundef %0, ptr noundef %1, pt
   br i1 %21, label %.thread, label %22
 
 22:                                               ; preds = %.lr.ph
-  %23 = load ptr, ptr %5, align 8, !tbaa !25
+  %23 = load ptr, ptr %5, align 8, !tbaa !26
   %24 = tail call i32 @OPENSSL_sk_push(ptr noundef %23, ptr noundef nonnull %20) #6
   %.not27 = icmp eq i32 %24, 0
   br i1 %.not27, label %.thread, label %15
@@ -302,7 +302,7 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  store i32 64, ptr %5, align 4, !tbaa !29
+  store i32 64, ptr %5, align 4, !tbaa !30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %6 = tail call ptr @ESS_CERT_ID_V2_new() #6
   %7 = icmp eq ptr %6, null
@@ -332,7 +332,7 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
 
 15:                                               ; preds = %11
   tail call void @X509_ALGOR_set_md(ptr noundef nonnull %12, ptr noundef %0) #6
-  %16 = load ptr, ptr %12, align 8, !tbaa !30
+  %16 = load ptr, ptr %12, align 8, !tbaa !31
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
 
@@ -344,7 +344,7 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
 
 19:                                               ; preds = %9, %15
   %storemerge = phi ptr [ %12, %15 ], [ null, %9 ]
-  store ptr %storemerge, ptr %6, align 8, !tbaa !34
+  store ptr %storemerge, ptr %6, align 8, !tbaa !35
   %20 = call i32 @X509_digest(ptr noundef %1, ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #6
   %.not33 = icmp eq i32 %20, 0
   br i1 %.not33, label %21, label %22
@@ -357,8 +357,8 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
-  %25 = load i32, ptr %5, align 4, !tbaa !29
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
+  %25 = load i32, ptr %5, align 4, !tbaa !30
   %26 = call i32 @ASN1_OCTET_STRING_set(ptr noundef %24, ptr noundef nonnull %4, i32 noundef %25) #6
   %.not34 = icmp eq i32 %26, 0
   br i1 %.not34, label %27, label %28
@@ -376,7 +376,7 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
 29:                                               ; preds = %28
   %30 = call ptr @ESS_ISSUER_SERIAL_new() #6
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %30, ptr %31, align 8, !tbaa !38
+  store ptr %30, ptr %31, align 8, !tbaa !39
   %32 = icmp eq ptr %30, null
   br i1 %32, label %33, label %34
 
@@ -398,11 +398,11 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
   br label %59
 
 38:                                               ; preds = %34
-  store i32 4, ptr %35, align 8, !tbaa !17
+  store i32 4, ptr %35, align 8, !tbaa !18
   %39 = call ptr @X509_get_issuer_name(ptr noundef %1) #6
   %40 = call ptr @X509_NAME_dup(ptr noundef %39) #6
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !20
+  store ptr %40, ptr %41, align 8, !tbaa !21
   %42 = icmp eq ptr %40, null
   br i1 %42, label %43, label %44
 
@@ -413,8 +413,8 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
   br label %59
 
 44:                                               ; preds = %38
-  %45 = load ptr, ptr %31, align 8, !tbaa !38
-  %46 = load ptr, ptr %45, align 8, !tbaa !21
+  %45 = load ptr, ptr %31, align 8, !tbaa !39
+  %46 = load ptr, ptr %45, align 8, !tbaa !22
   %47 = call i32 @OPENSSL_sk_push(ptr noundef %46, ptr noundef nonnull %35) #6
   %.not36 = icmp eq i32 %47, 0
   br i1 %.not36, label %48, label %49
@@ -426,15 +426,15 @@ define internal fastcc ptr @ESS_CERT_ID_V2_new_init(ptr noundef %0, ptr noundef 
   br label %59
 
 49:                                               ; preds = %44
-  %50 = load ptr, ptr %31, align 8, !tbaa !38
+  %50 = load ptr, ptr %31, align 8, !tbaa !39
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !24
+  %52 = load ptr, ptr %51, align 8, !tbaa !25
   call void @ASN1_INTEGER_free(ptr noundef %52) #6
   %53 = call ptr @X509_get0_serialNumber(ptr noundef %1) #6
   %54 = call ptr @ASN1_INTEGER_dup(ptr noundef %53) #6
-  %55 = load ptr, ptr %31, align 8, !tbaa !38
+  %55 = load ptr, ptr %31, align 8, !tbaa !39
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %54, ptr %56, align 8, !tbaa !24
+  store ptr %54, ptr %56, align 8, !tbaa !25
   %57 = icmp eq ptr %54, null
   br i1 %57, label %58, label %60
 
@@ -479,7 +479,7 @@ define range(i32 -2147483647, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef r
   br i1 %11, label %14, label %.thread
 
 .thread:                                          ; preds = %9
-  %12 = load ptr, ptr %1, align 8, !tbaa !25
+  %12 = load ptr, ptr %1, align 8, !tbaa !26
   %13 = tail call i32 @OPENSSL_sk_num(ptr noundef %12) #6
   br label %16
 
@@ -502,7 +502,7 @@ define range(i32 -2147483647, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef r
 21:                                               ; preds = %.lr.ph
   %22 = add nuw nsw i32 %.043, 1
   %exitcond.not = icmp eq i32 %22, %10
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !40
 
 .preheader:                                       ; preds = %21, %.preheader41
   %23 = icmp sgt i32 %17, 0
@@ -519,11 +519,11 @@ define range(i32 -2147483647, 2) i32 @OSSL_ESS_check_signing_certs(ptr noundef r
 28:                                               ; preds = %.lr.ph45
   %29 = add nuw nsw i32 %.144, 1
   %exitcond50.not = icmp eq i32 %29, %17
-  br i1 %exitcond50.not, label %.loopexit, label %.lr.ph45, !llvm.loop !40
+  br i1 %exitcond50.not, label %.loopexit, label %.lr.ph45, !llvm.loop !41
 
 .lr.ph45:                                         ; preds = %.preheader, %28
   %.144 = phi i32 [ %29, %28 ], [ 0, %.preheader ]
-  %30 = load ptr, ptr %1, align 8, !tbaa !25
+  %30 = load ptr, ptr %1, align 8, !tbaa !26
   %31 = tail call ptr @OPENSSL_sk_value(ptr noundef %30, i32 noundef %.144) #6
   %32 = tail call fastcc i32 @find(ptr noundef null, ptr noundef %31, i32 noundef %.144, ptr noundef %2)
   %33 = icmp slt i32 %32, 1
@@ -569,7 +569,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find(ptr noundef
   br label %20
 
 13:                                               ; preds = %11
-  %14 = load ptr, ptr %1, align 8, !tbaa !34
+  %14 = load ptr, ptr %1, align 8, !tbaa !35
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
 
@@ -578,7 +578,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find(ptr noundef
   br label %20
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %14, align 8, !tbaa !30
+  %18 = load ptr, ptr %14, align 8, !tbaa !31
   %19 = call i32 @OBJ_obj2txt(ptr noundef nonnull %5, i32 noundef 50, ptr noundef %18, i32 noundef 0) #6
   br label %20
 
@@ -618,8 +618,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find(ptr noundef
 35:                                               ; preds = %.lr.ph, %ess_issuer_serial_cmp.exit.thread
   %.03351 = phi i32 [ 0, %.lr.ph ], [ %74, %ess_issuer_serial_cmp.exit.thread ]
   %36 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.03351) #6
-  %.in = load ptr, ptr %.in.in, align 8, !tbaa !41
-  %37 = load i32, ptr %.in, align 8, !tbaa !42
+  %.in = load ptr, ptr %.in.in, align 8, !tbaa !42
+  %37 = load i32, ptr %.in, align 8, !tbaa !43
   %38 = call i32 @X509_digest(ptr noundef %36, ptr noundef nonnull %.03547, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %.not40 = icmp ne i32 %38, 0
   %39 = load i32, ptr %7, align 4
@@ -634,16 +634,16 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find(ptr noundef
   br label %77
 
 41:                                               ; preds = %35
-  %.pn = load ptr, ptr %.in.in, align 8, !tbaa !41
+  %.pn = load ptr, ptr %.in.in, align 8, !tbaa !42
   %.in42 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %42 = load ptr, ptr %.in42, align 8, !tbaa !46
+  %42 = load ptr, ptr %.in42, align 8, !tbaa !47
   %43 = zext i32 %37 to i64
   %bcmp = call i32 @bcmp(ptr %42, ptr nonnull %6, i64 %43)
   %44 = icmp eq i32 %bcmp, 0
   br i1 %44, label %45, label %ess_issuer_serial_cmp.exit.thread
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr %.in43, align 8, !tbaa !47
+  %46 = load ptr, ptr %.in43, align 8, !tbaa !48
   %47 = icmp eq ptr %46, null
   br i1 %47, label %67, label %48
 
@@ -652,21 +652,21 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find(ptr noundef
   br i1 %49, label %ess_issuer_serial_cmp.exit.thread, label %50
 
 50:                                               ; preds = %48
-  %51 = load ptr, ptr %46, align 8, !tbaa !21
+  %51 = load ptr, ptr %46, align 8, !tbaa !22
   %52 = call i32 @OPENSSL_sk_num(ptr noundef %51) #6
   %.not.i = icmp eq i32 %52, 1
   br i1 %.not.i, label %53, label %ess_issuer_serial_cmp.exit.thread
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr %46, align 8, !tbaa !21
+  %54 = load ptr, ptr %46, align 8, !tbaa !22
   %55 = call ptr @OPENSSL_sk_value(ptr noundef %54, i32 noundef 0) #6
-  %56 = load i32, ptr %55, align 8, !tbaa !17
+  %56 = load i32, ptr %55, align 8, !tbaa !18
   %.not12.i = icmp eq i32 %56, 4
   br i1 %.not12.i, label %57, label %ess_issuer_serial_cmp.exit.thread
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !20
+  %59 = load ptr, ptr %58, align 8, !tbaa !21
   %60 = call ptr @X509_get_issuer_name(ptr noundef nonnull %36) #6
   %61 = call i32 @X509_NAME_cmp(ptr noundef %59, ptr noundef %60) #6
   %.not13.i = icmp eq i32 %61, 0
@@ -674,7 +674,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find(ptr noundef
 
 ess_issuer_serial_cmp.exit:                       ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !24
+  %63 = load ptr, ptr %62, align 8, !tbaa !25
   %64 = call ptr @X509_get0_serialNumber(ptr noundef nonnull %36) #6
   %65 = call i32 @ASN1_INTEGER_cmp(ptr noundef %63, ptr noundef %64) #6
   %66 = icmp eq i32 %65, 0
@@ -700,7 +700,7 @@ ess_issuer_serial_cmp.exit.thread:                ; preds = %53, %57, %48, %50, 
   %74 = add nuw nsw i32 %.03351, 1
   %75 = call i32 @OPENSSL_sk_num(ptr noundef %3) #6
   %76 = icmp slt i32 %74, %75
-  br i1 %76, label %35, label %._crit_edge, !llvm.loop !48
+  br i1 %76, label %35, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %ess_issuer_serial_cmp.exit.thread, %.thread
   call void @ERR_new() #6
@@ -803,42 +803,43 @@ attributes #6 = { nounwind }
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!"p1 _ZTS19stack_st_POLICYINFO", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !14, i64 0}
-!13 = !{!"ESS_cert_id", !14, i64 0, !15, i64 8}
-!14 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
-!15 = !{!"p1 _ZTS17ESS_issuer_serial", !6, i64 0}
-!16 = !{!13, !15, i64 8}
-!17 = !{!18, !19, i64 0}
-!18 = !{!"GENERAL_NAME_st", !19, i64 0, !7, i64 8}
-!19 = !{!"int", !7, i64 0}
-!20 = !{!7, !7, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"ESS_issuer_serial", !23, i64 0, !14, i64 8}
-!23 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !6, i64 0}
-!24 = !{!22, !14, i64 8}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"ESS_signing_cert_v2_st", !27, i64 0, !9, i64 8}
-!27 = !{!"p1 _ZTS23stack_st_ESS_CERT_ID_V2", !6, i64 0}
-!28 = distinct !{!28, !11}
-!29 = !{!19, !19, i64 0}
-!30 = !{!31, !32, i64 0}
-!31 = !{!"X509_algor_st", !32, i64 0, !33, i64 8}
-!32 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!33 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
-!34 = !{!35, !36, i64 0}
-!35 = !{!"ESS_cert_id_v2_st", !36, i64 0, !14, i64 8, !15, i64 16}
-!36 = !{!"p1 _ZTS13X509_algor_st", !6, i64 0}
-!37 = !{!35, !14, i64 8}
-!38 = !{!35, !15, i64 16}
-!39 = distinct !{!39, !11}
-!40 = distinct !{!40, !11}
-!41 = !{!14, !14, i64 0}
-!42 = !{!43, !19, i64 0}
-!43 = !{!"asn1_string_st", !19, i64 0, !19, i64 4, !44, i64 8, !45, i64 16}
-!44 = !{!"p1 omnipotent char", !6, i64 0}
-!45 = !{!"long", !7, i64 0}
-!46 = !{!43, !44, i64 8}
-!47 = !{!15, !15, i64 0}
-!48 = distinct !{!48, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !15, i64 0}
+!14 = !{!"ESS_cert_id", !15, i64 0, !16, i64 8}
+!15 = !{!"p1 _ZTS14asn1_string_st", !6, i64 0}
+!16 = !{!"p1 _ZTS17ESS_issuer_serial", !6, i64 0}
+!17 = !{!14, !16, i64 8}
+!18 = !{!19, !20, i64 0}
+!19 = !{!"GENERAL_NAME_st", !20, i64 0, !7, i64 8}
+!20 = !{!"int", !7, i64 0}
+!21 = !{!7, !7, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"ESS_issuer_serial", !24, i64 0, !15, i64 8}
+!24 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !6, i64 0}
+!25 = !{!23, !15, i64 8}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"ESS_signing_cert_v2_st", !28, i64 0, !9, i64 8}
+!28 = !{!"p1 _ZTS23stack_st_ESS_CERT_ID_V2", !6, i64 0}
+!29 = distinct !{!29, !11, !12}
+!30 = !{!20, !20, i64 0}
+!31 = !{!32, !33, i64 0}
+!32 = !{!"X509_algor_st", !33, i64 0, !34, i64 8}
+!33 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!34 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
+!35 = !{!36, !37, i64 0}
+!36 = !{!"ESS_cert_id_v2_st", !37, i64 0, !15, i64 8, !16, i64 16}
+!37 = !{!"p1 _ZTS13X509_algor_st", !6, i64 0}
+!38 = !{!36, !15, i64 8}
+!39 = !{!36, !16, i64 16}
+!40 = distinct !{!40, !11, !12}
+!41 = distinct !{!41, !11, !12}
+!42 = !{!15, !15, i64 0}
+!43 = !{!44, !20, i64 0}
+!44 = !{!"asn1_string_st", !20, i64 0, !20, i64 4, !45, i64 8, !46, i64 16}
+!45 = !{!"p1 omnipotent char", !6, i64 0}
+!46 = !{!"long", !7, i64 0}
+!47 = !{!44, !45, i64 8}
+!48 = !{!16, !16, i64 0}
+!49 = distinct !{!49, !11, !12}

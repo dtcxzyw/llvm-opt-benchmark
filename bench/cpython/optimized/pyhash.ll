@@ -134,7 +134,7 @@ define dso_local range(i64 0, -1) i64 @Py_HashBuffer(ptr noundef %0, i64 noundef
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr @PyHash_Func, align 8, !tbaa !6
+  %5 = load ptr, ptr @PyHash_Func, align 8, !tbaa !7
   %6 = tail call i64 %5(ptr noundef %0, i64 noundef %1) #9
   %. = tail call i64 @llvm.umin.i64(i64 %6, i64 -2)
   br label %7
@@ -196,7 +196,7 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   %26 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 32)
   %27 = xor i64 %21, %.0.copyload
   %28 = icmp samesign ugt i64 %.0209, 15
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0163.lcssa = phi ptr [ %2, %4 ], [ %10, %.lr.ph ]
@@ -217,7 +217,7 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr i8, ptr %.0163.lcssa, i64 6
-  %31 = load i8, ptr %30, align 1, !tbaa !14
+  %31 = load i8, ptr %30, align 1, !tbaa !15
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %32, 48
   br label %34
@@ -225,7 +225,7 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
 34:                                               ; preds = %29, %._crit_edge
   %.sroa.12.1 = phi i64 [ %33, %29 ], [ 0, %._crit_edge ]
   %35 = getelementptr i8, ptr %.0163.lcssa, i64 5
-  %36 = load i8, ptr %35, align 1, !tbaa !14
+  %36 = load i8, ptr %35, align 1, !tbaa !15
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 40
   br label %39
@@ -234,7 +234,7 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   %.sroa.12.2 = phi i64 [ %.sroa.12.1, %34 ], [ 0, %._crit_edge ]
   %.sroa.11.1 = phi i64 [ %38, %34 ], [ 0, %._crit_edge ]
   %40 = getelementptr i8, ptr %.0163.lcssa, i64 4
-  %41 = load i8, ptr %40, align 1, !tbaa !14
+  %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = zext i8 %41 to i64
   %43 = shl nuw nsw i64 %42, 32
   br label %44
@@ -256,19 +256,19 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
 
 47:                                               ; preds = %._crit_edge
   %48 = getelementptr i8, ptr %.0163.lcssa, i64 2
-  %49 = load i8, ptr %48, align 1, !tbaa !14
+  %49 = load i8, ptr %48, align 1, !tbaa !15
   br label %50
 
 50:                                               ; preds = %47, %._crit_edge
   %.sroa.9.1 = phi i8 [ %49, %47 ], [ 0, %._crit_edge ]
   %51 = getelementptr i8, ptr %.0163.lcssa, i64 1
-  %52 = load i8, ptr %51, align 1, !tbaa !14
+  %52 = load i8, ptr %51, align 1, !tbaa !15
   br label %53
 
 53:                                               ; preds = %50, %._crit_edge
   %.sroa.9.2 = phi i8 [ %.sroa.9.1, %50 ], [ 0, %._crit_edge ]
   %.sroa.8.1 = phi i8 [ %52, %50 ], [ 0, %._crit_edge ]
-  %54 = load i8, ptr %.0163.lcssa, align 1, !tbaa !14
+  %54 = load i8, ptr %.0163.lcssa, align 1, !tbaa !15
   br label %55
 
 55:                                               ; preds = %53, %44, %._crit_edge
@@ -356,8 +356,8 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i64 @pysiphash(ptr noundef readonly captures(none) %0, i64 noundef %1) #7 {
-  %3 = load i64, ptr @_Py_HashSecret, align 8, !tbaa !14
-  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Py_HashSecret, i64 8), align 8, !tbaa !14
+  %3 = load i64, ptr @_Py_HashSecret, align 8, !tbaa !15
+  %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Py_HashSecret, i64 8), align 8, !tbaa !15
   %5 = tail call fastcc i64 @siphash13(i64 noundef %3, i64 noundef %4, ptr noundef %0, i64 noundef %1)
   ret i64 %5
 }
@@ -385,14 +385,15 @@ attributes #9 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !8, i64 0}
-!7 = !{!"", !8, i64 0, !11, i64 8, !12, i64 16, !12, i64 20}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!"p1 omnipotent char", !8, i64 0}
-!12 = !{!"int", !9, i64 0}
-!13 = distinct !{!13, !5}
-!14 = !{!9, !9, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !9, i64 0}
+!8 = !{!"", !9, i64 0, !12, i64 8, !13, i64 16, !13, i64 20}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!"p1 omnipotent char", !9, i64 0}
+!13 = !{!"int", !10, i64 0}
+!14 = distinct !{!14, !5, !6}
+!15 = !{!10, !10, i64 0}

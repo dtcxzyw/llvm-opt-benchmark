@@ -287,7 +287,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4a
   %8 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17hee3dc89172be79a0E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
   %9 = extractvalue { ptr, i64 } %8, 0
   %.not7 = icmp eq ptr %9, null
-  br i1 %.not7, label %10, label %5
+  br i1 %.not7, label %10, label %5, !llvm.loop !8
 
 .critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
@@ -314,7 +314,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248d
   %8 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h9c53fffebf38163cE(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
   %9 = extractvalue { ptr, i64 } %8, 0
   %.not7 = icmp eq ptr %9, null
-  br i1 %.not7, label %10, label %5
+  br i1 %.not7, label %10, label %5, !llvm.loop !10
 
 .critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
@@ -341,7 +341,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b77434453
   %8 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17he2e2387d1f517709E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
   %9 = extractvalue { ptr, i64 } %8, 0
   %.not7 = icmp eq ptr %9, null
-  br i1 %.not7, label %10, label %5
+  br i1 %.not7, label %10, label %5, !llvm.loop !11
 
 .critedge:                                        ; preds = %5, %10
   %.0 = phi i64 [ %11, %10 ], [ 0, %5 ]
@@ -370,7 +370,7 @@ define i64 @_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f4200
   %9 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h4f82092896f38708E(ptr nonnull align 8 %3, ptr nonnull align 1 %4, ptr nonnull align 8 %0)
   %10 = extractvalue { ptr, i64 } %9, 0
   %.not7 = icmp eq ptr %10, null
-  br i1 %.not7, label %11, label %6
+  br i1 %.not7, label %11, label %6, !llvm.loop !12
 
 .critedge:                                        ; preds = %6, %11
   %.0 = phi i64 [ %12, %11 ], [ 0, %6 ]
@@ -397,7 +397,7 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17h6e4bc65b0ba79d
   %8 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h9c53fffebf38163cE(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
   %9 = extractvalue { ptr, i64 } %8, 0
   %.not7.i = icmp eq ptr %9, null
-  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit, label %5
+  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit, label %5, !llvm.loop !10
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit.thread: ; preds = %5
   %10 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h9c53fffebf38163cE(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
@@ -431,7 +431,7 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17h7cf19edd89c195
   %9 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h4f82092896f38708E(ptr nonnull align 8 %3, ptr nonnull align 1 %4, ptr nonnull align 8 %0)
   %10 = extractvalue { ptr, i64 } %9, 0
   %.not7.i = icmp eq ptr %10, null
-  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit, label %6
+  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit, label %6, !llvm.loop !12
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit.thread: ; preds = %6
   tail call void @llvm.assume(i1 %5)
@@ -464,7 +464,7 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17h9685c83d1caf1a
   %8 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17hee3dc89172be79a0E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
   %9 = extractvalue { ptr, i64 } %8, 0
   %.not7.i = icmp eq ptr %9, null
-  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit, label %5
+  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit, label %5, !llvm.loop !8
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit.thread: ; preds = %5
   %10 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17hee3dc89172be79a0E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
@@ -496,7 +496,7 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17hb78a6431b9b8f3
   %8 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17he2e2387d1f517709E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
   %9 = extractvalue { ptr, i64 } %8, 0
   %.not7.i = icmp eq ptr %9, null
-  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit, label %5
+  br i1 %.not7.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit, label %5, !llvm.loop !11
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit.thread: ; preds = %5
   %10 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17he2e2387d1f517709E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
@@ -581,3 +581,8 @@ attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !5 = !{i8 0, i8 2}
 !6 = !{i64 8}
 !7 = !{i64 0, i64 2}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !9}

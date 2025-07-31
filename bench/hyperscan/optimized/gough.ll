@@ -99,7 +99,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_Q(ptr noundef %0, ptr nou
 66:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doReports.exit, label %67
+  br i1 %exitcond.not, label %doReports.exit, label %67, !llvm.loop !5
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -377,7 +377,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_Q(ptr noundef %0, ptr no
 66:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doReports.exit, label %67
+  br i1 %exitcond.not, label %doReports.exit, label %67, !llvm.loop !5
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -646,7 +646,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_Q2(ptr noundef %0, ptr no
 66:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doReports.exit, label %67
+  br i1 %exitcond.not, label %doReports.exit, label %67, !llvm.loop !5
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -943,7 +943,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_Q2(ptr noundef %0, ptr n
 66:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doReports.exit, label %67
+  br i1 %exitcond.not, label %doReports.exit, label %67, !llvm.loop !5
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -1237,7 +1237,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough8_QR(ptr noundef %0, ptr no
 66:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doReports.exit, label %67
+  br i1 %exitcond.not, label %doReports.exit, label %67, !llvm.loop !5
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -1477,7 +1477,7 @@ define hidden signext range(i8 0, 3) i8 @nfaExecGough16_QR(ptr noundef %0, ptr n
 66:                                               ; preds = %76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doReports.exit, label %67
+  br i1 %exitcond.not, label %doReports.exit, label %67, !llvm.loop !5
 
 67:                                               ; preds = %.lr.ph, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
@@ -1769,7 +1769,7 @@ define hidden noundef signext i8 @nfaExecGough8_reportCurrent(ptr noundef readon
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not63.i, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %doReports.exit, label %55
+  br i1 %or.cond, label %doReports.exit, label %55, !llvm.loop !5
 
 doReports.exit:                                   ; preds = %64, %28, %52, %25, %2
   ret i8 0
@@ -1871,7 +1871,7 @@ define hidden noundef signext i8 @nfaExecGough16_reportCurrent(ptr noundef reado
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %.not63.i, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %doReports.exit, label %52
+  br i1 %or.cond, label %doReports.exit, label %52, !llvm.loop !5
 
 doReports.exit:                                   ; preds = %61, %33, %49, %30, %2
   ret i8 0
@@ -1936,7 +1936,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough8_testEOD(ptr noundef reado
 23:                                               ; preds = %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %24
+  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %24, !llvm.loop !5
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
@@ -1995,7 +1995,7 @@ define hidden signext range(i8 0, 2) i8 @nfaExecGough16_testEOD(ptr noundef read
 23:                                               ; preds = %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %24
+  br i1 %exitcond.not.i, label %goughCheckEOD.exit, label %24, !llvm.loop !5
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
@@ -2104,7 +2104,7 @@ compressSomValue.exit.us:                         ; preds = %compressSomValue.ex
   store i16 %32, ptr %28, align 1
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us, !llvm.loop !5
+  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us, !llvm.loop !7
 
 compressSomValue.exit.us12:                       ; preds = %compressSomValue.exit.us12.preheader, %compressSomValue.exit.us12
   %indvars.iv21 = phi i64 [ 0, %compressSomValue.exit.us12.preheader ], [ %indvars.iv.next22, %compressSomValue.exit.us12 ]
@@ -2121,7 +2121,7 @@ compressSomValue.exit.us12:                       ; preds = %compressSomValue.ex
   store i32 %42, ptr %38, align 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12, !llvm.loop !7
+  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12, !llvm.loop !9
 
 compressSomValue.exit.us16:                       ; preds = %compressSomValue.exit.us16.preheader, %compressSomValue.exit.us16
   %indvars.iv = phi i64 [ 0, %compressSomValue.exit.us16.preheader ], [ %indvars.iv.next, %compressSomValue.exit.us16 ]
@@ -2135,7 +2135,7 @@ compressSomValue.exit.us16:                       ; preds = %compressSomValue.ex
   store i64 %49, ptr %48, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16, !llvm.loop !8
+  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16, !llvm.loop !10
 
 compSomSpace.exit:                                ; preds = %compressSomValue.exit.us16, %compressSomValue.exit.us12, %compressSomValue.exit.us, %.lr.ph, %3
   ret i8 0
@@ -2182,7 +2182,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   store i64 %.012.i.us, ptr %26, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count34
-  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split.us7:                                 ; preds = %.lr.ph, %.lr.ph.split.us7
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph.split.us7 ], [ 0, %.lr.ph ]
@@ -2199,7 +2199,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   store i64 %.012.i.us11, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count34
-  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7, !llvm.loop !10
+  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7, !llvm.loop !12
 
 .lr.ph.split.us12:                                ; preds = %.lr.ph, %.lr.ph.split.us12
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us12 ], [ 0, %.lr.ph ]
@@ -2215,7 +2215,7 @@ define hidden noundef signext i8 @nfaExecGough8_expandState(ptr noundef readonly
   store i64 %spec.select, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12, !llvm.loop !11
+  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12, !llvm.loop !13
 
 expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomValue.exit
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %expandSomValue.exit ], [ 0, %.lr.ph ]
@@ -2223,7 +2223,7 @@ expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomV
   store i64 %3, ptr %44, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %expandSomSpace.exit, label %expandSomValue.exit
+  br i1 %exitcond35.not, label %expandSomSpace.exit, label %expandSomValue.exit, !llvm.loop !14
 
 expandSomSpace.exit:                              ; preds = %.lr.ph.split.us12, %.lr.ph.split.us7, %.lr.ph.split.us, %expandSomValue.exit, %5
   ret i8 0
@@ -2288,7 +2288,7 @@ compressSomValue.exit.us:                         ; preds = %compressSomValue.ex
   store i16 %32, ptr %28, align 1
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us, !llvm.loop !12
+  br i1 %exitcond30.not, label %compSomSpace.exit, label %compressSomValue.exit.us, !llvm.loop !15
 
 compressSomValue.exit.us12:                       ; preds = %compressSomValue.exit.us12.preheader, %compressSomValue.exit.us12
   %indvars.iv21 = phi i64 [ 0, %compressSomValue.exit.us12.preheader ], [ %indvars.iv.next22, %compressSomValue.exit.us12 ]
@@ -2305,7 +2305,7 @@ compressSomValue.exit.us12:                       ; preds = %compressSomValue.ex
   store i32 %42, ptr %38, align 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count24
-  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12, !llvm.loop !13
+  br i1 %exitcond25.not, label %compSomSpace.exit, label %compressSomValue.exit.us12, !llvm.loop !16
 
 compressSomValue.exit.us16:                       ; preds = %compressSomValue.exit.us16.preheader, %compressSomValue.exit.us16
   %indvars.iv = phi i64 [ 0, %compressSomValue.exit.us16.preheader ], [ %indvars.iv.next, %compressSomValue.exit.us16 ]
@@ -2319,7 +2319,7 @@ compressSomValue.exit.us16:                       ; preds = %compressSomValue.ex
   store i64 %49, ptr %48, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16, !llvm.loop !14
+  br i1 %exitcond.not, label %compSomSpace.exit, label %compressSomValue.exit.us16, !llvm.loop !17
 
 compSomSpace.exit:                                ; preds = %compressSomValue.exit.us16, %compressSomValue.exit.us12, %compressSomValue.exit.us, %.lr.ph, %3
   ret i8 0
@@ -2366,7 +2366,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   store i64 %.012.i.us, ptr %26, align 8
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count34
-  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %exitcond30.not, label %expandSomSpace.exit, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split.us7:                                 ; preds = %.lr.ph, %.lr.ph.split.us7
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.lr.ph.split.us7 ], [ 0, %.lr.ph ]
@@ -2383,7 +2383,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   store i64 %.012.i.us11, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %wide.trip.count34
-  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7, !llvm.loop !16
+  br i1 %exitcond25.not, label %expandSomSpace.exit, label %.lr.ph.split.us7, !llvm.loop !19
 
 .lr.ph.split.us12:                                ; preds = %.lr.ph, %.lr.ph.split.us12
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us12 ], [ 0, %.lr.ph ]
@@ -2399,7 +2399,7 @@ define hidden noundef signext i8 @nfaExecGough16_expandState(ptr noundef readonl
   store i64 %spec.select, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
-  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12, !llvm.loop !17
+  br i1 %exitcond.not, label %expandSomSpace.exit, label %.lr.ph.split.us12, !llvm.loop !20
 
 expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomValue.exit
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %expandSomValue.exit ], [ 0, %.lr.ph ]
@@ -2407,7 +2407,7 @@ expandSomValue.exit:                              ; preds = %.lr.ph, %expandSomV
   store i64 %3, ptr %44, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %expandSomSpace.exit, label %expandSomValue.exit
+  br i1 %exitcond35.not, label %expandSomSpace.exit, label %expandSomValue.exit, !llvm.loop !14
 
 expandSomSpace.exit:                              ; preds = %.lr.ph.split.us12, %.lr.ph.split.us7, %.lr.ph.split.us, %expandSomValue.exit, %5
   ret i8 0
@@ -2560,14 +2560,14 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec8_i_ni(ptr noundef %0
 
 90:                                               ; preds = %89, %88, %86, %73, %67
   %91 = getelementptr inbounds nuw i8, ptr %.030.i15.us162, i64 12
-  br label %61
+  br label %61, !llvm.loop !21
 
 run_prog.exit.us165:                              ; preds = %61, %43
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 %53
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i16
   %.not162.i.us = icmp ugt i16 %30, %94
-  br i1 %.not162.i.us, label %.outer.us154, label %goughExec8_i.exit.sink.split.sink.split, !llvm.loop !18
+  br i1 %.not162.i.us, label %.outer.us154, label %goughExec8_i.exit.sink.split.sink.split, !llvm.loop !22
 
 .outer.us154:                                     ; preds = %.loopexit, %run_prog.exit.us165
   %.2130.i.us167 = phi ptr [ %45, %run_prog.exit.us165 ], [ %.0128.i, %.loopexit ]
@@ -2658,7 +2658,7 @@ run_prog.exit.us165:                              ; preds = %61, %43
 
 144:                                              ; preds = %143, %142, %140, %127, %121
   %145 = getelementptr inbounds nuw i8, ptr %.030.i15.us, i64 12
-  br label %115
+  br label %115, !llvm.loop !21
 
 run_prog.exit.us:                                 ; preds = %115, %.lr.ph366
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 %107
@@ -2668,9 +2668,9 @@ run_prog.exit.us:                                 ; preds = %115, %.lr.ph366
   %150 = select i1 %148, i1 %149, i1 false
   br i1 %150, label %.lr.ph366, label %.loopexit83
 
-.outer:                                           ; preds = %.outer.backedge, %.outer.outer
-  %.2130.i = phi ptr [ %.2130.i.ph.ph, %.outer.outer ], [ %156, %.outer.backedge ]
-  %.2126.i = phi i8 [ %.2126.i.ph.ph, %.outer.outer ], [ %204, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.backedge404, %.outer.outer
+  %.2130.i = phi ptr [ %.2130.i.ph.ph, %.outer.outer ], [ %156, %.outer.backedge404 ]
+  %.2126.i = phi i8 [ %.2126.i.ph.ph, %.outer.outer ], [ %204, %.outer.backedge404 ]
   %151 = icmp ult ptr %.2130.i, %.0133.i
   %152 = icmp ne i8 %.2126.i, 0
   %153 = select i1 %151, i1 %152, i1 false
@@ -2755,17 +2755,17 @@ run_prog.exit.us:                                 ; preds = %115, %.lr.ph366
 
 201:                                              ; preds = %178, %184, %197, %198, %200
   %202 = getelementptr inbounds nuw i8, ptr %.030.i15, i64 12
-  br label %172
+  br label %172, !llvm.loop !21
 
 run_prog.exit:                                    ; preds = %172, %154
   %203 = getelementptr inbounds nuw i8, ptr %13, i64 %164
   %204 = load i8, ptr %203, align 1
   %205 = zext i8 %204 to i16
   %.not162.i = icmp ugt i16 %30, %205
-  br i1 %.not162.i, label %.outer.backedge, label %206
+  br i1 %.not162.i, label %.outer.backedge404, label %206
 
-.outer.backedge:                                  ; preds = %244, %run_prog.exit, %216, %213
-  br label %.outer
+.outer.backedge404:                               ; preds = %213, %216, %244, %run_prog.exit
+  br label %.outer, !llvm.loop !23
 
 206:                                              ; preds = %run_prog.exit
   %207 = ptrtoint ptr %.2130.i to i64
@@ -2784,7 +2784,7 @@ run_prog.exit:                                    ; preds = %172, %154
   %214 = phi i64 [ %212, %211 ], [ %208, %210 ]
   %215 = tail call i32 %6(i64 noundef %214, i64 noundef %208, i32 noundef %.543.ph.ph, ptr noundef %7) #14
   %.not301 = icmp eq i32 %215, 0
-  br i1 %.not301, label %goughExec8_i.exit, label %.outer.backedge
+  br i1 %.not301, label %goughExec8_i.exit, label %.outer.backedge404
 
 216:                                              ; preds = %206
   %217 = load i32, ptr %18, align 4
@@ -2799,7 +2799,7 @@ run_prog.exit:                                    ; preds = %172, %154
   %226 = load i32, ptr %225, align 4
   switch i32 %226, label %.lr.ph [
     i32 1, label %228
-    i32 0, label %.outer.backedge
+    i32 0, label %.outer.backedge404
   ]
 
 .lr.ph:                                           ; preds = %216
@@ -2825,7 +2825,7 @@ run_prog.exit:                                    ; preds = %172, %154
   %239 = phi i64 [ %237, %234 ], [ %208, %228 ]
   %240 = tail call i32 %6(i64 noundef %239, i64 noundef %208, i32 noundef %230, ptr noundef %7) #14
   %.not = icmp eq i32 %240, 0
-  br i1 %.not, label %goughExec8_i.exit, label %.outer.outer
+  br i1 %.not, label %goughExec8_i.exit, label %.outer.outer, !llvm.loop !23
 
 .outer.outer:                                     ; preds = %.loopexit, %238
   %.543.ph.ph = phi i32 [ %230, %238 ], [ %.442, %.loopexit ]
@@ -2841,7 +2841,7 @@ run_prog.exit:                                    ; preds = %172, %154
 244:                                              ; preds = %254
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.outer.backedge, label %245
+  br i1 %exitcond.not, label %.outer.backedge404, label %245, !llvm.loop !5
 
 245:                                              ; preds = %.lr.ph, %244
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %244 ]
@@ -2966,7 +2966,7 @@ run_prog.exit:                                    ; preds = %172, %154
 
 310:                                              ; preds = %287, %293, %306, %307, %309
   %311 = getelementptr inbounds nuw i8, ptr %.030.i, i64 12
-  br label %281
+  br label %281, !llvm.loop !21
 
 run_prog.exit11:                                  ; preds = %281, %.lr.ph373
   %312 = getelementptr inbounds nuw i8, ptr %13, i64 %273
@@ -3049,7 +3049,7 @@ run_prog.exit11:                                  ; preds = %281, %.lr.ph373
 357:                                              ; preds = %367
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
-  br i1 %exitcond220.not, label %doReports.exit.i, label %358
+  br i1 %exitcond220.not, label %doReports.exit.i, label %358, !llvm.loop !5
 
 358:                                              ; preds = %.lr.ph185, %357
   %indvars.iv216 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next217, %357 ]
@@ -3214,7 +3214,7 @@ define internal fastcc zeroext i16 @goughEnableStarts(ptr noundef readonly captu
 
 50:                                               ; preds = %28, %34, %46, %47, %49
   %51 = getelementptr inbounds nuw i8, ptr %.030.i, i64 12
-  br label %22
+  br label %22, !llvm.loop !21
 
 run_prog_i.exit:                                  ; preds = %22, %.run_prog_i.exit_crit_edge, %13
   %.pre-phi = phi i64 [ %.pre, %.run_prog_i.exit_crit_edge ], [ %16, %13 ], [ %16, %22 ]
@@ -3309,12 +3309,12 @@ define internal fastcc void @run_accel_prog(ptr noundef readonly captures(none) 
 
 48:                                               ; preds = %25, %31, %44, %45, %47
   %49 = getelementptr inbounds nuw i8, ptr %.030.i, i64 12
-  br label %19
+  br label %19, !llvm.loop !21
 
 run_prog_i.exit:                                  ; preds = %19
   %50 = getelementptr inbounds nuw i8, ptr %.03922, i64 1
   %51 = icmp ult ptr %50, %4
-  br i1 %51, label %16, label %.loopexit
+  br i1 %51, label %16, label %.loopexit, !llvm.loop !24
 
 52:                                               ; preds = %6
   %53 = ptrtoint ptr %1 to i64
@@ -3391,12 +3391,12 @@ run_prog_i.exit:                                  ; preds = %19
 
 86:                                               ; preds = %64, %70, %82, %83, %85
   %87 = getelementptr inbounds nuw i8, ptr %.030.i41, i64 12
-  br label %58
+  br label %58, !llvm.loop !21
 
 run_prog_i.exit47:                                ; preds = %58
   %88 = add nuw nsw i64 %.03824, 1
   %exitcond.not = icmp eq i64 %88, %9
-  br i1 %exitcond.not, label %.preheader.lr.ph, label %57
+  br i1 %exitcond.not, label %.preheader.lr.ph, label %57, !llvm.loop !25
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %run_prog_i.exit54
   %.031 = phi i64 [ 0, %.preheader.lr.ph ], [ %121, %run_prog_i.exit54 ]
@@ -3459,12 +3459,12 @@ run_prog_i.exit47:                                ; preds = %58
 
 119:                                              ; preds = %96, %102, %115, %116, %118
   %120 = getelementptr inbounds nuw i8, ptr %.030.i48, i64 12
-  br label %90
+  br label %90, !llvm.loop !21
 
 run_prog_i.exit54:                                ; preds = %90
   %121 = add nuw nsw i64 %.031, 1
   %exitcond36.not = icmp eq i64 %121, %9
-  br i1 %exitcond36.not, label %.loopexit, label %.preheader
+  br i1 %exitcond36.not, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %run_prog_i.exit, %run_prog_i.exit54, %52, %.preheader20
   ret void
@@ -3615,7 +3615,7 @@ define internal fastcc signext range(i8 0, 2) i8 @goughExec16_i_ni(ptr noundef %
 
 92:                                               ; preds = %69, %75, %88, %89, %91
   %93 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 12
-  br label %63
+  br label %63, !llvm.loop !21
 
 run_prog.exit198.i:                               ; preds = %63, %45
   %94 = icmp ult i16 %.2146.i138, %16
@@ -3765,7 +3765,7 @@ doSherman16.exit.doReports.exit196.i_crit_edge:   ; preds = %doSherman16.exit
 175:                                              ; preds = %185
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %doReports.exit196.i, label %176
+  br i1 %exitcond.not, label %doReports.exit196.i, label %176, !llvm.loop !5
 
 176:                                              ; preds = %.lr.ph, %175
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %175 ]
@@ -3796,7 +3796,7 @@ doReports.exit196.i:                              ; preds = %175, %149, %doSherm
   %189 = icmp ult ptr %47, %.0157.i
   %190 = icmp ne i16 %.pre-phi, 0
   %191 = select i1 %189, i1 %190, i1 false
-  br i1 %191, label %45, label %.loopexit102
+  br i1 %191, label %45, label %.loopexit102, !llvm.loop !27
 
 .loopexit102:                                     ; preds = %doReports.exit196.i, %.loopexit, %10
   %.035 = phi i32 [ 0, %10 ], [ %.540, %.loopexit ], [ %.843, %doReports.exit196.i ]
@@ -3903,7 +3903,7 @@ doReports.exit196.i:                              ; preds = %175, %149, %doSherm
 
 247:                                              ; preds = %224, %230, %243, %244, %246
   %248 = getelementptr inbounds nuw i8, ptr %.030.i202.i, i64 12
-  br label %218
+  br label %218, !llvm.loop !21
 
 run_prog.exit.i:                                  ; preds = %218, %.lr.ph281
   %249 = icmp ult i16 %.5149.i280, %16
@@ -4049,7 +4049,7 @@ doSherman16.exit16:                               ; preds = %.thread69, %271, %2
 330:                                              ; preds = %340
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %doReports.exit.i, label %331
+  br i1 %exitcond178.not, label %doReports.exit.i, label %331, !llvm.loop !5
 
 331:                                              ; preds = %.lr.ph146, %330
   %indvars.iv174 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next175, %330 ]
@@ -4171,16 +4171,25 @@ attributes #14 = { nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !6, !8}
+!10 = distinct !{!10, !6, !8}
+!11 = distinct !{!11, !6, !8}
+!12 = distinct !{!12, !6, !8}
+!13 = distinct !{!13, !6, !8}
 !14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
+!15 = distinct !{!15, !6, !8}
+!16 = distinct !{!16, !6, !8}
+!17 = distinct !{!17, !6, !8}
+!18 = distinct !{!18, !6, !8}
+!19 = distinct !{!19, !6, !8}
+!20 = distinct !{!20, !6, !8}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6, !8}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}

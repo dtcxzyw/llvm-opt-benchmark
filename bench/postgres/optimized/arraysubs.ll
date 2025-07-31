@@ -455,7 +455,7 @@ define internal noundef zeroext i1 @array_subscript_check_subscripts(ptr readnon
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %72 = sext i32 %71 to i64
   %.not35.not = icmp slt i64 %indvars.iv.next44, %72
-  br i1 %.not35.not, label %47, label %.loopexit, !llvm.loop !8
+  br i1 %.not35.not, label %47, label %.loopexit, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %58, %31
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -804,6 +804,7 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

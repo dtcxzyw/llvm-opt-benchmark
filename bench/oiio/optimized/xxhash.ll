@@ -111,12 +111,12 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_06xxhash5XXH32EPKvmj(ptr noundef reado
   %64 = mul i32 %63, 668265263
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %.not87.i = icmp ugt ptr %65, %4
-  br i1 %.not87.i, label %.preheader, label %.lr.ph, !llvm.loop !10
+  br i1 %.not87.i, label %.preheader, label %.lr.ph, !llvm.loop !11
 
 .lr.ph21:                                         ; preds = %.preheader, %.lr.ph21
   %.3.i20 = phi ptr [ %72, %.lr.ph21 ], [ %.2.i.lcssa, %.preheader ]
   %.284.i19 = phi i32 [ %71, %.lr.ph21 ], [ %.183.i.lcssa, %.preheader ]
-  %66 = load i8, ptr %.3.i20, align 1, !tbaa !11
+  %66 = load i8, ptr %.3.i20, align 1, !tbaa !12
   %67 = zext i8 %66 to i32
   %68 = mul i32 %67, 374761393
   %69 = add i32 %68, %.284.i19
@@ -124,7 +124,7 @@ define noundef i32 @_ZN11OpenImageIO6v3_1_06xxhash5XXH32EPKvmj(ptr noundef reado
   %71 = mul i32 %70, -1640531535
   %72 = getelementptr inbounds nuw i8, ptr %.3.i20, i64 1
   %73 = icmp ult ptr %72, %4
-  br i1 %73, label %.lr.ph21, label %_ZN11OpenImageIO6v3_1_06xxhashL18XXH32_endian_alignEPKvmjNS1_13XXH_endianessENS1_13XXH_alignmentE.exit, !llvm.loop !12
+  br i1 %73, label %.lr.ph21, label %_ZN11OpenImageIO6v3_1_06xxhashL18XXH32_endian_alignEPKvmjNS1_13XXH_endianessENS1_13XXH_alignmentE.exit, !llvm.loop !13
 
 _ZN11OpenImageIO6v3_1_06xxhashL18XXH32_endian_alignEPKvmjNS1_13XXH_endianessENS1_13XXH_alignmentE.exit: ; preds = %.lr.ph21, %.preheader
   %.284.i.lcssa = phi i32 [ %.183.i.lcssa, %.preheader ], [ %71, %.lr.ph21 ]
@@ -158,32 +158,32 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_06xxhash5XXH64EPKvmy(ptr noundef reado
   %.0121.i = phi i64 [ %2, %6 ], [ %29, %11 ]
   %.0120.i = phi i64 [ %10, %6 ], [ %35, %11 ]
   %.0.i = phi ptr [ %0, %6 ], [ %33, %11 ]
-  %12 = load i64, ptr %.0.i, align 8, !tbaa !13
+  %12 = load i64, ptr %.0.i, align 8, !tbaa !14
   %13 = mul i64 %12, -4417276706812531889
   %14 = add i64 %13, %.0123.i
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %16 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 31)
   %17 = mul i64 %16, -7046029288634856825
-  %18 = load i64, ptr %15, align 8, !tbaa !13
+  %18 = load i64, ptr %15, align 8, !tbaa !14
   %19 = mul i64 %18, -4417276706812531889
   %20 = add i64 %19, %.0122.i
   %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %22 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 31)
   %23 = mul i64 %22, -7046029288634856825
-  %24 = load i64, ptr %21, align 8, !tbaa !13
+  %24 = load i64, ptr %21, align 8, !tbaa !14
   %25 = mul i64 %24, -4417276706812531889
   %26 = add i64 %25, %.0121.i
   %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %28 = tail call i64 @llvm.fshl.i64(i64 %26, i64 %26, i64 31)
   %29 = mul i64 %28, -7046029288634856825
-  %30 = load i64, ptr %27, align 8, !tbaa !13
+  %30 = load i64, ptr %27, align 8, !tbaa !14
   %31 = mul i64 %30, -4417276706812531889
   %32 = add i64 %31, %.0120.i
   %33 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %34 = tail call i64 @llvm.fshl.i64(i64 %32, i64 %32, i64 31)
   %35 = mul i64 %34, -7046029288634856825
   %.not.i = icmp ugt ptr %33, %7
-  br i1 %.not.i, label %36, label %11, !llvm.loop !16
+  br i1 %.not.i, label %36, label %11, !llvm.loop !17
 
 36:                                               ; preds = %11
   %37 = mul i64 %16, 4354685496439837966
@@ -251,7 +251,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_06xxhash5XXH64EPKvmy(ptr noundef reado
   %89 = phi ptr [ %100, %.lr.ph ], [ %88, %86 ]
   %.2.i17 = phi ptr [ %89, %.lr.ph ], [ %.1.i, %86 ]
   %.1125.i16 = phi i64 [ %99, %.lr.ph ], [ %87, %86 ]
-  %90 = load i64, ptr %.2.i17, align 8, !tbaa !13
+  %90 = load i64, ptr %.2.i17, align 8, !tbaa !14
   %91 = mul i64 %90, -4417276706812531889
   %92 = mul i64 %90, -7788283243316379648
   %93 = lshr i64 %91, 33
@@ -263,7 +263,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_06xxhash5XXH64EPKvmy(ptr noundef reado
   %99 = add i64 %98, -8796714831421723037
   %100 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %.not132.i = icmp ugt ptr %100, %4
-  br i1 %.not132.i, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not132.i, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %86
   %.1125.i.lcssa = phi i64 [ %87, %86 ], [ %99, %.lr.ph ]
@@ -291,7 +291,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_06xxhash5XXH64EPKvmy(ptr noundef reado
 .lr.ph22:                                         ; preds = %110, %.lr.ph22
   %.4.i20 = phi ptr [ %118, %.lr.ph22 ], [ %.3.i, %110 ]
   %.3127.i19 = phi i64 [ %117, %.lr.ph22 ], [ %.2126.i, %110 ]
-  %112 = load i8, ptr %.4.i20, align 1, !tbaa !11
+  %112 = load i8, ptr %.4.i20, align 1, !tbaa !12
   %113 = zext i8 %112 to i64
   %114 = mul i64 %113, 2870177450012600261
   %115 = xor i64 %114, %.3127.i19
@@ -299,7 +299,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_06xxhash5XXH64EPKvmy(ptr noundef reado
   %117 = mul i64 %116, -7046029288634856825
   %118 = getelementptr inbounds nuw i8, ptr %.4.i20, i64 1
   %119 = icmp ult ptr %118, %4
-  br i1 %119, label %.lr.ph22, label %_ZN11OpenImageIO6v3_1_06xxhashL18XXH64_endian_alignEPKvmyNS1_13XXH_endianessENS1_13XXH_alignmentE.exit, !llvm.loop !18
+  br i1 %119, label %.lr.ph22, label %_ZN11OpenImageIO6v3_1_06xxhashL18XXH64_endian_alignEPKvmyNS1_13XXH_endianessENS1_13XXH_alignmentE.exit, !llvm.loop !19
 
 _ZN11OpenImageIO6v3_1_06xxhashL18XXH64_endian_alignEPKvmyNS1_13XXH_endianessENS1_13XXH_alignmentE.exit: ; preds = %.lr.ph22, %110
   %.3127.i.lcssa = phi i64 [ %.2126.i, %110 ], [ %117, %.lr.ph22 ]
@@ -345,14 +345,15 @@ attributes #6 = { nounwind }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!6, !6, i64 0}
-!12 = distinct !{!12, !9}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"_ZTSN11OpenImageIO6v3_1_06xxhash6_U64_SE", !15, i64 0}
-!15 = !{!"long long", !6, i64 0}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!6, !6, i64 0}
+!13 = distinct !{!13, !9, !10}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"_ZTSN11OpenImageIO6v3_1_06xxhash6_U64_SE", !16, i64 0}
+!16 = !{!"long long", !6, i64 0}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

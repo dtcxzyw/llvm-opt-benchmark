@@ -374,7 +374,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %16 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not = icmp eq ptr %15, %0
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %18, label %3, !llvm.loop !17
 
 18:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -438,7 +438,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not.i8 = icmp eq ptr %15, %0
-  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_insert___spec__1___rarg.exit, label %3
+  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_insert___spec__1___rarg.exit, label %3, !llvm.loop !17
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_insert___spec__1___rarg.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -973,7 +973,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !19
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1319,7 +1319,7 @@ lean_array_uset.exit109:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit109, %lean_array_uset.exit
   %.074.be = phi ptr [ %19, %lean_array_uset.exit ], [ %60, %lean_array_uset.exit109 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i106, %lean_array_uset.exit109 ]
-  br label %3
+  br label %3, !llvm.loop !20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1690,7 +1690,7 @@ lean_obj_tag.exit.i:                              ; preds = %34, %31
   %41 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !9
   %.not.i202 = icmp eq ptr %40, %1
-  br i1 %.not.i202, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_insert___spec__1___rarg.exit, label %lean_array_uget.exit
+  br i1 %.not.i202, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_insert___spec__1___rarg.exit, label %lean_array_uget.exit, !llvm.loop !17
 
 43:                                               ; preds = %lean_obj_tag.exit.i
   %44 = ptrtoint ptr %5 to i64
@@ -2117,7 +2117,7 @@ lean_obj_tag.exit.i224:                           ; preds = %213, %210
   %220 = getelementptr inbounds nuw i8, ptr %.013.i222, i64 24
   %221 = load ptr, ptr %220, align 8, !tbaa !9
   %.not.i226 = icmp eq ptr %219, %1
-  br i1 %.not.i226, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_insert___spec__1___rarg.exit229, label %lean_array_uget.exit221
+  br i1 %.not.i226, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_insert___spec__1___rarg.exit229, label %lean_array_uget.exit221, !llvm.loop !17
 
 222:                                              ; preds = %lean_obj_tag.exit.i224
   br i1 %.not262, label %233, label %223, !prof !16
@@ -2511,7 +2511,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %16 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not = icmp eq ptr %15, %0
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %18, label %3, !llvm.loop !21
 
 18:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -2575,7 +2575,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not.i8 = icmp eq ptr %15, %0
-  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_contains___spec__1___rarg.exit, label %3
+  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_contains___spec__1___rarg.exit, label %3, !llvm.loop !21
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_contains___spec__1___rarg.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -2705,7 +2705,7 @@ lean_obj_tag.exit.i:                              ; preds = %30, %27
   %37 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !9
   %.not.i32 = icmp eq ptr %36, %1
-  br i1 %.not.i32, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_contains___spec__1___rarg.exit, label %lean_array_uget.exit
+  br i1 %.not.i32, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_contains___spec__1___rarg.exit, label %lean_array_uget.exit, !llvm.loop !21
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrSet_contains___spec__1___rarg.exit: ; preds = %lean_obj_tag.exit.i, %34
   %.1.i = phi i8 [ 1, %34 ], [ 0, %lean_obj_tag.exit.i ]
@@ -3016,7 +3016,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %16 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not = icmp eq ptr %15, %0
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %18, label %3, !llvm.loop !22
 
 18:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -3080,7 +3080,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not.i8 = icmp eq ptr %15, %0
-  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_insert___spec__1___rarg.exit, label %3
+  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_insert___spec__1___rarg.exit, label %3, !llvm.loop !22
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_insert___spec__1___rarg.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -3615,7 +3615,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !23
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3959,7 +3959,7 @@ lean_array_uset.exit109:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit109, %lean_array_uset.exit
   %.074.be = phi ptr [ %19, %lean_array_uset.exit ], [ %60, %lean_array_uset.exit109 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i106, %lean_array_uset.exit109 ]
-  br label %3
+  br label %3, !llvm.loop !24
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4689,7 +4689,7 @@ lean_obj_tag.exit.i:                              ; preds = %35, %32
   %42 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !9
   %.not.i206 = icmp eq ptr %41, %1
-  br i1 %.not.i206, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_insert___spec__1___rarg.exit, label %lean_array_uget.exit
+  br i1 %.not.i206, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_insert___spec__1___rarg.exit, label %lean_array_uget.exit, !llvm.loop !22
 
 44:                                               ; preds = %lean_obj_tag.exit.i
   %45 = ptrtoint ptr %6 to i64
@@ -5153,7 +5153,7 @@ lean_obj_tag.exit.i240:                           ; preds = %230, %227
   %237 = getelementptr inbounds nuw i8, ptr %.013.i238, i64 24
   %238 = load ptr, ptr %237, align 8, !tbaa !9
   %.not.i242 = icmp eq ptr %236, %1
-  br i1 %.not.i242, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_insert___spec__1___rarg.exit245, label %lean_array_uget.exit237
+  br i1 %.not.i242, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_insert___spec__1___rarg.exit245, label %lean_array_uget.exit237, !llvm.loop !22
 
 239:                                              ; preds = %lean_obj_tag.exit.i240
   br i1 %.not290, label %250, label %240, !prof !16
@@ -5580,7 +5580,7 @@ lean_obj_tag.exit:                                ; preds = %6, %9
   %16 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not = icmp eq ptr %15, %0
-  br i1 %.not, label %18, label %3
+  br i1 %.not, label %18, label %3, !llvm.loop !25
 
 18:                                               ; preds = %13, %lean_obj_tag.exit
   %.1 = phi i8 [ 1, %13 ], [ 0, %lean_obj_tag.exit ]
@@ -5644,7 +5644,7 @@ lean_obj_tag.exit.i:                              ; preds = %9, %6
   %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   %.not.i8 = icmp eq ptr %15, %0
-  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_contains___spec__1___rarg.exit, label %3
+  br i1 %.not.i8, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_contains___spec__1___rarg.exit, label %3, !llvm.loop !25
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_contains___spec__1___rarg.exit: ; preds = %lean_obj_tag.exit.i, %13
   %.1.i = phi i64 [ 3, %13 ], [ 1, %lean_obj_tag.exit.i ]
@@ -5774,7 +5774,7 @@ lean_obj_tag.exit.i:                              ; preds = %30, %27
   %37 = getelementptr inbounds nuw i8, ptr %.013.i, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !9
   %.not.i32 = icmp eq ptr %36, %1
-  br i1 %.not.i32, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_contains___spec__1___rarg.exit, label %lean_array_uget.exit
+  br i1 %.not.i32, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_contains___spec__1___rarg.exit, label %lean_array_uget.exit, !llvm.loop !25
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lean_PtrMap_contains___spec__1___rarg.exit: ; preds = %lean_obj_tag.exit.i, %34
   %.1.i = phi i8 [ 1, %34 ], [ 0, %lean_obj_tag.exit.i ]
@@ -6537,3 +6537,12 @@ attributes #6 = { noreturn nounwind }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !7, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !18}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = distinct !{!23, !18}
+!24 = distinct !{!24, !18}
+!25 = distinct !{!25, !18}

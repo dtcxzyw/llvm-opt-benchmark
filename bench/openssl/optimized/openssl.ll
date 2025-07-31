@@ -331,7 +331,7 @@ define internal fastcc ptr @prog_init() unnamed_addr #3 {
   %16 = getelementptr inbounds nuw i8, ptr %.114, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %.not9 = icmp eq ptr %17, null
-  br i1 %.not9, label %._crit_edge16.loopexit, label %.lr.ph15, !llvm.loop !19
+  br i1 %.not9, label %._crit_edge16.loopexit, label %.lr.ph15, !llvm.loop !20
 
 ._crit_edge16.loopexit:                           ; preds = %.lr.ph15
   %.pre = load ptr, ptr @prog_init.ret, align 8, !tbaa !15
@@ -392,21 +392,21 @@ define internal fastcc i32 @do_cmd(ptr noundef %0, i32 noundef range(i32 1, 0) %
 .sink.split:                                      ; preds = %16, %13
   %.sink = phi i32 [ 2, %13 ], [ 3, %16 ]
   %dgst_main.sink = phi ptr [ @dgst_main, %13 ], [ @enc_main, %16 ]
-  store i32 %.sink, ptr %4, align 8, !tbaa !20
+  store i32 %.sink, ptr %4, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %dgst_main.sink, ptr %19, align 8, !tbaa !21
+  store ptr %dgst_main.sink, ptr %19, align 8, !tbaa !22
   br label %20
 
 20:                                               ; preds = %.sink.split, %9
   %.0.ph = phi ptr [ %11, %9 ], [ %4, %.sink.split ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %41, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 40
-  %25 = load ptr, ptr %24, align 8, !tbaa !23
+  %25 = load ptr, ptr %24, align 8, !tbaa !24
   %.not.i = icmp eq ptr %25, null
   %26 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %27 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 8
@@ -422,7 +422,7 @@ define internal fastcc i32 @do_cmd(ptr noundef %0, i32 noundef range(i32 1, 0) %
   br label %33
 
 33:                                               ; preds = %31, %29
-  %34 = load ptr, ptr %21, align 8, !tbaa !22
+  %34 = load ptr, ptr %21, align 8, !tbaa !23
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(8) @.str.36) #13
   %.not6.i = icmp eq i32 %35, 0
   br i1 %.not6.i, label %warn_deprecated.exit, label %36
@@ -439,7 +439,7 @@ warn_deprecated.exit:                             ; preds = %33, %36
 
 41:                                               ; preds = %warn_deprecated.exit, %20
   %42 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !21
+  %43 = load ptr, ptr %42, align 8, !tbaa !22
   %44 = call i32 %43(i32 noundef %1, ptr noundef nonnull %2) #12
   br label %65
 
@@ -533,7 +533,7 @@ define dso_local i32 @help_main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
     i32 0, label %12
     i32 -1, label %8
     i32 1, label %11
-  ]
+  ], !llvm.loop !25
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr @bio_err, align 8, !tbaa !4
@@ -589,7 +589,7 @@ define dso_local i32 @help_main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %.01732 = phi i32 [ 0, %.lr.ph ], [ %.1, %49 ]
   %.01931 = phi i32 [ 0, %.lr.ph ], [ %.120, %49 ]
   %34 = add nsw i32 %.01931, 1
-  %35 = load i32, ptr %3, align 4, !tbaa !24
+  %35 = load i32, ptr %3, align 4, !tbaa !26
   %36 = srem i32 %.01931, %35
   %.not27 = icmp eq i32 %36, 0
   br i1 %.not27, label %37, label %.thread
@@ -597,12 +597,12 @@ define dso_local i32 @help_main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 37:                                               ; preds = %32
   %38 = load ptr, ptr @bio_err, align 8, !tbaa !4
   %39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.24) #12
-  %40 = load i32, ptr %.01633, align 8, !tbaa !20
+  %40 = load i32, ptr %.01633, align 8, !tbaa !21
   %.not25 = icmp eq i32 %40, %.01732
   br i1 %.not25, label %49, label %44
 
 .thread:                                          ; preds = %32
-  %41 = load i32, ptr %.01633, align 8, !tbaa !20
+  %41 = load i32, ptr %.01633, align 8, !tbaa !21
   %.not2528 = icmp eq i32 %41, %.01732
   br i1 %.not2528, label %49, label %.thread29
 
@@ -631,14 +631,14 @@ define dso_local i32 @help_main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
   %.120 = phi i32 [ %34, %37 ], [ %34, %44 ], [ %34, %.thread ], [ 1, %.sink.split ]
   %.1 = phi i32 [ %.01732, %37 ], [ %45, %44 ], [ %.01732, %.thread ], [ %45, %.sink.split ]
   %50 = load ptr, ptr @bio_err, align 8, !tbaa !4
-  %51 = load i32, ptr %31, align 4, !tbaa !26
+  %51 = load i32, ptr %31, align 4, !tbaa !28
   %52 = load ptr, ptr %33, align 8, !tbaa !11
   %53 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %50, ptr noundef nonnull @.str.27, i32 noundef %51, ptr noundef %52) #12
   %54 = getelementptr inbounds nuw i8, ptr %.01633, i64 48
   %55 = getelementptr inbounds nuw i8, ptr %.01633, i64 56
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %.not24 = icmp eq ptr %56, null
-  br i1 %.not24, label %._crit_edge, label %32, !llvm.loop !27
+  br i1 %.not24, label %._crit_edge, label %32, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %49, %27
   %57 = load ptr, ptr @bio_err, align 8, !tbaa !4
@@ -716,8 +716,8 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @SortFnByName(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 {
-  %3 = load i32, ptr %0, align 8, !tbaa !20
-  %4 = load i32, ptr %1, align 8, !tbaa !20
+  %3 = load i32, ptr %0, align 8, !tbaa !21
+  %4 = load i32, ptr %1, align 8, !tbaa !21
   %.not = icmp eq i32 %3, %4
   br i1 %.not, label %7, label %5
 
@@ -823,14 +823,16 @@ attributes #14 = { noreturn nounwind }
 !14 = !{!"p1 _ZTS10options_st", !6, i64 0}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"p1 _ZTS17lhash_st_FUNCTION", !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{!12, !13, i64 0}
-!21 = !{!12, !6, i64 16}
-!22 = !{!12, !10, i64 32}
-!23 = !{!12, !10, i64 40}
-!24 = !{!25, !13, i64 0}
-!25 = !{!"", !13, i64 0, !13, i64 4}
-!26 = !{!25, !13, i64 4}
-!27 = distinct !{!27, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{!12, !13, i64 0}
+!22 = !{!12, !6, i64 16}
+!23 = !{!12, !10, i64 32}
+!24 = !{!12, !10, i64 40}
+!25 = distinct !{!25, !19}
+!26 = !{!27, !13, i64 0}
+!27 = !{!"", !13, i64 0, !13, i64 4}
+!28 = !{!27, !13, i64 4}
+!29 = distinct !{!29, !18, !19}

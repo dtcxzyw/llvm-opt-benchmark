@@ -112,9 +112,9 @@ define internal noalias noundef ptr @cpparser(ptr noundef %0, ptr readnone captu
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !44
+  %24 = load ptr, ptr %23, align 8, !tbaa !45
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store ptr %25, ptr %23, align 8, !tbaa !44
+  store ptr %25, ptr %23, align 8, !tbaa !45
   %26 = tail call ptr @lj_err_str(ptr noundef %0, i32 noundef 2140) #12
   %27 = ptrtoint ptr %26 to i64
   %28 = or i64 %27, -703687441776640
@@ -143,7 +143,7 @@ define internal noalias noundef ptr @cpparser(ptr noundef %0, ptr readnone captu
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %41 = load i64, ptr %40, align 8, !tbaa !45
+  %41 = load i64, ptr %40, align 8, !tbaa !46
   %42 = inttoptr i64 %41 to ptr
   %43 = tail call ptr @lj_func_newL_empty(ptr noundef %0, ptr noundef %35, ptr noundef %42) #12
   br label %44
@@ -152,9 +152,9 @@ define internal noalias noundef ptr @cpparser(ptr noundef %0, ptr readnone captu
   %.sink = phi ptr [ %43, %39 ], [ %35, %34 ]
   %.sink40 = phi i64 [ -1266637395197952, %39 ], [ -1125899906842624, %34 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !44
+  %46 = load ptr, ptr %45, align 8, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %47, ptr %45, align 8, !tbaa !44
+  store ptr %47, ptr %45, align 8, !tbaa !45
   %48 = ptrtoint ptr %.sink to i64
   %49 = or i64 %.sink40, %48
   store i64 %49, ptr %46, align 8, !tbaa !40
@@ -219,15 +219,15 @@ define dso_local i32 @luaL_loadfilex(ptr noundef %0, ptr noundef %1, ptr noundef
 6:                                                ; preds = %3
   %7 = tail call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #12
   %8 = tail call noalias ptr @fopen64(ptr noundef nonnull %1, ptr noundef nonnull @.str.2)
-  store ptr %8, ptr %5, align 8, !tbaa !46
+  store ptr %8, ptr %5, align 8, !tbaa !47
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !44
+  %12 = load ptr, ptr %11, align 8, !tbaa !45
   %13 = getelementptr inbounds i8, ptr %12, i64 -8
-  store ptr %13, ptr %11, align 8, !tbaa !44
+  store ptr %13, ptr %11, align 8, !tbaa !45
   %14 = tail call ptr @__errno_location() #14
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = tail call ptr @strerror(i32 noundef %15) #12
@@ -235,8 +235,8 @@ define dso_local i32 @luaL_loadfilex(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %60
 
 18:                                               ; preds = %3
-  %19 = load ptr, ptr @stdin, align 8, !tbaa !49
-  store ptr %19, ptr %5, align 8, !tbaa !46
+  %19 = load ptr, ptr @stdin, align 8, !tbaa !50
+  store ptr %19, ptr %5, align 8, !tbaa !47
   br label %20
 
 20:                                               ; preds = %6, %18
@@ -275,7 +275,7 @@ define dso_local i32 @luaL_loadfilex(ptr noundef %0, ptr noundef %1, ptr noundef
 
 lua_loadx.exit:                                   ; preds = %20, %37
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4) #12
-  %39 = load ptr, ptr %5, align 8, !tbaa !46
+  %39 = load ptr, ptr %5, align 8, !tbaa !47
   %40 = call i32 @ferror(ptr noundef %39) #12
   %.not24 = icmp eq i32 %40, 0
   br i1 %.not24, label %44, label %41
@@ -292,9 +292,9 @@ lua_loadx.exit:                                   ; preds = %20, %37
 45:                                               ; preds = %44
   %46 = call i32 @fclose(ptr noundef %39)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %48 = load ptr, ptr %47, align 8, !tbaa !44
+  %48 = load ptr, ptr %47, align 8, !tbaa !45
   %49 = getelementptr inbounds i8, ptr %48, i64 -8
-  store ptr %49, ptr %47, align 8, !tbaa !44
+  store ptr %49, ptr %47, align 8, !tbaa !45
   %50 = getelementptr inbounds i8, ptr %48, i64 -16
   %51 = load i64, ptr %49, align 8, !tbaa !40
   store i64 %51, ptr %50, align 8, !tbaa !40
@@ -306,9 +306,9 @@ lua_loadx.exit:                                   ; preds = %20, %37
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %55 = load ptr, ptr %54, align 8, !tbaa !44
+  %55 = load ptr, ptr %54, align 8, !tbaa !45
   %56 = getelementptr inbounds i8, ptr %55, i64 -8
-  store ptr %56, ptr %54, align 8, !tbaa !44
+  store ptr %56, ptr %54, align 8, !tbaa !45
   %57 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   %58 = call ptr @strerror(i32 noundef %.0) #12
   %59 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef nonnull %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %57, ptr noundef %58) #12
@@ -333,16 +333,16 @@ declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef ptr @reader_file(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, ptr noundef writeonly captures(none) %2) #6 {
-  %4 = load ptr, ptr %1, align 8, !tbaa !46
+  %4 = load ptr, ptr %1, align 8, !tbaa !47
   %5 = tail call i32 @feof(ptr noundef %4) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %1, align 8, !tbaa !46
+  %8 = load ptr, ptr %1, align 8, !tbaa !47
   %9 = tail call i64 @fread(ptr noundef nonnull %7, i64 noundef 1, i64 noundef 8192, ptr noundef %8)
-  store i64 %9, ptr %2, align 8, !tbaa !50
+  store i64 %9, ptr %2, align 8, !tbaa !51
   %.not8 = icmp eq i64 %9, 0
   %10 = select i1 %.not8, ptr null, ptr %7
   br label %11
@@ -369,9 +369,9 @@ define dso_local i32 @luaL_loadbufferx(ptr noundef %0, ptr noundef %1, i64 nound
   %6 = alloca %struct.LexState, align 8
   %7 = alloca %struct.StringReaderCtx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
-  store ptr %1, ptr %7, align 8, !tbaa !51
+  store ptr %1, ptr %7, align 8, !tbaa !52
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 %2, ptr %8, align 8, !tbaa !53
+  store i64 %2, ptr %8, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %6) #12
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store ptr @reader_string, ptr %9, align 8, !tbaa !4
@@ -413,14 +413,14 @@ lua_loadx.exit:                                   ; preds = %5, %25
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal ptr @reader_string(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !53
+  %5 = load i64, ptr %4, align 8, !tbaa !54
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %3
-  store i64 %5, ptr %2, align 8, !tbaa !50
-  store i64 0, ptr %4, align 8, !tbaa !53
-  %8 = load ptr, ptr %1, align 8, !tbaa !51
+  store i64 %5, ptr %2, align 8, !tbaa !51
+  store i64 0, ptr %4, align 8, !tbaa !54
+  %8 = load ptr, ptr %1, align 8, !tbaa !52
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -433,9 +433,9 @@ define dso_local i32 @luaL_loadbuffer(ptr noundef %0, ptr noundef %1, i64 nounde
   %5 = alloca %struct.LexState, align 8
   %6 = alloca %struct.StringReaderCtx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
-  store ptr %1, ptr %6, align 8, !tbaa !51
+  store ptr %1, ptr %6, align 8, !tbaa !52
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %2, ptr %7, align 8, !tbaa !53
+  store i64 %2, ptr %7, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %5) #12
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr @reader_string, ptr %8, align 8, !tbaa !4
@@ -480,9 +480,9 @@ define dso_local i32 @luaL_loadstring(ptr noundef %0, ptr noundef %1) local_unna
   %4 = alloca %struct.StringReaderCtx, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
-  store ptr %1, ptr %4, align 8, !tbaa !51
+  store ptr %1, ptr %4, align 8, !tbaa !52
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %5, ptr %6, align 8, !tbaa !53
+  store i64 %5, ptr %6, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %3) #12
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store ptr @reader_string, ptr %7, align 8, !tbaa !4
@@ -525,7 +525,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @lua_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %6 = getelementptr inbounds i8, ptr %5, i64 -8
   %7 = load i64, ptr %6, align 8, !tbaa !40
   %.mask = and i64 %7, -140737488355328
@@ -638,15 +638,16 @@ attributes #15 = { nounwind willreturn memory(read) }
 !39 = !{!12, !12, i64 0}
 !40 = !{!8, !8, i64 0}
 !41 = !{!5, !12, i64 180}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!24, !26, i64 40}
-!45 = !{!24, !15, i64 72}
-!46 = !{!47, !48, i64 0}
-!47 = !{!"FileReaderCtx", !48, i64 0, !8, i64 8}
-!48 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!49 = !{!48, !48, i64 0}
-!50 = !{!15, !15, i64 0}
-!51 = !{!52, !11, i64 0}
-!52 = !{!"StringReaderCtx", !11, i64 0, !15, i64 8}
-!53 = !{!52, !15, i64 8}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!24, !26, i64 40}
+!46 = !{!24, !15, i64 72}
+!47 = !{!48, !49, i64 0}
+!48 = !{!"FileReaderCtx", !49, i64 0, !8, i64 8}
+!49 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!50 = !{!49, !49, i64 0}
+!51 = !{!15, !15, i64 0}
+!52 = !{!53, !11, i64 0}
+!53 = !{!"StringReaderCtx", !11, i64 0, !15, i64 8}
+!54 = !{!53, !15, i64 8}

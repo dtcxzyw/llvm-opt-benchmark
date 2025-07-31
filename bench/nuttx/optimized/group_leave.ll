@@ -96,7 +96,7 @@ group_removemember.exit.thread:                   ; preds = %6, %group_removemem
   %38 = icmp ne ptr %.0.i.i, null
   %39 = icmp ne ptr %.0.i.i, %5
   %40 = and i1 %38, %39
-  br i1 %40, label %37, label %41, !llvm.loop !11
+  br i1 %40, label %37, label %41, !llvm.loop !12
 
 41:                                               ; preds = %37
   br i1 %38, label %42, label %44
@@ -197,6 +197,7 @@ attributes #5 = { nounwind }
 !6 = !{i64 251206, i64 251224}
 !7 = !{i64 251825}
 !8 = !{i64 251946}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}

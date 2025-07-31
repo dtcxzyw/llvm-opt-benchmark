@@ -1036,7 +1036,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit220: ; preds = %_Z
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %.sink.split, %244
-  br label %.preheader
+  br label %.preheader, !llvm.loop !59
 
 .thread251:                                       ; preds = %244, %78
   %.1 = phi i32 [ -1, %78 ], [ 0, %244 ]
@@ -1203,13 +1203,13 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %46, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #13
-  store double 0x7FEFFFFFFFFFFFFF, ptr %15, align 8, !tbaa !59, !alias.scope !61
+  store double 0x7FEFFFFFFFFFFFFF, ptr %15, align 8, !tbaa !61, !alias.scope !63
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store double 0x7FEFFFFFFFFFFFFF, ptr %47, align 8, !tbaa !59, !alias.scope !61
+  store double 0x7FEFFFFFFFFFFFFF, ptr %47, align 8, !tbaa !61, !alias.scope !63
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store double 0x7FEFFFFFFFFFFFFF, ptr %48, align 8, !tbaa !59, !alias.scope !61
+  store double 0x7FEFFFFFFFFFFFFF, ptr %48, align 8, !tbaa !61, !alias.scope !63
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store double 0x7FEFFFFFFFFFFFFF, ptr %49, align 8, !tbaa !59, !alias.scope !61
+  store double 0x7FEFFFFFFFFFFFFF, ptr %49, align 8, !tbaa !61, !alias.scope !63
   invoke void @_ZN2cv12morphologyExERKNS_11_InputArrayERKNS_12_OutputArrayEiS2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %50 unwind label %53
 
@@ -1258,13 +1258,13 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %11, ptr %63, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #13
-  store double 0x7FEFFFFFFFFFFFFF, ptr %19, align 8, !tbaa !59, !alias.scope !66
+  store double 0x7FEFFFFFFFFFFFFF, ptr %19, align 8, !tbaa !61, !alias.scope !68
   %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store double 0x7FEFFFFFFFFFFFFF, ptr %64, align 8, !tbaa !59, !alias.scope !66
+  store double 0x7FEFFFFFFFFFFFFF, ptr %64, align 8, !tbaa !61, !alias.scope !68
   %65 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store double 0x7FEFFFFFFFFFFFFF, ptr %65, align 8, !tbaa !59, !alias.scope !66
+  store double 0x7FEFFFFFFFFFFFFF, ptr %65, align 8, !tbaa !61, !alias.scope !68
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store double 0x7FEFFFFFFFFFFFFF, ptr %66, align 8, !tbaa !59, !alias.scope !66
+  store double 0x7FEFFFFFFFFFFFFF, ptr %66, align 8, !tbaa !61, !alias.scope !68
   invoke void @_ZN2cv12morphologyExERKNS_11_InputArrayERKNS_12_OutputArrayEiS2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %67 unwind label %68
 
@@ -1606,7 +1606,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc100
   %177 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @dstRLE, ptr %177, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
-  store double 2.550000e+02, ptr %6, align 8, !tbaa !59
+  store double 2.550000e+02, ptr %6, align 8, !tbaa !61
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %178, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv8ximgproc2rl5paintERKNS_17_InputOutputArrayERKNS_11_InputArrayERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -1822,13 +1822,13 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %11, ptr %46, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #13
-  store double 0x7FEFFFFFFFFFFFFF, ptr %15, align 8, !tbaa !59, !alias.scope !71
+  store double 0x7FEFFFFFFFFFFFFF, ptr %15, align 8, !tbaa !61, !alias.scope !73
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store double 0x7FEFFFFFFFFFFFFF, ptr %47, align 8, !tbaa !59, !alias.scope !71
+  store double 0x7FEFFFFFFFFFFFFF, ptr %47, align 8, !tbaa !61, !alias.scope !73
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store double 0x7FEFFFFFFFFFFFFF, ptr %48, align 8, !tbaa !59, !alias.scope !71
+  store double 0x7FEFFFFFFFFFFFFF, ptr %48, align 8, !tbaa !61, !alias.scope !73
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store double 0x7FEFFFFFFFFFFFFF, ptr %49, align 8, !tbaa !59, !alias.scope !71
+  store double 0x7FEFFFFFFFFFFFFF, ptr %49, align 8, !tbaa !61, !alias.scope !73
   invoke void @_ZN2cv5erodeERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %15)
           to label %50 unwind label %53
 
@@ -1877,13 +1877,13 @@ _ZN5Timer5startEv.exit:                           ; preds = %2
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %11, ptr %63, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #13
-  store double 0x7FEFFFFFFFFFFFFF, ptr %19, align 8, !tbaa !59, !alias.scope !76
+  store double 0x7FEFFFFFFFFFFFFF, ptr %19, align 8, !tbaa !61, !alias.scope !78
   %64 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store double 0x7FEFFFFFFFFFFFFF, ptr %64, align 8, !tbaa !59, !alias.scope !76
+  store double 0x7FEFFFFFFFFFFFFF, ptr %64, align 8, !tbaa !61, !alias.scope !78
   %65 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store double 0x7FEFFFFFFFFFFFFF, ptr %65, align 8, !tbaa !59, !alias.scope !76
+  store double 0x7FEFFFFFFFFFFFFF, ptr %65, align 8, !tbaa !61, !alias.scope !78
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store double 0x7FEFFFFFFFFFFFFF, ptr %66, align 8, !tbaa !59, !alias.scope !76
+  store double 0x7FEFFFFFFFFFFFFF, ptr %66, align 8, !tbaa !61, !alias.scope !78
   invoke void @_ZN2cv6dilateERKNS_11_InputArrayERKNS_12_OutputArrayES2_NS_6Point_IiEEiiRKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 -1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %19)
           to label %67 unwind label %68
 
@@ -2155,7 +2155,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i65: ; preds = %_
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @dstRLE, ptr %151, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
-  store double 2.550000e+02, ptr %6, align 8, !tbaa !59
+  store double 2.550000e+02, ptr %6, align 8, !tbaa !61
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %152, i8 0, i64 24, i1 false)
   invoke void @_ZN2cv8ximgproc2rl5paintERKNS_17_InputOutputArrayERKNS_11_InputArrayERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -2731,25 +2731,27 @@ attributes #15 = { noreturn }
 !56 = !{!"_ZTSNSt6locale5facetE", !20, i64 8}
 !57 = !{!"p1 _ZTS15__locale_struct", !7, i64 0}
 !58 = !{!"p1 short", !7, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"double", !8, i64 0}
-!61 = !{!62, !64}
-!62 = distinct !{!62, !63, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!63 = distinct !{!63, !"_ZN2cv7Scalar_IdE3allEd"}
-!64 = distinct !{!64, !65, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
-!65 = distinct !{!65, !"_ZN2cvL28morphologyDefaultBorderValueEv"}
-!66 = !{!67, !69}
-!67 = distinct !{!67, !68, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!68 = distinct !{!68, !"_ZN2cv7Scalar_IdE3allEd"}
-!69 = distinct !{!69, !70, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
-!70 = distinct !{!70, !"_ZN2cvL28morphologyDefaultBorderValueEv"}
-!71 = !{!72, !74}
-!72 = distinct !{!72, !73, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!73 = distinct !{!73, !"_ZN2cv7Scalar_IdE3allEd"}
-!74 = distinct !{!74, !75, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
-!75 = distinct !{!75, !"_ZN2cvL28morphologyDefaultBorderValueEv"}
-!76 = !{!77, !79}
-!77 = distinct !{!77, !78, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
-!78 = distinct !{!78, !"_ZN2cv7Scalar_IdE3allEd"}
-!79 = distinct !{!79, !80, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
-!80 = distinct !{!80, !"_ZN2cvL28morphologyDefaultBorderValueEv"}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!62, !62, i64 0}
+!62 = !{!"double", !8, i64 0}
+!63 = !{!64, !66}
+!64 = distinct !{!64, !65, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!65 = distinct !{!65, !"_ZN2cv7Scalar_IdE3allEd"}
+!66 = distinct !{!66, !67, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
+!67 = distinct !{!67, !"_ZN2cvL28morphologyDefaultBorderValueEv"}
+!68 = !{!69, !71}
+!69 = distinct !{!69, !70, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!70 = distinct !{!70, !"_ZN2cv7Scalar_IdE3allEd"}
+!71 = distinct !{!71, !72, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
+!72 = distinct !{!72, !"_ZN2cvL28morphologyDefaultBorderValueEv"}
+!73 = !{!74, !76}
+!74 = distinct !{!74, !75, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!75 = distinct !{!75, !"_ZN2cv7Scalar_IdE3allEd"}
+!76 = distinct !{!76, !77, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
+!77 = distinct !{!77, !"_ZN2cvL28morphologyDefaultBorderValueEv"}
+!78 = !{!79, !81}
+!79 = distinct !{!79, !80, !"_ZN2cv7Scalar_IdE3allEd: argument 0"}
+!80 = distinct !{!80, !"_ZN2cv7Scalar_IdE3allEd"}
+!81 = distinct !{!81, !82, !"_ZN2cvL28morphologyDefaultBorderValueEv: argument 0"}
+!82 = distinct !{!82, !"_ZN2cvL28morphologyDefaultBorderValueEv"}

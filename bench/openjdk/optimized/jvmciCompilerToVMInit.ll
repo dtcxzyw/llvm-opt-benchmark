@@ -18083,7 +18083,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %672, ptr %.sroa.03409.0, i8 %.sroa.43411.0) #7
   %indvars.iv.next3616 = add nuw nsw i64 %indvars.iv3615, 1
   %exitcond3619.not = icmp eq i64 %indvars.iv.next3616, %wide.trip.count3618
-  br i1 %exitcond3619.not, label %.preheader3591, label %643, !llvm.loop !8
+  br i1 %exitcond3619.not, label %.preheader3591, label %643, !llvm.loop !9
 
 674:                                              ; preds = %.lr.ph3604, %701
   %indvars.iv3620 = phi i64 [ 0, %.lr.ph3604 ], [ %indvars.iv.next3621, %701 ]
@@ -18161,7 +18161,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %632, i8 %633, i32 noundef %702, ptr %.sroa.03399.0, i8 %.sroa.43401.0) #7
   %indvars.iv.next3621 = add nuw nsw i64 %indvars.iv3620, 1
   %exitcond3624.not = icmp eq i64 %indvars.iv.next3621, %wide.trip.count3623
-  br i1 %exitcond3624.not, label %._crit_edge3605, label %674, !llvm.loop !9
+  br i1 %exitcond3624.not, label %._crit_edge3605, label %674, !llvm.loop !10
 
 ._crit_edge3605:                                  ; preds = %701, %.preheader3591
   %704 = call noundef i32 @_ZN14JVMCIVMStructs29localHotSpotVMAddresses_countEv() #7
@@ -18262,7 +18262,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
   call void @_ZN8JVMCIEnv13put_object_atE16JVMCIObjectArrayi11JVMCIObject(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %707, i8 %708, i32 noundef %746, ptr %.sroa.03389.0, i8 %.sroa.43391.0) #7
   %indvars.iv.next3626 = add nuw nsw i64 %indvars.iv3625, 1
   %exitcond3629.not = icmp eq i64 %indvars.iv.next3626, %wide.trip.count3628
-  br i1 %exitcond3629.not, label %._crit_edge3608, label %714, !llvm.loop !10
+  br i1 %exitcond3629.not, label %._crit_edge3608, label %714, !llvm.loop !11
 
 ._crit_edge3608:                                  ; preds = %742, %.preheader
   %747 = call { ptr, i8 } @_ZN8JVMCIEnv16new_VMFlag_arrayEiPS_(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 55, ptr noundef nonnull %1) #7
@@ -23139,7 +23139,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %10 = load i8, ptr %9, align 1
   %.not.i = icmp eq i8 %10, 0
-  br i1 %.not.i, label %_ZN12CompilerToVM12cstring_hashERKPKc.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN12CompilerToVM12cstring_hashERKPKc.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %2
   %.05.lcssa.i = phi i32 [ 0, %2 ], [ %8, %.lr.ph.i ]
@@ -23167,7 +23167,7 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %2
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %18, %23, %_ZN12CompilerToVM12cstring_hashERKPKc.exit
   %26 = phi ptr [ null, %_ZN12CompilerToVM12cstring_hashERKPKc.exit ], [ %15, %18 ], [ null, %23 ]
@@ -23196,7 +23196,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %10 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
   %11 = load i8, ptr %10, align 1
   %.not.i = icmp eq i8 %11, 0
-  br i1 %.not.i, label %_ZN12CompilerToVM12cstring_hashERKPKc.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN12CompilerToVM12cstring_hashERKPKc.exit, label %.lr.ph.i, !llvm.loop !12
 
 _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %3
   %.05.lcssa.i = phi i32 [ 0, %3 ], [ %9, %.lr.ph.i ]
@@ -23224,7 +23224,7 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %3
   %24 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not.i13 = icmp eq ptr %25, null
-  br i1 %.not.i13, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %.lr.ph.i12, !llvm.loop !12
+  br i1 %.not.i13, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread.loopexit, label %.lr.ph.i12, !llvm.loop !13
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit: ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
@@ -23290,7 +23290,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not.i.i = icmp eq ptr %20, null
-  br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %.not.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit: ; preds = %14, %18, %2
   %21 = phi ptr [ null, %2 ], [ %11, %14 ], [ null, %18 ]
@@ -23329,7 +23329,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %19 = getelementptr inbounds nuw i8, ptr %.pr, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !14
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit: ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
@@ -23501,11 +23501,12 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

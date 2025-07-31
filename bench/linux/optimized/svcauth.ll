@@ -276,7 +276,7 @@ define dso_local ptr @auth_domain_lookup(ptr noundef %0, ptr noundef %1) #0 alig
   store ptr %7, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store volatile ptr %6, ptr %36, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !13
   store volatile ptr %35, ptr %6, align 8
   br i1 %8, label %39, label %37
 
@@ -324,7 +324,7 @@ define dso_local ptr @auth_domain_find(ptr noundef %0) #0 align 16 {
 .preheader:                                       ; preds = %16, %24
   %19 = phi i32 [ %25, %24 ], [ %17, %16 ]
   %20 = add i32 %19, 1
-  %21 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %20, ptr nonnull elementtype(i32) %11, i32 %19) #9, !srcloc !13
+  %21 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %11, i32 %20, ptr nonnull elementtype(i32) %11, i32 %19) #9, !srcloc !14
   %22 = extractvalue { i8, i32 } %21, 0
   %23 = icmp ult i8 %22, 2
   tail call void @llvm.assume(i1 %23)
@@ -334,7 +334,7 @@ define dso_local ptr @auth_domain_find(ptr noundef %0) #0 align 16 {
 24:                                               ; preds = %.preheader
   %25 = extractvalue { i8, i32 } %21, 1
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.thread, label %.preheader, !llvm.loop !14
+  br i1 %26, label %.thread, label %.preheader, !llvm.loop !15
 
 .thread:                                          ; preds = %.preheader, %24, %16
   %27 = phi i32 [ 0, %16 ], [ %19, %.preheader ], [ 0, %24 ]
@@ -359,7 +359,7 @@ define dso_local ptr @auth_domain_find(ptr noundef %0) #0 align 16 {
   %39 = getelementptr i8, ptr %37, i64 -8
   %40 = icmp eq ptr %39, null
   %41 = or i1 %38, %40
-  br i1 %41, label %.loopexit, label %.preheader4, !llvm.loop !15
+  br i1 %41, label %.loopexit, label %.preheader4, !llvm.loop !16
 
 .loopexit:                                        ; preds = %35, %32, %1
   %42 = phi ptr [ %34, %32 ], [ null, %1 ], [ null, %35 ]
@@ -392,12 +392,12 @@ define dso_local void @auth_domain_cleanup() local_unnamed_addr #0 align 16 {
   %16 = getelementptr i8, ptr %14, i64 -8
   %17 = icmp eq ptr %16, null
   %18 = or i1 %15, %17
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %1
   %19 = add nuw nsw i64 %2, 1
   %20 = icmp eq i64 %19, 64
-  br i1 %20, label %21, label %1, !llvm.loop !17
+  br i1 %20, label %21, label %1, !llvm.loop !18
 
 21:                                               ; preds = %.loopexit
   ret void
@@ -469,12 +469,13 @@ attributes #11 = { cold nounwind }
 !6 = !{i64 2165424560, i64 2165424599, i64 2165424620, i64 2165424657, i64 2165424680, i64 2165424689}
 !7 = !{i64 2148823970, i64 2148824009, i64 2148824030, i64 2148824067, i64 2148824090, i64 2148824099}
 !8 = !{!"branch_weights", i32 2000, i32 1}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2151824479}
-!13 = !{i64 2148835923, i64 2148835962, i64 2148835983, i64 2148836020, i64 2148836043, i64 2148836052, i64 2148836350}
-!14 = distinct !{!14, !10, !11}
-!15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10, !11}
-!17 = distinct !{!17, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i64 2151824479}
+!14 = !{i64 2148835923, i64 2148835962, i64 2148835983, i64 2148836020, i64 2148836043, i64 2148836052, i64 2148836350}
+!15 = distinct !{!15, !10, !11, !12}
+!16 = distinct !{!16, !10, !11, !12}
+!17 = distinct !{!17, !10, !11, !12}
+!18 = distinct !{!18, !10, !11, !12}

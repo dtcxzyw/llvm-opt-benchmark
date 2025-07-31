@@ -267,12 +267,12 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly captures(address_is_null)
   store double 0.000000e+00, ptr %150, align 8, !tbaa !24
   %indvars.iv.next259 = add nsw i64 %indvars.iv258, 1
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !30
+  br i1 %exitcond262.not, label %._crit_edge241, label %.lr.ph240, !llvm.loop !31
 
 ._crit_edge241:                                   ; preds = %149
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
   %exitcond267.not = icmp eq i64 %indvars.iv.next264, %wide.trip.count266
-  br i1 %exitcond267.not, label %._crit_edge247, label %56, !llvm.loop !31
+  br i1 %exitcond267.not, label %._crit_edge247, label %56, !llvm.loop !32
 
 ._crit_edge247.thread:                            ; preds = %.preheader, %.preheader218
   %151 = sext i32 %11 to i64
@@ -307,7 +307,7 @@ define ptr @cs_lu(ptr noundef %0, ptr noundef readonly captures(address_is_null)
   store i32 %164, ptr %160, align 4, !tbaa !23
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond272.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count271
-  br i1 %exitcond272.not, label %._crit_edge253, label %.lr.ph252, !llvm.loop !32
+  br i1 %exitcond272.not, label %._crit_edge253, label %.lr.ph252, !llvm.loop !33
 
 ._crit_edge253:                                   ; preds = %.lr.ph252, %._crit_edge247.thread, %._crit_edge247
   %165 = tail call i32 @cs_sprealloc(ptr noundef nonnull %28, i32 noundef 0) #4
@@ -378,8 +378,9 @@ attributes #4 = { nounwind }
 !25 = !{!4, !5, i64 0}
 !26 = !{!4, !8, i64 24}
 !27 = !{!4, !10, i64 32}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29}
-!32 = distinct !{!32, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = distinct !{!32, !29, !30}
+!33 = distinct !{!33, !29, !30}

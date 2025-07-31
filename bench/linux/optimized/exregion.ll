@@ -91,8 +91,8 @@ define dso_local noundef range(i32 0, 12293) i32 @acpi_ex_system_memory_space_ha
 
 .loopexit9:                                       ; preds = %47, %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
-  store i64 0, ptr %7, align 8, !annotation !8
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #8, !srcloc !9
+  store i64 0, ptr %7, align 8, !annotation !9
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7) #8, !srcloc !10
   %51 = load i64, ptr %7, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   %52 = and i64 %51, 512
@@ -256,7 +256,7 @@ define dso_local i32 @acpi_ex_system_io_space_handler(i32 noundef %0, i64 nounde
   ]
 
 8:                                                ; preds = %6
-  store i32 0, ptr %7, align 4, !annotation !8
+  store i32 0, ptr %7, align 4, !annotation !9
   %9 = call i32 @acpi_hw_read_port(i64 noundef %1, ptr noundef nonnull %7, i32 noundef %2) #8
   %10 = load i32, ptr %7, align 4
   %11 = zext i32 %10 to i64
@@ -384,8 +384,9 @@ attributes #9 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = !{i64 1811671, i64 1811692}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = !{i64 1811671, i64 1811692}

@@ -752,7 +752,7 @@ lean_inc.exit:                                    ; preds = %34, %33, %31, %lean
 
 lean_dec.exit:                                    ; preds = %41, %40, %38, %lean_inc.exit
   %42 = tail call ptr @l_Lean_Name_str___override(ptr noundef %.0, ptr noundef %16) #3
-  br label %3
+  br label %3, !llvm.loop !17
 }
 
 declare ptr @l_Lean_Name_str___override(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -874,9 +874,9 @@ _init_l_Lake_instDivFilePath__lake___closed__1.exit: ; preds = %lean_dec_ref.exi
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @l_Lake_joinRelative___boxed, ptr %27, align 8, !tbaa !13
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i16 2, ptr %28, align 8, !tbaa !17
+  store i16 2, ptr %28, align 8, !tbaa !19
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  store i16 0, ptr %29, align 2, !tbaa !17
+  store i16 0, ptr %29, align 2, !tbaa !19
   store ptr %23, ptr @l_Lake_instDivFilePath__lake___closed__1, align 8, !tbaa !13
   tail call void @lean_mark_persistent(ptr noundef nonnull %23) #3
   %30 = load ptr, ptr @l_Lake_instDivFilePath__lake___closed__1, align 8, !tbaa !13
@@ -955,5 +955,7 @@ attributes #4 = { noreturn nounwind }
 !14 = !{!"any pointer", !6, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !16 = !{!10, !10, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"short", !6, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !6, i64 0}

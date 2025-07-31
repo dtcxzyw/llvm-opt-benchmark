@@ -283,7 +283,7 @@ delete.notnull.i.i.i:                             ; preds = %for.body.i
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit: ; preds = %for.body.i, %delete.notnull.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i.loopexit, label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not, label %for.end.i.loopexit, label %for.body.i, !llvm.loop !7
 
 for.end.i.loopexit:                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit
   %.pre = load ptr, ptr %this, align 8
@@ -442,7 +442,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %8 = load i32, ptr %2, align 8
   %9 = sext i32 %8 to i64
   %cmp5 = icmp slt i64 %indvars.iv.next, %9
-  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !7
+  br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.else
   %.lcssa = phi i32 [ %3, %if.else ], [ %8, %for.body ]
@@ -656,7 +656,7 @@ for.body:                                         ; preds = %_ZNK6google8protobu
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %dst.042, i64 8
   %incdec.ptr13 = getelementptr inbounds nuw i8, ptr %src.041, i64 8
   %cmp = icmp ult ptr %incdec.ptr13, %add.ptr11
-  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit
   %src.0.lcssa = phi ptr [ %cond.i27, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit ], [ %incdec.ptr13, %for.body ]
@@ -683,7 +683,7 @@ _ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf
   %incdec.ptr19 = getelementptr inbounds nuw i8, ptr %dst.146, i64 8
   %incdec.ptr20 = getelementptr inbounds nuw i8, ptr %src.145, i64 8
   %cmp15 = icmp ult ptr %incdec.ptr20, %add.ptr
-  br i1 %cmp15, label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRSC_EEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JSD_EEESF_SG_SJ_EUlSM_E0_JSD_EEEDaOT0_OT1_DpOT2_.exit, label %if.end, !llvm.loop !9
+  br i1 %cmp15, label %_ZN4absl12lts_2023080216utility_internal15IfConstexprElseILb0EZN6google8protobuf5Arena6CreateINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRSC_EEEPT_PS5_DpOT0_EUlDpOT_E_ZNS6_ISC_JSD_EEESF_SG_SJ_EUlSM_E0_JSD_EEEDaOT0_OT1_DpOT2_.exit, label %if.end, !llvm.loop !10
 
 for.body24:                                       ; preds = %for.cond22.preheader, %invoke.cont
   %dst.249 = phi ptr [ %incdec.ptr27, %invoke.cont ], [ %dst.0.lcssa, %for.cond22.preheader ]
@@ -698,7 +698,7 @@ invoke.cont:                                      ; preds = %for.body24
   %incdec.ptr27 = getelementptr inbounds nuw i8, ptr %dst.249, i64 8
   %incdec.ptr28 = getelementptr inbounds nuw i8, ptr %src.248, i64 8
   %cmp23 = icmp ult ptr %incdec.ptr28, %add.ptr
-  br i1 %cmp23, label %for.body24, label %if.end, !llvm.loop !10
+  br i1 %cmp23, label %for.body24, label %if.end, !llvm.loop !11
 
 lpad:                                             ; preds = %for.body24
   %19 = landingpad { ptr, i32 }
@@ -809,7 +809,7 @@ for.body:                                         ; preds = %for.body.preheader,
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit
   ret i32 %.sroa.speculated
@@ -915,7 +915,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit: ; preds = %for.body.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.i
   %idx.ext8 = sext i32 %.sroa.speculated.i to i64
@@ -940,7 +940,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.146, i64 8
   %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %dst.147, i64 8
   %cmp13 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !12
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body, %if.end
   store i32 %add, ptr %current_size_, align 8
@@ -1077,7 +1077,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %17)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit, label %for.body.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit, label %for.body.i, !llvm.loop !12
 
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase24MergeIntoClearedMessagesERKS2_.exit: ; preds = %for.body.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase12ClearedCountEv.exit.i
   %idx.ext8 = sext i32 %.sroa.speculated.i to i64
@@ -1109,7 +1109,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %src.148, i64 8
   %incdec.ptr17 = getelementptr inbounds nuw i8, ptr %dst.149, i64 8
   %cmp13 = icmp ult ptr %incdec.ptr, %add.ptr
-  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !13
+  br i1 %cmp13, label %for.body, label %for.end, !llvm.loop !14
 
 for.end:                                          ; preds = %for.body, %if.end
   store i32 %add, ptr %current_size_, align 8
@@ -1233,13 +1233,14 @@ attributes #18 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

@@ -140,7 +140,7 @@ define zeroext i8 @ff_mlp_calculate_parity(ptr noundef %0, i32 noundef %1) local
   %18 = icmp ne i64 %17, 0
   %19 = icmp ult ptr %15, %4
   %20 = select i1 %18, i1 %19, i1 false
-  br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !11
+  br i1 %20, label %.lr.ph, label %.preheader, !llvm.loop !12
 
 .lr.ph27:                                         ; preds = %.preheader, %.lr.ph27
   %.126 = phi ptr [ %23, %.lr.ph27 ], [ %.0.lcssa, %.preheader ]
@@ -149,7 +149,7 @@ define zeroext i8 @ff_mlp_calculate_parity(ptr noundef %0, i32 noundef %1) local
   %22 = xor i32 %21, %.12025
   %23 = getelementptr inbounds nuw i8, ptr %.126, i64 4
   %24 = icmp ult ptr %23, %10
-  br i1 %24, label %.lr.ph27, label %._crit_edge, !llvm.loop !12
+  br i1 %24, label %.lr.ph27, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph27, %.preheader
   %.120.lcssa = phi i32 [ %.019.lcssa, %.preheader ], [ %22, %.lr.ph27 ]
@@ -169,7 +169,7 @@ define zeroext i8 @ff_mlp_calculate_parity(ptr noundef %0, i32 noundef %1) local
   %32 = xor i32 %.22130, %31
   %33 = getelementptr inbounds nuw i8, ptr %.231, i64 1
   %34 = icmp ult ptr %33, %4
-  br i1 %34, label %.lr.ph33, label %._crit_edge34, !llvm.loop !13
+  br i1 %34, label %.lr.ph33, label %._crit_edge34, !llvm.loop !14
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %._crit_edge
   %.221.lcssa = phi i32 [ %28, %._crit_edge ], [ %32, %.lr.ph33 ]
@@ -199,8 +199,9 @@ attributes #7 = { nounwind willreturn memory(read) }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"int", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

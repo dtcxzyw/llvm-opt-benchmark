@@ -3026,7 +3026,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false), !tbaa.struct !99
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull readonly align 8 dereferenceable(32) %.val5, i64 32, i1 false), !tbaa.struct !100
   store ptr %7, ptr %0, align 8, !tbaa !43
   br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm14CombinerHelper22matchCastOfBuildVectorERKNS1_12MachineInstrES5_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
@@ -3066,7 +3066,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   store i32 0, ptr %9, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #9
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !100
+  %11 = load ptr, ptr %10, align 8, !tbaa !101
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !18
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 36
@@ -3085,7 +3085,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %20, align 8, !tbaa !67
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #9
-  %21 = load ptr, ptr %10, align 8, !tbaa !100
+  %21 = load ptr, ptr %10, align 8, !tbaa !101
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 68
@@ -3098,7 +3098,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm16MachineIRBuilderEEZNK
   %29 = extractvalue { ptr, ptr } %27, 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
-  %30 = load ptr, ptr %10, align 8, !tbaa !100
+  %30 = load ptr, ptr %10, align 8, !tbaa !101
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 68
   %32 = load i16, ptr %31, align 4, !tbaa !55
   %33 = zext i16 %32 to i32
@@ -3150,7 +3150,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRN4llvm16Machine
 6:                                                ; preds = %3
   %.val5 = load ptr, ptr %1, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !102
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, ptr noundef nonnull readonly align 8 dereferenceable(24) %.val5, i64 24, i1 false), !tbaa.struct !103
   store ptr %7, ptr %0, align 8, !tbaa !43
   br label %"_ZNSt14_Function_base13_Base_managerIZNK4llvm14CombinerHelper16matchNarrowBinopERKNS1_12MachineInstrES5_RSt8functionIFvRNS1_16MachineIRBuilderEEEE3$_0E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit"
 
@@ -3279,9 +3279,10 @@ attributes #11 = { builtin nounwind }
 !94 = !{!"_ZTSZNK4llvm14CombinerHelper22matchCastOfBuildVectorERKNS_12MachineInstrES3_RSt8functionIFvRNS_16MachineIRBuilderEEEE3$_0", !62, i64 0, !57, i64 8, !83, i64 16, !78, i64 24}
 !95 = !{!94, !57, i64 8}
 !96 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!97 = distinct !{!97, !98}
+!97 = distinct !{!97, !98, !99}
 !98 = !{!"llvm.loop.mustprogress"}
-!99 = !{i64 0, i64 8, !61, i64 8, i64 8, !56, i64 16, i64 8, !3, i64 24, i64 4, !58}
-!100 = !{!101, !64, i64 8}
-!101 = !{!"_ZTSZNK4llvm14CombinerHelper16matchNarrowBinopERKNS_12MachineInstrES3_RSt8functionIFvRNS_16MachineIRBuilderEEEE3$_0", !83, i64 0, !64, i64 8, !78, i64 16}
-!102 = !{i64 0, i64 8, !3, i64 8, i64 8, !63, i64 16, i64 4, !58}
+!99 = !{!"llvm.loop.estimated_trip_count"}
+!100 = !{i64 0, i64 8, !61, i64 8, i64 8, !56, i64 16, i64 8, !3, i64 24, i64 4, !58}
+!101 = !{!102, !64, i64 8}
+!102 = !{!"_ZTSZNK4llvm14CombinerHelper16matchNarrowBinopERKNS_12MachineInstrES3_RSt8functionIFvRNS_16MachineIRBuilderEEEE3$_0", !83, i64 0, !64, i64 8, !78, i64 16}
+!103 = !{i64 0, i64 8, !3, i64 8, i64 8, !63, i64 16, i64 4, !58}

@@ -113,7 +113,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia7pragmas17is_pragma_comment17h
 46:                                               ; preds = %.lr.ph.i.i.i
   %47 = add nuw i64 %.sroa.01.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %47, %37
-  br i1 %exitcond.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread", label %.lr.ph.i.i.i
+  br i1 %exitcond.not.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread", label %.lr.ph.i.i.i, !llvm.loop !23
 
 _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.i.i: ; preds = %33
   %48 = call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h9672377a6eaa3e7eE(i8 noundef %41, ptr noalias noundef nonnull readonly align 1 %38, i64 noundef %37), !noalias !22
@@ -153,14 +153,14 @@ _ZN4core5slice6memchr6memchr17ha90e5042fce95c81E.exit.thread16.i.i: ; preds = %.
   %61 = icmp ult i64 %60, %59
   %.not.i.i = icmp ugt i64 %60, %.pre4548.i.i
   %or.cond.i.i = select i1 %61, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread", label %33
+  br i1 %or.cond.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$10split_once17h1dfe56c58f934227E.exit.thread", label %33, !llvm.loop !25
 
 62:                                               ; preds = %56
   %63 = icmp ugt i8 %52, 4
-  br i1 %63, label %64, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E.exit.i.i", !prof !23
+  br i1 %63, label %64, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E.exit.i.i", !prof !26
 
 64:                                               ; preds = %62
-  call void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef range(i64 0, 256) %.pre-phi.i.i, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c989ada8a02de65e6608ba81f6b26ab.13) #4, !noalias !24
+  call void @_ZN4core5slice5index24slice_end_index_len_fail17h5b7964a60aa84510E(i64 noundef range(i64 0, 256) %.pre-phi.i.i, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7c989ada8a02de65e6608ba81f6b26ab.13) #4, !noalias !27
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E.exit.i.i": ; preds = %62
@@ -264,7 +264,10 @@ attributes #4 = { noreturn }
 !20 = distinct !{!20, !21, !"_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E: argument 0"}
 !21 = distinct !{!21, !"_ZN4core5slice6memchr6memchr17ha90e5042fce95c81E"}
 !22 = !{!17, !5}
-!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!24 = !{!25, !17, !5}
-!25 = distinct !{!25, !26, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E: argument 0"}
-!26 = distinct !{!26, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E"}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !24}
+!26 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!27 = !{!28, !17, !5}
+!28 = distinct !{!28, !29, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E: argument 0"}
+!29 = distinct !{!29, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hc08c38933ab343e0E"}

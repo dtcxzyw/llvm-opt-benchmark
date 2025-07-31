@@ -481,7 +481,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
 _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i: ; preds = %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i, %4
   %14 = phi ptr [ %.pre.i.i, %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i ], [ %3, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !47
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %17 = shl i64 %16, 3
   tail call void @_ZdlPvm(ptr noundef %14, i64 noundef %17) #17
   br label %_ZNSt5dequeIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EED2Ev.exit
@@ -522,7 +522,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
 _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i: ; preds = %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i, %4
   %14 = phi ptr [ %.pre.i.i.i, %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.loopexit.i.i.i ], [ %3, %4 ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !47
+  %16 = load i64, ptr %15, align 8, !tbaa !48
   %17 = shl i64 %16, 3
   tail call void @_ZdlPvm(ptr noundef %14, i64 noundef %17) #17
   br label %_ZN17grpc_event_engine12experimental14BasicWorkQueueD2Ev.exit
@@ -547,7 +547,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 5)
   %.sroa.speculated = add nuw nsw i64 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !47
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !48
   %6 = shl nuw nsw i64 %.sroa.speculated, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #19
   store ptr %7, ptr %0, align 8, !tbaa !44
@@ -567,7 +567,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   store ptr %12, ptr %.011.i, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE15_M_create_nodesEPPS4_S8_.exit, !llvm.loop !48
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE15_M_create_nodesEPPS4_S8_.exit, !llvm.loop !49
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -609,7 +609,7 @@ _ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS
   %29 = extractvalue { ptr, i32 } %24, 0
   %30 = tail call ptr @__cxa_begin_catch(ptr %29) #18
   %31 = load ptr, ptr %0, align 8, !tbaa !44
-  %32 = load i64, ptr %5, align 8, !tbaa !47
+  %32 = load i64, ptr %5, align 8, !tbaa !48
   %33 = shl i64 %32, 3
   tail call void @_ZdlPvm(ptr noundef %31, i64 noundef %33) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -816,7 +816,7 @@ define linkonce_odr void @_ZNSt5dequeIPN17grpc_event_engine12experimental11Event
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !47
+  %36 = load i64, ptr %35, align 8, !tbaa !48
   %37 = load ptr, ptr %0, align 8, !tbaa !44
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
@@ -863,7 +863,7 @@ define linkonce_odr void @_ZNSt5dequeIPN17grpc_event_engine12experimental11Event
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !47
+  %15 = load i64, ptr %14, align 8, !tbaa !48
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -907,7 +907,7 @@ define linkonce_odr void @_ZNSt5dequeIPN17grpc_event_engine12experimental11Event
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE15_M_allocate_mapEm.exit, !prof !49
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIPN17grpc_event_engine12experimental11EventEngine7ClosureESaIS4_EE15_M_allocate_mapEm.exit, !prof !50
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -944,7 +944,7 @@ _ZSt4copyIPPPN17grpc_event_engine12experimental11EventEngine7ClosureES6_ET0_T_S8
   %57 = shl i64 %15, 3
   tail call void @_ZdlPvm(ptr noundef %56, i64 noundef %57) #17
   store ptr %46, ptr %0, align 8, !tbaa !44
-  store i64 %41, ptr %14, align 8, !tbaa !47
+  store i64 %41, ptr %14, align 8, !tbaa !48
   br label %_ZSt4copyIPPPN17grpc_event_engine12experimental11EventEngine7ClosureES6_ET0_T_S8_S7_.exit
 
 _ZSt4copyIPPPN17grpc_event_engine12experimental11EventEngine7ClosureES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, %28, %27, %_ZSt4copyIPPPN17grpc_event_engine12experimental11EventEngine7ClosureES6_ET0_T_S8_S7_.exit26
@@ -1012,7 +1012,7 @@ define linkonce_odr void @_ZNSt5dequeIPN17grpc_event_engine12experimental11Event
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !47
+  %36 = load i64, ptr %35, align 8, !tbaa !48
   %37 = load ptr, ptr %0, align 8, !tbaa !44
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %9, %38
@@ -1125,8 +1125,9 @@ attributes #20 = { noreturn }
 !42 = !{!"_ZTSN4absl12lts_2024072222internal_any_invocable8CoreImplILb0EvJEEE", !13, i64 0, !21, i64 16, !21, i64 24}
 !43 = !{!42, !21, i64 24}
 !44 = !{!17, !18, i64 0}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!17, !12, i64 8}
-!48 = distinct !{!48, !46}
-!49 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!17, !12, i64 8}
+!49 = distinct !{!49, !46, !47}
+!50 = !{!"branch_weights", !"expected", i32 1, i32 2000}

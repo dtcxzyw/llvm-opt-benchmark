@@ -116,7 +116,7 @@ detect_PaX.exit.thread.i:                         ; preds = %44
 47:                                               ; preds = %.preheader.i.i
   %lhsv.i.i = load i32, ptr %4, align 16
   %.not6.i.i = icmp eq i32 %lhsv.i.i, 978870608
-  br i1 %.not6.i.i, label %48, label %.preheader.i.i
+  br i1 %.not6.i.i, label %48, label %.preheader.i.i, !llvm.loop !16
 
 48:                                               ; preds = %47
   %49 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 109) #10
@@ -135,7 +135,7 @@ detect_PaX.exit.thread.i:                         ; preds = %44
   %53 = phi i8 [ 0, %51 ], [ 0, %detect_PaX.exit.thread.i ], [ %..i, %48 ]
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  store i32 0, ptr %3, align 4, !tbaa !16
+  store i32 0, ptr %3, align 4, !tbaa !18
   %54 = call noalias ptr @fopen(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2)
   %.not.i7.i = icmp eq ptr %54, null
   br i1 %.not.i7.i, label %55, label %.preheader.i8.i
@@ -147,7 +147,7 @@ detect_PaX.exit.thread.i:                         ; preds = %44
 
 57:                                               ; preds = %55
   %58 = tail call ptr @__errno_location() #11
-  %59 = load i32, ptr %58, align 4, !tbaa !16
+  %59 = load i32, ptr %58, align 4, !tbaa !18
   %60 = icmp eq i32 %59, 13
   br i1 %60, label %detect_SELinux.exit.thread26.i, label %detect_SELinux.exit.thread.i
 
@@ -165,7 +165,7 @@ detect_PaX.exit.thread.i:                         ; preds = %44
 65:                                               ; preds = %.preheader.i8.i
   %66 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.7) #10
   %.not18.i.i = icmp eq ptr %66, null
-  br i1 %.not18.i.i, label %.preheader.i8.i, label %68
+  br i1 %.not18.i.i, label %.preheader.i8.i, label %68, !llvm.loop !19
 
 .critedge22.i.i:                                  ; preds = %.preheader.i8.i
   %67 = call i32 @fclose(ptr noundef nonnull %54)
@@ -194,7 +194,7 @@ detect_SELinux.exit.thread33.i:                   ; preds = %71
   br label %83
 
 75:                                               ; preds = %71
-  %76 = load i32, ptr %3, align 4, !tbaa !16
+  %76 = load i32, ptr %3, align 4, !tbaa !18
   %77 = icmp eq i32 %76, -1
   br i1 %77, label %detect_SELinux.exit.thread31.i, label %detect_SELinux.exit.i
 
@@ -254,25 +254,25 @@ detect_os_features.exit:                          ; preds = %detect_SELinux.exit
   %102 = or i32 %99, %101
   %103 = load i32, ptr %16, align 4, !tbaa !14
   %104 = or i32 %102, %103
-  store i32 %104, ptr %0, align 4, !tbaa !17
-  %105 = load i8, ptr %87, align 1, !tbaa !18
+  store i32 %104, ptr %0, align 4, !tbaa !20
+  %105 = load i8, ptr %87, align 1, !tbaa !21
   %106 = zext i8 %105 to i32
   %107 = shl i32 %106, 28
   %108 = load i8, ptr %6, align 4, !tbaa !3
   %109 = zext i8 %108 to i32
   %110 = shl nuw i32 %109, 24
-  %111 = load i32, ptr %85, align 4, !tbaa !19
+  %111 = load i32, ptr %85, align 4, !tbaa !22
   %112 = or i32 %111, %107
   %113 = or i32 %112, %110
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %113, ptr %114, align 4, !tbaa !20
-  %115 = load i8, ptr %88, align 2, !tbaa !21
+  store i32 %113, ptr %114, align 4, !tbaa !23
+  %115 = load i8, ptr %88, align 2, !tbaa !24
   %116 = zext i8 %115 to i32
   %117 = shl nuw i32 %116, 24
   %118 = load i32, ptr %10, align 4, !tbaa !11
   %119 = or i32 %117, %118
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %119, ptr %120, align 4, !tbaa !22
+  store i32 %119, ptr %120, align 4, !tbaa !25
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #9
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, i32 noundef %104, i32 noundef %113, i32 noundef %119) #9
   %121 = load i8, ptr %8, align 2, !tbaa !9
@@ -283,17 +283,17 @@ detect_os_features.exit:                          ; preds = %detect_SELinux.exit
   %126 = zext i8 %125 to i32
   %127 = load i32, ptr %15, align 4, !tbaa !13
   %128 = load i32, ptr %16, align 4, !tbaa !14
-  %129 = load i8, ptr %87, align 1, !tbaa !18
+  %129 = load i8, ptr %87, align 1, !tbaa !21
   %130 = zext i8 %129 to i32
   %131 = load i8, ptr %6, align 4, !tbaa !3
   %132 = zext i8 %131 to i32
-  %133 = load i32, ptr %85, align 4, !tbaa !19
+  %133 = load i32, ptr %85, align 4, !tbaa !22
   %134 = lshr i32 %133, 16
   %135 = and i32 %134, 255
   %136 = lshr i32 %133, 8
   %137 = and i32 %136, 255
   %138 = and i32 %133, 255
-  %139 = load i8, ptr %88, align 2, !tbaa !21
+  %139 = load i8, ptr %88, align 2, !tbaa !24
   %140 = zext i8 %139 to i32
   %141 = load i32, ptr %10, align 4, !tbaa !11
   %142 = lshr i32 %141, 16
@@ -315,7 +315,7 @@ detect_os_features.exit:                          ; preds = %detect_SELinux.exit
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef nonnull %150) #9
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 418
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %151) #9
-  %152 = load i8, ptr %86, align 1, !tbaa !23
+  %152 = load i8, ptr %86, align 1, !tbaa !26
   %153 = zext i8 %152 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19, i32 noundef %153) #9
   %154 = load i8, ptr %13, align 1, !tbaa !12
@@ -405,11 +405,14 @@ attributes #11 = { nounwind willreturn memory(none) }
 !13 = !{!4, !5, i64 20}
 !14 = !{!4, !5, i64 24}
 !15 = !{!6, !6, i64 0}
-!16 = !{!5, !5, i64 0}
-!17 = !{!4, !5, i64 0}
-!18 = !{!4, !6, i64 483}
-!19 = !{!4, !5, i64 16}
-!20 = !{!4, !5, i64 4}
-!21 = !{!4, !6, i64 490}
-!22 = !{!4, !5, i64 8}
-!23 = !{!4, !6, i64 487}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!5, !5, i64 0}
+!19 = distinct !{!19, !17}
+!20 = !{!4, !5, i64 0}
+!21 = !{!4, !6, i64 483}
+!22 = !{!4, !5, i64 16}
+!23 = !{!4, !5, i64 4}
+!24 = !{!4, !6, i64 490}
+!25 = !{!4, !5, i64 8}
+!26 = !{!4, !6, i64 487}

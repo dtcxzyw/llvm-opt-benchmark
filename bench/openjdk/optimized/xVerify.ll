@@ -1137,7 +1137,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !11
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -1337,7 +1337,7 @@ define linkonce_odr hidden void @_ZN20XVerifyThreadClosure9do_threadEP6Thread(pt
   %22 = getelementptr inbounds nuw i8, ptr %.08.i.i.i, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i, label %_ZN17StackWatermarkSet3getI15XStackWatermarkEEPT_P10JavaThread18StackWatermarkKind.exit.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %_ZN17StackWatermarkSet3getI15XStackWatermarkEEPT_P10JavaThread18StackWatermarkKind.exit.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZN17StackWatermarkSet3getI15XStackWatermarkEEPT_P10JavaThread18StackWatermarkKind.exit.i: ; preds = %21, %.lr.ph.i.i.i, %11
   %.0.lcssa.i.i.i = phi ptr [ null, %11 ], [ %.08.i.i.i, %.lr.ph.i.i.i ], [ null, %21 ]
@@ -1456,12 +1456,12 @@ _ZN12XVerifyStack18prepare_next_frameER5frame.exit: ; preds = %36, %42, %49
 
 52:                                               ; preds = %_ZN12XVerifyStack18prepare_next_frameER5frame.exit
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(5041) %4, ptr noundef nonnull %16)
-  %53 = load i8, ptr %19, align 1, !noalias !12
+  %53 = load i8, ptr %19, align 1, !noalias !13
   %54 = trunc i8 %53 to i1
   br i1 %54, label %55, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 55:                                               ; preds = %52
-  %56 = load ptr, ptr %20, align 8, !noalias !12
+  %56 = load ptr, ptr %20, align 8, !noalias !13
   %57 = icmp eq ptr %56, null
   br i1 %57, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK11RegisterMap7in_contEv.exit.i.i
 
@@ -1471,7 +1471,7 @@ _ZNK11RegisterMap7in_contEv.exit.i.i:             ; preds = %55
   br i1 %.not.i.i, label %_ZNK11RegisterMap7in_contEv.exit.thread.i.i, label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i.i:      ; preds = %_ZNK11RegisterMap7in_contEv.exit.i.i, %55
-  %59 = load ptr, ptr %21, align 8, !noalias !12
+  %59 = load ptr, ptr %21, align 8, !noalias !13
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %59, ptr noundef nonnull align 8 dereferenceable(56) %2) #8
   br label %_ZNK5frame6senderEP11RegisterMap.exit.i
 
@@ -1484,7 +1484,7 @@ _ZN16StackFrameStream4nextEv.exit:                ; preds = %_ZN12XVerifyStack18
   %60 = phi i8 [ %50, %_ZN12XVerifyStack18prepare_next_frameER5frame.exit ], [ %.pre, %_ZNK5frame6senderEP11RegisterMap.exit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %61 = trunc i8 %60 to i1
-  br i1 %61, label %._crit_edge, label %22, !llvm.loop !15
+  br i1 %61, label %._crit_edge, label %22, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %_ZN16StackFrameStream4nextEv.exit, %1
   ret void
@@ -2181,11 +2181,12 @@ attributes #9 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
 !7 = !{i64 2145412694}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!14 = distinct !{!14, !"_ZNK5frame6senderEP11RegisterMap"}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!15 = distinct !{!15, !"_ZNK5frame6senderEP11RegisterMap"}
+!16 = distinct !{!16, !9, !10}

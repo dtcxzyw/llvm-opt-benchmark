@@ -218,7 +218,7 @@ if.end.i8.i.i:                                    ; preds = %call2.i.noexc.i.i
 for.cond.i.i.i:                                   ; preds = %call10.i.noexc.i.i
   %inc.i.i.i = add nuw nsw i32 %i.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %inc.i.i.i, %34
-  br i1 %exitcond.not.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit.i.i", label %for.body.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit.i.i", label %for.body.i.i.i, !llvm.loop !7
 
 for.body.i.i.i:                                   ; preds = %if.end.i8.i.i, %for.cond.i.i.i
   %i.010.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ 1, %if.end.i8.i.i ]
@@ -393,7 +393,7 @@ for.inc.i.i:                                      ; preds = %_ZNSt15__exception_
   %59 = load i32, ptr %end_.i, align 8
   %60 = sext i32 %59 to i64
   %cmp.i.i = icmp slt i64 %indvars.iv.next.i.i, %60
-  br i1 %cmp.i.i, label %for.body.i.i, label %invoke.cont, !llvm.loop !7
+  br i1 %cmp.i.i, label %for.body.i.i, label %invoke.cont, !llvm.loop !8
 
 if.else.i.i:                                      ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
   %61 = load ptr, ptr %rows, align 8
@@ -523,7 +523,7 @@ if.end.i22.i.i.i.i.i.i:                           ; preds = %call2.i.noexc.i.i.i
 for.cond.i.i.i.i.i.i.i:                           ; preds = %call9.i.noexc.i.i.i.i.i.i
   %inc.i.i.i.i.i.i.i = add nuw nsw i32 %i.010.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i = icmp eq i32 %inc.i.i.i.i.i.i.i, %77
-  br i1 %exitcond.not.i.i.i.i.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clImEEDaT_.exit.i.i.i.i.i.i", label %for.body.i.i.i.i.i.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i.i.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clImEEDaT_.exit.i.i.i.i.i.i", label %for.body.i.i.i.i.i.i.i, !llvm.loop !9
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i22.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i
   %i.010.i.i.i.i.i.i.i = phi i32 [ %inc.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i ], [ 1, %if.end.i22.i.i.i.i.i.i ]
@@ -696,7 +696,7 @@ unreachable.i38.i.i.i.i.i.i:                      ; preds = %if.then.i37.i.i.i.i
 for.inc.i.i.i.i.i.i:                              ; preds = %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit.i.i.i.i.i.i.invoke, %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clImEEDaT_.exit.i.i.i.i.i.i"
   %inc.i.i.i.i.i.i = add nuw i64 %row.0104.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
-  br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS4_E3$_0EEvSE_T_EUlSH_E_EEvPKmiibSH_ENKUliE_clEi.exit.i.i.i.i.i", !llvm.loop !9
+  br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS4_E3$_0EEvSE_T_EUlSH_E_EEvPKmiibSH_ENKUliE_clEi.exit.i.i.i.i.i", !llvm.loop !10
 
 while.body.i.i.i.i.i.i:                           ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS2_E3$_0EEvSC_T_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i", %while.body.lr.ph.i.i.i.i.i.i
   %word.0102.i.i.i.i.i.i = phi i64 [ %68, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS2_E3$_0EEvSC_T_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i" ]
@@ -731,7 +731,7 @@ if.end.i45.i.i.i.i.i.i:                           ; preds = %call2.i.noexc56.i.i
 for.cond.i53.i.i.i.i.i.i:                         ; preds = %call10.i.noexc.i.i.i.i.i.i
   %inc.i54.i.i.i.i.i.i = add nuw nsw i32 %i.010.i50.i.i.i.i.i.i, 1
   %exitcond.not.i55.i.i.i.i.i.i = icmp eq i32 %inc.i54.i.i.i.i.i.i, %111
-  br i1 %exitcond.not.i55.i.i.i.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit.i.i.i.i.i.i", label %for.body.i49.i.i.i.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i55.i.i.i.i.i.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit.i.i.i.i.i.i", label %for.body.i49.i.i.i.i.i.i, !llvm.loop !7
 
 for.body.i49.i.i.i.i.i.i:                         ; preds = %if.end.i45.i.i.i.i.i.i, %for.cond.i53.i.i.i.i.i.i
   %i.010.i50.i.i.i.i.i.i = phi i32 [ %inc.i54.i.i.i.i.i.i, %for.cond.i53.i.i.i.i.i.i ], [ 1, %if.end.i45.i.i.i.i.i.i ]
@@ -905,7 +905,7 @@ unreachable.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   %sub.i33.i.i.i.i.i = add i64 %word.0102.i.i.i.i.i.i, -1
   %and.i.i.i.i.i.i = and i64 %sub.i33.i.i.i.i.i, %word.0102.i.i.i.i.i.i
   %tobool7.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
-  br i1 %tobool7.not.i.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS4_E3$_0EEvSE_T_EUlSH_E_EEvPKmiibSH_ENKUliE_clEi.exit.i.i.i.i.i", label %while.body.i.i.i.i.i.i, !llvm.loop !10
+  br i1 %tobool7.not.i.i.i.i.i.i, label %"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS4_E3$_0EEvSE_T_EUlSH_E_EEvPKmiibSH_ENKUliE_clEi.exit.i.i.i.i.i", label %while.body.i.i.i.i.i.i, !llvm.loop !11
 
 "_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS4_E3$_0EEvSE_T_EUlSH_E_EEvPKmiibSH_ENKUliE_clEi.exit.i.i.i.i.i": ; preds = %for.inc.i.i.i.i.i.i, %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS2_E3$_0EEvSC_T_ENKUlSF_E_clIiEEDaSF_.exit.i.i.i.i.i.i", %if.then.i.i.i.i.i.i, %for.body.i.i.i28.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i15.i.i.i.i.i.i)
@@ -914,7 +914,7 @@ unreachable.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i.i.i.i.i.i.i)
   %add.i.i.i.i.i7 = add nsw i32 %add54.i.i.i.i.i, 64
   %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i7, %65
-  br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i29.i.i, label %for.body.i.i.i28.i.i, !llvm.loop !11
+  br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i29.i.i, label %for.body.i.i.i28.i.i, !llvm.loop !12
 
 for.end.i.i.i29.i.i:                              ; preds = %"_ZZN8facebook5velox4bits10forEachBitIZNS0_4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS4_E3$_0EEvSE_T_EUlSH_E_EEvPKmiibSH_ENKUliE_clEi.exit.i.i.i.i.i", %if.end14.i.i.i.i.i
   %cmp18.not.i.i.i.i.i = icmp eq i32 %63, %65
@@ -1251,7 +1251,7 @@ for.body.lr.ph.i:                                 ; preds = %if.end.i12
 for.cond.i:                                       ; preds = %call10.i.noexc
   %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %22
-  br i1 %exitcond.not.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit", label %for.body.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %"_ZZN8facebook5velox9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERNS0_4exec7EvalCtxEENK3$_0clIiEEDaT_.exit", label %for.body.i, !llvm.loop !7
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
   %i.010.i = phi i32 [ 1, %for.body.lr.ph.i ], [ %inc.i, %for.cond.i ]
@@ -1434,7 +1434,7 @@ unreachable.i:                                    ; preds = %if.then.i
   %sub = add i64 %word.0, -1
   %and6 = and i64 %sub, %word.0
   %tobool5.old.not = icmp eq i64 %and6, 0
-  br i1 %tobool5.old.not, label %while.end, label %while.body
+  br i1 %tobool5.old.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %"_ZZN8facebook5velox4exec7EvalCtx22applyToSelectedNoThrowIZNS0_9functions18checkDuplicateKeysERKSt10shared_ptrINS0_9MapVectorEERKNS0_17SelectivityVectorERS2_E3$_0EEvSC_T_ENKUlSF_E_clIiEEDaSF_.exit", %entry
   ret void
@@ -1472,11 +1472,13 @@ attributes #12 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !6}

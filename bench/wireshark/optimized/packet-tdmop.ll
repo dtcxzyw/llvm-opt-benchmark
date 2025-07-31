@@ -255,7 +255,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i8 %91, ptr %94, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
 
 95:                                               ; preds = %76
   %96 = call i32 @call_data_dissector(ptr noundef %80, ptr noundef %1, ptr noundef %79)
@@ -271,7 +271,7 @@ define internal i32 @dissect_tdmop(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.3 = phi i32 [ %.2, %.loopexit ], [ %.1128, %73 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, 32
-  br i1 %exitcond136.not, label %.loopexit124, label %73, !llvm.loop !9
+  br i1 %exitcond136.not, label %.loopexit124, label %73, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.loopexit124
   %.not121 = icmp eq i32 %.3, 0
@@ -440,7 +440,8 @@ attributes #6 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

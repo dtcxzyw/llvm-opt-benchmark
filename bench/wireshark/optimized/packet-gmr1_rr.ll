@@ -797,7 +797,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_tmsi_avail_msk(ptr noundef %0, p
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %12, label %8, !llvm.loop !8
+  br i1 %exitcond.not, label %12, label %8, !llvm.loop !9
 
 12:                                               ; preds = %8
   ret i16 1
@@ -978,7 +978,7 @@ define internal noundef zeroext i16 @gmr1_ie_rr_persistence_lvl(ptr noundef %0, 
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %15, label %8, !llvm.loop !9
+  br i1 %exitcond.not, label %15, label %8, !llvm.loop !10
 
 15:                                               ; preds = %8
   ret i16 2
@@ -1057,7 +1057,7 @@ define hidden void @proto_register_gmr1_rr() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader, label %1, !llvm.loop !11
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.preheader ], [ 34, %1 ]
@@ -1068,7 +1068,7 @@ define hidden void @proto_register_gmr1_rr() local_unnamed_addr #1 {
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next23, 43
-  br i1 %exitcond29.not, label %6, label %.preheader, !llvm.loop !11
+  br i1 %exitcond29.not, label %6, label %.preheader, !llvm.loop !12
 
 6:                                                ; preds = %.preheader
   tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_gmr1_rr.ett, i32 noundef 77)
@@ -2945,9 +2945,10 @@ attributes #8 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

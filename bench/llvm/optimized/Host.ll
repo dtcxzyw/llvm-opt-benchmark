@@ -1221,7 +1221,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail24getHostCPUNameForPowerPCENS_
 .critedge6:                                       ; preds = %.lr.ph559, %.lr.ph559
   %.4 = getelementptr inbounds nuw i8, ptr %.4558, i64 1
   %31 = icmp ult ptr %.4, %3
-  br i1 %31, label %.lr.ph559, label %.critedge81, !llvm.loop !35
+  br i1 %31, label %.lr.ph559, label %.critedge81, !llvm.loop !36
 
 .lr.ph562thread-pre-split:                        ; preds = %.critedge4
   %.pr = load i8, ptr %33, align 1, !tbaa !13
@@ -1240,7 +1240,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail24getHostCPUNameForPowerPCENS_
 .critedge4:                                       ; preds = %.lr.ph562
   %33 = getelementptr inbounds nuw i8, ptr %.5561, i64 1
   %34 = icmp ult ptr %33, %3
-  br i1 %34, label %.lr.ph562thread-pre-split, label %._crit_edge.thread, !llvm.loop !36
+  br i1 %34, label %.lr.ph562thread-pre-split, label %._crit_edge.thread, !llvm.loop !37
 
 ._crit_edge.thread:                               ; preds = %.lr.ph562, %.lr.ph562, %.lr.ph562, %.lr.ph562, %.critedge4, %.critedge4.preheader
   %.5.lcssa = phi ptr [ %.4558, %.critedge4.preheader ], [ %33, %.critedge4 ], [ %.5561, %.lr.ph562 ], [ %.5561, %.lr.ph562 ], [ %.5561, %.lr.ph562 ], [ %.5561, %.lr.ph562 ]
@@ -1271,12 +1271,12 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail24getHostCPUNameForPowerPCENS_
 40:                                               ; preds = %.lr.ph572
   %41 = getelementptr inbounds nuw i8, ptr %.7571, i64 1
   %42 = icmp ult ptr %41, %3
-  br i1 %42, label %.lr.ph572, label %.critedge10, !llvm.loop !37
+  br i1 %42, label %.lr.ph572, label %.critedge10, !llvm.loop !38
 
 .critedge10:                                      ; preds = %40, %.lr.ph572, %.critedge81
   %.6 = phi ptr [ %.2, %.critedge81 ], [ %.7571, %.lr.ph572 ], [ %41, %40 ]
   %43 = icmp ult ptr %.6, %3
-  br i1 %43, label %.lr.ph578, label %_ZN4llvm9StringRefC2EPKc.exit, !llvm.loop !38
+  br i1 %43, label %.lr.ph578, label %_ZN4llvm9StringRefC2EPKc.exit, !llvm.loop !39
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %._crit_edge.thread
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.4558, ptr noundef nonnull dereferenceable(4) @.str.2, i64 4)
@@ -1417,13 +1417,13 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail20getHostCPUNameForARMENS_9Str
   store i64 %1, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %6) #18
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %13, ptr %6, align 8, !tbaa !39
+  store ptr %13, ptr %6, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %14, align 8, !tbaa !42
+  store i32 0, ptr %14, align 8, !tbaa !43
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 32, ptr %15, align 4, !tbaa !43
+  store i32 32, ptr %15, align 4, !tbaa !44
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i8 noundef signext 10, i32 noundef -1, i1 noundef zeroext true) #18
-  %16 = load i32, ptr %14, align 8, !tbaa !42
+  %16 = load i32, ptr %14, align 8, !tbaa !43
   %.not2415 = icmp eq i32 %16, 0
   br i1 %.not2415, label %_ZN4llvm9StringRefC2EPKc.exit, label %.lr.ph
 
@@ -1451,15 +1451,15 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %._crit_edge
   %.sroa.61584.02418 = phi i64 [ 0, %.lr.ph ], [ %.sroa.61584.12471, %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread1609 ]
   %.sroa.01571.02417 = phi ptr [ null, %.lr.ph ], [ %.sroa.01571.1, %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread1609 ]
   %.sroa.141572.02416 = phi i64 [ 0, %.lr.ph ], [ %.sroa.141572.1, %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread1609 ]
-  %24 = load ptr, ptr %6, align 8, !tbaa !39
+  %24 = load ptr, ptr %6, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !44
+  %27 = load i64, ptr %26, align 8, !tbaa !45
   %.not.i72 = icmp ult i64 %27, 15
   br i1 %.not.i72, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1607, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %23
-  %28 = load ptr, ptr %25, align 8, !tbaa !46
+  %28 = load ptr, ptr %25, align 8, !tbaa !47
   %bcmp.i73 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) %28, ptr noundef nonnull dereferenceable(15) @.str.34, i64 15)
   %29 = icmp eq i32 %bcmp.i73, 0
   br i1 %29, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit76
@@ -1472,15 +1472,15 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   store i64 %31, ptr %17, align 8
   %32 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull @.str.35, i64 3, i64 noundef 0) #18
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %32, i64 %31)
-  %33 = load i64, ptr %17, align 8, !tbaa !44
+  %33 = load i64, ptr %17, align 8, !tbaa !45
   %.sroa.speculated4.i.i.i = call i64 @llvm.umin.i64(i64 %33, i64 %.sroa.speculated.i)
-  %34 = load ptr, ptr %7, align 8, !tbaa !46
+  %34 = load ptr, ptr %7, align 8, !tbaa !47
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.sroa.speculated4.i.i.i
   %36 = sub i64 %33, %.sroa.speculated4.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  %.pre = load ptr, ptr %6, align 8, !tbaa !39
+  %.pre = load ptr, ptr %6, align 8, !tbaa !40
   %.phi.trans.insert2443 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre, i64 %indvars.iv, i32 1
-  %.pre2444 = load i64, ptr %.phi.trans.insert2443, align 8, !tbaa !44
+  %.pre2444 = load i64, ptr %.phi.trans.insert2443, align 8, !tbaa !45
   br label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1607
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread1607: ; preds = %23, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
@@ -1497,7 +1497,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit76:      ; preds = %_ZNK4llvm9StringRef
   %39 = phi ptr [ %38, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1607 ], [ %24, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
   %40 = phi i64 [ %37, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1607 ], [ %27, %_ZNK4llvm9StringRef11starts_withES0_.exit ]
   %41 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %39, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !46
+  %42 = load ptr, ptr %41, align 8, !tbaa !47
   %bcmp.i75 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %42, ptr noundef nonnull dereferenceable(8) @.str.36, i64 8)
   %43 = icmp eq i32 %bcmp.i75, 0
   br i1 %43, label %_ZNK4llvm9StringRef11starts_withES0_.exit76.thread1608, label %_ZNK4llvm9StringRef11starts_withES0_.exit87
@@ -1510,15 +1510,15 @@ _ZNK4llvm9StringRef11starts_withES0_.exit76.thread1608: ; preds = %_ZNK4llvm9Str
   store i64 %45, ptr %18, align 8
   %46 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull @.str.35, i64 3, i64 noundef 0) #18
   %.sroa.speculated.i81 = call i64 @llvm.umin.i64(i64 %46, i64 %45)
-  %47 = load i64, ptr %18, align 8, !tbaa !44
+  %47 = load i64, ptr %18, align 8, !tbaa !45
   %.sroa.speculated4.i.i.i82 = call i64 @llvm.umin.i64(i64 %47, i64 %.sroa.speculated.i81)
-  %48 = load ptr, ptr %8, align 8, !tbaa !46
+  %48 = load ptr, ptr %8, align 8, !tbaa !47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %.sroa.speculated4.i.i.i82
   %50 = sub i64 %47, %.sroa.speculated4.i.i.i82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
-  %.pre2445 = load ptr, ptr %6, align 8, !tbaa !39
+  %.pre2445 = load ptr, ptr %6, align 8, !tbaa !40
   %.phi.trans.insert2447 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %.pre2445, i64 %indvars.iv, i32 1
-  %.pre2448 = load i64, ptr %.phi.trans.insert2447, align 8, !tbaa !44
+  %.pre2448 = load i64, ptr %.phi.trans.insert2447, align 8, !tbaa !45
   %.not.i85 = icmp ult i64 %.pre2448, 8
   br i1 %.not.i85, label %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread1609, label %_ZNK4llvm9StringRef11starts_withES0_.exit87
 
@@ -1528,7 +1528,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit87:      ; preds = %_ZNK4llvm9StringRef
   %51 = phi ptr [ %.pre2445, %_ZNK4llvm9StringRef11starts_withES0_.exit76.thread1608 ], [ %39, %_ZNK4llvm9StringRef11starts_withES0_.exit76 ]
   %52 = phi i64 [ %.pre2448, %_ZNK4llvm9StringRef11starts_withES0_.exit76.thread1608 ], [ %40, %_ZNK4llvm9StringRef11starts_withES0_.exit76 ]
   %53 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %51, i64 %indvars.iv
-  %54 = load ptr, ptr %53, align 8, !tbaa !46
+  %54 = load ptr, ptr %53, align 8, !tbaa !47
   %bcmp.i86 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %54, ptr noundef nonnull dereferenceable(8) @.str.37, i64 8)
   %55 = icmp eq i32 %bcmp.i86, 0
   br i1 %55, label %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread1609
@@ -1541,9 +1541,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit87.thread: ; preds = %_ZNK4llvm9StringR
   store i64 %57, ptr %19, align 8
   %58 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.35, i64 3, i64 noundef 0) #18
   %.sroa.speculated.i92 = call i64 @llvm.umin.i64(i64 %58, i64 %57)
-  %59 = load i64, ptr %19, align 8, !tbaa !44
+  %59 = load i64, ptr %19, align 8, !tbaa !45
   %.sroa.speculated4.i.i.i93 = call i64 @llvm.umin.i64(i64 %59, i64 %.sroa.speculated.i92)
-  %60 = load ptr, ptr %9, align 8, !tbaa !46
+  %60 = load ptr, ptr %9, align 8, !tbaa !47
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.sroa.speculated4.i.i.i93
   %62 = sub i64 %59, %.sroa.speculated4.i.i.i93
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
@@ -1558,7 +1558,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit87.thread1609: ; preds = %_ZNK4llvm9Str
   %.sroa.01571.1 = phi ptr [ %61, %_ZNK4llvm9StringRef11starts_withES0_.exit87.thread ], [ %.sroa.01571.02417, %_ZNK4llvm9StringRef11starts_withES0_.exit87 ], [ %.sroa.01571.02417, %_ZNK4llvm9StringRef11starts_withES0_.exit76.thread1608 ], [ %.sroa.01571.02417, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread1607 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %20
-  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %23, !llvm.loop !48
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   %.not.i96 = icmp ult i64 %.sroa.61584.12471, 7
@@ -2113,8 +2113,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit829:             ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %173, label %_ZN4llvmeqENS_9StringRefES0_.exit829.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit856
 
 _ZN4llvmeqENS_9StringRefES0_.exit829.thread:      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit829
-  %174 = load ptr, ptr %6, align 8, !tbaa !39
-  %175 = load i32, ptr %14, align 8, !tbaa !42
+  %174 = load ptr, ptr %6, align 8, !tbaa !40
+  %175 = load i32, ptr %14, align 8, !tbaa !43
   %176 = zext i32 %175 to i64
   %.idx = shl nuw nsw i64 %176, 4
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 %.idx
@@ -2126,8 +2126,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit829.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   br label %183
 
 ._crit_edge2432:                                  ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
-  %.pre2449 = load ptr, ptr %6, align 8, !tbaa !39
-  %.pre2450 = load i32, ptr %14, align 8, !tbaa !42
+  %.pre2449 = load ptr, ptr %6, align 8, !tbaa !40
+  %.pre2450 = load i32, ptr %14, align 8, !tbaa !43
   %179 = shl i32 %.1, 12
   %180 = zext i32 %.pre2450 to i64
   %.idx2441 = shl nuw nsw i64 %180, 4
@@ -2143,13 +2143,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit829.thread:      ; preds = %_ZN4llvmeqENS_9Stri
   %.0682430 = phi ptr [ %174, %.lr.ph2431 ], [ %196, %_ZN4llvm9StringRef13consume_frontES0_.exit.thread ]
   %.016002429 = phi i32 [ 0, %.lr.ph2431 ], [ %.1, %_ZN4llvm9StringRef13consume_frontES0_.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.0682430, i64 16, i1 false), !tbaa.struct !48
-  %184 = load i64, ptr %178, align 8, !tbaa !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %.0682430, i64 16, i1 false), !tbaa.struct !49
+  %184 = load i64, ptr %178, align 8, !tbaa !45
   %.not.i.i = icmp ult i64 %184, 11
   br i1 %.not.i.i, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %183
-  %.pre.i = load ptr, ptr %10, align 8, !tbaa !46
+  %.pre.i = load ptr, ptr %10, align 8, !tbaa !47
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %.pre.i, ptr noundef nonnull dereferenceable(11) @.str.207, i64 11)
   %185 = icmp eq i32 %bcmp.i.i, 0
   br i1 %185, label %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit, label %_ZN4llvm9StringRef13consume_frontES0_.exit.thread
@@ -2157,13 +2157,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %183
 _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit:  ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %186 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 11
   %187 = add i64 %184, -11
-  store ptr %186, ptr %10, align 8, !tbaa !49
+  store ptr %186, ptr %10, align 8, !tbaa !50
   store i64 %187, ptr %178, align 8, !tbaa !9
   %188 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr nonnull @.str.35, i64 3, i64 noundef 0) #18
   %.sroa.speculated.i830 = call i64 @llvm.umin.i64(i64 %188, i64 %187)
-  %189 = load i64, ptr %178, align 8, !tbaa !44
+  %189 = load i64, ptr %178, align 8, !tbaa !45
   %.sroa.speculated4.i.i.i831 = call i64 @llvm.umin.i64(i64 %189, i64 %.sroa.speculated.i830)
-  %190 = load ptr, ptr %10, align 8, !tbaa !46
+  %190 = load ptr, ptr %10, align 8, !tbaa !47
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 %.sroa.speculated4.i.i.i831
   %192 = sub i64 %189, %.sroa.speculated4.i.i.i831
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -2181,7 +2181,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %183, %_ZNK4llvm9St
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
   %196 = getelementptr inbounds nuw i8, ptr %.0682430, i64 16
   %.not70 = icmp eq ptr %196, %177
-  br i1 %.not70, label %._crit_edge2432, label %183
+  br i1 %.not70, label %._crit_edge2432, label %183, !llvm.loop !51
 
 ._crit_edge2439:                                  ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit842.thread, %_ZN4llvmeqENS_9StringRefES0_.exit829.thread, %._crit_edge2432
   %.01600.lcssa2495 = phi i32 [ %179, %._crit_edge2432 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit829.thread ], [ %179, %_ZN4llvm9StringRef13consume_frontES0_.exit842.thread ]
@@ -2195,13 +2195,13 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.thread: ; preds = %183, %_ZNK4llvm9St
   %.0692436 = phi ptr [ %.pre2449, %.lr.ph2438 ], [ %211, %_ZN4llvm9StringRef13consume_frontES0_.exit842.thread ]
   %.016012435 = phi i32 [ 0, %.lr.ph2438 ], [ %.11602, %_ZN4llvm9StringRef13consume_frontES0_.exit842.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %.0692436, i64 16, i1 false), !tbaa.struct !48
-  %199 = load i64, ptr %182, align 8, !tbaa !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %.0692436, i64 16, i1 false), !tbaa.struct !49
+  %199 = load i64, ptr %182, align 8, !tbaa !45
   %.not.i.i837 = icmp ult i64 %199, 8
   br i1 %.not.i.i837, label %_ZN4llvm9StringRef13consume_frontES0_.exit842.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i839
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i839:   ; preds = %198
-  %.pre.i838 = load ptr, ptr %11, align 8, !tbaa !46
+  %.pre.i838 = load ptr, ptr %11, align 8, !tbaa !47
   %bcmp.i.i840 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.pre.i838, ptr noundef nonnull dereferenceable(8) @.str.37, i64 8)
   %200 = icmp eq i32 %bcmp.i.i840, 0
   br i1 %200, label %_ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit852, label %_ZN4llvm9StringRef13consume_frontES0_.exit842.thread
@@ -2209,13 +2209,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i839:   ; preds = %198
 _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit852: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i839
   %201 = getelementptr inbounds nuw i8, ptr %.pre.i838, i64 8
   %202 = add i64 %199, -8
-  store ptr %201, ptr %11, align 8, !tbaa !49
+  store ptr %201, ptr %11, align 8, !tbaa !50
   store i64 %202, ptr %182, align 8, !tbaa !9
   %203 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nonnull @.str.35, i64 3, i64 noundef 0) #18
   %.sroa.speculated.i843 = call i64 @llvm.umin.i64(i64 %203, i64 %202)
-  %204 = load i64, ptr %182, align 8, !tbaa !44
+  %204 = load i64, ptr %182, align 8, !tbaa !45
   %.sroa.speculated4.i.i.i844 = call i64 @llvm.umin.i64(i64 %204, i64 %.sroa.speculated.i843)
-  %205 = load ptr, ptr %11, align 8, !tbaa !46
+  %205 = load ptr, ptr %11, align 8, !tbaa !47
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 %.sroa.speculated4.i.i.i844
   %207 = sub i64 %204, %.sroa.speculated4.i.i.i844
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
@@ -2233,7 +2233,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit842.thread: ; preds = %198, %_ZNK4llvm
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #18
   %211 = getelementptr inbounds nuw i8, ptr %.0692436, i64 16
   %.not71 = icmp eq ptr %211, %181
-  br i1 %.not71, label %._crit_edge2439, label %198
+  br i1 %.not71, label %._crit_edge2439, label %198, !llvm.loop !52
 
 _ZN4llvmeqENS_9StringRefES0_.exit856:             ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit829
   %bcmp.i855 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.01586.124632469, ptr noundef nonnull dereferenceable(4) @.str.210, i64 4)
@@ -2413,7 +2413,7 @@ _ZN4llvm9StringRefC2EPKc.exit1068:                ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %._crit_edge, %_ZN4llvmeqENS_9StringRefES0_.exit1040, %._crit_edge2439, %_ZNK4llvm9StringRef9ends_withES0_.exit, %_ZNK4llvm9StringRef9ends_withES0_.exit100, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i1000, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i821, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i595, %_ZN4llvm9StringRefC2EPKc.exit1068, %_ZN4llvm9StringRefC2EPKc.exit1036, %_ZN4llvm9StringRefC2EPKc.exit1020, %_ZN4llvm9StringRefC2EPKc.exit713, %_ZN4llvm9StringRefC2EPKc.exit697, %_ZN4llvm9StringRefC2EPKc.exit681, %_ZN4llvm9StringRefC2EPKc.exit657.thread2487
   %.sroa.01599.0 = phi ptr [ %142, %_ZN4llvm9StringRefC2EPKc.exit657.thread2487 ], [ %.sroa.11.1, %_ZN4llvm9StringRefC2EPKc.exit681 ], [ %.sroa.81256.0, %_ZN4llvm9StringRefC2EPKc.exit697 ], [ %.sroa.81246.0, %_ZN4llvm9StringRefC2EPKc.exit713 ], [ %.sroa.81093.0, %_ZN4llvm9StringRefC2EPKc.exit1020 ], [ %.sroa.8.0, %_ZN4llvm9StringRefC2EPKc.exit1036 ], [ %.sroa.14.2, %_ZN4llvm9StringRefC2EPKc.exit1068 ], [ %.sroa.194.62, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i595 ], [ %.sroa.44.12, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i821 ], [ %.sroa.59.17, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i1000 ], [ @.str.41, %_ZNK4llvm9StringRef9ends_withES0_.exit100 ], [ @.str.41, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ %.str.209..str.208, %._crit_edge2439 ], [ @.str.1, %._crit_edge ], [ @.str.1, %_ZN4llvmeqENS_9StringRefES0_.exit1040 ], [ @.str.1, %2 ]
   %.sroa.15.0 = phi i64 [ %143, %_ZN4llvm9StringRefC2EPKc.exit657.thread2487 ], [ %148, %_ZN4llvm9StringRefC2EPKc.exit681 ], [ %152, %_ZN4llvm9StringRefC2EPKc.exit697 ], [ %156, %_ZN4llvm9StringRefC2EPKc.exit713 ], [ %236, %_ZN4llvm9StringRefC2EPKc.exit1020 ], [ %240, %_ZN4llvm9StringRefC2EPKc.exit1036 ], [ %246, %_ZN4llvm9StringRefC2EPKc.exit1068 ], [ %133, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i595 ], [ %172, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i821 ], [ %232, %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i1000 ], [ 10, %_ZNK4llvm9StringRef9ends_withES0_.exit100 ], [ 10, %_ZNK4llvm9StringRef9ends_withES0_.exit ], [ 9, %._crit_edge2439 ], [ 7, %._crit_edge ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit1040 ], [ 7, %2 ]
-  %247 = load ptr, ptr %6, align 8, !tbaa !39
+  %247 = load ptr, ptr %6, align 8, !tbaa !40
   %248 = icmp eq ptr %247, %13
   br i1 %248, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %249
 
@@ -2445,25 +2445,25 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail22getHostCPUNameForS390xENS_9S
   store i64 %1, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %5) #18
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %9, ptr %5, align 8, !tbaa !39
+  store ptr %9, ptr %5, align 8, !tbaa !40
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 0, ptr %10, align 8, !tbaa !42
+  store i32 0, ptr %10, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 32, ptr %11, align 4, !tbaa !43
+  store i32 32, ptr %11, align 4, !tbaa !44
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i8 noundef signext 10, i32 noundef -1, i1 noundef zeroext true) #18
   call void @llvm.lifetime.start.p0(i64 528, ptr nonnull %6) #18
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %12, ptr %6, align 8, !tbaa !39
+  store ptr %12, ptr %6, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %13, align 8, !tbaa !42
+  store i32 0, ptr %13, align 8, !tbaa !43
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 32, ptr %14, align 4, !tbaa !43
-  %15 = load i32, ptr %10, align 8, !tbaa !42
+  store i32 32, ptr %14, align 4, !tbaa !44
+  %15 = load i32, ptr %10, align 8, !tbaa !43
   %.not79 = icmp eq i32 %15, 0
   br i1 %.not79, label %_ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %16 = load ptr, ptr %5, align 8, !tbaa !39
+  %16 = load ptr, ptr %5, align 8, !tbaa !40
   %17 = zext i32 %15 to i64
   br label %18
 
@@ -2471,12 +2471,12 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail22getHostCPUNameForS390xENS_9S
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %19 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %16, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !44
+  %21 = load i64, ptr %20, align 8, !tbaa !45
   %.not.i = icmp ult i64 %21, 8
   br i1 %.not.i, label %.critedge, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %18
-  %22 = load ptr, ptr %19, align 8, !tbaa !46
+  %22 = load ptr, ptr %19, align 8, !tbaa !47
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %22, ptr noundef nonnull dereferenceable(8) @.str.243, i64 8)
   %23 = icmp eq i32 %bcmp.i, 0
   br i1 %23, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, label %.critedge
@@ -2494,7 +2494,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNK4llvm9StringRef
 .critedge:                                        ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i, %18, %_ZNK4llvm9StringRef11starts_withES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %17
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !53
 
 .loopexit:                                        ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #18
@@ -2507,23 +2507,23 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNK4llvm9StringRef
   store i64 %30, ptr %31, align 8
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, i8 noundef signext 32, i32 noundef -1, i1 noundef zeroext true) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
-  %.pre = load i32, ptr %13, align 8, !tbaa !42
+  %.pre = load i32, ptr %13, align 8, !tbaa !43
   %.not3581 = icmp eq i32 %.pre, 0
   br i1 %.not3581, label %._crit_edge, label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.loopexit
-  %32 = load ptr, ptr %6, align 8, !tbaa !39
+  %32 = load ptr, ptr %6, align 8, !tbaa !40
   %33 = zext i32 %.pre to i64
   br label %36
 
 ._crit_edge:                                      ; preds = %.critedge, %_ZN4llvmeqENS_9StringRefES0_.exit.thread67, %.loopexit
   %.029.lcssa.ph = phi i1 [ false, %.loopexit ], [ %39, %_ZN4llvmeqENS_9StringRefES0_.exit.thread67 ], [ false, %.critedge ]
-  %.pr = load i32, ptr %10, align 8, !tbaa !42
+  %.pr = load i32, ptr %10, align 8, !tbaa !43
   %.not3685 = icmp eq i32 %.pr, 0
   br i1 %.not3685, label %_ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %._crit_edge
-  %34 = load ptr, ptr %5, align 8, !tbaa !39
+  %34 = load ptr, ptr %5, align 8, !tbaa !40
   %35 = zext i32 %.pr to i64
   br label %40
 
@@ -2537,7 +2537,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNK4llvm9StringRef
   br i1 %.not.i42, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread67
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %36
-  %.sroa.0.0.copyload = load ptr, ptr %37, align 8, !tbaa !49
+  %.sroa.0.0.copyload = load ptr, ptr %37, align 8, !tbaa !50
   %bcmp.i43 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(2) @.str.244, i64 2)
   %bcmp.i43.fr = freeze i32 %bcmp.i43
   %38 = icmp eq i32 %bcmp.i43.fr, 0
@@ -2548,18 +2548,18 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread67:       ; preds = %_ZN4llvmeqENS_9Stri
   %39 = phi i1 [ %.02983, %36 ], [ %spec.select, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %.not35 = icmp eq i64 %indvars.iv.next98, %33
-  br i1 %.not35, label %._crit_edge, label %36, !llvm.loop !51
+  br i1 %.not35, label %._crit_edge, label %36, !llvm.loop !54
 
 40:                                               ; preds = %.lr.ph88, %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread70
   %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread70 ]
   %41 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %34, i64 %indvars.iv99
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !44
+  %43 = load i64, ptr %42, align 8, !tbaa !45
   %.not.i44 = icmp ult i64 %43, 10
   br i1 %.not.i44, label %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread70, label %_ZNK4llvm9StringRef11starts_withES0_.exit46
 
 _ZNK4llvm9StringRef11starts_withES0_.exit46:      ; preds = %40
-  %44 = load ptr, ptr %41, align 8, !tbaa !46
+  %44 = load ptr, ptr %41, align 8, !tbaa !47
   %bcmp.i45 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %44, ptr noundef nonnull dereferenceable(10) @.str.245, i64 10)
   %45 = icmp eq i32 %bcmp.i45, 0
   br i1 %45, label %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread70
@@ -2571,12 +2571,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit46.thread: ; preds = %_ZNK4llvm9StringR
 
 47:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread
   %48 = add i64 %46, 10
-  %49 = load ptr, ptr %5, align 8, !tbaa !39
+  %49 = load ptr, ptr %5, align 8, !tbaa !40
   %50 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %49, i64 %indvars.iv99
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load i64, ptr %51, align 8, !tbaa !44
+  %52 = load i64, ptr %51, align 8, !tbaa !45
   %.sroa.speculated4.i.i47 = call i64 @llvm.umin.i64(i64 %52, i64 %48)
-  %53 = load ptr, ptr %50, align 8, !tbaa !46
+  %53 = load ptr, ptr %50, align 8, !tbaa !47
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.speculated4.i.i47
   %55 = sub i64 %52, %.sroa.speculated4.i.i47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
@@ -2584,7 +2584,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit46.thread: ; preds = %_ZNK4llvm9StringR
   br i1 %56, label %.critedge39, label %57
 
 57:                                               ; preds = %47
-  %58 = load i64, ptr %3, align 8, !tbaa !52
+  %58 = load i64, ptr %3, align 8, !tbaa !55
   %.not.i50 = icmp ult i64 %58, 4294967296
   br i1 %.not.i50, label %59, label %.critedge39
 
@@ -2655,12 +2655,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit46.thread: ; preds = %_ZNK4llvm9StringR
 _ZNK4llvm9StringRef11starts_withES0_.exit46.thread70: ; preds = %40, %_ZNK4llvm9StringRef11starts_withES0_.exit46
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %.not36 = icmp eq i64 %indvars.iv.next100, %35
-  br i1 %.not36, label %_ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit, label %40, !llvm.loop !54
+  br i1 %.not36, label %_ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit, label %40, !llvm.loop !57
 
 _ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread70, %2, %._crit_edge, %.critedge39, %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread, %76, %73, %70, %67, %64, %63, %62, %61, %59, %59, %59, %59, %59, %59
   %.sroa.060.0 = phi ptr [ %77, %76 ], [ @.str.383, %61 ], [ @.str.384, %62 ], [ @.str.385, %63 ], [ %65, %64 ], [ %68, %67 ], [ %71, %70 ], [ %74, %73 ], [ @.str.1, %59 ], [ @.str.1, %59 ], [ @.str.1, %59 ], [ @.str.1, %59 ], [ @.str.1, %59 ], [ @.str.1, %59 ], [ @.str.1, %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread ], [ @.str.1, %.critedge39 ], [ @.str.1, %._crit_edge ], [ @.str.1, %2 ], [ @.str.1, %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread70 ]
   %.sroa.3.0 = phi i64 [ %78, %76 ], [ 3, %61 ], [ 4, %62 ], [ 5, %63 ], [ %66, %64 ], [ %69, %67 ], [ %72, %70 ], [ %75, %73 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %59 ], [ 7, %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread ], [ 7, %.critedge39 ], [ 7, %._crit_edge ], [ 7, %2 ], [ 7, %_ZNK4llvm9StringRef11starts_withES0_.exit46.thread70 ]
-  %79 = load ptr, ptr %6, align 8, !tbaa !39
+  %79 = load ptr, ptr %6, align 8, !tbaa !40
   %80 = icmp eq ptr %79, %12
   br i1 %80, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %81
 
@@ -2670,7 +2670,7 @@ _ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit: ; preds = %_ZNK4llvm9StringR
 
 _ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_123getCPUNameFromS390ModelEjb.exit, %81
   call void @llvm.lifetime.end.p0(i64 528, ptr nonnull %6) #18
-  %82 = load ptr, ptr %5, align 8, !tbaa !39
+  %82 = load ptr, ptr %5, align 8, !tbaa !40
   %83 = icmp eq ptr %82, %9
   br i1 %83, label %_ZN4llvm11SmallVectorINS_9StringRefELj32EED2Ev.exit52, label %84
 
@@ -2697,18 +2697,18 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail22getHostCPUNameForRISCVENS_9S
   store i64 %1, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #18
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %7, ptr %4, align 8, !tbaa !39
+  store ptr %7, ptr %4, align 8, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %8, align 8, !tbaa !42
+  store i32 0, ptr %8, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 3, ptr %9, align 4, !tbaa !43
+  store i32 3, ptr %9, align 4, !tbaa !44
   call void @_ZNK4llvm9StringRef5splitERNS_15SmallVectorImplIS0_EEcib(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i8 noundef signext 10, i32 noundef -1, i1 noundef zeroext true) #18
-  %10 = load i32, ptr %8, align 8, !tbaa !42
+  %10 = load i32, ptr %8, align 8, !tbaa !43
   %.not77 = icmp eq i32 %10, 0
   br i1 %.not77, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %11 = load ptr, ptr %4, align 8, !tbaa !39
+  %11 = load ptr, ptr %4, align 8, !tbaa !40
   %12 = zext i32 %10 to i64
   br label %13
 
@@ -2716,12 +2716,12 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail22getHostCPUNameForRISCVENS_9S
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40 ]
   %14 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %11, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !44
+  %16 = load i64, ptr %15, align 8, !tbaa !45
   %.not.i = icmp ult i64 %16, 5
   br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %13
-  %17 = load ptr, ptr %14, align 8, !tbaa !46
+  %17 = load ptr, ptr %14, align 8, !tbaa !47
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %17, ptr noundef nonnull dereferenceable(5) @.str.247, i64 5)
   %18 = icmp eq i32 %bcmp.i, 0
   br i1 %18, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40
@@ -2729,7 +2729,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %13
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread40: ; preds = %13, %_ZNK4llvm9StringRef11starts_withES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %12
-  br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %13, !llvm.loop !55
+  br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit.thread, label %13, !llvm.loop !58
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #18
@@ -2740,9 +2740,9 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
   store i64 %20, ptr %21, align 8
   %22 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.35, i64 3, i64 noundef 0) #18
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %22, i64 %20)
-  %23 = load i64, ptr %21, align 8, !tbaa !44
+  %23 = load i64, ptr %21, align 8, !tbaa !45
   %.sroa.speculated4.i.i.i = call i64 @llvm.umin.i64(i64 %23, i64 %.sroa.speculated.i)
-  %24 = load ptr, ptr %5, align 8, !tbaa !46
+  %24 = load ptr, ptr %5, align 8, !tbaa !47
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.speculated4.i.i.i
   %26 = sub i64 %23, %.sroa.speculated4.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
@@ -2777,7 +2777,7 @@ _ZN4llvm9StringRefC2EPKc.exit.thread84:           ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm9StringRefC2EPKc.exit.thread:             ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40, %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i10, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvm9StringRefC2EPKc.exit.thread84
   %30 = phi ptr [ %.sroa.10.288, %_ZN4llvm9StringRefC2EPKc.exit.thread84 ], [ @.str.253, %_ZN4llvm9StringRefC2EPKc.exit ], [ @.str.253, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i10 ], [ @.str.253, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ @.str.253, %2 ], [ @.str.253, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread40 ]
   %31 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #18
-  %32 = load ptr, ptr %4, align 8, !tbaa !39
+  %32 = load ptr, ptr %4, align 8, !tbaa !40
   %33 = icmp eq ptr %32, %7
   br i1 %33, label %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit, label %34
 
@@ -2804,14 +2804,14 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail20getHostCPUNameForBPFEv() loc
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #18
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  store i32 1, ptr %3, align 8, !tbaa !56
+  store i32 1, ptr %3, align 8, !tbaa !59
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 5, ptr %5, align 4, !tbaa !58
+  store i32 5, ptr %5, align 4, !tbaa !61
   %6 = ptrtoint ptr %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %6, ptr %7, align 8, !tbaa !59
+  store i64 %6, ptr %7, align 8, !tbaa !62
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 ptrtoint (ptr @.str.254 to i64), ptr %8, align 8, !tbaa !60
+  store i64 ptrtoint (ptr @.str.254 to i64), ptr %8, align 8, !tbaa !63
   %9 = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 5, ptr noundef nonnull %3, i64 noundef 48) #18
   %10 = trunc i64 %9 to i32
   %11 = icmp sgt i32 %10, -1
@@ -2820,11 +2820,11 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys6detail20getHostCPUNameForBPFEv() loc
 12:                                               ; preds = %0
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  store i32 1, ptr %3, align 8, !tbaa !56
-  store i32 5, ptr %5, align 4, !tbaa !58
+  store i32 1, ptr %3, align 8, !tbaa !59
+  store i32 5, ptr %5, align 4, !tbaa !61
   %14 = ptrtoint ptr %2 to i64
-  store i64 %14, ptr %7, align 8, !tbaa !59
-  store i64 ptrtoint (ptr @.str.254 to i64), ptr %8, align 8, !tbaa !60
+  store i64 %14, ptr %7, align 8, !tbaa !62
+  store i64 ptrtoint (ptr @.str.254 to i64), ptr %8, align 8, !tbaa !63
   %15 = call i64 (i64, ...) @syscall(i64 noundef 321, i32 noundef 5, ptr noundef nonnull %3, i64 noundef 48) #18
   %16 = trunc i64 %15 to i32
   %17 = icmp sgt i32 %16, -1
@@ -2862,12 +2862,12 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm3sys6detail3x8618getVendor
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
-  store i32 0, ptr %0, align 4, !tbaa !61
+  store i32 0, ptr %0, align 4, !tbaa !64
   br label %5
 
 5:                                                ; preds = %1, %4
   %.0 = phi ptr [ %0, %4 ], [ %2, %1 ]
-  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 0) #21, !srcloc !62
+  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 0) #21, !srcloc !65
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit.thread, label %9
@@ -2876,7 +2876,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm3sys6detail3x8618getVendor
   %10 = extractvalue { i32, i32, i32, i32 } %6, 1
   %11 = extractvalue { i32, i32, i32, i32 } %6, 2
   %12 = extractvalue { i32, i32, i32, i32 } %6, 3
-  store i32 %7, ptr %.0, align 4, !tbaa !61
+  store i32 %7, ptr %.0, align 4, !tbaa !64
   %13 = icmp eq i32 %10, 1970169159
   %14 = icmp eq i32 %12, 1231384169
   %or.cond = select i1 %13, i1 %14, i1 false
@@ -2901,7 +2901,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit.thread:     ; preds = %5, %16, %9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm3sys14getHostCPUNameEv() local_unnamed_addr #8 {
-  %1 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !62
+  %1 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !65
   %2 = extractvalue { i32, i32, i32, i32 } %1, 0
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %_ZN4llvm9StringRefC2EPKc.exit.thread163, label %4
@@ -2926,7 +2926,7 @@ define dso_local { ptr, i64 } @_ZN4llvm3sys14getHostCPUNameEv() local_unnamed_ad
   br i1 %or.cond7.i, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit, label %_ZN4llvm9StringRefC2EPKc.exit.thread163
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %11, %4
-  %15 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 1) #21, !srcloc !63
+  %15 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 1) #21, !srcloc !66
   %16 = extractvalue { i32, i32, i32, i32 } %15, 0
   %17 = extractvalue { i32, i32, i32, i32 } %15, 2
   %18 = extractvalue { i32, i32, i32, i32 } %15, 3
@@ -2993,7 +2993,7 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   br i1 %53, label %54, label %.thread.i
 
 54:                                               ; preds = %_ZL20detectX86FamilyModeljPjS_.exit
-  %55 = tail call { i32, i32 } asm ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !64
+  %55 = tail call { i32, i32 } asm ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !67
   %56 = extractvalue { i32, i32 } %55, 0
   %57 = and i32 %56, 6
   %58 = icmp eq i32 %57, 6
@@ -3013,7 +3013,7 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   br i1 %65, label %.critedge.i, label %.critedge126.i
 
 .critedge.i:                                      ; preds = %.thread.i
-  %66 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 0) #21, !srcloc !65
+  %66 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 0) #21, !srcloc !68
   %67 = extractvalue { i32, i32, i32, i32 } %66, 0
   %68 = extractvalue { i32, i32, i32, i32 } %66, 1
   %69 = extractvalue { i32, i32, i32, i32 } %66, 2
@@ -3105,7 +3105,7 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   br i1 %.not269.i, label %.critedge126.i, label %123
 
 123:                                              ; preds = %.critedge.i
-  %124 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 1) #21, !srcloc !65
+  %124 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 1) #21, !srcloc !68
   %125 = extractvalue { i32, i32, i32, i32 } %124, 0
   %126 = and i32 %125, 32
   %127 = icmp ne i32 %126, 0
@@ -3118,13 +3118,13 @@ _ZL20detectX86FamilyModeljPjS_.exit:              ; preds = %_ZL18getX86CpuIDAnd
   %.sroa.032.13 = phi i32 [ %.sroa.032.30, %.critedge.i ], [ %.sroa.032.12, %.thread.i ], [ %.sroa.032.30, %123 ]
   %.sroa.67.2 = phi i32 [ %.sroa.67.9, %.critedge.i ], [ %.sroa.67.1, %.thread.i ], [ %spec.select153, %123 ]
   %.sroa.92.0 = phi i32 [ %95, %.critedge.i ], [ 0, %.thread.i ], [ %95, %123 ]
-  %129 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #21, !srcloc !62
+  %129 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #21, !srcloc !65
   %130 = extractvalue { i32, i32, i32, i32 } %129, 0
   %or.cond268.i = icmp ugt i32 %130, -2147483648
   br i1 %or.cond268.i, label %.critedge128.i, label %_ZL20getAvailableFeaturesjjjPj.exit
 
 .critedge128.i:                                   ; preds = %.critedge126.i
-  %131 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #21, !srcloc !63
+  %131 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #21, !srcloc !66
   %132 = extractvalue { i32, i32, i32, i32 } %131, 2
   %133 = extractvalue { i32, i32, i32, i32 } %131, 3
   %134 = shl i32 %132, 5
@@ -3616,177 +3616,177 @@ _ZN4llvm9StringRefC2EPKc.exit.thread163:          ; preds = %232, %144, %160, %1
 define dso_local void @_ZN4llvm3sys18getHostCPUFeaturesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::StringMap") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
-  store i32 16, ptr %2, align 4, !tbaa !66
-  %3 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !62
+  store i32 16, ptr %2, align 4, !tbaa !69
+  %3 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !65
   %4 = extractvalue { i32, i32, i32, i32 } %3, 0
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit.thread, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %1
-  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 1) #21, !srcloc !63
+  %6 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 1) #21, !srcloc !66
   %7 = extractvalue { i32, i32, i32, i32 } %6, 0
   %8 = extractvalue { i32, i32, i32, i32 } %6, 2
   %9 = extractvalue { i32, i32, i32, i32 } %6, 3
   %10 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.258, i64 3) #18
   %11 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.258, i64 3, i32 noundef %10)
   %.fca.0.extract.i = extractvalue { ptr, i8 } %11, 0
-  %12 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !69
+  %12 = load ptr, ptr %.fca.0.extract.i, align 8, !tbaa !72
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = lshr i32 %9, 8
   %15 = trunc i32 %14 to i8
   %16 = and i8 %15, 1
-  store i8 %16, ptr %13, align 1, !tbaa !71
+  store i8 %16, ptr %13, align 1, !tbaa !74
   %17 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.259, i64 4) #18
   %18 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.259, i64 4, i32 noundef %17)
   %.fca.0.extract.i276 = extractvalue { ptr, i8 } %18, 0
-  %19 = load ptr, ptr %.fca.0.extract.i276, align 8, !tbaa !69
+  %19 = load ptr, ptr %.fca.0.extract.i276, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = lshr i32 %9, 15
   %22 = trunc i32 %21 to i8
   %23 = and i8 %22, 1
-  store i8 %23, ptr %20, align 1, !tbaa !71
+  store i8 %23, ptr %20, align 1, !tbaa !74
   %24 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.260, i64 3) #18
   %25 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.260, i64 3, i32 noundef %24)
   %.fca.0.extract.i277 = extractvalue { ptr, i8 } %25, 0
-  %26 = load ptr, ptr %.fca.0.extract.i277, align 8, !tbaa !69
+  %26 = load ptr, ptr %.fca.0.extract.i277, align 8, !tbaa !72
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = lshr i32 %9, 23
   %29 = trunc i32 %28 to i8
   %30 = and i8 %29, 1
-  store i8 %30, ptr %27, align 1, !tbaa !71
+  store i8 %30, ptr %27, align 1, !tbaa !74
   %31 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.261, i64 4) #18
   %32 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.261, i64 4, i32 noundef %31)
   %.fca.0.extract.i278 = extractvalue { ptr, i8 } %32, 0
-  %33 = load ptr, ptr %.fca.0.extract.i278, align 8, !tbaa !69
+  %33 = load ptr, ptr %.fca.0.extract.i278, align 8, !tbaa !72
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = lshr i32 %9, 24
   %36 = trunc nuw i32 %35 to i8
   %37 = and i8 %36, 1
-  store i8 %37, ptr %34, align 1, !tbaa !71
+  store i8 %37, ptr %34, align 1, !tbaa !74
   %38 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.262, i64 3) #18
   %39 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.262, i64 3, i32 noundef %38)
   %.fca.0.extract.i279 = extractvalue { ptr, i8 } %39, 0
-  %40 = load ptr, ptr %.fca.0.extract.i279, align 8, !tbaa !69
+  %40 = load ptr, ptr %.fca.0.extract.i279, align 8, !tbaa !72
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = lshr i32 %9, 25
   %43 = trunc nuw nsw i32 %42 to i8
   %44 = and i8 %43, 1
-  store i8 %44, ptr %41, align 1, !tbaa !71
+  store i8 %44, ptr %41, align 1, !tbaa !74
   %45 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.263, i64 4) #18
   %46 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.263, i64 4, i32 noundef %45)
   %.fca.0.extract.i280 = extractvalue { ptr, i8 } %46, 0
-  %47 = load ptr, ptr %.fca.0.extract.i280, align 8, !tbaa !69
+  %47 = load ptr, ptr %.fca.0.extract.i280, align 8, !tbaa !72
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = lshr i32 %9, 26
   %50 = trunc nuw nsw i32 %49 to i8
   %51 = and i8 %50, 1
-  store i8 %51, ptr %48, align 1, !tbaa !71
+  store i8 %51, ptr %48, align 1, !tbaa !74
   %52 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.264, i64 4) #18
   %53 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.264, i64 4, i32 noundef %52)
   %.fca.0.extract.i281 = extractvalue { ptr, i8 } %53, 0
-  %54 = load ptr, ptr %.fca.0.extract.i281, align 8, !tbaa !69
+  %54 = load ptr, ptr %.fca.0.extract.i281, align 8, !tbaa !72
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = trunc i32 %8 to i8
   %57 = and i8 %56, 1
-  store i8 %57, ptr %55, align 1, !tbaa !71
+  store i8 %57, ptr %55, align 1, !tbaa !74
   %58 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.265, i64 6) #18
   %59 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.265, i64 6, i32 noundef %58)
   %.fca.0.extract.i282 = extractvalue { ptr, i8 } %59, 0
-  %60 = load ptr, ptr %.fca.0.extract.i282, align 8, !tbaa !69
+  %60 = load ptr, ptr %.fca.0.extract.i282, align 8, !tbaa !72
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = lshr i8 %56, 1
   %63 = and i8 %62, 1
-  store i8 %63, ptr %61, align 1, !tbaa !71
+  store i8 %63, ptr %61, align 1, !tbaa !74
   %64 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.266, i64 5) #18
   %65 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.266, i64 5, i32 noundef %64)
   %.fca.0.extract.i283 = extractvalue { ptr, i8 } %65, 0
-  %66 = load ptr, ptr %.fca.0.extract.i283, align 8, !tbaa !69
+  %66 = load ptr, ptr %.fca.0.extract.i283, align 8, !tbaa !72
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = lshr i32 %8, 9
   %69 = trunc i32 %68 to i8
   %70 = and i8 %69, 1
-  store i8 %70, ptr %67, align 1, !tbaa !71
+  store i8 %70, ptr %67, align 1, !tbaa !74
   %71 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.267, i64 4) #18
   %72 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.267, i64 4, i32 noundef %71)
   %.fca.0.extract.i284 = extractvalue { ptr, i8 } %72, 0
-  %73 = load ptr, ptr %.fca.0.extract.i284, align 8, !tbaa !69
+  %73 = load ptr, ptr %.fca.0.extract.i284, align 8, !tbaa !72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = lshr i32 %8, 13
   %76 = trunc i32 %75 to i8
   %77 = and i8 %76, 1
-  store i8 %77, ptr %74, align 1, !tbaa !71
+  store i8 %77, ptr %74, align 1, !tbaa !74
   %78 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.268, i64 6) #18
   %79 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.268, i64 6, i32 noundef %78)
   %.fca.0.extract.i285 = extractvalue { ptr, i8 } %79, 0
-  %80 = load ptr, ptr %.fca.0.extract.i285, align 8, !tbaa !69
+  %80 = load ptr, ptr %.fca.0.extract.i285, align 8, !tbaa !72
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = lshr i32 %8, 19
   %83 = trunc i32 %82 to i8
   %84 = and i8 %83, 1
-  store i8 %84, ptr %81, align 1, !tbaa !71
+  store i8 %84, ptr %81, align 1, !tbaa !74
   %85 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.269, i64 6) #18
   %86 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.269, i64 6, i32 noundef %85)
   %.fca.0.extract.i286 = extractvalue { ptr, i8 } %86, 0
-  %87 = load ptr, ptr %.fca.0.extract.i286, align 8, !tbaa !69
+  %87 = load ptr, ptr %.fca.0.extract.i286, align 8, !tbaa !72
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = lshr i32 %8, 20
   %90 = trunc i32 %89 to i8
   %91 = and i8 %90, 1
-  store i8 %91, ptr %88, align 1, !tbaa !71
+  store i8 %91, ptr %88, align 1, !tbaa !74
   %92 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.269, i64 6) #18
   %93 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.269, i64 6, i32 noundef %92)
   %.fca.0.extract.i287 = extractvalue { ptr, i8 } %93, 0
-  %94 = load ptr, ptr %.fca.0.extract.i287, align 8, !tbaa !69
+  %94 = load ptr, ptr %.fca.0.extract.i287, align 8, !tbaa !72
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load i8, ptr %95, align 1, !tbaa !71, !range !73, !noundef !74
+  %96 = load i8, ptr %95, align 1, !tbaa !74, !range !76, !noundef !77
   %97 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.270, i64 5) #18
   %98 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.270, i64 5, i32 noundef %97)
   %.fca.0.extract.i288 = extractvalue { ptr, i8 } %98, 0
-  %99 = load ptr, ptr %.fca.0.extract.i288, align 8, !tbaa !69
+  %99 = load ptr, ptr %.fca.0.extract.i288, align 8, !tbaa !72
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store i8 %96, ptr %100, align 1, !tbaa !71
+  store i8 %96, ptr %100, align 1, !tbaa !74
   %101 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.271, i64 5) #18
   %102 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.271, i64 5, i32 noundef %101)
   %.fca.0.extract.i289 = extractvalue { ptr, i8 } %102, 0
-  %103 = load ptr, ptr %.fca.0.extract.i289, align 8, !tbaa !69
+  %103 = load ptr, ptr %.fca.0.extract.i289, align 8, !tbaa !72
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = lshr i32 %8, 22
   %106 = trunc i32 %105 to i8
   %107 = and i8 %106, 1
-  store i8 %107, ptr %104, align 1, !tbaa !71
+  store i8 %107, ptr %104, align 1, !tbaa !74
   %108 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.272, i64 6) #18
   %109 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.272, i64 6, i32 noundef %108)
   %.fca.0.extract.i290 = extractvalue { ptr, i8 } %109, 0
-  %110 = load ptr, ptr %.fca.0.extract.i290, align 8, !tbaa !69
+  %110 = load ptr, ptr %.fca.0.extract.i290, align 8, !tbaa !72
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = lshr i32 %8, 23
   %113 = trunc i32 %112 to i8
   %114 = and i8 %113, 1
-  store i8 %114, ptr %111, align 1, !tbaa !71
+  store i8 %114, ptr %111, align 1, !tbaa !74
   %115 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.273, i64 3) #18
   %116 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.273, i64 3, i32 noundef %115)
   %.fca.0.extract.i291 = extractvalue { ptr, i8 } %116, 0
-  %117 = load ptr, ptr %.fca.0.extract.i291, align 8, !tbaa !69
+  %117 = load ptr, ptr %.fca.0.extract.i291, align 8, !tbaa !72
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = lshr i32 %8, 25
   %120 = trunc nuw nsw i32 %119 to i8
   %121 = and i8 %120, 1
-  store i8 %121, ptr %118, align 1, !tbaa !71
+  store i8 %121, ptr %118, align 1, !tbaa !74
   %122 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.274, i64 5) #18
   %123 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.274, i64 5, i32 noundef %122)
   %.fca.0.extract.i292 = extractvalue { ptr, i8 } %123, 0
-  %124 = load ptr, ptr %.fca.0.extract.i292, align 8, !tbaa !69
+  %124 = load ptr, ptr %.fca.0.extract.i292, align 8, !tbaa !72
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = lshr i32 %8, 30
   %127 = trunc nuw nsw i32 %126 to i8
   %128 = and i8 %127, 1
-  store i8 %128, ptr %125, align 1, !tbaa !71
+  store i8 %128, ptr %125, align 1, !tbaa !74
   %129 = and i32 %8, 134217728
   %.not = icmp ne i32 %129, 0
   br i1 %.not, label %130, label %.critedge
 
 130:                                              ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit
-  %131 = tail call { i32, i32 } asm ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !64
+  %131 = tail call { i32, i32 } asm ".byte 0x0f, 0x01, 0xd0", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #21, !srcloc !67
   %132 = extractvalue { i32, i32 } %131, 0
   %133 = extractvalue { i32, i32 } %131, 1
   %134 = and i32 %8, 268435456
@@ -3812,40 +3812,40 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit:            ; preds = %1
   %146 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.275, i64 3) #18
   %147 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.275, i64 3, i32 noundef %146)
   %.fca.0.extract.i293 = extractvalue { ptr, i8 } %147, 0
-  %148 = load ptr, ptr %.fca.0.extract.i293, align 8, !tbaa !69
+  %148 = load ptr, ptr %.fca.0.extract.i293, align 8, !tbaa !72
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  store i8 %139, ptr %149, align 1, !tbaa !71
+  store i8 %139, ptr %149, align 1, !tbaa !74
   %150 = and i32 %8, 4096
   %151 = icmp ne i32 %150, 0
   %152 = select i1 %151, i1 %138, i1 false
   %153 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.276, i64 3) #18
   %154 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.276, i64 3, i32 noundef %153)
   %.fca.0.extract.i294 = extractvalue { ptr, i8 } %154, 0
-  %155 = load ptr, ptr %.fca.0.extract.i294, align 8, !tbaa !69
+  %155 = load ptr, ptr %.fca.0.extract.i294, align 8, !tbaa !72
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = zext i1 %152 to i8
-  store i8 %157, ptr %156, align 1, !tbaa !71
+  store i8 %157, ptr %156, align 1, !tbaa !74
   %158 = and i32 %8, 67108864
   %159 = icmp ne i32 %158, 0
   %160 = select i1 %159, i1 %138, i1 false
   %161 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.277, i64 5) #18
   %162 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.277, i64 5, i32 noundef %161)
   %.fca.0.extract.i295 = extractvalue { ptr, i8 } %162, 0
-  %163 = load ptr, ptr %.fca.0.extract.i295, align 8, !tbaa !69
+  %163 = load ptr, ptr %.fca.0.extract.i295, align 8, !tbaa !72
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = zext i1 %160 to i8
-  store i8 %165, ptr %164, align 1, !tbaa !71
+  store i8 %165, ptr %164, align 1, !tbaa !74
   %166 = and i32 %8, 536870912
   %167 = icmp ne i32 %166, 0
   %168 = select i1 %167, i1 %138, i1 false
   %169 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.278, i64 4) #18
   %170 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.278, i64 4, i32 noundef %169)
   %.fca.0.extract.i296 = extractvalue { ptr, i8 } %170, 0
-  %171 = load ptr, ptr %.fca.0.extract.i296, align 8, !tbaa !69
+  %171 = load ptr, ptr %.fca.0.extract.i296, align 8, !tbaa !72
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = zext i1 %168 to i8
-  store i8 %173, ptr %172, align 1, !tbaa !71
-  %174 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #21, !srcloc !62
+  store i8 %173, ptr %172, align 1, !tbaa !74
+  %174 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483648) #21, !srcloc !65
   %175 = extractvalue { i32, i32, i32, i32 } %174, 0
   %176 = icmp sgt i32 %175, -1
   br i1 %176, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit297
@@ -3857,7 +3857,7 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit297:         ; preds = %.critedge
   br i1 %.not856, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit298
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit298:         ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit297
-  %179 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #21, !srcloc !63
+  %179 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483647) #21, !srcloc !66
   %180 = extractvalue { i32, i32, i32, i32 } %179, 0
   %181 = extractvalue { i32, i32, i32, i32 } %179, 2
   %182 = extractvalue { i32, i32, i32, i32 } %179, 3
@@ -3877,40 +3877,40 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread:  ; preds = %.critedge, %_ZL18ge
   %188 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.279, i64 4) #18
   %189 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.279, i64 4, i32 noundef %188)
   %.fca.0.extract.i299 = extractvalue { ptr, i8 } %189, 0
-  %190 = load ptr, ptr %.fca.0.extract.i299, align 8, !tbaa !69
+  %190 = load ptr, ptr %.fca.0.extract.i299, align 8, !tbaa !72
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = zext i1 %187 to i8
-  store i8 %192, ptr %191, align 1, !tbaa !71
+  store i8 %192, ptr %191, align 1, !tbaa !74
   %193 = and i32 %.0810, 32
   %194 = icmp ne i32 %193, 0
   %195 = select i1 %184, i1 %194, i1 false
   %196 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.280, i64 5) #18
   %197 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.280, i64 5, i32 noundef %196)
   %.fca.0.extract.i300 = extractvalue { ptr, i8 } %197, 0
-  %198 = load ptr, ptr %.fca.0.extract.i300, align 8, !tbaa !69
+  %198 = load ptr, ptr %.fca.0.extract.i300, align 8, !tbaa !72
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = zext i1 %195 to i8
-  store i8 %200, ptr %199, align 1, !tbaa !71
+  store i8 %200, ptr %199, align 1, !tbaa !74
   %201 = and i32 %.0810, 64
   %202 = icmp ne i32 %201, 0
   %203 = select i1 %184, i1 %202, i1 false
   %204 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.281, i64 5) #18
   %205 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.281, i64 5, i32 noundef %204)
   %.fca.0.extract.i301 = extractvalue { ptr, i8 } %205, 0
-  %206 = load ptr, ptr %.fca.0.extract.i301, align 8, !tbaa !69
+  %206 = load ptr, ptr %.fca.0.extract.i301, align 8, !tbaa !72
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = zext i1 %203 to i8
-  store i8 %208, ptr %207, align 1, !tbaa !71
+  store i8 %208, ptr %207, align 1, !tbaa !74
   %209 = and i32 %.0810, 256
   %210 = icmp ne i32 %209, 0
   %211 = select i1 %184, i1 %210, i1 false
   %212 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.282, i64 6) #18
   %213 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.282, i64 6, i32 noundef %212)
   %.fca.0.extract.i302 = extractvalue { ptr, i8 } %213, 0
-  %214 = load ptr, ptr %.fca.0.extract.i302, align 8, !tbaa !69
+  %214 = load ptr, ptr %.fca.0.extract.i302, align 8, !tbaa !72
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = zext i1 %211 to i8
-  store i8 %216, ptr %215, align 1, !tbaa !71
+  store i8 %216, ptr %215, align 1, !tbaa !74
   %217 = and i32 %.0810, 2048
   %.not162 = icmp eq i32 %217, 0
   %spec.select = select i1 %.not162, i8 0, i8 %139
@@ -3918,19 +3918,19 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread:  ; preds = %.critedge, %_ZL18ge
   %218 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.283, i64 3) #18
   %219 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.283, i64 3, i32 noundef %218)
   %.fca.0.extract.i303 = extractvalue { ptr, i8 } %219, 0
-  %220 = load ptr, ptr %.fca.0.extract.i303, align 8, !tbaa !69
+  %220 = load ptr, ptr %.fca.0.extract.i303, align 8, !tbaa !72
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  store i8 %spec.select875, ptr %221, align 1, !tbaa !71
+  store i8 %spec.select875, ptr %221, align 1, !tbaa !74
   %222 = and i32 %.0810, 32768
   %223 = icmp ne i32 %222, 0
   %224 = select i1 %184, i1 %223, i1 false
   %225 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.284, i64 3) #18
   %226 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.284, i64 3, i32 noundef %225)
   %.fca.0.extract.i304 = extractvalue { ptr, i8 } %226, 0
-  %227 = load ptr, ptr %.fca.0.extract.i304, align 8, !tbaa !69
+  %227 = load ptr, ptr %.fca.0.extract.i304, align 8, !tbaa !72
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = zext i1 %224 to i8
-  store i8 %229, ptr %228, align 1, !tbaa !71
+  store i8 %229, ptr %228, align 1, !tbaa !74
   %230 = and i32 %.0810, 65536
   %.not163 = icmp eq i32 %230, 0
   %spec.select199 = select i1 %.not163, i8 0, i8 %139
@@ -3938,45 +3938,45 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread:  ; preds = %.critedge, %_ZL18ge
   %232 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.285, i64 4) #18
   %233 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.285, i64 4, i32 noundef %232)
   %.fca.0.extract.i305 = extractvalue { ptr, i8 } %233, 0
-  %234 = load ptr, ptr %.fca.0.extract.i305, align 8, !tbaa !69
+  %234 = load ptr, ptr %.fca.0.extract.i305, align 8, !tbaa !72
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  store i8 %231, ptr %235, align 1, !tbaa !71
+  store i8 %231, ptr %235, align 1, !tbaa !74
   %236 = and i32 %.0810, 2097152
   %237 = icmp ne i32 %236, 0
   %238 = select i1 %184, i1 %237, i1 false
   %239 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.286, i64 3) #18
   %240 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.286, i64 3, i32 noundef %239)
   %.fca.0.extract.i306 = extractvalue { ptr, i8 } %240, 0
-  %241 = load ptr, ptr %.fca.0.extract.i306, align 8, !tbaa !69
+  %241 = load ptr, ptr %.fca.0.extract.i306, align 8, !tbaa !72
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = zext i1 %238 to i8
-  store i8 %243, ptr %242, align 1, !tbaa !71
+  store i8 %243, ptr %242, align 1, !tbaa !74
   %244 = and i32 %.0810, 536870912
   %245 = icmp ne i32 %244, 0
   %246 = select i1 %184, i1 %245, i1 false
   %247 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.287, i64 6) #18
   %248 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.287, i64 6, i32 noundef %247)
   %.fca.0.extract.i307 = extractvalue { ptr, i8 } %248, 0
-  %249 = load ptr, ptr %.fca.0.extract.i307, align 8, !tbaa !69
+  %249 = load ptr, ptr %.fca.0.extract.i307, align 8, !tbaa !72
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = zext i1 %246 to i8
-  store i8 %251, ptr %250, align 1, !tbaa !71
+  store i8 %251, ptr %250, align 1, !tbaa !74
   %252 = and i32 %.1820, 536870912
   %253 = icmp ne i32 %252, 0
   %254 = select i1 %184, i1 %253, i1 false
   %255 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.288, i64 5) #18
   %256 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.288, i64 5, i32 noundef %255)
   %.fca.0.extract.i308 = extractvalue { ptr, i8 } %256, 0
-  %257 = load ptr, ptr %.fca.0.extract.i308, align 8, !tbaa !69
+  %257 = load ptr, ptr %.fca.0.extract.i308, align 8, !tbaa !72
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 8
   %259 = zext i1 %254 to i8
-  store i8 %259, ptr %258, align 1, !tbaa !71
+  store i8 %259, ptr %258, align 1, !tbaa !74
   %260 = icmp ugt i32 %175, -2147483641
   %or.cond = and i1 %.0832842, %260
   br i1 %or.cond, label %261, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit309
 
 261:                                              ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit297.thread
-  %262 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483640) #21, !srcloc !63
+  %262 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) -2147483640) #21, !srcloc !66
   %263 = extractvalue { i32, i32, i32, i32 } %262, 0
   %264 = extractvalue { i32, i32, i32, i32 } %262, 2
   %265 = extractvalue { i32, i32, i32, i32 } %262, 3
@@ -3994,35 +3994,35 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit309:         ; preds = %261, %_ZL18getX86Cp
   %269 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.289, i64 6) #18
   %270 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.289, i64 6, i32 noundef %269)
   %.fca.0.extract.i310 = extractvalue { ptr, i8 } %270, 0
-  %271 = load ptr, ptr %.fca.0.extract.i310, align 8, !tbaa !69
+  %271 = load ptr, ptr %.fca.0.extract.i310, align 8, !tbaa !72
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = zext i1 %268 to i8
-  store i8 %273, ptr %272, align 1, !tbaa !71
+  store i8 %273, ptr %272, align 1, !tbaa !74
   %274 = and i32 %.1793, 16
   %275 = icmp ne i32 %274, 0
   %276 = select i1 %or.cond, i1 %275, i1 false
   %277 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.290, i64 5) #18
   %278 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.290, i64 5, i32 noundef %277)
   %.fca.0.extract.i311 = extractvalue { ptr, i8 } %278, 0
-  %279 = load ptr, ptr %.fca.0.extract.i311, align 8, !tbaa !69
+  %279 = load ptr, ptr %.fca.0.extract.i311, align 8, !tbaa !72
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = zext i1 %276 to i8
-  store i8 %281, ptr %280, align 1, !tbaa !71
+  store i8 %281, ptr %280, align 1, !tbaa !74
   %282 = and i32 %.1793, 512
   %283 = icmp ne i32 %282, 0
   %284 = select i1 %or.cond, i1 %283, i1 false
   %285 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.291, i64 8) #18
   %286 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.291, i64 8, i32 noundef %285)
   %.fca.0.extract.i312 = extractvalue { ptr, i8 } %286, 0
-  %287 = load ptr, ptr %.fca.0.extract.i312, align 8, !tbaa !69
+  %287 = load ptr, ptr %.fca.0.extract.i312, align 8, !tbaa !72
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %289 = zext i1 %284 to i8
-  store i8 %289, ptr %288, align 1, !tbaa !71
+  store i8 %289, ptr %288, align 1, !tbaa !74
   %290 = icmp ugt i32 %4, 6
   br i1 %290, label %_ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit, label %296
 
 _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit309
-  %291 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 0) #21, !srcloc !65
+  %291 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 0) #21, !srcloc !68
   %292 = extractvalue { i32, i32, i32, i32 } %291, 0
   %293 = extractvalue { i32, i32, i32, i32 } %291, 1
   %294 = extractvalue { i32, i32, i32, i32 } %291, 2
@@ -4041,30 +4041,30 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %299 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.292, i64 8) #18
   %300 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.292, i64 8, i32 noundef %299)
   %.fca.0.extract.i313 = extractvalue { ptr, i8 } %300, 0
-  %301 = load ptr, ptr %.fca.0.extract.i313, align 8, !tbaa !69
+  %301 = load ptr, ptr %.fca.0.extract.i313, align 8, !tbaa !72
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = zext i1 %298 to i8
-  store i8 %303, ptr %302, align 1, !tbaa !71
+  store i8 %303, ptr %302, align 1, !tbaa !74
   %304 = and i32 %.2794, 4
   %305 = icmp ne i32 %304, 0
   %306 = select i1 %290, i1 %305, i1 false
   %307 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.293, i64 3) #18
   %308 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.293, i64 3, i32 noundef %307)
   %.fca.0.extract.i314 = extractvalue { ptr, i8 } %308, 0
-  %309 = load ptr, ptr %.fca.0.extract.i314, align 8, !tbaa !69
+  %309 = load ptr, ptr %.fca.0.extract.i314, align 8, !tbaa !72
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 8
   %311 = zext i1 %306 to i8
-  store i8 %311, ptr %310, align 1, !tbaa !71
+  store i8 %311, ptr %310, align 1, !tbaa !74
   %312 = and i32 %.2794, 8
   %313 = icmp ne i32 %312, 0
   %314 = select i1 %290, i1 %313, i1 false
   %315 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.294, i64 3) #18
   %316 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.294, i64 3, i32 noundef %315)
   %.fca.0.extract.i315 = extractvalue { ptr, i8 } %316, 0
-  %317 = load ptr, ptr %.fca.0.extract.i315, align 8, !tbaa !69
+  %317 = load ptr, ptr %.fca.0.extract.i315, align 8, !tbaa !72
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %319 = zext i1 %314 to i8
-  store i8 %319, ptr %318, align 1, !tbaa !71
+  store i8 %319, ptr %318, align 1, !tbaa !74
   %320 = and i32 %.2794, 32
   %.not164 = icmp eq i32 %320, 0
   %spec.select200 = select i1 %.not164, i8 0, i8 %139
@@ -4072,39 +4072,39 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %322 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.295, i64 4) #18
   %323 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.295, i64 4, i32 noundef %322)
   %.fca.0.extract.i316 = extractvalue { ptr, i8 } %323, 0
-  %324 = load ptr, ptr %.fca.0.extract.i316, align 8, !tbaa !69
+  %324 = load ptr, ptr %.fca.0.extract.i316, align 8, !tbaa !72
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
-  store i8 %321, ptr %325, align 1, !tbaa !71
+  store i8 %321, ptr %325, align 1, !tbaa !74
   %326 = and i32 %.2794, 256
   %327 = icmp ne i32 %326, 0
   %328 = select i1 %290, i1 %327, i1 false
   %329 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.296, i64 4) #18
   %330 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.296, i64 4, i32 noundef %329)
   %.fca.0.extract.i317 = extractvalue { ptr, i8 } %330, 0
-  %331 = load ptr, ptr %.fca.0.extract.i317, align 8, !tbaa !69
+  %331 = load ptr, ptr %.fca.0.extract.i317, align 8, !tbaa !72
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %333 = zext i1 %328 to i8
-  store i8 %333, ptr %332, align 1, !tbaa !71
+  store i8 %333, ptr %332, align 1, !tbaa !74
   %334 = and i32 %.2794, 1024
   %335 = icmp ne i32 %334, 0
   %336 = select i1 %290, i1 %335, i1 false
   %337 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.297, i64 7) #18
   %338 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.297, i64 7, i32 noundef %337)
   %.fca.0.extract.i318 = extractvalue { ptr, i8 } %338, 0
-  %339 = load ptr, ptr %.fca.0.extract.i318, align 8, !tbaa !69
+  %339 = load ptr, ptr %.fca.0.extract.i318, align 8, !tbaa !72
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 8
   %341 = zext i1 %336 to i8
-  store i8 %341, ptr %340, align 1, !tbaa !71
+  store i8 %341, ptr %340, align 1, !tbaa !74
   %342 = and i32 %.2794, 2048
   %343 = icmp ne i32 %342, 0
   %344 = select i1 %290, i1 %343, i1 false
   %345 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.298, i64 3) #18
   %346 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.298, i64 3, i32 noundef %345)
   %.fca.0.extract.i319 = extractvalue { ptr, i8 } %346, 0
-  %347 = load ptr, ptr %.fca.0.extract.i319, align 8, !tbaa !69
+  %347 = load ptr, ptr %.fca.0.extract.i319, align 8, !tbaa !72
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %349 = zext i1 %344 to i8
-  store i8 %349, ptr %348, align 1, !tbaa !71
+  store i8 %349, ptr %348, align 1, !tbaa !74
   %350 = and i32 %.2794, 65536
   %.not165 = icmp ne i32 %350, 0
   %351 = select i1 %290, i1 %.not165, i1 false
@@ -4113,15 +4113,15 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %353 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.299, i64 7) #18
   %354 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.299, i64 7, i32 noundef %353)
   %.fca.0.extract.i320 = extractvalue { ptr, i8 } %354, 0
-  %355 = load ptr, ptr %.fca.0.extract.i320, align 8, !tbaa !69
+  %355 = load ptr, ptr %.fca.0.extract.i320, align 8, !tbaa !72
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 8
-  store i8 %352, ptr %356, align 1, !tbaa !71
+  store i8 %352, ptr %356, align 1, !tbaa !74
   %357 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.299, i64 7) #18
   %358 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.299, i64 7, i32 noundef %357)
   %.fca.0.extract.i321 = extractvalue { ptr, i8 } %358, 0
-  %359 = load ptr, ptr %.fca.0.extract.i321, align 8, !tbaa !69
+  %359 = load ptr, ptr %.fca.0.extract.i321, align 8, !tbaa !72
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 8
-  %361 = load i8, ptr %360, align 1, !tbaa !71, !range !73, !noundef !74
+  %361 = load i8, ptr %360, align 1, !tbaa !74, !range !76, !noundef !77
   %362 = trunc nuw i8 %361 to i1
   br i1 %362, label %363, label %368
 
@@ -4129,9 +4129,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %364 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.300, i64 7) #18
   %365 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.300, i64 7, i32 noundef %364)
   %.fca.0.extract.i322 = extractvalue { ptr, i8 } %365, 0
-  %366 = load ptr, ptr %.fca.0.extract.i322, align 8, !tbaa !69
+  %366 = load ptr, ptr %.fca.0.extract.i322, align 8, !tbaa !72
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  store i8 1, ptr %367, align 1, !tbaa !71
+  store i8 1, ptr %367, align 1, !tbaa !74
   br label %368
 
 368:                                              ; preds = %363, %296
@@ -4143,29 +4143,29 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %372 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.301, i64 8) #18
   %373 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.301, i64 8, i32 noundef %372)
   %.fca.0.extract.i323 = extractvalue { ptr, i8 } %373, 0
-  %374 = load ptr, ptr %.fca.0.extract.i323, align 8, !tbaa !69
+  %374 = load ptr, ptr %.fca.0.extract.i323, align 8, !tbaa !72
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
-  store i8 %371, ptr %375, align 1, !tbaa !71
+  store i8 %371, ptr %375, align 1, !tbaa !74
   %376 = and i32 %.2794, 262144
   %377 = icmp ne i32 %376, 0
   %378 = select i1 %290, i1 %377, i1 false
   %379 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.302, i64 6) #18
   %380 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.302, i64 6, i32 noundef %379)
   %.fca.0.extract.i324 = extractvalue { ptr, i8 } %380, 0
-  %381 = load ptr, ptr %.fca.0.extract.i324, align 8, !tbaa !69
+  %381 = load ptr, ptr %.fca.0.extract.i324, align 8, !tbaa !72
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %383 = zext i1 %378 to i8
-  store i8 %383, ptr %382, align 1, !tbaa !71
+  store i8 %383, ptr %382, align 1, !tbaa !74
   %384 = and i32 %.2794, 524288
   %385 = icmp ne i32 %384, 0
   %386 = select i1 %290, i1 %385, i1 false
   %387 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.303, i64 3) #18
   %388 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.303, i64 3, i32 noundef %387)
   %.fca.0.extract.i325 = extractvalue { ptr, i8 } %388, 0
-  %389 = load ptr, ptr %.fca.0.extract.i325, align 8, !tbaa !69
+  %389 = load ptr, ptr %.fca.0.extract.i325, align 8, !tbaa !72
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %391 = zext i1 %386 to i8
-  store i8 %391, ptr %390, align 1, !tbaa !71
+  store i8 %391, ptr %390, align 1, !tbaa !74
   %392 = and i32 %.2794, 2097152
   %.not167 = icmp ne i32 %392, 0
   %393 = select i1 %290, i1 %.not167, i1 false
@@ -4174,29 +4174,29 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %395 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.304, i64 10) #18
   %396 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.304, i64 10, i32 noundef %395)
   %.fca.0.extract.i326 = extractvalue { ptr, i8 } %396, 0
-  %397 = load ptr, ptr %.fca.0.extract.i326, align 8, !tbaa !69
+  %397 = load ptr, ptr %.fca.0.extract.i326, align 8, !tbaa !72
   %398 = getelementptr inbounds nuw i8, ptr %397, i64 8
-  store i8 %394, ptr %398, align 1, !tbaa !71
+  store i8 %394, ptr %398, align 1, !tbaa !74
   %399 = and i32 %.2794, 8388608
   %400 = icmp ne i32 %399, 0
   %401 = select i1 %290, i1 %400, i1 false
   %402 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.305, i64 10) #18
   %403 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.305, i64 10, i32 noundef %402)
   %.fca.0.extract.i327 = extractvalue { ptr, i8 } %403, 0
-  %404 = load ptr, ptr %.fca.0.extract.i327, align 8, !tbaa !69
+  %404 = load ptr, ptr %.fca.0.extract.i327, align 8, !tbaa !72
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 8
   %406 = zext i1 %401 to i8
-  store i8 %406, ptr %405, align 1, !tbaa !71
+  store i8 %406, ptr %405, align 1, !tbaa !74
   %407 = and i32 %.2794, 16777216
   %408 = icmp ne i32 %407, 0
   %409 = select i1 %290, i1 %408, i1 false
   %410 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.306, i64 4) #18
   %411 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.306, i64 4, i32 noundef %410)
   %.fca.0.extract.i328 = extractvalue { ptr, i8 } %411, 0
-  %412 = load ptr, ptr %.fca.0.extract.i328, align 8, !tbaa !69
+  %412 = load ptr, ptr %.fca.0.extract.i328, align 8, !tbaa !72
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 8
   %414 = zext i1 %409 to i8
-  store i8 %414, ptr %413, align 1, !tbaa !71
+  store i8 %414, ptr %413, align 1, !tbaa !74
   %415 = and i32 %.2794, 268435456
   %.not168 = icmp ne i32 %415, 0
   %416 = select i1 %290, i1 %.not168, i1 false
@@ -4205,19 +4205,19 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %418 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.307, i64 8) #18
   %419 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.307, i64 8, i32 noundef %418)
   %.fca.0.extract.i329 = extractvalue { ptr, i8 } %419, 0
-  %420 = load ptr, ptr %.fca.0.extract.i329, align 8, !tbaa !69
+  %420 = load ptr, ptr %.fca.0.extract.i329, align 8, !tbaa !72
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 8
-  store i8 %417, ptr %421, align 1, !tbaa !71
+  store i8 %417, ptr %421, align 1, !tbaa !74
   %422 = and i32 %.2794, 536870912
   %423 = icmp ne i32 %422, 0
   %424 = select i1 %290, i1 %423, i1 false
   %425 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.308, i64 3) #18
   %426 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.308, i64 3, i32 noundef %425)
   %.fca.0.extract.i330 = extractvalue { ptr, i8 } %426, 0
-  %427 = load ptr, ptr %.fca.0.extract.i330, align 8, !tbaa !69
+  %427 = load ptr, ptr %.fca.0.extract.i330, align 8, !tbaa !72
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 8
   %429 = zext i1 %424 to i8
-  store i8 %429, ptr %428, align 1, !tbaa !71
+  store i8 %429, ptr %428, align 1, !tbaa !74
   br i1 %290, label %430, label %.critedge207
 
 430:                                              ; preds = %368
@@ -4228,9 +4228,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %433 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.309, i64 8) #18
   %434 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.309, i64 8, i32 noundef %433)
   %.fca.0.extract.i331 = extractvalue { ptr, i8 } %434, 0
-  %435 = load ptr, ptr %.fca.0.extract.i331, align 8, !tbaa !69
+  %435 = load ptr, ptr %.fca.0.extract.i331, align 8, !tbaa !72
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  store i8 %spec.select205, ptr %436, align 1, !tbaa !71
+  store i8 %spec.select205, ptr %436, align 1, !tbaa !74
   %.not170 = icmp sgt i32 %.2794, -1
   %spec.select274 = select i1 %.not170, i8 0, i8 %432
   br label %441
@@ -4239,9 +4239,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %437 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.309, i64 8) #18
   %438 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.309, i64 8, i32 noundef %437)
   %.fca.0.extract.i332 = extractvalue { ptr, i8 } %438, 0
-  %439 = load ptr, ptr %.fca.0.extract.i332, align 8, !tbaa !69
+  %439 = load ptr, ptr %.fca.0.extract.i332, align 8, !tbaa !72
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
-  store i8 0, ptr %440, align 1, !tbaa !71
+  store i8 0, ptr %440, align 1, !tbaa !74
   br label %441
 
 441:                                              ; preds = %430, %.critedge207
@@ -4249,9 +4249,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %443 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.310, i64 8) #18
   %444 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.310, i64 8, i32 noundef %443)
   %.fca.0.extract.i333 = extractvalue { ptr, i8 } %444, 0
-  %445 = load ptr, ptr %.fca.0.extract.i333, align 8, !tbaa !69
+  %445 = load ptr, ptr %.fca.0.extract.i333, align 8, !tbaa !72
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
-  store i8 %442, ptr %446, align 1, !tbaa !71
+  store i8 %442, ptr %446, align 1, !tbaa !74
   %447 = and i32 %.2812, 2
   %.not171 = icmp ne i32 %447, 0
   %448 = select i1 %290, i1 %.not171, i1 false
@@ -4260,29 +4260,29 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %450 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.311, i64 10) #18
   %451 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.311, i64 10, i32 noundef %450)
   %.fca.0.extract.i334 = extractvalue { ptr, i8 } %451, 0
-  %452 = load ptr, ptr %.fca.0.extract.i334, align 8, !tbaa !69
+  %452 = load ptr, ptr %.fca.0.extract.i334, align 8, !tbaa !72
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
-  store i8 %449, ptr %453, align 1, !tbaa !71
+  store i8 %449, ptr %453, align 1, !tbaa !74
   %454 = and i32 %.2812, 16
   %455 = icmp ne i32 %454, 0
   %456 = select i1 %290, i1 %455, i1 false
   %457 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.312, i64 3) #18
   %458 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.312, i64 3, i32 noundef %457)
   %.fca.0.extract.i335 = extractvalue { ptr, i8 } %458, 0
-  %459 = load ptr, ptr %.fca.0.extract.i335, align 8, !tbaa !69
+  %459 = load ptr, ptr %.fca.0.extract.i335, align 8, !tbaa !72
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
   %461 = zext i1 %456 to i8
-  store i8 %461, ptr %460, align 1, !tbaa !71
+  store i8 %461, ptr %460, align 1, !tbaa !74
   %462 = and i32 %.2812, 32
   %463 = icmp ne i32 %462, 0
   %464 = select i1 %290, i1 %463, i1 false
   %465 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.313, i64 7) #18
   %466 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.313, i64 7, i32 noundef %465)
   %.fca.0.extract.i336 = extractvalue { ptr, i8 } %466, 0
-  %467 = load ptr, ptr %.fca.0.extract.i336, align 8, !tbaa !69
+  %467 = load ptr, ptr %.fca.0.extract.i336, align 8, !tbaa !72
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 8
   %469 = zext i1 %464 to i8
-  store i8 %469, ptr %468, align 1, !tbaa !71
+  store i8 %469, ptr %468, align 1, !tbaa !74
   %470 = and i32 %.2812, 64
   %.not172 = icmp ne i32 %470, 0
   %471 = select i1 %290, i1 %.not172, i1 false
@@ -4291,29 +4291,29 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %473 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.314, i64 11) #18
   %474 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.314, i64 11, i32 noundef %473)
   %.fca.0.extract.i337 = extractvalue { ptr, i8 } %474, 0
-  %475 = load ptr, ptr %.fca.0.extract.i337, align 8, !tbaa !69
+  %475 = load ptr, ptr %.fca.0.extract.i337, align 8, !tbaa !72
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 8
-  store i8 %472, ptr %476, align 1, !tbaa !71
+  store i8 %472, ptr %476, align 1, !tbaa !74
   %477 = and i32 %.2812, 128
   %478 = icmp ne i32 %477, 0
   %479 = select i1 %290, i1 %478, i1 false
   %480 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.315, i64 5) #18
   %481 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.315, i64 5, i32 noundef %480)
   %.fca.0.extract.i338 = extractvalue { ptr, i8 } %481, 0
-  %482 = load ptr, ptr %.fca.0.extract.i338, align 8, !tbaa !69
+  %482 = load ptr, ptr %.fca.0.extract.i338, align 8, !tbaa !72
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 8
   %484 = zext i1 %479 to i8
-  store i8 %484, ptr %483, align 1, !tbaa !71
+  store i8 %484, ptr %483, align 1, !tbaa !74
   %485 = and i32 %.2812, 256
   %486 = icmp ne i32 %485, 0
   %487 = select i1 %290, i1 %486, i1 false
   %488 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.316, i64 4) #18
   %489 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.316, i64 4, i32 noundef %488)
   %.fca.0.extract.i339 = extractvalue { ptr, i8 } %489, 0
-  %490 = load ptr, ptr %.fca.0.extract.i339, align 8, !tbaa !69
+  %490 = load ptr, ptr %.fca.0.extract.i339, align 8, !tbaa !72
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   %492 = zext i1 %487 to i8
-  store i8 %492, ptr %491, align 1, !tbaa !71
+  store i8 %492, ptr %491, align 1, !tbaa !74
   br i1 %290, label %493, label %.critedge214
 
 493:                                              ; preds = %441
@@ -4323,9 +4323,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %495 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.317, i64 4) #18
   %496 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.317, i64 4, i32 noundef %495)
   %.fca.0.extract.i340 = extractvalue { ptr, i8 } %496, 0
-  %497 = load ptr, ptr %.fca.0.extract.i340, align 8, !tbaa !69
+  %497 = load ptr, ptr %.fca.0.extract.i340, align 8, !tbaa !72
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
-  store i8 %spec.select212, ptr %498, align 1, !tbaa !71
+  store i8 %spec.select212, ptr %498, align 1, !tbaa !74
   %499 = and i32 %.2812, 1024
   %.not174 = icmp eq i32 %499, 0
   %spec.select215 = select i1 %.not174, i8 0, i8 %139
@@ -4335,9 +4335,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %500 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.317, i64 4) #18
   %501 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.317, i64 4, i32 noundef %500)
   %.fca.0.extract.i341 = extractvalue { ptr, i8 } %501, 0
-  %502 = load ptr, ptr %.fca.0.extract.i341, align 8, !tbaa !69
+  %502 = load ptr, ptr %.fca.0.extract.i341, align 8, !tbaa !72
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 8
-  store i8 0, ptr %503, align 1, !tbaa !71
+  store i8 0, ptr %503, align 1, !tbaa !74
   br label %504
 
 504:                                              ; preds = %493, %.critedge214
@@ -4345,9 +4345,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %506 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.318, i64 10) #18
   %507 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.318, i64 10, i32 noundef %506)
   %.fca.0.extract.i342 = extractvalue { ptr, i8 } %507, 0
-  %508 = load ptr, ptr %.fca.0.extract.i342, align 8, !tbaa !69
+  %508 = load ptr, ptr %.fca.0.extract.i342, align 8, !tbaa !72
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
-  store i8 %505, ptr %509, align 1, !tbaa !71
+  store i8 %505, ptr %509, align 1, !tbaa !74
   br i1 %290, label %510, label %.critedge220
 
 510:                                              ; preds = %504
@@ -4358,9 +4358,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %513 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.319, i64 10) #18
   %514 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.319, i64 10, i32 noundef %513)
   %.fca.0.extract.i343 = extractvalue { ptr, i8 } %514, 0
-  %515 = load ptr, ptr %.fca.0.extract.i343, align 8, !tbaa !69
+  %515 = load ptr, ptr %.fca.0.extract.i343, align 8, !tbaa !72
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 8
-  store i8 %spec.select218, ptr %516, align 1, !tbaa !71
+  store i8 %spec.select218, ptr %516, align 1, !tbaa !74
   %517 = and i32 %.2812, 4096
   %.not176 = icmp eq i32 %517, 0
   %spec.select221 = select i1 %.not176, i8 0, i8 %512
@@ -4370,9 +4370,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %518 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.319, i64 10) #18
   %519 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.319, i64 10, i32 noundef %518)
   %.fca.0.extract.i344 = extractvalue { ptr, i8 } %519, 0
-  %520 = load ptr, ptr %.fca.0.extract.i344, align 8, !tbaa !69
+  %520 = load ptr, ptr %.fca.0.extract.i344, align 8, !tbaa !72
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
-  store i8 0, ptr %521, align 1, !tbaa !71
+  store i8 0, ptr %521, align 1, !tbaa !74
   br label %522
 
 522:                                              ; preds = %510, %.critedge220
@@ -4380,9 +4380,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %524 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.320, i64 12) #18
   %525 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.320, i64 12, i32 noundef %524)
   %.fca.0.extract.i345 = extractvalue { ptr, i8 } %525, 0
-  %526 = load ptr, ptr %.fca.0.extract.i345, align 8, !tbaa !69
+  %526 = load ptr, ptr %.fca.0.extract.i345, align 8, !tbaa !72
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
-  store i8 %523, ptr %527, align 1, !tbaa !71
+  store i8 %523, ptr %527, align 1, !tbaa !74
   %528 = and i32 %.2812, 16384
   %.not177 = icmp ne i32 %528, 0
   %529 = select i1 %290, i1 %.not177, i1 false
@@ -4391,79 +4391,79 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %531 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.321, i64 15) #18
   %532 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.321, i64 15, i32 noundef %531)
   %.fca.0.extract.i346 = extractvalue { ptr, i8 } %532, 0
-  %533 = load ptr, ptr %.fca.0.extract.i346, align 8, !tbaa !69
+  %533 = load ptr, ptr %.fca.0.extract.i346, align 8, !tbaa !72
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
-  store i8 %530, ptr %534, align 1, !tbaa !71
+  store i8 %530, ptr %534, align 1, !tbaa !74
   %535 = and i32 %.2812, 4194304
   %536 = icmp ne i32 %535, 0
   %537 = select i1 %290, i1 %536, i1 false
   %538 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.322, i64 5) #18
   %539 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.322, i64 5, i32 noundef %538)
   %.fca.0.extract.i347 = extractvalue { ptr, i8 } %539, 0
-  %540 = load ptr, ptr %.fca.0.extract.i347, align 8, !tbaa !69
+  %540 = load ptr, ptr %.fca.0.extract.i347, align 8, !tbaa !72
   %541 = getelementptr inbounds nuw i8, ptr %540, i64 8
   %542 = zext i1 %537 to i8
-  store i8 %542, ptr %541, align 1, !tbaa !71
+  store i8 %542, ptr %541, align 1, !tbaa !74
   %543 = and i32 %.2812, 8388608
   %544 = icmp ne i32 %543, 0
   %545 = select i1 %290, i1 %544, i1 false
   %546 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.323, i64 2) #18
   %547 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.323, i64 2, i32 noundef %546)
   %.fca.0.extract.i348 = extractvalue { ptr, i8 } %547, 0
-  %548 = load ptr, ptr %.fca.0.extract.i348, align 8, !tbaa !69
+  %548 = load ptr, ptr %.fca.0.extract.i348, align 8, !tbaa !72
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 8
   %550 = zext i1 %545 to i8
-  store i8 %550, ptr %549, align 1, !tbaa !71
+  store i8 %550, ptr %549, align 1, !tbaa !74
   %551 = and i32 %.2812, 33554432
   %552 = icmp ne i32 %551, 0
   %553 = select i1 %290, i1 %552, i1 false
   %554 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.324, i64 8) #18
   %555 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.324, i64 8, i32 noundef %554)
   %.fca.0.extract.i349 = extractvalue { ptr, i8 } %555, 0
-  %556 = load ptr, ptr %.fca.0.extract.i349, align 8, !tbaa !69
+  %556 = load ptr, ptr %.fca.0.extract.i349, align 8, !tbaa !72
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
   %558 = zext i1 %553 to i8
-  store i8 %558, ptr %557, align 1, !tbaa !71
+  store i8 %558, ptr %557, align 1, !tbaa !74
   %559 = and i32 %.2812, 134217728
   %560 = icmp ne i32 %559, 0
   %561 = select i1 %290, i1 %560, i1 false
   %562 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.325, i64 7) #18
   %563 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.325, i64 7, i32 noundef %562)
   %.fca.0.extract.i350 = extractvalue { ptr, i8 } %563, 0
-  %564 = load ptr, ptr %.fca.0.extract.i350, align 8, !tbaa !69
+  %564 = load ptr, ptr %.fca.0.extract.i350, align 8, !tbaa !72
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 8
   %566 = zext i1 %561 to i8
-  store i8 %566, ptr %565, align 1, !tbaa !71
+  store i8 %566, ptr %565, align 1, !tbaa !74
   %567 = and i32 %.2812, 268435456
   %568 = icmp ne i32 %567, 0
   %569 = select i1 %290, i1 %568, i1 false
   %570 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.326, i64 9) #18
   %571 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.326, i64 9, i32 noundef %570)
   %.fca.0.extract.i351 = extractvalue { ptr, i8 } %571, 0
-  %572 = load ptr, ptr %.fca.0.extract.i351, align 8, !tbaa !69
+  %572 = load ptr, ptr %.fca.0.extract.i351, align 8, !tbaa !72
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 8
   %574 = zext i1 %569 to i8
-  store i8 %574, ptr %573, align 1, !tbaa !71
+  store i8 %574, ptr %573, align 1, !tbaa !74
   %575 = and i32 %.2812, 536870912
   %576 = icmp ne i32 %575, 0
   %577 = select i1 %290, i1 %576, i1 false
   %578 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.327, i64 6) #18
   %579 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.327, i64 6, i32 noundef %578)
   %.fca.0.extract.i352 = extractvalue { ptr, i8 } %579, 0
-  %580 = load ptr, ptr %.fca.0.extract.i352, align 8, !tbaa !69
+  %580 = load ptr, ptr %.fca.0.extract.i352, align 8, !tbaa !72
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %582 = zext i1 %577 to i8
-  store i8 %582, ptr %581, align 1, !tbaa !71
+  store i8 %582, ptr %581, align 1, !tbaa !74
   %583 = and i32 %.3822, 32
   %584 = icmp ne i32 %583, 0
   %585 = select i1 %290, i1 %584, i1 false
   %586 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.328, i64 5) #18
   %587 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.328, i64 5, i32 noundef %586)
   %.fca.0.extract.i353 = extractvalue { ptr, i8 } %587, 0
-  %588 = load ptr, ptr %.fca.0.extract.i353, align 8, !tbaa !69
+  %588 = load ptr, ptr %.fca.0.extract.i353, align 8, !tbaa !72
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 8
   %590 = zext i1 %585 to i8
-  store i8 %590, ptr %589, align 1, !tbaa !71
+  store i8 %590, ptr %589, align 1, !tbaa !74
   %591 = and i32 %.3822, 256
   %.not178 = icmp ne i32 %591, 0
   %592 = select i1 %290, i1 %.not178, i1 false
@@ -4472,39 +4472,39 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %594 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.329, i64 18) #18
   %595 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.329, i64 18, i32 noundef %594)
   %.fca.0.extract.i354 = extractvalue { ptr, i8 } %595, 0
-  %596 = load ptr, ptr %.fca.0.extract.i354, align 8, !tbaa !69
+  %596 = load ptr, ptr %.fca.0.extract.i354, align 8, !tbaa !72
   %597 = getelementptr inbounds nuw i8, ptr %596, i64 8
-  store i8 %593, ptr %597, align 1, !tbaa !71
+  store i8 %593, ptr %597, align 1, !tbaa !74
   %598 = and i32 %.3822, 16384
   %599 = icmp ne i32 %598, 0
   %600 = select i1 %290, i1 %599, i1 false
   %601 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.330, i64 9) #18
   %602 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.330, i64 9, i32 noundef %601)
   %.fca.0.extract.i355 = extractvalue { ptr, i8 } %602, 0
-  %603 = load ptr, ptr %.fca.0.extract.i355, align 8, !tbaa !69
+  %603 = load ptr, ptr %.fca.0.extract.i355, align 8, !tbaa !72
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 8
   %605 = zext i1 %600 to i8
-  store i8 %605, ptr %604, align 1, !tbaa !71
+  store i8 %605, ptr %604, align 1, !tbaa !74
   %606 = and i32 %.3822, 65536
   %607 = icmp ne i32 %606, 0
   %608 = select i1 %290, i1 %607, i1 false
   %609 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.331, i64 8) #18
   %610 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.331, i64 8, i32 noundef %609)
   %.fca.0.extract.i356 = extractvalue { ptr, i8 } %610, 0
-  %611 = load ptr, ptr %.fca.0.extract.i356, align 8, !tbaa !69
+  %611 = load ptr, ptr %.fca.0.extract.i356, align 8, !tbaa !72
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 8
   %613 = zext i1 %608 to i8
-  store i8 %613, ptr %612, align 1, !tbaa !71
+  store i8 %613, ptr %612, align 1, !tbaa !74
   %614 = and i32 %.3822, 262144
   %615 = icmp ne i32 %614, 0
   %616 = select i1 %290, i1 %615, i1 false
   %617 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.332, i64 7) #18
   %618 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.332, i64 7, i32 noundef %617)
   %.fca.0.extract.i357 = extractvalue { ptr, i8 } %618, 0
-  %619 = load ptr, ptr %.fca.0.extract.i357, align 8, !tbaa !69
+  %619 = load ptr, ptr %.fca.0.extract.i357, align 8, !tbaa !72
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 8
   %621 = zext i1 %616 to i8
-  store i8 %621, ptr %620, align 1, !tbaa !71
+  store i8 %621, ptr %620, align 1, !tbaa !74
   br i1 %290, label %622, label %.critedge228
 
 622:                                              ; preds = %522
@@ -4515,9 +4515,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %624 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.333, i64 8) #18
   %625 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.333, i64 8, i32 noundef %624)
   %.fca.0.extract.i358 = extractvalue { ptr, i8 } %625, 0
-  %626 = load ptr, ptr %.fca.0.extract.i358, align 8, !tbaa !69
+  %626 = load ptr, ptr %.fca.0.extract.i358, align 8, !tbaa !72
   %627 = getelementptr inbounds nuw i8, ptr %626, i64 8
-  store i8 %spec.select226, ptr %627, align 1, !tbaa !71
+  store i8 %spec.select226, ptr %627, align 1, !tbaa !74
   %628 = and i32 %.3822, 8388608
   %.not180 = icmp ne i32 %628, 0
   %narrow865 = select i1 %.not180, i1 %142, i1 false
@@ -4528,9 +4528,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %629 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.333, i64 8) #18
   %630 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.333, i64 8, i32 noundef %629)
   %.fca.0.extract.i359 = extractvalue { ptr, i8 } %630, 0
-  %631 = load ptr, ptr %.fca.0.extract.i359, align 8, !tbaa !69
+  %631 = load ptr, ptr %.fca.0.extract.i359, align 8, !tbaa !72
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 8
-  store i8 0, ptr %632, align 1, !tbaa !71
+  store i8 0, ptr %632, align 1, !tbaa !74
   br label %633
 
 633:                                              ; preds = %622, %.critedge228
@@ -4538,9 +4538,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %635 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.334, i64 10) #18
   %636 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.334, i64 10, i32 noundef %635)
   %.fca.0.extract.i360 = extractvalue { ptr, i8 } %636, 0
-  %637 = load ptr, ptr %.fca.0.extract.i360, align 8, !tbaa !69
+  %637 = load ptr, ptr %.fca.0.extract.i360, align 8, !tbaa !72
   %638 = getelementptr inbounds nuw i8, ptr %637, i64 8
-  store i8 %634, ptr %638, align 1, !tbaa !71
+  store i8 %634, ptr %638, align 1, !tbaa !74
   br i1 %290, label %639, label %.critedge234
 
 639:                                              ; preds = %633
@@ -4551,9 +4551,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %642 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.335, i64 8) #18
   %643 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.335, i64 8, i32 noundef %642)
   %.fca.0.extract.i361 = extractvalue { ptr, i8 } %643, 0
-  %644 = load ptr, ptr %.fca.0.extract.i361, align 8, !tbaa !69
+  %644 = load ptr, ptr %.fca.0.extract.i361, align 8, !tbaa !72
   %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
-  store i8 %spec.select232, ptr %645, align 1, !tbaa !71
+  store i8 %spec.select232, ptr %645, align 1, !tbaa !74
   %646 = and i32 %.3822, 33554432
   %.not182 = icmp eq i32 %646, 0
   %spec.select235 = select i1 %.not182, i8 0, i8 %641
@@ -4563,9 +4563,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %647 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.335, i64 8) #18
   %648 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.335, i64 8, i32 noundef %647)
   %.fca.0.extract.i362 = extractvalue { ptr, i8 } %648, 0
-  %649 = load ptr, ptr %.fca.0.extract.i362, align 8, !tbaa !69
+  %649 = load ptr, ptr %.fca.0.extract.i362, align 8, !tbaa !72
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 8
-  store i8 0, ptr %650, align 1, !tbaa !71
+  store i8 0, ptr %650, align 1, !tbaa !74
   br label %651
 
 651:                                              ; preds = %639, %.critedge234
@@ -4573,15 +4573,15 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit:         ; preds = %_ZL18getX86CpuIDAnd
   %653 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.336, i64 8) #18
   %654 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.336, i64 8, i32 noundef %653)
   %.fca.0.extract.i363 = extractvalue { ptr, i8 } %654, 0
-  %655 = load ptr, ptr %.fca.0.extract.i363, align 8, !tbaa !69
+  %655 = load ptr, ptr %.fca.0.extract.i363, align 8, !tbaa !72
   %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
-  store i8 %652, ptr %656, align 1, !tbaa !71
+  store i8 %652, ptr %656, align 1, !tbaa !74
   %657 = icmp ne i32 %.3, 0
   %or.cond3 = select i1 %290, i1 %657, i1 false
   br i1 %or.cond3, label %_ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364, label %662
 
 _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
-  %658 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 1) #21, !srcloc !65
+  %658 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 7, i32 range(i32 0, 2) 1) #21, !srcloc !68
   %659 = extractvalue { i32, i32, i32, i32 } %658, 0
   %660 = extractvalue { i32, i32, i32, i32 } %658, 1
   %661 = extractvalue { i32, i32, i32, i32 } %658, 3
@@ -4597,40 +4597,40 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %666 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.337, i64 6) #18
   %667 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.337, i64 6, i32 noundef %666)
   %.fca.0.extract.i365 = extractvalue { ptr, i8 } %667, 0
-  %668 = load ptr, ptr %.fca.0.extract.i365, align 8, !tbaa !69
+  %668 = load ptr, ptr %.fca.0.extract.i365, align 8, !tbaa !72
   %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
   %670 = zext i1 %665 to i8
-  store i8 %670, ptr %669, align 1, !tbaa !71
+  store i8 %670, ptr %669, align 1, !tbaa !74
   %671 = and i32 %.4, 2
   %672 = icmp ne i32 %671, 0
   %673 = select i1 %or.cond3, i1 %672, i1 false
   %674 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.338, i64 3) #18
   %675 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.338, i64 3, i32 noundef %674)
   %.fca.0.extract.i366 = extractvalue { ptr, i8 } %675, 0
-  %676 = load ptr, ptr %.fca.0.extract.i366, align 8, !tbaa !69
+  %676 = load ptr, ptr %.fca.0.extract.i366, align 8, !tbaa !72
   %677 = getelementptr inbounds nuw i8, ptr %676, i64 8
   %678 = zext i1 %673 to i8
-  store i8 %678, ptr %677, align 1, !tbaa !71
+  store i8 %678, ptr %677, align 1, !tbaa !74
   %679 = and i32 %.4, 4
   %680 = icmp ne i32 %679, 0
   %681 = select i1 %or.cond3, i1 %680, i1 false
   %682 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.339, i64 3) #18
   %683 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.339, i64 3, i32 noundef %682)
   %.fca.0.extract.i367 = extractvalue { ptr, i8 } %683, 0
-  %684 = load ptr, ptr %.fca.0.extract.i367, align 8, !tbaa !69
+  %684 = load ptr, ptr %.fca.0.extract.i367, align 8, !tbaa !72
   %685 = getelementptr inbounds nuw i8, ptr %684, i64 8
   %686 = zext i1 %681 to i8
-  store i8 %686, ptr %685, align 1, !tbaa !71
+  store i8 %686, ptr %685, align 1, !tbaa !74
   %687 = and i32 %.4, 8
   %688 = icmp ne i32 %687, 0
   %689 = select i1 %or.cond3, i1 %688, i1 false
   %690 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.340, i64 6) #18
   %691 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.340, i64 6, i32 noundef %690)
   %.fca.0.extract.i368 = extractvalue { ptr, i8 } %691, 0
-  %692 = load ptr, ptr %.fca.0.extract.i368, align 8, !tbaa !69
+  %692 = load ptr, ptr %.fca.0.extract.i368, align 8, !tbaa !72
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 8
   %694 = zext i1 %689 to i8
-  store i8 %694, ptr %693, align 1, !tbaa !71
+  store i8 %694, ptr %693, align 1, !tbaa !74
   br i1 %or.cond3, label %695, label %.critedge238
 
 695:                                              ; preds = %662
@@ -4640,9 +4640,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %697 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.341, i64 7) #18
   %698 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.341, i64 7, i32 noundef %697)
   %.fca.0.extract.i369 = extractvalue { ptr, i8 } %698, 0
-  %699 = load ptr, ptr %.fca.0.extract.i369, align 8, !tbaa !69
+  %699 = load ptr, ptr %.fca.0.extract.i369, align 8, !tbaa !72
   %700 = getelementptr inbounds nuw i8, ptr %699, i64 8
-  store i8 %spec.select236, ptr %700, align 1, !tbaa !71
+  store i8 %spec.select236, ptr %700, align 1, !tbaa !74
   %701 = and i32 %.4, 32
   %.not184 = icmp ne i32 %701, 0
   %narrow866 = select i1 %.not184, i1 %142, i1 false
@@ -4653,9 +4653,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %702 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.341, i64 7) #18
   %703 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.341, i64 7, i32 noundef %702)
   %.fca.0.extract.i370 = extractvalue { ptr, i8 } %703, 0
-  %704 = load ptr, ptr %.fca.0.extract.i370, align 8, !tbaa !69
+  %704 = load ptr, ptr %.fca.0.extract.i370, align 8, !tbaa !72
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 8
-  store i8 0, ptr %705, align 1, !tbaa !71
+  store i8 0, ptr %705, align 1, !tbaa !74
   br label %706
 
 706:                                              ; preds = %695, %.critedge238
@@ -4663,9 +4663,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %708 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.342, i64 10) #18
   %709 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.342, i64 10, i32 noundef %708)
   %.fca.0.extract.i371 = extractvalue { ptr, i8 } %709, 0
-  %710 = load ptr, ptr %.fca.0.extract.i371, align 8, !tbaa !69
+  %710 = load ptr, ptr %.fca.0.extract.i371, align 8, !tbaa !72
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 8
-  store i8 %707, ptr %711, align 1, !tbaa !71
+  store i8 %707, ptr %711, align 1, !tbaa !74
   %712 = and i32 %.4, 2097152
   %.not185 = icmp ne i32 %712, 0
   %713 = select i1 %or.cond3, i1 %.not185, i1 false
@@ -4674,29 +4674,29 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %715 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.343, i64 8) #18
   %716 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.343, i64 8, i32 noundef %715)
   %.fca.0.extract.i372 = extractvalue { ptr, i8 } %716, 0
-  %717 = load ptr, ptr %.fca.0.extract.i372, align 8, !tbaa !69
+  %717 = load ptr, ptr %.fca.0.extract.i372, align 8, !tbaa !72
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 8
-  store i8 %714, ptr %718, align 1, !tbaa !71
+  store i8 %714, ptr %718, align 1, !tbaa !74
   %719 = and i32 %.4, 128
   %720 = icmp ne i32 %719, 0
   %721 = select i1 %or.cond3, i1 %720, i1 false
   %722 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.344, i64 9) #18
   %723 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.344, i64 9, i32 noundef %722)
   %.fca.0.extract.i373 = extractvalue { ptr, i8 } %723, 0
-  %724 = load ptr, ptr %.fca.0.extract.i373, align 8, !tbaa !69
+  %724 = load ptr, ptr %.fca.0.extract.i373, align 8, !tbaa !72
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 8
   %726 = zext i1 %721 to i8
-  store i8 %726, ptr %725, align 1, !tbaa !71
+  store i8 %726, ptr %725, align 1, !tbaa !74
   %727 = and i32 %.4, 4194304
   %728 = icmp ne i32 %727, 0
   %729 = select i1 %or.cond3, i1 %728, i1 false
   %730 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.345, i64 6) #18
   %731 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.345, i64 6, i32 noundef %730)
   %.fca.0.extract.i374 = extractvalue { ptr, i8 } %731, 0
-  %732 = load ptr, ptr %.fca.0.extract.i374, align 8, !tbaa !69
+  %732 = load ptr, ptr %.fca.0.extract.i374, align 8, !tbaa !72
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %734 = zext i1 %729 to i8
-  store i8 %734, ptr %733, align 1, !tbaa !71
+  store i8 %734, ptr %733, align 1, !tbaa !74
   %735 = and i32 %.4, 8388608
   %.not186 = icmp eq i32 %735, 0
   %spec.select243 = select i1 %.not186, i8 0, i8 %139
@@ -4704,18 +4704,18 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %737 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.346, i64 7) #18
   %738 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.346, i64 7, i32 noundef %737)
   %.fca.0.extract.i375 = extractvalue { ptr, i8 } %738, 0
-  %739 = load ptr, ptr %.fca.0.extract.i375, align 8, !tbaa !69
+  %739 = load ptr, ptr %.fca.0.extract.i375, align 8, !tbaa !72
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 8
-  store i8 %736, ptr %740, align 1, !tbaa !71
+  store i8 %736, ptr %740, align 1, !tbaa !74
   %741 = icmp slt i32 %.4, 0
   %742 = select i1 %or.cond3, i1 %741, i1 false
   %743 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.347, i64 5) #18
   %744 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.347, i64 5, i32 noundef %743)
   %.fca.0.extract.i376 = extractvalue { ptr, i8 } %744, 0
-  %745 = load ptr, ptr %.fca.0.extract.i376, align 8, !tbaa !69
+  %745 = load ptr, ptr %.fca.0.extract.i376, align 8, !tbaa !72
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 8
   %747 = zext i1 %742 to i8
-  store i8 %747, ptr %746, align 1, !tbaa !71
+  store i8 %747, ptr %746, align 1, !tbaa !74
   br i1 %or.cond3, label %748, label %.critedge246
 
 748:                                              ; preds = %706
@@ -4725,9 +4725,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %750 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.348, i64 11) #18
   %751 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.348, i64 11, i32 noundef %750)
   %.fca.0.extract.i377 = extractvalue { ptr, i8 } %751, 0
-  %752 = load ptr, ptr %.fca.0.extract.i377, align 8, !tbaa !69
+  %752 = load ptr, ptr %.fca.0.extract.i377, align 8, !tbaa !72
   %753 = getelementptr inbounds nuw i8, ptr %752, i64 8
-  store i8 %spec.select244, ptr %753, align 1, !tbaa !71
+  store i8 %spec.select244, ptr %753, align 1, !tbaa !74
   %754 = and i32 %.4823, 32
   %.not188 = icmp eq i32 %754, 0
   %spec.select247 = select i1 %.not188, i8 0, i8 %139
@@ -4737,9 +4737,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %755 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.348, i64 11) #18
   %756 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.348, i64 11, i32 noundef %755)
   %.fca.0.extract.i378 = extractvalue { ptr, i8 } %756, 0
-  %757 = load ptr, ptr %.fca.0.extract.i378, align 8, !tbaa !69
+  %757 = load ptr, ptr %.fca.0.extract.i378, align 8, !tbaa !72
   %758 = getelementptr inbounds nuw i8, ptr %757, i64 8
-  store i8 0, ptr %758, align 1, !tbaa !71
+  store i8 0, ptr %758, align 1, !tbaa !74
   br label %759
 
 759:                                              ; preds = %748, %.critedge246
@@ -4747,9 +4747,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %761 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.349, i64 12) #18
   %762 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.349, i64 12, i32 noundef %761)
   %.fca.0.extract.i379 = extractvalue { ptr, i8 } %762, 0
-  %763 = load ptr, ptr %.fca.0.extract.i379, align 8, !tbaa !69
+  %763 = load ptr, ptr %.fca.0.extract.i379, align 8, !tbaa !72
   %764 = getelementptr inbounds nuw i8, ptr %763, i64 8
-  store i8 %760, ptr %764, align 1, !tbaa !71
+  store i8 %760, ptr %764, align 1, !tbaa !74
   br i1 %or.cond3, label %765, label %.critedge252
 
 765:                                              ; preds = %759
@@ -4760,9 +4760,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %767 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.350, i64 11) #18
   %768 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.350, i64 11, i32 noundef %767)
   %.fca.0.extract.i380 = extractvalue { ptr, i8 } %768, 0
-  %769 = load ptr, ptr %.fca.0.extract.i380, align 8, !tbaa !69
+  %769 = load ptr, ptr %.fca.0.extract.i380, align 8, !tbaa !72
   %770 = getelementptr inbounds nuw i8, ptr %769, i64 8
-  store i8 %spec.select250, ptr %770, align 1, !tbaa !71
+  store i8 %spec.select250, ptr %770, align 1, !tbaa !74
   %771 = and i32 %.4823, 1024
   %.not190 = icmp eq i32 %771, 0
   %spec.select253 = select i1 %.not190, i8 0, i8 %139
@@ -4772,9 +4772,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %772 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.350, i64 11) #18
   %773 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.350, i64 11, i32 noundef %772)
   %.fca.0.extract.i381 = extractvalue { ptr, i8 } %773, 0
-  %774 = load ptr, ptr %.fca.0.extract.i381, align 8, !tbaa !69
+  %774 = load ptr, ptr %.fca.0.extract.i381, align 8, !tbaa !72
   %775 = getelementptr inbounds nuw i8, ptr %774, i64 8
-  store i8 0, ptr %775, align 1, !tbaa !71
+  store i8 0, ptr %775, align 1, !tbaa !74
   br label %776
 
 776:                                              ; preds = %765, %.critedge252
@@ -4782,29 +4782,29 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %778 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.351, i64 12) #18
   %779 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.351, i64 12, i32 noundef %778)
   %.fca.0.extract.i382 = extractvalue { ptr, i8 } %779, 0
-  %780 = load ptr, ptr %.fca.0.extract.i382, align 8, !tbaa !69
+  %780 = load ptr, ptr %.fca.0.extract.i382, align 8, !tbaa !72
   %781 = getelementptr inbounds nuw i8, ptr %780, i64 8
-  store i8 %777, ptr %781, align 1, !tbaa !71
+  store i8 %777, ptr %781, align 1, !tbaa !74
   %782 = and i32 %.4823, 16384
   %783 = icmp ne i32 %782, 0
   %784 = select i1 %or.cond3, i1 %783, i1 false
   %785 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.352, i64 9) #18
   %786 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.352, i64 9, i32 noundef %785)
   %.fca.0.extract.i383 = extractvalue { ptr, i8 } %786, 0
-  %787 = load ptr, ptr %.fca.0.extract.i383, align 8, !tbaa !69
+  %787 = load ptr, ptr %.fca.0.extract.i383, align 8, !tbaa !72
   %788 = getelementptr inbounds nuw i8, ptr %787, i64 8
   %789 = zext i1 %784 to i8
-  store i8 %789, ptr %788, align 1, !tbaa !71
+  store i8 %789, ptr %788, align 1, !tbaa !74
   %790 = and i32 %.4823, 32768
   %791 = icmp ne i32 %790, 0
   %792 = select i1 %or.cond3, i1 %791, i1 false
   %793 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.353, i64 7) #18
   %794 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.353, i64 7, i32 noundef %793)
   %.fca.0.extract.i384 = extractvalue { ptr, i8 } %794, 0
-  %795 = load ptr, ptr %.fca.0.extract.i384, align 8, !tbaa !69
+  %795 = load ptr, ptr %.fca.0.extract.i384, align 8, !tbaa !72
   %796 = getelementptr inbounds nuw i8, ptr %795, i64 8
   %797 = zext i1 %792 to i8
-  store i8 %797, ptr %796, align 1, !tbaa !71
+  store i8 %797, ptr %796, align 1, !tbaa !74
   %798 = and i32 %.4823, 524288
   %799 = icmp ne i32 %798, 0
   %800 = select i1 %or.cond3, i1 %799, i1 false
@@ -4815,56 +4815,56 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %805 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.354, i64 4) #18
   %806 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.354, i64 4, i32 noundef %805)
   %.fca.0.extract.i385 = extractvalue { ptr, i8 } %806, 0
-  %807 = load ptr, ptr %.fca.0.extract.i385, align 8, !tbaa !69
+  %807 = load ptr, ptr %.fca.0.extract.i385, align 8, !tbaa !72
   %808 = getelementptr inbounds nuw i8, ptr %807, i64 8
-  store i8 %804, ptr %808, align 1, !tbaa !71
+  store i8 %804, ptr %808, align 1, !tbaa !74
   %809 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.355, i64 9) #18
   %810 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.355, i64 9, i32 noundef %809)
   %.fca.0.extract.i386 = extractvalue { ptr, i8 } %810, 0
-  %811 = load ptr, ptr %.fca.0.extract.i386, align 8, !tbaa !69
+  %811 = load ptr, ptr %.fca.0.extract.i386, align 8, !tbaa !72
   %812 = getelementptr inbounds nuw i8, ptr %811, i64 8
-  store i8 %804, ptr %812, align 1, !tbaa !71
+  store i8 %804, ptr %812, align 1, !tbaa !74
   %813 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.356, i64 3) #18
   %814 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.356, i64 3, i32 noundef %813)
   %.fca.0.extract.i387 = extractvalue { ptr, i8 } %814, 0
-  %815 = load ptr, ptr %.fca.0.extract.i387, align 8, !tbaa !69
+  %815 = load ptr, ptr %.fca.0.extract.i387, align 8, !tbaa !72
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
-  store i8 %804, ptr %816, align 1, !tbaa !71
+  store i8 %804, ptr %816, align 1, !tbaa !74
   %817 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.357, i64 3) #18
   %818 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.357, i64 3, i32 noundef %817)
   %.fca.0.extract.i388 = extractvalue { ptr, i8 } %818, 0
-  %819 = load ptr, ptr %.fca.0.extract.i388, align 8, !tbaa !69
+  %819 = load ptr, ptr %.fca.0.extract.i388, align 8, !tbaa !72
   %820 = getelementptr inbounds nuw i8, ptr %819, i64 8
-  store i8 %804, ptr %820, align 1, !tbaa !71
+  store i8 %804, ptr %820, align 1, !tbaa !74
   %821 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.358, i64 4) #18
   %822 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.358, i64 4, i32 noundef %821)
   %.fca.0.extract.i389 = extractvalue { ptr, i8 } %822, 0
-  %823 = load ptr, ptr %.fca.0.extract.i389, align 8, !tbaa !69
+  %823 = load ptr, ptr %.fca.0.extract.i389, align 8, !tbaa !72
   %824 = getelementptr inbounds nuw i8, ptr %823, i64 8
-  store i8 %804, ptr %824, align 1, !tbaa !71
+  store i8 %804, ptr %824, align 1, !tbaa !74
   %825 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.359, i64 2) #18
   %826 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.359, i64 2, i32 noundef %825)
   %.fca.0.extract.i390 = extractvalue { ptr, i8 } %826, 0
-  %827 = load ptr, ptr %.fca.0.extract.i390, align 8, !tbaa !69
+  %827 = load ptr, ptr %.fca.0.extract.i390, align 8, !tbaa !72
   %828 = getelementptr inbounds nuw i8, ptr %827, i64 8
-  store i8 %804, ptr %828, align 1, !tbaa !71
+  store i8 %804, ptr %828, align 1, !tbaa !74
   %829 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.360, i64 2) #18
   %830 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.360, i64 2, i32 noundef %829)
   %.fca.0.extract.i391 = extractvalue { ptr, i8 } %830, 0
-  %831 = load ptr, ptr %.fca.0.extract.i391, align 8, !tbaa !69
+  %831 = load ptr, ptr %.fca.0.extract.i391, align 8, !tbaa !72
   %832 = getelementptr inbounds nuw i8, ptr %831, i64 8
-  store i8 %804, ptr %832, align 1, !tbaa !71
+  store i8 %804, ptr %832, align 1, !tbaa !74
   %833 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.361, i64 2) #18
   %834 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.361, i64 2, i32 noundef %833)
   %.fca.0.extract.i392 = extractvalue { ptr, i8 } %834, 0
-  %835 = load ptr, ptr %.fca.0.extract.i392, align 8, !tbaa !69
+  %835 = load ptr, ptr %.fca.0.extract.i392, align 8, !tbaa !72
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 8
-  store i8 %804, ptr %836, align 1, !tbaa !71
+  store i8 %804, ptr %836, align 1, !tbaa !74
   %837 = icmp ugt i32 %4, 12
   br i1 %837, label %838, label %.critedge256
 
 838:                                              ; preds = %776
-  %839 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 13, i32 range(i32 0, 2) 1) #21, !srcloc !65
+  %839 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 13, i32 range(i32 0, 2) 1) #21, !srcloc !68
   %840 = extractvalue { i32, i32, i32, i32 } %839, 0
   %841 = extractvalue { i32, i32, i32, i32 } %839, 1
   %842 = and i32 %840, 1
@@ -4873,9 +4873,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %843 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.362, i64 8) #18
   %844 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.362, i64 8, i32 noundef %843)
   %.fca.0.extract.i394 = extractvalue { ptr, i8 } %844, 0
-  %845 = load ptr, ptr %.fca.0.extract.i394, align 8, !tbaa !69
+  %845 = load ptr, ptr %.fca.0.extract.i394, align 8, !tbaa !72
   %846 = getelementptr inbounds nuw i8, ptr %845, i64 8
-  store i8 %spec.select254, ptr %846, align 1, !tbaa !71
+  store i8 %spec.select254, ptr %846, align 1, !tbaa !74
   %847 = and i32 %840, 2
   %.not192 = icmp eq i32 %847, 0
   %spec.select257 = select i1 %.not192, i8 0, i8 %139
@@ -4886,9 +4886,9 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %848 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.362, i64 8) #18
   %849 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.362, i64 8, i32 noundef %848)
   %.fca.0.extract.i395 = extractvalue { ptr, i8 } %849, 0
-  %850 = load ptr, ptr %.fca.0.extract.i395, align 8, !tbaa !69
+  %850 = load ptr, ptr %.fca.0.extract.i395, align 8, !tbaa !72
   %851 = getelementptr inbounds nuw i8, ptr %850, i64 8
-  store i8 0, ptr %851, align 1, !tbaa !71
+  store i8 0, ptr %851, align 1, !tbaa !74
   br label %852
 
 852:                                              ; preds = %838, %.critedge256
@@ -4899,23 +4899,23 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit364:      ; preds = %651
   %854 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.363, i64 6) #18
   %855 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.363, i64 6, i32 noundef %854)
   %.fca.0.extract.i396 = extractvalue { ptr, i8 } %855, 0
-  %856 = load ptr, ptr %.fca.0.extract.i396, align 8, !tbaa !69
+  %856 = load ptr, ptr %.fca.0.extract.i396, align 8, !tbaa !72
   %857 = getelementptr inbounds nuw i8, ptr %856, i64 8
-  store i8 %853, ptr %857, align 1, !tbaa !71
+  store i8 %853, ptr %857, align 1, !tbaa !74
   %.not193 = icmp eq i32 %.pre-phi874, 0
   %spec.select260 = select i1 %.not193, i8 0, i8 %139
   %858 = select i1 %837, i8 %spec.select260, i8 0
   %859 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.364, i64 6) #18
   %860 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.364, i64 6, i32 noundef %859)
   %.fca.0.extract.i397 = extractvalue { ptr, i8 } %860, 0
-  %861 = load ptr, ptr %.fca.0.extract.i397, align 8, !tbaa !69
+  %861 = load ptr, ptr %.fca.0.extract.i397, align 8, !tbaa !72
   %862 = getelementptr inbounds nuw i8, ptr %861, i64 8
-  store i8 %858, ptr %862, align 1, !tbaa !71
+  store i8 %858, ptr %862, align 1, !tbaa !74
   %863 = icmp ugt i32 %4, 19
   br i1 %863, label %_ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit398, label %867
 
 _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit398:      ; preds = %852
-  %864 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 20, i32 range(i32 0, 2) 0) #21, !srcloc !65
+  %864 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 20, i32 range(i32 0, 2) 0) #21, !srcloc !68
   %865 = extractvalue { i32, i32, i32, i32 } %864, 0
   %866 = extractvalue { i32, i32, i32, i32 } %864, 1
   br label %867
@@ -4929,15 +4929,15 @@ _ZL20getX86CpuIDAndInfoExjjPjS_S_S_.exit398:      ; preds = %852
   %871 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.365, i64 7) #18
   %872 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.365, i64 7, i32 noundef %871)
   %.fca.0.extract.i399 = extractvalue { ptr, i8 } %872, 0
-  %873 = load ptr, ptr %.fca.0.extract.i399, align 8, !tbaa !69
+  %873 = load ptr, ptr %.fca.0.extract.i399, align 8, !tbaa !72
   %874 = getelementptr inbounds nuw i8, ptr %873, i64 8
   %875 = zext i1 %870 to i8
-  store i8 %875, ptr %874, align 1, !tbaa !71
+  store i8 %875, ptr %874, align 1, !tbaa !74
   %876 = icmp ugt i32 %4, 24
   br i1 %876, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit400, label %880
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
-  %877 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 25) #21, !srcloc !63
+  %877 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 25) #21, !srcloc !66
   %878 = extractvalue { i32, i32, i32, i32 } %877, 0
   %879 = extractvalue { i32, i32, i32, i32 } %877, 1
   br label %880
@@ -4952,14 +4952,14 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %885 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.366, i64 6) #18
   %886 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.366, i64 6, i32 noundef %885)
   %.fca.0.extract.i401 = extractvalue { ptr, i8 } %886, 0
-  %887 = load ptr, ptr %.fca.0.extract.i401, align 8, !tbaa !69
+  %887 = load ptr, ptr %.fca.0.extract.i401, align 8, !tbaa !72
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 8
-  store i8 %884, ptr %888, align 1, !tbaa !71
+  store i8 %884, ptr %888, align 1, !tbaa !74
   %889 = icmp ugt i32 %4, 29
   br i1 %889, label %890, label %.critedge263
 
 890:                                              ; preds = %880
-  %891 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 30, i32 range(i32 0, 2) 1) #21, !srcloc !65
+  %891 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,2,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 7, 31) 30, i32 range(i32 0, 2) 1) #21, !srcloc !68
   %892 = extractvalue { i32, i32, i32, i32 } %891, 0
   %893 = extractvalue { i32, i32, i32, i32 } %891, 1
   %894 = and i32 %892, 16
@@ -4969,9 +4969,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %896 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.367, i64 7) #18
   %897 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.367, i64 7, i32 noundef %896)
   %.fca.0.extract.i403 = extractvalue { ptr, i8 } %897, 0
-  %898 = load ptr, ptr %.fca.0.extract.i403, align 8, !tbaa !69
+  %898 = load ptr, ptr %.fca.0.extract.i403, align 8, !tbaa !72
   %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
-  store i8 %spec.select261, ptr %899, align 1, !tbaa !71
+  store i8 %spec.select261, ptr %899, align 1, !tbaa !74
   %900 = and i32 %892, 32
   %.not195 = icmp eq i32 %900, 0
   %spec.select264 = select i1 %.not195, i8 0, i8 %895
@@ -4981,9 +4981,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %901 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.367, i64 7) #18
   %902 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.367, i64 7, i32 noundef %901)
   %.fca.0.extract.i404 = extractvalue { ptr, i8 } %902, 0
-  %903 = load ptr, ptr %.fca.0.extract.i404, align 8, !tbaa !69
+  %903 = load ptr, ptr %.fca.0.extract.i404, align 8, !tbaa !72
   %904 = getelementptr inbounds nuw i8, ptr %903, i64 8
-  store i8 0, ptr %904, align 1, !tbaa !71
+  store i8 0, ptr %904, align 1, !tbaa !74
   br label %905
 
 905:                                              ; preds = %890, %.critedge263
@@ -4993,9 +4993,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %907 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.368, i64 13) #18
   %908 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.368, i64 13, i32 noundef %907)
   %.fca.0.extract.i405 = extractvalue { ptr, i8 } %908, 0
-  %909 = load ptr, ptr %.fca.0.extract.i405, align 8, !tbaa !69
+  %909 = load ptr, ptr %.fca.0.extract.i405, align 8, !tbaa !72
   %910 = getelementptr inbounds nuw i8, ptr %909, i64 8
-  store i8 %906, ptr %910, align 1, !tbaa !71
+  store i8 %906, ptr %910, align 1, !tbaa !74
   br i1 %889, label %911, label %.critedge269
 
 911:                                              ; preds = %905
@@ -5006,9 +5006,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %914 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.369, i64 8) #18
   %915 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.369, i64 8, i32 noundef %914)
   %.fca.0.extract.i406 = extractvalue { ptr, i8 } %915, 0
-  %916 = load ptr, ptr %.fca.0.extract.i406, align 8, !tbaa !69
+  %916 = load ptr, ptr %.fca.0.extract.i406, align 8, !tbaa !72
   %917 = getelementptr inbounds nuw i8, ptr %916, i64 8
-  store i8 %spec.select267, ptr %917, align 1, !tbaa !71
+  store i8 %spec.select267, ptr %917, align 1, !tbaa !74
   %918 = and i32 %.8855, 128
   %.not197 = icmp eq i32 %918, 0
   %spec.select270 = select i1 %.not197, i8 0, i8 %913
@@ -5018,9 +5018,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %919 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.369, i64 8) #18
   %920 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.369, i64 8, i32 noundef %919)
   %.fca.0.extract.i407 = extractvalue { ptr, i8 } %920, 0
-  %921 = load ptr, ptr %.fca.0.extract.i407, align 8, !tbaa !69
+  %921 = load ptr, ptr %.fca.0.extract.i407, align 8, !tbaa !72
   %922 = getelementptr inbounds nuw i8, ptr %921, i64 8
-  store i8 0, ptr %922, align 1, !tbaa !71
+  store i8 0, ptr %922, align 1, !tbaa !74
   br label %923
 
 923:                                              ; preds = %911, %.critedge269
@@ -5028,9 +5028,9 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %925 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.370, i64 10) #18
   %926 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.370, i64 10, i32 noundef %925)
   %.fca.0.extract.i408 = extractvalue { ptr, i8 } %926, 0
-  %927 = load ptr, ptr %.fca.0.extract.i408, align 8, !tbaa !69
+  %927 = load ptr, ptr %.fca.0.extract.i408, align 8, !tbaa !72
   %928 = getelementptr inbounds nuw i8, ptr %927, i64 8
-  store i8 %924, ptr %928, align 1, !tbaa !71
+  store i8 %924, ptr %928, align 1, !tbaa !74
   %929 = and i32 %.8855, 256
   %.not198 = icmp ne i32 %929, 0
   %930 = select i1 %889, i1 %.not198, i1 false
@@ -5039,14 +5039,14 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit400:         ; preds = %867
   %932 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.371, i64 9) #18
   %933 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.371, i64 9, i32 noundef %932)
   %.fca.0.extract.i409 = extractvalue { ptr, i8 } %933, 0
-  %934 = load ptr, ptr %.fca.0.extract.i409, align 8, !tbaa !69
+  %934 = load ptr, ptr %.fca.0.extract.i409, align 8, !tbaa !72
   %935 = getelementptr inbounds nuw i8, ptr %934, i64 8
-  store i8 %931, ptr %935, align 1, !tbaa !71
+  store i8 %931, ptr %935, align 1, !tbaa !74
   %936 = icmp ugt i32 %4, 35
   br i1 %936, label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit410, label %939
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit410:         ; preds = %923
-  %937 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 36) #21, !srcloc !63
+  %937 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483639) 36) #21, !srcloc !66
   %938 = extractvalue { i32, i32, i32, i32 } %937, 1
   br label %939
 
@@ -5059,10 +5059,10 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit410:         ; preds = %923
   %944 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.372, i64 11) #18
   %945 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.372, i64 11, i32 noundef %944)
   %.fca.0.extract.i411 = extractvalue { ptr, i8 } %945, 0
-  %946 = load ptr, ptr %.fca.0.extract.i411, align 8, !tbaa !69
+  %946 = load ptr, ptr %.fca.0.extract.i411, align 8, !tbaa !72
   %947 = getelementptr inbounds nuw i8, ptr %946, i64 8
   %948 = zext i1 %943 to i8
-  store i8 %948, ptr %947, align 1, !tbaa !71
+  store i8 %948, ptr %947, align 1, !tbaa !74
   %949 = and i32 %.8800, 262144
   %950 = icmp ne i32 %949, 0
   %narrow872 = select i1 %943, i1 %950, i1 false
@@ -5070,21 +5070,21 @@ _ZL18getX86CpuIDAndInfojPjS_S_S_.exit410:         ; preds = %923
   %952 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.373, i64 11) #18
   %953 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.373, i64 11, i32 noundef %952)
   %.fca.0.extract.i412 = extractvalue { ptr, i8 } %953, 0
-  %954 = load ptr, ptr %.fca.0.extract.i412, align 8, !tbaa !69
+  %954 = load ptr, ptr %.fca.0.extract.i412, align 8, !tbaa !72
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 8
-  store i8 %951, ptr %955, align 1, !tbaa !71
+  store i8 %951, ptr %955, align 1, !tbaa !74
   %956 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.374, i64 11) #18
   %957 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.374, i64 11, i32 noundef %956)
   %.fca.0.extract.i413 = extractvalue { ptr, i8 } %957, 0
-  %958 = load ptr, ptr %.fca.0.extract.i413, align 8, !tbaa !69
+  %958 = load ptr, ptr %.fca.0.extract.i413, align 8, !tbaa !72
   %959 = getelementptr inbounds nuw i8, ptr %958, i64 8
-  store i8 0, ptr %959, align 1, !tbaa !71
+  store i8 0, ptr %959, align 1, !tbaa !74
   %960 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull @.str.375, i64 11) #18
   %961 = tail call { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull @.str.375, i64 11, i32 noundef %960)
   %.fca.0.extract.i414 = extractvalue { ptr, i8 } %961, 0
-  %962 = load ptr, ptr %.fca.0.extract.i414, align 8, !tbaa !69
+  %962 = load ptr, ptr %.fca.0.extract.i414, align 8, !tbaa !72
   %963 = getelementptr inbounds nuw i8, ptr %962, i64 8
-  store i8 0, ptr %963, align 1, !tbaa !71
+  store i8 0, ptr %963, align 1, !tbaa !74
   br label %_ZL18getX86CpuIDAndInfojPjS_S_S_.exit.thread
 
 _ZL18getX86CpuIDAndInfojPjS_S_S_.exit.thread:     ; preds = %1, %939
@@ -5448,9 +5448,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 
 32:                                               ; preds = %29, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_RKS3_.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !75
+  %34 = load ptr, ptr %33, align 8, !tbaa !78
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !79
+  %36 = load ptr, ptr %35, align 8, !tbaa !82
   %37 = ptrtoint ptr %34 to i64
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
@@ -5463,9 +5463,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IN4llvm9StringRefEvEERKT_
 
 43:                                               ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %36, ptr noundef nonnull align 1 dereferenceable(18) @.str.377, i64 18, i1 false)
-  %44 = load ptr, ptr %35, align 8, !tbaa !79
+  %44 = load ptr, ptr %35, align 8, !tbaa !82
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 18
-  store ptr %45, ptr %35, align 8, !tbaa !79
+  store ptr %45, ptr %35, align 8, !tbaa !82
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %41, %43
@@ -5473,33 +5473,33 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %41, %43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %46, ptr %3, align 8, !tbaa !3, !noalias !80
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18, !noalias !80
-  store i64 24, ptr %2, align 8, !tbaa !9, !noalias !80
-  %47 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0) #18, !noalias !80
-  store ptr %47, ptr %3, align 8, !tbaa !11, !noalias !80
-  %48 = load i64, ptr %2, align 8, !tbaa !9, !noalias !80
-  store i64 %48, ptr %46, align 8, !tbaa !13, !noalias !80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, ptr noundef nonnull align 1 dereferenceable(24) @.str, i64 24, i1 false), !noalias !80
+  store ptr %46, ptr %3, align 8, !tbaa !3, !noalias !83
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18, !noalias !83
+  store i64 24, ptr %2, align 8, !tbaa !9, !noalias !83
+  %47 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0) #18, !noalias !83
+  store ptr %47, ptr %3, align 8, !tbaa !11, !noalias !83
+  %48 = load i64, ptr %2, align 8, !tbaa !9, !noalias !83
+  store i64 %48, ptr %46, align 8, !tbaa !13, !noalias !83
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, ptr noundef nonnull align 1 dereferenceable(24) @.str, i64 24, i1 false), !noalias !83
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %48, ptr %49, align 8, !tbaa !14, !noalias !80
-  %50 = load ptr, ptr %3, align 8, !tbaa !11, !noalias !80
+  store i64 %48, ptr %49, align 8, !tbaa !14, !noalias !83
+  %50 = load ptr, ptr %3, align 8, !tbaa !11, !noalias !83
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %48
-  store i8 0, ptr %51, align 1, !tbaa !13, !noalias !80
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18, !noalias !80
+  store i8 0, ptr %51, align 1, !tbaa !13, !noalias !83
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18, !noalias !83
   call fastcc void @_ZL21updateTripleOSVersionNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %6, ptr noundef %3)
-  %52 = load ptr, ptr %3, align 8, !tbaa !11, !noalias !80
+  %52 = load ptr, ptr %3, align 8, !tbaa !11, !noalias !83
   %53 = icmp eq ptr %52, %46
   br i1 %53, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %54 = load i64, ptr %49, align 8, !tbaa !14, !noalias !80
+  %54 = load i64, ptr %49, align 8, !tbaa !14, !noalias !83
   %55 = icmp ult i64 %54, 16
   call void @llvm.assume(i1 %55)
   br label %_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
-  %56 = load i64, ptr %46, align 8, !tbaa !13, !noalias !80
+  %56 = load i64, ptr %46, align 8, !tbaa !13, !noalias !83
   %57 = add i64 %56, 1
   call void @_ZdlPvm(ptr noundef %52, i64 noundef %57) #19
   br label %_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev.exit
@@ -5511,9 +5511,9 @@ _ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev.exit: ; preds = %_ZNKSt7__cxx1112b
   %60 = load i64, ptr %59, align 8, !tbaa !14
   %61 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, ptr noundef %58, i64 noundef %60) #18
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !79
+  %63 = load ptr, ptr %62, align 8, !tbaa !82
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !75
+  %65 = load ptr, ptr %64, align 8, !tbaa !78
   %.not.i = icmp ult ptr %63, %65
   br i1 %.not.i, label %68, label %66
 
@@ -5523,16 +5523,16 @@ _ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev.exit: ; preds = %_ZNKSt7__cxx1112b
 
 68:                                               ; preds = %_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev.exit
   %69 = getelementptr inbounds nuw i8, ptr %63, i64 1
-  store ptr %69, ptr %62, align 8, !tbaa !79
+  store ptr %69, ptr %62, align 8, !tbaa !82
   store i8 10, ptr %63, align 1, !tbaa !13
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %66, %68
   %.0.i = phi ptr [ %67, %66 ], [ %61, %68 ]
   %70 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !75
+  %71 = load ptr, ptr %70, align 8, !tbaa !78
   %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !79
+  %73 = load ptr, ptr %72, align 8, !tbaa !82
   %74 = ptrtoint ptr %71 to i64
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
@@ -5545,9 +5545,9 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %66, %68
 
 80:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %73, ptr noundef nonnull align 1 dereferenceable(12) @.str.378, i64 12, i1 false)
-  %81 = load ptr, ptr %72, align 8, !tbaa !79
+  %81 = load ptr, ptr %72, align 8, !tbaa !82
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 12
-  store ptr %82, ptr %72, align 8, !tbaa !79
+  store ptr %82, ptr %72, align 8, !tbaa !82
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit3
 
 _ZN4llvm11raw_ostreamlsEPKc.exit3:                ; preds = %78, %80
@@ -5556,9 +5556,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3:                ; preds = %78, %80
   %84 = load i64, ptr %24, align 8, !tbaa !14
   %85 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i2, ptr noundef %83, i64 noundef %84) #18
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %87 = load ptr, ptr %86, align 8, !tbaa !79
+  %87 = load ptr, ptr %86, align 8, !tbaa !82
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !75
+  %89 = load ptr, ptr %88, align 8, !tbaa !78
   %.not.i4 = icmp ult ptr %87, %89
   br i1 %.not.i4, label %92, label %90
 
@@ -5568,7 +5568,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit3:                ; preds = %78, %80
 
 92:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit3
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 1
-  store ptr %93, ptr %86, align 8, !tbaa !79
+  store ptr %93, ptr %86, align 8, !tbaa !82
   store i8 10, ptr %87, align 1, !tbaa !13
   br label %_ZN4llvm11raw_ostreamlsEc.exit6
 
@@ -5662,10 +5662,10 @@ declare noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIbEEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #18
-  %6 = load ptr, ptr %0, align 8, !tbaa !83
+  %6 = load ptr, ptr %0, align 8, !tbaa !86
   %7 = zext i32 %5 to i64
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
-  %9 = load ptr, ptr %8, align 8, !tbaa !69
+  %9 = load ptr, ptr %8, align 8, !tbaa !72
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
     i64 0, label %16
@@ -5683,14 +5683,14 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
 
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.030.0, i64 8
-  %.pre = load ptr, ptr %11, align 8, !tbaa !69
-  br label %.preheader.i.i, !llvm.loop !84
+  %.pre = load ptr, ptr %11, align 8, !tbaa !72
+  br label %.preheader.i.i, !llvm.loop !87
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load i32, ptr %13, align 8, !tbaa !85
+  %14 = load i32, ptr %13, align 8, !tbaa !88
   %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 8, !tbaa !85
+  store i32 %15, ptr %13, align 8, !tbaa !88
   br label %16
 
 16:                                               ; preds = %4, %12
@@ -5707,23 +5707,23 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIbNS_15MallocAllocator
 _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit: ; preds = %16, %20
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %2
   store i8 0, ptr %21, align 1, !tbaa !13
-  store i64 %2, ptr %18, align 8, !tbaa !86
+  store i64 %2, ptr %18, align 8, !tbaa !89
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i8 0, ptr %22, align 8, !tbaa !88
-  store ptr %18, ptr %8, align 8, !tbaa !69
+  store i8 0, ptr %22, align 8, !tbaa !91
+  store ptr %18, ptr %8, align 8, !tbaa !72
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !90
+  %24 = load i32, ptr %23, align 4, !tbaa !93
   %25 = add i32 %24, 1
-  store i32 %25, ptr %23, align 4, !tbaa !90
+  store i32 %25, ptr %23, align 4, !tbaa !93
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #18
-  %27 = load ptr, ptr %0, align 8, !tbaa !83
+  %27 = load ptr, ptr %0, align 8, !tbaa !86
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit
   %.sroa.0.0 = phi ptr [ %29, %_ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT_DpOT0_.exit ], [ %31, %.critedge.i.i.i25 ]
-  %30 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !69
+  %30 = load ptr, ptr %.sroa.0.0, align 8, !tbaa !72
   %magicptr.i.i.i24 = ptrtoint ptr %30 to i64
   switch i64 %magicptr.i.i.i24, label %_ZN4llvm17StringMapIteratorIbEC2EPPNS_18StringMapEntryBaseEb.exit [
     i64 0, label %.critedge.i.i.i25
@@ -5732,7 +5732,7 @@ _ZN4llvm14StringMapEntryIbE6createINS_15MallocAllocatorEJEEEPS1_NS_9StringRefERT
 
 .critedge.i.i.i25:                                ; preds = %.preheader.i.i23, %.preheader.i.i23
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  br label %.preheader.i.i23, !llvm.loop !84
+  br label %.preheader.i.i23, !llvm.loop !87
 
 _ZN4llvm17StringMapIteratorIbEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i23, %.preheader.i.i
   %.sroa.030.0.pn = phi ptr [ %.sroa.030.0, %.preheader.i.i ], [ %.sroa.0.0, %.preheader.i.i23 ]
@@ -5825,61 +5825,64 @@ attributes #21 = { nounwind memory(none) }
 !30 = !{!"_ZTSN4llvm6Triple6OSTypeE", !7, i64 0}
 !31 = !{!"_ZTSN4llvm6Triple15EnvironmentTypeE", !7, i64 0}
 !32 = !{!"_ZTSN4llvm6Triple16ObjectFormatTypeE", !7, i64 0}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = distinct !{!35, !34}
-!36 = distinct !{!36, !34}
-!37 = distinct !{!37, !34}
-!38 = distinct !{!38, !34}
-!39 = !{!40, !6, i64 0}
-!40 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !41, i64 8, !41, i64 12}
-!41 = !{!"int", !7, i64 0}
-!42 = !{!40, !41, i64 8}
-!43 = !{!40, !41, i64 12}
-!44 = !{!45, !10, i64 8}
-!45 = !{!"_ZTSN4llvm9StringRefE", !5, i64 0, !10, i64 8}
-!46 = !{!45, !5, i64 0}
-!47 = distinct !{!47, !34}
-!48 = !{i64 0, i64 8, !49, i64 8, i64 8, !9}
-!49 = !{!5, !5, i64 0}
-!50 = distinct !{!50, !34}
-!51 = distinct !{!51, !34}
-!52 = !{!53, !53, i64 0}
-!53 = !{!"long long", !7, i64 0}
-!54 = distinct !{!54, !34}
-!55 = distinct !{!55, !34}
-!56 = !{!57, !41, i64 0}
-!57 = !{!"_ZTSZN4llvm3sys6detail20getHostCPUNameForBPFEvE18bpf_prog_load_attr", !41, i64 0, !41, i64 4, !10, i64 8, !10, i64 16, !41, i64 24, !41, i64 28, !10, i64 32, !41, i64 40, !41, i64 44}
-!58 = !{!57, !41, i64 4}
-!59 = !{!57, !10, i64 8}
-!60 = !{!57, !10, i64 16}
-!61 = !{!41, !41, i64 0}
-!62 = !{i64 2151913422, i64 2151913458, i64 2151913482}
-!63 = !{i64 2151913628, i64 2151913664, i64 2151913688}
-!64 = !{i64 21980}
-!65 = !{i64 2151913838, i64 2151913874, i64 2151913898}
-!66 = !{!67, !41, i64 20}
-!67 = !{!"_ZTSN4llvm13StringMapImplE", !68, i64 0, !41, i64 8, !41, i64 12, !41, i64 16, !41, i64 20}
-!68 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
-!69 = !{!70, !70, i64 0}
-!70 = !{!"p1 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"bool", !7, i64 0}
-!73 = !{i8 0, i8 2}
-!74 = !{}
-!75 = !{!76, !5, i64 24}
-!76 = !{!"_ZTSN4llvm11raw_ostreamE", !77, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !72, i64 40, !78, i64 44}
-!77 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
-!78 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
-!79 = !{!76, !5, i64 32}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev: argument 0"}
-!82 = distinct !{!82, !"_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev"}
-!83 = !{!67, !68, i64 0}
-!84 = distinct !{!84, !34}
-!85 = !{!67, !41, i64 16}
-!86 = !{!87, !10, i64 0}
-!87 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !10, i64 0}
-!88 = !{!89, !72, i64 8}
-!89 = !{!"_ZTSN4llvm21StringMapEntryStorageIbEE", !87, i64 0, !72, i64 8}
-!90 = !{!67, !41, i64 12}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = distinct !{!36, !34, !35}
+!37 = distinct !{!37, !34, !35}
+!38 = distinct !{!38, !34, !35}
+!39 = distinct !{!39, !34, !35}
+!40 = !{!41, !6, i64 0}
+!41 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !42, i64 8, !42, i64 12}
+!42 = !{!"int", !7, i64 0}
+!43 = !{!41, !42, i64 8}
+!44 = !{!41, !42, i64 12}
+!45 = !{!46, !10, i64 8}
+!46 = !{!"_ZTSN4llvm9StringRefE", !5, i64 0, !10, i64 8}
+!47 = !{!46, !5, i64 0}
+!48 = distinct !{!48, !34, !35}
+!49 = !{i64 0, i64 8, !50, i64 8, i64 8, !9}
+!50 = !{!5, !5, i64 0}
+!51 = distinct !{!51, !35}
+!52 = distinct !{!52, !35}
+!53 = distinct !{!53, !34, !35}
+!54 = distinct !{!54, !34, !35}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"long long", !7, i64 0}
+!57 = distinct !{!57, !34, !35}
+!58 = distinct !{!58, !34, !35}
+!59 = !{!60, !42, i64 0}
+!60 = !{!"_ZTSZN4llvm3sys6detail20getHostCPUNameForBPFEvE18bpf_prog_load_attr", !42, i64 0, !42, i64 4, !10, i64 8, !10, i64 16, !42, i64 24, !42, i64 28, !10, i64 32, !42, i64 40, !42, i64 44}
+!61 = !{!60, !42, i64 4}
+!62 = !{!60, !10, i64 8}
+!63 = !{!60, !10, i64 16}
+!64 = !{!42, !42, i64 0}
+!65 = !{i64 2151913422, i64 2151913458, i64 2151913482}
+!66 = !{i64 2151913628, i64 2151913664, i64 2151913688}
+!67 = !{i64 21980}
+!68 = !{i64 2151913838, i64 2151913874, i64 2151913898}
+!69 = !{!70, !42, i64 20}
+!70 = !{!"_ZTSN4llvm13StringMapImplE", !71, i64 0, !42, i64 8, !42, i64 12, !42, i64 16, !42, i64 20}
+!71 = !{!"p2 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
+!72 = !{!73, !73, i64 0}
+!73 = !{!"p1 _ZTSN4llvm18StringMapEntryBaseE", !6, i64 0}
+!74 = !{!75, !75, i64 0}
+!75 = !{!"bool", !7, i64 0}
+!76 = !{i8 0, i8 2}
+!77 = !{}
+!78 = !{!79, !5, i64 24}
+!79 = !{!"_ZTSN4llvm11raw_ostreamE", !80, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !75, i64 40, !81, i64 44}
+!80 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !7, i64 0}
+!81 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !7, i64 0}
+!82 = !{!79, !5, i64 32}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev: argument 0"}
+!85 = distinct !{!85, !"_ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev"}
+!86 = !{!70, !71, i64 0}
+!87 = distinct !{!87, !34, !35}
+!88 = !{!70, !42, i64 16}
+!89 = !{!90, !10, i64 0}
+!90 = !{!"_ZTSN4llvm18StringMapEntryBaseE", !10, i64 0}
+!91 = !{!92, !75, i64 8}
+!92 = !{!"_ZTSN4llvm21StringMapEntryStorageIbEE", !90, i64 0, !75, i64 8}
+!93 = !{!70, !42, i64 12}

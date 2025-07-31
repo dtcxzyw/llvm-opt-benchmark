@@ -534,7 +534,7 @@ _ZN13ObjectMonitor19release_clear_ownerEPv.exit:  ; preds = %.backedge, %37
   %.033 = phi ptr [ %62, %.preheader ], [ %60, %59 ]
   %62 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr %.033, ptr nonnull %34) #12, !srcloc !8
   %63 = icmp eq ptr %62, %.033
-  br i1 %63, label %64, label %.preheader, !llvm.loop !11
+  br i1 %63, label %64, label %.preheader, !llvm.loop !12
 
 64:                                               ; preds = %.preheader
   store volatile ptr %.033, ptr %33, align 8
@@ -561,7 +561,7 @@ _ZN13ObjectMonitor19release_clear_ownerEPv.exit:  ; preds = %.backedge, %37
   store volatile ptr %.03255, ptr %71, align 8
   %72 = load volatile ptr, ptr %.056, align 8
   %.not45 = icmp eq ptr %72, null
-  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not45, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %70, %64
   %73 = load volatile ptr, ptr %35, align 8
@@ -620,7 +620,7 @@ define hidden void @_ZN13ObjectMonitor18ClearSuccOnSuspendclEP10JavaThread(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN13ObjectMonitor9enter_forEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %4 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #12, !srcloc !13
+  %4 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #12, !srcloc !14
   %5 = load volatile i32, ptr %3, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %53, label %7
@@ -681,7 +681,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22: ; preds = %23, %26, %28
   ]
 
 31:                                               ; preds = %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22
-  %32 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #12, !srcloc !13
+  %32 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #12, !srcloc !14
   br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24
 
 33:                                               ; preds = %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22
@@ -759,7 +759,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22: ; preds = %23, %26, %28
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit24: ; preds = %13, %11, %70, %68, %63, %58, %49, %46, %38, %36, %33, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22, %53, %31, %44, %41, %17
   %.0 = phi i1 [ false, %53 ], [ true, %17 ], [ true, %31 ], [ false, %44 ], [ false, %41 ], [ false, %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit22 ], [ false, %33 ], [ true, %36 ], [ true, %38 ], [ true, %46 ], [ true, %49 ], [ false, %58 ], [ false, %63 ], [ false, %68 ], [ false, %70 ], [ true, %11 ], [ true, %13 ]
-  %71 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %3) #12, !srcloc !13
+  %71 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %3) #12, !srcloc !14
   ret i1 %.0
 }
 
@@ -892,7 +892,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %2
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %35 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %34) #12, !srcloc !13
+  %35 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %34) #12, !srcloc !14
   %36 = load volatile i32, ptr %34, align 4
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %38, label %57
@@ -931,7 +931,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %2
   br label %_ZN13ObjectMonitor36install_displaced_markword_in_objectEP7oopDesc.exit
 
 _ZN13ObjectMonitor36install_displaced_markword_in_objectEP7oopDesc.exit: ; preds = %55, %53, %48, %43, %38
-  %56 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %34) #12, !srcloc !13
+  %56 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %34) #12, !srcloc !14
   br label %_ZN13ObjectMonitor24set_owner_from_BasicLockEPvP10JavaThread.exit
 
 57:                                               ; preds = %33
@@ -1045,8 +1045,8 @@ _ZNK7oopDesc5klassEv.exit52:                      ; preds = %100, %110
   %.038 = phi i32 [ %118, %114 ], [ 0, %_ZNK7oopDesc5klassEv.exit52 ]
   %.035 = phi ptr [ %115, %114 ], [ null, %_ZNK7oopDesc5klassEv.exit52 ]
   %120 = ptrtoint ptr %0 to i64
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__contended__enter\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %92, i32 -2049, i64 %120, i32 -2053, ptr %.035, i32 1025, i32 %.038) #12, !srcloc !14
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !15
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__contended__enter\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %92, i32 -2049, i64 %120, i32 -2053, ptr %.035, i32 1025, i32 %.038) #12, !srcloc !15
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !16
   br label %121
 
 121:                                              ; preds = %119, %_ZN21EventJavaMonitorEnterC2E14EventStartTime.exit.thread
@@ -1084,7 +1084,7 @@ _ZNK7oopDesc5klassEv.exit52:                      ; preds = %100, %110
   call void @_ZN25ThreadBlockInVMPreprocessIN13ObjectMonitor13ExitOnSuspendEED2Ev(ptr noundef nonnull align 8 dereferenceable(17) %6) #12
   %135 = load i8, ptr %129, align 8
   %136 = trunc i8 %135 to i1
-  br i1 %136, label %134, label %137, !llvm.loop !16
+  br i1 %136, label %134, label %137, !llvm.loop !17
 
 137:                                              ; preds = %134
   store volatile i32 %128, ptr %127, align 8
@@ -1127,7 +1127,7 @@ _ZN16ThreadStatistics19contended_enter_endEv.exit.i: ; preds = %148, %141, %137
   br label %_ZN36JavaThreadBlockedOnMonitorEnterStateD2Ev.exit
 
 _ZN36JavaThreadBlockedOnMonitorEnterStateD2Ev.exit: ; preds = %_ZN16ThreadStatistics19contended_enter_endEv.exit.i, %154
-  %159 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %34) #12, !srcloc !13
+  %159 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %34) #12, !srcloc !14
   %160 = load i8, ptr @DTraceMonitorProbes, align 1
   %161 = trunc i8 %160 to i1
   br i1 %161, label %162, label %192
@@ -1177,8 +1177,8 @@ _ZNK7oopDesc5klassEv.exit54:                      ; preds = %171, %181
   %.037 = phi ptr [ %186, %185 ], [ null, %_ZNK7oopDesc5klassEv.exit54 ]
   %.036 = phi i32 [ %189, %185 ], [ 0, %_ZNK7oopDesc5klassEv.exit54 ]
   %191 = ptrtoint ptr %0 to i64
-  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__contended__entered\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %163, i32 -2049, i64 %191, i32 -2053, ptr %.037, i32 1025, i32 %.036) #12, !srcloc !17
-  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !18
+  call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__contended__entered\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %163, i32 -2049, i64 %191, i32 -2053, ptr %.037, i32 1025, i32 %.036) #12, !srcloc !18
+  call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !19
   br label %192
 
 192:                                              ; preds = %190, %_ZN36JavaThreadBlockedOnMonitorEnterStateD2Ev.exit
@@ -1287,7 +1287,7 @@ define hidden noundef zeroext i1 @_ZN13ObjectMonitor7TrySpinEP10JavaThread(ptr n
   %14 = tail call i32 @SpinPause() #12
   %15 = add nuw nsw i32 %.0813.i, 1
   %exitcond.not.i40.not = icmp eq i32 %15, 10
-  br i1 %exitcond.not.i40.not, label %.loopexit, label %4, !llvm.loop !19
+  br i1 %exitcond.not.i40.not, label %.loopexit, label %4, !llvm.loop !20
 
 _ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit: ; preds = %8, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1397,7 +1397,7 @@ _ZN13ObjectMonitor16short_fixed_spinEP10JavaThreadib.exit: ; preds = %8, %10
 
 67:                                               ; preds = %66, %63
   %68 = icmp samesign ugt i32 %.in, 1
-  br i1 %68, label %31, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit, !llvm.loop !20
+  br i1 %68, label %31, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit, !llvm.loop !21
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %67
   %69 = load volatile i32, ptr %21, align 8
@@ -1597,7 +1597,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit:    ; preds = %6, %2
 
 21:                                               ; preds = %16, %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %23 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %22) #12, !srcloc !13
+  %23 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %22) #12, !srcloc !14
   br label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit.thread
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit
@@ -1660,7 +1660,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit29:  ; preds = %.lr.ph, %42
   store volatile ptr %50, ptr %3, align 8
   %51 = call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, ptr %50, ptr nonnull %37) #12, !srcloc !8
   %52 = icmp eq ptr %51, %50
-  br i1 %52, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %52, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit29, %25
   %.lcssa45 = phi ptr [ %38, %25 ], [ %50, %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit29 ]
@@ -1762,7 +1762,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit37:  ; preds = %84, %82
 
 99:                                               ; preds = %94, %96
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %101 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %100) #12, !srcloc !13
+  %101 = call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %100) #12, !srcloc !14
   br label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit33.thread
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit39: ; preds = %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit37
@@ -1799,7 +1799,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit39: ; preds = %_ZN13ObjectMonit
 117:                                              ; preds = %116, %113
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !7
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !6
-  br label %64, !llvm.loop !22
+  br label %64, !llvm.loop !23
 
 _ZN13ObjectMonitor7TryLockEP10JavaThread.exit33.thread: ; preds = %111, %89, %87, %71, %69, %99
   %118 = load volatile i32, ptr %29, align 4
@@ -1863,7 +1863,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit33.thread: ; preds = %111, %89, %87
   %144 = icmp ne ptr %143, null
   %145 = icmp ne ptr %143, %3
   %146 = and i1 %144, %145
-  br i1 %146, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %146, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %139
   %.027.lcssa.i = phi ptr [ %.028.i, %139 ], [ %143, %.lr.ph.i ]
@@ -2105,11 +2105,11 @@ _ZN13ObjectMonitor14set_owner_fromEPvS0_.exit:    ; preds = %29, %31
   br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit
 
 _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit16: ; preds = %45
-  %52 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %13) #12, !srcloc !13
+  %52 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %13) #12, !srcloc !14
   br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit
 
 53:                                               ; preds = %43
-  %54 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, i32 0, ptr nonnull %13) #12, !srcloc !24
+  %54 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -2147483648, i32 0, ptr nonnull %13) #12, !srcloc !25
   %.not10 = icmp eq i32 %54, 0
   br i1 %.not10, label %59, label %55
 
@@ -2119,7 +2119,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit16: ; preds = %45
   br i1 %.not11, label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit, label %57
 
 57:                                               ; preds = %55
-  %58 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %13) #12, !srcloc !13
+  %58 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 -1, ptr nonnull %13) #12, !srcloc !14
   br label %_ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit
 
 59:                                               ; preds = %_ZN13ObjectMonitor14set_owner_fromEPvS0_.exit, %53
@@ -2423,7 +2423,7 @@ define hidden void @_ZN13ObjectMonitor18UnlinkAfterAcquireEP10JavaThreadP12Objec
   %33 = icmp ne ptr %32, null
   %34 = icmp ne ptr %32, %2
   %35 = and i1 %33, %34
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %.027.lcssa = phi ptr [ %.028, %28 ], [ %32, %.lr.ph ]
@@ -2544,7 +2544,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit18:  ; preds = %31, %26
   %50 = load volatile i32, ptr %6, align 4
   %51 = and i32 %50, -2
   %or.cond = icmp eq i32 %51, 4
-  br i1 %or.cond, label %18, label %._crit_edge, !llvm.loop !25
+  br i1 %or.cond, label %18, label %._crit_edge, !llvm.loop !26
 
 _ZN13ObjectMonitor7TryLockEP10JavaThread.exit.thread.sink.split: ; preds = %34, %23
   %52 = ptrtoint ptr %0 to i64
@@ -2616,7 +2616,7 @@ _ZN13ObjectMonitor7TryLockEP10JavaThread.exit.thread: ; preds = %_ZN13ObjectMoni
   %82 = icmp ne ptr %81, null
   %83 = icmp ne ptr %81, %2
   %84 = and i1 %82, %83
-  br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !23
+  br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %77
   %.027.lcssa.i = phi ptr [ %.028.i, %77 ], [ %81, %.lr.ph.i ]
@@ -2794,8 +2794,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %25, %35
   %.011 = phi i32 [ %43, %39 ], [ 0, %_ZNK7oopDesc5klassEv.exit ]
   %.0 = phi ptr [ %40, %39 ], [ null, %_ZNK7oopDesc5klassEv.exit ]
   %45 = ptrtoint ptr %0 to i64
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__contended__exit\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %17, i32 -2049, i64 %45, i32 -2053, ptr %.0, i32 1025, i32 %.011) #12, !srcloc !26
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !27
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__contended__exit\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %17, i32 -2049, i64 %45, i32 -2053, ptr %.0, i32 1025, i32 %.011) #12, !srcloc !27
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !28
   br label %46
 
 46:                                               ; preds = %44, %_ZN13ObjectMonitor19release_clear_ownerEPv.exit
@@ -3677,7 +3677,7 @@ _ZN13ObjectMonitor21DequeueSpecificWaiterEP12ObjectWaiter.exit.sink.split.i: ; p
   store volatile ptr %39, ptr %5, align 8
   %40 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %39, ptr nonnull %37) #12, !srcloc !8
   %41 = icmp eq ptr %40, %39
-  br i1 %41, label %.loopexit, label %38, !llvm.loop !28
+  br i1 %41, label %.loopexit, label %38, !llvm.loop !29
 
 .loopexit:                                        ; preds = %38, %34
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -3917,8 +3917,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %34, %44
   %.010 = phi i32 [ %52, %48 ], [ 0, %_ZNK7oopDesc5klassEv.exit ]
   %.0 = phi ptr [ %49, %48 ], [ null, %_ZNK7oopDesc5klassEv.exit ]
   %54 = ptrtoint ptr %0 to i64
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__notify\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %26, i32 -2049, i64 %54, i32 -2053, ptr %.0, i32 1025, i32 %.010) #12, !srcloc !29
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !30
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__notify\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %26, i32 -2049, i64 %54, i32 -2053, ptr %.0, i32 1025, i32 %.010) #12, !srcloc !30
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !31
   br label %55
 
 55:                                               ; preds = %53, %22
@@ -4039,8 +4039,8 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %34, %44
   %.013 = phi i32 [ %52, %48 ], [ 0, %_ZNK7oopDesc5klassEv.exit ]
   %.012 = phi ptr [ %49, %48 ], [ null, %_ZNK7oopDesc5klassEv.exit ]
   %54 = ptrtoint ptr %0 to i64
-  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__notifyAll\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %26, i32 -2049, i64 %54, i32 -2053, ptr %.012, i32 1025, i32 %.013) #12, !srcloc !31
-  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !32
+  tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22monitor__notifyAll\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 2049, i64 %26, i32 -2049, i64 %54, i32 -2053, ptr %.012, i32 1025, i32 %.013) #12, !srcloc !32
+  tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !33
   br label %55
 
 55:                                               ; preds = %53, %22
@@ -4054,7 +4054,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %34, %44
   tail call void @_ZN13ObjectMonitor7INotifyEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1)
   %58 = load volatile ptr, ptr %19, align 8
   %.not15 = icmp eq ptr %58, null
-  br i1 %.not15, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
+  br i1 %.not15, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %59 = zext nneg i32 %57 to i64
@@ -4132,7 +4132,7 @@ define hidden noundef zeroext i1 @_ZN13ObjectMonitor16short_fixed_spinEP10JavaTh
   %25 = tail call i32 @SpinPause() #12
   %26 = add nuw nsw i32 %.0813, 1
   %exitcond.not = icmp eq i32 %26, %2
-  br i1 %exitcond.not, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit, label %7, !llvm.loop !19
+  br i1 %exitcond.not, label %_ZN13ObjectMonitor7TryLockEP10JavaThread.exit, label %7, !llvm.loop !20
 
 _ZN13ObjectMonitor7TryLockEP10JavaThread.exit:    ; preds = %24, %4, %9, %17, %18
   %.0 = phi i1 [ true, %18 ], [ true, %17 ], [ false, %9 ], [ false, %4 ], [ false, %24 ]
@@ -4530,7 +4530,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
   %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i.i, ptr nonnull %0) #12, !srcloc !8
   %17 = icmp eq i64 %16, %phi.call9.i.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !34
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !35
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -4559,7 +4559,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
 .split.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
   %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i, ptr nonnull %0) #12, !srcloc !8
   %28 = icmp eq i64 %27, %phi.call9.i.i.i.i
-  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
+  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i: ; preds = %.split.i.i.i.i, %.lr.ph.i.i.i.i, %.split7.i.i.i.i, %20
   %29 = inttoptr i64 %21 to ptr
@@ -5152,7 +5152,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !35
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !36
 
 _ZN8ZBarrier7barrierIZNS_63blocking_keep_alive_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -5293,7 +5293,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !35
+  br i1 %76, label %_ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit, label %.preheader.i.i, !llvm.loop !36
 
 _ZN8ZBarrier7barrierIPF8zaddressS1_EEES1_PFb8zpointerET_PFS4_S1_S4_EPVS4_S4_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -5383,7 +5383,7 @@ define linkonce_odr hidden noundef ptr @_ZN14AccessInternal19PostRuntimeDispatch
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
   %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i.i, ptr nonnull %0) #12, !srcloc !8
   %17 = icmp eq i64 %16, %phi.call9.i.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !34
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !35
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -5412,7 +5412,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
 .split.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
   %27 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, i64 %phi.call9.i.i.i.i, ptr nonnull %0) #12, !srcloc !8
   %28 = icmp eq i64 %27, %phi.call9.i.i.i.i
-  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
+  br i1 %28, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !35
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i.i: ; preds = %.split.i.i.i.i, %.lr.ph.i.i.i.i, %.split7.i.i.i.i, %20
   %29 = inttoptr i64 %21 to ptr
@@ -5697,7 +5697,7 @@ define linkonce_odr hidden noundef ptr @_ZN8XBarrier48weak_load_barrier_on_phant
 .split.i.i:                                       ; preds = %.lr.ph.i.i
   %16 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, i64 %phi.call9.i.i, ptr nonnull %0) #12, !srcloc !8
   %17 = icmp eq i64 %16, %phi.call9.i.i
-  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !34
+  br i1 %17, label %_ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i, label %.lr.ph.i.i, !llvm.loop !35
 
 _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i: ; preds = %.split.i.i, %.lr.ph.i.i, %.split7.i.i, %9
   %18 = inttoptr i64 %10 to ptr
@@ -5749,7 +5749,7 @@ _ZN8XBarrier9self_healIXadL_ZNS_25is_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.
 .split.i.i.i:                                     ; preds = %.lr.ph.i.i.i
   %44 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %37, i64 %phi.call9.i.i.i, ptr nonnull %0) #12, !srcloc !8
   %45 = icmp eq i64 %44, %phi.call9.i.i.i
-  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !36
+  br i1 %45, label %_ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZN8XBarrier9self_healIXadL_ZNS_30is_weak_good_or_null_fast_pathEmEEEEvPVP7oopDescmm.exit.i.i: ; preds = %.split.i.i.i, %.lr.ph.i.i.i, %.split7.i.i.i, %32, %30
   %46 = inttoptr i64 %31 to ptr
@@ -5896,7 +5896,7 @@ _Z15color_mark_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %.not.i.i = icmp eq i64 %74, 0
   %75 = icmp ne i64 %70, 0
   %76 = and i1 %75, %.not.i.i
-  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !35
+  br i1 %76, label %_ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !36
 
 _ZN8ZBarrier7barrierIZNS_52blocking_load_barrier_on_phantom_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %72, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %7, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_mark_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %13, %7 ], [ %53, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %53, %_Z15color_mark_good8zaddress8zpointer.exit ], [ %54, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %69, %72 ], [ %69, %.preheader.i.i ]
@@ -6019,7 +6019,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !35
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !36
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -6202,7 +6202,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !37
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !38
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #12
@@ -7552,7 +7552,7 @@ _ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9J
   store ptr %.sink.i.i.i.i.i, ptr %22, align 8
   %23 = load atomic i8, ptr @_ZGVZ19compressed_integersvE13comp_integers acquire, align 8
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !37
+  br i1 %24, label %25, label %_ZN15EventWriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEEC2I9JfrBufferEEPT_P6Thread.exit, !prof !38
 
 25:                                               ; preds = %_ZN16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEC2EP9JfrBufferP6Thread.exit.i.i
   %26 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZ19compressed_integersvE13comp_integers) #12
@@ -7771,32 +7771,33 @@ attributes #13 = { noreturn nounwind }
 !6 = !{i64 2145392468}
 !7 = !{i64 2145392998}
 !8 = !{i64 2145412694}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = !{i64 2145409567}
-!14 = !{i64 2156314839, i64 2156314889, i64 2156315000, i64 2156315081, i64 2156315122, i64 2156315162, i64 2156315201, i64 2156315239, i64 2156315285, i64 2156315397, i64 2156315480, i64 2156315527, i64 2156315565, i64 2156315610, i64 2156315697, i64 2156315771, i64 2156315817, i64 2156315929, i64 2156316025, i64 2156316072, i64 2156316112, i64 2156316150, i64 2156316195, i64 2156316233, i64 2156316278, i64 2156316345, i64 2156316399, i64 2156316438, i64 2156316544, i64 2156316626, i64 2156316722, i64 2156316813, i64 2156316872, i64 2156316931, i64 2156316997, i64 2156317085, i64 2156317192, i64 2156317363, i64 2156317948, i64 2156318022, i64 2156318096, i64 2156318249, i64 2156318382, i64 2156318738, i64 2156318812, i64 2156318886, i64 2156319039, i64 2156319172, i64 2156319528, i64 2156319602, i64 2156319676, i64 2156319829, i64 2156319962, i64 2156320318, i64 2156320392, i64 2156320466, i64 2156320619, i64 2156320730, i64 2156320995, i64 2156321052, i64 2156321109, i64 2156321166, i64 2156321223, i64 2156321276, i64 2156321323}
-!15 = !{i64 2156324820, i64 2156324998, i64 2156325127, i64 2156325191, i64 2156325259, i64 2156325341, i64 2156325401, i64 2156325440}
-!16 = distinct !{!16, !10}
-!17 = !{i64 2156329764, i64 2156329814, i64 2156329925, i64 2156330006, i64 2156330047, i64 2156330087, i64 2156330126, i64 2156330164, i64 2156330210, i64 2156330322, i64 2156330405, i64 2156330452, i64 2156330490, i64 2156330535, i64 2156330622, i64 2156330696, i64 2156330742, i64 2156330854, i64 2156330950, i64 2156330997, i64 2156331037, i64 2156331075, i64 2156331120, i64 2156331158, i64 2156331203, i64 2156331270, i64 2156331324, i64 2156331363, i64 2156331469, i64 2156331551, i64 2156331647, i64 2156331738, i64 2156331797, i64 2156331856, i64 2156331922, i64 2156332010, i64 2156332117, i64 2156332294, i64 2156332881, i64 2156332955, i64 2156333029, i64 2156333182, i64 2156333315, i64 2156333671, i64 2156333745, i64 2156333819, i64 2156333972, i64 2156334105, i64 2156334461, i64 2156334535, i64 2156334609, i64 2156334762, i64 2156334895, i64 2156335251, i64 2156335325, i64 2156335399, i64 2156335552, i64 2156335663, i64 2156335928, i64 2156335985, i64 2156336042, i64 2156336099, i64 2156336156, i64 2156336209, i64 2156336256}
-!18 = !{i64 2156343814, i64 2156343992, i64 2156344121, i64 2156344185, i64 2156344253, i64 2156344335, i64 2156344395, i64 2156344434}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = !{i64 2145411161}
-!25 = distinct !{!25, !10}
-!26 = !{i64 2156363868, i64 2156363918, i64 2156364029, i64 2156364110, i64 2156364151, i64 2156364191, i64 2156364230, i64 2156364268, i64 2156364314, i64 2156364426, i64 2156364509, i64 2156364556, i64 2156364594, i64 2156364639, i64 2156364726, i64 2156364800, i64 2156364846, i64 2156364958, i64 2156365054, i64 2156365101, i64 2156365141, i64 2156365179, i64 2156365224, i64 2156365262, i64 2156365307, i64 2156365374, i64 2156365428, i64 2156365467, i64 2156365573, i64 2156365655, i64 2156365751, i64 2156365842, i64 2156365901, i64 2156365960, i64 2156366026, i64 2156366114, i64 2156366221, i64 2156366389, i64 2156366973, i64 2156367047, i64 2156367121, i64 2156367274, i64 2156367407, i64 2156367763, i64 2156367837, i64 2156367911, i64 2156368064, i64 2156368197, i64 2156368553, i64 2156368627, i64 2156368701, i64 2156368854, i64 2156368987, i64 2156369343, i64 2156369417, i64 2156369491, i64 2156369644, i64 2156369755, i64 2156370020, i64 2156370077, i64 2156370134, i64 2156370191, i64 2156370248, i64 2156370301, i64 2156370348}
-!27 = !{i64 2156373845, i64 2156374023, i64 2156374152, i64 2156374216, i64 2156374284, i64 2156374366, i64 2156374426, i64 2156374465}
-!28 = distinct !{!28, !10}
-!29 = !{i64 2156391334, i64 2156391384, i64 2156391495, i64 2156391576, i64 2156391617, i64 2156391657, i64 2156391696, i64 2156391734, i64 2156391780, i64 2156391892, i64 2156391975, i64 2156392022, i64 2156392060, i64 2156392105, i64 2156392192, i64 2156392266, i64 2156392312, i64 2156392424, i64 2156392520, i64 2156392567, i64 2156392607, i64 2156392645, i64 2156392690, i64 2156392728, i64 2156392773, i64 2156392840, i64 2156392894, i64 2156392933, i64 2156393039, i64 2156393121, i64 2156393217, i64 2156393308, i64 2156393367, i64 2156393426, i64 2156393492, i64 2156393580, i64 2156393687, i64 2156393828, i64 2156394403, i64 2156394477, i64 2156394551, i64 2156394704, i64 2156394837, i64 2156395193, i64 2156395267, i64 2156395341, i64 2156395494, i64 2156395627, i64 2156395983, i64 2156396057, i64 2156396131, i64 2156396284, i64 2156396417, i64 2156396773, i64 2156396847, i64 2156396921, i64 2156397074, i64 2156397185, i64 2156397450, i64 2156397507, i64 2156397564, i64 2156397621, i64 2156397678, i64 2156397731, i64 2156397778}
-!30 = !{i64 2156401275, i64 2156401453, i64 2156401582, i64 2156401646, i64 2156401714, i64 2156401796, i64 2156401856, i64 2156401895}
-!31 = !{i64 2156406632, i64 2156406682, i64 2156406793, i64 2156406874, i64 2156406915, i64 2156406955, i64 2156406994, i64 2156407032, i64 2156407078, i64 2156407190, i64 2156407273, i64 2156407320, i64 2156407358, i64 2156407403, i64 2156407490, i64 2156407564, i64 2156407610, i64 2156407722, i64 2156407818, i64 2156407865, i64 2156407905, i64 2156407943, i64 2156407988, i64 2156408026, i64 2156408071, i64 2156408138, i64 2156408192, i64 2156408231, i64 2156408337, i64 2156408419, i64 2156408515, i64 2156408606, i64 2156408665, i64 2156408724, i64 2156408790, i64 2156408878, i64 2156408985, i64 2156409135, i64 2156409713, i64 2156409787, i64 2156409861, i64 2156410014, i64 2156410147, i64 2156410503, i64 2156410577, i64 2156410651, i64 2156414865, i64 2156414998, i64 2156415354, i64 2156415428, i64 2156415502, i64 2156415655, i64 2156415788, i64 2156416144, i64 2156416218, i64 2156416292, i64 2156416445, i64 2156416556, i64 2156416821, i64 2156416878, i64 2156416935, i64 2156416992, i64 2156417049, i64 2156417102, i64 2156417149}
-!32 = !{i64 2156420646, i64 2156420824, i64 2156420953, i64 2156421017, i64 2156421085, i64 2156421167, i64 2156421227, i64 2156421266}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10}
-!37 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = !{i64 2145409567}
+!15 = !{i64 2156314839, i64 2156314889, i64 2156315000, i64 2156315081, i64 2156315122, i64 2156315162, i64 2156315201, i64 2156315239, i64 2156315285, i64 2156315397, i64 2156315480, i64 2156315527, i64 2156315565, i64 2156315610, i64 2156315697, i64 2156315771, i64 2156315817, i64 2156315929, i64 2156316025, i64 2156316072, i64 2156316112, i64 2156316150, i64 2156316195, i64 2156316233, i64 2156316278, i64 2156316345, i64 2156316399, i64 2156316438, i64 2156316544, i64 2156316626, i64 2156316722, i64 2156316813, i64 2156316872, i64 2156316931, i64 2156316997, i64 2156317085, i64 2156317192, i64 2156317363, i64 2156317948, i64 2156318022, i64 2156318096, i64 2156318249, i64 2156318382, i64 2156318738, i64 2156318812, i64 2156318886, i64 2156319039, i64 2156319172, i64 2156319528, i64 2156319602, i64 2156319676, i64 2156319829, i64 2156319962, i64 2156320318, i64 2156320392, i64 2156320466, i64 2156320619, i64 2156320730, i64 2156320995, i64 2156321052, i64 2156321109, i64 2156321166, i64 2156321223, i64 2156321276, i64 2156321323}
+!16 = !{i64 2156324820, i64 2156324998, i64 2156325127, i64 2156325191, i64 2156325259, i64 2156325341, i64 2156325401, i64 2156325440}
+!17 = distinct !{!17, !10, !11}
+!18 = !{i64 2156329764, i64 2156329814, i64 2156329925, i64 2156330006, i64 2156330047, i64 2156330087, i64 2156330126, i64 2156330164, i64 2156330210, i64 2156330322, i64 2156330405, i64 2156330452, i64 2156330490, i64 2156330535, i64 2156330622, i64 2156330696, i64 2156330742, i64 2156330854, i64 2156330950, i64 2156330997, i64 2156331037, i64 2156331075, i64 2156331120, i64 2156331158, i64 2156331203, i64 2156331270, i64 2156331324, i64 2156331363, i64 2156331469, i64 2156331551, i64 2156331647, i64 2156331738, i64 2156331797, i64 2156331856, i64 2156331922, i64 2156332010, i64 2156332117, i64 2156332294, i64 2156332881, i64 2156332955, i64 2156333029, i64 2156333182, i64 2156333315, i64 2156333671, i64 2156333745, i64 2156333819, i64 2156333972, i64 2156334105, i64 2156334461, i64 2156334535, i64 2156334609, i64 2156334762, i64 2156334895, i64 2156335251, i64 2156335325, i64 2156335399, i64 2156335552, i64 2156335663, i64 2156335928, i64 2156335985, i64 2156336042, i64 2156336099, i64 2156336156, i64 2156336209, i64 2156336256}
+!19 = !{i64 2156343814, i64 2156343992, i64 2156344121, i64 2156344185, i64 2156344253, i64 2156344335, i64 2156344395, i64 2156344434}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = !{i64 2145411161}
+!26 = distinct !{!26, !10, !11}
+!27 = !{i64 2156363868, i64 2156363918, i64 2156364029, i64 2156364110, i64 2156364151, i64 2156364191, i64 2156364230, i64 2156364268, i64 2156364314, i64 2156364426, i64 2156364509, i64 2156364556, i64 2156364594, i64 2156364639, i64 2156364726, i64 2156364800, i64 2156364846, i64 2156364958, i64 2156365054, i64 2156365101, i64 2156365141, i64 2156365179, i64 2156365224, i64 2156365262, i64 2156365307, i64 2156365374, i64 2156365428, i64 2156365467, i64 2156365573, i64 2156365655, i64 2156365751, i64 2156365842, i64 2156365901, i64 2156365960, i64 2156366026, i64 2156366114, i64 2156366221, i64 2156366389, i64 2156366973, i64 2156367047, i64 2156367121, i64 2156367274, i64 2156367407, i64 2156367763, i64 2156367837, i64 2156367911, i64 2156368064, i64 2156368197, i64 2156368553, i64 2156368627, i64 2156368701, i64 2156368854, i64 2156368987, i64 2156369343, i64 2156369417, i64 2156369491, i64 2156369644, i64 2156369755, i64 2156370020, i64 2156370077, i64 2156370134, i64 2156370191, i64 2156370248, i64 2156370301, i64 2156370348}
+!28 = !{i64 2156373845, i64 2156374023, i64 2156374152, i64 2156374216, i64 2156374284, i64 2156374366, i64 2156374426, i64 2156374465}
+!29 = distinct !{!29, !10, !11}
+!30 = !{i64 2156391334, i64 2156391384, i64 2156391495, i64 2156391576, i64 2156391617, i64 2156391657, i64 2156391696, i64 2156391734, i64 2156391780, i64 2156391892, i64 2156391975, i64 2156392022, i64 2156392060, i64 2156392105, i64 2156392192, i64 2156392266, i64 2156392312, i64 2156392424, i64 2156392520, i64 2156392567, i64 2156392607, i64 2156392645, i64 2156392690, i64 2156392728, i64 2156392773, i64 2156392840, i64 2156392894, i64 2156392933, i64 2156393039, i64 2156393121, i64 2156393217, i64 2156393308, i64 2156393367, i64 2156393426, i64 2156393492, i64 2156393580, i64 2156393687, i64 2156393828, i64 2156394403, i64 2156394477, i64 2156394551, i64 2156394704, i64 2156394837, i64 2156395193, i64 2156395267, i64 2156395341, i64 2156395494, i64 2156395627, i64 2156395983, i64 2156396057, i64 2156396131, i64 2156396284, i64 2156396417, i64 2156396773, i64 2156396847, i64 2156396921, i64 2156397074, i64 2156397185, i64 2156397450, i64 2156397507, i64 2156397564, i64 2156397621, i64 2156397678, i64 2156397731, i64 2156397778}
+!31 = !{i64 2156401275, i64 2156401453, i64 2156401582, i64 2156401646, i64 2156401714, i64 2156401796, i64 2156401856, i64 2156401895}
+!32 = !{i64 2156406632, i64 2156406682, i64 2156406793, i64 2156406874, i64 2156406915, i64 2156406955, i64 2156406994, i64 2156407032, i64 2156407078, i64 2156407190, i64 2156407273, i64 2156407320, i64 2156407358, i64 2156407403, i64 2156407490, i64 2156407564, i64 2156407610, i64 2156407722, i64 2156407818, i64 2156407865, i64 2156407905, i64 2156407943, i64 2156407988, i64 2156408026, i64 2156408071, i64 2156408138, i64 2156408192, i64 2156408231, i64 2156408337, i64 2156408419, i64 2156408515, i64 2156408606, i64 2156408665, i64 2156408724, i64 2156408790, i64 2156408878, i64 2156408985, i64 2156409135, i64 2156409713, i64 2156409787, i64 2156409861, i64 2156410014, i64 2156410147, i64 2156410503, i64 2156410577, i64 2156410651, i64 2156414865, i64 2156414998, i64 2156415354, i64 2156415428, i64 2156415502, i64 2156415655, i64 2156415788, i64 2156416144, i64 2156416218, i64 2156416292, i64 2156416445, i64 2156416556, i64 2156416821, i64 2156416878, i64 2156416935, i64 2156416992, i64 2156417049, i64 2156417102, i64 2156417149}
+!33 = !{i64 2156420646, i64 2156420824, i64 2156420953, i64 2156421017, i64 2156421085, i64 2156421167, i64 2156421227, i64 2156421266}
+!34 = distinct !{!34, !10, !11}
+!35 = distinct !{!35, !10, !11}
+!36 = distinct !{!36, !10, !11}
+!37 = distinct !{!37, !10, !11}
+!38 = !{!"branch_weights", i32 1, i32 1048575}

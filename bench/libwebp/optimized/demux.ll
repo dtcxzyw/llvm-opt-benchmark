@@ -263,7 +263,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds nuw i8, ptr %.035114.lcssa, i64 16
-  %106 = load ptr, ptr %105, align 8, !tbaa !47
+  %106 = load ptr, ptr %105, align 8, !tbaa !48
   %107 = tail call i32 %106(ptr noundef nonnull %84) #13
   %.not51 = icmp eq i32 %107, 0
   br i1 %.not51, label %.critedge, label %.loopexit
@@ -275,7 +275,7 @@ ReadHeader.exit:                                  ; preds = %CreateRawImageDemux
 .lr.ph:                                           ; preds = %86, %97
   %.035114123 = phi ptr [ %98, %97 ], [ @kMasterChunks, %86 ]
   %108 = getelementptr inbounds nuw i8, ptr %.035114123, i64 32
-  %109 = load ptr, ptr %108, align 8, !tbaa !49
+  %109 = load ptr, ptr %108, align 8, !tbaa !50
   %.not48 = icmp eq ptr %109, null
   br i1 %.not48, label %.loopexit, label %97, !llvm.loop !45
 
@@ -312,7 +312,7 @@ define void @WebPDemuxDelete(ptr noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !50
+  %5 = load ptr, ptr %4, align 8, !tbaa !51
   %.not15 = icmp eq ptr %5, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -322,21 +322,21 @@ define void @WebPDemuxDelete(ptr noundef %0) local_unnamed_addr #1 {
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   tail call void @WebPSafeFree(ptr noundef nonnull %.01216) #13
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %9 = load ptr, ptr %8, align 8, !tbaa !52
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
   %.not1417 = icmp eq ptr %9, null
   br i1 %.not1417, label %._crit_edge21, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %._crit_edge, %.lr.ph20
   %.018 = phi ptr [ %11, %.lr.ph20 ], [ %9, %._crit_edge ]
   %10 = getelementptr inbounds nuw i8, ptr %.018, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !53
+  %11 = load ptr, ptr %10, align 8, !tbaa !54
   tail call void @WebPSafeFree(ptr noundef nonnull %.018) #13
   %.not14 = icmp eq ptr %11, null
-  br i1 %.not14, label %._crit_edge21, label %.lr.ph20, !llvm.loop !55
+  br i1 %.not14, label %._crit_edge21, label %.lr.ph20, !llvm.loop !56
 
 ._crit_edge21:                                    ; preds = %.lr.ph20, %._crit_edge
   tail call void @WebPSafeFree(ptr noundef nonnull %0) #13
@@ -409,7 +409,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, pt
 5:                                                ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 72, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %0, ptr %6, align 8, !tbaa !56
+  store ptr %0, ptr %6, align 8, !tbaa !57
   %7 = icmp eq ptr %0, null
   %8 = icmp slt i32 %1, 0
   %or.cond.i = or i1 %7, %8
@@ -437,11 +437,11 @@ define range(i32 0, 2) i32 @WebPDemuxGetFrame(ptr noundef %0, i32 noundef %1, pt
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !39
   %19 = icmp eq i32 %spec.select.i, %18
-  br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !58
+  br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !59
 
 GetFrame.exit.i:                                  ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !59
+  %21 = load ptr, ptr %20, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %23 = load i64, ptr %22, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
@@ -470,48 +470,48 @@ GetFramePayload.exit.i.i:                         ; preds = %28, %GetFrame.exit.
 
 36:                                               ; preds = %GetFramePayload.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 %.018.i.i.i
-  store i32 %spec.select.i, ptr %2, align 8, !tbaa !60
+  store i32 %spec.select.i, ptr %2, align 8, !tbaa !61
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %11, ptr %38, align 4, !tbaa !61
-  %39 = load i32, ptr %.0.i.i, align 8, !tbaa !62
+  store i32 %11, ptr %38, align 4, !tbaa !62
+  %39 = load i32, ptr %.0.i.i, align 8, !tbaa !63
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %39, ptr %40, align 8, !tbaa !63
+  store i32 %39, ptr %40, align 8, !tbaa !64
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !64
+  %42 = load i32, ptr %41, align 4, !tbaa !65
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %42, ptr %43, align 4, !tbaa !65
+  store i32 %42, ptr %43, align 4, !tbaa !66
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !33
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %45, ptr %46, align 8, !tbaa !66
+  store i32 %45, ptr %46, align 8, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %48 = load i32, ptr %47, align 4, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  store i32 %48, ptr %49, align 4, !tbaa !67
+  store i32 %48, ptr %49, align 4, !tbaa !68
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !38
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i32 %51, ptr %52, align 8, !tbaa !68
+  store i32 %51, ptr %52, align 8, !tbaa !69
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
-  %54 = load i32, ptr %53, align 4, !tbaa !69
+  %54 = load i32, ptr %53, align 4, !tbaa !70
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 %54, ptr %55, align 8, !tbaa !70
+  store i32 %54, ptr %55, align 8, !tbaa !71
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %57 = load i32, ptr %56, align 8, !tbaa !71
+  %57 = load i32, ptr %56, align 8, !tbaa !72
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  store i32 %57, ptr %58, align 4, !tbaa !72
+  store i32 %57, ptr %58, align 4, !tbaa !73
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
-  %60 = load i32, ptr %59, align 4, !tbaa !73
+  %60 = load i32, ptr %59, align 4, !tbaa !74
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store i32 %60, ptr %61, align 4, !tbaa !74
+  store i32 %60, ptr %61, align 4, !tbaa !75
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 36
   %63 = load i32, ptr %62, align 4, !tbaa !40
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %63, ptr %64, align 8, !tbaa !75
+  store i32 %63, ptr %64, align 8, !tbaa !76
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr %37, ptr %65, align 8, !tbaa !76
+  store ptr %37, ptr %65, align 8, !tbaa !77
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 %.030.i.i, ptr %66, align 8, !tbaa !77
+  store i64 %.030.i.i, ptr %66, align 8, !tbaa !78
   br label %SetFrame.exit
 
 SetFrame.exit:                                    ; preds = %15, %36, %GetFramePayload.exit.i.i, %9, %5, %3
@@ -528,10 +528,10 @@ define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef captures(address_is_n
   br i1 %2, label %SetFrame.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !60
+  %4 = load i32, ptr %0, align 8, !tbaa !61
   %5 = add nsw i32 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
   %8 = icmp eq ptr %7, null
   %9 = icmp slt i32 %4, -1
   %or.cond.i = or i1 %9, %8
@@ -559,11 +559,11 @@ define range(i32 0, 2) i32 @WebPDemuxNextFrame(ptr noundef captures(address_is_n
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !39
   %19 = icmp eq i32 %spec.select.i, %18
-  br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !58
+  br i1 %19, label %GetFrame.exit.i, label %15, !llvm.loop !59
 
 GetFrame.exit.i:                                  ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %21 = load ptr, ptr %20, align 8, !tbaa !59
+  %21 = load ptr, ptr %20, align 8, !tbaa !60
   %22 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %23 = load i64, ptr %22, align 8, !tbaa !28
   %24 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
@@ -592,48 +592,48 @@ GetFramePayload.exit.i.i:                         ; preds = %28, %GetFrame.exit.
 
 36:                                               ; preds = %GetFramePayload.exit.i.i
   %37 = getelementptr inbounds nuw i8, ptr %21, i64 %.018.i.i.i
-  store i32 %spec.select.i, ptr %0, align 8, !tbaa !60
+  store i32 %spec.select.i, ptr %0, align 8, !tbaa !61
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %12, ptr %38, align 4, !tbaa !61
-  %39 = load i32, ptr %.0.i.i, align 8, !tbaa !62
+  store i32 %12, ptr %38, align 4, !tbaa !62
+  %39 = load i32, ptr %.0.i.i, align 8, !tbaa !63
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %39, ptr %40, align 8, !tbaa !63
+  store i32 %39, ptr %40, align 8, !tbaa !64
   %41 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %42 = load i32, ptr %41, align 4, !tbaa !64
+  %42 = load i32, ptr %41, align 4, !tbaa !65
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %42, ptr %43, align 4, !tbaa !65
+  store i32 %42, ptr %43, align 4, !tbaa !66
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !33
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %45, ptr %46, align 8, !tbaa !66
+  store i32 %45, ptr %46, align 8, !tbaa !67
   %47 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %48 = load i32, ptr %47, align 4, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %48, ptr %49, align 4, !tbaa !67
+  store i32 %48, ptr %49, align 4, !tbaa !68
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !38
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %51, ptr %52, align 8, !tbaa !68
+  store i32 %51, ptr %52, align 8, !tbaa !69
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
-  %54 = load i32, ptr %53, align 4, !tbaa !69
+  %54 = load i32, ptr %53, align 4, !tbaa !70
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %54, ptr %55, align 8, !tbaa !70
+  store i32 %54, ptr %55, align 8, !tbaa !71
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %57 = load i32, ptr %56, align 8, !tbaa !71
+  %57 = load i32, ptr %56, align 8, !tbaa !72
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %57, ptr %58, align 4, !tbaa !72
+  store i32 %57, ptr %58, align 4, !tbaa !73
   %59 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
-  %60 = load i32, ptr %59, align 4, !tbaa !73
+  %60 = load i32, ptr %59, align 4, !tbaa !74
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %60, ptr %61, align 4, !tbaa !74
+  store i32 %60, ptr %61, align 4, !tbaa !75
   %62 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 36
   %63 = load i32, ptr %62, align 4, !tbaa !40
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %63, ptr %64, align 8, !tbaa !75
+  store i32 %63, ptr %64, align 8, !tbaa !76
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %37, ptr %65, align 8, !tbaa !76
+  store ptr %37, ptr %65, align 8, !tbaa !77
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.030.i.i, ptr %66, align 8, !tbaa !77
+  store i64 %.030.i.i, ptr %66, align 8, !tbaa !78
   br label %SetFrame.exit
 
 SetFrame.exit:                                    ; preds = %15, %36, %GetFramePayload.exit.i.i, %10, %3, %1
@@ -647,14 +647,14 @@ define range(i32 0, 2) i32 @WebPDemuxPrevFrame(ptr noundef captures(address_is_n
   br i1 %2, label %SetFrame.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !60
+  %4 = load i32, ptr %0, align 8, !tbaa !61
   %5 = icmp slt i32 %4, 2
   br i1 %5, label %SetFrame.exit, label %6
 
 6:                                                ; preds = %3
   %7 = add nsw i32 %4, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !56
+  %9 = load ptr, ptr %8, align 8, !tbaa !57
   %10 = icmp eq ptr %9, null
   br i1 %10, label %SetFrame.exit, label %11
 
@@ -675,11 +675,11 @@ define range(i32 0, 2) i32 @WebPDemuxPrevFrame(ptr noundef captures(address_is_n
   %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !39
   %18 = icmp eq i32 %7, %17
-  br i1 %18, label %GetFrame.exit.i, label %.preheader, !llvm.loop !58
+  br i1 %18, label %GetFrame.exit.i, label %.preheader, !llvm.loop !59
 
 GetFrame.exit.i:                                  ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !59
+  %20 = load ptr, ptr %19, align 8, !tbaa !60
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %22 = load i64, ptr %21, align 8, !tbaa !28
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
@@ -708,48 +708,48 @@ GetFramePayload.exit.i.i:                         ; preds = %27, %GetFrame.exit.
 
 35:                                               ; preds = %GetFramePayload.exit.i.i
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 %.018.i.i.i
-  store i32 %7, ptr %0, align 8, !tbaa !60
+  store i32 %7, ptr %0, align 8, !tbaa !61
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %13, ptr %37, align 4, !tbaa !61
-  %38 = load i32, ptr %.0.i.i, align 8, !tbaa !62
+  store i32 %13, ptr %37, align 4, !tbaa !62
+  %38 = load i32, ptr %.0.i.i, align 8, !tbaa !63
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %38, ptr %39, align 8, !tbaa !63
+  store i32 %38, ptr %39, align 8, !tbaa !64
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
-  %41 = load i32, ptr %40, align 4, !tbaa !64
+  %41 = load i32, ptr %40, align 4, !tbaa !65
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %41, ptr %42, align 4, !tbaa !65
+  store i32 %41, ptr %42, align 4, !tbaa !66
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %44, ptr %45, align 8, !tbaa !66
+  store i32 %44, ptr %45, align 8, !tbaa !67
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %47 = load i32, ptr %46, align 4, !tbaa !36
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %47, ptr %48, align 4, !tbaa !67
+  store i32 %47, ptr %48, align 4, !tbaa !68
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !38
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %50, ptr %51, align 8, !tbaa !68
+  store i32 %50, ptr %51, align 8, !tbaa !69
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 20
-  %53 = load i32, ptr %52, align 4, !tbaa !69
+  %53 = load i32, ptr %52, align 4, !tbaa !70
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %53, ptr %54, align 8, !tbaa !70
+  store i32 %53, ptr %54, align 8, !tbaa !71
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %56 = load i32, ptr %55, align 8, !tbaa !71
+  %56 = load i32, ptr %55, align 8, !tbaa !72
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %56, ptr %57, align 4, !tbaa !72
+  store i32 %56, ptr %57, align 4, !tbaa !73
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 28
-  %59 = load i32, ptr %58, align 4, !tbaa !73
+  %59 = load i32, ptr %58, align 4, !tbaa !74
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i32 %59, ptr %60, align 4, !tbaa !74
+  store i32 %59, ptr %60, align 4, !tbaa !75
   %61 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 36
   %62 = load i32, ptr %61, align 4, !tbaa !40
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %62, ptr %63, align 8, !tbaa !75
+  store i32 %62, ptr %63, align 8, !tbaa !76
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %36, ptr %64, align 8, !tbaa !76
+  store ptr %36, ptr %64, align 8, !tbaa !77
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %.030.i.i, ptr %65, align 8, !tbaa !77
+  store i64 %.030.i.i, ptr %65, align 8, !tbaa !78
   br label %SetFrame.exit
 
 SetFrame.exit:                                    ; preds = %.preheader, %35, %GetFramePayload.exit.i.i, %11, %6, %3, %1
@@ -770,7 +770,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef readon
 6:                                                ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr %0, ptr %7, align 8, !tbaa !78
+  store ptr %0, ptr %7, align 8, !tbaa !79
   %8 = tail call fastcc i32 @SetChunk(ptr noundef %1, i32 noundef %2, ptr noundef %3)
   br label %9
 
@@ -782,7 +782,7 @@ define range(i32 0, 2) i32 @WebPDemuxGetChunk(ptr noundef %0, ptr noundef readon
 ; Function Attrs: nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %5 = load ptr, ptr %4, align 8, !tbaa !78
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %0, null
   %or.cond = or i1 %7, %6
@@ -792,25 +792,25 @@ define internal fastcc range(i32 0, 2) i32 @SetChunk(ptr noundef readonly captur
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !60
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %.011.i = load ptr, ptr %12, align 8, !tbaa !80
+  %.011.i = load ptr, ptr %12, align 8, !tbaa !81
   %.not12.i = icmp eq ptr %.011.i, null
   br i1 %.not12.i, label %ChunkCount.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.014.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.011.i, %9 ]
   %.0913.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ 0, %9 ]
-  %13 = load i64, ptr %.014.i, align 8, !tbaa !81
+  %13 = load i64, ptr %.014.i, align 8, !tbaa !82
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %14, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not10.i = icmp eq i32 %bcmp.i, 0
   %15 = zext i1 %.not10.i to i32
   %spec.select.i = add nuw nsw i32 %.0913.i, %15
   %16 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
-  %.0.i = load ptr, ptr %16, align 8, !tbaa !80
+  %.0.i = load ptr, ptr %16, align 8, !tbaa !81
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %ChunkCount.exit, label %.lr.ph.i, !llvm.loop !82
+  br i1 %.not.i, label %ChunkCount.exit, label %.lr.ph.i, !llvm.loop !83
 
 ChunkCount.exit:                                  ; preds = %.lr.ph.i
   %17 = icmp eq i32 %spec.select.i, 0
@@ -823,7 +823,7 @@ ChunkCount.exit:                                  ; preds = %.lr.ph.i
   br i1 %.not, label %ChunkCount.exit.thread, label %.lr.ph.i32.preheader
 
 .lr.ph.i32.preheader:                             ; preds = %18
-  %20 = load i64, ptr %.011.i, align 8, !tbaa !81
+  %20 = load i64, ptr %.011.i, align 8, !tbaa !82
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 %20
   %bcmp.i3337 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %21, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not14.i38 = icmp eq i32 %bcmp.i3337, 0
@@ -835,8 +835,8 @@ ChunkCount.exit:                                  ; preds = %.lr.ph.i
   %spec.select.i3440 = phi i32 [ %spec.select.i34, %.lr.ph.i32 ], [ %22, %.lr.ph.i32.preheader ]
   %.01218.i39 = phi ptr [ %.012.i, %.lr.ph.i32 ], [ %.011.i, %.lr.ph.i32.preheader ]
   %24 = getelementptr inbounds nuw i8, ptr %.01218.i39, i64 16
-  %.012.i = load ptr, ptr %24, align 8, !tbaa !80, !nonnull !83, !noundef !83
-  %25 = load i64, ptr %.012.i, align 8, !tbaa !81
+  %.012.i = load ptr, ptr %24, align 8, !tbaa !81, !nonnull !84, !noundef !84
+  %25 = load i64, ptr %.012.i, align 8, !tbaa !82
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 %25
   %bcmp.i33 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %26, ptr noundef nonnull readonly dereferenceable(4) %0, i64 4)
   %.not14.i = icmp eq i32 %bcmp.i33, 0
@@ -851,15 +851,15 @@ GetChunk.exit:                                    ; preds = %.lr.ph.i32, %.lr.ph
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %31, ptr %32, align 8, !tbaa !84
+  store ptr %31, ptr %32, align 8, !tbaa !85
   %33 = getelementptr inbounds nuw i8, ptr %.01218.i.lcssa, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !85
+  %34 = load i64, ptr %33, align 8, !tbaa !86
   %35 = add i64 %34, -8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 %35, ptr %36, align 8, !tbaa !86
+  store i64 %35, ptr %36, align 8, !tbaa !87
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %spec.select.i, ptr %37, align 4, !tbaa !87
-  store i32 %spec.select, ptr %2, align 8, !tbaa !88
+  store i32 %spec.select.i, ptr %37, align 4, !tbaa !88
+  store i32 %spec.select, ptr %2, align 8, !tbaa !89
   br label %ChunkCount.exit.thread
 
 ChunkCount.exit.thread:                           ; preds = %9, %18, %ChunkCount.exit, %3, %GetChunk.exit
@@ -874,9 +874,9 @@ define range(i32 0, 2) i32 @WebPDemuxNextChunk(ptr noundef captures(address_is_n
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !84
+  %4 = load ptr, ptr %3, align 8, !tbaa !85
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
-  %6 = load i32, ptr %0, align 8, !tbaa !88
+  %6 = load i32, ptr %0, align 8, !tbaa !89
   %7 = add nsw i32 %6, 1
   %8 = tail call fastcc i32 @SetChunk(ptr noundef nonnull %5, i32 noundef %7, ptr noundef %0)
   br label %9
@@ -892,13 +892,13 @@ define range(i32 0, 2) i32 @WebPDemuxPrevChunk(ptr noundef captures(address_is_n
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  %3 = load i32, ptr %0, align 8, !tbaa !88
+  %3 = load i32, ptr %0, align 8, !tbaa !89
   %4 = icmp sgt i32 %3, 1
   br i1 %4, label %5, label %11
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !84
+  %7 = load ptr, ptr %6, align 8, !tbaa !85
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = add nsw i32 %3, -1
   %10 = tail call fastcc i32 @SetChunk(ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0)
@@ -919,21 +919,21 @@ declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @ParseSingleImage(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %56
 
 4:                                                ; preds = %1
-  %.val45 = load i64, ptr %0, align 8, !tbaa !89
+  %.val45 = load i64, ptr %0, align 8, !tbaa !90
   %5 = getelementptr i8, ptr %0, i64 16
-  %.val46 = load i64, ptr %5, align 8, !tbaa !90
+  %.val46 = load i64, ptr %5, align 8, !tbaa !91
   %6 = sub i64 %.val46, %.val45
   %7 = icmp ugt i64 %6, 7
   br i1 %7, label %8, label %56
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %0, i64 8
-  %.val44 = load i64, ptr %9, align 8, !tbaa !91
+  %.val44 = load i64, ptr %9, align 8, !tbaa !92
   %10 = sub i64 %.val44, %.val45
   %11 = icmp ult i64 %10, 8
   br i1 %11, label %56, label %12
@@ -970,7 +970,7 @@ define internal range(i32 0, 3) i32 @ParseSingleImage(ptr noundef captures(none)
 
 27:                                               ; preds = %24, %21, %17
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %29 = load i32, ptr %28, align 4, !tbaa !92
+  %29 = load i32, ptr %28, align 4, !tbaa !93
   %.not40 = icmp eq i32 %29, 0
   br i1 %.not40, label %30, label %46
 
@@ -1035,7 +1035,7 @@ AddFrame.exit.thread:                             ; preds = %50, %15
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @IsValidSimpleFormat(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !50
+  %3 = load ptr, ptr %2, align 8, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !13
   %6 = icmp eq i32 %5, 0
@@ -1079,24 +1079,24 @@ define internal range(i32 0, 2) i32 @IsValidSimpleFormat(ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1 {
-  %.val33 = load i64, ptr %0, align 8, !tbaa !89
+  %.val33 = load i64, ptr %0, align 8, !tbaa !90
   %2 = getelementptr i8, ptr %0, i64 8
-  %.val34 = load i64, ptr %2, align 8, !tbaa !91
+  %.val34 = load i64, ptr %2, align 8, !tbaa !92
   %3 = sub i64 %.val34, %.val33
   %4 = icmp ult i64 %3, 8
   br i1 %4, label %61, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 1, ptr %6, align 4, !tbaa !92
+  store i32 1, ptr %6, align 4, !tbaa !93
   %7 = add i64 %.val33, 4
-  store i64 %7, ptr %0, align 8, !tbaa !89
+  store i64 %7, ptr %0, align 8, !tbaa !90
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !93
+  %9 = load ptr, ptr %8, align 8, !tbaa !94
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %7
   %.val.i.i = load i32, ptr %10, align 1
   %11 = add i64 %.val33, 8
-  store i64 %11, ptr %0, align 8, !tbaa !89
+  store i64 %11, ptr %0, align 8, !tbaa !90
   %12 = add i32 %.val.i.i, 9
   %or.cond = icmp ult i32 %12, 19
   br i1 %or.cond, label %61, label %13
@@ -1106,7 +1106,7 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
   %15 = add nuw i32 %14, %.val.i.i
   %16 = zext i32 %15 to i64
   %17 = getelementptr i8, ptr %0, i64 16
-  %.val36 = load i64, ptr %17, align 8, !tbaa !90
+  %.val36 = load i64, ptr %17, align 8, !tbaa !91
   %18 = sub i64 %.val36, %11
   %.not = icmp ult i64 %18, %16
   br i1 %.not, label %61, label %19
@@ -1118,22 +1118,22 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 %11
-  %24 = load i8, ptr %23, align 1, !tbaa !94
+  %24 = load i8, ptr %23, align 1, !tbaa !95
   %25 = zext i8 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %25, ptr %26, align 8, !tbaa !43
   %27 = add i64 %.val33, 12
-  store i64 %27, ptr %0, align 8, !tbaa !89
+  store i64 %27, ptr %0, align 8, !tbaa !90
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 %27
   %.val.i.i39 = load i16, ptr %28, align 1
   %29 = zext i16 %.val.i.i39 to i32
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 2
-  %31 = load i8, ptr %30, align 1, !tbaa !94
+  %31 = load i8, ptr %30, align 1, !tbaa !95
   %32 = zext i8 %31 to i32
   %33 = shl nuw nsw i32 %32, 16
   %34 = or disjoint i32 %33, %29
   %35 = add i64 %.val33, 15
-  store i64 %35, ptr %0, align 8, !tbaa !89
+  store i64 %35, ptr %0, align 8, !tbaa !90
   %36 = add nuw nsw i32 %34, 1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %36, ptr %37, align 4, !tbaa !22
@@ -1141,12 +1141,12 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
   %.val.i.i40 = load i16, ptr %38, align 1
   %39 = zext i16 %.val.i.i40 to i32
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  %41 = load i8, ptr %40, align 1, !tbaa !94
+  %41 = load i8, ptr %40, align 1, !tbaa !95
   %42 = zext i8 %41 to i32
   %43 = shl nuw nsw i32 %42, 16
   %44 = or disjoint i32 %43, %39
   %45 = add i64 %.val33, 18
-  store i64 %45, ptr %0, align 8, !tbaa !89
+  store i64 %45, ptr %0, align 8, !tbaa !90
   %46 = add nuw nsw i32 %44, 1
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %46, ptr %47, align 8, !tbaa !23
@@ -1158,7 +1158,7 @@ define internal range(i32 0, 3) i32 @ParseVP8X(ptr noundef captures(none) %0) #1
   %50 = add i32 %15, -10
   %51 = zext i32 %50 to i64
   %52 = add i64 %45, %51
-  store i64 %52, ptr %0, align 8, !tbaa !89
+  store i64 %52, ptr %0, align 8, !tbaa !90
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %53, align 8, !tbaa !13
   %54 = sub i64 %.val36, %52
@@ -1186,7 +1186,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
   %4 = and i32 %3, 2
   %.not = icmp eq i32 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !50
+  %6 = load ptr, ptr %5, align 8, !tbaa !51
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8, !tbaa !13
   %9 = icmp eq i32 %8, 0
@@ -1236,7 +1236,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
   %30 = getelementptr inbounds nuw i8, ptr %.14375, i64 32
   %31 = load i32, ptr %30, align 8, !tbaa !39
   %32 = icmp eq i32 %31, %27
-  br i1 %32, label %33, label %.lr.ph, !llvm.loop !95
+  br i1 %32, label %33, label %.lr.ph, !llvm.loop !96
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %.14375, i64 40
@@ -1320,7 +1320,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
   br i1 %77, label %78, label %.critedge59
 
 78:                                               ; preds = %.thread79
-  %79 = load i32, ptr %.14375, align 8, !tbaa !62
+  %79 = load i32, ptr %.14375, align 8, !tbaa !63
   br i1 %.not, label %80, label %84
 
 80:                                               ; preds = %78
@@ -1329,7 +1329,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %.14375, i64 4
-  %83 = load i32, ptr %82, align 4, !tbaa !64
+  %83 = load i32, ptr %82, align 4, !tbaa !65
   %.not18.i = icmp eq i32 %83, 0
   %.not19.i = icmp eq i32 %74, %12
   %or.cond64 = and i1 %.not19.i, %.not18.i
@@ -1343,7 +1343,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
 
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %.14375, i64 4
-  %88 = load i32, ptr %87, align 4, !tbaa !64
+  %88 = load i32, ptr %87, align 4, !tbaa !65
   %89 = icmp slt i32 %88, 0
   %90 = add nuw nsw i32 %79, %74
   %91 = icmp sgt i32 %90, %12
@@ -1357,7 +1357,7 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
   %94 = getelementptr inbounds nuw i8, ptr %.14375, i64 72
   %95 = load ptr, ptr %94, align 8, !tbaa !42
   %.not50 = icmp eq ptr %95, null
-  br i1 %.not50, label %.critedge60, label %29, !llvm.loop !96
+  br i1 %.not50, label %.critedge60, label %29, !llvm.loop !97
 
 .critedge60:                                      ; preds = %.critedge59, %84, %86, %80, %81, %69, %65, %58, %.thread, %54, %47, %43, %33, %.preheader, %22, %18, %10, %14, %1
   %.0 = phi i32 [ 1, %1 ], [ 0, %14 ], [ 0, %10 ], [ 0, %18 ], [ 0, %22 ], [ 1, %.preheader ], [ 1, %.critedge59 ], [ 0, %84 ], [ 0, %86 ], [ 0, %80 ], [ 0, %81 ], [ 0, %69 ], [ 0, %65 ], [ 0, %58 ], [ 0, %.thread ], [ 0, %54 ], [ 0, %47 ], [ 0, %43 ], [ 0, %33 ]
@@ -1367,9 +1367,9 @@ define internal range(i32 0, 2) i32 @IsValidExtendedFormat(ptr noundef readonly 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -2147483647, -2147483648) %0, i32 noundef range(i32 -16, -24) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #1 {
   %5 = alloca %struct.WebPBitstreamFeatures, align 4
-  %.val89 = load i64, ptr %2, align 8, !tbaa !89
+  %.val89 = load i64, ptr %2, align 8, !tbaa !90
   %6 = getelementptr i8, ptr %2, i64 8
-  %.val90 = load i64, ptr %6, align 8, !tbaa !91
+  %.val90 = load i64, ptr %6, align 8, !tbaa !92
   %7 = sub i64 %.val90, %.val89
   %8 = icmp ult i64 %7, 8
   %9 = zext i32 %1 to i64
@@ -1398,15 +1398,15 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %25 = phi i64 [ %65, %67 ], [ %.val89, %.preheader ]
   %.061 = phi i32 [ %.263, %67 ], [ 0, %.preheader ]
   %.058 = phi i32 [ %.260, %67 ], [ 0, %.preheader ]
-  %26 = load ptr, ptr %11, align 8, !tbaa !93
+  %26 = load ptr, ptr %11, align 8, !tbaa !94
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %25
   %.val.i.i = load i32, ptr %27, align 1
   %28 = add i64 %25, 4
-  store i64 %28, ptr %2, align 8, !tbaa !89
+  store i64 %28, ptr %2, align 8, !tbaa !90
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
   %.val.i.i93 = load i32, ptr %29, align 1
   %30 = add i64 %25, 8
-  store i64 %30, ptr %2, align 8, !tbaa !89
+  store i64 %30, ptr %2, align 8, !tbaa !90
   %31 = icmp ugt i32 %.val.i.i93, -10
   br i1 %31, label %.critedge, label %32
 
@@ -1417,7 +1417,7 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   %36 = sub i64 %.val86, %30
   %spec.select112 = call i64 @llvm.umin.i64(i64 %36, i64 %35)
   %37 = add nuw nsw i64 %spec.select112, 8
-  %.val92 = load i64, ptr %12, align 8, !tbaa !90
+  %.val92 = load i64, ptr %12, align 8, !tbaa !91
   %38 = sub i64 %.val92, %30
   %.not = icmp ult i64 %38, %35
   br i1 %.not, label %.critedge, label %39
@@ -1441,7 +1441,7 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   store i32 1, ptr %19, align 8, !tbaa !38
   store i32 %0, ptr %20, align 8, !tbaa !39
   %44 = add i64 %spec.select112, %30
-  store i64 %44, ptr %2, align 8, !tbaa !89
+  store i64 %44, ptr %2, align 8, !tbaa !90
   br label %63
 
 45:                                               ; preds = %39
@@ -1483,15 +1483,15 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   store i32 %59, ptr %19, align 8, !tbaa !38
   store i32 %0, ptr %20, align 8, !tbaa !39
   store i32 %54, ptr %21, align 4, !tbaa !40
-  %60 = load i64, ptr %2, align 8, !tbaa !89
+  %60 = load i64, ptr %2, align 8, !tbaa !90
   %61 = add i64 %60, %spec.select112
-  store i64 %61, ptr %2, align 8, !tbaa !89
+  store i64 %61, ptr %2, align 8, !tbaa !90
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #13
-  %.pre = load i64, ptr %12, align 8, !tbaa !90
+  %.pre = load i64, ptr %12, align 8, !tbaa !91
   br label %63
 
 62:                                               ; preds = %41, %46, %39
-  store i64 %25, ptr %2, align 8, !tbaa !89
+  store i64 %25, ptr %2, align 8, !tbaa !90
   br label %63
 
 63:                                               ; preds = %52, %62, %43
@@ -1504,13 +1504,13 @@ define internal fastcc range(i32 0, 3) i32 @StoreFrame(i32 noundef range(i32 -21
   br i1 %66, label %.critedge, label %67
 
 67:                                               ; preds = %63
-  %.val80 = load i64, ptr %6, align 8, !tbaa !91
+  %.val80 = load i64, ptr %6, align 8, !tbaa !92
   %68 = sub i64 %.val80, %65
   %69 = icmp ult i64 %68, 8
   %spec.select79 = select i1 %69, i32 1, i32 %spec.select
   %70 = icmp eq i32 %spec.select79, 0
   %71 = select i1 %.not78, i1 %70, i1 false
-  br i1 %71, label %24, label %.critedge, !llvm.loop !97
+  br i1 %71, label %24, label %.critedge, !llvm.loop !98
 
 .critedge:                                        ; preds = %45, %32, %24, %63, %67, %.thread, %4
   %.0 = phi i32 [ 1, %4 ], [ %.4.ph, %.thread ], [ 2, %24 ], [ 2, %32 ], [ 2, %45 ], [ %spec.select, %63 ], [ %spec.select79, %67 ]
@@ -1531,21 +1531,21 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre = load i64, ptr %0, align 8, !tbaa !89
+  %.pre = load i64, ptr %0, align 8, !tbaa !90
   br label %14
 
 14:                                               ; preds = %168, %1
   %15 = phi i64 [ %.pre, %1 ], [ %165, %168 ]
   %.048 = phi i32 [ 0, %1 ], [ %.250, %168 ]
-  %16 = load ptr, ptr %7, align 8, !tbaa !93
+  %16 = load ptr, ptr %7, align 8, !tbaa !94
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   %.val.i.i = load i32, ptr %17, align 1
   %18 = add i64 %15, 4
-  store i64 %18, ptr %0, align 8, !tbaa !89
+  store i64 %18, ptr %0, align 8, !tbaa !90
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
   %.val.i.i70 = load i32, ptr %19, align 1
   %20 = add i64 %15, 8
-  store i64 %20, ptr %0, align 8, !tbaa !89
+  store i64 %20, ptr %0, align 8, !tbaa !90
   %21 = icmp ugt i32 %.val.i.i70, -10
   br i1 %21, label %.thread81, label %22
 
@@ -1553,7 +1553,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   %23 = and i32 %.val.i.i70, 1
   %24 = add nuw i32 %23, %.val.i.i70
   %25 = zext i32 %24 to i64
-  %.val69 = load i64, ptr %8, align 8, !tbaa !90
+  %.val69 = load i64, ptr %8, align 8, !tbaa !91
   %26 = sub i64 %.val69, %20
   %.not = icmp ult i64 %26, %25
   br i1 %.not, label %.thread81, label %27
@@ -1577,7 +1577,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   br i1 %or.cond, label %.thread81, label %30
 
 30:                                               ; preds = %28
-  store i64 %15, ptr %0, align 8, !tbaa !89
+  store i64 %15, ptr %0, align 8, !tbaa !90
   %31 = tail call i32 @ParseSingleImage(ptr noundef nonnull %0)
   br label %ParseAnimationFrame.exit
 
@@ -1586,7 +1586,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   br i1 %33, label %.thread81, label %34
 
 34:                                               ; preds = %32
-  %.val67 = load i64, ptr %6, align 8, !tbaa !91
+  %.val67 = load i64, ptr %6, align 8, !tbaa !92
   %35 = sub i64 %.val67, %20
   %36 = icmp ult i64 %35, %25
   br i1 %36, label %ParseAnimationFrame.exit, label %37
@@ -1599,7 +1599,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   %40 = getelementptr inbounds nuw i8, ptr %16, i64 %20
   %.val.i.i71 = load i32, ptr %40, align 1
   %41 = add i64 %15, 12
-  store i64 %41, ptr %0, align 8, !tbaa !89
+  store i64 %41, ptr %0, align 8, !tbaa !90
   store i32 %.val.i.i71, ptr %11, align 8, !tbaa !21
   %42 = getelementptr inbounds nuw i8, ptr %16, i64 %41
   %.val.i = load i16, ptr %42, align 1
@@ -1609,7 +1609,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   %45 = add i32 %24, -6
   %46 = zext i32 %45 to i64
   %47 = add i64 %44, %46
-  store i64 %47, ptr %0, align 8, !tbaa !89
+  store i64 %47, ptr %0, align 8, !tbaa !90
   br label %ParseAnimationFrame.exit
 
 48:                                               ; preds = %27
@@ -1625,7 +1625,7 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   br i1 %55, label %ParseAnimationFrame.exit, label %56
 
 56:                                               ; preds = %50
-  %.val8.i.i = load i64, ptr %6, align 8, !tbaa !91
+  %.val8.i.i = load i64, ptr %6, align 8, !tbaa !92
   %57 = sub i64 %.val8.i.i, %20
   %58 = icmp ult i64 %57, 16
   br i1 %58, label %ParseAnimationFrame.exit, label %59
@@ -1636,43 +1636,43 @@ define internal fastcc range(i32 0, 3) i32 @ParseVP8XChunks(ptr noundef captures
   br i1 %61, label %ParseAnimationFrame.exit, label %NewFrame.exit.i
 
 NewFrame.exit.i:                                  ; preds = %59
-  %62 = load ptr, ptr %7, align 8, !tbaa !93
-  %63 = load i64, ptr %0, align 8, !tbaa !89
+  %62 = load ptr, ptr %7, align 8, !tbaa !94
+  %63 = load i64, ptr %0, align 8, !tbaa !90
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %63
   %.val.i.i.i = load i16, ptr %64, align 1
   %65 = zext i16 %.val.i.i.i to i32
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 2
-  %67 = load i8, ptr %66, align 1, !tbaa !94
+  %67 = load i8, ptr %66, align 1, !tbaa !95
   %68 = zext i8 %67 to i32
   %69 = add i64 %63, 3
-  store i64 %69, ptr %0, align 8, !tbaa !89
+  store i64 %69, ptr %0, align 8, !tbaa !90
   %70 = shl nuw nsw i32 %68, 17
   %71 = shl nuw nsw i32 %65, 1
   %72 = or disjoint i32 %70, %71
-  store i32 %72, ptr %60, align 8, !tbaa !62
+  store i32 %72, ptr %60, align 8, !tbaa !63
   %73 = getelementptr inbounds nuw i8, ptr %62, i64 %69
   %.val.i.i43.i = load i16, ptr %73, align 1
   %74 = zext i16 %.val.i.i43.i to i32
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 2
-  %76 = load i8, ptr %75, align 1, !tbaa !94
+  %76 = load i8, ptr %75, align 1, !tbaa !95
   %77 = zext i8 %76 to i32
   %78 = add i64 %63, 6
-  store i64 %78, ptr %0, align 8, !tbaa !89
+  store i64 %78, ptr %0, align 8, !tbaa !90
   %79 = shl nuw nsw i32 %77, 17
   %80 = shl nuw nsw i32 %74, 1
   %81 = or disjoint i32 %79, %80
   %82 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 %81, ptr %82, align 4, !tbaa !64
+  store i32 %81, ptr %82, align 4, !tbaa !65
   %83 = getelementptr inbounds nuw i8, ptr %62, i64 %78
   %.val.i.i44.i = load i16, ptr %83, align 1
   %84 = zext i16 %.val.i.i44.i to i32
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 2
-  %86 = load i8, ptr %85, align 1, !tbaa !94
+  %86 = load i8, ptr %85, align 1, !tbaa !95
   %87 = zext i8 %86 to i32
   %88 = shl nuw nsw i32 %87, 16
   %89 = or disjoint i32 %88, %84
   %90 = add i64 %63, 9
-  store i64 %90, ptr %0, align 8, !tbaa !89
+  store i64 %90, ptr %0, align 8, !tbaa !90
   %91 = add nuw nsw i32 %89, 1
   %92 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %91, ptr %92, align 8, !tbaa !33
@@ -1680,12 +1680,12 @@ NewFrame.exit.i:                                  ; preds = %59
   %.val.i.i45.i = load i16, ptr %93, align 1
   %94 = zext i16 %.val.i.i45.i to i32
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 2
-  %96 = load i8, ptr %95, align 1, !tbaa !94
+  %96 = load i8, ptr %95, align 1, !tbaa !95
   %97 = zext i8 %96 to i32
   %98 = shl nuw nsw i32 %97, 16
   %99 = or disjoint i32 %98, %94
   %100 = add i64 %63, 12
-  store i64 %100, ptr %0, align 8, !tbaa !89
+  store i64 %100, ptr %0, align 8, !tbaa !90
   %101 = add nuw nsw i32 %99, 1
   %102 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 %101, ptr %102, align 4, !tbaa !36
@@ -1693,26 +1693,26 @@ NewFrame.exit.i:                                  ; preds = %59
   %.val.i.i46.i = load i16, ptr %103, align 1
   %104 = zext i16 %.val.i.i46.i to i32
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 2
-  %106 = load i8, ptr %105, align 1, !tbaa !94
+  %106 = load i8, ptr %105, align 1, !tbaa !95
   %107 = zext i8 %106 to i32
   %108 = shl nuw nsw i32 %107, 16
   %109 = or disjoint i32 %108, %104
   %110 = add i64 %63, 15
-  store i64 %110, ptr %0, align 8, !tbaa !89
+  store i64 %110, ptr %0, align 8, !tbaa !90
   %111 = getelementptr inbounds nuw i8, ptr %60, i64 20
-  store i32 %109, ptr %111, align 4, !tbaa !69
+  store i32 %109, ptr %111, align 4, !tbaa !70
   %112 = getelementptr inbounds nuw i8, ptr %62, i64 %110
-  %113 = load i8, ptr %112, align 1, !tbaa !94
+  %113 = load i8, ptr %112, align 1, !tbaa !95
   %114 = add i64 %63, 16
-  store i64 %114, ptr %0, align 8, !tbaa !89
+  store i64 %114, ptr %0, align 8, !tbaa !90
   %115 = zext i8 %113 to i32
   %116 = and i32 %115, 1
   %117 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store i32 %116, ptr %117, align 8, !tbaa !71
+  store i32 %116, ptr %117, align 8, !tbaa !72
   %118 = lshr i32 %115, 1
   %.lobit.i = and i32 %118, 1
   %119 = getelementptr inbounds nuw i8, ptr %60, i64 28
-  store i32 %.lobit.i, ptr %119, align 4, !tbaa !73
+  store i32 %.lobit.i, ptr %119, align 4, !tbaa !74
   %umul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %91, i32 %101)
   %120 = extractvalue { i32, i1 } %umul.i, 1
   br i1 %120, label %121, label %122
@@ -1729,7 +1729,7 @@ NewFrame.exit.i:                                  ; preds = %59
   br i1 %.not40.i, label %.thread.i, label %126
 
 126:                                              ; preds = %122
-  %127 = load i64, ptr %0, align 8, !tbaa !89
+  %127 = load i64, ptr %0, align 8, !tbaa !90
   %128 = sub i64 %127, %114
   %129 = zext i32 %54 to i64
   %130 = icmp ugt i64 %128, %129
@@ -1779,19 +1779,19 @@ NewFrame.exit.i:                                  ; preds = %59
 
 148:                                              ; preds = %27, %146, %147
   %.sink102 = phi i32 [ 3, %146 ], [ 2, %147 ], [ 5, %27 ]
-  %.val65 = load i64, ptr %6, align 8, !tbaa !91
+  %.val65 = load i64, ptr %6, align 8, !tbaa !92
   %149 = sub i64 %.val65, %20
   %.not60 = icmp ult i64 %149, %25
   br i1 %.not60, label %ParseAnimationFrame.exit, label %152
 
 .thread93:                                        ; preds = %37
-  %.val6595 = load i64, ptr %6, align 8, !tbaa !91
+  %.val6595 = load i64, ptr %6, align 8, !tbaa !92
   %150 = sub i64 %.val6595, %20
   %.not6096 = icmp ult i64 %150, %25
   br i1 %.not6096, label %ParseAnimationFrame.exit, label %.thread98
 
 .thread:                                          ; preds = %27
-  %.val6573 = load i64, ptr %6, align 8, !tbaa !91
+  %.val6573 = load i64, ptr %6, align 8, !tbaa !92
   %151 = sub i64 %.val6573, %20
   %.not6074 = icmp ult i64 %151, %25
   br i1 %.not6074, label %ParseAnimationFrame.exit, label %.thread76
@@ -1810,39 +1810,39 @@ NewFrame.exit.i:                                  ; preds = %59
 
 StoreChunk.exit:                                  ; preds = %.thread76
   %158 = add nuw i32 %.val.i.i70, 8
-  store i64 %15, ptr %156, align 8, !tbaa !81
+  store i64 %15, ptr %156, align 8, !tbaa !82
   %159 = zext i32 %158 to i64
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i64 %159, ptr %160, align 8, !tbaa !85
+  store i64 %159, ptr %160, align 8, !tbaa !86
   %161 = load ptr, ptr %13, align 8, !tbaa !25
-  store ptr %156, ptr %161, align 8, !tbaa !80
+  store ptr %156, ptr %161, align 8, !tbaa !81
   %162 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  store ptr null, ptr %162, align 8, !tbaa !53
+  store ptr null, ptr %162, align 8, !tbaa !54
   store ptr %162, ptr %13, align 8, !tbaa !25
-  %.pre92 = load i64, ptr %0, align 8, !tbaa !89
+  %.pre92 = load i64, ptr %0, align 8, !tbaa !90
   br label %.thread98
 
 .thread98:                                        ; preds = %.thread93, %StoreChunk.exit, %152
   %163 = phi i64 [ %.pre92, %StoreChunk.exit ], [ %20, %152 ], [ %20, %.thread93 ]
   %164 = add i64 %163, %25
-  store i64 %164, ptr %0, align 8, !tbaa !89
+  store i64 %164, ptr %0, align 8, !tbaa !90
   br label %ParseAnimationFrame.exit
 
 ParseAnimationFrame.exit:                         ; preds = %.thread93, %.thread, %.thread.i, %142, %121, %59, %56, %50, %148, %34, %.thread98, %39, %30
   %.253 = phi i32 [ 0, %.thread98 ], [ %31, %30 ], [ 0, %39 ], [ 1, %34 ], [ 1, %148 ], [ 2, %121 ], [ %.1.ph.i, %.thread.i ], [ %125, %142 ], [ 1, %56 ], [ 2, %50 ], [ 2, %59 ], [ 1, %.thread ], [ 1, %.thread93 ]
   %.250 = phi i32 [ %.048, %.thread98 ], [ 0, %30 ], [ 1, %39 ], [ %.048, %34 ], [ %.048, %148 ], [ 1, %121 ], [ 1, %.thread.i ], [ 1, %142 ], [ 1, %56 ], [ 1, %50 ], [ 1, %59 ], [ %.048, %.thread ], [ %.048, %.thread93 ]
-  %165 = load i64, ptr %0, align 8, !tbaa !89
-  %166 = load i64, ptr %8, align 8, !tbaa !90
+  %165 = load i64, ptr %0, align 8, !tbaa !90
+  %166 = load i64, ptr %8, align 8, !tbaa !91
   %167 = icmp eq i64 %165, %166
   br i1 %167, label %.thread81, label %168
 
 168:                                              ; preds = %ParseAnimationFrame.exit
-  %.val63 = load i64, ptr %6, align 8, !tbaa !91
+  %.val63 = load i64, ptr %6, align 8, !tbaa !92
   %169 = sub i64 %.val63, %165
   %170 = icmp ult i64 %169, 8
   %spec.select = select i1 %170, i32 1, i32 %.253
   %171 = icmp eq i32 %spec.select, 0
-  br i1 %171, label %14, label %.thread81, !llvm.loop !98
+  br i1 %171, label %14, label %.thread81, !llvm.loop !99
 
 .thread81:                                        ; preds = %.thread76, %48, %32, %28, %27, %22, %14, %168, %ParseAnimationFrame.exit
   %.2 = phi i32 [ %spec.select, %168 ], [ %.253, %ParseAnimationFrame.exit ], [ 2, %14 ], [ 2, %22 ], [ 2, %27 ], [ 2, %28 ], [ 2, %32 ], [ 2, %48 ], [ 2, %.thread76 ]
@@ -1920,57 +1920,58 @@ attributes #13 = { nounwind }
 !42 = !{!34, !16, i64 72}
 !43 = !{!14, !4, i64 48}
 !44 = !{!14, !4, i64 68}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!48, !10, i64 16}
-!48 = !{!"ChunkParser", !5, i64 0, !10, i64 8, !10, i64 16}
-!49 = !{!48, !10, i64 8}
-!50 = !{!14, !16, i64 72}
-!51 = distinct !{!51, !46}
-!52 = !{!14, !18, i64 88}
-!53 = !{!54, !18, i64 16}
-!54 = !{!"Chunk", !29, i64 0, !18, i64 16}
-!55 = distinct !{!55, !46}
-!56 = !{!57, !10, i64 72}
-!57 = !{!"WebPIterator", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !8, i64 40, !4, i64 56, !4, i64 60, !5, i64 64, !10, i64 72}
-!58 = distinct !{!58, !46}
-!59 = !{!14, !9, i64 32}
-!60 = !{!57, !4, i64 0}
-!61 = !{!57, !4, i64 4}
-!62 = !{!34, !4, i64 0}
-!63 = !{!57, !4, i64 8}
-!64 = !{!34, !4, i64 4}
-!65 = !{!57, !4, i64 12}
-!66 = !{!57, !4, i64 16}
-!67 = !{!57, !4, i64 20}
-!68 = !{!57, !4, i64 56}
-!69 = !{!34, !4, i64 20}
-!70 = !{!57, !4, i64 24}
-!71 = !{!34, !4, i64 24}
-!72 = !{!57, !4, i64 28}
-!73 = !{!34, !4, i64 28}
-!74 = !{!57, !4, i64 60}
-!75 = !{!57, !4, i64 32}
-!76 = !{!57, !9, i64 40}
-!77 = !{!57, !11, i64 48}
-!78 = !{!79, !10, i64 48}
-!79 = !{!"WebPChunkIterator", !4, i64 0, !4, i64 4, !8, i64 8, !5, i64 24, !10, i64 48}
-!80 = !{!18, !18, i64 0}
-!81 = !{!54, !11, i64 0}
-!82 = distinct !{!82, !46}
-!83 = !{}
-!84 = !{!79, !9, i64 8}
-!85 = !{!54, !11, i64 8}
-!86 = !{!79, !11, i64 16}
-!87 = !{!79, !4, i64 4}
-!88 = !{!79, !4, i64 0}
-!89 = !{!15, !11, i64 0}
-!90 = !{!15, !11, i64 16}
-!91 = !{!15, !11, i64 8}
-!92 = !{!14, !4, i64 44}
-!93 = !{!15, !9, i64 32}
-!94 = !{!5, !5, i64 0}
-!95 = distinct !{!95, !46}
-!96 = distinct !{!96, !46}
-!97 = distinct !{!97, !46}
-!98 = distinct !{!98, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!49, !10, i64 16}
+!49 = !{!"ChunkParser", !5, i64 0, !10, i64 8, !10, i64 16}
+!50 = !{!49, !10, i64 8}
+!51 = !{!14, !16, i64 72}
+!52 = distinct !{!52, !46, !47}
+!53 = !{!14, !18, i64 88}
+!54 = !{!55, !18, i64 16}
+!55 = !{!"Chunk", !29, i64 0, !18, i64 16}
+!56 = distinct !{!56, !46, !47}
+!57 = !{!58, !10, i64 72}
+!58 = !{!"WebPIterator", !4, i64 0, !4, i64 4, !4, i64 8, !4, i64 12, !4, i64 16, !4, i64 20, !4, i64 24, !4, i64 28, !4, i64 32, !8, i64 40, !4, i64 56, !4, i64 60, !5, i64 64, !10, i64 72}
+!59 = distinct !{!59, !46, !47}
+!60 = !{!14, !9, i64 32}
+!61 = !{!58, !4, i64 0}
+!62 = !{!58, !4, i64 4}
+!63 = !{!34, !4, i64 0}
+!64 = !{!58, !4, i64 8}
+!65 = !{!34, !4, i64 4}
+!66 = !{!58, !4, i64 12}
+!67 = !{!58, !4, i64 16}
+!68 = !{!58, !4, i64 20}
+!69 = !{!58, !4, i64 56}
+!70 = !{!34, !4, i64 20}
+!71 = !{!58, !4, i64 24}
+!72 = !{!34, !4, i64 24}
+!73 = !{!58, !4, i64 28}
+!74 = !{!34, !4, i64 28}
+!75 = !{!58, !4, i64 60}
+!76 = !{!58, !4, i64 32}
+!77 = !{!58, !9, i64 40}
+!78 = !{!58, !11, i64 48}
+!79 = !{!80, !10, i64 48}
+!80 = !{!"WebPChunkIterator", !4, i64 0, !4, i64 4, !8, i64 8, !5, i64 24, !10, i64 48}
+!81 = !{!18, !18, i64 0}
+!82 = !{!55, !11, i64 0}
+!83 = distinct !{!83, !46, !47}
+!84 = !{}
+!85 = !{!80, !9, i64 8}
+!86 = !{!55, !11, i64 8}
+!87 = !{!80, !11, i64 16}
+!88 = !{!80, !4, i64 4}
+!89 = !{!80, !4, i64 0}
+!90 = !{!15, !11, i64 0}
+!91 = !{!15, !11, i64 16}
+!92 = !{!15, !11, i64 8}
+!93 = !{!14, !4, i64 44}
+!94 = !{!15, !9, i64 32}
+!95 = !{!5, !5, i64 0}
+!96 = distinct !{!96, !46, !47}
+!97 = distinct !{!97, !46, !47}
+!98 = distinct !{!98, !46, !47}
+!99 = distinct !{!99, !46, !47}

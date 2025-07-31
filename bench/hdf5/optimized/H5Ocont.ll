@@ -184,7 +184,7 @@ define internal ptr @H5O__cont_decode(ptr noundef %0, ptr readnone captures(none
 
 .loopexit:                                        ; preds = %87, %61, %96, %63
   %106 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i32 0, ptr %106, align 8, !tbaa !21
+  store i32 0, ptr %106, align 8, !tbaa !22
   br label %.thread
 
 107:                                              ; preds = %37, %57
@@ -209,7 +209,7 @@ define internal noundef i32 @H5O__cont_encode(ptr noundef %0, i1 zeroext %1, i64
   br i1 %12, label %13, label %.loopexit, !prof !12
 
 13:                                               ; preds = %5
-  %14 = load i64, ptr %4, align 8, !tbaa !22
+  %14 = load i64, ptr %4, align 8, !tbaa !23
   call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %14) #4
   %15 = call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #4
   switch i8 %15, label %.loopexit [
@@ -262,7 +262,7 @@ define internal noundef i32 @H5O__cont_encode(ptr noundef %0, i1 zeroext %1, i64
   %43 = add nuw nsw i64 %.01822, 1
   %44 = lshr i64 %.02021, 8
   %exitcond.not = icmp eq i64 %43, 8
-  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %40, !llvm.loop !24
 
 45:                                               ; preds = %13
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -335,7 +335,7 @@ define internal range(i32 -1, 1) i32 @H5O__cont_delete(ptr noundef %0, ptr nound
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !21
+  %12 = load i32, ptr %11, align 8, !tbaa !22
   %13 = tail call i32 @H5O__chunk_delete(ptr noundef %0, ptr noundef %1, i32 noundef %12) #4
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %15, label %19
@@ -362,13 +362,13 @@ define internal noundef i32 @H5O__cont_debug(ptr readnone captures(none) %0, ptr
   br i1 %11, label %12, label %21, !prof !12
 
 12:                                               ; preds = %5
-  %13 = load i64, ptr %1, align 8, !tbaa !22
+  %13 = load i64, ptr %1, align 8, !tbaa !23
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.7, i32 noundef %4, ptr noundef nonnull @.str.8, i64 noundef %13) #4
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !16
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.7, i32 noundef %4, ptr noundef nonnull @.str.9, i64 noundef %16) #4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %19 = load i32, ptr %18, align 8, !tbaa !21
+  %19 = load i32, ptr %18, align 8, !tbaa !22
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.10, i32 noundef %3, ptr noundef nonnull @.str.7, i32 noundef %4, ptr noundef nonnull @.str.11, i32 noundef %19) #4
   br label %21
 
@@ -422,8 +422,9 @@ attributes #4 = { nounwind }
 !16 = !{!17, !14, i64 8}
 !17 = !{!"H5O_cont_t", !14, i64 0, !14, i64 8, !18, i64 16}
 !18 = !{!"int", !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!17, !18, i64 16}
-!22 = !{!17, !14, i64 0}
-!23 = distinct !{!23, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!17, !18, i64 16}
+!23 = !{!17, !14, i64 0}
+!24 = distinct !{!24, !20, !21}

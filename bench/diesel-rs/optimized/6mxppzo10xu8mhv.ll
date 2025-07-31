@@ -116,7 +116,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
 
 40:                                               ; preds = %37
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17hdce955f790c05645E"(ptr nonnull align 8 %23)
-          to label %27 unwind label %.loopexit
+          to label %27 unwind label %.loopexit, !llvm.loop !5
 
 41:                                               ; preds = %132, %49, %38
   call void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$syn..item..ItemUse$GT$$GT$17hcc74d761130ecf7eE"(ptr nonnull align 8 %24)
@@ -131,7 +131,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %44 unwind label %.loopexit.split-lp
 
 44:                                               ; preds = %43
-  %45 = load i64, ptr %18, align 8, !range !5, !noundef !4
+  %45 = load i64, ptr %18, align 8, !range !7, !noundef !4
   %46 = icmp eq i64 %45, 0
   %47 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br i1 %46, label %48, label %49
@@ -171,7 +171,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %53
 
 56:                                               ; preds = %52
-  %57 = load i64, ptr %14, align 8, !range !6, !noundef !4
+  %57 = load i64, ptr %14, align 8, !range !8, !noundef !4
   %.not124 = icmp eq i64 %57, -9223372036854775807
   br i1 %.not124, label %59, label %58
 
@@ -188,7 +188,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %61 unwind label %54
 
 61:                                               ; preds = %60
-  %62 = load i64, ptr %13, align 8, !range !6, !noundef !4
+  %62 = load i64, ptr %13, align 8, !range !8, !noundef !4
   %.not127 = icmp eq i64 %62, -9223372036854775807
   %63 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %.not127, label %.sink.split, label %64
@@ -233,7 +233,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %69 unwind label %54
 
 69:                                               ; preds = %68
-  %70 = load i64, ptr %12, align 8, !range !6, !noundef !4
+  %70 = load i64, ptr %12, align 8, !range !8, !noundef !4
   %.not125 = icmp eq i64 %70, -9223372036854775807
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %.not125, label %.sink.split, label %72
@@ -328,7 +328,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
   br label %.thread180
 
 93:                                               ; preds = %90
-  %94 = load i64, ptr %6, align 8, !range !5, !noundef !4
+  %94 = load i64, ptr %6, align 8, !range !7, !noundef !4
   %95 = icmp eq i64 %94, 0
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br i1 %95, label %97, label %119
@@ -366,7 +366,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..TableDecl$u20$as$u20$syn..par
           to label %.thread167 unwind label %121
 
 107:                                              ; preds = %102
-  %108 = load i64, ptr %3, align 8, !range !5, !noundef !4
+  %108 = load i64, ptr %3, align 8, !range !7, !noundef !4
   %109 = icmp eq i64 %108, 0
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %109, label %111, label %112
@@ -502,7 +502,7 @@ define void @"_ZN75_$LT$diesel_table_macro_syntax..PrimaryKey$u20$as$u20$syn..pa
   %4 = alloca { i64, [6 x i64] }, align 8
   %5 = alloca { { ptr, ptr }, ptr, i32, {}, [4 x i8] }, align 8
   call void @_ZN3syn5group12parse_parens17hbf0b1e8f788ef922E(ptr nonnull sret({ i64, [6 x i64] }) align 8 %4, ptr align 8 %1)
-  %6 = load i64, ptr %4, align 8, !range !5, !noundef !4
+  %6 = load i64, ptr %4, align 8, !range !7, !noundef !4
   %7 = icmp eq i64 %6, 0
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %7, label %9, label %16
@@ -575,7 +575,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
   %11 = alloca { i64, [3 x i64] }, align 8
   %12 = alloca { { i64, ptr }, i64 }, align 8
   call void @_ZN3syn4attr9Attribute11parse_outer17h4146c56cddd9fe43E(ptr nonnull sret({ i64, [3 x i64] }) align 8 %11, ptr align 8 %1)
-  %13 = load i64, ptr %11, align 8, !range !5, !noundef !4
+  %13 = load i64, ptr %11, align 8, !range !7, !noundef !4
   %14 = icmp eq i64 %13, 0
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br i1 %14, label %16, label %17
@@ -602,7 +602,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
   br label %19
 
 22:                                               ; preds = %16
-  %23 = load i64, ptr %9, align 8, !range !6, !noundef !4
+  %23 = load i64, ptr %9, align 8, !range !8, !noundef !4
   %.not = icmp eq i64 %23, -9223372036854775807
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %.not, label %26, label %25
@@ -684,7 +684,7 @@ define void @"_ZN74_$LT$diesel_table_macro_syntax..ColumnDef$u20$as$u20$syn..par
   br label %44
 
 47:                                               ; preds = %41
-  %48 = load i64, ptr %4, align 8, !range !5, !noundef !4
+  %48 = load i64, ptr %4, align 8, !range !7, !noundef !4
   %49 = icmp eq i64 %48, 0
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %49, label %51, label %52
@@ -777,7 +777,7 @@ define void @_ZN25diesel_table_macro_syntax23parse_table_with_schema17h6604c15ba
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   call void @"_ZN3syn5ident7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$proc_macro2..Ident$GT$5parse17hb4074eb879d2535cE"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %5, ptr align 8 %1)
-  %7 = load i64, ptr %5, align 8, !range !6, !noundef !4
+  %7 = load i64, ptr %5, align 8, !range !8, !noundef !4
   %.not = icmp eq i64 %7, -9223372036854775807
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not, label %10, label %9
@@ -831,7 +831,7 @@ define void @_ZN25diesel_table_macro_syntax23parse_table_with_schema17h6604c15ba
           to label %32 unwind label %30
 
 23:                                               ; preds = %18
-  %24 = load i64, ptr %3, align 8, !range !6, !noundef !4
+  %24 = load i64, ptr %3, align 8, !range !8, !noundef !4
   %.not47 = icmp eq i64 %24, -9223372036854775807
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not47, label %27, label %26
@@ -1044,5 +1044,7 @@ attributes #5 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
 !3 = !{i64 0, i64 -9223372036854775807}
 !4 = !{}
-!5 = !{i64 0, i64 2}
-!6 = !{i64 0, i64 -9223372036854775806}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i64 0, i64 2}
+!8 = !{i64 0, i64 -9223372036854775806}

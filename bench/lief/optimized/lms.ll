@@ -336,7 +336,7 @@ define internal fastcc void @create_merkle_leaf_value(ptr noundef %0, ptr nounde
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 4, !tbaa !18
+  %18 = load i32, ptr %17, align 4, !tbaa !19
   %19 = icmp eq i32 %18, 4
   %20 = select i1 %19, i64 32, i64 0
   %21 = call i32 @psa_hash_update(ptr noundef nonnull %5, ptr noundef nonnull %1, i64 noundef %20) #9
@@ -405,6 +405,7 @@ attributes #9 = { nounwind }
 !13 = !{!14, !8, i64 20}
 !14 = !{!"", !6, i64 0, !6, i64 16, !8, i64 20}
 !15 = !{!5, !8, i64 20}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!5, !8, i64 16}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!5, !8, i64 16}

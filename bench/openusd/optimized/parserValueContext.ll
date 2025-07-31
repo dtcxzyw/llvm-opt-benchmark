@@ -675,9 +675,9 @@ _ZNKSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES7_
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store ptr %2, ptr %4, align 8, !noalias !6
+  store ptr %2, ptr %4, align 8, !noalias !7
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 216
-  %76 = load ptr, ptr %75, align 8, !noalias !6
+  %76 = load ptr, ptr %75, align 8, !noalias !7
   invoke void %76(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %72, ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %77 unwind label %35
 
@@ -968,16 +968,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ParserValueContext11Appe
 
 18:                                               ; preds = %15, %11
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %20 = load i8, ptr %19, align 8, !noalias !9
+  %20 = load i8, ptr %19, align 8, !noalias !10
   %.not.i.i.i = icmp eq i8 %20, -1
   br i1 %.not.i.i.i, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value12ApplyVisitorINS_19Sdf_ToStringVisitorEEEDaRT_.exit
 
 21:                                               ; preds = %18
-  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #20, !noalias !9
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8, !noalias !9
+  %22 = tail call ptr @__cxa_allocate_exception(i64 16) #20, !noalias !10
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %22, align 8, !noalias !10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr @.str.9, ptr %23, align 8, !noalias !9
-  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22, !noalias !9
+  store ptr @.str.9, ptr %23, align 8, !noalias !10
+  tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #22, !noalias !10
   unreachable
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value12ApplyVisitorINS_19Sdf_ToStringVisitorEEEDaRT_.exit: ; preds = %18
@@ -2010,11 +2010,11 @@ define linkonce_odr void @_ZSt10__do_visitINSt8__detail9__variant21__deduce_visi
   ]
 
 10:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %7), !noalias !14
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7), !noalias !23
-  %11 = load i64, ptr %2, align 8, !noalias !23
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %7), !noalias !15
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7), !noalias !24
+  %11 = load i64, ptr %2, align 8, !noalias !24
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %11)
-          to label %13 unwind label %14, !noalias !23
+          to label %13 unwind label %14, !noalias !24
 
 13:                                               ; preds = %10
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %7)
@@ -2033,15 +2033,15 @@ common.resume:                                    ; preds = %33, %28, %20, %14
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_.exit: ; preds = %13
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #20
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %7), !noalias !14
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %7), !noalias !15
   br label %36
 
 16:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %6), !noalias !26
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6), !noalias !35
-  %17 = load i64, ptr %2, align 8, !noalias !35
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %6), !noalias !27
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6), !noalias !36
+  %17 = load i64, ptr %2, align 8, !noalias !36
   %18 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %17)
-          to label %19 unwind label %20, !noalias !35
+          to label %19 unwind label %20, !noalias !36
 
 19:                                               ; preds = %16
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %6)
@@ -2054,11 +2054,11 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_.exit: ; preds = %19
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #20
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %6), !noalias !26
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %6), !noalias !27
   br label %36
 
 22:                                               ; preds = %3
-  %23 = load double, ptr %2, align 8, !noalias !38
+  %23 = load double, ptr %2, align 8, !noalias !39
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyB5cxx11Ed(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, double noundef %23)
   br label %36
 
@@ -2067,10 +2067,10 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
   br label %36
 
 25:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5), !noalias !47
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5), !noalias !56
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5), !noalias !48
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5), !noalias !57
   %26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(65) %2)
-          to label %27 unwind label %28, !noalias !56
+          to label %27 unwind label %28, !noalias !57
 
 27:                                               ; preds = %25
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %5)
@@ -2083,14 +2083,14 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESD_SJ_.exit: ; preds = %27
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #20
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5), !noalias !47
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5), !noalias !48
   br label %36
 
 30:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4), !noalias !59
-  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4), !noalias !68
+  call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4), !noalias !60
+  call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4), !noalias !69
   %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_12SdfAssetPathE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(65) %2)
-          to label %32 unwind label %33, !noalias !68
+          to label %32 unwind label %33, !noalias !69
 
 32:                                               ; preds = %30
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
@@ -2103,7 +2103,7 @@ _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESD_SJ_.exit: ; preds = %32
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #20
-  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4), !noalias !59
+  call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4), !noalias !60
   br label %36
 
 35:                                               ; preds = %3
@@ -2536,26 +2536,26 @@ define linkonce_odr noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplINS_20SdfUnregisteredValueENS_19TfDelegatedCountPtrINS0_8_CountedIS2_EEEENS0_15_RemoteTypeInfoIS2_EEE20_GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_20SdfUnregisteredValueEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !71
-  %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !71
+  store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_20SdfUnregisteredValueEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti, ptr %4, align 8, !alias.scope !72
+  %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !72
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr null, ptr %6, align 8, !noalias !71
+  store ptr null, ptr %6, align 8, !noalias !72
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(20) %5)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_20SdfUnregisteredValueEvE19GetProxiedAsVtValueERKS2_.exit unwind label %7, !noalias !71
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_20SdfUnregisteredValueEvE19GetProxiedAsVtValueERKS2_.exit unwind label %7, !noalias !72
 
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 24) #24, !noalias !71
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 24) #24, !noalias !72
   resume { ptr, i32 } %8
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_20SdfUnregisteredValueEvE19GetProxiedAsVtValueERKS2_.exit: ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store atomic i32 0, ptr %9 seq_cst, align 4, !noalias !71
-  store ptr %5, ptr %0, align 8, !alias.scope !71
-  %10 = atomicrmw add ptr %9, i32 1 monotonic, align 4, !noalias !71
+  store atomic i32 0, ptr %9 seq_cst, align 4, !noalias !72
+  store ptr %5, ptr %0, align 8, !alias.scope !72
+  %10 = atomicrmw add ptr %9, i32 1 monotonic, align 4, !noalias !72
   ret void
 }
 
@@ -2573,22 +2573,22 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN32pxrInt
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %1
-  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !74
+  %7 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !75
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr null, ptr %8, align 8, !noalias !74
+  store ptr null, ptr %8, align 8, !noalias !75
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_CopyERKS0_RS0_(ptr noundef nonnull align 8 dereferenceable(16) %.pre, ptr noundef nonnull align 8 dereferenceable(20) %7)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit unwind label %9, !noalias !74
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit unwind label %9, !noalias !75
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 24) #24, !noalias !74
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 24) #24, !noalias !75
   resume { ptr, i32 } %10
 
 _ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_.exit: ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store atomic i32 0, ptr %11 seq_cst, align 4, !noalias !74
-  %12 = atomicrmw add ptr %11, i32 1 monotonic, align 4, !noalias !74
+  store atomic i32 0, ptr %11 seq_cst, align 4, !noalias !75
+  %12 = atomicrmw add ptr %11, i32 1 monotonic, align 4, !noalias !75
   %13 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEED2Ev.exit, label %14
@@ -2848,7 +2848,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 72
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 72
   %.not.i.i.i = icmp eq ptr %29, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !77
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, label %.lr.ph.i.i.i, !llvm.loop !78
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit: ; preds = %.lr.ph.i.i.i, %26
   %.0.lcssa.i.i.i = phi ptr [ %23, %26 ], [ %30, %.lr.ph.i.i.i ]
@@ -2863,7 +2863,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 72
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 72
   %.not.i.i.i30 = icmp eq ptr %32, %6
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !77
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !78
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   %.0.lcssa.i.i.i31 = phi ptr [ %31, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit ], [ %33, %.lr.ph.i.i.i27 ]
@@ -3170,77 +3170,78 @@ attributes #24 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES6_SC_SD_SK_: argument 0"}
-!8 = distinct !{!8, !"_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES6_SC_SD_SK_"}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"_ZSt5visitIRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7TfTokenENS0_12SdfAssetPathEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_: argument 0"}
-!11 = distinct !{!11, !"_ZSt5visitIRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7TfTokenENS0_12SdfAssetPathEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_"}
-!12 = distinct !{!12, !13, !"_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value12ApplyVisitorINS_19Sdf_ToStringVisitorEEEDaRT_: argument 0"}
-!13 = distinct !{!13, !"_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value12ApplyVisitorINS_19Sdf_ToStringVisitorEEEDaRT_"}
-!14 = !{!15, !17, !19, !21}
-!15 = distinct !{!15, !16, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!16 = distinct !{!16, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!17 = distinct !{!17, !18, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!18 = distinct !{!18, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEET_St14__invoke_otherOT0_DpOT1_"}
-!19 = distinct !{!19, !20, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: argument 0"}
-!20 = distinct !{!20, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
-!21 = distinct !{!21, !22, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_: argument 0"}
-!22 = distinct !{!22, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_"}
-!23 = !{!24, !15, !17, !19, !21}
-!24 = distinct !{!24, !25, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!25 = distinct !{!25, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!26 = !{!27, !29, !31, !33}
-!27 = distinct !{!27, !28, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!28 = distinct !{!28, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!29 = distinct !{!29, !30, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!30 = distinct !{!30, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEET_St14__invoke_otherOT0_DpOT1_"}
-!31 = distinct !{!31, !32, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: argument 0"}
-!32 = distinct !{!32, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
-!33 = distinct !{!33, !34, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_: argument 0"}
-!34 = distinct !{!34, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_"}
-!35 = !{!36, !27, !29, !31, !33}
-!36 = distinct !{!36, !37, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!37 = distinct !{!37, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!38 = !{!39, !41, !43, !45}
-!39 = distinct !{!39, !40, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!40 = distinct !{!40, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!41 = distinct !{!41, !42, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!42 = distinct !{!42, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEET_St14__invoke_otherOT0_DpOT1_"}
-!43 = distinct !{!43, !44, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: argument 0"}
-!44 = distinct !{!44, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
-!45 = distinct !{!45, !46, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESD_SJ_: argument 0"}
-!46 = distinct !{!46, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESD_SJ_"}
-!47 = !{!48, !50, !52, !54}
-!48 = distinct !{!48, !49, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!49 = distinct !{!49, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!50 = distinct !{!50, !51, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_7TfTokenEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!51 = distinct !{!51, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_7TfTokenEEET_St14__invoke_otherOT0_DpOT1_"}
-!52 = distinct !{!52, !53, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_7TfTokenEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_: argument 0"}
-!53 = distinct !{!53, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_7TfTokenEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_"}
-!54 = distinct !{!54, !55, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESD_SJ_: argument 0"}
-!55 = distinct !{!55, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESD_SJ_"}
-!56 = !{!57, !48, !50, !52, !54}
-!57 = distinct !{!57, !58, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!58 = distinct !{!58, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!59 = !{!60, !62, !64, !66}
-!60 = distinct !{!60, !61, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!61 = distinct !{!61, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!62 = distinct !{!62, !63, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_12SdfAssetPathEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
-!63 = distinct !{!63, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_12SdfAssetPathEEET_St14__invoke_otherOT0_DpOT1_"}
-!64 = distinct !{!64, !65, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_12SdfAssetPathEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_: argument 0"}
-!65 = distinct !{!65, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_12SdfAssetPathEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_"}
-!66 = distinct !{!66, !67, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESD_SJ_: argument 0"}
-!67 = distinct !{!67, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESD_SJ_"}
-!68 = !{!69, !60, !62, !64, !66}
-!69 = distinct !{!69, !70, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
-!70 = distinct !{!70, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_20SdfUnregisteredValueEvE19GetProxiedAsVtValueERKS2_: argument 0"}
-!73 = distinct !{!73, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_20SdfUnregisteredValueEvE19GetProxiedAsVtValueERKS2_"}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_: argument 0"}
-!76 = distinct !{!76, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_"}
-!77 = distinct !{!77, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES6_SC_SD_SK_: argument 0"}
+!9 = distinct !{!9, !"_ZNKSt8functionIFN32pxrInternal_v0_24__pxrReserved__7VtValueERKSt6vectorIjSaIjEERKS2_INS0_17Sdf_ParserHelpers5ValueESaIS8_EERmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclES6_SC_SD_SK_"}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"_ZSt5visitIRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7TfTokenENS0_12SdfAssetPathEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_: argument 0"}
+!12 = distinct !{!12, !"_ZSt5visitIRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKSt7variantIJmldNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_7TfTokenENS0_12SdfAssetPathEEEEENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISI_EEEEE4typeEE4typeEOSR_EEEE4typeEOSG_DpOSI_"}
+!13 = distinct !{!13, !14, !"_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value12ApplyVisitorINS_19Sdf_ToStringVisitorEEEDaRT_: argument 0"}
+!14 = distinct !{!14, !"_ZNK32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5Value12ApplyVisitorINS_19Sdf_ToStringVisitorEEEDaRT_"}
+!15 = !{!16, !18, !20, !22}
+!16 = distinct !{!16, !17, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!17 = distinct !{!17, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!18 = distinct !{!18, !19, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!19 = distinct !{!19, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEET_St14__invoke_otherOT0_DpOT1_"}
+!20 = distinct !{!20, !21, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: argument 0"}
+!21 = distinct !{!21, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKmEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
+!22 = distinct !{!22, !23, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_: argument 0"}
+!23 = distinct !{!23, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm0EEEE14__visit_invokeESD_SJ_"}
+!24 = !{!25, !16, !18, !20, !22}
+!25 = distinct !{!25, !26, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!26 = distinct !{!26, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!27 = !{!28, !30, !32, !34}
+!28 = distinct !{!28, !29, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!29 = distinct !{!29, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!30 = distinct !{!30, !31, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!31 = distinct !{!31, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEET_St14__invoke_otherOT0_DpOT1_"}
+!32 = distinct !{!32, !33, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: argument 0"}
+!33 = distinct !{!33, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKlEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
+!34 = distinct !{!34, !35, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_: argument 0"}
+!35 = distinct !{!35, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESD_SJ_"}
+!36 = !{!37, !28, !30, !32, !34}
+!37 = distinct !{!37, !38, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!38 = distinct !{!38, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!39 = !{!40, !42, !44, !46}
+!40 = distinct !{!40, !41, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!41 = distinct !{!41, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!42 = distinct !{!42, !43, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!43 = distinct !{!43, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEET_St14__invoke_otherOT0_DpOT1_"}
+!44 = distinct !{!44, !45, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_: argument 0"}
+!45 = distinct !{!45, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKdEENSt15__invoke_resultIT_JDpT0_EE4typeEOS6_DpOS7_"}
+!46 = distinct !{!46, !47, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESD_SJ_: argument 0"}
+!47 = distinct !{!47, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESD_SJ_"}
+!48 = !{!49, !51, !53, !55}
+!49 = distinct !{!49, !50, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!50 = distinct !{!50, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!51 = distinct !{!51, !52, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_7TfTokenEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!52 = distinct !{!52, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_7TfTokenEEET_St14__invoke_otherOT0_DpOT1_"}
+!53 = distinct !{!53, !54, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_7TfTokenEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_: argument 0"}
+!54 = distinct !{!54, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_7TfTokenEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_"}
+!55 = distinct !{!55, !56, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESD_SJ_: argument 0"}
+!56 = distinct !{!56, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm4EEEE14__visit_invokeESD_SJ_"}
+!57 = !{!58, !49, !51, !53, !55}
+!58 = distinct !{!58, !59, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!59 = distinct !{!59, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_7TfTokenEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!60 = !{!61, !63, !65, !67}
+!61 = distinct !{!61, !62, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!62 = distinct !{!62, !"_ZN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorclINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!63 = distinct !{!63, !64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_12SdfAssetPathEEET_St14__invoke_otherOT0_DpOT1_: argument 0"}
+!64 = distinct !{!64, !"_ZSt13__invoke_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS6_12SdfAssetPathEEET_St14__invoke_otherOT0_DpOT1_"}
+!65 = distinct !{!65, !66, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_12SdfAssetPathEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_: argument 0"}
+!66 = distinct !{!66, !"_ZSt8__invokeB5cxx11IRN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorEJRKNS0_12SdfAssetPathEEENSt15__invoke_resultIT_JDpT0_EE4typeEOS7_DpOS8_"}
+!67 = distinct !{!67, !68, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESD_SJ_: argument 0"}
+!68 = distinct !{!68, !"_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERN32pxrInternal_v0_24__pxrReserved__19Sdf_ToStringVisitorERKSt7variantIJmldS9_NSB_7TfTokenENSB_12SdfAssetPathEEEEJEEESt16integer_sequenceImJLm5EEEE14__visit_invokeESD_SJ_"}
+!69 = !{!70, !61, !63, !65, !67}
+!70 = distinct !{!70, !71, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_: argument 0"}
+!71 = distinct !{!71, !"_ZN32pxrInternal_v0_24__pxrReserved__11TfStringifyINS_12SdfAssetPathEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_"}
+!72 = !{!73}
+!73 = distinct !{!73, !74, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_20SdfUnregisteredValueEvE19GetProxiedAsVtValueERKS2_: argument 0"}
+!74 = distinct !{!74, !"_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_20SdfUnregisteredValueEvE19GetProxiedAsVtValueERKS2_"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_: argument 0"}
+!77 = distinct !{!77, !"_ZN32pxrInternal_v0_24__pxrReserved__23TfMakeDelegatedCountPtrINS_7VtValue8_CountedINS_20SdfUnregisteredValueEEEJRKS3_EEENS_19TfDelegatedCountPtrIT_EEDpOT0_"}
+!78 = distinct !{!78, !5, !6}

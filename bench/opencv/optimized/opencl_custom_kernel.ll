@@ -1911,7 +1911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit304: ; preds = %_Z
     i32 113, label %_ZNSolsEPFRSoS_E.exit298
     i32 81, label %_ZNSolsEPFRSoS_E.exit298
     i32 27, label %_ZNSolsEPFRSoS_E.exit298
-  ]
+  ], !llvm.loop !73
 
 668:                                              ; preds = %642
   %669 = landingpad { ptr, i32 }
@@ -2410,3 +2410,5 @@ attributes #16 = { noreturn }
 !70 = !{!68, !25, i64 8}
 !71 = !{!72, !72, i64 0}
 !72 = !{!"float", !8, i64 0}
+!73 = distinct !{!73, !74}
+!74 = !{!"llvm.loop.estimated_trip_count"}

@@ -218,7 +218,7 @@ _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit19: ; preds 
   %71 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %72 = sext i32 %71 to i64
   %73 = icmp slt i64 %indvars.iv.next, %72
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 74:                                               ; preds = %._crit_edge, %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit
   ret void
@@ -237,14 +237,14 @@ define void @_ZN3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23AnalysisData
   %6 = load i8, ptr %5, align 8, !tbaa !35, !range !31, !noundef !32
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !51
+  %9 = load i32, ptr %8, align 4, !tbaa !52
   br i1 %7, label %10, label %36
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i.i11 = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %13 = load ptr, ptr %12, align 8, !tbaa !57
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i11 to i64
   %16 = sub i64 %14, %15
@@ -258,7 +258,7 @@ define void @_ZN3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23AnalysisData
   %.sroa.0.0.copyload.i.i.i14 = phi ptr [ %.sroa.0.0.copyload.i.i.i, %29 ], [ %.sroa.0.0.copyload.i.i.i11, %10 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %10 ]
   %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14, i64 %indvars.iv, i32 2
-  %22 = load i64, ptr %21, align 8, !tbaa !57
+  %22 = load i64, ptr %21, align 8, !tbaa !58
   %23 = and i64 %22, 4
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %29, label %24
@@ -267,10 +267,10 @@ define void @_ZN3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23AnalysisData
   %25 = load ptr, ptr %3, align 8, !tbaa !33
   %26 = load ptr, ptr %25, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14, i64 %indvars.iv
-  %28 = load float, ptr %27, align 8, !tbaa !60
+  %28 = load float, ptr %27, align 8, !tbaa !61
   tail call void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25) %26, i32 noundef %9, float noundef %28)
   %.sroa.0.0.copyload.i.i.i.pre = load ptr, ptr %11, align 8
-  %.pre = load ptr, ptr %12, align 8, !tbaa !56
+  %.pre = load ptr, ptr %12, align 8, !tbaa !57
   br label %29
 
 29:                                               ; preds = %.lr.ph, %24
@@ -283,7 +283,7 @@ define void @_ZN3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23AnalysisData
   %sext = shl i64 %33, 28
   %34 = ashr i64 %sext, 32
   %35 = icmp slt i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !62
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !63
 
 36:                                               ; preds = %2
   %37 = sext i32 %9 to i64
@@ -328,7 +328,7 @@ define void @_ZN3gmx25AnalysisDataAverageModule12dataFinishedEv(ptr noundef nonn
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %12, i64 %indvars.iv25
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !63
+  %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = load ptr, ptr %13, align 8, !tbaa !44
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %16 to i64
@@ -348,7 +348,7 @@ define void @_ZN3gmx25AnalysisDataAverageModule12dataFinishedEv(ptr noundef nonn
 
 .preheader:                                       ; preds = %.preheader.loopexit, %7
   %.0.lcssa = phi i32 [ 0, %7 ], [ %24, %.preheader.loopexit ]
-  %25 = load i32, ptr %6, align 8, !tbaa !64
+  %25 = load i32, ptr %6, align 8, !tbaa !65
   %26 = icmp slt i32 %.0.lcssa, %25
   br i1 %26, label %.lr.ph19.preheader, label %._crit_edge
 
@@ -363,23 +363,23 @@ define void @_ZN3gmx25AnalysisDataAverageModule12dataFinishedEv(ptr noundef nonn
   %30 = mul nsw i32 %28, %29
   %31 = add nsw i32 %30, %23
   %32 = sext i32 %31 to i64
-  %33 = load ptr, ptr %5, align 8, !tbaa !65
+  %33 = load ptr, ptr %5, align 8, !tbaa !66
   %34 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %33, i64 %32
   %35 = load ptr, ptr %4, align 8, !tbaa !33
   %36 = load ptr, ptr %35, align 8, !tbaa !43
   %37 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %36, i64 %indvars.iv25
   %38 = load ptr, ptr %37, align 8, !tbaa !44
   %39 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataFrameAverager::AverageItem", ptr %38, i64 %indvars.iv
-  %40 = load double, ptr %39, align 8, !tbaa !66
+  %40 = load double, ptr %39, align 8, !tbaa !67
   %41 = fptrunc double %40 to float
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %43 = load i32, ptr %42, align 8, !tbaa !69
+  %43 = load i32, ptr %42, align 8, !tbaa !70
   %44 = icmp sgt i32 %43, 1
   br i1 %44, label %45, label %_ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit
 
 45:                                               ; preds = %.lr.ph
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %47 = load double, ptr %46, align 8, !tbaa !70
+  %47 = load double, ptr %46, align 8, !tbaa !71
   %48 = add nsw i32 %43, -1
   %49 = uitofp nneg i32 %48 to double
   %50 = fdiv double %47, %49
@@ -388,17 +388,17 @@ define void @_ZN3gmx25AnalysisDataAverageModule12dataFinishedEv(ptr noundef nonn
 
 _ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit: ; preds = %.lr.ph, %45
   %52 = phi float [ %51, %45 ], [ 0.000000e+00, %.lr.ph ]
-  %53 = tail call noundef float @sqrtf(float noundef %52) #18, !tbaa !71
-  store float %41, ptr %34, align 8, !tbaa !60
+  %53 = tail call noundef float @sqrtf(float noundef %52) #18, !tbaa !72
+  store float %41, ptr %34, align 8, !tbaa !61
   %54 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store float %53, ptr %54, align 4, !tbaa !72
+  store float %53, ptr %54, align 4, !tbaa !73
   %55 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %56 = load i64, ptr %55, align 8, !tbaa !57
+  %56 = load i64, ptr %55, align 8, !tbaa !58
   %57 = or i64 %56, 7
-  store i64 %57, ptr %55, align 8, !tbaa !57
+  store i64 %57, ptr %55, align 8, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !63
+  %59 = load ptr, ptr %58, align 8, !tbaa !64
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %38 to i64
   %62 = sub i64 %60, %61
@@ -406,7 +406,7 @@ _ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit: ; preds = %.lr.ph, %45
   %sext = shl i64 %63, 32
   %64 = ashr exact i64 %sext, 32
   %65 = icmp slt i64 %indvars.iv.next, %64
-  br i1 %65, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !73
+  br i1 %65, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !74
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %.118 = phi i32 [ %77, %.lr.ph19 ], [ %.0.lcssa, %.lr.ph19.preheader ]
@@ -414,27 +414,27 @@ _ZNK3gmx25AnalysisDataFrameAverager8varianceEi.exit: ; preds = %.lr.ph, %45
   %67 = mul nsw i32 %66, %.118
   %68 = add nsw i32 %67, %27
   %69 = sext i32 %68 to i64
-  %70 = load ptr, ptr %5, align 8, !tbaa !65
+  %70 = load ptr, ptr %5, align 8, !tbaa !66
   %71 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %70, i64 %69
-  store float 0.000000e+00, ptr %71, align 8, !tbaa !60
+  store float 0.000000e+00, ptr %71, align 8, !tbaa !61
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store float 0.000000e+00, ptr %72, align 4, !tbaa !72
+  store float 0.000000e+00, ptr %72, align 4, !tbaa !73
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %74 = load i64, ptr %73, align 8, !tbaa !57
+  %74 = load i64, ptr %73, align 8, !tbaa !58
   %75 = and i64 %74, -8
   %76 = or disjoint i64 %75, 3
-  store i64 %76, ptr %73, align 8, !tbaa !57
+  store i64 %76, ptr %73, align 8, !tbaa !58
   %77 = add nuw nsw i32 %.118, 1
-  %78 = load i32, ptr %6, align 8, !tbaa !64
+  %78 = load i32, ptr %6, align 8, !tbaa !65
   %79 = icmp slt i32 %77, %78
-  br i1 %79, label %.lr.ph19, label %._crit_edge, !llvm.loop !74
+  br i1 %79, label %.lr.ph19, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %.lr.ph19, %.preheader
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %80 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %81 = sext i32 %80 to i64
   %82 = icmp slt i64 %indvars.iv.next26, %81
-  br i1 %82, label %7, label %._crit_edge23, !llvm.loop !75
+  br i1 %82, label %7, label %._crit_edge23, !llvm.loop !76
 }
 
 ; Function Attrs: nounwind uwtable
@@ -479,14 +479,14 @@ define void @_ZThn104_N3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23Analy
   %6 = load i8, ptr %5, align 8, !tbaa !35, !range !31, !noundef !32
   %7 = trunc nuw i8 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !51
+  %9 = load i32, ptr %8, align 4, !tbaa !52
   br i1 %7, label %10, label %36
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.0.0.copyload.i.i.i11.i = load ptr, ptr %11, align 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !56
+  %13 = load ptr, ptr %12, align 8, !tbaa !57
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i11.i to i64
   %16 = sub i64 %14, %15
@@ -500,7 +500,7 @@ define void @_ZThn104_N3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23Analy
   %.sroa.0.0.copyload.i.i.i14.i = phi ptr [ %.sroa.0.0.copyload.i.i.i.i, %29 ], [ %.sroa.0.0.copyload.i.i.i11.i, %10 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %10 ]
   %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14.i, i64 %indvars.iv.i, i32 2
-  %22 = load i64, ptr %21, align 8, !tbaa !57
+  %22 = load i64, ptr %21, align 8, !tbaa !58
   %23 = and i64 %22, 4
   %.not.i = icmp eq i64 %23, 0
   br i1 %.not.i, label %29, label %24
@@ -509,10 +509,10 @@ define void @_ZThn104_N3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23Analy
   %25 = load ptr, ptr %3, align 8, !tbaa !33
   %26 = load ptr, ptr %25, align 8, !tbaa !43
   %27 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i14.i, i64 %indvars.iv.i
-  %28 = load float, ptr %27, align 8, !tbaa !60
+  %28 = load float, ptr %27, align 8, !tbaa !61
   tail call void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25) %26, i32 noundef %9, float noundef %28)
   %.sroa.0.0.copyload.i.i.i.pre.i = load ptr, ptr %11, align 8
-  %.pre.i = load ptr, ptr %12, align 8, !tbaa !56
+  %.pre.i = load ptr, ptr %12, align 8, !tbaa !57
   br label %29
 
 29:                                               ; preds = %24, %.lr.ph.i
@@ -525,7 +525,7 @@ define void @_ZThn104_N3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23Analy
   %sext.i = shl i64 %33, 28
   %34 = ashr i64 %sext.i, 32
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %.lr.ph.i, label %_ZN3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE.exit, !llvm.loop !62
+  br i1 %35, label %.lr.ph.i, label %_ZN3gmx25AnalysisDataAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE.exit, !llvm.loop !63
 
 36:                                               ; preds = %2
   %37 = sext i32 %9 to i64
@@ -565,7 +565,7 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModuleD0Ev(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK3gmx30AnalysisDataFrameAverageModule10frameCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
   %4 = tail call noundef i32 @_ZNK3gmx19AnalysisDataStorage10frameCountEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret i32 %4
 }
@@ -573,7 +573,7 @@ define noundef i32 @_ZNK3gmx30AnalysisDataFrameAverageModule10frameCountEv(ptr n
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx30AnalysisDataFrameAverageModule23tryGetDataFrameInternalEi(ptr dead_on_unwind noalias writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   tail call void @_ZNK3gmx19AnalysisDataStorage15tryGetDataFrameEi(ptr dead_on_unwind writable sret(%"class.gmx::AnalysisDataFrameRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %2)
   ret void
 }
@@ -581,7 +581,7 @@ define void @_ZNK3gmx30AnalysisDataFrameAverageModule23tryGetDataFrameInternalEi
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3gmx30AnalysisDataFrameAverageModule22requestStorageInternalEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !76
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %5 = tail call noundef zeroext i1 @_ZN3gmx19AnalysisDataStorage14requestStorageEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %1)
   ret i1 %5
 }
@@ -596,13 +596,13 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule11dataStartedEPNS_20Abstract
   %3 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   tail call void @_ZN3gmx20AbstractAnalysisData14setColumnCountEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 0, i32 noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData12dataSetCountEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !78
-  %11 = load ptr, ptr %6, align 8, !tbaa !81
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
+  %11 = load ptr, ptr %6, align 8, !tbaa !82
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
@@ -625,11 +625,11 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule11dataStartedEPNS_20Abstract
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %23
 
 23:                                               ; preds = %21
-  store ptr %22, ptr %9, align 8, !tbaa !78
+  store ptr %22, ptr %9, align 8, !tbaa !79
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
-  %24 = load ptr, ptr %4, align 8, !tbaa !76
+  %24 = load ptr, ptr %4, align 8, !tbaa !77
   %25 = tail call noundef nonnull align 1 ptr @_ZN3gmx20AbstractAnalysisData13moduleManagerEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   tail call void @_ZN3gmx19AnalysisDataStorage16startDataStorageEPNS_20AbstractAnalysisDataEPNS_25AnalysisDataModuleManagerE(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %0, ptr noundef nonnull %25)
   ret void
@@ -638,7 +638,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %17, %19, %21, %23
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !76
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %5 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %6 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %7 = icmp sgt i32 %6, 0
@@ -655,41 +655,41 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23Analys
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = load ptr, ptr %3, align 8, !tbaa !76
+  %12 = load ptr, ptr %3, align 8, !tbaa !77
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !81
+  %14 = load ptr, ptr %13, align 8, !tbaa !82
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
-  store i32 0, ptr %15, align 4, !tbaa !71
-  %16 = load i32, ptr %9, align 4, !tbaa !82
+  store i32 0, ptr %15, align 4, !tbaa !72
+  %16 = load i32, ptr %9, align 4, !tbaa !83
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = add nsw i32 %16, %17
   %19 = sext i32 %18 to i64
-  %20 = load ptr, ptr %8, align 8, !tbaa !65
+  %20 = load ptr, ptr %8, align 8, !tbaa !66
   %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %20, i64 %19
-  store float 0.000000e+00, ptr %21, align 8, !tbaa !60
+  store float 0.000000e+00, ptr %21, align 8, !tbaa !61
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !57
+  %23 = load i64, ptr %22, align 8, !tbaa !58
   %24 = or i64 %23, 5
-  store i64 %24, ptr %22, align 8, !tbaa !57
-  store i8 1, ptr %10, align 4, !tbaa !85
+  store i64 %24, ptr %22, align 8, !tbaa !58
+  store i8 1, ptr %10, align 4, !tbaa !86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next, %26
-  br i1 %27, label %11, label %._crit_edge, !llvm.loop !86
+  br i1 %27, label %11, label %._crit_edge, !llvm.loop !87
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !51
+  %4 = load i32, ptr %3, align 4, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !76
-  %7 = load i32, ptr %1, align 8, !tbaa !87
+  %6 = load ptr, ptr %5, align 8, !tbaa !77
+  %7 = load i32, ptr %1, align 8, !tbaa !88
   %8 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage12currentFrameEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = ptrtoint ptr %11 to i64
   %.sroa.0.0.copyload.i.i.i17 = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i17 to i64
@@ -715,34 +715,34 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23Analysi
   %.sroa.0.0.copyload.i.i.i20 = phi ptr [ %.sroa.0.0.copyload.i.i.i17, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i, %49 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %25 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20, i64 %indvars.iv, i32 2
-  %26 = load i64, ptr %25, align 8, !tbaa !57
+  %26 = load i64, ptr %25, align 8, !tbaa !58
   %27 = and i64 %26, 4
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %49, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20, i64 %indvars.iv
-  %30 = load float, ptr %29, align 8, !tbaa !60
-  %31 = load i32, ptr %19, align 4, !tbaa !82
+  %30 = load float, ptr %29, align 8, !tbaa !61
+  %31 = load i32, ptr %19, align 4, !tbaa !83
   %32 = add nsw i32 %31, %4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %20, i64 %33
-  %35 = load float, ptr %34, align 4, !tbaa !88
+  %35 = load float, ptr %34, align 4, !tbaa !89
   %36 = fsub float %30, %35
-  %37 = load ptr, ptr %22, align 8, !tbaa !81
+  %37 = load ptr, ptr %22, align 8, !tbaa !82
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %23
-  %39 = load i32, ptr %38, align 4, !tbaa !71
+  %39 = load i32, ptr %38, align 4, !tbaa !72
   %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %38, align 4, !tbaa !71
+  store i32 %40, ptr %38, align 4, !tbaa !72
   %41 = sitofp i32 %40 to float
   %42 = fdiv float %36, %41
-  %43 = load i32, ptr %19, align 4, !tbaa !82
+  %43 = load i32, ptr %19, align 4, !tbaa !83
   %44 = add nsw i32 %43, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %20, i64 %45
-  %47 = load float, ptr %46, align 4, !tbaa !88
+  %47 = load float, ptr %46, align 4, !tbaa !89
   %48 = fadd float %47, %42
-  store float %48, ptr %46, align 4, !tbaa !88
+  store float %48, ptr %46, align 4, !tbaa !89
   %.sroa.0.0.copyload.i.i.i.pre = load ptr, ptr %9, align 8
   br label %49
 
@@ -754,14 +754,14 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23Analysi
   %sext = shl i64 %51, 28
   %52 = ashr i64 %sext, 32
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %24, label %._crit_edge, !llvm.loop !89
+  br i1 %53, label %24, label %._crit_edge, !llvm.loop !90
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx30AnalysisDataFrameAverageModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !76
-  %5 = load i32, ptr %1, align 4, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
+  %5 = load i32, ptr %1, align 4, !tbaa !88
   tail call void @_ZN3gmx19AnalysisDataStorage11finishFrameEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5)
   ret void
 }
@@ -769,7 +769,7 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModule13frameFinishedERKNS_23Analy
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx30AnalysisDataFrameAverageModule12dataFinishedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
   tail call void @_ZN3gmx19AnalysisDataStorage17finishDataStorageEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
@@ -805,7 +805,7 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule11dataStartedEPNS_20Ab
 define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !76
+  %5 = load ptr, ptr %4, align 8, !tbaa !77
   %6 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %7 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %8 = icmp sgt i32 %7, 0
@@ -819,28 +819,28 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23
 
 12:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %13 = load ptr, ptr %4, align 8, !tbaa !76
+  %13 = load ptr, ptr %4, align 8, !tbaa !77
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !81
+  %15 = load ptr, ptr %14, align 8, !tbaa !82
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
-  store i32 0, ptr %16, align 4, !tbaa !71
-  %17 = load i32, ptr %10, align 4, !tbaa !82
+  store i32 0, ptr %16, align 4, !tbaa !72
+  %17 = load i32, ptr %10, align 4, !tbaa !83
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = add nsw i32 %17, %18
   %20 = sext i32 %19 to i64
-  %21 = load ptr, ptr %9, align 8, !tbaa !65
+  %21 = load ptr, ptr %9, align 8, !tbaa !66
   %22 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %21, i64 %20
-  store float 0.000000e+00, ptr %22, align 8, !tbaa !60
+  store float 0.000000e+00, ptr %22, align 8, !tbaa !61
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load i64, ptr %23, align 8, !tbaa !57
+  %24 = load i64, ptr %23, align 8, !tbaa !58
   %25 = or i64 %24, 5
-  store i64 %25, ptr %23, align 8, !tbaa !57
-  store i8 1, ptr %11, align 4, !tbaa !85
+  store i64 %25, ptr %23, align 8, !tbaa !58
+  store i8 1, ptr %11, align 4, !tbaa !86
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %28, label %12, label %_ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE.exit, !llvm.loop !86
+  br i1 %28, label %12, label %_ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE.exit, !llvm.loop !87
 
 _ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHeaderE.exit: ; preds = %12, %2
   ret void
@@ -849,14 +849,14 @@ _ZN3gmx30AnalysisDataFrameAverageModule12frameStartedERKNS_23AnalysisDataFrameHe
 ; Function Attrs: uwtable
 define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !51
+  %4 = load i32, ptr %3, align 4, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !76
-  %7 = load i32, ptr %1, align 8, !tbaa !87
+  %6 = load ptr, ptr %5, align 8, !tbaa !77
+  %7 = load i32, ptr %1, align 8, !tbaa !88
   %8 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage12currentFrameEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %7)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !56
+  %11 = load ptr, ptr %10, align 8, !tbaa !57
   %12 = ptrtoint ptr %11 to i64
   %.sroa.0.0.copyload.i.i.i17.i = load ptr, ptr %9, align 8
   %13 = ptrtoint ptr %.sroa.0.0.copyload.i.i.i17.i to i64
@@ -879,34 +879,34 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23A
   %.sroa.0.0.copyload.i.i.i20.i = phi ptr [ %.sroa.0.0.copyload.i.i.i17.i, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i.i, %49 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
   %25 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20.i, i64 %indvars.iv.i, i32 2
-  %26 = load i64, ptr %25, align 8, !tbaa !57
+  %26 = load i64, ptr %25, align 8, !tbaa !58
   %27 = and i64 %26, 4
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %49, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i20.i, i64 %indvars.iv.i
-  %30 = load float, ptr %29, align 8, !tbaa !60
-  %31 = load i32, ptr %19, align 4, !tbaa !82
+  %30 = load float, ptr %29, align 8, !tbaa !61
+  %31 = load i32, ptr %19, align 4, !tbaa !83
   %32 = add nsw i32 %31, %4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %20, i64 %33
-  %35 = load float, ptr %34, align 4, !tbaa !88
+  %35 = load float, ptr %34, align 4, !tbaa !89
   %36 = fsub float %30, %35
-  %37 = load ptr, ptr %22, align 8, !tbaa !81
+  %37 = load ptr, ptr %22, align 8, !tbaa !82
   %38 = getelementptr inbounds nuw i32, ptr %37, i64 %23
-  %39 = load i32, ptr %38, align 4, !tbaa !71
+  %39 = load i32, ptr %38, align 4, !tbaa !72
   %40 = add nsw i32 %39, 1
-  store i32 %40, ptr %38, align 4, !tbaa !71
+  store i32 %40, ptr %38, align 4, !tbaa !72
   %41 = sitofp i32 %40 to float
   %42 = fdiv float %36, %41
-  %43 = load i32, ptr %19, align 4, !tbaa !82
+  %43 = load i32, ptr %19, align 4, !tbaa !83
   %44 = add nsw i32 %43, %4
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %20, i64 %45
-  %47 = load float, ptr %46, align 4, !tbaa !88
+  %47 = load float, ptr %46, align 4, !tbaa !89
   %48 = fadd float %47, %42
-  store float %48, ptr %46, align 4, !tbaa !88
+  store float %48, ptr %46, align 4, !tbaa !89
   %.sroa.0.0.copyload.i.i.i.pre.i = load ptr, ptr %9, align 8
   br label %49
 
@@ -918,7 +918,7 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23A
   %sext.i = shl i64 %51, 28
   %52 = ashr i64 %sext.i, 32
   %53 = icmp slt i64 %indvars.iv.next.i, %52
-  br i1 %53, label %24, label %_ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE.exit, !llvm.loop !89
+  br i1 %53, label %24, label %_ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE.exit, !llvm.loop !90
 
 _ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23AnalysisDataPointSetRefE.exit: ; preds = %49, %2
   ret void
@@ -927,8 +927,8 @@ _ZN3gmx30AnalysisDataFrameAverageModule11pointsAddedERKNS_23AnalysisDataPointSet
 ; Function Attrs: uwtable
 define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule13frameFinishedERKNS_23AnalysisDataFrameHeaderE(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !76
-  %5 = load i32, ptr %1, align 4, !tbaa !87
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
+  %5 = load i32, ptr %1, align 4, !tbaa !88
   tail call void @_ZN3gmx19AnalysisDataStorage11finishFrameEi(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef %5)
   ret void
 }
@@ -936,7 +936,7 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule13frameFinishedERKNS_2
 ; Function Attrs: uwtable
 define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule12dataFinishedEv(ptr noundef readonly captures(none) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !76
+  %3 = load ptr, ptr %2, align 8, !tbaa !77
   tail call void @_ZN3gmx19AnalysisDataStorage17finishDataStorageEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   ret void
 }
@@ -945,8 +945,8 @@ define void @_ZThn16_N3gmx30AnalysisDataFrameAverageModule12dataFinishedEv(ptr n
 define void @_ZN3gmx25AnalysisDataAverageModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx25AbstractAnalysisArrayDataC2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8, !tbaa !90
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8, !tbaa !90
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8, !tbaa !91
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8, !tbaa !91
   %3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %4 unwind label %6
 
@@ -978,9 +978,9 @@ declare void @_ZN3gmx25AbstractAnalysisArrayDataD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx25AnalysisDataAverageModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (104, 112)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8, !tbaa !90
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 16), ptr %0, align 8, !tbaa !91
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8, !tbaa !90
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx25AnalysisDataAverageModuleE, i64 120), ptr %2, align 8, !tbaa !91
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %.not.i = icmp eq ptr %4, null
@@ -1024,7 +1024,7 @@ _ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i.i.i:
 
 18:                                               ; preds = %_ZSt8_DestroyIPN3gmx25AnalysisDataFrameAveragerES1_EvT_S3_RSaIT0_E.exit.i.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !92
+  %20 = load ptr, ptr %19, align 8, !tbaa !93
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %17 to i64
   %23 = sub i64 %21, %22
@@ -1075,7 +1075,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !92
+  %12 = load ptr, ptr %11, align 8, !tbaa !93
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 5
@@ -1094,7 +1094,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE
   %19 = add i64 %.01012.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %.not.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !93
+  br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !94
 
 _ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i
   store ptr %20, ptr %4, align 8, !tbaa !42
@@ -1124,7 +1124,7 @@ _ZNKSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE12_M_check_lenEmPKc.exit:
   %29 = add i64 %.01012.i.i.i32, -1
   %30 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 32
   %.not.i.i.i33 = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !93
+  br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !94
 
 _ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i30
   %.not10.i.i.i = icmp eq ptr %6, %5
@@ -1133,34 +1133,34 @@ _ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0
 .lr.ph.i.i.i37:                                   ; preds = %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit35, %.lr.ph.i.i.i37
   %.012.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i37 ], [ %27, %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i37 ], [ %6, %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  %31 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !44, !alias.scope !97, !noalias !94
-  store ptr %31, ptr %.012.i.i.i, align 8, !tbaa !44, !alias.scope !94, !noalias !97
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  %31 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !44, !alias.scope !98, !noalias !95
+  store ptr %31, ptr %.012.i.i.i, align 8, !tbaa !44, !alias.scope !95, !noalias !98
   %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !63, !alias.scope !97, !noalias !94
-  store ptr %34, ptr %32, align 8, !tbaa !63, !alias.scope !94, !noalias !97
+  %34 = load ptr, ptr %33, align 8, !tbaa !64, !alias.scope !98, !noalias !95
+  store ptr %34, ptr %32, align 8, !tbaa !64, !alias.scope !95, !noalias !98
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !47, !alias.scope !97, !noalias !94
-  store ptr %37, ptr %35, align 8, !tbaa !47, !alias.scope !94, !noalias !97
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !97, !noalias !94
+  %37 = load ptr, ptr %36, align 8, !tbaa !47, !alias.scope !98, !noalias !95
+  store ptr %37, ptr %35, align 8, !tbaa !47, !alias.scope !95, !noalias !98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !98, !noalias !95
   %38 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
-  %40 = load i8, ptr %39, align 8, !tbaa !99, !range !31, !alias.scope !97, !noalias !94, !noundef !32
-  store i8 %40, ptr %38, align 8, !tbaa !99, !alias.scope !94, !noalias !97
+  %40 = load i8, ptr %39, align 8, !tbaa !100, !range !31, !alias.scope !98, !noalias !95, !noundef !32
+  store i8 %40, ptr %38, align 8, !tbaa !100, !alias.scope !95, !noalias !98
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i38 = icmp eq ptr %41, %5
-  br i1 %.not.i.i.i38, label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i37, !llvm.loop !104
+  br i1 %.not.i.i.i38, label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i37, !llvm.loop !105
 
 _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i37, %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit35
   %.not.i40 = icmp eq ptr %6, null
   br i1 %.not.i40, label %_ZNSt12_Vector_baseIN3gmx25AnalysisDataFrameAveragerESaIS1_EE13_M_deallocateEPS1_m.exit41, label %43
 
 43:                                               ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %44 = load ptr, ptr %11, align 8, !tbaa !92
+  %44 = load ptr, ptr %11, align 8, !tbaa !93
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %45, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %46) #19
@@ -1171,7 +1171,7 @@ _ZNSt12_Vector_baseIN3gmx25AnalysisDataFrameAveragerESaIS1_EE13_M_deallocateEPS1
   %47 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %28, i64 %1
   store ptr %47, ptr %4, align 8, !tbaa !42
   %48 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %27, i64 %25
-  store ptr %48, ptr %11, align 8, !tbaa !92
+  store ptr %48, ptr %11, align 8, !tbaa !93
   br label %49
 
 49:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPN3gmx25AnalysisDataFrameAveragerEmS1_ET_S3_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIN3gmx25AnalysisDataFrameAveragerESaIS1_EE13_M_deallocateEPS1_m.exit41, %2
@@ -1210,9 +1210,9 @@ define noundef float @_ZNK3gmx25AnalysisDataAverageModule7averageEii(ptr noundef
   %11 = mul nsw i32 %spec.select5, %10
   %12 = add nsw i32 %11, %spec.select
   %13 = sext i32 %12 to i64
-  %14 = load ptr, ptr %9, align 8, !tbaa !65
+  %14 = load ptr, ptr %9, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %14, i64 %13
-  %16 = load float, ptr %15, align 8, !tbaa !60
+  %16 = load float, ptr %15, align 8, !tbaa !61
   ret float %16
 }
 
@@ -1230,9 +1230,9 @@ define noundef float @_ZNK3gmx25AnalysisDataAverageModule17standardDeviationEii(
   %11 = mul nsw i32 %spec.select5, %10
   %12 = add nsw i32 %11, %spec.select
   %13 = sext i32 %12 to i64
-  %14 = load ptr, ptr %9, align 8, !tbaa !65
+  %14 = load ptr, ptr %9, align 8, !tbaa !66
   %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %14, i64 %13, i32 1
-  %16 = load float, ptr %15, align 4, !tbaa !72
+  %16 = load float, ptr %15, align 4, !tbaa !73
   ret float %16
 }
 
@@ -1251,7 +1251,7 @@ define noundef i32 @_ZNK3gmx25AnalysisDataAverageModule11sampleCountEii(ptr noun
   %12 = sext i32 %spec.select5 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !44
   %14 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataFrameAverager::AverageItem", ptr %13, i64 %12, i32 2
-  %15 = load i32, ptr %14, align 8, !tbaa !69
+  %15 = load i32, ptr %14, align 8, !tbaa !70
   ret i32 %15
 }
 
@@ -1259,8 +1259,8 @@ define noundef i32 @_ZNK3gmx25AnalysisDataAverageModule11sampleCountEii(ptr noun
 define void @_ZN3gmx30AnalysisDataFrameAverageModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3gmx20AbstractAnalysisDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8, !tbaa !90
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8, !tbaa !90
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8, !tbaa !91
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8, !tbaa !91
   %3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %4 unwind label %8
 
@@ -1273,7 +1273,7 @@ define void @_ZN3gmx30AnalysisDataFrameAverageModuleC2Ev(ptr noundef nonnull ali
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %3, ptr %7, align 8, !tbaa !76
+  store ptr %3, ptr %7, align 8, !tbaa !77
   ret void
 
 8:                                                ; preds = %1
@@ -1305,23 +1305,23 @@ declare void @_ZN3gmx19AnalysisDataStorageC1Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx30AnalysisDataFrameAverageModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8, !tbaa !90
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 16), ptr %0, align 8, !tbaa !91
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8, !tbaa !90
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN3gmx30AnalysisDataFrameAverageModuleE, i64 120), ptr %2, align 8, !tbaa !91
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !76
+  %4 = load ptr, ptr %3, align 8, !tbaa !77
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !81
+  %7 = load ptr, ptr %6, align 8, !tbaa !82
   %.not.i.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN3gmx30AnalysisDataFrameAverageModule4ImplEEclEPS2_.exit.i, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !105
+  %10 = load ptr, ptr %9, align 8, !tbaa !106
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %7 to i64
   %13 = sub i64 %11, %12
@@ -1334,7 +1334,7 @@ _ZNKSt14default_deleteIN3gmx30AnalysisDataFrameAverageModule4ImplEEclEPS2_.exit.
   br label %_ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx30AnalysisDataFrameAverageModule4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx30AnalysisDataFrameAverageModule4ImplEEclEPS2_.exit.i
-  store ptr null, ptr %3, align 8, !tbaa !76
+  store ptr null, ptr %3, align 8, !tbaa !77
   tail call void @_ZN3gmx20AbstractAnalysisDataD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
   ret void
 }
@@ -1357,14 +1357,14 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !78
-  %6 = load ptr, ptr %0, align 8, !tbaa !81
+  %5 = load ptr, ptr %4, align 8, !tbaa !79
+  %6 = load ptr, ptr %0, align 8, !tbaa !82
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !105
+  %12 = load ptr, ptr %11, align 8, !tbaa !106
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
   %15 = ashr exact i64 %14, 2
@@ -1377,7 +1377,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
   br i1 %.not28, label %26, label %19
 
 19:                                               ; preds = %3
-  store i32 0, ptr %5, align 4, !tbaa !71
+  store i32 0, ptr %5, align 4, !tbaa !72
   %20 = getelementptr i8, ptr %5, i64 4
   %21 = add i64 %1, -1
   %22 = icmp eq i64 %21, 0
@@ -1386,14 +1386,14 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i: ; preds = %19
   %23 = shl i64 %1, 2
   %24 = add i64 %23, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !71
+  tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %24, i1 false), !tbaa !72
   %.idx.i.i.i.i.i = shl nuw nsw i64 %21, 2
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i.i.i.i
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %19, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %25, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i ]
-  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !78
+  store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !79
   br label %44
 
 26:                                               ; preds = %3
@@ -1411,7 +1411,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit:    ; preds = %26
   %31 = shl nuw nsw i64 %30, 2
   %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %9
-  store i32 0, ptr %33, align 4, !tbaa !71
+  store i32 0, ptr %33, align 4, !tbaa !72
   %34 = icmp eq i64 %1, 1
   br i1 %34, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30
 
@@ -1419,7 +1419,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30: ; preds = %_ZNKSt6vectorIi
   %35 = getelementptr i8, ptr %33, i64 4
   %36 = shl nuw nsw i64 %1, 2
   %37 = add nsw i64 %36, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %37, i1 false), !tbaa !71
+  tail call void @llvm.memset.p0.i64(ptr align 4 %35, i8 0, i64 %37, i1 false), !tbaa !72
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit33: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i30, %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit
@@ -1440,11 +1440,11 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
   br label %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %40
-  store ptr %32, ptr %0, align 8, !tbaa !81
+  store ptr %32, ptr %0, align 8, !tbaa !82
   %42 = getelementptr inbounds nuw i32, ptr %33, i64 %1
-  store ptr %42, ptr %4, align 8, !tbaa !78
+  store ptr %42, ptr %4, align 8, !tbaa !79
   %43 = getelementptr inbounds nuw i32, ptr %32, i64 %30
-  store ptr %43, ptr %11, align 8, !tbaa !105
+  store ptr %43, ptr %11, align 8, !tbaa !106
   br label %44
 
 44:                                               ; preds = %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit, %_ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36, %2
@@ -1554,61 +1554,62 @@ attributes #21 = { noreturn }
 !45 = !{!"_ZTSNSt12_Vector_baseIN3gmx25AnalysisDataFrameAverager11AverageItemESaIS2_EE17_Vector_impl_dataE", !46, i64 0, !46, i64 8, !46, i64 16}
 !46 = !{!"p1 _ZTSN3gmx25AnalysisDataFrameAverager11AverageItemE", !14, i64 0}
 !47 = !{!45, !46, i64 16}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = distinct !{!50, !49}
-!51 = !{!52, !17, i64 12}
-!52 = !{!"_ZTSN3gmx23AnalysisDataPointSetRefE", !53, i64 0, !17, i64 12, !17, i64 16, !54, i64 24}
-!53 = !{!"_ZTSN3gmx23AnalysisDataFrameHeaderE", !17, i64 0, !29, i64 4, !29, i64 8}
-!54 = !{!"_ZTSN3gmx8ArrayRefIKNS_17AnalysisDataValueEEE", !55, i64 0, !55, i64 8}
-!55 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEE", !23, i64 0}
-!56 = !{!55, !23, i64 0}
-!57 = !{!58, !59, i64 0}
-!58 = !{!"_ZTSN3gmx13FlagsTemplateINS_17AnalysisDataValue4FlagEEE", !59, i64 0}
-!59 = !{!"long", !15, i64 0}
-!60 = !{!61, !29, i64 0}
-!61 = !{!"_ZTSN3gmx17AnalysisDataValueE", !29, i64 0, !29, i64 4, !58, i64 8}
-!62 = distinct !{!62, !49}
-!63 = !{!45, !46, i64 8}
-!64 = !{!5, !17, i64 16}
-!65 = !{!22, !23, i64 0}
-!66 = !{!67, !68, i64 0}
-!67 = !{!"_ZTSN3gmx25AnalysisDataFrameAverager11AverageItemE", !68, i64 0, !68, i64 8, !17, i64 16}
-!68 = !{!"double", !15, i64 0}
-!69 = !{!67, !17, i64 16}
-!70 = !{!67, !68, i64 8}
-!71 = !{!17, !17, i64 0}
-!72 = !{!61, !29, i64 4}
-!73 = distinct !{!73, !49}
-!74 = distinct !{!74, !49}
-!75 = distinct !{!75, !49}
-!76 = !{!77, !77, i64 0}
-!77 = !{!"p1 _ZTSN3gmx30AnalysisDataFrameAverageModule4ImplE", !14, i64 0}
-!78 = !{!79, !80, i64 8}
-!79 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !80, i64 0, !80, i64 8, !80, i64 16}
-!80 = !{!"p1 int", !14, i64 0}
-!81 = !{!79, !80, i64 0}
-!82 = !{!83, !17, i64 36}
-!83 = !{!"_ZTSN3gmx24AnalysisDataStorageFrameE", !84, i64 0, !19, i64 8, !17, i64 32, !17, i64 36, !17, i64 40, !30, i64 44}
-!84 = !{!"p1 _ZTSN3gmx8internal28AnalysisDataStorageFrameDataE", !14, i64 0}
-!85 = !{!83, !30, i64 44}
-!86 = distinct !{!86, !49}
-!87 = !{!53, !17, i64 0}
-!88 = !{!29, !29, i64 0}
-!89 = distinct !{!89, !49}
-!90 = !{!91, !91, i64 0}
-!91 = !{!"vtable pointer", !16, i64 0}
-!92 = !{!40, !41, i64 16}
-!93 = distinct !{!93, !49}
-!94 = !{!95}
-!95 = distinct !{!95, !96, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataFrameAveragerES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!96 = distinct !{!96, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataFrameAveragerES1_SaIS1_EEvPT_PT0_RT1_"}
-!97 = !{!98}
-!98 = distinct !{!98, !96, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataFrameAveragerES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!99 = !{!100, !30, i64 24}
-!100 = !{!"_ZTSN3gmx25AnalysisDataFrameAveragerE", !101, i64 0, !30, i64 24}
-!101 = !{!"_ZTSSt6vectorIN3gmx25AnalysisDataFrameAverager11AverageItemESaIS2_EE", !102, i64 0}
-!102 = !{!"_ZTSSt12_Vector_baseIN3gmx25AnalysisDataFrameAverager11AverageItemESaIS2_EE", !103, i64 0}
-!103 = !{!"_ZTSNSt12_Vector_baseIN3gmx25AnalysisDataFrameAverager11AverageItemESaIS2_EE12_Vector_implE", !45, i64 0}
-!104 = distinct !{!104, !49}
-!105 = !{!79, !80, i64 16}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = distinct !{!51, !49, !50}
+!52 = !{!53, !17, i64 12}
+!53 = !{!"_ZTSN3gmx23AnalysisDataPointSetRefE", !54, i64 0, !17, i64 12, !17, i64 16, !55, i64 24}
+!54 = !{!"_ZTSN3gmx23AnalysisDataFrameHeaderE", !17, i64 0, !29, i64 4, !29, i64 8}
+!55 = !{!"_ZTSN3gmx8ArrayRefIKNS_17AnalysisDataValueEEE", !56, i64 0, !56, i64 8}
+!56 = !{!"_ZTSN3gmx12ArrayRefIterIKNS_17AnalysisDataValueEEE", !23, i64 0}
+!57 = !{!56, !23, i64 0}
+!58 = !{!59, !60, i64 0}
+!59 = !{!"_ZTSN3gmx13FlagsTemplateINS_17AnalysisDataValue4FlagEEE", !60, i64 0}
+!60 = !{!"long", !15, i64 0}
+!61 = !{!62, !29, i64 0}
+!62 = !{!"_ZTSN3gmx17AnalysisDataValueE", !29, i64 0, !29, i64 4, !59, i64 8}
+!63 = distinct !{!63, !49, !50}
+!64 = !{!45, !46, i64 8}
+!65 = !{!5, !17, i64 16}
+!66 = !{!22, !23, i64 0}
+!67 = !{!68, !69, i64 0}
+!68 = !{!"_ZTSN3gmx25AnalysisDataFrameAverager11AverageItemE", !69, i64 0, !69, i64 8, !17, i64 16}
+!69 = !{!"double", !15, i64 0}
+!70 = !{!68, !17, i64 16}
+!71 = !{!68, !69, i64 8}
+!72 = !{!17, !17, i64 0}
+!73 = !{!62, !29, i64 4}
+!74 = distinct !{!74, !49, !50}
+!75 = distinct !{!75, !49, !50}
+!76 = distinct !{!76, !49, !50}
+!77 = !{!78, !78, i64 0}
+!78 = !{!"p1 _ZTSN3gmx30AnalysisDataFrameAverageModule4ImplE", !14, i64 0}
+!79 = !{!80, !81, i64 8}
+!80 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !81, i64 0, !81, i64 8, !81, i64 16}
+!81 = !{!"p1 int", !14, i64 0}
+!82 = !{!80, !81, i64 0}
+!83 = !{!84, !17, i64 36}
+!84 = !{!"_ZTSN3gmx24AnalysisDataStorageFrameE", !85, i64 0, !19, i64 8, !17, i64 32, !17, i64 36, !17, i64 40, !30, i64 44}
+!85 = !{!"p1 _ZTSN3gmx8internal28AnalysisDataStorageFrameDataE", !14, i64 0}
+!86 = !{!84, !30, i64 44}
+!87 = distinct !{!87, !49, !50}
+!88 = !{!54, !17, i64 0}
+!89 = !{!29, !29, i64 0}
+!90 = distinct !{!90, !49, !50}
+!91 = !{!92, !92, i64 0}
+!92 = !{!"vtable pointer", !16, i64 0}
+!93 = !{!40, !41, i64 16}
+!94 = distinct !{!94, !49, !50}
+!95 = !{!96}
+!96 = distinct !{!96, !97, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataFrameAveragerES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!97 = distinct !{!97, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataFrameAveragerES1_SaIS1_EEvPT_PT0_RT1_"}
+!98 = !{!99}
+!99 = distinct !{!99, !97, !"_ZSt19__relocate_object_aIN3gmx25AnalysisDataFrameAveragerES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!100 = !{!101, !30, i64 24}
+!101 = !{!"_ZTSN3gmx25AnalysisDataFrameAveragerE", !102, i64 0, !30, i64 24}
+!102 = !{!"_ZTSSt6vectorIN3gmx25AnalysisDataFrameAverager11AverageItemESaIS2_EE", !103, i64 0}
+!103 = !{!"_ZTSSt12_Vector_baseIN3gmx25AnalysisDataFrameAverager11AverageItemESaIS2_EE", !104, i64 0}
+!104 = !{!"_ZTSNSt12_Vector_baseIN3gmx25AnalysisDataFrameAverager11AverageItemESaIS2_EE12_Vector_implE", !45, i64 0}
+!105 = distinct !{!105, !49, !50}
+!106 = !{!80, !81, i64 16}

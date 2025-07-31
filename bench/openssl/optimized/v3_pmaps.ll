@@ -82,13 +82,13 @@ define internal ptr @v2i_POLICY_MAPPINGS(ptr readnone captures(none) %0, ptr rea
   %.046 = phi i32 [ %34, %31 ], [ 0, %.preheader ]
   %9 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.046) #4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !14
+  %11 = load ptr, ptr %10, align 8, !tbaa !15
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !18
   %.not36 = icmp eq ptr %14, null
   br i1 %.not36, label %15, label %18
 
@@ -96,13 +96,13 @@ define internal ptr @v2i_POLICY_MAPPINGS(ptr readnone captures(none) %0, ptr rea
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 83, ptr noundef nonnull @__func__.v2i_POLICY_MAPPINGS) #4
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !17
+  %17 = load ptr, ptr %16, align 8, !tbaa !18
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 110, ptr noundef nonnull @.str.5, ptr noundef %17) #4
   br label %35
 
 18:                                               ; preds = %12
   %19 = tail call ptr @OBJ_txt2obj(ptr noundef nonnull %14, i32 noundef 0) #4
-  %20 = load ptr, ptr %10, align 8, !tbaa !14
+  %20 = load ptr, ptr %10, align 8, !tbaa !15
   %21 = tail call ptr @OBJ_txt2obj(ptr noundef %20, i32 noundef 0) #4
   %22 = icmp ne ptr %19, null
   %23 = icmp ne ptr %21, null
@@ -113,7 +113,7 @@ define internal ptr @v2i_POLICY_MAPPINGS(ptr readnone captures(none) %0, ptr rea
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.4, i32 noundef 90, ptr noundef nonnull @__func__.v2i_POLICY_MAPPINGS) #4
-  %26 = load ptr, ptr %25, align 8, !tbaa !17
+  %26 = load ptr, ptr %25, align 8, !tbaa !18
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 110, ptr noundef nonnull @.str.5, ptr noundef %26) #4
   br label %35
 
@@ -135,7 +135,7 @@ define internal ptr @v2i_POLICY_MAPPINGS(ptr readnone captures(none) %0, ptr rea
   %33 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef nonnull %28) #4
   %34 = add nuw nsw i32 %.046, 1
   %exitcond.not = icmp eq i32 %34, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 35:                                               ; preds = %30, %24, %15
   %.130 = phi ptr [ %21, %30 ], [ %21, %24 ], [ null, %15 ]
@@ -223,10 +223,11 @@ attributes #4 = { nounwind }
 !9 = !{!"POLICY_MAPPING_st", !10, i64 0, !10, i64 8}
 !10 = !{!"p1 _ZTS14asn1_object_st", !5, i64 0}
 !11 = !{!9, !10, i64 8}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !16, i64 16}
-!15 = !{!"", !16, i64 0, !16, i64 8, !16, i64 16}
-!16 = !{!"p1 omnipotent char", !5, i64 0}
-!17 = !{!15, !16, i64 8}
-!18 = distinct !{!18, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !17, i64 16}
+!16 = !{!"", !17, i64 0, !17, i64 8, !17, i64 16}
+!17 = !{!"p1 omnipotent char", !5, i64 0}
+!18 = !{!16, !17, i64 8}
+!19 = distinct !{!19, !13, !14}

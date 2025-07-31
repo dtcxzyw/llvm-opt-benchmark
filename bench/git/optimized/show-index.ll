@@ -187,7 +187,7 @@ git_bswap32.exit87:                               ; preds = %57
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %7) #9
   %65 = add nuw i32 %.1109, 1
   %exitcond134.not = icmp eq i32 %65, %50
-  br i1 %exitcond134.not, label %.loopexit, label %57, !llvm.loop !46
+  br i1 %exitcond134.not, label %.loopexit, label %57, !llvm.loop !47
 
 66:                                               ; preds = %53
   %67 = zext i32 %50 to i64
@@ -228,7 +228,7 @@ git_bswap32.exit87:                               ; preds = %57
 83:                                               ; preds = %81
   %84 = add nuw nsw i64 %.0811.i, 1
   %exitcond.not.i = icmp eq i64 %84, 3
-  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %81, !llvm.loop !47
+  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %81, !llvm.loop !48
 
 .split.loop.exit9.i:                              ; preds = %81
   %85 = trunc nuw nsw i64 %.0811.i to i32
@@ -237,10 +237,10 @@ git_bswap32.exit87:                               ; preds = %57
 hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.exit9.i
   %.2.i = phi i32 [ %85, %.split.loop.exit9.i ], [ 0, %83 ]
   %86 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  store i32 %.2.i, ptr %86, align 4, !tbaa !48
+  store i32 %.2.i, ptr %86, align 4, !tbaa !49
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next136, %67
-  br i1 %exitcond139.not, label %.lr.ph113, label %71, !llvm.loop !51
+  br i1 %exitcond139.not, label %.lr.ph113, label %71, !llvm.loop !52
 
 .lr.ph113:                                        ; preds = %hash_algo_by_ptr.exit, %92
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %92 ], [ 0, %hash_algo_by_ptr.exit ]
@@ -258,7 +258,7 @@ hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.ex
 92:                                               ; preds = %.lr.ph113
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next141, %67
-  br i1 %exitcond145.not, label %.lr.ph115, label %.lr.ph113, !llvm.loop !52
+  br i1 %exitcond145.not, label %.lr.ph115, label %.lr.ph113, !llvm.loop !53
 
 .lr.ph118:                                        ; preds = %99
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -280,14 +280,14 @@ hash_algo_by_ptr.exit:                            ; preds = %83, %.split.loop.ex
 99:                                               ; preds = %.lr.ph115
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next147, %67
-  br i1 %exitcond151.not, label %.lr.ph118, label %.lr.ph115, !llvm.loop !53
+  br i1 %exitcond151.not, label %.lr.ph118, label %.lr.ph115, !llvm.loop !54
 
 git_bswap32.exit89:                               ; preds = %.lr.ph118, %git_bswap32.exit95
   %indvars.iv152 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next153, %git_bswap32.exit95 ]
   %.065116 = phi i32 [ 0, %.lr.ph118 ], [ %.166, %git_bswap32.exit95 ]
   %100 = getelementptr inbounds nuw %struct.anon, ptr %69, i64 %indvars.iv152
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
-  %102 = load i32, ptr %101, align 4, !tbaa !54
+  %102 = load i32, ptr %101, align 4, !tbaa !55
   %103 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %102) #11, !srcloc !43
   %.not77 = icmp sgt i32 %103, -1
   br i1 %.not77, label %104, label %106
@@ -334,12 +334,12 @@ git_bswap32.exit95:                               ; preds = %git_bswap32.exit91,
   %.063 = phi i64 [ %120, %git_bswap32.exit91 ], [ %105, %104 ]
   %122 = call ptr @oid_to_hex(ptr noundef nonnull %100) #9
   %123 = getelementptr inbounds nuw i8, ptr %100, i64 36
-  %124 = load i32, ptr %123, align 4, !tbaa !55
+  %124 = load i32, ptr %123, align 4, !tbaa !56
   %125 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %124) #11, !srcloc !43
   %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %.063, ptr noundef %122, i32 noundef %125)
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next153, %67
-  br i1 %exitcond157.not, label %._crit_edge, label %git_bswap32.exit89, !llvm.loop !56
+  br i1 %exitcond157.not, label %._crit_edge, label %git_bswap32.exit89, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %git_bswap32.exit95, %66
   call void @free(ptr noundef %69) #9
@@ -461,16 +461,17 @@ attributes #11 = { nounwind memory(none) }
 !41 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !42 = !{!11, !11, i64 0}
 !43 = !{i64 3475634}
-!44 = distinct !{!44, !45}
+!44 = distinct !{!44, !45, !46}
 !45 = !{!"llvm.loop.mustprogress"}
-!46 = distinct !{!46, !45}
-!47 = distinct !{!47, !45}
-!48 = !{!49, !11, i64 32}
-!49 = !{!"", !50, i64 0, !11, i64 36, !11, i64 40}
-!50 = !{!"object_id", !7, i64 0, !11, i64 32}
-!51 = distinct !{!51, !45}
-!52 = distinct !{!52, !45}
-!53 = distinct !{!53, !45}
-!54 = !{!49, !11, i64 40}
-!55 = !{!49, !11, i64 36}
-!56 = distinct !{!56, !45}
+!46 = !{!"llvm.loop.estimated_trip_count"}
+!47 = distinct !{!47, !45, !46}
+!48 = distinct !{!48, !45, !46}
+!49 = !{!50, !11, i64 32}
+!50 = !{!"", !51, i64 0, !11, i64 36, !11, i64 40}
+!51 = !{!"object_id", !7, i64 0, !11, i64 32}
+!52 = distinct !{!52, !45, !46}
+!53 = distinct !{!53, !45, !46}
+!54 = distinct !{!54, !45, !46}
+!55 = !{!50, !11, i64 40}
+!56 = !{!50, !11, i64 36}
+!57 = distinct !{!57, !45, !46}

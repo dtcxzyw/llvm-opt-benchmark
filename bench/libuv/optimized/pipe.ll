@@ -252,7 +252,7 @@ define dso_local i32 @uv_pipe_open(ptr noundef %0, i32 noundef %1) local_unnamed
   %9 = tail call ptr @__errno_location() #14
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 4
-  br i1 %11, label %.preheader, label %.critedge
+  br i1 %11, label %.preheader, label %.critedge, !llvm.loop !4
 
 .critedge:                                        ; preds = %8
   %12 = sub nsw i32 0, %10
@@ -923,3 +923,5 @@ attributes #14 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

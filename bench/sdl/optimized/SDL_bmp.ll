@@ -516,7 +516,7 @@ thread-pre-split:                                 ; preds = %56, %.thread258, %1
   %232 = load i32, ptr %157, align 8
   %233 = sext i32 %232 to i64
   %234 = icmp slt i64 %indvars.iv.next, %233
-  br i1 %234, label %213, label %.loopexit230, !llvm.loop !5
+  br i1 %234, label %213, label %.loopexit230, !llvm.loop !6
 
 .loopexit230:                                     ; preds = %229, %207, %.preheader232, %.preheader229, %153, %150
   %235 = load i32, ptr %8, align 4
@@ -611,7 +611,7 @@ thread-pre-split:                                 ; preds = %56, %.thread258, %1
 287:                                              ; preds = %.lr.ph239
   %indvars.iv.next253 = add nuw nsw i64 %indvars.iv252, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next253, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph239, !llvm.loop !6
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph239, !llvm.loop !7
 
 .lr.ph239:                                        ; preds = %.lr.ph239.preheader, %287
   %indvars.iv252 = phi i64 [ 0, %.lr.ph239.preheader ], [ %indvars.iv.next253, %287 ]
@@ -634,7 +634,7 @@ thread-pre-split:                                 ; preds = %56, %.thread258, %1
 292:                                              ; preds = %.lr.ph241
   %293 = add nuw nsw i32 %.3149240, 1
   %exitcond255.not = icmp eq i32 %293, %spec.select
-  br i1 %exitcond255.not, label %.thread207, label %.lr.ph241, !llvm.loop !7
+  br i1 %exitcond255.not, label %.thread207, label %.lr.ph241, !llvm.loop !8
 
 .thread207:                                       ; preds = %292
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17) #4
@@ -658,7 +658,7 @@ thread-pre-split:                                 ; preds = %56, %.thread258, %1
   %300 = icmp uge ptr %.2154, %253
   %301 = icmp ult ptr %.2154, %260
   %302 = select i1 %300, i1 %301, i1 false
-  br i1 %302, label %271, label %._crit_edge, !llvm.loop !8
+  br i1 %302, label %271, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %296, %251
   %303 = phi i32 [ %257, %251 ], [ %297, %296 ]
@@ -677,7 +677,7 @@ thread-pre-split:                                 ; preds = %56, %.thread258, %1
 312:                                              ; preds = %.lr.ph.i
   %313 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 4
   %314 = icmp ult ptr %313, %310
-  br i1 %314, label %.lr.ph.i, label %.critedge.i, !llvm.loop !9
+  br i1 %314, label %.lr.ph.i, label %.critedge.i, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %304, %312
   %.01517.i = phi ptr [ %313, %312 ], [ %306, %304 ]
@@ -690,7 +690,7 @@ thread-pre-split:                                 ; preds = %56, %.thread258, %1
   store i8 -1, ptr %.118.i, align 1
   %316 = getelementptr inbounds nuw i8, ptr %.118.i, i64 4
   %317 = icmp ult ptr %316, %310
-  br i1 %317, label %.critedge.i, label %CorrectAlphaChannel.exit, !llvm.loop !10
+  br i1 %317, label %.critedge.i, label %CorrectAlphaChannel.exit, !llvm.loop !11
 
 .thread216:                                       ; preds = %225, %221, %217, %213, %203, %199, %195, %271, %295, %290, %240, %165, %171, %186, %156, %111, %104, %96, %98, %100, %92, %83, %85, %87, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %.thread, %30, %32, %34, %36, %38, %132, %140, %249, %127, %121, %28, %23, %20
   %.0150.ph220 = phi ptr [ null, %20 ], [ null, %23 ], [ null, %28 ], [ null, %121 ], [ null, %127 ], [ %149, %249 ], [ null, %140 ], [ null, %132 ], [ null, %38 ], [ null, %36 ], [ null, %34 ], [ null, %32 ], [ null, %30 ], [ null, %.thread ], [ null, %76 ], [ null, %74 ], [ null, %72 ], [ null, %70 ], [ null, %68 ], [ null, %66 ], [ null, %64 ], [ null, %62 ], [ null, %60 ], [ null, %58 ], [ null, %87 ], [ null, %85 ], [ null, %83 ], [ null, %92 ], [ null, %100 ], [ null, %98 ], [ null, %96 ], [ null, %104 ], [ null, %111 ], [ %149, %156 ], [ %149, %186 ], [ %149, %171 ], [ %149, %165 ], [ %149, %240 ], [ %149, %290 ], [ %149, %295 ], [ %149, %271 ], [ %149, %195 ], [ %149, %199 ], [ %149, %203 ], [ %149, %213 ], [ %149, %217 ], [ %149, %221 ], [ %149, %225 ]
@@ -830,7 +830,7 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   %39 = add i8 %38, -1
   store i8 %39, ptr %4, align 1
   %.not59 = icmp eq i8 %39, 0
-  br i1 %.not59, label %40, label %31, !llvm.loop !11
+  br i1 %.not59, label %40, label %31, !llvm.loop !12
 
 40:                                               ; preds = %37
   %41 = trunc nsw i64 %indvars.iv.next to i32
@@ -909,7 +909,7 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   %79 = add i8 %78, -1
   store i8 %79, ptr %4, align 1
   %.not57 = icmp eq i8 %79, 0
-  br i1 %.not57, label %80, label %70, !llvm.loop !12
+  br i1 %.not57, label %80, label %70, !llvm.loop !13
 
 80:                                               ; preds = %77
   %81 = trunc nsw i64 %indvars.iv.next79 to i32
@@ -924,7 +924,7 @@ define internal fastcc noundef zeroext i1 @readRlePixels(ptr noundef readonly ca
   %.350 = phi i32 [ %41, %40 ], [ %81, %82 ], [ %81, %80 ], [ 0, %46 ], [ %56, %53 ]
   %.146 = phi ptr [ %.04565, %40 ], [ %.04565, %82 ], [ %.04565, %80 ], [ %47, %46 ], [ %63, %53 ]
   %85 = call zeroext i1 @SDL_ReadU8_REAL(ptr noundef nonnull %1, ptr noundef nonnull %4) #4
-  br i1 %85, label %21, label %.loopexit
+  br i1 %85, label %21, label %.loopexit, !llvm.loop !14
 
 .critedge:                                        ; preds = %23
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #4
@@ -1246,7 +1246,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 126:                                              ; preds = %.preheader328
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %130, label %.preheader328, !llvm.loop !13
+  br i1 %exitcond.not, label %130, label %.preheader328, !llvm.loop !15
 
 .preheader328:                                    ; preds = %124, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %124 ]
@@ -1302,7 +1302,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 150:                                              ; preds = %162
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next345, %wide.trip.count
-  br i1 %exitcond347.not, label %.loopexit326, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond347.not, label %.loopexit326, label %.lr.ph, !llvm.loop !16
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %150
   %indvars.iv344 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next345, %150 ]
@@ -1379,7 +1379,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 195:                                              ; preds = %.lr.ph335.split.us
   %196 = load ptr, ptr %180, align 8
   %197 = icmp ugt ptr %193, %196
-  br i1 %197, label %.lr.ph335.split.us, label %._crit_edge, !llvm.loop !15
+  br i1 %197, label %.lr.ph335.split.us, label %._crit_edge, !llvm.loop !17
 
 .lr.ph335.split:                                  ; preds = %.lr.ph335, %.loopexit
   %.0227334 = phi ptr [ %201, %.loopexit ], [ %189, %.lr.ph335 ]
@@ -1394,7 +1394,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 203:                                              ; preds = %.preheader
   %204 = add nuw nsw i32 %.2208333, 1
   %exitcond348.not = icmp eq i32 %204, %185
-  br i1 %exitcond348.not, label %.loopexit, label %.preheader, !llvm.loop !17
+  br i1 %exitcond348.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .preheader:                                       ; preds = %.lr.ph335.split, %203
   %.2208333 = phi i32 [ %204, %203 ], [ 0, %.lr.ph335.split ]
@@ -1404,7 +1404,7 @@ define hidden zeroext i1 @SDL_SaveBMP_IO_REAL(ptr noundef %0, ptr noundef %1, i1
 .loopexit:                                        ; preds = %203
   %206 = load ptr, ptr %180, align 8
   %207 = icmp ugt ptr %201, %206
-  br i1 %207, label %.lr.ph335.split, label %._crit_edge, !llvm.loop !18
+  br i1 %207, label %.lr.ph335.split, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.loopexit, %195, %179
   %208 = call i64 @SDL_TellIO_REAL(ptr noundef nonnull %1) #4
@@ -1512,19 +1512,21 @@ attributes #4 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}

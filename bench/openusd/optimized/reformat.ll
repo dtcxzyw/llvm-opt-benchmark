@@ -952,7 +952,7 @@ avifYUVColorSpaceInfoUVToUNorm.exit361:           ; preds = %avifYUVColorSpaceIn
 359:                                              ; preds = %358
   %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
   %exitcond562.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count561
-  br i1 %exitcond562.not, label %360, label %.preheader518, !llvm.loop !6
+  br i1 %exitcond562.not, label %360, label %.preheader518, !llvm.loop !7
 
 360:                                              ; preds = %359
   %361 = load i32, ptr %142, align 4
@@ -986,12 +986,12 @@ avifYUVColorSpaceInfoUVToUNorm.exit361:           ; preds = %avifYUVColorSpaceIn
   %370 = fadd float %.1313536, %369
   %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
   %exitcond567.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count
-  br i1 %exitcond567.not, label %371, label %364, !llvm.loop !7
+  br i1 %exitcond567.not, label %371, label %364, !llvm.loop !8
 
 371:                                              ; preds = %364
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
   %exitcond572.not = icmp eq i64 %indvars.iv.next569, %wide.trip.count561
-  br i1 %exitcond572.not, label %372, label %.preheader517, !llvm.loop !8
+  br i1 %exitcond572.not, label %372, label %.preheader517, !llvm.loop !9
 
 372:                                              ; preds = %371
   %373 = zext i1 %.not335 to i32
@@ -1120,7 +1120,7 @@ avifYUVColorSpaceInfoUVToUNorm.exit381:           ; preds = %372
   %451 = fadd float %.0302544, %450
   %indvars.iv.next574 = add nuw nsw i64 %indvars.iv573, 1
   %exitcond577.not = icmp eq i64 %indvars.iv.next574, %wide.trip.count
-  br i1 %exitcond577.not, label %452, label %445, !llvm.loop !9
+  br i1 %exitcond577.not, label %452, label %445, !llvm.loop !10
 
 452:                                              ; preds = %445
   %453 = fdiv float %448, %362
@@ -1232,13 +1232,13 @@ avifYUVColorSpaceInfoUVToUNorm.exit401:           ; preds = %452
 523:                                              ; preds = %avifYUVColorSpaceInfoUVToUNorm.exit391, %avifYUVColorSpaceInfoUVToUNorm.exit401
   %indvars.iv.next579 = add nuw nsw i64 %indvars.iv578, 1
   %exitcond582.not = icmp eq i64 %indvars.iv.next579, %wide.trip.count561
-  br i1 %exitcond582.not, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %exitcond582.not, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %523, %360, %avifYUVColorSpaceInfoUVToUNorm.exit371, %avifYUVColorSpaceInfoUVToUNorm.exit381
   %524 = add i32 %.0300547, 2
   %525 = load i32, ptr %0, align 8
   %526 = icmp ult i32 %524, %525
-  br i1 %526, label %152, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %526, label %152, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load i32, ptr %127, align 4
@@ -1249,7 +1249,7 @@ avifYUVColorSpaceInfoUVToUNorm.exit401:           ; preds = %452
   %528 = phi i32 [ %525, %._crit_edge.loopexit ], [ 0, %.preheader521 ]
   %529 = add i32 %.0299548, 2
   %530 = icmp ult i32 %529, %527
-  br i1 %530, label %.preheader521, label %.loopexit522, !llvm.loop !12
+  br i1 %530, label %.preheader521, label %.loopexit522, !llvm.loop !13
 
 .loopexit522:                                     ; preds = %._crit_edge, %.preheader521.lr.ph, %.critedge346, %112, %117
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1691,7 +1691,7 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, %149
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %150, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit.thread, label %150, !llvm.loop !15
 
 .loopexit:                                        ; preds = %172, %150
   %178 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1741,7 +1741,7 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %spec.select105 = select i1 %.not100, i32 %.1, i32 %199
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count
-  br i1 %exitcond135.not, label %200, label %190, !llvm.loop !15
+  br i1 %exitcond135.not, label %200, label %190, !llvm.loop !16
 
 200:                                              ; preds = %197
   call void @avifArrayDestroy(ptr noundef nonnull %4) #10
@@ -2052,7 +2052,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   %159 = add i32 %.02938.i.i, 1
   %160 = zext i32 %159 to i64
   %161 = icmp ugt i64 %146, %160
-  br i1 %161, label %151, label %162, !llvm.loop !16
+  br i1 %161, label %151, label %162, !llvm.loop !17
 
 162:                                              ; preds = %151
   %163 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -2083,7 +2083,7 @@ define internal fastcc i32 @avifImageYUVToRGBImpl(ptr noundef %0, ptr noundef %1
   %178 = add i32 %.039.i.i, 1
   %179 = zext i32 %178 to i64
   %180 = icmp samesign ugt i64 %146, %179
-  br i1 %180, label %170, label %avifCreateYUVToRGBLookUpTables.exit.i, !llvm.loop !17
+  br i1 %180, label %170, label %avifCreateYUVToRGBLookUpTables.exit.i, !llvm.loop !18
 
 avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %.0394.i = phi ptr [ %148, %162 ], [ %167, %170 ]
@@ -2441,10 +2441,10 @@ avifCreateYUVToRGBLookUpTables.exit.i:            ; preds = %170, %162
   %424 = icmp samesign ugt i32 %220, %423
   %425 = select i1 %424, i16 %422, i16 %221
   store i16 %425, ptr %gep412.i, align 2
-  br i1 %417, label %416, label %426, !llvm.loop !18
+  br i1 %417, label %416, label %426, !llvm.loop !19
 
 426:                                              ; preds = %416
-  br i1 %415, label %.preheader.i, label %.loopexit.i, !llvm.loop !19
+  br i1 %415, label %.preheader.i, label %.loopexit.i, !llvm.loop !20
 
 .loopexit.i:                                      ; preds = %426, %347
   %427 = load i32, ptr %231, align 8
@@ -2671,7 +2671,7 @@ avifStoreRGB8Pixel.exit.i:                        ; preds = %570, %569, %558
   %579 = load i32, ptr %0, align 8
   %580 = zext i32 %579 to i64
   %581 = icmp samesign ult i64 %indvars.iv.next436.i, %580
-  br i1 %581, label %279, label %._crit_edge.loopexit.i, !llvm.loop !20
+  br i1 %581, label %279, label %._crit_edge.loopexit.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %avifStoreRGB8Pixel.exit.i
   %.pre.i = load i32, ptr %211, align 4
@@ -2682,7 +2682,7 @@ avifStoreRGB8Pixel.exit.i:                        ; preds = %570, %569, %558
   %indvars.iv.next439.i = add nuw nsw i64 %indvars.iv438.i, 1
   %583 = zext i32 %582 to i64
   %584 = icmp samesign ult i64 %indvars.iv.next439.i, %583
-  br i1 %584, label %241, label %._crit_edge425.i, !llvm.loop !21
+  br i1 %584, label %241, label %._crit_edge425.i, !llvm.loop !22
 
 ._crit_edge425.i:                                 ; preds = %._crit_edge.i, %206
   %.not8.i.i = icmp eq ptr %.0394.i, %148
@@ -2791,7 +2791,7 @@ avifImageYUVAnyToRGBAnySlow.exit:                 ; preds = %.thread131, %avifCr
   %626 = load i32, ptr %1, align 8
   %627 = mul i32 %626, %600
   %628 = icmp ult i32 %624, %627
-  br i1 %628, label %.lr.ph.i121, label %._crit_edge.loopexit.i122, !llvm.loop !22
+  br i1 %628, label %.lr.ph.i121, label %._crit_edge.loopexit.i122, !llvm.loop !23
 
 ._crit_edge.loopexit.i122:                        ; preds = %.lr.ph.i121
   %.pre37.i = load i32, ptr %607, align 4
@@ -2803,7 +2803,7 @@ avifImageYUVAnyToRGBAnySlow.exit:                 ; preds = %.thread131, %avifCr
   %631 = getelementptr inbounds nuw i16, ptr %.02733.i, i64 %614
   %632 = add nuw i32 %.02534.i, 1
   %633 = icmp ult i32 %632, %629
-  br i1 %633, label %.preheader.i120, label %avifRGBImageToF16.exit, !llvm.loop !23
+  br i1 %633, label %.preheader.i120, label %avifRGBImageToF16.exit, !llvm.loop !24
 
 avifRGBImageToF16.exit:                           ; preds = %._crit_edge.i123, %.thread.i118, %597, %592, %590, %588, %586, %27
   %.0 = phi i32 [ %28, %27 ], [ %.197, %586 ], [ %589, %588 ], [ %591, %590 ], [ 0, %592 ], [ %598, %597 ], [ 0, %.thread.i118 ], [ 0, %._crit_edge.i123 ]
@@ -3459,7 +3459,7 @@ define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr noundef 
   %64 = load i32, ptr %0, align 8
   %65 = zext i32 %64 to i64
   %66 = icmp samesign ult i64 %indvars.iv.next75, %65
-  br i1 %66, label %.lr.ph67, label %.loopexit, !llvm.loop !24
+  br i1 %66, label %.lr.ph67, label %.loopexit, !llvm.loop !25
 
 67:                                               ; preds = %21
   br i1 %.not71, label %.loopexit, label %.lr.ph.preheader
@@ -3496,13 +3496,13 @@ define internal fastcc void @avifImageIdentity8ToRGB8ColorFullRange(ptr noundef 
   %85 = load i32, ptr %0, align 8
   %86 = zext i32 %85 to i64
   %87 = icmp samesign ult i64 %indvars.iv.next, %86
-  br i1 %87, label %.lr.ph, label %.loopexit, !llvm.loop !25
+  br i1 %87, label %.lr.ph, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph67, %67, %.preheader
   %88 = add nuw i32 %.05968, 1
   %89 = load i32, ptr %4, align 4
   %90 = icmp ult i32 %88, %89
-  br i1 %90, label %21, label %._crit_edge, !llvm.loop !26
+  br i1 %90, label %21, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -3545,7 +3545,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Color(ptr noun
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
   %30 = icmp ugt i64 %15, %29
-  br i1 %30, label %20, label %31, !llvm.loop !16
+  br i1 %30, label %20, label %31, !llvm.loop !17
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -3576,7 +3576,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Color(ptr noun
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ugt i64 %15, %48
-  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
+  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !18
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %.0119 = phi ptr [ %17, %31 ], [ %36, %39 ]
@@ -3726,7 +3726,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %169 = load i32, ptr %0, align 8
   %170 = zext i32 %169 to i64
   %171 = icmp samesign ult i64 %indvars.iv.next, %170
-  br i1 %171, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !27
+  br i1 %171, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %52, align 4
@@ -3737,7 +3737,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %173 = phi i32 [ %169, %._crit_edge.loopexit ], [ 0, %.lr.ph130.split ]
   %174 = add nuw i32 %.098129, 1
   %175 = icmp ult i32 %174, %172
-  br i1 %175, label %.lr.ph130.split, label %._crit_edge131, !llvm.loop !28
+  br i1 %175, label %.lr.ph130.split, label %._crit_edge131, !llvm.loop !29
 
 ._crit_edge131:                                   ; preds = %._crit_edge, %.lr.ph130, %avifCreateYUVToRGBLookUpTables.exit
   %.not8.i = icmp eq ptr %.0119, %17
@@ -3794,7 +3794,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB16Mono(ptr nound
   %28 = zext i32 %27 to i64
   %.highbits = lshr i64 %28, %14
   %29 = icmp eq i64 %.highbits, 0
-  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !16
+  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -3905,7 +3905,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %111 = load i32, ptr %0, align 8
   %112 = zext i32 %111 to i64
   %113 = icmp samesign ult i64 %indvars.iv.next, %112
-  br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %32, align 4
@@ -3916,7 +3916,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %115 = phi i32 [ %111, %._crit_edge.loopexit ], [ 0, %.lr.ph89.split ]
   %116 = add nuw i32 %.07088, 1
   %117 = icmp ult i32 %116, %114
-  br i1 %117, label %.lr.ph89.split, label %._crit_edge90, !llvm.loop !30
+  br i1 %117, label %.lr.ph89.split, label %._crit_edge90, !llvm.loop !31
 
 ._crit_edge90:                                    ; preds = %._crit_edge, %.lr.ph89, %avifCreateYUVToRGBLookUpTables.exit
   tail call void @avifFree(ptr noundef nonnull %16) #10
@@ -3964,7 +3964,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Color(ptr nound
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
   %30 = icmp ugt i64 %15, %29
-  br i1 %30, label %20, label %31, !llvm.loop !16
+  br i1 %30, label %20, label %31, !llvm.loop !17
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -3995,7 +3995,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Color(ptr nound
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ugt i64 %15, %48
-  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
+  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !18
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %.0120 = phi ptr [ %17, %31 ], [ %36, %39 ]
@@ -4168,7 +4168,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %169, %180
   %184 = load i32, ptr %0, align 8
   %185 = zext i32 %184 to i64
   %186 = icmp samesign ult i64 %indvars.iv.next, %185
-  br i1 %186, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !31
+  br i1 %186, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit
   %.pre = load i32, ptr %52, align 4
@@ -4179,7 +4179,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %169, %180
   %188 = phi i32 [ %184, %._crit_edge.loopexit ], [ 0, %.lr.ph131.split ]
   %189 = add nuw i32 %.099130, 1
   %190 = icmp ult i32 %189, %187
-  br i1 %190, label %.lr.ph131.split, label %._crit_edge132, !llvm.loop !32
+  br i1 %190, label %.lr.ph131.split, label %._crit_edge132, !llvm.loop !33
 
 ._crit_edge132:                                   ; preds = %._crit_edge, %.lr.ph131, %avifCreateYUVToRGBLookUpTables.exit
   %.not8.i = icmp eq ptr %.0120, %17
@@ -4236,7 +4236,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV16ToRGB8Mono(ptr nounde
   %28 = zext i32 %27 to i64
   %.highbits = lshr i64 %28, %14
   %29 = icmp eq i64 %.highbits, 0
-  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !16
+  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -4370,7 +4370,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %111, %122
   %126 = load i32, ptr %0, align 8
   %127 = zext i32 %126 to i64
   %128 = icmp samesign ult i64 %indvars.iv.next, %127
-  br i1 %128, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
+  br i1 %128, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit
   %.pre = load i32, ptr %32, align 4
@@ -4381,7 +4381,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %111, %122
   %130 = phi i32 [ %126, %._crit_edge.loopexit ], [ 0, %.lr.ph90.split ]
   %131 = add nuw i32 %.07189, 1
   %132 = icmp ult i32 %131, %129
-  br i1 %132, label %.lr.ph90.split, label %._crit_edge91, !llvm.loop !34
+  br i1 %132, label %.lr.ph90.split, label %._crit_edge91, !llvm.loop !35
 
 ._crit_edge91:                                    ; preds = %._crit_edge, %.lr.ph90, %avifCreateYUVToRGBLookUpTables.exit
   tail call void @avifFree(ptr noundef nonnull %16) #10
@@ -4429,7 +4429,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Color(ptr nound
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
   %30 = icmp ugt i64 %15, %29
-  br i1 %30, label %20, label %31, !llvm.loop !16
+  br i1 %30, label %20, label %31, !llvm.loop !17
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -4460,7 +4460,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Color(ptr nound
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ugt i64 %15, %48
-  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
+  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !18
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %.099 = phi ptr [ %17, %31 ], [ %36, %39 ]
@@ -4597,7 +4597,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %156 = load i32, ptr %0, align 8
   %157 = zext i32 %156 to i64
   %158 = icmp samesign ult i64 %indvars.iv.next, %157
-  br i1 %158, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !35
+  br i1 %158, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %52, align 4
@@ -4608,7 +4608,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %160 = phi i32 [ %156, %._crit_edge.loopexit ], [ 0, %.lr.ph110.split ]
   %161 = add nuw i32 %.082109, 1
   %162 = icmp ult i32 %161, %159
-  br i1 %162, label %.lr.ph110.split, label %._crit_edge111, !llvm.loop !36
+  br i1 %162, label %.lr.ph110.split, label %._crit_edge111, !llvm.loop !37
 
 ._crit_edge111:                                   ; preds = %._crit_edge, %.lr.ph110, %avifCreateYUVToRGBLookUpTables.exit
   %.not8.i = icmp eq ptr %.099, %17
@@ -4665,7 +4665,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB16Mono(ptr nounde
   %28 = zext i32 %27 to i64
   %.highbits = lshr i64 %28, %14
   %29 = icmp eq i64 %.highbits, 0
-  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !16
+  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -4769,7 +4769,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %104 = load i32, ptr %0, align 8
   %105 = zext i32 %104 to i64
   %106 = icmp samesign ult i64 %indvars.iv.next, %105
-  br i1 %106, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !37
+  br i1 %106, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !38
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %32, align 4
@@ -4780,7 +4780,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %108 = phi i32 [ %104, %._crit_edge.loopexit ], [ 0, %.lr.ph81.split ]
   %109 = add nuw i32 %.06480, 1
   %110 = icmp ult i32 %109, %107
-  br i1 %110, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !38
+  br i1 %110, label %.lr.ph81.split, label %._crit_edge82, !llvm.loop !39
 
 ._crit_edge82:                                    ; preds = %._crit_edge, %.lr.ph81, %avifCreateYUVToRGBLookUpTables.exit
   tail call void @avifFree(ptr noundef nonnull %16) #10
@@ -4828,7 +4828,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Color(ptr nounde
   %28 = add i32 %.02938.i, 1
   %29 = zext i32 %28 to i64
   %30 = icmp ugt i64 %15, %29
-  br i1 %30, label %20, label %31, !llvm.loop !16
+  br i1 %30, label %20, label %31, !llvm.loop !17
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -4859,7 +4859,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Color(ptr nounde
   %47 = add i32 %.039.i, 1
   %48 = zext i32 %47 to i64
   %49 = icmp samesign ugt i64 %15, %48
-  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
+  br i1 %49, label %39, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !18
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %39, %31
   %.0100 = phi ptr [ %17, %31 ], [ %36, %39 ]
@@ -5019,7 +5019,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %156, %167
   %171 = load i32, ptr %0, align 8
   %172 = zext i32 %171 to i64
   %173 = icmp samesign ult i64 %indvars.iv.next, %172
-  br i1 %173, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !39
+  br i1 %173, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !40
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit
   %.pre = load i32, ptr %52, align 4
@@ -5030,7 +5030,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %156, %167
   %175 = phi i32 [ %171, %._crit_edge.loopexit ], [ 0, %.lr.ph111.split ]
   %176 = add nuw i32 %.083110, 1
   %177 = icmp ult i32 %176, %174
-  br i1 %177, label %.lr.ph111.split, label %._crit_edge112, !llvm.loop !40
+  br i1 %177, label %.lr.ph111.split, label %._crit_edge112, !llvm.loop !41
 
 ._crit_edge112:                                   ; preds = %._crit_edge, %.lr.ph111, %avifCreateYUVToRGBLookUpTables.exit
   %.not8.i = icmp eq ptr %.0100, %17
@@ -5087,7 +5087,7 @@ define internal fastcc range(i32 0, 27) i32 @avifImageYUV8ToRGB8Mono(ptr noundef
   %28 = zext i32 %27 to i64
   %.highbits = lshr i64 %28, %14
   %29 = icmp eq i64 %.highbits, 0
-  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !16
+  br i1 %29, label %19, label %avifCreateYUVToRGBLookUpTables.exit, !llvm.loop !17
 
 avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -5214,7 +5214,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %104, %115
   %119 = load i32, ptr %0, align 8
   %120 = zext i32 %119 to i64
   %121 = icmp samesign ult i64 %indvars.iv.next, %120
-  br i1 %121, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !41
+  br i1 %121, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %avifStoreRGB8Pixel.exit
   %.pre = load i32, ptr %32, align 4
@@ -5225,7 +5225,7 @@ avifStoreRGB8Pixel.exit:                          ; preds = %104, %115
   %123 = phi i32 [ %119, %._crit_edge.loopexit ], [ 0, %.lr.ph82.split ]
   %124 = add nuw i32 %.06581, 1
   %125 = icmp ult i32 %124, %122
-  br i1 %125, label %.lr.ph82.split, label %._crit_edge83, !llvm.loop !42
+  br i1 %125, label %.lr.ph82.split, label %._crit_edge83, !llvm.loop !43
 
 ._crit_edge83:                                    ; preds = %._crit_edge, %.lr.ph82, %avifCreateYUVToRGBLookUpTables.exit
   tail call void @avifFree(ptr noundef nonnull %16) #10
@@ -5289,42 +5289,43 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5, !13}
-!13 = !{!"llvm.loop.unswitch.partial.disable"}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5, !13}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5, !13}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5, !13}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5, !13}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5, !13}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5, !13}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5, !13}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5, !13}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6, !14}
+!14 = !{!"llvm.loop.unswitch.partial.disable"}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6, !14}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6, !14}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6, !14}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6, !14}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6, !14}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6, !14}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6, !14}
+!42 = distinct !{!42, !5, !6}
+!43 = distinct !{!43, !5, !6, !14}

@@ -805,7 +805,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %480 = trunc nsw i64 %indvars.iv1552 to i32
   %.1.neg = sub i32 -2, %480
   %.not1373.not = icmp slt i64 %indvars.iv.next1553, %428
-  br i1 %.not1373.not, label %.lr.ph1533, label %._crit_edge1534.loopexit, !llvm.loop !11
+  br i1 %.not1373.not, label %.lr.ph1533, label %._crit_edge1534.loopexit, !llvm.loop !12
 
 ._crit_edge1534.loopexit:                         ; preds = %479
   %.pre1585 = load i32, ptr %3, align 4, !tbaa !3
@@ -916,7 +916,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %552 = add nuw nsw i32 %.21536, 1
   %.2.neg = xor i32 %.21536, -1
   %.not1374.not = icmp slt i32 %.21536, %485
-  br i1 %.not1374.not, label %.lr.ph1539, label %.loopexit, !llvm.loop !12
+  br i1 %.not1374.not, label %.lr.ph1539, label %.loopexit, !llvm.loop !13
 
 553:                                              ; preds = %93
   br i1 %.not13721520, label %._crit_edge, label %.lr.ph
@@ -1363,7 +1363,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %.not1367.not = icmp samesign ult i64 %indvars.iv, %562
   %833 = trunc nuw i64 %indvars.iv to i32
   %834 = xor i32 %833, -1
-  br i1 %.not1367.not, label %563, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %.not1367.not, label %563, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %832
   %.pre1565 = load i32, ptr %3, align 4, !tbaa !3
@@ -1457,7 +1457,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
 
 887:                                              ; preds = %872, %879
   %.not1368.not = icmp slt i64 %indvars.iv1543, %840
-  br i1 %.not1368.not, label %.lr.ph1509, label %._crit_edge1510.loopexit, !llvm.loop !14
+  br i1 %.not1368.not, label %.lr.ph1509, label %._crit_edge1510.loopexit, !llvm.loop !15
 
 ._crit_edge1510.loopexit:                         ; preds = %887
   %.pre1568 = load i32, ptr %3, align 4, !tbaa !3
@@ -1568,7 +1568,7 @@ define void @dorbdb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %962 = add nuw nsw i32 %.51512, 1
   %.5.neg = xor i32 %.51512, -1
   %.not1369.not = icmp slt i32 %.51512, %892
-  br i1 %.not1369.not, label %.lr.ph1515, label %.loopexit, !llvm.loop !15
+  br i1 %.not1369.not, label %.lr.ph1515, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %953, %551, %._crit_edge1510, %._crit_edge1534, %.thread1395, %.thread1399
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
@@ -1633,10 +1633,11 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}

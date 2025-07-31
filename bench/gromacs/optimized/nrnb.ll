@@ -280,7 +280,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   store double %.sink, ptr %2, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 25
-  br i1 %exitcond.not, label %.preheader97, label %5, !llvm.loop !15
+  br i1 %exitcond.not, label %.preheader97, label %5, !llvm.loop !16
 
 35:                                               ; preds = %.preheader97
   %36 = fcmp oeq double %43, 0.000000e+00
@@ -293,12 +293,12 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   %38 = load double, ptr %37, align 8, !tbaa !4
   %39 = fmul double %38, 0x3EB0C6F7A0B5ED8D
   %40 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv108, i32 1
-  %41 = load i32, ptr %40, align 8, !tbaa !16
+  %41 = load i32, ptr %40, align 8, !tbaa !17
   %42 = sitofp i32 %41 to double
   %43 = tail call double @llvm.fmuladd.f64(double %39, double %42, double %.08799)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next109, 116
-  br i1 %exitcond111.not, label %35, label %.preheader97, !llvm.loop !17
+  br i1 %exitcond111.not, label %35, label %.preheader97, !llvm.loop !18
 
 44:                                               ; preds = %35
   %45 = tail call i64 @fwrite(ptr nonnull @.str.122, i64 26, i64 1, ptr %0)
@@ -339,7 +339,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
 
 63:                                               ; preds = %54
   %gep = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr getelementptr inbounds nuw (i8, ptr @_ZL6nbdata, i64 8), i64 0, i64 %indvars.iv122
-  %64 = load i32, ptr %gep, align 8, !tbaa !16
+  %64 = load i32, ptr %gep, align 8, !tbaa !17
   %65 = trunc i64 %indvars.iv122 to i32
   %66 = add i32 %65, -26
   %67 = icmp ult i32 %66, 8
@@ -367,7 +367,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %75, i32 1
-  %81 = load i32, ptr %80, align 8, !tbaa !16
+  %81 = load i32, ptr %80, align 8, !tbaa !17
   %82 = add nsw i32 %81, %.183101.us
   br label %83
 
@@ -375,14 +375,14 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   %.2.us = phi i32 [ %82, %79 ], [ %.183101.us, %74 ]
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 2
   %84 = icmp samesign ult i64 %indvars.iv119, 43
-  br i1 %84, label %74, label %.loopexit.us, !llvm.loop !18
+  br i1 %84, label %74, label %.loopexit.us, !llvm.loop !19
 
 85:                                               ; preds = %.loopexit.us, %54
   %86 = phi double [ %55, %54 ], [ %69, %.loopexit.us ]
   %.1.us = phi double [ %.0105.us, %54 ], [ %73, %.loopexit.us ]
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next123, 116
-  br i1 %exitcond125.not, label %.split.us, label %54, !llvm.loop !19
+  br i1 %exitcond125.not, label %.split.us, label %54, !llvm.loop !20
 
 .preheader.us:                                    ; preds = %63
   %87 = and i64 %indvars.iv122, 1
@@ -408,7 +408,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
 95:                                               ; preds = %.critedge.split
   %96 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %indvars.iv115
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load i32, ptr %97, align 8, !tbaa !16
+  %98 = load i32, ptr %97, align 8, !tbaa !17
   %99 = trunc i64 %indvars.iv115 to i32
   %100 = add i32 %99, -26
   %101 = icmp ult i32 %100, 8
@@ -429,7 +429,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
 
 108:                                              ; preds = %103
   %109 = getelementptr inbounds nuw [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %104, i32 1
-  %110 = load i32, ptr %109, align 8, !tbaa !16
+  %110 = load i32, ptr %109, align 8, !tbaa !17
   %111 = add nsw i32 %110, %.183101
   br label %112
 
@@ -437,7 +437,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   %.2 = phi i32 [ %111, %108 ], [ %.183101, %103 ]
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 2
   %113 = icmp samesign ult i64 %indvars.iv112, 43
-  br i1 %113, label %103, label %.loopexit, !llvm.loop !18
+  br i1 %113, label %103, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %112, %95
   %.082 = phi i32 [ %98, %95 ], [ %.2, %112 ]
@@ -458,7 +458,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   %.1 = phi double [ %.0105, %.critedge.split ], [ %120, %.loopexit ]
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, 116
-  br i1 %exitcond118.not, label %.split.us, label %.critedge.split, !llvm.loop !21
+  br i1 %exitcond118.not, label %.split.us, label %.critedge.split, !llvm.loop !22
 
 125:                                              ; preds = %.split.us
   %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.117) #10
@@ -638,7 +638,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #6
 define noundef i32 @_Z9cost_nrnbi(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr inbounds [116 x %struct.t_nrnb_data], ptr @_ZL6nbdata, i64 0, i64 %2, i32 1
-  %4 = load i32, ptr %3, align 8, !tbaa !16
+  %4 = load i32, ptr %3, align 8, !tbaa !17
   ret i32 %4
 }
 
@@ -687,12 +687,13 @@ attributes #11 = { nounwind willreturn memory(read) }
 !10 = !{!"p1 omnipotent char", !11, i64 0}
 !11 = !{!"any pointer", !6, i64 0}
 !12 = !{!"int", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!9, !12, i64 8}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = distinct !{!19, !14, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!9, !12, i64 8}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = distinct !{!20, !14, !15, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !14, !15}

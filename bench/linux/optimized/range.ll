@@ -169,7 +169,7 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
 35:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = icmp eq i64 %indvars.iv.next, %9
-  br i1 %36, label %43, label %.preheader, !llvm.loop !8
+  br i1 %36, label %43, label %.preheader, !llvm.loop !9
 
 .preheader:                                       ; preds = %34, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %34 ]
@@ -196,7 +196,7 @@ define dso_local void @subtract_range(ptr noundef captures(none) %0, i32 noundef
 46:                                               ; preds = %45, %34, %33, %28, %27, %21, %10
   %47 = add nuw nsw i64 %11, 1
   %48 = icmp eq i64 %47, %9
-  br i1 %48, label %.loopexit, label %10, !llvm.loop !9
+  br i1 %48, label %.loopexit, label %10, !llvm.loop !10
 
 .loopexit:                                        ; preds = %46, %4
   ret void
@@ -239,7 +239,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 20:                                               ; preds = %16
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %21 = icmp slt i64 %5, %indvars.iv.next
-  br i1 %21, label %16, label %.loopexit5, !llvm.loop !10
+  br i1 %21, label %16, label %.loopexit5, !llvm.loop !11
 
 .loopexit5.loopexit.split.loop.exit:              ; preds = %16
   %22 = trunc nuw nsw i64 %indvars.iv to i32
@@ -269,7 +269,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
   %36 = add nuw nsw i64 %5, 1
   %37 = sext i32 %35 to i64
   %38 = icmp slt i64 %36, %37
-  br i1 %38, label %.preheader8, label %.loopexit9, !llvm.loop !11
+  br i1 %38, label %.preheader8, label %.loopexit9, !llvm.loop !12
 
 .loopexit9:                                       ; preds = %34, %.loopexit5, %2
   %39 = icmp sgt i32 %1, 0
@@ -289,7 +289,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
 44:                                               ; preds = %.preheader
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %45 = icmp eq i64 %indvars.iv.next14, %40
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !12
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !13
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %.preheader
   %46 = trunc nuw nsw i64 %indvars.iv13 to i32
@@ -352,11 +352,12 @@ attributes #11 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}

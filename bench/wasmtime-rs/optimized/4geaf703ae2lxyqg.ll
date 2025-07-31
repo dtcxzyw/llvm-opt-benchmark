@@ -357,7 +357,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
 
 121:                                              ; preds = %136, %115
   invoke void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..BindingId$GT$$GT$17h2197a5896802d99aE"(ptr nonnull align 8 %12)
-          to label %105 unwind label %.loopexit52.i.i
+          to label %105 unwind label %.loopexit52.i.i, !llvm.loop !6
 
 122:                                              ; preds = %129, %123
   %.pn42.i.i = phi { ptr, i32 } [ %124, %123 ], [ %.pn.i.i, %129 ]
@@ -444,7 +444,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
 
 152:                                              ; preds = %148
   invoke void @"_ZN4core3ptr206drop_in_place$LT$core..iter..adapters..zip..Zip$LT$core..slice..iter..Iter$LT$cranelift_isle..trie_again..BindingId$GT$$C$alloc..vec..into_iter..IntoIter$LT$cranelift_isle..trie_again..BindingId$GT$$GT$$GT$17haa3a90bc56dd774dE"(ptr nonnull align 8 %6)
-          to label %132 unwind label %.loopexit.i.i
+          to label %132 unwind label %.loopexit.i.i, !llvm.loop !8
 
 153:                                              ; preds = %148
   %154 = load i16, ptr %149, align 2, !noundef !3
@@ -470,7 +470,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
 158:                                              ; preds = %157
   %.sroa.4.0..sroa_idx48.i.i = getelementptr inbounds nuw i8, ptr %155, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.4.0..sroa_idx48.i.i, i64 31, i1 false)
-  %159 = load ptr, ptr %11, align 8, !nonnull !3, !align !6, !noundef !3
+  %159 = load ptr, ptr %11, align 8, !nonnull !3, !align !9, !noundef !3
   store i16 %150, ptr %4, align 16
   store i8 %.sroa.046.0.copyload47.i.i, ptr %60, align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.0..sroa_idx.i.i, ptr noundef nonnull align 1 dereferenceable(31) %.sroa.2.i.i, i64 31, i1 false)
@@ -479,7 +479,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
 
 160:                                              ; preds = %158, %157, %.thread.i.i
   invoke void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f059E"(ptr nonnull align 8 %99, i16 %154, i16 %150)
-          to label %144 unwind label %146
+          to label %144 unwind label %146, !llvm.loop !10
 
 161:                                              ; preds = %146, %129, %122, %.loopexit.split-lp53.i.i
   %162 = landingpad { ptr, i32 }
@@ -500,7 +500,7 @@ define void @_ZN14cranelift_isle10trie_again5build17h726d1e8f70d6a73dE(ptr write
           to label %.backedge.i.i.backedge unwind label %.loopexit.split-lp53.loopexit.i.i
 
 .backedge.i.i.backedge:                           ; preds = %166, %163
-  br label %.backedge.i.i
+  br label %.backedge.i.i, !llvm.loop !11
 
 _ZN14cranelift_isle10trie_again14RuleSetBuilder29normalize_equivalence_classes17h685c3919fc964c8bE.exit.i: ; preds = %111
   invoke void @"_ZN4core3ptr130drop_in_place$LT$alloc..vec..Vec$LT$$LP$cranelift_isle..trie_again..BindingId$C$cranelift_isle..trie_again..Constraint$RP$$GT$$GT$17h41b3f989fc4c9c5fE"(ptr nonnull align 8 %18)
@@ -604,7 +604,7 @@ define { i16, i16 } @_ZN14cranelift_isle10trie_again7RuleSet12find_binding17hb45
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN14cranelift_isle10trie_again7Binding7sources17hd96c7d1a4c299cddE(ptr align 16 %0) unnamed_addr #2 {
-  %2 = load i8, ptr %0, align 16, !range !7, !noundef !3
+  %2 = load i8, ptr %0, align 16, !range !12, !noundef !3
   switch i8 %2, label %default.unreachable1 [
     i8 0, label %23
     i8 1, label %23
@@ -627,7 +627,7 @@ default.unreachable1:                             ; preds = %1
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 16, !nonnull !3, !align !8, !noundef !3
+  %7 = load ptr, ptr %6, align 16, !nonnull !3, !align !13, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !3
   br label %23
@@ -638,7 +638,7 @@ default.unreachable1:                             ; preds = %1
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !8, !noundef !3
+  %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !13, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 16, !noundef !3
   br label %23
@@ -669,7 +669,7 @@ define void @_ZN14cranelift_isle10trie_again10Constraint12bindings_for17hbec25eb
   %5 = alloca i64, align 8
   %6 = alloca i16, align 2
   store i16 %2, ptr %6, align 2
-  %7 = load i8, ptr %1, align 16, !range !9, !noundef !3
+  %7 = load i8, ptr %1, align 16, !range !14, !noundef !3
   switch i8 %7, label %default.unreachable8 [
     i8 0, label %8
     i8 1, label %16
@@ -763,7 +763,7 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
   %26 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7c8e93de16aff6bE"(ptr nonnull align 8 %4)
   %27 = extractvalue { ptr, ptr } %26, 0
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread", label %.lr.ph
+  br i1 %28, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread", label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit"
   %.pn = phi { ptr, ptr } [ %21, %.lr.ph.lr.ph ], [ %26, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.outer.loopexit" ]
@@ -786,8 +786,8 @@ define range(i8 0, 3) i8 @_ZN14cranelift_isle10trie_again4Rule11may_overlap17h42
   ret i8 %.013
 
 35:                                               ; preds = %30
-  %36 = load i8, ptr %32, align 16, !range !9, !noundef !3
-  %37 = load i8, ptr %34, align 16, !range !9, !noundef !3
+  %36 = load i8, ptr %32, align 16, !range !14, !noundef !3
+  %37 = load i8, ptr %34, align 16, !range !14, !noundef !3
   %38 = icmp eq i8 %36, %37
   br i1 %38, label %39, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread"
 
@@ -830,7 +830,7 @@ default.unreachable:                              ; preds = %39
   %58 = call { ptr, ptr } @"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb7c8e93de16aff6bE"(ptr nonnull align 8 %4)
   %59 = extractvalue { ptr, ptr } %58, 0
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread", label %30
+  br i1 %60, label %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.thread", label %30, !llvm.loop !15
 
 61:                                               ; preds = %39
   %62 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -919,8 +919,8 @@ define hidden i16 @_ZN14cranelift_isle10trie_again14RuleSetBuilder13dedup_bindin
 
 16:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
-  %17 = load i8, ptr %1, align 16, !range !7, !noalias !10, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
+  %17 = load i8, ptr %1, align 16, !range !12, !noalias !16, !noundef !3
   switch i8 %17, label %default.unreachable [
     i8 0, label %18
     i8 1, label %25
@@ -939,43 +939,43 @@ default.unreachable:                              ; preds = %16
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = load i128, ptr %19, align 16, !noalias !10, !noundef !3
+  %20 = load i128, ptr %19, align 16, !noalias !16, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load i64, ptr %21, align 8, !noalias !10, !noundef !3
+  %22 = load i64, ptr %21, align 8, !noalias !16, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i128 %20, ptr %23, align 16, !alias.scope !10
+  store i128 %20, ptr %23, align 16, !alias.scope !16
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %22, ptr %24, align 8, !alias.scope !10
+  store i64 %22, ptr %24, align 8, !alias.scope !16
   br label %91
 
 25:                                               ; preds = %16
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %27 = load i64, ptr %26, align 8, !noalias !10, !noundef !3
+  %27 = load i64, ptr %26, align 8, !noalias !16, !noundef !3
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %27, ptr %28, align 8, !alias.scope !10
+  store i64 %27, ptr %28, align 8, !alias.scope !16
   br label %91
 
 29:                                               ; preds = %16
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %31 = load i8, ptr %30, align 1, !noalias !10, !noundef !3
+  %31 = load i8, ptr %30, align 1, !noalias !16, !noundef !3
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %31, ptr %32, align 1, !alias.scope !10
+  store i8 %31, ptr %32, align 1, !alias.scope !16
   br label %91
 
 33:                                               ; preds = %16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %35 = load i64, ptr %34, align 8, !noalias !10, !noundef !3
+  %35 = load i64, ptr %34, align 8, !noalias !16, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %37 = load i16, ptr %36, align 2, !noalias !10, !noundef !3
+  %37 = load i16, ptr %36, align 2, !noalias !16, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %35, ptr %38, align 8, !alias.scope !10
+  store i64 %35, ptr %38, align 8, !alias.scope !16
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %37, ptr %39, align 2, !alias.scope !10
+  store i16 %37, ptr %39, align 2, !alias.scope !16
   br label %91
 
 40:                                               ; preds = %16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %42 = load i64, ptr %41, align 8, !noalias !10, !noundef !3
+  %42 = load i64, ptr %41, align 8, !noalias !16, !noundef !3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = invoke { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf2949d00ef48351bE"(ptr nonnull align 8 %43)
           to label %.noexc8 unwind label %97
@@ -984,29 +984,29 @@ default.unreachable:                              ; preds = %16
   %45 = extractvalue { ptr, i64 } %44, 0
   %46 = extractvalue { ptr, i64 } %44, 1
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %48 = load i32, ptr %47, align 4, !noalias !10, !noundef !3
+  %48 = load i32, ptr %47, align 4, !noalias !16, !noundef !3
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %42, ptr %49, align 8, !alias.scope !10
+  store i64 %42, ptr %49, align 8, !alias.scope !16
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %45, ptr %50, align 16, !alias.scope !10
+  store ptr %45, ptr %50, align 16, !alias.scope !16
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %46, ptr %51, align 8, !alias.scope !10
+  store i64 %46, ptr %51, align 8, !alias.scope !16
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %48, ptr %52, align 4, !alias.scope !10
+  store i32 %48, ptr %52, align 4, !alias.scope !16
   br label %91
 
 53:                                               ; preds = %16
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %55 = load i16, ptr %54, align 2, !noalias !10, !noundef !3
+  %55 = load i16, ptr %54, align 2, !noalias !16, !noundef !3
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %55, ptr %56, align 2, !alias.scope !10
+  store i16 %55, ptr %56, align 2, !alias.scope !16
   br label %91
 
 57:                                               ; preds = %16
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %59 = load i64, ptr %58, align 8, !noalias !10, !noundef !3
+  %59 = load i64, ptr %58, align 8, !noalias !16, !noundef !3
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %61 = load i64, ptr %60, align 16, !noalias !10, !noundef !3
+  %61 = load i64, ptr %60, align 16, !noalias !16, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %63 = invoke { ptr, i64 } @"_ZN79_$LT$alloc..boxed..Box$LT$$u5b$T$u5d$$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf2949d00ef48351bE"(ptr nonnull align 8 %62)
           to label %.noexc9 unwind label %97
@@ -1015,50 +1015,50 @@ default.unreachable:                              ; preds = %16
   %64 = extractvalue { ptr, i64 } %63, 0
   %65 = extractvalue { ptr, i64 } %63, 1
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %59, ptr %66, align 8, !alias.scope !10
+  store i64 %59, ptr %66, align 8, !alias.scope !16
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %61, ptr %67, align 16, !alias.scope !10
+  store i64 %61, ptr %67, align 16, !alias.scope !16
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %64, ptr %68, align 8, !alias.scope !10
+  store ptr %64, ptr %68, align 8, !alias.scope !16
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %65, ptr %69, align 16, !alias.scope !10
+  store i64 %65, ptr %69, align 16, !alias.scope !16
   br label %91
 
 70:                                               ; preds = %16
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %72 = load i16, ptr %71, align 2, !noalias !10, !noundef !3
+  %72 = load i16, ptr %71, align 2, !noalias !16, !noundef !3
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %74 = load i64, ptr %73, align 8, !noalias !10, !noundef !3
+  %74 = load i64, ptr %73, align 8, !noalias !16, !noundef !3
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %76 = load i8, ptr %75, align 1, !noalias !10, !noundef !3
+  %76 = load i8, ptr %75, align 1, !noalias !16, !noundef !3
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %72, ptr %77, align 2, !alias.scope !10
+  store i16 %72, ptr %77, align 2, !alias.scope !16
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %74, ptr %78, align 8, !alias.scope !10
+  store i64 %74, ptr %78, align 8, !alias.scope !16
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %76, ptr %79, align 1, !alias.scope !10
+  store i8 %76, ptr %79, align 1, !alias.scope !16
   br label %91
 
 80:                                               ; preds = %16
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %82 = load i16, ptr %81, align 2, !noalias !10, !noundef !3
+  %82 = load i16, ptr %81, align 2, !noalias !16, !noundef !3
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %82, ptr %83, align 2, !alias.scope !10
+  store i16 %82, ptr %83, align 2, !alias.scope !16
   br label %91
 
 84:                                               ; preds = %16
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %86 = load i16, ptr %85, align 2, !noalias !10, !noundef !3
+  %86 = load i16, ptr %85, align 2, !noalias !16, !noundef !3
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %88 = load i8, ptr %87, align 1, !noalias !10, !noundef !3
+  %88 = load i8, ptr %87, align 1, !noalias !16, !noundef !3
   %89 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %86, ptr %89, align 2, !alias.scope !10
+  store i16 %86, ptr %89, align 2, !alias.scope !16
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %88, ptr %90, align 1, !alias.scope !10
+  store i8 %88, ptr %90, align 1, !alias.scope !16
   br label %91
 
 91:                                               ; preds = %84, %80, %70, %.noexc9, %53, %.noexc8, %33, %29, %25, %18
-  store i8 %17, ptr %5, align 16, !alias.scope !10
+  store i8 %17, ptr %5, align 16, !alias.scope !16
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf720701914f7f093E"(ptr nonnull align 8 %10, ptr nonnull align 16 %5)
           to label %92 unwind label %97
 
@@ -1118,16 +1118,16 @@ define internal fastcc void @_ZN14cranelift_isle10trie_again14RuleSetBuilder14se
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hb1c0594ed3755454E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %9, ptr nonnull align 8 %15, i16 %2), !noalias !13
-  %16 = load i64, ptr %9, align 8, !range !16, !noalias !13, !noundef !3
+  call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hb1c0594ed3755454E"(ptr nonnull sret({ i64, [3 x i64] }) align 8 %9, ptr nonnull align 8 %15, i16 %2), !noalias !19
+  %16 = load i64, ptr %9, align 8, !range !22, !noalias !19, !noundef !3
   %17 = icmp eq i64 %16, 0
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %.sroa.012.0.copyload.i = load ptr, ptr %18, align 8, !noalias !13
+  %.sroa.012.0.copyload.i = load ptr, ptr %18, align 8, !noalias !19
   br i1 %17, label %19, label %47
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -32
-  %21 = load i8, ptr %20, align 16, !range !9, !noalias !13, !noundef !3
+  %21 = load i8, ptr %20, align 16, !range !14, !noalias !19, !noundef !3
   %22 = icmp eq i8 %21, %.sroa.03.0.copyload
   br i1 %22, label %23, label %49
 
@@ -1144,56 +1144,56 @@ default.unreachable.i:                            ; preds = %23
 
 24:                                               ; preds = %23
   %25 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -24
-  %26 = load i64, ptr %25, align 8, !noalias !13, !noundef !3
+  %26 = load i64, ptr %25, align 8, !noalias !19, !noundef !3
   %27 = icmp eq i64 %26, %.sroa.513.0.copyload
   br i1 %27, label %28, label %49
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -16
-  %30 = load i64, ptr %29, align 16, !noalias !13, !noundef !3
+  %30 = load i64, ptr %29, align 16, !noalias !19, !noundef !3
   %.sroa.8.16.extract.trunc = trunc i128 %.sroa.8.0.copyload to i64
   %31 = icmp eq i64 %30, %.sroa.8.16.extract.trunc
   br i1 %31, label %32, label %49
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -31
-  %34 = load i8, ptr %33, align 1, !noalias !13, !noundef !3
+  %34 = load i8, ptr %33, align 1, !noalias !19, !noundef !3
   %35 = icmp eq i8 %34, %.sroa.46.0.copyload
   br i1 %35, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread, label %49
 
 36:                                               ; preds = %23
   %37 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -16
-  %38 = load i128, ptr %37, align 16, !noalias !13, !noundef !3
+  %38 = load i128, ptr %37, align 16, !noalias !19, !noundef !3
   %39 = icmp eq i128 %38, %.sroa.8.0.copyload
   br i1 %39, label %40, label %49
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -24
-  %42 = load i64, ptr %41, align 8, !noalias !13, !noundef !3
+  %42 = load i64, ptr %41, align 8, !noalias !19, !noundef !3
   %43 = icmp eq i64 %42, %.sroa.513.0.copyload
   br i1 %43, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread, label %49
 
 "_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.i": ; preds = %23
   %44 = getelementptr inbounds i8, ptr %.sroa.012.0.copyload.i, i64 -24
-  %45 = load i64, ptr %44, align 8, !noalias !13, !noundef !3
+  %45 = load i64, ptr %44, align 8, !noalias !19, !noundef !3
   %46 = icmp eq i64 %45, %.sroa.513.0.copyload
   br i1 %46, label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread, label %49
 
 47:                                               ; preds = %4
   %.sroa.217.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.217.0..sroa_idx.i, i64 16, i1 false), !noalias !13
-  store i8 %.sroa.03.0.copyload, ptr %10, align 16, !noalias !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.217.0..sroa_idx.i, i64 16, i1 false), !noalias !19
+  store i8 %.sroa.03.0.copyload, ptr %10, align 16, !noalias !19
   %.sroa.46.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 %.sroa.46.0.copyload, ptr %.sroa.46.0..sroa_idx7, align 1, !noalias !13
+  store i8 %.sroa.46.0.copyload, ptr %.sroa.46.0..sroa_idx7, align 1, !noalias !19
   %.sroa.5.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx11, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5, i64 6, i1 false), !noalias !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5.0..sroa_idx11, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.5, i64 6, i1 false), !noalias !19
   %.sroa.513.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.sroa.513.0.copyload, ptr %.sroa.513.0..sroa_idx14, align 8, !noalias !13
+  store i64 %.sroa.513.0.copyload, ptr %.sroa.513.0..sroa_idx14, align 8, !noalias !19
   %.sroa.8.0..sroa_idx20 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i128 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx20, align 16, !noalias !13
-  store ptr %.sroa.012.0.copyload.i, ptr %8, align 8, !noalias !13
-  %48 = call align 16 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17hc46f6d7ffdeabe2fE"(ptr nonnull align 8 %8, ptr nonnull align 16 %10), !noalias !13
+  store i128 %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx20, align 16, !noalias !19
+  store ptr %.sroa.012.0.copyload.i, ptr %8, align 8, !noalias !19
+  %48 = call align 16 ptr @"_ZN9hashbrown11rustc_entry33RustcVacantEntry$LT$K$C$V$C$A$GT$6insert17hc46f6d7ffdeabe2fE"(ptr nonnull align 8 %8, ptr nonnull align 16 %10), !noalias !19
   br label %_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread
 
 _ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.thread: ; preds = %47, %"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE.exit.i", %40, %32, %23
@@ -1232,7 +1232,7 @@ _ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE.exit.th
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   store i16 %2, ptr %7, align 2
-  %53 = load i8, ptr %3, align 16, !range !9, !noundef !3
+  %53 = load i8, ptr %3, align 16, !range !14, !noundef !3
   switch i8 %53, label %default.unreachable [
     i8 0, label %54
     i8 1, label %60
@@ -1400,7 +1400,7 @@ define void @"_ZN99_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cr
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %30 = load i64, ptr %29, align 8, !noundef !3
   %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %35, label %31, !prof !17
+  br i1 %.not, label %35, label %31, !prof !23
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1683,12 +1683,12 @@ define i16 @"_ZN96_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as$u20$cra
   %17 = zext i16 %16 to i64
   %18 = load i64, ptr %7, align 8, !noundef !3
   %19 = icmp ugt i64 %18, %17
-  br i1 %19, label %20, label %44, !prof !18
+  br i1 %19, label %20, label %44, !prof !24
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %22 = getelementptr inbounds nuw [0 x { i8, [47 x i8] }], ptr %21, i64 0, i64 %17
-  %23 = load i8, ptr %22, align 16, !range !7, !noundef !3
+  %23 = load i8, ptr %22, align 16, !range !12, !noundef !3
   switch i8 %23, label %default.unreachable [
     i8 0, label %46
     i8 1, label %46
@@ -1711,7 +1711,7 @@ default.unreachable:                              ; preds = %20
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %28 = load ptr, ptr %27, align 16, !nonnull !3, !align !8, !noundef !3
+  %28 = load ptr, ptr %27, align 16, !nonnull !3, !align !13, !noundef !3
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %30 = load i64, ptr %29, align 8, !noundef !3
   br label %46
@@ -1722,7 +1722,7 @@ default.unreachable:                              ; preds = %20
 
 33:                                               ; preds = %20
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !8, !noundef !3
+  %35 = load ptr, ptr %34, align 8, !nonnull !3, !align !13, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %37 = load i64, ptr %36, align 8, !noundef !3
   br label %46
@@ -1753,12 +1753,12 @@ default.unreachable:                              ; preds = %20
           to label %47 unwind label %.loopexit
 
 47:                                               ; preds = %46
-  %48 = load i8, ptr %22, align 16, !range !7, !noundef !3
+  %48 = load i8, ptr %22, align 16, !range !12, !noundef !3
   %49 = icmp eq i8 %48, 8
   br i1 %49, label %50, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %47, %53
-  br label %.backedge
+  br label %.backedge, !llvm.loop !25
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 2
@@ -1825,8 +1825,8 @@ define hidden range(i8 -1, 2) i8 @"_ZN79_$LT$cranelift_isle..trie_again..Binding
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden zeroext i1 @"_ZN76_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdddedb7dd1acc7bbE"(ptr readonly align 16 captures(none) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #4 {
-  %3 = load i8, ptr %0, align 16, !range !7, !noundef !3
-  %4 = load i8, ptr %1, align 16, !range !7, !noundef !3
+  %3 = load i8, ptr %0, align 16, !range !12, !noundef !3
+  %4 = load i8, ptr %1, align 16, !range !12, !noundef !3
   %5 = icmp eq i8 %3, %4
   br i1 %5, label %6, label %7
 
@@ -2017,7 +2017,7 @@ define hidden zeroext i1 @"_ZN75_$LT$cranelift_isle..trie_again..Constraint$u20$
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = load i8, ptr %0, align 16, !range !9, !noundef !3
+  %6 = load i8, ptr %0, align 16, !range !14, !noundef !3
   switch i8 %6, label %default.unreachable1 [
     i8 0, label %7
     i8 1, label %12
@@ -2060,8 +2060,8 @@ default.unreachable1:                             ; preds = %2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN79_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc8462198f92ff30cE"(ptr readonly align 16 captures(none) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #5 {
-  %3 = load i8, ptr %0, align 16, !range !9, !noundef !3
-  %4 = load i8, ptr %1, align 16, !range !9, !noundef !3
+  %3 = load i8, ptr %0, align 16, !range !14, !noundef !3
+  %4 = load i8, ptr %1, align 16, !range !14, !noundef !3
   %5 = icmp eq i8 %3, %4
   br i1 %5, label %6, label %7
 
@@ -2131,8 +2131,8 @@ default.unreachable3:                             ; preds = %6
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden range(i8 -1, 2) i8 @"_ZN80_$LT$cranelift_isle..trie_again..Constraint$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h5fde06ec686167f1E"(ptr readonly align 16 captures(none) %0, ptr readonly align 16 captures(none) %1) unnamed_addr #5 {
-  %3 = load i8, ptr %0, align 16, !range !9, !noundef !3
-  %4 = load i8, ptr %1, align 16, !range !9, !noundef !3
+  %3 = load i8, ptr %0, align 16, !range !14, !noundef !3
+  %4 = load i8, ptr %1, align 16, !range !14, !noundef !3
   switch i8 %3, label %default.unreachable48 [
     i8 0, label %6
     i8 1, label %8
@@ -2321,38 +2321,38 @@ define hidden void @"_ZN85_$LT$cranelift_isle..trie_again..RuleSetBuilder$u20$as
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  store i64 0, ptr %4, align 8, !noalias !19
+  store i64 0, ptr %4, align 8, !noalias !26
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr inttoptr (i64 8 to ptr), ptr %9, align 8, !noalias !19
+  store ptr inttoptr (i64 8 to ptr), ptr %9, align 8, !noalias !26
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %10, align 8, !noalias !19
-  store i64 0, ptr %3, align 8, !noalias !19
+  store i64 0, ptr %10, align 8, !noalias !26
+  store i64 0, ptr %3, align 8, !noalias !26
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr inttoptr (i64 16 to ptr), ptr %11, align 8, !noalias !19
+  store ptr inttoptr (i64 16 to ptr), ptr %11, align 8, !noalias !26
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %12, align 8, !noalias !19
+  store i64 0, ptr %12, align 8, !noalias !26
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.4)
-          to label %15 unwind label %13, !noalias !19
+          to label %15 unwind label %13, !noalias !26
 
 13:                                               ; preds = %15, %1
   %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..Binding$GT$$GT$17h9579427c1c59cde6E"(ptr nonnull align 8 %3) #15
-          to label %19 unwind label %17, !noalias !19
+          to label %19 unwind label %17, !noalias !26
 
 15:                                               ; preds = %1
   %16 = invoke { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.2025c647a50e221298676d0ea0dcd27f.5, i64 70, ptr nonnull align 8 @anon.2025c647a50e221298676d0ea0dcd27f.7)
-          to label %20 unwind label %13, !noalias !19
+          to label %20 unwind label %13, !noalias !26
 
 17:                                               ; preds = %19, %13
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !19
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #16, !noalias !26
   unreachable
 
 19:                                               ; preds = %13
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..Rule$GT$$GT$17h9351f4efa166889dE"(ptr nonnull align 8 %4) #15
-          to label %.body unwind label %17, !noalias !19
+          to label %.body unwind label %17, !noalias !26
 
 .body:                                            ; preds = %19
   invoke void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$cranelift_isle..trie_again..UnreachableError$GT$$GT$17h7ee8afb1a2703abfE"(ptr nonnull align 8 %5) #15
@@ -2721,19 +2721,26 @@ attributes #17 = { noreturn }
 !3 = !{}
 !4 = !{i64 0, i64 3}
 !5 = !{i8 0, i8 5}
-!6 = !{i64 8}
-!7 = !{i8 0, i8 10}
-!8 = !{i64 2}
-!9 = !{i8 0, i8 4}
-!10 = !{!11}
-!11 = distinct !{!11, !12, !"_ZN74_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..clone..Clone$GT$5clone17h85e529cdca630af5E: argument 0"}
-!12 = distinct !{!12, !"_ZN74_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..clone..Clone$GT$5clone17h85e529cdca630af5E"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE: argument 0"}
-!15 = distinct !{!15, !"_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE"}
-!16 = !{i64 0, i64 2}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = !{i64 8}
+!10 = distinct !{!10, !7}
+!11 = distinct !{!11, !7}
+!12 = !{i8 0, i8 10}
+!13 = !{i64 2}
+!14 = !{i8 0, i8 4}
+!15 = distinct !{!15, !7}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN74_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..clone..Clone$GT$5clone17h85e529cdca630af5E: argument 0"}
+!18 = distinct !{!18, !"_ZN74_$LT$cranelift_isle..trie_again..Binding$u20$as$u20$core..clone..Clone$GT$5clone17h85e529cdca630af5E"}
 !19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZN78_$LT$cranelift_isle..trie_again..RuleSet$u20$as$u20$core..default..Default$GT$7default17hb1a494825e5d84bbE: argument 0"}
-!21 = distinct !{!21, !"_ZN78_$LT$cranelift_isle..trie_again..RuleSet$u20$as$u20$core..default..Default$GT$7default17hb1a494825e5d84bbE"}
+!20 = distinct !{!20, !21, !"_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE: argument 0"}
+!21 = distinct !{!21, !"_ZN14cranelift_isle10trie_again4Rule14set_constraint17h7d3cfa00d26cf0fdE"}
+!22 = !{i64 0, i64 2}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!25 = distinct !{!25, !7}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN78_$LT$cranelift_isle..trie_again..RuleSet$u20$as$u20$core..default..Default$GT$7default17hb1a494825e5d84bbE: argument 0"}
+!28 = distinct !{!28, !"_ZN78_$LT$cranelift_isle..trie_again..RuleSet$u20$as$u20$core..default..Default$GT$7default17hb1a494825e5d84bbE"}

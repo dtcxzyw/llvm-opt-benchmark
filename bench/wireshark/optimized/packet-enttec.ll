@@ -314,7 +314,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %94 = icmp ult i16 %.1153.i, %spec.store.select.i
   %95 = icmp ult i16 %.2.i, 512
   %96 = select i1 %94, i1 %95, i1 false
-  br i1 %96, label %.lr.ph176.i, label %._crit_edge177.i, !llvm.loop !8
+  br i1 %96, label %.lr.ph176.i, label %._crit_edge177.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -328,7 +328,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   store i16 %102, ptr %101, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge177.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %._crit_edge177.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge177.i:                                 ; preds = %.lr.ph.i, %.loopexit.i, %.preheader165.i, %.preheader166.i
   %.4.lcssa.sink205.i = phi i16 [ 0, %.preheader165.i ], [ 0, %.preheader166.i ], [ %.2.i, %.loopexit.i ], [ %spec.store.select.i, %.lr.ph.i ]
@@ -433,7 +433,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   %159 = zext i16 %158 to i32
   %160 = load i32, ptr @global_disp_col_count, align 4
   %161 = icmp sgt i32 %160, %159
-  br i1 %161, label %.lr.ph181.i, label %.critedge.i, !llvm.loop !10
+  br i1 %161, label %.lr.ph181.i, label %.critedge.i, !llvm.loop !11
 
 .critedge.i:                                      ; preds = %157, %.lr.ph181.i, %.preheader.i
   %.lcssa167.i = phi i32 [ 0, %.preheader.i ], [ %127, %.lr.ph181.i ], [ %159, %157 ]
@@ -461,7 +461,7 @@ define internal range(i32 0, 522) i32 @dissect_enttec_udp(ptr noundef %0, ptr no
   tail call void @wmem_strbuf_truncate(ptr noundef %122, i64 noundef 0)
   %indvars.iv.next198.i = add nuw nsw i32 %indvars.iv197.i, 1
   %exitcond200.not.i = icmp eq i32 %indvars.iv.next198.i, %123
-  br i1 %exitcond200.not.i, label %._crit_edge188.i, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond200.not.i, label %._crit_edge188.i, label %.preheader.i, !llvm.loop !12
 
 ._crit_edge188.i:                                 ; preds = %.critedge.i, %109
   %182 = load i32, ptr @hf_enttec_dmx_data_data_filter, align 4
@@ -620,9 +620,10 @@ attributes #5 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

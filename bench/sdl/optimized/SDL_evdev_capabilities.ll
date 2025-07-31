@@ -151,7 +151,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
 67:                                               ; preds = %.lr.ph
   %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count
-  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond160.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %67
   %indvars.iv157 = phi i64 [ %66, %.lr.ph.preheader ], [ %indvars.iv.next158, %67 ]
@@ -166,7 +166,7 @@ define hidden i32 @SDL_EVDEV_GuessDeviceClass(ptr noundef readonly captures(none
 
 ._crit_edge:                                      ; preds = %67, %.lr.ph, %.preheader
   %.3 = phi i64 [ %.2154, %.preheader ], [ 1, %.lr.ph ], [ %.2154, %67 ]
-  br i1 %60, label %.preheader, label %74, !llvm.loop !6
+  br i1 %60, label %.preheader, label %74, !llvm.loop !7
 
 74:                                               ; preds = %._crit_edge
   %75 = icmp eq i64 %.3, 0
@@ -195,7 +195,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

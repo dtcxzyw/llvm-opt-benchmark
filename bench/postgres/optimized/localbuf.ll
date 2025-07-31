@@ -295,7 +295,7 @@ PinLocalBuffer.exit:                              ; preds = %23, %38, %43
   %55 = load ptr, ptr @LocalBufferDescriptors, align 8
   %56 = load ptr, ptr @LocalBufHash, align 8
   %57 = call ptr @hash_search(ptr noundef %56, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %6) #14
-  %58 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %58 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %63
 
@@ -415,7 +415,7 @@ define internal fastcc i32 @GetLocalVictimBuffer() unnamed_addr #0 {
 16:                                               ; preds = %9
   %17 = add i32 %14, -262144
   store volatile i32 %17, ptr %13, align 4
-  br label %.outer
+  br label %.outer, !llvm.loop !9
 
 18:                                               ; preds = %9
   %19 = getelementptr i8, ptr %12, i64 20
@@ -454,7 +454,7 @@ PinLocalBuffer.exit:                              ; preds = %18, %26
 40:                                               ; preds = %3
   %41 = add i32 %.0, -1
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %3
+  br i1 %42, label %43, label %3, !llvm.loop !9
 
 43:                                               ; preds = %40
   store i32 %spec.store.select, ptr @nextFreeLocalBufId, align 4
@@ -550,7 +550,7 @@ GetLocalBufferStorage.exit:                       ; preds = %._crit_edge.i, %56
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %98 = load i32, ptr %97, align 4
   tail call void @PageSetChecksumInplace(ptr noundef %92, i32 noundef %98) #14
-  %99 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %99 = load i8, ptr @track_io_timing, align 1, !range !7, !noundef !8
   %100 = trunc nuw i8 %99 to i1
   %101 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %100) #14
   %102 = getelementptr i8, ptr %12, i64 12
@@ -711,7 +711,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %42, i8 0, i64 8192, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 43:                                               ; preds = %._crit_edge
   %44 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
@@ -730,7 +730,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   unreachable
 
 ._crit_edge82:                                    ; preds = %121
-  %55 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %55 = load i8, ptr @track_io_timing, align 1, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
   %57 = call i64 @pgstat_prepare_io_time(i1 noundef zeroext %56) #14
   call void @smgrzeroextend(ptr noundef nonnull %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
@@ -763,7 +763,7 @@ LimitAdditionalLocalPins.exit:                    ; preds = %15, %13
   store i32 %69, ptr %30, align 4
   %73 = load ptr, ptr @LocalBufHash, align 8
   %74 = call ptr @hash_search(ptr noundef %73, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #14
-  %75 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %75 = load i8, ptr %9, align 1, !range !7, !noundef !8
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %116
 
@@ -845,10 +845,10 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %8) #14
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %.pre-phi
-  br i1 %exitcond94.not, label %._crit_edge82, label %60, !llvm.loop !9
+  br i1 %exitcond94.not, label %._crit_edge82, label %60, !llvm.loop !11
 
 ._crit_edge86.critedge:                           ; preds = %.preheader
-  %122 = load i8, ptr @track_io_timing, align 1, !range !6, !noundef !7
+  %122 = load i8, ptr @track_io_timing, align 1, !range !7, !noundef !8
   %123 = trunc nuw i8 %122 to i1
   %124 = tail call i64 @pgstat_prepare_io_time(i1 noundef zeroext %123) #14
   tail call void @smgrzeroextend(ptr noundef %20, i32 noundef %1, i32 noundef %21, i32 noundef %.078, i1 noundef zeroext false) #14
@@ -875,7 +875,7 @@ PinLocalBuffer.exit:                              ; preds = %UnpinLocalBuffer.ex
   store volatile i32 %134, ptr %132, align 4
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %.pre-phi
-  br i1 %exitcond99.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !10
+  br i1 %exitcond99.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !12
 }
 
 declare i32 @smgrnblocks(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1050,7 +1050,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %13, %16, %48, %25, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = sext i32 %50 to i64
   %53 = icmp slt i64 %indvars.iv.next, %52
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %BufTagMatchesRelFileLocator.exit.thread, %4
   ret void
@@ -1158,7 +1158,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %11, %14, %42, %BufT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %46 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %BufTagMatchesRelFileLocator.exit.thread, %2
   ret void
@@ -1287,12 +1287,14 @@ attributes #17 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}

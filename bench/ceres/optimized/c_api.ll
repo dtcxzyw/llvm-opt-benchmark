@@ -1144,11 +1144,11 @@ define linkonce_odr hidden void @_ZN20CallbackCostFunctionC2EPFiPvPPdS1_S2_ES0_i
   tail call void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV20CallbackCostFunction, i64 16), ptr %0, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %7, align 8, !tbaa !197
+  store ptr %1, ptr %7, align 8, !tbaa !198
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %2, ptr %8, align 8, !tbaa !200
+  store ptr %2, ptr %8, align 8, !tbaa !201
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %3, ptr %9, align 8, !tbaa !201
+  store i32 %3, ptr %9, align 8, !tbaa !202
   %10 = icmp sgt i32 %4, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
@@ -1157,7 +1157,7 @@ define linkonce_odr hidden void @_ZN20CallbackCostFunctionC2EPFiPvPPdS1_S2_ES0_i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %4 to i64
-  %.pre = load ptr, ptr %12, align 8, !tbaa !202
+  %.pre = load ptr, ptr %12, align 8, !tbaa !203
   %.pre13 = load ptr, ptr %13, align 8, !tbaa !182
   br label %14
 
@@ -1176,7 +1176,7 @@ define linkonce_odr hidden void @_ZN20CallbackCostFunctionC2EPFiPvPPdS1_S2_ES0_i
   %19 = load i32, ptr %17, align 4, !tbaa !191
   store i32 %19, ptr %16, align 4, !tbaa !191
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store ptr %20, ptr %12, align 8, !tbaa !202
+  store ptr %20, ptr %12, align 8, !tbaa !203
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 21:                                               ; preds = %14
@@ -1229,7 +1229,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %38, %.noex
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %34, ptr %11, align 8, !tbaa !181
-  store ptr %39, ptr %12, align 8, !tbaa !202
+  store ptr %39, ptr %12, align 8, !tbaa !203
   %41 = getelementptr inbounds nuw i32, ptr %34, i64 %32
   store ptr %41, ptr %13, align 8, !tbaa !182
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -1239,7 +1239,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %43 = phi ptr [ %39, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i ], [ %20, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !203
+  br i1 %exitcond.not, label %._crit_edge, label %14, !llvm.loop !204
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1272,9 +1272,9 @@ define linkonce_odr hidden void @_ZN20CallbackCostFunctionD0Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK20CallbackCostFunction8EvaluateEPKPKdPdPS4_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !197
+  %6 = load ptr, ptr %5, align 8, !tbaa !198
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %8 = load ptr, ptr %7, align 8, !tbaa !200
+  %8 = load ptr, ptr %7, align 8, !tbaa !201
   %9 = tail call noundef i32 %6(ptr noundef %8, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %10 = icmp ne i32 %9, 0
   ret i1 %10
@@ -1545,12 +1545,13 @@ attributes #21 = { noreturn }
 !192 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !193 = !{!53, !57, i64 16}
 !194 = !{!56, !57, i64 0}
-!195 = distinct !{!195, !196}
+!195 = distinct !{!195, !196, !197}
 !196 = !{!"llvm.loop.mustprogress"}
-!197 = !{!198, !26, i64 40}
-!198 = !{!"_ZTS20CallbackCostFunction", !199, i64 0, !26, i64 40, !26, i64 48}
-!199 = !{!"_ZTSN5ceres12CostFunctionE", !69, i64 8, !44, i64 32}
-!200 = !{!198, !26, i64 48}
-!201 = !{!199, !44, i64 32}
-!202 = !{!72, !73, i64 8}
-!203 = distinct !{!203, !196}
+!197 = !{!"llvm.loop.estimated_trip_count"}
+!198 = !{!199, !26, i64 40}
+!199 = !{!"_ZTS20CallbackCostFunction", !200, i64 0, !26, i64 40, !26, i64 48}
+!200 = !{!"_ZTSN5ceres12CostFunctionE", !69, i64 8, !44, i64 32}
+!201 = !{!199, !26, i64 48}
+!202 = !{!200, !44, i64 32}
+!203 = !{!72, !73, i64 8}
+!204 = distinct !{!204, !196, !197}

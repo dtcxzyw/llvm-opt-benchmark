@@ -59,7 +59,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 22:                                               ; preds = %.critedge.i
   %23 = getelementptr i8, ptr %.1.i, i64 1
   %.pre.i = load i8, ptr %23, align 1
-  br label %.critedge.i, !llvm.loop !8
+  br label %.critedge.i, !llvm.loop !9
 
 .critedge4.i:                                     ; preds = %.critedge.i, %.critedge.i, %.critedge.i
   %24 = ptrtoint ptr %.1.i to i64
@@ -116,7 +116,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 47:                                               ; preds = %43, %35
   %.4.i = phi ptr [ %44, %43 ], [ %.2.i, %35 ]
   %48 = getelementptr i8, ptr %.4.i, i64 1
-  br label %35
+  br label %35, !llvm.loop !10
 
 .loopexit100.i:                                   ; preds = %.loopexit100.i.preheader, %50
   %.5.i = phi ptr [ %51, %50 ], [ %.5.i.ph, %.loopexit100.i.preheader ]
@@ -128,7 +128,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 
 50:                                               ; preds = %.loopexit100.i
   %51 = getelementptr i8, ptr %.5.i, i64 1
-  br label %.loopexit100.i, !llvm.loop !9
+  br label %.loopexit100.i, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %29, %53
   %52 = phi i8 [ %.pr.i, %53 ], [ %31, %29 ]
@@ -141,7 +141,7 @@ define noalias ptr @ws_find_media_type_parameter(ptr noundef %0, ptr noundef %1,
 53:                                               ; preds = %.preheader.i
   %54 = getelementptr i8, ptr %.7.i, i64 1
   %.pr.i = load i8, ptr %54, align 1
-  br label %.preheader.i, !llvm.loop !10
+  br label %.preheader.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.preheader.i, %.preheader.i, %.loopexit100.i, %.loopexit100.i
   %.6.i = phi ptr [ %.5.i, %.loopexit100.i ], [ %.5.i, %.loopexit100.i ], [ %.7.i, %.preheader.i ], [ %.7.i, %.preheader.i ]
@@ -210,7 +210,7 @@ ws_get_next_media_type_parameter.exit:            ; preds = %.loopexit.i, %27, %
   %.2118 = phi ptr [ %.1117, %.preheader ], [ %75, %74 ]
   %80 = getelementptr i8, ptr %.0, i64 1
   store i8 %79, ptr %.0, align 1
-  br label %.preheader
+  br label %.preheader, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %69, %86
   %.2141 = phi ptr [ %87, %86 ], [ %71, %69 ]
@@ -251,7 +251,7 @@ switch.early.test:                                ; preds = %.lr.ph
   %88 = getelementptr i8, ptr %.3140, i64 1
   %.pr = load i8, ptr %88, align 1
   %.not99 = icmp eq i8 %.pr, 0
-  br i1 %.not99, label %ws_get_next_media_type_parameter.exit.thread.sink.split, label %.lr.ph, !llvm.loop !11
+  br i1 %.not99, label %ws_get_next_media_type_parameter.exit.thread.sink.split, label %.lr.ph, !llvm.loop !14
 
 ws_get_next_media_type_parameter.exit.thread.sink.split: ; preds = %74, %.preheader, %.preheader, %86, %.lr.ph, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %69
   %.1.sink = phi ptr [ %71, %69 ], [ %.2141, %switch.early.test ], [ %.2141, %.lr.ph ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %.2141, %switch.early.test ], [ %87, %86 ], [ %.0, %.preheader ], [ %.0, %.preheader ], [ %.0, %74 ]
@@ -287,9 +287,12 @@ attributes #5 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}

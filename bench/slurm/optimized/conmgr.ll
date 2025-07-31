@@ -1154,7 +1154,7 @@ define dso_local void @conmgr_quiesce(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_wait_now(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 312), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168), i64 0, i64 0, ptr noundef nonnull @__func__.conmgr_quiesce) #11
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 240), align 8, !range !8, !noundef !9
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %12
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 240), align 8
@@ -1167,7 +1167,7 @@ define dso_local void @conmgr_quiesce(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @event_wait_now(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 248), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168), i64 0, i64 0, ptr noundef nonnull @__func__.conmgr_quiesce) #11
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @mgr, i64 241), align 1, !range !8, !noundef !9
   %20 = trunc nuw i8 %19 to i1
-  br i1 %20, label %._crit_edge11, label %.lr.ph10, !llvm.loop !14
+  br i1 %20, label %._crit_edge11, label %.lr.ph10, !llvm.loop !15
 
 ._crit_edge11:                                    ; preds = %.lr.ph10, %._crit_edge
   %21 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mgr, i64 168)) #11
@@ -1246,8 +1246,9 @@ attributes #13 = { noreturn nounwind }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !11, !12, !13}

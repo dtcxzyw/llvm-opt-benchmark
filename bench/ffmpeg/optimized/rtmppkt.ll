@@ -1169,7 +1169,7 @@ define range(i32 -1, -2147483648) i32 @ff_amf_tag_size(ptr noundef %0, ptr nound
 bytestream2_init.exit:                            ; preds = %4
   store ptr %0, ptr %3, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %0, ptr %11, align 8, !tbaa !31
+  store ptr %0, ptr %11, align 8, !tbaa !32
   %12 = and i64 %7, 2147483647
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1189,7 +1189,7 @@ bytestream2_init.exit:                            ; preds = %4
   br i1 %24, label %33, label %25
 
 25:                                               ; preds = %17
-  %26 = load ptr, ptr %11, align 8, !tbaa !31
+  %26 = load ptr, ptr %11, align 8, !tbaa !32
   %27 = ptrtoint ptr %26 to i64
   %28 = sub i64 %21, %27
   %29 = trunc i64 %28 to i32
@@ -1382,7 +1382,7 @@ bytestream2_get_byte.exit.thread.us:              ; preds = %bytestream2_get_be3
   %73 = sub i64 %71, %72
   %74 = trunc i64 %73 to i32
   %75 = icmp slt i32 %74, 1
-  br i1 %75, label %bytestream2_get_be64.exit, label %bytestream2_get_byte.exit.thread.us, !llvm.loop !32
+  br i1 %75, label %bytestream2_get_be64.exit, label %bytestream2_get_byte.exit.thread.us, !llvm.loop !33
 
 bytestream2_get_byte.exit.thread:                 ; preds = %bytestream2_get_byte.exit.thread.preheader, %100
   %76 = phi ptr [ %102, %100 ], [ %.ph, %bytestream2_get_byte.exit.thread.preheader ]
@@ -1482,7 +1482,7 @@ define range(i32 -1, 1) i32 @ff_amf_get_field_value(ptr noundef %0, ptr noundef 
 bytestream2_init.exit:                            ; preds = %7
   store ptr %0, ptr %6, align 8, !tbaa !12
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %0, ptr %14, align 8, !tbaa !31
+  store ptr %0, ptr %14, align 8, !tbaa !32
   %15 = and i64 %10, 2147483647
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1513,7 +1513,7 @@ bytestream2_peek_byte.exit.thread.i:              ; preds = %bytestream2_peek_by
 30:                                               ; preds = %bytestream2_peek_byte.exit.thread.i
   %31 = call fastcc i32 @amf_tag_skip(ptr noundef nonnull %6)
   %32 = icmp sgt i32 %31, -1
-  br i1 %32, label %20, label %amf_get_field_value2.exit, !llvm.loop !34
+  br i1 %32, label %20, label %amf_get_field_value2.exit, !llvm.loop !35
 
 .critedge.thread.i:                               ; preds = %bytestream2_peek_byte.exit.i
   %33 = trunc i64 %25 to i32
@@ -1822,9 +1822,10 @@ attributes #17 = { noreturn nounwind }
 !26 = !{!20, !5, i64 24}
 !27 = !{!20, !16, i64 0}
 !28 = !{!20, !16, i64 36}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!11, !5, i64 16}
-!32 = distinct !{!32, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!11, !5, i64 16}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !30, !31}

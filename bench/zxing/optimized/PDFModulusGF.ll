@@ -268,7 +268,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit54:                  ; preds = %89, %86, %84
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next73 to i32
   %exitcond75.not = icmp eq i32 %36, %lftr.wideiv
-  br i1 %exitcond75.not, label %.preheader, label %106, !llvm.loop !30
+  br i1 %exitcond75.not, label %.preheader, label %106, !llvm.loop !31
 
 ._crit_edge70:                                    ; preds = %111, %.preheader
   ret void
@@ -283,7 +283,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit54:                  ; preds = %89, %86, %84
   store i16 %112, ptr %116, align 2, !tbaa !24
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
-  br i1 %exitcond80.not, label %._crit_edge70, label %111, !llvm.loop !31
+  br i1 %exitcond80.not, label %._crit_edge70, label %111, !llvm.loop !32
 
 117:                                              ; preds = %96, %94
   %.pn41 = phi { ptr, i32 } [ %97, %96 ], [ %95, %94 ]
@@ -325,7 +325,7 @@ _ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit56:         ; preds = %128, %_ZN5ZXing6Pdf
 
 135:                                              ; preds = %_ZN5ZXing6Pdf41711ModulusPolyD2Ev.exit56
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %137 = load ptr, ptr %136, align 8, !tbaa !32
+  %137 = load ptr, ptr %136, align 8, !tbaa !33
   %138 = ptrtoint ptr %137 to i64
   %139 = ptrtoint ptr %134 to i64
   %140 = sub i64 %138, %139
@@ -339,7 +339,7 @@ _ZNSt6vectorIsSaIsEED2Ev.exit:                    ; preds = %_ZN5ZXing6Pdf41711M
 
 142:                                              ; preds = %_ZNSt6vectorIsSaIsEED2Ev.exit
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %144 = load ptr, ptr %143, align 8, !tbaa !32
+  %144 = load ptr, ptr %143, align 8, !tbaa !33
   %145 = ptrtoint ptr %144 to i64
   %146 = ptrtoint ptr %141 to i64
   %147 = sub i64 %145, %146
@@ -387,8 +387,8 @@ define void @_ZNK5ZXing6Pdf4179ModulusGF13buildMonomialEii(ptr dead_on_unwind no
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %16 = load ptr, ptr %15, align 8, !tbaa !33
-  store ptr %16, ptr %0, align 8, !tbaa !33
+  %16 = load ptr, ptr %15, align 8, !tbaa !34
+  store ptr %16, ptr %0, align 8, !tbaa !34
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -411,7 +411,7 @@ define void @_ZNK5ZXing6Pdf4179ModulusGF13buildMonomialEii(ptr dead_on_unwind no
 
 28:                                               ; preds = %14
   %29 = icmp ugt i64 %24, 9223372036854775804
-  br i1 %29, label %.noexc.i.i.i, label %30, !prof !34
+  br i1 %29, label %.noexc.i.i.i, label %30, !prof !35
 
 .noexc.i.i.i:                                     ; preds = %28
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #14
@@ -447,11 +447,11 @@ _ZN5ZXing6Pdf41711ModulusPolyC2ERKS1_.exit:       ; preds = %.thread, %30
   %42 = getelementptr inbounds nuw i32, ptr %41, i64 %39
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %42, ptr %43, align 8, !tbaa !22
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %41, i8 0, i64 %40, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %41, i8 0, i64 %40, i1 false), !tbaa !36
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !23
-  store i32 %3, ptr %41, align 4, !tbaa !35
+  store i32 %3, ptr %41, align 4, !tbaa !36
   invoke void @_ZN5ZXing6Pdf41711ModulusPolyC1ERKNS0_9ModulusGFERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %46 unwind label %55
 
@@ -539,7 +539,7 @@ define linkonce_odr void @_ZNSt6vectorIsSaIsEE14_M_fill_insertEN9__gnu_cxx17__no
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = ptrtoint ptr %7 to i64
@@ -595,7 +595,7 @@ _ZSt13move_backwardIPsS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i16 %15, ptr %.06.i.i.i, align 2, !tbaa !24
   %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 2
   %.not.i.i.i = icmp eq ptr %32, %31
-  br i1 %.not.i.i.i, label %_ZSt4fillIPssEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i, label %_ZSt4fillIPssEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !37
 
 33:                                               ; preds = %14
   %34 = icmp eq i64 %2, %18
@@ -612,7 +612,7 @@ _ZSt13move_backwardIPsS0_ET0_T_S2_S1_.exit:       ; preds = %26, %_ZSt22__uninit
   store i16 %15, ptr %.06.i.i.i.i.i.i.i, align 2, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 2
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %37
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPsmssET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !36
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPsmssET_S1_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !37
 
 _ZSt24__uninitialized_fill_n_aIPsmssET_S1_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
   %39 = phi ptr [ %9, %33 ], [ %37, %.lr.ph.i.i.i.i.i.i.i ]
@@ -637,7 +637,7 @@ _ZSt22__uninitialized_move_aIPsS0_SaIsEET0_T_S3_S2_RT1_.exit69: ; preds = %_ZSt2
   store i16 %15, ptr %.06.i.i.i72, align 2, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i72, i64 2
   %.not.i.i.i73 = icmp eq ptr %43, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPssEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !36
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPssEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !37
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %0, align 8, !tbaa !27
@@ -681,7 +681,7 @@ _ZNKSt6vectorIsSaIsEE12_M_check_lenEmPKc.exit:    ; preds = %44
   store i16 %65, ptr %.06.i.i.i.i.i.i.i77, align 2, !tbaa !24
   %66 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i77, i64 2
   %.not.i.i.i.i.i.i.i78 = icmp eq ptr %66, %64
-  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPsmssET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !36
+  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPsmssET_S1_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !37
 
 _ZSt24__uninitialized_fill_n_aIPsmssET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.lr.ph.i.i.i.i.i.i.i76
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %1, %45
@@ -715,7 +715,7 @@ _ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !27
   store ptr %72, ptr %8, align 8, !tbaa !26
   %75 = getelementptr inbounds nuw i16, ptr %62, i64 %55
-  store ptr %75, ptr %6, align 8, !tbaa !32
+  store ptr %75, ptr %6, align 8, !tbaa !33
   br label %_ZSt4fillIPssEvT_S1_RKT0_.exit
 
 _ZSt4fillIPssEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.lr.ph.i.i.i, %_ZSt22__uninitialized_move_aIPsS0_SaIsEET0_T_S3_S2_RT1_.exit69.thread, %_ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit, %4
@@ -778,12 +778,13 @@ attributes #14 = { noreturn }
 !25 = !{!"short", !6, i64 0}
 !26 = !{!11, !12, i64 8}
 !27 = !{!11, !12, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29}
-!32 = !{!11, !12, i64 16}
-!33 = !{!14, !15, i64 0}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = !{!5, !5, i64 0}
-!36 = distinct !{!36, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = distinct !{!32, !29, !30}
+!33 = !{!11, !12, i64 16}
+!34 = !{!14, !15, i64 0}
+!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!36 = !{!5, !5, i64 0}
+!37 = distinct !{!37, !29, !30}

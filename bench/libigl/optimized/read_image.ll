@@ -296,7 +296,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %121 = shl i32 %120, 2
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 %122
-  %124 = load i8, ptr %123, align 1, !tbaa !23
+  %124 = load i8, ptr %123, align 1, !tbaa !24
   %125 = load i32, ptr %7, align 4, !tbaa !12
   %126 = add i32 %125, %111
   %127 = zext i32 %126 to i64
@@ -305,7 +305,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %130 = mul nsw i64 %129, %127
   %131 = getelementptr i8, ptr %128, i64 %indvars.iv
   %132 = getelementptr i8, ptr %131, i64 %130
-  store i8 %124, ptr %132, align 1, !tbaa !23
+  store i8 %124, ptr %132, align 1, !tbaa !24
   %133 = load i32, ptr %6, align 4, !tbaa !12
   %134 = mul i32 %133, %.03457
   %135 = add i32 %134, %119
@@ -313,7 +313,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %137 = or disjoint i32 %136, 1
   %138 = zext i32 %137 to i64
   %139 = getelementptr inbounds nuw i8, ptr %10, i64 %138
-  %140 = load i8, ptr %139, align 1, !tbaa !23
+  %140 = load i8, ptr %139, align 1, !tbaa !24
   %141 = load i32, ptr %7, align 4, !tbaa !12
   %142 = add i32 %141, %111
   %143 = zext i32 %142 to i64
@@ -322,7 +322,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %146 = mul nsw i64 %145, %143
   %147 = getelementptr i8, ptr %144, i64 %indvars.iv
   %148 = getelementptr i8, ptr %147, i64 %146
-  store i8 %140, ptr %148, align 1, !tbaa !23
+  store i8 %140, ptr %148, align 1, !tbaa !24
   %149 = load i32, ptr %6, align 4, !tbaa !12
   %150 = mul i32 %149, %.03457
   %151 = add i32 %150, %119
@@ -330,7 +330,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %153 = or disjoint i32 %152, 2
   %154 = zext i32 %153 to i64
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 %154
-  %156 = load i8, ptr %155, align 1, !tbaa !23
+  %156 = load i8, ptr %155, align 1, !tbaa !24
   %157 = load i32, ptr %7, align 4, !tbaa !12
   %158 = add i32 %157, %111
   %159 = zext i32 %158 to i64
@@ -339,7 +339,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %162 = mul nsw i64 %161, %159
   %163 = getelementptr i8, ptr %160, i64 %indvars.iv
   %164 = getelementptr i8, ptr %163, i64 %162
-  store i8 %156, ptr %164, align 1, !tbaa !23
+  store i8 %156, ptr %164, align 1, !tbaa !24
   %165 = load i32, ptr %6, align 4, !tbaa !12
   %166 = mul i32 %165, %.03457
   %167 = add i32 %166, %119
@@ -347,7 +347,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %169 = or disjoint i32 %168, 3
   %170 = zext i32 %169 to i64
   %171 = getelementptr inbounds nuw i8, ptr %10, i64 %170
-  %172 = load i8, ptr %171, align 1, !tbaa !23
+  %172 = load i8, ptr %171, align 1, !tbaa !24
   %173 = load i32, ptr %7, align 4, !tbaa !12
   %174 = add i32 %173, %111
   %175 = zext i32 %174 to i64
@@ -356,12 +356,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIhLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %178 = mul nsw i64 %177, %175
   %179 = getelementptr i8, ptr %176, i64 %indvars.iv
   %180 = getelementptr i8, ptr %179, i64 %178
-  store i8 %172, ptr %180, align 1, !tbaa !23
+  store i8 %172, ptr %180, align 1, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %181 = load i32, ptr %6, align 4, !tbaa !12
   %182 = zext i32 %181 to i64
   %183 = icmp samesign ult i64 %indvars.iv.next, %182
-  br i1 %183, label %116, label %._crit_edge.loopexit, !llvm.loop !24
+  br i1 %183, label %116, label %._crit_edge.loopexit, !llvm.loop !25
 
 184:                                              ; preds = %5, %._crit_edge58
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #7
@@ -429,8 +429,9 @@ attributes #9 = { nounwind allocsize(0) }
 !17 = !{!"_ZTSN5Eigen12DenseStorageIhLin1ELin1ELin1ELi0EEE", !7, i64 0, !11, i64 8, !11, i64 16}
 !18 = !{!17, !11, i64 16}
 !19 = !{!17, !7, i64 0}
-!20 = distinct !{!20, !21, !22}
+!20 = distinct !{!20, !21, !22, !23}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!"llvm.loop.unswitch.partial.disable"}
-!23 = !{!9, !9, i64 0}
-!24 = distinct !{!24, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!"llvm.loop.unswitch.partial.disable"}
+!24 = !{!9, !9, i64 0}
+!25 = distinct !{!25, !21, !22}

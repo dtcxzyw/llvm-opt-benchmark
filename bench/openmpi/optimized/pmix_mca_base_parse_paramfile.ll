@@ -55,10 +55,10 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   br i1 %.not.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %16, %4
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 56), align 8, !tbaa !22
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 56), align 8, !tbaa !23
   %19 = tail call noalias noundef ptr @malloc(i64 noundef %18) #10
-  %20 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !25
-  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 32), align 8, !tbaa !26
+  %20 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !26
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 32), align 8, !tbaa !27
   %.not.i = icmp eq i32 %20, %21
   br i1 %.not.i, label %23, label %22
 
@@ -73,15 +73,15 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
 24:                                               ; preds = %23
   %25 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %19, ptr noundef null) #8
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  store ptr @pmix_mca_base_var_file_value_t_class, ptr %26, align 8, !tbaa !27
+  store ptr @pmix_mca_base_var_file_value_t_class, ptr %26, align 8, !tbaa !28
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  store i32 1, ptr %27, align 8, !tbaa !28
+  store i32 1, ptr %27, align 8, !tbaa !29
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 40), align 8, !tbaa !29
-  %31 = load ptr, ptr %30, align 8, !tbaa !30
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_base_var_file_value_t_class, i64 40), align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !31
   %.not6.i.i = icmp eq ptr %31, null
   br i1 %.not6.i.i, label %.loopexit, label %.lr.ph.i.i
 
@@ -90,9 +90,9 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   %.07.i.i = phi ptr [ %33, %.lr.ph.i.i ], [ %30, %24 ]
   tail call void %32(ptr noundef nonnull %19) #8
   %33 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !30
+  %34 = load ptr, ptr %33, align 8, !tbaa !31
   %.not.i.i = icmp eq ptr %34, null
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !32
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %24
   %35 = tail call noalias ptr @strdup(ptr noundef %2) #8
@@ -101,18 +101,18 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   %37 = load ptr, ptr @_param_list, align 8, !tbaa !8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 248
-  %40 = load ptr, ptr %39, align 8, !tbaa !32
+  %40 = load ptr, ptr %39, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  store ptr %40, ptr %41, align 8, !tbaa !32
+  store ptr %40, ptr %41, align 8, !tbaa !33
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 120
   store volatile ptr %19, ptr %42, align 8, !tbaa !10
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store ptr %38, ptr %43, align 8, !tbaa !10
-  store ptr %19, ptr %39, align 8, !tbaa !32
+  store ptr %19, ptr %39, align 8, !tbaa !33
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 264
-  %45 = load volatile i64, ptr %44, align 8, !tbaa !33
+  %45 = load volatile i64, ptr %44, align 8, !tbaa !34
   %46 = add i64 %45, 1
-  store volatile i64 %46, ptr %44, align 8, !tbaa !33
+  store volatile i64 %46, ptr %44, align 8, !tbaa !34
   br label %47
 
 47:                                               ; preds = %15, %12, %.loopexit
@@ -130,10 +130,10 @@ define internal void @save_value(ptr readnone captures(none) %0, i32 %1, ptr nou
   store ptr %51, ptr %52, align 8, !tbaa !19
   %53 = load ptr, ptr @file_being_read, align 8, !tbaa !3
   %54 = getelementptr inbounds nuw i8, ptr %.1, i64 160
-  store ptr %53, ptr %54, align 8, !tbaa !35
-  %55 = load i32, ptr @pmix_util_keyval_parse_lineno, align 4, !tbaa !25
+  store ptr %53, ptr %54, align 8, !tbaa !36
+  %55 = load i32, ptr @pmix_util_keyval_parse_lineno, align 4, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %.1, i64 168
-  store i32 %55, ptr %56, align 8, !tbaa !36
+  store i32 %55, ptr %56, align 8, !tbaa !37
   br label %pmix_obj_new_tma.exit
 
 pmix_obj_new_tma.exit:                            ; preds = %23, %50
@@ -202,20 +202,21 @@ attributes #10 = { nounwind allocsize(0) }
 !17 = !{!18, !4, i64 144}
 !18 = !{!"pmix_mca_base_var_file_value_t", !11, i64 0, !4, i64 144, !4, i64 152, !4, i64 160, !14, i64 168}
 !19 = !{!18, !4, i64 152}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !24, i64 56}
-!23 = !{!"pmix_class_t", !4, i64 0, !13, i64 8, !5, i64 16, !5, i64 24, !14, i64 32, !14, i64 36, !5, i64 40, !5, i64 48, !24, i64 56}
-!24 = !{!"long", !6, i64 0}
-!25 = !{!14, !14, i64 0}
-!26 = !{!23, !14, i64 32}
-!27 = !{!12, !13, i64 40}
-!28 = !{!12, !14, i64 48}
-!29 = !{!23, !5, i64 40}
-!30 = !{!5, !5, i64 0}
-!31 = distinct !{!31, !21}
-!32 = !{!11, !16, i64 128}
-!33 = !{!34, !24, i64 264}
-!34 = !{!"pmix_list_t", !12, i64 0, !11, i64 120, !24, i64 264}
-!35 = !{!18, !4, i64 160}
-!36 = !{!18, !14, i64 168}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !25, i64 56}
+!24 = !{!"pmix_class_t", !4, i64 0, !13, i64 8, !5, i64 16, !5, i64 24, !14, i64 32, !14, i64 36, !5, i64 40, !5, i64 48, !25, i64 56}
+!25 = !{!"long", !6, i64 0}
+!26 = !{!14, !14, i64 0}
+!27 = !{!24, !14, i64 32}
+!28 = !{!12, !13, i64 40}
+!29 = !{!12, !14, i64 48}
+!30 = !{!24, !5, i64 40}
+!31 = !{!5, !5, i64 0}
+!32 = distinct !{!32, !21, !22}
+!33 = !{!11, !16, i64 128}
+!34 = !{!35, !25, i64 264}
+!35 = !{!"pmix_list_t", !12, i64 0, !11, i64 120, !25, i64 264}
+!36 = !{!18, !4, i64 160}
+!37 = !{!18, !14, i64 168}

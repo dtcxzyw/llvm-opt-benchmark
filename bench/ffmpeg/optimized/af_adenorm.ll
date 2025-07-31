@@ -181,11 +181,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @config_output(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !56
+  %2 = load ptr, ptr %0, align 8, !tbaa !57
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !21
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %6 = load i32, ptr %5, align 4, !tbaa !57
+  %6 = load i32, ptr %5, align 4, !tbaa !58
   switch i32 %6, label %8 [
     i32 8, label %9
     i32 9, label %7
@@ -235,13 +235,13 @@ define internal void @dc_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %11 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %12 = load float, ptr %11, align 4, !tbaa !58
+  %12 = load float, ptr %11, align 4, !tbaa !59
   %13 = fadd nsz float %12, %9
   %14 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %13, ptr %14, align 4, !tbaa !58
+  store float %13, ptr %14, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -266,17 +266,17 @@ define internal void @ac_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %14 = load float, ptr %13, align 4, !tbaa !58
+  %14 = load float, ptr %13, align 4, !tbaa !59
   %15 = add nsw i64 %11, %indvars.iv
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
   %17 = select nsz i1 %.not, float 1.000000e+00, float -1.000000e+00
   %18 = tail call nsz float @llvm.fmuladd.f32(float %9, float %17, float %14)
   %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %18, ptr %19, align 4, !tbaa !58
+  store float %18, ptr %19, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -301,17 +301,17 @@ define internal void @sq_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %14 = load float, ptr %13, align 4, !tbaa !58
+  %14 = load float, ptr %13, align 4, !tbaa !59
   %15 = add nsw i64 %11, %indvars.iv
   %16 = and i64 %15, 256
   %.not = icmp eq i64 %16, 0
   %17 = select nsz i1 %.not, float 1.000000e+00, float -1.000000e+00
   %18 = tail call nsz float @llvm.fmuladd.f32(float %9, float %17, float %14)
   %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %18, ptr %19, align 4, !tbaa !58
+  store float %18, ptr %19, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -336,17 +336,17 @@ define internal void @ps_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %14 = load float, ptr %13, align 4, !tbaa !58
+  %14 = load float, ptr %13, align 4, !tbaa !59
   %15 = add nsw i64 %11, %indvars.iv
   %16 = and i64 %15, 255
   %.not = icmp eq i64 %16, 0
   %17 = select nsz i1 %.not, float 1.000000e+00, float 0.000000e+00
   %18 = tail call nsz float @llvm.fmuladd.f32(float %9, float %17, float %14)
   %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %18, ptr %19, align 4, !tbaa !58
+  store float %18, ptr %19, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -368,13 +368,13 @@ define internal void @dc_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %11 = load double, ptr %10, align 8, !tbaa !64
+  %11 = load double, ptr %10, align 8, !tbaa !65
   %12 = fadd nsz double %8, %11
   %13 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  store double %12, ptr %13, align 8, !tbaa !64
+  store double %12, ptr %13, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -398,17 +398,17 @@ define internal void @ac_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %13 = load double, ptr %12, align 8, !tbaa !64
+  %13 = load double, ptr %12, align 8, !tbaa !65
   %14 = add nsw i64 %10, %indvars.iv
   %15 = and i64 %14, 1
   %.not = icmp eq i64 %15, 0
   %16 = select nsz i1 %.not, double 1.000000e+00, double -1.000000e+00
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %13)
   %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  store double %17, ptr %18, align 8, !tbaa !64
+  store double %17, ptr %18, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -432,17 +432,17 @@ define internal void @sq_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %13 = load double, ptr %12, align 8, !tbaa !64
+  %13 = load double, ptr %12, align 8, !tbaa !65
   %14 = add nsw i64 %10, %indvars.iv
   %15 = and i64 %14, 256
   %.not = icmp eq i64 %15, 0
   %16 = select nsz i1 %.not, double 1.000000e+00, double -1.000000e+00
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %13)
   %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  store double %17, ptr %18, align 8, !tbaa !64
+  store double %17, ptr %18, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -466,17 +466,17 @@ define internal void @ps_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %13 = load double, ptr %12, align 8, !tbaa !64
+  %13 = load double, ptr %12, align 8, !tbaa !65
   %14 = add nsw i64 %10, %indvars.iv
   %15 = and i64 %14, 255
   %.not = icmp eq i64 %15, 0
   %16 = select nsz i1 %.not, double 1.000000e+00, double 0.000000e+00
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %13)
   %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  store double %17, ptr %18, align 8, !tbaa !64
+  store double %17, ptr %18, align 8, !tbaa !65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 }
 
 declare void @av_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
@@ -563,18 +563,19 @@ attributes #10 = { noreturn nounwind }
 !51 = !{!6, !6, i64 0}
 !52 = !{!35, !36, i64 96}
 !53 = !{!25, !25, i64 0}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!10, !11, i64 0}
-!57 = !{!10, !13, i64 36}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"float", !7, i64 0}
-!60 = distinct !{!60, !55}
-!61 = distinct !{!61, !55}
-!62 = distinct !{!62, !55}
-!63 = distinct !{!63, !55}
-!64 = !{!42, !42, i64 0}
-!65 = distinct !{!65, !55}
-!66 = distinct !{!66, !55}
-!67 = distinct !{!67, !55}
-!68 = distinct !{!68, !55}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!10, !11, i64 0}
+!58 = !{!10, !13, i64 36}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"float", !7, i64 0}
+!61 = distinct !{!61, !55, !56}
+!62 = distinct !{!62, !55, !56}
+!63 = distinct !{!63, !55, !56}
+!64 = distinct !{!64, !55, !56}
+!65 = !{!42, !42, i64 0}
+!66 = distinct !{!66, !55, !56}
+!67 = distinct !{!67, !55, !56}
+!68 = distinct !{!68, !55, !56}
+!69 = distinct !{!69, !55, !56}

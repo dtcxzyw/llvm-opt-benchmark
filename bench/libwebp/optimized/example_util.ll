@@ -203,21 +203,21 @@ define hidden void @ExUtilDeleteCommandLineArguments(ptr noundef captures(addres
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %3, align 8, !tbaa !15
+  %4 = load i32, ptr %3, align 8, !tbaa !16
   %.not5 = icmp eq i32 %4, 0
   br i1 %.not5, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !20
+  %7 = load ptr, ptr %6, align 8, !tbaa !21
   tail call void @WebPFree(ptr noundef %7) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %9 = load ptr, ptr %8, align 8, !tbaa !22
   tail call void @WebPFree(ptr noundef %9) #8
   br label %10
 
 10:                                               ; preds = %5, %2
-  store i32 0, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %0, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %11, i8 0, i64 28, i1 false)
   br label %12
@@ -238,9 +238,9 @@ define hidden range(i32 0, 2) i32 @ExUtilInitCommandLineArguments(i32 noundef %0
   br i1 %or.cond, label %.thread, label %8
 
 8:                                                ; preds = %3
-  store i32 %0, ptr %2, align 8, !tbaa !22
+  store i32 %0, ptr %2, align 8, !tbaa !23
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %1, ptr %9, align 8, !tbaa !20
+  store ptr %1, ptr %9, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %10, i8 0, i64 20, i1 false)
   %11 = icmp eq i32 %0, 1
@@ -248,7 +248,7 @@ define hidden range(i32 0, 2) i32 @ExUtilInitCommandLineArguments(i32 noundef %0
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %1, align 8, !tbaa !4
-  %14 = load i8, ptr %13, align 1, !tbaa !23
+  %14 = load i8, ptr %13, align 1, !tbaa !24
   %.not = icmp eq i8 %14, 45
   br i1 %.not, label %.thread, label %15
 
@@ -266,37 +266,37 @@ ExUtilReadFileToWebPData.exit.thread:             ; preds = %15
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %4, align 8, !tbaa !4
-  store ptr %18, ptr %10, align 8, !tbaa !21
-  %19 = load i64, ptr %5, align 8, !tbaa !24
+  store ptr %18, ptr %10, align 8, !tbaa !22
+  %19 = load i64, ptr %5, align 8, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %19, ptr %20, align 8, !tbaa !25
+  store i64 %19, ptr %20, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 1, ptr %21, align 8, !tbaa !15
+  store i32 1, ptr %21, align 8, !tbaa !16
   %22 = call ptr @WebPMalloc(i64 noundef 131072) #8
-  store ptr %22, ptr %9, align 8, !tbaa !20
+  store ptr %22, ptr %9, align 8, !tbaa !21
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %17
-  %25 = load i32, ptr %21, align 8, !tbaa !15
+  %25 = load i32, ptr %21, align 8, !tbaa !16
   %.not5.i = icmp eq i32 %25, 0
   br i1 %.not5.i, label %ExUtilDeleteCommandLineArguments.exit, label %26
 
 26:                                               ; preds = %24
   call void @WebPFree(ptr noundef null) #8
-  %27 = load ptr, ptr %10, align 8, !tbaa !21
+  %27 = load ptr, ptr %10, align 8, !tbaa !22
   call void @WebPFree(ptr noundef %27) #8
   br label %ExUtilDeleteCommandLineArguments.exit
 
 ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
-  store i32 0, ptr %2, align 8, !tbaa !22
+  store i32 0, ptr %2, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, i8 0, i64 28, i1 false)
   br label %.thread
 
 28:                                               ; preds = %17
-  %29 = load ptr, ptr %10, align 8, !tbaa !26
+  %29 = load ptr, ptr %10, align 8, !tbaa !27
   %30 = call ptr @strtok(ptr noundef %29, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
   %.not3037 = icmp eq ptr %30, null
   br i1 %.not3037, label %._crit_edge, label %.lr.ph
@@ -314,13 +314,13 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
   br label %.thread
 
 35:                                               ; preds = %.lr.ph
-  %36 = load ptr, ptr %9, align 8, !tbaa !20
+  %36 = load ptr, ptr %9, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   store ptr %.02439, ptr %37, align 8, !tbaa !4
   %38 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
   %.not30 = icmp eq ptr %38, null
-  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %35
   %39 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -328,7 +328,7 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28
   %.026.lcssa = phi i32 [ 0, %28 ], [ %39, %._crit_edge.loopexit ]
-  store i32 %.026.lcssa, ptr %2, align 8, !tbaa !22
+  store i32 %.026.lcssa, ptr %2, align 8, !tbaa !23
   br label %.thread
 
 .thread:                                          ; preds = %ExUtilReadFileToWebPData.exit.thread, %32, %ExUtilDeleteCommandLineArguments.exit, %8, %12, %._crit_edge, %3
@@ -352,10 +352,10 @@ define hidden range(i32 0, 2) i32 @ExUtilReadFileToWebPData(ptr noundef %0, ptr 
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %3, align 8, !tbaa !4
-  store ptr %9, ptr %1, align 8, !tbaa !21
-  %10 = load i64, ptr %4, align 8, !tbaa !24
+  store ptr %9, ptr %1, align 8, !tbaa !22
+  %10 = load i64, ptr %4, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %10, ptr %11, align 8, !tbaa !25
+  store i64 %10, ptr %11, align 8, !tbaa !26
   br label %12
 
 12:                                               ; preds = %6, %2, %8
@@ -402,18 +402,19 @@ attributes #10 = { nounwind willreturn memory(read) }
 !10 = !{!"int", !7, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !10, i64 32}
-!16 = !{!"", !10, i64 0, !17, i64 8, !18, i64 16, !10, i64 32}
-!17 = !{!"p2 omnipotent char", !6, i64 0}
-!18 = !{!"WebPData", !5, i64 0, !19, i64 8}
-!19 = !{!"long", !7, i64 0}
-!20 = !{!16, !17, i64 8}
-!21 = !{!18, !5, i64 0}
-!22 = !{!16, !10, i64 0}
-!23 = !{!7, !7, i64 0}
-!24 = !{!19, !19, i64 0}
-!25 = !{!18, !19, i64 8}
-!26 = !{!16, !5, i64 16}
-!27 = distinct !{!27, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !10, i64 32}
+!17 = !{!"", !10, i64 0, !18, i64 8, !19, i64 16, !10, i64 32}
+!18 = !{!"p2 omnipotent char", !6, i64 0}
+!19 = !{!"WebPData", !5, i64 0, !20, i64 8}
+!20 = !{!"long", !7, i64 0}
+!21 = !{!17, !18, i64 8}
+!22 = !{!19, !5, i64 0}
+!23 = !{!17, !10, i64 0}
+!24 = !{!7, !7, i64 0}
+!25 = !{!20, !20, i64 0}
+!26 = !{!19, !20, i64 8}
+!27 = !{!17, !5, i64 16}
+!28 = distinct !{!28, !14, !15}

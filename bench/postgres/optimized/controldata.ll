@@ -310,7 +310,7 @@ define dso_local void @get_control_data(ptr noundef %0) local_unnamed_addr #0 {
   %.1333 = phi i1 [ %.03321183, %.lr.ph ], [ true, %85 ]
   %91 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull %60)
   %.not = icmp eq ptr %91, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %90
   %92 = call i32 @pclose(ptr noundef nonnull %60)
@@ -1108,7 +1108,7 @@ define dso_local void @get_control_data(ptr noundef %0) local_unnamed_addr #0 {
   %.1 = phi i32 [ %.03181209, %153 ], [ %.03181209, %165 ], [ %.03181209, %177 ], [ %.03181209, %189 ], [ %203, %201 ], [ %.03181209, %225 ], [ %.03181209, %237 ], [ %.03181209, %249 ], [ %.03181209, %261 ], [ %.03181209, %273 ], [ %.03181209, %285 ], [ %.03181209, %307 ], [ %.03181209, %318 ], [ %.03181209, %332 ], [ %.03181209, %344 ], [ %.03181209, %356 ], [ %.03181209, %368 ], [ %.03181209, %380 ], [ %.03181209, %392 ], [ %.03181209, %404 ], [ %.03181209, %416 ], [ %.03181209, %428 ], [ %.03181209, %440 ], [ %.03181209, %454 ], [ %.03181209, %445 ]
   %458 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull %111)
   %.not455 = icmp eq ptr %458, null
-  br i1 %.not455, label %._crit_edge1212.loopexit, label %143, !llvm.loop !8
+  br i1 %.not455, label %._crit_edge1212.loopexit, label %143, !llvm.loop !9
 
 ._crit_edge1212.loopexit:                         ; preds = %457
   %459 = trunc nuw i8 %.1366 to i1
@@ -1684,9 +1684,9 @@ define dso_local void @check_control_data(ptr noundef readonly captures(none) %0
 
 73:                                               ; preds = %69, %66
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %75 = load i8, ptr %74, align 4, !range !4, !noundef !9
+  %75 = load i8, ptr %74, align 4, !range !4, !noundef !10
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  %77 = load i8, ptr %76, align 4, !range !4, !noundef !9
+  %77 = load i8, ptr %76, align 4, !range !4, !noundef !10
   %.not52 = icmp eq i8 %75, %77
   br i1 %.not52, label %79, label %78
 
@@ -1784,8 +1784,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = !{}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = !{}

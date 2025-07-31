@@ -769,7 +769,7 @@ define internal i32 @ARKBBDPrecSetup(double noundef %0, ptr noundef %1, ptr read
   store double %141, ptr %139, align 8, !tbaa !74
   %142 = add nsw i64 %.0151180.i, %89
   %143 = icmp slt i64 %142, %94
-  br i1 %143, label %.lr.ph.split.i, label %._crit_edge.i
+  br i1 %143, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !78
 
 ._crit_edge.i:                                    ; preds = %138, %.lr.ph.split.us.i, %93
   %144 = load ptr, ptr %42, align 8, !tbaa !28
@@ -865,18 +865,18 @@ define internal i32 @ARKBBDPrecSetup(double noundef %0, ptr noundef %1, ptr read
   store double %197, ptr %199, align 8, !tbaa !74
   %200 = add nuw nsw i64 %.0150182.i, 1
   %.not176.not.i = icmp slt i64 %.0150182.i, %191
-  br i1 %.not176.not.i, label %.lr.ph184.i, label %._crit_edge185.i
+  br i1 %.not176.not.i, label %.lr.ph184.i, label %._crit_edge185.i, !llvm.loop !79
 
 ._crit_edge185.i:                                 ; preds = %.lr.ph184.i, %183
   %201 = add nsw i64 %.1152186.i, %89
   %202 = icmp slt i64 %201, %189
-  br i1 %202, label %.lr.ph187.i, label %._crit_edge188.i
+  br i1 %202, label %.lr.ph187.i, label %._crit_edge188.i, !llvm.loop !80
 
 ._crit_edge188.i:                                 ; preds = %._crit_edge185.i, %.preheader.i
   %203 = phi i64 [ %149, %.preheader.i ], [ %189, %._crit_edge185.i ]
   %204 = add nuw i64 %.0149190.i, 1
   %exitcond.not.i = icmp eq i64 %.0149190.i, %..i
-  br i1 %exitcond.not.i, label %.loopexit, label %93
+  br i1 %exitcond.not.i, label %.loopexit, label %93, !llvm.loop !81
 
 ARKBBDDQJac.exit:                                 ; preds = %._crit_edge.i, %35, %41
   %.0.i = phi i32 [ %40, %35 ], [ %48, %41 ], [ %146, %._crit_edge.i ]
@@ -1210,5 +1210,10 @@ attributes #10 = { nounwind allocsize(0) }
 !72 = !{!9, !13, i64 568}
 !73 = !{!9, !11, i64 704}
 !74 = !{!11, !11, i64 0}
-!75 = distinct !{!75, !76}
-!76 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!75 = distinct !{!75, !76, !77}
+!76 = !{!"llvm.loop.estimated_trip_count"}
+!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!78 = distinct !{!78, !76}
+!79 = distinct !{!79, !76}
+!80 = distinct !{!80, !76}
+!81 = distinct !{!81, !76}

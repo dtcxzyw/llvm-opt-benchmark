@@ -58,23 +58,23 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %23 = sub nuw i32 %.0119163, %20
   %24 = icmp ugt i32 %23, 23
   %or.cond194 = select i1 %or.cond.not195, i1 %24, i1 false
-  br i1 %or.cond194, label %.lr.ph, label %.thread
+  br i1 %or.cond194, label %.lr.ph, label %.thread, !llvm.loop !32
 
 .thread:                                          ; preds = %18, %4, %13
   %.1127 = phi i32 [ %17, %13 ], [ 1, %4 ], [ 1, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %26 = load i32, ptr %25, align 4, !tbaa !32
+  %26 = load i32, ptr %25, align 4, !tbaa !34
   %27 = icmp eq i32 %26, 486
   %. = select i1 %27, i32 10, i32 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %29 = load i32, ptr %28, align 8, !tbaa !33
+  %29 = load i32, ptr %28, align 8, !tbaa !35
   %30 = shl nsw i32 %29, 1
   %31 = add nsw i32 %., %26
   %32 = mul nsw i32 %30, %31
   %33 = shl nuw nsw i32 %.1127, 2
   %34 = add nsw i32 %32, %33
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %36 = load i32, ptr %35, align 8, !tbaa !34
+  %36 = load i32, ptr %35, align 8, !tbaa !36
   %37 = icmp slt i32 %36, %34
   br i1 %37, label %38, label %39
 
@@ -84,7 +84,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 39:                                               ; preds = %.thread
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 648
-  %41 = load i32, ptr %40, align 8, !tbaa !35
+  %41 = load i32, ptr %40, align 8, !tbaa !37
   %42 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #5
   %43 = icmp slt i32 %42, 0
   br i1 %43, label %228, label %44
@@ -99,7 +99,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %51 = icmp sge i32 %36, %50
   %52 = select i1 %48, i1 %51, i1 false
   %.not150 = icmp eq i32 %.1127, 0
-  %.pre.pre = load i32, ptr %28, align 8, !tbaa !33
+  %.pre.pre = load i32, ptr %28, align 8, !tbaa !35
   %53 = mul nsw i32 %.pre.pre, %.
   %54 = sext i32 %53 to i64
   %.0139.idx = select i1 %.not150, i64 %54, i64 0
@@ -131,28 +131,28 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not150, label %._crit_edge, label %71
 
 ._crit_edge:                                      ; preds = %63
-  %.pre205 = load ptr, ptr %1, align 8, !tbaa !36
-  %.pre207 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre209 = load ptr, ptr %57, align 8, !tbaa !36
-  %.pre211 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre213 = load ptr, ptr %59, align 8, !tbaa !36
-  %.pre215 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre217 = load ptr, ptr %61, align 8, !tbaa !36
-  %.pre219 = load i32, ptr %62, align 4, !tbaa !37
-  %.pre221.pre = load i32, ptr %25, align 4, !tbaa !32
+  %.pre205 = load ptr, ptr %1, align 8, !tbaa !38
+  %.pre207 = load i32, ptr %56, align 8, !tbaa !39
+  %.pre209 = load ptr, ptr %57, align 8, !tbaa !38
+  %.pre211 = load i32, ptr %58, align 4, !tbaa !39
+  %.pre213 = load ptr, ptr %59, align 8, !tbaa !38
+  %.pre215 = load i32, ptr %60, align 8, !tbaa !39
+  %.pre217 = load ptr, ptr %61, align 8, !tbaa !38
+  %.pre219 = load i32, ptr %62, align 4, !tbaa !39
+  %.pre221.pre = load i32, ptr %25, align 4, !tbaa !34
   br label %86
 
 71:                                               ; preds = %63
-  %72 = load i32, ptr %25, align 4, !tbaa !32
+  %72 = load i32, ptr %25, align 4, !tbaa !34
   %73 = icmp eq i32 %72, 486
-  %.pre206 = load ptr, ptr %1, align 8, !tbaa !36
-  %.pre208 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre210 = load ptr, ptr %57, align 8, !tbaa !36
-  %.pre212 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre214 = load ptr, ptr %59, align 8, !tbaa !36
-  %.pre216 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre218 = load ptr, ptr %61, align 8, !tbaa !36
-  %.pre220 = load i32, ptr %62, align 4, !tbaa !37
+  %.pre206 = load ptr, ptr %1, align 8, !tbaa !38
+  %.pre208 = load i32, ptr %56, align 8, !tbaa !39
+  %.pre210 = load ptr, ptr %57, align 8, !tbaa !38
+  %.pre212 = load i32, ptr %58, align 4, !tbaa !39
+  %.pre214 = load ptr, ptr %59, align 8, !tbaa !38
+  %.pre216 = load i32, ptr %60, align 8, !tbaa !39
+  %.pre218 = load ptr, ptr %61, align 8, !tbaa !38
+  %.pre220 = load i32, ptr %62, align 4, !tbaa !39
   br i1 %73, label %74, label %86
 
 74:                                               ; preds = %71
@@ -229,11 +229,11 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %121, label %.lr.ph168.us, label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us.loopexit:                 ; preds = %.lr.ph168.us
-  %.pre227 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre228 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre229 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre230 = load i32, ptr %62, align 4, !tbaa !37
-  %.pre231 = load i32, ptr %25, align 4, !tbaa !32
+  %.pre227 = load i32, ptr %56, align 8, !tbaa !39
+  %.pre228 = load i32, ptr %58, align 4, !tbaa !39
+  %.pre229 = load i32, ptr %60, align 8, !tbaa !39
+  %.pre230 = load i32, ptr %62, align 4, !tbaa !39
+  %.pre231 = load i32, ptr %25, align 4, !tbaa !34
   br label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.preheader.us
@@ -260,7 +260,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %140 = add nuw nsw i32 %.0121181.us, 1
   %141 = ashr i32 %122, %.1127
   %142 = icmp slt i32 %140, %141
-  br i1 %142, label %.preheader.us, label %._crit_edge182, !llvm.loop !38
+  br i1 %142, label %.preheader.us, label %._crit_edge182, !llvm.loop !40
 
 .lr.ph168.us:                                     ; preds = %.preheader.us, %.lr.ph168.us
   %indvars.iv202 = phi i64 [ %indvars.iv.next203, %.lr.ph168.us ], [ 0, %.preheader.us ]
@@ -295,11 +295,11 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 %161, ptr %163, align 1, !tbaa !31
   %164 = getelementptr inbounds nuw i8, ptr %.3142165.us.us, i64 4
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
-  %165 = load i32, ptr %28, align 8, !tbaa !33
+  %165 = load i32, ptr %28, align 8, !tbaa !35
   %166 = ashr i32 %165, 1
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next203, %167
-  br i1 %168, label %.lr.ph168.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !41
+  br i1 %168, label %.lr.ph168.us, label %._crit_edge.split.us.us.loopexit, !llvm.loop !43
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
   %169 = phi i32 [ %198, %._crit_edge.split ], [ %64, %.preheader.lr.ph ]
@@ -347,18 +347,18 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   store i8 -1, ptr %192, align 1, !tbaa !31
   %193 = getelementptr inbounds nuw i8, ptr %.3142165, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %194 = load i32, ptr %28, align 8, !tbaa !33
+  %194 = load i32, ptr %28, align 8, !tbaa !35
   %195 = ashr i32 %194, 1
   %196 = sext i32 %195 to i64
   %197 = icmp slt i64 %indvars.iv.next, %196
-  br i1 %197, label %.lr.ph168, label %._crit_edge.split.loopexit, !llvm.loop !42
+  br i1 %197, label %.lr.ph168, label %._crit_edge.split.loopexit, !llvm.loop !44
 
 ._crit_edge.split.loopexit:                       ; preds = %.lr.ph168
-  %.pre222 = load i32, ptr %56, align 8, !tbaa !37
-  %.pre223 = load i32, ptr %58, align 4, !tbaa !37
-  %.pre224 = load i32, ptr %60, align 8, !tbaa !37
-  %.pre225 = load i32, ptr %62, align 4, !tbaa !37
-  %.pre226 = load i32, ptr %25, align 4, !tbaa !32
+  %.pre222 = load i32, ptr %56, align 8, !tbaa !39
+  %.pre223 = load i32, ptr %58, align 4, !tbaa !39
+  %.pre224 = load i32, ptr %60, align 8, !tbaa !39
+  %.pre225 = load i32, ptr %62, align 4, !tbaa !39
+  %.pre226 = load i32, ptr %25, align 4, !tbaa !34
   br label %._crit_edge.split
 
 ._crit_edge.split:                                ; preds = %._crit_edge.split.loopexit, %.preheader
@@ -386,7 +386,7 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %217 = add nuw nsw i32 %.0121181, 1
   %218 = ashr i32 %199, %.1127
   %219 = icmp slt i32 %217, %218
-  br i1 %219, label %.preheader, label %._crit_edge182, !llvm.loop !43
+  br i1 %219, label %.preheader, label %._crit_edge182, !llvm.loop !45
 
 ._crit_edge182:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %105
   %220 = phi i32 [ %64, %105 ], [ %127, %._crit_edge.split.us.us ], [ %198, %._crit_edge.split ]
@@ -398,11 +398,11 @@ define internal i32 @avui_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %224 = getelementptr inbounds nuw i8, ptr %.2141.lcssa, i64 4
   %225 = add nuw nsw i32 %.0122189, 1
   %exitcond.not = icmp eq i32 %.0122189, %.1127
-  br i1 %exitcond.not, label %226, label %63, !llvm.loop !44
+  br i1 %exitcond.not, label %226, label %63, !llvm.loop !46
 
 226:                                              ; preds = %._crit_edge182
-  store i32 1, ptr %2, align 4, !tbaa !37
-  %227 = load i32, ptr %35, align 8, !tbaa !34
+  store i32 1, ptr %2, align 4, !tbaa !39
+  %227 = load i32, ptr %35, align 8, !tbaa !36
   br label %228
 
 228:                                              ; preds = %39, %226, %38
@@ -461,16 +461,18 @@ attributes #5 = { nounwind }
 !29 = !{!5, !10, i64 80}
 !30 = !{!5, !14, i64 72}
 !31 = !{!8, !8, i64 0}
-!32 = !{!5, !10, i64 116}
-!33 = !{!5, !10, i64 112}
-!34 = !{!28, !10, i64 32}
-!35 = !{!5, !10, i64 648}
-!36 = !{!14, !14, i64 0}
-!37 = !{!10, !10, i64 0}
-!38 = distinct !{!38, !39, !40}
-!39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!41 = distinct !{!41, !39, !40}
-!42 = distinct !{!42, !39}
-!43 = distinct !{!43, !39}
-!44 = distinct !{!44, !39}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!5, !10, i64 116}
+!35 = !{!5, !10, i64 112}
+!36 = !{!28, !10, i64 32}
+!37 = !{!5, !10, i64 648}
+!38 = !{!14, !14, i64 0}
+!39 = !{!10, !10, i64 0}
+!40 = distinct !{!40, !41, !33, !42}
+!41 = !{!"llvm.loop.mustprogress"}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !41, !33, !42}
+!44 = distinct !{!44, !41, !33}
+!45 = distinct !{!45, !41, !33}
+!46 = distinct !{!46, !41, !33}

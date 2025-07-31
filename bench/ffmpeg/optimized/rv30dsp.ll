@@ -281,7 +281,7 @@ define internal void @put_rv30_tpel16_mc11_c(ptr noundef writeonly captures(none
   %73 = getelementptr inbounds i8, ptr %.05976.i.i, i64 %6
   %74 = add nuw nsw i32 %.077.i.i, 1
   %exitcond79.not.i.i = icmp eq i32 %74, 8
-  br i1 %exitcond79.not.i.i, label %put_rv30_tpel8_hv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !11
+  br i1 %exitcond79.not.i.i, label %put_rv30_tpel8_hv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !12
 
 put_rv30_tpel8_hv_lowpass.exit.i:                 ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -382,7 +382,7 @@ put_rv30_tpel8_hv_lowpass.exit.i:                 ; preds = %72
   %142 = getelementptr inbounds i8, ptr %.05976.i21.i, i64 %6
   %143 = add nuw nsw i32 %.077.i20.i, 1
   %exitcond79.not.i40.i = icmp eq i32 %143, 8
-  br i1 %exitcond79.not.i40.i, label %put_rv30_tpel8_hv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !11
+  br i1 %exitcond79.not.i40.i, label %put_rv30_tpel8_hv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !12
 
 put_rv30_tpel8_hv_lowpass.exit41.i:               ; preds = %141
   %144 = shl nsw i32 %4, 3
@@ -485,7 +485,7 @@ put_rv30_tpel8_hv_lowpass.exit41.i:               ; preds = %141
   %213 = getelementptr inbounds i8, ptr %.05976.i44.i, i64 %6
   %214 = add nuw nsw i32 %.077.i43.i, 1
   %exitcond79.not.i63.i = icmp eq i32 %214, 8
-  br i1 %exitcond79.not.i63.i, label %put_rv30_tpel8_hv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !11
+  br i1 %exitcond79.not.i63.i, label %put_rv30_tpel8_hv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !12
 
 put_rv30_tpel8_hv_lowpass.exit64.i:               ; preds = %212
   %215 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -586,7 +586,7 @@ put_rv30_tpel8_hv_lowpass.exit64.i:               ; preds = %212
   %282 = getelementptr inbounds i8, ptr %.05976.i67.i, i64 %6
   %283 = add nuw nsw i32 %.077.i66.i, 1
   %exitcond79.not.i86.i = icmp eq i32 %283, 8
-  br i1 %exitcond79.not.i86.i, label %put_rv30_tpel16_hv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !11
+  br i1 %exitcond79.not.i86.i, label %put_rv30_tpel16_hv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !12
 
 put_rv30_tpel16_hv_lowpass.exit:                  ; preds = %281
   ret void
@@ -689,13 +689,13 @@ define internal void @put_rv30_tpel16_mc21_c(ptr noundef writeonly captures(none
   %71 = getelementptr inbounds nuw i8, ptr %.05976.i.i, i64 %indvars.iv.i.i
   store i8 %70, ptr %71, align 1, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %72, label %8, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %72, label %8, !llvm.loop !13
 
 72:                                               ; preds = %8
   %73 = getelementptr inbounds i8, ptr %.05976.i.i, i64 %6
   %74 = add nuw nsw i32 %.077.i.i, 1
   %exitcond79.not.i.i = icmp eq i32 %74, 8
-  br i1 %exitcond79.not.i.i, label %put_rv30_tpel8_hhv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !13
+  br i1 %exitcond79.not.i.i, label %put_rv30_tpel8_hhv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !14
 
 put_rv30_tpel8_hhv_lowpass.exit.i:                ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -790,13 +790,13 @@ put_rv30_tpel8_hhv_lowpass.exit.i:                ; preds = %72
   %140 = getelementptr inbounds nuw i8, ptr %.05976.i21.i, i64 %indvars.iv.i25.i
   store i8 %139, ptr %140, align 1, !tbaa !8
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i26.i, 8
-  br i1 %exitcond.not.i39.i, label %141, label %77, !llvm.loop !12
+  br i1 %exitcond.not.i39.i, label %141, label %77, !llvm.loop !13
 
 141:                                              ; preds = %77
   %142 = getelementptr inbounds i8, ptr %.05976.i21.i, i64 %6
   %143 = add nuw nsw i32 %.077.i20.i, 1
   %exitcond79.not.i40.i = icmp eq i32 %143, 8
-  br i1 %exitcond79.not.i40.i, label %put_rv30_tpel8_hhv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !13
+  br i1 %exitcond79.not.i40.i, label %put_rv30_tpel8_hhv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !14
 
 put_rv30_tpel8_hhv_lowpass.exit41.i:              ; preds = %141
   %144 = shl nsw i32 %4, 3
@@ -893,13 +893,13 @@ put_rv30_tpel8_hhv_lowpass.exit41.i:              ; preds = %141
   %211 = getelementptr inbounds nuw i8, ptr %.05976.i44.i, i64 %indvars.iv.i48.i
   store i8 %210, ptr %211, align 1, !tbaa !8
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i49.i, 8
-  br i1 %exitcond.not.i62.i, label %212, label %148, !llvm.loop !12
+  br i1 %exitcond.not.i62.i, label %212, label %148, !llvm.loop !13
 
 212:                                              ; preds = %148
   %213 = getelementptr inbounds i8, ptr %.05976.i44.i, i64 %6
   %214 = add nuw nsw i32 %.077.i43.i, 1
   %exitcond79.not.i63.i = icmp eq i32 %214, 8
-  br i1 %exitcond79.not.i63.i, label %put_rv30_tpel8_hhv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !13
+  br i1 %exitcond79.not.i63.i, label %put_rv30_tpel8_hhv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !14
 
 put_rv30_tpel8_hhv_lowpass.exit64.i:              ; preds = %212
   %215 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -994,13 +994,13 @@ put_rv30_tpel8_hhv_lowpass.exit64.i:              ; preds = %212
   %280 = getelementptr inbounds nuw i8, ptr %.05976.i67.i, i64 %indvars.iv.i71.i
   store i8 %279, ptr %280, align 1, !tbaa !8
   %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i72.i, 8
-  br i1 %exitcond.not.i85.i, label %281, label %217, !llvm.loop !12
+  br i1 %exitcond.not.i85.i, label %281, label %217, !llvm.loop !13
 
 281:                                              ; preds = %217
   %282 = getelementptr inbounds i8, ptr %.05976.i67.i, i64 %6
   %283 = add nuw nsw i32 %.077.i66.i, 1
   %exitcond79.not.i86.i = icmp eq i32 %283, 8
-  br i1 %exitcond79.not.i86.i, label %put_rv30_tpel16_hhv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !13
+  br i1 %exitcond79.not.i86.i, label %put_rv30_tpel16_hhv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !14
 
 put_rv30_tpel16_hhv_lowpass.exit:                 ; preds = %281
   ret void
@@ -1121,13 +1121,13 @@ define internal void @put_rv30_tpel16_mc12_c(ptr noundef writeonly captures(none
   %71 = getelementptr inbounds nuw i8, ptr %.05976.i.i, i64 %indvars.iv.i.i
   store i8 %70, ptr %71, align 1, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %72, label %8, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %72, label %8, !llvm.loop !15
 
 72:                                               ; preds = %8
   %73 = getelementptr inbounds i8, ptr %.05976.i.i, i64 %6
   %74 = add nuw nsw i32 %.077.i.i, 1
   %exitcond79.not.i.i = icmp eq i32 %74, 8
-  br i1 %exitcond79.not.i.i, label %put_rv30_tpel8_hvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !15
+  br i1 %exitcond79.not.i.i, label %put_rv30_tpel8_hvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !16
 
 put_rv30_tpel8_hvv_lowpass.exit.i:                ; preds = %72
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1222,13 +1222,13 @@ put_rv30_tpel8_hvv_lowpass.exit.i:                ; preds = %72
   %140 = getelementptr inbounds nuw i8, ptr %.05976.i21.i, i64 %indvars.iv.i25.i
   store i8 %139, ptr %140, align 1, !tbaa !8
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i26.i, 8
-  br i1 %exitcond.not.i39.i, label %141, label %77, !llvm.loop !14
+  br i1 %exitcond.not.i39.i, label %141, label %77, !llvm.loop !15
 
 141:                                              ; preds = %77
   %142 = getelementptr inbounds i8, ptr %.05976.i21.i, i64 %6
   %143 = add nuw nsw i32 %.077.i20.i, 1
   %exitcond79.not.i40.i = icmp eq i32 %143, 8
-  br i1 %exitcond79.not.i40.i, label %put_rv30_tpel8_hvv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !15
+  br i1 %exitcond79.not.i40.i, label %put_rv30_tpel8_hvv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !16
 
 put_rv30_tpel8_hvv_lowpass.exit41.i:              ; preds = %141
   %144 = shl nsw i32 %4, 3
@@ -1325,13 +1325,13 @@ put_rv30_tpel8_hvv_lowpass.exit41.i:              ; preds = %141
   %211 = getelementptr inbounds nuw i8, ptr %.05976.i44.i, i64 %indvars.iv.i48.i
   store i8 %210, ptr %211, align 1, !tbaa !8
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i49.i, 8
-  br i1 %exitcond.not.i62.i, label %212, label %148, !llvm.loop !14
+  br i1 %exitcond.not.i62.i, label %212, label %148, !llvm.loop !15
 
 212:                                              ; preds = %148
   %213 = getelementptr inbounds i8, ptr %.05976.i44.i, i64 %6
   %214 = add nuw nsw i32 %.077.i43.i, 1
   %exitcond79.not.i63.i = icmp eq i32 %214, 8
-  br i1 %exitcond79.not.i63.i, label %put_rv30_tpel8_hvv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !15
+  br i1 %exitcond79.not.i63.i, label %put_rv30_tpel8_hvv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !16
 
 put_rv30_tpel8_hvv_lowpass.exit64.i:              ; preds = %212
   %215 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -1426,13 +1426,13 @@ put_rv30_tpel8_hvv_lowpass.exit64.i:              ; preds = %212
   %280 = getelementptr inbounds nuw i8, ptr %.05976.i67.i, i64 %indvars.iv.i71.i
   store i8 %279, ptr %280, align 1, !tbaa !8
   %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i72.i, 8
-  br i1 %exitcond.not.i85.i, label %281, label %217, !llvm.loop !14
+  br i1 %exitcond.not.i85.i, label %281, label %217, !llvm.loop !15
 
 281:                                              ; preds = %217
   %282 = getelementptr inbounds i8, ptr %.05976.i67.i, i64 %6
   %283 = add nuw nsw i32 %.077.i66.i, 1
   %exitcond79.not.i86.i = icmp eq i32 %283, 8
-  br i1 %exitcond79.not.i86.i, label %put_rv30_tpel16_hvv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !15
+  br i1 %exitcond79.not.i86.i, label %put_rv30_tpel16_hvv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !16
 
 put_rv30_tpel16_hvv_lowpass.exit:                 ; preds = %281
   ret void
@@ -1506,13 +1506,13 @@ define internal void @put_rv30_tpel16_mc22_c(ptr noundef writeonly captures(none
   %42 = getelementptr inbounds nuw i8, ptr %.03846.i.i, i64 %indvars.iv.i.i
   store i8 %41, ptr %42, align 1, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %43, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i.i, label %43, label %8, !llvm.loop !17
 
 43:                                               ; preds = %8
   %44 = getelementptr inbounds i8, ptr %.03846.i.i, i64 %6
   %45 = add nuw nsw i32 %.047.i.i, 1
   %exitcond49.not.i.i = icmp eq i32 %45, 8
-  br i1 %exitcond49.not.i.i, label %put_rv30_tpel8_hhvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !17
+  br i1 %exitcond49.not.i.i, label %put_rv30_tpel8_hhvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !18
 
 put_rv30_tpel8_hhvv_lowpass.exit.i:               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1578,13 +1578,13 @@ put_rv30_tpel8_hhvv_lowpass.exit.i:               ; preds = %43
   %82 = getelementptr inbounds nuw i8, ptr %.03846.i21.i, i64 %indvars.iv.i29.i
   store i8 %81, ptr %82, align 1, !tbaa !8
   %exitcond.not.i43.i = icmp eq i64 %indvars.iv.next.i30.i, 8
-  br i1 %exitcond.not.i43.i, label %83, label %48, !llvm.loop !16
+  br i1 %exitcond.not.i43.i, label %83, label %48, !llvm.loop !17
 
 83:                                               ; preds = %48
   %84 = getelementptr inbounds i8, ptr %.03846.i21.i, i64 %6
   %85 = add nuw nsw i32 %.047.i20.i, 1
   %exitcond49.not.i44.i = icmp eq i32 %85, 8
-  br i1 %exitcond49.not.i44.i, label %put_rv30_tpel8_hhvv_lowpass.exit45.i, label %.preheader.i19.i, !llvm.loop !17
+  br i1 %exitcond49.not.i44.i, label %put_rv30_tpel8_hhvv_lowpass.exit45.i, label %.preheader.i19.i, !llvm.loop !18
 
 put_rv30_tpel8_hhvv_lowpass.exit45.i:             ; preds = %83
   %86 = shl nsw i32 %4, 3
@@ -1652,13 +1652,13 @@ put_rv30_tpel8_hhvv_lowpass.exit45.i:             ; preds = %83
   %124 = getelementptr inbounds nuw i8, ptr %.03846.i48.i, i64 %indvars.iv.i56.i
   store i8 %123, ptr %124, align 1, !tbaa !8
   %exitcond.not.i70.i = icmp eq i64 %indvars.iv.next.i57.i, 8
-  br i1 %exitcond.not.i70.i, label %125, label %90, !llvm.loop !16
+  br i1 %exitcond.not.i70.i, label %125, label %90, !llvm.loop !17
 
 125:                                              ; preds = %90
   %126 = getelementptr inbounds i8, ptr %.03846.i48.i, i64 %6
   %127 = add nuw nsw i32 %.047.i47.i, 1
   %exitcond49.not.i71.i = icmp eq i32 %127, 8
-  br i1 %exitcond49.not.i71.i, label %put_rv30_tpel8_hhvv_lowpass.exit72.i, label %.preheader.i46.i, !llvm.loop !17
+  br i1 %exitcond49.not.i71.i, label %put_rv30_tpel8_hhvv_lowpass.exit72.i, label %.preheader.i46.i, !llvm.loop !18
 
 put_rv30_tpel8_hhvv_lowpass.exit72.i:             ; preds = %125
   %128 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -1724,13 +1724,13 @@ put_rv30_tpel8_hhvv_lowpass.exit72.i:             ; preds = %125
   %164 = getelementptr inbounds nuw i8, ptr %.03846.i75.i, i64 %indvars.iv.i83.i
   store i8 %163, ptr %164, align 1, !tbaa !8
   %exitcond.not.i97.i = icmp eq i64 %indvars.iv.next.i84.i, 8
-  br i1 %exitcond.not.i97.i, label %165, label %130, !llvm.loop !16
+  br i1 %exitcond.not.i97.i, label %165, label %130, !llvm.loop !17
 
 165:                                              ; preds = %130
   %166 = getelementptr inbounds i8, ptr %.03846.i75.i, i64 %6
   %167 = add nuw nsw i32 %.047.i74.i, 1
   %exitcond49.not.i98.i = icmp eq i32 %167, 8
-  br i1 %exitcond49.not.i98.i, label %put_rv30_tpel16_hhvv_lowpass.exit, label %.preheader.i73.i, !llvm.loop !17
+  br i1 %exitcond49.not.i98.i, label %put_rv30_tpel16_hhvv_lowpass.exit, label %.preheader.i73.i, !llvm.loop !18
 
 put_rv30_tpel16_hhvv_lowpass.exit:                ; preds = %165
   ret void
@@ -1894,13 +1894,13 @@ define internal void @avg_rv30_tpel16_mc11_c(ptr noundef captures(none) %0, ptr 
   %78 = trunc nuw i16 %77 to i8
   store i8 %78, ptr %9, align 1, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %79, label %8, !llvm.loop !18
+  br i1 %exitcond.not.i.i, label %79, label %8, !llvm.loop !19
 
 79:                                               ; preds = %8
   %80 = getelementptr inbounds i8, ptr %.06178.i.i, i64 %6
   %81 = add nuw nsw i32 %.079.i.i, 1
   %exitcond81.not.i.i = icmp eq i32 %81, 8
-  br i1 %exitcond81.not.i.i, label %avg_rv30_tpel8_hv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %exitcond81.not.i.i, label %avg_rv30_tpel8_hv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !20
 
 avg_rv30_tpel8_hv_lowpass.exit.i:                 ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2002,13 +2002,13 @@ avg_rv30_tpel8_hv_lowpass.exit.i:                 ; preds = %79
   %154 = trunc nuw i16 %153 to i8
   store i8 %154, ptr %85, align 1, !tbaa !8
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i26.i, 8
-  br i1 %exitcond.not.i39.i, label %155, label %84, !llvm.loop !18
+  br i1 %exitcond.not.i39.i, label %155, label %84, !llvm.loop !19
 
 155:                                              ; preds = %84
   %156 = getelementptr inbounds i8, ptr %.06178.i21.i, i64 %6
   %157 = add nuw nsw i32 %.079.i20.i, 1
   %exitcond81.not.i40.i = icmp eq i32 %157, 8
-  br i1 %exitcond81.not.i40.i, label %avg_rv30_tpel8_hv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !19
+  br i1 %exitcond81.not.i40.i, label %avg_rv30_tpel8_hv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !20
 
 avg_rv30_tpel8_hv_lowpass.exit41.i:               ; preds = %155
   %158 = shl nsw i32 %4, 3
@@ -2112,13 +2112,13 @@ avg_rv30_tpel8_hv_lowpass.exit41.i:               ; preds = %155
   %232 = trunc nuw i16 %231 to i8
   store i8 %232, ptr %163, align 1, !tbaa !8
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i49.i, 8
-  br i1 %exitcond.not.i62.i, label %233, label %162, !llvm.loop !18
+  br i1 %exitcond.not.i62.i, label %233, label %162, !llvm.loop !19
 
 233:                                              ; preds = %162
   %234 = getelementptr inbounds i8, ptr %.06178.i44.i, i64 %6
   %235 = add nuw nsw i32 %.079.i43.i, 1
   %exitcond81.not.i63.i = icmp eq i32 %235, 8
-  br i1 %exitcond81.not.i63.i, label %avg_rv30_tpel8_hv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !19
+  br i1 %exitcond81.not.i63.i, label %avg_rv30_tpel8_hv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !20
 
 avg_rv30_tpel8_hv_lowpass.exit64.i:               ; preds = %233
   %236 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -2220,13 +2220,13 @@ avg_rv30_tpel8_hv_lowpass.exit64.i:               ; preds = %233
   %308 = trunc nuw i16 %307 to i8
   store i8 %308, ptr %239, align 1, !tbaa !8
   %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i72.i, 8
-  br i1 %exitcond.not.i85.i, label %309, label %238, !llvm.loop !18
+  br i1 %exitcond.not.i85.i, label %309, label %238, !llvm.loop !19
 
 309:                                              ; preds = %238
   %310 = getelementptr inbounds i8, ptr %.06178.i67.i, i64 %6
   %311 = add nuw nsw i32 %.079.i66.i, 1
   %exitcond81.not.i86.i = icmp eq i32 %311, 8
-  br i1 %exitcond81.not.i86.i, label %avg_rv30_tpel16_hv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !19
+  br i1 %exitcond81.not.i86.i, label %avg_rv30_tpel16_hv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !20
 
 avg_rv30_tpel16_hv_lowpass.exit:                  ; preds = %309
   ret void
@@ -2336,13 +2336,13 @@ define internal void @avg_rv30_tpel16_mc21_c(ptr noundef captures(none) %0, ptr 
   %78 = trunc nuw i16 %77 to i8
   store i8 %78, ptr %9, align 1, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %79, label %8, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %79, label %8, !llvm.loop !21
 
 79:                                               ; preds = %8
   %80 = getelementptr inbounds i8, ptr %.06178.i.i, i64 %6
   %81 = add nuw nsw i32 %.079.i.i, 1
   %exitcond81.not.i.i = icmp eq i32 %81, 8
-  br i1 %exitcond81.not.i.i, label %avg_rv30_tpel8_hhv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !21
+  br i1 %exitcond81.not.i.i, label %avg_rv30_tpel8_hhv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !22
 
 avg_rv30_tpel8_hhv_lowpass.exit.i:                ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2444,13 +2444,13 @@ avg_rv30_tpel8_hhv_lowpass.exit.i:                ; preds = %79
   %154 = trunc nuw i16 %153 to i8
   store i8 %154, ptr %85, align 1, !tbaa !8
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i26.i, 8
-  br i1 %exitcond.not.i39.i, label %155, label %84, !llvm.loop !20
+  br i1 %exitcond.not.i39.i, label %155, label %84, !llvm.loop !21
 
 155:                                              ; preds = %84
   %156 = getelementptr inbounds i8, ptr %.06178.i21.i, i64 %6
   %157 = add nuw nsw i32 %.079.i20.i, 1
   %exitcond81.not.i40.i = icmp eq i32 %157, 8
-  br i1 %exitcond81.not.i40.i, label %avg_rv30_tpel8_hhv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !21
+  br i1 %exitcond81.not.i40.i, label %avg_rv30_tpel8_hhv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !22
 
 avg_rv30_tpel8_hhv_lowpass.exit41.i:              ; preds = %155
   %158 = shl nsw i32 %4, 3
@@ -2554,13 +2554,13 @@ avg_rv30_tpel8_hhv_lowpass.exit41.i:              ; preds = %155
   %232 = trunc nuw i16 %231 to i8
   store i8 %232, ptr %163, align 1, !tbaa !8
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i49.i, 8
-  br i1 %exitcond.not.i62.i, label %233, label %162, !llvm.loop !20
+  br i1 %exitcond.not.i62.i, label %233, label %162, !llvm.loop !21
 
 233:                                              ; preds = %162
   %234 = getelementptr inbounds i8, ptr %.06178.i44.i, i64 %6
   %235 = add nuw nsw i32 %.079.i43.i, 1
   %exitcond81.not.i63.i = icmp eq i32 %235, 8
-  br i1 %exitcond81.not.i63.i, label %avg_rv30_tpel8_hhv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !21
+  br i1 %exitcond81.not.i63.i, label %avg_rv30_tpel8_hhv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !22
 
 avg_rv30_tpel8_hhv_lowpass.exit64.i:              ; preds = %233
   %236 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -2662,13 +2662,13 @@ avg_rv30_tpel8_hhv_lowpass.exit64.i:              ; preds = %233
   %308 = trunc nuw i16 %307 to i8
   store i8 %308, ptr %239, align 1, !tbaa !8
   %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i72.i, 8
-  br i1 %exitcond.not.i85.i, label %309, label %238, !llvm.loop !20
+  br i1 %exitcond.not.i85.i, label %309, label %238, !llvm.loop !21
 
 309:                                              ; preds = %238
   %310 = getelementptr inbounds i8, ptr %.06178.i67.i, i64 %6
   %311 = add nuw nsw i32 %.079.i66.i, 1
   %exitcond81.not.i86.i = icmp eq i32 %311, 8
-  br i1 %exitcond81.not.i86.i, label %avg_rv30_tpel16_hhv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !21
+  br i1 %exitcond81.not.i86.i, label %avg_rv30_tpel16_hhv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !22
 
 avg_rv30_tpel16_hhv_lowpass.exit:                 ; preds = %309
   ret void
@@ -2796,13 +2796,13 @@ define internal void @avg_rv30_tpel16_mc12_c(ptr noundef captures(none) %0, ptr 
   %78 = trunc nuw i16 %77 to i8
   store i8 %78, ptr %9, align 1, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %79, label %8, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %79, label %8, !llvm.loop !23
 
 79:                                               ; preds = %8
   %80 = getelementptr inbounds i8, ptr %.06178.i.i, i64 %6
   %81 = add nuw nsw i32 %.079.i.i, 1
   %exitcond81.not.i.i = icmp eq i32 %81, 8
-  br i1 %exitcond81.not.i.i, label %avg_rv30_tpel8_hvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !23
+  br i1 %exitcond81.not.i.i, label %avg_rv30_tpel8_hvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !24
 
 avg_rv30_tpel8_hvv_lowpass.exit.i:                ; preds = %79
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2904,13 +2904,13 @@ avg_rv30_tpel8_hvv_lowpass.exit.i:                ; preds = %79
   %154 = trunc nuw i16 %153 to i8
   store i8 %154, ptr %85, align 1, !tbaa !8
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i26.i, 8
-  br i1 %exitcond.not.i39.i, label %155, label %84, !llvm.loop !22
+  br i1 %exitcond.not.i39.i, label %155, label %84, !llvm.loop !23
 
 155:                                              ; preds = %84
   %156 = getelementptr inbounds i8, ptr %.06178.i21.i, i64 %6
   %157 = add nuw nsw i32 %.079.i20.i, 1
   %exitcond81.not.i40.i = icmp eq i32 %157, 8
-  br i1 %exitcond81.not.i40.i, label %avg_rv30_tpel8_hvv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !23
+  br i1 %exitcond81.not.i40.i, label %avg_rv30_tpel8_hvv_lowpass.exit41.i, label %.preheader.i19.i, !llvm.loop !24
 
 avg_rv30_tpel8_hvv_lowpass.exit41.i:              ; preds = %155
   %158 = shl nsw i32 %4, 3
@@ -3014,13 +3014,13 @@ avg_rv30_tpel8_hvv_lowpass.exit41.i:              ; preds = %155
   %232 = trunc nuw i16 %231 to i8
   store i8 %232, ptr %163, align 1, !tbaa !8
   %exitcond.not.i62.i = icmp eq i64 %indvars.iv.next.i49.i, 8
-  br i1 %exitcond.not.i62.i, label %233, label %162, !llvm.loop !22
+  br i1 %exitcond.not.i62.i, label %233, label %162, !llvm.loop !23
 
 233:                                              ; preds = %162
   %234 = getelementptr inbounds i8, ptr %.06178.i44.i, i64 %6
   %235 = add nuw nsw i32 %.079.i43.i, 1
   %exitcond81.not.i63.i = icmp eq i32 %235, 8
-  br i1 %exitcond81.not.i63.i, label %avg_rv30_tpel8_hvv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !23
+  br i1 %exitcond81.not.i63.i, label %avg_rv30_tpel8_hvv_lowpass.exit64.i, label %.preheader.i42.i, !llvm.loop !24
 
 avg_rv30_tpel8_hvv_lowpass.exit64.i:              ; preds = %233
   %236 = getelementptr inbounds nuw i8, ptr %161, i64 8
@@ -3122,13 +3122,13 @@ avg_rv30_tpel8_hvv_lowpass.exit64.i:              ; preds = %233
   %308 = trunc nuw i16 %307 to i8
   store i8 %308, ptr %239, align 1, !tbaa !8
   %exitcond.not.i85.i = icmp eq i64 %indvars.iv.next.i72.i, 8
-  br i1 %exitcond.not.i85.i, label %309, label %238, !llvm.loop !22
+  br i1 %exitcond.not.i85.i, label %309, label %238, !llvm.loop !23
 
 309:                                              ; preds = %238
   %310 = getelementptr inbounds i8, ptr %.06178.i67.i, i64 %6
   %311 = add nuw nsw i32 %.079.i66.i, 1
   %exitcond81.not.i86.i = icmp eq i32 %311, 8
-  br i1 %exitcond81.not.i86.i, label %avg_rv30_tpel16_hvv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !23
+  br i1 %exitcond81.not.i86.i, label %avg_rv30_tpel16_hvv_lowpass.exit, label %.preheader.i65.i, !llvm.loop !24
 
 avg_rv30_tpel16_hvv_lowpass.exit:                 ; preds = %309
   ret void
@@ -3209,13 +3209,13 @@ define internal void @avg_rv30_tpel16_mc22_c(ptr noundef captures(none) %0, ptr 
   %49 = trunc nuw i16 %48 to i8
   store i8 %49, ptr %9, align 1, !tbaa !8
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %50, label %8, !llvm.loop !24
+  br i1 %exitcond.not.i.i, label %50, label %8, !llvm.loop !25
 
 50:                                               ; preds = %8
   %51 = getelementptr inbounds i8, ptr %.04048.i.i, i64 %6
   %52 = add nuw nsw i32 %.049.i.i, 1
   %exitcond51.not.i.i = icmp eq i32 %52, 8
-  br i1 %exitcond51.not.i.i, label %avg_rv30_tpel8_hhvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !25
+  br i1 %exitcond51.not.i.i, label %avg_rv30_tpel8_hhvv_lowpass.exit.i, label %.preheader.i.i, !llvm.loop !26
 
 avg_rv30_tpel8_hhvv_lowpass.exit.i:               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3288,13 +3288,13 @@ avg_rv30_tpel8_hhvv_lowpass.exit.i:               ; preds = %50
   %96 = trunc nuw i16 %95 to i8
   store i8 %96, ptr %56, align 1, !tbaa !8
   %exitcond.not.i43.i = icmp eq i64 %indvars.iv.next.i30.i, 8
-  br i1 %exitcond.not.i43.i, label %97, label %55, !llvm.loop !24
+  br i1 %exitcond.not.i43.i, label %97, label %55, !llvm.loop !25
 
 97:                                               ; preds = %55
   %98 = getelementptr inbounds i8, ptr %.04048.i21.i, i64 %6
   %99 = add nuw nsw i32 %.049.i20.i, 1
   %exitcond51.not.i44.i = icmp eq i32 %99, 8
-  br i1 %exitcond51.not.i44.i, label %avg_rv30_tpel8_hhvv_lowpass.exit45.i, label %.preheader.i19.i, !llvm.loop !25
+  br i1 %exitcond51.not.i44.i, label %avg_rv30_tpel8_hhvv_lowpass.exit45.i, label %.preheader.i19.i, !llvm.loop !26
 
 avg_rv30_tpel8_hhvv_lowpass.exit45.i:             ; preds = %97
   %100 = shl nsw i32 %4, 3
@@ -3369,13 +3369,13 @@ avg_rv30_tpel8_hhvv_lowpass.exit45.i:             ; preds = %97
   %145 = trunc nuw i16 %144 to i8
   store i8 %145, ptr %105, align 1, !tbaa !8
   %exitcond.not.i70.i = icmp eq i64 %indvars.iv.next.i57.i, 8
-  br i1 %exitcond.not.i70.i, label %146, label %104, !llvm.loop !24
+  br i1 %exitcond.not.i70.i, label %146, label %104, !llvm.loop !25
 
 146:                                              ; preds = %104
   %147 = getelementptr inbounds i8, ptr %.04048.i48.i, i64 %6
   %148 = add nuw nsw i32 %.049.i47.i, 1
   %exitcond51.not.i71.i = icmp eq i32 %148, 8
-  br i1 %exitcond51.not.i71.i, label %avg_rv30_tpel8_hhvv_lowpass.exit72.i, label %.preheader.i46.i, !llvm.loop !25
+  br i1 %exitcond51.not.i71.i, label %avg_rv30_tpel8_hhvv_lowpass.exit72.i, label %.preheader.i46.i, !llvm.loop !26
 
 avg_rv30_tpel8_hhvv_lowpass.exit72.i:             ; preds = %146
   %149 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -3448,13 +3448,13 @@ avg_rv30_tpel8_hhvv_lowpass.exit72.i:             ; preds = %146
   %192 = trunc nuw i16 %191 to i8
   store i8 %192, ptr %152, align 1, !tbaa !8
   %exitcond.not.i97.i = icmp eq i64 %indvars.iv.next.i84.i, 8
-  br i1 %exitcond.not.i97.i, label %193, label %151, !llvm.loop !24
+  br i1 %exitcond.not.i97.i, label %193, label %151, !llvm.loop !25
 
 193:                                              ; preds = %151
   %194 = getelementptr inbounds i8, ptr %.04048.i75.i, i64 %6
   %195 = add nuw nsw i32 %.049.i74.i, 1
   %exitcond51.not.i98.i = icmp eq i32 %195, 8
-  br i1 %exitcond51.not.i98.i, label %avg_rv30_tpel16_hhvv_lowpass.exit, label %.preheader.i73.i, !llvm.loop !25
+  br i1 %exitcond51.not.i98.i, label %avg_rv30_tpel16_hhvv_lowpass.exit, label %.preheader.i73.i, !llvm.loop !26
 
 avg_rv30_tpel16_hhvv_lowpass.exit:                ; preds = %193
   ret void
@@ -3584,7 +3584,7 @@ define internal void @put_rv30_tpel8_mc11_c(ptr noundef writeonly captures(none)
   %73 = getelementptr inbounds i8, ptr %.05976.i, i64 %6
   %74 = add nuw nsw i32 %.077.i, 1
   %exitcond79.not.i = icmp eq i32 %74, 8
-  br i1 %exitcond79.not.i, label %put_rv30_tpel8_hv_lowpass.exit, label %.preheader.i, !llvm.loop !11
+  br i1 %exitcond79.not.i, label %put_rv30_tpel8_hv_lowpass.exit, label %.preheader.i, !llvm.loop !12
 
 put_rv30_tpel8_hv_lowpass.exit:                   ; preds = %72
   ret void
@@ -3687,13 +3687,13 @@ define internal void @put_rv30_tpel8_mc21_c(ptr noundef writeonly captures(none)
   %71 = getelementptr inbounds nuw i8, ptr %.05976.i, i64 %indvars.iv.i
   store i8 %70, ptr %71, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %72, label %8, !llvm.loop !12
+  br i1 %exitcond.not.i, label %72, label %8, !llvm.loop !13
 
 72:                                               ; preds = %8
   %73 = getelementptr inbounds i8, ptr %.05976.i, i64 %6
   %74 = add nuw nsw i32 %.077.i, 1
   %exitcond79.not.i = icmp eq i32 %74, 8
-  br i1 %exitcond79.not.i, label %put_rv30_tpel8_hhv_lowpass.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond79.not.i, label %put_rv30_tpel8_hhv_lowpass.exit, label %.preheader.i, !llvm.loop !14
 
 put_rv30_tpel8_hhv_lowpass.exit:                  ; preds = %72
   ret void
@@ -3803,13 +3803,13 @@ define internal void @put_rv30_tpel8_mc12_c(ptr noundef writeonly captures(none)
   %71 = getelementptr inbounds nuw i8, ptr %.05976.i, i64 %indvars.iv.i
   store i8 %70, ptr %71, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %72, label %8, !llvm.loop !14
+  br i1 %exitcond.not.i, label %72, label %8, !llvm.loop !15
 
 72:                                               ; preds = %8
   %73 = getelementptr inbounds i8, ptr %.05976.i, i64 %6
   %74 = add nuw nsw i32 %.077.i, 1
   %exitcond79.not.i = icmp eq i32 %74, 8
-  br i1 %exitcond79.not.i, label %put_rv30_tpel8_hvv_lowpass.exit, label %.preheader.i, !llvm.loop !15
+  br i1 %exitcond79.not.i, label %put_rv30_tpel8_hvv_lowpass.exit, label %.preheader.i, !llvm.loop !16
 
 put_rv30_tpel8_hvv_lowpass.exit:                  ; preds = %72
   ret void
@@ -3883,13 +3883,13 @@ define internal void @put_rv30_tpel8_mc22_c(ptr noundef writeonly captures(none)
   %42 = getelementptr inbounds nuw i8, ptr %.03846.i, i64 %indvars.iv.i
   store i8 %41, ptr %42, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %43, label %8, !llvm.loop !16
+  br i1 %exitcond.not.i, label %43, label %8, !llvm.loop !17
 
 43:                                               ; preds = %8
   %44 = getelementptr inbounds i8, ptr %.03846.i, i64 %6
   %45 = add nuw nsw i32 %.047.i, 1
   %exitcond49.not.i = icmp eq i32 %45, 8
-  br i1 %exitcond49.not.i, label %put_rv30_tpel8_hhvv_lowpass.exit, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond49.not.i, label %put_rv30_tpel8_hhvv_lowpass.exit, label %.preheader.i, !llvm.loop !18
 
 put_rv30_tpel8_hhvv_lowpass.exit:                 ; preds = %43
   ret void
@@ -4020,13 +4020,13 @@ define internal void @avg_rv30_tpel8_mc11_c(ptr noundef captures(none) %0, ptr n
   %78 = trunc nuw i16 %77 to i8
   store i8 %78, ptr %9, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %79, label %8, !llvm.loop !18
+  br i1 %exitcond.not.i, label %79, label %8, !llvm.loop !19
 
 79:                                               ; preds = %8
   %80 = getelementptr inbounds i8, ptr %.06178.i, i64 %6
   %81 = add nuw nsw i32 %.079.i, 1
   %exitcond81.not.i = icmp eq i32 %81, 8
-  br i1 %exitcond81.not.i, label %avg_rv30_tpel8_hv_lowpass.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %exitcond81.not.i, label %avg_rv30_tpel8_hv_lowpass.exit, label %.preheader.i, !llvm.loop !20
 
 avg_rv30_tpel8_hv_lowpass.exit:                   ; preds = %79
   ret void
@@ -4136,13 +4136,13 @@ define internal void @avg_rv30_tpel8_mc21_c(ptr noundef captures(none) %0, ptr n
   %78 = trunc nuw i16 %77 to i8
   store i8 %78, ptr %9, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %79, label %8, !llvm.loop !20
+  br i1 %exitcond.not.i, label %79, label %8, !llvm.loop !21
 
 79:                                               ; preds = %8
   %80 = getelementptr inbounds i8, ptr %.06178.i, i64 %6
   %81 = add nuw nsw i32 %.079.i, 1
   %exitcond81.not.i = icmp eq i32 %81, 8
-  br i1 %exitcond81.not.i, label %avg_rv30_tpel8_hhv_lowpass.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond81.not.i, label %avg_rv30_tpel8_hhv_lowpass.exit, label %.preheader.i, !llvm.loop !22
 
 avg_rv30_tpel8_hhv_lowpass.exit:                  ; preds = %79
   ret void
@@ -4259,13 +4259,13 @@ define internal void @avg_rv30_tpel8_mc12_c(ptr noundef captures(none) %0, ptr n
   %78 = trunc nuw i16 %77 to i8
   store i8 %78, ptr %9, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %79, label %8, !llvm.loop !22
+  br i1 %exitcond.not.i, label %79, label %8, !llvm.loop !23
 
 79:                                               ; preds = %8
   %80 = getelementptr inbounds i8, ptr %.06178.i, i64 %6
   %81 = add nuw nsw i32 %.079.i, 1
   %exitcond81.not.i = icmp eq i32 %81, 8
-  br i1 %exitcond81.not.i, label %avg_rv30_tpel8_hvv_lowpass.exit, label %.preheader.i, !llvm.loop !23
+  br i1 %exitcond81.not.i, label %avg_rv30_tpel8_hvv_lowpass.exit, label %.preheader.i, !llvm.loop !24
 
 avg_rv30_tpel8_hvv_lowpass.exit:                  ; preds = %79
   ret void
@@ -4346,13 +4346,13 @@ define internal void @avg_rv30_tpel8_mc22_c(ptr noundef captures(none) %0, ptr n
   %49 = trunc nuw i16 %48 to i8
   store i8 %49, ptr %9, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %50, label %8, !llvm.loop !24
+  br i1 %exitcond.not.i, label %50, label %8, !llvm.loop !25
 
 50:                                               ; preds = %8
   %51 = getelementptr inbounds i8, ptr %.04048.i, i64 %6
   %52 = add nuw nsw i32 %.049.i, 1
   %exitcond51.not.i = icmp eq i32 %52, 8
-  br i1 %exitcond51.not.i, label %avg_rv30_tpel8_hhvv_lowpass.exit, label %.preheader.i, !llvm.loop !25
+  br i1 %exitcond51.not.i, label %avg_rv30_tpel8_hhvv_lowpass.exit, label %.preheader.i, !llvm.loop !26
 
 avg_rv30_tpel8_hhvv_lowpass.exit:                 ; preds = %50
   ret void
@@ -4544,7 +4544,7 @@ define internal fastcc void @put_rv30_tpel8_h_lowpass(ptr noundef writeonly capt
   %164 = getelementptr inbounds i8, ptr %.07094, i64 %8
   %165 = add nuw nsw i32 %.096, 1
   %exitcond.not = icmp eq i32 %165, 8
-  br i1 %exitcond.not, label %166, label %9, !llvm.loop !26
+  br i1 %exitcond.not, label %166, label %9, !llvm.loop !27
 
 166:                                              ; preds = %9
   ret void
@@ -4721,7 +4721,7 @@ define internal fastcc void @put_rv30_tpel8_v_lowpass(ptr noundef writeonly capt
   %160 = getelementptr inbounds nuw i8, ptr %.097118, i64 1
   %161 = add nuw nsw i32 %.098117, 1
   %exitcond.not = icmp eq i32 %161, 8
-  br i1 %exitcond.not, label %162, label %39, !llvm.loop !27
+  br i1 %exitcond.not, label %162, label %39, !llvm.loop !28
 
 162:                                              ; preds = %39
   ret void
@@ -4966,7 +4966,7 @@ define internal fastcc void @avg_rv30_tpel8_h_lowpass(ptr noundef captures(none)
   %220 = getelementptr inbounds i8, ptr %.078102, i64 %8
   %221 = add nuw nsw i32 %.0104, 1
   %exitcond.not = icmp eq i32 %221, 8
-  br i1 %exitcond.not, label %222, label %9, !llvm.loop !28
+  br i1 %exitcond.not, label %222, label %9, !llvm.loop !29
 
 222:                                              ; preds = %9
   ret void
@@ -5199,7 +5199,7 @@ define internal fastcc void @avg_rv30_tpel8_v_lowpass(ptr noundef captures(none)
   %216 = getelementptr inbounds nuw i8, ptr %.0113134, i64 1
   %217 = add nuw nsw i32 %.0114133, 1
   %exitcond.not = icmp eq i32 %217, 8
-  br i1 %exitcond.not, label %218, label %39, !llvm.loop !29
+  br i1 %exitcond.not, label %218, label %39, !llvm.loop !30
 
 218:                                              ; preds = %39
   ret void
@@ -5222,24 +5222,25 @@ attributes #4 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}

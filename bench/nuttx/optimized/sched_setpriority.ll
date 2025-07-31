@@ -163,7 +163,7 @@ nxsched_running_setpriority.exit:                 ; preds = %76, %68, %46, %44, 
   br i1 %.not.i13, label %up_irq_restore.exit, label %80
 
 80:                                               ; preds = %nxsched_running_setpriority.exit
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
   br label %up_irq_restore.exit
 
 up_irq_restore.exit:                              ; preds = %80, %nxsched_running_setpriority.exit, %2
@@ -206,6 +206,7 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 200714, i64 200732}
 !7 = !{i64 201333}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 201454}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 201454}

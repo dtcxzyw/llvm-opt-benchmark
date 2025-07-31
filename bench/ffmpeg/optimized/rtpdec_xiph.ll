@@ -636,7 +636,7 @@ get_base128.exit71:                               ; preds = %60, %.lr.ph.i67, %g
 
 79:                                               ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !55
+  %81 = load ptr, ptr %80, align 8, !tbaa !56
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store i8 2, ptr %81, align 1, !tbaa !32
   %83 = tail call i32 @av_xiphlacing(ptr noundef nonnull %82, i32 noundef %.09.i59) #8
@@ -647,13 +647,13 @@ get_base128.exit71:                               ; preds = %60, %.lr.ph.i67, %g
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 %87
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %88, ptr nonnull align 1 %.2, i64 %66, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %66
-  %90 = load ptr, ptr %80, align 8, !tbaa !55
+  %90 = load ptr, ptr %80, align 8, !tbaa !56
   %91 = ptrtoint ptr %89 to i64
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = trunc i64 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 %94, ptr %95, align 8, !tbaa !56
+  store i32 %94, ptr %95, align 8, !tbaa !57
   %96 = sub i32 %75, %94
   %97 = zext i32 %96 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %89, i8 0, i64 %97, i1 false)
@@ -767,7 +767,8 @@ attributes #9 = { nounwind willreturn memory(read) }
 !50 = !{!"AVChannelLayout", !13, i64 0, !13, i64 4, !8, i64 8, !7, i64 16}
 !51 = !{!49, !13, i64 72}
 !52 = !{!49, !13, i64 76}
-!53 = distinct !{!53, !54}
+!53 = distinct !{!53, !54, !55}
 !54 = !{!"llvm.loop.mustprogress"}
-!55 = !{!49, !18, i64 16}
-!56 = !{!49, !13, i64 24}
+!55 = !{!"llvm.loop.estimated_trip_count"}
+!56 = !{!49, !18, i64 16}
+!57 = !{!49, !13, i64 24}

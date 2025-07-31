@@ -173,7 +173,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 75:                                               ; preds = %68
   %76 = add nuw nsw i64 %69, 1
   %77 = icmp eq i64 %76, 13
-  br i1 %77, label %.thread120, label %68, !llvm.loop !7
+  br i1 %77, label %.thread120, label %68, !llvm.loop !11
 
 78:                                               ; preds = %68
   %79 = and i64 %69, 4294967295
@@ -196,7 +196,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 .thread120:                                       ; preds = %75, %86, %81, %78, %58, %.thread, %27
   %88 = load ptr, ptr %28, align 8
   %89 = icmp eq ptr %88, %6
-  br i1 %89, label %.loopexit175, label %27, !llvm.loop !10
+  br i1 %89, label %.loopexit175, label %27, !llvm.loop !12
 
 .loopexit175:                                     ; preds = %.thread120, %21
   %90 = getelementptr i8, ptr %0, i64 4232
@@ -235,7 +235,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 113:                                              ; preds = %106
   %114 = add nuw nsw i64 %107, 1
   %115 = icmp eq i64 %114, 13
-  br i1 %115, label %.thread121, label %106, !llvm.loop !7
+  br i1 %115, label %.thread121, label %106, !llvm.loop !13
 
 116:                                              ; preds = %106
   %117 = and i64 %107, 4294967295
@@ -282,7 +282,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 144:                                              ; preds = %137
   %145 = add nuw nsw i64 %138, 1
   %146 = icmp eq i64 %145, 13
-  br i1 %146, label %.thread122, label %137, !llvm.loop !7
+  br i1 %146, label %.thread122, label %137, !llvm.loop !14
 
 147:                                              ; preds = %137
   %148 = and i64 %138, 4294967295
@@ -305,7 +305,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 .thread122:                                       ; preds = %144, %155, %150, %147, %127, %.thread121, %96
   %157 = load ptr, ptr %97, align 8
   %158 = icmp eq ptr %157, %90
-  br i1 %158, label %.loopexit174, label %96, !llvm.loop !10
+  br i1 %158, label %.loopexit174, label %96, !llvm.loop !15
 
 .loopexit174:                                     ; preds = %.thread122, %.loopexit175
   %159 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -319,7 +319,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %165 = add nuw nsw i64 %161, 1
   %166 = icmp eq i64 %165, 8
   %167 = select i1 %164, i1 true, i1 %166
-  br i1 %167, label %168, label %160, !llvm.loop !11
+  br i1 %167, label %168, label %160, !llvm.loop !16
 
 168:                                              ; preds = %160
   br i1 %164, label %.critedge119.thread, label %169
@@ -367,7 +367,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 199:                                              ; preds = %202
   %200 = add nuw i32 %203, 1
   %201 = icmp eq i32 %200, %187
-  br i1 %201, label %.loopexit172, label %202, !llvm.loop !12
+  br i1 %201, label %.loopexit172, label %202, !llvm.loop !17
 
 202:                                              ; preds = %199, %193
   %203 = phi i32 [ 0, %193 ], [ %200, %199 ]
@@ -393,14 +393,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %216 = add nuw i32 %182, 1
   %217 = icmp uge i32 %216, %176
   %218 = icmp eq i32 %216, %176
-  br i1 %218, label %.loopexit173, label %180, !llvm.loop !13
+  br i1 %218, label %.loopexit173, label %180, !llvm.loop !18
 
 .loopexit173:                                     ; preds = %.loopexit172, %208
   %219 = phi i1 [ %181, %208 ], [ %217, %.loopexit172 ]
   %220 = add nuw nsw i64 %175, 1
   %221 = icmp eq i64 %220, 7
   %222 = select i1 %219, i1 true, i1 %221
-  br i1 %222, label %223, label %174, !llvm.loop !14
+  br i1 %222, label %223, label %174, !llvm.loop !19
 
 223:                                              ; preds = %.loopexit173
   br i1 %219, label %.thread124, label %226
@@ -455,7 +455,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 257:                                              ; preds = %260
   %258 = add nuw i32 %261, 1
   %259 = icmp eq i32 %258, %245
-  br i1 %259, label %.loopexit170, label %260, !llvm.loop !12
+  br i1 %259, label %.loopexit170, label %260, !llvm.loop !20
 
 260:                                              ; preds = %257, %251
   %261 = phi i32 [ 0, %251 ], [ %258, %257 ]
@@ -480,10 +480,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 .loopexit170:                                     ; preds = %257, %239
   %274 = add nuw i32 %240, 1
   %275 = icmp eq i32 %274, %235
-  br i1 %275, label %.loopexit171, label %239, !llvm.loop !13
+  br i1 %275, label %.loopexit171, label %239, !llvm.loop !21
 
 .loopexit171:                                     ; preds = %.loopexit170, %266, %232
-  br i1 %233, label %276, label %232, !llvm.loop !14
+  br i1 %233, label %276, label %232, !llvm.loop !22
 
 276:                                              ; preds = %.loopexit171
   %277 = getelementptr inbounds nuw i8, ptr %11, i64 616
@@ -542,7 +542,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 315:                                              ; preds = %318
   %316 = add nuw i32 %319, 1
   %317 = icmp eq i32 %316, %303
-  br i1 %317, label %.loopexit168, label %318, !llvm.loop !12
+  br i1 %317, label %.loopexit168, label %318, !llvm.loop !23
 
 318:                                              ; preds = %315, %309
   %319 = phi i32 [ 0, %309 ], [ %316, %315 ]
@@ -568,12 +568,12 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %332 = add nuw i32 %298, 1
   %333 = icmp uge i32 %332, %292
   %334 = icmp eq i32 %332, %292
-  br i1 %334, label %.loopexit169, label %296, !llvm.loop !13
+  br i1 %334, label %.loopexit169, label %296, !llvm.loop !24
 
 .loopexit169:                                     ; preds = %.loopexit168, %324
   %335 = phi i1 [ %297, %324 ], [ %333, %.loopexit168 ]
   %336 = or i1 %290, %335
-  br i1 %336, label %337, label %289, !llvm.loop !14
+  br i1 %336, label %337, label %289, !llvm.loop !25
 
 337:                                              ; preds = %.loopexit169
   br i1 %335, label %.thread126, label %340
@@ -617,7 +617,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 363:                                              ; preds = %366
   %364 = add nuw i32 %367, 1
   %365 = icmp eq i32 %364, %354
-  br i1 %365, label %.loopexit166, label %366, !llvm.loop !12
+  br i1 %365, label %.loopexit166, label %366, !llvm.loop !26
 
 366:                                              ; preds = %363, %360
   %367 = phi i32 [ 0, %360 ], [ %364, %363 ]
@@ -642,7 +642,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %379 = add nuw i32 %349, 1
   %380 = icmp uge i32 %379, %346
   %381 = icmp eq i32 %379, %346
-  br i1 %381, label %.critedge, label %.preheader167, !llvm.loop !13
+  br i1 %381, label %.critedge, label %.preheader167, !llvm.loop !27
 
 .critedge:                                        ; preds = %.loopexit166, %372, %340
   %382 = load ptr, ptr %11, align 8
@@ -694,7 +694,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 415:                                              ; preds = %418
   %416 = add nuw i32 %419, 1
   %417 = icmp eq i32 %416, %403
-  br i1 %417, label %.loopexit164, label %418, !llvm.loop !12
+  br i1 %417, label %.loopexit164, label %418, !llvm.loop !28
 
 418:                                              ; preds = %415, %409
   %419 = phi i32 [ 0, %409 ], [ %416, %415 ]
@@ -720,14 +720,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %432 = add nuw i32 %398, 1
   %433 = icmp uge i32 %432, %392
   %434 = icmp eq i32 %432, %392
-  br i1 %434, label %.loopexit165, label %396, !llvm.loop !13
+  br i1 %434, label %.loopexit165, label %396, !llvm.loop !29
 
 .loopexit165:                                     ; preds = %.loopexit164, %424
   %435 = phi i1 [ %397, %424 ], [ %433, %.loopexit164 ]
   %436 = add nuw nsw i64 %391, 1
   %437 = icmp eq i64 %436, 5
   %438 = select i1 %435, i1 true, i1 %437
-  br i1 %438, label %.thread127, label %390, !llvm.loop !14
+  br i1 %438, label %.thread127, label %390, !llvm.loop !30
 
 .thread127:                                       ; preds = %390, %.loopexit165
   %439 = phi i1 [ %435, %.loopexit165 ], [ true, %390 ]
@@ -771,7 +771,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 465:                                              ; preds = %455, %447
   %466 = add nuw i32 %448, 1
   %467 = icmp eq i32 %466, %443
-  br i1 %467, label %.loopexit163, label %447, !llvm.loop !15
+  br i1 %467, label %.loopexit163, label %447, !llvm.loop !31
 
 .loopexit163:                                     ; preds = %465, %463, %459, %.thread127
   %468 = phi ptr [ null, %463 ], [ %451, %459 ], [ null, %.thread127 ], [ null, %465 ]
@@ -817,7 +817,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 494:                                              ; preds = %484, %476
   %495 = add nuw i32 %477, 1
   %496 = icmp eq i32 %495, %472
-  br i1 %496, label %.loopexit162, label %476, !llvm.loop !15
+  br i1 %496, label %.loopexit162, label %476, !llvm.loop !32
 
 .loopexit162:                                     ; preds = %494, %492, %488, %.loopexit163
   %497 = phi ptr [ %.pre, %492 ], [ %470, %488 ], [ %470, %.loopexit163 ], [ %470, %494 ]
@@ -852,7 +852,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 517:                                              ; preds = %513, %505
   %518 = add nuw i32 %506, 1
   %519 = icmp eq i32 %518, %501
-  br i1 %519, label %.loopexit161, label %505, !llvm.loop !15
+  br i1 %519, label %.loopexit161, label %505, !llvm.loop !33
 
 .loopexit161:                                     ; preds = %517, %513, %.loopexit162
   %520 = phi ptr [ null, %.loopexit162 ], [ %509, %513 ], [ null, %517 ]
@@ -898,7 +898,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 547:                                              ; preds = %537, %529
   %548 = add nuw i32 %530, 1
   %549 = icmp eq i32 %548, %525
-  br i1 %549, label %.loopexit160, label %529, !llvm.loop !15
+  br i1 %549, label %.loopexit160, label %529, !llvm.loop !34
 
 .loopexit160:                                     ; preds = %547, %545, %541, %.loopexit161
   %550 = phi ptr [ null, %545 ], [ %533, %541 ], [ null, %.loopexit161 ], [ null, %547 ]
@@ -943,7 +943,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 576:                                              ; preds = %566, %558
   %577 = add nuw i32 %559, 1
   %578 = icmp eq i32 %577, %554
-  br i1 %578, label %.loopexit159, label %558, !llvm.loop !15
+  br i1 %578, label %.loopexit159, label %558, !llvm.loop !35
 
 .loopexit159:                                     ; preds = %576, %574, %570, %.loopexit160
   %579 = phi ptr [ null, %574 ], [ %562, %570 ], [ null, %.loopexit160 ], [ null, %576 ]
@@ -988,7 +988,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 605:                                              ; preds = %595, %587
   %606 = add nuw i32 %588, 1
   %607 = icmp eq i32 %606, %583
-  br i1 %607, label %.loopexit158, label %587, !llvm.loop !15
+  br i1 %607, label %.loopexit158, label %587, !llvm.loop !36
 
 .loopexit158:                                     ; preds = %605, %603, %599, %.loopexit159
   %608 = phi ptr [ null, %603 ], [ %591, %599 ], [ null, %.loopexit159 ], [ null, %605 ]
@@ -1089,10 +1089,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 665:                                              ; preds = %656
   %666 = icmp eq i32 %662, %648
-  br i1 %666, label %.loopexit157, label %656, !llvm.loop !16
+  br i1 %666, label %.loopexit157, label %656, !llvm.loop !37
 
 .loopexit157:                                     ; preds = %665, %663, %645
-  br i1 %646, label %.preheader591, label %645, !llvm.loop !17
+  br i1 %646, label %.preheader591, label %645, !llvm.loop !38
 
 .preheader591:                                    ; preds = %.loopexit157, %.loopexit156
   %667 = phi i1 [ true, %.loopexit156 ], [ false, %.loopexit157 ]
@@ -1125,10 +1125,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 686:                                              ; preds = %677
   %687 = icmp eq i32 %683, %669
-  br i1 %687, label %.loopexit156, label %677, !llvm.loop !16
+  br i1 %687, label %.loopexit156, label %677, !llvm.loop !39
 
 .loopexit156:                                     ; preds = %686, %684, %.preheader591
-  br i1 %667, label %688, label %.preheader591, !llvm.loop !17
+  br i1 %667, label %688, label %.preheader591, !llvm.loop !40
 
 688:                                              ; preds = %.loopexit156
   %689 = getelementptr inbounds nuw i8, ptr %11, i64 792
@@ -1168,13 +1168,13 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 713:                                              ; preds = %703
   %714 = icmp eq i32 %709, %695
-  br i1 %714, label %.loopexit155, label %703, !llvm.loop !16
+  br i1 %714, label %.loopexit155, label %703, !llvm.loop !41
 
 .loopexit155:                                     ; preds = %713, %710, %692
   %715 = phi i32 [ %712, %710 ], [ %694, %692 ], [ %694, %713 ]
   %716 = add nuw nsw i64 %693, 1
   %717 = icmp eq i64 %716, 11
-  br i1 %717, label %718, label %692, !llvm.loop !17
+  br i1 %717, label %718, label %692, !llvm.loop !42
 
 718:                                              ; preds = %.loopexit155
   %719 = icmp eq i32 %715, 0
@@ -1226,11 +1226,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 750:                                              ; preds = %740
   %751 = icmp eq i32 %746, %732
-  br i1 %751, label %.loopexit154, label %740, !llvm.loop !16
+  br i1 %751, label %.loopexit154, label %740, !llvm.loop !43
 
 .loopexit154:                                     ; preds = %750, %747, %728
   %752 = phi i32 [ %749, %747 ], [ %731, %728 ], [ %731, %750 ]
-  br i1 %729, label %753, label %728, !llvm.loop !17
+  br i1 %729, label %753, label %728, !llvm.loop !44
 
 753:                                              ; preds = %.loopexit154
   %754 = icmp eq i32 %752, 2
@@ -1282,11 +1282,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 785:                                              ; preds = %775
   %786 = icmp eq i32 %781, %767
-  br i1 %786, label %.loopexit153, label %775, !llvm.loop !16
+  br i1 %786, label %.loopexit153, label %775, !llvm.loop !45
 
 .loopexit153:                                     ; preds = %785, %782, %763
   %787 = phi i32 [ %784, %782 ], [ %766, %763 ], [ %766, %785 ]
-  br i1 %764, label %788, label %763, !llvm.loop !17
+  br i1 %764, label %788, label %763, !llvm.loop !46
 
 788:                                              ; preds = %.loopexit153
   %789 = icmp eq i32 %787, 2
@@ -1322,7 +1322,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 810:                                              ; preds = %800
   %811 = add nuw nsw i64 %801, 1
   %812 = icmp eq i64 %811, 11
-  br i1 %812, label %813, label %800, !llvm.loop !18
+  br i1 %812, label %813, label %800, !llvm.loop !47
 
 813:                                              ; preds = %810
   %814 = load i32, ptr %689, align 8
@@ -1331,7 +1331,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 816:                                              ; preds = %813
   %817 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %817, i32 4, ptr elementtype(i8) %817) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %817, i32 4, ptr elementtype(i8) %817) #9, !srcloc !48
   br label %818
 
 818:                                              ; preds = %816, %813
@@ -1342,7 +1342,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 822:                                              ; preds = %818
   %823 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %823, i32 128, ptr elementtype(i8) %823) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %823, i32 128, ptr elementtype(i8) %823) #9, !srcloc !48
   br label %824
 
 824:                                              ; preds = %822, %818
@@ -1353,9 +1353,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 828:                                              ; preds = %824
   %829 = getelementptr i8, ptr %5, i64 195
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %829, i32 1, ptr elementtype(i8) %829) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %829, i32 1, ptr elementtype(i8) %829) #9, !srcloc !48
   %830 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %830, i32 2, ptr elementtype(i8) %830) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %830, i32 2, ptr elementtype(i8) %830) #9, !srcloc !48
   br label %831
 
 831:                                              ; preds = %828, %824
@@ -1366,9 +1366,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 835:                                              ; preds = %831
   %836 = getelementptr i8, ptr %5, i64 195
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %836, i32 4, ptr elementtype(i8) %836) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %836, i32 4, ptr elementtype(i8) %836) #9, !srcloc !48
   %837 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %837, i32 2, ptr elementtype(i8) %837) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %837, i32 2, ptr elementtype(i8) %837) #9, !srcloc !48
   br label %838
 
 838:                                              ; preds = %835, %831
@@ -1379,9 +1379,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 842:                                              ; preds = %838
   %843 = getelementptr i8, ptr %5, i64 195
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %843, i32 2, ptr elementtype(i8) %843) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %843, i32 2, ptr elementtype(i8) %843) #9, !srcloc !48
   %844 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %844, i32 2, ptr elementtype(i8) %844) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %844, i32 2, ptr elementtype(i8) %844) #9, !srcloc !48
   br label %845
 
 845:                                              ; preds = %842, %838
@@ -1392,9 +1392,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 849:                                              ; preds = %845
   %850 = getelementptr i8, ptr %5, i64 195
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %850, i32 8, ptr elementtype(i8) %850) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %850, i32 8, ptr elementtype(i8) %850) #9, !srcloc !48
   %851 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %851, i32 2, ptr elementtype(i8) %851) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %851, i32 2, ptr elementtype(i8) %851) #9, !srcloc !48
   br label %852
 
 852:                                              ; preds = %849, %845
@@ -1405,9 +1405,9 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 856:                                              ; preds = %852
   %857 = getelementptr i8, ptr %5, i64 195
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %857, i32 16, ptr elementtype(i8) %857) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %857, i32 16, ptr elementtype(i8) %857) #9, !srcloc !48
   %858 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %858, i32 2, ptr elementtype(i8) %858) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %858, i32 2, ptr elementtype(i8) %858) #9, !srcloc !48
   br label %859
 
 859:                                              ; preds = %856, %852
@@ -1418,7 +1418,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 863:                                              ; preds = %859
   %864 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %864, i32 8, ptr elementtype(i8) %864) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %864, i32 8, ptr elementtype(i8) %864) #9, !srcloc !48
   br label %865
 
 865:                                              ; preds = %863, %859
@@ -1429,7 +1429,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 869:                                              ; preds = %865
   %870 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %870, i32 32, ptr elementtype(i8) %870) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %870, i32 32, ptr elementtype(i8) %870) #9, !srcloc !48
   br label %871
 
 871:                                              ; preds = %869, %865
@@ -1440,7 +1440,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 875:                                              ; preds = %871
   %876 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %876, i32 64, ptr elementtype(i8) %876) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %876, i32 64, ptr elementtype(i8) %876) #9, !srcloc !48
   br label %877
 
 877:                                              ; preds = %875, %871
@@ -1451,7 +1451,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 881:                                              ; preds = %877
   %882 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %882, i32 16, ptr elementtype(i8) %882) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %882, i32 16, ptr elementtype(i8) %882) #9, !srcloc !48
   br label %887
 
 883:                                              ; preds = %800
@@ -1466,7 +1466,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 888:                                              ; preds = %887
   %889 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %890 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 82, ptr nonnull elementtype(i64) %889) #9, !srcloc !20
+  %890 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 82, ptr nonnull elementtype(i64) %889) #9, !srcloc !49
   %891 = icmp ult i8 %890, 2
   tail call void @llvm.assume(i1 %891)
   %892 = icmp eq i8 %890, 0
@@ -1479,7 +1479,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %896
 
 896:                                              ; preds = %893, %888
-  %897 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 87, ptr nonnull elementtype(i64) %889) #9, !srcloc !20
+  %897 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 87, ptr nonnull elementtype(i64) %889) #9, !srcloc !49
   %898 = icmp ult i8 %897, 2
   tail call void @llvm.assume(i1 %898)
   %899 = icmp eq i8 %897, 0
@@ -1492,7 +1492,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %903
 
 903:                                              ; preds = %900, %896
-  %904 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 81, ptr nonnull elementtype(i64) %889) #9, !srcloc !20
+  %904 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %889, i64 81, ptr nonnull elementtype(i64) %889) #9, !srcloc !49
   %905 = icmp ult i8 %904, 2
   tail call void @llvm.assume(i1 %905)
   %906 = icmp eq i8 %904, 0
@@ -1556,7 +1556,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 947:                                              ; preds = %950
   %948 = add nuw i32 %951, 1
   %949 = icmp eq i32 %948, %935
-  br i1 %949, label %.loopexit151, label %950, !llvm.loop !12
+  br i1 %949, label %.loopexit151, label %950, !llvm.loop !50
 
 950:                                              ; preds = %947, %941
   %951 = phi i32 [ 0, %941 ], [ %948, %947 ]
@@ -1582,12 +1582,12 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %964 = add nuw i32 %930, 1
   %965 = icmp uge i32 %964, %924
   %966 = icmp eq i32 %964, %924
-  br i1 %966, label %.loopexit152, label %928, !llvm.loop !13
+  br i1 %966, label %.loopexit152, label %928, !llvm.loop !51
 
 .loopexit152:                                     ; preds = %.loopexit151, %956
   %967 = phi i1 [ %929, %956 ], [ %965, %.loopexit151 ]
   %968 = or i1 %922, %967
-  br i1 %968, label %969, label %921, !llvm.loop !14
+  br i1 %968, label %969, label %921, !llvm.loop !52
 
 969:                                              ; preds = %.loopexit152
   br i1 %967, label %.thread130, label %973
@@ -1597,7 +1597,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %971 = getelementptr inbounds nuw i8, ptr %970, i64 6352
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %971, ptr noundef nonnull @.str.11) #8
   %972 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %972, i32 -5, ptr elementtype(i8) %972) #9, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %972, i32 -5, ptr elementtype(i8) %972) #9, !srcloc !53
   br label %973
 
 973:                                              ; preds = %.thread130, %969, %910
@@ -1650,7 +1650,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 1008:                                             ; preds = %1011
   %1009 = add nuw i32 %1012, 1
   %1010 = icmp eq i32 %1009, %996
-  br i1 %1010, label %.loopexit149, label %1011, !llvm.loop !12
+  br i1 %1010, label %.loopexit149, label %1011, !llvm.loop !54
 
 1011:                                             ; preds = %1008, %1002
   %1012 = phi i32 [ 0, %1002 ], [ %1009, %1008 ]
@@ -1676,14 +1676,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1025 = add nuw i32 %991, 1
   %1026 = icmp uge i32 %1025, %985
   %1027 = icmp eq i32 %1025, %985
-  br i1 %1027, label %.loopexit150, label %989, !llvm.loop !13
+  br i1 %1027, label %.loopexit150, label %989, !llvm.loop !55
 
 .loopexit150:                                     ; preds = %.loopexit149, %1017
   %1028 = phi i1 [ %990, %1017 ], [ %1026, %.loopexit149 ]
   %1029 = add nuw nsw i64 %984, 1
   %1030 = icmp eq i64 %1029, 3
   %1031 = select i1 %1028, i1 true, i1 %1030
-  br i1 %1031, label %1032, label %983, !llvm.loop !14
+  br i1 %1031, label %1032, label %983, !llvm.loop !56
 
 1032:                                             ; preds = %.loopexit150
   br i1 %1028, label %.thread132, label %1036
@@ -1693,7 +1693,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1034 = getelementptr inbounds nuw i8, ptr %1033, i64 6352
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1034, ptr noundef nonnull @.str.12) #8
   %1035 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1035, i32 -129, ptr elementtype(i8) %1035) #9, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1035, i32 -129, ptr elementtype(i8) %1035) #9, !srcloc !53
   br label %1036
 
 1036:                                             ; preds = %.thread132, %1032, %973
@@ -1764,7 +1764,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 1083:                                             ; preds = %1086
   %1084 = add nuw i32 %1087, 1
   %1085 = icmp eq i32 %1084, %1071
-  br i1 %1085, label %.loopexit147, label %1086, !llvm.loop !12
+  br i1 %1085, label %.loopexit147, label %1086, !llvm.loop !57
 
 1086:                                             ; preds = %1083, %1077
   %1087 = phi i32 [ 0, %1077 ], [ %1084, %1083 ]
@@ -1790,14 +1790,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1100 = add nuw i32 %1066, 1
   %1101 = icmp uge i32 %1100, %1060
   %1102 = icmp eq i32 %1100, %1060
-  br i1 %1102, label %.loopexit148, label %1064, !llvm.loop !13
+  br i1 %1102, label %.loopexit148, label %1064, !llvm.loop !58
 
 .loopexit148:                                     ; preds = %.loopexit147, %1092
   %1103 = phi i1 [ %1065, %1092 ], [ %1101, %.loopexit147 ]
   %1104 = add nuw nsw i64 %1059, 1
   %1105 = icmp eq i64 %1104, 8
   %1106 = select i1 %1103, i1 true, i1 %1105
-  br i1 %1106, label %1107, label %1058, !llvm.loop !14
+  br i1 %1106, label %1107, label %1058, !llvm.loop !59
 
 1107:                                             ; preds = %.loopexit148
   br i1 %1103, label %.thread134, label %1111
@@ -1807,10 +1807,10 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1109 = getelementptr inbounds nuw i8, ptr %1108, i64 6352
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1109, ptr noundef nonnull @.str.13) #8
   %1110 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -9, ptr elementtype(i8) %1110) #9, !srcloc !21
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -33, ptr elementtype(i8) %1110) #9, !srcloc !21
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -17, ptr elementtype(i8) %1110) #9, !srcloc !21
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -65, ptr elementtype(i8) %1110) #9, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -9, ptr elementtype(i8) %1110) #9, !srcloc !53
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -33, ptr elementtype(i8) %1110) #9, !srcloc !53
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -17, ptr elementtype(i8) %1110) #9, !srcloc !53
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1110, i32 -65, ptr elementtype(i8) %1110) #9, !srcloc !53
   br label %1111
 
 1111:                                             ; preds = %.thread134, %1107, %1048
@@ -1863,7 +1863,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 1146:                                             ; preds = %1149
   %1147 = add nuw i32 %1150, 1
   %1148 = icmp eq i32 %1147, %1134
-  br i1 %1148, label %.loopexit145, label %1149, !llvm.loop !12
+  br i1 %1148, label %.loopexit145, label %1149, !llvm.loop !60
 
 1149:                                             ; preds = %1146, %1140
   %1150 = phi i32 [ 0, %1140 ], [ %1147, %1146 ]
@@ -1889,14 +1889,14 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1163 = add nuw i32 %1129, 1
   %1164 = icmp uge i32 %1163, %1123
   %1165 = icmp eq i32 %1163, %1123
-  br i1 %1165, label %.loopexit146, label %1127, !llvm.loop !13
+  br i1 %1165, label %.loopexit146, label %1127, !llvm.loop !61
 
 .loopexit146:                                     ; preds = %.loopexit145, %1155
   %1166 = phi i1 [ %1128, %1155 ], [ %1164, %.loopexit145 ]
   %1167 = add nuw nsw i64 %1122, 1
   %1168 = icmp eq i64 %1167, 5
   %1169 = select i1 %1166, i1 true, i1 %1168
-  br i1 %1169, label %1170, label %1121, !llvm.loop !14
+  br i1 %1169, label %1170, label %1121, !llvm.loop !62
 
 1170:                                             ; preds = %.loopexit146
   br i1 %1166, label %.thread136, label %1174
@@ -1906,7 +1906,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1172 = getelementptr inbounds nuw i8, ptr %1171, i64 6352
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %1172, ptr noundef nonnull @.str.14) #8
   %1173 = getelementptr i8, ptr %5, i64 194
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1173, i32 -3, ptr elementtype(i8) %1173) #9, !srcloc !21
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1173, i32 -3, ptr elementtype(i8) %1173) #9, !srcloc !53
   br label %1174
 
 1174:                                             ; preds = %.thread136, %1170, %1111
@@ -1952,7 +1952,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 1204:                                             ; preds = %1207
   %1205 = add nuw i32 %1208, 1
   %1206 = icmp eq i32 %1205, %1192
-  br i1 %1206, label %.loopexit143, label %1207, !llvm.loop !12
+  br i1 %1206, label %.loopexit143, label %1207, !llvm.loop !63
 
 1207:                                             ; preds = %1204, %1198
   %1208 = phi i32 [ 0, %1198 ], [ %1205, %1204 ]
@@ -1977,12 +1977,12 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 .loopexit143:                                     ; preds = %1204, %1186
   %1221 = add nuw i32 %1187, 1
   %1222 = icmp eq i32 %1221, %1182
-  br i1 %1222, label %.loopexit144, label %1186, !llvm.loop !13
+  br i1 %1222, label %.loopexit144, label %1186, !llvm.loop !64
 
 .loopexit144:                                     ; preds = %.loopexit143, %1213, %1180
   %1223 = add nuw nsw i64 %1181, 1
   %1224 = icmp eq i64 %1223, 3
-  br i1 %1224, label %1225, label %1180, !llvm.loop !14
+  br i1 %1224, label %1225, label %1180, !llvm.loop !65
 
 1225:                                             ; preds = %.loopexit144
   %1226 = getelementptr inbounds nuw i8, ptr %11, i64 592
@@ -2017,7 +2017,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 1248:                                             ; preds = %1251
   %1249 = add nuw i32 %1252, 1
   %1250 = icmp eq i32 %1249, %1239
-  br i1 %1250, label %.loopexit141, label %1251, !llvm.loop !12
+  br i1 %1250, label %.loopexit141, label %1251, !llvm.loop !66
 
 1251:                                             ; preds = %1248, %1245
   %1252 = phi i32 [ 0, %1245 ], [ %1249, %1248 ]
@@ -2042,11 +2042,11 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1264 = add nuw i32 %1234, 1
   %1265 = icmp uge i32 %1264, %1231
   %1266 = icmp eq i32 %1264, %1231
-  br i1 %1266, label %.critedge119, label %.preheader142, !llvm.loop !13
+  br i1 %1266, label %.critedge119, label %.preheader142, !llvm.loop !67
 
 1267:                                             ; preds = %1257
   %1268 = getelementptr i8, ptr %5, i64 196
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1268, i32 1, ptr elementtype(i8) %1268) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1268, i32 1, ptr elementtype(i8) %1268) #9, !srcloc !48
   br label %.critedge119
 
 .critedge119:                                     ; preds = %.loopexit141, %1267, %1225, %1257
@@ -2127,7 +2127,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
 
 1318:                                             ; preds = %1332
   %1319 = icmp eq i32 %1324, 21
-  br i1 %1319, label %1320, label %.preheader, !llvm.loop !22
+  br i1 %1319, label %1320, label %.preheader, !llvm.loop !68
 
 1320:                                             ; preds = %1318
   %1321 = load ptr, ptr %11, align 8
@@ -2154,7 +2154,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1333 = load ptr, ptr %1312, align 8
   %1334 = load i32, ptr %1333, align 4
   %1335 = icmp slt i32 %1334, 2
-  br i1 %1335, label %1318, label %.loopexit, !llvm.loop !22
+  br i1 %1335, label %1318, label %.loopexit, !llvm.loop !69
 
 .loopexit:                                        ; preds = %1332, %1320, %1315, %1311
   %1336 = load volatile i64, ptr %911, align 8
@@ -2180,7 +2180,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   br label %1352
 
 1352:                                             ; preds = %1339, %.loopexit
-  %1353 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %11, i32 noundef 1), !range !23
+  %1353 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %11, i32 noundef 1), !range !70
   %1354 = icmp eq i32 %1353, 0
   br i1 %1354, label %1355, label %1411
 
@@ -2252,7 +2252,7 @@ define dso_local i32 @hid_pidff_init(ptr noundef %0) local_unnamed_addr #0 align
   %1406 = load ptr, ptr %159, align 8
   tail call void @hid_hw_request(ptr noundef %1405, ptr noundef %1406, i32 noundef 9) #9
   %1407 = getelementptr i8, ptr %5, i64 196
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1407, i32 2, ptr elementtype(i8) %1407) #9, !srcloc !19
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %1407, i32 2, ptr elementtype(i8) %1407) #9, !srcloc !48
   br label %1414
 
 1408:                                             ; preds = %1355
@@ -2398,7 +2398,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 792
   %24 = load i32, ptr %23, align 8
-  %25 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %24), !range !23
+  %25 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %24), !range !70
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %57, label %.thread39
 
@@ -2723,7 +2723,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
   %257 = getelementptr inbounds nuw i8, ptr %7, i64 792
   %258 = getelementptr [11 x i32], ptr %257, i64 0, i64 %256
   %259 = load i32, ptr %258, align 4
-  %260 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %259), !range !23
+  %260 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %259), !range !70
   %261 = icmp eq i32 %260, 0
   br i1 %261, label %291, label %.thread39
 
@@ -3125,7 +3125,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 558:                                              ; preds = %557
   %559 = getelementptr i8, ptr %7, i64 796
   %560 = load i32, ptr %559, align 4
-  %561 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %560), !range !23
+  %561 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %560), !range !70
   %562 = icmp eq i32 %561, 0
   br i1 %562, label %592, label %.thread39
 
@@ -3489,7 +3489,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 827:                                              ; preds = %826
   %828 = getelementptr i8, ptr %7, i64 820
   %829 = load i32, ptr %828, align 4
-  %830 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %829), !range !23
+  %830 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %829), !range !70
   %831 = icmp eq i32 %830, 0
   br i1 %831, label %862, label %.thread39
 
@@ -3665,7 +3665,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 964:                                              ; preds = %957, %951, %947, %941, %935, %924
   %965 = phi i32 [ 1, %951 ], [ 1, %947 ], [ 1, %941 ], [ 1, %935 ], [ 1, %924 ], [ %963, %957 ]
   %966 = or i32 %965, %927
-  br i1 %925, label %924, label %967, !llvm.loop !24
+  br i1 %925, label %924, label %967, !llvm.loop !71
 
 967:                                              ; preds = %964
   %968 = icmp eq i32 %966, 0
@@ -3681,7 +3681,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 971:                                              ; preds = %970
   %972 = getelementptr i8, ptr %7, i64 832
   %973 = load i32, ptr %972, align 8
-  %974 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %973), !range !23
+  %974 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %973), !range !70
   %975 = icmp eq i32 %974, 0
   br i1 %975, label %1006, label %.thread39
 
@@ -3857,7 +3857,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 1108:                                             ; preds = %1101, %1095, %1091, %1085, %1079, %1068
   %1109 = phi i32 [ 1, %1095 ], [ 1, %1091 ], [ 1, %1085 ], [ 1, %1079 ], [ 1, %1068 ], [ %1107, %1101 ]
   %1110 = or i32 %1109, %1071
-  br i1 %1069, label %1068, label %1111, !llvm.loop !24
+  br i1 %1069, label %1068, label %1111, !llvm.loop !72
 
 1111:                                             ; preds = %1108
   %1112 = icmp eq i32 %1110, 0
@@ -3873,7 +3873,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 1115:                                             ; preds = %1114
   %1116 = getelementptr i8, ptr %7, i64 824
   %1117 = load i32, ptr %1116, align 8
-  %1118 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %1117), !range !23
+  %1118 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %1117), !range !70
   %1119 = icmp eq i32 %1118, 0
   br i1 %1119, label %1150, label %.thread39
 
@@ -4049,7 +4049,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 1252:                                             ; preds = %1245, %1239, %1235, %1229, %1223, %1212
   %1253 = phi i32 [ 1, %1239 ], [ 1, %1235 ], [ 1, %1229 ], [ 1, %1223 ], [ 1, %1212 ], [ %1251, %1245 ]
   %1254 = or i32 %1253, %1215
-  br i1 %1213, label %1212, label %1255, !llvm.loop !24
+  br i1 %1213, label %1212, label %1255, !llvm.loop !73
 
 1255:                                             ; preds = %1252
   %1256 = icmp eq i32 %1254, 0
@@ -4065,7 +4065,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 1259:                                             ; preds = %1258
   %1260 = getelementptr i8, ptr %7, i64 828
   %1261 = load i32, ptr %1260, align 4
-  %1262 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %1261), !range !23
+  %1262 = tail call fastcc i32 @pidff_request_effect_upload(ptr noundef %7, i32 noundef %1261), !range !70
   %1263 = icmp eq i32 %1262, 0
   br i1 %1263, label %1294, label %.thread39
 
@@ -4241,7 +4241,7 @@ define internal noundef range(i32 -28, 1) i32 @pidff_upload_effect(ptr noundef r
 1396:                                             ; preds = %1389, %1383, %1379, %1373, %1367, %1356
   %1397 = phi i32 [ 1, %1383 ], [ 1, %1379 ], [ 1, %1373 ], [ 1, %1367 ], [ 1, %1356 ], [ %1395, %1389 ]
   %1398 = or i32 %1397, %1359
-  br i1 %1357, label %1356, label %1399, !llvm.loop !24
+  br i1 %1357, label %1356, label %1399, !llvm.loop !74
 
 1399:                                             ; preds = %1396
   %1400 = icmp eq i32 %1398, 0
@@ -4569,7 +4569,7 @@ define internal fastcc noundef range(i32 -28, 1) i32 @pidff_request_effect_uploa
 28:                                               ; preds = %50
   %29 = add nuw nsw i32 %32, 1
   %30 = icmp eq i32 %29, 60
-  br i1 %30, label %53, label %31, !llvm.loop !25
+  br i1 %30, label %53, label %31, !llvm.loop !75
 
 31:                                               ; preds = %28, %24
   %32 = phi i32 [ 0, %24 ], [ %29, %28 ]
@@ -4848,7 +4848,7 @@ define internal fastcc void @pidff_set_condition_report(ptr noundef readonly cap
   %175 = load ptr, ptr %0, align 8
   %176 = load ptr, ptr %19, align 8
   tail call void @hid_hw_request(ptr noundef %175, ptr noundef %176, i32 noundef 9) #9
-  br i1 %24, label %23, label %177, !llvm.loop !26
+  br i1 %24, label %23, label %177, !llvm.loop !76
 
 177:                                              ; preds = %134
   ret void
@@ -4883,23 +4883,73 @@ attributes #9 = { nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = distinct !{!15, !8, !9}
-!16 = distinct !{!16, !8, !9}
-!17 = distinct !{!17, !8, !9}
-!18 = distinct !{!18, !8, !9}
-!19 = !{i64 2148360891, i64 2148360930, i64 2148360951, i64 2148360988, i64 2148361011, i64 2148360881}
-!20 = !{i64 2148370244, i64 2148370283, i64 2148370304, i64 2148370341, i64 2148370364, i64 2148370373, i64 2148370476}
-!21 = !{i64 2148362179, i64 2148362218, i64 2148362239, i64 2148362276, i64 2148362299, i64 2148362169}
-!22 = distinct !{!22, !8, !9}
-!23 = !{i32 -28, i32 1}
-!24 = distinct !{!24, !8, !9}
-!25 = distinct !{!25, !8, !9}
-!26 = distinct !{!26, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}
+!17 = distinct !{!17, !8, !9, !10}
+!18 = distinct !{!18, !8, !9, !10}
+!19 = distinct !{!19, !8, !9, !10}
+!20 = distinct !{!20, !8, !9, !10}
+!21 = distinct !{!21, !8, !9, !10}
+!22 = distinct !{!22, !8, !9, !10}
+!23 = distinct !{!23, !8, !9, !10}
+!24 = distinct !{!24, !8, !9, !10}
+!25 = distinct !{!25, !8, !9, !10}
+!26 = distinct !{!26, !8, !9, !10}
+!27 = distinct !{!27, !8, !9, !10}
+!28 = distinct !{!28, !8, !9, !10}
+!29 = distinct !{!29, !8, !9, !10}
+!30 = distinct !{!30, !8, !9, !10}
+!31 = distinct !{!31, !8, !9, !10}
+!32 = distinct !{!32, !8, !9, !10}
+!33 = distinct !{!33, !8, !9, !10}
+!34 = distinct !{!34, !8, !9, !10}
+!35 = distinct !{!35, !8, !9, !10}
+!36 = distinct !{!36, !8, !9, !10}
+!37 = distinct !{!37, !8, !9, !10}
+!38 = distinct !{!38, !8, !9, !10}
+!39 = distinct !{!39, !8, !9, !10}
+!40 = distinct !{!40, !8, !9, !10}
+!41 = distinct !{!41, !8, !9, !10}
+!42 = distinct !{!42, !8, !9, !10}
+!43 = distinct !{!43, !8, !9, !10}
+!44 = distinct !{!44, !8, !9, !10}
+!45 = distinct !{!45, !8, !9, !10}
+!46 = distinct !{!46, !8, !9, !10}
+!47 = distinct !{!47, !8, !9, !10}
+!48 = !{i64 2148360891, i64 2148360930, i64 2148360951, i64 2148360988, i64 2148361011, i64 2148360881}
+!49 = !{i64 2148370244, i64 2148370283, i64 2148370304, i64 2148370341, i64 2148370364, i64 2148370373, i64 2148370476}
+!50 = distinct !{!50, !8, !9, !10}
+!51 = distinct !{!51, !8, !9, !10}
+!52 = distinct !{!52, !8, !9, !10}
+!53 = !{i64 2148362179, i64 2148362218, i64 2148362239, i64 2148362276, i64 2148362299, i64 2148362169}
+!54 = distinct !{!54, !8, !9, !10}
+!55 = distinct !{!55, !8, !9, !10}
+!56 = distinct !{!56, !8, !9, !10}
+!57 = distinct !{!57, !8, !9, !10}
+!58 = distinct !{!58, !8, !9, !10}
+!59 = distinct !{!59, !8, !9, !10}
+!60 = distinct !{!60, !8, !9, !10}
+!61 = distinct !{!61, !8, !9, !10}
+!62 = distinct !{!62, !8, !9, !10}
+!63 = distinct !{!63, !8, !9, !10}
+!64 = distinct !{!64, !8, !9, !10}
+!65 = distinct !{!65, !8, !9, !10}
+!66 = distinct !{!66, !8, !9, !10}
+!67 = distinct !{!67, !8, !9, !10}
+!68 = distinct !{!68, !8, !9, !10}
+!69 = distinct !{!69, !8, !9}
+!70 = !{i32 -28, i32 1}
+!71 = distinct !{!71, !8, !9, !10}
+!72 = distinct !{!72, !8, !9, !10}
+!73 = distinct !{!73, !8, !9, !10}
+!74 = distinct !{!74, !8, !9, !10}
+!75 = distinct !{!75, !8, !9, !10}
+!76 = distinct !{!76, !8, !9, !10}

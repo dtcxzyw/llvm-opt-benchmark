@@ -336,7 +336,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i.i:                  ; preds = %32, %.lr.ph.i.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.010.i.i.i.i, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %.079.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %34, %20
-  br i1 %.not.i.i.i.i, label %_ZN8RichEnumC2ERKS_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i, label %_ZN8RichEnumC2ERKS_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 36:                                               ; preds = %9
   %37 = landingpad { ptr, i32 }
@@ -473,7 +473,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %38, %.lr.ph.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %.010.i.i.i, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.079.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %40, %26
-  br i1 %.not.i.i.i, label %_ZN11QStringListC2ERKS_.exit, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %_ZN11QStringListC2ERKS_.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZN11QStringListC2ERKS_.exit:                     ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i, %.noexc, %_ZN9QtPrivate8RefCount3refEv.exit.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i
   ret void
@@ -573,7 +573,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i: ; preds = %_ZN9QtPrivate8
 
 _ZN7QStringD2Ev.exit.i.i.i.i:                     ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.i.i.i.i.i, %.lr.ph.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %11, %16
-  br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i.i, label %_ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
 
 _ZN5QListI7QStringE13node_destructEPNS1_4NodeES3_.exit.i.i.i: ; preds = %_ZN7QStringD2Ev.exit.i.i.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i.i
   invoke void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef %6)
@@ -691,7 +691,8 @@ attributes #15 = { noreturn nounwind }
 !5 = !{!6}
 !6 = distinct !{!6, !7, !"_ZplRK7QStringS1_: argument 0"}
 !7 = distinct !{!7, !"_ZplRK7QStringS1_"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

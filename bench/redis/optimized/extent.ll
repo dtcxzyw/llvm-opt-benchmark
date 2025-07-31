@@ -472,7 +472,7 @@ exp_grow_size_prepare.exit.i.i:                   ; preds = %46
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %57
-  %.val.i.i.i = load i32, ptr %2, align 8, !tbaa !50
+  %.val.i.i.i = load i32, ptr %2, align 8, !tbaa !51
   %62 = call ptr @je_ehooks_default_alloc_impl(ptr noundef %0, ptr noundef null, i64 noundef %storemerge.i.i.i, i64 noundef 4096, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %.val.i.i.i) #9
   br label %ehooks_alloc.exit.i.i
 
@@ -484,7 +484,7 @@ exp_grow_size_prepare.exit.i.i:                   ; preds = %46
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 832
   %67 = load i8, ptr %66, align 8, !tbaa !36
   %.not.i.i.i.i.i = icmp eq i8 %67, 0
-  br i1 %.not.i.i.i.i.i, label %tsd_fetch_impl.exit.i.i.i.i, label %68, !prof !53
+  br i1 %.not.i.i.i.i.i, label %tsd_fetch_impl.exit.i.i.i.i, label %68, !prof !54
 
 68:                                               ; preds = %64
   %69 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %65, i1 noundef zeroext false) #9
@@ -506,8 +506,8 @@ tsd_fetch_impl.exit.i.i.i.i:                      ; preds = %68, %64, %63
   br label %ehooks_pre_reentrancy.exit.i.i.i
 
 ehooks_pre_reentrancy.exit.i.i.i:                 ; preds = %77, %tsd_fetch_impl.exit.i.i.i.i
-  %78 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !54
-  %.val26.i.i.i = load i32, ptr %2, align 8, !tbaa !50
+  %78 = load ptr, ptr %.0.i.i.i.i.i, align 8, !tbaa !55
+  %.val26.i.i.i = load i32, ptr %2, align 8, !tbaa !51
   %79 = call ptr %78(ptr noundef nonnull %.0.i.i.i.i.i, ptr noundef null, i64 noundef %storemerge.i.i.i, i64 noundef 4096, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %.val26.i.i.i) #9
   br i1 %12, label %80, label %tsd_fetch_impl.exit.i27.i.i.i
 
@@ -516,7 +516,7 @@ ehooks_pre_reentrancy.exit.i.i.i:                 ; preds = %77, %tsd_fetch_impl
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 832
   %83 = load i8, ptr %82, align 8, !tbaa !36
   %.not.i.i28.i.i.i = icmp eq i8 %83, 0
-  br i1 %.not.i.i28.i.i.i, label %tsd_fetch_impl.exit.i27.i.i.i, label %84, !prof !53
+  br i1 %.not.i.i28.i.i.i, label %tsd_fetch_impl.exit.i27.i.i.i, label %84, !prof !54
 
 84:                                               ; preds = %80
   %85 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %81, i1 noundef zeroext false) #9
@@ -547,7 +547,7 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
 
 95:                                               ; preds = %ehooks_alloc.exit.i.i
   %96 = getelementptr i8, ptr %1, i64 58364
-  %.val79.i.i = load i32, ptr %96, align 4, !tbaa !56
+  %.val79.i.i = load i32, ptr %96, align 4, !tbaa !57
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 62232
   %98 = atomicrmw add ptr %97, i64 1 monotonic, align 8
   %99 = load i8, ptr %9, align 1, !tbaa !4, !range !38, !noundef !39
@@ -562,7 +562,7 @@ ehooks_alloc.exit.i.i:                            ; preds = %91, %tsd_fetch_impl
   %107 = or i64 %106, %storemerge.i.i.i
   store i64 %107, ptr %104, align 8, !tbaa !36
   %108 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  store i64 %98, ptr %108, align 8, !tbaa !57
+  store i64 %98, ptr %108, align 8, !tbaa !58
   %109 = and i32 %.val79.i.i, -268431361
   %.masked.masked.i.i.i = zext i32 %109 to i64
   %110 = zext nneg i8 %99 to i64
@@ -690,7 +690,7 @@ extent_split_interior.exit.i.i:                   ; preds = %143
   %163 = add i32 %47, 1
   %164 = add i32 %163, %162
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 58404
-  %166 = load i32, ptr %165, align 4, !tbaa !58
+  %166 = load i32, ptr %165, align 4, !tbaa !59
   %storemerge.i82.i.i = call i32 @llvm.umin.i32(i32 %164, i32 %166)
   store i32 %storemerge.i82.i.i, ptr %43, align 4, !tbaa !46
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 58512
@@ -801,7 +801,7 @@ tsdn_witness_tsdp_get.exit:
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %16
-  %.val.i = load i32, ptr %2, align 8, !tbaa !50
+  %.val.i = load i32, ptr %2, align 8, !tbaa !51
   %23 = call ptr @je_ehooks_default_alloc_impl(ptr noundef %0, ptr noundef %3, i64 noundef %4, i64 noundef range(i64 0, -4095) %18, ptr noundef nonnull %9, ptr noundef %7, i32 noundef %.val.i) #9
   br label %ehooks_alloc.exit
 
@@ -813,7 +813,7 @@ tsdn_witness_tsdp_get.exit:
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 832
   %28 = load i8, ptr %27, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %28, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %29, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %29, !prof !54
 
 29:                                               ; preds = %25
   %30 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %26, i1 noundef zeroext false) #9
@@ -835,8 +835,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %29, %25, %24
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %38, %tsd_fetch_impl.exit.i.i
-  %39 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !54
-  %.val26.i = load i32, ptr %2, align 8, !tbaa !50
+  %39 = load ptr, ptr %.0.i.i.i, align 8, !tbaa !55
+  %.val26.i = load i32, ptr %2, align 8, !tbaa !51
   %40 = call ptr %39(ptr noundef nonnull %.0.i.i.i, ptr noundef %3, i64 noundef %4, i64 noundef range(i64 0, -4095) %18, ptr noundef nonnull %9, ptr noundef %7, i32 noundef %.val26.i) #9
   br i1 %11, label %41, label %tsd_fetch_impl.exit.i27.i
 
@@ -845,7 +845,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %38, %tsd_fetch_impl
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 832
   %44 = load i8, ptr %43, align 8, !tbaa !36
   %.not.i.i28.i = icmp eq i8 %44, 0
-  br i1 %.not.i.i28.i, label %tsd_fetch_impl.exit.i27.i, label %45, !prof !53
+  br i1 %.not.i.i28.i, label %tsd_fetch_impl.exit.i27.i, label %45, !prof !54
 
 45:                                               ; preds = %41
   %46 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %42, i1 noundef zeroext false) #9
@@ -871,7 +871,7 @@ ehooks_alloc.exit:                                ; preds = %22, %tsd_fetch_impl
 
 54:                                               ; preds = %ehooks_alloc.exit
   %55 = getelementptr i8, ptr %1, i64 19484
-  %.val33 = load i32, ptr %55, align 4, !tbaa !56
+  %.val33 = load i32, ptr %55, align 4, !tbaa !57
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 62232
   %57 = atomicrmw add ptr %56, i64 1 monotonic, align 8
   %58 = load i8, ptr %9, align 1, !tbaa !4, !range !38, !noundef !39
@@ -887,7 +887,7 @@ ehooks_alloc.exit:                                ; preds = %22, %tsd_fetch_impl
   %67 = or i64 %66, %4
   store i64 %67, ptr %64, align 8, !tbaa !36
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %57, ptr %68, align 8, !tbaa !57
+  store i64 %57, ptr %68, align 8, !tbaa !58
   %69 = and i32 %.val33, -268431361
   %70 = zext nneg i8 %58 to i64
   %71 = shl nuw nsw i64 %70, 15
@@ -996,7 +996,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %17
   %33 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull %3, ptr noundef %.1, ptr noundef nonnull %6)
   %34 = load i8, ptr %6, align 1, !tbaa !4, !range !38, !noundef !39
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %32, label %atomic_load_zu.exit, !llvm.loop !59
+  br i1 %35, label %32, label %atomic_load_zu.exit, !llvm.loop !60
 
 atomic_load_zu.exit:                              ; preds = %32
   %36 = getelementptr i8, ptr %33, i64 16
@@ -1107,12 +1107,12 @@ malloc_mutex_lock.exit:                           ; preds = %11, %17
   br label %28
 
 28:                                               ; preds = %48, %malloc_mutex_lock.exit
-  %.val38 = load ptr, ptr %22, align 8, !tbaa !60
+  %.val38 = load ptr, ptr %22, align 8, !tbaa !61
   %29 = icmp eq ptr %.val38, null
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
-  %.val39 = load ptr, ptr %24, align 8, !tbaa !60
+  %.val39 = load ptr, ptr %24, align 8, !tbaa !61
   %31 = icmp eq ptr %.val39, null
   br i1 %31, label %.thread46, label %32
 
@@ -1231,7 +1231,7 @@ ehooks_dalloc_will_fail.exit:                     ; preds = %tsdn_witness_tsdp_g
   %11 = load atomic i64, ptr %5 acquire, align 8
   %.0.i.i.i = inttoptr i64 %11 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !61
+  %13 = load ptr, ptr %12, align 8, !tbaa !62
   %14 = icmp eq ptr %13, null
   br i1 %14, label %71, label %15
 
@@ -1274,7 +1274,7 @@ ehooks_dalloc_will_fail.exit:                     ; preds = %tsdn_witness_tsdp_g
 
 34:                                               ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8, !tbaa !61
+  %36 = load ptr, ptr %35, align 8, !tbaa !62
   %37 = icmp eq ptr %36, null
   br i1 %37, label %69, label %38
 
@@ -1286,7 +1286,7 @@ ehooks_dalloc_will_fail.exit:                     ; preds = %tsdn_witness_tsdp_g
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 832
   %42 = load i8, ptr %41, align 8, !tbaa !36
   %.not.i.i.i.i = icmp eq i8 %42, 0
-  br i1 %.not.i.i.i.i, label %tsd_fetch_impl.exit.i.i.i, label %43, !prof !53
+  br i1 %.not.i.i.i.i, label %tsd_fetch_impl.exit.i.i.i, label %43, !prof !54
 
 43:                                               ; preds = %39
   %44 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %40, i1 noundef zeroext false) #9
@@ -1308,8 +1308,8 @@ tsd_fetch_impl.exit.i.i.i:                        ; preds = %43, %39, %38
   br label %ehooks_pre_reentrancy.exit.i.i
 
 ehooks_pre_reentrancy.exit.i.i:                   ; preds = %52, %tsd_fetch_impl.exit.i.i.i
-  %53 = load ptr, ptr %35, align 8, !tbaa !61
-  %.val.i.i = load i32, ptr %2, align 8, !tbaa !50
+  %53 = load ptr, ptr %35, align 8, !tbaa !62
+  %.val.i.i = load i32, ptr %2, align 8, !tbaa !51
   %54 = tail call zeroext i1 %53(ptr noundef nonnull %.0.i.i.i.i, ptr noundef %25, i64 noundef range(i64 0, -4095) %27, i1 noundef zeroext %29, i32 noundef %.val.i.i) #9
   br i1 %4, label %55, label %tsd_fetch_impl.exit.i15.i.i
 
@@ -1318,7 +1318,7 @@ ehooks_pre_reentrancy.exit.i.i:                   ; preds = %52, %tsd_fetch_impl
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 832
   %58 = load i8, ptr %57, align 8, !tbaa !36
   %.not.i.i16.i.i = icmp eq i8 %58, 0
-  br i1 %.not.i.i16.i.i, label %tsd_fetch_impl.exit.i15.i.i, label %59, !prof !53
+  br i1 %.not.i.i16.i.i, label %tsd_fetch_impl.exit.i15.i.i, label %59, !prof !54
 
 59:                                               ; preds = %55
   %60 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %56, i1 noundef zeroext false) #9
@@ -1383,7 +1383,7 @@ extent_dalloc_wrapper_try.exit:                   ; preds = %32, %66, %ehooks_da
 
 87:                                               ; preds = %77
   %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i50, i64 48
-  %89 = load ptr, ptr %88, align 8, !tbaa !62
+  %89 = load ptr, ptr %88, align 8, !tbaa !63
   %90 = icmp eq ptr %89, null
   br i1 %90, label %ehooks_purge_forced.exit.thread, label %91
 
@@ -1395,7 +1395,7 @@ extent_dalloc_wrapper_try.exit:                   ; preds = %32, %66, %ehooks_da
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 832
   %95 = load i8, ptr %94, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %95, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %96, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %96, !prof !54
 
 96:                                               ; preds = %92
   %97 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %93, i1 noundef zeroext false) #9
@@ -1417,8 +1417,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %96, %92, %91
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %105, %tsd_fetch_impl.exit.i.i
-  %106 = load ptr, ptr %88, align 8, !tbaa !62
-  %.val.i51 = load i32, ptr %2, align 8, !tbaa !50
+  %106 = load ptr, ptr %88, align 8, !tbaa !63
+  %.val.i51 = load i32, ptr %2, align 8, !tbaa !51
   %107 = tail call zeroext i1 %106(ptr noundef nonnull %.0.i.i.i50, ptr noundef %81, i64 noundef range(i64 0, -4095) %82, i64 noundef 0, i64 noundef %82, i32 noundef %.val.i51) #9
   br i1 %4, label %108, label %tsd_fetch_impl.exit.i17.i
 
@@ -1427,7 +1427,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %105, %tsd_fetch_imp
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 832
   %111 = load i8, ptr %110, align 8, !tbaa !36
   %.not.i.i18.i = icmp eq i8 %111, 0
-  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %112, !prof !53
+  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %112, !prof !54
 
 112:                                              ; preds = %108
   %113 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %109, i1 noundef zeroext false) #9
@@ -1473,7 +1473,7 @@ ehooks_purge_forced.exit.thread:                  ; preds = %87, %119, %85, %eho
 
 131:                                              ; preds = %122
   %132 = getelementptr inbounds nuw i8, ptr %.0.i.i.i53, i64 40
-  %133 = load ptr, ptr %132, align 8, !tbaa !63
+  %133 = load ptr, ptr %132, align 8, !tbaa !64
   %134 = icmp eq ptr %133, null
   br i1 %134, label %ehooks_purge_lazy.exit, label %135
 
@@ -1485,7 +1485,7 @@ ehooks_purge_forced.exit.thread:                  ; preds = %87, %119, %85, %eho
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 832
   %139 = load i8, ptr %138, align 8, !tbaa !36
   %.not.i.i.i60 = icmp eq i8 %139, 0
-  br i1 %.not.i.i.i60, label %tsd_fetch_impl.exit.i.i54, label %140, !prof !53
+  br i1 %.not.i.i.i60, label %tsd_fetch_impl.exit.i.i54, label %140, !prof !54
 
 140:                                              ; preds = %136
   %141 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %137, i1 noundef zeroext false) #9
@@ -1507,8 +1507,8 @@ tsd_fetch_impl.exit.i.i54:                        ; preds = %140, %136, %135
   br label %ehooks_pre_reentrancy.exit.i55
 
 ehooks_pre_reentrancy.exit.i55:                   ; preds = %149, %tsd_fetch_impl.exit.i.i54
-  %150 = load ptr, ptr %132, align 8, !tbaa !63
-  %.val.i56 = load i32, ptr %2, align 8, !tbaa !50
+  %150 = load ptr, ptr %132, align 8, !tbaa !64
+  %.val.i56 = load i32, ptr %2, align 8, !tbaa !51
   %151 = tail call zeroext i1 %150(ptr noundef nonnull %.0.i.i.i53, ptr noundef %125, i64 noundef range(i64 0, -4095) %126, i64 noundef 0, i64 noundef %126, i32 noundef %.val.i56) #9
   br i1 %4, label %152, label %tsd_fetch_impl.exit.i17.i57
 
@@ -1517,7 +1517,7 @@ ehooks_pre_reentrancy.exit.i55:                   ; preds = %149, %tsd_fetch_imp
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 832
   %155 = load i8, ptr %154, align 8, !tbaa !36
   %.not.i.i18.i59 = icmp eq i8 %155, 0
-  br i1 %.not.i.i18.i59, label %tsd_fetch_impl.exit.i17.i57, label %156, !prof !53
+  br i1 %.not.i.i18.i59, label %tsd_fetch_impl.exit.i17.i57, label %156, !prof !54
 
 156:                                              ; preds = %152
   %157 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #9
@@ -1576,7 +1576,7 @@ tsdn_witness_tsdp_get.exit:
 
 17:                                               ; preds = %tsdn_witness_tsdp_get.exit
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
+  %19 = load ptr, ptr %18, align 8, !tbaa !65
   %20 = icmp eq ptr %19, null
   br i1 %20, label %ehooks_decommit.exit, label %21
 
@@ -1588,7 +1588,7 @@ tsdn_witness_tsdp_get.exit:
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 832
   %25 = load i8, ptr %24, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !54
 
 26:                                               ; preds = %22
   %27 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %23, i1 noundef zeroext false) #9
@@ -1610,8 +1610,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl.exit.i.i
-  %36 = load ptr, ptr %18, align 8, !tbaa !64
-  %.val.i = load i32, ptr %1, align 8, !tbaa !50
+  %36 = load ptr, ptr %18, align 8, !tbaa !65
+  %.val.i = load i32, ptr %1, align 8, !tbaa !51
   %37 = tail call zeroext i1 %36(ptr noundef nonnull %.0.i.i.i, ptr noundef %9, i64 noundef range(i64 0, -4095) %11, i64 noundef %3, i64 noundef %4, i32 noundef %.val.i) #9
   br i1 %5, label %38, label %tsd_fetch_impl.exit.i17.i
 
@@ -1620,7 +1620,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 832
   %41 = load i8, ptr %40, align 8, !tbaa !36
   %.not.i.i18.i = icmp eq i8 %41, 0
-  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %42, !prof !53
+  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %42, !prof !54
 
 42:                                               ; preds = %38
   %43 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %39, i1 noundef zeroext false) #9
@@ -1693,7 +1693,7 @@ tsdn_witness_tsdp_get.exit:
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !65
+  %24 = load ptr, ptr %23, align 8, !tbaa !66
   %25 = icmp eq ptr %24, null
   br i1 %25, label %ehooks_destroy.exit, label %26
 
@@ -1705,7 +1705,7 @@ tsdn_witness_tsdp_get.exit:
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 832
   %30 = load i8, ptr %29, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %30, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %31, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %31, !prof !54
 
 31:                                               ; preds = %27
   %32 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %28, i1 noundef zeroext false) #9
@@ -1727,8 +1727,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %31, %27, %26
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %40, %tsd_fetch_impl.exit.i.i
-  %41 = load ptr, ptr %23, align 8, !tbaa !65
-  %.val.i = load i32, ptr %2, align 8, !tbaa !50
+  %41 = load ptr, ptr %23, align 8, !tbaa !66
+  %.val.i = load i32, ptr %2, align 8, !tbaa !51
   tail call void %41(ptr noundef nonnull %.0.i.i.i, ptr noundef %13, i64 noundef range(i64 0, -4095) %15, i1 noundef zeroext %17, i32 noundef %.val.i) #9
   br i1 %4, label %42, label %tsd_fetch_impl.exit.i12.i
 
@@ -1737,7 +1737,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %40, %tsd_fetch_impl
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 832
   %45 = load i8, ptr %44, align 8, !tbaa !36
   %.not.i.i13.i = icmp eq i8 %45, 0
-  br i1 %.not.i.i13.i, label %tsd_fetch_impl.exit.i12.i, label %46, !prof !53
+  br i1 %.not.i.i13.i, label %tsd_fetch_impl.exit.i12.i, label %46, !prof !54
 
 46:                                               ; preds = %42
   %47 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %43, i1 noundef zeroext false) #9
@@ -1795,7 +1795,7 @@ tsdn_witness_tsdp_get.exit:
 
 17:                                               ; preds = %tsdn_witness_tsdp_get.exit
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !66
+  %19 = load ptr, ptr %18, align 8, !tbaa !67
   %20 = icmp eq ptr %19, null
   br i1 %20, label %ehooks_commit.exit, label %21
 
@@ -1807,7 +1807,7 @@ tsdn_witness_tsdp_get.exit:
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 832
   %25 = load i8, ptr %24, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !54
 
 26:                                               ; preds = %22
   %27 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %23, i1 noundef zeroext false) #9
@@ -1829,8 +1829,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl.exit.i.i
-  %36 = load ptr, ptr %18, align 8, !tbaa !66
-  %.val.i = load i32, ptr %1, align 8, !tbaa !50
+  %36 = load ptr, ptr %18, align 8, !tbaa !67
+  %.val.i = load i32, ptr %1, align 8, !tbaa !51
   %37 = tail call zeroext i1 %36(ptr noundef nonnull %.0.i.i.i, ptr noundef %9, i64 noundef range(i64 0, -4095) %11, i64 noundef %3, i64 noundef %4, i32 noundef %.val.i) #9
   br i1 %5, label %38, label %tsd_fetch_impl.exit.i19.i
 
@@ -1839,7 +1839,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 832
   %41 = load i8, ptr %40, align 8, !tbaa !36
   %.not.i.i20.i = icmp eq i8 %41, 0
-  br i1 %.not.i.i20.i, label %tsd_fetch_impl.exit.i19.i, label %42, !prof !53
+  br i1 %.not.i.i20.i, label %tsd_fetch_impl.exit.i19.i, label %42, !prof !54
 
 42:                                               ; preds = %38
   %43 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %39, i1 noundef zeroext false) #9
@@ -1901,7 +1901,7 @@ tsdn_witness_tsdp_get.exit:
 
 17:                                               ; preds = %tsdn_witness_tsdp_get.exit
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !63
+  %19 = load ptr, ptr %18, align 8, !tbaa !64
   %20 = icmp eq ptr %19, null
   br i1 %20, label %ehooks_purge_lazy.exit, label %21
 
@@ -1913,7 +1913,7 @@ tsdn_witness_tsdp_get.exit:
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 832
   %25 = load i8, ptr %24, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !54
 
 26:                                               ; preds = %22
   %27 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %23, i1 noundef zeroext false) #9
@@ -1935,8 +1935,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl.exit.i.i
-  %36 = load ptr, ptr %18, align 8, !tbaa !63
-  %.val.i = load i32, ptr %1, align 8, !tbaa !50
+  %36 = load ptr, ptr %18, align 8, !tbaa !64
+  %.val.i = load i32, ptr %1, align 8, !tbaa !51
   %37 = tail call zeroext i1 %36(ptr noundef nonnull %.0.i.i.i, ptr noundef %9, i64 noundef range(i64 0, -4095) %11, i64 noundef %3, i64 noundef %4, i32 noundef %.val.i) #9
   br i1 %5, label %38, label %tsd_fetch_impl.exit.i17.i
 
@@ -1945,7 +1945,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 832
   %41 = load i8, ptr %40, align 8, !tbaa !36
   %.not.i.i18.i = icmp eq i8 %41, 0
-  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %42, !prof !53
+  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %42, !prof !54
 
 42:                                               ; preds = %38
   %43 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %39, i1 noundef zeroext false) #9
@@ -1999,7 +1999,7 @@ tsdn_witness_tsdp_get.exit:
 
 17:                                               ; preds = %tsdn_witness_tsdp_get.exit
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  %19 = load ptr, ptr %18, align 8, !tbaa !62
+  %19 = load ptr, ptr %18, align 8, !tbaa !63
   %20 = icmp eq ptr %19, null
   br i1 %20, label %ehooks_purge_forced.exit, label %21
 
@@ -2011,7 +2011,7 @@ tsdn_witness_tsdp_get.exit:
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 832
   %25 = load i8, ptr %24, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %25, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %26, !prof !54
 
 26:                                               ; preds = %22
   %27 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %23, i1 noundef zeroext false) #9
@@ -2033,8 +2033,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %26, %22, %21
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl.exit.i.i
-  %36 = load ptr, ptr %18, align 8, !tbaa !62
-  %.val.i = load i32, ptr %1, align 8, !tbaa !50
+  %36 = load ptr, ptr %18, align 8, !tbaa !63
+  %.val.i = load i32, ptr %1, align 8, !tbaa !51
   %37 = tail call zeroext i1 %36(ptr noundef nonnull %.0.i.i.i, ptr noundef %9, i64 noundef range(i64 0, -4095) %11, i64 noundef %3, i64 noundef %4, i32 noundef %.val.i) #9
   br i1 %5, label %38, label %tsd_fetch_impl.exit.i17.i
 
@@ -2043,7 +2043,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %35, %tsd_fetch_impl
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 832
   %41 = load i8, ptr %40, align 8, !tbaa !36
   %.not.i.i18.i = icmp eq i8 %41, 0
-  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %42, !prof !53
+  br i1 %.not.i.i18.i, label %tsd_fetch_impl.exit.i17.i, label %42, !prof !54
 
 42:                                               ; preds = %38
   %43 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %39, i1 noundef zeroext false) #9
@@ -2081,7 +2081,7 @@ tsdn_witness_tsdp_get.exit46:
   %8 = load atomic i64, ptr %7 acquire, align 8
   %.0.i.i.i = inttoptr i64 %8 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !67
+  %10 = load ptr, ptr %9, align 8, !tbaa !68
   %11 = icmp eq ptr %10, null
   br i1 %11, label %91, label %12
 
@@ -2101,7 +2101,7 @@ tsdn_witness_tsdp_get.exit46:
   %21 = add i64 %20, %4
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr i8, ptr %3, i64 32
-  %.val49 = load i64, ptr %23, align 8, !tbaa !57
+  %.val49 = load i64, ptr %23, align 8, !tbaa !58
   %24 = load i64, ptr %15, align 8, !tbaa !43
   %25 = and i64 %24, -17592454479872
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -2112,7 +2112,7 @@ tsdn_witness_tsdp_get.exit46:
   %30 = or i64 %29, %5
   store i64 %30, ptr %27, align 8, !tbaa !36
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i64 %.val49, ptr %31, align 8, !tbaa !57
+  store i64 %.val49, ptr %31, align 8, !tbaa !58
   %32 = and i64 %.val48, 962559
   %33 = or disjoint i64 %32, %25
   %34 = or disjoint i64 %33, 246415360
@@ -2143,7 +2143,7 @@ tsdn_witness_tsdp_get.exit46:
 
 50:                                               ; preds = %38
   %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i54, i64 56
-  %52 = load ptr, ptr %51, align 8, !tbaa !67
+  %52 = load ptr, ptr %51, align 8, !tbaa !68
   %53 = icmp eq ptr %52, null
   br i1 %53, label %ehooks_split.exit.thread, label %54
 
@@ -2156,7 +2156,7 @@ tsdn_witness_tsdp_get.exit46:
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 832
   %59 = load i8, ptr %58, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %59, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %60, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %60, !prof !54
 
 60:                                               ; preds = %56
   %61 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %57, i1 noundef zeroext false) #9
@@ -2178,8 +2178,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %60, %56, %54
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %69, %tsd_fetch_impl.exit.i.i
-  %70 = load ptr, ptr %51, align 8, !tbaa !67
-  %.val.i = load i32, ptr %2, align 8, !tbaa !50
+  %70 = load ptr, ptr %51, align 8, !tbaa !68
+  %.val.i = load i32, ptr %2, align 8, !tbaa !51
   %71 = call zeroext i1 %70(ptr noundef nonnull %.0.i.i.i54, ptr noundef %41, i64 noundef %42, i64 noundef %4, i64 noundef %5, i1 noundef zeroext %44, i32 noundef %.val.i) #9
   br i1 %55, label %72, label %tsd_fetch_impl.exit.i14.i
 
@@ -2188,7 +2188,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %69, %tsd_fetch_impl
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 832
   %75 = load i8, ptr %74, align 8, !tbaa !36
   %.not.i.i15.i = icmp eq i8 %75, 0
-  br i1 %.not.i.i15.i, label %tsd_fetch_impl.exit.i14.i, label %76, !prof !53
+  br i1 %.not.i.i15.i, label %tsd_fetch_impl.exit.i14.i, label %76, !prof !54
 
 76:                                               ; preds = %72
   %77 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %73, i1 noundef zeroext false) #9
@@ -2272,7 +2272,7 @@ tsdn_witness_tsdp_get.exit41:
 
 26:                                               ; preds = %tsdn_witness_tsdp_get.exit41
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  %28 = load ptr, ptr %27, align 8, !tbaa !68
+  %28 = load ptr, ptr %27, align 8, !tbaa !69
   %29 = icmp eq ptr %28, null
   br i1 %29, label %ehooks_merge.exit.thread, label %30
 
@@ -2285,7 +2285,7 @@ tsdn_witness_tsdp_get.exit41:
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 832
   %35 = load i8, ptr %34, align 8, !tbaa !36
   %.not.i.i.i = icmp eq i8 %35, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %36, !prof !53
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %36, !prof !54
 
 36:                                               ; preds = %32
   %37 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %33, i1 noundef zeroext false) #9
@@ -2307,8 +2307,8 @@ tsd_fetch_impl.exit.i.i:                          ; preds = %36, %32, %30
   br label %ehooks_pre_reentrancy.exit.i
 
 ehooks_pre_reentrancy.exit.i:                     ; preds = %45, %tsd_fetch_impl.exit.i.i
-  %46 = load ptr, ptr %27, align 8, !tbaa !68
-  %.val.i = load i32, ptr %2, align 8, !tbaa !50
+  %46 = load ptr, ptr %27, align 8, !tbaa !69
+  %.val.i = load i32, ptr %2, align 8, !tbaa !51
   %47 = tail call zeroext i1 %46(ptr noundef nonnull %.0.i.i.i, ptr noundef %10, i64 noundef range(i64 0, -4095) %12, ptr noundef %16, i64 noundef range(i64 0, -4095) %18, i1 noundef zeroext %20, i32 noundef %.val.i) #9
   br i1 %31, label %48, label %tsd_fetch_impl.exit.i18.i
 
@@ -2317,7 +2317,7 @@ ehooks_pre_reentrancy.exit.i:                     ; preds = %45, %tsd_fetch_impl
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 832
   %51 = load i8, ptr %50, align 8, !tbaa !36
   %.not.i.i19.i = icmp eq i8 %51, 0
-  br i1 %.not.i.i19.i, label %tsd_fetch_impl.exit.i18.i, label %52, !prof !53
+  br i1 %.not.i.i19.i, label %tsd_fetch_impl.exit.i18.i, label %52, !prof !54
 
 52:                                               ; preds = %48
   %53 = tail call ptr @je_tsd_fetch_slow(ptr noundef nonnull %49, i1 noundef zeroext false) #9
@@ -2355,11 +2355,11 @@ ehooks_merge.exit:                                ; preds = %tsd_fetch_impl.exit
   %68 = or disjoint i64 %66, %67
   store i64 %68, ptr %11, align 8, !tbaa !36
   %69 = getelementptr i8, ptr %3, i64 32
-  %.val47 = load i64, ptr %69, align 8, !tbaa !57
+  %.val47 = load i64, ptr %69, align 8, !tbaa !58
   %70 = getelementptr i8, ptr %4, i64 32
-  %.val48 = load i64, ptr %70, align 8, !tbaa !57
+  %.val48 = load i64, ptr %70, align 8, !tbaa !58
   %spec.select = call i64 @llvm.umin.i64(i64 %.val47, i64 %.val48)
-  store i64 %spec.select, ptr %69, align 8, !tbaa !57
+  store i64 %spec.select, ptr %69, align 8, !tbaa !58
   %71 = and i64 %62, 32768
   %.not = icmp eq i64 %71, 0
   br i1 %.not, label %.thread, label %72
@@ -2568,7 +2568,7 @@ extent_coalesce.exit51.thread:                    ; preds = %26
   %.v.i.i.i50 = select i1 %.not.i.i.i49, i64 112, i64 9768
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.v.i.i.i50
   tail call void @je_eset_insert(ptr noundef nonnull %30, ptr noundef nonnull %25) #9
-  br i1 %.040, label %11, label %.loopexit69, !llvm.loop !69
+  br i1 %.040, label %11, label %.loopexit69, !llvm.loop !70
 
 extent_coalesce.exit51:                           ; preds = %26
   %31 = load i8, ptr %10, align 8, !tbaa !37, !range !38, !noundef !39
@@ -2578,7 +2578,7 @@ extent_coalesce.exit51:                           ; preds = %26
 .loopexit:                                        ; preds = %22, %extent_coalesce.exit51
   %.343.ph = phi i1 [ true, %extent_coalesce.exit51 ], [ %.040, %22 ]
   %.339.ph = phi ptr [ %25, %extent_coalesce.exit51 ], [ %.036.ph, %22 ]
-  br i1 %.343.ph, label %.outer, label %.loopexit69, !llvm.loop !69
+  br i1 %.343.ph, label %.outer, label %.loopexit69, !llvm.loop !70
 
 .loopexit69:                                      ; preds = %.loopexit, %extent_coalesce.exit51.thread
   %.339.ph68 = phi ptr [ %.036.ph, %extent_coalesce.exit51.thread ], [ %.339.ph, %.loopexit ]
@@ -2710,25 +2710,26 @@ attributes #9 = { nounwind }
 !45 = !{!19, !29, i64 58392}
 !46 = !{!30, !12, i64 0}
 !47 = !{!11, !11, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!51, !12, i64 0}
-!51 = !{!"ehooks_s", !12, i64 0, !52, i64 8}
-!52 = !{!"", !15, i64 0}
-!53 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!54 = !{!55, !15, i64 0}
-!55 = !{!"extent_hooks_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64}
-!56 = !{!21, !12, i64 19428}
-!57 = !{!41, !11, i64 32}
-!58 = !{!30, !12, i64 4}
-!59 = distinct !{!59, !49}
-!60 = !{!24, !26, i64 0}
-!61 = !{!55, !15, i64 8}
-!62 = !{!55, !15, i64 48}
-!63 = !{!55, !15, i64 40}
-!64 = !{!55, !15, i64 32}
-!65 = !{!55, !15, i64 16}
-!66 = !{!55, !15, i64 24}
-!67 = !{!55, !15, i64 56}
-!68 = !{!55, !15, i64 64}
-!69 = distinct !{!69, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!52, !12, i64 0}
+!52 = !{!"ehooks_s", !12, i64 0, !53, i64 8}
+!53 = !{!"", !15, i64 0}
+!54 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!55 = !{!56, !15, i64 0}
+!56 = !{!"extent_hooks_s", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !15, i64 48, !15, i64 56, !15, i64 64}
+!57 = !{!21, !12, i64 19428}
+!58 = !{!41, !11, i64 32}
+!59 = !{!30, !12, i64 4}
+!60 = distinct !{!60, !49, !50}
+!61 = !{!24, !26, i64 0}
+!62 = !{!56, !15, i64 8}
+!63 = !{!56, !15, i64 48}
+!64 = !{!56, !15, i64 40}
+!65 = !{!56, !15, i64 32}
+!66 = !{!56, !15, i64 16}
+!67 = !{!56, !15, i64 24}
+!68 = !{!56, !15, i64 56}
+!69 = !{!56, !15, i64 64}
+!70 = distinct !{!70, !49, !50}

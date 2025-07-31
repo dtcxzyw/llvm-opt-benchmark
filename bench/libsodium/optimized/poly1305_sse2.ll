@@ -147,7 +147,7 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_sse2_update(ptr noundef
   store i8 %33, ptr %36, align 1
   %37 = add nuw nsw i64 %.14654.i, 1
   %exitcond56.not.i = icmp eq i64 %37, %.148.i
-  br i1 %exitcond56.not.i, label %38, label %31, !llvm.loop !6
+  br i1 %exitcond56.not.i, label %38, label %31, !llvm.loop !7
 
 38:                                               ; preds = %31
   %39 = load i64, ptr %4, align 8
@@ -306,7 +306,7 @@ define internal fastcc void @poly1305_init_ext(ptr noundef initializes((0, 60)) 
   %108 = trunc nuw nsw i64 %107 to i32
   %109 = getelementptr i8, ptr %.1, i64 16
   store i32 %108, ptr %109, align 4
-  br i1 %45, label %44, label %110, !llvm.loop !7
+  br i1 %45, label %44, label %110, !llvm.loop !8
 
 110:                                              ; preds = %47, %46, %48
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -673,7 +673,7 @@ define internal fastcc void @poly1305_blocks(ptr noundef captures(none) %0, ptr 
   %302 = getelementptr i8, ptr %.2765, i64 64
   %303 = add i64 %.2716764, -64
   %304 = icmp ugt i64 %303, 63
-  br i1 %304, label %139, label %.loopexit, !llvm.loop !8
+  br i1 %304, label %139, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %139, %92
   %.1735 = phi <2 x i64> [ %.0734, %92 ], [ %301, %139 ]
@@ -965,7 +965,7 @@ define internal fastcc void @poly1305_finish_ext(ptr noundef %0, ptr noundef rea
   br i1 %.not26.i, label %20, label %15
 
 15:                                               ; preds = %12
-  %16 = call ptr @__memcpy_chk(ptr noundef nonnull %.0.i, ptr noundef nonnull %.022.i, i64 noundef 8, i64 noundef %.neg) #11, !alias.scope !9
+  %16 = call ptr @__memcpy_chk(ptr noundef nonnull %.0.i, ptr noundef nonnull %.022.i, i64 noundef 8, i64 noundef %.neg) #11, !alias.scope !10
   %17 = getelementptr i8, ptr %.022.i, i64 8
   %18 = or disjoint i64 %13, 8
   %19 = getelementptr i8, ptr %.0.i, i64 8
@@ -981,7 +981,7 @@ define internal fastcc void @poly1305_finish_ext(ptr noundef %0, ptr noundef rea
 
 23:                                               ; preds = %20
   %24 = sub nuw nsw i64 32, %21
-  %25 = call ptr @__memcpy_chk(ptr noundef nonnull %.1.i, ptr noundef nonnull %.123.i, i64 noundef 4, i64 noundef %24) #11, !alias.scope !13
+  %25 = call ptr @__memcpy_chk(ptr noundef nonnull %.1.i, ptr noundef nonnull %.123.i, i64 noundef 4, i64 noundef %24) #11, !alias.scope !14
   %26 = getelementptr i8, ptr %.123.i, i64 4
   %27 = add nuw nsw i64 %21, 4
   %28 = getelementptr i8, ptr %.1.i, i64 4
@@ -997,7 +997,7 @@ define internal fastcc void @poly1305_finish_ext(ptr noundef %0, ptr noundef rea
 
 32:                                               ; preds = %29
   %33 = call i64 @llvm.usub.sat.i64(i64 32, i64 %30)
-  %34 = call ptr @__memcpy_chk(ptr noundef nonnull %.2.i, ptr noundef nonnull %.224.i, i64 noundef 2, i64 noundef %33) #11, !alias.scope !17
+  %34 = call ptr @__memcpy_chk(ptr noundef nonnull %.2.i, ptr noundef nonnull %.224.i, i64 noundef 2, i64 noundef %33) #11, !alias.scope !18
   %35 = getelementptr i8, ptr %.224.i, i64 2
   %36 = getelementptr i8, ptr %.2.i, i64 2
   br label %37
@@ -1065,7 +1065,7 @@ poly1305_block_copy31.exit:                       ; preds = %37, %39
   %67 = load i64, ptr %66, align 8
   %68 = getelementptr i8, ptr %0, i64 112
   %69 = load i64, ptr %68, align 8
-  %70 = call { i64, i64 } asm sideeffect "addq $2, $0 ;\0Aadcq $3, $1 ;\0A", "=r,=r,r,r,0,1,~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %67, i64 %69, i64 %62, i64 %65) #11, !srcloc !21
+  %70 = call { i64, i64 } asm sideeffect "addq $2, $0 ;\0Aadcq $3, $1 ;\0A", "=r,=r,r,r,0,1,~{flags},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %67, i64 %69, i64 %62, i64 %65) #11, !srcloc !22
   %71 = extractvalue { i64, i64 } %70, 0
   %72 = extractvalue { i64, i64 } %70, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %0, i8 0, i64 128, i1 false)
@@ -1120,21 +1120,22 @@ attributes #11 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
-!15 = distinct !{!15, !"memcpy.inline"}
-!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = !{i64 27982, i64 28009}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = !{i64 27982, i64 28009}

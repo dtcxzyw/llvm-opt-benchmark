@@ -254,23 +254,23 @@ read_packs_from_stdin.exit:                       ; preds = %26, %21
   call void @strbuf_release(ptr noundef nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #9
   %31 = load ptr, ptr @opts, align 8, !tbaa !54
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 8), align 8, !tbaa !66
-  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !67
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 8), align 8, !tbaa !67
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !68
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8, !tbaa !57
   %35 = call i32 @write_midx_file_only(ptr noundef %3, ptr noundef %31, ptr noundef nonnull %6, ptr noundef %32, ptr noundef %33, i32 noundef %34) #9
   call void @string_list_clear(ptr noundef nonnull %6, i32 noundef 0) #9
-  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !67
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !68
   call void @free(ptr noundef %36) #9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #9
   br label %44
 
 37:                                               ; preds = %19
   %38 = load ptr, ptr @opts, align 8, !tbaa !54
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 8), align 8, !tbaa !66
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !67
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 8), align 8, !tbaa !67
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !68
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 32), align 8, !tbaa !57
   %42 = tail call i32 @write_midx_file(ptr noundef %3, ptr noundef %38, ptr noundef %39, ptr noundef %40, i32 noundef %41) #9
-  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !67
+  %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opts, i64 16), align 8, !tbaa !68
   tail call void @free(ptr noundef %43) #9
   br label %44
 
@@ -542,7 +542,8 @@ attributes #11 = { nounwind willreturn memory(read) }
 !61 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
 !62 = !{!63, !11, i64 16}
 !63 = !{!"strbuf", !12, i64 0, !12, i64 8, !11, i64 16}
-!64 = distinct !{!64, !65}
+!64 = distinct !{!64, !65, !66}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!55, !11, i64 8}
-!67 = !{!55, !11, i64 16}
+!66 = !{!"llvm.loop.estimated_trip_count"}
+!67 = !{!55, !11, i64 8}
+!68 = !{!55, !11, i64 16}

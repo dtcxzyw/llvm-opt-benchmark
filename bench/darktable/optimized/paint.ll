@@ -1812,7 +1812,7 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
   store double %32, ptr %33, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph48, label %27
+  br i1 %exitcond.not, label %.lr.ph48, label %27, !llvm.loop !13
 
 ._crit_edge49:                                    ; preds = %34, %16
   tail call void @free(ptr noundef nonnull %15) #9
@@ -1834,7 +1834,7 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
   tail call void @cairo_arc(ptr noundef %0, double noundef %3, double noundef %4, double noundef %5, double noundef %41, double noundef %43) #9
   tail call void @cairo_stroke(ptr noundef %0) #9
   %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
-  br i1 %exitcond57.not, label %._crit_edge49, label %34
+  br i1 %exitcond57.not, label %._crit_edge49, label %34, !llvm.loop !15
 
 44:                                               ; preds = %11, %._crit_edge49
   ret void
@@ -2068,7 +2068,7 @@ define void @dtgtk_cairo_paint_masks_raster(ptr noundef %0, i32 noundef %1, i32 
 29:                                               ; preds = %37
   %30 = add nuw nsw i32 %.03335, 1
   %exitcond36.not = icmp eq i32 %30, 4
-  br i1 %exitcond36.not, label %28, label %.preheader
+  br i1 %exitcond36.not, label %28, label %.preheader, !llvm.loop !16
 
 31:                                               ; preds = %.preheader, %37
   %.034 = phi i32 [ 0, %.preheader ], [ %38, %37 ]
@@ -2087,7 +2087,7 @@ define void @dtgtk_cairo_paint_masks_raster(ptr noundef %0, i32 noundef %1, i32 
 37:                                               ; preds = %31, %34
   %38 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %38, 4
-  br i1 %exitcond.not, label %29, label %31
+  br i1 %exitcond.not, label %29, label %31, !llvm.loop !17
 }
 
 declare void @cairo_new_path(ptr noundef) local_unnamed_addr #1
@@ -3211,7 +3211,7 @@ define void @dtgtk_cairo_paint_color_harmony(ptr noundef %0, i32 noundef %1, i32
   call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 5.000000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
   call void @cairo_stroke(ptr noundef %0) #9
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %27 = load i32, ptr %26, align 8, !tbaa !13
+  %27 = load i32, ptr %26, align 8, !tbaa !18
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.lr.ph, label %._crit_edge
 
@@ -3227,7 +3227,7 @@ define void @dtgtk_cairo_paint_color_harmony(ptr noundef %0, i32 noundef %1, i32
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %31 = getelementptr inbounds nuw [4 x float], ptr %29, i64 0, i64 %indvars.iv
-  %32 = load float, ptr %31, align 4, !tbaa !18
+  %32 = load float, ptr %31, align 4, !tbaa !23
   %33 = fpext reassoc nsz arcp contract afn float %32 to double
   %34 = fmul reassoc nsz arcp contract afn double %33, 0x401921FB54442D18
   call void @cairo_save(ptr noundef %0) #9
@@ -3239,10 +3239,10 @@ define void @dtgtk_cairo_paint_color_harmony(ptr noundef %0, i32 noundef %1, i32
   call void @cairo_fill(ptr noundef %0) #9
   call void @cairo_restore(ptr noundef %0) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr %26, align 8, !tbaa !13
+  %35 = load i32, ptr %26, align 8, !tbaa !18
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %30, label %._crit_edge
+  br i1 %37, label %30, label %._crit_edge, !llvm.loop !25
 }
 
 declare void @cairo_rotate(ptr noundef, double noundef) local_unnamed_addr #1
@@ -3283,9 +3283,9 @@ define void @dtgtk_cairo_paint_clock(ptr noundef %0, i32 noundef %1, i32 noundef
   br label %32
 
 27:                                               ; preds = %32
-  %28 = load i32, ptr @dtgtk_cairo_paint_clock.clock, align 4, !tbaa !20
+  %28 = load i32, ptr @dtgtk_cairo_paint_clock.clock, align 4, !tbaa !26
   %29 = add nsw i32 %28, 1
-  store i32 %29, ptr @dtgtk_cairo_paint_clock.clock, align 4, !tbaa !20
+  store i32 %29, ptr @dtgtk_cairo_paint_clock.clock, align 4, !tbaa !26
   %30 = sitofp i32 %28 to double
   %31 = fmul reassoc nsz arcp contract afn double %30, 0x3FE0C152382D7365
   call void @cairo_rotate(ptr noundef %0, double noundef %31) #9
@@ -3309,7 +3309,7 @@ define void @dtgtk_cairo_paint_clock(ptr noundef %0, i32 noundef %1, i32 noundef
   call void @cairo_rotate(ptr noundef %0, double noundef 0x3FE0C152382D7365) #9
   %35 = add nuw nsw i32 %.034, 1
   %exitcond.not = icmp eq i32 %35, 12
-  br i1 %exitcond.not, label %27, label %32
+  br i1 %exitcond.not, label %27, label %32, !llvm.loop !27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3814,7 +3814,7 @@ define void @dtgtk_cairo_paint_label(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %7
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 944
   %31 = zext nneg i32 %26 to i64
   %32 = getelementptr inbounds nuw [5 x %struct._GdkRGBA], ptr %30, i64 0, i64 %31
@@ -3891,7 +3891,7 @@ define void @dtgtk_cairo_paint_label_sel(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %28, label %29, label %34
 
 29:                                               ; preds = %7
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 944
   %32 = zext nneg i32 %27 to i64
   %33 = getelementptr inbounds nuw [5 x %struct._GdkRGBA], ptr %31, i64 0, i64 %32
@@ -4100,42 +4100,42 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float 0x3FE2CF2300000000, ptr %32, align 4, !tbaa !18
+  store float 0x3FE2CF2300000000, ptr %32, align 4, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float 0x3FEE6F0E20000000, ptr %33, align 8, !tbaa !18
+  store float 0x3FEE6F0E20000000, ptr %33, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store float 0x3FEE6F0E00000000, ptr %34, align 4, !tbaa !18
+  store float 0x3FEE6F0E00000000, ptr %34, align 4, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float 0x3FE2CF22E0000000, ptr %35, align 16, !tbaa !18
+  store float 0x3FE2CF22E0000000, ptr %35, align 16, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float 0xBE7777A5C0000000, ptr %36, align 4, !tbaa !18
+  store float 0xBE7777A5C0000000, ptr %36, align 4, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store float 0xBFE2CF2340000000, ptr %37, align 8, !tbaa !18
+  store float 0xBFE2CF2340000000, ptr %37, align 8, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store float 0xBFEE6F0E00000000, ptr %38, align 4, !tbaa !18
+  store float 0xBFEE6F0E00000000, ptr %38, align 4, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store float 0xBFEE6F0E00000000, ptr %39, align 16, !tbaa !18
+  store float 0xBFEE6F0E00000000, ptr %39, align 16, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store float 0xBFE2CF2260000000, ptr %40, align 4, !tbaa !18
+  store float 0xBFE2CF2260000000, ptr %40, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float 0x3FE9E377A0000000, ptr %41, align 4, !tbaa !18
+  store float 0x3FE9E377A0000000, ptr %41, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store float 0x3FD3C6EF20000000, ptr %42, align 8, !tbaa !18
+  store float 0x3FD3C6EF20000000, ptr %42, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store float 0xBFD3C6EF60000000, ptr %43, align 4, !tbaa !18
+  store float 0xBFD3C6EF60000000, ptr %43, align 4, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store float 0xBFE9E377C0000000, ptr %44, align 16, !tbaa !18
+  store float 0xBFE9E377C0000000, ptr %44, align 16, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store float -1.000000e+00, ptr %45, align 4, !tbaa !18
+  store float -1.000000e+00, ptr %45, align 4, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store float 0xBFE9E37780000000, ptr %46, align 8, !tbaa !18
+  store float 0xBFE9E37780000000, ptr %46, align 8, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store float 0xBFD3C6EFA0000000, ptr %47, align 4, !tbaa !18
+  store float 0xBFD3C6EFA0000000, ptr %47, align 4, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store float 0x3FD3C6EFC0000000, ptr %48, align 16, !tbaa !18
+  store float 0x3FD3C6EFC0000000, ptr %48, align 16, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store float 0x3FE9E37820000000, ptr %49, align 4, !tbaa !18
+  store float 0x3FE9E37820000000, ptr %49, align 4, !tbaa !23
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0.000000e+00) #9
   br label %50
 
@@ -4144,9 +4144,9 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   %51 = and i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %51, 0
   %52 = getelementptr inbounds nuw [10 x float], ptr %8, i64 0, i64 %indvars.iv.i
-  %53 = load float, ptr %52, align 4, !tbaa !18
+  %53 = load float, ptr %52, align 4, !tbaa !23
   %54 = getelementptr inbounds nuw [10 x float], ptr %9, i64 0, i64 %indvars.iv.i
-  %55 = load float, ptr %54, align 4, !tbaa !18
+  %55 = load float, ptr %54, align 4, !tbaa !23
   %..i = select i1 %.not.i, float 5.000000e-01, float 0x3FC99999A0000000
   %56 = fmul reassoc nsz arcp contract afn float %..i, %53
   %57 = fadd reassoc nsz arcp contract afn float %56, 5.000000e-01
@@ -4157,7 +4157,7 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   call void @cairo_line_to(ptr noundef %0, double noundef %58, double noundef %61) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %50
+  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %50, !llvm.loop !64
 
 dt_draw_star.exit:                                ; preds = %50
   call void @cairo_close_path(ptr noundef %0) #9
@@ -4177,13 +4177,13 @@ dt_draw_star.exit:                                ; preds = %50
   br i1 %65, label %66, label %78
 
 66:                                               ; preds = %62
-  %67 = load double, ptr %6, align 8, !tbaa !57
+  %67 = load double, ptr %6, align 8, !tbaa !65
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %69 = load double, ptr %68, align 8, !tbaa !59
+  %69 = load double, ptr %68, align 8, !tbaa !67
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %71 = load double, ptr %70, align 8, !tbaa !60
+  %71 = load double, ptr %70, align 8, !tbaa !68
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %73 = load double, ptr %72, align 8, !tbaa !61
+  %73 = load double, ptr %72, align 8, !tbaa !69
   call void @cairo_set_source_rgba(ptr noundef %0, double noundef %67, double noundef %69, double noundef %71, double noundef %73) #9
   call void @cairo_fill_preserve(ptr noundef %0) #9
   %74 = load double, ptr %11, align 8, !tbaa !12
@@ -4245,42 +4245,42 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float 0x3FE2CF2300000000, ptr %32, align 4, !tbaa !18
+  store float 0x3FE2CF2300000000, ptr %32, align 4, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float 0x3FEE6F0E20000000, ptr %33, align 8, !tbaa !18
+  store float 0x3FEE6F0E20000000, ptr %33, align 8, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store float 0x3FEE6F0E00000000, ptr %34, align 4, !tbaa !18
+  store float 0x3FEE6F0E00000000, ptr %34, align 4, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float 0x3FE2CF22E0000000, ptr %35, align 16, !tbaa !18
+  store float 0x3FE2CF22E0000000, ptr %35, align 16, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float 0xBE7777A5C0000000, ptr %36, align 4, !tbaa !18
+  store float 0xBE7777A5C0000000, ptr %36, align 4, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store float 0xBFE2CF2340000000, ptr %37, align 8, !tbaa !18
+  store float 0xBFE2CF2340000000, ptr %37, align 8, !tbaa !23
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store float 0xBFEE6F0E00000000, ptr %38, align 4, !tbaa !18
+  store float 0xBFEE6F0E00000000, ptr %38, align 4, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store float 0xBFEE6F0E00000000, ptr %39, align 16, !tbaa !18
+  store float 0xBFEE6F0E00000000, ptr %39, align 16, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store float 0xBFE2CF2260000000, ptr %40, align 4, !tbaa !18
+  store float 0xBFE2CF2260000000, ptr %40, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float 0x3FE9E377A0000000, ptr %41, align 4, !tbaa !18
+  store float 0x3FE9E377A0000000, ptr %41, align 4, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store float 0x3FD3C6EF20000000, ptr %42, align 8, !tbaa !18
+  store float 0x3FD3C6EF20000000, ptr %42, align 8, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store float 0xBFD3C6EF60000000, ptr %43, align 4, !tbaa !18
+  store float 0xBFD3C6EF60000000, ptr %43, align 4, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store float 0xBFE9E377C0000000, ptr %44, align 16, !tbaa !18
+  store float 0xBFE9E377C0000000, ptr %44, align 16, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store float -1.000000e+00, ptr %45, align 4, !tbaa !18
+  store float -1.000000e+00, ptr %45, align 4, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store float 0xBFE9E37780000000, ptr %46, align 8, !tbaa !18
+  store float 0xBFE9E37780000000, ptr %46, align 8, !tbaa !23
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store float 0xBFD3C6EFA0000000, ptr %47, align 4, !tbaa !18
+  store float 0xBFD3C6EFA0000000, ptr %47, align 4, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store float 0x3FD3C6EFC0000000, ptr %48, align 16, !tbaa !18
+  store float 0x3FD3C6EFC0000000, ptr %48, align 16, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store float 0x3FE9E37820000000, ptr %49, align 4, !tbaa !18
+  store float 0x3FE9E37820000000, ptr %49, align 4, !tbaa !23
   call void @cairo_move_to(ptr noundef %0, double noundef 5.000000e-01, double noundef 0.000000e+00) #9
   br label %50
 
@@ -4289,9 +4289,9 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   %51 = and i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %51, 0
   %52 = getelementptr inbounds nuw [10 x float], ptr %8, i64 0, i64 %indvars.iv.i
-  %53 = load float, ptr %52, align 4, !tbaa !18
+  %53 = load float, ptr %52, align 4, !tbaa !23
   %54 = getelementptr inbounds nuw [10 x float], ptr %9, i64 0, i64 %indvars.iv.i
-  %55 = load float, ptr %54, align 4, !tbaa !18
+  %55 = load float, ptr %54, align 4, !tbaa !23
   %..i = select i1 %.not.i, float 5.000000e-01, float 0x3FC99999A0000000
   %56 = fmul reassoc nsz arcp contract afn float %..i, %53
   %57 = fadd reassoc nsz arcp contract afn float %56, 5.000000e-01
@@ -4302,7 +4302,7 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   call void @cairo_line_to(ptr noundef %0, double noundef %58, double noundef %61) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %50
+  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %50, !llvm.loop !64
 
 dt_draw_star.exit:                                ; preds = %50
   call void @cairo_close_path(ptr noundef %0) #9
@@ -4587,7 +4587,7 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
 
 28:                                               ; preds = %7
   call void @cairo_arc(ptr noundef %0, double noundef 1.800000e-01, double noundef 1.800000e-01, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 944
   %.sroa.0.0.copyload = load double, ptr %30, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 952
@@ -4607,7 +4607,7 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
 
 33:                                               ; preds = %31
   call void @cairo_arc(ptr noundef %0, double noundef 0x3FEA3D70A3D70A3E, double noundef 1.800000e-01, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
+  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 976
   %.sroa.044.0.copyload = load double, ptr %35, align 8
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 984
@@ -4627,7 +4627,7 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
 
 38:                                               ; preds = %36
   call void @cairo_arc(ptr noundef %0, double noundef 5.000000e-01, double noundef 5.000000e-01, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
-  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1008
   %.sroa.048.0.copyload = load double, ptr %40, align 8
   %.sroa.449.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 1016
@@ -4647,7 +4647,7 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
 
 43:                                               ; preds = %41
   call void @cairo_arc(ptr noundef %0, double noundef 1.800000e-01, double noundef 0x3FEA3D70A3D70A3E, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !28
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1040
   %.sroa.052.0.copyload = load double, ptr %45, align 8
   %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 1048
@@ -4667,7 +4667,7 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
 
 48:                                               ; preds = %46
   call void @cairo_arc(ptr noundef %0, double noundef 0x3FEA3D70A3D70A3E, double noundef 0x3FEA3D70A3D70A3E, double noundef 1.800000e-01, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #9
-  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !21
+  %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1072
   %.sroa.056.0.copyload = load double, ptr %50, align 8
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 1080
@@ -4889,7 +4889,7 @@ define void @dtgtk_cairo_paint_preferences(ptr noundef %0, i32 noundef %1, i32 n
   %36 = fmul reassoc nsz arcp contract afn double %35, 0x3FE0C152382D7365
   call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %31, double noundef %33, double noundef %36) #9
   %exitcond.not = icmp eq i32 %34, 12
-  br i1 %exitcond.not, label %27, label %28
+  br i1 %exitcond.not, label %27, label %28, !llvm.loop !70
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4927,42 +4927,42 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #9
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store float 0x3FE2CF2300000000, ptr %29, align 4, !tbaa !18
+  store float 0x3FE2CF2300000000, ptr %29, align 4, !tbaa !23
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store float 0x3FEE6F0E20000000, ptr %30, align 8, !tbaa !18
+  store float 0x3FEE6F0E20000000, ptr %30, align 8, !tbaa !23
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store float 0x3FEE6F0E00000000, ptr %31, align 4, !tbaa !18
+  store float 0x3FEE6F0E00000000, ptr %31, align 4, !tbaa !23
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store float 0x3FE2CF22E0000000, ptr %32, align 16, !tbaa !18
+  store float 0x3FE2CF22E0000000, ptr %32, align 16, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store float 0xBE7777A5C0000000, ptr %33, align 4, !tbaa !18
+  store float 0xBE7777A5C0000000, ptr %33, align 4, !tbaa !23
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store float 0xBFE2CF2340000000, ptr %34, align 8, !tbaa !18
+  store float 0xBFE2CF2340000000, ptr %34, align 8, !tbaa !23
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store float 0xBFEE6F0E00000000, ptr %35, align 4, !tbaa !18
+  store float 0xBFEE6F0E00000000, ptr %35, align 4, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store float 0xBFEE6F0E00000000, ptr %36, align 16, !tbaa !18
+  store float 0xBFEE6F0E00000000, ptr %36, align 16, !tbaa !23
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store float 0xBFE2CF2260000000, ptr %37, align 4, !tbaa !18
+  store float 0xBFE2CF2260000000, ptr %37, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #9
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store float 0x3FE9E377A0000000, ptr %38, align 4, !tbaa !18
+  store float 0x3FE9E377A0000000, ptr %38, align 4, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store float 0x3FD3C6EF20000000, ptr %39, align 8, !tbaa !18
+  store float 0x3FD3C6EF20000000, ptr %39, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store float 0xBFD3C6EF60000000, ptr %40, align 4, !tbaa !18
+  store float 0xBFD3C6EF60000000, ptr %40, align 4, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store float 0xBFE9E377C0000000, ptr %41, align 16, !tbaa !18
+  store float 0xBFE9E377C0000000, ptr %41, align 16, !tbaa !23
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  store float -1.000000e+00, ptr %42, align 4, !tbaa !18
+  store float -1.000000e+00, ptr %42, align 4, !tbaa !23
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store float 0xBFE9E37780000000, ptr %43, align 8, !tbaa !18
+  store float 0xBFE9E37780000000, ptr %43, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store float 0xBFD3C6EFA0000000, ptr %44, align 4, !tbaa !18
+  store float 0xBFD3C6EFA0000000, ptr %44, align 4, !tbaa !23
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store float 0x3FD3C6EFC0000000, ptr %45, align 16, !tbaa !18
+  store float 0x3FD3C6EFC0000000, ptr %45, align 16, !tbaa !23
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store float 0x3FE9E37820000000, ptr %46, align 4, !tbaa !18
+  store float 0x3FE9E37820000000, ptr %46, align 4, !tbaa !23
   call void @cairo_move_to(ptr noundef %0, double noundef 0.000000e+00, double noundef -1.000000e+00) #9
   br label %47
 
@@ -4971,9 +4971,9 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   %48 = and i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %48, 0
   %49 = getelementptr inbounds nuw [10 x float], ptr %8, i64 0, i64 %indvars.iv.i
-  %50 = load float, ptr %49, align 4, !tbaa !18
+  %50 = load float, ptr %49, align 4, !tbaa !23
   %51 = getelementptr inbounds nuw [10 x float], ptr %9, i64 0, i64 %indvars.iv.i
-  %52 = load float, ptr %51, align 4, !tbaa !18
+  %52 = load float, ptr %51, align 4, !tbaa !23
   %..i = select i1 %.not.i, float 1.000000e+00, float 0x3FD99999A0000000
   %53 = fmul reassoc nsz arcp contract afn float %..i, %50
   %54 = fpext reassoc nsz arcp contract afn float %53 to double
@@ -4983,7 +4983,7 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   call void @cairo_line_to(ptr noundef %0, double noundef %54, double noundef %57) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %47
+  br i1 %exitcond.not.i, label %dt_draw_star.exit, label %47, !llvm.loop !64
 
 dt_draw_star.exit:                                ; preds = %47
   call void @cairo_close_path(ptr noundef %0) #9
@@ -6320,7 +6320,7 @@ define void @dtgtk_cairo_paint_modulegroup_favorites(ptr noundef %0, i32 noundef
   call void @cairo_line_to(ptr noundef %0, double noundef %55, double noundef %57) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %47, label %48
+  br i1 %exitcond.not, label %47, label %48, !llvm.loop !71
 }
 
 ; Function Attrs: nounwind uwtable
@@ -7167,7 +7167,7 @@ define void @dtgtk_cairo_paint_display_wavelet_scale(ptr noundef %0, i32 noundef
   call void @cairo_line_to(ptr noundef %0, double noundef %.1, double noundef %31) #9
   %34 = add nuw nsw i32 %.051, 1
   %exitcond.not = icmp eq i32 %34, 4
-  br i1 %exitcond.not, label %29, label %30
+  br i1 %exitcond.not, label %29, label %30, !llvm.loop !72
 
 35:                                               ; preds = %7
   call void @cairo_move_to(ptr noundef %0, double noundef 8.000000e-02, double noundef 1.000000e+00) #9
@@ -7754,7 +7754,7 @@ define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noun
   call void @cairo_line_to(ptr noundef %0, double noundef %39, double noundef 0x3FD947AE147AE147) #9
   %40 = add nuw nsw i32 %.07476, 1
   %exitcond.not = icmp eq i32 %40, 7
-  br i1 %exitcond.not, label %.preheader, label %35
+  br i1 %exitcond.not, label %.preheader, label %35, !llvm.loop !73
 
 41:                                               ; preds = %.preheader
   call void @cairo_move_to(ptr noundef %0, double noundef 0x3FD3333333333334, double noundef 6.450000e-01) #9
@@ -7774,7 +7774,7 @@ define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noun
   call void @cairo_line_to(ptr noundef %0, double noundef %45, double noundef 5.200000e-01) #9
   %46 = add nuw nsw i32 %.077, 1
   %exitcond78.not = icmp eq i32 %46, 6
-  br i1 %exitcond78.not, label %41, label %.preheader
+  br i1 %exitcond78.not, label %41, label %.preheader, !llvm.loop !74
 }
 
 declare void @cairo_set_line_join(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -7956,52 +7956,65 @@ attributes #11 = { nounwind allocsize(0) }
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = !{!7, !8, i64 24}
 !12 = !{!8, !8, i64 0}
-!13 = !{!14, !17, i64 8}
-!14 = !{!"", !15, i64 0, !17, i64 8, !9, i64 12, !9, i64 28}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !9, i64 0}
-!17 = !{!"int", !9, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"float", !9, i64 0}
-!20 = !{!17, !17, i64 0}
-!21 = !{!22, !35, i64 128}
-!22 = !{!"darktable_t", !23, i64 0, !17, i64 4, !17, i64 8, !24, i64 16, !24, i64 24, !24, i64 32, !24, i64 40, !25, i64 48, !26, i64 56, !27, i64 64, !28, i64 72, !29, i64 80, !30, i64 88, !31, i64 96, !32, i64 104, !33, i64 112, !34, i64 120, !35, i64 128, !36, i64 136, !37, i64 144, !38, i64 152, !39, i64 160, !40, i64 168, !41, i64 176, !42, i64 184, !43, i64 192, !44, i64 200, !45, i64 208, !46, i64 216, !47, i64 224, !9, i64 232, !48, i64 2792, !48, i64 2832, !48, i64 2872, !48, i64 2912, !48, i64 2952, !15, i64 2992, !15, i64 3000, !15, i64 3008, !15, i64 3016, !15, i64 3024, !15, i64 3032, !15, i64 3040, !15, i64 3048, !15, i64 3056, !15, i64 3064, !15, i64 3072, !15, i64 3080, !15, i64 3088, !49, i64 3096, !24, i64 3104, !8, i64 3112, !24, i64 3120, !17, i64 3128, !9, i64 3132, !17, i64 3320, !17, i64 3324, !50, i64 3328, !51, i64 3336, !52, i64 3344, !55, i64 3384, !56, i64 3416}
-!23 = !{!"dt_codepath_t", !17, i64 0}
-!24 = !{!"p1 _ZTS6_GList", !16, i64 0}
-!25 = !{!"p1 _ZTS11_JsonParser", !16, i64 0}
-!26 = !{!"p1 _ZTS9dt_conf_t", !16, i64 0}
-!27 = !{!"p1 _ZTS12dt_develop_t", !16, i64 0}
-!28 = !{!"p1 _ZTS8dt_lib_t", !16, i64 0}
-!29 = !{!"p1 _ZTS17dt_view_manager_t", !16, i64 0}
-!30 = !{!"p1 _ZTS12dt_control_t", !16, i64 0}
-!31 = !{!"p1 _ZTS19dt_control_signal_t", !16, i64 0}
-!32 = !{!"p1 _ZTS12dt_gui_gtk_t", !16, i64 0}
-!33 = !{!"p1 _ZTS17dt_mipmap_cache_t", !16, i64 0}
-!34 = !{!"p1 _ZTS16dt_image_cache_t", !16, i64 0}
-!35 = !{!"p1 _ZTS12dt_bauhaus_t", !16, i64 0}
-!36 = !{!"p1 _ZTS13dt_database_t", !16, i64 0}
-!37 = !{!"p1 _ZTS14dt_pwstorage_t", !16, i64 0}
-!38 = !{!"p1 _ZTS11dt_camctl_t", !16, i64 0}
-!39 = !{!"p1 _ZTS15dt_collection_t", !16, i64 0}
-!40 = !{!"p1 _ZTS14dt_selection_t", !16, i64 0}
-!41 = !{!"p1 _ZTS11dt_points_t", !16, i64 0}
-!42 = !{!"p1 _ZTS12dt_imageio_t", !16, i64 0}
-!43 = !{!"p1 _ZTS11dt_opencl_t", !16, i64 0}
-!44 = !{!"p1 _ZTS9dt_dbus_t", !16, i64 0}
-!45 = !{!"p1 _ZTS9dt_undo_t", !16, i64 0}
-!46 = !{!"p1 _ZTS16dt_colorspaces_t", !16, i64 0}
-!47 = !{!"p1 _ZTS9dt_l10n_t", !16, i64 0}
-!48 = !{!"dt_pthread_mutex_t", !9, i64 0}
-!49 = !{!"", !17, i64 0}
-!50 = !{!"p1 _ZTS10_GTimeZone", !16, i64 0}
-!51 = !{!"p1 _ZTS10_GDateTime", !16, i64 0}
-!52 = !{!"dt_sys_resources_t", !53, i64 0, !53, i64 8, !54, i64 16, !54, i64 24, !17, i64 32}
-!53 = !{!"long", !9, i64 0}
-!54 = !{!"p1 int", !16, i64 0}
-!55 = !{!"dt_backthumb_t", !8, i64 0, !8, i64 8, !17, i64 16, !17, i64 20, !17, i64 24, !17, i64 28}
-!56 = !{!"dt_gimp_t", !17, i64 0, !15, i64 8, !15, i64 16, !17, i64 24, !17, i64 28}
-!57 = !{!58, !8, i64 0}
-!58 = !{!"_GdkRGBA", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
-!59 = !{!58, !8, i64 8}
-!60 = !{!58, !8, i64 16}
-!61 = !{!58, !8, i64 24}
+!13 = distinct !{!13, !14}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !14}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !14}
+!18 = !{!19, !22, i64 8}
+!19 = !{!"", !20, i64 0, !22, i64 8, !9, i64 12, !9, i64 28}
+!20 = !{!"p1 omnipotent char", !21, i64 0}
+!21 = !{!"any pointer", !9, i64 0}
+!22 = !{!"int", !9, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"float", !9, i64 0}
+!25 = distinct !{!25, !14}
+!26 = !{!22, !22, i64 0}
+!27 = distinct !{!27, !14}
+!28 = !{!29, !42, i64 128}
+!29 = !{!"darktable_t", !30, i64 0, !22, i64 4, !22, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !32, i64 48, !33, i64 56, !34, i64 64, !35, i64 72, !36, i64 80, !37, i64 88, !38, i64 96, !39, i64 104, !40, i64 112, !41, i64 120, !42, i64 128, !43, i64 136, !44, i64 144, !45, i64 152, !46, i64 160, !47, i64 168, !48, i64 176, !49, i64 184, !50, i64 192, !51, i64 200, !52, i64 208, !53, i64 216, !54, i64 224, !9, i64 232, !55, i64 2792, !55, i64 2832, !55, i64 2872, !55, i64 2912, !55, i64 2952, !20, i64 2992, !20, i64 3000, !20, i64 3008, !20, i64 3016, !20, i64 3024, !20, i64 3032, !20, i64 3040, !20, i64 3048, !20, i64 3056, !20, i64 3064, !20, i64 3072, !20, i64 3080, !20, i64 3088, !56, i64 3096, !31, i64 3104, !8, i64 3112, !31, i64 3120, !22, i64 3128, !9, i64 3132, !22, i64 3320, !22, i64 3324, !57, i64 3328, !58, i64 3336, !59, i64 3344, !62, i64 3384, !63, i64 3416}
+!30 = !{!"dt_codepath_t", !22, i64 0}
+!31 = !{!"p1 _ZTS6_GList", !21, i64 0}
+!32 = !{!"p1 _ZTS11_JsonParser", !21, i64 0}
+!33 = !{!"p1 _ZTS9dt_conf_t", !21, i64 0}
+!34 = !{!"p1 _ZTS12dt_develop_t", !21, i64 0}
+!35 = !{!"p1 _ZTS8dt_lib_t", !21, i64 0}
+!36 = !{!"p1 _ZTS17dt_view_manager_t", !21, i64 0}
+!37 = !{!"p1 _ZTS12dt_control_t", !21, i64 0}
+!38 = !{!"p1 _ZTS19dt_control_signal_t", !21, i64 0}
+!39 = !{!"p1 _ZTS12dt_gui_gtk_t", !21, i64 0}
+!40 = !{!"p1 _ZTS17dt_mipmap_cache_t", !21, i64 0}
+!41 = !{!"p1 _ZTS16dt_image_cache_t", !21, i64 0}
+!42 = !{!"p1 _ZTS12dt_bauhaus_t", !21, i64 0}
+!43 = !{!"p1 _ZTS13dt_database_t", !21, i64 0}
+!44 = !{!"p1 _ZTS14dt_pwstorage_t", !21, i64 0}
+!45 = !{!"p1 _ZTS11dt_camctl_t", !21, i64 0}
+!46 = !{!"p1 _ZTS15dt_collection_t", !21, i64 0}
+!47 = !{!"p1 _ZTS14dt_selection_t", !21, i64 0}
+!48 = !{!"p1 _ZTS11dt_points_t", !21, i64 0}
+!49 = !{!"p1 _ZTS12dt_imageio_t", !21, i64 0}
+!50 = !{!"p1 _ZTS11dt_opencl_t", !21, i64 0}
+!51 = !{!"p1 _ZTS9dt_dbus_t", !21, i64 0}
+!52 = !{!"p1 _ZTS9dt_undo_t", !21, i64 0}
+!53 = !{!"p1 _ZTS16dt_colorspaces_t", !21, i64 0}
+!54 = !{!"p1 _ZTS9dt_l10n_t", !21, i64 0}
+!55 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!56 = !{!"", !22, i64 0}
+!57 = !{!"p1 _ZTS10_GTimeZone", !21, i64 0}
+!58 = !{!"p1 _ZTS10_GDateTime", !21, i64 0}
+!59 = !{!"dt_sys_resources_t", !60, i64 0, !60, i64 8, !61, i64 16, !61, i64 24, !22, i64 32}
+!60 = !{!"long", !9, i64 0}
+!61 = !{!"p1 int", !21, i64 0}
+!62 = !{!"dt_backthumb_t", !8, i64 0, !8, i64 8, !22, i64 16, !22, i64 20, !22, i64 24, !22, i64 28}
+!63 = !{!"dt_gimp_t", !22, i64 0, !20, i64 8, !20, i64 16, !22, i64 24, !22, i64 28}
+!64 = distinct !{!64, !14}
+!65 = !{!66, !8, i64 0}
+!66 = !{!"_GdkRGBA", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24}
+!67 = !{!66, !8, i64 8}
+!68 = !{!66, !8, i64 16}
+!69 = !{!66, !8, i64 24}
+!70 = distinct !{!70, !14}
+!71 = distinct !{!71, !14}
+!72 = distinct !{!72, !14}
+!73 = distinct !{!73, !14}
+!74 = distinct !{!74, !14}

@@ -216,7 +216,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %85, %66, %56
 92:                                               ; preds = %CatCacheRemoveCTup.exit.i, %52, %45
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %93 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %93, label %45, label %._crit_edge.i.loopexit, !llvm.loop !8
+  br i1 %93, label %45, label %._crit_edge.i.loopexit, !llvm.loop !9
 
 ._crit_edge.i.loopexit:                           ; preds = %92
   %.pre = load ptr, ptr %.sroa.14.067.in, align 8
@@ -278,7 +278,7 @@ CatCacheRemoveCList.exit:                         ; preds = %117, %._crit_edge.i
 
 120:                                              ; preds = %CatCacheRemoveCList.exit, %35
   %.not52 = icmp eq ptr %.sroa.14.067, %29
-  br i1 %.not52, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not52, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %120
   %.pre86 = load i32, ptr %3, align 4
@@ -289,7 +289,7 @@ CatCacheRemoveCList.exit:                         ; preds = %117, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %122 = sext i32 %121 to i64
   %123 = icmp slt i64 %indvars.iv.next, %122
-  br i1 %123, label %26, label %._crit_edge71, !llvm.loop !10
+  br i1 %123, label %26, label %._crit_edge71, !llvm.loop !11
 
 .preheader:                                       ; preds = %CatCacheRemoveCTup.exit, %._crit_edge71
   %.079 = load ptr, ptr @catcache_in_progress_stack, align 8
@@ -400,7 +400,7 @@ CatCacheFreeKeys.exit.i:                          ; preds = %170, %151, %144
 
 CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.exit.i, %142, %140, %124
   %.not48 = icmp eq ptr %.sroa.14.176, %19
-  br i1 %.not48, label %.preheader, label %124, !llvm.loop !11
+  br i1 %.not48, label %.preheader, label %124, !llvm.loop !12
 
 ._crit_edge83:                                    ; preds = %189, %.preheader
   ret void
@@ -432,7 +432,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.ex
   %190 = getelementptr inbounds nuw i8, ptr %.081, i64 16
   %.0 = load ptr, ptr %190, align 8
   %.not49 = icmp eq ptr %.0, null
-  br i1 %.not49, label %._crit_edge83, label %.lr.ph82, !llvm.loop !12
+  br i1 %.not49, label %._crit_edge83, label %.lr.ph82, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -541,7 +541,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %53, %24, %34
 60:                                               ; preds = %CatCacheRemoveCTup.exit, %20, %13
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %61 = icmp sgt i64 %indvars.iv, 0
-  br i1 %61, label %13, label %._crit_edge, !llvm.loop !8
+  br i1 %61, label %13, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %60, %2
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -637,7 +637,7 @@ define dso_local void @ResetCatalogCaches() local_unnamed_addr #0 {
   tail call fastcc void @ResetCatalogCache(ptr noundef %2, i1 noundef zeroext false)
   %.sroa.0.0.i = load ptr, ptr %.sroa.0.05.i, align 8
   %.not.i = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %.not.i, label %ResetCatalogCachesExt.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %ResetCatalogCachesExt.exit, label %.lr.ph.i, !llvm.loop !14
 
 ResetCatalogCachesExt.exit:                       ; preds = %.lr.ph.i, %0
   ret void
@@ -656,7 +656,7 @@ define dso_local void @ResetCatalogCachesExt(i1 noundef zeroext %0) local_unname
   tail call fastcc void @ResetCatalogCache(ptr noundef %3, i1 noundef zeroext %0)
   %.sroa.0.0 = load ptr, ptr %.sroa.0.05, align 8
   %.not = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -818,7 +818,7 @@ CatCacheRemoveCTup.exit.i:                        ; preds = %80, %61, %51
 87:                                               ; preds = %CatCacheRemoveCTup.exit.i, %47, %40
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %88 = icmp sgt i64 %indvars.iv.i, 0
-  br i1 %88, label %40, label %._crit_edge.i.loopexit, !llvm.loop !8
+  br i1 %88, label %40, label %._crit_edge.i.loopexit, !llvm.loop !9
 
 ._crit_edge.i.loopexit:                           ; preds = %87
   %.pre = load ptr, ptr %.sroa.14.091.in, align 8
@@ -880,7 +880,7 @@ CatCacheRemoveCList.exit:                         ; preds = %112, %._crit_edge.i
 
 115:                                              ; preds = %CatCacheRemoveCList.exit, %30
   %.not50 = icmp eq ptr %.sroa.14.091, %24
-  br i1 %.not50, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not50, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %115
   %.pre114 = load i32, ptr %3, align 4
@@ -891,7 +891,7 @@ CatCacheRemoveCList.exit:                         ; preds = %112, %._crit_edge.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %21, label %.preheader86, !llvm.loop !15
+  br i1 %118, label %21, label %.preheader86, !llvm.loop !16
 
 119:                                              ; preds = %.lr.ph104, %._crit_edge102
   %120 = phi i32 [ %13, %.lr.ph104 ], [ %256, %._crit_edge102 ]
@@ -1032,7 +1032,7 @@ CatCacheRemoveCTup.exit.i75:                      ; preds = %186, %167, %157
 193:                                              ; preds = %CatCacheRemoveCTup.exit.i75, %153, %146
   %indvars.iv.next.i74 = add nsw i64 %indvars.iv.i73, -1
   %194 = icmp sgt i64 %indvars.iv.i73, 0
-  br i1 %194, label %146, label %._crit_edge.i61, !llvm.loop !8
+  br i1 %194, label %146, label %._crit_edge.i61, !llvm.loop !9
 
 ._crit_edge.i61:                                  ; preds = %193, %138
   %195 = getelementptr inbounds nuw i8, ptr %131, i64 8
@@ -1155,7 +1155,7 @@ CatCacheFreeKeys.exit.i:                          ; preds = %249, %230, %223
 
 CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.exit.i, %CatCacheRemoveCList.exit85, %136
   %.not47 = icmp eq ptr %.sroa.14.199, %122
-  br i1 %.not47, label %._crit_edge102.loopexit, label %.lr.ph101, !llvm.loop !16
+  br i1 %.not47, label %._crit_edge102.loopexit, label %.lr.ph101, !llvm.loop !17
 
 ._crit_edge102.loopexit:                          ; preds = %CatCacheRemoveCTup.exit
   %.pre115 = load i32, ptr %12, align 4
@@ -1166,7 +1166,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.ex
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %257 = sext i32 %256 to i64
   %258 = icmp slt i64 %indvars.iv.next112, %257
-  br i1 %258, label %119, label %._crit_edge105, !llvm.loop !17
+  br i1 %258, label %119, label %._crit_edge105, !llvm.loop !18
 
 ._crit_edge105:                                   ; preds = %._crit_edge102, %.preheader86
   %.0106 = load ptr, ptr @catcache_in_progress_stack, align 8
@@ -1189,7 +1189,7 @@ CatCacheRemoveCTup.exit:                          ; preds = %CatCacheFreeKeys.ex
   %264 = getelementptr inbounds nuw i8, ptr %.0108, i64 16
   %.0 = load ptr, ptr %264, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph109, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph109, !llvm.loop !19
 
 .loopexit:                                        ; preds = %263, %._crit_edge105
   ret void
@@ -1219,7 +1219,7 @@ define dso_local void @CatalogCacheFlushCatalog(i32 noundef %0) local_unnamed_ad
 9:                                                ; preds = %6, %.lr.ph
   %.sroa.0.0 = load ptr, ptr %.sroa.0.07, align 8
   %.not = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %9, %1
   ret void
@@ -1301,7 +1301,7 @@ CreateCacheMemoryContext.exit:                    ; preds = %6
   store i32 %39, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %37, %18
   %41 = load ptr, ptr @CacheHdr, align 8
@@ -1495,7 +1495,7 @@ GetCCHashEqFuncs.exit:                            ; preds = %28, %33, %41, %42, 
   %62 = load i32, ptr %19, align 8
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %24, label %._crit_edge, !llvm.loop !21
+  br i1 %64, label %24, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %GetCCHashEqFuncs.exit, %1
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1526,7 +1526,7 @@ define internal fastcc ptr @SearchCatCacheInternal(ptr noundef %0, i32 noundef %
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %12, !prof !22
+  br i1 %10, label %11, label %12, !prof !23
 
 11:                                               ; preds = %6
   tail call fastcc void @CatalogCacheInitializeCache(ptr noundef nonnull %0)
@@ -1625,7 +1625,7 @@ CatalogCacheComputeHashValue.exit:                ; preds = %12, %27
 58:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
@@ -1690,7 +1690,7 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i, %54, %.lr
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.052, i64 8
   %89 = load ptr, ptr %88, align 8
   %.not44 = icmp eq ptr %89, %47
-  br i1 %.not44, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
+  br i1 %.not44, label %._crit_edge, label %.lr.ph.split, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %CatalogCacheCompareTuple.exit, %CatalogCacheComputeHashValue.exit
   %90 = tail call fastcc ptr @SearchCatCacheMiss(ptr noundef %0, i32 noundef %1, i32 noundef %39, i32 noundef %43, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5)
@@ -1931,7 +1931,7 @@ define dso_local ptr @SearchCatCacheList(ptr noundef %0, i32 noundef %1, i64 nou
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %16, !prof !22
+  br i1 %14, label %15, label %16, !prof !23
 
 15:                                               ; preds = %5
   call fastcc void @CatalogCacheInitializeCache(ptr noundef nonnull %0)
@@ -2038,7 +2038,7 @@ dlist_push_head.exit.i:                           ; preds = %70, %.lr.ph.i
   store ptr %.sroa.0.030.i, ptr %71, align 8
   store ptr %.sroa.0.030.i, ptr %67, align 8
   %.not28.i = icmp eq ptr %.sroa.9.0.i, %56
-  br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !26
 
 ._crit_edge.loopexit.i:                           ; preds = %dlist_push_head.exit.i
   %.pre.i = load i32, ptr %30, align 4
@@ -2049,7 +2049,7 @@ dlist_push_head.exit.i:                           ; preds = %70, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %73 = sext i32 %72 to i64
   %74 = icmp slt i64 %indvars.iv.next.i, %73
-  br i1 %74, label %53, label %RehashCatCacheLists.exit, !llvm.loop !26
+  br i1 %74, label %53, label %RehashCatCacheLists.exit, !llvm.loop !27
 
 RehashCatCacheLists.exit:                         ; preds = %._crit_edge.i, %43
   %75 = load ptr, ptr %20, align 8
@@ -2150,7 +2150,7 @@ CatalogCacheComputeHashValue.exit:                ; preds = %76, %88
 122:                                              ; preds = %.lr.ph.i202
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i203, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i205, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit224, label %.lr.ph.i202, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.loopexit224, label %.lr.ph.i202, !llvm.loop !24
 
 .lr.ph.i202:                                      ; preds = %122, %.lr.ph.preheader.i
   %indvars.iv.i203 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i205, %122 ]
@@ -2206,7 +2206,7 @@ CatalogCacheCompareTuple.exit:                    ; preds = %.lr.ph.i202, %117, 
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0234, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not182 = icmp eq ptr %147, %107
-  br i1 %.not182, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27
+  br i1 %.not182, label %._crit_edge, label %.lr.ph.split, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %CatalogCacheCompareTuple.exit, %CatalogCacheComputeHashValue.exit
   store volatile ptr null, ptr %8, align 8
@@ -2375,7 +2375,7 @@ IndexScanOK.exit:                                 ; preds = %.critedge, %.crited
   %232 = getelementptr inbounds nuw i8, ptr %.sroa.0101.1248, i64 8
   %233 = load ptr, ptr %232, align 8
   %.not190.not = icmp eq ptr %233, %210
-  br i1 %.not190.not, label %._crit_edge251, label %214, !llvm.loop !28
+  br i1 %.not190.not, label %._crit_edge251, label %214, !llvm.loop !29
 
 ._crit_edge251:                                   ; preds = %231, %.lr.ph253
   %234 = call fastcc ptr @CatalogCacheCreateEntry(ptr noundef nonnull %0, ptr noundef nonnull %202, ptr noundef null, i32 noundef %204, i32 noundef %207)
@@ -2404,13 +2404,13 @@ IndexScanOK.exit:                                 ; preds = %.critedge, %.crited
   %244 = load i8, ptr %152, align 1, !range !4
   %245 = trunc nuw i8 %244 to i1
   %.not188 = select i1 %243, i1 true, i1 %245
-  br i1 %.not188, label %.loopexit223, label %.lr.ph253
+  br i1 %.not188, label %.loopexit223, label %.lr.ph253, !llvm.loop !30
 
 .loopexit223:                                     ; preds = %237, %IndexScanOK.exit, %.thread219
   call void @systable_endscan(ptr noundef %195) #14
   %246 = load i8, ptr %152, align 1, !range !4, !noundef !5
   %247 = trunc nuw i8 %246 to i1
-  br i1 %247, label %173, label %248, !llvm.loop !29
+  br i1 %247, label %173, label %248, !llvm.loop !31
 
 248:                                              ; preds = %.loopexit223
   %249 = icmp ne ptr %197, null
@@ -2486,7 +2486,7 @@ list_length.exit:                                 ; preds = %248, %254
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
   %indvars.iv.next.i214 = add nuw nsw i64 %indvars.iv.i212, 1
   %exitcond.not.i215 = icmp eq i64 %indvars.iv.next.i214, %wide.trip.count.i211
-  br i1 %exitcond.not.i215, label %CatCacheCopyKeys.exit, label %267, !llvm.loop !30
+  br i1 %exitcond.not.i215, label %CatCacheCopyKeys.exit, label %267, !llvm.loop !32
 
 CatCacheCopyKeys.exit:                            ; preds = %283, %list_length.exit
   store ptr %253, ptr @CurrentMemoryContext, align 8
@@ -2985,7 +2985,7 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
   %81 = load i32, ptr %56, align 8
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %62, label %.loopexit, !llvm.loop !31
+  br i1 %83, label %62, label %.loopexit, !llvm.loop !33
 
 84:                                               ; preds = %5
   %85 = load ptr, ptr @CacheMemoryContext, align 8
@@ -3045,7 +3045,7 @@ heap_getattr.exit:                                ; preds = %74, %76, %78
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %CatCacheCopyKeys.exit, label %96, !llvm.loop !30
+  br i1 %exitcond.not.i, label %CatCacheCopyKeys.exit, label %96, !llvm.loop !32
 
 CatCacheCopyKeys.exit:                            ; preds = %112, %84
   store ptr %86, ptr @CurrentMemoryContext, align 8
@@ -3175,7 +3175,7 @@ dlist_push_head.exit.i:                           ; preds = %187, %.lr.ph.i83
   store ptr %.sroa.0.030.i, ptr %188, align 8
   store ptr %.sroa.0.030.i, ptr %184, align 8
   %.not28.i = icmp eq ptr %.sroa.9.0.i, %173
-  br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i83, !llvm.loop !32
+  br i1 %.not28.i, label %._crit_edge.loopexit.i, label %.lr.ph.i83, !llvm.loop !34
 
 ._crit_edge.loopexit.i:                           ; preds = %dlist_push_head.exit.i
   %.pre.i = load i32, ptr %147, align 4
@@ -3186,7 +3186,7 @@ dlist_push_head.exit.i:                           ; preds = %187, %.lr.ph.i83
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i82, 1
   %190 = sext i32 %189 to i64
   %191 = icmp slt i64 %indvars.iv.next.i84, %190
-  br i1 %191, label %170, label %RehashCatCache.exit, !llvm.loop !33
+  br i1 %191, label %170, label %RehashCatCache.exit, !llvm.loop !35
 
 RehashCatCache.exit:                              ; preds = %._crit_edge.i, %160
   %192 = load ptr, ptr %128, align 8
@@ -3292,7 +3292,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr noundef readonly captur
 27:                                               ; preds = %17, %.lr.ph.split.us
   %.sroa.0.0.us = load ptr, ptr %.sroa.0.032.us, align 8
   %.not.us = icmp eq ptr %.sroa.0.0.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !34
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !36
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %50
   %.sroa.0.032 = phi ptr [ %.sroa.0.0, %50 ], [ %.sroa.0.030, %.lr.ph ]
@@ -3336,7 +3336,7 @@ define dso_local void @PrepareToInvalidateCacheTuple(ptr noundef readonly captur
 50:                                               ; preds = %48, %36, %.lr.ph.split
   %.sroa.0.0 = load ptr, ptr %.sroa.0.032, align 8
   %.not = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !36
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %50, %27, %5
   ret void
@@ -3528,7 +3528,7 @@ define internal fastcc ptr @SearchCatCacheMiss(ptr noundef %0, i32 noundef %1, i
 
 .critedge:                                        ; preds = %36
   call void @systable_endscan(ptr noundef %34) #14
-  br label %25
+  br label %25, !llvm.loop !39
 
 25:                                               ; preds = %.critedge, %8
   %26 = load i32, ptr %24, align 4
@@ -3835,34 +3835,37 @@ attributes #18 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !8}

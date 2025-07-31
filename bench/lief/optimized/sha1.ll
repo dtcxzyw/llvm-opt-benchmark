@@ -1551,11 +1551,11 @@ define hidden range(i32 0, 2) i32 @mbedtls_sha1_self_test(i32 noundef %0) local_
 mbedtls_sha1_update.exit:                         ; preds = %._crit_edge.i, %._crit_edge.thread.i
   %46 = add nuw nsw i32 %.01845, 1
   %exitcond.not = icmp eq i32 %46, 1000
-  br i1 %exitcond.not, label %mbedtls_sha1_update.exit38.loopexit, label %25, !llvm.loop !18
+  br i1 %exitcond.not, label %mbedtls_sha1_update.exit38.loopexit, label %25, !llvm.loop !19
 
 ._crit_edge.thread.i34:                           ; preds = %22
   %47 = getelementptr inbounds nuw [3 x i64], ptr @sha1_test_buflen, i64 0, i64 %indvars.iv
-  %48 = load i64, ptr %47, align 8, !tbaa !19
+  %48 = load i64, ptr %47, align 8, !tbaa !20
   %49 = getelementptr inbounds nuw [3 x [57 x i8]], ptr @sha1_test_buf, i64 0, i64 %indvars.iv
   %50 = trunc i64 %48 to i32
   store i32 %50, ptr %4, align 4, !tbaa !7
@@ -1632,7 +1632,7 @@ mbedtls_sha1_finish.exit:                         ; preds = %56, %59
 
 .backedge.backedge:                               ; preds = %82, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %82 ], [ %indvars.iv.next50, %.thread ]
-  br label %.backedge, !llvm.loop !21
+  br label %.backedge, !llvm.loop !22
 
 .thread:                                          ; preds = %81
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -1707,9 +1707,10 @@ attributes #12 = { nounwind }
 !13 = !{!10, !8, i64 0}
 !14 = !{!10, !8, i64 68}
 !15 = !{!10, !8, i64 76}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !5, i64 0}
-!21 = distinct !{!21, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !5, i64 0}
+!22 = distinct !{!22, !17, !18}

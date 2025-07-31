@@ -274,7 +274,7 @@ define dso_local void @add_file_to_manifest(ptr noundef %0, ptr noundef %1, i64 
   store i8 %101, ptr %97, align 1
   %103 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   %104 = icmp ult ptr %103, %86
-  br i1 %104, label %.lr.ph.i46, label %hex_encode.exit.loopexit, !llvm.loop !8
+  br i1 %104, label %.lr.ph.i46, label %hex_encode.exit.loopexit, !llvm.loop !9
 
 hex_encode.exit.loopexit:                         ; preds = %.lr.ph.i46
   %.pre = load i32, ptr %84, align 8
@@ -352,7 +352,7 @@ escape_json.exit:                                 ; preds = %72, %71, %hex_encod
   store i8 %145, ptr %141, align 1
   %147 = getelementptr inbounds nuw i8, ptr %.020.i50, i64 1
   %148 = icmp ult ptr %147, %133
-  br i1 %148, label %.lr.ph.i49, label %hex_encode.exit53, !llvm.loop !8
+  br i1 %148, label %.lr.ph.i49, label %hex_encode.exit53, !llvm.loop !9
 
 hex_encode.exit53:                                ; preds = %.lr.ph.i49
   %149 = load i32, ptr %111, align 8
@@ -500,7 +500,7 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly ca
   %18 = getelementptr inbounds nuw i8, ptr %.029, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   tail call void @appendStringInfoString(ptr noundef nonnull %4, ptr noundef nonnull @.str.12) #7
@@ -544,7 +544,7 @@ define dso_local void @finalize_manifest(ptr noundef %0, ptr noundef readonly ca
   store i8 %41, ptr %37, align 1
   %43 = getelementptr inbounds nuw i8, ptr %.020.i, i64 1
   %44 = icmp ult ptr %43, %26
-  br i1 %44, label %.lr.ph.i, label %hex_encode.exit.loopexit, !llvm.loop !8
+  br i1 %44, label %.lr.ph.i, label %hex_encode.exit.loopexit, !llvm.loop !9
 
 hex_encode.exit.loopexit:                         ; preds = %.lr.ph.i
   %.pre = load i32, ptr %24, align 8
@@ -612,7 +612,8 @@ attributes #9 = { cold noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

@@ -221,7 +221,7 @@ define hidden void @av1_calculate_tile_cols(ptr noundef readonly captures(none) 
   %28 = add nuw nsw i32 %.08595, %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = icmp slt i32 %28, %12
-  br i1 %29, label %26, label %._crit_edge.loopexit, !llvm.loop !6
+  br i1 %29, label %26, label %._crit_edge.loopexit, !llvm.loop !7
 
 ._crit_edge.loopexit:                             ; preds = %26
   %30 = trunc nuw i64 %indvars.iv.next to i32
@@ -291,7 +291,7 @@ tile_log2.exit:                                   ; preds = %47
   %64 = tail call i32 @llvm.smin.i32(i32 %.08198, i32 %61)
   %.182 = select i1 %63, i32 %64, i32 %.08198
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge101, label %57, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge101, label %57, !llvm.loop !8
 
 ._crit_edge101:                                   ; preds = %57, %tile_log2.exit
   %.083.lcssa = phi i32 [ 1, %tile_log2.exit ], [ %62, %57 ]
@@ -360,7 +360,7 @@ define hidden void @av1_calculate_tile_rows(ptr noundef readonly captures(none) 
   %23 = add nuw nsw i32 %.03338, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = icmp slt i32 %23, %9
-  br i1 %24, label %21, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %24, label %21, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %21
   %25 = trunc nuw i64 %indvars.iv.next to i32
@@ -580,7 +580,7 @@ define hidden void @av1_get_uniform_tile_size(ptr noundef readonly captures(none
   %29 = load i32, ptr %4, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %21, label %.preheader, !llvm.loop !9
+  br i1 %31, label %21, label %.preheader, !llvm.loop !10
 
 32:                                               ; preds = %.lr.ph31, %32
   %indvars.iv33 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next34, %32 ]
@@ -596,7 +596,7 @@ define hidden void @av1_get_uniform_tile_size(ptr noundef readonly captures(none
   %40 = load i32, ptr %16, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next34, %41
-  br i1 %42, label %32, label %.loopexit, !llvm.loop !10
+  br i1 %42, label %32, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %32, %.preheader, %11
   ret void
@@ -652,10 +652,11 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}

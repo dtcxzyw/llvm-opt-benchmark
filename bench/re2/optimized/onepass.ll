@@ -310,7 +310,7 @@ for.inc.i92:                                      ; preds = %if.then.i90, %for.b
 for.inc125:                                       ; preds = %for.inc.i92, %if.end117
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0146, i64 1
   %cmp53 = icmp ult ptr %incdec.ptr, %add.ptr.i70
-  br i1 %cmp53, label %for.body54, label %for.end126, !llvm.loop !6
+  br i1 %cmp53, label %for.body54, label %for.end126, !llvm.loop !7
 
 for.end126:                                       ; preds = %for.inc125, %if.end38
   %matched.0.lcssa = phi i1 [ false, %if.end38 ], [ %matched.3, %for.inc125 ]
@@ -412,7 +412,7 @@ _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %for.body163
   store i64 %sub.ptr.sub, ptr %ref.tmp164.sroa.2.0.arrayidx176.sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %return, label %for.body163, !llvm.loop !7
+  br i1 %exitcond.not, label %return, label %for.body163, !llvm.loop !8
 
 return:                                           ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %for.cond161.preheader, %if.end29, %if.end, %done, %invoke.cont3
   %retval.0 = phi i1 [ false, %invoke.cont3 ], [ false, %done ], [ false, %if.end ], [ false, %if.end29 ], [ true, %for.cond161.preheader ], [ true, %_ZN4absl7debian211string_viewC2EPKcm.exit ]
@@ -759,7 +759,7 @@ for.body66:                                       ; preds = %for.body66.lr.ph, %
   %29 = load i32, ptr %bytemap_range_.i, align 4
   %30 = sext i32 %29 to i64
   %cmp65 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %cmp65, label %for.body66, label %for.end, !llvm.loop !8
+  br i1 %cmp65, label %for.body66, label %for.end, !llvm.loop !9
 
 lpad33:                                           ; preds = %invoke.cont7.thread.i, %if.then3.i.i.i.i.i123
   %31 = landingpad { ptr, i32 }
@@ -923,7 +923,7 @@ if.then5.i.i.i172:                                ; preds = %_ZNK3re210SparseSet
   br label %invoke.cont85.backedge
 
 invoke.cont85.backedge:                           ; preds = %if.then5.i.i.i172, %if.end.i160, %sw.bb
-  br label %invoke.cont85
+  br label %invoke.cont85, !llvm.loop !10
 
 sw.bb106:                                         ; preds = %invoke.cont85
   %arrayidx.i.i.i.le801 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %39, i64 %indvars.iv687
@@ -1042,7 +1042,7 @@ land.rhs:                                         ; preds = %while.cond145
   %arrayidx150 = getelementptr inbounds [256 x i8], ptr %bytemap_, i64 0, i64 %indvars.iv.next691
   %67 = load i8, ptr %arrayidx150, align 1
   %cmp152 = icmp eq i8 %67, %66
-  br i1 %cmp152, label %while.cond145, label %while.end.split.loop.exit804, !llvm.loop !9
+  br i1 %cmp152, label %while.cond145, label %while.end.split.loop.exit804, !llvm.loop !11
 
 while.end.split.loop.exit804:                     ; preds = %land.rhs
   %68 = trunc nsw i64 %indvars.iv690 to i32
@@ -1071,7 +1071,7 @@ for.inc171:                                       ; preds = %if.then163, %if.els
   %inc172 = add nsw i32 %c.1.lcssa, 1
   %conv.i245 = zext i8 %70 to i32
   %cmp139.not.not = icmp slt i32 %c.1.lcssa, %conv.i245
-  br i1 %cmp139.not.not, label %for.body140, label %for.end173, !llvm.loop !10
+  br i1 %cmp139.not.not, label %for.body140, label %for.end173, !llvm.loop !12
 
 for.end173:                                       ; preds = %for.inc171, %if.end133
   %conv.i245.lcssa = phi i32 [ %conv.i245575, %if.end133 ], [ %conv.i245, %for.inc171 ]
@@ -1115,7 +1115,7 @@ land.rhs204:                                      ; preds = %while.cond202
   %arrayidx208 = getelementptr inbounds [256 x i8], ptr %bytemap_, i64 0, i64 %indvars.iv.next694
   %76 = load i8, ptr %arrayidx208, align 1
   %cmp210 = icmp eq i8 %76, %75
-  br i1 %cmp210, label %while.cond202, label %while.end214.split.loop.exit806, !llvm.loop !11
+  br i1 %cmp210, label %while.cond202, label %while.end214.split.loop.exit806, !llvm.loop !13
 
 while.end214.split.loop.exit806:                  ; preds = %land.rhs204
   %77 = trunc nsw i64 %indvars.iv693 to i32
@@ -1141,7 +1141,7 @@ if.else232:                                       ; preds = %while.end214
 for.inc237:                                       ; preds = %if.then228, %if.else232
   %inc238 = add nsw i32 %c193.1.lcssa, 1
   %cmp195.not.not = icmp slt i32 %c193.1.lcssa, %sub192
-  br i1 %cmp195.not.not, label %for.body196, label %if.end240, !llvm.loop !12
+  br i1 %cmp195.not.not, label %for.body196, label %if.end240, !llvm.loop !14
 
 if.end240:                                        ; preds = %for.inc237, %if.then177, %for.end173
   %79 = load i32, ptr %arrayidx.i.i.i.le801, align 4
@@ -1188,7 +1188,7 @@ if.then5.i.i.i268:                                ; preds = %_ZNK3re210SparseSet
   br label %invoke.cont85.outer437.backedge
 
 invoke.cont85.outer437.backedge:                  ; preds = %if.then5.i.i.i268, %if.end.i256, %if.end245
-  br label %invoke.cont85.outer437
+  br label %invoke.cont85.outer437, !llvm.loop !10
 
 sw.bb252:                                         ; preds = %invoke.cont85, %invoke.cont85, %invoke.cont85
   %arrayidx.i.i.i.le798 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %39, i64 %indvars.iv687
@@ -1279,7 +1279,7 @@ if.end290:                                        ; preds = %if.end270, %land.lh
 
 invoke.cont85.outer431.backedge:                  ; preds = %if.end290, %if.end.i313, %if.then5.i.i.i325
   %id77.0.ph433.be = phi i32 [ %shr.i311, %if.end290 ], [ %shr.i311, %if.end.i313 ], [ %.pre704, %if.then5.i.i.i325 ]
-  br label %invoke.cont85.outer431
+  br label %invoke.cont85.outer431, !llvm.loop !10
 
 if.end.i313:                                      ; preds = %if.end290
   %100 = load ptr, ptr %20, align 8
@@ -1368,14 +1368,14 @@ if.then5.i.i.i354:                                ; preds = %_ZNK3re210SparseSet
   br label %invoke.cont85.outer.backedge
 
 invoke.cont85.outer.backedge:                     ; preds = %if.then5.i.i.i354, %if.end.i342, %if.end308
-  br label %invoke.cont85.outer
+  br label %invoke.cont85.outer, !llvm.loop !10
 
 sw.epilog:                                        ; preds = %if.end302, %if.end240, %invoke.cont85, %invoke.cont98
   %matched.2 = phi i8 [ %matched.1.ph, %invoke.cont98 ], [ %matched.1.ph, %invoke.cont85 ], [ %matched.1.ph, %if.end240 ], [ 1, %if.end302 ]
   %node.2 = phi ptr [ %node.1.ph439, %invoke.cont98 ], [ %node.1.ph439, %invoke.cont85 ], [ %node.3, %if.end240 ], [ %node.1.ph439, %if.end302 ]
   %nalloc.3 = phi i32 [ %nalloc.2.ph440, %invoke.cont98 ], [ %nalloc.2.ph440, %invoke.cont85 ], [ %nalloc.4, %if.end240 ], [ %nalloc.2.ph440, %if.end302 ]
   %cmp76 = icmp sgt i32 %nstack.1.ph432, 0
-  br i1 %cmp76, label %while.body, label %for.inc317, !llvm.loop !13
+  br i1 %cmp76, label %while.body, label %for.inc317, !llvm.loop !15
 
 for.inc317:                                       ; preds = %sw.epilog
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %it.0587, i64 4
@@ -1384,7 +1384,7 @@ for.inc317:                                       ; preds = %sw.epilog
   %idx.ext.i = sext i32 %116 to i64
   %add.ptr.i153 = getelementptr inbounds i32, ptr %115, i64 %idx.ext.i
   %cmp58.not = icmp eq ptr %incdec.ptr, %add.ptr.i153
-  br i1 %cmp58.not, label %for.end318, label %for.body, !llvm.loop !14
+  br i1 %cmp58.not, label %for.end318, label %for.body, !llvm.loop !16
 
 for.end318:                                       ; preds = %for.inc317, %invoke.cont52
   %nalloc.0.lcssa = phi i32 [ 1, %invoke.cont52 ], [ %nalloc.3, %for.inc317 ]
@@ -1636,13 +1636,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN4absl7debian223inlined_vector_internal7StorageIhLm2048ESaIhEE6InsertINS1_16CopyValueAdapterIS3_EEEEPhPKhT_m(ptr noundef nonnull align 8 dereferenceable(2056) %this, ptr noundef %pos, ptr %values.coerce, i64 noundef %insert_count) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load i64, ptr %this, align 8, !noalias !15
+  %0 = load i64, ptr %this, align 8, !noalias !17
   %and.i.i = and i64 %0, 1
   %tobool.i.not.i = icmp eq i64 %and.i.i, 0
   %data_.i1.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !15
+  %1 = load ptr, ptr %data_.i1.i, align 8, !noalias !17
   %allocated_capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !15
+  %2 = load i64, ptr %allocated_capacity.i.i, align 8, !noalias !17
   %.sink3.i = select i1 %tobool.i.not.i, ptr %data_.i1.i, ptr %1
   %.sink.i = select i1 %tobool.i.not.i, i64 2048, i64 %2
   %shr.i.sink.i = lshr i64 %0, 1
@@ -1688,7 +1688,7 @@ for.inc.i.i:                                      ; preds = %invoke.cont19, %for
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.0, i64 1
   %inc.i.i30 = add nuw i64 %i.07.i.i, 1
   %exitcond.not.i.i31 = icmp eq i64 %inc.i.i30, %sub.ptr.sub.i.i
-  br i1 %exitcond.not.i.i31, label %invoke.cont21, label %for.inc.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i.i31, label %invoke.cont21, label %for.inc.i.i, !llvm.loop !20
 
 invoke.cont21:                                    ; preds = %for.inc.i.i, %invoke.cont19
   %move_values.sroa.0.1 = phi ptr [ %.sink3.i, %invoke.cont19 ], [ %incdec.ptr.i.i.i.i, %for.inc.i.i ]
@@ -1706,7 +1706,7 @@ for.inc.i:                                        ; preds = %invoke.cont21, %for
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %move_values.sroa.0.2, i64 1
   %inc.i = add nuw i64 %i.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %sub
-  br i1 %exitcond.not.i, label %invoke.cont32, label %for.inc.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %invoke.cont32, label %for.inc.i, !llvm.loop !20
 
 invoke.cont32:                                    ; preds = %for.inc.i, %invoke.cont21
   br i1 %tobool.i.not.i, label %_ZN4absl7debian223inlined_vector_internal21AllocationTransactionISaIhEED2Ev.exit, label %if.then.i
@@ -1748,7 +1748,7 @@ for.inc.i.i51:                                    ; preds = %for.inc.i.i51.prehe
   %incdec.ptr.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %move_construction_values.sroa.0.0, i64 1
   %inc.i.i55 = add nuw i64 %i.07.i.i52, 1
   %exitcond.not.i.i56 = icmp eq i64 %inc.i.i55, %sub50
-  br i1 %exitcond.not.i.i56, label %invoke.cont64, label %for.inc.i.i51, !llvm.loop !18
+  br i1 %exitcond.not.i.i56, label %invoke.cont64, label %for.inc.i.i51, !llvm.loop !20
 
 invoke.cont64:                                    ; preds = %for.inc.i.i51, %if.else
   %cmp72109.not = icmp sgt i64 %.sroa.speculated, %add
@@ -1767,7 +1767,7 @@ if.end:                                           ; preds = %if.end.preheader, %
   store i8 %7, ptr %incdec.ptr111, align 1
   %incdec.ptr = getelementptr inbounds i8, ptr %incdec.ptr111, i64 -1
   %cmp72 = icmp ult ptr %incdec.ptr, %add.ptr54
-  br i1 %cmp72, label %for.end, label %if.end, !llvm.loop !19
+  br i1 %cmp72, label %for.end, label %if.end, !llvm.loop !21
 
 for.end:                                          ; preds = %if.end, %invoke.cont64
   br i1 %cmp6.not.i.i48, label %invoke.cont77, label %for.body.i.preheader
@@ -1782,7 +1782,7 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store i8 %.pre, ptr %add.ptr.i62, align 1
   %inc.i63 = add nuw i64 %i.04.i, 1
   %exitcond.not.i64 = icmp eq i64 %inc.i63, %sub50
-  br i1 %exitcond.not.i64, label %invoke.cont77, label %for.body.i, !llvm.loop !20
+  br i1 %exitcond.not.i64, label %invoke.cont77, label %for.body.i, !llvm.loop !22
 
 invoke.cont77:                                    ; preds = %for.body.i, %for.end
   %cmp3.not.i66 = icmp eq i64 %insert_count, %sub50
@@ -1798,7 +1798,7 @@ for.body.i67:                                     ; preds = %for.body.i67.prehea
   store i8 %.pre113, ptr %add.ptr.i69, align 1
   %inc.i70 = add nuw i64 %i.04.i68, 1
   %exitcond.not.i71 = icmp eq i64 %inc.i70, %sub61
-  br i1 %exitcond.not.i71, label %invoke.cont83, label %for.body.i67, !llvm.loop !21
+  br i1 %exitcond.not.i71, label %invoke.cont83, label %for.body.i67, !llvm.loop !23
 
 invoke.cont83:                                    ; preds = %for.body.i67, %invoke.cont77
   %shl.i72 = shl i64 %insert_count, 1
@@ -1863,21 +1863,23 @@ attributes #21 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"_ZN4absl7debian223inlined_vector_internal7StorageIhLm2048ESaIhEE15MakeStorageViewEv: %agg.result"}
-!17 = distinct !{!17, !"_ZN4absl7debian223inlined_vector_internal7StorageIhLm2048ESaIhEE15MakeStorageViewEv"}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZN4absl7debian223inlined_vector_internal7StorageIhLm2048ESaIhEE15MakeStorageViewEv: %agg.result"}
+!19 = distinct !{!19, !"_ZN4absl7debian223inlined_vector_internal7StorageIhLm2048ESaIhEE15MakeStorageViewEv"}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}

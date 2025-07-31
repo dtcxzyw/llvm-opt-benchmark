@@ -87,7 +87,7 @@ thread-pre-split:                                 ; preds = %31
   store i64 %39, ptr %3, align 8, !tbaa !3
   %.not34 = icmp eq ptr %.029, %6
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %41 = load i64, ptr %40, align 8, !tbaa !18
+  %41 = load i64, ptr %40, align 8, !tbaa !19
   br i1 %.not34, label %43, label %42
 
 42:                                               ; preds = %34
@@ -181,6 +181,7 @@ attributes #5 = { nounwind }
 !13 = !{!8, !11, i64 8}
 !14 = !{!8, !9, i64 24}
 !15 = !{!8, !11, i64 32}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!8, !4, i64 40}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!8, !4, i64 40}

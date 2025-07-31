@@ -137,7 +137,7 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   %.3.i = phi i64 [ %spec.select58.i, %47 ], [ %28, %23 ]
   %53 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 4096, ptr noundef nonnull %16)
   %.not51.i = icmp eq ptr %53, null
-  br i1 %.not51.i, label %55, label %.lr.ph.i
+  br i1 %.not51.i, label %55, label %.lr.ph.i, !llvm.loop !20
 
 .thread100:                                       ; preds = %40, %46
   %.141.i.ph = phi i64 [ %.03769.i, %46 ], [ %.343.i, %40 ]
@@ -219,28 +219,28 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br i1 %84, label %85, label %.thread96
 
 85:                                               ; preds = %82
-  store ptr @.str, ptr %3, align 8, !tbaa !20
+  store ptr @.str, ptr %3, align 8, !tbaa !22
   br label %92
 
 .thread96:                                        ; preds = %64, %62, %82, %80, %78, %71
   %.1 = phi ptr [ %77, %71 ], [ %79, %78 ], [ %81, %80 ], [ %83, %82 ], [ %65, %64 ], [ %63, %62 ]
-  store i32 1, ptr %2, align 4, !tbaa !21
+  store i32 1, ptr %2, align 4, !tbaa !23
   %86 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
-  store ptr %86, ptr %1, align 8, !tbaa !22
+  store ptr %86, ptr %1, align 8, !tbaa !24
   %.not80 = icmp eq ptr %86, null
   br i1 %.not80, label %87, label %89
 
 87:                                               ; preds = %.thread96
   %88 = call i32 @munmap(ptr noundef %.1, i64 noundef %0) #8
-  store ptr @.str.1, ptr %3, align 8, !tbaa !20
+  store ptr @.str.1, ptr %3, align 8, !tbaa !22
   br label %92
 
 89:                                               ; preds = %.thread96
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store ptr %90, ptr %86, align 8, !tbaa !24
+  store ptr %90, ptr %86, align 8, !tbaa !26
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  store ptr %.1, ptr %91, align 8, !tbaa !26
-  store i64 %0, ptr %90, align 8, !tbaa !28
+  store ptr %.1, ptr %91, align 8, !tbaa !28
+  store i64 %0, ptr %90, align 8, !tbaa !30
   br label %92
 
 92:                                               ; preds = %89, %87, %85
@@ -251,8 +251,8 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @detach_segment(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !26
-  %4 = load i64, ptr %0, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %4 = load i64, ptr %0, align 8, !tbaa !30
   %5 = tail call i32 @munmap(ptr noundef %3, i64 noundef %4) #8
   ret i32 0
 }
@@ -330,12 +330,14 @@ attributes #10 = { nounwind allocsize(0,1) }
 !17 = !{i8 0, i8 2}
 !18 = !{}
 !19 = !{!12, !12, i64 0}
-!20 = !{!10, !10, i64 0}
-!21 = !{!9, !9, i64 0}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p2 _ZTS20_zend_shared_segment", !11, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!10, !10, i64 0}
+!23 = !{!9, !9, i64 0}
 !24 = !{!25, !25, i64 0}
-!25 = !{!"p1 _ZTS20_zend_shared_segment", !11, i64 0}
-!26 = !{!27, !11, i64 24}
-!27 = !{!"_zend_shared_segment", !12, i64 0, !12, i64 8, !12, i64 16, !11, i64 24}
-!28 = !{!27, !12, i64 0}
+!25 = !{!"p2 _ZTS20_zend_shared_segment", !11, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 _ZTS20_zend_shared_segment", !11, i64 0}
+!28 = !{!29, !11, i64 24}
+!29 = !{!"_zend_shared_segment", !12, i64 0, !12, i64 8, !12, i64 16, !11, i64 24}
+!30 = !{!29, !12, i64 0}

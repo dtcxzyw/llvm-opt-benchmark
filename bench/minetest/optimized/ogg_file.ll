@@ -987,5 +987,6 @@ attributes #21 = { builtin allocsize(0) }
 !52 = !{!"_ZTSSt22_Optional_payload_baseIN5sound17OggFileDecodeInfoEE", !8, i64 0, !18, i64 64}
 !53 = !{!54, !19, i64 0}
 !54 = !{!"_ZTSN5sound17RAIIALSoundBufferE", !19, i64 0}
-!55 = distinct !{!55, !56}
+!55 = distinct !{!55, !56, !57}
 !56 = !{!"llvm.loop.mustprogress"}
+!57 = !{!"llvm.loop.estimated_trip_count"}

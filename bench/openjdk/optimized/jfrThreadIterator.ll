@@ -254,7 +254,7 @@ define hidden void @_ZN31JfrNonJavaThreadIteratorAdapterC2Eb(ptr noundef nonnull
   %8 = getelementptr i8, ptr %5, i64 778
   %.val.i = load i8, ptr %8, align 2
   %9 = trunc i8 %.val.i to i1
-  br i1 %9, label %4, label %_ZL20next_non_java_threadRN13NonJavaThread8IteratorE.exit, !llvm.loop !9
+  br i1 %9, label %4, label %_ZL20next_non_java_threadRN13NonJavaThread8IteratorE.exit, !llvm.loop !10
 
 _ZL20next_non_java_threadRN13NonJavaThread8IteratorE.exit: ; preds = %4, %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -289,7 +289,7 @@ define hidden noundef ptr @_ZN31JfrNonJavaThreadIteratorAdapter4nextEv(ptr nound
   %9 = getelementptr i8, ptr %6, i64 778
   %.val.i = load i8, ptr %9, align 2
   %10 = trunc i8 %.val.i to i1
-  br i1 %10, label %5, label %_ZL20next_non_java_threadRN13NonJavaThread8IteratorE.exit, !llvm.loop !9
+  br i1 %10, label %5, label %_ZL20next_non_java_threadRN13NonJavaThread8IteratorE.exit, !llvm.loop !10
 
 _ZL20next_non_java_threadRN13NonJavaThread8IteratorE.exit: ; preds = %5, %8
   store ptr %6, ptr %2, align 8
@@ -445,7 +445,7 @@ define weak_odr hidden void @_ZN17JfrThreadIteratorI31JfrNonJavaThreadIteratorAd
   %9 = getelementptr i8, ptr %6, i64 778
   %.val.i.i = load i8, ptr %9, align 2
   %10 = trunc i8 %.val.i.i to i1
-  br i1 %10, label %5, label %_ZN31JfrNonJavaThreadIteratorAdapterC2Eb.exit, !llvm.loop !9
+  br i1 %10, label %5, label %_ZN31JfrNonJavaThreadIteratorAdapterC2Eb.exit, !llvm.loop !10
 
 _ZN31JfrNonJavaThreadIteratorAdapterC2Eb.exit:    ; preds = %5, %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -471,7 +471,7 @@ define weak_odr hidden noundef ptr @_ZN17JfrThreadIteratorI31JfrNonJavaThreadIte
   %10 = getelementptr i8, ptr %7, i64 778
   %.val.i.i = load i8, ptr %10, align 2
   %11 = trunc i8 %.val.i.i to i1
-  br i1 %11, label %6, label %_ZN31JfrNonJavaThreadIteratorAdapter4nextEv.exit, !llvm.loop !9
+  br i1 %11, label %6, label %_ZN31JfrNonJavaThreadIteratorAdapter4nextEv.exit, !llvm.loop !10
 
 _ZN31JfrNonJavaThreadIteratorAdapter4nextEv.exit: ; preds = %6, %9
   store ptr %7, ptr %3, align 8
@@ -595,6 +595,7 @@ attributes #5 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 3390338}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}

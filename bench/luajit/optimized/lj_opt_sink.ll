@@ -97,7 +97,7 @@ sink_mark_snap.exit:                              ; preds = %49, %23, %20
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !36
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %53 = load i32, ptr %52, align 4, !tbaa !40
+  %53 = load i32, ptr %52, align 4, !tbaa !41
   %54 = add i32 %53, -1
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw %union.IRIns, ptr %51, i64 %55
@@ -446,7 +446,7 @@ sink_checkphi.exit66.thread.i:                    ; preds = %sink_checkphi.exit6
 
 240:                                              ; preds = %.sink.split.i, %229, %215, %195, %69
   %241 = getelementptr inbounds i8, ptr %.0.i, i64 -8
-  br label %57
+  br label %57, !llvm.loop !42
 
 sink_mark_ins.exit:                               ; preds = %57
   %242 = load i32, ptr %21, align 8, !tbaa !28
@@ -455,7 +455,7 @@ sink_mark_ins.exit:                               ; preds = %57
 
 .preheader:                                       ; preds = %sink_mark_ins.exit, %._crit_edge.i
   %243 = load ptr, ptr %50, align 8, !tbaa !36
-  %244 = load i32, ptr %52, align 4, !tbaa !40
+  %244 = load i32, ptr %52, align 4, !tbaa !41
   %245 = add i32 %244, -1
   %246 = zext i32 %245 to i64
   %247 = getelementptr inbounds nuw %union.IRIns, ptr %243, i64 %246
@@ -516,16 +516,16 @@ sink_mark_ins.exit:                               ; preds = %57
   %287 = getelementptr inbounds i8, ptr %.022.i, i64 -3
   %288 = load i8, ptr %287, align 1, !tbaa !37
   %289 = icmp eq i8 %288, 19
-  br i1 %289, label %.lr.ph.i20, label %._crit_edge.i, !llvm.loop !41
+  br i1 %289, label %.lr.ph.i20, label %._crit_edge.i, !llvm.loop !43
 
 ._crit_edge.i:                                    ; preds = %285
   %290 = icmp eq i32 %.1.i, 0
-  br i1 %290, label %sink_remark_phi.exit, label %.preheader, !llvm.loop !42
+  br i1 %290, label %sink_remark_phi.exit, label %.preheader, !llvm.loop !44
 
 sink_remark_phi.exit:                             ; preds = %._crit_edge.i, %.preheader, %sink_mark_ins.exit
   %291 = load ptr, ptr %50, align 8, !tbaa !36
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 262144
-  %293 = load i32, ptr %52, align 4, !tbaa !40
+  %293 = load i32, ptr %52, align 4, !tbaa !41
   %294 = add i32 %293, -1
   %.not62.i = icmp ult i32 %294, 32768
   br i1 %.not62.i, label %._crit_edge.i24, label %.lr.ph.i21
@@ -656,7 +656,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
   %354 = and i8 %350, 95
   store i8 %354, ptr %349, align 4, !tbaa !37
   store i16 254, ptr %352, align 2, !tbaa !37
-  store i8 1, ptr %296, align 2, !tbaa !43
+  store i8 1, ptr %296, align 2, !tbaa !45
   br label %378
 
 355:                                              ; preds = %348
@@ -706,7 +706,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
 378:                                              ; preds = %373, %371, %369, %355, %353, %343, %341, %sink_checkalloc.exit.thread.i28, %322
   %.0.add.i = add nsw i64 %.0.idx63.i, -8
   %.not.i22 = icmp slt i64 %.0.idx63.i, 262145
-  br i1 %.not.i22, label %._crit_edge.loopexit.i, label %297, !llvm.loop !44
+  br i1 %.not.i22, label %._crit_edge.loopexit.i, label %297, !llvm.loop !46
 
 ._crit_edge.loopexit.i:                           ; preds = %378
   %.pre.i23 = load ptr, ptr %50, align 8, !tbaa !36
@@ -715,7 +715,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
 ._crit_edge.i24:                                  ; preds = %._crit_edge.loopexit.i, %sink_remark_phi.exit
   %379 = phi ptr [ %.pre.i23, %._crit_edge.loopexit.i ], [ %291, %sink_remark_phi.exit ]
   %380 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %381 = load i32, ptr %380, align 8, !tbaa !45
+  %381 = load i32, ptr %380, align 8, !tbaa !47
   %382 = zext i32 %381 to i64
   %383 = getelementptr inbounds nuw %union.IRIns, ptr %379, i64 %382
   %384 = icmp ult ptr %383, %292
@@ -748,7 +748,7 @@ sink_checkalloc.exit.thread.i28:                  ; preds = %sink_checkalloc.exi
   %.2.i = phi ptr [ %.165.i, %.lr.ph67.i ], [ %spec.select.i, %393 ]
   %397 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
   %398 = icmp ult ptr %397, %292
-  br i1 %398, label %.lr.ph67.i, label %sink_sweep_ins.exit, !llvm.loop !46
+  br i1 %398, label %.lr.ph67.i, label %sink_sweep_ins.exit, !llvm.loop !48
 
 sink_sweep_ins.exit:                              ; preds = %396, %._crit_edge.i24, %17, %1
   ret void
@@ -859,12 +859,14 @@ attributes #4 = { nounwind }
 !35 = !{!12, !12, i64 0}
 !36 = !{!5, !13, i64 32}
 !37 = !{!9, !9, i64 0}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = !{!5, !12, i64 12}
-!41 = distinct !{!41, !39}
-!42 = distinct !{!42, !39}
-!43 = !{!5, !9, i64 114}
-!44 = distinct !{!44, !39}
-!45 = !{!5, !12, i64 40}
-!46 = distinct !{!46, !39}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = !{!5, !12, i64 12}
+!42 = distinct !{!42, !40}
+!43 = distinct !{!43, !39, !40}
+!44 = distinct !{!44, !39, !40}
+!45 = !{!5, !9, i64 114}
+!46 = distinct !{!46, !39, !40}
+!47 = !{!5, !12, i64 40}
+!48 = distinct !{!48, !39, !40}

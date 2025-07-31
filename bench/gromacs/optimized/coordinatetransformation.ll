@@ -67,7 +67,7 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVector
   store float %17, ptr %15, align 4, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 12
   %.not = icmp eq ptr %18, %2
-  br i1 %.not, label %._crit_edge, label %6
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -105,7 +105,7 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8Array
   store float %15, ptr %16, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader, label %10, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #17
@@ -126,7 +126,7 @@ define void @_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8Array
   store float %25, ptr %23, align 4, !tbaa !8
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.017, i64 12
   %.not = icmp eq ptr %26, %2
-  br i1 %.not, label %._crit_edge, label %17
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -136,7 +136,7 @@ define void @_ZN3gmx16ScaleCoordinatesC2ERKNS_11BasicVectorIfEE(ptr noundef nonn
           to label %4 unwind label %5
 
 4:                                                ; preds = %2
-  store ptr %3, ptr %0, align 8, !tbaa !12
+  store ptr %3, ptr %0, align 8, !tbaa !15
   ret void
 
 5:                                                ; preds = %2
@@ -156,7 +156,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx16ScaleCoordinatesclENS_8ArrayRefINS_11BasicVectorIfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr captures(address) %1, ptr readnone captures(address) %2) local_unnamed_addr #7 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load ptr, ptr %0, align 8, !tbaa !15
   %.not11.i = icmp eq ptr %1, %2
   br i1 %.not11.i, label %_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph.i
 
@@ -183,7 +183,7 @@ define void @_ZNK3gmx16ScaleCoordinatesclENS_8ArrayRefINS_11BasicVectorIfEEEE(pt
   store float %18, ptr %16, align 4, !tbaa !8
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 12
   %.not.i = icmp eq ptr %19, %2
-  br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %7
+  br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %7, !llvm.loop !10
 
 _ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %7, %3
   ret void
@@ -192,7 +192,7 @@ _ZNK3gmx16ScaleCoordinates4Impl5scaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx16ScaleCoordinatesclEPNS_11BasicVectorIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 align 2 {
 .lr.ph.i:
-  %2 = load ptr, ptr %0, align 8, !tbaa !12
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load float, ptr %2, align 4, !tbaa !8
@@ -215,7 +215,7 @@ define void @_ZNK3gmx16ScaleCoordinatesclEPNS_11BasicVectorIfEE(ptr noundef nonn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr captures(address) %1, ptr readnone captures(address) %2) local_unnamed_addr #7 align 2 {
   %4 = alloca %"class.gmx::BasicVector", align 4
-  %5 = load ptr, ptr %0, align 8, !tbaa !12
+  %5 = load ptr, ptr %0, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #17
   br label %11
 
@@ -242,7 +242,7 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleENS_8ArrayRefIN
   store float %16, ptr %17, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.preheader.i, label %11, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.preheader.i, label %11, !llvm.loop !12
 
 18:                                               ; preds = %18, %.lr.ph.i
   %.sroa.0.017.i = phi ptr [ %1, %.lr.ph.i ], [ %27, %18 ]
@@ -259,7 +259,7 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleENS_8ArrayRefIN
   store float %26, ptr %24, align 4, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.017.i, i64 12
   %.not.i = icmp eq ptr %27, %2
-  br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %18
+  br i1 %.not.i, label %_ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %18, !llvm.loop !14
 
 _ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %18, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #17
@@ -269,7 +269,7 @@ _ZNK3gmx16ScaleCoordinates4Impl24inverseIgnoringZeroScaleENS_8ArrayRefINS_11Basi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleEPNS_11BasicVectorIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 align 2 {
   %3 = alloca %"class.gmx::BasicVector", align 4
-  %4 = load ptr, ptr %0, align 8, !tbaa !12
+  %4 = load ptr, ptr %0, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #17
   br label %18
 
@@ -304,12 +304,12 @@ define void @_ZNK3gmx16ScaleCoordinates24inverseIgnoringZeroScaleEPNS_11BasicVec
   store float %23, ptr %24, align 4, !tbaa !8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.lr.ph.i, label %18, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.lr.ph.i, label %18, !llvm.loop !12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx16ScaleCoordinatesD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !12
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx16ScaleCoordinates4ImplESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx16ScaleCoordinates4ImplEEclEPS2_.exit.i
 
@@ -318,41 +318,41 @@ _ZNKSt14default_deleteIN3gmx16ScaleCoordinates4ImplEEclEPS2_.exit.i: ; preds = %
   br label %_ZNSt10unique_ptrIN3gmx16ScaleCoordinates4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx16ScaleCoordinates4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx16ScaleCoordinates4ImplEEclEPS2_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !12
+  store ptr null, ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx16ScaleCoordinatesC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znwm(i64 noundef 12) #18
-  %4 = load ptr, ptr %1, align 8, !tbaa !12
+  %4 = load ptr, ptr %1, align 8, !tbaa !15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !4
-  store ptr %3, ptr %0, align 8, !tbaa !12
+  store ptr %3, ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx16ScaleCoordinatesaSERKS0_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !12
-  %4 = load ptr, ptr %0, align 8, !tbaa !12
+  %3 = load ptr, ptr %1, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !4
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx16ScaleCoordinatesC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !12
-  store i64 %3, ptr %0, align 8, !tbaa !12
-  store ptr null, ptr %1, align 8, !tbaa !12
+  %3 = load i64, ptr %1, align 8, !tbaa !15
+  store i64 %3, ptr %0, align 8, !tbaa !15
+  store ptr null, ptr %1, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx16ScaleCoordinatesaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !12
-  store ptr null, ptr %1, align 8, !tbaa !12
-  %4 = load ptr, ptr %0, align 8, !tbaa !12
-  store ptr %3, ptr %0, align 8, !tbaa !12
+  %3 = load ptr, ptr %1, align 8, !tbaa !15
+  store ptr null, ptr %1, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  store ptr %3, ptr %0, align 8, !tbaa !15
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx16ScaleCoordinates4ImplESt14default_deleteIS2_EEaSEOS5_.exit, label %_ZNKSt14default_deleteIN3gmx16ScaleCoordinates4ImplEEclEPS2_.exit.i.i.i.i
 
@@ -416,7 +416,7 @@ define void @_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicV
   store float %26, ptr %17, align 4, !tbaa !8
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 12
   %.not = icmp eq ptr %27, %2
-  br i1 %.not, label %._crit_edge, label %9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -426,7 +426,7 @@ define void @_ZN3gmx17TranslateAndScaleC2ERKNS_11BasicVectorIfEES4_(ptr noundef 
           to label %5 unwind label %6
 
 5:                                                ; preds = %3
-  store ptr %4, ptr %0, align 8, !tbaa !15
+  store ptr %4, ptr %0, align 8, !tbaa !19
   ret void
 
 6:                                                ; preds = %3
@@ -438,7 +438,7 @@ define void @_ZN3gmx17TranslateAndScaleC2ERKNS_11BasicVectorIfEES4_(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx17TranslateAndScaleclENS_8ArrayRefINS_11BasicVectorIfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr captures(address) %1, ptr readnone captures(address) %2) local_unnamed_addr #12 align 2 {
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %0, align 8, !tbaa !19
   %.not12.i = icmp eq ptr %1, %2
   br i1 %.not12.i, label %_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %.lr.ph.i
 
@@ -478,7 +478,7 @@ define void @_ZNK3gmx17TranslateAndScaleclENS_8ArrayRefINS_11BasicVectorIfEEEE(p
   store float %27, ptr %18, align 4, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 12
   %.not.i = icmp eq ptr %28, %2
-  br i1 %.not.i, label %_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %10
+  br i1 %.not.i, label %_ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit, label %10, !llvm.loop !18
 
 _ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.exit: ; preds = %10, %3
   ret void
@@ -487,7 +487,7 @@ _ZNK3gmx17TranslateAndScale4Impl9transformENS_8ArrayRefINS_11BasicVectorIfEEEE.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK3gmx17TranslateAndScaleclEPNS_11BasicVectorIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 align 2 {
 .lr.ph.i:
-  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -522,14 +522,14 @@ define void @_ZNK3gmx17TranslateAndScaleclEPNS_11BasicVectorIfEE(ptr noundef non
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx17TranslateAndScale18scaleOperationOnlyEv(ptr dead_on_unwind noalias writable sret(%"class.gmx::ScaleCoordinates") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !15
+  %3 = load ptr, ptr %1, align 8, !tbaa !19
   tail call void @_ZN3gmx16ScaleCoordinatesC1ERKNS_11BasicVectorIfEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx17TranslateAndScaleD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !15
+  %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx17TranslateAndScale4ImplESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx17TranslateAndScale4ImplEEclEPS2_.exit.i
 
@@ -538,41 +538,41 @@ _ZNKSt14default_deleteIN3gmx17TranslateAndScale4ImplEEclEPS2_.exit.i: ; preds = 
   br label %_ZNSt10unique_ptrIN3gmx17TranslateAndScale4ImplESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx17TranslateAndScale4ImplESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN3gmx17TranslateAndScale4ImplEEclEPS2_.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !15
+  store ptr null, ptr %0, align 8, !tbaa !19
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx17TranslateAndScaleC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
-  %4 = load ptr, ptr %1, align 8, !tbaa !15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !17
-  store ptr %3, ptr %0, align 8, !tbaa !15
+  %4 = load ptr, ptr %1, align 8, !tbaa !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !21
+  store ptr %3, ptr %0, align 8, !tbaa !19
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17TranslateAndScaleaSERKS0_(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #10 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !15
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !17
+  %3 = load ptr, ptr %1, align 8, !tbaa !19
+  %4 = load ptr, ptr %0, align 8, !tbaa !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !21
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN3gmx17TranslateAndScaleC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  %3 = load i64, ptr %1, align 8, !tbaa !15
-  store i64 %3, ptr %0, align 8, !tbaa !15
-  store ptr null, ptr %1, align 8, !tbaa !15
+  %3 = load i64, ptr %1, align 8, !tbaa !19
+  store i64 %3, ptr %0, align 8, !tbaa !19
+  store ptr null, ptr %1, align 8, !tbaa !19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx17TranslateAndScaleaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !15
-  store ptr null, ptr %1, align 8, !tbaa !15
-  %4 = load ptr, ptr %0, align 8, !tbaa !15
-  store ptr %3, ptr %0, align 8, !tbaa !15
+  %3 = load ptr, ptr %1, align 8, !tbaa !19
+  store ptr null, ptr %1, align 8, !tbaa !19
+  %4 = load ptr, ptr %0, align 8, !tbaa !19
+  store ptr %3, ptr %0, align 8, !tbaa !19
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx17TranslateAndScale4ImplESt14default_deleteIS2_EEaSEOS5_.exit, label %_ZNKSt14default_deleteIN3gmx17TranslateAndScale4ImplEEclEPS2_.exit.i.i.i.i
 
@@ -588,7 +588,7 @@ _ZNSt10unique_ptrIN3gmx17TranslateAndScale4ImplESt14default_deleteIS2_EEaSEOS5_.
 define void @_ZN3gmx20AffineTransformationC2ENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS2_EEEERKNS_11BasicVectorIfEE(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 36)) %0, ptr readonly captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %0, ptr %4, align 8, !tbaa !18
+  store ptr %0, ptr %4, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false), !tbaa.struct !4
   br label %.lr.ph.i.i.i.i.i
@@ -603,7 +603,7 @@ define void @_ZN3gmx20AffineTransformationC2ENS_12basic_mdspanIKfNS_7extentsIJLl
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i.i.i.i.i, i64 4
   %9 = add nsw i64 %.09.i.i.i.i.i, -1
   %10 = icmp samesign ugt i64 %.09.i.i.i.i.i, 1
-  br i1 %10, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKfN3gmx12ArrayRefIterIfEEET0_T_S6_S5_.exit, !llvm.loop !27
+  br i1 %10, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyIPKfN3gmx12ArrayRefIterIfEEET0_T_S6_S5_.exit, !llvm.loop !31
 
 _ZSt4copyIPKfN3gmx12ArrayRefIterIfEEET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i
   ret void
@@ -646,7 +646,7 @@ define void @_ZNK3gmx20AffineTransformationclENS_8ArrayRefINS_11BasicVectorIfEEE
   store float %18, ptr %15, align 4, !tbaa !5
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.012, i64 12
   %.not = icmp eq ptr %19, %2
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !32
 }
 
 declare void @_ZN3gmx20matrixVectorMultiplyENS_12basic_mdspanIKfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIS1_EEEEPNS_11BasicVectorIfEE(ptr, ptr noundef) local_unnamed_addr #16
@@ -718,20 +718,25 @@ attributes #19 = { builtin nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"float", !6, i64 0}
 !10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTSN3gmx16ScaleCoordinates4ImplE", !14, i64 0}
-!14 = !{!"any pointer", !6, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !13, !11}
+!13 = !{!"llvm.loop.mustprogress"}
+!14 = distinct !{!14, !11}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTSN3gmx17TranslateAndScale4ImplE", !14, i64 0}
-!17 = !{i64 0, i64 12, !5, i64 12, i64 12, !5}
-!18 = !{!19, !26, i64 8}
-!19 = !{!"_ZTSN3gmx12basic_mdspanIfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIfEEEE", !20, i64 0, !21, i64 1, !26, i64 8}
-!20 = !{!"_ZTSN3gmx14accessor_basicIfEE"}
-!21 = !{!"_ZTSN3gmx12layout_right7mappingINS_7extentsIJLl3ELl3EEEEEE", !22, i64 0}
-!22 = !{!"_ZTSN3gmx7extentsIJLl3ELl3EEEE", !23, i64 0}
-!23 = !{!"_ZTSN3gmx6detail15extents_analyseILi2EJLl3ELl3EEEE", !24, i64 0}
-!24 = !{!"_ZTSN3gmx6detail15extents_analyseILi1EJLl3EEEE", !25, i64 0}
-!25 = !{!"_ZTSN3gmx6detail15extents_analyseILi0EJEEE"}
-!26 = !{!"p1 float", !14, i64 0}
-!27 = distinct !{!27, !11}
+!16 = !{!"p1 _ZTSN3gmx16ScaleCoordinates4ImplE", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = distinct !{!18, !11}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTSN3gmx17TranslateAndScale4ImplE", !17, i64 0}
+!21 = !{i64 0, i64 12, !5, i64 12, i64 12, !5}
+!22 = !{!23, !30, i64 8}
+!23 = !{!"_ZTSN3gmx12basic_mdspanIfNS_7extentsIJLl3ELl3EEEENS_12layout_rightENS_14accessor_basicIfEEEE", !24, i64 0, !25, i64 1, !30, i64 8}
+!24 = !{!"_ZTSN3gmx14accessor_basicIfEE"}
+!25 = !{!"_ZTSN3gmx12layout_right7mappingINS_7extentsIJLl3ELl3EEEEEE", !26, i64 0}
+!26 = !{!"_ZTSN3gmx7extentsIJLl3ELl3EEEE", !27, i64 0}
+!27 = !{!"_ZTSN3gmx6detail15extents_analyseILi2EJLl3ELl3EEEE", !28, i64 0}
+!28 = !{!"_ZTSN3gmx6detail15extents_analyseILi1EJLl3EEEE", !29, i64 0}
+!29 = !{!"_ZTSN3gmx6detail15extents_analyseILi0EJEEE"}
+!30 = !{!"p1 float", !17, i64 0}
+!31 = distinct !{!31, !13, !11}
+!32 = distinct !{!32, !11}

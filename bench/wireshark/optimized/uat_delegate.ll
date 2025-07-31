@@ -1592,7 +1592,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM11UatDelegateFv7QStringENS
   %15 = load ptr, ptr %12, align 8
   %16 = getelementptr i8, ptr %15, i64 %.unpack12
   %17 = getelementptr i8, ptr %16, i64 -1
-  %18 = load ptr, ptr %17, align 8, !nosanitize !11
+  %18 = load ptr, ptr %17, align 8, !nosanitize !12
   br label %21
 
 19:                                               ; preds = %10
@@ -1716,6 +1716,7 @@ attributes #13 = { noreturn }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"_ZN7QObject7connectIM17PathSelectionEditFv7QStringEM11UatDelegateFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE: argument 0"}
 !8 = distinct !{!8, !"_ZN7QObject7connectIM17PathSelectionEditFv7QStringEM11UatDelegateFvS2_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESC_PKNSB_IT0_E6ObjectESH_N2Qt14ConnectionTypeE"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{}

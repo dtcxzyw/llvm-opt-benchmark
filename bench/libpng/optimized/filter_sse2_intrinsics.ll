@@ -71,7 +71,7 @@ define void @png_read_filter_row_sub4_sse2(ptr noundef readonly captures(none) %
   %14 = getelementptr inbounds nuw i8, ptr %.0912, i64 4
   %15 = add i64 %.01011, -4
   %16 = icmp ugt i64 %15, 4
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -112,7 +112,7 @@ define void @png_read_filter_row_avg3_sse2(ptr noundef readonly captures(none) %
   %23 = getelementptr inbounds nuw i8, ptr %.043, i64 3
   %24 = add i64 %.03540, -3
   %25 = icmp ugt i64 %24, 3
-  br i1 %25, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !12
+  br i1 %25, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %3
   %.not = icmp eq i64 %5, 0
@@ -183,7 +183,7 @@ define void @png_read_filter_row_avg4_sse2(ptr noundef readonly captures(none) %
   %24 = getelementptr inbounds nuw i8, ptr %.023, i64 4
   %25 = add i64 %.01920, -4
   %26 = icmp ugt i64 %25, 4
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -239,7 +239,7 @@ define void @png_read_filter_row_paeth3_sse2(ptr noundef readonly captures(none)
   %37 = getelementptr inbounds nuw i8, ptr %.082, i64 3
   %38 = add i64 %.07180, -3
   %39 = icmp ugt i64 %38, 3
-  br i1 %39, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !14
+  br i1 %39, label %.lr.ph, label %._crit_edge.thread, !llvm.loop !15
 
 ._crit_edge.thread:                               ; preds = %.lr.ph
   %40 = bitcast <16 x i8> %9 to <8 x i16>
@@ -342,7 +342,7 @@ define void @png_read_filter_row_paeth4_sse2(ptr noundef readonly captures(none)
   %38 = getelementptr inbounds nuw i8, ptr %.03643, i64 4
   %39 = add i64 %.03940, -4
   %40 = icmp ugt i64 %39, 4
-  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -376,10 +376,11 @@ attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!"long", !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}

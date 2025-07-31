@@ -201,7 +201,7 @@ make_node.exit106:                                ; preds = %make_node.exit106.b
 
 make_node.exit106.backedge:                       ; preds = %17, %18, %64, %63, %57, %make_node.exit128.thread, %170, %84, %46, %29
   %.064.be = phi ptr [ %.0.i127155, %make_node.exit128.thread ], [ %22, %29 ], [ %44, %46 ], [ %.0.i112.ph, %84 ], [ %.0.i121.ph, %170 ], [ null, %63 ], [ %55, %57 ], [ %62, %64 ], [ %10, %18 ], [ %10, %17 ]
-  br label %make_node.exit106
+  br label %make_node.exit106, !llvm.loop !22
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -497,7 +497,7 @@ make_node.exit113:                                ; preds = %77
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 %120
   %124 = load i8, ptr %123, align 1, !tbaa !20
   %.not130.i = icmp eq i8 %124, 93
-  br i1 %.not130.i, label %._crit_edge.i, label %.lr.ph152.i
+  br i1 %.not130.i, label %._crit_edge.i, label %.lr.ph152.i, !llvm.loop !24
 
 ._crit_edge.i:                                    ; preds = %122
   %125 = add i64 %119, 2
@@ -519,7 +519,7 @@ make_node.exit113:                                ; preds = %77
 129:                                              ; preds = %.preheader.i
   %130 = add i64 %storemerge.i, 1
   %exitcond156.not.i = icmp eq i64 %130, %1
-  br i1 %exitcond156.not.i, label %131, label %.preheader.i
+  br i1 %exitcond156.not.i, label %131, label %.preheader.i, !llvm.loop !25
 
 131:                                              ; preds = %129
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #9
@@ -543,7 +543,7 @@ make_node.exit113:                                ; preds = %77
   %141 = xor i8 %139, %140
   store i8 %141, ptr %138, align 1, !tbaa !20
   %exitcond.not.i = icmp eq i32 %.099.i, %133
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !26
 
 142:                                              ; preds = %100
   %143 = and i8 %101, 7
@@ -575,7 +575,7 @@ make_node.exit113:                                ; preds = %77
   %.1106.i = phi i8 [ %101, %152 ], [ %.0105.i, %132 ], [ %.0105.i, %.lr.ph.i ]
   %.2104.i = phi i32 [ 1, %152 ], [ 0, %132 ], [ 0, %.lr.ph.i ]
   %.not137.i = icmp eq i8 %153, 93
-  br i1 %.not137.i, label %parse_char_class.exit.thread145, label %100
+  br i1 %.not137.i, label %parse_char_class.exit.thread145, label %100, !llvm.loop !27
 
 parse_char_class.exit.thread145:                  ; preds = %.loopexit.i, %.preheader.i
   %155 = phi i64 [ %storemerge.i, %.preheader.i ], [ %154, %.loopexit.i ]
@@ -717,11 +717,11 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr nounde
   %8 = getelementptr inbounds nuw i8, ptr %.03142, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.critedge36, label %.lr.ph
+  br i1 %.not, label %.critedge36, label %.lr.ph, !llvm.loop !28
 
 10:                                               ; preds = %.lr.ph
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !22
+  %12 = load i64, ptr %11, align 8, !tbaa !29
   %13 = getelementptr inbounds nuw i8, ptr %.03142, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %14, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -729,7 +729,7 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr nounde
   br i1 %.not34, label %16, label %.critedge36
 
 16:                                               ; preds = %10
-  store i64 %12, ptr %11, align 8, !tbaa !22
+  store i64 %12, ptr %11, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %.03142, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !20
   %19 = tail call fastcc i32 @build_suffixtree_descend(ptr noundef %18, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -737,15 +737,15 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr nounde
   br i1 %.not35, label %20, label %.critedge36
 
 20:                                               ; preds = %16
-  store i64 %12, ptr %11, align 8, !tbaa !22
+  store i64 %12, ptr %11, align 8, !tbaa !29
   br label %.critedge36
 
 21:                                               ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !22
+  %23 = load i64, ptr %22, align 8, !tbaa !29
   %24 = add i64 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load i64, ptr %25, align 8, !tbaa !23
+  %26 = load i64, ptr %25, align 8, !tbaa !30
   %27 = icmp ugt i64 %24, %26
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !18
   br i1 %27, label %28, label %32
@@ -759,9 +759,9 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr nounde
   br i1 %.not.i.i, label %textbuffer_putc.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %28
-  store i64 %30, ptr %25, align 8, !tbaa !23
+  store i64 %30, ptr %25, align 8, !tbaa !30
   store ptr %31, ptr %1, align 8, !tbaa !18
-  %.pre5.i = load i64, ptr %22, align 8, !tbaa !22
+  %.pre5.i = load i64, ptr %22, align 8, !tbaa !29
   %.pre6.i = add i64 %.pre5.i, 1
   br label %32
 
@@ -769,14 +769,14 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_descend(ptr nounde
   %.pre-phi.i = phi i64 [ %.pre6.i, %.thread.i.i ], [ %24, %21 ]
   %33 = phi i64 [ %.pre5.i, %.thread.i.i ], [ %23, %21 ]
   %34 = phi ptr [ %31, %.thread.i.i ], [ %.pre.i, %21 ]
-  store i64 %.pre-phi.i, ptr %22, align 8, !tbaa !22
+  store i64 %.pre-phi.i, ptr %22, align 8, !tbaa !29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   store i8 0, ptr %35, align 1, !tbaa !20
   br label %textbuffer_putc.exit
 
 textbuffer_putc.exit:                             ; preds = %28, %32
   %36 = load ptr, ptr %1, align 8, !tbaa !18
-  %37 = load i64, ptr %22, align 8, !tbaa !22
+  %37 = load i64, ptr %22, align 8, !tbaa !29
   %38 = add i64 %37, -1
   %39 = tail call i32 %2(ptr noundef %3, ptr noundef %36, i64 noundef %38, ptr noundef nonnull %4) #9
   %.not33 = icmp eq i32 %39, 0
@@ -956,9 +956,9 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef
   br label %45
 
 13:                                               ; preds = %9
-  %14 = load i64, ptr %7, align 8, !tbaa !22
+  %14 = load i64, ptr %7, align 8, !tbaa !29
   %15 = add i64 %14, 1
-  %16 = load i64, ptr %8, align 8, !tbaa !23
+  %16 = load i64, ptr %8, align 8, !tbaa !30
   %17 = icmp ugt i64 %15, %16
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !18
   br i1 %17, label %18, label %22
@@ -972,9 +972,9 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef
   br i1 %.not.i.i, label %textbuffer_putc.exit, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %18
-  store i64 %20, ptr %8, align 8, !tbaa !23
+  store i64 %20, ptr %8, align 8, !tbaa !30
   store ptr %21, ptr %1, align 8, !tbaa !18
-  %.pre5.i = load i64, ptr %7, align 8, !tbaa !22
+  %.pre5.i = load i64, ptr %7, align 8, !tbaa !29
   %.pre6.i = add i64 %.pre5.i, 1
   br label %22
 
@@ -982,14 +982,14 @@ define internal fastcc range(i32 0, 21) i32 @build_suffixtree_ascend(ptr noundef
   %.pre-phi.i = phi i64 [ %.pre6.i, %.thread.i.i ], [ %15, %13 ]
   %23 = phi i64 [ %.pre5.i, %.thread.i.i ], [ %14, %13 ]
   %24 = phi ptr [ %21, %.thread.i.i ], [ %.pre.i, %13 ]
-  store i64 %.pre-phi.i, ptr %7, align 8, !tbaa !22
+  store i64 %.pre-phi.i, ptr %7, align 8, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %23
   store i8 0, ptr %25, align 1, !tbaa !20
   br label %textbuffer_putc.exit
 
 textbuffer_putc.exit:                             ; preds = %18, %22
   %26 = load ptr, ptr %1, align 8, !tbaa !18
-  %27 = load i64, ptr %7, align 8, !tbaa !22
+  %27 = load i64, ptr %7, align 8, !tbaa !29
   %28 = add i64 %27, -1
   %29 = tail call i32 %3(ptr noundef %4, ptr noundef %26, i64 noundef %28, ptr noundef nonnull %5) #9
   %.not79 = icmp eq i32 %29, 0
@@ -999,9 +999,9 @@ textbuffer_putc.exit:                             ; preds = %18, %22
 30:                                               ; preds = %9
   %31 = getelementptr inbounds nuw i8, ptr %.062133, i64 16
   %32 = load i8, ptr %31, align 8, !tbaa !20
-  %33 = load i64, ptr %7, align 8, !tbaa !22
+  %33 = load i64, ptr %7, align 8, !tbaa !29
   %34 = add i64 %33, 1
-  %35 = load i64, ptr %8, align 8, !tbaa !23
+  %35 = load i64, ptr %8, align 8, !tbaa !30
   %36 = icmp ugt i64 %34, %35
   %.pre.i83 = load ptr, ptr %1, align 8, !tbaa !18
   br i1 %36, label %37, label %41
@@ -1015,9 +1015,9 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   br i1 %.not.i.i87, label %.sink.split, label %.thread.i.i88
 
 .thread.i.i88:                                    ; preds = %37
-  store i64 %39, ptr %8, align 8, !tbaa !23
+  store i64 %39, ptr %8, align 8, !tbaa !30
   store ptr %40, ptr %1, align 8, !tbaa !18
-  %.pre5.i89 = load i64, ptr %7, align 8, !tbaa !22
+  %.pre5.i89 = load i64, ptr %7, align 8, !tbaa !29
   %.pre6.i90 = add i64 %.pre5.i89, 1
   br label %41
 
@@ -1025,7 +1025,7 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   %.pre-phi.i84 = phi i64 [ %.pre6.i90, %.thread.i.i88 ], [ %34, %30 ]
   %42 = phi i64 [ %.pre5.i89, %.thread.i.i88 ], [ %33, %30 ]
   %43 = phi ptr [ %40, %.thread.i.i88 ], [ %.pre.i83, %30 ]
-  store i64 %.pre-phi.i84, ptr %7, align 8, !tbaa !22
+  store i64 %.pre-phi.i84, ptr %7, align 8, !tbaa !29
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %42
   store i8 %32, ptr %44, align 1, !tbaa !20
   br label %.sink.split
@@ -1045,7 +1045,7 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   %spec.select = add i64 %.065135, %54
   %55 = add nuw nsw i64 %.067134, 1
   %exitcond.not = icmp eq i64 %55, 255
-  br i1 %exitcond.not, label %56, label %45
+  br i1 %exitcond.not, label %56, label %45, !llvm.loop !31
 
 56:                                               ; preds = %45
   %57 = icmp ugt i64 %spec.select, 16
@@ -1056,9 +1056,9 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   br label %76
 
 59:                                               ; preds = %56
-  %60 = load i64, ptr %7, align 8, !tbaa !22
+  %60 = load i64, ptr %7, align 8, !tbaa !29
   %61 = add i64 %60, 1
-  %62 = load i64, ptr %8, align 8, !tbaa !23
+  %62 = load i64, ptr %8, align 8, !tbaa !30
   %63 = icmp ugt i64 %61, %62
   %.pre.i92 = load ptr, ptr %1, align 8, !tbaa !18
   br i1 %63, label %64, label %68
@@ -1072,9 +1072,9 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   br i1 %.not.i.i96, label %textbuffer_putc.exit100, label %.thread.i.i97
 
 .thread.i.i97:                                    ; preds = %64
-  store i64 %66, ptr %8, align 8, !tbaa !23
+  store i64 %66, ptr %8, align 8, !tbaa !30
   store ptr %67, ptr %1, align 8, !tbaa !18
-  %.pre5.i98 = load i64, ptr %7, align 8, !tbaa !22
+  %.pre5.i98 = load i64, ptr %7, align 8, !tbaa !29
   %.pre6.i99 = add i64 %.pre5.i98, 1
   br label %68
 
@@ -1082,14 +1082,14 @@ textbuffer_putc.exit:                             ; preds = %18, %22
   %.pre-phi.i93 = phi i64 [ %.pre6.i99, %.thread.i.i97 ], [ %61, %59 ]
   %69 = phi i64 [ %.pre5.i98, %.thread.i.i97 ], [ %60, %59 ]
   %70 = phi ptr [ %67, %.thread.i.i97 ], [ %.pre.i92, %59 ]
-  store i64 %.pre-phi.i93, ptr %7, align 8, !tbaa !22
+  store i64 %.pre-phi.i93, ptr %7, align 8, !tbaa !29
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %69
   store i8 0, ptr %71, align 1, !tbaa !20
   br label %textbuffer_putc.exit100
 
 textbuffer_putc.exit100:                          ; preds = %64, %68
   %72 = load ptr, ptr %1, align 8, !tbaa !18
-  %73 = load i64, ptr %7, align 8, !tbaa !22
+  %73 = load i64, ptr %7, align 8, !tbaa !29
   %74 = add i64 %73, -1
   %75 = tail call i32 %3(ptr noundef %4, ptr noundef %72, i64 noundef %74, ptr noundef nonnull %5) #9
   %.not77 = icmp eq i32 %75, 0
@@ -1111,10 +1111,10 @@ textbuffer_putc.exit100:                          ; preds = %64, %68
   br i1 %.not75, label %102, label %86
 
 86:                                               ; preds = %76
-  %87 = load i64, ptr %7, align 8, !tbaa !22
+  %87 = load i64, ptr %7, align 8, !tbaa !29
   %88 = trunc nuw i64 %.168136 to i8
   %89 = add i64 %87, 1
-  %90 = load i64, ptr %8, align 8, !tbaa !23
+  %90 = load i64, ptr %8, align 8, !tbaa !30
   %91 = icmp ugt i64 %89, %90
   %.pre.i101 = load ptr, ptr %1, align 8, !tbaa !18
   br i1 %91, label %92, label %96
@@ -1128,9 +1128,9 @@ textbuffer_putc.exit100:                          ; preds = %64, %68
   br i1 %.not.i.i105, label %textbuffer_putc.exit109, label %.thread.i.i106
 
 .thread.i.i106:                                   ; preds = %92
-  store i64 %94, ptr %8, align 8, !tbaa !23
+  store i64 %94, ptr %8, align 8, !tbaa !30
   store ptr %95, ptr %1, align 8, !tbaa !18
-  %.pre5.i107 = load i64, ptr %7, align 8, !tbaa !22
+  %.pre5.i107 = load i64, ptr %7, align 8, !tbaa !29
   %.pre6.i108 = add i64 %.pre5.i107, 1
   br label %96
 
@@ -1138,7 +1138,7 @@ textbuffer_putc.exit100:                          ; preds = %64, %68
   %.pre-phi.i102 = phi i64 [ %.pre6.i108, %.thread.i.i106 ], [ %89, %86 ]
   %97 = phi i64 [ %.pre5.i107, %.thread.i.i106 ], [ %87, %86 ]
   %98 = phi ptr [ %95, %.thread.i.i106 ], [ %.pre.i101, %86 ]
-  store i64 %.pre-phi.i102, ptr %7, align 8, !tbaa !22
+  store i64 %.pre-phi.i102, ptr %7, align 8, !tbaa !29
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 %97
   store i8 %88, ptr %99, align 1, !tbaa !20
   br label %textbuffer_putc.exit109
@@ -1150,13 +1150,13 @@ textbuffer_putc.exit109:                          ; preds = %92, %96
   br i1 %.not76, label %.thread, label %.thread120
 
 .thread:                                          ; preds = %textbuffer_putc.exit109
-  store i64 %87, ptr %7, align 8, !tbaa !22
+  store i64 %87, ptr %7, align 8, !tbaa !29
   br label %102
 
 102:                                              ; preds = %.thread, %76
   %103 = add nuw nsw i64 %.168136, 1
   %exitcond142.not = icmp eq i64 %103, 255
-  br i1 %exitcond142.not, label %.thread120, label %76
+  br i1 %exitcond142.not, label %.thread120, label %76, !llvm.loop !32
 
 104:                                              ; preds = %9
   %105 = getelementptr inbounds nuw i8, ptr %.062133, i64 16
@@ -1171,9 +1171,9 @@ textbuffer_putc.exit109:                          ; preds = %92, %96
   br label %.thread120
 
 109:                                              ; preds = %9
-  %110 = load i64, ptr %7, align 8, !tbaa !22
+  %110 = load i64, ptr %7, align 8, !tbaa !29
   %111 = add i64 %110, 1
-  %112 = load i64, ptr %8, align 8, !tbaa !23
+  %112 = load i64, ptr %8, align 8, !tbaa !30
   %113 = icmp ugt i64 %111, %112
   %.pre.i110 = load ptr, ptr %1, align 8, !tbaa !18
   br i1 %113, label %114, label %118
@@ -1187,9 +1187,9 @@ textbuffer_putc.exit109:                          ; preds = %92, %96
   br i1 %.not.i.i114, label %textbuffer_putc.exit118, label %.thread.i.i115
 
 .thread.i.i115:                                   ; preds = %114
-  store i64 %116, ptr %8, align 8, !tbaa !23
+  store i64 %116, ptr %8, align 8, !tbaa !30
   store ptr %117, ptr %1, align 8, !tbaa !18
-  %.pre5.i116 = load i64, ptr %7, align 8, !tbaa !22
+  %.pre5.i116 = load i64, ptr %7, align 8, !tbaa !29
   %.pre6.i117 = add i64 %.pre5.i116, 1
   br label %118
 
@@ -1197,14 +1197,14 @@ textbuffer_putc.exit109:                          ; preds = %92, %96
   %.pre-phi.i111 = phi i64 [ %.pre6.i117, %.thread.i.i115 ], [ %111, %109 ]
   %119 = phi i64 [ %.pre5.i116, %.thread.i.i115 ], [ %110, %109 ]
   %120 = phi ptr [ %117, %.thread.i.i115 ], [ %.pre.i110, %109 ]
-  store i64 %.pre-phi.i111, ptr %7, align 8, !tbaa !22
+  store i64 %.pre-phi.i111, ptr %7, align 8, !tbaa !29
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %119
   store i8 0, ptr %121, align 1, !tbaa !20
   br label %textbuffer_putc.exit118
 
 textbuffer_putc.exit118:                          ; preds = %114, %118
   %122 = load ptr, ptr %1, align 8, !tbaa !18
-  %123 = load i64, ptr %7, align 8, !tbaa !22
+  %123 = load i64, ptr %7, align 8, !tbaa !29
   %124 = add i64 %123, -1
   %125 = tail call i32 %3(ptr noundef %4, ptr noundef %122, i64 noundef %124, ptr noundef nonnull %5) #9
   %.not72 = icmp eq i32 %125, 0
@@ -1219,7 +1219,7 @@ textbuffer_putc.exit118:                          ; preds = %114, %118
 128:                                              ; preds = %.sink.split, %9
   %.264 = phi ptr [ %.062133, %9 ], [ %127, %.sink.split ]
   %.not = icmp eq ptr %.264, null
-  br i1 %.not, label %.thread120, label %9
+  br i1 %.not, label %.thread120, label %9, !llvm.loop !33
 
 .thread120:                                       ; preds = %128, %textbuffer_putc.exit109, %102, %6, %textbuffer_putc.exit118, %107, %textbuffer_putc.exit100, %textbuffer_putc.exit
   %.5 = phi i32 [ %.82, %textbuffer_putc.exit118 ], [ %.81, %107 ], [ %.80, %textbuffer_putc.exit100 ], [ %., %textbuffer_putc.exit ], [ 0, %6 ], [ 0, %102 ], [ 20, %textbuffer_putc.exit109 ], [ 0, %128 ]
@@ -1268,5 +1268,15 @@ attributes #11 = { nounwind allocsize(0) }
 !19 = !{!"text_buffer", !9, i64 0, !4, i64 8, !4, i64 16}
 !20 = !{!5, !5, i64 0}
 !21 = !{!15, !16, i64 0}
-!22 = !{!19, !4, i64 8}
-!23 = !{!19, !4, i64 16}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = distinct !{!27, !23}
+!28 = distinct !{!28, !23}
+!29 = !{!19, !4, i64 8}
+!30 = !{!19, !4, i64 16}
+!31 = distinct !{!31, !23}
+!32 = distinct !{!32, !23}
+!33 = distinct !{!33, !23}

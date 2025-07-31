@@ -155,7 +155,7 @@ pmix_obj_update.exit:                             ; preds = %6
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %16
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %26 = load ptr, ptr %25, align 8, !tbaa !43
+  %26 = load ptr, ptr %25, align 8, !tbaa !44
   %.not10 = icmp eq ptr %26, null
   br i1 %.not10, label %30, label %27
 
@@ -264,6 +264,7 @@ attributes #12 = { noreturn nounwind }
 !38 = !{!"pmix_class_t", !39, i64 0, !22, i64 8, !18, i64 16, !18, i64 24, !5, i64 32, !5, i64 36, !18, i64 40, !18, i64 48, !32, i64 56}
 !39 = !{!"p1 omnipotent char", !18, i64 0}
 !40 = !{!18, !18, i64 0}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!21, !18, i64 96}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!21, !18, i64 96}

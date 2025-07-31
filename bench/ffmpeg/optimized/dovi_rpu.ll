@@ -59,11 +59,11 @@ define void @ff_dovi_ctx_flush(ptr noundef %0) local_unnamed_addr #0 {
   %.sroa.3.sroa.0.4.insert.ext = zext i32 %.sroa.3.sroa.0.4.copyload to i64
   %.sroa.3.sroa.0.4.insert.shift = shl nuw i64 %.sroa.3.sroa.0.4.insert.ext, 32
   %.sroa.3.sroa.3.4..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.3.sroa.3, ptr noundef nonnull align 4 dereferenceable(5) %.sroa.3.sroa.3.4..sroa_idx, i64 5, i1 false), !tbaa.struct !19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.3.sroa.3, ptr noundef nonnull align 4 dereferenceable(5) %.sroa.3.sroa.3.4..sroa_idx, i64 5, i1 false), !tbaa.struct !20
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.3.sroa.0.4.insert.shift, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(5) %.sroa.3.sroa.3, i64 5, i1 false), !tbaa.struct !21
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %.sroa.3.sroa.3.0..sroa.3.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(5) %.sroa.3.sroa.3, i64 5, i1 false), !tbaa.struct !22
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(187) %.sroa.4.0..sroa_idx, i8 0, i64 187, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -76,30 +76,30 @@ define void @ff_dovi_ctx_flush(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @av_refstruct_unref(ptr noundef nonnull %8) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %4, label %7, !llvm.loop !28
+  br i1 %exitcond.not, label %4, label %7, !llvm.loop !29
 }
 
 ; Function Attrs: nounwind uwtable
 define void @ff_dovi_ctx_replace(ptr noundef initializes((0, 8), (12, 21), (22, 42), (48, 64)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !29
-  store ptr %3, ptr %0, align 8, !tbaa !29
+  %3 = load ptr, ptr %1, align 8, !tbaa !30
+  store ptr %3, ptr %0, align 8, !tbaa !30
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %4, ptr noundef nonnull align 4 dereferenceable(9) %5, i64 9, i1 false), !tbaa.struct !30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(9) %4, ptr noundef nonnull align 4 dereferenceable(9) %5, i64 9, i1 false), !tbaa.struct !31
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 22
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %6, ptr noundef nonnull align 2 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !31
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %6, ptr noundef nonnull align 2 dereferenceable(20) %7, i64 20, i1 false), !tbaa.struct !32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %9, ptr %10, align 8, !tbaa !32
+  store ptr %9, ptr %10, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %12 = load ptr, ptr %11, align 8, !tbaa !34
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %12, ptr %13, align 8, !tbaa !33
+  store ptr %12, ptr %13, align 8, !tbaa !34
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !34
+  %16 = load ptr, ptr %15, align 8, !tbaa !35
   tail call void @av_refstruct_replace(ptr noundef nonnull %14, ptr noundef %16) #5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -108,7 +108,7 @@ define void @ff_dovi_ctx_replace(ptr noundef initializes((0, 8), (12, 21), (22, 
 19:                                               ; preds = %23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %22 = load ptr, ptr %21, align 8, !tbaa !36
   tail call void @av_refstruct_replace(ptr noundef nonnull %20, ptr noundef %22) #5
   ret void
 
@@ -116,11 +116,11 @@ define void @ff_dovi_ctx_replace(ptr noundef initializes((0, 8), (12, 21), (22, 
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %23 ]
   %24 = getelementptr inbounds nuw [16 x ptr], ptr %17, i64 0, i64 %indvars.iv
   %25 = getelementptr inbounds nuw [16 x ptr], ptr %18, i64 0, i64 %indvars.iv
-  %26 = load ptr, ptr %25, align 8, !tbaa !23
+  %26 = load ptr, ptr %25, align 8, !tbaa !24
   tail call void @av_refstruct_replace(ptr noundef nonnull %24, ptr noundef %26) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %19, label %23, !llvm.loop !36
+  br i1 %exitcond.not, label %19, label %23, !llvm.loop !37
 }
 
 declare void @av_refstruct_replace(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -128,7 +128,7 @@ declare void @av_refstruct_replace(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 9) i32 @ff_dovi_guess_profile_hevc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 2, !tbaa !37
+  %3 = load i8, ptr %2, align 2, !tbaa !38
   switch i8 %3, label %17 [
     i8 0, label %4
     i8 1, label %7
@@ -136,25 +136,25 @@ define range(i32 0, 9) i32 @ff_dovi_guess_profile_hevc(ptr noundef readonly capt
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %6 = load i8, ptr %5, align 2, !tbaa !38
+  %6 = load i8, ptr %5, align 2, !tbaa !39
   %.not6 = icmp eq i8 %6, 0
   br i1 %.not6, label %17, label %18
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %9 = load i8, ptr %8, align 1, !tbaa !39
+  %9 = load i8, ptr %8, align 1, !tbaa !40
   %.not = icmp eq i8 %9, 0
   br i1 %.not, label %18, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i8, ptr %11, align 2, !tbaa !40
+  %12 = load i8, ptr %11, align 2, !tbaa !41
   %.not5 = icmp eq i8 %12, 0
   br i1 %.not5, label %13, label %18
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %15 = load i8, ptr %14, align 1, !tbaa !41
+  %15 = load i8, ptr %14, align 1, !tbaa !42
   %16 = icmp eq i8 %15, 12
   %. = select i1 %16, i32 7, i32 4
   br label %18
@@ -193,28 +193,29 @@ attributes #5 = { nounwind }
 !14 = !{!"p1 _ZTS19AVDOVIColorMetadata", !6, i64 0}
 !15 = !{!"p1 _ZTS7DOVIExt", !6, i64 0}
 !16 = !{!"p1 omnipotent char", !6, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{i64 0, i64 1, !20, i64 1, i64 1, !20, i64 2, i64 1, !20, i64 3, i64 1, !20, i64 4, i64 1, !20}
-!20 = !{!7, !7, i64 0}
-!21 = !{i64 0, i64 1, !20, i64 1, i64 1, !20, i64 2, i64 1, !20, i64 3, i64 1, !20, i64 4, i64 1, !20, i64 6, i64 1, !20, i64 8, i64 2, !22, i64 10, i64 1, !20, i64 11, i64 1, !20, i64 12, i64 1, !20, i64 13, i64 1, !20, i64 14, i64 1, !20, i64 15, i64 1, !20, i64 16, i64 1, !20, i64 17, i64 1, !20, i64 18, i64 1, !20, i64 19, i64 1, !20, i64 20, i64 1, !20, i64 21, i64 1, !20, i64 22, i64 1, !20, i64 23, i64 1, !20, i64 24, i64 1, !20, i64 32, i64 8, !23, i64 40, i64 8, !24, i64 48, i64 8, !25, i64 56, i64 8, !24, i64 64, i64 128, !20, i64 192, i64 8, !26, i64 200, i64 4, !27}
-!22 = !{!12, !12, i64 0}
-!23 = !{!13, !13, i64 0}
-!24 = !{!14, !14, i64 0}
-!25 = !{!15, !15, i64 0}
-!26 = !{!16, !16, i64 0}
-!27 = !{!9, !9, i64 0}
-!28 = distinct !{!28, !18}
-!29 = !{!5, !6, i64 0}
-!30 = !{i64 0, i64 1, !20, i64 1, i64 1, !20, i64 2, i64 1, !20, i64 3, i64 1, !20, i64 4, i64 1, !20, i64 5, i64 1, !20, i64 6, i64 1, !20, i64 7, i64 1, !20, i64 8, i64 1, !20}
-!31 = !{i64 0, i64 1, !20, i64 2, i64 2, !22, i64 4, i64 1, !20, i64 5, i64 1, !20, i64 6, i64 1, !20, i64 7, i64 1, !20, i64 8, i64 1, !20, i64 9, i64 1, !20, i64 10, i64 1, !20, i64 11, i64 1, !20, i64 12, i64 1, !20, i64 13, i64 1, !20, i64 14, i64 1, !20, i64 15, i64 1, !20, i64 16, i64 1, !20, i64 17, i64 1, !20, i64 18, i64 1, !20}
-!32 = !{!5, !13, i64 48}
-!33 = !{!5, !14, i64 56}
-!34 = !{!5, !14, i64 72}
-!35 = !{!5, !15, i64 64}
-!36 = distinct !{!36, !18}
-!37 = !{!11, !7, i64 4}
-!38 = !{!11, !7, i64 10}
-!39 = !{!11, !7, i64 15}
-!40 = !{!11, !7, i64 16}
-!41 = !{!11, !7, i64 13}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{i64 0, i64 1, !21, i64 1, i64 1, !21, i64 2, i64 1, !21, i64 3, i64 1, !21, i64 4, i64 1, !21}
+!21 = !{!7, !7, i64 0}
+!22 = !{i64 0, i64 1, !21, i64 1, i64 1, !21, i64 2, i64 1, !21, i64 3, i64 1, !21, i64 4, i64 1, !21, i64 6, i64 1, !21, i64 8, i64 2, !23, i64 10, i64 1, !21, i64 11, i64 1, !21, i64 12, i64 1, !21, i64 13, i64 1, !21, i64 14, i64 1, !21, i64 15, i64 1, !21, i64 16, i64 1, !21, i64 17, i64 1, !21, i64 18, i64 1, !21, i64 19, i64 1, !21, i64 20, i64 1, !21, i64 21, i64 1, !21, i64 22, i64 1, !21, i64 23, i64 1, !21, i64 24, i64 1, !21, i64 32, i64 8, !24, i64 40, i64 8, !25, i64 48, i64 8, !26, i64 56, i64 8, !25, i64 64, i64 128, !21, i64 192, i64 8, !27, i64 200, i64 4, !28}
+!23 = !{!12, !12, i64 0}
+!24 = !{!13, !13, i64 0}
+!25 = !{!14, !14, i64 0}
+!26 = !{!15, !15, i64 0}
+!27 = !{!16, !16, i64 0}
+!28 = !{!9, !9, i64 0}
+!29 = distinct !{!29, !18, !19}
+!30 = !{!5, !6, i64 0}
+!31 = !{i64 0, i64 1, !21, i64 1, i64 1, !21, i64 2, i64 1, !21, i64 3, i64 1, !21, i64 4, i64 1, !21, i64 5, i64 1, !21, i64 6, i64 1, !21, i64 7, i64 1, !21, i64 8, i64 1, !21}
+!32 = !{i64 0, i64 1, !21, i64 2, i64 2, !23, i64 4, i64 1, !21, i64 5, i64 1, !21, i64 6, i64 1, !21, i64 7, i64 1, !21, i64 8, i64 1, !21, i64 9, i64 1, !21, i64 10, i64 1, !21, i64 11, i64 1, !21, i64 12, i64 1, !21, i64 13, i64 1, !21, i64 14, i64 1, !21, i64 15, i64 1, !21, i64 16, i64 1, !21, i64 17, i64 1, !21, i64 18, i64 1, !21}
+!33 = !{!5, !13, i64 48}
+!34 = !{!5, !14, i64 56}
+!35 = !{!5, !14, i64 72}
+!36 = !{!5, !15, i64 64}
+!37 = distinct !{!37, !18, !19}
+!38 = !{!11, !7, i64 4}
+!39 = !{!11, !7, i64 10}
+!40 = !{!11, !7, i64 15}
+!41 = !{!11, !7, i64 16}
+!42 = !{!11, !7, i64 13}

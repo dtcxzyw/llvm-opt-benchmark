@@ -364,7 +364,7 @@ define noundef zeroext i1 @_ZN3g2o28EdgeSE2OdomDifferentialCalib4readERSi(ptr no
 35:                                               ; preds = %33, %30
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next33.i, 3
-  br i1 %exitcond.not.i, label %.critedge2.i, label %24, !llvm.loop !61
+  br i1 %exitcond.not.i, label %.critedge2.i, label %24, !llvm.loop !62
 
 _ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE21readInformationMatrixERSi.exit: ; preds = %17, %.critedge2..critedge_crit_edge.i
   %36 = phi i64 [ %.pre37.i, %.critedge2..critedge_crit_edge.i ], [ %20, %17 ]
@@ -401,7 +401,7 @@ define noundef zeroext i1 @_ZNK3g2o28EdgeSE2OdomDifferentialCalib5writeERSo(ptr 
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, double noundef %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str, i64 noundef 1)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %12 = load double, ptr %11, align 16, !tbaa !62
+  %12 = load double, ptr %11, align 16, !tbaa !63
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str, i64 noundef 1)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -415,7 +415,7 @@ define noundef zeroext i1 @_ZNK3g2o28EdgeSE2OdomDifferentialCalib5writeERSo(ptr 
 17:                                               ; preds = %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond19.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond19.not.i, label %_ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE22writeInformationMatrixERSo.exit, label %.preheader.i, !llvm.loop !68
+  br i1 %exitcond19.not.i, label %_ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE22writeInformationMatrixERSo.exit, label %.preheader.i, !llvm.loop !69
 
 18:                                               ; preds = %18, %.preheader.i
   %indvars.iv14.i = phi i64 [ %indvars.iv.i, %.preheader.i ], [ %indvars.iv.next15.i, %18 ]
@@ -426,7 +426,7 @@ define noundef zeroext i1 @_ZNK3g2o28EdgeSE2OdomDifferentialCalib5writeERSo(ptr 
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str, i64 noundef 1)
   %indvars.iv.next15.i = add nuw nsw i64 %indvars.iv14.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next15.i, 3
-  br i1 %exitcond.not.i, label %17, label %18, !llvm.loop !69
+  br i1 %exitcond.not.i, label %17, label %18, !llvm.loop !70
 
 _ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE22writeInformationMatrixERSo.exit: ; preds = %17
   %24 = load ptr, ptr %1, align 8, !tbaa !3
@@ -463,7 +463,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o18BaseFixedSizedEdgeILi3ENS_19Ve
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  %6 = load i8, ptr %5, align 4, !tbaa !70, !range !86, !noundef !87
+  %6 = load i8, ptr %5, align 4, !tbaa !71, !range !87, !noundef !88
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %_ZNK3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE18allVerticesFixedNsIJLm0ELm1ELm2EEEEbSt16integer_sequenceImJXspT_EEE.exit
 
@@ -471,7 +471,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o18BaseFixedSizedEdgeILi3ENS_19Ve
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 100
-  %12 = load i8, ptr %11, align 4, !tbaa !70, !range !86, !noundef !87
+  %12 = load i8, ptr %11, align 4, !tbaa !71, !range !87, !noundef !88
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %_ZNK3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE18allVerticesFixedNsIJLm0ELm1ELm2EEEEbSt16integer_sequenceImJXspT_EEE.exit
 
@@ -479,7 +479,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o18BaseFixedSizedEdgeILi3ENS_19Ve
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  %18 = load i8, ptr %17, align 4, !tbaa !70, !range !86, !noundef !87
+  %18 = load i8, ptr %17, align 4, !tbaa !71, !range !87, !noundef !88
   %19 = trunc nuw i8 %18 to i1
   br label %_ZNK3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE18allVerticesFixedNsIJLm0ELm1ELm2EEEEbSt16integer_sequenceImJXspT_EEE.exit
 
@@ -513,7 +513,7 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %21 = load double, ptr %20, align 8, !tbaa !47
   %22 = fmul double %19, %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %24 = load double, ptr %23, align 16, !tbaa !62
+  %24 = load double, ptr %23, align 16, !tbaa !63
   call void @_ZN3g2o19VelocityMeasurementC1Eddd(ptr noundef nonnull align 16 dereferenceable(24) %2, double noundef %17, double noundef %22, double noundef %24)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #21
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 184
@@ -525,12 +525,12 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load double, ptr %30, align 8, !tbaa !47
   %32 = fsub double 0x400921FB54442D18, %31
-  %33 = call double @fmod(double noundef %32, double noundef 0x401921FB54442D18) #21, !tbaa !88, !noalias !89
+  %33 = call double @fmod(double noundef %32, double noundef 0x401921FB54442D18) #21, !tbaa !89, !noalias !90
   %34 = fcmp ugt double %33, 0.000000e+00
   %.0.v.i.i = select i1 %34, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i = fadd double %33, %.0.v.i.i
-  %35 = call double @sin(double noundef %.0.i.i) #21, !tbaa !88, !noalias !92
-  %36 = call double @cos(double noundef %.0.i.i) #21, !tbaa !88, !noalias !92
+  %35 = call double @sin(double noundef %.0.i.i) #21, !tbaa !89, !noalias !93
+  %36 = call double @cos(double noundef %.0.i.i) #21, !tbaa !89, !noalias !93
   %37 = fneg double %35
   %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %36, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %35, i64 1
@@ -545,34 +545,34 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %45 = fmul <2 x double> %44, %.sroa.5.24.vec.insert.i.i.i.i
   %46 = fadd <2 x double> %45, %41
-  %47 = load double, ptr %11, align 8, !tbaa !103, !noalias !105
+  %47 = load double, ptr %11, align 8, !tbaa !104, !noalias !106
   %48 = fsub double 0x400921FB54442D18, %47
-  %49 = call double @fmod(double noundef %48, double noundef 0x401921FB54442D18) #21, !tbaa !88, !noalias !105
+  %49 = call double @fmod(double noundef %48, double noundef 0x401921FB54442D18) #21, !tbaa !89, !noalias !106
   %50 = fcmp ugt double %49, 0.000000e+00
   %.0.v.i.i8 = select i1 %50, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i9 = fadd double %49, %.0.v.i.i8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %52 = call double @sin(double noundef %.0.i.i9) #21, !tbaa !88, !noalias !108
-  %53 = call double @cos(double noundef %.0.i.i9) #21, !tbaa !88, !noalias !108
+  %52 = call double @sin(double noundef %.0.i.i9) #21, !tbaa !89, !noalias !109
+  %53 = call double @cos(double noundef %.0.i.i9) #21, !tbaa !89, !noalias !109
   %54 = fneg double %52
   %.sroa.0.0.vec.insert.i.i.i.i10 = insertelement <2 x double> poison, double %53, i64 0
   %.sroa.0.8.vec.insert.i.i.i.i11 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i10, double %52, i64 1
   %.sroa.5.16.vec.insert.i.i.i.i12 = insertelement <2 x double> poison, double %54, i64 0
   %.sroa.5.24.vec.insert.i.i.i.i13 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i12, double %53, i64 1
-  %55 = load double, ptr %51, align 8, !tbaa !47, !noalias !119
+  %55 = load double, ptr %51, align 8, !tbaa !47, !noalias !120
   %56 = fneg double %55
   %57 = insertelement <2 x double> poison, double %56, i64 0
   %58 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> zeroinitializer
   %59 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i11, %58
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 200
-  %61 = load double, ptr %60, align 8, !tbaa !47, !noalias !119
+  %61 = load double, ptr %60, align 8, !tbaa !47, !noalias !120
   %62 = fneg double %61
   %63 = insertelement <2 x double> poison, double %62, i64 0
   %64 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> zeroinitializer
   %65 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i13, %64
   %66 = fadd <2 x double> %59, %65
-  %67 = call double @sin(double noundef %.0.i.i) #21, !tbaa !88, !noalias !120
-  %68 = call double @cos(double noundef %.0.i.i) #21, !tbaa !88, !noalias !120
+  %67 = call double @sin(double noundef %.0.i.i) #21, !tbaa !89, !noalias !121
+  %68 = call double @cos(double noundef %.0.i.i) #21, !tbaa !89, !noalias !121
   %69 = fneg double %67
   %.sroa.0.0.vec.insert.i.i.i = insertelement <2 x double> poison, double %68, i64 0
   %.sroa.0.8.vec.insert.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i, double %67, i64 1
@@ -586,29 +586,29 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %75 = fadd <2 x double> %46, %74
   %76 = fadd double %.0.i.i, %.0.i.i9
   %77 = fadd double %76, 0x400921FB54442D18
-  %78 = call double @fmod(double noundef %77, double noundef 0x401921FB54442D18) #21, !tbaa !88, !noalias !127
+  %78 = call double @fmod(double noundef %77, double noundef 0x401921FB54442D18) #21, !tbaa !89, !noalias !128
   %79 = fcmp ugt double %78, 0.000000e+00
   %.0.v.i.i.i = select i1 %79, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i = fadd double %78, %.0.v.i.i.i
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %81 = call double @sin(double noundef %.0.i.i.i) #21, !tbaa !88, !noalias !128
-  %82 = call double @cos(double noundef %.0.i.i.i) #21, !tbaa !88, !noalias !128
+  %81 = call double @sin(double noundef %.0.i.i.i) #21, !tbaa !89, !noalias !129
+  %82 = call double @cos(double noundef %.0.i.i.i) #21, !tbaa !89, !noalias !129
   %83 = fneg double %81
   %.sroa.0.0.vec.insert.i.i.i14 = insertelement <2 x double> poison, double %82, i64 0
   %.sroa.0.8.vec.insert.i.i.i15 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i14, double %81, i64 1
   %.sroa.5.16.vec.insert.i.i.i16 = insertelement <2 x double> poison, double %83, i64 0
   %.sroa.5.24.vec.insert.i.i.i17 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i16, double %82, i64 1
-  %84 = load <2 x double>, ptr %80, align 16, !noalias !135
+  %84 = load <2 x double>, ptr %80, align 16, !noalias !136
   %85 = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> zeroinitializer
   %86 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i15, %85
   %87 = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %88 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i17, %87
   %89 = fadd <2 x double> %86, %88
   %90 = fadd <2 x double> %75, %89
-  %91 = load double, ptr %12, align 8, !tbaa !103, !noalias !136
+  %91 = load double, ptr %12, align 8, !tbaa !104, !noalias !137
   %92 = fadd double %.0.i.i.i, %91
   %93 = fadd double %92, 0x400921FB54442D18
-  %94 = call double @fmod(double noundef %93, double noundef 0x401921FB54442D18) #21, !tbaa !88, !noalias !136
+  %94 = call double @fmod(double noundef %93, double noundef 0x401921FB54442D18) #21, !tbaa !89, !noalias !137
   %95 = fcmp ugt double %94, 0.000000e+00
   %.0.v.i.i.i18 = select i1 %95, double 0xC00921FB54442D18, double 0x400921FB54442D18
   %.0.i.i.i19 = fadd double %94, %.0.v.i.i.i18
@@ -619,7 +619,7 @@ define linkonce_odr void @_ZN3g2o28EdgeSE2OdomDifferentialCalib12computeErrorEv(
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 288
   store double %.sroa.431.24.vec.extract, ptr %.sroa.4.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store double %.0.i.i.i19, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !137
+  store double %.0.i.i.i19, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !138
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #21
   ret void
@@ -661,19 +661,19 @@ define linkonce_odr noundef ptr @_ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE
 define linkonce_odr noundef double @_ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE4chi2Ev(ptr noundef nonnull align 16 dereferenceable(304) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %4 = load <2 x double>, ptr %3, align 16, !tbaa !137
+  %4 = load <2 x double>, ptr %3, align 16, !tbaa !138
   %5 = load <2 x double>, ptr %2, align 8
   %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> zeroinitializer
   %7 = fmul <2 x double> %4, %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %9 = load <2 x double>, ptr %8, align 8, !tbaa !137
+  %9 = load <2 x double>, ptr %8, align 8, !tbaa !138
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %11 = load <2 x double>, ptr %10, align 16
   %12 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
   %13 = fmul <2 x double> %9, %12
   %14 = fadd <2 x double> %7, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %16 = load <2 x double>, ptr %15, align 16, !tbaa !137
+  %16 = load <2 x double>, ptr %15, align 16, !tbaa !138
   %17 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %18 = fmul <2 x double> %16, %17
   %19 = fadd <2 x double> %18, %14
@@ -708,7 +708,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %4 = alloca %"class.Eigen::Matrix.18", align 16
   %5 = alloca %"class.Eigen::Matrix.28", align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load ptr, ptr %6, align 16, !tbaa !138
+  %7 = load ptr, ptr %6, align 16, !tbaa !139
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %70, label %8
 
@@ -718,7 +718,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef double %11(ptr noundef nonnull align 16 dereferenceable(304) %0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21
-  %13 = load ptr, ptr %6, align 16, !tbaa !138
+  %13 = load ptr, ptr %6, align 16, !tbaa !139
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
@@ -726,20 +726,20 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %19 = load <2 x double>, ptr %17, align 16, !tbaa !137
+  %19 = load <2 x double>, ptr %17, align 16, !tbaa !138
   %20 = fneg <2 x double> %19
   %21 = load <2 x double>, ptr %18, align 8
   %22 = shufflevector <2 x double> %21, <2 x double> poison, <2 x i32> zeroinitializer
   %23 = fmul <2 x double> %22, %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %25 = load <2 x double>, ptr %24, align 8, !tbaa !137
+  %25 = load <2 x double>, ptr %24, align 8, !tbaa !138
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %27 = load <2 x double>, ptr %26, align 16
   %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
   %29 = fmul <2 x double> %25, %28
   %30 = fsub <2 x double> %23, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %32 = load <2 x double>, ptr %31, align 16, !tbaa !137
+  %32 = load <2 x double>, ptr %31, align 16, !tbaa !138
   %33 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %34 = fmul <2 x double> %32, %33
   %35 = fsub <2 x double> %30, %34
@@ -760,32 +760,32 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %50 = fmul double %38, %39
   %51 = fsub double %49, %50
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %53 = load double, ptr %52, align 8, !tbaa !47, !noalias !139
+  %53 = load double, ptr %52, align 8, !tbaa !47, !noalias !140
   %54 = insertelement <2 x double> poison, double %53, i64 0
   %55 = shufflevector <2 x double> %54, <2 x double> poison, <2 x i32> zeroinitializer
   %56 = fmul <2 x double> %35, %55
-  store <2 x double> %56, ptr %3, align 16, !tbaa !137
+  store <2 x double> %56, ptr %3, align 16, !tbaa !138
   %57 = fmul double %53, %51
   store double %57, ptr %36, align 16, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #21
-  call void @llvm.experimental.noalias.scope.decl(metadata !142)
+  call void @llvm.experimental.noalias.scope.decl(metadata !143)
   %58 = fmul <2 x double> %19, %55
-  store <2 x double> %58, ptr %4, align 16, !tbaa !137, !alias.scope !142
+  store <2 x double> %58, ptr %4, align 16, !tbaa !138, !alias.scope !143
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %60 = load <2 x double>, ptr %37, align 16, !tbaa !137, !noalias !142
+  %60 = load <2 x double>, ptr %37, align 16, !tbaa !138, !noalias !143
   %61 = fmul <2 x double> %55, %60
-  store <2 x double> %61, ptr %59, align 16, !tbaa !137, !alias.scope !142
+  store <2 x double> %61, ptr %59, align 16, !tbaa !138, !alias.scope !143
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %64 = load <2 x double>, ptr %63, align 16, !tbaa !137, !noalias !142
+  %64 = load <2 x double>, ptr %63, align 16, !tbaa !138, !noalias !143
   %65 = fmul <2 x double> %55, %64
-  store <2 x double> %65, ptr %62, align 16, !tbaa !137, !alias.scope !142
+  store <2 x double> %65, ptr %62, align 16, !tbaa !138, !alias.scope !143
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %67 = fmul <2 x double> %55, %32
-  store <2 x double> %67, ptr %66, align 16, !tbaa !137, !alias.scope !142
+  store <2 x double> %67, ptr %66, align 16, !tbaa !138, !alias.scope !143
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %69 = fmul double %53, %44
-  store double %69, ptr %68, align 16, !tbaa !47, !alias.scope !142
+  store double %69, ptr %68, align 16, !tbaa !47, !alias.scope !143
   call void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE23constructQuadraticFormNILi0EEEvRKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERKNS7_IdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 16 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE23constructQuadraticFormNILi1EEEvRKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERKNS7_IdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 16 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
   call void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE23constructQuadraticFormNILi2EEEvRKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERKNS7_IdLi3ELi1ELi0ELi3ELi1EEE(ptr noundef nonnull align 16 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -798,24 +798,24 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %73 = load <2 x double>, ptr %71, align 16, !tbaa !137
+  %73 = load <2 x double>, ptr %71, align 16, !tbaa !138
   %74 = fneg <2 x double> %73
   %75 = load <2 x double>, ptr %72, align 8
   %76 = shufflevector <2 x double> %75, <2 x double> poison, <2 x i32> zeroinitializer
   %77 = fmul <2 x double> %76, %74
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %79 = load <2 x double>, ptr %78, align 8, !tbaa !137
+  %79 = load <2 x double>, ptr %78, align 8, !tbaa !138
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %81 = load <2 x double>, ptr %80, align 16
   %82 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> zeroinitializer
   %83 = fmul <2 x double> %79, %82
   %84 = fsub <2 x double> %77, %83
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %86 = load <2 x double>, ptr %85, align 16, !tbaa !137
+  %86 = load <2 x double>, ptr %85, align 16, !tbaa !138
   %87 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %88 = fmul <2 x double> %86, %87
   %89 = fsub <2 x double> %84, %88
-  store <2 x double> %89, ptr %5, align 16, !tbaa !137
+  store <2 x double> %89, ptr %5, align 16, !tbaa !138
   %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %92 = load double, ptr %91, align 16, !tbaa !47
@@ -853,7 +853,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %12 = sext i32 %10 to i64
   %13 = getelementptr inbounds nuw [3 x i8], ptr %11, i64 0, i64 %12
-  store i8 %6, ptr %13, align 1, !tbaa !145
+  store i8 %6, ptr %13, align 1, !tbaa !146
   %14 = icmp ult i32 %10, 3
   br i1 %14, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_S9_EEEEvOT_RT0_i.exit.sink.split, label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_S9_EEEEvOT_RT0_i.exit
 
@@ -863,7 +863,7 @@ _ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixI
   %16 = zext nneg i32 %15 to i64
   %switch.offset27 = sub nuw nsw i64 %., %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.offset27
-  store ptr %1, ptr %17, align 8, !tbaa !146
+  store ptr %1, ptr %17, align 8, !tbaa !147
   br label %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_S9_EEEEvOT_RT0_i.exit
 
 _ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_S9_EEEEvOT_RT0_i.exit: ; preds = %5, %_ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS3_6StrideILi0ELi0EEEEES9_S9_EEEEvOT_RT0_i.exit.sink.split
@@ -874,16 +874,16 @@ _ZN3g2o13tuple_apply_iINS_17MapHessianMemoryKESt5tupleIJN5Eigen3MapINS3_6MatrixI
 define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE14linearizeOplusERNS_17JacobianWorkspaceE(ptr noundef nonnull align 16 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %5 = load ptr, ptr %1, align 8, !tbaa !150
-  %6 = load ptr, ptr %5, align 8, !tbaa !153
-  store ptr %6, ptr %4, align 8, !tbaa !155
+  %5 = load ptr, ptr %1, align 8, !tbaa !151
+  %6 = load ptr, ptr %5, align 8, !tbaa !154
+  store ptr %6, ptr %4, align 8, !tbaa !156
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !153
-  store ptr %9, ptr %7, align 8, !tbaa !155
+  %9 = load ptr, ptr %8, align 8, !tbaa !154
+  store ptr %9, ptr %7, align 8, !tbaa !156
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !153
-  store ptr %11, ptr %3, align 8, !tbaa !155
+  %11 = load ptr, ptr %10, align 8, !tbaa !154
+  store ptr %11, ptr %3, align 8, !tbaa !156
   %12 = load ptr, ptr %0, align 16, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load ptr, ptr %13, align 8
@@ -921,12 +921,12 @@ declare noundef zeroext i1 @_ZN3g2o16OptimizableGraph4Edge13resolveCachesEv(ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE14setMeasurementERKS1_(ptr noundef nonnull align 16 dereferenceable(304) %0, ptr noundef nonnull align 16 dereferenceable(24) %1) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = load <2 x double>, ptr %1, align 16, !tbaa !137
-  store <2 x double> %4, ptr %3, align 16, !tbaa !137
+  %4 = load <2 x double>, ptr %1, align 16, !tbaa !138
+  store <2 x double> %4, ptr %3, align 16, !tbaa !138
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load double, ptr %5, align 16, !tbaa !62
+  %6 = load double, ptr %5, align 16, !tbaa !63
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store double %6, ptr %7, align 16, !tbaa !62
+  store double %6, ptr %7, align 16, !tbaa !63
   ret void
 }
 
@@ -949,11 +949,11 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %.sroa.0.0.copyload = load <2 x double>, ptr %7, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !137
+  %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !138
   tail call void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE15linearizeOplusNILi0EEEvv(ptr noundef nonnull align 16 dereferenceable(456) %0)
   tail call void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE15linearizeOplusNILi1EEEvv(ptr noundef nonnull align 16 dereferenceable(456) %0)
   tail call void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasurementEJNS_9VertexSE2ES2_NS_28VertexOdomDifferentialParamsEEE15linearizeOplusNILi2EEEvv(ptr noundef nonnull align 16 dereferenceable(456) %0)
-  store <2 x double> %.sroa.0.0.copyload, ptr %7, align 8, !tbaa !137
+  store <2 x double> %.sroa.0.0.copyload, ptr %7, align 8, !tbaa !138
   store double %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !47
   br label %8
 
@@ -1054,7 +1054,7 @@ define linkonce_odr void @_ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE14_M_fi
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !157
+  %7 = load ptr, ptr %6, align 8, !tbaa !158
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !45
   %10 = ptrtoint ptr %7 to i64
@@ -1110,7 +1110,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
   store ptr %15, ptr %.07.i.i.i, align 8, !tbaa !43
   %32 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %32, %31
-  br i1 %.not.i.i.i, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !158
+  br i1 %.not.i.i.i, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !159
 
 33:                                               ; preds = %14
   %34 = icmp eq i64 %2, %18
@@ -1127,7 +1127,7 @@ _ZSt13move_backwardIPPN3g2o10HyperGraph6VertexES4_ET0_T_S6_S5_.exit: ; preds = %
   store ptr %15, ptr %.07.i.i.i.i.i.i.i, align 8, !tbaa !43
   %38 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %37
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !158
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !159
 
 _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %33
   %39 = phi ptr [ %9, %33 ], [ %37, %.lr.ph.i.i.i.i.i.i.i ]
@@ -1152,7 +1152,7 @@ _ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT
   store ptr %15, ptr %.07.i.i.i72, align 8, !tbaa !43
   %43 = getelementptr inbounds nuw i8, ptr %.07.i.i.i72, i64 8
   %.not.i.i.i73 = icmp eq ptr %43, %9
-  br i1 %.not.i.i.i73, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !158
+  br i1 %.not.i.i.i73, label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit, label %.lr.ph.i.i.i71, !llvm.loop !159
 
 44:                                               ; preds = %5
   %45 = load ptr, ptr %0, align 8, !tbaa !46
@@ -1196,7 +1196,7 @@ _ZNKSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE12_M_check_lenEmPKc.exit: ; pred
   store ptr %65, ptr %.07.i.i.i.i.i.i.i77, align 8, !tbaa !43
   %66 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i77, i64 8
   %.not.i.i.i.i.i.i.i78 = icmp eq ptr %66, %64
-  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !158
+  br i1 %.not.i.i.i.i.i.i.i78, label %_ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit80, label %.lr.ph.i.i.i.i.i.i.i76, !llvm.loop !159
 
 _ZSt24__uninitialized_fill_n_aIPPN3g2o10HyperGraph6VertexEmS3_S3_ET_S5_T0_RKT1_RSaIT2_E.exit80: ; preds = %.lr.ph.i.i.i.i.i.i.i76
   %.not.i.i.i.i.i.i.i.i.i81 = icmp eq ptr %1, %45
@@ -1230,7 +1230,7 @@ _ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit
   store ptr %62, ptr %0, align 8, !tbaa !46
   store ptr %72, ptr %8, align 8, !tbaa !45
   %75 = getelementptr inbounds nuw ptr, ptr %62, i64 %55
-  store ptr %75, ptr %6, align 8, !tbaa !157
+  store ptr %75, ptr %6, align 8, !tbaa !158
   br label %_ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit
 
 _ZSt4fillIPPN3g2o10HyperGraph6VertexES3_EvT_S5_RKT0_.exit: ; preds = %.lr.ph.i.i.i71, %.lr.ph.i.i.i, %_ZSt22__uninitialized_move_aIPPN3g2o10HyperGraph6VertexES4_SaIS3_EET0_T_S7_S6_RT1_.exit69.thread, %_ZNSt12_Vector_baseIPN3g2o10HyperGraph6VertexESaIS3_EE13_M_deallocateEPS3_m.exit, %4
@@ -1260,7 +1260,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %7 = load ptr, ptr %6, align 8, !tbaa !46
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 100
-  %10 = load i8, ptr %9, align 4, !tbaa !70, !range !86, !noundef !87
+  %10 = load i8, ptr %9, align 4, !tbaa !71, !range !87, !noundef !88
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %187, label %12
 
@@ -1269,11 +1269,11 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %13, i64 10, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %14, align 8, !tbaa !159, !alias.scope !161
+  store ptr %1, ptr %14, align 8, !tbaa !160, !alias.scope !162
   %.sroa.023.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %16 = load <2 x double>, ptr %.sroa.023.sroa.0.0.copyload, align 1, !tbaa !137
-  %17 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %16 = load <2 x double>, ptr %.sroa.023.sroa.0.0.copyload, align 1, !tbaa !138
+  %17 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %18 = fmul <2 x double> %16, %17
   %shift = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %19 = fadd <2 x double> %18, %shift
@@ -1289,8 +1289,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %28, ptr %15, align 8, !tbaa !47
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.023.sroa.0.0.copyload, i64 24
-  %31 = load <2 x double>, ptr %30, align 1, !tbaa !137
-  %32 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %31 = load <2 x double>, ptr %30, align 1, !tbaa !138
+  %32 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %33 = fmul <2 x double> %31, %32
   %shift29 = shufflevector <2 x double> %33, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %34 = fadd <2 x double> %33, %shift29
@@ -1305,8 +1305,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %42, ptr %29, align 8, !tbaa !47
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.023.sroa.0.0.copyload, i64 48
-  %45 = load <2 x double>, ptr %44, align 1, !tbaa !137
-  %46 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %45 = load <2 x double>, ptr %44, align 1, !tbaa !138
+  %46 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %47 = fmul <2 x double> %45, %46
   %shift30 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %48 = fadd <2 x double> %47, %shift30
@@ -1324,8 +1324,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %57, ptr noundef nonnull align 8 dereferenceable(10) %13, i64 10, i1 false)
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %59 = load <2 x double>, ptr %.sroa.020.0.copyload, align 1, !tbaa !137
-  %60 = load <2 x double>, ptr %1, align 8, !tbaa !137
+  %59 = load <2 x double>, ptr %.sroa.020.0.copyload, align 1, !tbaa !138
+  %60 = load <2 x double>, ptr %1, align 8, !tbaa !138
   %61 = fmul <2 x double> %59, %60
   %shift31 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %62 = fadd <2 x double> %61, %shift31
@@ -1339,7 +1339,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %69, ptr %4, align 8, !tbaa !47
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.copyload, i64 24
-  %72 = load <2 x double>, ptr %71, align 1, !tbaa !137
+  %72 = load <2 x double>, ptr %71, align 1, !tbaa !138
   %73 = fmul <2 x double> %60, %72
   %shift32 = shufflevector <2 x double> %73, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %74 = fadd <2 x double> %73, %shift32
@@ -1351,7 +1351,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %79, ptr %70, align 8, !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.copyload, i64 48
-  %82 = load <2 x double>, ptr %81, align 1, !tbaa !137
+  %82 = load <2 x double>, ptr %81, align 1, !tbaa !138
   %83 = fmul <2 x double> %60, %82
   %shift33 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %84 = fadd <2 x double> %83, %shift33
@@ -1363,7 +1363,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %89, ptr %80, align 8, !tbaa !47
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %92 = load <2 x double>, ptr %91, align 8, !tbaa !137
+  %92 = load <2 x double>, ptr %91, align 8, !tbaa !138
   %93 = fmul <2 x double> %59, %92
   %shift34 = shufflevector <2 x double> %93, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %94 = fadd <2 x double> %93, %shift34
@@ -1391,7 +1391,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %111, ptr %106, align 8, !tbaa !47
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %114 = load <2 x double>, ptr %113, align 8, !tbaa !137
+  %114 = load <2 x double>, ptr %113, align 8, !tbaa !138
   %115 = fmul <2 x double> %59, %114
   %shift37 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %116 = fadd <2 x double> %115, %shift37
@@ -1418,29 +1418,29 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %133 = fadd double %132, %131
   store double %133, ptr %128, align 8, !tbaa !47
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %4, ptr %134, align 8, !tbaa !164
+  store ptr %4, ptr %134, align 8, !tbaa !165
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %136 = load ptr, ptr %57, align 8, !tbaa !155
-  store ptr %136, ptr %135, align 8, !tbaa !166
+  %136 = load ptr, ptr %57, align 8, !tbaa !156
+  store ptr %136, ptr %135, align 8, !tbaa !167
   %137 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i64 3, ptr %137, align 8, !tbaa !169
-  %138 = load ptr, ptr %58, align 8, !tbaa !146
+  store i64 3, ptr %137, align 8, !tbaa !170
+  %138 = load ptr, ptr %58, align 8, !tbaa !147
   br label %139
 
 139:                                              ; preds = %139, %12
   %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %12 ], [ %185, %139 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 24
   %140 = getelementptr i8, ptr %138, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %141 = load ptr, ptr %134, align 8, !tbaa !182
-  %142 = load <2 x double>, ptr %141, align 1, !tbaa !137
-  %143 = load ptr, ptr %135, align 8, !tbaa !166
+  %141 = load ptr, ptr %134, align 8, !tbaa !183
+  %142 = load <2 x double>, ptr %141, align 1, !tbaa !138
+  %143 = load ptr, ptr %135, align 8, !tbaa !167
   %144 = getelementptr i8, ptr %143, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %145 = load double, ptr %144, align 8, !tbaa !47
   %146 = insertelement <2 x double> poison, double %145, i64 0
   %147 = shufflevector <2 x double> %146, <2 x double> poison, <2 x i32> zeroinitializer
   %148 = fmul <2 x double> %142, %147
   %149 = getelementptr inbounds nuw i8, ptr %141, i64 24
-  %150 = load <2 x double>, ptr %149, align 1, !tbaa !137
+  %150 = load <2 x double>, ptr %149, align 1, !tbaa !138
   %151 = getelementptr i8, ptr %144, i64 8
   %152 = load double, ptr %151, align 8, !tbaa !47
   %153 = insertelement <2 x double> poison, double %152, i64 0
@@ -1448,18 +1448,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %155 = fmul <2 x double> %150, %154
   %156 = fadd <2 x double> %148, %155
   %157 = getelementptr inbounds nuw i8, ptr %141, i64 48
-  %158 = load <2 x double>, ptr %157, align 1, !tbaa !137
+  %158 = load <2 x double>, ptr %157, align 1, !tbaa !138
   %159 = getelementptr i8, ptr %144, i64 16
   %160 = load double, ptr %159, align 8, !tbaa !47
   %161 = insertelement <2 x double> poison, double %160, i64 0
   %162 = shufflevector <2 x double> %161, <2 x double> poison, <2 x i32> zeroinitializer
   %163 = fmul <2 x double> %158, %162
   %164 = fadd <2 x double> %156, %163
-  %165 = load <2 x double>, ptr %140, align 1, !tbaa !137
+  %165 = load <2 x double>, ptr %140, align 1, !tbaa !138
   %166 = fadd <2 x double> %165, %164
-  store <2 x double> %166, ptr %140, align 1, !tbaa !137
+  store <2 x double> %166, ptr %140, align 1, !tbaa !138
   %167 = getelementptr i8, ptr %140, i64 16
-  %168 = load ptr, ptr %57, align 8, !tbaa !155, !noalias !183
+  %168 = load ptr, ptr %57, align 8, !tbaa !156, !noalias !184
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %170 = load double, ptr %80, align 8, !tbaa !47
   %171 = load double, ptr %169, align 8, !tbaa !47
@@ -1479,7 +1479,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %184, ptr %167, align 8, !tbaa !47
   %185 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %185, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %186, label %139, !llvm.loop !186
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %186, label %139, !llvm.loop !187
 
 186:                                              ; preds = %139
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
@@ -1501,7 +1501,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 100
-  %11 = load i8, ptr %10, align 4, !tbaa !70, !range !86, !noundef !87
+  %11 = load i8, ptr %10, align 4, !tbaa !71, !range !87, !noundef !88
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %188, label %13
 
@@ -1510,11 +1510,11 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %5, ptr noundef nonnull align 8 dereferenceable(10) %14, i64 10, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %1, ptr %15, align 8, !tbaa !159, !alias.scope !187
+  store ptr %1, ptr %15, align 8, !tbaa !160, !alias.scope !188
   %.sroa.023.sroa.0.0.copyload = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %17 = load <2 x double>, ptr %.sroa.023.sroa.0.0.copyload, align 1, !tbaa !137
-  %18 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %17 = load <2 x double>, ptr %.sroa.023.sroa.0.0.copyload, align 1, !tbaa !138
+  %18 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %19 = fmul <2 x double> %17, %18
   %shift = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %20 = fadd <2 x double> %19, %shift
@@ -1530,8 +1530,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %29, ptr %16, align 8, !tbaa !47
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.023.sroa.0.0.copyload, i64 24
-  %32 = load <2 x double>, ptr %31, align 1, !tbaa !137
-  %33 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %32 = load <2 x double>, ptr %31, align 1, !tbaa !138
+  %33 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %34 = fmul <2 x double> %32, %33
   %shift29 = shufflevector <2 x double> %34, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %35 = fadd <2 x double> %34, %shift29
@@ -1546,8 +1546,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %43, ptr %30, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.023.sroa.0.0.copyload, i64 48
-  %46 = load <2 x double>, ptr %45, align 1, !tbaa !137
-  %47 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %46 = load <2 x double>, ptr %45, align 1, !tbaa !138
+  %47 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %48 = fmul <2 x double> %46, %47
   %shift30 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %49 = fadd <2 x double> %48, %shift30
@@ -1565,8 +1565,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %58, ptr noundef nonnull align 8 dereferenceable(10) %14, i64 10, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %60 = load <2 x double>, ptr %.sroa.020.0.copyload, align 1, !tbaa !137
-  %61 = load <2 x double>, ptr %1, align 8, !tbaa !137
+  %60 = load <2 x double>, ptr %.sroa.020.0.copyload, align 1, !tbaa !138
+  %61 = load <2 x double>, ptr %1, align 8, !tbaa !138
   %62 = fmul <2 x double> %60, %61
   %shift31 = shufflevector <2 x double> %62, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %63 = fadd <2 x double> %62, %shift31
@@ -1580,7 +1580,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %70, ptr %4, align 8, !tbaa !47
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.copyload, i64 24
-  %73 = load <2 x double>, ptr %72, align 1, !tbaa !137
+  %73 = load <2 x double>, ptr %72, align 1, !tbaa !138
   %74 = fmul <2 x double> %61, %73
   %shift32 = shufflevector <2 x double> %74, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %75 = fadd <2 x double> %74, %shift32
@@ -1592,7 +1592,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %80, ptr %71, align 8, !tbaa !47
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.copyload, i64 48
-  %83 = load <2 x double>, ptr %82, align 1, !tbaa !137
+  %83 = load <2 x double>, ptr %82, align 1, !tbaa !138
   %84 = fmul <2 x double> %61, %83
   %shift33 = shufflevector <2 x double> %84, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %85 = fadd <2 x double> %84, %shift33
@@ -1604,7 +1604,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %90, ptr %81, align 8, !tbaa !47
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %93 = load <2 x double>, ptr %92, align 8, !tbaa !137
+  %93 = load <2 x double>, ptr %92, align 8, !tbaa !138
   %94 = fmul <2 x double> %60, %93
   %shift34 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %95 = fadd <2 x double> %94, %shift34
@@ -1632,7 +1632,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %112, ptr %107, align 8, !tbaa !47
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %115 = load <2 x double>, ptr %114, align 8, !tbaa !137
+  %115 = load <2 x double>, ptr %114, align 8, !tbaa !138
   %116 = fmul <2 x double> %60, %115
   %shift37 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %117 = fadd <2 x double> %116, %shift37
@@ -1659,29 +1659,29 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %134 = fadd double %133, %132
   store double %134, ptr %129, align 8, !tbaa !47
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %4, ptr %135, align 8, !tbaa !164
+  store ptr %4, ptr %135, align 8, !tbaa !165
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %137 = load ptr, ptr %58, align 8, !tbaa !155
-  store ptr %137, ptr %136, align 8, !tbaa !166
+  %137 = load ptr, ptr %58, align 8, !tbaa !156
+  store ptr %137, ptr %136, align 8, !tbaa !167
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i64 3, ptr %138, align 8, !tbaa !169
-  %139 = load ptr, ptr %59, align 8, !tbaa !146
+  store i64 3, ptr %138, align 8, !tbaa !170
+  %139 = load ptr, ptr %59, align 8, !tbaa !147
   br label %140
 
 140:                                              ; preds = %140, %13
   %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %13 ], [ %186, %140 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 24
   %141 = getelementptr i8, ptr %139, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %142 = load ptr, ptr %135, align 8, !tbaa !182
-  %143 = load <2 x double>, ptr %142, align 1, !tbaa !137
-  %144 = load ptr, ptr %136, align 8, !tbaa !166
+  %142 = load ptr, ptr %135, align 8, !tbaa !183
+  %143 = load <2 x double>, ptr %142, align 1, !tbaa !138
+  %144 = load ptr, ptr %136, align 8, !tbaa !167
   %145 = getelementptr i8, ptr %144, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %146 = load double, ptr %145, align 8, !tbaa !47
   %147 = insertelement <2 x double> poison, double %146, i64 0
   %148 = shufflevector <2 x double> %147, <2 x double> poison, <2 x i32> zeroinitializer
   %149 = fmul <2 x double> %143, %148
   %150 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  %151 = load <2 x double>, ptr %150, align 1, !tbaa !137
+  %151 = load <2 x double>, ptr %150, align 1, !tbaa !138
   %152 = getelementptr i8, ptr %145, i64 8
   %153 = load double, ptr %152, align 8, !tbaa !47
   %154 = insertelement <2 x double> poison, double %153, i64 0
@@ -1689,18 +1689,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %156 = fmul <2 x double> %151, %155
   %157 = fadd <2 x double> %149, %156
   %158 = getelementptr inbounds nuw i8, ptr %142, i64 48
-  %159 = load <2 x double>, ptr %158, align 1, !tbaa !137
+  %159 = load <2 x double>, ptr %158, align 1, !tbaa !138
   %160 = getelementptr i8, ptr %145, i64 16
   %161 = load double, ptr %160, align 8, !tbaa !47
   %162 = insertelement <2 x double> poison, double %161, i64 0
   %163 = shufflevector <2 x double> %162, <2 x double> poison, <2 x i32> zeroinitializer
   %164 = fmul <2 x double> %159, %163
   %165 = fadd <2 x double> %157, %164
-  %166 = load <2 x double>, ptr %141, align 1, !tbaa !137
+  %166 = load <2 x double>, ptr %141, align 1, !tbaa !138
   %167 = fadd <2 x double> %166, %165
-  store <2 x double> %167, ptr %141, align 1, !tbaa !137
+  store <2 x double> %167, ptr %141, align 1, !tbaa !138
   %168 = getelementptr i8, ptr %141, i64 16
-  %169 = load ptr, ptr %58, align 8, !tbaa !155, !noalias !190
+  %169 = load ptr, ptr %58, align 8, !tbaa !156, !noalias !191
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %171 = load double, ptr %81, align 8, !tbaa !47
   %172 = load double, ptr %170, align 8, !tbaa !47
@@ -1720,7 +1720,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %185, ptr %168, align 8, !tbaa !47
   %186 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %186, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %187, label %140, !llvm.loop !186
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %187, label %140, !llvm.loop !187
 
 187:                                              ; preds = %140
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
@@ -1740,7 +1740,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 100
-  %10 = load i8, ptr %9, align 4, !tbaa !70, !range !86, !noundef !87
+  %10 = load i8, ptr %9, align 4, !tbaa !71, !range !87, !noundef !88
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %181, label %12
 
@@ -1748,8 +1748,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %.sroa.028.sroa.0.0.copyload = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 144
-  %15 = load <2 x double>, ptr %.sroa.028.sroa.0.0.copyload, align 1, !tbaa !137
-  %16 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %15 = load <2 x double>, ptr %.sroa.028.sroa.0.0.copyload, align 1, !tbaa !138
+  %16 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %17 = fmul <2 x double> %15, %16
   %shift = shufflevector <2 x double> %17, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %18 = fadd <2 x double> %17, %shift
@@ -1765,8 +1765,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %27, ptr %14, align 8, !tbaa !47
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.028.sroa.0.0.copyload, i64 24
-  %30 = load <2 x double>, ptr %29, align 1, !tbaa !137
-  %31 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %30 = load <2 x double>, ptr %29, align 1, !tbaa !138
+  %31 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %32 = fmul <2 x double> %30, %31
   %shift32 = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %33 = fadd <2 x double> %32, %shift32
@@ -1781,8 +1781,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %41, ptr %28, align 8, !tbaa !47
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.028.sroa.0.0.copyload, i64 48
-  %44 = load <2 x double>, ptr %43, align 1, !tbaa !137
-  %45 = load <2 x double>, ptr %2, align 8, !tbaa !137
+  %44 = load <2 x double>, ptr %43, align 1, !tbaa !138
+  %45 = load <2 x double>, ptr %2, align 8, !tbaa !138
   %46 = fmul <2 x double> %44, %45
   %shift33 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %47 = fadd <2 x double> %46, %shift33
@@ -1799,8 +1799,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %4) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %56, ptr noundef nonnull align 8 dereferenceable(10) %13, i64 10, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %58 = load <2 x double>, ptr %.sroa.028.sroa.0.0.copyload, align 1, !tbaa !137
-  %59 = load <2 x double>, ptr %1, align 8, !tbaa !137
+  %58 = load <2 x double>, ptr %.sroa.028.sroa.0.0.copyload, align 1, !tbaa !138
+  %59 = load <2 x double>, ptr %1, align 8, !tbaa !138
   %60 = fmul <2 x double> %58, %59
   %shift34 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %61 = fadd <2 x double> %60, %shift34
@@ -1812,7 +1812,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %67 = fadd double %62, %66
   store double %67, ptr %4, align 8, !tbaa !47
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %69 = load <2 x double>, ptr %29, align 1, !tbaa !137
+  %69 = load <2 x double>, ptr %29, align 1, !tbaa !138
   %70 = fmul <2 x double> %59, %69
   %shift35 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %71 = fadd <2 x double> %70, %shift35
@@ -1822,7 +1822,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %75 = fadd double %74, %72
   store double %75, ptr %68, align 8, !tbaa !47
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %77 = load <2 x double>, ptr %43, align 1, !tbaa !137
+  %77 = load <2 x double>, ptr %43, align 1, !tbaa !138
   %78 = fmul <2 x double> %59, %77
   %shift36 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %79 = fadd <2 x double> %78, %shift36
@@ -1833,7 +1833,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %83, ptr %76, align 8, !tbaa !47
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %86 = load <2 x double>, ptr %85, align 8, !tbaa !137
+  %86 = load <2 x double>, ptr %85, align 8, !tbaa !138
   %87 = fmul <2 x double> %58, %86
   %shift37 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %88 = fadd <2 x double> %87, %shift37
@@ -1861,7 +1861,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %105, ptr %100, align 8, !tbaa !47
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %108 = load <2 x double>, ptr %107, align 8, !tbaa !137
+  %108 = load <2 x double>, ptr %107, align 8, !tbaa !138
   %109 = fmul <2 x double> %58, %108
   %shift40 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %110 = fadd <2 x double> %109, %shift40
@@ -1888,29 +1888,29 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %127 = fadd double %126, %125
   store double %127, ptr %122, align 8, !tbaa !47
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %4, ptr %128, align 8, !tbaa !164
+  store ptr %4, ptr %128, align 8, !tbaa !165
   %129 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %130 = load ptr, ptr %56, align 8, !tbaa !155
-  store ptr %130, ptr %129, align 8, !tbaa !166
+  %130 = load ptr, ptr %56, align 8, !tbaa !156
+  store ptr %130, ptr %129, align 8, !tbaa !167
   %131 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i64 3, ptr %131, align 8, !tbaa !169
-  %132 = load ptr, ptr %57, align 8, !tbaa !146
+  store i64 3, ptr %131, align 8, !tbaa !170
+  %132 = load ptr, ptr %57, align 8, !tbaa !147
   br label %133
 
 133:                                              ; preds = %133, %12
   %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %12 ], [ %179, %133 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 24
   %134 = getelementptr i8, ptr %132, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %135 = load ptr, ptr %128, align 8, !tbaa !182
-  %136 = load <2 x double>, ptr %135, align 1, !tbaa !137
-  %137 = load ptr, ptr %129, align 8, !tbaa !166
+  %135 = load ptr, ptr %128, align 8, !tbaa !183
+  %136 = load <2 x double>, ptr %135, align 1, !tbaa !138
+  %137 = load ptr, ptr %129, align 8, !tbaa !167
   %138 = getelementptr i8, ptr %137, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %139 = load double, ptr %138, align 8, !tbaa !47
   %140 = insertelement <2 x double> poison, double %139, i64 0
   %141 = shufflevector <2 x double> %140, <2 x double> poison, <2 x i32> zeroinitializer
   %142 = fmul <2 x double> %136, %141
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  %144 = load <2 x double>, ptr %143, align 1, !tbaa !137
+  %144 = load <2 x double>, ptr %143, align 1, !tbaa !138
   %145 = getelementptr i8, ptr %138, i64 8
   %146 = load double, ptr %145, align 8, !tbaa !47
   %147 = insertelement <2 x double> poison, double %146, i64 0
@@ -1918,18 +1918,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %149 = fmul <2 x double> %144, %148
   %150 = fadd <2 x double> %142, %149
   %151 = getelementptr inbounds nuw i8, ptr %135, i64 48
-  %152 = load <2 x double>, ptr %151, align 1, !tbaa !137
+  %152 = load <2 x double>, ptr %151, align 1, !tbaa !138
   %153 = getelementptr i8, ptr %138, i64 16
   %154 = load double, ptr %153, align 8, !tbaa !47
   %155 = insertelement <2 x double> poison, double %154, i64 0
   %156 = shufflevector <2 x double> %155, <2 x double> poison, <2 x i32> zeroinitializer
   %157 = fmul <2 x double> %152, %156
   %158 = fadd <2 x double> %150, %157
-  %159 = load <2 x double>, ptr %134, align 1, !tbaa !137
+  %159 = load <2 x double>, ptr %134, align 1, !tbaa !138
   %160 = fadd <2 x double> %159, %158
-  store <2 x double> %160, ptr %134, align 1, !tbaa !137
+  store <2 x double> %160, ptr %134, align 1, !tbaa !138
   %161 = getelementptr i8, ptr %134, i64 16
-  %162 = load ptr, ptr %56, align 8, !tbaa !155, !noalias !193
+  %162 = load ptr, ptr %56, align 8, !tbaa !156, !noalias !194
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %164 = load double, ptr %76, align 8, !tbaa !47
   %165 = load double, ptr %163, align 8, !tbaa !47
@@ -1949,7 +1949,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %178, ptr %161, align 8, !tbaa !47
   %179 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %179, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %180, label %133, !llvm.loop !186
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %180, label %133, !llvm.loop !187
 
 180:                                              ; preds = %133
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
@@ -1972,18 +1972,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
-  %14 = load i8, ptr %13, align 4, !tbaa !70, !range !86, !noundef !87
+  %14 = load i8, ptr %13, align 4, !tbaa !71, !range !87, !noundef !88
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %263, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %19 = load i8, ptr %18, align 16, !tbaa !145, !range !86, !noundef !87
+  %19 = load i8, ptr %18, align 16, !tbaa !146, !range !87, !noundef !88
   %20 = trunc nuw i8 %19 to i1
   %.sroa.024.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !196, !noalias !87
+  %22 = load ptr, ptr %21, align 8, !tbaa !197, !noalias !88
   br i1 %20, label %23, label %132
 
 23:                                               ; preds = %16
@@ -1994,9 +1994,9 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #21
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %26, ptr %4, align 8, !tbaa !164
-  %27 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !137
-  %28 = load <2 x double>, ptr %22, align 1, !tbaa !137
+  store ptr %26, ptr %4, align 8, !tbaa !165
+  %27 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !138
+  %28 = load <2 x double>, ptr %22, align 1, !tbaa !138
   %29 = fmul <2 x double> %27, %28
   %shift = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %30 = fadd <2 x double> %29, %shift
@@ -2010,7 +2010,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %37, ptr %26, align 8, !tbaa !47
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 24
-  %40 = load <2 x double>, ptr %39, align 1, !tbaa !137
+  %40 = load <2 x double>, ptr %39, align 1, !tbaa !138
   %41 = fmul <2 x double> %28, %40
   %shift32 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %42 = fadd <2 x double> %41, %shift32
@@ -2022,7 +2022,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %47, ptr %38, align 8, !tbaa !47
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 48
-  %50 = load <2 x double>, ptr %49, align 1, !tbaa !137
+  %50 = load <2 x double>, ptr %49, align 1, !tbaa !138
   %51 = fmul <2 x double> %28, %50
   %shift33 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %52 = fadd <2 x double> %51, %shift33
@@ -2034,7 +2034,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %57, ptr %48, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %60 = load <2 x double>, ptr %59, align 1, !tbaa !137
+  %60 = load <2 x double>, ptr %59, align 1, !tbaa !138
   %61 = fmul <2 x double> %27, %60
   %shift34 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %62 = fadd <2 x double> %61, %shift34
@@ -2062,7 +2062,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %79, ptr %74, align 8, !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %82 = load <2 x double>, ptr %81, align 1, !tbaa !137
+  %82 = load <2 x double>, ptr %81, align 1, !tbaa !138
   %83 = fmul <2 x double> %27, %82
   %shift37 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %84 = fadd <2 x double> %83, %shift37
@@ -2086,38 +2086,38 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %98 = extractelement <2 x double> %97, i64 0
   %99 = fmul double %55, %87
   %100 = fadd double %99, %98
-  %101 = load <2 x double>, ptr %26, align 8, !tbaa !137
-  store <2 x double> %101, ptr %25, align 8, !tbaa !137
+  %101 = load <2 x double>, ptr %26, align 8, !tbaa !138
+  store <2 x double> %101, ptr %25, align 8, !tbaa !138
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %103 = load <2 x double>, ptr %48, align 8, !tbaa !137
-  store <2 x double> %103, ptr %102, align 8, !tbaa !137
+  %103 = load <2 x double>, ptr %48, align 8, !tbaa !138
+  store <2 x double> %103, ptr %102, align 8, !tbaa !138
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %105 = load <2 x double>, ptr %68, align 8, !tbaa !137
-  store <2 x double> %105, ptr %104, align 8, !tbaa !137
+  %105 = load <2 x double>, ptr %68, align 8, !tbaa !138
+  store <2 x double> %105, ptr %104, align 8, !tbaa !138
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %107 = load <2 x double>, ptr %80, align 8, !tbaa !137
-  store <2 x double> %107, ptr %106, align 8, !tbaa !137
+  %107 = load <2 x double>, ptr %80, align 8, !tbaa !138
+  store <2 x double> %107, ptr %106, align 8, !tbaa !138
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store double %100, ptr %108, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #21
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %110 = load ptr, ptr %5, align 8, !tbaa !155
-  store ptr %110, ptr %109, align 8, !tbaa !166
+  %110 = load ptr, ptr %5, align 8, !tbaa !156
+  store ptr %110, ptr %109, align 8, !tbaa !167
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr %25, ptr %111, align 8, !tbaa !164
+  store ptr %25, ptr %111, align 8, !tbaa !165
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 3, ptr %112, align 8, !tbaa !199
+  store i64 3, ptr %112, align 8, !tbaa !200
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  %113 = load ptr, ptr %24, align 8, !tbaa !146
-  store ptr %113, ptr %6, align 8, !tbaa !210
+  %113 = load ptr, ptr %24, align 8, !tbaa !147
+  store ptr %113, ptr %6, align 8, !tbaa !211
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #21
-  store ptr %6, ptr %7, align 8, !tbaa !212
+  store ptr %6, ptr %7, align 8, !tbaa !213
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %5, ptr %114, align 8, !tbaa !214
+  store ptr %5, ptr %114, align 8, !tbaa !215
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %8, ptr %115, align 8, !tbaa !216
+  store ptr %8, ptr %115, align 8, !tbaa !217
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %24, ptr %116, align 8, !tbaa !218
+  store ptr %24, ptr %116, align 8, !tbaa !219
   %117 = load double, ptr %110, align 8, !tbaa !47
   %118 = extractelement <2 x double> %101, i64 0
   %119 = fmul double %118, %117
@@ -2146,8 +2146,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %134, ptr noundef nonnull align 8 dereferenceable(10) %17, i64 10, i1 false)
-  %135 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !137
-  %136 = load <2 x double>, ptr %22, align 1, !tbaa !137
+  %135 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !138
+  %136 = load <2 x double>, ptr %22, align 1, !tbaa !138
   %137 = fmul <2 x double> %135, %136
   %shift40 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %138 = fadd <2 x double> %137, %shift40
@@ -2161,7 +2161,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %145, ptr %3, align 8, !tbaa !47
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 24
-  %148 = load <2 x double>, ptr %147, align 1, !tbaa !137
+  %148 = load <2 x double>, ptr %147, align 1, !tbaa !138
   %149 = fmul <2 x double> %136, %148
   %shift41 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %150 = fadd <2 x double> %149, %shift41
@@ -2173,7 +2173,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %155, ptr %146, align 8, !tbaa !47
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 48
-  %158 = load <2 x double>, ptr %157, align 1, !tbaa !137
+  %158 = load <2 x double>, ptr %157, align 1, !tbaa !138
   %159 = fmul <2 x double> %136, %158
   %shift42 = shufflevector <2 x double> %159, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %160 = fadd <2 x double> %159, %shift42
@@ -2185,7 +2185,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %165, ptr %156, align 8, !tbaa !47
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %168 = load <2 x double>, ptr %167, align 1, !tbaa !137
+  %168 = load <2 x double>, ptr %167, align 1, !tbaa !138
   %169 = fmul <2 x double> %135, %168
   %shift43 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %170 = fadd <2 x double> %169, %shift43
@@ -2213,7 +2213,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %187, ptr %182, align 8, !tbaa !47
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %189 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %190 = load <2 x double>, ptr %189, align 1, !tbaa !137
+  %190 = load <2 x double>, ptr %189, align 1, !tbaa !138
   %191 = fmul <2 x double> %135, %190
   %shift46 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %192 = fadd <2 x double> %191, %shift46
@@ -2240,29 +2240,29 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %209 = fadd double %208, %207
   store double %209, ptr %204, align 8, !tbaa !47
   %210 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %3, ptr %210, align 8, !tbaa !164
+  store ptr %3, ptr %210, align 8, !tbaa !165
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %212 = load ptr, ptr %134, align 8, !tbaa !155
-  store ptr %212, ptr %211, align 8, !tbaa !166
+  %212 = load ptr, ptr %134, align 8, !tbaa !156
+  store ptr %212, ptr %211, align 8, !tbaa !167
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i64 3, ptr %213, align 8, !tbaa !169
-  %214 = load ptr, ptr %133, align 8, !tbaa !146
+  store i64 3, ptr %213, align 8, !tbaa !170
+  %214 = load ptr, ptr %133, align 8, !tbaa !147
   br label %215
 
 215:                                              ; preds = %215, %132
   %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %132 ], [ %261, %215 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 24
   %216 = getelementptr i8, ptr %214, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %217 = load ptr, ptr %210, align 8, !tbaa !182
-  %218 = load <2 x double>, ptr %217, align 1, !tbaa !137
-  %219 = load ptr, ptr %211, align 8, !tbaa !166
+  %217 = load ptr, ptr %210, align 8, !tbaa !183
+  %218 = load <2 x double>, ptr %217, align 1, !tbaa !138
+  %219 = load ptr, ptr %211, align 8, !tbaa !167
   %220 = getelementptr i8, ptr %219, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %221 = load double, ptr %220, align 8, !tbaa !47
   %222 = insertelement <2 x double> poison, double %221, i64 0
   %223 = shufflevector <2 x double> %222, <2 x double> poison, <2 x i32> zeroinitializer
   %224 = fmul <2 x double> %218, %223
   %225 = getelementptr inbounds nuw i8, ptr %217, i64 24
-  %226 = load <2 x double>, ptr %225, align 1, !tbaa !137
+  %226 = load <2 x double>, ptr %225, align 1, !tbaa !138
   %227 = getelementptr i8, ptr %220, i64 8
   %228 = load double, ptr %227, align 8, !tbaa !47
   %229 = insertelement <2 x double> poison, double %228, i64 0
@@ -2270,18 +2270,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %231 = fmul <2 x double> %226, %230
   %232 = fadd <2 x double> %224, %231
   %233 = getelementptr inbounds nuw i8, ptr %217, i64 48
-  %234 = load <2 x double>, ptr %233, align 1, !tbaa !137
+  %234 = load <2 x double>, ptr %233, align 1, !tbaa !138
   %235 = getelementptr i8, ptr %220, i64 16
   %236 = load double, ptr %235, align 8, !tbaa !47
   %237 = insertelement <2 x double> poison, double %236, i64 0
   %238 = shufflevector <2 x double> %237, <2 x double> poison, <2 x i32> zeroinitializer
   %239 = fmul <2 x double> %234, %238
   %240 = fadd <2 x double> %232, %239
-  %241 = load <2 x double>, ptr %216, align 1, !tbaa !137
+  %241 = load <2 x double>, ptr %216, align 1, !tbaa !138
   %242 = fadd <2 x double> %241, %240
-  store <2 x double> %242, ptr %216, align 1, !tbaa !137
+  store <2 x double> %242, ptr %216, align 1, !tbaa !138
   %243 = getelementptr i8, ptr %216, i64 16
-  %244 = load ptr, ptr %134, align 8, !tbaa !155, !noalias !220
+  %244 = load ptr, ptr %134, align 8, !tbaa !156, !noalias !221
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %246 = load double, ptr %156, align 8, !tbaa !47
   %247 = load double, ptr %245, align 8, !tbaa !47
@@ -2301,7 +2301,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %260, ptr %243, align 8, !tbaa !47
   %261 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %261, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %262, label %215, !llvm.loop !186
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %262, label %215, !llvm.loop !187
 
 262:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #21
@@ -2324,18 +2324,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
-  %14 = load i8, ptr %13, align 4, !tbaa !70, !range !86, !noundef !87
+  %14 = load i8, ptr %13, align 4, !tbaa !71, !range !87, !noundef !88
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %263, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 305
-  %19 = load i8, ptr %18, align 1, !tbaa !145, !range !86, !noundef !87
+  %19 = load i8, ptr %18, align 1, !tbaa !146, !range !87, !noundef !88
   %20 = trunc nuw i8 %19 to i1
   %.sroa.024.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !196, !noalias !87
+  %22 = load ptr, ptr %21, align 8, !tbaa !197, !noalias !88
   br i1 %20, label %23, label %132
 
 23:                                               ; preds = %16
@@ -2346,9 +2346,9 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #21
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %26, ptr %4, align 8, !tbaa !164
-  %27 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !137
-  %28 = load <2 x double>, ptr %22, align 1, !tbaa !137
+  store ptr %26, ptr %4, align 8, !tbaa !165
+  %27 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !138
+  %28 = load <2 x double>, ptr %22, align 1, !tbaa !138
   %29 = fmul <2 x double> %27, %28
   %shift = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %30 = fadd <2 x double> %29, %shift
@@ -2362,7 +2362,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %37, ptr %26, align 8, !tbaa !47
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 24
-  %40 = load <2 x double>, ptr %39, align 1, !tbaa !137
+  %40 = load <2 x double>, ptr %39, align 1, !tbaa !138
   %41 = fmul <2 x double> %28, %40
   %shift32 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %42 = fadd <2 x double> %41, %shift32
@@ -2374,7 +2374,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %47, ptr %38, align 8, !tbaa !47
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 48
-  %50 = load <2 x double>, ptr %49, align 1, !tbaa !137
+  %50 = load <2 x double>, ptr %49, align 1, !tbaa !138
   %51 = fmul <2 x double> %28, %50
   %shift33 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %52 = fadd <2 x double> %51, %shift33
@@ -2386,7 +2386,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %57, ptr %48, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %60 = load <2 x double>, ptr %59, align 1, !tbaa !137
+  %60 = load <2 x double>, ptr %59, align 1, !tbaa !138
   %61 = fmul <2 x double> %27, %60
   %shift34 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %62 = fadd <2 x double> %61, %shift34
@@ -2414,7 +2414,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %79, ptr %74, align 8, !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %82 = load <2 x double>, ptr %81, align 1, !tbaa !137
+  %82 = load <2 x double>, ptr %81, align 1, !tbaa !138
   %83 = fmul <2 x double> %27, %82
   %shift37 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %84 = fadd <2 x double> %83, %shift37
@@ -2438,38 +2438,38 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %98 = extractelement <2 x double> %97, i64 0
   %99 = fmul double %55, %87
   %100 = fadd double %99, %98
-  %101 = load <2 x double>, ptr %26, align 8, !tbaa !137
-  store <2 x double> %101, ptr %25, align 8, !tbaa !137
+  %101 = load <2 x double>, ptr %26, align 8, !tbaa !138
+  store <2 x double> %101, ptr %25, align 8, !tbaa !138
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %103 = load <2 x double>, ptr %48, align 8, !tbaa !137
-  store <2 x double> %103, ptr %102, align 8, !tbaa !137
+  %103 = load <2 x double>, ptr %48, align 8, !tbaa !138
+  store <2 x double> %103, ptr %102, align 8, !tbaa !138
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %105 = load <2 x double>, ptr %68, align 8, !tbaa !137
-  store <2 x double> %105, ptr %104, align 8, !tbaa !137
+  %105 = load <2 x double>, ptr %68, align 8, !tbaa !138
+  store <2 x double> %105, ptr %104, align 8, !tbaa !138
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %107 = load <2 x double>, ptr %80, align 8, !tbaa !137
-  store <2 x double> %107, ptr %106, align 8, !tbaa !137
+  %107 = load <2 x double>, ptr %80, align 8, !tbaa !138
+  store <2 x double> %107, ptr %106, align 8, !tbaa !138
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store double %100, ptr %108, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #21
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %110 = load ptr, ptr %5, align 8, !tbaa !155
-  store ptr %110, ptr %109, align 8, !tbaa !166
+  %110 = load ptr, ptr %5, align 8, !tbaa !156
+  store ptr %110, ptr %109, align 8, !tbaa !167
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr %25, ptr %111, align 8, !tbaa !164
+  store ptr %25, ptr %111, align 8, !tbaa !165
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 3, ptr %112, align 8, !tbaa !199
+  store i64 3, ptr %112, align 8, !tbaa !200
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  %113 = load ptr, ptr %24, align 8, !tbaa !146
-  store ptr %113, ptr %6, align 8, !tbaa !210
+  %113 = load ptr, ptr %24, align 8, !tbaa !147
+  store ptr %113, ptr %6, align 8, !tbaa !211
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #21
-  store ptr %6, ptr %7, align 8, !tbaa !212
+  store ptr %6, ptr %7, align 8, !tbaa !213
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %5, ptr %114, align 8, !tbaa !214
+  store ptr %5, ptr %114, align 8, !tbaa !215
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %8, ptr %115, align 8, !tbaa !216
+  store ptr %8, ptr %115, align 8, !tbaa !217
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %24, ptr %116, align 8, !tbaa !218
+  store ptr %24, ptr %116, align 8, !tbaa !219
   %117 = load double, ptr %110, align 8, !tbaa !47
   %118 = extractelement <2 x double> %101, i64 0
   %119 = fmul double %118, %117
@@ -2498,8 +2498,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %134, ptr noundef nonnull align 8 dereferenceable(10) %17, i64 10, i1 false)
-  %135 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !137
-  %136 = load <2 x double>, ptr %22, align 1, !tbaa !137
+  %135 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !138
+  %136 = load <2 x double>, ptr %22, align 1, !tbaa !138
   %137 = fmul <2 x double> %135, %136
   %shift40 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %138 = fadd <2 x double> %137, %shift40
@@ -2513,7 +2513,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %145, ptr %3, align 8, !tbaa !47
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 24
-  %148 = load <2 x double>, ptr %147, align 1, !tbaa !137
+  %148 = load <2 x double>, ptr %147, align 1, !tbaa !138
   %149 = fmul <2 x double> %136, %148
   %shift41 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %150 = fadd <2 x double> %149, %shift41
@@ -2525,7 +2525,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %155, ptr %146, align 8, !tbaa !47
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 48
-  %158 = load <2 x double>, ptr %157, align 1, !tbaa !137
+  %158 = load <2 x double>, ptr %157, align 1, !tbaa !138
   %159 = fmul <2 x double> %136, %158
   %shift42 = shufflevector <2 x double> %159, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %160 = fadd <2 x double> %159, %shift42
@@ -2537,7 +2537,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %165, ptr %156, align 8, !tbaa !47
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %168 = load <2 x double>, ptr %167, align 1, !tbaa !137
+  %168 = load <2 x double>, ptr %167, align 1, !tbaa !138
   %169 = fmul <2 x double> %135, %168
   %shift43 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %170 = fadd <2 x double> %169, %shift43
@@ -2565,7 +2565,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %187, ptr %182, align 8, !tbaa !47
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %189 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %190 = load <2 x double>, ptr %189, align 1, !tbaa !137
+  %190 = load <2 x double>, ptr %189, align 1, !tbaa !138
   %191 = fmul <2 x double> %135, %190
   %shift46 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %192 = fadd <2 x double> %191, %shift46
@@ -2592,29 +2592,29 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %209 = fadd double %208, %207
   store double %209, ptr %204, align 8, !tbaa !47
   %210 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %3, ptr %210, align 8, !tbaa !164
+  store ptr %3, ptr %210, align 8, !tbaa !165
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %212 = load ptr, ptr %134, align 8, !tbaa !155
-  store ptr %212, ptr %211, align 8, !tbaa !166
+  %212 = load ptr, ptr %134, align 8, !tbaa !156
+  store ptr %212, ptr %211, align 8, !tbaa !167
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i64 3, ptr %213, align 8, !tbaa !169
-  %214 = load ptr, ptr %133, align 8, !tbaa !146
+  store i64 3, ptr %213, align 8, !tbaa !170
+  %214 = load ptr, ptr %133, align 8, !tbaa !147
   br label %215
 
 215:                                              ; preds = %215, %132
   %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %132 ], [ %261, %215 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 24
   %216 = getelementptr i8, ptr %214, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %217 = load ptr, ptr %210, align 8, !tbaa !182
-  %218 = load <2 x double>, ptr %217, align 1, !tbaa !137
-  %219 = load ptr, ptr %211, align 8, !tbaa !166
+  %217 = load ptr, ptr %210, align 8, !tbaa !183
+  %218 = load <2 x double>, ptr %217, align 1, !tbaa !138
+  %219 = load ptr, ptr %211, align 8, !tbaa !167
   %220 = getelementptr i8, ptr %219, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %221 = load double, ptr %220, align 8, !tbaa !47
   %222 = insertelement <2 x double> poison, double %221, i64 0
   %223 = shufflevector <2 x double> %222, <2 x double> poison, <2 x i32> zeroinitializer
   %224 = fmul <2 x double> %218, %223
   %225 = getelementptr inbounds nuw i8, ptr %217, i64 24
-  %226 = load <2 x double>, ptr %225, align 1, !tbaa !137
+  %226 = load <2 x double>, ptr %225, align 1, !tbaa !138
   %227 = getelementptr i8, ptr %220, i64 8
   %228 = load double, ptr %227, align 8, !tbaa !47
   %229 = insertelement <2 x double> poison, double %228, i64 0
@@ -2622,18 +2622,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %231 = fmul <2 x double> %226, %230
   %232 = fadd <2 x double> %224, %231
   %233 = getelementptr inbounds nuw i8, ptr %217, i64 48
-  %234 = load <2 x double>, ptr %233, align 1, !tbaa !137
+  %234 = load <2 x double>, ptr %233, align 1, !tbaa !138
   %235 = getelementptr i8, ptr %220, i64 16
   %236 = load double, ptr %235, align 8, !tbaa !47
   %237 = insertelement <2 x double> poison, double %236, i64 0
   %238 = shufflevector <2 x double> %237, <2 x double> poison, <2 x i32> zeroinitializer
   %239 = fmul <2 x double> %234, %238
   %240 = fadd <2 x double> %232, %239
-  %241 = load <2 x double>, ptr %216, align 1, !tbaa !137
+  %241 = load <2 x double>, ptr %216, align 1, !tbaa !138
   %242 = fadd <2 x double> %241, %240
-  store <2 x double> %242, ptr %216, align 1, !tbaa !137
+  store <2 x double> %242, ptr %216, align 1, !tbaa !138
   %243 = getelementptr i8, ptr %216, i64 16
-  %244 = load ptr, ptr %134, align 8, !tbaa !155, !noalias !223
+  %244 = load ptr, ptr %134, align 8, !tbaa !156, !noalias !224
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %246 = load double, ptr %156, align 8, !tbaa !47
   %247 = load double, ptr %245, align 8, !tbaa !47
@@ -2653,7 +2653,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %260, ptr %243, align 8, !tbaa !47
   %261 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %261, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %262, label %215, !llvm.loop !186
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %262, label %215, !llvm.loop !187
 
 262:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #21
@@ -2665,12 +2665,12 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen8internal55copy_using_evaluator_DefaultTraversal_CompleteUnrollingINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEEEENS3_INS_7ProductINS_9TransposeIKNS4_IS6_Li16ES8_EEEENSC_IKNSB_ISF_S6_Li0EEEEELi1EEEEENS0_13add_assign_opIddEELi0EEELi1ELi9EE3runERSN_(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !226
-  %3 = load ptr, ptr %2, align 8, !tbaa !210
+  %2 = load ptr, ptr %0, align 8, !tbaa !227
+  %3 = load ptr, ptr %2, align 8, !tbaa !211
   %4 = getelementptr i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !228
-  %7 = load ptr, ptr %6, align 8, !tbaa !155, !noalias !229
+  %6 = load ptr, ptr %5, align 8, !tbaa !229
+  %7 = load ptr, ptr %6, align 8, !tbaa !156, !noalias !230
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load double, ptr %8, align 8, !tbaa !47
@@ -2823,18 +2823,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 100
-  %14 = load i8, ptr %13, align 4, !tbaa !70, !range !86, !noundef !87
+  %14 = load i8, ptr %13, align 4, !tbaa !71, !range !87, !noundef !88
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %263, label %16
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 306
-  %19 = load i8, ptr %18, align 2, !tbaa !145, !range !86, !noundef !87
+  %19 = load i8, ptr %18, align 2, !tbaa !146, !range !87, !noundef !88
   %20 = trunc nuw i8 %19 to i1
   %.sroa.024.sroa.0.0.copyload = load ptr, ptr %1, align 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !196, !noalias !87
+  %22 = load ptr, ptr %21, align 8, !tbaa !197, !noalias !88
   br i1 %20, label %23, label %132
 
 23:                                               ; preds = %16
@@ -2845,9 +2845,9 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #21
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %26, ptr %4, align 8, !tbaa !164
-  %27 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !137
-  %28 = load <2 x double>, ptr %22, align 1, !tbaa !137
+  store ptr %26, ptr %4, align 8, !tbaa !165
+  %27 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !138
+  %28 = load <2 x double>, ptr %22, align 1, !tbaa !138
   %29 = fmul <2 x double> %27, %28
   %shift = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %30 = fadd <2 x double> %29, %shift
@@ -2861,7 +2861,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %37, ptr %26, align 8, !tbaa !47
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 24
-  %40 = load <2 x double>, ptr %39, align 1, !tbaa !137
+  %40 = load <2 x double>, ptr %39, align 1, !tbaa !138
   %41 = fmul <2 x double> %28, %40
   %shift32 = shufflevector <2 x double> %41, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %42 = fadd <2 x double> %41, %shift32
@@ -2873,7 +2873,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %47, ptr %38, align 8, !tbaa !47
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 48
-  %50 = load <2 x double>, ptr %49, align 1, !tbaa !137
+  %50 = load <2 x double>, ptr %49, align 1, !tbaa !138
   %51 = fmul <2 x double> %28, %50
   %shift33 = shufflevector <2 x double> %51, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %52 = fadd <2 x double> %51, %shift33
@@ -2885,7 +2885,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %57, ptr %48, align 8, !tbaa !47
   %58 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %59 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %60 = load <2 x double>, ptr %59, align 1, !tbaa !137
+  %60 = load <2 x double>, ptr %59, align 1, !tbaa !138
   %61 = fmul <2 x double> %27, %60
   %shift34 = shufflevector <2 x double> %61, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %62 = fadd <2 x double> %61, %shift34
@@ -2913,7 +2913,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %79, ptr %74, align 8, !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %82 = load <2 x double>, ptr %81, align 1, !tbaa !137
+  %82 = load <2 x double>, ptr %81, align 1, !tbaa !138
   %83 = fmul <2 x double> %27, %82
   %shift37 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %84 = fadd <2 x double> %83, %shift37
@@ -2937,38 +2937,38 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %98 = extractelement <2 x double> %97, i64 0
   %99 = fmul double %55, %87
   %100 = fadd double %99, %98
-  %101 = load <2 x double>, ptr %26, align 8, !tbaa !137
-  store <2 x double> %101, ptr %25, align 8, !tbaa !137
+  %101 = load <2 x double>, ptr %26, align 8, !tbaa !138
+  store <2 x double> %101, ptr %25, align 8, !tbaa !138
   %102 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %103 = load <2 x double>, ptr %48, align 8, !tbaa !137
-  store <2 x double> %103, ptr %102, align 8, !tbaa !137
+  %103 = load <2 x double>, ptr %48, align 8, !tbaa !138
+  store <2 x double> %103, ptr %102, align 8, !tbaa !138
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %105 = load <2 x double>, ptr %68, align 8, !tbaa !137
-  store <2 x double> %105, ptr %104, align 8, !tbaa !137
+  %105 = load <2 x double>, ptr %68, align 8, !tbaa !138
+  store <2 x double> %105, ptr %104, align 8, !tbaa !138
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %107 = load <2 x double>, ptr %80, align 8, !tbaa !137
-  store <2 x double> %107, ptr %106, align 8, !tbaa !137
+  %107 = load <2 x double>, ptr %80, align 8, !tbaa !138
+  store <2 x double> %107, ptr %106, align 8, !tbaa !138
   %108 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store double %100, ptr %108, align 8, !tbaa !47
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #21
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %110 = load ptr, ptr %5, align 8, !tbaa !155
-  store ptr %110, ptr %109, align 8, !tbaa !166
+  %110 = load ptr, ptr %5, align 8, !tbaa !156
+  store ptr %110, ptr %109, align 8, !tbaa !167
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr %25, ptr %111, align 8, !tbaa !164
+  store ptr %25, ptr %111, align 8, !tbaa !165
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store i64 3, ptr %112, align 8, !tbaa !199
+  store i64 3, ptr %112, align 8, !tbaa !200
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
-  %113 = load ptr, ptr %24, align 8, !tbaa !146
-  store ptr %113, ptr %6, align 8, !tbaa !210
+  %113 = load ptr, ptr %24, align 8, !tbaa !147
+  store ptr %113, ptr %6, align 8, !tbaa !211
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #21
-  store ptr %6, ptr %7, align 8, !tbaa !212
+  store ptr %6, ptr %7, align 8, !tbaa !213
   %114 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %5, ptr %114, align 8, !tbaa !214
+  store ptr %5, ptr %114, align 8, !tbaa !215
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %8, ptr %115, align 8, !tbaa !216
+  store ptr %8, ptr %115, align 8, !tbaa !217
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %24, ptr %116, align 8, !tbaa !218
+  store ptr %24, ptr %116, align 8, !tbaa !219
   %117 = load double, ptr %110, align 8, !tbaa !47
   %118 = extractelement <2 x double> %101, i64 0
   %119 = fmul double %118, %117
@@ -2997,8 +2997,8 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %134, ptr noundef nonnull align 8 dereferenceable(10) %17, i64 10, i1 false)
-  %135 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !137
-  %136 = load <2 x double>, ptr %22, align 1, !tbaa !137
+  %135 = load <2 x double>, ptr %.sroa.024.sroa.0.0.copyload, align 1, !tbaa !138
+  %136 = load <2 x double>, ptr %22, align 1, !tbaa !138
   %137 = fmul <2 x double> %135, %136
   %shift40 = shufflevector <2 x double> %137, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %138 = fadd <2 x double> %137, %shift40
@@ -3012,7 +3012,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %145, ptr %3, align 8, !tbaa !47
   %146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 24
-  %148 = load <2 x double>, ptr %147, align 1, !tbaa !137
+  %148 = load <2 x double>, ptr %147, align 1, !tbaa !138
   %149 = fmul <2 x double> %136, %148
   %shift41 = shufflevector <2 x double> %149, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %150 = fadd <2 x double> %149, %shift41
@@ -3024,7 +3024,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %155, ptr %146, align 8, !tbaa !47
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.024.sroa.0.0.copyload, i64 48
-  %158 = load <2 x double>, ptr %157, align 1, !tbaa !137
+  %158 = load <2 x double>, ptr %157, align 1, !tbaa !138
   %159 = fmul <2 x double> %136, %158
   %shift42 = shufflevector <2 x double> %159, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %160 = fadd <2 x double> %159, %shift42
@@ -3036,7 +3036,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %165, ptr %156, align 8, !tbaa !47
   %166 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %167 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %168 = load <2 x double>, ptr %167, align 1, !tbaa !137
+  %168 = load <2 x double>, ptr %167, align 1, !tbaa !138
   %169 = fmul <2 x double> %135, %168
   %shift43 = shufflevector <2 x double> %169, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %170 = fadd <2 x double> %169, %shift43
@@ -3064,7 +3064,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %187, ptr %182, align 8, !tbaa !47
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %189 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %190 = load <2 x double>, ptr %189, align 1, !tbaa !137
+  %190 = load <2 x double>, ptr %189, align 1, !tbaa !138
   %191 = fmul <2 x double> %135, %190
   %shift46 = shufflevector <2 x double> %191, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %192 = fadd <2 x double> %191, %shift46
@@ -3091,29 +3091,29 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %209 = fadd double %208, %207
   store double %209, ptr %204, align 8, !tbaa !47
   %210 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  store ptr %3, ptr %210, align 8, !tbaa !164
+  store ptr %3, ptr %210, align 8, !tbaa !165
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  %212 = load ptr, ptr %134, align 8, !tbaa !155
-  store ptr %212, ptr %211, align 8, !tbaa !166
+  %212 = load ptr, ptr %134, align 8, !tbaa !156
+  store ptr %212, ptr %211, align 8, !tbaa !167
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i64 3, ptr %213, align 8, !tbaa !169
-  %214 = load ptr, ptr %133, align 8, !tbaa !146
+  store i64 3, ptr %213, align 8, !tbaa !170
+  %214 = load ptr, ptr %133, align 8, !tbaa !147
   br label %215
 
 215:                                              ; preds = %215, %132
   %.07.i.i.i.i.i.i.i.i = phi i64 [ 0, %132 ], [ %261, %215 ]
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = mul nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 24
   %216 = getelementptr i8, ptr %214, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
-  %217 = load ptr, ptr %210, align 8, !tbaa !182
-  %218 = load <2 x double>, ptr %217, align 1, !tbaa !137
-  %219 = load ptr, ptr %211, align 8, !tbaa !166
+  %217 = load ptr, ptr %210, align 8, !tbaa !183
+  %218 = load <2 x double>, ptr %217, align 1, !tbaa !138
+  %219 = load ptr, ptr %211, align 8, !tbaa !167
   %220 = getelementptr i8, ptr %219, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %221 = load double, ptr %220, align 8, !tbaa !47
   %222 = insertelement <2 x double> poison, double %221, i64 0
   %223 = shufflevector <2 x double> %222, <2 x double> poison, <2 x i32> zeroinitializer
   %224 = fmul <2 x double> %218, %223
   %225 = getelementptr inbounds nuw i8, ptr %217, i64 24
-  %226 = load <2 x double>, ptr %225, align 1, !tbaa !137
+  %226 = load <2 x double>, ptr %225, align 1, !tbaa !138
   %227 = getelementptr i8, ptr %220, i64 8
   %228 = load double, ptr %227, align 8, !tbaa !47
   %229 = insertelement <2 x double> poison, double %228, i64 0
@@ -3121,18 +3121,18 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %231 = fmul <2 x double> %226, %230
   %232 = fadd <2 x double> %224, %231
   %233 = getelementptr inbounds nuw i8, ptr %217, i64 48
-  %234 = load <2 x double>, ptr %233, align 1, !tbaa !137
+  %234 = load <2 x double>, ptr %233, align 1, !tbaa !138
   %235 = getelementptr i8, ptr %220, i64 16
   %236 = load double, ptr %235, align 8, !tbaa !47
   %237 = insertelement <2 x double> poison, double %236, i64 0
   %238 = shufflevector <2 x double> %237, <2 x double> poison, <2 x i32> zeroinitializer
   %239 = fmul <2 x double> %234, %238
   %240 = fadd <2 x double> %232, %239
-  %241 = load <2 x double>, ptr %216, align 1, !tbaa !137
+  %241 = load <2 x double>, ptr %216, align 1, !tbaa !138
   %242 = fadd <2 x double> %241, %240
-  store <2 x double> %242, ptr %216, align 1, !tbaa !137
+  store <2 x double> %242, ptr %216, align 1, !tbaa !138
   %243 = getelementptr i8, ptr %216, i64 16
-  %244 = load ptr, ptr %134, align 8, !tbaa !155, !noalias !232
+  %244 = load ptr, ptr %134, align 8, !tbaa !156, !noalias !233
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i
   %246 = load double, ptr %156, align 8, !tbaa !47
   %247 = load double, ptr %245, align 8, !tbaa !47
@@ -3152,7 +3152,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   store double %260, ptr %243, align 8, !tbaa !47
   %261 = add nuw nsw i64 %.07.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %261, 3
-  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %262, label %215, !llvm.loop !186
+  br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %262, label %215, !llvm.loop !187
 
 262:                                              ; preds = %215
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #21
@@ -3169,16 +3169,16 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %4 = load ptr, ptr %3, align 8, !tbaa !46
   %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 100
-  %7 = load i8, ptr %6, align 4, !tbaa !70, !range !86, !noundef !87
+  %7 = load i8, ptr %6, align 4, !tbaa !71, !range !87, !noundef !88
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %74, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 3, ptr %9, align 8, !tbaa !235
+  store i64 3, ptr %9, align 8, !tbaa !236
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %2, ptr %10, align 8, !tbaa !237
+  store ptr %2, ptr %10, align 8, !tbaa !238
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !47
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -3186,12 +3186,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds 
   br label %21
 
 13:                                               ; preds = %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit
-  %14 = load i64, ptr %9, align 8, !tbaa !242
+  %14 = load i64, ptr %9, align 8, !tbaa !243
   %15 = icmp ult i64 %14, 4
   br i1 %15, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %10, align 8, !tbaa !237
+  %17 = load ptr, ptr %10, align 8, !tbaa !238
   %18 = shl i64 %14, 3
   call void @_ZdlPvm(ptr noundef %17, i64 noundef %18) #22
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit
@@ -3214,7 +3214,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit: ; preds = %13, %16
           to label %25 unwind label %19
 
 25:                                               ; preds = %21
-  %26 = load ptr, ptr %10, align 8, !tbaa !237
+  %26 = load ptr, ptr %10, align 8, !tbaa !238
   %27 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
   store double 1.000000e-09, ptr %27, align 8, !tbaa !47
   %28 = load ptr, ptr %5, align 8, !tbaa !3
@@ -3239,7 +3239,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 
 37:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit
   %.sroa.0.0.copyload = load <2 x double>, ptr %12, align 8
-  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !137
+  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !138
   %38 = load ptr, ptr %5, align 16, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 176
   %40 = load ptr, ptr %39, align 8
@@ -3254,7 +3254,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
           to label %45 unwind label %72
 
 45:                                               ; preds = %41
-  %46 = load ptr, ptr %10, align 8, !tbaa !237
+  %46 = load ptr, ptr %10, align 8, !tbaa !238
   %47 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv
   store double -1.000000e-09, ptr %47, align 8, !tbaa !47
   %48 = load ptr, ptr %5, align 8, !tbaa !3
@@ -3278,7 +3278,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
           to label %57 unwind label %72
 
 57:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31
-  %58 = load <2 x double>, ptr %12, align 8, !tbaa !137
+  %58 = load <2 x double>, ptr %12, align 8, !tbaa !138
   %59 = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !47
   %60 = load ptr, ptr %5, align 16, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 176
@@ -3289,20 +3289,20 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %57
   %63 = fsub double %.sroa.7.0.copyload, %59
   %64 = fsub <2 x double> %.sroa.0.0.copyload, %58
-  %65 = load ptr, ptr %10, align 8, !tbaa !237
+  %65 = load ptr, ptr %10, align 8, !tbaa !238
   %66 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv
   store double 0.000000e+00, ptr %66, align 8, !tbaa !47
-  %67 = load ptr, ptr %11, align 8, !tbaa !155, !noalias !243
+  %67 = load ptr, ptr %11, align 8, !tbaa !156, !noalias !244
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i.i
   %69 = fmul <2 x double> %64, splat (double 0x41BDCD64FFFFFFFF)
-  store <2 x double> %69, ptr %68, align 1, !tbaa !137
+  store <2 x double> %69, ptr %68, align 1, !tbaa !138
   %70 = getelementptr i8, ptr %68, i64 16
   %71 = fmul double %63, 0x41BDCD64FFFFFFFF
   store double %71, ptr %70, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %13, label %21, !llvm.loop !246
+  br i1 %exitcond.not, label %13, label %21, !llvm.loop !247
 
 72:                                               ; preds = %.noexc29, %45, %57, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31, %41, %37
   %73 = landingpad { ptr, i32 }
@@ -3314,12 +3314,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %57
 
 75:                                               ; preds = %72, %19
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %73, %72 ]
-  %76 = load i64, ptr %9, align 8, !tbaa !242
+  %76 = load i64, ptr %9, align 8, !tbaa !243
   %77 = icmp ult i64 %76, 4
   br i1 %77, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32, label %78
 
 78:                                               ; preds = %75
-  %79 = load ptr, ptr %10, align 8, !tbaa !237
+  %79 = load ptr, ptr %10, align 8, !tbaa !238
   %80 = shl i64 %76, 3
   call void @_ZdlPvm(ptr noundef %79, i64 noundef %80) #22
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32
@@ -3337,16 +3337,16 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 100
-  %8 = load i8, ptr %7, align 4, !tbaa !70, !range !86, !noundef !87
+  %8 = load i8, ptr %7, align 4, !tbaa !71, !range !87, !noundef !88
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %75, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 3, ptr %10, align 8, !tbaa !235
+  store i64 3, ptr %10, align 8, !tbaa !236
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %2, ptr %11, align 8, !tbaa !237
+  store ptr %2, ptr %11, align 8, !tbaa !238
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -3354,12 +3354,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds 
   br label %22
 
 14:                                               ; preds = %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit
-  %15 = load i64, ptr %10, align 8, !tbaa !242
+  %15 = load i64, ptr %10, align 8, !tbaa !243
   %16 = icmp ult i64 %15, 4
   br i1 %16, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %11, align 8, !tbaa !237
+  %18 = load ptr, ptr %11, align 8, !tbaa !238
   %19 = shl i64 %15, 3
   call void @_ZdlPvm(ptr noundef %18, i64 noundef %19) #22
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit
@@ -3382,7 +3382,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit: ; preds = %14, %17
           to label %26 unwind label %20
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %11, align 8, !tbaa !237
+  %27 = load ptr, ptr %11, align 8, !tbaa !238
   %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
   store double 1.000000e-09, ptr %28, align 8, !tbaa !47
   %29 = load ptr, ptr %6, align 8, !tbaa !3
@@ -3407,7 +3407,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 
 38:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit
   %.sroa.0.0.copyload = load <2 x double>, ptr %13, align 8
-  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !137
+  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !138
   %39 = load ptr, ptr %6, align 16, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 176
   %41 = load ptr, ptr %40, align 8
@@ -3422,7 +3422,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
           to label %46 unwind label %73
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr %11, align 8, !tbaa !237
+  %47 = load ptr, ptr %11, align 8, !tbaa !238
   %48 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
   store double -1.000000e-09, ptr %48, align 8, !tbaa !47
   %49 = load ptr, ptr %6, align 8, !tbaa !3
@@ -3446,7 +3446,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
           to label %58 unwind label %73
 
 58:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31
-  %59 = load <2 x double>, ptr %13, align 8, !tbaa !137
+  %59 = load <2 x double>, ptr %13, align 8, !tbaa !138
   %60 = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !47
   %61 = load ptr, ptr %6, align 16, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 176
@@ -3457,20 +3457,20 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %58
   %64 = fsub double %.sroa.7.0.copyload, %60
   %65 = fsub <2 x double> %.sroa.0.0.copyload, %59
-  %66 = load ptr, ptr %11, align 8, !tbaa !237
+  %66 = load ptr, ptr %11, align 8, !tbaa !238
   %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv
   store double 0.000000e+00, ptr %67, align 8, !tbaa !47
-  %68 = load ptr, ptr %12, align 8, !tbaa !155, !noalias !247
+  %68 = load ptr, ptr %12, align 8, !tbaa !156, !noalias !248
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i
   %70 = fmul <2 x double> %65, splat (double 0x41BDCD64FFFFFFFF)
-  store <2 x double> %70, ptr %69, align 1, !tbaa !137
+  store <2 x double> %70, ptr %69, align 1, !tbaa !138
   %71 = getelementptr i8, ptr %69, i64 16
   %72 = fmul double %64, 0x41BDCD64FFFFFFFF
   store double %72, ptr %71, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %14, label %22, !llvm.loop !250
+  br i1 %exitcond.not, label %14, label %22, !llvm.loop !251
 
 73:                                               ; preds = %.noexc29, %46, %58, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31, %42, %38
   %74 = landingpad { ptr, i32 }
@@ -3482,12 +3482,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %58
 
 76:                                               ; preds = %73, %20
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %74, %73 ]
-  %77 = load i64, ptr %10, align 8, !tbaa !242
+  %77 = load i64, ptr %10, align 8, !tbaa !243
   %78 = icmp ult i64 %77, 4
   br i1 %78, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32, label %79
 
 79:                                               ; preds = %76
-  %80 = load ptr, ptr %11, align 8, !tbaa !237
+  %80 = load ptr, ptr %11, align 8, !tbaa !238
   %81 = shl i64 %77, 3
   call void @_ZdlPvm(ptr noundef %80, i64 noundef %81) #22
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32
@@ -3505,16 +3505,16 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi3ENS_19VelocityMeasureme
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !43
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 100
-  %8 = load i8, ptr %7, align 4, !tbaa !70, !range !86, !noundef !87
+  %8 = load i8, ptr %7, align 4, !tbaa !71, !range !87, !noundef !88
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %75, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader
 
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #21
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 3, ptr %10, align 8, !tbaa !235
+  store i64 3, ptr %10, align 8, !tbaa !236
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %2, ptr %11, align 8, !tbaa !237
+  store ptr %2, ptr %11, align 8, !tbaa !238
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !47
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -3522,12 +3522,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit.preheader: ; preds 
   br label %22
 
 14:                                               ; preds = %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit
-  %15 = load i64, ptr %10, align 8, !tbaa !242
+  %15 = load i64, ptr %10, align 8, !tbaa !243
   %16 = icmp ult i64 %15, 4
   br i1 %16, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit, label %17
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %11, align 8, !tbaa !237
+  %18 = load ptr, ptr %11, align 8, !tbaa !238
   %19 = shl i64 %15, 3
   call void @_ZdlPvm(ptr noundef %18, i64 noundef %19) #22
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit
@@ -3550,7 +3550,7 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit: ; preds = %14, %17
           to label %26 unwind label %20
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %11, align 8, !tbaa !237
+  %27 = load ptr, ptr %11, align 8, !tbaa !238
   %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
   store double 1.000000e-09, ptr %28, align 8, !tbaa !47
   %29 = load ptr, ptr %6, align 8, !tbaa !3
@@ -3575,7 +3575,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
 
 38:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit
   %.sroa.0.0.copyload = load <2 x double>, ptr %13, align 8
-  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !137
+  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !138
   %39 = load ptr, ptr %6, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 176
   %41 = load ptr, ptr %40, align 8
@@ -3590,7 +3590,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit:  ; preds = %.noexc
           to label %46 unwind label %73
 
 46:                                               ; preds = %42
-  %47 = load ptr, ptr %11, align 8, !tbaa !237
+  %47 = load ptr, ptr %11, align 8, !tbaa !238
   %48 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
   store double -1.000000e-09, ptr %48, align 8, !tbaa !47
   %49 = load ptr, ptr %6, align 8, !tbaa !3
@@ -3614,7 +3614,7 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
           to label %58 unwind label %73
 
 58:                                               ; preds = %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31
-  %59 = load <2 x double>, ptr %13, align 8, !tbaa !137
+  %59 = load <2 x double>, ptr %13, align 8, !tbaa !138
   %60 = load double, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !47
   %61 = load ptr, ptr %6, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 176
@@ -3625,20 +3625,20 @@ _ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31: ; preds = %.noexc29
 _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %58
   %64 = fsub double %.sroa.7.0.copyload, %60
   %65 = fsub <2 x double> %.sroa.0.0.copyload, %59
-  %66 = load ptr, ptr %11, align 8, !tbaa !237
+  %66 = load ptr, ptr %11, align 8, !tbaa !238
   %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv
   store double 0.000000e+00, ptr %67, align 8, !tbaa !47
-  %68 = load ptr, ptr %12, align 8, !tbaa !155, !noalias !251
+  %68 = load ptr, ptr %12, align 8, !tbaa !156, !noalias !252
   %.idx.i.i.i.i = mul nuw nsw i64 %indvars.iv, 24
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i.i.i.i
   %70 = fmul <2 x double> %65, splat (double 0x41BDCD64FFFFFFFF)
-  store <2 x double> %70, ptr %69, align 1, !tbaa !137
+  store <2 x double> %70, ptr %69, align 1, !tbaa !138
   %71 = getelementptr i8, ptr %69, i64 16
   %72 = fmul double %64, 0x41BDCD64FFFFFFFF
   store double %72, ptr %71, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %14, label %22, !llvm.loop !254
+  br i1 %exitcond.not, label %14, label %22, !llvm.loop !255
 
 73:                                               ; preds = %.noexc29, %46, %58, %_ZN3g2o16OptimizableGraph6Vertex5oplusEPKd.exit31, %42, %38
   %74 = landingpad { ptr, i32 }
@@ -3650,12 +3650,12 @@ _ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE4fillERKd.exit: ; preds = %58
 
 76:                                               ; preds = %73, %20
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %21, %20 ], [ %74, %73 ]
-  %77 = load i64, ptr %10, align 8, !tbaa !242
+  %77 = load i64, ptr %10, align 8, !tbaa !243
   %78 = icmp ult i64 %77, 4
   br i1 %78, label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32, label %79
 
 79:                                               ; preds = %76
-  %80 = load ptr, ptr %11, align 8, !tbaa !237
+  %80 = load ptr, ptr %11, align 8, !tbaa !238
   %81 = shl i64 %77, 3
   call void @_ZdlPvm(ptr noundef %80, i64 noundef %81) #22
   br label %_ZN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEED2Ev.exit32
@@ -3775,199 +3775,200 @@ attributes #25 = { builtin allocsize(0) }
 !56 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !15, i64 0}
 !57 = !{!"_ZTSSt6locale", !58, i64 0}
 !58 = !{!"p1 _ZTSNSt6locale5_ImplE", !15, i64 0}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = distinct !{!61, !60}
-!62 = !{!63, !48, i64 16}
-!63 = !{!"_ZTSN3g2o19VelocityMeasurementE", !64, i64 0, !48, i64 16}
-!64 = !{!"_ZTSN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEE", !65, i64 0}
-!65 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEE", !66, i64 0}
-!66 = !{!"_ZTSN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EEE", !67, i64 0}
-!67 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi2ELi0ELi16EEE", !16, i64 0}
-!68 = distinct !{!68, !60}
-!69 = distinct !{!69, !60}
-!70 = !{!71, !83, i64 100}
-!71 = !{!"_ZTSN3g2o16OptimizableGraph6VertexE", !72, i64 0, !18, i64 64, !82, i64 80, !19, i64 88, !17, i64 96, !83, i64 100, !83, i64 101, !17, i64 104, !17, i64 108, !84, i64 112, !85, i64 120}
-!72 = !{!"_ZTSN3g2o10HyperGraph6VertexE", !9, i64 0, !17, i64 8, !73, i64 16}
-!73 = !{!"_ZTSSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE", !74, i64 0}
-!74 = !{!"_ZTSSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE", !75, i64 0}
-!75 = !{!"_ZTSNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEE", !76, i64 0, !78, i64 8}
-!76 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEE", !77, i64 0}
-!77 = !{!"_ZTSSt4lessIPN3g2o10HyperGraph4EdgeEE"}
-!78 = !{!"_ZTSSt15_Rb_tree_header", !79, i64 0, !51, i64 32}
-!79 = !{!"_ZTSSt18_Rb_tree_node_base", !80, i64 0, !81, i64 8, !81, i64 16, !81, i64 24}
-!80 = !{!"_ZTSSt14_Rb_tree_color", !16, i64 0}
-!81 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !15, i64 0}
-!82 = !{!"p1 _ZTSN3g2o16OptimizableGraphE", !15, i64 0}
-!83 = !{!"bool", !16, i64 0}
-!84 = !{!"_ZTSN3g2o11OpenMPMutexE"}
-!85 = !{!"p1 _ZTSN3g2o14CacheContainerE", !15, i64 0}
-!86 = !{i8 0, i8 2}
-!87 = !{}
-!88 = !{!17, !17, i64 0}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZNK3g2o3SE27inverseEv: argument 0"}
-!91 = distinct !{!91, !"_ZNK3g2o3SE27inverseEv"}
-!92 = !{!93, !95, !97, !99, !101, !90}
-!93 = distinct !{!93, !94, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
-!94 = distinct !{!94, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
-!95 = distinct !{!95, !96, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv: argument 0"}
-!96 = distinct !{!96, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv"}
-!97 = distinct !{!97, !98, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_: argument 0"}
-!98 = distinct !{!98, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_"}
-!99 = distinct !{!99, !100, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_: argument 0"}
-!100 = distinct !{!100, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_"}
-!101 = distinct !{!101, !102, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE: argument 0"}
-!102 = distinct !{!102, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE"}
-!103 = !{!104, !48, i64 0}
-!104 = !{!"_ZTSN5Eigen10Rotation2DIdEE", !48, i64 0}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZNK3g2o3SE27inverseEv: argument 0"}
-!107 = distinct !{!107, !"_ZNK3g2o3SE27inverseEv"}
-!108 = !{!109, !111, !113, !115, !117, !106}
-!109 = distinct !{!109, !110, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
-!110 = distinct !{!110, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
-!111 = distinct !{!111, !112, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv: argument 0"}
-!112 = distinct !{!112, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv"}
-!113 = distinct !{!113, !114, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_: argument 0"}
-!114 = distinct !{!114, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_"}
-!115 = distinct !{!115, !116, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_: argument 0"}
-!116 = distinct !{!116, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_"}
-!117 = distinct !{!117, !118, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE: argument 0"}
-!118 = distinct !{!118, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE"}
-!119 = !{!113, !115, !117, !106}
-!120 = !{!121, !123, !125}
-!121 = distinct !{!121, !122, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
-!122 = distinct !{!122, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
-!123 = distinct !{!123, !124, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE: argument 0"}
-!124 = distinct !{!124, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE"}
-!125 = distinct !{!125, !126, !"_ZNK3g2o3SE2mlERKS0_: argument 0"}
-!126 = distinct !{!126, !"_ZNK3g2o3SE2mlERKS0_"}
-!127 = !{!125}
-!128 = !{!129, !131, !133}
-!129 = distinct !{!129, !130, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
-!130 = distinct !{!130, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
-!131 = distinct !{!131, !132, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE: argument 0"}
-!132 = distinct !{!132, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE"}
-!133 = distinct !{!133, !134, !"_ZNK3g2o3SE2mlERKS0_: argument 0"}
-!134 = distinct !{!134, !"_ZNK3g2o3SE2mlERKS0_"}
-!135 = !{!131, !133}
-!136 = !{!133}
-!137 = !{!16, !16, i64 0}
-!138 = !{!7, !20, i64 64}
-!139 = !{!140}
-!140 = distinct !{!140, !141, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE8ConstantEllRKd: argument 0"}
-!141 = distinct !{!141, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE8ConstantEllRKd"}
-!142 = !{!143}
-!143 = distinct !{!143, !144, !"_ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE17robustInformationERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
-!144 = distinct !{!144, !"_ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE17robustInformationERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE"}
-!145 = !{!83, !83, i64 0}
-!146 = !{!147, !148, i64 0}
-!147 = !{!"_ZTSN5Eigen7MapBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEELi0EEE", !148, i64 0, !149, i64 8, !149, i64 9}
-!148 = !{!"p1 double", !15, i64 0}
-!149 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi3EEE"}
-!150 = !{!151, !152, i64 0}
-!151 = !{!"_ZTSNSt12_Vector_baseIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE17_Vector_impl_dataE", !152, i64 0, !152, i64 8, !152, i64 16}
-!152 = !{!"p1 _ZTSN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEE", !15, i64 0}
-!153 = !{!154, !148, i64 0}
-!154 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !148, i64 0, !51, i64 8}
-!155 = !{!156, !148, i64 0}
-!156 = !{!"_ZTSN5Eigen7MapBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEELi0EEE", !148, i64 0, !149, i64 8, !149, i64 9}
-!157 = !{!13, !14, i64 16}
-!158 = distinct !{!158, !60}
-!159 = !{!160, !160, i64 0}
-!160 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE", !15, i64 0}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE: argument 0"}
-!163 = distinct !{!163, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE"}
-!164 = !{!165, !148, i64 0}
-!165 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi3EEE", !148, i64 0}
-!166 = !{!167, !148, i64 0}
-!167 = !{!"_ZTSN5Eigen8internal17mapbase_evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEES4_EE", !148, i64 0, !168, i64 8, !149, i64 9}
-!168 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi1EEE"}
-!169 = !{!170, !51, i64 112}
-!170 = !{!"_ZTSN5Eigen8internal17product_evaluatorINS_7ProductINS2_INS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEES6_Li0EEES9_Li1EEELi3ENS_10DenseShapeESE_ddEE", !171, i64 0, !175, i64 72, !179, i64 88, !181, i64 96, !51, i64 112}
-!171 = !{!"_ZTSN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE", !172, i64 0}
-!172 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEE", !173, i64 0}
-!173 = !{!"_ZTSN5Eigen12DenseStorageIdLi9ELi3ELi3ELi0EEE", !174, i64 0}
-!174 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi9ELi0ELi0EEE", !16, i64 0}
-!175 = !{!"_ZTSN5Eigen3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEE", !176, i64 0, !177, i64 10}
-!176 = !{!"_ZTSN5Eigen7MapBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEELi1EEE", !156, i64 0}
-!177 = !{!"_ZTSN5Eigen6StrideILi0ELi0EEE", !178, i64 0, !178, i64 1}
-!178 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi0EEE"}
-!179 = !{!"_ZTSN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEE", !180, i64 0}
-!180 = !{!"_ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEEEE", !165, i64 0}
-!181 = !{!"_ZTSN5Eigen8internal9evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEE", !167, i64 0}
-!182 = !{!180, !148, i64 0}
-!183 = !{!184}
-!184 = distinct !{!184, !185, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!185 = distinct !{!185, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!186 = distinct !{!186, !60}
-!187 = !{!188}
-!188 = distinct !{!188, !189, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE: argument 0"}
-!189 = distinct !{!189, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE"}
-!190 = !{!191}
-!191 = distinct !{!191, !192, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!192 = distinct !{!192, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!193 = !{!194}
-!194 = distinct !{!194, !195, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!195 = distinct !{!195, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!196 = !{!197, !160, i64 16}
-!197 = !{!"_ZTSN5Eigen7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEES4_Li0EEE", !198, i64 0, !160, i64 16}
-!198 = !{!"_ZTSN5Eigen9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEE", !175, i64 0}
-!199 = !{!200, !51, i64 112}
-!200 = !{!"_ZTSN5Eigen8internal17product_evaluatorINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS3_IKNS2_ISB_S6_Li0EEEEELi1EEELi3ENS_10DenseShapeESG_ddEE", !198, i64 0, !201, i64 16, !205, i64 88, !208, i64 104, !51, i64 112}
-!201 = !{!"_ZTSN5Eigen6MatrixIdLi3ELi3ELi1ELi3ELi3EEE", !202, i64 0}
-!202 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEE", !203, i64 0}
-!203 = !{!"_ZTSN5Eigen12DenseStorageIdLi9ELi3ELi3ELi1EEE", !204, i64 0}
-!204 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi9ELi1ELi0EEE", !16, i64 0}
-!205 = !{!"_ZTSN5Eigen8internal9evaluatorINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEE", !206, i64 0}
-!206 = !{!"_ZTSN5Eigen8internal15unary_evaluatorINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS0_10IndexBasedEdEE", !207, i64 0}
-!207 = !{!"_ZTSN5Eigen8internal9evaluatorIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEE", !181, i64 0}
-!208 = !{!"_ZTSN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEE", !209, i64 0}
-!209 = !{!"_ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEEEE", !165, i64 0}
-!210 = !{!211, !148, i64 0}
-!211 = !{!"_ZTSN5Eigen8internal17mapbase_evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEES4_EE", !148, i64 0, !168, i64 8, !149, i64 9}
-!212 = !{!213, !213, i64 0}
-!213 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEEEE", !15, i64 0}
-!214 = !{!215, !215, i64 0}
-!215 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS3_IKNS2_ISB_S6_Li0EEEEELi1EEEEE", !15, i64 0}
-!216 = !{!217, !217, i64 0}
-!217 = !{!"p1 _ZTSN5Eigen8internal13add_assign_opIddEE", !15, i64 0}
-!218 = !{!219, !219, i64 0}
-!219 = !{!"p1 _ZTSN5Eigen3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEE", !15, i64 0}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!222 = distinct !{!222, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!223 = !{!224}
-!224 = distinct !{!224, !225, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!225 = distinct !{!225, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!226 = !{!227, !213, i64 0}
-!227 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEEEENS2_INS_7ProductINS_9TransposeIKNS3_IS5_Li16ES7_EEEENSB_IKNSA_ISE_S5_Li0EEEEELi1EEEEENS0_13add_assign_opIddEELi0EEE", !213, i64 0, !215, i64 8, !217, i64 16, !219, i64 24}
-!228 = !{!227, !215, i64 8}
-!229 = !{!230}
-!230 = distinct !{!230, !231, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
-!231 = distinct !{!231, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
-!232 = !{!233}
-!233 = distinct !{!233, !234, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!234 = distinct !{!234, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!235 = !{!236, !51, i64 0}
-!236 = !{!"_ZTSSt10_Head_baseILm0EmLb0EE", !51, i64 0}
-!237 = !{!238, !148, i64 32}
-!238 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE7StorageE", !239, i64 0, !240, i64 24, !148, i64 32}
-!239 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE22NonEmptyInlinedStorageE", !16, i64 0}
-!240 = !{!"_ZTSSt5tupleIJmSaIdEEE", !241, i64 0}
-!241 = !{!"_ZTSSt11_Tuple_implILm0EJmSaIdEEE", !236, i64 0}
-!242 = !{!51, !51, i64 0}
-!243 = !{!244}
-!244 = distinct !{!244, !245, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!245 = distinct !{!245, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!246 = distinct !{!246, !60}
-!247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!249 = distinct !{!249, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!250 = distinct !{!250, !60}
-!251 = !{!252}
-!252 = distinct !{!252, !253, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
-!253 = distinct !{!253, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
-!254 = distinct !{!254, !60}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = distinct !{!62, !60, !61}
+!63 = !{!64, !48, i64 16}
+!64 = !{!"_ZTSN3g2o19VelocityMeasurementE", !65, i64 0, !48, i64 16}
+!65 = !{!"_ZTSN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEE", !66, i64 0}
+!66 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEE", !67, i64 0}
+!67 = !{!"_ZTSN5Eigen12DenseStorageIdLi2ELi2ELi1ELi0EEE", !68, i64 0}
+!68 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi2ELi0ELi16EEE", !16, i64 0}
+!69 = distinct !{!69, !60, !61}
+!70 = distinct !{!70, !60, !61}
+!71 = !{!72, !84, i64 100}
+!72 = !{!"_ZTSN3g2o16OptimizableGraph6VertexE", !73, i64 0, !18, i64 64, !83, i64 80, !19, i64 88, !17, i64 96, !84, i64 100, !84, i64 101, !17, i64 104, !17, i64 108, !85, i64 112, !86, i64 120}
+!73 = !{!"_ZTSN3g2o10HyperGraph6VertexE", !9, i64 0, !17, i64 8, !74, i64 16}
+!74 = !{!"_ZTSSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE", !75, i64 0}
+!75 = !{!"_ZTSSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE", !76, i64 0}
+!76 = !{!"_ZTSNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE13_Rb_tree_implIS7_Lb1EEE", !77, i64 0, !79, i64 8}
+!77 = !{!"_ZTSSt20_Rb_tree_key_compareISt4lessIPN3g2o10HyperGraph4EdgeEEE", !78, i64 0}
+!78 = !{!"_ZTSSt4lessIPN3g2o10HyperGraph4EdgeEE"}
+!79 = !{!"_ZTSSt15_Rb_tree_header", !80, i64 0, !51, i64 32}
+!80 = !{!"_ZTSSt18_Rb_tree_node_base", !81, i64 0, !82, i64 8, !82, i64 16, !82, i64 24}
+!81 = !{!"_ZTSSt14_Rb_tree_color", !16, i64 0}
+!82 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !15, i64 0}
+!83 = !{!"p1 _ZTSN3g2o16OptimizableGraphE", !15, i64 0}
+!84 = !{!"bool", !16, i64 0}
+!85 = !{!"_ZTSN3g2o11OpenMPMutexE"}
+!86 = !{!"p1 _ZTSN3g2o14CacheContainerE", !15, i64 0}
+!87 = !{i8 0, i8 2}
+!88 = !{}
+!89 = !{!17, !17, i64 0}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZNK3g2o3SE27inverseEv: argument 0"}
+!92 = distinct !{!92, !"_ZNK3g2o3SE27inverseEv"}
+!93 = !{!94, !96, !98, !100, !102, !91}
+!94 = distinct !{!94, !95, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
+!95 = distinct !{!95, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
+!96 = distinct !{!96, !97, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv: argument 0"}
+!97 = distinct !{!97, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv"}
+!98 = distinct !{!98, !99, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_: argument 0"}
+!99 = distinct !{!99, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_"}
+!100 = distinct !{!100, !101, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_: argument 0"}
+!101 = distinct !{!101, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_"}
+!102 = distinct !{!102, !103, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE: argument 0"}
+!103 = distinct !{!103, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE"}
+!104 = !{!105, !48, i64 0}
+!105 = !{!"_ZTSN5Eigen10Rotation2DIdEE", !48, i64 0}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZNK3g2o3SE27inverseEv: argument 0"}
+!108 = distinct !{!108, !"_ZNK3g2o3SE27inverseEv"}
+!109 = !{!110, !112, !114, !116, !118, !107}
+!110 = distinct !{!110, !111, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
+!111 = distinct !{!111, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
+!112 = distinct !{!112, !113, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv: argument 0"}
+!113 = distinct !{!113, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16toRotationMatrixEv"}
+!114 = distinct !{!114, !115, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_: argument 0"}
+!115 = distinct !{!115, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EE16_transformVectorINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEESA_RKT_"}
+!116 = distinct !{!116, !117, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_: argument 0"}
+!117 = distinct !{!117, !"_ZN5Eigen8internal38rotation_base_generic_product_selectorINS_10Rotation2DIdEENS_13CwiseBinaryOpINS0_17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES9_EEEELb1EE3runERKS3_RKSF_"}
+!118 = distinct !{!118, !119, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE: argument 0"}
+!119 = distinct !{!119, !"_ZNK5Eigen12RotationBaseINS_10Rotation2DIdEELi2EEmlINS_13CwiseBinaryOpINS_8internal17scalar_product_opIddEEKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEEKNS_14CwiseNullaryOpINS6_18scalar_constant_opIdEESB_EEEEEENS6_38rotation_base_generic_product_selectorIS2_T_XsrSJ_21IsVectorAtCompileTimeEE10ReturnTypeERKNS_9EigenBaseISJ_EE"}
+!120 = !{!114, !116, !118, !107}
+!121 = !{!122, !124, !126}
+!122 = distinct !{!122, !123, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
+!123 = distinct !{!123, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
+!124 = distinct !{!124, !125, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE: argument 0"}
+!125 = distinct !{!125, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE"}
+!126 = distinct !{!126, !127, !"_ZNK3g2o3SE2mlERKS0_: argument 0"}
+!127 = distinct !{!127, !"_ZNK3g2o3SE2mlERKS0_"}
+!128 = !{!126}
+!129 = !{!130, !132, !134}
+!130 = distinct !{!130, !131, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv: argument 0"}
+!131 = distinct !{!131, !"_ZNK5Eigen10Rotation2DIdE16toRotationMatrixEv"}
+!132 = distinct !{!132, !133, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE: argument 0"}
+!133 = distinct !{!133, !"_ZNK5Eigen10Rotation2DIdEmlERKNS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEE"}
+!134 = distinct !{!134, !135, !"_ZNK3g2o3SE2mlERKS0_: argument 0"}
+!135 = distinct !{!135, !"_ZNK3g2o3SE2mlERKS0_"}
+!136 = !{!132, !134}
+!137 = !{!134}
+!138 = !{!16, !16, i64 0}
+!139 = !{!7, !20, i64 64}
+!140 = !{!141}
+!141 = distinct !{!141, !142, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE8ConstantEllRKd: argument 0"}
+!142 = distinct !{!142, !"_ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE8ConstantEllRKd"}
+!143 = !{!144}
+!144 = distinct !{!144, !145, !"_ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE17robustInformationERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE: argument 0"}
+!145 = distinct !{!145, !"_ZNK3g2o8BaseEdgeILi3ENS_19VelocityMeasurementEE17robustInformationERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE"}
+!146 = !{!84, !84, i64 0}
+!147 = !{!148, !149, i64 0}
+!148 = !{!"_ZTSN5Eigen7MapBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEELi0EEE", !149, i64 0, !150, i64 8, !150, i64 9}
+!149 = !{!"p1 double", !15, i64 0}
+!150 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi3EEE"}
+!151 = !{!152, !153, i64 0}
+!152 = !{!"_ZTSNSt12_Vector_baseIN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEESaIS2_EE17_Vector_impl_dataE", !153, i64 0, !153, i64 8, !153, i64 16}
+!153 = !{!"p1 _ZTSN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEE", !15, i64 0}
+!154 = !{!155, !149, i64 0}
+!155 = !{!"_ZTSN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EEE", !149, i64 0, !51, i64 8}
+!156 = !{!157, !149, i64 0}
+!157 = !{!"_ZTSN5Eigen7MapBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEELi0EEE", !149, i64 0, !150, i64 8, !150, i64 9}
+!158 = !{!13, !14, i64 16}
+!159 = distinct !{!159, !60, !61}
+!160 = !{!161, !161, i64 0}
+!161 = !{!"p1 _ZTSN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE", !15, i64 0}
+!162 = !{!163}
+!163 = distinct !{!163, !164, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE: argument 0"}
+!164 = distinct !{!164, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE"}
+!165 = !{!166, !149, i64 0}
+!166 = !{!"_ZTSN5Eigen8internal30plainobjectbase_evaluator_dataIdLi3EEE", !149, i64 0}
+!167 = !{!168, !149, i64 0}
+!168 = !{!"_ZTSN5Eigen8internal17mapbase_evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEES4_EE", !149, i64 0, !169, i64 8, !150, i64 9}
+!169 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi1EEE"}
+!170 = !{!171, !51, i64 112}
+!171 = !{!"_ZTSN5Eigen8internal17product_evaluatorINS_7ProductINS2_INS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEES6_Li0EEES9_Li1EEELi3ENS_10DenseShapeESE_ddEE", !172, i64 0, !176, i64 72, !180, i64 88, !182, i64 96, !51, i64 112}
+!172 = !{!"_ZTSN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE", !173, i64 0}
+!173 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEE", !174, i64 0}
+!174 = !{!"_ZTSN5Eigen12DenseStorageIdLi9ELi3ELi3ELi0EEE", !175, i64 0}
+!175 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi9ELi0ELi0EEE", !16, i64 0}
+!176 = !{!"_ZTSN5Eigen3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEE", !177, i64 0, !178, i64 10}
+!177 = !{!"_ZTSN5Eigen7MapBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEELi1EEE", !157, i64 0}
+!178 = !{!"_ZTSN5Eigen6StrideILi0ELi0EEE", !179, i64 0, !179, i64 1}
+!179 = !{!"_ZTSN5Eigen8internal19variable_if_dynamicIlLi0EEE"}
+!180 = !{!"_ZTSN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEE", !181, i64 0}
+!181 = !{!"_ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEEEE", !166, i64 0}
+!182 = !{!"_ZTSN5Eigen8internal9evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEE", !168, i64 0}
+!183 = !{!181, !149, i64 0}
+!184 = !{!185}
+!185 = distinct !{!185, !186, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!186 = distinct !{!186, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!187 = distinct !{!187, !60, !61}
+!188 = !{!189}
+!189 = distinct !{!189, !190, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE: argument 0"}
+!190 = distinct !{!190, !"_ZNK5Eigen10MatrixBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEmlIS4_EEKNS_7ProductIS9_T_Li0EEERKNS0_ISD_EE"}
+!191 = !{!192}
+!192 = distinct !{!192, !193, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!193 = distinct !{!193, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!194 = !{!195}
+!195 = distinct !{!195, !196, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!196 = distinct !{!196, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!197 = !{!198, !161, i64 16}
+!198 = !{!"_ZTSN5Eigen7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEES4_Li0EEE", !199, i64 0, !161, i64 16}
+!199 = !{!"_ZTSN5Eigen9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEE", !176, i64 0}
+!200 = !{!201, !51, i64 112}
+!201 = !{!"_ZTSN5Eigen8internal17product_evaluatorINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS3_IKNS2_ISB_S6_Li0EEEEELi1EEELi3ENS_10DenseShapeESG_ddEE", !199, i64 0, !202, i64 16, !206, i64 88, !209, i64 104, !51, i64 112}
+!202 = !{!"_ZTSN5Eigen6MatrixIdLi3ELi3ELi1ELi3ELi3EEE", !203, i64 0}
+!203 = !{!"_ZTSN5Eigen15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEE", !204, i64 0}
+!204 = !{!"_ZTSN5Eigen12DenseStorageIdLi9ELi3ELi3ELi1EEE", !205, i64 0}
+!205 = !{!"_ZTSN5Eigen8internal11plain_arrayIdLi9ELi1ELi0EEE", !16, i64 0}
+!206 = !{!"_ZTSN5Eigen8internal9evaluatorINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEEE", !207, i64 0}
+!207 = !{!"_ZTSN5Eigen8internal15unary_evaluatorINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS0_10IndexBasedEdEE", !208, i64 0}
+!208 = !{!"_ZTSN5Eigen8internal9evaluatorIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEE", !182, i64 0}
+!209 = !{!"_ZTSN5Eigen8internal9evaluatorINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEE", !210, i64 0}
+!210 = !{!"_ZTSN5Eigen8internal9evaluatorINS_15PlainObjectBaseINS_6MatrixIdLi3ELi3ELi1ELi3ELi3EEEEEEE", !166, i64 0}
+!211 = !{!212, !149, i64 0}
+!212 = !{!"_ZTSN5Eigen8internal17mapbase_evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEES4_EE", !149, i64 0, !169, i64 8, !150, i64 9}
+!213 = !{!214, !214, i64 0}
+!214 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEEEE", !15, i64 0}
+!215 = !{!216, !216, i64 0}
+!216 = !{!"p1 _ZTSN5Eigen8internal9evaluatorINS_7ProductINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEENS3_IKNS2_ISB_S6_Li0EEEEELi1EEEEE", !15, i64 0}
+!217 = !{!218, !218, i64 0}
+!218 = !{!"p1 _ZTSN5Eigen8internal13add_assign_opIddEE", !15, i64 0}
+!219 = !{!220, !220, i64 0}
+!220 = !{!"p1 _ZTSN5Eigen3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEE", !15, i64 0}
+!221 = !{!222}
+!222 = distinct !{!222, !223, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!223 = distinct !{!223, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!224 = !{!225}
+!225 = distinct !{!225, !226, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!226 = distinct !{!226, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!227 = !{!228, !214, i64 0}
+!228 = !{!"_ZTSN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi0ENS_6StrideILi0ELi0EEEEEEENS2_INS_7ProductINS_9TransposeIKNS3_IS5_Li16ES7_EEEENSB_IKNSA_ISE_S5_Li0EEEEELi1EEEEENS0_13add_assign_opIddEELi0EEE", !214, i64 0, !216, i64 8, !218, i64 16, !220, i64 24}
+!229 = !{!228, !216, i64 8}
+!230 = !{!231}
+!231 = distinct !{!231, !232, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl: argument 0"}
+!232 = distinct !{!232, !"_ZNK5Eigen9DenseBaseINS_9TransposeIKNS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEEEE3rowEl"}
+!233 = !{!234}
+!234 = distinct !{!234, !235, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!235 = distinct !{!235, !"_ZNK5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!236 = !{!237, !51, i64 0}
+!237 = !{!"_ZTSSt10_Head_baseILm0EmLb0EE", !51, i64 0}
+!238 = !{!239, !149, i64 32}
+!239 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE7StorageE", !240, i64 0, !241, i64 24, !149, i64 32}
+!240 = !{!"_ZTSN3g2o5ceres8internal10FixedArrayIdLm3ESaIdEE22NonEmptyInlinedStorageE", !16, i64 0}
+!241 = !{!"_ZTSSt5tupleIJmSaIdEEE", !242, i64 0}
+!242 = !{!"_ZTSSt11_Tuple_implILm0EJmSaIdEEE", !237, i64 0}
+!243 = !{!51, !51, i64 0}
+!244 = !{!245}
+!245 = distinct !{!245, !246, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!246 = distinct !{!246, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!247 = distinct !{!247, !60, !61}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!250 = distinct !{!250, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!251 = distinct !{!251, !60, !61}
+!252 = !{!253}
+!253 = distinct !{!253, !254, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl: argument 0"}
+!254 = distinct !{!254, !"_ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi16ENS_6StrideILi0ELi0EEEEEE3colEl"}
+!255 = distinct !{!255, !60, !61}

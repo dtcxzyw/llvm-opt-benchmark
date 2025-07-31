@@ -154,7 +154,7 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %89 = getelementptr inbounds i16, ptr %.15870.i, i64 %83
   %90 = add nuw nsw i32 %.16269.i, 1
   %exitcond77.not.i = icmp eq i32 %90, %23
-  br i1 %exitcond77.not.i, label %.preheader.i, label %88, !llvm.loop !6
+  br i1 %exitcond77.not.i, label %.preheader.i, label %88, !llvm.loop !7
 
 91:                                               ; preds = %91, %.lr.ph75.i
   %.174.i = phi ptr [ %74, %.lr.ph75.i ], [ %92, %91 ]
@@ -163,12 +163,12 @@ define hidden void @aom_yv12_extend_frame_borders_c(ptr noundef readonly capture
   %92 = getelementptr inbounds i16, ptr %.174.i, i64 %87
   %93 = add nuw nsw i32 %.273.i, 1
   %exitcond78.not.i = icmp eq i32 %93, %34
-  br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %91, !llvm.loop !7
+  br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %91, !llvm.loop !8
 
 extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !9
 
 94:                                               ; preds = %.lr.ph63, %extend_plane.exit
   %indvars.iv66 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next67, %extend_plane.exit ]
@@ -224,7 +224,7 @@ extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   %132 = getelementptr inbounds i8, ptr %.067.i, i64 %125
   %133 = add nuw nsw i32 %.06063.i, 1
   %exitcond.not.i57 = icmp eq i32 %133, %105
-  br i1 %exitcond.not.i57, label %._crit_edge.i53, label %126, !llvm.loop !9
+  br i1 %exitcond.not.i57, label %._crit_edge.i53, label %126, !llvm.loop !10
 
 ._crit_edge.i53:                                  ; preds = %126, %94
   %134 = add nsw i32 %105, -1
@@ -265,7 +265,7 @@ extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   %155 = getelementptr inbounds i8, ptr %.15769.i, i64 %150
   %156 = add nuw nsw i32 %.16168.i, 1
   %exitcond76.not.i = icmp eq i32 %156, %98
-  br i1 %exitcond76.not.i, label %.preheader.i54, label %154, !llvm.loop !10
+  br i1 %exitcond76.not.i, label %.preheader.i54, label %154, !llvm.loop !11
 
 157:                                              ; preds = %157, %.lr.ph74.i
   %.173.i = phi ptr [ %142, %.lr.ph74.i ], [ %158, %157 ]
@@ -274,12 +274,12 @@ extend_plane_high.exit:                           ; preds = %91, %.preheader.i
   %158 = getelementptr inbounds i8, ptr %.173.i, i64 %153
   %159 = add nuw nsw i32 %.272.i, 1
   %exitcond77.not.i55 = icmp eq i32 %159, %109
-  br i1 %exitcond77.not.i55, label %extend_plane.exit, label %157, !llvm.loop !11
+  br i1 %exitcond77.not.i55, label %extend_plane.exit, label %157, !llvm.loop !12
 
 extend_plane.exit:                                ; preds = %157, %.preheader.i54
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %.loopexit, label %94, !llvm.loop !12
+  br i1 %exitcond70.not, label %.loopexit, label %94, !llvm.loop !13
 
 .loopexit:                                        ; preds = %extend_plane_high.exit, %extend_plane.exit, %.preheader59, %.preheader
   ret void
@@ -438,7 +438,7 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %98 = getelementptr inbounds i16, ptr %.15870.i, i64 %92
   %99 = add nuw nsw i32 %.16269.i, 1
   %exitcond77.not.i = icmp eq i32 %99, %30
-  br i1 %exitcond77.not.i, label %.preheader.i, label %97, !llvm.loop !6
+  br i1 %exitcond77.not.i, label %.preheader.i, label %97, !llvm.loop !7
 
 100:                                              ; preds = %100, %.lr.ph75.i
   %.174.i = phi ptr [ %83, %.lr.ph75.i ], [ %101, %100 ]
@@ -447,12 +447,12 @@ define internal fastcc void @extend_frame(ptr noundef readonly captures(none) %0
   %101 = getelementptr inbounds i16, ptr %.174.i, i64 %96
   %102 = add nuw nsw i32 %.273.i, 1
   %exitcond78.not.i = icmp eq i32 %102, %39
-  br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %100, !llvm.loop !7
+  br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %100, !llvm.loop !8
 
 extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !14
 
 103:                                              ; preds = %.lr.ph79, %extend_plane.exit
   %indvars.iv82 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next83, %extend_plane.exit ]
@@ -509,7 +509,7 @@ extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   %142 = getelementptr inbounds i8, ptr %.067.i, i64 %135
   %143 = add nuw nsw i32 %.06063.i, 1
   %exitcond.not.i73 = icmp eq i32 %143, %114
-  br i1 %exitcond.not.i73, label %._crit_edge.i69, label %136, !llvm.loop !9
+  br i1 %exitcond.not.i73, label %._crit_edge.i69, label %136, !llvm.loop !10
 
 ._crit_edge.i69:                                  ; preds = %136, %103
   %144 = add nsw i32 %114, -1
@@ -550,7 +550,7 @@ extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   %165 = getelementptr inbounds i8, ptr %.15769.i, i64 %160
   %166 = add nuw nsw i32 %.16168.i, 1
   %exitcond76.not.i = icmp eq i32 %166, %106
-  br i1 %exitcond76.not.i, label %.preheader.i70, label %164, !llvm.loop !10
+  br i1 %exitcond76.not.i, label %.preheader.i70, label %164, !llvm.loop !11
 
 167:                                              ; preds = %167, %.lr.ph74.i
   %.173.i = phi ptr [ %152, %.lr.ph74.i ], [ %168, %167 ]
@@ -559,12 +559,12 @@ extend_plane_high.exit:                           ; preds = %100, %.preheader.i
   %168 = getelementptr inbounds i8, ptr %.173.i, i64 %163
   %169 = add nuw nsw i32 %.272.i, 1
   %exitcond77.not.i71 = icmp eq i32 %169, %115
-  br i1 %exitcond77.not.i71, label %extend_plane.exit, label %167, !llvm.loop !11
+  br i1 %exitcond77.not.i71, label %extend_plane.exit, label %167, !llvm.loop !12
 
 extend_plane.exit:                                ; preds = %167, %.preheader.i70
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
-  br i1 %exitcond86.not, label %.loopexit, label %103, !llvm.loop !14
+  br i1 %exitcond86.not, label %.loopexit, label %103, !llvm.loop !15
 
 .loopexit:                                        ; preds = %extend_plane_high.exit, %extend_plane.exit, %.preheader75, %.preheader
   ret void
@@ -684,7 +684,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %71 = getelementptr inbounds i16, ptr %.15870.i, i64 %65
   %72 = add nuw nsw i32 %.16269.i, 1
   %exitcond77.not.i = icmp eq i32 %72, %3
-  br i1 %exitcond77.not.i, label %.preheader.i, label %70, !llvm.loop !6
+  br i1 %exitcond77.not.i, label %.preheader.i, label %70, !llvm.loop !7
 
 73:                                               ; preds = %73, %.lr.ph75.i
   %.174.i = phi ptr [ %56, %.lr.ph75.i ], [ %74, %73 ]
@@ -693,7 +693,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %74 = getelementptr inbounds i16, ptr %.174.i, i64 %69
   %75 = add nuw nsw i32 %.273.i, 1
   %exitcond78.not.i = icmp eq i32 %75, %16
-  br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %73, !llvm.loop !7
+  br i1 %exitcond78.not.i, label %extend_plane_high.exit, label %73, !llvm.loop !8
 
 76:                                               ; preds = %1
   %77 = sext i32 %3 to i64
@@ -729,7 +729,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %95 = getelementptr inbounds i8, ptr %.067.i, i64 %88
   %96 = add nuw nsw i32 %.06063.i, 1
   %exitcond.not.i29 = icmp eq i32 %96, %12
-  br i1 %exitcond.not.i29, label %._crit_edge.i25, label %89, !llvm.loop !9
+  br i1 %exitcond.not.i29, label %._crit_edge.i25, label %89, !llvm.loop !10
 
 ._crit_edge.i25:                                  ; preds = %89, %76
   %97 = add nsw i32 %12, -1
@@ -770,7 +770,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %118 = getelementptr inbounds i8, ptr %.15769.i, i64 %113
   %119 = add nuw nsw i32 %.16168.i, 1
   %exitcond76.not.i = icmp eq i32 %119, %3
-  br i1 %exitcond76.not.i, label %.preheader.i26, label %117, !llvm.loop !10
+  br i1 %exitcond76.not.i, label %.preheader.i26, label %117, !llvm.loop !11
 
 120:                                              ; preds = %120, %.lr.ph74.i
   %.173.i = phi ptr [ %105, %.lr.ph74.i ], [ %121, %120 ]
@@ -779,7 +779,7 @@ define hidden void @aom_extend_frame_borders_y_c(ptr noundef readonly captures(n
   %121 = getelementptr inbounds i8, ptr %.173.i, i64 %116
   %122 = add nuw nsw i32 %.272.i, 1
   %exitcond77.not.i27 = icmp eq i32 %122, %16
-  br i1 %exitcond77.not.i27, label %extend_plane_high.exit, label %120, !llvm.loop !11
+  br i1 %exitcond77.not.i27, label %extend_plane_high.exit, label %120, !llvm.loop !12
 
 extend_plane_high.exit:                           ; preds = %73, %120, %.preheader.i26, %.preheader.i
   ret void
@@ -860,12 +860,12 @@ define hidden void @aom_yv12_copy_frame_c(ptr noundef readonly captures(none) %0
   %47 = add nuw nsw i32 %.05259, 1
   %48 = load i32, ptr %21, align 4
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %31, label %._crit_edge, !llvm.loop !15
+  br i1 %49, label %31, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %31, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge62, label %18, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge62, label %18, !llvm.loop !17
 
 50:                                               ; preds = %.lr.ph70, %._crit_edge68
   %indvars.iv73 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next74, %._crit_edge68 ]
@@ -902,12 +902,12 @@ define hidden void @aom_yv12_copy_frame_c(ptr noundef readonly captures(none) %0
   %72 = add nuw nsw i32 %.065, 1
   %73 = load i32, ptr %53, align 4
   %74 = icmp slt i32 %72, %73
-  br i1 %74, label %63, label %._crit_edge68, !llvm.loop !17
+  br i1 %74, label %63, label %._crit_edge68, !llvm.loop !18
 
 ._crit_edge68:                                    ; preds = %63, %50
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %._crit_edge62, label %50, !llvm.loop !18
+  br i1 %exitcond77.not, label %._crit_edge62, label %50, !llvm.loop !19
 
 ._crit_edge62:                                    ; preds = %._crit_edge, %._crit_edge68, %.preheader, %.preheader56
   tail call void @aom_yv12_extend_frame_borders_c(ptr noundef %1, i32 noundef %2)
@@ -971,7 +971,7 @@ define hidden void @aom_yv12_copy_y_c(ptr noundef readonly captures(none) %0, pt
   %34 = add nuw nsw i32 %.02729, 1
   %35 = load i32, ptr %10, align 8
   %36 = icmp slt i32 %34, %35
-  br i1 %36, label %24, label %.loopexit, !llvm.loop !19
+  br i1 %36, label %24, label %.loopexit, !llvm.loop !20
 
 37:                                               ; preds = %.lr.ph35, %37
   %.02534 = phi ptr [ %6, %.lr.ph35 ], [ %45, %37 ]
@@ -989,7 +989,7 @@ define hidden void @aom_yv12_copy_y_c(ptr noundef readonly captures(none) %0, pt
   %46 = add nuw nsw i32 %.132, 1
   %47 = load i32, ptr %10, align 8
   %48 = icmp slt i32 %46, %47
-  br i1 %48, label %37, label %.loopexit, !llvm.loop !20
+  br i1 %48, label %37, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %24, %37, %15, %.preheader
   ret void
@@ -1051,7 +1051,7 @@ define hidden void @aom_yv12_copy_u_c(ptr noundef readonly captures(none) %0, pt
   %36 = add nuw nsw i32 %.02729, 1
   %37 = load i32, ptr %10, align 4
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %26, label %.loopexit, !llvm.loop !21
+  br i1 %38, label %26, label %.loopexit, !llvm.loop !22
 
 39:                                               ; preds = %.lr.ph35, %39
   %.02534 = phi ptr [ %6, %.lr.ph35 ], [ %47, %39 ]
@@ -1069,7 +1069,7 @@ define hidden void @aom_yv12_copy_u_c(ptr noundef readonly captures(none) %0, pt
   %48 = add nuw nsw i32 %.132, 1
   %49 = load i32, ptr %10, align 4
   %50 = icmp slt i32 %48, %49
-  br i1 %50, label %39, label %.loopexit, !llvm.loop !22
+  br i1 %50, label %39, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %26, %39, %16, %.preheader
   ret void
@@ -1131,7 +1131,7 @@ define hidden void @aom_yv12_copy_v_c(ptr noundef readonly captures(none) %0, pt
   %36 = add nuw nsw i32 %.02729, 1
   %37 = load i32, ptr %10, align 4
   %38 = icmp slt i32 %36, %37
-  br i1 %38, label %26, label %.loopexit, !llvm.loop !23
+  br i1 %38, label %26, label %.loopexit, !llvm.loop !24
 
 39:                                               ; preds = %.lr.ph35, %39
   %.02534 = phi ptr [ %6, %.lr.ph35 ], [ %47, %39 ]
@@ -1149,7 +1149,7 @@ define hidden void @aom_yv12_copy_v_c(ptr noundef readonly captures(none) %0, pt
   %48 = add nuw nsw i32 %.132, 1
   %49 = load i32, ptr %10, align 4
   %50 = icmp slt i32 %48, %49
-  br i1 %50, label %39, label %.loopexit, !llvm.loop !24
+  br i1 %50, label %39, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %26, %39, %16, %.preheader
   ret void
@@ -1210,7 +1210,7 @@ define hidden void @aom_yv12_partial_copy_y_c(ptr noundef readonly captures(none
   %47 = getelementptr inbounds i16, ptr %.049, i64 %46
   %48 = add nsw i32 %.04547, 1
   %exitcond.not = icmp eq i32 %48, %4
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !26
 
 49:                                               ; preds = %8
   br i1 %18, label %.lr.ph53, label %.loopexit
@@ -1245,7 +1245,7 @@ define hidden void @aom_yv12_partial_copy_y_c(ptr noundef readonly captures(none
   %70 = getelementptr inbounds i8, ptr %.04352, i64 %69
   %71 = add nsw i32 %.150, 1
   %exitcond55.not = icmp eq i32 %71, %4
-  br i1 %exitcond55.not, label %.loopexit, label %64, !llvm.loop !26
+  br i1 %exitcond55.not, label %.loopexit, label %64, !llvm.loop !27
 
 .loopexit:                                        ; preds = %41, %64, %19, %49
   ret void
@@ -1305,7 +1305,7 @@ define hidden void @aom_yv12_partial_coloc_copy_y_c(ptr noundef readonly capture
   %44 = getelementptr inbounds i16, ptr %.049.i, i64 %43
   %45 = add nsw i32 %.04547.i, 1
   %exitcond.not.i = icmp eq i32 %45, %5
-  br i1 %exitcond.not.i, label %aom_yv12_partial_copy_y_c.exit, label %38, !llvm.loop !25
+  br i1 %exitcond.not.i, label %aom_yv12_partial_copy_y_c.exit, label %38, !llvm.loop !26
 
 46:                                               ; preds = %6
   br i1 %16, label %.lr.ph53.i, label %aom_yv12_partial_copy_y_c.exit
@@ -1339,7 +1339,7 @@ define hidden void @aom_yv12_partial_coloc_copy_y_c(ptr noundef readonly capture
   %66 = getelementptr inbounds i8, ptr %.04352.i, i64 %65
   %67 = add nsw i32 %.150.i, 1
   %exitcond55.not.i = icmp eq i32 %67, %5
-  br i1 %exitcond55.not.i, label %aom_yv12_partial_copy_y_c.exit, label %60, !llvm.loop !26
+  br i1 %exitcond55.not.i, label %aom_yv12_partial_copy_y_c.exit, label %60, !llvm.loop !27
 
 aom_yv12_partial_copy_y_c.exit:                   ; preds = %38, %60, %17, %46
   ret void
@@ -1400,7 +1400,7 @@ define hidden void @aom_yv12_partial_copy_u_c(ptr noundef readonly captures(none
   %47 = getelementptr inbounds i16, ptr %.049, i64 %46
   %48 = add nsw i32 %.04547, 1
   %exitcond.not = icmp eq i32 %48, %4
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !28
 
 49:                                               ; preds = %8
   br i1 %18, label %.lr.ph53, label %.loopexit
@@ -1435,7 +1435,7 @@ define hidden void @aom_yv12_partial_copy_u_c(ptr noundef readonly captures(none
   %70 = getelementptr inbounds i8, ptr %.04352, i64 %69
   %71 = add nsw i32 %.150, 1
   %exitcond55.not = icmp eq i32 %71, %4
-  br i1 %exitcond55.not, label %.loopexit, label %64, !llvm.loop !28
+  br i1 %exitcond55.not, label %.loopexit, label %64, !llvm.loop !29
 
 .loopexit:                                        ; preds = %41, %64, %19, %49
   ret void
@@ -1495,7 +1495,7 @@ define hidden void @aom_yv12_partial_coloc_copy_u_c(ptr noundef readonly capture
   %44 = getelementptr inbounds i16, ptr %.049.i, i64 %43
   %45 = add nsw i32 %.04547.i, 1
   %exitcond.not.i = icmp eq i32 %45, %5
-  br i1 %exitcond.not.i, label %aom_yv12_partial_copy_u_c.exit, label %38, !llvm.loop !27
+  br i1 %exitcond.not.i, label %aom_yv12_partial_copy_u_c.exit, label %38, !llvm.loop !28
 
 46:                                               ; preds = %6
   br i1 %16, label %.lr.ph53.i, label %aom_yv12_partial_copy_u_c.exit
@@ -1529,7 +1529,7 @@ define hidden void @aom_yv12_partial_coloc_copy_u_c(ptr noundef readonly capture
   %66 = getelementptr inbounds i8, ptr %.04352.i, i64 %65
   %67 = add nsw i32 %.150.i, 1
   %exitcond55.not.i = icmp eq i32 %67, %5
-  br i1 %exitcond55.not.i, label %aom_yv12_partial_copy_u_c.exit, label %60, !llvm.loop !28
+  br i1 %exitcond55.not.i, label %aom_yv12_partial_copy_u_c.exit, label %60, !llvm.loop !29
 
 aom_yv12_partial_copy_u_c.exit:                   ; preds = %38, %60, %17, %46
   ret void
@@ -1590,7 +1590,7 @@ define hidden void @aom_yv12_partial_copy_v_c(ptr noundef readonly captures(none
   %47 = getelementptr inbounds i16, ptr %.049, i64 %46
   %48 = add nsw i32 %.04547, 1
   %exitcond.not = icmp eq i32 %48, %4
-  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %41, !llvm.loop !30
 
 49:                                               ; preds = %8
   br i1 %18, label %.lr.ph53, label %.loopexit
@@ -1625,7 +1625,7 @@ define hidden void @aom_yv12_partial_copy_v_c(ptr noundef readonly captures(none
   %70 = getelementptr inbounds i8, ptr %.04352, i64 %69
   %71 = add nsw i32 %.150, 1
   %exitcond55.not = icmp eq i32 %71, %4
-  br i1 %exitcond55.not, label %.loopexit, label %64, !llvm.loop !30
+  br i1 %exitcond55.not, label %.loopexit, label %64, !llvm.loop !31
 
 .loopexit:                                        ; preds = %41, %64, %19, %49
   ret void
@@ -1685,7 +1685,7 @@ define hidden void @aom_yv12_partial_coloc_copy_v_c(ptr noundef readonly capture
   %44 = getelementptr inbounds i16, ptr %.049.i, i64 %43
   %45 = add nsw i32 %.04547.i, 1
   %exitcond.not.i = icmp eq i32 %45, %5
-  br i1 %exitcond.not.i, label %aom_yv12_partial_copy_v_c.exit, label %38, !llvm.loop !29
+  br i1 %exitcond.not.i, label %aom_yv12_partial_copy_v_c.exit, label %38, !llvm.loop !30
 
 46:                                               ; preds = %6
   br i1 %16, label %.lr.ph53.i, label %aom_yv12_partial_copy_v_c.exit
@@ -1719,7 +1719,7 @@ define hidden void @aom_yv12_partial_coloc_copy_v_c(ptr noundef readonly capture
   %66 = getelementptr inbounds i8, ptr %.04352.i, i64 %65
   %67 = add nsw i32 %.150.i, 1
   %exitcond55.not.i = icmp eq i32 %67, %5
-  br i1 %exitcond55.not.i, label %aom_yv12_partial_copy_v_c.exit, label %60, !llvm.loop !30
+  br i1 %exitcond55.not.i, label %aom_yv12_partial_copy_v_c.exit, label %60, !llvm.loop !31
 
 aom_yv12_partial_copy_v_c.exit:                   ; preds = %38, %60, %17, %46
   ret void
@@ -1826,12 +1826,12 @@ define hidden i32 @aom_yv12_realloc_with_new_border_c(ptr noundef %0, i32 nounde
   %63 = add nuw nsw i32 %.05259.i, 1
   %64 = load i32, ptr %38, align 4
   %65 = icmp slt i32 %63, %64
-  br i1 %65, label %47, label %._crit_edge.i, !llvm.loop !15
+  br i1 %65, label %47, label %._crit_edge.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %47, %35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %aom_yv12_copy_frame_c.exit, label %35, !llvm.loop !16
+  br i1 %exitcond.not.i, label %aom_yv12_copy_frame_c.exit, label %35, !llvm.loop !17
 
 66:                                               ; preds = %._crit_edge68.i, %.lr.ph70.i
   %indvars.iv73.i = phi i64 [ 0, %.lr.ph70.i ], [ %indvars.iv.next74.i, %._crit_edge68.i ]
@@ -1869,12 +1869,12 @@ define hidden i32 @aom_yv12_realloc_with_new_border_c(ptr noundef %0, i32 nounde
   %87 = add nuw nsw i32 %.065.i, 1
   %88 = load i32, ptr %69, align 4
   %89 = icmp slt i32 %87, %88
-  br i1 %89, label %78, label %._crit_edge68.i, !llvm.loop !17
+  br i1 %89, label %78, label %._crit_edge68.i, !llvm.loop !18
 
 ._crit_edge68.i:                                  ; preds = %78, %66
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count76.i
-  br i1 %exitcond77.not.i, label %aom_yv12_copy_frame_c.exit, label %66, !llvm.loop !18
+  br i1 %exitcond77.not.i, label %aom_yv12_copy_frame_c.exit, label %66, !llvm.loop !19
 
 aom_yv12_copy_frame_c.exit:                       ; preds = %._crit_edge.i, %._crit_edge68.i, %.preheader56.i, %.preheader.i
   call void @aom_yv12_extend_frame_borders_c(ptr noundef nonnull readonly %5, i32 noundef %3)
@@ -1916,30 +1916,31 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}

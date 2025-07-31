@@ -254,12 +254,12 @@ define internal void @uat_key_records_byte_order_tostr_cb(ptr noundef readonly c
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !9
 
 18:                                               ; preds = %.lr.ph20
   %19 = load i32, ptr %15, align 8
   %20 = icmp eq i32 %19, %10
-  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !8
+  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !9
 
 ._crit_edge21:                                    ; preds = %18, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %17, %18 ]
@@ -464,7 +464,7 @@ define internal void @uat_key_record_post_update() #0 {
   %33 = zext i32 %30 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
   %35 = select i1 %32, i1 %34, i1 false
-  br i1 %35, label %13, label %._crit_edge, !llvm.loop !9
+  br i1 %35, label %13, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %29, %5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #13
@@ -866,7 +866,7 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   %207 = getelementptr inbounds nuw i8, ptr %.0204261.us, i64 8
   %208 = load ptr, ptr %207, align 8
   %209 = icmp eq ptr %208, null
-  br i1 %209, label %.loopexit260, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %209, label %.loopexit260, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %214
   %.0204261 = phi ptr [ %216, %214 ], [ %197, %.lr.ph ]
@@ -884,7 +884,7 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   %215 = getelementptr inbounds nuw i8, ptr %.0204261, i64 8
   %216 = load ptr, ptr %215, align 8
   %217 = icmp eq ptr %216, null
-  br i1 %217, label %.loopexit260, label %.lr.ph.split, !llvm.loop !12
+  br i1 %217, label %.loopexit260, label %.lr.ph.split, !llvm.loop !13
 
 .loopexit260:                                     ; preds = %214, %206, %196, %193
   %218 = load ptr, ptr @zbee_pc_keyring, align 8
@@ -914,7 +914,7 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   %228 = getelementptr inbounds nuw i8, ptr %.2206267.us, i64 8
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %229, null
-  br i1 %230, label %.thread, label %.lr.ph269.split.us, !llvm.loop !13
+  br i1 %230, label %.thread, label %.lr.ph269.split.us, !llvm.loop !14
 
 .lr.ph269.split:                                  ; preds = %.lr.ph269, %235
   %.2206267 = phi ptr [ %237, %235 ], [ %218, %.lr.ph269 ]
@@ -932,7 +932,7 @@ define hidden ptr @dissect_zbee_secure(ptr noundef %0, ptr noundef %1, ptr nound
   %236 = getelementptr inbounds nuw i8, ptr %.2206267, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null
-  br i1 %238, label %.thread, label %.lr.ph269.split, !llvm.loop !14
+  br i1 %238, label %.thread, label %.lr.ph269.split, !llvm.loop !15
 
 .loopexit:                                        ; preds = %189
   %239 = trunc i32 %.1 to i8
@@ -1128,7 +1128,7 @@ define internal fastcc zeroext i1 @zbee_sec_decrypt_payload(ptr noundef readonly
   store i8 %19, ptr %20, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.preheader.i, label %16, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.preheader.i, label %16, !llvm.loop !16
 
 .preheader.i:                                     ; preds = %16, %.preheader.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %.preheader.i ], [ 0, %16 ]
@@ -1139,7 +1139,7 @@ define internal fastcc zeroext i1 @zbee_sec_decrypt_payload(ptr noundef readonly
   store i8 %23, ptr %24, align 1
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next18.i, 16
-  br i1 %exitcond20.not.i, label %zbee_sec_key_hash.exit, label %.preheader.i, !llvm.loop !16
+  br i1 %exitcond20.not.i, label %zbee_sec_key_hash.exit, label %.preheader.i, !llvm.loop !17
 
 zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1163,7 +1163,7 @@ zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   store i8 %31, ptr %32, align 1
   %indvars.iv.next.i15 = add nuw nsw i64 %indvars.iv.i14, 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i15, 16
-  br i1 %exitcond.not.i16, label %.preheader.i17, label %28, !llvm.loop !15
+  br i1 %exitcond.not.i16, label %.preheader.i17, label %28, !llvm.loop !16
 
 .preheader.i17:                                   ; preds = %28, %.preheader.i17
   %indvars.iv17.i18 = phi i64 [ %indvars.iv.next18.i19, %.preheader.i17 ], [ 0, %28 ]
@@ -1174,7 +1174,7 @@ zbee_sec_key_hash.exit:                           ; preds = %.preheader.i
   store i8 %35, ptr %36, align 1
   %indvars.iv.next18.i19 = add nuw nsw i64 %indvars.iv17.i18, 1
   %exitcond20.not.i20 = icmp eq i64 %indvars.iv.next18.i19, 16
-  br i1 %exitcond20.not.i20, label %zbee_sec_key_hash.exit21, label %.preheader.i17, !llvm.loop !16
+  br i1 %exitcond20.not.i20, label %zbee_sec_key_hash.exit21, label %.preheader.i17, !llvm.loop !17
 
 zbee_sec_key_hash.exit21:                         ; preds = %.preheader.i17
   %37 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -1268,7 +1268,7 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
   %28 = zext i32 %6 to i64
   %29 = getelementptr i8, ptr %3, i64 %28
   %30 = zext nneg i32 %7 to i64
-  %31 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef %29, i64 noundef range(i64 0, 17) %30, i64 noundef 16) #13, !alias.scope !17
+  %31 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef %29, i64 noundef range(i64 0, 17) %30, i64 noundef 16) #13, !alias.scope !18
   %32 = load ptr, ptr %12, align 8
   %33 = call i32 @gcry_cipher_encrypt(ptr noundef %32, ptr noundef nonnull %11, i64 noundef 16, ptr noundef nonnull %11, i64 noundef 16)
   %.not65 = icmp eq i32 %33, 0
@@ -1393,7 +1393,7 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %90 = add nuw nsw i32 %.2, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader74, label %75, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader74, label %75, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %.preheader74, %64
   %.0 = phi i32 [ 0, %64 ], [ 16, %.preheader74 ], [ 16, %.lr.ph.preheader ]
@@ -1444,7 +1444,7 @@ define hidden zeroext i1 @zbee_sec_ccm_decrypt(ptr noundef %0, ptr noundef reado
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %108 = add nuw nsw i32 %.5, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %28
-  br i1 %exitcond105.not, label %.preheader, label %.lr.ph83, !llvm.loop !22
+  br i1 %exitcond105.not, label %.preheader, label %.lr.ph83, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph85.preheader, %.preheader
   %109 = load ptr, ptr %12, align 8
@@ -1625,7 +1625,7 @@ define internal fastcc noundef zeroext i1 @zbee_security_parse_key(ptr noundef r
   %23 = add nsw i32 %.03848.us, -1
   %.not56 = icmp eq i32 %.03848.us, 0
   %indvars.iv.next54 = add i64 %indvars.iv53, %15
-  br i1 %.not56, label %.loopexit, label %.split.us, !llvm.loop !23
+  br i1 %.not56, label %.loopexit, label %.split.us, !llvm.loop !24
 
 .split:                                           ; preds = %.split.preheader, %41
   %indvars.iv = phi i64 [ %10, %.split.preheader ], [ %indvars.iv.next, %41 ]
@@ -1678,7 +1678,7 @@ define internal fastcc noundef zeroext i1 @zbee_security_parse_key(ptr noundef r
   %47 = add nsw i32 %.03848, -1
   %.not55 = icmp eq i32 %.03848, 0
   %indvars.iv.next = add i64 %indvars.iv, %11
-  br i1 %.not55, label %.loopexit, label %.split, !llvm.loop !24
+  br i1 %.not55, label %.loopexit, label %.split, !llvm.loop !25
 
 .loopexit:                                        ; preds = %27, %32, %41, %20, %.split.us, %3
   %.039 = phi i1 [ false, %3 ], [ %.not46.us.not.not, %.split.us ], [ %.not46.us.not.not, %20 ], [ true, %41 ], [ false, %32 ], [ false, %27 ]
@@ -1748,12 +1748,12 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
   store i8 %23, ptr %21, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.loopexit39, label %18, !llvm.loop !25
+  br i1 %exitcond.not, label %.loopexit39, label %18, !llvm.loop !26
 
 .loopexit39:                                      ; preds = %18, %.preheader
   %.1 = phi i32 [ %9, %.preheader ], [ 0, %18 ]
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count
-  br i1 %exitcond53.not, label %24, label %.preheader, !llvm.loop !26
+  br i1 %exitcond53.not, label %24, label %.preheader, !llvm.loop !27
 
 24:                                               ; preds = %.loopexit39
   %25 = zext nneg i32 %.1 to i64
@@ -1786,7 +1786,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
   store i8 %38, ptr %36, align 1
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 16
-  br i1 %exitcond57.not, label %.loopexit, label %33, !llvm.loop !27
+  br i1 %exitcond57.not, label %.loopexit, label %33, !llvm.loop !28
 
 .loopexit:                                        ; preds = %33, %.lr.ph
   %.4 = phi i32 [ %.347, %.lr.ph ], [ 0, %33 ]
@@ -1795,7 +1795,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
   store i8 0, ptr %40, align 1
   %.3 = add nuw nsw i32 %.4, 1
   %.not38 = icmp eq i32 %.3, 14
-  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not38, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.loopexit, %24
   %41 = lshr i32 %1, 5
@@ -1822,7 +1822,7 @@ define internal fastcc void @zbee_sec_hash(ptr noundef readonly captures(none) %
   store i8 %55, ptr %53, align 1
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 16
-  br i1 %exitcond61.not, label %56, label %50, !llvm.loop !29
+  br i1 %exitcond61.not, label %56, label %50, !llvm.loop !30
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %5, align 8
@@ -1873,27 +1873,28 @@ attributes #16 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !11}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7, !11}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !12}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8, !12}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

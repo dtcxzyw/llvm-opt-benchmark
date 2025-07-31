@@ -188,7 +188,7 @@ define internal fastcc void @SHA256_Transform(ptr noundef captures(none) %0, ptr
   %65 = add i32 %63, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !5
+  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !6
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv150 = phi i64 [ %indvars.iv.next151, %.preheader ], [ 16, %19 ]
@@ -257,7 +257,7 @@ define internal fastcc void @SHA256_Transform(ptr noundef captures(none) %0, ptr
   %118 = add i32 %107, %.1139
   %119 = add i32 %117, %107
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 64
-  br i1 %exitcond153.not, label %120, label %.preheader, !llvm.loop !6
+  br i1 %exitcond153.not, label %120, label %.preheader, !llvm.loop !7
 
 120:                                              ; preds = %.preheader
   %121 = add i32 %4, %119
@@ -350,7 +350,7 @@ SHA256_Last.exit:                                 ; preds = %16, %27, %28
   store i32 %rev, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %34, label %31, !llvm.loop !7
+  br i1 %exitcond.not, label %34, label %31, !llvm.loop !8
 
 34:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
@@ -455,7 +455,7 @@ define void @pg_sha512_update(ptr noundef captures(none) %0, ptr noundef readonl
   %40 = add i64 %.154, -128
   %41 = getelementptr inbounds nuw i8, ptr %.14753, i64 128
   %42 = icmp ugt i64 %40, 127
-  br i1 %42, label %32, label %._crit_edge, !llvm.loop !8
+  br i1 %42, label %32, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %39, %29
   %.147.lcssa = phi ptr [ %.046, %29 ], [ %41, %39 ]
@@ -584,7 +584,7 @@ define internal fastcc void @SHA512_Transform(ptr noundef captures(none) %0, ptr
   %85 = add i64 %83, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader, label %19, !llvm.loop !10
 
 .preheader:                                       ; preds = %19, %.preheader
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %.preheader ], [ 16, %19 ]
@@ -653,7 +653,7 @@ define internal fastcc void @SHA512_Transform(ptr noundef captures(none) %0, ptr
   %138 = add i64 %127, %.1143
   %139 = add i64 %137, %127
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 80
-  br i1 %exitcond157.not, label %140, label %.preheader, !llvm.loop !10
+  br i1 %exitcond157.not, label %140, label %.preheader, !llvm.loop !11
 
 140:                                              ; preds = %.preheader
   %141 = add i64 %4, %139
@@ -754,7 +754,7 @@ SHA512_Last.exit:                                 ; preds = %19, %30, %31
   store i64 %39, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %40, label %36, !llvm.loop !11
+  br i1 %exitcond.not, label %40, label %36, !llvm.loop !12
 
 40:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
@@ -865,7 +865,7 @@ SHA512_Last.exit:                                 ; preds = %19, %30, %31
   store i64 %39, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %40, label %36, !llvm.loop !12
+  br i1 %exitcond.not, label %40, label %36, !llvm.loop !13
 
 40:                                               ; preds = %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %0, i64 48, i1 false)
@@ -1039,7 +1039,7 @@ SHA256_Last.exit:                                 ; preds = %16, %27, %28
   store i32 %rev, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %34, label %31, !llvm.loop !13
+  br i1 %exitcond.not, label %34, label %31, !llvm.loop !14
 
 34:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(28) %0, i64 28, i1 false)
@@ -1073,14 +1073,15 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}

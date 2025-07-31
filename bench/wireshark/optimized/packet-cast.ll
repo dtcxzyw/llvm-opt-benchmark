@@ -742,7 +742,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %78 = add nuw nsw i32 %.0744763, 1
   %.2748 = add i32 %.2748764, 4
   %exitcond781.not = icmp eq i32 %78, 5
-  br i1 %exitcond781.not, label %79, label %73, !llvm.loop !10
+  br i1 %exitcond781.not, label %79, label %73, !llvm.loop !11
 
 79:                                               ; preds = %73
   %80 = load i32, ptr @hf_cast_serviceNum, align 4
@@ -759,7 +759,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %91 = add i32 %.2748764, 20
   %92 = add nuw nsw i32 %.1766, 1
   %exitcond782.not = icmp eq i32 %92, 4
-  br i1 %exitcond782.not, label %.preheader754, label %68, !llvm.loop !11
+  br i1 %exitcond782.not, label %.preheader754, label %68, !llvm.loop !12
 
 .preheader754:                                    ; preds = %79, %126
   %.2770 = phi i32 [ %147, %126 ], [ 0, %79 ]
@@ -802,7 +802,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %124 = add i32 %.4750767, 24
   %125 = add nuw nsw i32 %.1745768, 1
   %exitcond783.not = icmp eq i32 %125, 4
-  br i1 %exitcond783.not, label %126, label %104, !llvm.loop !12
+  br i1 %exitcond783.not, label %126, label %104, !llvm.loop !13
 
 126:                                              ; preds = %104
   %127 = load i32, ptr @ett_cast_tree, align 4
@@ -827,7 +827,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %146 = add i32 %.4750767, 32
   %147 = add nuw nsw i32 %.2770, 1
   %exitcond784.not = icmp eq i32 %147, 10
-  br i1 %exitcond784.not, label %.preheader, label %.preheader754, !llvm.loop !13
+  br i1 %exitcond784.not, label %.preheader, label %.preheader754, !llvm.loop !14
 
 .preheader:                                       ; preds = %126, %.preheader
   %.3772 = phi i32 [ %162, %.preheader ], [ 0, %126 ]
@@ -848,7 +848,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %161 = add i32 %.5751771, 16
   %162 = add nuw nsw i32 %.3772, 1
   %exitcond785.not = icmp eq i32 %162, 5
-  br i1 %exitcond785.not, label %.critedge, label %.preheader, !llvm.loop !14
+  br i1 %exitcond785.not, label %.critedge, label %.preheader, !llvm.loop !15
 
 163:                                              ; preds = %22
   %164 = load i32, ptr @hf_cast_conferenceID, align 4
@@ -896,7 +896,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %202 = add nuw nsw i32 %.6752758, 8
   %203 = add nuw nsw i32 %.4759, 1
   %exitcond779.not = icmp eq i32 %203, 5
-  br i1 %exitcond779.not, label %204, label %194, !llvm.loop !15
+  br i1 %exitcond779.not, label %204, label %194, !llvm.loop !16
 
 204:                                              ; preds = %194
   %205 = load i32, ptr @hf_cast_confServiceNum, align 4
@@ -989,7 +989,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %282 = add nuw nsw i32 %.7756, 8
   %283 = add nuw nsw i32 %.5757, 1
   %exitcond778.not = icmp eq i32 %283, 5
-  br i1 %exitcond778.not, label %284, label %274, !llvm.loop !16
+  br i1 %exitcond778.not, label %284, label %274, !llvm.loop !17
 
 284:                                              ; preds = %274
   %285 = load i32, ptr @hf_cast_confServiceNum, align 4
@@ -1087,7 +1087,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr noundef readonly captu
   %370 = tail call ptr @proto_tree_add_item(ptr noundef %363, i32 noundef %368, ptr noundef %0, i32 noundef %369, i32 noundef 4, i32 noundef -2147483648)
   %371 = add nuw nsw i32 %.6755, 1
   %exitcond.not = icmp eq i32 %371, 4
-  br i1 %exitcond.not, label %372, label %361, !llvm.loop !17
+  br i1 %exitcond.not, label %372, label %361, !llvm.loop !18
 
 372:                                              ; preds = %361
   %373 = load i32, ptr @ett_cast_tree, align 4
@@ -1289,13 +1289,14 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}

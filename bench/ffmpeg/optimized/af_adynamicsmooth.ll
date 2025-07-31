@@ -152,7 +152,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store double %.us-phi76.us, ptr %53, align 8, !tbaa !50
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !53
+  br i1 %exitcond113.not, label %._crit_edge81, label %.lr.ph.us, !llvm.loop !54
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us, %.lr.ph.split.us.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.lr.ph.split.us.us ], [ 0, %.lr.ph.us ]
@@ -180,7 +180,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   store double %89, ptr %90, align 8, !tbaa !50
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !55
+  br i1 %exitcond108.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !56
 
 ._crit_edge81:                                    ; preds = %._crit_edge.us, %.lr.ph80, %27
   %.not68 = icmp eq ptr %.060, %1
@@ -293,8 +293,9 @@ attributes #4 = { nounwind }
 !48 = !{!5, !15, i64 128}
 !49 = !{!11, !11, i64 0}
 !50 = !{!36, !36, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = distinct !{!53, !52, !54}
-!54 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!55 = distinct !{!55, !52, !54}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = distinct !{!54, !52, !53, !55}
+!55 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!56 = distinct !{!56, !52, !53, !55}

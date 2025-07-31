@@ -145,7 +145,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %94 = fsub double %92, %93
   %indvars.iv.next624 = add nsw i64 %indvars.iv623, 1
   %exitcond627.not = icmp eq i64 %indvars.iv.next624, %wide.trip.count626
-  br i1 %exitcond627.not, label %._crit_edge542, label %.lr.ph541, !llvm.loop !11
+  br i1 %exitcond627.not, label %._crit_edge542, label %.lr.ph541, !llvm.loop !12
 
 ._crit_edge542:                                   ; preds = %.lr.ph541
   store double %94, ptr %22, align 8, !tbaa !7
@@ -239,7 +239,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %135 = fsub double %133, %134
   %indvars.iv.next629 = add nsw i64 %indvars.iv628, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count631
-  br i1 %exitcond632.not, label %..preheader_crit_edge, label %.lr.ph548, !llvm.loop !12
+  br i1 %exitcond632.not, label %..preheader_crit_edge, label %.lr.ph548, !llvm.loop !13
 
 .lr.ph554:                                        ; preds = %.lr.ph554.preheader, %156
   %indvars.iv633 = phi i64 [ %108, %.lr.ph554.preheader ], [ %indvars.iv.next634, %156 ]
@@ -278,7 +278,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %159 = fsub double %157, %158
   %indvars.iv.next634 = add nsw i64 %indvars.iv633, 1
   %exitcond637.not = icmp eq i64 %indvars.iv.next634, %wide.trip.count636
-  br i1 %exitcond637.not, label %..loopexit525_crit_edge, label %.lr.ph554, !llvm.loop !13
+  br i1 %exitcond637.not, label %..loopexit525_crit_edge, label %.lr.ph554, !llvm.loop !14
 
 ..loopexit525_crit_edge:                          ; preds = %156
   store double %159, ptr %22, align 8, !tbaa !7
@@ -336,7 +336,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %191 = getelementptr i8, ptr %176, i64 -8
   store double %190, ptr %191, align 8, !tbaa !7
   %.not508.not = icmp sgt i64 %indvars.iv.next639, %170
-  br i1 %.not508.not, label %.lr.ph560, label %._crit_edge561, !llvm.loop !14
+  br i1 %.not508.not, label %.lr.ph560, label %._crit_edge561, !llvm.loop !15
 
 ._crit_edge561:                                   ; preds = %.lr.ph560, %.loopexit525
   %.0.lcssa = phi i32 [ 0, %.loopexit525 ], [ %.1, %.lr.ph560 ]
@@ -407,7 +407,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 233:                                              ; preds = %.lr.ph570, %229
   %.not509.not = icmp sgt i64 %indvars.iv.next642, %201
-  br i1 %.not509.not, label %.lr.ph570, label %.loopexit524, !llvm.loop !15
+  br i1 %.not509.not, label %.lr.ph570, label %.loopexit524, !llvm.loop !16
 
 .loopexit524:                                     ; preds = %233, %198, %._crit_edge561
   %.2 = phi i32 [ %.0.lcssa, %._crit_edge561 ], [ 0, %198 ], [ %.4, %233 ]
@@ -483,7 +483,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next645.pre-phi = phi i64 [ %.pre678, %._crit_edge677 ], [ %264, %263 ]
   %267 = phi double [ %254, %._crit_edge677 ], [ %storemerge520, %263 ]
   %exitcond648.not = icmp eq i64 %indvars.iv.next645.pre-phi, %wide.trip.count647
-  br i1 %exitcond648.not, label %._crit_edge577, label %253, !llvm.loop !16
+  br i1 %exitcond648.not, label %._crit_edge577, label %253, !llvm.loop !17
 
 ._crit_edge577:                                   ; preds = %266, %249
   %268 = load i32, ptr %1, align 4, !tbaa !3
@@ -540,7 +540,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %300 = call double @llvm.fmuladd.f64(double %281, double %281, double %299)
   store double %300, ptr %13, align 8, !tbaa !7
   %.not512.not = icmp sgt i64 %indvars.iv.next650, %276
-  br i1 %.not512.not, label %.lr.ph585, label %.loopexit522, !llvm.loop !17
+  br i1 %.not512.not, label %.lr.ph585, label %.loopexit522, !llvm.loop !18
 
 301:                                              ; preds = %._crit_edge577
   br i1 %.not513.not588, label %.lr.ph592.preheader, label %.loopexit522.thread
@@ -603,7 +603,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %339 = call double @llvm.fmuladd.f64(double %.sink, double %.sink, double %338)
   store double %339, ptr %13, align 8, !tbaa !7
   %.not513.not = icmp sgt i64 %indvars.iv.next653, %302
-  br i1 %.not513.not, label %.lr.ph592, label %.loopexit522, !llvm.loop !18
+  br i1 %.not513.not, label %.lr.ph592, label %.loopexit522, !llvm.loop !19
 
 .loopexit522.sink.split:                          ; preds = %.lr.ph585, %321
   %indvars.iv.next653.lcssa.sink = phi i64 [ %indvars.iv.next653, %321 ], [ %indvars.iv.next650, %.lr.ph585 ]
@@ -662,7 +662,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %368 = call double @llvm.fmuladd.f64(double %349, double %349, double %367)
   store double %368, ptr %13, align 8, !tbaa !7
   %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count658
-  br i1 %exitcond659.not, label %.loopexit, label %.lr.ph597, !llvm.loop !19
+  br i1 %exitcond659.not, label %.loopexit, label %.lr.ph597, !llvm.loop !20
 
 .loopexit522.thread:                              ; preds = %301, %.loopexit522
   %369 = load i32, ptr %2, align 4, !tbaa !3
@@ -732,7 +732,7 @@ define void @dlar1v_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %409 = call double @llvm.fmuladd.f64(double %.sink665, double %.sink665, double %408)
   store double %409, ptr %13, align 8, !tbaa !7
   %exitcond664.not = icmp eq i64 %indvars.iv.next661, %wide.trip.count663
-  br i1 %exitcond664.not, label %.loopexit, label %.lr.ph602, !llvm.loop !20
+  br i1 %exitcond664.not, label %.loopexit, label %.lr.ph602, !llvm.loop !21
 
 .loopexit.sink.split:                             ; preds = %.lr.ph597, %391
   %indvars.iv660.lcssa.sink722 = phi i64 [ %indvars.iv660, %391 ], [ %indvars.iv655, %.lr.ph597 ]
@@ -799,15 +799,16 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}

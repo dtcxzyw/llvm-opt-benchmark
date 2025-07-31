@@ -183,7 +183,7 @@ define internal noundef i32 @cookie_gen(ptr readnone captures(none) %0, ptr noun
   br i1 %exitcond.not, label %8, label %4, !llvm.loop !15
 
 8:                                                ; preds = %4
-  store i32 20, ptr %2, align 4, !tbaa !17
+  store i32 20, ptr %2, align 4, !tbaa !18
   ret i32 1
 }
 
@@ -206,7 +206,7 @@ define internal range(i32 0, 2) i32 @cookie_verify(ptr readnone captures(none) %
   %7 = add nuw nsw i32 %.010, 1
   %8 = getelementptr inbounds nuw i8, ptr %.079, i64 1
   %exitcond.not = icmp eq i32 %7, 20
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !19
 
 .loopexit:                                        ; preds = %6, %.preheader, %3
   %.06 = phi i32 [ 0, %3 ], [ 1, %6 ], [ 0, %.preheader ]
@@ -274,7 +274,8 @@ attributes #5 = { nounwind }
 !12 = !{!5, !10, i64 12}
 !13 = !{!6, !6, i64 0}
 !14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!10, !10, i64 0}
-!18 = distinct !{!18, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!10, !10, i64 0}
+!19 = distinct !{!19, !16, !17}

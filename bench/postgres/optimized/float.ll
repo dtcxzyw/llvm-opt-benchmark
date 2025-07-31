@@ -324,7 +324,7 @@ thread-pre-split:                                 ; preds = %.critedge
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %78 = load i8, ptr %77, align 1
   %.not66 = icmp eq i8 %78, 0
-  br i1 %.not66, label %.critedge6, label %69, !llvm.loop !6
+  br i1 %.not66, label %.critedge6, label %69, !llvm.loop !7
 
 .critedge6:                                       ; preds = %76, %66
   %.lcssa77 = phi ptr [ %.promoted, %66 ], [ %77, %76 ]
@@ -479,7 +479,7 @@ define dso_local double @float8in_internal(ptr noundef %0, ptr noundef writeonly
   %17 = getelementptr inbounds nuw i8, ptr %.05776, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !7
+  br i1 %.not, label %._crit_edge, label %10, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %16, %5
   %19 = tail call zeroext i1 @errsave_start(ptr noundef %4, ptr noundef null) #20
@@ -603,7 +603,7 @@ thread-pre-split:                                 ; preds = %.critedge
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 1
   %78 = load i8, ptr %77, align 1
   %.not66 = icmp eq i8 %78, 0
-  br i1 %.not66, label %.critedge6, label %69, !llvm.loop !8
+  br i1 %.not66, label %.critedge6, label %69, !llvm.loop !9
 
 .critedge6:                                       ; preds = %76, %66
   %.lcssa77 = phi ptr [ %.promoted, %66 ], [ %77, %76 ]
@@ -894,7 +894,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4pl(ptr noundef re
   %10 = fadd float %5, %9
   %11 = tail call float @llvm.fabs.f32(float %10)
   %12 = fcmp oeq float %11, 0x7FF0000000000000
-  br i1 %12, label %13, label %float4_pl.exit, !prof !9
+  br i1 %12, label %13, label %float4_pl.exit, !prof !10
 
 13:                                               ; preds = %1
   %14 = tail call float @llvm.fabs.f32(float %5)
@@ -927,7 +927,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4mi(ptr noundef re
   %10 = fsub float %5, %9
   %11 = tail call float @llvm.fabs.f32(float %10)
   %12 = fcmp oeq float %11, 0x7FF0000000000000
-  br i1 %12, label %13, label %float4_mi.exit, !prof !9
+  br i1 %12, label %13, label %float4_mi.exit, !prof !10
 
 13:                                               ; preds = %1
   %14 = tail call float @llvm.fabs.f32(float %5)
@@ -960,7 +960,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4mul(ptr noundef r
   %10 = fmul float %5, %9
   %11 = tail call float @llvm.fabs.f32(float %10)
   %12 = fcmp oeq float %11, 0x7FF0000000000000
-  br i1 %12, label %13, label %19, !prof !9
+  br i1 %12, label %13, label %19, !prof !10
 
 13:                                               ; preds = %1
   %14 = tail call float @llvm.fabs.f32(float %5)
@@ -976,7 +976,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4mul(ptr noundef r
 
 19:                                               ; preds = %13, %1
   %20 = fcmp oeq float %10, 0.000000e+00
-  br i1 %20, label %21, label %float4_mul.exit, !prof !9
+  br i1 %20, label %21, label %float4_mul.exit, !prof !10
 
 21:                                               ; preds = %19
   %22 = fcmp une float %5, 0.000000e+00
@@ -1005,7 +1005,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4div(ptr noundef r
   %8 = trunc i64 %7 to i32
   %9 = bitcast i32 %8 to float
   %10 = fcmp oeq float %9, 0.000000e+00
-  br i1 %10, label %11, label %14, !prof !9
+  br i1 %10, label %11, label %14, !prof !10
 
 11:                                               ; preds = %1
   %12 = fcmp uno float %5, 0.000000e+00
@@ -1019,7 +1019,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4div(ptr noundef r
   %15 = fdiv float %5, %9
   %16 = tail call float @llvm.fabs.f32(float %15)
   %17 = fcmp oeq float %16, 0x7FF0000000000000
-  br i1 %17, label %18, label %22, !prof !9
+  br i1 %17, label %18, label %22, !prof !10
 
 18:                                               ; preds = %14
   %19 = tail call float @llvm.fabs.f32(float %5)
@@ -1032,7 +1032,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @float4div(ptr noundef r
 
 22:                                               ; preds = %18, %14
   %23 = fcmp oeq float %15, 0.000000e+00
-  br i1 %23, label %24, label %float4_div.exit, !prof !9
+  br i1 %23, label %24, label %float4_div.exit, !prof !10
 
 24:                                               ; preds = %22
   %25 = fcmp oeq float %5, 0.000000e+00
@@ -1060,7 +1060,7 @@ define dso_local i64 @float8pl(ptr noundef readonly captures(none) %0) local_unn
   %6 = fadd double %3, %5
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp oeq double %7, 0x7FF0000000000000
-  br i1 %8, label %9, label %float8_pl.exit, !prof !9
+  br i1 %8, label %9, label %float8_pl.exit, !prof !10
 
 9:                                                ; preds = %1
   %10 = tail call double @llvm.fabs.f64(double %3)
@@ -1088,7 +1088,7 @@ define dso_local i64 @float8mi(ptr noundef readonly captures(none) %0) local_unn
   %6 = fsub double %3, %5
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp oeq double %7, 0x7FF0000000000000
-  br i1 %8, label %9, label %float8_mi.exit, !prof !9
+  br i1 %8, label %9, label %float8_mi.exit, !prof !10
 
 9:                                                ; preds = %1
   %10 = tail call double @llvm.fabs.f64(double %3)
@@ -1116,7 +1116,7 @@ define dso_local i64 @float8mul(ptr noundef readonly captures(none) %0) local_un
   %6 = fmul double %3, %5
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp oeq double %7, 0x7FF0000000000000
-  br i1 %8, label %9, label %15, !prof !9
+  br i1 %8, label %9, label %15, !prof !10
 
 9:                                                ; preds = %1
   %10 = tail call double @llvm.fabs.f64(double %3)
@@ -1132,7 +1132,7 @@ define dso_local i64 @float8mul(ptr noundef readonly captures(none) %0) local_un
 
 15:                                               ; preds = %9, %1
   %16 = fcmp oeq double %6, 0.000000e+00
-  br i1 %16, label %17, label %float8_mul.exit, !prof !9
+  br i1 %16, label %17, label %float8_mul.exit, !prof !10
 
 17:                                               ; preds = %15
   %18 = fcmp une double %3, 0.000000e+00
@@ -1156,7 +1156,7 @@ define dso_local i64 @float8div(ptr noundef readonly captures(none) %0) local_un
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load double, ptr %4, align 8
   %6 = fcmp oeq double %5, 0.000000e+00
-  br i1 %6, label %7, label %10, !prof !9
+  br i1 %6, label %7, label %10, !prof !10
 
 7:                                                ; preds = %1
   %8 = fcmp uno double %3, 0.000000e+00
@@ -1170,7 +1170,7 @@ define dso_local i64 @float8div(ptr noundef readonly captures(none) %0) local_un
   %11 = fdiv double %3, %5
   %12 = tail call double @llvm.fabs.f64(double %11)
   %13 = fcmp oeq double %12, 0x7FF0000000000000
-  br i1 %13, label %14, label %18, !prof !9
+  br i1 %13, label %14, label %18, !prof !10
 
 14:                                               ; preds = %10
   %15 = tail call double @llvm.fabs.f64(double %3)
@@ -1183,7 +1183,7 @@ define dso_local i64 @float8div(ptr noundef readonly captures(none) %0) local_un
 
 18:                                               ; preds = %14, %10
   %19 = fcmp oeq double %11, 0.000000e+00
-  br i1 %19, label %20, label %float8_div.exit, !prof !9
+  br i1 %19, label %20, label %float8_div.exit, !prof !10
 
 20:                                               ; preds = %18
   %21 = fcmp oeq double %3, 0.000000e+00
@@ -1846,7 +1846,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @dtof(ptr noundef readon
   %4 = fptrunc double %3 to float
   %5 = tail call float @llvm.fabs.f32(float %4)
   %6 = fcmp oeq float %5, 0x7FF0000000000000
-  br i1 %6, label %7, label %11, !prof !9
+  br i1 %6, label %7, label %11, !prof !10
 
 7:                                                ; preds = %1
   %8 = tail call double @llvm.fabs.f64(double %3)
@@ -1859,7 +1859,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @dtof(ptr noundef readon
 
 11:                                               ; preds = %7, %1
   %12 = fcmp oeq float %4, 0.000000e+00
-  br i1 %12, label %13, label %16, !prof !9
+  br i1 %12, label %13, label %16, !prof !10
 
 13:                                               ; preds = %11
   %14 = fcmp une double %3, 0.000000e+00
@@ -1887,7 +1887,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @dtoi4(ptr noundef reado
   %7 = fcmp ult double %4, 0xC1E0000000000000
   %8 = fcmp uge double %4, 0x41E0000000000000
   %.not7 = or i1 %7, %8
-  br i1 %.not7, label %.critedge, label %12, !prof !9
+  br i1 %.not7, label %.critedge, label %12, !prof !10
 
 .critedge:                                        ; preds = %1, %6
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -1918,7 +1918,7 @@ define dso_local range(i64 -32768, 32768) i64 @dtoi2(ptr noundef readonly captur
   %7 = fcmp ult double %4, -3.276800e+04
   %8 = fcmp uge double %4, 3.276800e+04
   %.not7 = or i1 %7, %8
-  br i1 %.not7, label %.critedge, label %12, !prof !9
+  br i1 %.not7, label %.critedge, label %12, !prof !10
 
 .critedge:                                        ; preds = %1, %6
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -1968,7 +1968,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ftoi4(ptr noundef reado
   %9 = fcmp ult float %6, 0xC1E0000000000000
   %10 = fcmp uge float %6, 0x41E0000000000000
   %.not7 = or i1 %9, %10
-  br i1 %.not7, label %.critedge, label %14, !prof !9
+  br i1 %.not7, label %.critedge, label %14, !prof !10
 
 .critedge:                                        ; preds = %1, %8
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -1998,7 +1998,7 @@ define dso_local range(i64 -32768, 32768) i64 @ftoi2(ptr noundef readonly captur
   %9 = fcmp ult float %6, -3.276800e+04
   %10 = fcmp uge float %6, 3.276800e+04
   %.not7 = or i1 %9, %10
-  br i1 %.not7, label %.critedge, label %14, !prof !9
+  br i1 %.not7, label %.critedge, label %14, !prof !10
 
 .critedge:                                        ; preds = %1, %8
   %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
@@ -2123,7 +2123,7 @@ define dso_local i64 @dsqrt(ptr noundef readonly captures(none) %0) local_unname
   %10 = tail call double @sqrt(double noundef %3) #20
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 0x7FF0000000000000
-  br i1 %12, label %13, label %17, !prof !9
+  br i1 %12, label %13, label %17, !prof !10
 
 13:                                               ; preds = %9
   %14 = tail call double @llvm.fabs.f64(double %3)
@@ -2136,7 +2136,7 @@ define dso_local i64 @dsqrt(ptr noundef readonly captures(none) %0) local_unname
 
 17:                                               ; preds = %13, %9
   %18 = fcmp oeq double %10, 0.000000e+00
-  br i1 %18, label %19, label %22, !prof !9
+  br i1 %18, label %19, label %22, !prof !10
 
 19:                                               ; preds = %17
   %20 = fcmp une double %3, 0.000000e+00
@@ -2161,7 +2161,7 @@ define dso_local i64 @dcbrt(ptr noundef readonly captures(none) %0) local_unname
   %4 = tail call double @cbrt(double noundef %3) #21
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %7, label %11, !prof !9
+  br i1 %6, label %7, label %11, !prof !10
 
 7:                                                ; preds = %1
   %8 = tail call double @llvm.fabs.f64(double %3)
@@ -2174,7 +2174,7 @@ define dso_local i64 @dcbrt(ptr noundef readonly captures(none) %0) local_unname
 
 11:                                               ; preds = %7, %1
   %12 = fcmp oeq double %4, 0.000000e+00
-  br i1 %12, label %13, label %16, !prof !9
+  br i1 %12, label %13, label %16, !prof !10
 
 13:                                               ; preds = %11
   %14 = fcmp une double %3, 0.000000e+00
@@ -2363,7 +2363,7 @@ define dso_local i64 @dpow(ptr noundef readonly captures(none) %0) local_unnamed
 84:                                               ; preds = %78
   %85 = tail call double @llvm.fabs.f64(double %63)
   %86 = fcmp oeq double %85, 0x7FF0000000000000
-  br i1 %86, label %87, label %88, !prof !9
+  br i1 %86, label %87, label %88, !prof !10
 
 87:                                               ; preds = %84
   tail call void @float_overflow_error() #22
@@ -2371,7 +2371,7 @@ define dso_local i64 @dpow(ptr noundef readonly captures(none) %0) local_unnamed
 
 88:                                               ; preds = %84
   %89 = fcmp oeq double %63, 0.000000e+00
-  br i1 %89, label %90, label %93, !prof !9
+  br i1 %89, label %90, label %93, !prof !10
 
 90:                                               ; preds = %88
   %91 = fcmp une double %3, 0.000000e+00
@@ -2417,7 +2417,7 @@ define dso_local i64 @dexp(ptr noundef readonly captures(none) %0) local_unnamed
   %13 = tail call double @exp(double noundef %3) #20
   %14 = load i32, ptr %12, align 4
   %15 = icmp eq i32 %14, 34
-  br i1 %15, label %16, label %20, !prof !9
+  br i1 %15, label %16, label %20, !prof !10
 
 16:                                               ; preds = %11
   %17 = fcmp une double %13, 0.000000e+00
@@ -2434,7 +2434,7 @@ define dso_local i64 @dexp(ptr noundef readonly captures(none) %0) local_unnamed
 20:                                               ; preds = %11
   %21 = tail call double @llvm.fabs.f64(double %13)
   %22 = fcmp oeq double %21, 0x7FF0000000000000
-  br i1 %22, label %23, label %24, !prof !9
+  br i1 %22, label %23, label %24, !prof !10
 
 23:                                               ; preds = %20
   tail call void @float_overflow_error() #22
@@ -2442,7 +2442,7 @@ define dso_local i64 @dexp(ptr noundef readonly captures(none) %0) local_unnamed
 
 24:                                               ; preds = %20
   %25 = fcmp oeq double %13, 0.000000e+00
-  br i1 %25, label %26, label %27, !prof !9
+  br i1 %25, label %26, label %27, !prof !10
 
 26:                                               ; preds = %24
   tail call void @float_underflow_error() #22
@@ -2488,7 +2488,7 @@ define dso_local i64 @dlog1(ptr noundef readonly captures(none) %0) local_unname
   %16 = tail call double @llvm.log.f64(double %3)
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp oeq double %17, 0x7FF0000000000000
-  br i1 %18, label %19, label %23, !prof !9
+  br i1 %18, label %19, label %23, !prof !10
 
 19:                                               ; preds = %15
   %20 = tail call double @llvm.fabs.f64(double %3)
@@ -2501,7 +2501,7 @@ define dso_local i64 @dlog1(ptr noundef readonly captures(none) %0) local_unname
 
 23:                                               ; preds = %19, %15
   %24 = fcmp oeq double %16, 0.000000e+00
-  br i1 %24, label %25, label %28, !prof !9
+  br i1 %24, label %25, label %28, !prof !10
 
 25:                                               ; preds = %23
   %26 = fcmp une double %3, 1.000000e+00
@@ -2547,7 +2547,7 @@ define dso_local i64 @dlog10(ptr noundef readonly captures(none) %0) local_unnam
   %16 = tail call double @llvm.log10.f64(double %3)
   %17 = tail call double @llvm.fabs.f64(double %16)
   %18 = fcmp oeq double %17, 0x7FF0000000000000
-  br i1 %18, label %19, label %23, !prof !9
+  br i1 %18, label %19, label %23, !prof !10
 
 19:                                               ; preds = %15
   %20 = tail call double @llvm.fabs.f64(double %3)
@@ -2560,7 +2560,7 @@ define dso_local i64 @dlog10(ptr noundef readonly captures(none) %0) local_unnam
 
 23:                                               ; preds = %19, %15
   %24 = fcmp oeq double %16, 0.000000e+00
-  br i1 %24, label %25, label %28, !prof !9
+  br i1 %24, label %25, label %28, !prof !10
 
 25:                                               ; preds = %23
   %26 = fcmp une double %3, 1.000000e+00
@@ -2599,7 +2599,7 @@ define dso_local i64 @dacos(ptr noundef readonly captures(none) %0) local_unname
   %12 = tail call double @acos(double noundef %3) #20
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fcmp oeq double %13, 0x7FF0000000000000
-  br i1 %14, label %15, label %16, !prof !9
+  br i1 %14, label %15, label %16, !prof !10
 
 15:                                               ; preds = %11
   tail call void @float_overflow_error() #22
@@ -2641,7 +2641,7 @@ define dso_local i64 @dasin(ptr noundef readonly captures(none) %0) local_unname
   %12 = tail call double @asin(double noundef %3) #20
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fcmp oeq double %13, 0x7FF0000000000000
-  br i1 %14, label %15, label %16, !prof !9
+  br i1 %14, label %15, label %16, !prof !10
 
 15:                                               ; preds = %11
   tail call void @float_overflow_error() #22
@@ -2670,7 +2670,7 @@ define dso_local i64 @datan(ptr noundef readonly captures(none) %0) local_unname
   %6 = tail call double @atan(double noundef %3) #20
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp oeq double %7, 0x7FF0000000000000
-  br i1 %8, label %9, label %10, !prof !9
+  br i1 %8, label %9, label %10, !prof !10
 
 9:                                                ; preds = %5
   tail call void @float_overflow_error() #22
@@ -2703,7 +2703,7 @@ define dso_local i64 @datan2(ptr noundef readonly captures(none) %0) local_unnam
   %9 = tail call double @atan2(double noundef %3, double noundef %5) #20
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %12, label %13, !prof !9
+  br i1 %11, label %12, label %13, !prof !10
 
 12:                                               ; preds = %8
   tail call void @float_overflow_error() #22
@@ -2750,7 +2750,7 @@ define dso_local i64 @dcos(ptr noundef readonly captures(none) %0) local_unnamed
 15:                                               ; preds = %5
   %16 = tail call double @llvm.fabs.f64(double %7)
   %17 = fcmp oeq double %16, 0x7FF0000000000000
-  br i1 %17, label %18, label %19, !prof !9
+  br i1 %17, label %18, label %19, !prof !10
 
 18:                                               ; preds = %15
   tail call void @float_overflow_error() #22
@@ -2836,7 +2836,7 @@ define dso_local i64 @dsin(ptr noundef readonly captures(none) %0) local_unnamed
 15:                                               ; preds = %5
   %16 = tail call double @llvm.fabs.f64(double %7)
   %17 = fcmp oeq double %16, 0x7FF0000000000000
-  br i1 %17, label %18, label %19, !prof !9
+  br i1 %17, label %18, label %19, !prof !10
 
 18:                                               ; preds = %15
   tail call void @float_overflow_error() #22
@@ -2989,7 +2989,7 @@ acosd_q1.exit:                                    ; preds = %27, %21, %asind_q1.
   %.0 = phi double [ %46, %asind_q1.exit ], [ %26, %21 ], [ %31, %27 ]
   %47 = tail call double @llvm.fabs.f64(double %.0)
   %48 = fcmp oeq double %47, 0x7FF0000000000000
-  br i1 %48, label %49, label %50, !prof !9
+  br i1 %48, label %49, label %50, !prof !10
 
 49:                                               ; preds = %acosd_q1.exit
   tail call void @float_overflow_error() #22
@@ -3272,7 +3272,7 @@ asind_q1.exit:                                    ; preds = %26, %21, %asind_q1.
   %.0 = phi double [ %46, %asind_q1.exit16 ], [ %25, %21 ], [ %31, %26 ]
   %47 = tail call double @llvm.fabs.f64(double %.0)
   %48 = fcmp oeq double %47, 0x7FF0000000000000
-  br i1 %48, label %49, label %50, !prof !9
+  br i1 %48, label %49, label %50, !prof !10
 
 49:                                               ; preds = %asind_q1.exit
   tail call void @float_overflow_error() #22
@@ -3313,7 +3313,7 @@ define dso_local i64 @datand(ptr noundef readonly captures(none) %0) local_unnam
   %12 = fmul double %11, 4.500000e+01
   %13 = tail call double @llvm.fabs.f64(double %12)
   %14 = fcmp oeq double %13, 0x7FF0000000000000
-  br i1 %14, label %15, label %16, !prof !9
+  br i1 %14, label %15, label %16, !prof !10
 
 15:                                               ; preds = %8
   tail call void @float_overflow_error() #22
@@ -3359,7 +3359,7 @@ define dso_local i64 @datan2d(ptr noundef readonly captures(none) %0) local_unna
   %15 = fmul double %14, 4.500000e+01
   %16 = tail call double @llvm.fabs.f64(double %15)
   %17 = fcmp oeq double %16, 0x7FF0000000000000
-  br i1 %17, label %18, label %19, !prof !9
+  br i1 %17, label %18, label %19, !prof !10
 
 18:                                               ; preds = %11
   tail call void @float_overflow_error() #22
@@ -3450,7 +3450,7 @@ cosd_q1.exit:                                     ; preds = %25, %33
   %.0.i = phi double [ %32, %25 ], [ %39, %33 ]
   %40 = tail call double @llvm.fabs.f64(double %.0.i)
   %41 = fcmp oeq double %40, 0x7FF0000000000000
-  br i1 %41, label %42, label %43, !prof !9
+  br i1 %41, label %42, label %43, !prof !10
 
 42:                                               ; preds = %cosd_q1.exit
   tail call void @float_overflow_error() #22
@@ -3679,7 +3679,7 @@ sind_q1.exit:                                     ; preds = %27, %33
   %42 = fmul double %.0.i, %25
   %43 = tail call double @llvm.fabs.f64(double %42)
   %44 = fcmp oeq double %43, 0x7FF0000000000000
-  br i1 %44, label %45, label %46, !prof !9
+  br i1 %44, label %45, label %46, !prof !10
 
 45:                                               ; preds = %sind_q1.exit
   tail call void @float_overflow_error() #22
@@ -3833,7 +3833,7 @@ define dso_local i64 @degrees(ptr noundef readonly captures(none) %0) local_unna
   %4 = fdiv double %3, 0x3F91DF46A2529D39
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %7, label %11, !prof !9
+  br i1 %6, label %7, label %11, !prof !10
 
 7:                                                ; preds = %1
   %8 = tail call double @llvm.fabs.f64(double %3)
@@ -3846,7 +3846,7 @@ define dso_local i64 @degrees(ptr noundef readonly captures(none) %0) local_unna
 
 11:                                               ; preds = %7, %1
   %12 = fcmp oeq double %4, 0.000000e+00
-  br i1 %12, label %13, label %float8_div.exit, !prof !9
+  br i1 %12, label %13, label %float8_div.exit, !prof !10
 
 13:                                               ; preds = %11
   %14 = fcmp oeq double %3, 0.000000e+00
@@ -3873,7 +3873,7 @@ define dso_local i64 @radians(ptr noundef readonly captures(none) %0) local_unna
   %4 = fmul double %3, 0x3F91DF46A2529D39
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %7, label %11, !prof !9
+  br i1 %6, label %7, label %11, !prof !10
 
 7:                                                ; preds = %1
   %8 = tail call double @llvm.fabs.f64(double %3)
@@ -3886,7 +3886,7 @@ define dso_local i64 @radians(ptr noundef readonly captures(none) %0) local_unna
 
 11:                                               ; preds = %7, %1
   %12 = fcmp oeq double %4, 0.000000e+00
-  br i1 %12, label %13, label %float8_mul.exit, !prof !9
+  br i1 %12, label %13, label %float8_mul.exit, !prof !10
 
 13:                                               ; preds = %11
   %14 = fcmp une double %3, 0.000000e+00
@@ -3933,7 +3933,7 @@ define dso_local i64 @dcosh(ptr noundef readonly captures(none) %0) local_unname
 
 8:                                                ; preds = %1
   %9 = fcmp oeq double %5, 0.000000e+00
-  br i1 %9, label %10, label %.thread, !prof !10
+  br i1 %9, label %10, label %.thread, !prof !11
 
 10:                                               ; preds = %8
   tail call void @float_underflow_error() #22
@@ -3955,7 +3955,7 @@ define dso_local i64 @dtanh(ptr noundef readonly captures(none) %0) local_unname
   %4 = tail call double @tanh(double noundef %3) #20
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %7, label %8, !prof !9
+  br i1 %6, label %7, label %8, !prof !10
 
 7:                                                ; preds = %1
   tail call void @float_overflow_error() #22
@@ -4049,7 +4049,7 @@ define dso_local i64 @derf(ptr noundef readonly captures(none) %0) local_unnamed
   %4 = tail call double @erf(double noundef %3) #20
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %7, label %8, !prof !9
+  br i1 %6, label %7, label %8, !prof !10
 
 7:                                                ; preds = %1
   tail call void @float_overflow_error() #22
@@ -4070,7 +4070,7 @@ define dso_local i64 @derfc(ptr noundef readonly captures(none) %0) local_unname
   %4 = tail call double @erfc(double noundef %3) #20
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %7, label %8, !prof !9
+  br i1 %6, label %7, label %8, !prof !10
 
 7:                                                ; preds = %1
   tail call void @float_overflow_error() #22
@@ -4181,7 +4181,7 @@ check_float8_array.exit58:                        ; preds = %34
   %56 = fadd double %43, %48
   %57 = tail call double @llvm.fabs.f64(double %56)
   %58 = fcmp oeq double %57, 0x7FF0000000000000
-  br i1 %58, label %59, label %float8_pl.exit, !prof !9
+  br i1 %58, label %59, label %float8_pl.exit, !prof !10
 
 59:                                               ; preds = %54
   %60 = tail call double @llvm.fabs.f64(double %43)
@@ -4207,7 +4207,7 @@ float8_pl.exit:                                   ; preds = %54, %59
   %73 = fadd double %68, %72
   %74 = tail call double @llvm.fabs.f64(double %73)
   %75 = fcmp oeq double %74, 0x7FF0000000000000
-  br i1 %75, label %76, label %82, !prof !9
+  br i1 %75, label %76, label %82, !prof !10
 
 76:                                               ; preds = %float8_pl.exit
   %77 = tail call double @llvm.fabs.f64(double %45)
@@ -5103,7 +5103,7 @@ check_float8_array.exit112:                       ; preds = %34
   %68 = fadd double %43, %54
   %69 = tail call double @llvm.fabs.f64(double %68)
   %70 = fcmp oeq double %69, 0x7FF0000000000000
-  br i1 %70, label %71, label %float8_pl.exit, !prof !9
+  br i1 %70, label %71, label %float8_pl.exit, !prof !10
 
 71:                                               ; preds = %66
   %72 = tail call double @llvm.fabs.f64(double %43)
@@ -5129,7 +5129,7 @@ float8_pl.exit:                                   ; preds = %66, %71
   %85 = fadd double %80, %84
   %86 = tail call double @llvm.fabs.f64(double %85)
   %87 = fcmp oeq double %86, 0x7FF0000000000000
-  br i1 %87, label %88, label %94, !prof !9
+  br i1 %87, label %88, label %94, !prof !10
 
 88:                                               ; preds = %float8_pl.exit
   %89 = tail call double @llvm.fabs.f64(double %45)
@@ -5147,7 +5147,7 @@ float8_pl.exit:                                   ; preds = %66, %71
   %95 = fadd double %47, %58
   %96 = tail call double @llvm.fabs.f64(double %95)
   %97 = fcmp oeq double %96, 0x7FF0000000000000
-  br i1 %97, label %98, label %float8_pl.exit114, !prof !9
+  br i1 %97, label %98, label %float8_pl.exit114, !prof !10
 
 98:                                               ; preds = %94
   %99 = tail call double @llvm.fabs.f64(double %47)
@@ -5172,7 +5172,7 @@ float8_pl.exit114:                                ; preds = %94, %98
   %111 = fadd double %107, %110
   %112 = tail call double @llvm.fabs.f64(double %111)
   %113 = fcmp oeq double %112, 0x7FF0000000000000
-  br i1 %113, label %114, label %120, !prof !9
+  br i1 %113, label %114, label %120, !prof !10
 
 114:                                              ; preds = %float8_pl.exit114
   %115 = tail call double @llvm.fabs.f64(double %49)
@@ -5193,7 +5193,7 @@ float8_pl.exit114:                                ; preds = %94, %98
   %124 = fadd double %121, %123
   %125 = tail call double @llvm.fabs.f64(double %124)
   %126 = fcmp oeq double %125, 0x7FF0000000000000
-  br i1 %126, label %127, label %133, !prof !9
+  br i1 %126, label %127, label %133, !prof !10
 
 127:                                              ; preds = %120
   %128 = tail call double @llvm.fabs.f64(double %51)
@@ -5971,7 +5971,7 @@ define dso_local i64 @float48pl(ptr noundef readonly captures(none) %0) local_un
   %9 = fadd double %7, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %12, label %float8_pl.exit, !prof !9
+  br i1 %11, label %12, label %float8_pl.exit, !prof !10
 
 12:                                               ; preds = %1
   %13 = tail call double @llvm.fabs.f64(double %8)
@@ -6002,7 +6002,7 @@ define dso_local i64 @float48mi(ptr noundef readonly captures(none) %0) local_un
   %9 = fsub double %8, %7
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %12, label %float8_mi.exit, !prof !9
+  br i1 %11, label %12, label %float8_mi.exit, !prof !10
 
 12:                                               ; preds = %1
   %13 = tail call double @llvm.fabs.f64(double %8)
@@ -6033,7 +6033,7 @@ define dso_local i64 @float48mul(ptr noundef readonly captures(none) %0) local_u
   %9 = fmul double %7, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %12, label %18, !prof !9
+  br i1 %11, label %12, label %18, !prof !10
 
 12:                                               ; preds = %1
   %13 = tail call double @llvm.fabs.f64(double %8)
@@ -6049,7 +6049,7 @@ define dso_local i64 @float48mul(ptr noundef readonly captures(none) %0) local_u
 
 18:                                               ; preds = %12, %1
   %19 = fcmp oeq double %9, 0.000000e+00
-  br i1 %19, label %20, label %float8_mul.exit, !prof !9
+  br i1 %19, label %20, label %float8_mul.exit, !prof !10
 
 20:                                               ; preds = %18
   %21 = fcmp une float %5, 0.000000e+00
@@ -6076,7 +6076,7 @@ define dso_local i64 @float48div(ptr noundef readonly captures(none) %0) local_u
   %7 = load double, ptr %6, align 8
   %8 = fpext float %5 to double
   %9 = fcmp oeq double %7, 0.000000e+00
-  br i1 %9, label %10, label %13, !prof !9
+  br i1 %9, label %10, label %13, !prof !10
 
 10:                                               ; preds = %1
   %11 = fcmp uno float %5, 0.000000e+00
@@ -6090,7 +6090,7 @@ define dso_local i64 @float48div(ptr noundef readonly captures(none) %0) local_u
   %14 = fdiv double %8, %7
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %17, label %21, !prof !9
+  br i1 %16, label %17, label %21, !prof !10
 
 17:                                               ; preds = %13
   %18 = tail call double @llvm.fabs.f64(double %8)
@@ -6103,7 +6103,7 @@ define dso_local i64 @float48div(ptr noundef readonly captures(none) %0) local_u
 
 21:                                               ; preds = %17, %13
   %22 = fcmp oeq double %14, 0.000000e+00
-  br i1 %22, label %23, label %float8_div.exit, !prof !9
+  br i1 %22, label %23, label %float8_div.exit, !prof !10
 
 23:                                               ; preds = %21
   %24 = fcmp oeq float %5, 0.000000e+00
@@ -6133,7 +6133,7 @@ define dso_local i64 @float84pl(ptr noundef readonly captures(none) %0) local_un
   %9 = fadd double %3, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %12, label %float8_pl.exit, !prof !9
+  br i1 %11, label %12, label %float8_pl.exit, !prof !10
 
 12:                                               ; preds = %1
   %13 = tail call double @llvm.fabs.f64(double %3)
@@ -6164,7 +6164,7 @@ define dso_local i64 @float84mi(ptr noundef readonly captures(none) %0) local_un
   %9 = fsub double %3, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %12, label %float8_mi.exit, !prof !9
+  br i1 %11, label %12, label %float8_mi.exit, !prof !10
 
 12:                                               ; preds = %1
   %13 = tail call double @llvm.fabs.f64(double %3)
@@ -6195,7 +6195,7 @@ define dso_local i64 @float84mul(ptr noundef readonly captures(none) %0) local_u
   %9 = fmul double %3, %8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp oeq double %10, 0x7FF0000000000000
-  br i1 %11, label %12, label %18, !prof !9
+  br i1 %11, label %12, label %18, !prof !10
 
 12:                                               ; preds = %1
   %13 = tail call double @llvm.fabs.f64(double %3)
@@ -6211,7 +6211,7 @@ define dso_local i64 @float84mul(ptr noundef readonly captures(none) %0) local_u
 
 18:                                               ; preds = %12, %1
   %19 = fcmp oeq double %9, 0.000000e+00
-  br i1 %19, label %20, label %float8_mul.exit, !prof !9
+  br i1 %19, label %20, label %float8_mul.exit, !prof !10
 
 20:                                               ; preds = %18
   %21 = fcmp une double %3, 0.000000e+00
@@ -6238,7 +6238,7 @@ define dso_local i64 @float84div(ptr noundef readonly captures(none) %0) local_u
   %7 = bitcast i32 %6 to float
   %8 = fpext float %7 to double
   %9 = fcmp oeq float %7, 0.000000e+00
-  br i1 %9, label %10, label %13, !prof !9
+  br i1 %9, label %10, label %13, !prof !10
 
 10:                                               ; preds = %1
   %11 = fcmp uno double %3, 0.000000e+00
@@ -6252,7 +6252,7 @@ define dso_local i64 @float84div(ptr noundef readonly captures(none) %0) local_u
   %14 = fdiv double %3, %8
   %15 = tail call double @llvm.fabs.f64(double %14)
   %16 = fcmp oeq double %15, 0x7FF0000000000000
-  br i1 %16, label %17, label %21, !prof !9
+  br i1 %16, label %17, label %21, !prof !10
 
 17:                                               ; preds = %13
   %18 = tail call double @llvm.fabs.f64(double %3)
@@ -6265,7 +6265,7 @@ define dso_local i64 @float84div(ptr noundef readonly captures(none) %0) local_u
 
 21:                                               ; preds = %17, %13
   %22 = fcmp oeq double %14, 0.000000e+00
-  br i1 %22, label %23, label %float8_div.exit, !prof !9
+  br i1 %22, label %23, label %float8_div.exit, !prof !10
 
 23:                                               ; preds = %21
   %24 = fcmp oeq double %3, 0.000000e+00
@@ -6741,10 +6741,11 @@ attributes #22 = { noreturn }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!11 = !{!"branch_weights", !"expected", i32 2146410, i32 2145337238}

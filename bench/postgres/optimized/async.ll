@@ -999,7 +999,7 @@ define dso_local void @PreCommit_Notify() local_unnamed_addr #0 {
   %81 = getelementptr i8, ptr %47, i64 %.idx47.pre-phi.i
   %.0.i = load i32, ptr %81, align 8
   %.not.i = icmp eq i32 %.0.i, -1
-  br i1 %.not.i, label %._crit_edge.i, label %61, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %61, !llvm.loop !9
 
 82:                                               ; preds = %._crit_edge.i
   %83 = sext i32 %.032.lcssa.i to i64
@@ -1181,7 +1181,7 @@ asyncQueueUsage.exit.i:                           ; preds = %118
   %161 = getelementptr i8, ptr %143, i64 %.idx.i19
   %.0.i20 = load i32, ptr %161, align 8
   %.not.i21 = icmp eq i32 %.0.i20, -1
-  br i1 %.not.i21, label %._crit_edge.i22, label %145, !llvm.loop !9
+  br i1 %.not.i21, label %._crit_edge.i22, label %145, !llvm.loop !10
 
 162:                                              ; preds = %._crit_edge.i22
   %163 = fmul double %131, 1.000000e+02
@@ -1267,7 +1267,7 @@ asyncQueueFillWarning.exit:                       ; preds = %118, %asyncQueueUsa
 
 204:                                              ; preds = %235
   %.not.i27 = icmp eq ptr %.2.i, null
-  br i1 %.not.i27, label %asyncQueueAddEntries.exit, label %205
+  br i1 %.not.i27, label %asyncQueueAddEntries.exit, label %205, !llvm.loop !11
 
 205:                                              ; preds = %198, %204
   %.023.i37 = phi ptr [ %.039, %198 ], [ %.2.i, %204 ]
@@ -1342,7 +1342,7 @@ asyncQueueFillWarning.exit:                       ; preds = %118, %asyncQueueUsa
   %spec.select12.i.i = select i1 %248, i32 0, i32 %245
   store volatile i64 %spec.select.i.i, ptr %.sroa.0.i, align 8
   store volatile i32 %spec.select12.i.i, ptr %.sroa.11.i, align 8
-  br i1 %248, label %250, label %204
+  br i1 %248, label %250, label %204, !llvm.loop !11
 
 250:                                              ; preds = %235
   %251 = load i16, ptr getelementptr inbounds nuw (i8, ptr @NotifyCtlData, i64 8), align 8
@@ -1390,7 +1390,7 @@ asyncQueueAddEntries.exit:                        ; preds = %204, %261, %265
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 3456
   tail call void @LWLockRelease(ptr noundef nonnull %268) #16
   %.not15 = icmp eq ptr %.1.i29, null
-  br i1 %.not15, label %.loopexit, label %118, !llvm.loop !10
+  br i1 %.not15, label %.loopexit, label %118, !llvm.loop !12
 
 .loopexit:                                        ; preds = %asyncQueueAddEntries.exit, %111, %list_head.exit, %.critedge, %0
   ret void
@@ -1629,7 +1629,7 @@ Exec_ListenCommit.exit:                           ; preds = %64, %34, %.thread.i
   %104 = getelementptr i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 8
   %106 = icmp eq i32 %105, %94
-  br i1 %106, label %107, label %.preheader.i, !llvm.loop !11
+  br i1 %106, label %107, label %.preheader.i, !llvm.loop !13
 
 107:                                              ; preds = %101
   %108 = getelementptr i8, ptr %103, i64 8
@@ -1750,7 +1750,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
   %167 = getelementptr i8, ptr %138, i64 %.idx.i23
   %.025.i = load i32, ptr %167, align 8
   %.not.i24 = icmp eq i32 %.025.i, -1
-  br i1 %.not.i24, label %._crit_edge.i, label %142, !llvm.loop !12
+  br i1 %.not.i24, label %._crit_edge.i, label %142, !llvm.loop !14
 
 .lr.ph33.i:                                       ; preds = %182, %.lr.ph33.preheader.i
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph33.preheader.i ], [ %indvars.iv.next.i27, %182 ]
@@ -1783,7 +1783,7 @@ asyncQueueUnregister.exit:                        ; preds = %.critedge, %.loopex
 182:                                              ; preds = %180, %178, %173, %172
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %wide.trip.count.i25
-  br i1 %exitcond.not.i28, label %SignalBackends.exit, label %.lr.ph33.i, !llvm.loop !13
+  br i1 %exitcond.not.i28, label %SignalBackends.exit, label %.lr.ph33.i, !llvm.loop !15
 
 SignalBackends.exit:                              ; preds = %182, %._crit_edge.thread.i, %._crit_edge.i
   tail call void @pfree(ptr noundef %124) #16
@@ -1887,7 +1887,7 @@ define internal fastcc void @asyncQueueAdvanceTail() unnamed_addr #0 {
   %30 = getelementptr i8, ptr %10, i64 %.idx
   %.0 = load i32, ptr %30, align 8
   %.not = icmp eq i32 %.0, -1
-  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %19, !llvm.loop !16
 
 31:                                               ; preds = %._crit_edge
   tail call void @SimpleLruTruncate(ptr noundef nonnull @NotifyCtlData, i64 noundef %.sroa.0.0.lcssa) #16
@@ -1990,7 +1990,7 @@ define dso_local void @AtAbort_Notify() local_unnamed_addr #0 {
   %28 = getelementptr i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, %18
-  br i1 %30, label %31, label %.preheader.i, !llvm.loop !11
+  br i1 %30, label %31, label %.preheader.i, !llvm.loop !13
 
 31:                                               ; preds = %25
   %32 = getelementptr i8, ptr %27, i64 8
@@ -2225,7 +2225,7 @@ define dso_local void @AtSubAbort_Notify() local_unnamed_addr #0 {
   tail call void @pfree(ptr noundef nonnull %3) #16
   %8 = load ptr, ptr @pendingActions, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !17
 
 .critedge:                                        ; preds = %.lr.ph, %5, %0
   %9 = load ptr, ptr @pendingNotifies, align 8
@@ -2245,7 +2245,7 @@ define dso_local void @AtSubAbort_Notify() local_unnamed_addr #0 {
   tail call void @pfree(ptr noundef nonnull %10) #16
   %15 = load ptr, ptr @pendingNotifies, align 8
   %.not7 = icmp eq ptr %15, null
-  br i1 %.not7, label %.critedge2, label %.lr.ph12, !llvm.loop !16
+  br i1 %.not7, label %.critedge2, label %.lr.ph12, !llvm.loop !18
 
 .critedge2:                                       ; preds = %.lr.ph12, %12, %.critedge
   ret void
@@ -2280,7 +2280,7 @@ ProcessIncomingNotify.exit.us:                    ; preds = %.lr.ph, %ProcessInc
   store volatile i32 0, ptr @notifyInterruptPending, align 4
   %6 = load volatile i32, ptr @notifyInterruptPending, align 4
   %.not.us = icmp eq i32 %6, 0
-  br i1 %.not.us, label %.loopexit, label %ProcessIncomingNotify.exit.us, !llvm.loop !17
+  br i1 %.not.us, label %.loopexit, label %ProcessIncomingNotify.exit.us, !llvm.loop !19
 
 .lr.ph.splitthread-pre-split:                     ; preds = %ProcessIncomingNotify.exit
   %.pr = load ptr, ptr @listenChannels, align 8
@@ -2338,7 +2338,7 @@ ProcessIncomingNotify.exit.us:                    ; preds = %.lr.ph, %ProcessInc
 ProcessIncomingNotify.exit:                       ; preds = %.lr.ph.split, %22, %25, %27
   %29 = load volatile i32, ptr @notifyInterruptPending, align 4
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.lr.ph.splitthread-pre-split, !llvm.loop !21
 
 .loopexit:                                        ; preds = %ProcessIncomingNotify.exit, %ProcessIncomingNotify.exit.us, %.preheader, %1
   ret void
@@ -2357,16 +2357,16 @@ define dso_local void @NotifyMyFrontEnd(ptr noundef %0, ptr noundef %1, i32 noun
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #16
   call void @pq_beginmessage(ptr noundef nonnull %4, i8 noundef signext 65) #16
   call void @enlargeStringInfo(ptr noundef nonnull %4, i32 noundef 4) #16
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %8 = call i32 @llvm.bswap.i32(i32 %2)
-  %9 = load ptr, ptr %4, align 8, !alias.scope !21
+  %9 = load ptr, ptr %4, align 8, !alias.scope !23
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %11 = load i32, ptr %10, align 8, !alias.scope !21
+  %11 = load i32, ptr %10, align 8, !alias.scope !23
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %9, i64 %12
-  store i32 %8, ptr %13, align 1, !noalias !21
+  store i32 %8, ptr %13, align 1, !noalias !23
   %14 = add i32 %11, 4
-  store i32 %14, ptr %10, align 8, !alias.scope !21
+  store i32 %14, ptr %10, align 8, !alias.scope !23
   call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %0) #16
   call void @pq_sendstring(ptr noundef nonnull %4, ptr noundef %1) #16
   call void @pq_endmessage(ptr noundef nonnull %4) #16
@@ -2470,7 +2470,7 @@ Exec_UnlistenAllCommit.exit:                      ; preds = %2, %5, %7
   %36 = getelementptr i8, ptr %35, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, %26
-  br i1 %38, label %39, label %.preheader.i, !llvm.loop !11
+  br i1 %38, label %39, label %.preheader.i, !llvm.loop !13
 
 39:                                               ; preds = %33
   %40 = getelementptr i8, ptr %35, i64 8
@@ -2702,7 +2702,7 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.7.i)
-  br i1 %57, label %.loopexit.i.thread, label %47, !llvm.loop !24
+  br i1 %57, label %.loopexit.i.thread, label %47, !llvm.loop !26
 
 .loopexit.i:                                      ; preds = %47, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.0.i)
@@ -2718,7 +2718,7 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   br i1 %90, label %91, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %.loopexit.i.thread, %asyncQueueProcessPageEntries.exit, %91
-  br label %.backedge, !llvm.loop !25
+  br label %.backedge, !llvm.loop !27
 
 91:                                               ; preds = %.loopexit.i.thread, %.loopexit.i
   %.139.i43 = phi i1 [ false, %.loopexit.i.thread ], [ %or.cond.not.i, %.loopexit.i ]
@@ -2930,23 +2930,25 @@ attributes #20 = { noreturn nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7, !20}
-!20 = !{!"llvm.loop.unswitch.partial.disable"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"pq_writeint32: argument 0"}
-!23 = distinct !{!23, !"pq_writeint32"}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !7, !8, !22}
+!22 = !{!"llvm.loop.unswitch.partial.disable"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"pq_writeint32: argument 0"}
+!25 = distinct !{!25, !"pq_writeint32"}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}

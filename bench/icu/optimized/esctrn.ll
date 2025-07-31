@@ -1663,9 +1663,9 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit44:    ; preds = %136, %79
   %160 = load i32, ptr %8, align 4, !tbaa !35
   %161 = sub i32 %.030.lcssa, %160
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %163 = load i32, ptr %162, align 4, !tbaa !38
+  %163 = load i32, ptr %162, align 4, !tbaa !39
   %164 = add nsw i32 %161, %163
-  store i32 %164, ptr %162, align 4, !tbaa !38
+  store i32 %164, ptr %162, align 4, !tbaa !39
   store i32 %.030.lcssa, ptr %8, align 4, !tbaa !35
   store i32 %.0.lcssa, ptr %6, align 4, !tbaa !33
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
@@ -1769,6 +1769,7 @@ attributes #15 = { noreturn nounwind }
 !33 = !{!34, !9, i64 8}
 !34 = !{!"_ZTS14UTransPosition", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12}
 !35 = !{!34, !9, i64 12}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!34, !9, i64 4}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!34, !9, i64 4}

@@ -220,24 +220,24 @@ _ZL19pj_imoll_destructorP8PJconstsi.exit:         ; preds = %61, %_ZL10setup_zon
   store double %89, ptr %87, align 8, !tbaa !43
   %90 = tail call fastcc noundef double @_ZL23compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0xBFE657184AE74487, double noundef 1.000000e-10)
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store double %90, ptr %91, align 8, !tbaa !49
+  store double %90, ptr %91, align 8, !tbaa !50
   %92 = tail call fastcc noundef double @_ZL23compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0xBFFBECDE5DA115A9, double noundef -1.000000e-10)
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store double %92, ptr %93, align 8, !tbaa !51
+  store double %92, ptr %93, align 8, !tbaa !52
   %94 = tail call fastcc noundef double @_ZL23compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0xBFD657184AE74487, double noundef -1.000000e-10)
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store double %94, ptr %95, align 8, !tbaa !52
+  store double %94, ptr %95, align 8, !tbaa !53
   %96 = tail call fastcc noundef double @_ZL23compute_zone_x_boundaryP8PJconstsdd(ptr noundef nonnull %0, double noundef 0x3FF657184AE74487, double noundef -1.000000e-10)
   %97 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store double %96, ptr %97, align 8, !tbaa !53
+  store double %96, ptr %97, align 8, !tbaa !54
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @_ZL15imoll_s_inverse5PJ_XYP8PJconsts, ptr %98, align 8, !tbaa !54
+  store ptr @_ZL15imoll_s_inverse5PJ_XYP8PJconsts, ptr %98, align 8, !tbaa !55
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr @_ZL15imoll_s_forward5PJ_LPP8PJconsts, ptr %99, align 8, !tbaa !55
+  store ptr @_ZL15imoll_s_forward5PJ_LPP8PJconsts, ptr %99, align 8, !tbaa !56
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL19pj_imoll_destructorP8PJconstsi, ptr %100, align 8, !tbaa !46
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store double 0.000000e+00, ptr %101, align 8, !tbaa !56
+  store double 0.000000e+00, ptr %101, align 8, !tbaa !57
   br label %102
 
 102:                                              ; preds = %63, %_ZL19pj_imoll_destructorP8PJconstsi.exit, %4
@@ -341,12 +341,12 @@ define internal fastcc noundef double @_ZL19compute_zone_offsetPN11pj_imoll_ns13
   %18 = load double, ptr %17, align 8, !tbaa !45
   %19 = fsub double %3, %18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 104
-  %21 = load ptr, ptr %20, align 8, !tbaa !55
+  %21 = load ptr, ptr %20, align 8, !tbaa !56
   %22 = tail call { double, double } %21(double %12, double %4, ptr noundef %9)
   %23 = extractvalue { double, double } %22, 0
   %24 = load ptr, ptr %15, align 8, !tbaa !41
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 104
-  %26 = load ptr, ptr %25, align 8, !tbaa !55
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
   %27 = tail call { double, double } %26(double %19, double 1.000000e-10, ptr noundef %24)
   %28 = extractvalue { double, double } %27, 0
   %29 = load ptr, ptr %15, align 8, !tbaa !41
@@ -396,7 +396,7 @@ _ZL15imoll_s_forward5PJ_LPP8PJconsts.exit:        ; preds = %9, %12, %14, %16
   %21 = load double, ptr %20, align 8, !tbaa !45
   %22 = fsub double %4, %21
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %24 = load ptr, ptr %23, align 8, !tbaa !55
+  %24 = load ptr, ptr %23, align 8, !tbaa !56
   %25 = tail call { double, double } %24(double %22, double %2, ptr noundef %19)
   %26 = load ptr, ptr %18, align 8, !tbaa !41
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 456
@@ -432,7 +432,7 @@ _ZL15imoll_s_forward5PJ_LPP8PJconsts.exit23:      ; preds = %30, %33, %35, %37
   %44 = load double, ptr %43, align 8, !tbaa !45
   %45 = fsub double %5, %44
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 104
-  %47 = load ptr, ptr %46, align 8, !tbaa !55
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
   %48 = tail call { double, double } %47(double %45, double %2, ptr noundef %42)
   %49 = extractvalue { double, double } %48, 0
   %50 = load ptr, ptr %41, align 8, !tbaa !41
@@ -459,25 +459,25 @@ define internal { double, double } @_ZL15imoll_s_inverse5PJ_XYP8PJconsts(double 
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %12 = load double, ptr %11, align 8, !tbaa !49
+  %12 = load double, ptr %11, align 8, !tbaa !50
   %13 = fcmp ugt double %0, %12
   br i1 %13, label %26, label %select.unfold79
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %16 = load double, ptr %15, align 8, !tbaa !51
+  %16 = load double, ptr %15, align 8, !tbaa !52
   %17 = fcmp ugt double %0, %16
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %20 = load double, ptr %19, align 8, !tbaa !52
+  %20 = load double, ptr %19, align 8, !tbaa !53
   %21 = fcmp ugt double %0, %20
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %24 = load double, ptr %23, align 8, !tbaa !53
+  %24 = load double, ptr %23, align 8, !tbaa !54
   %25 = fcmp ugt double %0, %24
   br i1 %25, label %select.unfold, label %26
 
@@ -500,7 +500,7 @@ select.unfold79:                                  ; preds = %10
   %35 = load double, ptr %34, align 8, !tbaa !44
   %36 = fsub double %1, %35
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 112
-  %38 = load ptr, ptr %37, align 8, !tbaa !54
+  %38 = load ptr, ptr %37, align 8, !tbaa !55
   %39 = tail call { double, double } %38(double %33, double %36, ptr noundef %30)
   %40 = extractvalue { double, double } %39, 0
   %41 = extractvalue { double, double } %39, 1
@@ -618,7 +618,7 @@ define internal { double, double } @_ZL15imoll_s_forward5PJ_LPP8PJconsts(double 
   %20 = load double, ptr %19, align 8, !tbaa !45
   %21 = fsub double %0, %20
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %23 = load ptr, ptr %22, align 8, !tbaa !55
+  %23 = load ptr, ptr %22, align 8, !tbaa !56
   %24 = tail call { double, double } %23(double %21, double %1, ptr noundef %18)
   %25 = extractvalue { double, double } %24, 0
   %26 = extractvalue { double, double } %24, 1
@@ -688,13 +688,14 @@ attributes #3 = { nounwind allocsize(0,1) }
 !44 = !{!4, !14, i64 464}
 !45 = !{!4, !14, i64 440}
 !46 = !{!4, !6, i64 152}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50, !14, i64 48}
-!50 = !{!"_ZTSN11pj_imoll_ns13pj_imoll_dataE", !7, i64 0, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72}
-!51 = !{!50, !14, i64 56}
-!52 = !{!50, !14, i64 64}
-!53 = !{!50, !14, i64 72}
-!54 = !{!4, !6, i64 112}
-!55 = !{!4, !6, i64 104}
-!56 = !{!4, !14, i64 216}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!51, !14, i64 48}
+!51 = !{!"_ZTSN11pj_imoll_ns13pj_imoll_dataE", !7, i64 0, !14, i64 48, !14, i64 56, !14, i64 64, !14, i64 72}
+!52 = !{!51, !14, i64 56}
+!53 = !{!51, !14, i64 64}
+!54 = !{!51, !14, i64 72}
+!55 = !{!4, !6, i64 112}
+!56 = !{!4, !6, i64 104}
+!57 = !{!4, !14, i64 216}

@@ -1492,23 +1492,23 @@ _ZN5QListIP7QActionED2Ev.exit177:                 ; preds = %376, %_ZN17QArrayDa
   %387 = load ptr, ptr %68, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  store i64 ptrtoint (ptr @_ZN5QMenu9triggeredEP7QAction to i64), ptr %3, align 8, !noalias !32
+  store i64 ptrtoint (ptr @_ZN5QMenu9triggeredEP7QAction to i64), ptr %3, align 8, !noalias !33
   %.fca.1.gep14.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !32
-  store i64 ptrtoint (ptr @_ZN21CopyFromProfileButton19menuActionTriggeredEP7QAction to i64), ptr %4, align 8, !noalias !32
+  store i64 0, ptr %.fca.1.gep14.i, align 8, !noalias !33
+  store i64 ptrtoint (ptr @_ZN21CopyFromProfileButton19menuActionTriggeredEP7QAction to i64), ptr %4, align 8, !noalias !33
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !32
+  store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !33
   %388 = invoke noalias noundef dereferenceable_or_null(32) ptr @_Znwm(i64 noundef 32) #18
           to label %.noexc178 unwind label %65
 
 .noexc178:                                        ; preds = %386
-  store i32 1, ptr %388, align 4, !noalias !32
+  store i32 1, ptr %388, align 4, !noalias !33
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM21CopyFromProfileButtonFvP7QActionENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %389, align 8, !noalias !32
+  store ptr @_ZN9QtPrivate11QSlotObjectIM21CopyFromProfileButtonFvP7QActionENS_4ListIJS3_EEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %389, align 8, !noalias !33
   %390 = getelementptr inbounds nuw i8, ptr %388, i64 16
-  store i64 ptrtoint (ptr @_ZN21CopyFromProfileButton19menuActionTriggeredEP7QAction to i64), ptr %390, align 8, !noalias !32
+  store i64 ptrtoint (ptr @_ZN21CopyFromProfileButton19menuActionTriggeredEP7QAction to i64), ptr %390, align 8, !noalias !33
   %.repack7.i.i = getelementptr inbounds nuw i8, ptr %388, i64 24
-  store i64 0, ptr %.repack7.i.i, align 8, !noalias !32
+  store i64 0, ptr %.repack7.i.i, align 8, !noalias !33
   invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %37, ptr noundef %387, ptr noundef nonnull %3, ptr noundef %0, ptr noundef nonnull %4, ptr noundef %388, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN5QMenu16staticMetaObjectE)
           to label %391 unwind label %65
 
@@ -2231,7 +2231,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i
 _ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i:     ; preds = %18, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
   %20 = getelementptr i8, ptr %.05.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %20, %15
-  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !35
+  br i1 %.not.i.i.i.i.i.i, label %_ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !36
 
 _ZN9QtPrivate16QGenericArrayOpsI7QStringE10destroyAllEv.exit.i.i: ; preds = %_ZSt8_DestroyI7QStringEvPT_.exit.i.i.i.i.i.i, %10
   %21 = load ptr, ptr %7, align 8
@@ -3210,7 +3210,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM21CopyFromProfileButtonFvP
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !36
+  %17 = load ptr, ptr %16, align 8, !nosanitize !37
   br label %_ZN9QtPrivate15FunctionPointerIM21CopyFromProfileButtonFvP7QActionEE4callINS_4ListIJS3_EEEvEEvS5_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -3318,10 +3318,11 @@ attributes #20 = { cold noreturn }
 !27 = !{!28}
 !28 = distinct !{!28, !29, !"_ZNK11QModelIndex4dataEi: argument 0"}
 !29 = distinct !{!29, !"_ZNK11QModelIndex4dataEi"}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN7QObject7connectIM5QMenuFvP7QActionEM21CopyFromProfileButtonFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
-!34 = distinct !{!34, !"_ZN7QObject7connectIM5QMenuFvP7QActionEM21CopyFromProfileButtonFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
-!35 = distinct !{!35, !31}
-!36 = !{}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZN7QObject7connectIM5QMenuFvP7QActionEM21CopyFromProfileButtonFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
+!35 = distinct !{!35, !"_ZN7QObject7connectIM5QMenuFvP7QActionEM21CopyFromProfileButtonFvS3_EEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
+!36 = distinct !{!36, !31, !32}
+!37 = !{}

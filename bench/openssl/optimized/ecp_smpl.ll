@@ -1916,12 +1916,12 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %.0137185 = phi i64 [ %22, %21 ], [ 0, %17 ]
   %23 = tail call ptr @BN_new() #3
   %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %.0137185
-  store ptr %23, ptr %24, align 8, !tbaa !35
+  store ptr %23, ptr %24, align 8, !tbaa !36
   %25 = icmp eq ptr %23, null
   br i1 %25, label %.thread, label %21
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %2, align 8, !tbaa !36
+  %27 = load ptr, ptr %2, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = tail call i32 @BN_is_zero(ptr noundef %29) #3
@@ -1929,8 +1929,8 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not, label %31, label %37
 
 31:                                               ; preds = %26
-  %32 = load ptr, ptr %19, align 8, !tbaa !35
-  %33 = load ptr, ptr %2, align 8, !tbaa !36
+  %32 = load ptr, ptr %19, align 8, !tbaa !36
+  %33 = load ptr, ptr %2, align 8, !tbaa !37
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !27
   %36 = tail call ptr @BN_copy(ptr noundef %32, ptr noundef %35) #3
@@ -1940,9 +1940,9 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 37:                                               ; preds = %26
   %38 = load ptr, ptr %0, align 8, !tbaa !20
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 296
-  %40 = load ptr, ptr %39, align 8, !tbaa !37
+  %40 = load ptr, ptr %39, align 8, !tbaa !38
   %.not152 = icmp eq ptr %40, null
-  %41 = load ptr, ptr %19, align 8, !tbaa !35
+  %41 = load ptr, ptr %19, align 8, !tbaa !36
   br i1 %.not152, label %44, label %42
 
 42:                                               ; preds = %37
@@ -1962,7 +1962,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 .lr.ph:                                           ; preds = %46, %70
   %.1186 = phi i64 [ %71, %70 ], [ 1, %46 ]
   %47 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1186
-  %48 = load ptr, ptr %47, align 8, !tbaa !36
+  %48 = load ptr, ptr %47, align 8, !tbaa !37
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !27
   %51 = tail call i32 @BN_is_zero(ptr noundef %50) #3
@@ -1974,10 +1974,10 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 248
   %55 = load ptr, ptr %54, align 8, !tbaa !32
   %56 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1186
-  %57 = load ptr, ptr %56, align 8, !tbaa !35
+  %57 = load ptr, ptr %56, align 8, !tbaa !36
   %58 = getelementptr i8, ptr %56, i64 -8
-  %59 = load ptr, ptr %58, align 8, !tbaa !35
-  %60 = load ptr, ptr %47, align 8, !tbaa !36
+  %59 = load ptr, ptr %58, align 8, !tbaa !36
+  %60 = load ptr, ptr %47, align 8, !tbaa !37
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !27
   %63 = tail call i32 %55(ptr noundef nonnull %0, ptr noundef %57, ptr noundef %59, ptr noundef %62, ptr noundef nonnull %.0139) #3
@@ -1986,9 +1986,9 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 
 64:                                               ; preds = %.lr.ph
   %65 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1186
-  %66 = load ptr, ptr %65, align 8, !tbaa !35
+  %66 = load ptr, ptr %65, align 8, !tbaa !36
   %67 = getelementptr i8, ptr %65, i64 -8
-  %68 = load ptr, ptr %67, align 8, !tbaa !35
+  %68 = load ptr, ptr %67, align 8, !tbaa !36
   %69 = tail call ptr @BN_copy(ptr noundef %66, ptr noundef %68) #3
   %.not176 = icmp eq ptr %69, null
   br i1 %.not176, label %.thread, label %70
@@ -1996,7 +1996,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 70:                                               ; preds = %52, %64
   %71 = add nuw i64 %.1186, 1
   %exitcond199.not = icmp eq i64 %71, %1
-  br i1 %exitcond199.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond199.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %70, %46
   %72 = load ptr, ptr %0, align 8, !tbaa !20
@@ -2004,7 +2004,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %74 = load ptr, ptr %73, align 8, !tbaa !30
   %75 = add i64 %1, -1
   %76 = getelementptr inbounds nuw ptr, ptr %19, i64 %75
-  %77 = load ptr, ptr %76, align 8, !tbaa !35
+  %77 = load ptr, ptr %76, align 8, !tbaa !36
   %78 = tail call i32 %74(ptr noundef nonnull %0, ptr noundef %14, ptr noundef %77, ptr noundef nonnull %.0139) #3
   %.not155 = icmp eq i32 %78, 0
   br i1 %.not155, label %79, label %80
@@ -2043,7 +2043,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 .lr.ph190:                                        ; preds = %91, %116
   %.2188 = phi i64 [ %117, %116 ], [ %75, %91 ]
   %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2188
-  %93 = load ptr, ptr %92, align 8, !tbaa !36
+  %93 = load ptr, ptr %92, align 8, !tbaa !37
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !27
   %96 = tail call i32 @BN_is_zero(ptr noundef %95) #3
@@ -2055,7 +2055,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 248
   %100 = load ptr, ptr %99, align 8, !tbaa !32
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %.2188
-  %101 = load ptr, ptr %gep, align 8, !tbaa !35
+  %101 = load ptr, ptr %gep, align 8, !tbaa !36
   %102 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %101, ptr noundef %14, ptr noundef nonnull %.0139) #3
   %.not171 = icmp eq i32 %102, 0
   br i1 %.not171, label %.thread, label %103
@@ -2064,7 +2064,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %104 = load ptr, ptr %0, align 8, !tbaa !20
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 248
   %106 = load ptr, ptr %105, align 8, !tbaa !32
-  %107 = load ptr, ptr %92, align 8, !tbaa !36
+  %107 = load ptr, ptr %92, align 8, !tbaa !37
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 32
   %109 = load ptr, ptr %108, align 8, !tbaa !27
   %110 = tail call i32 %106(ptr noundef nonnull %0, ptr noundef %14, ptr noundef %14, ptr noundef %109, ptr noundef nonnull %.0139) #3
@@ -2072,7 +2072,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not172, label %.thread, label %111
 
 111:                                              ; preds = %103
-  %112 = load ptr, ptr %92, align 8, !tbaa !36
+  %112 = load ptr, ptr %92, align 8, !tbaa !37
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !27
   %115 = tail call ptr @BN_copy(ptr noundef %114, ptr noundef nonnull %15) #3
@@ -2082,10 +2082,10 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 116:                                              ; preds = %.lr.ph190, %111
   %117 = add i64 %.2188, -1
   %.not159 = icmp eq i64 %117, 0
-  br i1 %.not159, label %._crit_edge191, label %.lr.ph190, !llvm.loop !39
+  br i1 %.not159, label %._crit_edge191, label %.lr.ph190, !llvm.loop !40
 
 ._crit_edge191:                                   ; preds = %116, %91
-  %118 = load ptr, ptr %2, align 8, !tbaa !36
+  %118 = load ptr, ptr %2, align 8, !tbaa !37
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %120 = load ptr, ptr %119, align 8, !tbaa !27
   %121 = tail call i32 @BN_is_zero(ptr noundef %120) #3
@@ -2093,7 +2093,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not160, label %122, label %.preheader210
 
 122:                                              ; preds = %._crit_edge191
-  %123 = load ptr, ptr %2, align 8, !tbaa !36
+  %123 = load ptr, ptr %2, align 8, !tbaa !37
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %125 = load ptr, ptr %124, align 8, !tbaa !27
   %126 = tail call ptr @BN_copy(ptr noundef %125, ptr noundef %14) #3
@@ -2106,7 +2106,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 127:                                              ; preds = %.preheader210, %170
   %.3192 = phi i64 [ %171, %170 ], [ 0, %.preheader210 ]
   %128 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3192
-  %129 = load ptr, ptr %128, align 8, !tbaa !36
+  %129 = load ptr, ptr %128, align 8, !tbaa !37
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %131 = load ptr, ptr %130, align 8, !tbaa !27
   %132 = tail call i32 @BN_is_zero(ptr noundef %131) #3
@@ -2154,7 +2154,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 159:                                              ; preds = %152
   %160 = load ptr, ptr %0, align 8, !tbaa !20
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 296
-  %162 = load ptr, ptr %161, align 8, !tbaa !37
+  %162 = load ptr, ptr %161, align 8, !tbaa !38
   %.not167 = icmp eq ptr %162, null
   %163 = load ptr, ptr %130, align 8, !tbaa !27
   br i1 %.not167, label %166, label %164
@@ -2177,7 +2177,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 170:                                              ; preds = %168, %127
   %171 = add nuw i64 %.3192, 1
   %exitcond201.not = icmp eq i64 %171, %1
-  br i1 %exitcond201.not, label %.thread, label %127, !llvm.loop !40
+  br i1 %exitcond201.not, label %.thread, label %127, !llvm.loop !41
 
 .thread:                                          ; preds = %.preheader183, %64, %52, %111, %103, %97, %166, %164, %152, %146, %139, %133, %170, %122, %86, %84, %44, %42, %31, %17, %13, %79
   %.0138 = phi ptr [ null, %13 ], [ null, %17 ], [ %19, %122 ], [ %19, %86 ], [ %19, %84 ], [ %19, %79 ], [ %19, %42 ], [ %19, %44 ], [ %19, %31 ], [ %19, %170 ], [ %19, %133 ], [ %19, %139 ], [ %19, %146 ], [ %19, %152 ], [ %19, %164 ], [ %19, %166 ], [ %19, %97 ], [ %19, %103 ], [ %19, %111 ], [ %19, %52 ], [ %19, %64 ], [ %19, %.preheader183 ]
@@ -2190,7 +2190,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
 .preheader:                                       ; preds = %.thread, %175
   %.4193 = phi i64 [ %176, %175 ], [ 0, %.thread ]
   %172 = getelementptr inbounds nuw ptr, ptr %.0138, i64 %.4193
-  %173 = load ptr, ptr %172, align 8, !tbaa !35
+  %173 = load ptr, ptr %172, align 8, !tbaa !36
   %174 = icmp eq ptr %173, null
   br i1 %174, label %177, label %175
 
@@ -2198,7 +2198,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   tail call void @BN_clear_free(ptr noundef nonnull %173) #3
   %176 = add nuw i64 %.4193, 1
   %exitcond203.not = icmp eq i64 %176, %1
-  br i1 %exitcond203.not, label %177, label %.preheader, !llvm.loop !41
+  br i1 %exitcond203.not, label %177, label %.preheader, !llvm.loop !42
 
 177:                                              ; preds = %.preheader, %175
   tail call void @CRYPTO_free(ptr noundef nonnull %.0138, ptr noundef nonnull @.str, i32 noundef 1360) #3
@@ -2258,7 +2258,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_field_inv(ptr noundef %0, ptr nou
 18:                                               ; preds = %15
   %19 = tail call i32 @BN_is_zero(ptr noundef nonnull %12) #3
   %.not32 = icmp eq i32 %19, 0
-  br i1 %.not32, label %20, label %15, !llvm.loop !42
+  br i1 %.not32, label %20, label %15, !llvm.loop !43
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %0, align 8, !tbaa !20
@@ -2347,7 +2347,7 @@ define i32 @ossl_ec_GFp_simple_blind_coordinates(ptr noundef %0, ptr noundef cap
 15:                                               ; preds = %9
   %16 = tail call i32 @BN_is_zero(ptr noundef %4) #3
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %17, label %9, !llvm.loop !43
+  br i1 %.not, label %17, label %9, !llvm.loop !44
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %0, align 8, !tbaa !20
@@ -2535,7 +2535,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_ladder_pre(ptr noundef %0, ptr no
   %75 = load ptr, ptr %69, align 8, !tbaa !26
   %76 = tail call i32 @BN_is_zero(ptr noundef %75) #3
   %.not101 = icmp eq i32 %76, 0
-  br i1 %.not101, label %.preheader, label %70, !llvm.loop !44
+  br i1 %.not101, label %.preheader, label %70, !llvm.loop !45
 
 .preheader:                                       ; preds = %74, %80
   %77 = load ptr, ptr %6, align 8, !tbaa !27
@@ -2548,7 +2548,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_ladder_pre(ptr noundef %0, ptr no
   %81 = load ptr, ptr %6, align 8, !tbaa !27
   %82 = tail call i32 @BN_is_zero(ptr noundef %81) #3
   %.not103 = icmp eq i32 %82, 0
-  br i1 %.not103, label %83, label %.preheader, !llvm.loop !45
+  br i1 %.not103, label %83, label %.preheader, !llvm.loop !46
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %0, align 8, !tbaa !20
@@ -3209,7 +3209,7 @@ define i32 @ossl_ec_GFp_simple_ladder_post(ptr noundef %0, ptr noundef %1, ptr n
 179:                                              ; preds = %172
   %180 = load ptr, ptr %0, align 8, !tbaa !20
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 296
-  %182 = load ptr, ptr %181, align 8, !tbaa !37
+  %182 = load ptr, ptr %181, align 8, !tbaa !38
   %.not205 = icmp eq ptr %182, null
   %183 = load ptr, ptr %6, align 8, !tbaa !27
   br i1 %.not205, label %186, label %184
@@ -3383,7 +3383,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_set_Jprojective_coordinates_GFp(p
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %51, i64 296
-  %57 = load ptr, ptr %56, align 8, !tbaa !37
+  %57 = load ptr, ptr %56, align 8, !tbaa !38
   %.not71 = icmp eq ptr %57, null
   br i1 %.not71, label %61, label %58
 
@@ -3617,16 +3617,17 @@ attributes #3 = { nounwind }
 !30 = !{!22, !6, i64 272}
 !31 = !{!22, !6, i64 256}
 !32 = !{!22, !6, i64 248}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!10, !10, i64 0}
-!36 = !{!9, !9, i64 0}
-!37 = !{!22, !6, i64 296}
-!38 = distinct !{!38, !34}
-!39 = distinct !{!39, !34}
-!40 = distinct !{!40, !34}
-!41 = distinct !{!41, !34}
-!42 = distinct !{!42, !34}
-!43 = distinct !{!43, !34}
-!44 = distinct !{!44, !34}
-!45 = distinct !{!45, !34}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!10, !10, i64 0}
+!37 = !{!9, !9, i64 0}
+!38 = !{!22, !6, i64 296}
+!39 = distinct !{!39, !34, !35}
+!40 = distinct !{!40, !34, !35}
+!41 = distinct !{!41, !34, !35}
+!42 = distinct !{!42, !34, !35}
+!43 = distinct !{!43, !34, !35}
+!44 = distinct !{!44, !34, !35}
+!45 = distinct !{!45, !34, !35}
+!46 = distinct !{!46, !34, !35}

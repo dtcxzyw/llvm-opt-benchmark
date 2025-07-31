@@ -190,7 +190,7 @@ conf_diagnostics.exit:                            ; preds = %13, %19
   %.01518.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %74, %73 ]
   %78 = call ptr @OPENSSL_sk_value(ptr noundef %69, i32 noundef %.01518.i.i) #7
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !22
+  %80 = load ptr, ptr %79, align 8, !tbaa !23
   %81 = call i32 @strncmp(ptr noundef %80, ptr noundef nonnull %49, i64 noundef %72) #8
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %module_find.exit.i, label %73
@@ -252,15 +252,15 @@ module_load_dso.exit.i:                           ; preds = %93, %module_find.ex
   br i1 %102, label %module_init.exit.i, label %103
 
 103:                                              ; preds = %module_load_dso.exit.i
-  store ptr %.020.i, ptr %101, align 8, !tbaa !25
+  store ptr %.020.i, ptr %101, align 8, !tbaa !26
   %104 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %49, ptr noundef nonnull @.str.1, i32 noundef 444) #7
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  store ptr %104, ptr %105, align 8, !tbaa !28
+  store ptr %104, ptr %105, align 8, !tbaa !29
   %106 = call noalias ptr @CRYPTO_strdup(ptr noundef %51, ptr noundef nonnull @.str.1, i32 noundef 445) #7
   %107 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  store ptr %106, ptr %107, align 8, !tbaa !29
+  store ptr %106, ptr %107, align 8, !tbaa !30
   %108 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  store ptr null, ptr %108, align 8, !tbaa !30
+  store ptr null, ptr %108, align 8, !tbaa !31
   %.not.i29.i = icmp eq ptr %104, null
   %.not41.i.i = icmp eq ptr %106, null
   %or.cond48.i.i = select i1 %.not.i29.i, i1 true, i1 %.not41.i.i
@@ -268,7 +268,7 @@ module_load_dso.exit.i:                           ; preds = %93, %module_find.ex
 
 109:                                              ; preds = %103
   %110 = getelementptr inbounds nuw i8, ptr %.020.i, i64 16
-  %111 = load ptr, ptr %110, align 8, !tbaa !31
+  %111 = load ptr, ptr %110, align 8, !tbaa !32
   %.not42.i.i = icmp eq ptr %111, null
   br i1 %.not42.i.i, label %115, label %112
 
@@ -303,7 +303,7 @@ module_load_dso.exit.i:                           ; preds = %93, %module_find.ex
 
 128:                                              ; preds = %126, %124
   %129 = phi ptr [ %127, %126 ], [ %125, %124 ]
-  store ptr %129, ptr %4, align 8, !tbaa !32
+  store ptr %129, ptr %4, align 8, !tbaa !33
   %130 = icmp eq ptr %129, null
   br i1 %130, label %131, label %133
 
@@ -325,9 +325,9 @@ module_load_dso.exit.i:                           ; preds = %93, %module_find.ex
 
 module_run.exit.thread:                           ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %.020.i, i64 32
-  %138 = load i32, ptr %137, align 8, !tbaa !34
+  %138 = load i32, ptr %137, align 8, !tbaa !35
   %139 = add nsw i32 %138, 1
-  store i32 %139, ptr %137, align 8, !tbaa !34
+  store i32 %139, ptr %137, align 8, !tbaa !35
   call void @ossl_rcu_assign_uptr(ptr noundef nonnull @initialized_modules, ptr noundef nonnull %4) #7
   %140 = load ptr, ptr @module_list_lock, align 8, !tbaa !18
   call void @ossl_rcu_write_unlock(ptr noundef %140) #7
@@ -347,7 +347,7 @@ module_run.exit.thread:                           ; preds = %133
 142:                                              ; preds = %.sink.split.i32.i, %115, %112
   %.032.i.i = phi i32 [ 1, %112 ], [ %.1.i.i, %115 ], [ %.1.i.i, %.sink.split.i32.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
-  %144 = load ptr, ptr %143, align 8, !tbaa !35
+  %144 = load ptr, ptr %143, align 8, !tbaa !36
   %145 = icmp ne ptr %144, null
   %146 = icmp ne i32 %.032.i.i, 0
   %or.cond.i30.i = and i1 %146, %145
@@ -358,9 +358,9 @@ module_run.exit.thread:                           ; preds = %133
   br label %148
 
 148:                                              ; preds = %147, %142, %103
-  %149 = load ptr, ptr %105, align 8, !tbaa !28
+  %149 = load ptr, ptr %105, align 8, !tbaa !29
   call void @CRYPTO_free(ptr noundef %149, ptr noundef nonnull @.str.1, i32 noundef 501) #7
-  %150 = load ptr, ptr %107, align 8, !tbaa !29
+  %150 = load ptr, ptr %107, align 8, !tbaa !30
   call void @CRYPTO_free(ptr noundef %150, ptr noundef nonnull @.str.1, i32 noundef 502) #7
   call void @CRYPTO_free(ptr noundef nonnull %101, ptr noundef nonnull @.str.1, i32 noundef 503) #7
   br label %module_init.exit.i
@@ -387,7 +387,7 @@ module_run.exit:                                  ; preds = %45, %99, %100, %mod
   %156 = add nuw nsw i32 %.055, 1
   %157 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %30) #7
   %158 = icmp slt i32 %156, %157
-  br i1 %158, label %45, label %.loopexit, !llvm.loop !36
+  br i1 %158, label %45, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %154, %38, %34, %36, %3, %152, %.thread44
   %.028 = phi i32 [ -1, %152 ], [ 1, %.thread44 ], [ 1, %3 ], [ 0, %36 ], [ 0, %34 ], [ 1, %38 ], [ 1, %154 ]
@@ -433,7 +433,7 @@ define range(i32 -1, 2) i32 @CONF_modules_load_file_ex(ptr noundef %0, ptr nound
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = load i8, ptr %9, align 1, !tbaa !37
+  %12 = load i8, ptr %9, align 1, !tbaa !38
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %.thread, label %14
 
@@ -573,7 +573,7 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @ossl_rcu_write_lock(ptr noundef %5) #7
   %6 = tail call ptr @ossl_rcu_uptr_deref(ptr noundef nonnull @supported_modules) #7
   %7 = tail call ptr @OPENSSL_sk_dup(ptr noundef %6) #7
-  store ptr %7, ptr %2, align 8, !tbaa !38
+  store ptr %7, ptr %2, align 8, !tbaa !39
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
 
@@ -600,18 +600,18 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
   %17 = tail call i32 @OPENSSL_sk_push(ptr noundef %12, ptr noundef nonnull %15) #7
   %.0.us = add nsw i32 %.014.us, -1
   %.not22 = icmp eq i32 %.014.us, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph.split.us.preheader, !llvm.loop !40
+  br i1 %.not22, label %._crit_edge, label %.lr.ph.split.us.preheader, !llvm.loop !41
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph, %27
   %.014.us15 = phi i32 [ %.0.us16, %27 ], [ %.013, %.lr.ph ]
   %18 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %7, i32 noundef %.014.us15) #7
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %20 = load i32, ptr %19, align 8, !tbaa !34
+  %20 = load i32, ptr %19, align 8, !tbaa !35
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %.lr.ph.split.split.us
-  %23 = load ptr, ptr %18, align 8, !tbaa !42
+  %23 = load ptr, ptr %18, align 8, !tbaa !43
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %27, label %24
 
@@ -623,7 +623,7 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
 27:                                               ; preds = %.lr.ph.split.split.us, %24, %22
   %.0.us16 = add nsw i32 %.014.us15, -1
   %28 = icmp sgt i32 %.014.us15, 0
-  br i1 %28, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !43
+  br i1 %28, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us.preheader, %27, %11
   %29 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %7) #7
@@ -632,7 +632,7 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
 
 31:                                               ; preds = %._crit_edge
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %7) #7
-  store ptr null, ptr %2, align 8, !tbaa !38
+  store ptr null, ptr %2, align 8, !tbaa !39
   br label %32
 
 32:                                               ; preds = %31, %._crit_edge
@@ -654,7 +654,7 @@ define void @CONF_modules_unload(i32 noundef %0) local_unnamed_addr #0 {
 define internal fastcc range(i32 0, 2) i32 @conf_modules_finish_int() unnamed_addr #0 {
   %1 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #7
-  store ptr null, ptr %1, align 8, !tbaa !32
+  store ptr null, ptr %1, align 8, !tbaa !33
   %2 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @init_module_list_lock, ptr noundef nonnull @do_init_module_list_lock_ossl_) #7
   %3 = icmp ne i32 %2, 0
   %4 = load i32, ptr @do_init_module_list_lock_ossl_ret_, align 4
@@ -685,28 +685,28 @@ define internal fastcc range(i32 0, 2) i32 @conf_modules_finish_int() unnamed_ad
   br i1 %.not.i, label %module_finish.exit, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = load ptr, ptr %15, align 8, !tbaa !25
+  %17 = load ptr, ptr %15, align 8, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !35
+  %19 = load ptr, ptr %18, align 8, !tbaa !36
   %.not9.i = icmp eq ptr %19, null
   br i1 %.not9.i, label %21, label %20
 
 20:                                               ; preds = %16
   call void %19(ptr noundef nonnull %15) #7
-  %.pre.i = load ptr, ptr %15, align 8, !tbaa !25
+  %.pre.i = load ptr, ptr %15, align 8, !tbaa !26
   br label %21
 
 21:                                               ; preds = %20, %16
   %22 = phi ptr [ %.pre.i, %20 ], [ %17, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  %24 = load i32, ptr %23, align 8, !tbaa !34
+  %24 = load i32, ptr %23, align 8, !tbaa !35
   %25 = add nsw i32 %24, -1
-  store i32 %25, ptr %23, align 8, !tbaa !34
+  store i32 %25, ptr %23, align 8, !tbaa !35
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
   call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str.1, i32 noundef 615) #7
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !29
+  %29 = load ptr, ptr %28, align 8, !tbaa !30
   call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str.1, i32 noundef 616) #7
   call void @CRYPTO_free(ptr noundef nonnull %15, ptr noundef nonnull @.str.1, i32 noundef 617) #7
   br label %module_finish.exit
@@ -714,7 +714,7 @@ define internal fastcc range(i32 0, 2) i32 @conf_modules_finish_int() unnamed_ad
 module_finish.exit:                               ; preds = %.lr.ph, %21
   %30 = call i32 @OPENSSL_sk_num(ptr noundef %10) #7
   %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %module_finish.exit, %9
   call void @OPENSSL_sk_free(ptr noundef %10) #7
@@ -738,10 +738,10 @@ declare void @ossl_synchronize_rcu(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @module_free(ptr noundef %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !42
+  %2 = load ptr, ptr %0, align 8, !tbaa !43
   %3 = tail call i32 @DSO_free(ptr noundef %2) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !22
+  %5 = load ptr, ptr %4, align 8, !tbaa !23
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str.1, i32 noundef 567) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i32 noundef 568) #7
   ret void
@@ -789,7 +789,7 @@ define internal fastcc ptr @module_add(ptr noundef %0, ptr noundef %1, ptr nound
 
 18:                                               ; preds = %16, %14
   %19 = phi ptr [ %17, %16 ], [ %15, %14 ]
-  store ptr %19, ptr %5, align 8, !tbaa !38
+  store ptr %19, ptr %5, align 8, !tbaa !39
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread, label %21
 
@@ -799,14 +799,14 @@ define internal fastcc ptr @module_add(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %21
-  store ptr %0, ptr %22, align 8, !tbaa !42
+  store ptr %0, ptr %22, align 8, !tbaa !43
   %25 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 364) #7
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %25, ptr %26, align 8, !tbaa !22
+  store ptr %25, ptr %26, align 8, !tbaa !23
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %2, ptr %27, align 8, !tbaa !31
+  store ptr %2, ptr %27, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %3, ptr %28, align 8, !tbaa !35
+  store ptr %3, ptr %28, align 8, !tbaa !36
   %29 = icmp eq ptr %25, null
   br i1 %29, label %36, label %30
 
@@ -832,7 +832,7 @@ define internal fastcc ptr @module_add(ptr noundef %0, ptr noundef %1, ptr nound
 36:                                               ; preds = %24, %30
   %37 = load ptr, ptr @module_list_lock, align 8, !tbaa !18
   tail call void @ossl_rcu_write_unlock(ptr noundef %37) #7
-  %38 = load ptr, ptr %26, align 8, !tbaa !22
+  %38 = load ptr, ptr %26, align 8, !tbaa !23
   tail call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str.1, i32 noundef 383) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %22, ptr noundef nonnull @.str.1, i32 noundef 384) #7
   br label %39
@@ -853,74 +853,74 @@ define void @ossl_config_modules_free() local_unnamed_addr #0 {
   %1 = load ptr, ptr @module_list_lock, align 8, !tbaa !18
   tail call void @ossl_rcu_lock_free(ptr noundef %1) #7
   store ptr null, ptr @module_list_lock, align 8, !tbaa !18
-  %2 = load ptr, ptr @supported_modules, align 8, !tbaa !38
+  %2 = load ptr, ptr @supported_modules, align 8, !tbaa !39
   tail call void @OPENSSL_sk_free(ptr noundef %2) #7
-  store ptr null, ptr @supported_modules, align 8, !tbaa !38
-  %3 = load ptr, ptr @initialized_modules, align 8, !tbaa !32
+  store ptr null, ptr @supported_modules, align 8, !tbaa !39
+  %3 = load ptr, ptr @initialized_modules, align 8, !tbaa !33
   tail call void @OPENSSL_sk_free(ptr noundef %3) #7
-  store ptr null, ptr @initialized_modules, align 8, !tbaa !32
+  store ptr null, ptr @initialized_modules, align 8, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_imodule_get_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !28
+  %3 = load ptr, ptr %2, align 8, !tbaa !29
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_imodule_get_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_imodule_get_usr_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !30
+  %3 = load ptr, ptr %2, align 8, !tbaa !31
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_imodule_set_usr_data(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %3, align 8, !tbaa !30
+  store ptr %1, ptr %3, align 8, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_imodule_get_module(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !25
+  %2 = load ptr, ptr %0, align 8, !tbaa !26
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @CONF_imodule_get_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !45
+  %3 = load i64, ptr %2, align 8, !tbaa !46
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_imodule_set_flags(ptr noundef writeonly captures(none) initializes((24, 32)) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %1, ptr %3, align 8, !tbaa !45
+  store i64 %1, ptr %3, align 8, !tbaa !46
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @CONF_module_get_usr_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @CONF_module_set_usr_data(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %3, align 8, !tbaa !46
+  store ptr %1, ptr %3, align 8, !tbaa !47
   ret void
 }
 
@@ -953,7 +953,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %.critedge.us
-  %10 = load i8, ptr %.030.us, align 1, !tbaa !37
+  %10 = load i8, ptr %.030.us, align 1, !tbaa !38
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %23, label %12
 
@@ -989,7 +989,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
 27:                                               ; preds = %25
   %28 = icmp eq ptr %7, null
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  br i1 %28, label %.loopexit43, label %.critedge.us, !llvm.loop !47
+  br i1 %28, label %.loopexit43, label %.critedge.us, !llvm.loop !48
 
 30:                                               ; preds = %5
   tail call void @ERR_new() #7
@@ -999,13 +999,13 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
 
 .preheader41:                                     ; preds = %.preheader42, %69
   %.030 = phi ptr [ %71, %69 ], [ %0, %.preheader42 ]
-  %31 = load i8, ptr %.030, align 1, !tbaa !37
+  %31 = load i8, ptr %.030, align 1, !tbaa !38
   %.not3744 = icmp eq i8 %31, 0
   br i1 %.not3744, label %.critedge.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader41
   %32 = tail call ptr @__ctype_b_loc() #9
-  %33 = load ptr, ptr %32, align 8, !tbaa !48
+  %33 = load ptr, ptr %32, align 8, !tbaa !49
   br label %34
 
 34:                                               ; preds = %.lr.ph, %40
@@ -1013,16 +1013,16 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
   %.23245 = phi ptr [ %.030, %.lr.ph ], [ %41, %40 ]
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw i16, ptr %33, i64 %36
-  %38 = load i16, ptr %37, align 2, !tbaa !50
+  %38 = load i16, ptr %37, align 2, !tbaa !51
   %39 = and i16 %38, 8192
   %.not38.not.not.not = icmp ne i16 %39, 0
   br i1 %.not38.not.not.not, label %40, label %.critedge.loopexit
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %.23245, i64 1
-  %42 = load i8, ptr %41, align 1, !tbaa !37
+  %42 = load i8, ptr %41, align 1, !tbaa !38
   %.not37 = icmp eq i8 %42, 0
-  br i1 %.not37, label %.critedge.loopexit, label %34, !llvm.loop !52
+  br i1 %.not37, label %.critedge.loopexit, label %34, !llvm.loop !53
 
 .critedge.loopexit:                               ; preds = %34, %40
   %.232.lcssa = phi ptr [ %.23245, %34 ], [ %41, %40 ]
@@ -1052,19 +1052,19 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
 .preheader:                                       ; preds = %48, %49
   %.pn = phi ptr [ %51, %49 ], [ %43, %48 ]
   %52 = tail call ptr @__ctype_b_loc() #9
-  %53 = load ptr, ptr %52, align 8, !tbaa !48
+  %53 = load ptr, ptr %52, align 8, !tbaa !49
   br label %54
 
 54:                                               ; preds = %54, %.preheader
   %.2.pn = phi ptr [ %.2, %54 ], [ %.pn, %.preheader ]
   %.2 = getelementptr inbounds i8, ptr %.2.pn, i64 -1
-  %55 = load i8, ptr %.2, align 1, !tbaa !37
+  %55 = load i8, ptr %.2, align 1, !tbaa !38
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw i16, ptr %53, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !50
+  %58 = load i16, ptr %57, align 2, !tbaa !51
   %59 = and i16 %58, 8192
   %.not40 = icmp eq i16 %59, 0
-  br i1 %.not40, label %.loopexit, label %54, !llvm.loop !53
+  br i1 %.not40, label %.loopexit, label %54, !llvm.loop !54
 
 .loopexit:                                        ; preds = %54
   %60 = ptrtoint ptr %.2 to i64
@@ -1084,7 +1084,7 @@ define range(i32 -2147483648, 2) i32 @CONF_parse_list(ptr noundef %0, i32 nounde
 69:                                               ; preds = %66
   %70 = icmp eq ptr %67, null
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 1
-  br i1 %70, label %.loopexit43, label %.preheader41
+  br i1 %70, label %.loopexit43, label %.preheader41, !llvm.loop !55
 
 .loopexit43:                                      ; preds = %66, %69, %27, %25, %30
   %.0 = phi i32 [ 0, %30 ], [ 1, %27 ], [ %.033.us, %25 ], [ 1, %69 ], [ %.033, %66 ]
@@ -1133,7 +1133,7 @@ define internal void @do_init_module_list_lock_ossl_() #0 {
 
 do_init_module_list_lock.exit:                    ; preds = %0, %3
   %.0.i = phi i32 [ 0, %3 ], [ 1, %0 ]
-  store i32 %.0.i, ptr @do_init_module_list_lock_ossl_ret_, align 4, !tbaa !54
+  store i32 %.0.i, ptr @do_init_module_list_lock_ossl_ret_, align 4, !tbaa !56
   ret void
 }
 
@@ -1205,38 +1205,40 @@ attributes #9 = { nounwind willreturn memory(none) }
 !17 = !{!16, !13, i64 16}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS11rcu_lock_st", !10, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !13, i64 8}
-!23 = !{!"conf_module_st", !24, i64 0, !13, i64 8, !10, i64 16, !10, i64 24, !12, i64 32, !10, i64 40}
-!24 = !{!"p1 _ZTS6dso_st", !10, i64 0}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"conf_imodule_st", !27, i64 0, !13, i64 8, !13, i64 16, !4, i64 24, !10, i64 32}
-!27 = !{!"p1 _ZTS14conf_module_st", !10, i64 0}
-!28 = !{!26, !13, i64 8}
-!29 = !{!26, !13, i64 16}
-!30 = !{!26, !10, i64 32}
-!31 = !{!23, !10, i64 16}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 _ZTS21stack_st_CONF_IMODULE", !10, i64 0}
-!34 = !{!23, !12, i64 32}
-!35 = !{!23, !10, i64 24}
-!36 = distinct !{!36, !21}
-!37 = !{!5, !5, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTS20stack_st_CONF_MODULE", !10, i64 0}
-!40 = distinct !{!40, !21, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = !{!23, !24, i64 0}
-!43 = distinct !{!43, !21, !41}
-!44 = distinct !{!44, !21}
-!45 = !{!26, !4, i64 24}
-!46 = !{!23, !10, i64 40}
-!47 = distinct !{!47, !41}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 short", !10, i64 0}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"short", !5, i64 0}
-!52 = distinct !{!52, !21}
-!53 = distinct !{!53, !21}
-!54 = !{!12, !12, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !13, i64 8}
+!24 = !{!"conf_module_st", !25, i64 0, !13, i64 8, !10, i64 16, !10, i64 24, !12, i64 32, !10, i64 40}
+!25 = !{!"p1 _ZTS6dso_st", !10, i64 0}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"conf_imodule_st", !28, i64 0, !13, i64 8, !13, i64 16, !4, i64 24, !10, i64 32}
+!28 = !{!"p1 _ZTS14conf_module_st", !10, i64 0}
+!29 = !{!27, !13, i64 8}
+!30 = !{!27, !13, i64 16}
+!31 = !{!27, !10, i64 32}
+!32 = !{!24, !10, i64 16}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 _ZTS21stack_st_CONF_IMODULE", !10, i64 0}
+!35 = !{!24, !12, i64 32}
+!36 = !{!24, !10, i64 24}
+!37 = distinct !{!37, !21, !22}
+!38 = !{!5, !5, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS20stack_st_CONF_MODULE", !10, i64 0}
+!41 = distinct !{!41, !21, !22, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = !{!24, !25, i64 0}
+!44 = distinct !{!44, !21, !22, !42}
+!45 = distinct !{!45, !21, !22}
+!46 = !{!27, !4, i64 24}
+!47 = !{!24, !10, i64 40}
+!48 = distinct !{!48, !22, !42}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 short", !10, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"short", !5, i64 0}
+!53 = distinct !{!53, !21, !22}
+!54 = distinct !{!54, !21, !22}
+!55 = distinct !{!55, !22}
+!56 = !{!12, !12, i64 0}

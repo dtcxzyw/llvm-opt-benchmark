@@ -42,11 +42,11 @@ define range(i32 0, 2) i32 @cs_lsolve(ptr noundef readonly captures(address_is_n
   %indvars.iv39 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next40, %.loopexit ]
   %19 = sext i32 %18 to i64
   %20 = getelementptr inbounds double, ptr %16, i64 %19
-  %21 = load double, ptr %20, align 8, !tbaa !18
+  %21 = load double, ptr %20, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv39
-  %23 = load double, ptr %22, align 8, !tbaa !18
+  %23 = load double, ptr %22, align 8, !tbaa !19
   %24 = fdiv double %23, %21
-  store double %24, ptr %22, align 8, !tbaa !18
+  store double %24, ptr %22, align 8, !tbaa !19
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next40
   %26 = load i32, ptr %25, align 4, !tbaa !15
@@ -61,20 +61,20 @@ define range(i32 0, 2) i32 @cs_lsolve(ptr noundef readonly captures(address_is_n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %28, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %29 = getelementptr inbounds double, ptr %16, i64 %indvars.iv
-  %30 = load double, ptr %29, align 8, !tbaa !18
-  %31 = load double, ptr %22, align 8, !tbaa !18
+  %30 = load double, ptr %29, align 8, !tbaa !19
+  %31 = load double, ptr %22, align 8, !tbaa !19
   %32 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !15
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds double, ptr %1, i64 %34
-  %36 = load double, ptr %35, align 8, !tbaa !18
+  %36 = load double, ptr %35, align 8, !tbaa !19
   %37 = fneg double %30
   %38 = tail call double @llvm.fmuladd.f64(double %37, double %31, double %36)
-  store double %38, ptr %35, align 8, !tbaa !18
+  store double %38, ptr %35, align 8, !tbaa !19
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %26, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit33:                                      ; preds = %.loopexit, %8, %2, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %2 ], [ 1, %8 ], [ 1, %.loopexit ]
@@ -105,8 +105,9 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !13 = !{!4, !8, i64 24}
 !14 = !{!4, !10, i64 32}
 !15 = !{!5, !5, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"double", !6, i64 0}
-!20 = distinct !{!20, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"double", !6, i64 0}
+!21 = distinct !{!21, !17, !18}

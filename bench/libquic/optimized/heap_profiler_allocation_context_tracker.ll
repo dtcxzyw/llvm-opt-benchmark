@@ -465,7 +465,7 @@ define void @_ZN4base11trace_event24AllocationContextTracker18GetContextSnapshot
   %35 = icmp eq ptr %34, %30
   %.not37 = icmp eq i64 %.2.add, 768
   %or.cond = select i1 %35, i1 true, i1 %.not37
-  br i1 %or.cond, label %.thread45, label %.lr.ph
+  br i1 %or.cond, label %.thread45, label %.lr.ph, !llvm.loop !40
 
 36:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #16
@@ -492,7 +492,7 @@ define void @_ZN4base11trace_event24AllocationContextTracker18GetContextSnapshot
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.553, i64 8
   store ptr %43, ptr %.sroa.41.0..sroa_idx, align 8, !tbaa !32
   %45 = icmp ugt i64 %41, %39
-  br i1 %45, label %.lr.ph54, label %._crit_edge, !llvm.loop !40
+  br i1 %45, label %.lr.ph54, label %._crit_edge, !llvm.loop !42
 
 .thread45:                                        ; preds = %.lr.ph, %27, %._crit_edge, %26
   %.1 = phi ptr [ %.0.ptr, %26 ], [ %.5.lcssa, %._crit_edge ], [ %.0.ptr, %27 ], [ %.2.ptr, %.lr.ph ]
@@ -524,7 +524,7 @@ define void @_ZN4base11trace_event24AllocationContextTracker18GetContextSnapshot
 
 64:                                               ; preds = %59
   %65 = getelementptr inbounds i8, ptr %62, i64 -16
-  %66 = load ptr, ptr %65, align 8, !tbaa !42
+  %66 = load ptr, ptr %65, align 8, !tbaa !44
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 776
   store ptr %66, ptr %67, align 8, !tbaa !33
   br label %68
@@ -625,5 +625,7 @@ attributes #17 = { noreturn }
 !38 = !{!39, !21, i64 8}
 !39 = !{!"_ZTSN4base11trace_event24AllocationContextTracker16PseudoStackFrameE", !21, i64 0, !21, i64 8}
 !40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!39, !21, i64 0}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !43, !41}
+!43 = !{!"llvm.loop.mustprogress"}
+!44 = !{!39, !21, i64 0}

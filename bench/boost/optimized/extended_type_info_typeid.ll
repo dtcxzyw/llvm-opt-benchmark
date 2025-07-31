@@ -248,7 +248,7 @@ define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
-  %4 = load i8, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !range !28
+  %4 = load i8, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !range !29
   %5 = trunc nuw i8 %4 to i1
   %or.cond = select i1 %.not, i1 true, i1 %5
   br i1 %or.cond, label %.thread, label %6
@@ -296,7 +296,7 @@ _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_t
 .lr.ph.i.i.i.backedge:                            ; preds = %.lr.ph.i.i.i, %26
   %.012.i.i.i.be = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %30, %26 ]
   %.0811.i.i.i.be = phi ptr [ %.19.i.i.i, %.lr.ph.i.i.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8), %26 ]
-  br label %.lr.ph.i.i.i, !llvm.loop !29
+  br label %.lr.ph.i.i.i, !llvm.loop !30
 
 _ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i: ; preds = %.lr.ph.i.i.i
   %19 = icmp eq ptr %.19.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
@@ -373,7 +373,7 @@ _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_t
   %.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 %.1.in.v.i.i.i
   %.1.i.i.i = load ptr, ptr %.1.in.i.i.i, align 8, !tbaa !25
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
+  br i1 %.not.i.i.i, label %_ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !31
 
 _ZNKSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS5_EPKSt18_Rb_tree_node_baseRKS5_.exit.i.i: ; preds = %.noexc
   %17 = icmp eq ptr %.19.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 8)
@@ -521,7 +521,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !31
+  store i8 1, ptr @_ZZN5boost13serialization6detail17singleton_wrapperISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS4_12type_compareESaIS7_EEE16get_is_destroyedEvE17is_destroyed_flag, align 1, !tbaa !32
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   invoke void @_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
@@ -564,13 +564,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost13serialization13typeid
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !33
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
   tail call void @_ZNSt8_Rb_treeIPKN5boost13serialization13typeid_system27extended_type_info_typeid_0ES5_St9_IdentityIS5_ENS2_12type_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !34
+  %6 = load ptr, ptr %5, align 8, !tbaa !35
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -633,13 +633,14 @@ attributes #18 = { builtin nounwind }
 !23 = !{!17, !9, i64 24}
 !24 = !{!17, !20, i64 32}
 !25 = !{!9, !9, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{i8 0, i8 2}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = !{!32, !32, i64 0}
-!32 = !{!"bool", !7, i64 0}
-!33 = !{!18, !9, i64 24}
-!34 = !{!18, !9, i64 16}
-!35 = distinct !{!35, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{i8 0, i8 2}
+!30 = distinct !{!30, !28}
+!31 = distinct !{!31, !27, !28}
+!32 = !{!33, !33, i64 0}
+!33 = !{!"bool", !7, i64 0}
+!34 = !{!18, !9, i64 24}
+!35 = !{!18, !9, i64 16}
+!36 = distinct !{!36, !27, !28}

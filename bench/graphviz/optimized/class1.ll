@@ -237,7 +237,7 @@ nonconstraint_edge.exit.thread:                   ; preds = %14, %123, %124, %no
 ._crit_edge:                                      ; preds = %nonconstraint_edge.exit.thread, %.lr.ph54
   %127 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.052) #3
   %.not = icmp eq ptr %127, null
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54, !llvm.loop !59
+  br i1 %.not, label %._crit_edge55, label %.lr.ph54, !llvm.loop !60
 
 ._crit_edge55:                                    ; preds = %._crit_edge, %1
   ret void
@@ -332,6 +332,7 @@ attributes #3 = { nounwind }
 !54 = !{!35, !6, i64 216}
 !55 = !{!16, !12, i64 212}
 !56 = !{!16, !25, i64 160}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = distinct !{!59, !58}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = distinct !{!60, !58, !59}

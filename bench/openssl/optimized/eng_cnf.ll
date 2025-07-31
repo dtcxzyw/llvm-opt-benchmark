@@ -268,7 +268,7 @@ int_engine_init.exit.thread.i:                    ; preds = %34, %36, %38, %40, 
   %92 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 139, ptr noundef nonnull @__func__.int_engine_configure) #4
-  %93 = load ptr, ptr %19, align 8, !tbaa !16
+  %93 = load ptr, ptr %19, align 8, !tbaa !17
   %94 = load ptr, ptr %92, align 8, !tbaa !3
   %95 = load ptr, ptr %91, align 8, !tbaa !9
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 102, ptr noundef nonnull @.str.13, ptr noundef %93, ptr noundef %94, ptr noundef %95) #4
@@ -290,7 +290,7 @@ int_engine_configure.exit:                        ; preds = %.loopexit23, %int_e
   %99 = add nuw nsw i32 %.046, 1
   %100 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %5) #4
   %101 = icmp slt i32 %99, %100
-  br i1 %101, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %101, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %98, %.preheader, %int_engine_configure.exit, %int_engine_configure.exit.thread, %8
   %.011 = phi i32 [ 0, %8 ], [ 0, %int_engine_configure.exit ], [ 0, %int_engine_configure.exit.thread ], [ 1, %.preheader ], [ 1, %98 ]
@@ -310,7 +310,7 @@ define internal void @int_engine_module_finish(ptr readnone captures(none) %0) #
   %6 = load ptr, ptr @initialized_engines, align 8, !tbaa !12
   %7 = tail call ptr @OPENSSL_sk_pop(ptr noundef %6) #4
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %8 = load ptr, ptr @initialized_engines, align 8, !tbaa !12
@@ -392,8 +392,9 @@ attributes #5 = { nounwind willreturn memory(read) }
 !11 = !{!"long", !7, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS15stack_st_ENGINE", !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!4, !5, i64 0}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!4, !5, i64 0}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}

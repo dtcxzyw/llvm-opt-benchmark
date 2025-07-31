@@ -213,20 +213,20 @@ define dso_local void @gnet_stats_add_basic(ptr noundef %0, ptr noundef %1, ptr 
 .thread3:                                         ; preds = %16, %27, %23
   %.lcssa4 = phi i64 [ %19, %16 ], [ %37, %27 ], [ %19, %23 ]
   %.lcssa = phi i64 [ %18, %16 ], [ %36, %27 ], [ %18, %23 ]
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %.lcssa, ptr elementtype(i64) %0) #8, !srcloc !16
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %.lcssa, ptr elementtype(i64) %0) #8, !srcloc !17
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = and i64 %.lcssa4, 4294967295
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %41, i64 %42, ptr nonnull elementtype(i64) %41) #8, !srcloc !16
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %41, i64 %42, ptr nonnull elementtype(i64) %41) #8, !srcloc !17
   br label %48
 
 .thread:                                          ; preds = %4, %12
   %43 = load volatile i64, ptr %2, align 8
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load volatile i64, ptr %44, align 8
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %43, ptr elementtype(i64) %0) #8, !srcloc !16
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %43, ptr elementtype(i64) %0) #8, !srcloc !17
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = and i64 %45, 4294967295
-  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 %47, ptr nonnull elementtype(i64) %46) #8, !srcloc !16
+  tail call void asm sideeffect " addq $1,$0", "=*m,ir,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %46, i64 %47, ptr nonnull elementtype(i64) %46) #8, !srcloc !17
   br label %48
 
 48:                                               ; preds = %.thread, %.thread3
@@ -281,7 +281,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @___gnet_stats_copy_basic(pt
   %33 = add nuw nsw i64 %19, 1
   %34 = and i64 %33, 127
   %35 = icmp samesign ugt i64 %34, 63
-  br i1 %35, label %.thread, label %11, !prof !12, !llvm.loop !17
+  br i1 %35, label %.thread, label %11, !prof !12, !llvm.loop !18
 
 36:                                               ; preds = %4
   %37 = load volatile i64, ptr %2, align 8
@@ -386,7 +386,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_rate_est(ptr noun
   %3 = alloca %struct.gnet_stats_rate_est64, align 8
   %4 = alloca %struct.gnet_stats_rate_est, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = call zeroext i1 @gen_estimator_read(ptr noundef %1, ptr noundef nonnull %3) #8
   br i1 %5, label %6, label %47
@@ -533,7 +533,7 @@ define dso_local void @gnet_stats_add_queue(ptr noundef captures(none) %0, ptr n
   %46 = add nuw nsw i64 %18, 1
   %47 = and i64 %46, 127
   %48 = icmp samesign ugt i64 %47, 63
-  br i1 %48, label %.thread, label %11, !prof !12, !llvm.loop !19
+  br i1 %48, label %.thread, label %11, !prof !12, !llvm.loop !20
 
 49:                                               ; preds = %3
   %50 = load i32, ptr %2, align 4
@@ -630,7 +630,7 @@ define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_copy_queue(ptr noundef
   %46 = add nuw nsw i64 %25, 1
   %47 = and i64 %46, 127
   %48 = icmp samesign ugt i64 %47, 63
-  br i1 %48, label %.thread, label %15, !prof !12, !llvm.loop !19
+  br i1 %48, label %.thread, label %15, !prof !12, !llvm.loop !21
 
 49:                                               ; preds = %4
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -941,10 +941,12 @@ attributes #10 = { nounwind allocsize(1) }
 !10 = !{i64 2156921343, i64 2156921154, i64 2156921204, i64 2156921250, i64 2156921278}
 !11 = !{i64 305131}
 !12 = !{!"branch_weights", i32 1, i32 1999}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = !{i64 2154027868}
-!17 = distinct !{!17, !14, !15}
-!18 = !{!"auto-init"}
-!19 = distinct !{!19, !14, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{i64 2154027868}
+!18 = distinct !{!18, !14, !15, !16}
+!19 = !{!"auto-init"}
+!20 = distinct !{!20, !14, !15, !16}
+!21 = distinct !{!21, !14, !15, !16}

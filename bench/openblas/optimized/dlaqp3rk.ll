@@ -620,7 +620,7 @@ split:                                            ; preds = %156, %._crit_edge51
   %406 = icmp slt i32 %368, %405
   %407 = icmp eq i32 %.1, 0
   %408 = select i1 %406, i1 %407, i1 false
-  br i1 %408, label %.lr.ph453, label %._crit_edge454, !llvm.loop !11
+  br i1 %408, label %.lr.ph453, label %._crit_edge454, !llvm.loop !12
 
 ._crit_edge454:                                   ; preds = %.loopexit396, %24
   %.lcssa447 = phi i32 [ 0, %24 ], [ %368, %.loopexit396 ]
@@ -681,7 +681,7 @@ split:                                            ; preds = %156, %._crit_edge51
   %444 = getelementptr inbounds nuw double, ptr %35, i64 %434
   store double %442, ptr %444, align 8, !tbaa !7
   %445 = icmp sgt i32 %435, 0
-  br i1 %445, label %433, label %.loopexit, !llvm.loop !12
+  br i1 %445, label %433, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %433, %.lr.ph467.preheader, %.lr.ph471.preheader, %430, %180, %131, %260, %268, %274, %74, %81, %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #6
@@ -744,7 +744,8 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}

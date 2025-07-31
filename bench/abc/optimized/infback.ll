@@ -339,7 +339,7 @@ default.unreachable1325:                          ; preds = %71
 109:                                              ; preds = %._crit_edge1044
   %110 = trunc i64 %.4540.lcssa to i32
   %111 = and i32 %110, 65535
-  store i32 %111, ptr %38, align 4, !tbaa !36
+  store i32 %111, ptr %38, align 4, !tbaa !37
   %.not6821048 = icmp eq i32 %111, 0
   br i1 %.not6821048, label %._crit_edge1055, label %.lr.ph1054
 
@@ -387,11 +387,11 @@ default.unreachable1325:                          ; preds = %71
   store ptr %128, ptr %6, align 8, !tbaa !28
   %129 = sub i32 %.3566, %.1528
   %130 = getelementptr inbounds nuw i8, ptr %.3600, i64 %125
-  %131 = load i32, ptr %38, align 4, !tbaa !36
+  %131 = load i32, ptr %38, align 4, !tbaa !37
   %132 = sub i32 %131, %.1528
-  store i32 %132, ptr %38, align 4, !tbaa !36
+  store i32 %132, ptr %38, align 4, !tbaa !37
   %.not682 = icmp eq i32 %132, 0
-  br i1 %.not682, label %._crit_edge1055, label %.lr.ph1054, !llvm.loop !37
+  br i1 %.not682, label %._crit_edge1055, label %.lr.ph1054, !llvm.loop !38
 
 ._crit_edge1055:                                  ; preds = %123, %109
   %.2599.lcssa = phi ptr [ %.0597, %109 ], [ %130, %123 ]
@@ -428,7 +428,7 @@ default.unreachable1325:                          ; preds = %71
   %145 = add i64 %144, %.5541864
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %146 = icmp samesign ult i64 %indvars.iv, 6
-  br i1 %146, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !38
+  br i1 %146, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !39
 
 ._crit_edge.loopexit:                             ; preds = %138
   %147 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -441,15 +441,15 @@ default.unreachable1325:                          ; preds = %71
   %148 = trunc i64 %.5541.lcssa to i32
   %149 = and i32 %148, 31
   %150 = add nuw nsw i32 %149, 257
-  store i32 %150, ptr %25, align 4, !tbaa !39
+  store i32 %150, ptr %25, align 4, !tbaa !40
   %151 = lshr i32 %148, 5
   %152 = and i32 %151, 31
   %153 = add nuw nsw i32 %152, 1
-  store i32 %153, ptr %26, align 8, !tbaa !40
+  store i32 %153, ptr %26, align 8, !tbaa !41
   %154 = lshr i32 %148, 10
   %155 = and i32 %154, 15
   %156 = add nuw nsw i32 %155, 4
-  store i32 %156, ptr %27, align 8, !tbaa !41
+  store i32 %156, ptr %27, align 8, !tbaa !42
   %157 = lshr i64 %.5541.lcssa, 14
   %158 = add i32 %.5534.lcssa, -14
   %159 = icmp samesign ugt i32 %149, 29
@@ -463,7 +463,7 @@ default.unreachable1325:                          ; preds = %71
   br label %.thread
 
 .preheader697.preheader:                          ; preds = %._crit_edge
-  store i32 0, ptr %28, align 4, !tbaa !42
+  store i32 0, ptr %28, align 4, !tbaa !43
   br label %.preheader697
 
 .preheader707:                                    ; preds = %180
@@ -495,8 +495,8 @@ default.unreachable1325:                          ; preds = %71
   br i1 %171, label %.split, label %.._crit_edge872_crit_edge
 
 .._crit_edge872_crit_edge:                        ; preds = %169
-  %.pre1292.pre = load i32, ptr %28, align 4, !tbaa !42
-  %.pre1293.pre = load i32, ptr %27, align 8, !tbaa !41
+  %.pre1292.pre = load i32, ptr %28, align 4, !tbaa !43
+  %.pre1293.pre = load i32, ptr %27, align 8, !tbaa !42
   br label %._crit_edge872
 
 .split:                                           ; preds = %169
@@ -528,36 +528,36 @@ default.unreachable1325:                          ; preds = %71
   %183 = trunc i64 %.7543.lcssa to i16
   %184 = and i16 %183, 7
   %185 = add i32 %182, 1
-  store i32 %185, ptr %28, align 4, !tbaa !42
+  store i32 %185, ptr %28, align 4, !tbaa !43
   %186 = zext i32 %182 to i64
   %187 = getelementptr inbounds nuw [19 x i16], ptr @inflateBack.order, i64 0, i64 %186
-  %188 = load i16, ptr %187, align 2, !tbaa !43
+  %188 = load i16, ptr %187, align 2, !tbaa !44
   %189 = zext i16 %188 to i64
   %190 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %189
-  store i16 %184, ptr %190, align 2, !tbaa !43
+  store i16 %184, ptr %190, align 2, !tbaa !44
   %191 = lshr i64 %.7543.lcssa, 3
   %192 = add i32 %.7.lcssa, -3
   %193 = icmp ult i32 %185, %181
-  br i1 %193, label %.preheader697, label %.preheader707, !llvm.loop !45
+  br i1 %193, label %.preheader697, label %.preheader707, !llvm.loop !46
 
 .lr.ph895:                                        ; preds = %.lr.ph895.preheader, %.lr.ph895
   %indvars.iv1260 = phi i64 [ %163, %.lr.ph895.preheader ], [ %indvars.iv.next1261, %.lr.ph895 ]
   %indvars.iv.next1261 = add nuw nsw i64 %indvars.iv1260, 1
   %194 = getelementptr inbounds nuw [19 x i16], ptr @inflateBack.order, i64 0, i64 %indvars.iv1260
-  %195 = load i16, ptr %194, align 2, !tbaa !43
+  %195 = load i16, ptr %194, align 2, !tbaa !44
   %196 = zext i16 %195 to i64
   %197 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %196
-  store i16 0, ptr %197, align 2, !tbaa !43
+  store i16 0, ptr %197, align 2, !tbaa !44
   %198 = and i64 %indvars.iv.next1261, 4294967295
   %exitcond.not = icmp eq i64 %198, 19
-  br i1 %exitcond.not, label %._crit_edge896, label %.lr.ph895, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge896, label %.lr.ph895, !llvm.loop !47
 
 ._crit_edge896:                                   ; preds = %.lr.ph895
-  store i32 19, ptr %28, align 4, !tbaa !42
+  store i32 19, ptr %28, align 4, !tbaa !43
   br label %199
 
 199:                                              ; preds = %._crit_edge896, %.preheader707
-  store ptr %30, ptr %31, align 8, !tbaa !47
+  store ptr %30, ptr %31, align 8, !tbaa !48
   store ptr %30, ptr %32, align 8, !tbaa !30
   store i32 7, ptr %33, align 8, !tbaa !31
   %200 = call i32 @inflate_table(i32 noundef 0, ptr noundef nonnull %29, i32 noundef 19, ptr noundef nonnull %31, ptr noundef nonnull %33, ptr noundef nonnull %34) #5
@@ -570,9 +570,9 @@ default.unreachable1325:                          ; preds = %71
   br label %.thread
 
 202:                                              ; preds = %199
-  store i32 0, ptr %28, align 4, !tbaa !42
-  %203 = load i32, ptr %25, align 4, !tbaa !39
-  %204 = load i32, ptr %26, align 8, !tbaa !40
+  store i32 0, ptr %28, align 4, !tbaa !43
+  %203 = load i32, ptr %25, align 4, !tbaa !40
+  %204 = load i32, ptr %26, align 8, !tbaa !41
   %205 = sub i32 0, %203
   %.not1143 = icmp eq i32 %204, %205
   br i1 %.not1143, label %._crit_edge954, label %.preheader696
@@ -645,7 +645,7 @@ default.unreachable1325:                          ; preds = %71
   %.sroa.18.0.copyload = load i8, ptr %.sroa.18.0..sroa_idx, align 1, !tbaa !3
   %237 = zext i8 %.sroa.18.0.copyload to i64
   %.not657 = icmp samesign ult i64 %indvars.iv.next1264, %237
-  br i1 %.not657, label %.lr.ph908, label %._crit_edge909.loopexit
+  br i1 %.not657, label %.lr.ph908, label %._crit_edge909.loopexit, !llvm.loop !49
 
 ._crit_edge909.loopexit:                          ; preds = %222
   %238 = zext i8 %.sroa.18.0.copyload to i32
@@ -660,7 +660,7 @@ default.unreachable1325:                          ; preds = %71
   %.sroa.18.0.copyload.lcssa = phi i8 [ %.sroa.18.0.copyload901, %.preheader696 ], [ %.sroa.18.0.copyload, %._crit_edge909.loopexit ]
   %.pn1144 = phi ptr [ %212, %.preheader696 ], [ %236, %._crit_edge909.loopexit ]
   %.sroa.41.0.copyload.lcssa.in = getelementptr inbounds nuw i8, ptr %.pn1144, i64 2
-  %.sroa.41.0.copyload.lcssa = load i16, ptr %.sroa.41.0.copyload.lcssa.in, align 2, !tbaa !43
+  %.sroa.41.0.copyload.lcssa = load i16, ptr %.sroa.41.0.copyload.lcssa.in, align 2, !tbaa !44
   %240 = icmp ult i16 %.sroa.41.0.copyload.lcssa, 16
   br i1 %240, label %.preheader, label %266
 
@@ -701,7 +701,7 @@ default.unreachable1325:                          ; preds = %71
   %256 = add i64 %255, %.11547944
   %indvars.iv.next1276 = add nuw nsw i64 %indvars.iv1275, 8
   %257 = icmp samesign ult i64 %indvars.iv.next1276, %243
-  br i1 %257, label %.lr.ph946, label %._crit_edge947.loopexit, !llvm.loop !48
+  br i1 %257, label %.lr.ph946, label %._crit_edge947.loopexit, !llvm.loop !50
 
 ._crit_edge947.loopexit:                          ; preds = %249
   %258 = trunc nuw i64 %indvars.iv.next1276 to i32
@@ -714,14 +714,14 @@ default.unreachable1325:                          ; preds = %71
   %259 = zext nneg i8 %.sroa.18.0.copyload.lcssa to i64
   %260 = lshr i64 %.11547.lcssa, %259
   %261 = sub nuw i32 %.11.lcssa, %.lcssa898
-  %262 = load i32, ptr %28, align 4, !tbaa !42
+  %262 = load i32, ptr %28, align 4, !tbaa !43
   %263 = add i32 %262, 1
-  store i32 %263, ptr %28, align 4, !tbaa !42
+  store i32 %263, ptr %28, align 4, !tbaa !43
   %264 = zext i32 %262 to i64
   %265 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %264
-  store i16 %.sroa.41.0.copyload.lcssa, ptr %265, align 2, !tbaa !43
-  %.pre1297 = load i32, ptr %25, align 4, !tbaa !39
-  %.pre1298 = load i32, ptr %26, align 8, !tbaa !40
+  store i16 %.sroa.41.0.copyload.lcssa, ptr %265, align 2, !tbaa !44
+  %.pre1297 = load i32, ptr %25, align 4, !tbaa !40
+  %.pre1298 = load i32, ptr %26, align 8, !tbaa !41
   %.pre1324 = add i32 %.pre1298, %.pre1297
   br label %367
 
@@ -789,7 +789,7 @@ default.unreachable1325:                          ; preds = %71
   %291 = add i64 %290, %.13549926
   %indvars.iv.next1270 = add nuw nsw i64 %indvars.iv1269, 8
   %292 = icmp samesign ult i64 %indvars.iv.next1270, %274
-  br i1 %292, label %.lr.ph928, label %._crit_edge929.loopexit, !llvm.loop !49
+  br i1 %292, label %.lr.ph928, label %._crit_edge929.loopexit, !llvm.loop !51
 
 ._crit_edge929.loopexit:                          ; preds = %284
   %293 = trunc nuw i64 %indvars.iv.next1270 to i32
@@ -802,7 +802,7 @@ default.unreachable1325:                          ; preds = %71
   %294 = zext nneg i8 %.sroa.18.0.copyload.lcssa to i64
   %295 = lshr i64 %.13549.lcssa, %294
   %296 = sub nuw i32 %.13.lcssa, %.lcssa898
-  %297 = load i32, ptr %28, align 4, !tbaa !42
+  %297 = load i32, ptr %28, align 4, !tbaa !43
   %298 = icmp eq i32 %297, 0
   br i1 %298, label %299, label %300
 
@@ -815,7 +815,7 @@ default.unreachable1325:                          ; preds = %71
   %301 = add i32 %297, -1
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %302
-  %304 = load i16, ptr %303, align 2, !tbaa !43
+  %304 = load i16, ptr %303, align 2, !tbaa !44
   %305 = trunc i64 %295 to i32
   %306 = and i32 %305, 3
   %307 = add nuw nsw i32 %306, 3
@@ -851,7 +851,7 @@ default.unreachable1325:                          ; preds = %71
   %322 = add i64 %321, %.15551918
   %indvars.iv.next1267 = add nuw nsw i64 %indvars.iv1266, 8
   %323 = icmp samesign ult i64 %indvars.iv.next1267, %270
-  br i1 %323, label %.lr.ph920, label %._crit_edge921.loopexit, !llvm.loop !50
+  br i1 %323, label %.lr.ph920, label %._crit_edge921.loopexit, !llvm.loop !52
 
 ._crit_edge921.loopexit:                          ; preds = %315
   %324 = trunc nuw i64 %indvars.iv.next1267 to i32
@@ -899,7 +899,7 @@ default.unreachable1325:                          ; preds = %71
   %344 = add i64 %343, %.16552934
   %indvars.iv.next1273 = add nuw nsw i64 %indvars.iv1272, 8
   %345 = icmp samesign ult i64 %indvars.iv.next1273, %278
-  br i1 %345, label %.lr.ph936, label %._crit_edge937.loopexit, !llvm.loop !51
+  br i1 %345, label %.lr.ph936, label %._crit_edge937.loopexit, !llvm.loop !53
 
 ._crit_edge937.loopexit:                          ; preds = %337
   %346 = trunc nuw i64 %indvars.iv.next1273 to i32
@@ -925,10 +925,10 @@ default.unreachable1325:                          ; preds = %71
   %.14 = phi i32 [ %309, %300 ], [ %331, %._crit_edge921 ], [ %353, %._crit_edge937 ]
   %.2 = phi i32 [ %307, %300 ], [ %329, %._crit_edge921 ], [ %351, %._crit_edge937 ]
   %.0525 = phi i16 [ %304, %300 ], [ 0, %._crit_edge921 ], [ 0, %._crit_edge937 ]
-  %355 = load i32, ptr %28, align 4, !tbaa !42
+  %355 = load i32, ptr %28, align 4, !tbaa !43
   %356 = add i32 %355, %.2
-  %357 = load i32, ptr %25, align 4, !tbaa !39
-  %358 = load i32, ptr %26, align 8, !tbaa !40
+  %357 = load i32, ptr %25, align 4, !tbaa !40
+  %358 = load i32, ptr %26, align 8, !tbaa !41
   %359 = add i32 %358, %357
   %360 = icmp ugt i32 %356, %359
   br i1 %360, label %361, label %.preheader692
@@ -945,12 +945,12 @@ default.unreachable1325:                          ; preds = %71
   %364 = add i32 %362, 1
   %365 = zext i32 %362 to i64
   %366 = getelementptr inbounds nuw [320 x i16], ptr %29, i64 0, i64 %365
-  store i16 %.0525, ptr %366, align 2, !tbaa !43
+  store i16 %.0525, ptr %366, align 2, !tbaa !44
   %.not658 = icmp eq i32 %363, 0
-  br i1 %.not658, label %.loopexit, label %.preheader692, !llvm.loop !52
+  br i1 %.not658, label %.loopexit, label %.preheader692, !llvm.loop !54
 
 .loopexit:                                        ; preds = %.preheader692
-  store i32 %364, ptr %28, align 4, !tbaa !42
+  store i32 %364, ptr %28, align 4, !tbaa !43
   br label %367
 
 367:                                              ; preds = %.loopexit, %._crit_edge947
@@ -961,7 +961,7 @@ default.unreachable1325:                          ; preds = %71
   %.12548 = phi i64 [ %.14550, %.loopexit ], [ %260, %._crit_edge947 ]
   %.12 = phi i32 [ %.14, %.loopexit ], [ %261, %._crit_edge947 ]
   %370 = icmp ult i32 %369, %.pre-phi
-  br i1 %370, label %.preheader696, label %._crit_edge954, !llvm.loop !53
+  br i1 %370, label %.preheader696, label %._crit_edge954, !llvm.loop !55
 
 ._crit_edge954:                                   ; preds = %367, %202
   %371 = phi i32 [ %203, %202 ], [ %368, %367 ]
@@ -973,7 +973,7 @@ default.unreachable1325:                          ; preds = %71
   br i1 %372, label %.thread, label %373
 
 373:                                              ; preds = %._crit_edge954
-  %374 = load i16, ptr %35, align 8, !tbaa !43
+  %374 = load i16, ptr %35, align 8, !tbaa !44
   %375 = icmp eq i16 %374, 0
   br i1 %375, label %376, label %377
 
@@ -983,7 +983,7 @@ default.unreachable1325:                          ; preds = %71
   br label %.thread
 
 377:                                              ; preds = %373
-  store ptr %30, ptr %31, align 8, !tbaa !47
+  store ptr %30, ptr %31, align 8, !tbaa !48
   store ptr %30, ptr %32, align 8, !tbaa !30
   store i32 9, ptr %33, align 8, !tbaa !31
   %378 = call i32 @inflate_table(i32 noundef 1, ptr noundef nonnull %29, i32 noundef %371, ptr noundef nonnull %31, ptr noundef nonnull %33, ptr noundef nonnull %34) #5
@@ -996,13 +996,13 @@ default.unreachable1325:                          ; preds = %71
   br label %.thread
 
 380:                                              ; preds = %377
-  %381 = load ptr, ptr %31, align 8, !tbaa !47
+  %381 = load ptr, ptr %31, align 8, !tbaa !48
   store ptr %381, ptr %36, align 8, !tbaa !32
   store i32 6, ptr %37, align 4, !tbaa !33
-  %382 = load i32, ptr %25, align 4, !tbaa !39
+  %382 = load i32, ptr %25, align 4, !tbaa !40
   %383 = zext i32 %382 to i64
   %384 = getelementptr inbounds nuw i16, ptr %29, i64 %383
-  %385 = load i32, ptr %26, align 8, !tbaa !40
+  %385 = load i32, ptr %26, align 8, !tbaa !41
   %386 = call i32 @inflate_table(i32 noundef 2, ptr noundef nonnull %384, i32 noundef %385, ptr noundef nonnull %31, ptr noundef nonnull %37, ptr noundef nonnull %34) #5
   %.not660 = icmp eq i32 %386, 0
   br i1 %.not660, label %388, label %387
@@ -1045,13 +1045,13 @@ default.unreachable1325:                          ; preds = %71
   br label %.lr.ph967
 
 401:                                              ; preds = %389
-  store ptr %.0597, ptr %41, align 8, !tbaa !54
-  store i32 %.0563, ptr %42, align 8, !tbaa !55
+  store ptr %.0597, ptr %41, align 8, !tbaa !56
+  store i32 %.0563, ptr %42, align 8, !tbaa !57
   %402 = load ptr, ptr %6, align 8, !tbaa !28
   store ptr %402, ptr %0, align 8, !tbaa !27
   store i32 %.1571, ptr %43, align 8, !tbaa !29
-  store i64 %.1537, ptr %44, align 8, !tbaa !56
-  store i32 %.1530, ptr %45, align 8, !tbaa !57
+  store i64 %.1537, ptr %44, align 8, !tbaa !58
+  store i32 %.1530, ptr %45, align 8, !tbaa !59
   %403 = load i32, ptr %15, align 8, !tbaa !24
   %404 = load i32, ptr %23, align 4, !tbaa !21
   %405 = icmp ult i32 %403, %404
@@ -1064,13 +1064,13 @@ default.unreachable1325:                          ; preds = %71
 
 408:                                              ; preds = %406, %401
   call void @inflate_fast(ptr noundef nonnull %0, i32 noundef %404) #5
-  %409 = load ptr, ptr %41, align 8, !tbaa !54
-  %410 = load i32, ptr %42, align 8, !tbaa !55
+  %409 = load ptr, ptr %41, align 8, !tbaa !56
+  %410 = load i32, ptr %42, align 8, !tbaa !57
   %411 = load ptr, ptr %0, align 8, !tbaa !27
   store ptr %411, ptr %6, align 8, !tbaa !28
   %412 = load i32, ptr %43, align 8, !tbaa !29
-  %413 = load i64, ptr %44, align 8, !tbaa !56
-  %414 = load i32, ptr %45, align 8, !tbaa !57
+  %413 = load i64, ptr %44, align 8, !tbaa !58
+  %414 = load i32, ptr %45, align 8, !tbaa !59
   br label %.thread
 
 .lr.ph967:                                        ; preds = %.lr.ph967.preheader, %422
@@ -1119,7 +1119,7 @@ default.unreachable1325:                          ; preds = %71
   %.sroa.18.0.copyload36 = load i8, ptr %.sroa.18.0..sroa_idx35, align 1, !tbaa !3
   %437 = zext i8 %.sroa.18.0.copyload36 to i64
   %.not662 = icmp samesign ult i64 %indvars.iv.next1279, %437
-  br i1 %.not662, label %.lr.ph967, label %._crit_edge968.loopexit
+  br i1 %.not662, label %.lr.ph967, label %._crit_edge968.loopexit, !llvm.loop !60
 
 ._crit_edge968.loopexit:                          ; preds = %422
   %438 = zext i8 %.sroa.18.0.copyload36 to i32
@@ -1135,7 +1135,7 @@ default.unreachable1325:                          ; preds = %71
   %.sroa.18.0.copyload36.lcssa = phi i8 [ %.sroa.18.0.copyload36960, %.preheader706 ], [ %.sroa.18.0.copyload36, %._crit_edge968.loopexit ]
   %.lcssa763 = phi i32 [ %399, %.preheader706 ], [ %438, %._crit_edge968.loopexit ]
   %.sroa.41.0.copyload64.lcssa.in = getelementptr inbounds nuw i8, ptr %.lcssa767, i64 2
-  %.sroa.41.0.copyload64.lcssa = load i16, ptr %.sroa.41.0.copyload64.lcssa.in, align 2, !tbaa !43
+  %.sroa.41.0.copyload64.lcssa = load i16, ptr %.sroa.41.0.copyload64.lcssa.in, align 2, !tbaa !44
   %.sroa.022.0.copyload31 = load i8, ptr %.lcssa767, align 2, !tbaa !3
   %441 = add i8 %.sroa.022.0.copyload31, -1
   %or.cond685 = icmp ult i8 %441, 15
@@ -1209,7 +1209,7 @@ default.unreachable1325:                          ; preds = %71
   %477 = add nuw nsw i32 %.lcssa763, %476
   %478 = zext nneg i32 %477 to i64
   %.not665 = icmp samesign ult i64 %indvars.iv.next1282, %478
-  br i1 %.not665, label %.lr.ph982, label %._crit_edge983.loopexit
+  br i1 %.not665, label %.lr.ph982, label %._crit_edge983.loopexit, !llvm.loop !61
 
 ._crit_edge983.loopexit:                          ; preds = %461
   %479 = trunc nuw i64 %indvars.iv.next1282 to i32
@@ -1222,7 +1222,7 @@ default.unreachable1325:                          ; preds = %71
   %.lcssa775 = phi ptr [ %451, %.preheader705 ], [ %475, %._crit_edge983.loopexit ]
   %.sroa.18.0.copyload38.lcssa = phi i8 [ %.sroa.18.0.copyload38977, %.preheader705 ], [ %.sroa.18.0.copyload38, %._crit_edge983.loopexit ]
   %.sroa.41.0..sroa_idx65 = getelementptr inbounds nuw i8, ptr %.lcssa775, i64 2
-  %.sroa.41.0.copyload66 = load i16, ptr %.sroa.41.0..sroa_idx65, align 2, !tbaa !43
+  %.sroa.41.0.copyload66 = load i16, ptr %.sroa.41.0..sroa_idx65, align 2, !tbaa !44
   %.sroa.022.0.copyload32 = load i8, ptr %.lcssa775, align 2, !tbaa !3
   %480 = zext nneg i8 %.sroa.18.0.copyload36.lcssa to i64
   %481 = lshr i64 %.18554.lcssa, %480
@@ -1241,7 +1241,7 @@ default.unreachable1325:                          ; preds = %71
   %486 = lshr i64 %.19555, %485
   %487 = sub i32 %.19, %484
   %488 = zext i16 %.sroa.41.0 to i32
-  store i32 %488, ptr %38, align 4, !tbaa !36
+  store i32 %488, ptr %38, align 4, !tbaa !37
   %489 = zext i8 %.sroa.022.0 to i32
   %490 = icmp eq i8 %.sroa.022.0, 0
   br i1 %490, label %491, label %502
@@ -1259,7 +1259,7 @@ default.unreachable1325:                          ; preds = %71
   br i1 %.not680, label %._crit_edge1318, label %.loopexit699
 
 ._crit_edge1318:                                  ; preds = %493
-  %.pre1319 = load i32, ptr %38, align 4, !tbaa !36
+  %.pre1319 = load i32, ptr %38, align 4, !tbaa !37
   br label %497
 
 497:                                              ; preds = %._crit_edge1318, %491
@@ -1294,7 +1294,7 @@ default.unreachable1325:                          ; preds = %71
 
 508:                                              ; preds = %505
   %509 = and i32 %489, 15
-  store i32 %509, ptr %39, align 4, !tbaa !58
+  store i32 %509, ptr %39, align 4, !tbaa !62
   %.not668 = icmp eq i32 %509, 0
   br i1 %.not668, label %537, label %.preheader704
 
@@ -1316,7 +1316,7 @@ default.unreachable1325:                          ; preds = %71
   br i1 %515, label %516, label %._crit_edge1304
 
 ._crit_edge1304:                                  ; preds = %513
-  %.pre1305 = load i32, ptr %39, align 4, !tbaa !58
+  %.pre1305 = load i32, ptr %39, align 4, !tbaa !62
   br label %517
 
 516:                                              ; preds = %513
@@ -1337,10 +1337,10 @@ default.unreachable1325:                          ; preds = %71
   %526 = add i64 %525, %.21557990
   %527 = add i32 %.21991, 8
   %528 = icmp ult i32 %527, %518
-  br i1 %528, label %.lr.ph992, label %._crit_edge993.loopexit, !llvm.loop !59
+  br i1 %528, label %.lr.ph992, label %._crit_edge993.loopexit, !llvm.loop !63
 
 ._crit_edge993.loopexit:                          ; preds = %517
-  %.pre1306 = load i32, ptr %38, align 4, !tbaa !36
+  %.pre1306 = load i32, ptr %38, align 4, !tbaa !37
   br label %._crit_edge993
 
 ._crit_edge993:                                   ; preds = %._crit_edge993.loopexit, %.preheader704
@@ -1354,7 +1354,7 @@ default.unreachable1325:                          ; preds = %71
   %531 = xor i32 %notmask669, -1
   %532 = and i32 %531, %530
   %533 = add i32 %529, %532
-  store i32 %533, ptr %38, align 4, !tbaa !36
+  store i32 %533, ptr %38, align 4, !tbaa !37
   %534 = zext nneg i32 %.lcssa780 to i64
   %535 = lshr i64 %.21557.lcssa, %534
   %536 = sub nuw i32 %.21.lcssa, %.lcssa780
@@ -1428,7 +1428,7 @@ default.unreachable1325:                          ; preds = %71
   %.sroa.18.0.copyload40 = load i8, ptr %.sroa.18.0..sroa_idx39, align 1, !tbaa !3
   %569 = zext i8 %.sroa.18.0.copyload40 to i64
   %.not671 = icmp samesign ult i64 %indvars.iv.next1285, %569
-  br i1 %.not671, label %.lr.ph1008, label %._crit_edge1009.loopexit
+  br i1 %.not671, label %.lr.ph1008, label %._crit_edge1009.loopexit, !llvm.loop !64
 
 ._crit_edge1009.loopexit:                         ; preds = %554
   %570 = zext i8 %.sroa.18.0.copyload40 to i32
@@ -1444,7 +1444,7 @@ default.unreachable1325:                          ; preds = %71
   %.sroa.18.0.copyload40.lcssa = phi i8 [ %.sroa.18.0.copyload401000, %537 ], [ %.sroa.18.0.copyload40, %._crit_edge1009.loopexit ]
   %.lcssa785 = phi i32 [ %545, %537 ], [ %570, %._crit_edge1009.loopexit ]
   %.sroa.41.0.copyload68.lcssa.in = getelementptr inbounds nuw i8, ptr %.lcssa789, i64 2
-  %.sroa.41.0.copyload68.lcssa = load i16, ptr %.sroa.41.0.copyload68.lcssa.in, align 2, !tbaa !43
+  %.sroa.41.0.copyload68.lcssa = load i16, ptr %.sroa.41.0.copyload68.lcssa.in, align 2, !tbaa !44
   %.sroa.022.0.copyload33 = load i8, ptr %.lcssa789, align 2, !tbaa !3
   %573 = icmp ult i8 %.sroa.022.0.copyload33, 16
   br i1 %573, label %.preheader703, label %615
@@ -1517,7 +1517,7 @@ default.unreachable1325:                          ; preds = %71
   %609 = add nuw nsw i32 %.lcssa785, %608
   %610 = zext nneg i32 %609 to i64
   %.not673 = icmp samesign ult i64 %indvars.iv.next1288, %610
-  br i1 %.not673, label %.lr.ph1023, label %._crit_edge1024.loopexit
+  br i1 %.not673, label %.lr.ph1023, label %._crit_edge1024.loopexit, !llvm.loop !65
 
 ._crit_edge1024.loopexit:                         ; preds = %593
   %611 = trunc nuw i64 %indvars.iv.next1288 to i32
@@ -1530,7 +1530,7 @@ default.unreachable1325:                          ; preds = %71
   %.lcssa797 = phi ptr [ %583, %.preheader703 ], [ %607, %._crit_edge1024.loopexit ]
   %.sroa.18.0.copyload42.lcssa = phi i8 [ %.sroa.18.0.copyload421018, %.preheader703 ], [ %.sroa.18.0.copyload42, %._crit_edge1024.loopexit ]
   %.sroa.41.0..sroa_idx69 = getelementptr inbounds nuw i8, ptr %.lcssa797, i64 2
-  %.sroa.41.0.copyload70 = load i16, ptr %.sroa.41.0..sroa_idx69, align 2, !tbaa !43
+  %.sroa.41.0.copyload70 = load i16, ptr %.sroa.41.0..sroa_idx69, align 2, !tbaa !44
   %.sroa.022.0.copyload34 = load i8, ptr %.lcssa797, align 2, !tbaa !3
   %612 = zext nneg i8 %.sroa.18.0.copyload40.lcssa to i64
   %613 = lshr i64 %.23559.lcssa, %612
@@ -1560,9 +1560,9 @@ default.unreachable1325:                          ; preds = %71
 
 623:                                              ; preds = %615
   %624 = zext i16 %.sroa.41.1 to i32
-  store i32 %624, ptr %40, align 8, !tbaa !60
+  store i32 %624, ptr %40, align 8, !tbaa !66
   %625 = and i32 %620, 15
-  store i32 %625, ptr %39, align 4, !tbaa !58
+  store i32 %625, ptr %39, align 4, !tbaa !62
   %.not675 = icmp eq i32 %625, 0
   br i1 %.not675, label %653, label %.preheader702
 
@@ -1584,7 +1584,7 @@ default.unreachable1325:                          ; preds = %71
   br i1 %631, label %632, label %._crit_edge1312
 
 ._crit_edge1312:                                  ; preds = %629
-  %.pre1313 = load i32, ptr %39, align 4, !tbaa !58
+  %.pre1313 = load i32, ptr %39, align 4, !tbaa !62
   br label %633
 
 632:                                              ; preds = %629
@@ -1605,10 +1605,10 @@ default.unreachable1325:                          ; preds = %71
   %642 = add i64 %641, %.265621031
   %643 = add i32 %.261032, 8
   %644 = icmp ult i32 %643, %634
-  br i1 %644, label %.lr.ph1033, label %._crit_edge1034.loopexit, !llvm.loop !61
+  br i1 %644, label %.lr.ph1033, label %._crit_edge1034.loopexit, !llvm.loop !67
 
 ._crit_edge1034.loopexit:                         ; preds = %633
-  %.pre1314 = load i32, ptr %40, align 8, !tbaa !60
+  %.pre1314 = load i32, ptr %40, align 8, !tbaa !66
   br label %._crit_edge1034
 
 ._crit_edge1034:                                  ; preds = %._crit_edge1034.loopexit, %.preheader702
@@ -1622,7 +1622,7 @@ default.unreachable1325:                          ; preds = %71
   %647 = xor i32 %notmask676, -1
   %648 = and i32 %647, %646
   %649 = add i32 %645, %648
-  store i32 %649, ptr %40, align 8, !tbaa !60
+  store i32 %649, ptr %40, align 8, !tbaa !66
   %650 = zext nneg i32 %.lcssa802 to i64
   %651 = lshr i64 %.26562.lcssa, %650
   %652 = sub nuw i32 %.26.lcssa, %.lcssa802
@@ -1668,7 +1668,7 @@ default.unreachable1325:                          ; preds = %71
   %667 = phi i32 [ %.pre1316, %._crit_edge1315 ], [ %.pre1317, %.preheader700 ]
   %.6603 = phi ptr [ %664, %._crit_edge1315 ], [ %.5602, %.preheader700 ]
   %.6569 = phi i32 [ %.pre1317, %._crit_edge1315 ], [ %.5568, %.preheader700 ]
-  %668 = load i32, ptr %40, align 8, !tbaa !60
+  %668 = load i32, ptr %40, align 8, !tbaa !66
   %669 = sub i32 %667, %668
   %670 = icmp ult i32 %669, %.6569
   %671 = zext i32 %669 to i64
@@ -1678,10 +1678,10 @@ default.unreachable1325:                          ; preds = %71
   %.4 = sub nuw i32 %.6569, %674
   %.pn = select i1 %670, i64 %671, i64 %673
   %.0526 = getelementptr inbounds i8, ptr %.6603, i64 %.pn
-  %675 = load i32, ptr %38, align 4, !tbaa !36
+  %675 = load i32, ptr %38, align 4, !tbaa !37
   %.5 = call i32 @llvm.umin.i32(i32 %.4, i32 %675)
   %676 = sub i32 %675, %.5
-  store i32 %676, ptr %38, align 4, !tbaa !36
+  store i32 %676, ptr %38, align 4, !tbaa !37
   br label %677
 
 677:                                              ; preds = %677, %666
@@ -1694,13 +1694,13 @@ default.unreachable1325:                          ; preds = %71
   store i8 %679, ptr %.7604, align 1, !tbaa !3
   %681 = add i32 %.6, -1
   %.not678 = icmp eq i32 %681, 0
-  br i1 %.not678, label %682, label %677, !llvm.loop !62
+  br i1 %.not678, label %682, label %677, !llvm.loop !68
 
 682:                                              ; preds = %677
   %683 = sub i32 %.6569, %.5
-  %684 = load i32, ptr %38, align 4, !tbaa !36
+  %684 = load i32, ptr %38, align 4, !tbaa !37
   %.not679 = icmp eq i32 %684, 0
-  br i1 %.not679, label %.thread, label %.preheader700, !llvm.loop !63
+  br i1 %.not679, label %.thread, label %.preheader700, !llvm.loop !69
 
 685:                                              ; preds = %46
   %686 = load i32, ptr %23, align 4, !tbaa !21
@@ -1722,7 +1722,7 @@ default.unreachable1325:                          ; preds = %71
   %.2538 = phi i64 [ %58, %55 ], [ %80, %79 ], [ %.4540.lcssa, %108 ], [ 0, %._crit_edge1055 ], [ %157, %161 ], [ %191, %201 ], [ %.8544.lcssa, %._crit_edge954 ], [ %.8544.lcssa, %376 ], [ %.8544.lcssa, %379 ], [ %.8544.lcssa, %387 ], [ %413, %408 ], [ %486, %497 ], [ %486, %504 ], [ %486, %507 ], [ %618, %622 ], [ %.25561, %661 ], [ %.14550, %361 ], [ %295, %299 ], [ %.25561, %682 ]
   %.2531 = phi i32 [ %59, %55 ], [ %81, %79 ], [ %.4533.lcssa, %108 ], [ 0, %._crit_edge1055 ], [ %158, %161 ], [ %192, %201 ], [ %.8.lcssa, %._crit_edge954 ], [ %.8.lcssa, %376 ], [ %.8.lcssa, %379 ], [ %.8.lcssa, %387 ], [ %414, %408 ], [ %487, %497 ], [ %487, %504 ], [ %487, %507 ], [ %619, %622 ], [ %.25, %661 ], [ %.14, %361 ], [ %296, %299 ], [ %.25, %682 ]
   %.pre = load i32, ptr %10, align 8, !tbaa !25
-  br label %46
+  br label %46, !llvm.loop !70
 
 .loopexit699.loopexit1523:                        ; preds = %46
   br label %.loopexit699
@@ -1823,33 +1823,40 @@ attributes #5 = { nounwind }
 !31 = !{!18, !10, i64 112}
 !32 = !{!18, !9, i64 104}
 !33 = !{!18, !10, i64 116}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!18, !10, i64 84}
-!37 = distinct !{!37, !35}
-!38 = distinct !{!38, !35}
-!39 = !{!18, !10, i64 124}
-!40 = !{!18, !10, i64 128}
-!41 = !{!18, !10, i64 120}
-!42 = !{!18, !10, i64 132}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"short", !4, i64 0}
-!45 = distinct !{!45, !35}
-!46 = distinct !{!46, !35}
-!47 = !{!18, !9, i64 136}
-!48 = distinct !{!48, !35}
-!49 = distinct !{!49, !35}
-!50 = distinct !{!50, !35}
-!51 = distinct !{!51, !35}
-!52 = distinct !{!52, !35}
-!53 = distinct !{!53, !35}
-!54 = !{!7, !8, i64 24}
-!55 = !{!7, !10, i64 32}
-!56 = !{!18, !11, i64 72}
-!57 = !{!18, !10, i64 80}
-!58 = !{!18, !10, i64 92}
-!59 = distinct !{!59, !35}
-!60 = !{!18, !10, i64 88}
-!61 = distinct !{!61, !35}
-!62 = distinct !{!62, !35}
-!63 = distinct !{!63, !35}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!18, !10, i64 84}
+!38 = distinct !{!38, !35, !36}
+!39 = distinct !{!39, !35, !36}
+!40 = !{!18, !10, i64 124}
+!41 = !{!18, !10, i64 128}
+!42 = !{!18, !10, i64 120}
+!43 = !{!18, !10, i64 132}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"short", !4, i64 0}
+!46 = distinct !{!46, !35, !36}
+!47 = distinct !{!47, !35, !36}
+!48 = !{!18, !9, i64 136}
+!49 = distinct !{!49, !36}
+!50 = distinct !{!50, !35, !36}
+!51 = distinct !{!51, !35, !36}
+!52 = distinct !{!52, !35, !36}
+!53 = distinct !{!53, !35, !36}
+!54 = distinct !{!54, !35, !36}
+!55 = distinct !{!55, !35, !36}
+!56 = !{!7, !8, i64 24}
+!57 = !{!7, !10, i64 32}
+!58 = !{!18, !11, i64 72}
+!59 = !{!18, !10, i64 80}
+!60 = distinct !{!60, !36}
+!61 = distinct !{!61, !36}
+!62 = !{!18, !10, i64 92}
+!63 = distinct !{!63, !35, !36}
+!64 = distinct !{!64, !36}
+!65 = distinct !{!65, !36}
+!66 = !{!18, !10, i64 88}
+!67 = distinct !{!67, !35, !36}
+!68 = distinct !{!68, !35, !36}
+!69 = distinct !{!69, !35, !36}
+!70 = distinct !{!70, !36}

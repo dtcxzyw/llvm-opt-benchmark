@@ -330,7 +330,7 @@ define hidden void @proto_register_gsm_bsslap() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 14
-  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %.preheader, label %3, !llvm.loop !9
 
 .preheader:                                       ; preds = %3, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 16, %3 ]
@@ -341,7 +341,7 @@ define hidden void @proto_register_gsm_bsslap() local_unnamed_addr #1 {
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next24, 32
-  br i1 %exitcond30.not, label %8, label %.preheader, !llvm.loop !9
+  br i1 %exitcond30.not, label %8, label %.preheader, !llvm.loop !10
 
 8:                                                ; preds = %.preheader
   %9 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32)
@@ -1100,7 +1100,8 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

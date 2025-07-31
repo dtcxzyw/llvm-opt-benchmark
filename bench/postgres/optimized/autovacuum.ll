@@ -592,7 +592,7 @@ autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %172
   store i32 0, ptr %176, align 8
   call void @pg_usleep(i64 noundef 1000000) #18
   call void @SendPostmasterSignal(i32 noundef 4) #18
-  br label %launch_worker.exit, !llvm.loop !8
+  br label %launch_worker.exit, !llvm.loop !9
 
 179:                                              ; preds = %175, %HandleAutoVacLauncherInterrupts.exit
   %180 = call i64 @GetCurrentTimestamp() #18
@@ -622,7 +622,7 @@ autovac_recalculate_workers_for_balance.exit:     ; preds = %._crit_edge.i, %172
   %200 = load ptr, ptr @MainLWLockArray, align 8
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 2816
   call void @LWLockRelease(ptr noundef nonnull %201) #18
-  br i1 %199, label %202, label %launch_worker.exit, !llvm.loop !8
+  br i1 %199, label %202, label %launch_worker.exit, !llvm.loop !9
 
 202:                                              ; preds = %193
   %203 = load ptr, ptr @MainLWLockArray, align 8
@@ -675,7 +675,7 @@ dclist_push_head.exit:                            ; preds = %209, %216
   %227 = load ptr, ptr @MainLWLockArray, align 8
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 2816
   call void @LWLockRelease(ptr noundef nonnull %228) #18
-  br i1 %190, label %229, label %launch_worker.exit, !llvm.loop !8
+  br i1 %190, label %229, label %launch_worker.exit, !llvm.loop !9
 
 229:                                              ; preds = %226
   %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
@@ -743,7 +743,7 @@ dlist_move_head.exit.i:                           ; preds = %.lr.ph.i34
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.i, i64 8
   %260 = load ptr, ptr %259, align 8
   %.not17.i = icmp eq ptr %260, @DatabaseList
-  br i1 %.not17.i, label %select.unfold._crit_edge.i, label %.lr.ph.i34, !llvm.loop !9
+  br i1 %.not17.i, label %select.unfold._crit_edge.i, label %.lr.ph.i34, !llvm.loop !10
 
 select.unfold._crit_edge.i:                       ; preds = %dlist_move_head.exit.i, %235
   call fastcc void @rebuild_database_list(i32 noundef %234)
@@ -815,7 +815,7 @@ dlist_move_head.exit.i42:                         ; preds = %.lr.ph.i40
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.024.i41, i64 8
   %293 = load ptr, ptr %292, align 8
   %.not17.i43 = icmp eq ptr %293, @DatabaseList
-  br i1 %.not17.i43, label %select.unfold._crit_edge.i44, label %.lr.ph.i40, !llvm.loop !9
+  br i1 %.not17.i43, label %select.unfold._crit_edge.i44, label %.lr.ph.i40, !llvm.loop !10
 
 select.unfold._crit_edge.i44:                     ; preds = %dlist_move_head.exit.i42, %268
   call fastcc void @rebuild_database_list(i32 noundef %267)
@@ -824,7 +824,7 @@ select.unfold._crit_edge.i44:                     ; preds = %dlist_move_head.exi
 launch_worker.exit:                               ; preds = %193, %select.unfold._crit_edge.i44, %dlist_push_head.exit.i.i46, %273, %266, %select.unfold._crit_edge.i, %dlist_push_head.exit.i.i, %240, %233, %261, %226, %178
   %294 = load volatile i32, ptr @ShutdownRequestPending, align 4
   %.not22 = icmp eq i32 %294, 0
-  br i1 %.not22, label %.lr.ph, label %._crit_edge
+  br i1 %.not22, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %launch_worker.exit, %48
   call fastcc void @AutoVacLauncherShutdown() #20
@@ -1094,7 +1094,7 @@ define internal fastcc i32 @do_start_worker() unnamed_addr #4 {
 select.unfold:                                    ; preds = %68
   %80 = load ptr, ptr %.sroa.0.093, align 8
   %.not83 = icmp eq ptr %80, @DatabaseList
-  br i1 %.not83, label %.critedge90, label %68, !llvm.loop !10
+  br i1 %.not83, label %.critedge90, label %68, !llvm.loop !12
 
 .critedge90:                                      ; preds = %select.unfold, %65, %72, %.thread
   %81 = icmp eq ptr %.06496117, null
@@ -1253,7 +1253,7 @@ select.unfold:                                    ; preds = %26, %30, %.lr.ph
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.027.074, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not67 = icmp eq ptr %34, @DatabaseList
-  br i1 %.not67, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not67, label %select.unfold._crit_edge, label %.lr.ph, !llvm.loop !13
 
 select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %.2.lcssa = phi i32 [ %.159, %20 ], [ %.3, %select.unfold ]
@@ -1328,7 +1328,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %66, ptr noundef nonnull align 8 dereferenceable(40) %63, i64 40, i1 false)
   %67 = call ptr @hash_seq_search(ptr noundef nonnull %6) #18
   %.not70 = icmp eq ptr %67, null
-  br i1 %.not70, label %.lr.ph93, label %.lr.ph89, !llvm.loop !12
+  br i1 %.not70, label %.lr.ph93, label %.lr.ph89, !llvm.loop !14
 
 .lr.ph93:                                         ; preds = %.lr.ph89, %58
   call void @pg_qsort(ptr noundef %61, i64 noundef %59, i64 noundef 40, ptr noundef nonnull @db_comparator) #18
@@ -1371,7 +1371,7 @@ dlist_push_head.exit:                             ; preds = %78, %85
   store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @DatabaseList, i64 8), align 8
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge94, label %78, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge94, label %78, !llvm.loop !15
 
 ._crit_edge94:                                    ; preds = %dlist_push_head.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
@@ -1617,7 +1617,7 @@ define internal void @FreeWorkerInfo(i32 %0, i64 %1) #4 {
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
   store volatile i8 0, ptr %19, align 1
   %20 = load ptr, ptr @AutoVacuumShmem, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -1780,7 +1780,7 @@ define internal fastcc void @do_autovacuum() unnamed_addr #4 {
   switch i8 %68, label %110 [
     i8 114, label %69
     i8 109, label %69
-  ], !llvm.loop !15
+  ], !llvm.loop !17
 
 69:                                               ; preds = %.lr.ph, %.lr.ph
   %70 = load i32, ptr %66, align 4
@@ -1794,11 +1794,11 @@ define internal fastcc void @do_autovacuum() unnamed_addr #4 {
   %76 = load i32, ptr %75, align 4
   %77 = call i32 @checkTempNamespaceStatus(i32 noundef %76) #18
   %78 = icmp eq i32 %77, 1
-  br i1 %78, label %79, label %110, !llvm.loop !15
+  br i1 %78, label %79, label %110, !llvm.loop !17
 
 79:                                               ; preds = %74
   %80 = call ptr @lappend_oid(ptr noundef %.0158248, i32 noundef %70) #18
-  br label %110, !llvm.loop !15
+  br label %110, !llvm.loop !17
 
 81:                                               ; preds = %69
   %82 = call ptr @extractRelOptions(ptr noundef nonnull %61, ptr noundef %55, ptr noundef null) #18
@@ -1870,7 +1870,7 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #18
   %111 = call ptr @heap_getnext(ptr noundef %59, i32 noundef 1) #18
   %.not192 = icmp eq ptr %111, null
-  br i1 %.not192, label %._crit_edge, label %.lr.ph
+  br i1 %.not192, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %110, %50
   %.0158.lcssa = phi ptr [ null, %50 ], [ %.1159, %110 ]
@@ -1903,7 +1903,7 @@ extract_autovac_opts.exit:                        ; preds = %81, %84
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 114
   %126 = load i8, ptr %125, align 2
   %127 = icmp eq i8 %126, 116
-  br i1 %127, label %156, label %128, !llvm.loop !16
+  br i1 %127, label %156, label %128, !llvm.loop !19
 
 128:                                              ; preds = %.lr.ph254
   %129 = load i32, ptr %124, align 4
@@ -1965,7 +1965,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #18
   %157 = call ptr @heap_getnext(ptr noundef %117, i32 noundef 1) #18
   %.not193 = icmp eq ptr %157, null
-  br i1 %.not193, label %._crit_edge255, label %.lr.ph254
+  br i1 %.not193, label %._crit_edge255, label %.lr.ph254, !llvm.loop !20
 
 ._crit_edge255:                                   ; preds = %156, %._crit_edge
   %.3.lcssa = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.4, %156 ]
@@ -1998,7 +1998,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19) #18
   %172 = load volatile i32, ptr @InterruptPending, align 4
   %.not214 = icmp eq i32 %172, 0
-  br i1 %.not214, label %183, label %182, !prof !17
+  br i1 %.not214, label %183, label %182, !prof !21
 
 ._crit_edge260:                                   ; preds = %222, %.lr.ph259, %._crit_edge255
   store volatile ptr null, ptr %8, align 8
@@ -2124,7 +2124,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %228 = load i32, ptr %.0..0..0..0.130, align 8
   %229 = load volatile i32, ptr @InterruptPending, align 4
   %.not201 = icmp eq i32 %229, 0
-  br i1 %.not201, label %236, label %235, !prof !17
+  br i1 %.not201, label %236, label %235, !prof !21
 
 .._crit_edge279.loopexit_crit_edge:               ; preds = %536
   %230 = xor i1 %.1162, true
@@ -2223,7 +2223,7 @@ extract_autovac_opts.exit230:                     ; preds = %128
   %277 = getelementptr inbounds nuw i8, ptr %.sroa.0.0264, i64 8
   %278 = load ptr, ptr %277, align 8
   %.not205 = icmp eq ptr %278, %257
-  br i1 %.not205, label %._crit_edge268, label %264, !llvm.loop !18
+  br i1 %.not205, label %._crit_edge268, label %264, !llvm.loop !22
 
 ._crit_edge268:                                   ; preds = %.thread, %273
   %.1174 = phi i1 [ false, %.thread ], [ true, %273 ]
@@ -2492,11 +2492,11 @@ table_recheck_autovac.exit.thread:                ; preds = %284, %table_recheck
   br i1 %424, label %427, label %429
 
 427:                                              ; preds = %416
-  %428 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %426, i8 1, ptr nonnull elementtype(i8) %426) #18, !srcloc !19
+  %428 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %426, i8 1, ptr nonnull elementtype(i8) %426) #18, !srcloc !23
   br label %430
 
 429:                                              ; preds = %416
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
   store volatile i8 0, ptr %426, align 1
   br label %430
 
@@ -2714,7 +2714,7 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   call void @LWLockRelease(ptr noundef nonnull %532) #18
   %533 = load ptr, ptr @MyWorkerInfo, align 8
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 40
-  %535 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %534, i8 1, ptr nonnull elementtype(i8) %534) #18, !srcloc !19
+  %535 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %534, i8 1, ptr nonnull elementtype(i8) %534) #18, !srcloc !23
   br label %536
 
 536:                                              ; preds = %239, %524, %table_recheck_autovac.exit.thread, %281
@@ -2757,7 +2757,7 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   call fastcc void @perform_work_item(ptr noundef nonnull %543)
   %558 = load volatile i32, ptr @InterruptPending, align 4
   %.not199 = icmp eq i32 %558, 0
-  br i1 %.not199, label %560, label %559, !prof !17
+  br i1 %.not199, label %560, label %559, !prof !21
 
 559:                                              ; preds = %555
   call void @ProcessInterrupts() #18
@@ -2787,7 +2787,7 @@ thread-pre-split:                                 ; preds = %466, %514, %autovac
   %568 = phi ptr [ %541, %551 ], [ %541, %547 ], [ %541, %540 ], [ %.pre, %563 ]
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next291, 256
-  br i1 %exitcond.not, label %569, label %540, !llvm.loop !20
+  br i1 %exitcond.not, label %569, label %540, !llvm.loop !24
 
 569:                                              ; preds = %567
   %570 = load ptr, ptr @MainLWLockArray, align 8
@@ -3002,7 +3002,7 @@ define dso_local noundef zeroext i1 @AutoVacuumRequestWork(i32 noundef %0, i32 n
 9:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %10, !llvm.loop !25
 
 10:                                               ; preds = %3, %9
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %9 ]
@@ -3157,13 +3157,13 @@ dclist_push_head.exit:                            ; preds = %.lr.ph, %26
   %32 = add i32 %31, 1
   store i32 %32, ptr %30, align 8
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !16
   store volatile i8 0, ptr %33, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %34 = load i32, ptr @autovacuum_worker_slots, align 4
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !22
+  br i1 %36, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %dclist_push_head.exit
   %.pre = load ptr, ptr @AutoVacuumShmem, align 8
@@ -3241,13 +3241,13 @@ define internal fastcc ptr @get_database_list() unnamed_addr #4 {
 
 12:                                               ; preds = %.lr.ph
   %13 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #18
-  br i1 %13, label %14, label %32, !llvm.loop !23
+  br i1 %13, label %14, label %32, !llvm.loop !27
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %15) #18
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1840, ptr noundef nonnull @__func__.get_database_list) #18
-  br label %32, !llvm.loop !23
+  br label %32, !llvm.loop !27
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -3277,7 +3277,7 @@ define internal fastcc ptr @get_database_list() unnamed_addr #4 {
   %.1 = phi ptr [ %31, %17 ], [ %.024, %14 ], [ %.024, %12 ]
   %33 = tail call ptr @heap_getnext(ptr noundef %3, i32 noundef 1) #18
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %32, %0
   %.0.lcssa = phi ptr [ null, %0 ], [ %.1, %32 ]
@@ -3852,21 +3852,26 @@ attributes #23 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{i64 2268913}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!18 = distinct !{!18, !7}
-!19 = !{i64 2268557, i64 2268573}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{i64 2268913}
+!17 = distinct !{!17, !7}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7}
+!20 = distinct !{!20, !8}
+!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!22 = distinct !{!22, !7, !8}
+!23 = !{i64 2268557, i64 2268573}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7}
+!28 = distinct !{!28, !8}

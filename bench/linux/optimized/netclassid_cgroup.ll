@@ -123,7 +123,7 @@ define internal void @cgrp_attach(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %25 = call ptr @cgroup_taskset_next(ptr noundef %0, ptr noundef nonnull %3) #9
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.loopexit3, label %8, !llvm.loop !9
+  br i1 %26, label %.loopexit3, label %8, !llvm.loop !10
 
 .loopexit3:                                       ; preds = %.loopexit, %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
@@ -242,13 +242,13 @@ define internal noundef i32 @write_classid(ptr noundef initializes((200, 204)) %
   call void @_raw_spin_unlock(ptr noundef nonnull %19) #9
   %25 = call i32 @__SCT__cond_resched() #9
   %26 = icmp eq i32 %24, 0
-  br i1 %26, label %.loopexit, label %21, !llvm.loop !6
+  br i1 %26, label %.loopexit, label %21, !llvm.loop !11
 
 .loopexit:                                        ; preds = %21, %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   %27 = call ptr @css_task_iter_next(ptr noundef nonnull %5) #9
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %.loopexit3, label %12, !llvm.loop !10
+  br i1 %28, label %.loopexit3, label %12, !llvm.loop !12
 
 .loopexit3:                                       ; preds = %.loopexit, %3
   call void @css_task_iter_end(ptr noundef nonnull %5) #9
@@ -284,8 +284,10 @@ attributes #9 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}
+!12 = distinct !{!12, !7, !8, !9}

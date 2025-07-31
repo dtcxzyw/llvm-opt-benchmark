@@ -318,7 +318,7 @@ define hidden noalias ptr @SDL_GetSensors_REAL(ptr noundef writeonly captures(ad
   store i32 %22, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !5
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !6
 
 24:                                               ; preds = %1
   br i1 %.not33, label %26, label %25
@@ -390,7 +390,7 @@ define hidden ptr @SDL_GetSensorNameForID_REAL(i32 noundef %0) local_unnamed_add
 .critedge24.i:                                    ; preds = %.lr.ph.i
   %13 = add nuw nsw i32 %.01826.i, 1
   %exitcond.not.i = icmp eq i32 %13, %9
-  br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !7
 
 SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge24.i, %1, %7
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
@@ -466,7 +466,7 @@ define hidden i32 @SDL_GetSensorTypeForID_REAL(i32 noundef %0) local_unnamed_add
 .critedge24.i:                                    ; preds = %.lr.ph.i
   %13 = add nuw nsw i32 %.01826.i, 1
   %exitcond.not.i = icmp eq i32 %13, %9
-  br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !7
 
 SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge24.i, %1, %7
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
@@ -539,7 +539,7 @@ define hidden i32 @SDL_GetSensorNonPortableTypeForID_REAL(i32 noundef %0) local_
 .critedge24.i:                                    ; preds = %.lr.ph.i
   %13 = add nuw nsw i32 %.01826.i, 1
   %exitcond.not.i = icmp eq i32 %13, %9
-  br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %SDL_GetDriverAndSensorIndex.exit, label %.lr.ph.i, !llvm.loop !7
 
 SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.critedge24.i, %1, %7
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
@@ -617,7 +617,7 @@ SDL_GetDriverAndSensorIndex.exit.preheader:       ; preds = %.lr.ph.i
 .critedge24.i:                                    ; preds = %.lr.ph.i
   %13 = add nuw nsw i32 %.01826.i, 1
   %exitcond.not.i = icmp eq i32 %13, %9
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.critedge24.i, %1, %7
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, i32 noundef %0) #9
@@ -692,7 +692,7 @@ SDL_GetDriverAndSensorIndex.exit:                 ; preds = %.lr.ph
   %41 = getelementptr inbounds nuw i8, ptr %.063, i64 112
   %.0 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %SDL_GetDriverAndSensorIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not, label %SDL_GetDriverAndSensorIndex.exit._crit_edge, label %.lr.ph, !llvm.loop !8
 
 SDL_GetDriverAndSensorIndex.exit._crit_edge:      ; preds = %SDL_GetDriverAndSensorIndex.exit, %SDL_GetDriverAndSensorIndex.exit.preheader
   %42 = tail call noalias dereferenceable_or_null(120) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 120) #10
@@ -865,7 +865,7 @@ define hidden noundef ptr @SDL_GetSensorFromID_REAL(i32 noundef %0) local_unname
   %10 = getelementptr inbounds nuw i8, ptr %.06, i64 112
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %1
   %.0.lcssa = phi ptr [ null, %1 ], [ %.06, %.lr.ph ], [ null, %9 ]
@@ -1489,7 +1489,7 @@ define hidden void @SDL_CloseSensor_REAL(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %.lr.ph42
   %45 = icmp eq ptr %0, %.018
-  br i1 %45, label %.lr.ph._crit_edge, label %.lr.ph42, !llvm.loop !9
+  br i1 %45, label %.lr.ph._crit_edge, label %.lr.ph42, !llvm.loop !10
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.01834.lcssa = phi ptr [ %.01831, %.lr.ph.preheader ], [ %.018, %.lr.ph ]
@@ -1515,7 +1515,7 @@ define hidden void @SDL_CloseSensor_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %53 = getelementptr inbounds nuw i8, ptr %.0183441, i64 112
   %.018 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %.018, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph42, %36, %46, %50
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1713,7 +1713,7 @@ define hidden void @SDL_UpdateSensors_REAL() local_unnamed_addr #1 {
   %12 = getelementptr inbounds nuw i8, ptr %.011, i64 112
   %.0 = load ptr, ptr %12, align 8
   %.not8 = icmp eq ptr %.0, null
-  br i1 %.not8, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not8, label %.critedge, label %.lr.ph, !llvm.loop !11
 
 .critedge:                                        ; preds = %.lr.ph, %2
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @SDL_DUMMY_SensorDriver, i64 16), align 8
@@ -1775,11 +1775,12 @@ attributes #10 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}

@@ -64,11 +64,11 @@ define noundef ptr @gmtime_r(ptr noundef readonly captures(none) %0, ptr noundef
   %.139.i = phi i32 [ %.038.i, %31 ], [ %23, %20 ]
   %.1.i = phi i32 [ %32, %31 ], [ %.037.i, %20 ]
   %34 = icmp slt i32 %.139.i, %.1.i
-  br i1 %34, label %20, label %._crit_edge52.i, !llvm.loop !8
+  br i1 %34, label %20, label %._crit_edge52.i, !llvm.loop !9
 
 ._crit_edge52.i:                                  ; preds = %33
   %.pre53.i = add nsw i32 %.139.i, 1
-  br label %clock_utc2calendar.exit, !llvm.loop !8
+  br label %clock_utc2calendar.exit, !llvm.loop !9
 
 clock_utc2calendar.exit:                          ; preds = %27, %._crit_edge52.i
   %.pre-phi54.i = phi i32 [ %.pre53.i, %._crit_edge52.i ], [ %23, %27 ]
@@ -148,6 +148,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

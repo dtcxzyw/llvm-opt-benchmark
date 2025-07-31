@@ -849,7 +849,7 @@ define void @_ZN15ProfileTreeView9showEventEP10QShowEvent(ptr noundef align 8 de
   %11 = alloca %class.QFontMetrics, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !noalias !14
+  %13 = load ptr, ptr %12, align 8, !noalias !15
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   call void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable_or_null(8) %3, ptr noundef nonnull align 8 dereferenceable(12) %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
@@ -926,7 +926,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %23, %_ZN17QArrayDat
   %44 = call noundef i32 %43(ptr noundef align 8 dereferenceable_or_null(16) %40, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %45 = icmp slt i32 %39, %44
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #14
-  br i1 %45, label %57, label %.critedge, !llvm.loop !17
+  br i1 %45, label %57, label %.critedge, !llvm.loop !18
 
 46:                                               ; preds = %16, %2
   %47 = landingpad { ptr, i32 }
@@ -996,7 +996,7 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %54, %_ZN17QArrayDat
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  %67 = load ptr, ptr %12, align 8, !noalias !18
+  %67 = load ptr, ptr %12, align 8, !noalias !19
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 56
   invoke void @_ZN12QFontMetricsC1ERK5QFont(ptr noundef nonnull align 8 dereferenceable_or_null(8) %11, ptr noundef nonnull align 8 dereferenceable(12) %68)
           to label %_ZNK7QWidget11fontMetricsEv.exit unwind label %77
@@ -1162,7 +1162,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM15ProfileTreeViewFvvENS_4L
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !21
+  %17 = load ptr, ptr %16, align 8, !nosanitize !22
   br label %_ZN9QtPrivate15FunctionPointerIM15ProfileTreeViewFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -1234,13 +1234,14 @@ attributes #14 = { nounwind }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN7QObject7connectIM21QAbstractItemDelegateFvP7QWidgetEM15ProfileTreeViewFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE: argument 0"}
 !11 = distinct !{!11, !"_ZN7QObject7connectIM21QAbstractItemDelegateFvP7QWidgetEM15ProfileTreeViewFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESD_PKNSC_IT0_E6ObjectESI_N2Qt14ConnectionTypeE"}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
-!16 = distinct !{!16, !"_ZNK7QWidget11fontMetricsEv"}
-!17 = distinct !{!17, !13}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
-!20 = distinct !{!20, !"_ZNK7QWidget11fontMetricsEv"}
-!21 = !{}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
+!17 = distinct !{!17, !"_ZNK7QWidget11fontMetricsEv"}
+!18 = distinct !{!18, !13, !14}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK7QWidget11fontMetricsEv: argument 0"}
+!21 = distinct !{!21, !"_ZNK7QWidget11fontMetricsEv"}
+!22 = !{}

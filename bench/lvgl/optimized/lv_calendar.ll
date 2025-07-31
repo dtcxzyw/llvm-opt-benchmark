@@ -85,19 +85,19 @@ lv_calendar_set_today_date.exit:                  ; preds = %28
   store ptr @.str.3, ptr %29, align 8, !tbaa !24
   %30 = tail call ptr @lv_buttonmatrix_create(ptr noundef nonnull %1) #5
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %30, ptr %31, align 8, !tbaa !29
+  store ptr %30, ptr %31, align 8, !tbaa !30
   tail call void @lv_buttonmatrix_set_map(ptr noundef %30, ptr noundef nonnull %11) #5
-  %32 = load ptr, ptr %31, align 8, !tbaa !29
+  %32 = load ptr, ptr %31, align 8, !tbaa !30
   tail call void @lv_buttonmatrix_set_button_ctrl_all(ptr noundef %32, i32 noundef 544) #5
-  %33 = load ptr, ptr %31, align 8, !tbaa !29
+  %33 = load ptr, ptr %31, align 8, !tbaa !30
   %34 = tail call ptr @lv_obj_add_event_cb(ptr noundef %33, ptr noundef nonnull @draw_task_added_event_cb, i32 noundef 34, ptr noundef null) #5
-  %35 = load ptr, ptr %31, align 8, !tbaa !29
+  %35 = load ptr, ptr %31, align 8, !tbaa !30
   %36 = tail call i32 @lv_pct(i32 noundef 100) #5
   tail call void @lv_obj_set_width(ptr noundef %35, i32 noundef %36) #5
-  %37 = load ptr, ptr %31, align 8, !tbaa !29
+  %37 = load ptr, ptr %31, align 8, !tbaa !30
   tail call void @lv_obj_add_flag(ptr noundef %37, i32 noundef 540672) #5
   tail call void @lv_obj_set_flex_flow(ptr noundef nonnull %1, i32 noundef 1) #5
-  %38 = load ptr, ptr %31, align 8, !tbaa !29
+  %38 = load ptr, ptr %31, align 8, !tbaa !30
   tail call void @lv_obj_set_flex_grow(ptr noundef %38, i8 noundef zeroext 1) #5
   tail call void @lv_obj_set_style_text_align(ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0) #5
   %39 = load i16, ptr %6, align 4, !tbaa !21
@@ -130,7 +130,7 @@ define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly capt
   br label %4
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !31
 
 4:                                                ; preds = %.preheader9, %4
   %indvars.iv = phi i64 [ 0, %.preheader9 ], [ %indvars.iv.next, %4 ]
@@ -140,7 +140,7 @@ define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly capt
   store ptr %6, ptr %7, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %8, label %4, !llvm.loop !30
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !32
 
 8:                                                ; preds = %4
   tail call void @lv_obj_invalidate(ptr noundef nonnull %0) #5
@@ -155,7 +155,7 @@ define void @lv_calendar_set_today_date(ptr noundef captures(address_is_null) %0
   br i1 %.not, label %.preheader, label %5
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !33
 
 5:                                                ; preds = %4
   %6 = trunc i32 %1 to i16
@@ -174,7 +174,7 @@ define void @lv_calendar_set_today_date(ptr noundef captures(address_is_null) %0
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @highlight_update(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   tail call void @lv_buttonmatrix_clear_button_ctrl_all(ptr noundef %3, i32 noundef 49152) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = load i16, ptr %4, align 4, !tbaa !21
@@ -200,13 +200,13 @@ define internal fastcc void @highlight_update(ptr noundef nonnull readonly captu
   %24 = add nsw i32 %23, %16
   %25 = urem i32 %24, 7
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %27 = load ptr, ptr %26, align 8, !tbaa !31
+  %27 = load ptr, ptr %26, align 8, !tbaa !34
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %29 = load i64, ptr %28, align 8, !tbaa !32
+  %29 = load i64, ptr %28, align 8, !tbaa !35
   %.not26 = icmp eq i64 %29, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph
 
@@ -218,28 +218,28 @@ define internal fastcc void @highlight_update(ptr noundef nonnull readonly captu
   %32 = phi i64 [ %29, %.lr.ph ], [ %51, %50 ]
   %33 = phi i64 [ 0, %.lr.ph ], [ %53, %50 ]
   %.025 = phi i32 [ 0, %.lr.ph ], [ %52, %50 ]
-  %34 = load ptr, ptr %26, align 8, !tbaa !31
+  %34 = load ptr, ptr %26, align 8, !tbaa !34
   %35 = getelementptr inbounds nuw %struct.lv_calendar_date_t, ptr %34, i64 %33
-  %36 = load i16, ptr %35, align 2, !tbaa !33
+  %36 = load i16, ptr %35, align 2, !tbaa !36
   %37 = load i16, ptr %4, align 4, !tbaa !21
   %38 = icmp eq i16 %36, %37
   br i1 %38, label %39, label %50
 
 39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 2
-  %41 = load i8, ptr %40, align 2, !tbaa !34
+  %41 = load i8, ptr %40, align 2, !tbaa !37
   %42 = load i8, ptr %7, align 2, !tbaa !22
   %43 = icmp eq i8 %41, %42
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %39
-  %45 = load ptr, ptr %2, align 8, !tbaa !29
+  %45 = load ptr, ptr %2, align 8, !tbaa !30
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 3
-  %47 = load i8, ptr %46, align 1, !tbaa !35
+  %47 = load i8, ptr %46, align 1, !tbaa !38
   %48 = sext i8 %47 to i32
   %49 = add nsw i32 %30, %48
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %45, i32 noundef %49, i32 noundef 32768) #5
-  %.pre = load i64, ptr %28, align 8, !tbaa !32
+  %.pre = load i64, ptr %28, align 8, !tbaa !35
   br label %50
 
 50:                                               ; preds = %31, %39, %44
@@ -247,7 +247,7 @@ define internal fastcc void @highlight_update(ptr noundef nonnull readonly captu
   %52 = add i32 %.025, 1
   %53 = zext i32 %52 to i64
   %54 = icmp ugt i64 %51, %53
-  br i1 %54, label %31, label %.loopexit.loopexit, !llvm.loop !36
+  br i1 %54, label %31, label %.loopexit.loopexit, !llvm.loop !39
 
 .loopexit.loopexit:                               ; preds = %50
   %.pre27 = load i16, ptr %4, align 4, !tbaa !21
@@ -268,7 +268,7 @@ define internal fastcc void @highlight_update(ptr noundef nonnull readonly captu
   br i1 %63, label %64, label %71
 
 64:                                               ; preds = %59
-  %65 = load ptr, ptr %2, align 8, !tbaa !29
+  %65 = load ptr, ptr %2, align 8, !tbaa !30
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 75
   %67 = load i8, ptr %66, align 1, !tbaa !20
   %68 = sext i8 %67 to i32
@@ -287,20 +287,20 @@ define void @lv_calendar_set_highlighted_dates(ptr noundef captures(address_is_n
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !40
 
 4:                                                ; preds = %3
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %.preheader9, label %5
 
 .preheader9:                                      ; preds = %4, %.preheader9
-  br label %.preheader9
+  br label %.preheader9, !llvm.loop !41
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %6, align 8, !tbaa !31
+  store ptr %1, ptr %6, align 8, !tbaa !34
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %2, ptr %7, align 8, !tbaa !32
+  store i64 %2, ptr %7, align 8, !tbaa !35
   tail call fastcc void @highlight_update(ptr noundef %0)
   ret void
 }
@@ -311,7 +311,7 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !42
 
 4:                                                ; preds = %3
   %5 = trunc i32 %1 to i16
@@ -323,17 +323,17 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 79
   store i8 1, ptr %9, align 1, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !29
+  %11 = load ptr, ptr %10, align 8, !tbaa !30
   tail call void @lv_buttonmatrix_clear_button_ctrl_all(ptr noundef %11, i32 noundef 64) #5
   br label %12
 
 12:                                               ; preds = %4, %12
   %.082 = phi i32 [ 0, %4 ], [ %14, %12 ]
-  %13 = load ptr, ptr %10, align 8, !tbaa !29
+  %13 = load ptr, ptr %10, align 8, !tbaa !30
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %13, i32 noundef %.082, i32 noundef 64) #5
   %14 = add nuw nsw i32 %.082, 1
   %exitcond.not = icmp eq i32 %14, 7
-  br i1 %exitcond.not, label %15, label %12, !llvm.loop !37
+  br i1 %exitcond.not, label %15, label %12, !llvm.loop !43
 
 15:                                               ; preds = %12
   %16 = and i32 %1, 65535
@@ -411,7 +411,7 @@ define void @lv_calendar_set_month_shown(ptr noundef %0, i32 noundef %1, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %63 = add i8 %.06383, 1
   %64 = icmp samesign ult i64 %indvars.iv.next, %58
-  br i1 %64, label %59, label %._crit_edge, !llvm.loop !38
+  br i1 %64, label %59, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %59
   %65 = add nsw i32 %17, -1
@@ -477,37 +477,37 @@ get_month_length.exit80:                          ; preds = %72, %74, %77, %82
   %94 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %87, i64 0, i64 %indvars.iv98
   %95 = zext i8 %.164 to i32
   %96 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %94, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %95) #5
-  %97 = load ptr, ptr %10, align 8, !tbaa !29
+  %97 = load ptr, ptr %10, align 8, !tbaa !30
   %98 = trunc nuw nsw i64 %indvars.iv98 to i32
   %99 = add nuw nsw i32 %98, 7
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %97, i32 noundef %99, i32 noundef 64) #5
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %100 = icmp samesign ult i64 %indvars.iv.next99, %88
-  br i1 %100, label %93, label %.lr.ph90, !llvm.loop !39
+  br i1 %100, label %93, label %.lr.ph90, !llvm.loop !45
 
 101:                                              ; preds = %.lr.ph90, %101
   %indvars.iv102 = phi i32 [ 1, %.lr.ph90 ], [ %indvars.iv.next103, %101 ]
   %indvars.iv100 = phi i64 [ %92, %.lr.ph90 ], [ %indvars.iv.next101, %101 ]
   %102 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %89, i64 0, i64 %indvars.iv100
   %103 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %102, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %indvars.iv102) #5
-  %104 = load ptr, ptr %10, align 8, !tbaa !29
+  %104 = load ptr, ptr %10, align 8, !tbaa !30
   %105 = trunc i64 %indvars.iv100 to i32
   %106 = add i32 %105, 7
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %104, i32 noundef %106, i32 noundef 64) #5
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %indvars.iv.next103 = add nuw nsw i32 %indvars.iv102, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next101, 42
-  br i1 %exitcond105.not, label %._crit_edge91, label %101, !llvm.loop !40
+  br i1 %exitcond105.not, label %._crit_edge91, label %101, !llvm.loop !46
 
 ._crit_edge91:                                    ; preds = %101
   tail call fastcc void @highlight_update(ptr noundef %0)
-  %107 = load ptr, ptr %10, align 8, !tbaa !29
+  %107 = load ptr, ptr %10, align 8, !tbaa !30
   %108 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %107) #5
   %.not72 = icmp eq i32 %108, 65535
   br i1 %.not72, label %112, label %109
 
 109:                                              ; preds = %._crit_edge91
-  %110 = load ptr, ptr %10, align 8, !tbaa !29
+  %110 = load ptr, ptr %10, align 8, !tbaa !30
   %111 = add nuw nsw i32 %54, 7
   tail call void @lv_buttonmatrix_set_selected_button(ptr noundef %110, i32 noundef %111) #5
   br label %112
@@ -521,7 +521,7 @@ get_month_length.exit80:                          ; preds = %72, %74, %77, %82
 .lr.ph94:                                         ; preds = %112, %119
   %.492 = phi i32 [ %120, %119 ], [ 0, %112 ]
   %114 = tail call ptr @lv_obj_get_child(ptr noundef nonnull %0, i32 noundef %.492) #5
-  %115 = load ptr, ptr %10, align 8, !tbaa !29
+  %115 = load ptr, ptr %10, align 8, !tbaa !30
   %116 = icmp eq ptr %114, %115
   br i1 %116, label %119, label %117
 
@@ -532,7 +532,7 @@ get_month_length.exit80:                          ; preds = %72, %74, %77, %82
 119:                                              ; preds = %.lr.ph94, %117
   %120 = add nuw i32 %.492, 1
   %exitcond106.not = icmp eq i32 %120, %113
-  br i1 %exitcond106.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !41
+  br i1 %exitcond106.not, label %._crit_edge95, label %.lr.ph94, !llvm.loop !47
 
 ._crit_edge95:                                    ; preds = %119, %112
   ret void
@@ -560,11 +560,11 @@ define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly captures(address_is_n
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !48
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   ret ptr %4
 }
 
@@ -574,7 +574,7 @@ define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone captures(add
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !49
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -587,7 +587,7 @@ define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone captures(ad
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !50
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -600,11 +600,11 @@ define ptr @lv_calendar_get_highlighted_dates(ptr noundef readonly captures(addr
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !51
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  %4 = load ptr, ptr %3, align 8, !tbaa !34
   ret ptr %4
 }
 
@@ -614,11 +614,11 @@ define i64 @lv_calendar_get_highlighted_dates_num(ptr noundef readonly captures(
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !52
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %4 = load i64, ptr %3, align 8, !tbaa !32
+  %4 = load i64, ptr %3, align 8, !tbaa !35
   ret i64 %4
 }
 
@@ -628,25 +628,25 @@ define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr noundef readonly ca
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !53
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !29
+  %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %5) #5
   %7 = icmp eq i32 %6, 65535
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  store i16 0, ptr %1, align 2, !tbaa !33
+  store i16 0, ptr %1, align 2, !tbaa !36
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 0, ptr %9, align 2, !tbaa !34
+  store i8 0, ptr %9, align 2, !tbaa !37
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 0, ptr %10, align 1, !tbaa !35
+  store i8 0, ptr %10, align 1, !tbaa !38
   br label %29
 
 11:                                               ; preds = %3
-  %12 = load ptr, ptr %4, align 8, !tbaa !29
+  %12 = load ptr, ptr %4, align 8, !tbaa !30
   %13 = tail call i32 @lv_buttonmatrix_get_selected_button(ptr noundef %12) #5
   %14 = tail call ptr @lv_buttonmatrix_get_button_text(ptr noundef %12, i32 noundef %13) #5
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
@@ -659,14 +659,14 @@ define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr noundef readonly ca
   %22 = add i8 %21, %20
   %.sink = select i1 %17, i8 %19, i8 %22
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  store i8 %.sink, ptr %23, align 1, !tbaa !35
+  store i8 %.sink, ptr %23, align 1, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %25 = load i16, ptr %24, align 4, !tbaa !21
-  store i16 %25, ptr %1, align 2, !tbaa !33
+  store i16 %25, ptr %1, align 2, !tbaa !36
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 78
   %27 = load i8, ptr %26, align 2, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  store i8 %27, ptr %28, align 2, !tbaa !34
+  store i8 %27, ptr %28, align 2, !tbaa !37
   br label %29
 
 29:                                               ; preds = %11, %8
@@ -689,9 +689,9 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
   %2 = tail call ptr @lv_event_get_current_target(ptr noundef %0) #5
   %3 = tail call ptr @lv_event_get_param(ptr noundef %0) #5
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !47
+  %7 = load i32, ptr %6, align 8, !tbaa !59
   %.not = icmp eq i32 %7, 327680
   br i1 %.not, label %8, label %.critedge54
 
@@ -704,9 +704,9 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
   br i1 %or.cond, label %13, label %.critedge54
 
 13:                                               ; preds = %8
-  %14 = load ptr, ptr %4, align 8, !tbaa !42
+  %14 = load ptr, ptr %4, align 8, !tbaa !54
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  %16 = load i32, ptr %15, align 4, !tbaa !49
+  %16 = load i32, ptr %15, align 4, !tbaa !61
   %17 = icmp slt i32 %16, 7
   br i1 %17, label %18, label %22
 
@@ -715,7 +715,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i8 0, ptr %20, align 4, !tbaa !50
+  store i8 0, ptr %20, align 4, !tbaa !62
   br label %21
 
 21:                                               ; preds = %19, %18
@@ -730,7 +730,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i8 0, ptr %26, align 4, !tbaa !50
+  store i8 0, ptr %26, align 4, !tbaa !62
   br label %27
 
 27:                                               ; preds = %25, %24
@@ -738,7 +738,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 .sink.split:                                      ; preds = %27, %21
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  store i8 0, ptr %28, align 4, !tbaa !54
+  store i8 0, ptr %28, align 4, !tbaa !66
   br label %29
 
 29:                                               ; preds = %.sink.split, %22, %27, %21
@@ -763,7 +763,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 .critedge:                                        ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 52
-  store i8 102, ptr %37, align 4, !tbaa !50
+  store i8 102, ptr %37, align 4, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 53
   %39 = tail call i24 @lv_theme_get_color_primary(ptr noundef %2) #5
   store i24 %39, ptr %38, align 1
@@ -772,7 +772,7 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %.critedge
-  store i8 -78, ptr %37, align 4, !tbaa !50
+  store i8 -78, ptr %37, align 4, !tbaa !62
   br label %43
 
 43:                                               ; preds = %.critedge.thread, %.critedge, %42, %29
@@ -782,14 +782,14 @@ define internal void @draw_task_added_event_cb(ptr noundef %0) #0 {
 
 .critedge53:                                      ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  store i8 -1, ptr %46, align 4, !tbaa !54
+  store i8 -1, ptr %46, align 4, !tbaa !66
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %48 = tail call i24 @lv_theme_get_color_primary(ptr noundef %2) #5
   store i24 %48, ptr %47, align 4
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %50 = load i32, ptr %49, align 8, !tbaa !56
+  %50 = load i32, ptr %49, align 8, !tbaa !68
   %51 = add nsw i32 %50, 1
-  store i32 %51, ptr %49, align 8, !tbaa !56
+  store i32 %51, ptr %49, align 8, !tbaa !68
   br label %.critedge54
 
 .critedge54:                                      ; preds = %43, %8, %.critedge53, %1
@@ -861,33 +861,45 @@ attributes #5 = { nounwind }
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 omnipotent char", !7, i64 0}
 !26 = !{!8, !8, i64 0}
-!27 = distinct !{!27, !28}
+!27 = distinct !{!27, !28, !29}
 !28 = !{!"llvm.loop.mustprogress"}
-!29 = !{!4, !10, i64 64}
-!30 = distinct !{!30, !28}
-!31 = !{!4, !7, i64 80}
-!32 = !{!4, !17, i64 88}
-!33 = !{!16, !15, i64 0}
-!34 = !{!16, !8, i64 2}
-!35 = !{!16, !8, i64 3}
-!36 = distinct !{!36, !28}
-!37 = distinct !{!37, !28}
-!38 = distinct !{!38, !28}
-!39 = distinct !{!39, !28}
-!40 = distinct !{!40, !28}
-!41 = distinct !{!41, !28}
-!42 = !{!43, !7, i64 104}
-!43 = !{!"_lv_draw_task_t", !44, i64 0, !14, i64 8, !13, i64 12, !13, i64 28, !13, i64 44, !13, i64 60, !45, i64 80, !46, i64 88, !14, i64 96, !7, i64 104, !8, i64 112, !8, i64 113}
-!44 = !{!"p1 _ZTS15_lv_draw_task_t", !7, i64 0}
-!45 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
-!46 = !{!"p1 _ZTS15_lv_draw_unit_t", !7, i64 0}
-!47 = !{!48, !14, i64 8}
-!48 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !45, i64 24, !17, i64 32, !7, i64 40}
-!49 = !{!48, !14, i64 12}
-!50 = !{!51, !8, i64 52}
-!51 = !{!"", !48, i64 0, !14, i64 48, !8, i64 52, !52, i64 53, !53, i64 56}
-!52 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!53 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
-!54 = !{!55, !8, i64 60}
-!55 = !{!"", !48, i64 0, !14, i64 48, !52, i64 52, !14, i64 56, !8, i64 60, !14, i64 61}
-!56 = !{!55, !14, i64 56}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = !{!4, !10, i64 64}
+!31 = distinct !{!31, !29}
+!32 = distinct !{!32, !28, !29}
+!33 = distinct !{!33, !29}
+!34 = !{!4, !7, i64 80}
+!35 = !{!4, !17, i64 88}
+!36 = !{!16, !15, i64 0}
+!37 = !{!16, !8, i64 2}
+!38 = !{!16, !8, i64 3}
+!39 = distinct !{!39, !28, !29}
+!40 = distinct !{!40, !29}
+!41 = distinct !{!41, !29}
+!42 = distinct !{!42, !29}
+!43 = distinct !{!43, !28, !29}
+!44 = distinct !{!44, !28, !29}
+!45 = distinct !{!45, !28, !29}
+!46 = distinct !{!46, !28, !29}
+!47 = distinct !{!47, !28, !29}
+!48 = distinct !{!48, !29}
+!49 = distinct !{!49, !29}
+!50 = distinct !{!50, !29}
+!51 = distinct !{!51, !29}
+!52 = distinct !{!52, !29}
+!53 = distinct !{!53, !29}
+!54 = !{!55, !7, i64 104}
+!55 = !{!"_lv_draw_task_t", !56, i64 0, !14, i64 8, !13, i64 12, !13, i64 28, !13, i64 44, !13, i64 60, !57, i64 80, !58, i64 88, !14, i64 96, !7, i64 104, !8, i64 112, !8, i64 113}
+!56 = !{!"p1 _ZTS15_lv_draw_task_t", !7, i64 0}
+!57 = !{!"p1 _ZTS11_lv_layer_t", !7, i64 0}
+!58 = !{!"p1 _ZTS15_lv_draw_unit_t", !7, i64 0}
+!59 = !{!60, !14, i64 8}
+!60 = !{!"", !10, i64 0, !14, i64 8, !14, i64 12, !14, i64 16, !57, i64 24, !17, i64 32, !7, i64 40}
+!61 = !{!60, !14, i64 12}
+!62 = !{!63, !8, i64 52}
+!63 = !{!"", !60, i64 0, !14, i64 48, !8, i64 52, !64, i64 53, !65, i64 56}
+!64 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!65 = !{!"", !8, i64 0, !8, i64 10, !14, i64 11, !14, i64 11}
+!66 = !{!67, !8, i64 60}
+!67 = !{!"", !60, i64 0, !14, i64 48, !64, i64 52, !14, i64 56, !8, i64 60, !14, i64 61}
+!68 = !{!67, !14, i64 56}

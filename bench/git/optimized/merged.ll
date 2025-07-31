@@ -52,16 +52,16 @@ define dso_local range(i32 -13, 1) i32 @reftable_merged_table_new(ptr noundef wr
   br i1 %.not47, label %.thread53, label %18
 
 18:                                               ; preds = %._crit_edge
-  store ptr %1, ptr %17, align 8, !tbaa !11
+  store ptr %1, ptr %17, align 8, !tbaa !12
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %2, ptr %19, align 8, !tbaa !16
+  store i64 %2, ptr %19, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 %.037.lcssa, ptr %20, align 8, !tbaa !17
+  store i64 %.037.lcssa, ptr %20, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i64 %.041.lcssa, ptr %21, align 8, !tbaa !18
+  store i64 %.041.lcssa, ptr %21, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i32 %3, ptr %22, align 8, !tbaa !19
-  store ptr %17, ptr %0, align 8, !tbaa !20
+  store i32 %3, ptr %22, align 8, !tbaa !20
+  store ptr %17, ptr %0, align 8, !tbaa !21
   br label %.thread53
 
 .thread53:                                        ; preds = %.lr.ph, %._crit_edge, %18
@@ -101,21 +101,21 @@ declare void @reftable_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @reftable_merged_table_max_update_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load i64, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !19
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i64 @reftable_merged_table_min_update_index(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !17
+  %3 = load i64, ptr %2, align 8, !tbaa !18
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %5 = load i64, ptr %4, align 8, !tbaa !17
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %6
 
@@ -125,22 +125,22 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   br i1 %.not52, label %.critedge, label %8
 
 8:                                                ; preds = %6
-  %.pre = load i64, ptr %4, align 8, !tbaa !16
+  %.pre = load i64, ptr %4, align 8, !tbaa !17
   %9 = icmp eq i64 %.pre, 0
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
   %11 = add nuw i64 %.03964, 1
-  %12 = load i64, ptr %4, align 8, !tbaa !16
+  %12 = load i64, ptr %4, align 8, !tbaa !17
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %8, %10
   %.03964 = phi i64 [ %11, %10 ], [ 0, %8 ]
   %14 = getelementptr inbounds nuw %struct.merged_subiter, ptr %7, i64 %.03964
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @reftable_record_init(ptr noundef nonnull %15, i8 noundef zeroext %2) #6
-  %16 = load ptr, ptr %0, align 8, !tbaa !11
+  %16 = load ptr, ptr %0, align 8, !tbaa !12
   %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.03964
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call i32 @reader_init_iter(ptr noundef %18, ptr noundef nonnull %14, i8 noundef zeroext %2) #6
@@ -155,18 +155,18 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
 
 .thread59:                                        ; preds = %._crit_edge
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store i64 -1, ptr %22, align 8, !tbaa !23
+  store i64 -1, ptr %22, align 8, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %24 = load i32, ptr %23, align 4, !tbaa !28
+  %24 = load i32, ptr %23, align 4, !tbaa !29
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  store i32 %24, ptr %25, align 8, !tbaa !29
-  store ptr %.04277, ptr %21, align 8, !tbaa !30
-  %26 = load i64, ptr %4, align 8, !tbaa !16
+  store i32 %24, ptr %25, align 8, !tbaa !30
+  store ptr %.04277, ptr %21, align 8, !tbaa !31
+  %26 = load i64, ptr %4, align 8, !tbaa !17
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i64 %26, ptr %27, align 8, !tbaa !31
+  store i64 %26, ptr %27, align 8, !tbaa !32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %21, ptr %28, align 8, !tbaa !32
-  store ptr @merged_iter_vtable, ptr %1, align 8, !tbaa !35
+  store ptr %21, ptr %28, align 8, !tbaa !33
+  store ptr @merged_iter_vtable, ptr %1, align 8, !tbaa !36
   br label %35
 
 .loopexit:                                        ; preds = %._crit_edge
@@ -176,7 +176,7 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
 .lr.ph67.split:                                   ; preds = %.lr.ph, %.loopexit
   %.04088 = phi i32 [ -13, %.loopexit ], [ %19, %.lr.ph ]
   %.14387 = phi ptr [ %.04277, %.loopexit ], [ %7, %.lr.ph ]
-  %29 = load i64, ptr %4, align 8, !tbaa !16
+  %29 = load i64, ptr %4, align 8, !tbaa !17
   %.not72 = icmp eq i64 %29, 0
   br i1 %.not72, label %.critedge, label %.lr.ph70
 
@@ -194,7 +194,7 @@ define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr nound
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   tail call void @reftable_record_release(ptr noundef nonnull %31) #6
   %32 = add nuw i64 %.06569, 1
-  %33 = load i64, ptr %4, align 8, !tbaa !16
+  %33 = load i64, ptr %4, align 8, !tbaa !17
   %34 = icmp ult i64 %32, %33
   br i1 %34, label %.lr.ph70, label %.critedge
 
@@ -226,7 +226,7 @@ define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_init_log_i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @reftable_merged_table_hash_id(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i32, ptr %2, align 8, !tbaa !19
+  %3 = load i32, ptr %2, align 8, !tbaa !20
   ret i32 %3
 }
 
@@ -234,16 +234,16 @@ define dso_local i32 @reftable_merged_table_hash_id(ptr noundef readonly capture
 define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef initializes((48, 56)) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.pq_entry, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 -1, ptr %4, align 8, !tbaa !23
+  store i64 -1, ptr %4, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr i8, ptr %0, i64 16
-  %.val24.i = load i64, ptr %6, align 8, !tbaa !36
+  %.val24.i = load i64, ptr %6, align 8, !tbaa !37
   %.not25.i = icmp eq i64 %.val24.i, 0
   br i1 %.not25.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !31
+  %8 = load i64, ptr %7, align 8, !tbaa !32
   %.not2326.not.i = icmp eq i64 %8, 0
   br i1 %.not2326.not.i, label %merged_iter_seek.exit, label %.lr.ph28.i
 
@@ -253,13 +253,13 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %10 = tail call { i64, ptr } @merged_iter_pqueue_remove(ptr noundef nonnull %5) #6
-  %.val.i = load i64, ptr %6, align 8, !tbaa !36
+  %.val.i = load i64, ptr %6, align 8, !tbaa !37
   %.not.i = icmp eq i64 %.val.i, 0
-  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !37
+  br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !38
 
 11:                                               ; preds = %26, %.lr.ph28.i
   %.01727.i = phi i64 [ 0, %.lr.ph28.i ], [ %27, %26 ]
-  %12 = load ptr, ptr %0, align 8, !tbaa !30
+  %12 = load ptr, ptr %0, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw %struct.merged_subiter, ptr %12, i64 %.01727.i
   %14 = call i32 @iterator_seek(ptr noundef %13, ptr noundef %1) #6
   %15 = icmp slt i32 %14, 0
@@ -271,10 +271,10 @@ define internal range(i32 -2147483648, 1) i32 @merged_iter_seek_void(ptr noundef
 
 17:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  store i64 %.01727.i, ptr %3, align 8, !tbaa !38
-  %18 = load ptr, ptr %0, align 8, !tbaa !30
+  store i64 %.01727.i, ptr %3, align 8, !tbaa !39
+  %18 = load ptr, ptr %0, align 8, !tbaa !31
   %19 = getelementptr inbounds nuw %struct.merged_subiter, ptr %18, i64 %.01727.i, i32 1
-  store ptr %19, ptr %9, align 8, !tbaa !41
+  store ptr %19, ptr %9, align 8, !tbaa !42
   %20 = getelementptr inbounds nuw %struct.merged_subiter, ptr %18, i64 %.01727.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = call i32 @iterator_next(ptr noundef %20, ptr noundef nonnull %21) #6
@@ -293,9 +293,9 @@ merged_iter_advance_subiter.exit.i:               ; preds = %23, %17
 
 26:                                               ; preds = %merged_iter_advance_subiter.exit.i, %16
   %27 = add nuw i64 %.01727.i, 1
-  %28 = load i64, ptr %7, align 8, !tbaa !31
+  %28 = load i64, ptr %7, align 8, !tbaa !32
   %.not23.i = icmp ult i64 %27, %28
-  br i1 %.not23.i, label %11, label %merged_iter_seek.exit, !llvm.loop !42
+  br i1 %.not23.i, label %11, label %merged_iter_seek.exit, !llvm.loop !43
 
 merged_iter_seek.exit:                            ; preds = %11, %merged_iter_advance_subiter.exit.i, %26, %.preheader.i
   %spec.select.i = phi i32 [ 0, %.preheader.i ], [ 0, %26 ], [ %14, %11 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ]
@@ -316,9 +316,9 @@ define internal i32 @merged_iter_next_void(ptr noundef %0, ptr noundef %1) #0 {
   br label %12
 
 12:                                               ; preds = %50, %2
-  %.val44.i = load i64, ptr %7, align 8, !tbaa !36
+  %.val44.i = load i64, ptr %7, align 8, !tbaa !37
   %.not.i = icmp eq i64 %.val44.i, 0
-  %13 = load i64, ptr %8, align 8, !tbaa !23
+  %13 = load i64, ptr %8, align 8, !tbaa !24
   %14 = icmp sgt i64 %13, -1
   br i1 %14, label %15, label %25
 
@@ -327,10 +327,10 @@ define internal i32 @merged_iter_next_void(ptr noundef %0, ptr noundef %1) #0 {
 
 16:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
-  store i64 %13, ptr %4, align 8, !tbaa !38
-  %17 = load ptr, ptr %0, align 8, !tbaa !30
+  store i64 %13, ptr %4, align 8, !tbaa !39
+  %17 = load ptr, ptr %0, align 8, !tbaa !31
   %18 = getelementptr inbounds nuw %struct.merged_subiter, ptr %17, i64 %13, i32 1
-  store ptr %18, ptr %9, align 8, !tbaa !41
+  store ptr %18, ptr %9, align 8, !tbaa !42
   %19 = getelementptr inbounds nuw %struct.merged_subiter, ptr %17, i64 %13
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = call i32 @iterator_next(ptr noundef %19, ptr noundef nonnull %20) #6
@@ -348,7 +348,7 @@ merged_iter_advance_subiter.exit.i:               ; preds = %22, %16
   br i1 %24, label %merged_iter_next_entry.exit.thread, label %.thread.i
 
 .thread.i:                                        ; preds = %merged_iter_advance_subiter.exit.i
-  store i64 -1, ptr %8, align 8, !tbaa !23
+  store i64 -1, ptr %8, align 8, !tbaa !24
   br label %26
 
 25:                                               ; preds = %12
@@ -361,15 +361,15 @@ merged_iter_advance_subiter.exit.i:               ; preds = %22, %16
   br label %30
 
 30:                                               ; preds = %merged_iter_advance_subiter.exit49.i, %26
-  %.val.i = load i64, ptr %7, align 8, !tbaa !36
+  %.val.i = load i64, ptr %7, align 8, !tbaa !37
   %.not58.i = icmp eq i64 %.val.i, 0
   br i1 %.not58.i, label %merged_iter_next_entry.exit.thread14, label %31
 
 31:                                               ; preds = %30
-  %.val45.i = load ptr, ptr %6, align 8, !tbaa !43
-  %.val45.val.i = load i64, ptr %.val45.i, align 8, !tbaa !44
+  %.val45.i = load ptr, ptr %6, align 8, !tbaa !44
+  %.val45.val.i = load i64, ptr %.val45.i, align 8, !tbaa !45
   %32 = getelementptr i8, ptr %.val45.i, i64 8
-  %.val45.val46.i = load ptr, ptr %32, align 8, !tbaa !45
+  %.val45.val46.i = load ptr, ptr %32, align 8, !tbaa !46
   %33 = call i32 @reftable_record_cmp(ptr noundef %.val45.val46.i, ptr noundef %29) #6
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %merged_iter_next_entry.exit.thread14, label %35
@@ -377,10 +377,10 @@ merged_iter_advance_subiter.exit.i:               ; preds = %22, %16
 35:                                               ; preds = %31
   %36 = call { i64, ptr } @merged_iter_pqueue_remove(ptr noundef nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #6
-  store i64 %.val45.val.i, ptr %3, align 8, !tbaa !38
-  %37 = load ptr, ptr %0, align 8, !tbaa !30
+  store i64 %.val45.val.i, ptr %3, align 8, !tbaa !39
+  %37 = load ptr, ptr %0, align 8, !tbaa !31
   %38 = getelementptr inbounds nuw %struct.merged_subiter, ptr %37, i64 %.val45.val.i, i32 1
-  store ptr %38, ptr %10, align 8, !tbaa !41
+  store ptr %38, ptr %10, align 8, !tbaa !42
   %39 = getelementptr inbounds nuw %struct.merged_subiter, ptr %37, i64 %.val45.val.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = call i32 @iterator_next(ptr noundef %39, ptr noundef nonnull %40) #6
@@ -398,7 +398,7 @@ merged_iter_advance_subiter.exit49.i:             ; preds = %42, %35
   br i1 %44, label %merged_iter_next_entry.exit.thread, label %30
 
 merged_iter_next_entry.exit.thread14:             ; preds = %30, %31
-  store i64 %28, ptr %8, align 8, !tbaa !23
+  store i64 %28, ptr %8, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(152) %5, ptr noundef nonnull align 1 dereferenceable(152) %1, i64 152, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %1, ptr noundef nonnull align 1 dereferenceable(152) %29, i64 152, i1 false)
@@ -407,21 +407,21 @@ merged_iter_next_entry.exit.thread14:             ; preds = %30, %31
   br label %48
 
 merged_iter_next_entry.exit:                      ; preds = %15
-  %45 = load ptr, ptr %0, align 8, !tbaa !30
+  %45 = load ptr, ptr %0, align 8, !tbaa !31
   %46 = getelementptr inbounds nuw %struct.merged_subiter, ptr %45, i64 %13
   %47 = call i32 @iterator_next(ptr noundef %46, ptr noundef %1) #6
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %48, label %merged_iter_next_entry.exit.thread
 
 48:                                               ; preds = %merged_iter_next_entry.exit.thread14, %merged_iter_next_entry.exit
-  %49 = load i32, ptr %11, align 8, !tbaa !29
+  %49 = load i32, ptr %11, align 8, !tbaa !30
   %.not10 = icmp eq i32 %49, 0
   br i1 %.not10, label %merged_iter_next_entry.exit.thread, label %50
 
 50:                                               ; preds = %48
   %51 = call i32 @reftable_record_is_deletion(ptr noundef %1) #6
   %.not11 = icmp eq i32 %51, 0
-  br i1 %.not11, label %merged_iter_next_entry.exit.thread, label %12
+  br i1 %.not11, label %merged_iter_next_entry.exit.thread, label %12, !llvm.loop !47
 
 merged_iter_next_entry.exit.thread:               ; preds = %48, %50, %25, %merged_iter_advance_subiter.exit.i, %merged_iter_next_entry.exit, %merged_iter_advance_subiter.exit49.i
   %.1.ph = phi i32 [ %.0.i48.i, %merged_iter_advance_subiter.exit49.i ], [ 0, %48 ], [ 0, %50 ], [ %.0.i.i, %merged_iter_advance_subiter.exit.i ], [ 1, %25 ], [ %47, %merged_iter_next_entry.exit ]
@@ -433,27 +433,27 @@ define internal void @merged_iter_close(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @merged_iter_pqueue_release(ptr noundef nonnull %2) #6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i64, ptr %3, align 8, !tbaa !31
+  %4 = load i64, ptr %3, align 8, !tbaa !32
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %5 = load ptr, ptr %0, align 8, !tbaa !30
+  %5 = load ptr, ptr %0, align 8, !tbaa !31
   tail call void @reftable_free(ptr noundef %5) #6
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.09 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
-  %6 = load ptr, ptr %0, align 8, !tbaa !30
+  %6 = load ptr, ptr %0, align 8, !tbaa !31
   %7 = getelementptr inbounds nuw %struct.merged_subiter, ptr %6, i64 %.09
   tail call void @reftable_iterator_destroy(ptr noundef %7) #6
-  %8 = load ptr, ptr %0, align 8, !tbaa !30
+  %8 = load ptr, ptr %0, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw %struct.merged_subiter, ptr %8, i64 %.09, i32 1
   tail call void @reftable_record_release(ptr noundef nonnull %9) #6
   %10 = add nuw i64 %.09, 1
-  %11 = load i64, ptr %3, align 8, !tbaa !31
+  %11 = load i64, ptr %3, align 8, !tbaa !32
   %12 = icmp ult i64 %10, %11
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !46
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !48
 }
 
 declare { i64, ptr } @merged_iter_pqueue_remove(ptr noundef) local_unnamed_addr #2
@@ -498,41 +498,43 @@ attributes #6 = { nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"reftable_merged_table", !13, i64 0, !14, i64 8, !15, i64 16, !15, i64 20, !14, i64 24, !14, i64 32}
-!13 = !{!"p2 _ZTS15reftable_reader", !6, i64 0}
-!14 = !{!"long", !7, i64 0}
-!15 = !{!"int", !7, i64 0}
-!16 = !{!12, !14, i64 8}
-!17 = !{!12, !14, i64 24}
-!18 = !{!12, !14, i64 32}
-!19 = !{!12, !15, i64 16}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS21reftable_merged_table", !6, i64 0}
-!22 = distinct !{!22, !10}
-!23 = !{!24, !14, i64 48}
-!24 = !{!"merged_iter", !25, i64 0, !26, i64 8, !14, i64 32, !15, i64 40, !14, i64 48}
-!25 = !{!"p1 _ZTS14merged_subiter", !6, i64 0}
-!26 = !{!"merged_iter_pqueue", !27, i64 0, !14, i64 8, !14, i64 16}
-!27 = !{!"p1 _ZTS8pq_entry", !6, i64 0}
-!28 = !{!12, !15, i64 20}
-!29 = !{!24, !15, i64 40}
-!30 = !{!24, !25, i64 0}
-!31 = !{!24, !14, i64 32}
-!32 = !{!33, !6, i64 8}
-!33 = !{!"reftable_iterator", !34, i64 0, !6, i64 8}
-!34 = !{!"p1 _ZTS24reftable_iterator_vtable", !6, i64 0}
-!35 = !{!33, !34, i64 0}
-!36 = !{!26, !14, i64 8}
-!37 = distinct !{!37, !10}
-!38 = !{!39, !14, i64 0}
-!39 = !{!"pq_entry", !14, i64 0, !40, i64 8}
-!40 = !{!"p1 _ZTS15reftable_record", !6, i64 0}
-!41 = !{!39, !40, i64 8}
-!42 = distinct !{!42, !10}
-!43 = !{!26, !27, i64 0}
-!44 = !{!14, !14, i64 0}
-!45 = !{!40, !40, i64 0}
-!46 = distinct !{!46, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"reftable_merged_table", !14, i64 0, !15, i64 8, !16, i64 16, !16, i64 20, !15, i64 24, !15, i64 32}
+!14 = !{!"p2 _ZTS15reftable_reader", !6, i64 0}
+!15 = !{!"long", !7, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = !{!13, !15, i64 8}
+!18 = !{!13, !15, i64 24}
+!19 = !{!13, !15, i64 32}
+!20 = !{!13, !16, i64 16}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS21reftable_merged_table", !6, i64 0}
+!23 = distinct !{!23, !10, !11}
+!24 = !{!25, !15, i64 48}
+!25 = !{!"merged_iter", !26, i64 0, !27, i64 8, !15, i64 32, !16, i64 40, !15, i64 48}
+!26 = !{!"p1 _ZTS14merged_subiter", !6, i64 0}
+!27 = !{!"merged_iter_pqueue", !28, i64 0, !15, i64 8, !15, i64 16}
+!28 = !{!"p1 _ZTS8pq_entry", !6, i64 0}
+!29 = !{!13, !16, i64 20}
+!30 = !{!25, !16, i64 40}
+!31 = !{!25, !26, i64 0}
+!32 = !{!25, !15, i64 32}
+!33 = !{!34, !6, i64 8}
+!34 = !{!"reftable_iterator", !35, i64 0, !6, i64 8}
+!35 = !{!"p1 _ZTS24reftable_iterator_vtable", !6, i64 0}
+!36 = !{!34, !35, i64 0}
+!37 = !{!27, !15, i64 8}
+!38 = distinct !{!38, !10, !11}
+!39 = !{!40, !15, i64 0}
+!40 = !{!"pq_entry", !15, i64 0, !41, i64 8}
+!41 = !{!"p1 _ZTS15reftable_record", !6, i64 0}
+!42 = !{!40, !41, i64 8}
+!43 = distinct !{!43, !10, !11}
+!44 = !{!27, !28, i64 0}
+!45 = !{!15, !15, i64 0}
+!46 = !{!41, !41, i64 0}
+!47 = distinct !{!47, !11}
+!48 = distinct !{!48, !10, !11}

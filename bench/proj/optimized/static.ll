@@ -706,7 +706,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !30
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -723,7 +723,7 @@ define hidden noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConsta
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #20
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %4, ptr %3, align 8, !tbaa !31
+  store ptr %4, ptr %3, align 8, !tbaa !32
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.noexc, label %6
 
@@ -734,14 +734,14 @@ define hidden noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConsta
 6:                                                ; preds = %1
   %7 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
-  store i64 %7, ptr %2, align 8, !tbaa !32
+  store i64 %7, ptr %2, align 8, !tbaa !33
   %8 = icmp ugt i64 %7, 15
   br i1 %8, label %.noexc.i, label %._crit_edge.i.i
 
 .noexc.i:                                         ; preds = %6
   %9 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %9, ptr %3, align 8, !tbaa !22
-  %10 = load i64, ptr %2, align 8, !tbaa !32
+  %10 = load i64, ptr %2, align 8, !tbaa !33
   store i64 %10, ptr %4, align 8, !tbaa !15
   br label %._crit_edge.i.i
 
@@ -762,7 +762,7 @@ define hidden noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConsta
   br label %15
 
 15:                                               ; preds = %14, %12, %._crit_edge.i.i
-  %16 = load i64, ptr %2, align 8, !tbaa !32
+  %16 = load i64, ptr %2, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %16, ptr %17, align 8, !tbaa !27
   %18 = load ptr, ptr %3, align 8, !tbaa !22
@@ -770,13 +770,13 @@ define hidden noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConsta
   store i8 0, ptr %19, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 8), align 8, !tbaa !21
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 16), align 8, !tbaa !30
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i64 16), align 8, !tbaa !31
   %.not.i.i = icmp eq ptr %20, %21
   br i1 %.not.i.i, label %34, label %22
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %23, ptr %20, align 8, !tbaa !31
+  store ptr %23, ptr %20, align 8, !tbaa !32
   %24 = load ptr, ptr %3, align 8, !tbaa !22
   %25 = icmp eq ptr %24, %4
   br i1 %25, label %26, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
@@ -862,7 +862,7 @@ declare void @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs13AxisDirectionESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EED2Ev.exit unwind label %4
 
@@ -882,7 +882,7 @@ declare void @_ZN5osgeo4proj2cs13AxisDirectionC1ERKNSt7__cxx1112basic_stringIcSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs12RangeMeaningESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EED2Ev.exit unwind label %4
 
@@ -902,7 +902,7 @@ declare void @_ZN5osgeo4proj2cs12RangeMeaningC1ERKNSt7__cxx1112basic_stringIcSt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs17AxisDirectionWKT1ESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !34
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EED2Ev.exit unwind label %4
 
@@ -1293,10 +1293,10 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -1319,7 +1319,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs13AxisDirectionEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit, %2
   ret void
@@ -1336,10 +1336,10 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -1362,7 +1362,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs12RangeMeaningEESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit, %2
   ret void
@@ -1376,10 +1376,10 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 .lr.ph:                                           ; preds = %2, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit
   %.07 = phi ptr [ %6, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %4 = load ptr, ptr %3, align 8, !tbaa !39
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE8_M_eraseEPSt13_Rb_tree_nodeISE_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !22
   %9 = getelementptr inbounds nuw i8, ptr %.07, i64 48
@@ -1402,7 +1402,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 72) #21
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5osgeo4proj2cs17AxisDirectionWKT1EESt10_Select1stISE_ESt4lessIS5_ESaISE_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISE_E.exit, %2
   ret void
@@ -1455,7 +1455,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %18
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %24, ptr %23, align 8, !tbaa !31
+  store ptr %24, ptr %23, align 8, !tbaa !32
   %25 = load ptr, ptr %2, align 8, !tbaa !22
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = icmp eq ptr %25, %26
@@ -1492,44 +1492,44 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
   %.012.i.i.i = phi ptr [ %51, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %22, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
   %.0911.i.i.i = phi ptr [ %50, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ], [ %6, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
-  store ptr %37, ptr %.012.i.i.i, align 8, !tbaa !31, !alias.scope !43, !noalias !46
-  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !22, !alias.scope !46, !noalias !43
+  store ptr %37, ptr %.012.i.i.i, align 8, !tbaa !32, !alias.scope !44, !noalias !47
+  %38 = load ptr, ptr %.0911.i.i.i, align 8, !tbaa !22, !alias.scope !47, !noalias !44
   %39 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 16
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 41:                                               ; preds = %.lr.ph.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !27, !alias.scope !46, !noalias !43
+  %43 = load i64, ptr %42, align 8, !tbaa !27, !alias.scope !47, !noalias !44
   %44 = icmp ult i64 %43, 16
   tail call void @llvm.assume(i1 %44)
   %45 = add nuw nsw i64 %43, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %45, i1 false), !alias.scope !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %37, ptr noundef nonnull align 8 dereferenceable(1) %39, i64 %45, i1 false), !alias.scope !49
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i
-  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !22, !alias.scope !43, !noalias !46
-  %46 = load i64, ptr %39, align 8, !tbaa !15, !alias.scope !46, !noalias !43
-  store i64 %46, ptr %37, align 8, !tbaa !15, !alias.scope !43, !noalias !46
+  store ptr %38, ptr %.012.i.i.i, align 8, !tbaa !22, !alias.scope !44, !noalias !47
+  %46 = load i64, ptr %39, align 8, !tbaa !15, !alias.scope !47, !noalias !44
+  store i64 %46, ptr %37, align 8, !tbaa !15, !alias.scope !44, !noalias !47
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
-  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !27, !alias.scope !46, !noalias !43
+  %.pre.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !27, !alias.scope !47, !noalias !44
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %41
   %47 = phi i64 [ %43, %41 ], [ %.pre.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
-  store i64 %47, ptr %49, align 8, !tbaa !27, !alias.scope !43, !noalias !46
-  store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !22, !alias.scope !46, !noalias !43
-  store i64 0, ptr %48, align 8, !tbaa !27, !alias.scope !46, !noalias !43
-  store i8 0, ptr %39, align 1, !tbaa !15, !alias.scope !46, !noalias !43
+  store i64 %47, ptr %49, align 8, !tbaa !27, !alias.scope !44, !noalias !47
+  store ptr %39, ptr %.0911.i.i.i, align 8, !tbaa !22, !alias.scope !47, !noalias !44
+  store i64 0, ptr %48, align 8, !tbaa !27, !alias.scope !47, !noalias !44
+  store i8 0, ptr %39, align 1, !tbaa !15, !alias.scope !47, !noalias !44
   %50 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %51 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %50, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !49
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !50
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit
   %.0.lcssa.i.i.i = phi ptr [ %22, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_.exit ], [ %51, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -1540,44 +1540,44 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 .lr.ph.i.i.i17:                                   ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
   %.012.i.i.i18 = phi ptr [ %67, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %52, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %.0911.i.i.i19 = phi ptr [ %66, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ], [ %1, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %53 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 16
-  store ptr %53, ptr %.012.i.i.i18, align 8, !tbaa !31, !alias.scope !50, !noalias !53
-  %54 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !22, !alias.scope !53, !noalias !50
+  store ptr %53, ptr %.012.i.i.i18, align 8, !tbaa !32, !alias.scope !51, !noalias !54
+  %54 = load ptr, ptr %.0911.i.i.i19, align 8, !tbaa !22, !alias.scope !54, !noalias !51
   %55 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 16
   %56 = icmp eq ptr %54, %55
   br i1 %56, label %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20
 
 57:                                               ; preds = %.lr.ph.i.i.i17
   %58 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !27, !alias.scope !53, !noalias !50
+  %59 = load i64, ptr %58, align 8, !tbaa !27, !alias.scope !54, !noalias !51
   %60 = icmp ult i64 %59, 16
   tail call void @llvm.assume(i1 %60)
   %61 = add nuw nsw i64 %59, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, ptr noundef nonnull align 8 dereferenceable(1) %55, i64 %61, i1 false), !alias.scope !55
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %53, ptr noundef nonnull align 8 dereferenceable(1) %55, i64 %61, i1 false), !alias.scope !56
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20: ; preds = %.lr.ph.i.i.i17
-  store ptr %54, ptr %.012.i.i.i18, align 8, !tbaa !22, !alias.scope !50, !noalias !53
-  %62 = load i64, ptr %55, align 8, !tbaa !15, !alias.scope !53, !noalias !50
-  store i64 %62, ptr %53, align 8, !tbaa !15, !alias.scope !50, !noalias !53
+  store ptr %54, ptr %.012.i.i.i18, align 8, !tbaa !22, !alias.scope !51, !noalias !54
+  %62 = load i64, ptr %55, align 8, !tbaa !15, !alias.scope !54, !noalias !51
+  store i64 %62, ptr %53, align 8, !tbaa !15, !alias.scope !51, !noalias !54
   %.phi.trans.insert.i.i.i.i21 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
-  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !27, !alias.scope !53, !noalias !50
+  %.pre.i.i.i.i22 = load i64, ptr %.phi.trans.insert.i.i.i.i21, align 8, !tbaa !27, !alias.scope !54, !noalias !51
   br label %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23
 
 _ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20, %57
   %63 = phi i64 [ %59, %57 ], [ %.pre.i.i.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i20 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 8
-  store i64 %63, ptr %65, align 8, !tbaa !27, !alias.scope !50, !noalias !53
-  store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !22, !alias.scope !53, !noalias !50
-  store i64 0, ptr %64, align 8, !tbaa !27, !alias.scope !53, !noalias !50
-  store i8 0, ptr %55, align 1, !tbaa !15, !alias.scope !53, !noalias !50
+  store i64 %63, ptr %65, align 8, !tbaa !27, !alias.scope !51, !noalias !54
+  store ptr %55, ptr %.0911.i.i.i19, align 8, !tbaa !22, !alias.scope !54, !noalias !51
+  store i64 0, ptr %64, align 8, !tbaa !27, !alias.scope !54, !noalias !51
+  store i8 0, ptr %55, align 1, !tbaa !15, !alias.scope !54, !noalias !51
   %66 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i24 = icmp eq ptr %66, %5
-  br i1 %.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %.lr.ph.i.i.i17, !llvm.loop !49
+  br i1 %.not.i.i.i24, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, label %.lr.ph.i.i.i17, !llvm.loop !50
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26: ; preds = %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i25 = phi ptr [ %52, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %67, %_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_.exit.i.i.i23 ]
@@ -1586,7 +1586,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   br i1 %.not.i27, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit, label %69
 
 69:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26
-  %70 = load ptr, ptr %68, align 8, !tbaa !30
+  %70 = load ptr, ptr %68, align 8, !tbaa !31
   %71 = ptrtoint ptr %70 to i64
   %72 = sub i64 %71, %8
   tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef %72) #21
@@ -1596,7 +1596,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %22, ptr %0, align 8, !tbaa !18
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !21
   %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
-  store ptr %73, ptr %68, align 8, !tbaa !30
+  store ptr %73, ptr %68, align 8, !tbaa !31
   ret void
 }
 
@@ -1722,82 +1722,82 @@ define internal void @_GLOBAL__sub_I_static.cpp() #15 section ".text.startup" pe
   %112 = alloca i64, align 8
   tail call void @_ZN5osgeo4proj4util9NameSpace12createGLOBALEv(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn") align 8 @_ZN5osgeo4proj4util9NameSpace6GLOBALE)
   %113 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util9NameSpaceEEED2Ev, ptr nonnull @_ZN5osgeo4proj4util9NameSpace6GLOBALE, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, i64 25), align 1, !tbaa !15
   %114 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier13AUTHORITY_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, align 8, !tbaa !32
   store i32 1701080931, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, i64 20), align 4, !tbaa !15
   %115 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier8CODE_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.5, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, i64 25), align 1, !tbaa !15
   %116 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier13CODESPACE_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.7, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, i64 23), align 1, !tbaa !15
   %117 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier11VERSION_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.9, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, i64 27), align 1, !tbaa !15
   %118 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier15DESCRIPTION_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(3) @.str.11, i64 3, i1 false)
   store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, i64 19), align 1, !tbaa !15
   %119 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier7URI_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, align 8, !tbaa !32
   store i32 1196642373, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, i64 20), align 4, !tbaa !15
   %120 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, i64 16), ptr @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(3) @.str.15, i64 3, i1 false)
   store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, i64 19), align 1, !tbaa !15
   %121 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj8metadata10Identifier3OGCB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, align 8, !tbaa !32
   store i32 1701667182, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, i64 20), align 4, !tbaa !15
   %122 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj6common16IdentifiedObject8NAME_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.19, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, i64 27), align 1, !tbaa !15
   %123 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj6common16IdentifiedObject15IDENTIFIERS_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.21, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, i64 21), align 1, !tbaa !15
   %124 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj6common16IdentifiedObject9ALIAS_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.23, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, i64 23), align 1, !tbaa !15
   %125 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj6common16IdentifiedObject11REMARKS_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.25, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, i64 26), align 2, !tbaa !15
   %126 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj6common16IdentifiedObject14DEPRECATED_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, align 8, !tbaa !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.27, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, i64 21), align 1, !tbaa !15
   %127 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj6common11ObjectUsage9SCOPE_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %112) #20
-  store i64 16, ptr %112, align 8, !tbaa !32
+  store i64 16, ptr %112, align 8, !tbaa !33
   %128 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %112, i64 noundef 0)
   store ptr %128, ptr @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, align 8, !tbaa !22
-  %129 = load i64, ptr %112, align 8, !tbaa !32
+  %129 = load i64, ptr %112, align 8, !tbaa !33
   store i64 %129, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %128, ptr noundef nonnull align 1 dereferenceable(16) @.str.29, i64 16, i1 false)
   store i64 %129, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, i64 8), align 8, !tbaa !27
@@ -1806,7 +1806,7 @@ define internal void @_GLOBAL__sub_I_static.cpp() #15 section ".text.startup" pe
   store i8 0, ptr %131, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %112) #20
   %132 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj6common11ObjectUsage22DOMAIN_OF_VALIDITY_KEYB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage17OBJECT_DOMAIN_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common11ObjectUsage17OBJECT_DOMAIN_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage17OBJECT_DOMAIN_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj6common11ObjectUsage17OBJECT_DOMAIN_KEYB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage17OBJECT_DOMAIN_KEYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.31, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage17OBJECT_DOMAIN_KEYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj6common11ObjectUsage17OBJECT_DOMAIN_KEYB5cxx11E, i64 28), align 4, !tbaa !15
@@ -1818,10 +1818,10 @@ define internal void @_GLOBAL__sub_I_static.cpp() #15 section ".text.startup" pe
   %135 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %136 = getelementptr inbounds nuw i8, ptr %111, i64 21
   store i8 0, ptr %136, align 1, !tbaa !15
-  store i8 1, ptr %110, align 8, !tbaa !56
+  store i8 1, ptr %110, align 8, !tbaa !57
   %137 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %138 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store ptr %138, ptr %137, align 8, !tbaa !31
+  store ptr %138, ptr %137, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %138, ptr noundef nonnull align 8 dereferenceable(6) %134, i64 6, i1 false)
   %139 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i64 5, ptr %139, align 8, !tbaa !27
@@ -1917,300 +1917,300 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, i8 0, i64 24, i1 false)
   %168 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10constants_B5cxx11E, ptr nonnull @__dso_handle) #20
   %169 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.36)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.36, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, i64 22), align 2, !tbaa !15
   %170 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6GEOCCSB5cxx11E, ptr nonnull @__dso_handle) #20
   %171 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.38)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.38, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, i64 22), align 2, !tbaa !15
   %172 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6GEOGCSB5cxx11E, ptr nonnull @__dso_handle) #20
   %173 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.40)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.40, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, i64 21), align 1, !tbaa !15
   %174 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants5DATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %175 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.42)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, align 8, !tbaa !32
   store i32 1414090325, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, i64 20), align 4, !tbaa !15
   %176 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants4UNITB5cxx11E, ptr nonnull @__dso_handle) #20
   %177 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.44)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, align 8, !tbaa !32
   store i64 4920551282647257171, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, i64 24), align 8, !tbaa !15
   %178 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8SPHEROIDB5cxx11E, ptr nonnull @__dso_handle) #20
   %179 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.46)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, align 8, !tbaa !32
   store i32 1397315649, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, i64 20), align 4, !tbaa !15
   %180 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants4AXISB5cxx11E, ptr nonnull @__dso_handle) #20
   %181 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.48)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.48, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, i64 22), align 2, !tbaa !15
   %182 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6PRIMEMB5cxx11E, ptr nonnull @__dso_handle) #20
   %183 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.50)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.50, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, i64 25), align 1, !tbaa !15
   %184 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9AUTHORITYB5cxx11E, ptr nonnull @__dso_handle) #20
   %185 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.52)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.52, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, i64 22), align 2, !tbaa !15
   %186 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6PROJCSB5cxx11E, ptr nonnull @__dso_handle) #20
   %187 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.54)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.54, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, i64 26), align 2, !tbaa !15
   %188 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10PROJECTIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %189 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.56)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.56, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, i64 25), align 1, !tbaa !15
   %190 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, ptr nonnull @__dso_handle) #20
   %191 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.58)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.58, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, i64 23), align 1, !tbaa !15
   %192 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7VERT_CSB5cxx11E, ptr nonnull @__dso_handle) #20
   %193 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.60)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.60, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, i64 22), align 2, !tbaa !15
   %194 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6VERTCSB5cxx11E, ptr nonnull @__dso_handle) #20
   %195 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.62)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.62, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, i64 26), align 2, !tbaa !15
   %196 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10VERT_DATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %197 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.64)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, align 8, !tbaa !32
   store i64 5999743875597291331, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, i64 24), align 8, !tbaa !15
   %198 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8COMPD_CSB5cxx11E, ptr nonnull @__dso_handle) #20
   %199 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.66)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.66, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, i64 23), align 1, !tbaa !15
   %200 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7TOWGS84B5cxx11E, ptr nonnull @__dso_handle) #20
   %201 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.68)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.68, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, i64 25), align 1, !tbaa !15
   %202 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9EXTENSIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %203 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.70)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, align 8, !tbaa !32
   store i64 5999743909704716108, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, i64 24), align 8, !tbaa !15
   %204 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8LOCAL_CSB5cxx11E, ptr nonnull @__dso_handle) #20
   %205 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.72)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.72, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, i64 27), align 1, !tbaa !15
   %206 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11LOCAL_DATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %207 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.74)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.74, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, i64 23), align 1, !tbaa !15
   %208 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7LINUNITB5cxx11E, ptr nonnull @__dso_handle) #20
   %209 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.76)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.76, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, i64 23), align 1, !tbaa !15
   %210 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7GEODCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %211 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.78)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.78, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, i64 26), align 2, !tbaa !15
   %212 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10LENGTHUNITB5cxx11E, ptr nonnull @__dso_handle) #20
   %213 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.80)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.80, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, i64 25), align 1, !tbaa !15
   %214 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9ANGLEUNITB5cxx11E, ptr nonnull @__dso_handle) #20
   %215 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.82)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.82, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, i64 25), align 1, !tbaa !15
   %216 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9SCALEUNITB5cxx11E, ptr nonnull @__dso_handle) #20
   %217 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.84)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, align 8, !tbaa !32
   store i64 6073471700627704148, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, i64 24), align 8, !tbaa !15
   %218 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8TIMEUNITB5cxx11E, ptr nonnull @__dso_handle) #20
   %219 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.86)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.86, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, i64 25), align 1, !tbaa !15
   %220 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9ELLIPSOIDB5cxx11E, ptr nonnull @__dso_handle) #20
   %221 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.88)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, align 8, !tbaa !32
   store i16 21315, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, i64 16), align 8
   store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, i64 18), align 2, !tbaa !15
   %222 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants3CS_B5cxx11E, ptr nonnull @__dso_handle) #20
   %223 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.90)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, align 8, !tbaa !32
   store i16 17481, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, i64 16), align 8
   store i64 2, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, i64 18), align 2, !tbaa !15
   %224 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants2IDB5cxx11E, ptr nonnull @__dso_handle) #20
   %225 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.92)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.92, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, i64 23), align 1, !tbaa !15
   %226 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7PROJCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %227 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.94)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.94, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, i64 27), align 1, !tbaa !15
   %228 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11BASEGEODCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %229 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.96)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, align 8, !tbaa !32
   store i64 5638868766081303885, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, i64 24), align 8, !tbaa !15
   %230 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8MERIDIANB5cxx11E, ptr nonnull @__dso_handle) #20
   %231 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.98)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.98, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, i64 21), align 1, !tbaa !15
   %232 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants5ORDERB5cxx11E, ptr nonnull @__dso_handle) #20
   %233 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.100)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.100, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, i64 22), align 2, !tbaa !15
   %234 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6ANCHORB5cxx11E, ptr nonnull @__dso_handle) #20
   %235 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.102)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.102, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, i64 27), align 1, !tbaa !15
   %236 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11ANCHOREPOCHB5cxx11E, ptr nonnull @__dso_handle) #20
   %237 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.104)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.104, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, i64 26), align 2, !tbaa !15
   %238 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10CONVERSIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %239 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.106)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.106, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, i64 22), align 2, !tbaa !15
   %240 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6METHODB5cxx11E, ptr nonnull @__dso_handle) #20
   %241 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.108)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.108, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, i64 22), align 2, !tbaa !15
   %242 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6REMARKB5cxx11E, ptr nonnull @__dso_handle) #20
   %243 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.110)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.110, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, i64 23), align 1, !tbaa !15
   %244 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7GEOGCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %245 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.112)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.112, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, i64 27), align 1, !tbaa !15
   %246 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11BASEGEOGCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %247 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.114)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.114, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, i64 21), align 1, !tbaa !15
   %248 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants5SCOPEB5cxx11E, ptr nonnull @__dso_handle) #20
   %249 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.116)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, align 8, !tbaa !32
   store i32 1095062081, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, i64 20), align 4, !tbaa !15
   %250 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants4AREAB5cxx11E, ptr nonnull @__dso_handle) #20
   %251 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.118)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, align 8, !tbaa !32
   store i32 1481589314, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, i64 20), align 4, !tbaa !15
   %252 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants4BBOXB5cxx11E, ptr nonnull @__dso_handle) #20
   %253 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.120)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, align 8, !tbaa !32
   store i64 5642809484340644163, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, i64 24), align 8, !tbaa !15
   %254 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8CITATIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %255 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.122)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(3) @.str.122, i64 3, i1 false)
   store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, i64 19), align 1, !tbaa !15
   %256 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants3URIB5cxx11E, ptr nonnull @__dso_handle) #20
   %257 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.124)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.124, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, i64 23), align 1, !tbaa !15
   %258 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7VERTCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %259 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.126)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.126, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, i64 22), align 2, !tbaa !15
   %260 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6VDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %261 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.128)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.128, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, i64 27), align 1, !tbaa !15
   %262 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11COMPOUNDCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %263 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.130)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str.130, i64 13, i1 false)
   store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, i64 29), align 1, !tbaa !15
   %264 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants13PARAMETERFILEB5cxx11E, ptr nonnull @__dso_handle) #20
   %265 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.132)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %109) #20
-  store i64 19, ptr %109, align 8, !tbaa !32
+  store i64 19, ptr %109, align 8, !tbaa !33
   %266 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %109, i64 noundef 0)
   store ptr %266, ptr @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, align 8, !tbaa !22
-  %267 = load i64, ptr %109, align 8, !tbaa !32
+  %267 = load i64, ptr %109, align 8, !tbaa !33
   store i64 %267, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %266, ptr noundef nonnull align 1 dereferenceable(19) @.str.132, i64 19, i1 false)
   store i64 %267, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2220,24 +2220,24 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %109) #20
   %270 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants19COORDINATEOPERATIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %271 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.134)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.134, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, i64 25), align 1, !tbaa !15
   %272 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9SOURCECRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %273 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.136)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.136, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, i64 25), align 1, !tbaa !15
   %274 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9TARGETCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %275 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.138)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %108) #20
-  store i64 16, ptr %108, align 8, !tbaa !32
+  store i64 16, ptr %108, align 8, !tbaa !33
   %276 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %108, i64 noundef 0)
   store ptr %276, ptr @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, align 8, !tbaa !22
-  %277 = load i64, ptr %108, align 8, !tbaa !32
+  %277 = load i64, ptr %108, align 8, !tbaa !33
   store i64 %277, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %276, ptr noundef nonnull align 1 dereferenceable(16) @.str.138, i64 16, i1 false)
   store i64 %277, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2247,12 +2247,12 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %108) #20
   %280 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants16INTERPOLATIONCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %281 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.140)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %107) #20
-  store i64 17, ptr %107, align 8, !tbaa !32
+  store i64 17, ptr %107, align 8, !tbaa !33
   %282 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %107, i64 noundef 0)
   store ptr %282, ptr @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, align 8, !tbaa !22
-  %283 = load i64, ptr %107, align 8, !tbaa !32
+  %283 = load i64, ptr %107, align 8, !tbaa !33
   store i64 %283, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %282, ptr noundef nonnull align 1 dereferenceable(17) @.str.140, i64 17, i1 false)
   store i64 %283, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2262,12 +2262,12 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %107) #20
   %286 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants17OPERATIONACCURACYB5cxx11E, ptr nonnull @__dso_handle) #20
   %287 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.142)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %106) #20
-  store i64 21, ptr %106, align 8, !tbaa !32
+  store i64 21, ptr %106, align 8, !tbaa !33
   %288 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %106, i64 noundef 0)
   store ptr %288, ptr @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, align 8, !tbaa !22
-  %289 = load i64, ptr %106, align 8, !tbaa !32
+  %289 = load i64, ptr %106, align 8, !tbaa !33
   store i64 %289, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %288, ptr noundef nonnull align 1 dereferenceable(21) @.str.142, i64 21, i1 false)
   store i64 %289, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2277,24 +2277,24 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %106) #20
   %292 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants21CONCATENATEDOPERATIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %293 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.144)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, align 8, !tbaa !32
   store i32 1346720851, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, i64 16), align 8
   store i64 4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, i64 20), align 4, !tbaa !15
   %294 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants4STEPB5cxx11E, ptr nonnull @__dso_handle) #20
   %295 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.146)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, align 8, !tbaa !32
   store i64 6003935213889343298, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, i64 24), align 8, !tbaa !15
   %296 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8BOUNDCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %297 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.148)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %105) #20
-  store i64 22, ptr %105, align 8, !tbaa !32
+  store i64 22, ptr %105, align 8, !tbaa !33
   %298 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %105, i64 noundef 0)
   store ptr %298, ptr @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, align 8, !tbaa !22
-  %299 = load i64, ptr %105, align 8, !tbaa !32
+  %299 = load i64, ptr %105, align 8, !tbaa !33
   store i64 %299, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %298, ptr noundef nonnull align 1 dereferenceable(22) @.str.148, i64 22, i1 false)
   store i64 %299, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2304,12 +2304,12 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %105) #20
   %302 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants22ABRIDGEDTRANSFORMATIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %303 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.150)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %104) #20
-  store i64 18, ptr %104, align 8, !tbaa !32
+  store i64 18, ptr %104, align 8, !tbaa !33
   %304 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %104, i64 noundef 0)
   store ptr %304, ptr @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, align 8, !tbaa !22
-  %305 = load i64, ptr %104, align 8, !tbaa !32
+  %305 = load i64, ptr %104, align 8, !tbaa !33
   store i64 %305, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %304, ptr noundef nonnull align 1 dereferenceable(18) @.str.150, i64 18, i1 false)
   store i64 %305, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2319,90 +2319,90 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %104) #20
   %308 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants18DERIVINGCONVERSIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %309 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.152)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.152, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, i64 22), align 2, !tbaa !15
   %310 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6TDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %311 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.154)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, align 8, !tbaa !32
   store i64 5927093687557046595, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, i64 24), align 8, !tbaa !15
   %312 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8CALENDARB5cxx11E, ptr nonnull @__dso_handle) #20
   %313 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.156)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.156, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, i64 26), align 2, !tbaa !15
   %314 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10TIMEORIGINB5cxx11E, ptr nonnull @__dso_handle) #20
   %315 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.158)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.158, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, i64 23), align 1, !tbaa !15
   %316 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7TIMECRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %317 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.160)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(14) @.str.160, i64 14, i1 false)
   store i64 14, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, i64 30), align 2, !tbaa !15
   %318 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants14VERTICALEXTENTB5cxx11E, ptr nonnull @__dso_handle) #20
   %319 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.162)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.162, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, i64 26), align 2, !tbaa !15
   %320 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10TIMEEXTENTB5cxx11E, ptr nonnull @__dso_handle) #20
   %321 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.164)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.164, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, i64 21), align 1, !tbaa !15
   %322 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants5USAGEB5cxx11E, ptr nonnull @__dso_handle) #20
   %323 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.166)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.166, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, i64 23), align 1, !tbaa !15
   %324 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7DYNAMICB5cxx11E, ptr nonnull @__dso_handle) #20
   %325 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.168)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.168, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, i64 26), align 2, !tbaa !15
   %326 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10FRAMEEPOCHB5cxx11E, ptr nonnull @__dso_handle) #20
   %327 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.170)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.170, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, i64 21), align 1, !tbaa !15
   %328 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants5MODELB5cxx11E, ptr nonnull @__dso_handle) #20
   %329 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.172)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.172, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, i64 28), align 4, !tbaa !15
   %330 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants12VELOCITYGRIDB5cxx11E, ptr nonnull @__dso_handle) #20
   %331 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.174)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, align 8, !tbaa !32
   store i64 4993438986490039877, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, i64 24), align 8, !tbaa !15
   %332 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants8ENSEMBLEB5cxx11E, ptr nonnull @__dso_handle) #20
   %333 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.176)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.176, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, i64 22), align 2, !tbaa !15
   %334 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6MEMBERB5cxx11E, ptr nonnull @__dso_handle) #20
   %335 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.178)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %103) #20
-  store i64 16, ptr %103, align 8, !tbaa !32
+  store i64 16, ptr %103, align 8, !tbaa !33
   %336 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %103, i64 noundef 0)
   store ptr %336, ptr @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, align 8, !tbaa !22
-  %337 = load i64, ptr %103, align 8, !tbaa !32
+  %337 = load i64, ptr %103, align 8, !tbaa !33
   store i64 %337, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %336, ptr noundef nonnull align 1 dereferenceable(16) @.str.178, i64 16, i1 false)
   store i64 %337, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2412,90 +2412,90 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %103) #20
   %340 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants16ENSEMBLEACCURACYB5cxx11E, ptr nonnull @__dso_handle) #20
   %341 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.180)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(14) @.str.180, i64 14, i1 false)
   store i64 14, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, i64 30), align 2, !tbaa !15
   %342 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants14DERIVEDPROJCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %343 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.182)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.182, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, i64 27), align 1, !tbaa !15
   %344 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11BASEPROJCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %345 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.184)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.184, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, i64 22), align 2, !tbaa !15
   %346 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6EDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %347 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.186)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.186, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, i64 22), align 2, !tbaa !15
   %348 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6ENGCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %349 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.188)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(6) @.str.188, i64 6, i1 false)
   store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, i64 22), align 2, !tbaa !15
   %350 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants6PDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %351 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.190)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str.190, i64 13, i1 false)
   store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, i64 29), align 1, !tbaa !15
   %352 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants13PARAMETRICCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %353 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.192)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(14) @.str.192, i64 14, i1 false)
   store i64 14, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, i64 30), align 2, !tbaa !15
   %354 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants14PARAMETRICUNITB5cxx11E, ptr nonnull @__dso_handle) #20
   %355 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.194)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.194, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, i64 27), align 1, !tbaa !15
   %356 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11BASEVERTCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %357 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.196)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.196, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, i64 26), align 2, !tbaa !15
   %358 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10BASEENGCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %359 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.198)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.198, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, i64 28), align 4, !tbaa !15
   %360 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants12BASEPARAMCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %361 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.200)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.200, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, i64 27), align 1, !tbaa !15
   %362 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11BASETIMECRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %363 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.202)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.202, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, i64 23), align 1, !tbaa !15
   %364 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants7VERSIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %365 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.204)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(10) @.str.204, i64 10, i1 false)
   store i64 10, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, i64 26), align 2, !tbaa !15
   %366 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants10GEOIDMODELB5cxx11E, ptr nonnull @__dso_handle) #20
   %367 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.206)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %102) #20
-  store i64 18, ptr %102, align 8, !tbaa !32
+  store i64 18, ptr %102, align 8, !tbaa !33
   %368 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %102, i64 noundef 0)
   store ptr %368, ptr @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, align 8, !tbaa !22
-  %369 = load i64, ptr %102, align 8, !tbaa !32
+  %369 = load i64, ptr %102, align 8, !tbaa !33
   store i64 %369, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %368, ptr noundef nonnull align 1 dereferenceable(18) @.str.206, i64 18, i1 false)
   store i64 %369, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2505,36 +2505,36 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %102) #20
   %372 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants18COORDINATEMETADATAB5cxx11E, ptr nonnull @__dso_handle) #20
   %373 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.208)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.208, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, i64 21), align 1, !tbaa !15
   %374 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants5EPOCHB5cxx11E, ptr nonnull @__dso_handle) #20
   %375 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.210)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.210, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, i64 28), align 4, !tbaa !15
   %376 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants12AXISMINVALUEB5cxx11E, ptr nonnull @__dso_handle) #20
   %377 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.212)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.212, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, i64 28), align 4, !tbaa !15
   %378 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants12AXISMAXVALUEB5cxx11E, ptr nonnull @__dso_handle) #20
   %379 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.214)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.214, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, i64 28), align 4, !tbaa !15
   %380 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants12RANGEMEANINGB5cxx11E, ptr nonnull @__dso_handle) #20
   %381 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.216)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %101) #20
-  store i64 20, ptr %101, align 8, !tbaa !32
+  store i64 20, ptr %101, align 8, !tbaa !33
   %382 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %101, i64 noundef 0)
   store ptr %382, ptr @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, align 8, !tbaa !22
-  %383 = load i64, ptr %101, align 8, !tbaa !32
+  %383 = load i64, ptr %101, align 8, !tbaa !33
   store i64 %383, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %382, ptr noundef nonnull align 1 dereferenceable(20) @.str.216, i64 20, i1 false)
   store i64 %383, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2544,72 +2544,72 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %101) #20
   %386 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants20POINTMOTIONOPERATIONB5cxx11E, ptr nonnull @__dso_handle) #20
   %387 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.218)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.218, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, i64 27), align 1, !tbaa !15
   %388 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11GEODETICCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %389 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.220)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str.220, i64 13, i1 false)
   store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, i64 29), align 1, !tbaa !15
   %390 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants13GEODETICDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %391 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.222)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.222, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, i64 28), align 4, !tbaa !15
   %392 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants12PROJECTEDCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %393 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.224)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str.224, i64 13, i1 false)
   store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, i64 29), align 1, !tbaa !15
   %394 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants13PRIMEMERIDIANB5cxx11E, ptr nonnull @__dso_handle) #20
   %395 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.226)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str.226, i64 13, i1 false)
   store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, i64 29), align 1, !tbaa !15
   %396 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants13GEOGRAPHICCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %397 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.228)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(3) @.str.228, i64 3, i1 false)
   store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, i64 19), align 1, !tbaa !15
   %398 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants3TRFB5cxx11E, ptr nonnull @__dso_handle) #20
   %399 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.230)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.230, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, i64 27), align 1, !tbaa !15
   %400 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants11VERTICALCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %401 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.232)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(13) @.str.232, i64 13, i1 false)
   store i64 13, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, i64 29), align 1, !tbaa !15
   %402 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants13VERTICALDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %403 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.234)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(3) @.str.234, i64 3, i1 false)
   store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, i64 19), align 1, !tbaa !15
   %404 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants3VRFB5cxx11E, ptr nonnull @__dso_handle) #20
   %405 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.236)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.236, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, i64 25), align 1, !tbaa !15
   %406 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants9TIMEDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %407 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.238)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %100) #20
-  store i64 16, ptr %100, align 8, !tbaa !32
+  store i64 16, ptr %100, align 8, !tbaa !33
   %408 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %100, i64 noundef 0)
   store ptr %408, ptr @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, align 8, !tbaa !22
-  %409 = load i64, ptr %100, align 8, !tbaa !32
+  %409 = load i64, ptr %100, align 8, !tbaa !33
   store i64 %409, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %408, ptr noundef nonnull align 1 dereferenceable(16) @.str.238, i64 16, i1 false)
   store i64 %409, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2619,12 +2619,12 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %100) #20
   %412 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants16TEMPORALQUANTITYB5cxx11E, ptr nonnull @__dso_handle) #20
   %413 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.240)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %99) #20
-  store i64 16, ptr %99, align 8, !tbaa !32
+  store i64 16, ptr %99, align 8, !tbaa !33
   %414 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %99, i64 noundef 0)
   store ptr %414, ptr @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, align 8, !tbaa !22
-  %415 = load i64, ptr %99, align 8, !tbaa !32
+  %415 = load i64, ptr %99, align 8, !tbaa !33
   store i64 %415, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %414, ptr noundef nonnull align 1 dereferenceable(16) @.str.240, i64 16, i1 false)
   store i64 %415, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, i64 8), align 8, !tbaa !27
@@ -2634,32 +2634,32 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %99) #20
   %418 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants16ENGINEERINGDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   %419 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.242)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(14) @.str.242, i64 14, i1 false)
   store i64 14, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, i64 30), align 2, !tbaa !15
   %420 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants14ENGINEERINGCRSB5cxx11E, ptr nonnull @__dso_handle) #20
   %421 = call noundef ptr @_ZN5osgeo4proj2io12WKTConstants26createAndAddToConstantListEPKc(ptr noundef nonnull @.str.244)
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(15) @.str.244, i64 15, i1 false)
   store i64 15, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, i64 31), align 1, !tbaa !15
   %422 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2io12WKTConstants15PARAMETRICDATUMB5cxx11E, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %96) #20
   %423 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr %423, ptr %96, align 8, !tbaa !31
+  store ptr %423, ptr %96, align 8, !tbaa !32
   %424 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 0, ptr %424, align 8, !tbaa !27
   store i8 0, ptr %423, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %97) #20
   %425 = getelementptr inbounds nuw i8, ptr %97, i64 16
-  store ptr %425, ptr %97, align 8, !tbaa !31
+  store ptr %425, ptr %97, align 8, !tbaa !32
   %426 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i64 0, ptr %426, align 8, !tbaa !27
   store i8 0, ptr %425, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %98) #20
   %427 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  store ptr %427, ptr %98, align 8, !tbaa !31
+  store ptr %427, ptr %98, align 8, !tbaa !32
   %428 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 0, ptr %428, align 8, !tbaa !27
   store i8 0, ptr %427, align 8, !tbaa !15
@@ -2783,7 +2783,7 @@ __cxx_global_var_init.245.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %468 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure4NONEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94) #20
   %469 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store ptr %469, ptr %94, align 8, !tbaa !31
+  store ptr %469, ptr %94, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %469, ptr noundef nonnull align 1 dereferenceable(5) @.str.248, i64 5, i1 false)
   %470 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i64 5, ptr %470, align 8, !tbaa !27
@@ -2791,7 +2791,7 @@ __cxx_global_var_init.245.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %471, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %95) #20
   %472 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr %472, ptr %95, align 8, !tbaa !31
+  store ptr %472, ptr %95, align 8, !tbaa !32
   store i32 825242169, ptr %472, align 8
   %473 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i64 4, ptr %473, align 8, !tbaa !27
@@ -2881,12 +2881,12 @@ __cxx_global_var_init.247.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %502 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure11SCALE_UNITYE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %92) #20
   %503 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %503, ptr %92, align 8, !tbaa !31
+  store ptr %503, ptr %92, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %91) #20
-  store i64 17, ptr %91, align 8, !tbaa !32
+  store i64 17, ptr %91, align 8, !tbaa !33
   %504 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(8) %91, i64 noundef 0)
   store ptr %504, ptr %92, align 8, !tbaa !22
-  %505 = load i64, ptr %91, align 8, !tbaa !32
+  %505 = load i64, ptr %91, align 8, !tbaa !33
   store i64 %505, ptr %503, align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %504, ptr noundef nonnull align 1 dereferenceable(17) @.str.251, i64 17, i1 false)
   %506 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -2897,7 +2897,7 @@ __cxx_global_var_init.247.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %91) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %93) #20
   %509 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  store ptr %509, ptr %93, align 8, !tbaa !31
+  store ptr %509, ptr %93, align 8, !tbaa !32
   store i32 842019385, ptr %509, align 8
   %510 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i64 4, ptr %510, align 8, !tbaa !27
@@ -2987,7 +2987,7 @@ __cxx_global_var_init.250.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %539 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure17PARTS_PER_MILLIONE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %89) #20
   %540 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %540, ptr %89, align 8, !tbaa !31
+  store ptr %540, ptr %89, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %540, ptr noundef nonnull align 1 dereferenceable(5) @.str.254, i64 5, i1 false)
   %541 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store i64 5, ptr %541, align 8, !tbaa !27
@@ -2995,7 +2995,7 @@ __cxx_global_var_init.250.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %542, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %90) #20
   %543 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  store ptr %543, ptr %90, align 8, !tbaa !31
+  store ptr %543, ptr %90, align 8, !tbaa !32
   store i32 825241657, ptr %543, align 8
   %544 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store i64 4, ptr %544, align 8, !tbaa !27
@@ -3085,7 +3085,7 @@ __cxx_global_var_init.253.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %573 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure5METREE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %87) #20
   %574 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  store ptr %574, ptr %87, align 8, !tbaa !31
+  store ptr %574, ptr %87, align 8, !tbaa !32
   store i32 1953460070, ptr %574, align 8
   %575 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i64 4, ptr %575, align 8, !tbaa !27
@@ -3093,7 +3093,7 @@ __cxx_global_var_init.253.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %576, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %88) #20
   %577 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  store ptr %577, ptr %88, align 8, !tbaa !31
+  store ptr %577, ptr %88, align 8, !tbaa !32
   store i32 842018873, ptr %577, align 8
   %578 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 4, ptr %578, align 8, !tbaa !27
@@ -3183,7 +3183,7 @@ __cxx_global_var_init.256.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %607 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure4FOOTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %85) #20
   %608 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  store ptr %608, ptr %85, align 8, !tbaa !31
+  store ptr %608, ptr %85, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %608, ptr noundef nonnull align 1 dereferenceable(14) @.str.260, i64 14, i1 false)
   %609 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 14, ptr %609, align 8, !tbaa !27
@@ -3191,7 +3191,7 @@ __cxx_global_var_init.256.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %610, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %86) #20
   %611 = getelementptr inbounds nuw i8, ptr %86, i64 16
-  store ptr %611, ptr %86, align 8, !tbaa !31
+  store ptr %611, ptr %86, align 8, !tbaa !32
   store i32 858796089, ptr %611, align 8
   %612 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 4, ptr %612, align 8, !tbaa !27
@@ -3281,7 +3281,7 @@ __cxx_global_var_init.259.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %641 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure7US_FOOTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %83) #20
   %642 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  store ptr %642, ptr %83, align 8, !tbaa !31
+  store ptr %642, ptr %83, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %642, ptr noundef nonnull align 1 dereferenceable(6) @.str.263, i64 6, i1 false)
   %643 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 6, ptr %643, align 8, !tbaa !27
@@ -3289,7 +3289,7 @@ __cxx_global_var_init.259.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %644, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %84) #20
   %645 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store ptr %645, ptr %84, align 8, !tbaa !31
+  store ptr %645, ptr %84, align 8, !tbaa !32
   store i32 842150201, ptr %645, align 8
   %646 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 4, ptr %646, align 8, !tbaa !27
@@ -3379,7 +3379,7 @@ __cxx_global_var_init.262.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %675 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure6DEGREEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %81) #20
   %676 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  store ptr %676, ptr %81, align 8, !tbaa !31
+  store ptr %676, ptr %81, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %676, ptr noundef nonnull align 1 dereferenceable(10) @.str.266, i64 10, i1 false)
   %677 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 10, ptr %677, align 8, !tbaa !27
@@ -3387,7 +3387,7 @@ __cxx_global_var_init.262.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %678, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %82) #20
   %679 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  store ptr %679, ptr %82, align 8, !tbaa !31
+  store ptr %679, ptr %82, align 8, !tbaa !32
   store i32 875573561, ptr %679, align 8
   %680 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 4, ptr %680, align 8, !tbaa !27
@@ -3477,7 +3477,7 @@ __cxx_global_var_init.265.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %709 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure10ARC_SECONDE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79) #20
   %710 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store ptr %710, ptr %79, align 8, !tbaa !31
+  store ptr %710, ptr %79, align 8, !tbaa !32
   store i32 1684107879, ptr %710, align 8
   %711 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 4, ptr %711, align 8, !tbaa !27
@@ -3485,7 +3485,7 @@ __cxx_global_var_init.265.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %712, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %80) #20
   %713 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  store ptr %713, ptr %80, align 8, !tbaa !31
+  store ptr %713, ptr %80, align 8, !tbaa !32
   store i32 892350777, ptr %713, align 8
   %714 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store i64 4, ptr %714, align 8, !tbaa !27
@@ -3575,7 +3575,7 @@ __cxx_global_var_init.268.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %743 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure4GRADE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77) #20
   %744 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store ptr %744, ptr %77, align 8, !tbaa !31
+  store ptr %744, ptr %77, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %744, ptr noundef nonnull align 1 dereferenceable(6) @.str.272, i64 6, i1 false)
   %745 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 6, ptr %745, align 8, !tbaa !27
@@ -3583,7 +3583,7 @@ __cxx_global_var_init.268.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %746, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %78) #20
   %747 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  store ptr %747, ptr %78, align 8, !tbaa !31
+  store ptr %747, ptr %78, align 8, !tbaa !32
   store i32 825241913, ptr %747, align 8
   %748 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i64 4, ptr %748, align 8, !tbaa !27
@@ -3673,7 +3673,7 @@ __cxx_global_var_init.271.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %777 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure6RADIANE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %75) #20
   %778 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store ptr %778, ptr %75, align 8, !tbaa !31
+  store ptr %778, ptr %75, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %778, ptr noundef nonnull align 1 dereferenceable(11) @.str.275, i64 11, i1 false)
   %779 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i64 11, ptr %779, align 8, !tbaa !27
@@ -3681,7 +3681,7 @@ __cxx_global_var_init.271.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %780, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %76) #20
   %781 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store ptr %781, ptr %76, align 8, !tbaa !31
+  store ptr %781, ptr %76, align 8, !tbaa !32
   store i32 959459641, ptr %781, align 8
   %782 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 4, ptr %782, align 8, !tbaa !27
@@ -3771,7 +3771,7 @@ __cxx_global_var_init.274.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %811 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure11MICRORADIANE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %73) #20
   %812 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store ptr %812, ptr %73, align 8, !tbaa !31
+  store ptr %812, ptr %73, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %812, ptr noundef nonnull align 1 dereferenceable(6) @.str.278, i64 6, i1 false)
   %813 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 6, ptr %813, align 8, !tbaa !27
@@ -3779,7 +3779,7 @@ __cxx_global_var_init.274.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %814, align 2, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %74) #20
   %815 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %815, ptr %74, align 8, !tbaa !31
+  store ptr %815, ptr %74, align 8, !tbaa !32
   store i32 808726577, ptr %815, align 8
   %816 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 4, ptr %816, align 8, !tbaa !27
@@ -3869,7 +3869,7 @@ __cxx_global_var_init.277.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %845 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure6SECONDE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %71) #20
   %846 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store ptr %846, ptr %71, align 8, !tbaa !31
+  store ptr %846, ptr %71, align 8, !tbaa !32
   store i32 1918985593, ptr %846, align 8
   %847 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i64 4, ptr %847, align 8, !tbaa !27
@@ -3877,7 +3877,7 @@ __cxx_global_var_init.277.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %848, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %72) #20
   %849 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store ptr %849, ptr %72, align 8, !tbaa !31
+  store ptr %849, ptr %72, align 8, !tbaa !32
   store i32 959590449, ptr %849, align 8
   %850 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i64 4, ptr %850, align 8, !tbaa !27
@@ -3967,7 +3967,7 @@ __cxx_global_var_init.280.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %879 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure4YEARE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %69) #20
   %880 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store ptr %880, ptr %69, align 8, !tbaa !31
+  store ptr %880, ptr %69, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %880, ptr noundef nonnull align 1 dereferenceable(15) @.str.284, i64 15, i1 false)
   %881 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 15, ptr %881, align 8, !tbaa !27
@@ -3975,7 +3975,7 @@ __cxx_global_var_init.280.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %882, align 1, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %70) #20
   %883 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store ptr %883, ptr %70, align 8, !tbaa !31
+  store ptr %883, ptr %70, align 8, !tbaa !32
   store i32 842281009, ptr %883, align 8
   %884 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 4, ptr %884, align 8, !tbaa !27
@@ -4065,12 +4065,12 @@ __cxx_global_var_init.283.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %913 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure14METRE_PER_YEARE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %67) #20
   %914 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store ptr %914, ptr %67, align 8, !tbaa !31
+  store ptr %914, ptr %67, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %66) #20
-  store i64 20, ptr %66, align 8, !tbaa !32
+  store i64 20, ptr %66, align 8, !tbaa !33
   %915 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(8) %66, i64 noundef 0)
   store ptr %915, ptr %67, align 8, !tbaa !22
-  %916 = load i64, ptr %66, align 8, !tbaa !32
+  %916 = load i64, ptr %66, align 8, !tbaa !33
   store i64 %916, ptr %914, align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %915, ptr noundef nonnull align 1 dereferenceable(20) @.str.287, i64 20, i1 false)
   %917 = getelementptr inbounds nuw i8, ptr %67, i64 8
@@ -4081,7 +4081,7 @@ __cxx_global_var_init.283.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %66) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %68) #20
   %920 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store ptr %920, ptr %68, align 8, !tbaa !31
+  store ptr %920, ptr %68, align 8, !tbaa !32
   store i32 859058225, ptr %920, align 8
   %921 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 4, ptr %921, align 8, !tbaa !27
@@ -4171,12 +4171,12 @@ __cxx_global_var_init.286.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %950 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure19ARC_SECOND_PER_YEARE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %64) #20
   %951 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %951, ptr %64, align 8, !tbaa !31
+  store ptr %951, ptr %64, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %63) #20
-  store i64 26, ptr %63, align 8, !tbaa !32
+  store i64 26, ptr %63, align 8, !tbaa !33
   %952 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %64, ptr noundef nonnull align 8 dereferenceable(8) %63, i64 noundef 0)
   store ptr %952, ptr %64, align 8, !tbaa !22
-  %953 = load i64, ptr %63, align 8, !tbaa !32
+  %953 = load i64, ptr %63, align 8, !tbaa !33
   store i64 %953, ptr %951, align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(26) %952, ptr noundef nonnull align 1 dereferenceable(26) @.str.290, i64 26, i1 false)
   %954 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -4187,7 +4187,7 @@ __cxx_global_var_init.286.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %63) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %65) #20
   %957 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store ptr %957, ptr %65, align 8, !tbaa !31
+  store ptr %957, ptr %65, align 8, !tbaa !32
   store i32 909324337, ptr %957, align 8
   %958 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 4, ptr %958, align 8, !tbaa !27
@@ -4275,15 +4275,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i174: ; preds =
 __cxx_global_var_init.289.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i10.i181, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i9.i179
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %64) #20
   %987 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasureD1Ev, ptr nonnull @_ZN5osgeo4proj6common13UnitOfMeasure12PPM_PER_YEARE, ptr nonnull @__dso_handle) #20
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), align 8, !tbaa !59
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 16), align 8, !tbaa !33
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 24), align 8, !tbaa !60
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 32), align 8, !tbaa !61
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 40), align 8, !tbaa !62
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), align 8, !tbaa !60
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 16), align 8, !tbaa !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 24), align 8, !tbaa !61
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 32), align 8, !tbaa !62
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, i64 40), align 8, !tbaa !63
   %988 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs13AxisDirectionESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection8registryB5cxx11E, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %62) #20
   %989 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %989, ptr %62, align 8, !tbaa !31
+  store ptr %989, ptr %62, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %989, ptr noundef nonnull align 1 dereferenceable(5) @.str.294, i64 5, i1 false)
   %990 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 5, ptr %990, align 8, !tbaa !27
@@ -4337,7 +4337,7 @@ __cxx_global_var_init.293.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1007 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection5NORTHE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %61) #20
   %1008 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store ptr %1008, ptr %61, align 8, !tbaa !31
+  store ptr %1008, ptr %61, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1008, ptr noundef nonnull align 1 dereferenceable(14) @.str.296, i64 14, i1 false)
   %1009 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 14, ptr %1009, align 8, !tbaa !27
@@ -4391,7 +4391,7 @@ __cxx_global_var_init.295.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1026 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection16NORTH_NORTH_EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %60) #20
   %1027 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %1027, ptr %60, align 8, !tbaa !31
+  store ptr %1027, ptr %60, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1027, ptr noundef nonnull align 1 dereferenceable(9) @.str.298, i64 9, i1 false)
   %1028 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i64 9, ptr %1028, align 8, !tbaa !27
@@ -4445,7 +4445,7 @@ __cxx_global_var_init.297.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1045 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection10NORTH_EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %59) #20
   %1046 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store ptr %1046, ptr %59, align 8, !tbaa !31
+  store ptr %1046, ptr %59, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1046, ptr noundef nonnull align 1 dereferenceable(13) @.str.300, i64 13, i1 false)
   %1047 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 13, ptr %1047, align 8, !tbaa !27
@@ -4499,7 +4499,7 @@ __cxx_global_var_init.299.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1064 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection15EAST_NORTH_EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %58) #20
   %1065 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store ptr %1065, ptr %58, align 8, !tbaa !31
+  store ptr %1065, ptr %58, align 8, !tbaa !32
   store i32 1953718629, ptr %1065, align 8
   %1066 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 4, ptr %1066, align 8, !tbaa !27
@@ -4553,7 +4553,7 @@ __cxx_global_var_init.301.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1083 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection4EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %57) #20
   %1084 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr %1084, ptr %57, align 8, !tbaa !31
+  store ptr %1084, ptr %57, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1084, ptr noundef nonnull align 1 dereferenceable(13) @.str.304, i64 13, i1 false)
   %1085 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store i64 13, ptr %1085, align 8, !tbaa !27
@@ -4607,7 +4607,7 @@ __cxx_global_var_init.303.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1102 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection15EAST_SOUTH_EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %56) #20
   %1103 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %1103, ptr %56, align 8, !tbaa !31
+  store ptr %1103, ptr %56, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1103, ptr noundef nonnull align 1 dereferenceable(9) @.str.306, i64 9, i1 false)
   %1104 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 9, ptr %1104, align 8, !tbaa !27
@@ -4661,7 +4661,7 @@ __cxx_global_var_init.305.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1121 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection10SOUTH_EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #20
   %1122 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store ptr %1122, ptr %55, align 8, !tbaa !31
+  store ptr %1122, ptr %55, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1122, ptr noundef nonnull align 1 dereferenceable(14) @.str.308, i64 14, i1 false)
   %1123 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 14, ptr %1123, align 8, !tbaa !27
@@ -4715,7 +4715,7 @@ __cxx_global_var_init.307.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1140 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection16SOUTH_SOUTH_EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %54) #20
   %1141 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store ptr %1141, ptr %54, align 8, !tbaa !31
+  store ptr %1141, ptr %54, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1141, ptr noundef nonnull align 1 dereferenceable(5) @.str.310, i64 5, i1 false)
   %1142 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 5, ptr %1142, align 8, !tbaa !27
@@ -4769,7 +4769,7 @@ __cxx_global_var_init.309.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1159 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection5SOUTHE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %53) #20
   %1160 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store ptr %1160, ptr %53, align 8, !tbaa !31
+  store ptr %1160, ptr %53, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1160, ptr noundef nonnull align 1 dereferenceable(14) @.str.312, i64 14, i1 false)
   %1161 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 14, ptr %1161, align 8, !tbaa !27
@@ -4823,7 +4823,7 @@ __cxx_global_var_init.311.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1178 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection16SOUTH_SOUTH_WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %52) #20
   %1179 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store ptr %1179, ptr %52, align 8, !tbaa !31
+  store ptr %1179, ptr %52, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1179, ptr noundef nonnull align 1 dereferenceable(9) @.str.314, i64 9, i1 false)
   %1180 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store i64 9, ptr %1180, align 8, !tbaa !27
@@ -4877,7 +4877,7 @@ __cxx_global_var_init.313.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1197 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection10SOUTH_WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %51) #20
   %1198 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store ptr %1198, ptr %51, align 8, !tbaa !31
+  store ptr %1198, ptr %51, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1198, ptr noundef nonnull align 1 dereferenceable(13) @.str.316, i64 13, i1 false)
   %1199 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 13, ptr %1199, align 8, !tbaa !27
@@ -4931,7 +4931,7 @@ __cxx_global_var_init.315.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1216 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection15WEST_SOUTH_WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %50) #20
   %1217 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %1217, ptr %50, align 8, !tbaa !31
+  store ptr %1217, ptr %50, align 8, !tbaa !32
   store i32 1953719671, ptr %1217, align 8
   %1218 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i64 4, ptr %1218, align 8, !tbaa !27
@@ -4985,7 +4985,7 @@ __cxx_global_var_init.317.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1235 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection4WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %49) #20
   %1236 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %1236, ptr %49, align 8, !tbaa !31
+  store ptr %1236, ptr %49, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %1236, ptr noundef nonnull align 1 dereferenceable(13) @.str.320, i64 13, i1 false)
   %1237 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 13, ptr %1237, align 8, !tbaa !27
@@ -5039,7 +5039,7 @@ __cxx_global_var_init.319.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1254 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection15WEST_NORTH_WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %48) #20
   %1255 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %1255, ptr %48, align 8, !tbaa !31
+  store ptr %1255, ptr %48, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1255, ptr noundef nonnull align 1 dereferenceable(9) @.str.322, i64 9, i1 false)
   %1256 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store i64 9, ptr %1256, align 8, !tbaa !27
@@ -5093,7 +5093,7 @@ __cxx_global_var_init.321.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1273 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection10NORTH_WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %47) #20
   %1274 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store ptr %1274, ptr %47, align 8, !tbaa !31
+  store ptr %1274, ptr %47, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1274, ptr noundef nonnull align 1 dereferenceable(14) @.str.324, i64 14, i1 false)
   %1275 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 14, ptr %1275, align 8, !tbaa !27
@@ -5147,7 +5147,7 @@ __cxx_global_var_init.323.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1292 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection16NORTH_NORTH_WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %46) #20
   %1293 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store ptr %1293, ptr %46, align 8, !tbaa !31
+  store ptr %1293, ptr %46, align 8, !tbaa !32
   store i16 28789, ptr %1293, align 8
   %1294 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i64 2, ptr %1294, align 8, !tbaa !27
@@ -5201,7 +5201,7 @@ __cxx_global_var_init.325.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1311 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection2UPE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #20
   %1312 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %1312, ptr %45, align 8, !tbaa !31
+  store ptr %1312, ptr %45, align 8, !tbaa !32
   store i32 1853321060, ptr %1312, align 8
   %1313 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 4, ptr %1313, align 8, !tbaa !27
@@ -5255,7 +5255,7 @@ __cxx_global_var_init.327.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1330 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection4DOWNE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #20
   %1331 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %1331, ptr %44, align 8, !tbaa !31
+  store ptr %1331, ptr %44, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1331, ptr noundef nonnull align 1 dereferenceable(11) @.str.330, i64 11, i1 false)
   %1332 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store i64 11, ptr %1332, align 8, !tbaa !27
@@ -5309,7 +5309,7 @@ __cxx_global_var_init.329.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1349 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection12GEOCENTRIC_XE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %43) #20
   %1350 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr %1350, ptr %43, align 8, !tbaa !31
+  store ptr %1350, ptr %43, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1350, ptr noundef nonnull align 1 dereferenceable(11) @.str.332, i64 11, i1 false)
   %1351 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 11, ptr %1351, align 8, !tbaa !27
@@ -5363,7 +5363,7 @@ __cxx_global_var_init.331.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1368 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection12GEOCENTRIC_YE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %42) #20
   %1369 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr %1369, ptr %42, align 8, !tbaa !31
+  store ptr %1369, ptr %42, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1369, ptr noundef nonnull align 1 dereferenceable(11) @.str.334, i64 11, i1 false)
   %1370 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i64 11, ptr %1370, align 8, !tbaa !27
@@ -5417,7 +5417,7 @@ __cxx_global_var_init.333.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1387 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection12GEOCENTRIC_ZE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %41) #20
   %1388 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store ptr %1388, ptr %41, align 8, !tbaa !31
+  store ptr %1388, ptr %41, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1388, ptr noundef nonnull align 1 dereferenceable(14) @.str.336, i64 14, i1 false)
   %1389 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 14, ptr %1389, align 8, !tbaa !27
@@ -5471,7 +5471,7 @@ __cxx_global_var_init.335.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1406 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection15COLUMN_POSITIVEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %40) #20
   %1407 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store ptr %1407, ptr %40, align 8, !tbaa !31
+  store ptr %1407, ptr %40, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1407, ptr noundef nonnull align 1 dereferenceable(14) @.str.338, i64 14, i1 false)
   %1408 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 14, ptr %1408, align 8, !tbaa !27
@@ -5525,7 +5525,7 @@ __cxx_global_var_init.337.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1425 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection15COLUMN_NEGATIVEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %39) #20
   %1426 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %1426, ptr %39, align 8, !tbaa !31
+  store ptr %1426, ptr %39, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1426, ptr noundef nonnull align 1 dereferenceable(11) @.str.340, i64 11, i1 false)
   %1427 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i64 11, ptr %1427, align 8, !tbaa !27
@@ -5579,7 +5579,7 @@ __cxx_global_var_init.339.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1444 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection12ROW_POSITIVEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38) #20
   %1445 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store ptr %1445, ptr %38, align 8, !tbaa !31
+  store ptr %1445, ptr %38, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1445, ptr noundef nonnull align 1 dereferenceable(11) @.str.342, i64 11, i1 false)
   %1446 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 11, ptr %1446, align 8, !tbaa !27
@@ -5633,7 +5633,7 @@ __cxx_global_var_init.341.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1463 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection12ROW_NEGATIVEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37) #20
   %1464 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store ptr %1464, ptr %37, align 8, !tbaa !31
+  store ptr %1464, ptr %37, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1464, ptr noundef nonnull align 1 dereferenceable(12) @.str.344, i64 12, i1 false)
   %1465 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 12, ptr %1465, align 8, !tbaa !27
@@ -5687,7 +5687,7 @@ __cxx_global_var_init.343.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1482 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection13DISPLAY_RIGHTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %36) #20
   %1483 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %1483, ptr %36, align 8, !tbaa !31
+  store ptr %1483, ptr %36, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1483, ptr noundef nonnull align 1 dereferenceable(11) @.str.346, i64 11, i1 false)
   %1484 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 11, ptr %1484, align 8, !tbaa !27
@@ -5741,7 +5741,7 @@ __cxx_global_var_init.345.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1501 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection12DISPLAY_LEFTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #20
   %1502 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %1502, ptr %35, align 8, !tbaa !31
+  store ptr %1502, ptr %35, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1502, ptr noundef nonnull align 1 dereferenceable(9) @.str.348, i64 9, i1 false)
   %1503 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 9, ptr %1503, align 8, !tbaa !27
@@ -5795,7 +5795,7 @@ __cxx_global_var_init.347.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1520 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection10DISPLAY_UPE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %34) #20
   %1521 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %1521, ptr %34, align 8, !tbaa !31
+  store ptr %1521, ptr %34, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1521, ptr noundef nonnull align 1 dereferenceable(11) @.str.350, i64 11, i1 false)
   %1522 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 11, ptr %1522, align 8, !tbaa !27
@@ -5849,7 +5849,7 @@ __cxx_global_var_init.349.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1539 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection12DISPLAY_DOWNE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33) #20
   %1540 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %1540, ptr %33, align 8, !tbaa !31
+  store ptr %1540, ptr %33, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1540, ptr noundef nonnull align 1 dereferenceable(7) @.str.352, i64 7, i1 false)
   %1541 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 7, ptr %1541, align 8, !tbaa !27
@@ -5903,7 +5903,7 @@ __cxx_global_var_init.351.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1558 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection7FORWARDE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %32) #20
   %1559 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %1559, ptr %32, align 8, !tbaa !31
+  store ptr %1559, ptr %32, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %1559, ptr noundef nonnull align 1 dereferenceable(3) @.str.354, i64 3, i1 false)
   %1560 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 3, ptr %1560, align 8, !tbaa !27
@@ -5957,7 +5957,7 @@ __cxx_global_var_init.353.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1577 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection3AFTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #20
   %1578 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store ptr %1578, ptr %31, align 8, !tbaa !31
+  store ptr %1578, ptr %31, align 8, !tbaa !32
   store i32 1953656688, ptr %1578, align 8
   %1579 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 4, ptr %1579, align 8, !tbaa !27
@@ -6011,7 +6011,7 @@ __cxx_global_var_init.355.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1596 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection4PORTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #20
   %1597 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %1597, ptr %30, align 8, !tbaa !31
+  store ptr %1597, ptr %30, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1597, ptr noundef nonnull align 1 dereferenceable(9) @.str.358, i64 9, i1 false)
   %1598 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 9, ptr %1598, align 8, !tbaa !27
@@ -6065,7 +6065,7 @@ __cxx_global_var_init.357.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1615 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection9STARBOARDE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #20
   %1616 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %1616, ptr %29, align 8, !tbaa !31
+  store ptr %1616, ptr %29, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1616, ptr noundef nonnull align 1 dereferenceable(9) @.str.360, i64 9, i1 false)
   %1617 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 9, ptr %1617, align 8, !tbaa !27
@@ -6119,12 +6119,12 @@ __cxx_global_var_init.359.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1634 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection9CLOCKWISEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %28) #20
   %1635 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store ptr %1635, ptr %28, align 8, !tbaa !31
+  store ptr %1635, ptr %28, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #20
-  store i64 16, ptr %27, align 8, !tbaa !32
+  store i64 16, ptr %27, align 8, !tbaa !33
   %1636 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(8) %27, i64 noundef 0)
   store ptr %1636, ptr %28, align 8, !tbaa !22
-  %1637 = load i64, ptr %27, align 8, !tbaa !32
+  %1637 = load i64, ptr %27, align 8, !tbaa !33
   store i64 %1637, ptr %1635, align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1636, ptr noundef nonnull align 1 dereferenceable(16) @.str.362, i64 16, i1 false)
   %1638 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -6181,7 +6181,7 @@ __cxx_global_var_init.361.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1656 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection17COUNTER_CLOCKWISEE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %26) #20
   %1657 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %1657, ptr %26, align 8, !tbaa !31
+  store ptr %1657, ptr %26, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %1657, ptr noundef nonnull align 1 dereferenceable(7) @.str.364, i64 7, i1 false)
   %1658 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 7, ptr %1658, align 8, !tbaa !27
@@ -6235,7 +6235,7 @@ __cxx_global_var_init.363.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1675 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection7TOWARDSE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %25) #20
   %1676 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr %1676, ptr %25, align 8, !tbaa !31
+  store ptr %1676, ptr %25, align 8, !tbaa !32
   store i64 7885647119558735713, ptr %1676, align 8
   %1677 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 8, ptr %1677, align 8, !tbaa !27
@@ -6289,7 +6289,7 @@ __cxx_global_var_init.365.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1694 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection9AWAY_FROME, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %24) #20
   %1695 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %1695, ptr %24, align 8, !tbaa !31
+  store ptr %1695, ptr %24, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %1695, ptr noundef nonnull align 1 dereferenceable(6) @.str.368, i64 6, i1 false)
   %1696 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 6, ptr %1696, align 8, !tbaa !27
@@ -6343,7 +6343,7 @@ __cxx_global_var_init.367.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1713 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection6FUTUREE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23) #20
   %1714 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %1714, ptr %23, align 8, !tbaa !31
+  store ptr %1714, ptr %23, align 8, !tbaa !32
   store i32 1953718640, ptr %1714, align 8
   %1715 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 4, ptr %1715, align 8, !tbaa !27
@@ -6397,7 +6397,7 @@ __cxx_global_var_init.369.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1732 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection4PASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #20
   %1733 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %1733, ptr %22, align 8, !tbaa !31
+  store ptr %1733, ptr %22, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1733, ptr noundef nonnull align 1 dereferenceable(11) @.str.372, i64 11, i1 false)
   %1734 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 11, ptr %1734, align 8, !tbaa !27
@@ -6449,15 +6449,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i418: ; preds = 
 __cxx_global_var_init.371.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i422, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i420
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #20
   %1751 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs13AxisDirection11UNSPECIFIEDE, ptr nonnull @__dso_handle) #20
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), align 8, !tbaa !59
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 16), align 8, !tbaa !33
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 24), align 8, !tbaa !60
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 32), align 8, !tbaa !61
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 40), align 8, !tbaa !62
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), align 8, !tbaa !60
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 16), align 8, !tbaa !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 24), align 8, !tbaa !61
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 32), align 8, !tbaa !62
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, i64 40), align 8, !tbaa !63
   %1752 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs12RangeMeaningESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs12RangeMeaning8registryB5cxx11E, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #20
   %1753 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr %1753, ptr %21, align 8, !tbaa !31
+  store ptr %1753, ptr %21, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1753, ptr noundef nonnull align 1 dereferenceable(5) @.str.375, i64 5, i1 false)
   %1754 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 5, ptr %1754, align 8, !tbaa !27
@@ -6511,7 +6511,7 @@ __cxx_global_var_init.374.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1771 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs12RangeMeaning5EXACTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #20
   %1772 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %1772, ptr %20, align 8, !tbaa !31
+  store ptr %1772, ptr %20, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %1772, ptr noundef nonnull align 1 dereferenceable(10) @.str.377, i64 10, i1 false)
   %1773 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 10, ptr %1773, align 8, !tbaa !27
@@ -6563,15 +6563,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i430: ; preds = 
 __cxx_global_var_init.376.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i434, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i432
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #20
   %1790 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs12RangeMeaning10WRAPAROUNDE, ptr nonnull @__dso_handle) #20
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), align 8, !tbaa !59
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 16), align 8, !tbaa !33
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 24), align 8, !tbaa !60
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 32), align 8, !tbaa !61
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 40), align 8, !tbaa !62
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), align 8, !tbaa !60
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 16), align 8, !tbaa !34
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 24), align 8, !tbaa !61
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 8), ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 32), align 8, !tbaa !62
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, i64 40), align 8, !tbaa !63
   %1791 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN5osgeo4proj2cs17AxisDirectionWKT1ESt4lessIS5_ESaISt4pairIKS5_SB_EEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT18registryB5cxx11E, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #20
   %1792 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %1792, ptr %19, align 8, !tbaa !31
+  store ptr %1792, ptr %19, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1792, ptr noundef nonnull align 1 dereferenceable(5) @.str.380, i64 5, i1 false)
   %1793 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 5, ptr %1793, align 8, !tbaa !27
@@ -6625,7 +6625,7 @@ __cxx_global_var_init.379.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1810 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT15NORTHE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #20
   %1811 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store ptr %1811, ptr %18, align 8, !tbaa !31
+  store ptr %1811, ptr %18, align 8, !tbaa !32
   store i32 1414742341, ptr %1811, align 8
   %1812 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 4, ptr %1812, align 8, !tbaa !27
@@ -6679,7 +6679,7 @@ __cxx_global_var_init.381.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1829 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT14EASTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %17) #20
   %1830 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %1830, ptr %17, align 8, !tbaa !31
+  store ptr %1830, ptr %17, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1830, ptr noundef nonnull align 1 dereferenceable(5) @.str.384, i64 5, i1 false)
   %1831 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 5, ptr %1831, align 8, !tbaa !27
@@ -6733,7 +6733,7 @@ __cxx_global_var_init.383.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1848 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT15SOUTHE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %16) #20
   %1849 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %1849, ptr %16, align 8, !tbaa !31
+  store ptr %1849, ptr %16, align 8, !tbaa !32
   store i32 1414743383, ptr %1849, align 8
   %1850 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 4, ptr %1850, align 8, !tbaa !27
@@ -6787,7 +6787,7 @@ __cxx_global_var_init.385.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1867 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT14WESTE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15) #20
   %1868 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store ptr %1868, ptr %15, align 8, !tbaa !31
+  store ptr %1868, ptr %15, align 8, !tbaa !32
   store i16 20565, ptr %1868, align 8
   %1869 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 2, ptr %1869, align 8, !tbaa !27
@@ -6841,7 +6841,7 @@ __cxx_global_var_init.387.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1886 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT12UPE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14) #20
   %1887 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %1887, ptr %14, align 8, !tbaa !31
+  store ptr %1887, ptr %14, align 8, !tbaa !32
   store i32 1314344772, ptr %1887, align 8
   %1888 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 4, ptr %1888, align 8, !tbaa !27
@@ -6895,7 +6895,7 @@ __cxx_global_var_init.389.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1905 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT14DOWNE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #20
   %1906 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %1906, ptr %13, align 8, !tbaa !31
+  store ptr %1906, ptr %13, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1906, ptr noundef nonnull align 1 dereferenceable(5) @.str.392, i64 5, i1 false)
   %1907 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 5, ptr %1907, align 8, !tbaa !27
@@ -6947,42 +6947,42 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5.i472: ; preds = 
 __cxx_global_var_init.391.exit:                   ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i476, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i474
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #20
   %1924 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj2cs17AxisDirectionWKT15OTHERE, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(9) @.str.394, i64 9, i1 false)
   store i64 9, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, i64 25), align 1, !tbaa !15
   %1925 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName9LongitudeB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, align 8, !tbaa !32
   store i64 7306093638347678028, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, i64 24), align 8, !tbaa !15
   %1926 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName8LatitudeB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.398, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, i64 23), align 1, !tbaa !15
   %1927 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName7EastingB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, align 8, !tbaa !32
   store i64 7453010330695921486, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, i64 24), align 8, !tbaa !15
   %1928 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName8NorthingB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(7) @.str.402, i64 7, i1 false)
   store i64 7, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, i64 23), align 1, !tbaa !15
   %1929 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName7WestingB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, align 8, !tbaa !32
   store i64 7453010330696118099, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, i64 16), align 8
   store i64 8, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, i64 24), align 8, !tbaa !15
   %1930 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName8SouthingB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #20
-  store i64 18, ptr %12, align 8, !tbaa !32
+  store i64 18, ptr %12, align 8, !tbaa !33
   %1931 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 0)
   store ptr %1931, ptr @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, align 8, !tbaa !22
-  %1932 = load i64, ptr %12, align 8, !tbaa !32
+  %1932 = load i64, ptr %12, align 8, !tbaa !33
   store i64 %1932, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %1931, ptr noundef nonnull align 1 dereferenceable(18) @.str.406, i64 18, i1 false)
   store i64 %1932, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, i64 8), align 8, !tbaa !27
@@ -6991,64 +6991,64 @@ __cxx_global_var_init.391.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %1934, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #20
   %1935 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName18Ellipsoidal_heightB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.408, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, i64 28), align 4, !tbaa !15
   %1936 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName12Geocentric_XB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.410, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, i64 28), align 4, !tbaa !15
   %1937 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName12Geocentric_YB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(12) @.str.412, i64 12, i1 false)
   store i64 12, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, i64 28), align 4, !tbaa !15
   %1938 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs8AxisName12Geocentric_ZB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(3) @.str.414, i64 3, i1 false)
   store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, i64 19), align 1, !tbaa !15
   %1939 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation3lonB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(3) @.str.416, i64 3, i1 false)
   store i64 3, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, i64 19), align 1, !tbaa !15
   %1940 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation3latB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, align 8, !tbaa !32
   store i8 69, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, i64 16), align 8, !tbaa !15
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, i64 17), align 1, !tbaa !15
   %1941 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation1EB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, align 8, !tbaa !32
   store i8 78, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, i64 16), align 8, !tbaa !15
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, i64 17), align 1, !tbaa !15
   %1942 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation1NB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, align 8, !tbaa !32
   store i8 104, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, i64 16), align 8, !tbaa !15
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, i64 17), align 1, !tbaa !15
   %1943 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation1hB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, align 8, !tbaa !32
   store i8 88, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, i64 16), align 8, !tbaa !15
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, i64 17), align 1, !tbaa !15
   %1944 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation1XB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, align 8, !tbaa !32
   store i8 89, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, i64 16), align 8, !tbaa !15
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, i64 17), align 1, !tbaa !15
   %1945 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation1YB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, i64 16), ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, align 8, !tbaa !32
   store i8 90, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, i64 16), align 8, !tbaa !15
   store i64 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, i64 17), align 1, !tbaa !15
   %1946 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj2cs16AxisAbbreviation1ZB5cxx11E, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #20
   %1947 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %1947, ptr %11, align 8, !tbaa !31
+  store ptr %1947, ptr %11, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1947, ptr noundef nonnull align 1 dereferenceable(9) @.str.430, i64 9, i1 false)
   %1948 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 9, ptr %1948, align 8, !tbaa !27
@@ -7102,7 +7102,7 @@ __cxx_global_var_init.429.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1965 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj5datum17RealizationMethod9LEVELLINGE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #20
   %1966 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %1966, ptr %10, align 8, !tbaa !31
+  store ptr %1966, ptr %10, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1966, ptr noundef nonnull align 1 dereferenceable(5) @.str.432, i64 5, i1 false)
   %1967 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 5, ptr %1967, align 8, !tbaa !27
@@ -7156,7 +7156,7 @@ __cxx_global_var_init.431.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %1984 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj4util8CodeListD2Ev, ptr nonnull @_ZN5osgeo4proj5datum17RealizationMethod5GEOIDE, ptr nonnull @__dso_handle) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #20
   %1985 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %1985, ptr %9, align 8, !tbaa !31
+  store ptr %1985, ptr %9, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %1985, ptr noundef nonnull align 1 dereferenceable(5) @.str.434, i64 5, i1 false)
   %1986 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 5, ptr %1986, align 8, !tbaa !27
@@ -7214,7 +7214,7 @@ __cxx_global_var_init.433.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %2005 = call i32 @__cxa_atexit(ptr nonnull @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEED2Ev, ptr nonnull @_ZN5osgeo4proj5datum13PrimeMeridian18REFERENCE_MERIDIANE, ptr nonnull @__dso_handle) #20
   call void @_ZN5osgeo4proj5datum13PrimeMeridian11createPARISEv(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.30") align 8 @_ZN5osgeo4proj5datum13PrimeMeridian5PARISE)
   %2006 = call i32 @__cxa_atexit(ptr nonnull @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum13PrimeMeridianEEED2Ev, ptr nonnull @_ZN5osgeo4proj5datum13PrimeMeridian5PARISE, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum9Ellipsoid5EARTHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj5datum9Ellipsoid5EARTHB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum9Ellipsoid5EARTHB5cxx11E, i64 16), ptr @_ZN5osgeo4proj5datum9Ellipsoid5EARTHB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum9Ellipsoid5EARTHB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(5) @.str.439, i64 5, i1 false)
   store i64 5, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum9Ellipsoid5EARTHB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum9Ellipsoid5EARTHB5cxx11E, i64 21), align 1, !tbaa !15
@@ -7231,12 +7231,12 @@ __cxx_global_var_init.433.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %2012 = call i32 @__cxa_atexit(ptr nonnull @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEEED2Ev, ptr nonnull @_ZN5osgeo4proj5datum22GeodeticReferenceFrame9EPSG_6269E, ptr nonnull @__dso_handle) #20
   call void @_ZN5osgeo4proj5datum22GeodeticReferenceFrame15createEPSG_6326Ev(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.38") align 8 @_ZN5osgeo4proj5datum22GeodeticReferenceFrame9EPSG_6326E)
   %2013 = call i32 @__cxa_atexit(ptr nonnull @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEEED2Ev, ptr nonnull @_ZN5osgeo4proj5datum22GeodeticReferenceFrame9EPSG_6326E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, i64 16), ptr @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, i64 16), ptr @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #20
-  store i64 19, ptr %8, align 8, !tbaa !32
+  store i64 19, ptr %8, align 8, !tbaa !33
   %2014 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
   store ptr %2014, ptr @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, align 8, !tbaa !22
-  %2015 = load i64, ptr %8, align 8, !tbaa !32
+  %2015 = load i64, ptr %8, align 8, !tbaa !33
   store i64 %2015, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %2014, ptr noundef nonnull align 1 dereferenceable(19) @.str.447, i64 19, i1 false)
   store i64 %2015, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj5datum13TemporalDatum28CALENDAR_PROLEPTIC_GREGORIANB5cxx11E, i64 8), align 8, !tbaa !27
@@ -7259,12 +7259,12 @@ __cxx_global_var_init.433.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   %2024 = call i32 @__cxa_atexit(ptr nonnull @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs13GeographicCRSEEED2Ev, ptr nonnull @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4807E, ptr nonnull @__dso_handle) #20
   call void @_ZN5osgeo4proj3crs13GeographicCRS15createEPSG_4979Ev(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.46") align 8 @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E)
   %2025 = call i32 @__cxa_atexit(ptr nonnull @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs13GeographicCRSEEED2Ev, ptr nonnull @_ZN5osgeo4proj3crs13GeographicCRS9EPSG_4979E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #20
-  store i64 16, ptr %7, align 8, !tbaa !32
+  store i64 16, ptr %7, align 8, !tbaa !33
   %2026 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
   store ptr %2026, ptr @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, align 8, !tbaa !22
-  %2027 = load i64, ptr %7, align 8, !tbaa !32
+  %2027 = load i64, ptr %7, align 8, !tbaa !33
   store i64 %2027, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2026, ptr noundef nonnull align 1 dereferenceable(16) @.str.456, i64 16, i1 false)
   store i64 %2027, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation19CoordinateOperation21OPERATION_VERSION_KEYB5cxx11E, i64 8), align 8, !tbaa !27
@@ -7276,19 +7276,19 @@ __cxx_global_var_init.433.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #20
   %2031 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %2031, ptr %4, align 8, !tbaa !31
+  store ptr %2031, ptr %4, align 8, !tbaa !32
   %2032 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %2032, align 8, !tbaa !27
   store i8 0, ptr %2031, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #20
   %2033 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %2033, ptr %5, align 8, !tbaa !31
+  store ptr %2033, ptr %5, align 8, !tbaa !32
   %2034 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %2034, align 8, !tbaa !27
   store i8 0, ptr %2033, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #20
   %2035 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %2035, ptr %6, align 8, !tbaa !31
+  store ptr %2035, ptr %6, align 8, !tbaa !32
   %2036 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %2036, align 8, !tbaa !27
   store i8 0, ptr %2035, align 8, !tbaa !15
@@ -7427,17 +7427,17 @@ __cxx_global_var_init.457.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20
   %2080 = call i32 @__cxa_atexit(ptr nonnull @_ZN5osgeo4proj6common7MeasureD1Ev, ptr nonnull @_ZN5osgeo4proj9operation11nullMeasureE, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, align 8, !tbaa !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, i64 16), ptr noundef nonnull align 1 dereferenceable(11) @.str.459, i64 11, i1 false)
   store i64 11, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, i64 8), align 8, !tbaa !27
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, i64 27), align 1, !tbaa !15
   %2081 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj9operation10INVERSE_OFB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #20
-  store i64 22, ptr %2, align 8, !tbaa !32
+  store i64 22, ptr %2, align 8, !tbaa !33
   %2082 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef 0)
   store ptr %2082, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, align 8, !tbaa !22
-  %2083 = load i64, ptr %2, align 8, !tbaa !32
+  %2083 = load i64, ptr %2, align 8, !tbaa !33
   store i64 %2083, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %2082, ptr noundef nonnull align 1 dereferenceable(22) @.str.461, i64 22, i1 false)
   store i64 %2083, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, i64 8), align 8, !tbaa !27
@@ -7446,12 +7446,12 @@ __cxx_global_var_init.457.exit:                   ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %2085, align 1, !tbaa !15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #20
   %2086 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_2D_NAMEB5cxx11E, ptr nonnull @__dso_handle) #20
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, align 8, !tbaa !31
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, i64 16), ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #20
-  store i64 43, ptr %1, align 8, !tbaa !32
+  store i64 43, ptr %1, align 8, !tbaa !33
   %2087 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %2087, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, align 8, !tbaa !22
-  %2088 = load i64, ptr %1, align 8, !tbaa !32
+  %2088 = load i64, ptr %1, align 8, !tbaa !33
   store i64 %2088, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %2087, ptr noundef nonnull align 1 dereferenceable(43) @.str.463, i64 43, i1 false)
   store i64 %2088, ptr getelementptr inbounds nuw (i8, ptr @_ZN5osgeo4proj9operation25AXIS_ORDER_CHANGE_3D_NAMEB5cxx11E, i64 8), align 8, !tbaa !27
@@ -7533,38 +7533,39 @@ attributes #24 = { builtin allocsize(0) }
 !25 = !{!"p1 omnipotent char", !6, i64 0}
 !26 = !{!"long", !7, i64 0}
 !27 = !{!23, !26, i64 8}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!19, !20, i64 16}
-!31 = !{!24, !25, i64 0}
-!32 = !{!26, !26, i64 0}
-!33 = !{!34, !37, i64 8}
-!34 = !{!"_ZTSSt15_Rb_tree_header", !35, i64 0, !26, i64 32}
-!35 = !{!"_ZTSSt18_Rb_tree_node_base", !36, i64 0, !37, i64 8, !37, i64 16, !37, i64 24}
-!36 = !{!"_ZTSSt14_Rb_tree_color", !7, i64 0}
-!37 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !6, i64 0}
-!38 = !{!35, !37, i64 24}
-!39 = !{!35, !37, i64 16}
-!40 = distinct !{!40, !29}
-!41 = distinct !{!41, !29}
-!42 = distinct !{!42, !29}
-!43 = !{!44}
-!44 = distinct !{!44, !45, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!45 = distinct !{!45, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!46 = !{!47}
-!47 = distinct !{!47, !45, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!48 = !{!44, !47}
-!49 = distinct !{!49, !29}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!52 = distinct !{!52, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
-!53 = !{!54}
-!54 = distinct !{!54, !52, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!55 = !{!51, !54}
-!56 = !{!57, !58, i64 0}
-!57 = !{!"_ZTSN5osgeo4proj4util8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !58, i64 0, !23, i64 8}
-!58 = !{!"bool", !7, i64 0}
-!59 = !{!34, !36, i64 0}
-!60 = !{!34, !37, i64 16}
-!61 = !{!34, !37, i64 24}
-!62 = !{!34, !26, i64 32}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!19, !20, i64 16}
+!32 = !{!24, !25, i64 0}
+!33 = !{!26, !26, i64 0}
+!34 = !{!35, !38, i64 8}
+!35 = !{!"_ZTSSt15_Rb_tree_header", !36, i64 0, !26, i64 32}
+!36 = !{!"_ZTSSt18_Rb_tree_node_base", !37, i64 0, !38, i64 8, !38, i64 16, !38, i64 24}
+!37 = !{!"_ZTSSt14_Rb_tree_color", !7, i64 0}
+!38 = !{!"p1 _ZTSSt18_Rb_tree_node_base", !6, i64 0}
+!39 = !{!36, !38, i64 24}
+!40 = !{!36, !38, i64 16}
+!41 = distinct !{!41, !29, !30}
+!42 = distinct !{!42, !29, !30}
+!43 = distinct !{!43, !29, !30}
+!44 = !{!45}
+!45 = distinct !{!45, !46, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!46 = distinct !{!46, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!47 = !{!48}
+!48 = distinct !{!48, !46, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!49 = !{!45, !48}
+!50 = distinct !{!50, !29, !30}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!53 = distinct !{!53, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_"}
+!54 = !{!55}
+!55 = distinct !{!55, !53, !"_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!56 = !{!52, !55}
+!57 = !{!58, !59, i64 0}
+!58 = !{!"_ZTSN5osgeo4proj4util8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE", !59, i64 0, !23, i64 8}
+!59 = !{!"bool", !7, i64 0}
+!60 = !{!35, !37, i64 0}
+!61 = !{!35, !38, i64 16}
+!62 = !{!35, !38, i64 24}
+!63 = !{!35, !26, i64 32}

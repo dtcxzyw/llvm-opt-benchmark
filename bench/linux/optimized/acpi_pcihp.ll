@@ -184,7 +184,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   br label %107
 
 86:                                               ; preds = %76
-  %87 = load i8, ptr @debug_acpi, align 1, !range !8, !noundef !9
+  %87 = load i8, ptr @debug_acpi, align 1, !range !9, !noundef !10
   %88 = icmp eq i8 %87, 0
   br i1 %88, label %.thread4, label %89
 
@@ -214,7 +214,7 @@ define dso_local range(i32 -19, 1) i32 @acpi_get_hp_hw_control_from_firmware(ptr
   %103 = load ptr, ptr %3, align 8
   %104 = icmp ne ptr %103, null
   %105 = select i1 %102, i1 %104, i1 false
-  br i1 %105, label %76, label %.loopexit, !llvm.loop !10
+  br i1 %105, label %76, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %99, %.thread4
   call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %33, ptr noundef nonnull @.str.1) #5
@@ -295,7 +295,7 @@ define dso_local range(i32 0, 2) i32 @acpi_pci_check_ejectable(ptr noundef reado
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %17
-  store ptr null, ptr %4, align 8, !annotation !11
+  store ptr null, ptr %4, align 8, !annotation !12
   %26 = getelementptr i8, ptr %20, i64 -8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
@@ -311,7 +311,7 @@ define dso_local range(i32 0, 2) i32 @acpi_pci_check_ejectable(ptr noundef reado
 
 35:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store i64 0, ptr %3, align 8, !annotation !11
+  store i64 0, ptr %3, align 8, !annotation !12
   %36 = call zeroext i1 @acpi_has_method(ptr noundef %1, ptr noundef nonnull @.str.7) #4
   br i1 %36, label %37, label %46
 
@@ -373,7 +373,7 @@ define internal noundef range(i32 0, 16388) i32 @check_hotplug(ptr noundef %0, i
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %7
-  store i64 0, ptr %5, align 8, !annotation !11
+  store i64 0, ptr %5, align 8, !annotation !12
   %10 = call i32 @acpi_evaluate_integer(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef nonnull %5) #4
   %11 = icmp ne i32 %10, 0
   %12 = load i64, ptr %5, align 8
@@ -425,10 +425,11 @@ attributes #5 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !6, !7}
-!11 = !{!"auto-init"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = !{!"auto-init"}

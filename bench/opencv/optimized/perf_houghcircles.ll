@@ -808,8 +808,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 
 .critedge:                                        ; preds = %132, %135
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i8 1, ptr %147, align 8, !tbaa !61
-  %148 = load ptr, ptr %11, align 8, !tbaa !62
+  store i8 1, ptr %147, align 8, !tbaa !62
+  %148 = load ptr, ptr %11, align 8, !tbaa !63
   %.not.i.i.i65 = icmp eq ptr %148, null
   br i1 %.not.i.i.i65, label %_ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit, label %149
 
@@ -846,7 +846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 157:                                              ; preds = %145, %143, %141
   %.pn39 = phi { ptr, i32 } [ %144, %143 ], [ %146, %145 ], [ %142, %141 ]
-  %158 = load ptr, ptr %11, align 8, !tbaa !62
+  %158 = load ptr, ptr %11, align 8, !tbaa !63
   %.not.i.i.i69 = icmp eq ptr %158, null
   br i1 %.not.i.i.i69, label %_ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit70, label %159
 
@@ -1093,7 +1093,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test39PerfHoughCircles2_ManySmallCircles_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 0, ptr %2, align 8, !tbaa !65
+  store i8 0, ptr %2, align 8, !tbaa !66
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %16 unwind label %3
 
@@ -1108,7 +1108,7 @@ define hidden void @_ZN11opencv_test39PerfHoughCircles2_ManySmallCircles_Test5Se
 8:                                                ; preds = %3
   %9 = extractvalue { ptr, i32 } %4, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #17
-  store i8 1, ptr %2, align 8, !tbaa !65
+  store i8 1, ptr %2, align 8, !tbaa !66
   %11 = load ptr, ptr %10, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -1484,7 +1484,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #17
   invoke void @_ZN4perf8TestBase9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %122 unwind label %133, !llvm.loop !67
+          to label %122 unwind label %133, !llvm.loop !68
 
 130:                                              ; preds = %110, %40
   %.pn23.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn23.pn.pn.pn, %110 ], [ %41, %40 ]
@@ -1511,8 +1511,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit53: ; preds = %_ZN
 
 .critedge:                                        ; preds = %124, %127
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i8 1, ptr %137, align 8, !tbaa !61
-  %138 = load ptr, ptr %9, align 8, !tbaa !62
+  store i8 1, ptr %137, align 8, !tbaa !62
+  %138 = load ptr, ptr %9, align 8, !tbaa !63
   %.not.i.i.i60 = icmp eq ptr %138, null
   br i1 %.not.i.i.i60, label %_ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit, label %139
 
@@ -1549,7 +1549,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %_ZN
 
 147:                                              ; preds = %135, %133, %131
   %.pn34 = phi { ptr, i32 } [ %134, %133 ], [ %136, %135 ], [ %132, %131 ]
-  %148 = load ptr, ptr %9, align 8, !tbaa !62
+  %148 = load ptr, ptr %9, align 8, !tbaa !63
   %.not.i.i.i64 = icmp eq ptr %148, null
   br i1 %.not.i.i.i64, label %_ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit65, label %149
 
@@ -1669,7 +1669,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN11opencv_test29PerfHoughCircles4f_Basic_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i8 0, ptr %2, align 8, !tbaa !68
+  store i8 0, ptr %2, align 8, !tbaa !69
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
           to label %16 unwind label %3
 
@@ -1684,7 +1684,7 @@ define hidden void @_ZN11opencv_test29PerfHoughCircles4f_Basic_Test5SetUpEv(ptr 
 8:                                                ; preds = %3
   %9 = extractvalue { ptr, i32 } %4, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #17
-  store i8 1, ptr %2, align 8, !tbaa !68
+  store i8 1, ptr %2, align 8, !tbaa !69
   %11 = load ptr, ptr %10, align 8, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2082,7 +2082,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #17
   invoke void @_ZN4perf8TestBase9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
-          to label %130 unwind label %143, !llvm.loop !70
+          to label %130 unwind label %143, !llvm.loop !71
 
 138:                                              ; preds = %112, %42
   %.pn25.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn25.pn.pn.pn, %112 ], [ %43, %42 ]
@@ -2116,8 +2116,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %_ZN
 
 .critedge:                                        ; preds = %132, %135
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i8 1, ptr %147, align 8, !tbaa !61
-  %148 = load ptr, ptr %11, align 8, !tbaa !71
+  store i8 1, ptr %147, align 8, !tbaa !62
+  %148 = load ptr, ptr %11, align 8, !tbaa !72
   %.not.i.i.i65 = icmp eq ptr %148, null
   br i1 %.not.i.i.i65, label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit, label %149
 
@@ -2154,7 +2154,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 
 157:                                              ; preds = %145, %143, %141
   %.pn39 = phi { ptr, i32 } [ %144, %143 ], [ %146, %145 ], [ %142, %141 ]
-  %158 = load ptr, ptr %11, align 8, !tbaa !71
+  %158 = load ptr, ptr %11, align 8, !tbaa !72
   %.not.i.i.i69 = icmp eq ptr %158, null
   br i1 %.not.i.i.i69, label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EED2Ev.exit70, label %159
 
@@ -2200,7 +2200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %_ZN
 define linkonce_odr hidden void @_ZN11opencv_test27PerfHoughCircles_Basic_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %4
 
@@ -2210,7 +2210,7 @@ define linkonce_odr hidden void @_ZN11opencv_test27PerfHoughCircles_Basic_TestD0
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
   %.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, label %7
 
@@ -2220,7 +2220,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
   %.not.i.i.i2.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i, label %_ZN4perf8TestBaseD2Ev.exit, label %10
 
@@ -2245,7 +2245,7 @@ define linkonce_odr hidden noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef non
 define linkonce_odr hidden void @_ZN11opencv_test39PerfHoughCircles2_ManySmallCircles_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %4
 
@@ -2255,7 +2255,7 @@ define linkonce_odr hidden void @_ZN11opencv_test39PerfHoughCircles2_ManySmallCi
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
   %.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, label %7
 
@@ -2265,7 +2265,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
   %.not.i.i.i2.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i, label %_ZN4perf8TestBaseD2Ev.exit, label %10
 
@@ -2283,7 +2283,7 @@ _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pai
 define linkonce_odr hidden void @_ZN4perf8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !75
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %4
 
@@ -2293,7 +2293,7 @@ define linkonce_odr hidden void @_ZN4perf8TestBaseD2Ev(ptr noundef nonnull align
 
 _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
   %.not.i.i.i1 = icmp eq ptr %6, null
   br i1 %.not.i.i.i1, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit, label %7
 
@@ -2303,7 +2303,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %7
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
   %.not.i.i.i2 = icmp eq ptr %9, null
   br i1 %.not.i.i.i2, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit3, label %10
 
@@ -2320,7 +2320,7 @@ _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit3: ; preds = %_ZNSt6vector
 define linkonce_odr hidden void @_ZN11opencv_test29PerfHoughCircles4f_Basic_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8, !tbaa !8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !75
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIlSaIlEED2Ev.exit.i, label %4
 
@@ -2330,7 +2330,7 @@ define linkonce_odr hidden void @_ZN11opencv_test29PerfHoughCircles4f_Basic_Test
 
 _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !76
   %.not.i.i.i1.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i1.i, label %_ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i, label %7
 
@@ -2340,7 +2340,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit.i:                  ; preds = %4, %1
 
 _ZNSt6vectorISt4pairIiN2cv5Size_IiEEESaIS4_EED2Ev.exit.i: ; preds = %7, %_ZNSt6vectorIlSaIlEED2Ev.exit.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !75
+  %9 = load ptr, ptr %8, align 8, !tbaa !76
   %.not.i.i.i2.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i2.i, label %_ZN4perf8TestBaseD2Ev.exit, label %10
 
@@ -2654,7 +2654,7 @@ define linkonce_odr hidden noundef ptr @_ZN11opencv_test41PerfHoughCircles2ManyS
 _ZN11opencv_test39PerfHoughCircles2_ManySmallCircles_TestC2Ev.exit: ; preds = %5
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test39PerfHoughCircles2_ManySmallCircles_TestE, i64 16), ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
-  store i8 0, ptr %6, align 8, !tbaa !65
+  store i8 0, ptr %6, align 8, !tbaa !66
   br label %43
 
 7:                                                ; preds = %1
@@ -2801,7 +2801,7 @@ define linkonce_odr hidden noundef ptr @_ZN11opencv_test31PerfHoughCircles4fBasi
 _ZN11opencv_test29PerfHoughCircles4f_Basic_TestC2Ev.exit: ; preds = %5
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11opencv_test29PerfHoughCircles4f_Basic_TestE, i64 16), ptr %4, align 8, !tbaa !8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 248
-  store i8 0, ptr %6, align 8, !tbaa !68
+  store i8 0, ptr %6, align 8, !tbaa !69
   br label %43
 
 7:                                                ; preds = %1
@@ -3061,7 +3061,7 @@ define internal void @_GLOBAL__sub_I_perf_houghcircles.cpp() #14 section ".text.
   store i8 0, ptr %53, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
   %54 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i32 8, ptr %54, align 8, !tbaa !76
+  store i32 8, ptr %54, align 8, !tbaa !77
   %55 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %56 unwind label %71
 
@@ -3152,7 +3152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13.i: ; preds = %_
 
 __cxx_global_var_init.21.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #17
-  store ptr %59, ptr @_ZN11opencv_test27PerfHoughCircles_Basic_Test10test_info_E, align 8, !tbaa !78
+  store ptr %59, ptr @_ZN11opencv_test27PerfHoughCircles_Basic_Test10test_info_E, align 8, !tbaa !79
   %81 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN11opencv_test27PerfHoughCircles_Basic_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
@@ -3215,7 +3215,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %101, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i32 34, ptr %102, align 8, !tbaa !76
+  store i32 34, ptr %102, align 8, !tbaa !77
   %103 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %104 unwind label %119
 
@@ -3302,7 +3302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i: ; preds = %_
 
 __cxx_global_var_init.31.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i5, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #17
-  store ptr %107, ptr @_ZN11opencv_test39PerfHoughCircles2_ManySmallCircles_Test10test_info_E, align 8, !tbaa !78
+  store ptr %107, ptr @_ZN11opencv_test39PerfHoughCircles2_ManySmallCircles_Test10test_info_E, align 8, !tbaa !79
   %129 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN11opencv_test39PerfHoughCircles2_ManySmallCircles_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -3365,7 +3365,7 @@ __cxx_global_var_init.31.exit:                    ; preds = %_ZNKSt7__cxx1112bas
   store i8 0, ptr %149, align 1, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #17
   %150 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 58, ptr %150, align 8, !tbaa !76
+  store i32 58, ptr %150, align 8, !tbaa !77
   %151 = invoke noundef ptr @_ZN7testing8internal13GetTestTypeIdEv()
           to label %152 unwind label %167
 
@@ -3452,7 +3452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11.i13: ; preds = 
 
 __cxx_global_var_init.36.exit:                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i19, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #17
-  store ptr %155, ptr @_ZN11opencv_test29PerfHoughCircles4f_Basic_Test10test_info_E, align 8, !tbaa !78
+  store ptr %155, ptr @_ZN11opencv_test29PerfHoughCircles4f_Basic_Test10test_info_E, align 8, !tbaa !79
   %177 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZN11opencv_test29PerfHoughCircles4f_Basic_Test10test_info_E)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret void
@@ -3547,24 +3547,25 @@ attributes #20 = { builtin allocsize(0) }
 !56 = !{!57, !14, i64 0}
 !57 = !{!"_ZTSN2cv11_InputArrayE", !14, i64 0, !13, i64 8, !54, i64 16}
 !58 = !{!57, !13, i64 8}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
-!61 = !{!17, !5, i64 232}
-!62 = !{!63, !64, i64 0}
-!63 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIfLi3EEESaIS2_EE17_Vector_impl_dataE", !64, i64 0, !64, i64 8, !64, i64 16}
-!64 = !{!"p1 _ZTSN2cv3VecIfLi3EEE", !13, i64 0}
-!65 = !{!66, !5, i64 248}
-!66 = !{!"_ZTSN11opencv_test39PerfHoughCircles2_ManySmallCircles_TestE", !17, i64 0, !5, i64 248}
-!67 = distinct !{!67, !60}
-!68 = !{!69, !5, i64 248}
-!69 = !{!"_ZTSN11opencv_test29PerfHoughCircles4f_Basic_TestE", !17, i64 0, !5, i64 248}
-!70 = distinct !{!70, !60}
-!71 = !{!72, !73, i64 0}
-!72 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE17_Vector_impl_dataE", !73, i64 0, !73, i64 8, !73, i64 16}
-!73 = !{!"p1 _ZTSN2cv3VecIfLi4EEE", !13, i64 0}
-!74 = !{!30, !31, i64 0}
-!75 = !{!24, !25, i64 0}
-!76 = !{!77, !14, i64 32}
-!77 = !{!"_ZTSN7testing8internal12CodeLocationE", !42, i64 0, !14, i64 32}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"p1 _ZTSN7testing8TestInfoE", !13, i64 0}
+!61 = !{!"llvm.loop.estimated_trip_count"}
+!62 = !{!17, !5, i64 232}
+!63 = !{!64, !65, i64 0}
+!64 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIfLi3EEESaIS2_EE17_Vector_impl_dataE", !65, i64 0, !65, i64 8, !65, i64 16}
+!65 = !{!"p1 _ZTSN2cv3VecIfLi3EEE", !13, i64 0}
+!66 = !{!67, !5, i64 248}
+!67 = !{!"_ZTSN11opencv_test39PerfHoughCircles2_ManySmallCircles_TestE", !17, i64 0, !5, i64 248}
+!68 = distinct !{!68, !60, !61}
+!69 = !{!70, !5, i64 248}
+!70 = !{!"_ZTSN11opencv_test29PerfHoughCircles4f_Basic_TestE", !17, i64 0, !5, i64 248}
+!71 = distinct !{!71, !60, !61}
+!72 = !{!73, !74, i64 0}
+!73 = !{!"_ZTSNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE17_Vector_impl_dataE", !74, i64 0, !74, i64 8, !74, i64 16}
+!74 = !{!"p1 _ZTSN2cv3VecIfLi4EEE", !13, i64 0}
+!75 = !{!30, !31, i64 0}
+!76 = !{!24, !25, i64 0}
+!77 = !{!78, !14, i64 32}
+!78 = !{!"_ZTSN7testing8internal12CodeLocationE", !42, i64 0, !14, i64 32}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTSN7testing8TestInfoE", !13, i64 0}

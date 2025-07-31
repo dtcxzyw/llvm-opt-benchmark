@@ -210,24 +210,24 @@ _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_
 73:                                               ; preds = %._crit_edge
   %74 = load ptr, ptr %23, align 8, !tbaa !45
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 40
-  %76 = load i32, ptr %75, align 8, !tbaa !120
-  %77 = load i32, ptr %29, align 8, !tbaa !121
+  %76 = load i32, ptr %75, align 8, !tbaa !121
+  %77 = load i32, ptr %29, align 8, !tbaa !122
   %78 = getelementptr inbounds nuw i8, ptr %74, i64 44
-  %79 = load i32, ptr %78, align 4, !tbaa !122
+  %79 = load i32, ptr %78, align 4, !tbaa !123
   %80 = sub i32 %79, %2
-  %81 = load i32, ptr %32, align 4, !tbaa !121
+  %81 = load i32, ptr %32, align 4, !tbaa !122
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %81, i32 %80)
   %82 = getelementptr inbounds nuw i8, ptr %74, i64 560
-  %83 = load ptr, ptr %82, align 8, !tbaa !123, !noalias !124, !nonnull !42, !noundef !42
+  %83 = load ptr, ptr %82, align 8, !tbaa !124, !noalias !125, !nonnull !42, !noundef !42
   %84 = getelementptr inbounds nuw i8, ptr %74, i64 584
-  %85 = load i32, ptr %84, align 8, !tbaa !50, !noalias !124
+  %85 = load i32, ptr %84, align 8, !tbaa !50, !noalias !125
   %86 = getelementptr inbounds nuw i8, ptr %74, i64 600
-  %87 = load i32, ptr %86, align 8, !tbaa !127, !noalias !124
+  %87 = load i32, ptr %86, align 8, !tbaa !128, !noalias !125
   %88 = mul nsw i32 %87, %85
   %89 = getelementptr inbounds nuw i8, ptr %74, i64 604
-  %90 = load i32, ptr %89, align 4, !tbaa !128, !noalias !124
+  %90 = load i32, ptr %89, align 4, !tbaa !129, !noalias !125
   %91 = getelementptr inbounds nuw i8, ptr %74, i64 48
-  %92 = load i32, ptr %91, align 8, !tbaa !129, !noalias !124
+  %92 = load i32, ptr %91, align 8, !tbaa !130, !noalias !125
   %93 = ashr i32 %92, 1
   %94 = mul nuw nsw i32 %93, %90
   %95 = icmp sgt i32 %88, -1
@@ -304,15 +304,15 @@ _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE6resizeEm.exit: ; preds = %_
   call void @llvm.assume(i1 %136)
   %137 = getelementptr inbounds nuw i16, ptr %128, i64 %133
   %138 = zext i8 %132 to i16
-  store i16 %138, ptr %137, align 2, !tbaa !130
+  store i16 %138, ptr %137, align 2, !tbaa !131
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge149.us, label %129, !llvm.loop !131
+  br i1 %exitcond.not, label %._crit_edge149.us, label %129, !llvm.loop !132
 
 ._crit_edge149.us:                                ; preds = %129
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
-  br i1 %exitcond157.not, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit, label %.preheader.us, !llvm.loop !132
+  br i1 %exitcond157.not, label %_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit, label %.preheader.us, !llvm.loop !133
 
 _ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEED2Ev.exit: ; preds = %._crit_edge149.us, %.preheader.lr.ph, %73
   call void @llvm.assume(i1 %.not146)
@@ -406,9 +406,9 @@ define internal void @_ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_
   %2 = alloca %"struct.std::array.48", align 1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(200) %2, i8 0, i64 200, i1 false)
-  %3 = load ptr, ptr %0, align 8, !tbaa !134
+  %3 = load ptr, ptr %0, align 8, !tbaa !135
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !136
+  %5 = load ptr, ptr %4, align 8, !tbaa !137
   call void %5(ptr noundef nonnull %0, ptr noundef nonnull %2)
   call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.3, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed12_GLOBAL__N_114my_error_throwEP18jpeg_common_struct, ptr noundef nonnull %2) #14
   unreachable
@@ -454,7 +454,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: cold mustprogress noinline optsize uwtable
 define linkonce_odr hidden void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !137
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed17RawspeedExceptionE, i64 16), ptr %0, align 8, !tbaa !138
   invoke void @_ZN8rawspeed17RawspeedException3logEPKc(ptr noundef %1) #23
           to label %3 unwind label %4
 
@@ -489,7 +489,7 @@ declare void @jpeg_destroy_decompress(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN8rawspeed19RawDecoderExceptionCI2NS_17RawspeedExceptionEEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #16 comdat align 2 {
   tail call void @_ZN8rawspeed17RawspeedExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) #23
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !137
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8rawspeed19RawDecoderExceptionE, i64 16), ptr %0, align 8, !tbaa !138
   ret void
 }
 
@@ -645,24 +645,25 @@ attributes #23 = { cold }
 !115 = !{!10, !10, i64 0}
 !116 = !{!7, !14, i64 168}
 !117 = !{!24, !24, i64 0}
-!118 = distinct !{!118, !119}
+!118 = distinct !{!118, !119, !120}
 !119 = !{!"llvm.loop.mustprogress"}
-!120 = !{!51, !14, i64 40}
-!121 = !{!14, !14, i64 0}
-!122 = !{!51, !14, i64 44}
-!123 = !{!105, !24, i64 0}
-!124 = !{!125}
-!125 = distinct !{!125, !126, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
-!126 = distinct !{!126, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
-!127 = !{!51, !14, i64 600}
-!128 = !{!51, !14, i64 604}
-!129 = !{!51, !14, i64 48}
-!130 = !{!22, !22, i64 0}
-!131 = distinct !{!131, !119}
-!132 = distinct !{!132, !119, !133}
-!133 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!134 = !{!135, !8, i64 0}
-!135 = !{!"_ZTS18jpeg_common_struct", !8, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !14, i64 32, !14, i64 36}
-!136 = !{!38, !9, i64 24}
-!137 = !{!138, !138, i64 0}
-!138 = !{!"vtable pointer", !11, i64 0}
+!120 = !{!"llvm.loop.estimated_trip_count"}
+!121 = !{!51, !14, i64 40}
+!122 = !{!14, !14, i64 0}
+!123 = !{!51, !14, i64 44}
+!124 = !{!105, !24, i64 0}
+!125 = !{!126}
+!126 = distinct !{!126, !127, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv: argument 0"}
+!127 = distinct !{!127, !"_ZN8rawspeed12RawImageData31getU16DataAsUncroppedArray2DRefEv"}
+!128 = !{!51, !14, i64 600}
+!129 = !{!51, !14, i64 604}
+!130 = !{!51, !14, i64 48}
+!131 = !{!22, !22, i64 0}
+!132 = distinct !{!132, !119, !120}
+!133 = distinct !{!133, !119, !120, !134}
+!134 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!135 = !{!136, !8, i64 0}
+!136 = !{!"_ZTS18jpeg_common_struct", !8, i64 0, !12, i64 8, !13, i64 16, !9, i64 24, !14, i64 32, !14, i64 36}
+!137 = !{!38, !9, i64 24}
+!138 = !{!139, !139, i64 0}
+!139 = !{!"vtable pointer", !11, i64 0}

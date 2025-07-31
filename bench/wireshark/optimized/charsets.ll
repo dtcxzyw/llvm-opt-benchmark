@@ -192,7 +192,7 @@ define ptr @get_iso_646_string(ptr noundef %0, ptr noundef readonly captures(non
   %17 = getelementptr i8, ptr %.013, i64 1
   %18 = add nsw i32 %.01112, -1
   %19 = icmp sgt i32 %.01112, 1
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %16, %4
   %20 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
@@ -227,7 +227,7 @@ define ptr @get_8859_1_string(ptr noundef %0, ptr noundef readonly captures(none
   %14 = getelementptr i8, ptr %.014, i64 1
   %15 = add nsw i32 %.01113, -1
   %16 = icmp sgt i32 %.01113, 1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %13, %3
   %17 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6)
@@ -269,7 +269,7 @@ define ptr @get_unichar2_string(ptr noundef %0, ptr noundef readonly captures(no
   %19 = getelementptr i8, ptr %.015, i64 1
   %20 = add nsw i32 %.01214, -1
   %21 = icmp sgt i32 %.01214, 1
-  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %18, %4
   %22 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
@@ -338,7 +338,7 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef readonly captures(none)
   %32 = add i32 %.134.us, 2
   %33 = or disjoint i32 %32, 1
   %34 = icmp slt i32 %33, %2
-  br i1 %34, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !11
+  br i1 %34, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %.134 = phi i32 [ %38, %.lr.ph.split ], [ %.134.ph, %.lr.ph.split.preheader ]
@@ -350,7 +350,7 @@ define ptr @get_ucs_2_string(ptr noundef %0, ptr noundef readonly captures(none)
   %38 = add i32 %.134, 2
   %39 = or disjoint i32 %38, 1
   %40 = icmp slt i32 %39, %2
-  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !13
+  br i1 %40, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread, %20
   %.1.lcssa = phi i32 [ %.023, %20 ], [ 2, %.thread ], [ %38, %.lr.ph.split ], [ %32, %.lr.ph.split.us ]
@@ -471,7 +471,7 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef readonly captures(none
   %53 = add i32 %.3.us, 2
   %54 = add i32 %.3.us, 3
   %55 = icmp slt i32 %54, %2
-  br i1 %55, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !14
+  br i1 %55, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %73
   %.173 = phi i32 [ %74, %73 ], [ %.173.ph, %.lr.ph.split.preheader ]
@@ -521,7 +521,7 @@ define ptr @get_utf_16_string(ptr noundef %0, ptr noundef readonly captures(none
   %74 = add i32 %.3, 2
   %75 = add i32 %.3, 3
   %76 = icmp slt i32 %75, %2
-  br i1 %76, label %.lr.ph.split, label %.loopexit, !llvm.loop !15
+  br i1 %76, label %.lr.ph.split, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %52, %73, %.thread, %20, %.split.us
   %.2 = phi i32 [ %.us-phi, %.split.us ], [ %.0, %20 ], [ 2, %.thread ], [ %74, %73 ], [ %53, %52 ]
@@ -603,7 +603,7 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr noundef readonly captures(none)
   %40 = add i32 %.127.us, 4
   %41 = or disjoint i32 %40, 3
   %42 = icmp slt i32 %41, %2
-  br i1 %42, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !16
+  br i1 %42, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %.127 = phi i32 [ %46, %.lr.ph.split ], [ %.127.ph, %.lr.ph.split.preheader ]
@@ -614,7 +614,7 @@ define ptr @get_ucs_4_string(ptr noundef %0, ptr noundef readonly captures(none)
   %46 = add i32 %.127, 4
   %47 = or disjoint i32 %46, 3
   %48 = icmp slt i32 %47, %2
-  br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
+  br i1 %48, label %.lr.ph.split, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.us, %.lr.ph.split, %.thread, %16
   %.1.lcssa = phi i32 [ %.023, %16 ], [ 4, %.thread ], [ %46, %.lr.ph.split ], [ %40, %.lr.ph.split.us ]
@@ -697,7 +697,7 @@ define ptr @get_ts_23_038_7bits_string_packed(ptr noundef %0, ptr noundef readon
   %.1 = phi i32 [ 7, %29 ], [ %35, %34 ]
   %37 = getelementptr i8, ptr %.03545, i64 1
   %38 = icmp slt i32 %.240, %3
-  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %36
   %39 = trunc nuw i8 %.2 to i1
@@ -803,7 +803,7 @@ define ptr @get_ts_23_038_7bits_string_unpacked(ptr noundef %0, ptr noundef read
   %10 = tail call fastcc zeroext i1 @handle_ts_23_038_char(ptr noundef %6, i8 noundef zeroext %9, i1 noundef zeroext %.012)
   %11 = add nuw nsw i32 %.0811, 1
   %exitcond.not = icmp eq i32 %11, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %12 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6)
@@ -847,7 +847,7 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef reado
   %23 = add i32 %.134.us.i, 2
   %24 = or disjoint i32 %23, 1
   %25 = icmp slt i32 %24, %10
-  br i1 %25, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %25, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %12
   %.1.lcssa.i = phi i32 [ 0, %12 ], [ %23, %.lr.ph.split.us.i ]
@@ -937,7 +937,7 @@ define ptr @get_etsi_ts_102_221_annex_a_string(ptr noundef %0, ptr noundef reado
   %.156.ph = phi i1 [ %.05572, %62 ], [ %61, %60 ]
   %68 = add nuw nsw i32 %.05871, 1
   %exitcond.not = icmp eq i32 %68, %35
-  br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !20
+  br i1 %exitcond.not, label %get_ucs_2_string.exit, label %.lr.ph.split, !llvm.loop !21
 
 get_ucs_2_string.exit:                            ; preds = %67, %56, %32, %46, %40, %27, %._crit_edge.i, %30, %5
   %.sink75 = phi ptr [ %31, %30 ], [ %6, %5 ], [ %14, %._crit_edge.i ], [ %14, %27 ], [ %39, %40 ], [ %39, %46 ], [ %39, %32 ], [ %39, %56 ], [ %39, %67 ]
@@ -1005,7 +1005,7 @@ define ptr @get_ascii_7bits_string(ptr noundef %0, ptr noundef readonly captures
   %.1 = phi i32 [ 7, %27 ], [ %12, %24 ]
   %30 = getelementptr i8, ptr %.02837, i64 1
   %31 = icmp slt i32 %.2, %3
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %29, %4
   %32 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
@@ -1032,7 +1032,7 @@ define ptr @get_nonascii_unichar2_string(ptr noundef %0, ptr noundef readonly ca
   %14 = getelementptr i8, ptr %.011, i64 1
   %15 = add nsw i32 %.0910, -1
   %16 = icmp samesign ugt i32 %.0910, 1
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %17 = tail call ptr @wmem_strbuf_finalize(ptr noundef %7)
@@ -1139,7 +1139,7 @@ thread-pre-split:                                 ; preds = %34
   store i64 %.0323540, ptr %8, align 8
   %35 = call i64 @g_iconv(ptr noundef %10, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
   %36 = icmp eq i64 %35, -1
-  br i1 %36, label %thread-pre-split, label %.critedge, !llvm.loop !23
+  br i1 %36, label %thread-pre-split, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %34, %thread-pre-split
   %37 = call i64 @llvm.umax.i64(i64 %.0323540, i64 1)
@@ -1163,7 +1163,7 @@ thread-pre-split:                                 ; preds = %34
 44:                                               ; preds = %22, %28, %.critedge
   %.pr38 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %.pr38, 0
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %44, %.thread, %13
   call void @g_free(ptr noundef %20)
@@ -1296,7 +1296,7 @@ define ptr @get_t61_string(ptr noundef %0, ptr noundef readonly captures(none) %
   %58 = getelementptr i8, ptr %.137, i64 1
   %59 = add nsw i32 %.1, 1
   %60 = icmp slt i32 %59, %2
-  br i1 %60, label %9, label %._crit_edge, !llvm.loop !25
+  br i1 %60, label %9, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %57, %3
   %61 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6)
@@ -1331,7 +1331,7 @@ define ptr @get_dect_standard_8bits_string(ptr noundef %0, ptr noundef readonly 
   %15 = getelementptr i8, ptr %.01316, i64 1
   %16 = add nuw nsw i32 %.017, 1
   %exitcond.not = icmp eq i32 %16, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %14, %3
   %17 = tail call ptr @wmem_strbuf_finalize(ptr noundef %6)
@@ -1379,24 +1379,25 @@ attributes #10 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !12}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !12}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8, !13}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !13}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}

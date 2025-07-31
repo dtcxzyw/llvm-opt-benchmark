@@ -288,7 +288,7 @@ mlp_samplerate.exit88:                            ; preds = %47
 
 truehd_channels.exit:                             ; preds = %192
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  store i32 %200, ptr %201, align 4, !tbaa !30
+  store i32 %200, ptr %201, align 4, !tbaa !31
   br label %202
 
 202:                                              ; preds = %202, %truehd_channels.exit
@@ -304,11 +304,11 @@ truehd_channels.exit:                             ; preds = %192
   %210 = or i64 %209, %.09.i
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, 13
-  br i1 %exitcond.not.i91, label %truehd_layout.exit, label %202, !llvm.loop !31
+  br i1 %exitcond.not.i91, label %truehd_layout.exit, label %202, !llvm.loop !32
 
 truehd_layout.exit:                               ; preds = %202
   %211 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store i64 %210, ptr %211, align 8, !tbaa !32
+  store i64 %210, ptr %211, align 8, !tbaa !33
   %212 = lshr i32 %190, 3
   %213 = zext nneg i32 %212 to i64
   %214 = getelementptr inbounds nuw i8, ptr %27, i64 %213
@@ -321,7 +321,7 @@ truehd_layout.exit:                               ; preds = %202
   %221 = tail call i32 @llvm.umin.i32(i32 %37, i32 %220)
   store i32 %221, ptr %34, align 8, !tbaa !13
   %222 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i32 %219, ptr %222, align 4, !tbaa !33
+  store i32 %219, ptr %222, align 4, !tbaa !34
   %223 = lshr i32 %221, 3
   %224 = zext nneg i32 %223 to i64
   %225 = getelementptr inbounds nuw i8, ptr %27, i64 %224
@@ -351,7 +351,7 @@ truehd_layout.exit:                               ; preds = %202
 
 truehd_channels.exit96:                           ; preds = %233
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store i32 %241, ptr %242, align 8, !tbaa !34
+  store i32 %241, ptr %242, align 8, !tbaa !35
   br label %243
 
 243:                                              ; preds = %243, %truehd_channels.exit96
@@ -367,7 +367,7 @@ truehd_channels.exit96:                           ; preds = %233
   %251 = or i64 %250, %.09.i98
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i97, 1
   %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, 13
-  br i1 %exitcond.not.i100, label %truehd_layout.exit101, label %243, !llvm.loop !31
+  br i1 %exitcond.not.i100, label %truehd_layout.exit101, label %243, !llvm.loop !32
 
 truehd_layout.exit101:                            ; preds = %243, %mlp_samplerate.exit
   %.sink115 = phi i64 [ 56, %mlp_samplerate.exit ], [ 72, %243 ]
@@ -379,10 +379,10 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   store i64 %.lcssa.sink, ptr %254, align 8, !tbaa !25
   %255 = shl nuw nsw i32 40, %.pre-phi
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 %255, ptr %256, align 8, !tbaa !35
+  store i32 %255, ptr %256, align 8, !tbaa !36
   %257 = shl nuw nsw i32 64, %.pre-phi
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  store i32 %257, ptr %258, align 4, !tbaa !36
+  store i32 %257, ptr %258, align 4, !tbaa !37
   %259 = sub nsw i32 0, %253
   %260 = sub nsw i32 %37, %253
   %261 = icmp slt i32 %253, -48
@@ -404,7 +404,7 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   store i32 %spec.select.i, ptr %34, align 8, !tbaa !13
   %273 = and i32 %272, 1
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store i32 %273, ptr %274, align 8, !tbaa !37
+  store i32 %273, ptr %274, align 8, !tbaa !38
   %275 = lshr i32 %spec.select.i, 3
   %276 = zext nneg i32 %275 to i64
   %277 = getelementptr inbounds nuw i8, ptr %27, i64 %276
@@ -420,7 +420,7 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   %286 = add i32 %285, 8
   %287 = lshr i32 %286, 4
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  store i32 %287, ptr %288, align 4, !tbaa !38
+  store i32 %287, ptr %288, align 4, !tbaa !39
   %289 = lshr i32 %284, 3
   %290 = zext nneg i32 %289 to i64
   %291 = getelementptr inbounds nuw i8, ptr %27, i64 %290
@@ -432,7 +432,7 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   %297 = add i32 %284, 4
   %298 = tail call i32 @llvm.umin.i32(i32 %37, i32 %297)
   %299 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store i32 %296, ptr %299, align 8, !tbaa !39
+  store i32 %296, ptr %299, align 8, !tbaa !40
   %300 = add i32 %298, 2
   %301 = tail call i32 @llvm.umin.i32(i32 %37, i32 %300)
   store i32 %301, ptr %34, align 8, !tbaa !13
@@ -448,7 +448,7 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   %311 = tail call i32 @llvm.umin.i32(i32 %37, i32 %310)
   store i32 %311, ptr %34, align 8, !tbaa !13
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 100
-  store i32 %309, ptr %312, align 4, !tbaa !40
+  store i32 %309, ptr %312, align 4, !tbaa !41
   %313 = lshr i32 %311, 3
   %314 = zext nneg i32 %313 to i64
   %315 = getelementptr inbounds nuw i8, ptr %27, i64 %314
@@ -460,7 +460,7 @@ truehd_layout.exit101:                            ; preds = %243, %mlp_samplerat
   %321 = add i32 %311, 8
   %322 = tail call i32 @llvm.umin.i32(i32 %37, i32 %321)
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store i32 %320, ptr %323, align 8, !tbaa !41
+  store i32 %320, ptr %323, align 8, !tbaa !42
   %324 = add nsw i32 %22, -144
   %325 = sub nsw i32 0, %322
   %326 = sub nsw i32 %37, %322
@@ -524,17 +524,18 @@ attributes #3 = { nounwind }
 !25 = !{!17, !17, i64 0}
 !26 = !{!16, !10, i64 28}
 !27 = !{!16, !10, i64 32}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!16, !10, i64 44}
-!31 = distinct !{!31, !29}
-!32 = !{!16, !17, i64 64}
-!33 = !{!16, !10, i64 36}
-!34 = !{!16, !10, i64 48}
-!35 = !{!16, !10, i64 80}
-!36 = !{!16, !10, i64 84}
-!37 = !{!16, !10, i64 88}
-!38 = !{!16, !10, i64 92}
-!39 = !{!16, !10, i64 96}
-!40 = !{!16, !10, i64 100}
-!41 = !{!16, !10, i64 104}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!16, !10, i64 44}
+!32 = distinct !{!32, !29, !30}
+!33 = !{!16, !17, i64 64}
+!34 = !{!16, !10, i64 36}
+!35 = !{!16, !10, i64 48}
+!36 = !{!16, !10, i64 80}
+!37 = !{!16, !10, i64 84}
+!38 = !{!16, !10, i64 88}
+!39 = !{!16, !10, i64 92}
+!40 = !{!16, !10, i64 96}
+!41 = !{!16, !10, i64 100}
+!42 = !{!16, !10, i64 104}

@@ -1615,7 +1615,7 @@ _ZN4node4quic7Session11Application10StreamDataD2Ev.exit: ; preds = %cleanup, %if
   ]
 
 for.cond.backedge:                                ; preds = %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit, %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit
-  br label %for.cond, !llvm.loop !71
+  br label %for.cond, !llvm.loop !73
 
 for.end:                                          ; preds = %_ZN4node4quic7Session11Application10StreamDataD2Ev.exit
   %updateTimer.val = load ptr, ptr %updateTimer, align 8
@@ -1765,14 +1765,14 @@ declare i64 @uv_hrtime() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node4quic7Session18select_applicationEv(ptr noalias writeonly sret(%"class.std::unique_ptr.86") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2616) %this) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN4node4quic18DefaultApplicationESt14default_deleteIS2_EED2Ev.exit:
-  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !73
+  %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19, !noalias !75
   %session_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
-  store ptr %this, ptr %session_.i.i.i, align 8, !noalias !73
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic18DefaultApplicationE, i64 16), ptr %call.i, align 8, !noalias !73
+  store ptr %this, ptr %session_.i.i.i, align 8, !noalias !75
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic18DefaultApplicationE, i64 16), ptr %call.i, align 8, !noalias !75
   %stream_queue_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
-  store ptr %stream_queue_.i.i, ptr %stream_queue_.i.i, align 8, !noalias !73
+  store ptr %stream_queue_.i.i, ptr %stream_queue_.i.i, align 8, !noalias !75
   %next_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
-  store ptr %stream_queue_.i.i, ptr %next_.i.i.i.i, align 8, !noalias !73
+  store ptr %stream_queue_.i.i, ptr %next_.i.i.i.i, align 8, !noalias !75
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }
@@ -1975,24 +1975,24 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %call, i64 2
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp13, ptr noundef nonnull %add.ptr14)
-  %call.i7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17, !noalias !76
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17, !noalias !76
+  %call.i7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17, !noalias !78
+  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17, !noalias !78
   %add.i = add i64 %call1.i, %call.i7
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17, !noalias !76
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17, !noalias !78
   %cmp.i8 = icmp ugt i64 %add.i, %call2.i
   br i1 %cmp.i8, label %land.lhs.true.i, label %if.end7.i
 
 land.lhs.true.i:                                  ; preds = %do.end10
-  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17, !noalias !76
+  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17, !noalias !78
   %cmp4.not.i = icmp ugt i64 %add.i, %call3.i
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %call6.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17, !noalias !76
+  %call6.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #17, !noalias !78
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true.i, %do.end10
-  %call8.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17, !noalias !76
+  %call8.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #17, !noalias !78
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %if.then5.i, %if.end7.i
@@ -2196,7 +2196,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store ptr %1, ptr %next_.i.i, align 8
   %5 = load ptr, ptr %stream_queue_, align 8
   %cmp.i.i.i = icmp eq ptr %5, %stream_queue_
-  br i1 %cmp.i.i.i, label %_ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEED2Ev.exit, label %while.body.i, !llvm.loop !79
+  br i1 %cmp.i.i.i, label %_ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEED2Ev.exit, label %while.body.i, !llvm.loop !81
 
 _ZN4node8ListHeadINS_4quic6StreamEXadL_ZNS2_13stream_queue_EEEED2Ev.exit: ; preds = %while.body.i, %entry
   %.lcssa.i = phi ptr [ %0, %entry ], [ %5, %while.body.i ]
@@ -2236,7 +2236,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   store ptr %1, ptr %next_.i.i.i, align 8
   %5 = load ptr, ptr %stream_queue_.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %5, %stream_queue_.i
-  br i1 %cmp.i.i.i.i, label %_ZN4node4quic18DefaultApplicationD2Ev.exit, label %while.body.i.i, !llvm.loop !79
+  br i1 %cmp.i.i.i.i, label %_ZN4node4quic18DefaultApplicationD2Ev.exit, label %while.body.i.i, !llvm.loop !81
 
 _ZN4node4quic18DefaultApplicationD2Ev.exit:       ; preds = %while.body.i.i, %entry
   %.lcssa.i.i = phi ptr [ %0, %entry ], [ %5, %while.body.i.i ]
@@ -2485,7 +2485,7 @@ if.end.i:                                         ; preds = %for.body.i
   %dec.i = add i64 %cnt.022.i, -1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %v.021.i, i64 16
   %cmp.not.i = icmp eq i64 %dec.i, 0
-  br i1 %cmp.not.i, label %_ZZN4node4quic18DefaultApplication12StreamCommitEPNS0_7Session11Application10StreamDataEmENKUlPP10ngtcp2_vecPmmE_clES8_S9_m.exit, label %for.body.i, !llvm.loop !80
+  br i1 %cmp.not.i, label %_ZZN4node4quic18DefaultApplication12StreamCommitEPNS0_7Session11Application10StreamDataEmENKUlPP10ngtcp2_vecPmmE_clES8_S9_m.exit, label %for.body.i, !llvm.loop !82
 
 _ZZN4node4quic18DefaultApplication12StreamCommitEPNS0_7Session11Application10StreamDataEmENKUlPP10ngtcp2_vecPmmE_clES8_S9_m.exit: ; preds = %if.end.i, %do.end5, %if.then.i
   %7 = phi ptr [ %.pre, %if.then.i ], [ %0, %do.end5 ], [ %0, %if.end.i ]
@@ -2522,7 +2522,7 @@ land.rhs.i:                                       ; preds = %land.rhs, %for.inc.
 for.inc.i:                                        ; preds = %land.rhs.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %2
-  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %land.rhs.i, !llvm.loop !81
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %land.rhs.i, !llvm.loop !83
 
 for.end.loopexit.i:                               ; preds = %for.inc.i, %land.rhs.i
   %i.0.lcssa.ph.i = phi i64 [ %i.06.i, %land.rhs.i ], [ %2, %for.inc.i ]
@@ -2667,7 +2667,7 @@ for.body.i.i:                                     ; preds = %if.then.i1, %for.bo
   %add.i.i = add i64 %14, %len.06.i.i
   %inc.i.i = add nuw i64 %n.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %2
-  br i1 %exitcond.not.i.i, label %if.end.sink.split.i, label %for.body.i.i, !llvm.loop !82
+  br i1 %exitcond.not.i.i, label %if.end.sink.split.i, label %for.body.i.i, !llvm.loop !84
 
 if.end.sink.split.i:                              ; preds = %for.body.i.i, %sw.epilog.i
   %.sink.i = phi i64 [ 0, %sw.epilog.i ], [ %add.i.i, %for.body.i.i ]
@@ -2806,13 +2806,15 @@ attributes #21 = { nounwind willreturn memory(read) }
 !70 = distinct !{!70, !"_ZN4node4quic7Session11Application22CreateStreamDataPacketEv"}
 !71 = distinct !{!71, !72}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{!74}
-!74 = distinct !{!74, !75, !"_ZSt11make_uniqueIN4node4quic18DefaultApplicationEJPNS1_7SessionERNS3_19Application_OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!75 = distinct !{!75, !"_ZSt11make_uniqueIN4node4quic18DefaultApplicationEJPNS1_7SessionERNS3_19Application_OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
-!78 = distinct !{!78, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
-!79 = distinct !{!79, !72}
-!80 = distinct !{!80, !72}
-!81 = distinct !{!81, !72}
-!82 = distinct !{!82, !72}
+!73 = distinct !{!73, !72, !74}
+!74 = !{!"llvm.loop.estimated_trip_count"}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"_ZSt11make_uniqueIN4node4quic18DefaultApplicationEJPNS1_7SessionERNS3_19Application_OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
+!77 = distinct !{!77, !"_ZSt11make_uniqueIN4node4quic18DefaultApplicationEJPNS1_7SessionERNS3_19Application_OptionsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!78 = !{!79}
+!79 = distinct !{!79, !80, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
+!80 = distinct !{!80, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!81 = distinct !{!81, !72, !74}
+!82 = distinct !{!82, !72, !74}
+!83 = distinct !{!83, !72, !74}
+!84 = distinct !{!84, !72, !74}

@@ -75,7 +75,7 @@ define dso_local noundef i32 @luaopen_package(ptr noundef %0) local_unnamed_addr
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   tail call void @lua_rawseti(ptr noundef %0, i32 noundef -2, i64 noundef %indvars.iv.next.i) #7
   %.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %.not.i, label %createsearcherstable.exit, label %4
+  br i1 %.not.i, label %createsearcherstable.exit, label %4, !llvm.loop !8
 
 createsearcherstable.exit:                        ; preds = %4
   tail call void @lua_setfield(ptr noundef %0, i32 noundef -2, ptr noundef nonnull @.str.16) #7
@@ -148,24 +148,24 @@ define internal fastcc void @setpath(ptr noundef %0, ptr noundef %1, ptr noundef
   %28 = sub i64 %26, %27
   call void @luaL_addlstring(ptr noundef nonnull %5, ptr noundef nonnull %.034, i64 noundef %28) #7
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %30 = load i64, ptr %29, align 8, !tbaa !8
+  %30 = load i64, ptr %29, align 8, !tbaa !10
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load i64, ptr %31, align 8, !tbaa !13
+  %32 = load i64, ptr %31, align 8, !tbaa !15
   %33 = icmp ult i64 %30, %32
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %25
   %35 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %5, i64 noundef 1) #7
-  %.pre = load i64, ptr %29, align 8, !tbaa !8
+  %.pre = load i64, ptr %29, align 8, !tbaa !10
   br label %36
 
 36:                                               ; preds = %34, %25
   %37 = phi i64 [ %.pre, %34 ], [ %30, %25 ]
-  %38 = load ptr, ptr %5, align 8, !tbaa !14
+  %38 = load ptr, ptr %5, align 8, !tbaa !16
   %39 = add i64 %37, 1
-  store i64 %39, ptr %29, align 8, !tbaa !8
+  store i64 %39, ptr %29, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 %37
-  store i8 59, ptr %40, align 1, !tbaa !15
+  store i8 59, ptr %40, align 1, !tbaa !17
   br label %41
 
 41:                                               ; preds = %36, %22
@@ -177,24 +177,24 @@ define internal fastcc void @setpath(ptr noundef %0, ptr noundef %1, ptr noundef
 
 45:                                               ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %47 = load i64, ptr %46, align 8, !tbaa !8
+  %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !13
+  %49 = load i64, ptr %48, align 8, !tbaa !15
   %50 = icmp ult i64 %47, %49
   br i1 %50, label %53, label %51
 
 51:                                               ; preds = %45
   %52 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %5, i64 noundef 1) #7
-  %.pre35 = load i64, ptr %46, align 8, !tbaa !8
+  %.pre35 = load i64, ptr %46, align 8, !tbaa !10
   br label %53
 
 53:                                               ; preds = %51, %45
   %54 = phi i64 [ %.pre35, %51 ], [ %47, %45 ]
-  %55 = load ptr, ptr %5, align 8, !tbaa !14
+  %55 = load ptr, ptr %5, align 8, !tbaa !16
   %56 = add i64 %54, 1
-  store i64 %56, ptr %46, align 8, !tbaa !8
+  store i64 %56, ptr %46, align 8, !tbaa !10
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %54
-  store i8 59, ptr %57, align 1, !tbaa !15
+  store i8 59, ptr %57, align 1, !tbaa !17
   %58 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %59 = ptrtoint ptr %43 to i64
   %60 = ptrtoint ptr %18 to i64
@@ -241,7 +241,7 @@ define internal noundef i32 @gctm(ptr noundef %0) #0 {
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #7
   %7 = add nsw i64 %.06, -1
   %8 = icmp samesign ugt i64 %.06, 1
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret i32 0
@@ -268,7 +268,7 @@ define internal range(i32 1, 4) i32 @ll_loadlib(ptr noundef %0) #0 {
   %3 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef 2, ptr noundef null) #7
   %4 = tail call fastcc i32 @lookforfunc(ptr noundef %0, ptr noundef %2, ptr noundef %3)
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %10, label %6, !prof !16
+  br i1 %5, label %10, label %6, !prof !19
 
 6:                                                ; preds = %1
   tail call void @lua_pushnil(ptr noundef %0) #7
@@ -315,12 +315,12 @@ define internal fastcc range(i32 0, 3) i32 @lookforfunc(ptr noundef %0, ptr noun
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %3
-  %9 = load i8, ptr %2, align 1, !tbaa !15
+  %9 = load i8, ptr %2, align 1, !tbaa !17
   %.not = icmp eq i8 %9, 42
   %10 = select i1 %.not, i32 258, i32 2
   %11 = tail call ptr @dlopen(ptr noundef %1, i32 noundef %10) #7
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %lsys_load.exit.thread, label %lsys_load.exit, !prof !17
+  br i1 %12, label %lsys_load.exit.thread, label %lsys_load.exit, !prof !20
 
 lsys_load.exit.thread:                            ; preds = %8
   %13 = tail call ptr @dlerror() #7
@@ -340,7 +340,7 @@ lsys_load.exit:                                   ; preds = %8
 
 18:                                               ; preds = %lsys_load.exit, %3
   %.018 = phi ptr [ %11, %lsys_load.exit ], [ %6, %3 ]
-  %19 = load i8, ptr %2, align 1, !tbaa !15
+  %19 = load i8, ptr %2, align 1, !tbaa !17
   %20 = icmp eq i8 %19, 42
   br i1 %20, label %21, label %22
 
@@ -351,7 +351,7 @@ lsys_load.exit:                                   ; preds = %8
 22:                                               ; preds = %18
   %23 = tail call ptr @dlsym(ptr noundef nonnull %.018, ptr noundef nonnull %2) #7
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %lsys_sym.exit.thread, label %lsys_sym.exit, !prof !17
+  br i1 %24, label %lsys_sym.exit.thread, label %lsys_sym.exit, !prof !20
 
 lsys_sym.exit.thread:                             ; preds = %22
   %25 = tail call ptr @dlerror() #7
@@ -393,7 +393,7 @@ define internal fastcc ptr @searchpath(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = alloca %struct.luaL_Buffer, align 8
   %7 = alloca %struct.luaL_Buffer, align 8
   call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %7) #7
-  %8 = load i8, ptr %3, align 1, !tbaa !15
+  %8 = load i8, ptr %3, align 1, !tbaa !17
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %14, label %9
 
@@ -412,26 +412,26 @@ define internal fastcc ptr @searchpath(ptr noundef %0, ptr noundef %1, ptr nound
   call void @luaL_buffinit(ptr noundef %0, ptr noundef nonnull %7) #7
   call void @luaL_addgsub(ptr noundef nonnull %7, ptr noundef %2, ptr noundef nonnull @.str.21, ptr noundef %.017) #7
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !8
+  %16 = load i64, ptr %15, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %18 = load i64, ptr %17, align 8, !tbaa !13
+  %18 = load i64, ptr %17, align 8, !tbaa !15
   %19 = icmp ult i64 %16, %18
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %14
   %21 = call ptr @luaL_prepbuffsize(ptr noundef nonnull %7, i64 noundef 1) #7
-  %.pre = load i64, ptr %15, align 8, !tbaa !8
+  %.pre = load i64, ptr %15, align 8, !tbaa !10
   br label %22
 
 22:                                               ; preds = %20, %14
   %23 = phi i64 [ %.pre, %20 ], [ %16, %14 ]
-  %24 = load ptr, ptr %7, align 8, !tbaa !14
+  %24 = load ptr, ptr %7, align 8, !tbaa !16
   %25 = add i64 %23, 1
-  store i64 %25, ptr %15, align 8, !tbaa !8
+  store i64 %25, ptr %15, align 8, !tbaa !10
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %23
-  store i8 0, ptr %26, align 1, !tbaa !15
-  %27 = load ptr, ptr %7, align 8, !tbaa !14
-  %28 = load i64, ptr %15, align 8, !tbaa !8
+  store i8 0, ptr %26, align 1, !tbaa !17
+  %27 = load ptr, ptr %7, align 8, !tbaa !16
+  %28 = load i64, ptr %15, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -1
   br label %readable.exit
@@ -442,12 +442,12 @@ readable.exit:                                    ; preds = %37, %22
   br i1 %31, label %45, label %32
 
 32:                                               ; preds = %readable.exit
-  %33 = load i8, ptr %.024, align 1, !tbaa !15
+  %33 = load i8, ptr %.024, align 1, !tbaa !17
   %34 = icmp eq i8 %33, 0
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  store i8 59, ptr %.024, align 1, !tbaa !15
+  store i8 59, ptr %.024, align 1, !tbaa !17
   %36 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   br label %37
 
@@ -456,10 +456,10 @@ readable.exit:                                    ; preds = %37, %22
   %38 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0.i, i32 noundef 59) #8
   %39 = icmp eq ptr %38, null
   %spec.select.i = select i1 %39, ptr %30, ptr %38
-  store i8 0, ptr %spec.select.i, align 1, !tbaa !15
+  store i8 0, ptr %spec.select.i, align 1, !tbaa !17
   %40 = call noalias ptr @fopen64(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.23)
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %readable.exit, label %42
+  br i1 %41, label %readable.exit, label %42, !llvm.loop !21
 
 42:                                               ; preds = %37
   %43 = call i32 @fclose(ptr noundef nonnull %40)
@@ -536,7 +536,7 @@ define internal i32 @searcher_Lua(ptr noundef %0) #0 {
   %3 = tail call i32 @lua_getfield(ptr noundef %0, i32 noundef -1001001, ptr noundef nonnull @.str) #7
   %4 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #7
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.split11.i, label %findfile.exit, !prof !17
+  br i1 %5, label %.split11.i, label %findfile.exit, !prof !20
 
 .split11.i:                                       ; preds = %1
   %6 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str) #7
@@ -550,7 +550,7 @@ findfile.exit:                                    ; preds = %1, %.split11.i
 9:                                                ; preds = %findfile.exit
   %10 = tail call i32 @luaL_loadfilex(ptr noundef %0, ptr noundef nonnull %7, ptr noundef null) #7
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %13, !prof !16
+  br i1 %.not, label %11, label %13, !prof !19
 
 11:                                               ; preds = %9
   %12 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %7) #7
@@ -573,7 +573,7 @@ define internal i32 @searcher_C(ptr noundef %0) #0 {
   %3 = tail call i32 @lua_getfield(ptr noundef %0, i32 noundef -1001001, ptr noundef nonnull @.str.3) #7
   %4 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #7
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.split11.i, label %findfile.exit, !prof !17
+  br i1 %5, label %.split11.i, label %findfile.exit, !prof !20
 
 .split11.i:                                       ; preds = %1
   %6 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.3) #7
@@ -587,7 +587,7 @@ findfile.exit:                                    ; preds = %1, %.split11.i
 9:                                                ; preds = %findfile.exit
   %10 = tail call fastcc i32 @loadfunc(ptr noundef %0, ptr noundef %7, ptr noundef %2)
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %13, !prof !16
+  br i1 %.not, label %11, label %13, !prof !19
 
 11:                                               ; preds = %9
   %12 = tail call ptr @lua_pushstring(ptr noundef %0, ptr noundef nonnull %7) #7
@@ -620,7 +620,7 @@ define internal i32 @searcher_Croot(ptr noundef %0) #0 {
   %11 = tail call i32 @lua_getfield(ptr noundef %0, i32 noundef -1001001, ptr noundef nonnull @.str.3) #7
   %12 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #7
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.split11.i, label %findfile.exit, !prof !17
+  br i1 %13, label %.split11.i, label %findfile.exit, !prof !20
 
 .split11.i:                                       ; preds = %5
   %14 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.3) #7
@@ -725,7 +725,7 @@ define internal range(i32 1, 3) i32 @ll_require(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 1056, ptr nonnull %2) #7
   %8 = tail call i32 @lua_getfield(ptr noundef %0, i32 noundef -1001001, ptr noundef nonnull @.str.16) #7
   %.not.i = icmp eq i32 %8, 5
-  br i1 %.not.i, label %11, label %9, !prof !16
+  br i1 %.not.i, label %11, label %9, !prof !19
 
 9:                                                ; preds = %7
   %10 = tail call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.40) #7
@@ -741,13 +741,13 @@ define internal range(i32 1, 3) i32 @ll_require(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 1, %11 ]
   %14 = call i32 @lua_rawgeti(ptr noundef %0, i32 noundef 3, i64 noundef %indvars.iv.i) #7
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %21, !prof !17
+  br i1 %15, label %16, label %21, !prof !20
 
 16:                                               ; preds = %13
   call void @lua_settop(ptr noundef %0, i32 noundef -2) #7
-  %17 = load i64, ptr %12, align 8, !tbaa !8
+  %17 = load i64, ptr %12, align 8, !tbaa !10
   %18 = add i64 %17, -2
-  store i64 %18, ptr %12, align 8, !tbaa !8
+  store i64 %18, ptr %12, align 8, !tbaa !10
   call void @luaL_pushresult(ptr noundef nonnull %2) #7
   %19 = call ptr @lua_tolstring(ptr noundef %0, i32 noundef -1, ptr noundef null) #7
   %20 = call i32 (ptr, ptr, ...) @luaL_error(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %3, ptr noundef %19) #7
@@ -777,7 +777,7 @@ define internal range(i32 1, 3) i32 @ll_require(ptr noundef %0) #0 {
 
 29:                                               ; preds = %28, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %13
+  br label %13, !llvm.loop !22
 
 findloader.exit:                                  ; preds = %21
   call void @llvm.lifetime.end.p0(i64 1056, ptr nonnull %2) #7
@@ -847,13 +847,18 @@ attributes #8 = { nounwind willreturn memory(read) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !11, i64 16}
-!9 = !{!"luaL_Buffer", !10, i64 0, !11, i64 8, !11, i64 16, !12, i64 24, !6, i64 32}
-!10 = !{!"p1 omnipotent char", !5, i64 0}
-!11 = !{!"long", !6, i64 0}
-!12 = !{!"p1 _ZTS9lua_State", !5, i64 0}
-!13 = !{!9, !11, i64 8}
-!14 = !{!9, !10, i64 0}
-!15 = !{!6, !6, i64 0}
-!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !13, i64 16}
+!11 = !{!"luaL_Buffer", !12, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !6, i64 32}
+!12 = !{!"p1 omnipotent char", !5, i64 0}
+!13 = !{!"long", !6, i64 0}
+!14 = !{!"p1 _ZTS9lua_State", !5, i64 0}
+!15 = !{!11, !13, i64 8}
+!16 = !{!11, !12, i64 0}
+!17 = !{!6, !6, i64 0}
+!18 = distinct !{!18, !9}
+!19 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !9}

@@ -115,21 +115,21 @@ define dso_local noundef ptr @_ZN4llvm20toScalarizedStructTyEPNS_10StructTypeE(p
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !13
   %8 = zext i32 %7 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %9, ptr %2, align 8, !tbaa !17, !alias.scope !31
+  store ptr %9, ptr %2, align 8, !tbaa !17, !alias.scope !32
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %10, align 8, !tbaa !22, !alias.scope !31
+  store i32 0, ptr %10, align 8, !tbaa !22, !alias.scope !32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 6, ptr %11, align 4, !tbaa !23, !alias.scope !31
+  store i32 6, ptr %11, align 4, !tbaa !23, !alias.scope !32
   %12 = icmp ugt i32 %7, 6
   br i1 %12, label %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread, label %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i
 
 _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i.thread: ; preds = %1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %9, i64 noundef %8, i64 noundef 8) #6
-  %.pre.i.i.i.i = load i32, ptr %10, align 8, !tbaa !22, !alias.scope !31
+  %.pre.i.i.i.i = load i32, ptr %10, align 8, !tbaa !22, !alias.scope !32
   %.pre19.i.i.i.i = zext i32 %.pre.i.i.i.i to i64
-  %.pre = load ptr, ptr %2, align 8, !tbaa !17, !alias.scope !31
+  %.pre = load ptr, ptr %2, align 8, !tbaa !17, !alias.scope !32
   br label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i
 
 _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i: ; preds = %1
@@ -147,7 +147,7 @@ _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i: ; preds = %1
   %.010.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %26, %"_ZNK4llvm15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S2_EdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %8, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i ]
   %.049.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %25, %"_ZNK4llvm15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S2_EdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %15, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i ]
   %.sroa.07.08.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %24, %"_ZNK4llvm15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S2_EdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %5, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i.i.i ]
-  %.val6.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.07.08.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !28
+  %.val6.val.i.i.i.i.i.i.i.i.i.i.i.i = load ptr, ptr %.sroa.07.08.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !24, !noalias !29
   %16 = getelementptr inbounds nuw i8, ptr %.val6.val.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 255
@@ -168,13 +168,13 @@ _ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i: ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %.049.i.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %26 = add nsw i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %27 = icmp sgt i64 %.010.i.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm13map_to_vectorINS_8ArrayRefIPNS_4TypeEEEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0EEDaOT_OT0_.exit", !llvm.loop !34
+  br i1 %27, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZN4llvm13map_to_vectorINS_8ArrayRefIPNS_4TypeEEEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0EEDaOT_OT0_.exit", !llvm.loop !35
 
 "_ZN4llvm13map_to_vectorINS_8ArrayRefIPNS_4TypeEEEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0EEDaOT_OT0_.exit": ; preds = %"_ZNK4llvm15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S2_EdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i", %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i
   %28 = phi ptr [ %9, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i ], [ %13, %"_ZNK4llvm15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S2_EdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %29 = phi i32 [ 0, %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i.i.i ], [ %14, %"_ZNK4llvm15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S2_EdeEv.exit.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %30 = add i32 %29, %7
-  store i32 %30, ptr %10, align 8, !tbaa !22, !alias.scope !31
+  store i32 %30, ptr %10, align 8, !tbaa !22, !alias.scope !32
   %31 = zext i32 %30 to i64
   %32 = call noundef ptr @_ZN4llvm10StructType3getERNS_11LLVMContextENS_8ArrayRefIPNS_4TypeEEEb(ptr noundef nonnull align 1 %3, ptr %28, i64 %31, i1 noundef zeroext false) #6
   %33 = load ptr, ptr %2, align 8, !tbaa !17
@@ -218,7 +218,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %21 = load i32, ptr %20, align 8, !tbaa !35
+  %21 = load i32, ptr %20, align 8, !tbaa !36
   %22 = icmp eq i32 %17, 18
   %.idx3.i = shl nuw nsw i64 %11, 3
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx3.i
@@ -244,7 +244,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm20isVectorizedStructTyEPNS2_10StructTypeEE3$_0EclIPKPNS2_4TypeEEEbT_.exit.i.i.i.i.i": ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.029.val.i.i.i.i.i, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !35
+  %32 = load i32, ptr %31, align 8, !tbaa !36
   %33 = icmp eq i32 %29, 18
   %34 = icmp ne i32 %32, %21
   %35 = xor i1 %22, %33
@@ -263,7 +263,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm20isVectorizedStructTyEPNS2_10StructTypeEE3$_0EclIPKPNS2_4TypeEEEbT_.exit43.i.i.i.i.i": ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %.val31.i.i.i.i.i, i64 32
-  %43 = load i32, ptr %42, align 8, !tbaa !35
+  %43 = load i32, ptr %42, align 8, !tbaa !36
   %44 = icmp eq i32 %40, 18
   %45 = icmp ne i32 %43, %21
   %46 = xor i1 %33, %44
@@ -282,7 +282,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm20isVectorizedStructTyEPNS2_10StructTypeEE3$_0EclIPKPNS2_4TypeEEEbT_.exit47.i.i.i.i.i": ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %.val33.i.i.i.i.i, i64 32
-  %54 = load i32, ptr %53, align 8, !tbaa !35
+  %54 = load i32, ptr %53, align 8, !tbaa !36
   %55 = icmp eq i32 %51, 18
   %56 = icmp ne i32 %54, %21
   %57 = xor i1 %33, %55
@@ -301,7 +301,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm20isVectorizedStructTyEPNS2_10StructTypeEE3$_0EclIPKPNS2_4TypeEEEbT_.exit51.i.i.i.i.i": ; preds = %58
   %64 = getelementptr inbounds nuw i8, ptr %.val35.i.i.i.i.i, i64 32
-  %65 = load i32, ptr %64, align 8, !tbaa !35
+  %65 = load i32, ptr %64, align 8, !tbaa !36
   %66 = icmp eq i32 %62, 18
   %67 = icmp ne i32 %65, %21
   %68 = xor i1 %33, %66
@@ -312,7 +312,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
   %70 = getelementptr inbounds nuw i8, ptr %.02985.i.i.i.i.i, i64 32
   %71 = add nsw i64 %.086.i.i.i.i.i, -1
   %72 = icmp sgt i64 %.086.i.i.i.i.i, 1
-  br i1 %72, label %26, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !37
+  br i1 %72, label %26, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !38
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %69
   %73 = and i32 %10, 3
@@ -339,7 +339,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm20isVectorizedStructTyEPNS2_10StructTypeEE3$_0EclIPKPNS2_4TypeEEEbT_.exit55.i.i.i.i.i": ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %.029.val37.i.i.i.i.i, i64 32
-  %80 = load i32, ptr %79, align 8, !tbaa !35
+  %80 = load i32, ptr %79, align 8, !tbaa !36
   %81 = icmp eq i32 %77, 18
   %82 = icmp ne i32 %80, %21
   %83 = xor i1 %22, %81
@@ -362,7 +362,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm20isVectorizedStructTyEPNS2_10StructTypeEE3$_0EclIPKPNS2_4TypeEEEbT_.exit59.i.i.i.i.i": ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %.1.val.i.i.i.i.i, i64 32
-  %92 = load i32, ptr %91, align 8, !tbaa !35
+  %92 = load i32, ptr %91, align 8, !tbaa !36
   %93 = icmp eq i32 %89, 18
   %94 = icmp ne i32 %92, %21
   %95 = xor i1 %22, %93
@@ -385,7 +385,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20isVectorizedStructTyEPNS_10Struct
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm20isVectorizedStructTyEPNS2_10StructTypeEE3$_0EclIPKPNS2_4TypeEEEbT_.exit63.i.i.i.i.i": ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %.2.val.i.i.i.i.i, i64 32
-  %104 = load i32, ptr %103, align 8, !tbaa !35
+  %104 = load i32, ptr %103, align 8, !tbaa !36
   %105 = icmp eq i32 %101, 18
   %106 = icmp ne i32 %104, %21
   %107 = xor i1 %22, %105
@@ -488,7 +488,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20canVectorizeStructTyEPNS_10Struct
   %32 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 32
   %33 = add nsw i64 %.047.i.i.i.i.i, -1
   %34 = icmp sgt i64 %.047.i.i.i.i.i, 1
-  br i1 %34, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !38
+  br i1 %34, label %.lr.ph.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !39
 
 ._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %31
   %.pre.i.i.i.i.i = ptrtoint ptr %32 to i64
@@ -603,16 +603,17 @@ attributes #6 = { nounwind }
 !23 = !{!18, !10, i64 12}
 !24 = !{!25, !25, i64 0}
 !25 = !{!"p1 _ZTSN4llvm4TypeE", !6, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZN4llvm13map_to_vectorINS_8ArrayRefIPNS_4TypeEEEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0EEDaOT_OT0_: argument 0"}
-!30 = distinct !{!30, !"_ZN4llvm13map_to_vectorINS_8ArrayRefIPNS_4TypeEEEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0EEDaOT_OT0_"}
-!31 = !{!32, !29}
-!32 = distinct !{!32, !33, !"_ZN4llvm9to_vectorINS_14iterator_rangeINS_15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S4_EEEEEENS_11SmallVectorINSt12remove_constINSt16remove_referenceIDTdeclsr3stdE5beginclsr3stdE7declvalIRT_EEEEE4typeEE4typeEXsr42CalculateSmallVectorDefaultInlinedElementsISL_EE5valueEEEOSF_: argument 0"}
-!33 = distinct !{!33, !"_ZN4llvm9to_vectorINS_14iterator_rangeINS_15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S4_EEEEEENS_11SmallVectorINSt12remove_constINSt16remove_referenceIDTdeclsr3stdE5beginclsr3stdE7declvalIRT_EEEEE4typeEE4typeEXsr42CalculateSmallVectorDefaultInlinedElementsISL_EE5valueEEEOSF_"}
-!34 = distinct !{!34, !27}
-!35 = !{!36, !10, i64 32}
-!36 = !{!"_ZTSN4llvm10VectorTypeE", !4, i64 0, !25, i64 24, !10, i64 32}
-!37 = distinct !{!37, !27}
-!38 = distinct !{!38, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZN4llvm13map_to_vectorINS_8ArrayRefIPNS_4TypeEEEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0EEDaOT_OT0_: argument 0"}
+!31 = distinct !{!31, !"_ZN4llvm13map_to_vectorINS_8ArrayRefIPNS_4TypeEEEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0EEDaOT_OT0_"}
+!32 = !{!33, !30}
+!33 = distinct !{!33, !34, !"_ZN4llvm9to_vectorINS_14iterator_rangeINS_15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S4_EEEEEENS_11SmallVectorINSt12remove_constINSt16remove_referenceIDTdeclsr3stdE5beginclsr3stdE7declvalIRT_EEEEE4typeEE4typeEXsr42CalculateSmallVectorDefaultInlinedElementsISL_EE5valueEEEOSF_: argument 0"}
+!34 = distinct !{!34, !"_ZN4llvm9to_vectorINS_14iterator_rangeINS_15mapped_iteratorIPKPNS_4TypeEZNS_20toScalarizedStructTyEPNS_10StructTypeEE3$_0S4_EEEEEENS_11SmallVectorINSt12remove_constINSt16remove_referenceIDTdeclsr3stdE5beginclsr3stdE7declvalIRT_EEEEE4typeEE4typeEXsr42CalculateSmallVectorDefaultInlinedElementsISL_EE5valueEEEOSF_"}
+!35 = distinct !{!35, !27, !28}
+!36 = !{!37, !10, i64 32}
+!37 = !{!"_ZTSN4llvm10VectorTypeE", !4, i64 0, !25, i64 24, !10, i64 32}
+!38 = distinct !{!38, !27, !28}
+!39 = distinct !{!39, !27, !28}

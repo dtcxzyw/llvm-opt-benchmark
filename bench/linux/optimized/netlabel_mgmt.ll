@@ -1280,12 +1280,12 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr noundef re
 105:                                              ; preds = %.preheader47
   %106 = load volatile ptr, ptr %101, align 8
   %107 = icmp eq ptr %106, %99
-  br i1 %107, label %.loopexit48, label %.preheader47, !llvm.loop !11
+  br i1 %107, label %.loopexit48, label %.preheader47, !llvm.loop !15
 
 .loopexit48:                                      ; preds = %105, %.preheader47, %89
   %108 = phi ptr [ %98, %89 ], [ %106, %105 ], [ %101, %.preheader47 ]
   %109 = icmp eq ptr %108, %99
-  br i1 %109, label %.loopexit53, label %.preheader50, !llvm.loop !14
+  br i1 %109, label %.loopexit53, label %.preheader50, !llvm.loop !16
 
 .loopexit53:                                      ; preds = %.loopexit48, %.loopexit55
   %110 = phi ptr [ %44, %.loopexit55 ], [ %99, %.loopexit48 ]
@@ -1304,7 +1304,7 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr noundef re
 118:                                              ; preds = %.preheader44
   %119 = load volatile ptr, ptr %114, align 8
   %120 = icmp eq ptr %119, %111
-  br i1 %120, label %.loopexit45, label %.preheader44, !llvm.loop !15
+  br i1 %120, label %.loopexit45, label %.preheader44, !llvm.loop !17
 
 .loopexit45:                                      ; preds = %118, %.preheader44, %.loopexit53
   %121 = phi ptr [ %112, %.loopexit53 ], [ %119, %118 ], [ %114, %.preheader44 ]
@@ -1387,12 +1387,12 @@ define internal fastcc i32 @netlbl_mgmt_listentry(ptr noundef %0, ptr noundef re
 171:                                              ; preds = %.preheader
   %172 = load volatile ptr, ptr %167, align 8
   %173 = icmp eq ptr %172, %165
-  br i1 %173, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %173, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %171, %.preheader, %154
   %174 = phi ptr [ %163, %154 ], [ %172, %171 ], [ %167, %.preheader ]
   %175 = icmp eq ptr %174, %165
-  br i1 %175, label %.loopexit43, label %.preheader41, !llvm.loop !16
+  br i1 %175, label %.loopexit43, label %.preheader41, !llvm.loop !19
 
 .loopexit43:                                      ; preds = %.loopexit, %.loopexit45
   %176 = load ptr, ptr %32, align 8
@@ -1515,9 +1515,12 @@ attributes #13 = { nounwind allocsize(0) }
 !8 = !{i64 2156973965, i64 2156973774, i64 2156973826, i64 2156973872, i64 2156973900}
 !9 = !{i64 2156974039, i64 2156974068, i64 2156974114, i64 2156974172, i64 2156974226, i64 2156974280, i64 2156974335, i64 2156974366, i64 2156974674, i64 2156974680, i64 2156974727, i64 2156974750, i64 2156974776}
 !10 = !{i64 2156975231, i64 2156975042, i64 2156975092, i64 2156975138, i64 2156975166}
-!11 = distinct !{!11, !12, !13}
+!11 = distinct !{!11, !12, !13, !14}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = !{!"llvm.loop.unroll.disable"}
-!14 = distinct !{!14, !12, !13}
-!15 = distinct !{!15, !12, !13}
-!16 = distinct !{!16, !12, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !12, !13, !14}
+!16 = distinct !{!16, !12, !13, !14}
+!17 = distinct !{!17, !12, !13, !14}
+!18 = distinct !{!18, !12, !13, !14}
+!19 = distinct !{!19, !12, !13, !14}

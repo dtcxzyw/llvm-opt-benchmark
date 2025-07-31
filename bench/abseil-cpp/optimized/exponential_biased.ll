@@ -48,8 +48,8 @@ _ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit: ; preds = %1
   %23 = add nuw nsw i32 %22, 1
   %24 = uitofp nneg i32 %23 to double
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load double, ptr %25, align 8, !tbaa !17
-  %27 = tail call double @log2(double noundef %24) #4, !tbaa !18
+  %26 = load double, ptr %25, align 8, !tbaa !18
+  %27 = tail call double @log2(double noundef %24) #4, !tbaa !19
   %28 = fadd double %27, -2.600000e+01
   %29 = sitofp i64 %1 to double
   %30 = fmul double %29, 0xBFE62E42FEFA39EF
@@ -60,7 +60,7 @@ _ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit: ; preds = %1
 33:                                               ; preds = %16
   %34 = tail call double @llvm.rint.f64(double %31)
   %35 = fsub double %31, %34
-  store double %35, ptr %25, align 8, !tbaa !17
+  store double %35, ptr %25, align 8, !tbaa !18
   %36 = fptosi double %34 to i64
   br label %37
 
@@ -146,8 +146,8 @@ _ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i: ; preds = 
   %23 = add nuw nsw i32 %22, 1
   %24 = uitofp nneg i32 %23 to double
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load double, ptr %25, align 8, !tbaa !17
-  %27 = tail call double @log2(double noundef %24) #4, !tbaa !18
+  %26 = load double, ptr %25, align 8, !tbaa !18
+  %27 = tail call double @log2(double noundef %24) #4, !tbaa !19
   %28 = fadd double %27, -2.600000e+01
   %29 = sitofp i64 %3 to double
   %30 = fmul double %29, 0xBFE62E42FEFA39EF
@@ -158,7 +158,7 @@ _ZN4absl18profiling_internal17ExponentialBiased10InitializeEv.exit.i: ; preds = 
 33:                                               ; preds = %16
   %34 = tail call double @llvm.rint.f64(double %31)
   %35 = fsub double %31, %34
-  store double %35, ptr %25, align 8, !tbaa !17
+  store double %35, ptr %25, align 8, !tbaa !18
   %36 = fptosi double %34 to i64
   %37 = add nsw i64 %36, 1
   br label %_ZN4absl18profiling_internal17ExponentialBiased12GetSkipCountEl.exit
@@ -191,8 +191,9 @@ attributes #4 = { nounwind }
 !12 = !{}
 !13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !14 = !{!5, !6, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!5, !9, i64 8}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !7, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!5, !9, i64 8}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !7, i64 0}

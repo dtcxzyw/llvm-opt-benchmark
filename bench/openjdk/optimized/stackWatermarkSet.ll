@@ -129,7 +129,7 @@ define hidden void @_ZN17StackWatermarkSet13before_unwindEP10JavaThread(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %.0 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #10
@@ -145,7 +145,7 @@ define linkonce_odr hidden void @_ZN14StackWatermark13before_unwindEv(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 928
-  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #10, !noalias !9
+  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #10, !noalias !10
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(1800) %7) #10
   %9 = load ptr, ptr %6, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %3, ptr noundef %9, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
@@ -249,7 +249,7 @@ define hidden void @_ZN17StackWatermarkSet12after_unwindEP10JavaThread(ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %.0 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #10
@@ -264,7 +264,7 @@ define linkonce_odr hidden void @_ZN14StackWatermark12after_unwindEv(ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 928
-  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #10, !noalias !13
+  tail call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #10, !noalias !14
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %2, ptr noundef nonnull align 8 dereferenceable(1800) %6) #10
   %8 = call noundef zeroext i1 @_ZNK5frame23is_safepoint_blob_frameEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #10
   br i1 %8, label %11, label %9
@@ -392,7 +392,7 @@ _ZN14StackWatermark12on_iterationERK5frame.exit:  ; preds = %9, %14, %_ZNK5frame
   %33 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %.0 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_ZN14StackWatermark12on_iterationERK5frame.exit, %4, %2
   ret void
@@ -418,7 +418,7 @@ define hidden void @_ZN17StackWatermarkSet12on_safepointEP10JavaThread(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %.0.i = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
 _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit: ; preds = %.lr.ph.i
   tail call void @_ZN14StackWatermark12on_safepointEv(ptr noundef nonnull align 8 dereferenceable(176) %.09.i) #10
@@ -448,7 +448,7 @@ define hidden void @_ZN17StackWatermarkSet16start_processingEP10JavaThread18Stac
   %8 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %.0.i = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
 _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit: ; preds = %.lr.ph.i
   tail call void @_ZN14StackWatermark16start_processingEv(ptr noundef nonnull align 8 dereferenceable(176) %.09.i) #10
@@ -471,7 +471,7 @@ define hidden noundef zeroext i1 @_ZN17StackWatermarkSet18processing_startedEP10
   %4 = getelementptr inbounds nuw i8, ptr %.08, i64 24
   %.0 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %1, %3
   %.08 = phi ptr [ %.0, %3 ], [ %.06, %1 ]
@@ -503,7 +503,7 @@ define hidden void @_ZN17StackWatermarkSet17finish_processingEP10JavaThreadPv18S
   %9 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %.0.i = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %_ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.thread, label %.lr.ph.i, !llvm.loop !18
 
 _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit: ; preds = %.lr.ph.i
   tail call void @_ZN14StackWatermark17finish_processingEPv(ptr noundef nonnull align 8 dereferenceable(176) %.09.i, ptr noundef %1) #10
@@ -530,7 +530,7 @@ define hidden noundef range(i64 0, -1) i64 @_ZN17StackWatermarkSet16lowest_water
   %5 = getelementptr inbounds nuw i8, ptr %.014, i64 24
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %6 = icmp eq i64 %4, -1
@@ -604,7 +604,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %30 = getelementptr inbounds nuw i8, ptr %.09.i.i, i64 24
   %.0.i.i = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i, label %_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.i.i, label %_ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind.exit, label %.lr.ph.i.i, !llvm.loop !18
 
 _ZN17StackWatermarkSet3getEP10JavaThread18StackWatermarkKind.exit.i: ; preds = %.lr.ph.i.i
   call void @_ZN14StackWatermark16start_processingEv(ptr noundef nonnull align 8 dereferenceable(176) %.09.i.i) #10
@@ -618,7 +618,7 @@ _ZN17StackWatermarkSet16start_processingEP10JavaThread18StackWatermarkKind.exit:
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %34 = load i32, ptr %33, align 4
   %.not.i = icmp ult i32 %32, %34
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !20
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !21
 
 35:                                               ; preds = %0, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread
   ret void
@@ -803,7 +803,7 @@ _ZN14StackWatermark12on_iterationERK5frame.exit.i: ; preds = %43, %_ZNK5frame7re
   %44 = getelementptr inbounds nuw i8, ptr %.07.i, i64 24
   %.0.i = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame.exit, label %20, !llvm.loop !16
+  br i1 %.not.i, label %_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame.exit, label %20, !llvm.loop !17
 
 _ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame.exit: ; preds = %_ZN14StackWatermark12on_iterationERK5frame.exit.i, %15, %_ZNK11RegisterMap7in_contEv.exit.thread, %_ZNK11RegisterMap7in_contEv.exit, %3
   ret void
@@ -1301,18 +1301,19 @@ attributes #10 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!11 = distinct !{!11, !"_ZN10JavaThread10last_frameEv"}
-!12 = distinct !{!12, !7}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!15 = distinct !{!15, !"_ZN10JavaThread10last_frameEv"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!12 = distinct !{!12, !"_ZN10JavaThread10last_frameEv"}
+!13 = distinct !{!13, !7, !8}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!16 = distinct !{!16, !"_ZN10JavaThread10last_frameEv"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

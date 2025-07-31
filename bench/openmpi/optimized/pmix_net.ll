@@ -230,7 +230,7 @@ define noundef i32 @pmix_net_prefix2netmask(i32 noundef %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @pmix_net_islocalhost(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i16, ptr %0, align 2, !tbaa !22
+  %2 = load i16, ptr %0, align 2, !tbaa !23
   switch i16 %2, label %24 [
     i16 2, label %3
     i16 10, label %8
@@ -238,32 +238,32 @@ define zeroext i1 @pmix_net_islocalhost(ptr noundef readonly captures(none) %0) 
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4, !tbaa !25
+  %5 = load i32, ptr %4, align 4, !tbaa !26
   %6 = and i32 %5, 127
   %7 = icmp eq i32 %6, 127
   br label %26
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !28
+  %10 = load i32, ptr %9, align 4, !tbaa !29
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %26
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !28
+  %14 = load i32, ptr %13, align 4, !tbaa !29
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = load i32, ptr %17, align 4, !tbaa !28
+  %18 = load i32, ptr %17, align 4, !tbaa !29
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %26
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !28
+  %22 = load i32, ptr %21, align 4, !tbaa !29
   %23 = icmp eq i32 %22, 16777216
   br label %26
 
@@ -336,7 +336,7 @@ define zeroext i1 @pmix_net_samenetwork(ptr noundef readonly captures(none) %0, 
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @pmix_net_addr_isipv6linklocal(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i16, ptr %0, align 2, !tbaa !22
+  %2 = load i16, ptr %0, align 2, !tbaa !23
   %cond = icmp eq i16 %2, 2
   br i1 %cond, label %5, label %3
 
@@ -351,7 +351,7 @@ define noundef zeroext i1 @pmix_net_addr_isipv6linklocal(ptr noundef readonly ca
 
 ; Function Attrs: nounwind uwtable
 define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i16, ptr %0, align 2, !tbaa !22
+  %2 = load i16, ptr %0, align 2, !tbaa !23
   switch i16 %2, label %21 [
     i16 10, label %23
     i16 2, label %3
@@ -369,7 +369,7 @@ define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !25
+  %8 = load i32, ptr %7, align 4, !tbaa !26
   br label %12
 
 9:                                                ; preds = %12
@@ -377,7 +377,7 @@ define zeroext i1 @pmix_net_addr_isipv4public(ptr noundef readonly captures(none
   %10 = getelementptr inbounds nuw %struct.private_ipv4_t, ptr %4, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4, !tbaa !17
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !29
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !30
 
 12:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
@@ -430,7 +430,7 @@ get_hostname_buffer.exit:                         ; preds = %1
 get_hostname_buffer.exit.thread:                  ; preds = %1, %get_hostname_buffer.exit
   %.0.i20 = phi ptr [ %5, %get_hostname_buffer.exit ], [ %3, %1 ]
   store i8 0, ptr %.0.i20, align 1
-  %10 = load i16, ptr %0, align 2, !tbaa !22
+  %10 = load i16, ptr %0, align 2, !tbaa !23
   switch i16 %10, label %12 [
     i16 2, label %13
     i16 10, label %11
@@ -463,7 +463,7 @@ get_hostname_buffer.exit.thread:                  ; preds = %1, %get_hostname_bu
   br i1 %.not18, label %22, label %21
 
 21:                                               ; preds = %19
-  store i8 0, ptr %20, align 1, !tbaa !28
+  store i8 0, ptr %20, align 1, !tbaa !29
   br label %22
 
 22:                                               ; preds = %19, %21, %15, %12, %9
@@ -484,7 +484,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 65536) i32 @pmix_net_get_port(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
-  %2 = load i16, ptr %0, align 2, !tbaa !22
+  %2 = load i16, ptr %0, align 2, !tbaa !23
   switch i16 %2, label %6 [
     i16 2, label %.sink.split
     i16 10, label %.sink.split
@@ -492,7 +492,7 @@ define range(i32 -1, 65536) i32 @pmix_net_get_port(ptr noundef readonly captures
 
 .sink.split:                                      ; preds = %1, %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %4 = load i16, ptr %3, align 2, !tbaa !30
+  %4 = load i16, ptr %3, align 2, !tbaa !31
   %rev.i3 = tail call noundef i16 @llvm.bswap.i16(i16 %4)
   %5 = zext i16 %rev.i3 to i32
   br label %6
@@ -556,14 +556,15 @@ attributes #18 = { nounwind willreturn memory(read) }
 !17 = !{!18, !10, i64 0}
 !18 = !{!"private_ipv4_t", !10, i64 0, !10, i64 4}
 !19 = !{!18, !10, i64 4}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"sockaddr", !24, i64 0, !6, i64 2}
-!24 = !{!"short", !6, i64 0}
-!25 = !{!26, !10, i64 4}
-!26 = !{!"sockaddr_in", !24, i64 0, !24, i64 2, !27, i64 4, !6, i64 8}
-!27 = !{!"in_addr", !10, i64 0}
-!28 = !{!6, !6, i64 0}
-!29 = distinct !{!29, !21}
-!30 = !{!24, !24, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"sockaddr", !25, i64 0, !6, i64 2}
+!25 = !{!"short", !6, i64 0}
+!26 = !{!27, !10, i64 4}
+!27 = !{!"sockaddr_in", !25, i64 0, !25, i64 2, !28, i64 4, !6, i64 8}
+!28 = !{!"in_addr", !10, i64 0}
+!29 = !{!6, !6, i64 0}
+!30 = distinct !{!30, !21, !22}
+!31 = !{!25, !25, i64 0}

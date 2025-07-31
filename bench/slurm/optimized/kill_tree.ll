@@ -133,7 +133,7 @@ _kill_proclist.exit:                              ; preds = %36, %9
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   store ptr %46, ptr %4, align 8
   %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_destroy_list.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %_destroy_list.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _destroy_list.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %6, align 8
@@ -147,12 +147,12 @@ _destroy_list.exit.i:                             ; preds = %_destroy_list.exit.
   call void @slurm_xfree(ptr noundef nonnull %6) #9
   store ptr %50, ptr %6, align 8
   %.not.i9 = icmp eq ptr %50, null
-  br i1 %.not.i9, label %._crit_edge.i, label %.lr.ph.i8, !llvm.loop !12
+  br i1 %.not.i9, label %._crit_edge.i, label %.lr.ph.i8, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %_destroy_list.exit.i, %39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %_destroy_hashtbl.exit, label %39, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_destroy_hashtbl.exit, label %39, !llvm.loop !14
 
 _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %5) #9
@@ -171,7 +171,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %3) #9
   store ptr %52, ptr %3, align 8
   %.not.i11 = icmp eq ptr %52, null
-  br i1 %.not.i11, label %_destroy_list.exit, label %.lr.ph.i10, !llvm.loop !11
+  br i1 %.not.i11, label %_destroy_list.exit, label %.lr.ph.i10, !llvm.loop !12
 
 _destroy_list.exit:                               ; preds = %.lr.ph.i10, %_destroy_hashtbl.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
@@ -300,7 +300,7 @@ _get_myname.exit.thread:                          ; preds = %21, %27, %33
 .backedge:                                        ; preds = %63, %._crit_edge.i, %92, %73, %76, %54, %57, %51, %59, %68, %.lr.ph
   %53 = call ptr @readdir(ptr noundef nonnull %11) #9
   %.not = icmp eq ptr %53, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr %4, align 8
@@ -387,7 +387,7 @@ _get_myname.exit.thread:                          ; preds = %21, %27, %33
   %101 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
   %.0.i29 = load ptr, ptr %101, align 8
   %.not.i30 = icmp eq ptr %.0.i29, null
-  br i1 %.not.i30, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i30, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %100, %81
   %102 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 92, ptr noundef nonnull @__func__._alloc_ppid) #9
@@ -472,7 +472,7 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %.032, i64 16
   %.0 = load ptr, ptr %21, align 8
   %.not22 = icmp eq ptr %.0, null
-  br i1 %.not22, label %.preheader, label %.lr.ph33, !llvm.loop !16
+  br i1 %.not22, label %.preheader, label %.lr.ph33, !llvm.loop !17
 
 .lr.ph38:                                         ; preds = %.preheader, %.lr.ph38
   %.137 = phi ptr [ %.1, %.lr.ph38 ], [ %.134.pre, %.preheader ]
@@ -482,13 +482,13 @@ define internal fastcc ptr @_get_list(i32 noundef %0, ptr noundef %1, ptr nounde
   %24 = getelementptr inbounds nuw i8, ptr %.137, i64 16
   %.1 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %.1, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph38, !llvm.loop !17
+  br i1 %.not23, label %.loopexit, label %.lr.ph38, !llvm.loop !18
 
 25:                                               ; preds = %.lr.ph
   %26 = getelementptr inbounds nuw i8, ptr %.01928, i64 16
   %.019 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %.019, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %25, %.lr.ph38, %9, %3, %.preheader
   %.020 = phi ptr [ %16, %.preheader ], [ %1, %3 ], [ %1, %9 ], [ %23, %.lr.ph38 ], [ %1, %25 ]
@@ -567,7 +567,7 @@ thread-pre-split:                                 ; preds = %41, %30, %43
   %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 4096, ptr noundef nonnull @.str.3, i64 noundef %31) #9
   %33 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %3, i32 noundef 0) #9
   %34 = icmp slt i32 %33, 0
-  br i1 %34, label %thread-pre-split, label %35, !llvm.loop !19
+  br i1 %34, label %thread-pre-split, label %35, !llvm.loop !20
 
 35:                                               ; preds = %30
   %36 = call i64 @read(i32 noundef %33, ptr noundef nonnull %22, i64 noundef 4096) #9
@@ -587,13 +587,13 @@ thread-pre-split:                                 ; preds = %41, %30, %43
 
 41:                                               ; preds = %.thread25, %38
   %42 = call i32 @close(i32 noundef %33) #9
-  br label %thread-pre-split, !llvm.loop !19
+  br label %thread-pre-split, !llvm.loop !20
 
 43:                                               ; preds = %38
   %44 = call i32 @close(i32 noundef %33) #9
   %45 = call i32 @strncmp(ptr noundef nonnull %22, ptr noundef nonnull %1, i64 noundef %11) #11
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.loopexit27, label %thread-pre-split, !llvm.loop !19
+  br i1 %46, label %.loopexit27, label %thread-pre-split, !llvm.loop !20
 
 .loopexit27.sink.split:                           ; preds = %27, %13, %thread-pre-split, %2, %.loopexit
   store i64 0, ptr %5, align 8
@@ -689,7 +689,7 @@ define dso_local range(i32 -1, 1) i32 @proctrack_linuxproc_get_pids(i32 noundef 
   call void @slurm_xfree(ptr noundef nonnull %8) #9
   store ptr %25, ptr %8, align 8
   %.not.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i, label %_destroy_list.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %.not.i.i, label %_destroy_list.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 _destroy_list.exit.loopexit.i:                    ; preds = %.lr.ph.i.i
   %.pre.i = load ptr, ptr %10, align 8
@@ -703,12 +703,12 @@ _destroy_list.exit.i:                             ; preds = %_destroy_list.exit.
   call void @slurm_xfree(ptr noundef nonnull %10) #9
   store ptr %29, ptr %10, align 8
   %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %_destroy_list.exit.i, %18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %_destroy_hashtbl.exit, label %18, !llvm.loop !13
+  br i1 %exitcond.not.i, label %_destroy_hashtbl.exit, label %18, !llvm.loop !14
 
 _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %9) #9
@@ -758,7 +758,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   %49 = getelementptr inbounds nuw i8, ptr %.03056, i64 16
   %50 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %50, null
-  br i1 %.not, label %51, label %32, !llvm.loop !20
+  br i1 %.not, label %51, label %32, !llvm.loop !21
 
 51:                                               ; preds = %48
   %52 = icmp eq i32 %.129, 0
@@ -809,7 +809,7 @@ _destroy_hashtbl.exit:                            ; preds = %._crit_edge.i
   call void @slurm_xfree(ptr noundef nonnull %5) #9
   store ptr %64, ptr %5, align 8
   %.not.i.i44 = icmp eq ptr %64, null
-  br i1 %.not.i.i44, label %_destroy_list.exit.loopexit.i45, label %.lr.ph.i.i42, !llvm.loop !11
+  br i1 %.not.i.i44, label %_destroy_list.exit.loopexit.i45, label %.lr.ph.i.i42, !llvm.loop !12
 
 _destroy_list.exit.loopexit.i45:                  ; preds = %.lr.ph.i.i42
   %.pre.i46 = load ptr, ptr %7, align 8
@@ -823,12 +823,12 @@ _destroy_list.exit.i47:                           ; preds = %_destroy_list.exit.
   call void @slurm_xfree(ptr noundef nonnull %7) #9
   store ptr %68, ptr %7, align 8
   %.not.i48 = icmp eq ptr %68, null
-  br i1 %.not.i48, label %._crit_edge.i49, label %.lr.ph.i39, !llvm.loop !12
+  br i1 %.not.i48, label %._crit_edge.i49, label %.lr.ph.i39, !llvm.loop !13
 
 ._crit_edge.i49:                                  ; preds = %_destroy_list.exit.i47, %57
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i37, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, 64
-  br i1 %exitcond.not.i51, label %_destroy_hashtbl.exit52, label %57, !llvm.loop !13
+  br i1 %exitcond.not.i51, label %_destroy_hashtbl.exit52, label %57, !llvm.loop !14
 
 _destroy_hashtbl.exit52:                          ; preds = %._crit_edge.i49
   call void @slurm_xfree(ptr noundef nonnull %6) #9
@@ -847,7 +847,7 @@ _destroy_hashtbl.exit52:                          ; preds = %._crit_edge.i49
   call void @slurm_xfree(ptr noundef nonnull %4) #9
   store ptr %70, ptr %4, align 8
   %.not.i54 = icmp eq ptr %70, null
-  br i1 %.not.i54, label %_destroy_list.exit, label %.lr.ph.i53, !llvm.loop !11
+  br i1 %.not.i54, label %_destroy_list.exit, label %.lr.ph.i53, !llvm.loop !12
 
 _destroy_list.exit:                               ; preds = %.lr.ph.i53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -914,16 +914,17 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}

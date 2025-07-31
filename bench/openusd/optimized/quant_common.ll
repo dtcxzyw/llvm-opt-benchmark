@@ -333,7 +333,7 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
   %.1.us = phi i32 [ %.05356.us, %21 ], [ %35, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %.split.us, label %13, !llvm.loop !6
+  br i1 %exitcond.not, label %.split.us, label %13, !llvm.loop !7
 
 .preheader.us61:                                  ; preds = %.preheader55.us, %.split.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.split.us ], [ 0, %.preheader55.us ]
@@ -348,7 +348,7 @@ av1_get_adjusted_tx_size.exit.us:                 ; preds = %19, %18, %17, %13, 
 ._crit_edge.us:                                   ; preds = %.split.us, %.split.us.us.us
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 16
-  br i1 %exitcond86.not, label %.split66.us, label %.preheader55.us, !llvm.loop !7
+  br i1 %exitcond86.not, label %.split66.us, label %.preheader55.us, !llvm.loop !8
 
 .preheader.us.us:                                 ; preds = %.preheader55.us, %.split.us.us.us
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.split.us.us.us ], [ 0, %.preheader55.us ]
@@ -364,12 +364,12 @@ av1_get_adjusted_tx_size.exit.us.us.us:           ; preds = %av1_get_adjusted_tx
   store ptr null, ptr %46, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 19
-  br i1 %exitcond77.not, label %.split.us.us.us, label %av1_get_adjusted_tx_size.exit.us.us.us, !llvm.loop !9
+  br i1 %exitcond77.not, label %.split.us.us.us, label %av1_get_adjusted_tx_size.exit.us.us.us, !llvm.loop !10
 
 .split.us.us.us:                                  ; preds = %av1_get_adjusted_tx_size.exit.us.us.us
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
-  br i1 %exitcond82.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !10
+  br i1 %exitcond82.not, label %._crit_edge.us, label %.preheader.us.us, !llvm.loop !11
 
 .split66.us:                                      ; preds = %._crit_edge.us, %2
   ret void
@@ -393,10 +393,11 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5, !8}
-!10 = distinct !{!10, !5, !8}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !6, !9}
+!11 = distinct !{!11, !5, !6, !9}

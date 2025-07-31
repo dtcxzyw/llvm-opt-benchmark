@@ -92,7 +92,7 @@ define i32 @cs_reach(ptr noundef %0, ptr noundef readonly captures(address_is_nu
   store i32 %55, ptr %53, align 4, !tbaa !14
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph50, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph50, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.lr.ph50, %16, %.preheader, %5, %6, %11
   %.0 = phi i32 [ -1, %11 ], [ -1, %6 ], [ -1, %5 ], [ %.143, %.preheader ], [ %18, %16 ], [ %.143, %.lr.ph50 ]
@@ -122,6 +122,7 @@ attributes #2 = { nounwind }
 !12 = !{!4, !8, i64 16}
 !13 = !{!4, !8, i64 24}
 !14 = !{!5, !5, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}

@@ -442,12 +442,12 @@ int_load.exit.i:                                  ; preds = %123, %107
   %130 = load ptr, ptr %129, align 8, !tbaa !15
   %131 = tail call ptr @DSO_bind_func(ptr noundef %128, ptr noundef %130) #6
   %132 = getelementptr inbounds nuw i8, ptr %.1.i73, i64 16
-  store ptr %131, ptr %132, align 8, !tbaa !24
+  store ptr %131, ptr %132, align 8, !tbaa !25
   %.not53.i = icmp eq ptr %131, null
   br i1 %.not53.i, label %133, label %136
 
 133:                                              ; preds = %int_load.exit.i
-  store ptr null, ptr %132, align 8, !tbaa !24
+  store ptr null, ptr %132, align 8, !tbaa !25
   %134 = load ptr, ptr %.1.i73, align 8, !tbaa !17
   %135 = tail call i32 @DSO_free(ptr noundef %134) #6
   store ptr null, ptr %.1.i73, align 8, !tbaa !17
@@ -468,7 +468,7 @@ int_load.exit.i:                                  ; preds = %123, %107
   %142 = load ptr, ptr %141, align 8, !tbaa !14
   %143 = tail call ptr @DSO_bind_func(ptr noundef %140, ptr noundef %142) #6
   %144 = getelementptr inbounds nuw i8, ptr %.1.i73, i64 8
-  store ptr %143, ptr %144, align 8, !tbaa !25
+  store ptr %143, ptr %144, align 8, !tbaa !26
   %.not55.i = icmp eq ptr %143, null
   br i1 %.not55.i, label %.critedge.i, label %145
 
@@ -498,19 +498,19 @@ int_load.exit.i:                                  ; preds = %123, %107
 155:                                              ; preds = %148, %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %6, ptr noundef nonnull align 8 dereferenceable(224) %0, i64 224, i1 false)
   %156 = tail call ptr @ENGINE_get_static_state() #6
-  store ptr %156, ptr %7, align 8, !tbaa !26
+  store ptr %156, ptr %7, align 8, !tbaa !27
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %158 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %159 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @CRYPTO_get_mem_functions(ptr noundef nonnull %157, ptr noundef nonnull %158, ptr noundef nonnull %159) #6
   call void @engine_set_all_null(ptr noundef nonnull %0) #6
-  %160 = load ptr, ptr %132, align 8, !tbaa !24
+  %160 = load ptr, ptr %132, align 8, !tbaa !25
   %161 = call i32 @engine_add_dynamic_id(ptr noundef nonnull %0, ptr noundef %160, i32 noundef 1) #6
   %.not57.i = icmp eq i32 %161, 0
   br i1 %.not57.i, label %167, label %162
 
 162:                                              ; preds = %155
-  %163 = load ptr, ptr %132, align 8, !tbaa !24
+  %163 = load ptr, ptr %132, align 8, !tbaa !25
   %164 = getelementptr inbounds nuw i8, ptr %.1.i73, i64 40
   %165 = load ptr, ptr %164, align 8, !tbaa !20
   %166 = call i32 %163(ptr noundef nonnull %0, ptr noundef %165, ptr noundef nonnull %7) #6
@@ -755,10 +755,11 @@ attributes #6 = { nounwind }
 !19 = !{!10, !4, i64 32}
 !20 = !{!10, !12, i64 40}
 !21 = !{!10, !4, i64 48}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!10, !8, i64 16}
-!25 = !{!10, !8, i64 8}
-!26 = !{!27, !8, i64 0}
-!27 = !{!"st_dynamic_fns", !8, i64 0, !28, i64 8}
-!28 = !{!"st_dynamic_MEM_fns", !8, i64 0, !8, i64 8, !8, i64 16}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!10, !8, i64 16}
+!26 = !{!10, !8, i64 8}
+!27 = !{!28, !8, i64 0}
+!28 = !{!"st_dynamic_fns", !8, i64 0, !29, i64 8}
+!29 = !{!"st_dynamic_MEM_fns", !8, i64 0, !8, i64 8, !8, i64 16}

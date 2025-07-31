@@ -118,15 +118,15 @@ _ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit: ; preds = %.lr.ph.i.i.i.i.i, 
 define void @_ZN4base11trace_event17AllocationContextC2Ev(ptr noundef nonnull align 8 dereferenceable(784) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN4base11trace_event9BacktraceC1Ev(ptr noundef nonnull align 8 dereferenceable(776) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  store ptr null, ptr %2, align 8, !tbaa !14
+  store ptr null, ptr %2, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4base11trace_event17AllocationContextC2ERKNS0_9BacktraceEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(784) initializes((0, 784)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %1, ptr noundef %2) unnamed_addr #3 align 2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull align 8 dereferenceable(776) %1, i64 776, i1 false), !tbaa.struct !17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(776) %0, ptr noundef nonnull align 8 dereferenceable(776) %1, i64 776, i1 false), !tbaa.struct !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 776
-  store ptr %2, ptr %4, align 8, !tbaa !14
+  store ptr %2, ptr %4, align 8, !tbaa !15
   ret void
 }
 
@@ -216,7 +216,7 @@ _ZN4base11trace_eventeqERKNS0_17AllocationContextES3_.exit: ; preds = %.lr.ph.i.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK9base_hash4hashIN4base11trace_event10StackFrameEEclERKS3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !20
+  %4 = load ptr, ptr %3, align 8, !tbaa !21
   %5 = ptrtoint ptr %4 to i64
   ret i64 %5
 }
@@ -250,10 +250,10 @@ define noundef range(i64 0, 4294967296) i64 @_ZNK9base_hash4hashIN4base11trace_e
   %10 = getelementptr inbounds nuw [48 x %"struct.base::trace_event::StackFrame"], ptr %1, i64 0, i64 %.08, i32 1
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw [48 x ptr], ptr %3, i64 0, i64 %.08
-  store ptr %11, ptr %12, align 8, !tbaa !20
+  store ptr %11, ptr %12, align 8, !tbaa !21
   %13 = add nuw i64 %.08, 1
   %.not = icmp eq i64 %13, %5
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 }
 
 declare noundef i32 @_ZN4base13SuperFastHashEPKcm(ptr noundef, i64 noundef) local_unnamed_addr #6
@@ -272,10 +272,10 @@ define noundef i64 @_ZNK9base_hash4hashIN4base11trace_event17AllocationContextEE
   %6 = getelementptr inbounds nuw [48 x %"struct.base::trace_event::StackFrame"], ptr %1, i64 0, i64 %.08.i, i32 1
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw [48 x ptr], ptr %3, i64 0, i64 %.08.i
-  store ptr %7, ptr %8, align 8, !tbaa !20
+  store ptr %7, ptr %8, align 8, !tbaa !21
   %9 = add nuw i64 %.08.i, 1
   %.not.i = icmp eq i64 %9, %5
-  br i1 %.not.i, label %_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %_ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit, label %.lr.ph.i, !llvm.loop !22
 
 _ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit: ; preds = %.lr.ph.i, %2
   %.tr.i = trunc i64 %5 to i32
@@ -285,7 +285,7 @@ _ZNK9base_hash4hashIN4base11trace_event9BacktraceEEclERKS3_.exit: ; preds = %.lr
   %13 = zext i32 %12 to i64
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3) #7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %15 = load ptr, ptr %14, align 8, !tbaa !14
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = ptrtoint ptr %15 to i64
   %17 = mul i64 %16, 2654435761
   %18 = mul nuw nsw i64 %13, 3
@@ -316,13 +316,14 @@ attributes #7 = { nounwind }
 !9 = !{!10, !11, i64 768}
 !10 = !{!"_ZTSN4base11trace_event9BacktraceE", !6, i64 0, !11, i64 768}
 !11 = !{!"long", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !16, i64 776}
-!15 = !{!"_ZTSN4base11trace_event17AllocationContextE", !10, i64 0, !16, i64 776}
-!16 = !{!"p1 omnipotent char", !8, i64 0}
-!17 = !{i64 0, i64 768, !18, i64 768, i64 8, !19}
-!18 = !{!6, !6, i64 0}
-!19 = !{!11, !11, i64 0}
-!20 = !{!8, !8, i64 0}
-!21 = distinct !{!21, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !17, i64 776}
+!16 = !{!"_ZTSN4base11trace_event17AllocationContextE", !10, i64 0, !17, i64 776}
+!17 = !{!"p1 omnipotent char", !8, i64 0}
+!18 = !{i64 0, i64 768, !19, i64 768, i64 8, !20}
+!19 = !{!6, !6, i64 0}
+!20 = !{!11, !11, i64 0}
+!21 = !{!8, !8, i64 0}
+!22 = distinct !{!22, !13, !14}

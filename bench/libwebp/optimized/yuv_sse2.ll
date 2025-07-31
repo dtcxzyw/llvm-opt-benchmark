@@ -124,13 +124,13 @@ define hidden void @VP8YuvToBgra32_SSE2(ptr noalias noundef readonly captures(no
   %40 = bitcast <16 x i8> %38 to <8 x i16>
   %41 = shufflevector <8 x i16> %39, <8 x i16> %40, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %42 = shufflevector <8 x i16> %39, <8 x i16> %40, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <8 x i16> %41, ptr %.0927, align 1, !tbaa !3, !alias.scope !11
+  store <8 x i16> %41, ptr %.0927, align 1, !tbaa !3, !alias.scope !12
   %43 = getelementptr inbounds nuw i8, ptr %.0927, i64 16
-  store <8 x i16> %42, ptr %43, align 1, !tbaa !3, !alias.scope !11
+  store <8 x i16> %42, ptr %43, align 1, !tbaa !3, !alias.scope !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %44 = getelementptr inbounds nuw i8, ptr %.0927, i64 32
   %45 = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %45, label %5, label %46, !llvm.loop !14
+  br i1 %45, label %5, label %46, !llvm.loop !15
 
 46:                                               ; preds = %5
   ret void
@@ -184,13 +184,13 @@ define hidden void @VP8YuvToArgb32_SSE2(ptr noalias noundef readonly captures(no
   %40 = bitcast <16 x i8> %38 to <8 x i16>
   %41 = shufflevector <8 x i16> %39, <8 x i16> %40, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %42 = shufflevector <8 x i16> %39, <8 x i16> %40, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <8 x i16> %41, ptr %.0927, align 1, !tbaa !3, !alias.scope !15
+  store <8 x i16> %41, ptr %.0927, align 1, !tbaa !3, !alias.scope !16
   %43 = getelementptr inbounds nuw i8, ptr %.0927, i64 16
-  store <8 x i16> %42, ptr %43, align 1, !tbaa !3, !alias.scope !15
+  store <8 x i16> %42, ptr %43, align 1, !tbaa !3, !alias.scope !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %44 = getelementptr inbounds nuw i8, ptr %.0927, i64 32
   %45 = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %45, label %5, label %46, !llvm.loop !18
+  br i1 %45, label %5, label %46, !llvm.loop !19
 
 46:                                               ; preds = %5
   ret void
@@ -247,11 +247,11 @@ define hidden void @VP8YuvToRgba444432_SSE2(ptr noalias noundef readonly capture
   %43 = bitcast <8 x i16> %42 to <2 x i64>
   %44 = and <2 x i64> %43, splat (i64 1085102592571150095)
   %45 = or disjoint <2 x i64> %44, %40
-  store <2 x i64> %45, ptr %.0927, align 1, !tbaa !3, !alias.scope !19
+  store <2 x i64> %45, ptr %.0927, align 1, !tbaa !3, !alias.scope !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %46 = getelementptr inbounds nuw i8, ptr %.0927, i64 16
   %47 = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %47, label %5, label %48, !llvm.loop !22
+  br i1 %47, label %5, label %48, !llvm.loop !23
 
 48:                                               ; preds = %5
   ret void
@@ -318,11 +318,11 @@ define hidden void @VP8YuvToRgb56532_SSE2(ptr noalias noundef readonly captures(
   %53 = bitcast <2 x i64> %51 to <16 x i8>
   %54 = bitcast <2 x i64> %52 to <16 x i8>
   %55 = shufflevector <16 x i8> %53, <16 x i8> %54, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %55, ptr %.0925, align 1, !tbaa !3, !alias.scope !23
+  store <16 x i8> %55, ptr %.0925, align 1, !tbaa !3, !alias.scope !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %56 = getelementptr inbounds nuw i8, ptr %.0925, i64 16
   %57 = icmp samesign ult i64 %indvars.iv, 24
-  br i1 %57, label %5, label %58, !llvm.loop !26
+  br i1 %57, label %5, label %58, !llvm.loop !27
 
 58:                                               ; preds = %5
   ret void
@@ -585,17 +585,17 @@ define hidden void @VP8YuvToRgb32_SSE2(ptr noalias noundef readonly captures(non
   %241 = lshr <8 x i16> %230, splat (i16 8)
   %242 = lshr <8 x i16> %232, splat (i16 8)
   %243 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %241, <8 x i16> %242)
-  store <16 x i8> %224, ptr %3, align 1, !tbaa !3, !alias.scope !27
+  store <16 x i8> %224, ptr %3, align 1, !tbaa !3, !alias.scope !28
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <16 x i8> %229, ptr %244, align 1, !tbaa !3, !alias.scope !27
+  store <16 x i8> %229, ptr %244, align 1, !tbaa !3, !alias.scope !28
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <16 x i8> %234, ptr %245, align 1, !tbaa !3, !alias.scope !27
+  store <16 x i8> %234, ptr %245, align 1, !tbaa !3, !alias.scope !28
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <16 x i8> %237, ptr %246, align 1, !tbaa !3, !alias.scope !27
+  store <16 x i8> %237, ptr %246, align 1, !tbaa !3, !alias.scope !28
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store <16 x i8> %240, ptr %247, align 1, !tbaa !3, !alias.scope !27
+  store <16 x i8> %240, ptr %247, align 1, !tbaa !3, !alias.scope !28
   %248 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store <16 x i8> %243, ptr %248, align 1, !tbaa !3, !alias.scope !27
+  store <16 x i8> %243, ptr %248, align 1, !tbaa !3, !alias.scope !28
   ret void
 }
 
@@ -856,27 +856,27 @@ define hidden void @VP8YuvToBgr32_SSE2(ptr noalias noundef readonly captures(non
   %241 = lshr <8 x i16> %230, splat (i16 8)
   %242 = lshr <8 x i16> %232, splat (i16 8)
   %243 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %241, <8 x i16> %242)
-  store <16 x i8> %224, ptr %3, align 1, !tbaa !3, !alias.scope !30
+  store <16 x i8> %224, ptr %3, align 1, !tbaa !3, !alias.scope !31
   %244 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store <16 x i8> %229, ptr %244, align 1, !tbaa !3, !alias.scope !30
+  store <16 x i8> %229, ptr %244, align 1, !tbaa !3, !alias.scope !31
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store <16 x i8> %234, ptr %245, align 1, !tbaa !3, !alias.scope !30
+  store <16 x i8> %234, ptr %245, align 1, !tbaa !3, !alias.scope !31
   %246 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store <16 x i8> %237, ptr %246, align 1, !tbaa !3, !alias.scope !30
+  store <16 x i8> %237, ptr %246, align 1, !tbaa !3, !alias.scope !31
   %247 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store <16 x i8> %240, ptr %247, align 1, !tbaa !3, !alias.scope !30
+  store <16 x i8> %240, ptr %247, align 1, !tbaa !3, !alias.scope !31
   %248 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store <16 x i8> %243, ptr %248, align 1, !tbaa !3, !alias.scope !30
+  store <16 x i8> %243, ptr %248, align 1, !tbaa !3, !alias.scope !31
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @WebPInitSamplersSSE2() local_unnamed_addr #3 {
-  store ptr @YuvToRgbRow_SSE2, ptr @WebPSamplers, align 8, !tbaa !33
-  store ptr @YuvToRgbaRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 8), align 8, !tbaa !33
-  store ptr @YuvToBgrRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 16), align 8, !tbaa !33
-  store ptr @YuvToBgraRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 24), align 8, !tbaa !33
-  store ptr @YuvToArgbRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 32), align 8, !tbaa !33
+  store ptr @YuvToRgbRow_SSE2, ptr @WebPSamplers, align 8, !tbaa !34
+  store ptr @YuvToRgbaRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 8), align 8, !tbaa !34
+  store ptr @YuvToBgrRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 16), align 8, !tbaa !34
+  store ptr @YuvToBgraRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 24), align 8, !tbaa !34
+  store ptr @YuvToArgbRow_SSE2, ptr getelementptr inbounds nuw (i8, ptr @WebPSamplers, i64 32), align 8, !tbaa !34
   ret void
 }
 
@@ -1167,24 +1167,24 @@ define internal void @YuvToRgbRow_SSE2(ptr noalias noundef readonly captures(non
   %253 = lshr <8 x i16> %242, splat (i16 8)
   %254 = lshr <8 x i16> %244, splat (i16 8)
   %255 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %253, <8 x i16> %254)
-  store <16 x i8> %236, ptr %.034132, align 1, !tbaa !3, !alias.scope !35
+  store <16 x i8> %236, ptr %.034132, align 1, !tbaa !3, !alias.scope !36
   %256 = getelementptr inbounds nuw i8, ptr %.034132, i64 16
-  store <16 x i8> %241, ptr %256, align 1, !tbaa !3, !alias.scope !35
+  store <16 x i8> %241, ptr %256, align 1, !tbaa !3, !alias.scope !36
   %257 = getelementptr inbounds nuw i8, ptr %.034132, i64 32
-  store <16 x i8> %246, ptr %257, align 1, !tbaa !3, !alias.scope !35
+  store <16 x i8> %246, ptr %257, align 1, !tbaa !3, !alias.scope !36
   %258 = getelementptr inbounds nuw i8, ptr %.034132, i64 48
-  store <16 x i8> %249, ptr %258, align 1, !tbaa !3, !alias.scope !35
+  store <16 x i8> %249, ptr %258, align 1, !tbaa !3, !alias.scope !36
   %259 = getelementptr inbounds nuw i8, ptr %.034132, i64 64
-  store <16 x i8> %252, ptr %259, align 1, !tbaa !3, !alias.scope !35
+  store <16 x i8> %252, ptr %259, align 1, !tbaa !3, !alias.scope !36
   %260 = getelementptr inbounds nuw i8, ptr %.034132, i64 80
-  store <16 x i8> %255, ptr %260, align 1, !tbaa !3, !alias.scope !35
+  store <16 x i8> %255, ptr %260, align 1, !tbaa !3, !alias.scope !36
   %261 = getelementptr inbounds nuw i8, ptr %.032133, i64 32
   %262 = getelementptr inbounds nuw i8, ptr %.038130, i64 16
   %263 = getelementptr inbounds nuw i8, ptr %.036131, i64 16
   %264 = getelementptr inbounds nuw i8, ptr %.034132, i64 96
   %265 = add nuw nsw i32 %8, 32
   %.not = icmp sgt i32 %265, %4
-  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !39
 
 .lr.ph143:                                        ; preds = %.preheader, %.lr.ph143
   %.1142 = phi i32 [ %315, %.lr.ph143 ], [ %.0.lcssa, %.preheader ]
@@ -1246,7 +1246,7 @@ define internal void @YuvToRgbRow_SSE2(ptr noalias noundef readonly captures(non
   %314 = getelementptr inbounds nuw i8, ptr %.137139, i64 %312
   %315 = add nuw nsw i32 %.1142, 1
   %exitcond.not = icmp eq i32 %315, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph143, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph143, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph143, %.preheader
   ret void
@@ -1316,16 +1316,16 @@ define internal void @YuvToRgbaRow_SSE2(ptr noalias noundef readonly captures(no
   %42 = bitcast <16 x i8> %40 to <8 x i16>
   %43 = shufflevector <8 x i16> %41, <8 x i16> %42, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %44 = shufflevector <8 x i16> %41, <8 x i16> %42, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <8 x i16> %43, ptr %.02552, align 1, !tbaa !3, !alias.scope !40
+  store <8 x i16> %43, ptr %.02552, align 1, !tbaa !3, !alias.scope !41
   %45 = getelementptr inbounds nuw i8, ptr %.02552, i64 16
-  store <8 x i16> %44, ptr %45, align 1, !tbaa !3, !alias.scope !40
+  store <8 x i16> %44, ptr %45, align 1, !tbaa !3, !alias.scope !41
   %46 = getelementptr inbounds nuw i8, ptr %.02353, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.02950, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %.02751, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %.02552, i64 32
   %50 = add nuw nsw i32 %8, 8
   %.not = icmp sgt i32 %50, %4
-  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !44
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.162 = phi i32 [ %101, %.lr.ph63 ], [ %.0.lcssa, %.preheader ]
@@ -1389,7 +1389,7 @@ define internal void @YuvToRgbaRow_SSE2(ptr noalias noundef readonly captures(no
   %100 = getelementptr inbounds nuw i8, ptr %.12859, i64 %98
   %101 = add nuw nsw i32 %.162, 1
   %exitcond.not = icmp eq i32 %101, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !44
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.preheader
   ret void
@@ -1682,24 +1682,24 @@ define internal void @YuvToBgrRow_SSE2(ptr noalias noundef readonly captures(non
   %253 = lshr <8 x i16> %242, splat (i16 8)
   %254 = lshr <8 x i16> %244, splat (i16 8)
   %255 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %253, <8 x i16> %254)
-  store <16 x i8> %236, ptr %.034132, align 1, !tbaa !3, !alias.scope !45
+  store <16 x i8> %236, ptr %.034132, align 1, !tbaa !3, !alias.scope !46
   %256 = getelementptr inbounds nuw i8, ptr %.034132, i64 16
-  store <16 x i8> %241, ptr %256, align 1, !tbaa !3, !alias.scope !45
+  store <16 x i8> %241, ptr %256, align 1, !tbaa !3, !alias.scope !46
   %257 = getelementptr inbounds nuw i8, ptr %.034132, i64 32
-  store <16 x i8> %246, ptr %257, align 1, !tbaa !3, !alias.scope !45
+  store <16 x i8> %246, ptr %257, align 1, !tbaa !3, !alias.scope !46
   %258 = getelementptr inbounds nuw i8, ptr %.034132, i64 48
-  store <16 x i8> %249, ptr %258, align 1, !tbaa !3, !alias.scope !45
+  store <16 x i8> %249, ptr %258, align 1, !tbaa !3, !alias.scope !46
   %259 = getelementptr inbounds nuw i8, ptr %.034132, i64 64
-  store <16 x i8> %252, ptr %259, align 1, !tbaa !3, !alias.scope !45
+  store <16 x i8> %252, ptr %259, align 1, !tbaa !3, !alias.scope !46
   %260 = getelementptr inbounds nuw i8, ptr %.034132, i64 80
-  store <16 x i8> %255, ptr %260, align 1, !tbaa !3, !alias.scope !45
+  store <16 x i8> %255, ptr %260, align 1, !tbaa !3, !alias.scope !46
   %261 = getelementptr inbounds nuw i8, ptr %.032133, i64 32
   %262 = getelementptr inbounds nuw i8, ptr %.038130, i64 16
   %263 = getelementptr inbounds nuw i8, ptr %.036131, i64 16
   %264 = getelementptr inbounds nuw i8, ptr %.034132, i64 96
   %265 = add nuw nsw i32 %8, 32
   %.not = icmp sgt i32 %265, %4
-  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !49
 
 .lr.ph143:                                        ; preds = %.preheader, %.lr.ph143
   %.1142 = phi i32 [ %315, %.lr.ph143 ], [ %.0.lcssa, %.preheader ]
@@ -1761,7 +1761,7 @@ define internal void @YuvToBgrRow_SSE2(ptr noalias noundef readonly captures(non
   %314 = getelementptr inbounds nuw i8, ptr %.137139, i64 %312
   %315 = add nuw nsw i32 %.1142, 1
   %exitcond.not = icmp eq i32 %315, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph143, !llvm.loop !49
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph143, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %.lr.ph143, %.preheader
   ret void
@@ -1831,16 +1831,16 @@ define internal void @YuvToBgraRow_SSE2(ptr noalias noundef readonly captures(no
   %42 = bitcast <16 x i8> %40 to <8 x i16>
   %43 = shufflevector <8 x i16> %41, <8 x i16> %42, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %44 = shufflevector <8 x i16> %41, <8 x i16> %42, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <8 x i16> %43, ptr %.02552, align 1, !tbaa !3, !alias.scope !50
+  store <8 x i16> %43, ptr %.02552, align 1, !tbaa !3, !alias.scope !51
   %45 = getelementptr inbounds nuw i8, ptr %.02552, i64 16
-  store <8 x i16> %44, ptr %45, align 1, !tbaa !3, !alias.scope !50
+  store <8 x i16> %44, ptr %45, align 1, !tbaa !3, !alias.scope !51
   %46 = getelementptr inbounds nuw i8, ptr %.02353, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.02950, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %.02751, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %.02552, i64 32
   %50 = add nuw nsw i32 %8, 8
   %.not = icmp sgt i32 %50, %4
-  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !54
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.162 = phi i32 [ %101, %.lr.ph63 ], [ %.0.lcssa, %.preheader ]
@@ -1904,7 +1904,7 @@ define internal void @YuvToBgraRow_SSE2(ptr noalias noundef readonly captures(no
   %100 = getelementptr inbounds nuw i8, ptr %.12859, i64 %98
   %101 = add nuw nsw i32 %.162, 1
   %exitcond.not = icmp eq i32 %101, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.preheader
   ret void
@@ -1974,16 +1974,16 @@ define internal void @YuvToArgbRow_SSE2(ptr noalias noundef readonly captures(no
   %42 = bitcast <16 x i8> %40 to <8 x i16>
   %43 = shufflevector <8 x i16> %41, <8 x i16> %42, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %44 = shufflevector <8 x i16> %41, <8 x i16> %42, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <8 x i16> %43, ptr %.02552, align 1, !tbaa !3, !alias.scope !55
+  store <8 x i16> %43, ptr %.02552, align 1, !tbaa !3, !alias.scope !56
   %45 = getelementptr inbounds nuw i8, ptr %.02552, i64 16
-  store <8 x i16> %44, ptr %45, align 1, !tbaa !3, !alias.scope !55
+  store <8 x i16> %44, ptr %45, align 1, !tbaa !3, !alias.scope !56
   %46 = getelementptr inbounds nuw i8, ptr %.02353, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %.02950, i64 4
   %48 = getelementptr inbounds nuw i8, ptr %.02751, i64 4
   %49 = getelementptr inbounds nuw i8, ptr %.02552, i64 32
   %50 = add nuw nsw i32 %8, 8
   %.not = icmp sgt i32 %50, %4
-  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !58
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !59
 
 .lr.ph63:                                         ; preds = %.preheader, %.lr.ph63
   %.162 = phi i32 [ %101, %.lr.ph63 ], [ %.0.lcssa, %.preheader ]
@@ -2047,7 +2047,7 @@ define internal void @YuvToArgbRow_SSE2(ptr noalias noundef readonly captures(no
   %100 = getelementptr inbounds nuw i8, ptr %.12859, i64 %98
   %101 = add nuw nsw i32 %.162, 1
   %exitcond.not = icmp eq i32 %101, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph63, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph63, %.preheader
   ret void
@@ -2055,11 +2055,11 @@ define internal void @YuvToArgbRow_SSE2(ptr noalias noundef readonly captures(no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @WebPInitConvertARGBToYUVSSE2() local_unnamed_addr #3 {
-  store ptr @ConvertARGBToY_SSE2, ptr @WebPConvertARGBToY, align 8, !tbaa !33
-  store ptr @ConvertARGBToUV_SSE2, ptr @WebPConvertARGBToUV, align 8, !tbaa !33
-  store ptr @ConvertRGB24ToY_SSE2, ptr @WebPConvertRGB24ToY, align 8, !tbaa !33
-  store ptr @ConvertBGR24ToY_SSE2, ptr @WebPConvertBGR24ToY, align 8, !tbaa !33
-  store ptr @ConvertRGBA32ToUV_SSE2, ptr @WebPConvertRGBA32ToUV, align 8, !tbaa !33
+  store ptr @ConvertARGBToY_SSE2, ptr @WebPConvertARGBToY, align 8, !tbaa !34
+  store ptr @ConvertARGBToUV_SSE2, ptr @WebPConvertARGBToUV, align 8, !tbaa !34
+  store ptr @ConvertRGB24ToY_SSE2, ptr @WebPConvertRGB24ToY, align 8, !tbaa !34
+  store ptr @ConvertBGR24ToY_SSE2, ptr @WebPConvertBGR24ToY, align 8, !tbaa !34
+  store ptr @ConvertRGBA32ToUV_SSE2, ptr @WebPConvertRGBA32ToUV, align 8, !tbaa !34
   ret void
 }
 
@@ -2090,13 +2090,13 @@ define internal void @ConvertARGBToY_SSE2(ptr noalias noundef readonly captures(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %11 = load <16 x i8>, ptr %10, align 1, !tbaa !3, !alias.scope !60
+  %11 = load <16 x i8>, ptr %10, align 1, !tbaa !3, !alias.scope !61
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load <16 x i8>, ptr %12, align 1, !tbaa !3, !alias.scope !60
+  %13 = load <16 x i8>, ptr %12, align 1, !tbaa !3, !alias.scope !61
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %15 = load <16 x i8>, ptr %14, align 1, !tbaa !3, !alias.scope !60
+  %15 = load <16 x i8>, ptr %14, align 1, !tbaa !3, !alias.scope !61
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !60
+  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !61
   %18 = shufflevector <16 x i8> %11, <16 x i8> %13, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28, i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %19 = bitcast <16 x i8> %18 to <2 x i64>
   %20 = shufflevector <16 x i8> %11, <16 x i8> %13, <16 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -2158,12 +2158,12 @@ define internal void @ConvertARGBToY_SSE2(ptr noalias noundef readonly captures(
   store <16 x i8> %75, ptr %74, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %76 = icmp samesign ult i64 %indvars.iv.next, %6
-  br i1 %76, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !63
+  br i1 %76, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !64
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %.lr.ph35
   %indvars.iv37 = phi i64 [ %9, %.lr.ph35.preheader ], [ %indvars.iv.next38, %.lr.ph35 ]
   %77 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv37
-  %78 = load i32, ptr %77, align 4, !tbaa !64
+  %78 = load i32, ptr %77, align 4, !tbaa !65
   %79 = lshr i32 %78, 16
   %80 = and i32 %79, 255
   %81 = lshr i32 %78, 8
@@ -2181,7 +2181,7 @@ define internal void @ConvertARGBToY_SSE2(ptr noalias noundef readonly captures(
   store i8 %91, ptr %92, align 1, !tbaa !3
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !66
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph35, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %.lr.ph35, %.preheader
   ret void
@@ -2203,13 +2203,13 @@ define internal void @ConvertARGBToUV_SSE2(ptr noalias noundef %0, ptr noalias n
   %.093 = phi ptr [ %1, %.lr.ph ], [ %156, %155 ]
   %.02592 = phi ptr [ %2, %.lr.ph ], [ %157, %155 ]
   %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %11 = load <16 x i8>, ptr %10, align 1, !tbaa !3, !alias.scope !67
+  %11 = load <16 x i8>, ptr %10, align 1, !tbaa !3, !alias.scope !68
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load <16 x i8>, ptr %12, align 1, !tbaa !3, !alias.scope !67
+  %13 = load <16 x i8>, ptr %12, align 1, !tbaa !3, !alias.scope !68
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %15 = load <16 x i8>, ptr %14, align 1, !tbaa !3, !alias.scope !67
+  %15 = load <16 x i8>, ptr %14, align 1, !tbaa !3, !alias.scope !68
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !67
+  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !68
   %18 = shufflevector <16 x i8> %11, <16 x i8> %13, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28, i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %19 = bitcast <16 x i8> %18 to <2 x i64>
   %20 = shufflevector <16 x i8> %11, <16 x i8> %13, <16 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -2272,13 +2272,13 @@ define internal void @ConvertARGBToUV_SSE2(ptr noalias noundef %0, ptr noalias n
   %77 = ashr <4 x i32> %75, splat (i32 18)
   %78 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %76, <4 x i32> %77)
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %80 = load <16 x i8>, ptr %79, align 1, !tbaa !3, !alias.scope !70
+  %80 = load <16 x i8>, ptr %79, align 1, !tbaa !3, !alias.scope !71
   %81 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %82 = load <16 x i8>, ptr %81, align 1, !tbaa !3, !alias.scope !70
+  %82 = load <16 x i8>, ptr %81, align 1, !tbaa !3, !alias.scope !71
   %83 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %84 = load <16 x i8>, ptr %83, align 1, !tbaa !3, !alias.scope !70
+  %84 = load <16 x i8>, ptr %83, align 1, !tbaa !3, !alias.scope !71
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 112
-  %86 = load <16 x i8>, ptr %85, align 1, !tbaa !3, !alias.scope !70
+  %86 = load <16 x i8>, ptr %85, align 1, !tbaa !3, !alias.scope !71
   %87 = shufflevector <16 x i8> %80, <16 x i8> %82, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28, i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %88 = bitcast <16 x i8> %87 to <2 x i64>
   %89 = shufflevector <16 x i8> %80, <16 x i8> %82, <16 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -2360,7 +2360,7 @@ define internal void @ConvertARGBToUV_SSE2(ptr noalias noundef %0, ptr noalias n
   %156 = getelementptr inbounds nuw i8, ptr %.093, i64 16
   %157 = getelementptr inbounds nuw i8, ptr %.02592, i64 16
   %158 = icmp samesign ult i64 %indvars.iv.next, %8
-  br i1 %158, label %9, label %._crit_edge.loopexit, !llvm.loop !73
+  br i1 %158, label %9, label %._crit_edge.loopexit, !llvm.loop !74
 
 ._crit_edge.loopexit:                             ; preds = %155
   %159 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -2415,18 +2415,18 @@ define internal void @ConvertRGB24ToY_SSE2(ptr noalias noundef readonly captures
   %.054 = phi ptr [ %0, %.lr.ph ], [ %112, %110 ]
   %.03153 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next61, %110 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  %15 = load <16 x i8>, ptr %.054, align 1, !tbaa !3, !alias.scope !74
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
+  %15 = load <16 x i8>, ptr %.054, align 1, !tbaa !3, !alias.scope !75
   %16 = getelementptr inbounds nuw i8, ptr %.054, i64 16
-  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !74
+  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !75
   %18 = getelementptr inbounds nuw i8, ptr %.054, i64 32
-  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !3, !alias.scope !74
+  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !3, !alias.scope !75
   %20 = getelementptr inbounds nuw i8, ptr %.054, i64 48
-  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !3, !alias.scope !74
+  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !3, !alias.scope !75
   %22 = getelementptr inbounds nuw i8, ptr %.054, i64 64
-  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !3, !alias.scope !74
+  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !3, !alias.scope !75
   %24 = getelementptr inbounds nuw i8, ptr %.054, i64 80
-  %25 = load <16 x i8>, ptr %24, align 1, !tbaa !3, !alias.scope !74
+  %25 = load <16 x i8>, ptr %24, align 1, !tbaa !3, !alias.scope !75
   %26 = shufflevector <16 x i8> %15, <16 x i8> %21, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %27 = shufflevector <16 x i8> %15, <16 x i8> %21, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %28 = shufflevector <16 x i8> %17, <16 x i8> %23, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -2452,17 +2452,17 @@ define internal void @ConvertRGB24ToY_SSE2(ptr noalias noundef readonly captures
   %48 = shufflevector <16 x i8> %40, <16 x i8> %43, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %49 = shufflevector <16 x i8> %40, <16 x i8> %43, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %50 = shufflevector <16 x i8> %44, <16 x i8> %47, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %50, ptr %4, align 16, !tbaa !3, !noalias !74
+  store <16 x i8> %50, ptr %4, align 16, !tbaa !3, !noalias !75
   %51 = shufflevector <16 x i8> %44, <16 x i8> %47, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %51, ptr %7, align 16, !tbaa !3, !noalias !74
+  store <16 x i8> %51, ptr %7, align 16, !tbaa !3, !noalias !75
   %52 = shufflevector <16 x i8> %45, <16 x i8> %48, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %52, ptr %8, align 16, !tbaa !3, !noalias !74
+  store <16 x i8> %52, ptr %8, align 16, !tbaa !3, !noalias !75
   %53 = shufflevector <16 x i8> %45, <16 x i8> %48, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %53, ptr %9, align 16, !tbaa !3, !noalias !74
+  store <16 x i8> %53, ptr %9, align 16, !tbaa !3, !noalias !75
   %54 = shufflevector <16 x i8> %46, <16 x i8> %49, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %54, ptr %10, align 16, !tbaa !3, !noalias !74
+  store <16 x i8> %54, ptr %10, align 16, !tbaa !3, !noalias !75
   %55 = shufflevector <16 x i8> %46, <16 x i8> %49, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %55, ptr %11, align 16, !tbaa !3, !noalias !74
+  store <16 x i8> %55, ptr %11, align 16, !tbaa !3, !noalias !75
   %sext = shl i64 %.03153, 32
   %56 = ashr exact i64 %sext, 32
   br label %57
@@ -2525,14 +2525,14 @@ define internal void @ConvertRGB24ToY_SSE2(ptr noalias noundef readonly captures
   %109 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %86, <8 x i16> %107)
   store <16 x i8> %109, ptr %108, align 1, !tbaa !3
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, 16
-  br i1 %58, label %57, label %110, !llvm.loop !77
+  br i1 %58, label %57, label %110, !llvm.loop !78
 
 110:                                              ; preds = %57
   %111 = trunc nsw i64 %indvars.iv.next61 to i32
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #10
   %112 = getelementptr inbounds nuw i8, ptr %.054, i64 96
   %113 = icmp sgt i32 %5, %111
-  br i1 %113, label %14, label %.preheader, !llvm.loop !78
+  br i1 %113, label %14, label %.preheader, !llvm.loop !79
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv65 = phi i64 [ %13, %.lr.ph58.preheader ], [ %indvars.iv.next66, %.lr.ph58 ]
@@ -2558,7 +2558,7 @@ define internal void @ConvertRGB24ToY_SSE2(ptr noalias noundef readonly captures
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
   %131 = getelementptr inbounds nuw i8, ptr %.157, i64 3
   %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !79
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.lr.ph58, %.preheader
   ret void
@@ -2595,18 +2595,18 @@ define internal void @ConvertBGR24ToY_SSE2(ptr noalias noundef readonly captures
   %.054 = phi ptr [ %0, %.lr.ph ], [ %112, %110 ]
   %.03153 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next61, %110 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #10
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !80)
-  %15 = load <16 x i8>, ptr %.054, align 1, !tbaa !3, !alias.scope !80
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  %15 = load <16 x i8>, ptr %.054, align 1, !tbaa !3, !alias.scope !81
   %16 = getelementptr inbounds nuw i8, ptr %.054, i64 16
-  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !80
+  %17 = load <16 x i8>, ptr %16, align 1, !tbaa !3, !alias.scope !81
   %18 = getelementptr inbounds nuw i8, ptr %.054, i64 32
-  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !3, !alias.scope !80
+  %19 = load <16 x i8>, ptr %18, align 1, !tbaa !3, !alias.scope !81
   %20 = getelementptr inbounds nuw i8, ptr %.054, i64 48
-  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !3, !alias.scope !80
+  %21 = load <16 x i8>, ptr %20, align 1, !tbaa !3, !alias.scope !81
   %22 = getelementptr inbounds nuw i8, ptr %.054, i64 64
-  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !3, !alias.scope !80
+  %23 = load <16 x i8>, ptr %22, align 1, !tbaa !3, !alias.scope !81
   %24 = getelementptr inbounds nuw i8, ptr %.054, i64 80
-  %25 = load <16 x i8>, ptr %24, align 1, !tbaa !3, !alias.scope !80
+  %25 = load <16 x i8>, ptr %24, align 1, !tbaa !3, !alias.scope !81
   %26 = shufflevector <16 x i8> %15, <16 x i8> %21, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %27 = shufflevector <16 x i8> %15, <16 x i8> %21, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %28 = shufflevector <16 x i8> %17, <16 x i8> %23, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
@@ -2632,17 +2632,17 @@ define internal void @ConvertBGR24ToY_SSE2(ptr noalias noundef readonly captures
   %48 = shufflevector <16 x i8> %40, <16 x i8> %43, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %49 = shufflevector <16 x i8> %40, <16 x i8> %43, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   %50 = shufflevector <16 x i8> %44, <16 x i8> %47, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %50, ptr %4, align 16, !tbaa !3, !noalias !80
+  store <16 x i8> %50, ptr %4, align 16, !tbaa !3, !noalias !81
   %51 = shufflevector <16 x i8> %44, <16 x i8> %47, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %51, ptr %7, align 16, !tbaa !3, !noalias !80
+  store <16 x i8> %51, ptr %7, align 16, !tbaa !3, !noalias !81
   %52 = shufflevector <16 x i8> %45, <16 x i8> %48, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %52, ptr %8, align 16, !tbaa !3, !noalias !80
+  store <16 x i8> %52, ptr %8, align 16, !tbaa !3, !noalias !81
   %53 = shufflevector <16 x i8> %45, <16 x i8> %48, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %53, ptr %9, align 16, !tbaa !3, !noalias !80
+  store <16 x i8> %53, ptr %9, align 16, !tbaa !3, !noalias !81
   %54 = shufflevector <16 x i8> %46, <16 x i8> %49, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
-  store <16 x i8> %54, ptr %10, align 16, !tbaa !3, !noalias !80
+  store <16 x i8> %54, ptr %10, align 16, !tbaa !3, !noalias !81
   %55 = shufflevector <16 x i8> %46, <16 x i8> %49, <16 x i32> <i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
-  store <16 x i8> %55, ptr %11, align 16, !tbaa !3, !noalias !80
+  store <16 x i8> %55, ptr %11, align 16, !tbaa !3, !noalias !81
   %sext = shl i64 %.03153, 32
   %56 = ashr exact i64 %sext, 32
   br label %57
@@ -2705,14 +2705,14 @@ define internal void @ConvertBGR24ToY_SSE2(ptr noalias noundef readonly captures
   %109 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %86, <8 x i16> %107)
   store <16 x i8> %109, ptr %108, align 1, !tbaa !3
   %indvars.iv.next61 = add nsw i64 %indvars.iv60, 16
-  br i1 %58, label %57, label %110, !llvm.loop !83
+  br i1 %58, label %57, label %110, !llvm.loop !84
 
 110:                                              ; preds = %57
   %111 = trunc nsw i64 %indvars.iv.next61 to i32
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #10
   %112 = getelementptr inbounds nuw i8, ptr %.054, i64 96
   %113 = icmp sgt i32 %5, %111
-  br i1 %113, label %14, label %.preheader, !llvm.loop !84
+  br i1 %113, label %14, label %.preheader, !llvm.loop !85
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv65 = phi i64 [ %13, %.lr.ph58.preheader ], [ %indvars.iv.next66, %.lr.ph58 ]
@@ -2738,7 +2738,7 @@ define internal void @ConvertBGR24ToY_SSE2(ptr noalias noundef readonly captures
   %indvars.iv.next66 = add nsw i64 %indvars.iv65, 1
   %131 = getelementptr inbounds nuw i8, ptr %.157, i64 3
   %exitcond.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !85
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph58, !llvm.loop !86
 
 ._crit_edge:                                      ; preds = %.lr.ph58, %.preheader
   ret void
@@ -2758,13 +2758,13 @@ define internal void @ConvertRGBA32ToUV_SSE2(ptr noalias noundef %0, ptr noalias
   %.046 = phi ptr [ %109, %.lr.ph ], [ %0, %4 ]
   %.01845 = phi ptr [ %107, %.lr.ph ], [ %1, %4 ]
   %.01944 = phi ptr [ %108, %.lr.ph ], [ %2, %4 ]
-  %10 = load <8 x i16>, ptr %.046, align 1, !tbaa !3, !alias.scope !86
+  %10 = load <8 x i16>, ptr %.046, align 1, !tbaa !3, !alias.scope !87
   %11 = getelementptr inbounds nuw i8, ptr %.046, i64 16
-  %12 = load <8 x i16>, ptr %11, align 1, !tbaa !3, !alias.scope !86
+  %12 = load <8 x i16>, ptr %11, align 1, !tbaa !3, !alias.scope !87
   %13 = getelementptr inbounds nuw i8, ptr %.046, i64 32
-  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !3, !alias.scope !86
+  %14 = load <8 x i16>, ptr %13, align 1, !tbaa !3, !alias.scope !87
   %15 = getelementptr inbounds nuw i8, ptr %.046, i64 48
-  %16 = load <8 x i16>, ptr %15, align 1, !tbaa !3, !alias.scope !86
+  %16 = load <8 x i16>, ptr %15, align 1, !tbaa !3, !alias.scope !87
   %17 = shufflevector <8 x i16> %10, <8 x i16> %12, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
   %18 = bitcast <8 x i16> %17 to <2 x i64>
   %19 = shufflevector <8 x i16> %10, <8 x i16> %12, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -2806,13 +2806,13 @@ define internal void @ConvertRGBA32ToUV_SSE2(ptr noalias noundef %0, ptr noalias
   %55 = ashr <4 x i32> %53, splat (i32 18)
   %56 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %54, <4 x i32> %55)
   %57 = getelementptr inbounds nuw i8, ptr %.046, i64 64
-  %58 = load <8 x i16>, ptr %57, align 1, !tbaa !3, !alias.scope !89
+  %58 = load <8 x i16>, ptr %57, align 1, !tbaa !3, !alias.scope !90
   %59 = getelementptr inbounds nuw i8, ptr %.046, i64 80
-  %60 = load <8 x i16>, ptr %59, align 1, !tbaa !3, !alias.scope !89
+  %60 = load <8 x i16>, ptr %59, align 1, !tbaa !3, !alias.scope !90
   %61 = getelementptr inbounds nuw i8, ptr %.046, i64 96
-  %62 = load <8 x i16>, ptr %61, align 1, !tbaa !3, !alias.scope !89
+  %62 = load <8 x i16>, ptr %61, align 1, !tbaa !3, !alias.scope !90
   %63 = getelementptr inbounds nuw i8, ptr %.046, i64 112
-  %64 = load <8 x i16>, ptr %63, align 1, !tbaa !3, !alias.scope !89
+  %64 = load <8 x i16>, ptr %63, align 1, !tbaa !3, !alias.scope !90
   %65 = shufflevector <8 x i16> %58, <8 x i16> %60, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13>
   %66 = bitcast <8 x i16> %65 to <2 x i64>
   %67 = shufflevector <8 x i16> %58, <8 x i16> %60, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 poison, i32 poison, i32 poison, i32 poison>
@@ -2861,7 +2861,7 @@ define internal void @ConvertRGBA32ToUV_SSE2(ptr noalias noundef %0, ptr noalias
   %108 = getelementptr inbounds nuw i8, ptr %.01944, i64 16
   %109 = getelementptr inbounds nuw i8, ptr %.046, i64 128
   %110 = icmp ult ptr %109, %8
-  br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !92
+  br i1 %110, label %.lr.ph, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.019.lcssa = phi ptr [ %2, %4 ], [ %108, %.lr.ph ]
@@ -2930,87 +2930,88 @@ attributes #10 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"PackAndStore4_SSE2: argument 0"}
 !8 = distinct !{!8, !"PackAndStore4_SSE2"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"PackAndStore4_SSE2: argument 0"}
-!13 = distinct !{!13, !"PackAndStore4_SSE2"}
-!14 = distinct !{!14, !10}
-!15 = !{!16}
-!16 = distinct !{!16, !17, !"PackAndStore4_SSE2: argument 0"}
-!17 = distinct !{!17, !"PackAndStore4_SSE2"}
-!18 = distinct !{!18, !10}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"PackAndStore4444_SSE2: argument 0"}
-!21 = distinct !{!21, !"PackAndStore4444_SSE2"}
-!22 = distinct !{!22, !10}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"PackAndStore565_SSE2: argument 0"}
-!25 = distinct !{!25, !"PackAndStore565_SSE2"}
-!26 = distinct !{!26, !10}
-!27 = !{!28}
-!28 = distinct !{!28, !29, !"PlanarTo24b_SSE2: argument 0"}
-!29 = distinct !{!29, !"PlanarTo24b_SSE2"}
-!30 = !{!31}
-!31 = distinct !{!31, !32, !"PlanarTo24b_SSE2: argument 0"}
-!32 = distinct !{!32, !"PlanarTo24b_SSE2"}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"any pointer", !4, i64 0}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"PlanarTo24b_SSE2: argument 0"}
-!37 = distinct !{!37, !"PlanarTo24b_SSE2"}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
-!40 = !{!41}
-!41 = distinct !{!41, !42, !"PackAndStore4_SSE2: argument 0"}
-!42 = distinct !{!42, !"PackAndStore4_SSE2"}
-!43 = distinct !{!43, !10}
-!44 = distinct !{!44, !10}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"PlanarTo24b_SSE2: argument 0"}
-!47 = distinct !{!47, !"PlanarTo24b_SSE2"}
-!48 = distinct !{!48, !10}
-!49 = distinct !{!49, !10}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"PackAndStore4_SSE2: argument 0"}
-!52 = distinct !{!52, !"PackAndStore4_SSE2"}
-!53 = distinct !{!53, !10}
-!54 = distinct !{!54, !10}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"PackAndStore4_SSE2: argument 0"}
-!57 = distinct !{!57, !"PackAndStore4_SSE2"}
-!58 = distinct !{!58, !10}
-!59 = distinct !{!59, !10}
-!60 = !{!61}
-!61 = distinct !{!61, !62, !"RGB32PackedToPlanar_SSE2: argument 0"}
-!62 = distinct !{!62, !"RGB32PackedToPlanar_SSE2"}
-!63 = distinct !{!63, !10}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"int", !4, i64 0}
-!66 = distinct !{!66, !10}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"RGB32PackedToPlanar_SSE2: argument 0"}
-!69 = distinct !{!69, !"RGB32PackedToPlanar_SSE2"}
-!70 = !{!71}
-!71 = distinct !{!71, !72, !"RGB32PackedToPlanar_SSE2: argument 0"}
-!72 = distinct !{!72, !"RGB32PackedToPlanar_SSE2"}
-!73 = distinct !{!73, !10}
-!74 = !{!75}
-!75 = distinct !{!75, !76, !"RGB24PackedToPlanar_SSE2: argument 0"}
-!76 = distinct !{!76, !"RGB24PackedToPlanar_SSE2"}
-!77 = distinct !{!77, !10}
-!78 = distinct !{!78, !10}
-!79 = distinct !{!79, !10}
-!80 = !{!81}
-!81 = distinct !{!81, !82, !"RGB24PackedToPlanar_SSE2: argument 0"}
-!82 = distinct !{!82, !"RGB24PackedToPlanar_SSE2"}
-!83 = distinct !{!83, !10}
-!84 = distinct !{!84, !10}
-!85 = distinct !{!85, !10}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"RGBA32PackedToPlanar_16b_SSE2: argument 0"}
-!88 = distinct !{!88, !"RGBA32PackedToPlanar_16b_SSE2"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"RGBA32PackedToPlanar_16b_SSE2: argument 0"}
-!91 = distinct !{!91, !"RGBA32PackedToPlanar_16b_SSE2"}
-!92 = distinct !{!92, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"PackAndStore4_SSE2: argument 0"}
+!14 = distinct !{!14, !"PackAndStore4_SSE2"}
+!15 = distinct !{!15, !10, !11}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"PackAndStore4_SSE2: argument 0"}
+!18 = distinct !{!18, !"PackAndStore4_SSE2"}
+!19 = distinct !{!19, !10, !11}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"PackAndStore4444_SSE2: argument 0"}
+!22 = distinct !{!22, !"PackAndStore4444_SSE2"}
+!23 = distinct !{!23, !10, !11}
+!24 = !{!25}
+!25 = distinct !{!25, !26, !"PackAndStore565_SSE2: argument 0"}
+!26 = distinct !{!26, !"PackAndStore565_SSE2"}
+!27 = distinct !{!27, !10, !11}
+!28 = !{!29}
+!29 = distinct !{!29, !30, !"PlanarTo24b_SSE2: argument 0"}
+!30 = distinct !{!30, !"PlanarTo24b_SSE2"}
+!31 = !{!32}
+!32 = distinct !{!32, !33, !"PlanarTo24b_SSE2: argument 0"}
+!33 = distinct !{!33, !"PlanarTo24b_SSE2"}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"any pointer", !4, i64 0}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"PlanarTo24b_SSE2: argument 0"}
+!38 = distinct !{!38, !"PlanarTo24b_SSE2"}
+!39 = distinct !{!39, !10, !11}
+!40 = distinct !{!40, !10, !11}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"PackAndStore4_SSE2: argument 0"}
+!43 = distinct !{!43, !"PackAndStore4_SSE2"}
+!44 = distinct !{!44, !10, !11}
+!45 = distinct !{!45, !10, !11}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"PlanarTo24b_SSE2: argument 0"}
+!48 = distinct !{!48, !"PlanarTo24b_SSE2"}
+!49 = distinct !{!49, !10, !11}
+!50 = distinct !{!50, !10, !11}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"PackAndStore4_SSE2: argument 0"}
+!53 = distinct !{!53, !"PackAndStore4_SSE2"}
+!54 = distinct !{!54, !10, !11}
+!55 = distinct !{!55, !10, !11}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"PackAndStore4_SSE2: argument 0"}
+!58 = distinct !{!58, !"PackAndStore4_SSE2"}
+!59 = distinct !{!59, !10, !11}
+!60 = distinct !{!60, !10, !11}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"RGB32PackedToPlanar_SSE2: argument 0"}
+!63 = distinct !{!63, !"RGB32PackedToPlanar_SSE2"}
+!64 = distinct !{!64, !10, !11}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"int", !4, i64 0}
+!67 = distinct !{!67, !10, !11}
+!68 = !{!69}
+!69 = distinct !{!69, !70, !"RGB32PackedToPlanar_SSE2: argument 0"}
+!70 = distinct !{!70, !"RGB32PackedToPlanar_SSE2"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"RGB32PackedToPlanar_SSE2: argument 0"}
+!73 = distinct !{!73, !"RGB32PackedToPlanar_SSE2"}
+!74 = distinct !{!74, !10, !11}
+!75 = !{!76}
+!76 = distinct !{!76, !77, !"RGB24PackedToPlanar_SSE2: argument 0"}
+!77 = distinct !{!77, !"RGB24PackedToPlanar_SSE2"}
+!78 = distinct !{!78, !10, !11}
+!79 = distinct !{!79, !10, !11}
+!80 = distinct !{!80, !10, !11}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"RGB24PackedToPlanar_SSE2: argument 0"}
+!83 = distinct !{!83, !"RGB24PackedToPlanar_SSE2"}
+!84 = distinct !{!84, !10, !11}
+!85 = distinct !{!85, !10, !11}
+!86 = distinct !{!86, !10, !11}
+!87 = !{!88}
+!88 = distinct !{!88, !89, !"RGBA32PackedToPlanar_16b_SSE2: argument 0"}
+!89 = distinct !{!89, !"RGBA32PackedToPlanar_16b_SSE2"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"RGBA32PackedToPlanar_16b_SSE2: argument 0"}
+!92 = distinct !{!92, !"RGBA32PackedToPlanar_16b_SSE2"}
+!93 = distinct !{!93, !10, !11}

@@ -1038,7 +1038,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %249 = fadd double %79, %.0518608
   %250 = fadd double %74, %.0519607
   %251 = fcmp ugt double %250, %.0523
-  br i1 %251, label %._crit_edge615, label %.lr.ph614, !llvm.loop !8
+  br i1 %251, label %._crit_edge615, label %.lr.ph614, !llvm.loop !9
 
 ._crit_edge615:                                   ; preds = %248, %218
   %.0519.lcssa = phi double [ %.0519.lcssa695, %218 ], [ %250, %248 ]
@@ -1173,7 +1173,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %319 = fadd double %97, %.0511624
   %320 = fadd double %92, %.0510625
   %321 = fcmp ugt double %320, %.0508
-  br i1 %321, label %._crit_edge630, label %.lr.ph629, !llvm.loop !9
+  br i1 %321, label %._crit_edge630, label %.lr.ph629, !llvm.loop !10
 
 ._crit_edge630:                                   ; preds = %318, %288
   %.0513.lcssa = phi double [ %138, %288 ], [ %.0511624, %318 ]
@@ -1308,7 +1308,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %390 = fadd double %115, %.0492639
   %391 = fadd double %110, %.0491640
   %392 = fcmp ugt double %391, %.0489
-  br i1 %392, label %._crit_edge645, label %.lr.ph644, !llvm.loop !10
+  br i1 %392, label %._crit_edge645, label %.lr.ph644, !llvm.loop !11
 
 ._crit_edge645:                                   ; preds = %389, %359
   %.0494.lcssa = phi double [ %131, %359 ], [ %.0492639, %389 ]
@@ -1401,7 +1401,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   store i8 %433, ptr %434, align 1
   %indvars.iv.next731 = add nsw i64 %indvars.iv730, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge657, label %.lr.ph656, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge657, label %.lr.ph656, !llvm.loop !12
 
 ._crit_edge657:                                   ; preds = %.lr.ph656
   %435 = trunc nsw i64 %indvars.iv.next731 to i32
@@ -1480,7 +1480,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   store i8 %468, ptr %469, align 1
   %indvars.iv.next738 = add nsw i64 %indvars.iv737, 1
   %exitcond743.not = icmp eq i64 %indvars.iv.next738, %wide.trip.count742
-  br i1 %exitcond743.not, label %._crit_edge667.thread, label %.lr.ph666, !llvm.loop !12
+  br i1 %exitcond743.not, label %._crit_edge667.thread, label %.lr.ph666, !llvm.loop !13
 
 ._crit_edge667.thread:                            ; preds = %.lr.ph666
   %470 = trunc nuw i64 %indvars.iv.next736 to i32
@@ -1510,7 +1510,7 @@ define internal fastcc void @fillAAPgram(ptr noundef nonnull %0, ptr noundef non
   %483 = add nsw i64 %.0679, %482
   %484 = add i32 %.0440678, 1
   %exitcond744.not = icmp eq i32 %484, %21
-  br i1 %exitcond744.not, label %._crit_edge681, label %129, !llvm.loop !13
+  br i1 %exitcond744.not, label %._crit_edge681, label %129, !llvm.loop !14
 
 ._crit_edge681:                                   ; preds = %480, %.thread
   %.not562 = icmp eq ptr %46, %14
@@ -2159,7 +2159,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %281 = fadd double %87, %.08971092
   %282 = fadd double %82, %.09001091
   %283 = fcmp ugt double %282, %.0902
-  br i1 %283, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %283, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %280, %250
   %.0900.lcssa = phi double [ %240, %250 ], [ %282, %280 ]
@@ -2299,7 +2299,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %354 = fadd double %107, %.09191103
   %355 = fadd double %102, %.09201102
   %356 = fcmp ugt double %355, %.0924
-  br i1 %356, label %._crit_edge1110, label %.lr.ph1109, !llvm.loop !15
+  br i1 %356, label %._crit_edge1110, label %.lr.ph1109, !llvm.loop !16
 
 ._crit_edge1110:                                  ; preds = %353, %323
   %.0920.lcssa = phi double [ %.0920.lcssa1338, %323 ], [ %355, %353 ]
@@ -2439,7 +2439,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %424 = fadd double %125, %.09391118
   %425 = fadd double %120, %.09401117
   %426 = fcmp ugt double %425, %.0944
-  br i1 %426, label %._crit_edge1125, label %.lr.ph1124, !llvm.loop !16
+  br i1 %426, label %._crit_edge1125, label %.lr.ph1124, !llvm.loop !17
 
 ._crit_edge1125:                                  ; preds = %423, %393
   %.0940.lcssa = phi double [ %.0940.lcssa1349, %393 ], [ %425, %423 ]
@@ -2579,7 +2579,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %495 = fadd double %143, %.09591133
   %496 = fadd double %138, %.09621132
   %497 = fcmp ugt double %496, %.0964
-  br i1 %497, label %._crit_edge1140, label %.lr.ph1139, !llvm.loop !17
+  br i1 %497, label %._crit_edge1140, label %.lr.ph1139, !llvm.loop !18
 
 ._crit_edge1140:                                  ; preds = %494, %464
   %.0962.lcssa = phi double [ %.0962.lcssa1362, %464 ], [ %496, %494 ]
@@ -2719,7 +2719,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %565 = fadd double %161, %.09511149
   %566 = fadd double %156, %.09501150
   %567 = fcmp ugt double %566, %.0948
-  br i1 %567, label %._crit_edge1155, label %.lr.ph1154, !llvm.loop !18
+  br i1 %567, label %._crit_edge1155, label %.lr.ph1154, !llvm.loop !19
 
 ._crit_edge1155:                                  ; preds = %564, %534
   %.0953.lcssa = phi double [ %235, %534 ], [ %.09511149, %564 ]
@@ -2859,7 +2859,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %636 = fadd double %179, %.09321164
   %637 = fadd double %174, %.09311165
   %638 = fcmp ugt double %637, %.0929
-  br i1 %638, label %._crit_edge1170, label %.lr.ph1169, !llvm.loop !19
+  br i1 %638, label %._crit_edge1170, label %.lr.ph1169, !llvm.loop !20
 
 ._crit_edge1170:                                  ; preds = %635, %605
   %.0934.lcssa = phi double [ %.09301379, %605 ], [ %.09321164, %635 ]
@@ -2999,7 +2999,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %706 = fadd double %197, %.09131179
   %707 = fadd double %192, %.09121180
   %708 = fcmp ugt double %707, %.0910
-  br i1 %708, label %._crit_edge1185, label %.lr.ph1184, !llvm.loop !20
+  br i1 %708, label %._crit_edge1185, label %.lr.ph1184, !llvm.loop !21
 
 ._crit_edge1185:                                  ; preds = %705, %675
   %.0915.lcssa = phi double [ %232, %675 ], [ %.09131179, %705 ]
@@ -3139,7 +3139,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %777 = fadd double %215, %.08941194
   %778 = fadd double %210, %.08931195
   %779 = fcmp ugt double %778, %.0891
-  br i1 %779, label %._crit_edge1200, label %.lr.ph1199, !llvm.loop !21
+  br i1 %779, label %._crit_edge1200, label %.lr.ph1199, !llvm.loop !22
 
 ._crit_edge1200:                                  ; preds = %776, %746
   %.0896.lcssa = phi double [ %.08921403, %746 ], [ %.08941194, %776 ]
@@ -3243,7 +3243,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   store i8 %821, ptr %822, align 1
   %indvars.iv.next1253 = add nsw i64 %indvars.iv1252, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge1212, label %.lr.ph1211, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge1212, label %.lr.ph1211, !llvm.loop !23
 
 ._crit_edge1212:                                  ; preds = %.lr.ph1211
   %823 = trunc nsw i64 %indvars.iv.next1253 to i32
@@ -3325,7 +3325,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   store i8 %859, ptr %860, align 1
   %indvars.iv.next1260 = add nsw i64 %indvars.iv1259, 1
   %exitcond1265.not = icmp eq i64 %indvars.iv.next1260, %wide.trip.count1264
-  br i1 %exitcond1265.not, label %._crit_edge1222.thread, label %.lr.ph1221, !llvm.loop !23
+  br i1 %exitcond1265.not, label %._crit_edge1222.thread, label %.lr.ph1221, !llvm.loop !24
 
 ._crit_edge1222.thread:                           ; preds = %.lr.ph1221
   %861 = trunc nuw i64 %indvars.iv.next1258 to i32
@@ -3376,7 +3376,7 @@ define internal fastcc void @drawAAPgram(ptr noundef nonnull %0, ptr noundef non
   %886 = add nsw i64 %.01227, %885
   %887 = add i32 %.08121226, 1
   %exitcond1266.not = icmp eq i32 %887, %25
-  br i1 %exitcond1266.not, label %._crit_edge1229, label %229, !llvm.loop !24
+  br i1 %exitcond1266.not, label %._crit_edge1229, label %229, !llvm.loop !25
 
 ._crit_edge1229:                                  ; preds = %883, %.thread
   %.not1035 = icmp eq ptr %74, %18
@@ -3557,22 +3557,23 @@ attributes #9 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}

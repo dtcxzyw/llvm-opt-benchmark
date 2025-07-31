@@ -220,7 +220,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %117 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %indvars.iv.next144
   %118 = load double, ptr %117, align 8
   %119 = fcmp oeq double %118, 0.000000e+00
-  br i1 %119, label %115, label %.critedge.split.loop.exit147, !llvm.loop !6
+  br i1 %119, label %115, label %.critedge.split.loop.exit147, !llvm.loop !7
 
 .critedge.split.loop.exit147:                     ; preds = %116
   %120 = trunc nuw nsw i64 %indvars.iv143 to i32
@@ -274,6 +274,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

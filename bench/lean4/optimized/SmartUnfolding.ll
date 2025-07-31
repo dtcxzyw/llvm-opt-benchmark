@@ -4365,7 +4365,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit121.backedge:                        ; preds = %71, %73, %83, %82, %80
   %.0106.be = phi ptr [ %75, %73 ], [ %77, %80 ], [ %77, %82 ], [ %77, %83 ], [ inttoptr (i64 1 to ptr), %71 ]
   %.0105.be = phi ptr [ %.1.i180236, %73 ], [ %76, %80 ], [ %76, %82 ], [ %76, %83 ], [ %.1.i180236, %71 ]
-  br label %lean_dec.exit121
+  br label %lean_dec.exit121, !llvm.loop !17
 
 73:                                               ; preds = %71
   %74 = add i64 %48, -2
@@ -6142,7 +6142,7 @@ lean_array_set.exit.thread:                       ; preds = %lean_ensure_exclusi
 lean_dec.exit121.backedge:                        ; preds = %71, %73, %83, %82, %80
   %.0106.be = phi ptr [ %75, %73 ], [ %77, %80 ], [ %77, %82 ], [ %77, %83 ], [ inttoptr (i64 1 to ptr), %71 ]
   %.0105.be = phi ptr [ %.1.i180236, %73 ], [ %76, %80 ], [ %76, %82 ], [ %76, %83 ], [ %.1.i180236, %71 ]
-  br label %lean_dec.exit121
+  br label %lean_dec.exit121, !llvm.loop !19
 
 73:                                               ; preds = %71
   %74 = add i64 %48, -2
@@ -7942,7 +7942,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Elab_Structural_addSmartUnfol
   %17 = ptrtoint ptr %2 to i64
   %18 = and i64 %17, 1
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %lean_dec.exit71, label %19, !prof !17
+  br i1 %.not, label %lean_dec.exit71, label %19, !prof !20
 
 19:                                               ; preds = %12
   %20 = icmp eq ptr %2, %16
@@ -9057,7 +9057,7 @@ lean_dec.exit422:                                 ; preds = %262, %261, %259, %l
   br label %lean_array_fget.exit
 
 lean_array_fget.exit:                             ; preds = %lean_dec.exit422, %271, %273, %274
-  br i1 %.not888, label %284, label %275, !prof !17
+  br i1 %.not888, label %284, label %275, !prof !20
 
 275:                                              ; preds = %lean_array_fget.exit
   %276 = add nuw i64 %263, 1
@@ -9750,7 +9750,7 @@ lean_dec.exit409:                                 ; preds = %505, %504, %502, %4
   br label %lean_array_fget.exit695
 
 lean_array_fget.exit695:                          ; preds = %lean_dec.exit409, %514, %516, %517
-  br i1 %.not888, label %527, label %518, !prof !17
+  br i1 %.not888, label %527, label %518, !prof !20
 
 518:                                              ; preds = %lean_array_fget.exit695
   %519 = add nuw i64 %506, 1
@@ -11030,7 +11030,7 @@ lean_dec_ref.exit626:                             ; preds = %958, %957, %955, %l
   br label %lean_array_fget.exit778
 
 lean_array_fget.exit778:                          ; preds = %lean_dec_ref.exit626, %967, %969, %970
-  br i1 %.not858, label %980, label %971, !prof !17
+  br i1 %.not858, label %980, label %971, !prof !20
 
 971:                                              ; preds = %lean_array_fget.exit778
   %972 = add nuw i64 %959, 1
@@ -13838,7 +13838,7 @@ define ptr @l_Lean_Elab_Structural_addSmartUnfoldingDefAux(ptr noundef %0, ptr n
 
 lean_inc.exit183:                                 ; preds = %17, %16, %14, %7
   %18 = getelementptr i8, ptr %0, i64 64
-  %.val230 = load i8, ptr %18, align 1, !tbaa !18
+  %.val230 = load i8, ptr %18, align 1, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %21 = ptrtoint ptr %20 to i64
@@ -14724,7 +14724,7 @@ lean_alloc_ctor.exit279:                          ; preds = %lean_dec_ref.exit22
   store ptr %295, ptr %355, align 8, !tbaa !10
   %356 = getelementptr inbounds nuw i8, ptr %345, i64 56
   store ptr %60, ptr %356, align 8, !tbaa !10
-  store i8 %.val230, ptr %349, align 1, !tbaa !18
+  store i8 %.val230, ptr %349, align 1, !tbaa !21
   %357 = ptrtoint ptr %.0150 to i64
   %358 = and i64 %357, 1
   %.not308 = icmp eq i64 %358, 0
@@ -16616,5 +16616,8 @@ attributes #6 = { noreturn nounwind }
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"short", !7, i64 0}
-!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!18 = !{!7, !7, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !18}
+!20 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!21 = !{!7, !7, i64 0}

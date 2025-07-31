@@ -125,7 +125,7 @@ define internal noundef i32 @regcache_maple_exit(ptr noundef captures(none) %0) 
   call void @kfree(ptr noundef nonnull %16) #10
   %17 = call ptr @mas_find(ptr noundef nonnull %2, i64 noundef 4294967295) #10
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %18, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %13
   call void @__mt_destroy(ptr noundef nonnull %4) #10
@@ -391,7 +391,7 @@ define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0,
   %53 = load i64, ptr %9, align 8
   %54 = call i64 @llvm.umin.i64(i64 %53, i64 %10)
   %55 = icmp samesign ult i64 %54, %52
-  br i1 %55, label %.loopexit6, label %.preheader, !llvm.loop !9
+  br i1 %55, label %.loopexit6, label %.preheader, !llvm.loop !10
 
 .loopexit6:                                       ; preds = %48, %.preheader7
   %56 = phi i8 [ %21, %.preheader7 ], [ %49, %48 ]
@@ -410,7 +410,7 @@ define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0,
   %65 = phi i8 [ %56, %.loopexit6 ], [ 0, %61 ]
   %66 = call ptr @mas_find(ptr noundef nonnull %4, i64 noundef %10) #10
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %.loopexit, label %.preheader7, !llvm.loop !10
+  br i1 %67, label %.loopexit, label %.preheader7, !llvm.loop !11
 
 .loopexit:                                        ; preds = %64, %61, %45, %3
   %68 = phi i32 [ 0, %3 ], [ %46, %45 ], [ %62, %61 ], [ 0, %64 ]
@@ -531,7 +531,7 @@ define internal i32 @regcache_maple_drop(ptr noundef readonly captures(none) %0,
 69:                                               ; preds = %65, %63
   %70 = call ptr @mas_find(ptr noundef nonnull %4, i64 noundef %10) #10
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.loopexit12, label %24, !llvm.loop !11
+  br i1 %71, label %.loopexit12, label %24, !llvm.loop !12
 
 .loopexit12:                                      ; preds = %69, %65, %59, %3
   %72 = phi ptr [ null, %3 ], [ null, %69 ], [ null, %65 ], [ %40, %59 ]
@@ -579,7 +579,7 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr noundef readonly cap
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %16, align 4
   %20 = icmp slt i32 %18, 0
-  br i1 %20, label %.thread, label %21, !prof !12
+  br i1 %20, label %.thread, label %21, !prof !13
 
 21:                                               ; preds = %3
   %22 = zext nneg i32 %18 to i64
@@ -611,7 +611,7 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr noundef readonly cap
   store i64 %40, ptr %41, align 8
   %42 = add nuw nsw i64 %34, 1
   %43 = icmp eq i64 %42, %22
-  br i1 %43, label %.loopexit, label %33, !llvm.loop !13
+  br i1 %43, label %.loopexit, label %33, !llvm.loop !14
 
 .loopexit:                                        ; preds = %33, %28
   tail call void @_raw_spin_lock(ptr noundef %6) #10
@@ -734,7 +734,7 @@ define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nounde
   tail call void @regcache_set_val(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %28, i32 noundef %33) #10
   %34 = add nuw nsw i64 %26, 1
   %35 = icmp eq i64 %34, %20
-  br i1 %35, label %.loopexit, label %25, !llvm.loop !14
+  br i1 %35, label %.loopexit, label %25, !llvm.loop !15
 
 .loopexit:                                        ; preds = %25, %19
   %36 = tail call i32 @_regmap_raw_write(ptr noundef %0, i32 noundef %3, ptr noundef nonnull %17, i64 noundef %14, i1 noundef zeroext false) #10
@@ -754,7 +754,7 @@ define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nounde
 43:                                               ; preds = %46
   %44 = add nuw nsw i64 %47, 1
   %45 = icmp eq i64 %44, %38
-  br i1 %45, label %.loopexit5, label %46, !llvm.loop !15
+  br i1 %45, label %.loopexit5, label %46, !llvm.loop !16
 
 46:                                               ; preds = %43, %40
   %47 = phi i64 [ %41, %40 ], [ %44, %43 ]
@@ -822,14 +822,15 @@ attributes #12 = { nounwind allocsize(1) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"branch_weights", i32 1, i32 2000}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}

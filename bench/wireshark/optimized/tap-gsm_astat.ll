@@ -209,7 +209,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not100 = icmp eq ptr %42, null
-  br i1 %.not100, label %._crit_edge115, label %27, !llvm.loop !9
+  br i1 %.not100, label %._crit_edge115, label %27, !llvm.loop !10
 
 ._crit_edge115:                                   ; preds = %37, %._crit_edge
   %43 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 48), align 8
@@ -245,7 +245,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not101 = icmp eq ptr %63, null
-  br i1 %.not101, label %._crit_edge120, label %48, !llvm.loop !10
+  br i1 %.not101, label %._crit_edge120, label %48, !llvm.loop !11
 
 ._crit_edge120:                                   ; preds = %58, %._crit_edge115
   %64 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 24), align 8
@@ -281,7 +281,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   %.not102 = icmp eq ptr %84, null
-  br i1 %.not102, label %._crit_edge125, label %69, !llvm.loop !11
+  br i1 %.not102, label %._crit_edge125, label %69, !llvm.loop !12
 
 ._crit_edge125:                                   ; preds = %79, %._crit_edge120
   %85 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 64), align 8
@@ -317,7 +317,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not103 = icmp eq ptr %105, null
-  br i1 %.not103, label %._crit_edge130, label %90, !llvm.loop !12
+  br i1 %.not103, label %._crit_edge130, label %90, !llvm.loop !13
 
 ._crit_edge130:                                   ; preds = %100, %._crit_edge125
   %106 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 72), align 8
@@ -353,7 +353,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8
   %.not104 = icmp eq ptr %126, null
-  br i1 %.not104, label %._crit_edge135, label %111, !llvm.loop !13
+  br i1 %.not104, label %._crit_edge135, label %111, !llvm.loop !14
 
 ._crit_edge135:                                   ; preds = %121, %._crit_edge130
   %127 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 80), align 8
@@ -389,7 +389,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %147 = load ptr, ptr %146, align 8
   %.not105 = icmp eq ptr %147, null
-  br i1 %.not105, label %._crit_edge140, label %132, !llvm.loop !14
+  br i1 %.not105, label %._crit_edge140, label %132, !llvm.loop !15
 
 ._crit_edge140:                                   ; preds = %142, %._crit_edge135
   %148 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 88), align 8
@@ -425,7 +425,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load ptr, ptr %167, align 8
   %.not106 = icmp eq ptr %168, null
-  br i1 %.not106, label %._crit_edge145, label %153, !llvm.loop !15
+  br i1 %.not106, label %._crit_edge145, label %153, !llvm.loop !16
 
 ._crit_edge145:                                   ; preds = %163, %._crit_edge140
   %169 = load ptr, ptr getelementptr (i8, ptr @gsm_a_pd_str, i64 120), align 8
@@ -461,7 +461,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
   %.not107 = icmp eq ptr %189, null
-  br i1 %.not107, label %._crit_edge150, label %174, !llvm.loop !16
+  br i1 %.not107, label %._crit_edge150, label %174, !llvm.loop !17
 
 ._crit_edge150:                                   ; preds = %184, %._crit_edge145
   %190 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.8)
@@ -496,7 +496,7 @@ define internal void @gsm_a_stat_draw(ptr noundef readonly captures(none) %0) #0
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8
   %.not108 = icmp eq ptr %209, null
-  br i1 %.not108, label %._crit_edge155, label %194, !llvm.loop !17
+  br i1 %.not108, label %._crit_edge155, label %194, !llvm.loop !18
 
 ._crit_edge155:                                   ; preds = %204, %._crit_edge150
   %210 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9)
@@ -537,14 +537,15 @@ attributes #8 = { cold noreturn nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}

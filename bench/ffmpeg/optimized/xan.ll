@@ -237,7 +237,7 @@ bytestream2_get_le32.exit73:                      ; preds = %84, %86
   br i1 %90, label %91, label %92
 
 91:                                               ; preds = %bytestream2_get_le32.exit73
-  store i32 %.0.i72, ptr %18, align 4, !tbaa !49
+  store i32 %.0.i72, ptr %18, align 4, !tbaa !50
   br label %96
 
 92:                                               ; preds = %bytestream2_get_le32.exit73
@@ -256,7 +256,7 @@ bytestream2_get_le32.exit73:                      ; preds = %84, %86
   %98 = sub i64 %15, %97
   %99 = trunc i64 %98 to i32
   %100 = icmp sgt i32 %99, 8
-  br i1 %100, label %20, label %._crit_edge, !llvm.loop !50
+  br i1 %100, label %20, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %96, %.thread168, %bytestream2_init.exit
   %.sroa.0.0.lcssa = phi ptr [ %12, %bytestream2_init.exit ], [ %.sroa.0.5100, %.thread168 ], [ %.sroa.0.1, %96 ]
@@ -298,19 +298,19 @@ bytestream2_get_le32.exit73:                      ; preds = %84, %86
 
 121:                                              ; preds = %111, %114
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !51
+  %123 = load ptr, ptr %122, align 8, !tbaa !52
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %125 = load ptr, ptr %124, align 8, !tbaa !45
   %126 = getelementptr inbounds nuw i8, ptr %8, i64 76
-  %127 = load i32, ptr %126, align 4, !tbaa !49
+  %127 = load i32, ptr %126, align 4, !tbaa !50
   %128 = shl nsw i32 %127, 8
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %125, i64 %129
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %123, ptr noundef nonnull align 4 dereferenceable(1024) %130, i64 1024, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %.sroa.0.0.lcssa, ptr %131, align 8, !tbaa !52
+  store ptr %.sroa.0.0.lcssa, ptr %131, align 8, !tbaa !53
   %132 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i32 %.lcssa130, ptr %132, align 8, !tbaa !53
+  store i32 %.lcssa130, ptr %132, align 8, !tbaa !54
   %133 = load ptr, ptr %8, align 8, !tbaa !27
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 112
   %135 = load i32, ptr %134, align 8, !tbaa !33
@@ -425,7 +425,7 @@ bytestream2_init.exit134.i:                       ; preds = %121
   %.135.i.i = phi i8 [ %174, %203 ], [ %200, %197 ]
   %.132.i.i = phi ptr [ %204, %203 ], [ %.03153.i.i, %197 ]
   %.not.i.i = icmp eq i8 %.135.i.i, 22
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !54
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !55
 
 ._crit_edge.i.i:                                  ; preds = %205, %.preheader.i.i
   %.031.lcssa.i.i = phi ptr [ %140, %.preheader.i.i ], [ %.132.i.i, %205 ]
@@ -452,7 +452,7 @@ xan_huffman_decode.exit.i:                        ; preds = %202, %._crit_edge.i
   %218 = load ptr, ptr %143, align 8, !tbaa !38
   %219 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %220 = load i32, ptr %219, align 8, !tbaa !37
-  %221 = load i32, ptr %132, align 8, !tbaa !53
+  %221 = load i32, ptr %132, align 8, !tbaa !54
   %222 = xor i32 %155, -1
   %223 = add i32 %221, %222
   %224 = sext i32 %220 to i64
@@ -677,14 +677,14 @@ bytestream2_get_byte.exit67.i.i:                  ; preds = %295, %bytestream2_g
   %.sroa.0.2.i.i = phi ptr [ %322, %319 ], [ %344, %341 ]
   %.2.i.i = phi ptr [ %324, %319 ], [ %345, %341 ]
   %347 = icmp ult ptr %.2.i.i, %225
-  br i1 %347, label %234, label %xan_unpack.exit.loopexit.i, !llvm.loop !55
+  br i1 %347, label %234, label %xan_unpack.exit.loopexit.i, !llvm.loop !56
 
 xan_unpack.exit.loopexit.i:                       ; preds = %346, %341, %336, %325, %314, %307, %301, %234
   %.pre.i = load i32, ptr %219, align 8, !tbaa !37
   br label %xan_unpack.exit.i
 
 348:                                              ; preds = %211
-  %349 = load i32, ptr %132, align 8, !tbaa !53
+  %349 = load i32, ptr %132, align 8, !tbaa !54
   %350 = xor i32 %155, -1
   %351 = add i32 %349, %350
   br label %xan_unpack.exit.i
@@ -749,7 +749,7 @@ xan_unpack.exit.i:                                ; preds = %348, %xan_unpack.ex
 361:                                              ; preds = %.lr.ph.split.i
   %362 = xor i8 %.0110224.i, 1
   %363 = icmp ult ptr %359, %213
-  br i1 %363, label %.lr.ph.split.i, label %xan_wc3_decode_frame.exit, !llvm.loop !56
+  br i1 %363, label %.lr.ph.split.i, label %xan_wc3_decode_frame.exit, !llvm.loop !57
 
 .split.us.i:                                      ; preds = %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.i, %.lr.ph.split.i
   %364 = zext nneg i8 %360 to i32
@@ -856,9 +856,9 @@ bytestream2_get_byte.exit.i:                      ; preds = %.lr.ph.split.i, %39
   br i1 %or.cond.i.i, label %422, label %xan_wc3_copy_pixel_run.exit.i
 
 422:                                              ; preds = %420
-  %423 = load ptr, ptr %1, align 8, !tbaa !51
+  %423 = load ptr, ptr %1, align 8, !tbaa !52
   %424 = load ptr, ptr %357, align 8, !tbaa !39
-  %425 = load ptr, ptr %424, align 8, !tbaa !51
+  %425 = load ptr, ptr %424, align 8, !tbaa !52
   %.not105.i.i = icmp eq ptr %425, null
   %426 = load i32, ptr %358, align 8, !tbaa !46
   %427 = sub nsw i32 %426, %415
@@ -919,14 +919,14 @@ bytestream2_get_byte.exit.i:                      ; preds = %.lr.ph.split.i, %39
   %453 = select i1 %.not108.i.i, i32 0, i32 %427
   %.188.i.i = add nsw i32 %449, %453
   %.not106.i.i = icmp eq i32 %447, 0
-  br i1 %.not106.i.i, label %xan_wc3_copy_pixel_run.exit.i, label %.lr.ph.i144.i, !llvm.loop !57
+  br i1 %.not106.i.i, label %xan_wc3_copy_pixel_run.exit.i, label %.lr.ph.i144.i, !llvm.loop !58
 
 454:                                              ; preds = %411
   %455 = icmp slt i32 %.1107.ph260.i, %.0113.i
   br i1 %455, label %xan_wc3_decode_frame.exit, label %456
 
 456:                                              ; preds = %454
-  %.val.i = load ptr, ptr %1, align 8, !tbaa !51
+  %.val.i = load ptr, ptr %1, align 8, !tbaa !52
   %.val139.i = load i32, ptr %358, align 8, !tbaa !46
   %457 = load ptr, ptr %8, align 8, !tbaa !27
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 112
@@ -965,7 +965,7 @@ bytestream2_get_byte.exit.i:                      ; preds = %.lr.ph.split.i, %39
   %475 = select i1 %.not38.i.i, i32 0, i32 %460
   %spec.select39.i.i = add nsw i32 %472, %475
   %.not.i147.i = icmp eq i32 %471, 0
-  br i1 %.not.i147.i, label %xan_wc3_output_pixel_run.exit.i, label %.lr.ph.i145.i, !llvm.loop !58
+  br i1 %.not.i147.i, label %xan_wc3_output_pixel_run.exit.i, label %.lr.ph.i145.i, !llvm.loop !59
 
 xan_wc3_output_pixel_run.exit.i:                  ; preds = %465, %.lr.ph.i145.i, %456
   %476 = sext i32 %.0113.i to i64
@@ -1018,9 +1018,9 @@ bytestream2_get_byte.exit136.i:                   ; preds = %486, %484
   br i1 %or.cond.i150.i, label %505, label %xan_wc3_copy_pixel_run.exit.i
 
 505:                                              ; preds = %502
-  %506 = load ptr, ptr %1, align 8, !tbaa !51
+  %506 = load ptr, ptr %1, align 8, !tbaa !52
   %507 = load ptr, ptr %357, align 8, !tbaa !39
-  %508 = load ptr, ptr %507, align 8, !tbaa !51
+  %508 = load ptr, ptr %507, align 8, !tbaa !52
   %.not105.i151.i = icmp eq ptr %508, null
   %spec.select.i152.i = select i1 %.not105.i151.i, ptr %506, ptr %508
   %509 = load i32, ptr %358, align 8, !tbaa !46
@@ -1084,7 +1084,7 @@ bytestream2_get_byte.exit136.i:                   ; preds = %486, %484
   %541 = select i1 %.not108.i165.i, i32 0, i32 %510
   %.188.i167.i = add nsw i32 %537, %541
   %.not106.i168.i = icmp eq i32 %535, 0
-  br i1 %.not106.i168.i, label %xan_wc3_copy_pixel_run.exit.i, label %.lr.ph.i154.i, !llvm.loop !57
+  br i1 %.not106.i168.i, label %xan_wc3_copy_pixel_run.exit.i, label %.lr.ph.i154.i, !llvm.loop !58
 
 xan_wc3_copy_pixel_run.exit.i:                    ; preds = %526, %.lr.ph.i154.i, %438, %.lr.ph.i144.i, %522, %521, %502, %499, %bytestream2_get_byte.exit136.i, %xan_wc3_output_pixel_run.exit.i, %432, %431, %430, %420, %417, %412
   %.sroa.0.1.i = phi ptr [ %.sroa.0.0.ph253.i, %xan_wc3_output_pixel_run.exit.i ], [ %.sroa.0.0.ph253.i, %412 ], [ %.sroa.0.0.ph253.i, %417 ], [ %.sroa.0.0.ph253.i, %420 ], [ %.sroa.0.0.ph253.i, %431 ], [ %.sroa.0.0.ph253.i, %432 ], [ %.sroa.0.0.ph253.i, %430 ], [ %.sroa.0.3.i, %522 ], [ %.sroa.0.3.i, %521 ], [ %.sroa.0.3.i, %502 ], [ %.sroa.0.3.i, %499 ], [ %.sroa.0.3.i, %bytestream2_get_byte.exit136.i ], [ %.sroa.0.0.ph253.i, %.lr.ph.i144.i ], [ %.sroa.0.0.ph253.i, %438 ], [ %.sroa.0.3.i, %.lr.ph.i154.i ], [ %.sroa.0.3.i, %526 ]
@@ -1099,7 +1099,7 @@ xan_wc3_copy_pixel_run.exit.i:                    ; preds = %526, %.lr.ph.i154.i
   %547 = icmp ne i32 %542, 0
   %548 = icmp ult ptr %359, %213
   %549 = select i1 %547, i1 %548, i1 false
-  br i1 %549, label %.lr.ph.split.preheader.i, label %xan_wc3_decode_frame.exit, !llvm.loop !56
+  br i1 %549, label %.lr.ph.split.preheader.i, label %xan_wc3_decode_frame.exit, !llvm.loop !57
 
 xan_huffman_decode.exit.thread.sink.split.i:      ; preds = %479, %.split248.us.i, %.split243.us.i, %.split238.us.i
   %.str.9.sink.i = phi ptr [ @.str.8, %.split238.us.i ], [ @.str.8, %.split243.us.i ], [ @.str.8, %.split248.us.i ], [ @.str.9, %479 ]
@@ -1237,15 +1237,16 @@ attributes #7 = { noreturn nounwind }
 !44 = !{!28, !10, i64 72}
 !45 = !{!28, !24, i64 64}
 !46 = !{!10, !10, i64 0}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!28, !10, i64 76}
-!50 = distinct !{!50, !48}
-!51 = !{!14, !14, i64 0}
-!52 = !{!28, !14, i64 16}
-!53 = !{!28, !10, i64 24}
-!54 = distinct !{!54, !48}
-!55 = distinct !{!55, !48}
-!56 = distinct !{!56, !48}
-!57 = distinct !{!57, !48}
-!58 = distinct !{!58, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!28, !10, i64 76}
+!51 = distinct !{!51, !48, !49}
+!52 = !{!14, !14, i64 0}
+!53 = !{!28, !14, i64 16}
+!54 = !{!28, !10, i64 24}
+!55 = distinct !{!55, !48, !49}
+!56 = distinct !{!56, !48, !49}
+!57 = distinct !{!57, !48, !49}
+!58 = distinct !{!58, !48, !49}
+!59 = distinct !{!59, !48, !49}

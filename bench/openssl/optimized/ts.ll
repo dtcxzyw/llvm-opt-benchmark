@@ -467,7 +467,7 @@ define dso_local range(i32 0, 2) i32 @ts_main(i32 noundef %0, ptr noundef %1) lo
   %.1 = phi i32 [ %.0303, %.lr.ph ], [ %.0303, %23 ], [ %.0303, %25 ], [ %.0303, %28 ], [ %.0303, %30 ], [ %.0303, %32 ], [ %.0303, %34 ], [ %.0303, %36 ], [ %.0303, %38 ], [ %.0303, %39 ], [ %.0303, %40 ], [ %.0303, %42 ], [ %.0303, %43 ], [ 1, %45 ], [ %.0303, %46 ], [ %.0303, %47 ], [ %.0303, %49 ], [ %.0303, %51 ], [ %.0303, %53 ], [ %.0303, %55 ], [ %.0303, %57 ], [ %.0303, %59 ], [ %.0303, %61 ], [ %.0303, %63 ], [ %.0303, %65 ], [ %.0303, %67 ], [ %.0303, %71 ], [ %.0303, %27 ]
   %74 = tail call i32 @opt_next() #7
   %.not = icmp eq i32 %74, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %73
   %75 = icmp eq i32 %.1104, 0
@@ -1102,7 +1102,7 @@ define internal fastcc i32 @verify_command(ptr noundef %0, ptr noundef %1, ptr n
 35:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #7
   %36 = call ptr @OPENSSL_hexstr2buf(ptr noundef nonnull %1, ptr noundef nonnull %11) #7
-  %37 = load i64, ptr %11, align 8, !tbaa !16
+  %37 = load i64, ptr %11, align 8, !tbaa !17
   %38 = call i32 @TS_VERIFY_CTX_set0_imprint(ptr noundef nonnull %25, ptr noundef %36, i64 noundef %37) #7
   %.not61.i = icmp eq i32 %38, 0
   br i1 %.not61.i, label %39, label %.thread73.i
@@ -1390,19 +1390,19 @@ define internal fastcc ptr @create_query(ptr noundef %0, ptr noundef %1, ptr nou
 24:                                               ; preds = %21
   %25 = tail call i32 @EVP_MD_get_type(ptr noundef nonnull %.036) #7
   %26 = tail call ptr @OBJ_nid2obj(i32 noundef %25) #7
-  store ptr %26, ptr %22, align 8, !tbaa !18
+  store ptr %26, ptr %22, align 8, !tbaa !19
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.thread87, label %28
 
 28:                                               ; preds = %24
   %29 = tail call ptr @ASN1_TYPE_new() #7
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %29, ptr %30, align 8, !tbaa !22
+  store ptr %29, ptr %30, align 8, !tbaa !23
   %31 = icmp eq ptr %29, null
   br i1 %31, label %.thread87, label %32
 
 32:                                               ; preds = %28
-  store i32 5, ptr %29, align 8, !tbaa !23
+  store i32 5, ptr %29, align 8, !tbaa !24
   %33 = tail call i32 @TS_MSG_IMPRINT_set_algo(ptr noundef nonnull %19, ptr noundef nonnull %22) #7
   %.not55 = icmp eq i32 %33, 0
   br i1 %.not55, label %.thread87, label %34
@@ -1442,7 +1442,7 @@ define internal fastcc ptr @create_query(ptr noundef %0, ptr noundef %1, ptr nou
   %48 = zext nneg i32 %45 to i64
   %49 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %39, ptr noundef nonnull %7, i64 noundef %48) #7
   %.not42.i = icmp eq i32 %49, 0
-  br i1 %.not42.i, label %.thread.i, label %.preheader.i, !llvm.loop !26
+  br i1 %.not42.i, label %.thread.i, label %.preheader.i, !llvm.loop !27
 
 50:                                               ; preds = %.preheader.i
   %51 = call i32 @EVP_DigestFinal(ptr noundef nonnull %39, ptr noundef %43, ptr noundef null) #7
@@ -1620,14 +1620,14 @@ define internal fastcc ptr @create_nonce() unnamed_addr #0 {
 .preheader:                                       ; preds = %0, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %0 ]
   %4 = getelementptr inbounds nuw [20 x i8], ptr %1, i64 0, i64 %indvars.iv
-  %5 = load i8, ptr %4, align 1, !tbaa !27
+  %5 = load i8, ptr %4, align 1, !tbaa !28
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %6, label %.critedge.split.loop.exit24
 
 6:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !28
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !29
 
 .critedge.split.loop.exit24:                      ; preds = %.preheader
   %7 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1641,17 +1641,17 @@ define internal fastcc ptr @create_nonce() unnamed_addr #0 {
 
 10:                                               ; preds = %.critedge
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !29
+  %12 = load ptr, ptr %11, align 8, !tbaa !30
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.136, i32 noundef 574) #7
   %13 = sub nsw i32 8, %.0.lcssa
-  store i32 %13, ptr %8, align 8, !tbaa !31
+  store i32 %13, ptr %8, align 8, !tbaa !32
   %14 = sub nsw i32 9, %.0.lcssa
   %15 = sext i32 %14 to i64
   %16 = call ptr @app_malloc(i64 noundef %15, ptr noundef nonnull @.str.158) #7
-  store ptr %16, ptr %11, align 8, !tbaa !29
+  store ptr %16, ptr %11, align 8, !tbaa !30
   %17 = zext nneg i32 %.0.lcssa to i64
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
-  %19 = load i32, ptr %8, align 8, !tbaa !31
+  %19 = load i32, ptr %8, align 8, !tbaa !32
   %20 = sext i32 %19 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 1 %18, i64 %20, i1 false)
   br label %24
@@ -1992,22 +1992,23 @@ attributes #7 = { nounwind }
 !10 = !{!"p1 _ZTS9evp_md_st", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
-!18 = !{!19, !20, i64 0}
-!19 = !{!"X509_algor_st", !20, i64 0, !21, i64 8}
-!20 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!21 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
-!22 = !{!19, !21, i64 8}
-!23 = !{!24, !25, i64 0}
-!24 = !{!"asn1_type_st", !25, i64 0, !7, i64 8}
-!25 = !{!"int", !7, i64 0}
-!26 = distinct !{!26, !14}
-!27 = !{!7, !7, i64 0}
-!28 = distinct !{!28, !14}
-!29 = !{!30, !5, i64 8}
-!30 = !{!"asn1_string_st", !25, i64 0, !25, i64 4, !5, i64 8, !17, i64 16}
-!31 = !{!30, !25, i64 0}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !7, i64 0}
+!19 = !{!20, !21, i64 0}
+!20 = !{!"X509_algor_st", !21, i64 0, !22, i64 8}
+!21 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!22 = !{!"p1 _ZTS12asn1_type_st", !6, i64 0}
+!23 = !{!20, !22, i64 8}
+!24 = !{!25, !26, i64 0}
+!25 = !{!"asn1_type_st", !26, i64 0, !7, i64 8}
+!26 = !{!"int", !7, i64 0}
+!27 = distinct !{!27, !14, !15}
+!28 = !{!7, !7, i64 0}
+!29 = distinct !{!29, !14, !15}
+!30 = !{!31, !5, i64 8}
+!31 = !{!"asn1_string_st", !26, i64 0, !26, i64 4, !5, i64 8, !18, i64 16}
+!32 = !{!31, !26, i64 0}

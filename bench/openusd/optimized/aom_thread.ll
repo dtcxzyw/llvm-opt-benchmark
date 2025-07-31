@@ -384,7 +384,7 @@ define internal noalias noundef ptr @thread_loop(ptr noundef captures(none) %0) 
   %27 = load ptr, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = call i32 @pthread_cond_wait(ptr noundef nonnull %28, ptr noundef %27) #10
-  br label %24, !llvm.loop !6
+  br label %24, !llvm.loop !7
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %12, align 8
@@ -458,6 +458,7 @@ attributes #11 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

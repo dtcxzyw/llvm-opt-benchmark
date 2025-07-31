@@ -253,7 +253,7 @@ define internal i32 @mpc7_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.preheader287
 
 64:                                               ; preds = %98
-  br i1 %65, label %.preheader289.split, label %.split.us, !llvm.loop !57
+  br i1 %65, label %.preheader289.split, label %.split.us, !llvm.loop !58
 
 .preheader289.split:                              ; preds = %.preheader289, %64
   %65 = phi i1 [ false, %64 ], [ true, %.preheader289 ]
@@ -344,7 +344,7 @@ define internal i32 @mpc7_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %119 = shl nuw nsw i32 %117, %118
   %120 = lshr i32 %119, 7
   %121 = and i32 %120, 1
-  store i32 %121, ptr %101, align 4, !tbaa !58
+  store i32 %121, ptr %101, align 4, !tbaa !59
   br label %122
 
 122:                                              ; preds = %104, %110, %107
@@ -352,7 +352,7 @@ define internal i32 @mpc7_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.1195 = phi i32 [ %.0194306, %104 ], [ %109, %107 ], [ %109, %110 ]
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next348, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader288, label %.preheader289, !llvm.loop !60
+  br i1 %exitcond.not, label %.preheader288, label %.preheader289, !llvm.loop !61
 
 .preheader287:                                    ; preds = %.preheader287.preheader, %152
   %indvars.iv353 = phi i64 [ 0, %.preheader287.preheader ], [ %indvars.iv.next354, %152 ]
@@ -401,12 +401,12 @@ define internal i32 @mpc7_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 151:                                              ; preds = %128, %132
   %.sroa.17.7 = phi i32 [ %.sroa.17.6309, %128 ], [ %149, %132 ]
-  br i1 %129, label %128, label %152, !llvm.loop !61
+  br i1 %129, label %128, label %152, !llvm.loop !62
 
 152:                                              ; preds = %151
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
-  br i1 %exitcond357.not, label %.preheader285.lr.ph, label %.preheader287, !llvm.loop !62
+  br i1 %exitcond357.not, label %.preheader285.lr.ph, label %.preheader287, !llvm.loop !63
 
 .preheader285:                                    ; preds = %.preheader285.lr.ph, %333
   %indvars.iv361 = phi i64 [ 0, %.preheader285.lr.ph ], [ %indvars.iv.next362, %333 ]
@@ -667,12 +667,12 @@ get_scale_idx.exit228:                            ; preds = %280, %291
 
 332:                                              ; preds = %157, %330
   %.sroa.17.11 = phi i32 [ %.sroa.17.9315, %157 ], [ %.sroa.17.10, %330 ]
-  br i1 %158, label %157, label %333, !llvm.loop !63
+  br i1 %158, label %157, label %333, !llvm.loop !64
 
 333:                                              ; preds = %332
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next362, %wide.trip.count364
-  br i1 %exitcond365.not, label %._crit_edge, label %.preheader285, !llvm.loop !64
+  br i1 %exitcond365.not, label %._crit_edge, label %.preheader285, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %333, %46, %.preheader288
   %.0194.lcssa381386 = phi i32 [ %.1195, %.preheader288 ], [ -1, %46 ], [ %.1195, %333 ]
@@ -723,7 +723,7 @@ get_scale_idx.exit228:                            ; preds = %280, %291
 .preheader.i:                                     ; preds = %338, %.preheader.i
   %.066.i = phi i32 [ %361, %.preheader.i ], [ 0, %338 ]
   %.03865.i = phi ptr [ %360, %.preheader.i ], [ %gep324, %338 ]
-  %342 = load i32, ptr %336, align 4, !tbaa !65
+  %342 = load i32, ptr %336, align 4, !tbaa !66
   %343 = add i32 %342, 40
   %344 = and i32 %343, 63
   %345 = zext nneg i32 %344 to i64
@@ -740,14 +740,14 @@ get_scale_idx.exit228:                            ; preds = %280, %291
   %356 = getelementptr inbounds nuw [64 x i32], ptr %335, i64 0, i64 %355
   store i32 %353, ptr %356, align 4, !tbaa !43
   %357 = add i32 %342, 1
-  store i32 %357, ptr %336, align 4, !tbaa !65
+  store i32 %357, ptr %336, align 4, !tbaa !66
   %358 = and i32 %353, 1020
   %359 = add nsw i32 %358, -510
   %360 = getelementptr inbounds nuw i8, ptr %.03865.i, i64 4
   store i32 %359, ptr %.03865.i, align 4, !tbaa !43
   %361 = add nuw nsw i32 %.066.i, 1
   %exitcond74.not.i = icmp eq i32 %361, 36
-  br i1 %exitcond74.not.i, label %idx_to_quant.exit, label %.preheader.i, !llvm.loop !66
+  br i1 %exitcond74.not.i, label %idx_to_quant.exit, label %.preheader.i, !llvm.loop !67
 
 362:                                              ; preds = %338
   %363 = lshr i32 %.sroa.17.13325, 3
@@ -764,7 +764,7 @@ get_scale_idx.exit228:                            ; preds = %280, %291
   %373 = and i32 %372, 1
   %374 = zext nneg i32 %373 to i64
   %375 = getelementptr inbounds nuw [2 x ptr], ptr @quant_vlc, i64 0, i64 %374
-  %376 = load ptr, ptr %375, align 8, !tbaa !67
+  %376 = load ptr, ptr %375, align 8, !tbaa !68
   br label %377
 
 377:                                              ; preds = %get_vlc2.exit50.i, %362
@@ -835,7 +835,7 @@ get_vlc2.exit50.i:                                ; preds = %394, %377
   store i32 %427, ptr %424, align 4, !tbaa !43
   %429 = add nuw nsw i32 %.164.i, 1
   %exitcond73.not.i = icmp eq i32 %429, 12
-  br i1 %exitcond73.not.i, label %idx_to_quant.exit, label %377, !llvm.loop !69
+  br i1 %exitcond73.not.i, label %idx_to_quant.exit, label %377, !llvm.loop !70
 
 430:                                              ; preds = %338
   %431 = lshr i32 %.sroa.17.13325, 3
@@ -852,7 +852,7 @@ get_vlc2.exit50.i:                                ; preds = %394, %377
   %441 = and i32 %440, 1
   %442 = zext nneg i32 %441 to i64
   %443 = getelementptr inbounds nuw [2 x ptr], ptr getelementptr inbounds nuw (i8, ptr @quant_vlc, i64 16), i64 0, i64 %442
-  %444 = load ptr, ptr %443, align 8, !tbaa !67
+  %444 = load ptr, ptr %443, align 8, !tbaa !68
   br label %445
 
 445:                                              ; preds = %get_vlc2.exit46.i, %430
@@ -918,7 +918,7 @@ get_vlc2.exit46.i:                                ; preds = %462, %445
   store i32 %491, ptr %488, align 4, !tbaa !43
   %493 = add nuw nsw i32 %.262.i, 1
   %exitcond72.not.i = icmp eq i32 %493, 18
-  br i1 %exitcond72.not.i, label %idx_to_quant.exit, label %445, !llvm.loop !70
+  br i1 %exitcond72.not.i, label %idx_to_quant.exit, label %445, !llvm.loop !71
 
 494:                                              ; preds = %338, %338, %338, %338, %338
   %495 = lshr i32 %.sroa.17.13325, 3
@@ -938,7 +938,7 @@ get_vlc2.exit46.i:                                ; preds = %462, %445
   %508 = getelementptr inbounds nuw [7 x [2 x ptr]], ptr @quant_vlc, i64 0, i64 %507
   %509 = zext nneg i32 %505 to i64
   %510 = getelementptr inbounds nuw [2 x ptr], ptr %508, i64 0, i64 %509
-  %511 = load ptr, ptr %510, align 8, !tbaa !67
+  %511 = load ptr, ptr %510, align 8, !tbaa !68
   br label %512
 
 512:                                              ; preds = %get_vlc2.exit.i, %494
@@ -995,7 +995,7 @@ get_vlc2.exit.i:                                  ; preds = %529, %512
   store i32 %.062.i.i, ptr %.34159.i, align 4, !tbaa !43
   %552 = add nuw nsw i32 %.360.i, 1
   %exitcond71.not.i = icmp eq i32 %552, 36
-  br i1 %exitcond71.not.i, label %idx_to_quant.exit, label %512, !llvm.loop !71
+  br i1 %exitcond71.not.i, label %idx_to_quant.exit, label %512, !llvm.loop !72
 
 553:                                              ; preds = %338, %338, %338, %338, %338, %338, %338, %338, %338, %338
   %554 = add nsw i32 %341, -2
@@ -1024,21 +1024,21 @@ get_vlc2.exit.i:                                  ; preds = %529, %512
   store i32 %568, ptr %.44257.i, align 4, !tbaa !43
   %570 = add nuw nsw i32 %.458.i, 1
   %exitcond.not.i = icmp eq i32 %570, 36
-  br i1 %exitcond.not.i, label %idx_to_quant.exit, label %557, !llvm.loop !72
+  br i1 %exitcond.not.i, label %idx_to_quant.exit, label %557, !llvm.loop !73
 
 idx_to_quant.exit:                                ; preds = %557, %get_vlc2.exit.i, %get_vlc2.exit46.i, %get_vlc2.exit50.i, %.preheader.i, %338
   %.sroa.17.23 = phi i32 [ %.sroa.17.13325, %338 ], [ %.sroa.17.13325, %.preheader.i ], [ %415, %get_vlc2.exit50.i ], [ %483, %get_vlc2.exit46.i ], [ %550, %get_vlc2.exit.i ], [ %567, %557 ]
-  br i1 %339, label %338, label %571, !llvm.loop !73
+  br i1 %339, label %338, label %571, !llvm.loop !74
 
 571:                                              ; preds = %idx_to_quant.exit
   %indvars.iv.next370 = add nuw nsw i64 %indvars.iv369, 1
   %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 36
   %exitcond377.not = icmp eq i64 %indvars.iv.next370, 32
-  br i1 %exitcond377.not, label %572, label %.preheader, !llvm.loop !74
+  br i1 %exitcond377.not, label %572, label %.preheader, !llvm.loop !75
 
 572:                                              ; preds = %571
   %573 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %574 = load ptr, ptr %573, align 8, !tbaa !75
+  %574 = load ptr, ptr %573, align 8, !tbaa !76
   tail call void @ff_mpc_dequantize_and_synth(ptr noundef nonnull %8, i32 noundef %.0194.lcssa381386, ptr noundef %574, i32 noundef 2) #8
   %.not209 = icmp eq i8 %26, 0
   br i1 %.not209, label %578, label %575
@@ -1090,7 +1090,7 @@ define internal noundef i32 @mpc7_decode_close(ptr noundef readonly captures(non
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 11240
   tail call void @av_freep(ptr noundef nonnull %4) #8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 11248
-  store i32 0, ptr %5, align 16, !tbaa !76
+  store i32 0, ptr %5, align 16, !tbaa !77
   ret i32 0
 }
 
@@ -1160,7 +1160,7 @@ define internal void @mpc7_init_static() #0 {
 12:                                               ; preds = %13
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next19, 7
-  br i1 %exitcond.not, label %11, label %.preheader, !llvm.loop !77
+  br i1 %exitcond.not, label %11, label %.preheader, !llvm.loop !78
 
 13:                                               ; preds = %.preheader, %13
   %14 = phi i1 [ true, %.preheader ], [ false, %13 ]
@@ -1169,9 +1169,9 @@ define internal void @mpc7_init_static() #0 {
   %15 = getelementptr inbounds nuw i8, ptr %.113, i64 1
   %16 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 9, i32 noundef %4, ptr noundef nonnull %15, i32 noundef 2, ptr noundef %.113, i32 noundef 2, i32 noundef 1, i32 noundef %7, i32 noundef 0) #8
   %17 = getelementptr inbounds nuw [2 x ptr], ptr %8, i64 0, i64 %indvars.iv
-  store ptr %16, ptr %17, align 8, !tbaa !67
+  store ptr %16, ptr %17, align 8, !tbaa !68
   %18 = getelementptr inbounds nuw i8, ptr %.113, i64 %10
-  br i1 %14, label %13, label %12, !llvm.loop !78
+  br i1 %14, label %13, label %12, !llvm.loop !79
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1263,28 +1263,29 @@ attributes #8 = { nounwind }
 !51 = !{!"p2 _ZTS11AVBufferRef", !26, i64 0}
 !52 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
 !53 = !{!30, !14, i64 11240}
-!54 = distinct !{!54, !55, !56}
+!54 = distinct !{!54, !55, !56, !57}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!57 = distinct !{!57, !55}
-!58 = !{!59, !10, i64 0}
-!59 = !{!"Band", !10, i64 0, !8, i64 4, !8, i64 12, !8, i64 20, !8, i64 44}
-!60 = distinct !{!60, !55}
-!61 = distinct !{!61, !55}
-!62 = distinct !{!62, !55}
-!63 = distinct !{!63, !55}
-!64 = distinct !{!64, !55}
-!65 = !{!33, !10, i64 256}
-!66 = distinct !{!66, !55}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!69 = distinct !{!69, !55}
-!70 = distinct !{!70, !55}
-!71 = distinct !{!71, !55}
-!72 = distinct !{!72, !55}
-!73 = distinct !{!73, !55}
-!74 = distinct !{!74, !55}
-!75 = !{!49, !50, i64 96}
-!76 = !{!30, !10, i64 11248}
-!77 = distinct !{!77, !55}
-!78 = distinct !{!78, !55}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!58 = distinct !{!58, !55, !56}
+!59 = !{!60, !10, i64 0}
+!60 = !{!"Band", !10, i64 0, !8, i64 4, !8, i64 12, !8, i64 20, !8, i64 44}
+!61 = distinct !{!61, !55, !56}
+!62 = distinct !{!62, !55, !56}
+!63 = distinct !{!63, !55, !56}
+!64 = distinct !{!64, !55, !56}
+!65 = distinct !{!65, !55, !56}
+!66 = !{!33, !10, i64 256}
+!67 = distinct !{!67, !55, !56}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!70 = distinct !{!70, !55, !56}
+!71 = distinct !{!71, !55, !56}
+!72 = distinct !{!72, !55, !56}
+!73 = distinct !{!73, !55, !56}
+!74 = distinct !{!74, !55, !56}
+!75 = distinct !{!75, !55, !56}
+!76 = !{!49, !50, i64 96}
+!77 = !{!30, !10, i64 11248}
+!78 = distinct !{!78, !55, !56}
+!79 = distinct !{!79, !55, !56}

@@ -69,7 +69,7 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
 29:                                               ; preds = %22
   %30 = add nuw nsw i64 %.025.i, 1
   %exitcond32.not.i = icmp eq i64 %30, 31
-  br i1 %exitcond32.not.i, label %.preheader22.i, label %.preheader23.i, !llvm.loop !6
+  br i1 %exitcond32.not.i, label %.preheader22.i, label %.preheader23.i, !llvm.loop !7
 
 31:                                               ; preds = %31, %.preheader22.i
   %.128.i = phi i64 [ 0, %.preheader22.i ], [ %37, %31 ]
@@ -82,7 +82,7 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
   store i8 %36, ptr %34, align 1
   %37 = add nuw nsw i64 %.128.i, 1
   %exitcond33.not.i = icmp eq i64 %37, 7
-  br i1 %exitcond33.not.i, label %.preheader.i, label %31, !llvm.loop !7
+  br i1 %exitcond33.not.i, label %.preheader.i, label %31, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %31, %.preheader.i
   %.230.i = phi i64 [ %43, %.preheader.i ], [ 0, %31 ]
@@ -94,7 +94,7 @@ define internal range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_ref10(ptr nou
   %42 = or i32 %41, %.02129.i
   %43 = add nuw nsw i64 %.230.i, 1
   %exitcond34.not.i = icmp eq i64 %43, 7
-  br i1 %exitcond34.not.i, label %has_small_order.exit, label %.preheader.i, !llvm.loop !8
+  br i1 %exitcond34.not.i, label %has_small_order.exit, label %.preheader.i, !llvm.loop !9
 
 has_small_order.exit:                             ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #6
@@ -198,7 +198,7 @@ has_small_order.exit:                             ; preds = %.preheader.i
   %115 = xor i64 %94, %110
   %116 = xor i64 %95, %111
   %117 = xor i64 %96, %112
-  %118 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %107) #6, !srcloc !9
+  %118 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %107) #6, !srcloc !10
   %119 = and i64 %118, %113
   %120 = and i64 %118, %114
   %121 = and i64 %118, %115
@@ -231,7 +231,7 @@ has_small_order.exit:                             ; preds = %.preheader.i
   %146 = xor i64 %141, %136
   %147 = xor i64 %142, %137
   %148 = xor i64 %143, %138
-  %149 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %107) #6, !srcloc !9
+  %149 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %107) #6, !srcloc !10
   %150 = and i64 %149, %144
   %151 = and i64 %149, %145
   %152 = and i64 %149, %146
@@ -730,7 +730,7 @@ has_small_order.exit:                             ; preds = %.preheader.i
   call fastcc void @fe25519_mul(ptr noundef %8, ptr noundef %8, ptr noundef %14)
   %574 = add nsw i32 %.02158, -1
   %.not75 = icmp eq i32 %.02158, 0
-  br i1 %.not75, label %575, label %91, !llvm.loop !10
+  br i1 %.not75, label %575, label %91, !llvm.loop !11
 
 575:                                              ; preds = %91
   %576 = zext nneg i32 %104 to i64
@@ -745,7 +745,7 @@ has_small_order.exit:                             ; preds = %.preheader.i
   %585 = xor i64 %448, %580
   %586 = xor i64 %431, %581
   %587 = xor i64 %438, %582
-  %588 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %577) #6, !srcloc !9
+  %588 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %577) #6, !srcloc !10
   %589 = and i64 %588, %583
   %590 = and i64 %588, %584
   %591 = and i64 %588, %585
@@ -776,7 +776,7 @@ has_small_order.exit:                             ; preds = %.preheader.i
   %611 = xor i64 %606, %601
   %612 = xor i64 %607, %602
   %613 = xor i64 %608, %603
-  %614 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %577) #6, !srcloc !9
+  %614 = call i64 asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %577) #6, !srcloc !10
   %615 = and i64 %614, %609
   %616 = and i64 %614, %610
   %617 = and i64 %614, %611
@@ -833,7 +833,7 @@ define internal noundef i32 @crypto_scalarmult_curve25519_ref10_base(ptr noundef
   store i8 %9, ptr %10, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %11, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !12
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %0, align 1
@@ -1085,11 +1085,12 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i64 221563}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i64 221563}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

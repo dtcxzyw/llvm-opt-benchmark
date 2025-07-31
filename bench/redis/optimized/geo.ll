@@ -179,13 +179,13 @@ define dso_local range(i32 -1, 1) i32 @extractLongLatOrReply(ptr noundef %0, ptr
   br label %5
 
 4:                                                ; preds = %5
-  br i1 %6, label %5, label %11, !llvm.loop !25
+  br i1 %6, label %5, label %11, !llvm.loop !26
 
 5:                                                ; preds = %3, %4
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %4 ]
   %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !26
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   %10 = tail call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %8, ptr noundef %9, ptr noundef null) #14
   %.not = icmp eq i32 %10, 0
@@ -221,7 +221,7 @@ define dso_local range(i32 -1, 1) i32 @longLatFromMember(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store double 0.000000e+00, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = call i32 @zsetScore(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %4) #14
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %13, label %9
@@ -245,7 +245,7 @@ declare i32 @zsetScore(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local noundef double @extractUnitOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %5 = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef nonnull @.str.1) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
@@ -283,7 +283,7 @@ declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #4
 define dso_local range(i32 -1, 1) i32 @extractDistanceOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
   %5 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  %6 = load ptr, ptr %1, align 8, !tbaa !26
+  %6 = load ptr, ptr %1, align 8, !tbaa !27
   %7 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %6, ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #14
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %28
@@ -307,9 +307,9 @@ define dso_local range(i32 -1, 1) i32 @extractDistanceOrReply(ptr noundef %0, pt
 
 14:                                               ; preds = %13, %12
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = call i32 @strcasecmp(ptr noundef %18, ptr noundef nonnull @.str.1) #15
   %.not.i = icmp eq i32 %19, 0
   br i1 %.not.i, label %26, label %20
@@ -354,14 +354,14 @@ define dso_local range(i32 -1, 1) i32 @extractBoxOrReply(ptr noundef %0, ptr nou
   %7 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  %8 = load ptr, ptr %1, align 8, !tbaa !26
+  %8 = load ptr, ptr %1, align 8, !tbaa !27
   %9 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %7, ptr noundef nonnull @.str.8) #14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %38
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %6, ptr noundef nonnull @.str.9) #14
   %.not21 = icmp eq i32 %13, 0
   br i1 %.not21, label %14, label %38
@@ -396,9 +396,9 @@ define dso_local range(i32 -1, 1) i32 @extractBoxOrReply(ptr noundef %0, ptr nou
 
 24:                                               ; preds = %23, %22
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !26
+  %26 = load ptr, ptr %25, align 8, !tbaa !27
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !28
+  %28 = load ptr, ptr %27, align 8, !tbaa !29
   %29 = call i32 @strcasecmp(ptr noundef %28, ptr noundef nonnull @.str.1) #15
   %.not.i = icmp eq i32 %29, 0
   br i1 %.not.i, label %36, label %30
@@ -461,7 +461,7 @@ define dso_local range(i32 -1, 1) i32 @geoWithinShape(ptr noundef readonly captu
   br i1 %.not, label %41, label %7
 
 7:                                                ; preds = %4
-  %8 = load i32, ptr %0, align 8, !tbaa !31
+  %8 = load i32, ptr %0, align 8, !tbaa !32
   switch i32 %8, label %40 [
     i32 1, label %9
     i32 2, label %23
@@ -476,9 +476,9 @@ define dso_local range(i32 -1, 1) i32 @geoWithinShape(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load double, ptr %15, align 8, !tbaa !14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load double, ptr %17, align 8, !tbaa !33
+  %18 = load double, ptr %17, align 8, !tbaa !34
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load double, ptr %19, align 8, !tbaa !34
+  %20 = load double, ptr %19, align 8, !tbaa !35
   %21 = fmul double %18, %20
   %22 = tail call i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %11, double noundef %13, double noundef %14, double noundef %16, double noundef %21, ptr noundef %3) #14
   %.not22 = icmp eq i32 %22, 0
@@ -487,11 +487,11 @@ define dso_local range(i32 -1, 1) i32 @geoWithinShape(ptr noundef readonly captu
 23:                                               ; preds = %7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %26 = load double, ptr %25, align 8, !tbaa !33
+  %26 = load double, ptr %25, align 8, !tbaa !34
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = load double, ptr %27, align 8, !tbaa !34
+  %28 = load double, ptr %27, align 8, !tbaa !35
   %29 = fmul double %26, %28
-  %30 = load double, ptr %24, align 8, !tbaa !33
+  %30 = load double, ptr %24, align 8, !tbaa !34
   %31 = fmul double %28, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load double, ptr %32, align 8, !tbaa !14
@@ -528,13 +528,13 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
   %14 = alloca [2 x double], align 16
   %15 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
-  store double %1, ptr %7, align 8, !tbaa !35
+  store double %1, ptr %7, align 8, !tbaa !36
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store double %2, ptr %16, align 8, !tbaa !37
+  store double %2, ptr %16, align 8, !tbaa !38
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %17, align 8, !tbaa !38
+  store i32 0, ptr %17, align 8, !tbaa !39
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 1, ptr %18, align 4, !tbaa !39
+  store i32 1, ptr %18, align 4, !tbaa !40
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !5
   %21 = load i32, ptr %0, align 8
@@ -547,21 +547,21 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
 
 24:                                               ; preds = %6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !28
+  %26 = load ptr, ptr %25, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
-  store i32 0, ptr %10, align 4, !tbaa !40
+  store i32 0, ptr %10, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  store i64 0, ptr %11, align 8, !tbaa !41
+  store i64 0, ptr %11, align 8, !tbaa !42
   %27 = call ptr @zzlFirstInRange(ptr noundef %26, ptr noundef nonnull %7) #14
-  store ptr %27, ptr %8, align 8, !tbaa !43
+  store ptr %27, ptr %8, align 8, !tbaa !44
   %.not65 = icmp eq ptr %27, null
   br i1 %.not65, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %24
   %28 = call ptr @lpNext(ptr noundef %26, ptr noundef nonnull %27) #14
-  store ptr %28, ptr %9, align 8, !tbaa !43
+  store ptr %28, ptr %9, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %31 = add i64 %5, -1
@@ -571,14 +571,14 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
   store double 0.000000e+00, ptr %13, align 8, !tbaa !14
-  %33 = load ptr, ptr %9, align 8, !tbaa !43
+  %33 = load ptr, ptr %9, align 8, !tbaa !44
   %34 = call double @zzlGetScore(ptr noundef %33) #14
   %35 = call i32 @zslValueLteMax(double noundef %34, ptr noundef nonnull %7) #14
   %.not63 = icmp eq i32 %35, 0
   br i1 %.not63, label %.thread, label %36
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr %8, align 8, !tbaa !43
+  %37 = load ptr, ptr %8, align 8, !tbaa !44
   %38 = call ptr @lpGetValue(ptr noundef %37, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
   %39 = call i32 @geoWithinShape(ptr noundef %3, double noundef %34, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %40 = icmp eq i32 %39, 0
@@ -593,12 +593,12 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
-  %44 = load i64, ptr %11, align 8, !tbaa !41
+  %44 = load i64, ptr %11, align 8, !tbaa !42
   %45 = call ptr @sdsfromlonglong(i64 noundef %44) #14
   br label %50
 
 46:                                               ; preds = %41
-  %47 = load i32, ptr %10, align 4, !tbaa !40
+  %47 = load i32, ptr %10, align 4, !tbaa !41
   %48 = zext i32 %47 to i64
   %49 = call ptr @sdsnewlen(ptr noundef nonnull %38, i64 noundef %48) #14
   br label %50
@@ -658,7 +658,7 @@ geoArrayAppend.exit:                              ; preds = %50, %56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #14
   %74 = load ptr, ptr %8, align 8
   %.not62 = icmp eq ptr %74, null
-  br i1 %.not62, label %.loopexit, label %32
+  br i1 %.not62, label %.loopexit, label %32, !llvm.loop !45
 
 .loopexit:                                        ; preds = %73, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
@@ -669,9 +669,9 @@ geoArrayAppend.exit:                              ; preds = %50, %56
 
 75:                                               ; preds = %6
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !28
+  %77 = load ptr, ptr %76, align 8, !tbaa !29
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = load ptr, ptr %78, align 8, !tbaa !44
+  %79 = load ptr, ptr %78, align 8, !tbaa !46
   %80 = call ptr @zslNthInRange(ptr noundef %79, ptr noundef nonnull %7, i64 noundef 0) #14
   %.not61 = icmp eq ptr %80, null
   br i1 %.not61, label %.critedge71, label %.preheader94
@@ -706,7 +706,7 @@ geoArrayAppend.exit:                              ; preds = %50, %56
 92:                                               ; preds = %88
   %93 = load double, ptr %15, align 8, !tbaa !14
   %94 = load double, ptr %85, align 8, !tbaa !14
-  %95 = load ptr, ptr %.096, align 8, !tbaa !43
+  %95 = load ptr, ptr %.096, align 8, !tbaa !44
   %96 = call ptr @sdsdup(ptr noundef %95) #14
   %97 = load i64, ptr %19, align 8, !tbaa !5
   %98 = load i64, ptr %81, align 8, !tbaa !12
@@ -756,11 +756,11 @@ geoArrayAppend.exit76:                            ; preds = %92, %100
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %.096, i64 24
-  %119 = load ptr, ptr %118, align 8, !tbaa !48
+  %119 = load ptr, ptr %118, align 8, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
   %.not = icmp eq ptr %119, null
-  br i1 %.not, label %.loopexit95, label %84
+  br i1 %.not, label %.loopexit95, label %84, !llvm.loop !53
 
 .loopexit95:                                      ; preds = %117, %.thread82, %.loopexit, %6
   %120 = load i64, ptr %19, align 8, !tbaa !5
@@ -804,10 +804,10 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @scoresOfGeoHashBox(i64 %0, i8 %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = tail call i64 @geohashAlign52Bits(i64 %0, i8 %1) #14
-  store i64 %5, ptr %2, align 8, !tbaa !51
+  store i64 %5, ptr %2, align 8, !tbaa !54
   %6 = add i64 %0, 1
   %7 = tail call i64 @geohashAlign52Bits(i64 %6, i8 %1) #14
-  store i64 %7, ptr %3, align 8, !tbaa !51
+  store i64 %7, ptr %3, align 8, !tbaa !54
   ret void
 }
 
@@ -828,31 +828,31 @@ define dso_local i32 @membersOfGeoHashBox(ptr noundef readonly captures(none) %0
 define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [9 x %struct.GeoHashBits], align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !55
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !55
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !55
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !55
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false), !tbaa.struct !55
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !55
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !55
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false), !tbaa.struct !55
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !52
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false), !tbaa.struct !55
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = add i64 %4, -1
   br label %25
@@ -862,13 +862,13 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
   %.06984 = phi i32 [ 0, %5 ], [ %.1, %56 ]
   %.07083 = phi i32 [ 0, %5 ], [ %.171, %56 ]
   %26 = getelementptr inbounds nuw [9 x %struct.GeoHashBits], ptr %6, i64 0, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 16, !tbaa !53
+  %27 = load i64, ptr %26, align 16, !tbaa !56
   %.not = icmp eq i64 %27, 0
   br i1 %.not, label %28, label %31
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %30 = load i8, ptr %29, align 8, !tbaa !55
+  %30 = load i8, ptr %29, align 8, !tbaa !58
   %.not75 = icmp eq i8 %30, 0
   br i1 %.not75, label %56, label %31
 
@@ -879,15 +879,15 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
 32:                                               ; preds = %31
   %33 = zext i32 %.07083 to i64
   %34 = getelementptr inbounds nuw [9 x %struct.GeoHashBits], ptr %6, i64 0, i64 %33
-  %35 = load i64, ptr %34, align 16, !tbaa !53
+  %35 = load i64, ptr %34, align 16, !tbaa !56
   %36 = icmp eq i64 %27, %35
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %39 = load i8, ptr %38, align 8, !tbaa !55
+  %39 = load i8, ptr %38, align 8, !tbaa !58
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %41 = load i8, ptr %40, align 8, !tbaa !55
+  %41 = load i8, ptr %40, align 8, !tbaa !58
   %42 = icmp eq i8 %39, %41
   br i1 %42, label %56, label %43
 
@@ -914,7 +914,7 @@ define dso_local i32 @membersOfAllNeighbors(ptr noundef readonly captures(none) 
   %.1 = phi i32 [ %54, %45 ], [ %.06984, %28 ], [ %.06984, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %57, label %25, !llvm.loop !56
+  br i1 %exitcond.not, label %57, label %25, !llvm.loop !59
 
 57:                                               ; preds = %43, %56
   %.069.lcssa = phi i32 [ %.06984, %43 ], [ %.1, %56 ]
@@ -931,13 +931,13 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca %struct.GeoHashBits, align 8
   %indvars.iv.i.sroa.gep81 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %5 = load i32, ptr %4, align 8, !tbaa !57
+  %5 = load i32, ptr %4, align 8, !tbaa !60
   %6 = icmp sgt i32 %5, 2
   br i1 %6, label %.lr.ph, label %.thread.thread
 
 .lr.ph:                                           ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %8 = load ptr, ptr %7, align 8, !tbaa !71
+  %8 = load ptr, ptr %7, align 8, !tbaa !74
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %9
 
@@ -946,9 +946,9 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.097 = phi i32 [ 0, %.lr.ph ], [ %.2, %19 ]
   %.06296 = phi i32 [ 0, %.lr.ph ], [ %.264, %19 ]
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !28
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef nonnull @.str.23) #15
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %19, label %15
@@ -968,7 +968,7 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.2 = phi i32 [ %.097, %17 ], [ %.097, %9 ], [ 1, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.thread, label %9
+  br i1 %exitcond.not, label %.thread, label %9, !llvm.loop !75
 
 .thread.split.loop.exit141:                       ; preds = %17
   %20 = trunc nuw nsw i64 %indvars.iv to i32
@@ -995,7 +995,7 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not78132, label %.lr.ph107, label %28
 
 28:                                               ; preds = %.thread, %.thread.thread
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !72
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !76
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %29) #14
   br label %82
 
@@ -1009,7 +1009,7 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %35 = shl nsw i64 %34, 3
   %36 = tail call noalias ptr @zcalloc(i64 noundef %35) #12
   %37 = tail call ptr @createRawStringObject(ptr noundef nonnull @.str.26, i64 noundef 4) #14
-  store ptr %37, ptr %36, align 8, !tbaa !26
+  store ptr %37, ptr %36, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %umax = tail call i32 @llvm.umax.i32(i32 %.066.lcssa133138, i32 2)
   %wide.trip.count118 = zext i32 %umax to i64
@@ -1032,34 +1032,34 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %.lr.ph107, %45
   %indvars.iv115 = phi i64 [ 1, %.lr.ph107 ], [ %indvars.iv.next116, %45 ]
-  %46 = load ptr, ptr %38, align 8, !tbaa !71
+  %46 = load ptr, ptr %38, align 8, !tbaa !74
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv115
-  %48 = load ptr, ptr %47, align 8, !tbaa !26
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
   %49 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv115
-  store ptr %48, ptr %49, align 8, !tbaa !26
+  store ptr %48, ptr %49, align 8, !tbaa !27
   tail call void @incrRefCount(ptr noundef %48) #14
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %.preheader, label %45, !llvm.loop !74
+  br i1 %exitcond119.not, label %.preheader, label %45, !llvm.loop !78
 
 50:                                               ; preds = %.lr.ph109, %70
   %indvars.iv120 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next121, %70 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  %51 = load ptr, ptr %40, align 8, !tbaa !71
+  %51 = load ptr, ptr %40, align 8, !tbaa !74
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %41
   %53 = mul nuw nsw i64 %indvars.iv120, 3
   %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   br label %56
 
 55:                                               ; preds = %56
-  br i1 %57, label %56, label %61, !llvm.loop !25
+  br i1 %57, label %56, label %61, !llvm.loop !26
 
 56:                                               ; preds = %55, %50
   %57 = phi i1 [ true, %50 ], [ false, %55 ]
   %indvars.iv.i.sroa.phi = phi ptr [ %2, %50 ], [ %indvars.iv.i.sroa.gep81, %55 ]
   %indvars.iv.i = phi i64 [ 0, %50 ], [ 1, %55 ]
   %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i
-  %59 = load ptr, ptr %58, align 8, !tbaa !26
+  %59 = load ptr, ptr %58, align 8, !tbaa !27
   %60 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %59, ptr noundef nonnull %indvars.iv.i.sroa.phi, ptr noundef null) #14
   %.not.i = icmp eq i32 %60, 0
   br i1 %.not.i, label %55, label %extractLongLatOrReply.exit
@@ -1089,7 +1089,7 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %69
   %indvars.iv125 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next126, %69 ]
   %66 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv125
-  %67 = load ptr, ptr %66, align 8, !tbaa !26
+  %67 = load ptr, ptr %66, align 8, !tbaa !27
   %.not80 = icmp eq ptr %67, null
   br i1 %.not80, label %69, label %68
 
@@ -1100,7 +1100,7 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
 69:                                               ; preds = %.lr.ph111, %68
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.thread91, label %.lr.ph111, !llvm.loop !75
+  br i1 %exitcond129.not, label %.thread91, label %.lr.ph111, !llvm.loop !79
 
 .thread91:                                        ; preds = %69, %extractLongLatOrReply.exit
   call void @zfree(ptr noundef nonnull %36) #14
@@ -1114,22 +1114,22 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
   %73 = load i8, ptr %42, align 8
   %74 = call i64 @geohashAlign52Bits(i64 %72, i8 %73) #14
   %75 = call ptr @createStringObjectFromLongLongWithSds(i64 noundef %74) #14
-  %76 = load ptr, ptr %40, align 8, !tbaa !71
+  %76 = load ptr, ptr %40, align 8, !tbaa !74
   %77 = getelementptr ptr, ptr %76, i64 %53
   %78 = getelementptr ptr, ptr %77, i64 %41
   %79 = getelementptr i8, ptr %78, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !26
+  %80 = load ptr, ptr %79, align 8, !tbaa !27
   %81 = shl nuw nsw i64 %indvars.iv120, 1
   %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %81
-  store ptr %75, ptr %gep, align 8, !tbaa !26
+  store ptr %75, ptr %gep, align 8, !tbaa !27
   %gep146 = getelementptr inbounds nuw ptr, ptr %invariant.gep145, i64 %81
-  store ptr %80, ptr %gep146, align 8, !tbaa !26
+  store ptr %80, ptr %gep146, align 8, !tbaa !27
   call void @incrRefCount(ptr noundef %80) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #14
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge, label %50, !llvm.loop !76
+  br i1 %exitcond124.not, label %._crit_edge, label %50, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %70, %.preheader
   call void @replaceClientCommandVector(ptr noundef nonnull %0, i32 noundef %33, ptr noundef nonnull %36) #14
@@ -1167,12 +1167,12 @@ define dso_local void @georadiusGeneric(ptr noundef %0, i32 noundef %1, i32 noun
   %7 = alloca i64, align 8
   %8 = alloca %struct.GeoHashRadius, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !77
+  %10 = load ptr, ptr %9, align 8, !tbaa !81
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %12 = load ptr, ptr %11, align 8, !tbaa !71
+  %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %15 = load ptr, ptr %14, align 8, !tbaa !27
   %16 = tail call ptr @lookupKeyRead(ptr noundef %10, ptr noundef %15) #14
   %17 = tail call i32 @checkType(ptr noundef %0, ptr noundef %16, i32 noundef 3) #14
   %.not = icmp eq i32 %17, 0
@@ -1186,20 +1186,20 @@ define dso_local void @georadiusGeneric(ptr noundef %0, i32 noundef %1, i32 noun
   br i1 %.not370, label %40, label %20
 
 20:                                               ; preds = %18
-  store i32 1, ptr %6, align 8, !tbaa !31
-  %21 = load ptr, ptr %11, align 8, !tbaa !71
+  store i32 1, ptr %6, align 8, !tbaa !32
+  %21 = load ptr, ptr %11, align 8, !tbaa !74
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %25
 
 24:                                               ; preds = %25
-  br i1 %26, label %25, label %31, !llvm.loop !25
+  br i1 %26, label %25, label %31, !llvm.loop !26
 
 25:                                               ; preds = %24, %20
   %26 = phi i1 [ true, %20 ], [ false, %24 ]
   %indvars.iv.i = phi i64 [ 0, %20 ], [ 1, %24 ]
   %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8, !tbaa !26
+  %28 = load ptr, ptr %27, align 8, !tbaa !27
   %29 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i
   %30 = call i32 @getDoubleFromObjectOrReply(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %29, ptr noundef null) #14
   %.not.i = icmp eq i32 %30, 0
@@ -1221,7 +1221,7 @@ define dso_local void @georadiusGeneric(ptr noundef %0, i32 noundef %1, i32 noun
   br label %extractLongLatOrReply.exit.thread
 
 extractLongLatOrReply.exit:                       ; preds = %31
-  %35 = load ptr, ptr %11, align 8, !tbaa !71
+  %35 = load ptr, ptr %11, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1240,14 +1240,14 @@ extractLongLatOrReply.exit:                       ; preds = %31
   br i1 %42, label %63, label %45
 
 45:                                               ; preds = %44
-  store i32 1, ptr %6, align 8, !tbaa !31
-  %46 = load ptr, ptr %11, align 8, !tbaa !71
+  store i32 1, ptr %6, align 8, !tbaa !32
+  %46 = load ptr, ptr %11, align 8, !tbaa !74
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !26
+  %48 = load ptr, ptr %47, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store double 0.000000e+00, ptr %5, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !28
+  %50 = load ptr, ptr %49, align 8, !tbaa !29
   %51 = call i32 @zsetScore(ptr noundef %16, ptr noundef %50, ptr noundef nonnull %5) #14
   %52 = icmp eq i32 %51, -1
   br i1 %52, label %longLatFromMember.exit.thread, label %longLatFromMember.exit
@@ -1270,7 +1270,7 @@ longLatFromMember.exit:                           ; preds = %45
   br label %extractLongLatOrReply.exit.thread
 
 57:                                               ; preds = %longLatFromMember.exit
-  %58 = load ptr, ptr %11, align 8, !tbaa !71
+  %58 = load ptr, ptr %11, align 8, !tbaa !74
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1289,9 +1289,9 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %.not373, label %72, label %67
 
 67:                                               ; preds = %65
-  %68 = load ptr, ptr %11, align 8, !tbaa !71
+  %68 = load ptr, ptr %11, align 8, !tbaa !74
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !26
+  %70 = load ptr, ptr %69, align 8, !tbaa !27
   br label %72
 
 71:                                               ; preds = %63
@@ -1302,9 +1302,9 @@ longLatFromMember.exit:                           ; preds = %45
   %.0291 = phi i32 [ 6, %extractLongLatOrReply.exit ], [ 5, %57 ], [ 3, %67 ], [ 2, %65 ], [ 5, %40 ]
   %.0 = phi ptr [ null, %extractLongLatOrReply.exit ], [ null, %57 ], [ %70, %67 ], [ null, %65 ], [ null, %40 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  store i64 0, ptr %7, align 8, !tbaa !41
+  store i64 0, ptr %7, align 8, !tbaa !42
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %74 = load i32, ptr %73, align 8, !tbaa !57
+  %74 = load i32, ptr %73, align 8, !tbaa !60
   %75 = icmp sgt i32 %74, %.0291
   br i1 %75, label %76, label %._crit_edge
 
@@ -1341,13 +1341,13 @@ longLatFromMember.exit:                           ; preds = %45
   %.1337516 = phi i32 [ 0, %.lr.ph ], [ %.4340.ph, %195 ]
   %.1342515 = phi i32 [ 0, %.lr.ph ], [ %.4345.ph, %195 ]
   %.1347514 = phi i32 [ 0, %.lr.ph ], [ %.4350.ph, %195 ]
-  %90 = load ptr, ptr %11, align 8, !tbaa !71
+  %90 = load ptr, ptr %11, align 8, !tbaa !74
   %91 = add nsw i32 %.0328518, %.0291
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds ptr, ptr %90, i64 %92
-  %94 = load ptr, ptr %93, align 8, !tbaa !26
+  %94 = load ptr, ptr %93, align 8, !tbaa !27
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !28
+  %96 = load ptr, ptr %95, align 8, !tbaa !29
   %97 = call i32 @strcasecmp(ptr noundef %96, ptr noundef nonnull @.str.29) #15
   %.not376 = icmp eq i32 %97, 0
   br i1 %.not376, label %195, label %98
@@ -1389,13 +1389,13 @@ longLatFromMember.exit:                           ; preds = %45
 
 113:                                              ; preds = %110
   %114 = getelementptr i8, ptr %93, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !26
+  %115 = load ptr, ptr %114, align 8, !tbaa !27
   %116 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %115, ptr noundef nonnull %7, ptr noundef null) #14
   %.not383 = icmp eq i32 %116, 0
   br i1 %.not383, label %117, label %.thread450
 
 117:                                              ; preds = %113
-  %118 = load i64, ptr %7, align 8, !tbaa !41
+  %118 = load i64, ptr %7, align 8, !tbaa !42
   %119 = icmp slt i64 %118, 1
   br i1 %119, label %120, label %195
 
@@ -1416,7 +1416,7 @@ longLatFromMember.exit:                           ; preds = %45
 
 126:                                              ; preds = %123
   %127 = getelementptr i8, ptr %93, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !26
+  %128 = load ptr, ptr %127, align 8, !tbaa !27
   br label %195
 
 129:                                              ; preds = %123, %121
@@ -1432,7 +1432,7 @@ longLatFromMember.exit:                           ; preds = %45
 
 134:                                              ; preds = %131
   %135 = getelementptr i8, ptr %93, i64 8
-  %136 = load ptr, ptr %135, align 8, !tbaa !26
+  %136 = load ptr, ptr %135, align 8, !tbaa !27
   br label %195
 
 137:                                              ; preds = %131
@@ -1456,7 +1456,7 @@ longLatFromMember.exit:                           ; preds = %45
 
 145:                                              ; preds = %144
   %146 = getelementptr i8, ptr %93, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !26
+  %147 = load ptr, ptr %146, align 8, !tbaa !27
   %148 = call i32 @longLatFromMember(ptr noundef nonnull %16, ptr noundef %147, ptr noundef nonnull %84)
   %149 = icmp eq i32 %148, -1
   br i1 %149, label %150, label %195
@@ -1510,7 +1510,7 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %.not396, label %178, label %.thread450
 
 178:                                              ; preds = %172
-  store i32 1, ptr %6, align 8, !tbaa !31
+  store i32 1, ptr %6, align 8, !tbaa !32
   br label %195
 
 179:                                              ; preds = %167, %165
@@ -1536,11 +1536,11 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %.not398, label %192, label %.thread450
 
 192:                                              ; preds = %186
-  store i32 2, ptr %6, align 8, !tbaa !31
+  store i32 2, ptr %6, align 8, !tbaa !32
   br label %195
 
 193:                                              ; preds = %181, %179
-  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !72
+  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !76
   call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %194) #14
   br label %.thread450
 
@@ -1559,7 +1559,7 @@ longLatFromMember.exit:                           ; preds = %45
   %.5.ph = phi ptr [ %.2525, %145 ], [ %.2525, %137 ], [ %.2525, %117 ], [ %.2525, %106 ], [ %.2525, %104 ], [ %.2525, %102 ], [ %.2525, %100 ], [ %.2525, %98 ], [ %.2525, %89 ], [ %128, %126 ], [ %136, %134 ], [ %.2525, %178 ], [ %.2525, %192 ], [ %.2525, %144 ], [ %.2525, %158 ]
   %196 = add nsw i32 %.2330.ph, 1
   %197 = icmp slt i32 %196, %77
-  br i1 %197, label %89, label %._crit_edge.loopexit, !llvm.loop !78
+  br i1 %197, label %89, label %._crit_edge.loopexit, !llvm.loop !82
 
 ._crit_edge.loopexit:                             ; preds = %195
   %198 = icmp ne i32 %.4322.ph, 0
@@ -1607,10 +1607,10 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %or.cond19, label %218, label %213
 
 213:                                              ; preds = %210
-  %214 = load ptr, ptr %11, align 8, !tbaa !71
-  %215 = load ptr, ptr %214, align 8, !tbaa !26
+  %214 = load ptr, ptr %11, align 8, !tbaa !74
+  %215 = load ptr, ptr %214, align 8, !tbaa !27
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %217 = load ptr, ptr %216, align 8, !tbaa !28
+  %217 = load ptr, ptr %216, align 8, !tbaa !29
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.46, ptr noundef %217) #14
   br label %.thread450
 
@@ -1620,10 +1620,10 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %or.cond23, label %224, label %219
 
 219:                                              ; preds = %218
-  %220 = load ptr, ptr %11, align 8, !tbaa !71
-  %221 = load ptr, ptr %220, align 8, !tbaa !26
+  %220 = load ptr, ptr %11, align 8, !tbaa !74
+  %221 = load ptr, ptr %220, align 8, !tbaa !27
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  %223 = load ptr, ptr %222, align 8, !tbaa !28
+  %223 = load ptr, ptr %222, align 8, !tbaa !29
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.47, ptr noundef %223) #14
   br label %.thread450
 
@@ -1646,30 +1646,30 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %.not400, label %244, label %232
 
 232:                                              ; preds = %231
-  %233 = load ptr, ptr %9, align 8, !tbaa !77
+  %233 = load ptr, ptr %9, align 8, !tbaa !81
   %234 = call i32 @dbDelete(ptr noundef %233, ptr noundef nonnull %.1) #14
   %.not410 = icmp eq i32 %234, 0
   br i1 %.not410, label %242, label %235
 
 235:                                              ; preds = %232
-  %236 = load ptr, ptr %9, align 8, !tbaa !77
+  %236 = load ptr, ptr %9, align 8, !tbaa !81
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %236, ptr noundef nonnull %.1) #14
-  %237 = load ptr, ptr %9, align 8, !tbaa !77
+  %237 = load ptr, ptr %9, align 8, !tbaa !81
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 56
-  %239 = load i32, ptr %238, align 8, !tbaa !79
+  %239 = load i32, ptr %238, align 8, !tbaa !83
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %.1, i32 noundef %239) #14
-  %240 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !82
+  %240 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !86
   %241 = add nsw i64 %240, 1
-  store i64 %241, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !82
+  store i64 %241, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !86
   br label %242
 
 242:                                              ; preds = %235, %232
-  %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !101
+  %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 24), align 8, !tbaa !105
   call void @addReply(ptr noundef nonnull %0, ptr noundef %243) #14
   br label %.thread450
 
 244:                                              ; preds = %231
-  %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !102
+  %245 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !106
   call void @addReply(ptr noundef nonnull %0, ptr noundef %245) #14
   br label %.thread450
 
@@ -1689,7 +1689,7 @@ longLatFromMember.exit:                           ; preds = %45
   br i1 %or.cond31, label %255, label %257
 
 255:                                              ; preds = %246
-  %256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !102
+  %256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 192), align 8, !tbaa !106
   call void @addReply(ptr noundef nonnull %0, ptr noundef %256) #14
   br label %.loopexit
 
@@ -1699,7 +1699,7 @@ longLatFromMember.exit:                           ; preds = %45
   %or.cond27 = select i1 %not., i1 true, i1 %258
   %or.cond29 = select i1 %or.cond27, i1 true, i1 %247
   %spec.store.select32 = select i1 %or.cond29, i32 %.0341, i32 1
-  %259 = load i64, ptr %7, align 8, !tbaa !41
+  %259 = load i64, ptr %7, align 8, !tbaa !42
   %260 = icmp eq i64 %259, 0
   %261 = call i64 @llvm.smin.i64(i64 %253, i64 %259)
   %262 = select i1 %260, i64 %253, i64 %261
@@ -1750,7 +1750,7 @@ longLatFromMember.exit:                           ; preds = %45
   %indvars.iv548 = phi i64 [ 0, %.lr.ph546 ], [ %indvars.iv.next549, %302 ]
   %278 = load ptr, ptr %248, align 8, !tbaa !13
   %279 = getelementptr inbounds nuw %struct.geoPoint, ptr %278, i64 %indvars.iv548
-  %280 = load double, ptr %275, align 8, !tbaa !34
+  %280 = load double, ptr %275, align 8, !tbaa !35
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %282 = load double, ptr %281, align 8, !tbaa !20
   %283 = fdiv double %282, %280
@@ -1802,7 +1802,7 @@ longLatFromMember.exit:                           ; preds = %45
 302:                                              ; preds = %298, %297
   %indvars.iv.next549 = add nuw nsw i64 %indvars.iv548, 1
   %exitcond551.not = icmp eq i64 %indvars.iv.next549, %262
-  br i1 %exitcond551.not, label %.loopexit, label %277, !llvm.loop !103
+  br i1 %exitcond551.not, label %.loopexit, label %277, !llvm.loop !107
 
 303:                                              ; preds = %270
   %.not402 = icmp eq i64 %262, 0
@@ -1811,7 +1811,7 @@ longLatFromMember.exit:                           ; preds = %45
 304:                                              ; preds = %303
   %305 = call ptr @createZsetObject() #14
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  %307 = load ptr, ptr %306, align 8, !tbaa !28
+  %307 = load ptr, ptr %306, align 8, !tbaa !29
   %308 = icmp sgt i64 %262, 0
   br i1 %308, label %.lr.ph540, label %.loopexit564
 
@@ -1826,7 +1826,7 @@ longLatFromMember.exit:                           ; preds = %45
   %.0293537 = phi i64 [ 0, %.lr.ph540 ], [ %spec.select419, %355 ]
   %312 = load ptr, ptr %248, align 8, !tbaa !13
   %313 = getelementptr inbounds nuw %struct.geoPoint, ptr %312, i64 %indvars.iv
-  %314 = load double, ptr %309, align 8, !tbaa !34
+  %314 = load double, ptr %309, align 8, !tbaa !35
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %316 = load double, ptr %315, align 8, !tbaa !20
   %317 = fdiv double %316, %314
@@ -1843,7 +1843,7 @@ longLatFromMember.exit:                           ; preds = %45
   %323 = getelementptr inbounds nuw i8, ptr %313, i64 32
   %324 = load ptr, ptr %323, align 8, !tbaa !21
   %325 = getelementptr inbounds i8, ptr %324, i64 -1
-  %326 = load i8, ptr %325, align 1, !tbaa !33
+  %326 = load i8, ptr %325, align 1, !tbaa !34
   %327 = zext i8 %326 to i32
   %328 = and i32 %327, 7
   switch i32 %328, label %sdslen.exit [
@@ -1861,37 +1861,37 @@ longLatFromMember.exit:                           ; preds = %45
 
 332:                                              ; preds = %321
   %333 = getelementptr inbounds i8, ptr %324, i64 -3
-  %334 = load i8, ptr %333, align 1, !tbaa !33
+  %334 = load i8, ptr %333, align 1, !tbaa !34
   %335 = zext i8 %334 to i64
   br label %sdslen.exit
 
 336:                                              ; preds = %321
   %337 = getelementptr inbounds i8, ptr %324, i64 -5
-  %338 = load i16, ptr %337, align 1, !tbaa !104
+  %338 = load i16, ptr %337, align 1, !tbaa !108
   %339 = zext i16 %338 to i64
   br label %sdslen.exit
 
 340:                                              ; preds = %321
   %341 = getelementptr inbounds i8, ptr %324, i64 -9
-  %342 = load i32, ptr %341, align 1, !tbaa !40
+  %342 = load i32, ptr %341, align 1, !tbaa !41
   %343 = zext i32 %342 to i64
   br label %sdslen.exit
 
 344:                                              ; preds = %321
   %345 = getelementptr inbounds i8, ptr %324, i64 -17
-  %346 = load i64, ptr %345, align 1, !tbaa !51
+  %346 = load i64, ptr %345, align 1, !tbaa !54
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %321, %329, %332, %336, %340, %344
   %.0.i421 = phi i64 [ %331, %329 ], [ %335, %332 ], [ %339, %336 ], [ %343, %340 ], [ %346, %344 ], [ 0, %321 ]
-  %347 = load ptr, ptr %310, align 8, !tbaa !44
+  %347 = load ptr, ptr %310, align 8, !tbaa !46
   %348 = call ptr @zslInsert(ptr noundef %347, double noundef %322, ptr noundef nonnull %324) #14
-  %349 = load ptr, ptr %307, align 8, !tbaa !106
+  %349 = load ptr, ptr %307, align 8, !tbaa !110
   %350 = load ptr, ptr %323, align 8, !tbaa !21
   %351 = getelementptr inbounds nuw i8, ptr %348, i64 8
   %352 = call i32 @dictAdd(ptr noundef %349, ptr noundef %350, ptr noundef nonnull %351) #14
   %353 = icmp eq i32 %352, 0
-  br i1 %353, label %355, label %354, !prof !107
+  br i1 %353, label %355, label %354, !prof !111
 
 354:                                              ; preds = %sdslen.exit
   call void @_serverAssert(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.14, i32 noundef 825) #14
@@ -1904,42 +1904,42 @@ sdslen.exit:                                      ; preds = %321, %329, %332, %3
   store ptr null, ptr %323, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %262
-  br i1 %exitcond.not, label %.loopexit564, label %311, !llvm.loop !108
+  br i1 %exitcond.not, label %.loopexit564, label %311, !llvm.loop !112
 
 .loopexit564:                                     ; preds = %355, %304
   %.0293.lcssa.ph = phi i64 [ 0, %304 ], [ %spec.select419, %355 ]
   %.0292.lcssa.ph = phi i64 [ 0, %304 ], [ %356, %355 ]
   call void @zsetConvertToListpackIfNeeded(ptr noundef %305, i64 noundef %.0293.lcssa.ph, i64 noundef %.0292.lcssa.ph) #14
-  %357 = load ptr, ptr %9, align 8, !tbaa !77
+  %357 = load ptr, ptr %9, align 8, !tbaa !81
   call void @setKey(ptr noundef %0, ptr noundef %357, ptr noundef nonnull %.1, ptr noundef %305, i32 noundef 0) #14
   call void @decrRefCount(ptr noundef %305) #14
   %358 = select i1 %212, ptr @.str.52, ptr @.str.51
-  %359 = load ptr, ptr %9, align 8, !tbaa !77
+  %359 = load ptr, ptr %9, align 8, !tbaa !81
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 56
-  %361 = load i32, ptr %360, align 8, !tbaa !79
+  %361 = load i32, ptr %360, align 8, !tbaa !83
   call void @notifyKeyspaceEvent(i32 noundef 128, ptr noundef nonnull %358, ptr noundef nonnull %.1, i32 noundef %361) #14
   br label %.sink.split
 
 ._crit_edge541:                                   ; preds = %303
-  %362 = load ptr, ptr %9, align 8, !tbaa !77
+  %362 = load ptr, ptr %9, align 8, !tbaa !81
   %363 = call i32 @dbDelete(ptr noundef %362, ptr noundef nonnull %.1) #14
   %.not403 = icmp eq i32 %363, 0
   br i1 %.not403, label %371, label %364
 
 364:                                              ; preds = %._crit_edge541
-  %365 = load ptr, ptr %9, align 8, !tbaa !77
+  %365 = load ptr, ptr %9, align 8, !tbaa !81
   call void @signalModifiedKey(ptr noundef nonnull %0, ptr noundef %365, ptr noundef nonnull %.1) #14
-  %366 = load ptr, ptr %9, align 8, !tbaa !77
+  %366 = load ptr, ptr %9, align 8, !tbaa !81
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 56
-  %368 = load i32, ptr %367, align 8, !tbaa !79
+  %368 = load i32, ptr %367, align 8, !tbaa !83
   call void @notifyKeyspaceEvent(i32 noundef 4, ptr noundef nonnull @.str.49, ptr noundef nonnull %.1, i32 noundef %368) #14
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.loopexit564, %364
   %.sink566 = phi i64 [ 1, %364 ], [ %262, %.loopexit564 ]
-  %369 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !82
+  %369 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !86
   %370 = add nsw i64 %369, %.sink566
-  store i64 %370, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !82
+  store i64 %370, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6720), align 8, !tbaa !86
   br label %371
 
 371:                                              ; preds = %.sink.split, %._crit_edge541
@@ -2077,11 +2077,11 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   %5 = alloca %struct.GeoHashBits, align 8
   %6 = alloca [12 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !77
+  %8 = load ptr, ptr %7, align 8, !tbaa !81
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !71
+  %10 = load ptr, ptr %9, align 8, !tbaa !74
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = tail call ptr @lookupKeyRead(ptr noundef %8, ptr noundef %12) #14
   %14 = tail call i32 @checkType(ptr noundef %0, ptr noundef %13, i32 noundef 3) #14
   %.not = icmp eq i32 %14, 0
@@ -2089,11 +2089,11 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %17 = load i32, ptr %16, align 8, !tbaa !57
+  %17 = load i32, ptr %16, align 8, !tbaa !60
   %18 = add nsw i32 %17, -2
   %19 = sext i32 %18 to i64
   tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %19) #14
-  %20 = load i32, ptr %16, align 8, !tbaa !57
+  %20 = load i32, ptr %16, align 8, !tbaa !60
   %21 = icmp sgt i32 %20, 2
   br i1 %21, label %.lr.ph, label %.loopexit
 
@@ -2112,18 +2112,18 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @addReplyNull(ptr noundef nonnull %0) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   %27 = add nuw nsw i32 %.02530.us, 1
-  %28 = load i32, ptr %16, align 8, !tbaa !57
+  %28 = load i32, ptr %16, align 8, !tbaa !60
   %29 = icmp slt i32 %27, %28
-  br i1 %29, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !109
+  br i1 %29, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !113
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %59
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %59 ], [ 2, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  %30 = load ptr, ptr %9, align 8, !tbaa !71
+  %30 = load ptr, ptr %9, align 8, !tbaa !74
   %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv35
-  %32 = load ptr, ptr %31, align 8, !tbaa !26
+  %32 = load ptr, ptr %31, align 8, !tbaa !27
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !28
+  %34 = load ptr, ptr %33, align 8, !tbaa !29
   %35 = call i32 @zsetScore(ptr noundef nonnull %13, ptr noundef %34, ptr noundef nonnull %2) #14
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %37, label %38
@@ -2147,10 +2147,10 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
 43:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  store double -1.800000e+02, ptr %4, align 16, !tbaa !111
-  store double 1.800000e+02, ptr %22, align 8, !tbaa !113
-  store double -9.000000e+01, ptr %23, align 16, !tbaa !111
-  store double 9.000000e+01, ptr %24, align 8, !tbaa !113
+  store double -1.800000e+02, ptr %4, align 16, !tbaa !115
+  store double 1.800000e+02, ptr %22, align 8, !tbaa !117
+  store double -9.000000e+01, ptr %23, align 16, !tbaa !115
+  store double 9.000000e+01, ptr %24, align 8, !tbaa !117
   %44 = load double, ptr %3, align 16, !tbaa !14
   %45 = load double, ptr %25, align 8, !tbaa !14
   %46 = call i32 @geohashEncode(ptr noundef nonnull %4, ptr noundef nonnull %23, double noundef %44, double noundef %45, i8 noundef zeroext 26, ptr noundef nonnull %5) #14
@@ -2167,15 +2167,15 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
   %53 = and i64 %52, 31
   %.0 = select i1 %49, i64 0, i64 %53
   %54 = getelementptr inbounds nuw i8, ptr @.str.53, i64 %.0
-  %55 = load i8, ptr %54, align 1, !tbaa !33
+  %55 = load i8, ptr %54, align 1, !tbaa !34
   %56 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 0, i64 %indvars.iv
-  store i8 %55, ptr %56, align 1, !tbaa !33
+  store i8 %55, ptr %56, align 1, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond.not, label %57, label %48, !llvm.loop !114
+  br i1 %exitcond.not, label %57, label %48, !llvm.loop !118
 
 57:                                               ; preds = %48
-  store i8 0, ptr %26, align 1, !tbaa !33
+  store i8 0, ptr %26, align 1, !tbaa !34
   call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 11) #14
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
@@ -2189,10 +2189,10 @@ define dso_local void @geohashCommand(ptr noundef %0) local_unnamed_addr #0 {
 59:                                               ; preds = %58, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %60 = load i32, ptr %16, align 8, !tbaa !57
+  %60 = load i32, ptr %16, align 8, !tbaa !60
   %61 = sext i32 %60 to i64
   %62 = icmp slt i64 %indvars.iv.next36, %61
-  br i1 %62, label %.lr.ph.split, label %.loopexit, !llvm.loop !115
+  br i1 %62, label %.lr.ph.split, label %.loopexit, !llvm.loop !119
 
 .loopexit:                                        ; preds = %59, %.lr.ph.split.us, %15, %1
   ret void
@@ -2207,11 +2207,11 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca double, align 8
   %3 = alloca [2 x double], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !77
+  %5 = load ptr, ptr %4, align 8, !tbaa !81
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %7 = load ptr, ptr %6, align 8, !tbaa !71
+  %7 = load ptr, ptr %6, align 8, !tbaa !74
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !26
+  %9 = load ptr, ptr %8, align 8, !tbaa !27
   %10 = tail call ptr @lookupKeyRead(ptr noundef %5, ptr noundef %9) #14
   %11 = tail call i32 @checkType(ptr noundef %0, ptr noundef %10, i32 noundef 3) #14
   %.not = icmp eq i32 %11, 0
@@ -2219,11 +2219,11 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %14 = load i32, ptr %13, align 8, !tbaa !57
+  %14 = load i32, ptr %13, align 8, !tbaa !60
   %15 = add nsw i32 %14, -2
   %16 = sext i32 %15 to i64
   tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %16) #14
-  %17 = load i32, ptr %13, align 8, !tbaa !57
+  %17 = load i32, ptr %13, align 8, !tbaa !60
   %18 = icmp sgt i32 %17, 2
   br i1 %18, label %.lr.ph, label %.loopexit
 
@@ -2238,18 +2238,18 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @addReplyNullArray(ptr noundef nonnull %0) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   %20 = add nuw nsw i32 %.01822.us, 1
-  %21 = load i32, ptr %13, align 8, !tbaa !57
+  %21 = load i32, ptr %13, align 8, !tbaa !60
   %22 = icmp slt i32 %20, %21
-  br i1 %22, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !116
+  br i1 %22, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !120
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 2, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
-  %23 = load ptr, ptr %6, align 8, !tbaa !71
+  %23 = load ptr, ptr %6, align 8, !tbaa !74
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !26
+  %25 = load ptr, ptr %24, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !28
+  %27 = load ptr, ptr %26, align 8, !tbaa !29
   %28 = call i32 @zsetScore(ptr noundef nonnull %10, ptr noundef %27, ptr noundef nonnull %2) #14
   %29 = icmp eq i32 %28, -1
   br i1 %29, label %30, label %31
@@ -2285,10 +2285,10 @@ define dso_local void @geoposCommand(ptr noundef %0) local_unnamed_addr #0 {
 40:                                               ; preds = %39, %30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = load i32, ptr %13, align 8, !tbaa !57
+  %41 = load i32, ptr %13, align 8, !tbaa !60
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph.split, label %.loopexit, !llvm.loop !117
+  br i1 %43, label %.lr.ph.split, label %.loopexit, !llvm.loop !121
 
 .loopexit:                                        ; preds = %40, %.lr.ph.split.us, %12, %1
   ret void
@@ -2302,17 +2302,17 @@ define dso_local void @geodistCommand(ptr noundef %0) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = alloca [4 x double], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %6 = load i32, ptr %5, align 8, !tbaa !57
+  %6 = load i32, ptr %5, align 8, !tbaa !60
   %7 = icmp eq i32 %6, 5
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %10 = load ptr, ptr %9, align 8, !tbaa !71
+  %10 = load ptr, ptr %9, align 8, !tbaa !74
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !28
+  %14 = load ptr, ptr %13, align 8, !tbaa !29
   %15 = tail call i32 @strcasecmp(ptr noundef %14, ptr noundef nonnull @.str.1) #15
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %extractUnitOrReply.exit.thread, label %16
@@ -2342,11 +2342,11 @@ extractUnitOrReply.exit:                          ; preds = %20
 
 .extractUnitOrReply.exit.thread_crit_edge:        ; preds = %22
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !71
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !74
   br label %extractUnitOrReply.exit.thread
 
 24:                                               ; preds = %22
-  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !72
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !76
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %25) #14
   br label %76
 
@@ -2355,12 +2355,12 @@ extractUnitOrReply.exit.thread:                   ; preds = %.extractUnitOrReply
   %.0 = phi double [ 1.000000e+00, %.extractUnitOrReply.exit.thread_crit_edge ], [ 1.609340e+03, %20 ], [ 3.048000e-01, %18 ], [ 1.000000e+03, %16 ], [ 1.000000e+00, %8 ]
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %31 = load i32, ptr %30, align 4, !tbaa !118
+  %31 = load i32, ptr %30, align 4, !tbaa !122
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !26
+  %34 = load ptr, ptr %33, align 8, !tbaa !27
   %35 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %34) #14
   %36 = icmp eq ptr %35, null
   br i1 %36, label %76, label %37
@@ -2374,21 +2374,21 @@ extractUnitOrReply.exit.thread:                   ; preds = %.extractUnitOrReply
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #14
-  %40 = load ptr, ptr %27, align 8, !tbaa !71
+  %40 = load ptr, ptr %27, align 8, !tbaa !74
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !26
+  %42 = load ptr, ptr %41, align 8, !tbaa !27
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !28
+  %44 = load ptr, ptr %43, align 8, !tbaa !29
   %45 = call i32 @zsetScore(ptr noundef nonnull %35, ptr noundef %44, ptr noundef nonnull %2) #14
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %55, label %47
 
 47:                                               ; preds = %39
-  %48 = load ptr, ptr %27, align 8, !tbaa !71
+  %48 = load ptr, ptr %27, align 8, !tbaa !74
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !26
+  %50 = load ptr, ptr %49, align 8, !tbaa !27
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8, !tbaa !28
+  %52 = load ptr, ptr %51, align 8, !tbaa !29
   %53 = call i32 @zsetScore(ptr noundef nonnull %35, ptr noundef %52, ptr noundef nonnull %3) #14
   %54 = icmp eq i32 %53, -1
   br i1 %54, label %55, label %56
@@ -2497,99 +2497,103 @@ attributes #16 = { noreturn nounwind }
 !20 = !{!17, !15, i64 16}
 !21 = !{!17, !18, i64 32}
 !22 = !{!17, !15, i64 24}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS11redisObject", !8, i64 0}
-!28 = !{!29, !8, i64 8}
-!29 = !{!"redisObject", !30, i64 0, !30, i64 0, !30, i64 1, !30, i64 4, !8, i64 8}
-!30 = !{!"int", !9, i64 0}
-!31 = !{!32, !30, i64 0}
-!32 = !{!"", !30, i64 0, !9, i64 8, !15, i64 24, !9, i64 32, !9, i64 64}
-!33 = !{!9, !9, i64 0}
-!34 = !{!32, !15, i64 24}
-!35 = !{!36, !15, i64 0}
-!36 = !{!"", !15, i64 0, !15, i64 8, !30, i64 16, !30, i64 20}
-!37 = !{!36, !15, i64 8}
-!38 = !{!36, !30, i64 16}
-!39 = !{!36, !30, i64 20}
-!40 = !{!30, !30, i64 0}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"long long", !9, i64 0}
-!43 = !{!18, !18, i64 0}
-!44 = !{!45, !47, i64 8}
-!45 = !{!"zset", !46, i64 0, !47, i64 8}
-!46 = !{!"p1 _ZTS4dict", !8, i64 0}
-!47 = !{!"p1 _ZTS9zskiplist", !8, i64 0}
-!48 = !{!49, !50, i64 0}
-!49 = !{!"zskiplistLevel", !50, i64 0, !11, i64 8}
-!50 = !{!"p1 _ZTS13zskiplistNode", !8, i64 0}
-!51 = !{!11, !11, i64 0}
-!52 = !{i64 0, i64 8, !51, i64 8, i64 1, !33}
-!53 = !{!54, !11, i64 0}
-!54 = !{!"", !11, i64 0, !9, i64 8}
-!55 = !{!54, !9, i64 8}
-!56 = distinct !{!56, !24}
-!57 = !{!58, !30, i64 88}
-!58 = !{!"client", !11, i64 0, !11, i64 8, !59, i64 16, !9, i64 24, !9, i64 25, !9, i64 26, !9, i64 27, !30, i64 28, !60, i64 32, !27, i64 40, !27, i64 48, !27, i64 56, !18, i64 64, !11, i64 72, !11, i64 80, !30, i64 88, !61, i64 96, !30, i64 104, !30, i64 108, !61, i64 112, !11, i64 120, !62, i64 128, !62, i64 136, !62, i64 144, !62, i64 152, !8, i64 160, !30, i64 168, !30, i64 172, !11, i64 176, !63, i64 184, !42, i64 192, !63, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !30, i64 232, !64, i64 240, !11, i64 248, !11, i64 256, !30, i64 264, !30, i64 268, !30, i64 272, !30, i64 276, !11, i64 280, !11, i64 288, !18, i64 296, !42, i64 304, !42, i64 312, !42, i64 320, !42, i64 328, !42, i64 336, !42, i64 344, !42, i64 352, !42, i64 360, !9, i64 368, !30, i64 412, !18, i64 416, !30, i64 424, !30, i64 428, !11, i64 432, !65, i64 440, !67, i64 480, !42, i64 552, !63, i64 560, !46, i64 568, !46, i64 576, !46, i64 584, !18, i64 592, !18, i64 600, !68, i64 608, !68, i64 616, !68, i64 624, !8, i64 632, !8, i64 640, !8, i64 648, !8, i64 656, !8, i64 664, !11, i64 672, !69, i64 680, !11, i64 688, !30, i64 696, !68, i64 704, !8, i64 712, !68, i64 720, !11, i64 728, !70, i64 736, !11, i64 760, !42, i64 768, !30, i64 776, !11, i64 784, !18, i64 792}
-!59 = !{!"p1 _ZTS10connection", !8, i64 0}
-!60 = !{!"p1 _ZTS7redisDb", !8, i64 0}
-!61 = !{!"p2 _ZTS11redisObject", !8, i64 0}
-!62 = !{!"p1 _ZTS12redisCommand", !8, i64 0}
-!63 = !{!"p1 _ZTS4list", !8, i64 0}
-!64 = !{!"p1 _ZTS9dictEntry", !8, i64 0}
-!65 = !{!"multiState", !66, i64 0, !30, i64 8, !30, i64 12, !30, i64 16, !11, i64 24, !30, i64 32}
-!66 = !{!"p1 _ZTS8multiCmd", !8, i64 0}
-!67 = !{!"blockingState", !30, i64 0, !42, i64 8, !30, i64 16, !46, i64 24, !30, i64 32, !30, i64 36, !42, i64 40, !8, i64 48, !8, i64 56, !11, i64 64}
-!68 = !{!"p1 _ZTS8listNode", !8, i64 0}
-!69 = !{!"p1 _ZTS3rax", !8, i64 0}
-!70 = !{!"listNode", !68, i64 0, !68, i64 8, !8, i64 16}
-!71 = !{!58, !61, i64 96}
-!72 = !{!73, !27, i64 216}
-!73 = !{!"sharedObjectsStruct", !27, i64 0, !27, i64 8, !27, i64 16, !27, i64 24, !27, i64 32, !27, i64 40, !27, i64 48, !27, i64 56, !9, i64 64, !9, i64 96, !9, i64 128, !9, i64 160, !27, i64 192, !27, i64 200, !27, i64 208, !27, i64 216, !27, i64 224, !27, i64 232, !27, i64 240, !27, i64 248, !27, i64 256, !27, i64 264, !27, i64 272, !27, i64 280, !27, i64 288, !27, i64 296, !27, i64 304, !27, i64 312, !27, i64 320, !27, i64 328, !27, i64 336, !27, i64 344, !27, i64 352, !27, i64 360, !27, i64 368, !27, i64 376, !27, i64 384, !27, i64 392, !27, i64 400, !27, i64 408, !27, i64 416, !27, i64 424, !27, i64 432, !27, i64 440, !27, i64 448, !27, i64 456, !27, i64 464, !27, i64 472, !27, i64 480, !27, i64 488, !27, i64 496, !27, i64 504, !27, i64 512, !27, i64 520, !27, i64 528, !27, i64 536, !27, i64 544, !27, i64 552, !27, i64 560, !27, i64 568, !27, i64 576, !27, i64 584, !27, i64 592, !27, i64 600, !27, i64 608, !27, i64 616, !27, i64 624, !27, i64 632, !27, i64 640, !27, i64 648, !27, i64 656, !27, i64 664, !27, i64 672, !27, i64 680, !27, i64 688, !27, i64 696, !27, i64 704, !27, i64 712, !27, i64 720, !27, i64 728, !27, i64 736, !27, i64 744, !27, i64 752, !27, i64 760, !27, i64 768, !27, i64 776, !27, i64 784, !27, i64 792, !9, i64 800, !9, i64 880, !9, i64 80880, !9, i64 81136, !9, i64 81392, !9, i64 81648, !18, i64 81904, !18, i64 81912}
-!74 = distinct !{!74, !24}
-!75 = distinct !{!75, !24}
-!76 = distinct !{!76, !24}
-!77 = !{!58, !60, i64 32}
-!78 = distinct !{!78, !24}
-!79 = !{!80, !30, i64 56}
-!80 = !{!"redisDb", !81, i64 0, !81, i64 8, !8, i64 16, !46, i64 24, !46, i64 32, !46, i64 40, !46, i64 48, !30, i64 56, !42, i64 64, !11, i64 72, !63, i64 80}
-!81 = !{!"p1 _ZTS8_kvstore", !8, i64 0}
-!82 = !{!83, !42, i64 6720}
-!83 = !{!"redisServer", !30, i64 0, !11, i64 8, !18, i64 16, !18, i64 24, !84, i64 32, !30, i64 40, !30, i64 44, !30, i64 48, !30, i64 52, !30, i64 56, !60, i64 64, !46, i64 72, !46, i64 80, !85, i64 88, !69, i64 96, !30, i64 104, !30, i64 108, !30, i64 112, !30, i64 116, !42, i64 120, !30, i64 128, !30, i64 132, !30, i64 136, !30, i64 140, !18, i64 144, !30, i64 152, !30, i64 156, !9, i64 160, !30, i64 204, !11, i64 208, !30, i64 216, !30, i64 220, !30, i64 224, !18, i64 232, !18, i64 240, !30, i64 248, !30, i64 252, !11, i64 256, !46, i64 264, !46, i64 272, !46, i64 280, !63, i64 288, !9, i64 296, !30, i64 304, !30, i64 308, !9, i64 312, !30, i64 316, !30, i64 320, !30, i64 324, !9, i64 328, !30, i64 456, !18, i64 464, !18, i64 472, !30, i64 480, !9, i64 488, !30, i64 1320, !86, i64 1328, !63, i64 1432, !63, i64 1440, !63, i64 1448, !63, i64 1456, !63, i64 1464, !63, i64 1472, !88, i64 1480, !88, i64 1488, !8, i64 1496, !69, i64 1504, !30, i64 1512, !69, i64 1520, !30, i64 1528, !63, i64 1536, !9, i64 1544, !9, i64 1592, !46, i64 1848, !9, i64 1856, !30, i64 1864, !30, i64 1868, !9, i64 1872, !30, i64 2384, !30, i64 2388, !42, i64 2392, !30, i64 2400, !30, i64 2404, !30, i64 2408, !30, i64 2412, !30, i64 2416, !11, i64 2424, !11, i64 2432, !11, i64 2440, !11, i64 2448, !11, i64 2456, !11, i64 2464, !42, i64 2472, !42, i64 2480, !42, i64 2488, !42, i64 2496, !15, i64 2504, !42, i64 2512, !42, i64 2520, !42, i64 2528, !42, i64 2536, !42, i64 2544, !42, i64 2552, !11, i64 2560, !42, i64 2568, !42, i64 2576, !42, i64 2584, !42, i64 2592, !42, i64 2600, !42, i64 2608, !42, i64 2616, !42, i64 2624, !11, i64 2632, !11, i64 2640, !42, i64 2648, !42, i64 2656, !42, i64 2664, !42, i64 2672, !15, i64 2680, !42, i64 2688, !42, i64 2696, !42, i64 2704, !42, i64 2712, !42, i64 2720, !63, i64 2728, !42, i64 2736, !42, i64 2744, !11, i64 2752, !89, i64 2760, !9, i64 2848, !9, i64 2856, !9, i64 2864, !9, i64 2872, !11, i64 2880, !11, i64 2888, !11, i64 2896, !11, i64 2904, !11, i64 2912, !11, i64 2920, !11, i64 2928, !11, i64 2936, !15, i64 2944, !9, i64 2952, !11, i64 2984, !42, i64 2992, !42, i64 3000, !42, i64 3008, !9, i64 3016, !9, i64 4040, !9, i64 5064, !42, i64 5072, !9, i64 5080, !42, i64 6144, !42, i64 6152, !11, i64 6160, !42, i64 6168, !42, i64 6176, !11, i64 6184, !9, i64 6192, !30, i64 6288, !30, i64 6292, !30, i64 6296, !30, i64 6300, !30, i64 6304, !30, i64 6308, !30, i64 6312, !30, i64 6316, !30, i64 6320, !30, i64 6324, !30, i64 6328, !30, i64 6332, !11, i64 6336, !30, i64 6344, !30, i64 6348, !30, i64 6352, !30, i64 6356, !11, i64 6360, !11, i64 6368, !30, i64 6376, !30, i64 6380, !30, i64 6384, !30, i64 6388, !30, i64 6392, !18, i64 6400, !9, i64 6408, !30, i64 6480, !30, i64 6484, !30, i64 6488, !90, i64 6496, !30, i64 6504, !30, i64 6508, !30, i64 6512, !30, i64 6516, !30, i64 6520, !30, i64 6524, !18, i64 6528, !18, i64 6536, !30, i64 6544, !30, i64 6548, !11, i64 6552, !11, i64 6560, !11, i64 6568, !11, i64 6576, !11, i64 6584, !30, i64 6592, !30, i64 6596, !18, i64 6600, !30, i64 6608, !30, i64 6612, !42, i64 6616, !42, i64 6624, !11, i64 6632, !11, i64 6640, !11, i64 6648, !30, i64 6656, !30, i64 6660, !11, i64 6664, !30, i64 6672, !30, i64 6676, !30, i64 6680, !30, i64 6684, !30, i64 6688, !30, i64 6692, !9, i64 6696, !9, i64 6700, !8, i64 6704, !30, i64 6712, !42, i64 6720, !42, i64 6728, !42, i64 6736, !42, i64 6744, !30, i64 6752, !91, i64 6760, !30, i64 6768, !18, i64 6776, !30, i64 6784, !30, i64 6788, !30, i64 6792, !11, i64 6800, !11, i64 6808, !11, i64 6816, !11, i64 6824, !30, i64 6832, !30, i64 6836, !30, i64 6840, !30, i64 6844, !30, i64 6848, !30, i64 6852, !92, i64 6856, !30, i64 6864, !30, i64 6868, !18, i64 6872, !30, i64 6880, !30, i64 6884, !30, i64 6888, !9, i64 6892, !30, i64 6900, !93, i64 6904, !30, i64 6920, !18, i64 6928, !30, i64 6936, !18, i64 6944, !30, i64 6952, !30, i64 6956, !30, i64 6960, !30, i64 6964, !30, i64 6968, !30, i64 6972, !30, i64 6976, !9, i64 6980, !9, i64 7021, !42, i64 7064, !42, i64 7072, !9, i64 7080, !42, i64 7088, !30, i64 7096, !30, i64 7100, !95, i64 7104, !42, i64 7112, !42, i64 7120, !96, i64 7128, !11, i64 7168, !11, i64 7176, !30, i64 7184, !30, i64 7188, !30, i64 7192, !30, i64 7196, !30, i64 7200, !30, i64 7204, !30, i64 7208, !30, i64 7212, !30, i64 7216, !11, i64 7224, !63, i64 7232, !11, i64 7240, !18, i64 7248, !18, i64 7256, !18, i64 7264, !30, i64 7272, !30, i64 7276, !88, i64 7280, !88, i64 7288, !30, i64 7296, !30, i64 7300, !30, i64 7304, !11, i64 7312, !11, i64 7320, !11, i64 7328, !11, i64 7336, !59, i64 7344, !59, i64 7352, !30, i64 7360, !18, i64 7368, !11, i64 7376, !30, i64 7384, !30, i64 7388, !30, i64 7392, !11, i64 7400, !30, i64 7408, !30, i64 7412, !30, i64 7416, !30, i64 7420, !18, i64 7424, !30, i64 7432, !30, i64 7436, !9, i64 7440, !42, i64 7488, !30, i64 7496, !63, i64 7504, !30, i64 7512, !30, i64 7516, !42, i64 7520, !11, i64 7528, !30, i64 7536, !30, i64 7540, !30, i64 7544, !30, i64 7548, !30, i64 7552, !42, i64 7560, !9, i64 7568, !30, i64 7580, !30, i64 7584, !30, i64 7588, !9, i64 7592, !63, i64 7632, !63, i64 7640, !30, i64 7648, !11, i64 7656, !63, i64 7664, !63, i64 7672, !30, i64 7680, !30, i64 7684, !30, i64 7688, !30, i64 7692, !11, i64 7696, !11, i64 7704, !11, i64 7712, !11, i64 7720, !11, i64 7728, !11, i64 7736, !11, i64 7744, !11, i64 7752, !11, i64 7760, !42, i64 7768, !30, i64 7776, !30, i64 7780, !9, i64 7784, !11, i64 7792, !9, i64 7800, !42, i64 7808, !42, i64 7816, !42, i64 7824, !11, i64 7832, !42, i64 7840, !81, i64 7848, !46, i64 7856, !30, i64 7864, !81, i64 7872, !30, i64 7880, !30, i64 7884, !30, i64 7888, !30, i64 7892, !42, i64 7896, !42, i64 7904, !18, i64 7912, !97, i64 7920, !30, i64 7928, !30, i64 7932, !30, i64 7936, !30, i64 7940, !30, i64 7944, !18, i64 7952, !18, i64 7960, !18, i64 7968, !30, i64 7976, !30, i64 7980, !30, i64 7984, !30, i64 7988, !30, i64 7992, !30, i64 7996, !30, i64 8000, !42, i64 8008, !30, i64 8016, !30, i64 8020, !42, i64 8024, !30, i64 8032, !30, i64 8036, !30, i64 8040, !30, i64 8044, !30, i64 8048, !30, i64 8052, !30, i64 8056, !42, i64 8064, !46, i64 8072, !18, i64 8080, !11, i64 8088, !18, i64 8096, !30, i64 8104, !98, i64 8112, !30, i64 8144, !11, i64 8152, !30, i64 8160, !30, i64 8164, !30, i64 8168, !99, i64 8176, !18, i64 8288, !18, i64 8296, !18, i64 8304, !18, i64 8312, !100, i64 8320, !42, i64 8328, !30, i64 8336, !18, i64 8344, !30, i64 8352, !30, i64 8356, !30, i64 8360, !11, i64 8368, !30, i64 8376, !18, i64 8384}
-!84 = !{!"p2 omnipotent char", !8, i64 0}
-!85 = !{!"p1 _ZTS11aeEventLoop", !8, i64 0}
-!86 = !{!"connListener", !9, i64 0, !30, i64 64, !84, i64 72, !30, i64 80, !30, i64 84, !87, i64 88, !8, i64 96}
-!87 = !{!"p1 _ZTS14ConnectionType", !8, i64 0}
-!88 = !{!"p1 _ZTS6client", !8, i64 0}
-!89 = !{!"malloc_stats", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80}
-!90 = !{!"p1 double", !8, i64 0}
-!91 = !{!"p1 _ZTS9saveparam", !8, i64 0}
-!92 = !{!"p2 _ZTS10connection", !8, i64 0}
-!93 = !{!"redisOpArray", !94, i64 0, !30, i64 8, !30, i64 12}
-!94 = !{!"p1 _ZTS7redisOp", !8, i64 0}
-!95 = !{!"p1 _ZTS11replBacklog", !8, i64 0}
-!96 = !{!"replDataBuf", !63, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32}
-!97 = !{!"p1 _ZTS12clusterState", !8, i64 0}
-!98 = !{!"aclInfo", !42, i64 0, !42, i64 8, !42, i64 16, !42, i64 24}
-!99 = !{!"redisTLSContextConfig", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !30, i64 96, !30, i64 100, !30, i64 104, !30, i64 108}
-!100 = !{!"p1 _ZTS14sentinelConfig", !8, i64 0}
-!101 = !{!73, !27, i64 24}
-!102 = !{!73, !27, i64 192}
-!103 = distinct !{!103, !24}
-!104 = !{!105, !105, i64 0}
-!105 = !{!"short", !9, i64 0}
-!106 = !{!45, !46, i64 0}
-!107 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!108 = distinct !{!108, !24}
-!109 = distinct !{!109, !24, !110}
-!110 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!111 = !{!112, !15, i64 0}
-!112 = !{!"", !15, i64 0, !15, i64 8}
-!113 = !{!112, !15, i64 8}
-!114 = distinct !{!114, !24}
-!115 = distinct !{!115, !24}
-!116 = distinct !{!116, !24, !110}
-!117 = distinct !{!117, !24}
-!118 = !{!58, !30, i64 28}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS11redisObject", !8, i64 0}
+!29 = !{!30, !8, i64 8}
+!30 = !{!"redisObject", !31, i64 0, !31, i64 0, !31, i64 1, !31, i64 4, !8, i64 8}
+!31 = !{!"int", !9, i64 0}
+!32 = !{!33, !31, i64 0}
+!33 = !{!"", !31, i64 0, !9, i64 8, !15, i64 24, !9, i64 32, !9, i64 64}
+!34 = !{!9, !9, i64 0}
+!35 = !{!33, !15, i64 24}
+!36 = !{!37, !15, i64 0}
+!37 = !{!"", !15, i64 0, !15, i64 8, !31, i64 16, !31, i64 20}
+!38 = !{!37, !15, i64 8}
+!39 = !{!37, !31, i64 16}
+!40 = !{!37, !31, i64 20}
+!41 = !{!31, !31, i64 0}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"long long", !9, i64 0}
+!44 = !{!18, !18, i64 0}
+!45 = distinct !{!45, !25}
+!46 = !{!47, !49, i64 8}
+!47 = !{!"zset", !48, i64 0, !49, i64 8}
+!48 = !{!"p1 _ZTS4dict", !8, i64 0}
+!49 = !{!"p1 _ZTS9zskiplist", !8, i64 0}
+!50 = !{!51, !52, i64 0}
+!51 = !{!"zskiplistLevel", !52, i64 0, !11, i64 8}
+!52 = !{!"p1 _ZTS13zskiplistNode", !8, i64 0}
+!53 = distinct !{!53, !25}
+!54 = !{!11, !11, i64 0}
+!55 = !{i64 0, i64 8, !54, i64 8, i64 1, !34}
+!56 = !{!57, !11, i64 0}
+!57 = !{!"", !11, i64 0, !9, i64 8}
+!58 = !{!57, !9, i64 8}
+!59 = distinct !{!59, !24, !25}
+!60 = !{!61, !31, i64 88}
+!61 = !{!"client", !11, i64 0, !11, i64 8, !62, i64 16, !9, i64 24, !9, i64 25, !9, i64 26, !9, i64 27, !31, i64 28, !63, i64 32, !28, i64 40, !28, i64 48, !28, i64 56, !18, i64 64, !11, i64 72, !11, i64 80, !31, i64 88, !64, i64 96, !31, i64 104, !31, i64 108, !64, i64 112, !11, i64 120, !65, i64 128, !65, i64 136, !65, i64 144, !65, i64 152, !8, i64 160, !31, i64 168, !31, i64 172, !11, i64 176, !66, i64 184, !43, i64 192, !66, i64 200, !11, i64 208, !11, i64 216, !11, i64 224, !31, i64 232, !67, i64 240, !11, i64 248, !11, i64 256, !31, i64 264, !31, i64 268, !31, i64 272, !31, i64 276, !11, i64 280, !11, i64 288, !18, i64 296, !43, i64 304, !43, i64 312, !43, i64 320, !43, i64 328, !43, i64 336, !43, i64 344, !43, i64 352, !43, i64 360, !9, i64 368, !31, i64 412, !18, i64 416, !31, i64 424, !31, i64 428, !11, i64 432, !68, i64 440, !70, i64 480, !43, i64 552, !66, i64 560, !48, i64 568, !48, i64 576, !48, i64 584, !18, i64 592, !18, i64 600, !71, i64 608, !71, i64 616, !71, i64 624, !8, i64 632, !8, i64 640, !8, i64 648, !8, i64 656, !8, i64 664, !11, i64 672, !72, i64 680, !11, i64 688, !31, i64 696, !71, i64 704, !8, i64 712, !71, i64 720, !11, i64 728, !73, i64 736, !11, i64 760, !43, i64 768, !31, i64 776, !11, i64 784, !18, i64 792}
+!62 = !{!"p1 _ZTS10connection", !8, i64 0}
+!63 = !{!"p1 _ZTS7redisDb", !8, i64 0}
+!64 = !{!"p2 _ZTS11redisObject", !8, i64 0}
+!65 = !{!"p1 _ZTS12redisCommand", !8, i64 0}
+!66 = !{!"p1 _ZTS4list", !8, i64 0}
+!67 = !{!"p1 _ZTS9dictEntry", !8, i64 0}
+!68 = !{!"multiState", !69, i64 0, !31, i64 8, !31, i64 12, !31, i64 16, !11, i64 24, !31, i64 32}
+!69 = !{!"p1 _ZTS8multiCmd", !8, i64 0}
+!70 = !{!"blockingState", !31, i64 0, !43, i64 8, !31, i64 16, !48, i64 24, !31, i64 32, !31, i64 36, !43, i64 40, !8, i64 48, !8, i64 56, !11, i64 64}
+!71 = !{!"p1 _ZTS8listNode", !8, i64 0}
+!72 = !{!"p1 _ZTS3rax", !8, i64 0}
+!73 = !{!"listNode", !71, i64 0, !71, i64 8, !8, i64 16}
+!74 = !{!61, !64, i64 96}
+!75 = distinct !{!75, !25}
+!76 = !{!77, !28, i64 216}
+!77 = !{!"sharedObjectsStruct", !28, i64 0, !28, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !28, i64 40, !28, i64 48, !28, i64 56, !9, i64 64, !9, i64 96, !9, i64 128, !9, i64 160, !28, i64 192, !28, i64 200, !28, i64 208, !28, i64 216, !28, i64 224, !28, i64 232, !28, i64 240, !28, i64 248, !28, i64 256, !28, i64 264, !28, i64 272, !28, i64 280, !28, i64 288, !28, i64 296, !28, i64 304, !28, i64 312, !28, i64 320, !28, i64 328, !28, i64 336, !28, i64 344, !28, i64 352, !28, i64 360, !28, i64 368, !28, i64 376, !28, i64 384, !28, i64 392, !28, i64 400, !28, i64 408, !28, i64 416, !28, i64 424, !28, i64 432, !28, i64 440, !28, i64 448, !28, i64 456, !28, i64 464, !28, i64 472, !28, i64 480, !28, i64 488, !28, i64 496, !28, i64 504, !28, i64 512, !28, i64 520, !28, i64 528, !28, i64 536, !28, i64 544, !28, i64 552, !28, i64 560, !28, i64 568, !28, i64 576, !28, i64 584, !28, i64 592, !28, i64 600, !28, i64 608, !28, i64 616, !28, i64 624, !28, i64 632, !28, i64 640, !28, i64 648, !28, i64 656, !28, i64 664, !28, i64 672, !28, i64 680, !28, i64 688, !28, i64 696, !28, i64 704, !28, i64 712, !28, i64 720, !28, i64 728, !28, i64 736, !28, i64 744, !28, i64 752, !28, i64 760, !28, i64 768, !28, i64 776, !28, i64 784, !28, i64 792, !9, i64 800, !9, i64 880, !9, i64 80880, !9, i64 81136, !9, i64 81392, !9, i64 81648, !18, i64 81904, !18, i64 81912}
+!78 = distinct !{!78, !24, !25}
+!79 = distinct !{!79, !24, !25}
+!80 = distinct !{!80, !24, !25}
+!81 = !{!61, !63, i64 32}
+!82 = distinct !{!82, !24, !25}
+!83 = !{!84, !31, i64 56}
+!84 = !{!"redisDb", !85, i64 0, !85, i64 8, !8, i64 16, !48, i64 24, !48, i64 32, !48, i64 40, !48, i64 48, !31, i64 56, !43, i64 64, !11, i64 72, !66, i64 80}
+!85 = !{!"p1 _ZTS8_kvstore", !8, i64 0}
+!86 = !{!87, !43, i64 6720}
+!87 = !{!"redisServer", !31, i64 0, !11, i64 8, !18, i64 16, !18, i64 24, !88, i64 32, !31, i64 40, !31, i64 44, !31, i64 48, !31, i64 52, !31, i64 56, !63, i64 64, !48, i64 72, !48, i64 80, !89, i64 88, !72, i64 96, !31, i64 104, !31, i64 108, !31, i64 112, !31, i64 116, !43, i64 120, !31, i64 128, !31, i64 132, !31, i64 136, !31, i64 140, !18, i64 144, !31, i64 152, !31, i64 156, !9, i64 160, !31, i64 204, !11, i64 208, !31, i64 216, !31, i64 220, !31, i64 224, !18, i64 232, !18, i64 240, !31, i64 248, !31, i64 252, !11, i64 256, !48, i64 264, !48, i64 272, !48, i64 280, !66, i64 288, !9, i64 296, !31, i64 304, !31, i64 308, !9, i64 312, !31, i64 316, !31, i64 320, !31, i64 324, !9, i64 328, !31, i64 456, !18, i64 464, !18, i64 472, !31, i64 480, !9, i64 488, !31, i64 1320, !90, i64 1328, !66, i64 1432, !66, i64 1440, !66, i64 1448, !66, i64 1456, !66, i64 1464, !66, i64 1472, !92, i64 1480, !92, i64 1488, !8, i64 1496, !72, i64 1504, !31, i64 1512, !72, i64 1520, !31, i64 1528, !66, i64 1536, !9, i64 1544, !9, i64 1592, !48, i64 1848, !9, i64 1856, !31, i64 1864, !31, i64 1868, !9, i64 1872, !31, i64 2384, !31, i64 2388, !43, i64 2392, !31, i64 2400, !31, i64 2404, !31, i64 2408, !31, i64 2412, !31, i64 2416, !11, i64 2424, !11, i64 2432, !11, i64 2440, !11, i64 2448, !11, i64 2456, !11, i64 2464, !43, i64 2472, !43, i64 2480, !43, i64 2488, !43, i64 2496, !15, i64 2504, !43, i64 2512, !43, i64 2520, !43, i64 2528, !43, i64 2536, !43, i64 2544, !43, i64 2552, !11, i64 2560, !43, i64 2568, !43, i64 2576, !43, i64 2584, !43, i64 2592, !43, i64 2600, !43, i64 2608, !43, i64 2616, !43, i64 2624, !11, i64 2632, !11, i64 2640, !43, i64 2648, !43, i64 2656, !43, i64 2664, !43, i64 2672, !15, i64 2680, !43, i64 2688, !43, i64 2696, !43, i64 2704, !43, i64 2712, !43, i64 2720, !66, i64 2728, !43, i64 2736, !43, i64 2744, !11, i64 2752, !93, i64 2760, !9, i64 2848, !9, i64 2856, !9, i64 2864, !9, i64 2872, !11, i64 2880, !11, i64 2888, !11, i64 2896, !11, i64 2904, !11, i64 2912, !11, i64 2920, !11, i64 2928, !11, i64 2936, !15, i64 2944, !9, i64 2952, !11, i64 2984, !43, i64 2992, !43, i64 3000, !43, i64 3008, !9, i64 3016, !9, i64 4040, !9, i64 5064, !43, i64 5072, !9, i64 5080, !43, i64 6144, !43, i64 6152, !11, i64 6160, !43, i64 6168, !43, i64 6176, !11, i64 6184, !9, i64 6192, !31, i64 6288, !31, i64 6292, !31, i64 6296, !31, i64 6300, !31, i64 6304, !31, i64 6308, !31, i64 6312, !31, i64 6316, !31, i64 6320, !31, i64 6324, !31, i64 6328, !31, i64 6332, !11, i64 6336, !31, i64 6344, !31, i64 6348, !31, i64 6352, !31, i64 6356, !11, i64 6360, !11, i64 6368, !31, i64 6376, !31, i64 6380, !31, i64 6384, !31, i64 6388, !31, i64 6392, !18, i64 6400, !9, i64 6408, !31, i64 6480, !31, i64 6484, !31, i64 6488, !94, i64 6496, !31, i64 6504, !31, i64 6508, !31, i64 6512, !31, i64 6516, !31, i64 6520, !31, i64 6524, !18, i64 6528, !18, i64 6536, !31, i64 6544, !31, i64 6548, !11, i64 6552, !11, i64 6560, !11, i64 6568, !11, i64 6576, !11, i64 6584, !31, i64 6592, !31, i64 6596, !18, i64 6600, !31, i64 6608, !31, i64 6612, !43, i64 6616, !43, i64 6624, !11, i64 6632, !11, i64 6640, !11, i64 6648, !31, i64 6656, !31, i64 6660, !11, i64 6664, !31, i64 6672, !31, i64 6676, !31, i64 6680, !31, i64 6684, !31, i64 6688, !31, i64 6692, !9, i64 6696, !9, i64 6700, !8, i64 6704, !31, i64 6712, !43, i64 6720, !43, i64 6728, !43, i64 6736, !43, i64 6744, !31, i64 6752, !95, i64 6760, !31, i64 6768, !18, i64 6776, !31, i64 6784, !31, i64 6788, !31, i64 6792, !11, i64 6800, !11, i64 6808, !11, i64 6816, !11, i64 6824, !31, i64 6832, !31, i64 6836, !31, i64 6840, !31, i64 6844, !31, i64 6848, !31, i64 6852, !96, i64 6856, !31, i64 6864, !31, i64 6868, !18, i64 6872, !31, i64 6880, !31, i64 6884, !31, i64 6888, !9, i64 6892, !31, i64 6900, !97, i64 6904, !31, i64 6920, !18, i64 6928, !31, i64 6936, !18, i64 6944, !31, i64 6952, !31, i64 6956, !31, i64 6960, !31, i64 6964, !31, i64 6968, !31, i64 6972, !31, i64 6976, !9, i64 6980, !9, i64 7021, !43, i64 7064, !43, i64 7072, !9, i64 7080, !43, i64 7088, !31, i64 7096, !31, i64 7100, !99, i64 7104, !43, i64 7112, !43, i64 7120, !100, i64 7128, !11, i64 7168, !11, i64 7176, !31, i64 7184, !31, i64 7188, !31, i64 7192, !31, i64 7196, !31, i64 7200, !31, i64 7204, !31, i64 7208, !31, i64 7212, !31, i64 7216, !11, i64 7224, !66, i64 7232, !11, i64 7240, !18, i64 7248, !18, i64 7256, !18, i64 7264, !31, i64 7272, !31, i64 7276, !92, i64 7280, !92, i64 7288, !31, i64 7296, !31, i64 7300, !31, i64 7304, !11, i64 7312, !11, i64 7320, !11, i64 7328, !11, i64 7336, !62, i64 7344, !62, i64 7352, !31, i64 7360, !18, i64 7368, !11, i64 7376, !31, i64 7384, !31, i64 7388, !31, i64 7392, !11, i64 7400, !31, i64 7408, !31, i64 7412, !31, i64 7416, !31, i64 7420, !18, i64 7424, !31, i64 7432, !31, i64 7436, !9, i64 7440, !43, i64 7488, !31, i64 7496, !66, i64 7504, !31, i64 7512, !31, i64 7516, !43, i64 7520, !11, i64 7528, !31, i64 7536, !31, i64 7540, !31, i64 7544, !31, i64 7548, !31, i64 7552, !43, i64 7560, !9, i64 7568, !31, i64 7580, !31, i64 7584, !31, i64 7588, !9, i64 7592, !66, i64 7632, !66, i64 7640, !31, i64 7648, !11, i64 7656, !66, i64 7664, !66, i64 7672, !31, i64 7680, !31, i64 7684, !31, i64 7688, !31, i64 7692, !11, i64 7696, !11, i64 7704, !11, i64 7712, !11, i64 7720, !11, i64 7728, !11, i64 7736, !11, i64 7744, !11, i64 7752, !11, i64 7760, !43, i64 7768, !31, i64 7776, !31, i64 7780, !9, i64 7784, !11, i64 7792, !9, i64 7800, !43, i64 7808, !43, i64 7816, !43, i64 7824, !11, i64 7832, !43, i64 7840, !85, i64 7848, !48, i64 7856, !31, i64 7864, !85, i64 7872, !31, i64 7880, !31, i64 7884, !31, i64 7888, !31, i64 7892, !43, i64 7896, !43, i64 7904, !18, i64 7912, !101, i64 7920, !31, i64 7928, !31, i64 7932, !31, i64 7936, !31, i64 7940, !31, i64 7944, !18, i64 7952, !18, i64 7960, !18, i64 7968, !31, i64 7976, !31, i64 7980, !31, i64 7984, !31, i64 7988, !31, i64 7992, !31, i64 7996, !31, i64 8000, !43, i64 8008, !31, i64 8016, !31, i64 8020, !43, i64 8024, !31, i64 8032, !31, i64 8036, !31, i64 8040, !31, i64 8044, !31, i64 8048, !31, i64 8052, !31, i64 8056, !43, i64 8064, !48, i64 8072, !18, i64 8080, !11, i64 8088, !18, i64 8096, !31, i64 8104, !102, i64 8112, !31, i64 8144, !11, i64 8152, !31, i64 8160, !31, i64 8164, !31, i64 8168, !103, i64 8176, !18, i64 8288, !18, i64 8296, !18, i64 8304, !18, i64 8312, !104, i64 8320, !43, i64 8328, !31, i64 8336, !18, i64 8344, !31, i64 8352, !31, i64 8356, !31, i64 8360, !11, i64 8368, !31, i64 8376, !18, i64 8384}
+!88 = !{!"p2 omnipotent char", !8, i64 0}
+!89 = !{!"p1 _ZTS11aeEventLoop", !8, i64 0}
+!90 = !{!"connListener", !9, i64 0, !31, i64 64, !88, i64 72, !31, i64 80, !31, i64 84, !91, i64 88, !8, i64 96}
+!91 = !{!"p1 _ZTS14ConnectionType", !8, i64 0}
+!92 = !{!"p1 _ZTS6client", !8, i64 0}
+!93 = !{!"malloc_stats", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !11, i64 48, !11, i64 56, !11, i64 64, !11, i64 72, !11, i64 80}
+!94 = !{!"p1 double", !8, i64 0}
+!95 = !{!"p1 _ZTS9saveparam", !8, i64 0}
+!96 = !{!"p2 _ZTS10connection", !8, i64 0}
+!97 = !{!"redisOpArray", !98, i64 0, !31, i64 8, !31, i64 12}
+!98 = !{!"p1 _ZTS7redisOp", !8, i64 0}
+!99 = !{!"p1 _ZTS11replBacklog", !8, i64 0}
+!100 = !{!"replDataBuf", !66, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32}
+!101 = !{!"p1 _ZTS12clusterState", !8, i64 0}
+!102 = !{!"aclInfo", !43, i64 0, !43, i64 8, !43, i64 16, !43, i64 24}
+!103 = !{!"redisTLSContextConfig", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !31, i64 96, !31, i64 100, !31, i64 104, !31, i64 108}
+!104 = !{!"p1 _ZTS14sentinelConfig", !8, i64 0}
+!105 = !{!77, !28, i64 24}
+!106 = !{!77, !28, i64 192}
+!107 = distinct !{!107, !24, !25}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"short", !9, i64 0}
+!110 = !{!47, !48, i64 0}
+!111 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!112 = distinct !{!112, !24, !25}
+!113 = distinct !{!113, !24, !25, !114}
+!114 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!115 = !{!116, !15, i64 0}
+!116 = !{!"", !15, i64 0, !15, i64 8}
+!117 = !{!116, !15, i64 8}
+!118 = distinct !{!118, !24, !25}
+!119 = distinct !{!119, !24, !25}
+!120 = distinct !{!120, !24, !25, !114}
+!121 = distinct !{!121, !24, !25}
+!122 = !{!61, !31, i64 28}

@@ -925,38 +925,38 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit13:      ; preds = %57
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14WorkSerializerC2ESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  %3 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #28, !noalias !72
-  %4 = load ptr, ptr %1, align 8, !tbaa !44, !noalias !72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !73)
+  %3 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #28, !noalias !73
+  %4 = load ptr, ptr %1, align 8, !tbaa !44, !noalias !73
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !75, !noalias !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !76, !noalias !73
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !72
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 16), ptr %3, align 16, !tbaa !33, !noalias !72
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 64), ptr %7, align 8, !tbaa !33, !noalias !72
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !73
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 16), ptr %3, align 16, !tbaa !33, !noalias !73
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core14WorkSerializer18WorkSerializerImplE, i64 64), ptr %7, align 8, !tbaa !33, !noalias !73
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %8, align 8, !tbaa !76, !noalias !72
+  store i64 0, ptr %8, align 8, !tbaa !77, !noalias !73
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store ptr %4, ptr %9, align 8, !tbaa !44, !noalias !72
+  store ptr %4, ptr %9, align 8, !tbaa !44, !noalias !73
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %6, ptr %10, align 8, !tbaa !75, !noalias !72
+  store ptr %6, ptr %10, align 8, !tbaa !76, !noalias !73
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  store i64 0, ptr %11, align 8, !noalias !72
+  store i64 0, ptr %11, align 8, !noalias !73
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  store i8 0, ptr %12, align 8, !tbaa !9, !noalias !72
+  store i8 0, ptr %12, align 8, !tbaa !9, !noalias !73
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 105
-  store i8 0, ptr %13, align 1, !tbaa !32, !noalias !72
+  store i8 0, ptr %13, align 1, !tbaa !32, !noalias !73
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  store i64 0, ptr %14, align 8, !tbaa !77, !noalias !72
+  store i64 0, ptr %14, align 8, !tbaa !78, !noalias !73
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
-  store i64 0, ptr %15, align 8, !tbaa !76, !noalias !72
-  store ptr %3, ptr %0, align 8, !tbaa !78, !alias.scope !72
+  store i64 0, ptr %15, align 8, !tbaa !77, !noalias !73
+  store ptr %3, ptr %0, align 8, !tbaa !79, !alias.scope !73
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core14WorkSerializerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !78
+  %2 = load ptr, ptr %0, align 8, !tbaa !79
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN9grpc_core14WorkSerializer18WorkSerializerImplENS0_16OrphanableDeleteEED2Ev.exit, label %3
 
@@ -974,14 +974,14 @@ define void @_ZN9grpc_core14WorkSerializerD2Ev(ptr noundef nonnull align 8 captu
   unreachable
 
 _ZNSt10unique_ptrIN9grpc_core14WorkSerializer18WorkSerializerImplENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %1, %3
-  store ptr null, ptr %0, align 8, !tbaa !78
+  store ptr null, ptr %0, align 8, !tbaa !79
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core14WorkSerializer3RunEN4absl12lts_2024072212AnyInvocableIFvvEEENS_13DebugLocationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::AnyInvocable", align 16
-  %4 = load ptr, ptr %0, align 8, !tbaa !78
+  %4 = load ptr, ptr %0, align 8, !tbaa !79
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !41
   call void %6(i1 noundef zeroext false, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %3) #25
@@ -1033,7 +1033,7 @@ define linkonce_odr void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD2Ev(
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit: ; preds = %1, %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %12
 
@@ -1045,9 +1045,9 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %12
-  store i32 0, ptr %13, align 8, !tbaa !80
+  store i32 0, ptr %13, align 8, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %18, align 4, !tbaa !83
+  store i32 0, ptr %18, align 4, !tbaa !84
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -1059,13 +1059,13 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 25:                                               ; preds = %12
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85
   %.not.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !85
+  store i32 %28, ptr %13, align 4, !tbaa !86
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 29:                                               ; preds = %25
@@ -1125,7 +1125,7 @@ define linkonce_odr void @_ZN9grpc_core14WorkSerializer18WorkSerializerImplD0Ev(
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i: ; preds = %6, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %12
 
@@ -1137,9 +1137,9 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %12
-  store i32 0, ptr %13, align 8, !tbaa !80
+  store i32 0, ptr %13, align 8, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %18, align 4, !tbaa !83
+  store i32 0, ptr %18, align 4, !tbaa !84
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -1151,13 +1151,13 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 25:                                               ; preds = %12
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85
   %.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i.i, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !85
+  store i32 %28, ptr %13, align 4, !tbaa !86
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 29:                                               ; preds = %25
@@ -1218,7 +1218,7 @@ define linkonce_odr void @_ZThn8_N9grpc_core14WorkSerializer18WorkSerializerImpl
 
 _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS5_EED2Ev.exit.i: ; preds = %6, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !75
+  %11 = load ptr, ptr %10, align 8, !tbaa !76
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i, label %12
 
@@ -1230,9 +1230,9 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br i1 %15, label %17, label %25
 
 17:                                               ; preds = %12
-  store i32 0, ptr %13, align 8, !tbaa !80
+  store i32 0, ptr %13, align 8, !tbaa !81
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 0, ptr %18, align 4, !tbaa !83
+  store i32 0, ptr %18, align 4, !tbaa !84
   %19 = load ptr, ptr %11, align 8, !tbaa !33
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
@@ -1244,13 +1244,13 @@ _ZN4absl12lts_2024072213InlinedVectorIN9grpc_core14WorkSerializer18WorkSerialize
   br label %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 25:                                               ; preds = %12
-  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %26 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85
   %.not.i.i.i.i = icmp eq i8 %26, 0
   br i1 %.not.i.i.i.i, label %29, label %27
 
 27:                                               ; preds = %25
   %28 = add nsw i32 %16, -1
-  store i32 %28, ptr %13, align 4, !tbaa !85
+  store i32 %28, ptr %13, align 4, !tbaa !86
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
 29:                                               ; preds = %25
@@ -1309,7 +1309,7 @@ define internal void @__cxx_global_var_init.3() #12 section ".text.startup" comd
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 32, ptr %5, align 8
   %6 = call noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !86
+  store i64 %6, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !87
   %7 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 6632)
   %8 = extractvalue { i64, i1 } %7, 1
   %9 = extractvalue { i64, i1 } %7, 0
@@ -1326,7 +1326,7 @@ define internal void @__cxx_global_var_init.3() #12 section ".text.startup" comd
   br label %_ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit
 
 _ZN9grpc_core10NoDestructINS_20GlobalStatsCollectorEEC2IJEEEDpOT_.exit: ; preds = %4, %.loopexit.loopexit.i.i.i
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !96
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
   br label %16
 
@@ -1358,7 +1358,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i: ; preds = %1
   %2 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %4 = load i16, ptr %3, align 2, !tbaa !97
+  %4 = load i16, ptr %3, align 2, !tbaa !98
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %.thread8.i, label %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, !prof !40
 
@@ -1366,7 +1366,7 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %1
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
   %6 = tail call noundef align 2 ptr @llvm.threadlocal.address.p0(ptr align 2 @_ZN9grpc_core20PerCpuShardingHelper6state_E)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %8 = load i16, ptr %7, align 2, !tbaa !97
+  %8 = load i16, ptr %7, align 2, !tbaa !98
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %11, label %.thread7.i, !prof !40
 
@@ -1386,26 +1386,26 @@ _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i: ; preds = %1
 _ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i: ; preds = %.thread8.i, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i
   %13 = phi i16 [ -1, %.thread8.i ], [ %4, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.i ]
   %14 = add i16 %13, -1
-  store i16 %14, ptr %3, align 2, !tbaa !97
+  store i16 %14, ptr %3, align 2, !tbaa !98
   br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
 .thread7.i:                                       ; preds = %11, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit.thread.i
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
-  %15 = load i16, ptr %7, align 2, !tbaa !97
+  %15 = load i16, ptr %7, align 2, !tbaa !98
   %16 = add i16 %15, -1
-  store i16 %16, ptr %7, align 2, !tbaa !97
+  store i16 %16, ptr %7, align 2, !tbaa !98
   tail call void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E()
   br label %_ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit
 
 _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i, %.thread7.i
   %17 = phi ptr [ %2, %_ZTWN9grpc_core20PerCpuShardingHelper6state_E.exit4.thread.i ], [ %6, %.thread7.i ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = load i16, ptr %17, align 2, !tbaa !100
+  %19 = load i16, ptr %17, align 2, !tbaa !101
   %20 = zext i16 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i64, ptr %21, align 8, !tbaa !86
+  %22 = load i64, ptr %21, align 8, !tbaa !87
   %23 = urem i64 %20, %22
-  %24 = load ptr, ptr %18, align 8, !tbaa !96
+  %24 = load ptr, ptr %18, align 8, !tbaa !97
   %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
   ret ptr %25
 }
@@ -1544,7 +1544,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %11 = load ptr, ptr %10, align 16, !tbaa !41
   tail call void %11(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 16 dereferenceable(32) %9) #25
   %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !101
+  br i1 %.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit, label %.lr.ph.i, !llvm.loop !102
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit.loopexit: ; preds = %.lr.ph.i
   %.pre = load i64, ptr %0, align 16, !tbaa !35
@@ -1557,9 +1557,9 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
   br i1 %.not.i2, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit, label %12
 
 12:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
-  %13 = load ptr, ptr %4, align 16, !tbaa !84
+  %13 = load ptr, ptr %4, align 16, !tbaa !85
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %15 = load i64, ptr %14, align 8, !tbaa !84
+  %15 = load i64, ptr %14, align 8, !tbaa !85
   %16 = shl i64 %15, 5
   tail call void @_ZdlPvm(ptr noundef %13, i64 noundef %16) #29
   br label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE21DeallocateIfAllocatedEv.exit
@@ -1578,14 +1578,14 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !84
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !85
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !85
+  %8 = load i32, ptr %5, align 4, !tbaa !86
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !85
+  store i32 %9, ptr %5, align 4, !tbaa !86
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -1618,13 +1618,13 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress noinline uwtable
 define linkonce_odr noundef nonnull align 16 dereferenceable(32) ptr @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15EmplaceBackSlowIJNS0_12AnyInvocableIFvvEEERNS3_13DebugLocationEEEERS6_DpOT_(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = load i64, ptr %0, align 16, !tbaa !35, !noalias !102
+  %4 = load i64, ptr %0, align 16, !tbaa !35, !noalias !103
   %5 = and i64 %4, 1
   %.not.i = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 16, !noalias !102
+  %7 = load ptr, ptr %6, align 16, !noalias !103
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !noalias !102
+  %9 = load i64, ptr %8, align 8, !noalias !103
   %.sink2.i = select i1 %.not.i, ptr %6, ptr %7
   %.sink1.i = lshr i64 %4, 1
   %10 = shl i64 %9, 1
@@ -1682,7 +1682,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.023.0, i64 32
   %34 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %34, %.sink1.i
-  br i1 %exitcond.not.i, label %.lr.ph.i17, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %.lr.ph.i17, label %.lr.ph.i, !llvm.loop !106
 
 .lr.ph.i17:                                       ; preds = %.lr.ph.i, %.lr.ph.i17
   %.06.i = phi i64 [ %35, %.lr.ph.i17 ], [ %.sink1.i, %.lr.ph.i ]
@@ -1692,7 +1692,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %38 = load ptr, ptr %37, align 16, !tbaa !41
   tail call void %38(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %36, ptr noundef nonnull align 16 dereferenceable(32) %36) #25
   %.not.i18 = icmp eq i64 %35, 0
-  br i1 %.not.i18, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i17, !llvm.loop !101
+  br i1 %.not.i18, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i17, !llvm.loop !102
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i17, %_ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE8AllocateERS7_m.exit.i
   %39 = load i64, ptr %0, align 16, !tbaa !35
@@ -1701,8 +1701,8 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
   br i1 %.not.i19, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit, label %41
 
 41:                                               ; preds = %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
-  %42 = load ptr, ptr %6, align 16, !tbaa !84
-  %43 = load i64, ptr %8, align 8, !tbaa !84
+  %42 = load ptr, ptr %6, align 16, !tbaa !85
+  %43 = load i64, ptr %8, align 8, !tbaa !85
   %44 = shl i64 %43, 5
   tail call void @_ZdlPvm(ptr noundef %42, i64 noundef %44) #29
   %.pre = load i64, ptr %0, align 16, !tbaa !35
@@ -1710,8 +1710,8 @@ _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14
 
 _ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit: ; preds = %41, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit
   %45 = phi i64 [ %.pre, %41 ], [ %39, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit ]
-  store ptr %16, ptr %6, align 16, !tbaa !84
-  store i64 %11, ptr %8, align 8, !tbaa !84
+  store ptr %16, ptr %6, align 16, !tbaa !85
+  store i64 %11, ptr %8, align 8, !tbaa !85
   %46 = or i64 %45, 1
   %47 = add i64 %46, 2
   store i64 %47, ptr %0, align 16, !tbaa !35
@@ -1730,11 +1730,11 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #22
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE11ShrinkToFitEv(ptr noundef nonnull align 16 dereferenceable(48) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 16, !tbaa !84
+  %3 = load ptr, ptr %2, align 16, !tbaa !85
   %4 = load i64, ptr %0, align 16, !tbaa !35
   %5 = lshr i64 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i64, ptr %6, align 8, !tbaa !84
+  %7 = load i64, ptr %6, align 8, !tbaa !85
   %8 = icmp eq i64 %5, %7
   br i1 %8, label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit, label %9, !prof !40
 
@@ -1798,7 +1798,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 32
   %28 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %28, %5
-  br i1 %exitcond.not.i, label %.lr.ph.i27, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %.lr.ph.i27, label %.lr.ph.i, !llvm.loop !106
 
 .lr.ph.i27:                                       ; preds = %.lr.ph.i, %.lr.ph.i27
   %.06.i = phi i64 [ %29, %.lr.ph.i27 ], [ %5, %.lr.ph.i ]
@@ -1808,7 +1808,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   %32 = load ptr, ptr %31, align 16, !tbaa !41
   tail call void %32(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %30, ptr noundef nonnull align 16 dereferenceable(32) %30) #25
   %.not.i28 = icmp eq i64 %29, 0
-  br i1 %.not.i28, label %33, label %.lr.ph.i27, !llvm.loop !101
+  br i1 %.not.i28, label %33, label %.lr.ph.i27, !llvm.loop !102
 
 33:                                               ; preds = %.lr.ph.i27
   %34 = shl i64 %7, 5
@@ -1817,8 +1817,8 @@ _ZN4absl12lts_2024072223inlined_vector_internal13MallocAdapterISaIN9grpc_core14W
   br i1 %.not67, label %36, label %35
 
 35:                                               ; preds = %33
-  store ptr %.sroa.033.148, ptr %2, align 16, !tbaa !84
-  store i64 %.sroa.10.146, ptr %6, align 8, !tbaa !84
+  store ptr %.sroa.033.148, ptr %2, align 16, !tbaa !85
+  store i64 %.sroa.10.146, ptr %6, align 8, !tbaa !85
   br label %_ZN4absl12lts_2024072223inlined_vector_internal21AllocationTransactionISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEEED2Ev.exit
 
 36:                                               ; preds = %.thread58, %33
@@ -1853,9 +1853,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !106
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !106
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !107
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !107
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !107
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %37
 
@@ -1871,9 +1871,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %.031 = phi ptr [ %0, %12 ], [ %1, %8 ]
   %.0 = phi ptr [ %1, %12 ], [ %0, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %16 = load ptr, ptr %15, align 16, !tbaa !84
+  %16 = load ptr, ptr %15, align 16, !tbaa !85
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %18 = load i64, ptr %17, align 8, !tbaa !84
+  %18 = load i64, ptr %17, align 8, !tbaa !85
   %19 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %20 = lshr i64 %14, 1
   %.not.i = icmp ult i64 %14, 2
@@ -1898,7 +1898,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.017.0, i64 32
   %30 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %30, %20
-  br i1 %exitcond.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit, label %.lr.ph.i, !llvm.loop !106
 
 _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit: ; preds = %.lr.ph.i
   %.pre = load i64, ptr %.031, align 8, !tbaa !35
@@ -1917,12 +1917,12 @@ _ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_cor
   %35 = load ptr, ptr %34, align 16, !tbaa !41
   tail call void %35(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %33, ptr noundef nonnull align 16 dereferenceable(32) %33) #25
   %.not.i16 = icmp eq i64 %32, 0
-  br i1 %.not.i16, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15, !llvm.loop !101
+  br i1 %.not.i16, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i15, !llvm.loop !102
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i15, %.thread32, %_ZN4absl12lts_2024072223inlined_vector_internal17ConstructElementsISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEENS1_20IteratorValueAdapterIS7_St13move_iteratorIPS6_EEEEEvRNS0_8internal13type_identityIT_E4typeENSt16allocator_traitsISF_E7pointerERT0_NSK_9size_typeE.exit
-  store ptr %16, ptr %19, align 16, !tbaa !84
+  store ptr %16, ptr %19, align 16, !tbaa !85
   %36 = getelementptr inbounds nuw i8, ptr %.031, i64 24
-  store i64 %18, ptr %36, align 8, !tbaa !84
+  store i64 %18, ptr %36, align 8, !tbaa !85
   br label %37
 
 37:                                               ; preds = %13, %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, %9
@@ -1994,7 +1994,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
   %33 = getelementptr inbounds nuw i8, ptr %.079.i.i, i64 32
   %34 = getelementptr inbounds nuw i8, ptr %.010.i.i, i64 32
   %.not.i.i = icmp eq ptr %33, %15
-  br i1 %.not.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit, label %19, !llvm.loop !109
+  br i1 %.not.i.i, label %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit, label %19, !llvm.loop !110
 
 _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit: ; preds = %19, %2
   %35 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
@@ -2023,7 +2023,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSeriali
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.011.0, i64 32
   %48 = add nuw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %48, %13
-  br i1 %exitcond.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !105
+  br i1 %exitcond.not.i, label %.lr.ph.i9, label %.lr.ph.i, !llvm.loop !106
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i, %.lr.ph.i9
   %.06.i = phi i64 [ %49, %.lr.ph.i9 ], [ %13, %.lr.ph.i ]
@@ -2033,7 +2033,7 @@ _ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSeriali
   %52 = load ptr, ptr %51, align 16, !tbaa !41
   call void %52(i1 noundef zeroext true, ptr noundef nonnull align 16 dereferenceable(32) %50, ptr noundef nonnull align 16 dereferenceable(32) %50) #25
   %.not.i10 = icmp eq i64 %49, 0
-  br i1 %.not.i10, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i9, !llvm.loop !101
+  br i1 %.not.i10, label %_ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit, label %.lr.ph.i9, !llvm.loop !102
 
 _ZN4absl12lts_2024072223inlined_vector_internal14DestroyAdapterISaIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperEELb0EE15DestroyElementsERS7_PS6_m.exit: ; preds = %.lr.ph.i9, %_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE5SwapNENS8_21ElementwiseSwapPolicyEPS8_m.exit
   ret void
@@ -2162,43 +2162,44 @@ attributes #30 = { noreturn }
 !67 = !{!"_ZTSN9grpc_core9Timestamp6SourceE"}
 !68 = !{!"p1 _ZTSN9grpc_core9Timestamp6SourceE", !6, i64 0}
 !69 = !{!68, !68, i64 0}
-!70 = distinct !{!70, !71}
+!70 = distinct !{!70, !71, !72}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_: argument 0"}
-!74 = distinct !{!74, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_"}
-!75 = !{!22, !23, i64 0}
-!76 = !{!17, !18, i64 0}
-!77 = !{!29, !18, i64 0}
-!78 = !{!79, !79, i64 0}
-!79 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImplE", !6, i64 0}
-!80 = !{!81, !82, i64 8}
-!81 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !82, i64 8, !82, i64 12}
-!82 = !{!"int", !7, i64 0}
-!83 = !{!81, !82, i64 12}
-!84 = !{!7, !7, i64 0}
-!85 = !{!82, !82, i64 0}
-!86 = !{!87, !18, i64 8}
-!87 = !{!"_ZTSN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEEE", !88, i64 0, !18, i64 8, !89, i64 16}
-!88 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
-!89 = !{!"_ZTSSt10unique_ptrIA_N9grpc_core20GlobalStatsCollector4DataESt14default_deleteIS3_EE", !90, i64 0}
-!90 = !{!"_ZTSSt15__uniq_ptr_dataIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_ELb1ELb1EE", !91, i64 0}
-!91 = !{!"_ZTSSt15__uniq_ptr_implIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EE", !92, i64 0}
-!92 = !{!"_ZTSSt5tupleIJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !93, i64 0}
-!93 = !{!"_ZTSSt11_Tuple_implILm0EJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !94, i64 0}
-!94 = !{!"_ZTSSt10_Head_baseILm0EPN9grpc_core20GlobalStatsCollector4DataELb0EE", !95, i64 0}
-!95 = !{!"p1 _ZTSN9grpc_core20GlobalStatsCollector4DataE", !6, i64 0}
-!96 = !{!95, !95, i64 0}
-!97 = !{!98, !99, i64 2}
-!98 = !{!"_ZTSN9grpc_core20PerCpuShardingHelper5StateE", !99, i64 0, !99, i64 2}
-!99 = !{!"short", !7, i64 0}
-!100 = !{!98, !99, i64 0}
-!101 = distinct !{!101, !71}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv: argument 0"}
-!104 = distinct !{!104, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv"}
-!105 = distinct !{!105, !71}
-!106 = !{i64 0, i64 8, !107, i64 8, i64 8, !35}
-!107 = !{!108, !108, i64 0}
-!108 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperE", !6, i64 0}
-!109 = distinct !{!109, !71}
+!72 = !{!"llvm.loop.estimated_trip_count"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_: argument 0"}
+!75 = distinct !{!75, !"_ZN9grpc_core14MakeOrphanableINS_14WorkSerializer18WorkSerializerImplEJSt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_"}
+!76 = !{!22, !23, i64 0}
+!77 = !{!17, !18, i64 0}
+!78 = !{!29, !18, i64 0}
+!79 = !{!80, !80, i64 0}
+!80 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImplE", !6, i64 0}
+!81 = !{!82, !83, i64 8}
+!82 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !83, i64 8, !83, i64 12}
+!83 = !{!"int", !7, i64 0}
+!84 = !{!82, !83, i64 12}
+!85 = !{!7, !7, i64 0}
+!86 = !{!83, !83, i64 0}
+!87 = !{!88, !18, i64 8}
+!88 = !{!"_ZTSN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEEE", !89, i64 0, !18, i64 8, !90, i64 16}
+!89 = !{!"_ZTSN9grpc_core20PerCpuShardingHelperE"}
+!90 = !{!"_ZTSSt10unique_ptrIA_N9grpc_core20GlobalStatsCollector4DataESt14default_deleteIS3_EE", !91, i64 0}
+!91 = !{!"_ZTSSt15__uniq_ptr_dataIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_ELb1ELb1EE", !92, i64 0}
+!92 = !{!"_ZTSSt15__uniq_ptr_implIN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EE", !93, i64 0}
+!93 = !{!"_ZTSSt5tupleIJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !94, i64 0}
+!94 = !{!"_ZTSSt11_Tuple_implILm0EJPN9grpc_core20GlobalStatsCollector4DataESt14default_deleteIA_S2_EEE", !95, i64 0}
+!95 = !{!"_ZTSSt10_Head_baseILm0EPN9grpc_core20GlobalStatsCollector4DataELb0EE", !96, i64 0}
+!96 = !{!"p1 _ZTSN9grpc_core20GlobalStatsCollector4DataE", !6, i64 0}
+!97 = !{!96, !96, i64 0}
+!98 = !{!99, !100, i64 2}
+!99 = !{!"_ZTSN9grpc_core20PerCpuShardingHelper5StateE", !100, i64 0, !100, i64 2}
+!100 = !{!"short", !7, i64 0}
+!101 = !{!99, !100, i64 0}
+!102 = distinct !{!102, !71, !72}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv: argument 0"}
+!105 = distinct !{!105, !"_ZN4absl12lts_2024072223inlined_vector_internal7StorageIN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperELm1ESaIS6_EE15MakeStorageViewEv"}
+!106 = distinct !{!106, !71, !72}
+!107 = !{i64 0, i64 8, !108, i64 8, i64 8, !35}
+!108 = !{!109, !109, i64 0}
+!109 = !{!"p1 _ZTSN9grpc_core14WorkSerializer18WorkSerializerImpl15CallbackWrapperE", !6, i64 0}
+!110 = distinct !{!110, !71, !72}

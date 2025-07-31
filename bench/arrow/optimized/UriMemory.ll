@@ -363,7 +363,7 @@ uriMemoryManagerIsComplete.exit:                  ; preds = %11
 38:                                               ; preds = %.preheader151
   %39 = add nuw nsw i64 %.2158, 1
   %exitcond163.not = icmp eq i64 %39, 7
-  br i1 %exitcond163.not, label %42, label %.preheader151, !llvm.loop !20
+  br i1 %exitcond163.not, label %42, label %.preheader151, !llvm.loop !21
 
 .preheader151:                                    ; preds = %.preheader153.preheader, %38
   %.2158 = phi i64 [ %39, %38 ], [ 0, %.preheader153.preheader ]
@@ -423,7 +423,7 @@ uriMemoryManagerIsComplete.exit:                  ; preds = %11
 69:                                               ; preds = %.preheader
   %70 = add nuw nsw i64 %.4160, 1
   %exitcond164.not = icmp eq i64 %70, 7
-  br i1 %exitcond164.not, label %73, label %.preheader, !llvm.loop !21
+  br i1 %exitcond164.not, label %73, label %.preheader, !llvm.loop !22
 
 .preheader:                                       ; preds = %.preheader150.preheader, %69
   %.4160 = phi i64 [ %70, %69 ], [ 0, %.preheader150.preheader ]
@@ -621,7 +621,8 @@ attributes #18 = { nounwind allocsize(1) }
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !6, i64 0}
 !17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = distinct !{!21, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = distinct !{!22, !19, !20}

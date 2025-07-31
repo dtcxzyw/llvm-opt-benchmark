@@ -367,7 +367,7 @@ rbimpl_intern_const.exit1443:                     ; preds = %.lr.ph.i1441, %102
   %138 = getelementptr inbounds nuw i8, ptr %.04.i, i64 1
   %139 = add i64 %.0.i, -1
   %.not6.i = icmp eq i64 %139, 0
-  br i1 %.not6.i, label %upcase.exit, label %.preheader1560, !llvm.loop !24
+  br i1 %.not6.i, label %upcase.exit, label %.preheader1560, !llvm.loop !25
 
 upcase.exit:                                      ; preds = %137, %129
   %140 = and i32 %.01102, 1
@@ -433,7 +433,7 @@ upcase.exit:                                      ; preds = %137, %129
   %168 = getelementptr inbounds nuw i8, ptr %.04.i1444, i64 1
   %169 = add i64 %.0.i1445, -1
   %.not6.i1446 = icmp eq i64 %169, 0
-  br i1 %.not6.i1446, label %upcase.exit1447, label %.preheader1561, !llvm.loop !24
+  br i1 %.not6.i1446, label %upcase.exit1447, label %.preheader1561, !llvm.loop !25
 
 upcase.exit1447:                                  ; preds = %167, %159
   %170 = and i32 %.01102, 1
@@ -472,7 +472,7 @@ upcase.exit1447:                                  ; preds = %167, %159
 185:                                              ; preds = %.preheader1571, %.preheader1571
   %186 = load ptr, ptr %35, align 8, !tbaa !11
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
-  %188 = load ptr, ptr %187, align 8, !tbaa !25
+  %188 = load ptr, ptr %187, align 8, !tbaa !26
   %189 = load ptr, ptr %3, align 8, !tbaa !17
   %190 = call i32 %188(ptr noundef %189) #11
   %191 = icmp slt i32 %.01057, 1
@@ -534,7 +534,7 @@ upcase.exit1447:                                  ; preds = %167, %159
   %218 = getelementptr inbounds nuw i8, ptr %.04.i1448, i64 1
   %219 = add i64 %.0.i1449, -1
   %.not6.i1450 = icmp eq i64 %219, 0
-  br i1 %.not6.i1450, label %upcase.exit1451, label %.preheader1562, !llvm.loop !24
+  br i1 %.not6.i1450, label %upcase.exit1451, label %.preheader1562, !llvm.loop !25
 
 upcase.exit1451:                                  ; preds = %217, %209
   %220 = and i32 %.01102, 1
@@ -575,7 +575,7 @@ upcase.exit1451:                                  ; preds = %217, %209
   %237 = load ptr, ptr %35, align 8, !tbaa !11
   %.sink2417.in.idx = select i1 %236, i64 32, i64 0
   %.sink2417.in = getelementptr inbounds nuw i8, ptr %237, i64 %.sink2417.in.idx
-  %.sink2417 = load ptr, ptr %.sink2417.in, align 8, !tbaa !26
+  %.sink2417 = load ptr, ptr %.sink2417.in, align 8, !tbaa !27
   %238 = load ptr, ptr %3, align 8, !tbaa !17
   %239 = call i64 %.sink2417(ptr noundef %238) #11
   %240 = and i64 %239, 1
@@ -648,7 +648,7 @@ upcase.exit1451:                                  ; preds = %217, %209
   %275 = load ptr, ptr %35, align 8, !tbaa !11
   %.sink2420.in.idx = select i1 %274, i64 32, i64 0
   %.sink2420.in = getelementptr inbounds nuw i8, ptr %275, i64 %.sink2420.in.idx
-  %.sink2420 = load ptr, ptr %.sink2420.in, align 8, !tbaa !26
+  %.sink2420 = load ptr, ptr %.sink2420.in, align 8, !tbaa !27
   %276 = load ptr, ptr %3, align 8, !tbaa !17
   %277 = call i64 %.sink2420(ptr noundef %276) #11
   %278 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %277, i64 noundef 37, i32 noundef 1, i64 noundef 201) #11
@@ -687,7 +687,7 @@ rb_num2int_inline.exit:                           ; preds = %280, %282
 296:                                              ; preds = %.preheader1571, %.preheader1571
   %297 = load ptr, ptr %35, align 8, !tbaa !11
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 80
-  %299 = load ptr, ptr %298, align 8, !tbaa !27
+  %299 = load ptr, ptr %298, align 8, !tbaa !28
   %300 = load ptr, ptr %3, align 8, !tbaa !17
   %301 = call i32 %299(ptr noundef %300) #11
   %302 = icmp slt i32 %.01057, 1
@@ -722,7 +722,7 @@ rb_num2int_inline.exit:                           ; preds = %280, %282
 316:                                              ; preds = %.preheader1571, %.preheader1571
   %317 = load ptr, ptr %35, align 8, !tbaa !11
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 80
-  %319 = load ptr, ptr %318, align 8, !tbaa !27
+  %319 = load ptr, ptr %318, align 8, !tbaa !28
   %320 = load ptr, ptr %3, align 8, !tbaa !17
   %321 = call i32 %319(ptr noundef %320) #11
   %322 = icmp eq i32 %321, 0
@@ -762,7 +762,7 @@ rb_num2int_inline.exit:                           ; preds = %280, %282
 339:                                              ; preds = %.preheader1571
   %340 = load ptr, ptr %35, align 8, !tbaa !11
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
-  %342 = load ptr, ptr %341, align 8, !tbaa !28
+  %342 = load ptr, ptr %341, align 8, !tbaa !29
   %343 = load ptr, ptr %3, align 8, !tbaa !17
   %344 = call i32 %342(ptr noundef %343) #11
   %345 = icmp slt i32 %.01057, 1
@@ -801,7 +801,7 @@ rb_num2int_inline.exit:                           ; preds = %280, %282
 364:                                              ; preds = %359
   %365 = load ptr, ptr %35, align 8, !tbaa !11
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 104
-  %367 = load ptr, ptr %366, align 8, !tbaa !29
+  %367 = load ptr, ptr %366, align 8, !tbaa !30
   %368 = load ptr, ptr %3, align 8, !tbaa !17
   %369 = call i64 %367(ptr noundef %368) #11
   %370 = icmp sgt i32 %.221079, 8
@@ -819,7 +819,7 @@ rb_num2int_inline.exit:                           ; preds = %280, %282
   %372 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.011411863, i64 noundef 42, i32 noundef 1, i64 noundef 2000000001) #11
   %373 = add nsw i32 %.011431862, -9
   %374 = icmp samesign ugt i32 %.011431862, 17
-  br i1 %374, label %.lr.ph, label %.preheader1563, !llvm.loop !30
+  br i1 %374, label %.lr.ph, label %.preheader1563, !llvm.loop !31
 
 .lr.ph1867:                                       ; preds = %.preheader1563, %.lr.ph1867
   %.111441866 = phi i32 [ %376, %.lr.ph1867 ], [ %.01143.lcssa, %.preheader1563 ]
@@ -827,7 +827,7 @@ rb_num2int_inline.exit:                           ; preds = %280, %282
   %375 = mul nuw nsw i64 %.011451865, 10
   %376 = add nsw i32 %.111441866, -1
   %377 = icmp samesign ugt i32 %.111441866, 1
-  br i1 %377, label %.lr.ph1867, label %._crit_edge, !llvm.loop !31
+  br i1 %377, label %.lr.ph1867, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph1867
   %378 = mul i64 %.011451865, 20
@@ -882,7 +882,7 @@ rbimpl_intern_const.exit1459:                     ; preds = %.lr.ph.i1457, %._cr
 395:                                              ; preds = %.preheader1571
   %396 = load ptr, ptr %35, align 8, !tbaa !11
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 88
-  %398 = load ptr, ptr %397, align 8, !tbaa !32
+  %398 = load ptr, ptr %397, align 8, !tbaa !33
   %399 = load ptr, ptr %3, align 8, !tbaa !17
   %400 = call i32 %398(ptr noundef %399) #11
   %401 = icmp slt i32 %.01057, 1
@@ -1032,7 +1032,7 @@ rbimpl_intern_const.exit1459:                     ; preds = %.lr.ph.i1457, %._cr
   %.41106 = phi i32 [ %477, %475 ], [ %.01102, %472 ]
   %479 = load ptr, ptr %35, align 8, !tbaa !11
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 80
-  %481 = load ptr, ptr %480, align 8, !tbaa !27
+  %481 = load ptr, ptr %480, align 8, !tbaa !28
   %482 = load ptr, ptr %3, align 8, !tbaa !17
   %483 = call i32 %481(ptr noundef %482) #11
   %484 = icmp slt i32 %483, 12
@@ -1042,7 +1042,7 @@ rbimpl_intern_const.exit1459:                     ; preds = %.lr.ph.i1457, %._cr
 485:                                              ; preds = %.preheader1571
   %486 = load ptr, ptr %35, align 8, !tbaa !11
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 120
-  %488 = load ptr, ptr %487, align 8, !tbaa !33
+  %488 = load ptr, ptr %487, align 8, !tbaa !34
   %489 = load ptr, ptr %3, align 8, !tbaa !17
   %490 = call i64 %488(ptr noundef %489) #11
   %491 = and i64 %490, 1
@@ -1080,7 +1080,7 @@ rbimpl_intern_const.exit1459:                     ; preds = %.lr.ph.i1457, %._cr
   store i64 %509, ptr %11, align 16, !tbaa !20
   %510 = load ptr, ptr %35, align 8, !tbaa !11
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 120
-  %512 = load ptr, ptr %511, align 8, !tbaa !33
+  %512 = load ptr, ptr %511, align 8, !tbaa !34
   %513 = load ptr, ptr %3, align 8, !tbaa !17
   %514 = call i64 %512(ptr noundef %513) #11
   store i64 %514, ptr %37, align 8, !tbaa !20
@@ -1141,7 +1141,7 @@ rbimpl_intern_const.exit1459:                     ; preds = %.lr.ph.i1457, %._cr
   %539 = getelementptr inbounds nuw i8, ptr %.04.i1460, i64 1
   %540 = add i64 %.0.i1461, -1
   %.not6.i1462 = icmp eq i64 %540, 0
-  br i1 %.not6.i1462, label %upcase.exit1463, label %.preheader1564, !llvm.loop !24
+  br i1 %.not6.i1462, label %upcase.exit1463, label %.preheader1564, !llvm.loop !25
 
 upcase.exit1463:                                  ; preds = %538, %530
   %541 = and i32 %.01102, 1
@@ -1207,7 +1207,7 @@ upcase.exit1463:                                  ; preds = %538, %530
   %569 = getelementptr inbounds nuw i8, ptr %.04.i1464, i64 1
   %570 = add i64 %.0.i1465, -1
   %.not6.i1466 = icmp eq i64 %570, 0
-  br i1 %.not6.i1466, label %upcase.exit1467, label %.preheader1565, !llvm.loop !24
+  br i1 %.not6.i1466, label %upcase.exit1467, label %.preheader1565, !llvm.loop !25
 
 upcase.exit1467:                                  ; preds = %568, %560
   %571 = and i32 %.01102, 1
@@ -1246,7 +1246,7 @@ upcase.exit1467:                                  ; preds = %568, %560
 586:                                              ; preds = %.preheader1571
   %587 = load ptr, ptr %35, align 8, !tbaa !11
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 96
-  %589 = load ptr, ptr %588, align 8, !tbaa !34
+  %589 = load ptr, ptr %588, align 8, !tbaa !35
   %590 = load ptr, ptr %3, align 8, !tbaa !17
   %591 = call i32 %589(ptr noundef %590) #11
   %592 = icmp slt i32 %.01057, 1
@@ -1269,7 +1269,7 @@ upcase.exit1467:                                  ; preds = %568, %560
 603:                                              ; preds = %.preheader1571
   %604 = load ptr, ptr %35, align 8, !tbaa !11
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 112
-  %606 = load ptr, ptr %605, align 8, !tbaa !35
+  %606 = load ptr, ptr %605, align 8, !tbaa !36
   %607 = load ptr, ptr %3, align 8, !tbaa !17
   %608 = call i64 %606(ptr noundef %607) #11
   %609 = and i64 %608, 1
@@ -1307,7 +1307,7 @@ upcase.exit1467:                                  ; preds = %568, %560
   store i64 %627, ptr %13, align 16, !tbaa !20
   %628 = load ptr, ptr %35, align 8, !tbaa !11
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 112
-  %630 = load ptr, ptr %629, align 8, !tbaa !35
+  %630 = load ptr, ptr %629, align 8, !tbaa !36
   %631 = load ptr, ptr %3, align 8, !tbaa !17
   %632 = call i64 %630(ptr noundef %631) #11
   store i64 %632, ptr %36, align 8, !tbaa !20
@@ -1368,7 +1368,7 @@ upcase.exit1467:                                  ; preds = %568, %560
   %657 = getelementptr inbounds nuw i8, ptr %.04.i1468, i64 1
   %658 = add i64 %.0.i1469, -1
   %.not6.i1470 = icmp eq i64 %658, 0
-  br i1 %.not6.i1470, label %upcase.exit1471, label %.preheader1566, !llvm.loop !24
+  br i1 %.not6.i1470, label %upcase.exit1471, label %.preheader1566, !llvm.loop !25
 
 upcase.exit1471:                                  ; preds = %656, %648
   %659 = and i32 %.01102, 1
@@ -1410,7 +1410,7 @@ upcase.exit1471:                                  ; preds = %656, %648
   %677 = load ptr, ptr %3, align 8, !tbaa !17
   %.2426 = select i1 %675, i64 56, i64 64
   %678 = getelementptr inbounds nuw i8, ptr %676, i64 %.2426
-  %679 = load ptr, ptr %678, align 8, !tbaa !26
+  %679 = load ptr, ptr %678, align 8, !tbaa !27
   %680 = call i32 %679(ptr noundef %677) #11
   %681 = icmp slt i32 %.01057, 1
   %spec.select1422 = select i1 %681, i32 2, i32 %.01057
@@ -1432,7 +1432,7 @@ upcase.exit1471:                                  ; preds = %656, %648
 692:                                              ; preds = %.preheader1571
   %693 = load ptr, ptr %35, align 8, !tbaa !11
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 48
-  %695 = load ptr, ptr %694, align 8, !tbaa !36
+  %695 = load ptr, ptr %694, align 8, !tbaa !37
   %696 = load ptr, ptr %3, align 8, !tbaa !17
   %697 = call i32 %695(ptr noundef %696) #11
   %spec.select1423 = call i32 @llvm.smax.i32(i32 %.01057, i32 1)
@@ -1454,7 +1454,7 @@ upcase.exit1471:                                  ; preds = %656, %648
 708:                                              ; preds = %.preheader1571
   %709 = load ptr, ptr %35, align 8, !tbaa !11
   %710 = getelementptr inbounds nuw i8, ptr %709, i64 40
-  %711 = load ptr, ptr %710, align 8, !tbaa !37
+  %711 = load ptr, ptr %710, align 8, !tbaa !38
   %712 = load ptr, ptr %3, align 8, !tbaa !17
   %713 = call i32 %711(ptr noundef %712) #11
   %714 = icmp slt i32 %.01057, 1
@@ -1504,7 +1504,7 @@ upcase.exit1471:                                  ; preds = %656, %648
   %738 = getelementptr inbounds nuw i8, ptr %.04.i1472, i64 1
   %739 = add i64 %.0.i1473, -1
   %.not6.i1474 = icmp eq i64 %739, 0
-  br i1 %.not6.i1474, label %upcase.exit1475, label %.preheader1567, !llvm.loop !24
+  br i1 %.not6.i1474, label %upcase.exit1475, label %.preheader1567, !llvm.loop !25
 
 upcase.exit1475:                                  ; preds = %737, %729
   %740 = and i32 %.01102, 1
@@ -1592,7 +1592,7 @@ upcase.exit1475:                                  ; preds = %737, %729
   %784 = getelementptr inbounds nuw i8, ptr %.04.i1476, i64 1
   %785 = add i64 %.0.i1477, -1
   %.not6.i1478 = icmp eq i64 %785, 0
-  br i1 %.not6.i1478, label %upcase.exit1479, label %.preheader1568, !llvm.loop !24
+  br i1 %.not6.i1478, label %upcase.exit1479, label %.preheader1568, !llvm.loop !25
 
 upcase.exit1479:                                  ; preds = %783, %775
   %786 = and i32 %.01102, 1
@@ -1658,7 +1658,7 @@ upcase.exit1479:                                  ; preds = %783, %775
   %814 = getelementptr inbounds nuw i8, ptr %.04.i1480, i64 1
   %815 = add i64 %.0.i1481, -1
   %.not6.i1482 = icmp eq i64 %815, 0
-  br i1 %.not6.i1482, label %upcase.exit1483, label %.preheader1569, !llvm.loop !24
+  br i1 %.not6.i1482, label %upcase.exit1483, label %.preheader1569, !llvm.loop !25
 
 upcase.exit1483:                                  ; preds = %813, %805
   %816 = and i32 %.01102, 1
@@ -1702,7 +1702,7 @@ upcase.exit1483:                                  ; preds = %813, %805
   %.51107 = select i1 %.not1274, i32 %.01102, i32 %834
   %835 = load ptr, ptr %35, align 8, !tbaa !11
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 136
-  %837 = load ptr, ptr %836, align 8, !tbaa !38
+  %837 = load ptr, ptr %836, align 8, !tbaa !39
   %838 = load ptr, ptr %3, align 8, !tbaa !17
   %839 = call ptr %837(ptr noundef %838) #11
   %840 = icmp eq ptr %839, null
@@ -1713,7 +1713,7 @@ upcase.exit1483:                                  ; preds = %813, %805
 842:                                              ; preds = %.preheader1571
   %843 = load ptr, ptr %35, align 8, !tbaa !11
   %844 = getelementptr inbounds nuw i8, ptr %843, i64 128
-  %845 = load ptr, ptr %844, align 8, !tbaa !39
+  %845 = load ptr, ptr %844, align 8, !tbaa !40
   %846 = load ptr, ptr %3, align 8, !tbaa !17
   %847 = call i32 %845(ptr noundef %846) #11
   %848 = icmp slt i32 %847, 0
@@ -1954,7 +1954,7 @@ upcase.exit1483:                                  ; preds = %813, %805
   %976 = getelementptr inbounds nuw i8, ptr %.04.i1484, i64 1
   %977 = add i64 %.0.i1485, -1
   %.not6.i1486 = icmp eq i64 %977, 0
-  br i1 %.not6.i1486, label %upcase.exit1487, label %.preheader1570, !llvm.loop !24
+  br i1 %.not6.i1486, label %upcase.exit1487, label %.preheader1570, !llvm.loop !25
 
 upcase.exit1487:                                  ; preds = %975, %967
   %978 = and i32 %.01102, 1
@@ -2049,7 +2049,7 @@ upcase.exit1487:                                  ; preds = %975, %967
   %.01057.be = phi i32 [ %.01057, %996 ], [ %.01057, %1002 ], [ %.01057, %1005 ], [ %.01057, %1018 ], [ %.01057, %1023 ], [ %.01057, %1028 ], [ %1037, %1036 ], [ %.01057, %1012 ]
   %.01055.be = phi i64 [ %.01055, %996 ], [ %.01055, %1002 ], [ %1007, %1005 ], [ %.01055, %1018 ], [ %.01055, %1023 ], [ %.01055, %1028 ], [ %.01055, %1036 ], [ %.01055, %1012 ]
   %.21039.be = phi ptr [ %45, %996 ], [ %45, %1002 ], [ %1011, %1005 ], [ %45, %1018 ], [ %45, %1023 ], [ %45, %1028 ], [ %1039, %1036 ], [ %45, %1012 ]
-  br label %.preheader1571
+  br label %.preheader1571, !llvm.loop !41
 
 1020:                                             ; preds = %.preheader1571
   %1021 = icmp slt i32 %.01057, 1
@@ -2095,7 +2095,7 @@ upcase.exit1487:                                  ; preds = %975, %967
 
 1036:                                             ; preds = %1033
   %1037 = trunc nuw nsw i64 %1034 to i32
-  %1038 = load ptr, ptr %15, align 8, !tbaa !40
+  %1038 = load ptr, ptr %15, align 8, !tbaa !42
   %1039 = getelementptr inbounds i8, ptr %1038, i64 -1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
   br label %.preheader1571.backedge
@@ -2236,7 +2236,7 @@ upcase.exit1487:                                  ; preds = %975, %967
   %1090 = getelementptr inbounds nuw i8, ptr %.04.i1488, i64 1
   %1091 = add i64 %.0.i1489, -1
   %.not6.i1490 = icmp eq i64 %1091, 0
-  br i1 %.not6.i1490, label %upcase.exit1491, label %.preheader, !llvm.loop !24
+  br i1 %.not6.i1490, label %upcase.exit1491, label %.preheader, !llvm.loop !25
 
 .preheader1558:                                   ; preds = %1081, %1098
   %.04.i1492 = phi ptr [ %1099, %1098 ], [ %.44, %1081 ]
@@ -2256,7 +2256,7 @@ upcase.exit1487:                                  ; preds = %975, %967
   %1099 = getelementptr inbounds nuw i8, ptr %.04.i1492, i64 1
   %1100 = add i64 %.0.i1493, -1
   %.not6.i1494 = icmp eq i64 %1100, 0
-  br i1 %.not6.i1494, label %upcase.exit1491, label %.preheader1558, !llvm.loop !42
+  br i1 %.not6.i1494, label %upcase.exit1491, label %.preheader1558, !llvm.loop !44
 
 upcase.exit1491:                                  ; preds = %1098, %1089, %1081
   %1101 = getelementptr inbounds i8, ptr %.44, i64 %.110511536
@@ -2270,7 +2270,7 @@ upcase.exit1491:                                  ; preds = %1098, %1089, %1081
   %1104 = icmp ne i8 %1103, 0
   %1105 = icmp ult ptr %.11030, %29
   %1106 = select i1 %1104, i1 %1105, i1 false
-  br i1 %1106, label %41, label %._crit_edge1876, !llvm.loop !43
+  br i1 %1106, label %41, label %._crit_edge1876, !llvm.loop !45
 
 ._crit_edge1876:                                  ; preds = %.thread, %28
   %.01029.lcssa = phi ptr [ %0, %28 ], [ %.11030, %.thread ]
@@ -2391,25 +2391,27 @@ attributes #11 = { nounwind }
 !19 = !{!16, !13, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"long", !8, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = !{!16, !13, i64 24}
-!26 = !{!13, !13, i64 0}
-!27 = !{!16, !13, i64 80}
-!28 = !{!16, !13, i64 8}
-!29 = !{!16, !13, i64 104}
-!30 = distinct !{!30, !23}
-!31 = distinct !{!31, !23}
-!32 = !{!16, !13, i64 88}
-!33 = !{!16, !13, i64 120}
-!34 = !{!16, !13, i64 96}
-!35 = !{!16, !13, i64 112}
-!36 = !{!16, !13, i64 48}
-!37 = !{!16, !13, i64 40}
-!38 = !{!16, !13, i64 136}
-!39 = !{!16, !13, i64 128}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 omnipotent char", !13, i64 0}
-!42 = distinct !{!42, !23}
-!43 = distinct !{!43, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = !{!16, !13, i64 24}
+!27 = !{!13, !13, i64 0}
+!28 = !{!16, !13, i64 80}
+!29 = !{!16, !13, i64 8}
+!30 = !{!16, !13, i64 104}
+!31 = distinct !{!31, !23, !24}
+!32 = distinct !{!32, !23, !24}
+!33 = !{!16, !13, i64 88}
+!34 = !{!16, !13, i64 120}
+!35 = !{!16, !13, i64 96}
+!36 = !{!16, !13, i64 112}
+!37 = !{!16, !13, i64 48}
+!38 = !{!16, !13, i64 40}
+!39 = !{!16, !13, i64 136}
+!40 = !{!16, !13, i64 128}
+!41 = distinct !{!41, !24}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 omnipotent char", !13, i64 0}
+!44 = distinct !{!44, !23, !24}
+!45 = distinct !{!45, !23, !24}

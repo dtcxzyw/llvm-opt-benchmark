@@ -60,11 +60,11 @@ define ptr @Io_ReadVerilog(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 31:                                               ; preds = %.critedge, %5
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 176
-  store ptr %3, ptr %32, align 8, !tbaa !33
+  store ptr %3, ptr %32, align 8, !tbaa !34
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr null, ptr %33, align 8, !tbaa !34
+  store ptr null, ptr %33, align 8, !tbaa !35
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !35
+  %35 = load ptr, ptr %34, align 8, !tbaa !36
   %36 = getelementptr i8, ptr %35, i64 4
   %.val30 = load i32, ptr %36, align 4, !tbaa !16
   %37 = icmp eq i32 %.val30, 1
@@ -72,10 +72,10 @@ define ptr @Io_ReadVerilog(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 38:                                               ; preds = %31
   tail call void @Abc_DesFree(ptr noundef nonnull %3, ptr noundef nonnull %10) #4
-  store ptr null, ptr %32, align 8, !tbaa !33
+  store ptr null, ptr %32, align 8, !tbaa !34
   %39 = tail call ptr @Extra_UtilStrsav(ptr noundef %0) #4
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %39, ptr %40, align 8, !tbaa !36
+  store ptr %39, ptr %40, align 8, !tbaa !37
   br label %43
 
 41:                                               ; preds = %31
@@ -142,9 +142,10 @@ attributes #4 = { nounwind }
 !28 = !{!"p1 _ZTS10Vec_Int_t_", !6, i64 0}
 !29 = !{!"p1 _ZTS10Abc_Cex_t_", !6, i64 0}
 !30 = !{!"p1 float", !6, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!18, !11, i64 176}
-!34 = !{!4, !6, i64 8}
-!35 = !{!4, !9, i64 24}
-!36 = !{!18, !5, i64 16}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!18, !11, i64 176}
+!35 = !{!4, !6, i64 8}
+!36 = !{!4, !9, i64 24}
+!37 = !{!18, !5, i64 16}

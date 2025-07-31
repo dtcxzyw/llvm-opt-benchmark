@@ -334,7 +334,7 @@ define hidden void @png_do_invert(ptr noundef readonly captures(none) %0, ptr no
   %20 = getelementptr inbounds nuw i8, ptr %.03440, i64 2
   %21 = add nuw i64 %.03341, 2
   %22 = icmp ult i64 %21, %17
-  br i1 %22, label %.lr.ph42, label %.loopexit, !llvm.loop !11
+  br i1 %22, label %.lr.ph42, label %.loopexit, !llvm.loop !12
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -355,7 +355,7 @@ define hidden void @png_do_invert(ptr noundef readonly captures(none) %0, ptr no
   %31 = getelementptr inbounds nuw i8, ptr %.03138, i64 4
   %32 = add nuw i64 %.03039, 4
   %33 = icmp ult i64 %32, %25
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph42, %.lr.ph45, %12, %23, %15, %5, %2
   ret void
@@ -388,7 +388,7 @@ define hidden void @png_do_swap(ptr noundef readonly captures(none) %0, ptr noun
   %15 = add nuw i32 %.01213, 1
   %16 = getelementptr inbounds nuw i8, ptr %.014, i64 2
   %exitcond.not = icmp eq i32 %15, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %2
   ret void
@@ -431,7 +431,7 @@ define hidden void @png_do_packswap(ptr noundef readonly captures(none) %0, ptr 
   store i8 %17, ptr %.01315, align 1
   %18 = getelementptr inbounds nuw i8, ptr %.01315, i64 1
   %19 = icmp ult ptr %18, %9
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %6, %2
   ret void
@@ -474,7 +474,7 @@ define hidden void @png_do_strip_channel(ptr noundef captures(none) %0, ptr noun
   store i8 %16, ptr %.175102, align 1
   %18 = getelementptr inbounds nuw i8, ptr %.1103, i64 2
   %19 = icmp ult ptr %18, %6
-  br i1 %19, label %.lr.ph105, label %._crit_edge106, !llvm.loop !15
+  br i1 %19, label %.lr.ph105, label %._crit_edge106, !llvm.loop !16
 
 20:                                               ; preds = %9
   %.not86 = icmp eq i32 %2, 0
@@ -497,7 +497,7 @@ define hidden void @png_do_strip_channel(ptr noundef captures(none) %0, ptr noun
   store i8 %27, ptr %26, align 1
   %29 = getelementptr inbounds nuw i8, ptr %.397, i64 4
   %30 = icmp ult ptr %29, %6
-  br i1 %30, label %.lr.ph99, label %._crit_edge106, !llvm.loop !16
+  br i1 %30, label %.lr.ph99, label %._crit_edge106, !llvm.loop !17
 
 ._crit_edge106:                                   ; preds = %.lr.ph99, %.lr.ph105, %20, %12
   %.276 = phi ptr [ %.074, %12 ], [ %.377, %20 ], [ %17, %.lr.ph105 ], [ %28, %.lr.ph99 ]
@@ -549,7 +549,7 @@ define hidden void @png_do_strip_channel(ptr noundef captures(none) %0, ptr noun
   store i8 %47, ptr %46, align 1
   %49 = getelementptr inbounds nuw i8, ptr %.591, i64 4
   %50 = icmp ult ptr %49, %6
-  br i1 %50, label %.lr.ph93, label %._crit_edge94, !llvm.loop !17
+  br i1 %50, label %.lr.ph93, label %._crit_edge94, !llvm.loop !18
 
 51:                                               ; preds = %36
   %.not = icmp eq i32 %2, 0
@@ -591,7 +591,7 @@ define hidden void @png_do_strip_channel(ptr noundef captures(none) %0, ptr noun
   store i8 %68, ptr %67, align 1
   %70 = getelementptr inbounds nuw i8, ptr %.789, i64 8
   %71 = icmp ult ptr %70, %6
-  br i1 %71, label %.lr.ph, label %._crit_edge94, !llvm.loop !18
+  br i1 %71, label %.lr.ph, label %._crit_edge94, !llvm.loop !19
 
 ._crit_edge94:                                    ; preds = %.lr.ph, %.lr.ph93, %51, %39
   %.sink115 = phi i8 [ 24, %39 ], [ 48, %51 ], [ 24, %.lr.ph93 ], [ 48, %.lr.ph ]
@@ -662,7 +662,7 @@ define hidden void @png_do_bgr(ptr noundef readonly captures(none) %0, ptr nound
   %14 = add nuw i32 %.05980, 1
   %15 = getelementptr inbounds nuw i8, ptr %.081, i64 3
   %exitcond92.not = icmp eq i32 %14, %7
-  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph82, !llvm.loop !19
+  br i1 %exitcond92.not, label %.loopexit, label %.lr.ph82, !llvm.loop !20
 
 .lr.ph79:                                         ; preds = %.preheader66, %.lr.ph79
   %.06278 = phi ptr [ %20, %.lr.ph79 ], [ %1, %.preheader66 ]
@@ -675,7 +675,7 @@ define hidden void @png_do_bgr(ptr noundef readonly captures(none) %0, ptr nound
   %19 = add nuw i32 %.06377, 1
   %20 = getelementptr inbounds nuw i8, ptr %.06278, i64 4
   %exitcond91.not = icmp eq i32 %19, %7
-  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph79, !llvm.loop !20
+  br i1 %exitcond91.not, label %.loopexit, label %.lr.ph79, !llvm.loop !21
 
 21:                                               ; preds = %6
   switch i8 %4, label %.loopexit [
@@ -708,7 +708,7 @@ define hidden void @png_do_bgr(ptr noundef readonly captures(none) %0, ptr nound
   %29 = add nuw i32 %.06075, 1
   %30 = getelementptr inbounds nuw i8, ptr %.06174, i64 6
   %exitcond90.not = icmp eq i32 %29, %7
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph76, !llvm.loop !21
+  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph76, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.preheader70, %.lr.ph
   %.05773 = phi i32 [ %38, %.lr.ph ], [ 0, %.preheader70 ]
@@ -727,7 +727,7 @@ define hidden void @png_do_bgr(ptr noundef readonly captures(none) %0, ptr nound
   %38 = add nuw i32 %.05773, 1
   %39 = getelementptr inbounds nuw i8, ptr %.05872, i64 8
   %exitcond.not = icmp eq i32 %38, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph76, %.lr.ph79, %.lr.ph82, %.preheader70, %.preheader68, %.preheader66, %.preheader, %21, %6, %10, %2
   ret void
@@ -818,7 +818,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias noundef captures(no
 37:                                               ; preds = %36, %32
   %38 = getelementptr inbounds i8, ptr %.090, i64 -1
   %39 = icmp ugt ptr %38, %20
-  br i1 %39, label %32, label %.loopexit, !llvm.loop !23
+  br i1 %39, label %32, label %.loopexit, !llvm.loop !24
 
 40:                                               ; preds = %.lr.ph87, %55
   %41 = phi i32 [ %.promoted88, %.lr.ph87 ], [ %spec.select92, %55 ]
@@ -853,7 +853,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias noundef captures(no
 55:                                               ; preds = %40, %54
   %56 = getelementptr inbounds i8, ptr %.186, i64 -1
   %57 = icmp ugt ptr %56, %20
-  br i1 %57, label %40, label %.loopexit, !llvm.loop !24
+  br i1 %57, label %40, label %.loopexit, !llvm.loop !25
 
 58:                                               ; preds = %.lr.ph83, %69
   %59 = phi i32 [ %.promoted84, %.lr.ph83 ], [ %66, %69 ]
@@ -878,7 +878,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias noundef captures(no
 69:                                               ; preds = %58, %68
   %70 = getelementptr inbounds i8, ptr %.282, i64 -1
   %71 = icmp ugt ptr %70, %20
-  br i1 %71, label %58, label %.loopexit, !llvm.loop !25
+  br i1 %71, label %58, label %.loopexit, !llvm.loop !26
 
 72:                                               ; preds = %.lr.ph, %78
   %73 = phi i32 [ %.promoted, %.lr.ph ], [ %79, %78 ]
@@ -896,7 +896,7 @@ define hidden void @png_do_check_palette_indexes(ptr noalias noundef captures(no
   %79 = phi i32 [ %73, %72 ], [ %75, %77 ]
   %80 = getelementptr inbounds i8, ptr %.380, i64 -1
   %81 = icmp ugt ptr %80, %20
-  br i1 %81, label %72, label %.loopexit, !llvm.loop !26
+  br i1 %81, label %72, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %78, %69, %55, %37, %.preheader78, %.preheader76, %.preheader74, %.preheader, %11, %2
   ret void
@@ -1012,21 +1012,22 @@ attributes #8 = { nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"png_set_filler: argument 0"}
 !8 = distinct !{!8, !"png_set_filler"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}

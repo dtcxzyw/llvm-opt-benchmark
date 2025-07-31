@@ -128,7 +128,7 @@ define void @"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h3ccf67c83d745f04E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr align 8 %6)
   %7 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -328,7 +328,7 @@ define void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..box
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   invoke void %7(ptr nonnull align 1 %2)
           to label %10 unwind label %8
 
@@ -341,13 +341,13 @@ define void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..box
 10:                                               ; preds = %4
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !invariant.load !3
+  %13 = load i64, ptr %12, align 8, !invariant.load !5
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17hfeb8427aa638ea1fE.exit", label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i64, ptr %16, align 8, !invariant.load !3
+  %17 = load i64, ptr %16, align 8, !invariant.load !5
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %19, ptr %18, i64 %17, i64 %13)
@@ -521,7 +521,7 @@ define void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core.
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8, !invariant.load !3, !nonnull !3
+  %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   invoke void %5(ptr align 1 %2)
           to label %8 unwind label %6
 
@@ -534,13 +534,13 @@ define void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core.
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !invariant.load !3
+  %11 = load i64, ptr %10, align 8, !invariant.load !5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he3de11b402a829e3E.exit", label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load i64, ptr %14, align 8, !invariant.load !3
+  %15 = load i64, ptr %14, align 8, !invariant.load !5
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %17, ptr %16, i64 %15, i64 %11)
@@ -751,7 +751,7 @@ define void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %6, align 8, !invariant.load !3, !nonnull !3
+  %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   invoke void %7(ptr nonnull align 1 %2)
           to label %10 unwind label %8
 
@@ -764,13 +764,13 @@ define void @"_ZN4core3ptr130drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C
 10:                                               ; preds = %4
   %11 = load ptr, ptr %5, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = load i64, ptr %12, align 8, !invariant.load !3
+  %13 = load i64, ptr %12, align 8, !invariant.load !5
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hea013fc7ce2bb147E.exit", label %15
 
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %17 = load i64, ptr %16, align 8, !invariant.load !3
+  %17 = load i64, ptr %16, align 8, !invariant.load !5
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %19, ptr %18, i64 %17, i64 %13)
@@ -843,12 +843,12 @@ define void @"_ZN4core3ptr152drop_in_place$LT$alloc..collections..btree..map..In
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h3ccf67c83d745f04E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 8 %0)
   %7 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cfbdb7b5253f067E.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2cfbdb7b5253f067E.exit", label %.lr.ph.i, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %1, %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   invoke void @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h632a9ed044a8acc9E"(ptr nonnull align 8 %3)
-          to label %6 unwind label %8
+          to label %6 unwind label %8, !llvm.loop !6
 
 8:                                                ; preds = %.lr.ph.i
   %9 = landingpad { ptr, i32 }
@@ -1026,7 +1026,7 @@ define void @"_ZN4core3ptr200drop_in_place$LT$core..iter..adapters..enumerate..E
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr203drop_in_place$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$17h496208465a04b423E"(ptr align 1 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !invariant.load !3, !nonnull !3
+  %3 = load ptr, ptr %1, align 8, !invariant.load !5, !nonnull !5
   tail call void %3(ptr align 1 %0)
   ret void
 }
@@ -1048,7 +1048,7 @@ define void @"_ZN4core3ptr228drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core.
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8, !invariant.load !3, !nonnull !3
+  %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   invoke void %5(ptr align 1 %2)
           to label %8 unwind label %6
 
@@ -1061,13 +1061,13 @@ define void @"_ZN4core3ptr228drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core.
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !invariant.load !3
+  %11 = load i64, ptr %10, align 8, !invariant.load !5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he72b7d410422eb5dE.exit", label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load i64, ptr %14, align 8, !invariant.load !3
+  %15 = load i64, ptr %14, align 8, !invariant.load !5
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %17, ptr %16, i64 %15, i64 %11)
@@ -1108,7 +1108,7 @@ define void @"_ZN4core3ptr238drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %8, align 8, !invariant.load !3, !nonnull !3
+  %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
   invoke void %9(ptr align 1 %6)
           to label %12 unwind label %10
 
@@ -1121,13 +1121,13 @@ define void @"_ZN4core3ptr238drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr %7, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load i64, ptr %14, align 8, !invariant.load !3
+  %15 = load i64, ptr %14, align 8, !invariant.load !5
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %"_ZN4core3ptr228drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hbebc7d6c75e949d9E.exit", label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %19 = load i64, ptr %18, align 8, !invariant.load !3
+  %19 = load i64, ptr %18, align 8, !invariant.load !5
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %21, ptr %20, i64 %19, i64 %15)
@@ -1164,7 +1164,7 @@ define void @"_ZN4core3ptr238drop_in_place$LT$$u5b$alloc..boxed..Box$LT$dyn$u20$
   %30 = getelementptr inbounds [0 x { { { { ptr, ptr } }, {} }, {} }], ptr %0, i64 0, i64 %.sroa.0.1
   %31 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr228drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17hbebc7d6c75e949d9E"(ptr align 8 %30) #9
-          to label %25 unwind label %33
+          to label %25 unwind label %33, !llvm.loop !7
 
 32:                                               ; preds = %25
   resume { ptr, i32 } %eh.lpad-body
@@ -1201,7 +1201,7 @@ define void @"_ZN4core3ptr250drop_in_place$LT$$LT$alloc..collections..btree..map
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h3ccf67c83d745f04E"(ptr nonnull sret([24 x i8]) align 8 %3, ptr align 8 %6)
   %7 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4476034862eb65e3E.exit", label %.lr.ph.i
+  br i1 %.not.i, label %"_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4476034862eb65e3E.exit", label %.lr.ph.i, !llvm.loop !3
 
 "_ZN174_$LT$$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4476034862eb65e3E.exit": ; preds = %.lr.ph.i, %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
@@ -1598,7 +1598,7 @@ define void @"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h75ecf2
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8, !invariant.load !3, !nonnull !3
+  %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   invoke void %5(ptr align 1 %2)
           to label %8 unwind label %6
 
@@ -1611,13 +1611,13 @@ define void @"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h75ecf2
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !invariant.load !3
+  %11 = load i64, ptr %10, align 8, !invariant.load !5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$$GT$17h4d115b7b05c8cb6cE.exit", label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load i64, ptr %14, align 8, !invariant.load !3
+  %15 = load i64, ptr %14, align 8, !invariant.load !5
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %17, ptr %16, i64 %15, i64 %11)
@@ -1679,7 +1679,7 @@ define void @"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17hfd6
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr47drop_in_place$LT$dyn$u20$core..error..Error$GT$17h5d0ea06243de5fe4E"(ptr align 1 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !invariant.load !3, !nonnull !3
+  %3 = load ptr, ptr %1, align 8, !invariant.load !5, !nonnull !5
   tail call void %3(ptr align 1 %0)
   ret void
 }
@@ -1796,7 +1796,7 @@ define void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$
   %6 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.sroa.0.0
   %7 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !8
 
 8:                                                ; preds = %3
   ret void
@@ -1815,7 +1815,7 @@ define void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$
   %14 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.sroa.0.1
   %15 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %14) #9
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !9
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -1863,7 +1863,7 @@ define void @"_ZN4core3ptr53drop_in_place$LT$pyo3_build_config..errors..Error$GT
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = load ptr, ptr %11, align 8, !invariant.load !3, !nonnull !3
+  %12 = load ptr, ptr %11, align 8, !invariant.load !5, !nonnull !5
   invoke void %12(ptr nonnull align 1 %7)
           to label %15 unwind label %13
 
@@ -1876,13 +1876,13 @@ define void @"_ZN4core3ptr53drop_in_place$LT$pyo3_build_config..errors..Error$GT
 15:                                               ; preds = %9
   %16 = load ptr, ptr %10, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %18 = load i64, ptr %17, align 8, !invariant.load !3
+  %18 = load i64, ptr %17, align 8, !invariant.load !5
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17hba18f2c359fd553fE.exit", label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %22 = load i64, ptr %21, align 8, !invariant.load !3
+  %22 = load i64, ptr %21, align 8, !invariant.load !5
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %24, ptr %23, i64 %22, i64 %18)
@@ -2009,7 +2009,7 @@ define void @"_ZN4core3ptr57drop_in_place$LT$$u5b$alloc..ffi..c_str..CString$u5d
   %6 = getelementptr inbounds [0 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %0, i64 0, i64 %.sroa.0.0
   %7 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6e51bf00361bcf68E"(ptr align 8 %6)
-          to label %3 unwind label %11
+          to label %3 unwind label %11, !llvm.loop !10
 
 8:                                                ; preds = %3
   ret void
@@ -2028,7 +2028,7 @@ define void @"_ZN4core3ptr57drop_in_place$LT$$u5b$alloc..ffi..c_str..CString$u5d
   %14 = getelementptr inbounds [0 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %0, i64 0, i64 %.sroa.0.1
   %15 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6e51bf00361bcf68E"(ptr align 8 %14) #9
-          to label %9 unwind label %17
+          to label %9 unwind label %17, !llvm.loop !11
 
 16:                                               ; preds = %9
   resume { ptr, i32 } %12
@@ -2353,7 +2353,7 @@ define void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..S
   %10 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %4, i64 0, i64 %.sroa.0.0.i.i
   %11 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !8
 
 12:                                               ; preds = %16, %14
   %.sroa.0.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -2369,7 +2369,7 @@ define void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..S
   %17 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %4, i64 0, i64 %.sroa.0.1.i.i
   %18 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %17) #9
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !9
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -2460,7 +2460,7 @@ define void @"_ZN4core3ptr65drop_in_place$LT$std..io..buffered..bufreader..buffe
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr66drop_in_place$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$17h8e7c27381443957bE"(ptr align 1 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !invariant.load !3, !nonnull !3
+  %3 = load ptr, ptr %1, align 8, !invariant.load !5, !nonnull !5
   tail call void %3(ptr align 1 %0)
   ret void
 }
@@ -2605,7 +2605,7 @@ define void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = load ptr, ptr %5, align 8, !invariant.load !3, !nonnull !3
+  %6 = load ptr, ptr %5, align 8, !invariant.load !5, !nonnull !5
   invoke void %6(ptr align 1 %3)
           to label %9 unwind label %7
 
@@ -2618,13 +2618,13 @@ define void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error
 9:                                                ; preds = %1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = load i64, ptr %11, align 8, !invariant.load !3
+  %12 = load i64, ptr %11, align 8, !invariant.load !5
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %"_ZN4core3ptr43drop_in_place$LT$std..io..error..Custom$GT$17h75ecf2915ec57169E.exit", label %14
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %16 = load i64, ptr %15, align 8, !invariant.load !3
+  %16 = load i64, ptr %15, align 8, !invariant.load !5
   %17 = load ptr, ptr %2, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %18, ptr %17, i64 %16, i64 %12)
@@ -2705,7 +2705,7 @@ define void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$alloc..ffi..c_st
   %10 = getelementptr inbounds [0 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %4, i64 0, i64 %.sroa.0.0.i.i
   %11 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6e51bf00361bcf68E"(ptr align 8 %10)
-          to label %7 unwind label %14
+          to label %7 unwind label %14, !llvm.loop !10
 
 12:                                               ; preds = %16, %14
   %.sroa.0.1.i.i = phi i64 [ %11, %14 ], [ %18, %16 ]
@@ -2721,7 +2721,7 @@ define void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$alloc..ffi..c_st
   %17 = getelementptr inbounds [0 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %4, i64 0, i64 %.sroa.0.1.i.i
   %18 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6e51bf00361bcf68E"(ptr align 8 %17) #9
-          to label %12 unwind label %19
+          to label %12 unwind label %19, !llvm.loop !11
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
@@ -2804,7 +2804,7 @@ define void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8, !invariant.load !3, !nonnull !3
+  %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   invoke void %5(ptr align 1 %2)
           to label %8 unwind label %6
 
@@ -2817,13 +2817,13 @@ define void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !invariant.load !3
+  %11 = load i64, ptr %10, align 8, !invariant.load !5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf7fcd716ff458594E.exit", label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load i64, ptr %14, align 8, !invariant.load !3
+  %15 = load i64, ptr %14, align 8, !invariant.load !5
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %17, ptr %16, i64 %15, i64 %11)
@@ -3721,7 +3721,7 @@ define void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = load ptr, ptr %4, align 8, !invariant.load !3, !nonnull !3
+  %5 = load ptr, ptr %4, align 8, !invariant.load !5, !nonnull !5
   invoke void %5(ptr align 1 %2)
           to label %8 unwind label %6
 
@@ -3734,13 +3734,13 @@ define void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !invariant.load !3
+  %11 = load i64, ptr %10, align 8, !invariant.load !5
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb242e5061c649a61E.exit", label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %15 = load i64, ptr %14, align 8, !invariant.load !3
+  %15 = load i64, ptr %14, align 8, !invariant.load !5
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %17, ptr %16, i64 %15, i64 %11)
@@ -3862,7 +3862,7 @@ define void @"_ZN4core3ptr93drop_in_place$LT$core..result..Result$LT$std..proces
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4core3ptr93drop_in_place$LT$dyn$u20$core..error..Error$u2b$core..marker..Sync$u2b$core..marker..Send$GT$17h1ee00c0153f5edb3E"(ptr align 1 %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8, !invariant.load !3, !nonnull !3
+  %3 = load ptr, ptr %1, align 8, !invariant.load !5, !nonnull !5
   tail call void %3(ptr align 1 %0)
   ret void
 }
@@ -4027,7 +4027,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %3, i64 0, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6e51bf00361bcf68E"(ptr align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !10
 
 11:                                               ; preds = %15, %13
   %.sroa.0.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -4043,7 +4043,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { { { { { ptr, i64 } }, {} }, {} } }], ptr %3, i64 0, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..ffi..c_str..CString$GT$17h6e51bf00361bcf68E"(ptr align 8 %16) #9
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !11
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -4085,7 +4085,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %9 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %9)
-          to label %6 unwind label %13
+          to label %6 unwind label %13, !llvm.loop !8
 
 11:                                               ; preds = %15, %13
   %.sroa.0.1.i = phi i64 [ %10, %13 ], [ %17, %15 ]
@@ -4101,7 +4101,7 @@ define void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop.
   %16 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %3, i64 0, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %16) #9
-          to label %11 unwind label %19
+          to label %11 unwind label %19, !llvm.loop !9
 
 18:                                               ; preds = %11
   resume { ptr, i32 } %14
@@ -4201,13 +4201,13 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !invariant.load !5
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load i64, ptr %8, align 8, !invariant.load !3
+  %9 = load i64, ptr %8, align 8, !invariant.load !5
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %11, ptr %10, i64 %9, i64 %5)
@@ -4222,13 +4222,13 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !invariant.load !5
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load i64, ptr %8, align 8, !invariant.load !3
+  %9 = load i64, ptr %8, align 8, !invariant.load !5
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %11, ptr %10, i64 %9, i64 %5)
@@ -4243,13 +4243,13 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !invariant.load !5
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load i64, ptr %8, align 8, !invariant.load !3
+  %9 = load i64, ptr %8, align 8, !invariant.load !5
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %11, ptr %10, i64 %9, i64 %5)
@@ -4264,13 +4264,13 @@ define void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..dro
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load i64, ptr %4, align 8, !invariant.load !3
+  %5 = load i64, ptr %4, align 8, !invariant.load !5
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load i64, ptr %8, align 8, !invariant.load !3
+  %9 = load i64, ptr %8, align 8, !invariant.load !5
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h93de1eb69d1644b2E"(ptr nonnull align 1 %11, ptr %10, i64 %9, i64 %5)
@@ -4464,7 +4464,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %14 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %9, i64 0, i64 %.sroa.0.0.i
   %15 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %14)
-          to label %11 unwind label %18
+          to label %11 unwind label %18, !llvm.loop !8
 
 16:                                               ; preds = %20, %18
   %.sroa.0.1.i = phi i64 [ %15, %18 ], [ %22, %20 ]
@@ -4480,7 +4480,7 @@ define void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$
   %21 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %9, i64 0, i64 %.sroa.0.1.i
   %22 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %21) #9
-          to label %16 unwind label %23
+          to label %16 unwind label %23, !llvm.loop !9
 
 23:                                               ; preds = %20
   %24 = landingpad { ptr, i32 }
@@ -4670,12 +4670,12 @@ define void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h3ccf67c83d745f04E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr nonnull align 8 %6)
   %9 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %"_ZN4core3ptr152drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$std..ffi..os_str..OsString$C$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$$GT$17hb700d4bfa8575ce8E.exit", label %.lr.ph.i.i
+  br i1 %.not.i.i, label %"_ZN4core3ptr152drop_in_place$LT$alloc..collections..btree..map..IntoIter$LT$std..ffi..os_str..OsString$C$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$$GT$17hb700d4bfa8575ce8E.exit", label %.lr.ph.i.i, !llvm.loop !6
 
 .lr.ph.i.i:                                       ; preds = %1, %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   invoke void @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h632a9ed044a8acc9E"(ptr nonnull align 8 %3)
-          to label %8 unwind label %10
+          to label %8 unwind label %10, !llvm.loop !6
 
 10:                                               ; preds = %.lr.ph.i.i
   %11 = landingpad { ptr, i32 }
@@ -4714,12 +4714,12 @@ define void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT
   call void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17h3ccf67c83d745f04E"(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 8 %0)
   %7 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %1, %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   invoke void @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h632a9ed044a8acc9E"(ptr nonnull align 8 %3)
-          to label %6 unwind label %8
+          to label %6 unwind label %8, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %6, %1
   ret void
@@ -4927,4 +4927,12 @@ attributes #10 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
-!3 = !{}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = !{}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}
+!10 = distinct !{!10, !4}
+!11 = distinct !{!11, !4}

@@ -982,14 +982,14 @@ _ZNKSt9basic_iosIwSt11char_traitsIwEE5widenEc.exit: ; preds = %.lr.ph
   %35 = tail call noundef signext i32 %34(ptr noundef nonnull align 8 dereferenceable(12) %27, i8 noundef signext %29)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE3putEw(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef signext %35)
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 }
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN5boost7archive19text_woarchive_implINS0_14text_woarchiveEE4saveERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::archive::archive_exception", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !72
+  %5 = load i64, ptr %4, align 8, !tbaa !73
   tail call void @_ZN5boost7archive6detail14basic_oarchive12end_preambleEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_14text_woarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(136) %0)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1024,7 +1024,7 @@ _ZN5boost7archive6detail18interface_oarchiveINS0_14text_woarchiveEElsImEERS3_RKT
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE9_M_insertImEERS2_T_(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %5)
   tail call void @_ZN5boost7archive19basic_text_oarchiveINS0_14text_woarchiveEE8newtokenEv(ptr noundef nonnull align 8 dereferenceable(44) %0)
   %20 = load ptr, ptr %6, align 8, !tbaa !31
-  %21 = load ptr, ptr %1, align 8, !tbaa !75
+  %21 = load ptr, ptr %1, align 8, !tbaa !76
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE5writeEPKwl(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %21, i64 noundef %5)
   ret void
 }
@@ -1254,7 +1254,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   resume { ptr, i32 } %16
 
 _ZN5boost7archive6detail18interface_oarchiveINS0_14text_woarchiveEElsINS0_13class_id_typeEEERS3_RKT_.exit: ; preds = %2
-  %17 = load i16, ptr %1, align 2, !tbaa !76
+  %17 = load i16, ptr %1, align 2, !tbaa !77
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEElsEs(ptr noundef nonnull align 8 dereferenceable(8) %5, i16 noundef signext %17)
   ret void
 }
@@ -1298,7 +1298,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   resume { ptr, i32 } %16
 
 _ZN5boost7archive6detail18interface_oarchiveINS0_14text_woarchiveEElsINS0_23class_id_reference_typeEEERS3_RKT_.exit: ; preds = %2
-  %17 = load i16, ptr %1, align 2, !tbaa !76
+  %17 = load i16, ptr %1, align 2, !tbaa !77
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEElsEs(ptr noundef nonnull align 8 dereferenceable(8) %5, i16 noundef signext %17)
   ret void
 }
@@ -1343,7 +1343,7 @@ define linkonce_odr hidden void @_ZN5boost7archive6detail15common_oarchiveINS0_1
   resume { ptr, i32 } %16
 
 _ZN5boost7archive6detail18interface_oarchiveINS0_14text_woarchiveEElsINS0_13tracking_typeEEERS3_RKT_.exit: ; preds = %2
-  %17 = load i8, ptr %1, align 1, !tbaa !78, !range !18, !noundef !19
+  %17 = load i8, ptr %1, align 1, !tbaa !79, !range !18, !noundef !19
   %18 = trunc nuw i8 %17 to i1
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE9_M_insertIbEERS2_T_(ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %18)
   ret void
@@ -1460,13 +1460,13 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIPKN5boost7archive6detail16basic_
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !81
   tail call void @_ZNSt8_Rb_treeIPKN5boost7archive6detail16basic_serializerES5_St9_IdentityIS5_ENS2_20basic_serializer_map25type_info_pointer_compareESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !81
+  %6 = load ptr, ptr %5, align 8, !tbaa !82
   tail call void @_ZdlPvm(ptr noundef nonnull %.07, i64 noundef 40) #19
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1605,17 +1605,18 @@ attributes #21 = { noreturn nounwind }
 !66 = !{!67, !10, i64 240}
 !67 = !{!"_ZTSSt9basic_iosIwSt11char_traitsIwEE", !46, i64 0, !10, i64 216, !68, i64 224, !17, i64 228, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256}
 !68 = !{!"wchar_t", !8, i64 0}
-!69 = distinct !{!69, !70}
+!69 = distinct !{!69, !70, !71}
 !70 = !{!"llvm.loop.mustprogress"}
-!71 = distinct !{!71, !70}
-!72 = !{!73, !11, i64 8}
-!73 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !74, i64 0, !11, i64 8, !8, i64 16}
-!74 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !10, i64 0}
-!75 = !{!73, !10, i64 0}
-!76 = !{!77, !61, i64 0}
-!77 = !{!"_ZTSN5boost7archive13class_id_typeE", !61, i64 0}
-!78 = !{!79, !17, i64 0}
-!79 = !{!"_ZTSN5boost7archive13tracking_typeE", !17, i64 0}
-!80 = !{!6, !10, i64 24}
-!81 = !{!6, !10, i64 16}
-!82 = distinct !{!82, !70}
+!71 = !{!"llvm.loop.estimated_trip_count"}
+!72 = distinct !{!72, !70, !71}
+!73 = !{!74, !11, i64 8}
+!74 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE", !75, i64 0, !11, i64 8, !8, i64 16}
+!75 = !{!"_ZTSNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_Alloc_hiderE", !10, i64 0}
+!76 = !{!74, !10, i64 0}
+!77 = !{!78, !61, i64 0}
+!78 = !{!"_ZTSN5boost7archive13class_id_typeE", !61, i64 0}
+!79 = !{!80, !17, i64 0}
+!80 = !{!"_ZTSN5boost7archive13tracking_typeE", !17, i64 0}
+!81 = !{!6, !10, i64 24}
+!82 = !{!6, !10, i64 16}
+!83 = distinct !{!83, !70, !71}

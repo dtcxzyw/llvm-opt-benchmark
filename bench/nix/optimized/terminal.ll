@@ -1802,12 +1802,12 @@ define void @_ZN3nix16updateWindowSizeEv() local_unnamed_addr #0 personality ptr
   br i1 %3, label %4, label %11
 
 4:                                                ; preds = %0
-  %5 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3nixL10windowSizeE) #14, !noalias !9
+  %5 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3nixL10windowSizeE) #14, !noalias !10
   %.not.i.i.i.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i.i.i.i, label %_ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit, label %6
 
 6:                                                ; preds = %4
-  call void @_ZSt20__throw_system_errori(i32 noundef %5) #16, !noalias !9
+  call void @_ZSt20__throw_system_errori(i32 noundef %5) #16, !noalias !10
   unreachable
 
 _ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit:  ; preds = %4
@@ -1828,12 +1828,12 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define i32 @_ZN3nix13getWindowSizeEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
-  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3nixL10windowSizeE) #14, !noalias !12
+  %1 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN3nixL10windowSizeE) #14, !noalias !13
   %.not.i.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i.i, label %_ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit, label %2
 
 2:                                                ; preds = %0
-  tail call void @_ZSt20__throw_system_errori(i32 noundef %1) #16, !noalias !12
+  tail call void @_ZSt20__throw_system_errori(i32 noundef %1) #16, !noalias !13
   unreachable
 
 _ZN3nix4SyncISt4pairIttESt5mutexE4LockD2Ev.exit:  ; preds = %0
@@ -2051,11 +2051,12 @@ attributes #17 = { builtin allocsize(0) }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZNOSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8value_orIRA5_KcEES5_OT_: argument 0"}
 !6 = distinct !{!6, !"_ZNOSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8value_orIRA5_KcEES5_OT_"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv: argument 0"}
-!11 = distinct !{!11, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv: argument 0"}
-!14 = distinct !{!14, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11}
+!11 = distinct !{!11, !12, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv: argument 0"}
+!12 = distinct !{!12, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv"}
+!13 = !{!14}
+!14 = distinct !{!14, !15, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv: argument 0"}
+!15 = distinct !{!15, !"_ZN3nix4SyncISt4pairIttESt5mutexE4lockEv"}

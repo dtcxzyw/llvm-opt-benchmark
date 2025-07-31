@@ -177,7 +177,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %69 = add i32 %68, %.0406.i
   store i32 %spec.store.select.i, ptr @block_buffer_size, align 4
   %.not46.i = icmp ult i32 %69, %spec.store.select.i
-  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %53
   %.040.lcssa.i = phi i32 [ %56, %53 ], [ %69, %.lr.ph.i ]
@@ -210,7 +210,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %81 = load i32, ptr %20, align 4
   %82 = call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.8, i32 noundef %79, i32 noundef %80, i32 noundef %81, ptr noundef %75, i32 noundef %78) #11
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next.i, %72
-  br i1 %exitcond21.not.i, label %dump_one_relation.exit, label %.critedge.thread.us.i, !llvm.loop !7
+  br i1 %exitcond21.not.i, label %dump_one_relation.exit, label %.critedge.thread.us.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %.lr.ph17.i, %110
   %.015.i = phi i32 [ %.2.lcssa25.i, %110 ], [ 0, %.lr.ph17.i ]
@@ -245,7 +245,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 97:                                               ; preds = %.lr.ph9.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %72
-  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph9.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph9.i, !llvm.loop !10
 
 .critedge.i.split.loop.exit32:                    ; preds = %.lr.ph9.i
   %98 = trunc nuw i64 %indvars.iv to i32
@@ -277,11 +277,11 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 110:                                              ; preds = %105, %.critedge.thread.i
   %.2.lcssa25.i = phi i32 [ %.2.lcssa.i, %105 ], [ %.2.lcssa26.i, %.critedge.thread.i ]
   %111 = icmp ult i32 %.2.lcssa25.i, %.040.lcssa.i
-  br i1 %111, label %.preheader.i, label %dump_one_relation.exit, !llvm.loop !10
+  br i1 %111, label %.preheader.i, label %dump_one_relation.exit, !llvm.loop !11
 
 dump_one_relation.exit:                           ; preds = %110, %.critedge.thread.us.i, %._crit_edge.i, %70
   %112 = call zeroext i1 @BlockRefTableReaderNextRelation(ptr noundef %33, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
-  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %112, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %dump_one_relation.exit, %32
   call void @DestroyBlockRefTableReader(ptr noundef %33) #11
@@ -293,7 +293,7 @@ dump_one_relation.exit:                           ; preds = %110, %.critedge.thr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   %115 = load i32, ptr @optind, align 4
   %116 = icmp slt i32 %115, %0
-  br i1 %116, label %22, label %._crit_edge23, !llvm.loop !12
+  br i1 %116, label %22, label %._crit_edge23, !llvm.loop !13
 
 ._crit_edge23:                                    ; preds = %._crit_edge
   call void @exit(i32 noundef 0) #13
@@ -432,12 +432,13 @@ attributes #13 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

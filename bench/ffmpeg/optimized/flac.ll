@@ -229,7 +229,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_decode_frame_header(ptr noundef %0
 
 get_utf8.exit.thread:                             ; preds = %128, %108
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 -1, ptr %144, align 8, !tbaa !22
+  store i64 -1, ptr %144, align 8, !tbaa !23
   %145 = add nsw i32 %3, 16
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef %145, ptr noundef nonnull @.str.4) #6
   br label %238
@@ -240,7 +240,7 @@ get_utf8.exit:                                    ; preds = %.preheader.i
   %148 = zext i32 %147 to i64
   %149 = and i64 %.123.i, %148
   %150 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %149, ptr %150, align 8, !tbaa !22
+  store i64 %149, ptr %150, align 8, !tbaa !23
   switch i32 %41, label %177 [
     i32 0, label %151
     i32 6, label %153
@@ -285,21 +285,21 @@ get_utf8.exit:                                    ; preds = %.preheader.i
 177:                                              ; preds = %get_utf8.exit
   %178 = zext nneg i32 %41 to i64
   %179 = getelementptr inbounds nuw [16 x i32], ptr @ff_flac_blocksize_table, i64 0, i64 %178
-  %180 = load i32, ptr %179, align 4, !tbaa !23
+  %180 = load i32, ptr %179, align 4, !tbaa !24
   br label %181
 
 181:                                              ; preds = %153, %177, %165
   %.sink = phi i32 [ %164, %153 ], [ %180, %177 ], [ %176, %165 ]
   %182 = phi i32 [ %163, %153 ], [ %125, %177 ], [ %175, %165 ]
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 %.sink, ptr %183, align 4, !tbaa !24
+  store i32 %.sink, ptr %183, align 4, !tbaa !25
   %184 = icmp ult i32 %50, -1073741824
   br i1 %184, label %185, label %189
 
 185:                                              ; preds = %181
   %186 = zext nneg i32 %51 to i64
   %187 = getelementptr inbounds nuw [16 x i32], ptr @ff_flac_sample_rate_table, i64 0, i64 %186
-  %188 = load i32, ptr %187, align 4, !tbaa !23
+  %188 = load i32, ptr %187, align 4, !tbaa !24
   br label %227
 
 189:                                              ; preds = %181
@@ -358,7 +358,7 @@ get_utf8.exit:                                    ; preds = %.preheader.i
 227:                                              ; preds = %190, %213, %202, %185
   %.sink82 = phi i32 [ %201, %190 ], [ %224, %213 ], [ %210, %202 ], [ %188, %185 ]
   %228 = phi i32 [ %200, %190 ], [ %223, %213 ], [ %212, %202 ], [ %182, %185 ]
-  store i32 %.sink82, ptr %2, align 8, !tbaa !25
+  store i32 %.sink82, ptr %2, align 8, !tbaa !26
   %229 = add i32 %228, 8
   %230 = tail call i32 @llvm.umin.i32(i32 %8, i32 %229)
   store i32 %230, ptr %5, align 8, !tbaa !4
@@ -391,13 +391,13 @@ declare ptr @av_crc_get_table(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ff_flac_is_extradata_valid(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %4 = load ptr, ptr %3, align 8, !tbaa !27
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load i32, ptr %6, align 8, !tbaa !43
+  %7 = load i32, ptr %6, align 8, !tbaa !44
   %8 = icmp slt i32 %7, 34
   br i1 %8, label %9, label %10
 
@@ -417,7 +417,7 @@ define range(i32 0, 2) i32 @ff_flac_is_extradata_valid(ptr noundef %0, ptr nound
 13:                                               ; preds = %12
   %14 = sub nsw i32 34, %7
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.9, i32 noundef %14) #6
-  %.pre = load ptr, ptr %3, align 8, !tbaa !26
+  %.pre = load ptr, ptr %3, align 8, !tbaa !27
   br label %20
 
 15:                                               ; preds = %10
@@ -434,7 +434,7 @@ define range(i32 0, 2) i32 @ff_flac_is_extradata_valid(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %12, %13, %18
   %storemerge = phi ptr [ %19, %18 ], [ %.pre, %13 ], [ %4, %12 ]
-  store ptr %storemerge, ptr %1, align 8, !tbaa !44
+  store ptr %storemerge, ptr %1, align 8, !tbaa !45
   br label %21
 
 21:                                               ; preds = %20, %17, %9
@@ -446,12 +446,12 @@ define range(i32 0, 2) i32 @ff_flac_is_extradata_valid(ptr noundef %0, ptr nound
 define void @ff_flac_set_channel_layout(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  %5 = load i32, ptr %4, align 4, !tbaa !45
+  %5 = load i32, ptr %4, align 4, !tbaa !46
   %6 = icmp eq i32 %1, %5
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %3, align 8, !tbaa !46
+  %8 = load i32, ptr %3, align 8, !tbaa !47
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %16
 
@@ -464,12 +464,12 @@ define void @ff_flac_set_channel_layout(ptr noundef %0, i32 noundef %1) local_un
   %12 = add nsw i32 %1, -1
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [8 x %struct.AVChannelLayout], ptr @flac_channel_layouts, i64 0, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !48
   br label %16
 
 15:                                               ; preds = %9
-  store i32 0, ptr %3, align 8, !tbaa !23
-  store i32 %1, ptr %4, align 4, !tbaa !23
+  store i32 0, ptr %3, align 8, !tbaa !24
+  store i32 %1, ptr %4, align 4, !tbaa !24
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 360
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, i8 0, i64 16, i1 false)
   br label %16
@@ -494,13 +494,13 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   %9 = tail call i32 @llvm.bswap.i32(i32 %8)
   %10 = lshr i32 %9, 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %10, ptr %11, align 4, !tbaa !49
+  store i32 %10, ptr %11, align 4, !tbaa !50
   %12 = icmp ult i32 %9, 1048576
   br i1 %12, label %13, label %14
 
 13:                                               ; preds = %3
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.11, i32 noundef %10) #6
-  store i32 16, ptr %11, align 4, !tbaa !49
+  store i32 16, ptr %11, align 4, !tbaa !50
   br label %89
 
 14:                                               ; preds = %3
@@ -512,7 +512,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   %20 = tail call i32 @llvm.bswap.i32(i32 %19)
   %21 = lshr i32 %20, 8
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %21, ptr %22, align 8, !tbaa !51
+  store i32 %21, ptr %22, align 8, !tbaa !52
   %23 = lshr exact i32 %4, 3
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 %24
@@ -521,7 +521,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   %28 = tail call i32 @llvm.bswap.i32(i32 %27)
   %29 = lshr i32 %28, 12
   %30 = add nuw nsw i32 %4, 84
-  store i32 %29, ptr %1, align 8, !tbaa !52
+  store i32 %29, ptr %1, align 8, !tbaa !53
   %31 = lshr i32 %30, 3
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 %32
@@ -531,7 +531,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   %37 = add nuw nsw i32 %4, 87
   %38 = add nuw nsw i32 %36, 1
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %38, ptr %39, align 4, !tbaa !53
+  store i32 %38, ptr %39, align 4, !tbaa !54
   %40 = lshr i32 %37, 3
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 %41
@@ -542,28 +542,28 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   %47 = add nuw nsw i32 %4, 92
   %48 = add nuw nsw i32 %46, 1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %48, ptr %49, align 8, !tbaa !54
+  store i32 %48, ptr %49, align 8, !tbaa !55
   %50 = icmp ult i32 %45, 402653184
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.12, i32 noundef %48) #6
-  store i32 16, ptr %49, align 8, !tbaa !54
+  store i32 16, ptr %49, align 8, !tbaa !55
   br label %89
 
 52:                                               ; preds = %14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  store i32 %29, ptr %53, align 8, !tbaa !55
+  store i32 %29, ptr %53, align 8, !tbaa !56
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 652
-  store i32 %48, ptr %54, align 4, !tbaa !56
+  store i32 %48, ptr %54, align 4, !tbaa !57
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  %57 = load i32, ptr %56, align 4, !tbaa !45
+  %57 = load i32, ptr %56, align 4, !tbaa !46
   %58 = icmp eq i32 %38, %57
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %52
-  %60 = load i32, ptr %55, align 8, !tbaa !46
+  %60 = load i32, ptr %55, align 8, !tbaa !47
   %.not.i23 = icmp eq i32 %60, 0
   br i1 %.not.i23, label %61, label %ff_flac_set_channel_layout.exit
 
@@ -571,7 +571,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   tail call void @av_channel_layout_uninit(ptr noundef nonnull %55) #6
   %62 = zext nneg i32 %36 to i64
   %63 = getelementptr inbounds nuw [8 x %struct.AVChannelLayout], ptr @flac_channel_layouts, i64 0, i64 %62
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !tbaa.struct !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false), !tbaa.struct !48
   br label %ff_flac_set_channel_layout.exit
 
 ff_flac_set_channel_layout.exit:                  ; preds = %59, %61
@@ -600,7 +600,7 @@ ff_flac_set_channel_layout.exit:                  ; preds = %59, %61
   %86 = zext i32 %83 to i64
   %87 = or disjoint i64 %85, %86
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %87, ptr %88, align 8, !tbaa !57
+  store i64 %87, ptr %88, align 8, !tbaa !58
   br label %89
 
 89:                                               ; preds = %ff_flac_set_channel_layout.exit, %51, %13
@@ -648,41 +648,42 @@ attributes #7 = { nounwind willreturn memory(read) }
 !17 = !{!15, !10, i64 16}
 !18 = !{!15, !10, i64 4}
 !19 = !{!15, !10, i64 8}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!15, !16, i64 24}
-!23 = !{!10, !10, i64 0}
-!24 = !{!15, !10, i64 12}
-!25 = !{!15, !10, i64 0}
-!26 = !{!27, !6, i64 72}
-!27 = !{!"AVCodecContext", !28, i64 0, !10, i64 8, !10, i64 12, !29, i64 16, !10, i64 24, !10, i64 28, !7, i64 32, !30, i64 40, !7, i64 48, !16, i64 56, !10, i64 64, !10, i64 68, !6, i64 72, !10, i64 80, !31, i64 84, !31, i64 92, !31, i64 100, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !31, i64 128, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172, !10, i64 176, !7, i64 184, !7, i64 192, !10, i64 200, !32, i64 204, !32, i64 208, !32, i64 212, !32, i64 216, !32, i64 220, !32, i64 224, !32, i64 228, !32, i64 232, !32, i64 236, !10, i64 240, !10, i64 244, !10, i64 248, !10, i64 252, !10, i64 256, !10, i64 260, !10, i64 264, !10, i64 268, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !33, i64 288, !33, i64 296, !33, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !10, i64 324, !10, i64 328, !10, i64 332, !10, i64 336, !10, i64 340, !10, i64 344, !10, i64 348, !34, i64 352, !10, i64 376, !10, i64 380, !10, i64 384, !10, i64 388, !10, i64 392, !10, i64 396, !10, i64 400, !10, i64 404, !7, i64 408, !10, i64 416, !10, i64 420, !10, i64 424, !32, i64 428, !32, i64 432, !10, i64 436, !10, i64 440, !10, i64 444, !10, i64 448, !10, i64 452, !35, i64 456, !16, i64 464, !16, i64 472, !32, i64 480, !32, i64 484, !10, i64 488, !10, i64 492, !6, i64 496, !6, i64 504, !10, i64 512, !10, i64 516, !10, i64 520, !10, i64 524, !10, i64 528, !36, i64 536, !7, i64 544, !37, i64 552, !37, i64 560, !10, i64 568, !10, i64 572, !8, i64 576, !10, i64 640, !10, i64 644, !10, i64 648, !10, i64 652, !10, i64 656, !10, i64 660, !10, i64 664, !7, i64 672, !7, i64 680, !10, i64 688, !10, i64 692, !10, i64 696, !10, i64 700, !10, i64 704, !10, i64 708, !10, i64 712, !10, i64 716, !10, i64 720, !10, i64 724, !38, i64 728, !6, i64 736, !10, i64 744, !10, i64 748, !6, i64 752, !6, i64 760, !6, i64 768, !39, i64 776, !10, i64 784, !10, i64 788, !16, i64 792, !10, i64 800, !10, i64 804, !16, i64 808, !7, i64 816, !16, i64 824, !40, i64 832, !10, i64 840, !41, i64 848, !10, i64 856}
-!28 = !{!"p1 _ZTS7AVClass", !7, i64 0}
-!29 = !{!"p1 _ZTS7AVCodec", !7, i64 0}
-!30 = !{!"p1 _ZTS15AVCodecInternal", !7, i64 0}
-!31 = !{!"AVRational", !10, i64 0, !10, i64 4}
-!32 = !{!"float", !8, i64 0}
-!33 = !{!"p1 short", !7, i64 0}
-!34 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!35 = !{!"p1 _ZTS10RcOverride", !7, i64 0}
-!36 = !{!"p1 _ZTS9AVHWAccel", !7, i64 0}
-!37 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!38 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
-!39 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!40 = !{!"p1 int", !7, i64 0}
-!41 = !{!"p2 _ZTS15AVFrameSideData", !42, i64 0}
-!42 = !{!"any p2 pointer", !7, i64 0}
-!43 = !{!27, !10, i64 80}
-!44 = !{!6, !6, i64 0}
-!45 = !{!27, !10, i64 356}
-!46 = !{!27, !10, i64 352}
-!47 = !{i64 0, i64 4, !23, i64 4, i64 4, !23, i64 8, i64 8, !13, i64 16, i64 8, !48}
-!48 = !{!7, !7, i64 0}
-!49 = !{!50, !10, i64 12}
-!50 = !{!"FLACStreaminfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !16, i64 24}
-!51 = !{!50, !10, i64 16}
-!52 = !{!50, !10, i64 0}
-!53 = !{!50, !10, i64 4}
-!54 = !{!50, !10, i64 8}
-!55 = !{!27, !10, i64 344}
-!56 = !{!27, !10, i64 652}
-!57 = !{!50, !16, i64 24}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!15, !16, i64 24}
+!24 = !{!10, !10, i64 0}
+!25 = !{!15, !10, i64 12}
+!26 = !{!15, !10, i64 0}
+!27 = !{!28, !6, i64 72}
+!28 = !{!"AVCodecContext", !29, i64 0, !10, i64 8, !10, i64 12, !30, i64 16, !10, i64 24, !10, i64 28, !7, i64 32, !31, i64 40, !7, i64 48, !16, i64 56, !10, i64 64, !10, i64 68, !6, i64 72, !10, i64 80, !32, i64 84, !32, i64 92, !32, i64 100, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !32, i64 128, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172, !10, i64 176, !7, i64 184, !7, i64 192, !10, i64 200, !33, i64 204, !33, i64 208, !33, i64 212, !33, i64 216, !33, i64 220, !33, i64 224, !33, i64 228, !33, i64 232, !33, i64 236, !10, i64 240, !10, i64 244, !10, i64 248, !10, i64 252, !10, i64 256, !10, i64 260, !10, i64 264, !10, i64 268, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !34, i64 288, !34, i64 296, !34, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !10, i64 324, !10, i64 328, !10, i64 332, !10, i64 336, !10, i64 340, !10, i64 344, !10, i64 348, !35, i64 352, !10, i64 376, !10, i64 380, !10, i64 384, !10, i64 388, !10, i64 392, !10, i64 396, !10, i64 400, !10, i64 404, !7, i64 408, !10, i64 416, !10, i64 420, !10, i64 424, !33, i64 428, !33, i64 432, !10, i64 436, !10, i64 440, !10, i64 444, !10, i64 448, !10, i64 452, !36, i64 456, !16, i64 464, !16, i64 472, !33, i64 480, !33, i64 484, !10, i64 488, !10, i64 492, !6, i64 496, !6, i64 504, !10, i64 512, !10, i64 516, !10, i64 520, !10, i64 524, !10, i64 528, !37, i64 536, !7, i64 544, !38, i64 552, !38, i64 560, !10, i64 568, !10, i64 572, !8, i64 576, !10, i64 640, !10, i64 644, !10, i64 648, !10, i64 652, !10, i64 656, !10, i64 660, !10, i64 664, !7, i64 672, !7, i64 680, !10, i64 688, !10, i64 692, !10, i64 696, !10, i64 700, !10, i64 704, !10, i64 708, !10, i64 712, !10, i64 716, !10, i64 720, !10, i64 724, !39, i64 728, !6, i64 736, !10, i64 744, !10, i64 748, !6, i64 752, !6, i64 760, !6, i64 768, !40, i64 776, !10, i64 784, !10, i64 788, !16, i64 792, !10, i64 800, !10, i64 804, !16, i64 808, !7, i64 816, !16, i64 824, !41, i64 832, !10, i64 840, !42, i64 848, !10, i64 856}
+!29 = !{!"p1 _ZTS7AVClass", !7, i64 0}
+!30 = !{!"p1 _ZTS7AVCodec", !7, i64 0}
+!31 = !{!"p1 _ZTS15AVCodecInternal", !7, i64 0}
+!32 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!33 = !{!"float", !8, i64 0}
+!34 = !{!"p1 short", !7, i64 0}
+!35 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!36 = !{!"p1 _ZTS10RcOverride", !7, i64 0}
+!37 = !{!"p1 _ZTS9AVHWAccel", !7, i64 0}
+!38 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!39 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
+!40 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!41 = !{!"p1 int", !7, i64 0}
+!42 = !{!"p2 _ZTS15AVFrameSideData", !43, i64 0}
+!43 = !{!"any p2 pointer", !7, i64 0}
+!44 = !{!28, !10, i64 80}
+!45 = !{!6, !6, i64 0}
+!46 = !{!28, !10, i64 356}
+!47 = !{!28, !10, i64 352}
+!48 = !{i64 0, i64 4, !24, i64 4, i64 4, !24, i64 8, i64 8, !13, i64 16, i64 8, !49}
+!49 = !{!7, !7, i64 0}
+!50 = !{!51, !10, i64 12}
+!51 = !{!"FLACStreaminfo", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !16, i64 24}
+!52 = !{!51, !10, i64 16}
+!53 = !{!51, !10, i64 0}
+!54 = !{!51, !10, i64 4}
+!55 = !{!51, !10, i64 8}
+!56 = !{!28, !10, i64 344}
+!57 = !{!28, !10, i64 652}
+!58 = !{!51, !16, i64 24}

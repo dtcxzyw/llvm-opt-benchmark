@@ -140,7 +140,7 @@ define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef
     i32 22, label %44
     i32 21, label %44
     i32 1, label %44
-  ]
+  ], !llvm.loop !35
 
 44:                                               ; preds = %41, %41, %41
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #8
@@ -356,7 +356,7 @@ define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly cap
   %57 = phi i64 [ 0, %.lr.ph.i ], [ %66, %64 ]
   %.016.i = phi i32 [ 0, %.lr.ph.i ], [ %65, %64 ]
   %58 = getelementptr inbounds nuw %struct.key_entry, ptr %54, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !35
+  %59 = load ptr, ptr %58, align 8, !tbaa !37
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #9
   %61 = icmp eq i64 %60, %49
   br i1 %61, label %62, label %64
@@ -370,12 +370,12 @@ define internal fastcc i32 @msxml_parse_element(ptr noundef nonnull readonly cap
   %65 = add i32 %.016.i, 1
   %66 = zext i32 %65 to i64
   %67 = icmp ugt i64 %52, %66
-  br i1 %67, label %56, label %msxml_check_key.exit
+  br i1 %67, label %56, label %msxml_check_key.exit, !llvm.loop !39
 
 msxml_check_key.exit:                             ; preds = %62, %64, %.preheader.i, %55
   %.013.i = phi ptr [ @blank_key, %55 ], [ @blank_key, %.preheader.i ], [ @blank_key, %64 ], [ %58, %62 ]
   %68 = getelementptr inbounds nuw i8, ptr %.013.i, i64 16
-  %69 = load i32, ptr %68, align 8, !tbaa !37
+  %69 = load i32, ptr %68, align 8, !tbaa !40
   %70 = and i32 %69, 1
   %.not249 = icmp eq i32 %70, 0
   br i1 %.not249, label %75, label %71
@@ -419,26 +419,26 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 85:                                               ; preds = %83, %81
   %.sink = phi ptr [ %18, %81 ], [ %3, %83 ]
   %86 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
-  %87 = load ptr, ptr %86, align 8, !tbaa !38
+  %87 = load ptr, ptr %86, align 8, !tbaa !41
   %88 = tail call ptr @cli_jsonobj(ptr noundef %.sink, ptr noundef %87) #8
   %.not254 = icmp eq ptr %88, null
   br i1 %.not254, label %.critedge296, label %89
 
 89:                                               ; preds = %85
-  %90 = load i32, ptr %68, align 8, !tbaa !37
+  %90 = load i32, ptr %68, align 8, !tbaa !40
   %91 = and i32 %90, 256
   %.not255 = icmp eq i32 %91, 0
   br i1 %.not255, label %100, label %92
 
 92:                                               ; preds = %89
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  store ptr null, ptr %6, align 8, !tbaa !39
+  store ptr null, ptr %6, align 8, !tbaa !42
   %93 = call i32 @json_object_object_get_ex(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, ptr noundef nonnull %6) #8
   %.not256 = icmp eq i32 %93, 0
   br i1 %.not256, label %98, label %94
 
 94:                                               ; preds = %92
-  %95 = load ptr, ptr %6, align 8, !tbaa !39
+  %95 = load ptr, ptr %6, align 8, !tbaa !42
   %96 = call i32 @json_object_get_int(ptr noundef %95) #8
   %97 = add nsw i32 %96, 1
   br label %98
@@ -447,7 +447,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %.sink373 = phi i32 [ %97, %94 ], [ 1, %92 ]
   %99 = call i32 @cli_jsonint(ptr noundef nonnull %88, ptr noundef nonnull @.str.18, i32 noundef %.sink373) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
-  %.pre = load i32, ptr %68, align 8, !tbaa !37
+  %.pre = load i32, ptr %68, align 8, !tbaa !40
   br label %100
 
 100:                                              ; preds = %89, %98
@@ -467,7 +467,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not259.not, label %.critedge296, label %..thread301_crit_edge
 
 ..thread301_crit_edge:                            ; preds = %105
-  %.pre349 = load i32, ptr %68, align 8, !tbaa !37
+  %.pre349 = load i32, ptr %68, align 8, !tbaa !40
   br label %.thread301
 
 .thread301:                                       ; preds = %..thread301_crit_edge, %100
@@ -500,17 +500,17 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   %117 = call i32 @cli_jsonstr(ptr noundef nonnull %112, ptr noundef %115, ptr noundef %116) #8
   %118 = call i32 @xmlTextReaderMoveToNextAttribute(ptr noundef %1) #8
   %119 = icmp eq i32 %118, 1
-  br i1 %119, label %.lr.ph, label %.loopexit
+  br i1 %119, label %.lr.ph, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader318, %109, %.thread301, %75
   %.0212 = phi ptr [ %.2214304, %.thread301 ], [ null, %75 ], [ %.2214304, %109 ], [ %.2214304, %.preheader318 ], [ %.2214304, %.lr.ph ]
-  %120 = load i32, ptr %68, align 8, !tbaa !37
+  %120 = load i32, ptr %68, align 8, !tbaa !40
   %121 = and i32 %120, 2
   %.not263 = icmp eq i32 %121, 0
   br i1 %.not263, label %.critedge, label %122
 
 122:                                              ; preds = %.loopexit
-  %123 = load ptr, ptr %0, align 8, !tbaa !40
+  %123 = load ptr, ptr %0, align 8, !tbaa !44
   %.not264 = icmp eq ptr %123, null
   br i1 %.not264, label %.critedge, label %124
 
@@ -528,10 +528,10 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 .thread:                                          ; preds = %127
   %129 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
-  store ptr %129, ptr %5, align 16, !tbaa !41
+  store ptr %129, ptr %5, align 16, !tbaa !45
   %130 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %130, ptr %131, align 8, !tbaa !43
+  store ptr %130, ptr %131, align 8, !tbaa !47
   br label %.preheader317.preheader
 
 132:                                              ; preds = %127, %124
@@ -554,13 +554,13 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 135:                                              ; preds = %.preheader317
   %136 = call ptr @xmlTextReaderConstLocalName(ptr noundef %1) #8
   %137 = getelementptr inbounds nuw [20 x %struct.attrib_entry], ptr %5, i64 0, i64 %indvars.iv
-  store ptr %136, ptr %137, align 16, !tbaa !41
+  store ptr %136, ptr %137, align 16, !tbaa !45
   %138 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  store ptr %138, ptr %139, align 8, !tbaa !43
+  store ptr %138, ptr %139, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond.not, label %.critedge, label %.preheader317
+  br i1 %exitcond.not, label %.critedge, label %.preheader317, !llvm.loop !48
 
 .critedge.loopexit.split.loop.exit:               ; preds = %.preheader317
   %140 = trunc nuw nsw i64 %indvars.iv to i32
@@ -652,7 +652,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 172:                                              ; preds = %168
   %173 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
-  %.pre351 = load i32, ptr %68, align 8, !tbaa !37
+  %.pre351 = load i32, ptr %68, align 8, !tbaa !40
   %174 = and i32 %.pre351, 512
   %.not274 = icmp eq i32 %174, 0
   %or.cond374 = select i1 %.not273, i1 true, i1 %.not274
@@ -664,7 +664,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not275, label %._crit_edge, label %.critedge296
 
 ._crit_edge:                                      ; preds = %175
-  %.pre350 = load i32, ptr %68, align 8, !tbaa !37
+  %.pre350 = load i32, ptr %68, align 8, !tbaa !40
   br label %177
 
 177:                                              ; preds = %._crit_edge, %172
@@ -674,69 +674,69 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not276, label %219, label %180
 
 180:                                              ; preds = %177
-  %181 = load ptr, ptr %0, align 8, !tbaa !40
+  %181 = load ptr, ptr %0, align 8, !tbaa !44
   %.not277 = icmp eq ptr %181, null
   br i1 %.not277, label %219, label %182
 
 182:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #8
-  store ptr %7, ptr %8, align 8, !tbaa !44
+  store ptr %7, ptr %8, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   %183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #9
-  %184 = load ptr, ptr %153, align 8, !tbaa !45
+  %184 = load ptr, ptr %153, align 8, !tbaa !50
   %185 = call i32 @cli_gentempfd(ptr noundef %184, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
   %.not278 = icmp eq i32 %185, 0
   br i1 %.not278, label %188, label %186
 
 186:                                              ; preds = %182
-  %187 = load ptr, ptr %8, align 8, !tbaa !44
+  %187 = load ptr, ptr %8, align 8, !tbaa !49
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.22, ptr noundef %187) #8
   br label %.thread307
 
 188:                                              ; preds = %182
-  %189 = load i32, ptr %9, align 4, !tbaa !46
+  %189 = load i32, ptr %9, align 4, !tbaa !51
   %190 = call i64 @cli_writen(i32 noundef %189, ptr noundef nonnull %173, i64 noundef %183) #8
   %.not279 = icmp eq i64 %190, %183
   br i1 %.not279, label %202, label %191
 
 191:                                              ; preds = %188
-  %192 = load i32, ptr %9, align 4, !tbaa !46
+  %192 = load i32, ptr %9, align 4, !tbaa !51
   %193 = call i32 @close(i32 noundef %192) #8
-  %194 = load ptr, ptr %155, align 8, !tbaa !47
+  %194 = load ptr, ptr %155, align 8, !tbaa !52
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
-  %196 = load i32, ptr %195, align 8, !tbaa !48
+  %196 = load i32, ptr %195, align 8, !tbaa !53
   %.not282 = icmp eq i32 %196, 0
   br i1 %.not282, label %197, label %200
 
 197:                                              ; preds = %191
-  %198 = load ptr, ptr %8, align 8, !tbaa !44
+  %198 = load ptr, ptr %8, align 8, !tbaa !49
   %199 = call i32 @cli_unlink(ptr noundef %198) #8
   br label %200
 
 200:                                              ; preds = %197, %191
-  %201 = load ptr, ptr %8, align 8, !tbaa !44
+  %201 = load ptr, ptr %8, align 8, !tbaa !49
   call void @free(ptr noundef %201) #8
   br label %.thread307
 
 202:                                              ; preds = %188
-  %203 = load ptr, ptr %8, align 8, !tbaa !44
+  %203 = load ptr, ptr %8, align 8, !tbaa !49
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, ptr noundef %203) #8
-  %204 = load ptr, ptr %0, align 8, !tbaa !40
-  %205 = load i32, ptr %9, align 4, !tbaa !46
-  %206 = load ptr, ptr %8, align 8, !tbaa !44
-  %207 = load ptr, ptr %154, align 8, !tbaa !67
+  %204 = load ptr, ptr %0, align 8, !tbaa !44
+  %205 = load i32, ptr %9, align 4, !tbaa !51
+  %206 = load ptr, ptr %8, align 8, !tbaa !49
+  %207 = load ptr, ptr %154, align 8, !tbaa !72
   %208 = call i32 %204(i32 noundef %205, ptr noundef %206, ptr noundef nonnull %16, i32 noundef %.0209, ptr noundef nonnull %5, ptr noundef %207) #8
-  %209 = load i32, ptr %9, align 4, !tbaa !46
+  %209 = load i32, ptr %9, align 4, !tbaa !51
   %210 = call i32 @close(i32 noundef %209) #8
-  %211 = load ptr, ptr %155, align 8, !tbaa !47
+  %211 = load ptr, ptr %155, align 8, !tbaa !52
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %213 = load i32, ptr %212, align 8, !tbaa !48
+  %213 = load i32, ptr %212, align 8, !tbaa !53
   %.not280 = icmp eq i32 %213, 0
   br i1 %.not280, label %214, label %217
 
 214:                                              ; preds = %202
-  %215 = load ptr, ptr %8, align 8, !tbaa !44
+  %215 = load ptr, ptr %8, align 8, !tbaa !49
   %216 = call i32 @cli_unlink(ptr noundef %215) #8
   br label %217
 
@@ -748,7 +748,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %.critedge296
 
 217:                                              ; preds = %202, %214
-  %218 = load ptr, ptr %8, align 8, !tbaa !44
+  %218 = load ptr, ptr %8, align 8, !tbaa !49
   call void @free(ptr noundef %218) #8
   %.not281 = icmp eq i32 %208, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
@@ -757,7 +757,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br i1 %.not281, label %._crit_edge352, label %.critedge296
 
 ._crit_edge352:                                   ; preds = %217
-  %.pre353 = load i32, ptr %68, align 8, !tbaa !37
+  %.pre353 = load i32, ptr %68, align 8, !tbaa !40
   br label %219
 
 219:                                              ; preds = %._crit_edge352, %180, %177
@@ -769,7 +769,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 222:                                              ; preds = %219
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %10) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
-  store ptr %10, ptr %11, align 8, !tbaa !44
+  store ptr %10, ptr %11, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #8
   %223 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %173) #9
@@ -794,66 +794,66 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %.thread311
 
 229:                                              ; preds = %222
-  %230 = load ptr, ptr %153, align 8, !tbaa !45
+  %230 = load ptr, ptr %153, align 8, !tbaa !50
   %231 = call i32 @cli_gentempfd(ptr noundef %230, ptr noundef nonnull %11, ptr noundef nonnull %13) #8
   %.not285 = icmp eq i32 %231, 0
   br i1 %.not285, label %234, label %232
 
 232:                                              ; preds = %229
-  %233 = load ptr, ptr %11, align 8, !tbaa !44
+  %233 = load ptr, ptr %11, align 8, !tbaa !49
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.22, ptr noundef %233) #8
   call void @free(ptr noundef nonnull %224) #8
   br label %.thread311
 
 234:                                              ; preds = %229
-  %235 = load i32, ptr %13, align 4, !tbaa !46
-  %236 = load i64, ptr %12, align 8, !tbaa !68
+  %235 = load i32, ptr %13, align 4, !tbaa !51
+  %236 = load i64, ptr %12, align 8, !tbaa !73
   %237 = call i64 @cli_writen(i32 noundef %235, ptr noundef nonnull %224, i64 noundef %236) #8
-  %238 = load i64, ptr %12, align 8, !tbaa !68
+  %238 = load i64, ptr %12, align 8, !tbaa !73
   %.not286 = icmp eq i64 %237, %238
   call void @free(ptr noundef nonnull %224) #8
   br i1 %.not286, label %250, label %239
 
 239:                                              ; preds = %234
-  %240 = load i32, ptr %13, align 4, !tbaa !46
+  %240 = load i32, ptr %13, align 4, !tbaa !51
   %241 = call i32 @close(i32 noundef %240) #8
-  %242 = load ptr, ptr %155, align 8, !tbaa !47
+  %242 = load ptr, ptr %155, align 8, !tbaa !52
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 40
-  %244 = load i32, ptr %243, align 8, !tbaa !48
+  %244 = load i32, ptr %243, align 8, !tbaa !53
   %.not289 = icmp eq i32 %244, 0
   br i1 %.not289, label %245, label %248
 
 245:                                              ; preds = %239
-  %246 = load ptr, ptr %11, align 8, !tbaa !44
+  %246 = load ptr, ptr %11, align 8, !tbaa !49
   %247 = call i32 @cli_unlink(ptr noundef %246) #8
   br label %248
 
 248:                                              ; preds = %245, %239
-  %249 = load ptr, ptr %11, align 8, !tbaa !44
+  %249 = load ptr, ptr %11, align 8, !tbaa !49
   call void @free(ptr noundef %249) #8
   br label %.thread311
 
 250:                                              ; preds = %234
-  %251 = load ptr, ptr %11, align 8, !tbaa !44
+  %251 = load ptr, ptr %11, align 8, !tbaa !49
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.23, ptr noundef %251) #8
-  %252 = load i32, ptr %13, align 4, !tbaa !46
-  %253 = load ptr, ptr %11, align 8, !tbaa !44
+  %252 = load i32, ptr %13, align 4, !tbaa !51
+  %253 = load ptr, ptr %11, align 8, !tbaa !49
   %254 = call i32 @cli_magic_scan_desc(i32 noundef %252, ptr noundef %253, ptr noundef nonnull %16, ptr noundef null, i32 noundef 0) #8
-  %255 = load i32, ptr %13, align 4, !tbaa !46
+  %255 = load i32, ptr %13, align 4, !tbaa !51
   %256 = call i32 @close(i32 noundef %255) #8
-  %257 = load ptr, ptr %155, align 8, !tbaa !47
+  %257 = load ptr, ptr %155, align 8, !tbaa !52
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 40
-  %259 = load i32, ptr %258, align 8, !tbaa !48
+  %259 = load i32, ptr %258, align 8, !tbaa !53
   %.not287 = icmp eq i32 %259, 0
   br i1 %.not287, label %260, label %263
 
 260:                                              ; preds = %250
-  %261 = load ptr, ptr %11, align 8, !tbaa !44
+  %261 = load ptr, ptr %11, align 8, !tbaa !49
   %262 = call i32 @cli_unlink(ptr noundef %261) #8
   br label %263
 
 263:                                              ; preds = %260, %250
-  %264 = load ptr, ptr %11, align 8, !tbaa !44
+  %264 = load ptr, ptr %11, align 8, !tbaa !49
   call void @free(ptr noundef %264) #8
   %.not288 = icmp eq i32 %254, 0
   br i1 %.not288, label %.thread314, label %.thread311
@@ -881,7 +881,7 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
   br label %.backedge
 
 .backedge:                                        ; preds = %265, %297, %283, %279, %266, %170
-  br label %160
+  br label %160, !llvm.loop !74
 
 266:                                              ; preds = %.thread314, %219
   %267 = call i32 @xmlTextReaderRead(ptr noundef %1) #8
@@ -900,18 +900,18 @@ msxml_check_key.exit:                             ; preds = %62, %64, %.preheade
 
 270:                                              ; preds = %168
   %271 = call ptr @xmlTextReaderConstValue(ptr noundef %1) #8
-  %272 = load i32, ptr %68, align 8, !tbaa !37
+  %272 = load i32, ptr %68, align 8, !tbaa !40
   %273 = and i32 %272, 8
   %.not270 = icmp eq i32 %273, 0
   br i1 %.not270, label %279, label %274
 
 274:                                              ; preds = %270
-  %275 = load ptr, ptr %151, align 8, !tbaa !69
+  %275 = load ptr, ptr %151, align 8, !tbaa !75
   %.not271 = icmp eq ptr %275, null
   br i1 %.not271, label %279, label %276
 
 276:                                              ; preds = %274
-  %277 = load ptr, ptr %152, align 8, !tbaa !70
+  %277 = load ptr, ptr %152, align 8, !tbaa !76
   %278 = call i32 %275(ptr noundef %271, ptr noundef %16, ptr noundef %.0212, ptr noundef %277) #8
   %.not272 = icmp eq i32 %278, 0
   br i1 %.not272, label %279, label %.critedge296
@@ -1066,9 +1066,9 @@ define internal fastcc range(i32 0, 21) i32 @msxml_parse_value(ptr noundef nonnu
   %7 = tail call i32 @xmlStrlen(ptr noundef %1) #8
   %8 = sext i32 %7 to i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
-  store ptr null, ptr %3, align 8, !tbaa !44
+  store ptr null, ptr %3, align 8, !tbaa !49
   %9 = call i64 @strtol(ptr noundef %1, ptr noundef nonnull %3, i32 noundef 10) #8
-  %10 = load ptr, ptr %3, align 8, !tbaa !44
+  %10 = load ptr, ptr %3, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %8
   %.not.i = icmp eq ptr %10, %11
   br i1 %.not.i, label %12, label %16
@@ -1202,39 +1202,45 @@ attributes #9 = { nounwind willreturn memory(read) }
 !32 = !{!33, !34, i64 32}
 !33 = !{!"msxml_ctx", !6, i64 0, !6, i64 8, !6, i64 16, !6, i64 24, !34, i64 32}
 !34 = !{!"p1 _ZTS10msxml_ictx", !6, i64 0}
-!35 = !{!36, !18, i64 0}
-!36 = !{!"key_entry", !18, i64 0, !18, i64 8, !9, i64 16}
-!37 = !{!36, !9, i64 16}
-!38 = !{!36, !18, i64 8}
-!39 = !{!12, !12, i64 0}
-!40 = !{!33, !6, i64 0}
-!41 = !{!42, !18, i64 0}
-!42 = !{!"attrib_entry", !18, i64 0, !18, i64 8}
-!43 = !{!42, !18, i64 8}
-!44 = !{!18, !18, i64 0}
-!45 = !{!17, !18, i64 16}
-!46 = !{!9, !9, i64 0}
-!47 = !{!17, !21, i64 48}
-!48 = !{!49, !9, i64 40}
-!49 = !{!"cl_engine", !9, i64 0, !9, i64 4, !9, i64 8, !7, i64 12, !9, i64 20, !9, i64 24, !9, i64 28, !18, i64 32, !9, i64 40, !11, i64 48, !9, i64 56, !9, i64 60, !11, i64 64, !11, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !50, i64 96, !20, i64 104, !20, i64 112, !20, i64 120, !20, i64 128, !51, i64 136, !52, i64 144, !52, i64 152, !53, i64 160, !25, i64 168, !54, i64 176, !54, i64 184, !55, i64 192, !20, i64 200, !20, i64 208, !18, i64 216, !56, i64 224, !57, i64 232, !58, i64 240, !11, i64 248, !59, i64 256, !60, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !62, i64 416, !7, i64 936, !7, i64 992, !9, i64 1020, !9, i64 1024, !9, i64 1028, !9, i64 1032, !11, i64 1040, !11, i64 1048, !11, i64 1056, !11, i64 1064, !11, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !9, i64 1152, !9, i64 1156, !9, i64 1160, !11, i64 1168, !11, i64 1176, !11, i64 1184, !66, i64 1192}
-!50 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!51 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!52 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!53 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!54 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!55 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!56 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!57 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!58 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!59 = !{!"p1 _ZTS2MP", !6, i64 0}
-!60 = !{!"", !61, i64 0, !9, i64 8}
-!61 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!62 = !{!"cli_all_bc", !63, i64 0, !9, i64 8, !64, i64 16, !65, i64 24, !9, i64 516}
-!63 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!64 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!65 = !{!"cli_environment", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!66 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
-!67 = !{!33, !6, i64 8}
-!68 = !{!11, !11, i64 0}
-!69 = !{!33, !6, i64 16}
-!70 = !{!33, !6, i64 24}
+!35 = distinct !{!35, !36}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !18, i64 0}
+!38 = !{!"key_entry", !18, i64 0, !18, i64 8, !9, i64 16}
+!39 = distinct !{!39, !36}
+!40 = !{!38, !9, i64 16}
+!41 = !{!38, !18, i64 8}
+!42 = !{!12, !12, i64 0}
+!43 = distinct !{!43, !36}
+!44 = !{!33, !6, i64 0}
+!45 = !{!46, !18, i64 0}
+!46 = !{!"attrib_entry", !18, i64 0, !18, i64 8}
+!47 = !{!46, !18, i64 8}
+!48 = distinct !{!48, !36}
+!49 = !{!18, !18, i64 0}
+!50 = !{!17, !18, i64 16}
+!51 = !{!9, !9, i64 0}
+!52 = !{!17, !21, i64 48}
+!53 = !{!54, !9, i64 40}
+!54 = !{!"cl_engine", !9, i64 0, !9, i64 4, !9, i64 8, !7, i64 12, !9, i64 20, !9, i64 24, !9, i64 28, !18, i64 32, !9, i64 40, !11, i64 48, !9, i64 56, !9, i64 60, !11, i64 64, !11, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !55, i64 96, !20, i64 104, !20, i64 112, !20, i64 120, !20, i64 128, !56, i64 136, !57, i64 144, !57, i64 152, !58, i64 160, !25, i64 168, !59, i64 176, !59, i64 184, !60, i64 192, !20, i64 200, !20, i64 208, !18, i64 216, !61, i64 224, !62, i64 232, !63, i64 240, !11, i64 248, !64, i64 256, !65, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !67, i64 416, !7, i64 936, !7, i64 992, !9, i64 1020, !9, i64 1024, !9, i64 1028, !9, i64 1032, !11, i64 1040, !11, i64 1048, !11, i64 1056, !11, i64 1064, !11, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !9, i64 1152, !9, i64 1156, !9, i64 1160, !11, i64 1168, !11, i64 1176, !11, i64 1184, !71, i64 1192}
+!55 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!56 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!57 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!58 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!59 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!60 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!61 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!62 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!63 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!64 = !{!"p1 _ZTS2MP", !6, i64 0}
+!65 = !{!"", !66, i64 0, !9, i64 8}
+!66 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!67 = !{!"cli_all_bc", !68, i64 0, !9, i64 8, !69, i64 16, !70, i64 24, !9, i64 516}
+!68 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!69 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!70 = !{!"cli_environment", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!71 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!72 = !{!33, !6, i64 8}
+!73 = !{!11, !11, i64 0}
+!74 = distinct !{!74, !36}
+!75 = !{!33, !6, i64 16}
+!76 = !{!33, !6, i64 24}

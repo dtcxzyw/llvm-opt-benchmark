@@ -110,7 +110,7 @@ CMAC_Update.exit.thread:                          ; preds = %.lr.ph.i, %28
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %46 = zext i32 %41 to i64
   %47 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 0, i64 %46
-  store i8 -128, ptr %47, align 1, !tbaa !16
+  store i8 -128, ptr %47, align 1, !tbaa !17
   %48 = load i32, ptr %15, align 8, !tbaa !6
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 %49
@@ -129,15 +129,15 @@ CMAC_Update.exit.thread:                          ; preds = %.lr.ph.i, %28
 58:                                               ; preds = %58, %54
   %indvars.iv.i = phi i64 [ 0, %54 ], [ %indvars.iv.next.i, %58 ]
   %59 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 0, i64 %indvars.iv.i
-  %60 = load i8, ptr %59, align 1, !tbaa !16
+  %60 = load i8, ptr %59, align 1, !tbaa !17
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv.i
-  %62 = load i8, ptr %61, align 1, !tbaa !16
+  %62 = load i8, ptr %61, align 1, !tbaa !17
   %63 = xor i8 %62, %60
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
-  store i8 %63, ptr %64, align 1, !tbaa !16
+  store i8 %63, ptr %64, align 1, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %65, label %58, !llvm.loop !17
+  br i1 %exitcond.not.i, label %65, label %58, !llvm.loop !18
 
 65:                                               ; preds = %58
   %66 = call i32 @EVP_Cipher(ptr noundef nonnull %7, ptr noundef nonnull %0, ptr noundef nonnull %0, i64 noundef 16) #8
@@ -198,7 +198,7 @@ define hidden range(i32 0, 2) i32 @CMAC_Init(ptr noundef %0, ptr noundef %1, i64
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %.pre = load i8, ptr %6, align 16, !tbaa !16
+  %.pre = load i8, ptr %6, align 16, !tbaa !17
   br label %19
 
 19:                                               ; preds = %19, %17
@@ -206,24 +206,24 @@ define hidden range(i32 0, 2) i32 @CMAC_Init(ptr noundef %0, ptr noundef %1, i64
   %indvars.iv.i = phi i64 [ 0, %17 ], [ %indvars.iv.next.i, %19 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.next.i
-  %22 = load i8, ptr %21, align 1, !tbaa !16
+  %22 = load i8, ptr %21, align 1, !tbaa !17
   %23 = call i8 @llvm.fshl.i8(i8 %20, i8 %22, i8 1)
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.i
-  store i8 %23, ptr %24, align 1, !tbaa !16
+  store i8 %23, ptr %24, align 1, !tbaa !17
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
-  br i1 %exitcond.not.i, label %binary_field_mul_x.exit, label %19, !llvm.loop !18
+  br i1 %exitcond.not.i, label %binary_field_mul_x.exit, label %19, !llvm.loop !19
 
 binary_field_mul_x.exit:                          ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 15
-  %26 = load i8, ptr %25, align 1, !tbaa !16
+  %26 = load i8, ptr %25, align 1, !tbaa !17
   %27 = shl i8 %26, 1
   %isneg.i = icmp slt i8 %.pre, 0
   %28 = select i1 %isneg.i, i8 -121, i8 0
   %29 = xor i8 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 167
-  store i8 %29, ptr %30, align 1, !tbaa !16
+  store i8 %29, ptr %30, align 1, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %.pre21 = load i8, ptr %18, align 1, !tbaa !16
+  %.pre21 = load i8, ptr %18, align 1, !tbaa !17
   br label %32
 
 32:                                               ; preds = %32, %binary_field_mul_x.exit
@@ -231,12 +231,12 @@ binary_field_mul_x.exit:                          ; preds = %19
   %indvars.iv.i16 = phi i64 [ 0, %binary_field_mul_x.exit ], [ %indvars.iv.next.i17, %32 ]
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i16, 1
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv.next.i17
-  %35 = load i8, ptr %34, align 1, !tbaa !16
+  %35 = load i8, ptr %34, align 1, !tbaa !17
   %36 = call i8 @llvm.fshl.i8(i8 %33, i8 %35, i8 1)
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i16
-  store i8 %36, ptr %37, align 1, !tbaa !16
+  store i8 %36, ptr %37, align 1, !tbaa !17
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, 15
-  br i1 %exitcond.not.i18, label %binary_field_mul_x.exit20, label %32, !llvm.loop !18
+  br i1 %exitcond.not.i18, label %binary_field_mul_x.exit20, label %32, !llvm.loop !19
 
 binary_field_mul_x.exit20:                        ; preds = %32
   %38 = shl i8 %29, 1
@@ -244,7 +244,7 @@ binary_field_mul_x.exit20:                        ; preds = %32
   %39 = select i1 %isneg.i19, i8 -121, i8 0
   %40 = xor i8 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 183
-  store i8 %40, ptr %41, align 1, !tbaa !16
+  store i8 %40, ptr %41, align 1, !tbaa !17
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i32 0, ptr %42, align 8, !tbaa !6
   br label %43
@@ -322,7 +322,7 @@ define hidden range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @CMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
-  store i64 16, ptr %2, align 8, !tbaa !19
+  store i64 16, ptr %2, align 8, !tbaa !20
   %4 = icmp eq ptr %1, null
   br i1 %4, label %31, label %5
 
@@ -336,7 +336,7 @@ define hidden i32 @CMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef writeo
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %10 = zext i32 %7 to i64
   %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 0, i64 %10
-  store i8 -128, ptr %11, align 1, !tbaa !16
+  store i8 -128, ptr %11, align 1, !tbaa !17
   %12 = load i32, ptr %6, align 8, !tbaa !6
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
@@ -355,15 +355,15 @@ define hidden i32 @CMAC_Final(ptr noundef %0, ptr noundef %1, ptr noundef writeo
 22:                                               ; preds = %18, %22
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %22 ]
   %23 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 0, i64 %indvars.iv
-  %24 = load i8, ptr %23, align 1, !tbaa !16
+  %24 = load i8, ptr %23, align 1, !tbaa !17
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %indvars.iv
-  %26 = load i8, ptr %25, align 1, !tbaa !16
+  %26 = load i8, ptr %25, align 1, !tbaa !17
   %27 = xor i8 %26, %24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  store i8 %27, ptr %28, align 1, !tbaa !16
+  store i8 %27, ptr %28, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %29, label %22, !llvm.loop !17
+  br i1 %exitcond.not, label %29, label %22, !llvm.loop !18
 
 29:                                               ; preds = %22
   %30 = tail call i32 @EVP_Cipher(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1, i64 noundef 16) #8
@@ -478,10 +478,11 @@ attributes #9 = { nounwind allocsize(0) }
 !11 = !{!"omnipotent char", !12, i64 0}
 !12 = !{!"Simple C/C++ TBAA"}
 !13 = !{!"int", !11, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!11, !11, i64 0}
-!17 = distinct !{!17, !15}
-!18 = distinct !{!18, !15}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"long", !11, i64 0}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!11, !11, i64 0}
+!18 = distinct !{!18, !15, !16}
+!19 = distinct !{!19, !15, !16}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long", !11, i64 0}

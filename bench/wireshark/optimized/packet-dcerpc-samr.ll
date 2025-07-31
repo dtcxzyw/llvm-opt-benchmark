@@ -5805,7 +5805,7 @@ define hidden i32 @samr_dissect_struct_CryptPassword(ptr noundef %0, i32 noundef
   %16 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
   %17 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %17, 516
-  br i1 %exitcond.not.i, label %samr_dissect_element_CryptPassword_data.exit, label %14, !llvm.loop !10
+  br i1 %exitcond.not.i, label %samr_dissect_element_CryptPassword_data.exit, label %14, !llvm.loop !11
 
 samr_dissect_element_CryptPassword_data.exit:     ; preds = %14
   %18 = sub i32 %16, %1
@@ -5888,7 +5888,7 @@ define hidden i32 @samr_dissect_struct_UserInfo23(ptr noundef %0, i32 noundef %1
   %45 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 noundef 0)
   %46 = add nuw nsw i32 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %46, 516
-  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo23_password.exit, label %43, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo23_password.exit, label %43, !llvm.loop !11
 
 samr_dissect_element_UserInfo23_password.exit:    ; preds = %43
   %47 = sub i32 %45, %42
@@ -5954,7 +5954,7 @@ define hidden i32 @samr_dissect_struct_UserInfo24(ptr noundef %0, i32 noundef %1
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = add nuw nsw i32 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %21, 516
-  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo24_password.exit, label %18, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo24_password.exit, label %18, !llvm.loop !11
 
 samr_dissect_element_UserInfo24_password.exit:    ; preds = %18
   %22 = sub i32 %20, %1
@@ -5989,7 +5989,7 @@ define hidden i32 @samr_dissect_struct_CryptPasswordEx(ptr noundef %0, i32 nound
   %16 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.0, ptr noundef %4, ptr noundef %5, i32 noundef %15, i32 noundef 0)
   %17 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %17, 532
-  br i1 %exitcond.not.i, label %samr_dissect_element_CryptPasswordEx_data.exit, label %14, !llvm.loop !11
+  br i1 %exitcond.not.i, label %samr_dissect_element_CryptPasswordEx_data.exit, label %14, !llvm.loop !12
 
 samr_dissect_element_CryptPasswordEx_data.exit:   ; preds = %14
   %18 = sub i32 %16, %1
@@ -6072,7 +6072,7 @@ define hidden i32 @samr_dissect_struct_UserInfo25(ptr noundef %0, i32 noundef %1
   %45 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %44, i32 noundef 0)
   %46 = add nuw nsw i32 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %46, 532
-  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo25_password.exit, label %43, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo25_password.exit, label %43, !llvm.loop !12
 
 samr_dissect_element_UserInfo25_password.exit:    ; preds = %43
   %47 = sub i32 %45, %42
@@ -6138,7 +6138,7 @@ define hidden i32 @samr_dissect_struct_UserInfo26(ptr noundef %0, i32 noundef %1
   %20 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i.i, ptr noundef %2, ptr noundef %.0.i.i, ptr noundef %4, ptr noundef %5, i32 noundef %19, i32 noundef 0)
   %21 = add nuw nsw i32 %.010.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i32 %21, 532
-  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo26_password.exit, label %18, !llvm.loop !11
+  br i1 %exitcond.not.i.i.i, label %samr_dissect_element_UserInfo26_password.exit, label %18, !llvm.loop !12
 
 samr_dissect_element_UserInfo26_password.exit:    ; preds = %18
   %22 = sub i32 %20, %1
@@ -6182,7 +6182,7 @@ define hidden i32 @samr_dissect_struct_EncryptedPasswordAES(ptr noundef %0, i32 
   %22 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %21, i32 noundef 0)
   %23 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %23, 64
-  br i1 %exitcond.not.i, label %samr_dissect_element_EncryptedPasswordAES_auth_data.exit, label %20, !llvm.loop !12
+  br i1 %exitcond.not.i, label %samr_dissect_element_EncryptedPasswordAES_auth_data.exit, label %20, !llvm.loop !13
 
 samr_dissect_element_EncryptedPasswordAES_auth_data.exit: ; preds = %20, %samr_dissect_element_EncryptedPasswordAES_auth_data.exit
   %.010.i54 = phi i32 [ %26, %samr_dissect_element_EncryptedPasswordAES_auth_data.exit ], [ 0, %20 ]
@@ -6191,7 +6191,7 @@ samr_dissect_element_EncryptedPasswordAES_auth_data.exit: ; preds = %20, %samr_d
   %25 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i55, ptr noundef %2, ptr noundef %.047, ptr noundef %4, ptr noundef %5, i32 noundef %24, i32 noundef 0)
   %26 = add nuw nsw i32 %.010.i54, 1
   %exitcond.not.i56 = icmp eq i32 %26, 16
-  br i1 %exitcond.not.i56, label %samr_dissect_element_EncryptedPasswordAES_salt.exit, label %samr_dissect_element_EncryptedPasswordAES_auth_data.exit, !llvm.loop !13
+  br i1 %exitcond.not.i56, label %samr_dissect_element_EncryptedPasswordAES_salt.exit, label %samr_dissect_element_EncryptedPasswordAES_auth_data.exit, !llvm.loop !14
 
 samr_dissect_element_EncryptedPasswordAES_salt.exit: ; preds = %samr_dissect_element_EncryptedPasswordAES_auth_data.exit
   %27 = load i32, ptr @hf_samr_samr_EncryptedPasswordAES_cipher_len, align 4
@@ -13236,7 +13236,7 @@ define internal i32 @samr_dissect_element_OemChangePasswordUser2_password_(ptr n
   %15 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %14, i32 noundef 0)
   %16 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %16, 516
-  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !11
 
 samr_dissect_struct_CryptPassword.exit:           ; preds = %13
   %17 = sub i32 %15, %1
@@ -13314,7 +13314,7 @@ define internal i32 @samr_dissect_element_ChangePasswordUser2_nt_password_(ptr n
   %15 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %14, i32 noundef 0)
   %16 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %16, 516
-  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !11
 
 samr_dissect_struct_CryptPassword.exit:           ; preds = %13
   %17 = sub i32 %15, %1
@@ -13378,7 +13378,7 @@ define internal i32 @samr_dissect_element_ChangePasswordUser2_lm_password_(ptr n
   %15 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %14, i32 noundef 0)
   %16 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %16, 516
-  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !11
 
 samr_dissect_struct_CryptPassword.exit:           ; preds = %13
   %17 = sub i32 %15, %1
@@ -13565,7 +13565,7 @@ define internal i32 @samr_dissect_element_ChangePasswordUser3_nt_password_(ptr n
   %15 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %14, i32 noundef 0)
   %16 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %16, 516
-  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !11
 
 samr_dissect_struct_CryptPassword.exit:           ; preds = %13
   %17 = sub i32 %15, %1
@@ -13629,7 +13629,7 @@ define internal i32 @samr_dissect_element_ChangePasswordUser3_lm_password_(ptr n
   %15 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %14, i32 noundef 0)
   %16 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %16, 516
-  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !11
 
 samr_dissect_struct_CryptPassword.exit:           ; preds = %13
   %17 = sub i32 %15, %1
@@ -13693,7 +13693,7 @@ define internal i32 @samr_dissect_element_ChangePasswordUser3_password3_(ptr nou
   %15 = tail call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i.i, ptr noundef %2, ptr noundef %.0.i, ptr noundef %4, ptr noundef %5, i32 noundef %14, i32 noundef 0)
   %16 = add nuw nsw i32 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %16, 516
-  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %samr_dissect_struct_CryptPassword.exit, label %13, !llvm.loop !11
 
 samr_dissect_struct_CryptPassword.exit:           ; preds = %13
   %17 = sub i32 %15, %1
@@ -14033,9 +14033,10 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}

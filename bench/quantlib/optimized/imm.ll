@@ -2586,5 +2586,6 @@ attributes #22 = { nounwind willreturn memory(none) }
 !56 = distinct !{!56, !"_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm"}
 !57 = !{!29, !29, i64 0}
 !58 = !{!11, !11, i64 0}
-!59 = distinct !{!59, !60}
+!59 = distinct !{!59, !60, !61}
 !60 = !{!"llvm.loop.mustprogress"}
+!61 = !{!"llvm.loop.estimated_trip_count"}

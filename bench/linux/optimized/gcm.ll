@@ -1890,7 +1890,7 @@ define internal i32 @gcm_dec_hash_continue(ptr noundef %0, i32 noundef %1) #2 al
   store i64 %64, ptr %59, align 1
   %66 = add nsw i32 %58, -8
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %57, !llvm.loop !9
+  br i1 %67, label %68, label %57, !llvm.loop !13
 
 68:                                               ; preds = %57
   %69 = sub i32 %56, %54
@@ -1949,7 +1949,7 @@ define internal void @gcm_decrypt_done(ptr noundef %0, i32 noundef %1) #2 align 
   store i64 %31, ptr %26, align 1
   %33 = add nsw i32 %25, -8
   %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %24, !llvm.loop !9
+  br i1 %34, label %35, label %24, !llvm.loop !14
 
 35:                                               ; preds = %24
   %36 = sub i32 %23, %21
@@ -2643,6 +2643,9 @@ attributes #15 = { nounwind allocsize(0) }
 !6 = !{!"branch_weights", i32 2000, i32 1}
 !7 = !{i64 2154427479, i64 2154427288, i64 2154427340, i64 2154427386, i64 2154427414}
 !8 = !{i64 2154427553, i64 2154427582, i64 2154427628, i64 2154427686, i64 2154427740, i64 2154427794, i64 2154427849, i64 2154427880}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !10, !11, !12}
+!14 = distinct !{!14, !10, !11, !12}

@@ -176,12 +176,12 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %111 = or i64 %106, %110
   store i64 %111, ptr %109, align 8, !tbaa !30
   %112 = icmp ugt i32 %100, 1
-  br i1 %112, label %.lr.ph, label %.loopexit
+  br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !36
 
 .loopexit:                                        ; preds = %.lr.ph, %91, %75, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader243, label %36
+  br i1 %exitcond.not, label %.preheader243, label %36, !llvm.loop !38
 
 .preheader242:                                    ; preds = %.lr.ph250, %.preheader243
   %.0219.lcssa = phi i32 [ 0, %.preheader243 ], [ %spec.select292, %.lr.ph250 ]
@@ -208,10 +208,10 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %123 = zext i1 %.not241 to i32
   %spec.select292 = add i32 %.0219248, %123
   %124 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv270
-  store i32 %spec.select, ptr %124, align 4, !tbaa !36
+  store i32 %spec.select, ptr %124, align 4, !tbaa !39
   %indvars.iv.next271 = add nuw nsw i64 %indvars.iv270, 1
   %exitcond274.not = icmp eq i64 %indvars.iv.next271, %wide.trip.count273
-  br i1 %exitcond274.not, label %.preheader242, label %.lr.ph250
+  br i1 %exitcond274.not, label %.preheader242, label %.lr.ph250, !llvm.loop !40
 
 .lr.ph254:                                        ; preds = %.lr.ph254.preheader, %.lr.ph254
   %indvars.iv275 = phi i64 [ %116, %.lr.ph254.preheader ], [ %indvars.iv.next276, %.lr.ph254 ]
@@ -229,11 +229,11 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %133 = zext i1 %.not240 to i32
   %.1223 = add i32 %.0222252, %133
   %134 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv275
-  store i32 %.sink, ptr %134, align 4, !tbaa !36
+  store i32 %.sink, ptr %134, align 4, !tbaa !39
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %135 = trunc nsw i64 %indvars.iv.next276 to i32
   %136 = icmp ugt i32 %114, %135
-  br i1 %136, label %.lr.ph254, label %._crit_edge
+  br i1 %136, label %.lr.ph254, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph254, %.preheader242
   %.0222.lcssa = phi i32 [ 0, %.preheader242 ], [ %.1223, %.lr.ph254 ]
@@ -286,7 +286,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %158 = add nsw i32 %157, -5
   %159 = zext i32 %158 to i64
   %160 = getelementptr inbounds nuw i32, ptr %29, i64 %159
-  %161 = load i32, ptr %160, align 4, !tbaa !36
+  %161 = load i32, ptr %160, align 4, !tbaa !39
   %162 = shl i32 %161, 4
   %163 = add i32 %162, 80
   store i32 %163, ptr %155, align 8, !tbaa !29
@@ -306,7 +306,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %172 = add nsw i32 %171, -5
   %173 = zext i32 %172 to i64
   %174 = getelementptr inbounds nuw i32, ptr %29, i64 %173
-  %175 = load i32, ptr %174, align 4, !tbaa !36
+  %175 = load i32, ptr %174, align 4, !tbaa !39
   %176 = shl i32 %175, 4
   %177 = add i32 %176, 80
   store i32 %177, ptr %169, align 4, !tbaa !29
@@ -326,7 +326,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %186 = add nsw i32 %185, -5
   %187 = zext i32 %186 to i64
   %188 = getelementptr inbounds nuw i32, ptr %29, i64 %187
-  %189 = load i32, ptr %188, align 4, !tbaa !36
+  %189 = load i32, ptr %188, align 4, !tbaa !39
   %190 = shl i32 %189, 4
   %191 = add i32 %190, 80
   store i32 %191, ptr %183, align 8, !tbaa !29
@@ -337,7 +337,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %193 = load i32, ptr %30, align 8, !tbaa !25
   %194 = zext i32 %193 to i64
   %195 = icmp samesign ult i64 %indvars.iv.next279, %194
-  br i1 %195, label %148, label %._crit_edge259.loopexit
+  br i1 %195, label %148, label %._crit_edge259.loopexit, !llvm.loop !42
 
 ._crit_edge259.loopexit:                          ; preds = %192
   %.pre288 = load i32, ptr %2, align 4, !tbaa !4
@@ -375,17 +375,17 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   %207 = phi i32 [ %203, %.lr.ph262 ], [ %226, %zend_string_release_ex.exit ]
   %indvars.iv281 = phi i64 [ 0, %.lr.ph262 ], [ %indvars.iv.next282, %zend_string_release_ex.exit ]
   %208 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv281
-  %209 = load i32, ptr %208, align 4, !tbaa !36
+  %209 = load i32, ptr %208, align 4, !tbaa !39
   %.not231 = icmp eq i32 %209, -1
-  %210 = load ptr, ptr %205, align 8, !tbaa !37
+  %210 = load ptr, ptr %205, align 8, !tbaa !43
   %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv281
-  %212 = load ptr, ptr %211, align 8, !tbaa !38
+  %212 = load ptr, ptr %211, align 8, !tbaa !44
   br i1 %.not231, label %216, label %213
 
 213:                                              ; preds = %206
   %214 = zext i32 %209 to i64
   %215 = getelementptr inbounds nuw ptr, ptr %202, i64 %214
-  store ptr %212, ptr %215, align 8, !tbaa !38
+  store ptr %212, ptr %215, align 8, !tbaa !44
   br label %zend_string_release_ex.exit
 
 216:                                              ; preds = %206
@@ -396,11 +396,11 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
   br i1 %.not.i, label %220, label %zend_string_release_ex.exit
 
 220:                                              ; preds = %216
-  %221 = load i32, ptr %212, align 4, !tbaa !39
+  %221 = load i32, ptr %212, align 4, !tbaa !45
   %222 = icmp ne i32 %221, 0
   call void @llvm.assume(i1 %222)
   %223 = add i32 %221, -1
-  store i32 %223, ptr %212, align 4, !tbaa !39
+  store i32 %223, ptr %212, align 4, !tbaa !45
   %224 = icmp eq i32 %223, 0
   br i1 %224, label %225, label %zend_string_release_ex.exit
 
@@ -414,14 +414,14 @@ zend_string_release_ex.exit:                      ; preds = %225, %220, %216, %2
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %227 = sext i32 %226 to i64
   %228 = icmp slt i64 %indvars.iv.next282, %227
-  br i1 %228, label %206, label %._crit_edge263
+  br i1 %228, label %206, label %._crit_edge263, !llvm.loop !47
 
 229:                                              ; preds = %.lr.ph265, %zend_string_release_ex.exit239
   %230 = phi i32 [ %196, %.lr.ph265 ], [ %243, %zend_string_release_ex.exit239 ]
   %indvars.iv284 = phi i64 [ 0, %.lr.ph265 ], [ %indvars.iv.next285, %zend_string_release_ex.exit239 ]
-  %231 = load ptr, ptr %199, align 8, !tbaa !37
+  %231 = load ptr, ptr %199, align 8, !tbaa !43
   %232 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv284
-  %233 = load ptr, ptr %232, align 8, !tbaa !38
+  %233 = load ptr, ptr %232, align 8, !tbaa !44
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %235 = load i32, ptr %234, align 4, !tbaa !29
   %236 = and i32 %235, 64
@@ -429,11 +429,11 @@ zend_string_release_ex.exit:                      ; preds = %225, %220, %216, %2
   br i1 %.not.i238, label %237, label %zend_string_release_ex.exit239
 
 237:                                              ; preds = %229
-  %238 = load i32, ptr %233, align 4, !tbaa !39
+  %238 = load i32, ptr %233, align 4, !tbaa !45
   %239 = icmp ne i32 %238, 0
   call void @llvm.assume(i1 %239)
   %240 = add i32 %238, -1
-  store i32 %240, ptr %233, align 4, !tbaa !39
+  store i32 %240, ptr %233, align 4, !tbaa !45
   %241 = icmp eq i32 %240, 0
   br i1 %241, label %242, label %zend_string_release_ex.exit239
 
@@ -447,19 +447,19 @@ zend_string_release_ex.exit239:                   ; preds = %229, %237, %242
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %244 = sext i32 %243 to i64
   %245 = icmp slt i64 %indvars.iv.next285, %244
-  br i1 %245, label %229, label %._crit_edge263
+  br i1 %245, label %229, label %._crit_edge263, !llvm.loop !48
 
 ._crit_edge263:                                   ; preds = %zend_string_release_ex.exit, %zend_string_release_ex.exit239, %.preheader, %200
   %.sink293 = phi ptr [ %202, %200 ], [ null, %.preheader ], [ null, %zend_string_release_ex.exit239 ], [ %202, %zend_string_release_ex.exit ]
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %247 = load ptr, ptr %246, align 8, !tbaa !37
+  %247 = load ptr, ptr %246, align 8, !tbaa !43
   call void @_efree(ptr noundef %247) #6
-  store ptr %.sink293, ptr %246, align 8, !tbaa !37
+  store ptr %.sink293, ptr %246, align 8, !tbaa !43
   store i32 %.0219.lcssa, ptr %2, align 4, !tbaa !4
   br label %248
 
 248:                                              ; preds = %._crit_edge263, %._crit_edge259
-  %249 = load i32, ptr @zend_observer_fcall_op_array_extension, align 4, !tbaa !36
+  %249 = load i32, ptr @zend_observer_fcall_op_array_extension, align 4, !tbaa !39
   %250 = icmp ne i32 %249, -1
   %251 = zext i1 %250 to i32
   %252 = add i32 %.0222.lcssa, %251
@@ -533,8 +533,16 @@ attributes #6 = { nounwind }
 !33 = !{!28, !6, i64 31}
 !34 = !{!28, !6, i64 28}
 !35 = !{!28, !8, i64 20}
-!36 = !{!8, !8, i64 0}
-!37 = !{!5, !17, i64 128}
-!38 = !{!9, !9, i64 0}
-!39 = !{!40, !8, i64 0}
-!40 = !{!"_zend_refcounted_h", !8, i64 0, !6, i64 4}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !37}
+!39 = !{!8, !8, i64 0}
+!40 = distinct !{!40, !37}
+!41 = distinct !{!41, !37}
+!42 = distinct !{!42, !37}
+!43 = !{!5, !17, i64 128}
+!44 = !{!9, !9, i64 0}
+!45 = !{!46, !8, i64 0}
+!46 = !{!"_zend_refcounted_h", !8, i64 0, !6, i64 4}
+!47 = distinct !{!47, !37}
+!48 = distinct !{!48, !37}

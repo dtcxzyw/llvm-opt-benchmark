@@ -300,7 +300,7 @@ define internal void @server_port_ready_callback(i32 %0, i16 noundef signext %1,
   %30 = call i64 @recvfrom(i32 noundef %29, ptr noundef nonnull %4, i64 noundef 1500, i32 noundef 0, ptr nonnull %5, ptr noundef nonnull %6) #21
   %31 = trunc i64 %30 to i32
   %32 = icmp slt i32 %31, 0
-  br i1 %32, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %32, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !3
 
 server_udp_port_read.exit:                        ; preds = %._crit_edge.i, %._crit_edge.i, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
@@ -579,7 +579,7 @@ evdns_remove_tcp_client.exit.i:                   ; preds = %20, %evdns_tcp_disc
   store i32 %26, ptr %11, align 4
   %27 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %evdns_remove_all_tcp_clients.exit, label %12, !llvm.loop !3
+  br i1 %.not.i, label %evdns_remove_all_tcp_clients.exit, label %12, !llvm.loop !5
 
 evdns_remove_all_tcp_clients.exit:                ; preds = %evdns_remove_tcp_client.exit.i, %.evdns_remove_all_tcp_clients.exit_crit_edge
   %28 = phi i32 [ %.pre, %.evdns_remove_all_tcp_clients.exit_crit_edge ], [ %26, %evdns_remove_tcp_client.exit.i ]
@@ -694,7 +694,7 @@ switch.lookup:                                    ; preds = %17
   %.1 = phi ptr [ %24, %switch.lookup ], [ %28, %27 ]
   %28 = load ptr, ptr %.1, align 8
   %.not57 = icmp eq ptr %28, null
-  br i1 %.not57, label %29, label %27, !llvm.loop !5
+  br i1 %.not57, label %29, label %27, !llvm.loop !7
 
 29:                                               ; preds = %27
   %30 = tail call ptr @event_mm_malloc_(i64 noundef 40) #21
@@ -976,7 +976,7 @@ define range(i32 -2147483648, 2) i32 @evdns_server_request_respond(ptr noundef %
   call void @event_mm_free_(ptr noundef %61) #21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond244.not.i = icmp eq i64 %indvars.iv.next.i.i, %58
-  br i1 %exitcond244.not.i, label %evdns_server_request_format_response.exit, label %59, !llvm.loop !6
+  br i1 %exitcond244.not.i, label %evdns_server_request_format_response.exit, label %59, !llvm.loop !8
 
 62:                                               ; preds = %46
   %63 = icmp samesign ugt i64 %52, 65534
@@ -1006,7 +1006,7 @@ define range(i32 -2147483648, 2) i32 @evdns_server_request_respond(ptr noundef %
   %77 = load i32, ptr %25, align 4
   %78 = sext i32 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next.i, %78
-  br i1 %79, label %46, label %.preheader.i, !llvm.loop !7
+  br i1 %79, label %46, label %.preheader.i, !llvm.loop !9
 
 80:                                               ; preds = %._crit_edge.i, %.preheader.i
   %.2145236.i = phi i64 [ %.0143.lcssa.i, %.preheader.i ], [ %.3.lcssa.i, %._crit_edge.i ]
@@ -1115,13 +1115,13 @@ define range(i32 -2147483648, 2) i32 @evdns_server_request_respond(ptr noundef %
   %.6.i = phi i64 [ %121, %126 ], [ %104, %123 ], [ %109, %.thread209.i ]
   %.1147.i = load ptr, ptr %.1147232.i, align 8
   %.not166.i = icmp eq ptr %.1147.i, null
-  br i1 %.not166.i, label %._crit_edge.i, label %.lr.ph233.i, !llvm.loop !8
+  br i1 %.not166.i, label %._crit_edge.i, label %.lr.ph233.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %128, %83
   %.3.lcssa.i = phi i64 [ %.2145236.i, %83 ], [ %.6.i, %128 ]
   %129 = add nuw nsw i32 %.1152235.i, 1
   %exitcond.not.i = icmp eq i32 %129, 3
-  br i1 %exitcond.not.i, label %130, label %80, !llvm.loop !9
+  br i1 %exitcond.not.i, label %130, label %80, !llvm.loop !11
 
 130:                                              ; preds = %._crit_edge.i
   %131 = getelementptr inbounds i8, ptr %0, i64 -60
@@ -1199,13 +1199,13 @@ define range(i32 -2147483648, 2) i32 @evdns_server_request_respond(ptr noundef %
 161:                                              ; preds = %160, %.lr.ph.i181.i
   call void @event_mm_free_(ptr noundef nonnull %.01822.i.i) #21
   %.not.i.i = icmp eq ptr %155, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i181.i, !llvm.loop !10
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i181.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %161, %153
   store ptr null, ptr %.017.i.i, align 8
   %162 = add nuw nsw i32 %.023.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %162, 3
-  br i1 %exitcond.not.i.i, label %server_request_free_answers.exit.i, label %150, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %server_request_free_answers.exit.i, label %150, !llvm.loop !13
 
 server_request_free_answers.exit.i:               ; preds = %._crit_edge.i.i
   %163 = load i32, ptr %4, align 8
@@ -1224,7 +1224,7 @@ server_request_free_answers.exit.i:               ; preds = %._crit_edge.i.i
   call void @event_mm_free_(ptr noundef %169) #21
   %indvars.iv.next.i185.i = add nuw nsw i64 %indvars.iv.i184.i, 1
   %exitcond243.not.i = icmp eq i64 %indvars.iv.next.i185.i, %166
-  br i1 %exitcond243.not.i, label %evdns_server_request_format_response.exit.thread, label %167, !llvm.loop !6
+  br i1 %exitcond243.not.i, label %evdns_server_request_format_response.exit.thread, label %167, !llvm.loop !8
 
 170:                                              ; preds = %143
   %171 = load i64, ptr %144, align 8
@@ -1273,13 +1273,13 @@ server_request_free_answers.exit.i:               ; preds = %._crit_edge.i.i
 186:                                              ; preds = %185, %.lr.ph.i190.i
   call void @event_mm_free_(ptr noundef nonnull %.01822.i191.i) #21
   %.not.i193.i = icmp eq ptr %180, null
-  br i1 %.not.i193.i, label %._crit_edge.i194.i, label %.lr.ph.i190.i, !llvm.loop !10
+  br i1 %.not.i193.i, label %._crit_edge.i194.i, label %.lr.ph.i190.i, !llvm.loop !12
 
 ._crit_edge.i194.i:                               ; preds = %186, %178
   store ptr null, ptr %.017.i188.i, align 8
   %187 = add nuw nsw i32 %.023.i187.i, 1
   %exitcond.not.i195.i = icmp eq i32 %187, 3
-  br i1 %exitcond.not.i195.i, label %server_request_free_answers.exit196.i, label %175, !llvm.loop !11
+  br i1 %exitcond.not.i195.i, label %server_request_free_answers.exit196.i, label %175, !llvm.loop !13
 
 server_request_free_answers.exit196.i:            ; preds = %._crit_edge.i194.i
   %188 = load i32, ptr %4, align 8
@@ -1298,7 +1298,7 @@ server_request_free_answers.exit196.i:            ; preds = %._crit_edge.i194.i
   call void @event_mm_free_(ptr noundef %194) #21
   %indvars.iv.next.i200.i = add nuw nsw i64 %indvars.iv.i199.i, 1
   %exitcond242.not.i = icmp eq i64 %indvars.iv.next.i200.i, %191
-  br i1 %exitcond242.not.i, label %evdns_server_request_format_response.exit.thread57, label %192, !llvm.loop !6
+  br i1 %exitcond242.not.i, label %evdns_server_request_format_response.exit.thread57, label %192, !llvm.loop !8
 
 evdns_server_request_format_response.exit.thread: ; preds = %167, %16, %server_request_free_answers.exit.i
   call void @llvm.lifetime.end.p0(i64 2056, ptr nonnull %4) #21
@@ -1577,7 +1577,7 @@ define internal fastcc range(i32 0, 2) i32 @server_request_free(ptr noundef %0) 
   %12 = load i32, ptr %4, align 4
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !12
+  br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %2, align 8
@@ -1687,13 +1687,13 @@ define internal fastcc range(i32 0, 2) i32 @server_request_free(ptr noundef %0) 
 56:                                               ; preds = %55, %.lr.ph.i
   tail call void @event_mm_free_(ptr noundef nonnull %.01822.i) #21
   %.not.i = icmp eq ptr %50, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %56, %48
   store ptr null, ptr %.017.i, align 8
   %57 = add nuw nsw i32 %.023.i, 1
   %exitcond.not.i = icmp eq i32 %57, 3
-  br i1 %exitcond.not.i, label %server_request_free_answers.exit, label %45, !llvm.loop !11
+  br i1 %exitcond.not.i, label %server_request_free_answers.exit, label %45, !llvm.loop !13
 
 server_request_free_answers.exit:                 ; preds = %._crit_edge.i
   %58 = load ptr, ptr %0, align 8
@@ -1823,7 +1823,7 @@ define internal fastcc void @server_port_flush(ptr noundef %0) unnamed_addr #2 {
 12:                                               ; preds = %10, %4
   %13 = tail call fastcc i32 @server_request_free(ptr noundef nonnull %.023)
   %.not28 = icmp eq i32 %13, 0
-  br i1 %.not28, label %3, label %.critedge, !llvm.loop !13
+  br i1 %.not28, label %3, label %.critedge, !llvm.loop !15
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1895,7 +1895,7 @@ define range(i32 -2147483647, -2147483648) i32 @evdns_base_count_nameservers(ptr
   %11 = getelementptr inbounds nuw i8, ptr %.010, i64 280
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %12, %9
-  br i1 %.not15, label %.loopexit, label %.preheader, !llvm.loop !14
+  br i1 %.not15, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %7
   %.1 = phi i32 [ 0, %7 ], [ %10, %.preheader ]
@@ -1938,7 +1938,7 @@ define range(i32 -2147483647, -2147483648) i32 @evdns_count_nameservers() local_
   %11 = getelementptr inbounds nuw i8, ptr %.010.i, i64 280
   %12 = load ptr, ptr %11, align 8
   %.not15.i = icmp eq ptr %12, %9
-  br i1 %.not15.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !14
+  br i1 %.not15.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %.preheader.i, %7
   %.1.i = phi i32 [ 0, %7 ], [ %10, %.preheader.i ]
@@ -2043,7 +2043,7 @@ disconnect_and_free_connection.exit:              ; preds = %.preheader, %evdns_
 38:                                               ; preds = %36, %33
   tail call void @event_mm_free_(ptr noundef nonnull %.053) #21
   %39 = icmp eq ptr %13, %9
-  br i1 %39, label %40, label %.preheader
+  br i1 %39, label %40, label %.preheader, !llvm.loop !17
 
 40:                                               ; preds = %38
   store ptr null, ptr %8, align 8
@@ -2117,7 +2117,7 @@ evdns_request_insert.exit:                        ; preds = %65, %67
   %76 = load ptr, ptr %75, align 8
   store ptr %76, ptr %46, align 8
   %77 = icmp eq ptr %54, %50
-  br i1 %77, label %78, label %51
+  br i1 %77, label %78, label %51, !llvm.loop !18
 
 78:                                               ; preds = %evdns_request_insert.exit, %51
   %79 = load ptr, ptr %0, align 8
@@ -2127,7 +2127,7 @@ evdns_request_insert.exit:                        ; preds = %65, %67
   %81 = load i32, ptr %42, align 8
   %82 = sext i32 %81 to i64
   %83 = icmp slt i64 %indvars.iv.next, %82
-  br i1 %83, label %47, label %._crit_edge, !llvm.loop !15
+  br i1 %83, label %47, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %78, %40
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2343,7 +2343,7 @@ nameserver_pick.exit.thread:                      ; preds = %15
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %10, align 8
   %27 = icmp eq ptr %26, %17
-  br i1 %27, label %nameserver_pick.exit.thread33, label %.preheader.i
+  br i1 %27, label %nameserver_pick.exit.thread33, label %.preheader.i, !llvm.loop !20
 
 nameserver_pick.exit.thread33:                    ; preds = %24, %.preheader.i
   %.0.ph.i.ph = phi ptr [ %21, %.preheader.i ], [ %26, %24 ]
@@ -2430,11 +2430,11 @@ evdns_request_remove.exit:                        ; preds = %39, %.sink.split.i2
   %64 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 32
   %65 = load ptr, ptr %64, align 8
   %.not16.i.i = icmp eq ptr %65, %59
-  br i1 %.not16.i.i, label %transaction_id_pick.exit, label %.preheader.i.i, !llvm.loop !16
+  br i1 %.not16.i.i, label %transaction_id_pick.exit, label %.preheader.i.i, !llvm.loop !21
 
 request_find_from_trans_id.exit.i:                ; preds = %.preheader.i.i, %51
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #21
-  br label %51
+  br label %51, !llvm.loop !22
 
 transaction_id_pick.exit:                         ; preds = %54, %63
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #21
@@ -2505,7 +2505,7 @@ evdns_request_insert.exit:                        ; preds = %76, %78
   %96 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 32
   %97 = load ptr, ptr %96, align 8
   %.not20.i = icmp eq ptr %97, %90
-  br i1 %.not20.i, label %.loopexit.loopexit.i, label %.preheader.i28, !llvm.loop !17
+  br i1 %.not20.i, label %.loopexit.loopexit.i, label %.preheader.i28, !llvm.loop !23
 
 .loopexit.loopexit.i:                             ; preds = %95
   %.pre.i = load i32, ptr %12, align 8
@@ -2516,13 +2516,13 @@ evdns_request_insert.exit:                        ; preds = %76, %78
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %99 = sext i32 %98 to i64
   %100 = icmp slt i64 %indvars.iv.next.i, %99
-  br i1 %100, label %.lr.ph.i, label %evdns_transmit.exit, !llvm.loop !18
+  br i1 %100, label %.lr.ph.i, label %evdns_transmit.exit, !llvm.loop !24
 
 evdns_transmit.exit:                              ; preds = %.loopexit.i, %evdns_request_insert.exit
   %101 = load i32, ptr %3, align 4
   %102 = load i32, ptr %4, align 4
   %103 = icmp slt i32 %101, %102
-  br i1 %103, label %13, label %.critedge
+  br i1 %103, label %13, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %13, %evdns_transmit.exit, %nameserver_pick.exit, %1, %nameserver_pick.exit.thread
   ret void
@@ -2614,7 +2614,7 @@ define internal fastcc range(i32 -8, 4) i32 @evdns_nameserver_add_impl_(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %.072, i64 280
   %11 = load ptr, ptr %10, align 8
   %.not80 = icmp eq ptr %11, %6
-  br i1 %.not80, label %.loopexit90, label %.preheader, !llvm.loop !19
+  br i1 %.not80, label %.loopexit90, label %.preheader, !llvm.loop !26
 
 .loopexit90:                                      ; preds = %9, %3
   %12 = icmp sgt i32 %2, 128
@@ -3134,7 +3134,7 @@ define i32 @evdns_base_get_nameserver_addr(ptr noundef readonly captures(none) %
   %18 = icmp slt i32 %17, %1
   %19 = icmp ne ptr %22, null
   %20 = and i1 %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %10, %16
   %.030 = phi ptr [ %22, %16 ], [ %12, %10 ]
@@ -3202,7 +3202,7 @@ define i32 @evdns_base_get_nameserver_fd(ptr noundef readonly captures(none) %0,
   %16 = icmp slt i32 %15, %1
   %17 = icmp ne ptr %20, null
   %18 = and i1 %16, %17
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %8, %14
   %.023 = phi ptr [ %20, %14 ], [ %10, %8 ]
@@ -3385,7 +3385,7 @@ evdns_request_remove.exit:                        ; preds = %17, %.sink.split.i
   %79 = load ptr, ptr %78, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %.013.i.i) #21
   %.not11.i.i = icmp eq ptr %79, null
-  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %75
   tail call void @event_mm_free_(ptr noundef nonnull %71) #21
@@ -3655,11 +3655,11 @@ define internal fastcc ptr @request_new(ptr noundef %0, ptr noundef %1, i32 noun
   %35 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not16.i.i = icmp eq ptr %36, %30
-  br i1 %.not16.i.i, label %transaction_id_pick.exit, label %.preheader.i.i, !llvm.loop !16
+  br i1 %.not16.i.i, label %transaction_id_pick.exit, label %.preheader.i.i, !llvm.loop !21
 
 request_find_from_trans_id.exit.i:                ; preds = %.preheader.i.i, %22
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #21
-  br label %22
+  br label %22, !llvm.loop !22
 
 transaction_id_pick.exit:                         ; preds = %25, %34
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #21
@@ -3740,7 +3740,7 @@ transaction_id_pick.exit:                         ; preds = %25, %34
   %74 = add nuw i32 %.085, 1
   %75 = zext i32 %74 to i64
   %76 = icmp ult i32 %74, %58
-  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %73, %54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #21
@@ -3900,7 +3900,7 @@ evdns_request_data_build.exit:                    ; preds = %111, %132, %98
 155:                                              ; preds = %.preheader.i
   store ptr %154, ptr %142, align 8
   %156 = icmp eq ptr %154, %143
-  br i1 %156, label %157, label %.preheader.i
+  br i1 %156, label %157, label %.preheader.i, !llvm.loop !20
 
 157:                                              ; preds = %155
   %158 = getelementptr inbounds nuw i8, ptr %154, i64 280
@@ -3981,7 +3981,7 @@ define internal fastcc void @search_request_new(ptr noundef %0, ptr noundef nonn
   %18 = add nuw nsw i32 %.06.i, 1
   %19 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %17, i32 noundef 46) #23
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %string_num_dots.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %string_num_dots.exit, label %.lr.ph.i, !llvm.loop !31
 
 string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
   %.0.lcssa.i = phi i32 [ 0, %14 ], [ %18, %.lr.ph.i ]
@@ -4639,7 +4639,7 @@ define ptr @evdns_base_resolve_reverse_ipv6(ptr noundef %0, ptr noundef readonly
   store i8 46, ptr %21, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not44 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not44, label %23, label %7, !llvm.loop !25
+  br i1 %.not44, label %23, label %7, !llvm.loop !32
 
 23:                                               ; preds = %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %22, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
@@ -4839,7 +4839,7 @@ define void @evdns_base_search_clear(ptr noundef captures(none) %0) local_unname
   %17 = load ptr, ptr %16, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %.013.i.i) #21
   %.not11.i.i = icmp eq ptr %17, null
-  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %13
   tail call void @event_mm_free_(ptr noundef nonnull %9) #21
@@ -4911,7 +4911,7 @@ define void @evdns_search_clear() local_unnamed_addr #2 {
   %17 = load ptr, ptr %16, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %.013.i.i.i) #21
   %.not11.i.i.i = icmp eq ptr %17, null
-  br i1 %.not11.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %.not11.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %13
   tail call void @event_mm_free_(ptr noundef nonnull %9) #21
@@ -4965,7 +4965,7 @@ define void @evdns_base_search_add(ptr noundef captures(none) %0, ptr noundef re
   %9 = load i8, ptr %.0.i, align 1
   %10 = icmp eq i8 %9, 46
   %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br i1 %10, label %8, label %12, !llvm.loop !26
+  br i1 %10, label %8, label %12, !llvm.loop !33
 
 12:                                               ; preds = %8
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #23
@@ -5967,7 +5967,7 @@ define range(i32 0, -2147483648) i32 @evdns_base_resolv_conf_parse(ptr noundef %
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   %42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %41, i32 noundef 10) #23
   %.not47.i = icmp eq ptr %42, null
-  br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !34
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %37
   %.036.lcssa.i = phi ptr [ %38, %37 ], [ %41, %.lr.ph.i ]
@@ -6139,7 +6139,7 @@ define ptr @evdns_getaddrinfo(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %39 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 48
   %40 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %39, ptr noundef %1) #21
   %.not12.i.i = icmp eq i32 %40, 0
-  br i1 %.not12.i.i, label %.lr.ph.i, label %37, !llvm.loop !27
+  br i1 %.not12.i.i, label %.lr.ph.i, label %37, !llvm.loop !35
 
 .lr.ph.i:                                         ; preds = %38
   %41 = icmp eq i32 %.fr96.i, 10
@@ -6195,10 +6195,10 @@ sockaddr_setport.exit.us.i:                       ; preds = %.sink.split.i.us.i,
   %59 = getelementptr inbounds nuw i8, ptr %.1.i50.us.i, i64 48
   %60 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %59, ptr noundef %1) #21
   %.not12.i52.us.i = icmp eq i32 %60, 0
-  br i1 %.not12.i52.us.i, label %find_hosts_entry.exit53.us.i, label %57, !llvm.loop !27
+  br i1 %.not12.i52.us.i, label %find_hosts_entry.exit53.us.i, label %57, !llvm.loop !35
 
 find_hosts_entry.exit53.us.i:                     ; preds = %58
-  br label %.lr.ph.split.us.i, !llvm.loop !28
+  br label %.lr.ph.split.us.i, !llvm.loop !36
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i, %find_hosts_entry.exit53.us86.i
   %.03669.us75.i = phi ptr [ %.137.ph.us81.i, %find_hosts_entry.exit53.us86.i ], [ null, %.lr.ph.i ]
@@ -6247,10 +6247,10 @@ sockaddr_setport.exit.us80.i:                     ; preds = %.sink.split.i.us79.
   %77 = getelementptr inbounds nuw i8, ptr %.1.i50.us83.i, i64 48
   %78 = call i32 @evutil_ascii_strcasecmp(ptr noundef nonnull %77, ptr noundef %1) #21
   %.not12.i52.us85.i = icmp eq i32 %78, 0
-  br i1 %.not12.i52.us85.i, label %find_hosts_entry.exit53.us86.i, label %75, !llvm.loop !27
+  br i1 %.not12.i52.us85.i, label %find_hosts_entry.exit53.us86.i, label %75, !llvm.loop !35
 
 find_hosts_entry.exit53.us86.i:                   ; preds = %76
-  br label %.lr.ph.split.split.us.i, !llvm.loop !30
+  br label %.lr.ph.split.split.us.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %37, %57, %75
   %.036.lcssa.i = phi ptr [ %.137.ph.us81.i, %75 ], [ %.137.ph.us.i, %57 ], [ null, %37 ]
@@ -6720,12 +6720,12 @@ evdns_request_remove.exit:                        ; preds = %18, %.sink.split.i
 evdns_request_insert.exit:                        ; preds = %33, %35
   %42 = load ptr, ptr %12, align 8
   %.not35 = icmp eq ptr %42, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %evdns_request_insert.exit, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge39, label %.preheader, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge39, label %.preheader, !llvm.loop !40
 
 ._crit_edge39:                                    ; preds = %._crit_edge, %.preheader36
   tail call void @event_mm_free_(ptr noundef nonnull %5) #21
@@ -6760,7 +6760,7 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   tail call fastcc void @request_finished(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 1)
   %6 = load ptr, ptr %3, align 8
   %.not.us = icmp eq ptr %6, null
-  br i1 %.not.us, label %.preheader78.thread, label %.lr.ph.split.us, !llvm.loop !33
+  br i1 %.not.us, label %.preheader78.thread, label %.lr.ph.split.us, !llvm.loop !41
 
 .preheader78:                                     ; preds = %.lr.ph.split, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6807,7 +6807,7 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %21 = sext i32 %19 to i64
   %22 = icmp slt i64 %indvars.iv.next99, %21
-  br i1 %22, label %.preheader.us, label %._crit_edge83, !llvm.loop !34
+  br i1 %22, label %.preheader.us, label %._crit_edge83, !llvm.loop !42
 
 .lr.ph81.us:                                      ; preds = %.preheader.us, %.lr.ph81.us
   %23 = phi ptr [ %34, %.lr.ph81.us ], [ %18, %.preheader.us ]
@@ -6824,7 +6824,7 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv98
   %34 = load ptr, ptr %33, align 8
   %.not75.us.us = icmp eq ptr %34, null
-  br i1 %.not75.us.us, label %._crit_edge.split.us.us.loopexit, label %.lr.ph81.us, !llvm.loop !35
+  br i1 %.not75.us.us, label %._crit_edge.split.us.us.loopexit, label %.lr.ph81.us, !llvm.loop !43
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %35 = phi ptr [ %56, %.lr.ph.split ], [ %4, %.lr.ph ]
@@ -6856,7 +6856,7 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   tail call fastcc void @request_finished(ptr noundef %55, ptr noundef nonnull %3, i32 noundef 1)
   %56 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %56, null
-  br i1 %.not, label %.preheader78, label %.lr.ph.split, !llvm.loop !36
+  br i1 %.not, label %.preheader78, label %.lr.ph.split, !llvm.loop !44
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge.split
   %57 = phi i32 [ %8, %.preheader.preheader ], [ %94, %._crit_edge.split ]
@@ -6908,7 +6908,7 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   %.not75 = icmp eq ptr %93, null
-  br i1 %.not75, label %._crit_edge.split.loopexit, label %.lr.ph81, !llvm.loop !37
+  br i1 %.not75, label %._crit_edge.split.loopexit, label %.lr.ph81, !llvm.loop !45
 
 ._crit_edge.split.loopexit:                       ; preds = %.lr.ph81
   %.pre101 = load i32, ptr %7, align 8
@@ -6920,7 +6920,7 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = sext i32 %94 to i64
   %97 = icmp slt i64 %indvars.iv.next, %96
-  br i1 %97, label %.preheader, label %._crit_edge83, !llvm.loop !38
+  br i1 %97, label %.preheader, label %._crit_edge83, !llvm.loop !46
 
 ._crit_edge83:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.preheader78.thread, %.preheader78
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7005,7 +7005,7 @@ evdns_nameserver_free.exit:                       ; preds = %125, %evdns_tcp_dis
   tail call void @event_mm_free_(ptr noundef nonnull %.0) #21
   %134 = load ptr, ptr %100, align 8
   %135 = icmp eq ptr %105, %134
-  br i1 %135, label %136, label %102, !llvm.loop !39
+  br i1 %135, label %136, label %102, !llvm.loop !47
 
 136:                                              ; preds = %evdns_nameserver_free.exit, %102
   store ptr null, ptr %100, align 8
@@ -7028,7 +7028,7 @@ evdns_nameserver_free.exit:                       ; preds = %125, %evdns_tcp_dis
   %144 = load ptr, ptr %143, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %.05785) #21
   %.not70 = icmp eq ptr %144, null
-  br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph86, !llvm.loop !40
+  br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph86, !llvm.loop !48
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph86
   %.pre104 = load ptr, ptr %138, align 8
@@ -7073,7 +7073,7 @@ evdns_nameserver_free.exit:                       ; preds = %125, %evdns_tcp_dis
   tail call void @event_mm_free_(ptr noundef nonnull %151) #21
   %160 = load ptr, ptr %147, align 8
   %.not71 = icmp eq ptr %160, null
-  br i1 %.not71, label %._crit_edge90, label %150, !llvm.loop !41
+  br i1 %.not71, label %._crit_edge90, label %150, !llvm.loop !49
 
 ._crit_edge90:                                    ; preds = %158, %146
   %161 = load ptr, ptr %0, align 8
@@ -7088,7 +7088,7 @@ evdns_nameserver_free.exit:                       ; preds = %125, %evdns_tcp_dis
   tail call fastcc void @evdns_cache_free(ptr noundef nonnull %164)
   %165 = load ptr, ptr %162, align 8
   %.not72 = icmp eq ptr %165, null
-  br i1 %.not72, label %._crit_edge94, label %.lr.ph93, !llvm.loop !42
+  br i1 %.not72, label %._crit_edge94, label %.lr.ph93, !llvm.loop !50
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge90
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -7337,7 +7337,7 @@ define hidden void @evdns_tree_SPLAY(ptr noundef captures(none) %0, ptr noundef 
   %.val46 = load ptr, ptr %47, align 8
   %48 = tail call i32 @strcasecmp(ptr noundef readonly %.val, ptr noundef readonly %.val46) #23
   %.not = icmp eq i32 %48, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %35, %27, %18, %11, %46, %2
   %49 = phi ptr [ %5, %2 ], [ %storemerge, %46 ], [ %9, %11 ], [ %12, %18 ], [ %9, %27 ], [ %29, %35 ]
@@ -7438,14 +7438,14 @@ define hidden void @evdns_tree_SPLAY_MINMAX(ptr noundef captures(none) %0, i32 n
   store ptr %17, ptr %0, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.split43.us, label %.lr.ph53, !llvm.loop !44
+  br i1 %19, label %.split43.us, label %.lr.ph53, !llvm.loop !52
 
 .split:                                           ; preds = %2
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %.split.split.us, label %.split.split
 
 .split.split.us:                                  ; preds = %.split, %.split.split.us
-  br label %.split.split.us, !llvm.loop !45
+  br label %.split.split.us, !llvm.loop !53
 
 .split.split:                                     ; preds = %.split
   %20 = load ptr, ptr %0, align 8
@@ -7478,7 +7478,7 @@ define hidden void @evdns_tree_SPLAY_MINMAX(ptr noundef captures(none) %0, i32 n
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.split43.us, label %.lr.ph
+  br i1 %38, label %.split43.us, label %.lr.ph, !llvm.loop !54
 
 .split43.us:                                      ; preds = %31, %.lr.ph, %.lr.ph53, %15, %.split.split, %.split.us
   %39 = phi ptr [ %5, %.split.us ], [ %20, %.split.split ], [ %8, %.lr.ph53 ], [ %17, %15 ], [ %35, %31 ], [ %24, %.lr.ph ]
@@ -7565,7 +7565,7 @@ define void @evdns_base_clear_host_addresses(ptr noundef captures(none) %0) loca
   tail call void @event_mm_free_(ptr noundef nonnull %12) #21
   %21 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %21, null
-  br i1 %.not16, label %._crit_edge, label %11, !llvm.loop !46
+  br i1 %.not16, label %._crit_edge, label %11, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %19, %7
   %22 = load ptr, ptr %2, align 8
@@ -7662,7 +7662,7 @@ define range(i32 -1, 1) i32 @evdns_base_load_hosts(ptr noundef captures(address_
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 10) #23
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !56
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
   %.016.lcssa.i = phi ptr [ %22, %21 ], [ %25, %.lr.ph.i ]
@@ -7998,7 +7998,7 @@ sockaddr_setport.exit.us:                         ; preds = %.sink.split.i.us, %
   %46 = getelementptr inbounds nuw i8, ptr %.04485.us, i64 40
   %47 = load ptr, ptr %46, align 8
   %.not57.us = icmp eq ptr %47, null
-  br i1 %.not57.us, label %evdns_tree_SPLAY_FIND.exit.thread, label %.lr.ph.split.us, !llvm.loop !47
+  br i1 %.not57.us, label %evdns_tree_SPLAY_FIND.exit.thread, label %.lr.ph.split.us, !llvm.loop !57
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %28, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.us
@@ -8056,7 +8056,7 @@ sockaddr_setport.exit.us96:                       ; preds = %.sink.split.i.us95,
   %71 = getelementptr inbounds nuw i8, ptr %.04485.us89, i64 40
   %72 = load ptr, ptr %71, align 8
   %.not57.us99 = icmp eq ptr %72, null
-  br i1 %.not57.us99, label %evdns_tree_SPLAY_FIND.exit.thread, label %.lr.ph.split.split.us, !llvm.loop !48
+  br i1 %.not57.us99, label %evdns_tree_SPLAY_FIND.exit.thread, label %.lr.ph.split.split.us, !llvm.loop !58
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split, %95
   %.04485.us106 = phi ptr [ %97, %95 ], [ %27, %.lr.ph.split ]
@@ -8110,7 +8110,7 @@ sockaddr_setport.exit.us112:                      ; preds = %.sink.split.i.us111
   %96 = getelementptr inbounds nuw i8, ptr %.04485.us106, i64 40
   %97 = load ptr, ptr %96, align 8
   %.not57.us115 = icmp eq ptr %97, null
-  br i1 %.not57.us115, label %evdns_tree_SPLAY_FIND.exit.thread, label %.lr.ph.split.split.split.us, !llvm.loop !49
+  br i1 %.not57.us115, label %evdns_tree_SPLAY_FIND.exit.thread, label %.lr.ph.split.split.split.us, !llvm.loop !59
 
 evdns_tree_SPLAY_FIND.exit.thread:                ; preds = %70, %95, %45, %evdns_tree_SPLAY_FIND.exit, %21, %16
   %.451 = phi ptr [ null, %16 ], [ null, %21 ], [ null, %evdns_tree_SPLAY_FIND.exit ], [ %.148.ph.us, %45 ], [ %.148.ph.us113, %95 ], [ %.148.ph.us97, %70 ]
@@ -8615,7 +8615,7 @@ free_getaddrinfo_request.exit171:                 ; preds = %194, %197
   %203 = call ptr @evutil_addrinfo_append_(ptr noundef %.0127212, ptr noundef nonnull %178) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %175, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %175, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %202, %172
   %.0127.lcssa = phi ptr [ null, %172 ], [ %203, %202 ]
@@ -9138,7 +9138,7 @@ select.unfold.i:                                  ; preds = %74, %55
   store ptr %93, ptr %104, align 8
   %105 = add nuw nsw i32 %.0135238, 1
   %exitcond.not = icmp eq i32 %105, %46
-  br i1 %exitcond.not, label %.preheader220, label %.lr.ph, !llvm.loop !51
+  br i1 %exitcond.not, label %.preheader220, label %.lr.ph, !llvm.loop !61
 
 .preheader217:                                    ; preds = %142, %.preheader220
   %.lcssa240 = phi i32 [ %.159..155.i234.lcssa, %.preheader220 ], [ %145, %142 ]
@@ -9257,7 +9257,7 @@ select.unfold.i183:                               ; preds = %134, %115
   %145 = add nsw i32 %140, %144
   %146 = add nuw nsw i32 %.1242, 1
   %exitcond277.not = icmp eq i32 %146, %47
-  br i1 %exitcond277.not, label %.preheader217, label %.lr.ph243, !llvm.loop !52
+  br i1 %exitcond277.not, label %.preheader217, label %.lr.ph243, !llvm.loop !62
 
 .lr.ph246:                                        ; preds = %.lr.ph246.preheader, %153
   %.2245 = phi i32 [ %157, %153 ], [ 0, %.lr.ph246.preheader ]
@@ -9281,7 +9281,7 @@ select.unfold.i183:                               ; preds = %134, %115
   store i32 %156, ptr %7, align 4
   %157 = add nuw nsw i32 %.2245, 1
   %exitcond279.not = icmp eq i32 %157, %106
-  br i1 %exitcond279.not, label %._crit_edge, label %.lr.ph246, !llvm.loop !53
+  br i1 %exitcond279.not, label %._crit_edge, label %.lr.ph246, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %153, %.preheader217
   %158 = getelementptr inbounds nuw i8, ptr %28, i64 172
@@ -9293,7 +9293,7 @@ select.unfold.i183:                               ; preds = %134, %115
 160:                                              ; preds = %181
   %161 = add nuw nsw i32 %.3248, 1
   %exitcond281.not = icmp eq i32 %161, %159
-  br i1 %exitcond281.not, label %.loopexit, label %.lr.ph250, !llvm.loop !54
+  br i1 %exitcond281.not, label %.loopexit, label %.lr.ph250, !llvm.loop !64
 
 .lr.ph250:                                        ; preds = %._crit_edge, %160
   %.3248 = phi i32 [ %161, %160 ], [ 0, %._crit_edge ]
@@ -9378,7 +9378,7 @@ select.unfold.i183:                               ; preds = %134, %115
   %202 = load i32, ptr %41, align 4
   %203 = sext i32 %202 to i64
   %204 = icmp slt i64 %indvars.iv.next, %203
-  br i1 %204, label %.lr.ph252, label %._crit_edge253.loopexit, !llvm.loop !55
+  br i1 %204, label %.lr.ph252, label %._crit_edge253.loopexit, !llvm.loop !65
 
 ._crit_edge253.loopexit:                          ; preds = %.lr.ph252
   %.pre = load ptr, ptr %44, align 8
@@ -9665,7 +9665,7 @@ server_port_free.exit:                            ; preds = %49, %54
   store i16 0, ptr %15, align 4
   %59 = call fastcc i32 @tcp_read_message(ptr noundef nonnull %7, ptr noundef %3, ptr noundef %4)
   %.not26 = icmp eq i32 %59, 0
-  br i1 %.not26, label %55, label %._crit_edge
+  br i1 %.not26, label %55, label %._crit_edge, !llvm.loop !66
 
 60:                                               ; preds = %55
   %61 = load i16, ptr %15, align 4
@@ -9926,7 +9926,7 @@ dnslabel_table_get_pos.exit.thread.us:            ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %23, i32 noundef 46) #23
   %.not83.us = icmp eq ptr %24, null
-  br i1 %.not83.us, label %.split.us, label %.lr.ph, !llvm.loop !56
+  br i1 %.not83.us, label %.split.us, label %.lr.ph, !llvm.loop !67
 
 .preheader.split:                                 ; preds = %.preheader, %85
   %.068 = phi ptr [ %89, %85 ], [ %3, %.preheader ]
@@ -9942,7 +9942,7 @@ dnslabel_table_get_pos.exit.thread.us:            ; preds = %16
 27:                                               ; preds = %28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %dnslabel_table_get_pos.exit.thread, label %28, !llvm.loop !57
+  br i1 %exitcond.not.i, label %dnslabel_table_get_pos.exit.thread, label %28, !llvm.loop !68
 
 28:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
@@ -10484,7 +10484,7 @@ disconnect_and_free_connection.exit:              ; preds = %._crit_edge, %evdns
   store i16 0, ptr %16, align 4
   %31 = call fastcc i32 @tcp_read_message(ptr noundef %6, ptr noundef %3, ptr noundef %4)
   %.not21 = icmp eq i32 %31, 0
-  br i1 %.not21, label %26, label %._crit_edge
+  br i1 %.not21, label %26, label %._crit_edge, !llvm.loop !69
 
 32:                                               ; preds = %26
   %33 = load i16, ptr %16, align 4
@@ -10698,7 +10698,7 @@ define internal fastcc void @reply_parse(ptr noundef readonly captures(none) %0,
   %35 = getelementptr inbounds nuw i8, ptr %.013.i, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not16.i = icmp eq ptr %36, %30
-  br i1 %.not16.i, label %request_find_from_trans_id.exit.thread, label %.preheader.i, !llvm.loop !16
+  br i1 %.not16.i, label %request_find_from_trans_id.exit.thread, label %.preheader.i, !llvm.loop !21
 
 request_find_from_trans_id.exit:                  ; preds = %.preheader.i
   %.not241 = icmp sgt i16 %rev.i261, -1
@@ -10734,7 +10734,7 @@ request_find_from_trans_id.exit:                  ; preds = %.preheader.i
   %spec.select258 = select i1 %47, i32 1, i32 %.0201379
   %48 = add nuw nsw i32 %.0206378, 1
   %exitcond.not = icmp eq i32 %48, %43
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !58
+  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !70
 
 49:                                               ; preds = %.lr.ph, %46
   %.0201379 = phi i32 [ 0, %.lr.ph ], [ %spec.select258, %46 ]
@@ -11178,7 +11178,7 @@ select.unfold.i281:                               ; preds = %108, %91
   %.2325 = phi i32 [ %.0203382, %.thread310 ], [ %.0203382, %235 ], [ %227, %226 ], [ %176, %175 ], [ %.0203382, %188 ], [ %.0203382, %168 ], [ %.0203382, %219 ]
   %241 = add nuw nsw i32 %.1207381, 1
   %exitcond441.not = icmp eq i32 %241, %128
-  br i1 %exitcond441.not, label %.loopexit354, label %134, !llvm.loop !59
+  br i1 %exitcond441.not, label %.loopexit354, label %134, !llvm.loop !71
 
 .loopexit354:                                     ; preds = %.thread322
   store i32 %240, ptr %129, align 8
@@ -11308,7 +11308,7 @@ select.unfold.i281:                               ; preds = %108, %91
   %.8 = phi i32 [ %.7402, %299 ], [ %298, %293 ]
   %303 = add nuw nsw i32 %.2208401, 1
   %exitcond443.not = icmp eq i32 %303, %243
-  br i1 %exitcond443.not, label %.loopexit, label %.lr.ph403, !llvm.loop !60
+  br i1 %exitcond443.not, label %.loopexit, label %.lr.ph403, !llvm.loop !72
 
 .loopexit:                                        ; preds = %302, %.loopexit354.thread448, %.preheader, %.loopexit354
   %.6 = phi i32 [ %.2325, %.loopexit354 ], [ %.1204447, %.preheader ], [ %194, %.loopexit354.thread448 ], [ %.8, %302 ]
@@ -11480,7 +11480,7 @@ define internal fastcc void @reply_handle(ptr noundef nonnull %0, i16 noundef ze
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %58, align 8
   %69 = icmp eq ptr %68, %59
-  br i1 %69, label %nameserver_pick.exit.thread13.i, label %.preheader.i.i
+  br i1 %69, label %nameserver_pick.exit.thread13.i, label %.preheader.i.i, !llvm.loop !20
 
 nameserver_pick.exit.thread13.i:                  ; preds = %66, %.preheader.i.i
   %.0.ph.i.ph.i = phi ptr [ %63, %.preheader.i.i ], [ %68, %66 ]
@@ -11667,11 +11667,11 @@ request_reissue.exit:                             ; preds = %request_swap_ns.exi
   %160 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i, i64 32
   %161 = load ptr, ptr %160, align 8
   %.not16.i.i.i.i = icmp eq ptr %161, %155
-  br i1 %.not16.i.i.i.i, label %transaction_id_pick.exit.i.i, label %.preheader.i.i.i.i, !llvm.loop !16
+  br i1 %.not16.i.i.i.i, label %transaction_id_pick.exit.i.i, label %.preheader.i.i.i.i, !llvm.loop !21
 
 request_find_from_trans_id.exit.i.i.i:            ; preds = %.preheader.i.i.i.i, %147
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #21
-  br label %147
+  br label %147, !llvm.loop !22
 
 transaction_id_pick.exit.i.i:                     ; preds = %150, %159
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6) #21
@@ -11735,7 +11735,7 @@ transaction_id_pick.exit.i.i:                     ; preds = %150, %159
 194:                                              ; preds = %.preheader.i.i.i
   store ptr %193, ptr %181, align 8
   %195 = icmp eq ptr %193, %182
-  br i1 %195, label %196, label %.preheader.i.i.i
+  br i1 %195, label %196, label %.preheader.i.i.i, !llvm.loop !20
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 280
@@ -11901,7 +11901,7 @@ evdns_request_insert.exit15.i.i:                  ; preds = %251, %249
   %283 = add nuw nsw i32 %.06.i.i, 1
   %284 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %282, i32 noundef 46) #23
   %.not.i.i70 = icmp eq ptr %284, null
-  br i1 %.not.i.i70, label %string_num_dots.exit.i, label %.lr.ph.i.i, !llvm.loop !24
+  br i1 %.not.i.i70, label %string_num_dots.exit.i, label %.lr.ph.i.i, !llvm.loop !31
 
 string_num_dots.exit.i:                           ; preds = %.lr.ph.i.i, %279
   %.0.lcssa.i.i = phi i32 [ 0, %279 ], [ %283, %.lr.ph.i.i ]
@@ -11946,7 +11946,7 @@ string_num_dots.exit.i:                           ; preds = %.lr.ph.i.i, %279
   %305 = load ptr, ptr %304, align 8
   call void @event_mm_free_(ptr noundef nonnull %.013.i.i.i) #21
   %.not11.i.i.i = icmp eq ptr %305, null
-  br i1 %.not11.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !22
+  br i1 %.not11.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %301
   call void @event_mm_free_(ptr noundef nonnull %297) #21
@@ -12013,7 +12013,7 @@ search_state_decref.exit.i.i:                     ; preds = %._crit_edge.i.i.i, 
   %331 = getelementptr inbounds nuw i8, ptr %.03141.i.i, i64 8
   %.031.i.i = load ptr, ptr %331, align 8
   %.not34.i.i = icmp eq ptr %.031.i.i, null
-  br i1 %.not34.i.i, label %search_try_next.exit.thread, label %.lr.ph.i55.i, !llvm.loop !61
+  br i1 %.not34.i.i, label %search_try_next.exit.thread, label %.lr.ph.i55.i, !llvm.loop !73
 
 search_request_finished.exit.i:                   ; preds = %327, %326
   %332 = getelementptr inbounds nuw i8, ptr %325, i64 %310
@@ -12465,7 +12465,7 @@ disconnect_and_free_connection.exit:              ; preds = %21, %25
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %76, align 8
   %99 = icmp eq ptr %98, %90
-  br i1 %99, label %nameserver_pick.exit.thread66, label %.preheader.i
+  br i1 %99, label %nameserver_pick.exit.thread66, label %.preheader.i, !llvm.loop !20
 
 nameserver_pick.exit.thread66:                    ; preds = %96, %.preheader.i
   %.0.ph.i.ph = phi ptr [ %93, %.preheader.i ], [ %98, %96 ]
@@ -12503,7 +12503,7 @@ request_swap_ns.exit:                             ; preds = %89, %104, %102, %na
   %111 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %112 = load ptr, ptr %111, align 8
   %.not61 = icmp eq ptr %112, %81
-  br i1 %.not61, label %.loopexit.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %.not61, label %.loopexit.loopexit, label %.preheader, !llvm.loop !74
 
 .loopexit.loopexit:                               ; preds = %request_swap_ns.exit
   %.pre = load i32, ptr %73, align 8
@@ -12514,7 +12514,7 @@ request_swap_ns.exit:                             ; preds = %89, %104, %102, %na
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %114 = sext i32 %113 to i64
   %115 = icmp slt i64 %indvars.iv.next, %114
-  br i1 %115, label %77, label %.loopexit72, !llvm.loop !63
+  br i1 %115, label %77, label %.loopexit72, !llvm.loop !75
 
 .loopexit72:                                      ; preds = %.loopexit, %.preheader71, %71, %3
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #21
@@ -12717,7 +12717,7 @@ disconnect_and_free_connection.exit:              ; preds = %54, %evdns_tcp_disc
   %124 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %125 = load ptr, ptr %124, align 8
   %.not29.i = icmp eq ptr %125, %75
-  br i1 %.not29.i, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !64
+  br i1 %.not29.i, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !76
 
 .loopexit.loopexit.i:                             ; preds = %123
   %.pre.i = load ptr, ptr %67, align 8
@@ -12730,7 +12730,7 @@ disconnect_and_free_connection.exit:              ; preds = %54, %evdns_tcp_disc
   %128 = load i32, ptr %127, align 8
   %129 = sext i32 %128 to i64
   %130 = icmp slt i64 %indvars.iv.next.i, %129
-  br i1 %130, label %.lr.ph.i, label %retransmit_all_tcp_requests_for.exit, !llvm.loop !65
+  br i1 %130, label %.lr.ph.i, label %retransmit_all_tcp_requests_for.exit, !llvm.loop !77
 
 131:                                              ; preds = %48
   tail call void (i32, ptr, ...) @evdns_log_(i32 noundef 0, ptr noundef nonnull @.str.62, ptr noundef nonnull %2, i32 noundef %13)
@@ -12759,7 +12759,7 @@ disconnect_and_free_connection.exit:              ; preds = %54, %evdns_tcp_disc
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %134, align 8
   %145 = icmp eq ptr %144, %135
-  br i1 %145, label %nameserver_pick.exit.thread45, label %.preheader.i40
+  br i1 %145, label %nameserver_pick.exit.thread45, label %.preheader.i40, !llvm.loop !20
 
 nameserver_pick.exit.thread45:                    ; preds = %142, %.preheader.i40
   %.0.ph.i.ph = phi ptr [ %139, %.preheader.i40 ], [ %144, %142 ]
@@ -12902,7 +12902,7 @@ define internal void @nameserver_ready_callback(i32 %0, i16 noundef signext %1, 
   %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not20.i = icmp eq ptr %33, %26
-  br i1 %.not20.i, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !17
+  br i1 %.not20.i, label %.loopexit.loopexit.i, label %.preheader.i, !llvm.loop !23
 
 .loopexit.loopexit.i:                             ; preds = %31
   %.pre.i = load i32, ptr %20, align 8
@@ -12914,7 +12914,7 @@ define internal void @nameserver_ready_callback(i32 %0, i16 noundef signext %1, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next.i, %35
-  br i1 %36, label %.lr.ph.i, label %evdns_transmit.exit, !llvm.loop !18
+  br i1 %36, label %.lr.ph.i, label %evdns_transmit.exit, !llvm.loop !24
 
 evdns_transmit.exit:                              ; preds = %.loopexit.i
   %.not12 = icmp eq i8 %.3.i, 0
@@ -13013,7 +13013,7 @@ nameserver_write_waiting.exit:                    ; preds = %50, %40, %evdns_tra
   %78 = call i64 @recvfrom(i32 noundef %77, ptr noundef nonnull %58, i64 noundef %57, i32 noundef 0, ptr nonnull %4, ptr noundef nonnull %5) #21
   %79 = trunc i64 %78 to i32
   %80 = icmp slt i32 %79, 0
-  br i1 %80, label %._crit_edge.i, label %70
+  br i1 %80, label %._crit_edge.i, label %70, !llvm.loop !78
 
 81:                                               ; preds = %73, %68, %._crit_edge.i, %._crit_edge.i
   call void @event_mm_free_(ptr noundef nonnull %58) #21
@@ -13123,11 +13123,11 @@ define internal void @nameserver_prod_callback(i32 %0, i16 signext %1, ptr nound
   %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not16.i.i.i = icmp eq ptr %41, %35
-  br i1 %.not16.i.i.i, label %transaction_id_pick.exit.i, label %.preheader.i.i.i, !llvm.loop !16
+  br i1 %.not16.i.i.i, label %transaction_id_pick.exit.i, label %.preheader.i.i.i, !llvm.loop !21
 
 request_find_from_trans_id.exit.i.i:              ; preds = %.preheader.i.i.i, %27
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #21
-  br label %27
+  br label %27, !llvm.loop !22
 
 transaction_id_pick.exit.i:                       ; preds = %30, %39
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #21
@@ -13374,7 +13374,7 @@ nameserver_up.exit:                               ; preds = %21, %32
   %71 = phi i64 [ %62, %59 ], [ %67, %65 ]
   %72 = add nsw i32 %.018.i, -1
   %73 = icmp sgt i32 %.018.i, 1
-  br i1 %73, label %55, label %..critedge_crit_edge.i, !llvm.loop !66
+  br i1 %73, label %55, label %..critedge_crit_edge.i, !llvm.loop !79
 
 ..critedge_crit_edge.i:                           ; preds = %69
   store i64 %70, ptr %53, align 8
@@ -13736,7 +13736,7 @@ define internal fastcc void @resolv_conf_parse_line(ptr noundef %0, ptr noundef 
   %28 = load ptr, ptr %27, align 8
   call void @event_mm_free_(ptr noundef nonnull %.013.i.i) #21
   %.not11.i.i = icmp eq ptr %28, null
-  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %24
   call void @event_mm_free_(ptr noundef nonnull %20) #21
@@ -13764,7 +13764,7 @@ search_postfix_clear.exit:                        ; preds = %search_state_decref
   %34 = load i8, ptr %.0.i, align 1
   %35 = icmp eq i8 %34, 46
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br i1 %35, label %33, label %37, !llvm.loop !26
+  br i1 %35, label %33, label %37, !llvm.loop !33
 
 37:                                               ; preds = %33
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #23
@@ -13845,7 +13845,7 @@ search_postfix_clear.exit:                        ; preds = %search_state_decref
   %71 = load ptr, ptr %70, align 8
   call void @event_mm_free_(ptr noundef nonnull %.013.i.i52) #21
   %.not11.i.i53 = icmp eq ptr %71, null
-  br i1 %.not11.i.i53, label %._crit_edge.i.i54, label %.lr.ph.i.i51, !llvm.loop !22
+  br i1 %.not11.i.i53, label %._crit_edge.i.i54, label %.lr.ph.i.i51, !llvm.loop !29
 
 ._crit_edge.i.i54:                                ; preds = %.lr.ph.i.i51, %67
   call void @event_mm_free_(ptr noundef nonnull %63) #21
@@ -13879,7 +13879,7 @@ search_postfix_clear.exit55:                      ; preds = %search_state_decref
 
 .preheader64.backedge:                            ; preds = %.preheader64, %search_postfix_add.exit62
   %.0.i56.be = phi ptr [ %79, %.preheader64 ], [ %103, %search_postfix_add.exit62 ]
-  br label %.preheader64, !llvm.loop !67
+  br label %.preheader64, !llvm.loop !80
 
 80:                                               ; preds = %.preheader64
   %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i56) #23
@@ -13950,7 +13950,7 @@ search_postfix_add.exit62:                        ; preds = %.thread24.i61, %.th
   %108 = load ptr, ptr %107, align 8
   store ptr %.01113.i, ptr %107, align 8
   %.not.i63 = icmp eq ptr %108, null
-  br i1 %.not.i63, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !68
+  br i1 %.not.i63, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !81
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %.pre.i = load ptr, ptr %62, align 8
@@ -13982,7 +13982,7 @@ search_reverse.exit:                              ; preds = %._crit_edge, %._cri
   %118 = call fastcc i32 @evdns_base_set_option_impl(ptr noundef %0, ptr noundef nonnull %114, ptr noundef nonnull %117, i32 noundef %2)
   %119 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.112, ptr noundef nonnull %4) #21
   %.not41 = icmp eq ptr %119, null
-  br i1 %.not41, label %search_postfix_add.exit, label %.lr.ph, !llvm.loop !69
+  br i1 %.not41, label %search_postfix_add.exit, label %.lr.ph, !llvm.loop !82
 
 search_postfix_add.exit:                          ; preds = %.lr.ph, %.preheader, %50, %.thread.i, %.thread24.i, %search_reverse.exit, %111, %11, %9, %16, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
@@ -14017,7 +14017,7 @@ define internal fastcc void @search_set_from_hostname(ptr noundef captures(none)
   %12 = load ptr, ptr %11, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %.013.i.i) #21
   %.not11.i.i = icmp eq ptr %12, null
-  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %.not11.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %8
   tail call void @event_mm_free_(ptr noundef nonnull %4) #21
@@ -14052,7 +14052,7 @@ search_postfix_clear.exit:                        ; preds = %search_state_decref
   %20 = load i8, ptr %.0.i, align 1
   %21 = icmp eq i8 %20, 46
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br i1 %21, label %.preheader, label %23, !llvm.loop !26
+  br i1 %21, label %.preheader, label %23, !llvm.loop !33
 
 23:                                               ; preds = %.preheader
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #23
@@ -14203,7 +14203,7 @@ sockaddr_getport.exit:                            ; preds = %15, %15
   store ptr %36, ptr %37, align 8
   store ptr %28, ptr %36, align 8
   store ptr %28, ptr %17, align 8
-  br i1 %.not34, label %18, label %.thread, !llvm.loop !70
+  br i1 %.not34, label %18, label %.thread, !llvm.loop !83
 
 .thread:                                          ; preds = %25, %22, %18, %29, %sockaddr_getport.exit, %10, %2, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
@@ -14264,70 +14264,83 @@ attributes #23 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !6, !4}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6, !4}
+!8 = distinct !{!8, !6, !4}
+!9 = distinct !{!9, !6, !4}
+!10 = distinct !{!10, !6, !4}
+!11 = distinct !{!11, !6, !4}
+!12 = distinct !{!12, !6, !4}
+!13 = distinct !{!13, !6, !4}
+!14 = distinct !{!14, !6, !4}
+!15 = distinct !{!15, !6, !4}
+!16 = distinct !{!16, !6, !4}
 !17 = distinct !{!17, !4}
 !18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
+!19 = distinct !{!19, !6, !4}
 !20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
+!21 = distinct !{!21, !6, !4}
 !22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4}
-!24 = distinct !{!24, !4}
+!23 = distinct !{!23, !6, !4}
+!24 = distinct !{!24, !6, !4}
 !25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4, !29}
-!29 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!30 = distinct !{!30, !4, !29}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4, !29}
-!34 = distinct !{!34, !4, !29}
-!35 = distinct !{!35, !4, !29}
-!36 = distinct !{!36, !4}
-!37 = distinct !{!37, !4}
-!38 = distinct !{!38, !4}
-!39 = distinct !{!39, !4}
-!40 = distinct !{!40, !4}
-!41 = distinct !{!41, !4}
-!42 = distinct !{!42, !4}
-!43 = distinct !{!43, !4}
-!44 = distinct !{!44, !29}
-!45 = distinct !{!45, !29}
-!46 = distinct !{!46, !4}
-!47 = distinct !{!47, !4, !29}
-!48 = distinct !{!48, !4, !29}
-!49 = distinct !{!49, !4, !29}
-!50 = distinct !{!50, !4}
-!51 = distinct !{!51, !4}
-!52 = distinct !{!52, !4}
-!53 = distinct !{!53, !4}
+!26 = distinct !{!26, !6, !4}
+!27 = distinct !{!27, !6, !4}
+!28 = distinct !{!28, !6, !4}
+!29 = distinct !{!29, !6, !4}
+!30 = distinct !{!30, !6, !4}
+!31 = distinct !{!31, !6, !4}
+!32 = distinct !{!32, !6, !4}
+!33 = distinct !{!33, !6, !4}
+!34 = distinct !{!34, !4}
+!35 = distinct !{!35, !6, !4}
+!36 = distinct !{!36, !6, !4, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !6, !4, !37}
+!39 = distinct !{!39, !6, !4}
+!40 = distinct !{!40, !6, !4}
+!41 = distinct !{!41, !6, !4, !37}
+!42 = distinct !{!42, !6, !4, !37}
+!43 = distinct !{!43, !6, !4, !37}
+!44 = distinct !{!44, !6, !4}
+!45 = distinct !{!45, !6, !4}
+!46 = distinct !{!46, !6, !4}
+!47 = distinct !{!47, !6, !4}
+!48 = distinct !{!48, !6, !4}
+!49 = distinct !{!49, !6, !4}
+!50 = distinct !{!50, !6, !4}
+!51 = distinct !{!51, !6, !4}
+!52 = distinct !{!52, !4, !37}
+!53 = distinct !{!53, !4, !37}
 !54 = distinct !{!54, !4}
-!55 = distinct !{!55, !4}
-!56 = distinct !{!56, !29}
-!57 = distinct !{!57, !4}
-!58 = distinct !{!58, !4}
-!59 = distinct !{!59, !4}
-!60 = distinct !{!60, !4}
-!61 = distinct !{!61, !4}
-!62 = distinct !{!62, !4}
-!63 = distinct !{!63, !4}
-!64 = distinct !{!64, !4}
-!65 = distinct !{!65, !4}
+!55 = distinct !{!55, !6, !4}
+!56 = distinct !{!56, !4}
+!57 = distinct !{!57, !6, !4, !37}
+!58 = distinct !{!58, !6, !4, !37}
+!59 = distinct !{!59, !6, !4, !37}
+!60 = distinct !{!60, !6, !4}
+!61 = distinct !{!61, !6, !4}
+!62 = distinct !{!62, !6, !4}
+!63 = distinct !{!63, !6, !4}
+!64 = distinct !{!64, !6, !4}
+!65 = distinct !{!65, !6, !4}
 !66 = distinct !{!66, !4}
-!67 = distinct !{!67, !4}
-!68 = distinct !{!68, !4}
+!67 = distinct !{!67, !37}
+!68 = distinct !{!68, !6, !4}
 !69 = distinct !{!69, !4}
-!70 = distinct !{!70, !4}
+!70 = distinct !{!70, !6, !4}
+!71 = distinct !{!71, !6, !4}
+!72 = distinct !{!72, !6, !4}
+!73 = distinct !{!73, !6, !4}
+!74 = distinct !{!74, !6, !4}
+!75 = distinct !{!75, !6, !4}
+!76 = distinct !{!76, !6, !4}
+!77 = distinct !{!77, !6, !4}
+!78 = distinct !{!78, !4}
+!79 = distinct !{!79, !6, !4}
+!80 = distinct !{!80, !6, !4}
+!81 = distinct !{!81, !6, !4}
+!82 = distinct !{!82, !6, !4}
+!83 = distinct !{!83, !6, !4}

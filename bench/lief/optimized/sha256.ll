@@ -150,8 +150,8 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   store i32 %258, ptr %7, align 4, !tbaa !7
   store i32 %259, ptr %4, align 4, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %247, ptr %2, align 4, !tbaa !13
-  store i32 %257, ptr %18, align 4, !tbaa !15
+  store i32 %247, ptr %2, align 4, !tbaa !14
+  store i32 %257, ptr %18, align 4, !tbaa !16
   br label %260
 
 19:                                               ; preds = %.preheader147, %19
@@ -396,11 +396,11 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %257 = add i32 %252, %256
   %258 = add i32 %247, %143
   %259 = add i32 %247, %257
-  br i1 %20, label %19, label %.preheader146, !llvm.loop !16
+  br i1 %20, label %19, label %.preheader146, !llvm.loop !17
 
 .preheader:                                       ; preds = %260
-  store i32 %692, ptr %2, align 4, !tbaa !13
-  store i32 %705, ptr %18, align 4, !tbaa !15
+  store i32 %692, ptr %2, align 4, !tbaa !14
+  store i32 %705, ptr %18, align 4, !tbaa !16
   br label %710
 
 260:                                              ; preds = %.preheader146, %260
@@ -879,7 +879,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   store i32 %708, ptr %4, align 4, !tbaa !7
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 8
   %709 = icmp samesign ult i64 %indvars.iv172, 56
-  br i1 %709, label %260, label %.preheader, !llvm.loop !17
+  br i1 %709, label %260, label %.preheader, !llvm.loop !18
 
 710:                                              ; preds = %.preheader, %710
   %indvars.iv175 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next176, %710 ]
@@ -891,7 +891,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   store i32 %715, ptr %713, align 4, !tbaa !7
   %indvars.iv.next176 = add nuw nsw i64 %indvars.iv175, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next176, 8
-  br i1 %exitcond178.not, label %716, label %710, !llvm.loop !18
+  br i1 %exitcond178.not, label %716, label %710, !llvm.loop !19
 
 716:                                              ; preds = %710
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 296) #14
@@ -969,13 +969,13 @@ define hidden noundef i32 @mbedtls_sha256_update(ptr noundef captures(none) %0, 
   %31 = add i64 %.0711.i, -64
   %32 = add nuw i64 %.012.i, 64
   %33 = icmp ugt i64 %31, 63
-  br i1 %33, label %28, label %mbedtls_internal_sha256_process_many.exit, !llvm.loop !19
+  br i1 %33, label %28, label %mbedtls_internal_sha256_process_many.exit, !llvm.loop !20
 
 mbedtls_internal_sha256_process_many.exit:        ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.14155, i64 %32
   %35 = sub i64 %.14454, %32
   %36 = icmp ugt i64 %35, 63
-  br i1 %36, label %.preheader, label %._crit_edge, !llvm.loop !20
+  br i1 %36, label %.preheader, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %mbedtls_internal_sha256_process_many.exit, %26
   %.144.lcssa = phi i64 [ %.043, %26 ], [ %35, %mbedtls_internal_sha256_process_many.exit ]
@@ -1155,13 +1155,13 @@ define hidden range(i32 -116, 1) i32 @mbedtls_sha256(ptr noundef readonly captur
   %27 = add i64 %.0711.i.i, -64
   %28 = add nuw i64 %.012.i.i, 64
   %29 = icmp ugt i64 %27, 63
-  br i1 %29, label %24, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !19
+  br i1 %29, label %24, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !20
 
 mbedtls_internal_sha256_process_many.exit.i:      ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %.14155.i, i64 %28
   %31 = sub i64 %.14454.i, %28
   %32 = icmp ugt i64 %31, 63
-  br i1 %32, label %.preheader.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %32, label %.preheader.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %mbedtls_internal_sha256_process_many.exit.i
   %.not53.i = icmp eq i64 %31, 0
@@ -1323,13 +1323,13 @@ define internal fastcc range(i32 0, 2) i32 @mbedtls_sha256_common_self_test(i32 
   %56 = add i64 %.0711.i.i, -64
   %57 = add nuw i64 %.012.i.i, 64
   %58 = icmp ugt i64 %56, 63
-  br i1 %58, label %53, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !19
+  br i1 %58, label %53, label %mbedtls_internal_sha256_process_many.exit.i, !llvm.loop !20
 
 mbedtls_internal_sha256_process_many.exit.i:      ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %.14155.i, i64 %57
   %60 = sub i64 %.14454.i, %57
   %61 = icmp ugt i64 %60, 63
-  br i1 %61, label %.preheader.i, label %._crit_edge.i, !llvm.loop !20
+  br i1 %61, label %.preheader.i, label %._crit_edge.i, !llvm.loop !21
 
 ._crit_edge.i:                                    ; preds = %mbedtls_internal_sha256_process_many.exit.i
   %.not53.i = icmp eq i64 %60, 0
@@ -1342,11 +1342,11 @@ mbedtls_internal_sha256_process_many.exit.i:      ; preds = %53
 mbedtls_sha256_update.exit:                       ; preds = %._crit_edge.thread.i, %._crit_edge.i
   %62 = add nuw nsw i32 %.072, 1
   %exitcond.not = icmp eq i32 %62, 1000
-  br i1 %exitcond.not, label %mbedtls_sha256_update.exit64, label %36, !llvm.loop !21
+  br i1 %exitcond.not, label %mbedtls_sha256_update.exit64, label %36, !llvm.loop !22
 
 ._crit_edge.thread.i56:                           ; preds = %33
   %63 = getelementptr inbounds nuw [3 x i64], ptr @sha_test_buflen, i64 0, i64 %indvars.iv
-  %64 = load i64, ptr %63, align 8, !tbaa !22
+  %64 = load i64, ptr %63, align 8, !tbaa !23
   %65 = getelementptr inbounds nuw [3 x [57 x i8]], ptr @sha_test_buf, i64 0, i64 %indvars.iv
   %66 = trunc i64 %64 to i32
   store i32 %66, ptr %13, align 4, !tbaa !7
@@ -1370,7 +1370,7 @@ mbedtls_sha256_update.exit64:                     ; preds = %mbedtls_sha256_upda
 
 .backedge.backedge:                               ; preds = %70, %.thread
   %indvars.iv.be = phi i64 [ %indvars.iv.next, %70 ], [ %indvars.iv.next78, %.thread ]
-  br label %.backedge, !llvm.loop !24
+  br label %.backedge, !llvm.loop !25
 
 .thread:                                          ; preds = %69
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -1459,17 +1459,18 @@ attributes #15 = { nounwind allocsize(0,1) }
 !8 = !{!"int", !5, i64 0}
 !9 = !{!10, !8, i64 104}
 !10 = !{!"mbedtls_sha256_context", !5, i64 0, !5, i64 64, !5, i64 72, !8, i64 104}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14, !8, i64 0}
-!14 = !{!"", !8, i64 0, !8, i64 4, !5, i64 8, !5, i64 264}
-!15 = !{!14, !8, i64 4}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
-!19 = distinct !{!19, !12}
-!20 = distinct !{!20, !12}
-!21 = distinct !{!21, !12}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"long", !5, i64 0}
-!24 = distinct !{!24, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15, !8, i64 0}
+!15 = !{!"", !8, i64 0, !8, i64 4, !5, i64 8, !5, i64 264}
+!16 = !{!15, !8, i64 4}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}
+!20 = distinct !{!20, !12, !13}
+!21 = distinct !{!21, !12, !13}
+!22 = distinct !{!22, !12, !13}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"long", !5, i64 0}
+!25 = distinct !{!25, !12, !13}

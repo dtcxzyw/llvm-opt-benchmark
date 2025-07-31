@@ -866,7 +866,7 @@ define internal noundef i32 @resS(i32 %0, double %1, ptr noundef readonly captur
   store double %.063, ptr %75, align 8, !tbaa !9
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store double %62, ptr %76, align 8, !tbaa !9
-  br i1 %35, label %34, label %77
+  br i1 %35, label %34, label %77, !llvm.loop !25
 
 77:                                               ; preds = %69
   ret i32 0
@@ -1372,3 +1372,5 @@ attributes #13 = { cold nounwind }
 !22 = !{!23, !23, i64 0}
 !23 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
 !24 = !{!17, !17, i64 0}
+!25 = distinct !{!25, !26}
+!26 = !{!"llvm.loop.estimated_trip_count"}

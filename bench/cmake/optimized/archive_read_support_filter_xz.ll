@@ -317,19 +317,19 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
   %33 = load ptr, ptr %7, align 8, !tbaa !18
-  %34 = load ptr, ptr %16, align 8, !tbaa !32
+  %34 = load ptr, ptr %16, align 8, !tbaa !33
   %35 = call ptr @__archive_read_filter_ahead(ptr noundef %34, i64 noundef 6, ptr noundef nonnull %5) #10
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit, label %37
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %39 = load i8, ptr %38, align 1, !tbaa !33
+  %39 = load i8, ptr %38, align 1, !tbaa !34
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 162
-  store i8 %39, ptr %40, align 2, !tbaa !34
-  store i8 93, ptr %4, align 1, !tbaa !33
+  store i8 %39, ptr %40, align 2, !tbaa !35
+  store i8 93, ptr %4, align 1, !tbaa !34
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 5
-  %42 = load i8, ptr %41, align 1, !tbaa !33
+  %42 = load i8, ptr %41, align 1, !tbaa !34
   %43 = zext i8 %42 to i32
   %44 = and i32 %43, 31
   %45 = add nsw i32 %44, -30
@@ -345,21 +345,21 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   %52 = select i1 %48, i32 %51, i32 0
   %.024.i = sub nsw i32 %47, %52
   store i32 %.024.i, ptr %17, align 1
-  %53 = load ptr, ptr %16, align 8, !tbaa !32
+  %53 = load ptr, ptr %16, align 8, !tbaa !33
   %54 = call i64 @__archive_read_filter_consume(ptr noundef %53, i64 noundef 6) #10
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 168
   store i64 6, ptr %55, align 8, !tbaa !28
-  store i64 4611686018427387905, ptr %3, align 16, !tbaa !35
-  store ptr null, ptr %18, align 8, !tbaa !37
-  store i64 -1, ptr %19, align 16, !tbaa !35
-  store ptr null, ptr %20, align 8, !tbaa !37
+  store i64 4611686018427387905, ptr %3, align 16, !tbaa !36
+  store ptr null, ptr %18, align 8, !tbaa !38
+  store i64 -1, ptr %19, align 16, !tbaa !36
+  store ptr null, ptr %20, align 8, !tbaa !38
   %56 = call i32 @lzma_properties_decode(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %4, i64 noundef 5) #10
   %.not.i = icmp eq i32 %56, 0
   br i1 %.not.i, label %57, label %.sink.split.i
 
 57:                                               ; preds = %46
   %58 = call i32 @lzma_raw_decoder(ptr noundef nonnull %33, ptr noundef nonnull %3) #10
-  %59 = load ptr, ptr %18, align 8, !tbaa !37
+  %59 = load ptr, ptr %18, align 8, !tbaa !38
   call void @free(ptr noundef %59) #10
   %.not29.i = icmp eq i32 %58, 0
   br i1 %.not29.i, label %60, label %.sink.split.i
@@ -383,9 +383,9 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   br label %61
 
 61:                                               ; preds = %60, %.lr.ph112
-  %62 = load ptr, ptr %16, align 8, !tbaa !32
+  %62 = load ptr, ptr %16, align 8, !tbaa !33
   %63 = call ptr @__archive_read_filter_ahead(ptr noundef %62, i64 noundef 1, ptr noundef nonnull %6) #10
-  store ptr %63, ptr %8, align 8, !tbaa !38
+  store ptr %63, ptr %8, align 8, !tbaa !39
   %64 = icmp eq ptr %63, null
   %65 = load i64, ptr %6, align 8
   %66 = icmp slt i64 %65, 0
@@ -399,7 +399,7 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   br label %124
 
 70:                                               ; preds = %61
-  store i64 %65, ptr %21, align 8, !tbaa !39
+  store i64 %65, ptr %21, align 8, !tbaa !40
   %71 = icmp eq i64 %65, 0
   %72 = select i1 %71, i32 3, i32 0
   %73 = call i32 @lzma_code(ptr noundef nonnull %8, i32 noundef %72) #10
@@ -413,13 +413,13 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   br label %75
 
 75:                                               ; preds = %74, %70
-  %76 = load ptr, ptr %16, align 8, !tbaa !32
-  %77 = load i64, ptr %6, align 8, !tbaa !40
-  %78 = load i64, ptr %21, align 8, !tbaa !39
+  %76 = load ptr, ptr %16, align 8, !tbaa !33
+  %77 = load i64, ptr %6, align 8, !tbaa !41
+  %78 = load i64, ptr %21, align 8, !tbaa !40
   %79 = sub i64 %77, %78
   %80 = call i64 @__archive_read_filter_consume(ptr noundef %76, i64 noundef %79) #10
-  %81 = load i64, ptr %6, align 8, !tbaa !40
-  %82 = load i64, ptr %21, align 8, !tbaa !39
+  %81 = load i64, ptr %6, align 8, !tbaa !41
+  %82 = load i64, ptr %21, align 8, !tbaa !40
   %83 = sub i64 %81, %82
   %84 = load i64, ptr %13, align 8, !tbaa !28
   %85 = add i64 %83, %84
@@ -449,12 +449,12 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
   %91 = ptrtoint ptr %90 to i64
   %92 = ptrtoint ptr %89 to i64
   %93 = sub i64 %91, %92
-  %94 = load i64, ptr %22, align 8, !tbaa !41
+  %94 = load i64, ptr %22, align 8, !tbaa !42
   %95 = add i64 %93, %94
-  store i64 %95, ptr %22, align 8, !tbaa !41
-  %96 = load i64, ptr %23, align 8, !tbaa !42
+  store i64 %95, ptr %22, align 8, !tbaa !42
+  %96 = load i64, ptr %23, align 8, !tbaa !43
   %97 = add i64 %96, %93
-  store i64 %97, ptr %23, align 8, !tbaa !42
+  store i64 %97, ptr %23, align 8, !tbaa !43
   %98 = icmp eq i64 %93, 0
   br i1 %98, label %99, label %112
 
@@ -483,14 +483,14 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
 109:                                              ; preds = %105
   %110 = load i8, ptr %14, align 8, !tbaa !29
   %.not67 = icmp eq i8 %110, 0
-  br i1 %.not67, label %25, label %111
+  br i1 %.not67, label %25, label %111, !llvm.loop !44
 
 111:                                              ; preds = %109, %103, %100, %99
-  store ptr null, ptr %1, align 8, !tbaa !43
+  store ptr null, ptr %1, align 8, !tbaa !45
   br label %124
 
 112:                                              ; preds = %.critedge
-  store ptr %89, ptr %1, align 8, !tbaa !43
+  store ptr %89, ptr %1, align 8, !tbaa !45
   %113 = load i32, ptr %24, align 8, !tbaa !4
   %114 = icmp eq i32 %113, 9
   br i1 %114, label %115, label %124
@@ -498,9 +498,9 @@ define internal i64 @xz_filter_read(ptr noundef readonly captures(none) %0, ptr 
 115:                                              ; preds = %112
   %116 = load ptr, ptr %9, align 8, !tbaa !23
   %117 = getelementptr inbounds nuw i8, ptr %8, i64 164
-  %118 = load i32, ptr %117, align 4, !tbaa !44
+  %118 = load i32, ptr %117, align 4, !tbaa !46
   %119 = call i32 @lzma_crc32(ptr noundef %116, i64 noundef %93, i32 noundef %118) #13
-  store i32 %119, ptr %117, align 4, !tbaa !44
+  store i32 %119, ptr %117, align 4, !tbaa !46
   %120 = load i8, ptr %14, align 8, !tbaa !29
   %.not62 = icmp eq i8 %120, 0
   br i1 %.not62, label %124, label %121
@@ -543,11 +543,11 @@ define internal fastcc range(i32 -30, 1) i32 @lzip_tail(ptr noundef readonly cap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 162
-  %7 = load i8, ptr %6, align 2, !tbaa !34
+  %7 = load i8, ptr %6, align 2, !tbaa !35
   %8 = icmp eq i8 %7, 0
   %. = select i1 %8, i64 12, i64 20
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !32
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = call ptr @__archive_read_filter_ahead(ptr noundef %10, i64 noundef %., ptr noundef nonnull %3) #10
   %12 = icmp eq ptr %11, null
   %13 = load i64, ptr %3, align 8
@@ -568,7 +568,7 @@ define internal fastcc range(i32 -30, 1) i32 @lzip_tail(ptr noundef readonly cap
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 164
-  %22 = load i32, ptr %21, align 4, !tbaa !44
+  %22 = load i32, ptr %21, align 4, !tbaa !46
   %23 = load i32, ptr %11, align 1
   %.not = icmp eq i32 %22, %23
   br i1 %.not, label %27, label %24
@@ -581,7 +581,7 @@ define internal fastcc range(i32 -30, 1) i32 @lzip_tail(ptr noundef readonly cap
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %29 = load i64, ptr %28, align 8, !tbaa !42
+  %29 = load i64, ptr %28, align 8, !tbaa !43
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.val = load i64, ptr %30, align 1
   %.not31 = icmp eq i64 %29, %.val
@@ -594,7 +594,7 @@ define internal fastcc range(i32 -30, 1) i32 @lzip_tail(ptr noundef readonly cap
   br label %63
 
 34:                                               ; preds = %27
-  %35 = load i8, ptr %6, align 2, !tbaa !34
+  %35 = load i8, ptr %6, align 2, !tbaa !35
   %36 = icmp eq i8 %35, 1
   br i1 %36, label %37, label %45
 
@@ -614,9 +614,9 @@ define internal fastcc range(i32 -30, 1) i32 @lzip_tail(ptr noundef readonly cap
   br label %63
 
 45:                                               ; preds = %37, %34
-  %46 = load ptr, ptr %9, align 8, !tbaa !32
+  %46 = load ptr, ptr %9, align 8, !tbaa !33
   %47 = call i64 @__archive_read_filter_consume(ptr noundef %46, i64 noundef %.) #10
-  %48 = load ptr, ptr %9, align 8, !tbaa !32
+  %48 = load ptr, ptr %9, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   %49 = call ptr @__archive_read_filter_ahead(ptr noundef %48, i64 noundef 6, ptr noundef nonnull %2) #10
   %50 = icmp eq ptr %49, null
@@ -629,13 +629,13 @@ define internal fastcc range(i32 -30, 1) i32 @lzip_tail(ptr noundef readonly cap
 
 52:                                               ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %54 = load i8, ptr %53, align 1, !tbaa !33
+  %54 = load i8, ptr %53, align 1, !tbaa !34
   %switch.i = icmp ult i8 %54, 2
   br i1 %switch.i, label %55, label %lzip_has_member.exit.thread
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 5
-  %57 = load i8, ptr %56, align 1, !tbaa !33
+  %57 = load i8, ptr %56, align 1, !tbaa !34
   %58 = and i8 %57, 30
   %59 = add nsw i8 %58, -30
   %or.cond.i = icmp ult i8 %59, -18
@@ -681,7 +681,7 @@ define internal range(i32 0, 105) i32 @lzma_bidder_bid(ptr readnone captures(non
   br i1 %5, label %23, label %6
 
 6:                                                ; preds = %2
-  %7 = load i8, ptr %4, align 1, !tbaa !33
+  %7 = load i8, ptr %4, align 1, !tbaa !34
   %8 = icmp ugt i8 %7, -32
   br i1 %8, label %23, label %9
 
@@ -763,13 +763,13 @@ define internal range(i32 0, 49) i32 @lzip_bidder_bid(ptr readnone captures(none
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %9 = load i8, ptr %8, align 1, !tbaa !33
+  %9 = load i8, ptr %8, align 1, !tbaa !34
   %switch.i = icmp ult i8 %9, 2
   br i1 %switch.i, label %10, label %lzip_has_member.exit
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 5
-  %12 = load i8, ptr %11, align 1, !tbaa !33
+  %12 = load i8, ptr %11, align 1, !tbaa !34
   %13 = and i8 %12, 30
   %14 = add nsw i8 %13, -30
   %or.cond.i = icmp ult i8 %14, -18
@@ -845,18 +845,20 @@ attributes #13 = { nounwind willreturn memory(read) }
 !27 = !{!20, !7, i64 161}
 !28 = !{!20, !6, i64 168}
 !29 = !{!20, !7, i64 160}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!5, !11, i64 16}
-!33 = !{!7, !7, i64 0}
-!34 = !{!20, !7, i64 162}
-!35 = !{!36, !6, i64 0}
-!36 = !{!"", !6, i64 0, !10, i64 8}
-!37 = !{!36, !10, i64 8}
-!38 = !{!20, !14, i64 0}
-!39 = !{!20, !6, i64 8}
-!40 = !{!6, !6, i64 0}
-!41 = !{!20, !6, i64 152}
-!42 = !{!20, !6, i64 176}
-!43 = !{!10, !10, i64 0}
-!44 = !{!20, !15, i64 164}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!5, !11, i64 16}
+!34 = !{!7, !7, i64 0}
+!35 = !{!20, !7, i64 162}
+!36 = !{!37, !6, i64 0}
+!37 = !{!"", !6, i64 0, !10, i64 8}
+!38 = !{!37, !10, i64 8}
+!39 = !{!20, !14, i64 0}
+!40 = !{!20, !6, i64 8}
+!41 = !{!6, !6, i64 0}
+!42 = !{!20, !6, i64 152}
+!43 = !{!20, !6, i64 176}
+!44 = distinct !{!44, !32}
+!45 = !{!10, !10, i64 0}
+!46 = !{!20, !15, i64 164}

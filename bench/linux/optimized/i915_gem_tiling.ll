@@ -68,7 +68,7 @@ define dso_local range(i32 0, -1) i32 @i915_gem_fence_alignment(ptr noundef read
   %14 = phi i32 [ %12, %10 ], [ %16, %13 ]
   %15 = icmp ult i32 %14, %1
   %16 = shl i32 %14, 1
-  br i1 %15, label %13, label %.loopexit, !llvm.loop !5
+  br i1 %15, label %13, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %13, %6, %4
   %17 = phi i32 [ 4096, %4 ], [ 4096, %6 ], [ %14, %13 ]
@@ -132,15 +132,15 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
   br i1 %24, label %25, label %35
 
 25:                                               ; preds = %20
-  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #7, !srcloc !8
+  %26 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %0, i32 1, ptr elementtype(i32) %0) #7, !srcloc !10
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %32, label %28, !prof !9
+  br i1 %27, label %32, label %28, !prof !11
 
 28:                                               ; preds = %25
   %29 = add i32 %26, 1
   %30 = or i32 %29, %26
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %34, label %32, !prof !10
+  br i1 %31, label %34, label %32, !prof !12
 
 32:                                               ; preds = %28, %25
   %33 = phi i32 [ 2, %25 ], [ 1, %28 ]
@@ -245,7 +245,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
   %95 = phi i32 [ %93, %91 ], [ %97, %94 ]
   %96 = icmp ult i32 %95, %87
   %97 = shl i32 %95, 1
-  br i1 %96, label %94, label %.thread, !llvm.loop !5
+  br i1 %96, label %94, label %.thread, !llvm.loop !13
 
 98:                                               ; preds = %84
   %99 = add i32 %69, %87
@@ -278,7 +278,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
   %120 = phi i32 [ %122, %.thread25 ], [ %93, %.thread ]
   %121 = icmp ult i32 %120, %87
   %122 = shl i32 %120, 1
-  br i1 %121, label %.thread25, label %123, !llvm.loop !5
+  br i1 %121, label %.thread25, label %123, !llvm.loop !14
 
 123:                                              ; preds = %.thread25
   %124 = add i32 %120, -1
@@ -314,7 +314,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
 142:                                              ; preds = %134, %125, %76
   %143 = load ptr, ptr %71, align 8
   %144 = icmp eq ptr %143, %62
-  br i1 %144, label %.loopexit30, label %70, !llvm.loop !11
+  br i1 %144, label %.loopexit30, label %70, !llvm.loop !15
 
 .loopexit30:                                      ; preds = %142, %70, %59
   call void @_raw_spin_unlock(ptr noundef nonnull %61) #7
@@ -331,7 +331,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
   %151 = getelementptr i8, ptr %147, i64 -496
   %152 = call i32 @__i915_vma_unbind(ptr noundef %151) #7
   %153 = icmp eq i32 %152, 0
-  br i1 %153, label %146, label %154, !llvm.loop !12
+  br i1 %153, label %146, label %154, !llvm.loop !16
 
 154:                                              ; preds = %149
   %155 = load volatile ptr, ptr %4, align 8
@@ -401,7 +401,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
 
 189:                                              ; preds = %188
   %190 = getelementptr i8, ptr %0, i64 633
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %190, i32 -5, ptr elementtype(i8) %190) #7, !srcloc !13
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %190, i32 -5, ptr elementtype(i8) %190) #7, !srcloc !17
   call void @i915_gem_object_make_shrinkable(ptr noundef %0) #7
   br label %191
 
@@ -414,7 +414,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
 195:                                              ; preds = %191
   call void @i915_gem_object_make_unshrinkable(ptr noundef %0) #7
   %196 = getelementptr i8, ptr %0, i64 633
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %196, i32 4, ptr elementtype(i8) %196) #7, !srcloc !14
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %196, i32 4, ptr elementtype(i8) %196) #7, !srcloc !18
   br label %197
 
 197:                                              ; preds = %195, %191, %183, %178, %.thread26
@@ -462,7 +462,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
 224:                                              ; preds = %222, %213
   %225 = load ptr, ptr %208, align 8
   %226 = icmp eq ptr %225, %199
-  br i1 %226, label %.loopexit29, label %.split.us, !llvm.loop !15
+  br i1 %226, label %.loopexit29, label %.split.us, !llvm.loop !19
 
 .split:                                           ; preds = %202, %267
   %227 = phi ptr [ %268, %267 ], [ %200, %202 ]
@@ -495,7 +495,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
   %246 = phi i32 [ %244, %242 ], [ %248, %245 ]
   %247 = icmp ult i32 %246, %235
   %248 = shl i32 %246, 1
-  br i1 %247, label %245, label %.loopexit28, !llvm.loop !5
+  br i1 %247, label %245, label %.loopexit28, !llvm.loop !21
 
 .loopexit28:                                      ; preds = %245, %238
   %249 = phi i32 [ %241, %238 ], [ %246, %245 ]
@@ -514,7 +514,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
   %257 = phi i32 [ %255, %253 ], [ %259, %256 ]
   %258 = icmp ult i32 %257, %235
   %259 = shl i32 %257, 1
-  br i1 %258, label %256, label %.loopexit, !llvm.loop !5
+  br i1 %258, label %256, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %256, %.loopexit28
   %260 = phi i32 [ 4096, %.loopexit28 ], [ %257, %256 ]
@@ -533,7 +533,7 @@ define dso_local i32 @i915_gem_object_set_tiling(ptr noundef %0, i32 noundef %1,
 267:                                              ; preds = %265, %.loopexit
   %268 = load ptr, ptr %227, align 8
   %269 = icmp eq ptr %268, %199
-  br i1 %269, label %.loopexit29, label %.split, !llvm.loop !17
+  br i1 %269, label %.loopexit29, label %.split, !llvm.loop !23
 
 .loopexit29:                                      ; preds = %.split, %267, %224, %.split.us, %197
   call void @_raw_spin_unlock(ptr noundef nonnull %198) #7
@@ -640,24 +640,24 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
 .preheader:                                       ; preds = %17, %25
   %20 = phi i32 [ %26, %25 ], [ %18, %17 ]
   %21 = add i32 %20, 1
-  %22 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 %21, ptr nonnull elementtype(i32) %15, i32 %20) #7, !srcloc !18
+  %22 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 %21, ptr nonnull elementtype(i32) %15, i32 %20) #7, !srcloc !24
   %23 = extractvalue { i8, i32 } %22, 0
   %24 = icmp ult i8 %23, 2
   tail call void @llvm.assume(i1 %24)
   %.not = icmp eq i8 %23, 0
-  br i1 %.not, label %25, label %.thread, !prof !9
+  br i1 %.not, label %25, label %.thread, !prof !11
 
 25:                                               ; preds = %.preheader
   %26 = extractvalue { i8, i32 } %22, 1
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %.thread, label %.preheader, !llvm.loop !19
+  br i1 %27, label %.thread, label %.preheader, !llvm.loop !25
 
 .thread:                                          ; preds = %.preheader, %25, %17
   %28 = phi i32 [ 0, %17 ], [ %20, %.preheader ], [ 0, %25 ]
   %29 = add i32 %28, 1
   %30 = or i32 %29, %28
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %33, label %32, !prof !10
+  br i1 %31, label %33, label %32, !prof !12
 
 32:                                               ; preds = %.thread
   tail call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef 0) #7
@@ -714,7 +714,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
 
 61:                                               ; preds = %57
   %62 = icmp ult i32 %45, 8193
-  %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45), !range !20
+  %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45), !range !26
   %64 = icmp eq i32 %63, 1
   %65 = select i1 %62, i1 %64, i1 false
   br i1 %65, label %66, label %112
@@ -811,20 +811,20 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr noundef readonly captures(no
 
 112:                                              ; preds = %.thread19, %.thread16, %.thread11, %103, %75, %61, %59, %55, %49, %35
   %113 = phi i32 [ %106, %103 ], [ -6, %35 ], [ -22, %75 ], [ -22, %61 ], [ -22, %59 ], [ -22, %55 ], [ -22, %49 ], [ -22, %.thread11 ], [ -22, %.thread16 ], [ -22, %.thread19 ]
-  %114 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #7, !srcloc !21
+  %114 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %15, i32 -1, ptr nonnull elementtype(i32) %15) #7, !srcloc !27
   %115 = icmp eq i32 %114, 1
   br i1 %115, label %119, label %116
 
 116:                                              ; preds = %112
   %117 = icmp sgt i32 %114, 0
-  br i1 %117, label %.thread15, label %118, !prof !10
+  br i1 %117, label %.thread15, label %118, !prof !12
 
 118:                                              ; preds = %116
   tail call void @refcount_warn_saturate(ptr noundef nonnull %15, i32 noundef 3) #7
   br label %.thread15
 
 119:                                              ; preds = %112
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !22
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !28
   tail call void @drm_gem_object_free(ptr noundef nonnull %15) #7
   br label %.thread15
 
@@ -973,21 +973,27 @@ attributes #7 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 2148825787, i64 2148825826, i64 2148825847, i64 2148825884, i64 2148825907, i64 2148825916}
-!9 = !{!"branch_weights", i32 1, i32 2000}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = !{i64 2147818547, i64 2147818586, i64 2147818607, i64 2147818644, i64 2147818667, i64 2147818537}
-!14 = !{i64 2147817251, i64 2147817290, i64 2147817311, i64 2147817348, i64 2147817371, i64 2147817241}
-!15 = distinct !{!15, !6, !7, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!17 = distinct !{!17, !6, !7}
-!18 = !{i64 2148833679, i64 2148833718, i64 2148833739, i64 2148833776, i64 2148833799, i64 2148833808, i64 2148834106}
-!19 = distinct !{!19, !6, !7}
-!20 = !{i32 0, i32 15}
-!21 = !{i64 2148827972, i64 2148828011, i64 2148828032, i64 2148828069, i64 2148828092, i64 2148828101}
-!22 = !{i64 2151305368}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{i64 2148825787, i64 2148825826, i64 2148825847, i64 2148825884, i64 2148825907, i64 2148825916}
+!11 = !{!"branch_weights", i32 1, i32 2000}
+!12 = !{!"branch_weights", i32 2000, i32 1}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = !{i64 2147818547, i64 2147818586, i64 2147818607, i64 2147818644, i64 2147818667, i64 2147818537}
+!18 = !{i64 2147817251, i64 2147817290, i64 2147817311, i64 2147817348, i64 2147817371, i64 2147817241}
+!19 = distinct !{!19, !6, !7, !8, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = !{i64 2148833679, i64 2148833718, i64 2148833739, i64 2148833776, i64 2148833799, i64 2148833808, i64 2148834106}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = !{i32 0, i32 15}
+!27 = !{i64 2148827972, i64 2148828011, i64 2148828032, i64 2148828069, i64 2148828092, i64 2148828101}
+!28 = !{i64 2151305368}

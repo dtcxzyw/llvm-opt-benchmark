@@ -304,7 +304,7 @@ define dso_local i32 @cmd_init_db(i32 noundef %0, ptr noundef %1, ptr noundef %2
   %114 = load ptr, ptr %1, align 8, !tbaa !4
   %115 = call i32 @mkdir(ptr noundef %114, i32 noundef 511) #15
   %116 = icmp slt i32 %115, 0
-  br i1 %116, label %117, label %.preheader
+  br i1 %116, label %117, label %.preheader, !llvm.loop !23
 
 117:                                              ; preds = %113
   %118 = call fastcc ptr @_(ptr noundef nonnull @.str.25)
@@ -454,9 +454,9 @@ xstrdup_or_null.exit85.thread.thread:             ; preds = %xstrdup_or_null.exi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) @__const.cmd_init_db.mainwt, i64 24, i1 false)
   call void @strbuf_addbuf(ptr noundef nonnull %15, ptr noundef nonnull %14) #15
   %180 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %181 = load ptr, ptr %180, align 8, !tbaa !23
+  %181 = load ptr, ptr %180, align 8, !tbaa !25
   %182 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %183 = load i64, ptr %182, align 8, !tbaa !25
+  %183 = load i64, ptr %182, align 8, !tbaa !27
   %184 = icmp ult i64 %183, 5
   br i1 %184, label %strbuf_strip_suffix.exit, label %185
 
@@ -468,8 +468,8 @@ xstrdup_or_null.exit85.thread.thread:             ; preds = %xstrdup_or_null.exi
   br i1 %.not.i.i, label %188, label %strbuf_strip_suffix.exit
 
 188:                                              ; preds = %185
-  store i64 %186, ptr %182, align 8, !tbaa !25
-  %189 = load i64, ptr %15, align 8, !tbaa !26
+  store i64 %186, ptr %182, align 8, !tbaa !27
+  %189 = load i64, ptr %15, align 8, !tbaa !28
   %spec.select.i.i = call i64 @llvm.usub.sat.i64(i64 %189, i64 1)
   %190 = icmp ugt i64 %186, %spec.select.i.i
   br i1 %190, label %191, label %192
@@ -484,7 +484,7 @@ xstrdup_or_null.exit85.thread.thread:             ; preds = %xstrdup_or_null.exi
 
 193:                                              ; preds = %192
   store i8 0, ptr %187, align 1, !tbaa !22
-  %.pre = load ptr, ptr %180, align 8, !tbaa !23
+  %.pre = load ptr, ptr %180, align 8, !tbaa !25
   br label %strbuf_strip_suffix.exit
 
 strbuf_strip_suffix.exit:                         ; preds = %179, %185, %192, %193
@@ -495,7 +495,7 @@ strbuf_strip_suffix.exit:                         ; preds = %179, %185, %192, %1
 
 197:                                              ; preds = %strbuf_strip_suffix.exit
   %198 = call fastcc ptr @_(ptr noundef nonnull @.str.26)
-  %199 = load ptr, ptr %180, align 8, !tbaa !23
+  %199 = load ptr, ptr %180, align 8, !tbaa !25
   call void (ptr, ...) @die_errno(ptr noundef %198, ptr noundef %199) #16
   unreachable
 
@@ -602,7 +602,7 @@ guess_repository_type.exit:                       ; preds = %.tail.i, %215, %218
   %240 = phi ptr [ %238, %237 ], [ %236, %235 ]
   %. = select i1 %173, ptr %172, ptr %240
   call void @set_git_work_tree(ptr noundef %.) #15
-  %241 = load ptr, ptr @the_repository, align 8, !tbaa !27
+  %241 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %242 = call ptr @repo_get_work_tree(ptr noundef %241) #15
   %243 = call i32 @access(ptr noundef %242, i32 noundef 1) #15
   %.not80 = icmp eq i32 %243, 0
@@ -610,7 +610,7 @@ guess_repository_type.exit:                       ; preds = %.tail.i, %215, %218
 
 244:                                              ; preds = %239
   %245 = call fastcc ptr @_(ptr noundef nonnull @.str.34)
-  %246 = load ptr, ptr @the_repository, align 8, !tbaa !27
+  %246 = load ptr, ptr @the_repository, align 8, !tbaa !29
   %247 = call ptr @repo_get_work_tree(ptr noundef %246) #15
   call void (ptr, ...) @die_errno(ptr noundef %245, ptr noundef %247) #16
   unreachable
@@ -846,9 +846,11 @@ attributes #18 = { nounwind willreturn memory(read) }
 !20 = !{!12, !6, i64 48}
 !21 = !{!12, !13, i64 56}
 !22 = !{!7, !7, i64 0}
-!23 = !{!24, !5, i64 16}
-!24 = !{!"strbuf", !13, i64 0, !13, i64 8, !5, i64 16}
-!25 = !{!13, !13, i64 0}
-!26 = !{!24, !13, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS10repository", !6, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !5, i64 16}
+!26 = !{!"strbuf", !13, i64 0, !13, i64 8, !5, i64 16}
+!27 = !{!13, !13, i64 0}
+!28 = !{!26, !13, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"p1 _ZTS10repository", !6, i64 0}

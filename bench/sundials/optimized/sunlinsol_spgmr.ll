@@ -185,11 +185,11 @@ define noundef i32 @SUNLinSolInitialize_SPGMR(ptr noundef readonly captures(none
   store ptr %35, ptr %34, align 8, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %33
+  br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !52
 
 .loopexit:                                        ; preds = %33, %25, %21
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %37 = load ptr, ptr %36, align 8, !tbaa !52
+  %37 = load ptr, ptr %36, align 8, !tbaa !54
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %45
 
@@ -199,12 +199,12 @@ define noundef i32 @SUNLinSolInitialize_SPGMR(ptr noundef readonly captures(none
   %42 = sext i32 %41 to i64
   %43 = shl nsw i64 %42, 3
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #13
-  store ptr %44, ptr %36, align 8, !tbaa !52
+  store ptr %44, ptr %36, align 8, !tbaa !54
   br label %45
 
 45:                                               ; preds = %39, %.loopexit
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %47 = load ptr, ptr %46, align 8, !tbaa !53
+  %47 = load ptr, ptr %46, align 8, !tbaa !55
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %55
 
@@ -214,12 +214,12 @@ define noundef i32 @SUNLinSolInitialize_SPGMR(ptr noundef readonly captures(none
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
   %54 = tail call noalias ptr @malloc(i64 noundef %53) #13
-  store ptr %54, ptr %46, align 8, !tbaa !53
+  store ptr %54, ptr %46, align 8, !tbaa !55
   br label %55
 
 55:                                               ; preds = %49, %45
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 144
-  %57 = load ptr, ptr %56, align 8, !tbaa !54
+  %57 = load ptr, ptr %56, align 8, !tbaa !56
   %58 = icmp eq ptr %57, null
   br i1 %58, label %59, label %65
 
@@ -229,12 +229,12 @@ define noundef i32 @SUNLinSolInitialize_SPGMR(ptr noundef readonly captures(none
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 3
   %64 = tail call noalias ptr @malloc(i64 noundef %63) #13
-  store ptr %64, ptr %56, align 8, !tbaa !54
+  store ptr %64, ptr %56, align 8, !tbaa !56
   br label %65
 
 65:                                               ; preds = %59, %55
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %67 = load ptr, ptr %66, align 8, !tbaa !55
+  %67 = load ptr, ptr %66, align 8, !tbaa !57
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %75
 
@@ -244,7 +244,7 @@ define noundef i32 @SUNLinSolInitialize_SPGMR(ptr noundef readonly captures(none
   %72 = sext i32 %71 to i64
   %73 = shl nsw i64 %72, 3
   %74 = tail call noalias ptr @malloc(i64 noundef %73) #13
-  store ptr %74, ptr %66, align 8, !tbaa !55
+  store ptr %74, ptr %66, align 8, !tbaa !57
   br label %75
 
 75:                                               ; preds = %69, %65
@@ -293,11 +293,11 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !50
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %17 = load ptr, ptr %16, align 8, !tbaa !52
+  %17 = load ptr, ptr %16, align 8, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %19 = load ptr, ptr %18, align 8, !tbaa !38
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %21 = load ptr, ptr %20, align 8, !tbaa !53
+  %21 = load ptr, ptr %20, align 8, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %23 = load ptr, ptr %22, align 8, !tbaa !39
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -316,15 +316,15 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %40 = load ptr, ptr %39, align 8, !tbaa !54
+  %40 = load ptr, ptr %39, align 8, !tbaa !56
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 152
-  %42 = load ptr, ptr %41, align 8, !tbaa !55
-  store i32 0, ptr %37, align 4, !tbaa !56
+  %42 = load ptr, ptr %41, align 8, !tbaa !57
+  store i32 0, ptr %37, align 4, !tbaa !58
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !36
   %.not = icmp eq ptr %25, null
   %.not360 = icmp eq ptr %27, null
-  %45 = load i32, ptr %36, align 4, !tbaa !56
+  %45 = load i32, ptr %36, align 4, !tbaa !58
   %.not361 = icmp eq i32 %45, 0
   br i1 %.not361, label %47, label %46
 
@@ -338,7 +338,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br i1 %.not362, label %52, label %49
 
 49:                                               ; preds = %47
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   %50 = icmp slt i32 %48, 0
   %51 = select i1 %50, i32 -805, i32 803
   br label %223
@@ -348,7 +348,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br label %53
 
 53:                                               ; preds = %52, %46
-  %54 = load ptr, ptr %13, align 8, !tbaa !57
+  %54 = load ptr, ptr %13, align 8, !tbaa !59
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %23, ptr noundef %54) #12
   switch i32 %44, label %61 [
     i32 3, label %55
@@ -356,24 +356,24 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   ]
 
 55:                                               ; preds = %53, %53
-  %56 = load ptr, ptr %13, align 8, !tbaa !57
+  %56 = load ptr, ptr %13, align 8, !tbaa !59
   %57 = tail call i32 %35(ptr noundef %31, ptr noundef %56, ptr noundef %23, double noundef %4, i32 noundef 1) #12
   %.not363 = icmp eq i32 %57, 0
   br i1 %.not363, label %63, label %58
 
 58:                                               ; preds = %55
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   %59 = icmp slt i32 %57, 0
   %60 = select i1 %59, i32 -808, i32 805
   br label %223
 
 61:                                               ; preds = %53
-  %62 = load ptr, ptr %13, align 8, !tbaa !57
+  %62 = load ptr, ptr %13, align 8, !tbaa !59
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %62, ptr noundef %23) #12
   br label %63
 
 63:                                               ; preds = %55, %61
-  %64 = load ptr, ptr %13, align 8, !tbaa !57
+  %64 = load ptr, ptr %13, align 8, !tbaa !59
   br i1 %.not, label %66, label %65
 
 65:                                               ; preds = %63
@@ -385,23 +385,23 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br label %67
 
 67:                                               ; preds = %66, %65
-  %68 = load ptr, ptr %13, align 8, !tbaa !57
+  %68 = load ptr, ptr %13, align 8, !tbaa !59
   %69 = tail call double @N_VDotProd(ptr noundef %68, ptr noundef %68) #12
   %70 = fcmp ugt double %69, 0.000000e+00
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %67
-  %72 = tail call double @sqrt(double noundef %69) #12, !tbaa !56
+  %72 = tail call double @sqrt(double noundef %69) #12, !tbaa !58
   br label %73
 
 73:                                               ; preds = %67, %71
   %74 = phi double [ %72, %71 ], [ 0.000000e+00, %67 ]
-  store double %74, ptr %38, align 8, !tbaa !58
+  store double %74, ptr %38, align 8, !tbaa !60
   %75 = fcmp ugt double %74, %4
   br i1 %75, label %77, label %76
 
 76:                                               ; preds = %73
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   br label %223
 
 77:                                               ; preds = %73
@@ -433,33 +433,33 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.preheader385 ]
   %84 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8, !tbaa !51
-  tail call void @llvm.memset.p0.i64(ptr align 8 %85, i8 0, i64 %82, i1 false), !tbaa !58
+  tail call void @llvm.memset.p0.i64(ptr align 8 %85, i8 0, i64 %82, i1 false), !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader.us, !llvm.loop !59
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader.us, !llvm.loop !61
 
 ._crit_edge397.thread:                            ; preds = %.preheader385
   %86 = fdiv double 1.000000e+00, %.0321436
-  %87 = load ptr, ptr %13, align 8, !tbaa !57
+  %87 = load ptr, ptr %13, align 8, !tbaa !59
   tail call void @N_VScale(double noundef %86, ptr noundef %87, ptr noundef %87) #12
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader.us
   %88 = fdiv double 1.000000e+00, %.0321436
-  %89 = load ptr, ptr %13, align 8, !tbaa !57
+  %89 = load ptr, ptr %13, align 8, !tbaa !59
   tail call void @N_VScale(double noundef %88, ptr noundef %89, ptr noundef %89) #12
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %143
   %indvars.iv458 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next459, %143 ]
   %.0320400 = phi double [ 1.000000e+00, %.lr.ph.preheader ], [ %139, %143 ]
-  %90 = load i32, ptr %37, align 4, !tbaa !56
+  %90 = load i32, ptr %37, align 4, !tbaa !58
   %91 = add nsw i32 %90, 1
-  store i32 %91, ptr %37, align 4, !tbaa !56
+  store i32 %91, ptr %37, align 4, !tbaa !58
   %indvars.iv.next459 = add nuw nsw i64 %indvars.iv458, 1
   %indvars = trunc i64 %indvars.iv.next459 to i32
   %92 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv458
-  %93 = load ptr, ptr %92, align 8, !tbaa !57
+  %93 = load ptr, ptr %92, align 8, !tbaa !59
   br i1 %.not360, label %95, label %94
 
 94:                                               ; preds = %.lr.ph
@@ -475,28 +475,28 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
 
 97:                                               ; preds = %96
   %98 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next459
-  %99 = load ptr, ptr %98, align 8, !tbaa !57
+  %99 = load ptr, ptr %98, align 8, !tbaa !59
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %23, ptr noundef %99) #12
-  %100 = load ptr, ptr %98, align 8, !tbaa !57
+  %100 = load ptr, ptr %98, align 8, !tbaa !59
   %101 = tail call i32 %35(ptr noundef %31, ptr noundef %100, ptr noundef %23, double noundef %4, i32 noundef 2) #12
   %.not366 = icmp eq i32 %101, 0
   br i1 %.not366, label %105, label %102
 
 102:                                              ; preds = %97
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   %103 = icmp slt i32 %101, 0
   %104 = select i1 %103, i32 -808, i32 805
   br label %223
 
 105:                                              ; preds = %96, %97
   %106 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next459
-  %107 = load ptr, ptr %106, align 8, !tbaa !57
+  %107 = load ptr, ptr %106, align 8, !tbaa !59
   %108 = tail call i32 %33(ptr noundef %29, ptr noundef %23, ptr noundef %107) #12
   %.not367 = icmp eq i32 %108, 0
   br i1 %.not367, label %112, label %109
 
 109:                                              ; preds = %105
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   %110 = icmp slt i32 %108, 0
   %111 = select i1 %110, i32 -805, i32 803
   br label %223
@@ -508,24 +508,24 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   ]
 
 113:                                              ; preds = %112, %112
-  %114 = load ptr, ptr %106, align 8, !tbaa !57
+  %114 = load ptr, ptr %106, align 8, !tbaa !59
   %115 = tail call i32 %35(ptr noundef %31, ptr noundef %114, ptr noundef %23, double noundef %4, i32 noundef 1) #12
   %.not368 = icmp eq i32 %115, 0
   br i1 %.not368, label %121, label %116
 
 116:                                              ; preds = %113
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   %117 = icmp slt i32 %115, 0
   %118 = select i1 %117, i32 -808, i32 805
   br label %223
 
 119:                                              ; preds = %112
-  %120 = load ptr, ptr %106, align 8, !tbaa !57
+  %120 = load ptr, ptr %106, align 8, !tbaa !59
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %120, ptr noundef %23) #12
   br label %121
 
 121:                                              ; preds = %113, %119
-  %122 = load ptr, ptr %106, align 8, !tbaa !57
+  %122 = load ptr, ptr %106, align 8, !tbaa !59
   br i1 %.not, label %124, label %123
 
 123:                                              ; preds = %121
@@ -557,17 +557,17 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br i1 %.not369, label %137, label %136
 
 136:                                              ; preds = %133
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   br label %223
 
 137:                                              ; preds = %133
   %gep.idx = shl nuw nsw i64 %indvars.iv458, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
-  %138 = load double, ptr %gep, align 8, !tbaa !58
+  %138 = load double, ptr %gep, align 8, !tbaa !60
   %139 = fmul double %.0320400, %138
   %140 = fmul double %.0321436, %139
   %141 = tail call double @llvm.fabs.f64(double %140)
-  store double %141, ptr %38, align 8, !tbaa !58
+  store double %141, ptr %38, align 8, !tbaa !60
   %142 = fcmp ole double %141, %4
   br i1 %142, label %._crit_edge, label %143
 
@@ -575,25 +575,25 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   %144 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next459
   %145 = load ptr, ptr %144, align 8, !tbaa !51
   %146 = getelementptr inbounds nuw double, ptr %145, i64 %indvars.iv458
-  %147 = load double, ptr %146, align 8, !tbaa !58
+  %147 = load double, ptr %146, align 8, !tbaa !60
   %148 = fdiv double 1.000000e+00, %147
-  %149 = load ptr, ptr %106, align 8, !tbaa !57
+  %149 = load ptr, ptr %106, align 8, !tbaa !59
   tail call void @N_VScale(double noundef %148, ptr noundef %149, ptr noundef %149) #12
   %exitcond462.not = icmp eq i64 %indvars.iv.next459, %81
-  br i1 %exitcond462.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond462.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %143, %137, %._crit_edge397.thread
   %.not373.lcssa = phi i1 [ false, %._crit_edge397.thread ], [ %142, %137 ], [ %142, %143 ]
   %.2336 = phi i32 [ %.0334433, %._crit_edge397.thread ], [ %7, %143 ], [ %indvars, %137 ]
   %.3 = phi double [ %.0323435, %._crit_edge397.thread ], [ %141, %137 ], [ %141, %143 ]
-  store double %.0321436, ptr %21, align 8, !tbaa !58
+  store double %.0321436, ptr %21, align 8, !tbaa !60
   %.not370408 = icmp slt i32 %.2336, 1
   br i1 %.not370408, label %._crit_edge412, label %.lr.ph411.preheader
 
 .lr.ph411.preheader:                              ; preds = %._crit_edge
   %150 = zext nneg i32 %.2336 to i64
   %151 = shl nuw nsw i64 %150, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %151, i1 false), !tbaa !58
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %151, i1 false), !tbaa !60
   br label %._crit_edge412
 
 ._crit_edge412:                                   ; preds = %.lr.ph411.preheader, %._crit_edge
@@ -602,12 +602,12 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br i1 %.not371, label %154, label %153
 
 153:                                              ; preds = %._crit_edge412
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   br label %223
 
 154:                                              ; preds = %._crit_edge412
-  store double 1.000000e+00, ptr %40, align 8, !tbaa !58
-  store ptr %19, ptr %42, align 8, !tbaa !57
+  store double 1.000000e+00, ptr %40, align 8, !tbaa !60
+  store ptr %19, ptr %42, align 8, !tbaa !59
   %155 = icmp sgt i32 %.2336, 0
   br i1 %155, label %.lr.ph415.preheader, label %._crit_edge416
 
@@ -618,16 +618,16 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
 .lr.ph415:                                        ; preds = %.lr.ph415.preheader, %.lr.ph415
   %indvars.iv469 = phi i64 [ 0, %.lr.ph415.preheader ], [ %indvars.iv.next470, %.lr.ph415 ]
   %156 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv469
-  %157 = load double, ptr %156, align 8, !tbaa !58
+  %157 = load double, ptr %156, align 8, !tbaa !60
   %indvars.iv.next470 = add nuw nsw i64 %indvars.iv469, 1
   %158 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv.next470
-  store double %157, ptr %158, align 8, !tbaa !58
+  store double %157, ptr %158, align 8, !tbaa !60
   %159 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv469
-  %160 = load ptr, ptr %159, align 8, !tbaa !57
+  %160 = load ptr, ptr %159, align 8, !tbaa !59
   %161 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.next470
-  store ptr %160, ptr %161, align 8, !tbaa !57
+  store ptr %160, ptr %161, align 8, !tbaa !59
   %exitcond474.not = icmp eq i64 %indvars.iv.next470, %wide.trip.count473
-  br i1 %exitcond474.not, label %._crit_edge416, label %.lr.ph415
+  br i1 %exitcond474.not, label %._crit_edge416, label %.lr.ph415, !llvm.loop !64
 
 ._crit_edge416:                                   ; preds = %.lr.ph415, %154
   %162 = add i32 %.2336, 1
@@ -650,7 +650,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br i1 %.not378, label %173, label %169
 
 169:                                              ; preds = %167
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   %170 = icmp slt i32 %168, 0
   %171 = select i1 %170, i32 -808, i32 805
   br label %223
@@ -660,7 +660,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br label %173
 
 173:                                              ; preds = %167, %172
-  %174 = load i32, ptr %36, align 4, !tbaa !56
+  %174 = load i32, ptr %36, align 4, !tbaa !58
   %.not379 = icmp eq i32 %174, 0
   br i1 %.not379, label %176, label %175
 
@@ -673,7 +673,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br label %177
 
 177:                                              ; preds = %176, %175
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   br label %223
 
 178:                                              ; preds = %._crit_edge416
@@ -693,24 +693,24 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   %.idx = shl i64 %indvars.iv475, 4
   %181 = getelementptr i8, ptr %17, i64 %.idx
   %182 = getelementptr i8, ptr %181, i64 -16
-  %183 = load double, ptr %182, align 8, !tbaa !58
+  %183 = load double, ptr %182, align 8, !tbaa !60
   %184 = fmul double %.0322418, %183
   %185 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv475
-  store double %184, ptr %185, align 8, !tbaa !58
+  store double %184, ptr %185, align 8, !tbaa !60
   %186 = getelementptr i8, ptr %181, i64 -8
-  %187 = load double, ptr %186, align 8, !tbaa !58
+  %187 = load double, ptr %186, align 8, !tbaa !60
   %188 = fmul double %.0322418, %187
   %indvars.iv.next476 = add nsw i64 %indvars.iv475, -1
   %189 = icmp samesign ugt i64 %indvars.iv475, 1
-  br i1 %189, label %.lr.ph419, label %._crit_edge420.thread
+  br i1 %189, label %.lr.ph419, label %._crit_edge420.thread, !llvm.loop !65
 
 ._crit_edge420.thread:                            ; preds = %.lr.ph419
-  store double %188, ptr %21, align 8, !tbaa !58
+  store double %188, ptr %21, align 8, !tbaa !60
   %190 = fmul double %.0321436, %188
   br label %.lr.ph425.preheader
 
 ._crit_edge420:                                   ; preds = %.preheader384
-  store double 1.000000e+00, ptr %21, align 8, !tbaa !58
+  store double 1.000000e+00, ptr %21, align 8, !tbaa !60
   %.not374422 = icmp slt i32 %.2336, 0
   br i1 %.not374422, label %._crit_edge426.thread, label %.lr.ph425.preheader
 
@@ -726,12 +726,12 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
 .lr.ph425:                                        ; preds = %.lr.ph425.preheader, %.lr.ph425
   %indvars.iv479 = phi i64 [ 0, %.lr.ph425.preheader ], [ %indvars.iv.next480, %.lr.ph425 ]
   %193 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv479
-  %194 = load double, ptr %193, align 8, !tbaa !58
+  %194 = load double, ptr %193, align 8, !tbaa !60
   %195 = fmul double %192, %194
-  store double %195, ptr %193, align 8, !tbaa !58
+  store double %195, ptr %193, align 8, !tbaa !60
   %indvars.iv.next480 = add nuw nsw i64 %indvars.iv479, 1
   %exitcond484.not = icmp eq i64 %indvars.iv.next480, %wide.trip.count483
-  br i1 %exitcond484.not, label %._crit_edge426, label %.lr.ph425
+  br i1 %exitcond484.not, label %._crit_edge426, label %.lr.ph425, !llvm.loop !66
 
 ._crit_edge426:                                   ; preds = %.lr.ph425
   %196 = tail call double @llvm.fabs.f64(double %192)
@@ -741,20 +741,20 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
 .lr.ph430:                                        ; preds = %._crit_edge426, %.lr.ph430
   %indvars.iv485 = phi i64 [ 0, %._crit_edge426 ], [ %indvars.iv.next486, %.lr.ph430 ]
   %197 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv485
-  %198 = load double, ptr %197, align 8, !tbaa !58
+  %198 = load double, ptr %197, align 8, !tbaa !60
   %199 = getelementptr inbounds nuw double, ptr %40, i64 %indvars.iv485
-  store double %198, ptr %199, align 8, !tbaa !58
+  store double %198, ptr %199, align 8, !tbaa !60
   %200 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv485
-  %201 = load ptr, ptr %200, align 8, !tbaa !57
+  %201 = load ptr, ptr %200, align 8, !tbaa !59
   %202 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv485
-  store ptr %201, ptr %202, align 8, !tbaa !57
+  store ptr %201, ptr %202, align 8, !tbaa !59
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next486, %wide.trip.count489
-  br i1 %exitcond490.not, label %._crit_edge431, label %.lr.ph430
+  br i1 %exitcond490.not, label %._crit_edge431, label %.lr.ph430, !llvm.loop !67
 
 ._crit_edge431:                                   ; preds = %.lr.ph430, %._crit_edge426.thread
   %203 = phi double [ %191, %._crit_edge426.thread ], [ %196, %.lr.ph430 ]
-  %204 = load ptr, ptr %13, align 8, !tbaa !57
+  %204 = load ptr, ptr %13, align 8, !tbaa !59
   %205 = tail call i32 @N_VLinearCombination(i32 noundef %162, ptr noundef nonnull %40, ptr noundef nonnull %42, ptr noundef %204) #12
   %206 = add nuw nsw i32 %.0333434, 1
   br label %.preheader385
@@ -781,7 +781,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br i1 %.not376, label %218, label %214
 
 214:                                              ; preds = %212
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   %215 = icmp slt i32 %213, 0
   %216 = select i1 %215, i32 -808, i32 805
   br label %223
@@ -791,7 +791,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br label %218
 
 218:                                              ; preds = %212, %217
-  %219 = load i32, ptr %36, align 4, !tbaa !56
+  %219 = load i32, ptr %36, align 4, !tbaa !58
   %.not377 = icmp eq i32 %219, 0
   br i1 %.not377, label %221, label %220
 
@@ -804,11 +804,11 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
   br label %222
 
 222:                                              ; preds = %221, %220
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   br label %223
 
 ._crit_edge437.thread:                            ; preds = %77, %._crit_edge437
-  store i32 0, ptr %36, align 4, !tbaa !56
+  store i32 0, ptr %36, align 4, !tbaa !58
   br label %223
 
 223:                                              ; preds = %._crit_edge437.thread, %222, %214, %177, %169, %153, %136, %116, %109, %102, %76, %58, %49
@@ -823,7 +823,7 @@ define range(i32 -811, 808) i32 @SUNLinSolSolve_SPGMR(ptr noundef readonly captu
 define i32 @SUNLinSolNumIters_SPGMR(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !61
+  %4 = load i32, ptr %3, align 4, !tbaa !68
   ret i32 %4
 }
 
@@ -831,7 +831,7 @@ define i32 @SUNLinSolNumIters_SPGMR(ptr noundef readonly captures(none) %0) #5 {
 define double @SUNLinSolResNorm_SPGMR(ptr noundef readonly captures(none) %0) #5 {
   %2 = load ptr, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %4 = load double, ptr %3, align 8, !tbaa !62
+  %4 = load double, ptr %3, align 8, !tbaa !69
   ret double %4
 }
 
@@ -863,16 +863,16 @@ define noundef i32 @SUNLinSolSpace_SPGMR(ptr noundef readonly captures(none) %0,
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
+  %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !66
+  %13 = load ptr, ptr %12, align 8, !tbaa !73
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %14
 
 14:                                               ; preds = %3
   call void @N_VSpace(ptr noundef nonnull %9, ptr noundef nonnull %5, ptr noundef nonnull %4) #12
-  %.pre = load i64, ptr %5, align 8, !tbaa !68
-  %.pre9 = load i64, ptr %4, align 8, !tbaa !68
+  %.pre = load i64, ptr %5, align 8, !tbaa !75
+  %.pre9 = load i64, ptr %4, align 8, !tbaa !75
   br label %15
 
 15:                                               ; preds = %3, %14
@@ -885,9 +885,9 @@ define noundef i32 @SUNLinSolSpace_SPGMR(ptr noundef readonly captures(none) %0,
   %22 = sext i32 %21 to i64
   %23 = add nsw i64 %22, 2
   %24 = add i64 %23, %20
-  store i64 %24, ptr %1, align 8, !tbaa !68
+  store i64 %24, ptr %1, align 8, !tbaa !75
   %25 = mul nsw i64 %16, %19
-  store i64 %25, ptr %2, align 8, !tbaa !68
+  store i64 %25, ptr %2, align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   ret i32 0
@@ -981,7 +981,7 @@ define noundef i32 @SUNLinSolFree_SPGMR(ptr noundef captures(none) %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %42 to i64
   %.not54.not = icmp slt i64 %indvars.iv, %44
-  br i1 %.not54.not, label %.lr.ph, label %._crit_edge.loopexit
+  br i1 %.not54.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !77
 
 ._crit_edge.loopexit:                             ; preds = %41
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %43, i64 104
@@ -999,7 +999,7 @@ define noundef i32 @SUNLinSolFree_SPGMR(ptr noundef captures(none) %0) #0 {
 48:                                               ; preds = %._crit_edge, %25
   %49 = phi ptr [ %46, %._crit_edge ], [ %26, %25 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 112
-  %51 = load ptr, ptr %50, align 8, !tbaa !52
+  %51 = load ptr, ptr %50, align 8, !tbaa !54
   %.not55 = icmp eq ptr %51, null
   br i1 %.not55, label %55, label %52
 
@@ -1007,13 +1007,13 @@ define noundef i32 @SUNLinSolFree_SPGMR(ptr noundef captures(none) %0) #0 {
   tail call void @free(ptr noundef nonnull %51) #12
   %53 = load ptr, ptr %0, align 8, !tbaa !26
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 112
-  store ptr null, ptr %54, align 8, !tbaa !52
+  store ptr null, ptr %54, align 8, !tbaa !54
   br label %55
 
 55:                                               ; preds = %52, %48
   %56 = phi ptr [ %53, %52 ], [ %49, %48 ]
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 128
-  %58 = load ptr, ptr %57, align 8, !tbaa !53
+  %58 = load ptr, ptr %57, align 8, !tbaa !55
   %.not56 = icmp eq ptr %58, null
   br i1 %.not56, label %62, label %59
 
@@ -1021,13 +1021,13 @@ define noundef i32 @SUNLinSolFree_SPGMR(ptr noundef captures(none) %0) #0 {
   tail call void @free(ptr noundef nonnull %58) #12
   %60 = load ptr, ptr %0, align 8, !tbaa !26
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 128
-  store ptr null, ptr %61, align 8, !tbaa !53
+  store ptr null, ptr %61, align 8, !tbaa !55
   br label %62
 
 62:                                               ; preds = %59, %55
   %63 = phi ptr [ %60, %59 ], [ %56, %55 ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 144
-  %65 = load ptr, ptr %64, align 8, !tbaa !54
+  %65 = load ptr, ptr %64, align 8, !tbaa !56
   %.not57 = icmp eq ptr %65, null
   br i1 %.not57, label %69, label %66
 
@@ -1035,13 +1035,13 @@ define noundef i32 @SUNLinSolFree_SPGMR(ptr noundef captures(none) %0) #0 {
   tail call void @free(ptr noundef nonnull %65) #12
   %67 = load ptr, ptr %0, align 8, !tbaa !26
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 144
-  store ptr null, ptr %68, align 8, !tbaa !54
+  store ptr null, ptr %68, align 8, !tbaa !56
   br label %69
 
 69:                                               ; preds = %66, %62
   %70 = phi ptr [ %67, %66 ], [ %63, %62 ]
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 152
-  %72 = load ptr, ptr %71, align 8, !tbaa !55
+  %72 = load ptr, ptr %71, align 8, !tbaa !57
   %.not58 = icmp eq ptr %72, null
   br i1 %.not58, label %76, label %73
 
@@ -1049,7 +1049,7 @@ define noundef i32 @SUNLinSolFree_SPGMR(ptr noundef captures(none) %0) #0 {
   tail call void @free(ptr noundef nonnull %72) #12
   %74 = load ptr, ptr %0, align 8, !tbaa !26
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 152
-  store ptr null, ptr %75, align 8, !tbaa !55
+  store ptr null, ptr %75, align 8, !tbaa !57
   br label %76
 
 76:                                               ; preds = %73, %69
@@ -1220,21 +1220,29 @@ attributes #13 = { nounwind allocsize(0) }
 !49 = !{!28, !32, i64 96}
 !50 = !{!28, !33, i64 104}
 !51 = !{!34, !34, i64 0}
-!52 = !{!28, !34, i64 112}
-!53 = !{!28, !34, i64 128}
-!54 = !{!28, !34, i64 144}
-!55 = !{!28, !32, i64 152}
-!56 = !{!29, !29, i64 0}
-!57 = !{!31, !31, i64 0}
-!58 = !{!30, !30, i64 0}
-!59 = distinct !{!59, !60}
-!60 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!61 = !{!28, !29, i64 20}
-!62 = !{!28, !30, i64 24}
-!63 = !{!64, !65, i64 8}
-!64 = !{!"_generic_N_Vector", !5, i64 0, !65, i64 8, !9, i64 16}
-!65 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
-!66 = !{!67, !5, i64 32}
-!67 = !{!"_generic_N_Vector_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !5, i64 416, !5, i64 424, !5, i64 432, !5, i64 440}
-!68 = !{!69, !69, i64 0}
-!69 = !{!"long", !6, i64 0}
+!52 = distinct !{!52, !53}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!28, !34, i64 112}
+!55 = !{!28, !34, i64 128}
+!56 = !{!28, !34, i64 144}
+!57 = !{!28, !32, i64 152}
+!58 = !{!29, !29, i64 0}
+!59 = !{!31, !31, i64 0}
+!60 = !{!30, !30, i64 0}
+!61 = distinct !{!61, !53, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !53}
+!64 = distinct !{!64, !53}
+!65 = distinct !{!65, !53}
+!66 = distinct !{!66, !53}
+!67 = distinct !{!67, !53}
+!68 = !{!28, !29, i64 20}
+!69 = !{!28, !30, i64 24}
+!70 = !{!71, !72, i64 8}
+!71 = !{!"_generic_N_Vector", !5, i64 0, !72, i64 8, !9, i64 16}
+!72 = !{!"p1 _ZTS21_generic_N_Vector_Ops", !5, i64 0}
+!73 = !{!74, !5, i64 32}
+!74 = !{!"_generic_N_Vector_Ops", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !5, i64 48, !5, i64 56, !5, i64 64, !5, i64 72, !5, i64 80, !5, i64 88, !5, i64 96, !5, i64 104, !5, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !5, i64 192, !5, i64 200, !5, i64 208, !5, i64 216, !5, i64 224, !5, i64 232, !5, i64 240, !5, i64 248, !5, i64 256, !5, i64 264, !5, i64 272, !5, i64 280, !5, i64 288, !5, i64 296, !5, i64 304, !5, i64 312, !5, i64 320, !5, i64 328, !5, i64 336, !5, i64 344, !5, i64 352, !5, i64 360, !5, i64 368, !5, i64 376, !5, i64 384, !5, i64 392, !5, i64 400, !5, i64 408, !5, i64 416, !5, i64 424, !5, i64 432, !5, i64 440}
+!75 = !{!76, !76, i64 0}
+!76 = !{!"long", !6, i64 0}
+!77 = distinct !{!77, !53}

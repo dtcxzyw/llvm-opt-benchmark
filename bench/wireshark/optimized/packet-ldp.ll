@@ -1992,7 +1992,7 @@ define internal fastcc void @dissect_ldp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %111 = add i32 %109, %.0115138.i
   %112 = sub i32 %105, %111
   %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !10
+  br i1 %113, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !11
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %104, %.thread135.i
   %114 = phi i32 [ %67, %.thread135.i ], [ %105, %104 ], [ %105, %.lr.ph.i ]
@@ -2005,7 +2005,7 @@ dissect_msg.exit:                                 ; preds = %38, %53, %.loopexit
   %117 = add i32 %.0114.i, %.03843
   %118 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %117)
   %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %35, label %._crit_edge, !llvm.loop !11
+  br i1 %119, label %35, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %dissect_msg.exit, %32
   ret void
@@ -2560,7 +2560,7 @@ define internal fastcc i32 @dissect_tlv(ptr noundef %0, ptr noundef %1, i32 noun
   %237 = icmp sgt i32 %227, 1
   %238 = icmp sgt i32 %235, 1
   %239 = select i1 %237, i1 %238, i1 false
-  br i1 %239, label %.lr.ph, label %.thread484
+  br i1 %239, label %.lr.ph, label %.thread484, !llvm.loop !13
 
 240:                                              ; preds = %50
   %241 = add i32 %2, 4
@@ -2776,7 +2776,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv.next919 = add nuw nsw i64 %indvars.iv918, 1
   %84 = trunc nuw nsw i64 %indvars.iv.next919 to i32
   %exitcond921.not = icmp eq i64 %indvars.iv.next919, %wide.trip.count920
-  br i1 %exitcond921.not, label %._crit_edge810, label %.lr.ph809, !llvm.loop !12
+  br i1 %exitcond921.not, label %._crit_edge810, label %.lr.ph809, !llvm.loop !14
 
 ._crit_edge810:                                   ; preds = %.lr.ph809
   %85 = and i32 %40, 7
@@ -2894,7 +2894,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph805, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph805, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph805
   store i32 %.3629.ph, ptr %9, align 8
@@ -2999,7 +2999,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %218 = icmp ugt i8 %216, 1
   %219 = icmp sgt i32 %215, 1
   %220 = select i1 %218, i1 %219, i1 false
-  br i1 %220, label %.lr.ph800, label %.loopexit, !llvm.loop !14
+  br i1 %220, label %.lr.ph800, label %.loopexit, !llvm.loop !16
 
 221:                                              ; preds = %20
   %222 = icmp samesign ult i32 %.0619813, 4
@@ -3304,7 +3304,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %429 = icmp ugt i32 %427, 1
   %430 = icmp sgt i32 %425, 1
   %431 = select i1 %429, i1 %430, i1 false
-  br i1 %431, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %431, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 432:                                              ; preds = %20
   %433 = icmp samesign ult i32 %.0619813, 4
@@ -3417,7 +3417,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %.1 = phi i32 [ %29, %22 ], [ %72, %71 ], [ %99, %._crit_edge810.thread ], [ %49, %45 ], [ %140, %139 ], [ %156, %._crit_edge ], [ %118, %113 ], [ %333, %331 ], [ %.reass, %344 ], [ %504, %499 ], [ %497, %490 ], [ %456, %438 ], [ %193, %185 ], [ %.3, %405 ], [ %217, %214 ], [ %428, %424 ]
   %510 = add i16 %.0631812, 1
   %511 = icmp sgt i32 %.1620, 0
-  br i1 %511, label %20, label %.loopexit702, !llvm.loop !16
+  br i1 %511, label %20, label %.loopexit702, !llvm.loop !18
 
 .loopexit702:                                     ; preds = %.loopexit, %5, %505, %434, %420, %414, %371, %340, %334, %303, %269, %223, %210, %203, %197, %160, %124, %103, %56, %32
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #7
@@ -3499,7 +3499,7 @@ define internal fastcc void @dissect_tlv_address_list(ptr noundef %0, ptr nounde
   %42 = add i32 %.05363, %28
   %43 = sub nsw i32 %.05462, %28
   %.not = icmp slt i32 %43, %28
-  br i1 %.not, label %._crit_edge, label %32, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %32, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %35, %32, %19
   %.054.lcssa = phi i32 [ %21, %19 ], [ %.05462, %32 ], [ %43, %35 ]
@@ -3541,7 +3541,7 @@ define internal fastcc void @dissect_tlv_path_vector(ptr noundef %0, ptr noundef
   %18 = add i32 %.027, 4
   %19 = add nsw i32 %.02425, -4
   %20 = icmp samesign ugt i32 %19, 3
-  br i1 %20, label %10, label %._crit_edge, !llvm.loop !18
+  br i1 %20, label %10, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %10, %5
   %.024.lcssa = phi i32 [ %4, %5 ], [ %19, %10 ]
@@ -3791,7 +3791,7 @@ define internal fastcc void @dissect_tlv_mac(ptr noundef %0, ptr noundef %1, i32
   %11 = add i32 %.017, 6
   %12 = add nsw i32 %.01516, -6
   %13 = icmp samesign ugt i32 %12, 5
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.015.lcssa = phi i32 [ %4, %5 ], [ %12, %.lr.ph ]
@@ -3903,7 +3903,7 @@ define internal fastcc void @dissect_tlv_atm_session_parms(ptr noundef %0, ptr n
   %45 = icmp ne i8 %44, 0
   %46 = icmp samesign ugt i32 %43, 7
   %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %.062.lcssa = phi i32 [ %23, %9 ], [ %43, %.lr.ph ]
@@ -3979,7 +3979,7 @@ define internal fastcc void @dissect_tlv_frame_relay_session_parms(ptr noundef %
   %47 = icmp ne i8 %46, 0
   %48 = icmp samesign ugt i32 %45, 7
   %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9
   %.064.lcssa = phi i32 [ %23, %9 ], [ %45, %.lr.ph ]
@@ -4089,7 +4089,7 @@ define internal fastcc void @dissect_tlv_er(ptr noundef %0, ptr noundef %1, i32 
   %11 = add i32 %10, %.0
   %12 = sub i32 %.016, %10
   %.old1 = icmp sgt i32 %12, 0
-  br i1 %.old1, label %.preheader, label %.loopexit
+  br i1 %.old1, label %.preheader, label %.loopexit, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %5
   ret void
@@ -4397,7 +4397,7 @@ define internal fastcc void @dissect_tlv_diffserv(ptr noundef %0, ptr noundef %1
   tail call void @dissect_diffserv_mpls_common(ptr noundef %0, ptr noundef %3, i32 noundef 1, i32 noundef %.033, ptr noundef nonnull @dissect_tlv_diffserv.hfindexes, ptr noundef nonnull @dissect_tlv_diffserv.etts)
   %22 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %22, %20
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 23:                                               ; preds = %9
   %24 = add i32 %2, 2
@@ -5027,18 +5027,21 @@ attributes #10 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !9, !10}

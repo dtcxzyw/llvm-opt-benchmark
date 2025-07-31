@@ -519,7 +519,7 @@ free_address.exit:                                ; preds = %.lr.ph, %11, %15, %
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %free_address.exit, %.preheader
   %.lcssa = phi ptr [ %4, %.preheader ], [ %19, %free_address.exit ]
@@ -593,7 +593,7 @@ free_address.exit.i:                              ; preds = %18, %15, %11, %.lr.
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
-  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %23, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %free_address.exit.i, %.preheader.i
   %.lcssa.i = phi ptr [ %4, %.preheader.i ], [ %19, %free_address.exit.i ]
@@ -2147,7 +2147,7 @@ define internal i32 @conversation_hash(ptr noundef readonly captures(none) %0) #
   %13 = xor i32 %12, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !12
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ 0, %1 ], [ %13, %.lr.ph.i ]
@@ -2177,7 +2177,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %28 = xor i32 %27, %26
   %indvars.iv.next.i17 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i18 = icmp eq i64 %indvars.iv.next.i17, %wide.trip.count.i13
-  br i1 %exitcond.not.i18, label %add_address_to_hash.exit19, label %.lr.ph.i14, !llvm.loop !11
+  br i1 %exitcond.not.i18, label %add_address_to_hash.exit19, label %.lr.ph.i14, !llvm.loop !12
 
 add_address_to_hash.exit19:                       ; preds = %.lr.ph.i14, %add_address_to_hash.exit
   %.011.lcssa.i11 = phi i32 [ %16, %add_address_to_hash.exit ], [ %28, %.lr.ph.i14 ]
@@ -2661,7 +2661,7 @@ define internal i32 @endpoint_hash(ptr noundef readonly captures(none) %0) #6 {
   %13 = xor i32 %12, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %add_address_to_hash.exit, label %.lr.ph.i, !llvm.loop !12
 
 add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ 0, %1 ], [ %13, %.lr.ph.i ]
@@ -2808,7 +2808,8 @@ attributes #17 = { allocsize(0) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}

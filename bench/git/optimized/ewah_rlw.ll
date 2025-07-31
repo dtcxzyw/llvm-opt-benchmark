@@ -137,7 +137,7 @@ define dso_local void @rlwit_discard_first_words(ptr noundef captures(none) %0, 
   %43 = sub i64 %36, %37
   store i64 %43, ptr %5, align 8, !tbaa !24
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.thread, label %11
+  br i1 %.not, label %.thread, label %11, !llvm.loop !25
 
 .thread:                                          ; preds = %18, %31, %28, %2, %15
   ret void
@@ -255,12 +255,12 @@ define dso_local i64 @rlwit_discharge(ptr noundef captures(none) %0, ptr noundef
   %65 = sub i64 %58, %59
   store i64 %65, ptr %8, align 8, !tbaa !24
   %.not.i = icmp eq i64 %48, 0
-  br i1 %.not.i, label %rlwit_discard_first_words.exit, label %33
+  br i1 %.not.i, label %rlwit_discard_first_words.exit, label %33, !llvm.loop !25
 
 rlwit_discard_first_words.exit:                   ; preds = %40, %50, %53, %15, %37
   %66 = add i64 %.031, %23
   %67 = icmp ult i64 %66, %2
-  br i1 %67, label %13, label %.critedge, !llvm.loop !25
+  br i1 %67, label %13, label %.critedge, !llvm.loop !27
 
 .critedge:                                        ; preds = %13, %rlwit_discard_first_words.exit, %4
   %.032.lcssa = phi i64 [ 0, %4 ], [ %66, %rlwit_discard_first_words.exit ], [ %.03237, %13 ]
@@ -309,4 +309,6 @@ attributes #5 = { nounwind }
 !23 = !{!12, !14, i64 52}
 !24 = !{!12, !10, i64 24}
 !25 = distinct !{!25, !26}
-!26 = !{!"llvm.loop.mustprogress"}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = distinct !{!27, !28, !26}
+!28 = !{!"llvm.loop.mustprogress"}

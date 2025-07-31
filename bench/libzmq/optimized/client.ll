@@ -235,7 +235,7 @@ define noundef i32 @_ZN3zmq8client_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align
   br i1 %14, label %.lr.ph, label %.critedge, !llvm.loop !66
 
 .critedge13:                                      ; preds = %.lr.ph
-  br i1 %14, label %.lr.ph16, label %.critedge, !llvm.loop !68
+  br i1 %14, label %.lr.ph16, label %.critedge, !llvm.loop !69
 
 .critedge:                                        ; preds = %8, %.lr.ph16, %.critedge13, %15, %2
   %.0.lcssa = phi i32 [ %4, %2 ], [ %13, %15 ], [ %9, %8 ], [ %13, %.critedge13 ], [ 0, %.lr.ph16 ]
@@ -466,6 +466,7 @@ attributes #12 = { nounwind willreturn memory(none) }
 !63 = !{!64, !64, i64 0}
 !64 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !65 = !{!12, !12, i64 0}
-!66 = distinct !{!66, !67}
+!66 = distinct !{!66, !67, !68}
 !67 = !{!"llvm.loop.mustprogress"}
-!68 = distinct !{!68, !67}
+!68 = !{!"llvm.loop.estimated_trip_count"}
+!69 = distinct !{!69, !67, !68}

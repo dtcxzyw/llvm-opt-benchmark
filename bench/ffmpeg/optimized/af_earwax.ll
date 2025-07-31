@@ -118,8 +118,8 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %33 = getelementptr inbounds nuw i8, ptr %.val, i64 128
   %34 = getelementptr inbounds nuw i8, ptr %.val, i64 640
   %35 = load ptr, ptr %34, align 8, !tbaa !20
-  %36 = load ptr, ptr %35, align 8, !tbaa !42
-  %37 = load ptr, ptr %1, align 8, !tbaa !42
+  %36 = load ptr, ptr %35, align 8, !tbaa !43
+  %37 = load ptr, ptr %1, align 8, !tbaa !43
   %38 = load i32, ptr %12, align 8, !tbaa !34
   %narrow.i = tail call i32 @llvm.smin.i32(i32 %38, i32 32)
   %spec.select.i = sext i32 %narrow.i to i64
@@ -139,27 +139,27 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %43 ]
   %.01316.i.i = phi i32 [ 0, %.preheader.i.i ], [ %51, %43 ]
   %44 = getelementptr inbounds nuw i16, ptr %.01518.i.i, i64 %indvars.iv.i.i
-  %45 = load i16, ptr %44, align 2, !tbaa !43
+  %45 = load i16, ptr %44, align 2, !tbaa !44
   %46 = sext i16 %45 to i32
   %47 = getelementptr inbounds nuw i16, ptr %.val, i64 %indvars.iv.i.i
-  %48 = load i16, ptr %47, align 2, !tbaa !43
+  %48 = load i16, ptr %47, align 2, !tbaa !44
   %49 = sext i16 %48 to i32
   %50 = mul nsw i32 %49, %46
   %51 = add nsw i32 %50, %.01316.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 32
-  br i1 %exitcond.not.i.i, label %52, label %43, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %52, label %43, !llvm.loop !46
 
 52:                                               ; preds = %43
   %53 = ashr i32 %51, 7
   %54 = tail call i32 @llvm.smax.i32(i32 %53, i32 -32768)
   %55 = tail call i32 @llvm.smin.i32(i32 %54, i32 32767)
   %.0.i.i.i = trunc nsw i32 %55 to i16
-  store i16 %.0.i.i.i, ptr %.01419.i.i, align 2, !tbaa !43
+  store i16 %.0.i.i.i, ptr %.01419.i.i, align 2, !tbaa !44
   %56 = getelementptr inbounds nuw i8, ptr %.01419.i.i, i64 2
   %57 = getelementptr inbounds nuw i8, ptr %.01518.i.i, i64 2
   %58 = icmp ult ptr %57, %41
-  br i1 %58, label %.preheader.i.i, label %scalarproduct.exit.i, !llvm.loop !46
+  br i1 %58, label %.preheader.i.i, label %scalarproduct.exit.i, !llvm.loop !47
 
 scalarproduct.exit.i:                             ; preds = %52, %31
   %.014.lcssa.i.i = phi ptr [ %36, %31 ], [ %56, %52 ]
@@ -184,27 +184,27 @@ scalarproduct.exit.i:                             ; preds = %52, %31
   %indvars.iv.i36.i = phi i64 [ 0, %.preheader.i33.i ], [ %indvars.iv.next.i38.i, %65 ]
   %.01316.i37.i = phi i32 [ 0, %.preheader.i33.i ], [ %73, %65 ]
   %66 = getelementptr inbounds nuw i16, ptr %.01518.i35.i, i64 %indvars.iv.i36.i
-  %67 = load i16, ptr %66, align 2, !tbaa !43
+  %67 = load i16, ptr %66, align 2, !tbaa !44
   %68 = sext i16 %67 to i32
   %69 = getelementptr inbounds nuw i16, ptr %.val, i64 %indvars.iv.i36.i
-  %70 = load i16, ptr %69, align 2, !tbaa !43
+  %70 = load i16, ptr %69, align 2, !tbaa !44
   %71 = sext i16 %70 to i32
   %72 = mul nsw i32 %71, %68
   %73 = add nsw i32 %72, %.01316.i37.i
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i36.i, 1
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i38.i, 32
-  br i1 %exitcond.not.i39.i, label %74, label %65, !llvm.loop !45
+  br i1 %exitcond.not.i39.i, label %74, label %65, !llvm.loop !46
 
 74:                                               ; preds = %65
   %75 = ashr i32 %73, 7
   %76 = tail call i32 @llvm.smax.i32(i32 %75, i32 -32768)
   %77 = tail call i32 @llvm.smin.i32(i32 %76, i32 32767)
   %.0.i.i40.i = trunc nsw i32 %77 to i16
-  store i16 %.0.i.i40.i, ptr %.01419.i34.i, align 2, !tbaa !43
+  store i16 %.0.i.i40.i, ptr %.01419.i34.i, align 2, !tbaa !44
   %78 = getelementptr inbounds nuw i8, ptr %.01419.i34.i, i64 2
   %79 = getelementptr inbounds nuw i8, ptr %.01518.i35.i, i64 2
   %80 = icmp ult ptr %79, %64
-  br i1 %80, label %.preheader.i33.i, label %scalarproduct.exit41.i, !llvm.loop !46
+  br i1 %80, label %.preheader.i33.i, label %scalarproduct.exit41.i, !llvm.loop !47
 
 scalarproduct.exit41.i:                           ; preds = %74, %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %33, ptr noundef nonnull align 2 dereferenceable(64) %64, i64 64, i1 false)
@@ -222,8 +222,8 @@ convolve.exit:                                    ; preds = %scalarproduct.exit4
   %85 = getelementptr inbounds nuw i8, ptr %.val31, i64 640
   %86 = load ptr, ptr %85, align 8, !tbaa !20
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !42
-  %89 = load ptr, ptr %1, align 8, !tbaa !42
+  %88 = load ptr, ptr %87, align 8, !tbaa !43
+  %89 = load ptr, ptr %1, align 8, !tbaa !43
   %90 = load i32, ptr %12, align 8, !tbaa !34
   %narrow.i38 = tail call i32 @llvm.smin.i32(i32 %90, i32 32)
   %spec.select.i39 = sext i32 %narrow.i38 to i64
@@ -244,27 +244,27 @@ convolve.exit:                                    ; preds = %scalarproduct.exit4
   %indvars.iv.i.i56 = phi i64 [ 0, %.preheader.i.i53 ], [ %indvars.iv.next.i.i58, %96 ]
   %.01316.i.i57 = phi i32 [ 0, %.preheader.i.i53 ], [ %104, %96 ]
   %97 = getelementptr inbounds nuw i16, ptr %.01518.i.i55, i64 %indvars.iv.i.i56
-  %98 = load i16, ptr %97, align 2, !tbaa !43
+  %98 = load i16, ptr %97, align 2, !tbaa !44
   %99 = sext i16 %98 to i32
   %100 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i.i56
-  %101 = load i16, ptr %100, align 2, !tbaa !43
+  %101 = load i16, ptr %100, align 2, !tbaa !44
   %102 = sext i16 %101 to i32
   %103 = mul nsw i32 %102, %99
   %104 = add nsw i32 %103, %.01316.i.i57
   %indvars.iv.next.i.i58 = add nuw nsw i64 %indvars.iv.i.i56, 1
   %exitcond.not.i.i59 = icmp eq i64 %indvars.iv.next.i.i58, 32
-  br i1 %exitcond.not.i.i59, label %105, label %96, !llvm.loop !45
+  br i1 %exitcond.not.i.i59, label %105, label %96, !llvm.loop !46
 
 105:                                              ; preds = %96
   %106 = ashr i32 %104, 7
   %107 = tail call i32 @llvm.smax.i32(i32 %106, i32 -32768)
   %108 = tail call i32 @llvm.smin.i32(i32 %107, i32 32767)
   %.0.i.i.i60 = trunc nsw i32 %108 to i16
-  store i16 %.0.i.i.i60, ptr %.01419.i.i54, align 2, !tbaa !43
+  store i16 %.0.i.i.i60, ptr %.01419.i.i54, align 2, !tbaa !44
   %109 = getelementptr inbounds nuw i8, ptr %.01419.i.i54, i64 2
   %110 = getelementptr inbounds nuw i8, ptr %.01518.i.i55, i64 2
   %111 = icmp ult ptr %110, %93
-  br i1 %111, label %.preheader.i.i53, label %scalarproduct.exit.i40, !llvm.loop !46
+  br i1 %111, label %.preheader.i.i53, label %scalarproduct.exit.i40, !llvm.loop !47
 
 scalarproduct.exit.i40:                           ; preds = %105, %convolve.exit
   %.014.lcssa.i.i41 = phi ptr [ %88, %convolve.exit ], [ %109, %105 ]
@@ -289,27 +289,27 @@ scalarproduct.exit.i40:                           ; preds = %105, %convolve.exit
   %indvars.iv.i36.i47 = phi i64 [ 0, %.preheader.i33.i44 ], [ %indvars.iv.next.i38.i49, %118 ]
   %.01316.i37.i48 = phi i32 [ 0, %.preheader.i33.i44 ], [ %126, %118 ]
   %119 = getelementptr inbounds nuw i16, ptr %.01518.i35.i46, i64 %indvars.iv.i36.i47
-  %120 = load i16, ptr %119, align 2, !tbaa !43
+  %120 = load i16, ptr %119, align 2, !tbaa !44
   %121 = sext i16 %120 to i32
   %122 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv.i36.i47
-  %123 = load i16, ptr %122, align 2, !tbaa !43
+  %123 = load i16, ptr %122, align 2, !tbaa !44
   %124 = sext i16 %123 to i32
   %125 = mul nsw i32 %124, %121
   %126 = add nsw i32 %125, %.01316.i37.i48
   %indvars.iv.next.i38.i49 = add nuw nsw i64 %indvars.iv.i36.i47, 1
   %exitcond.not.i39.i50 = icmp eq i64 %indvars.iv.next.i38.i49, 32
-  br i1 %exitcond.not.i39.i50, label %127, label %118, !llvm.loop !45
+  br i1 %exitcond.not.i39.i50, label %127, label %118, !llvm.loop !46
 
 127:                                              ; preds = %118
   %128 = ashr i32 %126, 7
   %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 -32768)
   %130 = tail call i32 @llvm.smin.i32(i32 %129, i32 32767)
   %.0.i.i40.i51 = trunc nsw i32 %130 to i16
-  store i16 %.0.i.i40.i51, ptr %.01419.i34.i45, align 2, !tbaa !43
+  store i16 %.0.i.i40.i51, ptr %.01419.i34.i45, align 2, !tbaa !44
   %131 = getelementptr inbounds nuw i8, ptr %.01419.i34.i45, i64 2
   %132 = getelementptr inbounds nuw i8, ptr %.01518.i35.i46, i64 2
   %133 = icmp ult ptr %132, %117
-  br i1 %133, label %.preheader.i33.i44, label %scalarproduct.exit41.i52, !llvm.loop !46
+  br i1 %133, label %.preheader.i33.i44, label %scalarproduct.exit41.i52, !llvm.loop !47
 
 scalarproduct.exit41.i52:                         ; preds = %127, %114
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %84, ptr noundef nonnull align 2 dereferenceable(64) %117, i64 64, i1 false)
@@ -326,9 +326,9 @@ convolve.exit61:                                  ; preds = %scalarproduct.exit4
   %137 = getelementptr inbounds nuw i8, ptr %.val32, i64 384
   %138 = getelementptr inbounds nuw i8, ptr %.val32, i64 648
   %139 = load ptr, ptr %138, align 8, !tbaa !20
-  %140 = load ptr, ptr %139, align 8, !tbaa !42
+  %140 = load ptr, ptr %139, align 8, !tbaa !43
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %142 = load ptr, ptr %141, align 8, !tbaa !42
+  %142 = load ptr, ptr %141, align 8, !tbaa !43
   %143 = load i32, ptr %12, align 8, !tbaa !34
   %narrow.i62 = tail call i32 @llvm.smin.i32(i32 %143, i32 32)
   %spec.select.i63 = sext i32 %narrow.i62 to i64
@@ -348,27 +348,27 @@ convolve.exit61:                                  ; preds = %scalarproduct.exit4
   %indvars.iv.i.i80 = phi i64 [ 0, %.preheader.i.i77 ], [ %indvars.iv.next.i.i82, %148 ]
   %.01316.i.i81 = phi i32 [ 0, %.preheader.i.i77 ], [ %156, %148 ]
   %149 = getelementptr inbounds nuw i16, ptr %.01518.i.i79, i64 %indvars.iv.i.i80
-  %150 = load i16, ptr %149, align 2, !tbaa !43
+  %150 = load i16, ptr %149, align 2, !tbaa !44
   %151 = sext i16 %150 to i32
   %152 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i.i80
-  %153 = load i16, ptr %152, align 2, !tbaa !43
+  %153 = load i16, ptr %152, align 2, !tbaa !44
   %154 = sext i16 %153 to i32
   %155 = mul nsw i32 %154, %151
   %156 = add nsw i32 %155, %.01316.i.i81
   %indvars.iv.next.i.i82 = add nuw nsw i64 %indvars.iv.i.i80, 1
   %exitcond.not.i.i83 = icmp eq i64 %indvars.iv.next.i.i82, 32
-  br i1 %exitcond.not.i.i83, label %157, label %148, !llvm.loop !45
+  br i1 %exitcond.not.i.i83, label %157, label %148, !llvm.loop !46
 
 157:                                              ; preds = %148
   %158 = ashr i32 %156, 7
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 -32768)
   %160 = tail call i32 @llvm.smin.i32(i32 %159, i32 32767)
   %.0.i.i.i84 = trunc nsw i32 %160 to i16
-  store i16 %.0.i.i.i84, ptr %.01419.i.i78, align 2, !tbaa !43
+  store i16 %.0.i.i.i84, ptr %.01419.i.i78, align 2, !tbaa !44
   %161 = getelementptr inbounds nuw i8, ptr %.01419.i.i78, i64 2
   %162 = getelementptr inbounds nuw i8, ptr %.01518.i.i79, i64 2
   %163 = icmp ult ptr %162, %146
-  br i1 %163, label %.preheader.i.i77, label %scalarproduct.exit.i64, !llvm.loop !46
+  br i1 %163, label %.preheader.i.i77, label %scalarproduct.exit.i64, !llvm.loop !47
 
 scalarproduct.exit.i64:                           ; preds = %157, %convolve.exit61
   %.014.lcssa.i.i65 = phi ptr [ %140, %convolve.exit61 ], [ %161, %157 ]
@@ -393,27 +393,27 @@ scalarproduct.exit.i64:                           ; preds = %157, %convolve.exit
   %indvars.iv.i36.i71 = phi i64 [ 0, %.preheader.i33.i68 ], [ %indvars.iv.next.i38.i73, %170 ]
   %.01316.i37.i72 = phi i32 [ 0, %.preheader.i33.i68 ], [ %178, %170 ]
   %171 = getelementptr inbounds nuw i16, ptr %.01518.i35.i70, i64 %indvars.iv.i36.i71
-  %172 = load i16, ptr %171, align 2, !tbaa !43
+  %172 = load i16, ptr %171, align 2, !tbaa !44
   %173 = sext i16 %172 to i32
   %174 = getelementptr inbounds nuw i16, ptr %.val32, i64 %indvars.iv.i36.i71
-  %175 = load i16, ptr %174, align 2, !tbaa !43
+  %175 = load i16, ptr %174, align 2, !tbaa !44
   %176 = sext i16 %175 to i32
   %177 = mul nsw i32 %176, %173
   %178 = add nsw i32 %177, %.01316.i37.i72
   %indvars.iv.next.i38.i73 = add nuw nsw i64 %indvars.iv.i36.i71, 1
   %exitcond.not.i39.i74 = icmp eq i64 %indvars.iv.next.i38.i73, 32
-  br i1 %exitcond.not.i39.i74, label %179, label %170, !llvm.loop !45
+  br i1 %exitcond.not.i39.i74, label %179, label %170, !llvm.loop !46
 
 179:                                              ; preds = %170
   %180 = ashr i32 %178, 7
   %181 = tail call i32 @llvm.smax.i32(i32 %180, i32 -32768)
   %182 = tail call i32 @llvm.smin.i32(i32 %181, i32 32767)
   %.0.i.i40.i75 = trunc nsw i32 %182 to i16
-  store i16 %.0.i.i40.i75, ptr %.01419.i34.i69, align 2, !tbaa !43
+  store i16 %.0.i.i40.i75, ptr %.01419.i34.i69, align 2, !tbaa !44
   %183 = getelementptr inbounds nuw i8, ptr %.01419.i34.i69, i64 2
   %184 = getelementptr inbounds nuw i8, ptr %.01518.i35.i70, i64 2
   %185 = icmp ult ptr %184, %169
-  br i1 %185, label %.preheader.i33.i68, label %scalarproduct.exit41.i76, !llvm.loop !46
+  br i1 %185, label %.preheader.i33.i68, label %scalarproduct.exit41.i76, !llvm.loop !47
 
 scalarproduct.exit41.i76:                         ; preds = %179, %166
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %137, ptr noundef nonnull align 2 dereferenceable(64) %169, i64 64, i1 false)
@@ -431,8 +431,8 @@ convolve.exit85:                                  ; preds = %scalarproduct.exit4
   %190 = getelementptr inbounds nuw i8, ptr %.val33, i64 648
   %191 = load ptr, ptr %190, align 8, !tbaa !20
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !42
-  %194 = load ptr, ptr %141, align 8, !tbaa !42
+  %193 = load ptr, ptr %192, align 8, !tbaa !43
+  %194 = load ptr, ptr %141, align 8, !tbaa !43
   %195 = load i32, ptr %12, align 8, !tbaa !34
   %narrow.i86 = tail call i32 @llvm.smin.i32(i32 %195, i32 32)
   %spec.select.i87 = sext i32 %narrow.i86 to i64
@@ -453,27 +453,27 @@ convolve.exit85:                                  ; preds = %scalarproduct.exit4
   %indvars.iv.i.i104 = phi i64 [ 0, %.preheader.i.i101 ], [ %indvars.iv.next.i.i106, %201 ]
   %.01316.i.i105 = phi i32 [ 0, %.preheader.i.i101 ], [ %209, %201 ]
   %202 = getelementptr inbounds nuw i16, ptr %.01518.i.i103, i64 %indvars.iv.i.i104
-  %203 = load i16, ptr %202, align 2, !tbaa !43
+  %203 = load i16, ptr %202, align 2, !tbaa !44
   %204 = sext i16 %203 to i32
   %205 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i.i104
-  %206 = load i16, ptr %205, align 2, !tbaa !43
+  %206 = load i16, ptr %205, align 2, !tbaa !44
   %207 = sext i16 %206 to i32
   %208 = mul nsw i32 %207, %204
   %209 = add nsw i32 %208, %.01316.i.i105
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i104, 1
   %exitcond.not.i.i107 = icmp eq i64 %indvars.iv.next.i.i106, 32
-  br i1 %exitcond.not.i.i107, label %210, label %201, !llvm.loop !45
+  br i1 %exitcond.not.i.i107, label %210, label %201, !llvm.loop !46
 
 210:                                              ; preds = %201
   %211 = ashr i32 %209, 7
   %212 = tail call i32 @llvm.smax.i32(i32 %211, i32 -32768)
   %213 = tail call i32 @llvm.smin.i32(i32 %212, i32 32767)
   %.0.i.i.i108 = trunc nsw i32 %213 to i16
-  store i16 %.0.i.i.i108, ptr %.01419.i.i102, align 2, !tbaa !43
+  store i16 %.0.i.i.i108, ptr %.01419.i.i102, align 2, !tbaa !44
   %214 = getelementptr inbounds nuw i8, ptr %.01419.i.i102, i64 2
   %215 = getelementptr inbounds nuw i8, ptr %.01518.i.i103, i64 2
   %216 = icmp ult ptr %215, %198
-  br i1 %216, label %.preheader.i.i101, label %scalarproduct.exit.i88, !llvm.loop !46
+  br i1 %216, label %.preheader.i.i101, label %scalarproduct.exit.i88, !llvm.loop !47
 
 scalarproduct.exit.i88:                           ; preds = %210, %convolve.exit85
   %.014.lcssa.i.i89 = phi ptr [ %193, %convolve.exit85 ], [ %214, %210 ]
@@ -498,27 +498,27 @@ scalarproduct.exit.i88:                           ; preds = %210, %convolve.exit
   %indvars.iv.i36.i95 = phi i64 [ 0, %.preheader.i33.i92 ], [ %indvars.iv.next.i38.i97, %223 ]
   %.01316.i37.i96 = phi i32 [ 0, %.preheader.i33.i92 ], [ %231, %223 ]
   %224 = getelementptr inbounds nuw i16, ptr %.01518.i35.i94, i64 %indvars.iv.i36.i95
-  %225 = load i16, ptr %224, align 2, !tbaa !43
+  %225 = load i16, ptr %224, align 2, !tbaa !44
   %226 = sext i16 %225 to i32
   %227 = getelementptr inbounds nuw i16, ptr %199, i64 %indvars.iv.i36.i95
-  %228 = load i16, ptr %227, align 2, !tbaa !43
+  %228 = load i16, ptr %227, align 2, !tbaa !44
   %229 = sext i16 %228 to i32
   %230 = mul nsw i32 %229, %226
   %231 = add nsw i32 %230, %.01316.i37.i96
   %indvars.iv.next.i38.i97 = add nuw nsw i64 %indvars.iv.i36.i95, 1
   %exitcond.not.i39.i98 = icmp eq i64 %indvars.iv.next.i38.i97, 32
-  br i1 %exitcond.not.i39.i98, label %232, label %223, !llvm.loop !45
+  br i1 %exitcond.not.i39.i98, label %232, label %223, !llvm.loop !46
 
 232:                                              ; preds = %223
   %233 = ashr i32 %231, 7
   %234 = tail call i32 @llvm.smax.i32(i32 %233, i32 -32768)
   %235 = tail call i32 @llvm.smin.i32(i32 %234, i32 32767)
   %.0.i.i40.i99 = trunc nsw i32 %235 to i16
-  store i16 %.0.i.i40.i99, ptr %.01419.i34.i93, align 2, !tbaa !43
+  store i16 %.0.i.i40.i99, ptr %.01419.i34.i93, align 2, !tbaa !44
   %236 = getelementptr inbounds nuw i8, ptr %.01419.i34.i93, i64 2
   %237 = getelementptr inbounds nuw i8, ptr %.01518.i35.i94, i64 2
   %238 = icmp ult ptr %237, %222
-  br i1 %238, label %.preheader.i33.i92, label %scalarproduct.exit41.i100, !llvm.loop !46
+  br i1 %238, label %.preheader.i33.i92, label %scalarproduct.exit41.i100, !llvm.loop !47
 
 scalarproduct.exit41.i100:                        ; preds = %232, %219
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(64) %189, ptr noundef nonnull align 2 dereferenceable(64) %222, i64 64, i1 false)
@@ -537,9 +537,9 @@ convolve.exit109:                                 ; preds = %scalarproduct.exit4
   %243 = getelementptr i8, ptr %.val34, i64 648
   %.val34.val37 = load ptr, ptr %243, align 8, !tbaa !20
   %244 = getelementptr inbounds nuw i8, ptr %.val34.val, i64 8
-  %245 = load ptr, ptr %244, align 8, !tbaa !42
-  %246 = load ptr, ptr %.val34.val37, align 8, !tbaa !42
-  %247 = load ptr, ptr %14, align 8, !tbaa !42
+  %245 = load ptr, ptr %244, align 8, !tbaa !43
+  %246 = load ptr, ptr %.val34.val37, align 8, !tbaa !43
+  %247 = load ptr, ptr %14, align 8, !tbaa !43
   %248 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %249 = load i32, ptr %248, align 8, !tbaa !34
   %250 = icmp sgt i32 %249, 0
@@ -552,36 +552,36 @@ convolve.exit109:                                 ; preds = %scalarproduct.exit4
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %251 = getelementptr inbounds nuw i16, ptr %245, i64 %indvars.iv.i
-  %252 = load i16, ptr %251, align 2, !tbaa !43
+  %252 = load i16, ptr %251, align 2, !tbaa !44
   %253 = getelementptr inbounds nuw i16, ptr %246, i64 %indvars.iv.i
-  %254 = load i16, ptr %253, align 2, !tbaa !43
+  %254 = load i16, ptr %253, align 2, !tbaa !44
   %255 = tail call i16 @llvm.sadd.sat.i16(i16 %252, i16 %254)
   %256 = getelementptr inbounds nuw i16, ptr %247, i64 %indvars.iv.i
-  store i16 %255, ptr %256, align 2, !tbaa !43
+  store i16 %255, ptr %256, align 2, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i110, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i110, label %.lr.ph.i, !llvm.loop !48
 
 .lr.ph.preheader.i110:                            ; preds = %.lr.ph.i
-  %257 = load ptr, ptr %.val34.val, align 8, !tbaa !42
+  %257 = load ptr, ptr %.val34.val, align 8, !tbaa !43
   %258 = getelementptr inbounds nuw i8, ptr %.val34.val37, i64 8
-  %259 = load ptr, ptr %258, align 8, !tbaa !42
+  %259 = load ptr, ptr %258, align 8, !tbaa !43
   %260 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %261 = load ptr, ptr %260, align 8, !tbaa !42
+  %261 = load ptr, ptr %260, align 8, !tbaa !43
   br label %.lr.ph.i112
 
 .lr.ph.i112:                                      ; preds = %.lr.ph.i112, %.lr.ph.preheader.i110
   %indvars.iv.i113 = phi i64 [ 0, %.lr.ph.preheader.i110 ], [ %indvars.iv.next.i114, %.lr.ph.i112 ]
   %262 = getelementptr inbounds nuw i16, ptr %257, i64 %indvars.iv.i113
-  %263 = load i16, ptr %262, align 2, !tbaa !43
+  %263 = load i16, ptr %262, align 2, !tbaa !44
   %264 = getelementptr inbounds nuw i16, ptr %259, i64 %indvars.iv.i113
-  %265 = load i16, ptr %264, align 2, !tbaa !43
+  %265 = load i16, ptr %264, align 2, !tbaa !44
   %266 = tail call i16 @llvm.sadd.sat.i16(i16 %263, i16 %265)
   %267 = getelementptr inbounds nuw i16, ptr %261, i64 %indvars.iv.i113
-  store i16 %266, ptr %267, align 2, !tbaa !43
+  store i16 %266, ptr %267, align 2, !tbaa !44
   %indvars.iv.next.i114 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i115 = icmp eq i64 %indvars.iv.next.i114, %wide.trip.count.i
-  br i1 %exitcond.not.i115, label %mix.exit116, label %.lr.ph.i112, !llvm.loop !47
+  br i1 %exitcond.not.i115, label %mix.exit116, label %.lr.ph.i112, !llvm.loop !48
 
 mix.exit116:                                      ; preds = %.lr.ph.i112, %convolve.exit109
   call void @av_frame_free(ptr noundef nonnull %3) #7
@@ -610,19 +610,19 @@ define internal noundef i32 @config_input(ptr noundef readonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
   %9 = shl nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr inbounds nuw [64 x i8], ptr @filt, i64 0, i64 %9
-  %11 = load i8, ptr %10, align 2, !tbaa !48
+  %11 = load i8, ptr %10, align 2, !tbaa !49
   %12 = sext i8 %11 to i16
   %13 = getelementptr inbounds nuw [32 x i16], ptr %5, i64 0, i64 %indvars.iv
-  store i16 %12, ptr %13, align 2, !tbaa !43
+  store i16 %12, ptr %13, align 2, !tbaa !44
   %14 = or disjoint i64 %9, 1
   %15 = getelementptr inbounds nuw [64 x i8], ptr @filt, i64 0, i64 %14
-  %16 = load i8, ptr %15, align 1, !tbaa !48
+  %16 = load i8, ptr %15, align 1, !tbaa !49
   %17 = sext i8 %16 to i16
   %18 = getelementptr inbounds nuw [32 x i16], ptr %6, i64 0, i64 %indvars.iv
-  store i16 %17, ptr %18, align 2, !tbaa !43
+  store i16 %17, ptr %18, align 2, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %7, label %8, !llvm.loop !49
+  br i1 %exitcond.not, label %7, label %8, !llvm.loop !50
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -711,13 +711,14 @@ attributes #7 = { nounwind }
 !37 = !{!"long", !8, i64 0}
 !38 = !{!"p2 _ZTS11AVBufferRef", !14, i64 0}
 !39 = !{!"p1 _ZTS12AVDictionary", !7, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!11, !11, i64 0}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"short", !8, i64 0}
-!45 = distinct !{!45, !41}
-!46 = distinct !{!46, !41}
-!47 = distinct !{!47, !41}
-!48 = !{!8, !8, i64 0}
-!49 = distinct !{!49, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!11, !11, i64 0}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"short", !8, i64 0}
+!46 = distinct !{!46, !41, !42}
+!47 = distinct !{!47, !41, !42}
+!48 = distinct !{!48, !41, !42}
+!49 = !{!8, !8, i64 0}
+!50 = distinct !{!50, !41, !42}

@@ -680,7 +680,7 @@ common.resume:                                    ; preds = %69, %13
   br label %25
 
 25:                                               ; preds = %80, %15
-  %26 = load i64, ptr %17, align 8, !tbaa !42
+  %26 = load i64, ptr %17, align 8, !tbaa !43
   %27 = icmp ugt i64 %26, 3
   br i1 %27, label %28, label %83
 
@@ -691,12 +691,12 @@ common.resume:                                    ; preds = %69, %13
 
 31:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
-  %32 = load i64, ptr %19, align 8, !tbaa !43
+  %32 = load i64, ptr %19, align 8, !tbaa !44
   %.not89.i = icmp eq i64 %32, 0
   br i1 %.not89.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31
-  %33 = load ptr, ptr %20, align 8, !tbaa !44
+  %33 = load ptr, ptr %20, align 8, !tbaa !45
   br label %34
 
 34:                                               ; preds = %.thread66.i, %.lr.ph.i
@@ -704,7 +704,7 @@ common.resume:                                    ; preds = %69, %13
   %.04487.i = phi i64 [ 4, %.lr.ph.i ], [ %49, %.thread66.i ]
   %.04686.i = phi i64 [ 0, %.lr.ph.i ], [ %50, %.thread66.i ]
   %35 = getelementptr inbounds nuw %struct.grpc_slice, ptr %33, i64 %.04686.i
-  %36 = load ptr, ptr %35, align 8, !tbaa !45
+  %36 = load ptr, ptr %35, align 8, !tbaa !46
   %.not.i = icmp eq ptr %36, null
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   br i1 %.not.i, label %38, label %.thread.i
@@ -736,11 +736,11 @@ common.resume:                                    ; preds = %69, %13
   %49 = sub i64 %.04487.i, %46
   %50 = add nuw i64 %.04686.i, 1
   %exitcond.not.i = icmp eq i64 %50, %32
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %34, !llvm.loop !48
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %34, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %.thread66.i
   %51 = icmp eq i64 %49, 0
-  br i1 %51, label %52, label %._crit_edge.thread.i, !prof !49
+  br i1 %51, label %52, label %._crit_edge.thread.i, !prof !50
 
 52:                                               ; preds = %._crit_edge.i, %.thread76.i
   %53 = load i16, ptr %21, align 1
@@ -784,7 +784,7 @@ common.resume:                                    ; preds = %69, %13
 _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread51: ; preds = %52
   %71 = trunc nuw nsw i64 %62 to i32
   %72 = add nuw nsw i32 %71, 4
-  store i32 %72, ptr %18, align 4, !tbaa !50
+  store i32 %72, ptr %18, align 4, !tbaa !51
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   br label %73
 
@@ -815,7 +815,7 @@ _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread: ; preds = %68
   %82 = tail call noundef i32 @_Z35alts_grpc_record_protocol_unprotectP25alts_grpc_record_protocolP17grpc_slice_bufferS2_(ptr noundef %81, ptr noundef nonnull %.sink89, ptr noundef %2)
   store i32 0, ptr %18, align 8, !tbaa !23
   %.not = icmp eq i32 %82, 0
-  br i1 %.not, label %25, label %.thread, !llvm.loop !51
+  br i1 %.not, label %25, label %.thread, !llvm.loop !52
 
 .thread:                                          ; preds = %80
   tail call void @grpc_slice_buffer_reset_and_unref(ptr noundef nonnull %16)
@@ -833,11 +833,11 @@ _ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread: ; preds = %68
 87:                                               ; preds = %84
   %88 = trunc nuw i64 %26 to i32
   %89 = sub i32 %85, %88
-  store i32 %89, ptr %3, align 4, !tbaa !50
+  store i32 %89, ptr %3, align 4, !tbaa !51
   br label %91
 
 90:                                               ; preds = %84
-  store i32 1, ptr %3, align 4, !tbaa !50
+  store i32 1, ptr %3, align 4, !tbaa !51
   br label %91
 
 91:                                               ; preds = %.thread, %_ZL15read_frame_sizePK17grpc_slice_bufferPj.exit.thread, %87, %90, %83, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi55EEERS2_RAT__Kc.exit
@@ -981,15 +981,16 @@ attributes #21 = { builtin nounwind }
 !37 = !{!"p1 _ZTSN4absl12lts_2024072212log_internal10LogMessage14LogMessageDataE", !8, i64 0}
 !38 = !{!9, !9, i64 0}
 !39 = !{!17, !11, i64 32}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!13, !11, i64 304}
-!43 = !{!17, !11, i64 16}
-!44 = !{!17, !18, i64 8}
-!45 = !{!46, !47, i64 0}
-!46 = !{!"_ZTS10grpc_slice", !47, i64 0, !9, i64 8}
-!47 = !{!"p1 _ZTS19grpc_slice_refcount", !8, i64 0}
-!48 = distinct !{!48, !41}
-!49 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!50 = !{!19, !19, i64 0}
-!51 = distinct !{!51, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!13, !11, i64 304}
+!44 = !{!17, !11, i64 16}
+!45 = !{!17, !18, i64 8}
+!46 = !{!47, !48, i64 0}
+!47 = !{!"_ZTS10grpc_slice", !48, i64 0, !9, i64 8}
+!48 = !{!"p1 _ZTS19grpc_slice_refcount", !8, i64 0}
+!49 = distinct !{!49, !41, !42}
+!50 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!51 = !{!19, !19, i64 0}
+!52 = distinct !{!52, !41, !42}

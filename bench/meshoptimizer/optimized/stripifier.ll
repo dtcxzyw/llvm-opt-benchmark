@@ -96,7 +96,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
   %34 = icmp samesign ult i64 %indvars.iv, 7
   %35 = icmp ult i64 %33, %2
   %36 = and i1 %34, %35
-  br i1 %36, label %.lr.ph296, label %._crit_edge.loopexit, !llvm.loop !13
+  br i1 %36, label %.lr.ph296, label %._crit_edge.loopexit, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph296
   %37 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -197,7 +197,7 @@ define dso_local i64 @meshopt_stripify(ptr noundef writeonly captures(none) %0, 
 100:                                              ; preds = %93
   %101 = add nuw nsw i64 %.02637.i, 1
   %exitcond.not.i = icmp eq i64 %101, %74
-  br i1 %exitcond.not.i, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread, label %.lr.ph.i, !llvm.loop !15
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit:       ; preds = %83, %90, %96
   %spec.select.i = phi i32 [ %86, %83 ], [ %92, %90 ], [ %99, %96 ]
@@ -255,7 +255,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit.thread: ; preds = %100, %_ZN7meshoptL
 130:                                              ; preds = %123
   %131 = add nuw nsw i64 %.02637.i216, 1
   %exitcond.not.i220 = icmp eq i64 %131, %74
-  br i1 %exitcond.not.i220, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit222.thread, label %.lr.ph.i215, !llvm.loop !14
+  br i1 %exitcond.not.i220, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit222.thread, label %.lr.ph.i215, !llvm.loop !15
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit222:    ; preds = %126, %120, %113
   %132 = phi i32 [ %116, %113 ], [ %122, %120 ], [ %129, %126 ]
@@ -314,7 +314,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit222.thread: ; preds = %130, %39, %_ZN7
   %.1.i = select i1 %163, i32 %164, i32 %.032.i
   %165 = add nuw nsw i64 %.02730.i, 1
   %exitcond.not.i225 = icmp eq i64 %165, %142
-  br i1 %exitcond.not.i225, label %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit, label %.lr.ph.i223, !llvm.loop !15
+  br i1 %exitcond.not.i225, label %_ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit, label %.lr.ph.i223, !llvm.loop !16
 
 _ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit:     ; preds = %.lr.ph.i223, %141
   %.0.lcssa.i = phi i32 [ 0, %141 ], [ %.1.i, %.lr.ph.i223 ]
@@ -398,7 +398,7 @@ _ZN7meshoptL14findStripFirstEPA3_KjjPKh.exit:     ; preds = %.lr.ph.i223, %141
 219:                                              ; preds = %212
   %220 = add nuw nsw i64 %.02637.i228, 1
   %exitcond.not.i232 = icmp eq i64 %220, %193
-  br i1 %exitcond.not.i232, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit234, label %.lr.ph.i227, !llvm.loop !14
+  br i1 %exitcond.not.i232, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit234, label %.lr.ph.i227, !llvm.loop !15
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit234:    ; preds = %219, %202, %209, %215
   %spec.select.i233 = phi i32 [ %205, %202 ], [ %211, %209 ], [ %218, %215 ], [ -1, %219 ]
@@ -450,7 +450,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit234:    ; preds = %219, %202, %209, %2
 246:                                              ; preds = %239
   %247 = add nuw nsw i64 %.02637.i237, 1
   %exitcond.not.i241 = icmp eq i64 %247, %193
-  br i1 %exitcond.not.i241, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit243, label %.lr.ph.i236, !llvm.loop !14
+  br i1 %exitcond.not.i241, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit243, label %.lr.ph.i236, !llvm.loop !15
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit243:    ; preds = %246, %229, %236, %242
   %spec.select.i242 = phi i32 [ %232, %229 ], [ %238, %236 ], [ %245, %242 ], [ -1, %246 ]
@@ -501,7 +501,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit243:    ; preds = %246, %229, %236, %2
 273:                                              ; preds = %266
   %274 = add nuw nsw i64 %.02637.i246, 1
   %exitcond.not.i250 = icmp eq i64 %274, %193
-  br i1 %exitcond.not.i250, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread, label %.lr.ph.i245, !llvm.loop !14
+  br i1 %exitcond.not.i250, label %_ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread, label %.lr.ph.i245, !llvm.loop !15
 
 _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread: ; preds = %273, %269, %263, %256
   %spec.select.i251 = phi i32 [ %259, %256 ], [ %265, %263 ], [ %272, %269 ], [ -1, %273 ]
@@ -592,7 +592,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread: ; preds = %273, %269, %263
   %305 = icmp ne i32 %.2, 0
   %306 = icmp ult i64 %.1179.lcssa, %2
   %307 = select i1 %305, i1 true, i1 %306
-  br i1 %307, label %.preheader, label %._crit_edge305, !llvm.loop !16
+  br i1 %307, label %.preheader, label %._crit_edge305, !llvm.loop !17
 
 ._crit_edge305:                                   ; preds = %304, %10
   %.0183.lcssa = phi i64 [ 0, %10 ], [ %.2185, %304 ]
@@ -610,7 +610,7 @@ _ZN7meshoptL13findStripNextEPA3_Kjjjj.exit252.thread: ; preds = %273, %269, %263
   %312 = getelementptr inbounds nuw [24 x ptr], ptr %6, i64 0, i64 %311
   %313 = load ptr, ptr %312, align 8, !tbaa !4
   invoke void %310(ptr noundef %313)
-          to label %308 unwind label %314, !llvm.loop !17
+          to label %308 unwind label %314, !llvm.loop !18
 
 314:                                              ; preds = %309
   %315 = landingpad { ptr, i32 }
@@ -641,7 +641,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %3 = load i64, ptr %2, align 8, !tbaa !18
+  %3 = load i64, ptr %2, align 8, !tbaa !19
   br label %4
 
 4:                                                ; preds = %6, %1
@@ -658,7 +658,7 @@ define linkonce_odr dso_local void @_ZN17meshopt_AllocatorD2Ev(ptr noundef nonnu
   %9 = getelementptr inbounds nuw [24 x ptr], ptr %0, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   invoke void %7(ptr noundef %10)
-          to label %4 unwind label %11, !llvm.loop !17
+          to label %4 unwind label %11, !llvm.loop !18
 
 11:                                               ; preds = %6
   %12 = landingpad { ptr, i32 }
@@ -722,7 +722,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   %.2.us = phi i64 [ %.053.us, %.lr.ph.split.us ], [ %19, %15 ], [ %.053.us, %6 ]
   %21 = add nuw i64 %.04151.us, 1
   %exitcond56.not = icmp eq i64 %21, %2
-  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %exitcond56.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %42, %20, %4
   %.0.lcssa = phi i64 [ 0, %4 ], [ %.2.us, %20 ], [ %.2, %42 ]
@@ -777,7 +777,7 @@ define dso_local i64 @meshopt_unstripify(ptr noundef writeonly captures(none) %0
   %.2 = phi i64 [ %.053, %25 ], [ %.053, %27 ], [ %41, %37 ], [ %.053, %30 ]
   %43 = add nuw i64 %.04151, 1
   %exitcond.not = icmp eq i64 %43, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -841,16 +841,17 @@ attributes #13 = { noreturn nounwind }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = !{!19, !20, i64 192}
-!19 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !20, i64 192}
-!20 = !{!"long", !6, i64 0}
-!21 = distinct !{!21, !12, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{!20, !21, i64 192}
+!20 = !{!"_ZTS17meshopt_Allocator", !6, i64 0, !21, i64 192}
+!21 = !{!"long", !6, i64 0}
+!22 = distinct !{!22, !12, !13, !23}
+!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !12, !13}

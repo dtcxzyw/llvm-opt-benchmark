@@ -213,7 +213,7 @@ define ptr @secrets_get_available_keys() local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #13
   %19 = call i32 @gnutls_pkcs11_token_get_url(i32 noundef %18, i32 noundef 0, ptr noundef nonnull %1)
   %20 = icmp slt i32 %19, 0
-  br i1 %20, label %get_pkcs11_token_uris.exit, label %.lr.ph.i
+  br i1 %20, label %get_pkcs11_token_uris.exit, label %.lr.ph.i, !llvm.loop !6
 
 get_pkcs11_token_uris.exit:                       ; preds = %15, %0
   %.09.lcssa.i = phi ptr [ null, %0 ], [ %.1.ph.i, %15 ]
@@ -283,7 +283,7 @@ define noundef zeroext i1 @secrets_verify_key(ptr noundef %0, ptr noundef %1, pt
   %22 = load i32, ptr %6, align 4
   %23 = zext i32 %22 to i64
   %24 = icmp samesign ult i64 %indvars.iv.next.i, %23
-  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
+  br i1 %24, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 25:                                               ; preds = %._crit_edge.i, %13
   call void @gnutls_pkcs11_set_pin_function(ptr noundef null, ptr noundef null)
@@ -705,7 +705,7 @@ define internal void @uat_pkcs11_libs_load_all() #0 {
   %12 = load i32, ptr @uat_num_pkcs11_libs, align 4
   %13 = zext i32 %12 to i64
   %14 = icmp samesign ult i64 %indvars.iv.next, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 15:                                               ; preds = %._crit_edge
   %16 = load ptr, ptr %.1, align 8
@@ -988,7 +988,7 @@ define internal void @uat_rsa_privkeys_post_update() #0 {
   %82 = load i32, ptr %2, align 4
   %83 = zext i32 %82 to i64
   %84 = icmp samesign ult i64 %indvars.iv.next.i, %83
-  br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %84, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 85:                                               ; preds = %._crit_edge.i
   %86 = load ptr, ptr @rsa_privkeys_pkcs11_pins, align 8
@@ -1067,7 +1067,7 @@ g_string_append_c_inline.exit:                    ; preds = %103, %109
   %115 = load i32, ptr @uat_num_rsa_privkeys, align 4
   %116 = zext i32 %115 to i64
   %117 = icmp samesign ult i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %117, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 118:                                              ; preds = %._crit_edge
   %119 = load ptr, ptr %.1, align 8
@@ -1166,7 +1166,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}

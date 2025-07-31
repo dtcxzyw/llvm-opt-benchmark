@@ -44,7 +44,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h2daf5cca1f542dbdE(i64
 
 10:                                               ; preds = %6
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h74bf7f3a0ead23bdE"(ptr align 8 %2, i64 %.sroa.0.0)
-          to label %4 unwind label %8
+          to label %4 unwind label %8, !llvm.loop !3
 
 11:                                               ; preds = %4
   tail call void @"_ZN4core3ptr649drop_in_place$LT$core..iter..adapters..map..map_fold$LT$usize$C$proc_macro2..Ident$C$$LP$$RP$$C$pyo3_macros_backend..method..FnSpec..get_wrapper_function..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..Ident$C$alloc..vec..Vec$LT$proc_macro2..Ident$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$usize$GT$$C$pyo3_macros_backend..method..FnSpec..get_wrapper_function..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7fe8a92a21c426adE"(ptr align 8 %2)
@@ -81,7 +81,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h56426db8b6eef7abE(i64
 
 10:                                               ; preds = %6
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hacef71923d0a118bE"(ptr align 8 %2, i64 %.sroa.0.0)
-          to label %4 unwind label %8
+          to label %4 unwind label %8, !llvm.loop !5
 
 11:                                               ; preds = %4
   tail call void @"_ZN4core3ptr645drop_in_place$LT$core..iter..adapters..map..map_fold$LT$usize$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_complex_enum_tuple_variant_field_getters..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$usize$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum_tuple_variant_field_getters..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2e02736e366ef6efE"(ptr align 8 %2)
@@ -118,7 +118,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h5fbf01c96640c309E(i64
 
 10:                                               ; preds = %6
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h10de08b996599e1cE"(ptr align 8 %2, i64 %.sroa.0.0)
-          to label %4 unwind label %8
+          to label %4 unwind label %8, !llvm.loop !6
 
 11:                                               ; preds = %4
   tail call void @"_ZN4core3ptr623drop_in_place$LT$core..iter..adapters..map..map_fold$LT$usize$C$proc_macro2..Ident$C$$LP$$RP$$C$pyo3_macros_backend..pymethod..SlotFragmentDef..generate_pyproto_fragment..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..Ident$C$alloc..vec..Vec$LT$proc_macro2..Ident$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$usize$GT$$C$pyo3_macros_backend..pymethod..SlotFragmentDef..generate_pyproto_fragment..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf4f836a38e039f2eE"(ptr align 8 %2)
@@ -155,7 +155,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h63de98b0d5b506dcE(i64
 
 10:                                               ; preds = %6
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9d2c9c3b61f1c0b7E"(ptr align 8 %2, i64 %.sroa.0.0)
-          to label %4 unwind label %8
+          to label %4 unwind label %8, !llvm.loop !7
 
 11:                                               ; preds = %4
   tail call void @"_ZN4core3ptr633drop_in_place$LT$core..iter..adapters..map..map_fold$LT$usize$C$proc_macro2..TokenStream$C$$LP$$RP$$C$pyo3_macros_backend..pyclass..impl_complex_enum_tuple_variant_getitem..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..TokenStream$C$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$usize$GT$$C$pyo3_macros_backend..pyclass..impl_complex_enum_tuple_variant_getitem..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17ha90403c828041694E"(ptr align 8 %2)
@@ -192,7 +192,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hfc61461550aa4a86E(i64
 
 10:                                               ; preds = %6
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9a6276ce03808cd4E"(ptr align 8 %2, i64 %.sroa.0.0)
-          to label %4 unwind label %8
+          to label %4 unwind label %8, !llvm.loop !8
 
 11:                                               ; preds = %4
   tail call void @"_ZN4core3ptr605drop_in_place$LT$core..iter..adapters..map..map_fold$LT$usize$C$proc_macro2..Ident$C$$LP$$RP$$C$pyo3_macros_backend..frompyobject..Container..build_tuple_struct..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..Ident$C$alloc..vec..Vec$LT$proc_macro2..Ident$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$usize$GT$$C$pyo3_macros_backend..frompyobject..Container..build_tuple_struct..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8abe747ca2928eecE"(ptr align 8 %2)
@@ -229,7 +229,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17hfcbbad47823f28cfE(i64
 
 10:                                               ; preds = %6
   invoke void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h6e51a06647bf5e07E"(ptr align 8 %2, i64 %.sroa.0.0)
-          to label %4 unwind label %8
+          to label %4 unwind label %8, !llvm.loop !9
 
 11:                                               ; preds = %4
   tail call void @"_ZN4core3ptr593drop_in_place$LT$core..iter..adapters..map..map_fold$LT$usize$C$proc_macro2..Ident$C$$LP$$RP$$C$pyo3_macros_backend..pymethod..SlotDef..generate_type_slot..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$proc_macro2..Ident$C$alloc..vec..Vec$LT$proc_macro2..Ident$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$usize$GT$$C$pyo3_macros_backend..pymethod..SlotDef..generate_type_slot..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h0fcd2ed8adf7ffdbE"(ptr align 8 %2)
@@ -322,3 +322,10 @@ attributes #4 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}
+!7 = distinct !{!7, !4}
+!8 = distinct !{!8, !4}
+!9 = distinct !{!9, !4}

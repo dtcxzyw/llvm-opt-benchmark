@@ -197,7 +197,7 @@ define range(i32 0, 2) i32 @bn_mod_add_fixed_top(ptr noundef %0, ptr noundef rea
   store volatile i64 0, ptr %63, align 8, !tbaa !14
   %70 = add nuw i64 %.183, 1
   %exitcond89.not = icmp eq i64 %70, %8
-  br i1 %exitcond89.not, label %._crit_edge86, label %62, !llvm.loop !18
+  br i1 %exitcond89.not, label %._crit_edge86, label %62, !llvm.loop !19
 
 ._crit_edge86.critedge:                           ; preds = %17
   %71 = load ptr, ptr %0, align 8, !tbaa !12
@@ -361,7 +361,7 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
   %47 = add i64 %46, %.089102
   %48 = sub nsw i64 0, %.188
   %exitcond.not = icmp eq i64 %41, %7
-  br i1 %exitcond.not, label %.lr.ph110.preheader, label %27, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph110.preheader, label %27, !llvm.loop !20
 
 .lr.ph110.preheader:                              ; preds = %27
   %49 = load ptr, ptr %3, align 8, !tbaa !12
@@ -385,7 +385,7 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
   %61 = add nuw nsw i64 %60, %55
   %62 = add nuw i64 %.1108, 1
   %exitcond123.not = icmp eq i64 %62, %7
-  br i1 %exitcond123.not, label %.lr.ph116.preheader, label %.lr.ph110, !llvm.loop !20
+  br i1 %exitcond123.not, label %.lr.ph116.preheader, label %.lr.ph110, !llvm.loop !21
 
 .lr.ph116.preheader:                              ; preds = %.lr.ph110
   %.neg = sub nsw i64 %61, %.188
@@ -409,7 +409,7 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
   %74 = add nuw nsw i64 %73, %68
   %75 = add nuw i64 %.2114, 1
   %exitcond124.not = icmp eq i64 %75, %7
-  br i1 %exitcond124.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !21
+  br i1 %exitcond124.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !22
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %10
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -730,7 +730,7 @@ define range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr noundef %1, 
 
 29:                                               ; preds = %24, %27
   %30 = icmp sgt i32 %.230, 0
-  br i1 %30, label %.lr.ph, label %.thread
+  br i1 %30, label %.lr.ph, label %.thread, !llvm.loop !23
 
 .thread:                                          ; preds = %29, %16, %20, %27, %8, %14, %5
   %.027 = phi i32 [ 0, %5 ], [ 0, %14 ], [ 1, %8 ], [ 1, %29 ], [ 0, %16 ], [ 0, %20 ], [ 0, %27 ]
@@ -772,9 +772,11 @@ attributes #4 = { nounwind }
 !13 = !{!4, !9, i64 12}
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !7, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = distinct !{!19, !17}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = distinct !{!20, !17, !18}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}
+!23 = distinct !{!23, !18}

@@ -125,7 +125,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %66 = lshr i64 %spec.select130, 32
   %67 = mul nuw i64 %66, %51
   %68 = icmp samesign ult i64 %.0106138, 29
-  br i1 %68, label %._crit_edge, label %.lr.ph
+  br i1 %68, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %48
   %.0106.lcssa = phi i64 [ %53, %48 ], [ %65, %.lr.ph ]
@@ -160,7 +160,7 @@ define i64 @f64_rem(i64 %0, i64 %1) local_unnamed_addr #0 {
   %83 = add i32 %.2105, 1
   %84 = sub i64 %.4, %.1
   %.not123 = icmp sgt i64 %84, -1
-  br i1 %.not123, label %82, label %.loopexit, !llvm.loop !3
+  br i1 %.not123, label %82, label %.loopexit, !llvm.loop !5
 
 .loopexit:                                        ; preds = %82, %79
   %.1104 = phi i32 [ %73, %79 ], [ %83, %82 ]
@@ -223,4 +223,6 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = distinct !{!3, !4}
-!4 = !{!"llvm.loop.mustprogress"}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !6, !4}
+!6 = !{!"llvm.loop.mustprogress"}

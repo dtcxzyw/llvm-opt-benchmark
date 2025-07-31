@@ -441,10 +441,10 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit:  ; preds = %3
   %.190.ph.ph = phi ptr [ %55, %68 ], [ %73, %71 ]
   br label %.outer
 
-.outer:                                           ; preds = %.outer.backedge, %.outer.preheader
-  %.190.ph = phi ptr [ %.190.ph.ph, %.outer.preheader ], [ %.190.ph.be, %.outer.backedge ]
-  %.080.ph = phi i32 [ %52, %.outer.preheader ], [ %.080.ph.be, %.outer.backedge ]
-  %.277.ph = phi i1 [ %.075185, %.outer.preheader ], [ %.277, %.outer.backedge ]
+.outer:                                           ; preds = %.outer.preheader, %.outer.backedge
+  %.190.ph = phi ptr [ %.190.ph.be, %.outer.backedge ], [ %.190.ph.ph, %.outer.preheader ]
+  %.080.ph = phi i32 [ %.080.ph.be, %.outer.backedge ], [ %52, %.outer.preheader ]
+  %.277.ph = phi i1 [ %.277, %.outer.backedge ], [ %.075185, %.outer.preheader ]
   %.not = icmp eq ptr %.190.ph, %9
   %77 = icmp ult ptr %.190.ph, %9
   %78 = sext i32 %.080.ph to i64
@@ -558,12 +558,12 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread: ; preds = %110, %_ZN10duckdb_
 .outer.backedge:                                  ; preds = %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread, %_ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111
   %.190.ph.be = phi ptr [ %.6, %_ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111 ], [ %9, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread ], [ %9, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112 ]
   %.080.ph.be = phi i32 [ %.585, %_ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111 ], [ %123, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread ], [ %111, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112 ]
-  br label %.outer
+  br label %.outer, !llvm.loop !91
 
 _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread112: ; preds = %110, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit
-  %124 = load i8, ptr %43, align 1, !tbaa !91, !range !92, !noundef !93
+  %124 = load i8, ptr %43, align 1, !tbaa !93, !range !94, !noundef !95
   %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %.outer.backedge, label %250
+  br i1 %125, label %.outer.backedge, label %250, !llvm.loop !91
 
 126:                                              ; preds = %79
   br i1 %77, label %127, label %130
@@ -716,7 +716,7 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111: ; preds = %190
   br label %.outer.backedge
 
 218:                                              ; preds = %79
-  %219 = load i8, ptr %39, align 2, !tbaa !94, !range !92, !noundef !93
+  %219 = load i8, ptr %39, align 2, !tbaa !96, !range !94, !noundef !95
   %220 = trunc nuw i8 %219 to i1
   %.not105 = xor i1 %220, true
   %or.cond = select i1 %.not105, i1 true, i1 %.not
@@ -737,7 +737,7 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111: ; preds = %190
   br i1 %229, label %239, label %230
 
 230:                                              ; preds = %224
-  %231 = load i8, ptr %43, align 1, !tbaa !91, !range !92, !noundef !93
+  %231 = load i8, ptr %43, align 1, !tbaa !93, !range !94, !noundef !95
   %232 = trunc nuw i8 %231 to i1
   br i1 %232, label %233, label %.loopexit
 
@@ -774,10 +774,10 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111: ; preds = %190
   store i64 %246, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph, %239, %233, %230
-  %248 = load i8, ptr %43, align 1, !tbaa !91, !range !92, !noundef !93
+  %248 = load i8, ptr %43, align 1, !tbaa !93, !range !94, !noundef !95
   %249 = trunc nuw i8 %248 to i1
   %.not107 = xor i1 %249, true
   %or.cond108 = select i1 %.not107, i1 true, i1 %.not
@@ -792,7 +792,7 @@ _ZN10duckdb_re28BitState11ShouldVisitEiPKc.exit111: ; preds = %190
 
 253:                                              ; preds = %250
   %indvars.iv.next233 = add nsw i64 %indvars.iv232, 1
-  br label %79
+  br label %79, !llvm.loop !91
 
 .thread118:                                       ; preds = %190, %79, %250, %57
   %.176 = phi i1 [ %.075185, %57 ], [ %.5, %250 ], [ %.277, %79 ], [ %.277, %190 ]
@@ -813,20 +813,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN10duckdb_re28BitState6SearchERKNS_11StringPieceES3_bbPS1_i(ptr noundef nonnull align 8 dereferenceable(116) initializes((8, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !98
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !98
   %10 = load ptr, ptr %9, align 8, !tbaa !74
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %13
 
 12:                                               ; preds = %7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !98
   br label %13
 
 13:                                               ; preds = %12, %7
   %14 = load ptr, ptr %0, align 8, !tbaa !3
-  %15 = load i8, ptr %14, align 8, !tbaa !97, !range !92, !noundef !93
+  %15 = load i8, ptr %14, align 8, !tbaa !99, !range !94, !noundef !95
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %18
 
@@ -838,7 +838,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re28BitState6SearchERKNS_11StringP
 
 18:                                               ; preds = %17, %13
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %20 = load i8, ptr %19, align 1, !tbaa !131, !range !92, !noundef !93
+  %20 = load i8, ptr %19, align 1, !tbaa !133, !range !94, !noundef !95
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %27
 
@@ -857,12 +857,12 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re28BitState6SearchERKNS_11StringP
 27:                                               ; preds = %22, %18
   %spec.select68 = select i1 %3, i8 1, i8 %15
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 %spec.select68, ptr %28, align 8, !tbaa !132
+  store i8 %spec.select68, ptr %28, align 8, !tbaa !134
   %29 = select i1 %4, i8 1, i8 %20
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %29, ptr %30, align 1, !tbaa !91
+  store i8 %29, ptr %30, align 1, !tbaa !93
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 %20, ptr %31, align 2, !tbaa !94
+  store i8 %20, ptr %31, align 2, !tbaa !96
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %5, ptr %32, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -877,7 +877,7 @@ define hidden noundef zeroext i1 @_ZN10duckdb_re28BitState6SearchERKNS_11StringP
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %27
   %35 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %14, %27 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %37 = load i32, ptr %36, align 8, !tbaa !133
+  %37 = load i32, ptr %36, align 8, !tbaa !135
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !75
   %40 = trunc i64 %39 to i32
@@ -947,7 +947,7 @@ _ZN10duckdb_re28PODArrayIPKcED2Ev.exit:           ; preds = %61, %_ZN10duckdb_re
 
 _ZN10duckdb_re28PODArrayINS_3JobEED2Ev.exit:      ; preds = %67, %_ZN10duckdb_re28PODArrayIPKcED2Ev.exit
   store i32 64, ptr %64, align 8, !tbaa !54
-  %68 = load i8, ptr %28, align 8, !tbaa !132, !range !92, !noundef !93
+  %68 = load i8, ptr %28, align 8, !tbaa !134, !range !94, !noundef !95
   %69 = trunc nuw i8 %68 to i1
   %70 = load ptr, ptr %1, align 8, !tbaa !74
   br i1 %69, label %76, label %.lr.ph74
@@ -961,14 +961,14 @@ _ZN10duckdb_re28PODArrayINS_3JobEED2Ev.exit:      ; preds = %67, %_ZN10duckdb_re
   %73 = load i32, ptr %33, align 8, !tbaa !49
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !134
+  br i1 %75, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !136
 
 76:                                               ; preds = %_ZN10duckdb_re28PODArrayINS_3JobEED2Ev.exit
   %77 = load ptr, ptr %59, align 8, !tbaa !85
   store ptr %70, ptr %77, align 8, !tbaa !86
   %78 = load ptr, ptr %0, align 8, !tbaa !3
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %80 = load i32, ptr %79, align 8, !tbaa !135
+  %80 = load i32, ptr %79, align 8, !tbaa !137
   %81 = tail call noundef zeroext i1 @_ZN10duckdb_re28BitState9TrySearchEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %0, i32 noundef %80, ptr noundef %70)
   br label %.loopexit
 
@@ -986,7 +986,7 @@ _ZN10duckdb_re28PODArrayINS_3JobEED2Ev.exit:      ; preds = %67, %_ZN10duckdb_re
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %.pre83, i64 32
-  %89 = load i64, ptr %88, align 8, !tbaa !136
+  %89 = load i64, ptr %88, align 8, !tbaa !138
   %.not69 = icmp eq i64 %89, 0
   br i1 %.not69, label %106, label %90
 
@@ -994,7 +994,7 @@ _ZN10duckdb_re28PODArrayINS_3JobEED2Ev.exit:      ; preds = %67, %_ZN10duckdb_re
   %91 = ptrtoint ptr %.072 to i64
   %92 = sub i64 %84, %91
   %93 = getelementptr inbounds nuw i8, ptr %.pre83, i64 24
-  %94 = load i8, ptr %93, align 8, !tbaa !137, !range !92, !noundef !93
+  %94 = load i8, ptr %93, align 8, !tbaa !139, !range !94, !noundef !95
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %98
 
@@ -1029,7 +1029,7 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %96, %99, %101
   %108 = load ptr, ptr %59, align 8, !tbaa !85
   store ptr %.1, ptr %108, align 8, !tbaa !86
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %110 = load i32, ptr %109, align 8, !tbaa !135
+  %110 = load i32, ptr %109, align 8, !tbaa !137
   %111 = tail call noundef zeroext i1 @_ZN10duckdb_re28BitState9TrySearchEiPKc(ptr noundef nonnull align 8 dereferenceable(116) %0, i32 noundef %110, ptr noundef %.1)
   br i1 %111, label %.loopexit, label %112
 
@@ -1038,7 +1038,7 @@ _ZN10duckdb_re24Prog11PrefixAccelEPKvm.exit:      ; preds = %96, %99, %101
   %114 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not47 = icmp ugt ptr %114, %83
   %or.cond = select i1 %113, i1 true, i1 %.not47
-  br i1 %or.cond, label %.loopexit, label %85, !llvm.loop !138
+  br i1 %or.cond, label %.loopexit, label %85, !llvm.loop !140
 
 .loopexit:                                        ; preds = %112, %106, %76, %22, %17
   %.040 = phi i1 [ false, %17 ], [ false, %22 ], [ %81, %76 ], [ %111, %106 ], [ %111, %112 ]
@@ -1330,51 +1330,53 @@ attributes #19 = { nounwind willreturn memory(read) }
 !88 = !{!"llvm.loop.mustprogress"}
 !89 = !{!90, !14, i64 0}
 !90 = !{!"_ZTSN10duckdb_re24Prog4InstE", !14, i64 0, !7, i64 4}
-!91 = !{!4, !12, i64 41}
-!92 = !{i8 0, i8 2}
-!93 = !{}
-!94 = !{!4, !12, i64 42}
-!95 = distinct !{!95, !88}
-!96 = !{i64 0, i64 8, !86, i64 8, i64 8, !81}
-!97 = !{!98, !12, i64 0}
-!98 = !{!"_ZTSN10duckdb_re24ProgE", !12, i64 0, !12, i64 1, !12, i64 2, !12, i64 3, !12, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !12, i64 24, !11, i64 32, !7, i64 40, !14, i64 48, !7, i64 52, !99, i64 88, !11, i64 104, !109, i64 112, !119, i64 128, !11, i64 144, !129, i64 152, !129, i64 160, !7, i64 168, !130, i64 424, !130, i64 428}
-!99 = !{!"_ZTSN10duckdb_re28PODArrayItEE", !100, i64 0}
-!100 = !{!"_ZTSSt10unique_ptrIA_tN10duckdb_re28PODArrayItE7DeleterEE", !101, i64 0}
-!101 = !{!"_ZTSSt15__uniq_ptr_dataItN10duckdb_re28PODArrayItE7DeleterELb1ELb1EE", !102, i64 0}
-!102 = !{!"_ZTSSt15__uniq_ptr_implItN10duckdb_re28PODArrayItE7DeleterEE", !103, i64 0}
-!103 = !{!"_ZTSSt5tupleIJPtN10duckdb_re28PODArrayItE7DeleterEEE", !104, i64 0}
-!104 = !{!"_ZTSSt11_Tuple_implILm0EJPtN10duckdb_re28PODArrayItE7DeleterEEE", !105, i64 0, !108, i64 8}
-!105 = !{!"_ZTSSt11_Tuple_implILm1EJN10duckdb_re28PODArrayItE7DeleterEEE", !106, i64 0}
-!106 = !{!"_ZTSSt10_Head_baseILm1EN10duckdb_re28PODArrayItE7DeleterELb0EE", !107, i64 0}
-!107 = !{!"_ZTSN10duckdb_re28PODArrayItE7DeleterE", !14, i64 0}
-!108 = !{!"_ZTSSt10_Head_baseILm0EPtLb0EE", !77, i64 0}
-!109 = !{!"_ZTSN10duckdb_re28PODArrayINS_4Prog4InstEEE", !110, i64 0}
-!110 = !{!"_ZTSSt10unique_ptrIA_N10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEE", !111, i64 0}
-!111 = !{!"_ZTSSt15__uniq_ptr_dataIN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterELb1ELb1EE", !112, i64 0}
-!112 = !{!"_ZTSSt15__uniq_ptr_implIN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEE", !113, i64 0}
-!113 = !{!"_ZTSSt5tupleIJPN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEEE", !114, i64 0}
-!114 = !{!"_ZTSSt11_Tuple_implILm0EJPN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEEE", !115, i64 0, !118, i64 8}
-!115 = !{!"_ZTSSt11_Tuple_implILm1EJN10duckdb_re28PODArrayINS0_4Prog4InstEE7DeleterEEE", !116, i64 0}
-!116 = !{!"_ZTSSt10_Head_baseILm1EN10duckdb_re28PODArrayINS0_4Prog4InstEE7DeleterELb0EE", !117, i64 0}
-!117 = !{!"_ZTSN10duckdb_re28PODArrayINS_4Prog4InstEE7DeleterE", !14, i64 0}
-!118 = !{!"_ZTSSt10_Head_baseILm0EPN10duckdb_re24Prog4InstELb0EE", !83, i64 0}
-!119 = !{!"_ZTSN10duckdb_re28PODArrayIhEE", !120, i64 0}
-!120 = !{!"_ZTSSt10unique_ptrIA_hN10duckdb_re28PODArrayIhE7DeleterEE", !121, i64 0}
-!121 = !{!"_ZTSSt15__uniq_ptr_dataIhN10duckdb_re28PODArrayIhE7DeleterELb1ELb1EE", !122, i64 0}
-!122 = !{!"_ZTSSt15__uniq_ptr_implIhN10duckdb_re28PODArrayIhE7DeleterEE", !123, i64 0}
-!123 = !{!"_ZTSSt5tupleIJPhN10duckdb_re28PODArrayIhE7DeleterEEE", !124, i64 0}
-!124 = !{!"_ZTSSt11_Tuple_implILm0EJPhN10duckdb_re28PODArrayIhE7DeleterEEE", !125, i64 0, !128, i64 8}
-!125 = !{!"_ZTSSt11_Tuple_implILm1EJN10duckdb_re28PODArrayIhE7DeleterEEE", !126, i64 0}
-!126 = !{!"_ZTSSt10_Head_baseILm1EN10duckdb_re28PODArrayIhE7DeleterELb0EE", !127, i64 0}
-!127 = !{!"_ZTSN10duckdb_re28PODArrayIhE7DeleterE", !14, i64 0}
-!128 = !{!"_ZTSSt10_Head_baseILm0EPhLb0EE", !10, i64 0}
-!129 = !{!"p1 _ZTSN10duckdb_re23DFAE", !6, i64 0}
-!130 = !{!"_ZTSSt9once_flag", !14, i64 0}
-!131 = !{!98, !12, i64 1}
-!132 = !{!4, !12, i64 40}
-!133 = !{!98, !14, i64 48}
-!134 = distinct !{!134, !88}
-!135 = !{!98, !14, i64 8}
-!136 = !{!98, !11, i64 32}
-!137 = !{!98, !12, i64 24}
-!138 = distinct !{!138, !88}
+!91 = distinct !{!91, !92}
+!92 = !{!"llvm.loop.estimated_trip_count"}
+!93 = !{!4, !12, i64 41}
+!94 = !{i8 0, i8 2}
+!95 = !{}
+!96 = !{!4, !12, i64 42}
+!97 = distinct !{!97, !88, !92}
+!98 = !{i64 0, i64 8, !86, i64 8, i64 8, !81}
+!99 = !{!100, !12, i64 0}
+!100 = !{!"_ZTSN10duckdb_re24ProgE", !12, i64 0, !12, i64 1, !12, i64 2, !12, i64 3, !12, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !12, i64 24, !11, i64 32, !7, i64 40, !14, i64 48, !7, i64 52, !101, i64 88, !11, i64 104, !111, i64 112, !121, i64 128, !11, i64 144, !131, i64 152, !131, i64 160, !7, i64 168, !132, i64 424, !132, i64 428}
+!101 = !{!"_ZTSN10duckdb_re28PODArrayItEE", !102, i64 0}
+!102 = !{!"_ZTSSt10unique_ptrIA_tN10duckdb_re28PODArrayItE7DeleterEE", !103, i64 0}
+!103 = !{!"_ZTSSt15__uniq_ptr_dataItN10duckdb_re28PODArrayItE7DeleterELb1ELb1EE", !104, i64 0}
+!104 = !{!"_ZTSSt15__uniq_ptr_implItN10duckdb_re28PODArrayItE7DeleterEE", !105, i64 0}
+!105 = !{!"_ZTSSt5tupleIJPtN10duckdb_re28PODArrayItE7DeleterEEE", !106, i64 0}
+!106 = !{!"_ZTSSt11_Tuple_implILm0EJPtN10duckdb_re28PODArrayItE7DeleterEEE", !107, i64 0, !110, i64 8}
+!107 = !{!"_ZTSSt11_Tuple_implILm1EJN10duckdb_re28PODArrayItE7DeleterEEE", !108, i64 0}
+!108 = !{!"_ZTSSt10_Head_baseILm1EN10duckdb_re28PODArrayItE7DeleterELb0EE", !109, i64 0}
+!109 = !{!"_ZTSN10duckdb_re28PODArrayItE7DeleterE", !14, i64 0}
+!110 = !{!"_ZTSSt10_Head_baseILm0EPtLb0EE", !77, i64 0}
+!111 = !{!"_ZTSN10duckdb_re28PODArrayINS_4Prog4InstEEE", !112, i64 0}
+!112 = !{!"_ZTSSt10unique_ptrIA_N10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEE", !113, i64 0}
+!113 = !{!"_ZTSSt15__uniq_ptr_dataIN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterELb1ELb1EE", !114, i64 0}
+!114 = !{!"_ZTSSt15__uniq_ptr_implIN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEE", !115, i64 0}
+!115 = !{!"_ZTSSt5tupleIJPN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEEE", !116, i64 0}
+!116 = !{!"_ZTSSt11_Tuple_implILm0EJPN10duckdb_re24Prog4InstENS0_8PODArrayIS2_E7DeleterEEE", !117, i64 0, !120, i64 8}
+!117 = !{!"_ZTSSt11_Tuple_implILm1EJN10duckdb_re28PODArrayINS0_4Prog4InstEE7DeleterEEE", !118, i64 0}
+!118 = !{!"_ZTSSt10_Head_baseILm1EN10duckdb_re28PODArrayINS0_4Prog4InstEE7DeleterELb0EE", !119, i64 0}
+!119 = !{!"_ZTSN10duckdb_re28PODArrayINS_4Prog4InstEE7DeleterE", !14, i64 0}
+!120 = !{!"_ZTSSt10_Head_baseILm0EPN10duckdb_re24Prog4InstELb0EE", !83, i64 0}
+!121 = !{!"_ZTSN10duckdb_re28PODArrayIhEE", !122, i64 0}
+!122 = !{!"_ZTSSt10unique_ptrIA_hN10duckdb_re28PODArrayIhE7DeleterEE", !123, i64 0}
+!123 = !{!"_ZTSSt15__uniq_ptr_dataIhN10duckdb_re28PODArrayIhE7DeleterELb1ELb1EE", !124, i64 0}
+!124 = !{!"_ZTSSt15__uniq_ptr_implIhN10duckdb_re28PODArrayIhE7DeleterEE", !125, i64 0}
+!125 = !{!"_ZTSSt5tupleIJPhN10duckdb_re28PODArrayIhE7DeleterEEE", !126, i64 0}
+!126 = !{!"_ZTSSt11_Tuple_implILm0EJPhN10duckdb_re28PODArrayIhE7DeleterEEE", !127, i64 0, !130, i64 8}
+!127 = !{!"_ZTSSt11_Tuple_implILm1EJN10duckdb_re28PODArrayIhE7DeleterEEE", !128, i64 0}
+!128 = !{!"_ZTSSt10_Head_baseILm1EN10duckdb_re28PODArrayIhE7DeleterELb0EE", !129, i64 0}
+!129 = !{!"_ZTSN10duckdb_re28PODArrayIhE7DeleterE", !14, i64 0}
+!130 = !{!"_ZTSSt10_Head_baseILm0EPhLb0EE", !10, i64 0}
+!131 = !{!"p1 _ZTSN10duckdb_re23DFAE", !6, i64 0}
+!132 = !{!"_ZTSSt9once_flag", !14, i64 0}
+!133 = !{!100, !12, i64 1}
+!134 = !{!4, !12, i64 40}
+!135 = !{!100, !14, i64 48}
+!136 = distinct !{!136, !88, !92}
+!137 = !{!100, !14, i64 8}
+!138 = !{!100, !11, i64 32}
+!139 = !{!100, !12, i64 24}
+!140 = distinct !{!140, !88, !92}

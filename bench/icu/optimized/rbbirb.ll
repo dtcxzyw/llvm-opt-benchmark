@@ -228,7 +228,7 @@ define void @_ZN6icu_7715RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 derefer
 
 22:                                               ; preds = %21, %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %24 = load ptr, ptr %23, align 8, !tbaa !37
+  %24 = load ptr, ptr %23, align 8, !tbaa !38
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
 
@@ -239,7 +239,7 @@ define void @_ZN6icu_7715RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 derefer
 
 27:                                               ; preds = %26, %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %29 = load ptr, ptr %28, align 8, !tbaa !38
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31
 
@@ -250,7 +250,7 @@ define void @_ZN6icu_7715RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 derefer
 
 32:                                               ; preds = %31, %27
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %34 = load ptr, ptr %33, align 8, !tbaa !39
+  %34 = load ptr, ptr %33, align 8, !tbaa !40
   %35 = icmp eq ptr %34, null
   br i1 %35, label %37, label %36
 
@@ -261,7 +261,7 @@ define void @_ZN6icu_7715RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 derefer
 
 37:                                               ; preds = %36, %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %39 = load ptr, ptr %38, align 8, !tbaa !40
+  %39 = load ptr, ptr %38, align 8, !tbaa !41
   %40 = icmp eq ptr %39, null
   br i1 %40, label %42, label %41
 
@@ -272,7 +272,7 @@ define void @_ZN6icu_7715RBBIRuleBuilderD2Ev(ptr noundef nonnull align 8 derefer
 
 42:                                               ; preds = %41, %37
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %44 = load ptr, ptr %43, align 8, !tbaa !41
+  %44 = load ptr, ptr %43, align 8, !tbaa !42
   %45 = icmp eq ptr %44, null
   br i1 %45, label %47, label %46
 
@@ -374,11 +374,11 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder11flattenDataEv(ptr noundef nonnu
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #9
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %12 = load ptr, ptr %11, align 8, !tbaa !37
+  %12 = load ptr, ptr %11, align 8, !tbaa !38
   %13 = call noundef i32 @_ZNK6icu_7716RBBITableBuilder12getTableSizeEv(ptr noundef nonnull align 8 dereferenceable(52) %12)
   %14 = add nsw i32 %13, 7
   %15 = and i32 %14, -8
-  %16 = load ptr, ptr %11, align 8, !tbaa !37
+  %16 = load ptr, ptr %11, align 8, !tbaa !38
   %17 = call noundef i32 @_ZNK6icu_7716RBBITableBuilder16getSafeTableSizeEv(ptr noundef nonnull align 8 dereferenceable(52) %16)
   %18 = add nsw i32 %17, 7
   %19 = and i32 %18, -8
@@ -390,14 +390,14 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder11flattenDataEv(ptr noundef nonnu
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !42
+  %28 = load i32, ptr %27, align 8, !tbaa !43
   %29 = shl i32 %28, 2
   %30 = add nsw i32 %29, 7
   %31 = and i32 %30, -8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  store i32 0, ptr %3, align 4, !tbaa !46
+  store i32 0, ptr %3, align 4, !tbaa !47
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load i16, ptr %32, align 8, !tbaa !47
+  %33 = load i16, ptr %32, align 8, !tbaa !48
   %34 = and i16 %33, 17
   %.not.i = icmp eq i16 %34, 0
   br i1 %.not.i, label %35, label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
@@ -413,7 +413,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder11flattenDataEv(ptr noundef nonnu
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %41 = load ptr, ptr %40, align 8, !tbaa !47
+  %41 = load ptr, ptr %40, align 8, !tbaa !48
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
@@ -428,7 +428,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
   %49 = call ptr @u_strToUTF8WithSub_77(ptr noundef null, i32 noundef 0, ptr noundef nonnull %3, ptr noundef %.0.i, i32 noundef %47, i32 noundef 65533, ptr noundef null, ptr noundef %48)
   %50 = load ptr, ptr %4, align 8, !tbaa !10
   store i32 0, ptr %50, align 4, !tbaa !30
-  %51 = load i32, ptr %3, align 4, !tbaa !46
+  %51 = load i32, ptr %3, align 4, !tbaa !47
   %52 = and i32 %51, -8
   %53 = add nsw i32 %52, 8
   %54 = add nsw i32 %15, 80
@@ -453,55 +453,55 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
 
 65:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %60, i8 0, i64 %59, i1 false)
-  store i32 45472, ptr %60, align 4, !tbaa !48
+  store i32 45472, ptr %60, align 4, !tbaa !49
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i8 6, ptr %66, align 4, !tbaa !47
+  store i8 6, ptr %66, align 4, !tbaa !48
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 5
-  store i8 0, ptr %67, align 1, !tbaa !47
+  store i8 0, ptr %67, align 1, !tbaa !48
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 6
-  store i8 0, ptr %68, align 2, !tbaa !47
+  store i8 0, ptr %68, align 2, !tbaa !48
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 7
-  store i8 0, ptr %69, align 1, !tbaa !47
+  store i8 0, ptr %69, align 1, !tbaa !48
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i32 %58, ptr %70, align 4, !tbaa !50
+  store i32 %58, ptr %70, align 4, !tbaa !51
   %71 = load ptr, ptr %20, align 8, !tbaa !34
   %72 = invoke noundef i32 @_ZNK6icu_7714RBBISetBuilder20getNumCharCategoriesEv(ptr noundef nonnull align 8 dereferenceable(53) %71)
           to label %73 unwind label %63
 
 73:                                               ; preds = %65
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store i32 %72, ptr %74, align 4, !tbaa !51
+  store i32 %72, ptr %74, align 4, !tbaa !52
   %75 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i32 80, ptr %75, align 4, !tbaa !52
+  store i32 80, ptr %75, align 4, !tbaa !53
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 20
-  store i32 %15, ptr %76, align 4, !tbaa !53
+  store i32 %15, ptr %76, align 4, !tbaa !54
   %77 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  store i32 %54, ptr %77, align 4, !tbaa !54
+  store i32 %54, ptr %77, align 4, !tbaa !55
   %78 = getelementptr inbounds nuw i8, ptr %60, i64 28
-  store i32 %19, ptr %78, align 4, !tbaa !55
+  store i32 %19, ptr %78, align 4, !tbaa !56
   %79 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  store i32 %55, ptr %79, align 4, !tbaa !56
+  store i32 %55, ptr %79, align 4, !tbaa !57
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 36
-  store i32 %24, ptr %80, align 4, !tbaa !57
+  store i32 %24, ptr %80, align 4, !tbaa !58
   %81 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  store i32 %56, ptr %81, align 4, !tbaa !58
+  store i32 %56, ptr %81, align 4, !tbaa !59
   %82 = getelementptr inbounds nuw i8, ptr %60, i64 52
-  store i32 %31, ptr %82, align 4, !tbaa !59
+  store i32 %31, ptr %82, align 4, !tbaa !60
   %83 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  store i32 %57, ptr %83, align 4, !tbaa !60
-  %84 = load i32, ptr %3, align 4, !tbaa !46
+  store i32 %57, ptr %83, align 4, !tbaa !61
+  %84 = load i32, ptr %3, align 4, !tbaa !47
   %85 = getelementptr inbounds nuw i8, ptr %60, i64 44
-  store i32 %84, ptr %85, align 4, !tbaa !61
+  store i32 %84, ptr %85, align 4, !tbaa !62
   %86 = getelementptr inbounds nuw i8, ptr %60, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %86, i8 0, i64 24, i1 false)
-  %87 = load ptr, ptr %11, align 8, !tbaa !37
+  %87 = load ptr, ptr %11, align 8, !tbaa !38
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 80
   invoke void @_ZN6icu_7716RBBITableBuilder11exportTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %87, ptr noundef nonnull %88)
           to label %89 unwind label %63
 
 89:                                               ; preds = %73
-  %90 = load ptr, ptr %11, align 8, !tbaa !37
-  %91 = load i32, ptr %77, align 4, !tbaa !54
+  %90 = load ptr, ptr %11, align 8, !tbaa !38
+  %91 = load i32, ptr %77, align 4, !tbaa !55
   %92 = zext i32 %91 to i64
   %93 = getelementptr inbounds nuw i8, ptr %60, i64 %92
   invoke void @_ZN6icu_7716RBBITableBuilder15exportSafeTableEPv(ptr noundef nonnull align 8 dereferenceable(52) %90, ptr noundef nonnull %93)
@@ -509,19 +509,19 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
 
 94:                                               ; preds = %89
   %95 = load ptr, ptr %20, align 8, !tbaa !34
-  %96 = load i32, ptr %79, align 4, !tbaa !56
+  %96 = load i32, ptr %79, align 4, !tbaa !57
   %97 = zext i32 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr %60, i64 %97
   invoke void @_ZN6icu_7714RBBISetBuilder13serializeTrieEPh(ptr noundef nonnull align 8 dereferenceable(53) %95, ptr noundef nonnull %98)
           to label %99 unwind label %63
 
 99:                                               ; preds = %94
-  %100 = load i32, ptr %81, align 4, !tbaa !58
+  %100 = load i32, ptr %81, align 4, !tbaa !59
   %101 = zext i32 %100 to i64
   %102 = getelementptr inbounds nuw i8, ptr %60, i64 %101
   %103 = load ptr, ptr %25, align 8, !tbaa !33
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
-  %105 = load i32, ptr %104, align 8, !tbaa !42
+  %105 = load i32, ptr %104, align 8, !tbaa !43
   %106 = icmp sgt i32 %105, 0
   br i1 %106, label %.lr.ph, label %._crit_edge
 
@@ -534,14 +534,14 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
 
 110:                                              ; preds = %.lr.ph
   %111 = getelementptr inbounds nuw i32, ptr %102, i64 %indvars.iv
-  store i32 %109, ptr %111, align 4, !tbaa !46
+  store i32 %109, ptr %111, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = load ptr, ptr %25, align 8, !tbaa !33
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %114 = load i32, ptr %113, align 8, !tbaa !42
+  %114 = load i32, ptr %113, align 8, !tbaa !43
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next, %115
-  br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !62
+  br i1 %116, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -554,8 +554,8 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
   br label %145
 
 ._crit_edge:                                      ; preds = %110, %99
-  %117 = load i32, ptr %83, align 4, !tbaa !60
-  %118 = load i16, ptr %32, align 8, !tbaa !47
+  %117 = load i32, ptr %83, align 4, !tbaa !61
+  %118 = load i16, ptr %32, align 8, !tbaa !48
   %119 = and i16 %118, 17
   %.not.i30 = icmp eq i16 %119, 0
   br i1 %.not.i30, label %120, label %127
@@ -571,7 +571,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %8, %37, %39
 
 124:                                              ; preds = %120
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %126 = load ptr, ptr %125, align 8, !tbaa !47
+  %126 = load ptr, ptr %125, align 8, !tbaa !48
   br label %127
 
 127:                                              ; preds = %124, %122, %._crit_edge
@@ -761,7 +761,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder5buildER10UErrorCode(ptr noundef 
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr null, ptr %19, align 8, !tbaa !37
+  store ptr null, ptr %19, align 8, !tbaa !38
   store i32 7, ptr %1, align 4, !tbaa !30
   br label %42
 
@@ -773,16 +773,16 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder5buildER10UErrorCode(ptr noundef 
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store ptr %14, ptr %23, align 8, !tbaa !37
+  store ptr %14, ptr %23, align 8, !tbaa !38
   tail call void @_ZN6icu_7716RBBITableBuilder17buildForwardTableEv(ptr noundef nonnull align 8 dereferenceable(52) %14)
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
   br label %25
 
 25:                                               ; preds = %36, %22
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store i32 3, ptr %3, align 8, !tbaa !63
-  store i32 0, ptr %24, align 4, !tbaa !65
-  %26 = load ptr, ptr %23, align 8, !tbaa !37
+  store i32 3, ptr %3, align 8, !tbaa !64
+  store i32 0, ptr %24, align 4, !tbaa !66
+  %26 = load ptr, ptr %23, align 8, !tbaa !38
   %27 = call noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder21findDuplCharClassFromEPSt4pairIiiE(ptr noundef nonnull align 8 dereferenceable(52) %26, ptr noundef nonnull %3)
   br i1 %27, label %.lr.ph.i, label %.preheader.i.preheader
 
@@ -790,29 +790,29 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder5buildER10UErrorCode(ptr noundef 
   %28 = load ptr, ptr %12, align 8, !tbaa !34
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   call void @_ZN6icu_7714RBBISetBuilder15mergeCategoriesESt4pairIiiE(ptr noundef nonnull align 8 dereferenceable(53) %28, i64 %.sroa.0.0.copyload.i)
-  %29 = load ptr, ptr %23, align 8, !tbaa !37
-  %30 = load i32, ptr %24, align 4, !tbaa !65
+  %29 = load ptr, ptr %23, align 8, !tbaa !38
+  %30 = load i32, ptr %24, align 4, !tbaa !66
   call void @_ZN6icu_7716RBBITableBuilder12removeColumnEi(ptr noundef nonnull align 8 dereferenceable(52) %29, i32 noundef %30)
-  %31 = load ptr, ptr %23, align 8, !tbaa !37
+  %31 = load ptr, ptr %23, align 8, !tbaa !38
   %32 = call noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder21findDuplCharClassFromEPSt4pairIiiE(ptr noundef nonnull align 8 dereferenceable(52) %31, ptr noundef nonnull %3)
-  br i1 %32, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !66
+  br i1 %32, label %.lr.ph.i, label %.preheader.i.preheader, !llvm.loop !67
 
 .preheader.i.preheader:                           ; preds = %.lr.ph.i, %25
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %.1.i = phi i1 [ true, %.preheader.i ], [ %27, %.preheader.i.preheader ]
-  %33 = load ptr, ptr %23, align 8, !tbaa !37
+  %33 = load ptr, ptr %23, align 8, !tbaa !38
   %34 = call noundef i32 @_ZN6icu_7716RBBITableBuilder21removeDuplicateStatesEv(ptr noundef nonnull align 8 dereferenceable(52) %33)
   %35 = icmp sgt i32 %34, 0
-  br i1 %35, label %.preheader.i, label %36, !llvm.loop !67
+  br i1 %35, label %.preheader.i, label %36, !llvm.loop !68
 
 36:                                               ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br i1 %.1.i, label %25, label %_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit, !llvm.loop !68
+  br i1 %.1.i, label %25, label %_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit, !llvm.loop !69
 
 _ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv.exit: ; preds = %36
-  %37 = load ptr, ptr %23, align 8, !tbaa !37
+  %37 = load ptr, ptr %23, align 8, !tbaa !38
   call void @_ZN6icu_7716RBBITableBuilder21buildSafeReverseTableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(52) %37, ptr noundef nonnull align 4 dereferenceable(4) %1)
   %38 = load ptr, ptr %12, align 8, !tbaa !34
   call void @_ZN6icu_7714RBBISetBuilder9buildTrieEv(ptr noundef nonnull align 8 dereferenceable(53) %38)
@@ -847,9 +847,9 @@ define void @_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv(ptr noundef nonnull r
 
 6:                                                ; preds = %17, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
-  store i32 3, ptr %2, align 8, !tbaa !63
-  store i32 0, ptr %3, align 4, !tbaa !65
-  %7 = load ptr, ptr %4, align 8, !tbaa !37
+  store i32 3, ptr %2, align 8, !tbaa !64
+  store i32 0, ptr %3, align 4, !tbaa !66
+  %7 = load ptr, ptr %4, align 8, !tbaa !38
   %8 = call noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder21findDuplCharClassFromEPSt4pairIiiE(ptr noundef nonnull align 8 dereferenceable(52) %7, ptr noundef nonnull %2)
   br i1 %8, label %.lr.ph, label %.preheader.preheader
 
@@ -857,26 +857,26 @@ define void @_ZN6icu_7715RBBIRuleBuilder14optimizeTablesEv(ptr noundef nonnull r
   %9 = load ptr, ptr %5, align 8, !tbaa !34
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
   call void @_ZN6icu_7714RBBISetBuilder15mergeCategoriesESt4pairIiiE(ptr noundef nonnull align 8 dereferenceable(53) %9, i64 %.sroa.0.0.copyload)
-  %10 = load ptr, ptr %4, align 8, !tbaa !37
-  %11 = load i32, ptr %3, align 4, !tbaa !65
+  %10 = load ptr, ptr %4, align 8, !tbaa !38
+  %11 = load i32, ptr %3, align 4, !tbaa !66
   call void @_ZN6icu_7716RBBITableBuilder12removeColumnEi(ptr noundef nonnull align 8 dereferenceable(52) %10, i32 noundef %11)
-  %12 = load ptr, ptr %4, align 8, !tbaa !37
+  %12 = load ptr, ptr %4, align 8, !tbaa !38
   %13 = call noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder21findDuplCharClassFromEPSt4pairIiiE(ptr noundef nonnull align 8 dereferenceable(52) %12, ptr noundef nonnull %2)
-  br i1 %13, label %.lr.ph, label %.preheader.preheader, !llvm.loop !66
+  br i1 %13, label %.lr.ph, label %.preheader.preheader, !llvm.loop !67
 
 .preheader.preheader:                             ; preds = %.lr.ph, %6
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.1 = phi i1 [ true, %.preheader ], [ %8, %.preheader.preheader ]
-  %14 = load ptr, ptr %4, align 8, !tbaa !37
+  %14 = load ptr, ptr %4, align 8, !tbaa !38
   %15 = call noundef i32 @_ZN6icu_7716RBBITableBuilder21removeDuplicateStatesEv(ptr noundef nonnull align 8 dereferenceable(52) %14)
   %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.preheader, label %17, !llvm.loop !67
+  br i1 %16, label %.preheader, label %17, !llvm.loop !68
 
 17:                                               ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  br i1 %.1, label %6, label %18, !llvm.loop !68
+  br i1 %.1, label %6, label %18, !llvm.loop !69
 
 18:                                               ; preds = %17
   ret void
@@ -946,37 +946,38 @@ attributes #11 = { allocsize(0) }
 !32 = !{!11, !22, i64 168}
 !33 = !{!11, !22, i64 184}
 !34 = !{!11, !21, i64 160}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!11, !23, i64 176}
-!38 = !{!11, !18, i64 112}
-!39 = !{!11, !18, i64 120}
-!40 = !{!11, !18, i64 128}
-!41 = !{!11, !18, i64 136}
-!42 = !{!43, !44, i64 8}
-!43 = !{!"_ZTSN6icu_777UVectorE", !16, i64 0, !44, i64 8, !44, i64 12, !45, i64 16, !8, i64 24, !8, i64 32}
-!44 = !{!"int", !9, i64 0}
-!45 = !{!"p1 _ZTS8UElement", !8, i64 0}
-!46 = !{!44, !44, i64 0}
-!47 = !{!9, !9, i64 0}
-!48 = !{!49, !44, i64 0}
-!49 = !{!"_ZTSN6icu_7714RBBIDataHeaderE", !44, i64 0, !9, i64 4, !44, i64 8, !44, i64 12, !44, i64 16, !44, i64 20, !44, i64 24, !44, i64 28, !44, i64 32, !44, i64 36, !44, i64 40, !44, i64 44, !44, i64 48, !44, i64 52, !9, i64 56}
-!50 = !{!49, !44, i64 8}
-!51 = !{!49, !44, i64 12}
-!52 = !{!49, !44, i64 16}
-!53 = !{!49, !44, i64 20}
-!54 = !{!49, !44, i64 24}
-!55 = !{!49, !44, i64 28}
-!56 = !{!49, !44, i64 32}
-!57 = !{!49, !44, i64 36}
-!58 = !{!49, !44, i64 48}
-!59 = !{!49, !44, i64 52}
-!60 = !{!49, !44, i64 40}
-!61 = !{!49, !44, i64 44}
-!62 = distinct !{!62, !36}
-!63 = !{!64, !44, i64 0}
-!64 = !{!"_ZTSSt4pairIiiE", !44, i64 0, !44, i64 4}
-!65 = !{!64, !44, i64 4}
-!66 = distinct !{!66, !36}
-!67 = distinct !{!67, !36}
-!68 = distinct !{!68, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!11, !23, i64 176}
+!39 = !{!11, !18, i64 112}
+!40 = !{!11, !18, i64 120}
+!41 = !{!11, !18, i64 128}
+!42 = !{!11, !18, i64 136}
+!43 = !{!44, !45, i64 8}
+!44 = !{!"_ZTSN6icu_777UVectorE", !16, i64 0, !45, i64 8, !45, i64 12, !46, i64 16, !8, i64 24, !8, i64 32}
+!45 = !{!"int", !9, i64 0}
+!46 = !{!"p1 _ZTS8UElement", !8, i64 0}
+!47 = !{!45, !45, i64 0}
+!48 = !{!9, !9, i64 0}
+!49 = !{!50, !45, i64 0}
+!50 = !{!"_ZTSN6icu_7714RBBIDataHeaderE", !45, i64 0, !9, i64 4, !45, i64 8, !45, i64 12, !45, i64 16, !45, i64 20, !45, i64 24, !45, i64 28, !45, i64 32, !45, i64 36, !45, i64 40, !45, i64 44, !45, i64 48, !45, i64 52, !9, i64 56}
+!51 = !{!50, !45, i64 8}
+!52 = !{!50, !45, i64 12}
+!53 = !{!50, !45, i64 16}
+!54 = !{!50, !45, i64 20}
+!55 = !{!50, !45, i64 24}
+!56 = !{!50, !45, i64 28}
+!57 = !{!50, !45, i64 32}
+!58 = !{!50, !45, i64 36}
+!59 = !{!50, !45, i64 48}
+!60 = !{!50, !45, i64 52}
+!61 = !{!50, !45, i64 40}
+!62 = !{!50, !45, i64 44}
+!63 = distinct !{!63, !36, !37}
+!64 = !{!65, !45, i64 0}
+!65 = !{!"_ZTSSt4pairIiiE", !45, i64 0, !45, i64 4}
+!66 = !{!65, !45, i64 4}
+!67 = distinct !{!67, !36, !37}
+!68 = distinct !{!68, !36, !37}
+!69 = distinct !{!69, !36, !37}

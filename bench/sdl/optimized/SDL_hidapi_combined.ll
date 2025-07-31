@@ -129,7 +129,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverCombined_OpenJoystick(ptr nound
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %21, ptr noundef %1) #4
   %26 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
   %.not55 = icmp eq ptr %.04880, null
@@ -229,7 +229,7 @@ define internal zeroext i1 @HIDAPI_DriverCombined_RumbleJoystick(ptr noundef rea
   %18 = load i32, ptr %5, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %9, label %._crit_edge, !llvm.loop !6
+  br i1 %20, label %9, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %9, %4
   %.010.lcssa = phi i1 [ false, %4 ], [ %spec.select, %9 ]
@@ -263,7 +263,7 @@ define internal zeroext i1 @HIDAPI_DriverCombined_RumbleJoystickTriggers(ptr nou
   %18 = load i32, ptr %5, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %9, label %._crit_edge, !llvm.loop !7
+  br i1 %20, label %9, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %9, %4
   %.010.lcssa = phi i1 [ false, %4 ], [ %spec.select, %9 ]
@@ -297,7 +297,7 @@ define internal i32 @HIDAPI_DriverCombined_GetJoystickCapabilities(ptr noundef r
   %17 = load i32, ptr %3, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %7, label %._crit_edge, !llvm.loop !8
+  br i1 %19, label %7, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %7, %2
   %.09.lcssa = phi i32 [ 0, %2 ], [ %16, %7 ]
@@ -331,7 +331,7 @@ define internal zeroext i1 @HIDAPI_DriverCombined_SetJoystickLED(ptr noundef rea
   %19 = load i32, ptr %6, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
-  br i1 %21, label %10, label %._crit_edge, !llvm.loop !9
+  br i1 %21, label %10, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %10, %5
   %.011.lcssa = phi i1 [ false, %5 ], [ %spec.select, %10 ]
@@ -371,7 +371,7 @@ define internal zeroext i1 @HIDAPI_DriverCombined_SetJoystickSensorsEnabled(ptr 
   %17 = load i32, ptr %4, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %8, label %._crit_edge, !llvm.loop !10
+  br i1 %19, label %8, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %8, %3
   %.09.lcssa = phi i1 [ false, %3 ], [ %spec.select, %8 ]
@@ -403,7 +403,7 @@ define internal void @HIDAPI_DriverCombined_CloseJoystick(ptr noundef readonly c
   %15 = load i32, ptr %3, align 8
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %7, label %._crit_edge, !llvm.loop !11
+  br i1 %17, label %7, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %7, %2
   ret void
@@ -443,12 +443,13 @@ attributes #5 = { nounwind allocsize(1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}

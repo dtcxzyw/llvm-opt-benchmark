@@ -95,11 +95,11 @@ define noundef zeroext i8 @_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm(
   %4 = load i64, ptr %3, align 8, !tbaa !6
   %5 = sub i64 %1, %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !27, !noalias !28
+  %7 = load ptr, ptr %6, align 8, !tbaa !28, !noalias !29
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !31, !noalias !28
+  %9 = load ptr, ptr %8, align 8, !tbaa !32, !noalias !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load ptr, ptr %10, align 8, !tbaa !32, !noalias !28
+  %11 = load ptr, ptr %10, align 8, !tbaa !33, !noalias !29
   %12 = ptrtoint ptr %7 to i64
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
@@ -126,7 +126,7 @@ define noundef zeroext i8 @_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm(
 25:                                               ; preds = %23, %21
   %26 = phi i64 [ %22, %21 ], [ %24, %23 ]
   %27 = getelementptr inbounds ptr, ptr %11, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !24, !noalias !28
+  %28 = load ptr, ptr %27, align 8, !tbaa !24, !noalias !29
   %29 = shl nsw i64 %26, 9
   %30 = sub nsw i64 %15, %29
   %31 = getelementptr inbounds i8, ptr %28, i64 %30
@@ -134,7 +134,7 @@ define noundef zeroext i8 @_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm(
 
 _ZNKSt5dequeIhSaIhEEixEm.exit:                    ; preds = %19, %25
   %storemerge.i.i.i.i = phi ptr [ %31, %25 ], [ %20, %19 ]
-  %32 = load i8, ptr %storemerge.i.i.i.i, align 1, !tbaa !33
+  %32 = load i8, ptr %storemerge.i.i.i.i, align 1, !tbaa !34
   ret i8 %32
 }
 
@@ -145,9 +145,9 @@ define noundef i64 @_ZNK3net22QuicSentEntropyManager27GetLargestPacketWithEntrop
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !32
+  %7 = load ptr, ptr %6, align 8, !tbaa !33
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load ptr, ptr %8, align 8, !tbaa !32
+  %9 = load ptr, ptr %8, align 8, !tbaa !33
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -156,14 +156,14 @@ define noundef i64 @_ZNK3net22QuicSentEntropyManager27GetLargestPacketWithEntrop
   %.neg.i.i = sext i1 %14 to i64
   %15 = add nsw i64 %13, %.neg.i.i
   %16 = shl nsw i64 %15, 9
-  %17 = load ptr, ptr %4, align 8, !tbaa !27
+  %17 = load ptr, ptr %4, align 8, !tbaa !28
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %19 = load ptr, ptr %18, align 8, !tbaa !31
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
   %20 = ptrtoint ptr %17 to i64
   %21 = ptrtoint ptr %19 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !34
-  %24 = load ptr, ptr %5, align 8, !tbaa !27
+  %23 = load ptr, ptr %22, align 8, !tbaa !35
+  %24 = load ptr, ptr %5, align 8, !tbaa !28
   %25 = ptrtoint ptr %23 to i64
   %26 = ptrtoint ptr %24 to i64
   %27 = add i64 %3, -1
@@ -192,11 +192,11 @@ define void @_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17C
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !27, !noalias !35
+  %8 = load ptr, ptr %7, align 8, !tbaa !28, !noalias !36
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !31, !noalias !35
+  %10 = load ptr, ptr %9, align 8, !tbaa !32, !noalias !36
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !32, !noalias !35
+  %12 = load ptr, ptr %11, align 8, !tbaa !33, !noalias !36
   %13 = ptrtoint ptr %8 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
@@ -233,7 +233,7 @@ define void @_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17C
 32:                                               ; preds = %30, %28
   %33 = phi i64 [ %29, %28 ], [ %31, %30 ]
   %34 = getelementptr inbounds ptr, ptr %12, i64 %33
-  %35 = load ptr, ptr %34, align 8, !tbaa !24, !noalias !35
+  %35 = load ptr, ptr %34, align 8, !tbaa !24, !noalias !36
   %36 = shl nsw i64 %33, 9
   %37 = sub nsw i64 %22, %36
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
@@ -241,11 +241,11 @@ define void @_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17C
 
 _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit: ; preds = %26, %32
   %storemerge.i.i.i.i.i = phi ptr [ %38, %32 ], [ %27, %26 ]
-  %39 = load i8, ptr %storemerge.i.i.i.i.i, align 1, !tbaa !33
+  %39 = load i8, ptr %storemerge.i.i.i.i.i, align 1, !tbaa !34
   %40 = xor i8 %18, %39
   store i8 %40, ptr %16, align 8, !tbaa !20
   %exitcond.not = icmp eq i64 %20, %1
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit, %3
   ret void
@@ -254,20 +254,20 @@ _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit: ; preds = %26, %32
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3net22QuicSentEntropyManager23RecordPacketEntropyHashEmh(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
-  store i8 %2, ptr %4, align 1, !tbaa !33
+  store i8 %2, ptr %4, align 1, !tbaa !34
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !39
+  %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds i8, ptr %8, i64 -1
   %.not.i1 = icmp eq ptr %6, %9
   br i1 %.not.i1, label %13, label %10
 
 10:                                               ; preds = %3
-  store i8 %2, ptr %6, align 1, !tbaa !33
-  %11 = load ptr, ptr %5, align 8, !tbaa !39
+  store i8 %2, ptr %6, align 1, !tbaa !34
+  %11 = load ptr, ptr %5, align 8, !tbaa !40
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  store ptr %12, ptr %5, align 8, !tbaa !39
+  store ptr %12, ptr %5, align 8, !tbaa !40
   br label %_ZNSt5dequeIhSaIhEE9push_backERKh.exit
 
 13:                                               ; preds = %3
@@ -288,18 +288,18 @@ define noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropy
 
 ._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge: ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !41
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !42
   br label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
 
 .lr.ph.i:                                         ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8, !tbaa !6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !27, !noalias !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !28, !noalias !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8, !tbaa !31, !noalias !42
+  %10 = load ptr, ptr %9, align 8, !tbaa !32, !noalias !43
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !32, !noalias !42
+  %12 = load ptr, ptr %11, align 8, !tbaa !33, !noalias !43
   %13 = ptrtoint ptr %8 to i64
   %14 = ptrtoint ptr %10 to i64
   %15 = sub i64 %13, %14
@@ -336,7 +336,7 @@ define noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropy
 32:                                               ; preds = %30, %28
   %33 = phi i64 [ %29, %28 ], [ %31, %30 ]
   %34 = getelementptr inbounds ptr, ptr %12, i64 %33
-  %35 = load ptr, ptr %34, align 8, !tbaa !24, !noalias !42
+  %35 = load ptr, ptr %34, align 8, !tbaa !24, !noalias !43
   %36 = shl nsw i64 %33, 9
   %37 = sub nsw i64 %22, %36
   %38 = getelementptr inbounds i8, ptr %35, i64 %37
@@ -344,11 +344,11 @@ define noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropy
 
 _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i: ; preds = %32, %26
   %storemerge.i.i.i.i.i.i = phi ptr [ %38, %32 ], [ %27, %26 ]
-  %39 = load i8, ptr %storemerge.i.i.i.i.i.i, align 1, !tbaa !33
+  %39 = load i8, ptr %storemerge.i.i.i.i.i.i, align 1, !tbaa !34
   %40 = xor i8 %39, %18
   store i8 %40, ptr %16, align 8, !tbaa !20
   %exitcond.not.i = icmp eq i64 %20, %1
-  br i1 %exitcond.not.i, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit, label %17, !llvm.loop !38
+  br i1 %exitcond.not.i, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit, label %17, !llvm.loop !39
 
 _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit: ; preds = %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i, %._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge
   %41 = phi i8 [ %.pre, %._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge ], [ %40, %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i ]
@@ -362,9 +362,9 @@ define noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %10 = load ptr, ptr %9, align 8, !tbaa !32
+  %10 = load ptr, ptr %9, align 8, !tbaa !33
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %12 = load ptr, ptr %11, align 8, !tbaa !32
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -373,14 +373,14 @@ define noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS
   %.neg.i.i.i = sext i1 %17 to i64
   %18 = add nsw i64 %16, %.neg.i.i.i
   %19 = shl nsw i64 %18, 9
-  %20 = load ptr, ptr %7, align 8, !tbaa !27
+  %20 = load ptr, ptr %7, align 8, !tbaa !28
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %22 = load ptr, ptr %21, align 8, !tbaa !31
+  %22 = load ptr, ptr %21, align 8, !tbaa !32
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !34
-  %27 = load ptr, ptr %8, align 8, !tbaa !27
+  %26 = load ptr, ptr %25, align 8, !tbaa !35
+  %27 = load ptr, ptr %8, align 8, !tbaa !28
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
   %30 = add i64 %6, -1
@@ -410,15 +410,15 @@ define noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS
 
 ._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge: ; preds = %43
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !45
+  %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !46
   br label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
 
 .lr.ph.i:                                         ; preds = %43
   %46 = load i64, ptr %5, align 8, !tbaa !6
-  %47 = load ptr, ptr %8, align 8, !tbaa !27, !noalias !46
+  %47 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !47
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !31, !noalias !46
-  %50 = load ptr, ptr %11, align 8, !tbaa !32, !noalias !46
+  %49 = load ptr, ptr %48, align 8, !tbaa !32, !noalias !47
+  %50 = load ptr, ptr %11, align 8, !tbaa !33, !noalias !47
   %51 = ptrtoint ptr %47 to i64
   %52 = ptrtoint ptr %49 to i64
   %53 = sub i64 %51, %52
@@ -455,7 +455,7 @@ define noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS
 70:                                               ; preds = %68, %66
   %71 = phi i64 [ %67, %66 ], [ %69, %68 ]
   %72 = getelementptr inbounds ptr, ptr %50, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !24, !noalias !46
+  %73 = load ptr, ptr %72, align 8, !tbaa !24, !noalias !47
   %74 = shl nsw i64 %71, 9
   %75 = sub nsw i64 %60, %74
   %76 = getelementptr inbounds i8, ptr %73, i64 %75
@@ -463,11 +463,11 @@ define noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS
 
 _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i: ; preds = %70, %64
   %storemerge.i.i.i.i.i.i = phi ptr [ %76, %70 ], [ %65, %64 ]
-  %77 = load i8, ptr %storemerge.i.i.i.i.i.i, align 1, !tbaa !33
+  %77 = load i8, ptr %storemerge.i.i.i.i.i.i, align 1, !tbaa !34
   %78 = xor i8 %77, %56
   store i8 %78, ptr %54, align 8, !tbaa !20
   %exitcond.not.i = icmp eq i64 %58, %1
-  br i1 %exitcond.not.i, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit, label %55, !llvm.loop !38
+  br i1 %exitcond.not.i, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit, label %55, !llvm.loop !39
 
 _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit: ; preds = %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i, %._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge
   %79 = phi i8 [ %.pre, %._ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit_crit_edge ], [ %78, %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i ]
@@ -496,9 +496,9 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
   %.01729 = phi i8 [ %79, %.lr.ph30 ], [ %.1.lcssa, %._crit_edge ]
   %.sroa.019.028 = phi ptr [ %80, %.lr.ph30 ], [ %97, %._crit_edge ]
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.019.028, i64 32
-  %93 = load i64, ptr %92, align 8, !tbaa !49
+  %93 = load i64, ptr %92, align 8, !tbaa !50
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.019.028, i64 40
-  %95 = load i64, ptr %94, align 8, !tbaa !49
+  %95 = load i64, ptr %94, align 8, !tbaa !50
   %96 = icmp ult i64 %93, %95
   br i1 %96, label %.lr.ph, label %._crit_edge
 
@@ -506,7 +506,7 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
   %.1.lcssa = phi i8 [ %.01729, %91 ], [ %117, %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit ]
   %97 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.028) #17
   %.not = icmp eq ptr %97, %81
-  br i1 %.not, label %._crit_edge31, label %91
+  br i1 %.not, label %._crit_edge31, label %91, !llvm.loop !51
 
 .lr.ph:                                           ; preds = %91, %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit
   %.026 = phi i64 [ %118, %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit ], [ %93, %91 ]
@@ -535,7 +535,7 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 109:                                              ; preds = %107, %105
   %110 = phi i64 [ %106, %105 ], [ %108, %107 ]
   %111 = getelementptr inbounds ptr, ptr %86, i64 %110
-  %112 = load ptr, ptr %111, align 8, !tbaa !24, !noalias !50
+  %112 = load ptr, ptr %111, align 8, !tbaa !24, !noalias !52
   %113 = shl nsw i64 %110, 9
   %114 = sub nsw i64 %99, %113
   %115 = getelementptr inbounds i8, ptr %112, i64 %114
@@ -543,11 +543,11 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 
 _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit: ; preds = %103, %109
   %storemerge.i.i.i.i.i = phi ptr [ %115, %109 ], [ %104, %103 ]
-  %116 = load i8, ptr %storemerge.i.i.i.i.i, align 1, !tbaa !33
+  %116 = load i8, ptr %storemerge.i.i.i.i.i, align 1, !tbaa !34
   %117 = xor i8 %116, %.125
   %118 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %118, %95
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 119:                                              ; preds = %39, %4, %._crit_edge31
   %.016 = phi i1 [ %90, %._crit_edge31 ], [ false, %4 ], [ false, %39 ]
@@ -565,7 +565,7 @@ declare ptr @_ZNK3net17PacketNumberQueue3endEv(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, i64 noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load i64, ptr %3, align 8, !tbaa !54
+  %4 = load i64, ptr %3, align 8, !tbaa !56
   %5 = icmp ult i64 %4, %1
   br i1 %5, label %.lr.ph.i, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
 
@@ -573,11 +573,11 @@ define void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr noundef n
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i64, ptr %6, align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !27, !noalias !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !57
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !31, !noalias !55
+  %11 = load ptr, ptr %10, align 8, !tbaa !32, !noalias !57
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !32, !noalias !55
+  %13 = load ptr, ptr %12, align 8, !tbaa !33, !noalias !57
   %14 = ptrtoint ptr %9 to i64
   %15 = ptrtoint ptr %11 to i64
   %16 = sub i64 %14, %15
@@ -614,7 +614,7 @@ define void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr noundef n
 33:                                               ; preds = %31, %29
   %34 = phi i64 [ %30, %29 ], [ %32, %31 ]
   %35 = getelementptr inbounds ptr, ptr %13, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !24, !noalias !55
+  %36 = load ptr, ptr %35, align 8, !tbaa !24, !noalias !57
   %37 = shl nsw i64 %34, 9
   %38 = sub nsw i64 %23, %37
   %39 = getelementptr inbounds i8, ptr %36, i64 %38
@@ -622,15 +622,15 @@ define void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr noundef n
 
 _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i: ; preds = %33, %27
   %storemerge.i.i.i.i.i.i = phi ptr [ %39, %33 ], [ %28, %27 ]
-  %40 = load i8, ptr %storemerge.i.i.i.i.i.i, align 1, !tbaa !33
+  %40 = load i8, ptr %storemerge.i.i.i.i.i.i, align 1, !tbaa !34
   %41 = xor i8 %40, %19
   store i8 %41, ptr %17, align 8, !tbaa !20
   %exitcond.not.i = icmp eq i64 %21, %1
-  br i1 %exitcond.not.i, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit, label %18, !llvm.loop !38
+  br i1 %exitcond.not.i, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit, label %18, !llvm.loop !39
 
 _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit: ; preds = %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i, %2
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %43 = load i64, ptr %42, align 8, !tbaa !58
+  %43 = load i64, ptr %42, align 8, !tbaa !60
   %44 = icmp ult i64 %43, %1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %46 = load i64, ptr %45, align 8, !tbaa !6
@@ -638,11 +638,11 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 
 .lr.ph.i6:                                        ; preds = %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !27, !noalias !59
+  %48 = load ptr, ptr %47, align 8, !tbaa !28, !noalias !61
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %50 = load ptr, ptr %49, align 8, !tbaa !31, !noalias !59
+  %50 = load ptr, ptr %49, align 8, !tbaa !32, !noalias !61
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %52 = load ptr, ptr %51, align 8, !tbaa !32, !noalias !59
+  %52 = load ptr, ptr %51, align 8, !tbaa !33, !noalias !61
   %53 = ptrtoint ptr %48 to i64
   %54 = ptrtoint ptr %50 to i64
   %55 = sub i64 %53, %54
@@ -679,7 +679,7 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 72:                                               ; preds = %70, %68
   %73 = phi i64 [ %69, %68 ], [ %71, %70 ]
   %74 = getelementptr inbounds ptr, ptr %52, i64 %73
-  %75 = load ptr, ptr %74, align 8, !tbaa !24, !noalias !59
+  %75 = load ptr, ptr %74, align 8, !tbaa !24, !noalias !61
   %76 = shl nsw i64 %73, 9
   %77 = sub nsw i64 %62, %76
   %78 = getelementptr inbounds i8, ptr %75, i64 %77
@@ -687,11 +687,11 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 
 _ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i8: ; preds = %72, %66
   %storemerge.i.i.i.i.i.i9 = phi ptr [ %78, %72 ], [ %67, %66 ]
-  %79 = load i8, ptr %storemerge.i.i.i.i.i.i9, align 1, !tbaa !33
+  %79 = load i8, ptr %storemerge.i.i.i.i.i.i9, align 1, !tbaa !34
   %80 = xor i8 %79, %58
   store i8 %80, ptr %56, align 8, !tbaa !20
   %exitcond.not.i10 = icmp eq i64 %60, %1
-  br i1 %exitcond.not.i10, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit11, label %57, !llvm.loop !38
+  br i1 %exitcond.not.i10, label %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit11, label %57, !llvm.loop !39
 
 _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit11: ; preds = %_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm.exit.i8, %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -703,8 +703,8 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre12 = load ptr, ptr %83, align 8, !tbaa !62
-  %.pre13 = load ptr, ptr %84, align 8, !tbaa !63
+  %.pre12 = load ptr, ptr %83, align 8, !tbaa !64
+  %.pre13 = load ptr, ptr %84, align 8, !tbaa !65
   br label %87
 
 87:                                               ; preds = %.lr.ph, %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit
@@ -720,15 +720,15 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
   br label %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit
 
 94:                                               ; preds = %87
-  %95 = load ptr, ptr %85, align 8, !tbaa !64
+  %95 = load ptr, ptr %85, align 8, !tbaa !66
   tail call void @_ZdlPv(ptr noundef %95) #15
   %96 = load ptr, ptr %86, align 8, !tbaa !22
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store ptr %97, ptr %86, align 8, !tbaa !32
+  store ptr %97, ptr %86, align 8, !tbaa !33
   %98 = load ptr, ptr %97, align 8, !tbaa !24
-  store ptr %98, ptr %85, align 8, !tbaa !31
+  store ptr %98, ptr %85, align 8, !tbaa !32
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 512
-  store ptr %99, ptr %84, align 8, !tbaa !34
+  store ptr %99, ptr %84, align 8, !tbaa !35
   %.pre14 = load i64, ptr %81, align 8, !tbaa !6
   br label %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit
 
@@ -736,11 +736,11 @@ _ZNSt5dequeIhSaIhEE9pop_frontEv.exit:             ; preds = %92, %94
   %100 = phi i64 [ %88, %92 ], [ %.pre14, %94 ]
   %101 = phi ptr [ %89, %92 ], [ %99, %94 ]
   %storemerge.i = phi ptr [ %93, %92 ], [ %98, %94 ]
-  store ptr %storemerge.i, ptr %83, align 8, !tbaa !62
+  store ptr %storemerge.i, ptr %83, align 8, !tbaa !64
   %102 = add i64 %100, 1
   store i64 %102, ptr %81, align 8, !tbaa !6
   %103 = icmp ult i64 %102, %1
-  br i1 %103, label %87, label %._crit_edge, !llvm.loop !65
+  br i1 %103, label %87, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %_ZNSt5dequeIhSaIhEE9pop_frontEv.exit, %_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE.exit11
   ret void
@@ -754,7 +754,7 @@ _ZNSt11_Deque_baseIhSaIhEE15_M_allocate_mapEm.exit:
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 5)
   %.sroa.speculated = add nuw nsw i64 %4, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !66
+  store i64 %.sroa.speculated, ptr %5, align 8, !tbaa !68
   %6 = shl nuw nsw i64 %.sroa.speculated, 3
   %7 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %6) #18
   store ptr %7, ptr %0, align 8, !tbaa !21
@@ -774,7 +774,7 @@ _ZNSt11_Deque_baseIhSaIhEE16_M_allocate_nodeEv.exit.i: ; preds = %.lr.ph.i
   store ptr %12, ptr %.011.i, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %14 = icmp ult ptr %13, %11
-  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIhSaIhEE15_M_create_nodesEPPhS3_.exit, !llvm.loop !67
+  br i1 %14, label %.lr.ph.i, label %_ZNSt11_Deque_baseIhSaIhEE15_M_create_nodesEPPhS3_.exit, !llvm.loop !69
 
 15:                                               ; preds = %.lr.ph.i
   %16 = landingpad { ptr, i32 }
@@ -833,27 +833,27 @@ _ZNSt11_Deque_baseIhSaIhEE16_M_destroy_nodesEPPhS3_.exit.i: ; preds = %.lr.ph.i.
 _ZNSt11_Deque_baseIhSaIhEE15_M_create_nodesEPPhS3_.exit: ; preds = %_ZNSt11_Deque_baseIhSaIhEE16_M_allocate_nodeEv.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %10, ptr %36, align 8, !tbaa !32
+  store ptr %10, ptr %36, align 8, !tbaa !33
   %37 = load ptr, ptr %10, align 8, !tbaa !24
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %37, ptr %38, align 8, !tbaa !31
+  store ptr %37, ptr %38, align 8, !tbaa !32
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 512
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %39, ptr %40, align 8, !tbaa !34
+  store ptr %39, ptr %40, align 8, !tbaa !35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = getelementptr inbounds i8, ptr %11, i64 -8
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %42, ptr %43, align 8, !tbaa !32
+  store ptr %42, ptr %43, align 8, !tbaa !33
   %44 = load ptr, ptr %42, align 8, !tbaa !24
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %44, ptr %45, align 8, !tbaa !31
+  store ptr %44, ptr %45, align 8, !tbaa !32
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 512
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %46, ptr %47, align 8, !tbaa !34
-  store ptr %37, ptr %35, align 8, !tbaa !62
+  store ptr %46, ptr %47, align 8, !tbaa !35
+  store ptr %37, ptr %35, align 8, !tbaa !64
   %48 = and i64 %1, 511
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %48
-  store ptr %49, ptr %41, align 8, !tbaa !39
+  store ptr %49, ptr %41, align 8, !tbaa !40
   ret void
 
 50:                                               ; preds = %32
@@ -897,9 +897,9 @@ define linkonce_odr void @_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_(pt
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %6 = load ptr, ptr %5, align 8, !tbaa !32
+  %6 = load ptr, ptr %5, align 8, !tbaa !33
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -908,14 +908,14 @@ define linkonce_odr void @_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_(pt
   %.neg.i.i = sext i1 %13 to i64
   %14 = add nsw i64 %12, %.neg.i.i
   %15 = shl nsw i64 %14, 9
-  %16 = load ptr, ptr %3, align 8, !tbaa !27
+  %16 = load ptr, ptr %3, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !31
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !34
-  %23 = load ptr, ptr %4, align 8, !tbaa !27
+  %22 = load ptr, ptr %21, align 8, !tbaa !35
+  %23 = load ptr, ptr %4, align 8, !tbaa !28
   %24 = ptrtoint ptr %22 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %19, %20
@@ -931,7 +931,7 @@ define linkonce_odr void @_ZNSt5dequeIhSaIhEE16_M_push_back_auxIJRKhEEEvDpOT_(pt
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !66
+  %34 = load i64, ptr %33, align 8, !tbaa !68
   %35 = load ptr, ptr %0, align 8, !tbaa !21
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %9, %36
@@ -950,18 +950,18 @@ _ZNSt5dequeIhSaIhEE22_M_reserve_map_at_backEm.exit: ; preds = %32, %41
   %43 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #18
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !24
-  %45 = load ptr, ptr %3, align 8, !tbaa !39
-  %46 = load i8, ptr %1, align 1, !tbaa !33
-  store i8 %46, ptr %45, align 1, !tbaa !33
+  %45 = load ptr, ptr %3, align 8, !tbaa !40
+  %46 = load i8, ptr %1, align 1, !tbaa !34
+  store i8 %46, ptr %45, align 1, !tbaa !34
   %47 = load ptr, ptr %5, align 8, !tbaa !23
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr %48, ptr %5, align 8, !tbaa !32
+  store ptr %48, ptr %5, align 8, !tbaa !33
   %49 = load ptr, ptr %48, align 8, !tbaa !24
-  store ptr %49, ptr %17, align 8, !tbaa !31
+  store ptr %49, ptr %17, align 8, !tbaa !32
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 512
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %50, ptr %51, align 8, !tbaa !34
-  store ptr %49, ptr %3, align 8, !tbaa !39
+  store ptr %50, ptr %51, align 8, !tbaa !35
+  store ptr %49, ptr %3, align 8, !tbaa !40
   ret void
 }
 
@@ -981,7 +981,7 @@ define linkonce_odr void @_ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb(ptr noundef 
   %12 = add nsw i64 %11, 1
   %13 = add i64 %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !66
+  %15 = load i64, ptr %14, align 8, !tbaa !68
   %16 = shl i64 %13, 1
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %18, label %39
@@ -1025,7 +1025,7 @@ define linkonce_odr void @_ZNSt5dequeIhSaIhEE17_M_reallocate_mapEmb(ptr noundef 
   %40 = add i64 %15, 2
   %41 = add i64 %40, %.sroa.speculated
   %42 = icmp ugt i64 %41, 1152921504606846975
-  br i1 %42, label %43, label %_ZNSt11_Deque_baseIhSaIhEE15_M_allocate_mapEm.exit, !prof !68
+  br i1 %42, label %43, label %_ZNSt11_Deque_baseIhSaIhEE15_M_allocate_mapEm.exit, !prof !70
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, 2305843009213693951
@@ -1061,27 +1061,27 @@ _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26:              ; preds = %_ZNSt11_Deque_baseI
   %56 = load ptr, ptr %0, align 8, !tbaa !21
   tail call void @_ZdlPv(ptr noundef %56) #15
   store ptr %46, ptr %0, align 8, !tbaa !21
-  store i64 %41, ptr %14, align 8, !tbaa !66
+  store i64 %41, ptr %14, align 8, !tbaa !68
   br label %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit
 
 _ZSt4copyIPPhS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26
   %.0 = phi ptr [ %51, %_ZSt4copyIPPhS1_ET0_T_S3_S2_.exit26 ], [ %24, %27 ], [ %24, %28 ], [ %24, %31 ], [ %24, %32 ]
-  store ptr %.0, ptr %6, align 8, !tbaa !32
+  store ptr %.0, ptr %6, align 8, !tbaa !33
   %57 = load ptr, ptr %.0, align 8, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %57, ptr %58, align 8, !tbaa !31
+  store ptr %57, ptr %58, align 8, !tbaa !32
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %59, ptr %60, align 8, !tbaa !34
+  store ptr %59, ptr %60, align 8, !tbaa !35
   %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
-  store ptr %62, ptr %4, align 8, !tbaa !32
+  store ptr %62, ptr %4, align 8, !tbaa !33
   %63 = load ptr, ptr %62, align 8, !tbaa !24
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %63, ptr %64, align 8, !tbaa !31
+  store ptr %63, ptr %64, align 8, !tbaa !32
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 512
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %65, ptr %66, align 8, !tbaa !34
+  store ptr %65, ptr %66, align 8, !tbaa !35
   ret void
 }
 
@@ -1146,47 +1146,49 @@ attributes #20 = { noreturn nounwind }
 !22 = !{!11, !12, i64 40}
 !23 = !{!11, !12, i64 72}
 !24 = !{!17, !17, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!16, !17, i64 0}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
-!30 = distinct !{!30, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
-!31 = !{!16, !17, i64 8}
-!32 = !{!16, !12, i64 24}
-!33 = !{!14, !14, i64 0}
-!34 = !{!16, !17, i64 16}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
-!37 = distinct !{!37, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
-!38 = distinct !{!38, !26}
-!39 = !{!11, !17, i64 48}
-!40 = !{!11, !17, i64 64}
-!41 = !{!7, !14, i64 120}
-!42 = !{!43}
-!43 = distinct !{!43, !44, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
-!44 = distinct !{!44, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
-!45 = !{!7, !14, i64 104}
-!46 = !{!47}
-!47 = distinct !{!47, !48, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
-!48 = distinct !{!48, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
-!49 = !{!15, !15, i64 0}
-!50 = !{!51}
-!51 = distinct !{!51, !52, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
-!52 = distinct !{!52, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
-!53 = distinct !{!53, !26}
-!54 = !{!7, !15, i64 112}
-!55 = !{!56}
-!56 = distinct !{!56, !57, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
-!57 = distinct !{!57, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
-!58 = !{!7, !15, i64 96}
-!59 = !{!60}
-!60 = distinct !{!60, !61, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
-!61 = distinct !{!61, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
-!62 = !{!11, !17, i64 16}
-!63 = !{!11, !17, i64 32}
-!64 = !{!11, !17, i64 24}
-!65 = distinct !{!65, !26}
-!66 = !{!11, !15, i64 8}
-!67 = distinct !{!67, !26}
-!68 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!16, !17, i64 0}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
+!31 = distinct !{!31, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
+!32 = !{!16, !17, i64 8}
+!33 = !{!16, !12, i64 24}
+!34 = !{!14, !14, i64 0}
+!35 = !{!16, !17, i64 16}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
+!38 = distinct !{!38, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
+!39 = distinct !{!39, !26, !27}
+!40 = !{!11, !17, i64 48}
+!41 = !{!11, !17, i64 64}
+!42 = !{!7, !14, i64 120}
+!43 = !{!44}
+!44 = distinct !{!44, !45, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
+!45 = distinct !{!45, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
+!46 = !{!7, !14, i64 104}
+!47 = !{!48}
+!48 = distinct !{!48, !49, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
+!49 = distinct !{!49, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
+!50 = !{!15, !15, i64 0}
+!51 = distinct !{!51, !27}
+!52 = !{!53}
+!53 = distinct !{!53, !54, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
+!54 = distinct !{!54, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
+!55 = distinct !{!55, !26, !27}
+!56 = !{!7, !15, i64 112}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
+!59 = distinct !{!59, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
+!60 = !{!7, !15, i64 96}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl: argument 0"}
+!63 = distinct !{!63, !"_ZStplRKSt15_Deque_iteratorIhRhPhEl"}
+!64 = !{!11, !17, i64 16}
+!65 = !{!11, !17, i64 32}
+!66 = !{!11, !17, i64 24}
+!67 = distinct !{!67, !26, !27}
+!68 = !{!11, !15, i64 8}
+!69 = distinct !{!69, !26, !27}
+!70 = !{!"branch_weights", !"expected", i32 1, i32 2000}

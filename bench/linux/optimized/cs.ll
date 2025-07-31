@@ -225,7 +225,7 @@ define dso_local i32 @pcmcia_register_socket(ptr noundef %0) #0 align 16 {
 29:                                               ; preds = %20
   %30 = add i32 %19, 1
   %31 = icmp eq i32 %26, 0
-  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !8
+  br i1 %31, label %.preheader, label %.loopexit, !llvm.loop !9
 
 .loopexit:                                        ; preds = %29, %16
   %32 = phi i32 [ 0, %16 ], [ %19, %29 ]
@@ -364,7 +364,7 @@ declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @pccardd(ptr noundef initializes((8, 20), (400, 408)) %0) #0 align 16 {
   %2 = alloca i32, align 4
-  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !9
+  %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !10
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %4, ptr %5, align 8
@@ -439,7 +439,7 @@ define internal noundef i32 @pccardd(ptr noundef initializes((8, 20), (400, 408)
 
 49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !annotation !10
+  store i32 0, ptr %2, align 4, !annotation !11
   %50 = and i32 %46, 8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %53
@@ -695,7 +695,7 @@ define internal noundef i32 @pccardd(ptr noundef initializes((8, 20), (400, 408)
   br i1 %192, label %193, label %.backedge
 
 193:                                              ; preds = %189
-  %194 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, i32 1, ptr nonnull elementtype(i32) %37) #6, !srcloc !11
+  %194 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %37, i32 1, ptr nonnull elementtype(i32) %37) #6, !srcloc !12
   %195 = call zeroext i1 @kthread_should_stop() #6
   br i1 %195, label %202, label %196
 
@@ -703,18 +703,18 @@ define internal noundef i32 @pccardd(ptr noundef initializes((8, 20), (400, 408)
   call void @schedule() #6
   %197 = call i32 @__SCT__might_resched() #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @freezer_active, i32 2) #6
-          to label %.backedge [label %198], !srcloc !12
+          to label %.backedge [label %198], !srcloc !13
 
 198:                                              ; preds = %196
   %199 = call zeroext i1 @freezing_slow_path(ptr noundef %4) #6
-  br i1 %199, label %200, label %.backedge, !prof !13
+  br i1 %199, label %200, label %.backedge, !prof !14
 
 200:                                              ; preds = %198
   %201 = call zeroext i1 @__refrigerator(i1 noundef zeroext false) #6
   br label %.backedge
 
 .backedge:                                        ; preds = %200, %198, %196, %189
-  br label %38, !llvm.loop !14
+  br label %38, !llvm.loop !15
 
 202:                                              ; preds = %193
   store volatile i32 0, ptr %37, align 8
@@ -846,7 +846,7 @@ define dso_local ptr @pcmcia_get_socket_by_nr(i32 noundef %0) #0 align 16 {
   %7 = getelementptr i8, ptr %4, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, %0
-  br i1 %9, label %10, label %2, !llvm.loop !15
+  br i1 %9, label %10, label %2, !llvm.loop !16
 
 10:                                               ; preds = %6
   %11 = getelementptr i8, ptr %4, i64 -264
@@ -962,7 +962,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pcmcia_reset_card(ptr noundef %0
 21:                                               ; preds = %17, %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @mutex_lock(ptr noundef nonnull %22) #6
-  %23 = tail call fastcc i32 @socket_reset(ptr noundef %0), !range !16
+  %23 = tail call fastcc i32 @socket_reset(ptr noundef %0), !range !17
   tail call void @mutex_unlock(ptr noundef nonnull %22) #6
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %32
@@ -988,7 +988,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pcmcia_reset_card(ptr noundef %0
 define internal fastcc noundef range(i32 -110, 1) i32 @socket_reset(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #6
-  store i32 0, ptr %2, align 4, !annotation !10
+  store i32 0, ptr %2, align 4, !annotation !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 576
@@ -1038,7 +1038,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @socket_reset(ptr noundef 
   %37 = add nuw nsw i32 %23, 1
   %38 = load i32, ptr @unreset_limit, align 4
   %39 = icmp slt i32 %37, %38
-  br i1 %39, label %.preheader, label %.loopexit1, !llvm.loop !17
+  br i1 %39, label %.preheader, label %.loopexit1, !llvm.loop !18
 
 .loopexit1:                                       ; preds = %34, %1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -1056,7 +1056,7 @@ define internal i32 @pcmcia_socket_dev_resume(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -560
   %3 = getelementptr i8, ptr %0, i64 -112
   tail call void @mutex_lock(ptr noundef %3) #6
-  %4 = tail call fastcc i32 @socket_late_resume(ptr noundef %2) #6, !callees !18
+  %4 = tail call fastcc i32 @socket_late_resume(ptr noundef %2) #6, !callees !19
   tail call void @mutex_unlock(ptr noundef %3) #6
   ret i32 %4
 }
@@ -1144,12 +1144,12 @@ define internal void @pcmcia_socket_dev_complete(ptr noundef %0) #0 align 16 {
 11:                                               ; preds = %8
   tail call void @cb_free(ptr noundef %2) #6
   tail call void @mutex_unlock(ptr noundef %3) #6
-  tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !19
+  tail call void asm sideeffect "378: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 378b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 378) #6, !srcloc !20
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.7) #6
-  tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #6, !srcloc !20
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 867, i32 2313, i64 12) #6, !srcloc !21
-  tail call void asm sideeffect "380: nop\0A\09.pushsection .discard.instr_end\0A\09.long 380b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 380) #6, !srcloc !22
-  tail call void asm sideeffect "381: nop\0A\09.pushsection .discard.instr_end\0A\09.long 381b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 381) #6, !srcloc !23
+  tail call void asm sideeffect "379: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 379b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 379) #6, !srcloc !21
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.8, i32 867, i32 2313, i64 12) #6, !srcloc !22
+  tail call void asm sideeffect "380: nop\0A\09.pushsection .discard.instr_end\0A\09.long 380b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 380) #6, !srcloc !23
+  tail call void asm sideeffect "381: nop\0A\09.pushsection .discard.instr_end\0A\09.long 381b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 381) #6, !srcloc !24
   br label %13
 
 12:                                               ; preds = %8, %1
@@ -1329,7 +1329,7 @@ define internal fastcc void @socket_shutdown(ptr noundef %0) unnamed_addr #0 ali
   br label %10
 
 10:                                               ; preds = %6, %1
-  store i32 0, ptr %2, align 4, !annotation !10
+  store i32 0, ptr %2, align 4, !annotation !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @mutex_lock(ptr noundef nonnull %11) #6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1398,7 +1398,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 define internal fastcc i32 @socket_setup(ptr noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #6
-  store i32 0, ptr %3, align 4, !annotation !10
+  store i32 0, ptr %3, align 4, !annotation !11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1434,11 +1434,11 @@ define internal fastcc i32 @socket_setup(ptr noundef %0, i32 noundef %1) unnamed
   call void @msleep(i32 noundef 100) #6
   %27 = add nuw nsw i32 %15, 1
   %28 = icmp eq i32 %27, 100
-  br i1 %28, label %._crit_edge, label %14, !llvm.loop !24
+  br i1 %28, label %._crit_edge, label %14, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %26
   %.pre = load i32, ptr %3, align 4
-  br label %split, !llvm.loop !24
+  br label %split, !llvm.loop !25
 
 split:                                            ; preds = %23, %._crit_edge
   %29 = phi i32 [ %.pre, %._crit_edge ], [ %20, %23 ]
@@ -1537,7 +1537,7 @@ split:                                            ; preds = %23, %._crit_edge
   br label %.loopexit
 
 86:                                               ; preds = %69
-  %87 = call fastcc i32 @socket_reset(ptr noundef %0), !range !16
+  %87 = call fastcc i32 @socket_reset(ptr noundef %0), !range !17
   store i32 %87, ptr %3, align 4
   %88 = load ptr, ptr %64, align 8
   %89 = icmp eq ptr %88, null
@@ -1691,23 +1691,24 @@ attributes #8 = { nounwind memory(none) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i64 2148366076}
-!10 = !{!"auto-init"}
-!11 = !{i64 2155311970}
-!12 = !{i64 688597, i64 688641, i64 2148173324, i64 2148173345, i64 2148173371, i64 2148173404, i64 2148173438, i64 2148173462}
-!13 = !{!"branch_weights", i32 1, i32 2000}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = !{i32 -110, i32 1}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{null, null, ptr @socket_late_resume, null}
-!19 = !{i64 2155329331, i64 2155329140, i64 2155329192, i64 2155329238, i64 2155329266}
-!20 = !{i64 2155329889, i64 2155329698, i64 2155329750, i64 2155329796, i64 2155329824}
-!21 = !{i64 2155329963, i64 2155329992, i64 2155330038, i64 2155330096, i64 2155330150, i64 2155330204, i64 2155330259, i64 2155330290, i64 2155330598, i64 2155330604, i64 2155330651, i64 2155330674, i64 2155330700}
-!22 = !{i64 2155331152, i64 2155330963, i64 2155331013, i64 2155331059, i64 2155331087}
-!23 = !{i64 2155331458, i64 2155331269, i64 2155331319, i64 2155331365, i64 2155331393}
-!24 = distinct !{!24, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{i64 2148366076}
+!11 = !{!"auto-init"}
+!12 = !{i64 2155311970}
+!13 = !{i64 688597, i64 688641, i64 2148173324, i64 2148173345, i64 2148173371, i64 2148173404, i64 2148173438, i64 2148173462}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = !{i32 -110, i32 1}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{null, null, ptr @socket_late_resume, null}
+!20 = !{i64 2155329331, i64 2155329140, i64 2155329192, i64 2155329238, i64 2155329266}
+!21 = !{i64 2155329889, i64 2155329698, i64 2155329750, i64 2155329796, i64 2155329824}
+!22 = !{i64 2155329963, i64 2155329992, i64 2155330038, i64 2155330096, i64 2155330150, i64 2155330204, i64 2155330259, i64 2155330290, i64 2155330598, i64 2155330604, i64 2155330651, i64 2155330674, i64 2155330700}
+!23 = !{i64 2155331152, i64 2155330963, i64 2155331013, i64 2155331059, i64 2155331087}
+!24 = !{i64 2155331458, i64 2155331269, i64 2155331319, i64 2155331365, i64 2155331393}
+!25 = distinct !{!25, !6, !7, !8}

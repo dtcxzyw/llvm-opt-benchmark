@@ -250,7 +250,7 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
   store i16 %39, ptr %41, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit153, label %37, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit153, label %37, !llvm.loop !9
 
 .loopexit153:                                     ; preds = %37, %.thread, %35
   %42 = phi ptr [ %30, %.thread ], [ %36, %35 ], [ %36, %37 ]
@@ -343,13 +343,13 @@ define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef 
 86:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !10
 
 IsInSet.exit.thread.i:                            ; preds = %86, %.lr.ph.i
   %87 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 176
   %.020.i = load ptr, ptr %87, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i33.i.preheader:                           ; preds = %IsInSet.exit.thread.i, %75
   br label %.lr.ph.i33.i
@@ -364,7 +364,7 @@ IsInSet.exit.thread.i:                            ; preds = %86, %.lr.ph.i
 91:                                               ; preds = %.lr.ph.i33.i
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond.not.i36.i = icmp eq i64 %indvars.iv.next.i35.i, 10
-  br i1 %exitcond.not.i36.i, label %GetParametricCurveByType.exit, label %.lr.ph.i33.i, !llvm.loop !9
+  br i1 %exitcond.not.i36.i, label %GetParametricCurveByType.exit, label %.lr.ph.i33.i, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.i33.i, %.lr.ph.i.i
   %.0.i.ph = phi ptr [ %.02049.i, %.lr.ph.i.i ], [ @DefaultCurves, %.lr.ph.i33.i ]
@@ -378,7 +378,7 @@ IsInSet.exit.thread.i:                            ; preds = %86, %.lr.ph.i
 GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
-  br i1 %exitcond168.not, label %.loopexit151, label %51, !llvm.loop !11
+  br i1 %exitcond168.not, label %.loopexit151, label %51, !llvm.loop !12
 
 .loopexit151:                                     ; preds = %GetParametricCurveByType.exit, %.loopexit153
   %96 = load i32, ptr %42, align 8
@@ -432,7 +432,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
 115:                                              ; preds = %109, %111, %114
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge, label %103, !llvm.loop !12
+  br i1 %exitcond173.not, label %._crit_edge, label %103, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %115, %100
   %116 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -604,7 +604,7 @@ define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, pt
 
 76:                                               ; preds = %40, %35
   %77 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %77, label %35, label %EvalSegmentedFn.exit.thread, !llvm.loop !13
+  br i1 %77, label %35, label %EvalSegmentedFn.exit.thread, !llvm.loop !14
 
 EvalSegmentedFn.exit.thread:                      ; preds = %76, %27
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -638,7 +638,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.thread, %EvalSegme
   store i16 %.0.i22, ptr %90, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %27, !llvm.loop !15
 
 .loopexit:                                        ; preds = %_cmsQuickSaturateWord.exit, %17
   ret ptr %18
@@ -735,13 +735,13 @@ define hidden ptr @cmsBuildParametricToneCurve(ptr noundef %0, i32 noundef %1, p
 12:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !10
 
 IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 176
   %.020.i = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i33.i.preheader:                           ; preds = %IsInSet.exit.thread.i, %3
   br label %.lr.ph.i33.i
@@ -756,7 +756,7 @@ IsInSet.exit.thread.i:                            ; preds = %12, %.lr.ph.i
 17:                                               ; preds = %.lr.ph.i33.i
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond.not.i36.i = icmp eq i64 %indvars.iv.next.i35.i, 10
-  br i1 %exitcond.not.i36.i, label %IsInSet.exit38.thread.i, label %.lr.ph.i33.i, !llvm.loop !9
+  br i1 %exitcond.not.i36.i, label %IsInSet.exit38.thread.i, label %.lr.ph.i33.i, !llvm.loop !10
 
 IsInSet.exit38.thread.i:                          ; preds = %17
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %0, i32 noundef 8, ptr noundef nonnull @.str, i32 noundef %1) #13
@@ -864,7 +864,7 @@ define hidden void @cmsFreeToneCurve(ptr noundef %0) local_unnamed_addr #0 {
   %26 = load i32, ptr %12, align 8
   %27 = zext i32 %26 to i64
   %28 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %28, label %15, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %28, label %15, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %25
   %.pre = load ptr, ptr %10, align 8
@@ -996,7 +996,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   store float %18, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %20, label %13, !llvm.loop !16
+  br i1 %exitcond.not, label %20, label %13, !llvm.loop !17
 
 20:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %5)
@@ -1107,13 +1107,13 @@ define hidden ptr @cmsReverseToneCurveEx(i32 noundef %0, ptr noundef readonly ca
 22:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %IsInSet.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !10
 
 IsInSet.exit.thread.i:                            ; preds = %22, %.lr.ph.i
   %23 = getelementptr inbounds nuw i8, ptr %.02049.i, i64 176
   %.020.i = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not.i, label %.lr.ph.i33.i.preheader, label %.lr.ph.i, !llvm.loop !11
 
 .lr.ph.i33.i.preheader:                           ; preds = %IsInSet.exit.thread.i, %12
   br label %.lr.ph.i33.i
@@ -1128,7 +1128,7 @@ IsInSet.exit.thread.i:                            ; preds = %22, %.lr.ph.i
 27:                                               ; preds = %.lr.ph.i33.i
   %indvars.iv.next.i35.i = add nuw nsw i64 %indvars.iv.i34.i, 1
   %exitcond.not.i36.i = icmp eq i64 %indvars.iv.next.i35.i, 10
-  br i1 %exitcond.not.i36.i, label %GetParametricCurveByType.exit, label %.lr.ph.i33.i, !llvm.loop !9
+  br i1 %exitcond.not.i36.i, label %GetParametricCurveByType.exit, label %.lr.ph.i33.i, !llvm.loop !10
 
 .loopexit71:                                      ; preds = %.lr.ph.i.i, %.lr.ph.i33.i
   %28 = load ptr, ptr %1, align 8
@@ -1226,7 +1226,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
 
 83:                                               ; preds = %78, %73
   %84 = icmp samesign ugt i64 %indvars.iv21.i, 1
-  br i1 %84, label %.lr.ph12.i, label %GetInterval.exit.thread, !llvm.loop !17
+  br i1 %84, label %.lr.ph12.i, label %GetInterval.exit.thread, !llvm.loop !18
 
 .lr.ph.i60:                                       ; preds = %.preheader1.i, %98
   %85 = phi i16 [ %87, %98 ], [ %64, %.preheader1.i ]
@@ -1255,7 +1255,7 @@ GetParametricCurveByType.exit:                    ; preds = %27, %6, %2
 
 98:                                               ; preds = %93, %88
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %65
-  br i1 %exitcond.not.i, label %GetInterval.exit.thread, label %.lr.ph.i60, !llvm.loop !18
+  br i1 %exitcond.not.i, label %GetInterval.exit.thread, label %.lr.ph.i60, !llvm.loop !19
 
 GetInterval.exit:                                 ; preds = %88, %93, %73, %78
   %.046.i.in = phi i64 [ %indvars.iv.next22.i, %78 ], [ %indvars.iv.next22.i, %73 ], [ %indvars.iv.i, %93 ], [ %indvars.iv.i, %88 ]
@@ -1340,7 +1340,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %143, %141, %GetInte
   store i16 %.0.i64.sink, ptr %150, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !20
 
 .loopexit:                                        ; preds = %_cmsQuickSaturateWord.exit, %40, %GetParametricCurveByType.exit, %.loopexit71
   %.0 = phi ptr [ %35, %.loopexit71 ], [ null, %GetParametricCurveByType.exit ], [ %38, %40 ], [ %38, %_cmsQuickSaturateWord.exit ]
@@ -1470,7 +1470,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %11, %15, %17
 
 75:                                               ; preds = %38, %34
   %76 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %76, label %34, label %EvalSegmentedFn.exit, !llvm.loop !13
+  br i1 %76, label %34, label %EvalSegmentedFn.exit, !llvm.loop !14
 
 EvalSegmentedFn.exit:                             ; preds = %75, %29, %71, %74
   %.037.i = phi double [ %.0.i7, %74 ], [ 0x4480F0CF00000000, %71 ], [ 0xC480F0CF00000000, %29 ], [ 0xC480F0CF00000000, %75 ]
@@ -1532,7 +1532,7 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly captu
   %12 = load i32, ptr %8, align 8
   %13 = sext i32 %12 to i64
   %14 = icmp slt i64 %indvars.iv.next.i, %13
-  br i1 %14, label %.lr.ph.i, label %cmsIsToneCurveLinear.exit.thread, !llvm.loop !20
+  br i1 %14, label %.lr.ph.i, label %cmsIsToneCurveLinear.exit.thread, !llvm.loop !21
 
 .lr.ph.i:                                         ; preds = %5, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %5 ]
@@ -1592,7 +1592,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %45 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.next
   store float 1.000000e+00, ptr %45, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %37
   %46 = fcmp uge double %1, 0.000000e+00
@@ -1757,7 +1757,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   store float %148, ptr %149, align 4
   %indvars.iv.next.i120.lver.orig = add nuw nsw i64 %indvars.iv.i119.lver.orig, 1
   %exitcond.not.i.lver.orig = icmp eq i64 %indvars.iv.next.i120.lver.orig, %wide.trip.count.i
-  br i1 %exitcond.not.i.lver.orig, label %._crit_edge.i, label %.lr.ph.i118.lver.orig, !llvm.loop !22
+  br i1 %exitcond.not.i.lver.orig, label %._crit_edge.i, label %.lr.ph.i118.lver.orig, !llvm.loop !23
 
 .lr.ph.i118.ph:                                   ; preds = %.lr.ph.i118.lver.check
   %scevgep200 = getelementptr i8, ptr %50, i64 8
@@ -1818,7 +1818,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   store float %184, ptr %185, align 4
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i118, !llvm.loop !22
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i118, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i118, %.lr.ph.i118.lver.orig, %55
   %186 = add nsw i32 %27, -2
@@ -1939,7 +1939,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   store float %284, ptr %270, align 4
   %indvars.iv.next225.i = add nsw i64 %indvars.iv224.i, -1
   %285 = icmp samesign ugt i64 %indvars.iv224.i, 1
-  br i1 %285, label %.lr.ph222.i, label %.thread.i, !llvm.loop !23
+  br i1 %285, label %.lr.ph222.i, label %.thread.i, !llvm.loop !24
 
 286:                                              ; preds = %._crit_edge
   br i1 %52, label %.thread.i, label %288
@@ -1979,7 +1979,7 @@ smooth2.exit:                                     ; preds = %290, %291
 294:                                              ; preds = %.lr.ph145
   %indvars.iv.next155 = add nsw i64 %indvars.iv154, -1
   %295 = icmp ugt i64 %indvars.iv.next155, 1
-  br i1 %295, label %.lr.ph145, label %.thread, !llvm.loop !24
+  br i1 %295, label %.lr.ph145, label %.thread, !llvm.loop !25
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %294
   %indvars.iv154 = phi i64 [ %293, %.lr.ph145.preheader ], [ %indvars.iv.next155, %294 ]
@@ -2067,7 +2067,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %317, %3
   %326 = getelementptr inbounds nuw i16, ptr %325, i64 %indvars.iv157
   store i16 %.0.i121, ptr %326, align 2
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %.critedge117.thread, label %.lr.ph148, !llvm.loop !25
+  br i1 %exitcond161.not, label %.critedge117.thread, label %.lr.ph148, !llvm.loop !26
 
 327:                                              ; preds = %smooth2.exit
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.4) #13
@@ -2123,7 +2123,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveLinear(ptr noundef readonly cap
   %7 = load i32, ptr %3, align 8
   %8 = sext i32 %7 to i64
   %9 = icmp slt i64 %indvars.iv.next, %8
-  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %9, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %1, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %6 ], [ 0, %1 ]
@@ -2181,7 +2181,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly 
 16:                                               ; preds = %.lr.ph35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph35, !llvm.loop !26
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph35, !llvm.loop !27
 
 .lr.ph35:                                         ; preds = %.lr.ph35.preheader, %16
   %indvars.iv = phi i64 [ 1, %.lr.ph35.preheader ], [ %indvars.iv.next, %16 ]
@@ -2204,7 +2204,7 @@ define hidden range(i32 0, 2) i32 @cmsIsToneCurveMonotonic(ptr noundef readonly 
 25:                                               ; preds = %.lr.ph
   %26 = add nsw i32 %.12529, -1
   %27 = icmp sgt i32 %.12529, 0
-  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %27, label %.lr.ph, label %.loopexit, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %.130 = phi i32 [ %31, %25 ], [ %24, %.lr.ph.preheader ]
@@ -2299,7 +2299,7 @@ define hidden double @cmsEstimateGamma(ptr noundef readonly captures(none) %0, d
   %.1 = phi double [ %16, %11 ], [ %.03140, %3 ]
   %20 = add nuw nsw i32 %.041, 1
   %exitcond.not = icmp eq i32 %20, 4096
-  br i1 %exitcond.not, label %21, label %3, !llvm.loop !28
+  br i1 %exitcond.not, label %21, label %3, !llvm.loop !29
 
 21:                                               ; preds = %19
   %22 = fcmp ugt double %.135, 1.000000e+00
@@ -3014,26 +3014,27 @@ attributes #14 = { memory(none) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}

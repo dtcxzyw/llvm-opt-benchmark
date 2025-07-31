@@ -257,7 +257,7 @@ _ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i14: ; preds = %tailrecurse.i.
   %92 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %93 = zext i32 %92 to i64
   %94 = icmp samesign ult i64 %indvars.iv.next.i21, %93
-  br i1 %94, label %.lr.ph.i19, label %_ZN6ZValueI14ZPerCPUStorageP5ZPageEC2ERKS2_.exit, !llvm.loop !8
+  br i1 %94, label %.lr.ph.i19, label %_ZN6ZValueI14ZPerCPUStorageP5ZPageEC2ERKS2_.exit, !llvm.loop !9
 
 _ZN6ZValueI14ZPerCPUStorageP5ZPageEC2ERKS2_.exit: ; preds = %.lr.ph.i19, %_ZN13ZValueStorageI14ZPerCPUStorageE5allocEm.exit.i14
   ret void
@@ -381,7 +381,7 @@ _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %8, %19
   %22 = shl nuw nsw i64 %.pre-phi, 12
   %23 = add i64 %22, %21
   %24 = inttoptr i64 %23 to ptr
-  %25 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr %24) #8, !srcloc !9
+  %25 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %2, ptr %24) #8, !srcloc !10
   br label %26
 
 26:                                               ; preds = %_ZN14ZPerCPUStorage2idEv.exit, %4
@@ -428,7 +428,7 @@ _ZN14ZPerCPUStorage2idEv.exit:                    ; preds = %2, %12
   %21 = load i64, ptr %20, align 8
   %22 = load i64, ptr %19, align 8
   %23 = sub i64 %21, %22
-  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %23, ptr %18) #8, !srcloc !9
+  %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %23, ptr %18) #8, !srcloc !10
   %25 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   tail call void @_ZN5ZHeap15undo_alloc_pageEP5ZPage(ptr noundef nonnull align 64 dereferenceable(15937) %25, ptr noundef nonnull %1) #8
   ret void
@@ -439,7 +439,7 @@ declare void @_ZN5ZHeap15undo_alloc_pageEP5ZPage(ptr noundef nonnull align 64 de
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN16ZObjectAllocator27alloc_object_in_shared_pageEPP5ZPage9ZPageTypemm16ZAllocationFlags(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4, i8 %5) local_unnamed_addr #1 align 2 {
   %7 = load volatile ptr, ptr %1, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %_ZN5ZPage19alloc_object_atomicEm.exit.thread, label %8
 
@@ -489,9 +489,9 @@ _ZNK5ZPage16object_alignmentEv.exit.i:            ; preds = %_ZNK5ZPage16object_
   br i1 %or.cond.i, label %_ZN5ZPage19alloc_object_atomicEm.exit.thread, label %28
 
 28:                                               ; preds = %23
-  %29 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %.09.i, ptr nonnull %20) #8, !srcloc !11
+  %29 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %.09.i, ptr nonnull %20) #8, !srcloc !12
   %30 = icmp eq i64 %29, %.09.i
-  br i1 %30, label %_ZN5ZPage19alloc_object_atomicEm.exit, label %23, !llvm.loop !12
+  br i1 %30, label %_ZN5ZPage19alloc_object_atomicEm.exit, label %23, !llvm.loop !13
 
 _ZN5ZPage19alloc_object_atomicEm.exit:            ; preds = %28
   %31 = load i64, ptr @ZAddressHeapBase, align 8
@@ -530,7 +530,7 @@ _ZN5ZPage19alloc_object_atomicEm.exit.thread:     ; preds = %23, %6, %_ZN5ZPage1
   %52 = shl nuw nsw i64 %.pre-phi.i, 12
   %53 = add i64 %52, %51
   %54 = inttoptr i64 %53 to ptr
-  %55 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr %54) #8, !srcloc !9
+  %55 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr %54) #8, !srcloc !10
   %56 = load i8, ptr %36, align 8
   switch i8 %56, label %59 [
     i8 0, label %57
@@ -579,7 +579,7 @@ _ZNK5ZPage16object_alignmentEv.exit.i31:          ; preds = %_ZNK5ZPage16object_
 
 _ZN5ZPage12alloc_objectEm.exit:                   ; preds = %_ZNK5ZPage16object_alignmentEv.exit.i31, %74
   %.0.i35 = phi i64 [ %76, %74 ], [ 0, %_ZNK5ZPage16object_alignmentEv.exit.i31 ]
-  %77 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %36, ptr %7, ptr nonnull %1) #8, !srcloc !11
+  %77 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %36, ptr %7, ptr nonnull %1) #8, !srcloc !12
   %.not3053 = icmp eq ptr %77, %7
   br i1 %.not3053, label %_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags.exit.thread, label %.lr.ph
 
@@ -593,9 +593,9 @@ _ZN5ZPage12alloc_objectEm.exit:                   ; preds = %_ZNK5ZPage16object_
   br i1 %81, label %.backedge, label %83
 
 .backedge:                                        ; preds = %96, %79, %_ZN5ZPage19alloc_object_atomicEm.exit45
-  %82 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %36, ptr %80, ptr nonnull %1) #8, !srcloc !11
+  %82 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %36, ptr %80, ptr nonnull %1) #8, !srcloc !12
   %.not30 = icmp eq ptr %82, %80
-  br i1 %.not30, label %_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags.exit.thread, label %79
+  br i1 %.not30, label %_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags.exit.thread, label %79, !llvm.loop !14
 
 83:                                               ; preds = %79
   %84 = load i8, ptr %80, align 8
@@ -641,9 +641,9 @@ _ZNK5ZPage16object_alignmentEv.exit.i37:          ; preds = %_ZNK5ZPage16object_
   br i1 %or.cond.i41, label %.backedge, label %101
 
 101:                                              ; preds = %96
-  %102 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %97, i64 %.09.i39, ptr nonnull %93) #8, !srcloc !11
+  %102 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %97, i64 %.09.i39, ptr nonnull %93) #8, !srcloc !12
   %103 = icmp eq i64 %102, %.09.i39
-  br i1 %103, label %_ZN5ZPage19alloc_object_atomicEm.exit45, label %96, !llvm.loop !12
+  br i1 %103, label %_ZN5ZPage19alloc_object_atomicEm.exit45, label %96, !llvm.loop !13
 
 _ZN5ZPage19alloc_object_atomicEm.exit45:          ; preds = %101
   %104 = load i64, ptr @ZAddressHeapBase, align 8
@@ -677,7 +677,7 @@ _ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage.exit: ; preds = %107, %115
   %123 = load i64, ptr %71, align 8
   %124 = load i64, ptr %122, align 8
   %125 = sub i64 %123, %124
-  %126 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %125, ptr %121) #8, !srcloc !9
+  %126 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %125, ptr %121) #8, !srcloc !10
   %127 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   tail call void @_ZN5ZHeap15undo_alloc_pageEP5ZPage(ptr noundef nonnull align 64 dereferenceable(15937) %127, ptr noundef nonnull %36) #8
   br label %_ZN16ZObjectAllocator10alloc_pageE9ZPageTypem16ZAllocationFlags.exit.thread
@@ -722,7 +722,7 @@ define hidden noundef i64 @_ZN16ZObjectAllocator18alloc_large_objectEm16ZAllocat
   %25 = shl nuw nsw i64 %.pre-phi.i, 12
   %26 = add i64 %25, %24
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr %27) #8, !srcloc !9
+  %28 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, ptr %27) #8, !srcloc !10
   %29 = load i8, ptr %9, align 8
   switch i8 %29, label %32 [
     i8 0, label %30
@@ -952,7 +952,7 @@ _ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage.exit: ; preds = %13, %23
   %32 = load i64, ptr %31, align 8
   %33 = load i64, ptr %30, align 8
   %34 = sub i64 %32, %33
-  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %34, ptr %29) #8, !srcloc !9
+  %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %34, ptr %29) #8, !srcloc !10
   %36 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
   tail call void @_ZN5ZHeap15undo_alloc_pageEP5ZPage(ptr noundef nonnull align 64 dereferenceable(15937) %36, ptr noundef nonnull %11) #8
   br label %_ZN5ZPage24undo_alloc_object_atomicE8zaddressm.exit
@@ -986,9 +986,9 @@ _ZNK5ZPage16object_alignmentEv.exit.sink.split.i: ; preds = %3, %37
   br i1 %.not.i, label %51, label %_ZN5ZPage24undo_alloc_object_atomicE8zaddressm.exit
 
 51:                                               ; preds = %49
-  %52 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %.012.i, ptr nonnull %47) #8, !srcloc !11
+  %52 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %6, i64 %.012.i, ptr nonnull %47) #8, !srcloc !12
   %53 = icmp eq i64 %52, %.012.i
-  br i1 %53, label %_ZN5ZPage24undo_alloc_object_atomicE8zaddressm.exit, label %49, !llvm.loop !13
+  br i1 %53, label %_ZN5ZPage24undo_alloc_object_atomicE8zaddressm.exit, label %49, !llvm.loop !15
 
 _ZN5ZPage24undo_alloc_object_atomicE8zaddressm.exit: ; preds = %49, %51, %_ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage.exit
   %_ZL37ZCounterUndoObjectAllocationSucceeded.sink = phi ptr [ @_ZL37ZCounterUndoObjectAllocationSucceeded, %_ZN16ZObjectAllocator15undo_alloc_pageEP5ZPage.exit ], [ @_ZL37ZCounterUndoObjectAllocationSucceeded, %51 ], [ @_ZL34ZCounterUndoObjectAllocationFailed, %49 ]
@@ -1026,7 +1026,7 @@ define hidden noundef i64 @_ZNK16ZObjectAllocator4usedEv(ptr noundef nonnull rea
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %.0421
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph25, label %5, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph25, label %5, !llvm.loop !16
 
 .lr.ph25:                                         ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1044,7 +1044,7 @@ define hidden noundef i64 @_ZNK16ZObjectAllocator4usedEv(ptr noundef nonnull rea
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %.024
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
-  br i1 %exitcond34.not, label %_ZN19ZValueConstIteratorI14ZPerCPUStoragemE4nextEPPKm.exit5.loopexit, label %13, !llvm.loop !15
+  br i1 %exitcond34.not, label %_ZN19ZValueConstIteratorI14ZPerCPUStoragemE4nextEPPKm.exit5.loopexit, label %13, !llvm.loop !17
 
 _ZN19ZValueConstIteratorI14ZPerCPUStoragemE4nextEPPKm.exit5.loopexit: ; preds = %13
   %19 = sub i64 %10, %18
@@ -1095,7 +1095,7 @@ _ZNK16ZObjectAllocator22shared_small_page_addrEv.exit: ; preds = %_ZN14ZPerCPUSt
   %.in.i = phi i64 [ %20, %_ZN14ZPerCPUStorage2idEv.exit.i ], [ %22, %21 ]
   %23 = inttoptr i64 %.in.i to ptr
   %24 = load volatile ptr, ptr %23, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %31, label %25
 
@@ -1130,7 +1130,7 @@ define hidden void @_ZN16ZObjectAllocator12retire_pagesEv(ptr noundef nonnull re
   %8 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %9 = zext i32 %8 to i64
   %10 = icmp samesign ult i64 %indvars.iv.next.i, %9
-  br i1 %10, label %.lr.ph.i, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit, !llvm.loop !16
+  br i1 %10, label %.lr.ph.i, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit, !llvm.loop !18
 
 _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit:   ; preds = %.lr.ph.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1148,7 +1148,7 @@ _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit:   ; preds = %.lr.ph.i
   %16 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next.i6, %17
-  br i1 %18, label %.lr.ph.i4, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7, !llvm.loop !16
+  br i1 %18, label %.lr.ph.i4, label %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7, !llvm.loop !18
 
 _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7:  ; preds = %.lr.ph.i4, %1, %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1171,7 +1171,7 @@ _ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7:  ; preds = %.lr.ph.i4, %1, %_ZN
   %28 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next.i13, %29
-  br i1 %30, label %.lr.ph.i11, label %_ZN6ZValueI14ZPerCPUStorageP5ZPageE7set_allERKS2_.exit, !llvm.loop !17
+  br i1 %30, label %.lr.ph.i11, label %_ZN6ZValueI14ZPerCPUStorageP5ZPageE7set_allERKS2_.exit, !llvm.loop !19
 
 _ZN6ZValueI14ZPerCPUStorageP5ZPageE7set_allERKS2_.exit: ; preds = %.lr.ph.i11, %_ZN6ZValueI14ZPerCPUStoragemE7set_allERKm.exit7
   ret void
@@ -1301,15 +1301,17 @@ attributes #9 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 2145411697}
-!10 = !{i64 2145392468}
-!11 = !{i64 2145412694}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2145411697}
+!11 = !{i64 2145392468}
+!12 = !{i64 2145412694}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

@@ -102,7 +102,7 @@ define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %0, ptr noundef %1) l
   %.160 = phi ptr [ %.059, %40 ], [ %.059, %49 ], [ %.059, %5 ], [ %.059, %34 ], [ null, %30 ], [ %.059, %26 ], [ %.059, %.thread ], [ %.059, %20 ]
   %.156 = phi ptr [ %.055, %40 ], [ %.055, %49 ], [ %.055, %5 ], [ %.055, %34 ], [ %.055, %30 ], [ null, %26 ], [ %.055, %.thread ], [ %.055, %20 ]
   %.1 = phi ptr [ %.054, %40 ], [ %.054, %49 ], [ %.054, %5 ], [ null, %34 ], [ %.054, %30 ], [ %.054, %26 ], [ %.054, %.thread ], [ %.054, %20 ]
-  %7 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %7 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %7, ptr noundef nonnull @.str.32, ptr noundef %4) #5
   br label %.thread106
 
@@ -176,15 +176,15 @@ define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %0, ptr noundef %1) l
 
 43:                                               ; preds = %40
   %44 = tail call ptr @app_get0_libctx() #5
-  %45 = load ptr, ptr %42, align 8, !tbaa !13
+  %45 = load ptr, ptr %42, align 8, !tbaa !14
   %46 = tail call ptr @app_get0_propq() #5
   %47 = tail call ptr @EVP_KDF_fetch(ptr noundef %44, ptr noundef %45, ptr noundef %46) #5
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %43
-  %50 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %51 = load ptr, ptr %42, align 8, !tbaa !13
+  %50 = load ptr, ptr @bio_err, align 8, !tbaa !12
+  %51 = load ptr, ptr %42, align 8, !tbaa !14
   %52 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %50, ptr noundef nonnull @.str.34, ptr noundef %51) #5
   br label %.loopexit
 
@@ -214,9 +214,9 @@ define dso_local range(i32 0, 2) i32 @kdf_main(i32 noundef %0, ptr noundef %1) l
   br label %68
 
 select.unfold:                                    ; preds = %62
-  %65 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %65 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %66 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %65, ptr noundef nonnull @.str.35) #5
-  %67 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %67 = load ptr, ptr @bio_err, align 8, !tbaa !12
   tail call void @ERR_print_errors(ptr noundef %67) #5
   tail call void @app_params_free(ptr noundef nonnull %60) #5
   br label %.thread106
@@ -233,7 +233,7 @@ select.unfold:                                    ; preds = %62
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %72
-  %75 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %75 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %76 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %75, ptr noundef nonnull @.str.36) #5
   br label %.thread106
 
@@ -248,7 +248,7 @@ select.unfold:                                    ; preds = %62
   br i1 %.not102, label %82, label %85
 
 82:                                               ; preds = %80
-  %83 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %83 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %84 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %83, ptr noundef nonnull @.str.38) #5
   br label %.thread106
 
@@ -266,7 +266,7 @@ select.unfold:                                    ; preds = %62
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %89
-  %93 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %93 = load ptr, ptr @bio_err, align 8, !tbaa !12
   %94 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %93, ptr noundef nonnull @.str.39) #5
   br label %.thread106
 
@@ -283,7 +283,7 @@ select.unfold:                                    ; preds = %62
   %.261.ph = phi ptr [ %.059, %82 ], [ %.059, %92 ], [ %.059, %77 ], [ %.059, %74 ], [ %.059, %68 ], [ %.059, %53 ], [ %.160, %.loopexit ], [ %.059, %58 ], [ %.059, %select.unfold ], [ %.059, %38 ]
   %.257.ph = phi ptr [ %.055, %82 ], [ %.055, %92 ], [ %.055, %77 ], [ %.055, %74 ], [ %.055, %68 ], [ %.055, %53 ], [ %.156, %.loopexit ], [ %.055, %58 ], [ %.055, %select.unfold ], [ %.055, %38 ]
   %.2.ph = phi ptr [ %.054, %82 ], [ %.054, %92 ], [ %.054, %77 ], [ %.054, %74 ], [ %.054, %68 ], [ %.054, %53 ], [ %.1, %.loopexit ], [ %.054, %58 ], [ %.054, %select.unfold ], [ %.054, %38 ]
-  %97 = load ptr, ptr @bio_err, align 8, !tbaa !11
+  %97 = load ptr, ptr @bio_err, align 8, !tbaa !12
   tail call void @ERR_print_errors(ptr noundef %97) #5
   br label %98
 
@@ -438,9 +438,10 @@ attributes #6 = { nounwind willreturn memory(read) }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS6bio_st", !6, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !6, i64 0}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 _ZTS6bio_st", !6, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 omnipotent char", !6, i64 0}

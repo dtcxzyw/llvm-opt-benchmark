@@ -1319,7 +1319,7 @@ for.inc:                                          ; preds = %if.end80, %if.end15
   %storage_size.1 = phi i64 [ %storage_size.0150, %if.end80 ], [ %add155, %if.end154 ]
   %inc = add nuw nsw i64 %i.0149, 1
   %exitcond.not = icmp eq i64 %inc, %count.0
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc
   %cmp156 = icmp ugt i64 %storage_size.1, 2147483647
@@ -1363,7 +1363,7 @@ _ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit76: ; preds = %_ZN4node16Mayb
   store i64 %call191, ptr %len, align 8
   %inc194 = add nuw nsw i64 %i160.0152, 1
   %exitcond158.not = icmp eq i64 %inc194, %count.0
-  br i1 %exitcond158.not, label %if.end202, label %for.body163, !llvm.loop !9
+  br i1 %exitcond158.not, label %if.end202, label %for.body163, !llvm.loop !10
 
 if.end196:                                        ; preds = %for.end
   %cmp197.not = icmp eq i64 %storage_size.1, 0
@@ -1521,7 +1521,7 @@ for.inc325:                                       ; preds = %_ZN4node16MaybeStac
   %offset.1 = phi i64 [ %offset.0155, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit95 ], [ %add324, %_ZN4node16MaybeStackBufferI8uv_buf_tLm16EEixEm.exit106 ]
   %inc326 = add nuw nsw i64 %i205.0154, 1
   %exitcond159.not = icmp eq i64 %inc326, %count.0
-  br i1 %exitcond159.not, label %if.end328, label %for.body208, !llvm.loop !10
+  br i1 %exitcond159.not, label %if.end328, label %for.body208, !llvm.loop !11
 
 if.end328:                                        ; preds = %for.inc325, %for.cond.preheader, %for.cond161.preheader, %if.end202
   %bs.sroa.0.0183 = phi ptr [ %bs.sroa.0.0, %if.end202 ], [ null, %for.cond161.preheader ], [ null, %for.cond.preheader ], [ %bs.sroa.0.0, %for.inc325 ]
@@ -5265,7 +5265,7 @@ do.body12.i:                                      ; preds = %for.inc.i, %if.then
 
 do.end15.i:                                       ; preds = %for.inc.i
   %cmp16.i = icmp eq ptr %current.0.i, %this
-  br i1 %cmp16.i, label %if.then19.i, label %for.inc.i, !llvm.loop !11
+  br i1 %cmp16.i, label %if.then19.i, label %for.inc.i, !llvm.loop !12
 
 if.then19.i:                                      ; preds = %do.end15.i
   %previous_listener_.i = getelementptr inbounds nuw i8, ptr %current.0.i, i64 16
@@ -5285,7 +5285,7 @@ for.inc.i:                                        ; preds = %do.end15.i.preheade
   %previous_listener_25.i = getelementptr inbounds nuw i8, ptr %current.015.i4, i64 16
   %current.0.i = load ptr, ptr %previous_listener_25.i, align 8
   %cmp7.not.i = icmp eq ptr %current.0.i, null
-  br i1 %cmp7.not.i, label %do.body12.i, label %do.end15.i, !llvm.loop !11
+  br i1 %cmp7.not.i, label %do.body12.i, label %do.end15.i, !llvm.loop !12
 
 _ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit: ; preds = %if.then19.i, %if.else.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_, i8 0, i64 16, i1 false)
@@ -5323,7 +5323,7 @@ do.body12:                                        ; preds = %for.inc, %do.end5
 
 do.end15:                                         ; preds = %for.inc
   %cmp16 = icmp eq ptr %current.0, %listener
-  br i1 %cmp16, label %if.then17, label %for.inc, !llvm.loop !11
+  br i1 %cmp16, label %if.then17, label %for.inc, !llvm.loop !12
 
 if.then17:                                        ; preds = %do.end15, %do.end15.preheader
   %current.015.lcssa = phi ptr [ %current.012, %do.end15.preheader ], [ %current.0, %do.end15 ]
@@ -5349,7 +5349,7 @@ for.inc:                                          ; preds = %do.end15.preheader,
   %previous_listener_25 = getelementptr inbounds nuw i8, ptr %current.01523, i64 16
   %current.0 = load ptr, ptr %previous_listener_25, align 8
   %cmp7.not = icmp eq ptr %current.0, null
-  br i1 %cmp7.not, label %do.body12, label %do.end15, !llvm.loop !11
+  br i1 %cmp7.not, label %do.body12, label %do.end15, !llvm.loop !12
 
 for.end:                                          ; preds = %if.then19, %if.else
   %stream_ = getelementptr inbounds nuw i8, ptr %listener, i64 8
@@ -5440,7 +5440,7 @@ if.then.us:                                       ; preds = %while.body.us
 if.end.us:                                        ; preds = %if.then.us, %while.body.us
   %5 = phi ptr [ %.pre, %if.then.us ], [ %3, %while.body.us ]
   %cmp.not.us = icmp eq ptr %5, null
-  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !12
+  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !13
 
 while.end:                                        ; preds = %if.end.us, %entry
   ret void
@@ -5686,7 +5686,7 @@ do.body12.i.i.i:                                  ; preds = %for.inc.i.i.i, %if.
 
 do.end15.i.i.i:                                   ; preds = %for.inc.i.i.i
   %cmp16.i.i.i = icmp eq ptr %current.0.i.i.i, %this
-  br i1 %cmp16.i.i.i, label %if.then19.i.i.i, label %for.inc.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i, label %if.then19.i.i.i, label %for.inc.i.i.i, !llvm.loop !12
 
 if.then19.i.i.i:                                  ; preds = %do.end15.i.i.i
   %previous_listener_25.i.i.i.le = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i, i64 16
@@ -5706,7 +5706,7 @@ for.inc.i.i.i:                                    ; preds = %do.end15.i.preheade
   %previous_listener_25.i.i.i = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i, i64 16
   %current.0.i.i.i = load ptr, ptr %previous_listener_25.i.i.i, align 8
   %cmp7.not.i.i.i = icmp eq ptr %current.0.i.i.i, null
-  br i1 %cmp7.not.i.i.i, label %do.body12.i.i.i, label %do.end15.i.i.i, !llvm.loop !11
+  br i1 %cmp7.not.i.i.i, label %do.body12.i.i.i, label %do.end15.i.i.i, !llvm.loop !12
 
 _ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i: ; preds = %if.else.i.i.i, %if.then19.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
@@ -5742,7 +5742,7 @@ do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %i
 
 do.end15.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i
   %cmp16.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, %this
-  br i1 %cmp16.i.i.i.i, label %if.then19.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i.i, label %if.then19.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !12
 
 if.then19.i.i.i.i:                                ; preds = %do.end15.i.i.i.i
   %previous_listener_25.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i.i, i64 16
@@ -5762,7 +5762,7 @@ for.inc.i.i.i.i:                                  ; preds = %do.end15.i.preheade
   %previous_listener_25.i.i.i.i = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i.i, i64 16
   %current.0.i.i.i.i = load ptr, ptr %previous_listener_25.i.i.i.i, align 8
   %cmp7.not.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, null
-  br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !11
+  br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !12
 
 _ZN4node22CustomBufferJSListenerD2Ev.exit:        ; preds = %if.then19.i.i.i.i, %if.else.i.i.i.i, %entry
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -5811,7 +5811,7 @@ do.body12.i.i:                                    ; preds = %for.inc.i.i, %if.th
 
 do.end15.i.i:                                     ; preds = %for.inc.i.i
   %cmp16.i.i = icmp eq ptr %current.0.i.i, %this
-  br i1 %cmp16.i.i, label %if.then19.i.i, label %for.inc.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i, label %if.then19.i.i, label %for.inc.i.i, !llvm.loop !12
 
 if.then19.i.i:                                    ; preds = %do.end15.i.i
   %previous_listener_25.i.i.le = getelementptr inbounds nuw i8, ptr %current.015.i4.i, i64 16
@@ -5831,7 +5831,7 @@ for.inc.i.i:                                      ; preds = %do.end15.i.preheade
   %previous_listener_25.i.i = getelementptr inbounds nuw i8, ptr %current.015.i4.i, i64 16
   %current.0.i.i = load ptr, ptr %previous_listener_25.i.i, align 8
   %cmp7.not.i.i = icmp eq ptr %current.0.i.i, null
-  br i1 %cmp7.not.i.i, label %do.body12.i.i, label %do.end15.i.i, !llvm.loop !11
+  br i1 %cmp7.not.i.i, label %do.body12.i.i, label %do.end15.i.i, !llvm.loop !12
 
 _ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i: ; preds = %if.else.i.i, %if.then19.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i, i8 0, i64 16, i1 false)
@@ -5927,7 +5927,7 @@ do.body12.i.i.i:                                  ; preds = %for.inc.i.i.i, %if.
 
 do.end15.i.i.i:                                   ; preds = %for.inc.i.i.i
   %cmp16.i.i.i = icmp eq ptr %current.0.i.i.i, %this
-  br i1 %cmp16.i.i.i, label %if.then19.i.i.i, label %for.inc.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i, label %if.then19.i.i.i, label %for.inc.i.i.i, !llvm.loop !12
 
 if.then19.i.i.i:                                  ; preds = %do.end15.i.i.i
   %previous_listener_25.i.i.i.le = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i, i64 16
@@ -5947,7 +5947,7 @@ for.inc.i.i.i:                                    ; preds = %do.end15.i.preheade
   %previous_listener_25.i.i.i = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i, i64 16
   %current.0.i.i.i = load ptr, ptr %previous_listener_25.i.i.i, align 8
   %cmp7.not.i.i.i = icmp eq ptr %current.0.i.i.i, null
-  br i1 %cmp7.not.i.i.i, label %do.body12.i.i.i, label %do.end15.i.i.i, !llvm.loop !11
+  br i1 %cmp7.not.i.i.i, label %do.body12.i.i.i, label %do.end15.i.i.i, !llvm.loop !12
 
 _ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i: ; preds = %if.else.i.i.i, %if.then19.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
@@ -5983,7 +5983,7 @@ do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %i
 
 do.end15.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i
   %cmp16.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, %this
-  br i1 %cmp16.i.i.i.i, label %if.then19.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i.i, label %if.then19.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !12
 
 if.then19.i.i.i.i:                                ; preds = %do.end15.i.i.i.i
   %previous_listener_25.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i.i, i64 16
@@ -6003,7 +6003,7 @@ for.inc.i.i.i.i:                                  ; preds = %do.end15.i.preheade
   %previous_listener_25.i.i.i.i = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i.i, i64 16
   %current.0.i.i.i.i = load ptr, ptr %previous_listener_25.i.i.i.i, align 8
   %cmp7.not.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, null
-  br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !11
+  br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !12
 
 _ZN4node22EmitToJSStreamListenerD2Ev.exit:        ; preds = %if.then19.i.i.i.i, %if.else.i.i.i.i, %entry
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -6038,7 +6038,7 @@ do.body12.i.i.i.i:                                ; preds = %for.inc.i.i.i.i, %i
 
 do.end15.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i
   %cmp16.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, %default_listener_
-  br i1 %cmp16.i.i.i.i, label %if.then19.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !11
+  br i1 %cmp16.i.i.i.i, label %if.then19.i.i.i.i, label %for.inc.i.i.i.i, !llvm.loop !12
 
 if.then19.i.i.i.i:                                ; preds = %do.end15.i.i.i.i
   %previous_listener_25.i.i.i.i.le = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i.i, i64 16
@@ -6058,7 +6058,7 @@ for.inc.i.i.i.i:                                  ; preds = %do.end15.i.preheade
   %previous_listener_25.i.i.i.i = getelementptr inbounds nuw i8, ptr %current.015.i4.i.i.i, i64 16
   %current.0.i.i.i.i = load ptr, ptr %previous_listener_25.i.i.i.i, align 8
   %cmp7.not.i.i.i.i = icmp eq ptr %current.0.i.i.i.i, null
-  br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !11
+  br i1 %cmp7.not.i.i.i.i, label %do.body12.i.i.i.i, label %do.end15.i.i.i.i, !llvm.loop !12
 
 _ZN4node14StreamResource20RemoveStreamListenerEPNS_14StreamListenerE.exit.i.i.i: ; preds = %if.else.i.i.i.i, %if.then19.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i.i, i8 0, i64 16, i1 false)
@@ -6093,7 +6093,7 @@ if.then.us.i:                                     ; preds = %while.body.us.i
 if.end.us.i:                                      ; preds = %if.then.us.i, %while.body.us.i
   %8 = phi ptr [ %.pre.i, %if.then.us.i ], [ %6, %while.body.us.i ]
   %cmp.not.us.i = icmp eq ptr %8, null
-  br i1 %cmp.not.us.i, label %_ZN4node14StreamResourceD2Ev.exit, label %while.body.us.i, !llvm.loop !12
+  br i1 %cmp.not.us.i, label %_ZN4node14StreamResourceD2Ev.exit, label %while.body.us.i, !llvm.loop !13
 
 _ZN4node14StreamResourceD2Ev.exit:                ; preds = %if.end.us.i, %_ZN4node22EmitToJSStreamListenerD2Ev.exit
   ret void
@@ -8206,24 +8206,24 @@ do.end10:                                         ; preds = %do.body
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull %format, ptr noundef nonnull %arrayidx)
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %call, i64 2
   call void @_ZN4node11SPrintFImplB5cxx11EPKc(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp13, ptr noundef nonnull %add.ptr14)
-  %call.i7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21, !noalias !14
-  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21, !noalias !14
+  %call.i7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21, !noalias !15
+  %call1.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21, !noalias !15
   %add.i = add i64 %call1.i, %call.i7
-  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21, !noalias !14
+  %call2.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21, !noalias !15
   %cmp.i8 = icmp ugt i64 %add.i, %call2.i
   br i1 %cmp.i8, label %land.lhs.true.i, label %if.end7.i
 
 land.lhs.true.i:                                  ; preds = %do.end10
-  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21, !noalias !14
+  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21, !noalias !15
   %cmp4.not.i = icmp ugt i64 %add.i, %call3.i
   br i1 %cmp4.not.i, label %if.end7.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %land.lhs.true.i
-  %call6.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21, !noalias !14
+  %call6.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmRKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #21, !noalias !15
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
 if.end7.i:                                        ; preds = %land.lhs.true.i, %do.end10
-  %call8.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21, !noalias !14
+  %call8.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #21, !noalias !15
   br label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_.exit: ; preds = %if.then5.i, %if.end7.i
@@ -8928,14 +8928,15 @@ attributes #26 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = !{!15}
-!15 = distinct !{!15, !16, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
-!16 = distinct !{!16, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{!16}
+!16 = distinct !{!16, !17, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_: %agg.result"}
+!17 = distinct !{!17, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_"}

@@ -427,7 +427,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 .loopexit257:                                     ; preds = %34, %.preheader256, %32
   %.2 = phi i1 [ false, %32 ], [ %.0193271, %.preheader256 ], [ %.0193271, %34 ]
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %36 = load i32, ptr %35, align 8, !tbaa !32
+  %36 = load i32, ptr %35, align 8, !tbaa !33
   %37 = and i32 %36, 1
   %.not217 = icmp eq i32 %37, 0
   br i1 %.not217, label %42, label %38
@@ -435,9 +435,9 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 38:                                               ; preds = %.loopexit257
   %39 = load ptr, ptr %21, align 8, !tbaa !26
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %39, ptr noundef nonnull @.str.10)
-  %40 = load i32, ptr %35, align 8, !tbaa !32
+  %40 = load i32, ptr %35, align 8, !tbaa !33
   %41 = and i32 %40, -2
-  store i32 %41, ptr %35, align 8, !tbaa !32
+  store i32 %41, ptr %35, align 8, !tbaa !33
   br label %42
 
 42:                                               ; preds = %38, %.loopexit257
@@ -448,7 +448,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !33
+  %47 = load i32, ptr %46, align 8, !tbaa !34
   %.off = add i32 %47, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %50, label %48
@@ -456,7 +456,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 48:                                               ; preds = %45
   %49 = load ptr, ptr %21, align 8, !tbaa !26
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %49, ptr noundef nonnull @.str.11)
-  %.pre = load i32, ptr %35, align 8, !tbaa !32
+  %.pre = load i32, ptr %35, align 8, !tbaa !33
   br label %50
 
 50:                                               ; preds = %45, %48
@@ -469,9 +469,9 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 53:                                               ; preds = %50
   %54 = load ptr, ptr %21, align 8, !tbaa !26
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %54, ptr noundef nonnull @.str.12)
-  %55 = load i32, ptr %35, align 8, !tbaa !32
+  %55 = load i32, ptr %35, align 8, !tbaa !33
   %56 = and i32 %55, -5
-  store i32 %56, ptr %35, align 8, !tbaa !32
+  store i32 %56, ptr %35, align 8, !tbaa !33
   br label %57
 
 57:                                               ; preds = %53, %50
@@ -482,14 +482,14 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %62 = load i32, ptr %61, align 4, !tbaa !34
+  %62 = load i32, ptr %61, align 4, !tbaa !35
   %.not223 = icmp eq i32 %62, 1
   br i1 %.not223, label %65, label %63
 
 63:                                               ; preds = %60
   %64 = load ptr, ptr %21, align 8, !tbaa !26
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %64, ptr noundef nonnull @.str.13)
-  %.pre288 = load i32, ptr %35, align 8, !tbaa !32
+  %.pre288 = load i32, ptr %35, align 8, !tbaa !33
   br label %65
 
 65:                                               ; preds = %63, %60, %57
@@ -502,7 +502,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 68:                                               ; preds = %65
   %69 = load ptr, ptr %21, align 8, !tbaa !26
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %69, ptr noundef nonnull @.str.14)
-  %.pre289 = load i32, ptr %35, align 8, !tbaa !32
+  %.pre289 = load i32, ptr %35, align 8, !tbaa !33
   br label %70
 
 70:                                               ; preds = %65, %68, %42
@@ -515,7 +515,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 73:                                               ; preds = %70
   %74 = load ptr, ptr %21, align 8, !tbaa !26
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef %74, ptr noundef nonnull @.str.15)
-  %.pre290 = load i32, ptr %35, align 8, !tbaa !32
+  %.pre290 = load i32, ptr %35, align 8, !tbaa !33
   br label %75
 
 75:                                               ; preds = %73, %70
@@ -527,7 +527,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %80 = load i32, ptr %79, align 8, !tbaa !33
+  %80 = load i32, ptr %79, align 8, !tbaa !34
   %.not228 = icmp eq i32 %80, 3
   br i1 %.not228, label %83, label %81
 
@@ -539,7 +539,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 83:                                               ; preds = %81, %78
   %.8 = phi i1 [ false, %81 ], [ %.6, %78 ]
   %84 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %85 = load i32, ptr %84, align 4, !tbaa !34
+  %85 = load i32, ptr %84, align 4, !tbaa !35
   %.not229 = icmp eq i32 %85, 1
   br i1 %.not229, label %88, label %86
 
@@ -550,7 +550,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 88:                                               ; preds = %86, %83
   %.9 = phi i1 [ false, %86 ], [ %.8, %83 ]
-  %89 = load i32, ptr %35, align 8, !tbaa !32
+  %89 = load i32, ptr %35, align 8, !tbaa !33
   %90 = and i32 %89, 52
   %.not230 = icmp eq i32 %90, 0
   br i1 %.not230, label %93, label %91
@@ -563,13 +563,13 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 93:                                               ; preds = %88, %91, %75
   %.7 = phi i1 [ false, %91 ], [ %.9, %88 ], [ %.6, %75 ]
   %94 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %95 = load i32, ptr %94, align 8, !tbaa !33
+  %95 = load i32, ptr %94, align 8, !tbaa !34
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %108
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %99 = load i32, ptr %98, align 4, !tbaa !34
+  %99 = load i32, ptr %98, align 4, !tbaa !35
   %.not231 = icmp eq i32 %99, 0
   br i1 %.not231, label %102, label %100
 
@@ -580,9 +580,9 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 102:                                              ; preds = %100, %97
   %.11 = phi i1 [ false, %100 ], [ %.7, %97 ]
-  %103 = load i32, ptr %35, align 8, !tbaa !32
+  %103 = load i32, ptr %35, align 8, !tbaa !33
   %104 = or i32 %103, 2
-  store i32 %104, ptr %35, align 8, !tbaa !32
+  store i32 %104, ptr %35, align 8, !tbaa !33
   %105 = and i32 %103, -3
   %.not232 = icmp eq i32 %105, 0
   br i1 %.not232, label %108, label %106
@@ -594,14 +594,14 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 108:                                              ; preds = %102, %106, %93
   %.10 = phi i1 [ false, %106 ], [ %.11, %102 ], [ %.7, %93 ]
-  %109 = load i32, ptr %35, align 8, !tbaa !32
+  %109 = load i32, ptr %35, align 8, !tbaa !33
   %110 = and i32 %109, 48
   %.not233 = icmp eq i32 %110, 0
   br i1 %.not233, label %117, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %113 = load i32, ptr %112, align 4, !tbaa !34
+  %113 = load i32, ptr %112, align 4, !tbaa !35
   %.not235 = icmp eq i32 %113, -1
   br i1 %.not235, label %116, label %114
 
@@ -611,17 +611,17 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %116
 
 116:                                              ; preds = %114, %111
-  store i32 -1, ptr %112, align 4, !tbaa !34
+  store i32 -1, ptr %112, align 4, !tbaa !35
   br label %125
 
 117:                                              ; preds = %108
-  %118 = load i32, ptr %94, align 8, !tbaa !33
+  %118 = load i32, ptr %94, align 8, !tbaa !34
   %.not234 = icmp eq i32 %118, 0
   br i1 %.not234, label %125, label %119
 
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %121 = load i32, ptr %120, align 4, !tbaa !34
+  %121 = load i32, ptr %120, align 4, !tbaa !35
   %122 = icmp slt i32 %121, 1
   br i1 %122, label %123, label %125
 
@@ -633,7 +633,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 125:                                              ; preds = %117, %123, %119, %116
   %.12 = phi i1 [ %.10, %116 ], [ false, %123 ], [ %.10, %119 ], [ %.10, %117 ]
   %126 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %127 = load ptr, ptr %126, align 8, !tbaa !35
+  %127 = load ptr, ptr %126, align 8, !tbaa !36
   %.not236 = icmp eq ptr %127, null
   br i1 %.not236, label %130, label %128
 
@@ -644,12 +644,12 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 130:                                              ; preds = %128, %125
   %131 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %132 = load ptr, ptr %131, align 8, !tbaa !36
+  %132 = load ptr, ptr %131, align 8, !tbaa !37
   %.not237 = icmp eq ptr %132, null
   br i1 %.not237, label %138, label %133
 
 133:                                              ; preds = %130
-  %134 = load i32, ptr %35, align 8, !tbaa !32
+  %134 = load i32, ptr %35, align 8, !tbaa !33
   %135 = and i32 %134, 128
   %.not238 = icmp eq i32 %135, 0
   br i1 %.not238, label %136, label %138
@@ -665,7 +665,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br i1 %140, label %186, label %141
 
 141:                                              ; preds = %138
-  %142 = load i8, ptr %139, align 1, !tbaa !36
+  %142 = load i8, ptr %139, align 1, !tbaa !37
   %143 = sext i8 %142 to i32
   %144 = call i32 @isalpha(i32 noundef %143) #15
   %.not239 = icmp eq i32 %144, 0
@@ -678,7 +678,7 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 .preheader:                                       ; preds = %141, %151
   %indvars.iv281 = phi i64 [ %indvars.iv.next282, %151 ], [ 1, %141 ]
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv281
-  %147 = load i8, ptr %146, align 1, !tbaa !36
+  %147 = load i8, ptr %146, align 1, !tbaa !37
   switch i8 %147, label %148 [
     i8 0, label %.loopexit.thread
     i8 95, label %151
@@ -692,13 +692,13 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
 
 151:                                              ; preds = %.preheader, %148
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
-  br label %.preheader, !llvm.loop !37
+  br label %.preheader, !llvm.loop !38
 
 .loopexit:                                        ; preds = %148
   call void (ptr, ptr, ptr, ptr, ...) @_ZL18report_param_errorP8_IO_FILEPKcS2_S2_z(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %139, ptr noundef nonnull @.str.26)
   %.pre291 = load ptr, ptr %21, align 8, !tbaa !26
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre291, i64 %indvars.iv281
-  %.pre292 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !36
+  %.pre292 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !37
   %152 = icmp eq i8 %.pre292, 0
   br i1 %152, label %.loopexit.thread, label %186
 
@@ -706,10 +706,10 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   %.13295 = phi i1 [ false, %.loopexit ], [ %.12, %.preheader ]
   %153 = phi ptr [ %.pre291, %.loopexit ], [ %139, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #14
-  store ptr %18, ptr %7, align 8, !tbaa !38
+  store ptr %18, ptr %7, align 8, !tbaa !39
   %154 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %153) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  store i64 %154, ptr %6, align 8, !tbaa !40
+  store i64 %154, ptr %6, align 8, !tbaa !41
   %155 = icmp ugt i64 %154, 15
   br i1 %155, label %.noexc.i, label %._crit_edge.i.i
 
@@ -718,9 +718,9 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
           to label %.noexc249 unwind label %176
 
 .noexc249:                                        ; preds = %.noexc.i
-  store ptr %156, ptr %7, align 8, !tbaa !42
-  %157 = load i64, ptr %6, align 8, !tbaa !40
-  store i64 %157, ptr %18, align 8, !tbaa !36
+  store ptr %156, ptr %7, align 8, !tbaa !43
+  %157 = load i64, ptr %6, align 8, !tbaa !41
+  store i64 %157, ptr %18, align 8, !tbaa !37
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.noexc249, %.loopexit.thread
@@ -731,8 +731,8 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   ]
 
 159:                                              ; preds = %._crit_edge.i.i
-  %160 = load i8, ptr %153, align 1, !tbaa !36
-  store i8 %160, ptr %158, align 1, !tbaa !36
+  %160 = load i8, ptr %153, align 1, !tbaa !37
+  store i8 %160, ptr %158, align 1, !tbaa !37
   br label %162
 
 161:                                              ; preds = %._crit_edge.i.i
@@ -740,29 +740,29 @@ define internal fastcc noundef zeroext i1 @_ZL12check_paramsP8_IO_FILEPKciP18gmx
   br label %162
 
 162:                                              ; preds = %161, %159, %._crit_edge.i.i
-  %163 = load i64, ptr %6, align 8, !tbaa !40
-  store i64 %163, ptr %19, align 8, !tbaa !44
-  %164 = load ptr, ptr %7, align 8, !tbaa !42
+  %163 = load i64, ptr %6, align 8, !tbaa !41
+  store i64 %163, ptr %19, align 8, !tbaa !45
+  %164 = load ptr, ptr %7, align 8, !tbaa !43
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 %163
-  store i8 0, ptr %165, align 1, !tbaa !36
+  store i8 0, ptr %165, align 1, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   %166 = invoke noundef ptr @_ZNK3gmx26SelectionParserSymbolTable10findSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %167 unwind label %178
 
 167:                                              ; preds = %162
   %.not247 = icmp eq ptr %166, null
-  %168 = load ptr, ptr %7, align 8, !tbaa !42
+  %168 = load ptr, ptr %7, align 8, !tbaa !43
   %169 = icmp eq ptr %168, %18
   br i1 %169, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %167
-  %170 = load i64, ptr %19, align 8, !tbaa !44
+  %170 = load i64, ptr %19, align 8, !tbaa !45
   %171 = icmp ult i64 %170, 16
   call void @llvm.assume(i1 %171)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %167
-  %172 = load i64, ptr %18, align 8, !tbaa !36
+  %172 = load i64, ptr %18, align 8, !tbaa !37
   %173 = add i64 %172, 1
   call void @_ZdlPvm(ptr noundef %168, i64 noundef %173) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -784,18 +784,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 178:                                              ; preds = %162
   %179 = landingpad { ptr, i32 }
           cleanup
-  %180 = load ptr, ptr %7, align 8, !tbaa !42
+  %180 = load ptr, ptr %7, align 8, !tbaa !43
   %181 = icmp eq ptr %180, %18
   br i1 %181, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i251, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i251: ; preds = %178
-  %182 = load i64, ptr %19, align 8, !tbaa !44
+  %182 = load i64, ptr %19, align 8, !tbaa !45
   %183 = icmp ult i64 %182, 16
   call void @llvm.assume(i1 %183)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i250: ; preds = %178
-  %184 = load i64, ptr %18, align 8, !tbaa !36
+  %184 = load i64, ptr %18, align 8, !tbaa !37
   %185 = add i64 %184, 1
   call void @_ZdlPvm(ptr noundef %180, i64 noundef %185) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252
@@ -809,7 +809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %_Z
   %.1 = phi i1 [ false, %25 ], [ %.12, %138 ], [ false, %.loopexit ], [ false, %174 ], [ %.13295, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %145 ]
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count286
-  br i1 %exitcond287.not, label %._crit_edge, label %20, !llvm.loop !45
+  br i1 %exitcond287.not, label %._crit_edge, label %20, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %186, %.thread, %16
   %.0193.lcssa = phi i1 [ true, %16 ], [ true, %.thread ], [ %.1, %186 ]
@@ -895,7 +895,7 @@ _Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit: ; preds = %195
 215:                                              ; preds = %201, %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit
   %.15 = phi i1 [ false, %201 ], [ %.14, %_Z28gmx_ana_selmethod_find_paramPKcP19gmx_ana_selmethod_t.exit ]
   %216 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx29SelectionParserSymbolIteratorppEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %187 unwind label %213, !llvm.loop !46
+          to label %187 unwind label %213, !llvm.loop !47
 
 217:                                              ; preds = %191
   call void @_ZN3gmx29SelectionParserSymbolIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #14
@@ -926,7 +926,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !47
+  %8 = load ptr, ptr %7, align 8, !tbaa !48
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %11
 
@@ -938,13 +938,13 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 11:                                               ; preds = %9, %6, %2
   %.039 = phi i1 [ true, %6 ], [ false, %9 ], [ true, %2 ]
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %13 = load ptr, ptr %12, align 8, !tbaa !48
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
   %.not41 = icmp eq ptr %13, null
   br i1 %.not41, label %19, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
+  %16 = load ptr, ptr %15, align 8, !tbaa !48
   %.not42 = icmp eq ptr %16, null
   br i1 %.not42, label %17, label %19
 
@@ -961,7 +961,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !49
+  %25 = load ptr, ptr %24, align 8, !tbaa !50
   %.not43 = icmp eq ptr %25, null
   br i1 %.not43, label %26, label %28
 
@@ -980,7 +980,7 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %34 = load ptr, ptr %33, align 8, !tbaa !49
+  %34 = load ptr, ptr %33, align 8, !tbaa !50
   %.not45 = icmp eq ptr %34, null
   br i1 %.not45, label %35, label %37
 
@@ -1051,13 +1051,13 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
   %.03855 = phi i1 [ false, %.lr.ph ], [ %.1, %69 ]
   %62 = getelementptr inbounds nuw %struct.gmx_ana_selparam_t, ptr %60, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load i32, ptr %63, align 8, !tbaa !33
+  %64 = load i32, ptr %63, align 8, !tbaa !34
   %.not53 = icmp eq i32 %64, 4
   br i1 %.not53, label %69, label %65
 
 65:                                               ; preds = %61
   %66 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %67 = load i32, ptr %66, align 8, !tbaa !32
+  %67 = load i32, ptr %66, align 8, !tbaa !33
   %68 = and i32 %67, 48
   %.not54 = icmp ne i32 %68, 0
   %spec.select = select i1 %.not54, i1 true, i1 %.03855
@@ -1067,14 +1067,14 @@ define internal fastcc noundef zeroext i1 @_ZL15check_callbacksP8_IO_FILEP19gmx_
   %.1 = phi i1 [ %.03855, %61 ], [ %spec.select, %65 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge, label %61, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %69
   br i1 %.1, label %70, label %.critedge
 
 70:                                               ; preds = %._crit_edge
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %72 = load ptr, ptr %71, align 8, !tbaa !51
+  %72 = load ptr, ptr %71, align 8, !tbaa !52
   %.not52 = icmp eq ptr %72, null
   br i1 %.not52, label %73, label %.critedge
 
@@ -1183,8 +1183,8 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
   %.01214 = phi i8 [ 1, %1 ], [ %spec.select, %14 ]
   %7 = getelementptr inbounds nuw [40 x %struct.t_register_method], ptr @__const._Z35gmx_ana_selmethod_register_defaultsPN3gmx26SelectionParserSymbolTableE.smtable_def, i64 0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !52
-  %10 = load ptr, ptr %7, align 16, !tbaa !55
+  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %10 = load ptr, ptr %7, align 16, !tbaa !56
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %14
 
@@ -1199,7 +1199,7 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
   %spec.select = select i1 %.not, i8 %.01214, i8 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  br i1 %exitcond.not, label %2, label %6, !llvm.loop !56
+  br i1 %exitcond.not, label %2, label %6, !llvm.loop !57
 }
 
 declare noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -1260,30 +1260,31 @@ attributes #16 = { builtin nounwind }
 !27 = !{!"_ZTS18gmx_ana_selparam_t", !6, i64 0, !28, i64 8, !29, i64 32, !11, i64 40}
 !28 = !{!"_ZTS18gmx_ana_selvalue_t", !10, i64 0, !11, i64 4, !8, i64 8, !11, i64 16}
 !29 = !{!"p1 int", !7, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!27, !11, i64 40}
-!33 = !{!27, !10, i64 8}
-!34 = !{!27, !11, i64 12}
-!35 = !{!27, !29, i64 32}
-!36 = !{!8, !8, i64 0}
-!37 = distinct !{!37, !31}
-!38 = !{!39, !6, i64 0}
-!39 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !6, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"long", !8, i64 0}
-!42 = !{!43, !6, i64 0}
-!43 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !39, i64 0, !41, i64 8, !8, i64 16}
-!44 = !{!43, !41, i64 8}
-!45 = distinct !{!45, !31}
-!46 = distinct !{!46, !31}
-!47 = !{!5, !7, i64 32}
-!48 = !{!5, !7, i64 64}
-!49 = !{!5, !7, i64 56}
-!50 = distinct !{!50, !31}
-!51 = !{!5, !7, i64 48}
-!52 = !{!53, !54, i64 8}
-!53 = !{!"_ZTS17t_register_method", !6, i64 0, !54, i64 8}
-!54 = !{!"p1 _ZTS19gmx_ana_selmethod_t", !7, i64 0}
-!55 = !{!53, !6, i64 0}
-!56 = distinct !{!56, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!27, !11, i64 40}
+!34 = !{!27, !10, i64 8}
+!35 = !{!27, !11, i64 12}
+!36 = !{!27, !29, i64 32}
+!37 = !{!8, !8, i64 0}
+!38 = distinct !{!38, !31, !32}
+!39 = !{!40, !6, i64 0}
+!40 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !6, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"long", !8, i64 0}
+!43 = !{!44, !6, i64 0}
+!44 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !40, i64 0, !42, i64 8, !8, i64 16}
+!45 = !{!44, !42, i64 8}
+!46 = distinct !{!46, !31, !32}
+!47 = distinct !{!47, !31, !32}
+!48 = !{!5, !7, i64 32}
+!49 = !{!5, !7, i64 64}
+!50 = !{!5, !7, i64 56}
+!51 = distinct !{!51, !31, !32}
+!52 = !{!5, !7, i64 48}
+!53 = !{!54, !55, i64 8}
+!54 = !{!"_ZTS17t_register_method", !6, i64 0, !55, i64 8}
+!55 = !{!"p1 _ZTS19gmx_ana_selmethod_t", !7, i64 0}
+!56 = !{!54, !6, i64 0}
+!57 = distinct !{!57, !31, !32}

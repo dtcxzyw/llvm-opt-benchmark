@@ -242,7 +242,7 @@ ft_bzip2_file_reset.exit.thread.i:                ; preds = %13
 45:                                               ; preds = %34
   %46 = tail call fastcc i32 @ft_bzip2_file_fill_output(ptr noundef nonnull %6)
   %.not21.i.i = icmp eq i32 %46, 0
-  br i1 %.not21.i.i, label %34, label %ft_bzip2_file_io.exit
+  br i1 %.not21.i.i, label %34, label %ft_bzip2_file_io.exit, !llvm.loop !36
 
 ft_bzip2_file_skip_output.exit.i:                 ; preds = %34
   %47 = icmp eq i64 %3, 0
@@ -283,7 +283,7 @@ ft_bzip2_file_skip_output.exit.i:                 ; preds = %34
   %65 = getelementptr inbounds nuw i8, ptr %.039.i, i64 %spec.select.i
   %66 = tail call fastcc i32 @ft_bzip2_file_fill_output(ptr noundef nonnull %6)
   %.not47.i = icmp eq i32 %66, 0
-  br i1 %.not47.i, label %51, label %ft_bzip2_file_io.exit
+  br i1 %.not47.i, label %51, label %ft_bzip2_file_io.exit, !llvm.loop !38
 
 ft_bzip2_file_io.exit:                            ; preds = %45, %51, %64, %13, %ft_bzip2_file_skip_output.exit.i, %48
   %.037.i = phi i64 [ 0, %ft_bzip2_file_skip_output.exit.i ], [ 0, %48 ], [ 0, %13 ], [ %57, %64 ], [ %57, %51 ], [ 0, %45 ]
@@ -507,3 +507,6 @@ attributes #6 = { nounwind }
 !33 = !{!4, !6, i64 48}
 !34 = !{!17, !13, i64 32}
 !35 = !{!17, !5, i64 24}
+!36 = distinct !{!36, !37}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !37}

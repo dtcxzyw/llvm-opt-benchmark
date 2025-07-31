@@ -91,14 +91,14 @@ tr2_tgt_want_builtins.exit:                       ; preds = %4
 18:                                               ; preds = %14, %25
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %25 ]
   %.0814 = phi ptr [ @tr2_tgt_normal, %14 ], [ %27, %25 ]
-  %19 = load ptr, ptr %.0814, align 8, !tbaa !14
+  %19 = load ptr, ptr %.0814, align 8, !tbaa !15
   %20 = tail call i32 @tr2_dst_trace_want(ptr noundef %19) #11
   %.not12 = icmp eq i32 %20, 0
   br i1 %.not12, label %25, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.0814, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !15
+  %23 = load ptr, ptr %22, align 8, !tbaa !16
   %.not13 = icmp eq ptr %23, null
   br i1 %.not13, label %25, label %24
 
@@ -111,7 +111,7 @@ tr2_tgt_want_builtins.exit:                       ; preds = %4
   %26 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %27 = load ptr, ptr %26, align 8, !tbaa !10
   %.not11 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not11, label %.loopexit, label %18, !llvm.loop !16
+  br i1 %.not11, label %.loopexit, label %18, !llvm.loop !17
 
 .loopexit:                                        ; preds = %25, %tr2_tgt_want_builtins.exit, %2
   ret void
@@ -148,19 +148,19 @@ define internal void @tr2main_atexit_handler() #0 {
 4:                                                ; preds = %0, %12
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %12 ]
   %.013 = phi ptr [ @tr2_tgt_normal, %0 ], [ %14, %12 ]
-  %5 = load ptr, ptr %.013, align 8, !tbaa !14
+  %5 = load ptr, ptr %.013, align 8, !tbaa !15
   %6 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #11
   %.not10 = icmp eq i32 %6, 0
   br i1 %.not10, label %12, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %.013, i64 56
-  %9 = load ptr, ptr %8, align 8, !tbaa !17
+  %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = load i32, ptr @tr2main_exit_code, align 4, !tbaa !18
+  %11 = load i32, ptr @tr2main_exit_code, align 4, !tbaa !19
   tail call void %9(i64 noundef %3, i32 noundef %11) #11
   br label %12
 
@@ -169,19 +169,19 @@ define internal void @tr2main_atexit_handler() #0 {
   %13 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.preheader, label %4, !llvm.loop !20
+  br i1 %.not, label %.preheader, label %4, !llvm.loop !21
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %12 ]
   %.045.i = phi ptr [ %18, %.preheader ], [ @tr2_tgt_normal, %12 ]
   %15 = getelementptr inbounds nuw i8, ptr %.045.i, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !21
+  %16 = load ptr, ptr %15, align 8, !tbaa !22
   tail call void %16() #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %tr2_tgt_disable_builtins.exit, label %.preheader, !llvm.loop !22
+  br i1 %.not.i, label %tr2_tgt_disable_builtins.exit, label %.preheader, !llvm.loop !23
 
 tr2_tgt_disable_builtins.exit:                    ; preds = %.preheader
   tail call void @tr2tls_release() #11
@@ -206,14 +206,14 @@ define internal void @tr2main_signal_handler(i32 noundef %0) #0 {
 5:                                                ; preds = %1, %12
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %12 ]
   %.016 = phi ptr [ @tr2_tgt_normal, %1 ], [ %14, %12 ]
-  %6 = load ptr, ptr %.016, align 8, !tbaa !14
+  %6 = load ptr, ptr %.016, align 8, !tbaa !15
   %7 = tail call i32 @tr2_dst_trace_want(ptr noundef %6) #11
   %.not13 = icmp eq i32 %7, 0
   br i1 %.not13, label %12, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %.016, i64 48
-  %10 = load ptr, ptr %9, align 8, !tbaa !23
+  %10 = load ptr, ptr %9, align 8, !tbaa !24
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %11
 
@@ -226,7 +226,7 @@ define internal void @tr2main_signal_handler(i32 noundef %0) #0 {
   %13 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %15, label %5, !llvm.loop !24
+  br i1 %.not, label %15, label %5, !llvm.loop !25
 
 15:                                               ; preds = %12
   %16 = tail call i32 @sigchain_pop(i32 noundef %0) #11
@@ -263,14 +263,14 @@ define dso_local void @trace2_cmd_start_fl(ptr noundef %0, i32 noundef %1, ptr n
 9:                                                ; preds = %4, %16
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %16 ]
   %.019 = phi ptr [ @tr2_tgt_normal, %4 ], [ %18, %16 ]
-  %10 = load ptr, ptr %.019, align 8, !tbaa !14
+  %10 = load ptr, ptr %.019, align 8, !tbaa !15
   %11 = tail call i32 @tr2_dst_trace_want(ptr noundef %10) #11
   %.not16 = icmp eq i32 %11, 0
   br i1 %.not16, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.019, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !26
   %.not17 = icmp eq ptr %14, null
   br i1 %.not17, label %16, label %15
 
@@ -283,14 +283,14 @@ define dso_local void @trace2_cmd_start_fl(ptr noundef %0, i32 noundef %1, ptr n
   %17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %19, label %9, !llvm.loop !26
+  br i1 %.not, label %19, label %9, !llvm.loop !27
 
 19:                                               ; preds = %16
   %.not.i = icmp eq ptr %8, %2
   br i1 %.not.i, label %free_redacted_argv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %19
-  %20 = load ptr, ptr %2, align 8, !tbaa !27
+  %20 = load ptr, ptr %2, align 8, !tbaa !28
   %.not1517.i = icmp eq ptr %20, null
   br i1 %.not1517.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -298,7 +298,7 @@ define dso_local void @trace2_cmd_start_fl(ptr noundef %0, i32 noundef %1, ptr n
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %.preheader.i ]
   %21 = phi ptr [ %27, %25 ], [ %20, %.preheader.i ]
   %22 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
-  %23 = load ptr, ptr %22, align 8, !tbaa !27
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
   %.not16.i = icmp eq ptr %23, %21
   br i1 %.not16.i, label %25, label %24
 
@@ -309,9 +309,9 @@ define dso_local void @trace2_cmd_start_fl(ptr noundef %0, i32 noundef %1, ptr n
 25:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i
-  %27 = load ptr, ptr %26, align 8, !tbaa !27
+  %27 = load ptr, ptr %26, align 8, !tbaa !28
   %.not15.i = icmp eq ptr %27, null
-  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %25, %.preheader.i
   tail call void @free(ptr noundef %8) #11
@@ -331,7 +331,7 @@ define internal fastcc ptr @redact_argv(ptr noundef readonly captures(ret: addre
   br i1 %.b, label %.thread, label %.preheader84
 
 .preheader84:                                     ; preds = %1
-  %2 = load ptr, ptr %0, align 8, !tbaa !27
+  %2 = load ptr, ptr %0, align 8, !tbaa !28
   %.not90 = icmp eq ptr %2, null
   br i1 %.not90, label %.thread, label %.lr.ph
 
@@ -356,12 +356,12 @@ define internal fastcc ptr @redact_argv(ptr noundef readonly captures(ret: addre
 
 5:                                                ; preds = %.preheader.i
   %.06.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.06.i.idx.i
-  %6 = load i8, ptr %.06.i.ptr.i, align 1, !tbaa !30
+  %6 = load i8, ptr %.06.i.ptr.i, align 1, !tbaa !31
   %7 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
-  %8 = load i8, ptr %.07.i.i, align 1, !tbaa !30
+  %8 = load i8, ptr %.07.i.i, align 1, !tbaa !31
   %.06.i.add.i = add nuw nsw i64 %.06.i.idx.i, 1
   %9 = icmp eq i8 %8, %6
-  br i1 %9, label %.preheader.i, label %skip_prefix.exit.preheader.i, !llvm.loop !31
+  br i1 %9, label %.preheader.i, label %skip_prefix.exit.preheader.i, !llvm.loop !32
 
 skip_prefix.exit.preheader.i:                     ; preds = %5
   %scevgep27.i = getelementptr i8, ptr %3, i64 7
@@ -375,18 +375,18 @@ skip_prefix.exit.i:                               ; preds = %10, %skip_prefix.ex
 
 10:                                               ; preds = %skip_prefix.exit.i
   %.06.i15.ptr.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.06.i15.idx.i
-  %11 = load i8, ptr %.06.i15.ptr.i, align 1, !tbaa !30
+  %11 = load i8, ptr %.06.i15.ptr.i, align 1, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %.07.i14.i, i64 1
-  %13 = load i8, ptr %.07.i14.i, align 1, !tbaa !30
+  %13 = load i8, ptr %.07.i14.i, align 1, !tbaa !31
   %.06.i15.add.i = add nuw nsw i64 %.06.i15.idx.i, 1
   %14 = icmp eq i8 %13, %11
-  br i1 %14, label %skip_prefix.exit.i, label %redact_arg.exit.thread, !llvm.loop !31
+  br i1 %14, label %skip_prefix.exit.i, label %redact_arg.exit.thread, !llvm.loop !32
 
 skip_prefix.exit.thread.i:                        ; preds = %.preheader.i, %skip_prefix.exit.i
   %.018.i = phi ptr [ %scevgep27.i, %skip_prefix.exit.i ], [ %scevgep.i, %.preheader.i ]
   %15 = tail call i64 @strcspn(ptr noundef %.018.i, ptr noundef nonnull @.str.11) #12
   %16 = getelementptr inbounds nuw i8, ptr %.018.i, i64 %15
-  %17 = load i8, ptr %16, align 1, !tbaa !30
+  %17 = load i8, ptr %16, align 1, !tbaa !31
   %.not.i = icmp eq i8 %17, 64
   br i1 %.not.i, label %18, label %redact_arg.exit.thread
 
@@ -402,7 +402,7 @@ redact_arg.exit:                                  ; preds = %18
   %23 = trunc i64 %22 to i32
   %24 = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.12, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %16) #11
   %.b.i.pre = load i1, ptr @trace2_redact, align 4
-  %.pre = load ptr, ptr %4, align 8, !tbaa !27
+  %.pre = load ptr, ptr %4, align 8, !tbaa !28
   %.not50 = icmp eq ptr %24, %.pre
   br i1 %.not50, label %redact_arg.exit.thread, label %27
 
@@ -410,11 +410,11 @@ redact_arg.exit.thread:                           ; preds = %10, %18, %skip_pref
   %.b.i126135 = phi i1 [ %.b.i.pre, %redact_arg.exit ], [ false, %18 ], [ false, %skip_prefix.exit.thread.i ], [ true, %.lr.ph ], [ false, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
-  %26 = load ptr, ptr %25, align 8, !tbaa !27
+  %26 = load ptr, ptr %25, align 8, !tbaa !28
   %.not = icmp eq ptr %26, null
   %indvars.iv.next117 = add nuw i32 %indvars.iv116, 1
   %indvars.iv.next120 = add nuw i64 %indvars.iv119, 1
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !33
 
 27:                                               ; preds = %redact_arg.exit
   %.not51 = icmp eq ptr %.pre, null
@@ -423,10 +423,10 @@ redact_arg.exit.thread:                           ; preds = %10, %18, %skip_pref
 .preheader:                                       ; preds = %27, %.preheader
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %.preheader ], [ 0, %27 ]
   %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv110
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !28
   %.not52 = icmp eq ptr %29, null
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
-  br i1 %.not52, label %30, label %.preheader, !llvm.loop !33
+  br i1 %.not52, label %30, label %.preheader, !llvm.loop !34
 
 30:                                               ; preds = %.preheader
   %31 = shl i64 %indvars.iv110, 3
@@ -434,7 +434,7 @@ redact_arg.exit.thread:                           ; preds = %10, %18, %skip_pref
   %33 = and i64 %32, 34359738360
   %34 = tail call ptr @xmalloc(i64 noundef %33) #11
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv110
-  store ptr null, ptr %35, align 8, !tbaa !27
+  store ptr null, ptr %35, align 8, !tbaa !28
   %.not99 = icmp eq i64 %indvars.iv, 0
   br i1 %.not99, label %._crit_edge, label %.lr.ph93.preheader
 
@@ -445,20 +445,20 @@ redact_arg.exit.thread:                           ; preds = %10, %18, %skip_pref
 .lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
   %indvars.iv113 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next114, %.lr.ph93 ]
   %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv113
-  %37 = load ptr, ptr %36, align 8, !tbaa !27
+  %37 = load ptr, ptr %36, align 8, !tbaa !28
   %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv113
-  store ptr %37, ptr %38, align 8, !tbaa !27
+  store ptr %37, ptr %38, align 8, !tbaa !28
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %30
   %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
-  store ptr %24, ptr %39, align 8, !tbaa !27
+  store ptr %24, ptr %39, align 8, !tbaa !28
   %.14494 = add nuw i64 %indvars.iv, 1
   %40 = and i64 %.14494, 4294967295
   %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !27
+  %42 = load ptr, ptr %41, align 8, !tbaa !28
   %.not5395 = icmp eq ptr %42, null
   br i1 %.not5395, label %.thread, label %.lr.ph98.preheader
 
@@ -485,12 +485,12 @@ redact_arg.exit.thread:                           ; preds = %10, %18, %skip_pref
 
 45:                                               ; preds = %.preheader.i58
   %.06.i.ptr.i62 = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.06.i.idx.i60
-  %46 = load i8, ptr %.06.i.ptr.i62, align 1, !tbaa !30
+  %46 = load i8, ptr %.06.i.ptr.i62, align 1, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %.07.i.i59, i64 1
-  %48 = load i8, ptr %.07.i.i59, align 1, !tbaa !30
+  %48 = load i8, ptr %.07.i.i59, align 1, !tbaa !31
   %.06.i.add.i63 = add nuw nsw i64 %.06.i.idx.i60, 1
   %49 = icmp eq i8 %48, %46
-  br i1 %49, label %.preheader.i58, label %skip_prefix.exit.preheader.i64, !llvm.loop !31
+  br i1 %49, label %.preheader.i58, label %skip_prefix.exit.preheader.i64, !llvm.loop !32
 
 skip_prefix.exit.preheader.i64:                   ; preds = %45
   %scevgep27.i65 = getelementptr i8, ptr %43, i64 7
@@ -504,18 +504,18 @@ skip_prefix.exit.i66:                             ; preds = %50, %skip_prefix.ex
 
 50:                                               ; preds = %skip_prefix.exit.i66
   %.06.i15.ptr.i70 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.06.i15.idx.i68
-  %51 = load i8, ptr %.06.i15.ptr.i70, align 1, !tbaa !30
+  %51 = load i8, ptr %.06.i15.ptr.i70, align 1, !tbaa !31
   %52 = getelementptr inbounds nuw i8, ptr %.07.i14.i67, i64 1
-  %53 = load i8, ptr %.07.i14.i67, align 1, !tbaa !30
+  %53 = load i8, ptr %.07.i14.i67, align 1, !tbaa !31
   %.06.i15.add.i71 = add nuw nsw i64 %.06.i15.idx.i68, 1
   %54 = icmp eq i8 %53, %51
-  br i1 %54, label %skip_prefix.exit.i66, label %redact_arg.exit77, !llvm.loop !31
+  br i1 %54, label %skip_prefix.exit.i66, label %redact_arg.exit77, !llvm.loop !32
 
 skip_prefix.exit.thread.i73:                      ; preds = %.preheader.i58, %skip_prefix.exit.i66
   %.018.i74 = phi ptr [ %scevgep27.i65, %skip_prefix.exit.i66 ], [ %scevgep.i57, %.preheader.i58 ]
   %55 = tail call i64 @strcspn(ptr noundef %.018.i74, ptr noundef nonnull @.str.11) #12
   %56 = getelementptr inbounds nuw i8, ptr %.018.i74, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !30
+  %57 = load i8, ptr %56, align 1, !tbaa !31
   %.not.i75 = icmp eq i8 %57, 64
   br i1 %.not.i75, label %58, label %redact_arg.exit77
 
@@ -540,19 +540,19 @@ redact_arg.exit77:                                ; preds = %50, %skip_prefix.ex
   br i1 %.not54, label %66, label %redact_arg.exit77.thread
 
 66:                                               ; preds = %redact_arg.exit77
-  %67 = load ptr, ptr %44, align 8, !tbaa !27
+  %67 = load ptr, ptr %44, align 8, !tbaa !28
   br label %redact_arg.exit77.thread
 
 redact_arg.exit77.thread:                         ; preds = %.lr.ph98, %redact_arg.exit77, %66
   %.b.i55130 = phi i1 [ %.b.i55129, %66 ], [ %.b.i55129, %redact_arg.exit77 ], [ true, %.lr.ph98 ]
   %68 = phi ptr [ %67, %66 ], [ %.0.i72, %redact_arg.exit77 ], [ %43, %.lr.ph98 ]
   %69 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv122
-  store ptr %68, ptr %69, align 8, !tbaa !27
+  store ptr %68, ptr %69, align 8, !tbaa !28
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next123
-  %71 = load ptr, ptr %70, align 8, !tbaa !27
+  %71 = load ptr, ptr %70, align 8, !tbaa !28
   %.not53 = icmp eq ptr %71, null
-  br i1 %.not53, label %.thread, label %.lr.ph98, !llvm.loop !35
+  br i1 %.not53, label %.thread, label %.lr.ph98, !llvm.loop !36
 
 .thread:                                          ; preds = %redact_arg.exit.thread, %redact_arg.exit77.thread, %.preheader84, %._crit_edge, %27, %1
   %.0 = phi ptr [ %0, %1 ], [ %0, %27 ], [ %34, %._crit_edge ], [ %0, %.preheader84 ], [ %34, %redact_arg.exit77.thread ], [ %0, %redact_arg.exit.thread ]
@@ -566,7 +566,7 @@ define dso_local void @trace2_cmd_exit_fl(ptr noundef %0, i32 noundef %1, i32 no
 
 4:                                                ; preds = %3
   tail call void @trace2_collect_process_info(i32 noundef 1) #11
-  store i32 %2, ptr @tr2main_exit_code, align 4, !tbaa !18
+  store i32 %2, ptr @tr2main_exit_code, align 4, !tbaa !19
   %5 = tail call i64 @getnanotime() #11
   %6 = udiv i64 %5, 1000
   %7 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %6) #11
@@ -575,14 +575,14 @@ define dso_local void @trace2_cmd_exit_fl(ptr noundef %0, i32 noundef %1, i32 no
 8:                                                ; preds = %4, %15
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %15 ]
   %.017 = phi ptr [ @tr2_tgt_normal, %4 ], [ %17, %15 ]
-  %9 = load ptr, ptr %.017, align 8, !tbaa !14
+  %9 = load ptr, ptr %.017, align 8, !tbaa !15
   %10 = tail call i32 @tr2_dst_trace_want(ptr noundef %9) #11
   %.not14 = icmp eq i32 %10, 0
   br i1 %.not14, label %15, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %.017, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !36
+  %13 = load ptr, ptr %12, align 8, !tbaa !37
   %.not15 = icmp eq ptr %13, null
   br i1 %.not15, label %15, label %14
 
@@ -595,7 +595,7 @@ define dso_local void @trace2_cmd_exit_fl(ptr noundef %0, i32 noundef %1, i32 no
   %16 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %8, !llvm.loop !37
+  br i1 %.not, label %.loopexit, label %8, !llvm.loop !38
 
 .loopexit:                                        ; preds = %15, %3
   ret void
@@ -611,14 +611,14 @@ define dso_local void @trace2_cmd_error_va_fl(ptr noundef %0, i32 noundef %1, pt
 .preheader:                                       ; preds = %4, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %4 ]
   %.01014 = phi ptr [ %13, %11 ], [ @tr2_tgt_normal, %4 ]
-  %5 = load ptr, ptr %.01014, align 8, !tbaa !14
+  %5 = load ptr, ptr %.01014, align 8, !tbaa !15
   %6 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #11
   %.not12 = icmp eq i32 %6, 0
   br i1 %.not12, label %11, label %7
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %.01014, i64 64
-  %9 = load ptr, ptr %8, align 8, !tbaa !38
+  %9 = load ptr, ptr %8, align 8, !tbaa !39
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %11, label %10
 
@@ -631,7 +631,7 @@ define dso_local void @trace2_cmd_error_va_fl(ptr noundef %0, i32 noundef %1, pt
   %12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !39
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !40
 
 .loopexit:                                        ; preds = %11, %4
   ret void
@@ -645,14 +645,14 @@ define dso_local void @trace2_cmd_path_fl(ptr noundef %0, i32 noundef %1, ptr no
 .preheader:                                       ; preds = %3, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %3 ]
   %.0913 = phi ptr [ %12, %10 ], [ @tr2_tgt_normal, %3 ]
-  %4 = load ptr, ptr %.0913, align 8, !tbaa !14
+  %4 = load ptr, ptr %.0913, align 8, !tbaa !15
   %5 = tail call i32 @tr2_dst_trace_want(ptr noundef %4) #11
   %.not11 = icmp eq i32 %5, 0
   br i1 %.not11, label %10, label %6
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.0913, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !40
+  %8 = load ptr, ptr %7, align 8, !tbaa !41
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %10, label %9
 
@@ -665,7 +665,7 @@ define dso_local void @trace2_cmd_path_fl(ptr noundef %0, i32 noundef %1, ptr no
   %11 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !41
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !42
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -679,14 +679,14 @@ define dso_local void @trace2_cmd_ancestry_fl(ptr noundef %0, i32 noundef %1, pt
 .preheader:                                       ; preds = %3, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %3 ]
   %.0913 = phi ptr [ %12, %10 ], [ @tr2_tgt_normal, %3 ]
-  %4 = load ptr, ptr %.0913, align 8, !tbaa !14
+  %4 = load ptr, ptr %.0913, align 8, !tbaa !15
   %5 = tail call i32 @tr2_dst_trace_want(ptr noundef %4) #11
   %.not11 = icmp eq i32 %5, 0
   br i1 %.not11, label %10, label %6
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.0913, i64 80
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %10, label %9
 
@@ -699,7 +699,7 @@ define dso_local void @trace2_cmd_ancestry_fl(ptr noundef %0, i32 noundef %1, pt
   %11 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !43
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !44
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -718,14 +718,14 @@ define dso_local void @trace2_cmd_name_fl(ptr noundef %0, i32 noundef %1, ptr no
 6:                                                ; preds = %4, %13
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %13 ]
   %.01118 = phi ptr [ @tr2_tgt_normal, %4 ], [ %15, %13 ]
-  %7 = load ptr, ptr %.01118, align 8, !tbaa !14
+  %7 = load ptr, ptr %.01118, align 8, !tbaa !15
   %8 = tail call i32 @tr2_dst_trace_want(ptr noundef %7) #11
   %.not13 = icmp eq i32 %8, 0
   br i1 %.not13, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %.01118, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !44
+  %11 = load ptr, ptr %10, align 8, !tbaa !45
   %.not14 = icmp eq ptr %11, null
   br i1 %.not14, label %13, label %12
 
@@ -738,7 +738,7 @@ define dso_local void @trace2_cmd_name_fl(ptr noundef %0, i32 noundef %1, ptr no
   %14 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %16, label %6, !llvm.loop !45
+  br i1 %.not, label %16, label %6, !llvm.loop !46
 
 16:                                               ; preds = %13
   %.b.i = load i1, ptr @trace2_enabled, align 4
@@ -815,14 +815,14 @@ define dso_local void @trace2_cmd_mode_fl(ptr noundef %0, i32 noundef %1, ptr no
 .preheader:                                       ; preds = %3, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %3 ]
   %.0913 = phi ptr [ %12, %10 ], [ @tr2_tgt_normal, %3 ]
-  %4 = load ptr, ptr %.0913, align 8, !tbaa !14
+  %4 = load ptr, ptr %.0913, align 8, !tbaa !15
   %5 = tail call i32 @tr2_dst_trace_want(ptr noundef %4) #11
   %.not11 = icmp eq i32 %5, 0
   br i1 %.not11, label %10, label %6
 
 6:                                                ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %.0913, i64 96
-  %8 = load ptr, ptr %7, align 8, !tbaa !46
+  %8 = load ptr, ptr %7, align 8, !tbaa !47
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %10, label %9
 
@@ -835,7 +835,7 @@ define dso_local void @trace2_cmd_mode_fl(ptr noundef %0, i32 noundef %1, ptr no
   %11 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !47
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %10, %3
   ret void
@@ -849,14 +849,14 @@ define dso_local void @trace2_cmd_alias_fl(ptr noundef %0, i32 noundef %1, ptr n
 .preheader:                                       ; preds = %4, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %4 ]
   %.01014 = phi ptr [ %13, %11 ], [ @tr2_tgt_normal, %4 ]
-  %5 = load ptr, ptr %.01014, align 8, !tbaa !14
+  %5 = load ptr, ptr %.01014, align 8, !tbaa !15
   %6 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #11
   %.not12 = icmp eq i32 %6, 0
   br i1 %.not12, label %11, label %7
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %.01014, i64 104
-  %9 = load ptr, ptr %8, align 8, !tbaa !48
+  %9 = load ptr, ptr %8, align 8, !tbaa !49
   %.not13 = icmp eq ptr %9, null
   br i1 %.not13, label %11, label %10
 
@@ -869,7 +869,7 @@ define dso_local void @trace2_cmd_alias_fl(ptr noundef %0, i32 noundef %1, ptr n
   %12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !49
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !50
 
 .loopexit:                                        ; preds = %11, %4
   ret void
@@ -896,7 +896,7 @@ declare void @tr2_cfg_set_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @trace2_child_start_fl(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !50
+  %4 = load ptr, ptr %2, align 8, !tbaa !51
   %.b = load i1, ptr @trace2_enabled, align 4
   br i1 %.b, label %5, label %33
 
@@ -906,24 +906,24 @@ define dso_local void @trace2_child_start_fl(ptr noundef %0, i32 noundef %1, ptr
   %8 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %7) #11
   %9 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_child_id) #11
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  store i32 %9, ptr %10, align 4, !tbaa !55
+  store i32 %9, ptr %10, align 4, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i64 %7, ptr %11, align 8, !tbaa !56
+  store i64 %7, ptr %11, align 8, !tbaa !57
   %12 = tail call fastcc ptr @redact_argv(ptr noundef %4)
-  store ptr %12, ptr %2, align 8, !tbaa !50
+  store ptr %12, ptr %2, align 8, !tbaa !51
   br label %13
 
 13:                                               ; preds = %5, %20
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %20 ]
   %.031 = phi ptr [ @tr2_tgt_normal, %5 ], [ %22, %20 ]
-  %14 = load ptr, ptr %.031, align 8, !tbaa !14
+  %14 = load ptr, ptr %.031, align 8, !tbaa !15
   %15 = tail call i32 @tr2_dst_trace_want(ptr noundef %14) #11
   %.not28 = icmp eq i32 %15, 0
   br i1 %.not28, label %20, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 112
-  %18 = load ptr, ptr %17, align 8, !tbaa !57
+  %18 = load ptr, ptr %17, align 8, !tbaa !58
   %.not29 = icmp eq ptr %18, null
   br i1 %.not29, label %20, label %19
 
@@ -936,15 +936,15 @@ define dso_local void @trace2_child_start_fl(ptr noundef %0, i32 noundef %1, ptr
   %21 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %23, label %13, !llvm.loop !58
+  br i1 %.not, label %23, label %13, !llvm.loop !59
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %2, align 8, !tbaa !50
+  %24 = load ptr, ptr %2, align 8, !tbaa !51
   %.not27 = icmp eq ptr %24, %4
   br i1 %.not27, label %33, label %.preheader.i
 
 .preheader.i:                                     ; preds = %23
-  %25 = load ptr, ptr %4, align 8, !tbaa !27
+  %25 = load ptr, ptr %4, align 8, !tbaa !28
   %.not1517.i = icmp eq ptr %25, null
   br i1 %.not1517.i, label %free_redacted_argv.exit, label %.lr.ph.i
 
@@ -952,7 +952,7 @@ define dso_local void @trace2_child_start_fl(ptr noundef %0, i32 noundef %1, ptr
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.preheader.i ]
   %26 = phi ptr [ %32, %30 ], [ %25, %.preheader.i ]
   %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8, !tbaa !27
+  %28 = load ptr, ptr %27, align 8, !tbaa !28
   %.not16.i = icmp eq ptr %28, %26
   br i1 %.not16.i, label %30, label %29
 
@@ -963,13 +963,13 @@ define dso_local void @trace2_child_start_fl(ptr noundef %0, i32 noundef %1, ptr
 30:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next.i
-  %32 = load ptr, ptr %31, align 8, !tbaa !27
+  %32 = load ptr, ptr %31, align 8, !tbaa !28
   %.not15.i = icmp eq ptr %32, null
-  br i1 %.not15.i, label %free_redacted_argv.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not15.i, label %free_redacted_argv.exit, label %.lr.ph.i, !llvm.loop !30
 
 free_redacted_argv.exit:                          ; preds = %30, %.preheader.i
   tail call void @free(ptr noundef %24) #11
-  store ptr %4, ptr %2, align 8, !tbaa !50
+  store ptr %4, ptr %2, align 8, !tbaa !51
   br label %33
 
 33:                                               ; preds = %23, %free_redacted_argv.exit, %3
@@ -988,7 +988,7 @@ define dso_local void @trace2_child_exit_fl(ptr noundef %0, i32 noundef %1, ptr 
   %7 = udiv i64 %6, 1000
   %8 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %10 = load i64, ptr %9, align 8, !tbaa !56
+  %10 = load i64, ptr %9, align 8, !tbaa !57
   %.not = icmp eq i64 %10, 0
   %11 = sub i64 %7, %10
   %.0 = select i1 %.not, i64 0, i64 %11
@@ -999,20 +999,20 @@ define dso_local void @trace2_child_exit_fl(ptr noundef %0, i32 noundef %1, ptr 
 14:                                               ; preds = %5, %23
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %23 ]
   %.01725 = phi ptr [ @tr2_tgt_normal, %5 ], [ %25, %23 ]
-  %15 = load ptr, ptr %.01725, align 8, !tbaa !14
+  %15 = load ptr, ptr %.01725, align 8, !tbaa !15
   %16 = tail call i32 @tr2_dst_trace_want(ptr noundef %15) #11
   %.not22 = icmp eq i32 %16, 0
   br i1 %.not22, label %23, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.01725, i64 120
-  %19 = load ptr, ptr %18, align 8, !tbaa !59
+  %19 = load ptr, ptr %18, align 8, !tbaa !60
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr %12, align 4, !tbaa !55
-  %22 = load i32, ptr %13, align 8, !tbaa !60
+  %21 = load i32, ptr %12, align 4, !tbaa !56
+  %22 = load i32, ptr %13, align 8, !tbaa !61
   tail call void %19(ptr noundef %0, i32 noundef %1, i64 noundef %8, i32 noundef %21, i32 noundef %22, i32 noundef %3, i64 noundef %.0) #11
   br label %23
 
@@ -1021,7 +1021,7 @@ define dso_local void @trace2_child_exit_fl(ptr noundef %0, i32 noundef %1, ptr 
   %24 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %.not21 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not21, label %.loopexit, label %14, !llvm.loop !61
+  br i1 %.not21, label %.loopexit, label %14, !llvm.loop !62
 
 .loopexit:                                        ; preds = %23, %4
   ret void
@@ -1037,7 +1037,7 @@ define dso_local void @trace2_child_ready_fl(ptr noundef %0, i32 noundef %1, ptr
   %7 = udiv i64 %6, 1000
   %8 = tail call i64 @tr2tls_absolute_elapsed(i64 noundef %7) #11
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %10 = load i64, ptr %9, align 8, !tbaa !56
+  %10 = load i64, ptr %9, align 8, !tbaa !57
   %.not = icmp eq i64 %10, 0
   %11 = sub i64 %7, %10
   %.0 = select i1 %.not, i64 0, i64 %11
@@ -1048,20 +1048,20 @@ define dso_local void @trace2_child_ready_fl(ptr noundef %0, i32 noundef %1, ptr
 14:                                               ; preds = %5, %23
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %23 ]
   %.01725 = phi ptr [ @tr2_tgt_normal, %5 ], [ %25, %23 ]
-  %15 = load ptr, ptr %.01725, align 8, !tbaa !14
+  %15 = load ptr, ptr %.01725, align 8, !tbaa !15
   %16 = tail call i32 @tr2_dst_trace_want(ptr noundef %15) #11
   %.not22 = icmp eq i32 %16, 0
   br i1 %.not22, label %23, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %.01725, i64 128
-  %19 = load ptr, ptr %18, align 8, !tbaa !62
+  %19 = load ptr, ptr %18, align 8, !tbaa !63
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %23, label %20
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr %12, align 4, !tbaa !55
-  %22 = load i32, ptr %13, align 8, !tbaa !60
+  %21 = load i32, ptr %12, align 4, !tbaa !56
+  %22 = load i32, ptr %13, align 8, !tbaa !61
   tail call void %19(ptr noundef %0, i32 noundef %1, i64 noundef %8, i32 noundef %21, i32 noundef %22, ptr noundef %3, i64 noundef %.0) #11
   br label %23
 
@@ -1070,7 +1070,7 @@ define dso_local void @trace2_child_ready_fl(ptr noundef %0, i32 noundef %1, ptr
   %24 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %.not21 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not21, label %.loopexit, label %14, !llvm.loop !63
+  br i1 %.not21, label %.loopexit, label %14, !llvm.loop !64
 
 .loopexit:                                        ; preds = %23, %4
   ret void
@@ -1092,14 +1092,14 @@ define dso_local i32 @trace2_exec_fl(ptr noundef %0, i32 noundef %1, ptr noundef
 11:                                               ; preds = %5, %18
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %18 ]
   %.01824 = phi ptr [ @tr2_tgt_normal, %5 ], [ %20, %18 ]
-  %12 = load ptr, ptr %.01824, align 8, !tbaa !14
+  %12 = load ptr, ptr %.01824, align 8, !tbaa !15
   %13 = tail call i32 @tr2_dst_trace_want(ptr noundef %12) #11
   %.not21 = icmp eq i32 %13, 0
   br i1 %.not21, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.01824, i64 152
-  %16 = load ptr, ptr %15, align 8, !tbaa !64
+  %16 = load ptr, ptr %15, align 8, !tbaa !65
   %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %18, label %17
 
@@ -1112,14 +1112,14 @@ define dso_local i32 @trace2_exec_fl(ptr noundef %0, i32 noundef %1, ptr noundef
   %19 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %21, label %11, !llvm.loop !65
+  br i1 %.not, label %21, label %11, !llvm.loop !66
 
 21:                                               ; preds = %18
   %.not.i = icmp eq ptr %10, %3
   br i1 %.not.i, label %free_redacted_argv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %21
-  %22 = load ptr, ptr %3, align 8, !tbaa !27
+  %22 = load ptr, ptr %3, align 8, !tbaa !28
   %.not1517.i = icmp eq ptr %22, null
   br i1 %.not1517.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1127,7 +1127,7 @@ define dso_local i32 @trace2_exec_fl(ptr noundef %0, i32 noundef %1, ptr noundef
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %27 ], [ 0, %.preheader.i ]
   %23 = phi ptr [ %29, %27 ], [ %22, %.preheader.i ]
   %24 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
-  %25 = load ptr, ptr %24, align 8, !tbaa !27
+  %25 = load ptr, ptr %24, align 8, !tbaa !28
   %.not16.i = icmp eq ptr %25, %23
   br i1 %.not16.i, label %27, label %26
 
@@ -1138,9 +1138,9 @@ define dso_local i32 @trace2_exec_fl(ptr noundef %0, i32 noundef %1, ptr noundef
 27:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next.i
-  %29 = load ptr, ptr %28, align 8, !tbaa !27
+  %29 = load ptr, ptr %28, align 8, !tbaa !28
   %.not15.i = icmp eq ptr %29, null
-  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
+  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !30
 
 ._crit_edge.i:                                    ; preds = %27, %.preheader.i
   tail call void @free(ptr noundef %10) #11
@@ -1165,14 +1165,14 @@ define dso_local void @trace2_exec_result_fl(ptr noundef %0, i32 noundef %1, i32
 9:                                                ; preds = %5, %16
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %16 ]
   %.017 = phi ptr [ @tr2_tgt_normal, %5 ], [ %18, %16 ]
-  %10 = load ptr, ptr %.017, align 8, !tbaa !14
+  %10 = load ptr, ptr %.017, align 8, !tbaa !15
   %11 = tail call i32 @tr2_dst_trace_want(ptr noundef %10) #11
   %.not14 = icmp eq i32 %11, 0
   br i1 %.not14, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.017, i64 160
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
+  %14 = load ptr, ptr %13, align 8, !tbaa !67
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %16, label %15
 
@@ -1185,7 +1185,7 @@ define dso_local void @trace2_exec_result_fl(ptr noundef %0, i32 noundef %1, i32
   %17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !67
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !68
 
 .loopexit:                                        ; preds = %16, %4
   ret void
@@ -1215,14 +1215,14 @@ define dso_local void @trace2_thread_start_fl(ptr noundef %0, i32 noundef %1, pt
 12:                                               ; preds = %7, %19
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %19 ]
   %.021 = phi ptr [ @tr2_tgt_normal, %7 ], [ %21, %19 ]
-  %13 = load ptr, ptr %.021, align 8, !tbaa !14
+  %13 = load ptr, ptr %.021, align 8, !tbaa !15
   %14 = tail call i32 @tr2_dst_trace_want(ptr noundef %13) #11
   %.not18 = icmp eq i32 %14, 0
   br i1 %.not18, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.021, i64 136
-  %17 = load ptr, ptr %16, align 8, !tbaa !68
+  %17 = load ptr, ptr %16, align 8, !tbaa !69
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %19, label %18
 
@@ -1235,7 +1235,7 @@ define dso_local void @trace2_thread_start_fl(ptr noundef %0, i32 noundef %1, pt
   %20 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %.not17 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not17, label %.loopexit, label %12, !llvm.loop !69
+  br i1 %.not17, label %.loopexit, label %12, !llvm.loop !70
 
 .loopexit:                                        ; preds = %19, %3, %6
   ret void
@@ -1260,14 +1260,14 @@ define dso_local void @trace2_region_enter_printf_fl(ptr noundef %0, i32 noundef
 12:                                               ; preds = %19, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %19 ]
   %.021.i = phi ptr [ @tr2_tgt_normal, %8 ], [ %21, %19 ]
-  %13 = load ptr, ptr %.021.i, align 8, !tbaa !14
+  %13 = load ptr, ptr %.021.i, align 8, !tbaa !15
   %14 = call i32 @tr2_dst_trace_want(ptr noundef %13) #11
   %.not18.i = icmp eq i32 %14, 0
   br i1 %.not18.i, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.021.i, i64 184
-  %17 = load ptr, ptr %16, align 8, !tbaa !70
+  %17 = load ptr, ptr %16, align 8, !tbaa !71
   %.not19.i = icmp eq ptr %17, null
   br i1 %.not19.i, label %19, label %18
 
@@ -1280,7 +1280,7 @@ define dso_local void @trace2_region_enter_printf_fl(ptr noundef %0, i32 noundef
   %20 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %22, label %12, !llvm.loop !71
+  br i1 %.not.i, label %22, label %12, !llvm.loop !72
 
 22:                                               ; preds = %19
   call void @tr2tls_push_self(i64 noundef %10) #11
@@ -1325,14 +1325,14 @@ define dso_local void @trace2_thread_exit_fl(ptr noundef %0, i32 noundef %1) loc
 11:                                               ; preds = %6, %18
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %18 ]
   %.020 = phi ptr [ @tr2_tgt_normal, %6 ], [ %20, %18 ]
-  %12 = load ptr, ptr %.020, align 8, !tbaa !14
+  %12 = load ptr, ptr %.020, align 8, !tbaa !15
   %13 = tail call i32 @tr2_dst_trace_want(ptr noundef %12) #11
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.020, i64 144
-  %16 = load ptr, ptr %15, align 8, !tbaa !72
+  %16 = load ptr, ptr %15, align 8, !tbaa !73
   %.not18 = icmp eq ptr %16, null
   br i1 %.not18, label %18, label %17
 
@@ -1345,7 +1345,7 @@ define dso_local void @trace2_thread_exit_fl(ptr noundef %0, i32 noundef %1) loc
   %19 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %.not16 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not16, label %21, label %11, !llvm.loop !73
+  br i1 %.not16, label %21, label %11, !llvm.loop !74
 
 21:                                               ; preds = %18
   tail call void @tr2tls_unset_self() #11
@@ -1374,14 +1374,14 @@ define dso_local void @trace2_region_leave_printf_fl(ptr noundef %0, i32 noundef
 13:                                               ; preds = %20, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %20 ]
   %.022.i = phi ptr [ @tr2_tgt_normal, %8 ], [ %22, %20 ]
-  %14 = load ptr, ptr %.022.i, align 8, !tbaa !14
+  %14 = load ptr, ptr %.022.i, align 8, !tbaa !15
   %15 = call i32 @tr2_dst_trace_want(ptr noundef %14) #11
   %.not19.i = icmp eq i32 %15, 0
   br i1 %.not19.i, label %20, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.022.i, i64 192
-  %18 = load ptr, ptr %17, align 8, !tbaa !74
+  %18 = load ptr, ptr %17, align 8, !tbaa !75
   %.not20.i = icmp eq ptr %18, null
   br i1 %.not20.i, label %20, label %19
 
@@ -1394,7 +1394,7 @@ define dso_local void @trace2_region_leave_printf_fl(ptr noundef %0, i32 noundef
   %21 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %trace2_region_leave_printf_va_fl.exit, label %13, !llvm.loop !75
+  br i1 %.not.i, label %trace2_region_leave_printf_va_fl.exit, label %13, !llvm.loop !76
 
 trace2_region_leave_printf_va_fl.exit:            ; preds = %20, %6
   call void @llvm.va_end.p0(ptr nonnull %7)
@@ -1415,14 +1415,14 @@ define internal void @tr2_tgt_emit_a_timer(ptr noundef %0, ptr noundef %1, i32 n
 4:                                                ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
   %.0913 = phi ptr [ @tr2_tgt_normal, %3 ], [ %13, %11 ]
-  %5 = load ptr, ptr %.0913, align 8, !tbaa !14
+  %5 = load ptr, ptr %.0913, align 8, !tbaa !15
   %6 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #11
   %.not11 = icmp eq i32 %6, 0
   br i1 %.not11, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %.0913, i64 224
-  %9 = load ptr, ptr %8, align 8, !tbaa !76
+  %9 = load ptr, ptr %8, align 8, !tbaa !77
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %11, label %10
 
@@ -1435,7 +1435,7 @@ define internal void @tr2_tgt_emit_a_timer(ptr noundef %0, ptr noundef %1, i32 n
   %12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %14, label %4, !llvm.loop !77
+  br i1 %.not, label %14, label %4, !llvm.loop !78
 
 14:                                               ; preds = %11
   ret void
@@ -1450,14 +1450,14 @@ define internal void @tr2_tgt_emit_a_counter(ptr noundef %0, ptr noundef %1, i32
 4:                                                ; preds = %3, %11
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %11 ]
   %.0913 = phi ptr [ @tr2_tgt_normal, %3 ], [ %13, %11 ]
-  %5 = load ptr, ptr %.0913, align 8, !tbaa !14
+  %5 = load ptr, ptr %.0913, align 8, !tbaa !15
   %6 = tail call i32 @tr2_dst_trace_want(ptr noundef %5) #11
   %.not11 = icmp eq i32 %6, 0
   br i1 %.not11, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %.0913, i64 232
-  %9 = load ptr, ptr %8, align 8, !tbaa !78
+  %9 = load ptr, ptr %8, align 8, !tbaa !79
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %11, label %10
 
@@ -1470,7 +1470,7 @@ define internal void @tr2_tgt_emit_a_counter(ptr noundef %0, ptr noundef %1, i32
   %12 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %14, label %4, !llvm.loop !79
+  br i1 %.not, label %14, label %4, !llvm.loop !80
 
 14:                                               ; preds = %11
   ret void
@@ -1511,12 +1511,12 @@ define dso_local void @trace2_def_param_fl(ptr noundef %0, i32 noundef %1, ptr n
 
 8:                                                ; preds = %.preheader.i
   %.06.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.06.i.idx.i
-  %9 = load i8, ptr %.06.i.ptr.i, align 1, !tbaa !30
+  %9 = load i8, ptr %.06.i.ptr.i, align 1, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
-  %11 = load i8, ptr %.07.i.i, align 1, !tbaa !30
+  %11 = load i8, ptr %.07.i.i, align 1, !tbaa !31
   %.06.i.add.i = add nuw nsw i64 %.06.i.idx.i, 1
   %12 = icmp eq i8 %11, %9
-  br i1 %12, label %.preheader.i, label %skip_prefix.exit.preheader.i, !llvm.loop !31
+  br i1 %12, label %.preheader.i, label %skip_prefix.exit.preheader.i, !llvm.loop !32
 
 skip_prefix.exit.preheader.i:                     ; preds = %8
   %scevgep27.i = getelementptr i8, ptr %3, i64 7
@@ -1530,18 +1530,18 @@ skip_prefix.exit.i:                               ; preds = %13, %skip_prefix.ex
 
 13:                                               ; preds = %skip_prefix.exit.i
   %.06.i15.ptr.i = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.06.i15.idx.i
-  %14 = load i8, ptr %.06.i15.ptr.i, align 1, !tbaa !30
+  %14 = load i8, ptr %.06.i15.ptr.i, align 1, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %.07.i14.i, i64 1
-  %16 = load i8, ptr %.07.i14.i, align 1, !tbaa !30
+  %16 = load i8, ptr %.07.i14.i, align 1, !tbaa !31
   %.06.i15.add.i = add nuw nsw i64 %.06.i15.idx.i, 1
   %17 = icmp eq i8 %16, %14
-  br i1 %17, label %skip_prefix.exit.i, label %redact_arg.exit, !llvm.loop !31
+  br i1 %17, label %skip_prefix.exit.i, label %redact_arg.exit, !llvm.loop !32
 
 skip_prefix.exit.thread.i:                        ; preds = %.preheader.i, %skip_prefix.exit.i
   %.018.i = phi ptr [ %scevgep27.i, %skip_prefix.exit.i ], [ %scevgep.i, %.preheader.i ]
   %18 = tail call i64 @strcspn(ptr noundef %.018.i, ptr noundef nonnull @.str.11) #12
   %19 = getelementptr inbounds nuw i8, ptr %.018.i, i64 %18
-  %20 = load i8, ptr %19, align 1, !tbaa !30
+  %20 = load i8, ptr %19, align 1, !tbaa !31
   %.not.i = icmp eq i8 %20, 64
   br i1 %.not.i, label %21, label %redact_arg.exit
 
@@ -1565,14 +1565,14 @@ redact_arg.exit:                                  ; preds = %13, %23, %21, %skip
 30:                                               ; preds = %redact_arg.exit, %37
   %indvars.iv = phi i64 [ 0, %redact_arg.exit ], [ %indvars.iv.next, %37 ]
   %.026 = phi ptr [ @tr2_tgt_normal, %redact_arg.exit ], [ %39, %37 ]
-  %31 = load ptr, ptr %.026, align 8, !tbaa !14
+  %31 = load ptr, ptr %.026, align 8, !tbaa !15
   %32 = tail call i32 @tr2_dst_trace_want(ptr noundef %31) #11
   %.not22 = icmp eq i32 %32, 0
   br i1 %.not22, label %37, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.026, i64 168
-  %35 = load ptr, ptr %34, align 8, !tbaa !80
+  %35 = load ptr, ptr %34, align 8, !tbaa !81
   %.not23 = icmp eq ptr %35, null
   br i1 %.not23, label %37, label %36
 
@@ -1585,7 +1585,7 @@ redact_arg.exit:                                  ; preds = %13, %23, %21, %skip
   %38 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %.not20 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not20, label %40, label %30, !llvm.loop !81
+  br i1 %.not20, label %40, label %30, !llvm.loop !82
 
 40:                                               ; preds = %37
   %.not21 = icmp eq ptr %29, %3
@@ -1609,26 +1609,26 @@ define dso_local void @trace2_def_repo_fl(ptr noundef %0, i32 noundef %1, ptr no
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 420
-  %6 = load i32, ptr %5, align 4, !tbaa !82
+  %6 = load i32, ptr %5, align 4, !tbaa !83
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %.loopexit
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tr2tls_locked_increment(ptr noundef nonnull @tr2_next_repo_id) #11
-  store i32 %8, ptr %5, align 4, !tbaa !82
+  store i32 %8, ptr %5, align 4, !tbaa !83
   br label %9
 
 9:                                                ; preds = %7, %16
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %16 ]
   %.01116 = phi ptr [ @tr2_tgt_normal, %7 ], [ %18, %16 ]
-  %10 = load ptr, ptr %.01116, align 8, !tbaa !14
+  %10 = load ptr, ptr %.01116, align 8, !tbaa !15
   %11 = tail call i32 @tr2_dst_trace_want(ptr noundef %10) #11
   %.not14 = icmp eq i32 %11, 0
   br i1 %.not14, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.01116, i64 176
-  %14 = load ptr, ptr %13, align 8, !tbaa !100
+  %14 = load ptr, ptr %13, align 8, !tbaa !101
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %16, label %15
 
@@ -1641,7 +1641,7 @@ define dso_local void @trace2_def_repo_fl(ptr noundef %0, i32 noundef %1, ptr no
   %17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %.not13 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not13, label %.loopexit, label %9, !llvm.loop !101
+  br i1 %.not13, label %.loopexit, label %9, !llvm.loop !102
 
 .loopexit:                                        ; preds = %16, %4, %3
   ret void
@@ -1661,14 +1661,14 @@ define dso_local void @trace2_region_enter_printf_va_fl(ptr noundef %0, i32 noun
 12:                                               ; preds = %8, %19
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %19 ]
   %.021 = phi ptr [ @tr2_tgt_normal, %8 ], [ %21, %19 ]
-  %13 = load ptr, ptr %.021, align 8, !tbaa !14
+  %13 = load ptr, ptr %.021, align 8, !tbaa !15
   %14 = tail call i32 @tr2_dst_trace_want(ptr noundef %13) #11
   %.not18 = icmp eq i32 %14, 0
   br i1 %.not18, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.021, i64 184
-  %17 = load ptr, ptr %16, align 8, !tbaa !70
+  %17 = load ptr, ptr %16, align 8, !tbaa !71
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %19, label %18
 
@@ -1681,7 +1681,7 @@ define dso_local void @trace2_region_enter_printf_va_fl(ptr noundef %0, i32 noun
   %20 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %22, label %12, !llvm.loop !71
+  br i1 %.not, label %22, label %12, !llvm.loop !72
 
 22:                                               ; preds = %19
   tail call void @tr2tls_push_self(i64 noundef %10) #11
@@ -1710,14 +1710,14 @@ define dso_local void @trace2_region_enter_fl(ptr noundef %0, i32 noundef %1, pt
 11:                                               ; preds = %18, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %18 ]
   %.021.i = phi ptr [ @tr2_tgt_normal, %7 ], [ %20, %18 ]
-  %12 = load ptr, ptr %.021.i, align 8, !tbaa !14
+  %12 = load ptr, ptr %.021.i, align 8, !tbaa !15
   %13 = call i32 @tr2_dst_trace_want(ptr noundef %12) #11
   %.not18.i = icmp eq i32 %13, 0
   br i1 %.not18.i, label %18, label %14
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %.021.i, i64 184
-  %16 = load ptr, ptr %15, align 8, !tbaa !70
+  %16 = load ptr, ptr %15, align 8, !tbaa !71
   %.not19.i = icmp eq ptr %16, null
   br i1 %.not19.i, label %18, label %17
 
@@ -1730,7 +1730,7 @@ define dso_local void @trace2_region_enter_fl(ptr noundef %0, i32 noundef %1, pt
   %19 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %21, label %11, !llvm.loop !71
+  br i1 %.not.i, label %21, label %11, !llvm.loop !72
 
 21:                                               ; preds = %18
   call void @tr2tls_push_self(i64 noundef %9) #11
@@ -1764,14 +1764,14 @@ define dso_local void @trace2_region_leave_printf_va_fl(ptr noundef %0, i32 noun
 13:                                               ; preds = %8, %20
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %20 ]
   %.022 = phi ptr [ @tr2_tgt_normal, %8 ], [ %22, %20 ]
-  %14 = load ptr, ptr %.022, align 8, !tbaa !14
+  %14 = load ptr, ptr %.022, align 8, !tbaa !15
   %15 = tail call i32 @tr2_dst_trace_want(ptr noundef %14) #11
   %.not19 = icmp eq i32 %15, 0
   br i1 %.not19, label %20, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.022, i64 192
-  %18 = load ptr, ptr %17, align 8, !tbaa !74
+  %18 = load ptr, ptr %17, align 8, !tbaa !75
   %.not20 = icmp eq ptr %18, null
   br i1 %.not20, label %20, label %19
 
@@ -1784,7 +1784,7 @@ define dso_local void @trace2_region_leave_printf_va_fl(ptr noundef %0, i32 noun
   %21 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %13, !llvm.loop !75
+  br i1 %.not, label %.loopexit, label %13, !llvm.loop !76
 
 .loopexit:                                        ; preds = %20, %7
   ret void
@@ -1811,14 +1811,14 @@ define dso_local void @trace2_region_leave_fl(ptr noundef %0, i32 noundef %1, pt
 12:                                               ; preds = %19, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %19 ]
   %.022.i = phi ptr [ @tr2_tgt_normal, %7 ], [ %21, %19 ]
-  %13 = load ptr, ptr %.022.i, align 8, !tbaa !14
+  %13 = load ptr, ptr %.022.i, align 8, !tbaa !15
   %14 = call i32 @tr2_dst_trace_want(ptr noundef %13) #11
   %.not19.i = icmp eq i32 %14, 0
   br i1 %.not19.i, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.022.i, i64 192
-  %17 = load ptr, ptr %16, align 8, !tbaa !74
+  %17 = load ptr, ptr %16, align 8, !tbaa !75
   %.not20.i = icmp eq ptr %17, null
   br i1 %.not20.i, label %19, label %18
 
@@ -1831,7 +1831,7 @@ define dso_local void @trace2_region_leave_fl(ptr noundef %0, i32 noundef %1, pt
   %20 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %trace2_region_leave_printf_va_fl.exit, label %12, !llvm.loop !75
+  br i1 %.not.i, label %trace2_region_leave_printf_va_fl.exit, label %12, !llvm.loop !76
 
 trace2_region_leave_printf_va_fl.exit:            ; preds = %19, %5
   call void @llvm.va_end.p0(ptr nonnull %6)
@@ -1854,14 +1854,14 @@ define dso_local void @trace2_data_string_fl(ptr noundef %0, i32 noundef %1, ptr
 12:                                               ; preds = %7, %19
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %19 ]
   %.021 = phi ptr [ @tr2_tgt_normal, %7 ], [ %21, %19 ]
-  %13 = load ptr, ptr %.021, align 8, !tbaa !14
+  %13 = load ptr, ptr %.021, align 8, !tbaa !15
   %14 = tail call i32 @tr2_dst_trace_want(ptr noundef %13) #11
   %.not18 = icmp eq i32 %14, 0
   br i1 %.not18, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.021, i64 200
-  %17 = load ptr, ptr %16, align 8, !tbaa !102
+  %17 = load ptr, ptr %16, align 8, !tbaa !103
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %19, label %18
 
@@ -1874,7 +1874,7 @@ define dso_local void @trace2_data_string_fl(ptr noundef %0, i32 noundef %1, ptr
   %20 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !103
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !104
 
 .loopexit:                                        ; preds = %19, %6
   ret void
@@ -1891,7 +1891,7 @@ define dso_local void @trace2_data_intmax_fl(ptr noundef %0, i32 noundef %1, ptr
 8:                                                ; preds = %6
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %7, ptr noundef nonnull @.str.4, i64 noundef %5) #11
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !104
+  %10 = load ptr, ptr %9, align 8, !tbaa !105
   %.b.i = load i1, ptr @trace2_enabled, align 4
   br i1 %.b.i, label %11, label %trace2_data_string_fl.exit
 
@@ -1905,14 +1905,14 @@ define dso_local void @trace2_data_intmax_fl(ptr noundef %0, i32 noundef %1, ptr
 16:                                               ; preds = %23, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %23 ]
   %.021.i = phi ptr [ @tr2_tgt_normal, %11 ], [ %25, %23 ]
-  %17 = load ptr, ptr %.021.i, align 8, !tbaa !14
+  %17 = load ptr, ptr %.021.i, align 8, !tbaa !15
   %18 = call i32 @tr2_dst_trace_want(ptr noundef %17) #11
   %.not18.i = icmp eq i32 %18, 0
   br i1 %.not18.i, label %23, label %19
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %.021.i, i64 200
-  %21 = load ptr, ptr %20, align 8, !tbaa !102
+  %21 = load ptr, ptr %20, align 8, !tbaa !103
   %.not19.i = icmp eq ptr %21, null
   br i1 %.not19.i, label %23, label %22
 
@@ -1925,7 +1925,7 @@ define dso_local void @trace2_data_intmax_fl(ptr noundef %0, i32 noundef %1, ptr
   %24 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %trace2_data_string_fl.exit, label %16, !llvm.loop !103
+  br i1 %.not.i, label %trace2_data_string_fl.exit, label %16, !llvm.loop !104
 
 trace2_data_string_fl.exit:                       ; preds = %23, %8
   call void @strbuf_release(ptr noundef nonnull %7) #11
@@ -1958,14 +1958,14 @@ define dso_local void @trace2_data_json_fl(ptr noundef %0, i32 noundef %1, ptr n
 12:                                               ; preds = %7, %19
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %19 ]
   %.021 = phi ptr [ @tr2_tgt_normal, %7 ], [ %21, %19 ]
-  %13 = load ptr, ptr %.021, align 8, !tbaa !14
+  %13 = load ptr, ptr %.021, align 8, !tbaa !15
   %14 = tail call i32 @tr2_dst_trace_want(ptr noundef %13) #11
   %.not18 = icmp eq i32 %14, 0
   br i1 %.not18, label %19, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %.021, i64 208
-  %17 = load ptr, ptr %16, align 8, !tbaa !106
+  %17 = load ptr, ptr %16, align 8, !tbaa !107
   %.not19 = icmp eq ptr %17, null
   br i1 %.not19, label %19, label %18
 
@@ -1978,7 +1978,7 @@ define dso_local void @trace2_data_json_fl(ptr noundef %0, i32 noundef %1, ptr n
   %20 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %12, !llvm.loop !107
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !108
 
 .loopexit:                                        ; preds = %19, %6
   ret void
@@ -1998,14 +1998,14 @@ define dso_local void @trace2_printf_va_fl(ptr noundef %0, i32 noundef %1, ptr n
 9:                                                ; preds = %5, %16
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %16 ]
   %.017 = phi ptr [ @tr2_tgt_normal, %5 ], [ %18, %16 ]
-  %10 = load ptr, ptr %.017, align 8, !tbaa !14
+  %10 = load ptr, ptr %.017, align 8, !tbaa !15
   %11 = tail call i32 @tr2_dst_trace_want(ptr noundef %10) #11
   %.not14 = icmp eq i32 %11, 0
   br i1 %.not14, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.017, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !108
+  %14 = load ptr, ptr %13, align 8, !tbaa !109
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %16, label %15
 
@@ -2018,7 +2018,7 @@ define dso_local void @trace2_printf_va_fl(ptr noundef %0, i32 noundef %1, ptr n
   %17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not, label %.loopexit, label %9, !llvm.loop !109
+  br i1 %.not, label %.loopexit, label %9, !llvm.loop !110
 
 .loopexit:                                        ; preds = %16, %4
   ret void
@@ -2041,14 +2041,14 @@ define dso_local void @trace2_printf_fl(ptr noundef %0, i32 noundef %1, ptr noun
 9:                                                ; preds = %16, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %16 ]
   %.017.i = phi ptr [ @tr2_tgt_normal, %5 ], [ %18, %16 ]
-  %10 = load ptr, ptr %.017.i, align 8, !tbaa !14
+  %10 = load ptr, ptr %.017.i, align 8, !tbaa !15
   %11 = call i32 @tr2_dst_trace_want(ptr noundef %10) #11
   %.not14.i = icmp eq i32 %11, 0
   br i1 %.not14.i, label %16, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.017.i, i64 216
-  %14 = load ptr, ptr %13, align 8, !tbaa !108
+  %14 = load ptr, ptr %13, align 8, !tbaa !109
   %.not15.i = icmp eq ptr %14, null
   br i1 %.not15.i, label %16, label %15
 
@@ -2061,7 +2061,7 @@ define dso_local void @trace2_printf_fl(ptr noundef %0, i32 noundef %1, ptr noun
   %17 = getelementptr inbounds nuw [4 x ptr], ptr @tr2_tgt_builtins, i64 0, i64 %indvars.iv.next.i
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %.not.i, label %trace2_printf_va_fl.exit, label %9, !llvm.loop !109
+  br i1 %.not.i, label %trace2_printf_va_fl.exit, label %9, !llvm.loop !110
 
 trace2_printf_va_fl.exit:                         ; preds = %16, %3
   call void @llvm.va_end.p0(ptr nonnull %4)
@@ -2207,101 +2207,102 @@ attributes #13 = { noreturn nounwind }
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 _ZTS7tr2_tgt", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!5, !6, i64 0}
-!15 = !{!5, !7, i64 24}
-!16 = distinct !{!16, !13}
-!17 = !{!5, !7, i64 56}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"int", !8, i64 0}
-!20 = distinct !{!20, !13}
-!21 = !{!5, !7, i64 16}
-!22 = distinct !{!22, !13}
-!23 = !{!5, !7, i64 48}
-!24 = distinct !{!24, !13}
-!25 = !{!5, !7, i64 32}
-!26 = distinct !{!26, !13}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 omnipotent char", !7, i64 0}
-!29 = distinct !{!29, !13}
-!30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !13}
-!32 = distinct !{!32, !13}
-!33 = distinct !{!33, !13}
-!34 = distinct !{!34, !13}
-!35 = distinct !{!35, !13}
-!36 = !{!5, !7, i64 40}
-!37 = distinct !{!37, !13}
-!38 = !{!5, !7, i64 64}
-!39 = distinct !{!39, !13}
-!40 = !{!5, !7, i64 72}
-!41 = distinct !{!41, !13}
-!42 = !{!5, !7, i64 80}
-!43 = distinct !{!43, !13}
-!44 = !{!5, !7, i64 88}
-!45 = distinct !{!45, !13}
-!46 = !{!5, !7, i64 96}
-!47 = distinct !{!47, !13}
-!48 = !{!5, !7, i64 104}
-!49 = distinct !{!49, !13}
-!50 = !{!51, !53, i64 0}
-!51 = !{!"child_process", !52, i64 0, !52, i64 24, !19, i64 48, !19, i64 52, !54, i64 56, !28, i64 64, !28, i64 72, !19, i64 80, !19, i64 84, !19, i64 88, !28, i64 96, !19, i64 104, !19, i64 104, !19, i64 104, !19, i64 104, !19, i64 104, !19, i64 104, !19, i64 104, !19, i64 104, !19, i64 105, !19, i64 105, !7, i64 112}
-!52 = !{!"strvec", !53, i64 0, !54, i64 8, !54, i64 16}
-!53 = !{!"p2 omnipotent char", !7, i64 0}
-!54 = !{!"long", !8, i64 0}
-!55 = !{!51, !19, i64 52}
-!56 = !{!51, !54, i64 56}
-!57 = !{!5, !7, i64 112}
-!58 = distinct !{!58, !13}
-!59 = !{!5, !7, i64 120}
-!60 = !{!51, !19, i64 48}
-!61 = distinct !{!61, !13}
-!62 = !{!5, !7, i64 128}
-!63 = distinct !{!63, !13}
-!64 = !{!5, !7, i64 152}
-!65 = distinct !{!65, !13}
-!66 = !{!5, !7, i64 160}
-!67 = distinct !{!67, !13}
-!68 = !{!5, !7, i64 136}
-!69 = distinct !{!69, !13}
-!70 = !{!5, !7, i64 184}
-!71 = distinct !{!71, !13}
-!72 = !{!5, !7, i64 144}
-!73 = distinct !{!73, !13}
-!74 = !{!5, !7, i64 192}
-!75 = distinct !{!75, !13}
-!76 = !{!5, !7, i64 224}
-!77 = distinct !{!77, !13}
-!78 = !{!5, !7, i64 232}
-!79 = distinct !{!79, !13}
-!80 = !{!5, !7, i64 168}
-!81 = distinct !{!81, !13}
-!82 = !{!83, !19, i64 420}
-!83 = !{!"repository", !28, i64 0, !28, i64 8, !84, i64 16, !85, i64 24, !86, i64 32, !87, i64 40, !87, i64 104, !91, i64 168, !28, i64 224, !28, i64 232, !28, i64 240, !28, i64 248, !92, i64 256, !94, i64 368, !95, i64 376, !96, i64 384, !97, i64 392, !98, i64 400, !98, i64 408, !19, i64 416, !19, i64 420, !19, i64 424, !28, i64 432, !99, i64 440, !19, i64 448, !19, i64 452, !19, i64 456}
-!84 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
-!85 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
-!86 = !{!"p1 _ZTS9ref_store", !7, i64 0}
-!87 = !{!"strmap", !88, i64 0, !90, i64 48, !19, i64 56}
-!88 = !{!"hashmap", !89, i64 0, !7, i64 8, !7, i64 16, !19, i64 24, !19, i64 28, !19, i64 32, !19, i64 36, !19, i64 40}
-!89 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
-!90 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
-!91 = !{!"repo_path_cache", !28, i64 0, !28, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !28, i64 40, !28, i64 48}
-!92 = !{!"repo_settings", !19, i64 0, !19, i64 4, !19, i64 8, !19, i64 12, !19, i64 16, !19, i64 20, !19, i64 24, !19, i64 28, !19, i64 32, !19, i64 36, !19, i64 40, !19, i64 44, !93, i64 48, !19, i64 56, !19, i64 60, !19, i64 64, !19, i64 68, !19, i64 72, !19, i64 76, !19, i64 80, !54, i64 88, !54, i64 96, !54, i64 104}
-!93 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
-!94 = !{!"p1 _ZTS10config_set", !7, i64 0}
-!95 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
-!96 = !{!"p1 _ZTS11index_state", !7, i64 0}
-!97 = !{!"p1 _ZTS12remote_state", !7, i64 0}
-!98 = !{!"p1 _ZTS13git_hash_algo", !7, i64 0}
-!99 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
-!100 = !{!5, !7, i64 176}
-!101 = distinct !{!101, !13}
-!102 = !{!5, !7, i64 200}
-!103 = distinct !{!103, !13}
-!104 = !{!105, !28, i64 16}
-!105 = !{!"strbuf", !54, i64 0, !54, i64 8, !28, i64 16}
-!106 = !{!5, !7, i64 208}
-!107 = distinct !{!107, !13}
-!108 = !{!5, !7, i64 216}
-!109 = distinct !{!109, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!5, !6, i64 0}
+!16 = !{!5, !7, i64 24}
+!17 = distinct !{!17, !13, !14}
+!18 = !{!5, !7, i64 56}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !8, i64 0}
+!21 = distinct !{!21, !13, !14}
+!22 = !{!5, !7, i64 16}
+!23 = distinct !{!23, !13, !14}
+!24 = !{!5, !7, i64 48}
+!25 = distinct !{!25, !13, !14}
+!26 = !{!5, !7, i64 32}
+!27 = distinct !{!27, !13, !14}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 omnipotent char", !7, i64 0}
+!30 = distinct !{!30, !13, !14}
+!31 = !{!8, !8, i64 0}
+!32 = distinct !{!32, !13, !14}
+!33 = distinct !{!33, !13, !14}
+!34 = distinct !{!34, !13, !14}
+!35 = distinct !{!35, !13, !14}
+!36 = distinct !{!36, !13, !14}
+!37 = !{!5, !7, i64 40}
+!38 = distinct !{!38, !13, !14}
+!39 = !{!5, !7, i64 64}
+!40 = distinct !{!40, !13, !14}
+!41 = !{!5, !7, i64 72}
+!42 = distinct !{!42, !13, !14}
+!43 = !{!5, !7, i64 80}
+!44 = distinct !{!44, !13, !14}
+!45 = !{!5, !7, i64 88}
+!46 = distinct !{!46, !13, !14}
+!47 = !{!5, !7, i64 96}
+!48 = distinct !{!48, !13, !14}
+!49 = !{!5, !7, i64 104}
+!50 = distinct !{!50, !13, !14}
+!51 = !{!52, !54, i64 0}
+!52 = !{!"child_process", !53, i64 0, !53, i64 24, !20, i64 48, !20, i64 52, !55, i64 56, !29, i64 64, !29, i64 72, !20, i64 80, !20, i64 84, !20, i64 88, !29, i64 96, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 104, !20, i64 105, !20, i64 105, !7, i64 112}
+!53 = !{!"strvec", !54, i64 0, !55, i64 8, !55, i64 16}
+!54 = !{!"p2 omnipotent char", !7, i64 0}
+!55 = !{!"long", !8, i64 0}
+!56 = !{!52, !20, i64 52}
+!57 = !{!52, !55, i64 56}
+!58 = !{!5, !7, i64 112}
+!59 = distinct !{!59, !13, !14}
+!60 = !{!5, !7, i64 120}
+!61 = !{!52, !20, i64 48}
+!62 = distinct !{!62, !13, !14}
+!63 = !{!5, !7, i64 128}
+!64 = distinct !{!64, !13, !14}
+!65 = !{!5, !7, i64 152}
+!66 = distinct !{!66, !13, !14}
+!67 = !{!5, !7, i64 160}
+!68 = distinct !{!68, !13, !14}
+!69 = !{!5, !7, i64 136}
+!70 = distinct !{!70, !13, !14}
+!71 = !{!5, !7, i64 184}
+!72 = distinct !{!72, !13, !14}
+!73 = !{!5, !7, i64 144}
+!74 = distinct !{!74, !13, !14}
+!75 = !{!5, !7, i64 192}
+!76 = distinct !{!76, !13, !14}
+!77 = !{!5, !7, i64 224}
+!78 = distinct !{!78, !13, !14}
+!79 = !{!5, !7, i64 232}
+!80 = distinct !{!80, !13, !14}
+!81 = !{!5, !7, i64 168}
+!82 = distinct !{!82, !13, !14}
+!83 = !{!84, !20, i64 420}
+!84 = !{!"repository", !29, i64 0, !29, i64 8, !85, i64 16, !86, i64 24, !87, i64 32, !88, i64 40, !88, i64 104, !92, i64 168, !29, i64 224, !29, i64 232, !29, i64 240, !29, i64 248, !93, i64 256, !95, i64 368, !96, i64 376, !97, i64 384, !98, i64 392, !99, i64 400, !99, i64 408, !20, i64 416, !20, i64 420, !20, i64 424, !29, i64 432, !100, i64 440, !20, i64 448, !20, i64 452, !20, i64 456}
+!85 = !{!"p1 _ZTS16raw_object_store", !7, i64 0}
+!86 = !{!"p1 _ZTS18parsed_object_pool", !7, i64 0}
+!87 = !{!"p1 _ZTS9ref_store", !7, i64 0}
+!88 = !{!"strmap", !89, i64 0, !91, i64 48, !20, i64 56}
+!89 = !{!"hashmap", !90, i64 0, !7, i64 8, !7, i64 16, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !20, i64 40}
+!90 = !{!"p2 _ZTS13hashmap_entry", !7, i64 0}
+!91 = !{!"p1 _ZTS8mem_pool", !7, i64 0}
+!92 = !{!"repo_path_cache", !29, i64 0, !29, i64 8, !29, i64 16, !29, i64 24, !29, i64 32, !29, i64 40, !29, i64 48}
+!93 = !{!"repo_settings", !20, i64 0, !20, i64 4, !20, i64 8, !20, i64 12, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28, !20, i64 32, !20, i64 36, !20, i64 40, !20, i64 44, !94, i64 48, !20, i64 56, !20, i64 60, !20, i64 64, !20, i64 68, !20, i64 72, !20, i64 76, !20, i64 80, !55, i64 88, !55, i64 96, !55, i64 104}
+!94 = !{!"p1 _ZTS18fsmonitor_settings", !7, i64 0}
+!95 = !{!"p1 _ZTS10config_set", !7, i64 0}
+!96 = !{!"p1 _ZTS15submodule_cache", !7, i64 0}
+!97 = !{!"p1 _ZTS11index_state", !7, i64 0}
+!98 = !{!"p1 _ZTS12remote_state", !7, i64 0}
+!99 = !{!"p1 _ZTS13git_hash_algo", !7, i64 0}
+!100 = !{!"p1 _ZTS22promisor_remote_config", !7, i64 0}
+!101 = !{!5, !7, i64 176}
+!102 = distinct !{!102, !13, !14}
+!103 = !{!5, !7, i64 200}
+!104 = distinct !{!104, !13, !14}
+!105 = !{!106, !29, i64 16}
+!106 = !{!"strbuf", !55, i64 0, !55, i64 8, !29, i64 16}
+!107 = !{!5, !7, i64 208}
+!108 = distinct !{!108, !13, !14}
+!109 = !{!5, !7, i64 216}
+!110 = distinct !{!110, !13, !14}

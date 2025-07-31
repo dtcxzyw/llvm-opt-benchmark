@@ -70,7 +70,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %11 = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %.preheader, label %.critedge, !llvm.loop !10
+  br i1 %13, label %.preheader, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
@@ -136,7 +136,7 @@ define dso_local i32 @uv_tty_init(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.2 = select i1 %.not45, i32 %35, i32 %36
   %37 = call i32 @uv__stream_open(ptr noundef %1, i32 noundef %.03757, i32 noundef %.2) #8
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 308
-  store i32 0, ptr %38, align 4, !tbaa !11
+  store i32 0, ptr %38, align 4, !tbaa !12
   br label %39
 
 39:                                               ; preds = %4, %4, %34, %30, %.critedge
@@ -170,7 +170,7 @@ define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %0) local_unn
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %13 = load i32, ptr %12, align 8, !tbaa !21
+  %13 = load i32, ptr %12, align 8, !tbaa !22
   %14 = trunc i32 %13 to i16
   %trunc = and i16 %14, -4096
   switch i16 %trunc, label %16 [
@@ -206,13 +206,13 @@ define dso_local range(i32 0, 18) i32 @uv_guess_handle(i32 noundef %0) local_unn
   ]
 
 23:                                               ; preds = %21
-  %24 = load i16, ptr %2, align 8, !tbaa !24
+  %24 = load i16, ptr %2, align 8, !tbaa !25
   %25 = and i16 %24, -9
   %or.cond = icmp eq i16 %25, 2
   br i1 %or.cond, label %31, label %.thread
 
 26:                                               ; preds = %21
-  %27 = load i16, ptr %2, align 8, !tbaa !24
+  %27 = load i16, ptr %2, align 8, !tbaa !25
   %28 = and i16 %27, -9
   %or.cond7 = icmp eq i16 %28, 2
   br i1 %or.cond7, label %31, label %29
@@ -255,13 +255,13 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
   %3 = alloca %struct.termios, align 4
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 308
-  %5 = load i32, ptr %4, align 4, !tbaa !11
+  %5 = load i32, ptr %4, align 4, !tbaa !12
   %6 = icmp eq i32 %5, %1
   br i1 %6, label %53, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %9 = load i32, ptr %8, align 8, !tbaa !27
+  %9 = load i32, ptr %8, align 8, !tbaa !28
   %10 = icmp eq i32 %5, 0
   %11 = icmp ne i32 %1, 0
   %or.cond = and i1 %11, %10
@@ -280,22 +280,22 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_set_mode(ptr no
   %17 = tail call ptr @__errno_location() #9
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %13, label %.critedge, !llvm.loop !28
+  br i1 %19, label %13, label %.critedge, !llvm.loop !29
 
 .critedge:                                        ; preds = %16
   %20 = sub nsw i32 0, %18
   br label %53
 
 .critedge21:                                      ; preds = %13
-  %21 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !29
+  %21 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !30
   %.not1.i = icmp eq i32 %21, 0
   br i1 %.not1.i, label %uv_spinlock_lock.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge21, %.lr.ph.i
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !30
-  %22 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !29
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !31
+  %22 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !30
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %uv_spinlock_lock.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %.not.i, label %uv_spinlock_lock.exit, label %.lr.ph.i, !llvm.loop !32
 
 uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedge21
   %23 = load i32, ptr @orig_termios_fd, align 4, !tbaa !4
@@ -303,7 +303,7 @@ uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedg
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %uv_spinlock_lock.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) @orig_termios, ptr noundef nonnull align 8 dereferenceable(60) %12, i64 60, i1 false), !tbaa.struct !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) @orig_termios, ptr noundef nonnull align 8 dereferenceable(60) %12, i64 60, i1 false), !tbaa.struct !33
   store i32 %9, ptr @orig_termios_fd, align 4, !tbaa !4
   br label %26
 
@@ -313,32 +313,32 @@ uv_spinlock_lock.exit:                            ; preds = %.lr.ph.i, %.critedg
 
 27:                                               ; preds = %26, %7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 8 dereferenceable(60) %28, i64 60, i1 false), !tbaa.struct !32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %3, ptr noundef nonnull align 8 dereferenceable(60) %28, i64 60, i1 false), !tbaa.struct !33
   switch i32 %1, label %.preheader30 [
     i32 2, label %43
     i32 1, label %29
   ]
 
 29:                                               ; preds = %27
-  %30 = load i32, ptr %3, align 4, !tbaa !34
+  %30 = load i32, ptr %3, align 4, !tbaa !35
   %31 = and i32 %30, -1331
-  store i32 %31, ptr %3, align 4, !tbaa !34
+  store i32 %31, ptr %3, align 4, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %33 = load i32, ptr %32, align 4, !tbaa !35
+  %33 = load i32, ptr %32, align 4, !tbaa !36
   %34 = or i32 %33, 4
-  store i32 %34, ptr %32, align 4, !tbaa !35
+  store i32 %34, ptr %32, align 4, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %36 = load i32, ptr %35, align 4, !tbaa !36
+  %36 = load i32, ptr %35, align 4, !tbaa !37
   %37 = or i32 %36, 48
-  store i32 %37, ptr %35, align 4, !tbaa !36
+  store i32 %37, ptr %35, align 4, !tbaa !37
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %39 = load i32, ptr %38, align 4, !tbaa !37
+  %39 = load i32, ptr %38, align 4, !tbaa !38
   %40 = and i32 %39, -32780
-  store i32 %40, ptr %38, align 4, !tbaa !37
+  store i32 %40, ptr %38, align 4, !tbaa !38
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 23
-  store i8 1, ptr %41, align 1, !tbaa !33
+  store i8 1, ptr %41, align 1, !tbaa !34
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  store i8 0, ptr %42, align 2, !tbaa !33
+  store i8 0, ptr %42, align 2, !tbaa !34
   br label %.preheader30
 
 43:                                               ; preds = %27
@@ -365,7 +365,7 @@ uv__tcsetattr.exit:                               ; preds = %47
   br i1 %52, label %uv__tcsetattr.exit.thread, label %53
 
 uv__tcsetattr.exit.thread:                        ; preds = %44, %uv__tcsetattr.exit
-  store i32 %1, ptr %4, align 4, !tbaa !11
+  store i32 %1, ptr %4, align 4, !tbaa !12
   br label %53
 
 53:                                               ; preds = %uv__tcsetattr.exit, %uv__tcsetattr.exit.thread, %2, %.critedge
@@ -388,7 +388,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr
   br label %6
 
 6:                                                ; preds = %10, %3
-  %7 = load i32, ptr %5, align 8, !tbaa !27
+  %7 = load i32, ptr %5, align 8, !tbaa !28
   %8 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 21523, ptr noundef nonnull %4) #8
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %10, label %.critedge5
@@ -397,7 +397,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr
   %11 = tail call ptr @__errno_location() #9
   %12 = load i32, ptr %11, align 4, !tbaa !4
   %13 = icmp eq i32 %12, 4
-  br i1 %13, label %6, label %.critedge, !llvm.loop !38
+  br i1 %13, label %6, label %.critedge, !llvm.loop !39
 
 .critedge:                                        ; preds = %10
   %14 = sub nsw i32 0, %12
@@ -405,10 +405,10 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_get_winsize(ptr
 
 .critedge5:                                       ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %16 = load i16, ptr %15, align 2, !tbaa !39
+  %16 = load i16, ptr %15, align 2, !tbaa !40
   %17 = zext i16 %16 to i32
   store i32 %17, ptr %1, align 4, !tbaa !4
-  %18 = load i16, ptr %4, align 2, !tbaa !41
+  %18 = load i16, ptr %4, align 2, !tbaa !42
   %19 = zext i16 %18 to i32
   store i32 %19, ptr %2, align 4, !tbaa !4
   br label %20
@@ -438,7 +438,7 @@ declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr 
 define dso_local range(i32 -2147483647, -2147483648) i32 @uv_tty_reset_mode() local_unnamed_addr #0 {
   %1 = tail call ptr @__errno_location() #9
   %2 = load i32, ptr %1, align 4, !tbaa !4
-  %3 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !29
+  %3 = tail call i32 asm sideeffect "lock; cmpxchg $2, $1;", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @termios_spinlock, i32 1, i32 0, ptr nonnull elementtype(i32) @termios_spinlock) #8, !srcloc !30
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %12
 
@@ -506,37 +506,38 @@ attributes #9 = { nounwind willreturn memory(none) }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !5, i64 308}
-!12 = !{!"uv_tty_s", !13, i64 0, !14, i64 8, !5, i64 16, !13, i64 24, !6, i64 32, !6, i64 48, !15, i64 80, !5, i64 88, !16, i64 96, !13, i64 104, !13, i64 112, !17, i64 120, !18, i64 128, !19, i64 136, !6, i64 192, !6, i64 208, !13, i64 224, !5, i64 232, !5, i64 236, !13, i64 240, !20, i64 248, !5, i64 308}
-!13 = !{!"any pointer", !6, i64 0}
-!14 = !{!"p1 _ZTS9uv_loop_s", !13, i64 0}
-!15 = !{!"p1 _ZTS11uv_handle_s", !13, i64 0}
-!16 = !{!"long", !6, i64 0}
-!17 = !{!"p1 _ZTS12uv_connect_s", !13, i64 0}
-!18 = !{!"p1 _ZTS13uv_shutdown_s", !13, i64 0}
-!19 = !{!"uv__io_s", !13, i64 0, !6, i64 8, !6, i64 24, !5, i64 40, !5, i64 44, !5, i64 48}
-!20 = !{!"termios", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 17, !5, i64 52, !5, i64 56}
-!21 = !{!22, !5, i64 24}
-!22 = !{!"stat", !16, i64 0, !16, i64 8, !16, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !16, i64 40, !16, i64 48, !16, i64 56, !16, i64 64, !23, i64 72, !23, i64 88, !23, i64 104, !6, i64 120}
-!23 = !{!"timespec", !16, i64 0, !16, i64 8}
-!24 = !{!25, !26, i64 0}
-!25 = !{!"sockaddr_storage", !26, i64 0, !6, i64 2, !16, i64 120}
-!26 = !{!"short", !6, i64 0}
-!27 = !{!12, !5, i64 184}
-!28 = distinct !{!28, !9}
-!29 = !{i64 1386457}
-!30 = !{i64 1387500}
-!31 = distinct !{!31, !9}
-!32 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 1, !33, i64 17, i64 32, !33, i64 52, i64 4, !4, i64 56, i64 4, !4}
-!33 = !{!6, !6, i64 0}
-!34 = !{!20, !5, i64 0}
-!35 = !{!20, !5, i64 4}
-!36 = !{!20, !5, i64 8}
-!37 = !{!20, !5, i64 12}
-!38 = distinct !{!38, !9}
-!39 = !{!40, !26, i64 2}
-!40 = !{!"winsize", !26, i64 0, !26, i64 2, !26, i64 4, !26, i64 6}
-!41 = !{!40, !26, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !5, i64 308}
+!13 = !{!"uv_tty_s", !14, i64 0, !15, i64 8, !5, i64 16, !14, i64 24, !6, i64 32, !6, i64 48, !16, i64 80, !5, i64 88, !17, i64 96, !14, i64 104, !14, i64 112, !18, i64 120, !19, i64 128, !20, i64 136, !6, i64 192, !6, i64 208, !14, i64 224, !5, i64 232, !5, i64 236, !14, i64 240, !21, i64 248, !5, i64 308}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!"p1 _ZTS9uv_loop_s", !14, i64 0}
+!16 = !{!"p1 _ZTS11uv_handle_s", !14, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = !{!"p1 _ZTS12uv_connect_s", !14, i64 0}
+!19 = !{!"p1 _ZTS13uv_shutdown_s", !14, i64 0}
+!20 = !{!"uv__io_s", !14, i64 0, !6, i64 8, !6, i64 24, !5, i64 40, !5, i64 44, !5, i64 48}
+!21 = !{!"termios", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !6, i64 16, !6, i64 17, !5, i64 52, !5, i64 56}
+!22 = !{!23, !5, i64 24}
+!23 = !{!"stat", !17, i64 0, !17, i64 8, !17, i64 16, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !24, i64 72, !24, i64 88, !24, i64 104, !6, i64 120}
+!24 = !{!"timespec", !17, i64 0, !17, i64 8}
+!25 = !{!26, !27, i64 0}
+!26 = !{!"sockaddr_storage", !27, i64 0, !6, i64 2, !17, i64 120}
+!27 = !{!"short", !6, i64 0}
+!28 = !{!13, !5, i64 184}
+!29 = distinct !{!29, !9, !10}
+!30 = !{i64 1386457}
+!31 = !{i64 1387500}
+!32 = distinct !{!32, !9, !10}
+!33 = !{i64 0, i64 4, !4, i64 4, i64 4, !4, i64 8, i64 4, !4, i64 12, i64 4, !4, i64 16, i64 1, !34, i64 17, i64 32, !34, i64 52, i64 4, !4, i64 56, i64 4, !4}
+!34 = !{!6, !6, i64 0}
+!35 = !{!21, !5, i64 0}
+!36 = !{!21, !5, i64 4}
+!37 = !{!21, !5, i64 8}
+!38 = !{!21, !5, i64 12}
+!39 = distinct !{!39, !9, !10}
+!40 = !{!41, !27, i64 2}
+!41 = !{!"winsize", !27, i64 0, !27, i64 2, !27, i64 4, !27, i64 6}
+!42 = !{!41, !27, i64 0}

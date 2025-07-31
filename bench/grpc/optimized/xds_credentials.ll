@@ -471,7 +471,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInte
 
 19:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %18 to i64
   %24 = sub i64 %22, %23
@@ -533,7 +533,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInte
 
 11:                                               ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN4grpc12experimental33ClientInterceptorFactoryInterfaceESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !45
+  %13 = load ptr, ptr %12, align 8, !tbaa !46
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
@@ -624,6 +624,7 @@ attributes #20 = { noreturn nounwind }
 !40 = !{!38, !39, i64 8}
 !41 = !{!42, !42, i64 0}
 !42 = !{!"p1 _ZTSN4grpc12experimental33ClientInterceptorFactoryInterfaceE", !6, i64 0}
-!43 = distinct !{!43, !44}
+!43 = distinct !{!43, !44, !45}
 !44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!38, !39, i64 16}
+!45 = !{!"llvm.loop.estimated_trip_count"}
+!46 = !{!38, !39, i64 16}

@@ -319,25 +319,25 @@ define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultColli
 74:                                               ; preds = %.loopexit66, %54
   %.sink71 = phi ptr [ %55, %.loopexit66 ], [ %52, %54 ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink71, ptr %75, align 8, !tbaa !53
+  store ptr %.sink71, ptr %75, align 8, !tbaa !54
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !54
+  %77 = load ptr, ptr %76, align 8, !tbaa !55
   %.not30 = icmp eq ptr %77, null
   br i1 %.not30, label %.noexc38, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 0, ptr %79, align 8, !tbaa !55
+  store i8 0, ptr %79, align 8, !tbaa !56
   br label %102
 
 .noexc38:                                         ; preds = %74
   %80 = and i32 %.sroa.speculated, 2147483632
   %81 = add nuw nsw i32 %80, 16
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %82, align 8, !tbaa !55
+  store i8 1, ptr %82, align 8, !tbaa !56
   %83 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 40, i32 noundef 16)
   %84 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %85 = load i32, ptr %84, align 4, !tbaa !56
+  %85 = load i32, ptr %84, align 4, !tbaa !57
   store i32 %81, ptr %83, align 8, !tbaa !41
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i32 %85, ptr %86, align 4, !tbaa !45
@@ -379,7 +379,7 @@ define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultColli
 102:                                              ; preds = %.loopexit, %78
   %.sink73 = phi ptr [ %83, %.loopexit ], [ %77, %78 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink73, ptr %103, align 8, !tbaa !57
+  store ptr %.sink73, ptr %103, align 8, !tbaa !58
   ret void
 }
 
@@ -393,13 +393,13 @@ declare void @_ZN23btConvexConvexAlgorithm10CreateFuncC1EP30btConvexPenetrationD
 define dso_local void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTV31btDefaultCollisionConfiguration, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load i8, ptr %2, align 8, !tbaa !55, !range !58, !noundef !59
+  %3 = load i8, ptr %2, align 8, !tbaa !56, !range !59, !noundef !60
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %14
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !57
+  %7 = load ptr, ptr %6, align 8, !tbaa !58
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !47
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %9)
@@ -413,19 +413,19 @@ define dso_local void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonn
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit:                    ; preds = %5
-  %13 = load ptr, ptr %6, align 8, !tbaa !57
+  %13 = load ptr, ptr %6, align 8, !tbaa !58
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %13)
           to label %14 unwind label %112
 
 14:                                               ; preds = %_ZN15btPoolAllocatorD2Ev.exit, %1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %16 = load i8, ptr %15, align 8, !tbaa !39, !range !58, !noundef !59
+  %16 = load i8, ptr %15, align 8, !tbaa !39, !range !59, !noundef !60
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !53
+  %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !47
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %22)
@@ -439,7 +439,7 @@ _ZN15btPoolAllocatorD2Ev.exit:                    ; preds = %5
   unreachable
 
 _ZN15btPoolAllocatorD2Ev.exit1:                   ; preds = %18
-  %26 = load ptr, ptr %19, align 8, !tbaa !53
+  %26 = load ptr, ptr %19, align 8, !tbaa !54
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %26)
           to label %27 unwind label %112
 
@@ -681,7 +681,7 @@ define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration35getClosestPo
 29:                                               ; preds = %.thread33, %26, %21, %18, %17, %13, %10, %8, %6, %3
   %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 168, %10 ], [ 160, %13 ], [ 56, %17 ], [ 64, %18 ], [ 72, %21 ], [ %., %26 ], [ %.36, %.thread33 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %.0 = load ptr, ptr %30, align 8, !tbaa !60
+  %.0 = load ptr, ptr %30, align 8, !tbaa !61
   ret ptr %.0
 }
 
@@ -753,7 +753,7 @@ define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration31getCollision
 31:                                               ; preds = %.thread37, %28, %23, %20, %19, %15, %12, %10, %8, %6, %3
   %.sink = phi i64 [ 112, %3 ], [ 144, %6 ], [ 152, %8 ], [ 136, %10 ], [ 168, %12 ], [ 160, %15 ], [ 56, %19 ], [ 64, %20 ], [ 72, %23 ], [ %., %28 ], [ %.40, %.thread37 ]
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
-  %.0 = load ptr, ptr %32, align 8, !tbaa !60
+  %.0 = load ptr, ptr %32, align 8, !tbaa !61
   ret ptr %.0
 }
 
@@ -762,9 +762,9 @@ define dso_local void @_ZN31btDefaultCollisionConfiguration35setConvexConvexMult
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i32 %1, ptr %6, align 8, !tbaa !61
+  store i32 %1, ptr %6, align 8, !tbaa !62
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %2, ptr %7, align 4, !tbaa !63
+  store i32 %2, ptr %7, align 4, !tbaa !64
   ret void
 }
 
@@ -788,14 +788,14 @@ define dso_local void @_ZN31btDefaultCollisionConfiguration34setPlaneConvexMulti
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration25getPersistentManifoldPoolEv(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !53
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration25getCollisionAlgorithmPoolEv(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !57
+  %3 = load ptr, ptr %2, align 8, !tbaa !58
   ret ptr %3
 }
 
@@ -807,7 +807,7 @@ define linkonce_odr dso_local void @_ZN33btConvexConcaveCollisionAlgorithm10Crea
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN33btConvexConcaveCollisionAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -826,7 +826,7 @@ define linkonce_odr dso_local void @_ZN33btConvexConcaveCollisionAlgorithm17Swap
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN33btConvexConcaveCollisionAlgorithm17SwappedCreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -843,7 +843,7 @@ define linkonce_odr dso_local void @_ZN28btCompoundCollisionAlgorithm10CreateFun
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN28btCompoundCollisionAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -862,7 +862,7 @@ define linkonce_odr dso_local void @_ZN36btCompoundCompoundCollisionAlgorithm10C
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN36btCompoundCompoundCollisionAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -881,7 +881,7 @@ define linkonce_odr dso_local void @_ZN28btCompoundCollisionAlgorithm17SwappedCr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN28btCompoundCollisionAlgorithm17SwappedCreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -898,7 +898,7 @@ define linkonce_odr dso_local void @_ZN16btEmptyAlgorithm10CreateFuncD0Ev(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN16btEmptyAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -917,7 +917,7 @@ define linkonce_odr dso_local void @_ZN32btSphereSphereCollisionAlgorithm10Creat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN32btSphereSphereCollisionAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -936,15 +936,15 @@ define linkonce_odr dso_local void @_ZN34btSphereTriangleCollisionAlgorithm10Cre
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN34btSphereTriangleCollisionAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 40)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !68
+  %11 = load ptr, ptr %10, align 8, !tbaa !69
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i8, ptr %12, align 8, !tbaa !20, !range !58, !noundef !59
+  %13 = load i8, ptr %12, align 8, !tbaa !20, !range !59, !noundef !60
   %14 = trunc nuw i8 %13 to i1
   tail call void @_ZN34btSphereTriangleCollisionAlgorithmC1EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_b(ptr noundef nonnull align 8 dereferenceable(33) %9, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %14)
   ret ptr %9
@@ -960,7 +960,7 @@ define linkonce_odr dso_local void @_ZN26btBoxBoxCollisionAlgorithm10CreateFuncD
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN26btBoxBoxCollisionAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
@@ -984,13 +984,13 @@ define linkonce_odr dso_local void @_ZN31btConvexPlaneCollisionAlgorithm10Create
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN31btConvexPlaneCollisionAlgorithm10CreateFunc24CreateCollisionAlgorithmER36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 {
-  %5 = load ptr, ptr %1, align 8, !tbaa !64
+  %5 = load ptr, ptr %1, align 8, !tbaa !65
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 48)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i8, ptr %10, align 8, !tbaa !20, !range !58, !noundef !59
+  %11 = load i8, ptr %10, align 8, !tbaa !20, !range !59, !noundef !60
   %12 = trunc nuw i8 %11 to i1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !32
@@ -1072,21 +1072,22 @@ attributes #12 = { builtin nounwind }
 !48 = !{!42, !10, i64 16}
 !49 = !{!42, !12, i64 8}
 !50 = !{!10, !10, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!14, !9, i64 16}
-!54 = !{!8, !9, i64 8}
-!55 = !{!14, !16, i64 40}
-!56 = !{!8, !12, i64 20}
-!57 = !{!14, !9, i64 32}
-!58 = !{i8 0, i8 2}
-!59 = !{}
-!60 = !{!18, !18, i64 0}
-!61 = !{!62, !12, i64 24}
-!62 = !{!"_ZTSN23btConvexConvexAlgorithm10CreateFuncE", !21, i64 0, !17, i64 16, !12, i64 24, !12, i64 28}
-!63 = !{!62, !12, i64 28}
-!64 = !{!65, !66, i64 0}
-!65 = !{!"_ZTS36btCollisionAlgorithmConstructionInfo", !66, i64 0, !67, i64 8}
-!66 = !{!"p1 _ZTS12btDispatcher", !10, i64 0}
-!67 = !{!"p1 _ZTS20btPersistentManifold", !10, i64 0}
-!68 = !{!65, !67, i64 8}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!14, !9, i64 16}
+!55 = !{!8, !9, i64 8}
+!56 = !{!14, !16, i64 40}
+!57 = !{!8, !12, i64 20}
+!58 = !{!14, !9, i64 32}
+!59 = !{i8 0, i8 2}
+!60 = !{}
+!61 = !{!18, !18, i64 0}
+!62 = !{!63, !12, i64 24}
+!63 = !{!"_ZTSN23btConvexConvexAlgorithm10CreateFuncE", !21, i64 0, !17, i64 16, !12, i64 24, !12, i64 28}
+!64 = !{!63, !12, i64 28}
+!65 = !{!66, !67, i64 0}
+!66 = !{!"_ZTS36btCollisionAlgorithmConstructionInfo", !67, i64 0, !68, i64 8}
+!67 = !{!"p1 _ZTS12btDispatcher", !10, i64 0}
+!68 = !{!"p1 _ZTS20btPersistentManifold", !10, i64 0}
+!69 = !{!66, !68, i64 8}

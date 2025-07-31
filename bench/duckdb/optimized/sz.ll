@@ -170,16 +170,16 @@ define void @duckdb_je_sz_boot(ptr noundef readonly captures(none) %0, i1 nounde
   %.1.i = phi i32 [ %29, %14 ], [ %.01418.i, %9 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 232
-  br i1 %exitcond.not.i, label %.preheader.i, label %9
+  br i1 %exitcond.not.i, label %.preheader.i, label %9, !llvm.loop !17
 
 31:                                               ; preds = %31, %.lr.ph.i
   %.019.i = phi i32 [ %.1.i, %.lr.ph.i ], [ %34, %31 ]
-  %32 = load i64, ptr %6, align 8, !tbaa !17
+  %32 = load i64, ptr %6, align 8, !tbaa !19
   %33 = add i64 %32, 4096
   store i64 %33, ptr %8, align 8, !tbaa !3
   %34 = add i32 %.019.i, 1
   %exitcond21.not.i = icmp eq i32 %34, 200
-  br i1 %exitcond21.not.i, label %sz_boot_pind2sz_tab.exit.preheader, label %31
+  br i1 %exitcond21.not.i, label %sz_boot_pind2sz_tab.exit.preheader, label %31, !llvm.loop !21
 
 sz_boot_pind2sz_tab.exit.preheader:               ; preds = %31, %.preheader.i
   br label %sz_boot_pind2sz_tab.exit
@@ -203,7 +203,7 @@ sz_boot_pind2sz_tab.exit:                         ; preds = %sz_boot_pind2sz_tab
   store i64 %47, ptr %48, align 8, !tbaa !3
   %indvars.iv.next.i4 = add nuw nsw i64 %indvars.iv.i3, 1
   %exitcond.not.i5 = icmp eq i64 %indvars.iv.next.i4, 232
-  br i1 %exitcond.not.i5, label %sz_boot_index2size_tab.exit, label %sz_boot_pind2sz_tab.exit
+  br i1 %exitcond.not.i5, label %sz_boot_index2size_tab.exit, label %sz_boot_pind2sz_tab.exit, !llvm.loop !22
 
 sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab.exit, %._crit_edge.i
   %indvars.iv.i6 = phi i64 [ %indvars.iv.next.i8, %._crit_edge.i ], [ 0, %sz_boot_pind2sz_tab.exit ]
@@ -233,7 +233,7 @@ sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab
   %66 = sub nuw nsw i64 %63, %.020.i
   %umin.i = tail call i64 @llvm.umin.i64(i64 %65, i64 %66)
   %67 = add nuw nsw i64 %umin.i, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %64, i64 %67, i1 false), !tbaa !19
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 %64, i64 %67, i1 false), !tbaa !23
   %68 = add nuw nsw i64 %.020.i, 1
   %69 = add nuw nsw i64 %68, %umin.i
   br label %._crit_edge.i
@@ -244,7 +244,7 @@ sz_boot_index2size_tab.exit:                      ; preds = %sz_boot_pind2sz_tab
   %70 = icmp samesign ult i64 %indvars.iv.i6, 231
   %71 = icmp ult i64 %.1.lcssa.i, 513
   %72 = and i1 %70, %71
-  br i1 %72, label %sz_boot_index2size_tab.exit, label %sz_boot_size2index_tab.exit
+  br i1 %72, label %sz_boot_index2size_tab.exit, label %sz_boot_size2index_tab.exit, !llvm.loop !24
 
 sz_boot_size2index_tab.exit:                      ; preds = %._crit_edge.i
   ret void
@@ -294,6 +294,11 @@ attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !14 = !{!9, !10, i64 4}
 !15 = !{!9, !10, i64 12}
 !16 = !{!9, !10, i64 8}
-!17 = !{!18, !4, i64 64}
-!18 = !{!"sc_data_s", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !4, i64 32, !4, i64 40, !10, i64 48, !4, i64 56, !4, i64 64, !11, i64 72, !5, i64 76}
-!19 = !{!5, !5, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !4, i64 64}
+!20 = !{!"sc_data_s", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !4, i64 32, !4, i64 40, !10, i64 48, !4, i64 56, !4, i64 64, !11, i64 72, !5, i64 76}
+!21 = distinct !{!21, !18}
+!22 = distinct !{!22, !18}
+!23 = !{!5, !5, i64 0}
+!24 = distinct !{!24, !18}

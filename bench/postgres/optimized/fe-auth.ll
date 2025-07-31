@@ -462,7 +462,7 @@ pg_password_sendauth.exit:                        ; preds = %99, %116
   %.172.i = phi ptr [ %.071104.i, %161 ], [ %.071104.i, %167 ], [ @.str.41, %171 ]
   %173 = call i32 @pqGets(ptr noundef nonnull %9, ptr noundef nonnull %2) #10
   %.not77.i = icmp eq i32 %173, 0
-  br i1 %.not77.i, label %148, label %._crit_edge.i
+  br i1 %.not77.i, label %148, label %._crit_edge.i, !llvm.loop !5
 
 174:                                              ; preds = %151
   %.not78.i = icmp eq ptr %.071104.i, null
@@ -482,7 +482,7 @@ pg_password_sendauth.exit:                        ; preds = %99, %116
   %180 = getelementptr inbounds nuw i8, ptr %2, i64 832
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %179, %181
-  br i1 %182, label %.thread.i53, label %183, !llvm.loop !5
+  br i1 %182, label %.thread.i53, label %183, !llvm.loop !7
 
 183:                                              ; preds = %178
   call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.43, ptr noundef nonnull %177, ptr noundef nonnull %.071104.i) #10
@@ -1219,4 +1219,6 @@ attributes #13 = { nounwind willreturn memory(none) }
 !3 = !{i8 0, i8 2}
 !4 = !{}
 !5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}

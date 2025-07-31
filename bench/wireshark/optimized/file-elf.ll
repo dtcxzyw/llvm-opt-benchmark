@@ -1568,7 +1568,7 @@ value_guard.exit1045:                             ; preds = %375, %372
   %.1958 = phi i64 [ %.09571238, %372 ], [ %spec.select1039, %375 ]
   %378 = add i32 %190, %358
   %.not1024 = icmp eq i16 %331, 0
-  br i1 %.not1024, label %value_guard.exit1051.preheader, label %330, !llvm.loop !8
+  br i1 %.not1024, label %value_guard.exit1051.preheader, label %330, !llvm.loop !9
 
 379:                                              ; preds = %value_guard.exit1051.preheader, %value_guard.exit1051
   %indvars.iv1317 = phi i32 [ %151, %value_guard.exit1051.preheader ], [ %380, %value_guard.exit1051 ]
@@ -1917,7 +1917,7 @@ value_guard.exit1058:                             ; preds = %value_guard.exit105
 
 value_guard.exit169.i:                            ; preds = %value_guard.exit168.i
   %558 = icmp slt i32 %621, %553
-  br i1 %558, label %559, label %._crit_edge.i, !llvm.loop !9
+  br i1 %558, label %559, label %._crit_edge.i, !llvm.loop !10
 
 559:                                              ; preds = %value_guard.exit169.i, %.lr.ph.i
   %.0192.i = phi i32 [ 0, %.lr.ph.i ], [ %.1235.i, %value_guard.exit169.i ]
@@ -2084,7 +2084,7 @@ value_guard.exit169.i:                            ; preds = %value_guard.exit168
   %652 = icmp slt i8 %645, 0
   %653 = icmp samesign ult i64 %indvars.iv.i.i, 57
   %654 = select i1 %652, i1 %653, i1 false
-  br i1 %654, label %644, label %dissect_leb128.exit.i, !llvm.loop !10
+  br i1 %654, label %644, label %dissect_leb128.exit.i, !llvm.loop !11
 
 dissect_leb128.exit.i:                            ; preds = %644
   %655 = and i32 %647, 64
@@ -2172,7 +2172,7 @@ value_guard.exit168.i:                            ; preds = %698
   %704 = select i1 %608, i32 %702, i32 %703
   %705 = call ptr @proto_tree_add_item(ptr noundef %.0157227.i, i32 noundef %704, ptr noundef %0, i32 noundef %.4.i, i32 noundef %699, i32 noundef range(i32 -2147483648, 1) %.)
   %706 = icmp sgt i32 %607, -1
-  br i1 %706, label %value_guard.exit169.i, label %707, !llvm.loop !9
+  br i1 %706, label %value_guard.exit169.i, label %707, !llvm.loop !10
 
 707:                                              ; preds = %value_guard.exit168.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.666, ptr noundef nonnull @.str.667, i32 noundef 647, ptr noundef nonnull @.str.668, ptr noundef nonnull @.str.669) #7
@@ -2391,7 +2391,7 @@ get_dwarf_extension_length.exit123.i:             ; preds = %776, %775, %774, %7
   %787 = icmp slt i8 %785, 0
   %788 = icmp samesign ult i64 %indvars.iv.i.i1067, 57
   %789 = select i1 %787, i1 %788, i1 false
-  br i1 %789, label %.preheader12.i, label %dissect_leb128.exit.i1069, !llvm.loop !10
+  br i1 %789, label %.preheader12.i, label %dissect_leb128.exit.i1069, !llvm.loop !11
 
 dissect_leb128.exit.i1069:                        ; preds = %.preheader12.i
   %790 = sub i32 %786, %778
@@ -2427,7 +2427,7 @@ dissect_leb128.exit.i1069:                        ; preds = %.preheader12.i
   %804 = icmp slt i8 %797, 0
   %805 = icmp samesign ult i64 %indvars.iv.i125.i, 57
   %806 = select i1 %804, i1 %805, i1 false
-  br i1 %806, label %.preheader11.i, label %dissect_leb128.exit130.i, !llvm.loop !10
+  br i1 %806, label %.preheader11.i, label %dissect_leb128.exit130.i, !llvm.loop !11
 
 dissect_leb128.exit130.i:                         ; preds = %.preheader11.i
   %807 = and i32 %799, 64
@@ -2531,7 +2531,7 @@ dissect_leb128.exit130.i:                         ; preds = %.preheader11.i
   %845 = icmp slt i8 %843, 0
   %846 = icmp samesign ult i64 %indvars.iv.i131.i, 57
   %847 = select i1 %845, i1 %846, i1 false
-  br i1 %847, label %.preheader.i, label %dissect_leb128.exit136.i, !llvm.loop !10
+  br i1 %847, label %.preheader.i, label %dissect_leb128.exit136.i, !llvm.loop !11
 
 dissect_leb128.exit136.i:                         ; preds = %.preheader.i
   %848 = sub i32 %844, %840
@@ -2574,7 +2574,7 @@ value_guard.exit.i:                               ; preds = %849
   %869 = zext i32 %868 to i64
   %870 = load i64, ptr %5, align 8
   %.not.i1065 = icmp ult i64 %870, %869
-  br i1 %.not.i1065, label %dissect_eh_frame_hdr.exit, label %.lr.ph.i1064, !llvm.loop !11
+  br i1 %.not.i1065, label %dissect_eh_frame_hdr.exit, label %.lr.ph.i1064, !llvm.loop !12
 
 dissect_eh_frame_hdr.exit:                        ; preds = %.lr.ph.i1064, %value_guard.exit.i
   %.0.lcssa.i = phi i32 [ %840, %value_guard.exit.i ], [ %.reass.i, %.lr.ph.i1064 ]
@@ -2738,7 +2738,7 @@ value_guard.exit1070:                             ; preds = %dissect_dynamic.exi
   %942 = add i32 %.09671256, 1
   %943 = zext i32 %942 to i64
   %.not1132 = icmp ugt i32 %942, %879
-  br i1 %.not1132, label %value_guard.exit1051, label %value_guard.exit1071, !llvm.loop !12
+  br i1 %.not1132, label %value_guard.exit1051, label %value_guard.exit1071, !llvm.loop !13
 
 944:                                              ; preds = %873
   %945 = icmp eq i32 %395, 2
@@ -3038,7 +3038,7 @@ value_guard.exit1075:                             ; preds = %dissect_symbol_tabl
   %1096 = add i32 %.19681247, 1
   %1097 = zext i32 %1096 to i64
   %.not1131 = icmp ult i64 %950, %1097
-  br i1 %.not1131, label %value_guard.exit1051, label %value_guard.exit1076, !llvm.loop !13
+  br i1 %.not1131, label %value_guard.exit1051, label %value_guard.exit1076, !llvm.loop !14
 
 value_guard.exit1080:                             ; preds = %value_guard.exit1080.preheader, %value_guard.exit1080
   %.29641244 = phi i32 [ %1103, %value_guard.exit1080 ], [ %550, %value_guard.exit1080.preheader ]
@@ -3053,7 +3053,7 @@ value_guard.exit1080:                             ; preds = %value_guard.exit108
   %1103 = add i32 %1098, %.29641244
   %1104 = add i32 %.29691243, 1
   %1105 = icmp slt i32 %1103, %947
-  br i1 %1105, label %value_guard.exit1080, label %value_guard.exit1051, !llvm.loop !14
+  br i1 %1105, label %value_guard.exit1080, label %value_guard.exit1051, !llvm.loop !15
 
 1106:                                             ; preds = %944
   %1107 = icmp ult i64 %.0961, 2
@@ -3075,7 +3075,7 @@ value_guard.exit1083:                             ; preds = %value_guard.exit108
   %1113 = add i32 %.39651253, %1109
   %1114 = add nuw nsw i32 %.39701252, 1
   %.not1030.not = icmp samesign ult i32 %.39701252, %1110
-  br i1 %.not1030.not, label %value_guard.exit1083, label %value_guard.exit1051, !llvm.loop !15
+  br i1 %.not1030.not, label %value_guard.exit1083, label %value_guard.exit1051, !llvm.loop !16
 
 value_guard.exit1051.sink.split:                  ; preds = %dissect_eh_frame_hdr.exit, %dissect_eh_frame.exit
   %1115 = load ptr, ptr %13, align 8
@@ -3086,7 +3086,7 @@ value_guard.exit1051:                             ; preds = %value_guard.exit108
   %.3984 = phi i64 [ %542, %dissect_eh_frame.exit ], [ %542, %dissect_eh_frame_hdr.exit ], [ %542, %875 ], [ %542, %949 ], [ %542, %1106 ], [ %.29831264, %537 ], [ %542, %value_guard.exit1075.preheader ], [ %542, %value_guard.exit1080.preheader ], [ %542, %value_guard.exit1051.sink.split ], [ %542, %value_guard.exit1070 ], [ %542, %value_guard.exit1083 ], [ %542, %value_guard.exit1075 ], [ %542, %value_guard.exit1080 ]
   %.5978 = phi i32 [ %547, %dissect_eh_frame.exit ], [ %547, %dissect_eh_frame_hdr.exit ], [ %547, %875 ], [ %547, %949 ], [ %547, %1106 ], [ %.49771265, %537 ], [ %547, %value_guard.exit1075.preheader ], [ %547, %value_guard.exit1080.preheader ], [ %547, %value_guard.exit1051.sink.split ], [ %547, %value_guard.exit1070 ], [ %547, %value_guard.exit1083 ], [ %547, %value_guard.exit1075 ], [ %547, %value_guard.exit1080 ]
   %.not1025.wide = icmp eq i32 %380, 0
-  br i1 %.not1025.wide, label %value_guard.exit1051._crit_edge, label %379, !llvm.loop !16
+  br i1 %.not1025.wide, label %value_guard.exit1051._crit_edge, label %379, !llvm.loop !17
 
 value_guard.exit1051._crit_edge:                  ; preds = %value_guard.exit1051, %value_guard.exit1045.preheader
   %.2983.lcssa = phi i64 [ %.0981.lcssa, %value_guard.exit1045.preheader ], [ %.3984, %value_guard.exit1051 ]
@@ -3158,13 +3158,13 @@ proto_item_set_generated.exit:                    ; preds = %value_guard.exit105
   %indvars.iv.next1323 = add nuw nsw i64 %indvars.iv1322, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1323 to i32
   %exitcond.not = icmp eq i32 %.4977.lcssa, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1273, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1273, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %1138, %.lr.ph1275
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   %indvars.iv.next1321 = add nuw nsw i64 %indvars.iv1320, 1
   %exitcond1328.not = icmp eq i64 %indvars.iv.next1326, %1131
-  br i1 %exitcond1328.not, label %.preheader, label %.lr.ph1275, !llvm.loop !18
+  br i1 %exitcond1328.not, label %.preheader, label %.lr.ph1275, !llvm.loop !19
 
 .lr.ph1278:                                       ; preds = %.lr.ph1278.preheader, %1178
   %1139 = phi i64 [ %.pre, %.lr.ph1278.preheader ], [ %1145, %1178 ]
@@ -3236,7 +3236,7 @@ value_guard.exit1086:                             ; preds = %1163
   %.5986 = phi i64 [ %.49851276, %value_guard.exit1085 ], [ %1177, %value_guard.exit1086 ], [ %.49851276, %1161 ]
   %indvars.iv.next1330 = add nuw nsw i64 %indvars.iv1329, 1
   %exitcond1333.not = icmp eq i64 %indvars.iv.next1330, %wide.trip.count1332
-  br i1 %exitcond1333.not, label %._crit_edge1279, label %.lr.ph1278, !llvm.loop !19
+  br i1 %exitcond1333.not, label %._crit_edge1279, label %.lr.ph1278, !llvm.loop !20
 
 ._crit_edge1279:                                  ; preds = %1178, %proto_item_set_generated.exit, %.preheader
   %.4985.lcssa = phi i64 [ %.2983.lcssa, %.preheader ], [ %.2983.lcssa, %proto_item_set_generated.exit ], [ %.5986, %1178 ]
@@ -3476,17 +3476,18 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

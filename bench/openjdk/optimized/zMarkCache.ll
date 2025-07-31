@@ -66,7 +66,7 @@ define hidden void @_ZN10ZMarkCacheC2Em(ptr noundef nonnull writeonly align 8 ca
   store i64 0, ptr %7, align 8
   %.add = add nuw nsw i64 %.idx, 24
   %8 = icmp eq i64 %.add, 24584
-  br i1 %8, label %9, label %5
+  br i1 %8, label %9, label %5, !llvm.loop !6
 
 9:                                                ; preds = %5
   ret void
@@ -90,16 +90,16 @@ define hidden void @_ZN10ZMarkCacheD2Ev(ptr noundef nonnull align 8 captures(non
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %12 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, ptr nonnull %11) #6, !srcloc !6
+  %12 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %8, ptr nonnull %11) #6, !srcloc !8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr nonnull %13) #6, !srcloc !7
+  %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr nonnull %13) #6, !srcloc !9
   store ptr null, ptr %4, align 8
   br label %_ZN15ZMarkCacheEntry5evictEv.exit
 
 _ZN15ZMarkCacheEntry5evictEv.exit:                ; preds = %3, %6
   %15 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %15, 1024
-  br i1 %exitcond.not, label %16, label %3, !llvm.loop !8
+  br i1 %exitcond.not, label %16, label %3, !llvm.loop !10
 
 16:                                               ; preds = %_ZN15ZMarkCacheEntry5evictEv.exit
   ret void
@@ -220,7 +220,9 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{i64 2145409567}
-!7 = !{i64 2145411697}
-!8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{i64 2145409567}
+!9 = !{i64 2145411697}
+!10 = distinct !{!10, !11, !7}
+!11 = !{!"llvm.loop.mustprogress"}

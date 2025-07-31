@@ -114,7 +114,7 @@ define dso_local i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %11, %13, %3
   %.0 = phi i32 [ 0, %3 ], [ 0, %13 ], [ %12, %11 ]
@@ -142,20 +142,20 @@ define dso_local void @nghttp2_map_print_distance(ptr noundef readonly captures(
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !22
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef %13) #11
   br label %26
 
 15:                                               ; preds = %5
-  %16 = load i32, ptr %7, align 8, !tbaa !23
+  %16 = load i32, ptr %7, align 8, !tbaa !24
   %17 = load i32, ptr %4, align 4, !tbaa !13
   %18 = sub i32 32, %17
   %19 = lshr i32 %16, %18
   %20 = zext i32 %19 to i64
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !21
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %23 = load i32, ptr %22, align 4, !tbaa !24
+  %23 = load i32, ptr %22, align 4, !tbaa !25
   %24 = trunc nuw i64 %indvars.iv to i32
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef %24, i32 noundef %16, i32 noundef %23, i64 noundef %20, i64 noundef 0) #11
   br label %26
@@ -165,7 +165,7 @@ define dso_local void @nghttp2_map_print_distance(ptr noundef readonly captures(
   %27 = load i32, ptr %2, align 8, !tbaa !12
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next, %28
-  br i1 %29, label %5, label %._crit_edge, !llvm.loop !25
+  br i1 %29, label %5, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %26, %1
   ret void
@@ -225,9 +225,9 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
   br i1 %31, label %insert.exit.i, label %32
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr %28, align 8, !tbaa !23
+  %33 = load i32, ptr %28, align 8, !tbaa !24
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !24
+  %35 = load i32, ptr %34, align 4, !tbaa !25
   %36 = lshr i32 %33, %24
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %21, i64 %37
@@ -242,9 +242,9 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
   %.025.lcssa.i.i = phi ptr [ %30, %32 ], [ %.126.i.i, %56 ]
   %.lcssa32.i.i = phi ptr [ %38, %32 ], [ %60, %56 ]
   %.lcssa.i.i = phi ptr [ %39, %32 ], [ %61, %56 ]
-  store i32 %.029.lcssa.i.i, ptr %.lcssa32.i.i, align 8, !tbaa !23
+  store i32 %.029.lcssa.i.i, ptr %.lcssa32.i.i, align 8, !tbaa !24
   %42 = getelementptr inbounds nuw i8, ptr %.lcssa32.i.i, i64 4
-  store i32 %.027.lcssa.i.i, ptr %42, align 4, !tbaa !24
+  store i32 %.027.lcssa.i.i, ptr %42, align 4, !tbaa !25
   store ptr %.025.lcssa.i.i, ptr %.lcssa.i.i, align 8, !tbaa !16
   br label %insert.exit.i
 
@@ -257,19 +257,19 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
   %.02539.i.i = phi ptr [ %.126.i.i, %56 ], [ %30, %32 ]
   %.02738.i.i = phi i32 [ %.128.i.i, %56 ], [ %35, %32 ]
   %.02937.i.i = phi i32 [ %.130.i.i, %56 ], [ %33, %32 ]
-  %.val.i.i = load i32, ptr %45, align 8, !tbaa !23
+  %.val.i.i = load i32, ptr %45, align 8, !tbaa !24
   %46 = lshr i32 %.val.i.i, %24
   %47 = zext i32 %46 to i64
   %48 = sub nsw i64 %.01741.i.i, %47
   %49 = and i64 %48, %26
   %50 = icmp ugt i64 %.01840.i.i, %49
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %52 = load i32, ptr %51, align 4, !tbaa !24
+  %52 = load i32, ptr %51, align 4, !tbaa !25
   br i1 %50, label %53, label %54
 
 53:                                               ; preds = %.lr.ph.i.i
-  store i32 %.02937.i.i, ptr %45, align 8, !tbaa !23
-  store i32 %.02738.i.i, ptr %51, align 4, !tbaa !24
+  store i32 %.02937.i.i, ptr %45, align 8, !tbaa !24
+  store i32 %.02738.i.i, ptr %51, align 4, !tbaa !25
   store ptr %.02539.i.i, ptr %44, align 8, !tbaa !16
   br label %56
 
@@ -289,12 +289,12 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !16
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %63, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
 
 insert.exit.i:                                    ; preds = %54, %._crit_edge.i.i, %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %map_resize.exit.thread, label %27, !llvm.loop !26
+  br i1 %exitcond.not.i, label %map_resize.exit.thread, label %27, !llvm.loop !28
 
 map_resize.exit.thread:                           ; preds = %insert.exit.i, %.preheader.i
   %64 = load ptr, ptr %18, align 8, !tbaa !4
@@ -332,19 +332,19 @@ map_resize.exit.thread:                           ; preds = %insert.exit.i, %.pr
   %.02539.i = phi ptr [ %2, %.lr.ph.i19 ], [ %.126.i, %93 ]
   %.02738.i = phi i32 [ %1, %.lr.ph.i19 ], [ %.128.i, %93 ]
   %.02937.i = phi i32 [ %69, %.lr.ph.i19 ], [ %.130.i, %93 ]
-  %.val.i = load i32, ptr %82, align 8, !tbaa !23
+  %.val.i = load i32, ptr %82, align 8, !tbaa !24
   %83 = lshr i32 %.val.i, %70
   %84 = zext i32 %83 to i64
   %85 = sub nsw i64 %.01741.i, %84
   %86 = and i64 %85, %78
   %87 = icmp ugt i64 %.01840.i, %86
   %88 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %89 = load i32, ptr %88, align 4, !tbaa !24
+  %89 = load i32, ptr %88, align 4, !tbaa !25
   br i1 %87, label %90, label %91
 
 90:                                               ; preds = %79
-  store i32 %.02937.i, ptr %82, align 8, !tbaa !23
-  store i32 %.02738.i, ptr %88, align 4, !tbaa !24
+  store i32 %.02937.i, ptr %82, align 8, !tbaa !24
+  store i32 %.02738.i, ptr %88, align 4, !tbaa !25
   store ptr %.02539.i, ptr %81, align 8, !tbaa !16
   br label %93
 
@@ -364,7 +364,7 @@ map_resize.exit.thread:                           ; preds = %insert.exit.i, %.pr
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !16
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %.loopexit, label %79
+  br i1 %100, label %.loopexit, label %79, !llvm.loop !27
 
 .loopexit:                                        ; preds = %93, %65
   %.029.lcssa.i = phi i32 [ %69, %65 ], [ %.130.i, %93 ]
@@ -372,9 +372,9 @@ map_resize.exit.thread:                           ; preds = %insert.exit.i, %.pr
   %.025.lcssa.i = phi ptr [ %2, %65 ], [ %.126.i, %93 ]
   %.lcssa32.i = phi ptr [ %73, %65 ], [ %97, %93 ]
   %.lcssa.i = phi ptr [ %74, %65 ], [ %98, %93 ]
-  store i32 %.029.lcssa.i, ptr %.lcssa32.i, align 8, !tbaa !23
+  store i32 %.029.lcssa.i, ptr %.lcssa32.i, align 8, !tbaa !24
   %101 = getelementptr inbounds nuw i8, ptr %.lcssa32.i, i64 4
-  store i32 %.027.lcssa.i, ptr %101, align 4, !tbaa !24
+  store i32 %.027.lcssa.i, ptr %101, align 4, !tbaa !25
   store ptr %.025.lcssa.i, ptr %.lcssa.i, align 8, !tbaa !16
   %102 = load i64, ptr %4, align 8, !tbaa !15
   %103 = add i64 %102, 1
@@ -409,20 +409,20 @@ define dso_local ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i
 
 17:                                               ; preds = %28
   %18 = add nuw nsw i64 %.02026, 1
-  %.val = load i32, ptr %31, align 8, !tbaa !23
+  %.val = load i32, ptr %31, align 8, !tbaa !24
   %19 = lshr i32 %.val, %6
   %20 = zext i32 %19 to i64
   %21 = sub nsw i64 %30, %20
   %22 = and i64 %21, %16
   %.not = icmp samesign ult i64 %.02026, %22
-  br i1 %.not, label %23, label %._crit_edge
+  br i1 %.not, label %23, label %._crit_edge, !llvm.loop !29
 
 23:                                               ; preds = %.lr.ph, %17
   %.0181927 = phi i64 [ %8, %.lr.ph ], [ %30, %17 ]
   %.02026 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
   %24 = phi ptr [ %11, %.lr.ph ], [ %33, %17 ]
   %25 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %.0181927, i32 1
-  %26 = load i32, ptr %25, align 4, !tbaa !24
+  %26 = load i32, ptr %25, align 4, !tbaa !25
   %27 = icmp eq i32 %26, %1
   br i1 %27, label %._crit_edge, label %28
 
@@ -433,7 +433,7 @@ define dso_local ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !16
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %._crit_edge, label %17
+  br i1 %34, label %._crit_edge, label %17, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %17, %28, %23, %2
   %.017 = phi ptr [ null, %2 ], [ %24, %23 ], [ null, %28 ], [ null, %17 ]
@@ -466,7 +466,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   %19 = phi ptr [ %10, %.lr.ph ], [ %69, %65 ]
   %.048 = phi i64 [ 0, %.lr.ph ], [ %66, %65 ]
   %.03647 = phi i64 [ %8, %.lr.ph ], [ %68, %65 ]
-  %.val38 = load i32, ptr %19, align 8, !tbaa !23
+  %.val38 = load i32, ptr %19, align 8, !tbaa !24
   %20 = lshr i32 %.val38, %6
   %21 = zext i32 %20 to i64
   %22 = sub nsw i64 %.03647, %21
@@ -476,7 +476,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !24
+  %27 = load i32, ptr %26, align 4, !tbaa !25
   %28 = icmp eq i32 %27, %1
   br i1 %28, label %29, label %65
 
@@ -498,7 +498,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   %.03551 = phi i64 [ %.150, %49 ], [ %.03647, %29 ]
   %.150 = phi i64 [ %56, %49 ], [ %31, %29 ]
   %40 = load i32, ptr %4, align 4, !tbaa !13
-  %.val = load i32, ptr %38, align 8, !tbaa !23
+  %.val = load i32, ptr %38, align 8, !tbaa !24
   %41 = sub i32 32, %40
   %42 = lshr i32 %.val, %41
   %43 = zext i32 %42 to i64
@@ -511,10 +511,10 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
 
 49:                                               ; preds = %.lr.ph52
   %50 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %39, i64 %.03551
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !27
-  store i32 0, ptr %38, align 8, !tbaa !23
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !30
+  store i32 0, ptr %38, align 8, !tbaa !24
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  store i32 0, ptr %51, align 4, !tbaa !24
+  store i32 0, ptr %51, align 4, !tbaa !25
   store ptr null, ptr %37, align 8, !tbaa !16
   %52 = add nuw nsw i64 %.150, 1
   %53 = load i32, ptr %14, align 8, !tbaa !12
@@ -526,7 +526,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !16
   %61 = icmp eq ptr %60, null
-  br i1 %61, label %._crit_edge, label %.lr.ph52
+  br i1 %61, label %._crit_edge, label %.lr.ph52, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph52, %49, %29
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -543,7 +543,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !16
   %72 = icmp eq ptr %71, null
-  br i1 %72, label %.loopexit, label %18
+  br i1 %72, label %.loopexit, label %18, !llvm.loop !34
 
 .loopexit:                                        ; preds = %18, %65, %2, %._crit_edge
   %.037 = phi i32 [ 0, %._crit_edge ], [ -501, %2 ], [ -501, %65 ], [ -501, %18 ]
@@ -609,15 +609,20 @@ attributes #11 = { cold nounwind }
 !15 = !{!5, !10, i64 16}
 !16 = !{!17, !7, i64 8}
 !17 = !{!"nghttp2_map_bucket", !11, i64 0, !11, i64 4, !7, i64 8}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!23 = !{!17, !11, i64 0}
-!24 = !{!17, !11, i64 4}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = !{i64 0, i64 4, !28, i64 4, i64 4, !28, i64 8, i64 8, !29}
-!28 = !{!11, !11, i64 0}
-!29 = !{!7, !7, i64 0}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !19, !20}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
+!24 = !{!17, !11, i64 0}
+!25 = !{!17, !11, i64 4}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !20}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !20}
+!30 = !{i64 0, i64 4, !31, i64 4, i64 4, !31, i64 8, i64 8, !32}
+!31 = !{!11, !11, i64 0}
+!32 = !{!7, !7, i64 0}
+!33 = distinct !{!33, !20}
+!34 = distinct !{!34, !20}

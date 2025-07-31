@@ -2630,5 +2630,6 @@ attributes #21 = { noreturn nounwind }
 !80 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !11, i64 8}
 !81 = !{!6, !10, i64 24}
 !82 = !{!6, !10, i64 16}
-!83 = distinct !{!83, !84}
+!83 = distinct !{!83, !84, !85}
 !84 = !{!"llvm.loop.mustprogress"}
+!85 = !{!"llvm.loop.estimated_trip_count"}

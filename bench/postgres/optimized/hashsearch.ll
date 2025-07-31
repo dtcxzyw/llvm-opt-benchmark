@@ -258,7 +258,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %66 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %63, i16 noundef zeroext %65, i32 noundef 1)
   %67 = and i32 %66, 65535
   %.not.not78 = icmp eq i32 %67, 0
-  br i1 %.not.not78, label %45, label %._crit_edge13
+  br i1 %.not.not78, label %45, label %._crit_edge13, !llvm.loop !4
 
 .thread:                                          ; preds = %59
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -331,7 +331,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %.0.i = phi i1 [ false, %99 ], [ true, %100 ]
   %102 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %102, 0
-  br i1 %.not.i, label %104, label %103, !prof !4
+  br i1 %.not.i, label %104, label %103, !prof !6
 
 103:                                              ; preds = %101
   tail call void @ProcessInterrupts() #6
@@ -386,13 +386,13 @@ BufferGetPage.exit.i:                             ; preds = %114, %108
 
 131:                                              ; preds = %104
   %132 = getelementptr inbounds nuw i8, ptr %90, i64 12
-  %133 = load i8, ptr %132, align 4, !range !5, !noundef !6
+  %133 = load i8, ptr %132, align 4, !range !7, !noundef !8
   %134 = trunc nuw i8 %133 to i1
   br i1 %134, label %135, label %.thread1
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %90, i64 13
-  %137 = load i8, ptr %136, align 1, !range !5, !noundef !6
+  %137 = load i8, ptr %136, align 1, !range !7, !noundef !8
   %138 = trunc nuw i8 %137 to i1
   br i1 %138, label %139, label %.thread1
 
@@ -438,7 +438,7 @@ BufferGetPage.exit46.i:                           ; preds = %148, %142
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i32, ptr %161, align 4
   %.not47.i = icmp eq i32 %162, -1
-  br i1 %.not47.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !7
+  br i1 %.not47.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
   %.pre.pre = load i32, ptr %3, align 4
@@ -466,7 +466,7 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   %171 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %168, i16 noundef zeroext %170, i32 noundef %1)
   %172 = and i32 %171, 65535
   %.not.not = icmp eq i32 %172, 408
-  br i1 %.not.not, label %72, label %._crit_edge
+  br i1 %.not.not, label %72, label %._crit_edge, !llvm.loop !11
 
 .thread1:                                         ; preds = %135, %131, %_hash_readprev.exit
   %173 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -562,11 +562,11 @@ define dso_local noundef zeroext i1 @_hash_first(ptr noundef %0, i32 noundef %1)
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 480
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %17, !prof !9
+  br i1 %.not, label %12, label %17, !prof !12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 476
-  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 4, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %22
 
@@ -741,19 +741,19 @@ BufferGetPage.exit54:                             ; preds = %81, %87
   br i1 %.not55, label %113, label %.critedge
 
 113:                                              ; preds = %109
-  %114 = load i8, ptr %107, align 4, !range !5, !noundef !6
+  %114 = load i8, ptr %107, align 4, !range !7, !noundef !8
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %.critedge2.loopexit
 
 116:                                              ; preds = %113
-  %117 = load i8, ptr %108, align 1, !range !5, !noundef !6
+  %117 = load i8, ptr %108, align 1, !range !7, !noundef !8
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %.critedge2.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %109, %116
   call fastcc void @_hash_readnext(ptr noundef %0, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   %.pre56 = load ptr, ptr %5, align 8
-  br label %109, !llvm.loop !10
+  br label %109, !llvm.loop !13
 
 .critedge2.loopexit:                              ; preds = %113, %116
   %.pre57 = load i32, ptr %3, align 4
@@ -842,7 +842,7 @@ define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) 
   store i32 0, ptr %1, align 4
   %23 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %25, label %24, !prof !4
+  br i1 %.not, label %25, label %24, !prof !6
 
 24:                                               ; preds = %22
   tail call void @ProcessInterrupts() #6
@@ -859,13 +859,13 @@ define internal fastcc void @_hash_readnext(ptr noundef readonly captures(none) 
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %30 = load i8, ptr %29, align 4, !range !5, !noundef !6
+  %30 = load i8, ptr %29, align 4, !range !7, !noundef !8
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %61
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 13
-  %34 = load i8, ptr %33, align 1, !range !5, !noundef !6
+  %34 = load i8, ptr %33, align 1, !range !7, !noundef !8
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %61, label %36
 
@@ -968,12 +968,12 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 .lr.ph93:                                         ; preds = %.lr.ph93.lr.ph, %.outer
   %.048.ph111 = phi i32 [ 0, %.lr.ph93.lr.ph ], [ %69, %.outer ]
   %.049.ph110 = phi i16 [ %2, %.lr.ph93.lr.ph ], [ %70, %.outer ]
-  %24 = load i8, ptr %20, align 4, !range !5, !noundef !6
+  %24 = load i8, ptr %20, align 4, !range !7, !noundef !8
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %.lr.ph93.split.us, label %.lr.ph93.split
 
 .lr.ph93.split.us:                                ; preds = %.lr.ph93
-  %26 = load i8, ptr %21, align 1, !range !5, !noundef !6
+  %26 = load i8, ptr %21, align 1, !range !7, !noundef !8
   %27 = trunc nuw i8 %26 to i1
   br label %28
 
@@ -996,7 +996,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br i1 %.not55.us, label %39, label %44
 
 39:                                               ; preds = %35, %28
-  %40 = load i8, ptr %22, align 1, !range !5, !noundef !6
+  %40 = load i8, ptr %22, align 1, !range !7, !noundef !8
   %41 = trunc nuw i8 %40 to i1
   %42 = and i32 %.val56.us, 98304
   %43 = icmp eq i32 %42, 98304
@@ -1006,10 +1006,10 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 44:                                               ; preds = %39, %35
   %45 = add i16 %.04992.us, 1
   %.not54.us = icmp ugt i16 %45, %.0.i
-  br i1 %.not54.us, label %.loopexit, label %28, !llvm.loop !11
+  br i1 %.not54.us, label %.loopexit, label %28, !llvm.loop !14
 
 .lr.ph93.split:                                   ; preds = %.lr.ph93
-  %46 = load i8, ptr %22, align 1, !range !5, !noundef !6
+  %46 = load i8, ptr %22, align 1, !range !7, !noundef !8
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %.lr.ph93.split.split, label %.lr.ph93.split.split.us
 
@@ -1033,7 +1033,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 56:                                               ; preds = %.lr.ph93.split.split
   %57 = add i16 %.04992, 1
   %.not54 = icmp ugt i16 %57, %.0.i
-  br i1 %.not54, label %.loopexit, label %.lr.ph93.split.split, !llvm.loop !13
+  br i1 %.not54, label %.loopexit, label %.lr.ph93.split.split, !llvm.loop !16
 
 .split97:                                         ; preds = %.lr.ph93.split.split, %.lr.ph93.split.split.us
   %.us-phi106 = phi i32 [ %.val56.us103, %.lr.ph93.split.split.us ], [ %.val56, %.lr.ph93.split.split ]
@@ -1064,7 +1064,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   %69 = add i32 %.048.ph111, 1
   %70 = add i16 %.us-phi99, 1
   %.not5491 = icmp ugt i16 %70, %.0.i
-  br i1 %.not5491, label %.loopexit, label %.lr.ph93, !llvm.loop !13
+  br i1 %.not5491, label %.loopexit, label %.lr.ph93, !llvm.loop !16
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %76
   %.15074 = phi i16 [ %77, %76 ], [ %.150.ph87, %.lr.ph.split ]
@@ -1079,7 +1079,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 76:                                               ; preds = %.lr.ph.split.split
   %77 = add i16 %.15074, -1
   %.not = icmp eq i16 %77, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph.split.split, !llvm.loop !17
 
 .split:                                           ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us
   %.us-phi84 = phi i32 [ %.val57.us81, %.lr.ph.split.split.us ], [ %.val57, %.lr.ph.split.split ]
@@ -1110,17 +1110,17 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   store i16 %.us-phi76, ptr %89, align 2
   %90 = add i16 %.us-phi76, -1
   %.not73 = icmp eq i16 %90, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer64
   %.1.ph88 = phi i32 [ 408, %.lr.ph.lr.ph ], [ %86, %.outer64 ]
   %.150.ph87 = phi i16 [ %2, %.lr.ph.lr.ph ], [ %90, %.outer64 ]
-  %91 = load i8, ptr %15, align 4, !range !5, !noundef !6
+  %91 = load i8, ptr %15, align 4, !range !7, !noundef !8
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %93 = load i8, ptr %16, align 1, !range !5, !noundef !6
+  %93 = load i8, ptr %16, align 1, !range !7, !noundef !8
   %94 = trunc nuw i8 %93 to i1
   br label %95
 
@@ -1143,7 +1143,7 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
   br i1 %.not53.us, label %106, label %111
 
 106:                                              ; preds = %102, %95
-  %107 = load i8, ptr %17, align 1, !range !5, !noundef !6
+  %107 = load i8, ptr %17, align 1, !range !7, !noundef !8
   %108 = trunc nuw i8 %107 to i1
   %109 = and i32 %.val57.us, 98304
   %110 = icmp eq i32 %109, 98304
@@ -1153,10 +1153,10 @@ define internal fastcc i32 @_hash_load_qualified_items(ptr noundef %0, ptr nound
 111:                                              ; preds = %106, %102
   %112 = add i16 %.15074.us, -1
   %.not.us = icmp eq i16 %112, 0
-  br i1 %.not.us, label %.loopexit, label %95, !llvm.loop !15
+  br i1 %.not.us, label %.loopexit, label %95, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %113 = load i8, ptr %17, align 1, !range !5, !noundef !6
+  %113 = load i8, ptr %17, align 1, !range !7, !noundef !8
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %.lr.ph.split.split, label %.lr.ph.split.split.us
 
@@ -1196,15 +1196,18 @@ attributes #7 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8, !12}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !10, !5}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !5}
+!12 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!13 = distinct !{!13, !10, !5}
+!14 = distinct !{!14, !10, !5, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !10, !5}
+!17 = distinct !{!17, !10, !5}
+!18 = distinct !{!18, !10, !5, !15}

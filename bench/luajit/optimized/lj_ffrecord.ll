@@ -1593,7 +1593,7 @@ define internal void @recff_math_minmax(ptr noundef %0, ptr noundef readonly cap
   %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !39
   %.not = icmp eq i32 %43, 0
-  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !58
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %33, %2
   %.028.lcssa = phi i32 [ %6, %2 ], [ %38, %33 ]
@@ -1818,7 +1818,7 @@ define internal void @recff_bit_nary(ptr noundef %0, ptr noundef %1) #0 {
   %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !39
   %.not18 = icmp eq i32 %29, 0
-  br i1 %.not18, label %._crit_edge, label %19, !llvm.loop !59
+  br i1 %.not18, label %._crit_edge, label %19, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %19, %4
   %.016.lcssa = phi i32 [ %8, %4 ], [ %24, %19 ]
@@ -1875,7 +1875,7 @@ define internal void @recff_string_range(ptr noundef %0, ptr noundef captures(no
   %15 = load i64, ptr %14, align 8, !tbaa !4
   %16 = ashr i64 %15, 47
   %17 = icmp eq i64 %16, -5
-  br i1 %17, label %18, label %21, !prof !60
+  br i1 %17, label %18, label %21, !prof !61
 
 18:                                               ; preds = %2
   %19 = and i64 %15, 140737488355327
@@ -2120,14 +2120,14 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
   store i16 %130, ptr %11, align 2, !tbaa !4
   %131 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %132 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
-  %133 = load i32, ptr %132, align 4, !tbaa !61
+  %133 = load i32, ptr %132, align 4, !tbaa !62
   %134 = add nsw i32 %.0129158, 1
   %135 = add i32 %134, %133
   br label %146
 
 136:                                              ; preds = %120
   %137 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
-  %138 = load i32, ptr %137, align 4, !tbaa !61
+  %138 = load i32, ptr %137, align 4, !tbaa !62
   %.not134 = icmp ugt i32 %.0129, %138
   %139 = trunc i32 %.0127 to i16
   %140 = trunc i32 %12 to i16
@@ -2145,7 +2145,7 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
   store i16 %139, ptr %9, align 8, !tbaa !4
   store i16 %140, ptr %11, align 2, !tbaa !4
   %144 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
-  %145 = load i32, ptr %137, align 4, !tbaa !61
+  %145 = load i32, ptr %137, align 4, !tbaa !62
   br label %146
 
 146:                                              ; preds = %141, %143, %122
@@ -2260,7 +2260,7 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
   store i32 %193, ptr %195, align 4, !tbaa !39
   %196 = add nuw nsw i64 %.0131162, 1
   %exitcond.not = icmp eq i64 %196, %smax
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !63
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !64
 
 197:                                              ; preds = %167
   store i16 659, ptr %10, align 4, !tbaa !4
@@ -2314,7 +2314,7 @@ define internal void @recff_string_char(ptr noundef %0, ptr readnone captures(no
   %22 = getelementptr inbounds nuw i32, ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !39
   %.not = icmp eq i32 %23, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %11
   %24 = icmp ugt i32 %20, 1
@@ -2352,7 +2352,7 @@ define internal void @recff_string_char(ptr noundef %0, ptr readnone captures(no
   %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !39
   %.not38 = icmp eq i32 %43, 0
-  br i1 %.not38, label %._crit_edge47, label %.lr.ph46, !llvm.loop !65
+  br i1 %.not38, label %._crit_edge47, label %.lr.ph46, !llvm.loop !66
 
 ._crit_edge47:                                    ; preds = %.lr.ph46, %25
   %.0.lcssa = phi i32 [ %32, %25 ], [ %38, %.lr.ph46 ]
@@ -2573,7 +2573,7 @@ define internal void @recff_string_find(ptr noundef %0, ptr noundef captures(non
   %19 = load i64, ptr %18, align 8, !tbaa !4
   %20 = ashr i64 %19, 47
   %21 = icmp eq i64 %20, -5
-  br i1 %21, label %22, label %25, !prof !60
+  br i1 %21, label %22, label %25, !prof !61
 
 22:                                               ; preds = %2
   %23 = and i64 %19, 140737488355327
@@ -2605,7 +2605,7 @@ argv2str.exit:                                    ; preds = %22, %28
   %36 = load i64, ptr %35, align 8, !tbaa !4
   %37 = ashr i64 %36, 47
   %38 = icmp eq i64 %37, -5
-  br i1 %38, label %39, label %42, !prof !60
+  br i1 %38, label %39, label %42, !prof !61
 
 39:                                               ; preds = %argv2str.exit
   %40 = and i64 %36, 140737488355327
@@ -2686,7 +2686,7 @@ argv2int.exit:                                    ; preds = %59, %lj_strscan_num
   %75 = call fastcc i32 @recff_string_start(ptr noundef nonnull %0, ptr noundef %.0.i, ptr noundef %3, i32 noundef %.0, i32 noundef %16, i32 noundef %17)
   %76 = load i32, ptr %3, align 4, !tbaa !39
   %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
-  %78 = load i32, ptr %77, align 4, !tbaa !61
+  %78 = load i32, ptr %77, align 4, !tbaa !62
   %.not = icmp ugt i32 %76, %78
   %79 = trunc i32 %75 to i16
   %80 = trunc i32 %16 to i16
@@ -2704,7 +2704,7 @@ argv2int.exit:                                    ; preds = %59, %lj_strscan_num
   store i16 %79, ptr %13, align 8, !tbaa !4
   store i16 %80, ptr %15, align 2, !tbaa !4
   %84 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
-  %85 = load i32, ptr %77, align 4, !tbaa !61
+  %85 = load i32, ptr %77, align 4, !tbaa !62
   br label %86
 
 86:                                               ; preds = %83, %81
@@ -2766,10 +2766,10 @@ argv2int.exit:                                    ; preds = %59, %lj_strscan_num
   %113 = zext i32 %87 to i64
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 24
-  %116 = load i32, ptr %77, align 4, !tbaa !61
+  %116 = load i32, ptr %77, align 4, !tbaa !62
   %117 = sub i32 %116, %87
   %118 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 20
-  %119 = load i32, ptr %118, align 4, !tbaa !61
+  %119 = load i32, ptr %118, align 4, !tbaa !62
   %120 = tail call ptr @lj_str_find(ptr noundef nonnull %114, ptr noundef nonnull %115, i32 noundef %117, i32 noundef %119) #9
   %.not98 = icmp eq ptr %120, null
   %121 = trunc i32 %110 to i16
@@ -3269,7 +3269,7 @@ results_wanted.exit54:                            ; preds = %62
   %75 = getelementptr inbounds nuw i32, ptr %74, i64 %73
   %76 = load i32, ptr %75, align 4, !tbaa !39
   %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !66
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %72, %2
   %.lcssa = phi ptr [ %13, %2 ], [ %74, %72 ]
@@ -3348,7 +3348,7 @@ define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef reado
   %14 = sub nsw i64 21, %12
   %spec.select = select i1 %13, i64 35, i64 %14
   %15 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %9, i64 0, i64 %spec.select
-  %16 = load i64, ptr %15, align 8, !tbaa !67
+  %16 = load i64, ptr %15, align 8, !tbaa !68
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %20, label %17
 
@@ -3475,7 +3475,7 @@ recff_sbufx_check.exit:                           ; preds = %8
   %27 = and i64 %26, 140737488355327
   %28 = inttoptr i64 %27 to ptr
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  %30 = load i64, ptr %29, align 8, !tbaa !68
+  %30 = load i64, ptr %29, align 8, !tbaa !69
   store i16 17673, ptr %17, align 4, !tbaa !4
   store i16 %15, ptr %16, align 8, !tbaa !4
   store i16 17, ptr %18, align 2, !tbaa !4
@@ -3908,7 +3908,7 @@ recff_sbufx_check.exit57:                         ; preds = %41
   %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !39
   %.not53 = icmp eq i32 %59, 0
-  br i1 %.not53, label %.preheader, label %.lr.ph, !llvm.loop !70
+  br i1 %.not53, label %.preheader, label %.lr.ph, !llvm.loop !71
 
 .lr.ph64:                                         ; preds = %.preheader, %93
   %60 = phi i32 [ %97, %93 ], [ %.pre65, %.preheader ]
@@ -3989,7 +3989,7 @@ recff_sbufx_check.exit57:                         ; preds = %41
   %96 = getelementptr inbounds nuw i32, ptr %95, i64 %94
   %97 = load i32, ptr %96, align 4, !tbaa !39
   %.not54 = icmp eq i32 %97, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph64, !llvm.loop !71
+  br i1 %.not54, label %._crit_edge, label %.lr.ph64, !llvm.loop !72
 
 ._crit_edge:                                      ; preds = %93, %.preheader
   %.0.lcssa = phi i32 [ %29, %.preheader ], [ %.1, %93 ]
@@ -4156,7 +4156,7 @@ recff_sbufx_check.exit:                           ; preds = %8
   %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !39
   %.not55 = icmp eq i32 %46, 0
-  br i1 %.not55, label %.preheader, label %.lr.ph, !llvm.loop !72
+  br i1 %.not55, label %.preheader, label %.lr.ph, !llvm.loop !73
 
 47:                                               ; preds = %.lr.ph61, %69
   %48 = phi i32 [ %.pre, %.lr.ph61 ], [ %76, %69 ]
@@ -4226,7 +4226,7 @@ recff_sbufx_check.exit:                           ; preds = %8
   %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !39
   %.not56 = icmp eq i32 %76, 0
-  br i1 %.not56, label %._crit_edge, label %47, !llvm.loop !73
+  br i1 %.not56, label %._crit_edge, label %47, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %69, %.preheader
   %.152.lcssa = phi i64 [ 0, %.preheader ], [ %49, %69 ]
@@ -4899,20 +4899,20 @@ define internal void @recff_buffer_decode(ptr noundef %0, ptr noundef readonly c
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %25 = load i32, ptr %24, align 4, !tbaa !61
+  %25 = load i32, ptr %24, align 4, !tbaa !62
   %26 = ptrtoint ptr %22 to i64
   %27 = add i64 %26, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %27, ptr %28, align 8, !tbaa !68
+  store i64 %27, ptr %28, align 8, !tbaa !69
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %23, ptr %29, align 8, !tbaa !74
+  store ptr %23, ptr %29, align 8, !tbaa !75
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %23, ptr %30, align 8, !tbaa !75
+  store ptr %23, ptr %30, align 8, !tbaa !76
   %31 = zext i32 %25 to i64
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %32, ptr %33, align 8, !tbaa !76
-  store ptr %32, ptr %3, align 8, !tbaa !77
+  store ptr %32, ptr %33, align 8, !tbaa !77
+  store ptr %32, ptr %3, align 8, !tbaa !78
   %34 = call i32 @lj_serialize_peektype(ptr noundef nonnull %3) #9
   %35 = call i32 @lj_record_vload(ptr noundef %0, i32 noundef %13, i32 noundef 0, i32 noundef %34) #9
   %36 = load ptr, ptr %14, align 8, !tbaa !37
@@ -5037,7 +5037,7 @@ define internal fastcc i32 @recff_string_start(ptr noundef %0, ptr noundef reado
   store i16 %10, ptr %14, align 2, !tbaa !4
   %17 = tail call i32 @lj_opt_fold(ptr noundef %0) #9
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %19 = load i32, ptr %18, align 4, !tbaa !61
+  %19 = load i32, ptr %18, align 4, !tbaa !62
   %20 = add nsw i32 %19, %7
   %21 = icmp slt i32 %20, 0
   %22 = select i1 %21, i16 147, i16 403
@@ -5112,7 +5112,7 @@ define internal fastcc void @recff_format(ptr noundef %0, ptr noundef captures(n
   %14 = load i64, ptr %13, align 8, !tbaa !4
   %15 = ashr i64 %14, 47
   %16 = icmp eq i64 %15, -5
-  br i1 %16, label %17, label %20, !prof !60
+  br i1 %16, label %17, label %20, !prof !61
 
 17:                                               ; preds = %4
   %18 = and i64 %14, 140737488355327
@@ -5151,12 +5151,12 @@ argv2str.exit:                                    ; preds = %17, %23
   %35 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
-  %38 = load i32, ptr %37, align 4, !tbaa !61
-  store ptr %36, ptr %5, align 8, !tbaa !78
+  %38 = load i32, ptr %37, align 4, !tbaa !62
+  store ptr %36, ptr %5, align 8, !tbaa !79
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %40, ptr %41, align 8, !tbaa !80
+  store ptr %40, ptr %41, align 8, !tbaa !81
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -5196,8 +5196,8 @@ argv2str.exit:                                    ; preds = %17, %23
   %.1101112 = phi i64 [ %.0100, %.thread ], [ %50, %48 ]
   %56 = trunc i32 %.0104 to i16
   %57 = load ptr, ptr %42, align 8, !tbaa !33
-  %58 = load ptr, ptr %43, align 8, !tbaa !81
-  %59 = load i32, ptr %44, align 8, !tbaa !82
+  %58 = load ptr, ptr %43, align 8, !tbaa !82
+  %59 = load i32, ptr %44, align 8, !tbaa !83
   %60 = zext i32 %59 to i64
   %61 = call ptr @lj_str_new(ptr noundef %57, ptr noundef %58, i64 noundef %60) #9
   %62 = call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %61, i32 noundef 4) #9
@@ -5331,7 +5331,7 @@ argv2str.exit:                                    ; preds = %17, %23
   %.1105 = phi i32 [ %64, %55 ], [ %85, %80 ], [ %89, %86 ], [ %77, %73 ], [ %93, %91 ], [ %103, %100 ], [ %107, %106 ], [ %109, %108 ], [ %118, %113 ], [ %120, %119 ]
   %123 = add nuw nsw i32 %.0102, 1
   %exitcond = icmp eq i32 %123, 101
-  br i1 %exitcond, label %124, label %45, !llvm.loop !83
+  br i1 %exitcond, label %124, label %45, !llvm.loop !84
 
 124:                                              ; preds = %122
   call void @lj_trace_err(ptr noundef nonnull %0, i32 noundef 2) #10
@@ -5612,31 +5612,32 @@ attributes #10 = { noreturn nounwind }
 !53 = !{!48, !13, i64 56}
 !54 = !{!8, !5, i64 181}
 !55 = !{!8, !14, i64 32}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57}
-!59 = distinct !{!59, !57}
-!60 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!61 = !{!62, !13, i64 20}
-!62 = !{!"GCstr", !10, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
-!63 = distinct !{!63, !57}
-!64 = distinct !{!64, !57}
-!65 = distinct !{!65, !57}
-!66 = distinct !{!66, !57}
-!67 = !{!10, !11, i64 0}
-!68 = !{!69, !11, i64 24}
-!69 = !{!"SBufExt", !19, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !5, i64 32, !19, i64 40, !10, i64 48, !10, i64 56, !13, i64 64}
-!70 = distinct !{!70, !57}
-!71 = distinct !{!71, !57}
-!72 = distinct !{!72, !57}
-!73 = distinct !{!73, !57}
-!74 = !{!69, !19, i64 16}
-!75 = !{!69, !19, i64 40}
-!76 = !{!69, !19, i64 8}
-!77 = !{!69, !19, i64 0}
-!78 = !{!79, !19, i64 0}
-!79 = !{!"FormatState", !19, i64 0, !19, i64 8, !19, i64 16, !13, i64 24}
-!80 = !{!79, !19, i64 8}
-!81 = !{!79, !19, i64 16}
-!82 = !{!79, !13, i64 24}
-!83 = distinct !{!83, !57}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !57, !58}
+!60 = distinct !{!60, !57, !58}
+!61 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!62 = !{!63, !13, i64 20}
+!63 = !{!"GCstr", !10, i64 0, !5, i64 8, !5, i64 9, !5, i64 10, !5, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
+!64 = distinct !{!64, !57, !58}
+!65 = distinct !{!65, !57, !58}
+!66 = distinct !{!66, !57, !58}
+!67 = distinct !{!67, !57, !58}
+!68 = !{!10, !11, i64 0}
+!69 = !{!70, !11, i64 24}
+!70 = !{!"SBufExt", !19, i64 0, !19, i64 8, !19, i64 16, !18, i64 24, !5, i64 32, !19, i64 40, !10, i64 48, !10, i64 56, !13, i64 64}
+!71 = distinct !{!71, !57, !58}
+!72 = distinct !{!72, !57, !58}
+!73 = distinct !{!73, !57, !58}
+!74 = distinct !{!74, !57, !58}
+!75 = !{!70, !19, i64 16}
+!76 = !{!70, !19, i64 40}
+!77 = !{!70, !19, i64 8}
+!78 = !{!70, !19, i64 0}
+!79 = !{!80, !19, i64 0}
+!80 = !{!"FormatState", !19, i64 0, !19, i64 8, !19, i64 16, !13, i64 24}
+!81 = !{!80, !19, i64 8}
+!82 = !{!80, !19, i64 16}
+!83 = !{!80, !13, i64 24}
+!84 = distinct !{!84, !57, !58}

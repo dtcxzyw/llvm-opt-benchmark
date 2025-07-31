@@ -530,7 +530,7 @@ repeatNextMatch.exit:                             ; preds = %81, %75, %73, %88, 
   %100 = load i32, ptr %47, align 4
   %101 = tail call i32 %60(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %100, ptr noundef %61) #8
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %nfaExecLbrDot_Q_i.exit, label %71
+  br i1 %102, label %nfaExecLbrDot_Q_i.exit, label %71, !llvm.loop !5
 
 repeatIsDead.exit124.i.thread38.loopexit:         ; preds = %repeatNextMatch.exit, %71
   %.pre = load i32, ptr %30, align 8
@@ -595,7 +595,7 @@ repeatIsDead.exit.i.thread54:                     ; preds = %114, %repeatIsDead.
   %122 = getelementptr i8, ptr %39, i64 %.idx.i
   %123 = load i64, ptr %122, align 8
   %.not.i2 = icmp sgt i64 %123, %2
-  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph138
+  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph138, !llvm.loop !7
 
 .lr.ph138:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %124 = phi i64 [ %123, %.lr.ph ], [ %121, %.lr.ph.preheader ]
@@ -618,7 +618,7 @@ repeatIsDead.exit.i.thread54:                     ; preds = %114, %repeatIsDead.
   %131 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %131, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph
+  br i1 %exitcond.not, label %.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge, label %.lr.ph, !llvm.loop !7
 
 132:                                              ; preds = %127
   %133 = load ptr, ptr %44, align 8
@@ -766,8 +766,11 @@ repeatLastTop.exit:                               ; preds = %151, %151, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %136, ptr noundef nonnull %162, i64 noundef %128, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread54, %.lr.ph.preheader, %.lr.ph, %130
-  %170 = phi i32 [ %131, %130 ], [ %131, %.lr.ph ], [ %103, %.lr.ph.preheader ], [ %103, %repeatIsDead.exit.i.thread54 ]
+.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge:   ; preds = %130
+  br label %nfaExecLbrDot_TopScan.exit, !llvm.loop !7
+
+nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread54, %.lr.ph.preheader, %.lr.ph, %.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge
+  %170 = phi i32 [ %131, %.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge ], [ %131, %.lr.ph ], [ %103, %.lr.ph.preheader ], [ %103, %repeatIsDead.exit.i.thread54 ]
   %171 = icmp ult i32 %170, %118
   br i1 %171, label %172, label %nfaExecLbrDot_Q_i.exit
 
@@ -955,7 +958,7 @@ lbrTop.exit.i:                                    ; preds = %185, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %228 = load i32, ptr %32, align 4
   %229 = icmp ult i32 %storemerge.i, %228
-  br i1 %229, label %49, label %._crit_edge
+  br i1 %229, label %49, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %227, %lbrTop.exit.i ]
@@ -1283,7 +1286,7 @@ repeatIsDead.exit.i.thread64:                     ; preds = %112, %repeatIsDead.
   %120 = getelementptr i8, ptr %39, i64 %.idx.i24
   %121 = load i64, ptr %120, align 8
   %.not.i2 = icmp sgt i64 %121, %2
-  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph148
+  br i1 %.not.i2, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph148, !llvm.loop !7
 
 .lr.ph148:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %122 = phi i64 [ %121, %.lr.ph ], [ %119, %.lr.ph.preheader ]
@@ -1306,7 +1309,7 @@ repeatIsDead.exit.i.thread64:                     ; preds = %112, %repeatIsDead.
   %129 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %129, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph
+  br i1 %exitcond.not, label %.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge, label %.lr.ph, !llvm.loop !7
 
 130:                                              ; preds = %125
   %131 = load ptr, ptr %44, align 8
@@ -1454,8 +1457,11 @@ repeatLastTop.exit:                               ; preds = %149, %149, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %134, ptr noundef nonnull %160, i64 noundef %126, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread64, %.lr.ph.preheader, %.lr.ph, %128
-  %168 = phi i32 [ %129, %128 ], [ %129, %.lr.ph ], [ %101, %.lr.ph.preheader ], [ %101, %repeatIsDead.exit.i.thread64 ]
+.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge:   ; preds = %128
+  br label %nfaExecLbrDot_TopScan.exit, !llvm.loop !7
+
+nfaExecLbrDot_TopScan.exit:                       ; preds = %repeatIsDead.exit.i.thread64, %.lr.ph.preheader, %.lr.ph, %.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge
+  %168 = phi i32 [ %129, %.nfaExecLbrDot_TopScan.exit.loopexit_crit_edge ], [ %129, %.lr.ph ], [ %101, %.lr.ph.preheader ], [ %101, %repeatIsDead.exit.i.thread64 ]
   %169 = icmp ult i32 %168, %116
   br i1 %169, label %170, label %nfaExecLbrDot_Q_i.exit
 
@@ -1643,7 +1649,7 @@ lbrTop.exit.i:                                    ; preds = %183, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %226 = load i32, ptr %32, align 4
   %227 = icmp ult i32 %storemerge.i, %226
-  br i1 %227, label %46, label %._crit_edge
+  br i1 %227, label %46, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %225, %lbrTop.exit.i ]
@@ -1838,7 +1844,7 @@ repeatIsDead.exit85.thread122:                    ; preds = %31, %repeatIsDead.e
   %48 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %48, ptr %4, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph
+  br i1 %exitcond.not, label %nfaExecLbrDot_TopScan.exit, label %.lr.ph, !llvm.loop !7
 
 49:                                               ; preds = %44
   %50 = load ptr, ptr %30, align 8
@@ -2152,7 +2158,7 @@ lbrTop.exit:                                      ; preds = %91, %repeatLastTop.
   store i32 %131, ptr %4, align 8
   %132 = load i32, ptr %6, align 4
   %133 = icmp ult i32 %131, %132
-  br i1 %133, label %31, label %._crit_edge
+  br i1 %133, label %31, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %lbrTop.exit
   %134 = add i64 %130, %126
@@ -2875,7 +2881,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.e
 73:                                               ; preds = %.lr.ph178
   %74 = getelementptr inbounds nuw i8, ptr %.042.i177, i64 1
   %75 = icmp ult ptr %74, %66
-  br i1 %75, label %.lr.ph178, label %vermicelliExec.exit
+  br i1 %75, label %.lr.ph178, label %vermicelliExec.exit, !llvm.loop !10
 
 76:                                               ; preds = %60
   %77 = ptrtoint ptr %65 to i64
@@ -2888,7 +2894,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.e
   %81 = icmp eq <16 x i8> %68, %80
   %82 = bitcast <16 x i1> %81 to i16
   %.not9.i40 = icmp eq i16 %82, 0
-  br i1 %.not9.i40, label %vermUnalign.exit42.thread, label %vermUnalign.exit42, !prof !5
+  br i1 %.not9.i40, label %vermUnalign.exit42.thread, label %vermUnalign.exit42, !prof !11
 
 vermUnalign.exit42.thread:                        ; preds = %79
   %83 = sub nuw nsw i64 16, %78
@@ -2926,7 +2932,7 @@ vermUnalign.exit42:                               ; preds = %79
   %99 = shufflevector <16 x i1> %95, <16 x i1> %98, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %100 = bitcast <32 x i1> %99 to i32
   %.not39.i.not = icmp eq i32 %100, 0
-  br i1 %.not39.i.not, label %105, label %101, !prof !5
+  br i1 %.not39.i.not, label %105, label %101, !prof !11
 
 101:                                              ; preds = %.lr.ph
   %102 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %100, i1 true)
@@ -2938,7 +2944,7 @@ vermUnalign.exit42:                               ; preds = %79
   %106 = getelementptr inbounds nuw i8, ptr %.032.i174, i64 32
   %107 = getelementptr inbounds nuw i8, ptr %.032.i174, i64 63
   %108 = icmp ult ptr %107, %89
-  br i1 %108, label %.lr.ph, label %.preheader157
+  br i1 %108, label %.lr.ph, label %.preheader157, !llvm.loop !12
 
 .lr.ph176:                                        ; preds = %.preheader157, %116
   %.133.i175 = phi ptr [ %117, %116 ], [ %.032.i.lcssa, %.preheader157 ]
@@ -2947,7 +2953,7 @@ vermUnalign.exit42:                               ; preds = %79
   %110 = icmp eq <16 x i8> %68, %109
   %111 = bitcast <16 x i1> %110 to i16
   %.not37.i.not = icmp eq i16 %111, 0
-  br i1 %.not37.i.not, label %116, label %112, !prof !5
+  br i1 %.not37.i.not, label %116, label %112, !prof !11
 
 112:                                              ; preds = %.lr.ph176
   %113 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 true)
@@ -2959,7 +2965,7 @@ vermUnalign.exit42:                               ; preds = %79
   %117 = getelementptr inbounds nuw i8, ptr %.133.i175, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %.133.i175, i64 31
   %119 = icmp ult ptr %118, %89
-  br i1 %119, label %.lr.ph176, label %vermSearchAligned.exit.thread
+  br i1 %119, label %.lr.ph176, label %vermSearchAligned.exit.thread, !llvm.loop !13
 
 vermSearchAligned.exit.thread:                    ; preds = %116, %.preheader157
   %120 = getelementptr inbounds i8, ptr %66, i64 -16
@@ -2967,7 +2973,7 @@ vermSearchAligned.exit.thread:                    ; preds = %116, %.preheader157
   %122 = icmp eq <16 x i8> %68, %121
   %123 = bitcast <16 x i1> %122 to i16
   %.not9.i = icmp eq i16 %123, 0
-  br i1 %.not9.i, label %vermUnalign.exit, label %124, !prof !5
+  br i1 %.not9.i, label %vermUnalign.exit, label %124, !prof !11
 
 124:                                              ; preds = %vermSearchAligned.exit.thread
   %125 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %123, i1 true)
@@ -3074,7 +3080,7 @@ repeatNextMatch.exit:                             ; preds = %158, %152, %150, %1
   %177 = load i32, ptr %invariant.gep, align 4
   %178 = tail call i32 %134(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %177, ptr noundef %135) #8
   %179 = icmp eq i32 %178, 0
-  br i1 %179, label %nfaExecLbrVerm_Q_i.exit, label %148
+  br i1 %179, label %nfaExecLbrVerm_Q_i.exit, label %148, !llvm.loop !5
 
 repeatNextMatch.exit.thread:                      ; preds = %148, %repeatNextMatch.exit, %vermicelliExec.exit
   br i1 %129, label %repeatIsDead.exit126.i.thread71, label %180
@@ -3156,7 +3162,7 @@ repeatIsDead.exit.i.thread103:                    ; preds = %193, %repeatIsDead.
   %208 = getelementptr i8, ptr %39, i64 %.idx.i
   %209 = load i64, ptr %208, align 8
   %.not.i2 = icmp sgt i64 %209, %2
-  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph266
+  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph266, !llvm.loop !14
 
 .lr.ph266:                                        ; preds = %.lr.ph182, %207
   %210 = phi i64 [ %209, %207 ], [ %206, %.lr.ph182 ]
@@ -3180,7 +3186,7 @@ repeatIsDead.exit.i.thread103:                    ; preds = %193, %repeatIsDead.
   %218 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %218, ptr %30, align 8
   %219 = icmp samesign ult i64 %indvars.iv.next, %204
-  br i1 %219, label %207, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %219, label %207, label %.nfaExecLbrVerm_TopScan.exit_crit_edge, !llvm.loop !14
 
 220:                                              ; preds = %213
   %221 = load i32, ptr %gep, align 4
@@ -3217,7 +3223,7 @@ repeatIsDead.exit.i.thread103:                    ; preds = %193, %repeatIsDead.
 237:                                              ; preds = %.preheader
   %238 = load i8, ptr %.046.i, align 1
   %239 = icmp eq i8 %238, %231
-  br i1 %239, label %rvermicelliExec.exit, label %.preheader
+  br i1 %239, label %rvermicelliExec.exit, label %.preheader, !llvm.loop !15
 
 240:                                              ; preds = %227
   %241 = ptrtoint ptr %233 to i64
@@ -3231,7 +3237,7 @@ repeatIsDead.exit.i.thread103:                    ; preds = %193, %repeatIsDead.
   %246 = icmp eq <16 x i8> %235, %245
   %247 = bitcast <16 x i1> %246 to i16
   %.not9.i60 = icmp eq i16 %247, 0
-  br i1 %.not9.i60, label %254, label %.thread111, !prof !5
+  br i1 %.not9.i60, label %254, label %.thread111, !prof !11
 
 .thread111:                                       ; preds = %243
   %248 = zext i16 %247 to i32
@@ -3266,7 +3272,7 @@ repeatIsDead.exit.i.thread103:                    ; preds = %193, %repeatIsDead.
   %265 = icmp eq <16 x i8> %235, %264
   %266 = bitcast <16 x i1> %265 to i16
   %.not15.i.not = icmp eq i16 %266, 0
-  br i1 %.not15.i.not, label %260, label %rvermSearchAligned.exit, !prof !5
+  br i1 %.not15.i.not, label %260, label %rvermSearchAligned.exit, !prof !11, !llvm.loop !16
 
 rvermSearchAligned.exit:                          ; preds = %262
   %267 = zext i16 %266 to i32
@@ -3282,7 +3288,7 @@ rvermSearchAligned.exit:                          ; preds = %262
   %275 = icmp eq <16 x i8> %235, %274
   %276 = bitcast <16 x i1> %275 to i16
   %.not9.i57 = icmp eq i16 %276, 0
-  br i1 %.not9.i57, label %rvermUnalign.exit, label %277, !prof !5
+  br i1 %.not9.i57, label %rvermUnalign.exit, label %277, !prof !11
 
 277:                                              ; preds = %273
   %278 = zext i16 %276 to i32
@@ -3316,7 +3322,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %237, %
   store i32 %293, ptr %30, align 8
   %294 = load i32, ptr %32, align 4
   %295 = icmp ult i32 %293, %294
-  br i1 %295, label %.lr.ph182, label %nfaExecLbrVerm_Q_i.exit
+  br i1 %295, label %.lr.ph182, label %nfaExecLbrVerm_Q_i.exit, !llvm.loop !17
 
 .thread124:                                       ; preds = %rvermicelliExec.exit, %220
   %296 = load ptr, ptr %48, align 8
@@ -3464,8 +3470,11 @@ repeatLastTop.exit:                               ; preds = %314, %314, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %299, ptr noundef nonnull %325, i64 noundef %215, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph182, %207, %217
-  %333 = phi i32 [ %218, %217 ], [ %218, %207 ], [ %201, %.lr.ph182 ]
+.nfaExecLbrVerm_TopScan.exit_crit_edge:           ; preds = %217
+  br label %nfaExecLbrVerm_TopScan.exit, !llvm.loop !14
+
+nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph182, %207, %.nfaExecLbrVerm_TopScan.exit_crit_edge
+  %333 = phi i32 [ %218, %.nfaExecLbrVerm_TopScan.exit_crit_edge ], [ %218, %207 ], [ %201, %.lr.ph182 ]
   %334 = icmp ult i32 %333, %202
   br i1 %334, label %335, label %nfaExecLbrVerm_Q_i.exit
 
@@ -3653,7 +3662,7 @@ lbrTop.exit.i:                                    ; preds = %348, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %391 = load i32, ptr %32, align 4
   %392 = icmp ult i32 %storemerge.i, %391
-  br i1 %392, label %51, label %._crit_edge
+  br i1 %392, label %51, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %390, %lbrTop.exit.i ]
@@ -3865,7 +3874,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.e
 71:                                               ; preds = %.lr.ph192
   %72 = getelementptr inbounds nuw i8, ptr %.042.i191, i64 1
   %73 = icmp ult ptr %72, %64
-  br i1 %73, label %.lr.ph192, label %vermicelliExec.exit
+  br i1 %73, label %.lr.ph192, label %vermicelliExec.exit, !llvm.loop !10
 
 74:                                               ; preds = %58
   %75 = ptrtoint ptr %63 to i64
@@ -3878,7 +3887,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.e
   %79 = icmp eq <16 x i8> %66, %78
   %80 = bitcast <16 x i1> %79 to i16
   %.not9.i41 = icmp eq i16 %80, 0
-  br i1 %.not9.i41, label %vermUnalign.exit43.thread, label %vermUnalign.exit43, !prof !5
+  br i1 %.not9.i41, label %vermUnalign.exit43.thread, label %vermUnalign.exit43, !prof !11
 
 vermUnalign.exit43.thread:                        ; preds = %77
   %81 = sub nuw nsw i64 16, %76
@@ -3916,7 +3925,7 @@ vermUnalign.exit43:                               ; preds = %77
   %97 = shufflevector <16 x i1> %93, <16 x i1> %96, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %98 = bitcast <32 x i1> %97 to i32
   %.not39.i.not = icmp eq i32 %98, 0
-  br i1 %.not39.i.not, label %103, label %99, !prof !5
+  br i1 %.not39.i.not, label %103, label %99, !prof !11
 
 99:                                               ; preds = %.lr.ph
   %100 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %98, i1 true)
@@ -3928,7 +3937,7 @@ vermUnalign.exit43:                               ; preds = %77
   %104 = getelementptr inbounds nuw i8, ptr %.032.i188, i64 32
   %105 = getelementptr inbounds nuw i8, ptr %.032.i188, i64 63
   %106 = icmp ult ptr %105, %87
-  br i1 %106, label %.lr.ph, label %.preheader171
+  br i1 %106, label %.lr.ph, label %.preheader171, !llvm.loop !12
 
 .lr.ph190:                                        ; preds = %.preheader171, %114
   %.133.i189 = phi ptr [ %115, %114 ], [ %.032.i.lcssa, %.preheader171 ]
@@ -3937,7 +3946,7 @@ vermUnalign.exit43:                               ; preds = %77
   %108 = icmp eq <16 x i8> %66, %107
   %109 = bitcast <16 x i1> %108 to i16
   %.not37.i.not = icmp eq i16 %109, 0
-  br i1 %.not37.i.not, label %114, label %110, !prof !5
+  br i1 %.not37.i.not, label %114, label %110, !prof !11
 
 110:                                              ; preds = %.lr.ph190
   %111 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %109, i1 true)
@@ -3949,7 +3958,7 @@ vermUnalign.exit43:                               ; preds = %77
   %115 = getelementptr inbounds nuw i8, ptr %.133.i189, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %.133.i189, i64 31
   %117 = icmp ult ptr %116, %87
-  br i1 %117, label %.lr.ph190, label %vermSearchAligned.exit.thread
+  br i1 %117, label %.lr.ph190, label %vermSearchAligned.exit.thread, !llvm.loop !13
 
 vermSearchAligned.exit.thread:                    ; preds = %114, %.preheader171
   %118 = getelementptr inbounds i8, ptr %64, i64 -16
@@ -3957,7 +3966,7 @@ vermSearchAligned.exit.thread:                    ; preds = %114, %.preheader171
   %120 = icmp eq <16 x i8> %66, %119
   %121 = bitcast <16 x i1> %120 to i16
   %.not9.i = icmp eq i16 %121, 0
-  br i1 %.not9.i, label %vermUnalign.exit, label %122, !prof !5
+  br i1 %.not9.i, label %vermUnalign.exit, label %122, !prof !11
 
 122:                                              ; preds = %vermSearchAligned.exit.thread
   %123 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %121, i1 true)
@@ -4149,7 +4158,7 @@ repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.
   %207 = getelementptr i8, ptr %39, i64 %.idx.i24
   %208 = load i64, ptr %207, align 8
   %.not.i2 = icmp sgt i64 %208, %2
-  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph278
+  br i1 %.not.i2, label %nfaExecLbrVerm_TopScan.exit, label %.lr.ph278, !llvm.loop !14
 
 .lr.ph278:                                        ; preds = %.lr.ph196, %206
   %209 = phi i64 [ %208, %206 ], [ %205, %.lr.ph196 ]
@@ -4173,7 +4182,7 @@ repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.
   %217 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %217, ptr %30, align 8
   %218 = icmp samesign ult i64 %indvars.iv.next, %203
-  br i1 %218, label %206, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %218, label %206, label %.nfaExecLbrVerm_TopScan.exit_crit_edge, !llvm.loop !14
 
 219:                                              ; preds = %212
   %220 = load i32, ptr %gep, align 4
@@ -4210,7 +4219,7 @@ repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.
 236:                                              ; preds = %.preheader
   %237 = load i8, ptr %.046.i, align 1
   %238 = icmp eq i8 %237, %230
-  br i1 %238, label %rvermicelliExec.exit, label %.preheader
+  br i1 %238, label %rvermicelliExec.exit, label %.preheader, !llvm.loop !15
 
 239:                                              ; preds = %226
   %240 = ptrtoint ptr %232 to i64
@@ -4224,7 +4233,7 @@ repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.
   %245 = icmp eq <16 x i8> %234, %244
   %246 = bitcast <16 x i1> %245 to i16
   %.not9.i61 = icmp eq i16 %246, 0
-  br i1 %.not9.i61, label %253, label %.thread125, !prof !5
+  br i1 %.not9.i61, label %253, label %.thread125, !prof !11
 
 .thread125:                                       ; preds = %242
   %247 = zext i16 %246 to i32
@@ -4259,7 +4268,7 @@ repeatIsDead.exit.i.thread117:                    ; preds = %192, %repeatIsDead.
   %264 = icmp eq <16 x i8> %234, %263
   %265 = bitcast <16 x i1> %264 to i16
   %.not15.i.not = icmp eq i16 %265, 0
-  br i1 %.not15.i.not, label %259, label %rvermSearchAligned.exit, !prof !5
+  br i1 %.not15.i.not, label %259, label %rvermSearchAligned.exit, !prof !11, !llvm.loop !16
 
 rvermSearchAligned.exit:                          ; preds = %261
   %266 = zext i16 %265 to i32
@@ -4275,7 +4284,7 @@ rvermSearchAligned.exit:                          ; preds = %261
   %274 = icmp eq <16 x i8> %234, %273
   %275 = bitcast <16 x i1> %274 to i16
   %.not9.i58 = icmp eq i16 %275, 0
-  br i1 %.not9.i58, label %rvermUnalign.exit, label %276, !prof !5
+  br i1 %.not9.i58, label %rvermUnalign.exit, label %276, !prof !11
 
 276:                                              ; preds = %272
   %277 = zext i16 %275 to i32
@@ -4309,7 +4318,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %236, %
   store i32 %292, ptr %30, align 8
   %293 = load i32, ptr %32, align 4
   %294 = icmp ult i32 %292, %293
-  br i1 %294, label %.lr.ph196, label %nfaExecLbrVerm_Q_i.exit
+  br i1 %294, label %.lr.ph196, label %nfaExecLbrVerm_Q_i.exit, !llvm.loop !17
 
 .thread138:                                       ; preds = %rvermicelliExec.exit, %219
   %295 = load ptr, ptr %46, align 8
@@ -4457,8 +4466,11 @@ repeatLastTop.exit:                               ; preds = %313, %313, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %298, ptr noundef nonnull %324, i64 noundef %214, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph196, %206, %216
-  %332 = phi i32 [ %217, %216 ], [ %217, %206 ], [ %200, %.lr.ph196 ]
+.nfaExecLbrVerm_TopScan.exit_crit_edge:           ; preds = %216
+  br label %nfaExecLbrVerm_TopScan.exit, !llvm.loop !14
+
+nfaExecLbrVerm_TopScan.exit:                      ; preds = %.lr.ph196, %206, %.nfaExecLbrVerm_TopScan.exit_crit_edge
+  %332 = phi i32 [ %217, %.nfaExecLbrVerm_TopScan.exit_crit_edge ], [ %217, %206 ], [ %200, %.lr.ph196 ]
   %333 = icmp ult i32 %332, %201
   br i1 %333, label %334, label %nfaExecLbrVerm_Q_i.exit
 
@@ -4646,7 +4658,7 @@ lbrTop.exit.i:                                    ; preds = %347, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %390 = load i32, ptr %32, align 4
   %391 = icmp ult i32 %storemerge.i, %390
-  br i1 %391, label %49, label %._crit_edge
+  br i1 %391, label %49, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %389, %lbrTop.exit.i ]
@@ -4846,7 +4858,7 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
 66:                                               ; preds = %.lr.ph325
   %67 = getelementptr inbounds nuw i8, ptr %.042.i324, i64 1
   %68 = icmp ult ptr %67, %60
-  br i1 %68, label %.lr.ph325, label %vermicelliExec.exit
+  br i1 %68, label %.lr.ph325, label %vermicelliExec.exit, !llvm.loop !10
 
 69:                                               ; preds = %57
   %70 = ptrtoint ptr %51 to i64
@@ -4859,7 +4871,7 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
   %74 = icmp eq <16 x i8> %62, %73
   %75 = bitcast <16 x i1> %74 to i16
   %.not9.i147 = icmp eq i16 %75, 0
-  br i1 %.not9.i147, label %vermUnalign.exit149.thread, label %vermUnalign.exit149, !prof !5
+  br i1 %.not9.i147, label %vermUnalign.exit149.thread, label %vermUnalign.exit149, !prof !11
 
 vermUnalign.exit149.thread:                       ; preds = %72
   %76 = sub nuw nsw i64 16, %71
@@ -4897,7 +4909,7 @@ vermUnalign.exit149:                              ; preds = %72
   %92 = shufflevector <16 x i1> %88, <16 x i1> %91, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %93 = bitcast <32 x i1> %92 to i32
   %.not39.i163.not = icmp eq i32 %93, 0
-  br i1 %.not39.i163.not, label %98, label %94, !prof !5
+  br i1 %.not39.i163.not, label %98, label %94, !prof !11
 
 94:                                               ; preds = %.lr.ph
   %95 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %93, i1 true)
@@ -4909,7 +4921,7 @@ vermUnalign.exit149:                              ; preds = %72
   %99 = getelementptr inbounds nuw i8, ptr %.032.i154321, i64 32
   %100 = getelementptr inbounds nuw i8, ptr %.032.i154321, i64 63
   %101 = icmp ult ptr %100, %82
-  br i1 %101, label %.lr.ph, label %.preheader306
+  br i1 %101, label %.lr.ph, label %.preheader306, !llvm.loop !12
 
 .lr.ph323:                                        ; preds = %.preheader306, %109
   %.133.i156322 = phi ptr [ %110, %109 ], [ %.032.i154.lcssa, %.preheader306 ]
@@ -4918,7 +4930,7 @@ vermUnalign.exit149:                              ; preds = %72
   %103 = icmp eq <16 x i8> %62, %102
   %104 = bitcast <16 x i1> %103 to i16
   %.not37.i159.not = icmp eq i16 %104, 0
-  br i1 %.not37.i159.not, label %109, label %105, !prof !5
+  br i1 %.not37.i159.not, label %109, label %105, !prof !11
 
 105:                                              ; preds = %.lr.ph323
   %106 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %104, i1 true)
@@ -4930,7 +4942,7 @@ vermUnalign.exit149:                              ; preds = %72
   %110 = getelementptr inbounds nuw i8, ptr %.133.i156322, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %.133.i156322, i64 31
   %112 = icmp ult ptr %111, %82
-  br i1 %112, label %.lr.ph323, label %vermSearchAligned.exit166.thread
+  br i1 %112, label %.lr.ph323, label %vermSearchAligned.exit166.thread, !llvm.loop !13
 
 vermSearchAligned.exit166.thread:                 ; preds = %109, %.preheader306
   %113 = getelementptr inbounds i8, ptr %60, i64 -16
@@ -4938,7 +4950,7 @@ vermSearchAligned.exit166.thread:                 ; preds = %109, %.preheader306
   %115 = icmp eq <16 x i8> %62, %114
   %116 = bitcast <16 x i1> %115 to i16
   %.not9.i143 = icmp eq i16 %116, 0
-  br i1 %.not9.i143, label %vermUnalign.exit145, label %117, !prof !5
+  br i1 %.not9.i143, label %vermUnalign.exit145, label %117, !prof !11
 
 117:                                              ; preds = %vermSearchAligned.exit166.thread
   %118 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %116, i1 true)
@@ -5017,7 +5029,7 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrVerm_Stre
 146:                                              ; preds = %.lr.ph335
   %147 = getelementptr inbounds nuw i8, ptr %.042.i135334, i64 1
   %148 = icmp ult ptr %147, %140
-  br i1 %148, label %.lr.ph335, label %vermicelliExec.exit136
+  br i1 %148, label %.lr.ph335, label %vermicelliExec.exit136, !llvm.loop !10
 
 149:                                              ; preds = %128
   %150 = ptrtoint ptr %133 to i64
@@ -5030,7 +5042,7 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrVerm_Stre
   %154 = icmp eq <16 x i8> %142, %153
   %155 = bitcast <16 x i1> %154 to i16
   %.not9.i139 = icmp eq i16 %155, 0
-  br i1 %.not9.i139, label %vermUnalign.exit141.thread, label %vermUnalign.exit141, !prof !5
+  br i1 %.not9.i139, label %vermUnalign.exit141.thread, label %vermUnalign.exit141, !prof !11
 
 vermUnalign.exit141.thread:                       ; preds = %152
   %156 = sub nuw nsw i64 16, %151
@@ -5068,7 +5080,7 @@ vermUnalign.exit141:                              ; preds = %152
   %172 = shufflevector <16 x i1> %168, <16 x i1> %171, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %173 = bitcast <32 x i1> %172 to i32
   %.not39.i.not = icmp eq i32 %173, 0
-  br i1 %.not39.i.not, label %178, label %174, !prof !5
+  br i1 %.not39.i.not, label %178, label %174, !prof !11
 
 174:                                              ; preds = %.lr.ph330
   %175 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 range(i32 1, 0) %173, i1 true)
@@ -5080,7 +5092,7 @@ vermUnalign.exit141:                              ; preds = %152
   %179 = getelementptr inbounds nuw i8, ptr %.032.i329, i64 32
   %180 = getelementptr inbounds nuw i8, ptr %.032.i329, i64 63
   %181 = icmp ult ptr %180, %162
-  br i1 %181, label %.lr.ph330, label %.preheader304
+  br i1 %181, label %.lr.ph330, label %.preheader304, !llvm.loop !12
 
 .lr.ph333:                                        ; preds = %.preheader304, %189
   %.133.i332 = phi ptr [ %190, %189 ], [ %.032.i.lcssa, %.preheader304 ]
@@ -5089,7 +5101,7 @@ vermUnalign.exit141:                              ; preds = %152
   %183 = icmp eq <16 x i8> %142, %182
   %184 = bitcast <16 x i1> %183 to i16
   %.not37.i.not = icmp eq i16 %184, 0
-  br i1 %.not37.i.not, label %189, label %185, !prof !5
+  br i1 %.not37.i.not, label %189, label %185, !prof !11
 
 185:                                              ; preds = %.lr.ph333
   %186 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %184, i1 true)
@@ -5101,7 +5113,7 @@ vermUnalign.exit141:                              ; preds = %152
   %190 = getelementptr inbounds nuw i8, ptr %.133.i332, i64 16
   %191 = getelementptr inbounds nuw i8, ptr %.133.i332, i64 31
   %192 = icmp ult ptr %191, %162
-  br i1 %192, label %.lr.ph333, label %vermSearchAligned.exit.thread
+  br i1 %192, label %.lr.ph333, label %vermSearchAligned.exit.thread, !llvm.loop !13
 
 vermSearchAligned.exit.thread:                    ; preds = %189, %.preheader304
   %193 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -5109,7 +5121,7 @@ vermSearchAligned.exit.thread:                    ; preds = %189, %.preheader304
   %195 = icmp eq <16 x i8> %142, %194
   %196 = bitcast <16 x i1> %195 to i16
   %.not9.i = icmp eq i16 %196, 0
-  br i1 %.not9.i, label %vermUnalign.exit, label %197, !prof !5
+  br i1 %.not9.i, label %vermUnalign.exit, label %197, !prof !11
 
 197:                                              ; preds = %vermSearchAligned.exit.thread
   %198 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %196, i1 true)
@@ -5205,7 +5217,7 @@ repeatIsDead.exit85.thread187:                    ; preds = %nfaExecLbrVerm_Stre
   %229 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %229, ptr %4, align 8
   %230 = icmp samesign ult i64 %indvars.iv.next, %217
-  br i1 %230, label %218, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %230, label %218, label %nfaExecLbrVerm_TopScan.exit, !llvm.loop !14
 
 231:                                              ; preds = %224
   %232 = load i32, ptr %gep, align 4
@@ -5242,7 +5254,7 @@ repeatIsDead.exit85.thread187:                    ; preds = %nfaExecLbrVerm_Stre
 248:                                              ; preds = %.preheader
   %249 = load i8, ptr %.046.i, align 1
   %250 = icmp eq i8 %249, %242
-  br i1 %250, label %rvermicelliExec.exit, label %.preheader
+  br i1 %250, label %rvermicelliExec.exit, label %.preheader, !llvm.loop !15
 
 251:                                              ; preds = %238
   %252 = ptrtoint ptr %244 to i64
@@ -5256,7 +5268,7 @@ repeatIsDead.exit85.thread187:                    ; preds = %nfaExecLbrVerm_Stre
   %257 = icmp eq <16 x i8> %246, %256
   %258 = bitcast <16 x i1> %257 to i16
   %.not9.i177 = icmp eq i16 %258, 0
-  br i1 %.not9.i177, label %265, label %.thread238, !prof !5
+  br i1 %.not9.i177, label %265, label %.thread238, !prof !11
 
 .thread238:                                       ; preds = %254
   %259 = zext i16 %258 to i32
@@ -5291,7 +5303,7 @@ repeatIsDead.exit85.thread187:                    ; preds = %nfaExecLbrVerm_Stre
   %276 = icmp eq <16 x i8> %246, %275
   %277 = bitcast <16 x i1> %276 to i16
   %.not15.i.not = icmp eq i16 %277, 0
-  br i1 %.not15.i.not, label %271, label %rvermSearchAligned.exit, !prof !5
+  br i1 %.not15.i.not, label %271, label %rvermSearchAligned.exit, !prof !11, !llvm.loop !16
 
 rvermSearchAligned.exit:                          ; preds = %273
   %278 = zext i16 %277 to i32
@@ -5307,7 +5319,7 @@ rvermSearchAligned.exit:                          ; preds = %273
   %286 = icmp eq <16 x i8> %246, %285
   %287 = bitcast <16 x i1> %286 to i16
   %.not9.i174 = icmp eq i16 %287, 0
-  br i1 %.not9.i174, label %rvermUnalign.exit, label %288, !prof !5
+  br i1 %.not9.i174, label %rvermUnalign.exit, label %288, !prof !11
 
 288:                                              ; preds = %284
   %289 = zext i16 %287 to i32
@@ -5341,7 +5353,7 @@ rvermicelliExec.exit:                             ; preds = %.preheader, %248, %
   store i32 %304, ptr %4, align 8
   %305 = load i32, ptr %6, align 4
   %306 = icmp ult i32 %304, %305
-  br i1 %306, label %.lr.ph339, label %nfaExecLbrVerm_TopScan.exit
+  br i1 %306, label %.lr.ph339, label %nfaExecLbrVerm_TopScan.exit, !llvm.loop !17
 
 .thread251:                                       ; preds = %rvermicelliExec.exit, %231
   %307 = load ptr, ptr %34, align 8
@@ -5658,7 +5670,7 @@ lbrTop.exit:                                      ; preds = %348, %repeatLastTop
   store i32 %393, ptr %4, align 8
   %394 = load i32, ptr %6, align 4
   %395 = icmp ult i32 %393, %394
-  br i1 %395, label %36, label %._crit_edge
+  br i1 %395, label %36, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %lbrTop.exit, %9
   %.064.lcssa = phi i64 [ %16, %9 ], [ %392, %lbrTop.exit ]
@@ -6376,7 +6388,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.e
 72:                                               ; preds = %.lr.ph162
   %73 = getelementptr inbounds nuw i8, ptr %.042.i161, i64 1
   %74 = icmp ult ptr %73, %66
-  br i1 %74, label %.lr.ph162, label %nvermicelliExec.exit
+  br i1 %74, label %.lr.ph162, label %nvermicelliExec.exit, !llvm.loop !20
 
 75:                                               ; preds = %60
   %76 = ptrtoint ptr %65 to i64
@@ -6389,7 +6401,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %51, %repeatIsDead.e
   %80 = icmp eq <16 x i8> %68, %79
   %81 = bitcast <16 x i1> %80 to i16
   %.not9.i54.i = icmp eq i16 %81, -1
-  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !5
+  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !11
 
 vermUnalign.exit56.i.thread:                      ; preds = %78
   %82 = sub nuw nsw i64 16, %77
@@ -6428,7 +6440,7 @@ vermUnalign.exit56.i:                             ; preds = %78
   %99 = shufflevector <16 x i1> %95, <16 x i1> %98, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %100 = bitcast <32 x i1> %99 to i32
   %.not39.i.i.not = icmp eq i32 %100, -1
-  br i1 %.not39.i.i.not, label %106, label %101, !prof !5
+  br i1 %.not39.i.i.not, label %106, label %101, !prof !11
 
 101:                                              ; preds = %.lr.ph
   %102 = xor i32 %100, -1
@@ -6441,7 +6453,7 @@ vermUnalign.exit56.i:                             ; preds = %78
   %107 = getelementptr inbounds nuw i8, ptr %.032.i.i158, i64 32
   %108 = getelementptr inbounds nuw i8, ptr %.032.i.i158, i64 63
   %109 = icmp ult ptr %108, %89
-  br i1 %109, label %.lr.ph, label %.preheader141
+  br i1 %109, label %.lr.ph, label %.preheader141, !llvm.loop !12
 
 .lr.ph160:                                        ; preds = %.preheader141, %118
   %.133.i.i159 = phi ptr [ %119, %118 ], [ %.032.i.i.lcssa, %.preheader141 ]
@@ -6450,7 +6462,7 @@ vermUnalign.exit56.i:                             ; preds = %78
   %111 = icmp eq <16 x i8> %68, %110
   %112 = bitcast <16 x i1> %111 to i16
   %.not37.i.i.not = icmp eq i16 %112, -1
-  br i1 %.not37.i.i.not, label %118, label %113, !prof !5
+  br i1 %.not37.i.i.not, label %118, label %113, !prof !11
 
 113:                                              ; preds = %.lr.ph160
   %114 = xor i16 %112, -1
@@ -6463,7 +6475,7 @@ vermUnalign.exit56.i:                             ; preds = %78
   %119 = getelementptr inbounds nuw i8, ptr %.133.i.i159, i64 16
   %120 = getelementptr inbounds nuw i8, ptr %.133.i.i159, i64 31
   %121 = icmp ult ptr %120, %89
-  br i1 %121, label %.lr.ph160, label %vermSearchAligned.exit.i.thread
+  br i1 %121, label %.lr.ph160, label %vermSearchAligned.exit.i.thread, !llvm.loop !13
 
 vermSearchAligned.exit.i.thread:                  ; preds = %118, %.preheader141
   %122 = getelementptr inbounds i8, ptr %66, i64 -16
@@ -6471,7 +6483,7 @@ vermSearchAligned.exit.i.thread:                  ; preds = %118, %.preheader141
   %124 = icmp eq <16 x i8> %68, %123
   %125 = bitcast <16 x i1> %124 to i16
   %.not9.i.i = icmp eq i16 %125, -1
-  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %126, !prof !5
+  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %126, !prof !11
 
 126:                                              ; preds = %vermSearchAligned.exit.i.thread
   %127 = xor i16 %125, -1
@@ -6579,7 +6591,7 @@ repeatNextMatch.exit:                             ; preds = %161, %155, %153, %1
   %180 = load i32, ptr %invariant.gep, align 4
   %181 = tail call i32 %137(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %180, ptr noundef %138) #8
   %182 = icmp eq i32 %181, 0
-  br i1 %182, label %nfaExecLbrNVerm_Q_i.exit, label %151
+  br i1 %182, label %nfaExecLbrNVerm_Q_i.exit, label %151, !llvm.loop !5
 
 repeatNextMatch.exit.thread:                      ; preds = %151, %repeatNextMatch.exit, %nvermicelliExec.exit
   br i1 %132, label %repeatIsDead.exit126.i.thread55, label %183
@@ -6661,7 +6673,7 @@ repeatIsDead.exit.i.thread87:                     ; preds = %196, %repeatIsDead.
   %211 = getelementptr i8, ptr %39, i64 %.idx.i
   %212 = load i64, ptr %211, align 8
   %.not.i2 = icmp sgt i64 %212, %2
-  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph250
+  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph250, !llvm.loop !21
 
 .lr.ph250:                                        ; preds = %.lr.ph166, %210
   %213 = phi i64 [ %212, %210 ], [ %209, %.lr.ph166 ]
@@ -6685,7 +6697,7 @@ repeatIsDead.exit.i.thread87:                     ; preds = %196, %repeatIsDead.
   %221 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %221, ptr %30, align 8
   %222 = icmp samesign ult i64 %indvars.iv.next, %207
-  br i1 %222, label %210, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %222, label %210, label %.nfaExecLbrNVerm_TopScan.exit_crit_edge, !llvm.loop !21
 
 223:                                              ; preds = %216
   %224 = load i32, ptr %gep, align 4
@@ -6722,7 +6734,7 @@ repeatIsDead.exit.i.thread87:                     ; preds = %196, %repeatIsDead.
 240:                                              ; preds = %.preheader
   %241 = load i8, ptr %.046.i, align 1
   %.not62.i = icmp eq i8 %241, %234
-  br i1 %.not62.i, label %.preheader, label %rnvermicelliExec.exit
+  br i1 %.not62.i, label %.preheader, label %rnvermicelliExec.exit, !llvm.loop !22
 
 242:                                              ; preds = %230
   %243 = ptrtoint ptr %236 to i64
@@ -6736,7 +6748,7 @@ repeatIsDead.exit.i.thread87:                     ; preds = %196, %repeatIsDead.
   %248 = icmp eq <16 x i8> %238, %247
   %249 = bitcast <16 x i1> %248 to i16
   %.not9.i65.i = icmp eq i16 %249, -1
-  br i1 %.not9.i65.i, label %257, label %.thread95, !prof !5
+  br i1 %.not9.i65.i, label %257, label %.thread95, !prof !11
 
 .thread95:                                        ; preds = %245
   %250 = xor i16 %249, -1
@@ -6772,7 +6784,7 @@ repeatIsDead.exit.i.thread87:                     ; preds = %196, %repeatIsDead.
   %268 = icmp eq <16 x i8> %238, %267
   %269 = bitcast <16 x i1> %268 to i16
   %.not15.i.i.not = icmp eq i16 %269, -1
-  br i1 %.not15.i.i.not, label %263, label %rvermSearchAligned.exit.i, !prof !5
+  br i1 %.not15.i.i.not, label %263, label %rvermSearchAligned.exit.i, !prof !11, !llvm.loop !16
 
 rvermSearchAligned.exit.i:                        ; preds = %265
   %270 = xor i16 %269, -1
@@ -6789,7 +6801,7 @@ rvermSearchAligned.exit.i:                        ; preds = %265
   %279 = icmp eq <16 x i8> %238, %278
   %280 = bitcast <16 x i1> %279 to i16
   %.not9.i.i45 = icmp eq i16 %280, -1
-  br i1 %.not9.i.i45, label %rvermUnalign.exit.i, label %281, !prof !5
+  br i1 %.not9.i.i45, label %rvermUnalign.exit.i, label %281, !prof !11
 
 281:                                              ; preds = %277
   %282 = xor i16 %280, -1
@@ -6824,7 +6836,7 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %240, %
   store i32 %298, ptr %30, align 8
   %299 = load i32, ptr %32, align 4
   %300 = icmp ult i32 %298, %299
-  br i1 %300, label %.lr.ph166, label %nfaExecLbrNVerm_Q_i.exit
+  br i1 %300, label %.lr.ph166, label %nfaExecLbrNVerm_Q_i.exit, !llvm.loop !23
 
 .thread108:                                       ; preds = %rnvermicelliExec.exit, %223
   %301 = load ptr, ptr %48, align 8
@@ -6972,8 +6984,11 @@ repeatLastTop.exit:                               ; preds = %319, %319, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %304, ptr noundef nonnull %330, i64 noundef %218, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph166, %210, %220
-  %338 = phi i32 [ %221, %220 ], [ %221, %210 ], [ %204, %.lr.ph166 ]
+.nfaExecLbrNVerm_TopScan.exit_crit_edge:          ; preds = %220
+  br label %nfaExecLbrNVerm_TopScan.exit, !llvm.loop !21
+
+nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph166, %210, %.nfaExecLbrNVerm_TopScan.exit_crit_edge
+  %338 = phi i32 [ %221, %.nfaExecLbrNVerm_TopScan.exit_crit_edge ], [ %221, %210 ], [ %204, %.lr.ph166 ]
   %339 = icmp ult i32 %338, %205
   br i1 %339, label %340, label %nfaExecLbrNVerm_Q_i.exit
 
@@ -7161,7 +7176,7 @@ lbrTop.exit.i:                                    ; preds = %353, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %396 = load i32, ptr %32, align 4
   %397 = icmp ult i32 %storemerge.i, %396
-  br i1 %397, label %51, label %._crit_edge
+  br i1 %397, label %51, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %395, %lbrTop.exit.i ]
@@ -7373,7 +7388,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.e
 70:                                               ; preds = %.lr.ph176
   %71 = getelementptr inbounds nuw i8, ptr %.042.i175, i64 1
   %72 = icmp ult ptr %71, %64
-  br i1 %72, label %.lr.ph176, label %nvermicelliExec.exit
+  br i1 %72, label %.lr.ph176, label %nvermicelliExec.exit, !llvm.loop !20
 
 73:                                               ; preds = %58
   %74 = ptrtoint ptr %63 to i64
@@ -7386,7 +7401,7 @@ repeatIsDead.exit126.i.thread:                    ; preds = %49, %repeatIsDead.e
   %78 = icmp eq <16 x i8> %66, %77
   %79 = bitcast <16 x i1> %78 to i16
   %.not9.i54.i = icmp eq i16 %79, -1
-  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !5
+  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !11
 
 vermUnalign.exit56.i.thread:                      ; preds = %76
   %80 = sub nuw nsw i64 16, %75
@@ -7425,7 +7440,7 @@ vermUnalign.exit56.i:                             ; preds = %76
   %97 = shufflevector <16 x i1> %93, <16 x i1> %96, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %98 = bitcast <32 x i1> %97 to i32
   %.not39.i.i.not = icmp eq i32 %98, -1
-  br i1 %.not39.i.i.not, label %104, label %99, !prof !5
+  br i1 %.not39.i.i.not, label %104, label %99, !prof !11
 
 99:                                               ; preds = %.lr.ph
   %100 = xor i32 %98, -1
@@ -7438,7 +7453,7 @@ vermUnalign.exit56.i:                             ; preds = %76
   %105 = getelementptr inbounds nuw i8, ptr %.032.i.i172, i64 32
   %106 = getelementptr inbounds nuw i8, ptr %.032.i.i172, i64 63
   %107 = icmp ult ptr %106, %87
-  br i1 %107, label %.lr.ph, label %.preheader155
+  br i1 %107, label %.lr.ph, label %.preheader155, !llvm.loop !12
 
 .lr.ph174:                                        ; preds = %.preheader155, %116
   %.133.i.i173 = phi ptr [ %117, %116 ], [ %.032.i.i.lcssa, %.preheader155 ]
@@ -7447,7 +7462,7 @@ vermUnalign.exit56.i:                             ; preds = %76
   %109 = icmp eq <16 x i8> %66, %108
   %110 = bitcast <16 x i1> %109 to i16
   %.not37.i.i.not = icmp eq i16 %110, -1
-  br i1 %.not37.i.i.not, label %116, label %111, !prof !5
+  br i1 %.not37.i.i.not, label %116, label %111, !prof !11
 
 111:                                              ; preds = %.lr.ph174
   %112 = xor i16 %110, -1
@@ -7460,7 +7475,7 @@ vermUnalign.exit56.i:                             ; preds = %76
   %117 = getelementptr inbounds nuw i8, ptr %.133.i.i173, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %.133.i.i173, i64 31
   %119 = icmp ult ptr %118, %87
-  br i1 %119, label %.lr.ph174, label %vermSearchAligned.exit.i.thread
+  br i1 %119, label %.lr.ph174, label %vermSearchAligned.exit.i.thread, !llvm.loop !13
 
 vermSearchAligned.exit.i.thread:                  ; preds = %116, %.preheader155
   %120 = getelementptr inbounds i8, ptr %64, i64 -16
@@ -7468,7 +7483,7 @@ vermSearchAligned.exit.i.thread:                  ; preds = %116, %.preheader155
   %122 = icmp eq <16 x i8> %66, %121
   %123 = bitcast <16 x i1> %122 to i16
   %.not9.i.i = icmp eq i16 %123, -1
-  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %124, !prof !5
+  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %124, !prof !11
 
 124:                                              ; preds = %vermSearchAligned.exit.i.thread
   %125 = xor i16 %123, -1
@@ -7661,7 +7676,7 @@ repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.
   %210 = getelementptr i8, ptr %39, i64 %.idx.i24
   %211 = load i64, ptr %210, align 8
   %.not.i2 = icmp sgt i64 %211, %2
-  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph262
+  br i1 %.not.i2, label %nfaExecLbrNVerm_TopScan.exit, label %.lr.ph262, !llvm.loop !21
 
 .lr.ph262:                                        ; preds = %.lr.ph180, %209
   %212 = phi i64 [ %211, %209 ], [ %208, %.lr.ph180 ]
@@ -7685,7 +7700,7 @@ repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.
   %220 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %220, ptr %30, align 8
   %221 = icmp samesign ult i64 %indvars.iv.next, %206
-  br i1 %221, label %209, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %221, label %209, label %.nfaExecLbrNVerm_TopScan.exit_crit_edge, !llvm.loop !21
 
 222:                                              ; preds = %215
   %223 = load i32, ptr %gep, align 4
@@ -7722,7 +7737,7 @@ repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.
 239:                                              ; preds = %.preheader
   %240 = load i8, ptr %.046.i, align 1
   %.not62.i = icmp eq i8 %240, %233
-  br i1 %.not62.i, label %.preheader, label %rnvermicelliExec.exit
+  br i1 %.not62.i, label %.preheader, label %rnvermicelliExec.exit, !llvm.loop !22
 
 241:                                              ; preds = %229
   %242 = ptrtoint ptr %235 to i64
@@ -7736,7 +7751,7 @@ repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.
   %247 = icmp eq <16 x i8> %237, %246
   %248 = bitcast <16 x i1> %247 to i16
   %.not9.i65.i = icmp eq i16 %248, -1
-  br i1 %.not9.i65.i, label %256, label %.thread109, !prof !5
+  br i1 %.not9.i65.i, label %256, label %.thread109, !prof !11
 
 .thread109:                                       ; preds = %244
   %249 = xor i16 %248, -1
@@ -7772,7 +7787,7 @@ repeatIsDead.exit.i.thread101:                    ; preds = %195, %repeatIsDead.
   %267 = icmp eq <16 x i8> %237, %266
   %268 = bitcast <16 x i1> %267 to i16
   %.not15.i.i.not = icmp eq i16 %268, -1
-  br i1 %.not15.i.i.not, label %262, label %rvermSearchAligned.exit.i, !prof !5
+  br i1 %.not15.i.i.not, label %262, label %rvermSearchAligned.exit.i, !prof !11, !llvm.loop !16
 
 rvermSearchAligned.exit.i:                        ; preds = %264
   %269 = xor i16 %268, -1
@@ -7789,7 +7804,7 @@ rvermSearchAligned.exit.i:                        ; preds = %264
   %278 = icmp eq <16 x i8> %237, %277
   %279 = bitcast <16 x i1> %278 to i16
   %.not9.i.i46 = icmp eq i16 %279, -1
-  br i1 %.not9.i.i46, label %rvermUnalign.exit.i, label %280, !prof !5
+  br i1 %.not9.i.i46, label %rvermUnalign.exit.i, label %280, !prof !11
 
 280:                                              ; preds = %276
   %281 = xor i16 %279, -1
@@ -7824,7 +7839,7 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %239, %
   store i32 %297, ptr %30, align 8
   %298 = load i32, ptr %32, align 4
   %299 = icmp ult i32 %297, %298
-  br i1 %299, label %.lr.ph180, label %nfaExecLbrNVerm_Q_i.exit
+  br i1 %299, label %.lr.ph180, label %nfaExecLbrNVerm_Q_i.exit, !llvm.loop !23
 
 .thread122:                                       ; preds = %rnvermicelliExec.exit, %222
   %300 = load ptr, ptr %46, align 8
@@ -7972,8 +7987,11 @@ repeatLastTop.exit:                               ; preds = %318, %318, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %303, ptr noundef nonnull %329, i64 noundef %217, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph180, %209, %219
-  %337 = phi i32 [ %220, %219 ], [ %220, %209 ], [ %203, %.lr.ph180 ]
+.nfaExecLbrNVerm_TopScan.exit_crit_edge:          ; preds = %219
+  br label %nfaExecLbrNVerm_TopScan.exit, !llvm.loop !21
+
+nfaExecLbrNVerm_TopScan.exit:                     ; preds = %.lr.ph180, %209, %.nfaExecLbrNVerm_TopScan.exit_crit_edge
+  %337 = phi i32 [ %220, %.nfaExecLbrNVerm_TopScan.exit_crit_edge ], [ %220, %209 ], [ %203, %.lr.ph180 ]
   %338 = icmp ult i32 %337, %204
   br i1 %338, label %339, label %nfaExecLbrNVerm_Q_i.exit
 
@@ -8161,7 +8179,7 @@ lbrTop.exit.i:                                    ; preds = %352, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %395 = load i32, ptr %32, align 4
   %396 = icmp ult i32 %storemerge.i, %395
-  br i1 %396, label %49, label %._crit_edge
+  br i1 %396, label %49, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %394, %lbrTop.exit.i ]
@@ -8361,7 +8379,7 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
 65:                                               ; preds = %.lr.ph310
   %66 = getelementptr inbounds nuw i8, ptr %.042.i309, i64 1
   %67 = icmp ult ptr %66, %60
-  br i1 %67, label %.lr.ph310, label %nvermicelliExec.exit
+  br i1 %67, label %.lr.ph310, label %nvermicelliExec.exit, !llvm.loop !20
 
 68:                                               ; preds = %57
   %69 = ptrtoint ptr %51 to i64
@@ -8374,7 +8392,7 @@ repeatIsDead.exit85.thread:                       ; preds = %36, %repeatIsDead.e
   %73 = icmp eq <16 x i8> %62, %72
   %74 = bitcast <16 x i1> %73 to i16
   %.not9.i54.i = icmp eq i16 %74, -1
-  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !5
+  br i1 %.not9.i54.i, label %vermUnalign.exit56.i.thread, label %vermUnalign.exit56.i, !prof !11
 
 vermUnalign.exit56.i.thread:                      ; preds = %71
   %75 = sub nuw nsw i64 16, %70
@@ -8413,7 +8431,7 @@ vermUnalign.exit56.i:                             ; preds = %71
   %92 = shufflevector <16 x i1> %88, <16 x i1> %91, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %93 = bitcast <32 x i1> %92 to i32
   %.not39.i.i.not = icmp eq i32 %93, -1
-  br i1 %.not39.i.i.not, label %99, label %94, !prof !5
+  br i1 %.not39.i.i.not, label %99, label %94, !prof !11
 
 94:                                               ; preds = %.lr.ph
   %95 = xor i32 %93, -1
@@ -8426,7 +8444,7 @@ vermUnalign.exit56.i:                             ; preds = %71
   %100 = getelementptr inbounds nuw i8, ptr %.032.i.i306, i64 32
   %101 = getelementptr inbounds nuw i8, ptr %.032.i.i306, i64 63
   %102 = icmp ult ptr %101, %82
-  br i1 %102, label %.lr.ph, label %.preheader291
+  br i1 %102, label %.lr.ph, label %.preheader291, !llvm.loop !12
 
 .lr.ph308:                                        ; preds = %.preheader291, %111
   %.133.i.i307 = phi ptr [ %112, %111 ], [ %.032.i.i.lcssa, %.preheader291 ]
@@ -8435,7 +8453,7 @@ vermUnalign.exit56.i:                             ; preds = %71
   %104 = icmp eq <16 x i8> %62, %103
   %105 = bitcast <16 x i1> %104 to i16
   %.not37.i.i.not = icmp eq i16 %105, -1
-  br i1 %.not37.i.i.not, label %111, label %106, !prof !5
+  br i1 %.not37.i.i.not, label %111, label %106, !prof !11
 
 106:                                              ; preds = %.lr.ph308
   %107 = xor i16 %105, -1
@@ -8448,7 +8466,7 @@ vermUnalign.exit56.i:                             ; preds = %71
   %112 = getelementptr inbounds nuw i8, ptr %.133.i.i307, i64 16
   %113 = getelementptr inbounds nuw i8, ptr %.133.i.i307, i64 31
   %114 = icmp ult ptr %113, %82
-  br i1 %114, label %.lr.ph308, label %vermSearchAligned.exit.i.thread
+  br i1 %114, label %.lr.ph308, label %vermSearchAligned.exit.i.thread, !llvm.loop !13
 
 vermSearchAligned.exit.i.thread:                  ; preds = %111, %.preheader291
   %115 = getelementptr inbounds i8, ptr %60, i64 -16
@@ -8456,7 +8474,7 @@ vermSearchAligned.exit.i.thread:                  ; preds = %111, %.preheader291
   %117 = icmp eq <16 x i8> %62, %116
   %118 = bitcast <16 x i1> %117 to i16
   %.not9.i.i = icmp eq i16 %118, -1
-  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %119, !prof !5
+  br i1 %.not9.i.i, label %vermUnalign.exit.i, label %119, !prof !11
 
 119:                                              ; preds = %vermSearchAligned.exit.i.thread
   %120 = xor i16 %118, -1
@@ -8536,7 +8554,7 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrNVerm_Str
 148:                                              ; preds = %.lr.ph320
   %149 = getelementptr inbounds nuw i8, ptr %.042.i154319, i64 1
   %150 = icmp ult ptr %149, %143
-  br i1 %150, label %.lr.ph320, label %nvermicelliExec.exit156
+  br i1 %150, label %.lr.ph320, label %nvermicelliExec.exit156, !llvm.loop !20
 
 151:                                              ; preds = %131
   %152 = ptrtoint ptr %136 to i64
@@ -8549,7 +8567,7 @@ repeatIsDead.exit82.thread:                       ; preds = %nfaExecLbrNVerm_Str
   %156 = icmp eq <16 x i8> %145, %155
   %157 = bitcast <16 x i1> %156 to i16
   %.not9.i54.i130 = icmp eq i16 %157, -1
-  br i1 %.not9.i54.i130, label %vermUnalign.exit56.i131.thread, label %vermUnalign.exit56.i131, !prof !5
+  br i1 %.not9.i54.i130, label %vermUnalign.exit56.i131.thread, label %vermUnalign.exit56.i131, !prof !11
 
 vermUnalign.exit56.i131.thread:                   ; preds = %154
   %158 = sub nuw nsw i64 16, %153
@@ -8588,7 +8606,7 @@ vermUnalign.exit56.i131:                          ; preds = %154
   %175 = shufflevector <16 x i1> %171, <16 x i1> %174, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %176 = bitcast <32 x i1> %175 to i32
   %.not39.i.i151.not = icmp eq i32 %176, -1
-  br i1 %.not39.i.i151.not, label %182, label %177, !prof !5
+  br i1 %.not39.i.i151.not, label %182, label %177, !prof !11
 
 177:                                              ; preds = %.lr.ph315
   %178 = xor i32 %176, -1
@@ -8601,7 +8619,7 @@ vermUnalign.exit56.i131:                          ; preds = %154
   %183 = getelementptr inbounds nuw i8, ptr %.032.i.i137314, i64 32
   %184 = getelementptr inbounds nuw i8, ptr %.032.i.i137314, i64 63
   %185 = icmp ult ptr %184, %165
-  br i1 %185, label %.lr.ph315, label %.preheader289
+  br i1 %185, label %.lr.ph315, label %.preheader289, !llvm.loop !12
 
 .lr.ph318:                                        ; preds = %.preheader289, %194
   %.133.i.i139317 = phi ptr [ %195, %194 ], [ %.032.i.i137.lcssa, %.preheader289 ]
@@ -8610,7 +8628,7 @@ vermUnalign.exit56.i131:                          ; preds = %154
   %187 = icmp eq <16 x i8> %145, %186
   %188 = bitcast <16 x i1> %187 to i16
   %.not37.i.i148.not = icmp eq i16 %188, -1
-  br i1 %.not37.i.i148.not, label %194, label %189, !prof !5
+  br i1 %.not37.i.i148.not, label %194, label %189, !prof !11
 
 189:                                              ; preds = %.lr.ph318
   %190 = xor i16 %188, -1
@@ -8623,7 +8641,7 @@ vermUnalign.exit56.i131:                          ; preds = %154
   %195 = getelementptr inbounds nuw i8, ptr %.133.i.i139317, i64 16
   %196 = getelementptr inbounds nuw i8, ptr %.133.i.i139317, i64 31
   %197 = icmp ult ptr %196, %165
-  br i1 %197, label %.lr.ph318, label %vermSearchAligned.exit.i141.thread
+  br i1 %197, label %.lr.ph318, label %vermSearchAligned.exit.i141.thread, !llvm.loop !13
 
 vermSearchAligned.exit.i141.thread:               ; preds = %194, %.preheader289
   %198 = getelementptr inbounds i8, ptr %143, i64 -16
@@ -8631,7 +8649,7 @@ vermSearchAligned.exit.i141.thread:               ; preds = %194, %.preheader289
   %200 = icmp eq <16 x i8> %145, %199
   %201 = bitcast <16 x i1> %200 to i16
   %.not9.i.i144 = icmp eq i16 %201, -1
-  br i1 %.not9.i.i144, label %vermUnalign.exit.i145, label %202, !prof !5
+  br i1 %.not9.i.i144, label %vermUnalign.exit.i145, label %202, !prof !11
 
 202:                                              ; preds = %vermSearchAligned.exit.i141.thread
   %203 = xor i16 %201, -1
@@ -8728,7 +8746,7 @@ repeatIsDead.exit85.thread172:                    ; preds = %nfaExecLbrNVerm_Str
   %235 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %235, ptr %4, align 8
   %236 = icmp samesign ult i64 %indvars.iv.next, %223
-  br i1 %236, label %224, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %236, label %224, label %nfaExecLbrNVerm_TopScan.exit, !llvm.loop !21
 
 237:                                              ; preds = %230
   %238 = load i32, ptr %gep, align 4
@@ -8765,7 +8783,7 @@ repeatIsDead.exit85.thread172:                    ; preds = %nfaExecLbrNVerm_Str
 254:                                              ; preds = %.preheader
   %255 = load i8, ptr %.046.i, align 1
   %.not62.i = icmp eq i8 %255, %248
-  br i1 %.not62.i, label %.preheader, label %rnvermicelliExec.exit
+  br i1 %.not62.i, label %.preheader, label %rnvermicelliExec.exit, !llvm.loop !22
 
 256:                                              ; preds = %244
   %257 = ptrtoint ptr %250 to i64
@@ -8779,7 +8797,7 @@ repeatIsDead.exit85.thread172:                    ; preds = %nfaExecLbrNVerm_Str
   %262 = icmp eq <16 x i8> %252, %261
   %263 = bitcast <16 x i1> %262 to i16
   %.not9.i65.i = icmp eq i16 %263, -1
-  br i1 %.not9.i65.i, label %271, label %.thread223, !prof !5
+  br i1 %.not9.i65.i, label %271, label %.thread223, !prof !11
 
 .thread223:                                       ; preds = %259
   %264 = xor i16 %263, -1
@@ -8815,7 +8833,7 @@ repeatIsDead.exit85.thread172:                    ; preds = %nfaExecLbrNVerm_Str
   %282 = icmp eq <16 x i8> %252, %281
   %283 = bitcast <16 x i1> %282 to i16
   %.not15.i.i.not = icmp eq i16 %283, -1
-  br i1 %.not15.i.i.not, label %277, label %rvermSearchAligned.exit.i, !prof !5
+  br i1 %.not15.i.i.not, label %277, label %rvermSearchAligned.exit.i, !prof !11, !llvm.loop !16
 
 rvermSearchAligned.exit.i:                        ; preds = %279
   %284 = xor i16 %283, -1
@@ -8832,7 +8850,7 @@ rvermSearchAligned.exit.i:                        ; preds = %279
   %293 = icmp eq <16 x i8> %252, %292
   %294 = bitcast <16 x i1> %293 to i16
   %.not9.i.i163 = icmp eq i16 %294, -1
-  br i1 %.not9.i.i163, label %rvermUnalign.exit.i, label %295, !prof !5
+  br i1 %.not9.i.i163, label %rvermUnalign.exit.i, label %295, !prof !11
 
 295:                                              ; preds = %291
   %296 = xor i16 %294, -1
@@ -8867,7 +8885,7 @@ rnvermicelliExec.exit:                            ; preds = %.preheader, %254, %
   store i32 %312, ptr %4, align 8
   %313 = load i32, ptr %6, align 4
   %314 = icmp ult i32 %312, %313
-  br i1 %314, label %.lr.ph324, label %nfaExecLbrNVerm_TopScan.exit
+  br i1 %314, label %.lr.ph324, label %nfaExecLbrNVerm_TopScan.exit, !llvm.loop !23
 
 .thread236:                                       ; preds = %rnvermicelliExec.exit, %237
   %315 = load ptr, ptr %34, align 8
@@ -9184,7 +9202,7 @@ lbrTop.exit:                                      ; preds = %356, %repeatLastTop
   store i32 %401, ptr %4, align 8
   %402 = load i32, ptr %6, align 4
   %403 = icmp ult i32 %401, %402
-  br i1 %403, label %36, label %._crit_edge
+  br i1 %403, label %36, label %._crit_edge, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %lbrTop.exit, %9
   %.064.lcssa = phi i64 [ %16, %9 ], [ %400, %lbrTop.exit ]
@@ -9984,7 +10002,7 @@ repeatNextMatch.exit:                             ; preds = %101, %95, %93, %108
   %120 = load i32, ptr %invariant.gep, align 4
   %121 = tail call i32 %77(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %120, ptr noundef %78) #8
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %nfaExecLbrShuf_Q_i.exit, label %91
+  br i1 %122, label %nfaExecLbrShuf_Q_i.exit, label %91, !llvm.loop !5
 
 repeatNextMatch.exit.thread:                      ; preds = %91, %repeatNextMatch.exit, %lbrFwdScanShuf.exit.thread
   br i1 %70, label %repeatIsDead.exit126.i.thread42, label %123
@@ -10066,7 +10084,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.
   %151 = getelementptr i8, ptr %39, i64 %.idx.i
   %152 = load i64, ptr %151, align 8
   %.not.i2 = icmp sgt i64 %152, %2
-  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph166
+  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph166, !llvm.loop !26
 
 .lr.ph166:                                        ; preds = %.lr.ph, %150
   %153 = phi i64 [ %152, %150 ], [ %149, %.lr.ph ]
@@ -10090,7 +10108,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.
   %161 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %161, ptr %30, align 8
   %162 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %162, label %150, label %nfaExecLbrShuf_TopScan.exit
+  br i1 %162, label %150, label %.nfaExecLbrShuf_TopScan.exit_crit_edge, !llvm.loop !26
 
 163:                                              ; preds = %156
   %164 = load i32, ptr %gep, align 4
@@ -10128,7 +10146,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.
   store i32 %186, ptr %30, align 8
   %187 = load i32, ptr %32, align 4
   %188 = icmp ult i32 %186, %187
-  br i1 %188, label %.lr.ph, label %nfaExecLbrShuf_Q_i.exit
+  br i1 %188, label %.lr.ph, label %nfaExecLbrShuf_Q_i.exit, !llvm.loop !27
 
 .thread71:                                        ; preds = %170, %163
   %189 = load ptr, ptr %49, align 8
@@ -10276,8 +10294,11 @@ repeatLastTop.exit:                               ; preds = %207, %207, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %192, ptr noundef nonnull %218, i64 noundef %158, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %150, %160
-  %226 = phi i32 [ %161, %160 ], [ %161, %150 ], [ %144, %.lr.ph ]
+.nfaExecLbrShuf_TopScan.exit_crit_edge:           ; preds = %160
+  br label %nfaExecLbrShuf_TopScan.exit, !llvm.loop !26
+
+nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %150, %.nfaExecLbrShuf_TopScan.exit_crit_edge
+  %226 = phi i32 [ %161, %.nfaExecLbrShuf_TopScan.exit_crit_edge ], [ %161, %150 ], [ %144, %.lr.ph ]
   %227 = icmp ult i32 %226, %145
   br i1 %227, label %228, label %nfaExecLbrShuf_Q_i.exit
 
@@ -10465,7 +10486,7 @@ lbrTop.exit.i:                                    ; preds = %241, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %284 = load i32, ptr %32, align 4
   %285 = icmp ult i32 %storemerge.i, %284
-  br i1 %285, label %52, label %._crit_edge
+  br i1 %285, label %52, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %283, %lbrTop.exit.i ]
@@ -10844,7 +10865,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   %150 = getelementptr i8, ptr %39, i64 %.idx.i24
   %151 = load i64, ptr %150, align 8
   %.not.i2 = icmp sgt i64 %151, %2
-  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph178
+  br i1 %.not.i2, label %nfaExecLbrShuf_TopScan.exit, label %.lr.ph178, !llvm.loop !26
 
 .lr.ph178:                                        ; preds = %.lr.ph, %149
   %152 = phi i64 [ %151, %149 ], [ %148, %.lr.ph ]
@@ -10868,7 +10889,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   %160 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %160, ptr %30, align 8
   %161 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %161, label %149, label %nfaExecLbrShuf_TopScan.exit
+  br i1 %161, label %149, label %.nfaExecLbrShuf_TopScan.exit_crit_edge, !llvm.loop !26
 
 162:                                              ; preds = %155
   %163 = load i32, ptr %gep, align 4
@@ -10906,7 +10927,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   store i32 %185, ptr %30, align 8
   %186 = load i32, ptr %32, align 4
   %187 = icmp ult i32 %185, %186
-  br i1 %187, label %.lr.ph, label %nfaExecLbrShuf_Q_i.exit
+  br i1 %187, label %.lr.ph, label %nfaExecLbrShuf_Q_i.exit, !llvm.loop !27
 
 .thread85:                                        ; preds = %169, %162
   %188 = load ptr, ptr %47, align 8
@@ -11054,8 +11075,11 @@ repeatLastTop.exit:                               ; preds = %206, %206, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %217, i64 noundef %157, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %149, %159
-  %225 = phi i32 [ %160, %159 ], [ %160, %149 ], [ %143, %.lr.ph ]
+.nfaExecLbrShuf_TopScan.exit_crit_edge:           ; preds = %159
+  br label %nfaExecLbrShuf_TopScan.exit, !llvm.loop !26
+
+nfaExecLbrShuf_TopScan.exit:                      ; preds = %.lr.ph, %149, %.nfaExecLbrShuf_TopScan.exit_crit_edge
+  %225 = phi i32 [ %160, %.nfaExecLbrShuf_TopScan.exit_crit_edge ], [ %160, %149 ], [ %143, %.lr.ph ]
   %226 = icmp ult i32 %225, %144
   br i1 %226, label %227, label %nfaExecLbrShuf_Q_i.exit
 
@@ -11243,7 +11267,7 @@ lbrTop.exit.i:                                    ; preds = %240, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %283 = load i32, ptr %32, align 4
   %284 = icmp ult i32 %storemerge.i, %283
-  br i1 %284, label %50, label %._crit_edge
+  br i1 %284, label %50, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %282, %lbrTop.exit.i ]
@@ -11559,7 +11583,7 @@ repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrShuf_Stre
   %112 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %112, ptr %4, align 8
   %113 = icmp samesign ult i64 %indvars.iv.next, %100
-  br i1 %113, label %101, label %nfaExecLbrShuf_TopScan.exit
+  br i1 %113, label %101, label %nfaExecLbrShuf_TopScan.exit, !llvm.loop !26
 
 114:                                              ; preds = %107
   %115 = load i32, ptr %gep, align 4
@@ -11597,7 +11621,7 @@ repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrShuf_Stre
   store i32 %137, ptr %4, align 8
   %138 = load i32, ptr %6, align 4
   %139 = icmp ult i32 %137, %138
-  br i1 %139, label %.lr.ph, label %nfaExecLbrShuf_TopScan.exit
+  br i1 %139, label %.lr.ph, label %nfaExecLbrShuf_TopScan.exit, !llvm.loop !27
 
 .thread158:                                       ; preds = %121, %114
   %140 = load ptr, ptr %35, align 8
@@ -11914,7 +11938,7 @@ lbrTop.exit:                                      ; preds = %181, %repeatLastTop
   store i32 %226, ptr %4, align 8
   %227 = load i32, ptr %6, align 4
   %228 = icmp ult i32 %226, %227
-  br i1 %228, label %37, label %._crit_edge
+  br i1 %228, label %37, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %lbrTop.exit, %9
   %.064.lcssa = phi i64 [ %16, %9 ], [ %225, %lbrTop.exit ]
@@ -12714,7 +12738,7 @@ repeatNextMatch.exit:                             ; preds = %101, %95, %93, %108
   %120 = load i32, ptr %invariant.gep, align 4
   %121 = tail call i32 %77(i64 noundef 0, i64 noundef %.0.i32, i32 noundef %120, ptr noundef %78) #8
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %nfaExecLbrTruf_Q_i.exit, label %91
+  br i1 %122, label %nfaExecLbrTruf_Q_i.exit, label %91, !llvm.loop !5
 
 repeatNextMatch.exit.thread:                      ; preds = %91, %repeatNextMatch.exit, %lbrFwdScanTruf.exit.thread
   br i1 %70, label %repeatIsDead.exit126.i.thread42, label %123
@@ -12796,7 +12820,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.
   %151 = getelementptr i8, ptr %39, i64 %.idx.i
   %152 = load i64, ptr %151, align 8
   %.not.i2 = icmp sgt i64 %152, %2
-  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph166
+  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph166, !llvm.loop !30
 
 .lr.ph166:                                        ; preds = %.lr.ph, %150
   %153 = phi i64 [ %152, %150 ], [ %149, %.lr.ph ]
@@ -12820,7 +12844,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.
   %161 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %161, ptr %30, align 8
   %162 = icmp samesign ult i64 %indvars.iv.next, %147
-  br i1 %162, label %150, label %nfaExecLbrTruf_TopScan.exit
+  br i1 %162, label %150, label %.nfaExecLbrTruf_TopScan.exit_crit_edge, !llvm.loop !30
 
 163:                                              ; preds = %156
   %164 = load i32, ptr %gep, align 4
@@ -12858,7 +12882,7 @@ repeatIsDead.exit.i.thread62:                     ; preds = %136, %repeatIsDead.
   store i32 %186, ptr %30, align 8
   %187 = load i32, ptr %32, align 4
   %188 = icmp ult i32 %186, %187
-  br i1 %188, label %.lr.ph, label %nfaExecLbrTruf_Q_i.exit
+  br i1 %188, label %.lr.ph, label %nfaExecLbrTruf_Q_i.exit, !llvm.loop !31
 
 .thread71:                                        ; preds = %170, %163
   %189 = load ptr, ptr %49, align 8
@@ -13006,8 +13030,11 @@ repeatLastTop.exit:                               ; preds = %207, %207, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %192, ptr noundef nonnull %218, i64 noundef %158, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %150, %160
-  %226 = phi i32 [ %161, %160 ], [ %161, %150 ], [ %144, %.lr.ph ]
+.nfaExecLbrTruf_TopScan.exit_crit_edge:           ; preds = %160
+  br label %nfaExecLbrTruf_TopScan.exit, !llvm.loop !30
+
+nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %150, %.nfaExecLbrTruf_TopScan.exit_crit_edge
+  %226 = phi i32 [ %161, %.nfaExecLbrTruf_TopScan.exit_crit_edge ], [ %161, %150 ], [ %144, %.lr.ph ]
   %227 = icmp ult i32 %226, %145
   br i1 %227, label %228, label %nfaExecLbrTruf_Q_i.exit
 
@@ -13195,7 +13222,7 @@ lbrTop.exit.i:                                    ; preds = %241, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %284 = load i32, ptr %32, align 4
   %285 = icmp ult i32 %storemerge.i, %284
-  br i1 %285, label %52, label %._crit_edge
+  br i1 %285, label %52, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %283, %lbrTop.exit.i ]
@@ -13574,7 +13601,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   %150 = getelementptr i8, ptr %39, i64 %.idx.i24
   %151 = load i64, ptr %150, align 8
   %.not.i2 = icmp sgt i64 %151, %2
-  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph178
+  br i1 %.not.i2, label %nfaExecLbrTruf_TopScan.exit, label %.lr.ph178, !llvm.loop !30
 
 .lr.ph178:                                        ; preds = %.lr.ph, %149
   %152 = phi i64 [ %151, %149 ], [ %148, %.lr.ph ]
@@ -13598,7 +13625,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   %160 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %160, ptr %30, align 8
   %161 = icmp samesign ult i64 %indvars.iv.next, %146
-  br i1 %161, label %149, label %nfaExecLbrTruf_TopScan.exit
+  br i1 %161, label %149, label %.nfaExecLbrTruf_TopScan.exit_crit_edge, !llvm.loop !30
 
 162:                                              ; preds = %155
   %163 = load i32, ptr %gep, align 4
@@ -13636,7 +13663,7 @@ repeatIsDead.exit.i.thread75:                     ; preds = %135, %repeatIsDead.
   store i32 %185, ptr %30, align 8
   %186 = load i32, ptr %32, align 4
   %187 = icmp ult i32 %185, %186
-  br i1 %187, label %.lr.ph, label %nfaExecLbrTruf_Q_i.exit
+  br i1 %187, label %.lr.ph, label %nfaExecLbrTruf_Q_i.exit, !llvm.loop !31
 
 .thread85:                                        ; preds = %169, %162
   %188 = load ptr, ptr %47, align 8
@@ -13784,8 +13811,11 @@ repeatLastTop.exit:                               ; preds = %206, %206, %.thread
   tail call void @repeatStoreTrailer(ptr noundef nonnull %191, ptr noundef nonnull %217, i64 noundef %157, i8 noundef signext 1) #8
   br label %lbrTop.exit.i
 
-nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %149, %159
-  %225 = phi i32 [ %160, %159 ], [ %160, %149 ], [ %143, %.lr.ph ]
+.nfaExecLbrTruf_TopScan.exit_crit_edge:           ; preds = %159
+  br label %nfaExecLbrTruf_TopScan.exit, !llvm.loop !30
+
+nfaExecLbrTruf_TopScan.exit:                      ; preds = %.lr.ph, %149, %.nfaExecLbrTruf_TopScan.exit_crit_edge
+  %225 = phi i32 [ %160, %.nfaExecLbrTruf_TopScan.exit_crit_edge ], [ %160, %149 ], [ %143, %.lr.ph ]
   %226 = icmp ult i32 %225, %144
   br i1 %226, label %227, label %nfaExecLbrTruf_Q_i.exit
 
@@ -13973,7 +14003,7 @@ lbrTop.exit.i:                                    ; preds = %240, %repeatLastTop
   store i32 %storemerge.i, ptr %30, align 8
   %283 = load i32, ptr %32, align 4
   %284 = icmp ult i32 %storemerge.i, %283
-  br i1 %284, label %50, label %._crit_edge
+  br i1 %284, label %50, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %lbrTop.exit.i, %35
   %.0101.i.lcssa = phi i64 [ %42, %35 ], [ %282, %lbrTop.exit.i ]
@@ -14289,7 +14319,7 @@ repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrTruf_Stre
   %112 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %112, ptr %4, align 8
   %113 = icmp samesign ult i64 %indvars.iv.next, %100
-  br i1 %113, label %101, label %nfaExecLbrTruf_TopScan.exit
+  br i1 %113, label %101, label %nfaExecLbrTruf_TopScan.exit, !llvm.loop !30
 
 114:                                              ; preds = %107
   %115 = load i32, ptr %gep, align 4
@@ -14327,7 +14357,7 @@ repeatIsDead.exit85.thread131:                    ; preds = %nfaExecLbrTruf_Stre
   store i32 %137, ptr %4, align 8
   %138 = load i32, ptr %6, align 4
   %139 = icmp ult i32 %137, %138
-  br i1 %139, label %.lr.ph, label %nfaExecLbrTruf_TopScan.exit
+  br i1 %139, label %.lr.ph, label %nfaExecLbrTruf_TopScan.exit, !llvm.loop !31
 
 .thread158:                                       ; preds = %121, %114
   %140 = load ptr, ptr %35, align 8
@@ -14644,7 +14674,7 @@ lbrTop.exit:                                      ; preds = %181, %repeatLastTop
   store i32 %226, ptr %4, align 8
   %227 = load i32, ptr %6, align 4
   %228 = icmp ult i32 %226, %227
-  br i1 %228, label %37, label %._crit_edge
+  br i1 %228, label %37, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %lbrTop.exit, %9
   %.064.lcssa = phi i64 [ %16, %9 ], [ %225, %lbrTop.exit ]
@@ -14986,4 +15016,32 @@ attributes #8 = { nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}
+!15 = distinct !{!15, !6}
+!16 = distinct !{!16, !6}
+!17 = distinct !{!17, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
+!20 = distinct !{!20, !6}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !6}
+!23 = distinct !{!23, !6}
+!24 = distinct !{!24, !6}
+!25 = distinct !{!25, !6}
+!26 = distinct !{!26, !6}
+!27 = distinct !{!27, !6}
+!28 = distinct !{!28, !6}
+!29 = distinct !{!29, !6}
+!30 = distinct !{!30, !6}
+!31 = distinct !{!31, !6}
+!32 = distinct !{!32, !6}
+!33 = distinct !{!33, !6}

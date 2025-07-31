@@ -2079,7 +2079,7 @@ lean_inc.exit:                                    ; preds = %35, %34, %32, %lean
 
 lean_dec.exit:                                    ; preds = %42, %41, %39, %lean_inc.exit
   %43 = tail call ptr @l_List_foldl___at_Array_appendList___spec__1___rarg(ptr noundef %.012, ptr noundef %17) #6
-  br label %3
+  br label %3, !llvm.loop !19
 }
 
 declare ptr @lean_array_to_list(ptr noundef) local_unnamed_addr #4
@@ -6397,3 +6397,5 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"long", !7, i64 0}
 !18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}

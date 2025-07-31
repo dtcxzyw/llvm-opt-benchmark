@@ -859,7 +859,7 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
 211:                                              ; preds = %206, %203
   %212 = add nuw i32 %.0486500.i.i, 1
   %exitcond508.not.i.i = icmp eq i32 %212, %199
-  br i1 %exitcond508.not.i.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !8
+  br i1 %exitcond508.not.i.i, label %.loopexit.i, label %.preheader.i.i, !llvm.loop !9
 
 .loopexit.i:                                      ; preds = %211, %189
   %.str.350.sink.i.i = phi ptr [ @.str.350, %189 ], [ @.str.349, %211 ]
@@ -887,7 +887,7 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
   %233 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %231, ptr noundef %0, i32 noundef %232, i32 noundef 4, i32 noundef 0)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond510.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond510.not.i.i, label %dissect_wa_payload.exit.i, label %189, !llvm.loop !9
+  br i1 %exitcond510.not.i.i, label %dissect_wa_payload.exit.i, label %189, !llvm.loop !10
 
 234:                                              ; preds = %49
   br i1 %.not64.not.not.i, label %241, label %235
@@ -1037,7 +1037,7 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
   %365 = tail call ptr @proto_tree_add_item(ptr noundef %.060.i, i32 noundef %364, ptr noundef %0, i32 noundef %363, i32 noundef 6, i32 noundef 0)
   %366 = add nuw i32 %.0485499.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %366, %360
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %347
   %367 = load i32, ptr @hf_waveagent_minrssi, align 4
@@ -1381,8 +1381,9 @@ attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protect
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

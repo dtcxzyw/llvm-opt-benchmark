@@ -269,7 +269,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %3, ptr noundef %111, i64 noundef 0, i32 noundef 4, i1 noundef zeroext false) #12
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.045.058, i64 16
   %.not55 = icmp eq ptr %112, %76
-  br i1 %.not55, label %._crit_edge, label %.lr.ph
+  br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 
 .lr.ph62:                                         ; preds = %._crit_edge, %.lr.ph62
   %.sroa.040.060 = phi ptr [ %119, %.lr.ph62 ], [ %106, %._crit_edge ]
@@ -283,17 +283,17 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   call void %115(ptr noundef nonnull align 8 dereferenceable(296) %14, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #12
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #12
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.040.060, i64 4
-  %117 = load i32, ptr %116, align 4, !tbaa !102
+  %117 = load i32, ptr %116, align 4, !tbaa !104
   %118 = udiv i32 %117, %16
   call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %3, i32 noundef %118) #12
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.040.060, i64 16
   %.not56 = icmp eq ptr %119, %107
-  br i1 %.not56, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph62, !llvm.loop !105
+  br i1 %.not56, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread, label %.lr.ph62, !llvm.loop !107
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread: ; preds = %.lr.ph62, %._crit_edge, %47, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.050.064, i64 8
   %.not = icmp eq ptr %120, %30
-  br i1 %.not, label %._crit_edge67, label %47, !llvm.loop !107
+  br i1 %.not, label %._crit_edge67, label %47, !llvm.loop !109
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -318,18 +318,18 @@ declare noundef ptr @_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_ErlangGCPrinter.cpp() #9 section ".text.startup" {
-  store ptr @.str, ptr @_ZL1X, align 8, !tbaa !108
-  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 8), align 8, !tbaa !109
-  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 16), align 8, !tbaa !108
-  store i64 35, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 24), align 8, !tbaa !109
-  store ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_115ErlangGCPrinterEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 32), align 8, !tbaa !110
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 40), align 8, !tbaa !113
-  store ptr @_ZL1X, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 48), align 8, !tbaa !117
-  %1 = load ptr, ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4TailE, align 8, !tbaa !118
+  store ptr @.str, ptr @_ZL1X, align 8, !tbaa !110
+  store i64 6, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 8), align 8, !tbaa !111
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 16), align 8, !tbaa !110
+  store i64 35, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 24), align 8, !tbaa !111
+  store ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_115ErlangGCPrinterEE6CtorFnEv, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 32), align 8, !tbaa !112
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 40), align 8, !tbaa !115
+  store ptr @_ZL1X, ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 48), align 8, !tbaa !119
+  %1 = load ptr, ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4TailE, align 8, !tbaa !120
   %.not.i.i.i = icmp eq ptr %1, null
   %_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4HeadE..i.i.i = select i1 %.not.i.i.i, ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4HeadE, ptr %1
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 40), ptr %_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4HeadE..i.i.i, align 8, !tbaa !118
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 40), ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4TailE, align 8, !tbaa !118
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 40), ptr %_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4HeadE..i.i.i, align 8, !tbaa !120
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZL1X, i64 40), ptr @_ZN4llvm8RegistryINS_17GCMetadataPrinterEE4TailE, align 8, !tbaa !120
   ret void
 }
 
@@ -455,20 +455,22 @@ attributes #13 = { builtin nounwind }
 !99 = !{!"_ZTSN4llvm18TypedTrackingMDRefINS_6MDNodeEEE", !100, i64 0}
 !100 = !{!"_ZTSN4llvm13TrackingMDRefE", !101, i64 0}
 !101 = !{!"p1 _ZTSN4llvm8MetadataE", !12, i64 0}
-!102 = !{!103, !19, i64 4}
-!103 = !{!"_ZTSN4llvm6GCRootE", !19, i64 0, !19, i64 4, !104, i64 8}
-!104 = !{!"p1 _ZTSN4llvm8ConstantE", !12, i64 0}
-!105 = distinct !{!105, !106}
-!106 = !{!"llvm.loop.mustprogress"}
-!107 = distinct !{!107, !106}
-!108 = !{!52, !52, i64 0}
-!109 = !{!36, !36, i64 0}
-!110 = !{!111, !12, i64 32}
-!111 = !{!"_ZTSN4llvm19SimpleRegistryEntryINS_17GCMetadataPrinterEEE", !112, i64 0, !112, i64 16, !12, i64 32}
-!112 = !{!"_ZTSN4llvm9StringRefE", !52, i64 0, !36, i64 8}
-!113 = !{!114, !115, i64 0}
-!114 = !{!"_ZTSN4llvm8RegistryINS_17GCMetadataPrinterEE4nodeE", !115, i64 0, !116, i64 8}
-!115 = !{!"p1 _ZTSN4llvm8RegistryINS_17GCMetadataPrinterEE4nodeE", !12, i64 0}
-!116 = !{!"p1 _ZTSN4llvm19SimpleRegistryEntryINS_17GCMetadataPrinterEEE", !12, i64 0}
-!117 = !{!116, !116, i64 0}
-!118 = !{!115, !115, i64 0}
+!102 = distinct !{!102, !103}
+!103 = !{!"llvm.loop.estimated_trip_count"}
+!104 = !{!105, !19, i64 4}
+!105 = !{!"_ZTSN4llvm6GCRootE", !19, i64 0, !19, i64 4, !106, i64 8}
+!106 = !{!"p1 _ZTSN4llvm8ConstantE", !12, i64 0}
+!107 = distinct !{!107, !108, !103}
+!108 = !{!"llvm.loop.mustprogress"}
+!109 = distinct !{!109, !108, !103}
+!110 = !{!52, !52, i64 0}
+!111 = !{!36, !36, i64 0}
+!112 = !{!113, !12, i64 32}
+!113 = !{!"_ZTSN4llvm19SimpleRegistryEntryINS_17GCMetadataPrinterEEE", !114, i64 0, !114, i64 16, !12, i64 32}
+!114 = !{!"_ZTSN4llvm9StringRefE", !52, i64 0, !36, i64 8}
+!115 = !{!116, !117, i64 0}
+!116 = !{!"_ZTSN4llvm8RegistryINS_17GCMetadataPrinterEE4nodeE", !117, i64 0, !118, i64 8}
+!117 = !{!"p1 _ZTSN4llvm8RegistryINS_17GCMetadataPrinterEE4nodeE", !12, i64 0}
+!118 = !{!"p1 _ZTSN4llvm19SimpleRegistryEntryINS_17GCMetadataPrinterEEE", !12, i64 0}
+!119 = !{!118, !118, i64 0}
+!120 = !{!117, !117, i64 0}

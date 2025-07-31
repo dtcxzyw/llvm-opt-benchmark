@@ -617,7 +617,7 @@ sub_1366:                                         ; preds = %sub_0365
 
 221:                                              ; preds = %220, %219
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
-  store i64 0, ptr %7, align 8, !tbaa !34
+  store i64 0, ptr %7, align 8, !tbaa !35
   %222 = call i32 @LoadWebP(ptr noundef nonnull %.1186, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef nonnull %4) #7
   %.not265 = icmp eq i32 %222, 0
   br i1 %.not265, label %.thread349, label %223
@@ -653,46 +653,46 @@ sub_1366:                                         ; preds = %sub_0365
 
 224:                                              ; preds = %223
   %225 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %226 = load i32, ptr %225, align 8, !tbaa !36
+  %226 = load i32, ptr %225, align 8, !tbaa !37
   %.not269 = icmp ne i32 %226, 0
   %227 = zext i1 %.not269 to i32
-  store i32 %227, ptr %9, align 8, !tbaa !37
+  store i32 %227, ptr %9, align 8, !tbaa !38
   br label %.thread339
 
 228:                                              ; preds = %223
-  store i32 1, ptr %9, align 8, !tbaa !37
+  store i32 1, ptr %9, align 8, !tbaa !38
   br label %.thread339
 
 229:                                              ; preds = %223
-  store i32 0, ptr %9, align 8, !tbaa !37
+  store i32 0, ptr %9, align 8, !tbaa !38
   br label %.thread339
 
 230:                                              ; preds = %223
   %231 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %232 = load i32, ptr %231, align 8, !tbaa !36
+  %232 = load i32, ptr %231, align 8, !tbaa !37
   %.not268 = icmp eq i32 %232, 0
   %233 = select i1 %.not268, i32 2, i32 3
-  store i32 %233, ptr %9, align 8, !tbaa !37
+  store i32 %233, ptr %9, align 8, !tbaa !38
   br label %.thread339
 
 234:                                              ; preds = %223
   %235 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %236 = load i32, ptr %235, align 8, !tbaa !36
+  %236 = load i32, ptr %235, align 8, !tbaa !37
   %.not267 = icmp ne i32 %236, 0
   %237 = zext i1 %.not267 to i32
-  store i32 %237, ptr %9, align 8, !tbaa !37
+  store i32 %237, ptr %9, align 8, !tbaa !38
   br label %.thread339
 
 238:                                              ; preds = %223, %223
   %239 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %240 = load i32, ptr %239, align 8, !tbaa !36
+  %240 = load i32, ptr %239, align 8, !tbaa !37
   %.not266 = icmp eq i32 %240, 0
   %241 = select i1 %.not266, i32 11, i32 12
-  store i32 %241, ptr %9, align 8, !tbaa !37
+  store i32 %241, ptr %9, align 8, !tbaa !38
   br label %.thread339
 
 242:                                              ; preds = %223
-  store i32 12, ptr %9, align 8, !tbaa !37
+  store i32 12, ptr %9, align 8, !tbaa !38
   br label %.thread339
 
 243:                                              ; preds = %223
@@ -736,7 +736,7 @@ default.unreachable496:                           ; preds = %223
 
 255:                                              ; preds = %223, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243
   %.sink = phi i32 [ 12, %254 ], [ 11, %253 ], [ 10, %252 ], [ 9, %251 ], [ 8, %250 ], [ 7, %249 ], [ 6, %248 ], [ 5, %247 ], [ 4, %246 ], [ 3, %245 ], [ 2, %244 ], [ 1, %243 ], [ 0, %223 ]
-  store i32 %.sink, ptr %9, align 8, !tbaa !37
+  store i32 %.sink, ptr %9, align 8, !tbaa !38
   %256 = icmp sgt i32 %.0200395, 0
   br i1 %256, label %257, label %.thread339
 
@@ -800,10 +800,10 @@ default.unreachable496:                           ; preds = %223
 285:                                              ; preds = %278
   %286 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %287 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i32 %281, ptr %287, align 8, !tbaa !38
+  store i32 %281, ptr %287, align 8, !tbaa !39
   %288 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store i64 %283, ptr %288, align 8, !tbaa !38
-  store ptr %284, ptr %286, align 8, !tbaa !38
+  store i64 %283, ptr %288, align 8, !tbaa !39
+  store ptr %284, ptr %286, align 8, !tbaa !39
   br label %AllocateExternalBuffer.exit
 
 WebPIsAlphaMode.exit.i:                           ; preds = %270
@@ -835,18 +835,18 @@ WebPIsAlphaMode.exit.i:                           ; preds = %270
 
 305:                                              ; preds = %WebPIsAlphaMode.exit.i
   %306 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store ptr %304, ptr %306, align 8, !tbaa !38
+  store ptr %304, ptr %306, align 8, !tbaa !39
   %307 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i32 %292, ptr %307, align 8, !tbaa !38
+  store i32 %292, ptr %307, align 8, !tbaa !39
   %308 = zext i32 %296 to i64
   %309 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i64 %308, ptr %309, align 8, !tbaa !38
+  store i64 %308, ptr %309, align 8, !tbaa !39
   %310 = getelementptr inbounds nuw i8, ptr %304, i64 %308
   br i1 %narrow, label %311, label %314
 
 311:                                              ; preds = %305
   %312 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store i64 %308, ptr %312, align 8, !tbaa !38
+  store i64 %308, ptr %312, align 8, !tbaa !39
   %313 = getelementptr inbounds nuw i8, ptr %310, i64 %308
   br label %314
 
@@ -855,31 +855,31 @@ WebPIsAlphaMode.exit.i:                           ; preds = %270
   %.sink.i = phi i32 [ %292, %311 ], [ 0, %305 ]
   %.091.i = phi ptr [ %313, %311 ], [ %310, %305 ]
   %315 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.sink103.i, ptr %315, align 8, !tbaa !38
+  store ptr %.sink103.i, ptr %315, align 8, !tbaa !39
   %316 = getelementptr inbounds nuw i8, ptr %4, i64 100
-  store i32 %.sink.i, ptr %316, align 4, !tbaa !38
+  store i32 %.sink.i, ptr %316, align 4, !tbaa !39
   %317 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr %.091.i, ptr %317, align 8, !tbaa !38
+  store ptr %.091.i, ptr %317, align 8, !tbaa !39
   %318 = getelementptr inbounds nuw i8, ptr %4, i64 92
-  store i32 %295, ptr %318, align 4, !tbaa !38
+  store i32 %295, ptr %318, align 4, !tbaa !39
   %319 = mul i32 %295, %298
   %320 = lshr i32 %319, 1
   %321 = zext nneg i32 %320 to i64
   %322 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i64 %321, ptr %322, align 8, !tbaa !38
+  store i64 %321, ptr %322, align 8, !tbaa !39
   %323 = getelementptr inbounds nuw i8, ptr %.091.i, i64 %321
   %324 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %323, ptr %324, align 8, !tbaa !38
+  store ptr %323, ptr %324, align 8, !tbaa !39
   %325 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store i32 %295, ptr %325, align 8, !tbaa !38
+  store i32 %295, ptr %325, align 8, !tbaa !39
   %326 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store i64 %321, ptr %326, align 8, !tbaa !38
+  store i64 %321, ptr %326, align 8, !tbaa !39
   br label %AllocateExternalBuffer.exit
 
 AllocateExternalBuffer.exit:                      ; preds = %285, %314
   %.089.i = phi ptr [ %284, %285 ], [ %304, %314 ]
   %327 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 %.0200395, ptr %327, align 4, !tbaa !39
+  store i32 %.0200395, ptr %327, align 4, !tbaa !40
   br label %.thread339
 
 .thread339:                                       ; preds = %224, %228, %229, %230, %234, %238, %242, %AllocateExternalBuffer.exit, %255
@@ -896,7 +896,7 @@ AllocateExternalBuffer.exit:                      ; preds = %285, %314
 330:                                              ; preds = %328, %.thread339
   %.not270 = icmp eq i32 %.0196388, 0
   %331 = load ptr, ptr %5, align 8, !tbaa !4
-  %332 = load i64, ptr %7, align 8, !tbaa !34
+  %332 = load i64, ptr %7, align 8, !tbaa !35
   br i1 %.not270, label %335, label %333
 
 333:                                              ; preds = %330
@@ -946,15 +946,15 @@ AllocateExternalBuffer.exit:                      ; preds = %285, %314
   %349 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %348, ptr noundef nonnull @.str.48, ptr noundef nonnull %.1186) #10
   %350 = load ptr, ptr @stderr, align 8, !tbaa !9
   %351 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %352 = load i32, ptr %351, align 4, !tbaa !40
+  %352 = load i32, ptr %351, align 4, !tbaa !41
   %353 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %354 = load i32, ptr %353, align 8, !tbaa !41
+  %354 = load i32, ptr %353, align 8, !tbaa !42
   %355 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %356 = load i32, ptr %355, align 8, !tbaa !36
+  %356 = load i32, ptr %355, align 8, !tbaa !37
   %.not273 = icmp eq i32 %356, 0
   %357 = select i1 %.not273, ptr @.str.51, ptr @.str.50
   %358 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %359 = load i32, ptr %358, align 8, !tbaa !42
+  %359 = load i32, ptr %358, align 8, !tbaa !43
   %360 = sext i32 %359 to i64
   %361 = getelementptr inbounds [3 x ptr], ptr @kFormatType, i64 0, i64 %360
   %362 = load ptr, ptr %361, align 8, !tbaa !4
@@ -1012,11 +1012,11 @@ sub_1.i:                                          ; preds = %364
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0.copyload.i.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8
   %382 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #7
-  %383 = load i64, ptr %3, align 8, !tbaa !43
+  %383 = load i64, ptr %3, align 8, !tbaa !44
   %384 = sitofp i64 %383 to double
   %385 = sitofp i64 %.sroa.0.0.copyload.i.i to double
   %386 = fsub double %384, %385
-  %387 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !45
+  %387 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !46
   %388 = sitofp i64 %387 to double
   %389 = sitofp i64 %.sroa.4.0.copyload.i.i to double
   %390 = fsub double %388, %389
@@ -1051,15 +1051,15 @@ SaveOutput.exit:                                  ; preds = %380, %381, %397, %3
   %405 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %404, ptr noundef nonnull @.str.52, ptr noundef nonnull %.1186) #10
   %406 = load ptr, ptr @stderr, align 8, !tbaa !9
   %407 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %408 = load i32, ptr %407, align 4, !tbaa !40
+  %408 = load i32, ptr %407, align 4, !tbaa !41
   %409 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %410 = load i32, ptr %409, align 8, !tbaa !41
+  %410 = load i32, ptr %409, align 8, !tbaa !42
   %411 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %412 = load i32, ptr %411, align 8, !tbaa !36
+  %412 = load i32, ptr %411, align 8, !tbaa !37
   %.not272 = icmp eq i32 %412, 0
   %413 = select i1 %.not272, ptr @.str.51, ptr @.str.50
   %414 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %415 = load i32, ptr %414, align 8, !tbaa !42
+  %415 = load i32, ptr %414, align 8, !tbaa !43
   %416 = sext i32 %415 to i64
   %417 = getelementptr inbounds [3 x ptr], ptr @kFormatType, i64 0, i64 %416
   %418 = load ptr, ptr %417, align 8, !tbaa !4
@@ -1115,11 +1115,11 @@ define internal fastcc double @StopwatchReadAndReset(ptr noundef nonnull capture
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %2 = tail call i32 @gettimeofday(ptr noundef nonnull %0, ptr noundef null) #7
-  %3 = load i64, ptr %0, align 8, !tbaa !43
+  %3 = load i64, ptr %0, align 8, !tbaa !44
   %4 = sitofp i64 %3 to double
   %5 = sitofp i64 %.sroa.0.0.copyload to double
   %6 = fsub double %4, %5
-  %7 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !45
+  %7 = load i64, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !46
   %8 = sitofp i64 %7 to double
   %9 = sitofp i64 %.sroa.4.0.copyload to double
   %10 = fsub double %8, %9
@@ -1195,17 +1195,18 @@ attributes #10 = { cold nounwind }
 !29 = !{!14, !12, i64 196}
 !30 = !{!14, !12, i64 208}
 !31 = !{!6, !6, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"long", !7, i64 0}
-!36 = !{!15, !12, i64 8}
-!37 = !{!16, !12, i64 0}
-!38 = !{!7, !7, i64 0}
-!39 = !{!16, !12, i64 12}
-!40 = !{!16, !12, i64 4}
-!41 = !{!16, !12, i64 8}
-!42 = !{!15, !12, i64 16}
-!43 = !{!44, !35, i64 0}
-!44 = !{!"timeval", !35, i64 0, !35, i64 8}
-!45 = !{!44, !35, i64 8}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"long", !7, i64 0}
+!37 = !{!15, !12, i64 8}
+!38 = !{!16, !12, i64 0}
+!39 = !{!7, !7, i64 0}
+!40 = !{!16, !12, i64 12}
+!41 = !{!16, !12, i64 4}
+!42 = !{!16, !12, i64 8}
+!43 = !{!15, !12, i64 16}
+!44 = !{!45, !36, i64 0}
+!45 = !{!"timeval", !36, i64 0, !36, i64 8}
+!46 = !{!45, !36, i64 8}

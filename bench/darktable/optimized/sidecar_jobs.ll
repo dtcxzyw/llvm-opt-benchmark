@@ -89,7 +89,7 @@ define void @dt_sidecar_synch_enqueue_list(ptr noundef readonly captures(address
   %7 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %.not18 = icmp eq ptr %8, null
-  br i1 %.not18, label %_unlock_pending_queue.exit, label %.preheader21
+  br i1 %.not18, label %_unlock_pending_queue.exit, label %.preheader21, !llvm.loop !17
 
 9:                                                ; preds = %.preheader
   %10 = tail call ptr @g_slist_last(ptr noundef %19) #6
@@ -122,7 +122,7 @@ _lock_pending_queue.exit:                         ; preds = %9, %11
   %20 = getelementptr inbounds nuw i8, ptr %.01524, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !16
   %.not19 = icmp eq ptr %21, null
-  br i1 %.not19, label %9, label %.preheader
+  br i1 %.not19, label %9, label %.preheader, !llvm.loop !19
 
 _unlock_pending_queue.exit:                       ; preds = %.preheader21, %16, %_lock_pending_queue.exit, %1
   ret void
@@ -137,7 +137,7 @@ define void @dt_control_sidecar_synch_start() local_unnamed_addr #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %0
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !17
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %4 = tail call i32 @dt_control_add_job(ptr noundef %3, i32 noundef 1, ptr noundef nonnull %1) #6
   store i1 true, ptr @background_running, align 4
   br label %5
@@ -174,10 +174,10 @@ define internal noundef i32 @_control_write_sidecars_job_run(ptr noundef %0) #0 
 .critedge:                                        ; preds = %5, %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
   %10 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #6
-  %11 = load i64, ptr %2, align 8, !tbaa !55
+  %11 = load i64, ptr %2, align 8, !tbaa !58
   %12 = add nsw i64 %11, -1290608000
   %13 = sitofp i64 %12 to double
-  %14 = load i64, ptr %4, align 8, !tbaa !57
+  %14 = load i64, ptr %4, align 8, !tbaa !60
   %15 = sitofp i64 %14 to double
   %16 = fmul reassoc nsz arcp contract afn double %15, 0x3EB0C6F7A0B5ED8D
   %17 = fadd reassoc nsz arcp contract afn double %16, %13
@@ -218,15 +218,15 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
 .preheader:                                       ; preds = %_unlock_pending_queue.exit, %36
   %.03347 = phi ptr [ %38, %36 ], [ %24, %_unlock_pending_queue.exit ]
   %.03446 = phi ptr [ %.135, %36 ], [ null, %_unlock_pending_queue.exit ]
-  %29 = load ptr, ptr %.03347, align 8, !tbaa !58
+  %29 = load ptr, ptr %.03347, align 8, !tbaa !61
   %30 = tail call i32 @g_hash_table_contains(ptr noundef %3, ptr noundef %29) #6
   %.not44 = icmp eq i32 %30, 0
   br i1 %.not44, label %31, label %36
 
 31:                                               ; preds = %.preheader
-  %32 = load ptr, ptr %.03347, align 8, !tbaa !58
+  %32 = load ptr, ptr %.03347, align 8, !tbaa !61
   %33 = tail call ptr @g_slist_prepend(ptr noundef %.03446, ptr noundef %32) #6
-  %34 = load ptr, ptr %.03347, align 8, !tbaa !58
+  %34 = load ptr, ptr %.03347, align 8, !tbaa !61
   %35 = tail call i32 @g_hash_table_insert(ptr noundef %3, ptr noundef %34, ptr noundef %34) #6
   br label %36
 
@@ -235,7 +235,7 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
   %37 = getelementptr inbounds nuw i8, ptr %.03347, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !11
   %.not43 = icmp eq ptr %38, null
-  br i1 %.not43, label %27, label %.preheader
+  br i1 %.not43, label %27, label %.preheader, !llvm.loop !62
 
 39:                                               ; preds = %_unlock_pending_queue.exit, %27, %.critedge
   %.137 = phi nsz double [ %17, %27 ], [ %17, %_unlock_pending_queue.exit ], [ %.036, %.critedge ]
@@ -250,7 +250,7 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %.249 = phi ptr [ %47, %.lr.ph ], [ %.1, %39 ]
   %.03248 = phi i32 [ %48, %.lr.ph ], [ 0, %39 ]
-  %40 = load ptr, ptr %.249, align 8, !tbaa !58
+  %40 = load ptr, ptr %.249, align 8, !tbaa !61
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i32
   %43 = tail call i32 @dt_image_write_sidecar_file(i32 noundef %42) #6
@@ -263,13 +263,13 @@ _unlock_pending_queue.exit:                       ; preds = %_lock_pending_queue
   %49 = icmp ne ptr %47, null
   %50 = icmp samesign ult i32 %.03248, 2
   %51 = select i1 %49, i1 %50, i1 false
-  br i1 %51, label %.lr.ph, label %._crit_edge
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %39
   %.sink = phi i64 [ 1000000, %39 ], [ %spec.select, %._crit_edge ]
   %.2.lcssa56 = phi ptr [ null, %39 ], [ %47, %._crit_edge ]
   tail call void @g_usleep(i64 noundef %.sink) #6
-  br label %5
+  br label %5, !llvm.loop !64
 
 .critedge2:                                       ; preds = %6, %8
   tail call void @g_hash_table_destroy(ptr noundef %3) #6
@@ -345,45 +345,51 @@ attributes #6 = { nounwind }
 !14 = !{!"_GList", !8, i64 0, !15, i64 8, !15, i64 16}
 !15 = !{!"p1 _ZTS6_GList", !8, i64 0}
 !16 = !{!14, !15, i64 8}
-!17 = !{!18, !26, i64 88}
-!18 = !{!"darktable_t", !19, i64 0, !20, i64 4, !20, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !21, i64 48, !22, i64 56, !23, i64 64, !24, i64 72, !25, i64 80, !26, i64 88, !27, i64 96, !28, i64 104, !29, i64 112, !30, i64 120, !31, i64 128, !32, i64 136, !33, i64 144, !34, i64 152, !35, i64 160, !36, i64 168, !37, i64 176, !38, i64 184, !39, i64 192, !40, i64 200, !41, i64 208, !42, i64 216, !43, i64 224, !9, i64 232, !44, i64 2792, !44, i64 2832, !44, i64 2872, !44, i64 2912, !44, i64 2952, !45, i64 2992, !45, i64 3000, !45, i64 3008, !45, i64 3016, !45, i64 3024, !45, i64 3032, !45, i64 3040, !45, i64 3048, !45, i64 3056, !45, i64 3064, !45, i64 3072, !45, i64 3080, !45, i64 3088, !46, i64 3096, !15, i64 3104, !47, i64 3112, !15, i64 3120, !20, i64 3128, !9, i64 3132, !20, i64 3320, !20, i64 3324, !48, i64 3328, !49, i64 3336, !50, i64 3344, !53, i64 3384, !54, i64 3416}
-!19 = !{!"dt_codepath_t", !20, i64 0}
-!20 = !{!"int", !9, i64 0}
-!21 = !{!"p1 _ZTS11_JsonParser", !8, i64 0}
-!22 = !{!"p1 _ZTS9dt_conf_t", !8, i64 0}
-!23 = !{!"p1 _ZTS12dt_develop_t", !8, i64 0}
-!24 = !{!"p1 _ZTS8dt_lib_t", !8, i64 0}
-!25 = !{!"p1 _ZTS17dt_view_manager_t", !8, i64 0}
-!26 = !{!"p1 _ZTS12dt_control_t", !8, i64 0}
-!27 = !{!"p1 _ZTS19dt_control_signal_t", !8, i64 0}
-!28 = !{!"p1 _ZTS12dt_gui_gtk_t", !8, i64 0}
-!29 = !{!"p1 _ZTS17dt_mipmap_cache_t", !8, i64 0}
-!30 = !{!"p1 _ZTS16dt_image_cache_t", !8, i64 0}
-!31 = !{!"p1 _ZTS12dt_bauhaus_t", !8, i64 0}
-!32 = !{!"p1 _ZTS13dt_database_t", !8, i64 0}
-!33 = !{!"p1 _ZTS14dt_pwstorage_t", !8, i64 0}
-!34 = !{!"p1 _ZTS11dt_camctl_t", !8, i64 0}
-!35 = !{!"p1 _ZTS15dt_collection_t", !8, i64 0}
-!36 = !{!"p1 _ZTS14dt_selection_t", !8, i64 0}
-!37 = !{!"p1 _ZTS11dt_points_t", !8, i64 0}
-!38 = !{!"p1 _ZTS12dt_imageio_t", !8, i64 0}
-!39 = !{!"p1 _ZTS11dt_opencl_t", !8, i64 0}
-!40 = !{!"p1 _ZTS9dt_dbus_t", !8, i64 0}
-!41 = !{!"p1 _ZTS9dt_undo_t", !8, i64 0}
-!42 = !{!"p1 _ZTS16dt_colorspaces_t", !8, i64 0}
-!43 = !{!"p1 _ZTS9dt_l10n_t", !8, i64 0}
-!44 = !{!"dt_pthread_mutex_t", !9, i64 0}
-!45 = !{!"p1 omnipotent char", !8, i64 0}
-!46 = !{!"", !20, i64 0}
-!47 = !{!"double", !9, i64 0}
-!48 = !{!"p1 _ZTS10_GTimeZone", !8, i64 0}
-!49 = !{!"p1 _ZTS10_GDateTime", !8, i64 0}
-!50 = !{!"dt_sys_resources_t", !51, i64 0, !51, i64 8, !52, i64 16, !52, i64 24, !20, i64 32}
-!51 = !{!"long", !9, i64 0}
-!52 = !{!"p1 int", !8, i64 0}
-!53 = !{!"dt_backthumb_t", !47, i64 0, !47, i64 8, !20, i64 16, !20, i64 20, !20, i64 24, !20, i64 28}
-!54 = !{!"dt_gimp_t", !20, i64 0, !45, i64 8, !45, i64 16, !20, i64 24, !20, i64 28}
-!55 = !{!56, !51, i64 0}
-!56 = !{!"timeval", !51, i64 0, !51, i64 8}
-!57 = !{!56, !51, i64 8}
-!58 = !{!12, !8, i64 0}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !18}
+!20 = !{!21, !29, i64 88}
+!21 = !{!"darktable_t", !22, i64 0, !23, i64 4, !23, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40, !24, i64 48, !25, i64 56, !26, i64 64, !27, i64 72, !28, i64 80, !29, i64 88, !30, i64 96, !31, i64 104, !32, i64 112, !33, i64 120, !34, i64 128, !35, i64 136, !36, i64 144, !37, i64 152, !38, i64 160, !39, i64 168, !40, i64 176, !41, i64 184, !42, i64 192, !43, i64 200, !44, i64 208, !45, i64 216, !46, i64 224, !9, i64 232, !47, i64 2792, !47, i64 2832, !47, i64 2872, !47, i64 2912, !47, i64 2952, !48, i64 2992, !48, i64 3000, !48, i64 3008, !48, i64 3016, !48, i64 3024, !48, i64 3032, !48, i64 3040, !48, i64 3048, !48, i64 3056, !48, i64 3064, !48, i64 3072, !48, i64 3080, !48, i64 3088, !49, i64 3096, !15, i64 3104, !50, i64 3112, !15, i64 3120, !23, i64 3128, !9, i64 3132, !23, i64 3320, !23, i64 3324, !51, i64 3328, !52, i64 3336, !53, i64 3344, !56, i64 3384, !57, i64 3416}
+!22 = !{!"dt_codepath_t", !23, i64 0}
+!23 = !{!"int", !9, i64 0}
+!24 = !{!"p1 _ZTS11_JsonParser", !8, i64 0}
+!25 = !{!"p1 _ZTS9dt_conf_t", !8, i64 0}
+!26 = !{!"p1 _ZTS12dt_develop_t", !8, i64 0}
+!27 = !{!"p1 _ZTS8dt_lib_t", !8, i64 0}
+!28 = !{!"p1 _ZTS17dt_view_manager_t", !8, i64 0}
+!29 = !{!"p1 _ZTS12dt_control_t", !8, i64 0}
+!30 = !{!"p1 _ZTS19dt_control_signal_t", !8, i64 0}
+!31 = !{!"p1 _ZTS12dt_gui_gtk_t", !8, i64 0}
+!32 = !{!"p1 _ZTS17dt_mipmap_cache_t", !8, i64 0}
+!33 = !{!"p1 _ZTS16dt_image_cache_t", !8, i64 0}
+!34 = !{!"p1 _ZTS12dt_bauhaus_t", !8, i64 0}
+!35 = !{!"p1 _ZTS13dt_database_t", !8, i64 0}
+!36 = !{!"p1 _ZTS14dt_pwstorage_t", !8, i64 0}
+!37 = !{!"p1 _ZTS11dt_camctl_t", !8, i64 0}
+!38 = !{!"p1 _ZTS15dt_collection_t", !8, i64 0}
+!39 = !{!"p1 _ZTS14dt_selection_t", !8, i64 0}
+!40 = !{!"p1 _ZTS11dt_points_t", !8, i64 0}
+!41 = !{!"p1 _ZTS12dt_imageio_t", !8, i64 0}
+!42 = !{!"p1 _ZTS11dt_opencl_t", !8, i64 0}
+!43 = !{!"p1 _ZTS9dt_dbus_t", !8, i64 0}
+!44 = !{!"p1 _ZTS9dt_undo_t", !8, i64 0}
+!45 = !{!"p1 _ZTS16dt_colorspaces_t", !8, i64 0}
+!46 = !{!"p1 _ZTS9dt_l10n_t", !8, i64 0}
+!47 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!48 = !{!"p1 omnipotent char", !8, i64 0}
+!49 = !{!"", !23, i64 0}
+!50 = !{!"double", !9, i64 0}
+!51 = !{!"p1 _ZTS10_GTimeZone", !8, i64 0}
+!52 = !{!"p1 _ZTS10_GDateTime", !8, i64 0}
+!53 = !{!"dt_sys_resources_t", !54, i64 0, !54, i64 8, !55, i64 16, !55, i64 24, !23, i64 32}
+!54 = !{!"long", !9, i64 0}
+!55 = !{!"p1 int", !8, i64 0}
+!56 = !{!"dt_backthumb_t", !50, i64 0, !50, i64 8, !23, i64 16, !23, i64 20, !23, i64 24, !23, i64 28}
+!57 = !{!"dt_gimp_t", !23, i64 0, !48, i64 8, !48, i64 16, !23, i64 24, !23, i64 28}
+!58 = !{!59, !54, i64 0}
+!59 = !{!"timeval", !54, i64 0, !54, i64 8}
+!60 = !{!59, !54, i64 8}
+!61 = !{!12, !8, i64 0}
+!62 = distinct !{!62, !18}
+!63 = distinct !{!63, !18}
+!64 = distinct !{!64, !18}

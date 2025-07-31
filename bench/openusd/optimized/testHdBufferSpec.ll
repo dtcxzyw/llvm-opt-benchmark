@@ -1602,14 +1602,14 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EE12_M_che
 .lr.ph.i.i.i.i395:                                ; preds = %.noexc410, %.lr.ph.i.i.i.i395
   %.012.i.i.i.i396 = phi ptr [ %702, %.lr.ph.i.i.i.i395 ], [ %695, %.noexc410 ]
   %.0911.i.i.i.i397 = phi ptr [ %701, %.lr.ph.i.i.i.i395 ], [ %683, %.noexc410 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %698 = load i64, ptr %.0911.i.i.i.i397, align 8, !alias.scope !16, !noalias !13
-  store i64 %698, ptr %.012.i.i.i.i396, align 8, !alias.scope !13, !noalias !16
-  store i64 0, ptr %.0911.i.i.i.i397, align 8, !alias.scope !16, !noalias !13
+  call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  %698 = load i64, ptr %.0911.i.i.i.i397, align 8, !alias.scope !17, !noalias !14
+  store i64 %698, ptr %.012.i.i.i.i396, align 8, !alias.scope !14, !noalias !17
+  store i64 0, ptr %.0911.i.i.i.i397, align 8, !alias.scope !17, !noalias !14
   %699 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i396, i64 8
   %700 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i397, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %699, ptr noundef nonnull align 8 dereferenceable(16) %700, i64 16, i1 false), !alias.scope !18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %699, ptr noundef nonnull align 8 dereferenceable(16) %700, i64 16, i1 false), !alias.scope !19
   %701 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i397, i64 24
   %702 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i396, i64 24
   %.not.i.i.i.i398 = icmp eq ptr %701, %676
@@ -1746,14 +1746,14 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EE12_M_che
 .lr.ph.i.i.i.i416:                                ; preds = %.noexc431, %.lr.ph.i.i.i.i416
   %.012.i.i.i.i417 = phi ptr [ %759, %.lr.ph.i.i.i.i416 ], [ %752, %.noexc431 ]
   %.0911.i.i.i.i418 = phi ptr [ %758, %.lr.ph.i.i.i.i416 ], [ %740, %.noexc431 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  call void @llvm.experimental.noalias.scope.decl(metadata !22)
-  %755 = load i64, ptr %.0911.i.i.i.i418, align 8, !alias.scope !22, !noalias !19
-  store i64 %755, ptr %.012.i.i.i.i417, align 8, !alias.scope !19, !noalias !22
-  store i64 0, ptr %.0911.i.i.i.i418, align 8, !alias.scope !22, !noalias !19
+  call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  call void @llvm.experimental.noalias.scope.decl(metadata !23)
+  %755 = load i64, ptr %.0911.i.i.i.i418, align 8, !alias.scope !23, !noalias !20
+  store i64 %755, ptr %.012.i.i.i.i417, align 8, !alias.scope !20, !noalias !23
+  store i64 0, ptr %.0911.i.i.i.i418, align 8, !alias.scope !23, !noalias !20
   %756 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i417, i64 8
   %757 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i418, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %756, ptr noundef nonnull align 8 dereferenceable(16) %757, i64 16, i1 false), !alias.scope !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %756, ptr noundef nonnull align 8 dereferenceable(16) %757, i64 16, i1 false), !alias.scope !25
   %758 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i418, i64 24
   %759 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i417, i64 24
   %.not.i.i.i.i419 = icmp eq ptr %758, %732
@@ -1928,14 +1928,14 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EE12_M_che
 .lr.ph.i.i.i.i437:                                ; preds = %.noexc452, %.lr.ph.i.i.i.i437
   %.012.i.i.i.i438 = phi ptr [ %832, %.lr.ph.i.i.i.i437 ], [ %825, %.noexc452 ]
   %.0911.i.i.i.i439 = phi ptr [ %831, %.lr.ph.i.i.i.i437 ], [ %813, %.noexc452 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !25)
-  call void @llvm.experimental.noalias.scope.decl(metadata !28)
-  %828 = load i64, ptr %.0911.i.i.i.i439, align 8, !alias.scope !28, !noalias !25
-  store i64 %828, ptr %.012.i.i.i.i438, align 8, !alias.scope !25, !noalias !28
-  store i64 0, ptr %.0911.i.i.i.i439, align 8, !alias.scope !28, !noalias !25
+  call void @llvm.experimental.noalias.scope.decl(metadata !26)
+  call void @llvm.experimental.noalias.scope.decl(metadata !29)
+  %828 = load i64, ptr %.0911.i.i.i.i439, align 8, !alias.scope !29, !noalias !26
+  store i64 %828, ptr %.012.i.i.i.i438, align 8, !alias.scope !26, !noalias !29
+  store i64 0, ptr %.0911.i.i.i.i439, align 8, !alias.scope !29, !noalias !26
   %829 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i438, i64 8
   %830 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i439, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %829, ptr noundef nonnull align 8 dereferenceable(16) %830, i64 16, i1 false), !alias.scope !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %829, ptr noundef nonnull align 8 dereferenceable(16) %830, i64 16, i1 false), !alias.scope !31
   %831 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i439, i64 24
   %832 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i438, i64 24
   %.not.i.i.i.i440 = icmp eq ptr %831, %806
@@ -2069,7 +2069,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecD2Ev.exit322: ; preds = %808,
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i.i: ; preds = %882, %.lr.ph.i.i.i.i
   %886 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %886, %878
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !32
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %13, align 8
@@ -2112,7 +2112,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EED2Ev.exit
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i.i328: ; preds = %899, %.lr.ph.i.i.i.i325
   %903 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i326, i64 24
   %.not.i.i.i.i329 = icmp eq ptr %903, %895
-  br i1 %.not.i.i.i.i329, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i330, label %.lr.ph.i.i.i.i325, !llvm.loop !31
+  br i1 %.not.i.i.i.i329, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i330, label %.lr.ph.i.i.i.i325, !llvm.loop !32
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i330: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i.i328
   %.pr.i331 = load ptr, ptr %8, align 8
@@ -2154,7 +2154,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecESaIS1_EED2Ev.exit
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i.i339: ; preds = %915, %.lr.ph.i.i.i.i336
   %919 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i337, i64 24
   %.not.i.i.i.i340 = icmp eq ptr %919, %911
-  br i1 %.not.i.i.i.i340, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i341, label %.lr.ph.i.i.i.i336, !llvm.loop !31
+  br i1 %.not.i.i.i.i340, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i341, label %.lr.ph.i.i.i.i336, !llvm.loop !32
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i341: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i.i339
   %.pr.i342 = load ptr, ptr %7, align 8
@@ -2497,7 +2497,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserv
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i: ; preds = %8, %.lr.ph.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %12, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !31
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !32
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -2710,24 +2710,25 @@ attributes #21 = { noreturn }
 !8 = !{!9}
 !9 = distinct !{!9, !7, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
 !10 = !{!6, !9}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!15 = distinct !{!15, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_"}
-!16 = !{!17}
-!17 = distinct !{!17, !15, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!18 = !{!14, !17}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_"}
-!22 = !{!23}
-!23 = distinct !{!23, !21, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!24 = !{!20, !23}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
-!27 = distinct !{!27, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_"}
-!28 = !{!29}
-!29 = distinct !{!29, !27, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
-!30 = !{!26, !29}
-!31 = distinct !{!31, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!15}
+!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_"}
+!17 = !{!18}
+!18 = distinct !{!18, !16, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!19 = !{!15, !18}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!22 = distinct !{!22, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_"}
+!23 = !{!24}
+!24 = distinct !{!24, !22, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!25 = !{!21, !24}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 0"}
+!28 = distinct !{!28, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_"}
+!29 = !{!30}
+!30 = distinct !{!30, !28, !"_ZSt19__relocate_object_aIN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecES1_SaIS1_EEvPT_PT0_RT1_: argument 1"}
+!31 = !{!27, !30}
+!32 = distinct !{!32, !12, !13}

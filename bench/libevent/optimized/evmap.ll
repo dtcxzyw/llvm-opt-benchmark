@@ -151,7 +151,7 @@ define hidden range(i32 -1, 2) i32 @evmap_io_add_(ptr noundef %0, i32 noundef %1
   %.025.i = phi i32 [ %12, %.preheader.i ], [ %spec.select.i, %.preheader.preheader.i ]
   %.not30.i = icmp sgt i32 %.025.i, %1
   %12 = shl i32 %.025.i, 1
-  br i1 %.not30.i, label %13, label %.preheader.i, !llvm.loop !5
+  br i1 %.not30.i, label %13, label %.preheader.i, !llvm.loop !6
 
 13:                                               ; preds = %.preheader.i
   %14 = icmp samesign ugt i32 %.025.i, 268435455
@@ -197,7 +197,7 @@ evmap_make_space.exit:                            ; preds = %21, %7
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %29
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %evmap_make_space.exit.thread, label %44, !prof !6
+  br i1 %43, label %evmap_make_space.exit.thread, label %44, !prof !7
 
 44:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %42, i8 0, i64 14, i1 false)
@@ -254,8 +254,8 @@ evmap_make_space.exit:                            ; preds = %21, %7
   %69 = icmp samesign ugt i32 %.079, 65535
   %or.cond = select i1 %68, i1 true, i1 %69
   %70 = icmp samesign ugt i32 %.078, 65535
-  %spec.select107 = select i1 %or.cond, i1 true, i1 %70, !prof !7
-  br i1 %spec.select107, label %71, label %72, !prof !6
+  %spec.select107 = select i1 %or.cond, i1 true, i1 %70, !prof !8
+  br i1 %spec.select107, label %71, label %72, !prof !7
 
 71:                                               ; preds = %45
   tail call void (ptr, ...) @event_warnx(ptr noundef nonnull @.str, i32 noundef %1) #7
@@ -495,7 +495,7 @@ define hidden void @evmap_io_active_(ptr noundef readonly captures(none) %0, i32
   %23 = getelementptr inbounds nuw i8, ptr %.020, i64 72
   %.0 = load ptr, ptr %23, align 8
   %.not16 = icmp eq ptr %.0, null
-  br i1 %.not16, label %.loopexit, label %16, !llvm.loop !8
+  br i1 %.not16, label %.loopexit, label %16, !llvm.loop !9
 
 .loopexit:                                        ; preds = %22, %.preheader, %9, %3, %6
   ret void
@@ -526,7 +526,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_add_(ptr noundef %0, i32 nounde
   %.025.i = phi i32 [ %10, %.preheader.i ], [ %spec.select.i, %.preheader.preheader.i ]
   %.not30.i = icmp sgt i32 %.025.i, %1
   %10 = shl i32 %.025.i, 1
-  br i1 %.not30.i, label %11, label %.preheader.i, !llvm.loop !5
+  br i1 %.not30.i, label %11, label %.preheader.i, !llvm.loop !6
 
 11:                                               ; preds = %.preheader.i
   %12 = icmp samesign ugt i32 %.025.i, 268435455
@@ -573,7 +573,7 @@ evmap_make_space.exit:                            ; preds = %19, %7
   %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %27
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %evmap_make_space.exit.thread, label %43, !prof !6
+  br i1 %42, label %evmap_make_space.exit.thread, label %43, !prof !7
 
 43:                                               ; preds = %31
   store ptr null, ptr %41, align 8
@@ -719,7 +719,7 @@ define hidden void @evmap_signal_active_(ptr noundef readonly captures(none) %0,
   %16 = getelementptr inbounds nuw i8, ptr %.017, i64 72
   %.0 = load ptr, ptr %16, align 8
   %.not14 = icmp eq ptr %.0, null
-  br i1 %.not14, label %.loopexit, label %15, !llvm.loop !9
+  br i1 %.not14, label %.loopexit, label %15, !llvm.loop !10
 
 .loopexit:                                        ; preds = %15, %.preheader, %9, %3, %6
   ret void
@@ -814,7 +814,7 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i, %37
-  br i1 %38, label %.lr.ph.i, label %evmap_io_foreach_fd.exit, !llvm.loop !10
+  br i1 %38, label %.lr.ph.i, label %evmap_io_foreach_fd.exit, !llvm.loop !11
 
 evmap_io_foreach_fd.exit:                         ; preds = %.thread.i
   %39 = icmp slt i32 %.1, 0
@@ -866,7 +866,7 @@ evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreac
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %indvars.iv.next.i10, %60
-  br i1 %61, label %.lr.ph.i3, label %evmap_signal_foreach_signal.exit, !llvm.loop !11
+  br i1 %61, label %.lr.ph.i3, label %evmap_signal_foreach_signal.exit, !llvm.loop !12
 
 evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i9, %evmap_io_foreach_fd.exit.thread
   %.5 = phi i32 [ %.216, %evmap_io_foreach_fd.exit.thread ], [ %.4, %.thread.i9 ]
@@ -906,7 +906,7 @@ define hidden void @evmap_delete_all_(ptr noundef readonly captures(none) %0) lo
   %13 = tail call i32 @event_del(ptr noundef nonnull %12) #7
   %14 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %..thread_crit_edge.i.loopexit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %..thread_crit_edge.i.loopexit, label %.lr.ph.i.i, !llvm.loop !13
 
 ..thread_crit_edge.i.loopexit:                    ; preds = %.lr.ph.i.i
   %.pre.i.pre = load i32, ptr %3, align 8
@@ -918,7 +918,7 @@ define hidden void @evmap_delete_all_(ptr noundef readonly captures(none) %0) lo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
-  br i1 %17, label %.lr.ph.i, label %evmap_signal_foreach_signal.exit, !llvm.loop !11
+  br i1 %17, label %.lr.ph.i, label %evmap_signal_foreach_signal.exit, !llvm.loop !12
 
 evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 808
@@ -947,7 +947,7 @@ evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i, %1
   %29 = tail call i32 @event_del(ptr noundef nonnull %28) #7
   %30 = load ptr, ptr %25, align 8
   %.not.i.i13 = icmp eq ptr %30, null
-  br i1 %.not.i.i13, label %..thread_crit_edge.i7.loopexit, label %.lr.ph.i.i12, !llvm.loop !12
+  br i1 %.not.i.i13, label %..thread_crit_edge.i7.loopexit, label %.lr.ph.i.i12, !llvm.loop !13
 
 ..thread_crit_edge.i7.loopexit:                   ; preds = %.lr.ph.i.i12
   %.pre.i8.pre = load i32, ptr %19, align 8
@@ -959,7 +959,7 @@ evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i, %1
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i10, %32
-  br i1 %33, label %.lr.ph.i3, label %evmap_io_foreach_fd.exit, !llvm.loop !10
+  br i1 %33, label %.lr.ph.i3, label %evmap_io_foreach_fd.exit, !llvm.loop !11
 
 evmap_io_foreach_fd.exit:                         ; preds = %.thread.i9, %evmap_signal_foreach_signal.exit
   ret void
@@ -1000,7 +1000,7 @@ define hidden void @event_changelist_remove_all_(ptr noundef captures(none) %0, 
   %18 = load i32, ptr %3, align 8
   %19 = sext i32 %18 to i64
   %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   store i32 0, ptr %3, align 8
@@ -1049,7 +1049,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_add_(ptr noundef captures(n
   %22 = mul nuw nsw i64 %21, 12
   %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre23.i, i64 noundef %22) #7
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !6
+  br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !7
 
 event_changelist_grow.exit.i:                     ; preds = %18
   store ptr %23, ptr %6, align 8
@@ -1142,7 +1142,7 @@ define hidden range(i32 -1, 1) i32 @event_changelist_del_(ptr noundef captures(n
   %22 = mul nuw nsw i64 %21, 12
   %23 = tail call ptr @event_mm_realloc_(ptr noundef %.pre23.i, i64 noundef %22) #7
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !6
+  br i1 %24, label %event_changelist_get_or_construct.exit.thread, label %event_changelist_grow.exit.i, !prof !7
 
 event_changelist_grow.exit.i:                     ; preds = %18
   store ptr %23, ptr %6, align 8
@@ -1256,7 +1256,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %14 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 72
   %.09.i = load ptr, ptr %14, align 8
   %.not.i16 = icmp eq ptr %.09.i, null
-  br i1 %.not.i16, label %..thread_crit_edge.i.loopexit, label %.lr.ph.i15, !llvm.loop !14
+  br i1 %.not.i16, label %..thread_crit_edge.i.loopexit, label %.lr.ph.i15, !llvm.loop !15
 
 .lr.ph.i15:                                       ; preds = %12, %13
   %.0914.i = phi ptr [ %.09.i, %13 ], [ %.0912.i, %12 ]
@@ -1274,7 +1274,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %18, label %.lr.ph.i, label %.loopexit, !llvm.loop !10
+  br i1 %18, label %.lr.ph.i, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.thread.i, %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -1302,7 +1302,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %29 = getelementptr inbounds nuw i8, ptr %.0914.i20, i64 72
   %.09.i23 = load ptr, ptr %29, align 8
   %.not.i24 = icmp eq ptr %.09.i23, null
-  br i1 %.not.i24, label %..thread_crit_edge.i11.loopexit, label %.lr.ph.i19, !llvm.loop !15
+  br i1 %.not.i24, label %..thread_crit_edge.i11.loopexit, label %.lr.ph.i19, !llvm.loop !16
 
 .lr.ph.i19:                                       ; preds = %27, %28
   %.0914.i20 = phi ptr [ %.09.i23, %28 ], [ %.0912.i17, %27 ]
@@ -1320,7 +1320,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i8, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i14, %32
-  br i1 %33, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit, !llvm.loop !11
+  br i1 %33, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit, !llvm.loop !12
 
 evmap_io_foreach_fd.exit:                         ; preds = %.lr.ph.i15, %.thread.i13, %.lr.ph.i19, %.loopexit
   %.0 = phi i32 [ 0, %.loopexit ], [ %30, %.lr.ph.i19 ], [ 0, %.thread.i13 ], [ %15, %.lr.ph.i15 ]
@@ -1348,16 +1348,17 @@ attributes #7 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!7 = !{!"branch_weights", i32 4001, i32 4000000}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = !{!"branch_weights", i32 4001, i32 4000000}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}

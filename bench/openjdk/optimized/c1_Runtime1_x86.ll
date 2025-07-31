@@ -660,7 +660,7 @@ _ZN14MacroAssembler6movdblE11XMMRegister7Address.exit: ; preds = %29, %33
   %37 = add nuw nsw i32 %.013, 8
   %38 = add nuw nsw i32 %.01112, 1
   %exitcond.not = icmp eq i32 %38, %..i.i
-  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %25, !llvm.loop !9
 
 .loopexit:                                        ; preds = %_ZN14MacroAssembler6movdblE11XMMRegister7Address.exit, %2
   %39 = mul nsw i32 %.pre, 252
@@ -1326,7 +1326,7 @@ define internal fastcc noundef ptr @_ZL16generate_oop_mapP13StubAssemblerib(ptr 
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %22, %2
   ret ptr %5
@@ -2553,7 +2553,8 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

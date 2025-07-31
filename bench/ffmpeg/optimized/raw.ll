@@ -56,16 +56,16 @@ define i32 @avpriv_pix_fmt_find(i32 noundef %0, i32 noundef %1) local_unnamed_ad
   %7 = getelementptr inbounds nuw i8, ptr %.058.i4, i64 8
   %8 = load i32, ptr %7, align 4, !tbaa !9
   %.not.i = icmp eq i32 %8, -1
-  br i1 %.not.i, label %.find_pix_fmt.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !12
+  br i1 %.not.i, label %.find_pix_fmt.exit.loopexit_crit_edge, label %.lr.ph.i, !llvm.loop !13
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %.058.i4, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %11 = icmp eq i32 %10, %1
-  br i1 %11, label %find_pix_fmt.exit, label %.lr.ph, !llvm.loop !12
+  br i1 %11, label %find_pix_fmt.exit, label %.lr.ph, !llvm.loop !13
 
 .find_pix_fmt.exit.loopexit_crit_edge:            ; preds = %.lr.ph
-  br label %find_pix_fmt.exit, !llvm.loop !12
+  br label %find_pix_fmt.exit, !llvm.loop !13
 
 find_pix_fmt.exit:                                ; preds = %.lr.ph.i, %.lr.ph.i.preheader, %.find_pix_fmt.exit.loopexit_crit_edge, %2
   %.lcssa.i = phi i32 [ -1, %2 ], [ -1, %.find_pix_fmt.exit.loopexit_crit_edge ], [ %3, %.lr.ph.i.preheader ], [ %8, %.lr.ph.i ]
@@ -86,6 +86,7 @@ attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!5, !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}

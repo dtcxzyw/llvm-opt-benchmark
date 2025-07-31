@@ -1041,7 +1041,7 @@ define internal noundef i32 @dissect_btavrcp(ptr noundef %0, ptr noundef %1, ptr
   %152 = add nuw nsw i32 %.014.i.i, 4
   %153 = add nuw nsw i32 %.01213.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %153, %143
-  br i1 %exitcond.not.i.i, label %dissect_attribute_id_list.exit.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %dissect_attribute_id_list.exit.i, label %.lr.ph.i.i, !llvm.loop !9
 
 dissect_attribute_id_list.exit.i:                 ; preds = %.lr.ph.i.i, %126
   %.0.lcssa.i.i = phi i32 [ %144, %126 ], [ %152, %.lr.ph.i.i ]
@@ -1547,7 +1547,7 @@ dissect_attribute_id_list.exit.i:                 ; preds = %.lr.ph.i.i, %126
   %551 = tail call ptr @proto_tree_add_item(ptr noundef %549, i32 noundef %550, ptr noundef %0, i32 noundef %518, i32 noundef 1, i32 noundef 0)
   %552 = add nuw nsw i32 %.0583.i.i, 1
   %exitcond.not.i265.i = icmp eq i32 %552, 17
-  br i1 %exitcond.not.i265.i, label %dissect_item_mediaplayer.exit.i, label %517, !llvm.loop !9
+  br i1 %exitcond.not.i265.i, label %dissect_item_mediaplayer.exit.i, label %517, !llvm.loop !10
 
 dissect_item_mediaplayer.exit.i:                  ; preds = %517
   %553 = add i32 %.3277.i, 27
@@ -1654,7 +1654,7 @@ dissect_item_media_element.exit.i:                ; preds = %639, %604, %602, %5
   %.4.i = add i32 %.pre.i, %173
   %642 = add nuw nsw i32 %.0262276.i, 1
   %exitcond.not.i = icmp eq i32 %642, %165
-  br i1 %exitcond.not.i, label %dissect_browsing.exit, label %169, !llvm.loop !10
+  br i1 %exitcond.not.i, label %dissect_browsing.exit, label %169, !llvm.loop !11
 
 643:                                              ; preds = %80
   br i1 %.0168.in, label %644, label %661
@@ -1730,7 +1730,7 @@ dissect_item_media_element.exit.i:                ; preds = %639, %604, %602, %5
   %697 = add nuw nsw i32 %.014.i269.i, 4
   %698 = add nuw nsw i32 %.01213.i270.i, 1
   %exitcond.not.i271.i = icmp eq i32 %698, %686
-  br i1 %exitcond.not.i271.i, label %dissect_browsing.exit, label %.lr.ph.i268.i, !llvm.loop !8
+  br i1 %exitcond.not.i271.i, label %dissect_browsing.exit, label %.lr.ph.i268.i, !llvm.loop !9
 
 699:                                              ; preds = %667
   %700 = load i32, ptr @hf_btavrcp_number_of_attributes, align 4
@@ -2280,7 +2280,7 @@ thread-pre-split.i:                               ; preds = %1007, %996
   %1036 = add i32 %.0807852.i, 1
   %1037 = load i32, ptr %1028, align 8
   %.not835.i = icmp ugt i32 %1036, %1037
-  br i1 %.not835.i, label %._crit_edge.i190, label %1031, !llvm.loop !11
+  br i1 %.not835.i, label %._crit_edge.i190, label %1031, !llvm.loop !12
 
 ._crit_edge.i190:                                 ; preds = %1031, %.preheader.i
   %.0806.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %1035, %1031 ]
@@ -2310,13 +2310,13 @@ thread-pre-split.i:                               ; preds = %1007, %996
   %1053 = call i64 @llvm.usub.sat.i64(i64 %1040, i64 %1047)
   %1054 = icmp ne i64 %1053, -1
   call void @llvm.assume(i1 %1054)
-  %1055 = call ptr @__memcpy_chk(ptr noundef %1048, ptr noundef %1050, i64 noundef range(i64 0, 4294967296) %1052, i64 noundef %1053) #8, !alias.scope !12
+  %1055 = call ptr @__memcpy_chk(ptr noundef %1048, ptr noundef %1050, i64 noundef range(i64 0, 4294967296) %1052, i64 noundef %1053) #8, !alias.scope !13
   %1056 = load i32, ptr %1046, align 8
   %1057 = add i32 %1056, %.0809855.i
   %1058 = add i32 %.1808856.i, 1
   %1059 = load i32, ptr %1028, align 8
   %.not836.i = icmp ugt i32 %1058, %1059
-  br i1 %.not836.i, label %._crit_edge859.i, label %1044, !llvm.loop !16
+  br i1 %.not836.i, label %._crit_edge859.i, label %1044, !llvm.loop !17
 
 ._crit_edge859.i:                                 ; preds = %1044, %._crit_edge.i190
   %1060 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %1041, i32 noundef %.0806.lcssa.i, i32 noundef %.0806.lcssa.i)
@@ -2428,7 +2428,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %.4.i188 = phi i32 [ %.3926.i, %.lr.ph928.i ], [ %1099, %.sink.split.i ]
   %1101 = add nuw nsw i32 %.0810925.i, 1
   %exitcond966.not.i = icmp eq i32 %1101, %1094
-  br i1 %exitcond966.not.i, label %._crit_edge929.i, label %.lr.ph928.i, !llvm.loop !17
+  br i1 %exitcond966.not.i, label %._crit_edge929.i, label %.lr.ph928.i, !llvm.loop !18
 
 ._crit_edge929.i:                                 ; preds = %1100, %1089
   %.3.lcssa.i = phi i32 [ %1095, %1089 ], [ %.4.i188, %1100 ]
@@ -2459,7 +2459,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1112 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1111, ptr noundef %.1.i184, i32 noundef %.5921.i, i32 noundef 1, i32 noundef 0)
   %.5.i = add nuw nsw i32 %.5921.i, 1
   %exitcond965.not.i = icmp eq i32 %.5921.i, %1110
-  br i1 %exitcond965.not.i, label %dissect_vendor_dependent.exit.loopexit, label %.lr.ph923.i, !llvm.loop !18
+  br i1 %exitcond965.not.i, label %dissect_vendor_dependent.exit.loopexit, label %.lr.ph923.i, !llvm.loop !19
 
 1113:                                             ; preds = %1079
   br i1 %.0168.in, label %1114, label %1118
@@ -2489,7 +2489,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1125 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1124, ptr noundef %.1.i184, i32 noundef %.6915.i, i32 noundef 1, i32 noundef 0)
   %.6.i = add nuw nsw i32 %.6915.i, 1
   %exitcond964.not.i = icmp eq i32 %.6915.i, %1123
-  br i1 %exitcond964.not.i, label %dissect_vendor_dependent.exit.loopexit227, label %.lr.ph917.i, !llvm.loop !19
+  br i1 %exitcond964.not.i, label %dissect_vendor_dependent.exit.loopexit227, label %.lr.ph917.i, !llvm.loop !20
 
 1126:                                             ; preds = %1079
   %1127 = load i32, ptr @hf_btavrcp_number_of_settings, align 4
@@ -2513,7 +2513,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1134 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1133, ptr noundef %.1.i184, i32 noundef %.7909.i, i32 noundef 1, i32 noundef 0)
   %.7.i = add nuw nsw i32 %.7909.i, 1
   %exitcond963.not.i = icmp eq i32 %.7909.i, %1132
-  br i1 %exitcond963.not.i, label %dissect_vendor_dependent.exit.loopexit228, label %.lr.ph911.i, !llvm.loop !20
+  br i1 %exitcond963.not.i, label %dissect_vendor_dependent.exit.loopexit228, label %.lr.ph911.i, !llvm.loop !21
 
 1135:                                             ; preds = %1126
   %1136 = zext i8 %1129 to i32
@@ -2533,7 +2533,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1142 = add nuw nsw i32 %.0814901.i, 1
   %.8.i = or disjoint i32 %1139, 1
   %exitcond962.not.i = icmp eq i32 %1142, %1136
-  br i1 %exitcond962.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph905.i, !llvm.loop !21
+  br i1 %exitcond962.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph905.i, !llvm.loop !22
 
 1143:                                             ; preds = %1079
   br i1 %.0168.in, label %1144, label %dissect_vendor_dependent.exit
@@ -2559,7 +2559,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1154 = add nuw nsw i32 %.0815894.i, 1
   %.9.i = or disjoint i32 %1151, 1
   %exitcond961.not.i = icmp eq i32 %1154, %1148
-  br i1 %exitcond961.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph898.i, !llvm.loop !22
+  br i1 %exitcond961.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph898.i, !llvm.loop !23
 
 1155:                                             ; preds = %1079
   %1156 = load i32, ptr @hf_btavrcp_number_of_settings, align 4
@@ -2583,7 +2583,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1163 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1162, ptr noundef %.1.i184, i32 noundef %.10889.i, i32 noundef 1, i32 noundef 0)
   %.10.i = add nuw nsw i32 %.10889.i, 1
   %exitcond960.not.i = icmp eq i32 %.10889.i, %1161
-  br i1 %exitcond960.not.i, label %dissect_vendor_dependent.exit.loopexit231, label %.lr.ph891.i, !llvm.loop !23
+  br i1 %exitcond960.not.i, label %dissect_vendor_dependent.exit.loopexit231, label %.lr.ph891.i, !llvm.loop !24
 
 1164:                                             ; preds = %1155
   %1165 = zext i8 %1158 to i32
@@ -2610,7 +2610,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1180 = add i32 %1177, %1176
   %1181 = add nuw nsw i32 %.0818882.i, 1
   %exitcond959.not.i = icmp eq i32 %1181, %1165
-  br i1 %exitcond959.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph885.i, !llvm.loop !24
+  br i1 %exitcond959.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph885.i, !llvm.loop !25
 
 1182:                                             ; preds = %1079
   br i1 %.0168.in, label %1183, label %1196
@@ -2637,7 +2637,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1194 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %1193, ptr noundef %.1.i184, i32 noundef %.12878.i, i32 noundef 1, i32 noundef 0)
   %1195 = add nuw nsw i32 %.12878.i, 1
   %exitcond958.not.i = icmp eq i32 %1195, %1192
-  br i1 %exitcond958.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph880.i, !llvm.loop !25
+  br i1 %exitcond958.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph880.i, !llvm.loop !26
 
 1196:                                             ; preds = %1182
   %1197 = load i32, ptr @hf_btavrcp_number_of_settings, align 4
@@ -2667,7 +2667,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1215 = add i32 %1212, %1211
   %1216 = add nuw nsw i32 %.0820872.i, 1
   %exitcond957.not.i = icmp eq i32 %1216, %1200
-  br i1 %exitcond957.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph875.i, !llvm.loop !26
+  br i1 %exitcond957.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph875.i, !llvm.loop !27
 
 1217:                                             ; preds = %1079
   br i1 %.0168.in, label %1218, label %dissect_vendor_dependent.exit
@@ -2689,7 +2689,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1226 = add nuw nsw i32 %.14868.i, 2
   %1227 = add nuw nsw i32 %.0821867.i, 1
   %exitcond956.not.i = icmp eq i32 %1227, %1222
-  br i1 %exitcond956.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph870.i, !llvm.loop !27
+  br i1 %exitcond956.not.i, label %dissect_vendor_dependent.exit, label %.lr.ph870.i, !llvm.loop !28
 
 1228:                                             ; preds = %1079
   br i1 %.0168.in, label %1229, label %dissect_vendor_dependent.exit
@@ -2939,7 +2939,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1066, %1063, %._cri
   %1372 = add nuw nsw i32 %.0817861.i, 1
   %.16.i = add nuw nsw i32 %.16863.i, 2
   %exitcond.not.i187 = icmp eq i32 %1372, %1366
-  br i1 %exitcond.not.i187, label %dissect_vendor_dependent.exit, label %.lr.ph865.i, !llvm.loop !28
+  br i1 %exitcond.not.i187, label %dissect_vendor_dependent.exit, label %.lr.ph865.i, !llvm.loop !29
 
 1373:                                             ; preds = %1295
   %1374 = load i32, ptr @hf_btavrcp_player_id, align 4
@@ -3871,7 +3871,7 @@ define internal fastcc range(i32 4, 0) i32 @dissect_attribute_id_list(ptr nounde
   %12 = add nuw nsw i32 %.014, 4
   %13 = add nuw nsw i32 %.01213, 1
   %exitcond.not = icmp eq i32 %13, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ %2, %4 ], [ %12, %.lr.ph ]
@@ -3900,7 +3900,7 @@ define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, pt
   %12 = add i32 %11, %10
   %13 = add nuw nsw i32 %.05254, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %7
   %14 = load i32, ptr @hf_btavrcp_attribute_entries, align 4
@@ -3948,7 +3948,7 @@ define internal fastcc noundef i32 @dissect_attribute_entries(ptr noundef %0, pt
   %47 = add i32 %27, %25
   %48 = add nuw nsw i32 %.156, 1
   %exitcond64.not = icmp eq i32 %48, %4
-  br i1 %exitcond64.not, label %._crit_edge60, label %20, !llvm.loop !30
+  br i1 %exitcond64.not, label %._crit_edge60, label %20, !llvm.loop !31
 
 ._crit_edge60.critedge:                           ; preds = %5
   %49 = load i32, ptr @hf_btavrcp_attribute_entries, align 4
@@ -4017,28 +4017,29 @@ attributes #9 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}

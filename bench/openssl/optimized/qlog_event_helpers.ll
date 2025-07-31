@@ -656,11 +656,11 @@ PACKET_buf_init.exit.i:                           ; preds = %83
 
 136:                                              ; preds = %134
   call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.76) #3
-  %137 = load i64, ptr %12, align 8, !tbaa !49
+  %137 = load i64, ptr %12, align 8, !tbaa !50
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.77, i64 noundef %137) #3
-  %138 = load i64, ptr %75, align 8, !tbaa !51
+  %138 = load i64, ptr %75, align 8, !tbaa !52
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.78, i64 noundef %138) #3
-  %139 = load i64, ptr %76, align 8, !tbaa !52
+  %139 = load i64, ptr %76, align 8, !tbaa !53
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.79, i64 noundef %139) #3
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #3
   br label %249
@@ -677,9 +677,9 @@ PACKET_buf_init.exit.i:                           ; preds = %83
 
 142:                                              ; preds = %140
   call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.80) #3
-  %143 = load i64, ptr %13, align 8, !tbaa !53
+  %143 = load i64, ptr %13, align 8, !tbaa !54
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.77, i64 noundef %143) #3
-  %144 = load i64, ptr %74, align 8, !tbaa !55
+  %144 = load i64, ptr %74, align 8, !tbaa !56
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.78, i64 noundef %144) #3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #3
   br label %249
@@ -696,11 +696,11 @@ PACKET_buf_init.exit.i:                           ; preds = %83
 
 147:                                              ; preds = %145
   call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.81) #3
-  %148 = load i64, ptr %14, align 8, !tbaa !56
+  %148 = load i64, ptr %14, align 8, !tbaa !57
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef %148) #3
-  %149 = load i64, ptr %73, align 8, !tbaa !58
+  %149 = load i64, ptr %73, align 8, !tbaa !59
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.68, i64 noundef %149) #3
-  %150 = load i64, ptr %73, align 8, !tbaa !58
+  %150 = load i64, ptr %73, align 8, !tbaa !59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #3
   br label %249
 
@@ -716,11 +716,11 @@ PACKET_buf_init.exit.i:                           ; preds = %83
 
 153:                                              ; preds = %151
   call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.83) #3
-  %154 = load i64, ptr %15, align 8, !tbaa !59
+  %154 = load i64, ptr %15, align 8, !tbaa !60
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.77, i64 noundef %154) #3
-  %155 = load i64, ptr %70, align 8, !tbaa !61
+  %155 = load i64, ptr %70, align 8, !tbaa !62
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.82, i64 noundef %155) #3
-  %156 = load i64, ptr %71, align 8, !tbaa !62
+  %156 = load i64, ptr %71, align 8, !tbaa !63
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.68, i64 noundef %156) #3
   %157 = load i8, ptr %72, align 8
   %158 = and i8 %157, 1
@@ -852,7 +852,7 @@ PACKET_buf_init.exit.i:                           ; preds = %83
   %.not137.i.i.i = icmp eq i8 %194, 0
   %195 = select i1 %.not137.i.i.i, ptr @.str.24, ptr @.str.97
   call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.96, ptr noundef nonnull %195) #3
-  %196 = load i64, ptr %66, align 8, !tbaa !63
+  %196 = load i64, ptr %66, align 8, !tbaa !64
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.98, i64 noundef %196) #3
   %197 = load i8, ptr %22, align 8
   %198 = and i8 %197, 1
@@ -860,7 +860,7 @@ PACKET_buf_init.exit.i:                           ; preds = %83
   br i1 %.not138.i.i.i, label %201, label %199
 
 199:                                              ; preds = %192
-  %200 = load i64, ptr %66, align 8, !tbaa !63
+  %200 = load i64, ptr %66, align 8, !tbaa !64
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.78, i64 noundef %200) #3
   %.pre.i.i.i = load i8, ptr %22, align 8
   br label %201
@@ -879,8 +879,8 @@ PACKET_buf_init.exit.i:                           ; preds = %83
   br label %208
 
 208:                                              ; preds = %207, %201
-  %209 = load ptr, ptr %68, align 8, !tbaa !65
-  %210 = load i64, ptr %69, align 8, !tbaa !66
+  %209 = load ptr, ptr %68, align 8, !tbaa !66
+  %210 = load i64, ptr %69, align 8, !tbaa !67
   call void @ossl_qlog_str_len(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef %209, i64 noundef %210) #3
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #3
   br label %249
@@ -906,11 +906,11 @@ PACKET_buf_init.exit.i:                           ; preds = %83
 
 216:                                              ; preds = %214
   call void @ossl_qlog_str(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.101) #3
-  %217 = load i64, ptr %23, align 8, !tbaa !67
+  %217 = load i64, ptr %23, align 8, !tbaa !68
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.102, i64 noundef %217) #3
-  %218 = load i64, ptr %62, align 8, !tbaa !70
+  %218 = load i64, ptr %62, align 8, !tbaa !71
   call void @ossl_qlog_u64(ptr noundef %0, ptr noundef nonnull @.str.103, i64 noundef %218) #3
-  %219 = load i8, ptr %63, align 8, !tbaa !71
+  %219 = load i8, ptr %63, align 8, !tbaa !72
   %220 = zext i8 %219 to i64
   call void @ossl_qlog_bin(ptr noundef %0, ptr noundef nonnull @.str.104, ptr noundef nonnull %64, i64 noundef %220) #3
   call void @ossl_qlog_bin(ptr noundef %0, ptr noundef nonnull @.str.105, ptr noundef nonnull %65, i64 noundef 16) #3
@@ -1063,13 +1063,13 @@ log_frame.exit.i:                                 ; preds = %249, %log_frame_act
   %.val.i = phi i64 [ %.val.pre.i, %log_frame.exit.i ], [ %95, %.thread.i ]
   %.129.be.i = phi i64 [ %.3.i, %log_frame.exit.i ], [ %96, %.thread.i ]
   %.not18.i = icmp eq i64 %.val.i, 0
-  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !72
+  br i1 %.not18.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !73
 
 ._crit_edge.i:                                    ; preds = %.backedge.i, %PACKET_buf_init.exit.i
   %.129.lcssa.i = phi i64 [ %.02844.i, %PACKET_buf_init.exit.i ], [ %.129.be.i, %.backedge.i ]
   %251 = add nuw i64 %.01545.i, 1
   %exitcond.not.i = icmp eq i64 %251, %4
-  br i1 %exitcond.not.i, label %log_frames.exit, label %83, !llvm.loop !73
+  br i1 %exitcond.not.i, label %log_frames.exit, label %83, !llvm.loop !74
 
 log_frames.exit:                                  ; preds = %83, %._crit_edge.i, %91, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #3
@@ -1199,30 +1199,31 @@ attributes #3 = { nounwind }
 !44 = !{!45, !9, i64 0}
 !45 = !{!"ossl_quic_ack_range_st", !9, i64 0, !9, i64 8}
 !46 = !{!45, !9, i64 8}
-!47 = distinct !{!47, !48}
+!47 = distinct !{!47, !48, !49}
 !48 = !{!"llvm.loop.mustprogress"}
-!49 = !{!50, !9, i64 0}
-!50 = !{!"ossl_quic_frame_reset_stream_st", !9, i64 0, !9, i64 8, !9, i64 16}
-!51 = !{!50, !9, i64 8}
-!52 = !{!50, !9, i64 16}
-!53 = !{!54, !9, i64 0}
-!54 = !{!"ossl_quic_frame_stop_sending_st", !9, i64 0, !9, i64 8}
-!55 = !{!54, !9, i64 8}
-!56 = !{!57, !9, i64 0}
-!57 = !{!"ossl_quic_frame_crypto_st", !9, i64 0, !9, i64 8, !10, i64 16}
-!58 = !{!57, !9, i64 8}
-!59 = !{!60, !9, i64 0}
-!60 = !{!"ossl_quic_frame_stream_st", !9, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !12, i64 32, !12, i64 32}
-!61 = !{!60, !9, i64 8}
-!62 = !{!60, !9, i64 16}
-!63 = !{!64, !9, i64 8}
-!64 = !{!"ossl_quic_frame_conn_close_st", !12, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !9, i64 32}
-!65 = !{!64, !10, i64 24}
-!66 = !{!64, !9, i64 32}
-!67 = !{!68, !9, i64 0}
-!68 = !{!"ossl_quic_frame_new_conn_id_st", !9, i64 0, !9, i64 8, !4, i64 16, !69, i64 37}
-!69 = !{!"", !5, i64 0}
-!70 = !{!68, !9, i64 8}
-!71 = !{!68, !5, i64 16}
-!72 = distinct !{!72, !48}
-!73 = distinct !{!73, !48}
+!49 = !{!"llvm.loop.estimated_trip_count"}
+!50 = !{!51, !9, i64 0}
+!51 = !{!"ossl_quic_frame_reset_stream_st", !9, i64 0, !9, i64 8, !9, i64 16}
+!52 = !{!51, !9, i64 8}
+!53 = !{!51, !9, i64 16}
+!54 = !{!55, !9, i64 0}
+!55 = !{!"ossl_quic_frame_stop_sending_st", !9, i64 0, !9, i64 8}
+!56 = !{!55, !9, i64 8}
+!57 = !{!58, !9, i64 0}
+!58 = !{!"ossl_quic_frame_crypto_st", !9, i64 0, !9, i64 8, !10, i64 16}
+!59 = !{!58, !9, i64 8}
+!60 = !{!61, !9, i64 0}
+!61 = !{!"ossl_quic_frame_stream_st", !9, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !12, i64 32, !12, i64 32}
+!62 = !{!61, !9, i64 8}
+!63 = !{!61, !9, i64 16}
+!64 = !{!65, !9, i64 8}
+!65 = !{!"ossl_quic_frame_conn_close_st", !12, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !9, i64 32}
+!66 = !{!65, !10, i64 24}
+!67 = !{!65, !9, i64 32}
+!68 = !{!69, !9, i64 0}
+!69 = !{!"ossl_quic_frame_new_conn_id_st", !9, i64 0, !9, i64 8, !4, i64 16, !70, i64 37}
+!70 = !{!"", !5, i64 0}
+!71 = !{!69, !9, i64 8}
+!72 = !{!69, !5, i64 16}
+!73 = distinct !{!73, !49}
+!74 = distinct !{!74, !48, !49}

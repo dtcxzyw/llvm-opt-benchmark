@@ -640,7 +640,7 @@ define internal i32 @fldb_dissect_getcellinfo_resp(ptr noundef %0, i32 noundef %
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %51, i32 noundef 25, ptr noundef nonnull @.str.254, ptr noundef %52)
   %53 = add nuw nsw i32 %.194.i, 1
   %exitcond96.not.i = icmp eq i32 %53, 64
-  br i1 %exitcond96.not.i, label %dissect_vlconf_cell.exit, label %.preheader.i, !llvm.loop !10
+  br i1 %exitcond96.not.i, label %dissect_vlconf_cell.exit, label %.preheader.i, !llvm.loop !11
 
 dissect_vlconf_cell.exit:                         ; preds = %.preheader.i
   %54 = load i32, ptr @hf_fldb_vlconf_cell_spare1, align 4
@@ -1415,7 +1415,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
   %56 = call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %.0214240, ptr noundef %2, ptr noundef %38, ptr noundef %4, ptr noundef %5)
   %57 = add nuw nsw i32 %.0241, 1
   %exitcond.not = icmp eq i32 %57, 16
-  br i1 %exitcond.not, label %.preheader239, label %55, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader239, label %55, !llvm.loop !12
 
 .preheader238:                                    ; preds = %63
   %.not.i = icmp eq ptr %38, null
@@ -1438,7 +1438,7 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
 63:                                               ; preds = %.preheader239, %61
   %64 = add nuw nsw i32 %.1243, 1
   %exitcond266.not = icmp eq i32 %64, 16
-  br i1 %exitcond266.not, label %.preheader238, label %.preheader239, !llvm.loop !12
+  br i1 %exitcond266.not, label %.preheader238, label %.preheader239, !llvm.loop !13
 
 65:                                               ; preds = %.preheader238, %dissect_siteflags.exit
   %.2245 = phi i32 [ 0, %.preheader238 ], [ %115, %dissect_siteflags.exit ]
@@ -1565,7 +1565,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3
   %115 = add nuw nsw i32 %.2245, 1
   %exitcond267.not = icmp eq i32 %115, 16
-  br i1 %exitcond267.not, label %.preheader237, label %65, !llvm.loop !13
+  br i1 %exitcond267.not, label %.preheader237, label %65, !llvm.loop !14
 
 .preheader237:                                    ; preds = %dissect_siteflags.exit, %121
   %.3247 = phi i32 [ %122, %121 ], [ 0, %dissect_siteflags.exit ]
@@ -1584,7 +1584,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 121:                                              ; preds = %.preheader237, %119
   %122 = add nuw nsw i32 %.3247, 1
   %exitcond268.not = icmp eq i32 %122, 16
-  br i1 %exitcond268.not, label %.preheader236, label %.preheader237, !llvm.loop !14
+  br i1 %exitcond268.not, label %.preheader236, label %.preheader237, !llvm.loop !15
 
 .preheader235:                                    ; preds = %.preheader236
   %123 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -1611,7 +1611,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.189, ptr noundef %138)
   %139 = add nuw nsw i32 %.4249, 1
   %exitcond269.not = icmp eq i32 %139, 16
-  br i1 %exitcond269.not, label %.preheader235, label %.preheader236, !llvm.loop !15
+  br i1 %exitcond269.not, label %.preheader235, label %.preheader236, !llvm.loop !16
 
 .preheader234:                                    ; preds = %150
   %140 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -1656,7 +1656,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %153, i32 noundef 25, ptr noundef nonnull @.str.190, i32 noundef %154, i32 noundef %156, i32 noundef %158, i32 noundef %160, i32 noundef %162, i32 noundef %164, i32 noundef %166, i32 noundef %168, i32 noundef %170, i32 noundef %172, i32 noundef %174)
   %175 = add nuw nsw i32 %.5251, 1
   %exitcond270.not = icmp eq i32 %175, 16
-  br i1 %exitcond270.not, label %.preheader234, label %150, !llvm.loop !16
+  br i1 %exitcond270.not, label %.preheader234, label %150, !llvm.loop !17
 
 176:                                              ; preds = %.preheader234, %176
   %.6253 = phi i32 [ 0, %.preheader234 ], [ %201, %176 ]
@@ -1688,7 +1688,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %179, i32 noundef 25, ptr noundef nonnull @.str.191, i32 noundef %180, i32 noundef %182, i32 noundef %184, i32 noundef %186, i32 noundef %188, i32 noundef %190, i32 noundef %192, i32 noundef %194, i32 noundef %196, i32 noundef %198, i32 noundef %200)
   %201 = add nuw nsw i32 %.6253, 1
   %exitcond271.not = icmp eq i32 %201, 16
-  br i1 %exitcond271.not, label %.preheader233, label %176, !llvm.loop !17
+  br i1 %exitcond271.not, label %.preheader233, label %176, !llvm.loop !18
 
 .preheader233:                                    ; preds = %176, %.preheader233
   %.7255 = phi i32 [ %208, %.preheader233 ], [ 0, %176 ]
@@ -1702,7 +1702,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %206, i32 noundef 25, ptr noundef nonnull @.str.192, i32 noundef %.7255, i32 noundef %207)
   %208 = add nuw nsw i32 %.7255, 1
   %exitcond272.not = icmp eq i32 %208, 8
-  br i1 %exitcond272.not, label %.preheader, label %.preheader233, !llvm.loop !18
+  br i1 %exitcond272.not, label %.preheader, label %.preheader233, !llvm.loop !19
 
 .preheader:                                       ; preds = %.preheader233, %214
   %.8257 = phi i32 [ %215, %214 ], [ 0, %.preheader233 ]
@@ -1721,7 +1721,7 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
 214:                                              ; preds = %.preheader, %212
   %215 = add nuw nsw i32 %.8257, 1
   %exitcond273.not = icmp eq i32 %215, 8
-  br i1 %exitcond273.not, label %216, label %.preheader, !llvm.loop !19
+  br i1 %exitcond273.not, label %216, label %.preheader, !llvm.loop !20
 
 216:                                              ; preds = %214
   %217 = load i32, ptr @hf_fldb_vldbentry_cloneid_high, align 4
@@ -2176,7 +2176,7 @@ define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, p
 45:                                               ; preds = %21, %29, %33, %37, %41, %26, %24
   %46 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %46, 14
-  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %21, !llvm.loop !21
 
 47:                                               ; preds = %13
   %48 = add i32 %15, 14
@@ -2235,16 +2235,17 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}

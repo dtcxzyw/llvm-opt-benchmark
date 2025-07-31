@@ -63,14 +63,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nounwind uwtable
 define ptr @Lpk_MapTreeMux_rec(ptr noundef initializes((8240076, 8240080)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8240912
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr i8, ptr %6, i64 8
-  %.val = load ptr, ptr %7, align 8, !tbaa !23
-  %8 = load ptr, ptr %.val, align 8, !tbaa !25
+  %.val = load ptr, ptr %7, align 8, !tbaa !24
+  %8 = load ptr, ptr %.val, align 8, !tbaa !26
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !25
+  %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8240076
-  store i32 1, ptr %11, align 4, !tbaa !26
+  store i32 1, ptr %11, align 4, !tbaa !27
   %12 = tail call i32 @Lpk_MapTreeBestCofVar(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %8, ptr noundef %10)
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %40, label %14
@@ -80,7 +80,7 @@ define ptr @Lpk_MapTreeMux_rec(ptr noundef initializes((8240076, 8240080)) %0, p
   %16 = tail call ptr @Kit_DsdDecompose(ptr noundef %10, i32 noundef %2) #5
   %17 = load ptr, ptr %0, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 36
-  %19 = load i32, ptr %18, align 4, !tbaa !27
+  %19 = load i32, ptr %18, align 4, !tbaa !28
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %25, label %20
 
@@ -95,20 +95,20 @@ define ptr @Lpk_MapTreeMux_rec(ptr noundef initializes((8240076, 8240080)) %0, p
 
 25:                                               ; preds = %20, %14
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %27 = load i16, ptr %26, align 2, !tbaa !28
+  %27 = load i16, ptr %26, align 2, !tbaa !29
   %28 = zext i16 %27 to i32
   %29 = tail call ptr @Lpk_MapTree_rec(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %3, i32 noundef %28, ptr noundef null) #5
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 6
-  %31 = load i16, ptr %30, align 2, !tbaa !28
+  %31 = load i16, ptr %30, align 2, !tbaa !29
   %32 = zext i16 %31 to i32
   %33 = tail call ptr @Lpk_MapTree_rec(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %3, i32 noundef %32, ptr noundef null) #5
   tail call void @Kit_DsdNtkFree(ptr noundef %15) #5
   tail call void @Kit_DsdNtkFree(ptr noundef %16) #5
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8240048
-  %35 = load ptr, ptr %34, align 8, !tbaa !33
+  %35 = load ptr, ptr %34, align 8, !tbaa !34
   %36 = sext i32 %12 to i64
   %37 = getelementptr inbounds ptr, ptr %3, i64 %36
-  %38 = load ptr, ptr %37, align 8, !tbaa !34
+  %38 = load ptr, ptr %37, align 8, !tbaa !35
   %39 = tail call ptr @If_ManCreateMux(ptr noundef %35, ptr noundef %29, ptr noundef %33, ptr noundef %38) #5
   br label %40
 
@@ -135,32 +135,32 @@ define ptr @Lpk_MapSuppRedDec_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8240912
-  %8 = load ptr, ptr %7, align 8, !tbaa !22
+  %8 = load ptr, ptr %7, align 8, !tbaa !23
   %9 = getelementptr i8, ptr %8, i64 8
-  %.val154 = load ptr, ptr %9, align 8, !tbaa !23
-  %10 = load ptr, ptr %.val154, align 8, !tbaa !25
+  %.val154 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %.val154, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %.val154, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %.val154, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %.val154, i64 24
-  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %16 = load ptr, ptr %15, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw i8, ptr %.val154, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !25
+  %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = getelementptr inbounds nuw i8, ptr %.val154, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %.val154, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !25
+  %22 = load ptr, ptr %21, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %.val154, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %.val154, i64 64
-  %26 = load ptr, ptr %25, align 8, !tbaa !25
+  %26 = load ptr, ptr %25, align 8, !tbaa !26
   %27 = getelementptr inbounds nuw i8, ptr %.val154, i64 72
-  %28 = load ptr, ptr %27, align 8, !tbaa !25
+  %28 = load ptr, ptr %27, align 8, !tbaa !26
   %29 = getelementptr inbounds nuw i8, ptr %.val154, i64 80
-  %30 = load ptr, ptr %29, align 8, !tbaa !25
+  %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %.val154, i64 88
-  %32 = load ptr, ptr %31, align 8, !tbaa !25
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   %33 = call i32 @Lpk_MapSuppRedDecSelect(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #5
@@ -169,12 +169,12 @@ define ptr @Lpk_MapSuppRedDec_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 35:                                               ; preds = %4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8240080
-  %37 = load i32, ptr %36, align 8, !tbaa !36
+  %37 = load i32, ptr %36, align 8, !tbaa !37
   %38 = add nsw i32 %37, 1
-  store i32 %38, ptr %36, align 8, !tbaa !36
-  %39 = load i32, ptr %5, align 4, !tbaa !37
+  store i32 %38, ptr %36, align 8, !tbaa !37
+  %39 = load i32, ptr %5, align 4, !tbaa !38
   call void @Kit_TruthCofactor0New(ptr noundef %10, ptr noundef %1, i32 noundef %2, i32 noundef %39) #5
-  %40 = load i32, ptr %5, align 4, !tbaa !37
+  %40 = load i32, ptr %5, align 4, !tbaa !38
   call void @Kit_TruthCofactor1New(ptr noundef %12, ptr noundef %1, i32 noundef %2, i32 noundef %40) #5
   %41 = and i32 %33, 65535
   %42 = ashr i32 %33, 16
@@ -185,13 +185,13 @@ define ptr @Lpk_MapSuppRedDec_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %46 = call ptr @Kit_DsdExpand(ptr noundef %44) #5
   call void @Kit_DsdNtkFree(ptr noundef %44) #5
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8241776
-  %48 = load ptr, ptr %47, align 8, !tbaa !38
+  %48 = load ptr, ptr %47, align 8, !tbaa !39
   call void @Kit_DsdTruthPartial(ptr noundef %48, ptr noundef %45, ptr noundef %14, i32 noundef %41) #5
-  %49 = load ptr, ptr %47, align 8, !tbaa !38
+  %49 = load ptr, ptr %47, align 8, !tbaa !39
   call void @Kit_DsdTruthPartial(ptr noundef %49, ptr noundef %46, ptr noundef %16, i32 noundef %42) #5
   call void @Kit_DsdNtkFree(ptr noundef %45) #5
   call void @Kit_DsdNtkFree(ptr noundef %46) #5
-  %50 = load i32, ptr %5, align 4, !tbaa !37
+  %50 = load i32, ptr %5, align 4, !tbaa !38
   call void @Kit_TruthMuxVar(ptr noundef %18, ptr noundef %14, ptr noundef %16, i32 noundef %2, i32 noundef %50) #5
   %51 = icmp slt i32 %2, 6
   %52 = add nsw i32 %2, -5
@@ -207,7 +207,7 @@ define ptr @Lpk_MapSuppRedDec_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
 .lr.ph.i:                                         ; preds = %67, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %67 ]
   %56 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
-  %57 = load i32, ptr %56, align 4, !tbaa !37
+  %57 = load i32, ptr %56, align 4, !tbaa !38
   %.not.i = icmp eq i32 %57, 0
   br i1 %.not.i, label %67, label %58
 
@@ -226,7 +226,7 @@ define ptr @Lpk_MapSuppRedDec_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2
 64:                                               ; preds = %61
   %65 = add nuw nsw i32 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %65, 32
-  br i1 %exitcond.not.i.i, label %Kit_WordFindFirstBit.exit.i, label %61, !llvm.loop !39
+  br i1 %exitcond.not.i.i, label %Kit_WordFindFirstBit.exit.i, label %61, !llvm.loop !40
 
 Kit_WordFindFirstBit.exit.i:                      ; preds = %64, %61
   %.06.i.i = phi i32 [ %.07.i.i, %61 ], [ -1, %64 ]
@@ -236,7 +236,7 @@ Kit_WordFindFirstBit.exit.i:                      ; preds = %64, %61
 67:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.lr.ph.preheader.i156, label %.lr.ph.i, !llvm.loop !40
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i156, label %.lr.ph.i, !llvm.loop !41
 
 .lr.ph.preheader.i156:                            ; preds = %67, %Kit_WordFindFirstBit.exit.i
   %.08.i = phi i32 [ %66, %Kit_WordFindFirstBit.exit.i ], [ -1, %67 ]
@@ -245,7 +245,7 @@ Kit_WordFindFirstBit.exit.i:                      ; preds = %64, %61
 .lr.ph.i158:                                      ; preds = %79, %.lr.ph.preheader.i156
   %indvars.iv.i159 = phi i64 [ 0, %.lr.ph.preheader.i156 ], [ %indvars.iv.next.i166, %79 ]
   %68 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i159
-  %69 = load i32, ptr %68, align 4, !tbaa !37
+  %69 = load i32, ptr %68, align 4, !tbaa !38
   %.not.i160 = icmp eq i32 %69, 0
   br i1 %.not.i160, label %79, label %70
 
@@ -264,7 +264,7 @@ Kit_WordFindFirstBit.exit.i:                      ; preds = %64, %61
 76:                                               ; preds = %73
   %77 = add nuw nsw i32 %.07.i.i161, 1
   %exitcond.not.i.i165 = icmp eq i32 %77, 32
-  br i1 %exitcond.not.i.i165, label %Kit_WordFindFirstBit.exit.i163, label %73, !llvm.loop !39
+  br i1 %exitcond.not.i.i165, label %Kit_WordFindFirstBit.exit.i163, label %73, !llvm.loop !40
 
 Kit_WordFindFirstBit.exit.i163:                   ; preds = %76, %73
   %.06.i.i164 = phi i32 [ %.07.i.i161, %73 ], [ -1, %76 ]
@@ -274,7 +274,7 @@ Kit_WordFindFirstBit.exit.i163:                   ; preds = %76, %73
 79:                                               ; preds = %.lr.ph.i158
   %indvars.iv.next.i166 = add nuw nsw i64 %indvars.iv.i159, 1
   %exitcond.not.i167 = icmp eq i64 %indvars.iv.next.i166, %wide.trip.count.i
-  br i1 %exitcond.not.i167, label %.lr.ph.preheader.i170, label %.lr.ph.i158, !llvm.loop !40
+  br i1 %exitcond.not.i167, label %.lr.ph.preheader.i170, label %.lr.ph.i158, !llvm.loop !41
 
 .lr.ph.preheader.i170:                            ; preds = %79, %Kit_WordFindFirstBit.exit.i163
   %.08.i155 = phi i32 [ %78, %Kit_WordFindFirstBit.exit.i163 ], [ -1, %79 ]
@@ -283,7 +283,7 @@ Kit_WordFindFirstBit.exit.i163:                   ; preds = %76, %73
 .lr.ph.i172:                                      ; preds = %91, %.lr.ph.preheader.i170
   %indvars.iv.i173 = phi i64 [ 0, %.lr.ph.preheader.i170 ], [ %indvars.iv.next.i179, %91 ]
   %80 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i173
-  %81 = load i32, ptr %80, align 4, !tbaa !37
+  %81 = load i32, ptr %80, align 4, !tbaa !38
   %.not.i174 = icmp eq i32 %81, -1
   br i1 %.not.i174, label %91, label %82
 
@@ -302,7 +302,7 @@ Kit_WordFindFirstBit.exit.i163:                   ; preds = %76, %73
 88:                                               ; preds = %85
   %89 = add nuw nsw i32 %.07.i.i175, 1
   %exitcond.not.i.i176 = icmp eq i32 %89, 32
-  br i1 %exitcond.not.i.i176, label %Kit_WordFindFirstBit.exit.i177, label %85, !llvm.loop !39
+  br i1 %exitcond.not.i.i176, label %Kit_WordFindFirstBit.exit.i177, label %85, !llvm.loop !40
 
 Kit_WordFindFirstBit.exit.i177:                   ; preds = %88, %85
   %.06.i.i178 = phi i32 [ %.07.i.i175, %85 ], [ -1, %88 ]
@@ -312,7 +312,7 @@ Kit_WordFindFirstBit.exit.i177:                   ; preds = %88, %85
 91:                                               ; preds = %.lr.ph.i172
   %indvars.iv.next.i179 = add nuw nsw i64 %indvars.iv.i173, 1
   %exitcond.not.i180 = icmp eq i64 %indvars.iv.next.i179, %wide.trip.count.i
-  br i1 %exitcond.not.i180, label %.lr.ph.preheader.i182, label %.lr.ph.i172, !llvm.loop !41
+  br i1 %exitcond.not.i180, label %.lr.ph.preheader.i182, label %.lr.ph.i172, !llvm.loop !42
 
 .lr.ph.preheader.i182:                            ; preds = %91, %Kit_WordFindFirstBit.exit.i177
   %.08.i169 = phi i32 [ %90, %Kit_WordFindFirstBit.exit.i177 ], [ -1, %91 ]
@@ -321,7 +321,7 @@ Kit_WordFindFirstBit.exit.i177:                   ; preds = %88, %85
 .lr.ph.i184:                                      ; preds = %103, %.lr.ph.preheader.i182
   %indvars.iv.i185 = phi i64 [ 0, %.lr.ph.preheader.i182 ], [ %indvars.iv.next.i192, %103 ]
   %92 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv.i185
-  %93 = load i32, ptr %92, align 4, !tbaa !37
+  %93 = load i32, ptr %92, align 4, !tbaa !38
   %.not.i186 = icmp eq i32 %93, -1
   br i1 %.not.i186, label %103, label %94
 
@@ -340,7 +340,7 @@ Kit_WordFindFirstBit.exit.i177:                   ; preds = %88, %85
 100:                                              ; preds = %97
   %101 = add nuw nsw i32 %.07.i.i187, 1
   %exitcond.not.i.i189 = icmp eq i32 %101, 32
-  br i1 %exitcond.not.i.i189, label %Kit_WordFindFirstBit.exit.i190, label %97, !llvm.loop !39
+  br i1 %exitcond.not.i.i189, label %Kit_WordFindFirstBit.exit.i190, label %97, !llvm.loop !40
 
 Kit_WordFindFirstBit.exit.i190:                   ; preds = %100, %97
   %.06.i.i191 = phi i32 [ %.07.i.i187, %97 ], [ -1, %100 ]
@@ -350,7 +350,7 @@ Kit_WordFindFirstBit.exit.i190:                   ; preds = %100, %97
 103:                                              ; preds = %.lr.ph.i184
   %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i185, 1
   %exitcond.not.i193 = icmp eq i64 %indvars.iv.next.i192, %wide.trip.count.i
-  br i1 %exitcond.not.i193, label %select.unfold.preheader.i, label %.lr.ph.i184, !llvm.loop !41
+  br i1 %exitcond.not.i193, label %select.unfold.preheader.i, label %.lr.ph.i184, !llvm.loop !42
 
 select.unfold.preheader.i:                        ; preds = %103, %Kit_WordFindFirstBit.exit.i190
   %.08.i181 = phi i32 [ %102, %Kit_WordFindFirstBit.exit.i190 ], [ -1, %103 ]
@@ -360,21 +360,21 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
   %indvars.iv.i195 = phi i64 [ %wide.trip.count.i, %select.unfold.preheader.i ], [ %indvars.iv.next.i196, %select.unfold.i ]
   %indvars.iv.next.i196 = add nsw i64 %indvars.iv.i195, -1
   %104 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i196
-  %105 = load i32, ptr %104, align 4, !tbaa !37
+  %105 = load i32, ptr %104, align 4, !tbaa !38
   %106 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv.next.i196
-  store i32 %105, ptr %106, align 4, !tbaa !37
+  store i32 %105, ptr %106, align 4, !tbaa !38
   %107 = icmp samesign ugt i64 %indvars.iv.i195, 1
-  br i1 %107, label %select.unfold.i, label %select.unfold.i199, !llvm.loop !42
+  br i1 %107, label %select.unfold.i, label %select.unfold.i199, !llvm.loop !43
 
 select.unfold.i199:                               ; preds = %select.unfold.i, %select.unfold.i199
   %indvars.iv.i200 = phi i64 [ %indvars.iv.next.i201, %select.unfold.i199 ], [ %wide.trip.count.i, %select.unfold.i ]
   %indvars.iv.next.i201 = add nsw i64 %indvars.iv.i200, -1
   %108 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next.i201
-  %109 = load i32, ptr %108, align 4, !tbaa !37
+  %109 = load i32, ptr %108, align 4, !tbaa !38
   %110 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.next.i201
-  store i32 %109, ptr %110, align 4, !tbaa !37
+  store i32 %109, ptr %110, align 4, !tbaa !38
   %111 = icmp samesign ugt i64 %indvars.iv.i200, 1
-  br i1 %111, label %select.unfold.i199, label %Kit_TruthCopy.exit202, !llvm.loop !42
+  br i1 %111, label %select.unfold.i199, label %Kit_TruthCopy.exit202, !llvm.loop !43
 
 Kit_TruthCopy.exit202:                            ; preds = %select.unfold.i199, %35
   %.08.i169226231242 = phi i32 [ -1, %35 ], [ %.08.i169, %select.unfold.i199 ]
@@ -420,7 +420,7 @@ Kit_TruthCopy.exit202:                            ; preds = %select.unfold.i199,
 123:                                              ; preds = %.lr.ph, %122, %121
   %124 = add nuw nsw i32 %.0254, 1
   %exitcond.not = icmp eq i32 %124, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %123, %Kit_TruthCopy.exit202
   br i1 %55, label %select.unfold.preheader.i204, label %Kit_TruthCopy.exit214
@@ -433,21 +433,21 @@ select.unfold.i205:                               ; preds = %select.unfold.i205,
   %indvars.iv.i206 = phi i64 [ %125, %select.unfold.preheader.i204 ], [ %indvars.iv.next.i207, %select.unfold.i205 ]
   %indvars.iv.next.i207 = add nsw i64 %indvars.iv.i206, -1
   %126 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next.i207
-  %127 = load i32, ptr %126, align 4, !tbaa !37
+  %127 = load i32, ptr %126, align 4, !tbaa !38
   %128 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.next.i207
-  store i32 %127, ptr %128, align 4, !tbaa !37
+  store i32 %127, ptr %128, align 4, !tbaa !38
   %129 = icmp samesign ugt i64 %indvars.iv.i206, 1
-  br i1 %129, label %select.unfold.i205, label %select.unfold.i211, !llvm.loop !42
+  br i1 %129, label %select.unfold.i205, label %select.unfold.i211, !llvm.loop !43
 
 select.unfold.i211:                               ; preds = %select.unfold.i205, %select.unfold.i211
   %indvars.iv.i212 = phi i64 [ %indvars.iv.next.i213, %select.unfold.i211 ], [ %125, %select.unfold.i205 ]
   %indvars.iv.next.i213 = add nsw i64 %indvars.iv.i212, -1
   %130 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.next.i213
-  %131 = load i32, ptr %130, align 4, !tbaa !37
+  %131 = load i32, ptr %130, align 4, !tbaa !38
   %132 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.next.i213
-  store i32 %131, ptr %132, align 4, !tbaa !37
+  store i32 %131, ptr %132, align 4, !tbaa !38
   %133 = icmp samesign ugt i64 %indvars.iv.i212, 1
-  br i1 %133, label %select.unfold.i211, label %Kit_TruthCopy.exit214, !llvm.loop !42
+  br i1 %133, label %select.unfold.i211, label %Kit_TruthCopy.exit214, !llvm.loop !43
 
 Kit_TruthCopy.exit214:                            ; preds = %select.unfold.i211, %._crit_edge
   br i1 %112, label %.lr.ph256, label %._crit_edge257
@@ -488,27 +488,27 @@ Kit_TruthCopy.exit214:                            ; preds = %select.unfold.i211,
 144:                                              ; preds = %.lr.ph256, %143, %142
   %145 = add nuw nsw i32 %.1255, 1
   %exitcond271.not = icmp eq i32 %145, %2
-  br i1 %exitcond271.not, label %._crit_edge257, label %.lr.ph256, !llvm.loop !44
+  br i1 %exitcond271.not, label %._crit_edge257, label %.lr.ph256, !llvm.loop !45
 
 ._crit_edge257:                                   ; preds = %144, %Kit_TruthCopy.exit214
-  %146 = load i32, ptr %6, align 4, !tbaa !37
+  %146 = load i32, ptr %6, align 4, !tbaa !38
   call void @Kit_TruthMuxVar(ptr noundef %28, ptr noundef %20, ptr noundef %22, i32 noundef %2, i32 noundef %146) #5
-  %147 = load i32, ptr %6, align 4, !tbaa !37
+  %147 = load i32, ptr %6, align 4, !tbaa !38
   call void @Kit_TruthMuxVar(ptr noundef %30, ptr noundef %24, ptr noundef %26, i32 noundef %2, i32 noundef %147) #5
-  %148 = load i32, ptr %5, align 4, !tbaa !37
+  %148 = load i32, ptr %5, align 4, !tbaa !38
   call void @Kit_TruthMuxVar(ptr noundef %32, ptr noundef %28, ptr noundef %30, i32 noundef %2, i32 noundef %148) #5
   %149 = call ptr @Kit_DsdDecompose(ptr noundef %18, i32 noundef %2) #5
   %150 = call ptr @Kit_DsdDecompose(ptr noundef %32, i32 noundef %2) #5
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 6
-  %152 = load i16, ptr %151, align 2, !tbaa !28
+  %152 = load i16, ptr %151, align 2, !tbaa !29
   %153 = zext i16 %152 to i32
   %154 = call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef %149, ptr noundef %3, i32 noundef %153, ptr noundef null) #5
-  %155 = load i32, ptr %6, align 4, !tbaa !37
+  %155 = load i32, ptr %6, align 4, !tbaa !38
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds ptr, ptr %3, i64 %156
-  store ptr %154, ptr %157, align 8, !tbaa !34
+  store ptr %154, ptr %157, align 8, !tbaa !35
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 6
-  %159 = load i16, ptr %158, align 2, !tbaa !28
+  %159 = load i16, ptr %158, align 2, !tbaa !29
   %160 = zext i16 %159 to i32
   %161 = call ptr @Lpk_MapTree_rec(ptr noundef %0, ptr noundef %150, ptr noundef %3, i32 noundef %160, ptr noundef null) #5
   call void @Kit_DsdNtkFree(ptr noundef %149) #5
@@ -536,25 +536,25 @@ declare void @Kit_TruthCofactor0(ptr noundef, i32 noundef, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define void @Lpk_TryDec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = load i64, ptr %0, align 8, !tbaa !45
+  %3 = load i64, ptr %0, align 8, !tbaa !46
   %4 = tail call i64 @If_Dec6Perform(i64 noundef %3, i32 noundef 1) #5
   %5 = icmp ne i64 %4, 0
   %6 = zext i1 %5 to i32
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !45
+  %9 = load i64, ptr %8, align 8, !tbaa !46
   %10 = tail call i64 @If_Dec6Perform(i64 noundef %9, i32 noundef 1) #5
   %11 = icmp ne i64 %10, 0
   %12 = zext i1 %11 to i32
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %12)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !45
+  %15 = load i64, ptr %14, align 8, !tbaa !46
   %16 = tail call i64 @If_Dec6Perform(i64 noundef %15, i32 noundef 1) #5
   %17 = icmp ne i64 %16, 0
   %18 = zext i1 %17 to i32
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %18)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !45
+  %21 = load i64, ptr %20, align 8, !tbaa !46
   %22 = tail call i64 @If_Dec6Perform(i64 noundef %21, i32 noundef 1) #5
   %23 = icmp ne i64 %22, 0
   %24 = zext i1 %23 to i32
@@ -619,29 +619,30 @@ attributes #5 = { nounwind }
 !17 = !{!"long", !7, i64 0}
 !18 = !{!19, !11, i64 40}
 !19 = !{!"Lpk_Par_t_", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!4, !15, i64 8240912}
-!23 = !{!24, !6, i64 8}
-!24 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
-!25 = !{!6, !6, i64 0}
-!26 = !{!4, !11, i64 8240076}
-!27 = !{!19, !11, i64 36}
-!28 = !{!29, !30, i64 6}
-!29 = !{!"Kit_DsdNtk_t_", !30, i64 0, !30, i64 2, !30, i64 4, !30, i64 6, !31, i64 8, !31, i64 16, !32, i64 24}
-!30 = !{!"short", !7, i64 0}
-!31 = !{!"p1 int", !6, i64 0}
-!32 = !{!"p2 _ZTS13Kit_DsdObj_t_", !6, i64 0}
-!33 = !{!4, !13, i64 8240048}
-!34 = !{!35, !35, i64 0}
-!35 = !{!"p1 _ZTS9If_Obj_t_", !6, i64 0}
-!36 = !{!4, !11, i64 8240080}
-!37 = !{!11, !11, i64 0}
-!38 = !{!4, !16, i64 8241776}
-!39 = distinct !{!39, !21}
-!40 = distinct !{!40, !21}
-!41 = distinct !{!41, !21}
-!42 = distinct !{!42, !21}
-!43 = distinct !{!43, !21}
-!44 = distinct !{!44, !21}
-!45 = !{!17, !17, i64 0}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!4, !15, i64 8240912}
+!24 = !{!25, !6, i64 8}
+!25 = !{!"Vec_Ptr_t_", !11, i64 0, !11, i64 4, !6, i64 8}
+!26 = !{!6, !6, i64 0}
+!27 = !{!4, !11, i64 8240076}
+!28 = !{!19, !11, i64 36}
+!29 = !{!30, !31, i64 6}
+!30 = !{!"Kit_DsdNtk_t_", !31, i64 0, !31, i64 2, !31, i64 4, !31, i64 6, !32, i64 8, !32, i64 16, !33, i64 24}
+!31 = !{!"short", !7, i64 0}
+!32 = !{!"p1 int", !6, i64 0}
+!33 = !{!"p2 _ZTS13Kit_DsdObj_t_", !6, i64 0}
+!34 = !{!4, !13, i64 8240048}
+!35 = !{!36, !36, i64 0}
+!36 = !{!"p1 _ZTS9If_Obj_t_", !6, i64 0}
+!37 = !{!4, !11, i64 8240080}
+!38 = !{!11, !11, i64 0}
+!39 = !{!4, !16, i64 8241776}
+!40 = distinct !{!40, !21, !22}
+!41 = distinct !{!41, !21, !22}
+!42 = distinct !{!42, !21, !22}
+!43 = distinct !{!43, !21, !22}
+!44 = distinct !{!44, !21, !22}
+!45 = distinct !{!45, !21, !22}
+!46 = !{!17, !17, i64 0}

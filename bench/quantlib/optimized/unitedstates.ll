@@ -4136,7 +4136,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates14SettlementImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates14SettlementImplEED2Ev.exit
 
@@ -4157,7 +4157,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates14SettlementImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !47, !range !80, !noundef !81
+  %0 = load i8, ptr %del.i, align 8, !tbaa !47, !range !81, !noundef !82
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates14SettlementImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -4177,7 +4177,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates14SettlementImplEN
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates14SettlementImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !47, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates14SettlementImplEEclEPS4_.exit
 
@@ -4207,7 +4207,7 @@ entry:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates14SettlementImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !82
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !83
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates14SettlementImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -4254,7 +4254,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates15LiborImpactImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !51, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !51, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates15LiborImpactImplEED2Ev.exit
 
@@ -4301,7 +4301,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates15LiborImpactImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !51, !range !80, !noundef !81
+  %0 = load i8, ptr %del.i, align 8, !tbaa !51, !range !81, !noundef !82
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates15LiborImpactImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -4344,7 +4344,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates15LiborImpactImplE
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates15LiborImpactImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !51, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !51, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates15LiborImpactImplEEclEPS4_.exit
 
@@ -4390,7 +4390,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates15LiborImpactImplEEclEPS
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates15LiborImpactImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !82
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !83
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates15LiborImpactImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -4434,7 +4434,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NyseImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !55, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !55, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NyseImplEED2Ev.exit
 
@@ -4481,7 +4481,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NyseImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !55, !range !80, !noundef !81
+  %0 = load i8, ptr %del.i, align 8, !tbaa !55, !range !81, !noundef !82
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NyseImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -4524,7 +4524,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NyseImplENS0_13sp
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NyseImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !55, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !55, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NyseImplEEclEPS4_.exit
 
@@ -4570,7 +4570,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NyseImplEEclEPS4_.exit:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NyseImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !82
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !83
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NyseImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -4614,7 +4614,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18GovernmentBondImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !59, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !59, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18GovernmentBondImplEED2Ev.exit
 
@@ -4635,7 +4635,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18GovernmentBondImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !59, !range !80, !noundef !81
+  %0 = load i8, ptr %del.i, align 8, !tbaa !59, !range !81, !noundef !82
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18GovernmentBondImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -4655,7 +4655,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18GovernmentBondIm
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18GovernmentBondImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !59, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !59, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18GovernmentBondImplEEclEPS4_.exit
 
@@ -4675,7 +4675,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18GovernmentBondImplEEcl
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18GovernmentBondImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !82
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !83
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18GovernmentBondImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -4719,7 +4719,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NercImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !63, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !63, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NercImplEED2Ev.exit
 
@@ -4766,7 +4766,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NercImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !63, !range !80, !noundef !81
+  %0 = load i8, ptr %del.i, align 8, !tbaa !63, !range !81, !noundef !82
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NercImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -4809,7 +4809,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NercImplENS0_13sp
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NercImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !63, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !63, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NercImplEEclEPS4_.exit
 
@@ -4855,7 +4855,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NercImplEEclEPS4_.exit:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8NercImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !82
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !83
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8NercImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -4899,7 +4899,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18FederalReserveImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !67, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !67, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18FederalReserveImplEED2Ev.exit
 
@@ -4946,7 +4946,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18FederalReserveImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !67, !range !80, !noundef !81
+  %0 = load i8, ptr %del.i, align 8, !tbaa !67, !range !81, !noundef !82
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18FederalReserveImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -4989,7 +4989,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18FederalReserveIm
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18FederalReserveImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !67, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !67, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18FederalReserveImplEEclEPS4_.exit
 
@@ -5035,7 +5035,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18FederalReserveImplEEcl
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates18FederalReserveImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !82
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !83
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates18FederalReserveImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -5079,7 +5079,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8SofrImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !71, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !71, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8SofrImplEED2Ev.exit
 
@@ -5126,7 +5126,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12Unit
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8SofrImplENS0_13sp_ms_deleterIS4_EEEE, i64 16), ptr %this, align 8, !tbaa !12
   %del.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del.i, align 8, !tbaa !71, !range !80, !noundef !81
+  %0 = load i8, ptr %del.i, align 8, !tbaa !71, !range !81, !noundef !82
   %loadedv.i.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i.i, label %if.then.i.i.i, label %_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8SofrImplENS0_13sp_ms_deleterIS4_EEED2Ev.exit
 
@@ -5169,7 +5169,7 @@ _ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8SofrImplENS0_13sp
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8SofrImplENS0_13sp_ms_deleterIS4_EEE7disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %del = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %0 = load i8, ptr %del, align 8, !tbaa !71, !range !80, !noundef !81
+  %0 = load i8, ptr %del, align 8, !tbaa !71, !range !81, !noundef !82
   %loadedv.i.i = trunc nuw i8 %0 to i1
   br i1 %loadedv.i.i, label %if.then.i.i, label %_ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8SofrImplEEclEPS4_.exit
 
@@ -5215,7 +5215,7 @@ _ZN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8SofrImplEEclEPS4_.exit:
 define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib12UnitedStates8SofrImplENS0_13sp_ms_deleterIS4_EEE11get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %ti) unnamed_addr #6 comdat align 2 {
 entry:
   %__name.i = getelementptr inbounds nuw i8, ptr %ti, i64 8
-  %0 = load ptr, ptr %__name.i, align 8, !tbaa !82
+  %0 = load ptr, ptr %__name.i, align 8, !tbaa !83
   %cmp.i = icmp eq ptr %0, @_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib12UnitedStates8SofrImplEEE
   br i1 %cmp.i, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %if.end.i
 
@@ -5362,9 +5362,10 @@ attributes #23 = { builtin allocsize(0) }
 !75 = !{!"_ZTSN8QuantLib4DateE", !29, i64 0}
 !76 = !{!42, !6, i64 24}
 !77 = !{!42, !6, i64 16}
-!78 = distinct !{!78, !79}
+!78 = distinct !{!78, !79, !80}
 !79 = !{!"llvm.loop.mustprogress"}
-!80 = !{i8 0, i8 2}
-!81 = !{}
-!82 = !{!83, !6, i64 8}
-!83 = !{!"_ZTSSt9type_info", !6, i64 8}
+!80 = !{!"llvm.loop.estimated_trip_count"}
+!81 = !{i8 0, i8 2}
+!82 = !{}
+!83 = !{!84, !6, i64 8}
+!84 = !{!"_ZTSSt9type_info", !6, i64 8}

@@ -354,7 +354,7 @@ start_req.exit:                                   ; preds = %.thread137.i, %116
 124:                                              ; preds = %start_req.exit, %121, %120, %65
   %125 = load i8, ptr %8, align 8, !tbaa !14, !range !17, !noundef !18
   %126 = trunc nuw i8 %125 to i1
-  br i1 %126, label %.loopexit, label %16, !llvm.loop !24
+  br i1 %126, label %.loopexit, label %16, !llvm.loop !25
 
 .loopexit.sink.split:                             ; preds = %51, %50, %49, %48, %detect_line.exit.i, %next_line.exit.thread.loopexit, %start_req.exit.thread
   %.076.i.ph.sink = phi i32 [ %.076.i.ph, %start_req.exit.thread ], [ 0, %next_line.exit.thread.loopexit ], [ 0, %detect_line.exit.i ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %51 ]
@@ -380,16 +380,16 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_h1_req_write_head(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !25
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %.not = icmp eq ptr %5, null
   %spec.select = select i1 %.not, ptr @.str.1, ptr %5
   %6 = select i1 %.not, ptr @.str.1, ptr @.str.2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
   %.not21 = icmp eq ptr %8, null
   %9 = select i1 %.not21, ptr @.str.1, ptr %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !30
+  %11 = load ptr, ptr %10, align 8, !tbaa !31
   %.not22 = icmp eq ptr %11, null
   %12 = select i1 %.not22, ptr @.str.1, ptr %11
   %13 = tail call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %0, ptr noundef nonnull %spec.select, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull %12, i32 noundef %1) #6
@@ -478,12 +478,13 @@ attributes #7 = { nounwind willreturn memory(read) }
 !19 = !{!4, !10, i64 48}
 !20 = !{!4, !11, i64 64}
 !21 = !{!7, !7, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = !{!26, !10, i64 24}
-!26 = !{!"httpreq", !7, i64 0, !10, i64 24, !10, i64 32, !10, i64 40, !27, i64 48, !27, i64 104}
-!27 = !{!"dynhds", !28, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !16, i64 48}
-!28 = !{!"p2 _ZTS12dynhds_entry", !6, i64 0}
-!29 = !{!26, !10, i64 32}
-!30 = !{!26, !10, i64 40}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = !{!27, !10, i64 24}
+!27 = !{!"httpreq", !7, i64 0, !10, i64 24, !10, i64 32, !10, i64 40, !28, i64 48, !28, i64 104}
+!28 = !{!"dynhds", !29, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !11, i64 40, !16, i64 48}
+!29 = !{!"p2 _ZTS12dynhds_entry", !6, i64 0}
+!30 = !{!27, !10, i64 32}
+!31 = !{!27, !10, i64 40}

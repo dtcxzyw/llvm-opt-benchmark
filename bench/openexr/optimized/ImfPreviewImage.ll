@@ -63,23 +63,23 @@ _ZN7Imf_3_46uiMultIjEET_S1_S1_.exit:              ; preds = %4, %6
   store i8 -1, ptr %22, align 1, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %24 = icmp eq ptr %23, %17
-  br i1 %24, label %.loopexit19.thread, label %18
+  br i1 %24, label %.loopexit19.thread, label %18, !llvm.loop !16
 
 .loopexit19:                                      ; preds = %_ZN7Imf_3_46uiMultIjEET_S1_S1_.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %25, align 8, !tbaa !16
+  store ptr %14, ptr %25, align 8, !tbaa !18
   br label %.loopexit
 
 .loopexit19.thread:                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %26, align 8, !tbaa !16
+  store ptr %14, ptr %26, align 8, !tbaa !18
   %.not30 = icmp eq ptr %3, null
   br i1 %.not30, label %.lr.ph22, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit19.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit19.thread ]
   %27 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %3, i64 %indvars.iv
-  %28 = load ptr, ptr %26, align 8, !tbaa !16
+  %28 = load ptr, ptr %26, align 8, !tbaa !18
   %29 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %27, align 1
   store i32 %30, ptr %29, align 1
@@ -89,11 +89,11 @@ _ZN7Imf_3_46uiMultIjEET_S1_S1_.exit:              ; preds = %4, %6
   %33 = mul i32 %32, %31
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next, %34
-  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !17
+  br i1 %35, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .lr.ph22:                                         ; preds = %.loopexit19.thread, %.lr.ph22
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph22 ], [ 0, %.loopexit19.thread ]
-  %36 = load ptr, ptr %26, align 8, !tbaa !16
+  %36 = load ptr, ptr %26, align 8, !tbaa !18
   %37 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %36, i64 %indvars.iv27
   store i32 -16777216, ptr %37, align 1
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
@@ -102,7 +102,7 @@ _ZN7Imf_3_46uiMultIjEET_S1_S1_.exit:              ; preds = %4, %6
   %40 = mul i32 %39, %38
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv.next28, %41
-  br i1 %42, label %.lr.ph22, label %.loopexit, !llvm.loop !19
+  br i1 %42, label %.lr.ph22, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph22, %.loopexit19
   ret void
@@ -130,7 +130,7 @@ define void @_ZN7Imf_3_412PreviewImageC2ERKS0_(ptr noundef nonnull align 8 captu
   br i1 %12, label %.loopexit.thread, label %13
 
 .loopexit.thread:                                 ; preds = %2
-  store ptr %11, ptr %7, align 8, !tbaa !16
+  store ptr %11, ptr %7, align 8, !tbaa !18
   br label %._crit_edge
 
 13:                                               ; preds = %2
@@ -148,10 +148,10 @@ define void @_ZN7Imf_3_412PreviewImageC2ERKS0_(ptr noundef nonnull align 8 captu
   store i8 -1, ptr %19, align 1, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %21 = icmp eq ptr %20, %14
-  br i1 %21, label %.lr.ph, label %15
+  br i1 %21, label %.lr.ph, label %15, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %15
-  store ptr %11, ptr %7, align 8, !tbaa !16
+  store ptr %11, ptr %7, align 8, !tbaa !18
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %23
 
@@ -160,9 +160,9 @@ define void @_ZN7Imf_3_412PreviewImageC2ERKS0_(ptr noundef nonnull align 8 captu
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = load ptr, ptr %22, align 8, !tbaa !16
+  %24 = load ptr, ptr %22, align 8, !tbaa !18
   %25 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %24, i64 %indvars.iv
-  %26 = load ptr, ptr %7, align 8, !tbaa !16
+  %26 = load ptr, ptr %7, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %25, align 1
   store i32 %28, ptr %27, align 1
@@ -172,13 +172,13 @@ define void @_ZN7Imf_3_412PreviewImageC2ERKS0_(ptr noundef nonnull align 8 captu
   %31 = mul i32 %30, %29
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %33, label %23, label %._crit_edge, !llvm.loop !20
+  br i1 %33, label %23, label %._crit_edge, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_412PreviewImageD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !16
+  %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
 
@@ -200,7 +200,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_412PreviewImag
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !16
+  %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
 
@@ -223,7 +223,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_412PreviewImag
   br i1 %17, label %.loopexit14.thread, label %18
 
 .loopexit14.thread:                               ; preds = %8
-  store ptr %16, ptr %4, align 8, !tbaa !16
+  store ptr %16, ptr %4, align 8, !tbaa !18
   br label %.loopexit
 
 18:                                               ; preds = %8
@@ -241,18 +241,18 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_412PreviewImag
   store i8 -1, ptr %24, align 1, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %26 = icmp eq ptr %25, %19
-  br i1 %26, label %.lr.ph, label %20
+  br i1 %26, label %.lr.ph, label %20, !llvm.loop !24
 
 .lr.ph:                                           ; preds = %20
-  store ptr %16, ptr %4, align 8, !tbaa !16
+  store ptr %16, ptr %4, align 8, !tbaa !18
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = load ptr, ptr %27, align 8, !tbaa !16
+  %29 = load ptr, ptr %27, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %29, i64 %indvars.iv
-  %31 = load ptr, ptr %4, align 8, !tbaa !16
+  %31 = load ptr, ptr %4, align 8, !tbaa !18
   %32 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %30, align 1
   store i32 %33, ptr %32, align 1
@@ -262,7 +262,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_412PreviewImag
   %36 = mul i32 %35, %34
   %37 = zext i32 %36 to i64
   %38 = icmp samesign ult i64 %indvars.iv.next, %37
-  br i1 %38, label %28, label %.loopexit, !llvm.loop !21
+  br i1 %38, label %28, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %28, %.loopexit14.thread, %2
   ret ptr %0
@@ -314,9 +314,13 @@ attributes #11 = { builtin nounwind }
 !13 = !{!12, !6, i64 1}
 !14 = !{!12, !6, i64 2}
 !15 = !{!12, !6, i64 3}
-!16 = !{!4, !8, i64 8}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
+!16 = distinct !{!16, !17}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!4, !8, i64 8}
+!19 = distinct !{!19, !20, !17}
+!20 = !{!"llvm.loop.mustprogress"}
+!21 = distinct !{!21, !20, !17}
+!22 = distinct !{!22, !17}
+!23 = distinct !{!23, !20, !17}
+!24 = distinct !{!24, !17}
+!25 = distinct !{!25, !20, !17}

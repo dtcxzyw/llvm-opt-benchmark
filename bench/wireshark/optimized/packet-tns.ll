@@ -1199,7 +1199,7 @@ tns_get_conv_info.exit.i105:                      ; preds = %245, %241
   %286 = add i32 %.2353.i, 1
   %287 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %286)
   %288 = icmp eq i8 %287, 0
-  br i1 %288, label %.thread360.i, label %.lr.ph355.i
+  br i1 %288, label %.thread360.i, label %.lr.ph355.i, !llvm.loop !8
 
 .thread360.i:                                     ; preds = %.lr.ph355.i, %276
   %.2.lcssa.i = phi i32 [ %.0254.i, %276 ], [ %286, %.lr.ph355.i ]
@@ -1231,7 +1231,7 @@ tns_get_conv_info.exit.i105:                      ; preds = %245, %241
   %303 = add i32 %.5347.i, 1
   %304 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %303)
   %305 = icmp eq i8 %304, 0
-  br i1 %305, label %.loopexit.i, label %.lr.ph349.i
+  br i1 %305, label %.loopexit.i, label %.lr.ph349.i, !llvm.loop !10
 
 .loopexit.i:                                      ; preds = %.lr.ph349.i, %293
   %.5.lcssa.i = phi i32 [ %.0254.i, %293 ], [ %303, %.lr.ph349.i ]
@@ -1470,7 +1470,7 @@ switch.early.test280.i:                           ; preds = %391
   %433 = add i32 %.0255344.i, 1
   %434 = load i32, ptr %12, align 4
   %.not276.i = icmp ugt i32 %433, %434
-  br i1 %.not276.i, label %._crit_edge.i, label %375, !llvm.loop !8
+  br i1 %.not276.i, label %._crit_edge.i, label %375, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %428, %370
   %.9.lcssa.i = phi i32 [ %.8.i, %370 ], [ %.13.i, %428 ]
@@ -1558,7 +1558,7 @@ switch.early.test280.i:                           ; preds = %391
   %478 = add nuw i32 %.038.i, 1
   %479 = load i32, ptr %7, align 4
   %480 = icmp ult i32 %478, %479
-  br i1 %480, label %.lr.ph.i106, label %._crit_edge.i107, !llvm.loop !10
+  br i1 %480, label %.lr.ph.i106, label %._crit_edge.i107, !llvm.loop !13
 
 481:                                              ; preds = %._crit_edge.i107
   %482 = load ptr, ptr %5, align 8
@@ -1711,5 +1711,8 @@ attributes #9 = { noreturn }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = distinct !{!8, !9}
-!9 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.estimated_trip_count"}
 !10 = distinct !{!10, !9}
+!11 = distinct !{!11, !12, !9}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !9}

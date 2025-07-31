@@ -462,7 +462,7 @@ thread-pre-split:                                 ; preds = %48, %53, %29
   %87 = add nuw nsw i64 %.05267, 1
   %88 = lshr i64 %.05466, 8
   %exitcond69.not = icmp eq i64 %87, 8
-  br i1 %exitcond69.not, label %89, label %84, !llvm.loop !48
+  br i1 %exitcond69.not, label %89, label %84, !llvm.loop !49
 
 89:                                               ; preds = %84
   %90 = load ptr, ptr %5, align 8, !tbaa !44
@@ -489,7 +489,7 @@ thread-pre-split:                                 ; preds = %48, %53, %29
 
 101:                                              ; preds = %.sink.split, %62
   %102 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %103 = load i64, ptr %102, align 8, !tbaa !49
+  %103 = load i64, ptr %102, align 8, !tbaa !50
   %104 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %105 = load i64, ptr %104, align 8, !tbaa !25
   call void @H5F_addr_encode_len(i64 noundef %103, ptr noundef nonnull %5, i64 noundef %105) #9
@@ -664,7 +664,7 @@ define internal noundef i32 @H5HL__cache_datablock_image_len(ptr noundef readonl
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %11 = load ptr, ptr %10, align 8, !tbaa !50
+  %11 = load ptr, ptr %10, align 8, !tbaa !51
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i64, ptr %12, align 8, !tbaa !19
   store i64 %13, ptr %1, align 8, !tbaa !10
@@ -686,7 +686,7 @@ define internal noundef i32 @H5HL__cache_datablock_serialize(ptr readnone captur
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 248
-  %13 = load ptr, ptr %12, align 8, !tbaa !50
+  %13 = load ptr, ptr %12, align 8, !tbaa !51
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8, !tbaa !39
   %.not = icmp eq ptr %15, null
@@ -738,9 +738,9 @@ define internal range(i32 -1, 1) i32 @H5HL__cache_datablock_notify(i32 noundef %
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %12 = load ptr, ptr %11, align 8, !tbaa !50
+  %12 = load ptr, ptr %11, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !52
+  %14 = load ptr, ptr %13, align 8, !tbaa !53
   %15 = tail call i32 @H5AC_pin_protected_entry(ptr noundef %14) #9
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %17, label %36
@@ -753,9 +753,9 @@ define internal range(i32 -1, 1) i32 @H5HL__cache_datablock_notify(i32 noundef %
 
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %23 = load ptr, ptr %22, align 8, !tbaa !50
+  %23 = load ptr, ptr %22, align 8, !tbaa !51
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !52
+  %25 = load ptr, ptr %24, align 8, !tbaa !53
   %26 = tail call i32 @H5AC_unpin_entry(ptr noundef %25) #9
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %36
@@ -890,7 +890,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef n
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %52, ptr %5, align 8, !tbaa !44
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %54 = load i64, ptr %53, align 8, !tbaa !53
+  %54 = load i64, ptr %53, align 8, !tbaa !54
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %54, ptr %55, align 8, !tbaa !20
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -965,7 +965,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef n
   store i64 %99, ptr %90, align 8, !tbaa !19
   %100 = add nuw nsw i64 %.06996, 1
   %exitcond.not = icmp eq i64 %100, 8
-  br i1 %exitcond.not, label %111, label %92, !llvm.loop !54
+  br i1 %exitcond.not, label %111, label %92, !llvm.loop !55
 
 101:                                              ; preds = %68
   %102 = load i8, ptr %52, align 1, !tbaa !43
@@ -1063,7 +1063,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__hdr_deserialize(ptr noundef n
   store i64 %155, ptr %146, align 8, !tbaa !42
   %156 = add nuw nsw i64 %.099, 1
   %exitcond100.not = icmp eq i64 %156, 8
-  br i1 %exitcond100.not, label %157, label %148, !llvm.loop !55
+  br i1 %exitcond100.not, label %157, label %148, !llvm.loop !56
 
 157:                                              ; preds = %148
   %158 = getelementptr inbounds nuw i8, ptr %150, i64 7
@@ -1220,9 +1220,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
 32:                                               ; preds = %25
   store i64 %.088123, ptr %26, align 8, !tbaa !40
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %.092122, ptr %33, align 8, !tbaa !56
+  store ptr %.092122, ptr %33, align 8, !tbaa !57
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr null, ptr %34, align 8, !tbaa !57
+  store ptr null, ptr %34, align 8, !tbaa !58
   %35 = load ptr, ptr %13, align 8, !tbaa !27
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %.088123
   %37 = load i64, ptr %11, align 8, !tbaa !45
@@ -1253,7 +1253,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   %49 = or disjoint i64 %45, %48
   %50 = add nuw nsw i64 %.083118, 1
   %exitcond.not = icmp eq i64 %50, 8
-  br i1 %exitcond.not, label %51, label %44, !llvm.loop !58
+  br i1 %exitcond.not, label %51, label %44, !llvm.loop !59
 
 51:                                               ; preds = %44
   %scevgep = getelementptr i8, ptr %35, i64 1
@@ -1288,37 +1288,37 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
 
 ..loopexit_crit_edge:                             ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.pre131 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.pre131 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !60
   br label %.loopexit
 
 64:                                               ; preds = %63
   %65 = load i8, ptr %.1, align 1, !tbaa !43
   %66 = zext i8 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %66, ptr %67, align 8, !tbaa !59
+  store i64 %66, ptr %67, align 8, !tbaa !60
   %68 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %69 = load i8, ptr %68, align 1, !tbaa !43
   %70 = zext i8 %69 to i64
   %71 = shl nuw nsw i64 %70, 8
   %72 = or disjoint i64 %71, %66
-  store i64 %72, ptr %67, align 8, !tbaa !59
+  store i64 %72, ptr %67, align 8, !tbaa !60
   %73 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %74 = load i8, ptr %73, align 1, !tbaa !43
   %75 = zext i8 %74 to i64
   %76 = shl nuw nsw i64 %75, 16
   %77 = or disjoint i64 %76, %72
-  store i64 %77, ptr %67, align 8, !tbaa !59
+  store i64 %77, ptr %67, align 8, !tbaa !60
   %78 = getelementptr inbounds nuw i8, ptr %.1, i64 3
   %79 = load i8, ptr %78, align 1, !tbaa !43
   %80 = zext i8 %79 to i64
   %81 = shl nuw nsw i64 %80, 24
   %82 = or disjoint i64 %81, %77
-  store i64 %82, ptr %67, align 8, !tbaa !59
+  store i64 %82, ptr %67, align 8, !tbaa !60
   br label %.loopexit
 
 83:                                               ; preds = %63
   %84 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 0, ptr %84, align 8, !tbaa !59
+  store i64 0, ptr %84, align 8, !tbaa !60
   %85 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   br label %86
 
@@ -1331,22 +1331,22 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
   %90 = load i8, ptr %89, align 1, !tbaa !43
   %91 = zext i8 %90 to i64
   %92 = or disjoint i64 %88, %91
-  store i64 %92, ptr %84, align 8, !tbaa !59
+  store i64 %92, ptr %84, align 8, !tbaa !60
   %93 = add nuw nsw i64 %.082120, 1
   %exitcond129.not = icmp eq i64 %93, 8
-  br i1 %exitcond129.not, label %.loopexit, label %86, !llvm.loop !60
+  br i1 %exitcond129.not, label %.loopexit, label %86, !llvm.loop !61
 
 94:                                               ; preds = %63
   %95 = load i8, ptr %.1, align 1, !tbaa !43
   %96 = zext i8 %95 to i64
   %97 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %96, ptr %97, align 8, !tbaa !59
+  store i64 %96, ptr %97, align 8, !tbaa !60
   %98 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %99 = load i8, ptr %98, align 1, !tbaa !43
   %100 = zext i8 %99 to i64
   %101 = shl nuw nsw i64 %100, 8
   %102 = or disjoint i64 %101, %96
-  store i64 %102, ptr %97, align 8, !tbaa !59
+  store i64 %102, ptr %97, align 8, !tbaa !60
   br label %.loopexit
 
 .loopexit:                                        ; preds = %86, %..loopexit_crit_edge, %94, %64
@@ -1368,7 +1368,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HL__fl_deserialize(ptr noundef ca
 
 112:                                              ; preds = %111
   %113 = getelementptr inbounds nuw i8, ptr %.092122, i64 24
-  store ptr %26, ptr %113, align 8, !tbaa !57
+  store ptr %26, ptr %113, align 8, !tbaa !58
   br label %115
 
 114:                                              ; preds = %111
@@ -1410,7 +1410,7 @@ define internal fastcc void @H5HL__fl_serialize(ptr noundef readonly captures(no
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.0102115 = load ptr, ptr %9, align 8, !tbaa !61
+  %.0102115 = load ptr, ptr %9, align 8, !tbaa !62
   %.not116 = icmp eq ptr %.0102115, null
   br i1 %.not116, label %.loopexit105, label %.lr.ph
 
@@ -1425,7 +1425,7 @@ define internal fastcc void @H5HL__fl_serialize(ptr noundef readonly captures(no
   %14 = load i64, ptr %.0102117, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %.0102117, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !57
+  %17 = load ptr, ptr %16, align 8, !tbaa !58
   %.not104 = icmp eq ptr %17, null
   %18 = load i64, ptr %11, align 8, !tbaa !45
   br i1 %.not104, label %53, label %19
@@ -1442,19 +1442,19 @@ define internal fastcc void @H5HL__fl_serialize(ptr noundef readonly captures(no
   %22 = trunc i64 %21 to i8
   store i8 %22, ptr %15, align 1, !tbaa !43
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %24 = load ptr, ptr %16, align 8, !tbaa !57
+  %24 = load ptr, ptr %16, align 8, !tbaa !58
   %25 = load i64, ptr %24, align 8, !tbaa !40
   %26 = lshr i64 %25, 8
   %27 = trunc i64 %26 to i8
   store i8 %27, ptr %23, align 1, !tbaa !43
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  %29 = load ptr, ptr %16, align 8, !tbaa !57
+  %29 = load ptr, ptr %16, align 8, !tbaa !58
   %30 = load i64, ptr %29, align 8, !tbaa !40
   %31 = lshr i64 %30, 16
   %32 = trunc i64 %31 to i8
   store i8 %32, ptr %28, align 1, !tbaa !43
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  %34 = load ptr, ptr %16, align 8, !tbaa !57
+  %34 = load ptr, ptr %16, align 8, !tbaa !58
   %35 = load i64, ptr %34, align 8, !tbaa !40
   %36 = lshr i64 %35, 24
   %37 = trunc i64 %36 to i8
@@ -1475,14 +1475,14 @@ define internal fastcc void @H5HL__fl_serialize(ptr noundef readonly captures(no
   %43 = add nuw nsw i64 %.098107, 1
   %44 = lshr i64 %.0100106, 8
   %exitcond.not = icmp eq i64 %43, 8
-  br i1 %exitcond.not, label %thread-pre-split, label %40, !llvm.loop !62
+  br i1 %exitcond.not, label %thread-pre-split, label %40, !llvm.loop !63
 
 45:                                               ; preds = %19
   %46 = load i64, ptr %17, align 8, !tbaa !40
   %47 = trunc i64 %46 to i8
   store i8 %47, ptr %15, align 1, !tbaa !43
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  %49 = load ptr, ptr %16, align 8, !tbaa !57
+  %49 = load ptr, ptr %16, align 8, !tbaa !58
   %50 = load i64, ptr %49, align 8, !tbaa !40
   %51 = lshr i64 %50, 8
   %52 = trunc i64 %51 to i8
@@ -1514,7 +1514,7 @@ define internal fastcc void @H5HL__fl_serialize(ptr noundef readonly captures(no
   store i8 %.095109, ptr %.091111, align 1, !tbaa !43
   %59 = add nuw nsw i64 %.093110, 1
   %exitcond118.not = icmp eq i64 %59, 8
-  br i1 %exitcond118.not, label %thread-pre-split, label %.preheader, !llvm.loop !63
+  br i1 %exitcond118.not, label %thread-pre-split, label %.preheader, !llvm.loop !64
 
 60:                                               ; preds = %53
   store i8 1, ptr %15, align 1, !tbaa !43
@@ -1539,21 +1539,21 @@ thread-pre-split:                                 ; preds = %40, %.preheader, %5
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %.0102117, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !59
+  %67 = load i64, ptr %66, align 8, !tbaa !60
   %68 = trunc i64 %67 to i8
   store i8 %68, ptr %.0101, align 1, !tbaa !43
   %69 = getelementptr inbounds nuw i8, ptr %.0101, i64 1
-  %70 = load i64, ptr %66, align 8, !tbaa !59
+  %70 = load i64, ptr %66, align 8, !tbaa !60
   %71 = lshr i64 %70, 8
   %72 = trunc i64 %71 to i8
   store i8 %72, ptr %69, align 1, !tbaa !43
   %73 = getelementptr inbounds nuw i8, ptr %.0101, i64 2
-  %74 = load i64, ptr %66, align 8, !tbaa !59
+  %74 = load i64, ptr %66, align 8, !tbaa !60
   %75 = lshr i64 %74, 16
   %76 = trunc i64 %75 to i8
   store i8 %76, ptr %73, align 1, !tbaa !43
   %77 = getelementptr inbounds nuw i8, ptr %.0101, i64 3
-  %78 = load i64, ptr %66, align 8, !tbaa !59
+  %78 = load i64, ptr %66, align 8, !tbaa !60
   %79 = lshr i64 %78, 24
   %80 = trunc i64 %79 to i8
   store i8 %80, ptr %77, align 1, !tbaa !43
@@ -1561,7 +1561,7 @@ thread-pre-split:                                 ; preds = %40, %.preheader, %5
 
 81:                                               ; preds = %63
   %82 = getelementptr inbounds nuw i8, ptr %.0102117, i64 8
-  %83 = load i64, ptr %82, align 8, !tbaa !59
+  %83 = load i64, ptr %82, align 8, !tbaa !60
   br label %84
 
 84:                                               ; preds = %81, %84
@@ -1574,24 +1574,24 @@ thread-pre-split:                                 ; preds = %40, %.preheader, %5
   %87 = add nuw nsw i64 %.088113, 1
   %88 = lshr i64 %.090112, 8
   %exitcond119.not = icmp eq i64 %87, 8
-  br i1 %exitcond119.not, label %.loopexit, label %84, !llvm.loop !64
+  br i1 %exitcond119.not, label %.loopexit, label %84, !llvm.loop !65
 
 89:                                               ; preds = %63
   %90 = getelementptr inbounds nuw i8, ptr %.0102117, i64 8
-  %91 = load i64, ptr %90, align 8, !tbaa !59
+  %91 = load i64, ptr %90, align 8, !tbaa !60
   %92 = trunc i64 %91 to i8
   store i8 %92, ptr %.0101, align 1, !tbaa !43
   %93 = getelementptr inbounds nuw i8, ptr %.0101, i64 1
-  %94 = load i64, ptr %90, align 8, !tbaa !59
+  %94 = load i64, ptr %90, align 8, !tbaa !60
   %95 = lshr i64 %94, 8
   %96 = trunc i64 %95 to i8
   store i8 %96, ptr %93, align 1, !tbaa !43
   br label %.loopexit
 
 .loopexit:                                        ; preds = %84, %63, %89, %65
-  %.0102 = load ptr, ptr %16, align 8, !tbaa !61
+  %.0102 = load ptr, ptr %16, align 8, !tbaa !62
   %.not = icmp eq ptr %.0102, null
-  br i1 %.not, label %.loopexit105, label %12, !llvm.loop !65
+  br i1 %.not, label %.loopexit105, label %12, !llvm.loop !66
 
 .loopexit105:                                     ; preds = %.loopexit, %8, %1
   ret void
@@ -1667,23 +1667,24 @@ attributes #9 = { nounwind }
 !43 = !{!5, !5, i64 0}
 !44 = !{!18, !18, i64 0}
 !45 = !{!13, !11, i64 16}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = !{!13, !11, i64 24}
-!50 = !{!51, !38, i64 248}
-!51 = !{!"H5HL_dblk_t", !30, i64 0, !38, i64 248}
-!52 = !{!13, !16, i64 48}
-!53 = !{!22, !11, i64 16}
-!54 = distinct !{!54, !47}
-!55 = distinct !{!55, !47}
-!56 = !{!41, !14, i64 16}
-!57 = !{!41, !14, i64 24}
-!58 = distinct !{!58, !47}
-!59 = !{!41, !11, i64 8}
-!60 = distinct !{!60, !47}
-!61 = !{!14, !14, i64 0}
-!62 = distinct !{!62, !47}
-!63 = distinct !{!63, !47}
-!64 = distinct !{!64, !47}
-!65 = distinct !{!65, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = !{!13, !11, i64 24}
+!51 = !{!52, !38, i64 248}
+!52 = !{!"H5HL_dblk_t", !30, i64 0, !38, i64 248}
+!53 = !{!13, !16, i64 48}
+!54 = !{!22, !11, i64 16}
+!55 = distinct !{!55, !47, !48}
+!56 = distinct !{!56, !47, !48}
+!57 = !{!41, !14, i64 16}
+!58 = !{!41, !14, i64 24}
+!59 = distinct !{!59, !47, !48}
+!60 = !{!41, !11, i64 8}
+!61 = distinct !{!61, !47, !48}
+!62 = !{!14, !14, i64 0}
+!63 = distinct !{!63, !47, !48}
+!64 = distinct !{!64, !47, !48}
+!65 = distinct !{!65, !47, !48}
+!66 = distinct !{!66, !47, !48}

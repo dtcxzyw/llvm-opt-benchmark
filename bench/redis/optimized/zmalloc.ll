@@ -1147,16 +1147,16 @@ define dso_local range(i32 0, 2) i32 @get_proc_stat_ll(i32 noundef %0, ptr nound
 12:                                               ; preds = %7
   %13 = and i64 %8, 2147483647
   %14 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %13
-  store i8 0, ptr %14, align 1, !tbaa !14
+  store i8 0, ptr %14, align 1, !tbaa !15
   %15 = add i64 %8, 4294967295
   %16 = and i64 %15, 4294967295
   %17 = getelementptr inbounds nuw [4096 x i8], ptr %3, i64 0, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !14
+  %18 = load i8, ptr %17, align 1, !tbaa !15
   %19 = icmp eq i8 %18, 10
   br i1 %19, label %20, label %21
 
 20:                                               ; preds = %12
-  store i8 0, ptr %17, align 1, !tbaa !14
+  store i8 0, ptr %17, align 1, !tbaa !15
   br label %21
 
 21:                                               ; preds = %20, %12
@@ -1167,11 +1167,11 @@ define dso_local range(i32 0, 2) i32 @get_proc_stat_ll(i32 noundef %0, ptr nound
 .preheader34:                                     ; preds = %21, %.preheader34
   %.pn = phi ptr [ %.0, %.preheader34 ], [ %22, %21 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %23 = load i8, ptr %.0, align 1, !tbaa !14
+  %23 = load i8, ptr %.0, align 1, !tbaa !15
   switch i8 %23, label %24 [
     i8 32, label %.preheader34
     i8 0, label %.loopexit
-  ]
+  ], !llvm.loop !16
 
 24:                                               ; preds = %.preheader34
   %25 = icmp slt i32 %0, 3
@@ -1189,7 +1189,7 @@ define dso_local range(i32 0, 2) i32 @get_proc_stat_ll(i32 noundef %0, ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %29 = add nsw i32 %30, -1
   %.not30 = icmp eq i32 %30, 0
-  br i1 %.not30, label %.critedge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not30, label %.critedge, label %.lr.ph, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %30 = phi i32 [ %29, %27 ], [ %26, %.lr.ph.preheader ]
@@ -1201,19 +1201,19 @@ define dso_local range(i32 0, 2) i32 @get_proc_stat_ll(i32 noundef %0, ptr nound
 .critedge:                                        ; preds = %27, %.preheader
   %.1.lcssa = phi ptr [ %.0, %.preheader ], [ %28, %27 ]
   %32 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.1.lcssa, i32 noundef 32) #30
-  store ptr %32, ptr %4, align 8, !tbaa !16
+  store ptr %32, ptr %4, align 8, !tbaa !18
   %.not31 = icmp eq ptr %32, null
   br i1 %.not31, label %34, label %33
 
 33:                                               ; preds = %.critedge
-  store i8 0, ptr %32, align 1, !tbaa !14
+  store i8 0, ptr %32, align 1, !tbaa !15
   br label %34
 
 34:                                               ; preds = %33, %.critedge
   %35 = call i64 @strtoll(ptr noundef nonnull %.1.lcssa, ptr noundef nonnull %4, i32 noundef 10) #26
-  store i64 %35, ptr %1, align 8, !tbaa !18
-  %36 = load ptr, ptr %4, align 8, !tbaa !16
-  %37 = load i8, ptr %36, align 1, !tbaa !14
+  store i64 %35, ptr %1, align 8, !tbaa !20
+  %36 = load ptr, ptr %4, align 8, !tbaa !18
+  %37 = load i8, ptr %36, align 1, !tbaa !15
   %.not32 = icmp eq i8 %37, 0
   %. = zext i1 %.not32 to i32
   br label %.loopexit
@@ -1254,7 +1254,7 @@ define dso_local i64 @zmalloc_get_rss() local_unnamed_addr #3 {
 4:                                                ; preds = %0
   %sext = shl i64 %2, 32
   %5 = ashr exact i64 %sext, 32
-  %6 = load i64, ptr %1, align 8, !tbaa !18
+  %6 = load i64, ptr %1, align 8, !tbaa !20
   %7 = mul nsw i64 %6, %5
   br label %8
 
@@ -1279,10 +1279,10 @@ define dso_local i64 @zmalloc_get_frag_smallbins_by_arena(i32 noundef %0) local_
   store i64 4, ptr %3, align 8, !tbaa !5
   %9 = call i32 @je_mallctl(ptr noundef nonnull @.str.1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0) #26
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.preheader, label %11, !prof !20
+  br i1 %.not, label %.preheader, label %11, !prof !22
 
 .preheader:                                       ; preds = %1
-  %10 = load i32, ptr %2, align 4, !tbaa !21
+  %10 = load i32, ptr %2, align 4, !tbaa !23
   %.not21 = icmp eq i32 %10, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
@@ -1309,7 +1309,7 @@ define dso_local i64 @zmalloc_get_frag_smallbins_by_arena(i32 noundef %0) local_
   store i64 8, ptr %3, align 8, !tbaa !5
   %13 = call i32 @je_mallctl(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0) #26
   %.not11 = icmp eq i32 %13, 0
-  br i1 %.not11, label %15, label %14, !prof !20
+  br i1 %.not11, label %15, label %14, !prof !22
 
 14:                                               ; preds = %.lr.ph
   call void @_serverAssert(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.3, i32 noundef 711) #26
@@ -1321,7 +1321,7 @@ define dso_local i64 @zmalloc_get_frag_smallbins_by_arena(i32 noundef %0) local_
   store i64 8, ptr %3, align 8, !tbaa !5
   %17 = call i32 @je_mallctl(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0) #26
   %.not12 = icmp eq i32 %17, 0
-  br i1 %.not12, label %19, label %18, !prof !20
+  br i1 %.not12, label %19, label %18, !prof !22
 
 18:                                               ; preds = %15
   call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.3, i32 noundef 716) #26
@@ -1333,7 +1333,7 @@ define dso_local i64 @zmalloc_get_frag_smallbins_by_arena(i32 noundef %0) local_
   store i64 4, ptr %3, align 8, !tbaa !5
   %21 = call i32 @je_mallctl(ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0) #26
   %.not13 = icmp eq i32 %21, 0
-  br i1 %.not13, label %23, label %22, !prof !20
+  br i1 %.not13, label %23, label %22, !prof !22
 
 22:                                               ; preds = %19
   call void @_serverAssert(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.3, i32 noundef 721) #26
@@ -1345,7 +1345,7 @@ define dso_local i64 @zmalloc_get_frag_smallbins_by_arena(i32 noundef %0) local_
   store i64 8, ptr %3, align 8, !tbaa !5
   %25 = call i32 @je_mallctl(ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0) #26
   %.not14 = icmp eq i32 %25, 0
-  br i1 %.not14, label %27, label %26, !prof !20
+  br i1 %.not14, label %27, label %26, !prof !22
 
 26:                                               ; preds = %23
   call void @_serverAssert(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.3, i32 noundef 726) #26
@@ -1353,7 +1353,7 @@ define dso_local i64 @zmalloc_get_frag_smallbins_by_arena(i32 noundef %0) local_
   unreachable
 
 27:                                               ; preds = %23
-  %28 = load i32, ptr %8, align 4, !tbaa !21
+  %28 = load i32, ptr %8, align 4, !tbaa !23
   %29 = zext i32 %28 to i64
   %30 = load i64, ptr %6, align 8, !tbaa !5
   %31 = mul i64 %30, %29
@@ -1367,9 +1367,9 @@ define dso_local i64 @zmalloc_get_frag_smallbins_by_arena(i32 noundef %0) local_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #26
   %37 = add nuw i32 %.020, 1
-  %38 = load i32, ptr %2, align 4, !tbaa !21
+  %38 = load i32, ptr %2, align 4, !tbaa !23
   %39 = icmp ult i32 %37, %38
-  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: nounwind
@@ -1435,7 +1435,7 @@ define dso_local noundef i32 @zmalloc_get_allocator_info(i32 noundef %0, ptr nou
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 100, ptr noundef nonnull @.str.17, i32 noundef 4096) #26
   %24 = call i32 @je_mallctl(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0) #26
   %.not15 = icmp eq i32 %24, 0
-  br i1 %.not15, label %26, label %25, !prof !20
+  br i1 %.not15, label %26, label %25, !prof !22
 
 25:                                               ; preds = %22
   call void @_serverAssert(ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.3, i32 noundef 784) #26
@@ -1445,7 +1445,7 @@ define dso_local noundef i32 @zmalloc_get_allocator_info(i32 noundef %0, ptr nou
 26:                                               ; preds = %22
   %27 = call i32 @je_mallctl(ptr noundef nonnull @.str.19, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0) #26
   %.not16 = icmp eq i32 %27, 0
-  br i1 %.not16, label %29, label %28, !prof !20
+  br i1 %.not16, label %29, label %28, !prof !22
 
 28:                                               ; preds = %26
   call void @_serverAssert(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.3, i32 noundef 785) #26
@@ -1503,7 +1503,7 @@ define dso_local noundef i32 @zmalloc_get_allocator_info_by_arena(i32 noundef %0
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.22, i32 noundef %0) #26
   %20 = call i32 @je_mallctl(ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0) #26
   %.not13 = icmp eq i32 %20, 0
-  br i1 %.not13, label %22, label %21, !prof !20
+  br i1 %.not13, label %22, label %21, !prof !22
 
 21:                                               ; preds = %16
   call void @_serverAssert(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.3, i32 noundef 822) #26
@@ -1513,7 +1513,7 @@ define dso_local noundef i32 @zmalloc_get_allocator_info_by_arena(i32 noundef %0
 22:                                               ; preds = %16
   %23 = call i32 @je_mallctl(ptr noundef nonnull @.str.19, ptr noundef nonnull %11, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0) #26
   %.not14 = icmp eq i32 %23, 0
-  br i1 %.not14, label %25, label %24, !prof !20
+  br i1 %.not14, label %25, label %24, !prof !22
 
 24:                                               ; preds = %22
   call void @_serverAssert(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.3, i32 noundef 823) #26
@@ -1530,7 +1530,7 @@ define dso_local noundef i32 @zmalloc_get_allocator_info_by_arena(i32 noundef %0
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.24, i32 noundef %0) #26
   %30 = call i32 @je_mallctl(ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0) #26
   %.not15 = icmp eq i32 %30, 0
-  br i1 %.not15, label %32, label %31, !prof !20
+  br i1 %.not15, label %32, label %31, !prof !22
 
 31:                                               ; preds = %25
   call void @_serverAssert(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.3, i32 noundef 829) #26
@@ -1545,7 +1545,7 @@ define dso_local noundef i32 @zmalloc_get_allocator_info_by_arena(i32 noundef %0
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.26, i32 noundef %0) #26
   %37 = call i32 @je_mallctl(ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %8, ptr noundef null, i64 noundef 0) #26
   %.not16 = icmp eq i32 %37, 0
-  br i1 %.not16, label %39, label %38, !prof !20
+  br i1 %.not16, label %39, label %38, !prof !22
 
 38:                                               ; preds = %32
   call void @_serverAssert(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 832) #26
@@ -1574,7 +1574,7 @@ define dso_local void @set_jemalloc_bg_thread(i32 noundef %0) local_unnamed_addr
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #26
   %3 = icmp ne i32 %0, 0
   %4 = zext i1 %3 to i8
-  store i8 %4, ptr %2, align 1, !tbaa !14
+  store i8 %4, ptr %2, align 1, !tbaa !15
   %5 = call i32 @je_mallctl(ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef nonnull %2, i64 noundef 1) #26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #26
   ret void
@@ -1587,7 +1587,7 @@ define dso_local range(i32 -1, 1) i32 @jemalloc_purge() local_unnamed_addr #3 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #26
-  store i32 0, ptr %2, align 4, !tbaa !21
+  store i32 0, ptr %2, align 4, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   store i64 4, ptr %3, align 8, !tbaa !5
   %4 = call i32 @je_mallctl(ptr noundef nonnull @.str.29, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, i64 noundef 0) #26
@@ -1595,7 +1595,7 @@ define dso_local range(i32 -1, 1) i32 @jemalloc_purge() local_unnamed_addr #3 {
   br i1 %.not, label %5, label %9
 
 5:                                                ; preds = %0
-  %6 = load i32, ptr %2, align 4, !tbaa !21
+  %6 = load i32, ptr %2, align 4, !tbaa !23
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 32, ptr noundef nonnull @.str.30, i32 noundef %6) #26
   %8 = call i32 @je_mallctl(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, i64 noundef 0) #26
   %.not1 = icmp eq i32 %8, 0
@@ -1660,7 +1660,7 @@ define dso_local i64 @zmalloc_get_smap_bytes_by_field(ptr noundef readonly captu
   br i1 %.not18, label %25, label %21
 
 21:                                               ; preds = %19
-  store i8 0, ptr %20, align 1, !tbaa !14
+  store i8 0, ptr %20, align 1, !tbaa !15
   %22 = call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #26
   %23 = shl nsw i64 %22, 10
   %24 = add i64 %23, %.01420
@@ -1670,7 +1670,7 @@ define dso_local i64 @zmalloc_get_smap_bytes_by_field(ptr noundef readonly captu
   %.1 = phi i64 [ %.01420, %16 ], [ %24, %21 ], [ %.01420, %19 ]
   %26 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 1024, ptr noundef nonnull %.013)
   %.not17 = icmp eq ptr %26, null
-  br i1 %.not17, label %._crit_edge, label %16, !llvm.loop !24
+  br i1 %.not17, label %._crit_edge, label %16, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %25, %.preheader
   %.014.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %25 ]
@@ -1717,9 +1717,9 @@ declare noalias ptr @je_malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal void @zmalloc_default_oom(i64 noundef %0) #22 {
-  %2 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %2 = load ptr, ptr @stderr, align 8, !tbaa !27
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.35, i64 noundef %0) #33
-  %4 = load ptr, ptr @stderr, align 8, !tbaa !25
+  %4 = load ptr, ptr @stderr, align 8, !tbaa !27
   %5 = tail call i32 @fflush(ptr noundef %4)
   tail call void @abort() #32
   unreachable
@@ -1795,18 +1795,20 @@ attributes #33 = { cold nounwind }
 !9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!7, !7, i64 0}
-!15 = distinct !{!15, !13}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !11, i64 0}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!7, !7, i64 0}
+!16 = distinct !{!16, !14}
+!17 = distinct !{!17, !13, !14}
 !18 = !{!19, !19, i64 0}
-!19 = !{!"long long", !7, i64 0}
-!20 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"int", !7, i64 0}
-!23 = distinct !{!23, !13}
-!24 = distinct !{!24, !13}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}
+!19 = !{!"p1 omnipotent char", !11, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"long long", !7, i64 0}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !7, i64 0}
+!25 = distinct !{!25, !13, !14}
+!26 = distinct !{!26, !13, !14}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS8_IO_FILE", !11, i64 0}

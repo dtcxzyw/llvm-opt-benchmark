@@ -295,11 +295,11 @@ define dso_local void @apic_mem_wait_icr_idle() local_unnamed_addr #1 align 16 {
   br i1 %3, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %0, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %4 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %5 = and i32 %4, 4096
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %6, label %.loopexit, label %.preheader, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %0
   ret void
@@ -311,7 +311,7 @@ define dso_local void @__default_send_IPI_dest_field(i32 noundef %0, i32 noundef
   br i1 %4, label %5, label %7, !prof !7
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !26
+  %6 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !27
   br label %.loopexit
 
 7:                                                ; preds = %3
@@ -321,18 +321,18 @@ define dso_local void @__default_send_IPI_dest_field(i32 noundef %0, i32 noundef
   br i1 %10, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %7, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %11 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %12 = and i32 %11, 4096
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %7, %5
   %14 = phi i32 [ %1, %7 ], [ 1024, %5 ], [ %1, %.preheader ]
   %15 = shl i32 %0, 24
-  %16 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %15, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !27
+  %16 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %15, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !29
   %17 = or i32 %14, %2
-  %18 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %17, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %18 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %17, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   ret void
 }
 
@@ -340,11 +340,11 @@ define dso_local void @__default_send_IPI_dest_field(i32 noundef %0, i32 noundef
 define dso_local void @default_send_IPI_single_phys(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !28
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !29
+  store i64 0, ptr %3, align 8, !annotation !30
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !31
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !30
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !32
   %5 = sext i32 %0 to i64
   %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -355,7 +355,7 @@ define dso_local void @default_send_IPI_single_phys(i32 noundef %0, i32 noundef 
   br i1 %11, label %12, label %14, !prof !7
 
 12:                                               ; preds = %2
-  %13 = call i32 @apic_mem_wait_icr_idle_timeout(), !range !26
+  %13 = call i32 @apic_mem_wait_icr_idle_timeout(), !range !27
   br label %.loopexit
 
 14:                                               ; preds = %2
@@ -365,23 +365,23 @@ define dso_local void @default_send_IPI_single_phys(i32 noundef %0, i32 noundef 
   br i1 %17, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %14, %.preheader
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %18 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %19 = and i32 %18, 4096
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %20, label %.loopexit, label %.preheader, !llvm.loop !33
 
 .loopexit:                                        ; preds = %.preheader, %14, %12
   %21 = phi i32 [ %1, %14 ], [ 1024, %12 ], [ %1, %.preheader ]
   %22 = shl i32 %10, 24
-  %23 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %22, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !27
-  %24 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %21, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %23 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %22, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !29
+  %24 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %21, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   %25 = and i64 %4, 512
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %28, label %27
 
 27:                                               ; preds = %.loopexit
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !31
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !34
   br label %28
 
 28:                                               ; preds = %27, %.loopexit
@@ -392,11 +392,11 @@ define dso_local void @default_send_IPI_single_phys(i32 noundef %0, i32 noundef 
 define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !28
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !29
+  store i64 0, ptr %3, align 8, !annotation !30
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !31
   %4 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !30
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !32
   %5 = icmp eq i32 %1, 2
   br i1 %5, label %.split.us, label %.split, !prof !7
 
@@ -409,7 +409,7 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %.split.us
-  %12 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %9) #8, !srcloc !32
+  %12 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %9) #8, !srcloc !35
   %13 = icmp ult i64 %12, 64
   br i1 %13, label %14, label %.thread
 
@@ -419,13 +419,13 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   %17 = add i64 %16, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %18 = inttoptr i64 %17 to ptr
   %19 = load i32, ptr %18, align 4
-  %20 = call i32 @apic_mem_wait_icr_idle_timeout(), !range !26
+  %20 = call i32 @apic_mem_wait_icr_idle_timeout(), !range !27
   %21 = shl i32 %19, 24
-  %22 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %21, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !27
-  %23 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 1024, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %22 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %21, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !29
+  %23 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 1024, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   %24 = add nuw nsw i64 %12, 1
   %25 = icmp eq i64 %12, 63
-  br i1 %25, label %.thread, label %.split.us, !prof !33, !llvm.loop !34
+  br i1 %25, label %.thread, label %.split.us, !prof !36, !llvm.loop !37
 
 .split:                                           ; preds = %2, %.loopexit
   %26 = phi i64 [ %49, %.loopexit ], [ 0, %2 ]
@@ -436,7 +436,7 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %.split
-  %32 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %29) #8, !srcloc !32
+  %32 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %29) #8, !srcloc !35
   %33 = icmp ult i64 %32, 64
   br i1 %33, label %34, label %.thread
 
@@ -452,19 +452,19 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   br i1 %42, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %34, %.preheader
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %43 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %44 = and i32 %43, 4096
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.preheader, %34
   %46 = shl i32 %39, 24
-  %47 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %46, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !27
-  %48 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %1, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %47 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %46, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !29
+  %48 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %1, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   %49 = add nuw nsw i64 %32, 1
   %50 = icmp eq i64 %32, 63
-  br i1 %50, label %.thread, label %.split, !prof !33, !llvm.loop !36
+  br i1 %50, label %.thread, label %.split, !prof !36, !llvm.loop !40
 
 .thread:                                          ; preds = %31, %.loopexit, %.split, %.split.us, %11, %14
   %51 = and i64 %4, 512
@@ -472,7 +472,7 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
   br i1 %52, label %54, label %53
 
 53:                                               ; preds = %.thread
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !31
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !34
   br label %54
 
 54:                                               ; preds = %53, %.thread
@@ -482,13 +482,13 @@ define dso_local void @default_send_IPI_mask_sequence_phys(ptr noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = alloca i64, align 8
-  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !37
+  %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #8, !srcloc !41
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !annotation !28
-  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !29
+  store i64 0, ptr %3, align 8, !annotation !30
+  call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3) #6, !srcloc !31
   %5 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
-  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !30
+  call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !32
   %6 = icmp eq i32 %1, 2
   br i1 %6, label %.split.us, label %.split, !prof !7
 
@@ -501,7 +501,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %.split.us
-  %13 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %10) #8, !srcloc !32
+  %13 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %10) #8, !srcloc !35
   %14 = trunc i64 %13 to i32
   %15 = icmp ult i32 %14, 64
   br i1 %15, label %16, label %.thread
@@ -517,17 +517,17 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
   %22 = add i64 %21, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %23 = inttoptr i64 %22 to ptr
   %24 = load i32, ptr %23, align 4
-  %25 = call i32 @apic_mem_wait_icr_idle_timeout(), !range !26
+  %25 = call i32 @apic_mem_wait_icr_idle_timeout(), !range !27
   %26 = shl i32 %24, 24
-  %27 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %26, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !27
-  %28 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 1024, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %27 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %26, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !29
+  %28 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 1024, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   br label %29
 
 29:                                               ; preds = %18, %16
   %30 = add nuw nsw i64 %13, 1
   %31 = and i64 %30, 127
   %32 = icmp samesign ugt i64 %31, 63
-  br i1 %32, label %.thread, label %.split.us, !prof !33, !llvm.loop !38
+  br i1 %32, label %.thread, label %.split.us, !prof !36, !llvm.loop !42
 
 .split:                                           ; preds = %2, %60
   %33 = phi i64 [ %62, %60 ], [ 0, %2 ]
@@ -538,7 +538,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %.split
-  %39 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %36) #8, !srcloc !32
+  %39 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %36) #8, !srcloc !35
   %40 = trunc i64 %39 to i32
   %41 = icmp ult i32 %40, 64
   br i1 %41, label %42, label %.thread
@@ -560,23 +560,23 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
   br i1 %53, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %44, %.preheader
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %54 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %55 = and i32 %54, 4096
   %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %56, label %.loopexit, label %.preheader, !llvm.loop !43
 
 .loopexit:                                        ; preds = %.preheader, %44
   %57 = shl i32 %50, 24
-  %58 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %57, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !27
-  %59 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %1, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %58 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr), i32 0, i32 %57, ptr nonnull elementtype(i32) inttoptr (i64 -10501360 to ptr)) #6, !srcloc !29
+  %59 = call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %1, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   br label %60
 
 60:                                               ; preds = %.loopexit, %42
   %61 = add nuw nsw i64 %39, 1
   %62 = and i64 %61, 127
   %63 = icmp samesign ugt i64 %62, 63
-  br i1 %63, label %.thread, label %.split, !prof !33, !llvm.loop !39
+  br i1 %63, label %.thread, label %.split, !prof !36, !llvm.loop !44
 
 .thread:                                          ; preds = %38, %60, %.split, %.split.us, %12, %29
   %64 = and i64 %5, 512
@@ -584,7 +584,7 @@ define dso_local void @default_send_IPI_mask_allbutself_phys(ptr noundef readonl
   br i1 %65, label %67, label %66
 
 66:                                               ; preds = %.thread
-  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !31
+  call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !34
   br label %67
 
 67:                                               ; preds = %66, %.thread
@@ -611,7 +611,7 @@ define dso_local void @default_send_IPI_allbutself(i32 noundef %0) local_unnamed
   br i1 %2, label %3, label %5, !prof !7
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !26
+  %4 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !27
   br label %.loopexit
 
 5:                                                ; preds = %1
@@ -621,16 +621,16 @@ define dso_local void @default_send_IPI_allbutself(i32 noundef %0) local_unnamed
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %9 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %10 = and i32 %9, 4096
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   %12 = phi i32 [ %0, %5 ], [ 1024, %3 ], [ %0, %.preheader ]
   %13 = or i32 %12, 786432
-  %14 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %13, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %14 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %13, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   ret void
 }
 
@@ -640,7 +640,7 @@ define dso_local void @default_send_IPI_all(i32 noundef %0) local_unnamed_addr #
   br i1 %2, label %3, label %5, !prof !7
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !26
+  %4 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !27
   br label %.loopexit
 
 5:                                                ; preds = %1
@@ -650,16 +650,16 @@ define dso_local void @default_send_IPI_all(i32 noundef %0) local_unnamed_addr #
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %9 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %10 = and i32 %9, 4096
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !46
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   %12 = phi i32 [ %0, %5 ], [ 1024, %3 ], [ %0, %.preheader ]
   %13 = or i32 %12, 524288
-  %14 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %13, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %14 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %13, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   ret void
 }
 
@@ -669,7 +669,7 @@ define dso_local void @default_send_IPI_self(i32 noundef %0) local_unnamed_addr 
   br i1 %2, label %3, label %5, !prof !7
 
 3:                                                ; preds = %1
-  %4 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !26
+  %4 = tail call i32 @apic_mem_wait_icr_idle_timeout(), !range !27
   br label %.loopexit
 
 5:                                                ; preds = %1
@@ -679,16 +679,16 @@ define dso_local void @default_send_IPI_self(i32 noundef %0) local_unnamed_addr 
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5, %.preheader
-  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !24
+  tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !25
   %9 = load volatile i32, ptr inttoptr (i64 -10501376 to ptr), align 256
   %10 = and i32 %9, 4096
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !47
 
 .loopexit:                                        ; preds = %.preheader, %5, %3
   %12 = phi i32 [ %0, %5 ], [ 1024, %3 ], [ %0, %.preheader ]
   %13 = or i32 %12, 262144
-  %14 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %13, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !27
+  %14 = tail call i32 asm sideeffect "# ALT: oldnstr\0A661:\0A\09movl $0, ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (21*32 + (5))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09xchgl $0, ${1:P}\0A6651:\0A.popsection\0A", "=r,=*m,i,0,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr), i32 0, i32 %13, ptr nonnull elementtype(i32) inttoptr (i64 -10501376 to ptr)) #6, !srcloc !29
   ret void
 }
 
@@ -752,22 +752,30 @@ attributes #8 = { nounwind memory(read) }
 !18 = !{i64 2154181457, i64 2154181486, i64 2154181532, i64 2154181590, i64 2154181644, i64 2154181698, i64 2154181753, i64 2154181784, i64 2154182092, i64 2154182098, i64 2154182145, i64 2154182168, i64 2154182194}
 !19 = !{i64 2154182653, i64 2154182464, i64 2154182514, i64 2154182560, i64 2154182588}
 !20 = !{i64 2154189139}
-!21 = distinct !{!21, !22, !23}
+!21 = distinct !{!21, !22, !23, !24}
 !22 = !{!"llvm.loop.mustprogress"}
 !23 = !{!"llvm.loop.unroll.disable"}
-!24 = !{i64 1830145}
-!25 = distinct !{!25, !22, !23}
-!26 = !{i32 0, i32 4097}
-!27 = !{i64 2154121685, i64 2154121713, i64 2154121719, i64 2154121735, i64 2154121751, i64 2154121778, i64 2154122104, i64 2154121423, i64 2154122110, i64 2154122158, i64 2154122222, i64 2154122286, i64 2154122343, i64 2154121504, i64 2154121529, i64 2154122567, i64 2154122696, i64 2154122628, i64 2154122710, i64 2154121621}
-!28 = !{!"auto-init"}
-!29 = !{i64 1784857, i64 1784878}
-!30 = !{i64 1785061}
-!31 = !{i64 1785153}
-!32 = !{i64 336393}
-!33 = !{!"branch_weights", i32 1, i32 1999}
-!34 = distinct !{!34, !22, !23, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !22, !23}
-!37 = !{i64 2154202792}
-!38 = distinct !{!38, !22, !23, !35}
-!39 = distinct !{!39, !22, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{i64 1830145}
+!26 = distinct !{!26, !22, !23, !24}
+!27 = !{i32 0, i32 4097}
+!28 = distinct !{!28, !22, !23, !24}
+!29 = !{i64 2154121685, i64 2154121713, i64 2154121719, i64 2154121735, i64 2154121751, i64 2154121778, i64 2154122104, i64 2154121423, i64 2154122110, i64 2154122158, i64 2154122222, i64 2154122286, i64 2154122343, i64 2154121504, i64 2154121529, i64 2154122567, i64 2154122696, i64 2154122628, i64 2154122710, i64 2154121621}
+!30 = !{!"auto-init"}
+!31 = !{i64 1784857, i64 1784878}
+!32 = !{i64 1785061}
+!33 = distinct !{!33, !22, !23, !24}
+!34 = !{i64 1785153}
+!35 = !{i64 336393}
+!36 = !{!"branch_weights", i32 1, i32 1999}
+!37 = distinct !{!37, !22, !23, !24, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = distinct !{!39, !22, !23, !24}
+!40 = distinct !{!40, !22, !23, !24}
+!41 = !{i64 2154202792}
+!42 = distinct !{!42, !22, !23, !24, !38}
+!43 = distinct !{!43, !22, !23, !24}
+!44 = distinct !{!44, !22, !23, !24}
+!45 = distinct !{!45, !22, !23, !24}
+!46 = distinct !{!46, !22, !23, !24}
+!47 = distinct !{!47, !22, !23, !24}

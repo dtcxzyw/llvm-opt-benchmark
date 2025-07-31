@@ -324,7 +324,7 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
   %34 = tail call i64 @llvm.bswap.i64(i64 %31)
   %35 = getelementptr i8, ptr %33, i64 8
   store i64 %34, ptr %35, align 8
-  br i1 %23, label %22, label %.loopexit, !llvm.loop !9
+  br i1 %23, label %22, label %.loopexit, !llvm.loop !10
 
 36:                                               ; preds = %13
   %37 = load i64, ptr %9, align 8
@@ -342,7 +342,7 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
   %47 = tail call i64 @llvm.bswap.i64(i64 %46)
   %48 = getelementptr i64, ptr %9, i64 %41
   store i64 %47, ptr %48, align 8
-  br i1 %40, label %39, label %.loopexit, !llvm.loop !10
+  br i1 %40, label %39, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %39, %22, %13, %3
   ret i32 %11
@@ -471,8 +471,9 @@ attributes #10 = { nounwind allocsize(2) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8, !9}

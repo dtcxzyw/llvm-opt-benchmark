@@ -5226,7 +5226,7 @@ _ZN4Node7del_outEPS_.exit.i:                      ; preds = %135, %123, %117
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 96
   %185 = load ptr, ptr %184, align 8
   %186 = call noundef zeroext i1 %185(ptr noundef nonnull align 8 dereferenceable(24) %182) #10
-  br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %186, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.048.lcssa = phi ptr [ %77, %.preheader ], [ %182, %.lr.ph ]
@@ -6404,7 +6404,7 @@ define hidden noundef ptr @_ZN8BoolNode5IdealEP8PhaseGVNb(ptr noundef nonnull re
 56:                                               ; preds = %.lr.ph.i
   %57 = getelementptr inbounds nuw i8, ptr %.067.i, i64 8
   %58 = icmp ult ptr %57, %55
-  br i1 %58, label %.lr.ph.i, label %.loopexit568, !llvm.loop !9
+  br i1 %58, label %.lr.ph.i, label %.loopexit568, !llvm.loop !10
 
 .lr.ph.i:                                         ; preds = %49, %56
   %.067.i = phi ptr [ %57, %56 ], [ %51, %49 ]
@@ -6830,7 +6830,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 327:                                              ; preds = %.lr.ph.i434
   %328 = getelementptr inbounds nuw i8, ptr %.071.i, i64 8
   %329 = icmp ult ptr %328, %326
-  br i1 %329, label %.lr.ph.i434, label %.loopexit567, !llvm.loop !10
+  br i1 %329, label %.lr.ph.i434, label %.loopexit567, !llvm.loop !11
 
 .lr.ph.i434:                                      ; preds = %322, %327
   %.071.i = phi ptr [ %328, %327 ], [ %.val, %322 ]
@@ -6902,7 +6902,7 @@ _ZNK4Node12find_int_conEi.exit.thread:            ; preds = %129, %124, %118, %1
 368:                                              ; preds = %.lr.ph.i438
   %369 = getelementptr inbounds nuw i8, ptr %.071.i439, i64 8
   %370 = icmp ult ptr %369, %326
-  br i1 %370, label %.lr.ph.i438, label %.loopexit565, !llvm.loop !10
+  br i1 %370, label %.lr.ph.i438, label %.loopexit565, !llvm.loop !11
 
 .lr.ph.i438:                                      ; preds = %367, %368
   %.071.i439 = phi ptr [ %369, %368 ], [ %.val, %367 ]
@@ -6990,7 +6990,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %231, %235
 420:                                              ; preds = %.lr.ph.i444
   %421 = getelementptr inbounds nuw i8, ptr %.071.i445, i64 8
   %422 = icmp ult ptr %421, %419
-  br i1 %422, label %.lr.ph.i444, label %.loopexit564, !llvm.loop !10
+  br i1 %422, label %.lr.ph.i444, label %.loopexit564, !llvm.loop !11
 
 .lr.ph.i444:                                      ; preds = %415, %420
   %.071.i445 = phi ptr [ %421, %420 ], [ %.val417, %415 ]
@@ -7062,7 +7062,7 @@ _ZL18is_cloop_conditionP8BoolNode.exit:           ; preds = %231, %235
 461:                                              ; preds = %.lr.ph.i450
   %462 = getelementptr inbounds nuw i8, ptr %.071.i451, i64 8
   %463 = icmp ult ptr %462, %419
-  br i1 %463, label %.lr.ph.i450, label %.loopexit562, !llvm.loop !10
+  br i1 %463, label %.lr.ph.i450, label %.loopexit562, !llvm.loop !11
 
 .lr.ph.i450:                                      ; preds = %460, %461
   %.071.i451 = phi ptr [ %462, %461 ], [ %.val417, %460 ]
@@ -7364,7 +7364,7 @@ _ZNK4Node12find_int_conEi.exit457.thread:         ; preds = %569, %563, %556, %.
 .critedge400:                                     ; preds = %610, %604, %598, %616
   %639 = load ptr, ptr %595, align 8
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 8
-  br i1 %599, label %598, label %.loopexit, !llvm.loop !11
+  br i1 %599, label %598, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.critedge400, %.thread583
   %.not = icmp eq i32 %35, 200
@@ -8057,7 +8057,7 @@ define hidden noundef zeroext i1 @_ZN8BoolNode25is_counted_loop_exit_testEv(ptr 
   %13 = getelementptr inbounds nuw i8, ptr %.067, i64 8
   %14 = icmp uge ptr %13, %7
   %or.cond.not = select i1 %12, i1 true, i1 %14
-  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %or.cond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.lcssa = phi i1 [ false, %1 ], [ %12, %.lr.ph ]
@@ -8949,9 +8949,10 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

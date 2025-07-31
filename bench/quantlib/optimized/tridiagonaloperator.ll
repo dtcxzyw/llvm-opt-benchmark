@@ -1572,7 +1572,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add112 = fadd double %70, %69
   store double %add112, ptr %arrayidx.i80, align 8, !tbaa !30
   %exitcond = icmp eq i64 %add, %umax
-  br i1 %exitcond, label %for.cond.cleanup, label %for.body, !llvm.loop !34
+  br i1 %exitcond, label %for.cond.cleanup, label %for.body, !llvm.loop !35
 
 eh.resume:                                        ; preds = %ehcleanup72, %ehcleanup23
   %.pn17.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn17.pn.pn.pn, %ehcleanup72 ], [ %.pn.pn.pn.pn, %ehcleanup23 ]
@@ -2389,7 +2389,7 @@ do.end175:                                        ; preds = %for.body
   store double %div183, ptr %arrayidx.i164, align 8, !tbaa !30
   %inc = add i64 %j.0248, 1
   %cmp124.not = icmp ugt i64 %inc, %sub
-  br i1 %cmp124.not, label %for.cond.cleanup, label %for.body, !llvm.loop !35
+  br i1 %cmp124.not, label %for.cond.cleanup, label %for.body, !llvm.loop !36
 
 for.cond.cleanup191:                              ; preds = %for.body192, %for.cond.cleanup.for.cond.cleanup191_crit_edge
   %106 = phi ptr [ %.pre251, %for.cond.cleanup.for.cond.cleanup191_crit_edge ], [ %76, %for.body192 ]
@@ -2415,7 +2415,7 @@ for.body192:                                      ; preds = %for.body192.lr.ph, 
   store double %114, ptr %arrayidx.i170, align 8, !tbaa !30
   %dec = add i64 %j186.0250, -1
   %cmp190.not = icmp eq i64 %dec, 0
-  br i1 %cmp190.not, label %for.cond.cleanup191, label %for.body192, !llvm.loop !36
+  br i1 %cmp190.not, label %for.cond.cleanup191, label %for.body192, !llvm.loop !37
 
 eh.resume:                                        ; preds = %ehcleanup117, %ehcleanup171, %ehcleanup72, %ehcleanup23
   %.pn43.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn33.pn.pn.pn, %ehcleanup72 ], [ %.pn.pn.pn.pn, %ehcleanup23 ], [ %.pn43.pn.pn.pn, %ehcleanup117 ], [ %.pn38.pn.pn.pn, %ehcleanup171 ]
@@ -2819,7 +2819,7 @@ do.end130.us.preheader:                           ; preds = %do.body77.lr.ph
 do.body77.us:                                     ; preds = %for.cond152.for.end_crit_edge.us
   %inc220.us = add nuw nsw i64 %sorIteration.0226.us229, 1
   %exitcond237.not = icmp eq i64 %inc220.us, 100000
-  br i1 %exitcond237.not, label %if.then79, label %do.end130.us, !llvm.loop !37
+  br i1 %exitcond237.not, label %if.then79, label %do.end130.us, !llvm.loop !38
 
 do.end130.us:                                     ; preds = %do.end130.us.preheader, %do.body77.us
   %53 = phi double [ %add.us, %do.body77.us ], [ %.pre239, %do.end130.us.preheader ]
@@ -2868,7 +2868,7 @@ for.body155.us:                                   ; preds = %do.end130.us, %for.
   %add190.us = fadd double %61, %div186.us
   store double %add190.us, ptr %arrayidx.i152.us, align 8, !tbaa !30
   %exitcond236.not = icmp eq i64 %add162.us, %sub
-  br i1 %exitcond236.not, label %for.cond152.for.end_crit_edge.us, label %for.body155.us, !llvm.loop !39
+  br i1 %exitcond236.not, label %for.cond152.for.end_crit_edge.us, label %for.body155.us, !llvm.loop !40
 
 for.cond152.for.end_crit_edge.us:                 ; preds = %for.body155.us
   %71 = load double, ptr %arrayidx.i157.us, align 8, !tbaa !30
@@ -2886,7 +2886,7 @@ for.cond152.for.end_crit_edge.us:                 ; preds = %for.body155.us
   %add217.us = fadd double %73, %div213.us
   store double %add217.us, ptr %arrayidx.i159.us, align 8, !tbaa !30
   %cmp76.us = fcmp ogt double %77, %tol
-  br i1 %cmp76.us, label %do.body77.us, label %nrvo.skipdtor, !llvm.loop !37
+  br i1 %cmp76.us, label %do.body77.us, label %nrvo.skipdtor, !llvm.loop !38
 
 do.body77.lr.ph.split:                            ; preds = %do.body77.lr.ph
   %arrayidx.i157 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -2898,7 +2898,7 @@ do.body77.lr.ph.split:                            ; preds = %do.body77.lr.ph
 do.body77:                                        ; preds = %do.end130
   %inc220 = add nuw nsw i64 %sorIteration.0226228, 1
   %exitcond.not = icmp eq i64 %inc220, 100000
-  br i1 %exitcond.not, label %if.then79, label %do.end130, !llvm.loop !40
+  br i1 %exitcond.not, label %if.then79, label %do.end130, !llvm.loop !41
 
 if.then79:                                        ; preds = %do.body77, %do.body77.us
   %.us-phi = phi double [ %77, %do.body77.us ], [ %112, %do.body77 ]
@@ -3124,7 +3124,7 @@ do.end130:                                        ; preds = %do.body77.lr.ph.spl
   %add217 = fadd double %101, %div213
   store double %add217, ptr %arrayidx.i, align 8, !tbaa !30
   %cmp76 = fcmp ogt double %112, %tol
-  br i1 %cmp76, label %do.body77, label %nrvo.skipdtor, !llvm.loop !40
+  br i1 %cmp76, label %do.body77, label %nrvo.skipdtor, !llvm.loop !41
 
 nrvo.skipdtor:                                    ; preds = %do.end130, %for.cond152.for.end_crit_edge.us, %_ZN8QuantLib5ArrayC2ERKS0_.exit
   ret void
@@ -3193,7 +3193,7 @@ for.body.i.i.i.i10:                               ; preds = %for.body.i.i.i.i10,
   store double 1.000000e+00, ptr %__first.addr.04.i.i.i.i11, align 8, !tbaa !30
   %incdec.ptr.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i11, i64 8
   %cmp.not.i.i.i.i13 = icmp eq ptr %incdec.ptr.i.i.i.i12, %add.ptr.i.i9
-  br i1 %cmp.not.i.i.i.i13, label %invoke.cont, label %for.body.i.i.i.i10, !llvm.loop !41
+  br i1 %cmp.not.i.i.i.i13, label %invoke.cont, label %for.body.i.i.i.i10, !llvm.loop !42
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp2) #19
@@ -3431,13 +3431,14 @@ attributes #22 = { noreturn nounwind }
 !29 = !{!8, !5, i64 8}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"double", !6, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33}
-!35 = distinct !{!35, !33}
-!36 = distinct !{!36, !33}
-!37 = distinct !{!37, !33, !38}
-!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!39 = distinct !{!39, !33}
-!40 = distinct !{!40, !33}
-!41 = distinct !{!41, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34}
+!36 = distinct !{!36, !33, !34}
+!37 = distinct !{!37, !33, !34}
+!38 = distinct !{!38, !33, !34, !39}
+!39 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!40 = distinct !{!40, !33, !34}
+!41 = distinct !{!41, !33, !34}
+!42 = distinct !{!42, !33, !34}

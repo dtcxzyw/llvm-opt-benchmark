@@ -1146,7 +1146,7 @@ use_wt_file.exit.i:                               ; preds = %434
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %27) #18
   %468 = call i32 @strbuf_getline_nul(ptr noundef nonnull %9, ptr noundef %281) #18
   %.not138.i = icmp eq i32 %468, 0
-  br i1 %.not138.i, label %295, label %.loopexit.i, !llvm.loop !59
+  br i1 %.not138.i, label %295, label %.loopexit.i, !llvm.loop !83
 
 .loopexit.i:                                      ; preds = %.backedge.i, %.thread.i, %279
   %.1109.i = phi i64 [ %.2110.ph.i, %.thread.i ], [ 0, %279 ], [ %365, %.backedge.i ]
@@ -1195,7 +1195,7 @@ use_wt_file.exit.i:                               ; preds = %434
 write_standin_files.exit.i:                       ; preds = %483, %480
   %485 = call ptr @hashmap_iter_next(ptr noundef nonnull %20) #18
   %.not157.i = icmp eq ptr %485, null
-  br i1 %.not157.i, label %._crit_edge.i, label %.lr.ph435.i, !llvm.loop !83
+  br i1 %.not157.i, label %._crit_edge.i, label %.lr.ph435.i, !llvm.loop !85
 
 ._crit_edge.i:                                    ; preds = %write_standin_files.exit.i, %474
   call void @hashmap_iter_init(ptr noundef nonnull %19, ptr noundef nonnull %20) #18
@@ -1229,7 +1229,7 @@ write_standin_files.exit.i:                       ; preds = %483, %480
 write_standin_files.exit190.i:                    ; preds = %494, %491
   %496 = call ptr @hashmap_iter_next(ptr noundef nonnull %20) #18
   %.not158.i = icmp eq ptr %496, null
-  br i1 %.not158.i, label %._crit_edge440.i, label %.lr.ph439.i, !llvm.loop !84
+  br i1 %.not158.i, label %._crit_edge440.i, label %.lr.ph439.i, !llvm.loop !86
 
 ._crit_edge440.i:                                 ; preds = %write_standin_files.exit190.i, %._crit_edge.i
   %497 = load i64, ptr %13, align 8, !tbaa !47
@@ -1298,7 +1298,7 @@ strbuf_setlen.exit196.i:                          ; preds = %509, %507
   %523 = freeze i32 %522
   call void @ensure_full_index(ptr noundef nonnull %21) #18
   %524 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  %525 = load i32, ptr %524, align 4, !tbaa !85
+  %525 = load i32, ptr %524, align 4, !tbaa !87
   %.not448.i = icmp eq i32 %525, 0
   br i1 %.not448.i, label %._crit_edge446.thread.i, label %.lr.ph445.i
 
@@ -1320,9 +1320,9 @@ strbuf_setlen.exit196.i:                          ; preds = %509, %507
   %.3111443.i = phi i64 [ %593, %592 ], [ %.3111443.ph.i, %.outer.i ]
   %.0122442.i = phi i32 [ %.1123.ph.i, %592 ], [ %.0122442.ph.i, %.outer.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #18
-  %533 = load ptr, ptr %21, align 8, !tbaa !86
+  %533 = load ptr, ptr %21, align 8, !tbaa !88
   %534 = getelementptr inbounds nuw ptr, ptr %533, i64 %.3111443.i
-  %535 = load ptr, ptr %534, align 8, !tbaa !87
+  %535 = load ptr, ptr %534, align 8, !tbaa !89
   %536 = getelementptr inbounds nuw i8, ptr %535, i64 108
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %31) #18
   call fastcc void @add_path(ptr noundef %14, i64 noundef %263, ptr noundef nonnull %536)
@@ -1476,10 +1476,10 @@ _.exit209.i:                                      ; preds = %585, %583
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %31) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #18
   %593 = add nuw nsw i64 %.3111443.i, 1
-  %594 = load i32, ptr %524, align 4, !tbaa !85
+  %594 = load i32, ptr %524, align 4, !tbaa !87
   %595 = zext i32 %594 to i64
   %596 = icmp samesign ult i64 %593, %595
-  br i1 %596, label %532, label %._crit_edge446.i, !llvm.loop !89
+  br i1 %596, label %532, label %._crit_edge446.i, !llvm.loop !91
 
 .thread608.i:                                     ; preds = %574, %_.exit.i
   %.0.i205.i = phi ptr [ %575, %574 ], [ @.str.68, %_.exit.i ]
@@ -1488,10 +1488,10 @@ _.exit209.i:                                      ; preds = %585, %583
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %31) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %30) #18
   %597 = add nuw nsw i64 %.3111443.i, 1
-  %598 = load i32, ptr %524, align 4, !tbaa !85
+  %598 = load i32, ptr %524, align 4, !tbaa !87
   %599 = zext i32 %598 to i64
   %600 = icmp samesign ult i64 %597, %599
-  br i1 %600, label %.outer.i, label %._crit_edge446.thread612.i, !llvm.loop !89
+  br i1 %600, label %.outer.i, label %._crit_edge446.thread612.i, !llvm.loop !91
 
 ._crit_edge446.i:                                 ; preds = %592
   br i1 %531, label %._crit_edge446.thread.i, label %._crit_edge446.thread612.i
@@ -2133,7 +2133,7 @@ st_add.exit17:                                    ; preds = %st_add.exit
   call void @hashmap_add(ptr noundef nonnull %0, ptr noundef nonnull %41) #18
   %47 = call i32 @strbuf_getline_nul(ptr noundef nonnull %6, ptr noundef %30) #18
   %.not15 = icmp eq i32 %47, 0
-  br i1 %.not15, label %33, label %._crit_edge, !llvm.loop !90
+  br i1 %.not15, label %33, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %st_add.exit17, %28
   %48 = call i32 @fclose(ptr noundef %30)
@@ -2357,11 +2357,13 @@ attributes #20 = { nounwind willreturn memory(read) }
 !80 = !{!"p1 _ZTS13git_hash_algo", !11, i64 0}
 !81 = !{!"p1 _ZTS22promisor_remote_config", !11, i64 0}
 !82 = !{!38, !5, i64 32}
-!83 = distinct !{!83, !60}
-!84 = distinct !{!84, !60}
-!85 = !{!30, !5, i64 12}
-!86 = !{!30, !31, i64 0}
-!87 = !{!88, !88, i64 0}
-!88 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
-!89 = distinct !{!89, !60}
-!90 = distinct !{!90, !60}
+!83 = distinct !{!83, !60, !84}
+!84 = !{!"llvm.loop.estimated_trip_count"}
+!85 = distinct !{!85, !60, !84}
+!86 = distinct !{!86, !60, !84}
+!87 = !{!30, !5, i64 12}
+!88 = !{!30, !31, i64 0}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"p1 _ZTS11cache_entry", !11, i64 0}
+!91 = distinct !{!91, !60, !84}
+!92 = distinct !{!92, !60, !84}

@@ -1617,7 +1617,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %502, %504
   br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit264.backedge
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit264.backedge: ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %499, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit282
-  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit264
+  br label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit264, !llvm.loop !66
 
 505:                                              ; preds = %487
   %506 = landingpad { ptr, i32 }
@@ -2070,3 +2070,5 @@ attributes #16 = { noreturn }
 !63 = !{!60, !12, i64 4}
 !64 = !{!65, !47, i64 0}
 !65 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !47, i64 0, !47, i64 8, !47, i64 16}
+!66 = distinct !{!66, !67}
+!67 = !{!"llvm.loop.estimated_trip_count"}

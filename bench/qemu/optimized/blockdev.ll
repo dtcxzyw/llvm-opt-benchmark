@@ -509,13 +509,13 @@ define dso_local void @blockdev_mark_auto_del(ptr noundef %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %6, %.lr.ph.backedge
   %.020 = phi ptr [ %.020.be, %.lr.ph.backedge ], [ %9, %6 ]
   %10 = getelementptr inbounds nuw i8, ptr %.020, i64 183
-  %11 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %.critedge2, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.020, i64 185
-  %15 = load i8, ptr %14, align 1, !range !6, !noundef !7
+  %15 = load i8, ptr %14, align 1, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.critedge2, label %17
 
@@ -531,7 +531,7 @@ define dso_local void @blockdev_mark_auto_del(ptr noundef %0) local_unnamed_addr
 
 .lr.ph.backedge:                                  ; preds = %.critedge2, %.critedge16
   %.020.be = phi ptr [ %20, %.critedge2 ], [ %21, %.critedge16 ]
-  br label %.lr.ph, !llvm.loop !8
+  br label %.lr.ph, !llvm.loop !9
 
 .critedge16:                                      ; preds = %17
   tail call void @job_cancel_locked(ptr noundef nonnull %.020, i1 noundef zeroext false) #14
@@ -685,7 +685,7 @@ define dso_local ptr @drive_get(i32 noundef %0, i32 noundef %1, i32 noundef %2) 
 20:                                               ; preds = %.lr.ph, %9, %12, %16
   %21 = tail call ptr @blk_next(ptr noundef nonnull %.015) #14
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %16, %20, %6
   %.011 = phi ptr [ null, %6 ], [ null, %20 ], [ %8, %16 ]
@@ -709,7 +709,7 @@ define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
   br i1 %.not15, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false), !annotation !11
   br label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %.thread, %.lr.ph.preheader
@@ -721,7 +721,7 @@ define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
   %.01216 = phi ptr [ %15, %14 ], [ %.01216.ph, %.lr.ph.outer ]
   %6 = call ptr @blk_legacy_dinfo(ptr noundef nonnull %.01216) #14
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i8, ptr %7, align 8, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 8, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %14, label %10
 
@@ -741,7 +741,7 @@ define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
 14:                                               ; preds = %10, %10, %10, %12, %.lr.ph
   %15 = call ptr @blk_next(ptr noundef nonnull %.01216) #14
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .thread:                                          ; preds = %12
   %16 = call ptr @loc_push_none(ptr noundef nonnull %1) #14
@@ -760,7 +760,7 @@ define dso_local void @drive_check_orphaned() local_unnamed_addr #0 {
   %27 = call ptr @loc_pop(ptr noundef nonnull %1) #14
   %28 = call ptr @blk_next(ptr noundef nonnull %.01216) #14
   %.not19 = icmp eq ptr %28, null
-  br i1 %.not19, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !11
+  br i1 %.not19, label %._crit_edge.thread, label %.lr.ph.outer, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %14
   br i1 %.017.ph, label %._crit_edge.thread, label %.critedge
@@ -852,7 +852,7 @@ drive_index_to_unit_id.exit:                      ; preds = %5, %9
 30:                                               ; preds = %26, %22, %19, %.lr.ph.i
   %31 = tail call ptr @blk_next(ptr noundef nonnull %.015.i) #14
   %.not.i6 = icmp eq ptr %31, null
-  br i1 %.not.i6, label %drive_get.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i6, label %drive_get.exit, label %.lr.ph.i, !llvm.loop !10
 
 drive_get.exit:                                   ; preds = %26, %30, %16
   %.011.i = phi ptr [ null, %16 ], [ %18, %26 ], [ null, %30 ]
@@ -895,7 +895,7 @@ define dso_local range(i32 -1, -2147483648) i32 @drive_get_max_bus(i32 noundef %
   %.1 = phi i32 [ %.0914, %7 ], [ %.0914, %.lr.ph ], [ %spec.select, %10 ]
   %14 = tail call ptr @blk_next(ptr noundef nonnull %.015) #14
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %13, %4
   %.09.lcssa = phi i32 [ -1, %4 ], [ %.1, %13 ]
@@ -947,7 +947,7 @@ define dso_local void @blockdev_close_all_bdrv_states() local_unnamed_addr #0 {
   %6 = load ptr, ptr %5, align 8
   tail call void @bdrv_unref(ptr noundef nonnull %.05) #14
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !14
 
 .critedge:                                        ; preds = %.lr.ph, %3
   ret void
@@ -1009,7 +1009,7 @@ define dso_local noundef ptr @drive_new(ptr noundef %0, i32 noundef %1, ptr noun
   %19 = tail call i32 @qemu_opt_unset(ptr noundef %0, ptr noundef %9) #14
   %20 = tail call ptr @qemu_opt_get(ptr noundef %0, ptr noundef %9) #14
   %.not18.i = icmp eq ptr %20, null
-  br i1 %.not18.i, label %.loopexit261, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not18.i, label %.loopexit261, label %.lr.ph.i, !llvm.loop !15
 
 qemu_opt_rename.exit:                             ; preds = %13
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 709, ptr noundef nonnull @__func__.qemu_opt_rename, ptr noundef nonnull @.str.184, ptr noundef %11, ptr noundef %9) #14
@@ -1018,7 +1018,7 @@ qemu_opt_rename.exit:                             ; preds = %13
 .loopexit261:                                     ; preds = %.lr.ph.i, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond.not, label %21, label %.preheader262, !llvm.loop !15
+  br i1 %exitcond.not, label %21, label %.preheader262, !llvm.loop !16
 
 21:                                               ; preds = %.loopexit261
   %22 = tail call ptr @qemu_opt_get(ptr noundef %0, ptr noundef nonnull @.str.58) #14
@@ -1029,7 +1029,7 @@ qemu_opt_rename.exit:                             ; preds = %13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
-  store i8 0, ptr %5, align 1, !annotation !10
+  store i8 0, ptr %5, align 1, !annotation !11
   %24 = call i32 @bdrv_parse_cache_mode(ptr noundef nonnull %22, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
   %.not197 = icmp eq i32 %24, 0
   br i1 %.not197, label %25, label %47
@@ -1040,7 +1040,7 @@ qemu_opt_rename.exit:                             ; preds = %13
   br i1 %.not198, label %27, label %32
 
 27:                                               ; preds = %25
-  %28 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %28 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   %30 = xor i1 %29, true
   %31 = call zeroext i1 @qemu_opt_set_bool(ptr noundef %0, ptr noundef nonnull @.str.60, i1 noundef zeroext %30, ptr noundef nonnull @error_abort) #14
@@ -1150,7 +1150,7 @@ qemu_opt_rename.exit:                             ; preds = %13
 76:                                               ; preds = %.preheader260
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, 9
-  br i1 %exitcond287.not, label %.critedge, label %.preheader260, !llvm.loop !16
+  br i1 %exitcond287.not, label %.critedge, label %.preheader260, !llvm.loop !17
 
 .critedge:                                        ; preds = %76
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 899, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.66, ptr noundef nonnull %72) #14
@@ -1244,7 +1244,7 @@ drive_index_to_unit_id.exit:                      ; preds = %92, %.critedge.thre
 111:                                              ; preds = %107, %103, %100, %.lr.ph.i222
   %112 = call ptr @blk_next(ptr noundef nonnull %.015.i) #14
   %.not.i223 = icmp eq ptr %112, null
-  br i1 %.not.i223, label %drive_get.exit.thread, label %.lr.ph.i222, !llvm.loop !9
+  br i1 %.not.i223, label %drive_get.exit.thread, label %.lr.ph.i222, !llvm.loop !10
 
 drive_get.exit:                                   ; preds = %107
   %113 = add i32 %.2272, 1
@@ -1255,7 +1255,7 @@ drive_get.exit:                                   ; preds = %107
   %115 = select i1 %.not215, i32 %86, i32 0
   %.3 = sub i32 %113, %115
   %116 = call zeroext i1 @qemu_in_main_thread() #14
-  br i1 %116, label %97, label %._crit_edge, !llvm.loop !17
+  br i1 %116, label %97, label %._crit_edge, !llvm.loop !18
 
 drive_get.exit.thread:                            ; preds = %97, %111, %drive_index_to_unit_id.exit
   %.1180 = phi i32 [ %.0179, %drive_index_to_unit_id.exit ], [ %.2181271, %111 ], [ %.2181271, %97 ]
@@ -1312,7 +1312,7 @@ drive_get.exit.thread:                            ; preds = %97, %111, %drive_in
 135:                                              ; preds = %131, %127, %124, %.lr.ph.i225
   %136 = call ptr @blk_next(ptr noundef nonnull %.015.i226) #14
   %.not.i228 = icmp eq ptr %136, null
-  br i1 %.not.i228, label %.loopexit, label %.lr.ph.i225, !llvm.loop !9
+  br i1 %.not.i228, label %.loopexit, label %.lr.ph.i225, !llvm.loop !10
 
 drive_get.exit230:                                ; preds = %131
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %2, ptr noundef nonnull @.str.1, i32 noundef 941, ptr noundef nonnull @__func__.drive_new, ptr noundef nonnull @.str.69, i32 noundef %.1180246, i32 noundef %.1178248, i32 noundef %83) #14
@@ -1516,7 +1516,7 @@ define internal fastcc ptr @blockdev_init(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %6) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %6, i8 0, i64 248, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %6, i8 0, i64 248, i1 false), !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
@@ -2118,7 +2118,7 @@ define dso_local noalias noundef ptr @qmp_blockdev_snapshot_delete_internal_sync
   unreachable
 
 9:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %5, i8 0, i64 416, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %5, i8 0, i64 416, i1 false), !annotation !11
   tail call void @bdrv_graph_rdlock_main_loop() #14
   %10 = tail call fastcc ptr @qmp_get_root_bs(ptr noundef %0, ptr noundef %3)
   %.not = icmp eq ptr %10, null
@@ -2273,7 +2273,7 @@ define internal void @internal_snapshot_abort(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   tail call void @bdrv_graph_rdlock_main_loop() #14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %9 = load i8, ptr %8, align 8, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 8, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -2319,7 +2319,7 @@ define internal void @external_snapshot_abort(ptr noundef readonly captures(none
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i8, ptr %5, align 8, !range !6, !noundef !7
+  %6 = load i8, ptr %5, align 8, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %28
 
@@ -2530,7 +2530,7 @@ define internal void @block_dirty_bitmap_free_backup(ptr noundef readonly captur
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_dirty_bitmap_enable_abort(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
+  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %7, label %5
 
@@ -2546,7 +2546,7 @@ define internal void @block_dirty_bitmap_enable_abort(ptr noundef readonly captu
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @block_dirty_bitmap_disable_abort(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
+  %3 = load i8, ptr %2, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %7
 
@@ -2646,7 +2646,7 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
 25:                                               ; preds = %.lr.ph, %.lr.ph
   %26 = load ptr, ptr %.02339, align 8
   %.not30 = icmp eq ptr %26, null
-  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not30, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %25, %.preheader
   %27 = tail call ptr @job_txn_new() #14
@@ -2684,9 +2684,9 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
   store ptr null, ptr %8, align 8
   %33 = call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
-  store i64 0, ptr %9, align 8, !annotation !10
+  store i64 0, ptr %9, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
-  store i64 0, ptr %10, align 8, !annotation !10
+  store i64 0, ptr %10, align 8, !annotation !11
   call void @bdrv_graph_rdlock_main_loop() #14
   call void @tran_add(ptr noundef %28, ptr noundef nonnull @external_snapshot_drv, ptr noundef %33) #14
   %34 = load i32, ptr %30, align 8
@@ -2802,7 +2802,7 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
   %91 = and i32 %90, -1289
   %92 = or disjoint i32 %91, 256
   %93 = getelementptr inbounds nuw i8, ptr %76, i64 40
-  %94 = load i8, ptr %93, align 8, !range !6, !noundef !7
+  %94 = load i8, ptr %93, align 8, !range !7, !noundef !8
   %95 = trunc nuw i8 %94 to i1
   br i1 %95, label %96, label %.critedge.i.i
 
@@ -2877,7 +2877,7 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 12
-  %129 = load i8, ptr %128, align 4, !range !6, !noundef !7
+  %129 = load i8, ptr %128, align 4, !range !7, !noundef !8
   %130 = trunc nuw i8 %129 to i1
   br i1 %130, label %131, label %132
 
@@ -2899,7 +2899,7 @@ define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 17
-  %140 = load i8, ptr %139, align 1, !range !6, !noundef !7
+  %140 = load i8, ptr %139, align 1, !range !7, !noundef !8
   %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %143, label %142
 
@@ -2958,7 +2958,7 @@ external_snapshot_action.exit.i:                  ; preds = %158, %153, %149, %1
 166:                                              ; preds = %160
   call void @tran_add(ptr noundef %28, ptr noundef nonnull @drive_backup_drv, ptr noundef %163) #14
   %167 = getelementptr inbounds nuw i8, ptr %162, i64 112
-  %168 = load i8, ptr %167, align 8, !range !6, !noundef !7
+  %168 = load i8, ptr %167, align 8, !range !7, !noundef !8
   %169 = trunc nuw i8 %168 to i1
   br i1 %169, label %172, label %170
 
@@ -3206,7 +3206,7 @@ drive_backup_action.exit.i:                       ; preds = %248, %240, %233, %2
   unreachable
 
 274:                                              ; preds = %268
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %6, i8 0, i64 416, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %6, i8 0, i64 416, i1 false), !annotation !11
   call void @bdrv_graph_rdlock_main_loop() #14
   call void @tran_add(ptr noundef %28, ptr noundef nonnull @internal_snapshot_drv, ptr noundef %271) #14
   %275 = load ptr, ptr %270, align 8
@@ -3328,21 +3328,21 @@ internal_snapshot_action.exit.i:                  ; preds = %320, %318, %297, %2
   %327 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %328 = load ptr, ptr %327, align 8
   %329 = getelementptr inbounds nuw i8, ptr %324, i64 16
-  %330 = load i8, ptr %329, align 8, !range !6, !noundef !7
+  %330 = load i8, ptr %329, align 8, !range !7, !noundef !8
   %331 = trunc nuw i8 %330 to i1
   %332 = getelementptr inbounds nuw i8, ptr %324, i64 20
   %333 = load i32, ptr %332, align 4
   %334 = getelementptr inbounds nuw i8, ptr %324, i64 24
-  %335 = load i8, ptr %334, align 8, !range !6, !noundef !7
+  %335 = load i8, ptr %334, align 8, !range !7, !noundef !8
   %336 = trunc nuw i8 %335 to i1
   %337 = getelementptr inbounds nuw i8, ptr %324, i64 25
-  %338 = load i8, ptr %337, align 1, !range !6, !noundef !7
+  %338 = load i8, ptr %337, align 1, !range !7, !noundef !8
   %339 = trunc nuw i8 %338 to i1
   %340 = getelementptr inbounds nuw i8, ptr %324, i64 26
-  %341 = load i8, ptr %340, align 2, !range !6, !noundef !7
+  %341 = load i8, ptr %340, align 2, !range !7, !noundef !8
   %342 = trunc nuw i8 %341 to i1
   %343 = getelementptr inbounds nuw i8, ptr %324, i64 27
-  %344 = load i8, ptr %343, align 1, !range !6, !noundef !7
+  %344 = load i8, ptr %343, align 1, !range !7, !noundef !8
   %345 = trunc nuw i8 %344 to i1
   call void @qmp_block_dirty_bitmap_add(ptr noundef %326, ptr noundef %328, i1 noundef zeroext %331, i32 noundef %333, i1 noundef zeroext %336, i1 noundef zeroext %339, i1 noundef zeroext %342, i1 noundef zeroext %345, ptr noundef nonnull %4) #14
   %346 = load ptr, ptr %4, align 8
@@ -3497,7 +3497,7 @@ transaction_action.exit:                          ; preds = %external_snapshot_a
 423:                                              ; preds = %transaction_action.exit
   %424 = load ptr, ptr %.141, align 8
   %.not31 = icmp eq ptr %424, null
-  br i1 %.not31, label %._crit_edge43, label %.lr.ph42, !llvm.loop !19
+  br i1 %.not31, label %._crit_edge43, label %.lr.ph42, !llvm.loop !20
 
 ._crit_edge43:                                    ; preds = %423, %.thread35
   call void @tran_commit(ptr noundef %28) #14
@@ -3530,7 +3530,7 @@ declare void @job_txn_unref(ptr noundef) local_unnamed_addr #1
 define dso_local noalias noundef ptr @qmp_x_debug_block_dirty_bitmap_sha256(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr null, ptr %4, align 8, !annotation !10
+  store ptr null, ptr %4, align 8, !annotation !11
   %5 = call ptr @block_dirty_bitmap_lookup(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, ptr noundef %2) #14
   %6 = icmp ne ptr %5, null
   %7 = load ptr, ptr %4, align 8
@@ -3752,7 +3752,7 @@ define dso_local void @qmp_block_stream(ptr noundef %0, ptr noundef %1, ptr noun
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  %65 = load i8, ptr %64, align 4, !range !6, !noundef !7
+  %65 = load i8, ptr %64, align 4, !range !7, !noundef !8
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %68
 
@@ -3812,7 +3812,7 @@ bdrv_filter_or_cow_bs.exit120:                    ; preds = %82
   %85 = icmp ne ptr %84, null
   %86 = icmp ne ptr %84, %80
   %87 = and i1 %85, %86
-  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %87, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %82, %bdrv_filter_or_cow_bs.exit120, %bdrv_filter_or_cow_bs.exit
   %.098122129 = phi ptr [ %.098122, %bdrv_filter_or_cow_bs.exit ], [ %.098122128, %bdrv_filter_or_cow_bs.exit120 ], [ %.098122128, %82 ]
@@ -3876,7 +3876,7 @@ define internal fastcc void @trace_qmp_block_stream(ptr noundef nonnull %0) unna
   %2 = alloca %struct.timeval, align 8
   %3 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %_nocheck__trace_qmp_block_stream.exit, label %4, !prof !21
+  br i1 %.not.i, label %_nocheck__trace_qmp_block_stream.exit, label %4, !prof !22
 
 4:                                                ; preds = %1
   %5 = load i16, ptr @_TRACE_QMP_BLOCK_STREAM_DSTATE, align 2
@@ -3890,13 +3890,13 @@ define internal fastcc void @trace_qmp_block_stream(ptr noundef nonnull %0) unna
   br i1 %.not3.i, label %_nocheck__trace_qmp_block_stream.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %10 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !11
   %13 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #14
   %14 = tail call i32 @qemu_get_thread_id() #14
   %15 = load i64, ptr %2, align 8
@@ -3922,9 +3922,9 @@ define dso_local void @qmp_block_commit(ptr noundef %0, ptr noundef %1, ptr noun
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
   store ptr null, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
-  store i64 0, ptr %21, align 8, !annotation !10
+  store i64 0, ptr %21, align 8, !annotation !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
-  store i64 0, ptr %22, align 8, !annotation !10
+  store i64 0, ptr %22, align 8, !annotation !11
   tail call void @bdrv_graph_rdlock_main_loop() #14
   %spec.select = select i1 %9, i64 %10, i64 0
   %.0121 = select i1 %11, i32 %12, i32 0
@@ -4097,7 +4097,7 @@ bdrv_filter_or_cow_bs.exit:                       ; preds = %.preheader, %80
 
 .preheader.backedge:                              ; preds = %85, %87
   %.0118.be = phi ptr [ %88, %87 ], [ null, %85 ]
-  br label %.preheader, !llvm.loop !22
+  br label %.preheader, !llvm.loop !23
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr %86, align 8
@@ -4284,7 +4284,7 @@ define dso_local void @qmp_drive_mirror(ptr noundef captures(none) %0, ptr nound
 12:                                               ; preds = %9
   %13 = tail call ptr @bdrv_get_aio_context(ptr noundef nonnull %8) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %15 = load i8, ptr %14, align 4, !range !6, !noundef !7
+  %15 = load i8, ptr %14, align 4, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -4497,52 +4497,52 @@ bdrv_cow_bs.exit.thread:                          ; preds = %29, %bdrv_cow_bs.ex
   %108 = load ptr, ptr %50, align 8
   %109 = load i32, ptr %43, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  %111 = load i8, ptr %110, align 4, !range !6, !noundef !7
+  %111 = load i8, ptr %110, align 4, !range !7, !noundef !8
   %112 = trunc nuw i8 %111 to i1
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %114 = load i64, ptr %113, align 8
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %116 = load i8, ptr %115, align 8, !range !6, !noundef !7
+  %116 = load i8, ptr %115, align 8, !range !7, !noundef !8
   %117 = trunc nuw i8 %116 to i1
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %119 = load i32, ptr %118, align 4
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %121 = load i8, ptr %120, align 8, !range !6, !noundef !7
+  %121 = load i8, ptr %120, align 8, !range !7, !noundef !8
   %122 = trunc nuw i8 %121 to i1
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %124 = load i64, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %126 = load i8, ptr %125, align 8, !range !6, !noundef !7
+  %126 = load i8, ptr %125, align 8, !range !7, !noundef !8
   %127 = trunc nuw i8 %126 to i1
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %129 = load i32, ptr %128, align 4
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %131 = load i8, ptr %130, align 8, !range !6, !noundef !7
+  %131 = load i8, ptr %130, align 8, !range !7, !noundef !8
   %132 = trunc nuw i8 %131 to i1
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %134 = load i32, ptr %133, align 4
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %136 = load i8, ptr %135, align 8, !range !6, !noundef !7
+  %136 = load i8, ptr %135, align 8, !range !7, !noundef !8
   %137 = trunc nuw i8 %136 to i1
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 113
-  %139 = load i8, ptr %138, align 1, !range !6, !noundef !7
+  %139 = load i8, ptr %138, align 1, !range !7, !noundef !8
   %140 = trunc nuw i8 %139 to i1
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 114
-  %142 = load i8, ptr %141, align 2, !range !6, !noundef !7
+  %142 = load i8, ptr %141, align 2, !range !7, !noundef !8
   %143 = trunc nuw i8 %142 to i1
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %145 = load i32, ptr %144, align 4
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %147 = load i8, ptr %146, align 8, !range !6, !noundef !7
+  %147 = load i8, ptr %146, align 8, !range !7, !noundef !8
   %148 = trunc nuw i8 %147 to i1
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %150 = load i8, ptr %149, align 1, !range !6, !noundef !7
+  %150 = load i8, ptr %149, align 1, !range !7, !noundef !8
   %151 = trunc nuw i8 %150 to i1
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 122
-  %153 = load i8, ptr %152, align 2, !range !6, !noundef !7
+  %153 = load i8, ptr %152, align 2, !range !7, !noundef !8
   %154 = trunc nuw i8 %153 to i1
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 123
-  %156 = load i8, ptr %155, align 1, !range !6, !noundef !7
+  %156 = load i8, ptr %155, align 1, !range !7, !noundef !8
   %157 = trunc nuw i8 %156 to i1
   call fastcc void @blockdev_mirror_common(ptr noundef %107, ptr noundef %8, ptr noundef %92, ptr noundef %108, i32 noundef %109, i32 noundef %., i1 noundef zeroext %102, i1 noundef zeroext %112, i64 noundef %114, i1 noundef zeroext %117, i32 noundef %119, i1 noundef zeroext %122, i64 noundef %124, i1 noundef zeroext %127, i32 noundef %129, i1 noundef zeroext %132, i32 noundef %134, i1 noundef zeroext %137, i1 noundef zeroext %140, ptr noundef null, i1 noundef zeroext %143, i32 noundef %145, i1 noundef zeroext %148, i1 noundef zeroext %151, i1 noundef zeroext %154, i1 noundef zeroext %157, ptr noundef %1)
   call void @bdrv_unref(ptr noundef nonnull %92) #14
@@ -4776,7 +4776,7 @@ find_block_job_locked.exit:                       ; preds = %9
 13:                                               ; preds = %find_block_job_locked.exit
   %14 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %14, 0
-  br i1 %.not.i.i, label %trace_qmp_block_job_cancel.exit, label %15, !prof !21
+  br i1 %.not.i.i, label %trace_qmp_block_job_cancel.exit, label %15, !prof !22
 
 15:                                               ; preds = %13
   %16 = load i16, ptr @_TRACE_QMP_BLOCK_JOB_CANCEL_DSTATE, align 2
@@ -4790,13 +4790,13 @@ find_block_job_locked.exit:                       ; preds = %9
   br i1 %.not3.i.i, label %trace_qmp_block_job_cancel.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %21 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !11
   %24 = call i32 @gettimeofday(ptr noundef nonnull %5, ptr noundef null) #14
   %25 = tail call i32 @qemu_get_thread_id() #14
   %26 = load i64, ptr %5, align 8
@@ -4848,7 +4848,7 @@ find_block_job_locked.exit.thread:                ; preds = %7
 find_block_job_locked.exit:                       ; preds = %7
   %9 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %trace_qmp_block_job_pause.exit, label %10, !prof !21
+  br i1 %.not.i.i, label %trace_qmp_block_job_pause.exit, label %10, !prof !22
 
 10:                                               ; preds = %find_block_job_locked.exit
   %11 = load i16, ptr @_TRACE_QMP_BLOCK_JOB_PAUSE_DSTATE, align 2
@@ -4862,13 +4862,13 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %.not3.i.i, label %trace_qmp_block_job_pause.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
   %21 = load i64, ptr %3, align 8
@@ -4918,7 +4918,7 @@ find_block_job_locked.exit.thread:                ; preds = %7
 find_block_job_locked.exit:                       ; preds = %7
   %9 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %trace_qmp_block_job_resume.exit, label %10, !prof !21
+  br i1 %.not.i.i, label %trace_qmp_block_job_resume.exit, label %10, !prof !22
 
 10:                                               ; preds = %find_block_job_locked.exit
   %11 = load i16, ptr @_TRACE_QMP_BLOCK_JOB_RESUME_DSTATE, align 2
@@ -4932,13 +4932,13 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %.not3.i.i, label %trace_qmp_block_job_resume.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
   %21 = load i64, ptr %3, align 8
@@ -4988,7 +4988,7 @@ find_block_job_locked.exit.thread:                ; preds = %7
 find_block_job_locked.exit:                       ; preds = %7
   %9 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %trace_qmp_block_job_complete.exit, label %10, !prof !21
+  br i1 %.not.i.i, label %trace_qmp_block_job_complete.exit, label %10, !prof !22
 
 10:                                               ; preds = %find_block_job_locked.exit
   %11 = load i16, ptr @_TRACE_QMP_BLOCK_JOB_COMPLETE_DSTATE, align 2
@@ -5002,13 +5002,13 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %.not3.i.i, label %trace_qmp_block_job_complete.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
   %21 = load i64, ptr %3, align 8
@@ -5058,7 +5058,7 @@ find_block_job_locked.exit.thread:                ; preds = %7
 find_block_job_locked.exit:                       ; preds = %7
   %9 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %9, 0
-  br i1 %.not.i.i, label %trace_qmp_block_job_finalize.exit, label %10, !prof !21
+  br i1 %.not.i.i, label %trace_qmp_block_job_finalize.exit, label %10, !prof !22
 
 10:                                               ; preds = %find_block_job_locked.exit
   %11 = load i16, ptr @_TRACE_QMP_BLOCK_JOB_FINALIZE_DSTATE, align 2
@@ -5072,13 +5072,13 @@ find_block_job_locked.exit:                       ; preds = %7
   br i1 %.not3.i.i, label %trace_qmp_block_job_finalize.exit, label %15
 
 15:                                               ; preds = %12
-  %16 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %16 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %19 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %20 = tail call i32 @qemu_get_thread_id() #14
   %21 = load i64, ptr %3, align 8
@@ -5125,7 +5125,7 @@ define dso_local void @qmp_block_job_dismiss(ptr noundef %0, ptr noundef %1) loc
   unreachable
 
 8:                                                ; preds = %2
-  store ptr null, ptr %4, align 8, !annotation !10
+  store ptr null, ptr %4, align 8, !annotation !11
   %9 = tail call ptr @block_job_get_locked(ptr noundef nonnull %0) #14
   %.not9.i = icmp eq ptr %9, null
   br i1 %.not9.i, label %find_block_job_locked.exit.thread, label %find_block_job_locked.exit
@@ -5137,7 +5137,7 @@ find_block_job_locked.exit.thread:                ; preds = %8
 find_block_job_locked.exit:                       ; preds = %8
   %10 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i, label %trace_qmp_block_job_dismiss.exit, label %11, !prof !21
+  br i1 %.not.i.i, label %trace_qmp_block_job_dismiss.exit, label %11, !prof !22
 
 11:                                               ; preds = %find_block_job_locked.exit
   %12 = load i16, ptr @_TRACE_QMP_BLOCK_JOB_DISMISS_DSTATE, align 2
@@ -5151,13 +5151,13 @@ find_block_job_locked.exit:                       ; preds = %8
   br i1 %.not3.i.i, label %trace_qmp_block_job_dismiss.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
+  %17 = load i8, ptr @message_with_timestamp, align 1, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
 19:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !11
   %20 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #14
   %21 = tail call i32 @qemu_get_thread_id() #14
   %22 = load i64, ptr %3, align 8
@@ -5325,7 +5325,7 @@ define dso_local void @qmp_blockdev_add(ptr noundef %0, ptr noundef %1) local_un
   %4 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr null, ptr %4, align 8, !annotation !10
+  store ptr null, ptr %4, align 8, !annotation !11
   %5 = call ptr @qobject_output_visitor_new(ptr noundef nonnull %4) #14
   %6 = call zeroext i1 @visit_type_BlockdevOptions(ptr noundef %5, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull @error_abort) #14
   call void @visit_complete(ptr noundef %5, ptr noundef nonnull %4) #14
@@ -5417,7 +5417,7 @@ define dso_local void @qmp_blockdev_reopen(ptr noundef readonly captures(address
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  store ptr null, ptr %4, align 8, !annotation !10
+  store ptr null, ptr %4, align 8, !annotation !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
@@ -5478,7 +5478,7 @@ qobject_type.exit.i:                              ; preds = %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   %27 = load ptr, ptr %.01730, align 8
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %25, %2
   %.016.lcssa = phi ptr [ null, %2 ], [ %26, %25 ]
@@ -5695,7 +5695,7 @@ define dso_local void @qmp_x_blockdev_change(ptr noundef %0, ptr noundef %1, ptr
   %19 = getelementptr inbounds nuw i8, ptr %.010.i, i64 64
   %.0.i = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !25
 
 .loopexit:                                        ; preds = %18, %12
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %3, ptr noundef nonnull @.str.1, i32 noundef 3546, ptr noundef nonnull @__func__.qmp_x_blockdev_change, ptr noundef nonnull @.str.130, ptr noundef %0, ptr noundef nonnull %1) #14
@@ -5774,7 +5774,7 @@ define dso_local ptr @qmp_query_block_jobs(ptr noundef %0) local_unnamed_addr #0
   %.1.ph = phi ptr [ %.01222, %.lr.ph ], [ %12, %9 ]
   %15 = tail call ptr @block_job_next_locked(ptr noundef nonnull %.01123) #14
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %14
   %.0..0..0..0..0..0.15.pre = load ptr, ptr %2, align 8
@@ -5953,7 +5953,7 @@ qobject_type.exit:                                ; preds = %.lr.ph
 
 7:                                                ; preds = %qobject_type.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
-  store i64 0, ptr %3, align 8, !annotation !10
+  store i64 0, ptr %3, align 8, !annotation !11
   %8 = load ptr, ptr %.02710, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %13, label %9
@@ -6020,7 +6020,7 @@ qobject_check_type.exit36:                        ; preds = %qobject_type.exit
   %28 = getelementptr i8, ptr %.02710, i64 8
   %.027.val = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %.027.val, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !27
 
 .loopexit:                                        ; preds = %27, %2, %25, %21, %26
   %.not7 = phi i1 [ false, %25 ], [ false, %21 ], [ false, %26 ], [ true, %2 ], [ true, %27 ]
@@ -6105,7 +6105,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 64, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 4, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %13, label %11
 
@@ -6116,7 +6116,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 13:                                               ; preds = %11, %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %15 = load i8, ptr %14, align 2, !range !6, !noundef !7
+  %15 = load i8, ptr %14, align 2, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %19, label %17
 
@@ -6127,7 +6127,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 19:                                               ; preds = %17, %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %21 = load i8, ptr %20, align 8, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 8, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %25, label %23
 
@@ -6138,7 +6138,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 25:                                               ; preds = %23, %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %27 = load i8, ptr %26, align 8, !range !6, !noundef !7
+  %27 = load i8, ptr %26, align 8, !range !7, !noundef !8
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %31, label %29
 
@@ -6149,7 +6149,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 31:                                               ; preds = %29, %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 66
-  %33 = load i8, ptr %32, align 2, !range !6, !noundef !7
+  %33 = load i8, ptr %32, align 2, !range !7, !noundef !8
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %37, label %35
 
@@ -6160,7 +6160,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 37:                                               ; preds = %35, %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = load i8, ptr %38, align 8, !range !6, !noundef !7
+  %39 = load i8, ptr %38, align 8, !range !7, !noundef !8
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %43, label %41
 
@@ -6176,20 +6176,20 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
   br i1 %.not, label %76, label %46
 
 46:                                               ; preds = %43
-  %47 = load i8, ptr %45, align 8, !range !6, !noundef !7
+  %47 = load i8, ptr %45, align 8, !range !7, !noundef !8
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 1
-  %51 = load i8, ptr %50, align 1, !range !6, !noundef !7
+  %51 = load i8, ptr %50, align 1, !range !7, !noundef !8
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %51, ptr %52, align 1
   br label %53
 
 53:                                               ; preds = %49, %46
   %54 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  %55 = load i8, ptr %54, align 2, !range !6, !noundef !7
+  %55 = load i8, ptr %54, align 2, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %60
 
@@ -6201,7 +6201,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 60:                                               ; preds = %57, %53
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %62 = load i8, ptr %61, align 8, !range !6, !noundef !7
+  %62 = load i8, ptr %61, align 8, !range !7, !noundef !8
   %63 = trunc nuw i8 %62 to i1
   br i1 %63, label %64, label %68
 
@@ -6214,7 +6214,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 68:                                               ; preds = %64, %60
   %69 = getelementptr inbounds nuw i8, ptr %45, i64 32
-  %70 = load i8, ptr %69, align 8, !range !6, !noundef !7
+  %70 = load i8, ptr %69, align 8, !range !7, !noundef !8
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %72, label %76
 
@@ -6249,7 +6249,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 86:                                               ; preds = %84
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %88 = load i8, ptr %87, align 8, !range !6, !noundef !7
+  %88 = load i8, ptr %87, align 8, !range !7, !noundef !8
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %97
 
@@ -6289,7 +6289,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
 
 103:                                              ; preds = %.thread.thread
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %105 = load i8, ptr %104, align 8, !range !6, !noundef !7
+  %105 = load i8, ptr %104, align 8, !range !7, !noundef !8
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %108, label %107
 
@@ -6336,7 +6336,7 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
   %124 = phi i32 [ %111, %123 ], [ %78, %.thread ]
   %.0755 = phi ptr [ %100, %123 ], [ null, %.thread ]
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %126 = load i8, ptr %125, align 8, !range !6, !noundef !7
+  %126 = load i8, ptr %125, align 8, !range !7, !noundef !8
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %128, label %.thread1._crit_edge
 
@@ -6354,11 +6354,11 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
   %131 = phi i32 [ %124, %.thread1._crit_edge ], [ %111, %123 ]
   %.0754 = phi ptr [ %.0755, %.thread1._crit_edge ], [ %100, %123 ]
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 65
-  %133 = load i8, ptr %132, align 1, !range !6, !noundef !7
+  %133 = load i8, ptr %132, align 1, !range !7, !noundef !8
   %134 = trunc nuw i8 %133 to i1
   %spec.select = select i1 %134, i32 0, i32 2
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 67
-  %136 = load i8, ptr %135, align 1, !range !6, !noundef !7
+  %136 = load i8, ptr %135, align 1, !range !7, !noundef !8
   %137 = trunc nuw i8 %136 to i1
   %138 = or disjoint i32 %spec.select, 4
   %.1 = select i1 %137, i32 %spec.select, i32 %138
@@ -6366,10 +6366,10 @@ define internal fastcc ptr @do_backup_common(ptr noundef captures(none) %0, ptr 
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %141 = load i64, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %143 = load i8, ptr %142, align 1, !range !6, !noundef !7
+  %143 = load i8, ptr %142, align 1, !range !7, !noundef !8
   %144 = trunc nuw i8 %143 to i1
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %146 = load i8, ptr %145, align 1, !range !6, !noundef !7
+  %146 = load i8, ptr %145, align 1, !range !7, !noundef !8
   %147 = trunc nuw i8 %146 to i1
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %149 = load ptr, ptr %148, align 8
@@ -6463,26 +6463,27 @@ attributes #18 = { nounwind allocsize(0) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = !{!"auto-init"}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = !{!"auto-init"}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}

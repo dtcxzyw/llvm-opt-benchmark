@@ -3179,7 +3179,7 @@ define range(i32 -1, 1) i32 @H5Dread_chunk(i64 noundef %0, i64 noundef %1, ptr n
 
 86:                                               ; preds = %75
   %87 = load i32, ptr %76, align 8, !tbaa !18
-  store i32 %87, ptr %3, align 4, !tbaa !35
+  store i32 %87, ptr %3, align 4, !tbaa !36
   %88 = call i32 @H5CX_pop(i1 noundef zeroext true) #7
   br label %90
 
@@ -3420,7 +3420,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
 71:                                               ; preds = %91
   %72 = add nuw i64 %.05499, 1
   %exitcond.not = icmp eq i64 %72, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.cont79, %71
   %.05499 = phi i64 [ %72, %71 ], [ 1, %.cont79 ]
@@ -4074,7 +4074,7 @@ define range(i32 -1, -2147483648) i32 @H5Dscatter(ptr noundef readonly captures(
   store i8 1, ptr @H5D_init_g, align 1, !tbaa !3
   %29 = tail call i32 @H5D__init_package() #7
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %35, !prof !37
+  br i1 %30, label %31, label %35, !prof !38
 
 31:                                               ; preds = %28
   store i8 0, ptr @H5D_init_g, align 1, !tbaa !3
@@ -4188,7 +4188,7 @@ define range(i32 -1, -2147483648) i32 @H5Dscatter(ptr noundef readonly captures(
 96:                                               ; preds = %139
   %97 = sub nuw nsw i64 %.056139, %115
   %.not158 = icmp eq i64 %97, 0
-  br i1 %.not158, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not158, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader, %96
   %.056139 = phi i64 [ %97, %96 ], [ %77, %.preheader ]
@@ -4375,7 +4375,7 @@ define range(i32 -1, -2147483648) i32 @H5Dgather(i64 noundef %0, ptr noundef %1,
   store i8 1, ptr @H5D_init_g, align 1, !tbaa !3
   %29 = tail call i32 @H5D__init_package() #7
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %35, !prof !39
+  br i1 %30, label %31, label %35, !prof !40
 
 31:                                               ; preds = %28
   store i8 0, ptr @H5D_init_g, align 1, !tbaa !3
@@ -4526,14 +4526,14 @@ define range(i32 -1, -2147483648) i32 @H5Dgather(i64 noundef %0, ptr noundef %1,
   %117 = call i64 @llvm.umin.i64(i64 %83, i64 %121)
   %118 = call i64 @H5D__gather_mem(ptr noundef nonnull %1, ptr noundef nonnull %104, i64 noundef %117, ptr noundef nonnull %4) #7
   %119 = icmp eq i64 %118, 0
-  br i1 %119, label %.split.us, label %.lr.ph149, !llvm.loop !40
+  br i1 %119, label %.split.us, label %.lr.ph149, !llvm.loop !41
 
 .lr.ph149:                                        ; preds = %.lr.ph.split.us, %116
   %120 = phi i64 [ %118, %116 ], [ %114, %.lr.ph.split.us ]
   %.070143.us148 = phi i64 [ %121, %116 ], [ %90, %.lr.ph.split.us ]
   %121 = sub nsw i64 %.070143.us148, %120
   %122 = icmp sgt i64 %121, 0
-  br i1 %122, label %116, label %.loopexit, !llvm.loop !40
+  br i1 %122, label %116, label %.loopexit, !llvm.loop !41
 
 .thread89.thread105:                              ; preds = %110
   %123 = load i64, ptr @H5E_DATASET_g, align 8, !tbaa !11
@@ -4590,7 +4590,7 @@ define range(i32 -1, -2147483648) i32 @H5Dgather(i64 noundef %0, ptr noundef %1,
 149:                                              ; preds = %143
   %150 = sub nsw i64 %.070143, %127
   %151 = icmp sgt i64 %150, 0
-  br i1 %151, label %.lr.ph.split, label %.loopexit, !llvm.loop !42
+  br i1 %151, label %.lr.ph.split, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %149, %.lr.ph149, %.preheader, %.split.us, %145, %.thread
   %152 = phi i1 [ true, %.split.us ], [ true, %145 ], [ true, %.thread ], [ false, %.preheader ], [ false, %.lr.ph149 ], [ false, %149 ]
@@ -4895,7 +4895,7 @@ define i32 @H5Diterate(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   br label %.thread37
 
 80:                                               ; preds = %73
-  store i32 0, ptr %6, align 8, !tbaa !43
+  store i32 0, ptr %6, align 8, !tbaa !44
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %3, ptr %81, align 8, !tbaa !18
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -5249,7 +5249,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__set_extent_api_common(i64 noun
   br label %41
 
 31:                                               ; preds = %24
-  store i32 0, ptr %5, align 8, !tbaa !45
+  store i32 0, ptr %5, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %1, ptr %32, align 8, !tbaa !18
   br i1 %.not, label %.cont15, label %.else16
@@ -5480,7 +5480,7 @@ define range(i32 -1, 1) i32 @H5Dflush(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread29
 
 51:                                               ; preds = %44
-  store i32 1, ptr %2, align 8, !tbaa !45
+  store i32 1, ptr %2, align 8, !tbaa !46
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %52, align 8, !tbaa !18
   %53 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
@@ -5602,7 +5602,7 @@ define range(i32 -1, 1) i32 @H5Drefresh(i64 noundef %0) local_unnamed_addr #0 {
   br label %.thread29
 
 51:                                               ; preds = %44
-  store i32 2, ptr %2, align 8, !tbaa !45
+  store i32 2, ptr %2, align 8, !tbaa !46
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %0, ptr %52, align 8, !tbaa !18
   %53 = load i64, ptr @H5P_LST_DATASET_XFER_ID_g, align 8, !tbaa !11
@@ -6650,17 +6650,18 @@ attributes #8 = { nounwind allocsize(0) }
 !30 = !{!31, !23, i64 0}
 !31 = !{!"H5VL_optional_args_t", !23, i64 0, !17, i64 8}
 !32 = !{!31, !17, i64 8}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!23, !23, i64 0}
-!36 = distinct !{!36, !34}
-!37 = !{!"branch_weights", i32 1114702, i32 2146368946}
-!38 = distinct !{!38, !34}
-!39 = !{!"branch_weights", i32 1079484, i32 2146404164}
-!40 = distinct !{!40, !34, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !34}
-!43 = !{!44, !23, i64 0}
-!44 = !{!"H5S_sel_iter_op_t", !23, i64 0, !5, i64 8}
-!45 = !{!46, !23, i64 0}
-!46 = !{!"H5VL_dataset_specific_args_t", !23, i64 0, !5, i64 8}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!23, !23, i64 0}
+!37 = distinct !{!37, !34, !35}
+!38 = !{!"branch_weights", i32 1114702, i32 2146368946}
+!39 = distinct !{!39, !34, !35}
+!40 = !{!"branch_weights", i32 1079484, i32 2146404164}
+!41 = distinct !{!41, !34, !35, !42}
+!42 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!43 = distinct !{!43, !34, !35}
+!44 = !{!45, !23, i64 0}
+!45 = !{!"H5S_sel_iter_op_t", !23, i64 0, !5, i64 8}
+!46 = !{!47, !23, i64 0}
+!47 = !{!"H5VL_dataset_specific_args_t", !23, i64 0, !5, i64 8}

@@ -72,7 +72,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 3:                                                ; preds = %1
   %4 = tail call ptr @test_get_argument(i64 noundef 0) #4
-  store ptr %4, ptr @filename, align 8, !tbaa !6
+  store ptr %4, ptr @filename, align 8, !tbaa !7
   tail call void @add_all_tests(ptr noundef nonnull @.str.15, ptr noundef nonnull @test_readbuffer_file_bio, i32 noundef 3, i32 noundef 1) #4
   br label %.loopexit
 
@@ -99,10 +99,10 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %2) #4
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %3) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store i64 0, ptr %4, align 8, !tbaa !11
+  store i64 0, ptr %4, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store i64 0, ptr %5, align 8, !tbaa !11
-  %6 = load ptr, ptr @filename, align 8, !tbaa !6
+  store i64 0, ptr %5, align 8, !tbaa !12
+  %6 = load ptr, ptr @filename, align 8, !tbaa !7
   %7 = tail call ptr @BIO_new_file(ptr noundef %6, ptr noundef nonnull @.str.18) #4
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 35, ptr noundef nonnull @.str.17, ptr noundef %7) #4
   %.not = icmp eq i32 %8, 0
@@ -115,7 +115,7 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   br i1 %.not39, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = load i64, ptr %4, align 8, !tbaa !11
+  %13 = load i64, ptr %4, align 8, !tbaa !12
   %14 = trunc i64 %13 to i32
   %15 = call i32 @test_int_lt(ptr noundef nonnull @.str.16, i32 noundef 38, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef %14, i32 noundef 4096) #4
   %.not40 = icmp eq i32 %15, 0
@@ -130,7 +130,7 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   br i1 %.not41, label %.loopexit, label %21
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr @filename, align 8, !tbaa !6
+  %22 = load ptr, ptr @filename, align 8, !tbaa !7
   %23 = call ptr @BIO_new_file(ptr noundef %22, ptr noundef nonnull @.str.18) #4
   %24 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 45, ptr noundef nonnull @.str.24, ptr noundef %23) #4
   %.not42 = icmp eq i32 %24, 0
@@ -186,7 +186,7 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
 47:                                               ; preds = %45
   %48 = sext i32 %35 to i64
   %49 = getelementptr inbounds [255 x i8], ptr %2, i64 0, i64 %48
-  %50 = load i8, ptr %49, align 1, !tbaa !13
+  %50 = load i8, ptr %49, align 1, !tbaa !14
   %51 = icmp eq i8 %50, 0
   %52 = zext i1 %51 to i32
   %53 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 65, ptr noundef nonnull @.str.30, i32 noundef %52) #4
@@ -209,7 +209,7 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   %62 = add nsw i32 %35, -1
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw [255 x i8], ptr %2, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1, !tbaa !13
+  %65 = load i8, ptr %64, align 1, !tbaa !14
   %66 = icmp eq i8 %65, 10
   %67 = zext i1 %66 to i32
   %68 = call i32 @test_true(ptr noundef nonnull @.str.16, i32 noundef 70, ptr noundef nonnull @.str.31, i32 noundef %67) #4
@@ -229,7 +229,7 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   %74 = call i64 @BIO_ctrl(ptr noundef %26, i32 noundef 2, i64 noundef 0, ptr noundef null) #4
   %75 = and i64 %74, 4294967295
   %.not45 = icmp eq i64 %75, 0
-  br i1 %.not45, label %34, label %.loopexit57, !llvm.loop !14
+  br i1 %.not45, label %34, label %.loopexit57, !llvm.loop !15
 
 .loopexit57:                                      ; preds = %70, %73, %.preheader56, %30
   %76 = call i64 @BIO_ctrl(ptr noundef %26, i32 noundef 128, i64 noundef 0, ptr noundef null) #4
@@ -253,19 +253,19 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
   br i1 %.not53, label %._crit_edge.loopexit, label %83
 
 83:                                               ; preds = %.lr.ph66
-  %84 = load i64, ptr %5, align 8, !tbaa !11
+  %84 = load i64, ptr %5, align 8, !tbaa !12
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 %.065
   %86 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 84, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull %2, i64 noundef %84, ptr noundef nonnull %85, i64 noundef %84) #4
   %.not55 = icmp eq i32 %86, 0
   br i1 %.not55, label %.loopexit, label %87
 
 87:                                               ; preds = %83
-  %88 = load i64, ptr %5, align 8, !tbaa !11
+  %88 = load i64, ptr %5, align 8, !tbaa !12
   %89 = add i64 %88, %.065
   %90 = call i64 @BIO_ctrl(ptr noundef %26, i32 noundef 2, i64 noundef 0, ptr noundef null) #4
   %91 = and i64 %90, 4294967295
   %.not52 = icmp eq i64 %91, 0
-  br i1 %.not52, label %.lr.ph66, label %._crit_edge.loopexit, !llvm.loop !15
+  br i1 %.not52, label %.lr.ph66, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph66, %87
   %.0.lcssa.ph = phi i64 [ %89, %87 ], [ %.065, %.lr.ph66 ]
@@ -274,7 +274,7 @@ define internal range(i32 0, 2) i32 @test_readbuffer_file_bio(i32 noundef %0) #1
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %92, %._crit_edge.loopexit ]
-  %93 = load i64, ptr %4, align 8, !tbaa !11
+  %93 = load i64, ptr %4, align 8, !tbaa !12
   %94 = trunc i64 %93 to i32
   %95 = call i32 @test_int_eq(ptr noundef nonnull @.str.16, i32 noundef 89, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.21, i32 noundef %.0.lcssa, i32 noundef %94) #4
   %.not54 = icmp ne i32 %95, 0
@@ -343,15 +343,16 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 omnipotent char", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !9, i64 0}
-!13 = !{!9, !9, i64 0}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !10, i64 0}
+!14 = !{!10, !10, i64 0}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}

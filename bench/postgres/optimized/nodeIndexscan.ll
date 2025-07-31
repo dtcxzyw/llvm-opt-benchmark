@@ -173,7 +173,7 @@ ExecIndexEvalRuntimeKeys.exit:                    ; preds = %41, %5
   %indvars.iv.next.i24 = add nuw nsw i64 %indvars.iv.i23, 1
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next.i24, %77
-  br i1 %78, label %59, label %reorderqueue_pop.exit, !llvm.loop !8
+  br i1 %78, label %59, label %reorderqueue_pop.exit, !llvm.loop !9
 
 reorderqueue_pop.exit:                            ; preds = %75, %50
   %79 = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -188,7 +188,7 @@ reorderqueue_pop.exit:                            ; preds = %75, %50
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %85 = load ptr, ptr %84, align 8
   %.not20 = icmp eq ptr %85, null
-  br i1 %.not20, label %.loopexit, label %50, !llvm.loop !9
+  br i1 %.not20, label %.loopexit, label %50, !llvm.loop !10
 
 .loopexit:                                        ; preds = %reorderqueue_pop.exit, %.preheader, %42
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -385,7 +385,7 @@ define dso_local noundef zeroext i1 @ExecIndexEvalArrayKeys(ptr noundef %0, ptr 
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .thread:                                          ; preds = %.lr.ph, %24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7
@@ -447,7 +447,7 @@ define dso_local noundef zeroext i1 @ExecIndexAdvanceArrayKeys(ptr noundef captu
   store i32 %storemerge, ptr %10, align 8
   %27 = add i32 %., 1
   store i32 %27, ptr %11, align 8
-  br i1 %.not, label %28, label %4
+  br i1 %.not, label %28, label %4, !llvm.loop !12
 
 28:                                               ; preds = %7, %4
   ret i1 %6
@@ -775,7 +775,7 @@ define dso_local noundef ptr @ExecInitIndexScan(ptr noundef %0, ptr noundef %1, 
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 %indvars.iv
   tail call void @get_typlenbyval(i32 noundef %101, ptr noundef %111, ptr noundef %113) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split, !llvm.loop !11
+  br label %.split.split, !llvm.loop !13
 
 114:                                              ; preds = %.thread, %29
   %115 = load i32, ptr %45, align 8
@@ -1355,7 +1355,7 @@ thread-pre-split387:                              ; preds = %250
   %288 = load i32, ptr %13, align 4
   call void @ScanKeyEntryInitialize(ptr noundef %199, i32 noundef %.0301, i16 noundef signext %220, i16 noundef zeroext %287, i32 noundef %288, i32 noundef %203, i32 noundef %244, i64 noundef %.0300) #7
   %289 = add i32 %.0312, 1
-  br label %151, !llvm.loop !12
+  br label %151, !llvm.loop !14
 
 290:                                              ; preds = %.critedge
   %291 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -1696,7 +1696,7 @@ define internal i32 @reorderqueue_cmp(ptr noundef readonly captures(none) %0, pt
   %17 = load i32, ptr %12, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next.i, %18
-  br i1 %19, label %20, label %cmp_orderbyvals.exit, !llvm.loop !13
+  br i1 %19, label %20, label %cmp_orderbyvals.exit, !llvm.loop !15
 
 20:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
@@ -1984,7 +1984,7 @@ define internal ptr @IndexNextWithReorder(ptr noundef captures(none) %0) #0 {
   %.076 = phi ptr [ null, %38 ], [ %.177, %.backedge.backedge ]
   %58 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %60, label %59, !prof !14
+  br i1 %.not, label %60, label %59, !prof !16
 
 59:                                               ; preds = %.backedge
   call void @ProcessInterrupts() #7
@@ -2019,7 +2019,7 @@ define internal ptr @IndexNextWithReorder(ptr noundef captures(none) %0) #0 {
   %79 = load i32, ptr %43, align 8
   %80 = sext i32 %79 to i64
   %81 = icmp slt i64 %indvars.iv.next.i, %80
-  br i1 %81, label %.lr.ph.i, label %cmp_orderbyvals.exit.thread, !llvm.loop !13
+  br i1 %81, label %.lr.ph.i, label %cmp_orderbyvals.exit.thread, !llvm.loop !15
 
 .lr.ph.i:                                         ; preds = %69, %78
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %78 ], [ 0, %69 ]
@@ -2101,7 +2101,7 @@ cmp_orderbyvals.exit.thread:                      ; preds = %69, %cmp_orderbyval
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next.i86, %128
-  br i1 %129, label %110, label %reorderqueue_pop.exit, !llvm.loop !8
+  br i1 %129, label %110, label %reorderqueue_pop.exit, !llvm.loop !9
 
 reorderqueue_pop.exit:                            ; preds = %126, %cmp_orderbyvals.exit.thread
   %130 = getelementptr inbounds nuw i8, ptr %103, i64 32
@@ -2136,7 +2136,7 @@ reorderqueue_pop.exit:                            ; preds = %126, %cmp_orderbyva
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %._crit_edge, %reorderqueue_push.exit
-  br label %.backedge
+  br label %.backedge, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %141, %164
   %143 = load i8, ptr %45, align 8, !range !4, !noundef !5
@@ -2185,7 +2185,7 @@ ExecQualAndReset.exit:                            ; preds = %145
 161:                                              ; preds = %155, %157
   %162 = load volatile i32, ptr @InterruptPending, align 4
   %.not82 = icmp eq i32 %162, 0
-  br i1 %.not82, label %164, label %163, !prof !14
+  br i1 %.not82, label %164, label %163, !prof !16
 
 163:                                              ; preds = %161
   call void @ProcessInterrupts() #7
@@ -2193,7 +2193,7 @@ ExecQualAndReset.exit:                            ; preds = %145
 
 164:                                              ; preds = %163, %161
   %165 = call zeroext i1 @index_getnext_slot(ptr noundef nonnull %.072, i32 noundef 1, ptr noundef %8) #7
-  br i1 %165, label %.lr.ph, label %._crit_edge
+  br i1 %165, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 .loopexit:                                        ; preds = %ExecQualAndReset.exit, %.lr.ph, %ExecQualAndReset.exit.thread
   %166 = load i8, ptr %50, align 8, !range !4, !noundef !5
@@ -2252,7 +2252,7 @@ EvalOrderByExpressions.exit:                      ; preds = %.lr.ph22.i, %168, %
   %197 = load i32, ptr %43, align 8
   %198 = sext i32 %197 to i64
   %199 = icmp slt i64 %indvars.iv.next.i95, %198
-  br i1 %199, label %.lr.ph.i92, label %.thread127.loopexit, !llvm.loop !13
+  br i1 %199, label %.lr.ph.i92, label %.thread127.loopexit, !llvm.loop !15
 
 .lr.ph.i92:                                       ; preds = %EvalOrderByExpressions.exit, %196
   %indvars.iv.i93 = phi i64 [ %indvars.iv.next.i95, %196 ], [ 0, %EvalOrderByExpressions.exit ]
@@ -2332,7 +2332,7 @@ cmp_orderbyvals.exit97.thread112:                 ; preds = %cmp_orderbyvals.exi
   %229 = load i32, ptr %43, align 8
   %230 = sext i32 %229 to i64
   %231 = icmp slt i64 %indvars.iv.next.i102, %230
-  br i1 %231, label %.lr.ph.i99, label %cmp_orderbyvals.exit104.thread, !llvm.loop !13
+  br i1 %231, label %.lr.ph.i99, label %cmp_orderbyvals.exit104.thread, !llvm.loop !15
 
 .lr.ph.i99:                                       ; preds = %221, %228
   %indvars.iv.i100 = phi i64 [ %indvars.iv.next.i102, %228 ], [ 0, %221 ]
@@ -2436,7 +2436,7 @@ cmp_orderbyvals.exit104:                          ; preds = %243, %239
   %297 = load i32, ptr %43, align 8
   %298 = sext i32 %297 to i64
   %299 = icmp slt i64 %indvars.iv.next.i107, %298
-  br i1 %299, label %.lr.ph.i105, label %reorderqueue_push.exit, !llvm.loop !15
+  br i1 %299, label %.lr.ph.i105, label %reorderqueue_push.exit, !llvm.loop !19
 
 reorderqueue_push.exit:                           ; preds = %291, %252
   %300 = load ptr, ptr %39, align 8
@@ -2553,7 +2553,7 @@ define internal ptr @IndexNext(ptr noundef captures(none) %0) #0 {
 52:                                               ; preds = %.lr.ph, %74
   %53 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %55, label %54, !prof !14
+  br i1 %.not, label %55, label %54, !prof !16
 
 54:                                               ; preds = %52
   call void @ProcessInterrupts() #7
@@ -2605,7 +2605,7 @@ ExecQualAndReset.exit:                            ; preds = %58
 
 74:                                               ; preds = %70, %68
   %75 = call zeroext i1 @index_getnext_slot(ptr noundef nonnull %.034, i32 noundef %11, ptr noundef %17) #7
-  br i1 %75, label %52, label %._crit_edge, !llvm.loop !16
+  br i1 %75, label %52, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %74, %45
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -2656,14 +2656,18 @@ attributes #8 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!17 = distinct !{!17, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

@@ -360,7 +360,7 @@ define hidden noundef zeroext i1 @dissect_CSF_SDU_heur(ptr noundef %0, ptr nound
   %55 = add i32 %46, 3
   %56 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %55)
   %57 = icmp eq i8 %56, 0
-  br i1 %57, label %.loopexit111, label %.lr.ph.i
+  br i1 %57, label %.loopexit111, label %.lr.ph.i, !llvm.loop !6
 
 .loopexit111:                                     ; preds = %52, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
@@ -455,7 +455,7 @@ define hidden noundef zeroext i1 @dissect_CSF_SDU_heur(ptr noundef %0, ptr nound
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.2, i32 noundef %75, i32 noundef %80, i32 noundef %88, i32 noundef %108, ptr noundef nonnull %110, ptr noundef nonnull %112, ptr noundef nonnull %114, ptr noundef nonnull %116)
   %117 = sub i32 %107, %.0102
   call void @proto_item_set_len(ptr noundef %70, i32 noundef %117)
-  br label %68
+  br label %68, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph.i, %50, %20, %17, %14, %10, %22, %33, %36
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
@@ -514,7 +514,7 @@ define internal fastcc void @dissect_DataStatus(ptr noundef %0, i32 noundef %1, 
   br i1 %.not178, label %.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = load i8, ptr %15, align 8, !range !6, !noundef !7
+  %17 = load i8, ptr %15, align 8, !range !9, !noundef !10
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %.thread
 
@@ -1024,7 +1024,7 @@ define internal i32 @dissect_pn_rt(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not182, label %148, label %123
 
 123:                                              ; preds = %122
-  %124 = load i8, ptr @pn_rt_summary_in_tree, align 1, !range !6, !noundef !7
+  %124 = load i8, ptr @pn_rt_summary_in_tree, align 1, !range !9, !noundef !10
   %125 = trunc nuw i8 %124 to i1
   %126 = load i32, ptr @proto_pn_rt, align 4
   br i1 %125, label %127, label %129
@@ -1228,7 +1228,7 @@ define internal noundef zeroext i1 @dissect_FRAG_PDU_heur(ptr noundef %0, ptr no
   br label %91
 
 47:                                               ; preds = %8
-  %48 = load i8, ptr @pnio_desegment, align 1, !range !6, !noundef !7
+  %48 = load i8, ptr @pnio_desegment, align 1, !range !9, !noundef !10
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %91
 
@@ -1433,5 +1433,8 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = !{i8 0, i8 2}
-!7 = !{}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !7}
+!9 = !{i8 0, i8 2}
+!10 = !{}

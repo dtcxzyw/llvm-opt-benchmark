@@ -600,7 +600,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   store i8 %257, ptr %260, align 1, !tbaa !92
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond358.not = icmp eq i64 %indvars.iv.next355, %207
-  br i1 %exitcond358.not, label %.loopexit, label %247, !llvm.loop !120
+  br i1 %exitcond358.not, label %.loopexit, label %247, !llvm.loop !121
 
 261:                                              ; preds = %244
   %262 = icmp eq i32 %183, 1
@@ -710,14 +710,14 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 .lr.ph330:                                        ; preds = %.preheader315, %.lr.ph330
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %.lr.ph330 ], [ 0, %.preheader315 ]
   %305 = getelementptr inbounds nuw i16, ptr %297, i64 %indvars.iv349
-  %306 = load i16, ptr %305, align 2, !tbaa !121
+  %306 = load i16, ptr %305, align 2, !tbaa !122
   %307 = trunc i16 %306 to i8
   %308 = shl i8 %307, 3
   %309 = load ptr, ptr %286, align 8, !tbaa !91
   %310 = mul nuw nsw i64 %indvars.iv349, 3
   %311 = getelementptr inbounds nuw i8, ptr %309, i64 %310
   store i8 %308, ptr %311, align 1, !tbaa !92
-  %312 = load i16, ptr %305, align 2, !tbaa !121
+  %312 = load i16, ptr %305, align 2, !tbaa !122
   %313 = lshr i16 %312, 3
   %314 = trunc i16 %313 to i8
   %315 = and i8 %314, -4
@@ -725,7 +725,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 %310
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 1
   store i8 %315, ptr %318, align 1, !tbaa !92
-  %319 = load i16, ptr %305, align 2, !tbaa !121
+  %319 = load i16, ptr %305, align 2, !tbaa !122
   %320 = lshr i16 %319, 8
   %321 = trunc nuw i16 %320 to i8
   %322 = and i8 %321, -8
@@ -735,7 +735,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   store i8 %322, ptr %325, align 1, !tbaa !92
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next350, %293
-  br i1 %exitcond353.not, label %._crit_edge331, label %.lr.ph330, !llvm.loop !122
+  br i1 %exitcond353.not, label %._crit_edge331, label %.lr.ph330, !llvm.loop !123
 
 326:                                              ; preds = %._crit_edge331, %304
   %327 = landingpad { ptr, i32 }
@@ -815,13 +815,13 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %366 = zext nneg i32 %361 to i64
   %367 = getelementptr inbounds nuw [10 x %struct.tiff_ifd_t], ptr %365, i64 0, i64 %366
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 72
-  %369 = load i32, ptr %368, align 8, !tbaa !123
+  %369 = load i32, ptr %368, align 8, !tbaa !124
   %.not251 = icmp eq i32 %369, 0
   br i1 %.not251, label %thread-pre-split, label %370
 
 370:                                              ; preds = %364
   %371 = getelementptr inbounds nuw i8, ptr %367, i64 88
-  %372 = load i32, ptr %371, align 8, !tbaa !125
+  %372 = load i32, ptr %371, align 8, !tbaa !126
   %.not252 = icmp eq i32 %372, 0
   br i1 %.not252, label %thread-pre-split, label %.preheader316
 
@@ -832,7 +832,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
 
 .lr.ph322:                                        ; preds = %.preheader316
   %373 = getelementptr inbounds nuw i8, ptr %367, i64 80
-  %374 = load ptr, ptr %373, align 8, !tbaa !126
+  %374 = load ptr, ptr %373, align 8, !tbaa !127
   %wide.trip.count344 = zext nneg i32 %invariant.smin to i64
   br label %378
 
@@ -852,12 +852,12 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %indvars.iv341 = phi i64 [ 0, %.lr.ph322 ], [ %indvars.iv.next342, %378 ]
   %.0205320 = phi i64 [ 0, %.lr.ph322 ], [ %382, %378 ]
   %379 = getelementptr inbounds nuw i32, ptr %374, i64 %indvars.iv341
-  %380 = load i32, ptr %379, align 4, !tbaa !127
+  %380 = load i32, ptr %379, align 4, !tbaa !128
   %381 = sext i32 %380 to i64
   %382 = add nsw i64 %.0205320, %381
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %exitcond345.not = icmp eq i64 %indvars.iv.next342, %wide.trip.count344
-  br i1 %exitcond345.not, label %.critedge, label %378, !llvm.loop !128
+  br i1 %exitcond345.not, label %.critedge, label %378, !llvm.loop !129
 
 383:                                              ; preds = %.critedge
   %384 = load i16, ptr %341, align 4, !tbaa !79
@@ -931,7 +931,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
           to label %418 unwind label %434
 
 418:                                              ; preds = %412
-  %419 = load i32, ptr %371, align 8, !tbaa !125
+  %419 = load i32, ptr %371, align 8, !tbaa !126
   %420 = icmp sgt i32 %419, 0
   br i1 %420, label %.lr.ph327, label %.critedge10
 
@@ -946,7 +946,7 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %indvars.iv346 = phi i64 [ 0, %.lr.ph327 ], [ %indvars.iv.next347, %473 ]
   %.0199324 = phi i64 [ %422, %.lr.ph327 ], [ %.1200, %473 ]
   %.0202323 = phi ptr [ %410, %.lr.ph327 ], [ %.1203, %473 ]
-  %426 = load i32, ptr %368, align 8, !tbaa !123
+  %426 = load i32, ptr %368, align 8, !tbaa !124
   %427 = sext i32 %426 to i64
   %428 = icmp slt i64 %indvars.iv346, %427
   br i1 %428, label %436, label %.critedge10
@@ -966,12 +966,12 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   br label %576
 
 436:                                              ; preds = %425
-  %437 = load ptr, ptr %423, align 8, !tbaa !126
+  %437 = load ptr, ptr %423, align 8, !tbaa !127
   %438 = getelementptr inbounds nuw i32, ptr %437, i64 %indvars.iv346
-  %439 = load i32, ptr %438, align 4, !tbaa !127
-  %440 = load ptr, ptr %424, align 8, !tbaa !129
+  %439 = load i32, ptr %438, align 4, !tbaa !128
+  %440 = load ptr, ptr %424, align 8, !tbaa !130
   %441 = getelementptr inbounds nuw i32, ptr %440, i64 %indvars.iv346
-  %442 = load i32, ptr %441, align 4, !tbaa !127
+  %442 = load i32, ptr %441, align 4, !tbaa !128
   %443 = sext i32 %442 to i64
   %444 = icmp sgt i32 %442, -1
   br i1 %444, label %445, label %473
@@ -1025,10 +1025,10 @@ define noundef range(i32 -100013, 1) i32 @_ZN6LibRaw12unpack_thumbEv(ptr noundef
   %.1203 = phi ptr [ %470, %468 ], [ %.0202323, %452 ], [ %.0202323, %436 ]
   %.1200 = phi i64 [ %469, %468 ], [ %.0199324, %452 ], [ %.0199324, %436 ]
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
-  %474 = load i32, ptr %371, align 8, !tbaa !125
+  %474 = load i32, ptr %371, align 8, !tbaa !126
   %475 = sext i32 %474 to i64
   %476 = icmp slt i64 %indvars.iv.next347, %475
-  br i1 %476, label %425, label %.critedge10, !llvm.loop !130
+  br i1 %476, label %425, label %.critedge10, !llvm.loop !131
 
 477:                                              ; preds = %.critedge10
   store i32 2, ptr %56, align 8, !tbaa !87
@@ -1129,7 +1129,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
 
 518:                                              ; preds = %516
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 5456
-  %520 = load i32, ptr %519, align 8, !tbaa !131
+  %520 = load i32, ptr %519, align 8, !tbaa !132
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 193356
   %522 = load i16, ptr %521, align 4, !tbaa !79
   %523 = zext i16 %522 to i32
@@ -1182,7 +1182,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
           to label %552 unwind label %544
 
 552:                                              ; preds = %546
-  %553 = load i16, ptr %13, align 8, !tbaa !132
+  %553 = load i16, ptr %13, align 8, !tbaa !133
   %.not245 = icmp eq i16 %553, 18761
   br i1 %.not245, label %555, label %554
 
@@ -1201,7 +1201,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
           to label %559 unwind label %544
 
 559:                                              ; preds = %558, %555
-  %560 = load i32, ptr %519, align 8, !tbaa !131
+  %560 = load i32, ptr %519, align 8, !tbaa !132
   %561 = and i32 %560, 32
   %.not247 = icmp eq i32 %561, 0
   br i1 %.not247, label %563, label %562
@@ -1234,7 +1234,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %567 = getelementptr inbounds nuw i16, ptr %542, i64 %indvars.iv
-  %568 = load i16, ptr %567, align 2, !tbaa !121
+  %568 = load i16, ptr %567, align 2, !tbaa !122
   %569 = lshr i16 %568, 8
   %570 = trunc nuw i16 %569 to i8
   %571 = load ptr, ptr %556, align 8, !tbaa !91
@@ -1242,7 +1242,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
   store i8 %570, ptr %572, align 1, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !134
 
 573:                                              ; preds = %._crit_edge, %562
   %storemerge249 = phi i32 [ 3, %562 ], [ 2, %._crit_edge ]
@@ -1264,7 +1264,7 @@ thread-pre-split:                                 ; preds = %362, %364, %370
 579:                                              ; preds = %576
   %.0173 = extractvalue { ptr, i32 } %.pn289, 0
   %580 = call ptr @__cxa_begin_catch(ptr %.0173) #11
-  %581 = load i32, ptr %580, align 4, !tbaa !134
+  %581 = load i32, ptr %580, align 4, !tbaa !135
   switch i32 %581, label %591 [
     i32 11, label %582
     i32 1, label %585
@@ -1363,7 +1363,7 @@ declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define internal void @_ZL13jpegErrorExitP18jpeg_common_struct(ptr noundef readonly captures(none) %0) #3 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !136
+  %2 = load ptr, ptr %0, align 8, !tbaa !137
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %3, i32 noundef 1) #13
   unreachable
@@ -1547,23 +1547,24 @@ attributes #13 = { noreturn nounwind }
 !115 = !{!"_ZTS16jpegErrorManager", !116, i64 0, !11, i64 168}
 !116 = !{!"_ZTS14jpeg_error_mgr", !10, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !15, i64 40, !11, i64 44, !15, i64 124, !49, i64 128, !44, i64 136, !15, i64 144, !44, i64 152, !15, i64 160, !15, i64 164}
 !117 = !{!94, !15, i64 56}
-!118 = distinct !{!118, !119}
+!118 = distinct !{!118, !119, !120}
 !119 = !{!"llvm.loop.mustprogress"}
-!120 = distinct !{!120, !119}
-!121 = !{!14, !14, i64 0}
-!122 = distinct !{!122, !119}
-!123 = !{!124, !15, i64 72}
-!124 = !{!"_ZTS10tiff_ifd_t", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !63, i64 64, !15, i64 72, !63, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !20, i64 116, !24, i64 120, !24, i64 128, !15, i64 136, !11, i64 140, !47, i64 476, !15, i64 33404}
-!125 = !{!124, !15, i64 88}
-!126 = !{!124, !63, i64 80}
-!127 = !{!15, !15, i64 0}
-!128 = distinct !{!128, !119}
-!129 = !{!124, !63, i64 64}
-!130 = distinct !{!130, !119}
-!131 = !{!7, !15, i64 5456}
-!132 = !{!7, !14, i64 381552}
-!133 = distinct !{!133, !119}
-!134 = !{!135, !135, i64 0}
-!135 = !{!"_ZTS17LibRaw_exceptions", !11, i64 0}
-!136 = !{!137, !95, i64 0}
-!137 = !{!"_ZTS18jpeg_common_struct", !95, i64 0, !96, i64 8, !97, i64 16, !10, i64 24, !15, i64 32, !15, i64 36}
+!120 = !{!"llvm.loop.estimated_trip_count"}
+!121 = distinct !{!121, !119, !120}
+!122 = !{!14, !14, i64 0}
+!123 = distinct !{!123, !119, !120}
+!124 = !{!125, !15, i64 72}
+!125 = !{!"_ZTS10tiff_ifd_t", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !15, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !63, i64 64, !15, i64 72, !63, i64 80, !15, i64 88, !15, i64 92, !15, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !20, i64 116, !24, i64 120, !24, i64 128, !15, i64 136, !11, i64 140, !47, i64 476, !15, i64 33404}
+!126 = !{!125, !15, i64 88}
+!127 = !{!125, !63, i64 80}
+!128 = !{!15, !15, i64 0}
+!129 = distinct !{!129, !119, !120}
+!130 = !{!125, !63, i64 64}
+!131 = distinct !{!131, !119, !120}
+!132 = !{!7, !15, i64 5456}
+!133 = !{!7, !14, i64 381552}
+!134 = distinct !{!134, !119, !120}
+!135 = !{!136, !136, i64 0}
+!136 = !{!"_ZTS17LibRaw_exceptions", !11, i64 0}
+!137 = !{!138, !95, i64 0}
+!138 = !{!"_ZTS18jpeg_common_struct", !95, i64 0, !96, i64 8, !97, i64 16, !10, i64 24, !15, i64 32, !15, i64 36}

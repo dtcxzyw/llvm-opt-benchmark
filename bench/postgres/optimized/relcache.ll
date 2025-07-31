@@ -473,7 +473,7 @@ GetPgIndexDescriptor.exit88:                      ; preds = %GetPgIndexDescripto
 165:                                              ; preds = %163, %157
   %166 = phi ptr [ %164, %163 ], [ %158, %157 ]
   %167 = call ptr @hash_search(ptr noundef %166, ptr noundef nonnull %2, i32 noundef 1, ptr noundef nonnull %3) #13
-  %168 = load i8, ptr %3, align 1, !range !6, !noundef !7
+  %168 = load i8, ptr %3, align 1, !range !7, !noundef !8
   %169 = trunc nuw i8 %168 to i1
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %167, i64 4
   br i1 %169, label %172, label %.thread.i.i
@@ -487,7 +487,7 @@ GetPgIndexDescriptor.exit88:                      ; preds = %GetPgIndexDescripto
   br label %175
 
 172:                                              ; preds = %165
-  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !range !6
+  %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !range !7
   %173 = trunc nuw i8 %.pre.i.i to i1
   br i1 %173, label %LookupOpclassInfo.exit.i, label %._crit_edge27.i
 
@@ -510,7 +510,7 @@ GetPgIndexDescriptor.exit88:                      ; preds = %GetPgIndexDescripto
   br label %181
 
 181:                                              ; preds = %178, %175
-  %182 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6, !noundef !7
+  %182 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7, !noundef !8
   %183 = trunc nuw i8 %182 to i1
   %.pre52.i.i = load i32, ptr %2, align 4
   br i1 %183, label %188, label %184
@@ -610,7 +610,7 @@ GetPgIndexDescriptor.exit88:                      ; preds = %GetPgIndexDescripto
   store i32 %239, ptr %243, align 4
   %244 = call ptr @systable_getnext(ptr noundef %218) #13
   %.not45.i.i = icmp eq ptr %244, null
-  br i1 %.not45.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not45.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %237, %210
   call void @systable_endscan(ptr noundef %218) #13
@@ -646,7 +646,7 @@ LookupOpclassInfo.exit.i:                         ; preds = %245, %172
 257:                                              ; preds = %252, %LookupOpclassInfo.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %IndexSupportInitialize.exit, label %151, !llvm.loop !9
+  br i1 %exitcond.not.i, label %IndexSupportInitialize.exit, label %151, !llvm.loop !10
 
 IndexSupportInitialize.exit:                      ; preds = %257, %GetPgIndexDescriptor.exit88
   %258 = load ptr, ptr %19, align 8
@@ -775,7 +775,7 @@ define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 4,
   %20 = zext nneg i32 %13 to i64
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 6
-  %23 = load i8, ptr %22, align 2, !range !6, !noundef !7
+  %23 = load i8, ptr %22, align 2, !range !7, !noundef !8
   %24 = trunc nuw i8 %23 to i1
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %26 = load i16, ptr %25, align 4
@@ -901,7 +901,7 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
   store ptr %25, ptr %26, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %CopyIndexAttOptions.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %CopyIndexAttOptions.exit, label %.lr.ph.i, !llvm.loop !11
 
 27:                                               ; preds = %2
   %28 = sext i16 %10 to i64
@@ -910,7 +910,7 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
   %31 = icmp sgt i16 %10, 0
   %.not61 = icmp ne i32 %.fr60, 2659
   %or.cond.not74 = and i1 %31, %.not61
-  %32 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6
+  %32 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7
   %33 = trunc nuw i8 %32 to i1
   %or.cond72 = select i1 %or.cond.not74, i1 %33, i1 false
   br i1 %or.cond72, label %.lr.ph.split.split.preheader, label %._crit_edge
@@ -921,7 +921,7 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %indvars.iv.next, %44 ]
-  %34 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6, !noundef !7
+  %34 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7, !noundef !8
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %44
 
@@ -943,7 +943,7 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
 44:                                               ; preds = %36, %42, %.lr.ph.split.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %44, %27
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -976,7 +976,7 @@ define dso_local ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zero
   store ptr %56, ptr %57, align 8
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i50, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i48
-  br i1 %exitcond.not.i53, label %CopyIndexAttOptions.exit54, label %.lr.ph.i49, !llvm.loop !10
+  br i1 %exitcond.not.i53, label %CopyIndexAttOptions.exit54, label %.lr.ph.i49, !llvm.loop !11
 
 CopyIndexAttOptions.exit54:                       ; preds = %55
   store ptr %48, ptr %3, align 8
@@ -1006,7 +1006,7 @@ CopyIndexAttOptions.exit54.thread:                ; preds = %._crit_edge
 61:                                               ; preds = %.lr.ph58, %60
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !13
+  br i1 %exitcond69.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !14
 
 ._crit_edge59:                                    ; preds = %61, %CopyIndexAttOptions.exit54.thread
   tail call void @pfree(ptr noundef %30) #13
@@ -1125,7 +1125,7 @@ define dso_local ptr @RelationIdGetRelation(i32 noundef %0) local_unnamed_addr #
 
 RelationIncrementReferenceCount.exit:             ; preds = %11, %18
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 34
-  %22 = load i8, ptr %21, align 2, !range !6, !noundef !7
+  %22 = load i8, ptr %21, align 2, !range !7, !noundef !8
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %RelationIncrementReferenceCount.exit18, label %24
 
@@ -1231,10 +1231,10 @@ RelationInvalidateRelation.exit:                  ; preds = %RelationCloseSmgr.e
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 113
-  %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
+  %20 = load i8, ptr %19, align 1, !range !7, !noundef !8
   %21 = trunc nuw i8 %20 to i1
   %.not.i137 = xor i1 %21, true
-  %22 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6
+  %22 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7
   %23 = trunc nuw i8 %22 to i1
   %or.cond.i = select i1 %.not.i137, i1 true, i1 %23
   br i1 %or.cond.i, label %25, label %24
@@ -1307,58 +1307,58 @@ RelationInvalidateRelation.exit:                  ; preds = %RelationCloseSmgr.e
   %58 = zext i8 %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  %61 = load i8, ptr %60, align 4, !range !6, !noundef !7
+  %61 = load i8, ptr %60, align 4, !range !7, !noundef !8
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i8 %61, ptr %64, align 4
   %65 = getelementptr inbounds nuw i8, ptr %59, i64 13
-  %66 = load i8, ptr %65, align 1, !range !6, !noundef !7
+  %66 = load i8, ptr %65, align 1, !range !7, !noundef !8
   %67 = load ptr, ptr %62, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 13
   store i8 %66, ptr %68, align 1
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 14
-  %70 = load i8, ptr %69, align 2, !range !6, !noundef !7
+  %70 = load i8, ptr %69, align 2, !range !7, !noundef !8
   %71 = load ptr, ptr %62, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 14
   store i8 %70, ptr %72, align 2
   %73 = getelementptr inbounds nuw i8, ptr %59, i64 15
-  %74 = load i8, ptr %73, align 1, !range !6, !noundef !7
+  %74 = load i8, ptr %73, align 1, !range !7, !noundef !8
   %75 = load ptr, ptr %62, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 15
   store i8 %74, ptr %76, align 1
   %77 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %78 = load i8, ptr %77, align 4, !range !6, !noundef !7
+  %78 = load i8, ptr %77, align 4, !range !7, !noundef !8
   %79 = load ptr, ptr %62, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store i8 %78, ptr %80, align 4
   %81 = getelementptr inbounds nuw i8, ptr %59, i64 17
-  %82 = load i8, ptr %81, align 1, !range !6, !noundef !7
+  %82 = load i8, ptr %81, align 1, !range !7, !noundef !8
   %83 = load ptr, ptr %62, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 17
   store i8 %82, ptr %84, align 1
   %85 = getelementptr inbounds nuw i8, ptr %59, i64 18
-  %86 = load i8, ptr %85, align 2, !range !6, !noundef !7
+  %86 = load i8, ptr %85, align 2, !range !7, !noundef !8
   %87 = load ptr, ptr %62, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 18
   store i8 %86, ptr %88, align 2
   %89 = getelementptr inbounds nuw i8, ptr %59, i64 19
-  %90 = load i8, ptr %89, align 1, !range !6, !noundef !7
+  %90 = load i8, ptr %89, align 1, !range !7, !noundef !8
   %91 = load ptr, ptr %62, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 19
   store i8 %90, ptr %92, align 1
   %93 = getelementptr inbounds nuw i8, ptr %59, i64 20
-  %94 = load i8, ptr %93, align 4, !range !6, !noundef !7
+  %94 = load i8, ptr %93, align 4, !range !7, !noundef !8
   %95 = load ptr, ptr %62, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 20
   store i8 %94, ptr %96, align 4
   %97 = getelementptr inbounds nuw i8, ptr %59, i64 21
-  %98 = load i8, ptr %97, align 1, !range !6, !noundef !7
+  %98 = load i8, ptr %97, align 1, !range !7, !noundef !8
   %99 = load ptr, ptr %62, align 8
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 21
   store i8 %98, ptr %100, align 1
   %101 = getelementptr inbounds nuw i8, ptr %59, i64 22
-  %102 = load i8, ptr %101, align 2, !range !6, !noundef !7
+  %102 = load i8, ptr %101, align 2, !range !7, !noundef !8
   %103 = load ptr, ptr %62, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 22
   store i8 %102, ptr %104, align 2
@@ -1389,13 +1389,13 @@ RelationReloadIndexInfo.exit:                     ; preds = %24, %44, %HeapTuple
 
 115:                                              ; preds = %RelationInvalidateRelation.exit, %15
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  %117 = load i8, ptr %116, align 1, !range !6, !noundef !7
+  %117 = load i8, ptr %116, align 1, !range !7, !noundef !8
   %118 = trunc nuw i8 %117 to i1
   br i1 %118, label %119, label %132
 
 119:                                              ; preds = %115
   tail call fastcc void @RelationInitPhysicalAddr(ptr noundef nonnull %0)
-  %120 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6, !noundef !7
+  %120 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7, !noundef !8
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %122, label %RelationReloadNailed.exit
 
@@ -1471,7 +1471,7 @@ RelationReloadIndexInfo.exit:                     ; preds = %24, %44, %HeapTuple
   %160 = load i32, ptr %149, align 8
   %161 = sext i32 %160 to i64
   %162 = icmp slt i64 %indvars.iv.next.i, %161
-  br i1 %162, label %163, label %.loopexit.i, !llvm.loop !14
+  br i1 %162, label %163, label %.loopexit.i, !llvm.loop !15
 
 163:                                              ; preds = %159, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %159 ]
@@ -1504,9 +1504,9 @@ RelationReloadIndexInfo.exit:                     ; preds = %24, %44, %HeapTuple
 
 182:                                              ; preds = %177
   %183 = getelementptr inbounds nuw i8, ptr %166, i64 25
-  %184 = load i8, ptr %183, align 1, !range !6, !noundef !7
+  %184 = load i8, ptr %183, align 1, !range !7, !noundef !8
   %185 = getelementptr inbounds nuw i8, ptr %169, i64 25
-  %186 = load i8, ptr %185, align 1, !range !6, !noundef !7
+  %186 = load i8, ptr %185, align 1, !range !7, !noundef !8
   %.not34.i = icmp eq i8 %184, %186
   br i1 %.not34.i, label %187, label %equalRuleLocks.exit
 
@@ -1637,9 +1637,9 @@ list_length.exit45.thread.i:                      ; preds = %list_length.exit.th
 
 251:                                              ; preds = %246
   %252 = getelementptr inbounds nuw i8, ptr %243, i64 48
-  %253 = load i8, ptr %252, align 8, !range !6, !noundef !7
+  %253 = load i8, ptr %252, align 8, !range !7, !noundef !8
   %254 = getelementptr inbounds nuw i8, ptr %244, i64 48
-  %255 = load i8, ptr %254, align 8, !range !6, !noundef !7
+  %255 = load i8, ptr %254, align 8, !range !7, !noundef !8
   %.not37.i.i = icmp eq i8 %253, %255
   br i1 %.not37.i.i, label %256, label %equalRSDesc.exit
 
@@ -1715,7 +1715,7 @@ list_length.exit45.thread.i:                      ; preds = %list_length.exit.th
 299:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !16
 
 .lr.ph.i.i:                                       ; preds = %299, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %299 ]
@@ -1747,7 +1747,7 @@ list_length.exit45.thread.i:                      ; preds = %list_length.exit.th
 
 equalPolicy.exit.i:                               ; preds = %315, %309
   %indvars.iv.next.i144 = add nuw nsw i64 %indvars.iv.i143, 1
-  br label %.preheader.split.i, !llvm.loop !16
+  br label %.preheader.split.i, !llvm.loop !17
 
 equalRSDesc.exit:                                 ; preds = %232, %237, %245, %246, %251, %256, %260, %._crit_edge.i.i, %309, %315, %.lr.ph.i.i, %equalRuleLocks.exit, %206, %list_length.exit.thread.i, %list_length.exit45.i, %list_length.exit45.thread.i
   %.0.i142 = phi i1 [ true, %equalRuleLocks.exit ], [ false, %206 ], [ false, %list_length.exit45.thread.i ], [ true, %list_length.exit.thread.i ], [ %.not.i145, %list_length.exit45.i ], [ false, %.lr.ph.i.i ], [ true, %237 ], [ false, %245 ], [ false, %246 ], [ false, %251 ], [ false, %256 ], [ false, %260 ], [ false, %._crit_edge.i.i ], [ false, %309 ], [ false, %315 ], [ true, %232 ]
@@ -1850,9 +1850,9 @@ equalRSDesc.exit:                                 ; preds = %232, %237, %245, %2
   store ptr %368, ptr %365, align 8
   store ptr %366, ptr %367, align 8
   %369 = getelementptr inbounds nuw i8, ptr %135, i64 476
-  %370 = load i8, ptr %369, align 4, !range !6, !noundef !7
+  %370 = load i8, ptr %369, align 4, !range !7, !noundef !8
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 476
-  %372 = load i8, ptr %371, align 4, !range !6, !noundef !7
+  %372 = load i8, ptr %371, align 4, !range !7, !noundef !8
   store i8 %372, ptr %369, align 4
   store i8 %370, ptr %371, align 4
   br i1 %.not132, label %381, label %373
@@ -2092,7 +2092,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %92) #13
   call void @ScanKeyInit(ptr noundef nonnull %25, i16 noundef signext 5, i16 noundef zeroext 5, i32 noundef 146, i64 noundef 0) #13
   %93 = call ptr @table_open(i32 noundef 1249, i32 noundef 1) #13
-  %94 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6, !noundef !7
+  %94 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7, !noundef !8
   %95 = trunc nuw i8 %94 to i1
   %96 = call ptr @systable_beginscan(ptr noundef %93, i32 noundef 2659, i1 noundef zeroext %95, ptr noundef null, i32 noundef 2, ptr noundef nonnull %5) #13
   %97 = load ptr, ptr %41, align 8
@@ -2159,7 +2159,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   %139 = load ptr, ptr %46, align 8
   call void @populate_compact_attribute(ptr noundef %139, i32 noundef %131) #13
   %140 = getelementptr inbounds nuw i8, ptr %112, i64 86
-  %141 = load i8, ptr %140, align 2, !range !6, !noundef !7
+  %141 = load i8, ptr %140, align 2, !range !7, !noundef !8
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %144
 
@@ -2189,11 +2189,11 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
 
 153:                                              ; preds = %152, %149
   %154 = getelementptr inbounds nuw i8, ptr %112, i64 87
-  %155 = load i8, ptr %154, align 1, !range !6, !noundef !7
+  %155 = load i8, ptr %154, align 1, !range !7, !noundef !8
   %156 = zext nneg i8 %155 to i32
   %spec.select91.i = add i32 %.083.i, %156
   %157 = getelementptr inbounds nuw i8, ptr %112, i64 88
-  %158 = load i8, ptr %157, align 4, !range !6, !noundef !7
+  %158 = load i8, ptr %157, align 4, !range !7, !noundef !8
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %253
 
@@ -2233,7 +2233,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
   %181 = zext nneg i32 %174 to i64
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 %181
   %183 = getelementptr inbounds nuw i8, ptr %161, i64 414
-  %184 = load i8, ptr %183, align 2, !range !6, !noundef !7
+  %184 = load i8, ptr %183, align 2, !range !7, !noundef !8
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %186, label %204
 
@@ -2299,7 +2299,7 @@ define internal fastcc ptr @RelationBuildDesc(i32 noundef %0, i1 noundef zeroext
 
 heap_getattr.exit.i:                              ; preds = %213, %212, %206, %204, %198, %195, %192, %189, %167
   %.0.i.i = phi i64 [ %168, %167 ], [ 0, %212 ], [ %214, %213 ], [ %207, %206 ], [ %191, %189 ], [ %194, %192 ], [ %197, %195 ], [ %199, %198 ], [ %205, %204 ]
-  %215 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %215 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %216 = trunc nuw i8 %215 to i1
   br i1 %216, label %252, label %217
 
@@ -2326,12 +2326,12 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
   %229 = load i16, ptr %228, align 4
   %230 = sext i16 %229 to i32
   %231 = getelementptr inbounds nuw i8, ptr %112, i64 82
-  %232 = load i8, ptr %231, align 2, !range !6, !noundef !7
+  %232 = load i8, ptr %231, align 2, !range !7, !noundef !8
   %233 = trunc nuw i8 %232 to i1
   %234 = getelementptr inbounds nuw i8, ptr %112, i64 83
   %235 = load i8, ptr %234, align 1
   %236 = call i64 @array_get_element(i64 noundef %.0.i.i, i32 noundef 1, ptr noundef nonnull %8, i32 noundef -1, i32 noundef %230, i1 noundef zeroext %233, i8 noundef signext %235, ptr noundef nonnull %7) #13
-  %237 = load i8, ptr %231, align 2, !range !6, !noundef !7
+  %237 = load i8, ptr %231, align 2, !range !7, !noundef !8
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %241
 
@@ -2344,7 +2344,7 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
   %242 = load ptr, ptr @CacheMemoryContext, align 8
   %243 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %242, ptr @CurrentMemoryContext, align 8
-  %244 = load i8, ptr %231, align 2, !range !6, !noundef !7
+  %244 = load i8, ptr %231, align 2, !range !7, !noundef !8
   %245 = trunc nuw i8 %244 to i1
   %246 = load i16, ptr %228, align 4
   %247 = sext i16 %246 to i32
@@ -2370,7 +2370,7 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
   %.2.i = phi ptr [ %.3.i, %252 ], [ %.081.i, %153 ]
   %254 = add i32 %.080.i, -1
   %255 = icmp eq i32 %254, 0
-  br i1 %255, label %256, label %105
+  br i1 %255, label %256, label %105, !llvm.loop !18
 
 256:                                              ; preds = %253, %105
   %.184.i = phi i32 [ %spec.select91.i, %253 ], [ %.083.i, %105 ]
@@ -2403,17 +2403,17 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
   br label %269
 
 269:                                              ; preds = %266, %261
-  %270 = load i8, ptr %101, align 4, !range !6, !noundef !7
+  %270 = load i8, ptr %101, align 4, !range !7, !noundef !8
   %271 = trunc nuw i8 %270 to i1
   br i1 %271, label %287, label %272
 
 272:                                              ; preds = %269
-  %273 = load i8, ptr %102, align 1, !range !6, !noundef !7
+  %273 = load i8, ptr %102, align 1, !range !7, !noundef !8
   %274 = trunc nuw i8 %273 to i1
   br i1 %274, label %287, label %275
 
 275:                                              ; preds = %272
-  %276 = load i8, ptr %103, align 2, !range !6, !noundef !7
+  %276 = load i8, ptr %103, align 2, !range !7, !noundef !8
   %277 = trunc nuw i8 %276 to i1
   %278 = icmp sgt i32 %.184.i, 0
   %or.cond.i = select i1 %277, i1 true, i1 %278
@@ -2504,7 +2504,7 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
   %327 = zext nneg i32 %324 to i64
   %328 = getelementptr inbounds nuw i8, ptr %308, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %319, i64 78
-  %330 = load i8, ptr %329, align 2, !range !6, !noundef !7
+  %330 = load i8, ptr %329, align 2, !range !7, !noundef !8
   %331 = trunc nuw i8 %330 to i1
   br i1 %331, label %332, label %350
 
@@ -2599,7 +2599,7 @@ fastgetattr.exit91:                               ; preds = %354
   %.2.i.i = phi i32 [ %.047.i.i, %361 ], [ %.047.i.i, %fastgetattr.exit91 ], [ %378, %368 ]
   %380 = call ptr @systable_getnext(ptr noundef %299) #13
   %.not.i.i = icmp eq ptr %380, null
-  br i1 %.not.i.i, label %.loopexit.i.i, label %302
+  br i1 %.not.i.i, label %.loopexit.i.i, label %302, !llvm.loop !19
 
 .loopexit.i.i:                                    ; preds = %379, %309, %311, %291
   %.045.i.i = phi i32 [ 0, %291 ], [ %.047.i.i, %311 ], [ %.047.i.i, %309 ], [ %.2.i.i, %379 ]
@@ -2689,7 +2689,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %390, %388
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 72
   %428 = load i8, ptr %427, align 4
   %.not48.i.i = icmp eq i8 %428, 99
-  br i1 %.not48.i.i, label %429, label %508, !llvm.loop !17
+  br i1 %.not48.i.i, label %429, label %508, !llvm.loop !20
 
 429:                                              ; preds = %420
   %.not49.i.i = icmp slt i32 %.058.i.i, %409
@@ -2708,17 +2708,17 @@ AttrDefaultFetch.exit.i:                          ; preds = %390, %388
 
 436:                                              ; preds = %429
   %437 = getelementptr inbounds nuw i8, ptr %426, i64 75
-  %438 = load i8, ptr %437, align 1, !range !6, !noundef !7
+  %438 = load i8, ptr %437, align 1, !range !7, !noundef !8
   %439 = sext i32 %.058.i.i to i64
   %440 = getelementptr inbounds %struct.ConstrCheck, ptr %413, i64 %439
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 16
   store i8 %438, ptr %441, align 8
   %442 = getelementptr inbounds nuw i8, ptr %426, i64 76
-  %443 = load i8, ptr %442, align 4, !range !6, !noundef !7
+  %443 = load i8, ptr %442, align 4, !range !7, !noundef !8
   %444 = getelementptr inbounds nuw i8, ptr %440, i64 17
   store i8 %443, ptr %444, align 1
   %445 = getelementptr inbounds nuw i8, ptr %426, i64 106
-  %446 = load i8, ptr %445, align 2, !range !6, !noundef !7
+  %446 = load i8, ptr %445, align 2, !range !7, !noundef !8
   %447 = getelementptr inbounds nuw i8, ptr %440, i64 18
   store i8 %446, ptr %447, align 2
   %448 = load ptr, ptr @CacheMemoryContext, align 8
@@ -2747,7 +2747,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %390, %388
   %463 = zext nneg i32 %456 to i64
   %464 = getelementptr inbounds nuw i8, ptr %462, i64 %463
   %465 = getelementptr inbounds nuw i8, ptr %451, i64 462
-  %466 = load i8, ptr %465, align 2, !range !6, !noundef !7
+  %466 = load i8, ptr %465, align 2, !range !7, !noundef !8
   %467 = trunc nuw i8 %466 to i1
   br i1 %467, label %468, label %486
 
@@ -2929,7 +2929,7 @@ RelationBuildTupleDesc.exit:                      ; preds = %CheckConstraintFetc
   call fastcc void @RelationParseRelOptions(ptr noundef nonnull %38, ptr noundef %29)
   %547 = load ptr, ptr %41, align 8
   %548 = getelementptr inbounds nuw i8, ptr %547, i64 120
-  %549 = load i8, ptr %548, align 4, !range !6, !noundef !7
+  %549 = load i8, ptr %548, align 4, !range !7, !noundef !8
   %550 = trunc nuw i8 %549 to i1
   br i1 %550, label %551, label %552
 
@@ -2946,7 +2946,7 @@ RelationBuildTupleDesc.exit:                      ; preds = %CheckConstraintFetc
 554:                                              ; preds = %552, %551
   %555 = phi ptr [ %547, %552 ], [ %.pre184, %551 ]
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 121
-  %557 = load i8, ptr %556, align 1, !range !6, !noundef !7
+  %557 = load i8, ptr %556, align 1, !range !7, !noundef !8
   %558 = trunc nuw i8 %557 to i1
   br i1 %558, label %559, label %560
 
@@ -2963,7 +2963,7 @@ RelationBuildTupleDesc.exit:                      ; preds = %CheckConstraintFetc
 562:                                              ; preds = %560, %559
   %563 = phi ptr [ %555, %560 ], [ %.pre185, %559 ]
   %564 = getelementptr inbounds nuw i8, ptr %563, i64 123
-  %565 = load i8, ptr %564, align 1, !range !6, !noundef !7
+  %565 = load i8, ptr %564, align 1, !range !7, !noundef !8
   %566 = trunc nuw i8 %565 to i1
   br i1 %566, label %567, label %568
 
@@ -2983,7 +2983,7 @@ RelationBuildTupleDesc.exit:                      ; preds = %CheckConstraintFetc
   call void @heap_freetuple(ptr noundef nonnull %29) #13
   %571 = load ptr, ptr @in_progress_list, align 8
   %572 = getelementptr inbounds %struct.inprogressent, ptr %571, i64 %21, i32 1
-  %573 = load i8, ptr %572, align 4, !range !6, !noundef !7
+  %573 = load i8, ptr %572, align 4, !range !7, !noundef !8
   %574 = trunc nuw i8 %573 to i1
   br i1 %574, label %575, label %579
 
@@ -2994,7 +2994,7 @@ RelationBuildTupleDesc.exit:                      ; preds = %CheckConstraintFetc
   store i8 0, ptr %577, align 4
   %578 = call fastcc ptr @ScanPgRelation(i32 noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   %.not82 = icmp eq ptr %578, null
-  br i1 %.not82, label %._crit_edge, label %28
+  br i1 %.not82, label %._crit_edge, label %28, !llvm.loop !21
 
 579:                                              ; preds = %570
   %580 = load i32, ptr @in_progress_list_len, align 4
@@ -3006,7 +3006,7 @@ RelationBuildTupleDesc.exit:                      ; preds = %CheckConstraintFetc
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #13
   %583 = load ptr, ptr @RelationIdCache, align 8
   %584 = call ptr @hash_search(ptr noundef %583, ptr noundef nonnull %48, i32 noundef 1, ptr noundef nonnull %9) #13
-  %585 = load i8, ptr %9, align 1, !range !6, !noundef !7
+  %585 = load i8, ptr %9, align 1, !range !7, !noundef !8
   %586 = trunc nuw i8 %585 to i1
   %587 = getelementptr inbounds nuw i8, ptr %584, i64 8
   br i1 %586, label %588, label %604
@@ -3457,7 +3457,7 @@ RelationInvalidateRelation.exit18.i:              ; preds = %65, %RelationCloseS
 
 67:                                               ; preds = %56
   %68 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  %69 = load i8, ptr %68, align 1, !range !6, !noundef !7
+  %69 = load i8, ptr %68, align 1, !range !7, !noundef !8
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %75
 
@@ -3490,7 +3490,7 @@ RelationInvalidateRelation.exit18.i:              ; preds = %65, %RelationCloseS
 83:                                               ; preds = %76, %81
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %RelationFlushRelation.exit, label %76, !llvm.loop !18
+  br i1 %exitcond.not, label %RelationFlushRelation.exit, label %76, !llvm.loop !22
 
 RelationFlushRelation.exit:                       ; preds = %83, %.preheader, %75, %74, %RelationInvalidateRelation.exit18.i, %55, %RelationInvalidateRelation.exit.i, %39, %RelationIncrementReferenceCount.exit.i
   ret void
@@ -3536,7 +3536,7 @@ define dso_local void @RelationCacheInvalidate(i1 noundef zeroext %0) local_unna
 15:                                               ; preds = %12, %6
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !19
+  br i1 %.not, label %.outer._crit_edge, label %6, !llvm.loop !23
 
 17:                                               ; preds = %12
   %18 = load i64, ptr @relcacheInvalsReceived, align 8
@@ -3605,7 +3605,7 @@ RelationCloseSmgr.exit:                           ; preds = %33, %36
 
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  %47 = load i8, ptr %46, align 1, !range !6, !noundef !7
+  %47 = load i8, ptr %46, align 1, !range !7, !noundef !8
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %51
 
@@ -3622,7 +3622,7 @@ RelationCloseSmgr.exit:                           ; preds = %33, %36
   %.1 = phi ptr [ %.0.ph79, %23 ], [ %42, %41 ], [ %44, %43 ], [ %.0.ph79, %49 ], [ %.0.ph79, %51 ]
   %53 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
   %.not73 = icmp eq ptr %53, null
-  br i1 %.not73, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not73, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !23
 
 .outer._crit_edge:                                ; preds = %.outer, %15
   %.052.ph.lcssa = phi ptr [ %.052.ph78, %15 ], [ %.153, %.outer ]
@@ -3661,7 +3661,7 @@ RelationCloseSmgr.exit:                           ; preds = %33, %36
 
 66:                                               ; preds = %.lr.ph87
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 33
-  %68 = load i8, ptr %67, align 1, !range !6, !noundef !7
+  %68 = load i8, ptr %67, align 1, !range !7, !noundef !8
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %70, label %83
 
@@ -3736,7 +3736,7 @@ RelationInvalidateRelation.exit:                  ; preds = %RelationCloseSmgr.e
 
 95:                                               ; preds = %.lr.ph92
   %96 = getelementptr inbounds nuw i8, ptr %90, i64 33
-  %97 = load i8, ptr %96, align 1, !range !6, !noundef !7
+  %97 = load i8, ptr %96, align 1, !range !7, !noundef !8
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %99, label %112
 
@@ -3792,7 +3792,7 @@ RelationInvalidateRelation.exit72:                ; preds = %RelationCloseSmgr.e
   store i8 1, ptr %118, align 4
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %117, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit, label %117, !llvm.loop !24
 
 .loopexit:                                        ; preds = %117, %.preheader, %.critedge67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
@@ -3873,7 +3873,7 @@ define internal fastcc void @RelationInitPhysicalAddr(ptr noundef %0) unnamed_ad
 
 35:                                               ; preds = %31, %31
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 104
-  %37 = load i8, ptr %36, align 8, !range !6, !noundef !7
+  %37 = load i8, ptr %36, align 8, !range !7, !noundef !8
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %64
 
@@ -3928,7 +3928,7 @@ define internal fastcc void @RelationInitPhysicalAddr(ptr noundef %0) unnamed_ad
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %70 = load i32, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 113
-  %72 = load i8, ptr %71, align 1, !range !6, !noundef !7
+  %72 = load i8, ptr %71, align 1, !range !7, !noundef !8
   %73 = trunc nuw i8 %72 to i1
   %74 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %70, i1 noundef zeroext %73) #13
   store i32 %74, ptr %2, align 8
@@ -4039,7 +4039,7 @@ AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %
   %25 = load i32, ptr @eoxact_list_len, align 4
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %indvars.iv.next29, %26
-  br i1 %27, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !21
+  br i1 %27, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !25
 
 28:                                               ; preds = %1
   %29 = load ptr, ptr @RelationIdCache, align 8
@@ -4085,7 +4085,7 @@ AtEOXact_cleanup.exit17.us:                       ; preds = %8, %24, %19, %17, %
 AtEOXact_cleanup.exit:                            ; preds = %.lr.ph22, %40, %41, %43
   %48 = call ptr @hash_seq_search(ptr noundef nonnull %2) #13
   %.not13 = icmp eq ptr %48, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph22, !llvm.loop !23
+  br i1 %.not13, label %.loopexit, label %.lr.ph22, !llvm.loop !27
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %AtEOXact_cleanup.exit17
   %indvars.iv = phi i64 [ %indvars.iv.next, %AtEOXact_cleanup.exit17 ], [ 0, %.lr.ph ]
@@ -4131,7 +4131,7 @@ AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, 
   %68 = load i32, ptr @eoxact_list_len, align 4
   %69 = sext i32 %68 to i64
   %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph.split, label %.loopexit, !llvm.loop !24
+  br i1 %70, label %.lr.ph.split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %AtEOXact_cleanup.exit17, %AtEOXact_cleanup.exit17.us, %AtEOXact_cleanup.exit, %.preheader18, %28
   %71 = load i32, ptr @EOXactTupleDescArrayLen, align 4
@@ -4153,7 +4153,7 @@ AtEOXact_cleanup.exit17:                          ; preds = %63, %61, %60, %52, 
   %78 = load i32, ptr @NextEOXactTupleDescNum, align 4
   %79 = sext i32 %78 to i64
   %80 = icmp slt i64 %indvars.iv.next32, %79
-  br i1 %80, label %.lr.ph24, label %._crit_edge, !llvm.loop !25
+  br i1 %80, label %.lr.ph24, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph24, %.preheader
   %81 = load ptr, ptr @EOXactTupleDescArray, align 8
@@ -4201,7 +4201,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   call fastcc void @AtEOSubXact_cleanup(ptr noundef %12, i1 noundef zeroext %0, i32 noundef %1, i32 noundef %2)
   %13 = call ptr @hash_seq_search(ptr noundef nonnull %4) #13
   %.not14 = icmp eq ptr %13, null
-  br i1 %.not14, label %.loopexit, label %.lr.ph18, !llvm.loop !26
+  br i1 %.not14, label %.loopexit, label %.lr.ph18, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.preheader, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %.preheader ]
@@ -4222,7 +4222,7 @@ define dso_local void @AtEOSubXact_RelationCache(i1 noundef zeroext %0, i32 noun
   %21 = load i32, ptr @eoxact_list_len, align 4
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next, %22
-  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !27
+  br i1 %23, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %20, %.lr.ph18, %.preheader, %7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #13
@@ -4431,7 +4431,7 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 90
   store i8 %57, ptr %58, align 2
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 86
-  %60 = load i8, ptr %59, align 2, !range !6, !noundef !7
+  %60 = load i8, ptr %59, align 2, !range !7, !noundef !8
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 86
   store i8 %60, ptr %61, align 2
   %62 = zext i1 %.0122126 to i8
@@ -4442,7 +4442,7 @@ define dso_local ptr @RelationBuildLocalRelation(ptr noundef %0, i32 noundef %1,
   tail call void @populate_compact_attribute(ptr noundef %65, i32 noundef %66) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph
   br i1 %64, label %67, label %.critedge
@@ -4557,7 +4557,7 @@ switch.lookup146:                                 ; preds = %104
   store i32 %3, ptr %119, align 4
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !29
+  br i1 %exitcond136.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !33
 
 ._crit_edge131:                                   ; preds = %.lr.ph130, %107
   %120 = load ptr, ptr %73, align 8
@@ -4598,7 +4598,7 @@ switch.lookup146:                                 ; preds = %104
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #13
   %131 = load ptr, ptr @RelationIdCache, align 8
   %132 = call ptr @hash_search(ptr noundef %131, ptr noundef nonnull %112, i32 noundef 1, ptr noundef nonnull %12) #13
-  %133 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %133 = load i8, ptr %12, align 1, !range !7, !noundef !8
   %134 = trunc nuw i8 %133 to i1
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
   br i1 %134, label %136, label %152
@@ -4945,7 +4945,7 @@ define dso_local void @RelationSetNewRelfilenumber(ptr noundef %0, i8 noundef si
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #13
-  %8 = load i8, ptr @IsBinaryUpgrade, align 1, !range !6, !noundef !7
+  %8 = load i8, ptr @IsBinaryUpgrade, align 1, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
@@ -5034,7 +5034,7 @@ define dso_local void @RelationSetNewRelfilenumber(ptr noundef %0, i8 noundef si
   %51 = load i8, ptr %50, align 2
   %52 = zext i8 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr %.val, i64 %52
-  %54 = load i8, ptr @IsBinaryUpgrade, align 1, !range !6, !noundef !7
+  %54 = load i8, ptr @IsBinaryUpgrade, align 1, !range !7, !noundef !8
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %61
 
@@ -5120,7 +5120,7 @@ define dso_local void @RelationSetNewRelfilenumber(ptr noundef %0, i8 noundef si
   %91 = load i32, ptr %39, align 8
   %92 = load ptr, ptr %65, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 113
-  %94 = load i8, ptr %93, align 1, !range !6, !noundef !7
+  %94 = load i8, ptr %93, align 1, !range !7, !noundef !8
   %95 = trunc nuw i8 %94 to i1
   call void @RelationMapUpdateMap(i32 noundef %91, i32 noundef %.0, i1 noundef zeroext %95, i1 noundef zeroext false) #13
   call void @CacheInvalidateRelcache(ptr noundef nonnull %0) #13
@@ -5474,7 +5474,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 86
-  %72 = load i8, ptr %71, align 2, !range !6, !noundef !7
+  %72 = load i8, ptr %71, align 2, !range !7, !noundef !8
   %73 = or i8 %72, %.0227312
   %74 = load ptr, ptr %49, align 8
   %75 = trunc nuw nsw i64 %indvars.iv to i32
@@ -5483,7 +5483,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %76 = load i16, ptr %45, align 4
   %77 = sext i16 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !30
+  br i1 %78, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !34
 
 ._crit_edge.loopexit:                             ; preds = %70
   %79 = trunc nuw i8 %73 to i1
@@ -5539,7 +5539,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 105
   %105 = getelementptr inbounds nuw i8, ptr %31, i64 33
-  %106 = load i8, ptr %105, align 1, !range !6, !noundef !7
+  %106 = load i8, ptr %105, align 1, !range !7, !noundef !8
   %107 = zext nneg i8 %106 to i32
   br i1 %104, label %108, label %198
 
@@ -5689,7 +5689,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %186 = load i16, ptr %45, align 4
   %187 = sext i16 %186 to i64
   %188 = icmp slt i64 %indvars.iv.next341, %187
-  br i1 %188, label %.lr.ph316, label %._crit_edge317, !llvm.loop !31
+  br i1 %188, label %.lr.ph316, label %._crit_edge317, !llvm.loop !35
 
 ._crit_edge317:                                   ; preds = %185, %165
   %.lcssa.in = phi i16 [ %172, %165 ], [ %186, %185 ]
@@ -5739,7 +5739,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %201, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %202, i8 0, i64 52, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %206, i8 0, i64 40, i1 false)
-  %210 = load i8, ptr %209, align 1, !range !6, !noundef !7
+  %210 = load i8, ptr %209, align 1, !range !7, !noundef !8
   %spec.select366 = zext nneg i8 %210 to i32
   %211 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store i32 %spec.select366, ptr %211, align 8
@@ -5831,7 +5831,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   %245 = load ptr, ptr %244, align 8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 72
   %247 = call ptr @hash_search(ptr noundef %243, ptr noundef nonnull %246, i32 noundef 1, ptr noundef nonnull %5) #13
-  %248 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %248 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %249 = trunc nuw i8 %248 to i1
   br i1 %249, label %250, label %268
 
@@ -5876,7 +5876,7 @@ define internal fastcc noundef zeroext i1 @load_relcache_init_file(i1 noundef ze
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #13
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge322, label %.lr.ph321, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge322, label %.lr.ph321, !llvm.loop !36
 
 ._crit_edge322:                                   ; preds = %271, %241
   call void @pfree(ptr noundef %.1) #13
@@ -5996,7 +5996,7 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71,
   %60 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %4, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %59, ptr noundef nonnull align 4 dereferenceable(100) %60, i64 100, i1 false)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 86
-  %62 = load i8, ptr %61, align 2, !range !6, !noundef !7
+  %62 = load i8, ptr %61, align 2, !range !7, !noundef !8
   %63 = zext i1 %.07273 to i8
   %64 = or i8 %62, %63
   %65 = icmp ne i8 %64, 0
@@ -6005,7 +6005,7 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71,
   tail call void @populate_compact_attribute(ptr noundef %66, i32 noundef %67) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %68, label %52, !llvm.loop !33
+  br i1 %exitcond.not, label %68, label %52, !llvm.loop !37
 
 68:                                               ; preds = %52
   %69 = load ptr, ptr %46, align 8
@@ -6062,7 +6062,7 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71,
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
   %100 = load ptr, ptr @RelationIdCache, align 8
   %101 = call ptr @hash_search(ptr noundef %100, ptr noundef nonnull %84, i32 noundef 1, ptr noundef nonnull %6) #13
-  %102 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %102 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %103 = trunc nuw i8 %102 to i1
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   br i1 %103, label %105, label %121
@@ -6111,7 +6111,7 @@ define internal fastcc void @formrdesc(ptr noundef %0, i32 noundef range(i32 71,
 define dso_local void @RelationCacheInitializePhase3() local_unnamed_addr #0 {
   %1 = alloca %struct.HASH_SEQ_STATUS, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #13
-  %2 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !6, !noundef !7
+  %2 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !7, !noundef !8
   tail call void @RelationMapInitializePhase3() #13
   %3 = load ptr, ptr @CacheMemoryContext, align 8
   %4 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -6140,7 +6140,7 @@ define dso_local void @RelationCacheInitializePhase3() local_unnamed_addr #0 {
   br i1 %13, label %134, label %14
 
 14:                                               ; preds = %11
-  %15 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6, !noundef !7
+  %15 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7, !noundef !8
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %18, label %17
 
@@ -6156,7 +6156,7 @@ define dso_local void @RelationCacheInitializePhase3() local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %17, %14
-  %19 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !6, !noundef !7
+  %19 = load i8, ptr @criticalSharedRelcachesBuilt, align 1, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %22, label %21
 
@@ -6262,7 +6262,7 @@ RelationIncrementReferenceCount.exit:             ; preds = %.lr.ph, %34
 73:                                               ; preds = %63, %RelationIncrementReferenceCount.exit
   %74 = phi ptr [ %64, %63 ], [ %38, %RelationIncrementReferenceCount.exit ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
-  %76 = load i8, ptr %75, align 4, !range !6, !noundef !7
+  %76 = load i8, ptr %75, align 4, !range !7, !noundef !8
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %78, label %87
 
@@ -6289,7 +6289,7 @@ RelationIncrementReferenceCount.exit:             ; preds = %.lr.ph, %34
   %88 = phi ptr [ %74, %78 ], [ %74, %73 ], [ %.pre, %85 ], [ %.pre54, %82 ]
   %.1 = phi i1 [ %41, %78 ], [ %41, %73 ], [ true, %85 ], [ true, %82 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 121
-  %90 = load i8, ptr %89, align 1, !range !6, !noundef !7
+  %90 = load i8, ptr %89, align 1, !range !7, !noundef !8
   %91 = trunc nuw i8 %90 to i1
   br i1 %91, label %92, label %101
 
@@ -6316,7 +6316,7 @@ RelationIncrementReferenceCount.exit:             ; preds = %.lr.ph, %34
   %102 = phi ptr [ %88, %92 ], [ %88, %87 ], [ %.pre55, %99 ], [ %.pre56, %96 ]
   %.2 = phi i1 [ %.1, %92 ], [ %.1, %87 ], [ true, %99 ], [ true, %96 ]
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 123
-  %104 = load i8, ptr %103, align 1, !range !6, !noundef !7
+  %104 = load i8, ptr %103, align 1, !range !7, !noundef !8
   %105 = trunc nuw i8 %104 to i1
   br i1 %105, label %106, label %111
 
@@ -6379,7 +6379,7 @@ RelationDecrementReferenceCount.exit:             ; preds = %120, %125
 130:                                              ; preds = %128, %RelationDecrementReferenceCount.exit
   %131 = call ptr @hash_seq_search(ptr noundef nonnull %1) #13
   %.not = icmp eq ptr %131, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %130, %22
   %132 = trunc nuw i8 %.0 to i1
@@ -6570,7 +6570,7 @@ define internal fastcc void @RelationBuildRuleLock(ptr noundef captures(none) in
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store i8 %36, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 74
-  %39 = load i8, ptr %38, align 2, !range !6, !noundef !7
+  %39 = load i8, ptr %38, align 2, !range !7, !noundef !8
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 25
   store i8 %39, ptr %40, align 1
   %41 = load ptr, ptr %23, align 8
@@ -6643,7 +6643,7 @@ heap_getattr.exit76:                              ; preds = %60, %62
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 5
-  %79 = load i8, ptr %78, align 1, !range !6, !noundef !7
+  %79 = load i8, ptr %78, align 1, !range !7, !noundef !8
   %80 = icmp eq i8 %79, 0
   br i1 %80, label %.critedge, label %83
 
@@ -6678,7 +6678,7 @@ heap_getattr.exit76:                              ; preds = %60, %62
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #13
   %95 = call ptr @systable_getnext(ptr noundef %18) #13
   %.not = icmp eq ptr %95, null
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !35
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %91, %1
   %.067.lcssa = phi ptr [ %11, %1 ], [ %.1, %91 ]
@@ -6799,9 +6799,9 @@ define internal fastcc void @write_relcache_init_file(i1 noundef zeroext %0) unn
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 113
-  %48 = load i8, ptr %47, align 1, !range !6, !noundef !7
+  %48 = load i8, ptr %47, align 1, !range !7, !noundef !8
   %.not63 = icmp eq i8 %48, %40
-  br i1 %.not63, label %49, label %.loopexit, !llvm.loop !36
+  br i1 %.not63, label %49, label %.loopexit, !llvm.loop !40
 
 49:                                               ; preds = %41
   br i1 %0, label %RelationIdIsInInitFile.exit.thread, label %50
@@ -6818,7 +6818,7 @@ define internal fastcc void @write_relcache_init_file(i1 noundef zeroext %0) unn
 
 RelationIdIsInInitFile.exit:                      ; preds = %50
   %53 = call zeroext i1 @RelationSupportsSysCache(i32 noundef %52) #13
-  br i1 %53, label %RelationIdIsInInitFile.exit.thread, label %.loopexit, !llvm.loop !36
+  br i1 %53, label %RelationIdIsInInitFile.exit.thread, label %.loopexit, !llvm.loop !40
 
 RelationIdIsInInitFile.exit.thread:               ; preds = %50, %50, %50, %50, %RelationIdIsInInitFile.exit, %49
   call fastcc void @write_item(ptr noundef nonnull %44, i64 noundef 488, ptr noundef %23)
@@ -6874,7 +6874,7 @@ write_item.exit:                                  ; preds = %66
   %77 = load i16, ptr %54, align 4
   %78 = sext i16 %77 to i64
   %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %58, label %._crit_edge, !llvm.loop !37
+  br i1 %79, label %58, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %write_item.exit, %RelationIdIsInInitFile.exit.thread
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 304
@@ -7005,12 +7005,12 @@ write_item.exit69:                                ; preds = %.split55
   %148 = load i16, ptr %54, align 4
   %149 = sext i16 %148 to i64
   %150 = icmp slt i64 %indvars.iv.next83, %149
-  br i1 %150, label %135, label %.loopexit, !llvm.loop !38
+  br i1 %150, label %135, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %147, %95, %90, %RelationIdIsInInitFile.exit, %41
   %151 = call ptr @hash_seq_search(ptr noundef nonnull %8) #13
   %.not61 = icmp eq ptr %151, null
-  br i1 %.not61, label %._crit_edge80, label %41
+  br i1 %.not61, label %._crit_edge80, label %41, !llvm.loop !43
 
 ._crit_edge80:                                    ; preds = %.loopexit, %37
   %152 = call i32 @FreeFile(ptr noundef nonnull %23) #13
@@ -7062,7 +7062,7 @@ define dso_local ptr @RelationGetFKeyList(ptr noundef captures(none) %0) local_u
   %2 = alloca %struct.ScanKeyData, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %4 = load i8, ptr %3, align 8, !range !6, !noundef !7
+  %4 = load i8, ptr %3, align 8, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %9
 
@@ -7075,7 +7075,7 @@ define dso_local ptr @RelationGetFKeyList(ptr noundef captures(none) %0) local_u
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 121
-  %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 1, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %18, label %15
 
@@ -7108,7 +7108,7 @@ define dso_local ptr @RelationGetFKeyList(ptr noundef captures(none) %0) local_u
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load i8, ptr %31, align 4
   %.not35 = icmp eq i8 %32, 102
-  br i1 %.not35, label %33, label %48, !llvm.loop !39
+  br i1 %.not35, label %33, label %48, !llvm.loop !44
 
 33:                                               ; preds = %.lr.ph
   %34 = call noundef ptr @palloc0(i64 noundef 276) #13
@@ -7136,7 +7136,7 @@ define dso_local ptr @RelationGetFKeyList(ptr noundef captures(none) %0) local_u
   %.1 = phi ptr [ %47, %33 ], [ %.03237, %.lr.ph ]
   %49 = call ptr @systable_getnext(ptr noundef %23) #13
   %.not34 = icmp eq ptr %49, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  br i1 %.not34, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %48, %18
   %.032.lcssa = phi ptr [ null, %18 ], [ %.1, %48 ]
@@ -7183,7 +7183,7 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 126
   %6 = load i8, ptr %5, align 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
+  %8 = load i8, ptr %7, align 1, !range !7, !noundef !8
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %14
 
@@ -7217,31 +7217,31 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %.val, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 21
-  %28 = load i8, ptr %27, align 1, !range !6, !noundef !7
+  %28 = load i8, ptr %27, align 1, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %70, !llvm.loop !40
+  br i1 %29, label %30, label %70, !llvm.loop !46
 
 30:                                               ; preds = %.lr.ph
   %31 = load i32, ptr %26, align 4
   %32 = call ptr @lappend_oid(ptr noundef %.05067, i32 noundef %31) #13
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %34 = load i8, ptr %33, align 4, !range !6, !noundef !7
+  %34 = load i8, ptr %33, align 4, !range !7, !noundef !8
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %70, !llvm.loop !40
+  br i1 %35, label %36, label %70, !llvm.loop !46
 
 36:                                               ; preds = %30
   %37 = call zeroext i1 @heap_attisnull(ptr noundef nonnull %21, i32 noundef 21, ptr noundef null) #13
-  br i1 %37, label %38, label %70, !llvm.loop !40
+  br i1 %37, label %38, label %70, !llvm.loop !46
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %26, i64 14
-  %40 = load i8, ptr %39, align 2, !range !6, !noundef !7
+  %40 = load i8, ptr %39, align 2, !range !7, !noundef !8
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %42, label %56
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  %44 = load i8, ptr %43, align 2, !range !6, !noundef !7
+  %44 = load i8, ptr %43, align 2, !range !7, !noundef !8
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %51, label %46
 
@@ -7255,7 +7255,7 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
 51:                                               ; preds = %46, %42
   %52 = load i32, ptr %26, align 4
   %53 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %54 = load i8, ptr %53, align 4, !range !6, !noundef !7
+  %54 = load i8, ptr %53, align 4, !range !7, !noundef !8
   %55 = xor i8 %54, 1
   br label %56
 
@@ -7263,19 +7263,19 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %.258 = phi i32 [ %52, %51 ], [ %.05664, %46 ], [ %.05664, %38 ]
   %.2 = phi i8 [ %55, %51 ], [ %.05166, %46 ], [ %.05166, %38 ]
   %57 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %58 = load i8, ptr %57, align 4, !range !6, !noundef !7
+  %58 = load i8, ptr %57, align 4, !range !7, !noundef !8
   %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %70, !llvm.loop !40
+  br i1 %59, label %60, label %70, !llvm.loop !46
 
 60:                                               ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %26, i64 18
-  %62 = load i8, ptr %61, align 2, !range !6, !noundef !7
+  %62 = load i8, ptr %61, align 2, !range !7, !noundef !8
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %70, !llvm.loop !40
+  br i1 %63, label %64, label %70, !llvm.loop !46
 
 64:                                               ; preds = %60
   %65 = getelementptr inbounds nuw i8, ptr %26, i64 22
-  %66 = load i8, ptr %65, align 2, !range !6, !noundef !7
+  %66 = load i8, ptr %65, align 2, !range !7, !noundef !8
   %67 = trunc nuw i8 %66 to i1
   br i1 %67, label %68, label %70
 
@@ -7290,7 +7290,7 @@ define dso_local ptr @RelationGetIndexList(ptr noundef captures(none) %0) local_
   %.1 = phi ptr [ %.05067, %.lr.ph ], [ %32, %36 ], [ %32, %30 ], [ %32, %56 ], [ %32, %60 ], [ %32, %68 ], [ %32, %64 ]
   %71 = call ptr @systable_getnext(ptr noundef %19) #13
   %.not = icmp eq ptr %71, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %70, %14
   %.056.lcssa = phi i32 [ 0, %14 ], [ %.157, %70 ]
@@ -7365,7 +7365,7 @@ define dso_local ptr @RelationGetStatExtList(ptr noundef captures(none) %0) loca
   %2 = alloca %struct.ScanKeyData, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %4 = load i8, ptr %3, align 4, !range !6, !noundef !7
+  %4 = load i8, ptr %3, align 4, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %10
 
@@ -7399,7 +7399,7 @@ define dso_local ptr @RelationGetStatExtList(ptr noundef captures(none) %0) loca
   %24 = call ptr @lappend_oid(ptr noundef %.01821, i32 noundef %23) #13
   %25 = call ptr @systable_getnext(ptr noundef %15) #13
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   %.018.lcssa = phi ptr [ null, %10 ], [ %24, %.lr.ph ]
@@ -7427,7 +7427,7 @@ define dso_local ptr @RelationGetStatExtList(ptr noundef captures(none) %0) loca
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RelationGetPrimaryKeyIndex(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %4 = load i8, ptr %3, align 1, !range !6, !noundef !7
+  %4 = load i8, ptr %3, align 1, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %8, label %6
 
@@ -7441,7 +7441,7 @@ define dso_local i32 @RelationGetPrimaryKeyIndex(ptr noundef captures(none) %0, 
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  %11 = load i8, ptr %10, align 4, !range !6, !noundef !7
+  %11 = load i8, ptr %10, align 4, !range !7, !noundef !8
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %15, label %.sink.split
 
@@ -7458,7 +7458,7 @@ define dso_local i32 @RelationGetPrimaryKeyIndex(ptr noundef captures(none) %0, 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @RelationGetReplicaIndex(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
+  %3 = load i8, ptr %2, align 1, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %7, label %5
 
@@ -7818,7 +7818,7 @@ define dso_local ptr @RelationGetIndexAttrBitmap(ptr noundef captures(none) %0, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load i8, ptr %6, align 8, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 8, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %33
 
@@ -7872,7 +7872,7 @@ define dso_local ptr @RelationGetIndexAttrBitmap(ptr noundef captures(none) %0, 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
-  %37 = load i8, ptr %36, align 4, !range !6, !noundef !7
+  %37 = load i8, ptr %36, align 4, !range !7, !noundef !8
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %.preheader, label %.loopexit
 
@@ -7986,7 +7986,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %50, %BuildHardcoded
   %93 = zext nneg i32 %86 to i64
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %72, i64 334
-  %96 = load i8, ptr %95, align 2, !range !6, !noundef !7
+  %96 = load i8, ptr %95, align 2, !range !7, !noundef !8
   %97 = trunc nuw i8 %96 to i1
   br i1 %97, label %98, label %116
 
@@ -8052,7 +8052,7 @@ GetPgIndexDescriptor.exit:                        ; preds = %50, %BuildHardcoded
 
 heap_getattr.exit:                                ; preds = %125, %124, %118, %116, %110, %107, %104, %101, %79
   %.0.i = phi i64 [ %80, %79 ], [ 0, %124 ], [ %126, %125 ], [ %119, %118 ], [ %103, %101 ], [ %106, %104 ], [ %109, %107 ], [ %111, %110 ], [ %117, %116 ]
-  %127 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %127 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %128 = trunc nuw i8 %127 to i1
   br i1 %128, label %135, label %131
 
@@ -8146,7 +8146,7 @@ GetPgIndexDescriptor.exit124:                     ; preds = %135, %BuildHardcode
   %173 = zext nneg i32 %166 to i64
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %152, i64 350
-  %176 = load i8, ptr %175, align 2, !range !6, !noundef !7
+  %176 = load i8, ptr %175, align 2, !range !7, !noundef !8
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %196
 
@@ -8212,7 +8212,7 @@ GetPgIndexDescriptor.exit124:                     ; preds = %135, %BuildHardcode
 
 heap_getattr.exit126:                             ; preds = %205, %204, %198, %196, %190, %187, %184, %181, %159
   %.0.i125 = phi i64 [ %160, %159 ], [ 0, %204 ], [ %206, %205 ], [ %199, %198 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %191, %190 ], [ %197, %196 ]
-  %207 = load i8, ptr %5, align 1, !range !6, !noundef !7
+  %207 = load i8, ptr %5, align 1, !range !7, !noundef !8
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %213, label %209
 
@@ -8227,7 +8227,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   %214 = getelementptr inbounds nuw i8, ptr %54, i64 328
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 12
-  %217 = load i8, ptr %216, align 4, !range !6, !noundef !7
+  %217 = load i8, ptr %216, align 4, !range !7, !noundef !8
   %218 = trunc nuw i8 %217 to i1
   %219 = icmp eq ptr %.0113, null
   %or.cond = select i1 %218, i1 %219, i1 false
@@ -8238,7 +8238,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   %223 = getelementptr inbounds nuw i8, ptr %54, i64 352
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 25
-  %226 = load i8, ptr %225, align 1, !range !6, !noundef !7
+  %226 = load i8, ptr %225, align 1, !range !7, !noundef !8
   %227 = trunc nuw i8 %226 to i1
   %.0102 = select i1 %227, ptr %4, ptr %3
   %228 = getelementptr inbounds nuw i8, ptr %215, i64 8
@@ -8323,7 +8323,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   %266 = load i16, ptr %265, align 4
   %267 = sext i16 %266 to i64
   %268 = icmp slt i64 %indvars.iv.next, %267
-  br i1 %268, label %.lr.ph, label %._crit_edge, !llvm.loop !42
+  br i1 %268, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %263, %213
   %.1109.lcssa = phi ptr [ %.0108153, %213 ], [ %.2110, %263 ]
@@ -8337,7 +8337,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   %269 = load i32, ptr %47, align 4
   %270 = sext i32 %269 to i64
   %.not = icmp slt i64 %indvars.iv.next174, %270
-  br i1 %.not, label %50, label %.critedge, !llvm.loop !43
+  br i1 %.not, label %50, label %.critedge, !llvm.loop !50
 
 271:                                              ; preds = %.critedge
   %272 = load i32, ptr %41, align 8
@@ -8410,7 +8410,7 @@ heap_getattr.exit126:                             ; preds = %205, %204, %198, %1
   call void @bms_free(ptr noundef %299) #13
   %300 = call ptr @RelationGetIndexList(ptr noundef nonnull %0)
   %301 = icmp eq ptr %300, null
-  br i1 %301, label %.loopexit, label %43
+  br i1 %301, label %.loopexit, label %43, !llvm.loop !51
 
 302:                                              ; preds = %277
   br label %.loopexit
@@ -8469,13 +8469,13 @@ define dso_local ptr @RelationGetIdentityKeyBitmap(ptr noundef captures(none) %0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %10 = load i8, ptr %9, align 4, !range !6, !noundef !7
+  %10 = load i8, ptr %9, align 4, !range !7, !noundef !8
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %78
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 35
-  %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 1, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %RelationGetReplicaIndex.exit, label %16
 
@@ -8543,7 +8543,7 @@ RelationGetReplicaIndex.exit:                     ; preds = %12, %16
   %47 = load i16, ptr %46, align 4
   %48 = sext i16 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !44
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %44, %.preheader
   %.025.lcssa = phi ptr [ null, %.preheader ], [ %.1, %44 ]
@@ -8685,22 +8685,22 @@ define dso_local void @RelationGetExclusionInfo(ptr noundef captures(none) %0, p
 
 45:                                               ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 107
-  %47 = load i8, ptr %46, align 1, !range !6, !noundef !7
+  %47 = load i8, ptr %46, align 1, !range !7, !noundef !8
   %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %92, !llvm.loop !45
+  br i1 %48, label %49, label %92, !llvm.loop !53
 
 49:                                               ; preds = %45
   switch i8 %44, label %92 [
     i8 112, label %50
     i8 117, label %50
-  ], !llvm.loop !45
+  ], !llvm.loop !53
 
 50:                                               ; preds = %49, %49, %36
   %51 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %52 = load i32, ptr %51, align 4
   %53 = load i32, ptr %34, align 8
   %.not91 = icmp eq i32 %52, %53
-  br i1 %.not91, label %54, label %92, !llvm.loop !45
+  br i1 %.not91, label %54, label %92, !llvm.loop !53
 
 54:                                               ; preds = %50
   %55 = trunc nuw i8 %.0102 to i1
@@ -8719,7 +8719,7 @@ define dso_local void @RelationGetExclusionInfo(ptr noundef captures(none) %0, p
 62:                                               ; preds = %54
   %63 = load ptr, ptr %35, align 8
   %64 = call fastcc i64 @fastgetattr(ptr noundef nonnull %37, i32 noundef 27, ptr noundef %63, ptr noundef %6)
-  %65 = load i8, ptr %6, align 1, !range !6, !noundef !7
+  %65 = load i8, ptr %6, align 1, !range !7, !noundef !8
   %66 = trunc nuw i8 %65 to i1
   br i1 %66, label %67, label %73
 
@@ -8776,7 +8776,7 @@ define dso_local void @RelationGetExclusionInfo(ptr noundef captures(none) %0, p
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
   %93 = call ptr @systable_getnext(ptr noundef %32) #13
   %.not89 = icmp eq ptr %93, null
-  br i1 %.not89, label %._crit_edge.loopexit, label %36
+  br i1 %.not89, label %._crit_edge.loopexit, label %36, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %92
   %94 = trunc nuw i8 %.1 to i1
@@ -8811,7 +8811,7 @@ define dso_local void @RelationGetExclusionInfo(ptr noundef captures(none) %0, p
 103:                                              ; preds = %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge105, label %104, !llvm.loop !46
+  br i1 %exitcond.not, label %._crit_edge105, label %104, !llvm.loop !55
 
 104:                                              ; preds = %.lr.ph104, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next, %103 ]
@@ -8922,7 +8922,7 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
   %27 = tail call ptr @list_concat_unique_oid(ptr noundef %21, ptr noundef %26) #13
   %28 = load ptr, ptr %22, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 127
-  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %30 = load i8, ptr %29, align 1, !range !7, !noundef !8
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %.critedge
 
@@ -9000,49 +9000,49 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
   %70 = zext i8 %69 to i64
   %71 = getelementptr inbounds nuw i8, ptr %.val, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 73
-  %73 = load i8, ptr %72, align 1, !range !6, !noundef !7
-  %74 = load i8, ptr %1, align 1, !range !6, !noundef !7
+  %73 = load i8, ptr %72, align 1, !range !7, !noundef !8
+  %74 = load i8, ptr %1, align 1, !range !7, !noundef !8
   %75 = or i8 %74, %73
   store i8 %75, ptr %1, align 1
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 74
-  %77 = load i8, ptr %76, align 2, !range !6, !noundef !7
-  %78 = load i8, ptr %53, align 1, !range !6, !noundef !7
+  %77 = load i8, ptr %76, align 2, !range !7, !noundef !8
+  %78 = load i8, ptr %53, align 1, !range !7, !noundef !8
   %79 = or i8 %78, %77
   store i8 %79, ptr %53, align 1
   %80 = getelementptr inbounds nuw i8, ptr %71, i64 75
-  %81 = load i8, ptr %80, align 1, !range !6, !noundef !7
-  %82 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %81 = load i8, ptr %80, align 1, !range !7, !noundef !8
+  %82 = load i8, ptr %54, align 1, !range !7, !noundef !8
   %83 = or i8 %82, %81
   store i8 %83, ptr %54, align 1
   %84 = getelementptr inbounds nuw i8, ptr %71, i64 76
-  %85 = load i8, ptr %84, align 4, !range !6, !noundef !7
-  %86 = load i8, ptr %55, align 1, !range !6, !noundef !7
+  %85 = load i8, ptr %84, align 4, !range !7, !noundef !8
+  %86 = load i8, ptr %55, align 1, !range !7, !noundef !8
   %87 = or i8 %86, %85
   store i8 %87, ptr %55, align 1
   %88 = getelementptr inbounds nuw i8, ptr %71, i64 72
-  %89 = load i8, ptr %88, align 4, !range !6, !noundef !7
+  %89 = load i8, ptr %88, align 4, !range !7, !noundef !8
   %90 = trunc nuw i8 %89 to i1
   br i1 %90, label %110, label %91
 
 91:                                               ; preds = %66
-  %92 = load i8, ptr %76, align 2, !range !6, !noundef !7
+  %92 = load i8, ptr %76, align 2, !range !7, !noundef !8
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %97, label %94
 
 94:                                               ; preds = %91
-  %95 = load i8, ptr %80, align 1, !range !6, !noundef !7
+  %95 = load i8, ptr %80, align 1, !range !7, !noundef !8
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %110
 
 97:                                               ; preds = %94, %91
   %98 = getelementptr inbounds nuw i8, ptr %71, i64 77
-  %99 = load i8, ptr %98, align 1, !range !6, !noundef !7
+  %99 = load i8, ptr %98, align 1, !range !7, !noundef !8
   %100 = trunc nuw i8 %99 to i1
   %101 = call zeroext i1 @pub_rf_contains_invalid_column(i32 noundef %60, ptr noundef %0, ptr noundef %.0110, i1 noundef zeroext %100) #13
   br i1 %101, label %102, label %110
 
 102:                                              ; preds = %97
-  %103 = load i8, ptr %76, align 2, !range !6, !noundef !7
+  %103 = load i8, ptr %76, align 2, !range !7, !noundef !8
   %104 = trunc nuw i8 %103 to i1
   br i1 %104, label %105, label %106
 
@@ -9051,7 +9051,7 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
   br label %106
 
 106:                                              ; preds = %105, %102
-  %107 = load i8, ptr %80, align 1, !range !6, !noundef !7
+  %107 = load i8, ptr %80, align 1, !range !7, !noundef !8
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %109, label %110
 
@@ -9060,18 +9060,18 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
   br label %110
 
 110:                                              ; preds = %106, %109, %97, %94, %66
-  %111 = load i8, ptr %76, align 2, !range !6, !noundef !7
+  %111 = load i8, ptr %76, align 2, !range !7, !noundef !8
   %112 = trunc nuw i8 %111 to i1
   br i1 %112, label %116, label %113
 
 113:                                              ; preds = %110
-  %114 = load i8, ptr %80, align 1, !range !6, !noundef !7
+  %114 = load i8, ptr %80, align 1, !range !7, !noundef !8
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %139
 
 116:                                              ; preds = %113, %110
   %117 = getelementptr inbounds nuw i8, ptr %71, i64 77
-  %118 = load i8, ptr %117, align 1, !range !6, !noundef !7
+  %118 = load i8, ptr %117, align 1, !range !7, !noundef !8
   %119 = trunc nuw i8 %118 to i1
   %120 = getelementptr inbounds nuw i8, ptr %71, i64 78
   %121 = load i8, ptr %120, align 2
@@ -9079,101 +9079,101 @@ define dso_local void @RelationBuildPublicationDesc(ptr noundef %0, ptr noundef 
   br i1 %122, label %123, label %139
 
 123:                                              ; preds = %116
-  %124 = load i8, ptr %76, align 2, !range !6, !noundef !7
+  %124 = load i8, ptr %76, align 2, !range !7, !noundef !8
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %131
 
 126:                                              ; preds = %123
-  %127 = load i8, ptr %3, align 1, !range !6, !noundef !7
+  %127 = load i8, ptr %3, align 1, !range !7, !noundef !8
   %128 = xor i8 %127, 1
   store i8 %128, ptr %17, align 1
-  %129 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %129 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %130 = xor i8 %129, 1
   store i8 %130, ptr %19, align 1
   br label %131
 
 131:                                              ; preds = %126, %123
-  %132 = load i8, ptr %80, align 1, !range !6, !noundef !7
+  %132 = load i8, ptr %80, align 1, !range !7, !noundef !8
   %133 = trunc nuw i8 %132 to i1
   br i1 %133, label %134, label %139
 
 134:                                              ; preds = %131
-  %135 = load i8, ptr %3, align 1, !range !6, !noundef !7
+  %135 = load i8, ptr %3, align 1, !range !7, !noundef !8
   %136 = xor i8 %135, 1
   store i8 %136, ptr %18, align 1
-  %137 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %137 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %138 = xor i8 %137, 1
   store i8 %138, ptr %20, align 1
   br label %139
 
 139:                                              ; preds = %131, %134, %116, %113
   call void @ReleaseSysCache(ptr noundef nonnull %62) #13
-  %140 = load i8, ptr %1, align 1, !range !6, !noundef !7
+  %140 = load i8, ptr %1, align 1, !range !7, !noundef !8
   %141 = trunc nuw i8 %140 to i1
   br i1 %141, label %142, label %.critedge126
 
 142:                                              ; preds = %139
-  %143 = load i8, ptr %53, align 1, !range !6, !noundef !7
+  %143 = load i8, ptr %53, align 1, !range !7, !noundef !8
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %145, label %.critedge126
 
 145:                                              ; preds = %142
-  %146 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %146 = load i8, ptr %54, align 1, !range !7, !noundef !8
   %147 = trunc nuw i8 %146 to i1
   br i1 %147, label %148, label %157
 
 148:                                              ; preds = %145
-  %149 = load i8, ptr %55, align 1, !range !6, !noundef !7
+  %149 = load i8, ptr %55, align 1, !range !7, !noundef !8
   %150 = trunc nuw i8 %149 to i1
   br i1 %150, label %151, label %157
 
 151:                                              ; preds = %148
-  %152 = load i8, ptr %15, align 1, !range !6, !noundef !7
+  %152 = load i8, ptr %15, align 1, !range !7, !noundef !8
   %153 = trunc nuw i8 %152 to i1
   br i1 %153, label %157, label %154
 
 154:                                              ; preds = %151
-  %155 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %155 = load i8, ptr %16, align 1, !range !7, !noundef !8
   %156 = trunc nuw i8 %155 to i1
   br i1 %156, label %157, label %184
 
 157:                                              ; preds = %154, %151, %148, %145
-  %158 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %158 = load i8, ptr %54, align 1, !range !7, !noundef !8
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %169
 
 160:                                              ; preds = %157
-  %161 = load i8, ptr %55, align 1, !range !6, !noundef !7
+  %161 = load i8, ptr %55, align 1, !range !7, !noundef !8
   %162 = trunc nuw i8 %161 to i1
   br i1 %162, label %163, label %169
 
 163:                                              ; preds = %160
-  %164 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %164 = load i8, ptr %17, align 1, !range !7, !noundef !8
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %169, label %166
 
 166:                                              ; preds = %163
-  %167 = load i8, ptr %18, align 1, !range !6, !noundef !7
+  %167 = load i8, ptr %18, align 1, !range !7, !noundef !8
   %168 = trunc nuw i8 %167 to i1
   br i1 %168, label %169, label %184
 
 169:                                              ; preds = %166, %163, %160, %157
-  %170 = load i8, ptr %54, align 1, !range !6, !noundef !7
+  %170 = load i8, ptr %54, align 1, !range !7, !noundef !8
   %171 = trunc nuw i8 %170 to i1
   br i1 %171, label %172, label %.critedge126
 
 172:                                              ; preds = %169
-  %173 = load i8, ptr %55, align 1, !range !6, !noundef !7
+  %173 = load i8, ptr %55, align 1, !range !7, !noundef !8
   %174 = trunc nuw i8 %173 to i1
   br i1 %174, label %175, label %.critedge126
 
 175:                                              ; preds = %172
-  %176 = load i8, ptr %19, align 1, !range !6, !noundef !7
+  %176 = load i8, ptr %19, align 1, !range !7, !noundef !8
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %.critedge126, label %178
 
 178:                                              ; preds = %175
-  %179 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %179 = load i8, ptr %20, align 1, !range !7, !noundef !8
   %180 = trunc nuw i8 %179 to i1
   br i1 %180, label %.critedge126, label %184
 
@@ -9453,7 +9453,7 @@ define dso_local void @RelationCacheInitFileRemove() local_unnamed_addr #0 {
 12:                                               ; preds = %10, %.lr.ph
   %13 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef nonnull @.str.37, i32 noundef 15) #13
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %12, %0
   %14 = call i32 @FreeDir(ptr noundef %3) #13
@@ -9486,7 +9486,7 @@ define internal fastcc void @RelationCacheInitFileRemoveInDir(ptr noundef %0) un
 12:                                               ; preds = %10, %.lr.ph
   %13 = call ptr @ReadDirExtended(ptr noundef %3, ptr noundef %0, i32 noundef 15) #13
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %12, %1
   %14 = call i32 @FreeDir(ptr noundef %3) #13
@@ -9541,7 +9541,7 @@ define internal fastcc ptr @ScanPgRelation(i32 noundef %0, i1 noundef zeroext %1
 
 14:                                               ; preds = %12, %9
   %.0 = phi ptr [ %13, %12 ], [ null, %9 ]
-  %15 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !6
+  %15 = load i8, ptr @criticalRelcachesBuilt, align 1, !range !7
   %16 = trunc nuw i8 %15 to i1
   %17 = select i1 %1, i1 %16, i1 false
   %18 = call ptr @systable_beginscan(ptr noundef %11, i32 noundef 2662, i1 noundef zeroext %17, ptr noundef %.0, i32 noundef 1, ptr noundef nonnull %4) #13
@@ -9781,48 +9781,57 @@ attributes #16 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5, !12}
-!12 = !{!"llvm.loop.unswitch.partial.disable"}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6, !13}
+!13 = !{!"llvm.loop.unswitch.partial.disable"}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !6}
+!19 = distinct !{!19, !6}
 !20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = distinct !{!28, !5}
-!29 = distinct !{!29, !5}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
+!21 = distinct !{!21, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6, !26}
+!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = distinct !{!29, !5, !6}
+!30 = distinct !{!30, !5, !6}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
 !40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = distinct !{!42, !5}
-!43 = distinct !{!43, !5}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6}
+!43 = distinct !{!43, !6}
 !44 = distinct !{!44, !5}
-!45 = distinct !{!45, !5}
+!45 = distinct !{!45, !6}
 !46 = distinct !{!46, !5}
-!47 = distinct !{!47, !5}
-!48 = distinct !{!48, !5}
+!47 = distinct !{!47, !6}
+!48 = distinct !{!48, !5, !6}
+!49 = distinct !{!49, !5, !6}
+!50 = distinct !{!50, !5, !6}
+!51 = distinct !{!51, !6}
+!52 = distinct !{!52, !5, !6}
+!53 = distinct !{!53, !5}
+!54 = distinct !{!54, !6}
+!55 = distinct !{!55, !5, !6}
+!56 = distinct !{!56, !5, !6}
+!57 = distinct !{!57, !5, !6}

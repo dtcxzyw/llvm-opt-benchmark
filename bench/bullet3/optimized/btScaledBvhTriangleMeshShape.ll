@@ -564,5 +564,6 @@ attributes #17 = { builtin nounwind }
 !37 = !{!"p1 _ZTS23btQuantizedBvhFloatData", !15, i64 0}
 !38 = !{!"p1 _ZTS24btQuantizedBvhDoubleData", !15, i64 0}
 !39 = !{!"p1 _ZTS21btTriangleInfoMapData", !15, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
+!42 = !{!"llvm.loop.estimated_trip_count"}

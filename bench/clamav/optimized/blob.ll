@@ -161,7 +161,7 @@ blobDestroy.exit:                                 ; preds = %12, %15
 
 16:                                               ; preds = %blobDestroy.exit, %.lr.ph
   %17 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   ret void
@@ -178,7 +178,7 @@ define ptr @blobToMem(ptr noundef captures(address_is_null) %0) local_unnamed_ad
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !14
+  %5 = load i32, ptr %4, align 8, !tbaa !16
   %.not9 = icmp eq i32 %5, 0
   br i1 %.not9, label %6, label %7
 
@@ -216,7 +216,7 @@ define void @blobClose(ptr noundef captures(address_is_null) %0) local_unnamed_a
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load i32, ptr %4, align 8, !tbaa !14
+  %5 = load i32, ptr %4, align 8, !tbaa !16
   %.not23 = icmp eq i32 %5, 0
   br i1 %.not23, label %7, label %6
 
@@ -226,9 +226,9 @@ define void @blobClose(ptr noundef captures(address_is_null) %0) local_unnamed_a
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !15
+  %9 = load i64, ptr %8, align 8, !tbaa !17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !16
+  %11 = load i64, ptr %10, align 8, !tbaa !18
   %12 = sub nsw i64 %9, %11
   %13 = icmp sgt i64 %12, 63
   br i1 %13, label %14, label %27
@@ -242,9 +242,9 @@ define void @blobClose(ptr noundef captures(address_is_null) %0) local_unnamed_a
 18:                                               ; preds = %14
   tail call void @free(ptr noundef %17) #17
   store ptr null, ptr %16, align 8, !tbaa !11
-  %19 = load i64, ptr %8, align 8, !tbaa !15
+  %19 = load i64, ptr %8, align 8, !tbaa !17
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12, i64 noundef %19) #17
-  store i64 0, ptr %8, align 8, !tbaa !15
+  store i64 0, ptr %8, align 8, !tbaa !17
   br label %27
 
 20:                                               ; preds = %14
@@ -253,17 +253,17 @@ define void @blobClose(ptr noundef captures(address_is_null) %0) local_unnamed_a
   br i1 %22, label %28, label %.thread
 
 .thread:                                          ; preds = %20
-  %23 = load i64, ptr %8, align 8, !tbaa !15
-  %24 = load i64, ptr %10, align 8, !tbaa !16
+  %23 = load i64, ptr %8, align 8, !tbaa !17
+  %24 = load i64, ptr %10, align 8, !tbaa !18
   %25 = sub nsw i64 %23, %24
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i64 noundef %25, i64 noundef %23) #17
-  %26 = load i64, ptr %10, align 8, !tbaa !16
-  store i64 %26, ptr %8, align 8, !tbaa !15
+  %26 = load i64, ptr %10, align 8, !tbaa !18
+  store i64 %26, ptr %8, align 8, !tbaa !17
   store ptr %21, ptr %16, align 8, !tbaa !11
   br label %27
 
 27:                                               ; preds = %.thread, %18, %7
-  store i32 1, ptr %4, align 8, !tbaa !14
+  store i32 1, ptr %4, align 8, !tbaa !16
   br label %28
 
 28:                                               ; preds = %20, %27, %6
@@ -308,7 +308,7 @@ define void @blobSetFilename(ptr noundef captures(address_is_null) %0, ptr nound
 
 .preheader:                                       ; preds = %10, %16
   %.0.i = phi ptr [ %17, %16 ], [ %11, %10 ]
-  %12 = load i8, ptr %.0.i, align 1, !tbaa !17
+  %12 = load i8, ptr %.0.i, align 1, !tbaa !19
   switch i8 %12, label %13 [
     i8 0, label %sanitiseName.exit
     i8 95, label %16
@@ -338,12 +338,12 @@ switch.early.test.i:                              ; preds = %13
   ]
 
 15:                                               ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %13
-  store i8 95, ptr %.0.i, align 1, !tbaa !17
+  store i8 95, ptr %.0.i, align 1, !tbaa !19
   br label %16
 
 16:                                               ; preds = %15, %switch.early.test.i, %.preheader, %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  br label %.preheader
+  br label %.preheader, !llvm.loop !20
 
 sanitiseName.exit:                                ; preds = %.preheader, %10
   ret void
@@ -357,7 +357,7 @@ define void @sanitiseName(ptr noundef captures(none) %0) local_unnamed_addr #7 {
 
 2:                                                ; preds = %7, %1
   %.0 = phi ptr [ %0, %1 ], [ %8, %7 ]
-  %3 = load i8, ptr %.0, align 1, !tbaa !17
+  %3 = load i8, ptr %.0, align 1, !tbaa !19
   switch i8 %3, label %4 [
     i8 0, label %9
     i8 95, label %7
@@ -387,12 +387,12 @@ switch.early.test:                                ; preds = %4
   ]
 
 6:                                                ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %4
-  store i8 95, ptr %.0, align 1, !tbaa !17
+  store i8 95, ptr %.0, align 1, !tbaa !19
   br label %7
 
 7:                                                ; preds = %switch.early.test, %2, %2, %6
   %8 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %2
+  br label %2, !llvm.loop !20
 
 9:                                                ; preds = %2
   ret void
@@ -421,17 +421,17 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load i32, ptr %10, align 8, !tbaa !14
+  %11 = load i32, ptr %10, align 8, !tbaa !16
   %.not47 = icmp eq i32 %11, 0
   br i1 %.not47, label %13, label %12
 
 12:                                               ; preds = %9
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.8) #17
-  store i32 0, ptr %10, align 8, !tbaa !14
+  store i32 0, ptr %10, align 8, !tbaa !16
   br label %13
 
 13:                                               ; preds = %12, %9
-  %14 = load i32, ptr @blobAddData.pagesize, align 4, !tbaa !18
+  %14 = load i32, ptr @blobAddData.pagesize, align 4, !tbaa !21
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
@@ -465,7 +465,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %34 = load i64, ptr %33, align 8, !tbaa !16
+  %34 = load i64, ptr %33, align 8, !tbaa !18
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %37, label %36
 
@@ -475,7 +475,7 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load i64, ptr %38, align 8, !tbaa !15
+  %39 = load i64, ptr %38, align 8, !tbaa !17
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %42, label %41
 
@@ -485,21 +485,21 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %
 
 42:                                               ; preds = %37
   %43 = sext i32 %.037 to i64
-  store i64 %43, ptr %38, align 8, !tbaa !15
+  store i64 %43, ptr %38, align 8, !tbaa !17
   %44 = tail call ptr @cli_max_malloc(i64 noundef %43) #17
   store ptr %44, ptr %29, align 8, !tbaa !11
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %.thread
 
 46:                                               ; preds = %42
-  store i64 0, ptr %38, align 8, !tbaa !15
+  store i64 0, ptr %38, align 8, !tbaa !17
   br label %.critedge
 
 47:                                               ; preds = %28
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load i64, ptr %48, align 8, !tbaa !15
+  %49 = load i64, ptr %48, align 8, !tbaa !17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load i64, ptr %50, align 8, !tbaa !16
+  %51 = load i64, ptr %50, align 8, !tbaa !18
   %52 = add nsw i64 %51, %2
   %53 = icmp slt i64 %49, %52
   br i1 %53, label %54, label %.thread
@@ -512,21 +512,21 @@ define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %
   br i1 %.not49, label %.critedge, label %58
 
 58:                                               ; preds = %54
-  %59 = load i64, ptr %48, align 8, !tbaa !15
+  %59 = load i64, ptr %48, align 8, !tbaa !17
   %60 = add nsw i64 %59, %55
-  store i64 %60, ptr %48, align 8, !tbaa !15
+  store i64 %60, ptr %48, align 8, !tbaa !17
   store ptr %57, ptr %29, align 8, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %47, %42, %58
   %61 = phi ptr [ %44, %42 ], [ %57, %58 ], [ %30, %47 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = load i64, ptr %62, align 8, !tbaa !16
+  %63 = load i64, ptr %62, align 8, !tbaa !18
   %64 = getelementptr inbounds i8, ptr %61, i64 %63
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %64, ptr nonnull align 1 %1, i64 %2, i1 false)
-  %65 = load i64, ptr %62, align 8, !tbaa !16
+  %65 = load i64, ptr %62, align 8, !tbaa !18
   %66 = add nsw i64 %65, %2
-  store i64 %66, ptr %62, align 8, !tbaa !16
+  store i64 %66, ptr %62, align 8, !tbaa !18
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %7, %.thread, %46
@@ -554,7 +554,7 @@ define ptr @blobGetData(ptr noundef readonly captures(address_is_null) %0) local
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %10, label %7
 
@@ -579,7 +579,7 @@ define i64 @blobGetDataSize(ptr noundef readonly captures(address_is_null) %0) l
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8, !tbaa !16
+  %5 = load i64, ptr %4, align 8, !tbaa !18
   ret i64 %5
 }
 
@@ -606,9 +606,9 @@ define i32 @blobcmp(ptr noundef readonly captures(address) %0, ptr noundef reado
 
 blobGetDataSize.exit21:                           ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !16
+  %9 = load i64, ptr %8, align 8, !tbaa !18
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !16
+  %11 = load i64, ptr %10, align 8, !tbaa !18
   %.not19 = icmp eq i64 %9, %11
   br i1 %.not19, label %12, label %18
 
@@ -647,13 +647,13 @@ define range(i32 0, 21) i32 @blobGrow(ptr noundef captures(address_is_null) %0, 
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !14
+  %8 = load i32, ptr %7, align 8, !tbaa !16
   %.not25 = icmp eq i32 %8, 0
   br i1 %.not25, label %10, label %9
 
 9:                                                ; preds = %6
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.16) #17
-  store i32 0, ptr %7, align 8, !tbaa !14
+  store i32 0, ptr %7, align 8, !tbaa !16
   br label %10
 
 10:                                               ; preds = %9, %6
@@ -664,7 +664,7 @@ define range(i32 0, 21) i32 @blobGrow(ptr noundef captures(address_is_null) %0, 
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = load i64, ptr %15, align 8, !tbaa !16
+  %16 = load i64, ptr %15, align 8, !tbaa !18
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %19, label %18
 
@@ -674,7 +674,7 @@ define range(i32 0, 21) i32 @blobGrow(ptr noundef captures(address_is_null) %0, 
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !15
+  %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %24, label %23
 
@@ -689,12 +689,12 @@ define range(i32 0, 21) i32 @blobGrow(ptr noundef captures(address_is_null) %0, 
   br i1 %.not27, label %37, label %26
 
 26:                                               ; preds = %24
-  store i64 %1, ptr %20, align 8, !tbaa !15
+  store i64 %1, ptr %20, align 8, !tbaa !17
   br label %37
 
 27:                                               ; preds = %10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !15
+  %29 = load i64, ptr %28, align 8, !tbaa !17
   %30 = add i64 %29, %1
   %31 = tail call ptr @cli_max_realloc(ptr noundef nonnull %12, i64 noundef %30) #17
   %.not26 = icmp eq ptr %31, null
@@ -707,9 +707,9 @@ define range(i32 0, 21) i32 @blobGrow(ptr noundef captures(address_is_null) %0, 
   br label %37
 
 34:                                               ; preds = %27
-  %35 = load i64, ptr %28, align 8, !tbaa !15
+  %35 = load i64, ptr %28, align 8, !tbaa !17
   %36 = add nsw i64 %35, %1
-  store i64 %36, ptr %28, align 8, !tbaa !15
+  store i64 %36, ptr %28, align 8, !tbaa !17
   store ptr %31, ptr %11, align 8, !tbaa !11
   br label %37
 
@@ -760,13 +760,13 @@ define i32 @fileblobScan(ptr noundef readonly captures(none) %0) local_unnamed_a
   br i1 %.not, label %6, label %38
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !22
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
 
@@ -776,7 +776,7 @@ define i32 @fileblobScan(ptr noundef readonly captures(none) %0) local_unnamed_a
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %19
 
@@ -787,24 +787,24 @@ define i32 @fileblobScan(ptr noundef readonly captures(none) %0) local_unnamed_a
 19:                                               ; preds = %14
   %20 = tail call i32 @fflush(ptr noundef nonnull %7)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !25
+  %22 = load i32, ptr %21, align 8, !tbaa !28
   %23 = tail call i64 @lseek(i32 noundef %22, i64 noundef 0, i32 noundef 0) #17
-  %24 = load i32, ptr %21, align 8, !tbaa !25
+  %24 = load i32, ptr %21, align 8, !tbaa !28
   %25 = call i32 @fstat(i32 noundef %24, ptr noundef nonnull %2) #17
-  %26 = load ptr, ptr %15, align 8, !tbaa !24
+  %26 = load ptr, ptr %15, align 8, !tbaa !27
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !26
+  %28 = load ptr, ptr %27, align 8, !tbaa !29
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %30 = load i64, ptr %29, align 8, !tbaa !27
+  %30 = load i64, ptr %29, align 8, !tbaa !30
   %31 = tail call i32 @cli_matchmeta(ptr noundef %26, ptr noundef %28, i64 noundef %30, i64 noundef %30, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
   %.not20 = icmp eq i32 %31, 0
   br i1 %.not20, label %32, label %38
 
 32:                                               ; preds = %19
-  %33 = load i32, ptr %21, align 8, !tbaa !25
-  %34 = load ptr, ptr %10, align 8, !tbaa !23
-  %35 = load ptr, ptr %15, align 8, !tbaa !24
-  %36 = load ptr, ptr %27, align 8, !tbaa !26
+  %33 = load i32, ptr %21, align 8, !tbaa !28
+  %34 = load ptr, ptr %10, align 8, !tbaa !26
+  %35 = load ptr, ptr %15, align 8, !tbaa !27
+  %36 = load ptr, ptr %27, align 8, !tbaa !29
   %37 = tail call i32 @cli_magic_scan_desc(i32 noundef %33, ptr noundef %34, ptr noundef %35, ptr noundef %36, i32 noundef 0) #17
   %.not21 = icmp eq i32 %37, 0
   %. = select i1 %.not21, i32 22, i32 %37
@@ -818,54 +818,54 @@ define i32 @fileblobScan(ptr noundef readonly captures(none) %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @fileblobDestructiveDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !19
+  %2 = load ptr, ptr %0, align 8, !tbaa !22
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %21, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %.not16 = icmp eq ptr %5, null
   br i1 %.not16, label %21, label %6
 
 6:                                                ; preds = %3
   %7 = tail call i32 @fclose(ptr noundef nonnull %2)
-  %8 = load ptr, ptr %4, align 8, !tbaa !23
+  %8 = load ptr, ptr %4, align 8, !tbaa !26
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef %8) #17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %10 = load ptr, ptr %9, align 8, !tbaa !24
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
   %.not17 = icmp eq ptr %10, null
   br i1 %.not17, label %16, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !30
+  %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !44
+  %15 = load i32, ptr %14, align 8, !tbaa !47
   %.not18 = icmp eq i32 %15, 0
   br i1 %.not18, label %16, label %19
 
 16:                                               ; preds = %11, %6
-  %17 = load ptr, ptr %4, align 8, !tbaa !23
+  %17 = load ptr, ptr %4, align 8, !tbaa !26
   %18 = tail call i32 @cli_unlink(ptr noundef %17) #17
   br label %19
 
 19:                                               ; preds = %16, %11
-  %20 = load ptr, ptr %4, align 8, !tbaa !23
+  %20 = load ptr, ptr %4, align 8, !tbaa !26
   tail call void @free(ptr noundef %20) #17
-  store ptr null, ptr %0, align 8, !tbaa !19
-  store ptr null, ptr %4, align 8, !tbaa !23
+  store ptr null, ptr %0, align 8, !tbaa !22
+  store ptr null, ptr %4, align 8, !tbaa !26
   br label %21
 
 21:                                               ; preds = %19, %3, %1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !26
+  %23 = load ptr, ptr %22, align 8, !tbaa !29
   %.not19 = icmp eq ptr %23, null
   br i1 %.not19, label %25, label %24
 
 24:                                               ; preds = %21
   tail call void @free(ptr noundef nonnull %23) #17
-  store ptr null, ptr %22, align 8, !tbaa !26
+  store ptr null, ptr %22, align 8, !tbaa !29
   br label %25
 
 25:                                               ; preds = %24, %21
@@ -884,19 +884,19 @@ define void @fileblobDestroy(ptr noundef captures(address_is_null) %0) local_unn
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %.not27 = icmp eq ptr %5, null
   br i1 %.not27, label %25, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %0, align 8, !tbaa !19
+  %7 = load ptr, ptr %0, align 8, !tbaa !22
   %.not28 = icmp eq ptr %7, null
   br i1 %.not28, label %25, label %8
 
 8:                                                ; preds = %6
   %9 = tail call i32 @fclose(ptr noundef nonnull %7)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %.not32 = icmp eq ptr %11, null
   br i1 %.not32, label %19, label %12
 
@@ -910,15 +910,15 @@ define void @fileblobDestroy(ptr noundef captures(address_is_null) %0) local_unn
 
 16:                                               ; preds = %12
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #17
-  %17 = load ptr, ptr %10, align 8, !tbaa !23
+  %17 = load ptr, ptr %10, align 8, !tbaa !26
   %18 = tail call i32 @cli_unlink(ptr noundef %17) #17
   br label %19
 
 19:                                               ; preds = %12, %16, %8
-  %20 = load ptr, ptr %4, align 8, !tbaa !26
+  %20 = load ptr, ptr %4, align 8, !tbaa !29
   tail call void @free(ptr noundef %20) #17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !63
+  %22 = load ptr, ptr %21, align 8, !tbaa !66
   %23 = icmp eq ptr %22, null
   br i1 %23, label %37, label %24
 
@@ -928,35 +928,35 @@ define void @fileblobDestroy(ptr noundef captures(address_is_null) %0) local_unn
 
 25:                                               ; preds = %6, %3
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %27 = load ptr, ptr %26, align 8, !tbaa !63
+  %27 = load ptr, ptr %26, align 8, !tbaa !66
   %.not29 = icmp eq ptr %27, null
   br i1 %.not29, label %37, label %28
 
 28:                                               ; preds = %25
   tail call void @free(ptr noundef nonnull %27) #17
-  %29 = load ptr, ptr %4, align 8, !tbaa !26
+  %29 = load ptr, ptr %4, align 8, !tbaa !29
   %.not30 = icmp eq ptr %29, null
   br i1 %.not30, label %34, label %30
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  %32 = load ptr, ptr %31, align 8, !tbaa !26
   %.not31 = icmp eq ptr %32, null
   %. = select i1 %.not31, ptr %29, ptr %32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.22, ptr noundef nonnull %.) #17
-  %33 = load ptr, ptr %4, align 8, !tbaa !26
+  %33 = load ptr, ptr %4, align 8, !tbaa !29
   tail call void @free(ptr noundef %33) #17
   br label %37
 
 34:                                               ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load i64, ptr %35, align 8, !tbaa !64
+  %36 = load i64, ptr %35, align 8, !tbaa !67
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23, i64 noundef %36) #17
   br label %37
 
 37:                                               ; preds = %25, %34, %30, %19
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %39 = load ptr, ptr %38, align 8, !tbaa !23
+  %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not34 = icmp eq ptr %39, null
   br i1 %.not34, label %41, label %40
 
@@ -979,7 +979,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @fileblobPartialSet(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %54
 
@@ -995,7 +995,7 @@ define void @fileblobPartialSet(ptr noundef captures(address_is_null) %0, ptr no
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, ptr noundef nonnull %1) #17
   %9 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %1, i32 noundef 705, i32 noundef 384) #17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %9, ptr %10, align 8, !tbaa !25
+  store i32 %9, ptr %10, align 8, !tbaa !28
   %11 = icmp slt i32 %9, 0
   br i1 %11, label %12, label %13
 
@@ -1005,13 +1005,13 @@ define void @fileblobPartialSet(ptr noundef captures(address_is_null) %0, ptr no
 
 13:                                               ; preds = %8
   %14 = tail call noalias ptr @fdopen(i32 noundef %9, ptr noundef nonnull @.str.27) #17
-  store ptr %14, ptr %0, align 8, !tbaa !19
+  store ptr %14, ptr %0, align 8, !tbaa !22
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28) #17
-  %17 = load i32, ptr %10, align 8, !tbaa !25
+  %17 = load i32, ptr %10, align 8, !tbaa !28
   %18 = tail call i32 @close(i32 noundef %17) #17
   br label %54
 
@@ -1033,7 +1033,7 @@ define void @fileblobPartialSet(ptr noundef captures(address_is_null) %0, ptr no
 
 .preheader.i:                                     ; preds = %22, %28
   %.0.i.i = phi ptr [ %29, %28 ], [ %23, %22 ]
-  %24 = load i8, ptr %.0.i.i, align 1, !tbaa !17
+  %24 = load i8, ptr %.0.i.i, align 1, !tbaa !19
   switch i8 %24, label %25 [
     i8 0, label %blobSetFilename.exit
     i8 95, label %28
@@ -1063,27 +1063,27 @@ switch.early.test.i.i:                            ; preds = %25
   ]
 
 27:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %25
-  store i8 95, ptr %.0.i.i, align 1, !tbaa !17
+  store i8 95, ptr %.0.i.i, align 1, !tbaa !19
   br label %28
 
 28:                                               ; preds = %27, %switch.early.test.i.i, %.preheader.i, %.preheader.i
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !20
 
 blobSetFilename.exit:                             ; preds = %.preheader.i, %22
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !63
+  %31 = load ptr, ptr %30, align 8, !tbaa !66
   %.not31 = icmp eq ptr %31, null
   br i1 %.not31, label %51, label %32
 
 32:                                               ; preds = %blobSetFilename.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = load i64, ptr %33, align 8, !tbaa !64
+  %34 = load i64, ptr %33, align 8, !tbaa !67
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %fileblobAddData.exit.thread, label %36
 
 36:                                               ; preds = %32
-  %37 = load ptr, ptr %0, align 8, !tbaa !19
+  %37 = load ptr, ptr %0, align 8, !tbaa !22
   %.not15.i = icmp eq ptr %37, null
   br i1 %.not15.i, label %fileblobAddData.exit, label %38
 
@@ -1093,7 +1093,7 @@ blobSetFilename.exit:                             ; preds = %.preheader.i, %22
   br i1 %.not16.i, label %41, label %fileblobAddData.exit.thread33
 
 fileblobAddData.exit.thread33:                    ; preds = %38
-  %40 = load ptr, ptr %4, align 8, !tbaa !26
+  %40 = load ptr, ptr %4, align 8, !tbaa !29
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.31, i64 noundef %34, ptr noundef %40) #17
   br label %51
 
@@ -1110,7 +1110,7 @@ fileblobAddData.exit:                             ; preds = %36
   br i1 %46, label %fileblobAddData.exit.thread, label %51
 
 fileblobAddData.exit.thread:                      ; preds = %32, %41, %fileblobAddData.exit
-  %47 = load ptr, ptr %30, align 8, !tbaa !63
+  %47 = load ptr, ptr %30, align 8, !tbaa !66
   tail call void @free(ptr noundef %47) #17
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
@@ -1122,7 +1122,7 @@ fileblobAddData.exit.thread:                      ; preds = %32, %41, %fileblobA
 51:                                               ; preds = %fileblobAddData.exit.thread33, %fileblobAddData.exit, %fileblobAddData.exit.thread, %blobSetFilename.exit
   %52 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %1) #17
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %52, ptr %53, align 8, !tbaa !23
+  store ptr %52, ptr %53, align 8, !tbaa !26
   br label %54
 
 54:                                               ; preds = %3, %51, %16, %12
@@ -1151,7 +1151,7 @@ define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef captures(address_is_nul
   unreachable
 
 7:                                                ; preds = %5
-  %8 = load ptr, ptr %0, align 8, !tbaa !19
+  %8 = load ptr, ptr %0, align 8, !tbaa !22
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %18, label %9
 
@@ -1162,7 +1162,7 @@ define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef captures(address_is_nul
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %13 = load ptr, ptr %12, align 8, !tbaa !29
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.31, i64 noundef %2, ptr noundef %13) #17
   br label %21
 
@@ -1188,7 +1188,7 @@ define void @fileblobSetFilename(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !26
+  %6 = load ptr, ptr %5, align 8, !tbaa !29
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %56
 
@@ -1226,7 +1226,7 @@ define void @fileblobSetFilename(ptr noundef %0, ptr noundef %1, ptr noundef %2)
 
 .preheader.i:                                     ; preds = %14, %20
   %.0.i.i = phi ptr [ %21, %20 ], [ %15, %14 ]
-  %16 = load i8, ptr %.0.i.i, align 1, !tbaa !17
+  %16 = load i8, ptr %.0.i.i, align 1, !tbaa !19
   switch i8 %16, label %17 [
     i8 0, label %blobSetFilename.exit
     i8 95, label %20
@@ -1256,12 +1256,12 @@ switch.early.test.i.i:                            ; preds = %17
   ]
 
 19:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %17
-  store i8 95, ptr %.0.i.i, align 1, !tbaa !17
+  store i8 95, ptr %.0.i.i, align 1, !tbaa !19
   br label %20
 
 20:                                               ; preds = %19, %switch.early.test.i.i, %.preheader.i, %.preheader.i
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !20
 
 blobSetFilename.exit:                             ; preds = %.preheader.i
   %.pr = load ptr, ptr %5, align 8, !tbaa !3
@@ -1279,31 +1279,31 @@ blobSetFilename.exit.thread:                      ; preds = %14, %blobSetFilenam
   br i1 %.not31, label %25, label %56
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %4, align 8, !tbaa !65
+  %26 = load ptr, ptr %4, align 8, !tbaa !68
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, ptr noundef nonnull %.pr, ptr noundef %26) #17
-  %27 = load i32, ptr %23, align 8, !tbaa !25
+  %27 = load i32, ptr %23, align 8, !tbaa !28
   %28 = call noalias ptr @fdopen(i32 noundef %27, ptr noundef nonnull @.str.27) #17
-  store ptr %28, ptr %0, align 8, !tbaa !19
+  store ptr %28, ptr %0, align 8, !tbaa !22
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %25
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28) #17
-  %31 = load i32, ptr %23, align 8, !tbaa !25
+  %31 = load i32, ptr %23, align 8, !tbaa !28
   %32 = call i32 @close(i32 noundef %31) #17
-  %33 = load ptr, ptr %4, align 8, !tbaa !65
+  %33 = load ptr, ptr %4, align 8, !tbaa !68
   call void @free(ptr noundef %33) #17
   br label %56
 
 34:                                               ; preds = %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !63
+  %36 = load ptr, ptr %35, align 8, !tbaa !66
   %.not32 = icmp eq ptr %36, null
   br i1 %.not32, label %53, label %37
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load i64, ptr %38, align 8, !tbaa !64
+  %39 = load i64, ptr %38, align 8, !tbaa !67
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %48, label %41
 
@@ -1317,11 +1317,11 @@ blobSetFilename.exit.thread:                      ; preds = %14, %blobSetFilenam
   %45 = load i8, ptr %44, align 8
   %46 = or i8 %45, 1
   store i8 %46, ptr %44, align 8
-  %.pre = load ptr, ptr %35, align 8, !tbaa !63
+  %.pre = load ptr, ptr %35, align 8, !tbaa !66
   br label %48
 
 fileblobAddData.exit:                             ; preds = %41
-  %47 = load ptr, ptr %5, align 8, !tbaa !26
+  %47 = load ptr, ptr %5, align 8, !tbaa !29
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.31, i64 noundef %39, ptr noundef %47) #17
   br label %53
 
@@ -1336,9 +1336,9 @@ fileblobAddData.exit:                             ; preds = %41
   br label %53
 
 53:                                               ; preds = %fileblobAddData.exit, %48, %34
-  %54 = load ptr, ptr %4, align 8, !tbaa !65
+  %54 = load ptr, ptr %4, align 8, !tbaa !68
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %54, ptr %55, align 8, !tbaa !23
+  store ptr %54, ptr %55, align 8, !tbaa !26
   br label %56
 
 56:                                               ; preds = %22, %3, %53, %30
@@ -1361,7 +1361,7 @@ define ptr @fileblobGetFilename(ptr noundef readonly captures(none) %0) local_un
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @fileblobSetCTX(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %3, align 8, !tbaa !24
+  store ptr %1, ptr %3, align 8, !tbaa !27
   ret void
 }
 
@@ -1431,55 +1431,58 @@ attributes #19 = { nounwind willreturn memory(read) }
 !11 = !{!4, !5, i64 8}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"p1 _ZTS4blob", !6, i64 0}
-!14 = !{!4, !10, i64 32}
-!15 = !{!4, !9, i64 24}
-!16 = !{!4, !9, i64 16}
-!17 = !{!7, !7, i64 0}
-!18 = !{!10, !10, i64 0}
-!19 = !{!20, !21, i64 0}
-!20 = !{!"fileblob", !21, i64 0, !10, i64 8, !4, i64 16, !5, i64 56, !22, i64 64, !9, i64 72, !10, i64 80, !10, i64 80}
-!21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!22 = !{!"p1 _ZTS11cli_ctx_tag", !6, i64 0}
-!23 = !{!20, !5, i64 56}
-!24 = !{!20, !22, i64 64}
-!25 = !{!20, !10, i64 8}
-!26 = !{!20, !5, i64 16}
-!27 = !{!28, !9, i64 48}
-!28 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !29, i64 72, !29, i64 88, !29, i64 104, !7, i64 120}
-!29 = !{!"timespec", !9, i64 0, !9, i64 8}
-!30 = !{!31, !34, i64 48}
-!31 = !{!"cli_ctx_tag", !5, i64 0, !5, i64 8, !5, i64 16, !6, i64 24, !32, i64 32, !33, i64 40, !34, i64 48, !9, i64 56, !35, i64 64, !10, i64 72, !10, i64 76, !36, i64 80, !10, i64 88, !10, i64 92, !37, i64 96, !7, i64 104, !38, i64 120, !39, i64 128, !6, i64 136, !40, i64 144, !41, i64 152, !41, i64 160, !42, i64 168, !43, i64 184, !43, i64 185}
-!32 = !{!"p1 long", !6, i64 0}
-!33 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
-!34 = !{!"p1 _ZTS9cl_engine", !6, i64 0}
-!35 = !{!"p1 _ZTS15cl_scan_options", !6, i64 0}
-!36 = !{!"p1 _ZTS19recursion_level_tag", !6, i64 0}
-!37 = !{!"p1 _ZTS7cl_fmap", !6, i64 0}
-!38 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
-!39 = !{!"p1 _ZTS10bitset_tag", !6, i64 0}
-!40 = !{!"p1 _ZTS10cli_events", !6, i64 0}
-!41 = !{!"p1 _ZTS11json_object", !6, i64 0}
-!42 = !{!"timeval", !9, i64 0, !9, i64 8}
-!43 = !{!"_Bool", !7, i64 0}
-!44 = !{!45, !10, i64 40}
-!45 = !{!"cl_engine", !10, i64 0, !10, i64 4, !10, i64 8, !7, i64 12, !10, i64 20, !10, i64 24, !10, i64 28, !5, i64 32, !10, i64 40, !9, i64 48, !10, i64 56, !10, i64 60, !9, i64 64, !9, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !46, i64 96, !33, i64 104, !33, i64 112, !33, i64 120, !33, i64 128, !47, i64 136, !48, i64 144, !48, i64 152, !49, i64 160, !38, i64 168, !50, i64 176, !50, i64 184, !51, i64 192, !33, i64 200, !33, i64 208, !5, i64 216, !52, i64 224, !53, i64 232, !54, i64 240, !9, i64 248, !55, i64 256, !56, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !58, i64 416, !7, i64 936, !7, i64 992, !10, i64 1020, !10, i64 1024, !10, i64 1028, !10, i64 1032, !9, i64 1040, !9, i64 1048, !9, i64 1056, !9, i64 1064, !9, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !10, i64 1152, !10, i64 1156, !10, i64 1160, !9, i64 1168, !9, i64 1176, !9, i64 1184, !62, i64 1192}
-!46 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!47 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!48 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!49 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!50 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!51 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!52 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!53 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!54 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!55 = !{!"p1 _ZTS2MP", !6, i64 0}
-!56 = !{!"", !57, i64 0, !10, i64 8}
-!57 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!58 = !{!"cli_all_bc", !59, i64 0, !10, i64 8, !60, i64 16, !61, i64 24, !10, i64 516}
-!59 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!60 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!61 = !{!"cli_environment", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!62 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
-!63 = !{!20, !5, i64 24}
-!64 = !{!20, !9, i64 32}
-!65 = !{!5, !5, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!4, !10, i64 32}
+!17 = !{!4, !9, i64 24}
+!18 = !{!4, !9, i64 16}
+!19 = !{!7, !7, i64 0}
+!20 = distinct !{!20, !15}
+!21 = !{!10, !10, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"fileblob", !24, i64 0, !10, i64 8, !4, i64 16, !5, i64 56, !25, i64 64, !9, i64 72, !10, i64 80, !10, i64 80}
+!24 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!25 = !{!"p1 _ZTS11cli_ctx_tag", !6, i64 0}
+!26 = !{!23, !5, i64 56}
+!27 = !{!23, !25, i64 64}
+!28 = !{!23, !10, i64 8}
+!29 = !{!23, !5, i64 16}
+!30 = !{!31, !9, i64 48}
+!31 = !{!"stat", !9, i64 0, !9, i64 8, !9, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !32, i64 72, !32, i64 88, !32, i64 104, !7, i64 120}
+!32 = !{!"timespec", !9, i64 0, !9, i64 8}
+!33 = !{!34, !37, i64 48}
+!34 = !{!"cli_ctx_tag", !5, i64 0, !5, i64 8, !5, i64 16, !6, i64 24, !35, i64 32, !36, i64 40, !37, i64 48, !9, i64 56, !38, i64 64, !10, i64 72, !10, i64 76, !39, i64 80, !10, i64 88, !10, i64 92, !40, i64 96, !7, i64 104, !41, i64 120, !42, i64 128, !6, i64 136, !43, i64 144, !44, i64 152, !44, i64 160, !45, i64 168, !46, i64 184, !46, i64 185}
+!35 = !{!"p1 long", !6, i64 0}
+!36 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
+!37 = !{!"p1 _ZTS9cl_engine", !6, i64 0}
+!38 = !{!"p1 _ZTS15cl_scan_options", !6, i64 0}
+!39 = !{!"p1 _ZTS19recursion_level_tag", !6, i64 0}
+!40 = !{!"p1 _ZTS7cl_fmap", !6, i64 0}
+!41 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
+!42 = !{!"p1 _ZTS10bitset_tag", !6, i64 0}
+!43 = !{!"p1 _ZTS10cli_events", !6, i64 0}
+!44 = !{!"p1 _ZTS11json_object", !6, i64 0}
+!45 = !{!"timeval", !9, i64 0, !9, i64 8}
+!46 = !{!"_Bool", !7, i64 0}
+!47 = !{!48, !10, i64 40}
+!48 = !{!"cl_engine", !10, i64 0, !10, i64 4, !10, i64 8, !7, i64 12, !10, i64 20, !10, i64 24, !10, i64 28, !5, i64 32, !10, i64 40, !9, i64 48, !10, i64 56, !10, i64 60, !9, i64 64, !9, i64 72, !10, i64 80, !10, i64 84, !10, i64 88, !10, i64 92, !49, i64 96, !36, i64 104, !36, i64 112, !36, i64 120, !36, i64 128, !50, i64 136, !51, i64 144, !51, i64 152, !52, i64 160, !41, i64 168, !53, i64 176, !53, i64 184, !54, i64 192, !36, i64 200, !36, i64 208, !5, i64 216, !55, i64 224, !56, i64 232, !57, i64 240, !9, i64 248, !58, i64 256, !59, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !61, i64 416, !7, i64 936, !7, i64 992, !10, i64 1020, !10, i64 1024, !10, i64 1028, !10, i64 1032, !9, i64 1040, !9, i64 1048, !9, i64 1056, !9, i64 1064, !9, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !10, i64 1152, !10, i64 1156, !10, i64 1160, !9, i64 1168, !9, i64 1176, !9, i64 1184, !65, i64 1192}
+!49 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!50 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!51 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!52 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!53 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!54 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!55 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!56 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!57 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!58 = !{!"p1 _ZTS2MP", !6, i64 0}
+!59 = !{!"", !60, i64 0, !10, i64 8}
+!60 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!61 = !{!"cli_all_bc", !62, i64 0, !10, i64 8, !63, i64 16, !64, i64 24, !10, i64 516}
+!62 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!63 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!64 = !{!"cli_environment", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!65 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!66 = !{!23, !5, i64 24}
+!67 = !{!23, !9, i64 32}
+!68 = !{!5, !5, i64 0}

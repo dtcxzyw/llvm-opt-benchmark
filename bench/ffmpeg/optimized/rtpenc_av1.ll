@@ -102,7 +102,7 @@ parse_leb.exit.thread:                            ; preds = %21, %23, %31, %34
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 %46
   %48 = sub i32 %20, %45
   %49 = icmp sgt i32 %48, 0
-  br i1 %49, label %.lr.ph, label %.thread
+  br i1 %49, label %.lr.ph, label %.thread, !llvm.loop !33
 
 .thread:                                          ; preds = %44, %17, %parse_leb.exit.thread, %16, %4
   %.0186 = phi i8 [ 0, %4 ], [ 0, %parse_leb.exit.thread ], [ 8, %16 ], [ 0, %17 ], [ 0, %44 ]
@@ -117,9 +117,9 @@ parse_leb.exit.thread:                            ; preds = %21, %23, %31, %34
   br i1 %.not281546, label %.lr.ph559, label %.lr.ph453._crit_edge
 
 .lr.ph559:                                        ; preds = %.lr.ph453.preheader
-  %53 = load i32, ptr %7, align 8, !tbaa !32
+  %53 = load i32, ptr %7, align 8, !tbaa !34
   %54 = add nsw i32 %53, -1
-  %55 = load ptr, ptr %50, align 8, !tbaa !33
+  %55 = load ptr, ptr %50, align 8, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   br label %57
 
@@ -260,7 +260,7 @@ parse_leb.exit307:                                ; preds = %90
 110:                                              ; preds = %108, %108, %108
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 %100
   %.not287 = icmp eq i32 %109, 0
-  br i1 %.not287, label %.preheader405, label %.loopexit, !llvm.loop !34
+  br i1 %.not287, label %.preheader405, label %.loopexit, !llvm.loop !36
 
 112:                                              ; preds = %108
   %113 = icmp slt i32 %.0210448551, 0
@@ -310,7 +310,7 @@ parse_leb.exit307:                                ; preds = %90
   %125 = add nuw nsw i32 %.0.i, 1
   %126 = lshr i32 %.04.i, 7
   %.not.i308 = icmp ult i32 %.04.i, 128
-  br i1 %.not.i308, label %calc_leb_size.exit, label %.preheader404, !llvm.loop !35
+  br i1 %.not.i308, label %calc_leb_size.exit, label %.preheader404, !llvm.loop !37
 
 calc_leb_size.exit:                               ; preds = %.preheader404
   %127 = add i32 %125, %.2223
@@ -334,7 +334,7 @@ calc_leb_size.exit:                               ; preds = %.preheader404
   %136 = lshr i32 %.0710.i, 7
   %137 = add nuw nsw i32 %132, 1
   %138 = icmp ult i32 %.0710.i, 16384
-  br i1 %138, label %.sink.split, label %.lr.ph.i
+  br i1 %138, label %.sink.split, label %.lr.ph.i, !llvm.loop !38
 
 139:                                              ; preds = %calc_leb_size.exit
   %140 = icmp ult i32 %.2258, 3
@@ -358,7 +358,7 @@ calc_leb_size.exit:                               ; preds = %.preheader404
   %147 = lshr i32 %.0710.i310, 7
   %148 = add nuw nsw i32 %143, 1
   %149 = icmp ult i32 %.0710.i310, 16384
-  br i1 %149, label %.sink.split, label %.lr.ph.i309
+  br i1 %149, label %.sink.split, label %.lr.ph.i309, !llvm.loop !38
 
 .sink.split:                                      ; preds = %.lr.ph.i309, %.lr.ph.i, %141, %130
   %.07.lcssa.i313.sink = phi i32 [ %.2223, %130 ], [ %.2223, %141 ], [ %136, %.lr.ph.i ], [ %147, %.lr.ph.i309 ]
@@ -422,9 +422,9 @@ calc_leb_size.exit:                               ; preds = %.preheader404
   %176 = shl nuw nsw i8 %.3259.tr, 4
   %177 = select i1 %175, i8 %176, i8 0
   %.8 = or i8 %177, %.6
-  %178 = load ptr, ptr %50, align 8, !tbaa !33
+  %178 = load ptr, ptr %50, align 8, !tbaa !35
   store i8 %.8, ptr %178, align 1, !tbaa !29
-  %179 = load ptr, ptr %50, align 8, !tbaa !33
+  %179 = load ptr, ptr %50, align 8, !tbaa !35
   %180 = ptrtoint ptr %.3235 to i64
   %181 = ptrtoint ptr %179 to i64
   %182 = sub i64 %180, %181
@@ -438,9 +438,9 @@ calc_leb_size.exit:                               ; preds = %.preheader404
   br i1 %184, label %196, label %191
 
 .thread354:                                       ; preds = %174
-  %186 = load ptr, ptr %50, align 8, !tbaa !33
+  %186 = load ptr, ptr %50, align 8, !tbaa !35
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 1
-  %188 = load i32, ptr %7, align 8, !tbaa !32
+  %188 = load i32, ptr %7, align 8, !tbaa !34
   %189 = add nsw i32 %188, -1
   %190 = icmp ugt i32 %117, %189
   br i1 %190, label %.thread383, label %.thread367
@@ -454,7 +454,7 @@ calc_leb_size.exit:                               ; preds = %.preheader404
   %192 = add nuw nsw i32 %.0.i317, 1
   %193 = lshr i32 %.04.i316, 7
   %.not.i318 = icmp ult i32 %.04.i316, 128
-  br i1 %.not.i318, label %calc_leb_size.exit319, label %.preheader, !llvm.loop !35
+  br i1 %.not.i318, label %calc_leb_size.exit319, label %.preheader, !llvm.loop !37
 
 calc_leb_size.exit319:                            ; preds = %.preheader
   %194 = add i32 %192, %117
@@ -474,7 +474,7 @@ calc_leb_size.exit319:                            ; preds = %.preheader
   %199 = add nuw nsw i32 %.0.i321, 1
   %200 = lshr i32 %.04.i320, 7
   %.not.i322 = icmp ult i32 %.04.i320, 128
-  br i1 %.not.i322, label %calc_leb_size.exit323, label %198, !llvm.loop !35
+  br i1 %.not.i322, label %calc_leb_size.exit323, label %198, !llvm.loop !37
 
 calc_leb_size.exit323:                            ; preds = %198
   %201 = sub i32 %.3247, %199
@@ -495,7 +495,7 @@ calc_leb_size.exit323:                            ; preds = %198
   %206 = lshr i32 %.01012.i, 7
   %207 = add nuw nsw i32 %.014.i, 1
   %exitcond.not.i = icmp eq i32 %.014.i, %.0.i321
-  br i1 %exitcond.not.i, label %write_leb_n.exit, label %202, !llvm.loop !36
+  br i1 %exitcond.not.i, label %write_leb_n.exit, label %202, !llvm.loop !39
 
 write_leb_n.exit:                                 ; preds = %202
   %208 = zext nneg i32 %199 to i64
@@ -543,20 +543,20 @@ write_leb_n.exit:                                 ; preds = %202
   %224 = shl nuw nsw i8 %.6262.tr, 4
   %225 = select i1 %223, i8 %224, i8 0
   %.11 = or i8 %.10, %225
-  %226 = load ptr, ptr %50, align 8, !tbaa !33
+  %226 = load ptr, ptr %50, align 8, !tbaa !35
   store i8 %.11, ptr %226, align 1, !tbaa !29
-  %227 = load ptr, ptr %50, align 8, !tbaa !33
+  %227 = load ptr, ptr %50, align 8, !tbaa !35
   %228 = ptrtoint ptr %220 to i64
   %229 = ptrtoint ptr %227 to i64
   %230 = sub i64 %228, %229
   %231 = trunc i64 %230 to i32
   tail call void @ff_rtp_send_data(ptr noundef %0, ptr noundef %227, i32 noundef %231, i32 noundef 0) #3
-  %232 = load i32, ptr %7, align 8, !tbaa !32
+  %232 = load i32, ptr %7, align 8, !tbaa !34
   %233 = add nsw i32 %232, -1
-  %234 = load ptr, ptr %50, align 8, !tbaa !33
+  %234 = load ptr, ptr %50, align 8, !tbaa !35
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 1
   %236 = icmp ugt i32 %222, %233
-  br i1 %236, label %218, label %.thread367, !llvm.loop !37
+  br i1 %236, label %218, label %.thread367, !llvm.loop !40
 
 .thread367:                                       ; preds = %218, %.thread354, %calc_leb_size.exit319, %191
   %.5261 = phi i32 [ %.3259, %calc_leb_size.exit319 ], [ %.3259, %191 ], [ 0, %.thread354 ], [ 0, %218 ]
@@ -568,7 +568,7 @@ write_leb_n.exit:                                 ; preds = %202
   %.3216 = phi i32 [ %.0189, %calc_leb_size.exit319 ], [ %.0189, %191 ], [ %.0189, %.thread354 ], [ -1, %218 ]
   %.6205 = phi i32 [ 0, %calc_leb_size.exit319 ], [ 0, %191 ], [ %.4203, %.thread354 ], [ 0, %218 ]
   %.9 = phi i8 [ %.6, %calc_leb_size.exit319 ], [ %.6, %191 ], [ 0, %.thread354 ], [ -128, %218 ]
-  br i1 %.not291, label %122, label %.loopexit
+  br i1 %.not291, label %122, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.thread367, %110
   %.1257 = phi i32 [ %.0256441558, %110 ], [ %.5261, %.thread367 ]
@@ -635,11 +635,15 @@ attributes #3 = { nounwind }
 !27 = !{!"p1 _ZTS8AVStream", !7, i64 0}
 !28 = !{!25, !13, i64 44}
 !29 = !{!8, !8, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!25, !13, i64 56}
-!33 = !{!25, !18, i64 96}
-!34 = distinct !{!34, !31}
-!35 = distinct !{!35, !31}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !32}
+!34 = !{!25, !13, i64 56}
+!35 = !{!25, !18, i64 96}
 !36 = distinct !{!36, !31}
-!37 = distinct !{!37, !31}
+!37 = distinct !{!37, !31, !32}
+!38 = distinct !{!38, !32}
+!39 = distinct !{!39, !31, !32}
+!40 = distinct !{!40, !31, !32}
+!41 = distinct !{!41, !32}

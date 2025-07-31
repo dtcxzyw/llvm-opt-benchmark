@@ -349,7 +349,7 @@ define hidden noundef zeroext i1 @SDL_WAYLAND_LoadSymbols() local_unnamed_addr #
 9:                                                ; preds = %.preheader, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !5
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !6
 
 10:                                               ; preds = %9
   store i32 1, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -376,7 +376,7 @@ define hidden noundef zeroext i1 @SDL_WAYLAND_LoadSymbols() local_unnamed_addr #
   %17 = getelementptr inbounds nuw i8, ptr %.020.i, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %15, %10
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -405,7 +405,7 @@ WAYLAND_GetSym.exit:                              ; preds = %13, %._crit_edge.i
   %25 = getelementptr inbounds nuw i8, ptr %.020.i104, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not.i108 = icmp eq ptr %26, null
-  br i1 %.not.i108, label %._crit_edge.i109, label %.lr.ph.i103, !llvm.loop !6
+  br i1 %.not.i108, label %._crit_edge.i109, label %.lr.ph.i103, !llvm.loop !7
 
 ._crit_edge.i109:                                 ; preds = %23, %WAYLAND_GetSym.exit
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -434,7 +434,7 @@ WAYLAND_GetSym.exit110:                           ; preds = %21, %._crit_edge.i1
   %33 = getelementptr inbounds nuw i8, ptr %.020.i113, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not.i117 = icmp eq ptr %34, null
-  br i1 %.not.i117, label %._crit_edge.i118, label %.lr.ph.i112, !llvm.loop !6
+  br i1 %.not.i117, label %._crit_edge.i118, label %.lr.ph.i112, !llvm.loop !7
 
 ._crit_edge.i118:                                 ; preds = %31, %WAYLAND_GetSym.exit110
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -463,7 +463,7 @@ WAYLAND_GetSym.exit119:                           ; preds = %29, %._crit_edge.i1
   %41 = getelementptr inbounds nuw i8, ptr %.020.i122, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not.i126 = icmp eq ptr %42, null
-  br i1 %.not.i126, label %._crit_edge.i127, label %.lr.ph.i121, !llvm.loop !6
+  br i1 %.not.i126, label %._crit_edge.i127, label %.lr.ph.i121, !llvm.loop !7
 
 ._crit_edge.i127:                                 ; preds = %39, %WAYLAND_GetSym.exit119
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -492,7 +492,7 @@ WAYLAND_GetSym.exit128:                           ; preds = %37, %._crit_edge.i1
   %49 = getelementptr inbounds nuw i8, ptr %.020.i131, i64 24
   %50 = load ptr, ptr %49, align 8
   %.not.i135 = icmp eq ptr %50, null
-  br i1 %.not.i135, label %._crit_edge.i136, label %.lr.ph.i130, !llvm.loop !6
+  br i1 %.not.i135, label %._crit_edge.i136, label %.lr.ph.i130, !llvm.loop !7
 
 ._crit_edge.i136:                                 ; preds = %47, %WAYLAND_GetSym.exit128
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -521,7 +521,7 @@ WAYLAND_GetSym.exit137:                           ; preds = %45, %._crit_edge.i1
   %57 = getelementptr inbounds nuw i8, ptr %.020.i140, i64 24
   %58 = load ptr, ptr %57, align 8
   %.not.i144 = icmp eq ptr %58, null
-  br i1 %.not.i144, label %._crit_edge.i145, label %.lr.ph.i139, !llvm.loop !6
+  br i1 %.not.i144, label %._crit_edge.i145, label %.lr.ph.i139, !llvm.loop !7
 
 ._crit_edge.i145:                                 ; preds = %55, %WAYLAND_GetSym.exit137
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -550,7 +550,7 @@ WAYLAND_GetSym.exit146:                           ; preds = %53, %._crit_edge.i1
   %65 = getelementptr inbounds nuw i8, ptr %.020.i149, i64 24
   %66 = load ptr, ptr %65, align 8
   %.not.i153 = icmp eq ptr %66, null
-  br i1 %.not.i153, label %._crit_edge.i154, label %.lr.ph.i148, !llvm.loop !6
+  br i1 %.not.i153, label %._crit_edge.i154, label %.lr.ph.i148, !llvm.loop !7
 
 ._crit_edge.i154:                                 ; preds = %63, %WAYLAND_GetSym.exit146
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -579,7 +579,7 @@ WAYLAND_GetSym.exit155:                           ; preds = %61, %._crit_edge.i1
   %73 = getelementptr inbounds nuw i8, ptr %.020.i158, i64 24
   %74 = load ptr, ptr %73, align 8
   %.not.i162 = icmp eq ptr %74, null
-  br i1 %.not.i162, label %._crit_edge.i163, label %.lr.ph.i157, !llvm.loop !6
+  br i1 %.not.i162, label %._crit_edge.i163, label %.lr.ph.i157, !llvm.loop !7
 
 ._crit_edge.i163:                                 ; preds = %71, %WAYLAND_GetSym.exit155
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -608,7 +608,7 @@ WAYLAND_GetSym.exit164:                           ; preds = %69, %._crit_edge.i1
   %81 = getelementptr inbounds nuw i8, ptr %.020.i167, i64 24
   %82 = load ptr, ptr %81, align 8
   %.not.i171 = icmp eq ptr %82, null
-  br i1 %.not.i171, label %._crit_edge.i172, label %.lr.ph.i166, !llvm.loop !6
+  br i1 %.not.i171, label %._crit_edge.i172, label %.lr.ph.i166, !llvm.loop !7
 
 ._crit_edge.i172:                                 ; preds = %79, %WAYLAND_GetSym.exit164
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -637,7 +637,7 @@ WAYLAND_GetSym.exit173:                           ; preds = %77, %._crit_edge.i1
   %89 = getelementptr inbounds nuw i8, ptr %.020.i176, i64 24
   %90 = load ptr, ptr %89, align 8
   %.not.i180 = icmp eq ptr %90, null
-  br i1 %.not.i180, label %._crit_edge.i181, label %.lr.ph.i175, !llvm.loop !6
+  br i1 %.not.i180, label %._crit_edge.i181, label %.lr.ph.i175, !llvm.loop !7
 
 ._crit_edge.i181:                                 ; preds = %87, %WAYLAND_GetSym.exit173
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -666,7 +666,7 @@ WAYLAND_GetSym.exit182:                           ; preds = %85, %._crit_edge.i1
   %97 = getelementptr inbounds nuw i8, ptr %.020.i185, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not.i189 = icmp eq ptr %98, null
-  br i1 %.not.i189, label %._crit_edge.i190, label %.lr.ph.i184, !llvm.loop !6
+  br i1 %.not.i189, label %._crit_edge.i190, label %.lr.ph.i184, !llvm.loop !7
 
 ._crit_edge.i190:                                 ; preds = %95, %WAYLAND_GetSym.exit182
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -695,7 +695,7 @@ WAYLAND_GetSym.exit191:                           ; preds = %93, %._crit_edge.i1
   %105 = getelementptr inbounds nuw i8, ptr %.020.i194, i64 24
   %106 = load ptr, ptr %105, align 8
   %.not.i198 = icmp eq ptr %106, null
-  br i1 %.not.i198, label %._crit_edge.i199, label %.lr.ph.i193, !llvm.loop !6
+  br i1 %.not.i198, label %._crit_edge.i199, label %.lr.ph.i193, !llvm.loop !7
 
 ._crit_edge.i199:                                 ; preds = %103, %WAYLAND_GetSym.exit191
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -724,7 +724,7 @@ WAYLAND_GetSym.exit200:                           ; preds = %101, %._crit_edge.i
   %113 = getelementptr inbounds nuw i8, ptr %.020.i203, i64 24
   %114 = load ptr, ptr %113, align 8
   %.not.i207 = icmp eq ptr %114, null
-  br i1 %.not.i207, label %._crit_edge.i208, label %.lr.ph.i202, !llvm.loop !6
+  br i1 %.not.i207, label %._crit_edge.i208, label %.lr.ph.i202, !llvm.loop !7
 
 ._crit_edge.i208:                                 ; preds = %111, %WAYLAND_GetSym.exit200
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -753,7 +753,7 @@ WAYLAND_GetSym.exit209:                           ; preds = %109, %._crit_edge.i
   %121 = getelementptr inbounds nuw i8, ptr %.020.i212, i64 24
   %122 = load ptr, ptr %121, align 8
   %.not.i216 = icmp eq ptr %122, null
-  br i1 %.not.i216, label %._crit_edge.i217, label %.lr.ph.i211, !llvm.loop !6
+  br i1 %.not.i216, label %._crit_edge.i217, label %.lr.ph.i211, !llvm.loop !7
 
 ._crit_edge.i217:                                 ; preds = %119, %WAYLAND_GetSym.exit209
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -782,7 +782,7 @@ WAYLAND_GetSym.exit218:                           ; preds = %117, %._crit_edge.i
   %129 = getelementptr inbounds nuw i8, ptr %.020.i221, i64 24
   %130 = load ptr, ptr %129, align 8
   %.not.i225 = icmp eq ptr %130, null
-  br i1 %.not.i225, label %._crit_edge.i226, label %.lr.ph.i220, !llvm.loop !6
+  br i1 %.not.i225, label %._crit_edge.i226, label %.lr.ph.i220, !llvm.loop !7
 
 ._crit_edge.i226:                                 ; preds = %127, %WAYLAND_GetSym.exit218
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -811,7 +811,7 @@ WAYLAND_GetSym.exit227:                           ; preds = %125, %._crit_edge.i
   %137 = getelementptr inbounds nuw i8, ptr %.020.i230, i64 24
   %138 = load ptr, ptr %137, align 8
   %.not.i234 = icmp eq ptr %138, null
-  br i1 %.not.i234, label %._crit_edge.i235, label %.lr.ph.i229, !llvm.loop !6
+  br i1 %.not.i234, label %._crit_edge.i235, label %.lr.ph.i229, !llvm.loop !7
 
 ._crit_edge.i235:                                 ; preds = %135, %WAYLAND_GetSym.exit227
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -840,7 +840,7 @@ WAYLAND_GetSym.exit236:                           ; preds = %133, %._crit_edge.i
   %145 = getelementptr inbounds nuw i8, ptr %.020.i239, i64 24
   %146 = load ptr, ptr %145, align 8
   %.not.i243 = icmp eq ptr %146, null
-  br i1 %.not.i243, label %._crit_edge.i244, label %.lr.ph.i238, !llvm.loop !6
+  br i1 %.not.i243, label %._crit_edge.i244, label %.lr.ph.i238, !llvm.loop !7
 
 ._crit_edge.i244:                                 ; preds = %143, %WAYLAND_GetSym.exit236
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -869,7 +869,7 @@ WAYLAND_GetSym.exit245:                           ; preds = %141, %._crit_edge.i
   %153 = getelementptr inbounds nuw i8, ptr %.020.i248, i64 24
   %154 = load ptr, ptr %153, align 8
   %.not.i252 = icmp eq ptr %154, null
-  br i1 %.not.i252, label %._crit_edge.i253, label %.lr.ph.i247, !llvm.loop !6
+  br i1 %.not.i252, label %._crit_edge.i253, label %.lr.ph.i247, !llvm.loop !7
 
 ._crit_edge.i253:                                 ; preds = %151, %WAYLAND_GetSym.exit245
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -898,7 +898,7 @@ WAYLAND_GetSym.exit254:                           ; preds = %149, %._crit_edge.i
   %161 = getelementptr inbounds nuw i8, ptr %.020.i257, i64 24
   %162 = load ptr, ptr %161, align 8
   %.not.i261 = icmp eq ptr %162, null
-  br i1 %.not.i261, label %._crit_edge.i262, label %.lr.ph.i256, !llvm.loop !6
+  br i1 %.not.i261, label %._crit_edge.i262, label %.lr.ph.i256, !llvm.loop !7
 
 ._crit_edge.i262:                                 ; preds = %159, %WAYLAND_GetSym.exit254
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -927,7 +927,7 @@ WAYLAND_GetSym.exit263:                           ; preds = %157, %._crit_edge.i
   %169 = getelementptr inbounds nuw i8, ptr %.020.i266, i64 24
   %170 = load ptr, ptr %169, align 8
   %.not.i270 = icmp eq ptr %170, null
-  br i1 %.not.i270, label %._crit_edge.i271, label %.lr.ph.i265, !llvm.loop !6
+  br i1 %.not.i270, label %._crit_edge.i271, label %.lr.ph.i265, !llvm.loop !7
 
 ._crit_edge.i271:                                 ; preds = %167, %WAYLAND_GetSym.exit263
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -956,7 +956,7 @@ WAYLAND_GetSym.exit272:                           ; preds = %165, %._crit_edge.i
   %177 = getelementptr inbounds nuw i8, ptr %.020.i275, i64 24
   %178 = load ptr, ptr %177, align 8
   %.not.i279 = icmp eq ptr %178, null
-  br i1 %.not.i279, label %._crit_edge.i280, label %.lr.ph.i274, !llvm.loop !6
+  br i1 %.not.i279, label %._crit_edge.i280, label %.lr.ph.i274, !llvm.loop !7
 
 ._crit_edge.i280:                                 ; preds = %175, %WAYLAND_GetSym.exit272
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -985,7 +985,7 @@ WAYLAND_GetSym.exit281:                           ; preds = %173, %._crit_edge.i
   %185 = getelementptr inbounds nuw i8, ptr %.020.i284, i64 24
   %186 = load ptr, ptr %185, align 8
   %.not.i288 = icmp eq ptr %186, null
-  br i1 %.not.i288, label %._crit_edge.i289, label %.lr.ph.i283, !llvm.loop !6
+  br i1 %.not.i288, label %._crit_edge.i289, label %.lr.ph.i283, !llvm.loop !7
 
 ._crit_edge.i289:                                 ; preds = %183, %WAYLAND_GetSym.exit281
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1014,7 +1014,7 @@ WAYLAND_GetSym.exit290:                           ; preds = %181, %._crit_edge.i
   %193 = getelementptr inbounds nuw i8, ptr %.020.i293, i64 24
   %194 = load ptr, ptr %193, align 8
   %.not.i297 = icmp eq ptr %194, null
-  br i1 %.not.i297, label %._crit_edge.i298, label %.lr.ph.i292, !llvm.loop !6
+  br i1 %.not.i297, label %._crit_edge.i298, label %.lr.ph.i292, !llvm.loop !7
 
 ._crit_edge.i298:                                 ; preds = %191, %WAYLAND_GetSym.exit290
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1043,7 +1043,7 @@ WAYLAND_GetSym.exit299:                           ; preds = %189, %._crit_edge.i
   %201 = getelementptr inbounds nuw i8, ptr %.020.i302, i64 24
   %202 = load ptr, ptr %201, align 8
   %.not.i306 = icmp eq ptr %202, null
-  br i1 %.not.i306, label %._crit_edge.i307, label %.lr.ph.i301, !llvm.loop !6
+  br i1 %.not.i306, label %._crit_edge.i307, label %.lr.ph.i301, !llvm.loop !7
 
 ._crit_edge.i307:                                 ; preds = %199, %WAYLAND_GetSym.exit299
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1072,7 +1072,7 @@ WAYLAND_GetSym.exit308:                           ; preds = %197, %._crit_edge.i
   %209 = getelementptr inbounds nuw i8, ptr %.020.i311, i64 24
   %210 = load ptr, ptr %209, align 8
   %.not.i315 = icmp eq ptr %210, null
-  br i1 %.not.i315, label %._crit_edge.i316, label %.lr.ph.i310, !llvm.loop !6
+  br i1 %.not.i315, label %._crit_edge.i316, label %.lr.ph.i310, !llvm.loop !7
 
 ._crit_edge.i316:                                 ; preds = %207, %WAYLAND_GetSym.exit308
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1101,7 +1101,7 @@ WAYLAND_GetSym.exit317:                           ; preds = %205, %._crit_edge.i
   %217 = getelementptr inbounds nuw i8, ptr %.020.i320, i64 24
   %218 = load ptr, ptr %217, align 8
   %.not.i324 = icmp eq ptr %218, null
-  br i1 %.not.i324, label %._crit_edge.i325, label %.lr.ph.i319, !llvm.loop !6
+  br i1 %.not.i324, label %._crit_edge.i325, label %.lr.ph.i319, !llvm.loop !7
 
 ._crit_edge.i325:                                 ; preds = %215, %WAYLAND_GetSym.exit317
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1130,7 +1130,7 @@ WAYLAND_GetSym.exit326:                           ; preds = %213, %._crit_edge.i
   %225 = getelementptr inbounds nuw i8, ptr %.020.i329, i64 24
   %226 = load ptr, ptr %225, align 8
   %.not.i333 = icmp eq ptr %226, null
-  br i1 %.not.i333, label %._crit_edge.i334, label %.lr.ph.i328, !llvm.loop !6
+  br i1 %.not.i333, label %._crit_edge.i334, label %.lr.ph.i328, !llvm.loop !7
 
 ._crit_edge.i334:                                 ; preds = %223, %WAYLAND_GetSym.exit326
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1159,7 +1159,7 @@ WAYLAND_GetSym.exit335:                           ; preds = %221, %._crit_edge.i
   %233 = getelementptr inbounds nuw i8, ptr %.020.i338, i64 24
   %234 = load ptr, ptr %233, align 8
   %.not.i342 = icmp eq ptr %234, null
-  br i1 %.not.i342, label %._crit_edge.i343, label %.lr.ph.i337, !llvm.loop !6
+  br i1 %.not.i342, label %._crit_edge.i343, label %.lr.ph.i337, !llvm.loop !7
 
 ._crit_edge.i343:                                 ; preds = %231, %WAYLAND_GetSym.exit335
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1188,7 +1188,7 @@ WAYLAND_GetSym.exit344:                           ; preds = %229, %._crit_edge.i
   %241 = getelementptr inbounds nuw i8, ptr %.020.i347, i64 24
   %242 = load ptr, ptr %241, align 8
   %.not.i351 = icmp eq ptr %242, null
-  br i1 %.not.i351, label %._crit_edge.i352, label %.lr.ph.i346, !llvm.loop !6
+  br i1 %.not.i351, label %._crit_edge.i352, label %.lr.ph.i346, !llvm.loop !7
 
 ._crit_edge.i352:                                 ; preds = %239, %WAYLAND_GetSym.exit344
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1217,7 +1217,7 @@ WAYLAND_GetSym.exit353:                           ; preds = %237, %._crit_edge.i
   %249 = getelementptr inbounds nuw i8, ptr %.020.i356, i64 24
   %250 = load ptr, ptr %249, align 8
   %.not.i360 = icmp eq ptr %250, null
-  br i1 %.not.i360, label %._crit_edge.i361, label %.lr.ph.i355, !llvm.loop !6
+  br i1 %.not.i360, label %._crit_edge.i361, label %.lr.ph.i355, !llvm.loop !7
 
 ._crit_edge.i361:                                 ; preds = %247, %WAYLAND_GetSym.exit353
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1246,7 +1246,7 @@ WAYLAND_GetSym.exit362:                           ; preds = %245, %._crit_edge.i
   %257 = getelementptr inbounds nuw i8, ptr %.020.i365, i64 24
   %258 = load ptr, ptr %257, align 8
   %.not.i369 = icmp eq ptr %258, null
-  br i1 %.not.i369, label %._crit_edge.i370, label %.lr.ph.i364, !llvm.loop !6
+  br i1 %.not.i369, label %._crit_edge.i370, label %.lr.ph.i364, !llvm.loop !7
 
 ._crit_edge.i370:                                 ; preds = %255, %WAYLAND_GetSym.exit362
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1275,7 +1275,7 @@ WAYLAND_GetSym.exit371:                           ; preds = %253, %._crit_edge.i
   %265 = getelementptr inbounds nuw i8, ptr %.020.i374, i64 24
   %266 = load ptr, ptr %265, align 8
   %.not.i378 = icmp eq ptr %266, null
-  br i1 %.not.i378, label %._crit_edge.i379, label %.lr.ph.i373, !llvm.loop !6
+  br i1 %.not.i378, label %._crit_edge.i379, label %.lr.ph.i373, !llvm.loop !7
 
 ._crit_edge.i379:                                 ; preds = %263, %WAYLAND_GetSym.exit371
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1304,7 +1304,7 @@ WAYLAND_GetSym.exit380:                           ; preds = %261, %._crit_edge.i
   %273 = getelementptr inbounds nuw i8, ptr %.020.i383, i64 24
   %274 = load ptr, ptr %273, align 8
   %.not.i387 = icmp eq ptr %274, null
-  br i1 %.not.i387, label %._crit_edge.i388, label %.lr.ph.i382, !llvm.loop !6
+  br i1 %.not.i387, label %._crit_edge.i388, label %.lr.ph.i382, !llvm.loop !7
 
 ._crit_edge.i388:                                 ; preds = %271, %WAYLAND_GetSym.exit380
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1333,7 +1333,7 @@ WAYLAND_GetSym.exit389:                           ; preds = %269, %._crit_edge.i
   %281 = getelementptr inbounds nuw i8, ptr %.020.i392, i64 24
   %282 = load ptr, ptr %281, align 8
   %.not.i396 = icmp eq ptr %282, null
-  br i1 %.not.i396, label %._crit_edge.i397, label %.lr.ph.i391, !llvm.loop !6
+  br i1 %.not.i396, label %._crit_edge.i397, label %.lr.ph.i391, !llvm.loop !7
 
 ._crit_edge.i397:                                 ; preds = %279, %WAYLAND_GetSym.exit389
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1362,7 +1362,7 @@ WAYLAND_GetSym.exit398:                           ; preds = %277, %._crit_edge.i
   %289 = getelementptr inbounds nuw i8, ptr %.020.i401, i64 24
   %290 = load ptr, ptr %289, align 8
   %.not.i405 = icmp eq ptr %290, null
-  br i1 %.not.i405, label %._crit_edge.i406, label %.lr.ph.i400, !llvm.loop !6
+  br i1 %.not.i405, label %._crit_edge.i406, label %.lr.ph.i400, !llvm.loop !7
 
 ._crit_edge.i406:                                 ; preds = %287, %WAYLAND_GetSym.exit398
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1391,7 +1391,7 @@ WAYLAND_GetSym.exit407:                           ; preds = %285, %._crit_edge.i
   %297 = getelementptr inbounds nuw i8, ptr %.020.i410, i64 24
   %298 = load ptr, ptr %297, align 8
   %.not.i414 = icmp eq ptr %298, null
-  br i1 %.not.i414, label %._crit_edge.i415, label %.lr.ph.i409, !llvm.loop !6
+  br i1 %.not.i414, label %._crit_edge.i415, label %.lr.ph.i409, !llvm.loop !7
 
 ._crit_edge.i415:                                 ; preds = %295, %WAYLAND_GetSym.exit407
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1420,7 +1420,7 @@ WAYLAND_GetSym.exit416:                           ; preds = %293, %._crit_edge.i
   %305 = getelementptr inbounds nuw i8, ptr %.020.i419, i64 24
   %306 = load ptr, ptr %305, align 8
   %.not.i423 = icmp eq ptr %306, null
-  br i1 %.not.i423, label %._crit_edge.i424, label %.lr.ph.i418, !llvm.loop !6
+  br i1 %.not.i423, label %._crit_edge.i424, label %.lr.ph.i418, !llvm.loop !7
 
 ._crit_edge.i424:                                 ; preds = %303, %WAYLAND_GetSym.exit416
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1449,7 +1449,7 @@ WAYLAND_GetSym.exit425:                           ; preds = %301, %._crit_edge.i
   %313 = getelementptr inbounds nuw i8, ptr %.020.i428, i64 24
   %314 = load ptr, ptr %313, align 8
   %.not.i432 = icmp eq ptr %314, null
-  br i1 %.not.i432, label %._crit_edge.i433, label %.lr.ph.i427, !llvm.loop !6
+  br i1 %.not.i432, label %._crit_edge.i433, label %.lr.ph.i427, !llvm.loop !7
 
 ._crit_edge.i433:                                 ; preds = %311, %WAYLAND_GetSym.exit425
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1478,7 +1478,7 @@ WAYLAND_GetSym.exit434:                           ; preds = %309, %._crit_edge.i
   %321 = getelementptr inbounds nuw i8, ptr %.020.i437, i64 24
   %322 = load ptr, ptr %321, align 8
   %.not.i441 = icmp eq ptr %322, null
-  br i1 %.not.i441, label %._crit_edge.i442, label %.lr.ph.i436, !llvm.loop !6
+  br i1 %.not.i441, label %._crit_edge.i442, label %.lr.ph.i436, !llvm.loop !7
 
 ._crit_edge.i442:                                 ; preds = %319, %WAYLAND_GetSym.exit434
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1507,7 +1507,7 @@ WAYLAND_GetSym.exit443:                           ; preds = %317, %._crit_edge.i
   %329 = getelementptr inbounds nuw i8, ptr %.020.i446, i64 24
   %330 = load ptr, ptr %329, align 8
   %.not.i450 = icmp eq ptr %330, null
-  br i1 %.not.i450, label %._crit_edge.i451, label %.lr.ph.i445, !llvm.loop !6
+  br i1 %.not.i450, label %._crit_edge.i451, label %.lr.ph.i445, !llvm.loop !7
 
 ._crit_edge.i451:                                 ; preds = %327, %WAYLAND_GetSym.exit443
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1536,7 +1536,7 @@ WAYLAND_GetSym.exit452:                           ; preds = %325, %._crit_edge.i
   %337 = getelementptr inbounds nuw i8, ptr %.020.i455, i64 24
   %338 = load ptr, ptr %337, align 8
   %.not.i459 = icmp eq ptr %338, null
-  br i1 %.not.i459, label %._crit_edge.i460, label %.lr.ph.i454, !llvm.loop !6
+  br i1 %.not.i459, label %._crit_edge.i460, label %.lr.ph.i454, !llvm.loop !7
 
 ._crit_edge.i460:                                 ; preds = %335, %WAYLAND_GetSym.exit452
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1565,7 +1565,7 @@ WAYLAND_GetSym.exit461:                           ; preds = %333, %._crit_edge.i
   %345 = getelementptr inbounds nuw i8, ptr %.020.i464, i64 24
   %346 = load ptr, ptr %345, align 8
   %.not.i468 = icmp eq ptr %346, null
-  br i1 %.not.i468, label %._crit_edge.i469, label %.lr.ph.i463, !llvm.loop !6
+  br i1 %.not.i468, label %._crit_edge.i469, label %.lr.ph.i463, !llvm.loop !7
 
 ._crit_edge.i469:                                 ; preds = %343, %WAYLAND_GetSym.exit461
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1594,7 +1594,7 @@ WAYLAND_GetSym.exit470:                           ; preds = %341, %._crit_edge.i
   %353 = getelementptr inbounds nuw i8, ptr %.020.i473, i64 24
   %354 = load ptr, ptr %353, align 8
   %.not.i477 = icmp eq ptr %354, null
-  br i1 %.not.i477, label %._crit_edge.i478, label %.lr.ph.i472, !llvm.loop !6
+  br i1 %.not.i477, label %._crit_edge.i478, label %.lr.ph.i472, !llvm.loop !7
 
 ._crit_edge.i478:                                 ; preds = %351, %WAYLAND_GetSym.exit470
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1623,7 +1623,7 @@ WAYLAND_GetSym.exit479:                           ; preds = %349, %._crit_edge.i
   %361 = getelementptr inbounds nuw i8, ptr %.020.i482, i64 24
   %362 = load ptr, ptr %361, align 8
   %.not.i486 = icmp eq ptr %362, null
-  br i1 %.not.i486, label %._crit_edge.i487, label %.lr.ph.i481, !llvm.loop !6
+  br i1 %.not.i486, label %._crit_edge.i487, label %.lr.ph.i481, !llvm.loop !7
 
 ._crit_edge.i487:                                 ; preds = %359, %WAYLAND_GetSym.exit479
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1652,7 +1652,7 @@ WAYLAND_GetSym.exit488:                           ; preds = %357, %._crit_edge.i
   %369 = getelementptr inbounds nuw i8, ptr %.020.i491, i64 24
   %370 = load ptr, ptr %369, align 8
   %.not.i495 = icmp eq ptr %370, null
-  br i1 %.not.i495, label %._crit_edge.i496, label %.lr.ph.i490, !llvm.loop !6
+  br i1 %.not.i495, label %._crit_edge.i496, label %.lr.ph.i490, !llvm.loop !7
 
 ._crit_edge.i496:                                 ; preds = %367, %WAYLAND_GetSym.exit488
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1681,7 +1681,7 @@ WAYLAND_GetSym.exit497:                           ; preds = %365, %._crit_edge.i
   %377 = getelementptr inbounds nuw i8, ptr %.020.i500, i64 24
   %378 = load ptr, ptr %377, align 8
   %.not.i504 = icmp eq ptr %378, null
-  br i1 %.not.i504, label %._crit_edge.i505, label %.lr.ph.i499, !llvm.loop !6
+  br i1 %.not.i504, label %._crit_edge.i505, label %.lr.ph.i499, !llvm.loop !7
 
 ._crit_edge.i505:                                 ; preds = %375, %WAYLAND_GetSym.exit497
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1710,7 +1710,7 @@ WAYLAND_GetSym.exit506:                           ; preds = %373, %._crit_edge.i
   %385 = getelementptr inbounds nuw i8, ptr %.020.i509, i64 24
   %386 = load ptr, ptr %385, align 8
   %.not.i513 = icmp eq ptr %386, null
-  br i1 %.not.i513, label %._crit_edge.i514, label %.lr.ph.i508, !llvm.loop !6
+  br i1 %.not.i513, label %._crit_edge.i514, label %.lr.ph.i508, !llvm.loop !7
 
 ._crit_edge.i514:                                 ; preds = %383, %WAYLAND_GetSym.exit506
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1739,7 +1739,7 @@ WAYLAND_GetSym.exit515:                           ; preds = %381, %._crit_edge.i
   %393 = getelementptr inbounds nuw i8, ptr %.020.i518, i64 24
   %394 = load ptr, ptr %393, align 8
   %.not.i522 = icmp eq ptr %394, null
-  br i1 %.not.i522, label %._crit_edge.i523, label %.lr.ph.i517, !llvm.loop !6
+  br i1 %.not.i522, label %._crit_edge.i523, label %.lr.ph.i517, !llvm.loop !7
 
 ._crit_edge.i523:                                 ; preds = %391, %WAYLAND_GetSym.exit515
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1768,7 +1768,7 @@ WAYLAND_GetSym.exit524:                           ; preds = %389, %._crit_edge.i
   %401 = getelementptr inbounds nuw i8, ptr %.020.i527, i64 24
   %402 = load ptr, ptr %401, align 8
   %.not.i531 = icmp eq ptr %402, null
-  br i1 %.not.i531, label %._crit_edge.i532, label %.lr.ph.i526, !llvm.loop !6
+  br i1 %.not.i531, label %._crit_edge.i532, label %.lr.ph.i526, !llvm.loop !7
 
 ._crit_edge.i532:                                 ; preds = %399, %WAYLAND_GetSym.exit524
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1797,7 +1797,7 @@ WAYLAND_GetSym.exit533:                           ; preds = %397, %._crit_edge.i
   %409 = getelementptr inbounds nuw i8, ptr %.020.i536, i64 24
   %410 = load ptr, ptr %409, align 8
   %.not.i540 = icmp eq ptr %410, null
-  br i1 %.not.i540, label %._crit_edge.i541, label %.lr.ph.i535, !llvm.loop !6
+  br i1 %.not.i540, label %._crit_edge.i541, label %.lr.ph.i535, !llvm.loop !7
 
 ._crit_edge.i541:                                 ; preds = %407, %WAYLAND_GetSym.exit533
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1826,7 +1826,7 @@ WAYLAND_GetSym.exit542:                           ; preds = %405, %._crit_edge.i
   %417 = getelementptr inbounds nuw i8, ptr %.020.i545, i64 24
   %418 = load ptr, ptr %417, align 8
   %.not.i549 = icmp eq ptr %418, null
-  br i1 %.not.i549, label %._crit_edge.i550, label %.lr.ph.i544, !llvm.loop !6
+  br i1 %.not.i549, label %._crit_edge.i550, label %.lr.ph.i544, !llvm.loop !7
 
 ._crit_edge.i550:                                 ; preds = %415, %WAYLAND_GetSym.exit542
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1855,7 +1855,7 @@ WAYLAND_GetSym.exit551:                           ; preds = %413, %._crit_edge.i
   %425 = getelementptr inbounds nuw i8, ptr %.020.i554, i64 24
   %426 = load ptr, ptr %425, align 8
   %.not.i558 = icmp eq ptr %426, null
-  br i1 %.not.i558, label %._crit_edge.i559, label %.lr.ph.i553, !llvm.loop !6
+  br i1 %.not.i558, label %._crit_edge.i559, label %.lr.ph.i553, !llvm.loop !7
 
 ._crit_edge.i559:                                 ; preds = %423, %WAYLAND_GetSym.exit551
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1884,7 +1884,7 @@ WAYLAND_GetSym.exit560:                           ; preds = %421, %._crit_edge.i
   %433 = getelementptr inbounds nuw i8, ptr %.020.i563, i64 24
   %434 = load ptr, ptr %433, align 8
   %.not.i567 = icmp eq ptr %434, null
-  br i1 %.not.i567, label %._crit_edge.i568, label %.lr.ph.i562, !llvm.loop !6
+  br i1 %.not.i567, label %._crit_edge.i568, label %.lr.ph.i562, !llvm.loop !7
 
 ._crit_edge.i568:                                 ; preds = %431, %WAYLAND_GetSym.exit560
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1913,7 +1913,7 @@ WAYLAND_GetSym.exit569:                           ; preds = %429, %._crit_edge.i
   %441 = getelementptr inbounds nuw i8, ptr %.020.i572, i64 24
   %442 = load ptr, ptr %441, align 8
   %.not.i576 = icmp eq ptr %442, null
-  br i1 %.not.i576, label %._crit_edge.i577, label %.lr.ph.i571, !llvm.loop !6
+  br i1 %.not.i576, label %._crit_edge.i577, label %.lr.ph.i571, !llvm.loop !7
 
 ._crit_edge.i577:                                 ; preds = %439, %WAYLAND_GetSym.exit569
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1942,7 +1942,7 @@ WAYLAND_GetSym.exit578:                           ; preds = %437, %._crit_edge.i
   %449 = getelementptr inbounds nuw i8, ptr %.020.i581, i64 24
   %450 = load ptr, ptr %449, align 8
   %.not.i585 = icmp eq ptr %450, null
-  br i1 %.not.i585, label %._crit_edge.i586, label %.lr.ph.i580, !llvm.loop !6
+  br i1 %.not.i585, label %._crit_edge.i586, label %.lr.ph.i580, !llvm.loop !7
 
 ._crit_edge.i586:                                 ; preds = %447, %WAYLAND_GetSym.exit578
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -1971,7 +1971,7 @@ WAYLAND_GetSym.exit587:                           ; preds = %445, %._crit_edge.i
   %457 = getelementptr inbounds nuw i8, ptr %.020.i590, i64 24
   %458 = load ptr, ptr %457, align 8
   %.not.i594 = icmp eq ptr %458, null
-  br i1 %.not.i594, label %._crit_edge.i595, label %.lr.ph.i589, !llvm.loop !6
+  br i1 %.not.i594, label %._crit_edge.i595, label %.lr.ph.i589, !llvm.loop !7
 
 ._crit_edge.i595:                                 ; preds = %455, %WAYLAND_GetSym.exit587
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -2000,7 +2000,7 @@ WAYLAND_GetSym.exit596:                           ; preds = %453, %._crit_edge.i
   %465 = getelementptr inbounds nuw i8, ptr %.020.i599, i64 24
   %466 = load ptr, ptr %465, align 8
   %.not.i603 = icmp eq ptr %466, null
-  br i1 %.not.i603, label %._crit_edge.i604, label %.lr.ph.i598, !llvm.loop !6
+  br i1 %.not.i603, label %._crit_edge.i604, label %.lr.ph.i598, !llvm.loop !7
 
 ._crit_edge.i604:                                 ; preds = %463, %WAYLAND_GetSym.exit596
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CLIENT, align 4
@@ -2029,7 +2029,7 @@ WAYLAND_GetSym.exit605:                           ; preds = %461, %._crit_edge.i
   %473 = getelementptr inbounds nuw i8, ptr %.020.i608, i64 24
   %474 = load ptr, ptr %473, align 8
   %.not.i612 = icmp eq ptr %474, null
-  br i1 %.not.i612, label %._crit_edge.i613, label %.lr.ph.i607, !llvm.loop !6
+  br i1 %.not.i612, label %._crit_edge.i613, label %.lr.ph.i607, !llvm.loop !7
 
 ._crit_edge.i613:                                 ; preds = %471, %WAYLAND_GetSym.exit605
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_EGL, align 4
@@ -2058,7 +2058,7 @@ WAYLAND_GetSym.exit614:                           ; preds = %469, %._crit_edge.i
   %481 = getelementptr inbounds nuw i8, ptr %.020.i617, i64 24
   %482 = load ptr, ptr %481, align 8
   %.not.i621 = icmp eq ptr %482, null
-  br i1 %.not.i621, label %._crit_edge.i622, label %.lr.ph.i616, !llvm.loop !6
+  br i1 %.not.i621, label %._crit_edge.i622, label %.lr.ph.i616, !llvm.loop !7
 
 ._crit_edge.i622:                                 ; preds = %479, %WAYLAND_GetSym.exit614
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_EGL, align 4
@@ -2087,7 +2087,7 @@ WAYLAND_GetSym.exit623:                           ; preds = %477, %._crit_edge.i
   %489 = getelementptr inbounds nuw i8, ptr %.020.i626, i64 24
   %490 = load ptr, ptr %489, align 8
   %.not.i630 = icmp eq ptr %490, null
-  br i1 %.not.i630, label %._crit_edge.i631, label %.lr.ph.i625, !llvm.loop !6
+  br i1 %.not.i630, label %._crit_edge.i631, label %.lr.ph.i625, !llvm.loop !7
 
 ._crit_edge.i631:                                 ; preds = %487, %WAYLAND_GetSym.exit623
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_EGL, align 4
@@ -2116,7 +2116,7 @@ WAYLAND_GetSym.exit632:                           ; preds = %485, %._crit_edge.i
   %497 = getelementptr inbounds nuw i8, ptr %.020.i635, i64 24
   %498 = load ptr, ptr %497, align 8
   %.not.i639 = icmp eq ptr %498, null
-  br i1 %.not.i639, label %._crit_edge.i640, label %.lr.ph.i634, !llvm.loop !6
+  br i1 %.not.i639, label %._crit_edge.i640, label %.lr.ph.i634, !llvm.loop !7
 
 ._crit_edge.i640:                                 ; preds = %495, %WAYLAND_GetSym.exit632
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_EGL, align 4
@@ -2145,7 +2145,7 @@ WAYLAND_GetSym.exit641:                           ; preds = %493, %._crit_edge.i
   %505 = getelementptr inbounds nuw i8, ptr %.020.i644, i64 24
   %506 = load ptr, ptr %505, align 8
   %.not.i648 = icmp eq ptr %506, null
-  br i1 %.not.i648, label %._crit_edge.i649, label %.lr.ph.i643, !llvm.loop !6
+  br i1 %.not.i648, label %._crit_edge.i649, label %.lr.ph.i643, !llvm.loop !7
 
 ._crit_edge.i649:                                 ; preds = %503, %WAYLAND_GetSym.exit641
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CURSOR, align 4
@@ -2174,7 +2174,7 @@ WAYLAND_GetSym.exit650:                           ; preds = %501, %._crit_edge.i
   %513 = getelementptr inbounds nuw i8, ptr %.020.i653, i64 24
   %514 = load ptr, ptr %513, align 8
   %.not.i657 = icmp eq ptr %514, null
-  br i1 %.not.i657, label %._crit_edge.i658, label %.lr.ph.i652, !llvm.loop !6
+  br i1 %.not.i657, label %._crit_edge.i658, label %.lr.ph.i652, !llvm.loop !7
 
 ._crit_edge.i658:                                 ; preds = %511, %WAYLAND_GetSym.exit650
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CURSOR, align 4
@@ -2203,7 +2203,7 @@ WAYLAND_GetSym.exit659:                           ; preds = %509, %._crit_edge.i
   %521 = getelementptr inbounds nuw i8, ptr %.020.i662, i64 24
   %522 = load ptr, ptr %521, align 8
   %.not.i666 = icmp eq ptr %522, null
-  br i1 %.not.i666, label %._crit_edge.i667, label %.lr.ph.i661, !llvm.loop !6
+  br i1 %.not.i666, label %._crit_edge.i667, label %.lr.ph.i661, !llvm.loop !7
 
 ._crit_edge.i667:                                 ; preds = %519, %WAYLAND_GetSym.exit659
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CURSOR, align 4
@@ -2232,7 +2232,7 @@ WAYLAND_GetSym.exit668:                           ; preds = %517, %._crit_edge.i
   %529 = getelementptr inbounds nuw i8, ptr %.020.i671, i64 24
   %530 = load ptr, ptr %529, align 8
   %.not.i675 = icmp eq ptr %530, null
-  br i1 %.not.i675, label %._crit_edge.i676, label %.lr.ph.i670, !llvm.loop !6
+  br i1 %.not.i675, label %._crit_edge.i676, label %.lr.ph.i670, !llvm.loop !7
 
 ._crit_edge.i676:                                 ; preds = %527, %WAYLAND_GetSym.exit668
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CURSOR, align 4
@@ -2261,7 +2261,7 @@ WAYLAND_GetSym.exit677:                           ; preds = %525, %._crit_edge.i
   %537 = getelementptr inbounds nuw i8, ptr %.020.i680, i64 24
   %538 = load ptr, ptr %537, align 8
   %.not.i684 = icmp eq ptr %538, null
-  br i1 %.not.i684, label %._crit_edge.i685, label %.lr.ph.i679, !llvm.loop !6
+  br i1 %.not.i684, label %._crit_edge.i685, label %.lr.ph.i679, !llvm.loop !7
 
 ._crit_edge.i685:                                 ; preds = %535, %WAYLAND_GetSym.exit677
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_CURSOR, align 4
@@ -2290,7 +2290,7 @@ WAYLAND_GetSym.exit686:                           ; preds = %533, %._crit_edge.i
   %545 = getelementptr inbounds nuw i8, ptr %.020.i689, i64 24
   %546 = load ptr, ptr %545, align 8
   %.not.i693 = icmp eq ptr %546, null
-  br i1 %.not.i693, label %._crit_edge.i694, label %.lr.ph.i688, !llvm.loop !6
+  br i1 %.not.i693, label %._crit_edge.i694, label %.lr.ph.i688, !llvm.loop !7
 
 ._crit_edge.i694:                                 ; preds = %543, %WAYLAND_GetSym.exit686
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2319,7 +2319,7 @@ WAYLAND_GetSym.exit695:                           ; preds = %541, %._crit_edge.i
   %553 = getelementptr inbounds nuw i8, ptr %.020.i698, i64 24
   %554 = load ptr, ptr %553, align 8
   %.not.i702 = icmp eq ptr %554, null
-  br i1 %.not.i702, label %._crit_edge.i703, label %.lr.ph.i697, !llvm.loop !6
+  br i1 %.not.i702, label %._crit_edge.i703, label %.lr.ph.i697, !llvm.loop !7
 
 ._crit_edge.i703:                                 ; preds = %551, %WAYLAND_GetSym.exit695
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2348,7 +2348,7 @@ WAYLAND_GetSym.exit704:                           ; preds = %549, %._crit_edge.i
   %561 = getelementptr inbounds nuw i8, ptr %.020.i707, i64 24
   %562 = load ptr, ptr %561, align 8
   %.not.i711 = icmp eq ptr %562, null
-  br i1 %.not.i711, label %._crit_edge.i712, label %.lr.ph.i706, !llvm.loop !6
+  br i1 %.not.i711, label %._crit_edge.i712, label %.lr.ph.i706, !llvm.loop !7
 
 ._crit_edge.i712:                                 ; preds = %559, %WAYLAND_GetSym.exit704
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2377,7 +2377,7 @@ WAYLAND_GetSym.exit713:                           ; preds = %557, %._crit_edge.i
   %569 = getelementptr inbounds nuw i8, ptr %.020.i716, i64 24
   %570 = load ptr, ptr %569, align 8
   %.not.i720 = icmp eq ptr %570, null
-  br i1 %.not.i720, label %._crit_edge.i721, label %.lr.ph.i715, !llvm.loop !6
+  br i1 %.not.i720, label %._crit_edge.i721, label %.lr.ph.i715, !llvm.loop !7
 
 ._crit_edge.i721:                                 ; preds = %567, %WAYLAND_GetSym.exit713
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2406,7 +2406,7 @@ WAYLAND_GetSym.exit722:                           ; preds = %565, %._crit_edge.i
   %577 = getelementptr inbounds nuw i8, ptr %.020.i725, i64 24
   %578 = load ptr, ptr %577, align 8
   %.not.i729 = icmp eq ptr %578, null
-  br i1 %.not.i729, label %._crit_edge.i730, label %.lr.ph.i724, !llvm.loop !6
+  br i1 %.not.i729, label %._crit_edge.i730, label %.lr.ph.i724, !llvm.loop !7
 
 ._crit_edge.i730:                                 ; preds = %575, %WAYLAND_GetSym.exit722
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2435,7 +2435,7 @@ WAYLAND_GetSym.exit731:                           ; preds = %573, %._crit_edge.i
   %585 = getelementptr inbounds nuw i8, ptr %.020.i734, i64 24
   %586 = load ptr, ptr %585, align 8
   %.not.i738 = icmp eq ptr %586, null
-  br i1 %.not.i738, label %._crit_edge.i739, label %.lr.ph.i733, !llvm.loop !6
+  br i1 %.not.i738, label %._crit_edge.i739, label %.lr.ph.i733, !llvm.loop !7
 
 ._crit_edge.i739:                                 ; preds = %583, %WAYLAND_GetSym.exit731
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2464,7 +2464,7 @@ WAYLAND_GetSym.exit740:                           ; preds = %581, %._crit_edge.i
   %593 = getelementptr inbounds nuw i8, ptr %.020.i743, i64 24
   %594 = load ptr, ptr %593, align 8
   %.not.i747 = icmp eq ptr %594, null
-  br i1 %.not.i747, label %._crit_edge.i748, label %.lr.ph.i742, !llvm.loop !6
+  br i1 %.not.i747, label %._crit_edge.i748, label %.lr.ph.i742, !llvm.loop !7
 
 ._crit_edge.i748:                                 ; preds = %591, %WAYLAND_GetSym.exit740
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2493,7 +2493,7 @@ WAYLAND_GetSym.exit749:                           ; preds = %589, %._crit_edge.i
   %601 = getelementptr inbounds nuw i8, ptr %.020.i752, i64 24
   %602 = load ptr, ptr %601, align 8
   %.not.i756 = icmp eq ptr %602, null
-  br i1 %.not.i756, label %._crit_edge.i757, label %.lr.ph.i751, !llvm.loop !6
+  br i1 %.not.i756, label %._crit_edge.i757, label %.lr.ph.i751, !llvm.loop !7
 
 ._crit_edge.i757:                                 ; preds = %599, %WAYLAND_GetSym.exit749
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2522,7 +2522,7 @@ WAYLAND_GetSym.exit758:                           ; preds = %597, %._crit_edge.i
   %609 = getelementptr inbounds nuw i8, ptr %.020.i761, i64 24
   %610 = load ptr, ptr %609, align 8
   %.not.i765 = icmp eq ptr %610, null
-  br i1 %.not.i765, label %._crit_edge.i766, label %.lr.ph.i760, !llvm.loop !6
+  br i1 %.not.i765, label %._crit_edge.i766, label %.lr.ph.i760, !llvm.loop !7
 
 ._crit_edge.i766:                                 ; preds = %607, %WAYLAND_GetSym.exit758
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2551,7 +2551,7 @@ WAYLAND_GetSym.exit767:                           ; preds = %605, %._crit_edge.i
   %617 = getelementptr inbounds nuw i8, ptr %.020.i770, i64 24
   %618 = load ptr, ptr %617, align 8
   %.not.i774 = icmp eq ptr %618, null
-  br i1 %.not.i774, label %._crit_edge.i775, label %.lr.ph.i769, !llvm.loop !6
+  br i1 %.not.i774, label %._crit_edge.i775, label %.lr.ph.i769, !llvm.loop !7
 
 ._crit_edge.i775:                                 ; preds = %615, %WAYLAND_GetSym.exit767
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2580,7 +2580,7 @@ WAYLAND_GetSym.exit776:                           ; preds = %613, %._crit_edge.i
   %625 = getelementptr inbounds nuw i8, ptr %.020.i779, i64 24
   %626 = load ptr, ptr %625, align 8
   %.not.i783 = icmp eq ptr %626, null
-  br i1 %.not.i783, label %._crit_edge.i784, label %.lr.ph.i778, !llvm.loop !6
+  br i1 %.not.i783, label %._crit_edge.i784, label %.lr.ph.i778, !llvm.loop !7
 
 ._crit_edge.i784:                                 ; preds = %623, %WAYLAND_GetSym.exit776
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2609,7 +2609,7 @@ WAYLAND_GetSym.exit785:                           ; preds = %621, %._crit_edge.i
   %633 = getelementptr inbounds nuw i8, ptr %.020.i788, i64 24
   %634 = load ptr, ptr %633, align 8
   %.not.i792 = icmp eq ptr %634, null
-  br i1 %.not.i792, label %._crit_edge.i793, label %.lr.ph.i787, !llvm.loop !6
+  br i1 %.not.i792, label %._crit_edge.i793, label %.lr.ph.i787, !llvm.loop !7
 
 ._crit_edge.i793:                                 ; preds = %631, %WAYLAND_GetSym.exit785
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2638,7 +2638,7 @@ WAYLAND_GetSym.exit794:                           ; preds = %629, %._crit_edge.i
   %641 = getelementptr inbounds nuw i8, ptr %.020.i797, i64 24
   %642 = load ptr, ptr %641, align 8
   %.not.i801 = icmp eq ptr %642, null
-  br i1 %.not.i801, label %._crit_edge.i802, label %.lr.ph.i796, !llvm.loop !6
+  br i1 %.not.i801, label %._crit_edge.i802, label %.lr.ph.i796, !llvm.loop !7
 
 ._crit_edge.i802:                                 ; preds = %639, %WAYLAND_GetSym.exit794
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2667,7 +2667,7 @@ WAYLAND_GetSym.exit803:                           ; preds = %637, %._crit_edge.i
   %649 = getelementptr inbounds nuw i8, ptr %.020.i806, i64 24
   %650 = load ptr, ptr %649, align 8
   %.not.i810 = icmp eq ptr %650, null
-  br i1 %.not.i810, label %._crit_edge.i811, label %.lr.ph.i805, !llvm.loop !6
+  br i1 %.not.i810, label %._crit_edge.i811, label %.lr.ph.i805, !llvm.loop !7
 
 ._crit_edge.i811:                                 ; preds = %647, %WAYLAND_GetSym.exit803
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2696,7 +2696,7 @@ WAYLAND_GetSym.exit812:                           ; preds = %645, %._crit_edge.i
   %657 = getelementptr inbounds nuw i8, ptr %.020.i815, i64 24
   %658 = load ptr, ptr %657, align 8
   %.not.i819 = icmp eq ptr %658, null
-  br i1 %.not.i819, label %._crit_edge.i820, label %.lr.ph.i814, !llvm.loop !6
+  br i1 %.not.i819, label %._crit_edge.i820, label %.lr.ph.i814, !llvm.loop !7
 
 ._crit_edge.i820:                                 ; preds = %655, %WAYLAND_GetSym.exit812
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2725,7 +2725,7 @@ WAYLAND_GetSym.exit821:                           ; preds = %653, %._crit_edge.i
   %665 = getelementptr inbounds nuw i8, ptr %.020.i824, i64 24
   %666 = load ptr, ptr %665, align 8
   %.not.i828 = icmp eq ptr %666, null
-  br i1 %.not.i828, label %._crit_edge.i829, label %.lr.ph.i823, !llvm.loop !6
+  br i1 %.not.i828, label %._crit_edge.i829, label %.lr.ph.i823, !llvm.loop !7
 
 ._crit_edge.i829:                                 ; preds = %663, %WAYLAND_GetSym.exit821
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2754,7 +2754,7 @@ WAYLAND_GetSym.exit830:                           ; preds = %661, %._crit_edge.i
   %673 = getelementptr inbounds nuw i8, ptr %.020.i833, i64 24
   %674 = load ptr, ptr %673, align 8
   %.not.i837 = icmp eq ptr %674, null
-  br i1 %.not.i837, label %._crit_edge.i838, label %.lr.ph.i832, !llvm.loop !6
+  br i1 %.not.i837, label %._crit_edge.i838, label %.lr.ph.i832, !llvm.loop !7
 
 ._crit_edge.i838:                                 ; preds = %671, %WAYLAND_GetSym.exit830
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2783,7 +2783,7 @@ WAYLAND_GetSym.exit839:                           ; preds = %669, %._crit_edge.i
   %681 = getelementptr inbounds nuw i8, ptr %.020.i842, i64 24
   %682 = load ptr, ptr %681, align 8
   %.not.i846 = icmp eq ptr %682, null
-  br i1 %.not.i846, label %._crit_edge.i847, label %.lr.ph.i841, !llvm.loop !6
+  br i1 %.not.i846, label %._crit_edge.i847, label %.lr.ph.i841, !llvm.loop !7
 
 ._crit_edge.i847:                                 ; preds = %679, %WAYLAND_GetSym.exit839
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2812,7 +2812,7 @@ WAYLAND_GetSym.exit848:                           ; preds = %677, %._crit_edge.i
   %689 = getelementptr inbounds nuw i8, ptr %.020.i851, i64 24
   %690 = load ptr, ptr %689, align 8
   %.not.i855 = icmp eq ptr %690, null
-  br i1 %.not.i855, label %._crit_edge.i856, label %.lr.ph.i850, !llvm.loop !6
+  br i1 %.not.i855, label %._crit_edge.i856, label %.lr.ph.i850, !llvm.loop !7
 
 ._crit_edge.i856:                                 ; preds = %687, %WAYLAND_GetSym.exit848
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2841,7 +2841,7 @@ WAYLAND_GetSym.exit857:                           ; preds = %685, %._crit_edge.i
   %697 = getelementptr inbounds nuw i8, ptr %.020.i860, i64 24
   %698 = load ptr, ptr %697, align 8
   %.not.i864 = icmp eq ptr %698, null
-  br i1 %.not.i864, label %._crit_edge.i865, label %.lr.ph.i859, !llvm.loop !6
+  br i1 %.not.i864, label %._crit_edge.i865, label %.lr.ph.i859, !llvm.loop !7
 
 ._crit_edge.i865:                                 ; preds = %695, %WAYLAND_GetSym.exit857
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2870,7 +2870,7 @@ WAYLAND_GetSym.exit866:                           ; preds = %693, %._crit_edge.i
   %705 = getelementptr inbounds nuw i8, ptr %.020.i869, i64 24
   %706 = load ptr, ptr %705, align 8
   %.not.i873 = icmp eq ptr %706, null
-  br i1 %.not.i873, label %._crit_edge.i874, label %.lr.ph.i868, !llvm.loop !6
+  br i1 %.not.i873, label %._crit_edge.i874, label %.lr.ph.i868, !llvm.loop !7
 
 ._crit_edge.i874:                                 ; preds = %703, %WAYLAND_GetSym.exit866
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2899,7 +2899,7 @@ WAYLAND_GetSym.exit875:                           ; preds = %701, %._crit_edge.i
   %713 = getelementptr inbounds nuw i8, ptr %.020.i878, i64 24
   %714 = load ptr, ptr %713, align 8
   %.not.i882 = icmp eq ptr %714, null
-  br i1 %.not.i882, label %._crit_edge.i883, label %.lr.ph.i877, !llvm.loop !6
+  br i1 %.not.i882, label %._crit_edge.i883, label %.lr.ph.i877, !llvm.loop !7
 
 ._crit_edge.i883:                                 ; preds = %711, %WAYLAND_GetSym.exit875
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2928,7 +2928,7 @@ WAYLAND_GetSym.exit884:                           ; preds = %709, %._crit_edge.i
   %721 = getelementptr inbounds nuw i8, ptr %.020.i887, i64 24
   %722 = load ptr, ptr %721, align 8
   %.not.i891 = icmp eq ptr %722, null
-  br i1 %.not.i891, label %._crit_edge.i892, label %.lr.ph.i886, !llvm.loop !6
+  br i1 %.not.i891, label %._crit_edge.i892, label %.lr.ph.i886, !llvm.loop !7
 
 ._crit_edge.i892:                                 ; preds = %719, %WAYLAND_GetSym.exit884
   store i32 0, ptr @SDL_WAYLAND_HAVE_WAYLAND_XKB, align 4
@@ -2982,7 +2982,8 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

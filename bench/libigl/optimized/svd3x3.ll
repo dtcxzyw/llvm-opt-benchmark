@@ -769,31 +769,31 @@ define weak_odr dso_local void @_ZN3igl6svd3x3IfEEvRKN5Eigen6MatrixIT_Li3ELi3ELi
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN3igl6svd3x3IdEEvRKN5Eigen6MatrixIT_Li3ELi3ELi0ELi3ELi3EEERS4_RNS2_IS3_Li3ELi1ELi0ELi3ELi1EEES7_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
-  %5 = load double, ptr %0, align 8, !tbaa !10
+  %5 = load double, ptr %0, align 8, !tbaa !11
   %6 = fptrunc double %5 to float
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load double, ptr %7, align 8, !tbaa !10
+  %8 = load double, ptr %7, align 8, !tbaa !11
   %9 = fptrunc double %8 to float
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load double, ptr %10, align 8, !tbaa !10
+  %11 = load double, ptr %10, align 8, !tbaa !11
   %12 = fptrunc double %11 to float
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load double, ptr %13, align 8, !tbaa !10
+  %14 = load double, ptr %13, align 8, !tbaa !11
   %15 = fptrunc double %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %17 = load double, ptr %16, align 8, !tbaa !10
+  %17 = load double, ptr %16, align 8, !tbaa !11
   %18 = fptrunc double %17 to float
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load double, ptr %19, align 8, !tbaa !10
+  %20 = load double, ptr %19, align 8, !tbaa !11
   %21 = fptrunc double %20 to float
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %23 = load double, ptr %22, align 8, !tbaa !10
+  %23 = load double, ptr %22, align 8, !tbaa !11
   %24 = fptrunc double %23 to float
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %26 = load double, ptr %25, align 8, !tbaa !10
+  %26 = load double, ptr %25, align 8, !tbaa !11
   %27 = fptrunc double %26 to float
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %29 = load double, ptr %28, align 8, !tbaa !10
+  %29 = load double, ptr %28, align 8, !tbaa !11
   %30 = fptrunc double %29 to float
   %31 = fmul float %6, %6
   %32 = fmul float %9, %9
@@ -1291,65 +1291,65 @@ define weak_odr dso_local void @_ZN3igl6svd3x3IdEEvRKN5Eigen6MatrixIT_Li3ELi3ELi
   %502 = fadd float %500, %499
   %503 = fsub float %501, %498
   %504 = fpext float %432 to double
-  store double %504, ptr %1, align 8, !tbaa !10
+  store double %504, ptr %1, align 8, !tbaa !11
   %505 = fpext float %436 to double
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store double %505, ptr %506, align 8, !tbaa !10
+  store double %505, ptr %506, align 8, !tbaa !11
   %507 = fpext float %440 to double
   %508 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store double %507, ptr %508, align 8, !tbaa !10
+  store double %507, ptr %508, align 8, !tbaa !11
   %509 = fpext float %490 to double
   %510 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store double %509, ptr %510, align 8, !tbaa !10
+  store double %509, ptr %510, align 8, !tbaa !11
   %511 = fpext float %496 to double
   %512 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store double %511, ptr %512, align 8, !tbaa !10
+  store double %511, ptr %512, align 8, !tbaa !11
   %513 = fpext float %502 to double
   %514 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store double %513, ptr %514, align 8, !tbaa !10
+  store double %513, ptr %514, align 8, !tbaa !11
   %515 = fpext float %491 to double
   %516 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store double %515, ptr %516, align 8, !tbaa !10
+  store double %515, ptr %516, align 8, !tbaa !11
   %517 = fpext float %497 to double
   %518 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  store double %517, ptr %518, align 8, !tbaa !10
+  store double %517, ptr %518, align 8, !tbaa !11
   %519 = fpext float %503 to double
   %520 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store double %519, ptr %520, align 8, !tbaa !10
+  store double %519, ptr %520, align 8, !tbaa !11
   %521 = fpext float %267 to double
-  store double %521, ptr %3, align 8, !tbaa !10
+  store double %521, ptr %3, align 8, !tbaa !11
   %522 = fpext float %268 to double
   %523 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store double %522, ptr %523, align 8, !tbaa !10
+  store double %522, ptr %523, align 8, !tbaa !11
   %524 = fpext float %269 to double
   %525 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store double %524, ptr %525, align 8, !tbaa !10
+  store double %524, ptr %525, align 8, !tbaa !11
   %526 = fpext float %296 to double
   %527 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store double %526, ptr %527, align 8, !tbaa !10
+  store double %526, ptr %527, align 8, !tbaa !11
   %528 = fpext float %303 to double
   %529 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store double %528, ptr %529, align 8, !tbaa !10
+  store double %528, ptr %529, align 8, !tbaa !11
   %530 = fpext float %310 to double
   %531 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store double %530, ptr %531, align 8, !tbaa !10
+  store double %530, ptr %531, align 8, !tbaa !11
   %532 = fpext float %317 to double
   %533 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store double %532, ptr %533, align 8, !tbaa !10
+  store double %532, ptr %533, align 8, !tbaa !11
   %534 = fpext float %318 to double
   %535 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store double %534, ptr %535, align 8, !tbaa !10
+  store double %534, ptr %535, align 8, !tbaa !11
   %536 = fpext float %319 to double
   %537 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  store double %536, ptr %537, align 8, !tbaa !10
+  store double %536, ptr %537, align 8, !tbaa !11
   %538 = fpext float %421 to double
-  store double %538, ptr %2, align 8, !tbaa !10
+  store double %538, ptr %2, align 8, !tbaa !11
   %539 = fpext float %482 to double
   %540 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %539, ptr %540, align 8, !tbaa !10
+  store double %539, ptr %540, align 8, !tbaa !11
   %541 = fpext float %485 to double
   %542 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %541, ptr %542, align 8, !tbaa !10
+  store double %541, ptr %542, align 8, !tbaa !11
   ret void
 
 543:                                              ; preds = %4, %543
@@ -1555,7 +1555,7 @@ define weak_odr dso_local void @_ZN3igl6svd3x3IdEEvRKN5Eigen6MatrixIT_Li3ELi3ELi
   %723 = fsub float %717, %714
   %724 = add nuw nsw i32 %.01356, 1
   %exitcond.not = icmp eq i32 %724, 5
-  br i1 %exitcond.not, label %61, label %543, !llvm.loop !12
+  br i1 %exitcond.not, label %61, label %543, !llvm.loop !13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -1576,8 +1576,9 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !5 = !{!"float", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!11, !11, i64 0}
-!11 = !{!"double", !6, i64 0}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12, !12, i64 0}
+!12 = !{!"double", !6, i64 0}
+!13 = distinct !{!13, !9, !10}

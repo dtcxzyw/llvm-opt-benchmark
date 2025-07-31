@@ -166,7 +166,7 @@ define dso_local void @GenerationReset(ptr noundef initializes((104, 112)) %0) l
 
 23:                                               ; preds = %15, %10
   %.not18 = icmp eq ptr %.sroa.8.023, %3
-  br i1 %.not18, label %._crit_edge, label %8, !llvm.loop !6
+  br i1 %.not18, label %._crit_edge, label %8, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %23, %1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -229,7 +229,7 @@ define dso_local void @GenerationDelete(ptr noundef captures(address) initialize
 
 23:                                               ; preds = %15, %10
   %.not18.i = icmp eq ptr %.sroa.8.023.i, %3
-  br i1 %.not18.i, label %GenerationReset.exit, label %8, !llvm.loop !6
+  br i1 %.not18.i, label %GenerationReset.exit, label %8, !llvm.loop !7
 
 GenerationReset.exit:                             ; preds = %23, %1
   tail call void @free(ptr noundef %0) #15
@@ -265,7 +265,7 @@ define dso_local ptr @GenerationAlloc(ptr noundef %0, i64 noundef %1, i32 nounde
   %19 = ptrtoint ptr %.val to i64
   %20 = sub i64 %18, %19
   %21 = icmp ult i64 %20, %13
-  br i1 %21, label %22, label %48, !prof !7
+  br i1 %21, label %22, label %48, !prof !8
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -336,7 +336,7 @@ define dso_local ptr @GenerationAlloc(ptr noundef %0, i64 noundef %1, i32 nounde
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc ptr @GenerationAllocLarge(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #6 {
   %4 = icmp ugt i64 %1, 1073741823
-  br i1 %4, label %5, label %MemoryContextCheckSize.exit, !prof !7
+  br i1 %4, label %5, label %MemoryContextCheckSize.exit, !prof !8
 
 5:                                                ; preds = %3
   %6 = and i32 %2, 1
@@ -543,7 +543,7 @@ define dso_local void @GenerationFree(ptr noundef %0) local_unnamed_addr #0 {
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = icmp slt i32 %22, %24
-  br i1 %25, label %56, label %26, !prof !8
+  br i1 %25, label %56, label %26, !prof !9
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -745,7 +745,7 @@ define dso_local noundef zeroext i1 @GenerationIsEmpty(ptr noundef readonly capt
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.013, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, %2
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %8, %1
   %.not11.lcssa = phi i1 [ true, %1 ], [ %7, %8 ], [ %7, %.lr.ph ]
@@ -793,7 +793,7 @@ define dso_local void @GenerationStats(ptr noundef %0, ptr noundef readonly capt
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not44 = icmp eq ptr %31, %7
-  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not44, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %.040.lcssa = phi i64 [ 0, %5 ], [ %29, %.lr.ph ]
@@ -886,10 +886,11 @@ attributes #17 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}

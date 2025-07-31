@@ -368,7 +368,7 @@ define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr 
   %79 = load i16, ptr %78, align 8, !tbaa !32
   %80 = zext i16 %79 to i32
   %81 = icmp eq i32 %1, %80
-  br i1 %81, label %.critedge127, label %.lr.ph152, !llvm.loop !44
+  br i1 %81, label %.critedge127, label %.lr.ph152, !llvm.loop !45
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %76
   %82 = phi i64 [ %77, %76 ], [ %71, %.lr.ph152.preheader ]
@@ -376,7 +376,7 @@ define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr 
   %.0102.in.us = load i16, ptr %gep, align 2, !tbaa !32
   %.0102.us = zext i16 %.0102.in.us to i32
   %83 = icmp samesign ult i32 %1, %.0102.us
-  br i1 %83, label %76, label %._crit_edge, !llvm.loop !44
+  br i1 %83, label %76, label %._crit_edge, !llvm.loop !45
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
   %.0102150 = phi i32 [ %.0102, %104 ], [ %.0102148, %.lr.ph ]
@@ -419,7 +419,7 @@ define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr 
   %.0102.in = load i16, ptr %105, align 2, !tbaa !32
   %.0102 = zext i16 %.0102.in to i32
   %106 = icmp samesign ult i32 %1, %.0102
-  br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !46
+  br i1 %106, label %.lr.ph.split, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %104, %.lr.ph152, %.thread
   %.off = add i8 %15, -41
@@ -461,7 +461,7 @@ define internal fastcc range(i32 -2147483648, 11) i32 @narrow_conv_backprop(ptr 
 127:                                              ; preds = %123, %120, %116
   %128 = add nuw nsw i64 %.01319.i, 1
   %exitcond.not.i = icmp eq i64 %128, 16
-  br i1 %exitcond.not.i, label %133, label %116, !llvm.loop !47
+  br i1 %exitcond.not.i, label %133, label %116, !llvm.loop !48
 
 narrow_bpc_get.exit:                              ; preds = %123
   %129 = getelementptr inbounds nuw i8, ptr %117, i64 2
@@ -497,7 +497,7 @@ narrow_bpc_get.exit:                              ; preds = %123
 145:                                              ; preds = %140, %.preheader
   %146 = add nuw nsw i64 %.01319.i129, 1
   %exitcond.not.i130 = icmp eq i64 %146, 16
-  br i1 %exitcond.not.i130, label %narrow_bpc_get.exit133.thread, label %.preheader, !llvm.loop !47
+  br i1 %exitcond.not.i130, label %narrow_bpc_get.exit133.thread, label %.preheader, !llvm.loop !48
 
 narrow_bpc_get.exit133:                           ; preds = %140
   %147 = getelementptr inbounds nuw i8, ptr %137, i64 2
@@ -718,7 +718,7 @@ define internal fastcc i32 @narrow_stripov(ptr noundef %0, i32 noundef %1, i32 n
 25:                                               ; preds = %21, %17
   %26 = add nuw nsw i64 %.01319.i, 1
   %exitcond.not.i = icmp eq i64 %26, 16
-  br i1 %exitcond.not.i, label %38, label %17, !llvm.loop !47
+  br i1 %exitcond.not.i, label %38, label %17, !llvm.loop !48
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 2
@@ -1355,7 +1355,7 @@ define internal fastcc void @narrow_stripov_backprop(ptr noundef nonnull %0, i32
 28:                                               ; preds = %23, %19
   %29 = add nuw nsw i64 %.01319.i, 1
   %exitcond.not.i = icmp eq i64 %29, 16
-  br i1 %exitcond.not.i, label %33, label %19, !llvm.loop !47
+  br i1 %exitcond.not.i, label %33, label %19, !llvm.loop !48
 
 narrow_bpc_get.exit:                              ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 2
@@ -1482,9 +1482,10 @@ attributes #7 = { noreturn nounwind }
 !39 = !{!"BPropEntry", !11, i64 0, !11, i64 2, !12, i64 4}
 !40 = !{!39, !11, i64 2}
 !41 = !{!39, !12, i64 4}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!46 = distinct !{!46, !43}
-!47 = distinct !{!47, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!47 = distinct !{!47, !43, !44}
+!48 = distinct !{!48, !43, !44}

@@ -836,7 +836,7 @@ lean_dec.exit26:                                  ; preds = %lean_obj_tag.exit
   br i1 %.not, label %20, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %lean_dec.exit26, %20
-  br label %.backedge
+  br label %.backedge, !llvm.loop !16
 
 20:                                               ; preds = %lean_dec.exit26
   %21 = or disjoint i64 %18, 1
@@ -1401,7 +1401,7 @@ lean_array_uset.exit140:                          ; preds = %lean_ensure_exclusi
 .backedge:                                        ; preds = %lean_array_uset.exit140, %lean_array_uset.exit
   %.079.be = phi ptr [ %30, %lean_array_uset.exit ], [ %94, %lean_array_uset.exit140 ]
   %.0.be = phi ptr [ %.0.i.i, %lean_array_uset.exit ], [ %.0.i.i137, %lean_array_uset.exit140 ]
-  br label %6
+  br label %6, !llvm.loop !18
 }
 
 declare ptr @lean_apply_1(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -1863,7 +1863,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %181, %176
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %191, %193, %194
   store ptr %.063, ptr %184, align 8, !tbaa !4
-  br label %3
+  br label %3, !llvm.loop !19
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
@@ -3556,7 +3556,7 @@ lean_dec.exit26.i:                                ; preds = %lean_obj_tag.exit.i
   br i1 %.not32.i, label %lean_array_uget.exit.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lake_importModulesUsingCache___spec__1.exit
 
 lean_array_uget.exit.backedge:                    ; preds = %193, %lean_dec.exit26.i
-  br label %lean_array_uget.exit
+  br label %lean_array_uget.exit, !llvm.loop !16
 
 197:                                              ; preds = %lean_obj_tag.exit.i
   br i1 %.not379, label %208, label %198, !prof !15
@@ -5753,7 +5753,7 @@ lean_dec.exit26.i:                                ; preds = %lean_obj_tag.exit.i
   br i1 %.not32.i, label %.backedge.i.backedge, label %l_Std_DHashMap_Internal_AssocList_contains___at_Lake_importModulesUsingCache___spec__1.exit
 
 .backedge.i.backedge:                             ; preds = %20, %lean_dec.exit26.i
-  br label %.backedge.i
+  br label %.backedge.i, !llvm.loop !16
 
 l_Std_DHashMap_Internal_AssocList_contains___at_Lake_importModulesUsingCache___spec__1.exit: ; preds = %lean_obj_tag.exit.i, %20
   %.1.i = phi i64 [ 1, %lean_obj_tag.exit.i ], [ 3, %20 ]
@@ -18787,7 +18787,7 @@ lean_dec.exit.us:                                 ; preds = %22, %21, %20
   %24 = tail call ptr @l_Lean_PersistentEnvExtension_addEntry___rarg(ptr noundef nonnull %0, ptr noundef %.01933.us, ptr noundef %10) #5
   %25 = add i64 %.01734.us, 1
   %.not.us = icmp eq i64 %25, %3
-  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_array_uget.exit
   %.01734 = phi i64 [ %37, %lean_array_uget.exit ], [ %2, %.lr.ph ]
@@ -22786,7 +22786,7 @@ define ptr @l_Lake_importConfigFile(ptr noundef %0, ptr noundef %1, ptr noundef 
 15:                                               ; preds = %14, %11
   %.val.i11263 = phi i32 [ %.val.i11263.pr, %14 ], [ %12, %11 ]
   %16 = icmp sgt i32 %.val.i11263, 0
-  br i1 %16, label %17, label %19, !prof !18
+  br i1 %16, label %17, label %19, !prof !22
 
 17:                                               ; preds = %15
   %18 = add nuw i32 %.val.i11263, 1
@@ -23030,7 +23030,7 @@ lean_inc.exit9149:                                ; preds = %lean_dec_ref.exit10
   %.val.i11276 = phi i32 [ %.val.i11276.pr, %105 ], [ %102, %101 ]
   %108 = load ptr, ptr @l_Lake_defaultLakeDir, align 8, !tbaa !4
   %109 = icmp sgt i32 %.val.i11276, 0
-  br i1 %109, label %110, label %112, !prof !18
+  br i1 %109, label %110, label %112, !prof !22
 
 110:                                              ; preds = %107
   %111 = add nuw i32 %.val.i11276, 1
@@ -23700,7 +23700,7 @@ lean_dec_ref.exit10988:                           ; preds = %352, %351, %349, %l
 364:                                              ; preds = %363, %360
   %365 = phi i32 [ %.pr, %363 ], [ %361, %360 ]
   %366 = icmp sgt i32 %365, 1
-  br i1 %366, label %367, label %369, !prof !18
+  br i1 %366, label %367, label %369, !prof !22
 
 367:                                              ; preds = %364
   %368 = add nsw i32 %365, -1
@@ -37127,7 +37127,7 @@ lean_obj_tag.exit12064:                           ; preds = %5653, %5656
 5671:                                             ; preds = %5670, %5667
   %5672 = phi i32 [ %.pr13902, %5670 ], [ %5668, %5667 ]
   %5673 = icmp sgt i32 %5672, 1
-  br i1 %5673, label %5674, label %5676, !prof !18
+  br i1 %5673, label %5674, label %5676, !prof !22
 
 5674:                                             ; preds = %5671
   %5675 = add nsw i32 %5672, -1
@@ -51638,7 +51638,7 @@ lean_obj_tag.exit12826:                           ; preds = %11360, %11363
 11378:                                            ; preds = %11377, %11374
   %11379 = phi i32 [ %.pr13941, %11377 ], [ %11375, %11374 ]
   %11380 = icmp sgt i32 %11379, 1
-  br i1 %11380, label %11381, label %11383, !prof !18
+  br i1 %11380, label %11381, label %11383, !prof !22
 
 11381:                                            ; preds = %11378
   %11382 = add nsw i32 %11379, -1
@@ -71445,9 +71445,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lake_beqImport____x40_Lake_Load_Lean_Elab___hyg_6____boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 2, ptr %6, align 8, !tbaa !19
+  store i16 2, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -71469,9 +71469,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lake_Load_Lean_Elab_0__Lake_hashImport____x40_Lake_Load_Lean_Elab___hyg_96____boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !19
+  store i16 1, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -71524,9 +71524,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lake_elabConfigFile___lambda__1, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 3, ptr %6, align 8, !tbaa !19
+  store i16 3, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -71556,9 +71556,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lake_Load_Lean_Elab_0__Lake_toJsonConfigTrace____x40_Lake_Load_Lean_Elab___hyg_896_, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !19
+  store i16 1, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -71580,9 +71580,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lake_Load_Lean_Elab_0__Lake_fromJsonConfigTrace____x40_Lake_Load_Lean_Elab___hyg_976____lambda__1___boxed, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !19
+  store i16 1, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -71606,9 +71606,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l___private_Lake_Load_Lean_Elab_0__Lake_fromJsonConfigTrace____x40_Lake_Load_Lean_Elab___hyg_976_, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !19
+  store i16 1, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -71653,9 +71653,9 @@ lean_alloc_closure.exit:                          ; preds = %0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @l_Lean_Json_Parser_any, ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i16 1, ptr %6, align 8, !tbaa !19
+  store i16 1, ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  store i16 0, ptr %7, align 2, !tbaa !19
+  store i16 0, ptr %7, align 2, !tbaa !23
   ret ptr %1
 }
 
@@ -71732,7 +71732,11 @@ attributes #6 = { noreturn nounwind }
 !14 = !{!"long", !6, i64 0}
 !15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"short", !6, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !17}
+!19 = distinct !{!19, !17}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"short", !6, i64 0}

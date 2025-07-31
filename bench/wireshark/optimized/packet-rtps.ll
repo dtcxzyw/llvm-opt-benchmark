@@ -3680,7 +3680,7 @@ default.unreachable:                              ; preds = %659
 
 663:                                              ; preds = %662, %659
   %.089.i = phi i32 [ 16, %662 ], [ 4, %659 ]
-  %664 = load i8, ptr @enable_rtps_crc_check, align 1, !range !8, !noundef !9
+  %664 = load i8, ptr @enable_rtps_crc_check, align 1, !range !9, !noundef !10
   %665 = trunc nuw i8 %664 to i1
   br i1 %665, label %666, label %.thread.i154
 
@@ -4146,13 +4146,13 @@ rtps_util_add_fragment_number_set.exit.thread.i:  ; preds = %918
   %952 = add nuw nsw i32 %.0911.i.i, 1
   %953 = icmp samesign ult i32 %.0911.i.i, 31
   %or.cond.i.i135 = select i1 %951, i1 %953, i1 false
-  br i1 %or.cond.i.i135, label %944, label %954, !llvm.loop !10
+  br i1 %or.cond.i.i135, label %944, label %954, !llvm.loop !11
 
 954:                                              ; preds = %948, %944
   %.lcssa.i.i = phi i32 [ %949, %948 ], [ %smax.i.i, %944 ]
   %955 = add i32 %.0884.i.i, 32
   %956 = icmp slt i32 %955, %.087.i.i
-  br i1 %956, label %.lr.ph.i.i134, label %._crit_edge.i.i, !llvm.loop !11
+  br i1 %956, label %.lr.ph.i.i134, label %._crit_edge.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %954, %936
   %.1.lcssa.i.i = phi i32 [ %937, %936 ], [ %940, %954 ]
@@ -4328,7 +4328,7 @@ rtps_util_add_fragment_number_set.exit.i:         ; preds = %976, %971
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #17
   %1073 = load i32, ptr %18, align 4
   %1074 = icmp slt i32 %1072, %1073
-  br i1 %1074, label %.lr.ph.i131, label %._crit_edge.i130, !llvm.loop !12
+  br i1 %1074, label %.lr.ph.i131, label %._crit_edge.i130, !llvm.loop !13
 
 ._crit_edge.i130:                                 ; preds = %1071, %.lr.ph111.i
   %.1.lcssa.i = phi i32 [ %1029, %.lr.ph111.i ], [ %.2.i, %1071 ]
@@ -4339,7 +4339,7 @@ rtps_util_add_fragment_number_set.exit.i:         ; preds = %976, %971
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #17
   %1079 = load i32, ptr %16, align 4
   %1080 = icmp slt i32 %1078, %1079
-  br i1 %1080, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !13
+  br i1 %1080, label %.lr.ph111.i, label %._crit_edge112.i, !llvm.loop !14
 
 ._crit_edge112.i:                                 ; preds = %._crit_edge.i130, %999
   %.0.lcssa.i = phi i32 [ %1016, %999 ], [ %1077, %._crit_edge.i130 ]
@@ -4447,7 +4447,7 @@ rtps_util_add_guid_prefix_v2.exit.i:              ; preds = %1126, %.lr.ph.i128
   %1149 = add nuw nsw i32 %.069.i, 1
   %1150 = load i32, ptr %20, align 4
   %1151 = icmp slt i32 %1149, %1150
-  br i1 %1151, label %.lr.ph.i128, label %._crit_edge.i127, !llvm.loop !14
+  br i1 %1151, label %.lr.ph.i128, label %._crit_edge.i127, !llvm.loop !15
 
 ._crit_edge.i127:                                 ; preds = %rtps_util_add_guid_prefix_v2.exit.i, %1101
   %.065.lcssa.i = phi i32 [ %1119, %1101 ], [ %1148, %rtps_util_add_guid_prefix_v2.exit.i ]
@@ -4764,13 +4764,13 @@ dissect_HEARTBEAT_FRAG.exit:                      ; preds = %1240, %1242, %1244
   %1378 = add i32 %.9.us.i, 32
   %1379 = add nuw i32 %.0110131.us.i, 1
   %exitcond148.not.i = icmp eq i32 %1379, %1331
-  br i1 %exitcond148.not.i, label %.thread.us.i, label %1336, !llvm.loop !15
+  br i1 %exitcond148.not.i, label %.thread.us.i, label %1336, !llvm.loop !16
 
 .thread.us.i:                                     ; preds = %1336, %.lr.ph.split.us.i
   %.6.us.i = phi i32 [ %1332, %.lr.ph.split.us.i ], [ %1378, %1336 ]
   %1380 = add nuw i32 %.0113134.us.i, 1
   %exitcond149.not.i = icmp eq i32 %1380, %.0111154.i
-  br i1 %exitcond149.not.i, label %._crit_edge.i126, label %.lr.ph.split.us.i, !llvm.loop !16
+  br i1 %exitcond149.not.i, label %._crit_edge.i126, label %.lr.ph.split.us.i, !llvm.loop !17
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i124
   br i1 %1318, label %._crit_edge.loopexit145.i, label %.thread.i
@@ -4788,7 +4788,7 @@ dissect_HEARTBEAT_FRAG.exit:                      ; preds = %1240, %1242, %1244
   %1388 = add i32 %.2135.i, 4
   %1389 = add nuw i32 %.0113134.i, 1
   %exitcond.not.i125 = icmp eq i32 %1389, %.0111154.i
-  br i1 %exitcond.not.i125, label %._crit_edge.i126, label %.thread.i, !llvm.loop !18
+  br i1 %exitcond.not.i125, label %._crit_edge.i126, label %.thread.i, !llvm.loop !19
 
 ._crit_edge.loopexit145.i:                        ; preds = %.lr.ph.split.i
   %1390 = load i32, ptr @ett_rtps_writer_heartbeat_virtual, align 4
@@ -4818,7 +4818,7 @@ dissect_HEARTBEAT_VIRTUAL.exit:                   ; preds = %1284, %._crit_edge.
   call void @p_set_proto_data(ptr noundef %1400, ptr noundef %2, i32 noundef %1401, i32 noundef 2, ptr noundef nonnull %25)
   call fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %2, i32 noundef %.093184, i8 noundef zeroext %113, i32 noundef range(i32 0, -2147483647) %115, i32 noundef %.0, ptr noundef %111, i16 noundef zeroext %5, i1 noundef zeroext true, ptr noundef %6)
   %1402 = load i32, ptr @hf_rtps_data_session_intermediate, align 4
-  %1403 = load i8, ptr %25, align 1, !range !8, !noundef !9
+  %1403 = load i8, ptr %25, align 1, !range !9, !noundef !10
   %1404 = zext nneg i8 %1403 to i64
   %1405 = call ptr @proto_tree_add_boolean(ptr noundef %111, i32 noundef %1402, ptr noundef %0, i32 noundef %.093184, i32 noundef 0, i64 noundef %1404)
   %.not.i.i119 = icmp eq ptr %1405, null
@@ -4999,7 +4999,7 @@ dissect_RTPS_DATA_SESSION.exit:                   ; preds = %1399, %1406, %1409
 
 1510:                                             ; preds = %1503, %1500
   %1511 = phi i1 [ true, %1500 ], [ %spec.select170.i, %1503 ]
-  %1512 = load i8, ptr @enable_rtps_reassembly, align 1, !range !8, !noundef !9
+  %1512 = load i8, ptr @enable_rtps_reassembly, align 1, !range !9, !noundef !10
   %1513 = trunc nuw i8 %1512 to i1
   %1514 = load i32, ptr %30, align 4
   %.not177.i = icmp eq i32 %1514, 0
@@ -5061,7 +5061,7 @@ dissect_RTPS_DATA_SESSION.exit:                   ; preds = %1399, %1406, %1409
   %1543 = add nuw i32 %.0174.i, 1
   %1544 = load i32, ptr %30, align 4
   %1545 = icmp ult i32 %1543, %1544
-  br i1 %1545, label %.lr.ph175.i, label %.loopexit.i117, !llvm.loop !19
+  br i1 %1545, label %.lr.ph175.i, label %.loopexit.i117, !llvm.loop !20
 
 .lr.ph.i116:                                      ; preds = %.preheader172.i, %.lr.ph.i116
   %.1173.i = phi i32 [ %1559, %.lr.ph.i116 ], [ 0, %.preheader172.i ]
@@ -5082,7 +5082,7 @@ dissect_RTPS_DATA_SESSION.exit:                   ; preds = %1399, %1406, %1409
   %1559 = add nuw i32 %.1173.i, 1
   %1560 = load i32, ptr %30, align 4
   %1561 = icmp ult i32 %1559, %1560
-  br i1 %1561, label %.lr.ph.i116, label %._crit_edge.loopexit.i, !llvm.loop !20
+  br i1 %1561, label %.lr.ph.i116, label %._crit_edge.loopexit.i, !llvm.loop !21
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i116
   %.pre.i = load i32, ptr %31, align 4
@@ -5125,7 +5125,7 @@ dissect_RTPS_DATA_SESSION.exit:                   ; preds = %1399, %1406, %1409
 
 1577:                                             ; preds = %1572
   %1578 = getelementptr inbounds nuw i8, ptr %1571, i64 16
-  %1579 = load i8, ptr %1578, align 8, !range !8, !noundef !9
+  %1579 = load i8, ptr %1578, align 8, !range !9, !noundef !10
   %1580 = trunc nuw i8 %1579 to i1
   br i1 %1580, label %1585, label %1581
 
@@ -5370,9 +5370,9 @@ dissect_RTPS_DATA_FRAG_kind.exit:                 ; preds = %1426, %1564, %1585
   %1726 = call fastcc i32 @rtps_prepare_encapsulated_data(ptr noundef %111, ptr noundef %2, ptr noundef %0, i32 noundef %.7.ph.i, i32 noundef %1725, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef nonnull %42, ptr noundef nonnull %41)
   %1727 = load i16, ptr %38, align 2
   store i16 %1727, ptr %1589, align 4
-  %1728 = load i8, ptr %39, align 1, !range !8, !noundef !9
+  %1728 = load i8, ptr %39, align 1, !range !9, !noundef !10
   %1729 = trunc nuw i8 %1728 to i1
-  %1730 = load i8, ptr %40, align 1, !range !8
+  %1730 = load i8, ptr %40, align 1, !range !9
   %1731 = trunc nuw i8 %1730 to i1
   %or.cond.i = select i1 %1729, i1 %1731, i1 false
   br i1 %or.cond.i, label %1732, label %1736
@@ -5483,7 +5483,7 @@ get_encapsulation_version.exit.i:                 ; preds = %1767, %get_encapsul
   %1778 = add i32 %1777, %.9289.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i111, label %.critedge.i110, label %1746, !llvm.loop !21
+  br i1 %exitcond.not.i111, label %.critedge.i110, label %1746, !llvm.loop !22
 
 .critedge.i110:                                   ; preds = %1776, %1741
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #17
@@ -5551,7 +5551,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1598, %1721, %1751,
   %1815 = load ptr, ptr %74, align 8
   %1816 = load i32, ptr @proto_rtps, align 4
   %1817 = call ptr @p_get_proto_data(ptr noundef %1815, ptr noundef %2, i32 noundef %1816, i32 noundef 5)
-  %1818 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !8, !noundef !9
+  %1818 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !9, !noundef !10
   %1819 = trunc nuw i8 %1818 to i1
   %1820 = icmp ne ptr %1817, null
   %or.cond.not.i = select i1 %1819, i1 %1820, i1 false
@@ -5559,7 +5559,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1598, %1721, %1751,
 
 1821:                                             ; preds = %1799
   %1822 = getelementptr inbounds nuw i8, ptr %1817, i64 12
-  %1823 = load i8, ptr %1822, align 4, !range !8, !noundef !9
+  %1823 = load i8, ptr %1822, align 4, !range !9, !noundef !10
   %1824 = trunc nuw i8 %1823 to i1
   %.not.i102 = xor i1 %1824, true
   %brmerge.i = or i1 %7, %.not.i102
@@ -5583,7 +5583,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1598, %1721, %1751,
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %55) #17
   %1831 = getelementptr %struct.rtps_psk_options_entry_t, ptr %1826, i64 %indvars.iv
   %1832 = getelementptr inbounds nuw i8, ptr %1831, i64 36
-  %1833 = load i8, ptr %1832, align 4, !range !8, !noundef !9
+  %1833 = load i8, ptr %1832, align 4, !range !9, !noundef !10
   %1834 = trunc nuw i8 %1833 to i1
   br i1 %1834, label %1840, label %1835
 
@@ -5597,7 +5597,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1598, %1721, %1751,
 1840:                                             ; preds = %1835, %1830
   %1841 = phi i1 [ false, %1830 ], [ %1839, %1835 ]
   %1842 = getelementptr inbounds nuw i8, ptr %1831, i64 52
-  %1843 = load i8, ptr %1842, align 4, !range !8, !noundef !9
+  %1843 = load i8, ptr %1842, align 4, !range !9, !noundef !10
   %1844 = trunc nuw i8 %1843 to i1
   br i1 %1844, label %1850, label %1845
 
@@ -5611,7 +5611,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1598, %1721, %1751,
 1850:                                             ; preds = %1845, %1840
   %1851 = phi i1 [ false, %1840 ], [ %1849, %1845 ]
   %1852 = getelementptr inbounds nuw i8, ptr %1831, i64 68
-  %1853 = load i8, ptr %1852, align 4, !range !8, !noundef !9
+  %1853 = load i8, ptr %1852, align 4, !range !9, !noundef !10
   %1854 = trunc nuw i8 %1853 to i1
   br i1 %1854, label %1860, label %1855
 
@@ -5626,7 +5626,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1598, %1721, %1751,
   %1861 = phi i1 [ false, %1850 ], [ %1859, %1855 ]
   %1862 = getelementptr inbounds nuw i8, ptr %1831, i64 16
   %1863 = getelementptr inbounds nuw i8, ptr %1831, i64 20
-  %1864 = load i8, ptr %1863, align 4, !range !8, !noundef !9
+  %1864 = load i8, ptr %1863, align 4, !range !9, !noundef !10
   %1865 = trunc nuw i8 %1864 to i1
   br i1 %1865, label %1870, label %1866
 
@@ -5665,7 +5665,7 @@ dissect_RTPS_DATA_BATCH.exit:                     ; preds = %1598, %1721, %1751,
   %1881 = shl nuw nsw i32 %1879, 1
   %1882 = sub nsw i32 %.023.i.i, %1881
   %1883 = icmp sgt i32 %1882, 4
-  br i1 %1883, label %.lr.ph.i.i, label %rtps_util_look_for_secure_tag.exit.i.thread, !llvm.loop !22
+  br i1 %1883, label %.lr.ph.i.i, label %rtps_util_look_for_secure_tag.exit.i.thread, !llvm.loop !23
 
 rtps_util_look_for_secure_tag.exit.i:             ; preds = %.lr.ph.i.i, %.lr.ph.i.i
   %1884 = add i32 %.01922.i.i, 4
@@ -5946,7 +5946,7 @@ proto_item_set_generated.exit.i105:               ; preds = %1973, %1970, %rtps_
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %55) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %dissect_rtps_submessage_v1.exit.thread, label %1830, !llvm.loop !23
+  br i1 %exitcond.not, label %dissect_rtps_submessage_v1.exit.thread, label %1830, !llvm.loop !24
 
 1991:                                             ; preds = %626, %626
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %58) #17
@@ -6008,7 +6008,7 @@ proto_item_set_generated.exit.i105:               ; preds = %1973, %1970, %rtps_
   br label %proto_item_set_generated.exit.i
 
 proto_item_set_generated.exit.i:                  ; preds = %2032, %2029, %2011
-  %2036 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !8
+  %2036 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !9
   %2037 = trunc nuw i8 %2036 to i1
   br i1 %2037, label %2038, label %dissect_SECURE_PREFIX.exit
 
@@ -6087,7 +6087,7 @@ dissect_SECURE_PREFIX.exit:                       ; preds = %proto_item_set_gene
   %2090 = call ptr @proto_tree_add_item(ptr noundef %2085, i32 noundef %2088, ptr noundef %0, i32 noundef %2089, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %115)
   %2091 = add nuw nsw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %2091, %2075
-  br i1 %exitcond.not.i, label %dissect_rtps_submessage_v1.exit.thread, label %2081, !llvm.loop !24
+  br i1 %exitcond.not.i, label %dissect_rtps_submessage_v1.exit.thread, label %2081, !llvm.loop !25
 
 2092:                                             ; preds = %626
   %2093 = add i32 %.093184, 4
@@ -6134,7 +6134,7 @@ dissect_rtps_submessage_v1.exit.thread:           ; preds = %2081, %1990, %.preh
   br i1 %.not15.i, label %2122, label %2117
 
 2117:                                             ; preds = %2113
-  %2118 = load i8, ptr %2116, align 1, !range !8, !noundef !9
+  %2118 = load i8, ptr %2116, align 1, !range !9, !noundef !10
   %2119 = trunc nuw i8 %2118 to i1
   br i1 %2119, label %2122, label %2120
 
@@ -6158,7 +6158,7 @@ append_submessage_col_info.exit:                  ; preds = %2122, %2124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
   %2126 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %127)
   %2127 = icmp sgt i32 %2126, 0
-  br i1 %2127, label %95, label %._crit_edge, !llvm.loop !25
+  br i1 %2127, label %95, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %append_submessage_col_info.exit, %8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67) #17
@@ -6437,7 +6437,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %127 = zext i32 %126 to i64
   %128 = icmp samesign ult i64 %indvars.iv.next.i, %127
-  br i1 %128, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
+  br i1 %128, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !27
 
 ._crit_edge.i:                                    ; preds = %125, %0
   store i64 -7102936891987694935, ptr getelementptr inbounds nuw (i8, ptr @builtin_types_dissection_data, i64 552), align 8
@@ -6503,7 +6503,7 @@ switch.lookup16:                                  ; preds = %.lr.ph4.i
   %indvars.iv.next9.i = add nuw nsw i64 %indvars.iv8.i, 1
   %154 = zext i32 %153 to i64
   %155 = icmp samesign ult i64 %indvars.iv.next9.i, %154
-  br i1 %155, label %.lr.ph4.i, label %initialize_instance_state_data_response_dissection_info.exit, !llvm.loop !27
+  br i1 %155, label %.lr.ph4.i, label %initialize_instance_state_data_response_dissection_info.exit, !llvm.loop !28
 
 initialize_instance_state_data_response_dissection_info.exit: ; preds = %152, %._crit_edge.i
   tail call void @reassembly_table_register(ptr noundef nonnull @rtps_reassembly_table, ptr noundef nonnull @addresses_reassembly_table_functions)
@@ -7398,7 +7398,7 @@ define internal fastcc i32 @dissect_parameter_sequence(ptr noundef %0, ptr nound
   %154 = call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %150, ptr noundef %2, i32 noundef %148, i32 noundef %153, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #17
   %155 = icmp ne ptr %149, null
-  %156 = load i8, ptr @enable_topic_info, align 1, !range !8
+  %156 = load i8, ptr @enable_topic_info, align 1, !range !9
   %157 = trunc nuw i8 %156 to i1
   %or.cond.i = select i1 %155, i1 %157, i1 false
   br i1 %or.cond.i, label %158, label %dissect_parameter_sequence_v1.exit.thread
@@ -7450,7 +7450,7 @@ rtps_util_store_type_mapping.exit250:             ; preds = %158, %159
   %182 = load ptr, ptr %61, align 8
   %183 = add i32 %123, 4
   %184 = call ptr @tvb_get_string_enc(ptr noundef %182, ptr noundef %2, i32 noundef %183, i32 noundef %181, i32 noundef 0)
-  %185 = load i8, ptr @enable_topic_info, align 1, !range !8, !noundef !9
+  %185 = load i8, ptr @enable_topic_info, align 1, !range !9, !noundef !10
   %186 = trunc nuw i8 %185 to i1
   %or.cond.i248 = and i1 %63, %186
   br i1 %or.cond.i248, label %187, label %rtps_util_store_type_mapping.exit
@@ -8109,7 +8109,7 @@ rtps_util_add_seq_octets.exit:                    ; preds = %413, %thread-pre-sp
   %565 = call ptr @proto_tree_add_string(ptr noundef %555, i32 noundef %564, ptr noundef %2, i32 noundef %556, i32 noundef %563, ptr noundef %560)
   %566 = add i32 %563, %556
   %.not548.i = icmp eq i32 %544, 0
-  br i1 %.not548.i, label %567, label %543, !llvm.loop !28
+  br i1 %.not548.i, label %567, label %543, !llvm.loop !29
 
 567:                                              ; preds = %543
   %568 = load ptr, ptr %38, align 8
@@ -8146,7 +8146,7 @@ rtps_util_add_seq_octets.exit:                    ; preds = %413, %thread-pre-sp
   %583 = add i32 %.02.i, 4
   %584 = add nuw i32 %.0191.i, 1
   %exitcond.not.i227 = icmp eq i32 %584, %577
-  br i1 %exitcond.not.i227, label %rtps_util_add_seq_ulong.exit, label %.lr.ph.i226, !llvm.loop !29
+  br i1 %exitcond.not.i227, label %rtps_util_add_seq_ulong.exit, label %.lr.ph.i226, !llvm.loop !30
 
 rtps_util_add_seq_ulong.exit:                     ; preds = %.lr.ph.i226, %575
   %.0.lcssa.i = phi i32 [ %578, %575 ], [ %583, %.lr.ph.i226 ]
@@ -8173,7 +8173,7 @@ rtps_util_add_seq_ulong.exit:                     ; preds = %.lr.ph.i226, %575
   %596 = load i32, ptr @hf_rtps_filter_signature, align 4
   %597 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %111, i32 noundef %596, ptr noundef %2, i32 noundef %.0538555.i, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.1130, i32 noundef %588, i32 noundef %590, i32 noundef %592, i32 noundef %594)
   %.not.i = icmp eq i32 %587, 0
-  br i1 %.not.i, label %dissect_parameter_sequence_v1.exit.thread, label %.lr.ph557.i, !llvm.loop !30
+  br i1 %.not.i, label %dissect_parameter_sequence_v1.exit.thread, label %.lr.ph557.i, !llvm.loop !31
 
 598:                                              ; preds = %129
   %599 = icmp slt i32 %.0193, 8
@@ -8322,7 +8322,7 @@ proto_item_set_generated.exit66.i:                ; preds = %668, %665, %662
 
 677:                                              ; preds = %675, %proto_item_set_generated.exit66.i, %656, %proto_item_set_generated.exit.i224, %638
   %678 = getelementptr inbounds nuw i8, ptr %.055.i, i64 16
-  %679 = load i8, ptr %678, align 8, !range !8, !noundef !9
+  %679 = load i8, ptr %678, align 8, !range !9, !noundef !10
   %680 = trunc nuw i8 %679 to i1
   br i1 %680, label %699, label %681
 
@@ -8575,7 +8575,7 @@ rtps_util_add_coherent_set_general_cases_case.exit: ; preds = %681, %proto_item_
   %818 = add nuw nsw i32 %.0534553.i, 1
   %819 = add i32 %.0535552.i, 4
   %exitcond.not = icmp eq i32 %.0534553.i, %814
-  br i1 %exitcond.not, label %dissect_parameter_sequence_v1.exit.thread, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not, label %dissect_parameter_sequence_v1.exit.thread, label %.lr.ph.i, !llvm.loop !32
 
 820:                                              ; preds = %129, %129
   %821 = icmp slt i32 %.0193, 4
@@ -8741,7 +8741,7 @@ rtps_util_add_guid_prefix_v2.exit.i:              ; preds = %869, %868
 
 901:                                              ; preds = %900, %893
   %exitcond14.not.i = icmp eq i32 %897, %.0193
-  br i1 %exitcond14.not.i, label %dissect_parameter_sequence_v1.exit.thread, label %893, !llvm.loop !32
+  br i1 %exitcond14.not.i, label %dissect_parameter_sequence_v1.exit.thread, label %893, !llvm.loop !33
 
 902:                                              ; preds = %848
   %903 = icmp slt i32 %.0193, 4
@@ -8781,7 +8781,7 @@ rtps_util_add_guid_prefix_v2.exit.i:              ; preds = %869, %868
   %921 = add i32 %.02.i.i, 4
   %922 = add nuw i32 %.0191.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %922, %915
-  br i1 %exitcond.not.i.i, label %rtps_util_add_seq_ulong.exit.i, label %.lr.ph.i.i, !llvm.loop !29
+  br i1 %exitcond.not.i.i, label %rtps_util_add_seq_ulong.exit.i, label %.lr.ph.i.i, !llvm.loop !30
 
 rtps_util_add_seq_ulong.exit.i:                   ; preds = %.lr.ph.i.i, %913
   %.0.lcssa.i.i = phi i32 [ %916, %913 ], [ %921, %.lr.ph.i.i ]
@@ -8808,7 +8808,7 @@ rtps_util_add_seq_ulong.exit.i:                   ; preds = %.lr.ph.i.i, %913
   %934 = load i32, ptr @hf_rtps_filter_signature, align 4
   %935 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %111, i32 noundef %934, ptr noundef %2, i32 noundef %.02176.i, i32 noundef 16, ptr noundef null, ptr noundef nonnull @.str.1130, i32 noundef %926, i32 noundef %928, i32 noundef %930, i32 noundef %932)
   %.not229.i = icmp eq i32 %925, 0
-  br i1 %.not229.i, label %dissect_parameter_sequence_v1.exit.thread, label %.lr.ph7.i, !llvm.loop !33
+  br i1 %.not229.i, label %dissect_parameter_sequence_v1.exit.thread, label %.lr.ph7.i, !llvm.loop !34
 
 936:                                              ; preds = %848
   %937 = icmp slt i32 %.0193, 4
@@ -8905,7 +8905,7 @@ rtps_util_add_guid_prefix_v2.exit235.i:           ; preds = %958, %957
   br label %dissect_parameter_sequence_v1.exit.thread
 
 998:                                              ; preds = %994
-  %999 = load i8, ptr @enable_topic_info, align 1, !range !8, !noundef !9
+  %999 = load i8, ptr @enable_topic_info, align 1, !range !9, !noundef !10
   %1000 = trunc nuw i8 %999 to i1
   %or.cond.i.i = and i1 %63, %1000
   br i1 %or.cond.i.i, label %1001, label %rtps_util_store_type_mapping.exit.i
@@ -8961,7 +8961,7 @@ rtps_util_store_type_mapping.exit.i:              ; preds = %1001, %998
   %1030 = add i32 %.02193.i, 2
   %1031 = add nuw i32 %.02202.i, 1
   %exitcond.not.i = icmp eq i32 %1031, %1021
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i211, !llvm.loop !34
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i211, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i211, %1020
   %.0219.lcssa.i = phi i32 [ %1024, %1020 ], [ %1030, %.lr.ph.i211 ]
@@ -9202,7 +9202,7 @@ dissect_parameter_sequence_v1.exit.thread:        ; preds = %.lr.ph.i, %.lr.ph55
   call void @proto_item_set_len(ptr noundef %1119, i32 noundef %1140)
   %1141 = add nuw i32 %.02829.i, 1
   %exitcond.not.i269 = icmp eq i32 %1141, %1114
-  br i1 %exitcond.not.i269, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i268, !llvm.loop !35
+  br i1 %exitcond.not.i269, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i268, !llvm.loop !36
 
 1142:                                             ; preds = %1107
   %1143 = icmp slt i32 %.0193, 16
@@ -9538,7 +9538,7 @@ rtps_util_add_transport_info.exit.us.i:           ; preds = %1342, %rtps_util_ad
   %1345 = call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %.0497509.us.i, i32 noundef range(i32 0, -2147483647) %4)
   %1346 = add i32 %.0497509.us.i, 8
   %.not503.us.i = icmp eq i32 %1344, 0
-  br i1 %.not503.us.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.us.i, !llvm.loop !36
+  br i1 %.not503.us.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.us.i, !llvm.loop !37
 
 rtps_util_add_transport_info.exit.i:              ; preds = %1342, %rtps_util_add_transport_info.exit.i
   %.0496510.i = phi i32 [ %1358, %rtps_util_add_transport_info.exit.i ], [ 1, %1342 ]
@@ -9557,7 +9557,7 @@ rtps_util_add_transport_info.exit.i:              ; preds = %1342, %rtps_util_ad
   %1357 = add i32 %.0497509.i, 8
   %1358 = add i32 %.0496510.i, 1
   %.not503.i = icmp eq i32 %1347, 0
-  br i1 %.not503.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.i, !llvm.loop !37
+  br i1 %.not503.i, label %dissect_parameter_sequence_rti_dds.exit, label %rtps_util_add_transport_info.exit.i, !llvm.loop !38
 
 1359:                                             ; preds = %1107
   br i1 %10, label %1360, label %1372
@@ -10145,7 +10145,7 @@ rtps_util_add_guid_prefix_v2.exit:                ; preds = %1584, %1585
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #17
   %1718 = add nuw i32 %.04850.i.i, 1
   %exitcond.not.i.i215 = icmp eq i32 %1718, %1680
-  br i1 %exitcond.not.i.i215, label %rtps_util_add_multichannel_locator_list.exit.i, label %.preheader.i.i, !llvm.loop !38
+  br i1 %exitcond.not.i.i215, label %rtps_util_add_multichannel_locator_list.exit.i, label %.preheader.i.i, !llvm.loop !39
 
 rtps_util_add_multichannel_locator_list.exit.i:   ; preds = %1717, %1676
   %.047.i.i = phi i32 [ %1683, %1676 ], [ %.2.i.i, %1717 ]
@@ -10167,7 +10167,7 @@ rtps_util_add_multichannel_locator_list.exit.i:   ; preds = %1717, %1676
   %1731 = add nuw nsw i32 %.0495506.i, 1
   %1732 = load i32, ptr %31, align 4
   %1733 = icmp slt i32 %1731, %1732
-  br i1 %1733, label %1676, label %.loopexit505.i, !llvm.loop !39
+  br i1 %1733, label %1676, label %.loopexit505.i, !llvm.loop !40
 
 .loopexit505.i:                                   ; preds = %rtps_util_add_multichannel_locator_list.exit.i, %1662, %1656, %1654
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %33) #17
@@ -10201,7 +10201,7 @@ rtps_util_add_multichannel_locator_list.exit.i:   ; preds = %1717, %1676
   %1747 = add i32 %.02.i.i253, 2
   %1748 = add nuw i32 %.0191.i.i254, 1
   %exitcond.not.i.i255 = icmp eq i32 %1748, %1741
-  br i1 %exitcond.not.i.i255, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i.i252, !llvm.loop !40
+  br i1 %exitcond.not.i.i255, label %dissect_parameter_sequence_rti_dds.exit, label %.lr.ph.i.i252, !llvm.loop !41
 
 1749:                                             ; preds = %1107
   %1750 = icmp slt i32 %.0193, 4
@@ -10335,7 +10335,7 @@ rtps_util_insert_type_mapping_in_registry.exit:   ; preds = %dissect_parameter_s
   %.neg = sub i32 %.0197299, %1831
   %1832 = add i32 %.neg, %83
   %1833 = icmp ult i32 %1832, 4
-  br i1 %1833, label %._crit_edge, label %82
+  br i1 %1833, label %._crit_edge, label %82, !llvm.loop !42
 
 1834:                                             ; preds = %126, %116, %._crit_edge
   %.0190 = phi i32 [ %81, %._crit_edge ], [ %118, %116 ], [ %128, %126 ]
@@ -10468,7 +10468,7 @@ define internal fastcc void @rtps_util_add_seq_string(ptr noundef %0, ptr nounde
   %30 = add nuw nsw i32 %.03738, 1
   %31 = load i32, ptr %9, align 4
   %32 = icmp slt i32 %30, %31
-  br i1 %32, label %20, label %._crit_edge, !llvm.loop !41
+  br i1 %32, label %20, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %20, %14
   %.036.lcssa = phi i32 [ %11, %14 ], [ %29, %20 ]
@@ -11098,7 +11098,7 @@ check_offset_addition.exit438:                    ; preds = %149
   call void @proto_item_set_len(ptr noundef %176, i32 noundef %32)
   %177 = add nuw i32 %.0414476, 1
   %exitcond504.not = icmp eq i32 %177, %169
-  br i1 %exitcond504.not, label %._crit_edge479, label %.lr.ph478, !llvm.loop !42
+  br i1 %exitcond504.not, label %._crit_edge479, label %.lr.ph478, !llvm.loop !44
 
 ._crit_edge479:                                   ; preds = %.lr.ph478, %check_offset_addition.exit438
   %.3.lcssa = phi i32 [ %170, %check_offset_addition.exit438 ], [ %174, %.lr.ph478 ]
@@ -11108,7 +11108,7 @@ check_offset_addition.exit438:                    ; preds = %149
   call void @decrement_dissection_depth(ptr noundef %2)
   %180 = add nuw i32 %.0407482, 1
   %exitcond505.not = icmp eq i32 %180, %146
-  br i1 %exitcond505.not, label %._crit_edge485, label %149, !llvm.loop !43
+  br i1 %exitcond505.not, label %._crit_edge485, label %149, !llvm.loop !45
 
 ._crit_edge485:                                   ; preds = %._crit_edge479
   %181 = add i32 %179, %.3.lcssa
@@ -11192,7 +11192,7 @@ check_offset_addition.exit439:                    ; preds = %rtps_util_typecode_
   %.7 = phi i32 [ %213, %209 ], [ %228, %217 ]
   %230 = add nuw i32 %.1408489, 1
   %exitcond506.not = icmp eq i32 %230, %192
-  br i1 %exitcond506.not, label %._crit_edge492, label %195, !llvm.loop !44
+  br i1 %exitcond506.not, label %._crit_edge492, label %195, !llvm.loop !46
 
 ._crit_edge492:                                   ; preds = %229, %187
   %.6.lcssa = phi i32 [ %193, %187 ], [ %.7, %229 ]
@@ -11213,7 +11213,7 @@ check_offset_addition.exit439:                    ; preds = %rtps_util_typecode_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.8 = add i32 %.8475, 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rtps_util_typecode_id_to_string.exit.thread456
   %.8.lcssa = phi i32 [ %.8473, %rtps_util_typecode_id_to_string.exit.thread456 ], [ %.8, %.lr.ph ]
@@ -11300,7 +11300,7 @@ check_offset_addition.exit442:                    ; preds = %238
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %264, ptr noundef nonnull @.str.1195, i32 noundef %267)
   %indvars.iv.next508 = add nuw nsw i64 %indvars.iv507, 1
   %exitcond510.not = icmp eq i64 %indvars.iv.next508, 10
-  br i1 %exitcond510.not, label %269, label %265, !llvm.loop !46
+  br i1 %exitcond510.not, label %269, label %265, !llvm.loop !48
 
 269:                                              ; preds = %265, %268
   %270 = load i32, ptr @hf_rtps_array, align 4
@@ -11863,7 +11863,7 @@ rtps_util_dissect_parameter_header.exit48.i:      ; preds = %82, %check_offset_a
   call void @proto_item_set_len(ptr noundef %96, i32 noundef %108)
   %109 = add nuw i32 %.067.i50, 1
   %exitcond.not.i51 = icmp eq i32 %109, %87
-  br i1 %exitcond.not.i51, label %rtps_util_add_type_element_enumeration.exit, label %.lr.ph.i49, !llvm.loop !47
+  br i1 %exitcond.not.i51, label %rtps_util_add_type_element_enumeration.exit, label %.lr.ph.i49, !llvm.loop !49
 
 rtps_util_add_type_element_enumeration.exit:      ; preds = %.lr.ph.i49, %rtps_util_dissect_parameter_header.exit48.i
   %110 = getelementptr inbounds nuw i8, ptr %20, i64 292
@@ -11998,7 +11998,7 @@ rtps_util_dissect_parameter_header.exit51.i:      ; preds = %172, %check_offset_
   %184 = add nuw i32 %.04782.us.i, 1
   %.0.us.i = add i32 %.083.us.i, 4
   %exitcond86.not.i = icmp eq i32 %184, %177
-  br i1 %exitcond86.not.i, label %rtps_util_add_type_element_array.exit, label %.critedge.us.i, !llvm.loop !48
+  br i1 %exitcond86.not.i, label %rtps_util_add_type_element_array.exit, label %.critedge.us.i, !llvm.loop !50
 
 .critedge.i:                                      ; preds = %.lr.ph.i38, %.critedge.i
   %.083.i = phi i32 [ %.0.i40, %.critedge.i ], [ %.081.i, %.lr.ph.i38 ]
@@ -12012,7 +12012,7 @@ rtps_util_dissect_parameter_header.exit51.i:      ; preds = %172, %check_offset_
   %189 = add nuw i32 %.04782.i, 1
   %.0.i40 = add i32 %.083.i, 4
   %exitcond.not.i41 = icmp eq i32 %189, %177
-  br i1 %exitcond.not.i41, label %rtps_util_add_type_element_array.exit, label %.critedge.i, !llvm.loop !49
+  br i1 %exitcond.not.i41, label %rtps_util_add_type_element_array.exit, label %.critedge.i, !llvm.loop !51
 
 190:                                              ; preds = %rtps_util_dissect_parameter_header.exit
   %191 = call fastcc i32 @rtps_util_add_type_library_type(ptr noundef %37, ptr noundef %2, i32 noundef %.087, i32 noundef range(i32 0, -2147483647) %4, ptr noundef %20)
@@ -12330,7 +12330,7 @@ rtps_util_dissect_parameter_header.exit.i.i:      ; preds = %328, %.lr.ph.i23
   %380 = add nuw nsw i32 %.015.i.i, 1
   %.064.i.i = add i32 %.06416.i.i, 4
   %exitcond.not.i.i = icmp eq i32 %380, %333
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !50
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !52
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %363
   %.064.lcssa.i.i = phi i32 [ %.06414.i.i, %363 ], [ %.064.i.i, %.lr.ph.i.i ]
@@ -12354,7 +12354,7 @@ rtps_util_add_type_union_member.exit.i:           ; preds = %._crit_edge.i.i
   call void @proto_item_set_len(ptr noundef %317, i32 noundef %389)
   %390 = add nuw i32 %.047.i, 1
   %exitcond.not.i24 = icmp eq i32 %390, %312
-  br i1 %exitcond.not.i24, label %rtps_util_add_type_element_union.exit, label %.lr.ph.i23, !llvm.loop !51
+  br i1 %exitcond.not.i24, label %rtps_util_add_type_element_union.exit, label %.lr.ph.i23, !llvm.loop !53
 
 rtps_util_add_type_element_union.exit:            ; preds = %rtps_util_add_type_union_member.exit.i, %rtps_util_dissect_parameter_header.exit.i21
   %.036.lcssa.i = phi i32 [ %315, %rtps_util_dissect_parameter_header.exit.i21 ], [ %spec.select.i.i, %rtps_util_add_type_union_member.exit.i ]
@@ -12442,7 +12442,7 @@ rtps_util_dissect_parameter_header.exit52.i:      ; preds = %418, %rtps_util_dis
   call void @proto_item_set_len(ptr noundef %434, i32 noundef %437)
   %438 = add nuw i32 %.04870.us.i, 1
   %exitcond72.not.i = icmp eq i32 %438, %423
-  br i1 %exitcond72.not.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !52
+  br i1 %exitcond72.not.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !54
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.04870.i = phi i32 [ %443, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -12454,7 +12454,7 @@ rtps_util_dissect_parameter_header.exit52.i:      ; preds = %418, %rtps_util_dis
   call void @proto_item_set_len(ptr noundef %440, i32 noundef %442)
   %443 = add nuw i32 %.04870.i, 1
   %exitcond.not.i = icmp eq i32 %443, %423
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !53
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !55
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %431
   br i1 %425, label %._crit_edge.thread.i, label %rtps_util_add_type_element_struct.exit
@@ -12533,7 +12533,7 @@ check_offset_addition.exit:                       ; preds = %rtps_util_add_type_
 rtps_util_add_type_library_element.exit:          ; preds = %473, %476
   %479 = add nuw i32 %.0128, 1
   %exitcond.not = icmp eq i32 %479, %11
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %rtps_util_add_type_library_element.exit, %6
   call void @decrement_dissection_depth(ptr noundef %1)
@@ -12748,7 +12748,7 @@ rtps_util_dissect_parameter_header.exit68:        ; preds = %check_offset_additi
   %70 = call fastcc i32 @rtps_util_add_type_annotation_usage(ptr noundef %68, ptr noundef %1, i32 noundef %.196, i32 noundef %3, i32 noundef %.194)
   %71 = add nuw i32 %.06395, 1
   %exitcond.not = icmp eq i32 %71, %66
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rtps_util_dissect_parameter_header.exit68
   %72 = add i32 %.192, %.194
@@ -12798,7 +12798,7 @@ define internal fastcc noundef i32 @rtps_util_add_type_annotation_usage(ptr noun
   %.1 = phi i32 [ %19, %16 ], [ %15, %.lr.ph ]
   %21 = add nuw i32 %.03132, 1
   %exitcond.not = icmp eq i32 %21, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %20, %5
   %.0.lcssa = phi i32 [ %8, %5 ], [ %.1, %20 ]
@@ -12952,7 +12952,7 @@ rtps_util_dissect_parameter_header.exit92:        ; preds = %check_offset_additi
   %92 = call fastcc i32 @rtps_util_add_type_annotation_usage(ptr noundef %90, ptr noundef %1, i32 noundef %.0124, i32 noundef %3, i32 noundef %.2)
   %93 = add nuw i32 %.088123, 1
   %exitcond.not = icmp eq i32 %93, %88
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph, %rtps_util_dissect_parameter_header.exit92
   %94 = add i32 %.1, %.2
@@ -13000,7 +13000,7 @@ declare ptr @format_char(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @rtps_util_add_topic_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = load i8, ptr @enable_topic_info, align 1, !range !8, !noundef !9
+  %6 = load i8, ptr @enable_topic_info, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
   %.not.i = icmp ne ptr %4, null
   %or.cond.not = and i1 %.not.i, %7
@@ -13166,9 +13166,9 @@ get_encapsulation_endianness.exit:                ; preds = %10
   %27 = call fastcc i32 @rtps_prepare_encapsulated_data(ptr noundef %22, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %12, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16)
   %28 = load i16, ptr %12, align 2
   store i16 %28, ptr %19, align 4
-  %29 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %29 = load i8, ptr %14, align 1, !range !9, !noundef !10
   %30 = trunc nuw i8 %29 to i1
-  %31 = load i8, ptr %15, align 1, !range !8
+  %31 = load i8, ptr %15, align 1, !range !9
   %32 = trunc nuw i8 %31 to i1
   %or.cond = select i1 %30, i1 %32, i1 false
   %33 = load ptr, ptr %13, align 8
@@ -13540,7 +13540,7 @@ rtps_util_dissect_encapsulation_options.exit:     ; preds = %10
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc zeroext i1 @rtps_util_try_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, -2147483647) %6, i32 noundef range(i32 1, 3) %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
-  %11 = load i8, ptr @enable_topic_info, align 1, !range !8, !noundef !9
+  %11 = load i8, ptr @enable_topic_info, align 1, !range !9, !noundef !10
   %12 = trunc nuw i8 %11 to i1
   %.not.i = icmp ne ptr %4, null
   %or.cond48.not = and i1 %.not.i, %12
@@ -13566,7 +13566,7 @@ rtps_util_get_topic_info.exit:                    ; preds = %17
 
 rtps_util_get_topic_info.exit.thread37:           ; preds = %13, %rtps_util_get_topic_info.exit
   %.0.i40 = phi ptr [ %21, %rtps_util_get_topic_info.exit ], [ @builtin_types_dissection_data, %13 ]
-  %22 = load i8, ptr @enable_user_data_dissection, align 1, !range !8
+  %22 = load i8, ptr @enable_user_data_dissection, align 1, !range !9
   %23 = trunc nuw i8 %22 to i1
   %or.cond = select i1 %8, i1 %23, i1 false
   br i1 %or.cond, label %24, label %40
@@ -13645,7 +13645,7 @@ define internal fastcc void @dissect_parameterized_serialized_data(ptr noundef %
   %11 = add i32 %.076, %.sink83
   %12 = add i32 %11, %.072
   %13 = icmp slt i32 %12, %3
-  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !58
+  br i1 %13, label %.lr.ph, label %.loopexit, !llvm.loop !60
 
 .lr.ph:                                           ; preds = %5, %10
   %.076 = phi i32 [ %12, %10 ], [ 0, %5 ]
@@ -14288,7 +14288,7 @@ get_native_type_cdr_alignment.exit574:            ; preds = %get_native_type_cdr
 270:                                              ; preds = %269
   %271 = load i32, ptr @ett_rtps_dissection_tree, align 4
   %272 = call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %.2716, i32 noundef -1, i32 noundef %271, ptr noundef null, ptr noundef %8)
-  %273 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !8, !noundef !9
+  %273 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !9, !noundef !10
   %274 = trunc nuw i8 %273 to i1
   %275 = load i32, ptr @rtps_max_array_data_type_elements, align 4
   %276 = call i32 @llvm.umin.i32(i32 %.0507, i32 %275)
@@ -14319,14 +14319,14 @@ get_native_type_cdr_alignment.exit574:            ; preds = %get_native_type_cdr
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %17) #17
   %287 = add nuw i32 %.0498809, 1
   %exitcond851.not = icmp eq i32 %287, %.0507
-  br i1 %exitcond851.not, label %.thread751, label %282, !llvm.loop !59
+  br i1 %exitcond851.not, label %.thread751, label %282, !llvm.loop !61
 
 288:                                              ; preds = %282
   %289 = sub i32 %.0507, %277
   %290 = mul i32 %289, %.0508
   %291 = add i32 %290, %.15808
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %17) #17
-  %292 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !8, !noundef !9
+  %292 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !9, !noundef !10
   %293 = trunc nuw i8 %292 to i1
   br i1 %293, label %294, label %.thread751
 
@@ -14364,7 +14364,7 @@ get_native_type_cdr_alignment.exit574:            ; preds = %get_native_type_cdr
   %310 = load i32, ptr @ett_rtps_dissection_tree, align 4
   %311 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %0, ptr noundef %1, i32 noundef %302, i32 noundef -1, i32 noundef %310, ptr noundef null, ptr noundef nonnull @.str.1292, ptr noundef %8, i32 noundef %303)
   %312 = add i32 %302, 4
-  %313 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !8, !noundef !9
+  %313 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !9, !noundef !10
   %314 = trunc nuw i8 %313 to i1
   %315 = load i32, ptr @rtps_max_array_data_type_elements, align 4
   %316 = call i32 @llvm.umin.i32(i32 %303, i32 %315)
@@ -14387,7 +14387,7 @@ get_native_type_cdr_alignment.exit574:            ; preds = %get_native_type_cdr
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %18) #17
   %321 = add nuw i32 %.0501805.us, 1
   %exitcond849.not = icmp eq i32 %321, %303
-  br i1 %exitcond849.not, label %.thread767, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %exitcond849.not, label %.thread767, label %.lr.ph.split.us, !llvm.loop !62
 
 322:                                              ; preds = %308
   %323 = mul i32 %.0489, %303
@@ -14417,7 +14417,7 @@ get_native_type_cdr_alignment.exit574:            ; preds = %get_native_type_cdr
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %18) #17
   %332 = add nuw i32 %.0501805, 1
   %exitcond847.not = icmp eq i32 %332, %303
-  br i1 %exitcond847.not, label %.thread767, label %.lr.ph.split, !llvm.loop !61
+  br i1 %exitcond847.not, label %.thread767, label %.lr.ph.split, !llvm.loop !63
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i32 [ %312, %.lr.ph.split.us ], [ %.17804, %.lr.ph.split ]
@@ -14425,7 +14425,7 @@ get_native_type_cdr_alignment.exit574:            ; preds = %get_native_type_cdr
   %334 = mul i32 %333, %.0489
   %335 = add i32 %334, %.us-phi
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %18) #17
-  %336 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !8, !noundef !9
+  %336 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !9, !noundef !10
   %337 = trunc nuw i8 %336 to i1
   br i1 %337, label %338, label %.thread767
 
@@ -14736,7 +14736,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   %488 = add i32 %.0465826, 1
   %489 = zext nneg i8 %.1468 to i32
   %spec.select548 = add i32 %.0473824, %489
-  br i1 %431, label %.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %431, label %.loopexit, label %.preheader, !llvm.loop !64
 
 490:                                              ; preds = %404
   %491 = load i64, ptr %408, align 8
@@ -14759,7 +14759,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
 
 498:                                              ; preds = %494, %490
   %.23 = phi i32 [ %.2716, %490 ], [ %497, %494 ]
-  %499 = load i8, ptr @enable_max_data_type_elements, align 1, !range !8, !noundef !9
+  %499 = load i8, ptr @enable_max_data_type_elements, align 1, !range !9, !noundef !10
   %500 = trunc nuw i8 %499 to i1
   %501 = getelementptr inbounds nuw i8, ptr %.0483, i64 292
   %502 = load i32, ptr %501, align 4
@@ -14825,7 +14825,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %530 = zext i32 %529 to i64
   %531 = icmp samesign ult i64 %indvars.iv.next, %530
-  br i1 %531, label %508, label %.loopexit, !llvm.loop !63
+  br i1 %531, label %508, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %528, %dissect_mutable_member.exit
   %.22 = phi i32 [ %.0.i594, %dissect_mutable_member.exit ], [ %.25, %528 ]
@@ -14833,7 +14833,7 @@ dissect_mutable_member.exit:                      ; preds = %proto_item_set_hidd
   %.2469 = phi i8 [ %.1468, %dissect_mutable_member.exit ], [ %.5472, %528 ]
   %.1466 = phi i32 [ %488, %dissect_mutable_member.exit ], [ %529, %528 ]
   %.2 = phi i32 [ %.1, %dissect_mutable_member.exit ], [ %.5, %528 ]
-  %532 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !8, !noundef !9
+  %532 = load i8, ptr @enable_max_array_data_type_elements, align 1, !range !9, !noundef !10
   %533 = trunc nuw i8 %532 to i1
   %or.cond17 = and i1 %13, %533
   %or.cond17.not = xor i1 %or.cond17, true
@@ -15070,17 +15070,17 @@ proto_item_set_generated.exit106:                 ; preds = %proto_item_set_gene
   %79 = add nuw nsw i32 %.087112, 1
   %80 = icmp samesign ult i32 %.087112, 31
   %or.cond118 = select i1 %78, i1 %80, i1 false
-  br i1 %or.cond118, label %65, label %._crit_edge120, !llvm.loop !64
+  br i1 %or.cond118, label %65, label %._crit_edge120, !llvm.loop !66
 
 ._crit_edge120:                                   ; preds = %76
   %.pre = load i32, ptr %8, align 4
-  br label %split, !llvm.loop !64
+  br label %split, !llvm.loop !66
 
 split:                                            ; preds = %73, %._crit_edge120
   %81 = phi i32 [ %.pre, %._crit_edge120 ], [ %75, %73 ]
   %82 = add i32 %.086115, 32
   %83 = icmp slt i32 %82, %81
-  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %split, %proto_item_set_generated.exit106
   %.085.lcssa = phi i32 [ %29, %proto_item_set_generated.exit106 ], [ %64, %split ]
@@ -15623,7 +15623,7 @@ get_encapsulation_endianness.exit283:             ; preds = %123, %123
   call void @proto_item_set_len(ptr noundef %306, i32 noundef %307)
   %308 = add nuw i32 %.0761.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %308, %282
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !66
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !68
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph.i
   %.0.lcssa.i.i = phi i32 [ %283, %.lr.ph.i ], [ %305, %.lr.ph.i.i ]
@@ -15679,7 +15679,7 @@ rtps_util_add_seq_octets.exit.i.i:                ; preds = %333, %.lr.ph6.i.i
   call void @proto_item_set_len(ptr noundef %335, i32 noundef %336)
   %337 = add nuw i32 %.1773.i.i, 1
   %exitcond10.not.i.i = icmp eq i32 %337, %313
-  br i1 %exitcond10.not.i.i, label %rtps_util_add_data_holder.exit.i, label %.lr.ph6.i.i, !llvm.loop !67
+  br i1 %exitcond10.not.i.i, label %rtps_util_add_data_holder.exit.i, label %.lr.ph6.i.i, !llvm.loop !69
 
 rtps_util_add_data_holder.exit.i:                 ; preds = %rtps_util_add_seq_octets.exit.i.i, %._crit_edge.i.i
   %.1.lcssa.i.i = phi i32 [ %314, %._crit_edge.i.i ], [ %.0.i.i.i, %rtps_util_add_seq_octets.exit.i.i ]
@@ -15696,7 +15696,7 @@ rtps_util_add_data_holder.exit.i:                 ; preds = %rtps_util_add_seq_o
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #17
   %343 = add nuw i32 %.02.i, 1
   %exitcond.not.i = icmp eq i32 %343, %263
-  br i1 %exitcond.not.i, label %rtps_util_add_data_holder_seq.exit, label %.lr.ph.i, !llvm.loop !68
+  br i1 %exitcond.not.i, label %rtps_util_add_data_holder_seq.exit, label %.lr.ph.i, !llvm.loop !70
 
 rtps_util_add_data_holder_seq.exit:               ; preds = %rtps_util_add_data_holder.exit.i, %get_encapsulation_endianness.exit283
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #17
@@ -15975,7 +15975,7 @@ rtps_util_dissect_parameter_header.exit115.i.i:   ; preds = %503, %rtps_util_dis
   %524 = add i32 %516, %522
   %525 = add nuw i32 %.0210.i.i, 1
   %exitcond.not.i.i290 = icmp eq i32 %525, %508
-  br i1 %exitcond.not.i.i290, label %._crit_edge.i.i291, label %.lr.ph.i.i289, !llvm.loop !69
+  br i1 %exitcond.not.i.i290, label %._crit_edge.i.i291, label %.lr.ph.i.i289, !llvm.loop !71
 
 ._crit_edge.i.i291:                               ; preds = %.lr.ph.i.i289, %rtps_util_dissect_parameter_header.exit115.i.i
   %.1.lcssa.i.i292 = phi i32 [ %511, %rtps_util_dissect_parameter_header.exit115.i.i ], [ %524, %.lr.ph.i.i289 ]
@@ -16206,7 +16206,7 @@ rtps_util_dissect_parameter_header.exit.i37.i:    ; preds = %654, %get_encapsula
   %664 = add i32 %.04344.i.i, 24
   %665 = add nuw i32 %.045.i.i, 1
   %exitcond.not.i40.i = icmp eq i32 %665, %659
-  br i1 %exitcond.not.i40.i, label %rtps_util_add_rti_locator_reachability_service_request.exit.i, label %.lr.ph.i39.i, !llvm.loop !70
+  br i1 %exitcond.not.i40.i, label %rtps_util_add_rti_locator_reachability_service_request.exit.i, label %.lr.ph.i39.i, !llvm.loop !72
 
 rtps_util_add_rti_locator_reachability_service_request.exit.i: ; preds = %.lr.ph.i39.i, %rtps_util_dissect_parameter_header.exit.i37.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #17
@@ -16335,7 +16335,7 @@ rtps_util_add_rti_service_request.exit:           ; preds = %get_encapsulation_e
 
 739:                                              ; preds = %733
   %740 = getelementptr inbounds nuw i8, ptr %732, i64 16
-  %741 = load i8, ptr %740, align 8, !range !8, !noundef !9
+  %741 = load i8, ptr %740, align 8, !range !9, !noundef !10
   %742 = trunc nuw i8 %741 to i1
   br i1 %742, label %747, label %743
 
@@ -16851,7 +16851,7 @@ rtps_is_ping.exit:                                ; preds = %16
   %83 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %82)
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %83, ptr %84, align 4
-  %85 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !8, !noundef !9
+  %85 = load i8, ptr @enable_rtps_psk_decryption, align 1, !range !9, !noundef !10
   %86 = trunc nuw i8 %85 to i1
   br i1 %86, label %87, label %100
 
@@ -17156,68 +17156,70 @@ attributes #21 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7, !17}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7, !17}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7, !17}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7, !17}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
-!65 = distinct !{!65, !7}
-!66 = distinct !{!66, !7}
-!67 = distinct !{!67, !7}
-!68 = distinct !{!68, !7}
-!69 = distinct !{!69, !7}
-!70 = distinct !{!70, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8, !18}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8, !18}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8, !18}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8, !18}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}
+!66 = distinct !{!66, !7, !8}
+!67 = distinct !{!67, !7, !8}
+!68 = distinct !{!68, !7, !8}
+!69 = distinct !{!69, !7, !8}
+!70 = distinct !{!70, !7, !8}
+!71 = distinct !{!71, !7, !8}
+!72 = distinct !{!72, !7, !8}

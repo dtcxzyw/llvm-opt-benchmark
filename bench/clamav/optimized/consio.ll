@@ -109,7 +109,7 @@ define void @_Z10OutCommentPKwm(ptr noundef %0, i64 noundef %1) local_unnamed_ad
 .thread.i:                                        ; preds = %23, %19, %7, %.lr.ph36.i
   %27 = add nuw i64 %.02034.i, 1
   %exitcond.not.i = icmp eq i64 %27, %1
-  br i1 %exitcond.not.i, label %.lr.ph17, label %.lr.ph36.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.lr.ph17, label %.lr.ph36.i, !llvm.loop !13
 
 .lr.ph17:                                         ; preds = %.thread.i, %.lr.ph17
   %.016 = phi i64 [ %32, %.lr.ph17 ], [ 0, %.thread.i ]
@@ -121,7 +121,7 @@ define void @_Z10OutCommentPKwm(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   call void @llvm.lifetime.end.p0(i64 4100, ptr nonnull %3) #8
   %32 = add i64 %.016, 1024
   %33 = icmp ult i64 %32, %1
-  br i1 %33, label %.lr.ph17, label %_ZL15IsCommentUnsafePKwm.exit.thread, !llvm.loop !13
+  br i1 %33, label %.lr.ph17, label %_ZL15IsCommentUnsafePKwm.exit.thread, !llvm.loop !14
 
 _ZL15IsCommentUnsafePKwm.exit.thread:             ; preds = %.lr.ph.i.preheader, %.lr.ph.backedge.i, %.lr.ph17, %2
   ret void
@@ -163,7 +163,8 @@ attributes #8 = { nounwind }
 !7 = !{!"Simple C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"wchar_t", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}

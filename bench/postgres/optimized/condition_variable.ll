@@ -391,10 +391,10 @@ proclist_contains_offset.exit.thread:             ; preds = %35, %26, %proclist_
   %59 = fptosi double %58 to i64
   %60 = sub i64 %1, %59
   %61 = icmp slt i64 %60, 1
-  br i1 %61, label %.loopexit, label %.outer
+  br i1 %61, label %.loopexit, label %.outer, !llvm.loop !10
 
 62:                                               ; preds = %48
-  br i1 %spec.select, label %.loopexit, label %19
+  br i1 %spec.select, label %.loopexit, label %19, !llvm.loop !10
 
 .loopexit:                                        ; preds = %50, %62, %7
   %.0 = phi i1 [ false, %7 ], [ false, %62 ], [ true, %50 ]
@@ -424,7 +424,7 @@ define dso_local void @ConditionVariableSignal(ptr noundef %0) local_unnamed_add
   br i1 %7, label %.thread, label %8
 
 .thread:                                          ; preds = %5
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
   store i8 0, ptr %0, align 4
   br label %33
 
@@ -471,7 +471,7 @@ define dso_local void @ConditionVariableSignal(ptr noundef %0) local_unnamed_add
 31:                                               ; preds = %24, %26
   store i32 0, ptr %13, align 4
   store i32 0, ptr %12, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
   store i8 0, ptr %0, align 4
   %32 = getelementptr inbounds %struct.PGPROC, ptr %10, i64 %11, i32 4
   tail call void @SetLatch(ptr noundef nonnull %32) #4
@@ -653,13 +653,13 @@ proclist_pop_head_node_offset.exit:               ; preds = %62, %64
   br label %.lr.ph
 
 .critedge:                                        ; preds = %43
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   store i8 0, ptr %0, align 4
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %79, %78
   store i32 %2, ptr %74, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   store i8 0, ptr %0, align 4
   %84 = getelementptr inbounds %struct.PGPROC, ptr %48, i64 %49, i32 4
   tail call void @SetLatch(ptr noundef nonnull %84) #4
@@ -744,7 +744,7 @@ proclist_pop_head_node_offset.exit33:             ; preds = %107, %108
 
 proclist_contains_offset.exit:                    ; preds = %121, %124
   %.0.i34 = phi i1 [ true, %124 ], [ false, %121 ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !14
   store i8 0, ptr %0, align 4
   %.not25 = icmp eq ptr %.121, null
   %125 = load ptr, ptr @MyProc, align 8
@@ -758,10 +758,10 @@ proclist_contains_offset.exit:                    ; preds = %121, %124
   br label %128
 
 128:                                              ; preds = %126, %proclist_contains_offset.exit
-  br i1 %.0.i34, label %85, label %._crit_edge, !llvm.loop !13
+  br i1 %.0.i34, label %85, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge.critedge:                             ; preds = %proclist_pop_head_node_offset.exit
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !11
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !13
   store i8 0, ptr %0, align 4
   %129 = getelementptr inbounds %struct.PGPROC, ptr %48, i64 %49, i32 4
   tail call void @SetLatch(ptr noundef nonnull %129) #4
@@ -792,8 +792,10 @@ attributes #4 = { nounwind }
 !7 = !{i64 2149599529}
 !8 = !{i64 2149600223}
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!10 = !{i64 2149601645}
-!11 = !{i64 2149602254}
-!12 = !{i64 2149602826}
-!13 = distinct !{!13, !14}
-!14 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !11}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{i64 2149601645}
+!13 = !{i64 2149602254}
+!14 = !{i64 2149602826}
+!15 = distinct !{!15, !16, !11}
+!16 = !{!"llvm.loop.mustprogress"}

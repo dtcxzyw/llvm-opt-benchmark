@@ -119,7 +119,7 @@ define internal void @MultRow_SSE2(ptr noalias noundef %0, ptr noalias noundef %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not33 = icmp samesign ugt i64 %indvars.iv.next, %5
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 8
-  br i1 %.not33, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not33, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %24 = trunc nuw nsw i64 %indvars.iv to i32
@@ -190,13 +190,13 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 4
   %.not100.us = icmp sgt i64 %indvars.iv.next136, %11
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 4
-  br i1 %.not100.us, label %.loopexit.us.loopexit, label %.lr.ph108.us, !llvm.loop !11
+  br i1 %.not100.us, label %.loopexit.us.loopexit, label %.lr.ph108.us, !llvm.loop !12
 
 ._crit_edge.us:                                   ; preds = %58, %.loopexit.us
   %30 = getelementptr inbounds i8, ptr %.0112.us, i64 %10
   %31 = add nsw i32 %12, -1
   %32 = icmp sgt i32 %12, 0
-  br i1 %32, label %.preheader.us, label %._crit_edge115, !llvm.loop !12
+  br i1 %32, label %.preheader.us, label %._crit_edge115, !llvm.loop !13
 
 33:                                               ; preds = %.lr.ph111.us, %58
   %indvars.iv142 = phi i64 [ %63, %.lr.ph111.us ], [ %indvars.iv.next143, %58 ]
@@ -235,7 +235,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
 58:                                               ; preds = %37, %33
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %._crit_edge.us, label %33, !llvm.loop !14
+  br i1 %exitcond146.not, label %._crit_edge.us, label %33, !llvm.loop !15
 
 .loopexit.us.loopexit:                            ; preds = %.lr.ph108.us
   %59 = trunc nuw nsw i64 %indvars.iv135 to i32
@@ -273,7 +273,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
   %67 = getelementptr inbounds i8, ptr %.0112.us116, i64 %10
   %68 = add nsw i32 %66, -1
   %69 = icmp sgt i32 %66, 0
-  br i1 %69, label %.preheader102.us, label %._crit_edge115, !llvm.loop !15
+  br i1 %69, label %.preheader102.us, label %._crit_edge115, !llvm.loop !16
 
 70:                                               ; preds = %.lr.ph111.us119, %95
   %indvars.iv132 = phi i64 [ 0, %.lr.ph111.us119 ], [ %indvars.iv.next133, %95 ]
@@ -312,7 +312,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
 95:                                               ; preds = %74, %70
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us120, label %70, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.us120, label %70, !llvm.loop !15
 
 .lr.ph111.us119:                                  ; preds = %.preheader102.us
   %96 = getelementptr inbounds nuw i8, ptr %.0112.us116, i64 %8
@@ -348,7 +348,7 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not99 = icmp samesign ugt i64 %indvars.iv.next, %64
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 4
-  br i1 %.not99, label %..loopexit103_crit_edge, label %99, !llvm.loop !16
+  br i1 %.not99, label %..loopexit103_crit_edge, label %99, !llvm.loop !17
 
 ..loopexit103_crit_edge:                          ; preds = %99
   %117 = trunc nuw nsw i64 %indvars.iv to i32
@@ -397,13 +397,13 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr noundef captures(none) %0, i32
 146:                                              ; preds = %125, %121
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %147 = icmp samesign ult i64 %indvars.iv.next130, %64
-  br i1 %147, label %121, label %._crit_edge, !llvm.loop !14
+  br i1 %147, label %121, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %146, %..loopexit103_crit_edge
   %148 = getelementptr inbounds i8, ptr %.0112, i64 %10
   %149 = add nsw i32 %98, -1
   %150 = icmp sgt i32 %98, 0
-  br i1 %150, label %.preheader102, label %._crit_edge115, !llvm.loop !17
+  br i1 %150, label %.preheader102, label %._crit_edge115, !llvm.loop !18
 
 ._crit_edge115:                                   ; preds = %._crit_edge, %._crit_edge.us120, %._crit_edge.us, %5
   ret void
@@ -441,7 +441,7 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias noundef read
   %16 = getelementptr inbounds i8, ptr %.05171.us, i64 %12
   %17 = add nuw nsw i32 %.05569.us, 1
   %exitcond107.not = icmp eq i32 %17, %3
-  br i1 %exitcond107.not, label %._crit_edge73.loopexit, label %.preheader59.us, !llvm.loop !18
+  br i1 %exitcond107.not, label %._crit_edge73.loopexit, label %.preheader59.us, !llvm.loop !19
 
 .lr.ph66.us:                                      ; preds = %..preheader_crit_edge.us, %.lr.ph66.us
   %indvars.iv104 = phi i64 [ %indvars.iv.next105, %.lr.ph66.us ], [ %indvars.iv102, %..preheader_crit_edge.us ]
@@ -455,7 +455,7 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias noundef read
   %23 = and i32 %.165.us, %20
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %24 = icmp samesign ult i64 %indvars.iv.next105, %14
-  br i1 %24, label %.lr.ph66.us, label %._crit_edge.us, !llvm.loop !19
+  br i1 %24, label %.lr.ph66.us, label %._crit_edge.us, !llvm.loop !20
 
 25:                                               ; preds = %.preheader59.us, %25
   %indvars.iv102 = phi i64 [ 8, %.preheader59.us ], [ %indvars.iv.next103, %25 ]
@@ -486,7 +486,7 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias noundef read
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 8
   %45 = icmp slt i64 %indvars.iv.next100, %13
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 8
-  br i1 %45, label %25, label %..preheader_crit_edge.us, !llvm.loop !20
+  br i1 %45, label %25, label %..preheader_crit_edge.us, !llvm.loop !21
 
 ..preheader_crit_edge.us:                         ; preds = %25
   %46 = trunc nuw nsw i64 %indvars.iv.next100 to i32
@@ -520,14 +520,14 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias noundef read
   %55 = and i32 %.165.us83, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us86, label %49, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge.us86, label %49, !llvm.loop !20
 
 ._crit_edge.us86:                                 ; preds = %49
   %56 = getelementptr inbounds i8, ptr %.072.us78, i64 %11
   %57 = getelementptr inbounds i8, ptr %.05171.us79, i64 %12
   %58 = add nuw nsw i32 %.05569.us81, 1
   %exitcond98.not = icmp eq i32 %58, %3
-  br i1 %exitcond98.not, label %._crit_edge73, label %.preheader59.us77, !llvm.loop !21
+  br i1 %exitcond98.not, label %._crit_edge73, label %.preheader59.us77, !llvm.loop !22
 
 ._crit_edge73.loopexit:                           ; preds = %._crit_edge.us
   %59 = bitcast <2 x i64> %43 to <16 x i8>
@@ -573,7 +573,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
   %15 = getelementptr inbounds i32, ptr %.04351.us, i64 %11
   %16 = add nuw nsw i32 %.04550.us, 1
   %exitcond73.not = icmp eq i32 %16, %3
-  br i1 %exitcond73.not, label %._crit_edge53, label %.preheader46.us, !llvm.loop !22
+  br i1 %exitcond73.not, label %._crit_edge53, label %.preheader46.us, !llvm.loop !23
 
 .lr.ph49.us:                                      ; preds = %..preheader_crit_edge.us, %.lr.ph49.us
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph49.us ], [ %indvars.iv68, %..preheader_crit_edge.us ]
@@ -582,10 +582,10 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
   %19 = zext i8 %18 to i32
   %20 = shl nuw nsw i32 %19, 8
   %21 = getelementptr inbounds nuw i32, ptr %.04351.us, i64 %indvars.iv70
-  store i32 %20, ptr %21, align 4, !tbaa !23
+  store i32 %20, ptr %21, align 4, !tbaa !24
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %22 = icmp samesign ult i64 %indvars.iv.next71, %13
-  br i1 %22, label %.lr.ph49.us, label %._crit_edge.us, !llvm.loop !25
+  br i1 %22, label %.lr.ph49.us, label %._crit_edge.us, !llvm.loop !26
 
 23:                                               ; preds = %.preheader46.us, %23
   %indvars.iv68 = phi i64 [ 16, %.preheader46.us ], [ %indvars.iv.next69, %23 ]
@@ -611,7 +611,7 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 16
   %38 = icmp samesign ult i64 %indvars.iv.next66, %12
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 16
-  br i1 %38, label %23, label %..preheader_crit_edge.us, !llvm.loop !26
+  br i1 %38, label %23, label %..preheader_crit_edge.us, !llvm.loop !27
 
 ..preheader_crit_edge.us:                         ; preds = %23
   %39 = trunc nuw nsw i64 %indvars.iv.next66 to i32
@@ -639,17 +639,17 @@ define internal void @DispatchAlphaToGreen_SSE2(ptr noalias noundef readonly cap
   %45 = zext i8 %44 to i32
   %46 = shl nuw nsw i32 %45, 8
   %47 = getelementptr inbounds nuw i32, ptr %.04351.us56, i64 %indvars.iv
-  store i32 %46, ptr %47, align 4, !tbaa !23
+  store i32 %46, ptr %47, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us60, label %42, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us60, label %42, !llvm.loop !26
 
 ._crit_edge.us60:                                 ; preds = %42
   %48 = getelementptr inbounds i8, ptr %.052.us55, i64 %10
   %49 = getelementptr inbounds i32, ptr %.04351.us56, i64 %11
   %50 = add nuw nsw i32 %.04550.us57, 1
   %exitcond64.not = icmp eq i32 %50, %3
-  br i1 %exitcond64.not, label %._crit_edge53, label %.preheader46.us54, !llvm.loop !27
+  br i1 %exitcond64.not, label %._crit_edge53, label %.preheader46.us54, !llvm.loop !28
 
 ._crit_edge53:                                    ; preds = %._crit_edge.us60, %._crit_edge.us, %.preheader46.lr.ph.split, %6
   ret void
@@ -687,7 +687,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias noundef reado
   %16 = getelementptr inbounds i8, ptr %.04262.us, i64 %12
   %17 = add nuw nsw i32 %.04660.us, 1
   %exitcond98.not = icmp eq i32 %17, %3
-  br i1 %exitcond98.not, label %._crit_edge64.loopexit, label %.preheader50.us, !llvm.loop !28
+  br i1 %exitcond98.not, label %._crit_edge64.loopexit, label %.preheader50.us, !llvm.loop !29
 
 .lr.ph57.us:                                      ; preds = %..preheader_crit_edge.us, %.lr.ph57.us
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.lr.ph57.us ], [ %indvars.iv93, %..preheader_crit_edge.us ]
@@ -701,7 +701,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias noundef reado
   %23 = and i32 %.156.us, %21
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %24 = icmp samesign ult i64 %indvars.iv.next96, %14
-  br i1 %24, label %.lr.ph57.us, label %._crit_edge.us, !llvm.loop !29
+  br i1 %24, label %.lr.ph57.us, label %._crit_edge.us, !llvm.loop !30
 
 25:                                               ; preds = %.preheader50.us, %25
   %indvars.iv93 = phi i64 [ 8, %.preheader50.us ], [ %indvars.iv.next94, %25 ]
@@ -724,7 +724,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias noundef reado
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 8
   %38 = icmp slt i64 %indvars.iv.next91, %13
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 8
-  br i1 %38, label %25, label %..preheader_crit_edge.us, !llvm.loop !30
+  br i1 %38, label %25, label %..preheader_crit_edge.us, !llvm.loop !31
 
 ..preheader_crit_edge.us:                         ; preds = %25
   %39 = trunc nuw nsw i64 %indvars.iv.next91 to i32
@@ -758,14 +758,14 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias noundef reado
   %48 = and i32 %.156.us74, %46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us77, label %42, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge.us77, label %42, !llvm.loop !30
 
 ._crit_edge.us77:                                 ; preds = %42
   %49 = getelementptr inbounds i8, ptr %.063.us69, i64 %11
   %50 = getelementptr inbounds i8, ptr %.04262.us70, i64 %12
   %51 = add nuw nsw i32 %.04660.us72, 1
   %exitcond89.not = icmp eq i32 %51, %3
-  br i1 %exitcond89.not, label %._crit_edge64, label %.preheader50.us68, !llvm.loop !31
+  br i1 %exitcond89.not, label %._crit_edge64, label %.preheader50.us68, !llvm.loop !32
 
 ._crit_edge64.loopexit:                           ; preds = %._crit_edge.us
   %52 = bitcast <2 x i64> %36 to <16 x i8>
@@ -820,7 +820,7 @@ define internal void @ExtractGreen_SSE2(ptr noalias noundef readonly captures(no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 16
   %.not = icmp samesign ugt i64 %indvars.iv.next, %4
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 16
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %25 = trunc nuw nsw i64 %indvars.iv to i32
@@ -863,14 +863,14 @@ define internal void @ExtractGreen_SSE2(ptr noalias noundef readonly captures(no
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv73 = phi i64 [ %43, %.lr.ph65.preheader ], [ %indvars.iv.next74, %.lr.ph65 ]
   %44 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv73
-  %45 = load i32, ptr %44, align 4, !tbaa !23
+  %45 = load i32, ptr %44, align 4, !tbaa !24
   %46 = lshr i32 %45, 8
   %47 = trunc i32 %46 to i8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv73
   store i8 %47, ptr %48, align 1, !tbaa !7
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge66, label %.lr.ph65, !llvm.loop !34
 
 ._crit_edge66:                                    ; preds = %.lr.ph65, %41
   ret void
@@ -902,12 +902,12 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_SSE2(ptr noundef readonly captur
   %10 = icmp ne <16 x i8> %9, splat (i8 -1)
   %11 = bitcast <16 x i1> %10 to i16
   %.not20 = icmp eq i16 %11, 0
-  br i1 %.not20, label %4, label %.loopexit, !llvm.loop !34
+  br i1 %.not20, label %4, label %.loopexit, !llvm.loop !35
 
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv30 = phi i64 [ %indvars.iv, %.lr.ph.preheader ], [ %indvars.iv.next31, %12 ]
@@ -953,7 +953,7 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr noundef readonly captu
   %23 = icmp ne <16 x i8> %22, splat (i8 -1)
   %24 = bitcast <16 x i1> %23 to i16
   %.not68 = icmp eq i16 %24, 0
-  br i1 %.not68, label %6, label %.loopexit, !llvm.loop !36
+  br i1 %.not68, label %6, label %.loopexit, !llvm.loop !37
 
 .preheader69:                                     ; preds = %6, %26
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %26 ], [ %indvars.iv, %6 ]
@@ -978,12 +978,12 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr noundef readonly captu
   %35 = icmp ne <16 x i8> %34, splat (i8 -1)
   %36 = bitcast <16 x i1> %35 to i16
   %.not67 = icmp eq i16 %36, 0
-  br i1 %.not67, label %.preheader69, label %.loopexit, !llvm.loop !37
+  br i1 %.not67, label %.preheader69, label %.loopexit, !llvm.loop !38
 
 37:                                               ; preds = %.lr.ph
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 4
   %.not65 = icmp sgt i64 %indvars.iv.next89, %5
-  br i1 %.not65, label %.loopexit, label %.lr.ph, !llvm.loop !38
+  br i1 %.not65, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader, %37
   %indvars.iv88 = phi i64 [ %indvars.iv.next89, %37 ], [ %indvars.iv84, %.preheader ]
@@ -1044,23 +1044,23 @@ define internal void @AlphaReplace_SSE2(ptr noundef captures(none) %0, i32 nound
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not = icmp samesign ugt i64 %indvars.iv.next, %6
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 8
-  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !40
 
 .lr.ph41:                                         ; preds = %.lr.ph41.preheader, %28
   %indvars.iv47 = phi i64 [ %9, %.lr.ph41.preheader ], [ %indvars.iv.next48, %28 ]
   %24 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv47
-  %25 = load i32, ptr %24, align 4, !tbaa !23
+  %25 = load i32, ptr %24, align 4, !tbaa !24
   %26 = icmp ult i32 %25, 16777216
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %.lr.ph41
-  store i32 %2, ptr %24, align 4, !tbaa !23
+  store i32 %2, ptr %24, align 4, !tbaa !24
   br label %28
 
 28:                                               ; preds = %.lr.ph41, %27
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph41, !llvm.loop !40
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph41, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %28, %.preheader
   ret void
@@ -1097,36 +1097,37 @@ attributes #6 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9, !13}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9, !13}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9, !13}
-!22 = distinct !{!22, !9, !13}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"int", !5, i64 0}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9, !13}
-!28 = distinct !{!28, !9, !13}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9, !13}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}
-!40 = distinct !{!40, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10, !14}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10, !14}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10, !14}
+!23 = distinct !{!23, !9, !10, !14}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"int", !5, i64 0}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10, !14}
+!29 = distinct !{!29, !9, !10, !14}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10, !14}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}
+!41 = distinct !{!41, !9, !10}

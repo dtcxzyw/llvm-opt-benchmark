@@ -202,7 +202,7 @@ define internal i32 @gro_cell_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %20 = tail call i32 @napi_gro_receive(ptr noundef %0, ptr noundef nonnull %9) #5
   %21 = add nuw nsw i32 %8, 1
   %22 = icmp eq i32 %21, %1
-  br i1 %22, label %.loopexit, label %7, !llvm.loop !13
+  br i1 %22, label %.loopexit, label %7, !llvm.loop !14
 
 23:                                               ; preds = %7
   %24 = tail call zeroext i1 @napi_complete_done(ptr noundef %0, i32 noundef %8) #5
@@ -274,13 +274,13 @@ define dso_local void @gro_cells_destroy(ptr noundef captures(none) %0) #0 align
   %37 = icmp eq ptr %36, %20
   %38 = icmp eq ptr %36, null
   %39 = or i1 %37, %38
-  br i1 %39, label %.loopexit, label %28, !llvm.loop !14
+  br i1 %39, label %.loopexit, label %28, !llvm.loop !15
 
 .loopexit:                                        ; preds = %28, %13
   %40 = add nuw nsw i64 %10, 1
   %41 = and i64 %40, 127
   %42 = icmp samesign ugt i64 %41, 63
-  br i1 %42, label %.thread, label %.preheader, !prof !9, !llvm.loop !15
+  br i1 %42, label %.thread, label %.preheader, !prof !9, !llvm.loop !16
 
 .thread:                                          ; preds = %.preheader, %.loopexit, %9
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
@@ -391,9 +391,10 @@ attributes #8 = { nounwind allocsize(2) }
 !7 = !{i64 440829}
 !8 = !{i64 2147932371, i64 2147932410, i64 2147932431, i64 2147932468, i64 2147932491, i64 2147932361}
 !9 = !{!"branch_weights", i32 1, i32 1999}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !11, !12, !13}
+!16 = distinct !{!16, !11, !12, !13}

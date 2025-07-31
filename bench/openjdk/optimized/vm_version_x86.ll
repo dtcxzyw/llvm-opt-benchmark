@@ -1643,7 +1643,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 515:                                              ; preds = %.preheader21.i
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond36.i = icmp eq i64 %indvars.iv.next34.i, 32
-  br i1 %exitcond36.i, label %.loopexit, label %.preheader21.i, !llvm.loop !8
+  br i1 %exitcond36.i, label %.loopexit, label %.preheader21.i, !llvm.loop !9
 
 .preheader21.i:                                   ; preds = %513, %515
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %515 ], [ 0, %513 ]
@@ -1655,7 +1655,7 @@ _ZN10VM_Version13cores_per_cpuEv.exit:            ; preds = %231, %241, %.thread
 518:                                              ; preds = %.preheader.i
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next38.i, 64
-  br i1 %exitcond40.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond40.not.i, label %.loopexit, label %.preheader.i, !llvm.loop !10
 
 .preheader.i:                                     ; preds = %.preheader21.i, %518
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %518 ], [ 0, %.preheader21.i ]
@@ -3807,7 +3807,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
 7:                                                ; preds = %.preheader21
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36 = icmp eq i64 %indvars.iv.next34, 32
-  br i1 %exitcond36, label %.critedge, label %.preheader21, !llvm.loop !8
+  br i1 %exitcond36, label %.critedge, label %.preheader21, !llvm.loop !9
 
 .preheader21:                                     ; preds = %5, %7
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %7 ], [ 0, %5 ]
@@ -3824,7 +3824,7 @@ define hidden noundef zeroext i1 @_ZN10VM_Version23os_supports_avx_vectorsEv() l
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp ne i64 %indvars.iv.next38, 64
   %or.cond47.not = select i1 %.not17, i1 %exitcond40.not, i1 false
-  br i1 %or.cond47.not, label %.preheader, label %.critedge, !llvm.loop !9
+  br i1 %or.cond47.not, label %.preheader, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %.preheader23, %7, %.preheader, %5
   %.016 = phi i1 [ false, %5 ], [ %.not17, %.preheader ], [ true, %7 ], [ %.not18, %.preheader23 ]
@@ -3974,7 +3974,7 @@ define hidden void @_ZN10VM_Version21check_virtualizationsEv() local_unnamed_add
 17:                                               ; preds = %7, %13, %16, %14, %10
   %18 = add nuw nsw i32 %.06, 256
   %19 = icmp samesign ult i32 %.06, 1073807104
-  br i1 %19, label %4, label %20, !llvm.loop !10
+  br i1 %19, label %4, label %20, !llvm.loop !11
 
 20:                                               ; preds = %17
   ret void
@@ -8037,7 +8037,7 @@ define hidden noundef ptr @_ZN10VM_Version9cpu_brandEv() local_unnamed_addr #3 a
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %.preheader
   %4 = getelementptr inbounds nuw [10 x ptr], ptr @_ZL9_brand_id, i64 0, i64 %indvars.iv
@@ -8548,7 +8548,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   %38 = shl nuw nsw i32 %.083134, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %.preheader121.preheader, label %.preheader122, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader121.preheader, label %.preheader122, !llvm.loop !13
 
 .preheader121.preheader:                          ; preds = %37
   %.pre160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 24), align 8
@@ -8598,7 +8598,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   %58 = shl nuw nsw i32 %.1138, 1
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond151.not = icmp eq i64 %indvars.iv.next149, 30
-  br i1 %exitcond151.not, label %.preheader120.preheader, label %.preheader121, !llvm.loop !13
+  br i1 %exitcond151.not, label %.preheader120.preheader, label %.preheader121, !llvm.loop !14
 
 .preheader120.preheader:                          ; preds = %56
   %.pre162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 144), align 8
@@ -8648,7 +8648,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   %78 = shl nuw nsw i32 %.2142, 1
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next153, 30
-  br i1 %exitcond155.not, label %.preheader.preheader, label %.preheader120, !llvm.loop !14
+  br i1 %exitcond155.not, label %.preheader.preheader, label %.preheader120, !llvm.loop !15
 
 .preheader.preheader:                             ; preds = %76
   %.pre164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 148), align 4
@@ -8698,7 +8698,7 @@ define hidden noundef i64 @_ZN10VM_Version24cpu_write_support_stringEPcm(ptr nou
   %98 = shl nuw nsw i32 %.3146, 1
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next157, 30
-  br i1 %exitcond159.not, label %99, label %.preheader, !llvm.loop !15
+  br i1 %exitcond159.not, label %99, label %.preheader, !llvm.loop !16
 
 99:                                               ; preds = %96
   %100 = load i64, ptr @_ZN19Abstract_VM_Version9_featuresE, align 8
@@ -9059,7 +9059,7 @@ _ZN10VM_Version16cpu_brand_stringEv.exit:         ; preds = %3
 43:                                               ; preds = %.preheader, %35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 46
-  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !16
+  br i1 %exitcond.not, label %.critedge, label %.preheader, !llvm.loop !17
 
 44:                                               ; preds = %41, %42, %39
   %.042 = phi i64 [ 1000000000, %41 ], [ 1000000000000, %42 ], [ 1000000, %39 ]
@@ -9442,14 +9442,15 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

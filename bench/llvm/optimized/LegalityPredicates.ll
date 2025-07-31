@@ -443,7 +443,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsF
 
 _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.loopexit.i.i.i.i.i, %15
   %30 = phi ptr [ %.pre.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.loopexit.i.i.i.i.i ], [ %17, %15 ]
-  %31 = load i64, ptr %7, align 8, !tbaa !35
+  %31 = load i64, ptr %7, align 8, !tbaa !36
   %32 = icmp eq ptr %30, %10
   br i1 %32, label %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.thread.i, label %33
 
@@ -477,7 +477,7 @@ _ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i: ; pr
   %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %13
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !38
 
 _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pre9.i.i.i = load i32, ptr %11, align 8, !tbaa !15
@@ -489,11 +489,11 @@ _ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_
   %41 = add i32 %39, %40
   store i32 %41, ptr %11, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #12
-  store i32 %1, ptr %9, align 8, !tbaa !38
+  store i32 %1, ptr %9, align 8, !tbaa !39
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %2, ptr %42, align 4, !tbaa !45
+  store i32 %2, ptr %42, align 4, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %3, ptr %43, align 8, !tbaa !46
+  store i32 %3, ptr %43, align 8, !tbaa !47
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %45, ptr %44, align 8, !tbaa !13
@@ -598,11 +598,11 @@ _ZN4llvm11SmallVectorINS_18LegalityPredicates18TypePairAndMemDescELj4EEC2ESt16in
   %19 = add i32 %17, %18
   store i32 %19, ptr %10, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %8) #12
-  store i32 %1, ptr %8, align 8, !tbaa !47
+  store i32 %1, ptr %8, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %2, ptr %20, align 4, !tbaa !54
+  store i32 %2, ptr %20, align 4, !tbaa !55
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %3, ptr %21, align 8, !tbaa !55
+  store i32 %3, ptr %21, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %23, ptr %22, align 8, !tbaa !13
@@ -1023,11 +1023,11 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates6typeIsEjNS0_3LLTEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !56
+  %.val = load i32, ptr %0, align 8, !tbaa !57
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i64, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !60
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -1048,11 +1048,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6typeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6typeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !65
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6typeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6typeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -1068,7 +1068,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates9typeInSetEjSt16initializer_listINS0_3LLTEEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
   %.val = load ptr, ptr %0, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !17
   %6 = zext i32 %5 to i64
@@ -1118,7 +1118,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %28 = getelementptr inbounds nuw i8, ptr %.02952.i.i.i.i.i.i.i, i64 32
   %29 = add nsw i64 %.053.i.i.i.i.i.i.i, -1
   %30 = icmp sgt i64 %.053.i.i.i.i.i.i.i, 1
-  br i1 %30, label %16, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !65
+  br i1 %30, label %16, label %._crit_edge.loopexit.i.i.i.i.i.i.i, !llvm.loop !66
 
 ._crit_edge.loopexit.i.i.i.i.i.i.i:               ; preds = %27
   %31 = and i32 %10, 3
@@ -1209,7 +1209,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS1_3LLTEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -1297,7 +1297,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %3 = alloca %"struct.std::pair", align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %4, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %5 = load i32, ptr %.val, align 8, !tbaa !25
   %6 = zext i32 %5 to i64
@@ -1342,7 +1342,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS1_3LLTES5_EEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -1491,7 +1491,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_3LLTES2_EE12assignRemoteEOS4_.exit: ; preds
   %35 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 16
   %36 = add nsw i64 %.012.i.i.i.i.i, -1
   %37 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm3LLTES2_ES4_ET0_T_S6_S5_.exit, !llvm.loop !66
+  br i1 %37, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt4pairIN4llvm3LLTES2_ES4_ET0_T_S6_S5_.exit, !llvm.loop !67
 
 _ZSt4moveIPSt4pairIN4llvm3LLTES2_ES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %27
   store i32 %22, ptr %24, align 8, !tbaa !15
@@ -1532,7 +1532,7 @@ _ZSt4moveIPSt4pairIN4llvm3LLTES2_ES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.
   %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i37, i64 16
   %53 = add nsw i64 %.012.i.i.i.i.i36, -1
   %54 = icmp samesign ugt i64 %.012.i.i.i.i.i36, 1
-  br i1 %54, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIN4llvm3LLTES2_ES4_ET0_T_S6_S5_.exit39, !llvm.loop !66
+  br i1 %54, label %.lr.ph.i.i.i.i.i35, label %_ZSt4moveIPSt4pairIN4llvm3LLTES2_ES4_ET0_T_S6_S5_.exit39, !llvm.loop !67
 
 _ZSt4moveIPSt4pairIN4llvm3LLTES2_ES4_ET0_T_S6_S5_.exit39: ; preds = %.lr.ph.i.i.i.i.i35, %44, %42
   %.026 = phi i64 [ 0, %42 ], [ 0, %44 ], [ %26, %.lr.ph.i.i.i.i.i35 ]
@@ -1623,7 +1623,7 @@ define linkonce_odr noundef ptr @_ZSt9__find_ifIPKSt4pairIN4llvm3LLTES2_EN9__gnu
   %37 = getelementptr inbounds nuw i8, ptr %.02958, i64 64
   %38 = add nsw i64 %.059, -1
   %39 = icmp sgt i64 %.059, 1
-  br i1 %39, label %13, label %._crit_edge.loopexit, !llvm.loop !67
+  br i1 %39, label %13, label %._crit_edge.loopexit, !llvm.loop !68
 
 ._crit_edge.loopexit:                             ; preds = %36
   %.pre69 = ptrtoint ptr %scevgep to i64
@@ -1761,7 +1761,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %23 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %24 = add nsw i64 %.012.i.i.i.i.i, -1
   %25 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %25, label %.lr.ph.i.i.i.i.i, label %.sink.split, !llvm.loop !68
+  br i1 %25, label %.lr.ph.i.i.i.i.i, label %.sink.split, !llvm.loop !69
 
 26:                                               ; preds = %5
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1806,7 +1806,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsF
 
 _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.loopexit.i, %30
   %46 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.loopexit.i ], [ %33, %30 ]
-  %47 = load i64, ptr %3, align 8, !tbaa !35
+  %47 = load i64, ptr %3, align 8, !tbaa !36
   %48 = icmp eq ptr %46, %31
   br i1 %48, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit, label %49
 
@@ -1848,7 +1848,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit: ;
   %61 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i34, i64 24
   %62 = add nsw i64 %.012.i.i.i.i.i33, -1
   %63 = icmp samesign ugt i64 %.012.i.i.i.i.i33, 1
-  br i1 %63, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt5tupleIJN4llvm3LLTES2_S2_EEPS3_ET0_T_S8_S7_.exit36.loopexit, !llvm.loop !68
+  br i1 %63, label %.lr.ph.i.i.i.i.i32, label %_ZSt4copyIPKSt5tupleIJN4llvm3LLTES2_S2_EEPS3_ET0_T_S8_S7_.exit36.loopexit, !llvm.loop !69
 
 _ZSt4copyIPKSt5tupleIJN4llvm3LLTES2_S2_EEPS3_ET0_T_S8_S7_.exit36.loopexit: ; preds = %.lr.ph.i.i.i.i.i32
   %.pre = load ptr, ptr %0, align 8, !tbaa !13
@@ -1876,7 +1876,7 @@ _ZSt4copyIPKSt5tupleIJN4llvm3LLTES2_S2_EEPS3_ET0_T_S8_S7_.exit36: ; preds = %_ZS
   %71 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i, i64 24
   %72 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i, i64 24
   %.not.i.i.i.i = icmp eq ptr %71, %68
-  br i1 %.not.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i, !llvm.loop !38
 
 .sink.split:                                      ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i, %_ZSt4copyIPKSt5tupleIJN4llvm3LLTES2_S2_EEPS3_ET0_T_S8_S7_.exit36, %12
   store i32 %7, ptr %9, align 8, !tbaa !15
@@ -1891,17 +1891,17 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %3 = alloca %"class.std::tuple", align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %4, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  %5 = load i32, ptr %.val, align 8, !tbaa !38
+  %5 = load i32, ptr %.val, align 8, !tbaa !39
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %9 = load i32, ptr %8, align 4, !tbaa !45
+  %9 = load i32, ptr %8, align 4, !tbaa !46
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !46
+  %13 = load i32, ptr %12, align 8, !tbaa !47
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !7
@@ -1943,7 +1943,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS1_3LLTES5_S5_EEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS1_3LLTES5_S5_EEEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2069,7 +2069,7 @@ _ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE12assignRemoteEOS4_.exit: ;
   %38 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 24
   %39 = add nsw i64 %.012.i.i.i.i.i, -1
   %40 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt5tupleIJN4llvm3LLTES2_S2_EES4_ET0_T_S6_S5_.exit, !llvm.loop !69
+  br i1 %40, label %.lr.ph.i.i.i.i.i, label %_ZSt4moveIPSt5tupleIJN4llvm3LLTES2_S2_EES4_ET0_T_S6_S5_.exit, !llvm.loop !70
 
 _ZSt4moveIPSt5tupleIJN4llvm3LLTES2_S2_EES4_ET0_T_S6_S5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %28
   store i32 %23, ptr %25, align 8, !tbaa !15
@@ -2119,7 +2119,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsF
 
 _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.loopexit.i, %45
   %61 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.loopexit.i ], [ %48, %45 ]
-  %62 = load i64, ptr %3, align 8, !tbaa !35
+  %62 = load i64, ptr %3, align 8, !tbaa !36
   %63 = icmp eq ptr %61, %46
   br i1 %63, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit, label %64
 
@@ -2157,7 +2157,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit: ;
   %75 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i38, i64 24
   %76 = add nsw i64 %.012.i.i.i.i.i37, -1
   %77 = icmp samesign ugt i64 %.012.i.i.i.i.i37, 1
-  br i1 %77, label %.lr.ph.i.i.i.i.i36, label %_ZSt4moveIPSt5tupleIJN4llvm3LLTES2_S2_EES4_ET0_T_S6_S5_.exit40.loopexit, !llvm.loop !69
+  br i1 %77, label %.lr.ph.i.i.i.i.i36, label %_ZSt4moveIPSt5tupleIJN4llvm3LLTES2_S2_EES4_ET0_T_S6_S5_.exit40.loopexit, !llvm.loop !70
 
 _ZSt4moveIPSt5tupleIJN4llvm3LLTES2_S2_EES4_ET0_T_S6_S5_.exit40.loopexit: ; preds = %.lr.ph.i.i.i.i.i36
   %.pre42 = load ptr, ptr %0, align 8, !tbaa !13
@@ -2300,7 +2300,7 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT
   %50 = getelementptr inbounds nuw i8, ptr %.02970, i64 96
   %51 = add nsw i64 %.071, -1
   %52 = icmp sgt i64 %.071, 1
-  br i1 %52, label %14, label %._crit_edge.loopexit, !llvm.loop !70
+  br i1 %52, label %14, label %._crit_edge.loopexit, !llvm.loop !71
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKSt5tupleIJN4llvm3LLTES4_S4_EEEclIPS6_EEbT_.exit41.thread
   %.pre79 = ptrtoint ptr %scevgep to i64
@@ -2420,25 +2420,25 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %.val = load ptr, ptr %0, align 8, !tbaa !24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %4, align 8, !tbaa !60
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val3 = load ptr, ptr %5, align 8, !tbaa !71
-  %6 = load i32, ptr %.val, align 8, !tbaa !47
+  %.val3 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load i32, ptr %.val, align 8, !tbaa !48
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %11 = load i32, ptr %10, align 4, !tbaa !54
+  %11 = load i32, ptr %10, align 4, !tbaa !55
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !7
   %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %16 = load i32, ptr %15, align 8, !tbaa !55
+  %16 = load i32, ptr %15, align 8, !tbaa !56
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val3, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !7
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %21 = load i64, ptr %20, align 8, !tbaa !74
+  %21 = load i64, ptr %20, align 8, !tbaa !75
   %22 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %.val.i.i.i = load ptr, ptr %22, align 8, !tbaa !13
   %23 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -2486,7 +2486,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %39 = getelementptr inbounds nuw i8, ptr %.02931.i.i.i.i.i.i.i.i.i, i64 128
   %40 = add nsw i64 %.032.i.i.i.i.i.i.i.i.i, -1
   %41 = icmp sgt i64 %.032.i.i.i.i.i.i.i.i.i, 1
-  br i1 %41, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, !llvm.loop !77
+  br i1 %41, label %.lr.ph.i.i.i.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i.i.i.i, !llvm.loop !78
 
 ._crit_edge.loopexit.i.i.i.i.i.i.i.i.i:           ; preds = %38
   %.pre.i.i.i.i.i.i.i.i.i = ptrtoint ptr %39 to i64
@@ -2550,7 +2550,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS2_18TypePairAndMemDescEEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2645,9 +2645,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18LegalityPredicates18Ty
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load i64, ptr %11, align 8, !tbaa !78
+  %12 = load i64, ptr %11, align 8, !tbaa !79
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !78
+  %14 = load i64, ptr %13, align 8, !tbaa !79
   %.not = icmp ult i64 %12, %14
   br i1 %.not, label %55, label %15
 
@@ -2738,9 +2738,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit24:            ; preds = %42, %44
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates8isScalarEjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !80
+  %.val = load i32, ptr %0, align 8, !tbaa !81
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -2762,7 +2762,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isScalarEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2776,9 +2776,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates8isVectorEjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !82
+  %.val = load i32, ptr %0, align 8, !tbaa !83
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -2803,7 +2803,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8isVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2817,9 +2817,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates9isPointerEjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !84
+  %.val = load i32, ptr %0, align 8, !tbaa !85
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -2853,7 +2853,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2867,9 +2867,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates9isPointerEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !86
+  %.val = load i32, ptr %0, align 8, !tbaa !87
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val3 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !7
@@ -2907,7 +2907,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates9isPointerEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2921,9 +2921,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates15isPointerVectorEjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !88
+  %.val = load i32, ptr %0, align 8, !tbaa !89
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8
@@ -2957,7 +2957,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15isPointerVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15isPointerVectorEjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -2971,9 +2971,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates13elementTypeIsEjNS0_3LLTEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !90
+  %.val = load i32, ptr %0, align 8, !tbaa !91
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val3 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !7
@@ -3014,11 +3014,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13elementTypeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13elementTypeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !65
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13elementTypeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 "_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates13elementTypeIsEjNS1_3LLTEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit": ; preds = %3, %6, %5, %4
@@ -3029,8 +3029,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates18scalarNarrowerThanEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #3 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val = load ptr, ptr %4, align 8, !tbaa !59
-  %5 = load i32, ptr %0, align 8, !tbaa !92
+  %.val = load ptr, ptr %4, align 8, !tbaa !60
+  %5 = load i32, ptr %0, align 8, !tbaa !93
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
@@ -3049,7 +3049,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   store i8 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %11 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !94
+  %13 = load i32, ptr %12, align 4, !tbaa !95
   %14 = zext i32 %13 to i64
   %15 = icmp ult i64 %11, %14
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
@@ -3073,7 +3073,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3091,8 +3091,8 @@ declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 derefer
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates15scalarWiderThanEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #3 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val = load ptr, ptr %4, align 8, !tbaa !59
-  %5 = load i32, ptr %0, align 8, !tbaa !95
+  %.val = load ptr, ptr %4, align 8, !tbaa !60
+  %5 = load i32, ptr %0, align 8, !tbaa !96
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
@@ -3111,7 +3111,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   store i8 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %11 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !97
+  %13 = load i32, ptr %12, align 4, !tbaa !98
   %14 = zext i32 %13 to i64
   %15 = icmp ugt i64 %11, %14
   br label %"_ZSt10__invoke_rIbRZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0JRKNS0_13LegalityQueryEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES8_E4typeEOS9_DpOSA_.exit"
@@ -3135,7 +3135,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3153,9 +3153,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %4 = alloca %"class.llvm::TypeSize", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %0, align 8, !tbaa !98
+  %6 = load i32, ptr %0, align 8, !tbaa !99
   %7 = zext i32 %6 to i64
-  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !60
   %9 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %8, i64 %7
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, -7
@@ -3199,9 +3199,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %19, %17
   %27 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !100
+  %29 = load i32, ptr %28, align 4, !tbaa !101
   %30 = zext i32 %29 to i64
-  %31 = load ptr, ptr %5, align 8, !tbaa !59
+  %31 = load ptr, ptr %5, align 8, !tbaa !60
   %32 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %31, i64 %30
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, -7
@@ -3262,7 +3262,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11smallerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3280,9 +3280,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   %4 = alloca %"class.llvm::TypeSize", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %0, align 8, !tbaa !101
+  %6 = load i32, ptr %0, align 8, !tbaa !102
   %7 = zext i32 %6 to i64
-  %8 = load ptr, ptr %5, align 8, !tbaa !59
+  %8 = load ptr, ptr %5, align 8, !tbaa !60
   %9 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %8, i64 %7
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, -7
@@ -3326,9 +3326,9 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %19, %17
   %27 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !103
+  %29 = load i32, ptr %28, align 4, !tbaa !104
   %30 = zext i32 %29 to i64
-  %31 = load ptr, ptr %5, align 8, !tbaa !59
+  %31 = load ptr, ptr %5, align 8, !tbaa !60
   %32 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %31, i64 %30
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, -7
@@ -3389,7 +3389,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates10largerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3403,11 +3403,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !104
+  %.val = load i32, ptr %0, align 8, !tbaa !105
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.val2 = load i32, ptr %3, align 4, !tbaa !106
+  %.val2 = load i32, ptr %3, align 4, !tbaa !107
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !60
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !7
@@ -3436,7 +3436,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3450,11 +3450,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !107
+  %.val = load i32, ptr %0, align 8, !tbaa !108
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.val2 = load i32, ptr %3, align 4, !tbaa !109
+  %.val2 = load i32, ptr %3, align 4, !tbaa !110
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !60
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !7
@@ -3483,7 +3483,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3497,9 +3497,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !110
+  %.val = load i32, ptr %0, align 8, !tbaa !111
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !7
@@ -3537,7 +3537,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3553,8 +3553,8 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #3 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val = load ptr, ptr %4, align 8, !tbaa !59
-  %5 = load i32, ptr %0, align 8, !tbaa !112
+  %.val = load ptr, ptr %4, align 8, !tbaa !60
+  %5 = load i32, ptr %0, align 8, !tbaa !113
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8, !tbaa !7
@@ -3573,7 +3573,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i.i.i:        ; preds = %2
   store i8 0, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %11 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !114
+  %13 = load i32, ptr %12, align 4, !tbaa !115
   %14 = zext i32 %13 to i64
   %15 = urem i64 %11, %14
   %16 = icmp ne i64 %15, 0
@@ -3598,7 +3598,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3613,9 +3613,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates11sizeNotPow2EjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #3 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
-  %.val = load i32, ptr %0, align 8, !tbaa !115
+  %.val = load i32, ptr %0, align 8, !tbaa !116
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %4, align 8, !tbaa !60
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !7
@@ -3661,7 +3661,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3677,9 +3677,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates6sizeIsEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #3 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val = load ptr, ptr %4, align 8, !tbaa !59
+  %.val = load ptr, ptr %4, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
-  %5 = load i32, ptr %0, align 8, !tbaa !117
+  %5 = load i32, ptr %0, align 8, !tbaa !118
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val, i64 %6
   %8 = load i64, ptr %7, align 8
@@ -3723,7 +3723,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
   %25 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #12
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i32, ptr %26, align 4, !tbaa !119
+  %27 = load i32, ptr %26, align 4, !tbaa !120
   %28 = zext i32 %27 to i64
   %29 = icmp eq i64 %25, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
@@ -3743,7 +3743,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates6sizeIsEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3757,11 +3757,11 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates8sameSizeEjjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !120
+  %.val = load i32, ptr %0, align 8, !tbaa !121
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.val2 = load i32, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %4, align 8, !tbaa !59
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !60
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val3, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -3857,7 +3857,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates8sameSizeEjjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3872,9 +3872,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #3 align 2 {
   %3 = alloca %"class.llvm::TypeSize", align 8
-  %.val = load i32, ptr %0, align 8, !tbaa !122
+  %.val = load i32, ptr %0, align 8, !tbaa !123
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val2 = load ptr, ptr %4, align 8, !tbaa !71
+  %.val2 = load ptr, ptr %4, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val2, i64 %5
@@ -3948,7 +3948,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -3962,9 +3962,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !124
+  %.val = load i32, ptr %0, align 8, !tbaa !125
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !71
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !72
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !7
@@ -4040,7 +4040,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -4054,9 +4054,9 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates18numElementsNotPow2EjE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !126
+  %.val = load i32, ptr %0, align 8, !tbaa !127
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val2 = load ptr, ptr %3, align 8, !tbaa !59
+  %.val2 = load ptr, ptr %3, align 8, !tbaa !60
   %4 = zext i32 %.val to i64
   %5 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %.val2, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !7
@@ -4097,7 +4097,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0E10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -4111,19 +4111,19 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS0_14AtomicOrderingEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) #5 align 2 {
-  %.val = load i32, ptr %0, align 8, !tbaa !128
+  %.val = load i32, ptr %0, align 8, !tbaa !129
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.val2 = load i32, ptr %3, align 4, !tbaa !130
+  %.val2 = load i32, ptr %3, align 4, !tbaa !131
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val3 = load ptr, ptr %4, align 8, !tbaa !71
+  %.val3 = load ptr, ptr %4, align 8, !tbaa !72
   %5 = zext i32 %.val to i64
   %6 = getelementptr inbounds nuw %"struct.llvm::LegalityQuery::MemDesc", ptr %.val3, i64 %5, i32 2
-  %7 = load i32, ptr %6, align 8, !tbaa !131
+  %7 = load i32, ptr %6, align 8, !tbaa !132
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw [8 x [8 x i8]], ptr @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup, i64 0, i64 %8
   %10 = zext i32 %.val2 to i64
   %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %10
-  %12 = load i8, ptr %11, align 1, !tbaa !132, !range !134, !noundef !135
+  %12 = load i8, ptr %11, align 1, !tbaa !133, !range !135, !noundef !136
   %13 = trunc nuw i8 %12 to i1
   ret i1 %13
 }
@@ -4141,7 +4141,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN4llvm13Legali
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 5:                                                ; preds = %3
-  store ptr null, ptr %0, align 8, !tbaa !62
+  store ptr null, ptr %0, align 8, !tbaa !63
   br label %"_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS1_14AtomicOrderingEE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit"
 
 6:                                                ; preds = %3
@@ -4207,106 +4207,107 @@ attributes #14 = { builtin nounwind }
 !30 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt4pairINS_3LLTES2_EvEE", !14, i64 0}
 !31 = !{!"_ZTSN4llvm18SmallVectorStorageISt4pairINS_3LLTES2_ELj4EEE", !5, i64 0}
 !32 = !{!26, !4, i64 4}
-!33 = distinct !{!33, !34}
+!33 = distinct !{!33, !34, !35}
 !34 = !{!"llvm.loop.mustprogress"}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"long", !5, i64 0}
-!37 = distinct !{!37, !34}
-!38 = !{!39, !4, i64 0}
-!39 = !{!"_ZTSZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEE3$_0", !4, i64 0, !4, i64 4, !4, i64 8, !40, i64 16}
-!40 = !{!"_ZTSN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEE", !41, i64 0, !44, i64 16}
-!41 = !{!"_ZTSN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEE", !42, i64 0}
-!42 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EEE", !43, i64 0}
-!43 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt5tupleIJNS_3LLTES2_S2_EEvEE", !14, i64 0}
-!44 = !{!"_ZTSN4llvm18SmallVectorStorageISt5tupleIJNS_3LLTES2_S2_EELj4EEE", !5, i64 0}
-!45 = !{!39, !4, i64 4}
-!46 = !{!39, !4, i64 8}
-!47 = !{!48, !4, i64 0}
-!48 = !{!"_ZTSZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEEE3$_0", !4, i64 0, !4, i64 4, !4, i64 8, !49, i64 16}
-!49 = !{!"_ZTSN4llvm11SmallVectorINS_18LegalityPredicates18TypePairAndMemDescELj4EEE", !50, i64 0, !53, i64 16}
-!50 = !{!"_ZTSN4llvm15SmallVectorImplINS_18LegalityPredicates18TypePairAndMemDescEEE", !51, i64 0}
-!51 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_18LegalityPredicates18TypePairAndMemDescELb1EEE", !52, i64 0}
-!52 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_18LegalityPredicates18TypePairAndMemDescEvEE", !14, i64 0}
-!53 = !{!"_ZTSN4llvm18SmallVectorStorageINS_18LegalityPredicates18TypePairAndMemDescELj4EEE", !5, i64 0}
-!54 = !{!48, !4, i64 4}
-!55 = !{!48, !4, i64 8}
-!56 = !{!57, !4, i64 0}
-!57 = !{!"_ZTSZN4llvm18LegalityPredicates6typeIsEjNS_3LLTEE3$_0", !4, i64 0, !58, i64 8}
-!58 = !{!"_ZTSN4llvm3LLTE", !36, i64 0, !36, i64 0, !36, i64 0, !36, i64 0}
-!59 = !{!60, !61, i64 0}
-!60 = !{!"_ZTSN4llvm8ArrayRefINS_3LLTEEE", !61, i64 0, !36, i64 8}
-!61 = !{!"p1 _ZTSN4llvm3LLTE", !11, i64 0}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"p1 _ZTSSt9type_info", !11, i64 0}
-!64 = !{i64 0, i64 4, !3, i64 8, i64 8, !7}
-!65 = distinct !{!65, !34}
-!66 = distinct !{!66, !34}
-!67 = distinct !{!67, !34}
-!68 = distinct !{!68, !34}
-!69 = distinct !{!69, !34}
-!70 = distinct !{!70, !34}
-!71 = !{!72, !73, i64 0}
-!72 = !{!"_ZTSN4llvm8ArrayRefINS_13LegalityQuery7MemDescEEE", !73, i64 0, !36, i64 8}
-!73 = !{!"p1 _ZTSN4llvm13LegalityQuery7MemDescE", !11, i64 0}
-!74 = !{!75, !36, i64 8}
-!75 = !{!"_ZTSN4llvm13LegalityQuery7MemDescE", !58, i64 0, !36, i64 8, !76, i64 16}
-!76 = !{!"_ZTSN4llvm14AtomicOrderingE", !5, i64 0}
-!77 = distinct !{!77, !34}
-!78 = !{!79, !36, i64 24}
-!79 = !{!"_ZTSN4llvm18LegalityPredicates18TypePairAndMemDescE", !58, i64 0, !58, i64 8, !58, i64 16, !36, i64 24}
-!80 = !{!81, !4, i64 0}
-!81 = !{!"_ZTSZN4llvm18LegalityPredicates8isScalarEjE3$_0", !4, i64 0}
-!82 = !{!83, !4, i64 0}
-!83 = !{!"_ZTSZN4llvm18LegalityPredicates8isVectorEjE3$_0", !4, i64 0}
-!84 = !{!85, !4, i64 0}
-!85 = !{!"_ZTSZN4llvm18LegalityPredicates9isPointerEjE3$_0", !4, i64 0}
-!86 = !{!87, !4, i64 0}
-!87 = !{!"_ZTSZN4llvm18LegalityPredicates9isPointerEjjE3$_0", !4, i64 0, !4, i64 4}
-!88 = !{!89, !4, i64 0}
-!89 = !{!"_ZTSZN4llvm18LegalityPredicates15isPointerVectorEjE3$_0", !4, i64 0}
-!90 = !{!91, !4, i64 0}
-!91 = !{!"_ZTSZN4llvm18LegalityPredicates13elementTypeIsEjNS_3LLTEE3$_0", !4, i64 0, !58, i64 8}
-!92 = !{!93, !4, i64 0}
-!93 = !{!"_ZTSZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0", !4, i64 0, !4, i64 4}
-!94 = !{!93, !4, i64 4}
-!95 = !{!96, !4, i64 0}
-!96 = !{!"_ZTSZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0", !4, i64 0, !4, i64 4}
-!97 = !{!96, !4, i64 4}
-!98 = !{!99, !4, i64 0}
-!99 = !{!"_ZTSZN4llvm18LegalityPredicates11smallerThanEjjE3$_0", !4, i64 0, !4, i64 4}
-!100 = !{!99, !4, i64 4}
-!101 = !{!102, !4, i64 0}
-!102 = !{!"_ZTSZN4llvm18LegalityPredicates10largerThanEjjE3$_0", !4, i64 0, !4, i64 4}
-!103 = !{!102, !4, i64 4}
-!104 = !{!105, !4, i64 0}
-!105 = !{!"_ZTSZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0", !4, i64 0, !4, i64 4}
-!106 = !{!105, !4, i64 4}
-!107 = !{!108, !4, i64 0}
-!108 = !{!"_ZTSZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0", !4, i64 0, !4, i64 4}
-!109 = !{!108, !4, i64 4}
-!110 = !{!111, !4, i64 0}
-!111 = !{!"_ZTSZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0", !4, i64 0}
-!112 = !{!113, !4, i64 0}
-!113 = !{!"_ZTSZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0", !4, i64 0, !4, i64 4}
-!114 = !{!113, !4, i64 4}
-!115 = !{!116, !4, i64 0}
-!116 = !{!"_ZTSZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0", !4, i64 0}
-!117 = !{!118, !4, i64 0}
-!118 = !{!"_ZTSZN4llvm18LegalityPredicates6sizeIsEjjE3$_0", !4, i64 0, !4, i64 4}
-!119 = !{!118, !4, i64 4}
-!120 = !{!121, !4, i64 0}
-!121 = !{!"_ZTSZN4llvm18LegalityPredicates8sameSizeEjjE3$_0", !4, i64 0, !4, i64 4}
-!122 = !{!123, !4, i64 0}
-!123 = !{!"_ZTSZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0", !4, i64 0}
-!124 = !{!125, !4, i64 0}
-!125 = !{!"_ZTSZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0", !4, i64 0}
-!126 = !{!127, !4, i64 0}
-!127 = !{!"_ZTSZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0", !4, i64 0}
-!128 = !{!129, !4, i64 0}
-!129 = !{!"_ZTSZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS_14AtomicOrderingEE3$_0", !4, i64 0, !76, i64 4}
-!130 = !{!129, !76, i64 4}
-!131 = !{!75, !76, i64 16}
-!132 = !{!133, !133, i64 0}
-!133 = !{!"bool", !5, i64 0}
-!134 = !{i8 0, i8 2}
-!135 = !{}
+!35 = !{!"llvm.loop.estimated_trip_count"}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"long", !5, i64 0}
+!38 = distinct !{!38, !34, !35}
+!39 = !{!40, !4, i64 0}
+!40 = !{!"_ZTSZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEE3$_0", !4, i64 0, !4, i64 4, !4, i64 8, !41, i64 16}
+!41 = !{!"_ZTSN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEE", !42, i64 0, !45, i64 16}
+!42 = !{!"_ZTSN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEE", !43, i64 0}
+!43 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EEE", !44, i64 0}
+!44 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonISt5tupleIJNS_3LLTES2_S2_EEvEE", !14, i64 0}
+!45 = !{!"_ZTSN4llvm18SmallVectorStorageISt5tupleIJNS_3LLTES2_S2_EELj4EEE", !5, i64 0}
+!46 = !{!40, !4, i64 4}
+!47 = !{!40, !4, i64 8}
+!48 = !{!49, !4, i64 0}
+!49 = !{!"_ZTSZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEEE3$_0", !4, i64 0, !4, i64 4, !4, i64 8, !50, i64 16}
+!50 = !{!"_ZTSN4llvm11SmallVectorINS_18LegalityPredicates18TypePairAndMemDescELj4EEE", !51, i64 0, !54, i64 16}
+!51 = !{!"_ZTSN4llvm15SmallVectorImplINS_18LegalityPredicates18TypePairAndMemDescEEE", !52, i64 0}
+!52 = !{!"_ZTSN4llvm23SmallVectorTemplateBaseINS_18LegalityPredicates18TypePairAndMemDescELb1EEE", !53, i64 0}
+!53 = !{!"_ZTSN4llvm25SmallVectorTemplateCommonINS_18LegalityPredicates18TypePairAndMemDescEvEE", !14, i64 0}
+!54 = !{!"_ZTSN4llvm18SmallVectorStorageINS_18LegalityPredicates18TypePairAndMemDescELj4EEE", !5, i64 0}
+!55 = !{!49, !4, i64 4}
+!56 = !{!49, !4, i64 8}
+!57 = !{!58, !4, i64 0}
+!58 = !{!"_ZTSZN4llvm18LegalityPredicates6typeIsEjNS_3LLTEE3$_0", !4, i64 0, !59, i64 8}
+!59 = !{!"_ZTSN4llvm3LLTE", !37, i64 0, !37, i64 0, !37, i64 0, !37, i64 0}
+!60 = !{!61, !62, i64 0}
+!61 = !{!"_ZTSN4llvm8ArrayRefINS_3LLTEEE", !62, i64 0, !37, i64 8}
+!62 = !{!"p1 _ZTSN4llvm3LLTE", !11, i64 0}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTSSt9type_info", !11, i64 0}
+!65 = !{i64 0, i64 4, !3, i64 8, i64 8, !7}
+!66 = distinct !{!66, !34, !35}
+!67 = distinct !{!67, !34, !35}
+!68 = distinct !{!68, !34, !35}
+!69 = distinct !{!69, !34, !35}
+!70 = distinct !{!70, !34, !35}
+!71 = distinct !{!71, !34, !35}
+!72 = !{!73, !74, i64 0}
+!73 = !{!"_ZTSN4llvm8ArrayRefINS_13LegalityQuery7MemDescEEE", !74, i64 0, !37, i64 8}
+!74 = !{!"p1 _ZTSN4llvm13LegalityQuery7MemDescE", !11, i64 0}
+!75 = !{!76, !37, i64 8}
+!76 = !{!"_ZTSN4llvm13LegalityQuery7MemDescE", !59, i64 0, !37, i64 8, !77, i64 16}
+!77 = !{!"_ZTSN4llvm14AtomicOrderingE", !5, i64 0}
+!78 = distinct !{!78, !34, !35}
+!79 = !{!80, !37, i64 24}
+!80 = !{!"_ZTSN4llvm18LegalityPredicates18TypePairAndMemDescE", !59, i64 0, !59, i64 8, !59, i64 16, !37, i64 24}
+!81 = !{!82, !4, i64 0}
+!82 = !{!"_ZTSZN4llvm18LegalityPredicates8isScalarEjE3$_0", !4, i64 0}
+!83 = !{!84, !4, i64 0}
+!84 = !{!"_ZTSZN4llvm18LegalityPredicates8isVectorEjE3$_0", !4, i64 0}
+!85 = !{!86, !4, i64 0}
+!86 = !{!"_ZTSZN4llvm18LegalityPredicates9isPointerEjE3$_0", !4, i64 0}
+!87 = !{!88, !4, i64 0}
+!88 = !{!"_ZTSZN4llvm18LegalityPredicates9isPointerEjjE3$_0", !4, i64 0, !4, i64 4}
+!89 = !{!90, !4, i64 0}
+!90 = !{!"_ZTSZN4llvm18LegalityPredicates15isPointerVectorEjE3$_0", !4, i64 0}
+!91 = !{!92, !4, i64 0}
+!92 = !{!"_ZTSZN4llvm18LegalityPredicates13elementTypeIsEjNS_3LLTEE3$_0", !4, i64 0, !59, i64 8}
+!93 = !{!94, !4, i64 0}
+!94 = !{!"_ZTSZN4llvm18LegalityPredicates18scalarNarrowerThanEjjE3$_0", !4, i64 0, !4, i64 4}
+!95 = !{!94, !4, i64 4}
+!96 = !{!97, !4, i64 0}
+!97 = !{!"_ZTSZN4llvm18LegalityPredicates15scalarWiderThanEjjE3$_0", !4, i64 0, !4, i64 4}
+!98 = !{!97, !4, i64 4}
+!99 = !{!100, !4, i64 0}
+!100 = !{!"_ZTSZN4llvm18LegalityPredicates11smallerThanEjjE3$_0", !4, i64 0, !4, i64 4}
+!101 = !{!100, !4, i64 4}
+!102 = !{!103, !4, i64 0}
+!103 = !{!"_ZTSZN4llvm18LegalityPredicates10largerThanEjjE3$_0", !4, i64 0, !4, i64 4}
+!104 = !{!103, !4, i64 4}
+!105 = !{!106, !4, i64 0}
+!106 = !{!"_ZTSZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjjE3$_0", !4, i64 0, !4, i64 4}
+!107 = !{!106, !4, i64 4}
+!108 = !{!109, !4, i64 0}
+!109 = !{!"_ZTSZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjjE3$_0", !4, i64 0, !4, i64 4}
+!110 = !{!109, !4, i64 4}
+!111 = !{!112, !4, i64 0}
+!112 = !{!"_ZTSZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2EjE3$_0", !4, i64 0}
+!113 = !{!114, !4, i64 0}
+!114 = !{!"_ZTSZN4llvm18LegalityPredicates17sizeNotMultipleOfEjjE3$_0", !4, i64 0, !4, i64 4}
+!115 = !{!114, !4, i64 4}
+!116 = !{!117, !4, i64 0}
+!117 = !{!"_ZTSZN4llvm18LegalityPredicates11sizeNotPow2EjE3$_0", !4, i64 0}
+!118 = !{!119, !4, i64 0}
+!119 = !{!"_ZTSZN4llvm18LegalityPredicates6sizeIsEjjE3$_0", !4, i64 0, !4, i64 4}
+!120 = !{!119, !4, i64 4}
+!121 = !{!122, !4, i64 0}
+!122 = !{!"_ZTSZN4llvm18LegalityPredicates8sameSizeEjjE3$_0", !4, i64 0, !4, i64 4}
+!123 = !{!124, !4, i64 0}
+!124 = !{!"_ZTSZN4llvm18LegalityPredicates21memSizeInBytesNotPow2EjE3$_0", !4, i64 0}
+!125 = !{!126, !4, i64 0}
+!126 = !{!"_ZTSZN4llvm18LegalityPredicates22memSizeNotByteSizePow2EjE3$_0", !4, i64 0}
+!127 = !{!128, !4, i64 0}
+!128 = !{!"_ZTSZN4llvm18LegalityPredicates18numElementsNotPow2EjE3$_0", !4, i64 0}
+!129 = !{!130, !4, i64 0}
+!130 = !{!"_ZTSZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS_14AtomicOrderingEE3$_0", !4, i64 0, !77, i64 4}
+!131 = !{!130, !77, i64 4}
+!132 = !{!76, !77, i64 16}
+!133 = !{!134, !134, i64 0}
+!134 = !{!"bool", !5, i64 0}
+!135 = !{i8 0, i8 2}
+!136 = !{}

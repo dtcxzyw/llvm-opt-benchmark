@@ -133,12 +133,12 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %32 = add i16 %.sroa.06.0.i12.i.i.i, -1
   %33 = and i16 %32, %.sroa.06.0.i12.i.i.i
   %.not.i.not.i.i.i = icmp eq i16 %33, 0
-  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 34:                                               ; preds = %._crit_edge.i.i.i
   %35 = add i64 %.sroa.9.0.i.i.i.i, 16
   %36 = add i64 %.sroa.01.0.i.i.i.i, %35
-  br label %18
+  br label %18, !llvm.loop !39
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
@@ -155,7 +155,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb
 
 41:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb3783c2E.exit
   %42 = extractvalue { ptr, i64 } %39, 0
-  %43 = load i32, ptr %42, align 4, !range !37, !noundef !7
+  %43 = load i32, ptr %42, align 4, !range !40, !noundef !7
   ret i32 %43
 
 44:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb3783c2E.exit
@@ -166,26 +166,26 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h5a5971c3fb
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_index13SemanticIndex24expect_single_definition17h5fe5acf7cb4c8fe3E(ptr noalias noundef readonly align 8 dereferenceable(408) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !41
-  %5 = tail call noundef i64 @"_ZN150_$LT$ty_python_semantic..semantic_index..definition..DefinitionNodeKey$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Parameter$GT$$GT$4from17h497567ebb1d7516eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !44
-  store i64 %5, ptr %4, align 8, !noalias !41
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !44
+  %5 = tail call noundef i64 @"_ZN150_$LT$ty_python_semantic..semantic_index..definition..DefinitionNodeKey$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..Parameter$GT$$GT$4from17h497567ebb1d7516eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1), !noalias !47
+  store i64 %5, ptr %4, align 8, !noalias !44
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %7 = load i64, ptr %6, align 8, !alias.scope !45, !noalias !48, !noundef !7
+  %7 = load i64, ptr %6, align 8, !alias.scope !48, !noalias !51, !noundef !7
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %select.unfold.i, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %12 = call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h6889336379dcaa41E(ptr noalias noundef nonnull readonly align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !50
-  call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  %12 = call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h6889336379dcaa41E(ptr noalias noundef nonnull readonly align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !53
   call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  call void @llvm.experimental.noalias.scope.decl(metadata !57)
   %13 = lshr i64 %12, 57
   %14 = trunc nuw nsw i64 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %16 = load i64, ptr %15, align 8, !alias.scope !57, !noalias !58, !noundef !7
-  %17 = load ptr, ptr %10, align 8, !alias.scope !57, !noalias !58, !nonnull !7, !noundef !7
+  %16 = load i64, ptr %15, align 8, !alias.scope !60, !noalias !61, !noundef !7
+  %17 = load ptr, ptr %10, align 8, !alias.scope !60, !noalias !61, !nonnull !7, !noundef !7
   %.sroa.01.0.vec.insert.i.i.i.i.i = insertelement <16 x i8> poison, i8 %14, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %invariant.gep.i.i.i = getelementptr i8, ptr %17, i64 -32
@@ -196,7 +196,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %.pn.i.i.i = phi i64 [ %12, %9 ], [ %36, %34 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.01.0.i.i.i.i
-  %.sroa.0.0.copyload.i5.i.i.i = load <16 x i8>, ptr %19, align 1, !noalias !60
+  %.sroa.0.0.copyload.i5.i.i.i = load <16 x i8>, ptr %19, align 1, !noalias !63
   %20 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i, %.sroa.01.15.vec.insert.i.i.i.i.i
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.not11.i.i.i = icmp eq i16 %21, 0
@@ -210,7 +210,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
   %gep.i.i.i = getelementptr { i64, { { { [2 x i64] }, i64 } } }, ptr %invariant.gep.i.i.i, i64 %26
-  %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep.i.i.i), !noalias !61
+  %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep.i.i.i), !noalias !64
   br i1 %27, label %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE.exit, label %31, !prof !35
 
 ._crit_edge.i.i.i:                                ; preds = %31, %18
@@ -223,12 +223,12 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %32 = add i16 %.sroa.06.0.i12.i.i.i, -1
   %33 = and i16 %32, %.sroa.06.0.i12.i.i.i
   %.not.i.not.i.i.i = icmp eq i16 %33, 0
-  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 34:                                               ; preds = %._crit_edge.i.i.i
   %35 = add i64 %.sroa.9.0.i.i.i.i, 16
   %36 = add i64 %.sroa.01.0.i.i.i.i, %35
-  br label %18
+  br label %18, !llvm.loop !39
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
@@ -237,7 +237,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE.exit: ; preds = %.lr.ph.i.i.i
   %37 = getelementptr inbounds { i64, { { { [2 x i64] }, i64 } } }, ptr %17, i64 %26
   %38 = getelementptr inbounds i8, ptr %37, i64 -24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !41
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !44
   %39 = call { ptr, i64 } @"_ZN103_$LT$ty_python_semantic..semantic_index..definition..Definitions$u20$as$u20$core..ops..deref..Deref$GT$5deref17h410d96d33ab18230E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %40 = extractvalue { ptr, i64 } %39, 1
   %.not = icmp eq i64 %40, 0
@@ -245,7 +245,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17
 
 41:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE.exit
   %42 = extractvalue { ptr, i64 } %39, 0
-  %43 = load i32, ptr %42, align 4, !range !37, !noundef !7
+  %43 = load i32, ptr %42, align 4, !range !40, !noundef !7
   ret i32 %43
 
 44:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE.exit
@@ -256,26 +256,26 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_index13SemanticIndex24expect_single_definition17hb05dcb4fd656d8f4E(ptr noalias noundef readonly align 8 dereferenceable(408) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !67
-  %5 = tail call noundef i64 @"_ZN160_$LT$ty_python_semantic..semantic_index..definition..DefinitionNodeKey$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..StmtFunctionDef$GT$$GT$4from17h92ada87ace96881fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !noalias !70
-  store i64 %5, ptr %4, align 8, !noalias !67
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !70
+  %5 = tail call noundef i64 @"_ZN160_$LT$ty_python_semantic..semantic_index..definition..DefinitionNodeKey$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..StmtFunctionDef$GT$$GT$4from17h92ada87ace96881fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %1), !noalias !73
+  store i64 %5, ptr %4, align 8, !noalias !70
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %7 = load i64, ptr %6, align 8, !alias.scope !71, !noalias !74, !noundef !7
+  %7 = load i64, ptr %6, align 8, !alias.scope !74, !noalias !77, !noundef !7
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %select.unfold.i, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %12 = call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h6889336379dcaa41E(ptr noalias noundef nonnull readonly align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !76
-  call void @llvm.experimental.noalias.scope.decl(metadata !77)
+  %12 = call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h6889336379dcaa41E(ptr noalias noundef nonnull readonly align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !79
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
+  call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %13 = lshr i64 %12, 57
   %14 = trunc nuw nsw i64 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %16 = load i64, ptr %15, align 8, !alias.scope !83, !noalias !84, !noundef !7
-  %17 = load ptr, ptr %10, align 8, !alias.scope !83, !noalias !84, !nonnull !7, !noundef !7
+  %16 = load i64, ptr %15, align 8, !alias.scope !86, !noalias !87, !noundef !7
+  %17 = load ptr, ptr %10, align 8, !alias.scope !86, !noalias !87, !nonnull !7, !noundef !7
   %.sroa.01.0.vec.insert.i.i.i.i.i = insertelement <16 x i8> poison, i8 %14, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %invariant.gep.i.i.i = getelementptr i8, ptr %17, i64 -32
@@ -286,7 +286,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %.pn.i.i.i = phi i64 [ %12, %9 ], [ %36, %34 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.01.0.i.i.i.i
-  %.sroa.0.0.copyload.i5.i.i.i = load <16 x i8>, ptr %19, align 1, !noalias !86
+  %.sroa.0.0.copyload.i5.i.i.i = load <16 x i8>, ptr %19, align 1, !noalias !89
   %20 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i, %.sroa.01.15.vec.insert.i.i.i.i.i
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.not11.i.i.i = icmp eq i16 %21, 0
@@ -300,7 +300,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
   %gep.i.i.i = getelementptr { i64, { { { [2 x i64] }, i64 } } }, ptr %invariant.gep.i.i.i, i64 %26
-  %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep.i.i.i), !noalias !87
+  %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep.i.i.i), !noalias !90
   br i1 %27, label %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E.exit, label %31, !prof !35
 
 ._crit_edge.i.i.i:                                ; preds = %31, %18
@@ -313,12 +313,12 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %32 = add i16 %.sroa.06.0.i12.i.i.i, -1
   %33 = and i16 %32, %.sroa.06.0.i12.i.i.i
   %.not.i.not.i.i.i = icmp eq i16 %33, 0
-  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 34:                                               ; preds = %._crit_edge.i.i.i
   %35 = add i64 %.sroa.9.0.i.i.i.i, 16
   %36 = add i64 %.sroa.01.0.i.i.i.i, %35
-  br label %18
+  br label %18, !llvm.loop !39
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
@@ -327,7 +327,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E.exit: ; preds = %.lr.ph.i.i.i
   %37 = getelementptr inbounds { i64, { { { [2 x i64] }, i64 } } }, ptr %17, i64 %26
   %38 = getelementptr inbounds i8, ptr %37, i64 -24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !67
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !70
   %39 = call { ptr, i64 } @"_ZN103_$LT$ty_python_semantic..semantic_index..definition..Definitions$u20$as$u20$core..ops..deref..Deref$GT$5deref17h410d96d33ab18230E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %40 = extractvalue { ptr, i64 } %39, 1
   %.not = icmp eq i64 %40, 0
@@ -335,7 +335,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935b
 
 41:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E.exit
   %42 = extractvalue { ptr, i64 } %39, 0
-  %43 = load i32, ptr %42, align 4, !range !37, !noundef !7
+  %43 = load i32, ptr %42, align 4, !range !40, !noundef !7
   ret i32 %43
 
 44:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E.exit
@@ -346,26 +346,26 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935b
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_index13SemanticIndex24expect_single_definition17hb2ef1c6cc68a2c19E(ptr noalias noundef readonly align 8 dereferenceable(408) %0, ptr noalias noundef readonly align 8 dereferenceable(104) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [8 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !93
-  %5 = tail call noundef i64 @"_ZN157_$LT$ty_python_semantic..semantic_index..definition..DefinitionNodeKey$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..StmtClassDef$GT$$GT$4from17h5950826e79feb65bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !96
-  store i64 %5, ptr %4, align 8, !noalias !93
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !96
+  %5 = tail call noundef i64 @"_ZN157_$LT$ty_python_semantic..semantic_index..definition..DefinitionNodeKey$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..generated..StmtClassDef$GT$$GT$4from17h5950826e79feb65bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !99
+  store i64 %5, ptr %4, align 8, !noalias !96
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %7 = load i64, ptr %6, align 8, !alias.scope !97, !noalias !100, !noundef !7
+  %7 = load i64, ptr %6, align 8, !alias.scope !100, !noalias !103, !noundef !7
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %select.unfold.i, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %12 = call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h6889336379dcaa41E(ptr noalias noundef nonnull readonly align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !102
-  call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  %12 = call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h6889336379dcaa41E(ptr noalias noundef nonnull readonly align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4), !noalias !105
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  call void @llvm.experimental.noalias.scope.decl(metadata !109)
   %13 = lshr i64 %12, 57
   %14 = trunc nuw nsw i64 %13 to i8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %16 = load i64, ptr %15, align 8, !alias.scope !109, !noalias !110, !noundef !7
-  %17 = load ptr, ptr %10, align 8, !alias.scope !109, !noalias !110, !nonnull !7, !noundef !7
+  %16 = load i64, ptr %15, align 8, !alias.scope !112, !noalias !113, !noundef !7
+  %17 = load ptr, ptr %10, align 8, !alias.scope !112, !noalias !113, !nonnull !7, !noundef !7
   %.sroa.01.0.vec.insert.i.i.i.i.i = insertelement <16 x i8> poison, i8 %14, i64 0
   %.sroa.01.15.vec.insert.i.i.i.i.i = shufflevector <16 x i8> %.sroa.01.0.vec.insert.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %invariant.gep.i.i.i = getelementptr i8, ptr %17, i64 -32
@@ -376,7 +376,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %.pn.i.i.i = phi i64 [ %12, %9 ], [ %36, %34 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %16
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.01.0.i.i.i.i
-  %.sroa.0.0.copyload.i5.i.i.i = load <16 x i8>, ptr %19, align 1, !noalias !112
+  %.sroa.0.0.copyload.i5.i.i.i = load <16 x i8>, ptr %19, align 1, !noalias !115
   %20 = icmp eq <16 x i8> %.sroa.0.0.copyload.i5.i.i.i, %.sroa.01.15.vec.insert.i.i.i.i.i
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.not11.i.i.i = icmp eq i16 %21, 0
@@ -390,7 +390,7 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %25 = and i64 %24, %16
   %26 = sub nsw i64 0, %25
   %gep.i.i.i = getelementptr { i64, { { { [2 x i64] }, i64 } } }, ptr %invariant.gep.i.i.i, i64 %26
-  %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep.i.i.i), !noalias !113
+  %27 = call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hd0feb514978d8b6fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %gep.i.i.i), !noalias !116
   br i1 %27, label %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E.exit, label %31, !prof !35
 
 ._crit_edge.i.i.i:                                ; preds = %31, %18
@@ -403,12 +403,12 @@ define hidden noundef range(i32 1, 0) i32 @_ZN18ty_python_semantic14semantic_ind
   %32 = add i16 %.sroa.06.0.i12.i.i.i, -1
   %33 = and i16 %32, %.sroa.06.0.i12.i.i.i
   %.not.i.not.i.i.i = icmp eq i16 %33, 0
-  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  br i1 %.not.i.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !37
 
 34:                                               ; preds = %._crit_edge.i.i.i
   %35 = add i64 %.sroa.9.0.i.i.i.i, 16
   %36 = add i64 %.sroa.01.0.i.i.i.i, %35
-  br label %18
+  br label %18, !llvm.loop !39
 
 select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, %3
   call void @_ZN4core6option13expect_failed17h8456634a3dada3e4E(ptr noalias noundef nonnull readonly align 1 @anon.640e9b71cc5318774e7be29de6096b20.3, i64 noundef 22, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2) #13
@@ -417,7 +417,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E.exit: ; preds = %.lr.ph.i.i.i
   %37 = getelementptr inbounds { i64, { { { [2 x i64] }, i64 } } }, ptr %17, i64 %26
   %38 = getelementptr inbounds i8, ptr %37, i64 -24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !93
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !96
   %39 = call { ptr, i64 } @"_ZN103_$LT$ty_python_semantic..semantic_index..definition..Definitions$u20$as$u20$core..ops..deref..Deref$GT$5deref17h410d96d33ab18230E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %38)
   %40 = extractvalue { ptr, i64 } %39, 1
   %.not = icmp eq i64 %40, 0
@@ -425,7 +425,7 @@ _ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce0
 
 41:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E.exit
   %42 = extractvalue { ptr, i64 } %39, 0
-  %43 = load i32, ptr %42, align 4, !range !37, !noundef !7
+  %43 = load i32, ptr %42, align 4, !range !40, !noundef !7
   ret i32 %43
 
 44:                                               ; preds = %_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E.exit
@@ -473,10 +473,10 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %3 = alloca [20 x i8], align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h40adbc79baf69b72E(ptr noalias noundef nonnull readonly align 1 %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1)
-  tail call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d6b3d412cb055a8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %4), !noalias !116
-  %.val.i = load ptr, ptr %0, align 8, !alias.scope !119, !noalias !121, !nonnull !7, !noundef !7
+  tail call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h4d6b3d412cb055a8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 1, ptr noalias noundef nonnull readonly align 1 %4), !noalias !119
+  %.val.i = load ptr, ptr %0, align 8, !alias.scope !122, !noalias !124, !nonnull !7, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val6.i = load i64, ptr %6, align 8, !alias.scope !119, !noalias !121, !noundef !7
+  %.val6.i = load i64, ptr %6, align 8, !alias.scope !122, !noalias !124, !noundef !7
   %7 = lshr i64 %5, 57
   %8 = trunc nuw nsw i64 %7 to i8
   %.sroa.01.0.vec.insert.i.i.i.i = insertelement <16 x i8> poison, i8 %8, i64 0
@@ -502,11 +502,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %14 = zext nneg i16 %13 to i64
   %15 = add i64 %.sroa.0.09.i.i, %14
   %16 = and i64 %15, %.val6.i
-  %17 = load ptr, ptr %0, align 8, !alias.scope !119, !noalias !123, !nonnull !7, !noundef !7
+  %17 = load ptr, ptr %0, align 8, !alias.scope !122, !noalias !126, !nonnull !7, !noundef !7
   %18 = sub nsw i64 0, %16
   %19 = getelementptr inbounds { { i32, { i32, i32 }, { i32, i32 } }, {} }, ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -20
-  %21 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h997ed4232e8d312bE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %20), !noalias !126
+  %21 = tail call noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h997ed4232e8d312bE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %20), !noalias !129
   br i1 %21, label %.loopexit, label %22, !prof !35
 
 ._crit_edge.i.i:                                  ; preds = %22, %9
@@ -517,7 +517,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %23 = add i16 %.sroa.03.012.i.i, -1
   %24 = and i16 %23, %.sroa.03.012.i.i
   %.not.i.i = icmp eq i16 %24, 0
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !130
 
 25:                                               ; preds = %._crit_edge.i.i
   %26 = icmp slt <16 x i8> %.sroa.0.0.copyload.i10.i.i, zeroinitializer
@@ -543,7 +543,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 36:                                               ; preds = %32
   %37 = add i64 %.sroa.8.0.i.i, 16
   %38 = add i64 %.sroa.0.09.i.i, %37
-  br label %9
+  br label %9, !llvm.loop !131
 
 39:                                               ; preds = %32
   %40 = trunc nuw i64 %.sroa.01.1.i.i to i1
@@ -567,31 +567,31 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   %.sroa.3.0.i.ph.i = phi i64 [ %.sroa.6.1.i.i, %39 ], [ %50, %44 ]
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  %52 = load ptr, ptr %0, align 8, !alias.scope !127, !noalias !130, !nonnull !7, !noundef !7
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
+  %52 = load ptr, ptr %0, align 8, !alias.scope !132, !noalias !135, !nonnull !7, !noundef !7
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.sroa.3.0.i.ph.i
-  %54 = load i8, ptr %53, align 1, !noalias !132, !noundef !7
+  %54 = load i8, ptr %53, align 1, !noalias !137, !noundef !7
   %55 = and i8 %54, 1
   %56 = zext nneg i8 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %58 = load i64, ptr %57, align 8, !alias.scope !127, !noalias !130, !noundef !7
+  %58 = load i64, ptr %57, align 8, !alias.scope !132, !noalias !135, !noundef !7
   %59 = sub i64 %58, %56
-  store i64 %59, ptr %57, align 8, !alias.scope !127, !noalias !130
+  store i64 %59, ptr %57, align 8, !alias.scope !132, !noalias !135
   %60 = add i64 %.sroa.3.0.i.ph.i, -16
-  %61 = load i64, ptr %6, align 8, !alias.scope !127, !noalias !130, !noundef !7
+  %61 = load i64, ptr %6, align 8, !alias.scope !132, !noalias !135, !noundef !7
   %62 = and i64 %61, %60
-  store i8 %8, ptr %53, align 1, !noalias !132
+  store i8 %8, ptr %53, align 1, !noalias !137
   %63 = getelementptr i8, ptr %52, i64 %62
   %64 = getelementptr i8, ptr %63, i64 16
-  store i8 %8, ptr %64, align 1, !noalias !132
+  store i8 %8, ptr %64, align 1, !noalias !137
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %66 = load i64, ptr %65, align 8, !alias.scope !127, !noalias !130, !noundef !7
+  %66 = load i64, ptr %65, align 8, !alias.scope !132, !noalias !135, !noundef !7
   %67 = add i64 %66, 1
-  store i64 %67, ptr %65, align 8, !alias.scope !127, !noalias !130
+  store i64 %67, ptr %65, align 8, !alias.scope !132, !noalias !135
   %68 = sub nsw i64 0, %.sroa.3.0.i.ph.i
   %69 = getelementptr inbounds { { i32, { i32, i32 }, { i32, i32 } }, {} }, ptr %52, i64 %68
   %70 = getelementptr inbounds i8, ptr %69, i64 -20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %70, ptr noundef nonnull readonly align 4 dereferenceable(20) %3, i64 20, i1 false), !noalias !127
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %70, ptr noundef nonnull readonly align 4 dereferenceable(20) %3, i64 20, i1 false), !noalias !132
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3)
   br label %.loopexit
 
@@ -786,99 +786,104 @@ attributes #13 = { noreturn }
 !34 = distinct !{!34, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E"}
 !35 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !36 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!37 = !{i32 1, i32 0}
-!38 = !{!39}
-!39 = distinct !{!39, !40, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE: argument 0"}
-!40 = distinct !{!40, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE"}
-!41 = !{!39, !42, !43}
-!42 = distinct !{!42, !40, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE: argument 1"}
-!43 = distinct !{!43, !40, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE: argument 2"}
-!44 = !{!39, !43}
-!45 = !{!46, !39}
-!46 = distinct !{!46, !47, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 0"}
-!47 = distinct !{!47, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E"}
-!48 = !{!49, !42, !43}
-!49 = distinct !{!49, !47, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 1"}
-!50 = !{!43}
-!51 = !{!52}
-!52 = distinct !{!52, !53, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 0"}
-!53 = distinct !{!53, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E"}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = distinct !{!39, !38}
+!40 = !{i32 1, i32 0}
+!41 = !{!42}
+!42 = distinct !{!42, !43, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE: argument 0"}
+!43 = distinct !{!43, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE"}
+!44 = !{!42, !45, !46}
+!45 = distinct !{!45, !43, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE: argument 1"}
+!46 = distinct !{!46, !43, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h788819ba17b1790aE: argument 2"}
+!47 = !{!42, !46}
+!48 = !{!49, !42}
+!49 = distinct !{!49, !50, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 0"}
+!50 = distinct !{!50, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E"}
+!51 = !{!52, !45, !46}
+!52 = distinct !{!52, !50, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 1"}
+!53 = !{!46}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE: argument 0"}
-!56 = distinct !{!56, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE"}
-!57 = !{!55, !52, !46, !39}
-!58 = !{!59, !49, !42, !43}
-!59 = distinct !{!59, !53, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 1"}
-!60 = !{!55, !52, !43}
-!61 = !{!62, !55, !52, !43}
-!62 = distinct !{!62, !63, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E: argument 0"}
-!63 = distinct !{!63, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E: argument 0"}
-!66 = distinct !{!66, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E"}
-!67 = !{!65, !68, !69}
-!68 = distinct !{!68, !66, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E: argument 1"}
-!69 = distinct !{!69, !66, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E: argument 2"}
-!70 = !{!65, !69}
-!71 = !{!72, !65}
-!72 = distinct !{!72, !73, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 0"}
-!73 = distinct !{!73, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E"}
-!74 = !{!75, !68, !69}
-!75 = distinct !{!75, !73, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 1"}
-!76 = !{!69}
-!77 = !{!78}
-!78 = distinct !{!78, !79, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 0"}
-!79 = distinct !{!79, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E"}
+!55 = distinct !{!55, !56, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 0"}
+!56 = distinct !{!56, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE: argument 0"}
+!59 = distinct !{!59, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE"}
+!60 = !{!58, !55, !49, !42}
+!61 = !{!62, !52, !45, !46}
+!62 = distinct !{!62, !56, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 1"}
+!63 = !{!58, !55, !46}
+!64 = !{!65, !58, !55, !46}
+!65 = distinct !{!65, !66, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E: argument 0"}
+!66 = distinct !{!66, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E"}
+!67 = !{!68}
+!68 = distinct !{!68, !69, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E: argument 0"}
+!69 = distinct !{!69, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E"}
+!70 = !{!68, !71, !72}
+!71 = distinct !{!71, !69, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E: argument 1"}
+!72 = distinct !{!72, !69, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h286c68935bface10E: argument 2"}
+!73 = !{!68, !72}
+!74 = !{!75, !68}
+!75 = distinct !{!75, !76, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 0"}
+!76 = distinct !{!76, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E"}
+!77 = !{!78, !71, !72}
+!78 = distinct !{!78, !76, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 1"}
+!79 = !{!72}
 !80 = !{!81}
-!81 = distinct !{!81, !82, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE: argument 0"}
-!82 = distinct !{!82, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE"}
-!83 = !{!81, !78, !72, !65}
-!84 = !{!85, !75, !68, !69}
-!85 = distinct !{!85, !79, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 1"}
-!86 = !{!81, !78, !69}
-!87 = !{!88, !81, !78, !69}
-!88 = distinct !{!88, !89, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E: argument 0"}
-!89 = distinct !{!89, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E"}
-!90 = !{!91}
-!91 = distinct !{!91, !92, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E: argument 0"}
-!92 = distinct !{!92, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E"}
-!93 = !{!91, !94, !95}
-!94 = distinct !{!94, !92, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E: argument 1"}
-!95 = distinct !{!95, !92, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E: argument 2"}
-!96 = !{!91, !95}
-!97 = !{!98, !91}
-!98 = distinct !{!98, !99, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 0"}
-!99 = distinct !{!99, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E"}
-!100 = !{!101, !94, !95}
-!101 = distinct !{!101, !99, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 1"}
-!102 = !{!95}
-!103 = !{!104}
-!104 = distinct !{!104, !105, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 0"}
-!105 = distinct !{!105, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E"}
+!81 = distinct !{!81, !82, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 0"}
+!82 = distinct !{!82, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E"}
+!83 = !{!84}
+!84 = distinct !{!84, !85, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE: argument 0"}
+!85 = distinct !{!85, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE"}
+!86 = !{!84, !81, !75, !68}
+!87 = !{!88, !78, !71, !72}
+!88 = distinct !{!88, !82, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 1"}
+!89 = !{!84, !81, !72}
+!90 = !{!91, !84, !81, !72}
+!91 = distinct !{!91, !92, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E: argument 0"}
+!92 = distinct !{!92, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E: argument 0"}
+!95 = distinct !{!95, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E"}
+!96 = !{!94, !97, !98}
+!97 = distinct !{!97, !95, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E: argument 1"}
+!98 = distinct !{!98, !95, !"_ZN18ty_python_semantic14semantic_index13SemanticIndex11definitions17h8803b47ce042ce64E: argument 2"}
+!99 = !{!94, !98}
+!100 = !{!101, !94}
+!101 = distinct !{!101, !102, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 0"}
+!102 = distinct !{!102, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E"}
+!103 = !{!104, !97, !98}
+!104 = distinct !{!104, !102, !"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5c27bd5ccb9a2884E: argument 1"}
+!105 = !{!98}
 !106 = !{!107}
-!107 = distinct !{!107, !108, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE: argument 0"}
-!108 = distinct !{!108, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE"}
-!109 = !{!107, !104, !98, !91}
-!110 = !{!111, !101, !94, !95}
-!111 = distinct !{!111, !105, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 1"}
-!112 = !{!107, !104, !95}
-!113 = !{!114, !107, !104, !95}
-!114 = distinct !{!114, !115, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E: argument 0"}
-!115 = distinct !{!115, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E"}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E: argument 1"}
-!118 = distinct !{!118, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E"}
+!107 = distinct !{!107, !108, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 0"}
+!108 = distinct !{!108, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E"}
+!109 = !{!110}
+!110 = distinct !{!110, !111, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE: argument 0"}
+!111 = distinct !{!111, !"_ZN9hashbrown3raw13RawTableInner10find_inner17ha848258157bd08adE"}
+!112 = !{!110, !107, !101, !94}
+!113 = !{!114, !104, !97, !98}
+!114 = distinct !{!114, !108, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h956e8568439563c4E: argument 1"}
+!115 = !{!110, !107, !98}
+!116 = !{!117, !110, !107, !98}
+!117 = distinct !{!117, !118, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E: argument 0"}
+!118 = distinct !{!118, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h290202c12c00fc65E"}
 !119 = !{!120}
-!120 = distinct !{!120, !118, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E: argument 0"}
-!121 = !{!117, !122}
-!122 = distinct !{!122, !118, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E: argument 2"}
-!123 = !{!124, !117, !122}
-!124 = distinct !{!124, !125, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17heafbc63a0561bed6E: argument 0"}
-!125 = distinct !{!125, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17heafbc63a0561bed6E"}
-!126 = !{!124}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hde8d41c6619af449E: argument 0"}
-!129 = distinct !{!129, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hde8d41c6619af449E"}
-!130 = !{!131}
-!131 = distinct !{!131, !129, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hde8d41c6619af449E: argument 1"}
-!132 = !{!128, !131}
+!120 = distinct !{!120, !121, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E: argument 1"}
+!121 = distinct !{!121, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E"}
+!122 = !{!123}
+!123 = distinct !{!123, !121, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E: argument 0"}
+!124 = !{!120, !125}
+!125 = distinct !{!125, !121, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h96278c56e1bc4439E: argument 2"}
+!126 = !{!127, !120, !125}
+!127 = distinct !{!127, !128, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17heafbc63a0561bed6E: argument 0"}
+!128 = distinct !{!128, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17heafbc63a0561bed6E"}
+!129 = !{!127}
+!130 = distinct !{!130, !38}
+!131 = distinct !{!131, !38}
+!132 = !{!133}
+!133 = distinct !{!133, !134, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hde8d41c6619af449E: argument 0"}
+!134 = distinct !{!134, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hde8d41c6619af449E"}
+!135 = !{!136}
+!136 = distinct !{!136, !134, !"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hde8d41c6619af449E: argument 1"}
+!137 = !{!133, !136}

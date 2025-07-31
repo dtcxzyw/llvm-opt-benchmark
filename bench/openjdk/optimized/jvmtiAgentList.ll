@@ -83,7 +83,7 @@ define hidden void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(pt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %9, align 8
   %10 = load volatile ptr, ptr %1, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   store ptr %10, ptr %4, align 8
   %.not3 = icmp eq ptr %10, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
@@ -102,7 +102,7 @@ define hidden void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(pt
   %17 = call noundef ptr @_ZNK10JvmtiAgent4nextEv(ptr noundef nonnull align 8 dereferenceable(86) %16) #10
   store ptr %17, ptr %4, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %13, %3
   ret void
@@ -180,11 +180,11 @@ define hidden void @_ZN14JvmtiAgentList3addEP10JvmtiAgent(ptr noundef %0) local_
 
 2:                                                ; preds = %2, %1
   %3 = load volatile ptr, ptr @_ZN14JvmtiAgentList5_listE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   tail call void @_ZN10JvmtiAgent8set_nextEPS_(ptr noundef nonnull align 8 dereferenceable(86) %0, ptr noundef %3) #10
-  %4 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %3, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !10
+  %4 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr %3, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !11
   %.not = icmp eq ptr %4, %3
-  br i1 %.not, label %5, label %2, !llvm.loop !11
+  br i1 %.not, label %5, label %2, !llvm.loop !12
 
 5:                                                ; preds = %2
   ret void
@@ -200,11 +200,11 @@ define hidden void @_ZN14JvmtiAgentList3addEPKcS1_b(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %5, %3
   %6 = load volatile ptr, ptr @_ZN14JvmtiAgentList5_listE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   tail call void @_ZN10JvmtiAgent8set_nextEPS_(ptr noundef nonnull align 8 dereferenceable(86) %4, ptr noundef %6) #10
-  %7 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr %6, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !10
+  %7 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr %6, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !11
   %.not.i = icmp eq ptr %7, %6
-  br i1 %.not.i, label %_ZN14JvmtiAgentList3addEP10JvmtiAgent.exit, label %5, !llvm.loop !11
+  br i1 %.not.i, label %_ZN14JvmtiAgentList3addEP10JvmtiAgent.exit, label %5, !llvm.loop !12
 
 _ZN14JvmtiAgentList3addEP10JvmtiAgent.exit:       ; preds = %5
   ret void
@@ -221,11 +221,11 @@ define hidden void @_ZN14JvmtiAgentList8add_xrunEPKcS1_b(ptr noundef %0, ptr nou
 
 5:                                                ; preds = %5, %3
   %6 = load volatile ptr, ptr @_ZN14JvmtiAgentList5_listE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   tail call void @_ZN10JvmtiAgent8set_nextEPS_(ptr noundef nonnull align 8 dereferenceable(86) %4, ptr noundef %6) #10
-  %7 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr %6, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !10
+  %7 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, ptr %6, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !11
   %.not.i = icmp eq ptr %7, %6
-  br i1 %.not.i, label %_ZN14JvmtiAgentList3addEP10JvmtiAgent.exit, label %5, !llvm.loop !11
+  br i1 %.not.i, label %_ZN14JvmtiAgentList3addEP10JvmtiAgent.exit, label %5, !llvm.loop !12
 
 _ZN14JvmtiAgentList3addEP10JvmtiAgent.exit:       ; preds = %5
   ret void
@@ -264,7 +264,7 @@ define hidden void @_ZN14JvmtiAgentList10initializeEv() local_unnamed_addr #0 al
 14:                                               ; preds = %13, %5
   %15 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %14, %0
   store i32 0, ptr %2, align 4
@@ -321,7 +321,7 @@ define hidden void @_ZN14JvmtiAgentList19convert_xrun_agentsEv() local_unnamed_a
   tail call void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull align 8 dereferenceable(86) %11) #10
   %12 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %5, %0
   store i32 0, ptr %2, align 4
@@ -378,7 +378,7 @@ define hidden void @_ZN14JvmtiAgentList11load_agentsEv() local_unnamed_addr #0 a
   tail call void @_ZN10JvmtiAgent18convert_xrun_agentEv(ptr noundef nonnull align 8 dereferenceable(86) %12) #10
   %13 = load i32, ptr %3, align 4
   %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %._crit_edge.i, label %6, !llvm.loop !13
+  br i1 %.not.i, label %._crit_edge.i, label %6, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %6, %0
   store i32 0, ptr %3, align 4
@@ -427,7 +427,7 @@ _ZN14JvmtiAgentList19convert_xrun_agentsEv.exit:  ; preds = %._crit_edge.i, %19
   %29 = tail call noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr noundef nonnull align 8 dereferenceable(86) %28, ptr noundef null) #10
   %30 = load i32, ptr %20, align 4
   %.not.i2 = icmp eq i32 %30, 0
-  br i1 %.not.i2, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i1, !llvm.loop !14
+  br i1 %.not.i2, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i1, !llvm.loop !15
 
 _ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit: ; preds = %.lr.ph.i1, %_ZN14JvmtiAgentList19convert_xrun_agentsEv.exit
   store i32 0, ptr %20, align 4
@@ -481,7 +481,7 @@ define hidden void @_ZN14JvmtiAgentList16load_xrun_agentsEv() local_unnamed_addr
   %11 = tail call noundef zeroext i1 @_ZN10JvmtiAgent4loadEP12outputStream(ptr noundef nonnull align 8 dereferenceable(86) %10, ptr noundef null) #10
   %12 = load i32, ptr %2, align 4
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit, label %.lr.ph.i, !llvm.loop !15
 
 _ZL11load_agentsRN14JvmtiAgentList8IteratorE.exit: ; preds = %.lr.ph.i, %0
   store i32 0, ptr %2, align 4
@@ -519,11 +519,11 @@ define hidden void @_ZN14JvmtiAgentList10load_agentEPKcbS1_P12outputStream(ptr n
 
 .preheader:                                       ; preds = %4, %.preheader
   %7 = load volatile ptr, ptr @_ZN14JvmtiAgentList5_listE, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !9
   tail call void @_ZN10JvmtiAgent8set_nextEPS_(ptr noundef nonnull align 8 dereferenceable(86) %5, ptr noundef %7) #10
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %7, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !10
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, ptr %7, ptr nonnull @_ZN14JvmtiAgentList5_listE) #10, !srcloc !11
   %.not.i = icmp eq ptr %8, %7
-  br i1 %.not.i, label %_ZN14JvmtiAgentList3addEP10JvmtiAgent.exit, label %.preheader, !llvm.loop !11
+  br i1 %.not.i, label %_ZN14JvmtiAgentList3addEP10JvmtiAgent.exit, label %.preheader, !llvm.loop !12
 
 9:                                                ; preds = %4
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %5) #10
@@ -559,7 +559,7 @@ define hidden void @_ZN14JvmtiAgentList13unload_agentsEv() local_unnamed_addr #0
   tail call void @_ZN10JvmtiAgent6unloadEv(ptr noundef nonnull align 8 dereferenceable(86) %11) #10
   %12 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %5, %0
   store i32 0, ptr %2, align 4
@@ -623,7 +623,7 @@ define hidden noundef zeroext i1 @_ZN14JvmtiAgentList20is_static_lib_loadedEPKc(
 18:                                               ; preds = %14, %6
   %19 = load i32, ptr %3, align 4
   %.not9 = icmp eq i32 %19, 0
-  br i1 %.not9, label %._crit_edge, label %6, !llvm.loop !16
+  br i1 %.not9, label %._crit_edge, label %6, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %18, %14, %1
   %.lcssa = phi i1 [ false, %1 ], [ true, %14 ], [ false, %18 ]
@@ -692,7 +692,7 @@ define hidden noundef zeroext i1 @_ZN14JvmtiAgentList21is_dynamic_lib_loadedEPv(
 17:                                               ; preds = %14, %6
   %18 = load i32, ptr %3, align 4
   %.not9 = icmp eq i32 %18, 0
-  br i1 %.not9, label %._crit_edge, label %6, !llvm.loop !17
+  br i1 %.not9, label %._crit_edge, label %6, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %17, %14, %1
   %.lcssa = phi i1 [ false, %1 ], [ true, %14 ], [ false, %17 ]
@@ -765,7 +765,7 @@ define hidden noundef ptr @_ZN14JvmtiAgentList6lookupEP8JvmtiEnvPv(ptr noundef %
 _ZL5matchP8JvmtiEnvPK10JvmtiAgentPKv.exit.backedge: ; preds = %22, %30, %26
   %25 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %.loopexit, label %14, !llvm.loop !18
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !19
 
 26:                                               ; preds = %14
   %27 = call noundef ptr @_ZNK10JvmtiAgent6os_libEv(ptr noundef nonnull align 8 dereferenceable(86) %20) #10
@@ -898,7 +898,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP10Jvmti
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !19
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !20
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -914,7 +914,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP10Jvmti
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !20
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !21
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #10
@@ -977,18 +977,19 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2145392468}
-!9 = distinct !{!9, !7}
-!10 = !{i64 2145412694}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2145392468}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i64 2145412694}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

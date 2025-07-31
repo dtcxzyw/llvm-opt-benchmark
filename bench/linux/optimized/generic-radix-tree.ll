@@ -110,7 +110,7 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   %31 = select i1 %14, i64 0, i64 %30
   %32 = or i64 %31, %28
   %33 = inttoptr i64 %32 to ptr
-  %34 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr nonnull %33, ptr %8, ptr elementtype(i64) %0) #5, !srcloc !8
+  %34 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, ptr nonnull %33, ptr %8, ptr elementtype(i64) %0) #5, !srcloc !9
   %35 = icmp eq ptr %34, %8
   %36 = select i1 %35, ptr null, ptr %27
   %37 = select i1 %35, ptr %33, ptr %34
@@ -154,7 +154,7 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
 
 59:                                               ; preds = %55, %53
   %60 = phi ptr [ %42, %53 ], [ %57, %55 ]
-  %61 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %47, ptr nonnull %60, ptr null, ptr elementtype(i64) %47) #5, !srcloc !9
+  %61 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %47, ptr nonnull %60, ptr null, ptr elementtype(i64) %47) #5, !srcloc !10
   %62 = icmp eq ptr %61, null
   %63 = select i1 %62, ptr null, ptr %60
   %64 = select i1 %62, ptr %60, ptr %61
@@ -165,7 +165,7 @@ define dso_local ptr @__genradix_ptr_alloc(ptr noundef %0, i64 noundef %1, i32 n
   %67 = phi ptr [ %64, %59 ], [ %51, %.lr.ph ]
   %68 = and i64 %indvars.iv.next, 4294967295
   %69 = icmp eq i64 %68, 0
-  br i1 %69, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %69, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %65, %.preheader
   %.lcssa7 = phi ptr [ %7, %.preheader ], [ %66, %65 ]
@@ -206,7 +206,7 @@ define dso_local ptr @__genradix_iter_peek(ptr noundef captures(none) %0, ptr no
 11:                                               ; preds = %56
   %12 = load volatile ptr, ptr %1, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit5, label %14, !llvm.loop !12
+  br i1 %13, label %.loopexit5, label %14, !llvm.loop !13
 
 14:                                               ; preds = %11, %9
   %15 = phi i64 [ %4, %9 ], [ %58, %11 ]
@@ -233,7 +233,7 @@ define dso_local ptr @__genradix_iter_peek(ptr noundef captures(none) %0, ptr no
 30:                                               ; preds = %46
   %31 = and i64 %37, 4294967295
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %.loopexit, label %33, !llvm.loop !13
+  br i1 %32, label %.loopexit, label %33, !llvm.loop !14
 
 33:                                               ; preds = %30, %28
   %34 = phi i64 [ %29, %28 ], [ %37, %30 ]
@@ -308,7 +308,7 @@ define dso_local ptr @__genradix_iter_peek_prev(ptr noundef captures(none) %0, p
 12:                                               ; preds = %66
   %13 = load volatile ptr, ptr %1, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread, label %15, !llvm.loop !14
+  br i1 %14, label %.thread, label %15, !llvm.loop !15
 
 15:                                               ; preds = %12, %10
   %16 = phi i64 [ %5, %10 ], [ %67, %12 ]
@@ -347,7 +347,7 @@ define dso_local ptr @__genradix_iter_peek_prev(ptr noundef captures(none) %0, p
 39:                                               ; preds = %54
   %40 = and i64 %46, 4294967295
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %.loopexit, label %42, !llvm.loop !15
+  br i1 %41, label %.loopexit, label %42, !llvm.loop !16
 
 42:                                               ; preds = %39, %37
   %43 = phi i64 [ %38, %37 ], [ %46, %39 ]
@@ -410,7 +410,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__genradix_prealloc(ptr noundef 
 5:                                                ; preds = %.preheader
   %6 = add i64 %8, 4096
   %7 = icmp ult i64 %6, %1
-  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !16
+  br i1 %7, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %3, %5
   %8 = phi i64 [ %6, %5 ], [ 0, %3 ]
@@ -425,7 +425,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__genradix_prealloc(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__genradix_free(ptr noundef %0) #1 align 16 {
-  %2 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %0, ptr null, ptr elementtype(ptr) %0) #5, !srcloc !17
+  %2 = tail call ptr asm sideeffect "xchgq ${0:q}, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) %0, ptr null, ptr elementtype(ptr) %0) #5, !srcloc !18
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, -8
   %5 = inttoptr i64 %4 to ptr
@@ -458,7 +458,7 @@ define internal fastcc void @genradix_free_recurse(ptr noundef %0, i32 noundef r
 12:                                               ; preds = %11, %6
   %13 = add nuw nsw i64 %7, 1
   %14 = icmp eq i64 %13, 512
-  br i1 %14, label %.loopexit, label %6, !llvm.loop !18
+  br i1 %14, label %.loopexit, label %6, !llvm.loop !19
 
 .loopexit:                                        ; preds = %12, %2
   %15 = ptrtoint ptr %0 to i64
@@ -490,16 +490,17 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 940985}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 2151528458, i64 2151528497, i64 2151528518, i64 2151528555, i64 2151528578, i64 2151528587}
-!9 = !{i64 2151533622, i64 2151533661, i64 2151533682, i64 2151533719, i64 2151533742, i64 2151533751}
-!10 = distinct !{!10, !11, !7}
-!11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11, !7}
-!13 = distinct !{!13, !11, !7}
-!14 = distinct !{!14, !11, !7}
-!15 = distinct !{!15, !11, !7}
-!16 = distinct !{!16, !11, !7}
-!17 = !{i64 2151549680}
-!18 = distinct !{!18, !11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2151528458, i64 2151528497, i64 2151528518, i64 2151528555, i64 2151528578, i64 2151528587}
+!10 = !{i64 2151533622, i64 2151533661, i64 2151533682, i64 2151533719, i64 2151533742, i64 2151533751}
+!11 = distinct !{!11, !12, !7, !8}
+!12 = !{!"llvm.loop.mustprogress"}
+!13 = distinct !{!13, !12, !7, !8}
+!14 = distinct !{!14, !12, !7, !8}
+!15 = distinct !{!15, !12, !7, !8}
+!16 = distinct !{!16, !12, !7, !8}
+!17 = distinct !{!17, !12, !7, !8}
+!18 = !{i64 2151549680}
+!19 = distinct !{!19, !12, !7, !8}

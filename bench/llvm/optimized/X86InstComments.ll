@@ -648,7 +648,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i: ; pre
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.8.075.i, i64 %119
   %121 = sub i64 %.sroa.053.074.i, %119
   %122 = icmp eq i64 %121, 0
-  br i1 %122, label %.thread69.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i
+  br i1 %122, label %.thread69.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i, !llvm.loop !40
 
 .thread69.i:                                      ; preds = %118, %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i
   %123 = load ptr, ptr %63, align 8, !tbaa !29
@@ -950,7 +950,7 @@ _ZN4llvm11raw_ostreamlsEc.exit60.i:               ; preds = %264, %262, %195
   %.1.i = phi i1 [ %.03368.i, %195 ], [ true, %262 ], [ true, %264 ]
   %267 = add nuw nsw i64 %.03467.i, 1
   %.not36.i = icmp eq i64 %267, 8
-  br i1 %.not36.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit43.i, label %195, !llvm.loop !39
+  br i1 %.not36.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit43.i, label %195, !llvm.loop !41
 
 _ZN4llvm11raw_ostreamlsEPKc.exit43.i:             ; preds = %_ZN4llvm11raw_ostreamlsEc.exit60.i, %192, %190
   %268 = load ptr, ptr %152, align 8, !tbaa !29
@@ -1885,7 +1885,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %283 = zext i32 %281 to i64
   %284 = load ptr, ptr %282, align 8, !tbaa !3
   %285 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %284, i64 %283
-  %286 = load i8, ptr %285, align 8, !tbaa !40
+  %286 = load i8, ptr %285, align 8, !tbaa !42
   %287 = icmp eq i8 %286, 2
   br i1 %287, label %288, label %294
 
@@ -1926,7 +1926,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %312 = zext i32 %310 to i64
   %313 = load ptr, ptr %311, align 8, !tbaa !3
   %314 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %313, i64 %312
-  %315 = load i8, ptr %314, align 8, !tbaa !40
+  %315 = load i8, ptr %314, align 8, !tbaa !42
   %316 = icmp eq i8 %315, 2
   br i1 %316, label %317, label %323
 
@@ -1967,7 +1967,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %341 = zext i32 %339 to i64
   %342 = load ptr, ptr %340, align 8, !tbaa !3
   %343 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %342, i64 %341
-  %344 = load i8, ptr %343, align 8, !tbaa !40
+  %344 = load i8, ptr %343, align 8, !tbaa !42
   %345 = icmp eq i8 %344, 2
   br i1 %345, label %346, label %352
 
@@ -2008,7 +2008,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %370 = zext i32 %368 to i64
   %371 = load ptr, ptr %369, align 8, !tbaa !3
   %372 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %371, i64 %370
-  %373 = load i8, ptr %372, align 8, !tbaa !40
+  %373 = load i8, ptr %372, align 8, !tbaa !42
   %374 = icmp eq i8 %373, 2
   br i1 %374, label %375, label %381
 
@@ -2052,7 +2052,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %405 = zext i32 %404 to i64
   %406 = load ptr, ptr %391, align 8, !tbaa !3
   %407 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %406, i64 %405
-  %408 = load i8, ptr %407, align 8, !tbaa !40
+  %408 = load i8, ptr %407, align 8, !tbaa !42
   %409 = icmp eq i8 %408, 2
   br i1 %409, label %410, label %1581
 
@@ -2077,7 +2077,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %425 = zext i32 %424 to i64
   %426 = load ptr, ptr %415, align 8, !tbaa !3
   %427 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %426, i64 %425
-  %428 = load i8, ptr %427, align 8, !tbaa !40
+  %428 = load i8, ptr %427, align 8, !tbaa !42
   %429 = icmp eq i8 %428, 2
   br i1 %429, label %430, label %1581
 
@@ -2265,7 +2265,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %563 = zext i32 %562 to i64
   %564 = load ptr, ptr %557, align 8, !tbaa !3
   %565 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %564, i64 %563
-  %566 = load i8, ptr %565, align 8, !tbaa !40
+  %566 = load i8, ptr %565, align 8, !tbaa !42
   %567 = icmp eq i8 %566, 2
   br i1 %567, label %568, label %1581
 
@@ -2298,7 +2298,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %587 = zext i32 %586 to i64
   %588 = load ptr, ptr %581, align 8, !tbaa !3
   %589 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %588, i64 %587
-  %590 = load i8, ptr %589, align 8, !tbaa !40
+  %590 = load i8, ptr %589, align 8, !tbaa !42
   %591 = icmp eq i8 %590, 2
   br i1 %591, label %592, label %1581
 
@@ -2340,7 +2340,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %619 = zext i32 %618 to i64
   %620 = load ptr, ptr %608, align 8, !tbaa !3
   %621 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %620, i64 %619
-  %622 = load i8, ptr %621, align 8, !tbaa !40
+  %622 = load i8, ptr %621, align 8, !tbaa !42
   %623 = icmp eq i8 %622, 2
   br i1 %623, label %624, label %1581
 
@@ -2382,7 +2382,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %651 = zext i32 %650 to i64
   %652 = load ptr, ptr %640, align 8, !tbaa !3
   %653 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %652, i64 %651
-  %654 = load i8, ptr %653, align 8, !tbaa !40
+  %654 = load i8, ptr %653, align 8, !tbaa !42
   %655 = icmp eq i8 %654, 2
   br i1 %655, label %656, label %1581
 
@@ -2424,7 +2424,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %683 = zext i32 %682 to i64
   %684 = load ptr, ptr %672, align 8, !tbaa !3
   %685 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %684, i64 %683
-  %686 = load i8, ptr %685, align 8, !tbaa !40
+  %686 = load i8, ptr %685, align 8, !tbaa !42
   %687 = icmp eq i8 %686, 2
   br i1 %687, label %688, label %1581
 
@@ -2459,7 +2459,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %709 = zext i32 %708 to i64
   %710 = load ptr, ptr %703, align 8, !tbaa !3
   %711 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %710, i64 %709
-  %712 = load i8, ptr %711, align 8, !tbaa !40
+  %712 = load i8, ptr %711, align 8, !tbaa !42
   %713 = icmp eq i8 %712, 2
   br i1 %713, label %714, label %1581
 
@@ -2494,7 +2494,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %735 = zext i32 %734 to i64
   %736 = load ptr, ptr %729, align 8, !tbaa !3
   %737 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %736, i64 %735
-  %738 = load i8, ptr %737, align 8, !tbaa !40
+  %738 = load i8, ptr %737, align 8, !tbaa !42
   %739 = icmp eq i8 %738, 2
   br i1 %739, label %740, label %1581
 
@@ -2529,7 +2529,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %761 = zext i32 %760 to i64
   %762 = load ptr, ptr %755, align 8, !tbaa !3
   %763 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %762, i64 %761
-  %764 = load i8, ptr %763, align 8, !tbaa !40
+  %764 = load i8, ptr %763, align 8, !tbaa !42
   %765 = icmp eq i8 %764, 2
   br i1 %765, label %766, label %1581
 
@@ -2562,7 +2562,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %785 = zext i32 %784 to i64
   %786 = load ptr, ptr %779, align 8, !tbaa !3
   %787 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %786, i64 %785
-  %788 = load i8, ptr %787, align 8, !tbaa !40
+  %788 = load i8, ptr %787, align 8, !tbaa !42
   %789 = icmp eq i8 %788, 2
   br i1 %789, label %790, label %1581
 
@@ -2857,7 +2857,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %993 = zext i32 %991 to i64
   %994 = load ptr, ptr %992, align 8, !tbaa !3
   %995 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %994, i64 %993
-  %996 = load i8, ptr %995, align 8, !tbaa !40
+  %996 = load i8, ptr %995, align 8, !tbaa !42
   %997 = icmp eq i8 %996, 2
   br i1 %997, label %998, label %1004
 
@@ -2903,7 +2903,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1026 = zext i32 %1024 to i64
   %1027 = load ptr, ptr %1025, align 8, !tbaa !3
   %1028 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1027, i64 %1026
-  %1029 = load i8, ptr %1028, align 8, !tbaa !40
+  %1029 = load i8, ptr %1028, align 8, !tbaa !42
   %1030 = icmp eq i8 %1029, 2
   br i1 %1030, label %1031, label %1037
 
@@ -3144,7 +3144,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1201 = zext i32 %1199 to i64
   %1202 = load ptr, ptr %1200, align 8, !tbaa !3
   %1203 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1202, i64 %1201
-  %1204 = load i8, ptr %1203, align 8, !tbaa !40
+  %1204 = load i8, ptr %1203, align 8, !tbaa !42
   %1205 = icmp eq i8 %1204, 2
   br i1 %1205, label %1206, label %1212
 
@@ -3183,7 +3183,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1228 = zext i32 %1226 to i64
   %1229 = load ptr, ptr %1227, align 8, !tbaa !3
   %1230 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1229, i64 %1228
-  %1231 = load i8, ptr %1230, align 8, !tbaa !40
+  %1231 = load i8, ptr %1230, align 8, !tbaa !42
   %1232 = icmp eq i8 %1231, 2
   br i1 %1232, label %1233, label %1239
 
@@ -3220,7 +3220,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1253 = zext i32 %1251 to i64
   %1254 = load ptr, ptr %1252, align 8, !tbaa !3
   %1255 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1254, i64 %1253
-  %1256 = load i8, ptr %1255, align 8, !tbaa !40
+  %1256 = load i8, ptr %1255, align 8, !tbaa !42
   %1257 = icmp eq i8 %1256, 2
   br i1 %1257, label %1258, label %1262
 
@@ -3260,7 +3260,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1282 = zext i32 %1280 to i64
   %1283 = load ptr, ptr %1281, align 8, !tbaa !3
   %1284 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1283, i64 %1282
-  %1285 = load i8, ptr %1284, align 8, !tbaa !40
+  %1285 = load i8, ptr %1284, align 8, !tbaa !42
   %1286 = icmp eq i8 %1285, 2
   br i1 %1286, label %1287, label %1293
 
@@ -3299,7 +3299,7 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1309 = zext i32 %1307 to i64
   %1310 = load ptr, ptr %1308, align 8, !tbaa !3
   %1311 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %1310, i64 %1309
-  %1312 = load i8, ptr %1311, align 8, !tbaa !40
+  %1312 = load i8, ptr %1311, align 8, !tbaa !42
   %1313 = icmp eq i8 %1312, 2
   br i1 %1313, label %1314, label %1320
 
@@ -3372,13 +3372,13 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1364 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1365 = load ptr, ptr %1364, align 8, !tbaa !3
   %1366 = getelementptr inbounds nuw i8, ptr %1365, i64 32
-  %1367 = load i8, ptr %1366, align 8, !tbaa !40
+  %1367 = load i8, ptr %1366, align 8, !tbaa !42
   %1368 = icmp eq i8 %1367, 2
   br i1 %1368, label %1369, label %1380
 
 1369:                                             ; preds = %1363
   %1370 = getelementptr inbounds nuw i8, ptr %1365, i64 48
-  %1371 = load i8, ptr %1370, align 8, !tbaa !40
+  %1371 = load i8, ptr %1370, align 8, !tbaa !42
   %1372 = icmp eq i8 %1371, 2
   br i1 %1372, label %1373, label %1380
 
@@ -3408,13 +3408,13 @@ _ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.e
   %1390 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1391 = load ptr, ptr %1390, align 8, !tbaa !3
   %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 48
-  %1393 = load i8, ptr %1392, align 8, !tbaa !40
+  %1393 = load i8, ptr %1392, align 8, !tbaa !42
   %1394 = icmp eq i8 %1393, 2
   br i1 %1394, label %1395, label %1406
 
 1395:                                             ; preds = %1389
   %1396 = getelementptr inbounds nuw i8, ptr %1391, i64 64
-  %1397 = load i8, ptr %1396, align 8, !tbaa !40
+  %1397 = load i8, ptr %1396, align 8, !tbaa !42
   %1398 = icmp eq i8 %1397, 2
   br i1 %1398, label %1399, label %1406
 
@@ -3780,19 +3780,19 @@ _ZN4llvm11raw_ostreamlsEPKc.exit710:              ; preds = %1621, %1623
 1630:                                             ; preds = %.lr.ph, %1635
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1635 ]
   %1631 = getelementptr inbounds nuw i32, ptr %1628, i64 %indvars.iv
-  %1632 = load i32, ptr %1631, align 4, !tbaa !43
+  %1632 = load i32, ptr %1631, align 4, !tbaa !45
   %or.cond = icmp slt i32 %1632, %invariant.smax
   br i1 %or.cond, label %1635, label %1633
 
 1633:                                             ; preds = %1630
   %1634 = sub i32 %1632, %.pre770
-  store i32 %1634, ptr %1631, align 4, !tbaa !43
+  store i32 %1634, ptr %1631, align 4, !tbaa !45
   br label %1635
 
 1635:                                             ; preds = %1630, %1633
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not640 = icmp eq i64 %indvars.iv.next, %1629
-  br i1 %.not640, label %.loopexit.loopexit, label %1630, !llvm.loop !44
+  br i1 %.not640, label %.loopexit.loopexit, label %1630, !llvm.loop !46
 
 .loopexit.loopexit:                               ; preds = %1635
   %.pre769 = load i32, ptr %7, align 8, !tbaa !9
@@ -3844,7 +3844,7 @@ _ZN4llvm11raw_ostreamlsEc.exit715:                ; preds = %1648, %1646, %.lr.p
   %1650 = zext i32 %.0593754 to i64
   %1651 = load ptr, ptr %5, align 8, !tbaa !3
   %1652 = getelementptr inbounds nuw i32, ptr %1651, i64 %1650
-  %1653 = load i32, ptr %1652, align 4, !tbaa !43
+  %1653 = load i32, ptr %1652, align 4, !tbaa !45
   %1654 = icmp eq i32 %1653, -2
   br i1 %1654, label %1655, label %1668
 
@@ -3933,7 +3933,7 @@ _ZN4llvm11raw_ostreamlsEc.exit729:                ; preds = %1689, %1691
   %1694 = zext i32 %.2595746 to i64
   %1695 = load ptr, ptr %5, align 8, !tbaa !3
   %1696 = getelementptr inbounds nuw i32, ptr %1695, i64 %1694
-  %1697 = load i32, ptr %1696, align 4, !tbaa !43
+  %1697 = load i32, ptr %1696, align 4, !tbaa !45
   %.not645 = icmp eq i32 %1697, -2
   br i1 %.not645, label %.critedge, label %1698
 
@@ -3965,7 +3965,7 @@ _ZN4llvm11raw_ostreamlsEc.exit729:                ; preds = %1689, %1691
 _ZN4llvm11raw_ostreamlsEc.exit732:                ; preds = %1708, %1706, %1702
   %1710 = load ptr, ptr %5, align 8, !tbaa !3
   %1711 = getelementptr inbounds nuw i32, ptr %1710, i64 %1694
-  %1712 = load i32, ptr %1711, align 4, !tbaa !43
+  %1712 = load i32, ptr %1711, align 4, !tbaa !45
   %1713 = icmp eq i32 %1712, -1
   br i1 %1713, label %1714, label %1723
 
@@ -3997,7 +3997,7 @@ _ZN4llvm11raw_ostreamlsEc.exit732:                ; preds = %1708, %1706, %1702
 _ZN4llvm11raw_ostreamlsEPKc.exit737:              ; preds = %1720, %1718, %1723
   %1729 = add i32 %.2595746, 1
   %.not644 = icmp eq i32 %1729, %1636
-  br i1 %.not644, label %.critedge, label %.lr.ph748, !llvm.loop !45
+  br i1 %.not644, label %.critedge, label %.lr.ph748, !llvm.loop !47
 
 .critedge:                                        ; preds = %1698, %_ZN4llvm11raw_ostreamlsEPKc.exit737, %.lr.ph748, %_ZN4llvm11raw_ostreamlsEc.exit729
   %.2595.lcssa = phi i32 [ %1636, %_ZN4llvm11raw_ostreamlsEc.exit729 ], [ %.2595746, %.lr.ph748 ], [ %1636, %_ZN4llvm11raw_ostreamlsEPKc.exit737 ], [ %.2595746, %1698 ]
@@ -4019,7 +4019,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit737:              ; preds = %1720, %1718, %1723
 _ZN4llvm11raw_ostreamlsEc.exit740:                ; preds = %1734, %1732, %_ZN4llvm11raw_ostreamlsEPKc.exit720
   %.1594 = phi i32 [ %1667, %_ZN4llvm11raw_ostreamlsEPKc.exit720 ], [ %.2595.lcssa, %1732 ], [ %.2595.lcssa, %1734 ]
   %.not641 = icmp eq i32 %.1594, %1636
-  br i1 %.not641, label %._crit_edge, label %.lr.ph755, !llvm.loop !46
+  br i1 %.not641, label %._crit_edge, label %.lr.ph755, !llvm.loop !48
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %272, %270, %1641, %1639, %_ZL21printPTERNLOGCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit.thread, %1581, %_ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit, %3
   %.0588 = phi i1 [ true, %3 ], [ false, %_ZL20printFPCLASSCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit ], [ false, %1581 ], [ true, %_ZL21printPTERNLOGCommentsPKN4llvm6MCInstERNS_11raw_ostreamERKNS_11MCInstrInfoE.exit.thread ], [ true, %1639 ], [ true, %1641 ], [ true, %270 ], [ true, %272 ]
@@ -6681,7 +6681,7 @@ define internal fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstE
   %5 = sub nsw i64 0, %4
   %6 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %.0.val, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load i64, ptr %7, align 8, !tbaa !47
+  %8 = load i64, ptr %7, align 8, !tbaa !49
   %9 = and i64 %8, 2199023255552
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %_ZN4llvm11raw_ostreamlsEPKc.exit26, label %10
@@ -6690,26 +6690,26 @@ define internal fastcc void @_ZL12printMaskingRN4llvm11raw_ostreamEPKNS_6MCInstE
   %11 = and i64 %8, 4398046511104
   %.not14 = icmp eq i64 %11, 0
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %13 = load i8, ptr %12, align 4, !tbaa !50
+  %13 = load i8, ptr %12, align 4, !tbaa !52
   %14 = zext i8 %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %16 = load i16, ptr %15, align 2, !tbaa !51
+  %16 = load i16, ptr %15, align 2, !tbaa !53
   %17 = zext i8 %13 to i16
   %18 = icmp ugt i16 %16, %17
   br i1 %18, label %19, label %_ZNK4llvm11MCInstrDesc20getOperandConstraintEjNS_4MCOI17OperandConstraintE.exit.thread
 
 19:                                               ; preds = %10
-  %20 = load i16, ptr %6, align 8, !tbaa !52
+  %20 = load i16, ptr %6, align 8, !tbaa !54
   %21 = zext i16 %20 to i64
   %22 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %6, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %25 = load i16, ptr %24, align 4, !tbaa !53
+  %25 = load i16, ptr %24, align 4, !tbaa !55
   %26 = zext i16 %25 to i64
   %27 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %23, i64 %26
   %28 = zext i8 %13 to i64
   %29 = getelementptr inbounds nuw %"class.llvm::MCOperandInfo", ptr %27, i64 %28, i32 3
-  %30 = load i16, ptr %29, align 2, !tbaa !54
+  %30 = load i16, ptr %29, align 2, !tbaa !56
   %31 = and i16 %30, 1
   %32 = zext nneg i16 %31 to i32
   %spec.select = add nuw nsw i32 %14, %32
@@ -6902,22 +6902,24 @@ attributes #9 = { nounwind }
 !34 = !{!35, !23, i64 8}
 !35 = !{!"_ZTSN4llvm9StringRefE", !14, i64 0, !23, i64 8}
 !36 = !{!35, !14, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
-!40 = !{!41, !42, i64 0}
-!41 = !{!"_ZTSN4llvm9MCOperandE", !42, i64 0, !6, i64 8}
-!42 = !{!"_ZTSN4llvm9MCOperand18MachineOperandTypeE", !6, i64 0}
-!43 = !{!8, !8, i64 0}
-!44 = distinct !{!44, !38}
-!45 = distinct !{!45, !38}
-!46 = distinct !{!46, !38}
-!47 = !{!48, !23, i64 24}
-!48 = !{!"_ZTSN4llvm11MCInstrDescE", !49, i64 0, !49, i64 2, !6, i64 4, !6, i64 5, !49, i64 6, !6, i64 8, !6, i64 9, !49, i64 10, !49, i64 12, !23, i64 16, !23, i64 24}
-!49 = !{!"short", !6, i64 0}
-!50 = !{!48, !6, i64 4}
-!51 = !{!48, !49, i64 2}
-!52 = !{!48, !49, i64 0}
-!53 = !{!48, !49, i64 12}
-!54 = !{!55, !49, i64 4}
-!55 = !{!"_ZTSN4llvm13MCOperandInfoE", !49, i64 0, !6, i64 2, !6, i64 3, !49, i64 4}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !39}
+!41 = distinct !{!41, !38, !39}
+!42 = !{!43, !44, i64 0}
+!43 = !{!"_ZTSN4llvm9MCOperandE", !44, i64 0, !6, i64 8}
+!44 = !{!"_ZTSN4llvm9MCOperand18MachineOperandTypeE", !6, i64 0}
+!45 = !{!8, !8, i64 0}
+!46 = distinct !{!46, !38, !39}
+!47 = distinct !{!47, !38, !39}
+!48 = distinct !{!48, !38, !39}
+!49 = !{!50, !23, i64 24}
+!50 = !{!"_ZTSN4llvm11MCInstrDescE", !51, i64 0, !51, i64 2, !6, i64 4, !6, i64 5, !51, i64 6, !6, i64 8, !6, i64 9, !51, i64 10, !51, i64 12, !23, i64 16, !23, i64 24}
+!51 = !{!"short", !6, i64 0}
+!52 = !{!50, !6, i64 4}
+!53 = !{!50, !51, i64 2}
+!54 = !{!50, !51, i64 0}
+!55 = !{!50, !51, i64 12}
+!56 = !{!57, !51, i64 4}
+!57 = !{!"_ZTSN4llvm13MCOperandInfoE", !51, i64 0, !6, i64 2, !6, i64 3, !51, i64 4}

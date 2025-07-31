@@ -352,9 +352,9 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
 
 89:                                               ; preds = %._crit_edge
   %90 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !53
+  %91 = load ptr, ptr %90, align 8, !tbaa !54
   %92 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %93 = load i32, ptr %92, align 8, !tbaa !55
+  %93 = load i32, ptr %92, align 8, !tbaa !56
   br label %94
 
 94:                                               ; preds = %89, %74, %65
@@ -402,10 +402,10 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
   %.0206 = phi ptr [ %7, %94 ], [ null, %95 ], [ %108, %101 ]
   store i32 %.0210, ptr %6, align 4, !tbaa !35
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %112 = load i32, ptr %111, align 8, !tbaa !56
+  %112 = load i32, ptr %111, align 8, !tbaa !57
   %113 = or i32 %112, %.
   %114 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %115 = load i32, ptr %114, align 8, !tbaa !57
+  %115 = load i32, ptr %114, align 8, !tbaa !58
   %116 = or i32 %113, %115
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %116, ptr %117, align 4, !tbaa !35
@@ -418,18 +418,18 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
 
 121:                                              ; preds = %110
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %123 = load ptr, ptr %122, align 8, !tbaa !58
+  %123 = load ptr, ptr %122, align 8, !tbaa !59
   br i1 %.not243, label %124, label %._crit_edge300
 
 124:                                              ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %126 = load ptr, ptr %125, align 8, !tbaa !58
+  %126 = load ptr, ptr %125, align 8, !tbaa !59
   %.not255 = icmp eq ptr %123, %126
   br i1 %.not255, label %134, label %._crit_edge300
 
 ._crit_edge300:                                   ; preds = %121, %124
   %127 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !59
+  %128 = load ptr, ptr %127, align 8, !tbaa !60
   %129 = ptrtoint ptr %123 to i64
   %130 = ptrtoint ptr %128 to i64
   %131 = sub i64 %129, %130
@@ -466,7 +466,7 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #12
   store i32 0, ptr %14, align 4, !tbaa !3
   %145 = icmp slt i32 %spec.select276, %.0208
-  %146 = load ptr, ptr %2, align 8, !tbaa !60
+  %146 = load ptr, ptr %2, align 8, !tbaa !61
   %147 = sext i32 %spec.select276 to i64
   %148 = getelementptr inbounds i8, ptr %.0206, i64 %147
   %149 = sub nsw i32 %.0208, %spec.select276
@@ -501,7 +501,7 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
   %163 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i32 %161, ptr %163, align 4, !tbaa !35
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %165 = load i32, ptr %164, align 8, !tbaa !61
+  %165 = load i32, ptr %164, align 8, !tbaa !62
   %.not259 = icmp eq i32 %165, 0
   br i1 %.not259, label %169, label %166
 
@@ -608,9 +608,9 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
   %215 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %.6205, ptr %215, align 4, !tbaa !35
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %16) #12
-  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %16, align 8, !tbaa !62
+  store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %16, align 8, !tbaa !63
   %216 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i16 2, ptr %216, align 8, !tbaa !64
+  store i16 2, ptr %216, align 8, !tbaa !65
   %217 = shl nsw i32 %.0235, 1
   %218 = add nsw i32 %.6205, %217
   %219 = getelementptr i8, ptr %6, i64 64
@@ -619,34 +619,34 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
 
 220:                                              ; preds = %214
   %221 = getelementptr inbounds nuw i8, ptr %2, i64 100
-  %222 = load i32, ptr %221, align 4, !tbaa !65
+  %222 = load i32, ptr %221, align 4, !tbaa !66
   %223 = trunc i32 %222 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
-  store i16 %223, ptr %11, align 2, !tbaa !66
+  store i16 %223, ptr %11, align 2, !tbaa !67
   %224 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull %11, i32 noundef 0, i32 noundef 1)
           to label %225 unwind label %247
 
 225:                                              ; preds = %220
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
   %226 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %227 = load ptr, ptr %226, align 8, !tbaa !68
-  %228 = load i32, ptr %221, align 4, !tbaa !65
+  %227 = load ptr, ptr %226, align 8, !tbaa !69
+  %228 = load i32, ptr %221, align 4, !tbaa !66
   %229 = add nsw i32 %228, 16
   %230 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %227, i32 noundef 0, i32 noundef %229)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %249
 
 _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %225
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %227) #12, !srcloc !69
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %227) #12, !srcloc !70
   %231 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %232 = load ptr, ptr %231, align 8, !tbaa !70
+  %232 = load ptr, ptr %231, align 8, !tbaa !71
   %233 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %234 = load i32, ptr %233, align 8, !tbaa !71
+  %234 = load i32, ptr %233, align 8, !tbaa !72
   %235 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef %232, i32 noundef 0, i32 noundef %234)
           to label %236 unwind label %251
 
 236:                                              ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %232) #12, !srcloc !69
-  %237 = load i16, ptr %216, align 8, !tbaa !64
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %232) #12, !srcloc !70
+  %237 = load i16, ptr %216, align 8, !tbaa !65
   %238 = icmp slt i16 %237, 0
   %239 = ashr i16 %237, 5
   %240 = sext i16 %239 to i32
@@ -666,13 +666,13 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %225
 249:                                              ; preds = %225
   %250 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %227) #12, !srcloc !69
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %227) #12, !srcloc !70
   br label %353
 
 251:                                              ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit
   %252 = landingpad { ptr, i32 }
           cleanup
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %232) #12, !srcloc !69
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %232) #12, !srcloc !70
   br label %353
 
 253:                                              ; preds = %236, %214
@@ -733,7 +733,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit279: ; preds = %_ZN6icu_7
 
 283:                                              ; preds = %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit279
   %284 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %285 = load ptr, ptr %284, align 8, !tbaa !72
+  %285 = load ptr, ptr %284, align 8, !tbaa !73
   %286 = sext i32 %280 to i64
   %287 = getelementptr inbounds i8, ptr %.0206, i64 %286
   %288 = sub nsw i32 %281, %280
@@ -749,7 +749,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit280: ; preds = %_ZN6icu_7
 
 293:                                              ; preds = %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit280
   %294 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %295 = load ptr, ptr %294, align 8, !tbaa !59
+  %295 = load ptr, ptr %294, align 8, !tbaa !60
   %296 = sext i32 %290 to i64
   %297 = getelementptr inbounds i8, ptr %.0206, i64 %296
   %298 = sub nsw i32 %291, %290
@@ -781,7 +781,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit282: ; preds = %_ZN6icu_7
 
 311:                                              ; preds = %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit282
   %312 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %313 = load ptr, ptr %312, align 8, !tbaa !73
+  %313 = load ptr, ptr %312, align 8, !tbaa !74
   %314 = sext i32 %308 to i64
   %315 = getelementptr inbounds i8, ptr %.0206, i64 %314
   %316 = sub nsw i32 %309, %308
@@ -820,7 +820,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit284: ; preds = %_ZN6icu_7
 
 332:                                              ; preds = %328
   %333 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %334 = load ptr, ptr %333, align 8, !tbaa !64
+  %334 = load ptr, ptr %333, align 8, !tbaa !65
   br label %_ZNK6icu_7713UnicodeString9getBufferEv.exit
 
 _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit284, %330, %332
@@ -847,7 +847,7 @@ _ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit285: ; preds = %_ZNK6icu_
 
 346:                                              ; preds = %_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh.exit285
   %347 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %348 = load ptr, ptr %347, align 8, !tbaa !74
+  %348 = load ptr, ptr %347, align 8, !tbaa !75
   %349 = sext i32 %343 to i64
   %350 = getelementptr inbounds i8, ptr %.0206, i64 %349
   %351 = sub nsw i32 %344, %343
@@ -1038,27 +1038,28 @@ attributes #12 = { nounwind }
 !48 = !{!37, !17, i64 68}
 !49 = !{!47, !38, i64 64}
 !50 = !{!47, !18, i64 32}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
-!53 = !{!54, !38, i64 24}
-!54 = !{!"_ZTSN6icu_779UVector32E", !10, i64 0, !17, i64 8, !17, i64 12, !17, i64 16, !38, i64 24}
-!55 = !{!54, !17, i64 8}
-!56 = !{!37, !17, i64 56}
-!57 = !{!47, !17, i64 24}
-!58 = !{!37, !38, i64 40}
-!59 = !{!37, !38, i64 8}
-!60 = !{!37, !31, i64 0}
-!61 = !{!37, !17, i64 64}
-!62 = !{!63, !63, i64 0}
-!63 = !{!"vtable pointer", !6, i64 0}
-!64 = !{!5, !5, i64 0}
-!65 = !{!37, !17, i64 100}
-!66 = !{!67, !67, i64 0}
-!67 = !{!"char16_t", !5, i64 0}
-!68 = !{!37, !42, i64 104}
-!69 = !{i64 2149988038}
-!70 = !{!37, !42, i64 112}
-!71 = !{!37, !17, i64 120}
-!72 = !{!37, !39, i64 16}
-!73 = !{!37, !40, i64 24}
-!74 = !{!37, !18, i64 72}
+!53 = !{!"llvm.loop.estimated_trip_count"}
+!54 = !{!55, !38, i64 24}
+!55 = !{!"_ZTSN6icu_779UVector32E", !10, i64 0, !17, i64 8, !17, i64 12, !17, i64 16, !38, i64 24}
+!56 = !{!55, !17, i64 8}
+!57 = !{!37, !17, i64 56}
+!58 = !{!47, !17, i64 24}
+!59 = !{!37, !38, i64 40}
+!60 = !{!37, !38, i64 8}
+!61 = !{!37, !31, i64 0}
+!62 = !{!37, !17, i64 64}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"vtable pointer", !6, i64 0}
+!65 = !{!5, !5, i64 0}
+!66 = !{!37, !17, i64 100}
+!67 = !{!68, !68, i64 0}
+!68 = !{!"char16_t", !5, i64 0}
+!69 = !{!37, !42, i64 104}
+!70 = !{i64 2149988038}
+!71 = !{!37, !42, i64 112}
+!72 = !{!37, !17, i64 120}
+!73 = !{!37, !39, i64 16}
+!74 = !{!37, !40, i64 24}
+!75 = !{!37, !18, i64 72}

@@ -213,7 +213,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   store i32 %107, ptr %105, align 4, !tbaa !3
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.not357.not = icmp slt i64 %indvars.iv, %103
-  br i1 %.not357.not, label %104, label %._crit_edge, !llvm.loop !12
+  br i1 %.not357.not, label %104, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %100
   %.pre435 = load i32, ptr %14, align 4, !tbaa !3
@@ -325,7 +325,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %storemerge360 = add nsw i32 %167, -1
   store i32 %storemerge360, ptr %15, align 4, !tbaa !3
   %168 = icmp sgt i32 %167, 1
-  br i1 %168, label %.lr.ph375, label %._crit_edge376.loopexit, !llvm.loop !13
+  br i1 %168, label %.lr.ph375, label %._crit_edge376.loopexit, !llvm.loop !14
 
 ._crit_edge376.loopexit:                          ; preds = %.lr.ph375
   %169 = trunc nsw i64 %indvars.iv.next424 to i32
@@ -363,7 +363,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %190 = icmp sge i32 %187, %189
   %191 = icmp sle i32 %187, %189
   %.in358 = select i1 %188, i1 %190, i1 %191
-  br i1 %.in358, label %148, label %._crit_edge381.loopexit, !llvm.loop !14
+  br i1 %.in358, label %148, label %._crit_edge381.loopexit, !llvm.loop !15
 
 ._crit_edge381.loopexit:                          ; preds = %._crit_edge376
   %.pre437.pre = load i32, ptr %1, align 4, !tbaa !3
@@ -389,7 +389,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 198:                                              ; preds = %._crit_edge451, %._crit_edge
   %199 = phi i32 [ %.pre438, %._crit_edge451 ], [ %110, %._crit_edge ]
   %.not354 = icmp slt i32 %109, %199
-  br i1 %.not354, label %64, label %.loopexit
+  br i1 %.not354, label %64, label %.loopexit, !llvm.loop !16
 
 200:                                              ; preds = %58
   tail call void @dcopy_(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull @c__1, ptr noundef nonnull %5, ptr noundef nonnull @c__1) #4
@@ -473,7 +473,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %indvars.iv.next430 = add nsw i64 %indvars.iv429, 1
   %243 = sext i32 %242 to i64
   %.not351.us.not = icmp slt i64 %indvars.iv429, %243
-  br i1 %.not351.us.not, label %.lr.ph391.split.us, label %._crit_edge392.loopexit, !llvm.loop !15
+  br i1 %.not351.us.not, label %.lr.ph391.split.us, label %._crit_edge392.loopexit, !llvm.loop !17
 
 .lr.ph391.split:                                  ; preds = %.lr.ph391
   %244 = sext i32 %226 to i64
@@ -487,7 +487,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   store i32 %248, ptr %246, align 4, !tbaa !3
   %indvars.iv.next427 = add nsw i64 %indvars.iv426, 1
   %.not351.not = icmp slt i64 %indvars.iv426, %244
-  br i1 %.not351.not, label %245, label %._crit_edge392, !llvm.loop !16
+  br i1 %.not351.not, label %245, label %._crit_edge392, !llvm.loop !18
 
 ._crit_edge392.loopexit:                          ; preds = %241
   %.pre440 = load i32, ptr %14, align 4, !tbaa !3
@@ -601,7 +601,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %storemerge = add nsw i32 %310, -1
   store i32 %storemerge, ptr %15, align 4, !tbaa !3
   %311 = icmp sgt i32 %310, 1
-  br i1 %311, label %.lr.ph397, label %._crit_edge398.loopexit, !llvm.loop !17
+  br i1 %311, label %.lr.ph397, label %._crit_edge398.loopexit, !llvm.loop !19
 
 ._crit_edge398.loopexit:                          ; preds = %.lr.ph397
   %312 = trunc nsw i64 %indvars.iv.next433 to i32
@@ -638,7 +638,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %332 = icmp sge i32 %329, %331
   %333 = icmp sle i32 %329, %331
   %.in = select i1 %330, i1 %332, i1 %333
-  br i1 %.in, label %291, label %._crit_edge404.loopexit, !llvm.loop !18
+  br i1 %.in, label %291, label %._crit_edge404.loopexit, !llvm.loop !20
 
 ._crit_edge404.loopexit:                          ; preds = %._crit_edge398
   %.pre442.pre = load i32, ptr %1, align 4, !tbaa !3
@@ -664,7 +664,7 @@ define void @dsytrf_aa_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
 340:                                              ; preds = %._crit_edge452, %._crit_edge392
   %341 = phi i32 [ %.pre443, %._crit_edge452 ], [ %251, %._crit_edge392 ]
   %.not348 = icmp slt i32 %250, %341
-  br i1 %.not348, label %205, label %.loopexit
+  br i1 %.not348, label %205, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %198, %340, %59, %200, %48, %43, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
@@ -728,13 +728,16 @@ attributes #4 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
 !15 = distinct !{!15, !10, !11}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
+!16 = distinct !{!16, !11}
+!17 = distinct !{!17, !10, !11, !12}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !11}

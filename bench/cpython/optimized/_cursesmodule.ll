@@ -9433,7 +9433,7 @@ Py_DECREF.exit863:                                ; preds = %795, %798, %801
 .critedge853:                                     ; preds = %Py_DECREF.exit865, %Py_DECREF.exit863, %763, %.preheader1069
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 511
-  br i1 %exitcond, label %.critedge857, label %.preheader1069, !llvm.loop !59
+  br i1 %exitcond, label %.critedge857, label %.preheader1069, !llvm.loop !60
 
 .critedge857:                                     ; preds = %.critedge853
   %803 = tail call ptr @PyLong_FromLong(i64 noundef 257) #9
@@ -9654,7 +9654,7 @@ define internal void @PyCursesWindow_dealloc(ptr noundef %0) #0 {
 
 12:                                               ; preds = %11, %8
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 320
-  %14 = load ptr, ptr %13, align 8, !tbaa !60
+  %14 = load ptr, ptr %13, align 8, !tbaa !61
   tail call void %14(ptr noundef nonnull %0) #9
   %15 = load i32, ptr %.val, align 8, !tbaa !12
   %.not.i = icmp sgt i32 %15, -1
@@ -9980,7 +9980,7 @@ define internal noundef ptr @_curses_window_addnstr(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr null, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !61
+  store ptr null, ptr %4, align 8, !tbaa !62
   %27 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %24, ptr noundef %3, ptr noundef %4)
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %_curses_window_addnstr_impl.exit, label %29
@@ -9996,7 +9996,7 @@ define internal noundef ptr @_curses_window_addnstr(ptr noundef readonly capture
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !63
+  %35 = load i32, ptr %34, align 8, !tbaa !64
   br label %36
 
 36:                                               ; preds = %33, %30
@@ -10018,7 +10018,7 @@ define internal noundef ptr @_curses_window_addnstr(ptr noundef readonly capture
 45:                                               ; preds = %42
   %46 = call i32 @wmove(ptr noundef %44, i32 noundef %22, i32 noundef %23) #9
   %47 = icmp eq i32 %46, -1
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !61
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !62
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %45
@@ -10027,7 +10027,7 @@ define internal noundef ptr @_curses_window_addnstr(ptr noundef readonly capture
   br label %54
 
 51:                                               ; preds = %42
-  %52 = load ptr, ptr %4, align 8, !tbaa !61
+  %52 = load ptr, ptr %4, align 8, !tbaa !62
   %53 = call i32 @waddnwstr(ptr noundef %44, ptr noundef %52, i32 noundef %25) #9
   br label %54
 
@@ -10172,7 +10172,7 @@ define internal noundef ptr @_curses_window_addstr(ptr noundef readonly captures
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr null, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !61
+  store ptr null, ptr %4, align 8, !tbaa !62
   %25 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %23, ptr noundef %3, ptr noundef %4)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %_curses_window_addstr_impl.exit, label %27
@@ -10188,7 +10188,7 @@ define internal noundef ptr @_curses_window_addstr(ptr noundef readonly captures
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !63
+  %33 = load i32, ptr %32, align 8, !tbaa !64
   br label %34
 
 34:                                               ; preds = %31, %28
@@ -10210,7 +10210,7 @@ define internal noundef ptr @_curses_window_addstr(ptr noundef readonly captures
 43:                                               ; preds = %40
   %44 = call i32 @wmove(ptr noundef %42, i32 noundef %21, i32 noundef %22) #9
   %45 = icmp eq i32 %44, -1
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !61
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !62
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %43
@@ -10219,7 +10219,7 @@ define internal noundef ptr @_curses_window_addstr(ptr noundef readonly captures
   br label %52
 
 49:                                               ; preds = %40
-  %50 = load ptr, ptr %4, align 8, !tbaa !61
+  %50 = load ptr, ptr %4, align 8, !tbaa !62
   %51 = call i32 @waddnwstr(ptr noundef %42, ptr noundef %50, i32 noundef -1) #9
   br label %52
 
@@ -11179,7 +11179,7 @@ define internal noundef ptr @_curses_window_echochar(ptr noundef readonly captur
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %25 = load i16, ptr %24, align 4, !tbaa !64
+  %25 = load i16, ptr %24, align 4, !tbaa !65
   %26 = and i16 %25, 16
   %.not12.i = icmp eq i16 %26, 0
   br i1 %.not12.i, label %32, label %27
@@ -11295,10 +11295,10 @@ define internal ptr @PyCursesWindow_getbegyx(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i16, ptr %6, align 8, !tbaa !65
+  %7 = load i16, ptr %6, align 8, !tbaa !66
   %8 = sext i16 %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 10
-  %10 = load i16, ptr %9, align 2, !tbaa !66
+  %10 = load i16, ptr %9, align 2, !tbaa !67
   %11 = sext i16 %10 to i32
   br label %.thread
 
@@ -11318,7 +11318,7 @@ define internal ptr @_curses_window_getbkgd(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 20
-  %6 = load i32, ptr %5, align 4, !tbaa !67
+  %6 = load i32, ptr %5, align 4, !tbaa !68
   %7 = zext i32 %6 to i64
   br label %_curses_window_getbkgd_impl.exit
 
@@ -11591,11 +11591,11 @@ define internal ptr @PyCursesWindow_getmaxyx(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7 = load i16, ptr %6, align 4, !tbaa !68
+  %7 = load i16, ptr %6, align 4, !tbaa !69
   %8 = sext i16 %7 to i32
   %9 = add nsw i32 %8, 1
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %11 = load i16, ptr %10, align 2, !tbaa !69
+  %11 = load i16, ptr %10, align 2, !tbaa !70
   %12 = sext i16 %11 to i32
   %13 = add nsw i32 %12, 1
   br label %.thread
@@ -11616,9 +11616,9 @@ define internal ptr @PyCursesWindow_getparyx(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %7 = load i32, ptr %6, align 8, !tbaa !70
+  %7 = load i32, ptr %6, align 8, !tbaa !71
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %9 = load i32, ptr %8, align 4, !tbaa !71
+  %9 = load i32, ptr %8, align 4, !tbaa !72
   br label %.thread
 
 .thread:                                          ; preds = %2, %5
@@ -12236,7 +12236,7 @@ define internal noundef ptr @_curses_window_insnstr(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr null, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !61
+  store ptr null, ptr %4, align 8, !tbaa !62
   %27 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %24, ptr noundef %3, ptr noundef %4)
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %_curses_window_insnstr_impl.exit, label %29
@@ -12252,7 +12252,7 @@ define internal noundef ptr @_curses_window_insnstr(ptr noundef readonly capture
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !63
+  %35 = load i32, ptr %34, align 8, !tbaa !64
   br label %36
 
 36:                                               ; preds = %33, %30
@@ -12274,7 +12274,7 @@ define internal noundef ptr @_curses_window_insnstr(ptr noundef readonly capture
 45:                                               ; preds = %42
   %46 = call i32 @wmove(ptr noundef %44, i32 noundef %22, i32 noundef %23) #9
   %47 = icmp eq i32 %46, -1
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !61
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !62
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %45
@@ -12283,7 +12283,7 @@ define internal noundef ptr @_curses_window_insnstr(ptr noundef readonly capture
   br label %54
 
 51:                                               ; preds = %42
-  %52 = load ptr, ptr %4, align 8, !tbaa !61
+  %52 = load ptr, ptr %4, align 8, !tbaa !62
   %53 = call i32 @wins_nwstr(ptr noundef %44, ptr noundef %52, i32 noundef %25) #9
   br label %54
 
@@ -12428,7 +12428,7 @@ define internal noundef ptr @_curses_window_insstr(ptr noundef readonly captures
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store ptr null, ptr %3, align 8, !tbaa !11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  store ptr null, ptr %4, align 8, !tbaa !61
+  store ptr null, ptr %4, align 8, !tbaa !62
   %25 = call fastcc i32 @PyCurses_ConvertToString(ptr noundef %23, ptr noundef %3, ptr noundef %4)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %_curses_window_insstr_impl.exit, label %27
@@ -12444,7 +12444,7 @@ define internal noundef ptr @_curses_window_insstr(ptr noundef readonly captures
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %33 = load i32, ptr %32, align 8, !tbaa !63
+  %33 = load i32, ptr %32, align 8, !tbaa !64
   br label %34
 
 34:                                               ; preds = %31, %28
@@ -12466,7 +12466,7 @@ define internal noundef ptr @_curses_window_insstr(ptr noundef readonly captures
 43:                                               ; preds = %40
   %44 = call i32 @wmove(ptr noundef %42, i32 noundef %21, i32 noundef %22) #9
   %45 = icmp eq i32 %44, -1
-  %.pre.i = load ptr, ptr %4, align 8, !tbaa !61
+  %.pre.i = load ptr, ptr %4, align 8, !tbaa !62
   br i1 %45, label %52, label %46
 
 46:                                               ; preds = %43
@@ -12475,7 +12475,7 @@ define internal noundef ptr @_curses_window_insstr(ptr noundef readonly captures
   br label %52
 
 49:                                               ; preds = %40
-  %50 = load ptr, ptr %4, align 8, !tbaa !61
+  %50 = load ptr, ptr %4, align 8, !tbaa !62
   %51 = call i32 @wins_nwstr(ptr noundef %42, ptr noundef %50, i32 noundef -1) #9
   br label %52
 
@@ -12697,7 +12697,7 @@ define internal ptr @_curses_window_is_linetouched(ptr noundef readonly captures
 
 6:                                                ; preds = %.split
   %7 = getelementptr inbounds nuw i8, ptr %.val6, i64 4
-  %8 = load i16, ptr %7, align 4, !tbaa !68
+  %8 = load i16, ptr %7, align 4, !tbaa !69
   %9 = sext i16 %8 to i32
   %10 = add nsw i32 %9, 1
   %11 = icmp sgt i32 %3, %10
@@ -13028,7 +13028,7 @@ define internal noundef ptr @_curses_window_noutrefresh(ptr noundef readonly cap
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %25 = load i16, ptr %24, align 4, !tbaa !64
+  %25 = load i16, ptr %24, align 4, !tbaa !65
   %26 = and i16 %25, 16
   %.not21.i = icmp eq i16 %26, 0
   br i1 %.not21.i, label %41, label %27
@@ -13369,7 +13369,7 @@ Py_DECREF.exit:                                   ; preds = %.lr.ph, %26, %29
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %3) #9
   %33 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 1, i64 noundef 8192, ptr noundef nonnull %4)
   %34 = icmp slt i64 %33, 1
-  br i1 %34, label %.thread, label %.lr.ph
+  br i1 %34, label %.thread, label %.lr.ph, !llvm.loop !73
 
 35:                                               ; preds = %.thread, %PyCursesCheckERR_ForWin.exit.thread, %9
   %.017 = phi ptr [ null, %9 ], [ null, %PyCursesCheckERR_ForWin.exit.thread ], [ %.2.ph, %.thread ]
@@ -13450,7 +13450,7 @@ define internal noundef ptr @PyCursesWindow_redrawwin(ptr noundef readonly captu
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7 = load i16, ptr %6, align 4, !tbaa !68
+  %7 = load i16, ptr %6, align 4, !tbaa !69
   %8 = sext i16 %7 to i32
   %9 = add nsw i32 %8, 1
   br label %10
@@ -13535,7 +13535,7 @@ define internal noundef ptr @_curses_window_refresh(ptr noundef readonly capture
 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  %25 = load i16, ptr %24, align 4, !tbaa !64
+  %25 = load i16, ptr %24, align 4, !tbaa !65
   %26 = and i16 %25, 16
   %.not21.i = icmp eq i16 %26, 0
   br i1 %.not21.i, label %41, label %27
@@ -13845,7 +13845,7 @@ define internal ptr @_curses_window_subwin(ptr noundef readonly captures(none) %
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  %23 = load i16, ptr %22, align 4, !tbaa !64
+  %23 = load i16, ptr %22, align 4, !tbaa !65
   %24 = and i16 %23, 16
   %.not21.i = icmp eq i16 %24, 0
   br i1 %.not21.i, label %27, label %25
@@ -14029,7 +14029,7 @@ define internal noundef ptr @PyCursesWindow_touchwin(ptr noundef readonly captur
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7 = load i16, ptr %6, align 4, !tbaa !68
+  %7 = load i16, ptr %6, align 4, !tbaa !69
   %8 = sext i16 %7 to i32
   %9 = add nsw i32 %8, 1
   br label %10
@@ -14062,7 +14062,7 @@ define internal noundef ptr @PyCursesWindow_untouchwin(ptr noundef readonly capt
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %7 = load i16, ptr %6, align 4, !tbaa !68
+  %7 = load i16, ptr %6, align 4, !tbaa !69
   %8 = sext i16 %7 to i32
   %9 = add nsw i32 %8, 1
   br label %10
@@ -14214,7 +14214,7 @@ define internal fastcc range(i32 0, 3) i32 @PyCurses_ConvertToString(ptr noundef
 
 8:                                                ; preds = %3
   %9 = tail call ptr @PyUnicode_AsWideCharString(ptr noundef nonnull %0, ptr noundef null) #9
-  store ptr %9, ptr %2, align 8, !tbaa !61
+  store ptr %9, ptr %2, align 8, !tbaa !62
   %10 = icmp eq ptr %9, null
   %. = select i1 %10, i32 0, i32 2
   br label %Py_DECREF.exit
@@ -14755,18 +14755,20 @@ attributes #10 = { nounwind willreturn memory(read) }
 !54 = !{!48, !34, i64 16}
 !55 = !{!18, !18, i64 0}
 !56 = !{!6, !6, i64 0}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = distinct !{!59, !58}
-!60 = !{!26, !6, i64 320}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 int", !6, i64 0}
-!63 = !{!36, !15, i64 16}
-!64 = !{!36, !18, i64 12}
-!65 = !{!36, !18, i64 8}
-!66 = !{!36, !18, i64 10}
-!67 = !{!36, !15, i64 20}
-!68 = !{!36, !18, i64 4}
-!69 = !{!36, !18, i64 6}
-!70 = !{!36, !15, i64 56}
-!71 = !{!36, !15, i64 52}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = distinct !{!60, !58, !59}
+!61 = !{!26, !6, i64 320}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 int", !6, i64 0}
+!64 = !{!36, !15, i64 16}
+!65 = !{!36, !18, i64 12}
+!66 = !{!36, !18, i64 8}
+!67 = !{!36, !18, i64 10}
+!68 = !{!36, !15, i64 20}
+!69 = !{!36, !18, i64 4}
+!70 = !{!36, !18, i64 6}
+!71 = !{!36, !15, i64 56}
+!72 = !{!36, !15, i64 52}
+!73 = distinct !{!73, !59}

@@ -661,7 +661,7 @@ define ptr @X509_STORE_add_lookup(ptr noundef %0, ptr noundef %1) local_unnamed_
   %8 = add nuw nsw i32 %.01721, 1
   %9 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #6
   %10 = icmp slt i32 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !48
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 .lr.ph:                                           ; preds = %2, %7
   %.01721 = phi i32 [ %8, %7 ], [ 0, %2 ]
@@ -804,7 +804,7 @@ define range(i32 -1, 2) i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef read
   %6 = alloca %struct.x509_st, align 8
   %7 = alloca %struct.X509_crl_st, align 8
   %8 = alloca %struct.x509_object_st, align 8
-  %9 = load ptr, ptr %0, align 8, !tbaa !49
+  %9 = load ptr, ptr %0, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -860,14 +860,14 @@ X509_OBJECT_idx_by_subject.exit.thread.i:         ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %29, align 8, !tbaa !45
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr %2, ptr %30, align 8, !tbaa !59
+  store ptr %2, ptr %30, align 8, !tbaa !60
   br label %X509_OBJECT_idx_by_subject.exit.i
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %32, align 8, !tbaa !45
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %2, ptr %33, align 8, !tbaa !82
+  store ptr %2, ptr %33, align 8, !tbaa !83
   br label %X509_OBJECT_idx_by_subject.exit.i
 
 X509_OBJECT_idx_by_subject.exit.i:                ; preds = %31, %28
@@ -919,8 +919,8 @@ X509_OBJECT_retrieve_by_subject.exit:             ; preds = %X509_OBJECT_idx_by_
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %53
-  %58 = load ptr, ptr %46, align 8, !tbaa !89
-  %59 = load ptr, ptr %47, align 8, !tbaa !90
+  %58 = load ptr, ptr %46, align 8, !tbaa !90
+  %59 = load ptr, ptr %47, align 8, !tbaa !91
   %60 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !29
   %62 = icmp eq ptr %61, null
@@ -953,7 +953,7 @@ X509_LOOKUP_by_subject_ex.exit.thread:            ; preds = %66, %X509_LOOKUP_by
   %72 = load ptr, ptr %42, align 8, !tbaa !38
   %73 = call i32 @OPENSSL_sk_num(ptr noundef %72) #6
   %74 = icmp slt i32 %71, %73
-  br i1 %74, label %48, label %._crit_edge, !llvm.loop !91
+  br i1 %74, label %48, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %X509_LOOKUP_by_subject_ex.exit.thread, %.preheader
   br i1 %40, label %.loopexit, label %.thread
@@ -1034,14 +1034,14 @@ X509_OBJECT_idx_by_subject.exit.thread:           ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr %2, ptr %9, align 8, !tbaa !59
+  store ptr %2, ptr %9, align 8, !tbaa !60
   br label %X509_OBJECT_idx_by_subject.exit
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %11, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %2, ptr %12, align 8, !tbaa !82
+  store ptr %2, ptr %12, align 8, !tbaa !83
   br label %X509_OBJECT_idx_by_subject.exit
 
 X509_OBJECT_idx_by_subject.exit:                  ; preds = %7, %10
@@ -1367,14 +1367,14 @@ define i32 @X509_OBJECT_idx_by_subject(ptr noundef %0, i32 noundef %1, ptr nound
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %8, align 8, !tbaa !45
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store ptr %2, ptr %9, align 8, !tbaa !59
+  store ptr %2, ptr %9, align 8, !tbaa !60
   br label %13
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %11, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %2, ptr %12, align 8, !tbaa !82
+  store ptr %2, ptr %12, align 8, !tbaa !83
   br label %13
 
 13:                                               ; preds = %10, %7
@@ -1518,7 +1518,7 @@ X509_OBJECT_get0_X509.exit.thread:                ; preds = %.lr.ph, %19, %X509_
   %25 = add nuw nsw i32 %.01827, 1
   %26 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #6
   %27 = icmp slt i32 %25, %26
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !92
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %X509_OBJECT_get0_X509.exit.thread, %11
   %28 = load ptr, ptr %8, align 8, !tbaa !15
@@ -1551,7 +1551,7 @@ define ptr @X509_STORE_CTX_get1_certs(ptr noundef readonly captures(none) %0, pt
   %6 = alloca %struct.x509_st, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  %8 = load ptr, ptr %0, align 8, !tbaa !49
+  %8 = load ptr, ptr %0, align 8, !tbaa !50
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
 
@@ -1577,7 +1577,7 @@ define ptr @X509_STORE_CTX_get1_certs(ptr noundef readonly captures(none) %0, pt
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %20, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store ptr %1, ptr %21, align 8, !tbaa !59
+  store ptr %1, ptr %21, align 8, !tbaa !60
   %22 = call i32 @OPENSSL_sk_find_all(ptr noundef %19, ptr noundef nonnull %5, ptr noundef nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #6
@@ -1615,7 +1615,7 @@ define ptr @X509_STORE_CTX_get1_certs(ptr noundef readonly captures(none) %0, pt
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %39, align 8, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  store ptr %1, ptr %40, align 8, !tbaa !59
+  store ptr %1, ptr %40, align 8, !tbaa !60
   %41 = call i32 @OPENSSL_sk_find_all(ptr noundef %38, ptr noundef nonnull %3, ptr noundef nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
@@ -1652,9 +1652,9 @@ define ptr @X509_STORE_CTX_get1_certs(ptr noundef readonly captures(none) %0, pt
 56:                                               ; preds = %.lr.ph
   %57 = add nuw nsw i32 %.03140, 1
   %58 = add nuw nsw i32 %.139, 1
-  %59 = load i32, ptr %7, align 4, !tbaa !93
+  %59 = load i32, ptr %7, align 4, !tbaa !94
   %60 = icmp slt i32 %57, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !94
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !95
 
 .loopexit:                                        ; preds = %56, %42
   %61 = load ptr, ptr %13, align 8, !tbaa !15
@@ -1673,7 +1673,7 @@ define ptr @X509_STORE_CTX_get1_crls(ptr noundef readonly captures(none) %0, ptr
   %4 = alloca %struct.X509_crl_st, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #6
-  %6 = load ptr, ptr %0, align 8, !tbaa !49
+  %6 = load ptr, ptr %0, align 8, !tbaa !50
   %7 = tail call i32 @ossl_x509_store_ctx_get_by_subject(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %1, ptr noundef null)
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %50, label %9
@@ -1705,7 +1705,7 @@ define ptr @X509_STORE_CTX_get1_crls(ptr noundef readonly captures(none) %0, ptr
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %21, align 8, !tbaa !45
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %1, ptr %22, align 8, !tbaa !82
+  store ptr %1, ptr %22, align 8, !tbaa !83
   %23 = call i32 @OPENSSL_sk_find_all(ptr noundef %20, ptr noundef nonnull %3, ptr noundef nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #6
@@ -1713,7 +1713,7 @@ define ptr @X509_STORE_CTX_get1_crls(ptr noundef readonly captures(none) %0, ptr
   br i1 %24, label %27, label %.preheader
 
 .preheader:                                       ; preds = %17
-  %25 = load i32, ptr %5, align 4, !tbaa !93
+  %25 = load i32, ptr %5, align 4, !tbaa !94
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph, label %._crit_edge
 
@@ -1754,9 +1754,9 @@ define ptr @X509_STORE_CTX_get1_crls(ptr noundef readonly captures(none) %0, ptr
 43:                                               ; preds = %38
   %44 = add nuw nsw i32 %.03038, 1
   %45 = add nuw nsw i32 %.03137, 1
-  %46 = load i32, ptr %5, align 4, !tbaa !93
+  %46 = load i32, ptr %5, align 4, !tbaa !94
   %47 = icmp slt i32 %44, %46
-  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !95
+  br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %43, %.preheader
   %48 = load ptr, ptr %13, align 8, !tbaa !15
@@ -1859,7 +1859,7 @@ x509_object_cmp.exit.thread:                      ; preds = %17, %thread-pre-spl
 40:                                               ; preds = %29, %34
   %41 = add i32 %.01132, 1
   %exitcond.not = icmp eq i32 %41, %10
-  br i1 %exitcond.not, label %x509_object_cmp.exit.thread29, label %13, !llvm.loop !96
+  br i1 %exitcond.not, label %x509_object_cmp.exit.thread29, label %13, !llvm.loop !97
 
 x509_object_cmp.exit.thread29:                    ; preds = %x509_object_cmp.exit, %40, %29, %34, %x509_object_cmp.exit.thread, %13, %9, %2, %7
   %.0 = phi ptr [ %8, %7 ], [ null, %2 ], [ null, %9 ], [ null, %x509_object_cmp.exit ], [ null, %40 ], [ %14, %29 ], [ %14, %34 ], [ %14, %x509_object_cmp.exit.thread ], [ null, %13 ]
@@ -1932,168 +1932,168 @@ define ptr @X509_STORE_get0_param(ptr noundef readonly captures(none) %0) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_verify(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %3, align 8, !tbaa !97
+  store ptr %1, ptr %3, align 8, !tbaa !98
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_verify(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !97
+  %3 = load ptr, ptr %2, align 8, !tbaa !98
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_verify_cb(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %3, align 8, !tbaa !98
+  store ptr %1, ptr %3, align 8, !tbaa !99
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_verify_cb(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !98
+  %3 = load ptr, ptr %2, align 8, !tbaa !99
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_get_issuer(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %1, ptr %3, align 8, !tbaa !99
+  store ptr %1, ptr %3, align 8, !tbaa !100
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_get_issuer(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !99
+  %3 = load ptr, ptr %2, align 8, !tbaa !100
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_issued(ptr noundef writeonly captures(none) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %1, ptr %3, align 8, !tbaa !100
+  store ptr %1, ptr %3, align 8, !tbaa !101
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_issued(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !100
+  %3 = load ptr, ptr %2, align 8, !tbaa !101
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_revocation(ptr noundef writeonly captures(none) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %1, ptr %3, align 8, !tbaa !101
+  store ptr %1, ptr %3, align 8, !tbaa !102
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_revocation(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %3 = load ptr, ptr %2, align 8, !tbaa !101
+  %3 = load ptr, ptr %2, align 8, !tbaa !102
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_get_crl(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %1, ptr %3, align 8, !tbaa !102
+  store ptr %1, ptr %3, align 8, !tbaa !103
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_get_crl(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !102
+  %3 = load ptr, ptr %2, align 8, !tbaa !103
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_crl(ptr noundef writeonly captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store ptr %1, ptr %3, align 8, !tbaa !103
+  store ptr %1, ptr %3, align 8, !tbaa !104
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_crl(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %3 = load ptr, ptr %2, align 8, !tbaa !103
+  %3 = load ptr, ptr %2, align 8, !tbaa !104
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_cert_crl(ptr noundef writeonly captures(none) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %1, ptr %3, align 8, !tbaa !104
+  store ptr %1, ptr %3, align 8, !tbaa !105
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_cert_crl(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %3 = load ptr, ptr %2, align 8, !tbaa !104
+  %3 = load ptr, ptr %2, align 8, !tbaa !105
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_check_policy(ptr noundef writeonly captures(none) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %1, ptr %3, align 8, !tbaa !105
+  store ptr %1, ptr %3, align 8, !tbaa !106
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_check_policy(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %3 = load ptr, ptr %2, align 8, !tbaa !105
+  %3 = load ptr, ptr %2, align 8, !tbaa !106
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_lookup_certs(ptr noundef writeonly captures(none) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %1, ptr %3, align 8, !tbaa !106
+  store ptr %1, ptr %3, align 8, !tbaa !107
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_lookup_certs(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !106
+  %3 = load ptr, ptr %2, align 8, !tbaa !107
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_lookup_crls(ptr noundef writeonly captures(none) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %1, ptr %3, align 8, !tbaa !107
+  store ptr %1, ptr %3, align 8, !tbaa !108
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_lookup_crls(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !107
+  %3 = load ptr, ptr %2, align 8, !tbaa !108
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @X509_STORE_set_cleanup(ptr noundef writeonly captures(none) initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %1, ptr %3, align 8, !tbaa !108
+  store ptr %1, ptr %3, align 8, !tbaa !109
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_get_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %3 = load ptr, ptr %2, align 8, !tbaa !108
+  %3 = load ptr, ptr %2, align 8, !tbaa !109
   ret ptr %3
 }
 
@@ -2117,7 +2117,7 @@ declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_STORE_CTX_get0_store(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !49
+  %2 = load ptr, ptr %0, align 8, !tbaa !50
   ret ptr %2
 }
 
@@ -2187,66 +2187,67 @@ attributes #6 = { nounwind }
 !43 = !{!44, !5, i64 0}
 !44 = !{!"x509_object_st", !5, i64 0, !6, i64 8}
 !45 = !{!6, !6, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = !{!50, !10, i64 0}
-!50 = !{!"x509_store_ctx_st", !10, i64 0, !51, i64 8, !52, i64 16, !53, i64 24, !19, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !5, i64 144, !5, i64 148, !52, i64 152, !54, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !51, i64 184, !51, i64 192, !55, i64 200, !5, i64 208, !5, i64 212, !56, i64 216, !20, i64 224, !57, i64 240, !5, i64 248, !58, i64 256, !21, i64 264, !13, i64 272}
-!51 = !{!"p1 _ZTS7x509_st", !9, i64 0}
-!52 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
-!53 = !{!"p1 _ZTS17stack_st_X509_CRL", !9, i64 0}
-!54 = !{!"p1 _ZTS19X509_POLICY_TREE_st", !9, i64 0}
-!55 = !{!"p1 _ZTS11X509_crl_st", !9, i64 0}
-!56 = !{!"p1 _ZTS17x509_store_ctx_st", !9, i64 0}
-!57 = !{!"p1 _ZTS11ssl_dane_st", !9, i64 0}
-!58 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!59 = !{!60, !68, i64 72}
-!60 = !{!"x509_st", !61, i64 0, !65, i64 136, !63, i64 152, !73, i64 176, !23, i64 192, !20, i64 200, !64, i64 216, !64, i64 224, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !62, i64 248, !74, i64 256, !75, i64 264, !76, i64 272, !77, i64 280, !78, i64 288, !79, i64 296, !80, i64 304, !6, i64 312, !81, i64 336, !9, i64 344, !5, i64 352, !62, i64 360, !21, i64 368, !13, i64 376}
-!61 = !{!"x509_cinf_st", !62, i64 0, !63, i64 8, !65, i64 32, !68, i64 48, !69, i64 56, !68, i64 72, !70, i64 80, !62, i64 88, !62, i64 96, !71, i64 104, !72, i64 112}
-!62 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
-!63 = !{!"asn1_string_st", !5, i64 0, !5, i64 4, !13, i64 8, !64, i64 16}
-!64 = !{!"long", !6, i64 0}
-!65 = !{!"X509_algor_st", !66, i64 0, !67, i64 8}
-!66 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
-!67 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
-!68 = !{!"p1 _ZTS12X509_name_st", !9, i64 0}
-!69 = !{!"X509_val_st", !62, i64 0, !62, i64 8}
-!70 = !{!"p1 _ZTS14X509_pubkey_st", !9, i64 0}
-!71 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !9, i64 0}
-!72 = !{!"ASN1_ENCODING_st", !13, i64 0, !64, i64 8, !5, i64 16}
-!73 = !{!"x509_sig_info_st", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
-!74 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !9, i64 0}
-!75 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !9, i64 0}
-!76 = !{!"p1 _ZTS19stack_st_DIST_POINT", !9, i64 0}
-!77 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !9, i64 0}
-!78 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !9, i64 0}
-!79 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !9, i64 0}
-!80 = !{!"p1 _ZTS16ASIdentifiers_st", !9, i64 0}
-!81 = !{!"p1 _ZTS16x509_cert_aux_st", !9, i64 0}
-!82 = !{!83, !68, i64 24}
-!83 = !{!"X509_crl_st", !84, i64 0, !65, i64 88, !63, i64 104, !23, i64 128, !5, i64 132, !74, i64 136, !86, i64 144, !5, i64 152, !5, i64 156, !62, i64 160, !62, i64 168, !87, i64 176, !6, i64 184, !88, i64 208, !9, i64 216, !9, i64 224, !21, i64 232, !13, i64 240}
-!84 = !{!"X509_crl_info_st", !62, i64 0, !65, i64 8, !68, i64 24, !62, i64 32, !62, i64 40, !85, i64 48, !71, i64 56, !72, i64 64}
-!85 = !{!"p1 _ZTS21stack_st_X509_REVOKED", !9, i64 0}
-!86 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !9, i64 0}
-!87 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !9, i64 0}
-!88 = !{!"p1 _ZTS18x509_crl_method_st", !9, i64 0}
-!89 = !{!50, !21, i64 264}
-!90 = !{!50, !13, i64 272}
-!91 = distinct !{!91, !47}
-!92 = distinct !{!92, !47}
-!93 = !{!5, !5, i64 0}
-!94 = distinct !{!94, !47}
-!95 = distinct !{!95, !47}
-!96 = distinct !{!96, !47}
-!97 = !{!16, !9, i64 32}
-!98 = !{!16, !9, i64 40}
-!99 = !{!16, !9, i64 48}
-!100 = !{!16, !9, i64 56}
-!101 = !{!16, !9, i64 64}
-!102 = !{!16, !9, i64 72}
-!103 = !{!16, !9, i64 80}
-!104 = !{!16, !9, i64 88}
-!105 = !{!16, !9, i64 96}
-!106 = !{!16, !9, i64 104}
-!107 = !{!16, !9, i64 112}
-!108 = !{!16, !9, i64 120}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = !{!51, !10, i64 0}
+!51 = !{!"x509_store_ctx_st", !10, i64 0, !52, i64 8, !53, i64 16, !54, i64 24, !19, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128, !9, i64 136, !5, i64 144, !5, i64 148, !53, i64 152, !55, i64 160, !5, i64 168, !5, i64 172, !5, i64 176, !52, i64 184, !52, i64 192, !56, i64 200, !5, i64 208, !5, i64 212, !57, i64 216, !20, i64 224, !58, i64 240, !5, i64 248, !59, i64 256, !21, i64 264, !13, i64 272}
+!52 = !{!"p1 _ZTS7x509_st", !9, i64 0}
+!53 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
+!54 = !{!"p1 _ZTS17stack_st_X509_CRL", !9, i64 0}
+!55 = !{!"p1 _ZTS19X509_POLICY_TREE_st", !9, i64 0}
+!56 = !{!"p1 _ZTS11X509_crl_st", !9, i64 0}
+!57 = !{!"p1 _ZTS17x509_store_ctx_st", !9, i64 0}
+!58 = !{!"p1 _ZTS11ssl_dane_st", !9, i64 0}
+!59 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!60 = !{!61, !69, i64 72}
+!61 = !{!"x509_st", !62, i64 0, !66, i64 136, !64, i64 152, !74, i64 176, !23, i64 192, !20, i64 200, !65, i64 216, !65, i64 224, !5, i64 232, !5, i64 236, !5, i64 240, !5, i64 244, !63, i64 248, !75, i64 256, !76, i64 264, !77, i64 272, !78, i64 280, !79, i64 288, !80, i64 296, !81, i64 304, !6, i64 312, !82, i64 336, !9, i64 344, !5, i64 352, !63, i64 360, !21, i64 368, !13, i64 376}
+!62 = !{!"x509_cinf_st", !63, i64 0, !64, i64 8, !66, i64 32, !69, i64 48, !70, i64 56, !69, i64 72, !71, i64 80, !63, i64 88, !63, i64 96, !72, i64 104, !73, i64 112}
+!63 = !{!"p1 _ZTS14asn1_string_st", !9, i64 0}
+!64 = !{!"asn1_string_st", !5, i64 0, !5, i64 4, !13, i64 8, !65, i64 16}
+!65 = !{!"long", !6, i64 0}
+!66 = !{!"X509_algor_st", !67, i64 0, !68, i64 8}
+!67 = !{!"p1 _ZTS14asn1_object_st", !9, i64 0}
+!68 = !{!"p1 _ZTS12asn1_type_st", !9, i64 0}
+!69 = !{!"p1 _ZTS12X509_name_st", !9, i64 0}
+!70 = !{!"X509_val_st", !63, i64 0, !63, i64 8}
+!71 = !{!"p1 _ZTS14X509_pubkey_st", !9, i64 0}
+!72 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !9, i64 0}
+!73 = !{!"ASN1_ENCODING_st", !13, i64 0, !65, i64 8, !5, i64 16}
+!74 = !{!"x509_sig_info_st", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12}
+!75 = !{!"p1 _ZTS18AUTHORITY_KEYID_st", !9, i64 0}
+!76 = !{!"p1 _ZTS20X509_POLICY_CACHE_st", !9, i64 0}
+!77 = !{!"p1 _ZTS19stack_st_DIST_POINT", !9, i64 0}
+!78 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !9, i64 0}
+!79 = !{!"p1 _ZTS19NAME_CONSTRAINTS_st", !9, i64 0}
+!80 = !{!"p1 _ZTS24stack_st_IPAddressFamily", !9, i64 0}
+!81 = !{!"p1 _ZTS16ASIdentifiers_st", !9, i64 0}
+!82 = !{!"p1 _ZTS16x509_cert_aux_st", !9, i64 0}
+!83 = !{!84, !69, i64 24}
+!84 = !{!"X509_crl_st", !85, i64 0, !66, i64 88, !64, i64 104, !23, i64 128, !5, i64 132, !75, i64 136, !87, i64 144, !5, i64 152, !5, i64 156, !63, i64 160, !63, i64 168, !88, i64 176, !6, i64 184, !89, i64 208, !9, i64 216, !9, i64 224, !21, i64 232, !13, i64 240}
+!85 = !{!"X509_crl_info_st", !63, i64 0, !66, i64 8, !69, i64 24, !63, i64 32, !63, i64 40, !86, i64 48, !72, i64 56, !73, i64 64}
+!86 = !{!"p1 _ZTS21stack_st_X509_REVOKED", !9, i64 0}
+!87 = !{!"p1 _ZTS21ISSUING_DIST_POINT_st", !9, i64 0}
+!88 = !{!"p1 _ZTS22stack_st_GENERAL_NAMES", !9, i64 0}
+!89 = !{!"p1 _ZTS18x509_crl_method_st", !9, i64 0}
+!90 = !{!51, !21, i64 264}
+!91 = !{!51, !13, i64 272}
+!92 = distinct !{!92, !47, !48}
+!93 = distinct !{!93, !47, !48}
+!94 = !{!5, !5, i64 0}
+!95 = distinct !{!95, !47, !48}
+!96 = distinct !{!96, !47, !48}
+!97 = distinct !{!97, !47, !48}
+!98 = !{!16, !9, i64 32}
+!99 = !{!16, !9, i64 40}
+!100 = !{!16, !9, i64 48}
+!101 = !{!16, !9, i64 56}
+!102 = !{!16, !9, i64 64}
+!103 = !{!16, !9, i64 72}
+!104 = !{!16, !9, i64 80}
+!105 = !{!16, !9, i64 88}
+!106 = !{!16, !9, i64 96}
+!107 = !{!16, !9, i64 104}
+!108 = !{!16, !9, i64 112}
+!109 = !{!16, !9, i64 120}

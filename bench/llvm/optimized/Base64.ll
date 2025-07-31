@@ -229,7 +229,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %82 = lshr i8 %81, 4
   %83 = and i8 %82, 3
   %84 = or disjoint i8 %83, %80
-  %85 = load ptr, ptr %35, align 8, !tbaa !62
+  %85 = load ptr, ptr %35, align 8, !tbaa !63
   %.not.i.i41 = icmp eq ptr %38, %85
   br i1 %.not.i.i41, label %89, label %86
 
@@ -238,7 +238,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %87 = load ptr, ptr %13, align 8, !tbaa !9
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %88, ptr %13, align 8, !tbaa !9
-  %.pre = load ptr, ptr %35, align 8, !tbaa !62
+  %.pre = load ptr, ptr %35, align 8, !tbaa !63
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 89:                                               ; preds = %.critedge
@@ -290,7 +290,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %102, ptr %3, align 8, !tbaa !3
   store ptr %106, ptr %13, align 8, !tbaa !9
   %108 = getelementptr inbounds nuw i8, ptr %102, i64 %99
-  store ptr %108, ptr %35, align 8, !tbaa !62
+  store ptr %108, ptr %35, align 8, !tbaa !63
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %86, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i
@@ -309,7 +309,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %86, %_ZNSt6vectorIc
   %117 = load ptr, ptr %13, align 8, !tbaa !9
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1
   store ptr %118, ptr %13, align 8, !tbaa !9
-  %.pre98 = load ptr, ptr %35, align 8, !tbaa !62
+  %.pre98 = load ptr, ptr %35, align 8, !tbaa !63
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit50
 
 119:                                              ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
@@ -361,7 +361,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %132, ptr %3, align 8, !tbaa !3
   store ptr %136, ptr %13, align 8, !tbaa !9
   %138 = getelementptr inbounds nuw i8, ptr %132, i64 %129
-  store ptr %138, ptr %35, align 8, !tbaa !62
+  store ptr %138, ptr %35, align 8, !tbaa !63
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit50
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit50:         ; preds = %116, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i49
@@ -430,14 +430,14 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   store ptr %161, ptr %3, align 8, !tbaa !3
   store ptr %165, ptr %13, align 8, !tbaa !9
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 %158
-  store ptr %167, ptr %35, align 8, !tbaa !62
+  store ptr %167, ptr %35, align 8, !tbaa !63
   br label %_ZNSt6vectorIcSaIcEE9push_backEOc.exit59
 
 _ZNSt6vectorIcSaIcEE9push_backEOc.exit59:         ; preds = %145, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i58
   %168 = phi ptr [ %147, %145 ], [ %165, %_ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS1_EEDpOT_.exit.i.i58 ]
   %169 = add i64 %.03294, 4
   %.not38 = icmp ult i64 %169, %2
-  br i1 %.not38, label %.preheader, label %.critedge40, !llvm.loop !63
+  br i1 %.not38, label %.preheader, label %.critedge40, !llvm.loop !64
 
 170:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #15, !noalias !26
@@ -628,7 +628,8 @@ attributes #18 = { noreturn nounwind }
 !57 = !{!"_ZTSN4llvm5Twine8NodeKindE", !7, i64 0}
 !58 = !{!56, !57, i64 33}
 !59 = !{!50, !27}
-!60 = distinct !{!60, !61}
+!60 = distinct !{!60, !61, !62}
 !61 = !{!"llvm.loop.mustprogress"}
-!62 = !{!4, !5, i64 16}
-!63 = distinct !{!63, !61}
+!62 = !{!"llvm.loop.estimated_trip_count"}
+!63 = !{!4, !5, i64 16}
+!64 = distinct !{!64, !61, !62}

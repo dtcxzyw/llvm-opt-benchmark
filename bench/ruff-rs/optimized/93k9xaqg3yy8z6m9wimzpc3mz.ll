@@ -16535,7 +16535,7 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
   store i64 %9, ptr %8, align 8
   %11 = add nuw nsw i64 %.sroa.0.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %11, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN4core10intrinsics25typed_swap_nonoverlapping17he64ddba061db9258E.exit, label %.preheader
+  br i1 %exitcond.not.i.i.i, label %_ZN4core10intrinsics25typed_swap_nonoverlapping17he64ddba061db9258E.exit, label %.preheader, !llvm.loop !326
 
 _ZN4core10intrinsics25typed_swap_nonoverlapping17he64ddba061db9258E.exit: ; preds = %.preheader, %12, %5
   ret void
@@ -16582,7 +16582,7 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
   store i64 %9, ptr %8, align 8
   %11 = add nuw nsw i64 %.sroa.0.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %11, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN4core10intrinsics25typed_swap_nonoverlapping17h1d7f027bbca0aba1E.exit, label %.preheader
+  br i1 %exitcond.not.i.i.i, label %_ZN4core10intrinsics25typed_swap_nonoverlapping17h1d7f027bbca0aba1E.exit, label %.preheader, !llvm.loop !328
 
 _ZN4core10intrinsics25typed_swap_nonoverlapping17h1d7f027bbca0aba1E.exit: ; preds = %.preheader, %12, %5
   ret void
@@ -16629,7 +16629,7 @@ define hidden void @"_ZN5alloc11collections11linked_list19LinkedList$LT$T$GT$6ap
   store i64 %9, ptr %8, align 8
   %11 = add nuw nsw i64 %.sroa.0.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %11, 3
-  br i1 %exitcond.not.i.i.i, label %_ZN4core10intrinsics25typed_swap_nonoverlapping17hcd16f7aa4dbee3e2E.exit, label %.preheader
+  br i1 %exitcond.not.i.i.i, label %_ZN4core10intrinsics25typed_swap_nonoverlapping17hcd16f7aa4dbee3e2E.exit, label %.preheader, !llvm.loop !329
 
 _ZN4core10intrinsics25typed_swap_nonoverlapping17hcd16f7aa4dbee3e2E.exit: ; preds = %.preheader, %12, %5
   ret void
@@ -16689,7 +16689,7 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   %16 = add i64 %15, -1
   store i64 %16, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %3, i64 noundef 40, i64 noundef 8) #26, !noalias !326
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %3, i64 noundef 40, i64 noundef 8) #26, !noalias !330
   br label %10
 }
 
@@ -16729,7 +16729,7 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   %16 = add i64 %15, -1
   store i64 %16, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %3, i64 noundef 40, i64 noundef 8) #26, !noalias !329
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %3, i64 noundef 40, i64 noundef 8) #26, !noalias !333
   br label %10
 }
 
@@ -16769,7 +16769,7 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   %16 = add i64 %15, -1
   store i64 %16, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %3, i64 noundef 40, i64 noundef 8) #26, !noalias !332
+  tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %3, i64 noundef 40, i64 noundef 8) #26, !noalias !336
   br label %10
 }
 
@@ -16782,7 +16782,7 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = invoke { ptr, ptr } @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17h0927521b65966f55E"(ptr noalias noundef nonnull readonly align 1 %5)
-          to label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h81ebc3dcc0642e7aE.exit" unwind label %7, !noalias !335
+          to label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h81ebc3dcc0642e7aE.exit" unwind label %7, !noalias !339
 
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
@@ -16841,7 +16841,7 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = invoke { ptr, ptr } @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17ha18629fde1a585acE"(ptr noalias noundef nonnull readonly align 1 %5)
-          to label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hc8a84836536eb366E.exit" unwind label %7, !noalias !338
+          to label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hc8a84836536eb366E.exit" unwind label %7, !noalias !342
 
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
@@ -16900,7 +16900,7 @@ define hidden void @"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = invoke { ptr, ptr } @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc34f32fdda51a58dE"(ptr noalias noundef nonnull readonly align 1 %5)
-          to label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hb277580b9639fad7E.exit" unwind label %7, !noalias !341
+          to label %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hb277580b9639fad7E.exit" unwind label %7, !noalias !345
 
 7:                                                ; preds = %2
   %8 = landingpad { ptr, i32 }
@@ -16976,25 +16976,25 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hd9a
 
 16:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !344
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %13, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !344
-  %17 = load i64, ptr %5, align 8, !range !41, !noalias !344, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !348
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %13, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !348
+  %17 = load i64, ptr %5, align 8, !range !41, !noalias !348, !noundef !3
   %18 = trunc nuw i64 %17 to i1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %20 = load i64, ptr %19, align 8, !range !42, !noalias !344, !noundef !3
+  %20 = load i64, ptr %19, align 8, !range !42, !noalias !348, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %18, label %22, label %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E.exit", !prof !5
 
 22:                                               ; preds = %16
-  %23 = load i64, ptr %21, align 8, !noalias !344
+  %23 = load i64, ptr %21, align 8, !noalias !348
   tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %20, i64 %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1046) #23
   unreachable
 
 "_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E.exit": ; preds = %16
-  %24 = load ptr, ptr %21, align 8, !noalias !344, !nonnull !3, !noundef !3
+  %24 = load ptr, ptr %21, align 8, !noalias !348, !nonnull !3, !noundef !3
   %25 = icmp ule i64 %13, %20
   tail call void @llvm.assume(i1 %25)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !344
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !348
   store i64 %20, ptr %6, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %24, ptr %26, align 8
@@ -17041,7 +17041,7 @@ define hidden void @"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$6repeat17hd9a
   %40 = shl nuw i64 %38, 1
   store i64 %40, ptr %27, align 8
   %.not = icmp ult i64 %.sroa.01.0.in9, 4
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !351
 
 41:                                               ; preds = %42, %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
@@ -17165,10 +17165,10 @@ define hidden void @_ZN5serde2de5Error12invalid_type17ha393adc8bcc76cddE(ptr dea
   store ptr %6, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !347
-  store i64 0, ptr %5, align 8, !noalias !347
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !352
+  store i64 0, ptr %5, align 8, !noalias !352
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !347
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !352
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -17201,10 +17201,10 @@ define hidden void @_ZN5serde2de5Error12invalid_type17hedea3ea33ef86f07E(ptr dea
   store ptr %6, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !351
-  store i64 0, ptr %5, align 8, !noalias !351
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !356
+  store i64 0, ptr %5, align 8, !noalias !356
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !351
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !356
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -17237,10 +17237,10 @@ define hidden void @_ZN5serde2de5Error13invalid_value17h53f5f1a2f55fd12eE(ptr de
   store ptr %6, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !355
-  store i64 0, ptr %5, align 8, !noalias !355
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !360
+  store i64 0, ptr %5, align 8, !noalias !360
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !355
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !360
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -17305,10 +17305,10 @@ define hidden void @_ZN5serde2de5Error13invalid_value17he3121ad93d4dfe98E(ptr de
   store ptr %6, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %14, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !359
-  store i64 0, ptr %5, align 8, !noalias !359
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !364
+  store i64 0, ptr %5, align 8, !noalias !364
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !359
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !364
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -17337,10 +17337,10 @@ define hidden void @_ZN5serde2de5Error13missing_field17h2c21c00ea0bc1b79E(ptr de
   store ptr %5, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !363
-  store i64 0, ptr %4, align 8, !noalias !363
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !368
+  store i64 0, ptr %4, align 8, !noalias !368
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !363
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !368
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
@@ -17369,10 +17369,10 @@ define hidden void @_ZN5serde2de5Error13missing_field17hf9ecbcadc370192bE(ptr de
   store ptr %5, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !367
-  store i64 0, ptr %4, align 8, !noalias !367
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !372
+  store i64 0, ptr %4, align 8, !noalias !372
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !367
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !372
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
@@ -17409,10 +17409,10 @@ define hidden void @_ZN5serde2de5Error13unknown_field17hae8dc1cca17c7ac7E(ptr de
   store ptr %11, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !371
-  store i64 0, ptr %7, align 8, !noalias !371
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !376
+  store i64 0, ptr %7, align 8, !noalias !376
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !371
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !376
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %28
@@ -17440,10 +17440,10 @@ define hidden void @_ZN5serde2de5Error13unknown_field17hae8dc1cca17c7ac7E(ptr de
   store ptr %9, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 2, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !375
-  store i64 0, ptr %6, align 8, !noalias !375
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !380
+  store i64 0, ptr %6, align 8, !noalias !380
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !375
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !380
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -17484,10 +17484,10 @@ define hidden void @_ZN5serde2de5Error13unknown_field17he622782a64287fabE(ptr de
   store ptr %11, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !379
-  store i64 0, ptr %7, align 8, !noalias !379
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !384
+  store i64 0, ptr %7, align 8, !noalias !384
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !379
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !384
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %28
@@ -17515,10 +17515,10 @@ define hidden void @_ZN5serde2de5Error13unknown_field17he622782a64287fabE(ptr de
   store ptr %9, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 2, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !383
-  store i64 0, ptr %6, align 8, !noalias !383
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !388
+  store i64 0, ptr %6, align 8, !noalias !388
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !383
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !388
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -17557,10 +17557,10 @@ define hidden void @_ZN5serde2de5Error14invalid_length17h82e149e1408fa6f7E(ptr d
   store ptr %6, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !387
-  store i64 0, ptr %5, align 8, !noalias !387
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !392
+  store i64 0, ptr %5, align 8, !noalias !392
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !387
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !392
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -17595,10 +17595,10 @@ define hidden void @_ZN5serde2de5Error14invalid_length17haff01da60e7575c7E(ptr d
   store ptr %6, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %15, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !391
-  store i64 0, ptr %5, align 8, !noalias !391
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !396
+  store i64 0, ptr %5, align 8, !noalias !396
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !391
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !396
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   ret void
@@ -17661,10 +17661,10 @@ define hidden void @_ZN5serde2de5Error15duplicate_field17h2a804d33d7fe9d1eE(ptr 
   store ptr %5, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !395
-  store i64 0, ptr %4, align 8, !noalias !395
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !400
+  store i64 0, ptr %4, align 8, !noalias !400
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !395
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !400
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
@@ -17693,10 +17693,10 @@ define hidden void @_ZN5serde2de5Error15duplicate_field17h8db4f628b8024829E(ptr 
   store ptr %5, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %12, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !399
-  store i64 0, ptr %4, align 8, !noalias !399
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !404
+  store i64 0, ptr %4, align 8, !noalias !404
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !399
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !404
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
@@ -17733,10 +17733,10 @@ define hidden void @_ZN5serde2de5Error15unknown_variant17h5ebc8e656efb8f0cE(ptr 
   store ptr %11, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !403
-  store i64 0, ptr %7, align 8, !noalias !403
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !408
+  store i64 0, ptr %7, align 8, !noalias !408
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !403
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !408
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %28
@@ -17764,10 +17764,10 @@ define hidden void @_ZN5serde2de5Error15unknown_variant17h5ebc8e656efb8f0cE(ptr 
   store ptr %9, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 2, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !407
-  store i64 0, ptr %6, align 8, !noalias !407
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !412
+  store i64 0, ptr %6, align 8, !noalias !412
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !407
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !412
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -17808,10 +17808,10 @@ define hidden void @_ZN5serde2de5Error15unknown_variant17h8f680dc9efa50716E(ptr 
   store ptr %11, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 1, ptr %20, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !411
-  store i64 0, ptr %7, align 8, !noalias !411
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !416
+  store i64 0, ptr %7, align 8, !noalias !416
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %12, ptr noalias noundef align 8 captures(none) dereferenceable(24) %7)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !411
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7), !noalias !416
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   br label %28
@@ -17839,10 +17839,10 @@ define hidden void @_ZN5serde2de5Error15unknown_variant17h8f680dc9efa50716E(ptr 
   store ptr %9, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 2, ptr %27, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !415
-  store i64 0, ptr %6, align 8, !noalias !415
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !420
+  store i64 0, ptr %6, align 8, !noalias !420
   call fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(ptr noalias noundef align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef align 8 captures(none) dereferenceable(24) %6)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !415
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !420
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
@@ -17861,12 +17861,12 @@ define internal fastcc void @_ZN5serde2de7Visitor12visit_string17ha70c827b0e3586
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !419
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !424
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %6, ptr %9, align 8, !noalias !419
+  store ptr %6, ptr %9, align 8, !noalias !424
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %8, ptr %10, align 8, !noalias !419
-  store i8 5, ptr %4, align 8, !noalias !419
+  store i64 %8, ptr %10, align 8, !noalias !424
+  store i8 5, ptr %4, align 8, !noalias !424
   invoke void @_ZN5serde2de5Error12invalid_type17hedea3ea33ef86f07E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.1076)
           to label %13 unwind label %11
 
@@ -17877,7 +17877,7 @@ define internal fastcc void @_ZN5serde2de7Visitor12visit_string17ha70c827b0e3586
           to label %16 unwind label %14
 
 13:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !419
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !424
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   ret void
@@ -17953,7 +17953,7 @@ define hidden void @_ZN5serde2de7Visitor14visit_byte_buf17hd31574e50bc7db99E(ptr
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h7beedd5486f5621fE(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, i8 noundef %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !423)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !428)
   switch i8 %1, label %4 [
     i8 0, label %7
     i8 1, label %9
@@ -17961,24 +17961,24 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h7beedd5486f5621fE(ptr dead_o
 
 4:                                                ; preds = %2
   %5 = zext i8 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !423
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !428
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %5, ptr %6, align 8, !noalias !423
-  store i8 1, ptr %3, align 8, !noalias !423
+  store i64 %5, ptr %6, align 8, !noalias !428
+  store i8 1, ptr %3, align 8, !noalias !428
   call void @_ZN5serde2de5Error13invalid_value17he3121ad93d4dfe98E(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.973, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.950)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !423
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !428
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE.exit"
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %8, align 8, !alias.scope !423
-  store i64 2, ptr %0, align 8, !alias.scope !423
+  store i8 0, ptr %8, align 8, !alias.scope !428
+  store i64 2, ptr %0, align 8, !alias.scope !428
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE.exit"
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %10, align 8, !alias.scope !423
-  store i64 2, ptr %0, align 8, !alias.scope !423
+  store i8 1, ptr %10, align 8, !alias.scope !428
+  store i64 2, ptr %0, align 8, !alias.scope !428
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE.exit"
 
 "_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE.exit": ; preds = %4, %7, %9
@@ -17988,7 +17988,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h7beedd5486f5621fE(ptr dead_o
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5serde2de7Visitor8visit_u817h9ba600e4fb33c556E(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, i8 noundef %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
   switch i8 %1, label %4 [
     i8 0, label %7
     i8 1, label %9
@@ -17996,24 +17996,24 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h9ba600e4fb33c556E(ptr dead_o
 
 4:                                                ; preds = %2
   %5 = zext i8 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !426
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !431
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %5, ptr %6, align 8, !noalias !426
-  store i8 1, ptr %3, align 8, !noalias !426
+  store i64 %5, ptr %6, align 8, !noalias !431
+  store i8 1, ptr %3, align 8, !noalias !431
   call void @_ZN5serde2de5Error13invalid_value17h53f5f1a2f55fd12eE(ptr noalias noundef nonnull sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.973, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.950)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !426
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !431
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E.exit"
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %8, align 8, !alias.scope !426
-  store i64 2, ptr %0, align 8, !alias.scope !426
+  store i8 0, ptr %8, align 8, !alias.scope !431
+  store i64 2, ptr %0, align 8, !alias.scope !431
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E.exit"
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %10, align 8, !alias.scope !426
-  store i64 2, ptr %0, align 8, !alias.scope !426
+  store i8 1, ptr %10, align 8, !alias.scope !431
+  store i64 2, ptr %0, align 8, !alias.scope !431
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E.exit"
 
 "_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E.exit": ; preds = %4, %7, %9
@@ -18023,7 +18023,7 @@ define hidden void @_ZN5serde2de7Visitor8visit_u817h9ba600e4fb33c556E(ptr dead_o
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217h37378465fa731d5aE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
   switch i32 %1, label %4 [
     i32 0, label %7
     i32 1, label %9
@@ -18031,24 +18031,24 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217h37378465fa731d5aE(ptr dead_
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !429
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !434
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %5, ptr %6, align 8, !noalias !429
-  store i8 1, ptr %3, align 8, !noalias !429
+  store i64 %5, ptr %6, align 8, !noalias !434
+  store i8 1, ptr %3, align 8, !noalias !434
   call void @_ZN5serde2de5Error13invalid_value17h95c5bb7857d5d026E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.973, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.950)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !429
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !434
   br label %"_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE.exit"
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %8, align 1, !alias.scope !429
-  store i8 18, ptr %0, align 8, !alias.scope !429
+  store i8 0, ptr %8, align 1, !alias.scope !434
+  store i8 18, ptr %0, align 8, !alias.scope !434
   br label %"_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE.exit"
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %10, align 1, !alias.scope !429
-  store i8 18, ptr %0, align 8, !alias.scope !429
+  store i8 1, ptr %10, align 1, !alias.scope !434
+  store i8 18, ptr %0, align 8, !alias.scope !434
   br label %"_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE.exit"
 
 "_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE.exit": ; preds = %4, %7, %9
@@ -18059,7 +18059,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217h37378465fa731d5aE(ptr dead_
 define hidden void @_ZN5serde2de7Visitor9visit_u3217h3a2b64e5508ad77cE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) initializes((0, 1), (2, 4)) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [32 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !432)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
   switch i32 %1, label %5 [
     i32 0, label %8
     i32 1, label %10
@@ -18982,5545 +18982,5545 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217h3a2b64e5508ad77cE(ptr dead_
     i32 918, label %1844
     i32 919, label %1846
     i32 920, label %1848
-  ], !prof !435
+  ], !prof !440
 
 5:                                                ; preds = %2
   %6 = zext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !432
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !432
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !437
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !437
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %6, ptr %7, align 8, !noalias !432
-  store i8 1, ptr %3, align 8, !noalias !432
+  store i64 %6, ptr %7, align 8, !noalias !437
+  store i8 1, ptr %3, align 8, !noalias !437
   call void @_ZN5serde2de5Error13invalid_value17h95c5bb7857d5d026E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.949, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.950)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !432
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !437
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !432
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 0, ptr %9, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 0, ptr %9, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 1, ptr %11, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 1, ptr %11, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 2, ptr %13, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 2, ptr %13, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 3, ptr %15, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 3, ptr %15, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 4, ptr %17, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 4, ptr %17, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 5, ptr %19, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 5, ptr %19, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 20:                                               ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 6, ptr %21, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 6, ptr %21, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 22:                                               ; preds = %2
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 7, ptr %23, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 7, ptr %23, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 8, ptr %25, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 8, ptr %25, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 26:                                               ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 9, ptr %27, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 9, ptr %27, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 10, ptr %29, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 10, ptr %29, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 11, ptr %31, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 11, ptr %31, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 12, ptr %33, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 12, ptr %33, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 34:                                               ; preds = %2
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 13, ptr %35, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 13, ptr %35, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 36:                                               ; preds = %2
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 14, ptr %37, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 14, ptr %37, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 38:                                               ; preds = %2
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 15, ptr %39, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 15, ptr %39, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 40:                                               ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 16, ptr %41, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 16, ptr %41, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 17, ptr %43, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 17, ptr %43, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 44:                                               ; preds = %2
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 18, ptr %45, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 18, ptr %45, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 46:                                               ; preds = %2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 19, ptr %47, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 19, ptr %47, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 48:                                               ; preds = %2
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 20, ptr %49, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 20, ptr %49, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 50:                                               ; preds = %2
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 21, ptr %51, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 21, ptr %51, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 52:                                               ; preds = %2
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 22, ptr %53, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 22, ptr %53, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 54:                                               ; preds = %2
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 23, ptr %55, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 23, ptr %55, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 56:                                               ; preds = %2
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 24, ptr %57, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 24, ptr %57, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 58:                                               ; preds = %2
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 25, ptr %59, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 25, ptr %59, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 60:                                               ; preds = %2
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 26, ptr %61, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 26, ptr %61, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 62:                                               ; preds = %2
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 27, ptr %63, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 27, ptr %63, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 64:                                               ; preds = %2
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 28, ptr %65, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 28, ptr %65, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 66:                                               ; preds = %2
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 29, ptr %67, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 29, ptr %67, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 68:                                               ; preds = %2
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 30, ptr %69, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 30, ptr %69, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 70:                                               ; preds = %2
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 31, ptr %71, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 31, ptr %71, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 72:                                               ; preds = %2
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 32, ptr %73, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 32, ptr %73, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 74:                                               ; preds = %2
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 33, ptr %75, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 33, ptr %75, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 76:                                               ; preds = %2
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 34, ptr %77, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 34, ptr %77, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 78:                                               ; preds = %2
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 35, ptr %79, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 35, ptr %79, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 80:                                               ; preds = %2
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 36, ptr %81, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 36, ptr %81, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 82:                                               ; preds = %2
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 37, ptr %83, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 37, ptr %83, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 84:                                               ; preds = %2
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 38, ptr %85, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 38, ptr %85, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 86:                                               ; preds = %2
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 39, ptr %87, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 39, ptr %87, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 88:                                               ; preds = %2
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 40, ptr %89, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 40, ptr %89, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 90:                                               ; preds = %2
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 41, ptr %91, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 41, ptr %91, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 92:                                               ; preds = %2
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 42, ptr %93, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 42, ptr %93, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 94:                                               ; preds = %2
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 43, ptr %95, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 43, ptr %95, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 96:                                               ; preds = %2
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 44, ptr %97, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 44, ptr %97, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 98:                                               ; preds = %2
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 45, ptr %99, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 45, ptr %99, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 100:                                              ; preds = %2
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 46, ptr %101, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 46, ptr %101, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 102:                                              ; preds = %2
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 47, ptr %103, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 47, ptr %103, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 104:                                              ; preds = %2
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 48, ptr %105, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 48, ptr %105, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 106:                                              ; preds = %2
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 49, ptr %107, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 49, ptr %107, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 108:                                              ; preds = %2
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 50, ptr %109, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 50, ptr %109, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 110:                                              ; preds = %2
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 51, ptr %111, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 51, ptr %111, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 112:                                              ; preds = %2
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 52, ptr %113, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 52, ptr %113, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 114:                                              ; preds = %2
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 53, ptr %115, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 53, ptr %115, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 116:                                              ; preds = %2
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 54, ptr %117, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 54, ptr %117, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 118:                                              ; preds = %2
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 55, ptr %119, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 55, ptr %119, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 120:                                              ; preds = %2
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 56, ptr %121, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 56, ptr %121, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 122:                                              ; preds = %2
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 57, ptr %123, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 57, ptr %123, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 124:                                              ; preds = %2
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 58, ptr %125, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 58, ptr %125, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 126:                                              ; preds = %2
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 59, ptr %127, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 59, ptr %127, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 128:                                              ; preds = %2
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 60, ptr %129, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 60, ptr %129, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 130:                                              ; preds = %2
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 61, ptr %131, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 61, ptr %131, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 132:                                              ; preds = %2
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 62, ptr %133, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 62, ptr %133, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 134:                                              ; preds = %2
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 63, ptr %135, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 63, ptr %135, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 136:                                              ; preds = %2
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 64, ptr %137, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 64, ptr %137, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 138:                                              ; preds = %2
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 65, ptr %139, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 65, ptr %139, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 140:                                              ; preds = %2
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 66, ptr %141, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 66, ptr %141, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 142:                                              ; preds = %2
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 67, ptr %143, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 67, ptr %143, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 144:                                              ; preds = %2
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 68, ptr %145, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 68, ptr %145, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 146:                                              ; preds = %2
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 69, ptr %147, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 69, ptr %147, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 148:                                              ; preds = %2
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 70, ptr %149, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 70, ptr %149, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 150:                                              ; preds = %2
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 71, ptr %151, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 71, ptr %151, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 152:                                              ; preds = %2
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 72, ptr %153, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 72, ptr %153, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 154:                                              ; preds = %2
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 73, ptr %155, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 73, ptr %155, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 156:                                              ; preds = %2
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 74, ptr %157, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 74, ptr %157, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 158:                                              ; preds = %2
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 75, ptr %159, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 75, ptr %159, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 160:                                              ; preds = %2
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 76, ptr %161, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 76, ptr %161, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 162:                                              ; preds = %2
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 77, ptr %163, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 77, ptr %163, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 164:                                              ; preds = %2
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 78, ptr %165, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 78, ptr %165, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 166:                                              ; preds = %2
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 79, ptr %167, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 79, ptr %167, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 168:                                              ; preds = %2
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 80, ptr %169, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 80, ptr %169, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 170:                                              ; preds = %2
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 81, ptr %171, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 81, ptr %171, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 172:                                              ; preds = %2
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 82, ptr %173, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 82, ptr %173, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 174:                                              ; preds = %2
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 83, ptr %175, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 83, ptr %175, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 176:                                              ; preds = %2
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 84, ptr %177, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 84, ptr %177, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 178:                                              ; preds = %2
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 85, ptr %179, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 85, ptr %179, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 180:                                              ; preds = %2
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 86, ptr %181, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 86, ptr %181, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 182:                                              ; preds = %2
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 87, ptr %183, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 87, ptr %183, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 184:                                              ; preds = %2
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 88, ptr %185, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 88, ptr %185, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 186:                                              ; preds = %2
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 89, ptr %187, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 89, ptr %187, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 188:                                              ; preds = %2
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 90, ptr %189, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 90, ptr %189, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 190:                                              ; preds = %2
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 91, ptr %191, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 91, ptr %191, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 192:                                              ; preds = %2
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 92, ptr %193, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 92, ptr %193, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 194:                                              ; preds = %2
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 93, ptr %195, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 93, ptr %195, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 196:                                              ; preds = %2
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 94, ptr %197, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 94, ptr %197, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 198:                                              ; preds = %2
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 95, ptr %199, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 95, ptr %199, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 200:                                              ; preds = %2
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 96, ptr %201, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 96, ptr %201, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 202:                                              ; preds = %2
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 97, ptr %203, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 97, ptr %203, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 204:                                              ; preds = %2
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 98, ptr %205, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 98, ptr %205, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 206:                                              ; preds = %2
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 99, ptr %207, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 99, ptr %207, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 208:                                              ; preds = %2
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 100, ptr %209, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 100, ptr %209, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 210:                                              ; preds = %2
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 101, ptr %211, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 101, ptr %211, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 212:                                              ; preds = %2
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 102, ptr %213, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 102, ptr %213, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 214:                                              ; preds = %2
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 103, ptr %215, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 103, ptr %215, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 216:                                              ; preds = %2
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 104, ptr %217, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 104, ptr %217, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 218:                                              ; preds = %2
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 105, ptr %219, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 105, ptr %219, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 220:                                              ; preds = %2
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 106, ptr %221, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 106, ptr %221, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 222:                                              ; preds = %2
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 107, ptr %223, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 107, ptr %223, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 224:                                              ; preds = %2
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 108, ptr %225, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 108, ptr %225, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 226:                                              ; preds = %2
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 109, ptr %227, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 109, ptr %227, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 228:                                              ; preds = %2
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 110, ptr %229, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 110, ptr %229, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 230:                                              ; preds = %2
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 111, ptr %231, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 111, ptr %231, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 232:                                              ; preds = %2
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 112, ptr %233, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 112, ptr %233, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 234:                                              ; preds = %2
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 113, ptr %235, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 113, ptr %235, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 236:                                              ; preds = %2
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 114, ptr %237, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 114, ptr %237, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 238:                                              ; preds = %2
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 115, ptr %239, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 115, ptr %239, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 240:                                              ; preds = %2
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 116, ptr %241, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 116, ptr %241, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 242:                                              ; preds = %2
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 117, ptr %243, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 117, ptr %243, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 244:                                              ; preds = %2
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 118, ptr %245, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 118, ptr %245, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 246:                                              ; preds = %2
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 119, ptr %247, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 119, ptr %247, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 248:                                              ; preds = %2
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 120, ptr %249, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 120, ptr %249, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 250:                                              ; preds = %2
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 121, ptr %251, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 121, ptr %251, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 252:                                              ; preds = %2
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 122, ptr %253, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 122, ptr %253, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 254:                                              ; preds = %2
   %255 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 123, ptr %255, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 123, ptr %255, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 256:                                              ; preds = %2
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 124, ptr %257, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 124, ptr %257, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 258:                                              ; preds = %2
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 125, ptr %259, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 125, ptr %259, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 260:                                              ; preds = %2
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 126, ptr %261, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 126, ptr %261, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 262:                                              ; preds = %2
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 127, ptr %263, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 127, ptr %263, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 264:                                              ; preds = %2
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 128, ptr %265, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 128, ptr %265, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 266:                                              ; preds = %2
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 129, ptr %267, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 129, ptr %267, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 268:                                              ; preds = %2
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 130, ptr %269, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 130, ptr %269, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 270:                                              ; preds = %2
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 131, ptr %271, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 131, ptr %271, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 272:                                              ; preds = %2
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 132, ptr %273, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 132, ptr %273, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 274:                                              ; preds = %2
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 133, ptr %275, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 133, ptr %275, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 276:                                              ; preds = %2
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 134, ptr %277, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 134, ptr %277, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 278:                                              ; preds = %2
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 135, ptr %279, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 135, ptr %279, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 280:                                              ; preds = %2
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 136, ptr %281, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 136, ptr %281, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 282:                                              ; preds = %2
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 137, ptr %283, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 137, ptr %283, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 284:                                              ; preds = %2
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 138, ptr %285, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 138, ptr %285, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 286:                                              ; preds = %2
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 139, ptr %287, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 139, ptr %287, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 288:                                              ; preds = %2
   %289 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 140, ptr %289, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 140, ptr %289, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 290:                                              ; preds = %2
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 141, ptr %291, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 141, ptr %291, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 292:                                              ; preds = %2
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 142, ptr %293, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 142, ptr %293, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 294:                                              ; preds = %2
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 143, ptr %295, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 143, ptr %295, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 296:                                              ; preds = %2
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 144, ptr %297, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 144, ptr %297, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 298:                                              ; preds = %2
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 145, ptr %299, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 145, ptr %299, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 300:                                              ; preds = %2
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 146, ptr %301, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 146, ptr %301, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 302:                                              ; preds = %2
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 147, ptr %303, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 147, ptr %303, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 304:                                              ; preds = %2
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 148, ptr %305, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 148, ptr %305, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 306:                                              ; preds = %2
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 149, ptr %307, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 149, ptr %307, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 308:                                              ; preds = %2
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 150, ptr %309, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 150, ptr %309, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 310:                                              ; preds = %2
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 151, ptr %311, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 151, ptr %311, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 312:                                              ; preds = %2
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 152, ptr %313, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 152, ptr %313, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 314:                                              ; preds = %2
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 153, ptr %315, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 153, ptr %315, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 316:                                              ; preds = %2
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 154, ptr %317, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 154, ptr %317, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 318:                                              ; preds = %2
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 155, ptr %319, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 155, ptr %319, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 320:                                              ; preds = %2
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 156, ptr %321, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 156, ptr %321, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 322:                                              ; preds = %2
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 157, ptr %323, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 157, ptr %323, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 324:                                              ; preds = %2
   %325 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 158, ptr %325, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 158, ptr %325, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 326:                                              ; preds = %2
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 159, ptr %327, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 159, ptr %327, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 328:                                              ; preds = %2
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 160, ptr %329, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 160, ptr %329, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 330:                                              ; preds = %2
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 161, ptr %331, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 161, ptr %331, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 332:                                              ; preds = %2
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 162, ptr %333, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 162, ptr %333, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 334:                                              ; preds = %2
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 163, ptr %335, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 163, ptr %335, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 336:                                              ; preds = %2
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 164, ptr %337, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 164, ptr %337, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 338:                                              ; preds = %2
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 165, ptr %339, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 165, ptr %339, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 340:                                              ; preds = %2
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 166, ptr %341, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 166, ptr %341, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 342:                                              ; preds = %2
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 167, ptr %343, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 167, ptr %343, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 344:                                              ; preds = %2
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 168, ptr %345, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 168, ptr %345, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 346:                                              ; preds = %2
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 169, ptr %347, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 169, ptr %347, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 348:                                              ; preds = %2
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 170, ptr %349, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 170, ptr %349, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 350:                                              ; preds = %2
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 171, ptr %351, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 171, ptr %351, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 352:                                              ; preds = %2
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 172, ptr %353, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 172, ptr %353, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 354:                                              ; preds = %2
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 173, ptr %355, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 173, ptr %355, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 356:                                              ; preds = %2
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 174, ptr %357, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 174, ptr %357, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 358:                                              ; preds = %2
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 175, ptr %359, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 175, ptr %359, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 360:                                              ; preds = %2
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 176, ptr %361, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 176, ptr %361, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 362:                                              ; preds = %2
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 177, ptr %363, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 177, ptr %363, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 364:                                              ; preds = %2
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 178, ptr %365, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 178, ptr %365, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 366:                                              ; preds = %2
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 179, ptr %367, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 179, ptr %367, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 368:                                              ; preds = %2
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 180, ptr %369, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 180, ptr %369, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 370:                                              ; preds = %2
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 181, ptr %371, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 181, ptr %371, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 372:                                              ; preds = %2
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 182, ptr %373, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 182, ptr %373, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 374:                                              ; preds = %2
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 183, ptr %375, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 183, ptr %375, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 376:                                              ; preds = %2
   %377 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 184, ptr %377, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 184, ptr %377, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 378:                                              ; preds = %2
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 185, ptr %379, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 185, ptr %379, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 380:                                              ; preds = %2
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 186, ptr %381, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 186, ptr %381, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 382:                                              ; preds = %2
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 187, ptr %383, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 187, ptr %383, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 384:                                              ; preds = %2
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 188, ptr %385, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 188, ptr %385, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 386:                                              ; preds = %2
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 189, ptr %387, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 189, ptr %387, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 388:                                              ; preds = %2
   %389 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 190, ptr %389, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 190, ptr %389, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 390:                                              ; preds = %2
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 191, ptr %391, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 191, ptr %391, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 392:                                              ; preds = %2
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 192, ptr %393, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 192, ptr %393, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 394:                                              ; preds = %2
   %395 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 193, ptr %395, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 193, ptr %395, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 396:                                              ; preds = %2
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 194, ptr %397, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 194, ptr %397, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 398:                                              ; preds = %2
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 195, ptr %399, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 195, ptr %399, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 400:                                              ; preds = %2
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 196, ptr %401, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 196, ptr %401, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 402:                                              ; preds = %2
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 197, ptr %403, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 197, ptr %403, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 404:                                              ; preds = %2
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 198, ptr %405, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 198, ptr %405, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 406:                                              ; preds = %2
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 199, ptr %407, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 199, ptr %407, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 408:                                              ; preds = %2
   %409 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 200, ptr %409, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 200, ptr %409, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 410:                                              ; preds = %2
   %411 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 201, ptr %411, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 201, ptr %411, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 412:                                              ; preds = %2
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 202, ptr %413, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 202, ptr %413, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 414:                                              ; preds = %2
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 203, ptr %415, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 203, ptr %415, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 416:                                              ; preds = %2
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 204, ptr %417, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 204, ptr %417, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 418:                                              ; preds = %2
   %419 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 205, ptr %419, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 205, ptr %419, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 420:                                              ; preds = %2
   %421 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 206, ptr %421, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 206, ptr %421, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 422:                                              ; preds = %2
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 207, ptr %423, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 207, ptr %423, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 424:                                              ; preds = %2
   %425 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 208, ptr %425, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 208, ptr %425, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 426:                                              ; preds = %2
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 209, ptr %427, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 209, ptr %427, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 428:                                              ; preds = %2
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 210, ptr %429, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 210, ptr %429, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 430:                                              ; preds = %2
   %431 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 211, ptr %431, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 211, ptr %431, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 432:                                              ; preds = %2
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 212, ptr %433, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 212, ptr %433, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 434:                                              ; preds = %2
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 213, ptr %435, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 213, ptr %435, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 436:                                              ; preds = %2
   %437 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 214, ptr %437, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 214, ptr %437, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 438:                                              ; preds = %2
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 215, ptr %439, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 215, ptr %439, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 440:                                              ; preds = %2
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 216, ptr %441, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 216, ptr %441, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 442:                                              ; preds = %2
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 217, ptr %443, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 217, ptr %443, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 444:                                              ; preds = %2
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 218, ptr %445, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 218, ptr %445, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 446:                                              ; preds = %2
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 219, ptr %447, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 219, ptr %447, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 448:                                              ; preds = %2
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 220, ptr %449, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 220, ptr %449, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 450:                                              ; preds = %2
   %451 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 221, ptr %451, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 221, ptr %451, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 452:                                              ; preds = %2
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 222, ptr %453, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 222, ptr %453, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 454:                                              ; preds = %2
   %455 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 223, ptr %455, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 223, ptr %455, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 456:                                              ; preds = %2
   %457 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 224, ptr %457, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 224, ptr %457, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 458:                                              ; preds = %2
   %459 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 225, ptr %459, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 225, ptr %459, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 460:                                              ; preds = %2
   %461 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 226, ptr %461, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 226, ptr %461, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 462:                                              ; preds = %2
   %463 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 227, ptr %463, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 227, ptr %463, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 464:                                              ; preds = %2
   %465 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 228, ptr %465, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 228, ptr %465, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 466:                                              ; preds = %2
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 229, ptr %467, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 229, ptr %467, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 468:                                              ; preds = %2
   %469 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 230, ptr %469, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 230, ptr %469, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 470:                                              ; preds = %2
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 231, ptr %471, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 231, ptr %471, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 472:                                              ; preds = %2
   %473 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 232, ptr %473, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 232, ptr %473, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 474:                                              ; preds = %2
   %475 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 233, ptr %475, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 233, ptr %475, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 476:                                              ; preds = %2
   %477 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 234, ptr %477, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 234, ptr %477, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 478:                                              ; preds = %2
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 235, ptr %479, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 235, ptr %479, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 480:                                              ; preds = %2
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 236, ptr %481, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 236, ptr %481, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 482:                                              ; preds = %2
   %483 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 237, ptr %483, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 237, ptr %483, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 484:                                              ; preds = %2
   %485 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 238, ptr %485, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 238, ptr %485, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 486:                                              ; preds = %2
   %487 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 239, ptr %487, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 239, ptr %487, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 488:                                              ; preds = %2
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 240, ptr %489, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 240, ptr %489, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 490:                                              ; preds = %2
   %491 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 241, ptr %491, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 241, ptr %491, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 492:                                              ; preds = %2
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 242, ptr %493, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 242, ptr %493, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 494:                                              ; preds = %2
   %495 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 243, ptr %495, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 243, ptr %495, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 496:                                              ; preds = %2
   %497 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 244, ptr %497, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 244, ptr %497, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 498:                                              ; preds = %2
   %499 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 245, ptr %499, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 245, ptr %499, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 500:                                              ; preds = %2
   %501 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 246, ptr %501, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 246, ptr %501, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 502:                                              ; preds = %2
   %503 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 247, ptr %503, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 247, ptr %503, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 504:                                              ; preds = %2
   %505 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 248, ptr %505, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 248, ptr %505, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 506:                                              ; preds = %2
   %507 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 249, ptr %507, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 249, ptr %507, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 508:                                              ; preds = %2
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 250, ptr %509, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 250, ptr %509, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 510:                                              ; preds = %2
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 251, ptr %511, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 251, ptr %511, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 512:                                              ; preds = %2
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 252, ptr %513, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 252, ptr %513, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 514:                                              ; preds = %2
   %515 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 253, ptr %515, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 253, ptr %515, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 516:                                              ; preds = %2
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 254, ptr %517, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 254, ptr %517, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 518:                                              ; preds = %2
   %519 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 255, ptr %519, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 255, ptr %519, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 520:                                              ; preds = %2
   %521 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 256, ptr %521, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 256, ptr %521, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 522:                                              ; preds = %2
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 257, ptr %523, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 257, ptr %523, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 524:                                              ; preds = %2
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 258, ptr %525, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 258, ptr %525, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 526:                                              ; preds = %2
   %527 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 259, ptr %527, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 259, ptr %527, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 528:                                              ; preds = %2
   %529 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 260, ptr %529, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 260, ptr %529, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 530:                                              ; preds = %2
   %531 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 261, ptr %531, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 261, ptr %531, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 532:                                              ; preds = %2
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 262, ptr %533, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 262, ptr %533, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 534:                                              ; preds = %2
   %535 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 263, ptr %535, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 263, ptr %535, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 536:                                              ; preds = %2
   %537 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 264, ptr %537, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 264, ptr %537, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 538:                                              ; preds = %2
   %539 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 265, ptr %539, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 265, ptr %539, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 540:                                              ; preds = %2
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 266, ptr %541, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 266, ptr %541, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 542:                                              ; preds = %2
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 267, ptr %543, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 267, ptr %543, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 544:                                              ; preds = %2
   %545 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 268, ptr %545, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 268, ptr %545, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 546:                                              ; preds = %2
   %547 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 269, ptr %547, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 269, ptr %547, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 548:                                              ; preds = %2
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 270, ptr %549, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 270, ptr %549, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 550:                                              ; preds = %2
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 271, ptr %551, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 271, ptr %551, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 552:                                              ; preds = %2
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 272, ptr %553, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 272, ptr %553, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 554:                                              ; preds = %2
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 273, ptr %555, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 273, ptr %555, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 556:                                              ; preds = %2
   %557 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 274, ptr %557, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 274, ptr %557, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 558:                                              ; preds = %2
   %559 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 275, ptr %559, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 275, ptr %559, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 560:                                              ; preds = %2
   %561 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 276, ptr %561, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 276, ptr %561, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 562:                                              ; preds = %2
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 277, ptr %563, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 277, ptr %563, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 564:                                              ; preds = %2
   %565 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 278, ptr %565, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 278, ptr %565, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 566:                                              ; preds = %2
   %567 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 279, ptr %567, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 279, ptr %567, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 568:                                              ; preds = %2
   %569 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 280, ptr %569, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 280, ptr %569, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 570:                                              ; preds = %2
   %571 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 281, ptr %571, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 281, ptr %571, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 572:                                              ; preds = %2
   %573 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 282, ptr %573, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 282, ptr %573, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 574:                                              ; preds = %2
   %575 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 283, ptr %575, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 283, ptr %575, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 576:                                              ; preds = %2
   %577 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 284, ptr %577, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 284, ptr %577, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 578:                                              ; preds = %2
   %579 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 285, ptr %579, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 285, ptr %579, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 580:                                              ; preds = %2
   %581 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 286, ptr %581, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 286, ptr %581, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 582:                                              ; preds = %2
   %583 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 287, ptr %583, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 287, ptr %583, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 584:                                              ; preds = %2
   %585 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 288, ptr %585, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 288, ptr %585, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 586:                                              ; preds = %2
   %587 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 289, ptr %587, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 289, ptr %587, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 588:                                              ; preds = %2
   %589 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 290, ptr %589, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 290, ptr %589, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 590:                                              ; preds = %2
   %591 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 291, ptr %591, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 291, ptr %591, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 592:                                              ; preds = %2
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 292, ptr %593, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 292, ptr %593, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 594:                                              ; preds = %2
   %595 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 293, ptr %595, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 293, ptr %595, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 596:                                              ; preds = %2
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 294, ptr %597, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 294, ptr %597, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 598:                                              ; preds = %2
   %599 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 295, ptr %599, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 295, ptr %599, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 600:                                              ; preds = %2
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 296, ptr %601, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 296, ptr %601, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 602:                                              ; preds = %2
   %603 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 297, ptr %603, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 297, ptr %603, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 604:                                              ; preds = %2
   %605 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 298, ptr %605, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 298, ptr %605, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 606:                                              ; preds = %2
   %607 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 299, ptr %607, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 299, ptr %607, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 608:                                              ; preds = %2
   %609 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 300, ptr %609, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 300, ptr %609, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 610:                                              ; preds = %2
   %611 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 301, ptr %611, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 301, ptr %611, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 612:                                              ; preds = %2
   %613 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 302, ptr %613, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 302, ptr %613, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 614:                                              ; preds = %2
   %615 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 303, ptr %615, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 303, ptr %615, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 616:                                              ; preds = %2
   %617 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 304, ptr %617, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 304, ptr %617, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 618:                                              ; preds = %2
   %619 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 305, ptr %619, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 305, ptr %619, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 620:                                              ; preds = %2
   %621 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 306, ptr %621, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 306, ptr %621, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 622:                                              ; preds = %2
   %623 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 307, ptr %623, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 307, ptr %623, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 624:                                              ; preds = %2
   %625 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 308, ptr %625, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 308, ptr %625, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 626:                                              ; preds = %2
   %627 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 309, ptr %627, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 309, ptr %627, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 628:                                              ; preds = %2
   %629 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 310, ptr %629, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 310, ptr %629, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 630:                                              ; preds = %2
   %631 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 311, ptr %631, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 311, ptr %631, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 632:                                              ; preds = %2
   %633 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 312, ptr %633, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 312, ptr %633, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 634:                                              ; preds = %2
   %635 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 313, ptr %635, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 313, ptr %635, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 636:                                              ; preds = %2
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 314, ptr %637, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 314, ptr %637, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 638:                                              ; preds = %2
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 315, ptr %639, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 315, ptr %639, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 640:                                              ; preds = %2
   %641 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 316, ptr %641, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 316, ptr %641, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 642:                                              ; preds = %2
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 317, ptr %643, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 317, ptr %643, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 644:                                              ; preds = %2
   %645 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 318, ptr %645, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 318, ptr %645, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 646:                                              ; preds = %2
   %647 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 319, ptr %647, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 319, ptr %647, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 648:                                              ; preds = %2
   %649 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 320, ptr %649, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 320, ptr %649, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 650:                                              ; preds = %2
   %651 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 321, ptr %651, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 321, ptr %651, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 652:                                              ; preds = %2
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 322, ptr %653, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 322, ptr %653, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 654:                                              ; preds = %2
   %655 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 323, ptr %655, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 323, ptr %655, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 656:                                              ; preds = %2
   %657 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 324, ptr %657, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 324, ptr %657, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 658:                                              ; preds = %2
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 325, ptr %659, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 325, ptr %659, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 660:                                              ; preds = %2
   %661 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 326, ptr %661, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 326, ptr %661, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 662:                                              ; preds = %2
   %663 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 327, ptr %663, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 327, ptr %663, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 664:                                              ; preds = %2
   %665 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 328, ptr %665, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 328, ptr %665, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 666:                                              ; preds = %2
   %667 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 329, ptr %667, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 329, ptr %667, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 668:                                              ; preds = %2
   %669 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 330, ptr %669, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 330, ptr %669, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 670:                                              ; preds = %2
   %671 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 331, ptr %671, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 331, ptr %671, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 672:                                              ; preds = %2
   %673 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 332, ptr %673, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 332, ptr %673, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 674:                                              ; preds = %2
   %675 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 333, ptr %675, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 333, ptr %675, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 676:                                              ; preds = %2
   %677 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 334, ptr %677, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 334, ptr %677, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 678:                                              ; preds = %2
   %679 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 335, ptr %679, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 335, ptr %679, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 680:                                              ; preds = %2
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 336, ptr %681, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 336, ptr %681, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 682:                                              ; preds = %2
   %683 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 337, ptr %683, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 337, ptr %683, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 684:                                              ; preds = %2
   %685 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 338, ptr %685, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 338, ptr %685, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 686:                                              ; preds = %2
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 339, ptr %687, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 339, ptr %687, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 688:                                              ; preds = %2
   %689 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 340, ptr %689, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 340, ptr %689, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 690:                                              ; preds = %2
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 341, ptr %691, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 341, ptr %691, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 692:                                              ; preds = %2
   %693 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 342, ptr %693, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 342, ptr %693, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 694:                                              ; preds = %2
   %695 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 343, ptr %695, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 343, ptr %695, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 696:                                              ; preds = %2
   %697 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 344, ptr %697, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 344, ptr %697, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 698:                                              ; preds = %2
   %699 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 345, ptr %699, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 345, ptr %699, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 700:                                              ; preds = %2
   %701 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 346, ptr %701, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 346, ptr %701, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 702:                                              ; preds = %2
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 347, ptr %703, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 347, ptr %703, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 704:                                              ; preds = %2
   %705 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 348, ptr %705, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 348, ptr %705, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 706:                                              ; preds = %2
   %707 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 349, ptr %707, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 349, ptr %707, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 708:                                              ; preds = %2
   %709 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 350, ptr %709, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 350, ptr %709, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 710:                                              ; preds = %2
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 351, ptr %711, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 351, ptr %711, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 712:                                              ; preds = %2
   %713 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 352, ptr %713, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 352, ptr %713, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 714:                                              ; preds = %2
   %715 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 353, ptr %715, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 353, ptr %715, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 716:                                              ; preds = %2
   %717 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 354, ptr %717, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 354, ptr %717, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 718:                                              ; preds = %2
   %719 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 355, ptr %719, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 355, ptr %719, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 720:                                              ; preds = %2
   %721 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 356, ptr %721, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 356, ptr %721, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 722:                                              ; preds = %2
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 357, ptr %723, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 357, ptr %723, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 724:                                              ; preds = %2
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 358, ptr %725, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 358, ptr %725, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 726:                                              ; preds = %2
   %727 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 359, ptr %727, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 359, ptr %727, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 728:                                              ; preds = %2
   %729 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 360, ptr %729, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 360, ptr %729, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 730:                                              ; preds = %2
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 361, ptr %731, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 361, ptr %731, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 732:                                              ; preds = %2
   %733 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 362, ptr %733, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 362, ptr %733, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 734:                                              ; preds = %2
   %735 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 363, ptr %735, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 363, ptr %735, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 736:                                              ; preds = %2
   %737 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 364, ptr %737, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 364, ptr %737, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 738:                                              ; preds = %2
   %739 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 365, ptr %739, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 365, ptr %739, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 740:                                              ; preds = %2
   %741 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 366, ptr %741, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 366, ptr %741, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 742:                                              ; preds = %2
   %743 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 367, ptr %743, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 367, ptr %743, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 744:                                              ; preds = %2
   %745 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 368, ptr %745, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 368, ptr %745, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 746:                                              ; preds = %2
   %747 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 369, ptr %747, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 369, ptr %747, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 748:                                              ; preds = %2
   %749 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 370, ptr %749, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 370, ptr %749, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 750:                                              ; preds = %2
   %751 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 371, ptr %751, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 371, ptr %751, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 752:                                              ; preds = %2
   %753 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 372, ptr %753, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 372, ptr %753, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 754:                                              ; preds = %2
   %755 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 373, ptr %755, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 373, ptr %755, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 756:                                              ; preds = %2
   %757 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 374, ptr %757, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 374, ptr %757, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 758:                                              ; preds = %2
   %759 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 375, ptr %759, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 375, ptr %759, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 760:                                              ; preds = %2
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 376, ptr %761, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 376, ptr %761, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 762:                                              ; preds = %2
   %763 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 377, ptr %763, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 377, ptr %763, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 764:                                              ; preds = %2
   %765 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 378, ptr %765, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 378, ptr %765, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 766:                                              ; preds = %2
   %767 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 379, ptr %767, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 379, ptr %767, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 768:                                              ; preds = %2
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 380, ptr %769, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 380, ptr %769, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 770:                                              ; preds = %2
   %771 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 381, ptr %771, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 381, ptr %771, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 772:                                              ; preds = %2
   %773 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 382, ptr %773, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 382, ptr %773, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 774:                                              ; preds = %2
   %775 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 383, ptr %775, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 383, ptr %775, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 776:                                              ; preds = %2
   %777 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 384, ptr %777, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 384, ptr %777, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 778:                                              ; preds = %2
   %779 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 385, ptr %779, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 385, ptr %779, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 780:                                              ; preds = %2
   %781 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 386, ptr %781, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 386, ptr %781, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 782:                                              ; preds = %2
   %783 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 387, ptr %783, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 387, ptr %783, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 784:                                              ; preds = %2
   %785 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 388, ptr %785, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 388, ptr %785, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 786:                                              ; preds = %2
   %787 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 389, ptr %787, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 389, ptr %787, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 788:                                              ; preds = %2
   %789 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 390, ptr %789, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 390, ptr %789, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 790:                                              ; preds = %2
   %791 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 391, ptr %791, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 391, ptr %791, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 792:                                              ; preds = %2
   %793 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 392, ptr %793, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 392, ptr %793, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 794:                                              ; preds = %2
   %795 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 393, ptr %795, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 393, ptr %795, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 796:                                              ; preds = %2
   %797 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 394, ptr %797, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 394, ptr %797, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 798:                                              ; preds = %2
   %799 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 395, ptr %799, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 395, ptr %799, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 800:                                              ; preds = %2
   %801 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 396, ptr %801, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 396, ptr %801, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 802:                                              ; preds = %2
   %803 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 397, ptr %803, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 397, ptr %803, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 804:                                              ; preds = %2
   %805 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 398, ptr %805, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 398, ptr %805, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 806:                                              ; preds = %2
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 399, ptr %807, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 399, ptr %807, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 808:                                              ; preds = %2
   %809 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 400, ptr %809, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 400, ptr %809, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 810:                                              ; preds = %2
   %811 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 401, ptr %811, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 401, ptr %811, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 812:                                              ; preds = %2
   %813 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 402, ptr %813, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 402, ptr %813, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 814:                                              ; preds = %2
   %815 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 403, ptr %815, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 403, ptr %815, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 816:                                              ; preds = %2
   %817 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 404, ptr %817, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 404, ptr %817, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 818:                                              ; preds = %2
   %819 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 405, ptr %819, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 405, ptr %819, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 820:                                              ; preds = %2
   %821 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 406, ptr %821, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 406, ptr %821, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 822:                                              ; preds = %2
   %823 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 407, ptr %823, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 407, ptr %823, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 824:                                              ; preds = %2
   %825 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 408, ptr %825, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 408, ptr %825, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 826:                                              ; preds = %2
   %827 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 409, ptr %827, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 409, ptr %827, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 828:                                              ; preds = %2
   %829 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 410, ptr %829, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 410, ptr %829, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 830:                                              ; preds = %2
   %831 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 411, ptr %831, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 411, ptr %831, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 832:                                              ; preds = %2
   %833 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 412, ptr %833, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 412, ptr %833, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 834:                                              ; preds = %2
   %835 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 413, ptr %835, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 413, ptr %835, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 836:                                              ; preds = %2
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 414, ptr %837, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 414, ptr %837, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 838:                                              ; preds = %2
   %839 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 415, ptr %839, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 415, ptr %839, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 840:                                              ; preds = %2
   %841 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 416, ptr %841, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 416, ptr %841, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 842:                                              ; preds = %2
   %843 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 417, ptr %843, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 417, ptr %843, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 844:                                              ; preds = %2
   %845 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 418, ptr %845, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 418, ptr %845, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 846:                                              ; preds = %2
   %847 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 419, ptr %847, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 419, ptr %847, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 848:                                              ; preds = %2
   %849 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 420, ptr %849, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 420, ptr %849, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 850:                                              ; preds = %2
   %851 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 421, ptr %851, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 421, ptr %851, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 852:                                              ; preds = %2
   %853 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 422, ptr %853, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 422, ptr %853, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 854:                                              ; preds = %2
   %855 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 423, ptr %855, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 423, ptr %855, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 856:                                              ; preds = %2
   %857 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 424, ptr %857, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 424, ptr %857, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 858:                                              ; preds = %2
   %859 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 425, ptr %859, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 425, ptr %859, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 860:                                              ; preds = %2
   %861 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 426, ptr %861, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 426, ptr %861, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 862:                                              ; preds = %2
   %863 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 427, ptr %863, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 427, ptr %863, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 864:                                              ; preds = %2
   %865 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 428, ptr %865, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 428, ptr %865, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 866:                                              ; preds = %2
   %867 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 429, ptr %867, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 429, ptr %867, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 868:                                              ; preds = %2
   %869 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 430, ptr %869, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 430, ptr %869, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 870:                                              ; preds = %2
   %871 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 431, ptr %871, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 431, ptr %871, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 872:                                              ; preds = %2
   %873 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 432, ptr %873, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 432, ptr %873, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 874:                                              ; preds = %2
   %875 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 433, ptr %875, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 433, ptr %875, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 876:                                              ; preds = %2
   %877 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 434, ptr %877, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 434, ptr %877, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 878:                                              ; preds = %2
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 435, ptr %879, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 435, ptr %879, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 880:                                              ; preds = %2
   %881 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 436, ptr %881, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 436, ptr %881, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 882:                                              ; preds = %2
   %883 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 437, ptr %883, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 437, ptr %883, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 884:                                              ; preds = %2
   %885 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 438, ptr %885, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 438, ptr %885, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 886:                                              ; preds = %2
   %887 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 439, ptr %887, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 439, ptr %887, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 888:                                              ; preds = %2
   %889 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 440, ptr %889, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 440, ptr %889, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 890:                                              ; preds = %2
   %891 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 441, ptr %891, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 441, ptr %891, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 892:                                              ; preds = %2
   %893 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 442, ptr %893, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 442, ptr %893, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 894:                                              ; preds = %2
   %895 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 443, ptr %895, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 443, ptr %895, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 896:                                              ; preds = %2
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 444, ptr %897, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 444, ptr %897, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 898:                                              ; preds = %2
   %899 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 445, ptr %899, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 445, ptr %899, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 900:                                              ; preds = %2
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 446, ptr %901, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 446, ptr %901, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 902:                                              ; preds = %2
   %903 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 447, ptr %903, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 447, ptr %903, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 904:                                              ; preds = %2
   %905 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 448, ptr %905, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 448, ptr %905, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 906:                                              ; preds = %2
   %907 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 449, ptr %907, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 449, ptr %907, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 908:                                              ; preds = %2
   %909 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 450, ptr %909, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 450, ptr %909, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 910:                                              ; preds = %2
   %911 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 451, ptr %911, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 451, ptr %911, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 912:                                              ; preds = %2
   %913 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 452, ptr %913, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 452, ptr %913, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 914:                                              ; preds = %2
   %915 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 453, ptr %915, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 453, ptr %915, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 916:                                              ; preds = %2
   %917 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 454, ptr %917, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 454, ptr %917, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 918:                                              ; preds = %2
   %919 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 455, ptr %919, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 455, ptr %919, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 920:                                              ; preds = %2
   %921 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 456, ptr %921, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 456, ptr %921, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 922:                                              ; preds = %2
   %923 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 457, ptr %923, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 457, ptr %923, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 924:                                              ; preds = %2
   %925 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 458, ptr %925, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 458, ptr %925, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 926:                                              ; preds = %2
   %927 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 459, ptr %927, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 459, ptr %927, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 928:                                              ; preds = %2
   %929 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 460, ptr %929, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 460, ptr %929, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 930:                                              ; preds = %2
   %931 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 461, ptr %931, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 461, ptr %931, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 932:                                              ; preds = %2
   %933 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 462, ptr %933, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 462, ptr %933, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 934:                                              ; preds = %2
   %935 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 463, ptr %935, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 463, ptr %935, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 936:                                              ; preds = %2
   %937 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 464, ptr %937, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 464, ptr %937, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 938:                                              ; preds = %2
   %939 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 465, ptr %939, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 465, ptr %939, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 940:                                              ; preds = %2
   %941 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 466, ptr %941, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 466, ptr %941, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 942:                                              ; preds = %2
   %943 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 467, ptr %943, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 467, ptr %943, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 944:                                              ; preds = %2
   %945 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 468, ptr %945, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 468, ptr %945, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 946:                                              ; preds = %2
   %947 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 469, ptr %947, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 469, ptr %947, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 948:                                              ; preds = %2
   %949 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 470, ptr %949, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 470, ptr %949, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 950:                                              ; preds = %2
   %951 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 471, ptr %951, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 471, ptr %951, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 952:                                              ; preds = %2
   %953 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 472, ptr %953, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 472, ptr %953, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 954:                                              ; preds = %2
   %955 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 473, ptr %955, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 473, ptr %955, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 956:                                              ; preds = %2
   %957 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 474, ptr %957, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 474, ptr %957, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 958:                                              ; preds = %2
   %959 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 475, ptr %959, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 475, ptr %959, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 960:                                              ; preds = %2
   %961 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 476, ptr %961, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 476, ptr %961, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 962:                                              ; preds = %2
   %963 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 477, ptr %963, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 477, ptr %963, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 964:                                              ; preds = %2
   %965 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 478, ptr %965, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 478, ptr %965, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 966:                                              ; preds = %2
   %967 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 479, ptr %967, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 479, ptr %967, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 968:                                              ; preds = %2
   %969 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 480, ptr %969, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 480, ptr %969, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 970:                                              ; preds = %2
   %971 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 481, ptr %971, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 481, ptr %971, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 972:                                              ; preds = %2
   %973 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 482, ptr %973, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 482, ptr %973, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 974:                                              ; preds = %2
   %975 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 483, ptr %975, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 483, ptr %975, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 976:                                              ; preds = %2
   %977 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 484, ptr %977, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 484, ptr %977, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 978:                                              ; preds = %2
   %979 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 485, ptr %979, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 485, ptr %979, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 980:                                              ; preds = %2
   %981 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 486, ptr %981, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 486, ptr %981, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 982:                                              ; preds = %2
   %983 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 487, ptr %983, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 487, ptr %983, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 984:                                              ; preds = %2
   %985 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 488, ptr %985, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 488, ptr %985, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 986:                                              ; preds = %2
   %987 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 489, ptr %987, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 489, ptr %987, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 988:                                              ; preds = %2
   %989 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 490, ptr %989, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 490, ptr %989, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 990:                                              ; preds = %2
   %991 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 491, ptr %991, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 491, ptr %991, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 992:                                              ; preds = %2
   %993 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 492, ptr %993, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 492, ptr %993, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 994:                                              ; preds = %2
   %995 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 493, ptr %995, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 493, ptr %995, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 996:                                              ; preds = %2
   %997 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 494, ptr %997, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 494, ptr %997, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 998:                                              ; preds = %2
   %999 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 495, ptr %999, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 495, ptr %999, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1000:                                             ; preds = %2
   %1001 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 496, ptr %1001, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 496, ptr %1001, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1002:                                             ; preds = %2
   %1003 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 497, ptr %1003, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 497, ptr %1003, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1004:                                             ; preds = %2
   %1005 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 498, ptr %1005, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 498, ptr %1005, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1006:                                             ; preds = %2
   %1007 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 499, ptr %1007, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 499, ptr %1007, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1008:                                             ; preds = %2
   %1009 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 500, ptr %1009, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 500, ptr %1009, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1010:                                             ; preds = %2
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 501, ptr %1011, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 501, ptr %1011, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1012:                                             ; preds = %2
   %1013 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 502, ptr %1013, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 502, ptr %1013, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1014:                                             ; preds = %2
   %1015 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 503, ptr %1015, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 503, ptr %1015, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1016:                                             ; preds = %2
   %1017 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 504, ptr %1017, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 504, ptr %1017, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1018:                                             ; preds = %2
   %1019 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 505, ptr %1019, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 505, ptr %1019, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1020:                                             ; preds = %2
   %1021 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 506, ptr %1021, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 506, ptr %1021, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1022:                                             ; preds = %2
   %1023 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 507, ptr %1023, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 507, ptr %1023, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1024:                                             ; preds = %2
   %1025 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 508, ptr %1025, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 508, ptr %1025, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1026:                                             ; preds = %2
   %1027 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 509, ptr %1027, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 509, ptr %1027, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1028:                                             ; preds = %2
   %1029 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 510, ptr %1029, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 510, ptr %1029, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1030:                                             ; preds = %2
   %1031 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 511, ptr %1031, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 511, ptr %1031, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1032:                                             ; preds = %2
   %1033 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 512, ptr %1033, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 512, ptr %1033, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1034:                                             ; preds = %2
   %1035 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 513, ptr %1035, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 513, ptr %1035, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1036:                                             ; preds = %2
   %1037 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 514, ptr %1037, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 514, ptr %1037, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1038:                                             ; preds = %2
   %1039 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 515, ptr %1039, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 515, ptr %1039, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1040:                                             ; preds = %2
   %1041 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 516, ptr %1041, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 516, ptr %1041, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1042:                                             ; preds = %2
   %1043 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 517, ptr %1043, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 517, ptr %1043, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1044:                                             ; preds = %2
   %1045 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 518, ptr %1045, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 518, ptr %1045, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1046:                                             ; preds = %2
   %1047 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 519, ptr %1047, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 519, ptr %1047, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1048:                                             ; preds = %2
   %1049 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 520, ptr %1049, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 520, ptr %1049, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1050:                                             ; preds = %2
   %1051 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 521, ptr %1051, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 521, ptr %1051, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1052:                                             ; preds = %2
   %1053 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 522, ptr %1053, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 522, ptr %1053, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1054:                                             ; preds = %2
   %1055 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 523, ptr %1055, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 523, ptr %1055, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1056:                                             ; preds = %2
   %1057 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 524, ptr %1057, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 524, ptr %1057, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1058:                                             ; preds = %2
   %1059 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 525, ptr %1059, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 525, ptr %1059, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1060:                                             ; preds = %2
   %1061 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 526, ptr %1061, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 526, ptr %1061, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1062:                                             ; preds = %2
   %1063 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 527, ptr %1063, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 527, ptr %1063, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1064:                                             ; preds = %2
   %1065 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 528, ptr %1065, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 528, ptr %1065, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1066:                                             ; preds = %2
   %1067 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 529, ptr %1067, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 529, ptr %1067, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1068:                                             ; preds = %2
   %1069 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 530, ptr %1069, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 530, ptr %1069, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1070:                                             ; preds = %2
   %1071 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 531, ptr %1071, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 531, ptr %1071, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1072:                                             ; preds = %2
   %1073 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 532, ptr %1073, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 532, ptr %1073, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1074:                                             ; preds = %2
   %1075 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 533, ptr %1075, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 533, ptr %1075, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1076:                                             ; preds = %2
   %1077 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 534, ptr %1077, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 534, ptr %1077, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1078:                                             ; preds = %2
   %1079 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 535, ptr %1079, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 535, ptr %1079, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1080:                                             ; preds = %2
   %1081 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 536, ptr %1081, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 536, ptr %1081, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1082:                                             ; preds = %2
   %1083 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 537, ptr %1083, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 537, ptr %1083, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1084:                                             ; preds = %2
   %1085 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 538, ptr %1085, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 538, ptr %1085, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1086:                                             ; preds = %2
   %1087 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 539, ptr %1087, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 539, ptr %1087, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1088:                                             ; preds = %2
   %1089 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 540, ptr %1089, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 540, ptr %1089, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1090:                                             ; preds = %2
   %1091 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 541, ptr %1091, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 541, ptr %1091, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1092:                                             ; preds = %2
   %1093 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 542, ptr %1093, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 542, ptr %1093, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1094:                                             ; preds = %2
   %1095 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 543, ptr %1095, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 543, ptr %1095, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1096:                                             ; preds = %2
   %1097 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 544, ptr %1097, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 544, ptr %1097, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1098:                                             ; preds = %2
   %1099 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 545, ptr %1099, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 545, ptr %1099, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1100:                                             ; preds = %2
   %1101 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 546, ptr %1101, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 546, ptr %1101, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1102:                                             ; preds = %2
   %1103 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 547, ptr %1103, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 547, ptr %1103, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1104:                                             ; preds = %2
   %1105 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 548, ptr %1105, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 548, ptr %1105, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1106:                                             ; preds = %2
   %1107 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 549, ptr %1107, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 549, ptr %1107, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1108:                                             ; preds = %2
   %1109 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 550, ptr %1109, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 550, ptr %1109, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1110:                                             ; preds = %2
   %1111 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 551, ptr %1111, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 551, ptr %1111, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1112:                                             ; preds = %2
   %1113 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 552, ptr %1113, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 552, ptr %1113, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1114:                                             ; preds = %2
   %1115 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 553, ptr %1115, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 553, ptr %1115, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1116:                                             ; preds = %2
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 554, ptr %1117, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 554, ptr %1117, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1118:                                             ; preds = %2
   %1119 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 555, ptr %1119, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 555, ptr %1119, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1120:                                             ; preds = %2
   %1121 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 556, ptr %1121, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 556, ptr %1121, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1122:                                             ; preds = %2
   %1123 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 557, ptr %1123, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 557, ptr %1123, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1124:                                             ; preds = %2
   %1125 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 558, ptr %1125, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 558, ptr %1125, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1126:                                             ; preds = %2
   %1127 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 559, ptr %1127, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 559, ptr %1127, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1128:                                             ; preds = %2
   %1129 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 560, ptr %1129, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 560, ptr %1129, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1130:                                             ; preds = %2
   %1131 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 561, ptr %1131, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 561, ptr %1131, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1132:                                             ; preds = %2
   %1133 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 562, ptr %1133, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 562, ptr %1133, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1134:                                             ; preds = %2
   %1135 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 563, ptr %1135, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 563, ptr %1135, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1136:                                             ; preds = %2
   %1137 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 564, ptr %1137, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 564, ptr %1137, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1138:                                             ; preds = %2
   %1139 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 565, ptr %1139, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 565, ptr %1139, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1140:                                             ; preds = %2
   %1141 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 566, ptr %1141, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 566, ptr %1141, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1142:                                             ; preds = %2
   %1143 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 567, ptr %1143, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 567, ptr %1143, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1144:                                             ; preds = %2
   %1145 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 568, ptr %1145, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 568, ptr %1145, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1146:                                             ; preds = %2
   %1147 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 569, ptr %1147, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 569, ptr %1147, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1148:                                             ; preds = %2
   %1149 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 570, ptr %1149, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 570, ptr %1149, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1150:                                             ; preds = %2
   %1151 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 571, ptr %1151, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 571, ptr %1151, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1152:                                             ; preds = %2
   %1153 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 572, ptr %1153, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 572, ptr %1153, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1154:                                             ; preds = %2
   %1155 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 573, ptr %1155, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 573, ptr %1155, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1156:                                             ; preds = %2
   %1157 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 574, ptr %1157, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 574, ptr %1157, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1158:                                             ; preds = %2
   %1159 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 575, ptr %1159, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 575, ptr %1159, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1160:                                             ; preds = %2
   %1161 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 576, ptr %1161, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 576, ptr %1161, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1162:                                             ; preds = %2
   %1163 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 577, ptr %1163, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 577, ptr %1163, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1164:                                             ; preds = %2
   %1165 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 578, ptr %1165, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 578, ptr %1165, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1166:                                             ; preds = %2
   %1167 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 579, ptr %1167, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 579, ptr %1167, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1168:                                             ; preds = %2
   %1169 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 580, ptr %1169, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 580, ptr %1169, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1170:                                             ; preds = %2
   %1171 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 581, ptr %1171, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 581, ptr %1171, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1172:                                             ; preds = %2
   %1173 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 582, ptr %1173, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 582, ptr %1173, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1174:                                             ; preds = %2
   %1175 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 583, ptr %1175, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 583, ptr %1175, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1176:                                             ; preds = %2
   %1177 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 584, ptr %1177, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 584, ptr %1177, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1178:                                             ; preds = %2
   %1179 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 585, ptr %1179, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 585, ptr %1179, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1180:                                             ; preds = %2
   %1181 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 586, ptr %1181, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 586, ptr %1181, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1182:                                             ; preds = %2
   %1183 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 587, ptr %1183, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 587, ptr %1183, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1184:                                             ; preds = %2
   %1185 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 588, ptr %1185, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 588, ptr %1185, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1186:                                             ; preds = %2
   %1187 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 589, ptr %1187, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 589, ptr %1187, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1188:                                             ; preds = %2
   %1189 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 590, ptr %1189, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 590, ptr %1189, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1190:                                             ; preds = %2
   %1191 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 591, ptr %1191, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 591, ptr %1191, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1192:                                             ; preds = %2
   %1193 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 592, ptr %1193, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 592, ptr %1193, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1194:                                             ; preds = %2
   %1195 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 593, ptr %1195, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 593, ptr %1195, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1196:                                             ; preds = %2
   %1197 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 594, ptr %1197, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 594, ptr %1197, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1198:                                             ; preds = %2
   %1199 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 595, ptr %1199, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 595, ptr %1199, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1200:                                             ; preds = %2
   %1201 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 596, ptr %1201, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 596, ptr %1201, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1202:                                             ; preds = %2
   %1203 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 597, ptr %1203, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 597, ptr %1203, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1204:                                             ; preds = %2
   %1205 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 598, ptr %1205, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 598, ptr %1205, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1206:                                             ; preds = %2
   %1207 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 599, ptr %1207, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 599, ptr %1207, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1208:                                             ; preds = %2
   %1209 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 600, ptr %1209, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 600, ptr %1209, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1210:                                             ; preds = %2
   %1211 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 601, ptr %1211, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 601, ptr %1211, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1212:                                             ; preds = %2
   %1213 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 602, ptr %1213, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 602, ptr %1213, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1214:                                             ; preds = %2
   %1215 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 603, ptr %1215, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 603, ptr %1215, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1216:                                             ; preds = %2
   %1217 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 604, ptr %1217, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 604, ptr %1217, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1218:                                             ; preds = %2
   %1219 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 605, ptr %1219, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 605, ptr %1219, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1220:                                             ; preds = %2
   %1221 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 606, ptr %1221, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 606, ptr %1221, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1222:                                             ; preds = %2
   %1223 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 607, ptr %1223, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 607, ptr %1223, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1224:                                             ; preds = %2
   %1225 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 608, ptr %1225, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 608, ptr %1225, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1226:                                             ; preds = %2
   %1227 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 609, ptr %1227, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 609, ptr %1227, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1228:                                             ; preds = %2
   %1229 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 610, ptr %1229, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 610, ptr %1229, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1230:                                             ; preds = %2
   %1231 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 611, ptr %1231, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 611, ptr %1231, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1232:                                             ; preds = %2
   %1233 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 612, ptr %1233, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 612, ptr %1233, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1234:                                             ; preds = %2
   %1235 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 613, ptr %1235, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 613, ptr %1235, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1236:                                             ; preds = %2
   %1237 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 614, ptr %1237, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 614, ptr %1237, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1238:                                             ; preds = %2
   %1239 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 615, ptr %1239, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 615, ptr %1239, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1240:                                             ; preds = %2
   %1241 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 616, ptr %1241, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 616, ptr %1241, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1242:                                             ; preds = %2
   %1243 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 617, ptr %1243, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 617, ptr %1243, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1244:                                             ; preds = %2
   %1245 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 618, ptr %1245, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 618, ptr %1245, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1246:                                             ; preds = %2
   %1247 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 619, ptr %1247, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 619, ptr %1247, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1248:                                             ; preds = %2
   %1249 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 620, ptr %1249, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 620, ptr %1249, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1250:                                             ; preds = %2
   %1251 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 621, ptr %1251, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 621, ptr %1251, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1252:                                             ; preds = %2
   %1253 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 622, ptr %1253, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 622, ptr %1253, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1254:                                             ; preds = %2
   %1255 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 623, ptr %1255, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 623, ptr %1255, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1256:                                             ; preds = %2
   %1257 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 624, ptr %1257, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 624, ptr %1257, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1258:                                             ; preds = %2
   %1259 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 625, ptr %1259, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 625, ptr %1259, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1260:                                             ; preds = %2
   %1261 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 626, ptr %1261, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 626, ptr %1261, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1262:                                             ; preds = %2
   %1263 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 627, ptr %1263, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 627, ptr %1263, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1264:                                             ; preds = %2
   %1265 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 628, ptr %1265, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 628, ptr %1265, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1266:                                             ; preds = %2
   %1267 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 629, ptr %1267, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 629, ptr %1267, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1268:                                             ; preds = %2
   %1269 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 630, ptr %1269, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 630, ptr %1269, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1270:                                             ; preds = %2
   %1271 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 631, ptr %1271, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 631, ptr %1271, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1272:                                             ; preds = %2
   %1273 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 632, ptr %1273, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 632, ptr %1273, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1274:                                             ; preds = %2
   %1275 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 633, ptr %1275, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 633, ptr %1275, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1276:                                             ; preds = %2
   %1277 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 634, ptr %1277, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 634, ptr %1277, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1278:                                             ; preds = %2
   %1279 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 635, ptr %1279, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 635, ptr %1279, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1280:                                             ; preds = %2
   %1281 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 636, ptr %1281, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 636, ptr %1281, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1282:                                             ; preds = %2
   %1283 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 637, ptr %1283, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 637, ptr %1283, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1284:                                             ; preds = %2
   %1285 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 638, ptr %1285, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 638, ptr %1285, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1286:                                             ; preds = %2
   %1287 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 639, ptr %1287, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 639, ptr %1287, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1288:                                             ; preds = %2
   %1289 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 640, ptr %1289, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 640, ptr %1289, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1290:                                             ; preds = %2
   %1291 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 641, ptr %1291, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 641, ptr %1291, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1292:                                             ; preds = %2
   %1293 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 642, ptr %1293, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 642, ptr %1293, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1294:                                             ; preds = %2
   %1295 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 643, ptr %1295, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 643, ptr %1295, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1296:                                             ; preds = %2
   %1297 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 644, ptr %1297, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 644, ptr %1297, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1298:                                             ; preds = %2
   %1299 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 645, ptr %1299, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 645, ptr %1299, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1300:                                             ; preds = %2
   %1301 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 646, ptr %1301, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 646, ptr %1301, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1302:                                             ; preds = %2
   %1303 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 647, ptr %1303, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 647, ptr %1303, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1304:                                             ; preds = %2
   %1305 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 648, ptr %1305, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 648, ptr %1305, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1306:                                             ; preds = %2
   %1307 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 649, ptr %1307, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 649, ptr %1307, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1308:                                             ; preds = %2
   %1309 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 650, ptr %1309, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 650, ptr %1309, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1310:                                             ; preds = %2
   %1311 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 651, ptr %1311, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 651, ptr %1311, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1312:                                             ; preds = %2
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 652, ptr %1313, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 652, ptr %1313, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1314:                                             ; preds = %2
   %1315 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 653, ptr %1315, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 653, ptr %1315, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1316:                                             ; preds = %2
   %1317 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 654, ptr %1317, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 654, ptr %1317, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1318:                                             ; preds = %2
   %1319 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 655, ptr %1319, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 655, ptr %1319, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1320:                                             ; preds = %2
   %1321 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 656, ptr %1321, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 656, ptr %1321, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1322:                                             ; preds = %2
   %1323 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 657, ptr %1323, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 657, ptr %1323, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1324:                                             ; preds = %2
   %1325 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 658, ptr %1325, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 658, ptr %1325, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1326:                                             ; preds = %2
   %1327 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 659, ptr %1327, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 659, ptr %1327, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1328:                                             ; preds = %2
   %1329 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 660, ptr %1329, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 660, ptr %1329, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1330:                                             ; preds = %2
   %1331 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 661, ptr %1331, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 661, ptr %1331, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1332:                                             ; preds = %2
   %1333 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 662, ptr %1333, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 662, ptr %1333, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1334:                                             ; preds = %2
   %1335 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 663, ptr %1335, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 663, ptr %1335, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1336:                                             ; preds = %2
   %1337 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 664, ptr %1337, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 664, ptr %1337, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1338:                                             ; preds = %2
   %1339 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 665, ptr %1339, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 665, ptr %1339, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1340:                                             ; preds = %2
   %1341 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 666, ptr %1341, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 666, ptr %1341, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1342:                                             ; preds = %2
   %1343 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 667, ptr %1343, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 667, ptr %1343, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1344:                                             ; preds = %2
   %1345 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 668, ptr %1345, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 668, ptr %1345, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1346:                                             ; preds = %2
   %1347 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 669, ptr %1347, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 669, ptr %1347, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1348:                                             ; preds = %2
   %1349 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 670, ptr %1349, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 670, ptr %1349, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1350:                                             ; preds = %2
   %1351 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 671, ptr %1351, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 671, ptr %1351, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1352:                                             ; preds = %2
   %1353 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 672, ptr %1353, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 672, ptr %1353, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1354:                                             ; preds = %2
   %1355 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 673, ptr %1355, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 673, ptr %1355, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1356:                                             ; preds = %2
   %1357 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 674, ptr %1357, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 674, ptr %1357, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1358:                                             ; preds = %2
   %1359 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 675, ptr %1359, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 675, ptr %1359, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1360:                                             ; preds = %2
   %1361 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 676, ptr %1361, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 676, ptr %1361, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1362:                                             ; preds = %2
   %1363 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 677, ptr %1363, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 677, ptr %1363, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1364:                                             ; preds = %2
   %1365 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 678, ptr %1365, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 678, ptr %1365, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1366:                                             ; preds = %2
   %1367 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 679, ptr %1367, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 679, ptr %1367, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1368:                                             ; preds = %2
   %1369 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 680, ptr %1369, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 680, ptr %1369, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1370:                                             ; preds = %2
   %1371 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 681, ptr %1371, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 681, ptr %1371, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1372:                                             ; preds = %2
   %1373 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 682, ptr %1373, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 682, ptr %1373, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1374:                                             ; preds = %2
   %1375 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 683, ptr %1375, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 683, ptr %1375, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1376:                                             ; preds = %2
   %1377 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 684, ptr %1377, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 684, ptr %1377, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1378:                                             ; preds = %2
   %1379 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 685, ptr %1379, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 685, ptr %1379, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1380:                                             ; preds = %2
   %1381 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 686, ptr %1381, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 686, ptr %1381, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1382:                                             ; preds = %2
   %1383 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 687, ptr %1383, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 687, ptr %1383, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1384:                                             ; preds = %2
   %1385 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 688, ptr %1385, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 688, ptr %1385, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1386:                                             ; preds = %2
   %1387 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 689, ptr %1387, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 689, ptr %1387, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1388:                                             ; preds = %2
   %1389 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 690, ptr %1389, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 690, ptr %1389, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1390:                                             ; preds = %2
   %1391 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 691, ptr %1391, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 691, ptr %1391, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1392:                                             ; preds = %2
   %1393 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 692, ptr %1393, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 692, ptr %1393, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1394:                                             ; preds = %2
   %1395 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 693, ptr %1395, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 693, ptr %1395, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1396:                                             ; preds = %2
   %1397 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 694, ptr %1397, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 694, ptr %1397, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1398:                                             ; preds = %2
   %1399 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 695, ptr %1399, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 695, ptr %1399, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1400:                                             ; preds = %2
   %1401 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 696, ptr %1401, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 696, ptr %1401, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1402:                                             ; preds = %2
   %1403 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 697, ptr %1403, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 697, ptr %1403, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1404:                                             ; preds = %2
   %1405 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 698, ptr %1405, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 698, ptr %1405, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1406:                                             ; preds = %2
   %1407 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 699, ptr %1407, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 699, ptr %1407, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1408:                                             ; preds = %2
   %1409 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 700, ptr %1409, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 700, ptr %1409, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1410:                                             ; preds = %2
   %1411 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 701, ptr %1411, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 701, ptr %1411, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1412:                                             ; preds = %2
   %1413 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 702, ptr %1413, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 702, ptr %1413, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1414:                                             ; preds = %2
   %1415 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 703, ptr %1415, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 703, ptr %1415, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1416:                                             ; preds = %2
   %1417 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 704, ptr %1417, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 704, ptr %1417, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1418:                                             ; preds = %2
   %1419 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 705, ptr %1419, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 705, ptr %1419, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1420:                                             ; preds = %2
   %1421 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 706, ptr %1421, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 706, ptr %1421, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1422:                                             ; preds = %2
   %1423 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 707, ptr %1423, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 707, ptr %1423, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1424:                                             ; preds = %2
   %1425 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 708, ptr %1425, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 708, ptr %1425, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1426:                                             ; preds = %2
   %1427 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 709, ptr %1427, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 709, ptr %1427, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1428:                                             ; preds = %2
   %1429 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 710, ptr %1429, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 710, ptr %1429, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1430:                                             ; preds = %2
   %1431 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 711, ptr %1431, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 711, ptr %1431, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1432:                                             ; preds = %2
   %1433 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 712, ptr %1433, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 712, ptr %1433, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1434:                                             ; preds = %2
   %1435 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 713, ptr %1435, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 713, ptr %1435, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1436:                                             ; preds = %2
   %1437 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 714, ptr %1437, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 714, ptr %1437, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1438:                                             ; preds = %2
   %1439 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 715, ptr %1439, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 715, ptr %1439, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1440:                                             ; preds = %2
   %1441 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 716, ptr %1441, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 716, ptr %1441, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1442:                                             ; preds = %2
   %1443 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 717, ptr %1443, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 717, ptr %1443, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1444:                                             ; preds = %2
   %1445 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 718, ptr %1445, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 718, ptr %1445, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1446:                                             ; preds = %2
   %1447 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 719, ptr %1447, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 719, ptr %1447, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1448:                                             ; preds = %2
   %1449 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 720, ptr %1449, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 720, ptr %1449, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1450:                                             ; preds = %2
   %1451 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 721, ptr %1451, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 721, ptr %1451, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1452:                                             ; preds = %2
   %1453 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 722, ptr %1453, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 722, ptr %1453, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1454:                                             ; preds = %2
   %1455 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 723, ptr %1455, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 723, ptr %1455, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1456:                                             ; preds = %2
   %1457 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 724, ptr %1457, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 724, ptr %1457, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1458:                                             ; preds = %2
   %1459 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 725, ptr %1459, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 725, ptr %1459, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1460:                                             ; preds = %2
   %1461 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 726, ptr %1461, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 726, ptr %1461, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1462:                                             ; preds = %2
   %1463 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 727, ptr %1463, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 727, ptr %1463, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1464:                                             ; preds = %2
   %1465 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 728, ptr %1465, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 728, ptr %1465, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1466:                                             ; preds = %2
   %1467 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 729, ptr %1467, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 729, ptr %1467, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1468:                                             ; preds = %2
   %1469 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 730, ptr %1469, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 730, ptr %1469, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1470:                                             ; preds = %2
   %1471 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 731, ptr %1471, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 731, ptr %1471, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1472:                                             ; preds = %2
   %1473 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 732, ptr %1473, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 732, ptr %1473, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1474:                                             ; preds = %2
   %1475 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 733, ptr %1475, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 733, ptr %1475, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1476:                                             ; preds = %2
   %1477 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 734, ptr %1477, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 734, ptr %1477, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1478:                                             ; preds = %2
   %1479 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 735, ptr %1479, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 735, ptr %1479, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1480:                                             ; preds = %2
   %1481 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 736, ptr %1481, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 736, ptr %1481, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1482:                                             ; preds = %2
   %1483 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 737, ptr %1483, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 737, ptr %1483, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1484:                                             ; preds = %2
   %1485 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 738, ptr %1485, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 738, ptr %1485, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1486:                                             ; preds = %2
   %1487 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 739, ptr %1487, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 739, ptr %1487, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1488:                                             ; preds = %2
   %1489 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 740, ptr %1489, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 740, ptr %1489, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1490:                                             ; preds = %2
   %1491 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 741, ptr %1491, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 741, ptr %1491, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1492:                                             ; preds = %2
   %1493 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 742, ptr %1493, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 742, ptr %1493, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1494:                                             ; preds = %2
   %1495 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 743, ptr %1495, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 743, ptr %1495, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1496:                                             ; preds = %2
   %1497 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 744, ptr %1497, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 744, ptr %1497, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1498:                                             ; preds = %2
   %1499 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 745, ptr %1499, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 745, ptr %1499, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1500:                                             ; preds = %2
   %1501 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 746, ptr %1501, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 746, ptr %1501, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1502:                                             ; preds = %2
   %1503 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 747, ptr %1503, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 747, ptr %1503, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1504:                                             ; preds = %2
   %1505 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 748, ptr %1505, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 748, ptr %1505, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1506:                                             ; preds = %2
   %1507 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 749, ptr %1507, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 749, ptr %1507, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1508:                                             ; preds = %2
   %1509 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 750, ptr %1509, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 750, ptr %1509, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1510:                                             ; preds = %2
   %1511 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 751, ptr %1511, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 751, ptr %1511, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1512:                                             ; preds = %2
   %1513 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 752, ptr %1513, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 752, ptr %1513, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1514:                                             ; preds = %2
   %1515 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 753, ptr %1515, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 753, ptr %1515, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1516:                                             ; preds = %2
   %1517 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 754, ptr %1517, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 754, ptr %1517, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1518:                                             ; preds = %2
   %1519 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 755, ptr %1519, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 755, ptr %1519, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1520:                                             ; preds = %2
   %1521 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 756, ptr %1521, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 756, ptr %1521, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1522:                                             ; preds = %2
   %1523 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 757, ptr %1523, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 757, ptr %1523, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1524:                                             ; preds = %2
   %1525 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 758, ptr %1525, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 758, ptr %1525, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1526:                                             ; preds = %2
   %1527 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 759, ptr %1527, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 759, ptr %1527, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1528:                                             ; preds = %2
   %1529 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 760, ptr %1529, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 760, ptr %1529, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1530:                                             ; preds = %2
   %1531 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 761, ptr %1531, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 761, ptr %1531, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1532:                                             ; preds = %2
   %1533 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 762, ptr %1533, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 762, ptr %1533, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1534:                                             ; preds = %2
   %1535 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 763, ptr %1535, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 763, ptr %1535, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1536:                                             ; preds = %2
   %1537 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 764, ptr %1537, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 764, ptr %1537, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1538:                                             ; preds = %2
   %1539 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 765, ptr %1539, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 765, ptr %1539, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1540:                                             ; preds = %2
   %1541 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 766, ptr %1541, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 766, ptr %1541, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1542:                                             ; preds = %2
   %1543 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 767, ptr %1543, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 767, ptr %1543, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1544:                                             ; preds = %2
   %1545 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 768, ptr %1545, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 768, ptr %1545, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1546:                                             ; preds = %2
   %1547 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 769, ptr %1547, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 769, ptr %1547, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1548:                                             ; preds = %2
   %1549 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 770, ptr %1549, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 770, ptr %1549, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1550:                                             ; preds = %2
   %1551 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 771, ptr %1551, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 771, ptr %1551, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1552:                                             ; preds = %2
   %1553 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 772, ptr %1553, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 772, ptr %1553, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1554:                                             ; preds = %2
   %1555 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 773, ptr %1555, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 773, ptr %1555, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1556:                                             ; preds = %2
   %1557 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 774, ptr %1557, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 774, ptr %1557, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1558:                                             ; preds = %2
   %1559 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 775, ptr %1559, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 775, ptr %1559, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1560:                                             ; preds = %2
   %1561 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 776, ptr %1561, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 776, ptr %1561, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1562:                                             ; preds = %2
   %1563 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 777, ptr %1563, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 777, ptr %1563, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1564:                                             ; preds = %2
   %1565 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 778, ptr %1565, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 778, ptr %1565, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1566:                                             ; preds = %2
   %1567 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 779, ptr %1567, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 779, ptr %1567, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1568:                                             ; preds = %2
   %1569 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 780, ptr %1569, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 780, ptr %1569, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1570:                                             ; preds = %2
   %1571 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 781, ptr %1571, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 781, ptr %1571, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1572:                                             ; preds = %2
   %1573 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 782, ptr %1573, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 782, ptr %1573, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1574:                                             ; preds = %2
   %1575 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 783, ptr %1575, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 783, ptr %1575, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1576:                                             ; preds = %2
   %1577 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 784, ptr %1577, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 784, ptr %1577, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1578:                                             ; preds = %2
   %1579 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 785, ptr %1579, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 785, ptr %1579, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1580:                                             ; preds = %2
   %1581 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 786, ptr %1581, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 786, ptr %1581, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1582:                                             ; preds = %2
   %1583 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 787, ptr %1583, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 787, ptr %1583, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1584:                                             ; preds = %2
   %1585 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 788, ptr %1585, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 788, ptr %1585, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1586:                                             ; preds = %2
   %1587 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 789, ptr %1587, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 789, ptr %1587, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1588:                                             ; preds = %2
   %1589 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 790, ptr %1589, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 790, ptr %1589, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1590:                                             ; preds = %2
   %1591 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 791, ptr %1591, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 791, ptr %1591, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1592:                                             ; preds = %2
   %1593 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 792, ptr %1593, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 792, ptr %1593, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1594:                                             ; preds = %2
   %1595 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 793, ptr %1595, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 793, ptr %1595, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1596:                                             ; preds = %2
   %1597 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 794, ptr %1597, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 794, ptr %1597, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1598:                                             ; preds = %2
   %1599 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 795, ptr %1599, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 795, ptr %1599, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1600:                                             ; preds = %2
   %1601 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 796, ptr %1601, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 796, ptr %1601, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1602:                                             ; preds = %2
   %1603 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 797, ptr %1603, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 797, ptr %1603, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1604:                                             ; preds = %2
   %1605 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 798, ptr %1605, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 798, ptr %1605, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1606:                                             ; preds = %2
   %1607 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 799, ptr %1607, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 799, ptr %1607, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1608:                                             ; preds = %2
   %1609 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 800, ptr %1609, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 800, ptr %1609, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1610:                                             ; preds = %2
   %1611 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 801, ptr %1611, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 801, ptr %1611, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1612:                                             ; preds = %2
   %1613 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 802, ptr %1613, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 802, ptr %1613, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1614:                                             ; preds = %2
   %1615 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 803, ptr %1615, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 803, ptr %1615, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1616:                                             ; preds = %2
   %1617 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 804, ptr %1617, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 804, ptr %1617, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1618:                                             ; preds = %2
   %1619 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 805, ptr %1619, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 805, ptr %1619, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1620:                                             ; preds = %2
   %1621 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 806, ptr %1621, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 806, ptr %1621, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1622:                                             ; preds = %2
   %1623 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 807, ptr %1623, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 807, ptr %1623, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1624:                                             ; preds = %2
   %1625 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 808, ptr %1625, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 808, ptr %1625, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1626:                                             ; preds = %2
   %1627 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 809, ptr %1627, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 809, ptr %1627, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1628:                                             ; preds = %2
   %1629 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 810, ptr %1629, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 810, ptr %1629, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1630:                                             ; preds = %2
   %1631 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 811, ptr %1631, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 811, ptr %1631, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1632:                                             ; preds = %2
   %1633 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 812, ptr %1633, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 812, ptr %1633, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1634:                                             ; preds = %2
   %1635 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 813, ptr %1635, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 813, ptr %1635, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1636:                                             ; preds = %2
   %1637 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 814, ptr %1637, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 814, ptr %1637, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1638:                                             ; preds = %2
   %1639 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 815, ptr %1639, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 815, ptr %1639, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1640:                                             ; preds = %2
   %1641 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 816, ptr %1641, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 816, ptr %1641, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1642:                                             ; preds = %2
   %1643 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 817, ptr %1643, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 817, ptr %1643, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1644:                                             ; preds = %2
   %1645 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 818, ptr %1645, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 818, ptr %1645, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1646:                                             ; preds = %2
   %1647 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 819, ptr %1647, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 819, ptr %1647, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1648:                                             ; preds = %2
   %1649 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 820, ptr %1649, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 820, ptr %1649, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1650:                                             ; preds = %2
   %1651 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 821, ptr %1651, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 821, ptr %1651, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1652:                                             ; preds = %2
   %1653 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 822, ptr %1653, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 822, ptr %1653, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1654:                                             ; preds = %2
   %1655 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 823, ptr %1655, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 823, ptr %1655, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1656:                                             ; preds = %2
   %1657 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 824, ptr %1657, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 824, ptr %1657, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1658:                                             ; preds = %2
   %1659 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 825, ptr %1659, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 825, ptr %1659, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1660:                                             ; preds = %2
   %1661 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 826, ptr %1661, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 826, ptr %1661, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1662:                                             ; preds = %2
   %1663 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 827, ptr %1663, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 827, ptr %1663, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1664:                                             ; preds = %2
   %1665 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 828, ptr %1665, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 828, ptr %1665, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1666:                                             ; preds = %2
   %1667 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 829, ptr %1667, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 829, ptr %1667, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1668:                                             ; preds = %2
   %1669 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 830, ptr %1669, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 830, ptr %1669, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1670:                                             ; preds = %2
   %1671 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 831, ptr %1671, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 831, ptr %1671, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1672:                                             ; preds = %2
   %1673 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 832, ptr %1673, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 832, ptr %1673, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1674:                                             ; preds = %2
   %1675 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 833, ptr %1675, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 833, ptr %1675, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1676:                                             ; preds = %2
   %1677 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 834, ptr %1677, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 834, ptr %1677, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1678:                                             ; preds = %2
   %1679 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 835, ptr %1679, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 835, ptr %1679, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1680:                                             ; preds = %2
   %1681 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 836, ptr %1681, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 836, ptr %1681, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1682:                                             ; preds = %2
   %1683 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 837, ptr %1683, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 837, ptr %1683, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1684:                                             ; preds = %2
   %1685 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 838, ptr %1685, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 838, ptr %1685, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1686:                                             ; preds = %2
   %1687 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 839, ptr %1687, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 839, ptr %1687, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1688:                                             ; preds = %2
   %1689 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 840, ptr %1689, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 840, ptr %1689, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1690:                                             ; preds = %2
   %1691 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 841, ptr %1691, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 841, ptr %1691, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1692:                                             ; preds = %2
   %1693 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 842, ptr %1693, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 842, ptr %1693, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1694:                                             ; preds = %2
   %1695 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 843, ptr %1695, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 843, ptr %1695, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1696:                                             ; preds = %2
   %1697 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 844, ptr %1697, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 844, ptr %1697, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1698:                                             ; preds = %2
   %1699 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 845, ptr %1699, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 845, ptr %1699, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1700:                                             ; preds = %2
   %1701 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 846, ptr %1701, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 846, ptr %1701, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1702:                                             ; preds = %2
   %1703 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 847, ptr %1703, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 847, ptr %1703, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1704:                                             ; preds = %2
   %1705 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 848, ptr %1705, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 848, ptr %1705, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1706:                                             ; preds = %2
   %1707 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 849, ptr %1707, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 849, ptr %1707, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1708:                                             ; preds = %2
   %1709 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 850, ptr %1709, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 850, ptr %1709, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1710:                                             ; preds = %2
   %1711 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 851, ptr %1711, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 851, ptr %1711, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1712:                                             ; preds = %2
   %1713 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 852, ptr %1713, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 852, ptr %1713, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1714:                                             ; preds = %2
   %1715 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 853, ptr %1715, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 853, ptr %1715, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1716:                                             ; preds = %2
   %1717 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 854, ptr %1717, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 854, ptr %1717, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1718:                                             ; preds = %2
   %1719 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 855, ptr %1719, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 855, ptr %1719, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1720:                                             ; preds = %2
   %1721 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 856, ptr %1721, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 856, ptr %1721, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1722:                                             ; preds = %2
   %1723 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 857, ptr %1723, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 857, ptr %1723, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1724:                                             ; preds = %2
   %1725 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 858, ptr %1725, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 858, ptr %1725, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1726:                                             ; preds = %2
   %1727 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 859, ptr %1727, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 859, ptr %1727, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1728:                                             ; preds = %2
   %1729 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 860, ptr %1729, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 860, ptr %1729, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1730:                                             ; preds = %2
   %1731 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 861, ptr %1731, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 861, ptr %1731, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1732:                                             ; preds = %2
   %1733 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 862, ptr %1733, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 862, ptr %1733, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1734:                                             ; preds = %2
   %1735 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 863, ptr %1735, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 863, ptr %1735, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1736:                                             ; preds = %2
   %1737 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 864, ptr %1737, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 864, ptr %1737, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1738:                                             ; preds = %2
   %1739 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 865, ptr %1739, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 865, ptr %1739, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1740:                                             ; preds = %2
   %1741 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 866, ptr %1741, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 866, ptr %1741, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1742:                                             ; preds = %2
   %1743 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 867, ptr %1743, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 867, ptr %1743, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1744:                                             ; preds = %2
   %1745 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 868, ptr %1745, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 868, ptr %1745, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1746:                                             ; preds = %2
   %1747 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 869, ptr %1747, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 869, ptr %1747, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1748:                                             ; preds = %2
   %1749 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 870, ptr %1749, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 870, ptr %1749, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1750:                                             ; preds = %2
   %1751 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 871, ptr %1751, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 871, ptr %1751, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1752:                                             ; preds = %2
   %1753 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 872, ptr %1753, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 872, ptr %1753, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1754:                                             ; preds = %2
   %1755 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 873, ptr %1755, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 873, ptr %1755, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1756:                                             ; preds = %2
   %1757 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 874, ptr %1757, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 874, ptr %1757, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1758:                                             ; preds = %2
   %1759 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 875, ptr %1759, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 875, ptr %1759, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1760:                                             ; preds = %2
   %1761 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 876, ptr %1761, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 876, ptr %1761, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1762:                                             ; preds = %2
   %1763 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 877, ptr %1763, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 877, ptr %1763, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1764:                                             ; preds = %2
   %1765 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 878, ptr %1765, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 878, ptr %1765, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1766:                                             ; preds = %2
   %1767 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 879, ptr %1767, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 879, ptr %1767, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1768:                                             ; preds = %2
   %1769 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 880, ptr %1769, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 880, ptr %1769, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1770:                                             ; preds = %2
   %1771 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 881, ptr %1771, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 881, ptr %1771, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1772:                                             ; preds = %2
   %1773 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 882, ptr %1773, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 882, ptr %1773, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1774:                                             ; preds = %2
   %1775 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 883, ptr %1775, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 883, ptr %1775, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1776:                                             ; preds = %2
   %1777 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 884, ptr %1777, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 884, ptr %1777, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1778:                                             ; preds = %2
   %1779 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 885, ptr %1779, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 885, ptr %1779, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1780:                                             ; preds = %2
   %1781 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 886, ptr %1781, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 886, ptr %1781, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1782:                                             ; preds = %2
   %1783 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 887, ptr %1783, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 887, ptr %1783, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1784:                                             ; preds = %2
   %1785 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 888, ptr %1785, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 888, ptr %1785, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1786:                                             ; preds = %2
   %1787 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 889, ptr %1787, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 889, ptr %1787, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1788:                                             ; preds = %2
   %1789 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 890, ptr %1789, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 890, ptr %1789, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1790:                                             ; preds = %2
   %1791 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 891, ptr %1791, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 891, ptr %1791, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1792:                                             ; preds = %2
   %1793 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 892, ptr %1793, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 892, ptr %1793, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1794:                                             ; preds = %2
   %1795 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 893, ptr %1795, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 893, ptr %1795, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1796:                                             ; preds = %2
   %1797 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 894, ptr %1797, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 894, ptr %1797, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1798:                                             ; preds = %2
   %1799 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 895, ptr %1799, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 895, ptr %1799, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1800:                                             ; preds = %2
   %1801 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 896, ptr %1801, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 896, ptr %1801, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1802:                                             ; preds = %2
   %1803 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 897, ptr %1803, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 897, ptr %1803, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1804:                                             ; preds = %2
   %1805 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 898, ptr %1805, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 898, ptr %1805, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1806:                                             ; preds = %2
   %1807 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 899, ptr %1807, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 899, ptr %1807, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1808:                                             ; preds = %2
   %1809 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 900, ptr %1809, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 900, ptr %1809, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1810:                                             ; preds = %2
   %1811 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 901, ptr %1811, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 901, ptr %1811, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1812:                                             ; preds = %2
   %1813 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 902, ptr %1813, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 902, ptr %1813, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1814:                                             ; preds = %2
   %1815 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 903, ptr %1815, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 903, ptr %1815, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1816:                                             ; preds = %2
   %1817 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 904, ptr %1817, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 904, ptr %1817, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1818:                                             ; preds = %2
   %1819 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 905, ptr %1819, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 905, ptr %1819, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1820:                                             ; preds = %2
   %1821 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 906, ptr %1821, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 906, ptr %1821, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1822:                                             ; preds = %2
   %1823 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 907, ptr %1823, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 907, ptr %1823, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1824:                                             ; preds = %2
   %1825 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 908, ptr %1825, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 908, ptr %1825, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1826:                                             ; preds = %2
   %1827 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 909, ptr %1827, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 909, ptr %1827, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1828:                                             ; preds = %2
   %1829 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 910, ptr %1829, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 910, ptr %1829, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1830:                                             ; preds = %2
   %1831 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 911, ptr %1831, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 911, ptr %1831, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1832:                                             ; preds = %2
   %1833 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 912, ptr %1833, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 912, ptr %1833, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1834:                                             ; preds = %2
   %1835 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 913, ptr %1835, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 913, ptr %1835, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1836:                                             ; preds = %2
   %1837 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 914, ptr %1837, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 914, ptr %1837, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1838:                                             ; preds = %2
   %1839 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 915, ptr %1839, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 915, ptr %1839, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1840:                                             ; preds = %2
   %1841 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 916, ptr %1841, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 916, ptr %1841, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1842:                                             ; preds = %2
   %1843 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 917, ptr %1843, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 917, ptr %1843, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1844:                                             ; preds = %2
   %1845 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 918, ptr %1845, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 918, ptr %1845, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1846:                                             ; preds = %2
   %1847 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 919, ptr %1847, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 919, ptr %1847, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 1848:                                             ; preds = %2
   %1849 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i16 920, ptr %1849, align 2, !alias.scope !432
-  store i8 18, ptr %0, align 8, !alias.scope !432
+  store i16 920, ptr %1849, align 2, !alias.scope !437
+  store i8 18, ptr %0, align 8, !alias.scope !437
   br label %"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit"
 
 "_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E.exit": ; preds = %5, %8, %10, %12, %14, %16, %18, %20, %22, %24, %26, %28, %30, %32, %34, %36, %38, %40, %42, %44, %46, %48, %50, %52, %54, %56, %58, %60, %62, %64, %66, %68, %70, %72, %74, %76, %78, %80, %82, %84, %86, %88, %90, %92, %94, %96, %98, %100, %102, %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %140, %142, %144, %146, %148, %150, %152, %154, %156, %158, %160, %162, %164, %166, %168, %170, %172, %174, %176, %178, %180, %182, %184, %186, %188, %190, %192, %194, %196, %198, %200, %202, %204, %206, %208, %210, %212, %214, %216, %218, %220, %222, %224, %226, %228, %230, %232, %234, %236, %238, %240, %242, %244, %246, %248, %250, %252, %254, %256, %258, %260, %262, %264, %266, %268, %270, %272, %274, %276, %278, %280, %282, %284, %286, %288, %290, %292, %294, %296, %298, %300, %302, %304, %306, %308, %310, %312, %314, %316, %318, %320, %322, %324, %326, %328, %330, %332, %334, %336, %338, %340, %342, %344, %346, %348, %350, %352, %354, %356, %358, %360, %362, %364, %366, %368, %370, %372, %374, %376, %378, %380, %382, %384, %386, %388, %390, %392, %394, %396, %398, %400, %402, %404, %406, %408, %410, %412, %414, %416, %418, %420, %422, %424, %426, %428, %430, %432, %434, %436, %438, %440, %442, %444, %446, %448, %450, %452, %454, %456, %458, %460, %462, %464, %466, %468, %470, %472, %474, %476, %478, %480, %482, %484, %486, %488, %490, %492, %494, %496, %498, %500, %502, %504, %506, %508, %510, %512, %514, %516, %518, %520, %522, %524, %526, %528, %530, %532, %534, %536, %538, %540, %542, %544, %546, %548, %550, %552, %554, %556, %558, %560, %562, %564, %566, %568, %570, %572, %574, %576, %578, %580, %582, %584, %586, %588, %590, %592, %594, %596, %598, %600, %602, %604, %606, %608, %610, %612, %614, %616, %618, %620, %622, %624, %626, %628, %630, %632, %634, %636, %638, %640, %642, %644, %646, %648, %650, %652, %654, %656, %658, %660, %662, %664, %666, %668, %670, %672, %674, %676, %678, %680, %682, %684, %686, %688, %690, %692, %694, %696, %698, %700, %702, %704, %706, %708, %710, %712, %714, %716, %718, %720, %722, %724, %726, %728, %730, %732, %734, %736, %738, %740, %742, %744, %746, %748, %750, %752, %754, %756, %758, %760, %762, %764, %766, %768, %770, %772, %774, %776, %778, %780, %782, %784, %786, %788, %790, %792, %794, %796, %798, %800, %802, %804, %806, %808, %810, %812, %814, %816, %818, %820, %822, %824, %826, %828, %830, %832, %834, %836, %838, %840, %842, %844, %846, %848, %850, %852, %854, %856, %858, %860, %862, %864, %866, %868, %870, %872, %874, %876, %878, %880, %882, %884, %886, %888, %890, %892, %894, %896, %898, %900, %902, %904, %906, %908, %910, %912, %914, %916, %918, %920, %922, %924, %926, %928, %930, %932, %934, %936, %938, %940, %942, %944, %946, %948, %950, %952, %954, %956, %958, %960, %962, %964, %966, %968, %970, %972, %974, %976, %978, %980, %982, %984, %986, %988, %990, %992, %994, %996, %998, %1000, %1002, %1004, %1006, %1008, %1010, %1012, %1014, %1016, %1018, %1020, %1022, %1024, %1026, %1028, %1030, %1032, %1034, %1036, %1038, %1040, %1042, %1044, %1046, %1048, %1050, %1052, %1054, %1056, %1058, %1060, %1062, %1064, %1066, %1068, %1070, %1072, %1074, %1076, %1078, %1080, %1082, %1084, %1086, %1088, %1090, %1092, %1094, %1096, %1098, %1100, %1102, %1104, %1106, %1108, %1110, %1112, %1114, %1116, %1118, %1120, %1122, %1124, %1126, %1128, %1130, %1132, %1134, %1136, %1138, %1140, %1142, %1144, %1146, %1148, %1150, %1152, %1154, %1156, %1158, %1160, %1162, %1164, %1166, %1168, %1170, %1172, %1174, %1176, %1178, %1180, %1182, %1184, %1186, %1188, %1190, %1192, %1194, %1196, %1198, %1200, %1202, %1204, %1206, %1208, %1210, %1212, %1214, %1216, %1218, %1220, %1222, %1224, %1226, %1228, %1230, %1232, %1234, %1236, %1238, %1240, %1242, %1244, %1246, %1248, %1250, %1252, %1254, %1256, %1258, %1260, %1262, %1264, %1266, %1268, %1270, %1272, %1274, %1276, %1278, %1280, %1282, %1284, %1286, %1288, %1290, %1292, %1294, %1296, %1298, %1300, %1302, %1304, %1306, %1308, %1310, %1312, %1314, %1316, %1318, %1320, %1322, %1324, %1326, %1328, %1330, %1332, %1334, %1336, %1338, %1340, %1342, %1344, %1346, %1348, %1350, %1352, %1354, %1356, %1358, %1360, %1362, %1364, %1366, %1368, %1370, %1372, %1374, %1376, %1378, %1380, %1382, %1384, %1386, %1388, %1390, %1392, %1394, %1396, %1398, %1400, %1402, %1404, %1406, %1408, %1410, %1412, %1414, %1416, %1418, %1420, %1422, %1424, %1426, %1428, %1430, %1432, %1434, %1436, %1438, %1440, %1442, %1444, %1446, %1448, %1450, %1452, %1454, %1456, %1458, %1460, %1462, %1464, %1466, %1468, %1470, %1472, %1474, %1476, %1478, %1480, %1482, %1484, %1486, %1488, %1490, %1492, %1494, %1496, %1498, %1500, %1502, %1504, %1506, %1508, %1510, %1512, %1514, %1516, %1518, %1520, %1522, %1524, %1526, %1528, %1530, %1532, %1534, %1536, %1538, %1540, %1542, %1544, %1546, %1548, %1550, %1552, %1554, %1556, %1558, %1560, %1562, %1564, %1566, %1568, %1570, %1572, %1574, %1576, %1578, %1580, %1582, %1584, %1586, %1588, %1590, %1592, %1594, %1596, %1598, %1600, %1602, %1604, %1606, %1608, %1610, %1612, %1614, %1616, %1618, %1620, %1622, %1624, %1626, %1628, %1630, %1632, %1634, %1636, %1638, %1640, %1642, %1644, %1646, %1648, %1650, %1652, %1654, %1656, %1658, %1660, %1662, %1664, %1666, %1668, %1670, %1672, %1674, %1676, %1678, %1680, %1682, %1684, %1686, %1688, %1690, %1692, %1694, %1696, %1698, %1700, %1702, %1704, %1706, %1708, %1710, %1712, %1714, %1716, %1718, %1720, %1722, %1724, %1726, %1728, %1730, %1732, %1734, %1736, %1738, %1740, %1742, %1744, %1746, %1748, %1750, %1752, %1754, %1756, %1758, %1760, %1762, %1764, %1766, %1768, %1770, %1772, %1774, %1776, %1778, %1780, %1782, %1784, %1786, %1788, %1790, %1792, %1794, %1796, %1798, %1800, %1802, %1804, %1806, %1808, %1810, %1812, %1814, %1816, %1818, %1820, %1822, %1824, %1826, %1828, %1830, %1832, %1834, %1836, %1838, %1840, %1842, %1844, %1846, %1848
@@ -24530,39 +24530,39 @@ define hidden void @_ZN5serde2de7Visitor9visit_u3217h3a2b64e5508ad77cE(ptr dead_
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN5serde2de7Visitor9visit_u3217h74812a1dec7329eaE(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
   switch i32 %1, label %4 [
     i32 0, label %7
     i32 1, label %9
     i32 2, label %11
-  ], !prof !439
+  ], !prof !444
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !436
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !441
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %5, ptr %6, align 8, !noalias !436
-  store i8 1, ptr %3, align 8, !noalias !436
+  store i64 %5, ptr %6, align 8, !noalias !441
+  store i8 1, ptr %3, align 8, !noalias !441
   call void @_ZN5serde2de5Error13invalid_value17h95c5bb7857d5d026E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.971, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.950)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !436
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !441
   br label %"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE.exit"
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %8, align 1, !alias.scope !436
-  store i8 18, ptr %0, align 8, !alias.scope !436
+  store i8 0, ptr %8, align 1, !alias.scope !441
+  store i8 18, ptr %0, align 8, !alias.scope !441
   br label %"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE.exit"
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %10, align 1, !alias.scope !436
-  store i8 18, ptr %0, align 8, !alias.scope !436
+  store i8 1, ptr %10, align 1, !alias.scope !441
+  store i8 18, ptr %0, align 8, !alias.scope !441
   br label %"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE.exit"
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 2, ptr %12, align 1, !alias.scope !436
-  store i8 18, ptr %0, align 8, !alias.scope !436
+  store i8 2, ptr %12, align 1, !alias.scope !441
+  store i8 18, ptr %0, align 8, !alias.scope !441
   br label %"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE.exit"
 
 "_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE.exit": ; preds = %4, %7, %9, %11
@@ -24817,7 +24817,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20
 define internal noundef zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hffa1f3731124fa35E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #6 {
   %3 = alloca [8 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !range !440, !noundef !3
+  %5 = load i32, ptr %4, align 8, !range !445, !noundef !3
   %.not = icmp eq i32 %5, 1000000000
   br i1 %.not, label %8, label %6
 
@@ -24857,37 +24857,37 @@ define hidden void @"_ZN66_$LT$toml..de..Deserializer$u20$as$u20$serde..de..Dese
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.518)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.5.i)
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %14), !noalias !441
-  call void @"_ZN9toml_edit8document19ImDocument$LT$S$GT$5parse17hf304d407573bb83fE"(ptr noalias noundef nonnull sret([216 x i8]) align 8 captures(none) dereferenceable(216) %14, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !445
-  %15 = load i64, ptr %14, align 8, !range !94, !noalias !441, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %14), !noalias !446
+  call void @"_ZN9toml_edit8document19ImDocument$LT$S$GT$5parse17hf304d407573bb83fE"(ptr noalias noundef nonnull sret([216 x i8]) align 8 captures(none) dereferenceable(216) %14, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !450
+  %15 = load i64, ptr %14, align 8, !range !94, !noalias !446, !noundef !3
   %16 = icmp eq i64 %15, 12
   br i1 %16, label %"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE.exit.thread", label %"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE.exit"
 
 "_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE.exit.thread": ; preds = %7
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(96) %17, i64 96, i1 false), !noalias !441
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %14), !noalias !441
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.518, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, i64 96, i1 false), !noalias !446
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(96) %17, i64 96, i1 false), !noalias !446
+  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %14), !noalias !446
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.518, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, i64 96, i1 false), !noalias !451
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.5.i)
   br label %26
 
 "_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE.exit": ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %13), !noalias !441
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %13, ptr noundef nonnull align 8 dereferenceable(216) %14, i64 216, i1 false), !noalias !441
-  %.sroa.07.0.copyload.i = load i64, ptr %13, align 8, !noalias !441
+  call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %13), !noalias !446
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %13, ptr noundef nonnull align 8 dereferenceable(216) %14, i64 216, i1 false), !noalias !446
+  %.sroa.07.0.copyload.i = load i64, ptr %13, align 8, !noalias !446
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 96, i1 false), !noalias !441
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 96, i1 false), !noalias !446
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 104
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false), !noalias !446
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, ptr noundef nonnull align 8 dereferenceable(72) %19, i64 72, i1 false), !noalias !451
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 200
-  %21 = load ptr, ptr %20, align 8, !noalias !441, !nonnull !3, !align !137, !noundef !3
+  %21 = load ptr, ptr %20, align 8, !noalias !446, !nonnull !3, !align !137, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 208
-  %23 = load i64, ptr %22, align 8, !noalias !441, !noundef !3
+  %23 = load i64, ptr %22, align 8, !noalias !446, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 176
-  call void @"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h5f117cb32273baf4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24), !noalias !445
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %13), !noalias !441
-  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %14), !noalias !441
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.518, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, i64 96, i1 false), !noalias !446
+  call void @"_ZN4core3ptr53drop_in_place$LT$toml_edit..raw_string..RawString$GT$17h5f117cb32273baf4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %24), !noalias !450
+  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %13), !noalias !446
+  call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %14), !noalias !446
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.518, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.5.i, i64 96, i1 false), !noalias !451
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.5.i)
   %25 = icmp eq i64 %.sroa.07.0.copyload.i, 12
   br i1 %25, label %26, label %28
@@ -24907,7 +24907,7 @@ define hidden void @"_ZN66_$LT$toml..de..Deserializer$u20$as$u20$serde..de..Dese
 28:                                               ; preds = %"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.66, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.518, i64 96, i1 false)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 104
-  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %11), !noalias !447
+  call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %11), !noalias !452
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, i64 72, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.518)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.9)
@@ -24917,78 +24917,78 @@ define hidden void @"_ZN66_$LT$toml..de..Deserializer$u20$as$u20$serde..de..Dese
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.6, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %.sroa.623)
-  call void @llvm.lifetime.start.p0(i64 4744, ptr nonnull %12), !noalias !447
-  store i64 %.sroa.07.0.copyload.i, ptr %11, align 8, !noalias !453
+  call void @llvm.lifetime.start.p0(i64 4744, ptr nonnull %12), !noalias !452
+  store i64 %.sroa.07.0.copyload.i, ptr %11, align 8, !noalias !458
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 176
-  store i8 0, ptr %29, align 8, !noalias !447
-  call void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h9f2858f1a21f116eE"(ptr noalias noundef nonnull sret([4744 x i8]) align 8 captures(none) dereferenceable(4744) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %11, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 %5, i64 noundef %6), !noalias !454
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11), !noalias !447
-  %30 = load i64, ptr %12, align 8, !range !160, !noalias !447, !noundef !3
+  store i8 0, ptr %29, align 8, !noalias !452
+  call void @"_ZN83_$LT$toml_edit..de..value..ValueDeserializer$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h9f2858f1a21f116eE"(ptr noalias noundef nonnull sret([4744 x i8]) align 8 captures(none) dereferenceable(4744) %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(184) %11, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 %5, i64 noundef %6), !noalias !459
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %11), !noalias !452
+  %30 = load i64, ptr %12, align 8, !range !160, !noalias !452, !noundef !3
   %31 = icmp eq i64 %30, 4
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br i1 %31, label %33, label %50
 
 33:                                               ; preds = %28
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10), !noalias !447
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %32, i64 96, i1 false), !noalias !447
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !455
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !460
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10), !noalias !452
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %32, i64 96, i1 false), !noalias !452
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9), !noalias !460
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !465
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, i64 noundef %23, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
-          to label %.noexc.i.i unwind label %44, !noalias !472
+          to label %.noexc.i.i unwind label %44, !noalias !477
 
 .noexc.i.i:                                       ; preds = %33
-  %34 = load i64, ptr %8, align 8, !range !41, !noalias !460, !noundef !3
+  %34 = load i64, ptr %8, align 8, !range !41, !noalias !465, !noundef !3
   %35 = trunc nuw i64 %34 to i1
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %37 = load i64, ptr %36, align 8, !range !42, !noalias !460, !noundef !3
+  %37 = load i64, ptr %36, align 8, !range !42, !noalias !465, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %35, label %39, label %41, !prof !5
 
 39:                                               ; preds = %.noexc.i.i
-  %40 = load i64, ptr %38, align 8, !noalias !460
+  %40 = load i64, ptr %38, align 8, !noalias !465
   invoke void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %37, i64 %40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1169) #23
-          to label %.noexc3.i.i unwind label %44, !noalias !472
+          to label %.noexc3.i.i unwind label %44, !noalias !477
 
 .noexc3.i.i:                                      ; preds = %39
   unreachable
 
 41:                                               ; preds = %.noexc.i.i
-  %42 = load ptr, ptr %38, align 8, !noalias !460, !nonnull !3, !noundef !3
+  %42 = load ptr, ptr %38, align 8, !noalias !465, !nonnull !3, !noundef !3
   %43 = icmp ule i64 %23, %37
   call void @llvm.assume(i1 %43)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !460
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %21, i64 %23, i1 false), !noalias !473
-  store i64 %37, ptr %9, align 8, !noalias !455
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8), !noalias !465
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %21, i64 %23, i1 false), !noalias !478
+  store i64 %37, ptr %9, align 8, !noalias !460
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %42, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !455
+  store ptr %42, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !460
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 %23, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !455
+  store i64 %23, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !noalias !460
   invoke void @_ZN9toml_edit5error9TomlError7set_raw17h6239fc484451e154E(ptr noalias noundef nonnull align 8 dereferenceable(96) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %9)
-          to label %49 unwind label %44, !noalias !474
+          to label %49 unwind label %44, !noalias !479
 
 44:                                               ; preds = %41, %39, %33
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr41drop_in_place$LT$toml_edit..de..Error$GT$17h8fa3ed24b1c0602fE"(ptr noalias noundef nonnull align 8 dereferenceable(96) %10) #25
-          to label %48 unwind label %46, !noalias !474
+          to label %48 unwind label %46, !noalias !479
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !474
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !479
   unreachable
 
 48:                                               ; preds = %44
   resume { ptr, i32 } %45
 
 49:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !455
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.623, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !noalias !475
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10), !noalias !447
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9), !noalias !460
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.623, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !noalias !480
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10), !noalias !452
   br label %51
 
 50:                                               ; preds = %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.623, ptr noundef nonnull align 8 dereferenceable(96) %32, i64 96, i1 false), !noalias !475
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.623, ptr noundef nonnull align 8 dereferenceable(96) %32, i64 96, i1 false), !noalias !480
   %.sroa.8.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4640) %.sroa.528.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(4640) %.sroa.8.0..sroa_idx25, i64 4640, i1 false)
@@ -24996,7 +24996,7 @@ define hidden void @"_ZN66_$LT$toml..de..Deserializer$u20$as$u20$serde..de..Dese
 
 51:                                               ; preds = %50, %49
   %storemerge = phi i64 [ %30, %50 ], [ 4, %49 ]
-  call void @llvm.lifetime.end.p0(i64 4744, ptr nonnull %12), !noalias !447
+  call void @llvm.lifetime.end.p0(i64 4744, ptr nonnull %12), !noalias !452
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.427.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %.sroa.623, i64 96, i1 false)
   store i64 %storemerge, ptr %0, align 8
@@ -25721,7 +25721,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h18c1aec5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !93, !noundef !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %4, ptr %2, align 8, !noalias !476
+  store ptr %4, ptr %2, align 8, !noalias !481
   %5 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(8) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 8, i64 noundef range(i64 1, 9) 8) #26
   %7 = icmp eq ptr %6, null
@@ -25748,7 +25748,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h18c1aec5
 
 .body:                                            ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !range !479, !alias.scope !480, !noundef !3
+  %14 = load i64, ptr %13, align 8, !range !484, !alias.scope !485, !noundef !3
   %15 = icmp eq i64 %14, 3
   br i1 %15, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %16
 
@@ -25760,7 +25760,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h18c1aec5
   store ptr %4, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !range !479, !alias.scope !483, !noundef !3
+  %19 = load i64, ptr %18, align 8, !range !484, !alias.scope !488, !noundef !3
   %20 = icmp eq i64 %19, 3
   br i1 %20, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %21
 
@@ -25801,8 +25801,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h2b54b638
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !486
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 56, i64 noundef range(i64 1, 9) 8) #26, !noalias !486
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !491
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(56) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 56, i64 noundef range(i64 1, 9) 8) #26, !noalias !491
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -25827,7 +25827,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h2b54b638
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !489, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !494, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -25839,7 +25839,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h2b54b638
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !492, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !497, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -25877,7 +25877,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h2b54b638
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h31640a4a741f98e2E(ptr noundef nonnull %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !range !479, !alias.scope !495, !noundef !3
+  %3 = load i64, ptr %2, align 8, !range !484, !alias.scope !500, !noundef !3
   %4 = icmp eq i64 %3, 3
   br i1 %4, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit6", label %5
 
@@ -25902,8 +25902,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h4997222c
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !498
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 48, i64 noundef range(i64 1, 9) 8) #26, !noalias !498
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !503
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(48) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 48, i64 noundef range(i64 1, 9) 8) #26, !noalias !503
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -25928,7 +25928,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h4997222c
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !501, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !506, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -25940,7 +25940,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h4997222c
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !504, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !509, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -25981,8 +25981,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h4a7ceff3
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !507
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 40, i64 noundef range(i64 1, 9) 8) #26, !noalias !507
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !512
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(40) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 40, i64 noundef range(i64 1, 9) 8) #26, !noalias !512
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26007,7 +26007,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h4a7ceff3
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !510, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !515, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26019,7 +26019,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h4a7ceff3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !513, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !518, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26076,7 +26076,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h5b2cec63
   %11 = landingpad { ptr, i32 }
           cleanup
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !516, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !521, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26085,11 +26085,11 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h5b2cec63
           to label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit" unwind label %26
 
 16:                                               ; preds = %1
-  store ptr %3, ptr %7, align 8, !noalias !519
+  store ptr %3, ptr %7, align 8, !noalias !524
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %5, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !range !479, !alias.scope !522, !noundef !3
+  %19 = load i64, ptr %18, align 8, !range !484, !alias.scope !527, !noundef !3
   %20 = icmp eq i64 %19, 3
   br i1 %20, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %21
 
@@ -26126,8 +26126,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h71840d37
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !525
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 24, i64 noundef range(i64 1, 9) 8) #26, !noalias !525
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !530
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 24, i64 noundef range(i64 1, 9) 8) #26, !noalias !530
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26152,7 +26152,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h71840d37
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !528, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !533, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26164,7 +26164,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h71840d37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !531, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !536, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26232,7 +26232,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h7acafd5a
 
 .body:                                            ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %13, align 8, !range !479, !alias.scope !534, !noundef !3
+  %14 = load i64, ptr %13, align 8, !range !484, !alias.scope !539, !noundef !3
   %15 = icmp eq i64 %14, 3
   br i1 %15, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %16
 
@@ -26244,7 +26244,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h7acafd5a
   store ptr %4, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load i64, ptr %18, align 8, !range !479, !alias.scope !537, !noundef !3
+  %19 = load i64, ptr %18, align 8, !range !484, !alias.scope !542, !noundef !3
   %20 = icmp eq i64 %19, 3
   br i1 %20, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %21
 
@@ -26285,8 +26285,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h80a9e7c9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !540
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 24, i64 noundef range(i64 1, 9) 8) #26, !noalias !540
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !545
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 24, i64 noundef range(i64 1, 9) 8) #26, !noalias !545
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26311,7 +26311,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h80a9e7c9
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !543, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !548, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26323,7 +26323,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h80a9e7c9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !546, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !551, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26364,8 +26364,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h91e84e0b
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !549
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 32, i64 noundef range(i64 1, 9) 8) #26, !noalias !549
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !554
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 32, i64 noundef range(i64 1, 9) 8) #26, !noalias !554
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26390,7 +26390,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h91e84e0b
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !552, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !557, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26402,7 +26402,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17h91e84e0b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !555, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !560, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26443,8 +26443,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hccc6ac35
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(120) %3, i64 120, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !558
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 120, i64 noundef range(i64 1, 9) 8) #26, !noalias !558
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !563
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(120) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 120, i64 noundef range(i64 1, 9) 8) #26, !noalias !563
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26469,7 +26469,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hccc6ac35
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !561, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !566, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26481,7 +26481,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hccc6ac35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) %2, i64 120, i1 false)
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !564, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !569, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26522,8 +26522,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hcfd9ff07
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !567
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 16, i64 noundef range(i64 1, 9) 8) #26, !noalias !567
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !572
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(16) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 16, i64 noundef range(i64 1, 9) 8) #26, !noalias !572
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26548,7 +26548,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hcfd9ff07
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !570, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !575, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26560,7 +26560,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hcfd9ff07
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !573, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !578, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26601,8 +26601,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17he21e0045
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !576
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 24, i64 noundef range(i64 1, 9) 8) #26, !noalias !576
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !581
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(24) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 24, i64 noundef range(i64 1, 9) 8) #26, !noalias !581
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26627,7 +26627,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17he21e0045
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !579, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !584, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26639,7 +26639,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17he21e0045
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !582, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !587, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26680,8 +26680,8 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hf705669a
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !585
-  %5 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 64, i64 noundef range(i64 1, 9) 8) #26, !noalias !585
+  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !590
+  %5 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @_RNvCscSpY9Juk0HT_7___rustc12___rust_alloc(i64 noundef range(i64 1, 121) 64, i64 noundef range(i64 1, 9) 8) #26, !noalias !590
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %16, !prof !5
 
@@ -26706,7 +26706,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hf705669a
 
 .body:                                            ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !range !479, !alias.scope !588, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !484, !alias.scope !593, !noundef !3
   %14 = icmp eq i64 %13, 3
   br i1 %14, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit", label %15
 
@@ -26718,7 +26718,7 @@ define hidden { ptr, ptr } @_ZN6anyhow5error23object_reallocate_boxed17hf705669a
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load i64, ptr %17, align 8, !range !479, !alias.scope !591, !noundef !3
+  %18 = load i64, ptr %17, align 8, !range !484, !alias.scope !596, !noundef !3
   %19 = icmp eq i64 %18, 3
   br i1 %19, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE.exit7", label %20
 
@@ -26925,11 +26925,11 @@ define hidden noundef zeroext i1 @"_ZN6anyhow7context89_$LT$impl$u20$core..fmt..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN6anyhow7context89_$LT$impl$u20$core..fmt..Display$u20$for$u20$anyhow..error..ContextError$LT$C$C$E$GT$$GT$3fmt17h5baae4059418c705E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !594)
-  %3 = load ptr, ptr %0, align 8, !alias.scope !594, !noalias !597, !nonnull !3, !align !137, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !599)
+  %3 = load ptr, ptr %0, align 8, !alias.scope !599, !noalias !602, !nonnull !3, !align !137, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !594, !noalias !597, !noundef !3
-  %6 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h667c167923ccc87eE"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !594
+  %5 = load i64, ptr %4, align 8, !alias.scope !599, !noalias !602, !noundef !3
+  %6 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h667c167923ccc87eE"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !599
   ret i1 %6
 }
 
@@ -26945,11 +26945,11 @@ define hidden noundef zeroext i1 @"_ZN6anyhow7context89_$LT$impl$u20$core..fmt..
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN6anyhow7context89_$LT$impl$u20$core..fmt..Display$u20$for$u20$anyhow..error..ContextError$LT$C$C$E$GT$$GT$3fmt17hc5d864d932bf87b0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !599)
-  %3 = load ptr, ptr %0, align 8, !alias.scope !599, !noalias !602, !nonnull !3, !align !137, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !604)
+  %3 = load ptr, ptr %0, align 8, !alias.scope !604, !noalias !607, !nonnull !3, !align !137, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i64, ptr %4, align 8, !alias.scope !599, !noalias !602, !noundef !3
-  %6 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h667c167923ccc87eE"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !599
+  %5 = load i64, ptr %4, align 8, !alias.scope !604, !noalias !607, !noundef !3
+  %6 = tail call noundef zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h667c167923ccc87eE"(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %5, ptr noalias noundef nonnull align 8 dereferenceable(24) %1), !noalias !604
   ret i1 %6
 }
 
@@ -27044,38 +27044,38 @@ define hidden noundef align 8 ptr @"_ZN70_$LT$ruff_linter..codes..NoqaCode$u20$a
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !604
-  store i64 0, ptr %5, align 8, !noalias !604
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !609
+  store i64 0, ptr %5, align 8, !noalias !609
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !604
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i, align 8, !noalias !609
   %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !604
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !604
+  store i64 0, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !609
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !609
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 -536870880, ptr %7, align 8, !noalias !604
+  store i32 -536870880, ptr %7, align 8, !noalias !609
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i16 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !604
+  store i16 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !609
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 22
-  store i16 0, ptr %.sroa.5.0..sroa_idx.i, align 2, !noalias !604
-  store ptr %5, ptr %4, align 8, !noalias !604
+  store i16 0, ptr %.sroa.5.0..sroa_idx.i, align 2, !noalias !609
+  store ptr %5, ptr %4, align 8, !noalias !609
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %8, align 8, !noalias !604
+  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %8, align 8, !noalias !609
   %9 = invoke noundef zeroext i1 @"_ZN67_$LT$ruff_linter..codes..NoqaCode$u20$as$u20$core..fmt..Display$GT$3fmt17h1d6a814a3887d6aeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %12 unwind label %10, !noalias !608
+          to label %12 unwind label %10, !noalias !613
 
 10:                                               ; preds = %13, %2
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #25
-          to label %common.resume unwind label %14, !noalias !608
+          to label %common.resume unwind label %14, !noalias !613
 
 12:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !604
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3), !noalias !609
   br i1 %9, label %13, label %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE.exit", !prof !5
 
 13:                                               ; preds = %12
   invoke void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.976, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.982, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.978) #23
-          to label %.noexc.i unwind label %10, !noalias !608
+          to label %.noexc.i unwind label %10, !noalias !613
 
 .noexc.i:                                         ; preds = %13
   unreachable
@@ -27083,7 +27083,7 @@ define hidden noundef align 8 ptr @"_ZN70_$LT$ruff_linter..codes..NoqaCode$u20$a
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !608
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !613
   unreachable
 
 common.resume:                                    ; preds = %24, %10
@@ -27091,10 +27091,10 @@ common.resume:                                    ; preds = %24, %10
   resume { ptr, i32 } %common.resume.op
 
 "_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE.exit": ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !604
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !609
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !604
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !604
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !609
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !614
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !609
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !609
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27691,19 +27691,19 @@ define internal fastcc void @"_ZN7bincode8features5serde74_$LT$impl$u20$serde..d
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !610)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !613)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !615)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !618)
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !alias.scope !620, !noalias !621, !nonnull !3, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !620)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !623)
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !alias.scope !625, !noalias !626, !nonnull !3, !noundef !3
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !620, !noalias !621
+  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !625, !noalias !626
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !620, !noalias !621
+  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !625, !noalias !626
   %.sroa.66.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.66.0.copyload.i.i = load i64, ptr %.sroa.66.0..sroa_idx.i.i, align 8, !alias.scope !620, !noalias !621
+  %.sroa.66.0.copyload.i.i = load i64, ptr %.sroa.66.0..sroa_idx.i.i, align 8, !alias.scope !625, !noalias !626
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !622)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !627)
   switch i64 %.sroa.5.0.copyload.i.i, label %18 [
     i64 0, label %6
     i64 1, label %19
@@ -27716,49 +27716,49 @@ define internal fastcc void @"_ZN7bincode8features5serde74_$LT$impl$u20$serde..d
 8:                                                ; preds = %21, %6
   %.sroa.6.0.ph.i.i.i = phi i64 [ 0, %6 ], [ %24, %21 ]
   %.sroa.0.0.ph.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %6 ], [ %22, %21 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !628)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !631
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %.sroa.6.0.ph.i.i.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !631
-  %9 = load i64, ptr %4, align 8, !range !41, !noalias !631, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !636
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, i64 noundef %.sroa.6.0.ph.i.i.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !636
+  %9 = load i64, ptr %4, align 8, !range !41, !noalias !636, !noundef !3
   %10 = trunc nuw i64 %9 to i1
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %12 = load i64, ptr %11, align 8, !range !42, !noalias !631, !noundef !3
+  %12 = load i64, ptr %11, align 8, !range !42, !noalias !636, !noundef !3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %10, label %14, label %_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i, !prof !5
 
 14:                                               ; preds = %8
-  %15 = load i64, ptr %13, align 8, !noalias !631
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %12, i64 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1169) #23, !noalias !644
+  %15 = load i64, ptr %13, align 8, !noalias !636
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %12, i64 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1169) #23, !noalias !649
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i: ; preds = %8
-  %16 = load ptr, ptr %13, align 8, !noalias !631, !nonnull !3, !noundef !3
+  %16 = load ptr, ptr %13, align 8, !noalias !636, !nonnull !3, !noundef !3
   %17 = icmp ule i64 %.sroa.6.0.ph.i.i.i, %12
   tail call void @llvm.assume(i1 %17)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !631
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %.sroa.0.0.ph.i.i.i, i64 %.sroa.6.0.ph.i.i.i, i1 false), !noalias !645
-  store i64 %12, ptr %5, align 8, !alias.scope !646, !noalias !647
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !636
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %.sroa.0.0.ph.i.i.i, i64 %.sroa.6.0.ph.i.i.i, i1 false), !noalias !650
+  store i64 %12, ptr %5, align 8, !alias.scope !651, !noalias !652
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %16, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !646, !noalias !647
+  store ptr %16, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !652
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.6.0.ph.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !646, !noalias !647
+  store i64 %.sroa.6.0.ph.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !651, !noalias !652
   br label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE.exit"
 
 18:                                               ; preds = %19, %6, %2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !648)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !649
-  store ptr %.sroa.0.0.copyload.i.i, ptr %3, align 8, !noalias !653
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !654
+  store ptr %.sroa.0.0.copyload.i.i, ptr %3, align 8, !noalias !658
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx2.i.i, align 8, !noalias !653
+  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx2.i.i, align 8, !noalias !658
   %.sroa.6.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 %.sroa.6.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx4.i.i, align 8, !noalias !653
+  store i64 %.sroa.6.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx4.i.i, align 8, !noalias !658
   %.sroa.66.0..sroa_idx7.i.i = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 %.sroa.66.0.copyload.i.i, ptr %.sroa.66.0..sroa_idx7.i.i, align 8, !noalias !653
+  store i64 %.sroa.66.0.copyload.i.i, ptr %.sroa.66.0..sroa_idx7.i.i, align 8, !noalias !658
   %.sroa.7.0..sroa_idx9.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx9.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, i64 16, i1 false), !noalias !621
-  call void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !654
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !649
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx9.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, i64 16, i1 false), !noalias !626
+  call void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !659
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !654
   br label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE.exit"
 
 19:                                               ; preds = %2
@@ -27766,9 +27766,9 @@ _ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i: ; preds
   br i1 %20, label %21, label %18
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !noalias !655, !nonnull !3, !align !137, !noundef !3
+  %22 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !noalias !660, !nonnull !3, !align !137, !noundef !3
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
-  %24 = load i64, ptr %23, align 8, !noalias !655, !noundef !3
+  %24 = load i64, ptr %23, align 8, !noalias !660, !noundef !3
   br label %8
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i, %18
@@ -27836,11 +27836,11 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17habcb606156e2ac87E(ptr dead
   %9 = icmp ne i64 %.sroa.040.0.copyload, 0
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.642.0.copyload, i64 2568
-  %11 = load i8, ptr %.sroa.743.0.copyload, align 1, !range !68, !noalias !656, !noundef !3
-  %12 = load i8, ptr %.sroa.844.0.copyload, align 1, !range !68, !noalias !656, !noundef !3
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !656
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.945.0.copyload, i64 32, i1 false), !noalias !656
-  %13 = load ptr, ptr %.sroa.10.0.copyload, align 8, !noalias !656, !align !93, !noundef !3
+  %11 = load i8, ptr %.sroa.743.0.copyload, align 1, !range !68, !noalias !661, !noundef !3
+  %12 = load i8, ptr %.sroa.844.0.copyload, align 1, !range !68, !noalias !661, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !661
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.945.0.copyload, i64 32, i1 false), !noalias !661
+  %13 = load ptr, ptr %.sroa.10.0.copyload, align 8, !noalias !661, !align !93, !noundef !3
   invoke void @_ZN4ruff8commands6format11format_path17h93a874dc79518ed7E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %.sroa.541.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %10, i8 noundef %11, i8 noundef %12, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3, ptr noundef align 8 %13)
           to label %20 unwind label %14
 
@@ -27858,7 +27858,7 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17habcb606156e2ac87E(ptr dead
   unreachable
 
 20:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !656
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !661
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.924.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.924.0.copyload = load i64, ptr %.sroa.924.0..sroa_idx, align 8
@@ -27898,20 +27898,20 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17habcb606156e2ac87E(ptr dead
   %24 = extractvalue { ptr, ptr } %17, 0
   %25 = extractvalue { ptr, ptr } %17, 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.046)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5), !noalias !660
+  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5), !noalias !665
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h14fd8b5b345da9f5E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.5bc7f885d7c4a73c810aa79227528d26.1166)
-          to label %"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E.exit" unwind label %26, !noalias !660
+          to label %"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E.exit" unwind label %26, !noalias !665
 
 26:                                               ; preds = %23
   %27 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hef674e05f6ef06b6E"(ptr nonnull align 1 %24, ptr nonnull readonly align 8 dereferenceable(32) %25) #25
-          to label %common.resume unwind label %28, !noalias !664
+          to label %common.resume unwind label %28, !noalias !669
 
 28:                                               ; preds = %26
   %29 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !660
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !665
   unreachable
 
 common.resume:                                    ; preds = %37, %26
@@ -27921,13 +27921,13 @@ common.resume:                                    ; preds = %37, %26
 "_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E.exit": ; preds = %23
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.046.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.046, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !665
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.046, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !665
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.046.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !670
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.046, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !670
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %32 = load ptr, ptr %31, align 8, !noalias !660, !align !93, !noundef !3
+  %32 = load ptr, ptr %31, align 8, !noalias !665, !align !93, !noundef !3
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %34 = load i64, ptr %33, align 8, !noalias !660
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5), !noalias !660
+  %34 = load i64, ptr %33, align 8, !noalias !665
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5), !noalias !665
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.046, i64 72, i1 false)
   %.sroa.547.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %24, ptr %.sroa.547.0..sroa_idx, align 8
@@ -27992,25 +27992,25 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17hf81310da97136c65E(ptr dead
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4)
   %9 = icmp ne i64 %.sroa.042.0.copyload, 0
   tail call void @llvm.assume(i1 %9)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !666
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !671
   %10 = icmp ne ptr %.sroa.644.0.copyload, null
   tail call void @llvm.assume(i1 %10)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.644.0.copyload, i64 24, i1 false), !noalias !666
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.644.0.copyload, i64 24, i1 false), !noalias !671
   %11 = icmp ne ptr %.sroa.745.0.copyload, null
   tail call void @llvm.assume(i1 %11)
   %12 = icmp ne ptr %.sroa.846.0.copyload, null
   tail call void @llvm.assume(i1 %12)
-  %13 = load ptr, ptr %.sroa.846.0.copyload, align 8, !noalias !666, !align !93, !noundef !3
+  %13 = load ptr, ptr %.sroa.846.0.copyload, align 8, !noalias !671, !align !93, !noundef !3
   %14 = icmp ne ptr %.sroa.947.0.copyload, null
   tail call void @llvm.assume(i1 %14)
-  %15 = load i8, ptr %.sroa.947.0.copyload, align 1, !range !92, !noalias !666, !noundef !3
+  %15 = load i8, ptr %.sroa.947.0.copyload, align 1, !range !92, !noalias !671, !noundef !3
   %16 = trunc nuw i8 %15 to i1
   %17 = icmp ne ptr %.sroa.1048.0.copyload, null
   tail call void @llvm.assume(i1 %17)
-  %18 = load i8, ptr %.sroa.1048.0.copyload, align 1, !range !68, !noalias !666, !noundef !3
+  %18 = load i8, ptr %.sroa.1048.0.copyload, align 1, !range !68, !noalias !671, !noundef !3
   %19 = icmp ne ptr %.sroa.11.0.copyload, null
   tail call void @llvm.assume(i1 %19)
-  %20 = load i8, ptr %.sroa.11.0.copyload, align 1, !range !68, !noalias !666, !noundef !3
+  %20 = load i8, ptr %.sroa.11.0.copyload, align 1, !range !68, !noalias !671, !noundef !3
   invoke void @_ZN4ruff11diagnostics9lint_path17he0dfc5cd4694a327E(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %.sroa.543.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(2256) %.sroa.745.0.copyload, ptr noundef align 8 %13, i1 noundef zeroext %16, i8 noundef %18, i8 noundef %20)
           to label %27 unwind label %21
 
@@ -28028,7 +28028,7 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17hf81310da97136c65E(ptr dead
   unreachable
 
 27:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !666
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !671
   %.sroa.0.0.copyload = load i64, ptr %4, align 8
   %.sroa.924.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.924.0.copyload = load i64, ptr %.sroa.924.0..sroa_idx, align 8
@@ -28072,20 +28072,20 @@ define hidden void @_ZN7ruff_db5panic12catch_unwind17hf81310da97136c65E(ptr dead
   %31 = extractvalue { ptr, ptr } %24, 0
   %32 = extractvalue { ptr, ptr } %24, 1
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.049)
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5), !noalias !670
+  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5), !noalias !675
   invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$4with17h14fd8b5b345da9f5E"(ptr noalias noundef nonnull sret([88 x i8]) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.5bc7f885d7c4a73c810aa79227528d26.1166)
-          to label %"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE.exit" unwind label %33, !noalias !670
+          to label %"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE.exit" unwind label %33, !noalias !675
 
 33:                                               ; preds = %30
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$17hef674e05f6ef06b6E"(ptr nonnull align 1 %31, ptr nonnull readonly align 8 dereferenceable(32) %32) #25
-          to label %common.resume unwind label %35, !noalias !674
+          to label %common.resume unwind label %35, !noalias !679
 
 35:                                               ; preds = %33
   %36 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !670
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !675
   unreachable
 
 common.resume:                                    ; preds = %44, %33
@@ -28095,13 +28095,13 @@ common.resume:                                    ; preds = %44, %33
 "_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE.exit": ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.049.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.049, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !675
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.049, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !675
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.049.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false), !noalias !680
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.049, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false), !noalias !680
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %39 = load ptr, ptr %38, align 8, !noalias !670, !align !93, !noundef !3
+  %39 = load ptr, ptr %38, align 8, !noalias !675, !align !93, !noundef !3
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %41 = load i64, ptr %40, align 8, !noalias !670
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5), !noalias !670
+  %41 = load i64, ptr %40, align 8, !noalias !675
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5), !noalias !675
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.049, i64 72, i1 false)
   %.sroa.550.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %31, ptr %.sroa.550.0..sroa_idx, align 8
@@ -28203,23 +28203,23 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !93, !noundef !3
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !noalias !676, !noundef !3
-  store ptr null, ptr %6, align 8, !noalias !676
+  %7 = load ptr, ptr %6, align 8, !noalias !681, !noundef !3
+  store ptr null, ptr %6, align 8, !noalias !681
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h2ea8cc87dca95f5fE.exit", !prof !5
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !676
-  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.1173, ptr %2, align 8, !noalias !676
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !681
+  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.1173, ptr %2, align 8, !noalias !681
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 1, ptr %9, align 8, !noalias !676
+  store i64 1, ptr %9, align 8, !noalias !681
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %10, align 8, !noalias !676
+  store ptr null, ptr %10, align 8, !noalias !681
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %11, align 8, !noalias !676
+  store ptr inttoptr (i64 8 to ptr), ptr %11, align 8, !noalias !681
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 0, ptr %12, align 8, !noalias !676
-  call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1175) #23, !noalias !676
+  store i64 0, ptr %12, align 8, !noalias !681
+  call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1175) #23, !noalias !681
   unreachable
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h2ea8cc87dca95f5fE.exit": ; preds = %1
@@ -28228,7 +28228,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !93, !noundef !3
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = load i64, ptr %15, align 8, !range !42, !alias.scope !681, !noundef !3
+  %16 = load i64, ptr %15, align 8, !range !42, !alias.scope !686, !noundef !3
   %17 = icmp eq i64 %16, -9223372036854775808
   br i1 %17, label %"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE.exit", label %18
 
@@ -28262,23 +28262,23 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !align !93, !noundef !3
   store ptr null, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load ptr, ptr %6, align 8, !noalias !684, !noundef !3
-  store ptr null, ptr %6, align 8, !noalias !684
+  %7 = load ptr, ptr %6, align 8, !noalias !689, !noundef !3
+  store ptr null, ptr %6, align 8, !noalias !689
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %8, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h00805d9de9b941c3E.exit", !prof !5
 
 8:                                                ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !684
-  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.1173, ptr %2, align 8, !noalias !684
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !689
+  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.1173, ptr %2, align 8, !noalias !689
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 1, ptr %9, align 8, !noalias !684
+  store i64 1, ptr %9, align 8, !noalias !689
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr null, ptr %10, align 8, !noalias !684
+  store ptr null, ptr %10, align 8, !noalias !689
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %11, align 8, !noalias !684
+  store ptr inttoptr (i64 8 to ptr), ptr %11, align 8, !noalias !689
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 0, ptr %12, align 8, !noalias !684
-  call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1175) #23, !noalias !684
+  store i64 0, ptr %12, align 8, !noalias !689
+  call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1175) #23, !noalias !689
   unreachable
 
 "_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h00805d9de9b941c3E.exit": ; preds = %1
@@ -28287,7 +28287,7 @@ define internal noundef zeroext i1 @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initi
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !align !93, !noundef !3
   %15 = load ptr, ptr %14, align 8, !noundef !3
-  %16 = load i64, ptr %15, align 8, !range !42, !alias.scope !689, !noundef !3
+  %16 = load i64, ptr %15, align 8, !range !42, !alias.scope !694, !noundef !3
   %17 = icmp eq i64 %16, -9223372036854775808
   br i1 %17, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h53062bbe068911faE.exit", label %18
 
@@ -28320,38 +28320,38 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h15e6df88caf172c8E(p
   %6 = alloca [24 x i8], align 8
   %.sroa.01.sroa.0 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.01.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !692
-  store i64 0, ptr %6, align 8, !noalias !692
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !697
+  store i64 0, ptr %6, align 8, !noalias !697
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !692
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !697
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !692
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !692
+  store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !697
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !697
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 -536870880, ptr %7, align 8, !noalias !692
+  store i32 -536870880, ptr %7, align 8, !noalias !697
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i16 0, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !692
+  store i16 0, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !697
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 22
-  store i16 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !noalias !692
-  store ptr %6, ptr %5, align 8, !noalias !692
+  store i16 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !noalias !697
+  store ptr %6, ptr %5, align 8, !noalias !697
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %8, align 8, !noalias !692
+  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %8, align 8, !noalias !697
   %9 = invoke noundef zeroext i1 @"_ZN76_$LT$ruff_python_parser..error..ParseError$u20$as$u20$core..fmt..Display$GT$3fmt17he84103aa5d9cb9abE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %12 unwind label %10, !noalias !699
+          to label %12 unwind label %10, !noalias !704
 
 10:                                               ; preds = %13, %3
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #25
-          to label %.body unwind label %14, !noalias !699
+          to label %.body unwind label %14, !noalias !704
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !692
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !697
   br i1 %9, label %13, label %16, !prof !5
 
 13:                                               ; preds = %12
   invoke void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.976, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.982, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.978) #23
-          to label %.noexc.i.i unwind label %10, !noalias !699
+          to label %.noexc.i.i unwind label %10, !noalias !704
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -28359,7 +28359,7 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h15e6df88caf172c8E(p
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !699
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !704
   unreachable
 
 .body:                                            ; preds = %10
@@ -28367,11 +28367,11 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h15e6df88caf172c8E(p
           to label %19 unwind label %17
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !692
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !697
   %.sroa.01.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !692
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !692
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !697
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !697
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.01.sroa.0, i64 48, i1 false)
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -28403,38 +28403,38 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h4afaab39b3f37283E(p
   %6 = alloca [24 x i8], align 8
   %.sroa.01.sroa.0 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.01.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !700
-  store i64 0, ptr %6, align 8, !noalias !700
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !705
+  store i64 0, ptr %6, align 8, !noalias !705
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !700
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !705
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !700
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !700
+  store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !705
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !705
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 -536870880, ptr %7, align 8, !noalias !700
+  store i32 -536870880, ptr %7, align 8, !noalias !705
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i16 0, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !700
+  store i16 0, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !705
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 22
-  store i16 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !noalias !700
-  store ptr %6, ptr %5, align 8, !noalias !700
+  store i16 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !noalias !705
+  store ptr %6, ptr %5, align 8, !noalias !705
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %8, align 8, !noalias !700
+  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %8, align 8, !noalias !705
   %9 = invoke noundef zeroext i1 @"_ZN77_$LT$ruff_linter..rule_selector..ParseError$u20$as$u20$core..fmt..Display$GT$3fmt17h75e7b729446ad4b9E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %12 unwind label %10, !noalias !707
+          to label %12 unwind label %10, !noalias !712
 
 10:                                               ; preds = %13, %3
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #25
-          to label %.body unwind label %14, !noalias !707
+          to label %.body unwind label %14, !noalias !712
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !700
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !705
   br i1 %9, label %13, label %16, !prof !5
 
 13:                                               ; preds = %12
   invoke void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.976, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.982, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.978) #23
-          to label %.noexc.i.i unwind label %10, !noalias !707
+          to label %.noexc.i.i unwind label %10, !noalias !712
 
 .noexc.i.i:                                       ; preds = %13
   unreachable
@@ -28442,7 +28442,7 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h4afaab39b3f37283E(p
 14:                                               ; preds = %10
   %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !707
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !712
   unreachable
 
 .body:                                            ; preds = %10
@@ -28450,11 +28450,11 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h4afaab39b3f37283E(p
           to label %"_ZN4core3ptr59drop_in_place$LT$ruff_linter..rule_selector..ParseError$GT$17hc5dd39700416db3fE.exit" unwind label %17
 
 16:                                               ; preds = %12
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !700
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !705
   %.sroa.01.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !700
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !700
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !705
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !705
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.01.sroa.0, i64 48, i1 false)
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -28482,26 +28482,26 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h4afaab39b3f37283E(p
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN9toml_edit2de5Error6custom17h77501264cee30163E(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !708
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %2, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !708
-  %6 = load i64, ptr %5, align 8, !range !41, !noalias !708, !noundef !3
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !713
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %2, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !713
+  %6 = load i64, ptr %5, align 8, !range !41, !noalias !713, !noundef !3
   %7 = trunc nuw i64 %6 to i1
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load i64, ptr %8, align 8, !range !42, !noalias !708, !noundef !3
+  %9 = load i64, ptr %8, align 8, !range !42, !noalias !713, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %7, label %11, label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1e436f010cc276a0E.exit", !prof !5
 
 11:                                               ; preds = %4
-  %12 = load i64, ptr %10, align 8, !noalias !708
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %9, i64 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1169) #23, !noalias !718
+  %12 = load i64, ptr %10, align 8, !noalias !713
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %9, i64 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1169) #23, !noalias !723
   unreachable
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1e436f010cc276a0E.exit": ; preds = %4
-  %13 = load ptr, ptr %10, align 8, !noalias !708, !nonnull !3, !noundef !3
+  %13 = load ptr, ptr %10, align 8, !noalias !713, !nonnull !3, !noundef !3
   %14 = icmp ule i64 %2, %9
   tail call void @llvm.assume(i1 %14)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !708
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !719
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !713
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !noalias !724
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %.sroa.01.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %9, ptr %.sroa.01.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -28529,38 +28529,38 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h7757d955afccce30E(p
   %7 = alloca [8 x i8], align 8
   store ptr %1, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.01.sroa.0)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !720
-  store i64 0, ptr %6, align 8, !noalias !720
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !725
+  store i64 0, ptr %6, align 8, !noalias !725
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !720
+  store ptr inttoptr (i64 1 to ptr), ptr %.sroa.42.0..sroa_idx.i.i, align 8, !noalias !725
   %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !720
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !720
+  store i64 0, ptr %.sroa.53.0..sroa_idx.i.i, align 8, !noalias !725
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !725
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 -536870880, ptr %8, align 8, !noalias !720
+  store i32 -536870880, ptr %8, align 8, !noalias !725
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i16 0, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !720
+  store i16 0, ptr %.sroa.4.0..sroa_idx.i.i, align 4, !noalias !725
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 22
-  store i16 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !noalias !720
-  store ptr %6, ptr %5, align 8, !noalias !720
+  store i16 0, ptr %.sroa.5.0..sroa_idx.i.i, align 2, !noalias !725
+  store ptr %6, ptr %5, align 8, !noalias !725
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %9, align 8, !noalias !720
+  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.975, ptr %9, align 8, !noalias !725
   %10 = invoke noundef zeroext i1 @"_ZN96_$LT$pep440_rs..version_specifier..VersionSpecifiersParseError$u20$as$u20$core..fmt..Display$GT$3fmt17hbffbfbf9639fbc8cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
-          to label %13 unwind label %11, !noalias !727
+          to label %13 unwind label %11, !noalias !732
 
 11:                                               ; preds = %14, %3
   %12 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc319f543668396c3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #25
-          to label %.body unwind label %15, !noalias !727
+          to label %.body unwind label %15, !noalias !732
 
 13:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !720
+  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4), !noalias !725
   br i1 %10, label %14, label %17, !prof !5
 
 14:                                               ; preds = %13
   invoke void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.5bc7f885d7c4a73c810aa79227528d26.976, i64 noundef 55, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.5bc7f885d7c4a73c810aa79227528d26.982, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.978) #23
-          to label %.noexc.i.i unwind label %11, !noalias !727
+          to label %.noexc.i.i unwind label %11, !noalias !732
 
 .noexc.i.i:                                       ; preds = %14
   unreachable
@@ -28568,7 +28568,7 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h7757d955afccce30E(p
 15:                                               ; preds = %11
   %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !727
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !732
   unreachable
 
 .body:                                            ; preds = %11
@@ -28576,11 +28576,11 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17h7757d955afccce30E(p
           to label %20 unwind label %18
 
 17:                                               ; preds = %13
-  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !720
+  call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4), !noalias !725
   %.sroa.01.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.01.sroa.0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !720
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !720
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !725
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !725
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.01.sroa.0, i64 48, i1 false)
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -28613,19 +28613,19 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(p
   %.sroa.01.sroa.0 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.01.sroa.0)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !728)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !733)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !736)
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !alias.scope !738, !noalias !739, !nonnull !3, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !738)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !741)
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %1, align 8, !alias.scope !743, !noalias !744, !nonnull !3, !noundef !3
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !738, !noalias !739
+  %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !743, !noalias !744
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !738, !noalias !739
+  %.sroa.6.0.copyload.i.i = load i64, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !743, !noalias !744
   %.sroa.66.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.66.0.copyload.i.i = load i64, ptr %.sroa.66.0..sroa_idx.i.i, align 8, !alias.scope !738, !noalias !739
+  %.sroa.66.0.copyload.i.i = load i64, ptr %.sroa.66.0..sroa_idx.i.i, align 8, !alias.scope !743, !noalias !744
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !740)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !745)
   switch i64 %.sroa.5.0.copyload.i.i, label %19 [
     i64 0, label %7
     i64 1, label %20
@@ -28638,49 +28638,49 @@ define internal fastcc void @_ZN9toml_edit2de5Error6custom17hce8deda9f7f9b408E(p
 9:                                                ; preds = %22, %7
   %.sroa.6.0.ph.i.i.i = phi i64 [ 0, %7 ], [ %25, %22 ]
   %.sroa.0.0.ph.i.i.i = phi ptr [ inttoptr (i64 1 to ptr), %7 ], [ %23, %22 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !743)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !746)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !749
-  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %.sroa.6.0.ph.i.i.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !749
-  %10 = load i64, ptr %5, align 8, !range !41, !noalias !749, !noundef !3
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !748)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !751)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !754
+  call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h1667a2f529d51398E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %.sroa.6.0.ph.i.i.i, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1), !noalias !754
+  %10 = load i64, ptr %5, align 8, !range !41, !noalias !754, !noundef !3
   %11 = trunc nuw i64 %10 to i1
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %13 = load i64, ptr %12, align 8, !range !42, !noalias !749, !noundef !3
+  %13 = load i64, ptr %12, align 8, !range !42, !noalias !754, !noundef !3
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br i1 %11, label %15, label %_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i, !prof !5
 
 15:                                               ; preds = %9
-  %16 = load i64, ptr %14, align 8, !noalias !749
-  tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %13, i64 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1169) #23, !noalias !762
+  %16 = load i64, ptr %14, align 8, !noalias !754
+  tail call void @_ZN5alloc7raw_vec12handle_error17h5b039796a4ecc373E(i64 noundef %13, i64 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5bc7f885d7c4a73c810aa79227528d26.1169) #23, !noalias !767
   unreachable
 
 _ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i: ; preds = %9
-  %17 = load ptr, ptr %14, align 8, !noalias !749, !nonnull !3, !noundef !3
+  %17 = load ptr, ptr %14, align 8, !noalias !754, !nonnull !3, !noundef !3
   %18 = icmp ule i64 %.sroa.6.0.ph.i.i.i, %13
   tail call void @llvm.assume(i1 %18)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !749
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %.sroa.0.0.ph.i.i.i, i64 %.sroa.6.0.ph.i.i.i, i1 false), !noalias !763
-  store i64 %13, ptr %6, align 8, !alias.scope !764, !noalias !765
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !754
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %.sroa.0.0.ph.i.i.i, i64 %.sroa.6.0.ph.i.i.i, i1 false), !noalias !768
+  store i64 %13, ptr %6, align 8, !alias.scope !769, !noalias !770
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %17, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !764, !noalias !765
+  store ptr %17, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !769, !noalias !770
   %.sroa.5.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sroa.6.0.ph.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !764, !noalias !765
+  store i64 %.sroa.6.0.ph.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i.i.i.i, align 8, !alias.scope !769, !noalias !770
   br label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE.exit"
 
 19:                                               ; preds = %20, %7, %3
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !766)
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !767
-  store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8, !noalias !771
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !771)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !772
+  store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8, !noalias !776
   %.sroa.5.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx2.i.i, align 8, !noalias !771
+  store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx2.i.i, align 8, !noalias !776
   %.sroa.6.0..sroa_idx4.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %.sroa.6.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx4.i.i, align 8, !noalias !771
+  store i64 %.sroa.6.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx4.i.i, align 8, !noalias !776
   %.sroa.66.0..sroa_idx7.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %.sroa.66.0.copyload.i.i, ptr %.sroa.66.0..sroa_idx7.i.i, align 8, !noalias !771
+  store i64 %.sroa.66.0.copyload.i.i, ptr %.sroa.66.0..sroa_idx7.i.i, align 8, !noalias !776
   %.sroa.7.0..sroa_idx9.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx9.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, i64 16, i1 false), !noalias !739
-  call void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !772
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !767
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx9.i.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i.i, i64 16, i1 false), !noalias !744
+  call void @_ZN5alloc3fmt6format12format_inner17h9fdd91b8084950bfE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4), !noalias !777
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !772
   br label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE.exit"
 
 20:                                               ; preds = %3
@@ -28688,9 +28688,9 @@ _ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i: ; preds
   br i1 %21, label %22, label %19
 
 22:                                               ; preds = %20
-  %23 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !noalias !773, !nonnull !3, !align !137, !noundef !3
+  %23 = load ptr, ptr %.sroa.0.0.copyload.i.i, align 8, !noalias !778, !nonnull !3, !align !137, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
-  %25 = load i64, ptr %24, align 8, !noalias !773, !noundef !3
+  %25 = load i64, ptr %24, align 8, !noalias !778, !noundef !3
   br label %9
 
 "_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE.exit": ; preds = %_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE.exit.i.i.i.i, %19
@@ -28747,24 +28747,24 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
   br i1 %0, label %16, label %24
 
 16:                                               ; preds = %15
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2), !noalias !774
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %2), !noalias !779
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.0, ptr %17, align 8, !noalias !774
+  store ptr @anon.5bc7f885d7c4a73c810aa79227528d26.0, ptr %17, align 8, !noalias !779
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store i64 2, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !774
+  store i64 2, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !779
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 56
-  store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !774
+  store i64 0, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !779
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store i8 0, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !774
+  store i8 0, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !779
   %18 = invoke noundef align 8 ptr @"_ZN4ruff7version1_78_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$ruff..version..VersionInfo$GT$9serialize17hc0c8568c8f18704fE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %6, ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
-          to label %21 unwind label %19, !noalias !778
+          to label %21 unwind label %19, !noalias !783
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr164drop_in_place$LT$serde_json..ser..Serializer$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$C$serde_json..ser..PrettyFormatter$GT$$GT$17hd2603d3ad3d43e7eE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2) #25
-          to label %.body unwind label %22, !noalias !778
+          to label %.body unwind label %22, !noalias !783
 
 21:                                               ; preds = %16
   invoke void @"_ZN4core3ptr164drop_in_place$LT$serde_json..ser..Serializer$LT$std..io..buffered..bufwriter..BufWriter$LT$std..io..stdio..StdoutLock$GT$$C$serde_json..ser..PrettyFormatter$GT$$GT$17hd2603d3ad3d43e7eE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
@@ -28773,7 +28773,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
 22:                                               ; preds = %19
   %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !778
+  call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24, !noalias !783
   unreachable
 
 24:                                               ; preds = %15
@@ -28839,7 +28839,7 @@ define hidden noundef ptr @_ZN4ruff8commands7version7version17hac0edb03a0f9c669E
           to label %45 unwind label %13
 
 39:                                               ; preds = %21
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2), !noalias !774
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2), !noalias !779
   %.not18 = icmp eq ptr %18, null
   br i1 %.not18, label %36, label %40
 
@@ -30078,456 +30078,461 @@ attributes #26 = { nounwind }
 !323 = !{!324, !318}
 !324 = distinct !{!324, !325, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h58ad83540d52a988E: argument 0"}
 !325 = distinct !{!325, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h58ad83540d52a988E"}
-!326 = !{!327}
-!327 = distinct !{!327, !328, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h10aa9e267aff5a26E: argument 0"}
-!328 = distinct !{!328, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h10aa9e267aff5a26E"}
-!329 = !{!330}
-!330 = distinct !{!330, !331, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h710fc0131374b172E: argument 0"}
-!331 = distinct !{!331, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h710fc0131374b172E"}
-!332 = !{!333}
-!333 = distinct !{!333, !334, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17hd6cc585cbe03eb74E: argument 0"}
-!334 = distinct !{!334, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17hd6cc585cbe03eb74E"}
-!335 = !{!336}
-!336 = distinct !{!336, !337, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h81ebc3dcc0642e7aE: argument 0"}
-!337 = distinct !{!337, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h81ebc3dcc0642e7aE"}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hc8a84836536eb366E: argument 0"}
-!340 = distinct !{!340, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hc8a84836536eb366E"}
-!341 = !{!342}
-!342 = distinct !{!342, !343, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hb277580b9639fad7E: argument 0"}
-!343 = distinct !{!343, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hb277580b9639fad7E"}
-!344 = !{!345}
-!345 = distinct !{!345, !346, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
-!346 = distinct !{!346, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
-!347 = !{!348, !350}
-!348 = distinct !{!348, !349, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!349 = distinct !{!349, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!350 = distinct !{!350, !349, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!351 = !{!352, !354}
-!352 = distinct !{!352, !353, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!353 = distinct !{!353, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!354 = distinct !{!354, !353, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!355 = !{!356, !358}
-!356 = distinct !{!356, !357, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!357 = distinct !{!357, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!358 = distinct !{!358, !357, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!359 = !{!360, !362}
-!360 = distinct !{!360, !361, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!361 = distinct !{!361, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!362 = distinct !{!362, !361, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!363 = !{!364, !366}
-!364 = distinct !{!364, !365, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!365 = distinct !{!365, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!366 = distinct !{!366, !365, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!367 = !{!368, !370}
-!368 = distinct !{!368, !369, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!369 = distinct !{!369, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!370 = distinct !{!370, !369, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!371 = !{!372, !374}
-!372 = distinct !{!372, !373, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!373 = distinct !{!373, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!374 = distinct !{!374, !373, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!375 = !{!376, !378}
-!376 = distinct !{!376, !377, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!377 = distinct !{!377, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!378 = distinct !{!378, !377, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!379 = !{!380, !382}
-!380 = distinct !{!380, !381, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!381 = distinct !{!381, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!382 = distinct !{!382, !381, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!383 = !{!384, !386}
-!384 = distinct !{!384, !385, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!385 = distinct !{!385, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!386 = distinct !{!386, !385, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!387 = !{!388, !390}
-!388 = distinct !{!388, !389, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!389 = distinct !{!389, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!390 = distinct !{!390, !389, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!391 = !{!392, !394}
-!392 = distinct !{!392, !393, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!393 = distinct !{!393, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!394 = distinct !{!394, !393, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!395 = !{!396, !398}
-!396 = distinct !{!396, !397, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!397 = distinct !{!397, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!398 = distinct !{!398, !397, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!399 = !{!400, !402}
-!400 = distinct !{!400, !401, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!401 = distinct !{!401, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!402 = distinct !{!402, !401, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!403 = !{!404, !406}
-!404 = distinct !{!404, !405, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!405 = distinct !{!405, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!406 = distinct !{!406, !405, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!407 = !{!408, !410}
-!408 = distinct !{!408, !409, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
-!409 = distinct !{!409, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
-!410 = distinct !{!410, !409, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
-!411 = !{!412, !414}
-!412 = distinct !{!412, !413, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!413 = distinct !{!413, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!414 = distinct !{!414, !413, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!415 = !{!416, !418}
-!416 = distinct !{!416, !417, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
-!417 = distinct !{!417, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
-!418 = distinct !{!418, !417, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
-!419 = !{!420, !422}
-!420 = distinct !{!420, !421, !"_ZN5serde2de7Visitor9visit_str17h78791b88a3817c64E: argument 0"}
-!421 = distinct !{!421, !"_ZN5serde2de7Visitor9visit_str17h78791b88a3817c64E"}
-!422 = distinct !{!422, !421, !"_ZN5serde2de7Visitor9visit_str17h78791b88a3817c64E: argument 1"}
-!423 = !{!424}
-!424 = distinct !{!424, !425, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE: argument 0"}
-!425 = distinct !{!425, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE"}
-!426 = !{!427}
-!427 = distinct !{!427, !428, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E: argument 0"}
-!428 = distinct !{!428, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E"}
-!429 = !{!430}
-!430 = distinct !{!430, !431, !"_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE: argument 0"}
-!431 = distinct !{!431, !"_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE"}
-!432 = !{!433}
-!433 = distinct !{!433, !434, !"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E: argument 0"}
-!434 = distinct !{!434, !"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E"}
-!435 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000}
-!436 = !{!437}
-!437 = distinct !{!437, !438, !"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE: argument 0"}
-!438 = distinct !{!438, !"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE"}
-!439 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000}
-!440 = !{i32 0, i32 1000000001}
-!441 = !{!442, !444}
-!442 = distinct !{!442, !443, !"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE: argument 0"}
-!443 = distinct !{!443, !"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE"}
-!444 = distinct !{!444, !443, !"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE: argument 1"}
-!445 = !{!442}
-!446 = !{!444}
-!447 = !{!448, !450, !451, !452}
-!448 = distinct !{!448, !449, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 0"}
-!449 = distinct !{!449, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE"}
-!450 = distinct !{!450, !449, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 1"}
-!451 = distinct !{!451, !449, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 2"}
-!452 = distinct !{!452, !449, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 3"}
-!453 = !{!448, !451, !452}
-!454 = !{!448, !450}
-!455 = !{!456, !458, !459, !448, !450, !451, !452}
-!456 = distinct !{!456, !457, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE: argument 0"}
-!457 = distinct !{!457, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE"}
-!458 = distinct !{!458, !457, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE: argument 1"}
-!459 = distinct !{!459, !457, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE: argument 2"}
-!460 = !{!461, !463, !465, !466, !468, !469, !471, !456, !458, !459, !448, !450, !451, !452}
-!461 = distinct !{!461, !462, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
-!462 = distinct !{!462, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
-!463 = distinct !{!463, !464, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
-!464 = distinct !{!464, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
-!465 = distinct !{!465, !464, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
-!466 = distinct !{!466, !467, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h863b0cf95e5aba6aE: argument 0"}
-!467 = distinct !{!467, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h863b0cf95e5aba6aE"}
-!468 = distinct !{!468, !467, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h863b0cf95e5aba6aE: argument 1"}
-!469 = distinct !{!469, !470, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hb576617c4fe695ceE: argument 0"}
-!470 = distinct !{!470, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hb576617c4fe695ceE"}
-!471 = distinct !{!471, !470, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hb576617c4fe695ceE: argument 1"}
-!472 = !{!456, !458, !459, !448, !450}
-!473 = !{!463, !466, !469, !456, !459, !448, !450}
-!474 = !{!456, !458, !448, !450}
-!475 = !{!450, !451, !452}
-!476 = !{!477}
-!477 = distinct !{!477, !478, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf91cfc4f30fdebcfE: argument 0"}
-!478 = distinct !{!478, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf91cfc4f30fdebcfE"}
-!479 = !{i64 0, i64 4}
-!480 = !{!481}
-!481 = distinct !{!481, !482, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!482 = distinct !{!482, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!483 = !{!484}
-!484 = distinct !{!484, !485, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!485 = distinct !{!485, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!486 = !{!487}
-!487 = distinct !{!487, !488, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cfbb3a982096532E: argument 0"}
-!488 = distinct !{!488, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cfbb3a982096532E"}
-!489 = !{!490}
-!490 = distinct !{!490, !491, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!491 = distinct !{!491, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!492 = !{!493}
-!493 = distinct !{!493, !494, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!494 = distinct !{!494, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!495 = !{!496}
-!496 = distinct !{!496, !497, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!497 = distinct !{!497, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!498 = !{!499}
-!499 = distinct !{!499, !500, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h558dd35447500a7eE: argument 0"}
-!500 = distinct !{!500, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h558dd35447500a7eE"}
-!501 = !{!502}
-!502 = distinct !{!502, !503, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!503 = distinct !{!503, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!504 = !{!505}
-!505 = distinct !{!505, !506, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!506 = distinct !{!506, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!507 = !{!508}
-!508 = distinct !{!508, !509, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf56ee19e5a24877eE: argument 0"}
-!509 = distinct !{!509, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf56ee19e5a24877eE"}
-!510 = !{!511}
-!511 = distinct !{!511, !512, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!512 = distinct !{!512, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!513 = !{!514}
-!514 = distinct !{!514, !515, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!515 = distinct !{!515, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!516 = !{!517}
-!517 = distinct !{!517, !518, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!518 = distinct !{!518, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!519 = !{!520}
-!520 = distinct !{!520, !521, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d0ce36a49ed2d2cE: argument 0"}
-!521 = distinct !{!521, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d0ce36a49ed2d2cE"}
-!522 = !{!523}
-!523 = distinct !{!523, !524, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!524 = distinct !{!524, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!525 = !{!526}
-!526 = distinct !{!526, !527, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7f11a5400c41ffc6E: argument 0"}
-!527 = distinct !{!527, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7f11a5400c41ffc6E"}
-!528 = !{!529}
-!529 = distinct !{!529, !530, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!530 = distinct !{!530, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!531 = !{!532}
-!532 = distinct !{!532, !533, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!533 = distinct !{!533, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!534 = !{!535}
-!535 = distinct !{!535, !536, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!536 = distinct !{!536, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!537 = !{!538}
-!538 = distinct !{!538, !539, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!539 = distinct !{!539, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!540 = !{!541}
-!541 = distinct !{!541, !542, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h229142a0ae09753dE: argument 0"}
-!542 = distinct !{!542, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h229142a0ae09753dE"}
-!543 = !{!544}
-!544 = distinct !{!544, !545, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!545 = distinct !{!545, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!546 = !{!547}
-!547 = distinct !{!547, !548, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!548 = distinct !{!548, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!549 = !{!550}
-!550 = distinct !{!550, !551, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h84ca73228abf0689E: argument 0"}
-!551 = distinct !{!551, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h84ca73228abf0689E"}
-!552 = !{!553}
-!553 = distinct !{!553, !554, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!554 = distinct !{!554, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!555 = !{!556}
-!556 = distinct !{!556, !557, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!557 = distinct !{!557, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!558 = !{!559}
-!559 = distinct !{!559, !560, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3f705081b61524d7E: argument 0"}
-!560 = distinct !{!560, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3f705081b61524d7E"}
-!561 = !{!562}
-!562 = distinct !{!562, !563, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!563 = distinct !{!563, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!564 = !{!565}
-!565 = distinct !{!565, !566, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!566 = distinct !{!566, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!567 = !{!568}
-!568 = distinct !{!568, !569, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9c88393dca97e21E: argument 0"}
-!569 = distinct !{!569, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9c88393dca97e21E"}
-!570 = !{!571}
-!571 = distinct !{!571, !572, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!572 = distinct !{!572, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!573 = !{!574}
-!574 = distinct !{!574, !575, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!575 = distinct !{!575, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!576 = !{!577}
-!577 = distinct !{!577, !578, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha06a41788ca27df5E: argument 0"}
-!578 = distinct !{!578, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha06a41788ca27df5E"}
-!579 = !{!580}
-!580 = distinct !{!580, !581, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!581 = distinct !{!581, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!582 = !{!583}
-!583 = distinct !{!583, !584, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!584 = distinct !{!584, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!585 = !{!586}
-!586 = distinct !{!586, !587, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc18c4a7f0e9363dbE: argument 0"}
-!587 = distinct !{!587, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc18c4a7f0e9363dbE"}
-!588 = !{!589}
-!589 = distinct !{!589, !590, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!590 = distinct !{!590, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!591 = !{!592}
-!592 = distinct !{!592, !593, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
-!593 = distinct !{!593, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
-!594 = !{!595}
-!595 = distinct !{!595, !596, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE: argument 0"}
-!596 = distinct !{!596, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE"}
-!597 = !{!598}
-!598 = distinct !{!598, !596, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE: argument 1"}
+!326 = distinct !{!326, !327}
+!327 = !{!"llvm.loop.estimated_trip_count"}
+!328 = distinct !{!328, !327}
+!329 = distinct !{!329, !327}
+!330 = !{!331}
+!331 = distinct !{!331, !332, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h10aa9e267aff5a26E: argument 0"}
+!332 = distinct !{!332, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h10aa9e267aff5a26E"}
+!333 = !{!334}
+!334 = distinct !{!334, !335, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h710fc0131374b172E: argument 0"}
+!335 = distinct !{!335, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17h710fc0131374b172E"}
+!336 = !{!337}
+!337 = distinct !{!337, !338, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17hd6cc585cbe03eb74E: argument 0"}
+!338 = distinct !{!338, !"_ZN5alloc11collections11linked_list13Node$LT$T$GT$12into_element17hd6cc585cbe03eb74E"}
+!339 = !{!340}
+!340 = distinct !{!340, !341, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h81ebc3dcc0642e7aE: argument 0"}
+!341 = distinct !{!341, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17h81ebc3dcc0642e7aE"}
+!342 = !{!343}
+!343 = distinct !{!343, !344, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hc8a84836536eb366E: argument 0"}
+!344 = distinct !{!344, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hc8a84836536eb366E"}
+!345 = !{!346}
+!346 = distinct !{!346, !347, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hb277580b9639fad7E: argument 0"}
+!347 = distinct !{!347, !"_ZN5alloc5boxed16Box$LT$T$C$A$GT$6new_in17hb277580b9639fad7E"}
+!348 = !{!349}
+!349 = distinct !{!349, !350, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
+!350 = distinct !{!350, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
+!351 = distinct !{!351, !327}
+!352 = !{!353, !355}
+!353 = distinct !{!353, !354, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!354 = distinct !{!354, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!355 = distinct !{!355, !354, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!356 = !{!357, !359}
+!357 = distinct !{!357, !358, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!358 = distinct !{!358, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!359 = distinct !{!359, !358, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!360 = !{!361, !363}
+!361 = distinct !{!361, !362, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!362 = distinct !{!362, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!363 = distinct !{!363, !362, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!364 = !{!365, !367}
+!365 = distinct !{!365, !366, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!366 = distinct !{!366, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!367 = distinct !{!367, !366, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!368 = !{!369, !371}
+!369 = distinct !{!369, !370, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!370 = distinct !{!370, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!371 = distinct !{!371, !370, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!372 = !{!373, !375}
+!373 = distinct !{!373, !374, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!374 = distinct !{!374, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!375 = distinct !{!375, !374, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!376 = !{!377, !379}
+!377 = distinct !{!377, !378, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!378 = distinct !{!378, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!379 = distinct !{!379, !378, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!380 = !{!381, !383}
+!381 = distinct !{!381, !382, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!382 = distinct !{!382, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!383 = distinct !{!383, !382, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!384 = !{!385, !387}
+!385 = distinct !{!385, !386, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!386 = distinct !{!386, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!387 = distinct !{!387, !386, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!388 = !{!389, !391}
+!389 = distinct !{!389, !390, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!390 = distinct !{!390, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!391 = distinct !{!391, !390, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!392 = !{!393, !395}
+!393 = distinct !{!393, !394, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!394 = distinct !{!394, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!395 = distinct !{!395, !394, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!396 = !{!397, !399}
+!397 = distinct !{!397, !398, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!398 = distinct !{!398, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!399 = distinct !{!399, !398, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!400 = !{!401, !403}
+!401 = distinct !{!401, !402, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!402 = distinct !{!402, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!403 = distinct !{!403, !402, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!404 = !{!405, !407}
+!405 = distinct !{!405, !406, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!406 = distinct !{!406, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!407 = distinct !{!407, !406, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!408 = !{!409, !411}
+!409 = distinct !{!409, !410, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!410 = distinct !{!410, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!411 = distinct !{!411, !410, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!412 = !{!413, !415}
+!413 = distinct !{!413, !414, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 0"}
+!414 = distinct !{!414, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE"}
+!415 = distinct !{!415, !414, !"_ZN52_$LT$toml..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h441c0198dcbc7d3aE: argument 1"}
+!416 = !{!417, !419}
+!417 = distinct !{!417, !418, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!418 = distinct !{!418, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!419 = distinct !{!419, !418, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!420 = !{!421, !423}
+!421 = distinct !{!421, !422, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 0"}
+!422 = distinct !{!422, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E"}
+!423 = distinct !{!423, !422, !"_ZN57_$LT$toml_edit..de..Error$u20$as$u20$serde..de..Error$GT$6custom17h79eed0783f164266E: argument 1"}
+!424 = !{!425, !427}
+!425 = distinct !{!425, !426, !"_ZN5serde2de7Visitor9visit_str17h78791b88a3817c64E: argument 0"}
+!426 = distinct !{!426, !"_ZN5serde2de7Visitor9visit_str17h78791b88a3817c64E"}
+!427 = distinct !{!427, !426, !"_ZN5serde2de7Visitor9visit_str17h78791b88a3817c64E: argument 1"}
+!428 = !{!429}
+!429 = distinct !{!429, !430, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE: argument 0"}
+!430 = distinct !{!430, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h8e77aaf910dda61fE"}
+!431 = !{!432}
+!432 = distinct !{!432, !433, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E: argument 0"}
+!433 = distinct !{!433, !"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h06c88b1f07290668E"}
+!434 = !{!435}
+!435 = distinct !{!435, !436, !"_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE: argument 0"}
+!436 = distinct !{!436, !"_ZN183_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..IsolationLevel$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hf64b658a0d6540fcE"}
+!437 = !{!438}
+!438 = distinct !{!438, !439, !"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E: argument 0"}
+!439 = distinct !{!439, !"_ZN167_$LT$ruff_linter..codes.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..codes..Rule$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h211f143b2007f721E"}
+!440 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000, i32 2000}
+!441 = !{!442}
+!442 = distinct !{!442, !443, !"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE: argument 0"}
+!443 = distinct !{!443, !"_ZN182_$LT$ruff_diagnostics..fix.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_diagnostics..fix..Applicability$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h9979f9dfb74f7c6aE"}
+!444 = !{!"branch_weights", i32 1, i32 2000, i32 2000, i32 2000}
+!445 = !{i32 0, i32 1000000001}
+!446 = !{!447, !449}
+!447 = distinct !{!447, !448, !"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE: argument 0"}
+!448 = distinct !{!448, !"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE"}
+!449 = distinct !{!449, !448, !"_ZN9toml_edit2de21Deserializer$LT$S$GT$5parse17h590548a971038dedE: argument 1"}
+!450 = !{!447}
+!451 = !{!449}
+!452 = !{!453, !455, !456, !457}
+!453 = distinct !{!453, !454, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 0"}
+!454 = distinct !{!454, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE"}
+!455 = distinct !{!455, !454, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 1"}
+!456 = distinct !{!456, !454, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 2"}
+!457 = distinct !{!457, !454, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h43a871b9f400105dE: argument 3"}
+!458 = !{!453, !456, !457}
+!459 = !{!453, !455}
+!460 = !{!461, !463, !464, !453, !455, !456, !457}
+!461 = distinct !{!461, !462, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE: argument 0"}
+!462 = distinct !{!462, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE"}
+!463 = distinct !{!463, !462, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE: argument 1"}
+!464 = distinct !{!464, !462, !"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h1b0c5f1d66703e0bE: argument 2"}
+!465 = !{!466, !468, !470, !471, !473, !474, !476, !461, !463, !464, !453, !455, !456, !457}
+!466 = distinct !{!466, !467, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
+!467 = distinct !{!467, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
+!468 = distinct !{!468, !469, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
+!469 = distinct !{!469, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
+!470 = distinct !{!470, !469, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
+!471 = distinct !{!471, !472, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h863b0cf95e5aba6aE: argument 0"}
+!472 = distinct !{!472, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h863b0cf95e5aba6aE"}
+!473 = distinct !{!473, !472, !"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17h863b0cf95e5aba6aE: argument 1"}
+!474 = distinct !{!474, !475, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hb576617c4fe695ceE: argument 0"}
+!475 = distinct !{!475, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hb576617c4fe695ceE"}
+!476 = distinct !{!476, !475, !"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hb576617c4fe695ceE: argument 1"}
+!477 = !{!461, !463, !464, !453, !455}
+!478 = !{!468, !471, !474, !461, !464, !453, !455}
+!479 = !{!461, !463, !453, !455}
+!480 = !{!455, !456, !457}
+!481 = !{!482}
+!482 = distinct !{!482, !483, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf91cfc4f30fdebcfE: argument 0"}
+!483 = distinct !{!483, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf91cfc4f30fdebcfE"}
+!484 = !{i64 0, i64 4}
+!485 = !{!486}
+!486 = distinct !{!486, !487, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!487 = distinct !{!487, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!488 = !{!489}
+!489 = distinct !{!489, !490, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!490 = distinct !{!490, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!491 = !{!492}
+!492 = distinct !{!492, !493, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cfbb3a982096532E: argument 0"}
+!493 = distinct !{!493, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0cfbb3a982096532E"}
+!494 = !{!495}
+!495 = distinct !{!495, !496, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!496 = distinct !{!496, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!497 = !{!498}
+!498 = distinct !{!498, !499, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!499 = distinct !{!499, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!500 = !{!501}
+!501 = distinct !{!501, !502, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!502 = distinct !{!502, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!503 = !{!504}
+!504 = distinct !{!504, !505, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h558dd35447500a7eE: argument 0"}
+!505 = distinct !{!505, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h558dd35447500a7eE"}
+!506 = !{!507}
+!507 = distinct !{!507, !508, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!508 = distinct !{!508, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!509 = !{!510}
+!510 = distinct !{!510, !511, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!511 = distinct !{!511, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!512 = !{!513}
+!513 = distinct !{!513, !514, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf56ee19e5a24877eE: argument 0"}
+!514 = distinct !{!514, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hf56ee19e5a24877eE"}
+!515 = !{!516}
+!516 = distinct !{!516, !517, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!517 = distinct !{!517, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!518 = !{!519}
+!519 = distinct !{!519, !520, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!520 = distinct !{!520, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!521 = !{!522}
+!522 = distinct !{!522, !523, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!523 = distinct !{!523, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!524 = !{!525}
+!525 = distinct !{!525, !526, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d0ce36a49ed2d2cE: argument 0"}
+!526 = distinct !{!526, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3d0ce36a49ed2d2cE"}
+!527 = !{!528}
+!528 = distinct !{!528, !529, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!529 = distinct !{!529, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!530 = !{!531}
+!531 = distinct !{!531, !532, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7f11a5400c41ffc6E: argument 0"}
+!532 = distinct !{!532, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h7f11a5400c41ffc6E"}
+!533 = !{!534}
+!534 = distinct !{!534, !535, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!535 = distinct !{!535, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!536 = !{!537}
+!537 = distinct !{!537, !538, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!538 = distinct !{!538, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!539 = !{!540}
+!540 = distinct !{!540, !541, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!541 = distinct !{!541, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!542 = !{!543}
+!543 = distinct !{!543, !544, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!544 = distinct !{!544, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!545 = !{!546}
+!546 = distinct !{!546, !547, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h229142a0ae09753dE: argument 0"}
+!547 = distinct !{!547, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h229142a0ae09753dE"}
+!548 = !{!549}
+!549 = distinct !{!549, !550, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!550 = distinct !{!550, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!551 = !{!552}
+!552 = distinct !{!552, !553, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!553 = distinct !{!553, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!554 = !{!555}
+!555 = distinct !{!555, !556, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h84ca73228abf0689E: argument 0"}
+!556 = distinct !{!556, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h84ca73228abf0689E"}
+!557 = !{!558}
+!558 = distinct !{!558, !559, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!559 = distinct !{!559, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!560 = !{!561}
+!561 = distinct !{!561, !562, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!562 = distinct !{!562, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!563 = !{!564}
+!564 = distinct !{!564, !565, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3f705081b61524d7E: argument 0"}
+!565 = distinct !{!565, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h3f705081b61524d7E"}
+!566 = !{!567}
+!567 = distinct !{!567, !568, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!568 = distinct !{!568, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!569 = !{!570}
+!570 = distinct !{!570, !571, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!571 = distinct !{!571, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!572 = !{!573}
+!573 = distinct !{!573, !574, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9c88393dca97e21E: argument 0"}
+!574 = distinct !{!574, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9c88393dca97e21E"}
+!575 = !{!576}
+!576 = distinct !{!576, !577, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!577 = distinct !{!577, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!578 = !{!579}
+!579 = distinct !{!579, !580, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!580 = distinct !{!580, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!581 = !{!582}
+!582 = distinct !{!582, !583, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha06a41788ca27df5E: argument 0"}
+!583 = distinct !{!583, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17ha06a41788ca27df5E"}
+!584 = !{!585}
+!585 = distinct !{!585, !586, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!586 = distinct !{!586, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!587 = !{!588}
+!588 = distinct !{!588, !589, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!589 = distinct !{!589, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!590 = !{!591}
+!591 = distinct !{!591, !592, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc18c4a7f0e9363dbE: argument 0"}
+!592 = distinct !{!592, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17hc18c4a7f0e9363dbE"}
+!593 = !{!594}
+!594 = distinct !{!594, !595, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!595 = distinct !{!595, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
+!596 = !{!597}
+!597 = distinct !{!597, !598, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE: argument 0"}
+!598 = distinct !{!598, !"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$std..backtrace..Backtrace$GT$$GT$17hf0aaa2c6c1c2b4adE"}
 !599 = !{!600}
 !600 = distinct !{!600, !601, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE: argument 0"}
 !601 = distinct !{!601, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE"}
 !602 = !{!603}
 !603 = distinct !{!603, !601, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE: argument 1"}
-!604 = !{!605, !607}
-!605 = distinct !{!605, !606, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE: argument 0"}
-!606 = distinct !{!606, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE"}
-!607 = distinct !{!607, !606, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE: argument 1"}
-!608 = !{!605}
-!609 = !{!607}
-!610 = !{!611}
-!611 = distinct !{!611, !612, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 0"}
-!612 = distinct !{!612, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE"}
-!613 = !{!614}
-!614 = distinct !{!614, !612, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 1"}
+!604 = !{!605}
+!605 = distinct !{!605, !606, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE: argument 0"}
+!606 = distinct !{!606, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE"}
+!607 = !{!608}
+!608 = distinct !{!608, !606, !"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h63417ba8a7d2d73eE: argument 1"}
+!609 = !{!610, !612}
+!610 = distinct !{!610, !611, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE: argument 0"}
+!611 = distinct !{!611, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE"}
+!612 = distinct !{!612, !611, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17h69d3143c0d16decbE: argument 1"}
+!613 = !{!610}
+!614 = !{!612}
 !615 = !{!616}
-!616 = distinct !{!616, !617, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 0"}
-!617 = distinct !{!617, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE"}
+!616 = distinct !{!616, !617, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 0"}
+!617 = distinct !{!617, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE"}
 !618 = !{!619}
-!619 = distinct !{!619, !617, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 1"}
-!620 = !{!619, !614}
-!621 = !{!616, !611}
-!622 = !{!623}
-!623 = distinct !{!623, !624, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 0"}
-!624 = distinct !{!624, !"_ZN5alloc3fmt6format17h67997f2beed42fffE"}
-!625 = !{!626}
-!626 = distinct !{!626, !627, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 0"}
-!627 = distinct !{!627, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE"}
-!628 = !{!629}
-!629 = distinct !{!629, !630, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 0"}
-!630 = distinct !{!630, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E"}
-!631 = !{!632, !634, !636, !629, !637, !626, !638, !639, !641, !642, !623, !643, !616, !619, !611, !614}
-!632 = distinct !{!632, !633, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
-!633 = distinct !{!633, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
-!634 = distinct !{!634, !635, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
-!635 = distinct !{!635, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
-!636 = distinct !{!636, !635, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
-!637 = distinct !{!637, !630, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 1"}
-!638 = distinct !{!638, !627, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 1"}
-!639 = distinct !{!639, !640, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 0"}
-!640 = distinct !{!640, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E"}
-!641 = distinct !{!641, !640, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 1"}
-!642 = distinct !{!642, !640, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 2"}
-!643 = distinct !{!643, !624, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 1"}
-!644 = !{!634, !636, !629, !637, !626, !638, !639, !641, !642, !623, !643, !616, !619, !611, !614}
-!645 = !{!634, !629, !626, !639, !642, !623, !643, !616, !619, !611, !614}
-!646 = !{!629, !626, !639, !623, !616, !611}
-!647 = !{!637, !638, !641, !642, !643, !619, !614}
-!648 = !{!639}
-!649 = !{!650, !652, !639, !641, !642, !623, !643, !616, !619, !611, !614}
-!650 = distinct !{!650, !651, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 0"}
-!651 = distinct !{!651, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E"}
-!652 = distinct !{!652, !651, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 1"}
-!653 = !{!650, !639, !641, !623, !616, !619, !611, !614}
-!654 = !{!652, !641, !642, !643, !619, !614}
-!655 = !{!623, !643, !616, !619, !611, !614}
-!656 = !{!657, !659}
-!657 = distinct !{!657, !658, !"_ZN4ruff8commands6format6format28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbf50607e96162834E: argument 0"}
-!658 = distinct !{!658, !"_ZN4ruff8commands6format6format28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbf50607e96162834E"}
-!659 = distinct !{!659, !658, !"_ZN4ruff8commands6format6format28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbf50607e96162834E: argument 1"}
-!660 = !{!661, !663}
-!661 = distinct !{!661, !662, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E: argument 0"}
-!662 = distinct !{!662, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E"}
-!663 = distinct !{!663, !662, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E: argument 1"}
-!664 = !{!661}
-!665 = !{!663}
-!666 = !{!667, !669}
-!667 = distinct !{!667, !668, !"_ZN4ruff8commands5check9lint_path28_$u7b$$u7b$closure$u7d$$u7d$17h1fa112e55b33ef9dE: argument 0"}
-!668 = distinct !{!668, !"_ZN4ruff8commands5check9lint_path28_$u7b$$u7b$closure$u7d$$u7d$17h1fa112e55b33ef9dE"}
-!669 = distinct !{!669, !668, !"_ZN4ruff8commands5check9lint_path28_$u7b$$u7b$closure$u7d$$u7d$17h1fa112e55b33ef9dE: argument 1"}
-!670 = !{!671, !673}
-!671 = distinct !{!671, !672, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE: argument 0"}
-!672 = distinct !{!672, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE"}
-!673 = distinct !{!673, !672, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE: argument 1"}
-!674 = !{!671}
-!675 = !{!673}
-!676 = !{!677, !679}
-!677 = distinct !{!677, !678, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17h12323ca2bac73e8bE: argument 0"}
-!678 = distinct !{!678, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17h12323ca2bac73e8bE"}
-!679 = distinct !{!679, !680, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h2ea8cc87dca95f5fE: argument 0"}
-!680 = distinct !{!680, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h2ea8cc87dca95f5fE"}
-!681 = !{!682}
-!682 = distinct !{!682, !683, !"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE: argument 0"}
-!683 = distinct !{!683, !"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE"}
-!684 = !{!685, !687}
-!685 = distinct !{!685, !686, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17hecad99665c377b69E: argument 0"}
-!686 = distinct !{!686, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17hecad99665c377b69E"}
-!687 = distinct !{!687, !688, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h00805d9de9b941c3E: argument 0"}
-!688 = distinct !{!688, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h00805d9de9b941c3E"}
-!689 = !{!690}
-!690 = distinct !{!690, !691, !"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h53062bbe068911faE: argument 0"}
-!691 = distinct !{!691, !"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h53062bbe068911faE"}
-!692 = !{!693, !695, !696, !698}
-!693 = distinct !{!693, !694, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hce24ecd6915c577dE: argument 0"}
-!694 = distinct !{!694, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hce24ecd6915c577dE"}
-!695 = distinct !{!695, !694, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hce24ecd6915c577dE: argument 1"}
-!696 = distinct !{!696, !697, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h4d126e4d2068d2dbE: argument 0"}
-!697 = distinct !{!697, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h4d126e4d2068d2dbE"}
-!698 = distinct !{!698, !697, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h4d126e4d2068d2dbE: argument 1"}
-!699 = !{!693, !696}
-!700 = !{!701, !703, !704, !706}
-!701 = distinct !{!701, !702, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hf834f1c495aecc5aE: argument 0"}
-!702 = distinct !{!702, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hf834f1c495aecc5aE"}
-!703 = distinct !{!703, !702, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hf834f1c495aecc5aE: argument 1"}
-!704 = distinct !{!704, !705, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb12a87d54adc4e25E: argument 0"}
-!705 = distinct !{!705, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb12a87d54adc4e25E"}
-!706 = distinct !{!706, !705, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb12a87d54adc4e25E: argument 1"}
-!707 = !{!701, !704}
-!708 = !{!709, !711, !713, !714, !716}
-!709 = distinct !{!709, !710, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
-!710 = distinct !{!710, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
-!711 = distinct !{!711, !712, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
-!712 = distinct !{!712, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
-!713 = distinct !{!713, !712, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
-!714 = distinct !{!714, !715, !"_ZN55_$LT$$RF$str$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17he153e7e871f336e4E: argument 0"}
-!715 = distinct !{!715, !"_ZN55_$LT$$RF$str$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17he153e7e871f336e4E"}
-!716 = distinct !{!716, !717, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1e436f010cc276a0E: argument 0"}
-!717 = distinct !{!717, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1e436f010cc276a0E"}
-!718 = !{!711, !713, !714, !716}
-!719 = !{!711, !714, !716}
-!720 = !{!721, !723, !724, !726}
-!721 = distinct !{!721, !722, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hc1d6209f7f14214cE: argument 0"}
-!722 = distinct !{!722, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hc1d6209f7f14214cE"}
-!723 = distinct !{!723, !722, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hc1d6209f7f14214cE: argument 1"}
-!724 = distinct !{!724, !725, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hfbf0e85922881b07E: argument 0"}
-!725 = distinct !{!725, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hfbf0e85922881b07E"}
-!726 = distinct !{!726, !725, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hfbf0e85922881b07E: argument 1"}
-!727 = !{!721, !724}
-!728 = !{!729}
-!729 = distinct !{!729, !730, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 0"}
-!730 = distinct !{!730, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE"}
-!731 = !{!732}
-!732 = distinct !{!732, !730, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 1"}
+!619 = distinct !{!619, !617, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 1"}
+!620 = !{!621}
+!621 = distinct !{!621, !622, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 0"}
+!622 = distinct !{!622, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE"}
+!623 = !{!624}
+!624 = distinct !{!624, !622, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 1"}
+!625 = !{!624, !619}
+!626 = !{!621, !616}
+!627 = !{!628}
+!628 = distinct !{!628, !629, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 0"}
+!629 = distinct !{!629, !"_ZN5alloc3fmt6format17h67997f2beed42fffE"}
+!630 = !{!631}
+!631 = distinct !{!631, !632, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 0"}
+!632 = distinct !{!632, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE"}
+!633 = !{!634}
+!634 = distinct !{!634, !635, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 0"}
+!635 = distinct !{!635, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E"}
+!636 = !{!637, !639, !641, !634, !642, !631, !643, !644, !646, !647, !628, !648, !621, !624, !616, !619}
+!637 = distinct !{!637, !638, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
+!638 = distinct !{!638, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
+!639 = distinct !{!639, !640, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
+!640 = distinct !{!640, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
+!641 = distinct !{!641, !640, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
+!642 = distinct !{!642, !635, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 1"}
+!643 = distinct !{!643, !632, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 1"}
+!644 = distinct !{!644, !645, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 0"}
+!645 = distinct !{!645, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E"}
+!646 = distinct !{!646, !645, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 1"}
+!647 = distinct !{!647, !645, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 2"}
+!648 = distinct !{!648, !629, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 1"}
+!649 = !{!639, !641, !634, !642, !631, !643, !644, !646, !647, !628, !648, !621, !624, !616, !619}
+!650 = !{!639, !634, !631, !644, !647, !628, !648, !621, !624, !616, !619}
+!651 = !{!634, !631, !644, !628, !621, !616}
+!652 = !{!642, !643, !646, !647, !648, !624, !619}
+!653 = !{!644}
+!654 = !{!655, !657, !644, !646, !647, !628, !648, !621, !624, !616, !619}
+!655 = distinct !{!655, !656, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 0"}
+!656 = distinct !{!656, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E"}
+!657 = distinct !{!657, !656, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 1"}
+!658 = !{!655, !644, !646, !628, !621, !624, !616, !619}
+!659 = !{!657, !646, !647, !648, !624, !619}
+!660 = !{!628, !648, !621, !624, !616, !619}
+!661 = !{!662, !664}
+!662 = distinct !{!662, !663, !"_ZN4ruff8commands6format6format28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbf50607e96162834E: argument 0"}
+!663 = distinct !{!663, !"_ZN4ruff8commands6format6format28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbf50607e96162834E"}
+!664 = distinct !{!664, !663, !"_ZN4ruff8commands6format6format28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hbf50607e96162834E: argument 1"}
+!665 = !{!666, !668}
+!666 = distinct !{!666, !667, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E: argument 0"}
+!667 = distinct !{!667, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E"}
+!668 = distinct !{!668, !667, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hb368ba4e92661362E: argument 1"}
+!669 = !{!666}
+!670 = !{!668}
+!671 = !{!672, !674}
+!672 = distinct !{!672, !673, !"_ZN4ruff8commands5check9lint_path28_$u7b$$u7b$closure$u7d$$u7d$17h1fa112e55b33ef9dE: argument 0"}
+!673 = distinct !{!673, !"_ZN4ruff8commands5check9lint_path28_$u7b$$u7b$closure$u7d$$u7d$17h1fa112e55b33ef9dE"}
+!674 = distinct !{!674, !673, !"_ZN4ruff8commands5check9lint_path28_$u7b$$u7b$closure$u7d$$u7d$17h1fa112e55b33ef9dE: argument 1"}
+!675 = !{!676, !678}
+!676 = distinct !{!676, !677, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE: argument 0"}
+!677 = distinct !{!677, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE"}
+!678 = distinct !{!678, !677, !"_ZN7ruff_db5panic12catch_unwind28_$u7b$$u7b$closure$u7d$$u7d$17hf6f4e5774a08c05fE: argument 1"}
+!679 = !{!676}
+!680 = !{!678}
+!681 = !{!682, !684}
+!682 = distinct !{!682, !683, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17h12323ca2bac73e8bE: argument 0"}
+!683 = distinct !{!683, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17h12323ca2bac73e8bE"}
+!684 = distinct !{!684, !685, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h2ea8cc87dca95f5fE: argument 0"}
+!685 = distinct !{!685, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h2ea8cc87dca95f5fE"}
+!686 = !{!687}
+!687 = distinct !{!687, !688, !"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE: argument 0"}
+!688 = distinct !{!688, !"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h459f41316235da3dE"}
+!689 = !{!690, !692}
+!690 = distinct !{!690, !691, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17hecad99665c377b69E: argument 0"}
+!691 = distinct !{!691, !"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force28_$u7b$$u7b$closure$u7d$$u7d$17hecad99665c377b69E"}
+!692 = distinct !{!692, !693, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h00805d9de9b941c3E: argument 0"}
+!693 = distinct !{!693, !"_ZN9once_cell4sync17OnceCell$LT$T$GT$11get_or_init28_$u7b$$u7b$closure$u7d$$u7d$17h00805d9de9b941c3E"}
+!694 = !{!695}
+!695 = distinct !{!695, !696, !"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h53062bbe068911faE: argument 0"}
+!696 = distinct !{!696, !"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$std..ffi..os_str..OsString$GT$$GT$17h53062bbe068911faE"}
+!697 = !{!698, !700, !701, !703}
+!698 = distinct !{!698, !699, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hce24ecd6915c577dE: argument 0"}
+!699 = distinct !{!699, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hce24ecd6915c577dE"}
+!700 = distinct !{!700, !699, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hce24ecd6915c577dE: argument 1"}
+!701 = distinct !{!701, !702, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h4d126e4d2068d2dbE: argument 0"}
+!702 = distinct !{!702, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h4d126e4d2068d2dbE"}
+!703 = distinct !{!703, !702, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h4d126e4d2068d2dbE: argument 1"}
+!704 = !{!698, !701}
+!705 = !{!706, !708, !709, !711}
+!706 = distinct !{!706, !707, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hf834f1c495aecc5aE: argument 0"}
+!707 = distinct !{!707, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hf834f1c495aecc5aE"}
+!708 = distinct !{!708, !707, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hf834f1c495aecc5aE: argument 1"}
+!709 = distinct !{!709, !710, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb12a87d54adc4e25E: argument 0"}
+!710 = distinct !{!710, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb12a87d54adc4e25E"}
+!711 = distinct !{!711, !710, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hb12a87d54adc4e25E: argument 1"}
+!712 = !{!706, !709}
+!713 = !{!714, !716, !718, !719, !721}
+!714 = distinct !{!714, !715, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
+!715 = distinct !{!715, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
+!716 = distinct !{!716, !717, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
+!717 = distinct !{!717, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
+!718 = distinct !{!718, !717, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
+!719 = distinct !{!719, !720, !"_ZN55_$LT$$RF$str$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17he153e7e871f336e4E: argument 0"}
+!720 = distinct !{!720, !"_ZN55_$LT$$RF$str$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17he153e7e871f336e4E"}
+!721 = distinct !{!721, !722, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1e436f010cc276a0E: argument 0"}
+!722 = distinct !{!722, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1e436f010cc276a0E"}
+!723 = !{!716, !718, !719, !721}
+!724 = !{!716, !719, !721}
+!725 = !{!726, !728, !729, !731}
+!726 = distinct !{!726, !727, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hc1d6209f7f14214cE: argument 0"}
+!727 = distinct !{!727, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hc1d6209f7f14214cE"}
+!728 = distinct !{!728, !727, !"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hc1d6209f7f14214cE: argument 1"}
+!729 = distinct !{!729, !730, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hfbf0e85922881b07E: argument 0"}
+!730 = distinct !{!730, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hfbf0e85922881b07E"}
+!731 = distinct !{!731, !730, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hfbf0e85922881b07E: argument 1"}
+!732 = !{!726, !729}
 !733 = !{!734}
-!734 = distinct !{!734, !735, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 0"}
-!735 = distinct !{!735, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE"}
+!734 = distinct !{!734, !735, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 0"}
+!735 = distinct !{!735, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE"}
 !736 = !{!737}
-!737 = distinct !{!737, !735, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 1"}
-!738 = !{!737, !732}
-!739 = !{!734, !729}
-!740 = !{!741}
-!741 = distinct !{!741, !742, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 0"}
-!742 = distinct !{!742, !"_ZN5alloc3fmt6format17h67997f2beed42fffE"}
-!743 = !{!744}
-!744 = distinct !{!744, !745, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 0"}
-!745 = distinct !{!745, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE"}
-!746 = !{!747}
-!747 = distinct !{!747, !748, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 0"}
-!748 = distinct !{!748, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E"}
-!749 = !{!750, !752, !754, !747, !755, !744, !756, !757, !759, !760, !741, !761, !734, !737, !729, !732}
-!750 = distinct !{!750, !751, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
-!751 = distinct !{!751, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
-!752 = distinct !{!752, !753, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
-!753 = distinct !{!753, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
-!754 = distinct !{!754, !753, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
-!755 = distinct !{!755, !748, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 1"}
-!756 = distinct !{!756, !745, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 1"}
-!757 = distinct !{!757, !758, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 0"}
-!758 = distinct !{!758, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E"}
-!759 = distinct !{!759, !758, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 1"}
-!760 = distinct !{!760, !758, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 2"}
-!761 = distinct !{!761, !742, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 1"}
-!762 = !{!752, !754, !747, !755, !744, !756, !757, !759, !760, !741, !761, !734, !737, !729, !732}
-!763 = !{!752, !747, !744, !757, !760, !741, !761, !734, !737, !729, !732}
-!764 = !{!747, !744, !757, !741, !734, !729}
-!765 = !{!755, !756, !759, !760, !761, !737, !732}
-!766 = !{!757}
-!767 = !{!768, !770, !757, !759, !760, !741, !761, !734, !737, !729, !732}
-!768 = distinct !{!768, !769, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 0"}
-!769 = distinct !{!769, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E"}
-!770 = distinct !{!770, !769, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 1"}
-!771 = !{!768, !757, !759, !741, !734, !737, !729, !732}
-!772 = !{!770, !759, !760, !761, !737, !732}
-!773 = !{!741, !761, !734, !737, !729, !732}
-!774 = !{!775, !777}
-!775 = distinct !{!775, !776, !"_ZN10serde_json3ser16to_writer_pretty17h4cbb2d64f4262608E: argument 0"}
-!776 = distinct !{!776, !"_ZN10serde_json3ser16to_writer_pretty17h4cbb2d64f4262608E"}
-!777 = distinct !{!777, !776, !"_ZN10serde_json3ser16to_writer_pretty17h4cbb2d64f4262608E: argument 1"}
-!778 = !{!775}
+!737 = distinct !{!737, !735, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17hcc60bb99533b011cE: argument 1"}
+!738 = !{!739}
+!739 = distinct !{!739, !740, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 0"}
+!740 = distinct !{!740, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE"}
+!741 = !{!742}
+!742 = distinct !{!742, !740, !"_ZN68_$LT$core..fmt..Arguments$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17hceb7636721fcda1dE: argument 1"}
+!743 = !{!742, !737}
+!744 = !{!739, !734}
+!745 = !{!746}
+!746 = distinct !{!746, !747, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 0"}
+!747 = distinct !{!747, !"_ZN5alloc3fmt6format17h67997f2beed42fffE"}
+!748 = !{!749}
+!749 = distinct !{!749, !750, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 0"}
+!750 = distinct !{!750, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE"}
+!751 = !{!752}
+!752 = distinct !{!752, !753, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 0"}
+!753 = distinct !{!753, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E"}
+!754 = !{!755, !757, !759, !752, !760, !749, !761, !762, !764, !765, !746, !766, !739, !742, !734, !737}
+!755 = distinct !{!755, !756, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E: argument 0"}
+!756 = distinct !{!756, !"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17hecf5364e73f96382E"}
+!757 = distinct !{!757, !758, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 0"}
+!758 = distinct !{!758, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE"}
+!759 = distinct !{!759, !758, !"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h290772d2f202cacbE: argument 1"}
+!760 = distinct !{!760, !753, !"_ZN5alloc3str56_$LT$impl$u20$alloc..borrow..ToOwned$u20$for$u20$str$GT$8to_owned17h8bfc6a1f25cd3833E: argument 1"}
+!761 = distinct !{!761, !750, !"_ZN4core3ops8function6FnOnce9call_once17h52ee83e19de1cf7aE: argument 1"}
+!762 = distinct !{!762, !763, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 0"}
+!763 = distinct !{!763, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E"}
+!764 = distinct !{!764, !763, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 1"}
+!765 = distinct !{!765, !763, !"_ZN4core6option15Option$LT$T$GT$11map_or_else17he9bc7ff133644e75E: argument 2"}
+!766 = distinct !{!766, !747, !"_ZN5alloc3fmt6format17h67997f2beed42fffE: argument 1"}
+!767 = !{!757, !759, !752, !760, !749, !761, !762, !764, !765, !746, !766, !739, !742, !734, !737}
+!768 = !{!757, !752, !749, !762, !765, !746, !766, !739, !742, !734, !737}
+!769 = !{!752, !749, !762, !746, !739, !734}
+!770 = !{!760, !761, !764, !765, !766, !742, !737}
+!771 = !{!762}
+!772 = !{!773, !775, !762, !764, !765, !746, !766, !739, !742, !734, !737}
+!773 = distinct !{!773, !774, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 0"}
+!774 = distinct !{!774, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E"}
+!775 = distinct !{!775, !774, !"_ZN5alloc3fmt6format28_$u7b$$u7b$closure$u7d$$u7d$17h7cf30fea8cd36638E: argument 1"}
+!776 = !{!773, !762, !764, !746, !739, !742, !734, !737}
+!777 = !{!775, !764, !765, !766, !742, !737}
+!778 = !{!746, !766, !739, !742, !734, !737}
+!779 = !{!780, !782}
+!780 = distinct !{!780, !781, !"_ZN10serde_json3ser16to_writer_pretty17h4cbb2d64f4262608E: argument 0"}
+!781 = distinct !{!781, !"_ZN10serde_json3ser16to_writer_pretty17h4cbb2d64f4262608E"}
+!782 = distinct !{!782, !781, !"_ZN10serde_json3ser16to_writer_pretty17h4cbb2d64f4262608E: argument 1"}
+!783 = !{!780}

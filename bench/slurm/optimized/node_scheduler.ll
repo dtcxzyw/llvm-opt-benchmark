@@ -241,7 +241,7 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
   %19 = load ptr, ptr %3, align 8
   %20 = call ptr @next_node_bitmap(ptr noundef %19, ptr noundef nonnull %2) #14
   %.not26 = icmp eq ptr %20, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not26, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 21:                                               ; preds = %._crit_edge
   br i1 %.121, label %22, label %.thread
@@ -267,7 +267,7 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
   br label %48
 
 32:                                               ; preds = %25, %22
-  %33 = load i8, ptr @cloud_dns, align 1, !range !12, !noundef !13
+  %33 = load i8, ptr @cloud_dns, align 1, !range !13, !noundef !14
   %34 = trunc nuw i8 %33 to i1
   %.not = xor i1 %34, true
   %35 = trunc nuw i8 %.1 to i1
@@ -275,7 +275,7 @@ define dso_local void @set_initial_job_alias_list(ptr noundef %0) local_unnamed_
   br i1 %or.cond, label %41, label %39
 
 .thread:                                          ; preds = %21
-  %36 = load i8, ptr @cloud_dns, align 1, !range !12, !noundef !13
+  %36 = load i8, ptr @cloud_dns, align 1, !range !13, !noundef !14
   %37 = trunc nuw i8 %36 to i1
   %.not36 = xor i1 %37, true
   %38 = trunc nuw i8 %.1 to i1
@@ -322,7 +322,7 @@ define dso_local void @set_job_alias_list(ptr noundef %0) local_unnamed_addr #0 
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %3) #14
-  %4 = load i8, ptr @cloud_dns, align 1, !range !12, !noundef !13
+  %4 = load i8, ptr @cloud_dns, align 1, !range !13, !noundef !14
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %11
 
@@ -360,7 +360,7 @@ define dso_local void @set_job_alias_list(ptr noundef %0) local_unnamed_addr #0 
   br i1 %or.cond, label %22, label %26
 
 22:                                               ; preds = %.lr.ph
-  %23 = load i8, ptr @cloud_dns, align 1, !range !12, !noundef !13
+  %23 = load i8, ptr @cloud_dns, align 1, !range !13, !noundef !14
   %24 = trunc nuw i8 %23 to i1
   %25 = and i64 %20, 128
   %.not17 = icmp eq i64 %25, 0
@@ -393,7 +393,7 @@ define dso_local void @set_job_alias_list(ptr noundef %0) local_unnamed_addr #0 
   %39 = load ptr, ptr %12, align 8
   %40 = call ptr @next_node_bitmap(ptr noundef %39, ptr noundef nonnull %2) #14
   %.not14 = icmp eq ptr %40, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not14, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 41:                                               ; preds = %6, %._crit_edge
   ret void
@@ -478,7 +478,7 @@ thread-pre-split:                                 ; preds = %16
   %38 = load ptr, ptr %7, align 8
   %39 = call ptr @next_node_bitmap(ptr noundef %38, ptr noundef nonnull %3) #14
   %.not23 = icmp eq ptr %39, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 40:                                               ; preds = %._crit_edge, %21, %19, %9, %6, %2
   ret void
@@ -629,7 +629,7 @@ define dso_local void @deallocate_nodes(ptr noundef %0, i1 noundef zeroext %1, i
   %50 = load ptr, ptr %26, align 8
   %51 = call ptr @next_node_bitmap(ptr noundef %50, ptr noundef nonnull %5) #14
   %.not77.us = icmp eq ptr %51, null
-  br i1 %.not77.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !16
+  br i1 %.not77.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %95, %47, %29
   %.067.lcssa = phi i16 [ 11008, %29 ], [ 11008, %47 ], [ %.2, %95 ]
@@ -702,7 +702,7 @@ define dso_local void @deallocate_nodes(ptr noundef %0, i1 noundef zeroext %1, i
   br i1 %or.cond94, label %89, label %93
 
 89:                                               ; preds = %85
-  %90 = load i8, ptr @cloud_dns, align 1, !range !12, !noundef !13
+  %90 = load i8, ptr @cloud_dns, align 1, !range !13, !noundef !14
   %91 = trunc nuw i8 %90 to i1
   %92 = and i64 %87, 128
   %.not92 = icmp eq i64 %92, 0
@@ -722,7 +722,7 @@ define dso_local void @deallocate_nodes(ptr noundef %0, i1 noundef zeroext %1, i
   %98 = load ptr, ptr %26, align 8
   %99 = call ptr @next_node_bitmap(ptr noundef %98, ptr noundef nonnull %5) #14
   %.not77 = icmp eq ptr %99, null
-  br i1 %.not77, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  br i1 %.not77, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
 
 100:                                              ; preds = %._crit_edge
   %101 = load ptr, ptr %26, align 8
@@ -761,7 +761,7 @@ define dso_local void @deallocate_nodes(ptr noundef %0, i1 noundef zeroext %1, i
   store i32 %114, ptr %6, align 4
   %115 = load ptr, ptr %26, align 8
   %.not83 = icmp eq ptr %115, null
-  br i1 %.not83, label %.critedge, label %105, !llvm.loop !19
+  br i1 %.not83, label %.critedge, label %105, !llvm.loop !20
 
 116:                                              ; preds = %._crit_edge
   call void @cleanup_completing(ptr noundef nonnull %0, i1 noundef zeroext false) #14
@@ -921,7 +921,7 @@ define dso_local void @find_feature_nodes(ptr noundef %0, i1 noundef zeroext %1)
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 10
-  %33 = load i8, ptr %32, align 2, !range !12, !noundef !13
+  %33 = load i8, ptr %32, align 2, !range !13, !noundef !14
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %48
 
@@ -1032,7 +1032,7 @@ _log_feature_nodes.exit:                          ; preds = %51, %82
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
   %83 = call ptr @list_next(ptr noundef %7) #14
   %.not33 = icmp eq ptr %83, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not33, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %_log_feature_nodes.exit, %6
   call void @list_iterator_destroy(ptr noundef %7) #14
@@ -1253,7 +1253,7 @@ define internal fastcc range(i32 0, 2) i32 @_match_feature(ptr noundef %0, ptr n
   %51 = zext i8 %50 to i32
   %52 = call ptr @list_next(ptr noundef %10) #14
   %.not37 = icmp eq ptr %52, null
-  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %48, %8
   call void @list_iterator_destroy(ptr noundef %10) #14
@@ -1367,7 +1367,7 @@ define dso_local ptr @build_active_feature_bitmap2(ptr noundef %0) local_unnamed
   %.2 = phi ptr [ %.01831, %20 ], [ %19, %18 ]
   %28 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull %3) #14
   %.not23 = icmp eq ptr %28, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not23, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %27, %9, %22, %26
   %.1 = phi ptr [ %.01831, %26 ], [ %25, %22 ], [ null, %9 ], [ %.2, %27 ]
@@ -1454,7 +1454,7 @@ define dso_local void @filter_by_node_owner(ptr noundef %0, ptr noundef %1) loca
   store i32 %34, ptr %3, align 4
   %35 = call ptr @next_node(ptr noundef nonnull %3) #14
   %.not11 = icmp eq ptr %35, null
-  br i1 %.not11, label %.loopexit, label %22, !llvm.loop !23
+  br i1 %.not11, label %.loopexit, label %22, !llvm.loop !24
 
 .loopexit:                                        ; preds = %32, %.preheader, %19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
@@ -1570,7 +1570,7 @@ define dso_local void @filter_by_node_mcs(ptr noundef readonly captures(none) %0
   store i32 %30, ptr %4, align 4
   %31 = call ptr @next_node(ptr noundef nonnull %4) #14
   %.not18 = icmp eq ptr %31, null
-  br i1 %.not18, label %.loopexit, label %.lr.ph26, !llvm.loop !24
+  br i1 %.not18, label %.loopexit, label %.lr.ph26, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %.preheader22, %39
   %32 = phi ptr [ %42, %39 ], [ %9, %.preheader22 ]
@@ -1592,7 +1592,7 @@ define dso_local void @filter_by_node_mcs(ptr noundef readonly captures(none) %0
   store i32 %41, ptr %4, align 4
   %42 = call ptr @next_node(ptr noundef nonnull %4) #14
   %.not = icmp eq ptr %42, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %39, %28, %.preheader22, %.preheader
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
@@ -1882,7 +1882,7 @@ define dso_local i32 @select_nodes(ptr noundef readonly captures(none) %0, i1 no
 _set_sched_weight.exit:                           ; preds = %.lr.ph, %140
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_set_sched_weight.exit, %.preheader457
   %147 = sext i32 %128 to i64
@@ -2821,7 +2821,7 @@ thread-pre-split:                                 ; preds = %301, %282
   store ptr null, ptr %548, align 8
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %exitcond467.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count466
-  br i1 %exitcond467.not, label %._crit_edge461.loopexit, label %.lr.ph460, !llvm.loop !27
+  br i1 %exitcond467.not, label %._crit_edge461.loopexit, label %.lr.ph460, !llvm.loop !28
 
 ._crit_edge461.loopexit:                          ; preds = %551
   %.pre470.pre = load i32, ptr %5, align 4
@@ -3208,7 +3208,7 @@ define internal fastcc range(i32 0, 2057) i32 @_build_node_list(ptr noundef %0, 
   br label %.thread
 
 58:                                               ; preds = %47, %44
-  %59 = load i8, ptr %22, align 1, !range !12, !noundef !13
+  %59 = load i8, ptr %22, align 1, !range !13, !noundef !14
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %70
 
@@ -3311,7 +3311,7 @@ define internal fastcc range(i32 0, 2057) i32 @_build_node_list(ptr noundef %0, 
   store i32 %100, ptr %17, align 4
   %101 = call ptr @next_node_bitmap(ptr noundef %88, ptr noundef nonnull %17) #14
   %.not.i = icmp eq ptr %101, null
-  br i1 %.not.i, label %_apply_extra_constraints.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i, label %_apply_extra_constraints.exit, label %.lr.ph.i, !llvm.loop !29
 
 _apply_extra_constraints.exit:                    ; preds = %98, %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
@@ -3524,7 +3524,7 @@ _get_ntasks_per_core.exit:                        ; preds = %155, %164
 
 221:                                              ; preds = %220, %218
   store ptr null, ptr %201, align 8
-  br label %570, !llvm.loop !29
+  br label %570, !llvm.loop !30
 
 222:                                              ; preds = %206
   br i1 %195, label %242, label %223
@@ -3578,10 +3578,10 @@ _set_err_msg.exit:                                ; preds = %223, %224, %.sink.s
 
 241:                                              ; preds = %240, %238
   store ptr null, ptr %201, align 8
-  br label %570, !llvm.loop !29
+  br label %570, !llvm.loop !30
 
 242:                                              ; preds = %222
-  %243 = load i8, ptr %21, align 1, !range !12, !noundef !13
+  %243 = load i8, ptr %21, align 1, !range !13, !noundef !14
   %244 = trunc nuw i8 %243 to i1
   br i1 %244, label %245, label %364
 
@@ -3683,7 +3683,7 @@ _set_err_msg.exit:                                ; preds = %223, %224, %.sink.s
   %288 = getelementptr inbounds nuw i8, ptr %277, i64 32
   %289 = load i16, ptr %288, align 8
   %290 = icmp ult i16 %289, %271
-  br i1 %290, label %.thread105.i, label %.split.us.i, !llvm.loop !30
+  br i1 %290, label %.thread105.i, label %.split.us.i, !llvm.loop !31
 
 .split.i:                                         ; preds = %270, %309
   %.pn.i = phi ptr [ %291, %309 ], [ %259, %270 ]
@@ -3731,7 +3731,7 @@ _set_err_msg.exit:                                ; preds = %223, %224, %.sink.s
   %310 = getelementptr inbounds nuw i8, ptr %291, i64 32
   %311 = load i16, ptr %310, align 8
   %312 = icmp ult i16 %311, %271
-  br i1 %312, label %.thread105.i, label %.split.i, !llvm.loop !31
+  br i1 %312, label %.thread105.i, label %.split.i, !llvm.loop !32
 
 .thread105.i:                                     ; preds = %287, %309, %.split117.us.i
   %313 = phi ptr [ %.us-phi.i, %.split117.us.i ], [ %291, %309 ], [ %277, %287 ]
@@ -3835,7 +3835,7 @@ _set_err_msg.exit:                                ; preds = %223, %224, %.sink.s
   store ptr null, ptr %14, align 8
   %349 = call ptr @list_next(ptr noundef %254) #14
   %.not.i410 = icmp eq ptr %349, null
-  br i1 %.not.i410, label %._crit_edge.i, label %258, !llvm.loop !32
+  br i1 %.not.i410, label %._crit_edge.i, label %258, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %348, %253
   %.079.lcssa.i = phi ptr [ null, %253 ], [ %.3.i, %348 ]
@@ -3879,7 +3879,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
 
 363:                                              ; preds = %362, %358
   store ptr null, ptr %360, align 8
-  br label %570, !llvm.loop !29
+  br label %570, !llvm.loop !30
 
 364:                                              ; preds = %242
   %365 = call ptr @bit_alloc(i64 noundef 64) #14
@@ -3969,7 +3969,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   br label %431
 
 411:                                              ; preds = %410
-  %412 = load i8, ptr %21, align 1, !range !12, !noundef !13
+  %412 = load i8, ptr %21, align 1, !range !13, !noundef !14
   %413 = trunc nuw i8 %412 to i1
   br i1 %413, label %414, label %417
 
@@ -4018,7 +4018,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %434 = icmp ne ptr %433, null
   %435 = icmp ne ptr %432, null
   %or.cond8 = select i1 %434, i1 true, i1 %435
-  br i1 %or.cond8, label %436, label %570, !llvm.loop !29
+  br i1 %or.cond8, label %436, label %570, !llvm.loop !30
 
 436:                                              ; preds = %431
   %437 = icmp eq ptr %433, null
@@ -4283,7 +4283,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   store ptr null, ptr %565, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %569, label %564, !llvm.loop !33
+  br i1 %exitcond.not, label %569, label %564, !llvm.loop !34
 
 569:                                              ; preds = %568
   %.not387.not = icmp sgt i32 %.3, %133
@@ -4472,7 +4472,7 @@ _valid_features.exit._crit_edge:                  ; preds = %_valid_features.exi
   %659 = phi ptr [ %613, %.lr.ph462 ], [ %612, %624 ], [ %630, %626 ]
   %.8 = phi i32 [ %.6460, %.lr.ph462 ], [ %.6460, %624 ], [ %654, %626 ]
   %660 = icmp samesign ugt i64 %indvars.iv493, 1
-  br i1 %660, label %.lr.ph462, label %.loopexit423, !llvm.loop !34
+  br i1 %660, label %.lr.ph462, label %.loopexit423, !llvm.loop !35
 
 .loopexit423:                                     ; preds = %657, %609, %655
   %661 = phi ptr [ %630, %655 ], [ %573, %609 ], [ %658, %657 ]
@@ -4516,7 +4516,7 @@ _find_grp_node_bitmap.exit.thread:                ; preds = %.loopexit423
   %668 = load ptr, ptr %9, align 8
   call fastcc void @_find_qos_grp_node_bitmap(ptr noundef %0, ptr noundef %668, ptr noundef %7, ptr noundef %12, ptr noundef %11, ptr noundef %10)
   %.not1722.i = icmp eq ptr %666, null
-  %669 = load i8, ptr %12, align 1, !range !12
+  %669 = load i8, ptr %12, align 1, !range !13
   %.fr25.i = freeze i8 %669
   %670 = trunc i8 %.fr25.i to i1
   %or.cond.i412 = or i1 %.not1722.i, %670
@@ -4569,7 +4569,7 @@ _find_grp_node_bitmap.exit.thread502:             ; preds = %682
   %687 = getelementptr inbounds nuw i8, ptr %672, i64 72
   %688 = load ptr, ptr %687, align 8
   %.not17.i = icmp eq ptr %688, null
-  br i1 %.not17.i, label %_find_grp_node_bitmap.exitthread-pre-split, label %.lr.ph.split.i, !llvm.loop !35
+  br i1 %.not17.i, label %_find_grp_node_bitmap.exitthread-pre-split, label %.lr.ph.split.i, !llvm.loop !36
 
 _find_grp_node_bitmap.exitthread-pre-split:       ; preds = %686, %.lr.ph.split.i, %664
   %.pr = load ptr, ptr %7, align 8
@@ -4685,7 +4685,7 @@ _find_grp_node_bitmap.exit:                       ; preds = %_find_grp_node_bitm
   %749 = phi ptr [ %699, %700 ], [ %699, %705 ], [ %740, %710 ]
   %.10 = phi i32 [ %.9465, %700 ], [ %.9465, %705 ], [ %744, %710 ]
   %750 = icmp samesign ugt i64 %indvars.iv496, 1
-  br i1 %750, label %.lr.ph467, label %.loopexit, !llvm.loop !36
+  br i1 %750, label %.lr.ph467, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %747, %745
   %751 = phi ptr [ %740, %745 ], [ %749, %747 ]
@@ -4815,7 +4815,7 @@ define internal fastcc void @_log_node_set(ptr noundef %0, ptr noundef readonly 
   call void @slurm_xfree(ptr noundef nonnull %4) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !37
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !38
 
 .loopexit:                                        ; preds = %35, %12, %3
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #14
@@ -4854,7 +4854,7 @@ define internal fastcc range(i32 0, 2015) i32 @_nodes_in_sets(ptr noundef nonnul
   %13 = phi ptr [ %6, %9 ], [ %11, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %12
   store ptr %13, ptr %4, align 8
@@ -5263,7 +5263,7 @@ define internal fastcc range(i32 0, 2179) i32 @_get_req_features(ptr noundef rea
 113:                                              ; preds = %109, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_filter_by_node_feature.exit, label %.lr.ph.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %_filter_by_node_feature.exit, label %.lr.ph.i, !llvm.loop !40
 
 _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90, %86
   br i1 %8, label %117, label %114
@@ -5367,7 +5367,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
 
 162:                                              ; preds = %161, %152
   %163 = getelementptr inbounds nuw i8, ptr %148, i64 10
-  %164 = load i8, ptr %163, align 2, !range !12, !noundef !13
+  %164 = load i8, ptr %163, align 2, !range !13, !noundef !14
   %165 = or i8 %164, %.0268424
   %166 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %167 = load ptr, ptr %166, align 8
@@ -5377,12 +5377,12 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
   %170 = load i8, ptr %169, align 2
   %171 = zext i8 %170 to i32
   %172 = load i16, ptr %149, align 8
-  br label %404, !llvm.loop !40
+  br label %404, !llvm.loop !41
 
 173:                                              ; preds = %145
   %.not369 = icmp eq i16 %.0278.shrunk421, 0
   %174 = getelementptr inbounds nuw i8, ptr %148, i64 10
-  %175 = load i8, ptr %174, align 2, !range !12, !noundef !13
+  %175 = load i8, ptr %174, align 2, !range !13, !noundef !14
   br i1 %.not369, label %189, label %176
 
 176:                                              ; preds = %173
@@ -5407,7 +5407,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
   %187 = zext i8 %186 to i32
   %188 = load i16, ptr %149, align 8
   %.not345 = icmp eq i16 %188, 0
-  br i1 %.not345, label %191, label %404, !llvm.loop !40
+  br i1 %.not345, label %191, label %404, !llvm.loop !41
 
 189:                                              ; preds = %173
   %190 = getelementptr inbounds nuw i8, ptr %148, i64 24
@@ -5442,7 +5442,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
 
 200:                                              ; preds = %199, %197
   store ptr null, ptr %23, align 8
-  br label %404, !llvm.loop !40
+  br label %404, !llvm.loop !41
 
 201:                                              ; preds = %.lr.ph, %296
   %202 = phi ptr [ %146, %.lr.ph ], [ %297, %296 ]
@@ -5612,7 +5612,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
   %.1267 = phi i1 [ %.0266408, %246 ], [ %.0266408, %240 ], [ %.0266408, %201 ], [ %.1267.ph, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %201, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %201, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %296, %.preheader403
   %299 = phi ptr [ %146, %.preheader403 ], [ %297, %296 ]
@@ -5710,7 +5710,7 @@ _filter_by_node_feature.exit:                     ; preds = %113, %104, %97, %90
 _set_sched_weight.exit:                           ; preds = %.lr.ph411, %338
   %indvars.iv.next437 = add nuw nsw i64 %indvars.iv436, 1
   %exitcond440.not = icmp eq i64 %indvars.iv.next437, %wide.trip.count439
-  br i1 %exitcond440.not, label %._crit_edge412, label %.lr.ph411, !llvm.loop !42
+  br i1 %exitcond440.not, label %._crit_edge412, label %.lr.ph411, !llvm.loop !43
 
 ._crit_edge412:                                   ; preds = %_set_sched_weight.exit, %.preheader
   %345 = sext i32 %.0310.lcssa to i64
@@ -5720,7 +5720,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph411, %338
 
 346:                                              ; preds = %._crit_edge412, %324
   %347 = phi ptr [ %.pre446, %._crit_edge412 ], [ %299, %324 ]
-  %348 = load i8, ptr %18, align 1, !range !12, !noundef !13
+  %348 = load i8, ptr %18, align 1, !range !13, !noundef !14
   %349 = trunc nuw i8 %348 to i1
   %350 = call fastcc i32 @_pick_best_nodes(ptr noundef %347, i32 noundef %.0310.lcssa, ptr noundef %15, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %305, i32 noundef %6, i32 noundef %305, i1 noundef zeroext %8, ptr noundef %135, ptr noundef %9, i1 noundef zeroext false, ptr noundef %19, i1 noundef zeroext %349)
   %351 = load ptr, ptr %118, align 8
@@ -5779,7 +5779,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph411, %338
   store ptr null, ptr %368, align 8
   %indvars.iv.next442 = add nuw nsw i64 %indvars.iv441, 1
   %exitcond445.not = icmp eq i64 %indvars.iv.next442, %wide.trip.count444
-  br i1 %exitcond445.not, label %._crit_edge416, label %.lr.ph415, !llvm.loop !43
+  br i1 %exitcond445.not, label %._crit_edge416, label %.lr.ph415, !llvm.loop !44
 
 ._crit_edge416:                                   ; preds = %371, %359
   %372 = phi ptr [ %347, %359 ], [ %363, %371 ]
@@ -6002,7 +6002,7 @@ _set_sched_weight.exit:                           ; preds = %.lr.ph411, %338
 
 460:                                              ; preds = %459, %457
   store ptr null, ptr %9, align 8
-  %461 = load i8, ptr %18, align 1, !range !12, !noundef !13
+  %461 = load i8, ptr %18, align 1, !range !13, !noundef !14
   %462 = trunc nuw i8 %461 to i1
   %463 = call fastcc i32 @_pick_best_nodes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %.0270, i32 noundef %6, i32 noundef %.4, i1 noundef zeroext %8, ptr noundef %135, ptr noundef %9, i1 noundef zeroext %.0287, ptr noundef %19, i1 noundef zeroext %462)
   br label %464
@@ -6158,7 +6158,7 @@ define internal fastcc ptr @_handle_exclusive_gres(ptr noundef readonly captures
   store i32 %33, ptr %5, align 4
   %34 = call ptr @next_node_bitmap(ptr noundef nonnull %1, ptr noundef nonnull %5) #14
   %.not15 = icmp eq ptr %34, null
-  br i1 %.not15, label %._crit_edge, label %24, !llvm.loop !44
+  br i1 %.not15, label %._crit_edge, label %24, !llvm.loop !45
 
 35:                                               ; preds = %8, %11, %3, %6, %._crit_edge
   %.0 = phi ptr [ %23, %._crit_edge ], [ null, %6 ], [ null, %3 ], [ null, %11 ], [ null, %8 ]
@@ -6270,12 +6270,12 @@ define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1
   %35 = tail call i32 @slurm_job_preempt(ptr noundef nonnull %21, ptr noundef %3, i16 noundef zeroext %22, i1 noundef zeroext true) #14
   %36 = tail call ptr @list_next(ptr noundef %17) #14
   %.not2125.us = icmp eq ptr %36, null
-  br i1 %.not2125.us, label %.outer._crit_edge.thread, label %.lr.ph.us, !llvm.loop !45
+  br i1 %.not2125.us, label %.outer._crit_edge.thread, label %.lr.ph.us, !llvm.loop !46
 
 .backedge.us:                                     ; preds = %32, %29
   %37 = tail call ptr @list_next(ptr noundef %17) #14
   %.not21.us = icmp eq ptr %37, null
-  br i1 %.not21.us, label %.outer._crit_edge, label %20, !llvm.loop !46
+  br i1 %.not21.us, label %.outer._crit_edge, label %20, !llvm.loop !47
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
   %38 = phi ptr [ %55, %.outer.backedge ], [ %18, %.lr.ph.lr.ph ]
@@ -6297,7 +6297,7 @@ define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1
 .backedge:                                        ; preds = %42, %51
   %44 = tail call ptr @list_next(ptr noundef %17) #14
   %.not21 = icmp eq ptr %44, null
-  br i1 %.not21, label %.outer._crit_edge, label %39, !llvm.loop !46
+  br i1 %.not21, label %.outer._crit_edge, label %39, !llvm.loop !47
 
 45:                                               ; preds = %39
   %46 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
@@ -6323,7 +6323,7 @@ define internal fastcc void @_preempt_jobs(ptr noundef %0, i1 noundef zeroext %1
   %54 = add nuw nsw i32 %.0.ph28, 1
   %55 = tail call ptr @list_next(ptr noundef %17) #14
   %.not2125 = icmp eq ptr %55, null
-  br i1 %.not2125, label %.outer._crit_edge.thread, label %.lr.ph, !llvm.loop !46
+  br i1 %.not2125, label %.outer._crit_edge.thread, label %.lr.ph, !llvm.loop !47
 
 .outer._crit_edge.thread:                         ; preds = %.outer.backedge, %.outer.backedge.us
   tail call void @list_iterator_destroy(ptr noundef %17) #14
@@ -6471,7 +6471,7 @@ define internal fastcc i32 @_get_resv_mpi_ports(ptr noundef %0, ptr noundef nonn
   store i16 %57, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !47
+  br i1 %exitcond.not, label %.loopexit, label %52, !llvm.loop !48
 
 ._crit_edge.loopexit:                             ; preds = %59
   %58 = trunc i32 %65 to i16
@@ -6488,7 +6488,7 @@ define internal fastcc i32 @_get_resv_mpi_ports(ptr noundef %0, ptr noundef nonn
   %65 = tail call i32 @llvm.umax.i32(i32 %64, i32 %60)
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
-  br i1 %exitcond121.not, label %._crit_edge.loopexit, label %59, !llvm.loop !48
+  br i1 %exitcond121.not, label %._crit_edge.loopexit, label %59, !llvm.loop !49
 
 66:                                               ; preds = %36
   %67 = getelementptr inbounds nuw i8, ptr %28, i64 292
@@ -6679,7 +6679,7 @@ define dso_local void @build_node_details(ptr noundef %0, i1 zeroext %1) local_u
   tail call void @free(ptr noundef nonnull %25) #14
   %38 = tail call ptr @hostlist_shift(ptr noundef nonnull %13) #14
   %.not = icmp eq ptr %38, null
-  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !49
+  br i1 %.not, label %._crit_edge, label %24, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %37, %17
   %.0.lcssa = phi i32 [ 0, %17 ], [ %.1, %37 ]
@@ -6806,7 +6806,7 @@ define dso_local void @launch_prolog(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %21, label %25
 
 21:                                               ; preds = %.lr.ph
-  %22 = load i8, ptr @cloud_dns, align 1, !range !12, !noundef !13
+  %22 = load i8, ptr @cloud_dns, align 1, !range !13, !noundef !14
   %23 = trunc nuw i8 %22 to i1
   %24 = and i64 %19, 128
   %.not135 = icmp eq i64 %24, 0
@@ -6825,7 +6825,7 @@ define dso_local void @launch_prolog(ptr noundef %0) local_unnamed_addr #0 {
   %30 = load ptr, ptr %8, align 8
   %31 = call ptr @next_node_bitmap(ptr noundef %30, ptr noundef nonnull %3) #14
   %.not = icmp eq ptr %31, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
 
 32:                                               ; preds = %._crit_edge
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -7015,7 +7015,7 @@ define dso_local void @launch_prolog(ptr noundef %0) local_unnamed_addr #0 {
   %138 = load ptr, ptr %8, align 8
   %139 = call ptr @next_node_bitmap(ptr noundef %138, ptr noundef nonnull %5) #14
   %.not127 = icmp eq ptr %139, null
-  br i1 %.not127, label %._crit_edge150, label %.lr.ph149, !llvm.loop !51
+  br i1 %.not127, label %._crit_edge150, label %.lr.ph149, !llvm.loop !52
 
 140:                                              ; preds = %._crit_edge150
   call void @list_destroy(ptr noundef nonnull %121) #14
@@ -7442,7 +7442,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
 106:                                              ; preds = %105, %82
   %107 = call ptr @list_next(ptr noundef %27) #14
   %.not82 = icmp eq ptr %107, null
-  br i1 %.not82, label %._crit_edge, label %30, !llvm.loop !52
+  br i1 %.not82, label %._crit_edge, label %30, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %106
   call void @list_iterator_destroy(ptr noundef %27) #14
@@ -7494,7 +7494,7 @@ define dso_local noundef i32 @valid_feature_counts(ptr noundef %0, i1 noundef ze
   br i1 %124, label %125, label %130
 
 125:                                              ; preds = %122
-  %126 = load i8, ptr %3, align 1, !range !12, !noundef !13
+  %126 = load i8, ptr %3, align 1, !range !13, !noundef !14
   %127 = trunc nuw i8 %126 to i1
   %128 = select i1 %127, i32 84, i32 70
   %129 = call ptr @slurm_strerror(i32 noundef 0) #14
@@ -7590,7 +7590,7 @@ define dso_local range(i32 0, 23) i32 @job_req_node_filter(ptr noundef %0, ptr n
   store i32 %47, ptr %5, align 4
   %48 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %5) #14
   %.not.us = icmp eq ptr %48, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !53
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %88, %45, %11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
@@ -7668,7 +7668,7 @@ define dso_local range(i32 0, 23) i32 @job_req_node_filter(ptr noundef %0, ptr n
   store i32 %90, ptr %5, align 4
   %91 = call ptr @next_node_bitmap(ptr noundef %1, ptr noundef nonnull %5) #14
   %.not = icmp eq ptr %91, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !55
 
 92:                                               ; preds = %._crit_edge, %9
   %.0 = phi i32 [ 22, %9 ], [ 0, %._crit_edge ]
@@ -7776,7 +7776,7 @@ define dso_local range(i32 -1, 1) i32 @pick_batch_host(ptr noundef %0) local_unn
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @xstrcmp(ptr noundef %45, ptr noundef %.036) #14
   %.not47 = icmp eq i32 %46, 0
-  br i1 %.not47, label %47, label %41, !llvm.loop !55
+  br i1 %.not47, label %47, label %41, !llvm.loop !56
 
 47:                                               ; preds = %43
   %48 = icmp eq i8 %.034, 38
@@ -7818,7 +7818,7 @@ define dso_local range(i32 -1, 1) i32 @pick_batch_host(ptr noundef %0) local_unn
   %.137 = phi ptr [ %62, %59 ], [ %.036, %32 ]
   %.1 = phi i8 [ %35, %59 ], [ %.034, %32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %32, !llvm.loop !56
+  br label %32, !llvm.loop !57
 
 65:                                               ; preds = %57
   call void @slurm_xfree(ptr noundef nonnull %2) #14
@@ -7891,7 +7891,7 @@ define dso_local void @re_kill_job(ptr noundef %0) local_unnamed_addr #0 {
 .backedge:                                        ; preds = %20, %.lr.ph
   %22 = tail call ptr @list_next(ptr noundef %14) #14
   %.not = icmp eq ptr %22, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
 
 ._crit_edge:                                      ; preds = %.backedge, %1
   tail call void @list_iterator_destroy(ptr noundef %14) #14
@@ -7997,7 +7997,7 @@ define dso_local void @re_kill_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %76, label %80
 
 76:                                               ; preds = %72
-  %77 = load i8, ptr @cloud_dns, align 1, !range !12, !noundef !13
+  %77 = load i8, ptr @cloud_dns, align 1, !range !13, !noundef !14
   %78 = trunc nuw i8 %77 to i1
   %79 = and i64 %74, 128
   %.not48 = icmp eq i64 %79, 0
@@ -8017,7 +8017,7 @@ define dso_local void @re_kill_job(ptr noundef %0) local_unnamed_addr #0 {
   %86 = load ptr, ptr %23, align 8
   %87 = call ptr @next_node_bitmap(ptr noundef %86, ptr noundef nonnull %4) #14
   %.not40 = icmp eq ptr %87, null
-  br i1 %.not40, label %._crit_edge54, label %31, !llvm.loop !58
+  br i1 %.not40, label %._crit_edge54, label %31, !llvm.loop !59
 
 88:                                               ; preds = %._crit_edge54, %._crit_edge
   %89 = load i32, ptr %6, align 8
@@ -8379,7 +8379,7 @@ _resolve_shared_status.exit:                      ; preds = %55, %62, %70, %79, 
   %.1350 = select i1 %151, i32 %.0349592, i32 %150
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %139
   %.0349.lcssa = phi i32 [ -1, %139 ], [ %.1350, %.lr.ph ]
@@ -8440,12 +8440,12 @@ _resolve_shared_status.exit:                      ; preds = %55, %62, %70, %79, 
   %174 = load ptr, ptr %163, align 8
   %175 = call ptr @next_node_bitmap(ptr noundef %174, ptr noundef nonnull %15) #14
   %.not10.i = icmp eq ptr %175, null
-  br i1 %.not10.i, label %._crit_edge.i, label %168, !llvm.loop !60
+  br i1 %.not10.i, label %._crit_edge.i, label %168, !llvm.loop !61
 
 176:                                              ; preds = %._crit_edge.i, %.lr.ph14.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_sync_node_weight.exit, label %.lr.ph14.i, !llvm.loop !61
+  br i1 %exitcond.not.i, label %_sync_node_weight.exit, label %.lr.ph14.i, !llvm.loop !62
 
 _sync_node_weight.exit:                           ; preds = %176, %159
   %.not419618 = icmp sgt i32 %.0347.lcssa, %.0349.lcssa
@@ -8539,7 +8539,7 @@ _sync_node_weight.exit:                           ; preds = %176, %159
   %.1302 = phi i1 [ true, %207 ], [ true, %208 ], [ %.0301597, %.lr.ph598 ]
   %indvars.iv.next640 = add nuw nsw i64 %indvars.iv639, 1
   %exitcond642.not = icmp eq i64 %indvars.iv.next640, %wide.trip.count641
-  br i1 %exitcond642.not, label %._crit_edge599, label %.lr.ph598, !llvm.loop !62
+  br i1 %exitcond642.not, label %._crit_edge599, label %.lr.ph598, !llvm.loop !63
 
 ._crit_edge599:                                   ; preds = %209
   br i1 %.1302, label %210, label %.thread
@@ -8834,7 +8834,7 @@ _sync_node_weight.exit:                           ; preds = %176, %159
 _bit_or_cond.exit:                                ; preds = %334, %339, %344, %347, %350
   %352 = call ptr @list_next(ptr noundef %328) #14
   %.not444 = icmp eq ptr %352, null
-  br i1 %.not444, label %._crit_edge604, label %.lr.ph603, !llvm.loop !63
+  br i1 %.not444, label %._crit_edge604, label %.lr.ph603, !llvm.loop !64
 
 ._crit_edge604:                                   ; preds = %_bit_or_cond.exit, %327
   call void @list_iterator_destroy(ptr noundef %328) #14
@@ -8940,7 +8940,7 @@ _bit_or_cond.exit:                                ; preds = %334, %339, %344, %3
   %.4325.ph = phi i8 [ %.2323608, %230 ], [ %.7328, %288 ], [ %.7328, %297 ], [ %.5326, %.sink.split ]
   %.4313.ph = phi i64 [ %.2311609, %230 ], [ %.2311609, %288 ], [ %.2311609, %297 ], [ %.4313.ph.ph, %.sink.split ]
   %exitcond646.not = icmp eq i64 %indvars.iv.next644.pre-phi, %wide.trip.count645
-  br i1 %exitcond646.not, label %.loopexit, label %.lr.ph612, !llvm.loop !64
+  br i1 %exitcond646.not, label %.loopexit, label %.lr.ph612, !llvm.loop !65
 
 .loopexit:                                        ; preds = %387, %225, %373
   %.3365 = phi i32 [ 0, %373 ], [ %.0362623, %225 ], [ %.4366.ph, %387 ]
@@ -9231,7 +9231,7 @@ _bit_or_cond.exit:                                ; preds = %334, %339, %344, %3
   %indvars.iv.next648 = add nsw i64 %indvars.iv647, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next648 to i32
   %exitcond649.not = icmp eq i32 %181, %lftr.wideiv
-  br i1 %exitcond649.not, label %._crit_edge632.loopexit, label %182, !llvm.loop !65
+  br i1 %exitcond649.not, label %._crit_edge632.loopexit, label %182, !llvm.loop !66
 
 ._crit_edge632.loopexit:                          ; preds = %.thread
   %491 = trunc nuw i8 %.1343 to i1
@@ -9530,7 +9530,7 @@ define internal fastcc i64 @_get_max_node_gpu_cnt(ptr noundef %0, ptr noundef no
   %16 = call i64 @bit_ffs_from_bit(ptr noundef %0, i64 noundef %15) #14
   %17 = trunc i64 %16 to i32
   %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %8, label %._crit_edge, !llvm.loop !66
+  br i1 %18, label %8, label %._crit_edge, !llvm.loop !67
 }
 
 declare i32 @resv_port_job_alloc(ptr noundef) local_unnamed_addr #2
@@ -9641,7 +9641,7 @@ define internal fastcc void @_find_qos_grp_node_bitmap(ptr noundef readonly capt
   br i1 %.not40, label %74, label %10
 
 10:                                               ; preds = %7
-  %11 = load i8, ptr %3, align 1, !range !12, !noundef !13
+  %11 = load i8, ptr %3, align 1, !range !13, !noundef !14
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %26, label %13
 
@@ -9669,7 +9669,7 @@ define internal fastcc void @_find_qos_grp_node_bitmap(ptr noundef readonly capt
   br label %26
 
 26:                                               ; preds = %21, %16, %13, %10
-  %27 = load i8, ptr %4, align 1, !range !12, !noundef !13
+  %27 = load i8, ptr %4, align 1, !range !13, !noundef !14
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %48, label %29
 
@@ -9712,7 +9712,7 @@ define internal fastcc void @_find_qos_grp_node_bitmap(ptr noundef readonly capt
   br label %48
 
 48:                                               ; preds = %34, %40, %46, %45, %29, %26
-  %49 = load i8, ptr %5, align 1, !range !12, !noundef !13
+  %49 = load i8, ptr %5, align 1, !range !13, !noundef !14
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %74, label %51
 
@@ -9825,62 +9825,63 @@ attributes #15 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i8 0, i8 2}
-!13 = !{}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10, !17}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !9, !10}
-!33 = distinct !{!33, !9, !10}
-!34 = distinct !{!34, !9, !10}
-!35 = distinct !{!35, !9, !10}
-!36 = distinct !{!36, !9, !10}
-!37 = distinct !{!37, !9, !10}
-!38 = distinct !{!38, !9, !10}
-!39 = distinct !{!39, !9, !10}
-!40 = distinct !{!40, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = !{i8 0, i8 2}
+!14 = !{}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = distinct !{!29, !9, !10, !11}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10, !11, !18}
+!32 = distinct !{!32, !9, !10, !11}
+!33 = distinct !{!33, !9, !10, !11}
+!34 = distinct !{!34, !9, !10, !11}
+!35 = distinct !{!35, !9, !10, !11}
+!36 = distinct !{!36, !9, !10, !11}
+!37 = distinct !{!37, !9, !10, !11}
+!38 = distinct !{!38, !9, !10, !11}
+!39 = distinct !{!39, !9, !10, !11}
+!40 = distinct !{!40, !9, !10, !11}
 !41 = distinct !{!41, !9, !10}
-!42 = distinct !{!42, !9, !10}
-!43 = distinct !{!43, !9, !10}
-!44 = distinct !{!44, !9, !10}
-!45 = distinct !{!45, !9, !10, !17}
-!46 = distinct !{!46, !9, !10}
-!47 = distinct !{!47, !9, !10}
-!48 = distinct !{!48, !9, !10}
-!49 = distinct !{!49, !9, !10}
-!50 = distinct !{!50, !9, !10}
-!51 = distinct !{!51, !9, !10}
-!52 = distinct !{!52, !9, !10}
-!53 = distinct !{!53, !9, !10, !17}
-!54 = distinct !{!54, !9, !10}
-!55 = distinct !{!55, !9, !10}
-!56 = distinct !{!56, !10}
-!57 = distinct !{!57, !9, !10}
-!58 = distinct !{!58, !9, !10}
-!59 = distinct !{!59, !9, !10}
-!60 = distinct !{!60, !9, !10}
-!61 = distinct !{!61, !9, !10}
-!62 = distinct !{!62, !9, !10}
-!63 = distinct !{!63, !9, !10}
-!64 = distinct !{!64, !9, !10}
-!65 = distinct !{!65, !9, !10}
-!66 = distinct !{!66, !9, !10}
+!42 = distinct !{!42, !9, !10, !11}
+!43 = distinct !{!43, !9, !10, !11}
+!44 = distinct !{!44, !9, !10, !11}
+!45 = distinct !{!45, !9, !10, !11}
+!46 = distinct !{!46, !9, !10, !11, !18}
+!47 = distinct !{!47, !9, !10, !11}
+!48 = distinct !{!48, !9, !10, !11}
+!49 = distinct !{!49, !9, !10, !11}
+!50 = distinct !{!50, !9, !10, !11}
+!51 = distinct !{!51, !9, !10, !11}
+!52 = distinct !{!52, !9, !10, !11}
+!53 = distinct !{!53, !9, !10, !11}
+!54 = distinct !{!54, !9, !10, !11, !18}
+!55 = distinct !{!55, !9, !10, !11}
+!56 = distinct !{!56, !9, !10, !11}
+!57 = distinct !{!57, !10, !11}
+!58 = distinct !{!58, !9, !10, !11}
+!59 = distinct !{!59, !9, !10, !11}
+!60 = distinct !{!60, !9, !10, !11}
+!61 = distinct !{!61, !9, !10, !11}
+!62 = distinct !{!62, !9, !10, !11}
+!63 = distinct !{!63, !9, !10, !11}
+!64 = distinct !{!64, !9, !10, !11}
+!65 = distinct !{!65, !9, !10, !11}
+!66 = distinct !{!66, !9, !10, !11}
+!67 = distinct !{!67, !9, !10, !11}

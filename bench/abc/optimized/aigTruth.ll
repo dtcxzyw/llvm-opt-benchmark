@@ -82,7 +82,7 @@ define noundef ptr @Aig_ManCutTruthOne(ptr noundef readonly captures(none) %0, p
   store i32 %34, ptr %35, align 4, !tbaa !12
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
-  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph82, !llvm.loop !15
+  br i1 %exitcond105.not, label %.loopexit, label %.lr.ph82, !llvm.loop !16
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %indvars.iv96 = phi i64 [ 0, %.lr.ph80.preheader ], [ %indvars.iv.next97, %.lr.ph80 ]
@@ -96,7 +96,7 @@ define noundef ptr @Aig_ManCutTruthOne(ptr noundef readonly captures(none) %0, p
   store i32 %41, ptr %42, align 4, !tbaa !12
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph80, !llvm.loop !16
+  br i1 %exitcond100.not, label %.loopexit, label %.lr.ph80, !llvm.loop !17
 
 43:                                               ; preds = %25
   br i1 %.not55, label %.preheader73, label %.thread68.preheader
@@ -127,7 +127,7 @@ define noundef ptr @Aig_ManCutTruthOne(ptr noundef readonly captures(none) %0, p
   store i32 %49, ptr %50, align 4, !tbaa !12
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond95.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count94
-  br i1 %exitcond95.not, label %.loopexit, label %.lr.ph78, !llvm.loop !17
+  br i1 %exitcond95.not, label %.loopexit, label %.lr.ph78, !llvm.loop !18
 
 .thread68:                                        ; preds = %.thread68.preheader88, %.thread68
   %indvars.iv = phi i64 [ 0, %.thread68.preheader88 ], [ %indvars.iv.next, %.thread68 ]
@@ -141,7 +141,7 @@ define noundef ptr @Aig_ManCutTruthOne(ptr noundef readonly captures(none) %0, p
   store i32 %55, ptr %56, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.thread68, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.thread68, !llvm.loop !19
 
 .loopexit:                                        ; preds = %.thread68, %.lr.ph78, %.lr.ph80, %.lr.ph82, %.lr.ph84, %.thread68.preheader, %.preheader73, %.preheader71, %.preheader69, %.preheader
   ret ptr %1
@@ -150,7 +150,7 @@ define noundef ptr @Aig_ManCutTruthOne(ptr noundef readonly captures(none) %0, p
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @Aig_ManCutTruth(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
   %6 = getelementptr i8, ptr %1, i64 4
-  %.val27 = load i32, ptr %6, align 4, !tbaa !19
+  %.val27 = load i32, ptr %6, align 4, !tbaa !20
   %7 = icmp sgt i32 %.val27, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
@@ -161,19 +161,19 @@ define ptr @Aig_ManCutTruth(ptr noundef readonly captures(none) %0, ptr noundef 
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.val23 = load ptr, ptr %8, align 8, !tbaa !21
+  %.val23 = load ptr, ptr %8, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw ptr, ptr %.val23, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !22
-  %.val24 = load ptr, ptr %9, align 8, !tbaa !21
+  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %.val24 = load ptr, ptr %9, align 8, !tbaa !22
   %13 = getelementptr inbounds nuw ptr, ptr %.val24, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %14, ptr %15, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val = load i32, ptr %6, align 4, !tbaa !19
+  %.val = load i32, ptr %6, align 4, !tbaa !20
   %16 = sext i32 %.val to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %10, label %.critedge, !llvm.loop !23
+  br i1 %17, label %10, label %.critedge, !llvm.loop !24
 
 .critedge:                                        ; preds = %10, %5
   %.val.lcssa = phi i32 [ %.val27, %5 ], [ %.val, %10 ]
@@ -182,7 +182,7 @@ define ptr @Aig_ManCutTruth(ptr noundef readonly captures(none) %0, ptr noundef 
   %20 = shl nuw i32 1, %19
   %21 = select i1 %18, i32 1, i32 %20
   %22 = getelementptr i8, ptr %2, i64 4
-  %.val2229 = load i32, ptr %22, align 4, !tbaa !19
+  %.val2229 = load i32, ptr %22, align 4, !tbaa !20
   %23 = icmp sgt i32 %.val2229, 0
   br i1 %23, label %.lr.ph31, label %.critedge2
 
@@ -193,20 +193,20 @@ define ptr @Aig_ManCutTruth(ptr noundef readonly captures(none) %0, ptr noundef 
 
 26:                                               ; preds = %.lr.ph31, %26
   %indvars.iv34 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next35, %26 ]
-  %.val25 = load ptr, ptr %24, align 8, !tbaa !21
+  %.val25 = load ptr, ptr %24, align 8, !tbaa !22
   %27 = getelementptr inbounds nuw ptr, ptr %.val25, i64 %indvars.iv34
-  %28 = load ptr, ptr %27, align 8, !tbaa !22
-  %.val26 = load ptr, ptr %25, align 8, !tbaa !21
+  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %.val26 = load ptr, ptr %25, align 8, !tbaa !22
   %29 = getelementptr inbounds nuw ptr, ptr %.val26, i64 %indvars.iv34
-  %30 = load ptr, ptr %29, align 8, !tbaa !22
+  %30 = load ptr, ptr %29, align 8, !tbaa !23
   %31 = tail call ptr @Aig_ManCutTruthOne(ptr noundef %28, ptr noundef %30, i32 noundef %21)
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr %30, ptr %32, align 8, !tbaa !10
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
-  %.val22 = load i32, ptr %22, align 4, !tbaa !19
+  %.val22 = load i32, ptr %22, align 4, !tbaa !20
   %33 = sext i32 %.val22 to i64
   %34 = icmp slt i64 %indvars.iv.next35, %33
-  br i1 %34, label %26, label %.critedge2, !llvm.loop !24
+  br i1 %34, label %26, label %.critedge2, !llvm.loop !25
 
 .critedge2:                                       ; preds = %26, %.critedge
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -232,15 +232,16 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !10 = !{!5, !5, i64 0}
 !11 = !{!4, !7, i64 16}
 !12 = !{!9, !9, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = distinct !{!17, !14}
-!18 = distinct !{!18, !14}
-!19 = !{!20, !9, i64 4}
-!20 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !8, i64 8}
-!21 = !{!20, !8, i64 8}
-!22 = !{!8, !8, i64 0}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = distinct !{!18, !14, !15}
+!19 = distinct !{!19, !14, !15}
+!20 = !{!21, !9, i64 4}
+!21 = !{!"Vec_Ptr_t_", !9, i64 0, !9, i64 4, !8, i64 8}
+!22 = !{!21, !8, i64 8}
+!23 = !{!8, !8, i64 0}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}

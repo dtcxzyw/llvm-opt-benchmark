@@ -73,7 +73,7 @@ define range(i32 0, 2) i32 @ossl_pqueue_push(ptr noundef captures(address_is_nul
   store i64 %22, ptr %38, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %.not.i = icmp ult i64 %21, 2
-  br i1 %.not.i, label %pqueue_move_down.exit, label %20
+  br i1 %.not.i, label %pqueue_move_down.exit, label %20, !llvm.loop !23
 
 pqueue_move_down.exit:                            ; preds = %20, %30, %6
   %.not21 = icmp eq ptr %2, null
@@ -98,7 +98,7 @@ define range(i32 0, 2) i32 @ossl_pqueue_reserve(ptr noundef captures(address_is_
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i64, ptr %5, align 8, !tbaa !23
+  %6 = load i64, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = add i64 %8, %1
@@ -120,7 +120,7 @@ define range(i32 0, 2) i32 @ossl_pqueue_reserve(ptr noundef captures(address_is_
   %17 = udiv i64 %16, 5
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %17, i64 1152921504606846975)
   %18 = icmp ult i64 %spec.store.select.i, %12
-  br i1 %18, label %.lr.ph.i, label %compute_pqueue_growth.exit.thread30, !llvm.loop !24
+  br i1 %18, label %.lr.ph.i, label %compute_pqueue_growth.exit.thread30, !llvm.loop !26
 
 compute_pqueue_growth.exit:                       ; preds = %11
   %19 = icmp eq i64 %6, 0
@@ -151,7 +151,7 @@ compute_pqueue_growth.exit.thread30:              ; preds = %15, %compute_pqueue
 
 30:                                               ; preds = %24
   store ptr %28, ptr %25, align 8, !tbaa !12
-  store i64 %.07.i32, ptr %5, align 8, !tbaa !23
+  store i64 %.07.i32, ptr %5, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load i64, ptr %31, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw %struct.pq_elem_st, ptr %28, i64 %6
@@ -167,7 +167,7 @@ compute_pqueue_growth.exit.thread30:              ; preds = %15, %compute_pqueue
   store i64 %.0.in14.i, ptr %35, align 8, !tbaa !13
   %.0.i = add nuw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %.0.i, %.07.i32
-  br i1 %exitcond.not.i, label %pqueue_add_freelist.exit, label %.lr.ph.i28, !llvm.loop !26
+  br i1 %exitcond.not.i, label %pqueue_add_freelist.exit, label %.lr.ph.i28, !llvm.loop !28
 
 pqueue_add_freelist.exit:                         ; preds = %.lr.ph.i28, %30
   %36 = add i64 %.07.i32, -1
@@ -307,7 +307,7 @@ define ptr @ossl_pqueue_pop(ptr noundef captures(address_is_null) %0) local_unna
   %65 = phi i64 [ %53, %42 ], [ %.pre37.i, %56 ]
   %.2.i = phi i64 [ %52, %42 ], [ %spec.select32.i, %56 ]
   %66 = icmp ugt i64 %65, %.2.i
-  br i1 %66, label %.lr.ph.i, label %pqueue_move_up.exit, !llvm.loop !27
+  br i1 %66, label %.lr.ph.i, label %pqueue_move_up.exit, !llvm.loop !29
 
 pqueue_move_up.exit:                              ; preds = %64, %.lr.ph.i, %31, %8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -332,7 +332,7 @@ define ptr @ossl_pqueue_remove(ptr noundef captures(address_is_null) %0, i64 nou
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = load i64, ptr %6, align 8, !tbaa !23
+  %7 = load i64, ptr %6, align 8, !tbaa !25
   %.not = icmp ult i64 %1, %7
   br i1 %.not, label %8, label %37
 
@@ -388,7 +388,7 @@ define ptr @ossl_pqueue_remove(ptr noundef captures(address_is_null) %0, i64 nou
   store i64 %27, ptr %35, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.not.i = icmp ult i64 %26, 2
-  br i1 %.not.i, label %pqueue_force_bottom.exit, label %.preheader, !llvm.loop !28
+  br i1 %.not.i, label %pqueue_force_bottom.exit, label %.preheader, !llvm.loop !30
 
 pqueue_force_bottom.exit:                         ; preds = %.preheader, %25
   %36 = tail call ptr @ossl_pqueue_pop(ptr noundef nonnull %0)
@@ -421,7 +421,7 @@ define ptr @ossl_pqueue_new(ptr noundef %0) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %7, align 8, !tbaa !19
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 8, ptr %8, align 8, !tbaa !23
+  store i64 8, ptr %8, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -453,7 +453,7 @@ ossl_pqueue_free.exit:                            ; preds = %6
   store i64 %.0.in14.i, ptr %16, align 8, !tbaa !13
   %.0.i = add nuw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %.0.i, 8
-  br i1 %exitcond.not.i, label %pqueue_add_freelist.exit, label %.lr.ph.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %pqueue_add_freelist.exit, label %.lr.ph.i, !llvm.loop !28
 
 pqueue_add_freelist.exit:                         ; preds = %.lr.ph.i
   store i64 7, ptr %10, align 8, !tbaa !11
@@ -506,7 +506,7 @@ define void @ossl_pqueue_pop_free(ptr noundef %0, ptr noundef readonly captures(
   %8 = add nuw i64 %.08, 1
   %9 = load i64, ptr %3, align 8, !tbaa !3
   %10 = icmp ult i64 %8, %9
-  br i1 %10, label %.lr.ph, label %ossl_pqueue_free.exit, !llvm.loop !29
+  br i1 %10, label %.lr.ph, label %ossl_pqueue_free.exit, !llvm.loop !31
 
 ossl_pqueue_free.exit:                            ; preds = %.lr.ph, %.preheader
   %11 = load ptr, ptr %0, align 8, !tbaa !15
@@ -576,10 +576,12 @@ attributes #7 = { nounwind }
 !20 = !{i64 0, i64 8, !21, i64 8, i64 8, !22}
 !21 = !{!6, !6, i64 0}
 !22 = !{!10, !10, i64 0}
-!23 = !{!4, !10, i64 32}
-!24 = distinct !{!24, !25}
-!25 = !{!"llvm.loop.mustprogress"}
-!26 = distinct !{!26, !25}
-!27 = distinct !{!27, !25}
-!28 = distinct !{!28, !25}
-!29 = distinct !{!29, !25}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!4, !10, i64 32}
+!26 = distinct !{!26, !27, !24}
+!27 = !{!"llvm.loop.mustprogress"}
+!28 = distinct !{!28, !27, !24}
+!29 = distinct !{!29, !27, !24}
+!30 = distinct !{!30, !27, !24}
+!31 = distinct !{!31, !27, !24}

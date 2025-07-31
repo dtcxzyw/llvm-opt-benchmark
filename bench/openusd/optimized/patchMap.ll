@@ -222,7 +222,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %.1.lcssa = phi i32 [ %.02637, %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit ], [ %54, %._crit_edge.loopexit ]
   %55 = add nuw nsw i32 %.038, 1
   %exitcond.not = icmp eq i32 %55, %11
-  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !7
+  br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !8
 
 ._crit_edge40:                                    ; preds = %._crit_edge, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE6resizeEm.exit
   ret void
@@ -279,11 +279,11 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allo
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i ], [ %37, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i ]
   %.0911.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i ], [ %26, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i, i64 16, i1 false), !alias.scope !9
   %38 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %38, %33
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %26, null
@@ -380,7 +380,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
   store i32 %83, ptr %85, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %84, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %84, !llvm.loop !14
 
 86:                                               ; preds = %61
   %87 = load i8, ptr %0, align 8
@@ -479,11 +479,11 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenE
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i.i = phi ptr [ %139, %.lr.ph.i.i.i.i.i.i.i.i ], [ %136, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
   %.0911.i.i.i.i.i.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i.i.i.i.i.i ], [ %112, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i, i64 16, i1 false), !alias.scope !15
   %138 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i, i64 16
   %139 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %138, %118
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %136, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i ], [ %139, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -516,7 +516,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.ex
   %.0.i = phi ptr [ %.039108, %108 ], [ %116, %113 ], [ %147, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i ]
   %148 = add nuw nsw i32 %.040107, 1
   %exitcond.not = icmp eq i32 %.040107, %67
-  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %97, !llvm.loop !18
+  br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %97, !llvm.loop !19
 
 149:                                              ; preds = %86
   %150 = add nuw nsw i32 %91, %89
@@ -695,11 +695,11 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenE
 .lr.ph.i.i.i.i.i.i.i.i57:                         ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53, %.lr.ph.i.i.i.i.i.i.i.i57
   %.012.i.i.i.i.i.i.i.i58 = phi ptr [ %239, %.lr.ph.i.i.i.i.i.i.i.i57 ], [ %236, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53 ]
   %.0911.i.i.i.i.i.i.i.i59 = phi ptr [ %238, %.lr.ph.i.i.i.i.i.i.i.i57 ], [ %212, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i.i.i.i58, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i59, i64 16, i1 false), !alias.scope !19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i.i.i.i.i58, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i.i.i.i.i59, i64 16, i1 false), !alias.scope !20
   %238 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i59, i64 16
   %239 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i58, i64 16
   %.not.i.i.i.i.i.i.i.i60 = icmp eq ptr %238, %218
-  br i1 %.not.i.i.i.i.i.i.i.i60, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61, label %.lr.ph.i.i.i.i.i.i.i.i57, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i.i.i.i60, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61, label %.lr.ph.i.i.i.i.i.i.i.i57, !llvm.loop !13
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61: ; preds = %.lr.ph.i.i.i.i.i.i.i.i57, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53
   %.0.lcssa.i.i.i.i.i.i.i.i62 = phi ptr [ %236, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i.i53 ], [ %239, %.lr.ph.i.i.i.i.i.i.i.i57 ]
@@ -733,12 +733,12 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.ex
   %248 = add nuw nsw i32 %.038115, 1
   %249 = fmul double %.096112, 5.000000e-01
   %exitcond124.not = icmp eq i32 %.038115, %67
-  br i1 %exitcond124.not, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %181, !llvm.loop !23
+  br i1 %exitcond124.not, label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, label %181, !llvm.loop !24
 
 _ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit: ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65, %84, %92, %_ZNK10OpenSubdiv6v3_6_03Far10PatchParam19UnnormalizeTriangleIdEEvRT_S5_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond126.not, label %._crit_edge, label %61, !llvm.loop !24
+  br i1 %exitcond126.not, label %._crit_edge, label %61, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit
   %250 = load ptr, ptr %46, align 8
@@ -768,7 +768,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit: ; pre
   %259 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 16
   %260 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i67 = icmp eq ptr %259, %250
-  br i1 %.not.i.i.i.i.i67, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, label %.lr.ph.i.i.i.i.i66, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i67, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit, label %.lr.ph.i.i.i.i.i66, !llvm.loop !26
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EEC2ERKS6_.exit: ; preds = %.lr.ph.i.i.i.i.i66, %._crit_edge
   %.sink = phi ptr [ null, %._crit_edge ], [ %258, %.lr.ph.i.i.i.i.i66 ]
@@ -848,7 +848,7 @@ define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11Pat
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 12
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %24
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !27
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i, %19
   %.0.i.i.i = phi ptr [ %20, %19 ], [ %24, %.lr.ph.i.i.i.i.i.i.i ]
@@ -886,7 +886,7 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE12_M_che
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.06.i.i.i.i.i.i.i32, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i32, i64 12
   %.not.i.i.i.i.i.i.i33 = icmp eq ptr %39, %38
-  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !26
+  br i1 %.not.i.i.i.i.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i.i.i.i.i31, !llvm.loop !27
 
 _ZSt27__uninitialized_default_n_aIPN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleEmS4_ET_S6_T0_RSaIT1_E.exit35: ; preds = %.lr.ph.i.i.i.i.i.i.i31, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE12_M_check_lenEmPKc.exit
   %40 = icmp sgt i64 %9, 0
@@ -988,11 +988,11 @@ _ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenE
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %26, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit ]
   %.0911.i.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i.i ], [ %6, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i, i64 16, i1 false), !alias.scope !27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.0911.i.i.i.i, i64 16, i1 false), !alias.scope !28
   %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %29, %5
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE12_M_check_lenEmPKc.exit
   %.not.i35 = icmp eq ptr %6, null
@@ -1061,29 +1061,30 @@ attributes #15 = { nounwind }
 !2 = !{i32 8, !"PIC Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!10 = distinct !{!10, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!11 = distinct !{!11, !10, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = !{!15, !17}
-!15 = distinct !{!15, !16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!16 = distinct !{!16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!17 = distinct !{!17, !16, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!18 = distinct !{!18, !6}
-!19 = !{!20, !22}
-!20 = distinct !{!20, !21, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!21 = distinct !{!21, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!22 = distinct !{!22, !21, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!23 = distinct !{!23, !6}
-!24 = distinct !{!24, !6}
-!25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = !{!28, !30}
-!28 = distinct !{!28, !29, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!29 = distinct !{!29, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
-!30 = distinct !{!30, !29, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!11 = distinct !{!11, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!12 = distinct !{!12, !11, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = !{!16, !18}
+!16 = distinct !{!16, !17, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!17 = distinct !{!17, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!18 = distinct !{!18, !17, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!19 = distinct !{!19, !6, !7}
+!20 = !{!21, !23}
+!21 = distinct !{!21, !22, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!22 = distinct !{!22, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!23 = distinct !{!23, !22, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!24 = distinct !{!24, !6, !7}
+!25 = distinct !{!25, !6, !7}
+!26 = distinct !{!26, !6, !7}
+!27 = distinct !{!27, !6, !7}
+!28 = !{!29, !31}
+!29 = distinct !{!29, !30, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!30 = distinct !{!30, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_"}
+!31 = distinct !{!31, !30, !"_ZSt19__relocate_object_aIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}

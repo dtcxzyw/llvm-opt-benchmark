@@ -299,7 +299,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   store <8 x i64> %162, ptr %163, align 64
   %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i68, 16
-  br i1 %exitcond.not.i, label %.preheader920.i, label %156, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.preheader920.i, label %156, !llvm.loop !7
 
 .preheader920.i:                                  ; preds = %156, %.preheader920.i
   %164 = phi i1 [ false, %.preheader920.i ], [ true, %156 ]
@@ -477,7 +477,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   %329 = shufflevector <8 x i64> %317, <8 x i64> %305, <8 x i32> <i32 6, i32 7, i32 4, i32 5, i32 13, i32 14, i32 15, i32 12>
   store <8 x i64> %328, ptr %182, align 64
   store <8 x i64> %329, ptr %184, align 64
-  br i1 %164, label %.preheader920.i, label %.preheader919.i, !llvm.loop !7
+  br i1 %164, label %.preheader920.i, label %.preheader919.i, !llvm.loop !8
 
 .preheader919.i:                                  ; preds = %.preheader920.i, %.preheader919.i
   %330 = phi i1 [ false, %.preheader919.i ], [ true, %.preheader920.i ]
@@ -655,7 +655,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   %495 = shufflevector <8 x i64> %470, <8 x i64> %471, <8 x i32> <i32 3, i32 0, i32 7, i32 4, i32 11, i32 8, i32 15, i32 12>
   store <8 x i64> %494, ptr %348, align 64
   store <8 x i64> %495, ptr %350, align 64
-  br i1 %330, label %.preheader919.i, label %.preheader.i, !llvm.loop !8
+  br i1 %330, label %.preheader919.i, label %.preheader.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %.preheader919.i, %.preheader.i
   %indvars.iv932.i = phi i64 [ %indvars.iv.next933.i, %.preheader.i ], [ 0, %.preheader919.i ]
@@ -670,7 +670,7 @@ index_alpha.exit:                                 ; preds = %104, %109, %113, %1
   store <8 x i64> %500, ptr %502, align 1
   %indvars.iv.next933.i = add nuw nsw i64 %indvars.iv932.i, 1
   %exitcond935.not.i = icmp eq i64 %indvars.iv.next933.i, 16
-  br i1 %exitcond935.not.i, label %fill_block.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond935.not.i, label %fill_block.exit, label %.preheader.i, !llvm.loop !10
 
 fill_block.exit:                                  ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #6
@@ -683,7 +683,7 @@ fill_block.exit:                                  ; preds = %.preheader.i
   %506 = load i32, ptr %68, align 4
   %507 = zext i32 %506 to i64
   %508 = icmp samesign ult i64 %indvars.iv.next, %507
-  br i1 %508, label %85, label %.loopexit, !llvm.loop !10
+  br i1 %508, label %85, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %503, %58, %3
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %10) #6
@@ -715,7 +715,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   store <8 x i64> %14, ptr %15, align 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.preheader924, label %5, !llvm.loop !11
+  br i1 %exitcond.not, label %.preheader924, label %5, !llvm.loop !12
 
 .preheader924:                                    ; preds = %5, %.preheader924
   %16 = phi i1 [ false, %.preheader924 ], [ true, %5 ]
@@ -894,7 +894,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   %182 = shufflevector <8 x i64> %170, <8 x i64> %158, <8 x i32> <i32 6, i32 7, i32 4, i32 5, i32 13, i32 14, i32 15, i32 12>
   store <8 x i64> %181, ptr %35, align 64
   store <8 x i64> %182, ptr %37, align 64
-  br i1 %16, label %.preheader924, label %.preheader923, !llvm.loop !12
+  br i1 %16, label %.preheader924, label %.preheader923, !llvm.loop !13
 
 .preheader923:                                    ; preds = %.preheader924, %.preheader923
   %183 = phi i1 [ false, %.preheader923 ], [ true, %.preheader924 ]
@@ -1073,7 +1073,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   %349 = shufflevector <8 x i64> %324, <8 x i64> %325, <8 x i32> <i32 3, i32 0, i32 7, i32 4, i32 11, i32 8, i32 15, i32 12>
   store <8 x i64> %348, ptr %202, align 64
   store <8 x i64> %349, ptr %204, align 64
-  br i1 %183, label %.preheader923, label %.preheader, !llvm.loop !13
+  br i1 %183, label %.preheader923, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader923, %.preheader
   %indvars.iv936 = phi i64 [ %indvars.iv.next937, %.preheader ], [ 0, %.preheader923 ]
@@ -1088,7 +1088,7 @@ define internal fastcc void @fill_block_with_xor(ptr noundef nonnull captures(no
   store <8 x i64> %354, ptr %356, align 1
   %indvars.iv.next937 = add nuw nsw i64 %indvars.iv936, 1
   %exitcond939.not = icmp eq i64 %indvars.iv.next937, 16
-  br i1 %exitcond939.not, label %357, label %.preheader, !llvm.loop !14
+  br i1 %exitcond939.not, label %357, label %.preheader, !llvm.loop !15
 
 357:                                              ; preds = %.preheader
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #6
@@ -1121,14 +1121,15 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}

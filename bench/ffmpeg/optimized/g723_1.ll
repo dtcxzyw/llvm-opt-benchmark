@@ -42,7 +42,7 @@ define range(i32 -3, 12) i32 @ff_g723_1_scale_vector(ptr noundef writeonly captu
   %spec.select.i = select i1 %.not.i, i32 %.021.lcssa, i32 %10
   %11 = zext nneg i32 %spec.select.i to i64
   %12 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %11
-  %13 = load i8, ptr %12, align 1, !tbaa !10
+  %13 = load i8, ptr %12, align 1, !tbaa !11
   %14 = zext i8 %13 to i32
   %.neg25 = select i1 %.not.i, i32 14, i32 6
   %15 = sub nsw i32 %.neg25, %14
@@ -65,7 +65,7 @@ define range(i32 -3, 12) i32 @ff_g723_1_scale_vector(ptr noundef writeonly captu
   store i16 %22, ptr %23, align 2, !tbaa !4
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !11
+  br i1 %exitcond38.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !12
 
 ._crit_edge31:                                    ; preds = %.lr.ph30, %._crit_edge
   %24 = add nsw i32 %16, -3
@@ -91,7 +91,7 @@ define range(i32 -2147483648, 2147483647) i32 @ff_g723_1_normalize_bits(i32 noun
   %.1.i = select i1 %.not11.i, i32 %spec.select12.i, i32 %5
   %6 = zext nneg i32 %.110.i to i64
   %7 = getelementptr inbounds nuw [256 x i8], ptr @ff_log2_tab, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1, !tbaa !10
+  %8 = load i8, ptr %7, align 1, !tbaa !11
   %9 = zext i8 %8 to i32
   %10 = add nuw nsw i32 %.1.i, %9
   %11 = xor i32 %10, -1
@@ -141,7 +141,7 @@ define void @ff_g723_1_get_residual(ptr noundef writeonly captures(none) initial
   store i16 %20, ptr %21, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
-  br i1 %exitcond.not, label %22, label %13, !llvm.loop !12
+  br i1 %exitcond.not, label %22, label %13, !llvm.loop !13
 
 22:                                               ; preds = %13
   ret void
@@ -175,12 +175,12 @@ define void @ff_g723_1_gen_dirac_train(ptr noundef captures(none) %0, i32 nounde
   store i16 %10, ptr %gep, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = icmp slt i64 %indvars.iv.next, %6
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, %5
   %12 = icmp slt i64 %indvars.iv.next17, 60
-  br i1 %12, label %.lr.ph.preheader, label %._crit_edge14, !llvm.loop !14
+  br i1 %12, label %.lr.ph.preheader, label %._crit_edge14, !llvm.loop !15
 
 ._crit_edge14:                                    ; preds = %._crit_edge, %2
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %3) #7
@@ -194,7 +194,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define void @ff_g723_1_gen_acb_excitation(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca [64 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #7
-  %7 = load i32, ptr %3, align 4, !tbaa !15
+  %7 = load i32, ptr %3, align 4, !tbaa !16
   %8 = add nsw i32 %7, %2
   %9 = add nsw i32 %8, -1
   %10 = sub nsw i32 144, %8
@@ -224,7 +224,7 @@ define void @ff_g723_1_gen_acb_excitation(ptr noundef writeonly captures(none) %
   store i16 %26, ptr %27, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64
-  br i1 %exitcond.not.i, label %ff_g723_1_get_residual.exit, label %19, !llvm.loop !12
+  br i1 %exitcond.not.i, label %ff_g723_1_get_residual.exit, label %19, !llvm.loop !13
 
 ff_g723_1_get_residual.exit:                      ; preds = %19
   %28 = icmp eq i32 %4, 0
@@ -232,7 +232,7 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
   %or.cond = and i1 %29, %28
   %ff_g723_1_adaptive_cb_gain85.ff_g723_1_adaptive_cb_gain170 = select i1 %or.cond, ptr @ff_g723_1_adaptive_cb_gain85, ptr @ff_g723_1_adaptive_cb_gain170
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %31 = load i32, ptr %30, align 4, !tbaa !18
+  %31 = load i32, ptr %30, align 4, !tbaa !19
   %32 = mul nsw i32 %31, 20
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i16, ptr %ff_g723_1_adaptive_cb_gain85.ff_g723_1_adaptive_cb_gain170, i64 %33
@@ -263,7 +263,7 @@ ff_g723_1_get_residual.exit:                      ; preds = %19
   store i16 %50, ptr %51, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 60
-  br i1 %exitcond.not, label %52, label %35, !llvm.loop !19
+  br i1 %exitcond.not, label %52, label %35, !llvm.loop !20
 
 52:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #7
@@ -335,10 +335,10 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   store i16 %47, ptr %15, align 2, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
-  br i1 %exitcond.not.i, label %48, label %14, !llvm.loop !20
+  br i1 %exitcond.not.i, label %48, label %14, !llvm.loop !21
 
 48:                                               ; preds = %14
-  store i32 268435456, ptr %4, align 16, !tbaa !21
+  store i32 268435456, ptr %4, align 16, !tbaa !22
   %49 = load i16, ptr %.018, align 2, !tbaa !4
   %50 = sext i16 %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %.018, i64 4
@@ -346,11 +346,11 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %53 = sext i16 %52 to i32
   %54 = add nsw i32 %53, %50
   %55 = shl nsw i32 %54, 14
-  store i32 %55, ptr %9, align 4, !tbaa !21
+  store i32 %55, ptr %9, align 4, !tbaa !22
   %56 = mul nsw i32 %53, %50
   %57 = add nsw i32 %56, 536870912
-  store i32 %57, ptr %10, align 8, !tbaa !21
-  store i32 268435456, ptr %5, align 16, !tbaa !21
+  store i32 %57, ptr %10, align 8, !tbaa !22
+  store i32 268435456, ptr %5, align 16, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %.018, i64 2
   %59 = load i16, ptr %58, align 2, !tbaa !4
   %60 = sext i16 %59 to i32
@@ -359,10 +359,10 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %63 = sext i16 %62 to i32
   %64 = add nsw i32 %63, %60
   %65 = shl nsw i32 %64, 14
-  store i32 %65, ptr %11, align 4, !tbaa !21
+  store i32 %65, ptr %11, align 4, !tbaa !22
   %66 = mul nsw i32 %63, %60
   %67 = add nsw i32 %66, 536870912
-  store i32 %67, ptr %12, align 8, !tbaa !21
+  store i32 %67, ptr %12, align 8, !tbaa !22
   br label %68
 
 68:                                               ; preds = %139, %48
@@ -371,9 +371,9 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %70 = phi i32 [ 268435456, %48 ], [ %141, %139 ]
   %71 = add nsw i64 %indvars.iv98.i, -1
   %72 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !21
+  %73 = load i32, ptr %72, align 4, !tbaa !22
   %74 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv98.i
-  %75 = load i32, ptr %74, align 4, !tbaa !21
+  %75 = load i32, ptr %74, align 4, !tbaa !22
   %.idx.i = shl nuw nsw i64 %indvars.iv98.i, 2
   %76 = getelementptr inbounds nuw i8, ptr %.018, i64 %.idx.i
   %77 = load i16, ptr %76, align 2, !tbaa !4
@@ -388,11 +388,11 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %86 = tail call i32 @llvm.sadd.sat.i32(i32 %73, i32 %85)
   %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
   %87 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv.next99.i
-  store i32 %86, ptr %87, align 4, !tbaa !21
+  store i32 %86, ptr %87, align 4, !tbaa !22
   %88 = getelementptr inbounds [6 x i32], ptr %5, i64 0, i64 %71
-  %89 = load i32, ptr %88, align 4, !tbaa !21
+  %89 = load i32, ptr %88, align 4, !tbaa !22
   %90 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv98.i
-  %91 = load i32, ptr %90, align 4, !tbaa !21
+  %91 = load i32, ptr %90, align 4, !tbaa !22
   %92 = getelementptr inbounds nuw i8, ptr %76, i64 2
   %93 = load i16, ptr %92, align 2, !tbaa !4
   %94 = sext i16 %93 to i32
@@ -405,7 +405,7 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %101 = add nsw i32 %100, %97
   %102 = tail call i32 @llvm.sadd.sat.i32(i32 %89, i32 %101)
   %103 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv.next99.i
-  store i32 %102, ptr %103, align 4, !tbaa !21
+  store i32 %102, ptr %103, align 4, !tbaa !22
   %104 = shl nsw i32 %78, 1
   %105 = shl nsw i32 %94, 1
   br label %106
@@ -421,54 +421,54 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %112 = mul nsw i32 %111, %78
   %113 = ashr i32 %112, 15
   %114 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv100.i
-  %115 = load i32, ptr %114, align 4, !tbaa !21
+  %115 = load i32, ptr %114, align 4, !tbaa !22
   %116 = ashr i32 %115, 1
   %117 = add nsw i64 %indvars.iv100.i, -2
   %118 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %117
-  %119 = load i32, ptr %118, align 4, !tbaa !21
+  %119 = load i32, ptr %118, align 4, !tbaa !22
   %120 = ashr i32 %119, 1
   %121 = add i32 %116, %110
   %122 = add i32 %121, %113
   %123 = add nsw i32 %122, %120
-  store i32 %123, ptr %114, align 4, !tbaa !21
+  store i32 %123, ptr %114, align 4, !tbaa !22
   %124 = ashr i32 %107, 16
   %125 = mul i32 %105, %124
   %126 = and i32 %107, 65535
   %127 = mul nsw i32 %126, %94
   %128 = ashr i32 %127, 15
   %129 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv100.i
-  %130 = load i32, ptr %129, align 4, !tbaa !21
+  %130 = load i32, ptr %129, align 4, !tbaa !22
   %131 = ashr i32 %130, 1
   %132 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %117
-  %133 = load i32, ptr %132, align 4, !tbaa !21
+  %133 = load i32, ptr %132, align 4, !tbaa !22
   %134 = ashr i32 %133, 1
   %135 = add i32 %128, %125
   %136 = add i32 %135, %131
   %137 = add nsw i32 %136, %134
-  store i32 %137, ptr %129, align 4, !tbaa !21
+  store i32 %137, ptr %129, align 4, !tbaa !22
   %138 = icmp samesign ugt i64 %indvars.iv100.i, 2
-  br i1 %138, label %106, label %139, !llvm.loop !22
+  br i1 %138, label %106, label %139, !llvm.loop !23
 
 139:                                              ; preds = %106
   %140 = lshr i32 %69, 1
-  store i32 %140, ptr %4, align 16, !tbaa !21
+  store i32 %140, ptr %4, align 16, !tbaa !22
   %141 = lshr i32 %70, 1
-  store i32 %141, ptr %5, align 16, !tbaa !21
+  store i32 %141, ptr %5, align 16, !tbaa !22
   %142 = shl nsw i32 %78, 16
   %143 = trunc nuw nsw i64 %indvars.iv98.i to i32
   %144 = ashr exact i32 %142, %143
-  %145 = load i32, ptr %9, align 4, !tbaa !21
+  %145 = load i32, ptr %9, align 4, !tbaa !22
   %146 = add nsw i32 %145, %144
   %147 = ashr i32 %146, 1
-  store i32 %147, ptr %9, align 4, !tbaa !21
+  store i32 %147, ptr %9, align 4, !tbaa !22
   %148 = shl nsw i32 %94, 16
   %149 = ashr exact i32 %148, %143
-  %150 = load i32, ptr %11, align 4, !tbaa !21
+  %150 = load i32, ptr %11, align 4, !tbaa !22
   %151 = add nsw i32 %150, %149
   %152 = ashr i32 %151, 1
-  store i32 %152, ptr %11, align 4, !tbaa !21
+  store i32 %152, ptr %11, align 4, !tbaa !22
   %exitcond104.not.i = icmp eq i64 %indvars.iv.next99.i, 5
-  br i1 %exitcond104.not.i, label %.preheader.i, label %68, !llvm.loop !23
+  br i1 %exitcond104.not.i, label %.preheader.i, label %68, !llvm.loop !24
 
 .preheader.i:                                     ; preds = %139, %.preheader.i
   %153 = phi i32 [ %160, %.preheader.i ], [ 33554432, %139 ]
@@ -476,11 +476,11 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %.preheader.i ], [ 0, %139 ]
   %indvars.iv.next106.i = add nuw nsw i64 %indvars.iv105.i, 1
   %155 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv.next106.i
-  %156 = load i32, ptr %155, align 4, !tbaa !21
+  %156 = load i32, ptr %155, align 4, !tbaa !22
   %157 = add nsw i32 %156, %154
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds nuw [6 x i32], ptr %5, i64 0, i64 %indvars.iv.next106.i
-  %160 = load i32, ptr %159, align 4, !tbaa !21
+  %160 = load i32, ptr %159, align 4, !tbaa !22
   %161 = sub nsw i32 %160, %153
   %162 = sext i32 %161 to i64
   %163 = add nsw i64 %162, %158
@@ -511,7 +511,7 @@ define void @ff_g723_1_lsp_interpolate(ptr noundef %0, ptr noundef %1, ptr nound
   %183 = getelementptr inbounds nuw i16, ptr %.018, i64 %182
   store i16 %181, ptr %183, align 2, !tbaa !4
   %exitcond108.not.i = icmp eq i64 %indvars.iv.next106.i, 5
-  br i1 %exitcond108.not.i, label %lsp2lpc.exit, label %.preheader.i, !llvm.loop !24
+  br i1 %exitcond108.not.i, label %lsp2lpc.exit, label %.preheader.i, !llvm.loop !25
 
 lsp2lpc.exit:                                     ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
@@ -519,7 +519,7 @@ lsp2lpc.exit:                                     ; preds = %.preheader.i
   %184 = getelementptr inbounds nuw i8, ptr %.018, i64 20
   %185 = add nuw nsw i32 %.01517, 1
   %exitcond.not = icmp eq i32 %185, 4
-  br i1 %exitcond.not, label %186, label %13, !llvm.loop !25
+  br i1 %exitcond.not, label %186, label %13, !llvm.loop !26
 
 186:                                              ; preds = %lsp2lpc.exit
   ret void
@@ -533,16 +533,16 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
   br i1 %.not, label %._crit_edge, label %6
 
 ._crit_edge:                                      ; preds = %4
-  %.pre = load i8, ptr %2, align 1, !tbaa !10
+  %.pre = load i8, ptr %2, align 1, !tbaa !11
   %5 = zext i8 %.pre to i64
   br label %9
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  store i8 0, ptr %7, align 1, !tbaa !10
+  store i8 0, ptr %7, align 1, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i8 0, ptr %8, align 1, !tbaa !10
-  store i8 0, ptr %2, align 1, !tbaa !10
+  store i8 0, ptr %8, align 1, !tbaa !11
+  store i8 0, ptr %2, align 1, !tbaa !11
   br label %9
 
 9:                                                ; preds = %._crit_edge, %6
@@ -552,57 +552,57 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
   %11 = getelementptr inbounds nuw [256 x [3 x i16]], ptr @ff_g723_1_lsp_band0, i64 0, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !4
   store i16 %12, ptr %0, align 2, !tbaa !4
-  %13 = load i8, ptr %2, align 1, !tbaa !10
+  %13 = load i8, ptr %2, align 1, !tbaa !11
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw [256 x [3 x i16]], ptr @ff_g723_1_lsp_band0, i64 0, i64 %14, i64 1
   %16 = load i16, ptr %15, align 2, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %16, ptr %17, align 2, !tbaa !4
-  %18 = load i8, ptr %2, align 1, !tbaa !10
+  %18 = load i8, ptr %2, align 1, !tbaa !11
   %19 = zext i8 %18 to i64
   %20 = getelementptr inbounds nuw [256 x [3 x i16]], ptr @ff_g723_1_lsp_band0, i64 0, i64 %19, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %21, ptr %22, align 2, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %24 = load i8, ptr %23, align 1, !tbaa !10
+  %24 = load i8, ptr %23, align 1, !tbaa !11
   %25 = zext i8 %24 to i64
   %26 = getelementptr inbounds nuw [256 x [3 x i16]], ptr @ff_g723_1_lsp_band1, i64 0, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !4
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %27, ptr %28, align 2, !tbaa !4
-  %29 = load i8, ptr %23, align 1, !tbaa !10
+  %29 = load i8, ptr %23, align 1, !tbaa !11
   %30 = zext i8 %29 to i64
   %31 = getelementptr inbounds nuw [256 x [3 x i16]], ptr @ff_g723_1_lsp_band1, i64 0, i64 %30, i64 1
   %32 = load i16, ptr %31, align 2, !tbaa !4
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %32, ptr %33, align 2, !tbaa !4
-  %34 = load i8, ptr %23, align 1, !tbaa !10
+  %34 = load i8, ptr %23, align 1, !tbaa !11
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw [256 x [3 x i16]], ptr @ff_g723_1_lsp_band1, i64 0, i64 %35, i64 2
   %37 = load i16, ptr %36, align 2, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 %37, ptr %38, align 2, !tbaa !4
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 2
-  %40 = load i8, ptr %39, align 1, !tbaa !10
+  %40 = load i8, ptr %39, align 1, !tbaa !11
   %41 = zext i8 %40 to i64
   %42 = getelementptr inbounds nuw [256 x [4 x i16]], ptr @ff_g723_1_lsp_band2, i64 0, i64 %41
   %43 = load i16, ptr %42, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i16 %43, ptr %44, align 2, !tbaa !4
-  %45 = load i8, ptr %39, align 1, !tbaa !10
+  %45 = load i8, ptr %39, align 1, !tbaa !11
   %46 = zext i8 %45 to i64
   %47 = getelementptr inbounds nuw [256 x [4 x i16]], ptr @ff_g723_1_lsp_band2, i64 0, i64 %46, i64 1
   %48 = load i16, ptr %47, align 2, !tbaa !4
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i16 %48, ptr %49, align 2, !tbaa !4
-  %50 = load i8, ptr %39, align 1, !tbaa !10
+  %50 = load i8, ptr %39, align 1, !tbaa !11
   %51 = zext i8 %50 to i64
   %52 = getelementptr inbounds nuw [256 x [4 x i16]], ptr @ff_g723_1_lsp_band2, i64 0, i64 %51, i64 2
   %53 = load i16, ptr %52, align 4, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %53, ptr %54, align 2, !tbaa !4
-  %55 = load i8, ptr %39, align 1, !tbaa !10
+  %55 = load i8, ptr %39, align 1, !tbaa !11
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw [256 x [4 x i16]], ptr @ff_g723_1_lsp_band2, i64 0, i64 %56, i64 3
   %58 = load i16, ptr %57, align 2, !tbaa !4
@@ -630,7 +630,7 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
   store i16 %75, ptr %71, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %.preheader81, label %60, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader81, label %60, !llvm.loop !27
 
 .preheader81:                                     ; preds = %60, %105
   %.17185 = phi i32 [ %106, %105 ], [ 0, %60 ]
@@ -667,12 +667,12 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
 94:                                               ; preds = %79, %89
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 10
-  br i1 %exitcond90.not, label %.preheader, label %79, !llvm.loop !27
+  br i1 %exitcond90.not, label %.preheader, label %79, !llvm.loop !28
 
 95:                                               ; preds = %.preheader
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next92, 10
-  br i1 %exitcond94.not, label %.critedge, label %.preheader, !llvm.loop !28
+  br i1 %exitcond94.not, label %.critedge, label %.preheader, !llvm.loop !29
 
 .preheader:                                       ; preds = %94, %95
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %95 ], [ 1, %94 ]
@@ -690,7 +690,7 @@ define void @ff_g723_1_inverse_quant(ptr noundef captures(none) initializes((0, 
 105:                                              ; preds = %.preheader
   %106 = add nuw nsw i32 %.17185, 1
   %exitcond95 = icmp eq i32 %106, 10
-  br i1 %exitcond95, label %.critedge79, label %.preheader81, !llvm.loop !29
+  br i1 %exitcond95, label %.critedge79, label %.preheader81, !llvm.loop !30
 
 .critedge79:                                      ; preds = %105
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(20) %0, ptr noundef nonnull align 2 dereferenceable(20) %1, i64 20, i1 false)
@@ -740,25 +740,26 @@ attributes #7 = { nounwind }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = !{!16, !17, i64 0}
-!16 = !{!"G723_1_Subframe", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20, !17, i64 24}
-!17 = !{!"int", !6, i64 0}
-!18 = !{!16, !17, i64 4}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = !{!17, !17, i64 0}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = !{!17, !18, i64 0}
+!17 = !{!"G723_1_Subframe", !18, i64 0, !18, i64 4, !18, i64 8, !18, i64 12, !18, i64 16, !18, i64 20, !18, i64 24}
+!18 = !{!"int", !6, i64 0}
+!19 = !{!17, !18, i64 4}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = !{!18, !18, i64 0}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}

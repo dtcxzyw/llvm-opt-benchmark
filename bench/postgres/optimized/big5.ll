@@ -48,7 +48,7 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
 16:                                               ; preds = %.preheader32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %24, label %.preheader32, !llvm.loop !5
+  br i1 %exitcond.not, label %24, label %.preheader32, !llvm.loop !6
 
 .preheader32:                                     ; preds = %14, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %14 ]
@@ -179,7 +179,7 @@ define internal fastcc zeroext i16 @BinarySearchRange(ptr noundef readonly captu
   %71 = add i32 %.1, %.161
   %72 = ashr i32 %71, 1
   %.not = icmp sgt i32 %.1, %.161
-  br i1 %.not, label %.loopexit, label %5, !llvm.loop !6
+  br i1 %.not, label %.loopexit, label %5, !llvm.loop !7
 
 .loopexit:                                        ; preds = %68, %13, %48, %24
   %.059 = phi i16 [ %47, %24 ], [ %67, %48 ], [ 0, %13 ], [ 0, %68 ]
@@ -207,7 +207,7 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
 8:                                                ; preds = %.preheader
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next31, 7
-  br i1 %exitcond33.not, label %.loopexit, label %.preheader, !llvm.loop !7
+  br i1 %exitcond33.not, label %.loopexit, label %.preheader, !llvm.loop !8
 
 .preheader:                                       ; preds = %2, %8
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %8 ], [ 0, %2 ]
@@ -224,7 +224,7 @@ define hidden zeroext i16 @CNStoBIG5(i16 noundef zeroext %0, i8 noundef zeroext 
 15:                                               ; preds = %.preheader20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader20, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.preheader20, !llvm.loop !9
 
 .preheader20:                                     ; preds = %2, %15
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %2 ]
@@ -252,9 +252,10 @@ attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}

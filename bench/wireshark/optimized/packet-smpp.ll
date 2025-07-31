@@ -2107,7 +2107,7 @@ smpp_handle_string.exit.i:                        ; preds = %27, %.lr.ph.i
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %30, ptr noundef %1, i32 noundef %29, i32 noundef 4, i32 noundef 0)
   %32 = add i32 %29, 4
   %.not16.i = icmp eq i8 %17, 0
-  br i1 %.not16.i, label %smpp_handle_dlist_resp.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not16.i, label %smpp_handle_dlist_resp.exit, label %.lr.ph.i, !llvm.loop !11
 
 smpp_handle_dlist_resp.exit:                      ; preds = %smpp_handle_string.exit.i, %smpp_handle_string.exit
   %.025.lcssa.i = phi i32 [ %11, %smpp_handle_string.exit ], [ %32, %smpp_handle_string.exit.i ]
@@ -2755,7 +2755,7 @@ smpp_handle_string.exit19.i:                      ; preds = %67, %63
 70:                                               ; preds = %smpp_handle_string.exit19.i, %smpp_handle_string.exit.i
   %.1.i = phi i32 [ %62, %smpp_handle_string.exit.i ], [ %69, %smpp_handle_string.exit19.i ]
   %.not18.i = icmp eq i8 %46, 0
-  br i1 %.not18.i, label %smpp_handle_dlist.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not18.i, label %smpp_handle_dlist.exit, label %.lr.ph.i, !llvm.loop !12
 
 smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_string_return.exit
   %.030.lcssa.i = phi i32 [ %40, %smpp_handle_string_return.exit ], [ %.1.i, %70 ]
@@ -4284,7 +4284,7 @@ define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr
   %438 = load i32, ptr %3, align 4
   %439 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %438)
   %440 = icmp sgt i32 %439, 0
-  br i1 %440, label %20, label %._crit_edge, !llvm.loop !12
+  br i1 %440, label %20, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %437
   %441 = select i1 %.1434, i1 %.1432, i1 false
@@ -4786,8 +4786,9 @@ attributes #13 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

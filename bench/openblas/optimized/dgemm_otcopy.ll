@@ -67,7 +67,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.2.us = phi ptr [ %34, %30 ], [ %.1.us, %.loopexit75.us ]
   %36 = add nsw i64 %.065.us, -1
   %37 = icmp sgt i64 %.065.us, 1
-  br i1 %37, label %.preheader74.us, label %.loopexit77, !llvm.loop !9
+  br i1 %37, label %.preheader74.us, label %.loopexit77, !llvm.loop !10
 
 .loopexit75.us:                                   ; preds = %15
   %38 = getelementptr inbounds i8, ptr %.161.us, i64 %.idx
@@ -99,7 +99,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %48 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %49 = add nsw i64 %.065, -1
   %50 = icmp samesign ugt i64 %.065, 1
-  br i1 %50, label %.preheader76.split.split, label %.loopexit77.loopexit96, !llvm.loop !11
+  br i1 %50, label %.preheader76.split.split, label %.loopexit77.loopexit96, !llvm.loop !12
 
 .loopexit77.loopexit96:                           ; preds = %.preheader76.split.split
   %51 = shl i64 %9, 5
@@ -137,7 +137,7 @@ define noundef i32 @dgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %62 = getelementptr inbounds i8, ptr %.255, i64 %.idx72
   %63 = add nsw i64 %.164, -1
   %64 = icmp samesign ugt i64 %.164, 1
-  br i1 %64, label %56, label %.loopexit, !llvm.loop !12
+  br i1 %64, label %56, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %56, %53
   %.262 = phi ptr [ %.060, %53 ], [ %61, %56 ]
@@ -165,9 +165,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

@@ -1093,7 +1093,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit91.thread:       ; preds = %_ZN4llvmeqENS_9Stri
   %.150 = phi i32 [ %.049178, %_ZN4llvmeqENS_9StringRefES0_.exit66.thread ], [ %.049178, %_ZN4llvmeqENS_9StringRefES0_.exit91.thread ], [ %.049178, %_ZN4llvmeqENS_9StringRefES0_.exit70.thread ], [ %.251171, %_ZN4llvmeqENS_9StringRefES0_.exit83 ], [ %.251171, %_ZN4llvmeqENS_9StringRefES0_.exit79 ], [ %20, %60 ], [ %.251171, %_ZN4llvmeqENS_9StringRefES0_.exit87 ], [ %.251171, %.lr.ph ]
   %64 = add nsw i32 %.150, 1
   %.not = icmp eq i32 %64, %17
-  br i1 %.not, label %.critedge, label %21, !llvm.loop !31
+  br i1 %.not, label %.critedge, label %21, !llvm.loop !32
 
 .critedge.sink.split.loopexit198:                 ; preds = %21, %_ZN4llvmeqENS_9StringRefES0_.exit70, %_ZN4llvmeqENS_9StringRefES0_.exit91
   br label %.critedge.sink.split
@@ -1292,6 +1292,7 @@ attributes #8 = { nounwind }
 !26 = !{!"int", !6, i64 0}
 !27 = !{!25, !26, i64 8}
 !28 = !{!25, !26, i64 12}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = distinct !{!31, !30}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = distinct !{!32, !30, !31}

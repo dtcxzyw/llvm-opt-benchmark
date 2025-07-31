@@ -558,9 +558,9 @@ _ZL17convexHullSupportRK9btVector3PS0_iS1_.exit:  ; preds = %141, %._crit_edge.l
 
 184:                                              ; preds = %2
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %186 = load ptr, ptr %185, align 8, !tbaa !36
+  %186 = load ptr, ptr %185, align 8, !tbaa !37
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %188 = load i32, ptr %187, align 4, !tbaa !39
+  %188 = load i32, ptr %187, align 4, !tbaa !40
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %190 = load float, ptr %1, align 4, !tbaa !15
   %191 = load float, ptr %189, align 8, !tbaa !15
@@ -701,32 +701,32 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape31localGetSupp
 
 35:                                               ; preds = %15
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load float, ptr %36, align 8, !tbaa !40
+  %37 = load float, ptr %36, align 8, !tbaa !41
   br label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
 
 38:                                               ; preds = %15
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %40 = load float, ptr %39, align 8, !tbaa !40
+  %40 = load float, ptr %39, align 8, !tbaa !41
   br label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
 
 41:                                               ; preds = %15
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %43 = load float, ptr %42, align 8, !tbaa !40
+  %43 = load float, ptr %42, align 8, !tbaa !41
   br label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
 
 44:                                               ; preds = %15
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %46 = load float, ptr %45, align 8, !tbaa !40
+  %46 = load float, ptr %45, align 8, !tbaa !41
   br label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
 
 47:                                               ; preds = %15
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %49 = load float, ptr %48, align 8, !tbaa !40
+  %49 = load float, ptr %48, align 8, !tbaa !41
   br label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
 
 50:                                               ; preds = %15, %15
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %52 = load float, ptr %51, align 8, !tbaa !40
+  %52 = load float, ptr %51, align 8, !tbaa !41
   br label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
 
 53:                                               ; preds = %15
@@ -786,32 +786,32 @@ define dso_local noundef float @_ZNK13btConvexShape19getMarginNonVirtualEv(ptr n
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %12 = load float, ptr %11, align 8, !tbaa !40
+  %12 = load float, ptr %11, align 8, !tbaa !41
   br label %33
 
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %15 = load float, ptr %14, align 8, !tbaa !40
+  %15 = load float, ptr %14, align 8, !tbaa !41
   br label %33
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load float, ptr %17, align 8, !tbaa !40
+  %18 = load float, ptr %17, align 8, !tbaa !41
   br label %33
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %21 = load float, ptr %20, align 8, !tbaa !40
+  %21 = load float, ptr %20, align 8, !tbaa !41
   br label %33
 
 22:                                               ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %24 = load float, ptr %23, align 8, !tbaa !40
+  %24 = load float, ptr %23, align 8, !tbaa !41
   br label %33
 
 25:                                               ; preds = %1, %1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %27 = load float, ptr %26, align 8, !tbaa !40
+  %27 = load float, ptr %26, align 8, !tbaa !41
   br label %33
 
 28:                                               ; preds = %1
@@ -883,7 +883,7 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit:  ; preds = %4
 
 _ZNK13btConvexShape19getMarginNonVirtualEv.exit69: ; preds = %4, %4
   %.0.i68.in = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.0.i68 = load float, ptr %.0.i68.in, align 8, !tbaa !40
+  %.0.i68 = load float, ptr %.0.i68.in, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0172.0.copyload = load float, ptr %33, align 8
   %.sroa.6174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -893,31 +893,31 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit69: ; preds = %4, %4
   %34 = fadd float %.0.i68, %.sroa.0172.0.copyload
   %35 = fadd float %.0.i68, %.sroa.6174.0.copyload
   %36 = fadd float %.0.i68, %.sroa.9176.0.copyload
-  %37 = load float, ptr %1, align 4, !tbaa !15, !noalias !41
+  %37 = load float, ptr %1, align 4, !tbaa !15, !noalias !42
   %38 = tail call noundef float @llvm.fabs.f32(float %37)
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %40 = load float, ptr %39, align 4, !tbaa !15, !noalias !41
+  %40 = load float, ptr %39, align 4, !tbaa !15, !noalias !42
   %41 = tail call noundef float @llvm.fabs.f32(float %40)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %43 = load float, ptr %42, align 4, !tbaa !15, !noalias !41
+  %43 = load float, ptr %42, align 4, !tbaa !15, !noalias !42
   %44 = tail call noundef float @llvm.fabs.f32(float %43)
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %46 = load float, ptr %45, align 4, !tbaa !15, !noalias !41
+  %46 = load float, ptr %45, align 4, !tbaa !15, !noalias !42
   %47 = tail call noundef float @llvm.fabs.f32(float %46)
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %49 = load float, ptr %48, align 4, !tbaa !15, !noalias !41
+  %49 = load float, ptr %48, align 4, !tbaa !15, !noalias !42
   %50 = tail call noundef float @llvm.fabs.f32(float %49)
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %52 = load float, ptr %51, align 4, !tbaa !15, !noalias !41
+  %52 = load float, ptr %51, align 4, !tbaa !15, !noalias !42
   %53 = tail call noundef float @llvm.fabs.f32(float %52)
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %55 = load float, ptr %54, align 4, !tbaa !15, !noalias !41
+  %55 = load float, ptr %54, align 4, !tbaa !15, !noalias !42
   %56 = tail call noundef float @llvm.fabs.f32(float %55)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %58 = load float, ptr %57, align 4, !tbaa !15, !noalias !41
+  %58 = load float, ptr %57, align 4, !tbaa !15, !noalias !42
   %59 = tail call noundef float @llvm.fabs.f32(float %58)
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %61 = load float, ptr %60, align 4, !tbaa !15, !noalias !41
+  %61 = load float, ptr %60, align 4, !tbaa !15, !noalias !42
   %62 = tail call noundef float @llvm.fabs.f32(float %61)
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0149.0.copyload = load float, ptr %63, align 4
@@ -956,7 +956,7 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit69: ; preds = %4, %4
 
 _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %80 = load float, ptr %79, align 8, !tbaa !40
+  %80 = load float, ptr %79, align 8, !tbaa !41
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1122,7 +1122,7 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %97, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %97, !llvm.loop !45
 
 202:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
@@ -1145,31 +1145,31 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
   %216 = fadd float %210, %215
   %217 = getelementptr inbounds float, ptr %9, i64 %213
   store float %216, ptr %217, align 4, !tbaa !15
-  %218 = load float, ptr %1, align 4, !tbaa !15, !noalias !45
+  %218 = load float, ptr %1, align 4, !tbaa !15, !noalias !46
   %219 = tail call noundef float @llvm.fabs.f32(float %218)
   %220 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %221 = load float, ptr %220, align 4, !tbaa !15, !noalias !45
+  %221 = load float, ptr %220, align 4, !tbaa !15, !noalias !46
   %222 = tail call noundef float @llvm.fabs.f32(float %221)
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %224 = load float, ptr %223, align 4, !tbaa !15, !noalias !45
+  %224 = load float, ptr %223, align 4, !tbaa !15, !noalias !46
   %225 = tail call noundef float @llvm.fabs.f32(float %224)
   %226 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %227 = load float, ptr %226, align 4, !tbaa !15, !noalias !45
+  %227 = load float, ptr %226, align 4, !tbaa !15, !noalias !46
   %228 = tail call noundef float @llvm.fabs.f32(float %227)
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %230 = load float, ptr %229, align 4, !tbaa !15, !noalias !45
+  %230 = load float, ptr %229, align 4, !tbaa !15, !noalias !46
   %231 = tail call noundef float @llvm.fabs.f32(float %230)
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %233 = load float, ptr %232, align 4, !tbaa !15, !noalias !45
+  %233 = load float, ptr %232, align 4, !tbaa !15, !noalias !46
   %234 = tail call noundef float @llvm.fabs.f32(float %233)
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %236 = load float, ptr %235, align 4, !tbaa !15, !noalias !45
+  %236 = load float, ptr %235, align 4, !tbaa !15, !noalias !46
   %237 = tail call noundef float @llvm.fabs.f32(float %236)
   %238 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %239 = load float, ptr %238, align 4, !tbaa !15, !noalias !45
+  %239 = load float, ptr %238, align 4, !tbaa !15, !noalias !46
   %240 = tail call noundef float @llvm.fabs.f32(float %239)
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %242 = load float, ptr %241, align 4, !tbaa !15, !noalias !45
+  %242 = load float, ptr %241, align 4, !tbaa !15, !noalias !46
   %243 = tail call noundef float @llvm.fabs.f32(float %242)
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0125.0.copyload = load float, ptr %244, align 4
@@ -1212,7 +1212,7 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
 
 _ZNK13btConvexShape19getMarginNonVirtualEv.exit118: ; preds = %4, %4
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %264 = load float, ptr %263, align 8, !tbaa !40
+  %264 = load float, ptr %263, align 8, !tbaa !41
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %267 = load float, ptr %266, align 8, !tbaa !15
@@ -1240,31 +1240,31 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit118: ; preds = %4, %4
   %289 = fmul float %286, 5.000000e-01
   %290 = fmul float %287, 5.000000e-01
   %291 = fmul float %288, 5.000000e-01
-  %292 = load float, ptr %1, align 4, !tbaa !15, !noalias !48
+  %292 = load float, ptr %1, align 4, !tbaa !15, !noalias !49
   %293 = tail call noundef float @llvm.fabs.f32(float %292)
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %295 = load float, ptr %294, align 4, !tbaa !15, !noalias !48
+  %295 = load float, ptr %294, align 4, !tbaa !15, !noalias !49
   %296 = tail call noundef float @llvm.fabs.f32(float %295)
   %297 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %298 = load float, ptr %297, align 4, !tbaa !15, !noalias !48
+  %298 = load float, ptr %297, align 4, !tbaa !15, !noalias !49
   %299 = tail call noundef float @llvm.fabs.f32(float %298)
   %300 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %301 = load float, ptr %300, align 4, !tbaa !15, !noalias !48
+  %301 = load float, ptr %300, align 4, !tbaa !15, !noalias !49
   %302 = tail call noundef float @llvm.fabs.f32(float %301)
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %304 = load float, ptr %303, align 4, !tbaa !15, !noalias !48
+  %304 = load float, ptr %303, align 4, !tbaa !15, !noalias !49
   %305 = tail call noundef float @llvm.fabs.f32(float %304)
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %307 = load float, ptr %306, align 4, !tbaa !15, !noalias !48
+  %307 = load float, ptr %306, align 4, !tbaa !15, !noalias !49
   %308 = tail call noundef float @llvm.fabs.f32(float %307)
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %310 = load float, ptr %309, align 4, !tbaa !15, !noalias !48
+  %310 = load float, ptr %309, align 4, !tbaa !15, !noalias !49
   %311 = tail call noundef float @llvm.fabs.f32(float %310)
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %313 = load float, ptr %312, align 4, !tbaa !15, !noalias !48
+  %313 = load float, ptr %312, align 4, !tbaa !15, !noalias !49
   %314 = tail call noundef float @llvm.fabs.f32(float %313)
   %315 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %316 = load float, ptr %315, align 4, !tbaa !15, !noalias !48
+  %316 = load float, ptr %315, align 4, !tbaa !15, !noalias !49
   %317 = tail call noundef float @llvm.fabs.f32(float %316)
   %318 = fmul float %290, %295
   %319 = tail call float @llvm.fmuladd.f32(float %289, float %292, float %318)
@@ -1410,20 +1410,21 @@ attributes #14 = { nounwind }
 !31 = !{!"bool", !7, i64 0}
 !32 = !{!"p1 _ZTS9btVector3", !9, i64 0}
 !33 = !{!27, !6, i64 128}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !32, i64 16}
-!37 = !{!"_ZTS20btAlignedObjectArrayI9btVector3E", !38, i64 0, !6, i64 4, !6, i64 8, !32, i64 16, !31, i64 24}
-!38 = !{!"_ZTS18btAlignedAllocatorI9btVector3Lj16EE"}
-!39 = !{!37, !6, i64 4}
-!40 = !{!21, !16, i64 64}
-!41 = !{!42}
-!42 = distinct !{!42, !43, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!43 = distinct !{!43, !"_ZNK11btMatrix3x38absoluteEv"}
-!44 = distinct !{!44, !35}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!47 = distinct !{!47, !"_ZNK11btMatrix3x38absoluteEv"}
-!48 = !{!49}
-!49 = distinct !{!49, !50, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
-!50 = distinct !{!50, !"_ZNK11btMatrix3x38absoluteEv"}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !32, i64 16}
+!38 = !{!"_ZTS20btAlignedObjectArrayI9btVector3E", !39, i64 0, !6, i64 4, !6, i64 8, !32, i64 16, !31, i64 24}
+!39 = !{!"_ZTS18btAlignedAllocatorI9btVector3Lj16EE"}
+!40 = !{!38, !6, i64 4}
+!41 = !{!21, !16, i64 64}
+!42 = !{!43}
+!43 = distinct !{!43, !44, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!44 = distinct !{!44, !"_ZNK11btMatrix3x38absoluteEv"}
+!45 = distinct !{!45, !35, !36}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!48 = distinct !{!48, !"_ZNK11btMatrix3x38absoluteEv"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZNK11btMatrix3x38absoluteEv: argument 0"}
+!51 = distinct !{!51, !"_ZNK11btMatrix3x38absoluteEv"}

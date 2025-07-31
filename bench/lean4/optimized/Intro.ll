@@ -47527,7 +47527,7 @@ lean_alloc_ctor.exit286:                          ; preds = %lean_alloc_ctor.exi
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit286, %lean_alloc_ctor.exit
   %.0155.be = phi ptr [ %.0, %lean_alloc_ctor.exit ], [ %377, %lean_alloc_ctor.exit286 ]
-  br label %20
+  br label %20, !llvm.loop !19
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -75696,3 +75696,5 @@ attributes #7 = { noreturn nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"short", !7, i64 0}
 !18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}

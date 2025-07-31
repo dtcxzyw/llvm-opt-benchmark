@@ -175,7 +175,7 @@ define dso_local { i64, ptr } @jv_load_file(ptr noundef %0, i32 noundef %1) loca
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   %87 = call i32 @feof(ptr noundef nonnull %30) #9
   %.not75.us = icmp eq i32 %87, 0
-  br i1 %.not75.us, label %.lr.ph137, label %.critedge, !llvm.loop !15
+  br i1 %.not75.us, label %.lr.ph137, label %.critedge, !llvm.loop !16
 
 .split:                                           ; preds = %40
   %88 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.3) #9
@@ -388,6 +388,7 @@ attributes #10 = { nounwind willreturn memory(none) }
 !11 = !{!"timespec", !10, i64 0, !10, i64 8}
 !12 = distinct !{!12, !13}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !16}
-!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !13, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15, !17}
+!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}

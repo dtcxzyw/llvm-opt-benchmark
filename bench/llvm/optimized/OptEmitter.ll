@@ -136,37 +136,37 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvmeqENS_9St
 
 _ZSteqIN4llvm9StringRefESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread.i.i.i.i.i, %62
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !16
+  %69 = load ptr, ptr %68, align 8, !tbaa !17
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %71 = load i32, ptr %70, align 8, !tbaa !19
+  %71 = load i32, ptr %70, align 8, !tbaa !20
   %72 = zext i32 %71 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 33
-  store i8 1, ptr %74, align 1, !tbaa !20
-  store ptr @.str.5, ptr %5, align 8, !tbaa !23
-  store i8 3, ptr %73, align 8, !tbaa !24
+  store i8 1, ptr %74, align 1, !tbaa !21
+  store ptr @.str.5, ptr %5, align 8, !tbaa !24
+  store i8 3, ptr %73, align 8, !tbaa !25
   call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %69, i64 %72, ptr noundef nonnull align 8 dereferenceable(34) %5) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !16
+  %76 = load ptr, ptr %75, align 8, !tbaa !17
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %78 = load i32, ptr %77, align 8, !tbaa !19
+  %78 = load i32, ptr %77, align 8, !tbaa !20
   %79 = zext i32 %78 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  store i8 1, ptr %81, align 1, !tbaa !20
-  store ptr @.str.6, ptr %6, align 8, !tbaa !23
-  store i8 3, ptr %80, align 8, !tbaa !24
+  store i8 1, ptr %81, align 1, !tbaa !21
+  store ptr @.str.6, ptr %6, align 8, !tbaa !24
+  store i8 3, ptr %80, align 8, !tbaa !25
   call void @_ZN4llvm10PrintErrorENS_8ArrayRefINS_5SMLocEEERKNS_5TwineE(ptr %76, i64 %79, ptr noundef nonnull align 8 dereferenceable(34) %6) #6
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %83, align 1, !tbaa !20
-  store ptr @.str.7, ptr %7, align 8, !tbaa !23
-  store i8 3, ptr %82, align 8, !tbaa !24
+  store i8 1, ptr %83, align 1, !tbaa !21
+  store ptr @.str.7, ptr %7, align 8, !tbaa !24
+  store i8 3, ptr %82, align 8, !tbaa !25
   call void @_ZN4llvm15PrintFatalErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %7) #7
   unreachable
 
@@ -182,7 +182,7 @@ _ZSteqIN4llvm9StringRefESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit.thread: ; preds = %_
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !25
+  %89 = load ptr, ptr %88, align 8, !tbaa !26
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %86 to i64
   %92 = sub i64 %90, %91
@@ -197,7 +197,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit:  ; preds = %85, %87
 
 94:                                               ; preds = %_ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %96 = load ptr, ptr %95, align 8, !tbaa !25
+  %96 = load ptr, ptr %95, align 8, !tbaa !26
   %97 = ptrtoint ptr %96 to i64
   %98 = ptrtoint ptr %93 to i64
   %99 = sub i64 %97, %98
@@ -270,15 +270,16 @@ attributes #8 = { builtin nounwind }
 !11 = !{!"p1 omnipotent char", !6, i64 0}
 !12 = !{!13, !13, i64 0}
 !13 = !{!"long", !7, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !6, i64 0}
-!17 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !18, i64 8, !18, i64 12}
-!18 = !{!"int", !7, i64 0}
-!19 = !{!17, !18, i64 8}
-!20 = !{!21, !22, i64 33}
-!21 = !{!"_ZTSN4llvm5TwineE", !7, i64 0, !7, i64 16, !22, i64 32, !22, i64 33}
-!22 = !{!"_ZTSN4llvm5Twine8NodeKindE", !7, i64 0}
-!23 = !{!7, !7, i64 0}
-!24 = !{!21, !22, i64 32}
-!25 = !{!4, !5, i64 16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !6, i64 0}
+!18 = !{!"_ZTSN4llvm15SmallVectorBaseIjEE", !6, i64 0, !19, i64 8, !19, i64 12}
+!19 = !{!"int", !7, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{!22, !23, i64 33}
+!22 = !{!"_ZTSN4llvm5TwineE", !7, i64 0, !7, i64 16, !23, i64 32, !23, i64 33}
+!23 = !{!"_ZTSN4llvm5Twine8NodeKindE", !7, i64 0}
+!24 = !{!7, !7, i64 0}
+!25 = !{!22, !23, i64 32}
+!26 = !{!4, !5, i64 16}

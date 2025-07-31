@@ -1669,5 +1669,6 @@ attributes #15 = { builtin nounwind }
 !48 = !{!9, !9, i64 0}
 !49 = !{!50, !50, i64 0}
 !50 = !{!"p1 _ZTSN5draco19FileWriterInterfaceE", !10, i64 0}
-!51 = distinct !{!51, !52}
+!51 = distinct !{!51, !52, !53}
 !52 = !{!"llvm.loop.mustprogress"}
+!53 = !{!"llvm.loop.estimated_trip_count"}

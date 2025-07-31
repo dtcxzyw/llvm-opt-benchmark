@@ -275,129 +275,129 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %75 = getelementptr inbounds nuw i32, ptr %.4449.us, i64 %23
   %76 = add nuw i32 %.6448.us, 1
   %exitcond555.not = icmp eq i32 %76, %38
-  br i1 %exitcond555.not, label %.loopexit.us, label %.preheader421.us, !llvm.loop !21
+  br i1 %exitcond555.not, label %.loopexit.us, label %.preheader421.us, !llvm.loop !22
 
 .lr.ph.us:                                        ; preds = %.preheader421.us, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %.preheader421.us ]
   %77 = getelementptr inbounds nuw i32, ptr %.4449.us, i64 %indvars.iv
-  %78 = load i32, ptr %77, align 4, !tbaa !22
+  %78 = load i32, ptr %77, align 4, !tbaa !23
   %79 = trunc nuw i64 %indvars.iv to i32
   %80 = mul i32 %6, %79
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw i32, ptr %.2365450.us, i64 %81
-  store i32 %78, ptr %82, align 4, !tbaa !22
+  store i32 %78, ptr %82, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !24
 
 ._crit_edge455.us:                                ; preds = %.lr.ph454.us, %.preheader419.us.loopexit
   %83 = getelementptr inbounds nuw i32, ptr %.1364458.us, i64 %25
   %84 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %23
   %85 = add nuw i32 %.5456.us, 1
   %exitcond564.not = icmp eq i32 %85, %38
-  br i1 %exitcond564.not, label %.loopexit.us, label %.preheader420.us, !llvm.loop !24
+  br i1 %exitcond564.not, label %.loopexit.us, label %.preheader420.us, !llvm.loop !25
 
 .lr.ph454.us:                                     ; preds = %.lr.ph454.us.preheader, %.lr.ph454.us
   %indvars.iv559 = phi i64 [ %263, %.lr.ph454.us.preheader ], [ %indvars.iv.next560, %.lr.ph454.us ]
   %86 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %indvars.iv559
-  %87 = load i32, ptr %86, align 4, !tbaa !22
+  %87 = load i32, ptr %86, align 4, !tbaa !23
   %88 = shl i64 %indvars.iv559, 3
   %89 = and i64 %88, 4294967288
   %90 = getelementptr inbounds nuw i32, ptr %.1364458.us, i64 %89
-  store i32 %87, ptr %90, align 4, !tbaa !22
+  store i32 %87, ptr %90, align 4, !tbaa !23
   %indvars.iv.next560 = add nuw nsw i64 %indvars.iv559, 1
   %exitcond563.not = icmp eq i64 %indvars.iv.next560, %wide.trip.count562
-  br i1 %exitcond563.not, label %._crit_edge455.us, label %.lr.ph454.us, !llvm.loop !25
+  br i1 %exitcond563.not, label %._crit_edge455.us, label %.lr.ph454.us, !llvm.loop !26
 
 .lr.ph452.us:                                     ; preds = %.preheader420.us, %.lr.ph452.us
   %indvars.iv556 = phi i64 [ 0, %.preheader420.us ], [ %indvars.iv.next557, %.lr.ph452.us ]
   %91 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %indvars.iv556
-  %92 = load i32, ptr %91, align 4, !tbaa !22
+  %92 = load i32, ptr %91, align 4, !tbaa !23
   %93 = shl i64 %indvars.iv556, 3
   %94 = and i64 %93, 4294967264
   %95 = getelementptr inbounds nuw i32, ptr %.1364458.us, i64 %94
-  store i32 %92, ptr %95, align 4, !tbaa !22
+  store i32 %92, ptr %95, align 4, !tbaa !23
   %96 = or disjoint i64 %indvars.iv556, 1
   %97 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !22
+  %98 = load i32, ptr %97, align 4, !tbaa !23
   %99 = shl i64 %96, 3
   %100 = and i64 %99, 4294967272
   %101 = getelementptr inbounds nuw i32, ptr %.1364458.us, i64 %100
-  store i32 %98, ptr %101, align 4, !tbaa !22
+  store i32 %98, ptr %101, align 4, !tbaa !23
   %102 = or disjoint i64 %indvars.iv556, 2
   %103 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %102
-  %104 = load i32, ptr %103, align 4, !tbaa !22
+  %104 = load i32, ptr %103, align 4, !tbaa !23
   %105 = shl i64 %102, 3
   %106 = and i64 %105, 4294967280
   %107 = getelementptr inbounds nuw i32, ptr %.1364458.us, i64 %106
-  store i32 %104, ptr %107, align 4, !tbaa !22
+  store i32 %104, ptr %107, align 4, !tbaa !23
   %108 = or disjoint i64 %indvars.iv556, 3
   %109 = getelementptr inbounds nuw i32, ptr %.3457.us, i64 %108
-  %110 = load i32, ptr %109, align 4, !tbaa !22
+  %110 = load i32, ptr %109, align 4, !tbaa !23
   %111 = shl i64 %108, 3
   %112 = and i64 %111, 4294967288
   %113 = getelementptr inbounds nuw i32, ptr %.1364458.us, i64 %112
-  store i32 %110, ptr %113, align 4, !tbaa !22
+  store i32 %110, ptr %113, align 4, !tbaa !23
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 4
   %114 = icmp samesign ult i64 %indvars.iv.next557, %270
-  br i1 %114, label %.lr.ph452.us, label %.preheader419.us.loopexit, !llvm.loop !26
+  br i1 %114, label %.lr.ph452.us, label %.preheader419.us.loopexit, !llvm.loop !27
 
 .lr.ph463.us:                                     ; preds = %.lr.ph463.us.preheader, %.lr.ph463.us
   %indvars.iv568 = phi i64 [ %266, %.lr.ph463.us.preheader ], [ %indvars.iv.next569, %.lr.ph463.us ]
   %115 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv568
-  %116 = load i32, ptr %115, align 4, !tbaa !22
+  %116 = load i32, ptr %115, align 4, !tbaa !23
   %117 = shl nuw i64 %indvars.iv568, 1
   %118 = and i64 %117, 4294967294
   %119 = getelementptr inbounds nuw i32, ptr %69, i64 %118
-  store i32 %116, ptr %119, align 4, !tbaa !22
+  store i32 %116, ptr %119, align 4, !tbaa !23
   %indvars.iv.next569 = add nuw nsw i64 %indvars.iv568, 1
   %exitcond572.not = icmp eq i64 %indvars.iv.next569, %wide.trip.count571
-  br i1 %exitcond572.not, label %.loopexit.us, label %.lr.ph463.us, !llvm.loop !27
+  br i1 %exitcond572.not, label %.loopexit.us, label %.lr.ph463.us, !llvm.loop !28
 
 .lr.ph460.us:                                     ; preds = %.lr.ph460.us.preheader, %.lr.ph460.us
   %indvars.iv565 = phi i64 [ 0, %.lr.ph460.us.preheader ], [ %indvars.iv.next566, %.lr.ph460.us ]
   %120 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv565
-  %121 = load i32, ptr %120, align 4, !tbaa !22
+  %121 = load i32, ptr %120, align 4, !tbaa !23
   %122 = shl nuw nsw i64 %indvars.iv565, 1
   %123 = and i64 %122, 4294967288
   %124 = getelementptr inbounds nuw i32, ptr %69, i64 %123
-  store i32 %121, ptr %124, align 4, !tbaa !22
+  store i32 %121, ptr %124, align 4, !tbaa !23
   %125 = or disjoint i64 %indvars.iv565, 1
   %126 = getelementptr inbounds nuw i32, ptr %64, i64 %125
-  %127 = load i32, ptr %126, align 4, !tbaa !22
+  %127 = load i32, ptr %126, align 4, !tbaa !23
   %128 = shl nuw nsw i64 %125, 1
   %129 = and i64 %128, 4294967290
   %130 = getelementptr inbounds nuw i32, ptr %69, i64 %129
-  store i32 %127, ptr %130, align 4, !tbaa !22
+  store i32 %127, ptr %130, align 4, !tbaa !23
   %131 = or disjoint i64 %indvars.iv565, 2
   %132 = getelementptr inbounds nuw i32, ptr %64, i64 %131
-  %133 = load i32, ptr %132, align 4, !tbaa !22
+  %133 = load i32, ptr %132, align 4, !tbaa !23
   %134 = shl nuw nsw i64 %131, 1
   %135 = and i64 %134, 4294967292
   %136 = getelementptr inbounds nuw i32, ptr %69, i64 %135
-  store i32 %133, ptr %136, align 4, !tbaa !22
+  store i32 %133, ptr %136, align 4, !tbaa !23
   %137 = or disjoint i64 %indvars.iv565, 3
   %138 = getelementptr inbounds nuw i32, ptr %64, i64 %137
-  %139 = load i32, ptr %138, align 4, !tbaa !22
+  %139 = load i32, ptr %138, align 4, !tbaa !23
   %140 = shl nuw nsw i64 %137, 1
   %141 = and i64 %140, 4294967294
   %142 = getelementptr inbounds nuw i32, ptr %69, i64 %141
-  store i32 %139, ptr %142, align 4, !tbaa !22
+  store i32 %139, ptr %142, align 4, !tbaa !23
   %indvars.iv.next566 = add nuw nsw i64 %indvars.iv565, 4
   %143 = icmp samesign ult i64 %indvars.iv.next566, %268
-  br i1 %143, label %.lr.ph460.us, label %.preheader439.us.loopexit, !llvm.loop !28
+  br i1 %143, label %.lr.ph460.us, label %.preheader439.us.loopexit, !llvm.loop !29
 
 .lr.ph467.us:                                     ; preds = %.preheader437.us, %.lr.ph467.us
   %.0363466.us = phi ptr [ %145, %.lr.ph467.us ], [ %69, %.preheader437.us ]
   %.2370465.us = phi ptr [ %146, %.lr.ph467.us ], [ %64, %.preheader437.us ]
   %.4384464.us = phi i32 [ %147, %.lr.ph467.us ], [ 0, %.preheader437.us ]
-  %144 = load i32, ptr %.2370465.us, align 4, !tbaa !22
-  store i32 %144, ptr %.0363466.us, align 4, !tbaa !22
+  %144 = load i32, ptr %.2370465.us, align 4, !tbaa !23
+  store i32 %144, ptr %.0363466.us, align 4, !tbaa !23
   %145 = getelementptr inbounds nuw i32, ptr %.0363466.us, i64 %25
   %146 = getelementptr inbounds nuw i32, ptr %.2370465.us, i64 %23
   %147 = add nuw i32 %.4384464.us, 1
   %exitcond573.not = icmp eq i32 %147, %38
-  br i1 %exitcond573.not, label %.loopexit.us, label %.lr.ph467.us, !llvm.loop !29
+  br i1 %exitcond573.not, label %.loopexit.us, label %.lr.ph467.us, !llvm.loop !30
 
 148:                                              ; preds = %61
   %149 = zext i32 %65 to i64
@@ -414,7 +414,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %154 = getelementptr inbounds nuw i32, ptr %.1369469.us, i64 %23
   %155 = add nuw i32 %.3383468.us, 1
   %exitcond574.not = icmp eq i32 %155, %38
-  br i1 %exitcond574.not, label %.loopexit.us, label %152, !llvm.loop !30
+  br i1 %exitcond574.not, label %.loopexit.us, label %152, !llvm.loop !31
 
 .lr.ph475.us:                                     ; preds = %.preheader433.us, %.lr.ph475.us
   %.0366474.us = phi ptr [ %156, %.lr.ph475.us ], [ %150, %.preheader433.us ]
@@ -425,7 +425,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %157 = getelementptr inbounds nuw i32, ptr %.0368473.us, i64 %23
   %158 = add nuw i32 %.2382472.us, 1
   %exitcond575.not = icmp eq i32 %158, %38
-  br i1 %exitcond575.not, label %.loopexit.us, label %.lr.ph475.us, !llvm.loop !31
+  br i1 %exitcond575.not, label %.loopexit.us, label %.lr.ph475.us, !llvm.loop !32
 
 159:                                              ; preds = %60
   br i1 %24, label %167, label %160
@@ -437,7 +437,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %161 = getelementptr inbounds nuw i32, ptr %.0372480.us, i64 %25
   %162 = add nuw i32 %.1381479.us, 1
   %exitcond581.not = icmp eq i32 %162, %38
-  br i1 %exitcond581.not, label %.loopexit.us, label %.preheader418.us, !llvm.loop !32
+  br i1 %exitcond581.not, label %.loopexit.us, label %.preheader418.us, !llvm.loop !33
 
 .lr.ph477.us:                                     ; preds = %.preheader418.us, %.lr.ph477.us
   %indvars.iv576 = phi i64 [ %indvars.iv.next577, %.lr.ph477.us ], [ 0, %.preheader418.us ]
@@ -445,10 +445,10 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %164 = mul i32 %6, %163
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds nuw i32, ptr %.0372480.us, i64 %165
-  store i32 0, ptr %166, align 4, !tbaa !22
+  store i32 0, ptr %166, align 4, !tbaa !23
   %indvars.iv.next577 = add nuw nsw i64 %indvars.iv576, 1
   %exitcond580.not = icmp eq i64 %indvars.iv.next577, %wide.trip.count579
-  br i1 %exitcond580.not, label %._crit_edge478.us, label %.lr.ph477.us, !llvm.loop !33
+  br i1 %exitcond580.not, label %._crit_edge478.us, label %.lr.ph477.us, !llvm.loop !34
 
 167:                                              ; preds = %159
   br i1 %.not, label %.loopexit.us, label %.lr.ph484.us
@@ -460,7 +460,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %169 = getelementptr inbounds nuw i32, ptr %.0373482.us, i64 %25
   %170 = add nuw i32 %.0380481.us, 1
   %exitcond582.not = icmp eq i32 %170, %38
-  br i1 %exitcond582.not, label %.loopexit.us, label %168, !llvm.loop !34
+  br i1 %exitcond582.not, label %.loopexit.us, label %168, !llvm.loop !35
 
 171:                                              ; preds = %46
   br i1 %59, label %172, label %188
@@ -511,7 +511,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %201 = getelementptr inbounds nuw i32, ptr %.2353489.us, i64 %23
   %202 = add nuw i32 %.11488.us, 1
   %exitcond588.not = icmp eq i32 %202, %38
-  br i1 %exitcond588.not, label %.loopexit.us, label %.preheader417.us, !llvm.loop !35
+  br i1 %exitcond588.not, label %.loopexit.us, label %.preheader417.us, !llvm.loop !36
 
 .lr.ph486.us:                                     ; preds = %.preheader417.us, %.lr.ph486.us
   %indvars.iv583 = phi i64 [ %indvars.iv.next584, %.lr.ph486.us ], [ 0, %.preheader417.us ]
@@ -519,76 +519,76 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %204 = mul i32 %6, %203
   %205 = zext i32 %204 to i64
   %206 = getelementptr inbounds nuw i32, ptr %.2490.us, i64 %205
-  %207 = load i32, ptr %206, align 4, !tbaa !22
+  %207 = load i32, ptr %206, align 4, !tbaa !23
   %208 = getelementptr inbounds nuw i32, ptr %.2353489.us, i64 %indvars.iv583
-  store i32 %207, ptr %208, align 4, !tbaa !22
+  store i32 %207, ptr %208, align 4, !tbaa !23
   %indvars.iv.next584 = add nuw nsw i64 %indvars.iv583, 1
   %exitcond587.not = icmp eq i64 %indvars.iv.next584, %wide.trip.count586
-  br i1 %exitcond587.not, label %._crit_edge487.us, label %.lr.ph486.us, !llvm.loop !36
+  br i1 %exitcond587.not, label %._crit_edge487.us, label %.lr.ph486.us, !llvm.loop !37
 
 ._crit_edge496.us:                                ; preds = %.lr.ph495.us, %.preheader.us.loopexit
   %209 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %25
   %210 = getelementptr inbounds nuw i32, ptr %.1352498.us, i64 %23
   %211 = add nuw i32 %.10497.us, 1
   %exitcond597.not = icmp eq i32 %211, %38
-  br i1 %exitcond597.not, label %.loopexit.us, label %.preheader416.us, !llvm.loop !37
+  br i1 %exitcond597.not, label %.loopexit.us, label %.preheader416.us, !llvm.loop !38
 
 .lr.ph495.us:                                     ; preds = %.lr.ph495.us.preheader, %.lr.ph495.us
   %indvars.iv592 = phi i64 [ %260, %.lr.ph495.us.preheader ], [ %indvars.iv.next593, %.lr.ph495.us ]
   %212 = shl i64 %indvars.iv592, 3
   %213 = and i64 %212, 4294967288
   %214 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %213
-  %215 = load i32, ptr %214, align 4, !tbaa !22
+  %215 = load i32, ptr %214, align 4, !tbaa !23
   %216 = getelementptr inbounds nuw i32, ptr %.1352498.us, i64 %indvars.iv592
-  store i32 %215, ptr %216, align 4, !tbaa !22
+  store i32 %215, ptr %216, align 4, !tbaa !23
   %indvars.iv.next593 = add nuw nsw i64 %indvars.iv592, 1
   %exitcond596.not = icmp eq i64 %indvars.iv.next593, %wide.trip.count595
-  br i1 %exitcond596.not, label %._crit_edge496.us, label %.lr.ph495.us, !llvm.loop !38
+  br i1 %exitcond596.not, label %._crit_edge496.us, label %.lr.ph495.us, !llvm.loop !39
 
 .lr.ph492.us:                                     ; preds = %.preheader416.us, %.lr.ph492.us
   %indvars.iv589 = phi i64 [ 0, %.preheader416.us ], [ %indvars.iv.next590, %.lr.ph492.us ]
   %217 = shl i64 %indvars.iv589, 3
   %218 = and i64 %217, 4294967264
   %219 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %218
-  %220 = load i32, ptr %219, align 4, !tbaa !22
+  %220 = load i32, ptr %219, align 4, !tbaa !23
   %221 = getelementptr inbounds nuw i32, ptr %.1352498.us, i64 %indvars.iv589
-  store i32 %220, ptr %221, align 4, !tbaa !22
+  store i32 %220, ptr %221, align 4, !tbaa !23
   %222 = or disjoint i64 %indvars.iv589, 1
   %223 = shl i64 %222, 3
   %224 = and i64 %223, 4294967272
   %225 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %224
-  %226 = load i32, ptr %225, align 4, !tbaa !22
+  %226 = load i32, ptr %225, align 4, !tbaa !23
   %227 = getelementptr inbounds nuw i32, ptr %.1352498.us, i64 %222
-  store i32 %226, ptr %227, align 4, !tbaa !22
+  store i32 %226, ptr %227, align 4, !tbaa !23
   %228 = or disjoint i64 %indvars.iv589, 2
   %229 = shl i64 %228, 3
   %230 = and i64 %229, 4294967280
   %231 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %230
-  %232 = load i32, ptr %231, align 4, !tbaa !22
+  %232 = load i32, ptr %231, align 4, !tbaa !23
   %233 = getelementptr inbounds nuw i32, ptr %.1352498.us, i64 %228
-  store i32 %232, ptr %233, align 4, !tbaa !22
+  store i32 %232, ptr %233, align 4, !tbaa !23
   %234 = or disjoint i64 %indvars.iv589, 3
   %235 = shl i64 %234, 3
   %236 = and i64 %235, 4294967288
   %237 = getelementptr inbounds nuw i32, ptr %.1350499.us, i64 %236
-  %238 = load i32, ptr %237, align 4, !tbaa !22
+  %238 = load i32, ptr %237, align 4, !tbaa !23
   %239 = getelementptr inbounds nuw i32, ptr %.1352498.us, i64 %234
-  store i32 %238, ptr %239, align 4, !tbaa !22
+  store i32 %238, ptr %239, align 4, !tbaa !23
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 4
   %240 = icmp samesign ult i64 %indvars.iv.next590, %283
-  br i1 %240, label %.lr.ph492.us, label %.preheader.us.loopexit, !llvm.loop !39
+  br i1 %240, label %.lr.ph492.us, label %.preheader.us.loopexit, !llvm.loop !40
 
 .lr.ph503.us:                                     ; preds = %.preheader425.us, %.lr.ph503.us
   %.0349502.us = phi ptr [ %242, %.lr.ph503.us ], [ %196, %.preheader425.us ]
   %.0351501.us = phi ptr [ %243, %.lr.ph503.us ], [ %191, %.preheader425.us ]
   %.9500.us = phi i32 [ %244, %.lr.ph503.us ], [ 0, %.preheader425.us ]
-  %241 = load i32, ptr %.0349502.us, align 4, !tbaa !22
-  store i32 %241, ptr %.0351501.us, align 4, !tbaa !22
+  %241 = load i32, ptr %.0349502.us, align 4, !tbaa !23
+  store i32 %241, ptr %.0351501.us, align 4, !tbaa !23
   %242 = getelementptr inbounds nuw i32, ptr %.0349502.us, i64 %25
   %243 = getelementptr inbounds nuw i32, ptr %.0351501.us, i64 %23
   %244 = add nuw i32 %.9500.us, 1
   %exitcond598.not = icmp eq i32 %244, %38
-  br i1 %exitcond598.not, label %.loopexit.us, label %.lr.ph503.us, !llvm.loop !40
+  br i1 %exitcond598.not, label %.loopexit.us, label %.lr.ph503.us, !llvm.loop !41
 
 245:                                              ; preds = %188
   %246 = zext i32 %192 to i64
@@ -605,13 +605,13 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %251 = getelementptr inbounds nuw i32, ptr %.1355506.us, i64 %25
   %252 = add nuw i32 %.8504.us, 1
   %exitcond599.not = icmp eq i32 %252, %38
-  br i1 %exitcond599.not, label %.loopexit.us, label %249, !llvm.loop !41
+  br i1 %exitcond599.not, label %.loopexit.us, label %249, !llvm.loop !42
 
 .loopexit.us:                                     ; preds = %._crit_edge.us, %._crit_edge455.us, %.lr.ph463.us, %.lr.ph467.us, %152, %.lr.ph475.us, %._crit_edge478.us, %168, %._crit_edge487.us, %._crit_edge496.us, %.lr.ph503.us, %249, %.lr.ph511.us, %.preheader444.us, %.preheader442.us, %.preheader439.us, %.preheader437.us, %.preheader435.us, %.preheader433.us, %160, %167, %.preheader429.us, %.preheader427.us, %.preheader425.us, %.preheader423.us, %.preheader422.us
   %253 = add i32 %.0386514.us, 1
   %254 = add i32 %51, %.0387513.us
   %.not411.us = icmp ult i32 %254, %3
-  br i1 %.not411.us, label %46, label %..critedge412_crit_edge.us, !llvm.loop !42
+  br i1 %.not411.us, label %46, label %..critedge412_crit_edge.us, !llvm.loop !43
 
 .lr.ph511.us:                                     ; preds = %.preheader422.us, %.lr.ph511.us
   %.0354510.us = phi ptr [ %256, %.lr.ph511.us ], [ %247, %.preheader422.us ]
@@ -622,7 +622,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %256 = getelementptr inbounds nuw i32, ptr %.0354510.us, i64 %25
   %257 = add nuw i32 %.7508.us, 1
   %exitcond600.not = icmp eq i32 %257, %38
-  br i1 %exitcond600.not, label %.loopexit.us, label %.lr.ph511.us, !llvm.loop !43
+  br i1 %exitcond600.not, label %.loopexit.us, label %.lr.ph511.us, !llvm.loop !44
 
 .preheader.us.loopexit:                           ; preds = %.lr.ph492.us
   %258 = trunc nuw i64 %indvars.iv.next590 to i32
@@ -777,7 +777,7 @@ define internal fastcc noundef i32 @opj_sparse_array_int32_read_or_write(ptr nou
   %286 = add i32 %.0390518.us, 1
   %287 = add i32 %38, %.0385519.us
   %288 = icmp ult i32 %287, %4
-  br i1 %288, label %.split.us, label %.critedge, !llvm.loop !44
+  br i1 %288, label %.split.us, label %.critedge, !llvm.loop !45
 
 .critedge:                                        ; preds = %..critedge412_crit_edge.us, %172, %10, %15
   %.0375 = phi i32 [ %8, %15 ], [ %8, %10 ], [ 0, %172 ], [ 1, %..critedge412_crit_edge.us ]
@@ -831,30 +831,31 @@ attributes #6 = { nounwind }
 !16 = !{!4, !8, i64 24}
 !17 = !{!18, !18, i64 0}
 !18 = !{!"p1 int", !10, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = !{!5, !5, i64 0}
-!23 = distinct !{!23, !20}
-!24 = distinct !{!24, !20}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
-!33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20}
-!35 = distinct !{!35, !20}
-!36 = distinct !{!36, !20}
-!37 = distinct !{!37, !20}
-!38 = distinct !{!38, !20}
-!39 = distinct !{!39, !20}
-!40 = distinct !{!40, !20}
-!41 = distinct !{!41, !20}
-!42 = distinct !{!42, !20}
-!43 = distinct !{!43, !20}
-!44 = distinct !{!44, !20, !45}
-!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = !{!5, !5, i64 0}
+!24 = distinct !{!24, !20, !21}
+!25 = distinct !{!25, !20, !21}
+!26 = distinct !{!26, !20, !21}
+!27 = distinct !{!27, !20, !21}
+!28 = distinct !{!28, !20, !21}
+!29 = distinct !{!29, !20, !21}
+!30 = distinct !{!30, !20, !21}
+!31 = distinct !{!31, !20, !21}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21}
+!34 = distinct !{!34, !20, !21}
+!35 = distinct !{!35, !20, !21}
+!36 = distinct !{!36, !20, !21}
+!37 = distinct !{!37, !20, !21}
+!38 = distinct !{!38, !20, !21}
+!39 = distinct !{!39, !20, !21}
+!40 = distinct !{!40, !20, !21}
+!41 = distinct !{!41, !20, !21}
+!42 = distinct !{!42, !20, !21}
+!43 = distinct !{!43, !20, !21}
+!44 = distinct !{!44, !20, !21}
+!45 = distinct !{!45, !20, !21, !46}
+!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}

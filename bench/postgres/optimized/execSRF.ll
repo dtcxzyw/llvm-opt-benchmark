@@ -444,7 +444,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph20.i, %list_l
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #6
   %90 = load volatile i32, ptr @InterruptPending, align 4
   %.not116 = icmp eq i32 %90, 0
-  br i1 %.not116, label %92, label %91, !prof !8
+  br i1 %.not116, label %92, label %91, !prof !9
 
 91:                                               ; preds = %89
   call void @ProcessInterrupts() #6
@@ -635,7 +635,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph20.i, %list_l
 
 172:                                              ; preds = %155
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
-  br label %89
+  br label %89, !llvm.loop !10
 
 .loopexit:                                        ; preds = %76, %.thread131
   %.0105 = phi i8 [ %.1106, %.thread131 ], [ %35, %76 ]
@@ -828,7 +828,7 @@ define internal fastcc void @tupledesc_match(ptr noundef readonly captures(none)
   %62 = load i32, ptr %0, align 8
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %61, %.preheader
   ret void
@@ -1041,7 +1041,7 @@ ExecEvalFuncArgs.exit:                            ; preds = %.lr.ph20.i, %56, %.
 85:                                               ; preds = %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !12
 
 86:                                               ; preds = %.lr.ph, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %85 ]
@@ -1185,7 +1185,7 @@ ExecPrepareTuplestoreResult.exit:                 ; preds = %136, %139
   call void @check_stack_depth() #6
   %140 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %140, null
-  br i1 %.not, label %52, label %._crit_edge
+  br i1 %.not, label %52, label %._crit_edge, !llvm.loop !13
 
 141:                                              ; preds = %108
   store i32 2, ptr %4, align 4
@@ -1309,8 +1309,11 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}

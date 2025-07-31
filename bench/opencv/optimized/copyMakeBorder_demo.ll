@@ -581,7 +581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70: ; preds = %.lo
   %.pre81 = load i32, ptr @bottom, align 4, !tbaa !26
   %.pre82 = load i32, ptr @left, align 4, !tbaa !26
   %.pre83 = load i32, ptr @right, align 4, !tbaa !26
-  br label %119
+  br label %119, !llvm.loop !38
 
 188:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70, %178
   %.pn32.pn.pn = phi { ptr, i32 } [ %.pn32.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit70 ], [ %179, %178 ]
@@ -706,3 +706,5 @@ attributes #13 = { builtin nounwind }
 !35 = !{!36, !19, i64 0}
 !36 = !{!"_ZTSN2cv11_InputArrayE", !19, i64 0, !7, i64 8, !33, i64 16}
 !37 = !{!36, !7, i64 8}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.estimated_trip_count"}

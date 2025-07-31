@@ -207,7 +207,7 @@ _ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_.exit.i.i: ; preds = %_ZN20
 
 _ZNK20btAlignedObjectArrayIP10btSoftBodyE4copyEiiPS1_.exit.thread.i.i: ; preds = %21
   %.old.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !14, !range !25, !noundef !30
+  %.old25.i = load i8, ptr %.old.i, align 8, !tbaa !14, !range !25, !noundef !31
   %.old26.i = trunc nuw i8 %.old25.i to i1
   br i1 %.old26.i, label %28, label %_ZN20btAlignedObjectArrayIP10btSoftBodyE10deallocateEv.exit.i.i
 
@@ -280,7 +280,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver16updateSoftBodiesEv(ptr noun
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 240
-  %12 = load i32, ptr %11, align 8, !tbaa !31
+  %12 = load i32, ptr %11, align 8, !tbaa !32
   switch i32 %12, label %13 [
     i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
     i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
@@ -297,7 +297,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %6, %6, %6, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = sext i32 %14 to i64
   %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %6, label %._crit_edge, !llvm.loop !41
+  br i1 %16, label %6, label %._crit_edge, !llvm.loop !42
 }
 
 declare void @_ZN10btSoftBody15integrateMotionEv(ptr noundef nonnull align 8 dereferenceable(2064)) local_unnamed_addr #5
@@ -328,7 +328,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver16solveConstraintsEf(ptr noun
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
-  %13 = load i32, ptr %12, align 8, !tbaa !31
+  %13 = load i32, ptr %12, align 8, !tbaa !32
   switch i32 %13, label %14 [
     i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
     i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
@@ -345,7 +345,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %7, %7, %7, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %7, label %._crit_edge, !llvm.loop !42
+  br i1 %17, label %7, label %._crit_edge, !llvm.loop !43
 }
 
 declare void @_ZN10btSoftBody16solveConstraintsEv(ptr noundef nonnull align 8 dereferenceable(2064)) local_unnamed_addr #5
@@ -361,7 +361,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 932
-  %11 = load i32, ptr %10, align 4, !tbaa !43
+  %11 = load i32, ptr %10, align 4, !tbaa !44
   %12 = load ptr, ptr %2, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
@@ -388,7 +388,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
   %30 = sext i32 %24 to i64
   %31 = getelementptr inbounds float, ptr %15, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  %33 = load ptr, ptr %32, align 8, !tbaa !47
+  %33 = load ptr, ptr %32, align 8, !tbaa !48
   %34 = sext i32 %28 to i64
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %35
@@ -402,15 +402,15 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
   %.sroa.438.0.copyload = load float, ptr %.sroa.438.0..sroa_idx, align 4
   %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.sroa.539.0.copyload = load float, ptr %.sroa.539.0..sroa_idx, align 8
-  store float %.sroa.037.0.copyload, ptr %.03543, align 4, !tbaa !48
+  store float %.sroa.037.0.copyload, ptr %.03543, align 4, !tbaa !49
   %37 = getelementptr inbounds nuw i8, ptr %.03543, i64 4
-  store float %.sroa.438.0.copyload, ptr %37, align 4, !tbaa !48
+  store float %.sroa.438.0.copyload, ptr %37, align 4, !tbaa !49
   %38 = getelementptr inbounds nuw i8, ptr %.03543, i64 8
-  store float %.sroa.539.0.copyload, ptr %38, align 4, !tbaa !48
+  store float %.sroa.539.0.copyload, ptr %38, align 4, !tbaa !49
   %39 = getelementptr inbounds float, ptr %.03543, i64 %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit41, label %35, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit41, label %35, !llvm.loop !50
 
 .loopexit41:                                      ; preds = %35, %20, %9
   %40 = load ptr, ptr %2, align 8, !tbaa !12
@@ -435,7 +435,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
   %54 = sext i32 %48 to i64
   %55 = getelementptr inbounds float, ptr %15, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  %57 = load ptr, ptr %56, align 8, !tbaa !47
+  %57 = load ptr, ptr %56, align 8, !tbaa !48
   %58 = sext i32 %52 to i64
   %wide.trip.count51 = zext nneg i32 %11 to i64
   br label %59
@@ -449,15 +449,15 @@ define dso_local void @_ZN23btDefaultSoftBodySolver26copySoftBodyToVertexBufferE
   %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
-  store float %.sroa.0.0.copyload, ptr %.03444, align 4, !tbaa !48
+  store float %.sroa.0.0.copyload, ptr %.03444, align 4, !tbaa !49
   %61 = getelementptr inbounds nuw i8, ptr %.03444, i64 4
-  store float %.sroa.4.0.copyload, ptr %61, align 4, !tbaa !48
+  store float %.sroa.4.0.copyload, ptr %61, align 4, !tbaa !49
   %62 = getelementptr inbounds nuw i8, ptr %.03444, i64 8
-  store float %.sroa.5.0.copyload, ptr %62, align 4, !tbaa !48
+  store float %.sroa.5.0.copyload, ptr %62, align 4, !tbaa !49
   %63 = getelementptr inbounds float, ptr %.03444, i64 %58
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
-  br i1 %exitcond52.not, label %.loopexit, label %59, !llvm.loop !50
+  br i1 %exitcond52.not, label %.loopexit, label %59, !llvm.loop !51
 
 .loopexit:                                        ; preds = %59, %44, %.loopexit41, %3
   ret void
@@ -500,7 +500,7 @@ define dso_local void @_ZN23btDefaultSoftBodySolver13predictMotionEf(ptr noundef
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
-  %13 = load i32, ptr %12, align 8, !tbaa !31
+  %13 = load i32, ptr %12, align 8, !tbaa !32
   switch i32 %13, label %14 [
     i32 6, label %_ZNK17btCollisionObject8isActiveEv.exit
     i32 2, label %_ZNK17btCollisionObject8isActiveEv.exit
@@ -517,7 +517,7 @@ _ZNK17btCollisionObject8isActiveEv.exit:          ; preds = %7, %7, %7, %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %7, label %._crit_edge, !llvm.loop !51
+  br i1 %17, label %7, label %._crit_edge, !llvm.loop !52
 }
 
 declare void @_ZN10btSoftBody13predictMotionEf(ptr noundef nonnull align 8 dereferenceable(2064), float noundef) local_unnamed_addr #5
@@ -617,27 +617,28 @@ attributes #11 = { nounwind }
 !25 = !{i8 0, i8 2}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"p1 _ZTS10btSoftBody", !18, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{}
-!31 = !{!32, !6, i64 240}
-!32 = !{!"_ZTS17btCollisionObject", !33, i64 8, !33, i64 72, !35, i64 136, !35, i64 152, !35, i64 168, !6, i64 184, !9, i64 188, !36, i64 192, !37, i64 200, !18, i64 208, !37, i64 216, !6, i64 224, !6, i64 228, !6, i64 232, !6, i64 236, !6, i64 240, !9, i64 244, !9, i64 248, !9, i64 252, !9, i64 256, !9, i64 260, !9, i64 264, !9, i64 268, !6, i64 272, !18, i64 280, !6, i64 288, !6, i64 292, !6, i64 296, !9, i64 300, !9, i64 304, !9, i64 308, !6, i64 312, !38, i64 320, !6, i64 352, !35, i64 356}
-!33 = !{!"_ZTS11btTransform", !34, i64 0, !35, i64 48}
-!34 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
-!35 = !{!"_ZTS9btVector3", !7, i64 0}
-!36 = !{!"p1 _ZTS17btBroadphaseProxy", !18, i64 0}
-!37 = !{!"p1 _ZTS16btCollisionShape", !18, i64 0}
-!38 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !39, i64 0, !6, i64 4, !6, i64 8, !40, i64 16, !19, i64 24}
-!39 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
-!40 = !{!"p2 _ZTS17btCollisionObject", !18, i64 0}
-!41 = distinct !{!41, !29}
-!42 = distinct !{!42, !29}
-!43 = !{!44, !6, i64 4}
-!44 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !45, i64 0, !6, i64 4, !6, i64 8, !46, i64 16, !19, i64 24}
-!45 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NodeELj16EE"}
-!46 = !{!"p1 _ZTSN10btSoftBody4NodeE", !18, i64 0}
-!47 = !{!44, !46, i64 16}
-!48 = !{!9, !9, i64 0}
-!49 = distinct !{!49, !29}
-!50 = distinct !{!50, !29}
-!51 = distinct !{!51, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{}
+!32 = !{!33, !6, i64 240}
+!33 = !{!"_ZTS17btCollisionObject", !34, i64 8, !34, i64 72, !36, i64 136, !36, i64 152, !36, i64 168, !6, i64 184, !9, i64 188, !37, i64 192, !38, i64 200, !18, i64 208, !38, i64 216, !6, i64 224, !6, i64 228, !6, i64 232, !6, i64 236, !6, i64 240, !9, i64 244, !9, i64 248, !9, i64 252, !9, i64 256, !9, i64 260, !9, i64 264, !9, i64 268, !6, i64 272, !18, i64 280, !6, i64 288, !6, i64 292, !6, i64 296, !9, i64 300, !9, i64 304, !9, i64 308, !6, i64 312, !39, i64 320, !6, i64 352, !36, i64 356}
+!34 = !{!"_ZTS11btTransform", !35, i64 0, !36, i64 48}
+!35 = !{!"_ZTS11btMatrix3x3", !7, i64 0}
+!36 = !{!"_ZTS9btVector3", !7, i64 0}
+!37 = !{!"p1 _ZTS17btBroadphaseProxy", !18, i64 0}
+!38 = !{!"p1 _ZTS16btCollisionShape", !18, i64 0}
+!39 = !{!"_ZTS20btAlignedObjectArrayIPK17btCollisionObjectE", !40, i64 0, !6, i64 4, !6, i64 8, !41, i64 16, !19, i64 24}
+!40 = !{!"_ZTS18btAlignedAllocatorIPK17btCollisionObjectLj16EE"}
+!41 = !{!"p2 _ZTS17btCollisionObject", !18, i64 0}
+!42 = distinct !{!42, !29, !30}
+!43 = distinct !{!43, !29, !30}
+!44 = !{!45, !6, i64 4}
+!45 = !{!"_ZTS20btAlignedObjectArrayIN10btSoftBody4NodeEE", !46, i64 0, !6, i64 4, !6, i64 8, !47, i64 16, !19, i64 24}
+!46 = !{!"_ZTS18btAlignedAllocatorIN10btSoftBody4NodeELj16EE"}
+!47 = !{!"p1 _ZTSN10btSoftBody4NodeE", !18, i64 0}
+!48 = !{!45, !47, i64 16}
+!49 = !{!9, !9, i64 0}
+!50 = distinct !{!50, !29, !30}
+!51 = distinct !{!51, !29, !30}
+!52 = distinct !{!52, !29, !30}

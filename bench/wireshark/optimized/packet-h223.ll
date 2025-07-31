@@ -768,7 +768,7 @@ find_or_create_call_info.exit:                    ; preds = %find_or_create_call
   %111 = add i32 %114, %.03037
   %112 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %113 = icmp ult i32 %111, %112
-  br i1 %113, label %.lr.ph, label %.thread, !llvm.loop !8
+  br i1 %113, label %.lr.ph, label %.thread, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %108, %110
   %.03037 = phi i32 [ %111, %110 ], [ 0, %108 ]
@@ -940,7 +940,7 @@ h223_mux_check_hdlc.exit.thread:                  ; preds = %44, %h223_mux_check
   %.0..0..0..0.29 = load volatile i32, ptr %9, align 4
   %57 = call i32 @tvb_reported_length(ptr noundef %0)
   %58 = icmp ult i32 %.0..0..0..0.29, %57
-  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !9
+  br i1 %58, label %.lr.ph, label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %h223_mux_check_hdlc.exit.thread, %7
   %59 = load i32, ptr %10, align 4
@@ -1167,7 +1167,7 @@ proto_item_set_generated.exit.i:                  ; preds = %128, %125, %122
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %161 = load i32, ptr %160, align 8
   %162 = icmp ult i32 %161, %151
-  br i1 %162, label %155, label %.critedge.i.i.i.preheader, !llvm.loop !10
+  br i1 %162, label %155, label %.critedge.i.i.i.preheader, !llvm.loop !11
 
 .critedge.i.i.i.preheader:                        ; preds = %159, %156, %155
   br label %.critedge.i.i.i
@@ -1193,7 +1193,7 @@ proto_item_set_generated.exit.i:                  ; preds = %128, %125, %122
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 12
   %172 = load i32, ptr %171, align 4
   %173 = icmp ult i32 %172, %143
-  br i1 %173, label %.critedge.i.i.i, label %find_h223_mux_element.exit.i.i, !llvm.loop !11
+  br i1 %173, label %.critedge.i.i.i, label %find_h223_mux_element.exit.i.i, !llvm.loop !12
 
 find_h223_mux_element.exit.i.i:                   ; preds = %170, %166, %163
   %174 = load ptr, ptr %.1.i.i.i, align 8
@@ -1523,7 +1523,7 @@ circuit_chain_lookup.exit:                        ; preds = %5, %13
   %40 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not31.i = icmp eq ptr %41, null
-  br i1 %.not31.i, label %42, label %.preheader.i, !llvm.loop !12
+  br i1 %.not31.i, label %42, label %.preheader.i, !llvm.loop !13
 
 42:                                               ; preds = %.preheader.i
   %43 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 8
@@ -1719,7 +1719,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   %21 = tail call fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %20, i32 noundef %.170, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9)
   %22 = add i32 %21, %18
   %.not65 = icmp ugt i32 %22, %11
-  br i1 %.not65, label %.loopexit, label %.lr.ph71, !llvm.loop !13
+  br i1 %.not65, label %.loopexit, label %.lr.ph71, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
   %.05868 = phi i32 [ %25, %.lr.ph ], [ 0, %16 ]
@@ -1730,7 +1730,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   %26 = load i16, ptr %13, align 2
   %27 = zext i16 %26 to i32
   %28 = icmp samesign ult i32 %25, %27
-  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !14
+  br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !15
 
 29:                                               ; preds = %.lr.ph76
   %30 = sub i32 %11, %.05974
@@ -1755,7 +1755,7 @@ define internal fastcc i32 @dissect_mux_payload_by_me_list(ptr noundef %0, ptr n
   %40 = getelementptr inbounds nuw i8, ptr %.075, i64 16
   %41 = load ptr, ptr %40, align 8
   %.not = icmp eq ptr %41, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph76, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph76, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.loopexit, %10
   %.059.lcssa = phi i32 [ %6, %10 ], [ %.3, %.loopexit ]
@@ -1799,7 +1799,7 @@ define internal fastcc range(i32 1, 0) i32 @mux_element_sublist_size(ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %.01318, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %12
   tail call void @decrement_dissection_depth(ptr noundef %0)
@@ -1938,7 +1938,7 @@ circuit_chain_lookup.exit:                        ; preds = %27, %35
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i32, ptr %70, align 8
   %.not13.i = icmp ugt i32 %71, %61
-  br i1 %.not13.i, label %find_h223_lc_params.exit, label %65, !llvm.loop !17
+  br i1 %.not13.i, label %find_h223_lc_params.exit, label %65, !llvm.loop !18
 
 find_h223_lc_params.exit:                         ; preds = %66, %69
   %72 = load ptr, ptr %.0.i78, align 8
@@ -1947,7 +1947,7 @@ find_h223_lc_params.exit:                         ; preds = %66, %69
 
 73:                                               ; preds = %find_h223_lc_params.exit
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %75 = load i8, ptr %74, align 8, !range !18, !noundef !19
+  %75 = load i8, ptr %74, align 8, !range !19, !noundef !20
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %95
 
@@ -2123,7 +2123,7 @@ proto_item_set_generated.exit.i:                  ; preds = %134, %131, %123
   %161 = getelementptr [256 x i8], ptr @crctable, i64 0, i64 %160
   %162 = load i8, ptr %161, align 1
   %.not10.i.i = icmp eq i32 %156, 0
-  br i1 %.not10.i.i, label %h223_al2_crc8bit.exit.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %.not10.i.i, label %h223_al2_crc8bit.exit.i, label %.lr.ph.i.i, !llvm.loop !21
 
 h223_al2_crc8bit.exit.i:                          ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.08.lcssa.i.i = phi i8 [ 0, %.preheader.i.i ], [ %162, %.lr.ph.i.i ]
@@ -2286,18 +2286,19 @@ attributes #18 = { nounwind returns_twice }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !7, !8}

@@ -672,7 +672,7 @@ marshal_integer.exit49:                           ; preds = %18
 
 23:                                               ; preds = %marshal_integer.exit49
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !32
+  %25 = load ptr, ptr %24, align 8, !tbaa !33
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.sink.split, label %marshal_integer.exit51
 
@@ -705,7 +705,7 @@ marshal_integer.exit55:                           ; preds = %33
 
 38:                                               ; preds = %marshal_integer.exit55
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %40 = load ptr, ptr %39, align 8, !tbaa !33
+  %40 = load ptr, ptr %39, align 8, !tbaa !34
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.sink.split, label %marshal_integer.exit57
 
@@ -716,7 +716,7 @@ marshal_integer.exit57:                           ; preds = %38
 
 43:                                               ; preds = %marshal_integer.exit57
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %45 = load ptr, ptr %44, align 8, !tbaa !34
+  %45 = load ptr, ptr %44, align 8, !tbaa !35
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.sink.split, label %marshal_integer.exit59
 
@@ -727,7 +727,7 @@ marshal_integer.exit59:                           ; preds = %43
 
 48:                                               ; preds = %marshal_integer.exit59
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %50 = load ptr, ptr %49, align 8, !tbaa !35
+  %50 = load ptr, ptr %49, align 8, !tbaa !36
   %51 = call fastcc i32 @marshal_integer(ptr noundef %3, ptr noundef %50)
   %.not37 = icmp eq i32 %51, 0
   br i1 %.not37, label %52, label %53
@@ -781,7 +781,7 @@ marshal_integer.exit61:                           ; preds = %61
 
 65:                                               ; preds = %marshal_integer.exit61
   %66 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !36
+  %67 = load ptr, ptr %66, align 8, !tbaa !37
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.critedge.sink.split, label %marshal_integer.exit63
 
@@ -792,7 +792,7 @@ marshal_integer.exit63:                           ; preds = %65
 
 70:                                               ; preds = %marshal_integer.exit63
   %71 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !37
+  %72 = load ptr, ptr %71, align 8, !tbaa !38
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.critedge.sink.split, label %marshal_integer.exit65
 
@@ -817,7 +817,7 @@ marshal_integer.exit65:                           ; preds = %70
   %77 = load ptr, ptr %6, align 8, !tbaa !24
   %78 = call i64 @sk_num(ptr noundef %77) #5
   %.not86 = icmp ult i64 %76, %78
-  br i1 %.not86, label %.lr.ph, label %.critedge47, !llvm.loop !38
+  br i1 %.not86, label %.lr.ph, label %.critedge47, !llvm.loop !39
 
 .critedge47:                                      ; preds = %75, %.preheader
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #5
@@ -882,7 +882,7 @@ define hidden ptr @d2i_RSAPublicKey(ptr noundef captures(address_is_null) %0, pt
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  %7 = load ptr, ptr %1, align 8, !tbaa !39
+  %7 = load ptr, ptr %1, align 8, !tbaa !40
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #5
   %8 = call fastcc ptr @parse_public_key(ptr noundef nonnull %4, i32 noundef 0)
   %9 = icmp eq ptr %8, null
@@ -893,14 +893,14 @@ define hidden ptr @d2i_RSAPublicKey(ptr noundef captures(address_is_null) %0, pt
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr %0, align 8, !tbaa !40
+  %12 = load ptr, ptr %0, align 8, !tbaa !41
   call void @RSA_free(ptr noundef %12) #5
-  store ptr %8, ptr %0, align 8, !tbaa !40
+  store ptr %8, ptr %0, align 8, !tbaa !41
   br label %13
 
 13:                                               ; preds = %11, %10
   %14 = call ptr @CBS_data(ptr noundef nonnull %4) #5
-  store ptr %14, ptr %1, align 8, !tbaa !39
+  store ptr %14, ptr %1, align 8, !tbaa !40
   br label %15
 
 15:                                               ; preds = %6, %13
@@ -951,7 +951,7 @@ define hidden ptr @d2i_RSAPrivateKey(ptr noundef captures(address_is_null) %0, p
 
 6:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  %7 = load ptr, ptr %1, align 8, !tbaa !39
+  %7 = load ptr, ptr %1, align 8, !tbaa !40
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %7, i64 noundef %2) #5
   %8 = call ptr @RSA_parse_private_key(ptr noundef nonnull %4)
   %9 = icmp eq ptr %8, null
@@ -962,14 +962,14 @@ define hidden ptr @d2i_RSAPrivateKey(ptr noundef captures(address_is_null) %0, p
   br i1 %.not, label %13, label %11
 
 11:                                               ; preds = %10
-  %12 = load ptr, ptr %0, align 8, !tbaa !40
+  %12 = load ptr, ptr %0, align 8, !tbaa !41
   call void @RSA_free(ptr noundef %12) #5
-  store ptr %8, ptr %0, align 8, !tbaa !40
+  store ptr %8, ptr %0, align 8, !tbaa !41
   br label %13
 
 13:                                               ; preds = %11, %10
   %14 = call ptr @CBS_data(ptr noundef nonnull %4) #5
-  store ptr %14, ptr %1, align 8, !tbaa !39
+  store ptr %14, ptr %1, align 8, !tbaa !40
   br label %15
 
 15:                                               ; preds = %6, %13
@@ -1040,7 +1040,7 @@ RSA_public_key_to_bytes.exit.thread:              ; preds = %1, %7, %9
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
-  %12 = load ptr, ptr %4, align 8, !tbaa !39
+  %12 = load ptr, ptr %4, align 8, !tbaa !40
   %13 = load i64, ptr %5, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
   call void @CBS_init(ptr noundef nonnull %2, ptr noundef %12, i64 noundef %13) #5
@@ -1061,7 +1061,7 @@ RSA_public_key_to_bytes.exit.thread:              ; preds = %1, %7, %9
 RSA_public_key_from_bytes.exit:                   ; preds = %16, %18
   %.0.i4 = phi ptr [ null, %18 ], [ %14, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
-  %19 = load ptr, ptr %4, align 8, !tbaa !39
+  %19 = load ptr, ptr %4, align 8, !tbaa !40
   call void @free(ptr noundef %19) #5
   br label %20
 
@@ -1107,7 +1107,7 @@ RSA_private_key_to_bytes.exit.thread:             ; preds = %1, %7, %9
 
 11:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #5
-  %12 = load ptr, ptr %4, align 8, !tbaa !39
+  %12 = load ptr, ptr %4, align 8, !tbaa !40
   %13 = load i64, ptr %5, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
   call void @CBS_init(ptr noundef nonnull %2, ptr noundef %12, i64 noundef %13) #5
@@ -1128,7 +1128,7 @@ RSA_private_key_to_bytes.exit.thread:             ; preds = %1, %7, %9
 RSA_private_key_from_bytes.exit:                  ; preds = %16, %18
   %.0.i4 = phi ptr [ null, %18 ], [ %14, %16 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #5
-  %19 = load ptr, ptr %4, align 8, !tbaa !39
+  %19 = load ptr, ptr %4, align 8, !tbaa !40
   call void @free(ptr noundef %19) #5
   br label %20
 
@@ -1191,15 +1191,16 @@ attributes #5 = { nounwind }
 !27 = !{!28, !7, i64 24}
 !28 = !{!"RSA_additional_prime_st", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24, !18, i64 32}
 !29 = !{!28, !7, i64 0}
-!30 = distinct !{!30, !31}
+!30 = distinct !{!30, !31, !32}
 !31 = !{!"llvm.loop.mustprogress"}
-!32 = !{!12, !7, i64 24}
-!33 = !{!12, !7, i64 48}
-!34 = !{!12, !7, i64 56}
-!35 = !{!12, !7, i64 64}
-!36 = !{!28, !7, i64 8}
-!37 = !{!28, !7, i64 16}
-!38 = distinct !{!38, !31}
-!39 = !{!20, !20, i64 0}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS6rsa_st", !8, i64 0}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!12, !7, i64 24}
+!34 = !{!12, !7, i64 48}
+!35 = !{!12, !7, i64 56}
+!36 = !{!12, !7, i64 64}
+!37 = !{!28, !7, i64 8}
+!38 = !{!28, !7, i64 16}
+!39 = distinct !{!39, !31, !32}
+!40 = !{!20, !20, i64 0}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS6rsa_st", !8, i64 0}

@@ -181,7 +181,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv697, 1
   %exitcond701.not = icmp eq i64 %indvars.iv.next698, %wide.trip.count700
   %indvar.next871 = add i64 %indvar870, 1
-  br i1 %exitcond701.not, label %.loopexit583, label %.lr.ph611, !llvm.loop !11
+  br i1 %exitcond701.not, label %.loopexit583, label %.lr.ph611, !llvm.loop !12
 
 79:                                               ; preds = %46
   %80 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.4) #5
@@ -245,7 +245,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %106, ptr %gep818.lver.orig, align 8, !tbaa !7
   %indvars.iv.next703.lver.orig = add nuw nsw i64 %indvars.iv702.lver.orig, 1
   %exitcond706.not.lver.orig = icmp eq i64 %indvars.iv.next703.lver.orig, %wide.trip.count705
-  br i1 %exitcond706.not.lver.orig, label %.loopexit602, label %.lr.ph614.lver.orig, !llvm.loop !12
+  br i1 %exitcond706.not.lver.orig, label %.loopexit602, label %.lr.ph614.lver.orig, !llvm.loop !13
 
 .lr.ph614.ph:                                     ; preds = %.lr.ph614.lver.check
   %load_initial = load double, ptr %scevgep, align 8
@@ -267,12 +267,12 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %113, ptr %gep818, align 8, !tbaa !7
   %indvars.iv.next703 = add nuw nsw i64 %indvars.iv702, 1
   %exitcond706.not = icmp eq i64 %indvars.iv.next703, %wide.trip.count705
-  br i1 %exitcond706.not, label %.loopexit602, label %.lr.ph614, !llvm.loop !12
+  br i1 %exitcond706.not, label %.loopexit602, label %.lr.ph614, !llvm.loop !13
 
 .loopexit602:                                     ; preds = %.lr.ph614.lver.orig, %.lr.ph614, %96, %.lr.ph618
   %114 = icmp samesign ugt i64 %indvars.iv707, 2
   %indvar.next = add i64 %indvar, 1
-  br i1 %114, label %.lr.ph618, label %.loopexit583, !llvm.loop !13
+  br i1 %114, label %.lr.ph618, label %.loopexit583, !llvm.loop !14
 
 115:                                              ; preds = %44
   %116 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.3) #5
@@ -336,12 +336,12 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %142, ptr %gep, align 8, !tbaa !7
   %indvars.iv.next711 = add nuw nsw i64 %indvars.iv710, 1
   %exitcond714.not = icmp eq i64 %indvars.iv.next711, %wide.trip.count713
-  br i1 %exitcond714.not, label %.loopexit600, label %.lr.ph621, !llvm.loop !14
+  br i1 %exitcond714.not, label %.loopexit600, label %.lr.ph621, !llvm.loop !15
 
 .loopexit600:                                     ; preds = %.lr.ph621, %131, %123
   %indvars.iv.next716 = add nuw nsw i64 %indvars.iv715, 1
   %exitcond719.not = icmp eq i64 %indvars.iv.next716, %wide.trip.count718
-  br i1 %exitcond719.not, label %.loopexit583, label %123, !llvm.loop !15
+  br i1 %exitcond719.not, label %.loopexit583, label %123, !llvm.loop !16
 
 143:                                              ; preds = %117
   %144 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.4) #5
@@ -399,11 +399,11 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %168, ptr %gep627, align 8, !tbaa !7
   %indvars.iv.next721 = add nuw nsw i64 %indvars.iv720, 1
   %exitcond724.not = icmp eq i64 %indvars.iv.next721, %wide.trip.count723
-  br i1 %exitcond724.not, label %.loopexit598, label %.lr.ph630, !llvm.loop !16
+  br i1 %exitcond724.not, label %.loopexit598, label %.lr.ph630, !llvm.loop !17
 
 .loopexit598:                                     ; preds = %.lr.ph630, %157, %150
   %169 = icmp samesign ugt i64 %indvars.iv725, 2
-  br i1 %169, label %150, label %.loopexit583, !llvm.loop !17
+  br i1 %169, label %150, label %.loopexit583, !llvm.loop !18
 
 170:                                              ; preds = %115
   %171 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.4) #5
@@ -466,12 +466,12 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %195, ptr %gep826, align 8, !tbaa !7
   %indvars.iv.next729 = add nuw nsw i64 %indvars.iv728, 1
   %exitcond732.not = icmp eq i64 %indvars.iv.next729, %wide.trip.count731
-  br i1 %exitcond732.not, label %.loopexit596, label %.lr.ph635, !llvm.loop !18
+  br i1 %exitcond732.not, label %.loopexit596, label %.lr.ph635, !llvm.loop !19
 
 .loopexit596:                                     ; preds = %.lr.ph635, %184, %.lr.ph639
   %indvars.iv.next734 = add nuw nsw i64 %indvars.iv733, 1
   %exitcond737.not = icmp eq i64 %indvars.iv.next734, %wide.trip.count736
-  br i1 %exitcond737.not, label %.loopexit583, label %.lr.ph639, !llvm.loop !19
+  br i1 %exitcond737.not, label %.loopexit583, label %.lr.ph639, !llvm.loop !20
 
 196:                                              ; preds = %172
   %197 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.4) #5
@@ -529,11 +529,11 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %220, ptr %gep830, align 8, !tbaa !7
   %indvars.iv.next739 = add nuw nsw i64 %indvars.iv738, 1
   %exitcond742.not = icmp eq i64 %indvars.iv.next739, %wide.trip.count741
-  br i1 %exitcond742.not, label %.loopexit594, label %.lr.ph642, !llvm.loop !20
+  br i1 %exitcond742.not, label %.loopexit594, label %.lr.ph642, !llvm.loop !21
 
 .loopexit594:                                     ; preds = %.lr.ph642, %209, %.lr.ph645
   %221 = icmp samesign ugt i64 %indvars.iv743, 2
-  br i1 %221, label %.lr.ph645, label %.loopexit583, !llvm.loop !21
+  br i1 %221, label %.lr.ph645, label %.loopexit583, !llvm.loop !22
 
 222:                                              ; preds = %42
   %223 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.1) #5
@@ -602,12 +602,12 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %251, ptr %gep834, align 8, !tbaa !7
   %indvars.iv.next747 = add nuw nsw i64 %indvars.iv746, 1
   %exitcond750.not = icmp eq i64 %indvars.iv.next747, %wide.trip.count749
-  br i1 %exitcond750.not, label %.loopexit592, label %243, !llvm.loop !22
+  br i1 %exitcond750.not, label %.loopexit592, label %243, !llvm.loop !23
 
 .loopexit592:                                     ; preds = %243, %237, %.lr.ph652
   %indvars.iv.next752 = add nuw nsw i64 %indvars.iv751, 1
   %exitcond755.not = icmp eq i64 %indvars.iv.next752, %wide.trip.count754
-  br i1 %exitcond755.not, label %.loopexit583, label %.lr.ph652, !llvm.loop !23
+  br i1 %exitcond755.not, label %.loopexit583, label %.lr.ph652, !llvm.loop !24
 
 252:                                              ; preds = %226
   %253 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.4) #5
@@ -666,11 +666,11 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %278, ptr %gep838, align 8, !tbaa !7
   %indvars.iv.next757 = add nuw nsw i64 %indvars.iv756, 1
   %exitcond760.not = icmp eq i64 %indvars.iv.next757, %wide.trip.count759
-  br i1 %exitcond760.not, label %.loopexit590, label %270, !llvm.loop !24
+  br i1 %exitcond760.not, label %.loopexit590, label %270, !llvm.loop !25
 
 .loopexit590:                                     ; preds = %270, %265, %.lr.ph659
   %279 = icmp samesign ugt i64 %indvars.iv761, 2
-  br i1 %279, label %.lr.ph659, label %.loopexit583, !llvm.loop !25
+  br i1 %279, label %.lr.ph659, label %.loopexit583, !llvm.loop !26
 
 280:                                              ; preds = %224
   %281 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.3) #5
@@ -734,12 +734,12 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %307, ptr %gep842, align 8, !tbaa !7
   %indvars.iv.next765 = add nuw nsw i64 %indvars.iv764, 1
   %exitcond768.not = icmp eq i64 %indvars.iv.next765, %wide.trip.count767
-  br i1 %exitcond768.not, label %.loopexit588, label %299, !llvm.loop !26
+  br i1 %exitcond768.not, label %.loopexit588, label %299, !llvm.loop !27
 
 .loopexit588:                                     ; preds = %299, %295, %.lr.ph666
   %indvars.iv.next770 = add nuw nsw i64 %indvars.iv769, 1
   %exitcond773.not = icmp eq i64 %indvars.iv.next770, %wide.trip.count772
-  br i1 %exitcond773.not, label %.loopexit583, label %.lr.ph666, !llvm.loop !27
+  br i1 %exitcond773.not, label %.loopexit583, label %.lr.ph666, !llvm.loop !28
 
 308:                                              ; preds = %282
   %309 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.4) #5
@@ -797,11 +797,11 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %333, ptr %gep846, align 8, !tbaa !7
   %indvars.iv.next775 = add nuw nsw i64 %indvars.iv774, 1
   %exitcond778.not = icmp eq i64 %indvars.iv.next775, %wide.trip.count777
-  br i1 %exitcond778.not, label %.loopexit586, label %325, !llvm.loop !28
+  br i1 %exitcond778.not, label %.loopexit586, label %325, !llvm.loop !29
 
 .loopexit586:                                     ; preds = %325, %321, %.lr.ph671
   %334 = icmp samesign ugt i64 %indvars.iv779, 2
-  br i1 %334, label %.lr.ph671, label %.loopexit583, !llvm.loop !29
+  br i1 %334, label %.lr.ph671, label %.loopexit583, !llvm.loop !30
 
 335:                                              ; preds = %280
   %336 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.4) #5
@@ -865,12 +865,12 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %363, ptr %gep850, align 8, !tbaa !7
   %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782, 1
   %exitcond786.not = icmp eq i64 %indvars.iv.next783, %wide.trip.count785
-  br i1 %exitcond786.not, label %.loopexit584, label %355, !llvm.loop !30
+  br i1 %exitcond786.not, label %.loopexit584, label %355, !llvm.loop !31
 
 .loopexit584:                                     ; preds = %355, %351, %344
   %indvars.iv.next788 = add nuw nsw i64 %indvars.iv787, 1
   %exitcond791.not = icmp eq i64 %indvars.iv.next788, %wide.trip.count790
-  br i1 %exitcond791.not, label %.loopexit583, label %344, !llvm.loop !31
+  br i1 %exitcond791.not, label %.loopexit583, label %344, !llvm.loop !32
 
 364:                                              ; preds = %337
   %365 = tail call i32 @lsame_(ptr noundef %2, ptr noundef nonnull @.str.4) #5
@@ -930,11 +930,11 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   store double %392, ptr %gep854, align 8, !tbaa !7
   %indvars.iv.next793 = add nuw nsw i64 %indvars.iv792, 1
   %exitcond796.not = icmp eq i64 %indvars.iv.next793, %wide.trip.count795
-  br i1 %exitcond796.not, label %.loopexit, label %384, !llvm.loop !32
+  br i1 %exitcond796.not, label %.loopexit, label %384, !llvm.loop !33
 
 .loopexit:                                        ; preds = %384, %380, %373
   %393 = icmp samesign ugt i64 %indvars.iv797, 2
-  br i1 %393, label %373, label %.loopexit583, !llvm.loop !33
+  br i1 %393, label %373, label %.loopexit583, !llvm.loop !34
 
 .loopexit583:                                     ; preds = %.loopexit604, %.loopexit602, %.loopexit600, %.loopexit598, %.loopexit596, %.loopexit594, %.loopexit592, %.loopexit590, %.loopexit588, %.loopexit586, %.loopexit584, %.loopexit, %48, %81, %119, %145, %174, %198, %228, %254, %284, %310, %339, %366, %143, %196, %170, %79, %252, %335, %364, %308, %222, %39, %.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
@@ -975,28 +975,29 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !10}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}
+!31 = distinct !{!31, !10, !11}
+!32 = distinct !{!32, !10, !11}
+!33 = distinct !{!33, !10, !11}
+!34 = distinct !{!34, !10, !11}

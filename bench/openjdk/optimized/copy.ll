@@ -139,7 +139,7 @@ define hidden void @_ZN4Copy21fill_to_memory_atomicEPvmh(ptr noundef %0, i64 nou
   store i32 %19, ptr %20, align 4
   %21 = add nuw i64 %.04354, 4
   %22 = icmp ult i64 %21, %1
-  br i1 %22, label %.lr.ph55, label %.loopexit, !llvm.loop !8
+  br i1 %22, label %.lr.ph55, label %.loopexit, !llvm.loop !9
 
 23:                                               ; preds = %14
   %24 = and i64 %5, 1
@@ -158,7 +158,7 @@ define hidden void @_ZN4Copy21fill_to_memory_atomicEPvmh(ptr noundef %0, i64 nou
   store i16 %28, ptr %29, align 2
   %30 = add nuw i64 %.053, 2
   %31 = icmp ult i64 %30, %1
-  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !9
+  br i1 %31, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 32:                                               ; preds = %23
   tail call void @llvm.memset.p0.i64(ptr align 1 %0, i8 %2, i64 %1, i1 false)
@@ -215,7 +215,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %17 = getelementptr inbounds nuw i8, ptr %.01011.i.i, i64 2
   %18 = add nuw nsw i64 %.0912.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %18, %12
-  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !11
 
 19:                                               ; preds = %13
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i
@@ -230,7 +230,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %22 = getelementptr inbounds nuw i8, ptr %.0910.i.i, i64 2
   %23 = add nuw nsw i64 %.0811.i.i, 1
   %exitcond.not.i16.i = icmp eq i64 %23, %12
-  br i1 %exitcond.not.i16.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i, !llvm.loop !11
+  br i1 %exitcond.not.i16.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i, !llvm.loop !12
 
 24:                                               ; preds = %5
   br i1 %11, label %25, label %29
@@ -248,7 +248,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %27 = getelementptr inbounds nuw i8, ptr %.01011.i21.i, i64 2
   %28 = add nuw nsw i64 %.0912.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %28, %12
-  br i1 %exitcond.not.i22.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i, !llvm.loop !12
+  br i1 %exitcond.not.i22.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i, !llvm.loop !13
 
 29:                                               ; preds = %24
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i
@@ -263,7 +263,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %31 = getelementptr inbounds nuw i8, ptr %.01011.i27.i, i64 2
   %32 = add nuw nsw i64 %.0912.i26.i, 1
   %exitcond.not.i29.i = icmp eq i64 %32, %12
-  br i1 %exitcond.not.i29.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i, !llvm.loop !13
+  br i1 %exitcond.not.i29.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i, !llvm.loop !14
 
 33:                                               ; preds = %4
   %34 = ptrtoint ptr %0 to i64
@@ -292,7 +292,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %45 = getelementptr inbounds nuw i8, ptr %.01011.i.i31, i64 4
   %46 = add nuw nsw i64 %.0912.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %46, %40
-  br i1 %exitcond.not.i.i32, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i28, !llvm.loop !14
+  br i1 %exitcond.not.i.i32, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i28, !llvm.loop !15
 
 47:                                               ; preds = %41
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i23
@@ -307,7 +307,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i26, i64 4
   %51 = add nuw nsw i64 %.0811.i.i25, 1
   %exitcond.not.i16.i27 = icmp eq i64 %51, %40
-  br i1 %exitcond.not.i16.i27, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i23, !llvm.loop !15
+  br i1 %exitcond.not.i16.i27, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i23, !llvm.loop !16
 
 52:                                               ; preds = %33
   br i1 %39, label %53, label %57
@@ -325,7 +325,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %55 = getelementptr inbounds nuw i8, ptr %.01011.i21.i20, i64 4
   %56 = add nuw nsw i64 %.0912.i20.i19, 1
   %exitcond.not.i22.i22 = icmp eq i64 %56, %40
-  br i1 %exitcond.not.i22.i22, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i17, !llvm.loop !16
+  br i1 %exitcond.not.i22.i22, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i17, !llvm.loop !17
 
 57:                                               ; preds = %52
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i11
@@ -340,7 +340,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %59 = getelementptr inbounds nuw i8, ptr %.01011.i27.i14, i64 4
   %60 = add nuw nsw i64 %.0912.i26.i13, 1
   %exitcond.not.i29.i16 = icmp eq i64 %60, %40
-  br i1 %exitcond.not.i29.i16, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i11, !llvm.loop !17
+  br i1 %exitcond.not.i29.i16, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i11, !llvm.loop !18
 
 61:                                               ; preds = %4
   %62 = ptrtoint ptr %0 to i64
@@ -369,7 +369,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %73 = getelementptr inbounds nuw i8, ptr %.01011.i.i54, i64 8
   %74 = add nuw nsw i64 %.0912.i.i53, 1
   %exitcond.not.i.i55 = icmp eq i64 %74, %68
-  br i1 %exitcond.not.i.i55, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i51, !llvm.loop !18
+  br i1 %exitcond.not.i.i55, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i51, !llvm.loop !19
 
 75:                                               ; preds = %69
   br i1 %.not.i.i33, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i46
@@ -384,7 +384,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %78 = getelementptr inbounds nuw i8, ptr %.0910.i.i49, i64 8
   %79 = add nuw nsw i64 %.0811.i.i48, 1
   %exitcond.not.i16.i50 = icmp eq i64 %79, %68
-  br i1 %exitcond.not.i16.i50, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i46, !llvm.loop !19
+  br i1 %exitcond.not.i16.i50, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i15.i46, !llvm.loop !20
 
 80:                                               ; preds = %61
   br i1 %67, label %81, label %85
@@ -402,7 +402,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %83 = getelementptr inbounds nuw i8, ptr %.01011.i21.i43, i64 8
   %84 = add nuw nsw i64 %.0912.i20.i42, 1
   %exitcond.not.i22.i45 = icmp eq i64 %84, %68
-  br i1 %exitcond.not.i22.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i40, !llvm.loop !20
+  br i1 %exitcond.not.i22.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i18.i40, !llvm.loop !21
 
 85:                                               ; preds = %80
   br i1 %.not.i.i33, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i34
@@ -417,7 +417,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %87 = getelementptr inbounds nuw i8, ptr %.01011.i27.i37, i64 8
   %88 = add nuw nsw i64 %.0912.i26.i36, 1
   %exitcond.not.i29.i39 = icmp eq i64 %88, %68
-  br i1 %exitcond.not.i29.i39, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i34, !llvm.loop !21
+  br i1 %exitcond.not.i29.i39, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb0EEEvPKvPvm.exit, label %.lr.ph.i24.i34, !llvm.loop !22
 
 89:                                               ; preds = %4
   %90 = load ptr, ptr @g_assert_poison, align 8
@@ -469,7 +469,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %17, ptr %.012.i.i, align 2
   %18 = add nuw nsw i64 %.01115.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %18, %12
-  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !23
 
 19:                                               ; preds = %13
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.preheader.i15.i
@@ -489,7 +489,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %22, ptr %.011.i.i, align 1
   %23 = add nuw nsw i64 %.01014.i.i, 1
   %exitcond.not.i18.i = icmp eq i64 %23, %12
-  br i1 %exitcond.not.i18.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i16.i, !llvm.loop !23
+  br i1 %exitcond.not.i18.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i16.i, !llvm.loop !24
 
 24:                                               ; preds = %5
   br i1 %11, label %25, label %29
@@ -512,7 +512,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %.0.copyload.i.i, ptr %.012.i26.i, align 2
   %28 = add nuw nsw i64 %.01115.i23.i, 1
   %exitcond.not.i27.i = icmp eq i64 %28, %12
-  br i1 %exitcond.not.i27.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i21.i, !llvm.loop !24
+  br i1 %exitcond.not.i27.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i21.i, !llvm.loop !25
 
 29:                                               ; preds = %24
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.preheader.i29.i
@@ -532,7 +532,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %.0.copyload.i36.i, ptr %.012.i35.i, align 1
   %32 = add nuw nsw i64 %.01115.i32.i, 1
   %exitcond.not.i37.i = icmp eq i64 %32, %12
-  br i1 %exitcond.not.i37.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i30.i, !llvm.loop !25
+  br i1 %exitcond.not.i37.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i30.i, !llvm.loop !26
 
 33:                                               ; preds = %4
   %34 = ptrtoint ptr %0 to i64
@@ -566,7 +566,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %45, ptr %.012.i.i43, align 4
   %46 = add nuw nsw i64 %.01115.i.i40, 1
   %exitcond.not.i.i44 = icmp eq i64 %46, %40
-  br i1 %exitcond.not.i.i44, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i38, !llvm.loop !26
+  br i1 %exitcond.not.i.i44, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i38, !llvm.loop !27
 
 47:                                               ; preds = %41
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.preheader.i15.i29
@@ -586,7 +586,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %50, ptr %.011.i.i35, align 1
   %51 = add nuw nsw i64 %.01014.i.i32, 1
   %exitcond.not.i18.i36 = icmp eq i64 %51, %40
-  br i1 %exitcond.not.i18.i36, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i16.i30, !llvm.loop !27
+  br i1 %exitcond.not.i18.i36, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i16.i30, !llvm.loop !28
 
 52:                                               ; preds = %33
   br i1 %39, label %53, label %57
@@ -609,7 +609,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %.0.copyload.i.i27, ptr %.012.i26.i26, align 4
   %56 = add nuw nsw i64 %.01115.i23.i23, 1
   %exitcond.not.i27.i28 = icmp eq i64 %56, %40
-  br i1 %exitcond.not.i27.i28, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i21.i21, !llvm.loop !28
+  br i1 %exitcond.not.i27.i28, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i21.i21, !llvm.loop !29
 
 57:                                               ; preds = %52
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.preheader.i29.i11
@@ -629,7 +629,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %.0.copyload.i36.i18, ptr %.012.i35.i17, align 1
   %60 = add nuw nsw i64 %.01115.i32.i14, 1
   %exitcond.not.i37.i19 = icmp eq i64 %60, %40
-  br i1 %exitcond.not.i37.i19, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i30.i12, !llvm.loop !29
+  br i1 %exitcond.not.i37.i19, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i30.i12, !llvm.loop !30
 
 61:                                               ; preds = %4
   %62 = ptrtoint ptr %0 to i64
@@ -663,7 +663,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %73, ptr %.012.i.i78, align 8
   %74 = add nuw nsw i64 %.01115.i.i75, 1
   %exitcond.not.i.i79 = icmp eq i64 %74, %68
-  br i1 %exitcond.not.i.i79, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i73, !llvm.loop !30
+  br i1 %exitcond.not.i.i79, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i.i73, !llvm.loop !31
 
 75:                                               ; preds = %69
   br i1 %.not.i.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.preheader.i15.i64
@@ -683,7 +683,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %78, ptr %.011.i.i70, align 1
   %79 = add nuw nsw i64 %.01014.i.i67, 1
   %exitcond.not.i18.i71 = icmp eq i64 %79, %68
-  br i1 %exitcond.not.i18.i71, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i16.i65, !llvm.loop !31
+  br i1 %exitcond.not.i18.i71, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i16.i65, !llvm.loop !32
 
 80:                                               ; preds = %61
   br i1 %67, label %81, label %85
@@ -706,7 +706,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %.0.copyload.i.i62, ptr %.012.i26.i61, align 8
   %84 = add nuw nsw i64 %.01115.i23.i58, 1
   %exitcond.not.i27.i63 = icmp eq i64 %84, %68
-  br i1 %exitcond.not.i27.i63, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i21.i56, !llvm.loop !32
+  br i1 %exitcond.not.i27.i63, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i21.i56, !llvm.loop !33
 
 85:                                               ; preds = %80
   br i1 %.not.i.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.preheader.i29.i46
@@ -726,7 +726,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %.0.copyload.i36.i53, ptr %.012.i35.i52, align 1
   %88 = add nuw nsw i64 %.01115.i32.i49, 1
   %exitcond.not.i37.i54 = icmp eq i64 %88, %68
-  br i1 %exitcond.not.i37.i54, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i30.i47, !llvm.loop !33
+  br i1 %exitcond.not.i37.i54, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb0EEEvPKvPvm.exit, label %.lr.ph.i30.i47, !llvm.loop !34
 
 89:                                               ; preds = %4
   %90 = load ptr, ptr @g_assert_poison, align 8
@@ -777,7 +777,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %18 = getelementptr inbounds nuw i8, ptr %.01112.i.i, i64 2
   %19 = add nuw nsw i64 %.01013.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, %12
-  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !35
 
 20:                                               ; preds = %13
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i
@@ -793,7 +793,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %24 = getelementptr inbounds nuw i8, ptr %.01011.i.i, i64 2
   %25 = add nuw nsw i64 %.0912.i.i, 1
   %exitcond.not.i16.i = icmp eq i64 %25, %12
-  br i1 %exitcond.not.i16.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i, !llvm.loop !35
+  br i1 %exitcond.not.i16.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i, !llvm.loop !36
 
 26:                                               ; preds = %5
   br i1 %11, label %27, label %32
@@ -812,7 +812,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %30 = getelementptr inbounds nuw i8, ptr %.01112.i21.i, i64 2
   %31 = add nuw nsw i64 %.01013.i20.i, 1
   %exitcond.not.i22.i = icmp eq i64 %31, %12
-  br i1 %exitcond.not.i22.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i, !llvm.loop !36
+  br i1 %exitcond.not.i22.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i, !llvm.loop !37
 
 32:                                               ; preds = %26
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i
@@ -828,7 +828,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %35 = getelementptr inbounds nuw i8, ptr %.01112.i27.i, i64 2
   %36 = add nuw nsw i64 %.01013.i26.i, 1
   %exitcond.not.i29.i = icmp eq i64 %36, %12
-  br i1 %exitcond.not.i29.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i, !llvm.loop !37
+  br i1 %exitcond.not.i29.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i, !llvm.loop !38
 
 37:                                               ; preds = %4
   %38 = ptrtoint ptr %0 to i64
@@ -858,7 +858,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %50 = getelementptr inbounds nuw i8, ptr %.01112.i.i31, i64 4
   %51 = add nuw nsw i64 %.01013.i.i30, 1
   %exitcond.not.i.i32 = icmp eq i64 %51, %44
-  br i1 %exitcond.not.i.i32, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i28, !llvm.loop !38
+  br i1 %exitcond.not.i.i32, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i28, !llvm.loop !39
 
 52:                                               ; preds = %45
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i23
@@ -874,7 +874,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %56 = getelementptr inbounds nuw i8, ptr %.01011.i.i26, i64 4
   %57 = add nuw nsw i64 %.0912.i.i25, 1
   %exitcond.not.i16.i27 = icmp eq i64 %57, %44
-  br i1 %exitcond.not.i16.i27, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i23, !llvm.loop !39
+  br i1 %exitcond.not.i16.i27, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i23, !llvm.loop !40
 
 58:                                               ; preds = %37
   br i1 %43, label %59, label %64
@@ -893,7 +893,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %62 = getelementptr inbounds nuw i8, ptr %.01112.i21.i20, i64 4
   %63 = add nuw nsw i64 %.01013.i20.i19, 1
   %exitcond.not.i22.i22 = icmp eq i64 %63, %44
-  br i1 %exitcond.not.i22.i22, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i17, !llvm.loop !40
+  br i1 %exitcond.not.i22.i22, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i17, !llvm.loop !41
 
 64:                                               ; preds = %58
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i11
@@ -909,7 +909,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %67 = getelementptr inbounds nuw i8, ptr %.01112.i27.i14, i64 4
   %68 = add nuw nsw i64 %.01013.i26.i13, 1
   %exitcond.not.i29.i16 = icmp eq i64 %68, %44
-  br i1 %exitcond.not.i29.i16, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i11, !llvm.loop !41
+  br i1 %exitcond.not.i29.i16, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i11, !llvm.loop !42
 
 69:                                               ; preds = %4
   %70 = ptrtoint ptr %0 to i64
@@ -939,7 +939,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %82 = getelementptr inbounds nuw i8, ptr %.01112.i.i54, i64 8
   %83 = add nuw nsw i64 %.01013.i.i53, 1
   %exitcond.not.i.i55 = icmp eq i64 %83, %76
-  br i1 %exitcond.not.i.i55, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i51, !llvm.loop !42
+  br i1 %exitcond.not.i.i55, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i51, !llvm.loop !43
 
 84:                                               ; preds = %77
   br i1 %.not.i.i33, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i46
@@ -955,7 +955,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %88 = getelementptr inbounds nuw i8, ptr %.01011.i.i49, i64 8
   %89 = add nuw nsw i64 %.0912.i.i48, 1
   %exitcond.not.i16.i50 = icmp eq i64 %89, %76
-  br i1 %exitcond.not.i16.i50, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i46, !llvm.loop !43
+  br i1 %exitcond.not.i16.i50, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i15.i46, !llvm.loop !44
 
 90:                                               ; preds = %69
   br i1 %75, label %91, label %96
@@ -974,7 +974,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %94 = getelementptr inbounds nuw i8, ptr %.01112.i21.i43, i64 8
   %95 = add nuw nsw i64 %.01013.i20.i42, 1
   %exitcond.not.i22.i45 = icmp eq i64 %95, %76
-  br i1 %exitcond.not.i22.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i40, !llvm.loop !44
+  br i1 %exitcond.not.i22.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i18.i40, !llvm.loop !45
 
 96:                                               ; preds = %90
   br i1 %.not.i.i33, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i34
@@ -990,7 +990,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   %99 = getelementptr inbounds nuw i8, ptr %.01112.i27.i37, i64 8
   %100 = add nuw nsw i64 %.01013.i26.i36, 1
   %exitcond.not.i29.i39 = icmp eq i64 %100, %76
-  br i1 %exitcond.not.i29.i39, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i34, !llvm.loop !45
+  br i1 %exitcond.not.i29.i39, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE0ELb1EEEvPKvPvm.exit, label %.lr.ph.i24.i34, !llvm.loop !46
 
 101:                                              ; preds = %4
   %102 = load ptr, ptr @g_assert_poison, align 8
@@ -1043,7 +1043,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %18, ptr %.013.i.i, align 2
   %19 = add nuw nsw i64 %.01216.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %19, %12
-  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !46
+  br i1 %exitcond.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i, !llvm.loop !47
 
 20:                                               ; preds = %13
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.preheader.i15.i
@@ -1064,7 +1064,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %24, ptr %.012.i.i, align 1
   %25 = add nuw nsw i64 %.01115.i.i, 1
   %exitcond.not.i18.i = icmp eq i64 %25, %12
-  br i1 %exitcond.not.i18.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i16.i, !llvm.loop !47
+  br i1 %exitcond.not.i18.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i16.i, !llvm.loop !48
 
 26:                                               ; preds = %5
   br i1 %11, label %27, label %32
@@ -1088,7 +1088,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %30, ptr %.013.i26.i, align 2
   %31 = add nuw nsw i64 %.01216.i23.i, 1
   %exitcond.not.i27.i = icmp eq i64 %31, %12
-  br i1 %exitcond.not.i27.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i21.i, !llvm.loop !48
+  br i1 %exitcond.not.i27.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i21.i, !llvm.loop !49
 
 32:                                               ; preds = %26
   br i1 %.not.i.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.preheader.i29.i
@@ -1109,7 +1109,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i16 %35, ptr %.013.i35.i, align 1
   %36 = add nuw nsw i64 %.01216.i32.i, 1
   %exitcond.not.i37.i = icmp eq i64 %36, %12
-  br i1 %exitcond.not.i37.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i30.i, !llvm.loop !49
+  br i1 %exitcond.not.i37.i, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i30.i, !llvm.loop !50
 
 37:                                               ; preds = %4
   %38 = ptrtoint ptr %0 to i64
@@ -1144,7 +1144,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %50, ptr %.013.i.i43, align 4
   %51 = add nuw nsw i64 %.01216.i.i40, 1
   %exitcond.not.i.i44 = icmp eq i64 %51, %44
-  br i1 %exitcond.not.i.i44, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i38, !llvm.loop !50
+  br i1 %exitcond.not.i.i44, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i38, !llvm.loop !51
 
 52:                                               ; preds = %45
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.preheader.i15.i29
@@ -1165,7 +1165,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %56, ptr %.012.i.i35, align 1
   %57 = add nuw nsw i64 %.01115.i.i32, 1
   %exitcond.not.i18.i36 = icmp eq i64 %57, %44
-  br i1 %exitcond.not.i18.i36, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i16.i30, !llvm.loop !51
+  br i1 %exitcond.not.i18.i36, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i16.i30, !llvm.loop !52
 
 58:                                               ; preds = %37
   br i1 %43, label %59, label %64
@@ -1189,7 +1189,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %62, ptr %.013.i26.i26, align 4
   %63 = add nuw nsw i64 %.01216.i23.i23, 1
   %exitcond.not.i27.i28 = icmp eq i64 %63, %44
-  br i1 %exitcond.not.i27.i28, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i21.i21, !llvm.loop !52
+  br i1 %exitcond.not.i27.i28, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i21.i21, !llvm.loop !53
 
 64:                                               ; preds = %58
   br i1 %.not.i.i10, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.preheader.i29.i11
@@ -1210,7 +1210,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i32 %67, ptr %.013.i35.i17, align 1
   %68 = add nuw nsw i64 %.01216.i32.i14, 1
   %exitcond.not.i37.i19 = icmp eq i64 %68, %44
-  br i1 %exitcond.not.i37.i19, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i30.i12, !llvm.loop !53
+  br i1 %exitcond.not.i37.i19, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i30.i12, !llvm.loop !54
 
 69:                                               ; preds = %4
   %70 = ptrtoint ptr %0 to i64
@@ -1245,7 +1245,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %82, ptr %.013.i.i78, align 8
   %83 = add nuw nsw i64 %.01216.i.i75, 1
   %exitcond.not.i.i79 = icmp eq i64 %83, %76
-  br i1 %exitcond.not.i.i79, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i73, !llvm.loop !54
+  br i1 %exitcond.not.i.i79, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i.i73, !llvm.loop !55
 
 84:                                               ; preds = %77
   br i1 %.not.i.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.preheader.i15.i64
@@ -1266,7 +1266,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %88, ptr %.012.i.i70, align 1
   %89 = add nuw nsw i64 %.01115.i.i67, 1
   %exitcond.not.i18.i71 = icmp eq i64 %89, %76
-  br i1 %exitcond.not.i18.i71, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i16.i65, !llvm.loop !55
+  br i1 %exitcond.not.i18.i71, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i16.i65, !llvm.loop !56
 
 90:                                               ; preds = %69
   br i1 %75, label %91, label %96
@@ -1290,7 +1290,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %94, ptr %.013.i26.i61, align 8
   %95 = add nuw nsw i64 %.01216.i23.i58, 1
   %exitcond.not.i27.i63 = icmp eq i64 %95, %76
-  br i1 %exitcond.not.i27.i63, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i21.i56, !llvm.loop !56
+  br i1 %exitcond.not.i27.i63, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i21.i56, !llvm.loop !57
 
 96:                                               ; preds = %90
   br i1 %.not.i.i45, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.preheader.i29.i46
@@ -1311,7 +1311,7 @@ define linkonce_odr hidden void @_ZN8CopySwap16do_conjoint_swapILNS_13CopyDirect
   store i64 %99, ptr %.013.i35.i52, align 1
   %100 = add nuw nsw i64 %.01216.i32.i49, 1
   %exitcond.not.i37.i54 = icmp eq i64 %100, %76
-  br i1 %exitcond.not.i37.i54, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i30.i47, !llvm.loop !57
+  br i1 %exitcond.not.i37.i54, label %_ZN8CopySwap16do_conjoint_swapItLNS_13CopyDirectionE1ELb1EEEvPKvPvm.exit, label %.lr.ph.i30.i47, !llvm.loop !58
 
 101:                                              ; preds = %4
   %102 = load ptr, ptr @g_assert_poison, align 8
@@ -1350,55 +1350,56 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}

@@ -125,7 +125,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %69 = phi i32 [ %67, %57 ], [ %39, %.split.split.us ]
   %70 = add nuw nsw i64 %38, 1
   %71 = icmp eq i64 %70, %12
-  br i1 %71, label %.split4.us, label %.split.split.us, !llvm.loop !9
+  br i1 %71, label %.split4.us, label %.split.split.us, !llvm.loop !10
 
 72:                                               ; preds = %5
   %73 = add i32 %2, 31
@@ -173,7 +173,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %104 = phi i32 [ %102, %100 ], [ %81, %.split.split ]
   %105 = add nuw nsw i64 %80, 1
   %106 = icmp eq i64 %105, %12
-  br i1 %106, label %.split4.us, label %.split.split, !llvm.loop !10
+  br i1 %106, label %.split4.us, label %.split.split, !llvm.loop !11
 
 .split4.us:                                       ; preds = %103, %68, %34
   %.us-phi = phi i32 [ %35, %34 ], [ %69, %68 ], [ %104, %103 ]
@@ -388,7 +388,7 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
 133:                                              ; preds = %78, %124
   %134 = add nuw nsw i64 %79, 1
   %135 = icmp eq i64 %134, %77
-  br i1 %135, label %.loopexit, label %78, !llvm.loop !11
+  br i1 %135, label %.loopexit, label %78, !llvm.loop !12
 
 .loopexit:                                        ; preds = %133, %72
   %136 = load ptr, ptr %11, align 8
@@ -418,12 +418,12 @@ define dso_local range(i32 -90, 1) i32 @ethnl_put_bitset32(ptr noundef %0, i32 n
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %154 = load ptr, ptr %153, align 8
   %155 = icmp ugt ptr %154, %16
-  br i1 %155, label %156, label %157, !prof !12
+  br i1 %155, label %156, label %157, !prof !13
 
 156:                                              ; preds = %.thread12
-  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !13
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1062, i32 2305, i64 12) #8, !srcloc !14
-  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !15
+  call void asm sideeffect "507: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 507b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 507) #8, !srcloc !14
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 1062, i32 2305, i64 12) #8, !srcloc !15
+  call void asm sideeffect "508: nop\0A\09.pushsection .discard.instr_end\0A\09.long 508b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 508) #8, !srcloc !16
   %.pre = load ptr, ptr %153, align 8
   br label %157
 
@@ -461,7 +461,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_bitset_is_compact(ptr noun
   br label %36
 
 7:                                                ; preds = %2
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %3, i8 0, i64 48, i1 false), !annotation !17
   %8 = getelementptr i8, ptr %0, i64 4
   %9 = load i16, ptr %0, align 2
   %10 = add i16 %9, -4
@@ -539,7 +539,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   br label %.critedge
 
 20:                                               ; preds = %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %9, i8 0, i64 48, i1 false), !annotation !17
   %21 = getelementptr i8, ptr %2, i64 4
   %22 = load i16, ptr %2, align 2
   %23 = add i16 %22, -4
@@ -628,7 +628,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
 68:                                               ; preds = %67, %62
   %69 = add nuw nsw i64 %63, 1
   %70 = icmp eq i64 %69, %61
-  br i1 %70, label %.loopexit28, label %62, !llvm.loop !17
+  br i1 %70, label %.loopexit28, label %62, !llvm.loop !18
 
 .loopexit28:                                      ; preds = %68, %58
   %71 = and i32 %1, 31
@@ -678,9 +678,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
 
 98:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #8
-  store i8 0, ptr %7, align 1, !annotation !16
+  store i8 0, ptr %7, align 1, !annotation !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  store i32 0, ptr %8, align 4, !annotation !16
+  store i32 0, ptr %8, align 4, !annotation !17
   %99 = getelementptr inbounds nuw i8, ptr %93, i64 2
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 16383
@@ -709,7 +709,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   %112 = getelementptr i32, ptr %0, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %109, 31
-  %115 = load i8, ptr %7, align 1, !range !18, !noundef !19
+  %115 = load i8, ptr %7, align 1, !range !19, !noundef !20
   %116 = zext nneg i8 %115 to i32
   %117 = lshr i32 %113, %114
   %118 = and i32 %117, 1
@@ -744,10 +744,10 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   %133 = zext nneg i32 %131 to i64
   %134 = getelementptr i8, ptr %93, i64 %133
   %135 = icmp sgt i32 %132, 3
-  br i1 %135, label %.lr.ph, label %.critedge, !llvm.loop !20
+  br i1 %135, label %.lr.ph, label %.critedge, !llvm.loop !21
 
 136:                                              ; preds = %27
-  %137 = call fastcc i32 @ethnl_compact_sanity_checks(i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %4), !range !21
+  %137 = call fastcc i32 @ethnl_compact_sanity_checks(i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef %4), !range !22
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %.critedge, label %139
 
@@ -858,7 +858,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
   %207 = select i1 %205, i64 4, i64 0
   %208 = getelementptr i8, ptr %190, i64 %207
   %209 = getelementptr i8, ptr %191, i64 %207
-  br i1 %205, label %.preheader, label %210
+  br i1 %205, label %.preheader, label %210, !llvm.loop !23
 
 210:                                              ; preds = %204, %.preheader
   br i1 %147, label %211, label %.critedge
@@ -938,7 +938,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_update_bitset32(ptr nounde
 255:                                              ; preds = %254, %249
   %256 = add nuw nsw i64 %250, 1
   %257 = icmp eq i64 %256, %248
-  br i1 %257, label %.loopexit, label %249, !llvm.loop !17
+  br i1 %257, label %.loopexit, label %249, !llvm.loop !24
 
 .loopexit:                                        ; preds = %255, %243
   %258 = and i32 %1, 31
@@ -1205,7 +1205,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br label %.critedge
 
 20:                                               ; preds = %11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false), !annotation !17
   %21 = getelementptr i8, ptr %3, i64 4
   %22 = load i16, ptr %3, align 2
   %23 = add i16 %22, -4
@@ -1224,7 +1224,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   br i1 %32, label %33, label %60
 
 33:                                               ; preds = %27
-  %34 = call fastcc i32 @ethnl_compact_sanity_checks(i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5), !range !21
+  %34 = call fastcc i32 @ethnl_compact_sanity_checks(i32 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef %5), !range !22
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.critedge, label %36
 
@@ -1356,22 +1356,22 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
 
 101:                                              ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  store i32 0, ptr %8, align 4, !annotation !16
+  store i32 0, ptr %8, align 4, !annotation !17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #8
-  store i8 0, ptr %9, align 1, !annotation !16
+  store i8 0, ptr %9, align 1, !annotation !17
   %102 = call fastcc i32 @ethnl_parse_bit(ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %2, ptr noundef %96, i1 noundef zeroext true, ptr noundef %4, ptr noundef %5)
   %103 = icmp sgt i32 %102, -1
   br i1 %103, label %104, label %.split.us
 
 104:                                              ; preds = %101
-  %105 = load i8, ptr %9, align 1, !range !18, !noundef !19
+  %105 = load i8, ptr %9, align 1, !range !19, !noundef !20
   %106 = icmp eq i8 %105, 0
   br i1 %106, label %110, label %107
 
 107:                                              ; preds = %104
   %108 = load i32, ptr %8, align 4
   %109 = zext i32 %108 to i64
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %109) #8, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %109) #8, !srcloc !25
   br label %110
 
 110:                                              ; preds = %107, %104
@@ -1385,7 +1385,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   %116 = zext nneg i32 %114 to i64
   %117 = getelementptr i8, ptr %96, i64 %116
   %118 = icmp sgt i32 %115, 3
-  br i1 %118, label %.lr.ph.split.us, label %.critedge, !llvm.loop !23
+  br i1 %118, label %.lr.ph.split.us, label %.critedge, !llvm.loop !26
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %._crit_edge
   %119 = phi ptr [ %137, %._crit_edge ], [ %95, %.lr.ph.split.preheader ]
@@ -1399,26 +1399,26 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
 
 124:                                              ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
-  store i32 0, ptr %8, align 4, !annotation !16
+  store i32 0, ptr %8, align 4, !annotation !17
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #8
-  store i8 0, ptr %9, align 1, !annotation !16
+  store i8 0, ptr %9, align 1, !annotation !17
   %125 = call fastcc i32 @ethnl_parse_bit(ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %2, ptr noundef %119, i1 noundef zeroext false, ptr noundef %4, ptr noundef %5)
   %126 = icmp sgt i32 %125, -1
   br i1 %126, label %127, label %.split.us
 
 127:                                              ; preds = %124
-  %128 = load i8, ptr %9, align 1, !range !18, !noundef !19
+  %128 = load i8, ptr %9, align 1, !range !19, !noundef !20
   %129 = icmp eq i8 %128, 0
   %.pre = load i32, ptr %8, align 4
   %.pre19 = zext i32 %.pre to i64
   br i1 %129, label %._crit_edge, label %130
 
 130:                                              ; preds = %127
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %.pre19) #8, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %.pre19) #8, !srcloc !25
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %127, %130
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %.pre19) #8, !srcloc !22
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %1, i64 %.pre19) #8, !srcloc !25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   %131 = load i16, ptr %119, align 2
@@ -1429,7 +1429,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ethnl_parse_bitset(ptr noundef %
   %136 = zext nneg i32 %134 to i64
   %137 = getelementptr i8, ptr %119, i64 %136
   %138 = icmp sgt i32 %135, 3
-  br i1 %138, label %.lr.ph.split, label %.critedge, !llvm.loop !24
+  br i1 %138, label %.lr.ph.split, label %.critedge, !llvm.loop !27
 
 .split.us:                                        ; preds = %101, %124
   %.us-phi = phi i32 [ %125, %124 ], [ %102, %101 ]
@@ -1472,7 +1472,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nounde
   br label %.thread
 
 17:                                               ; preds = %7
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false), !annotation !17
   %18 = getelementptr i8, ptr %3, i64 4
   %19 = load i16, ptr %3, align 2
   %20 = add i16 %19, -4
@@ -1574,7 +1574,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ethnl_parse_bit(ptr nounde
 80:                                               ; preds = %77, %72
   %81 = add nuw nsw i64 %73, 1
   %82 = icmp eq i64 %81, %71
-  br i1 %82, label %.thread14, label %72, !llvm.loop !25
+  br i1 %82, label %.thread14, label %72, !llvm.loop !28
 
 83:                                               ; preds = %77
   %84 = trunc i64 %73 to i32
@@ -1674,7 +1674,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %35 = phi i32 [ %33, %31 ], [ %14, %.split.us ]
   %36 = add nuw nsw i64 %13, 1
   %37 = icmp eq i64 %36, %12
-  br i1 %37, label %.split4.us, label %.split.us, !llvm.loop !26
+  br i1 %37, label %.split4.us, label %.split.us, !llvm.loop !29
 
 .split:                                           ; preds = %9
   br i1 %6, label %.split.split.us, label %.split.split
@@ -1722,7 +1722,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %69 = phi i32 [ %67, %57 ], [ %39, %.split.split.us ]
   %70 = add nuw nsw i64 %38, 1
   %71 = icmp eq i64 %70, %12
-  br i1 %71, label %.split4.us, label %.split.split.us, !llvm.loop !27
+  br i1 %71, label %.split4.us, label %.split.split.us, !llvm.loop !30
 
 72:                                               ; preds = %5
   %73 = add i32 %2, 31
@@ -1770,7 +1770,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %104 = phi i32 [ %102, %100 ], [ %81, %.split.split ]
   %105 = add nuw nsw i64 %80, 1
   %106 = icmp eq i64 %105, %12
-  br i1 %106, label %.split4.us, label %.split.split, !llvm.loop !10
+  br i1 %106, label %.split4.us, label %.split.split, !llvm.loop !31
 
 .split4.us:                                       ; preds = %103, %68, %34
   %.us-phi = phi i32 [ %35, %34 ], [ %69, %68 ], [ %104, %103 ]
@@ -1842,26 +1842,30 @@ attributes #8 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7, !8}
+!5 = distinct !{!5, !6, !7, !8, !9}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !6, !7, !8}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = !{i64 2156822587, i64 2156822396, i64 2156822448, i64 2156822494, i64 2156822522}
-!14 = !{i64 2156822661, i64 2156822690, i64 2156822736, i64 2156822794, i64 2156822848, i64 2156822902, i64 2156822957, i64 2156822988, i64 2156823296, i64 2156823302, i64 2156823349, i64 2156823372, i64 2156823398}
-!15 = !{i64 2156823853, i64 2156823664, i64 2156823714, i64 2156823760, i64 2156823788}
-!16 = !{!"auto-init"}
-!17 = distinct !{!17, !6, !7}
-!18 = !{i8 0, i8 2}
-!19 = !{}
-!20 = distinct !{!20, !6, !7}
-!21 = !{i32 -22, i32 1}
-!22 = !{i64 2147858274}
-!23 = distinct !{!23, !6, !7, !8}
-!24 = distinct !{!24, !6, !7}
-!25 = distinct !{!25, !6, !7}
-!26 = distinct !{!26, !6, !7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !6, !7, !8, !9}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = !{!"branch_weights", i32 1, i32 2000}
+!14 = !{i64 2156822587, i64 2156822396, i64 2156822448, i64 2156822494, i64 2156822522}
+!15 = !{i64 2156822661, i64 2156822690, i64 2156822736, i64 2156822794, i64 2156822848, i64 2156822902, i64 2156822957, i64 2156822988, i64 2156823296, i64 2156823302, i64 2156823349, i64 2156823372, i64 2156823398}
+!16 = !{i64 2156823853, i64 2156823664, i64 2156823714, i64 2156823760, i64 2156823788}
+!17 = !{!"auto-init"}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = !{i8 0, i8 2}
+!20 = !{}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = !{i32 -22, i32 1}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = !{i64 2147858274}
+!26 = distinct !{!26, !6, !7, !8, !9}
 !27 = distinct !{!27, !6, !7, !8}
+!28 = distinct !{!28, !6, !7, !8}
+!29 = distinct !{!29, !6, !7, !8, !9}
+!30 = distinct !{!30, !6, !7, !8, !9}
+!31 = distinct !{!31, !6, !7, !8}

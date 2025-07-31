@@ -1924,12 +1924,12 @@ define internal void @nat64_prefix_uats_prefix_len_tostr_cb(ptr noundef readonly
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %18, !llvm.loop !11
 
 18:                                               ; preds = %.lr.ph20
   %19 = load i32, ptr %15, align 8
   %20 = icmp eq i32 %19, %10
-  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !10
+  br i1 %20, label %._crit_edge21, label %.lr.ph20, !llvm.loop !11
 
 ._crit_edge21:                                    ; preds = %18, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %17, %18 ]
@@ -1974,12 +1974,12 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_set_cb(ptr noundef w
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph22
   %17 = tail call i32 @g_str_equal(ptr noundef nonnull %16, ptr noundef %7)
   %.not13 = icmp eq i32 %17, 0
-  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !11
+  br i1 %.not13, label %.lr.ph22, label %.lr.ph._crit_edge, !llvm.loop !12
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
   %.lcssa = phi ptr [ %3, %.lr.ph.preheader ], [ %14, %.lr.ph ]
@@ -2015,12 +2015,12 @@ define internal void @nat64_prefix_uats_prefix_wildcard_len_tostr_cb(ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %17, !llvm.loop !13
 
 17:                                               ; preds = %.lr.ph20
   %18 = load i32, ptr %14, align 8
   %19 = icmp eq i32 %18, %9
-  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !12
+  br i1 %19, label %._crit_edge21, label %.lr.ph20, !llvm.loop !13
 
 ._crit_edge21:                                    ; preds = %17, %.lr.ph
   %.lcssa = phi ptr [ %7, %.lr.ph ], [ %16, %17 ]
@@ -2342,7 +2342,7 @@ proto_item_set_generated.exit.i:                  ; preds = %150, %147
   br i1 %switch.i, label %154, label %.backedge324.backedge
 
 .backedge324.backedge:                            ; preds = %proto_item_set_generated.exit.i, %proto_item_set_hidden.exit.i
-  br label %.backedge324, !llvm.loop !13
+  br label %.backedge324, !llvm.loop !14
 
 154:                                              ; preds = %proto_item_set_generated.exit.i
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 40
@@ -2396,7 +2396,7 @@ proto_item_set_generated.exit.i297:               ; preds = %171, %168
   br i1 %switch.i293, label %175, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %proto_item_set_generated.exit.i297, %proto_item_set_hidden.exit.i300
-  br label %.backedge, !llvm.loop !13
+  br label %.backedge, !llvm.loop !14
 
 175:                                              ; preds = %proto_item_set_generated.exit.i297
   %176 = getelementptr inbounds nuw i8, ptr %167, i64 40
@@ -2477,7 +2477,7 @@ add_ipv6_address_isatap.exit301:                  ; preds = %proto_item_set_hidd
 .backedge.i:                                      ; preds = %209, %197
   %.027.be.i = phi i32 [ %199, %197 ], [ %211, %209 ]
   %212 = icmp slt i32 %.027.be.i, %195
-  br i1 %212, label %.lr.ph.i, label %.loopexit, !llvm.loop !14
+  br i1 %212, label %.lr.ph.i, label %.loopexit, !llvm.loop !15
 
 ipv6_get_jumbo_plen.exit:                         ; preds = %206
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0262, ptr noundef nonnull @.str.879)
@@ -3476,7 +3476,7 @@ define internal i32 @dissect_routing6_rt0(ptr noundef %0, ptr noundef %1, ptr no
 40:                                               ; preds = %31, %38
   %41 = add nuw nsw i32 %.03845, 1
   %exitcond.not = icmp eq i32 %.03845, %18
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %40
   %.not41 = icmp eq ptr %32, null
@@ -3832,7 +3832,7 @@ proto_item_set_generated.exit134:                 ; preds = %92, %105, %108
   %129 = add nuw i32 %.0138, 1
   %130 = call i32 @wmem_array_get_count(ptr noundef %.0114)
   %131 = icmp ult i32 %129, %130
-  br i1 %131, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  br i1 %131, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .lr.ph:                                           ; preds = %.preheader, %128
   %.0138 = phi i32 [ %129, %128 ], [ 0, %.preheader ]
@@ -3872,7 +3872,7 @@ proto_item_set_generated.exit134:                 ; preds = %92, %105, %108
 144:                                              ; preds = %136, %139, %141
   %145 = add nuw nsw i32 %.0117141, 1
   %exitcond.not = icmp eq i32 %.0117141, %.0116
-  br i1 %exitcond.not, label %.loopexit137, label %92, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit137, label %92, !llvm.loop !18
 
 .loopexit137:                                     ; preds = %144, %.thread, %78
   %146 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -3968,7 +3968,7 @@ define internal i32 @dissect_routing6_srh(ptr noundef %0, ptr noundef %1, ptr no
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
   %50 = add nuw i32 %.037, 1
   %exitcond.not = icmp eq i32 %.037, %9
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -4114,7 +4114,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread92.thread105
   %73 = icmp samesign ult i32 %72, %.0729196103
   %74 = icmp ne i16 %70, 0
   %75 = select i1 %73, i1 %74, i1 false
-  br i1 %75, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
+  br i1 %75, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %64
   %76 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -4132,7 +4132,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread92.thread105
   %82 = icmp samesign ult i32 %81, %.0729196103
   %83 = icmp ne i32 %80, 0
   %84 = select i1 %82, i1 %83, i1 false
-  br i1 %84, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %84, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5037,7 +5037,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   br label %proto_item_set_hidden.exit26.backedge
 
 proto_item_set_hidden.exit26.backedge:            ; preds = %52, %49, %.critedge
-  br label %proto_item_set_hidden.exit26, !llvm.loop !22
+  br label %proto_item_set_hidden.exit26, !llvm.loop !23
 
 56:                                               ; preds = %5, %.thread
   ret void
@@ -5202,7 +5202,7 @@ proto_item_set_generated.exit48:                  ; preds = %65, %68
   br label %proto_item_set_hidden.exit51
 
 proto_item_set_hidden.exit51:                     ; preds = %proto_item_set_generated.exit48, %proto_item_set_hidden.exit42, %74, %72
-  br i1 %.not56, label %27, label %26, !llvm.loop !23
+  br i1 %.not56, label %27, label %26, !llvm.loop !24
 
 78:                                               ; preds = %6, %26
   ret void
@@ -5277,7 +5277,7 @@ proto_item_set_hidden.exit:                       ; preds = %.backedge
   br i1 %24, label %.backedge.backedge, label %proto_item_set_hidden.exit.thread
 
 .backedge.backedge:                               ; preds = %proto_item_set_hidden.exit, %proto_item_set_generated.exit
-  br label %.backedge, !llvm.loop !24
+  br label %.backedge, !llvm.loop !25
 
 proto_item_set_hidden.exit.thread:                ; preds = %36, %33, %proto_item_set_hidden.exit, %5, %9
   ret void
@@ -5417,7 +5417,7 @@ define internal fastcc void @add_ipv6_address_embed_ipv4(ptr noundef %0, ptr nou
   %88 = load i32, ptr @number_of_nat64_prefix, align 4
   %89 = zext i32 %88 to i64
   %90 = icmp samesign ult i64 %87, %89
-  br i1 %90, label %.lr.ph, label %proto_item_set_generated.exit123, !llvm.loop !25
+  br i1 %90, label %.lr.ph, label %proto_item_set_generated.exit123, !llvm.loop !26
 
 91:                                               ; preds = %10, %81
   %.0102.ph = phi i32 [ %., %81 ], [ 96, %10 ]
@@ -5486,7 +5486,7 @@ proto_item_set_generated.exit111:                 ; preds = %.proto_item_set_gen
   br label %118
 
 118:                                              ; preds = %proto_item_set_generated.exit, %116, %proto_item_set_generated.exit111
-  %119 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.ph) #21, !srcloc !26
+  %119 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0.ph) #21, !srcloc !27
   %120 = lshr i32 %.0102.ph, 3
   %121 = add nuw nsw i32 %120, %3
   %122 = add nsw i32 %.0102.ph, -33
@@ -6433,7 +6433,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
 .backedge:                                        ; preds = %dissect_opt_apn6.exit, %745, %102, %135
   %.0.be = phi i32 [ %89, %102 ], [ %138, %135 ], [ %743, %745 ], [ %.1, %dissect_opt_apn6.exit ]
   %105 = icmp slt i32 %.0.be, %19
-  br i1 %105, label %87, label %._crit_edge, !llvm.loop !27
+  br i1 %105, label %87, label %._crit_edge, !llvm.loop !28
 
 106:                                              ; preds = %87
   %ipv6_opt_type_hdr.p.promoted.i = load ptr, ptr @ipv6_opt_type_hdr.p, align 8
@@ -6450,7 +6450,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
 .lr.ph.i:                                         ; preds = %.lr.ph
   %111 = load i32, ptr %114, align 4
   %112 = icmp eq i32 %111, %91
-  br i1 %112, label %.lr.ph.i.ipv6_opt_type_hdr.exit_crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %112, label %.lr.ph.i.ipv6_opt_type_hdr.exit_crit_edge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %113 = phi ptr [ %114, %.lr.ph.i ], [ %ipv6_opt_type_hdr.p.promoted.i, %.lr.ph.i.preheader ]
@@ -6458,7 +6458,7 @@ proto_item_set_hidden.exit:                       ; preds = %proto_item_set_gene
   %115 = getelementptr i8, ptr %113, i64 12
   %116 = load i32, ptr %115, align 4
   %.not.i250 = icmp eq i32 %116, 2
-  br i1 %.not.i250, label %ipv6_opt_type_hdr.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i250, label %ipv6_opt_type_hdr.exit.thread.loopexit, label %.lr.ph.i, !llvm.loop !29
 
 .lr.ph.i.ipv6_opt_type_hdr.exit_crit_edge:        ; preds = %.lr.ph.i
   store ptr %114, ptr @ipv6_opt_type_hdr.p, align 8
@@ -7275,7 +7275,7 @@ dissect_opt_ioam_trace_node.exit.i.i:             ; preds = %517, %516
   %553 = icmp ne i16 %.0130.be.i.i, 0
   %554 = icmp samesign ule i32 %363, %552
   %555 = select i1 %553, i1 %554, i1 false
-  br i1 %555, label %392, label %._crit_edge.i.i, !llvm.loop !29
+  br i1 %555, label %392, label %._crit_edge.i.i, !llvm.loop !30
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %359
   %.0130.lcssa.i.i = phi i16 [ %361, %359 ], [ %.0130.be.i.i, %.backedge.i.i ]
@@ -7729,25 +7729,26 @@ attributes #21 = { nounwind memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = !{i64 2151970385}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = !{i64 2151970385}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}

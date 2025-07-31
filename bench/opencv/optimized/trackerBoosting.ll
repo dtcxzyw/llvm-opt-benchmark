@@ -2386,7 +2386,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit176:       ; preds = %_ZSt8_DestroyIPN2cv
           to label %532 unwind label %659
 
 532:                                              ; preds = %531
-  store ptr %530, ptr %28, align 8, !tbaa !146
+  store ptr %530, ptr %28, align 8, !tbaa !147
   %533 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %547 unwind label %534
 
@@ -2428,31 +2428,31 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit176:       ; preds = %_ZSt8_DestroyIPN2cv
   store ptr %530, ptr %550, align 8, !tbaa !122
   store ptr %533, ptr %454, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !148)
-  %551 = load ptr, ptr %342, align 8, !tbaa !132, !noalias !151
-  %552 = load ptr, ptr %343, align 8, !tbaa !60, !noalias !151
+  call void @llvm.experimental.noalias.scope.decl(metadata !149)
+  %551 = load ptr, ptr %342, align 8, !tbaa !132, !noalias !152
+  %552 = load ptr, ptr %343, align 8, !tbaa !60, !noalias !152
   %.not.i.i.i.i.i180 = icmp eq ptr %552, null
   br i1 %.not.i.i.i.i.i180, label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit, label %553
 
 553:                                              ; preds = %547
   %554 = getelementptr inbounds nuw i8, ptr %552, i64 8
-  %555 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !151
+  %555 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !152
   %.not.i.i.i.i.i.i181 = icmp eq i8 %555, 0
   br i1 %.not.i.i.i.i.i.i181, label %559, label %556
 
 556:                                              ; preds = %553
-  %557 = load i32, ptr %554, align 4, !tbaa !32, !noalias !151
+  %557 = load i32, ptr %554, align 4, !tbaa !32, !noalias !152
   %558 = add nsw i32 %557, 1
-  store i32 %558, ptr %554, align 4, !tbaa !32, !noalias !151
+  store i32 %558, ptr %554, align 4, !tbaa !32, !noalias !152
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit
 
 559:                                              ; preds = %553
-  %560 = atomicrmw volatile add ptr %554, i32 1 acq_rel, align 4, !noalias !151
+  %560 = atomicrmw volatile add ptr %554, i32 1 acq_rel, align 4, !noalias !152
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit: ; preds = %547, %556, %559
-  store ptr %551, ptr %29, align 8, !tbaa !154, !alias.scope !148
-  store ptr %552, ptr %455, align 8, !tbaa !60, !alias.scope !148
+  store ptr %551, ptr %29, align 8, !tbaa !155, !alias.scope !149
+  store ptr %552, ptr %455, align 8, !tbaa !60, !alias.scope !149
   invoke void @_ZN2cv8tracking4impl20TrackerBoostingModel7setModeEiRKSt6vectorINS_3MatESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(132) %551, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %561 unwind label %661
 
@@ -2511,31 +2511,31 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock
 
 584:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit186
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %30) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %585 = load ptr, ptr %342, align 8, !tbaa !132, !noalias !159
-  %586 = load ptr, ptr %343, align 8, !tbaa !60, !noalias !159
+  call void @llvm.experimental.noalias.scope.decl(metadata !157)
+  %585 = load ptr, ptr %342, align 8, !tbaa !132, !noalias !160
+  %586 = load ptr, ptr %343, align 8, !tbaa !60, !noalias !160
   %.not.i.i.i.i.i187 = icmp eq ptr %586, null
   br i1 %.not.i.i.i.i.i187, label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit189, label %587
 
 587:                                              ; preds = %584
   %588 = getelementptr inbounds nuw i8, ptr %586, i64 8
-  %589 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !159
+  %589 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !160
   %.not.i.i.i.i.i.i188 = icmp eq i8 %589, 0
   br i1 %.not.i.i.i.i.i.i188, label %593, label %590
 
 590:                                              ; preds = %587
-  %591 = load i32, ptr %588, align 4, !tbaa !32, !noalias !159
+  %591 = load i32, ptr %588, align 4, !tbaa !32, !noalias !160
   %592 = add nsw i32 %591, 1
-  store i32 %592, ptr %588, align 4, !tbaa !32, !noalias !159
+  store i32 %592, ptr %588, align 4, !tbaa !32, !noalias !160
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit189
 
 593:                                              ; preds = %587
-  %594 = atomicrmw volatile add ptr %588, i32 1 acq_rel, align 4, !noalias !159
+  %594 = atomicrmw volatile add ptr %588, i32 1 acq_rel, align 4, !noalias !160
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit189
 
 _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit189: ; preds = %584, %590, %593
-  store ptr %585, ptr %30, align 8, !tbaa !154, !alias.scope !156
-  store ptr %586, ptr %456, align 8, !tbaa !60, !alias.scope !156
+  store ptr %585, ptr %30, align 8, !tbaa !155, !alias.scope !157
+  store ptr %586, ptr %456, align 8, !tbaa !60, !alias.scope !157
   invoke void @_ZN2cv8tracking4impl20TrackerBoostingModel7setModeEiRKSt6vectorINS_3MatESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(132) %585, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %15)
           to label %595 unwind label %665
 
@@ -2609,20 +2609,20 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock
           to label %.preheader unwind label %669
 
 .preheader:                                       ; preds = %622
-  %623 = load ptr, ptr %457, align 8, !tbaa !162
-  %624 = load ptr, ptr %31, align 8, !tbaa !164
+  %623 = load ptr, ptr %457, align 8, !tbaa !163
+  %624 = load ptr, ptr %31, align 8, !tbaa !165
   %.not273 = icmp eq ptr %623, %624
   br i1 %.not273, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %763, %.preheader
   %625 = phi ptr [ %624, %.preheader ], [ %764, %763 ]
-  %626 = load ptr, ptr %32, align 8, !tbaa !164
+  %626 = load ptr, ptr %32, align 8, !tbaa !165
   %.not.i.i.i195 = icmp eq ptr %626, null
   br i1 %.not.i.i.i195, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %627
 
 627:                                              ; preds = %._crit_edge
   call void @_ZdlPv(ptr noundef nonnull %626) #24
-  %.pre286 = load ptr, ptr %31, align 8, !tbaa !164
+  %.pre286 = load ptr, ptr %31, align 8, !tbaa !165
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %627
@@ -2691,7 +2691,7 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
   %652 = add nuw nsw i32 %.026270, 1
   %653 = load i32, ptr %393, align 4, !tbaa !134
   %654 = icmp slt i32 %652, %653
-  br i1 %654, label %510, label %._crit_edge272, !llvm.loop !165
+  br i1 %654, label %510, label %._crit_edge272, !llvm.loop !166
 
 655:                                              ; preds = %510
   %656 = landingpad { ptr, i32 }
@@ -2748,7 +2748,7 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
   br i1 %.not, label %763, label %675
 
 675:                                              ; preds = %.lr.ph
-  %676 = load ptr, ptr %32, align 8, !tbaa !164
+  %676 = load ptr, ptr %32, align 8, !tbaa !165
   %677 = getelementptr inbounds nuw i32, ptr %676, i64 %.0269
   %678 = load i32, ptr %677, align 4, !tbaa !32
   %.not75 = icmp eq i32 %678, -1
@@ -2756,35 +2756,35 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
 
 679:                                              ; preds = %675
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  %680 = load ptr, ptr %21, align 8, !tbaa !125, !noalias !169
-  %681 = load ptr, ptr %284, align 8, !tbaa !60, !noalias !169
+  call void @llvm.experimental.noalias.scope.decl(metadata !167)
+  %680 = load ptr, ptr %21, align 8, !tbaa !125, !noalias !170
+  %681 = load ptr, ptr %284, align 8, !tbaa !60, !noalias !170
   %.not.i.i.i.i.i203 = icmp eq ptr %681, null
   br i1 %.not.i.i.i.i.i203, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit, label %682
 
 682:                                              ; preds = %679
   %683 = getelementptr inbounds nuw i8, ptr %681, i64 8
-  %684 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !169
+  %684 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !170
   %.not.i.i.i.i.i.i204 = icmp eq i8 %684, 0
   br i1 %.not.i.i.i.i.i.i204, label %688, label %685
 
 685:                                              ; preds = %682
-  %686 = load i32, ptr %683, align 4, !tbaa !32, !noalias !169
+  %686 = load i32, ptr %683, align 4, !tbaa !32, !noalias !170
   %687 = add nsw i32 %686, 1
-  store i32 %687, ptr %683, align 4, !tbaa !32, !noalias !169
+  store i32 %687, ptr %683, align 4, !tbaa !32, !noalias !170
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit
 
 688:                                              ; preds = %682
-  %689 = atomicrmw volatile add ptr %683, i32 1 acq_rel, align 4, !noalias !169
-  %.pre = load ptr, ptr %31, align 8, !tbaa !164
-  %.pre283 = load ptr, ptr %32, align 8, !tbaa !164
+  %689 = atomicrmw volatile add ptr %683, i32 1 acq_rel, align 4, !noalias !170
+  %.pre = load ptr, ptr %31, align 8, !tbaa !165
+  %.pre283 = load ptr, ptr %32, align 8, !tbaa !165
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit: ; preds = %679, %685, %688
   %690 = phi ptr [ %676, %679 ], [ %676, %685 ], [ %.pre283, %688 ]
   %691 = phi ptr [ %671, %679 ], [ %671, %685 ], [ %.pre, %688 ]
-  store ptr %680, ptr %33, align 8, !tbaa !146, !alias.scope !166
-  store ptr %681, ptr %458, align 8, !tbaa !60, !alias.scope !166
+  store ptr %680, ptr %33, align 8, !tbaa !147, !alias.scope !167
+  store ptr %681, ptr %458, align 8, !tbaa !60, !alias.scope !167
   %692 = getelementptr inbounds nuw i32, ptr %691, i64 %.0269
   %693 = load i32, ptr %692, align 4, !tbaa !32
   %694 = getelementptr inbounds nuw i32, ptr %690, i64 %.0269
@@ -2842,35 +2842,35 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i207: ; preds = %715, %7
 _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209: ; preds = %697, %703, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i207, %718
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !172)
-  %719 = load ptr, ptr %21, align 8, !tbaa !125, !noalias !175
-  %720 = load ptr, ptr %284, align 8, !tbaa !60, !noalias !175
+  call void @llvm.experimental.noalias.scope.decl(metadata !173)
+  %719 = load ptr, ptr %21, align 8, !tbaa !125, !noalias !176
+  %720 = load ptr, ptr %284, align 8, !tbaa !60, !noalias !176
   %.not.i.i.i.i.i210 = icmp eq ptr %720, null
   br i1 %.not.i.i.i.i.i210, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit212, label %721
 
 721:                                              ; preds = %_ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209
   %722 = getelementptr inbounds nuw i8, ptr %720, i64 8
-  %723 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !175
+  %723 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !176
   %.not.i.i.i.i.i.i211 = icmp eq i8 %723, 0
   br i1 %.not.i.i.i.i.i.i211, label %727, label %724
 
 724:                                              ; preds = %721
-  %725 = load i32, ptr %722, align 4, !tbaa !32, !noalias !175
+  %725 = load i32, ptr %722, align 4, !tbaa !32, !noalias !176
   %726 = add nsw i32 %725, 1
-  store i32 %726, ptr %722, align 4, !tbaa !32, !noalias !175
+  store i32 %726, ptr %722, align 4, !tbaa !32, !noalias !176
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit212
 
 727:                                              ; preds = %721
-  %728 = atomicrmw volatile add ptr %722, i32 1 acq_rel, align 4, !noalias !175
+  %728 = atomicrmw volatile add ptr %722, i32 1 acq_rel, align 4, !noalias !176
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit212
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit212: ; preds = %_ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit209, %724, %727
-  store ptr %719, ptr %34, align 8, !tbaa !146, !alias.scope !172
-  store ptr %720, ptr %459, align 8, !tbaa !60, !alias.scope !172
-  %729 = load ptr, ptr %32, align 8, !tbaa !164
+  store ptr %719, ptr %34, align 8, !tbaa !147, !alias.scope !173
+  store ptr %720, ptr %459, align 8, !tbaa !60, !alias.scope !173
+  %729 = load ptr, ptr %32, align 8, !tbaa !165
   %730 = getelementptr inbounds nuw i32, ptr %729, i64 %.0269
   %731 = load i32, ptr %730, align 4, !tbaa !32
-  %732 = load ptr, ptr %28, align 8, !tbaa !146
+  %732 = load ptr, ptr %28, align 8, !tbaa !147
   %733 = trunc i64 %.0269 to i32
   %734 = invoke noundef nonnull align 8 dereferenceable(136) ptr @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR12getFeatureAtEi(ptr noundef nonnull align 8 dereferenceable(72) %732, i32 noundef %733)
           to label %735 unwind label %761
@@ -2928,8 +2928,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i215: ; preds = %755, %7
 
 _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit217: ; preds = %737, %743, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i215, %758
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34) #23
-  %.pre284 = load ptr, ptr %457, align 8, !tbaa !162
-  %.pre285 = load ptr, ptr %31, align 8, !tbaa !164
+  %.pre284 = load ptr, ptr %457, align 8, !tbaa !163
+  %.pre285 = load ptr, ptr %31, align 8, !tbaa !165
   br label %763
 
 759:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit
@@ -2955,11 +2955,11 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
   %769 = sub i64 %767, %768
   %770 = ashr exact i64 %769, 2
   %771 = icmp ult i64 %766, %770
-  br i1 %771, label %.lr.ph, label %._crit_edge, !llvm.loop !178
+  br i1 %771, label %.lr.ph, label %._crit_edge, !llvm.loop !179
 
 772:                                              ; preds = %761, %759
   %.pn76 = phi { ptr, i32 } [ %762, %761 ], [ %760, %759 ]
-  %773 = load ptr, ptr %32, align 8, !tbaa !164
+  %773 = load ptr, ptr %32, align 8, !tbaa !165
   %.not.i.i.i218 = icmp eq ptr %773, null
   br i1 %.not.i.i.i218, label %_ZNSt6vectorIiSaIiEED2Ev.exit219, label %774
 
@@ -2970,7 +2970,7 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
 _ZNSt6vectorIiSaIiEED2Ev.exit219:                 ; preds = %774, %772, %669
   %.pn76.pn = phi { ptr, i32 } [ %670, %669 ], [ %.pn76, %772 ], [ %.pn76, %774 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32) #23
-  %775 = load ptr, ptr %31, align 8, !tbaa !164
+  %775 = load ptr, ptr %31, align 8, !tbaa !165
   %.not.i.i.i220 = icmp eq ptr %775, null
   br i1 %.not.i.i.i220, label %_ZNSt6vectorIiSaIiEED2Ev.exit221, label %776
 
@@ -3320,7 +3320,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE8allocateERS2_m.exit.i.i.i: ; preds = %9
   store ptr %14, ptr %15, align 8, !tbaa !143
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !179
+  store ptr %16, ptr %17, align 8, !tbaa !180
   %18 = load ptr, ptr %1, align 8, !tbaa !104
   %19 = load ptr, ptr %3, align 8, !tbaa !104
   %.not12.i.i.i.i = icmp eq ptr %18, %19
@@ -3336,7 +3336,7 @@ _ZSt10_ConstructIN2cv3MatEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i.i.i.i, i64 96
   %21 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %20, %19
-  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv3MatESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !180
+  br i1 %.not.i.i.i.i, label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN2cv3MatESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit, label %.lr.ph.i.i.i.i, !llvm.loop !181
 
 22:                                               ; preds = %.lr.ph.i.i.i.i
   %23 = landingpad { ptr, i32 }
@@ -3744,26 +3744,26 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl10u
           to label %72 unwind label %190
 
 72:                                               ; preds = %69
-  %73 = load ptr, ptr %12, align 8, !tbaa !181
+  %73 = load ptr, ptr %12, align 8, !tbaa !182
   %74 = invoke <2 x float> @_ZNK2cv6detail8tracking18TrackerTargetState17getTargetPositionEv(ptr noundef nonnull align 8 dereferenceable(24) %73)
           to label %75 unwind label %192
 
 75:                                               ; preds = %72
   %.sroa.015.0.vec.extract = extractelement <2 x float> %74, i64 0
   %76 = fptosi float %.sroa.015.0.vec.extract to i32
-  %77 = load ptr, ptr %12, align 8, !tbaa !181
+  %77 = load ptr, ptr %12, align 8, !tbaa !182
   %78 = invoke <2 x float> @_ZNK2cv6detail8tracking18TrackerTargetState17getTargetPositionEv(ptr noundef nonnull align 8 dereferenceable(24) %77)
           to label %79 unwind label %194
 
 79:                                               ; preds = %75
   %.sroa.014.4.vec.extract = extractelement <2 x float> %78, i64 1
   %80 = fptosi float %.sroa.014.4.vec.extract to i32
-  %81 = load ptr, ptr %12, align 8, !tbaa !181
+  %81 = load ptr, ptr %12, align 8, !tbaa !182
   %82 = invoke noundef i32 @_ZNK2cv6detail8tracking18TrackerTargetState14getTargetWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %81)
           to label %83 unwind label %194
 
 83:                                               ; preds = %79
-  %84 = load ptr, ptr %12, align 8, !tbaa !181
+  %84 = load ptr, ptr %12, align 8, !tbaa !182
   %85 = invoke noundef i32 @_ZNK2cv6detail8tracking18TrackerTargetState15getTargetHeightEv(ptr noundef nonnull align 8 dereferenceable(24) %84)
           to label %86 unwind label %194
 
@@ -3784,8 +3784,8 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl10u
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !184
-  %93 = load ptr, ptr %89, align 8, !tbaa !187
+  %92 = load ptr, ptr %91, align 8, !tbaa !185
+  %93 = load ptr, ptr %89, align 8, !tbaa !188
   %.not.i.i.not = icmp eq ptr %92, %93
   br i1 %.not.i.i.not, label %94, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit
 
@@ -3798,33 +3798,33 @@ define hidden noundef zeroext i1 @_ZN2cv6legacy8tracking19TrackerBoostingImpl10u
 
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit: ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !188)
-  %96 = load ptr, ptr %95, align 8, !tbaa !85, !noalias !191
+  call void @llvm.experimental.noalias.scope.decl(metadata !189)
+  %96 = load ptr, ptr %95, align 8, !tbaa !85, !noalias !192
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  %98 = load ptr, ptr %97, align 8, !tbaa !60, !noalias !191
+  %98 = load ptr, ptr %97, align 8, !tbaa !60, !noalias !192
   %.not.i.i.i.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i.i.i.i, label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit, label %99
 
 99:                                               ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %101 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !191
+  %101 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !192
   %.not.i.i.i.i.i.i = icmp eq i8 %101, 0
   br i1 %.not.i.i.i.i.i.i, label %105, label %102
 
 102:                                              ; preds = %99
-  %103 = load i32, ptr %100, align 4, !tbaa !32, !noalias !191
+  %103 = load i32, ptr %100, align 4, !tbaa !32, !noalias !192
   %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %100, align 4, !tbaa !32, !noalias !191
+  store i32 %104, ptr %100, align 4, !tbaa !32, !noalias !192
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit
 
 105:                                              ; preds = %99
-  %106 = atomicrmw volatile add ptr %100, i32 1 acq_rel, align 4, !noalias !191
+  %106 = atomicrmw volatile add ptr %100, i32 1 acq_rel, align 4, !noalias !192
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit, %102, %105
-  store ptr %96, ptr %13, align 8, !tbaa !95, !alias.scope !188
+  store ptr %96, ptr %13, align 8, !tbaa !95, !alias.scope !189
   %107 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %98, ptr %107, align 8, !tbaa !60, !alias.scope !188
+  store ptr %98, ptr %107, align 8, !tbaa !60, !alias.scope !189
   invoke void @_ZN2cv6detail8tracking16TrackerSamplerCS7setModeEi(ptr noundef nonnull align 8 dereferenceable(100) %96, i32 noundef 3)
           to label %108 unwind label %198
 
@@ -3900,8 +3900,8 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking16TrackerSamplerCSELN9__gnu_cxx12_Lock_p
 
 138:                                              ; preds = %135
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !184
-  %141 = load ptr, ptr %137, align 8, !tbaa !187
+  %140 = load ptr, ptr %139, align 8, !tbaa !185
+  %141 = load ptr, ptr %137, align 8, !tbaa !188
   %.not.i.i129.not = icmp eq ptr %140, %141
   br i1 %.not.i.i129.not, label %142, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit131
 
@@ -3914,33 +3914,33 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking16TrackerSamplerCSELN9__gnu_cxx12_Lock_p
 
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit131: ; preds = %138
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %144 = load ptr, ptr %143, align 8, !tbaa !85, !noalias !197
+  call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  %144 = load ptr, ptr %143, align 8, !tbaa !85, !noalias !198
   %145 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %146 = load ptr, ptr %145, align 8, !tbaa !60, !noalias !197
+  %146 = load ptr, ptr %145, align 8, !tbaa !60, !noalias !198
   %.not.i.i.i.i.i132 = icmp eq ptr %146, null
   br i1 %.not.i.i.i.i.i132, label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit134, label %147
 
 147:                                              ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit131
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %149 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !197
+  %149 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !198
   %.not.i.i.i.i.i.i133 = icmp eq i8 %149, 0
   br i1 %.not.i.i.i.i.i.i133, label %153, label %150
 
 150:                                              ; preds = %147
-  %151 = load i32, ptr %148, align 4, !tbaa !32, !noalias !197
+  %151 = load i32, ptr %148, align 4, !tbaa !32, !noalias !198
   %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %148, align 4, !tbaa !32, !noalias !197
+  store i32 %152, ptr %148, align 4, !tbaa !32, !noalias !198
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit134
 
 153:                                              ; preds = %147
-  %154 = atomicrmw volatile add ptr %148, i32 1 acq_rel, align 4, !noalias !197
+  %154 = atomicrmw volatile add ptr %148, i32 1 acq_rel, align 4, !noalias !198
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit134
 
 _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit134: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit131, %150, %153
-  store ptr %144, ptr %16, align 8, !tbaa !95, !alias.scope !194
+  store ptr %144, ptr %16, align 8, !tbaa !95, !alias.scope !195
   %155 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %146, ptr %155, align 8, !tbaa !60, !alias.scope !194
+  store ptr %146, ptr %155, align 8, !tbaa !60, !alias.scope !195
   %156 = invoke { i64, i64 } @_ZNK2cv6detail8tracking16TrackerSamplerCS6getROIEv(ptr noundef nonnull align 8 dereferenceable(100) %144)
           to label %157 unwind label %207
 
@@ -4093,33 +4093,33 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking16TrackerSamplerCSELN9__gnu_cxx12_Lock_p
           to label %212 unwind label %504
 
 212:                                              ; preds = %210
-  call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %213 = load ptr, ptr %21, align 8, !tbaa !140, !noalias !203
+  call void @llvm.experimental.noalias.scope.decl(metadata !201)
+  %213 = load ptr, ptr %21, align 8, !tbaa !140, !noalias !204
   %214 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %215 = load ptr, ptr %214, align 8, !tbaa !60, !noalias !203
+  %215 = load ptr, ptr %214, align 8, !tbaa !60, !noalias !204
   %.not.i.i.i.i.i140 = icmp eq ptr %215, null
   br i1 %.not.i.i.i.i.i140, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit, label %216
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %218 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !203
+  %218 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !204
   %.not.i.i.i.i.i.i141 = icmp eq i8 %218, 0
   br i1 %.not.i.i.i.i.i.i141, label %222, label %219
 
 219:                                              ; preds = %216
-  %220 = load i32, ptr %217, align 4, !tbaa !32, !noalias !203
+  %220 = load i32, ptr %217, align 4, !tbaa !32, !noalias !204
   %221 = add nsw i32 %220, 1
-  store i32 %221, ptr %217, align 4, !tbaa !32, !noalias !203
+  store i32 %221, ptr %217, align 4, !tbaa !32, !noalias !204
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit
 
 222:                                              ; preds = %216
-  %223 = atomicrmw volatile add ptr %217, i32 1 acq_rel, align 4, !noalias !203
+  %223 = atomicrmw volatile add ptr %217, i32 1 acq_rel, align 4, !noalias !204
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit: ; preds = %212, %219, %222
-  store ptr %213, ptr %20, align 8, !tbaa !135, !alias.scope !200
+  store ptr %213, ptr %20, align 8, !tbaa !135, !alias.scope !201
   %224 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %215, ptr %224, align 8, !tbaa !60, !alias.scope !200
+  store ptr %215, ptr %224, align 8, !tbaa !60, !alias.scope !201
   invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting29computeSelectedWeakClassifierEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.86") align 8 %19, ptr noundef nonnull align 8 dereferenceable(168) %213)
           to label %225 unwind label %506
 
@@ -4229,38 +4229,38 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
           to label %272 unwind label %509
 
 272:                                              ; preds = %_ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %273 = load ptr, ptr %271, align 8, !tbaa !206
+  %273 = load ptr, ptr %271, align 8, !tbaa !207
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !209)
-  %275 = load ptr, ptr %274, align 8, !tbaa !125, !noalias !212
+  call void @llvm.experimental.noalias.scope.decl(metadata !210)
+  %275 = load ptr, ptr %274, align 8, !tbaa !125, !noalias !213
   %276 = getelementptr inbounds nuw i8, ptr %273, i64 40
-  %277 = load ptr, ptr %276, align 8, !tbaa !60, !noalias !212
+  %277 = load ptr, ptr %276, align 8, !tbaa !60, !noalias !213
   %.not.i.i.i.i.i150 = icmp eq ptr %277, null
   br i1 %.not.i.i.i.i.i150, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit, label %278
 
 278:                                              ; preds = %272
   %279 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %280 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !212
+  %280 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !213
   %.not.i.i.i.i.i.i151 = icmp eq i8 %280, 0
   br i1 %.not.i.i.i.i.i.i151, label %284, label %281
 
 281:                                              ; preds = %278
-  %282 = load i32, ptr %279, align 4, !tbaa !32, !noalias !212
+  %282 = load i32, ptr %279, align 4, !tbaa !32, !noalias !213
   %283 = add nsw i32 %282, 1
-  store i32 %283, ptr %279, align 4, !tbaa !32, !noalias !212
+  store i32 %283, ptr %279, align 4, !tbaa !32, !noalias !213
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit
 
 284:                                              ; preds = %278
-  %285 = atomicrmw volatile add ptr %279, i32 1 acq_rel, align 4, !noalias !212
+  %285 = atomicrmw volatile add ptr %279, i32 1 acq_rel, align 4, !noalias !213
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit: ; preds = %272, %281, %284
-  store ptr %275, ptr %22, align 8, !tbaa !146, !alias.scope !209
+  store ptr %275, ptr %22, align 8, !tbaa !147, !alias.scope !210
   %286 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %277, ptr %286, align 8, !tbaa !60, !alias.scope !209
+  store ptr %277, ptr %286, align 8, !tbaa !60, !alias.scope !210
   %287 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %288 = load ptr, ptr %287, align 8, !tbaa !162
-  %289 = load ptr, ptr %19, align 8, !tbaa !164
+  %288 = load ptr, ptr %287, align 8, !tbaa !163
+  %289 = load ptr, ptr %19, align 8, !tbaa !165
   %290 = ptrtoint ptr %288 to i64
   %291 = ptrtoint ptr %289 to i64
   %292 = sub i64 %290, %291
@@ -4273,7 +4273,7 @@ _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25Track
   %294 = getelementptr inbounds i8, ptr null, i64 %292
   %295 = getelementptr inbounds nuw i8, ptr %23, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store ptr %294, ptr %295, align 8, !tbaa !215
+  store ptr %294, ptr %295, align 8, !tbaa !216
   br label %303
 
 296:                                              ; preds = %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit
@@ -4292,24 +4292,24 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %296
           to label %299 unwind label %511
 
 299:                                              ; preds = %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
-  store ptr %298, ptr %23, align 8, !tbaa !164
+  store ptr %298, ptr %23, align 8, !tbaa !165
   %300 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %298, ptr %300, align 8, !tbaa !162
+  store ptr %298, ptr %300, align 8, !tbaa !163
   %301 = getelementptr inbounds nuw i8, ptr %298, i64 %292
   %302 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %301, ptr %302, align 8, !tbaa !215
+  store ptr %301, ptr %302, align 8, !tbaa !216
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %298, ptr align 4 %289, i64 %292, i1 false)
   br label %303
 
 303:                                              ; preds = %299, %.noexc153.thread
   %304 = phi ptr [ %294, %.noexc153.thread ], [ %301, %299 ]
   %305 = phi ptr [ %293, %.noexc153.thread ], [ %300, %299 ]
-  store ptr %304, ptr %305, align 8, !tbaa !162
+  store ptr %304, ptr %305, align 8, !tbaa !163
   %306 = invoke noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR15extractSelectedESt6vectorIiSaIiEERKS3_INS_3MatESaIS6_EERS6_(ptr noundef nonnull align 8 dereferenceable(72) %275, ptr noundef nonnull %23, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(96) %18)
           to label %307 unwind label %513
 
 307:                                              ; preds = %303
-  %308 = load ptr, ptr %23, align 8, !tbaa !164
+  %308 = load ptr, ptr %23, align 8, !tbaa !165
   %.not.i.i.i154 = icmp eq ptr %308, null
   br i1 %.not.i.i.i154, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %309
 
@@ -4321,7 +4321,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %307, %309
   %310 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %311 = load ptr, ptr %310, align 8, !tbaa !143
   %312 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %313 = load ptr, ptr %312, align 8, !tbaa !179
+  %313 = load ptr, ptr %312, align 8, !tbaa !180
   %.not.i = icmp eq ptr %311, %313
   br i1 %.not.i, label %317, label %314
 
@@ -4343,33 +4343,33 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc155, %317
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !216)
-  %318 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !219
+  call void @llvm.experimental.noalias.scope.decl(metadata !217)
+  %318 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !220
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %320 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !219
+  %320 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !220
   %.not.i.i.i.i.i157 = icmp eq ptr %320, null
   br i1 %.not.i.i.i.i.i157, label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit, label %321
 
 321:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit
   %322 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  %323 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !219
+  %323 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !220
   %.not.i.i.i.i.i.i158 = icmp eq i8 %323, 0
   br i1 %.not.i.i.i.i.i.i158, label %327, label %324
 
 324:                                              ; preds = %321
-  %325 = load i32, ptr %322, align 4, !tbaa !32, !noalias !219
+  %325 = load i32, ptr %322, align 4, !tbaa !32, !noalias !220
   %326 = add nsw i32 %325, 1
-  store i32 %326, ptr %322, align 4, !tbaa !32, !noalias !219
+  store i32 %326, ptr %322, align 4, !tbaa !32, !noalias !220
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit
 
 327:                                              ; preds = %321
-  %328 = atomicrmw volatile add ptr %322, i32 1 acq_rel, align 4, !noalias !219
+  %328 = atomicrmw volatile add ptr %322, i32 1 acq_rel, align 4, !noalias !220
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit
 
 _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit, %324, %327
-  store ptr %318, ptr %25, align 8, !tbaa !154, !alias.scope !216
+  store ptr %318, ptr %25, align 8, !tbaa !155, !alias.scope !217
   %329 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %320, ptr %329, align 8, !tbaa !60, !alias.scope !216
+  store ptr %320, ptr %329, align 8, !tbaa !60, !alias.scope !217
   invoke void @_ZN2cv8tracking4impl20TrackerBoostingModel7setModeEiRKSt6vectorINS_3MatESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(132) %318, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %330 unwind label %517
 
@@ -4423,32 +4423,32 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i161: ; preds = %348, %3
 _ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %330, %336, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i161, %351
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  %352 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !225
-  %353 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !225
+  call void @llvm.experimental.noalias.scope.decl(metadata !223)
+  %352 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !226
+  %353 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !226
   %.not.i.i.i.i.i163 = icmp eq ptr %353, null
   br i1 %.not.i.i.i.i.i163, label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit165, label %354
 
 354:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %355 = getelementptr inbounds nuw i8, ptr %353, i64 8
-  %356 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !225
+  %356 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !226
   %.not.i.i.i.i.i.i164 = icmp eq i8 %356, 0
   br i1 %.not.i.i.i.i.i.i164, label %360, label %357
 
 357:                                              ; preds = %354
-  %358 = load i32, ptr %355, align 4, !tbaa !32, !noalias !225
+  %358 = load i32, ptr %355, align 4, !tbaa !32, !noalias !226
   %359 = add nsw i32 %358, 1
-  store i32 %359, ptr %355, align 4, !tbaa !32, !noalias !225
+  store i32 %359, ptr %355, align 4, !tbaa !32, !noalias !226
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit165
 
 360:                                              ; preds = %354
-  %361 = atomicrmw volatile add ptr %355, i32 1 acq_rel, align 4, !noalias !225
+  %361 = atomicrmw volatile add ptr %355, i32 1 acq_rel, align 4, !noalias !226
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit165
 
 _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit165: ; preds = %_ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %357, %360
-  store ptr %352, ptr %26, align 8, !tbaa !154, !alias.scope !222
+  store ptr %352, ptr %26, align 8, !tbaa !155, !alias.scope !223
   %362 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %353, ptr %362, align 8, !tbaa !60, !alias.scope !222
+  store ptr %353, ptr %362, align 8, !tbaa !60, !alias.scope !223
   invoke void @_ZN2cv8tracking4impl20TrackerBoostingModel23responseToConfidenceMapERKSt6vectorINS_3MatESaIS4_EERS3_ISt4pairINS_3PtrINS_6detail8tracking18TrackerTargetStateEEEfESaISF_EE(ptr noundef nonnull align 8 dereferenceable(132) %352, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %363 unwind label %519
 
@@ -4508,33 +4508,33 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock
           to label %386 unwind label %521
 
 386:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit170
-  call void @llvm.experimental.noalias.scope.decl(metadata !228)
-  %387 = load ptr, ptr %28, align 8, !tbaa !140, !noalias !231
+  call void @llvm.experimental.noalias.scope.decl(metadata !229)
+  %387 = load ptr, ptr %28, align 8, !tbaa !140, !noalias !232
   %388 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %389 = load ptr, ptr %388, align 8, !tbaa !60, !noalias !231
+  %389 = load ptr, ptr %388, align 8, !tbaa !60, !noalias !232
   %.not.i.i.i.i.i171 = icmp eq ptr %389, null
   br i1 %.not.i.i.i.i.i171, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit173, label %390
 
 390:                                              ; preds = %386
   %391 = getelementptr inbounds nuw i8, ptr %389, i64 8
-  %392 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !231
+  %392 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !232
   %.not.i.i.i.i.i.i172 = icmp eq i8 %392, 0
   br i1 %.not.i.i.i.i.i.i172, label %396, label %393
 
 393:                                              ; preds = %390
-  %394 = load i32, ptr %391, align 4, !tbaa !32, !noalias !231
+  %394 = load i32, ptr %391, align 4, !tbaa !32, !noalias !232
   %395 = add nsw i32 %394, 1
-  store i32 %395, ptr %391, align 4, !tbaa !32, !noalias !231
+  store i32 %395, ptr %391, align 4, !tbaa !32, !noalias !232
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit173
 
 396:                                              ; preds = %390
-  %397 = atomicrmw volatile add ptr %391, i32 1 acq_rel, align 4, !noalias !231
+  %397 = atomicrmw volatile add ptr %391, i32 1 acq_rel, align 4, !noalias !232
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit173
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit173: ; preds = %386, %393, %396
-  store ptr %387, ptr %27, align 8, !tbaa !135, !alias.scope !228
+  store ptr %387, ptr %27, align 8, !tbaa !135, !alias.scope !229
   %398 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %389, ptr %398, align 8, !tbaa !60, !alias.scope !228
+  store ptr %389, ptr %398, align 8, !tbaa !60, !alias.scope !229
   invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting23setCurrentConfidenceMapERSt6vectorISt4pairINS_3PtrINS1_18TrackerTargetStateEEEfESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(168) %387, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %399 unwind label %523
 
@@ -4644,33 +4644,33 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
           to label %444 unwind label %526
 
 444:                                              ; preds = %_ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit183
-  call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  %445 = load ptr, ptr %30, align 8, !tbaa !140, !noalias !237
+  call void @llvm.experimental.noalias.scope.decl(metadata !235)
+  %445 = load ptr, ptr %30, align 8, !tbaa !140, !noalias !238
   %446 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %447 = load ptr, ptr %446, align 8, !tbaa !60, !noalias !237
+  %447 = load ptr, ptr %446, align 8, !tbaa !60, !noalias !238
   %.not.i.i.i.i.i184 = icmp eq ptr %447, null
   br i1 %.not.i.i.i.i.i184, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit186, label %448
 
 448:                                              ; preds = %444
   %449 = getelementptr inbounds nuw i8, ptr %447, i64 8
-  %450 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !237
+  %450 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !238
   %.not.i.i.i.i.i.i185 = icmp eq i8 %450, 0
   br i1 %.not.i.i.i.i.i.i185, label %454, label %451
 
 451:                                              ; preds = %448
-  %452 = load i32, ptr %449, align 4, !tbaa !32, !noalias !237
+  %452 = load i32, ptr %449, align 4, !tbaa !32, !noalias !238
   %453 = add nsw i32 %452, 1
-  store i32 %453, ptr %449, align 4, !tbaa !32, !noalias !237
+  store i32 %453, ptr %449, align 4, !tbaa !32, !noalias !238
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit186
 
 454:                                              ; preds = %448
-  %455 = atomicrmw volatile add ptr %449, i32 1 acq_rel, align 4, !noalias !237
+  %455 = atomicrmw volatile add ptr %449, i32 1 acq_rel, align 4, !noalias !238
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit186
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit186: ; preds = %444, %451, %454
-  store ptr %445, ptr %29, align 8, !tbaa !135, !alias.scope !234
+  store ptr %445, ptr %29, align 8, !tbaa !135, !alias.scope !235
   %456 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %447, ptr %456, align 8, !tbaa !60, !alias.scope !234
+  store ptr %447, ptr %456, align 8, !tbaa !60, !alias.scope !235
   invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting12setSampleROIERKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(168) %445, ptr noundef nonnull align 4 dereferenceable(16) %15)
           to label %457 unwind label %528
 
@@ -4811,7 +4811,7 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
 513:                                              ; preds = %303
   %514 = landingpad { ptr, i32 }
           cleanup
-  %515 = load ptr, ptr %23, align 8, !tbaa !164
+  %515 = load ptr, ptr %23, align 8, !tbaa !165
   %.not.i.i.i197 = icmp eq ptr %515, null
   br i1 %.not.i.i.i197, label %_ZNSt6vectorIiSaIiEED2Ev.exit198, label %516
 
@@ -4881,26 +4881,26 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
           to label %535 unwind label %676
 
 535:                                              ; preds = %533
-  %536 = load ptr, ptr %31, align 8, !tbaa !181
+  %536 = load ptr, ptr %31, align 8, !tbaa !182
   %537 = invoke <2 x float> @_ZNK2cv6detail8tracking18TrackerTargetState17getTargetPositionEv(ptr noundef nonnull align 8 dereferenceable(24) %536)
           to label %538 unwind label %678
 
 538:                                              ; preds = %535
   %.sroa.011.0.vec.extract = extractelement <2 x float> %537, i64 0
   %539 = fptosi float %.sroa.011.0.vec.extract to i32
-  %540 = load ptr, ptr %31, align 8, !tbaa !181
+  %540 = load ptr, ptr %31, align 8, !tbaa !182
   %541 = invoke <2 x float> @_ZNK2cv6detail8tracking18TrackerTargetState17getTargetPositionEv(ptr noundef nonnull align 8 dereferenceable(24) %540)
           to label %542 unwind label %680
 
 542:                                              ; preds = %538
   %.sroa.010.4.vec.extract = extractelement <2 x float> %541, i64 1
   %543 = fptosi float %.sroa.010.4.vec.extract to i32
-  %544 = load ptr, ptr %31, align 8, !tbaa !181
+  %544 = load ptr, ptr %31, align 8, !tbaa !182
   %545 = invoke noundef i32 @_ZNK2cv6detail8tracking18TrackerTargetState14getTargetWidthEv(ptr noundef nonnull align 8 dereferenceable(24) %544)
           to label %546 unwind label %680
 
 546:                                              ; preds = %542
-  %547 = load ptr, ptr %31, align 8, !tbaa !181
+  %547 = load ptr, ptr %31, align 8, !tbaa !182
   %548 = invoke noundef i32 @_ZNK2cv6detail8tracking18TrackerTargetState15getTargetHeightEv(ptr noundef nonnull align 8 dereferenceable(24) %547)
           to label %549 unwind label %680
 
@@ -4909,13 +4909,13 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
   %551 = sitofp i32 %543 to double
   %552 = sitofp i32 %545 to double
   %553 = sitofp i32 %548 to double
-  store double %550, ptr %2, align 8, !tbaa !240
+  store double %550, ptr %2, align 8, !tbaa !241
   %.sroa.5380.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store double %551, ptr %.sroa.5380.0..sroa_idx, align 8, !tbaa !240
+  store double %551, ptr %.sroa.5380.0..sroa_idx, align 8, !tbaa !241
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store double %552, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !240
+  store double %552, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !241
   %.sroa.7381.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store double %553, ptr %.sroa.7381.0..sroa_idx, align 8, !tbaa !240
+  store double %553, ptr %.sroa.7381.0..sroa_idx, align 8, !tbaa !241
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %32) #23
   %554 = load ptr, ptr %87, align 8, !tbaa !88
   %555 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK2cv6detail8tracking21TrackerContribSampler11getSamplersB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %554)
@@ -4923,8 +4923,8 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
 
 556:                                              ; preds = %549
   %557 = getelementptr inbounds nuw i8, ptr %555, i64 8
-  %558 = load ptr, ptr %557, align 8, !tbaa !184
-  %559 = load ptr, ptr %555, align 8, !tbaa !187
+  %558 = load ptr, ptr %557, align 8, !tbaa !185
+  %559 = load ptr, ptr %555, align 8, !tbaa !188
   %.not.i.i199.not = icmp eq ptr %558, %559
   br i1 %.not.i.i199.not, label %560, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit201
 
@@ -4937,33 +4937,33 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
 
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit201: ; preds = %556
   %561 = getelementptr inbounds nuw i8, ptr %559, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !241)
-  %562 = load ptr, ptr %561, align 8, !tbaa !85, !noalias !244
+  call void @llvm.experimental.noalias.scope.decl(metadata !242)
+  %562 = load ptr, ptr %561, align 8, !tbaa !85, !noalias !245
   %563 = getelementptr inbounds nuw i8, ptr %559, i64 40
-  %564 = load ptr, ptr %563, align 8, !tbaa !60, !noalias !244
+  %564 = load ptr, ptr %563, align 8, !tbaa !60, !noalias !245
   %.not.i.i.i.i.i202 = icmp eq ptr %564, null
   br i1 %.not.i.i.i.i.i202, label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit204, label %565
 
 565:                                              ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit201
   %566 = getelementptr inbounds nuw i8, ptr %564, i64 8
-  %567 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !244
+  %567 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !245
   %.not.i.i.i.i.i.i203 = icmp eq i8 %567, 0
   br i1 %.not.i.i.i.i.i.i203, label %571, label %568
 
 568:                                              ; preds = %565
-  %569 = load i32, ptr %566, align 4, !tbaa !32, !noalias !244
+  %569 = load i32, ptr %566, align 4, !tbaa !32, !noalias !245
   %570 = add nsw i32 %569, 1
-  store i32 %570, ptr %566, align 4, !tbaa !32, !noalias !244
+  store i32 %570, ptr %566, align 4, !tbaa !32, !noalias !245
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit204
 
 571:                                              ; preds = %565
-  %572 = atomicrmw volatile add ptr %566, i32 1 acq_rel, align 4, !noalias !244
+  %572 = atomicrmw volatile add ptr %566, i32 1 acq_rel, align 4, !noalias !245
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit204
 
 _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit204: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit201, %568, %571
-  store ptr %562, ptr %32, align 8, !tbaa !95, !alias.scope !241
+  store ptr %562, ptr %32, align 8, !tbaa !95, !alias.scope !242
   %573 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %564, ptr %573, align 8, !tbaa !60, !alias.scope !241
+  store ptr %564, ptr %573, align 8, !tbaa !60, !alias.scope !242
   invoke void @_ZN2cv6detail8tracking16TrackerSamplerCS7setModeEi(ptr noundef nonnull align 8 dereferenceable(100) %562, i32 noundef 1)
           to label %574 unwind label %684
 
@@ -5054,8 +5054,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i207: ; preds = %592, %5
 
 613:                                              ; preds = %610
   %614 = getelementptr inbounds nuw i8, ptr %612, i64 8
-  %615 = load ptr, ptr %614, align 8, !tbaa !184
-  %616 = load ptr, ptr %612, align 8, !tbaa !187
+  %615 = load ptr, ptr %614, align 8, !tbaa !185
+  %616 = load ptr, ptr %612, align 8, !tbaa !188
   %.not.i.i210.not = icmp eq ptr %615, %616
   br i1 %.not.i.i210.not, label %617, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit212
 
@@ -5068,33 +5068,33 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i207: ; preds = %592, %5
 
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit212: ; preds = %613
   %618 = getelementptr inbounds nuw i8, ptr %616, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !247)
-  %619 = load ptr, ptr %618, align 8, !tbaa !85, !noalias !250
+  call void @llvm.experimental.noalias.scope.decl(metadata !248)
+  %619 = load ptr, ptr %618, align 8, !tbaa !85, !noalias !251
   %620 = getelementptr inbounds nuw i8, ptr %616, i64 40
-  %621 = load ptr, ptr %620, align 8, !tbaa !60, !noalias !250
+  %621 = load ptr, ptr %620, align 8, !tbaa !60, !noalias !251
   %.not.i.i.i.i.i213 = icmp eq ptr %621, null
   br i1 %.not.i.i.i.i.i213, label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit215, label %622
 
 622:                                              ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit212
   %623 = getelementptr inbounds nuw i8, ptr %621, i64 8
-  %624 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !250
+  %624 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !251
   %.not.i.i.i.i.i.i214 = icmp eq i8 %624, 0
   br i1 %.not.i.i.i.i.i.i214, label %628, label %625
 
 625:                                              ; preds = %622
-  %626 = load i32, ptr %623, align 4, !tbaa !32, !noalias !250
+  %626 = load i32, ptr %623, align 4, !tbaa !32, !noalias !251
   %627 = add nsw i32 %626, 1
-  store i32 %627, ptr %623, align 4, !tbaa !32, !noalias !250
+  store i32 %627, ptr %623, align 4, !tbaa !32, !noalias !251
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit215
 
 628:                                              ; preds = %622
-  %629 = atomicrmw volatile add ptr %623, i32 1 acq_rel, align 4, !noalias !250
+  %629 = atomicrmw volatile add ptr %623, i32 1 acq_rel, align 4, !noalias !251
   br label %_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit215
 
 _ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv.exit215: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE2atEm.exit212, %625, %628
-  store ptr %619, ptr %34, align 8, !tbaa !95, !alias.scope !247
+  store ptr %619, ptr %34, align 8, !tbaa !95, !alias.scope !248
   %630 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %621, ptr %630, align 8, !tbaa !60, !alias.scope !247
+  store ptr %621, ptr %630, align 8, !tbaa !60, !alias.scope !248
   invoke void @_ZN2cv6detail8tracking16TrackerSamplerCS7setModeEi(ptr noundef nonnull align 8 dereferenceable(100) %619, i32 noundef 2)
           to label %631 unwind label %693
 
@@ -5330,7 +5330,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i218: ; preds = %649, %6
           to label %736 unwind label %1000
 
 736:                                              ; preds = %735
-  store ptr %734, ptr %39, align 8, !tbaa !146
+  store ptr %734, ptr %39, align 8, !tbaa !147
   %737 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %738 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %752 unwind label %739
@@ -5373,32 +5373,32 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i218: ; preds = %649, %6
   store ptr %734, ptr %755, align 8, !tbaa !122
   store ptr %738, ptr %737, align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !253)
-  %756 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !256
-  %757 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !256
+  call void @llvm.experimental.noalias.scope.decl(metadata !254)
+  %756 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !257
+  %757 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !257
   %.not.i.i.i.i.i231 = icmp eq ptr %757, null
   br i1 %.not.i.i.i.i.i231, label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit233, label %758
 
 758:                                              ; preds = %752
   %759 = getelementptr inbounds nuw i8, ptr %757, i64 8
-  %760 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !256
+  %760 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !257
   %.not.i.i.i.i.i.i232 = icmp eq i8 %760, 0
   br i1 %.not.i.i.i.i.i.i232, label %764, label %761
 
 761:                                              ; preds = %758
-  %762 = load i32, ptr %759, align 4, !tbaa !32, !noalias !256
+  %762 = load i32, ptr %759, align 4, !tbaa !32, !noalias !257
   %763 = add nsw i32 %762, 1
-  store i32 %763, ptr %759, align 4, !tbaa !32, !noalias !256
+  store i32 %763, ptr %759, align 4, !tbaa !32, !noalias !257
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit233
 
 764:                                              ; preds = %758
-  %765 = atomicrmw volatile add ptr %759, i32 1 acq_rel, align 4, !noalias !256
+  %765 = atomicrmw volatile add ptr %759, i32 1 acq_rel, align 4, !noalias !257
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit233
 
 _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit233: ; preds = %752, %761, %764
-  store ptr %756, ptr %40, align 8, !tbaa !154, !alias.scope !253
+  store ptr %756, ptr %40, align 8, !tbaa !155, !alias.scope !254
   %766 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %757, ptr %766, align 8, !tbaa !60, !alias.scope !253
+  store ptr %757, ptr %766, align 8, !tbaa !60, !alias.scope !254
   invoke void @_ZN2cv8tracking4impl20TrackerBoostingModel7setModeEiRKSt6vectorINS_3MatESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(132) %756, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(24) %35)
           to label %767 unwind label %1002
 
@@ -5457,32 +5457,32 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock
 
 790:                                              ; preds = %_ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit238
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41) #23
-  call void @llvm.experimental.noalias.scope.decl(metadata !259)
-  %791 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !262
-  %792 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !262
+  call void @llvm.experimental.noalias.scope.decl(metadata !260)
+  %791 = load ptr, ptr %70, align 8, !tbaa !132, !noalias !263
+  %792 = load ptr, ptr %319, align 8, !tbaa !60, !noalias !263
   %.not.i.i.i.i.i239 = icmp eq ptr %792, null
   br i1 %.not.i.i.i.i.i239, label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit241, label %793
 
 793:                                              ; preds = %790
   %794 = getelementptr inbounds nuw i8, ptr %792, i64 8
-  %795 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !262
+  %795 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !263
   %.not.i.i.i.i.i.i240 = icmp eq i8 %795, 0
   br i1 %.not.i.i.i.i.i.i240, label %799, label %796
 
 796:                                              ; preds = %793
-  %797 = load i32, ptr %794, align 4, !tbaa !32, !noalias !262
+  %797 = load i32, ptr %794, align 4, !tbaa !32, !noalias !263
   %798 = add nsw i32 %797, 1
-  store i32 %798, ptr %794, align 4, !tbaa !32, !noalias !262
+  store i32 %798, ptr %794, align 4, !tbaa !32, !noalias !263
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit241
 
 799:                                              ; preds = %793
-  %800 = atomicrmw volatile add ptr %794, i32 1 acq_rel, align 4, !noalias !262
+  %800 = atomicrmw volatile add ptr %794, i32 1 acq_rel, align 4, !noalias !263
   br label %_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit241
 
 _ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv.exit241: ; preds = %790, %796, %799
-  store ptr %791, ptr %41, align 8, !tbaa !154, !alias.scope !259
+  store ptr %791, ptr %41, align 8, !tbaa !155, !alias.scope !260
   %801 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %792, ptr %801, align 8, !tbaa !60, !alias.scope !259
+  store ptr %792, ptr %801, align 8, !tbaa !60, !alias.scope !260
   invoke void @_ZN2cv8tracking4impl20TrackerBoostingModel7setModeEiRKSt6vectorINS_3MatESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(132) %791, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %33)
           to label %802 unwind label %1006
 
@@ -5553,33 +5553,33 @@ _ZNSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock
           to label %829 unwind label %1008
 
 829:                                              ; preds = %827
-  call void @llvm.experimental.noalias.scope.decl(metadata !265)
-  %830 = load ptr, ptr %44, align 8, !tbaa !140, !noalias !268
+  call void @llvm.experimental.noalias.scope.decl(metadata !266)
+  %830 = load ptr, ptr %44, align 8, !tbaa !140, !noalias !269
   %831 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %832 = load ptr, ptr %831, align 8, !tbaa !60, !noalias !268
+  %832 = load ptr, ptr %831, align 8, !tbaa !60, !noalias !269
   %.not.i.i.i.i.i247 = icmp eq ptr %832, null
   br i1 %.not.i.i.i.i.i247, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit249, label %833
 
 833:                                              ; preds = %829
   %834 = getelementptr inbounds nuw i8, ptr %832, i64 8
-  %835 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !268
+  %835 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !269
   %.not.i.i.i.i.i.i248 = icmp eq i8 %835, 0
   br i1 %.not.i.i.i.i.i.i248, label %839, label %836
 
 836:                                              ; preds = %833
-  %837 = load i32, ptr %834, align 4, !tbaa !32, !noalias !268
+  %837 = load i32, ptr %834, align 4, !tbaa !32, !noalias !269
   %838 = add nsw i32 %837, 1
-  store i32 %838, ptr %834, align 4, !tbaa !32, !noalias !268
+  store i32 %838, ptr %834, align 4, !tbaa !32, !noalias !269
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit249
 
 839:                                              ; preds = %833
-  %840 = atomicrmw volatile add ptr %834, i32 1 acq_rel, align 4, !noalias !268
+  %840 = atomicrmw volatile add ptr %834, i32 1 acq_rel, align 4, !noalias !269
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit249
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit249: ; preds = %829, %836, %839
-  store ptr %830, ptr %43, align 8, !tbaa !135, !alias.scope !265
+  store ptr %830, ptr %43, align 8, !tbaa !135, !alias.scope !266
   %841 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %832, ptr %841, align 8, !tbaa !60, !alias.scope !265
+  store ptr %832, ptr %841, align 8, !tbaa !60, !alias.scope !266
   invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting25computeReplacedClassifierEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.86") align 8 %42, ptr noundef nonnull align 8 dereferenceable(168) %830)
           to label %842 unwind label %1010
 
@@ -5690,33 +5690,33 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
           to label %887 unwind label %1013
 
 887:                                              ; preds = %_ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit259
-  call void @llvm.experimental.noalias.scope.decl(metadata !271)
-  %888 = load ptr, ptr %47, align 8, !tbaa !140, !noalias !274
+  call void @llvm.experimental.noalias.scope.decl(metadata !272)
+  %888 = load ptr, ptr %47, align 8, !tbaa !140, !noalias !275
   %889 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %890 = load ptr, ptr %889, align 8, !tbaa !60, !noalias !274
+  %890 = load ptr, ptr %889, align 8, !tbaa !60, !noalias !275
   %.not.i.i.i.i.i260 = icmp eq ptr %890, null
   br i1 %.not.i.i.i.i.i260, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit262, label %891
 
 891:                                              ; preds = %887
   %892 = getelementptr inbounds nuw i8, ptr %890, i64 8
-  %893 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !274
+  %893 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !275
   %.not.i.i.i.i.i.i261 = icmp eq i8 %893, 0
   br i1 %.not.i.i.i.i.i.i261, label %897, label %894
 
 894:                                              ; preds = %891
-  %895 = load i32, ptr %892, align 4, !tbaa !32, !noalias !274
+  %895 = load i32, ptr %892, align 4, !tbaa !32, !noalias !275
   %896 = add nsw i32 %895, 1
-  store i32 %896, ptr %892, align 4, !tbaa !32, !noalias !274
+  store i32 %896, ptr %892, align 4, !tbaa !32, !noalias !275
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit262
 
 897:                                              ; preds = %891
-  %898 = atomicrmw volatile add ptr %892, i32 1 acq_rel, align 4, !noalias !274
+  %898 = atomicrmw volatile add ptr %892, i32 1 acq_rel, align 4, !noalias !275
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit262
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv.exit262: ; preds = %887, %894, %897
-  store ptr %888, ptr %46, align 8, !tbaa !135, !alias.scope !271
+  store ptr %888, ptr %46, align 8, !tbaa !135, !alias.scope !272
   %899 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %890, ptr %899, align 8, !tbaa !60, !alias.scope !271
+  store ptr %890, ptr %899, align 8, !tbaa !60, !alias.scope !272
   invoke void @_ZN2cv6detail8tracking32TrackerStateEstimatorAdaBoosting24computeSwappedClassifierEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.86") align 8 %45, ptr noundef nonnull align 8 dereferenceable(168) %888)
           to label %900 unwind label %1015
 
@@ -5820,8 +5820,8 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %46) #23
   %944 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %945 = load ptr, ptr %944, align 8, !tbaa !162
-  %946 = load ptr, ptr %42, align 8, !tbaa !164
+  %945 = load ptr, ptr %944, align 8, !tbaa !163
+  %946 = load ptr, ptr %42, align 8, !tbaa !165
   %.not403 = icmp eq ptr %945, %946
   br i1 %.not403, label %._crit_edge, label %.lr.ph
 
@@ -5832,13 +5832,13 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_L
 
 ._crit_edge:                                      ; preds = %1131, %_ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit272
   %949 = phi ptr [ %946, %_ZNSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit272 ], [ %1132, %1131 ]
-  %950 = load ptr, ptr %45, align 8, !tbaa !164
+  %950 = load ptr, ptr %45, align 8, !tbaa !165
   %.not.i.i.i273 = icmp eq ptr %950, null
   br i1 %.not.i.i.i273, label %_ZNSt6vectorIiSaIiEED2Ev.exit274, label %951
 
 951:                                              ; preds = %._crit_edge
   call void @_ZdlPv(ptr noundef nonnull %950) #24
-  %.pre418 = load ptr, ptr %42, align 8, !tbaa !164
+  %.pre418 = load ptr, ptr %42, align 8, !tbaa !165
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit274
 
 _ZNSt6vectorIiSaIiEED2Ev.exit274:                 ; preds = %._crit_edge, %951
@@ -6064,7 +6064,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit291:       ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %.not, label %1131, label %1023
 
 1023:                                             ; preds = %1018
-  %1024 = load ptr, ptr %45, align 8, !tbaa !164
+  %1024 = load ptr, ptr %45, align 8, !tbaa !165
   %1025 = getelementptr inbounds nuw i32, ptr %1024, i64 %.0402
   %1026 = load i32, ptr %1025, align 4, !tbaa !32
   %.not99 = icmp eq i32 %1026, -1
@@ -6078,8 +6078,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit291:       ; preds = %_ZSt8_DestroyIPN2cv
 
 1030:                                             ; preds = %1027
   %1031 = getelementptr inbounds nuw i8, ptr %1029, i64 8
-  %1032 = load ptr, ptr %1031, align 8, !tbaa !277
-  %1033 = load ptr, ptr %1029, align 8, !tbaa !206
+  %1032 = load ptr, ptr %1031, align 8, !tbaa !278
+  %1033 = load ptr, ptr %1029, align 8, !tbaa !207
   %.not.i.i292.not = icmp eq ptr %1032, %1033
   br i1 %.not.i.i292.not, label %1034, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit
 
@@ -6092,36 +6092,36 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit291:       ; preds = %_ZSt8_DestroyIPN2cv
 
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit: ; preds = %1030
   %1035 = getelementptr inbounds nuw i8, ptr %1033, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !278)
-  %1036 = load ptr, ptr %1035, align 8, !tbaa !125, !noalias !281
+  call void @llvm.experimental.noalias.scope.decl(metadata !279)
+  %1036 = load ptr, ptr %1035, align 8, !tbaa !125, !noalias !282
   %1037 = getelementptr inbounds nuw i8, ptr %1033, i64 40
-  %1038 = load ptr, ptr %1037, align 8, !tbaa !60, !noalias !281
+  %1038 = load ptr, ptr %1037, align 8, !tbaa !60, !noalias !282
   %.not.i.i.i.i.i294 = icmp eq ptr %1038, null
   br i1 %.not.i.i.i.i.i294, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit296, label %1039
 
 1039:                                             ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit
   %1040 = getelementptr inbounds nuw i8, ptr %1038, i64 8
-  %1041 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !281
+  %1041 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !282
   %.not.i.i.i.i.i.i295 = icmp eq i8 %1041, 0
   br i1 %.not.i.i.i.i.i.i295, label %1045, label %1042
 
 1042:                                             ; preds = %1039
-  %1043 = load i32, ptr %1040, align 4, !tbaa !32, !noalias !281
+  %1043 = load i32, ptr %1040, align 4, !tbaa !32, !noalias !282
   %1044 = add nsw i32 %1043, 1
-  store i32 %1044, ptr %1040, align 4, !tbaa !32, !noalias !281
+  store i32 %1044, ptr %1040, align 4, !tbaa !32, !noalias !282
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit296
 
 1045:                                             ; preds = %1039
-  %1046 = atomicrmw volatile add ptr %1040, i32 1 acq_rel, align 4, !noalias !281
+  %1046 = atomicrmw volatile add ptr %1040, i32 1 acq_rel, align 4, !noalias !282
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit296
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit296: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit, %1042, %1045
-  store ptr %1036, ptr %48, align 8, !tbaa !146, !alias.scope !278
-  store ptr %1038, ptr %947, align 8, !tbaa !60, !alias.scope !278
-  %1047 = load ptr, ptr %42, align 8, !tbaa !164
+  store ptr %1036, ptr %48, align 8, !tbaa !147, !alias.scope !279
+  store ptr %1038, ptr %947, align 8, !tbaa !60, !alias.scope !279
+  %1047 = load ptr, ptr %42, align 8, !tbaa !165
   %1048 = getelementptr inbounds nuw i32, ptr %1047, i64 %.0402
   %1049 = load i32, ptr %1048, align 4, !tbaa !32
-  %1050 = load ptr, ptr %45, align 8, !tbaa !164
+  %1050 = load ptr, ptr %45, align 8, !tbaa !165
   %1051 = getelementptr inbounds nuw i32, ptr %1050, i64 %.0402
   %1052 = load i32, ptr %1051, align 4, !tbaa !32
   %1053 = invoke noundef zeroext i1 @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR11swapFeatureEii(ptr noundef nonnull align 8 dereferenceable(72) %1036, i32 noundef %1049, i32 noundef %1052)
@@ -6183,8 +6183,8 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
 
 1078:                                             ; preds = %_ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit301
   %1079 = getelementptr inbounds nuw i8, ptr %1077, i64 8
-  %1080 = load ptr, ptr %1079, align 8, !tbaa !277
-  %1081 = load ptr, ptr %1077, align 8, !tbaa !206
+  %1080 = load ptr, ptr %1079, align 8, !tbaa !278
+  %1081 = load ptr, ptr %1077, align 8, !tbaa !207
   %.not.i.i302.not = icmp eq ptr %1080, %1081
   br i1 %.not.i.i302.not, label %1082, label %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit304
 
@@ -6197,36 +6197,36 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
 
 _ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit304: ; preds = %1078
   %1083 = getelementptr inbounds nuw i8, ptr %1081, i64 32
-  call void @llvm.experimental.noalias.scope.decl(metadata !284)
-  %1084 = load ptr, ptr %1083, align 8, !tbaa !125, !noalias !287
+  call void @llvm.experimental.noalias.scope.decl(metadata !285)
+  %1084 = load ptr, ptr %1083, align 8, !tbaa !125, !noalias !288
   %1085 = getelementptr inbounds nuw i8, ptr %1081, i64 40
-  %1086 = load ptr, ptr %1085, align 8, !tbaa !60, !noalias !287
+  %1086 = load ptr, ptr %1085, align 8, !tbaa !60, !noalias !288
   %.not.i.i.i.i.i305 = icmp eq ptr %1086, null
   br i1 %.not.i.i.i.i.i305, label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit307, label %1087
 
 1087:                                             ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit304
   %1088 = getelementptr inbounds nuw i8, ptr %1086, i64 8
-  %1089 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !287
+  %1089 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !20, !noalias !288
   %.not.i.i.i.i.i.i306 = icmp eq i8 %1089, 0
   br i1 %.not.i.i.i.i.i.i306, label %1093, label %1090
 
 1090:                                             ; preds = %1087
-  %1091 = load i32, ptr %1088, align 4, !tbaa !32, !noalias !287
+  %1091 = load i32, ptr %1088, align 4, !tbaa !32, !noalias !288
   %1092 = add nsw i32 %1091, 1
-  store i32 %1092, ptr %1088, align 4, !tbaa !32, !noalias !287
+  store i32 %1092, ptr %1088, align 4, !tbaa !32, !noalias !288
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit307
 
 1093:                                             ; preds = %1087
-  %1094 = atomicrmw volatile add ptr %1088, i32 1 acq_rel, align 4, !noalias !287
+  %1094 = atomicrmw volatile add ptr %1088, i32 1 acq_rel, align 4, !noalias !288
   br label %_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit307
 
 _ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv.exit307: ; preds = %_ZNKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE2atEm.exit304, %1090, %1093
-  store ptr %1084, ptr %49, align 8, !tbaa !146, !alias.scope !284
-  store ptr %1086, ptr %948, align 8, !tbaa !60, !alias.scope !284
-  %1095 = load ptr, ptr %45, align 8, !tbaa !164
+  store ptr %1084, ptr %49, align 8, !tbaa !147, !alias.scope !285
+  store ptr %1086, ptr %948, align 8, !tbaa !60, !alias.scope !285
+  %1095 = load ptr, ptr %45, align 8, !tbaa !165
   %1096 = getelementptr inbounds nuw i32, ptr %1095, i64 %.0402
   %1097 = load i32, ptr %1096, align 4, !tbaa !32
-  %1098 = load ptr, ptr %39, align 8, !tbaa !146
+  %1098 = load ptr, ptr %39, align 8, !tbaa !147
   %1099 = trunc i64 %.0402 to i32
   %1100 = invoke noundef nonnull align 8 dereferenceable(136) ptr @_ZN2cv6detail8tracking25TrackerContribFeatureHAAR12getFeatureAtEi(ptr noundef nonnull align 8 dereferenceable(72) %1098, i32 noundef %1099)
           to label %1101 unwind label %1128
@@ -6284,8 +6284,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i310: ; preds = %1121, %
 
 _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit312: ; preds = %1103, %1109, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i310, %1124
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #23
-  %.pre = load ptr, ptr %944, align 8, !tbaa !162
-  %.pre417 = load ptr, ptr %42, align 8, !tbaa !164
+  %.pre = load ptr, ptr %944, align 8, !tbaa !163
+  %.pre417 = load ptr, ptr %42, align 8, !tbaa !165
   br label %1131
 
 .loopexit:                                        ; preds = %1027
@@ -6339,11 +6339,11 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
   %1137 = sub i64 %1135, %1136
   %1138 = ashr exact i64 %1137, 2
   %1139 = icmp ult i64 %1134, %1138
-  br i1 %1139, label %1018, label %._crit_edge, !llvm.loop !290
+  br i1 %1139, label %1018, label %._crit_edge, !llvm.loop !291
 
 1140:                                             ; preds = %1130, %1127
   %.pn102.pn = phi { ptr, i32 } [ %.pn102, %1130 ], [ %.pn100, %1127 ]
-  %1141 = load ptr, ptr %45, align 8, !tbaa !164
+  %1141 = load ptr, ptr %45, align 8, !tbaa !165
   %.not.i.i.i313 = icmp eq ptr %1141, null
   br i1 %.not.i.i.i313, label %_ZNSt6vectorIiSaIiEED2Ev.exit314, label %1142
 
@@ -6354,7 +6354,7 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx
 _ZNSt6vectorIiSaIiEED2Ev.exit314:                 ; preds = %1142, %1140, %1017
   %.pn102.pn.pn = phi { ptr, i32 } [ %.pn97, %1017 ], [ %.pn102.pn, %1140 ], [ %.pn102.pn, %1142 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45) #23
-  %1143 = load ptr, ptr %42, align 8, !tbaa !164
+  %1143 = load ptr, ptr %42, align 8, !tbaa !165
   %.not.i.i.i315 = icmp eq ptr %1143, null
   br i1 %.not.i.i.i315, label %_ZNSt6vectorIiSaIiEED2Ev.exit316, label %1144
 
@@ -6540,9 +6540,9 @@ _ZNSt12__shared_ptrIN2cv6detail8tracking18TrackerTargetStateELN9__gnu_cxx12_Lock
 
 1191:                                             ; preds = %503, %_ZNSt12__shared_ptrIN2cv6detail8tracking18TrackerTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %.1 = phi i1 [ %.2, %_ZNSt12__shared_ptrIN2cv6detail8tracking18TrackerTargetStateELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ false, %503 ]
-  %1192 = load ptr, ptr %24, align 8, !tbaa !291
+  %1192 = load ptr, ptr %24, align 8, !tbaa !292
   %1193 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %1194 = load ptr, ptr %1193, align 8, !tbaa !294
+  %1194 = load ptr, ptr %1193, align 8, !tbaa !295
   %.not4.i.i.i.i339 = icmp eq ptr %1192, %1194
   br i1 %.not4.i.i.i.i339, label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i340
 
@@ -6600,10 +6600,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i: ; preds =
 _ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i.i: ; preds = %1217, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i, %1202, %.lr.ph.i.i.i.i340
   %1218 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i341, i64 24
   %.not.i.i.i.i343 = icmp eq ptr %1218, %1194
-  br i1 %.not.i.i.i.i343, label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i340, !llvm.loop !295
+  br i1 %.not.i.i.i.i343, label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i340, !llvm.loop !296
 
 _ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i.i
-  %.pr.i344 = load ptr, ptr %24, align 8, !tbaa !291
+  %.pr.i344 = load ptr, ptr %24, align 8, !tbaa !292
   br label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i, %1191
@@ -6667,7 +6667,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i348: ; preds = %1239, %
 
 _ZNSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit350: ; preds = %_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev.exit, %1227, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i348, %1242
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #23
-  %1243 = load ptr, ptr %19, align 8, !tbaa !164
+  %1243 = load ptr, ptr %19, align 8, !tbaa !165
   %.not.i.i.i351 = icmp eq ptr %1243, null
   br i1 %.not.i.i.i351, label %_ZNSt6vectorIiSaIiEED2Ev.exit352, label %1244
 
@@ -6718,7 +6718,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit198:                 ; preds = %516, %513, %1250, %
 1251:                                             ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit198, %509
   %.pn102.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn102.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit198 ], [ %510, %509 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #23
-  %1252 = load ptr, ptr %19, align 8, !tbaa !164
+  %1252 = load ptr, ptr %19, align 8, !tbaa !165
   %.not.i.i.i362 = icmp eq ptr %1252, null
   br i1 %.not.i.i.i362, label %_ZNSt6vectorIiSaIiEED2Ev.exit363, label %1253
 
@@ -6940,9 +6940,9 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !291
+  %2 = load ptr, ptr %0, align 8, !tbaa !292
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !294
+  %4 = load ptr, ptr %3, align 8, !tbaa !295
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -7000,10 +7000,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i: ; preds = %
 _ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i: ; preds = %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i, %12, %.lr.ph.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %28, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !295
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !296
 
 _ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !291
+  %.pr = load ptr, ptr %0, align 8, !tbaa !292
   br label %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfES7_EvT_S9_RSaIT0_E.exitthread-pre-split, %1
@@ -7604,7 +7604,7 @@ _ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !296
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !297
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit
   %.0.lcssa.i.i.i.i = phi ptr [ %20, %_ZNSt16allocator_traitsISaIN2cv3MatEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit ], [ %23, %.lr.ph.i.i.i.i ]
@@ -7620,7 +7620,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i29, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i28, i64 96
   %.not.i.i.i.i30 = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !296
+  br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i.i27, !llvm.loop !297
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i.i27, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   %.0.lcssa.i.i.i.i31 = phi ptr [ %24, %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %26, %.lr.ph.i.i.i.i27 ]
@@ -7636,7 +7636,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   store ptr %20, ptr %0, align 8, !tbaa !106
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !143
   %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
-  store ptr %29, ptr %28, align 8, !tbaa !179
+  store ptr %29, ptr %28, align 8, !tbaa !180
   ret void
 
 30:                                               ; preds = %32
@@ -7871,156 +7871,157 @@ attributes #27 = { noreturn nounwind }
 !141 = !{!"_ZTSSt12__shared_ptrIN2cv6detail8tracking21TrackerStateEstimatorELN9__gnu_cxx12_Lock_policyE2EE", !142, i64 0, !30, i64 8}
 !142 = !{!"p1 _ZTSN2cv6detail8tracking21TrackerStateEstimatorE", !16, i64 0}
 !143 = !{!107, !105, i64 8}
-!144 = distinct !{!144, !145}
+!144 = distinct !{!144, !145, !146}
 !145 = !{!"llvm.loop.mustprogress"}
-!146 = !{!147, !124, i64 0}
-!147 = !{!"_ZTSSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE", !124, i64 0, !30, i64 8}
-!148 = !{!149}
-!149 = distinct !{!149, !150, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
-!150 = distinct !{!150, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
-!151 = !{!152, !149}
-!152 = distinct !{!152, !153, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
-!153 = distinct !{!153, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
-!154 = !{!155, !131, i64 0}
-!155 = !{!"_ZTSSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EE", !131, i64 0, !30, i64 8}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
-!158 = distinct !{!158, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
-!159 = !{!160, !157}
-!160 = distinct !{!160, !161, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
-!161 = distinct !{!161, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
-!162 = !{!163, !66, i64 8}
-!163 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
-!164 = !{!163, !66, i64 0}
-!165 = distinct !{!165, !145}
-!166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
-!168 = distinct !{!168, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
-!169 = !{!170, !167}
-!170 = distinct !{!170, !171, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!171 = distinct !{!171, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
-!172 = !{!173}
-!173 = distinct !{!173, !174, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
-!174 = distinct !{!174, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
-!175 = !{!176, !173}
-!176 = distinct !{!176, !177, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!177 = distinct !{!177, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
-!178 = distinct !{!178, !145}
-!179 = !{!107, !105, i64 16}
-!180 = distinct !{!180, !145}
-!181 = !{!182, !183, i64 0}
-!182 = !{!"_ZTSSt12__shared_ptrIN2cv6detail8tracking18TrackerTargetStateELN9__gnu_cxx12_Lock_policyE2EE", !183, i64 0, !30, i64 8}
-!183 = !{!"p1 _ZTSN2cv6detail8tracking18TrackerTargetStateE", !16, i64 0}
-!184 = !{!185, !186, i64 8}
-!185 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE17_Vector_impl_dataE", !186, i64 0, !186, i64 8, !186, i64 16}
-!186 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS6_6detail8tracking30TrackerContribSamplerAlgorithmEEEE", !16, i64 0}
-!187 = !{!185, !186, i64 0}
-!188 = !{!189}
-!189 = distinct !{!189, !190, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
-!190 = distinct !{!190, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
-!191 = !{!192, !189}
-!192 = distinct !{!192, !193, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!193 = distinct !{!193, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
-!194 = !{!195}
-!195 = distinct !{!195, !196, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
-!196 = distinct !{!196, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
-!197 = !{!198, !195}
-!198 = distinct !{!198, !199, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!199 = distinct !{!199, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
-!200 = !{!201}
-!201 = distinct !{!201, !202, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
-!202 = distinct !{!202, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
-!203 = !{!204, !201}
-!204 = distinct !{!204, !205, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!205 = distinct !{!205, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
-!206 = !{!207, !208, i64 0}
-!207 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE17_Vector_impl_dataE", !208, i64 0, !208, i64 8, !208, i64 16}
-!208 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS6_6detail8tracking21TrackerContribFeatureEEEE", !16, i64 0}
-!209 = !{!210}
-!210 = distinct !{!210, !211, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
-!211 = distinct !{!211, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
-!212 = !{!213, !210}
-!213 = distinct !{!213, !214, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!214 = distinct !{!214, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
-!215 = !{!163, !66, i64 16}
-!216 = !{!217}
-!217 = distinct !{!217, !218, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
-!218 = distinct !{!218, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
-!219 = !{!220, !217}
-!220 = distinct !{!220, !221, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
-!221 = distinct !{!221, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
-!222 = !{!223}
-!223 = distinct !{!223, !224, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
-!224 = distinct !{!224, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
-!225 = !{!226, !223}
-!226 = distinct !{!226, !227, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
-!227 = distinct !{!227, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
-!228 = !{!229}
-!229 = distinct !{!229, !230, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
-!230 = distinct !{!230, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
-!231 = !{!232, !229}
-!232 = distinct !{!232, !233, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!233 = distinct !{!233, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
-!234 = !{!235}
-!235 = distinct !{!235, !236, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
-!236 = distinct !{!236, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
-!237 = !{!238, !235}
-!238 = distinct !{!238, !239, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!239 = distinct !{!239, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
-!240 = !{!120, !120, i64 0}
-!241 = !{!242}
-!242 = distinct !{!242, !243, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
-!243 = distinct !{!243, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
-!244 = !{!245, !242}
-!245 = distinct !{!245, !246, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!246 = distinct !{!246, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
-!247 = !{!248}
-!248 = distinct !{!248, !249, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
-!249 = distinct !{!249, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
-!250 = !{!251, !248}
-!251 = distinct !{!251, !252, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!252 = distinct !{!252, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
-!253 = !{!254}
-!254 = distinct !{!254, !255, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
-!255 = distinct !{!255, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
-!256 = !{!257, !254}
-!257 = distinct !{!257, !258, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
-!258 = distinct !{!258, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
-!261 = distinct !{!261, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
-!262 = !{!263, !260}
-!263 = distinct !{!263, !264, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
-!264 = distinct !{!264, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
-!265 = !{!266}
-!266 = distinct !{!266, !267, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
-!267 = distinct !{!267, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
-!268 = !{!269, !266}
-!269 = distinct !{!269, !270, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!270 = distinct !{!270, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
-!273 = distinct !{!273, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
-!274 = !{!275, !272}
-!275 = distinct !{!275, !276, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!276 = distinct !{!276, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
-!277 = !{!207, !208, i64 8}
-!278 = !{!279}
-!279 = distinct !{!279, !280, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
-!280 = distinct !{!280, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
-!281 = !{!282, !279}
-!282 = distinct !{!282, !283, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!283 = distinct !{!283, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
-!284 = !{!285}
-!285 = distinct !{!285, !286, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
-!286 = distinct !{!286, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
-!287 = !{!288, !285}
-!288 = distinct !{!288, !289, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
-!289 = distinct !{!289, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
-!290 = distinct !{!290, !145}
-!291 = !{!292, !293, i64 0}
-!292 = !{!"_ZTSNSt12_Vector_baseISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EE17_Vector_impl_dataE", !293, i64 0, !293, i64 8, !293, i64 16}
-!293 = !{!"p1 _ZTSSt4pairIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEEfE", !16, i64 0}
-!294 = !{!292, !293, i64 8}
-!295 = distinct !{!295, !145}
-!296 = distinct !{!296, !145}
+!146 = !{!"llvm.loop.estimated_trip_count"}
+!147 = !{!148, !124, i64 0}
+!148 = !{!"_ZTSSt12__shared_ptrIN2cv6detail8tracking25TrackerContribFeatureHAARELN9__gnu_cxx12_Lock_policyE2EE", !124, i64 0, !30, i64 8}
+!149 = !{!150}
+!150 = distinct !{!150, !151, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
+!151 = distinct !{!151, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
+!152 = !{!153, !150}
+!153 = distinct !{!153, !154, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
+!154 = distinct !{!154, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
+!155 = !{!156, !131, i64 0}
+!156 = !{!"_ZTSSt12__shared_ptrIN2cv8tracking4impl20TrackerBoostingModelELN9__gnu_cxx12_Lock_policyE2EE", !131, i64 0, !30, i64 8}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
+!159 = distinct !{!159, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
+!160 = !{!161, !158}
+!161 = distinct !{!161, !162, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
+!162 = distinct !{!162, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
+!163 = !{!164, !66, i64 8}
+!164 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
+!165 = !{!164, !66, i64 0}
+!166 = distinct !{!166, !145, !146}
+!167 = !{!168}
+!168 = distinct !{!168, !169, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
+!169 = distinct !{!169, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
+!170 = !{!171, !168}
+!171 = distinct !{!171, !172, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!172 = distinct !{!172, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
+!173 = !{!174}
+!174 = distinct !{!174, !175, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
+!175 = distinct !{!175, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
+!176 = !{!177, !174}
+!177 = distinct !{!177, !178, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!178 = distinct !{!178, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
+!179 = distinct !{!179, !145, !146}
+!180 = !{!107, !105, i64 16}
+!181 = distinct !{!181, !145, !146}
+!182 = !{!183, !184, i64 0}
+!183 = !{!"_ZTSSt12__shared_ptrIN2cv6detail8tracking18TrackerTargetStateELN9__gnu_cxx12_Lock_policyE2EE", !184, i64 0, !30, i64 8}
+!184 = !{!"p1 _ZTSN2cv6detail8tracking18TrackerTargetStateE", !16, i64 0}
+!185 = !{!186, !187, i64 8}
+!186 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking30TrackerContribSamplerAlgorithmEEEESaISD_EE17_Vector_impl_dataE", !187, i64 0, !187, i64 8, !187, i64 16}
+!187 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS6_6detail8tracking30TrackerContribSamplerAlgorithmEEEE", !16, i64 0}
+!188 = !{!186, !187, i64 0}
+!189 = !{!190}
+!190 = distinct !{!190, !191, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
+!191 = distinct !{!191, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
+!192 = !{!193, !190}
+!193 = distinct !{!193, !194, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!194 = distinct !{!194, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
+!195 = !{!196}
+!196 = distinct !{!196, !197, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
+!197 = distinct !{!197, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
+!198 = !{!199, !196}
+!199 = distinct !{!199, !200, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!200 = distinct !{!200, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
+!201 = !{!202}
+!202 = distinct !{!202, !203, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
+!203 = distinct !{!203, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
+!204 = !{!205, !202}
+!205 = distinct !{!205, !206, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!206 = distinct !{!206, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
+!207 = !{!208, !209, i64 0}
+!208 = !{!"_ZTSNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS7_6detail8tracking21TrackerContribFeatureEEEESaISD_EE17_Vector_impl_dataE", !209, i64 0, !209, i64 8, !209, i64 16}
+!209 = !{!"p1 _ZTSSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3PtrINS6_6detail8tracking21TrackerContribFeatureEEEE", !16, i64 0}
+!210 = !{!211}
+!211 = distinct !{!211, !212, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
+!212 = distinct !{!212, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
+!213 = !{!214, !211}
+!214 = distinct !{!214, !215, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!215 = distinct !{!215, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
+!216 = !{!164, !66, i64 16}
+!217 = !{!218}
+!218 = distinct !{!218, !219, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
+!219 = distinct !{!219, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
+!220 = !{!221, !218}
+!221 = distinct !{!221, !222, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
+!222 = distinct !{!222, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
+!223 = !{!224}
+!224 = distinct !{!224, !225, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
+!225 = distinct !{!225, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
+!226 = !{!227, !224}
+!227 = distinct !{!227, !228, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
+!228 = distinct !{!228, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
+!229 = !{!230}
+!230 = distinct !{!230, !231, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
+!231 = distinct !{!231, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
+!232 = !{!233, !230}
+!233 = distinct !{!233, !234, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!234 = distinct !{!234, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
+!235 = !{!236}
+!236 = distinct !{!236, !237, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
+!237 = distinct !{!237, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
+!238 = !{!239, !236}
+!239 = distinct !{!239, !240, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!240 = distinct !{!240, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
+!241 = !{!120, !120, i64 0}
+!242 = !{!243}
+!243 = distinct !{!243, !244, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
+!244 = distinct !{!244, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
+!245 = !{!246, !243}
+!246 = distinct !{!246, !247, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!247 = distinct !{!247, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
+!248 = !{!249}
+!249 = distinct !{!249, !250, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv: argument 0"}
+!250 = distinct !{!250, !"_ZNK2cv3PtrINS_6detail8tracking30TrackerContribSamplerAlgorithmEE10staticCastINS2_16TrackerSamplerCSEEENS0_IT_EEv"}
+!251 = !{!252, !249}
+!252 = distinct !{!252, !253, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!253 = distinct !{!253, !"_ZSt19static_pointer_castIN2cv6detail8tracking16TrackerSamplerCSENS2_30TrackerContribSamplerAlgorithmEESt10shared_ptrIT_ERKS5_IT0_E"}
+!254 = !{!255}
+!255 = distinct !{!255, !256, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
+!256 = distinct !{!256, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
+!257 = !{!258, !255}
+!258 = distinct !{!258, !259, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
+!259 = distinct !{!259, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
+!260 = !{!261}
+!261 = distinct !{!261, !262, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv: argument 0"}
+!262 = distinct !{!262, !"_ZNK2cv3PtrINS_6detail8tracking12TrackerModelEE10staticCastINS_8tracking4impl20TrackerBoostingModelEEENS0_IT_EEv"}
+!263 = !{!264, !261}
+!264 = distinct !{!264, !265, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E: argument 0"}
+!265 = distinct !{!265, !"_ZSt19static_pointer_castIN2cv8tracking4impl20TrackerBoostingModelENS0_6detail8tracking12TrackerModelEESt10shared_ptrIT_ERKS7_IT0_E"}
+!266 = !{!267}
+!267 = distinct !{!267, !268, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
+!268 = distinct !{!268, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
+!269 = !{!270, !267}
+!270 = distinct !{!270, !271, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!271 = distinct !{!271, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
+!272 = !{!273}
+!273 = distinct !{!273, !274, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv: argument 0"}
+!274 = distinct !{!274, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerStateEstimatorEE10staticCastINS2_32TrackerStateEstimatorAdaBoostingEEENS0_IT_EEv"}
+!275 = !{!276, !273}
+!276 = distinct !{!276, !277, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!277 = distinct !{!277, !"_ZSt19static_pointer_castIN2cv6detail8tracking32TrackerStateEstimatorAdaBoostingENS2_21TrackerStateEstimatorEESt10shared_ptrIT_ERKS5_IT0_E"}
+!278 = !{!208, !209, i64 8}
+!279 = !{!280}
+!280 = distinct !{!280, !281, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
+!281 = distinct !{!281, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
+!282 = !{!283, !280}
+!283 = distinct !{!283, !284, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!284 = distinct !{!284, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
+!285 = !{!286}
+!286 = distinct !{!286, !287, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv: argument 0"}
+!287 = distinct !{!287, !"_ZNK2cv3PtrINS_6detail8tracking21TrackerContribFeatureEE10staticCastINS2_25TrackerContribFeatureHAAREEENS0_IT_EEv"}
+!288 = !{!289, !286}
+!289 = distinct !{!289, !290, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E: argument 0"}
+!290 = distinct !{!290, !"_ZSt19static_pointer_castIN2cv6detail8tracking25TrackerContribFeatureHAARENS2_21TrackerContribFeatureEESt10shared_ptrIT_ERKS5_IT0_E"}
+!291 = distinct !{!291, !145, !146}
+!292 = !{!293, !294, i64 0}
+!293 = !{!"_ZTSNSt12_Vector_baseISt4pairIN2cv3PtrINS1_6detail8tracking18TrackerTargetStateEEEfESaIS7_EE17_Vector_impl_dataE", !294, i64 0, !294, i64 8, !294, i64 16}
+!294 = !{!"p1 _ZTSSt4pairIN2cv3PtrINS0_6detail8tracking18TrackerTargetStateEEEfE", !16, i64 0}
+!295 = !{!293, !294, i64 8}
+!296 = distinct !{!296, !145, !146}
+!297 = distinct !{!297, !145, !146}

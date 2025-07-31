@@ -86,7 +86,7 @@ define { i64, i64 } @CombineRect(ptr noundef readonly captures(none) %0, ptr nou
 
 8:                                                ; preds = %2
   %.sroa.4.0..0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0..sroa_idx, align 4, !tbaa !9
+  %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0..sroa_idx, align 4, !tbaa !10
   br label %28
 
 9:                                                ; preds = %2
@@ -97,12 +97,12 @@ define { i64, i64 } @CombineRect(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %13, label %14, label %.preheader
 
 14:                                               ; preds = %9
-  %.sroa.4.0.copyload28 = load i64, ptr %5, align 4, !tbaa !9
+  %.sroa.4.0.copyload28 = load i64, ptr %5, align 4, !tbaa !10
   br label %28
 
 15:                                               ; preds = %.preheader
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.sroa.4.0.copyload29 = load i64, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !9
+  %.sroa.4.0.copyload29 = load i64, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !10
   br label %28
 
 .preheader:                                       ; preds = %9, %.preheader
@@ -123,7 +123,7 @@ define { i64, i64 } @CombineRect(ptr noundef readonly captures(none) %0, ptr nou
   %26 = tail call i32 @llvm.smax.i32(i32 %23, i32 %25)
   %27 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %21
   store i32 %26, ptr %27, align 4, !tbaa !3
-  br i1 %16, label %.preheader, label %15, !llvm.loop !10
+  br i1 %16, label %.preheader, label %15, !llvm.loop !11
 
 28:                                               ; preds = %15, %14, %8
   %.sroa.0.0.in = phi ptr [ %1, %8 ], [ %0, %14 ], [ %3, %15 ]
@@ -207,7 +207,8 @@ attributes #13 = { cold noreturn nounwind }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!5, !5, i64 0}
-!10 = distinct !{!10, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!5, !5, i64 0}
+!11 = distinct !{!11, !8, !9}

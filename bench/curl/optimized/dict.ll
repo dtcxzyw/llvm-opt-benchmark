@@ -338,7 +338,7 @@ unescape_word.exit:                               ; preds = %57, %55
 
 123:                                              ; preds = %119, %122
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %119, !llvm.loop !84
+  br label %119, !llvm.loop !85
 
 124:                                              ; preds = %119
   %125 = call i32 (ptr, ptr, ...) @sendf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull %118)
@@ -356,9 +356,9 @@ unescape_word.exit:                               ; preds = %57, %55
 128:                                              ; preds = %unescape_word.exit.thread, %126, %127, %108, %unescape_word.exit, %68, %114, %113, %112, %67
   %.082 = phi ptr [ %64, %67 ], [ %64, %68 ], [ %109, %112 ], [ %109, %113 ], [ null, %114 ], [ null, %unescape_word.exit ], [ null, %108 ], [ null, %127 ], [ null, %126 ], [ null, %unescape_word.exit.thread ]
   %.078 = phi i32 [ %66, %67 ], [ 0, %68 ], [ %111, %112 ], [ 0, %113 ], [ 0, %114 ], [ 27, %unescape_word.exit ], [ 27, %108 ], [ 0, %127 ], [ %125, %126 ], [ 27, %unescape_word.exit.thread ]
-  %129 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
+  %129 = load ptr, ptr @Curl_cfree, align 8, !tbaa !86
   call void %129(ptr noundef %.082) #5
-  %130 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
+  %130 = load ptr, ptr @Curl_cfree, align 8, !tbaa !86
   %131 = load ptr, ptr %4, align 8, !tbaa !77
   call void %130(ptr noundef %131) #5
   br label %132
@@ -445,7 +445,7 @@ define internal i32 @sendf(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %2
-  store i64 0, ptr %3, align 8, !tbaa !86
+  store i64 0, ptr %3, align 8, !tbaa !87
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
   %8 = call i32 @Curl_xfer_send(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %7, i1 noundef zeroext false, ptr noundef nonnull %3) #5
   %.not1921 = icmp eq i32 %8, 0
@@ -454,9 +454,9 @@ define internal i32 @sendf(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 
 .lr.ph:                                           ; preds = %6, %11
   %.023 = phi ptr [ %13, %11 ], [ %5, %6 ]
   %.01622 = phi i64 [ %12, %11 ], [ %7, %6 ]
-  %9 = load i64, ptr %3, align 8, !tbaa !86
+  %9 = load i64, ptr %3, align 8, !tbaa !87
   call void @Curl_debug(ptr noundef %0, i32 noundef 4, ptr noundef %.023, i64 noundef %9) #5
-  %10 = load i64, ptr %3, align 8, !tbaa !86
+  %10 = load i64, ptr %3, align 8, !tbaa !87
   %.not20 = icmp eq i64 %10, %.01622
   br i1 %.not20, label %._crit_edge, label %11
 
@@ -465,11 +465,11 @@ define internal i32 @sendf(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #0 
   %13 = getelementptr inbounds nuw i8, ptr %.023, i64 %10
   %14 = call i32 @Curl_xfer_send(ptr noundef %0, ptr noundef %13, i64 noundef %12, i1 noundef zeroext false, ptr noundef nonnull %3) #5
   %.not19 = icmp eq i32 %14, 0
-  br i1 %.not19, label %.lr.ph, label %._crit_edge
+  br i1 %.not19, label %.lr.ph, label %._crit_edge, !llvm.loop !88
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph, %6
   %.lcssa = phi i32 [ %8, %6 ], [ 0, %.lr.ph ], [ %14, %11 ]
-  %15 = load ptr, ptr @Curl_cfree, align 8, !tbaa !85
+  %15 = load ptr, ptr @Curl_cfree, align 8, !tbaa !86
   call void %15(ptr noundef nonnull %5) #5
   br label %16
 
@@ -600,8 +600,10 @@ attributes #6 = { nounwind willreturn memory(read) }
 !79 = !{!8, !68, i64 4864}
 !80 = !{!81, !9, i64 8}
 !81 = !{!"curl_trc_feat", !31, i64 0, !9, i64 8}
-!82 = distinct !{!82, !83}
+!82 = distinct !{!82, !83, !84}
 !83 = !{!"llvm.loop.mustprogress"}
-!84 = distinct !{!84, !83}
-!85 = !{!12, !12, i64 0}
-!86 = !{!10, !10, i64 0}
+!84 = !{!"llvm.loop.estimated_trip_count"}
+!85 = distinct !{!85, !83, !84}
+!86 = !{!12, !12, i64 0}
+!87 = !{!10, !10, i64 0}
+!88 = distinct !{!88, !84}

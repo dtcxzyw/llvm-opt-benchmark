@@ -1058,7 +1058,7 @@ define ptr @H5O__attr_open_by_idx(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %13, label %14, label %.thread, !prof !9
 
 14:                                               ; preds = %4
-  store i32 2, ptr %5, align 8, !tbaa !75
+  store i32 2, ptr %5, align 8, !tbaa !76
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @H5O__attr_open_by_idx_cb, ptr %15, align 8, !tbaa !57
   %16 = call i32 @H5O_attr_iterate_real(i64 noundef -1, ptr noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %7)
@@ -1352,7 +1352,7 @@ define i32 @H5O_attr_iterate_real(i64 noundef %0, ptr noundef %1, i32 noundef %2
 .thread60:                                        ; preds = %83, %86, %79, %55, %59, %23, %93, %90
   %.2 = phi i32 [ -1, %93 ], [ -1, %90 ], [ %84, %83 ], [ %84, %86 ], [ -1, %79 ], [ %57, %55 ], [ %57, %59 ], [ -1, %23 ]
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !77
+  %98 = load ptr, ptr %97, align 8, !tbaa !78
   %.not56 = icmp eq ptr %98, null
   br i1 %.not56, label %106, label %99
 
@@ -1564,11 +1564,11 @@ define range(i32 -1, 1) i32 @H5O__attr_write(ptr noundef %0, ptr noundef %1) loc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   %37 = load ptr, ptr %0, align 8, !tbaa !10
-  store ptr %37, ptr %4, align 8, !tbaa !80
+  store ptr %37, ptr %4, align 8, !tbaa !81
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %1, ptr %38, align 8, !tbaa !82
+  store ptr %1, ptr %38, align 8, !tbaa !83
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 0, ptr %39, align 8, !tbaa !83
+  store i8 0, ptr %39, align 8, !tbaa !84
   store i32 1, ptr %5, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @H5O__attr_write_cb, ptr %40, align 8, !tbaa !57
@@ -1583,7 +1583,7 @@ define range(i32 -1, 1) i32 @H5O__attr_write(ptr noundef %0, ptr noundef %1) loc
   br label %.thread29
 
 47:                                               ; preds = %.thread
-  %48 = load i8, ptr %39, align 8, !tbaa !83, !range !7, !noundef !8
+  %48 = load i8, ptr %39, align 8, !tbaa !84, !range !7, !noundef !8
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %54, label %50
 
@@ -1659,7 +1659,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_write_cb(ptr noundef %0, ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !82
+  %20 = load ptr, ptr %19, align 8, !tbaa !83
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1669,9 +1669,9 @@ define internal range(i32 -1, 2) i32 @H5O__attr_write_cb(ptr noundef %0, ptr nou
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %12
-  %28 = load ptr, ptr %4, align 8, !tbaa !80
+  %28 = load ptr, ptr %4, align 8, !tbaa !81
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load i32, ptr %29, align 8, !tbaa !84
+  %30 = load i32, ptr %29, align 8, !tbaa !85
   %31 = tail call ptr @H5O__chunk_protect(ptr noundef %28, ptr noundef %0, i32 noundef %30) #10
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %37
@@ -1686,7 +1686,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_write_cb(ptr noundef %0, ptr nou
   %38 = load ptr, ptr %13, align 8, !tbaa !60
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8, !tbaa !15
-  %41 = load ptr, ptr %19, align 8, !tbaa !82
+  %41 = load ptr, ptr %19, align 8, !tbaa !83
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load ptr, ptr %42, align 8, !tbaa !15
   %.not = icmp eq ptr %40, %43
@@ -1694,32 +1694,32 @@ define internal range(i32 -1, 2) i32 @H5O__attr_write_cb(ptr noundef %0, ptr nou
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 56
-  %46 = load ptr, ptr %45, align 8, !tbaa !85
+  %46 = load ptr, ptr %45, align 8, !tbaa !86
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %48 = load ptr, ptr %47, align 8, !tbaa !85
+  %48 = load ptr, ptr %47, align 8, !tbaa !86
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %50 = load i64, ptr %49, align 8, !tbaa !86
+  %50 = load i64, ptr %49, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %46, ptr align 1 %48, i64 %50, i1 false)
   br label %51
 
 51:                                               ; preds = %44, %37
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 1, ptr %52, align 8, !tbaa !87
-  %53 = load ptr, ptr %4, align 8, !tbaa !80
+  store i8 1, ptr %52, align 8, !tbaa !88
+  %53 = load ptr, ptr %4, align 8, !tbaa !81
   %54 = tail call i32 @H5O__chunk_unprotect(ptr noundef %53, ptr noundef nonnull %31, i1 noundef zeroext true) #10
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %72, label %56
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %58 = load i8, ptr %57, align 1, !tbaa !88
+  %58 = load i8, ptr %57, align 1, !tbaa !89
   %59 = and i8 %58, 2
   %.not36 = icmp eq i8 %59, 0
   br i1 %.not36, label %70, label %60
 
 60:                                               ; preds = %56
-  %61 = load ptr, ptr %4, align 8, !tbaa !80
-  %62 = load ptr, ptr %19, align 8, !tbaa !82
+  %61 = load ptr, ptr %4, align 8, !tbaa !81
+  %62 = load ptr, ptr %19, align 8, !tbaa !83
   %63 = load ptr, ptr %13, align 8, !tbaa !60
   %64 = tail call i32 @H5O__attr_update_shared(ptr noundef %61, ptr noundef %0, ptr noundef %62, ptr noundef %63)
   %65 = icmp slt i32 %64, 0
@@ -1734,14 +1734,14 @@ define internal range(i32 -1, 2) i32 @H5O__attr_write_cb(ptr noundef %0, ptr nou
 70:                                               ; preds = %60, %56
   store i32 2, ptr %3, align 4, !tbaa !63
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 1, ptr %71, align 8, !tbaa !83
+  store i8 1, ptr %71, align 8, !tbaa !84
   br label %.thread
 
 72:                                               ; preds = %51
   %73 = load i64, ptr @H5E_ATTR_g, align 8, !tbaa !27
   %74 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !27
   %75 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O__attr_write_cb, i32 noundef 821, i64 noundef %73, i64 noundef %74, ptr noundef nonnull @.str.63) #10
-  %76 = load ptr, ptr %4, align 8, !tbaa !80
+  %76 = load ptr, ptr %4, align 8, !tbaa !81
   %77 = tail call i32 @H5O__chunk_unprotect(ptr noundef %76, ptr noundef nonnull %31, i1 noundef zeroext true) #10
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %.thread
@@ -1823,13 +1823,13 @@ define range(i32 -1, 1) i32 @H5O__attr_rename(ptr noundef %0, ptr noundef %1, pt
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
   %41 = load ptr, ptr %0, align 8, !tbaa !10
-  store ptr %41, ptr %6, align 8, !tbaa !89
+  store ptr %41, ptr %6, align 8, !tbaa !90
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %1, ptr %42, align 8, !tbaa !91
+  store ptr %1, ptr %42, align 8, !tbaa !92
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %2, ptr %43, align 8, !tbaa !92
+  store ptr %2, ptr %43, align 8, !tbaa !93
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i8 0, ptr %44, align 8, !tbaa !93
+  store i8 0, ptr %44, align 8, !tbaa !94
   store i32 1, ptr %7, align 8, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @H5O__attr_rename_chk_cb, ptr %45, align 8, !tbaa !57
@@ -1844,7 +1844,7 @@ define range(i32 -1, 1) i32 @H5O__attr_rename(ptr noundef %0, ptr noundef %1, pt
   br label %.thread36
 
 52:                                               ; preds = %.thread
-  %53 = load i8, ptr %44, align 8, !tbaa !93, !range !7, !noundef !8
+  %53 = load i8, ptr %44, align 8, !tbaa !94, !range !7, !noundef !8
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %59
 
@@ -1869,7 +1869,7 @@ define range(i32 -1, 1) i32 @H5O__attr_rename(ptr noundef %0, ptr noundef %1, pt
   br label %.thread36
 
 67:                                               ; preds = %59
-  %68 = load i8, ptr %44, align 8, !tbaa !93, !range !7, !noundef !8
+  %68 = load i8, ptr %44, align 8, !tbaa !94, !range !7, !noundef !8
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %74, label %70
 
@@ -1948,14 +1948,14 @@ define internal range(i32 0, 2) i32 @H5O__attr_rename_chk_cb(ptr readnone captur
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !92
+  %20 = load ptr, ptr %19, align 8, !tbaa !93
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #12
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %12
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 1, ptr %24, align 8, !tbaa !93
+  store i8 1, ptr %24, align 8, !tbaa !94
   br label %25
 
 25:                                               ; preds = %12, %23, %5
@@ -1981,16 +1981,16 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !91
+  %20 = load ptr, ptr %19, align 8, !tbaa !92
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #12
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %.thread67
 
 23:                                               ; preds = %12
-  %24 = load i8, ptr %16, align 8, !tbaa !94
-  %25 = load ptr, ptr %4, align 8, !tbaa !89
+  %24 = load i8, ptr %16, align 8, !tbaa !95
+  %25 = load ptr, ptr %4, align 8, !tbaa !90
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !84
+  %27 = load i32, ptr %26, align 8, !tbaa !85
   %28 = tail call ptr @H5O__chunk_protect(ptr noundef %25, ptr noundef %0, i32 noundef %27) #10
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %34
@@ -2009,14 +2009,14 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
   %39 = load ptr, ptr %38, align 8, !tbaa !71
   %40 = tail call ptr @H5MM_xfree(ptr noundef %39) #10
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !92
+  %42 = load ptr, ptr %41, align 8, !tbaa !93
   %43 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %42) #10
   %44 = load ptr, ptr %13, align 8, !tbaa !60
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8, !tbaa !15
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %43, ptr %47, align 8, !tbaa !71
-  %48 = load ptr, ptr %4, align 8, !tbaa !89
+  %48 = load ptr, ptr %4, align 8, !tbaa !90
   %49 = tail call i32 @H5A__set_version(ptr noundef %48, ptr noundef %44) #10
   %50 = icmp sgt i32 %49, -1
   br i1 %50, label %55, label %51
@@ -2029,8 +2029,8 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
 
 55:                                               ; preds = %34
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 1, ptr %56, align 8, !tbaa !87
-  %57 = load ptr, ptr %4, align 8, !tbaa !89
+  store i8 1, ptr %56, align 8, !tbaa !88
+  %57 = load ptr, ptr %4, align 8, !tbaa !90
   %58 = tail call i32 @H5O__chunk_unprotect(ptr noundef %57, ptr noundef nonnull %28, i1 noundef zeroext true) #10
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %64
@@ -2043,13 +2043,13 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
 
 64:                                               ; preds = %55
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %66 = load i8, ptr %65, align 1, !tbaa !88
+  %66 = load i8, ptr %65, align 1, !tbaa !89
   %67 = and i8 %66, 2
   %.not = icmp eq i8 %67, 0
   br i1 %.not, label %77, label %68
 
 68:                                               ; preds = %64
-  %69 = load ptr, ptr %4, align 8, !tbaa !89
+  %69 = load ptr, ptr %4, align 8, !tbaa !90
   %70 = load ptr, ptr %13, align 8, !tbaa !60
   %71 = tail call i32 @H5O__attr_update_shared(ptr noundef %69, ptr noundef %0, ptr noundef %70, ptr noundef null)
   %72 = icmp slt i32 %71, 0
@@ -2062,9 +2062,9 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
   br label %.thread67
 
 77:                                               ; preds = %64
-  %78 = load ptr, ptr %41, align 8, !tbaa !92
+  %78 = load ptr, ptr %41, align 8, !tbaa !93
   %79 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #12
-  %80 = load ptr, ptr %19, align 8, !tbaa !91
+  %80 = load ptr, ptr %19, align 8, !tbaa !92
   %81 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #12
   %.not60 = icmp eq i64 %79, %81
   %.pre = load ptr, ptr %13, align 8, !tbaa !60
@@ -2073,13 +2073,13 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
 82:                                               ; preds = %77
   %83 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %84 = load ptr, ptr %83, align 8, !tbaa !15
-  %85 = load i8, ptr %84, align 8, !tbaa !94
+  %85 = load i8, ptr %84, align 8, !tbaa !95
   %.not61 = icmp eq i8 %24, %85
   br i1 %.not61, label %107, label %86
 
 86:                                               ; preds = %82, %77
   store ptr null, ptr %13, align 8, !tbaa !60
-  %87 = load ptr, ptr %4, align 8, !tbaa !89
+  %87 = load ptr, ptr %4, align 8, !tbaa !90
   %88 = tail call i32 @H5O__release_mesg(ptr noundef %87, ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext false) #10
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %94
@@ -2092,8 +2092,8 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
 
 94:                                               ; preds = %86
   store i32 1, ptr %3, align 4, !tbaa !63
-  %95 = load ptr, ptr %4, align 8, !tbaa !89
-  %96 = load i8, ptr %65, align 1, !tbaa !88
+  %95 = load ptr, ptr %4, align 8, !tbaa !90
+  %96 = load i8, ptr %65, align 1, !tbaa !89
   %97 = or i8 %96, 4
   %98 = zext i8 %97 to i32
   %99 = tail call i32 @H5O__msg_append_real(ptr noundef %95, ptr noundef %0, ptr noundef nonnull @H5O_MSG_ATTR, i32 noundef %98, i32 noundef 0, ptr noundef %.pre) #10
@@ -2115,11 +2115,11 @@ define internal range(i32 -1, 2) i32 @H5O__attr_rename_mod_cb(ptr noundef %0, pt
   %109 = or i32 %108, 2
   store i32 %109, ptr %3, align 4, !tbaa !63
   %110 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i8 1, ptr %110, align 8, !tbaa !93
+  store i8 1, ptr %110, align 8, !tbaa !94
   br label %.thread67
 
 111:                                              ; preds = %60, %51
-  %112 = load ptr, ptr %4, align 8, !tbaa !89
+  %112 = load ptr, ptr %4, align 8, !tbaa !90
   %113 = tail call i32 @H5O__chunk_unprotect(ptr noundef %112, ptr noundef nonnull %28, i1 noundef zeroext %50) #10
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %115, label %.thread67
@@ -2170,7 +2170,7 @@ define i32 @H5O__attr_iterate(i64 noundef %0, i32 noundef %1, i32 noundef %2, i6
   br label %30
 
 22:                                               ; preds = %15
-  %23 = load ptr, ptr %8, align 8, !tbaa !95
+  %23 = load ptr, ptr %8, align 8, !tbaa !96
   %24 = call i32 @H5O_attr_iterate_real(i64 noundef %0, ptr noundef %23, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %26, label %30
@@ -2256,11 +2256,11 @@ define range(i32 -1, 1) i32 @H5O__attr_remove(ptr noundef %0, ptr noundef %1) lo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   %40 = load ptr, ptr %0, align 8, !tbaa !10
-  store ptr %40, ptr %5, align 8, !tbaa !99
+  store ptr %40, ptr %5, align 8, !tbaa !100
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %41, align 8, !tbaa !101
+  store ptr %1, ptr %41, align 8, !tbaa !102
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 0, ptr %42, align 8, !tbaa !102
+  store i8 0, ptr %42, align 8, !tbaa !103
   store i32 1, ptr %6, align 8, !tbaa !55
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @H5O__attr_remove_cb, ptr %43, align 8, !tbaa !57
@@ -2275,7 +2275,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove(ptr noundef %0, ptr noundef %1) lo
   br label %.thread40
 
 50:                                               ; preds = %.thread
-  %51 = load i8, ptr %42, align 8, !tbaa !102, !range !7, !noundef !8
+  %51 = load i8, ptr %42, align 8, !tbaa !103, !range !7, !noundef !8
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %57, label %53
 
@@ -2370,13 +2370,13 @@ define internal range(i32 -1, 2) i32 @H5O__attr_remove_cb(ptr noundef %0, ptr no
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !101
+  %20 = load ptr, ptr %19, align 8, !tbaa !102
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %20) #12
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %33
 
 23:                                               ; preds = %12
-  %24 = load ptr, ptr %4, align 8, !tbaa !99
+  %24 = load ptr, ptr %4, align 8, !tbaa !100
   %25 = tail call i32 @H5O__release_mesg(ptr noundef %24, ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext true) #10
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %31
@@ -2390,7 +2390,7 @@ define internal range(i32 -1, 2) i32 @H5O__attr_remove_cb(ptr noundef %0, ptr no
 31:                                               ; preds = %23
   store i32 1, ptr %3, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 1, ptr %32, align 8, !tbaa !102
+  store i8 1, ptr %32, align 8, !tbaa !103
   br label %33
 
 33:                                               ; preds = %27, %31, %12, %5
@@ -2424,7 +2424,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  %20 = load i32, ptr %19, align 4, !tbaa !103
+  %20 = load i32, ptr %19, align 4, !tbaa !104
   %21 = zext i32 %20 to i64
   %22 = icmp ult i64 %15, %21
   br i1 %22, label %23, label %.thread69
@@ -2458,12 +2458,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
   %33 = add nuw i64 %.05581, 1
   %34 = load i64, ptr %13, align 8, !tbaa !46
   %.not64 = icmp ult i64 %33, %34
-  br i1 %.not64, label %35, label %.critedge, !llvm.loop !104
+  br i1 %.not64, label %35, label %.critedge, !llvm.loop !105
 
 35:                                               ; preds = %.lr.ph, %32
   %.05581 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
   %36 = load ptr, ptr %0, align 8, !tbaa !10
-  %37 = load ptr, ptr %28, align 8, !tbaa !77
+  %37 = load ptr, ptr %28, align 8, !tbaa !78
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.05581
   %39 = load ptr, ptr %38, align 8, !tbaa !64
   %40 = call i64 @H5O_msg_size_oh(ptr noundef %36, ptr noundef nonnull %1, i32 noundef 12, ptr noundef %39, i64 noundef 0) #10
@@ -2482,7 +2482,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 
 44:                                               ; preds = %.lr.ph83, %105
   %.15682 = phi i64 [ 0, %.lr.ph83 ], [ %106, %105 ]
-  %45 = load ptr, ptr %43, align 8, !tbaa !77
+  %45 = load ptr, ptr %43, align 8, !tbaa !78
   %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.15682
   %47 = load ptr, ptr %46, align 8, !tbaa !64
   %48 = call i32 @H5O_msg_is_shared(i32 noundef 12, ptr noundef %47) #10
@@ -2501,7 +2501,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr %0, align 8, !tbaa !10
-  %58 = load ptr, ptr %43, align 8, !tbaa !77
+  %58 = load ptr, ptr %43, align 8, !tbaa !78
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.15682
   %60 = load ptr, ptr %59, align 8, !tbaa !64
   %61 = call i32 @H5O__attr_link(ptr noundef %57, ptr noundef nonnull %1, ptr noundef %60) #10
@@ -2509,7 +2509,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
   br i1 %62, label %63, label %._crit_edge85
 
 ._crit_edge85:                                    ; preds = %56
-  %.pre = load ptr, ptr %43, align 8, !tbaa !77
+  %.pre = load ptr, ptr %43, align 8, !tbaa !78
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.15682
   %.pre86 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !64
   br label %71
@@ -2521,10 +2521,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
   br label %.thread76
 
 67:                                               ; preds = %54
-  %68 = load ptr, ptr %43, align 8, !tbaa !77
+  %68 = load ptr, ptr %43, align 8, !tbaa !78
   %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.15682
   %70 = load ptr, ptr %69, align 8, !tbaa !64
-  store i32 0, ptr %70, align 8, !tbaa !105
+  store i32 0, ptr %70, align 8, !tbaa !106
   br label %71
 
 71:                                               ; preds = %._crit_edge85, %67
@@ -2563,7 +2563,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
   br label %.thread76
 
 95:                                               ; preds = %83
-  %96 = load ptr, ptr %43, align 8, !tbaa !77
+  %96 = load ptr, ptr %43, align 8, !tbaa !78
   %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %.15682
   %98 = load ptr, ptr %97, align 8, !tbaa !64
   %99 = call i32 @H5O__msg_append_real(ptr noundef %87, ptr noundef nonnull %1, ptr noundef nonnull @H5O_MSG_ATTR, i32 noundef 0, i32 noundef 0, ptr noundef %98) #10
@@ -2580,7 +2580,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
   %106 = add nuw i64 %.15682, 1
   %107 = load i64, ptr %13, align 8, !tbaa !46
   %108 = icmp ult i64 %106, %107
-  br i1 %108, label %44, label %._crit_edge, !llvm.loop !106
+  br i1 %108, label %44, label %._crit_edge, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %105, %.critedge.thread, %.critedge
   %109 = load ptr, ptr %0, align 8, !tbaa !10
@@ -2634,7 +2634,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__attr_remove_update(ptr noundef
 135:                                              ; preds = %.thread76, %.thread72, %124, %127, %131, %120
   %.7 = phi i32 [ -1, %120 ], [ -1, %131 ], [ 0, %127 ], [ 0, %124 ], [ -1, %.thread72 ], [ -1, %.thread76 ]
   %136 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %137 = load ptr, ptr %136, align 8, !tbaa !77
+  %137 = load ptr, ptr %136, align 8, !tbaa !78
   %.not65 = icmp eq ptr %137, null
   br i1 %.not65, label %145, label %138
 
@@ -2736,7 +2736,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
   br label %.thread53
 
 50:                                               ; preds = %.thread
-  %51 = load i64, ptr %6, align 8, !tbaa !107
+  %51 = load i64, ptr %6, align 8, !tbaa !108
   %.not45 = icmp ult i64 %3, %51
   br i1 %.not45, label %56, label %52
 
@@ -2748,9 +2748,9 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %0, align 8, !tbaa !10
-  store ptr %57, ptr %8, align 8, !tbaa !99
+  store ptr %57, ptr %8, align 8, !tbaa !100
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !77
+  %59 = load ptr, ptr %58, align 8, !tbaa !78
   %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %3
   %61 = load ptr, ptr %60, align 8, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 96
@@ -2758,9 +2758,9 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !71
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %65, ptr %66, align 8, !tbaa !101
+  store ptr %65, ptr %66, align 8, !tbaa !102
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 0, ptr %67, align 8, !tbaa !102
+  store i8 0, ptr %67, align 8, !tbaa !103
   store i32 1, ptr %9, align 8, !tbaa !55
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @H5O__attr_remove_cb, ptr %68, align 8, !tbaa !57
@@ -2775,7 +2775,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
   br label %.thread53
 
 75:                                               ; preds = %56
-  %76 = load i8, ptr %67, align 8, !tbaa !102, !range !7, !noundef !8
+  %76 = load i8, ptr %67, align 8, !tbaa !103, !range !7, !noundef !8
   %77 = trunc nuw i8 %76 to i1
   br i1 %77, label %82, label %78
 
@@ -2844,7 +2844,7 @@ define range(i32 -1, 1) i32 @H5O__attr_remove_by_idx(ptr noundef %0, i32 noundef
 110:                                              ; preds = %99, %106, %103
   %.4 = phi i32 [ -1, %106 ], [ %.1.ph, %103 ], [ -1, %99 ]
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %112 = load ptr, ptr %111, align 8, !tbaa !77
+  %112 = load ptr, ptr %111, align 8, !tbaa !78
   %.not48 = icmp eq ptr %112, null
   br i1 %.not48, label %120, label %113
 
@@ -2890,13 +2890,13 @@ define range(i32 -1, 1) i32 @H5O__attr_count_real(ptr noundef %0, ptr noundef %1
 
 .preheader:                                       ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %16 = load i64, ptr %15, align 8, !tbaa !108
+  %16 = load i64, ptr %15, align 8, !tbaa !109
   %.not26 = icmp eq i64 %16, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %18 = load ptr, ptr %17, align 8, !tbaa !109
+  %18 = load ptr, ptr %17, align 8, !tbaa !110
   br label %30
 
 19:                                               ; preds = %11
@@ -2929,14 +2929,14 @@ define range(i32 -1, 1) i32 @H5O__attr_count_real(ptr noundef %0, ptr noundef %1
   %.025 = phi i32 [ 0, %.lr.ph ], [ %36, %30 ]
   %.01724 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %30 ]
   %32 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %18, i64 %31
-  %33 = load ptr, ptr %32, align 8, !tbaa !110
+  %33 = load ptr, ptr %32, align 8, !tbaa !111
   %34 = icmp eq ptr %33, @H5O_MSG_ATTR
   %35 = zext i1 %34 to i64
   %spec.select = add i64 %.01724, %35
   %36 = add i32 %.025, 1
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %16, %37
-  br i1 %38, label %30, label %._crit_edge, !llvm.loop !111
+  br i1 %38, label %30, label %._crit_edge, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %30, %.preheader
   %.017.lcssa = phi i64 [ 0, %.preheader ], [ %spec.select, %30 ]
@@ -3013,9 +3013,9 @@ define range(i32 -1, 1) i32 @H5O__attr_exists(ptr noundef %0, ptr noundef %1, pt
 .thread:                                          ; preds = %19, %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
-  store ptr %1, ptr %6, align 8, !tbaa !112
+  store ptr %1, ptr %6, align 8, !tbaa !113
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %2, ptr %41, align 8, !tbaa !115
+  store ptr %2, ptr %41, align 8, !tbaa !116
   store i32 1, ptr %7, align 8, !tbaa !55
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @H5O__attr_exists_cb, ptr %42, align 8, !tbaa !57
@@ -3082,14 +3082,14 @@ define internal range(i32 0, 2) i32 @H5O__attr_exists_cb(ptr readnone captures(n
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !71
-  %19 = load ptr, ptr %4, align 8, !tbaa !112
+  %19 = load ptr, ptr %4, align 8, !tbaa !113
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %19) #12
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %12
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !115
+  %24 = load ptr, ptr %23, align 8, !tbaa !116
   store i8 1, ptr %24, align 1, !tbaa !3
   br label %25
 
@@ -3133,7 +3133,7 @@ define range(i32 -1, 1) i32 @H5O__attr_bh_info(ptr noundef %0, ptr noundef %1, p
 
 23:                                               ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %25 = load i64, ptr %24, align 8, !tbaa !116
+  %25 = load i64, ptr %24, align 8, !tbaa !117
   %.not54 = icmp eq i64 %25, -1
   br i1 %.not54, label %40, label %26
 
@@ -3421,47 +3421,48 @@ attributes #12 = { nounwind willreturn memory(read) }
 !70 = !{!16, !12, i64 40}
 !71 = !{!23, !24, i64 8}
 !72 = !{!16, !14, i64 48}
-!73 = distinct !{!73, !74}
+!73 = distinct !{!73, !74, !75}
 !74 = !{!"llvm.loop.mustprogress"}
-!75 = !{!76, !18, i64 0}
-!76 = !{!"H5A_attr_iter_op_t", !18, i64 0, !5, i64 8}
-!77 = !{!78, !79, i64 16}
-!78 = !{!"", !14, i64 0, !14, i64 8, !79, i64 16}
-!79 = !{!"p2 _ZTS5H5A_t", !13, i64 0}
-!80 = !{!81, !12, i64 0}
-!81 = !{!"", !12, i64 0, !65, i64 8, !4, i64 16}
-!82 = !{!81, !65, i64 8}
-!83 = !{!81, !4, i64 16}
-!84 = !{!61, !18, i64 16}
-!85 = !{!23, !13, i64 56}
-!86 = !{!23, !14, i64 64}
-!87 = !{!61, !4, i64 8}
-!88 = !{!61, !5, i64 9}
-!89 = !{!90, !12, i64 0}
-!90 = !{!"", !12, i64 0, !24, i64 8, !24, i64 16, !4, i64 24}
-!91 = !{!90, !24, i64 8}
-!92 = !{!90, !24, i64 16}
-!93 = !{!90, !4, i64 24}
-!94 = !{!23, !5, i64 0}
-!95 = !{!96, !97, i64 0}
-!96 = !{!"H5G_loc_t", !97, i64 0, !98, i64 8}
-!97 = !{!"p1 _ZTS9H5O_loc_t", !13, i64 0}
-!98 = !{!"p1 _ZTS10H5G_name_t", !13, i64 0}
-!99 = !{!100, !12, i64 0}
-!100 = !{!"", !12, i64 0, !24, i64 8, !4, i64 16}
-!101 = !{!100, !24, i64 8}
-!102 = !{!100, !4, i64 16}
-!103 = !{!29, !18, i64 332}
-!104 = distinct !{!104, !74}
-!105 = !{!16, !18, i64 0}
-!106 = distinct !{!106, !74}
-!107 = !{!78, !14, i64 0}
-!108 = !{!29, !14, i64 336}
-!109 = !{!29, !37, i64 352}
-!110 = !{!61, !62, i64 0}
-!111 = distinct !{!111, !74}
-!112 = !{!113, !24, i64 0}
-!113 = !{!"", !24, i64 0, !114, i64 8}
-!114 = !{!"p1 _Bool", !13, i64 0}
-!115 = !{!113, !114, i64 8}
-!116 = !{!42, !14, i64 32}
+!75 = !{!"llvm.loop.estimated_trip_count"}
+!76 = !{!77, !18, i64 0}
+!77 = !{!"H5A_attr_iter_op_t", !18, i64 0, !5, i64 8}
+!78 = !{!79, !80, i64 16}
+!79 = !{!"", !14, i64 0, !14, i64 8, !80, i64 16}
+!80 = !{!"p2 _ZTS5H5A_t", !13, i64 0}
+!81 = !{!82, !12, i64 0}
+!82 = !{!"", !12, i64 0, !65, i64 8, !4, i64 16}
+!83 = !{!82, !65, i64 8}
+!84 = !{!82, !4, i64 16}
+!85 = !{!61, !18, i64 16}
+!86 = !{!23, !13, i64 56}
+!87 = !{!23, !14, i64 64}
+!88 = !{!61, !4, i64 8}
+!89 = !{!61, !5, i64 9}
+!90 = !{!91, !12, i64 0}
+!91 = !{!"", !12, i64 0, !24, i64 8, !24, i64 16, !4, i64 24}
+!92 = !{!91, !24, i64 8}
+!93 = !{!91, !24, i64 16}
+!94 = !{!91, !4, i64 24}
+!95 = !{!23, !5, i64 0}
+!96 = !{!97, !98, i64 0}
+!97 = !{!"H5G_loc_t", !98, i64 0, !99, i64 8}
+!98 = !{!"p1 _ZTS9H5O_loc_t", !13, i64 0}
+!99 = !{!"p1 _ZTS10H5G_name_t", !13, i64 0}
+!100 = !{!101, !12, i64 0}
+!101 = !{!"", !12, i64 0, !24, i64 8, !4, i64 16}
+!102 = !{!101, !24, i64 8}
+!103 = !{!101, !4, i64 16}
+!104 = !{!29, !18, i64 332}
+!105 = distinct !{!105, !74, !75}
+!106 = !{!16, !18, i64 0}
+!107 = distinct !{!107, !74, !75}
+!108 = !{!79, !14, i64 0}
+!109 = !{!29, !14, i64 336}
+!110 = !{!29, !37, i64 352}
+!111 = !{!61, !62, i64 0}
+!112 = distinct !{!112, !74, !75}
+!113 = !{!114, !24, i64 0}
+!114 = !{!"", !24, i64 0, !115, i64 8}
+!115 = !{!"p1 _Bool", !13, i64 0}
+!116 = !{!114, !115, i64 8}
+!117 = !{!42, !14, i64 32}

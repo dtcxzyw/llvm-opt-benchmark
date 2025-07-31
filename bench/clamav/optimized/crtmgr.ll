@@ -225,7 +225,7 @@ define ptr @crtmgr_trust_list_lookup(ptr noundef readonly captures(none) %0, ptr
   %77 = getelementptr inbounds nuw i8, ptr %.053, i64 400
   %.0 = load ptr, ptr %77, align 8, !tbaa !15
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %16
+  br i1 %.not, label %._crit_edge, label %16, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %71, %76, %3
   %.0.lcssa = phi ptr [ null, %3 ], [ null, %76 ], [ %.053, %71 ]
@@ -283,7 +283,7 @@ define ptr @crtmgr_block_list_lookup(ptr noundef readonly captures(none) %0, ptr
   %22 = getelementptr inbounds nuw i8, ptr %.022, i64 400
   %.0 = load ptr, ptr %22, align 8, !tbaa !15
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %6
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %19, %16, %21, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %21 ], [ %.022, %16 ], [ %.022, %19 ]
@@ -345,7 +345,7 @@ define ptr @crtmgr_lookup(ptr noundef readonly captures(none) %0, ptr noundef re
   %25 = getelementptr inbounds nuw i8, ptr %.022.i, i64 400
   %.0.i = load ptr, ptr %25, align 8, !tbaa !15
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %crtmgr_block_list_lookup.exit, label %9
+  br i1 %.not.i, label %crtmgr_block_list_lookup.exit, label %9, !llvm.loop !26
 
 26:                                               ; preds = %2
   %27 = tail call ptr @crtmgr_trust_list_lookup(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
@@ -411,7 +411,7 @@ define noundef zeroext i1 @crtmgr_add(ptr noundef captures(none) %0, ptr noundef
   %25 = getelementptr inbounds nuw i8, ptr %.022.i, i64 400
   %.0.i = load ptr, ptr %25, align 8, !tbaa !15
   %.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i, label %crtmgr_block_list_lookup.exit.thread, label %9
+  br i1 %.not.i, label %crtmgr_block_list_lookup.exit.thread, label %9, !llvm.loop !26
 
 crtmgr_block_list_lookup.exit:                    ; preds = %22, %19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #10
@@ -478,18 +478,18 @@ cli_crt_init_fps.exit:                            ; preds = %38
   br i1 %.not68, label %102, label %50
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %1, align 8, !tbaa !24
+  %51 = load ptr, ptr %1, align 8, !tbaa !27
   %.not69 = icmp eq ptr %51, null
   br i1 %.not69, label %54, label %52
 
 52:                                               ; preds = %50
   %53 = tail call noalias ptr @strdup(ptr noundef nonnull %51) #10
-  store ptr %53, ptr %29, align 8, !tbaa !24
+  store ptr %53, ptr %29, align 8, !tbaa !27
   %.not70 = icmp eq ptr %53, null
   br i1 %.not70, label %102, label %55
 
 54:                                               ; preds = %50
-  store ptr null, ptr %29, align 8, !tbaa !24
+  store ptr null, ptr %29, align 8, !tbaa !27
   br label %55
 
 55:                                               ; preds = %52, %54
@@ -545,25 +545,25 @@ cli_crt_init_fps.exit:                            ; preds = %38
   %91 = load i32, ptr %3, align 8, !tbaa !16
   %92 = getelementptr inbounds nuw i8, ptr %29, i64 384
   store i32 %91, ptr %92, align 8, !tbaa !16
-  %93 = load ptr, ptr %0, align 8, !tbaa !25
+  %93 = load ptr, ptr %0, align 8, !tbaa !28
   %94 = getelementptr inbounds nuw i8, ptr %29, i64 400
-  store ptr %93, ptr %94, align 8, !tbaa !27
+  store ptr %93, ptr %94, align 8, !tbaa !30
   %95 = getelementptr inbounds nuw i8, ptr %29, i64 392
-  store ptr null, ptr %95, align 8, !tbaa !28
+  store ptr null, ptr %95, align 8, !tbaa !31
   %.not71 = icmp eq ptr %93, null
   br i1 %.not71, label %98, label %96
 
 96:                                               ; preds = %55
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 392
-  store ptr %29, ptr %97, align 8, !tbaa !28
+  store ptr %29, ptr %97, align 8, !tbaa !31
   br label %98
 
 98:                                               ; preds = %96, %55
-  store ptr %29, ptr %0, align 8, !tbaa !25
+  store ptr %29, ptr %0, align 8, !tbaa !28
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %100 = load i32, ptr %99, align 8, !tbaa !29
+  %100 = load i32, ptr %99, align 8, !tbaa !32
   %101 = add i32 %100, 1
-  store i32 %101, ptr %99, align 8, !tbaa !29
+  store i32 %101, ptr %99, align 8, !tbaa !32
   br label %106
 
 102:                                              ; preds = %52, %46, %42, %cli_crt_init_fps.exit, %cli_crt_init_fps.exit.thread
@@ -599,9 +599,9 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @crtmgr_init(ptr noundef writeonly captures(none) initializes((0, 12)) %0) local_unnamed_addr #7 {
-  store ptr null, ptr %0, align 8, !tbaa !25
+  store ptr null, ptr %0, align 8, !tbaa !28
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 0, ptr %2, align 8, !tbaa !29
+  store i32 0, ptr %2, align 8, !tbaa !32
   ret void
 }
 
@@ -618,19 +618,19 @@ define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef captures(addr
 
 4:                                                ; preds = %.lr.ph
   %5 = getelementptr inbounds nuw i8, ptr %.028, i64 392
-  %6 = load ptr, ptr %5, align 8, !tbaa !28
+  %6 = load ptr, ptr %5, align 8, !tbaa !31
   %.not22 = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %.028, i64 400
-  %8 = load ptr, ptr %7, align 8, !tbaa !27
+  %8 = load ptr, ptr %7, align 8, !tbaa !30
   br i1 %.not22, label %11, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 400
-  store ptr %8, ptr %10, align 8, !tbaa !27
+  store ptr %8, ptr %10, align 8, !tbaa !30
   br label %12
 
 11:                                               ; preds = %4
-  store ptr %8, ptr %0, align 8, !tbaa !25
+  store ptr %8, ptr %0, align 8, !tbaa !28
   br label %12
 
 12:                                               ; preds = %11, %9
@@ -639,7 +639,7 @@ define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef captures(addr
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 392
-  store ptr %6, ptr %14, align 8, !tbaa !28
+  store ptr %6, ptr %14, align 8, !tbaa !31
   br label %15
 
 15:                                               ; preds = %13, %12
@@ -653,7 +653,7 @@ define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef captures(addr
   %21 = load ptr, ptr %20, align 8, !tbaa !14
   tail call void @BN_free(ptr noundef %21) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  %22 = load ptr, ptr %1, align 8, !tbaa !24
+  %22 = load ptr, ptr %1, align 8, !tbaa !27
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %24, label %23
 
@@ -664,16 +664,16 @@ define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef captures(addr
 24:                                               ; preds = %23, %15
   tail call void @free(ptr noundef nonnull %1) #10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !29
+  %26 = load i32, ptr %25, align 8, !tbaa !32
   %27 = add i32 %26, -1
-  store i32 %27, ptr %25, align 8, !tbaa !29
+  store i32 %27, ptr %25, align 8, !tbaa !32
   br label %.loopexit
 
 28:                                               ; preds = %.lr.ph
   %29 = getelementptr inbounds nuw i8, ptr %.028, i64 400
   %.0 = load ptr, ptr %29, align 8, !tbaa !15
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !33
 
 .loopexit:                                        ; preds = %28, %2, %24
   ret void
@@ -682,16 +682,16 @@ define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef captures(addr
 ; Function Attrs: nounwind uwtable
 define void @crtmgr_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !29
+  %3 = load i32, ptr %2, align 8, !tbaa !32
   %.not3 = icmp eq i32 %3, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %4 = load ptr, ptr %0, align 8, !tbaa !25
+  %4 = load ptr, ptr %0, align 8, !tbaa !28
   tail call void @crtmgr_del(ptr noundef nonnull %0, ptr noundef %4)
-  %5 = load i32, ptr %2, align 8, !tbaa !29
+  %5 = load i32, ptr %2, align 8, !tbaa !32
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -770,7 +770,7 @@ define ptr @crtmgr_verify_crt(ptr noundef readonly captures(none) %0, ptr nounde
   %35 = getelementptr inbounds nuw i8, ptr %.04363, i64 400
   %.043 = load ptr, ptr %35, align 8, !tbaa !15
   %.not = icmp eq ptr %.043, null
-  br i1 %.not, label %._crit_edge, label %9
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %34
   %36 = icmp ugt i32 %.234, 1
@@ -870,7 +870,7 @@ switch.lookup:                                    ; preds = %4
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %42
-  %45 = load i8, ptr %28, align 1, !tbaa !30
+  %45 = load i8, ptr %28, align 1, !tbaa !36
   %.not.i.i = icmp eq i8 %45, 0
   br i1 %.not.i.i, label %46, label %.sink.split.i
 
@@ -887,7 +887,7 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not35.i.i, label %51, label %.sink.split.i
 
 51:                                               ; preds = %49
-  %52 = load i8, ptr %.0.i.i, align 1, !tbaa !30
+  %52 = load i8, ptr %.0.i.i, align 1, !tbaa !36
   %.not36.i.i = icmp eq i8 %52, 1
   br i1 %.not36.i.i, label %53, label %.sink.split.i
 
@@ -900,7 +900,7 @@ switch.lookup:                                    ; preds = %4
   %.0.pn47.i.i = phi ptr [ %.148.i.i, %57 ], [ %.0.i.i, %53 ]
   %.02746.i.i = phi i32 [ %58, %57 ], [ 0, %53 ]
   %.148.i.i = getelementptr inbounds nuw i8, ptr %.0.pn47.i.i, i64 1
-  %56 = load i8, ptr %.148.i.i, align 1, !tbaa !30
+  %56 = load i8, ptr %.148.i.i, align 1, !tbaa !36
   switch i8 %56, label %.sink.split.i [
     i8 -1, label %57
     i8 0, label %.loopexit.i.i
@@ -909,7 +909,7 @@ switch.lookup:                                    ; preds = %4
 57:                                               ; preds = %.lr.ph.i.i
   %58 = add nuw nsw i32 %.02746.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %58, %54
-  br i1 %exitcond.not.i.i, label %.sink.split.i, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %.sink.split.i, label %.lr.ph.i.i, !llvm.loop !37
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i
   %59 = getelementptr inbounds nuw i8, ptr %.0.pn47.i.i, i64 2
@@ -962,13 +962,13 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   br label %129
 
 69:                                               ; preds = %67
-  %70 = load i8, ptr %.087, align 1, !tbaa !30
+  %70 = load i8, ptr %.087, align 1, !tbaa !36
   %.not58 = icmp eq i8 %70, 48
   br i1 %.not58, label %71, label %76
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %.087, i64 1
-  %73 = load i8, ptr %72, align 1, !tbaa !30
+  %73 = load i8, ptr %72, align 1, !tbaa !36
   %74 = zext i8 %73 to i32
   %75 = add nsw i32 %.085, -2
   %.not59 = icmp eq i32 %75, %74
@@ -980,7 +980,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
 
 77:                                               ; preds = %71
   %78 = getelementptr inbounds nuw i8, ptr %.087, i64 2
-  %79 = load i8, ptr %78, align 1, !tbaa !30
+  %79 = load i8, ptr %78, align 1, !tbaa !36
   %.not60 = icmp eq i8 %79, 48
   br i1 %.not60, label %81, label %80
 
@@ -990,7 +990,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.087, i64 3
-  %83 = load i8, ptr %82, align 1, !tbaa !30
+  %83 = load i8, ptr %82, align 1, !tbaa !36
   %84 = zext i8 %83 to i32
   %85 = add nsw i32 %.085, -4
   %86 = icmp slt i32 %85, %84
@@ -1089,13 +1089,13 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
   %113 = zext nneg i8 %83 to i64
   %114 = getelementptr inbounds nuw i8, ptr %.087, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
-  %116 = load i8, ptr %115, align 1, !tbaa !30
+  %116 = load i8, ptr %115, align 1, !tbaa !36
   %.not69 = icmp eq i8 %116, 4
   br i1 %.not69, label %117, label %121
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 5
-  %119 = load i8, ptr %118, align 1, !tbaa !30
+  %119 = load i8, ptr %118, align 1, !tbaa !36
   %120 = zext i8 %119 to i32
   %.not70 = icmp eq i32 %switch.load, %120
   br i1 %.not70, label %122, label %121
@@ -1200,7 +1200,7 @@ define ptr @crtmgr_verify_pkcs7(ptr noundef readonly captures(none) %0, ptr noun
   %29 = getelementptr inbounds nuw i8, ptr %.02537, i64 400
   %.025 = load ptr, ptr %29, align 8, !tbaa !15
   %.not28 = icmp eq ptr %.025, null
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %28, %25, %13
   %.025.lcssa = phi ptr [ null, %13 ], [ %.02537, %25 ], [ null, %28 ]
@@ -1240,7 +1240,7 @@ define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly captures(addre
   %7 = getelementptr inbounds nuw i8, ptr %.019.us, i64 400
   %.0.us = load ptr, ptr %7, align 8, !tbaa !15
   %.not13.us = icmp eq ptr %.0.us, null
-  br i1 %.not13.us, label %crtmgr_free.exit, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %.not13.us, label %crtmgr_free.exit, label %.lr.ph.split.us, !llvm.loop !39
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
   %.019 = phi ptr [ %.0, %16 ], [ %.017, %.lr.ph ]
@@ -1255,22 +1255,22 @@ define range(i32 0, 2) i32 @crtmgr_add_roots(ptr noundef readonly captures(addre
 
 .split.us:                                        ; preds = %10, %.lr.ph.split.us
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !29
+  %13 = load i32, ptr %12, align 8, !tbaa !32
   %.not3.i = icmp eq i32 %13, 0
   br i1 %.not3.i, label %crtmgr_free.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split.us, %.lr.ph.i
-  %14 = load ptr, ptr %1, align 8, !tbaa !25
+  %14 = load ptr, ptr %1, align 8, !tbaa !28
   tail call void @crtmgr_del(ptr noundef nonnull %1, ptr noundef %14)
-  %15 = load i32, ptr %12, align 8, !tbaa !29
+  %15 = load i32, ptr %12, align 8, !tbaa !32
   %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %crtmgr_free.exit, label %.lr.ph.i
+  br i1 %.not.i, label %crtmgr_free.exit, label %.lr.ph.i, !llvm.loop !34
 
 16:                                               ; preds = %10, %.lr.ph.split
   %17 = getelementptr inbounds nuw i8, ptr %.019, i64 400
   %.0 = load ptr, ptr %17, align 8, !tbaa !15
   %.not13 = icmp eq ptr %.0, null
-  br i1 %.not13, label %crtmgr_free.exit, label %.lr.ph.split
+  br i1 %.not13, label %crtmgr_free.exit, label %.lr.ph.split, !llvm.loop !41
 
 crtmgr_free.exit:                                 ; preds = %16, %6, %.lr.ph.i, %.preheader, %.split.us, %3
   %.010 = phi i32 [ 0, %3 ], [ 1, %.split.us ], [ 0, %.preheader ], [ 1, %.lr.ph.i ], [ 0, %6 ], [ 0, %16 ]
@@ -1337,12 +1337,21 @@ attributes #11 = { nounwind allocsize(0) }
 !21 = !{!4, !9, i64 372}
 !22 = !{!4, !9, i64 376}
 !23 = !{!4, !9, i64 380}
-!24 = !{!4, !5, i64 0}
-!25 = !{!26, !12, i64 0}
-!26 = !{!"", !12, i64 0, !9, i64 8}
-!27 = !{!4, !12, i64 400}
-!28 = !{!4, !12, i64 392}
-!29 = !{!26, !9, i64 8}
-!30 = !{!7, !7, i64 0}
-!31 = distinct !{!31, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !25}
+!27 = !{!4, !5, i64 0}
+!28 = !{!29, !12, i64 0}
+!29 = !{!"", !12, i64 0, !9, i64 8}
+!30 = !{!4, !12, i64 400}
+!31 = !{!4, !12, i64 392}
+!32 = !{!29, !9, i64 8}
+!33 = distinct !{!33, !25}
+!34 = distinct !{!34, !25}
+!35 = distinct !{!35, !25}
+!36 = !{!7, !7, i64 0}
+!37 = distinct !{!37, !25}
+!38 = distinct !{!38, !25}
+!39 = distinct !{!39, !25, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !25}

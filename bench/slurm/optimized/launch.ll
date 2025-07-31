@@ -616,7 +616,7 @@ define dso_local range(i32 0, 2) i32 @launch_g_handle_multi_prog_verify(i32 noun
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %67 = trunc nuw i64 %indvars.iv.i to i32
   %68 = icmp sgt i32 %67, 2
-  br i1 %68, label %.lr.ph31.i, label %_load_multi.exit, !llvm.loop !13
+  br i1 %68, label %.lr.ph31.i, label %_load_multi.exit, !llvm.loop !14
 
 _load_multi.exit:                                 ; preds = %.lr.ph31.i, %._crit_edge.i
   %69 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1072,7 +1072,7 @@ define dso_local range(i32 -1, 1) i32 @launch_g_create_job_step(ptr noundef %0, 
 240:                                              ; preds = %240, %239
   %241 = load ptr, ptr %158, align 8
   %242 = call zeroext i1 @slurm_option_get_tres_per_tres(ptr noundef %241, ptr noundef nonnull @.str.42, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7) #17
-  br i1 %242, label %240, label %243, !llvm.loop !14
+  br i1 %242, label %240, label %243, !llvm.loop !15
 
 243:                                              ; preds = %240
   %244 = load i32, ptr %7, align 4
@@ -1770,7 +1770,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
   %606 = getelementptr inbounds nuw [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %607 = load i32, ptr %606, align 4
   %.not136 = icmp eq i32 %607, 0
-  br i1 %.not136, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not136, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 608:                                              ; preds = %580
   br i1 %583, label %609, label %.loopexit
@@ -1811,7 +1811,7 @@ _create_job_step_create_request.exit.thread:      ; preds = %434, %252
 623:                                              ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
   %624 = add nuw nsw i32 %.0108165, 1
-  br label %513, !llvm.loop !16
+  br label %513, !llvm.loop !17
 
 .loopexit155.thread174:                           ; preds = %562, %565
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #17
@@ -2373,7 +2373,7 @@ define dso_local i32 @launch_g_step_launch(ptr noundef %0, ptr noundef readonly 
 256:                                              ; preds = %.sink.split.i, %253
   %257 = call ptr @find_quote_token(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %10) #17
   %.not23.i = icmp eq ptr %257, null
-  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
 ._crit_edge.i:                                    ; preds = %256, %.lr.ph.i
   call void @slurm_xfree(ptr noundef nonnull %9) #17
@@ -2618,7 +2618,7 @@ _build_user_env.exit:                             ; preds = %.thread4.i, %.threa
   store i64 %371, ptr %361, align 8
   %372 = call i32 @pthread_cond_timedwait(ptr noundef nonnull @start_cond, ptr noundef nonnull @start_mutex, ptr noundef nonnull %7) #17
   %373 = icmp eq i32 %372, 110
-  br i1 %373, label %374, label %362, !llvm.loop !18
+  br i1 %373, label %374, label %362, !llvm.loop !19
 
 374:                                              ; preds = %366, %362
   %375 = call i32 @pthread_cond_broadcast(ptr noundef nonnull @start_cond) #17
@@ -2829,7 +2829,7 @@ _mpir_get_host_name.exit.us:                      ; preds = %48, %46
   %56 = load i32, ptr %2, align 4
   %57 = zext i32 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next39, %57
-  br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
+  br i1 %58, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !20
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %85
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %85 ]
@@ -2888,7 +2888,7 @@ _mpir_get_host_name.exit:                         ; preds = %73, %75
   %86 = load i32, ptr %2, align 4
   %87 = zext i32 %86 to i64
   %88 = icmp samesign ult i64 %indvars.iv.next, %87
-  br i1 %88, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
+  br i1 %88, label %.lr.ph.split, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %85, %55, %.thread, %22
   ret void
@@ -2926,7 +2926,7 @@ define dso_local void @launch_g_fwd_signal(i32 noundef %0) #0 {
   tail call void @slurm_step_launch_abort(ptr noundef %12) #17
   %13 = tail call ptr @list_next(ptr noundef %8) #17
   %.not7.us = icmp eq ptr %13, null
-  br i1 %.not7.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !22
+  br i1 %.not7.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %14 = phi ptr [ %17, %.lr.ph.split ], [ %9, %.lr.ph ]
@@ -2935,7 +2935,7 @@ define dso_local void @launch_g_fwd_signal(i32 noundef %0) #0 {
   tail call void @slurm_step_launch_fwd_signal(ptr noundef %16, i32 noundef %0) #17
   %17 = tail call ptr @list_next(ptr noundef %8) #17
   %.not7 = icmp eq ptr %17, null
-  br i1 %.not7, label %._crit_edge, label %.lr.ph.split, !llvm.loop !23
+  br i1 %.not7, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %7
   tail call void @list_iterator_destroy(ptr noundef %8) #17
@@ -3085,7 +3085,7 @@ _find_srun_job.exit.thread:                       ; preds = %1, %_find_srun_job.
   tail call void @bit_set(ptr noundef nonnull %59, i64 noundef %67) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_task_array_to_string.exit, label %64, !llvm.loop !24
+  br i1 %exitcond.not.i, label %_task_array_to_string.exit, label %64, !llvm.loop !25
 
 _task_array_to_string.exit:                       ; preds = %64, %.preheader.i
   %68 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2048, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 198, ptr noundef nonnull @__func__._task_array_to_string) #17
@@ -3133,7 +3133,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
   %87 = add nuw nsw i32 %.0241.i, %86
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i111 = icmp eq i64 %indvars.iv.next.i110, %wide.trip.count.i108
-  br i1 %exitcond.not.i111, label %._crit_edge.i, label %83, !llvm.loop !25
+  br i1 %exitcond.not.i111, label %._crit_edge.i, label %83, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %83
   %88 = icmp samesign ugt i32 %87, 100000
@@ -3173,7 +3173,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
 101:                                              ; preds = %98, %96
   %indvars.iv.next10.i = add nuw nsw i64 %indvars.iv9.i, 1
   %exitcond13.not.i = icmp eq i64 %indvars.iv.next10.i, %wide.trip.count12.i
-  br i1 %exitcond13.not.i, label %._crit_edge6.i, label %.lr.ph5.i, !llvm.loop !26
+  br i1 %exitcond13.not.i, label %._crit_edge6.i, label %.lr.ph5.i, !llvm.loop !27
 
 ._crit_edge6.i:                                   ; preds = %101, %._crit_edge.thread.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
@@ -3189,7 +3189,7 @@ launch_common_get_slurm_step_layout.exit.thread.i: ; preds = %launch_common_get_
   %106 = icmp slt i64 %105, 0
   %107 = icmp ult i64 %.0.i.i, 32768
   %108 = and i1 %107, %106
-  br i1 %108, label %102, label %109, !llvm.loop !27
+  br i1 %108, label %102, label %109, !llvm.loop !28
 
 109:                                              ; preds = %102
   %110 = icmp ugt i64 %.0.i.i, 32767
@@ -3469,7 +3469,7 @@ _is_openmpi_port_error.exit.thread:               ; preds = %131, %140, %_is_ope
   call void @task_state_update(ptr noundef nonnull %226, i32 noundef %233, i32 noundef %231) #17
   %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
   %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i117
-  br i1 %exitcond.not.i121, label %_update_task_exit_state.exit, label %.lr.ph.i118, !llvm.loop !28
+  br i1 %exitcond.not.i121, label %_update_task_exit_state.exit, label %.lr.ph.i118, !llvm.loop !29
 
 234:                                              ; preds = %224
   %235 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.67, ptr noundef nonnull @__func__._task_finish, ptr noundef nonnull %9) #17
@@ -3680,7 +3680,7 @@ define internal fastcc i32 @_step_signal(i32 noundef range(i32 9, 992) %0) unnam
   %spec.select = select i1 %.not14, i32 %.0916, i32 %21
   %22 = tail call ptr @list_next(ptr noundef %8) #17
   %.not13 = icmp eq ptr %22, null
-  br i1 %.not13, label %._crit_edge, label %11, !llvm.loop !29
+  br i1 %.not13, label %._crit_edge, label %11, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %16, %7
   %.09.lcssa = phi i32 [ 0, %7 ], [ %spec.select, %16 ]
@@ -3750,7 +3750,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @_parse_gpu_request(ptr nou
   %spec.select = add nuw nsw i32 %9, %.01117
   %10 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.45, ptr noundef nonnull %2) #17
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.011.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
@@ -3906,24 +3906,25 @@ attributes #20 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !11, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12, !20}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
-!27 = distinct !{!27, !11, !12}
-!28 = distinct !{!28, !11, !12}
-!29 = distinct !{!29, !11, !12}
-!30 = distinct !{!30, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !11, !12, !13}
+!16 = distinct !{!16, !11, !12, !13}
+!17 = distinct !{!17, !11, !12, !13}
+!18 = distinct !{!18, !11, !12, !13}
+!19 = distinct !{!19, !11, !12, !13}
+!20 = distinct !{!20, !11, !12, !13, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !11, !12, !13}
+!23 = distinct !{!23, !11, !12, !13, !21}
+!24 = distinct !{!24, !11, !12, !13}
+!25 = distinct !{!25, !11, !12, !13}
+!26 = distinct !{!26, !11, !12, !13}
+!27 = distinct !{!27, !11, !12, !13}
+!28 = distinct !{!28, !11, !12, !13}
+!29 = distinct !{!29, !11, !12, !13}
+!30 = distinct !{!30, !11, !12, !13}
+!31 = distinct !{!31, !11, !12, !13}

@@ -634,7 +634,7 @@ define hidden void @voip_calls_reset_all_taps(ptr noundef captures(none) %0) loc
   %17 = getelementptr inbounds nuw i8, ptr %.134, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not29 = icmp eq ptr %18, null
-  br i1 %.not29, label %._crit_edge37, label %.lr.ph36, !llvm.loop !8
+  br i1 %.not29, label %._crit_edge37, label %.lr.ph36, !llvm.loop !9
 
 ._crit_edge37:                                    ; preds = %.lr.ph36, %12
   %19 = load ptr, ptr %13, align 8
@@ -756,7 +756,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 define hidden void @voip_calls_set_apply_display_filter(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  %5 = load i8, ptr %4, align 4, !range !9, !noundef !10
+  %5 = load i8, ptr %4, align 4, !range !10, !noundef !11
   %.not = icmp eq i8 %5, %3
   br i1 %.not, label %13, label %.preheader
 
@@ -776,7 +776,7 @@ define hidden void @voip_calls_set_apply_display_filter(ptr noundef %0, i1 nound
   %12 = tail call ptr @set_tap_flags(ptr noundef %11, i32 noundef %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 21
-  br i1 %exitcond.not, label %8, label %9, !llvm.loop !11
+  br i1 %exitcond.not, label %8, label %9, !llvm.loop !12
 
 13:                                               ; preds = %8, %2
   ret void
@@ -810,7 +810,7 @@ define internal noundef i32 @rtp_event_packet(ptr noundef %0, ptr noundef readon
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 124
   store i8 %16, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %19 = load i8, ptr %18, align 2, !range !9, !noundef !10
+  %19 = load i8, ptr %18, align 2, !range !10, !noundef !11
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 125
   store i8 %19, ptr %20, align 1
   br label %21
@@ -848,7 +848,7 @@ define internal void @rtp_reset(ptr noundef %0) #0 {
   %10 = getelementptr inbounds nuw i8, ptr %.017, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %12 = load ptr, ptr %5, align 8
@@ -919,7 +919,7 @@ define internal noundef i32 @rtp_packet(ptr noundef %0, ptr noundef %1, ptr noun
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 2144
-  %37 = load i8, ptr %36, align 8, !range !9, !noundef !10
+  %37 = load i8, ptr %36, align 8, !range !10, !noundef !11
   %38 = icmp eq i8 %37, 0
   br i1 %38, label %39, label %53
 
@@ -958,7 +958,7 @@ define internal noundef i32 @rtp_packet(ptr noundef %0, ptr noundef %1, ptr noun
   %54 = getelementptr inbounds nuw i8, ptr %.090121, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not98 = icmp eq ptr %55, null
-  br i1 %.not98, label %.thread113, label %24, !llvm.loop !13
+  br i1 %.not98, label %.thread113, label %24, !llvm.loop !14
 
 .thread111:                                       ; preds = %49, %51
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -982,7 +982,7 @@ define internal noundef i32 @rtp_packet(ptr noundef %0, ptr noundef %1, ptr noun
   %67 = phi ptr [ %64, %.thread113 ], [ %58, %.thread111 ]
   %68 = phi ptr [ %62, %.thread113 ], [ %56, %.thread111 ]
   %69 = getelementptr inbounds nuw i8, ptr %8, i64 125
-  %70 = load i8, ptr %69, align 1, !range !9, !noundef !10
+  %70 = load i8, ptr %69, align 1, !range !10, !noundef !11
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %153, label %.thread117
 
@@ -1005,7 +1005,7 @@ define internal noundef i32 @rtp_packet(ptr noundef %0, ptr noundef %1, ptr noun
   %83 = getelementptr inbounds nuw i8, ptr %76, i64 64
   store i8 %82, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 60
-  %85 = load i8, ptr %84, align 4, !range !9, !noundef !10
+  %85 = load i8, ptr %84, align 4, !range !10, !noundef !11
   %86 = getelementptr inbounds nuw i8, ptr %76, i64 2136
   store i8 %85, ptr %86, align 8
   %87 = and i32 %81, 224
@@ -1104,7 +1104,7 @@ define internal noundef i32 @rtp_packet(ptr noundef %0, ptr noundef %1, ptr noun
   %143 = getelementptr inbounds nuw i8, ptr %.1, i64 2148
   store i32 %142, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %8, i64 125
-  %145 = load i8, ptr %144, align 1, !range !9, !noundef !10
+  %145 = load i8, ptr %144, align 1, !range !10, !noundef !11
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %147, label %149
 
@@ -1192,7 +1192,7 @@ define internal void @rtp_draw(ptr noundef %0) #0 {
   %44 = load ptr, ptr %43, align 8
   call void @g_free(ptr noundef %44)
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 2136
-  %46 = load i8, ptr %45, align 8, !range !9, !noundef !10
+  %46 = load i8, ptr %45, align 8, !range !10, !noundef !11
   %47 = trunc nuw i8 %46 to i1
   %48 = select i1 %47, ptr @.str.30, ptr @.str.31
   %49 = getelementptr inbounds nuw i8, ptr %12, i64 2140
@@ -1270,7 +1270,7 @@ copy_address.exit123:                             ; preds = %copy_address.exit, 
   %95 = call double @nstime_to_msec(ptr noundef nonnull %94)
   %96 = fsub double %93, %95
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 2136
-  %98 = load i8, ptr %97, align 8, !range !9, !noundef !10
+  %98 = load i8, ptr %97, align 8, !range !10, !noundef !11
   %99 = trunc nuw i8 %98 to i1
   %100 = select i1 %99, ptr @.str.30, ptr @.str.31
   %101 = getelementptr inbounds nuw i8, ptr %12, i64 72
@@ -1294,7 +1294,7 @@ copy_address.exit123:                             ; preds = %copy_address.exit, 
   %113 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef nonnull %100, ptr noundef %102, ptr noundef %109, ptr noundef nonnull %112, ptr noundef nonnull %spec.select)
   %114 = getelementptr inbounds nuw i8, ptr %56, i64 72
   store ptr %113, ptr %114, align 8
-  %115 = load i8, ptr %97, align 8, !range !9, !noundef !10
+  %115 = load i8, ptr %97, align 8, !range !10, !noundef !11
   %116 = trunc nuw i8 %115 to i1
   %117 = select i1 %116, ptr @.str.30, ptr @.str.31
   %118 = getelementptr inbounds nuw i8, ptr %12, i64 2140
@@ -1364,7 +1364,7 @@ copy_address.exit123:                             ; preds = %copy_address.exit, 
   %159 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
   %160 = load ptr, ptr %159, align 8
   %.not = icmp eq ptr %160, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %158, %1
   %161 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1532,7 +1532,7 @@ define internal noundef range(i32 0, 2) i32 @t38_packet(ptr noundef %0, ptr noun
   %25 = getelementptr inbounds nuw i8, ptr %.1123159, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not136 = icmp eq ptr %26, null
-  br i1 %.not136, label %.thread142, label %20, !llvm.loop !15
+  br i1 %.not136, label %.thread142, label %20, !llvm.loop !16
 
 27:                                               ; preds = %20
   %.not137 = icmp eq ptr %21, null
@@ -1559,7 +1559,7 @@ define internal noundef range(i32 0, 2) i32 @t38_packet(ptr noundef %0, ptr noun
   %37 = getelementptr inbounds nuw i8, ptr %.0125161, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not138 = icmp eq ptr %38, null
-  br i1 %.not138, label %.thread146, label %.lr.ph162, !llvm.loop !16
+  br i1 %.not138, label %.thread146, label %.lr.ph162, !llvm.loop !17
 
 39:                                               ; preds = %.lr.ph162
   %40 = icmp eq ptr %32, null
@@ -1840,7 +1840,7 @@ copy_address.exit64.i:                            ; preds = %168, %copy_address.
   %206 = getelementptr inbounds nuw i8, ptr %.067.i, i64 8
   %207 = load ptr, ptr %206, align 8
   %.not63.not.i = icmp eq ptr %207, null
-  br i1 %.not63.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not63.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !18
 
 .critedge.i:                                      ; preds = %205, %copy_address.exit64.i
   %208 = load ptr, ptr %143, align 8
@@ -2778,7 +2778,7 @@ define internal range(i32 0, 2) i32 @isup_calls_packet(ptr noundef %0, ptr nound
   %63 = getelementptr inbounds nuw i8, ptr %.0144184, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not151 = icmp eq ptr %64, null
-  br i1 %.not151, label %.thread165, label %21, !llvm.loop !18
+  br i1 %.not151, label %.thread165, label %21, !llvm.loop !19
 
 .thread161:                                       ; preds = %59, %56
   %65 = icmp eq ptr %22, null
@@ -3192,7 +3192,7 @@ define internal noundef i32 @q931_calls_packet(ptr noundef %0, ptr noundef reado
   %59 = getelementptr inbounds nuw i8, ptr %.0305, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not257 = icmp eq ptr %60, null
-  br i1 %.not257, label %.thread, label %36, !llvm.loop !19
+  br i1 %.not257, label %.thread, label %36, !llvm.loop !20
 
 61:                                               ; preds = %54, %56, %55
   %.not259 = icmp eq ptr %37, null
@@ -3324,7 +3324,7 @@ free_address.exit:                                ; preds = %.lr.ph317, %119, %1
   %128 = getelementptr inbounds nuw i8, ptr %.0224315, i64 8
   %129 = load ptr, ptr %128, align 8
   %.not264 = icmp eq ptr %129, null
-  br i1 %.not264, label %._crit_edge318, label %.lr.ph317, !llvm.loop !20
+  br i1 %.not264, label %._crit_edge318, label %.lr.ph317, !llvm.loop !21
 
 ._crit_edge318:                                   ; preds = %free_address.exit, %99
   %130 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -3341,7 +3341,7 @@ free_address.exit:                                ; preds = %.lr.ph317, %119, %1
   %135 = getelementptr inbounds nuw i8, ptr %.1311, i64 8
   %136 = load ptr, ptr %135, align 8
   %.not263 = icmp eq ptr %136, null
-  br i1 %.not263, label %.loopexit, label %83, !llvm.loop !21
+  br i1 %.not263, label %.loopexit, label %83, !llvm.loop !22
 
 .loopexit:                                        ; preds = %134, %79, %._crit_edge318
   %137 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -3349,11 +3349,11 @@ free_address.exit:                                ; preds = %.lr.ph317, %119, %1
   %139 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %49, i64 43
-  %142 = load i8, ptr %141, align 1, !range !9, !noundef !10
+  %142 = load i8, ptr %141, align 1, !range !10, !noundef !11
   %143 = trunc nuw i8 %142 to i1
   %144 = select i1 %143, ptr @.str.69, ptr @.str.70
   %145 = getelementptr inbounds nuw i8, ptr %9, i64 208
-  %146 = load i8, ptr %145, align 8, !range !9, !noundef !10
+  %146 = load i8, ptr %145, align 8, !range !10, !noundef !11
   %147 = trunc nuw i8 %146 to i1
   %148 = select i1 %147, ptr @.str.69, ptr @.str.70
   %149 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.68, ptr noundef %138, ptr noundef %140, ptr noundef nonnull %144, ptr noundef nonnull %148)
@@ -3503,7 +3503,7 @@ append_to_frame_graph.exit:                       ; preds = %204, %208
   %221 = getelementptr inbounds nuw i8, ptr %.2301, i64 8
   %222 = load ptr, ptr %221, align 8
   %.not254 = icmp eq ptr %222, null
-  br i1 %.not254, label %.loopexit289, label %.lr.ph303, !llvm.loop !22
+  br i1 %.not254, label %.loopexit289, label %.lr.ph303, !llvm.loop !23
 
 223:                                              ; preds = %173
   %224 = getelementptr inbounds nuw i8, ptr %9, i64 212
@@ -3550,7 +3550,7 @@ append_to_frame_graph.exit:                       ; preds = %204, %208
   %249 = getelementptr inbounds nuw i8, ptr %.3297, i64 8
   %250 = load ptr, ptr %249, align 8
   %.not245 = icmp eq ptr %250, null
-  br i1 %.not245, label %._crit_edge, label %232, !llvm.loop !23
+  br i1 %.not245, label %._crit_edge, label %232, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %248, %243, %227
   %.1228 = phi ptr [ null, %227 ], [ %233, %243 ], [ null, %248 ]
@@ -3850,7 +3850,7 @@ define internal fastcc i32 @change_call_num_graph(ptr readonly captures(address_
   %14 = getelementptr inbounds nuw i8, ptr %.0112, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not13 = icmp eq ptr %15, null
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %13, %3, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %3 ], [ %.2, %13 ]
@@ -3953,7 +3953,7 @@ append_to_frame_graph.exit:                       ; preds = %12, %19, %22, %31, 
   %50 = load i8, ptr %49, align 4
   %51 = sext i8 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %12, label %._crit_edge, !llvm.loop !25
+  br i1 %52, label %12, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %append_to_frame_graph.exit, %.preheader
   %.lcssa = phi ptr [ %4, %.preheader ], [ %48, %append_to_frame_graph.exit ]
@@ -4001,7 +4001,7 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nound
 
 19:                                               ; preds = %.thread.thread
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 37
-  %21 = load i8, ptr %20, align 1, !range !9, !noundef !10
+  %21 = load i8, ptr %20, align 1, !range !10, !noundef !11
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %294
 
@@ -4037,7 +4037,7 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nound
   %41 = getelementptr inbounds nuw i8, ptr %.0189216, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not199 = icmp eq ptr %42, null
-  br i1 %.not199, label %.thread203, label %28, !llvm.loop !26
+  br i1 %.not199, label %.thread203, label %28, !llvm.loop !27
 
 43:                                               ; preds = %.thread.thread, %.thread
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 40
@@ -4071,7 +4071,7 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nound
   %58 = getelementptr inbounds nuw i8, ptr %.1190214, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not195 = icmp eq ptr %59, null
-  br i1 %.not195, label %.thread203, label %.lr.ph, !llvm.loop !27
+  br i1 %.not195, label %.thread203, label %.lr.ph, !llvm.loop !28
 
 .thread203:                                       ; preds = %57, %40, %43, %23
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -4079,7 +4079,7 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nound
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 204
   store i32 %61, ptr %62, align 4
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %64 = load i8, ptr %63, align 8, !range !9, !noundef !10
+  %64 = load i8, ptr %63, align 8, !range !10, !noundef !11
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store i8 %64, ptr %65, align 8
   br label %73
@@ -4092,7 +4092,7 @@ define internal range(i32 0, 2) i32 @h225_calls_packet(ptr noundef %0, ptr nound
   %68 = getelementptr inbounds nuw i8, ptr %8, i64 204
   store i32 %67, ptr %68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %70 = load i8, ptr %69, align 8, !range !9, !noundef !10
+  %70 = load i8, ptr %69, align 8, !range !10, !noundef !11
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store i8 %70, ptr %71, align 8
   %72 = icmp eq ptr %.0182, null
@@ -4209,7 +4209,7 @@ copy_address.exit:                                ; preds = %73, %90
 
 139:                                              ; preds = %118
   %140 = getelementptr inbounds nuw i8, ptr %3, i64 57
-  %141 = load i8, ptr %140, align 1, !range !9, !noundef !10
+  %141 = load i8, ptr %140, align 1, !range !10, !noundef !11
   %142 = trunc nuw i8 %141 to i1
   br i1 %142, label %143, label %156
 
@@ -4242,7 +4242,7 @@ copy_address.exit:                                ; preds = %73, %90
 
 158:                                              ; preds = %156
   %159 = getelementptr inbounds nuw i8, ptr %3, i64 58
-  %160 = load i8, ptr %159, align 2, !range !9, !noundef !10
+  %160 = load i8, ptr %159, align 2, !range !10, !noundef !11
   %161 = getelementptr inbounds nuw i8, ptr %.5, i64 43
   store i8 %160, ptr %161, align 1
   br label %162
@@ -4261,7 +4261,7 @@ copy_address.exit:                                ; preds = %73, %90
   ]
 
 166:                                              ; preds = %162
-  %167 = load i8, ptr %119, align 8, !range !9, !noundef !10
+  %167 = load i8, ptr %119, align 8, !range !10, !noundef !11
   %168 = getelementptr inbounds nuw i8, ptr %.5, i64 41
   store i8 %167, ptr %168, align 1
   %169 = getelementptr inbounds nuw i8, ptr %.5, i64 16
@@ -4277,10 +4277,10 @@ copy_address.exit:                                ; preds = %73, %90
 174:                                              ; preds = %172, %166
   store i32 1, ptr %.1, align 8
   %175 = getelementptr inbounds nuw i8, ptr %.5, i64 43
-  %176 = load i8, ptr %175, align 1, !range !9, !noundef !10
+  %176 = load i8, ptr %175, align 1, !range !10, !noundef !11
   %177 = trunc nuw i8 %176 to i1
   %178 = select i1 %177, ptr @.str.69, ptr @.str.70
-  %179 = load i8, ptr %119, align 8, !range !9, !noundef !10
+  %179 = load i8, ptr %119, align 8, !range !10, !noundef !11
   %180 = trunc nuw i8 %179 to i1
   %181 = select i1 %180, ptr @.str.69, ptr @.str.70
   %182 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %178, ptr noundef nonnull %181)
@@ -4288,14 +4288,14 @@ copy_address.exit:                                ; preds = %73, %90
 
 183:                                              ; preds = %162
   store i32 3, ptr %.1, align 8
-  %184 = load i8, ptr %119, align 8, !range !9, !noundef !10
+  %184 = load i8, ptr %119, align 8, !range !10, !noundef !11
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %186, label %190
 
 186:                                              ; preds = %183
   %187 = getelementptr inbounds nuw i8, ptr %.5, i64 42
   store i8 1, ptr %187, align 2
-  %.pre226 = load i8, ptr %119, align 8, !range !9
+  %.pre226 = load i8, ptr %119, align 8, !range !10
   %188 = trunc nuw i8 %.pre226 to i1
   %189 = select i1 %188, ptr @.str.69, ptr @.str.70
   br label %190
@@ -4303,7 +4303,7 @@ copy_address.exit:                                ; preds = %73, %90
 190:                                              ; preds = %186, %183
   %191 = phi ptr [ %189, %186 ], [ @.str.70, %183 ]
   %192 = getelementptr inbounds nuw i8, ptr %.5, i64 43
-  %193 = load i8, ptr %192, align 1, !range !9, !noundef !10
+  %193 = load i8, ptr %192, align 1, !range !10, !noundef !11
   %194 = trunc nuw i8 %193 to i1
   %195 = select i1 %194, ptr @.str.69, ptr @.str.70
   %196 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %195, ptr noundef nonnull %191)
@@ -4345,14 +4345,14 @@ copy_address.exit:                                ; preds = %73, %90
   br label %267
 
 215:                                              ; preds = %162, %162, %162
-  %216 = load i8, ptr %119, align 8, !range !9, !noundef !10
+  %216 = load i8, ptr %119, align 8, !range !10, !noundef !11
   %217 = trunc nuw i8 %216 to i1
   br i1 %217, label %218, label %222
 
 218:                                              ; preds = %215
   %219 = getelementptr inbounds nuw i8, ptr %.5, i64 42
   store i8 1, ptr %219, align 2
-  %.pre225 = load i8, ptr %119, align 8, !range !9
+  %.pre225 = load i8, ptr %119, align 8, !range !10
   %220 = trunc nuw i8 %.pre225 to i1
   %221 = select i1 %220, ptr @.str.69, ptr @.str.70
   br label %222
@@ -4360,7 +4360,7 @@ copy_address.exit:                                ; preds = %73, %90
 222:                                              ; preds = %218, %215
   %223 = phi ptr [ %221, %218 ], [ @.str.70, %215 ]
   %224 = getelementptr inbounds nuw i8, ptr %.5, i64 43
-  %225 = load i8, ptr %224, align 1, !range !9, !noundef !10
+  %225 = load i8, ptr %224, align 1, !range !10, !noundef !11
   %226 = trunc nuw i8 %225 to i1
   %227 = select i1 %226, ptr @.str.69, ptr @.str.70
   %228 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %227, ptr noundef nonnull %223)
@@ -4368,10 +4368,10 @@ copy_address.exit:                                ; preds = %73, %90
 
 229:                                              ; preds = %162
   %230 = getelementptr inbounds nuw i8, ptr %.5, i64 43
-  %231 = load i8, ptr %230, align 1, !range !9, !noundef !10
+  %231 = load i8, ptr %230, align 1, !range !10, !noundef !11
   %232 = trunc nuw i8 %231 to i1
   %233 = select i1 %232, ptr @.str.69, ptr @.str.70
-  %234 = load i8, ptr %119, align 8, !range !9, !noundef !10
+  %234 = load i8, ptr %119, align 8, !range !10, !noundef !11
   %235 = trunc nuw i8 %234 to i1
   %236 = select i1 %235, ptr @.str.69, ptr @.str.70
   %237 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.81, ptr noundef nonnull %233, ptr noundef nonnull %236)
@@ -4387,7 +4387,7 @@ copy_address.exit:                                ; preds = %73, %90
 
 241:                                              ; preds = %238
   %242 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %243 = load i8, ptr %242, align 4, !range !9, !noundef !10
+  %243 = load i8, ptr %242, align 4, !range !10, !noundef !11
   %244 = trunc nuw i8 %243 to i1
   br i1 %244, label %253, label %245
 
@@ -4568,7 +4568,7 @@ free_address.exit:                                ; preds = %.lr.ph, %9, %13, %1
   %18 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13 = icmp eq ptr %19, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %free_address.exit, %5
   %20 = load ptr, ptr %3, align 8
@@ -4702,7 +4702,7 @@ addresses_equal.exit54:                           ; preds = %65, %58, %addresses
   %77 = getelementptr inbounds nuw i8, ptr %.04666, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not48 = icmp eq ptr %78, null
-  br i1 %.not48, label %.thread, label %33, !llvm.loop !29
+  br i1 %.not48, label %.thread, label %33, !llvm.loop !30
 
 79:                                               ; preds = %50, %71
   %80 = load ptr, ptr %.04768, align 8
@@ -4720,7 +4720,7 @@ addresses_equal.exit54:                           ; preds = %65, %58, %addresses
   %86 = getelementptr inbounds nuw i8, ptr %.04768, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not = icmp eq ptr %87, null
-  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !30
+  br i1 %.not, label %._crit_edge, label %21, !llvm.loop !31
 
 88:                                               ; preds = %79
   %89 = getelementptr inbounds nuw i8, ptr %80, i64 72
@@ -4815,7 +4815,7 @@ append_to_frame_graph.exit:                       ; preds = %102
   %142 = load i8, ptr %141, align 4
   %143 = sext i8 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next.i.i, %143
-  br i1 %144, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !31
+  br i1 %144, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !32
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.lcssa.i.i = phi ptr [ %120, %.preheader.i.i ], [ %140, %.lr.ph.i.i ]
@@ -4985,7 +4985,7 @@ define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr nound
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %12 = load i8, ptr %11, align 8, !range !9, !noundef !10
+  %12 = load i8, ptr %11, align 8, !range !10, !noundef !11
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %86, label %14
 
@@ -5056,7 +5056,7 @@ define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr nound
   %50 = getelementptr inbounds nuw i8, ptr %.0191305, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %.thread, label %20, !llvm.loop !32
+  br i1 %.not, label %.thread, label %20, !llvm.loop !33
 
 52:                                               ; preds = %44, %47
   %53 = load ptr, ptr %.0191305, align 8
@@ -5087,7 +5087,7 @@ define internal range(i32 0, 2) i32 @mgcp_calls_packet(ptr noundef %0, ptr nound
   %67 = getelementptr ptr, ptr %63, i64 %66
   %68 = load ptr, ptr %67, align 8
   %.not.not.i = icmp eq ptr %68, null
-  br i1 %.not.not.i, label %is_mgcp_signal.exit.thread253, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.not.i, label %is_mgcp_signal.exit.thread253, label %.lr.ph.i, !llvm.loop !34
 
 .lr.ph.i:                                         ; preds = %62, %.lr.ph.i.tail.thread
   %69 = phi ptr [ %68, %.lr.ph.i.tail.thread ], [ %64, %62 ]
@@ -5123,7 +5123,7 @@ is_mgcp_signal.exit.thread:                       ; preds = %58, %.thread, %is_m
 
 82:                                               ; preds = %5
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %84 = load i8, ptr %83, align 1, !range !9, !noundef !10
+  %84 = load i8, ptr %83, align 1, !range !10, !noundef !11
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %.thread259
 
@@ -5182,7 +5182,7 @@ is_mgcp_signal.exit.thread:                       ; preds = %58, %.thread, %is_m
   %115 = getelementptr inbounds nuw i8, ptr %.1192308, i64 8
   %116 = load ptr, ptr %115, align 8
   %.not214 = icmp eq ptr %116, null
-  br i1 %.not214, label %.thread260, label %104, !llvm.loop !34
+  br i1 %.not214, label %.thread260, label %104, !llvm.loop !35
 
 117:                                              ; preds = %109
   %.not215 = icmp eq ptr %105, null
@@ -5192,7 +5192,7 @@ is_mgcp_signal.exit.thread:                       ; preds = %58, %.thread, %is_m
   %118 = getelementptr inbounds nuw i8, ptr %.1194311, i64 8
   %119 = load ptr, ptr %118, align 8
   %.not213 = icmp eq ptr %119, null
-  br i1 %.not213, label %.thread259, label %95, !llvm.loop !35
+  br i1 %.not213, label %.thread259, label %95, !llvm.loop !36
 
 120:                                              ; preds = %.lr.ph.i.tail
   tail call void @g_strfreev(ptr noundef %63)
@@ -5312,7 +5312,7 @@ copy_address.exit:                                ; preds = %134, %145
 181:                                              ; preds = %178
   %182 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.92, ptr noundef nonnull %175, ptr noundef nonnull %180)
   %183 = getelementptr inbounds nuw i8, ptr %.8, i64 8
-  %184 = load i8, ptr %183, align 8, !range !9, !noundef !10
+  %184 = load i8, ptr %183, align 8, !range !10, !noundef !11
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %186, label %193
 
@@ -5354,7 +5354,7 @@ copy_address.exit:                                ; preds = %134, %145
   %205 = getelementptr ptr, ptr %201, i64 %204
   %206 = load ptr, ptr %205, align 8
   %.not.not.i228 = icmp eq ptr %206, null
-  br i1 %.not.not.i228, label %is_mgcp_signal.exit232.thread278, label %.lr.ph.i226, !llvm.loop !33
+  br i1 %.not.not.i228, label %is_mgcp_signal.exit232.thread278, label %.lr.ph.i226, !llvm.loop !34
 
 .lr.ph.i226:                                      ; preds = %200, %.lr.ph.i226.tail.thread
   %207 = phi ptr [ %206, %.lr.ph.i226.tail.thread ], [ %202, %200 ]
@@ -5405,7 +5405,7 @@ is_mgcp_signal.exit232.thread278:                 ; preds = %.lr.ph.i226.tail.th
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds nuw i8, ptr %.8, i64 8
-  %227 = load i8, ptr %226, align 8, !range !9, !noundef !10
+  %227 = load i8, ptr %226, align 8, !range !10, !noundef !11
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %237
 
@@ -5442,7 +5442,7 @@ is_mgcp_signal.exit232.thread278:                 ; preds = %.lr.ph.i226.tail.th
   %246 = getelementptr ptr, ptr %242, i64 %245
   %247 = load ptr, ptr %246, align 8
   %.not.not.i236 = icmp eq ptr %247, null
-  br i1 %.not.not.i236, label %is_mgcp_signal.exit240.thread281, label %.lr.ph.i234, !llvm.loop !33
+  br i1 %.not.not.i236, label %is_mgcp_signal.exit240.thread281, label %.lr.ph.i234, !llvm.loop !34
 
 .lr.ph.i234:                                      ; preds = %241, %.lr.ph.i234.tail.thread
   %248 = phi ptr [ %247, %.lr.ph.i234.tail.thread ], [ %243, %241 ]
@@ -5502,7 +5502,7 @@ is_mgcp_signal.exit240.thread:                    ; preds = %237, %is_mgcp_signa
   %270 = getelementptr ptr, ptr %266, i64 %269
   %271 = load ptr, ptr %270, align 8
   %.not.not.i244 = icmp eq ptr %271, null
-  br i1 %.not.not.i244, label %is_mgcp_signal.exit248.thread284, label %.lr.ph.i242, !llvm.loop !33
+  br i1 %.not.not.i244, label %is_mgcp_signal.exit248.thread284, label %.lr.ph.i242, !llvm.loop !34
 
 .lr.ph.i242:                                      ; preds = %265, %.lr.ph.i242.tail.thread
   %272 = phi ptr [ %271, %.lr.ph.i242.tail.thread ], [ %267, %265 ]
@@ -5555,7 +5555,7 @@ is_mgcp_signal.exit248.thread:                    ; preds = %262, %is_mgcp_signa
   %289 = load ptr, ptr %238, align 8
   %.not217 = icmp eq ptr %289, null
   %290 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %291 = load i8, ptr %290, align 8, !range !9, !noundef !10
+  %291 = load i8, ptr %290, align 8, !range !10, !noundef !11
   %292 = trunc nuw i8 %291 to i1
   %293 = select i1 %292, ptr @.str.100, ptr @.str
   br i1 %.not217, label %296, label %294
@@ -5570,7 +5570,7 @@ is_mgcp_signal.exit248.thread:                    ; preds = %262, %is_mgcp_signa
 
 298:                                              ; preds = %296, %294
   %.2197 = phi ptr [ %295, %294 ], [ %297, %296 ]
-  %299 = load i8, ptr %226, align 8, !range !9, !noundef !10
+  %299 = load i8, ptr %226, align 8, !range !10, !noundef !11
   %300 = trunc nuw i8 %299 to i1
   br i1 %300, label %is_mgcp_signal.exit232.thread, label %301
 
@@ -5587,7 +5587,7 @@ is_mgcp_signal.exit248.thread:                    ; preds = %262, %is_mgcp_signa
 
 307:                                              ; preds = %304
   %308 = getelementptr inbounds nuw i8, ptr %.8, i64 8
-  %309 = load i8, ptr %308, align 8, !range !9, !noundef !10
+  %309 = load i8, ptr %308, align 8, !range !10, !noundef !11
   %310 = trunc nuw i8 %309 to i1
   br i1 %310, label %.thread287, label %311
 
@@ -5624,7 +5624,7 @@ is_mgcp_signal.exit232.thread:                    ; preds = %197, %is_mgcp_signa
   %324 = icmp eq i32 %323, 0
   %325 = select i1 %324, ptr @.str.105, ptr @.str.106
   %326 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %327 = load i8, ptr %326, align 8, !range !9, !noundef !10
+  %327 = load i8, ptr %326, align 8, !range !10, !noundef !11
   %328 = trunc nuw i8 %327 to i1
   %329 = select i1 %328, ptr @.str.107, ptr @.str
   %330 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.104, ptr noundef %322, ptr noundef nonnull %325, ptr noundef nonnull %329)
@@ -5766,7 +5766,7 @@ define internal fastcc noundef zeroext i1 @is_mgcp_signal(ptr noundef readonly c
   %16 = getelementptr ptr, ptr %11, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not.not = icmp eq ptr %17, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 .lr.ph:                                           ; preds = %10, %13
   %18 = phi ptr [ %17, %13 ], [ %12, %10 ]
@@ -5831,7 +5831,7 @@ define internal fastcc void @mgcp_dialed_digits(ptr noundef %0, ptr noundef capt
 13:                                               ; preds = %10, %12
   %.1 = phi i32 [ %.0, %12 ], [ %11, %10 ]
   %14 = add i32 %.029, 1
-  br label %6, !llvm.loop !36
+  br label %6, !llvm.loop !37
 
 15:                                               ; preds = %6
   %16 = icmp eq i32 %.0, 1
@@ -5867,7 +5867,7 @@ define internal fastcc void @mgcp_dialed_digits(ptr noundef %0, ptr noundef capt
 29:                                               ; preds = %21, %25
   %.128 = phi i32 [ %26, %25 ], [ %.027, %21 ]
   %30 = add i32 %.130, 1
-  br label %21, !llvm.loop !37
+  br label %21, !llvm.loop !38
 
 31:                                               ; preds = %21
   %32 = sext i32 %.027 to i64
@@ -6003,7 +6003,7 @@ define internal noundef i32 @actrace_calls_packet(ptr noundef captures(none) ini
   %43 = getelementptr inbounds nuw i8, ptr %.0101, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
-  br i1 %.not, label %.thread, label %26, !llvm.loop !38
+  br i1 %.not, label %.thread, label %26, !llvm.loop !39
 
 45:                                               ; preds = %37
   store i32 7, ptr %6, align 8
@@ -6279,7 +6279,7 @@ define internal fastcc range(i32 0, 2) i32 @h248_calls_packet_common(ptr noundef
   %29 = getelementptr inbounds nuw i8, ptr %.098123, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
-  br i1 %.not, label %.thread120, label %.lr.ph
+  br i1 %.not, label %.thread120, label %.lr.ph, !llvm.loop !40
 
 31:                                               ; preds = %23
   %32 = icmp eq ptr %19, null
@@ -6392,7 +6392,7 @@ copy_address.exit:                                ; preds = %.thread120, %53
   %91 = getelementptr inbounds nuw i8, ptr %.0126, i64 8
   %.0 = load ptr, ptr %91, align 8
   %.not110 = icmp eq ptr %.0, null
-  br i1 %.not110, label %._crit_edge, label %.lr.ph127, !llvm.loop !39
+  br i1 %.not110, label %._crit_edge, label %.lr.ph127, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %90, %73
   %92 = call ptr @g_string_free(ptr noundef %75, i32 noundef 0)
@@ -6553,7 +6553,7 @@ define internal fastcc void @sccp_calls(ptr noundef captures(none) %0, ptr nound
   %17 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !42
 
 19:                                               ; preds = %.lr.ph
   %20 = icmp eq ptr %12, null
@@ -6951,7 +6951,7 @@ addresses_equal.exit429:                          ; preds = %106, %99, %95, %89,
   %119 = getelementptr inbounds nuw i8, ptr %.0391448, i64 8
   %120 = load ptr, ptr %119, align 8
   %.not = icmp eq ptr %120, null
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !41
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %addresses_equal.exit429, %35, %78, %117, %5
   %.1389 = phi ptr [ null, %5 ], [ %29, %117 ], [ %29, %78 ], [ %29, %35 ], [ %.2390, %addresses_equal.exit429 ]
@@ -7815,7 +7815,7 @@ define internal range(i32 0, 2) i32 @skinny_calls_packet(ptr noundef %0, ptr nou
   %42 = getelementptr inbounds nuw i8, ptr %.0112144, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %.thread138, label %27
+  br i1 %.not, label %.thread138, label %27, !llvm.loop !44
 
 44:                                               ; preds = %38, %32
   %45 = load i32, ptr %3, align 8
@@ -8141,7 +8141,7 @@ define internal range(i32 0, 2) i32 @iax2_calls_packet(ptr noundef %0, ptr nound
   %42 = getelementptr inbounds nuw i8, ptr %.095112, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not102 = icmp eq ptr %43, null
-  br i1 %.not102, label %.thread109, label %26
+  br i1 %.not102, label %.thread109, label %26, !llvm.loop !45
 
 44:                                               ; preds = %38, %31
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -8355,7 +8355,7 @@ define internal noundef i32 @voip_calls_packet(ptr noundef %0, ptr noundef reado
   %25 = getelementptr inbounds nuw i8, ptr %.187108, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not95 = icmp eq ptr %26, null
-  br i1 %.not95, label %.thread, label %.lr.ph, !llvm.loop !42
+  br i1 %.not95, label %.thread, label %.lr.ph, !llvm.loop !46
 
 27:                                               ; preds = %19
   %28 = icmp eq ptr %15, null
@@ -8595,40 +8595,44 @@ attributes #17 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !8}
+!41 = distinct !{!41, !7, !8}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !8}
+!45 = distinct !{!45, !8}
+!46 = distinct !{!46, !7, !8}

@@ -141,7 +141,7 @@ define void @_ZN6icu_778EraRules14initCurrentEraEv(ptr noundef nonnull align 8 c
 .split.loop.exit16:                               ; preds = %42, %.split.loop.exit
   %.0.lcssa = phi i32 [ %indvars.le, %.split.loop.exit ], [ %41, %42 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.0.lcssa, ptr %49, align 4, !tbaa !21
+  store i32 %.0.lcssa, ptr %49, align 4, !tbaa !22
   br label %50
 
 50:                                               ; preds = %23, %.split.loop.exit16
@@ -206,7 +206,7 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %13 = tail call ptr @ures_openDirect_77(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %2)
-  store ptr %13, ptr %4, align 8, !tbaa !22
+  store ptr %13, ptr %4, align 8, !tbaa !23
   %14 = invoke ptr @ures_getByKey_77(ptr noundef %13, ptr noundef nonnull @.str.1, ptr noundef %13, ptr noundef nonnull %2)
           to label %15 unwind label %22
 
@@ -282,7 +282,7 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
           to label %44 unwind label %47
 
 44:                                               ; preds = %42
-  store ptr %43, ptr %6, align 8, !tbaa !22
+  store ptr %43, ptr %6, align 8, !tbaa !23
   %45 = load i32, ptr %2, align 4, !tbaa !13
   %46 = icmp slt i32 %45, 1
   br i1 %46, label %49, label %.critedge146
@@ -300,7 +300,7 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   %52 = call i64 @strtol(ptr noundef %50, ptr noundef nonnull %7, i32 noundef 10) #15
   %53 = trunc i64 %52 to i32
-  %54 = load ptr, ptr %7, align 8, !tbaa !25
+  %54 = load ptr, ptr %7, align 8, !tbaa !26
   %55 = ptrtoint ptr %54 to i64
   %56 = ptrtoint ptr %50 to i64
   %57 = sub i64 %55, %56
@@ -332,7 +332,7 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
 
 68:                                               ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %67
   %.0108 = phi i8 [ 1, %67 ], [ %.1109, %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit ]
-  %69 = load ptr, ptr %6, align 8, !tbaa !22
+  %69 = load ptr, ptr %6, align 8, !tbaa !23
   %70 = invoke signext i8 @ures_hasNext_77(ptr noundef %69)
           to label %71 unwind label %78
 
@@ -342,12 +342,12 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
 
 72:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
-  %73 = load ptr, ptr %6, align 8, !tbaa !22
+  %73 = load ptr, ptr %6, align 8, !tbaa !23
   %74 = invoke ptr @ures_getNextResource_77(ptr noundef %73, ptr noundef null, ptr noundef nonnull %2)
           to label %75 unwind label %80
 
 75:                                               ; preds = %72
-  store ptr %74, ptr %9, align 8, !tbaa !22
+  store ptr %74, ptr %9, align 8, !tbaa !23
   %76 = load i32, ptr %2, align 4, !tbaa !13
   %77 = icmp slt i32 %76, 1
   br i1 %77, label %82, label %.critedge
@@ -465,7 +465,7 @@ define noundef ptr @_ZN6icu_778EraRules14createInstanceEPKcaR10UErrorCode(ptr no
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit: ; preds = %.critedge, %126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
-  br i1 %.295, label %68, label %.critedge150, !llvm.loop !27
+  br i1 %.295, label %68, label %.critedge150, !llvm.loop !28
 
 130:                                              ; preds = %124, %94, %92
   %.pn130 = phi { ptr, i32 } [ %95, %94 ], [ %125, %124 ], [ %93, %92 ]
@@ -506,7 +506,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   %.3102 = phi i32 [ %.099, %137 ], [ %spec.select144, %138 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  %140 = load ptr, ptr %6, align 8, !tbaa !22
+  %140 = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i151 = icmp eq ptr %140, null
   br i1 %.not.i151, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit152, label %141
 
@@ -523,7 +523,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 
 _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit152: ; preds = %139, %141
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  br label %39, !llvm.loop !28
+  br label %39, !llvm.loop !29
 
 145:                                              ; preds = %131, %78
   %.pn130.pn.pn = phi { ptr, i32 } [ %.pn130.pn, %131 ], [ %79, %78 ]
@@ -598,7 +598,7 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
 .critedge150:                                     ; preds = %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, %.critedge150.sink.split
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
-  %162 = load ptr, ptr %6, align 8, !tbaa !22
+  %162 = load ptr, ptr %6, align 8, !tbaa !23
   %.not.i153 = icmp eq ptr %162, null
   br i1 %.not.i153, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit154, label %163
 
@@ -724,7 +724,7 @@ declare i32 @u_strncmp_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !22
+  %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -844,7 +844,7 @@ define noundef i32 @_ZNK6icu_778EraRules11getEraIndexEiiiR10UErrorCode(ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !21
+  %17 = load i32, ptr %16, align 4, !tbaa !22
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %0, align 8, !tbaa !3
   %20 = getelementptr inbounds i32, ptr %19, i64 %18
@@ -909,7 +909,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us: ; preds = %_ZN6icu_77L25c
   %..1.us = select i1 %45, i32 %41, i32 %.140.us
   %46 = add nsw i32 %.027..us, -1
   %47 = icmp slt i32 %..1.us, %46
-  br i1 %47, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us, label %.loopexit, !llvm.loop !29
+  br i1 %47, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us, label %.loopexit, !llvm.loop !30
 
 .lr.ph.split:                                     ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37
   %48 = shl nuw nsw i32 %2, 8
@@ -929,7 +929,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43: ; preds = %.lr.ph.split
   %53 = add nsw i32 %.140.us41, %15
   %54 = sdiv i32 %53, 2
   %55 = icmp slt i32 %54, %31
-  br i1 %55, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, label %.loopexit, !llvm.loop !31
+  br i1 %55, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, label %.loopexit, !llvm.loop !32
 
 _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35
   %.140 = phi i32 [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ], [ %.026535562, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.preheader ]
@@ -944,7 +944,7 @@ _ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35: ; preds = %_ZN6icu_77L25comp
   %..1 = select i1 %.not49, i32 %.140, i32 %57
   %61 = add nsw i32 %.027., -1
   %62 = icmp slt i32 %..1, %61
-  br i1 %62, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, label %.loopexit, !llvm.loop !32
+  br i1 %62, label %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37, %5, %12
   %.0 = phi i32 [ -1, %12 ], [ -1, %5 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37 ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread ], [ 0, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread56 ], [ %17, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit.thread37.thread63 ], [ %..1.us, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us ], [ %54, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35.us43 ], [ %..1, %_ZN6icu_77L25compareEncodedDateWithYMDEiiii.exit35 ]
@@ -1016,17 +1016,18 @@ attributes #17 = { nounwind willreturn memory(read) }
 !16 = !{!"vtable pointer", !8, i64 0}
 !17 = !{!12, !12, i64 0}
 !18 = !{!7, !7, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!10, !12, i64 12}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !24, i64 0}
-!24 = !{!"p1 _ZTS15UResourceBundle", !6, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"p1 omnipotent char", !6, i64 0}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = distinct !{!29, !20, !30}
-!30 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!31 = distinct !{!31, !20, !30}
-!32 = distinct !{!32, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!10, !12, i64 12}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTSN6icu_7716LocalPointerBaseI15UResourceBundleEE", !25, i64 0}
+!25 = !{!"p1 _ZTS15UResourceBundle", !6, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"p1 omnipotent char", !6, i64 0}
+!28 = distinct !{!28, !20, !21}
+!29 = distinct !{!29, !20, !21}
+!30 = distinct !{!30, !20, !21, !31}
+!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!32 = distinct !{!32, !20, !21, !31}
+!33 = distinct !{!33, !20, !21}

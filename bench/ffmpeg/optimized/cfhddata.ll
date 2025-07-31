@@ -96,13 +96,13 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cfhd_init_vlc(ptr noundef 
 
 34:                                               ; preds = %8
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !26
+  %36 = load i32, ptr %35, align 8, !tbaa !27
   %37 = icmp eq i32 %36, %1
   br i1 %37, label %.preheader, label %41
 
 .preheader:                                       ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !29
+  %39 = load ptr, ptr %38, align 8, !tbaa !30
   %40 = zext nneg i32 %1 to i64
   br label %43
 
@@ -119,9 +119,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cfhd_init_vlc(ptr noundef 
   %indvars.iv72 = phi i64 [ %40, %.preheader ], [ %44, %56 ]
   %44 = add nsw i64 %indvars.iv72, -1
   %45 = getelementptr inbounds nuw %struct.VLCElem, ptr %39, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !30
+  %46 = load i16, ptr %45, align 2, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  %48 = load i16, ptr %47, align 2, !tbaa !30
+  %48 = load i16, ptr %47, align 2, !tbaa !31
   %49 = icmp slt i16 %48, 0
   br i1 %49, label %56, label %50
 
@@ -144,7 +144,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cfhd_init_vlc(ptr noundef 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store i16 %.0, ptr %60, align 2, !tbaa !21
   %.not.wide = icmp eq i64 %44, 0
-  br i1 %.not.wide, label %42, label %43, !llvm.loop !31
+  br i1 %.not.wide, label %42, label %43, !llvm.loop !32
 
 61:                                               ; preds = %8, %42
   %.061 = phi i32 [ 0, %42 ], [ %10, %8 ]
@@ -198,11 +198,12 @@ attributes #6 = { noreturn nounwind }
 !21 = !{!19, !11, i64 4}
 !22 = !{!17, !8, i64 2}
 !23 = !{!19, !11, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!27, !10, i64 16}
-!27 = !{!"VLC", !10, i64 0, !28, i64 8, !10, i64 16, !10, i64 20}
-!28 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
-!29 = !{!27, !28, i64 8}
-!30 = !{!8, !8, i64 0}
-!31 = distinct !{!31, !25}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!28, !10, i64 16}
+!28 = !{!"VLC", !10, i64 0, !29, i64 8, !10, i64 16, !10, i64 20}
+!29 = !{!"p1 _ZTS7VLCElem", !7, i64 0}
+!30 = !{!28, !29, i64 8}
+!31 = !{!8, !8, i64 0}
+!32 = distinct !{!32, !25, !26}

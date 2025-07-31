@@ -3441,7 +3441,7 @@ _ZN7QStringD2Ev.exit741:                          ; preds = %913, %_ZN17QArrayDa
   %936 = add i32 %935, %.01611549
   %indvars.iv.next1556 = add nuw nsw i64 %indvars.iv1555, 1
   %exitcond1558.not = icmp eq i64 %indvars.iv.next1556, 256
-  br i1 %exitcond1558.not, label %924, label %.preheader, !llvm.loop !14
+  br i1 %exitcond1558.not, label %924, label %.preheader, !llvm.loop !15
 
 937:                                              ; preds = %924
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74) #15
@@ -6855,7 +6855,7 @@ define internal void @_ZL21gsm_map_summary_resetPv(ptr noundef %0) #9 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @_ZL22gsm_map_summary_packetPvP12_packet_infoP12epan_dissectPKvj(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #10 {
-  %6 = load i8, ptr %3, align 4, !range !15, !noundef !16
+  %6 = load i8, ptr %3, align 4, !range !16, !noundef !17
   %7 = trunc nuw i8 %6 to i1
   %.sink25.idx = select i1 %7, i64 0, i64 2048
   %.sink25 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink25.idx
@@ -6973,7 +6973,7 @@ define linkonce_odr void @_ZN9QtPrivate11QSlotObjectIM7QDialogFvvENS_4ListIJEEEv
   %14 = load ptr, ptr %11, align 8
   %15 = getelementptr i8, ptr %14, i64 %.unpack12
   %16 = getelementptr i8, ptr %15, i64 -1
-  %17 = load ptr, ptr %16, align 8, !nosanitize !16
+  %17 = load ptr, ptr %16, align 8, !nosanitize !17
   br label %_ZN9QtPrivate15FunctionPointerIM7QDialogFvvEE4callINS_4ListIJEEEvEEvS3_PS1_PPv.exit
 
 18:                                               ; preds = %9
@@ -7063,8 +7063,9 @@ attributes #17 = { cold noreturn nounwind }
 !9 = !{!10}
 !10 = distinct !{!10, !11, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE: argument 0"}
 !11 = distinct !{!11, !"_ZN7QObject7connectIM16QDialogButtonBoxFvvEM7QDialogFvvEEEN11QMetaObject10ConnectionEPKN9QtPrivate15FunctionPointerIT_E6ObjectESB_PKNSA_IT0_E6ObjectESG_N2Qt14ConnectionTypeE"}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = !{i8 0, i8 2}
-!16 = !{}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = !{i8 0, i8 2}
+!17 = !{}

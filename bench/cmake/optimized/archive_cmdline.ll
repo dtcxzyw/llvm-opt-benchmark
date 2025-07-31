@@ -64,7 +64,7 @@ define dso_local range(i32 -30, 1) i32 @__archive_cmdline_parse(ptr noundef capt
 
 .backedge107:                                     ; preds = %.sink.split.i.i, %16
   %.0.i.i.be = phi ptr [ %17, %16 ], [ %20, %.sink.split.i.i ]
-  br label %14, !llvm.loop !9
+  br label %14, !llvm.loop !10
 
 extract_quotation.exit.i:                         ; preds = %14, %14
   %.not18.i.i = icmp eq i8 %15, 34
@@ -86,7 +86,7 @@ extract_quotation.exit.i:                         ; preds = %14, %14
   %.015.i.pn.i = phi i64 [ %24, %extract_quotation.exit.i ], [ %.sink.i, %.sink.split.i ]
   %.331.i = getelementptr inbounds nuw i8, ptr %.129.i, i64 %.015.i.pn.i
   %.pr.i = load i8, ptr %.331.i, align 1, !tbaa !4
-  br label %.critedge.i, !llvm.loop !10
+  br label %.critedge.i, !llvm.loop !11
 
 get_argument.exit.split.loop.exit90:              ; preds = %9
   %29 = getelementptr inbounds nuw i8, ptr %.129.i, i64 1
@@ -104,8 +104,8 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   br i1 %or.cond, label %cmdline_set_path.exit, label %36
 
 36:                                               ; preds = %get_argument.exit
-  %37 = load ptr, ptr %3, align 8, !tbaa !11
-  %38 = load ptr, ptr %0, align 8, !tbaa !16
+  %37 = load ptr, ptr %3, align 8, !tbaa !12
+  %38 = load ptr, ptr %0, align 8, !tbaa !17
   %39 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %37) #12
   %40 = add i64 %39, 1
   %41 = call ptr @realloc(ptr noundef %38, i64 noundef %40) #13
@@ -113,14 +113,14 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   br i1 %42, label %cmdline_set_path.exit, label %43
 
 43:                                               ; preds = %36
-  store ptr %41, ptr %0, align 8, !tbaa !16
+  store ptr %41, ptr %0, align 8, !tbaa !17
   %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull readonly dereferenceable(1) %37) #11
-  %45 = load ptr, ptr %3, align 8, !tbaa !11
+  %45 = load ptr, ptr %3, align 8, !tbaa !12
   %46 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %45, i32 noundef 47) #12
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !20
+  %48 = load ptr, ptr %47, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %50 = load i32, ptr %49, align 8, !tbaa !21
+  %50 = load i32, ptr %49, align 8, !tbaa !22
   %51 = add nsw i32 %50, 2
   %52 = sext i32 %51 to i64
   %53 = shl nsw i64 %52, 3
@@ -132,27 +132,27 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %57 = icmp eq ptr %46, null
   %58 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %.019 = select i1 %57, ptr %45, ptr %58
-  store ptr %54, ptr %47, align 8, !tbaa !20
+  store ptr %54, ptr %47, align 8, !tbaa !21
   %59 = call noalias ptr @strdup(ptr noundef nonnull readonly %.019) #11
-  %60 = load i32, ptr %49, align 8, !tbaa !21
+  %60 = load i32, ptr %49, align 8, !tbaa !22
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds ptr, ptr %54, i64 %61
-  store ptr %59, ptr %62, align 8, !tbaa !22
+  store ptr %59, ptr %62, align 8, !tbaa !23
   %63 = icmp eq ptr %59, null
   br i1 %63, label %cmdline_set_path.exit, label %64
 
 64:                                               ; preds = %56
   %65 = add nsw i32 %60, 1
-  store i32 %65, ptr %49, align 8, !tbaa !21
+  store i32 %65, ptr %49, align 8, !tbaa !22
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds ptr, ptr %54, i64 %66
-  store ptr null, ptr %67, align 8, !tbaa !22
+  store ptr null, ptr %67, align 8, !tbaa !23
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 %32
   br label %69
 
 69:                                               ; preds = %cmdline_add_arg.exit57, %64
   %.020 = phi ptr [ %68, %64 ], [ %102, %cmdline_add_arg.exit57 ]
-  store i64 0, ptr %4, align 8, !tbaa !23
+  store i64 0, ptr %4, align 8, !tbaa !24
   br label %70
 
 70:                                               ; preds = %70, %69
@@ -206,7 +206,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
 
 .backedge:                                        ; preds = %.sink.split.i.i44, %81
   %.0.i.i35.be = phi ptr [ %82, %81 ], [ %85, %.sink.split.i.i44 ]
-  br label %79, !llvm.loop !9
+  br label %79, !llvm.loop !10
 
 extract_quotation.exit.i36:                       ; preds = %79, %79
   %.not18.i.i37 = icmp eq i8 %80, 34
@@ -228,7 +228,7 @@ extract_quotation.exit.i36:                       ; preds = %79, %79
   %.015.i.pn.i40 = phi i64 [ %89, %extract_quotation.exit.i36 ], [ %.sink.i51, %.sink.split.i49 ]
   %.331.i41 = getelementptr inbounds nuw i8, ptr %.129.i34, i64 %.015.i.pn.i40
   %.pr.i42 = load i8, ptr %.331.i41, align 1, !tbaa !4
-  br label %.critedge.i33, !llvm.loop !10
+  br label %.critedge.i33, !llvm.loop !11
 
 get_argument.exit55.split.loop.exit92:            ; preds = %74
   %94 = getelementptr inbounds nuw i8, ptr %.129.i34, i64 1
@@ -248,7 +248,7 @@ get_argument.exit55:                              ; preds = %.critedge.i33, %.cr
 
 101:                                              ; preds = %99
   %102 = getelementptr inbounds nuw i8, ptr %.020, i64 %97
-  %103 = load i64, ptr %4, align 8, !tbaa !23
+  %103 = load i64, ptr %4, align 8, !tbaa !24
   %104 = icmp eq i64 %103, 0
   br i1 %104, label %105, label %108
 
@@ -258,14 +258,14 @@ get_argument.exit55:                              ; preds = %.critedge.i33, %.cr
   br i1 %107, label %cmdline_set_path.exit, label %108
 
 108:                                              ; preds = %105, %101
-  %109 = load ptr, ptr %3, align 8, !tbaa !11
-  %110 = load ptr, ptr %0, align 8, !tbaa !16
+  %109 = load ptr, ptr %3, align 8, !tbaa !12
+  %110 = load ptr, ptr %0, align 8, !tbaa !17
   %111 = icmp eq ptr %110, null
   br i1 %111, label %cmdline_set_path.exit, label %112
 
 112:                                              ; preds = %108
-  %113 = load ptr, ptr %47, align 8, !tbaa !20
-  %114 = load i32, ptr %49, align 8, !tbaa !21
+  %113 = load ptr, ptr %47, align 8, !tbaa !21
+  %114 = load i32, ptr %49, align 8, !tbaa !22
   %115 = add nsw i32 %114, 2
   %116 = sext i32 %115 to i64
   %117 = shl nsw i64 %116, 3
@@ -274,22 +274,22 @@ get_argument.exit55:                              ; preds = %.critedge.i33, %.cr
   br i1 %119, label %cmdline_set_path.exit, label %120
 
 120:                                              ; preds = %112
-  store ptr %118, ptr %47, align 8, !tbaa !20
+  store ptr %118, ptr %47, align 8, !tbaa !21
   %121 = call noalias ptr @strdup(ptr noundef readonly %109) #11
-  %122 = load i32, ptr %49, align 8, !tbaa !21
+  %122 = load i32, ptr %49, align 8, !tbaa !22
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds ptr, ptr %118, i64 %123
-  store ptr %121, ptr %124, align 8, !tbaa !22
+  store ptr %121, ptr %124, align 8, !tbaa !23
   %125 = icmp eq ptr %121, null
   br i1 %125, label %cmdline_set_path.exit, label %cmdline_add_arg.exit57
 
 cmdline_add_arg.exit57:                           ; preds = %120
   %126 = add nsw i32 %122, 1
-  store i32 %126, ptr %49, align 8, !tbaa !21
+  store i32 %126, ptr %49, align 8, !tbaa !22
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds ptr, ptr %118, i64 %127
-  store ptr null, ptr %128, align 8, !tbaa !22
-  br label %69
+  store ptr null, ptr %128, align 8, !tbaa !23
+  br label %69, !llvm.loop !25
 
 cmdline_set_path.exit:                            ; preds = %extract_quotation.exit.i, %120, %112, %108, %99, %105, %get_argument.exit55, %extract_quotation.exit.i36, %56, %43, %36, %get_argument.exit
   %.0 = phi i32 [ -25, %get_argument.exit ], [ -30, %36 ], [ -30, %56 ], [ -30, %43 ], [ -25, %extract_quotation.exit.i36 ], [ -25, %108 ], [ -30, %112 ], [ -30, %120 ], [ 0, %99 ], [ 0, %105 ], [ -25, %get_argument.exit55 ], [ -25, %extract_quotation.exit.i ]
@@ -324,15 +324,15 @@ define dso_local noundef i32 @__archive_cmdline_free(ptr noundef captures(addres
   br i1 %.not, label %12, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !16
+  %3 = load ptr, ptr %0, align 8, !tbaa !17
   tail call void @free(ptr noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !20
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %11, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %.not1213 = icmp eq ptr %6, null
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
 
@@ -341,11 +341,11 @@ define dso_local noundef i32 @__archive_cmdline_free(ptr noundef captures(addres
   %7 = phi ptr [ %10, %.lr.ph ], [ %6, %.preheader ]
   tail call void @free(ptr noundef nonnull %7) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = load ptr, ptr %4, align 8, !tbaa !20
+  %8 = load ptr, ptr %4, align 8, !tbaa !21
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
-  %10 = load ptr, ptr %9, align 8, !tbaa !22
+  %10 = load ptr, ptr %9, align 8, !tbaa !23
   %.not12 = icmp eq ptr %10, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa = phi ptr [ %5, %.preheader ], [ %8, %.lr.ph ]
@@ -405,21 +405,23 @@ attributes #14 = { nounwind allocsize(0,1) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !13, i64 0}
-!12 = !{!"archive_string", !13, i64 0, !15, i64 8, !15, i64 16}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !5, i64 0}
-!15 = !{!"long", !5, i64 0}
-!16 = !{!17, !13, i64 0}
-!17 = !{!"archive_cmdline", !13, i64 0, !18, i64 8, !19, i64 16}
-!18 = !{!"p2 omnipotent char", !14, i64 0}
-!19 = !{!"int", !5, i64 0}
-!20 = !{!17, !18, i64 8}
-!21 = !{!17, !19, i64 16}
-!22 = !{!13, !13, i64 0}
-!23 = !{!12, !15, i64 8}
-!24 = distinct !{!24, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!13, !14, i64 0}
+!13 = !{!"archive_string", !14, i64 0, !16, i64 8, !16, i64 16}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !5, i64 0}
+!16 = !{!"long", !5, i64 0}
+!17 = !{!18, !14, i64 0}
+!18 = !{!"archive_cmdline", !14, i64 0, !19, i64 8, !20, i64 16}
+!19 = !{!"p2 omnipotent char", !15, i64 0}
+!20 = !{!"int", !5, i64 0}
+!21 = !{!18, !19, i64 8}
+!22 = !{!18, !20, i64 16}
+!23 = !{!14, !14, i64 0}
+!24 = !{!13, !16, i64 8}
+!25 = distinct !{!25, !9}
+!26 = distinct !{!26, !8, !9}

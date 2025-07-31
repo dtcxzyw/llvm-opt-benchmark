@@ -100,7 +100,7 @@ define void @amd_l1(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr 
   store i64 %53, ptr %62, align 8, !tbaa !3
   %63 = add i64 %.0129146, 1
   %exitcond168.not = icmp eq i64 %63, %45
-  br i1 %exitcond168.not, label %.loopexit137, label %.lr.ph147, !llvm.loop !9
+  br i1 %exitcond168.not, label %.loopexit137, label %.lr.ph147, !llvm.loop !10
 
 64:                                               ; preds = %.lr.ph147
   %65 = icmp eq i64 %53, %.0125152
@@ -112,18 +112,18 @@ define void @amd_l1(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr 
   %.1130 = phi i64 [ %spec.select136, %64 ], [ %47, %36 ], [ %45, %55 ]
   store i64 %.1130, ptr %46, align 8, !tbaa !3
   %exitcond169.not = icmp eq i64 %44, %29
-  br i1 %exitcond169.not, label %.loopexit138, label %32, !llvm.loop !10
+  br i1 %exitcond169.not, label %.loopexit138, label %32, !llvm.loop !11
 
 .loopexit138:                                     ; preds = %.loopexit137, %24, %49
   %.1127 = phi i64 [ %spec.select, %49 ], [ %26, %24 ], [ %29, %.loopexit137 ]
   %67 = getelementptr inbounds nuw i64, ptr %15, i64 %.0125152
   store i64 %.1127, ptr %67, align 8, !tbaa !3
   %exitcond170.not = icmp eq i64 %27, %0
-  br i1 %exitcond170.not, label %.lr.ph159, label %24, !llvm.loop !11
+  br i1 %exitcond170.not, label %.lr.ph159, label %24, !llvm.loop !12
 
 .loopexit:                                        ; preds = %75, %.lr.ph159
   %exitcond171.not = icmp eq i64 %70, %0
-  br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph159, !llvm.loop !12
+  br i1 %exitcond171.not, label %._crit_edge, label %.lr.ph159, !llvm.loop !13
 
 .lr.ph159:                                        ; preds = %.loopexit138, %.loopexit
   %.1158 = phi i64 [ %70, %.loopexit ], [ 0, %.loopexit138 ]
@@ -157,7 +157,7 @@ define void @amd_l1(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr 
   %85 = add nsw i64 %.2155, 1
   %86 = load i64, ptr %71, align 8, !tbaa !3
   %87 = icmp slt i64 %85, %86
-  br i1 %87, label %75, label %.loopexit, !llvm.loop !13
+  br i1 %87, label %75, label %.loopexit, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.loopexit, %10
   %.0128.lcssa173176 = phi i64 [ 0, %10 ], [ %22, %.loopexit ]
@@ -182,10 +182,11 @@ attributes #2 = { nounwind }
 !4 = !{!"long long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}

@@ -447,10 +447,10 @@ Loop.outer.preheader:                             ; preds = %if.then25, %if.end2
   %p.1.ph.ph = phi ptr [ %12, %if.end23 ], [ %add.ptr26, %if.then25 ]
   br label %Loop.outer
 
-Loop.outer:                                       ; preds = %Loop.outer.backedge, %Loop.outer.preheader
-  %p.1.ph = phi ptr [ %p.1.ph.ph, %Loop.outer.preheader ], [ %p.1.ph.be, %Loop.outer.backedge ]
-  %id.0.ph = phi i32 [ %11, %Loop.outer.preheader ], [ %id.0.ph.be, %Loop.outer.backedge ]
-  %matched.1.ph = phi i1 [ %matched.0.ph200, %Loop.outer.preheader ], [ %matched.1, %Loop.outer.backedge ]
+Loop.outer:                                       ; preds = %Loop.outer.preheader, %Loop.outer.backedge
+  %p.1.ph = phi ptr [ %p.1.ph.be, %Loop.outer.backedge ], [ %p.1.ph.ph, %Loop.outer.preheader ]
+  %id.0.ph = phi i32 [ %id.0.ph.be, %Loop.outer.backedge ], [ %11, %Loop.outer.preheader ]
+  %matched.1.ph = phi i1 [ %matched.1, %Loop.outer.backedge ], [ %matched.0.ph200, %Loop.outer.preheader ]
   %cmp110.not = icmp eq ptr %p.1.ph, %add.ptr
   %cmp50 = icmp ult ptr %p.1.ph, %add.ptr
   %21 = sext i32 %id.0.ph to i64
@@ -556,12 +556,12 @@ if.then43:                                        ; preds = %sw.bb40, %_ZN3re24P
 Loop.outer.backedge:                              ; preds = %if.end45, %if.then43, %_ZN3re28BitState11ShouldVisitEiPKc.exit124
   %p.1.ph.be = phi ptr [ %p.2, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %add.ptr, %if.then43 ], [ %add.ptr, %if.end45 ]
   %id.0.ph.be = phi i32 [ %id.1, %_ZN3re28BitState11ShouldVisitEiPKc.exit124 ], [ %31, %if.then43 ], [ %shr.i.i, %if.end45 ]
-  br label %Loop.outer
+  br label %Loop.outer, !llvm.loop !7
 
 if.end45:                                         ; preds = %sw.bb40, %_ZN3re24Prog4Inst6greedyEPS0_.exit
   %32 = load i8, ptr %longest_120, align 1
   %tobool = trunc i8 %32 to i1
-  br i1 %tobool, label %Loop.outer.backedge, label %Next
+  br i1 %tobool, label %Loop.outer.backedge, label %Next, !llvm.loop !7
 
 sw.bb49:                                          ; preds = %Loop
   br i1 %cmp50, label %if.then51, label %if.end52
@@ -787,7 +787,7 @@ _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %for.body
   %79 = load i32, ptr %nsubmatch_, align 8
   %80 = sext i32 %79 to i64
   %cmp133 = icmp slt i64 %indvars.iv.next, %80
-  br i1 %cmp133, label %for.body, label %if.end147, !llvm.loop !6
+  br i1 %cmp133, label %for.body, label %if.end147, !llvm.loop !8
 
 if.end147:                                        ; preds = %_ZN4absl7debian211string_viewC2EPKcm.exit, %if.then131, %land.lhs.true122, %lor.lhs.false
   %81 = load i8, ptr %longest_120, align 1
@@ -809,7 +809,7 @@ Next:                                             ; preds = %if.end147.Next_crit
 
 if.then157:                                       ; preds = %Next
   %indvars.iv.next264 = add nsw i64 %indvars.iv263, 1
-  br label %Loop
+  br label %Loop, !llvm.loop !7
 
 sw.epilog:                                        ; preds = %CheckAndLoop, %Loop, %Next
   %matched.2 = phi i1 [ %matched.3, %Next ], [ %matched.1, %Loop ], [ %matched.1, %CheckAndLoop ]
@@ -903,7 +903,7 @@ for.body:                                         ; preds = %lor.end31, %for.bod
   %12 = load i32, ptr %nsubmatch_, align 8
   %13 = sext i32 %12 to i64
   %cmp37 = icmp slt i64 %indvars.iv.next, %13
-  br i1 %cmp37, label %for.body, label %for.end.loopexit, !llvm.loop !7
+  br i1 %cmp37, label %for.body, label %for.end.loopexit, !llvm.loop !9
 
 for.end.loopexit:                                 ; preds = %for.body
   %.pre = load ptr, ptr %this, align 8
@@ -1061,7 +1061,7 @@ if.end95:                                         ; preds = %if.end88
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.1, i64 1
   %cmp76.not = icmp ugt ptr %incdec.ptr, %add.ptr
   %or.cond83 = select i1 %cmp96, i1 true, i1 %cmp76.not
-  br i1 %or.cond83, label %return, label %for.body77, !llvm.loop !8
+  br i1 %or.cond83, label %return, label %for.body77, !llvm.loop !10
 
 return:                                           ; preds = %if.end88, %if.end95, %if.end12, %if.end71, %if.end, %if.then63
   %retval.0 = phi i1 [ %call70, %if.then63 ], [ false, %if.end ], [ false, %if.end71 ], [ false, %if.end12 ], [ %call93, %if.end95 ], [ %call93, %if.end88 ]
@@ -1281,8 +1281,10 @@ attributes #23 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}

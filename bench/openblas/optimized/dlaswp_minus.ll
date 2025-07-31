@@ -285,7 +285,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.01000 = getelementptr inbounds double, ptr %.11005, i64 %5
   %.01015 = getelementptr inbounds i32, ptr %65, i64 %9
   %94 = icmp sgt i64 %.010211109.in, 2
-  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %94, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %89, %39
   %.11012.lcssa = phi ptr [ %40, %39 ], [ %90, %89 ]
@@ -499,7 +499,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %158 = getelementptr inbounds i8, ptr %.11025, i64 %.idx
   %159 = add nsw i64 %.11020, -1
   %160 = icmp sgt i64 %.11020, 1
-  br i1 %160, label %39, label %.loopexit1081, !llvm.loop !12
+  br i1 %160, label %39, label %.loopexit1081, !llvm.loop !13
 
 .loopexit1081:                                    ; preds = %157, %31
   %.01024 = phi ptr [ %11, %31 ], [ %158, %157 ]
@@ -661,7 +661,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.11001 = getelementptr inbounds double, ptr %.21006, i64 %5
   %.11016 = getelementptr inbounds i32, ptr %181, i64 %9
   %208 = icmp samesign ugt i64 %.110221141.in, 2
-  br i1 %208, label %.lr.ph1143, label %._crit_edge1144, !llvm.loop !13
+  br i1 %208, label %.lr.ph1143, label %._crit_edge1144, !llvm.loop !14
 
 ._crit_edge1144:                                  ; preds = %205, %162
   %.21013.lcssa = phi ptr [ %163, %162 ], [ %206, %205 ]
@@ -933,7 +933,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %.3 = getelementptr inbounds double, ptr %.21026, i64 %.pn1068
   %.21017 = getelementptr inbounds i32, ptr %271, i64 %9
   %297 = icmp samesign ugt i64 %.210231166.in, 2
-  br i1 %297, label %.lr.ph1168, label %._crit_edge1169, !llvm.loop !14
+  br i1 %297, label %.lr.ph1168, label %._crit_edge1169, !llvm.loop !15
 
 ._crit_edge1169:                                  ; preds = %295, %258
   %.31014.lcssa = phi ptr [ %259, %258 ], [ %296, %295 ]
@@ -1057,9 +1057,10 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

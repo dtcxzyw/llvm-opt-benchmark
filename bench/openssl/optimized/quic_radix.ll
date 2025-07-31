@@ -577,31 +577,31 @@ RADIX_THREAD_join.exit.i.i:                       ; preds = %60, %.lr.ph.i.i
   %82 = trunc i64 %.01.i.i.i to i32
   %83 = call ptr @OPENSSL_sk_value(ptr noundef %81, i32 noundef %82) #12
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 184
-  %85 = load ptr, ptr %84, align 8, !tbaa !38
+  %85 = load ptr, ptr %84, align 8, !tbaa !39
   call void @ossl_crypto_mutex_lock(ptr noundef %85) #12
   %86 = getelementptr inbounds nuw i8, ptr %83, i64 196
   %87 = load i32, ptr %86, align 4, !tbaa !35
-  %88 = load ptr, ptr %84, align 8, !tbaa !38
+  %88 = load ptr, ptr %84, align 8, !tbaa !39
   call void @ossl_crypto_mutex_unlock(ptr noundef %88) #12
-  %89 = load i64, ptr @radix_process, align 8, !tbaa !39
-  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 8), align 8, !tbaa !40
+  %89 = load i64, ptr @radix_process, align 8, !tbaa !40
+  %90 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 8), align 8, !tbaa !41
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %92 = load i64, ptr %91, align 8, !tbaa !41
+  %92 = load i64, ptr %91, align 8, !tbaa !42
   %93 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.280, i64 noundef %89, i64 noundef %90, i64 noundef %92, i64 noundef %92) #12
-  %94 = load i64, ptr %91, align 8, !tbaa !41
+  %94 = load i64, ptr %91, align 8, !tbaa !42
   %95 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.281, i64 noundef %94) #12
   %96 = load ptr, ptr @bio_err, align 8, !tbaa !23
   %97 = call i64 @BIO_ctrl(ptr noundef %96, i32 noundef 79, i64 noundef 0, ptr noundef nonnull %3) #12
   %98 = getelementptr inbounds nuw i8, ptr %83, i64 176
-  %99 = load ptr, ptr %98, align 8, !tbaa !42
+  %99 = load ptr, ptr %98, align 8, !tbaa !43
   %100 = call i64 @BIO_ctrl(ptr noundef %99, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %2) #12
-  %101 = load ptr, ptr %2, align 8, !tbaa !43
+  %101 = load ptr, ptr %2, align 8, !tbaa !44
   %102 = trunc i64 %100 to i32
   %103 = call i32 @BIO_write(ptr noundef %77, ptr noundef %101, i32 noundef %102) #12
   %104 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.226) #12
   %105 = load ptr, ptr @bio_err, align 8, !tbaa !23
   %106 = call i64 @BIO_ctrl(ptr noundef %105, i32 noundef 79, i64 noundef 0, ptr noundef nonnull @.str.282) #12
-  %107 = load i64, ptr %91, align 8, !tbaa !41
+  %107 = load i64, ptr %91, align 8, !tbaa !42
   %108 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.283, i64 noundef %107, i32 noundef %87) #12
   %.not.i24.i.i = icmp eq i32 %87, 0
   br i1 %.not.i24.i.i, label %109, label %RADIX_THREAD_report_state.exit.i.i.i
@@ -615,7 +615,7 @@ RADIX_THREAD_join.exit.i.i:                       ; preds = %60, %.lr.ph.i.i
 113:                                              ; preds = %124, %109
   %.013.i.i.i.i = phi i64 [ 0, %109 ], [ %125, %124 ]
   %114 = getelementptr inbounds nuw [8 x ptr], ptr %111, i64 0, i64 %.013.i.i.i.i
-  %115 = load ptr, ptr %114, align 8, !tbaa !44
+  %115 = load ptr, ptr %114, align 8, !tbaa !45
   %116 = icmp eq ptr %115, null
   br i1 %116, label %117, label %119
 
@@ -624,16 +624,16 @@ RADIX_THREAD_join.exit.i.i:                       ; preds = %60, %.lr.ph.i.i
   br label %124
 
 119:                                              ; preds = %113
-  %120 = load ptr, ptr %115, align 8, !tbaa !46
+  %120 = load ptr, ptr %115, align 8, !tbaa !47
   %121 = getelementptr inbounds nuw [8 x ptr], ptr %112, i64 0, i64 %.013.i.i.i.i
-  %122 = load ptr, ptr %121, align 8, !tbaa !49
+  %122 = load ptr, ptr %121, align 8, !tbaa !50
   %123 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.287, i64 noundef %.013.i.i.i.i, ptr noundef %120, ptr noundef %122) #12
   br label %124
 
 124:                                              ; preds = %119, %117
   %125 = add nuw nsw i64 %.013.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %125, 8
-  br i1 %exitcond.not.i.i.i.i, label %RADIX_THREAD_report_state.exit.i.i.i, label %113, !llvm.loop !50
+  br i1 %exitcond.not.i.i.i.i, label %RADIX_THREAD_report_state.exit.i.i.i, label %113, !llvm.loop !51
 
 RADIX_THREAD_report_state.exit.i.i.i:             ; preds = %124, %.lr.ph.i.i.i
   %126 = add nuw i64 %.01.i.i.i, 1
@@ -641,7 +641,7 @@ RADIX_THREAD_report_state.exit.i.i.i:             ; preds = %124, %.lr.ph.i.i.i
   %128 = call i32 @OPENSSL_sk_num(ptr noundef %127) #12
   %129 = sext i32 %128 to i64
   %130 = icmp ult i64 %126, %129
-  br i1 %130, label %.lr.ph.i.i.i, label %RADIX_PROCESS_report_thread_results.exit.i.i, !llvm.loop !51
+  br i1 %130, label %.lr.ph.i.i.i, label %RADIX_PROCESS_report_thread_results.exit.i.i, !llvm.loop !52
 
 RADIX_PROCESS_report_thread_results.exit.i.i:     ; preds = %RADIX_THREAD_report_state.exit.i.i.i, %._crit_edge.i.i
   %131 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %77, ptr noundef nonnull @.str.284) #12
@@ -661,10 +661,10 @@ RADIX_PROCESS_join_all_threads.exit.i:            ; preds = %RADIX_PROCESS_repor
   %135 = icmp ne i32 %.012.i, 0
   %136 = select i1 %134, i1 %135, i1 false
   %137 = load ptr, ptr @bio_err, align 8, !tbaa !23
-  %138 = load i64, ptr @radix_process, align 8, !tbaa !39
-  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 8), align 8, !tbaa !40
+  %138 = load i64, ptr @radix_process, align 8, !tbaa !40
+  %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 8), align 8, !tbaa !41
   %140 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %137, ptr noundef nonnull @.str.288, i64 noundef %138, i64 noundef %139) #12
-  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 16), align 8, !tbaa !52
+  %141 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 16), align 8, !tbaa !53
   %142 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %137, ptr noundef nonnull @.str.289, i64 noundef %141) #12
   %143 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 48), align 8
   %144 = udiv i64 %143, 1000000
@@ -686,7 +686,7 @@ RADIX_PROCESS_join_all_threads.exit.i:            ; preds = %RADIX_PROCESS_repor
 155:                                              ; preds = %166, %148
   %.013.i.i.i = phi i64 [ 0, %148 ], [ %167, %166 ]
   %156 = getelementptr inbounds nuw [8 x ptr], ptr %153, i64 0, i64 %.013.i.i.i
-  %157 = load ptr, ptr %156, align 8, !tbaa !44
+  %157 = load ptr, ptr %156, align 8, !tbaa !45
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %161
 
@@ -695,16 +695,16 @@ RADIX_PROCESS_join_all_threads.exit.i:            ; preds = %RADIX_PROCESS_repor
   br label %166
 
 161:                                              ; preds = %155
-  %162 = load ptr, ptr %157, align 8, !tbaa !46
+  %162 = load ptr, ptr %157, align 8, !tbaa !47
   %163 = getelementptr inbounds nuw [8 x ptr], ptr %154, i64 0, i64 %.013.i.i.i
-  %164 = load ptr, ptr %163, align 8, !tbaa !49
+  %164 = load ptr, ptr %163, align 8, !tbaa !50
   %165 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %151, ptr noundef nonnull @.str.287, i64 noundef %.013.i.i.i, ptr noundef %162, ptr noundef %164) #12
   br label %166
 
 166:                                              ; preds = %161, %159
   %167 = add nuw nsw i64 %.013.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %167, 8
-  br i1 %exitcond.not.i.i.i, label %RADIX_PROCESS_report_state.exit.i, label %155, !llvm.loop !50
+  br i1 %exitcond.not.i.i.i, label %RADIX_PROCESS_report_state.exit.i, label %155, !llvm.loop !51
 
 RADIX_PROCESS_report_state.exit.i:                ; preds = %166, %133
   %168 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %137, ptr noundef nonnull @.str.284) #12
@@ -736,10 +736,10 @@ radix_thread_cleanup.exit.i:                      ; preds = %171, %RADIX_PROCESS
 
 182:                                              ; preds = %.lr.ph.i9.i
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 176
-  %184 = load ptr, ptr %183, align 8, !tbaa !42
+  %184 = load ptr, ptr %183, align 8, !tbaa !43
   call void @BIO_free_all(ptr noundef %184) #12
   %185 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %186 = load ptr, ptr %185, align 8, !tbaa !53
+  %186 = load ptr, ptr %185, align 8, !tbaa !54
   call void @CRYPTO_free(ptr noundef %186, ptr noundef nonnull @.str.74, i32 noundef 526) #12
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 184
   call void @ossl_crypto_mutex_free(ptr noundef nonnull %187) #12
@@ -752,7 +752,7 @@ RADIX_THREAD_free.exit.i.i:                       ; preds = %182, %.lr.ph.i9.i
   %190 = call i32 @OPENSSL_sk_num(ptr noundef %189) #12
   %191 = sext i32 %190 to i64
   %192 = icmp ult i64 %188, %191
-  br i1 %192, label %.lr.ph.i9.i, label %RADIX_PROCESS_cleanup.exit.i, !llvm.loop !54
+  br i1 %192, label %.lr.ph.i9.i, label %RADIX_PROCESS_cleanup.exit.i, !llvm.loop !55
 
 RADIX_PROCESS_cleanup.exit.i:                     ; preds = %RADIX_THREAD_free.exit.i.i, %radix_thread_cleanup.exit.i
   %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 24), align 8, !tbaa !19
@@ -804,15 +804,15 @@ define internal fastcc range(i32 0, 2) i32 @TERP_run(ptr noundef %0, ptr noundef
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %9 = load ptr, ptr %1, align 8, !tbaa !24
-  %10 = load ptr, ptr %0, align 8, !tbaa !55
+  %10 = load ptr, ptr %0, align 8, !tbaa !56
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !57
+  %12 = load ptr, ptr %11, align 8, !tbaa !58
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.42, i32 noundef 528, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str.204, ptr noundef %10, ptr noundef %12) #12
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #12
-  store ptr %0, ptr %6, align 8, !tbaa !58
+  store ptr %0, ptr %6, align 8, !tbaa !59
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i32 0, ptr %14, align 8, !tbaa !60
+  store i32 0, ptr %14, align 8, !tbaa !61
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
@@ -822,12 +822,12 @@ define internal fastcc range(i32 0, 2) i32 @TERP_run(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %19 = load ptr, ptr %18, align 8, !tbaa !61
+  %19 = load ptr, ptr %18, align 8, !tbaa !62
   call void %19(ptr noundef nonnull %6) #12
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %21 = load ptr, ptr %20, align 8, !tbaa !62
+  %21 = load ptr, ptr %20, align 8, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %23 = load ptr, ptr %22, align 8, !tbaa !63
+  %23 = load ptr, ptr %22, align 8, !tbaa !64
   %24 = ptrtoint ptr %21 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
@@ -835,7 +835,7 @@ define internal fastcc range(i32 0, 2) i32 @TERP_run(ptr noundef %0, ptr noundef
   br i1 %27, label %28, label %openc_alloc_space.exit.i.i.i
 
 28:                                               ; preds = %17
-  %29 = load ptr, ptr %15, align 8, !tbaa !64
+  %29 = load ptr, ptr %15, align 8, !tbaa !65
   %30 = ptrtoint ptr %29 to i64
   %31 = sub i64 %24, %30
   %32 = icmp eq ptr %21, %29
@@ -848,16 +848,16 @@ define internal fastcc range(i32 0, 2) i32 @TERP_run(ptr noundef %0, ptr noundef
 
 37:                                               ; preds = %28
   %38 = sub i64 %25, %30
-  store ptr %35, ptr %15, align 8, !tbaa !64
+  store ptr %35, ptr %15, align 8, !tbaa !65
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 %34
-  store ptr %40, ptr %20, align 8, !tbaa !62
+  store ptr %40, ptr %20, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i.i.i
 
 openc_alloc_space.exit.i.i.i:                     ; preds = %37, %17
   %41 = phi ptr [ %39, %37 ], [ %23, %17 ]
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %42, ptr %22, align 8, !tbaa !63
+  store ptr %42, ptr %22, align 8, !tbaa !64
   %43 = icmp eq ptr %41, null
   br i1 %43, label %opgen_END.exit.i, label %44
 
@@ -867,7 +867,7 @@ openc_alloc_space.exit.i.i.i:                     ; preds = %37, %17
 
 opgen_END.exit.i:                                 ; preds = %44, %openc_alloc_space.exit.i.i.i, %28
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !65
+  %46 = load i32, ptr %45, align 8, !tbaa !66
   %47 = icmp ne i32 %46, 0
   %48 = zext i1 %47 to i32
   %49 = call i32 @test_false(ptr noundef nonnull @.str.42, i32 noundef 312, ptr noundef nonnull @.str.218, i32 noundef %48) #12
@@ -875,35 +875,35 @@ opgen_END.exit.i:                                 ; preds = %44, %openc_alloc_sp
   br i1 %.not6.i, label %.thread.i, label %50
 
 50:                                               ; preds = %opgen_END.exit.i
-  %51 = load ptr, ptr %15, align 8, !tbaa !64
-  store ptr %51, ptr %8, align 8, !tbaa !66
-  %52 = load ptr, ptr %22, align 8, !tbaa !63
+  %51 = load ptr, ptr %15, align 8, !tbaa !65
+  store ptr %51, ptr %8, align 8, !tbaa !67
+  %52 = load ptr, ptr %22, align 8, !tbaa !64
   %53 = ptrtoint ptr %52 to i64
   %54 = ptrtoint ptr %51 to i64
   %55 = sub i64 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %55, ptr %56, align 8, !tbaa !68
+  store i64 %55, ptr %56, align 8, !tbaa !69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   %57 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 315, ptr noundef nonnull @.str.219, i32 noundef 1) #12
   %.not7.i = icmp eq i32 %57, 0
   br i1 %.not7.i, label %.thread.i, label %GEN_SCRIPT_init.exit
 
 .thread.i:                                        ; preds = %50, %opgen_END.exit.i
-  %58 = load i32, ptr %45, align 8, !tbaa !65
+  %58 = load i32, ptr %45, align 8, !tbaa !66
   %.not9.i = icmp eq i32 %58, 0
   br i1 %.not9.i, label %65, label %59
 
 59:                                               ; preds = %.thread.i
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %61 = load ptr, ptr %60, align 8, !tbaa !69
+  %61 = load ptr, ptr %60, align 8, !tbaa !70
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %63 = load ptr, ptr %62, align 8, !tbaa !70
-  %64 = load i32, ptr %14, align 8, !tbaa !60
+  %63 = load ptr, ptr %62, align 8, !tbaa !71
+  %64 = load i32, ptr %14, align 8, !tbaa !61
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 325, ptr noundef nonnull @.str.220, ptr noundef %61, ptr noundef %63, i32 noundef %64) #12
   br label %65
 
 65:                                               ; preds = %59, %.thread.i
-  %66 = load ptr, ptr %15, align 8, !tbaa !64
+  %66 = load ptr, ptr %15, align 8, !tbaa !65
   call void @CRYPTO_free(ptr noundef %66, ptr noundef nonnull @.str.42, i32 noundef 65) #12
   br label %GEN_SCRIPT_init.exit
 
@@ -915,37 +915,37 @@ GEN_SCRIPT_init.exit:                             ; preds = %2, %50, %65
   br i1 %.not, label %68, label %.lr.ph.preheader.i
 
 68:                                               ; preds = %GEN_SCRIPT_init.exit
-  %69 = load ptr, ptr %0, align 8, !tbaa !55
-  %70 = load ptr, ptr %11, align 8, !tbaa !57
+  %69 = load ptr, ptr %0, align 8, !tbaa !56
+  %70 = load ptr, ptr %11, align 8, !tbaa !58
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 525, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str.206, ptr noundef %69, ptr noundef %70) #12
   br label %TERP_cleanup.exit
 
 .lr.ph.preheader.i:                               ; preds = %GEN_SCRIPT_init.exit
-  %.val = load ptr, ptr %8, align 8, !tbaa !66
+  %.val = load ptr, ptr %8, align 8, !tbaa !67
   %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.val29 = load i64, ptr %71, align 8, !tbaa !68
+  %.val29 = load i64, ptr %71, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
-  store i32 0, ptr %5, align 4, !tbaa !71
+  store i32 0, ptr %5, align 4, !tbaa !72
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %.val, ptr %72, align 8, !tbaa !72
-  store ptr %.val, ptr %4, align 8, !tbaa !74
+  store ptr %.val, ptr %72, align 8, !tbaa !73
+  store ptr %.val, ptr %4, align 8, !tbaa !75
   %73 = getelementptr inbounds nuw i8, ptr %.val, i64 %.val29
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %73, ptr %74, align 8, !tbaa !75
+  store ptr %73, ptr %74, align 8, !tbaa !76
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr null, ptr %75, align 8, !tbaa !76
-  %76 = load ptr, ptr %0, align 8, !tbaa !55
+  store ptr null, ptr %75, align 8, !tbaa !77
+  %76 = load ptr, ptr %0, align 8, !tbaa !56
   %77 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.221, ptr noundef %76) #12
   %78 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.222) #12
-  %79 = load ptr, ptr %0, align 8, !tbaa !55
+  %79 = load ptr, ptr %0, align 8, !tbaa !56
   %80 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.223, ptr noundef %79) #12
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !77
+  %82 = load ptr, ptr %81, align 8, !tbaa !78
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %84 = load i32, ptr %83, align 8, !tbaa !78
+  %84 = load i32, ptr %83, align 8, !tbaa !79
   %85 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.224, ptr noundef %82, i32 noundef %84) #12
-  %86 = load ptr, ptr %11, align 8, !tbaa !57
+  %86 = load ptr, ptr %11, align 8, !tbaa !58
   %87 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.225, ptr noundef %86) #12
   br label %.lr.ph.i
 
@@ -959,14 +959,14 @@ GEN_SCRIPT_init.exit:                             ; preds = %2, %50, %65
 
 91:                                               ; preds = %.lr.ph.i
   %92 = add i64 %.0273.i, 1
-  %93 = load i32, ptr %5, align 4, !tbaa !71
+  %93 = load i32, ptr %5, align 4, !tbaa !72
   %.not29.i = icmp eq i32 %93, 0
-  br i1 %.not29.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !79
+  br i1 %.not29.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !80
 
 ._crit_edge.i:                                    ; preds = %91
-  %94 = load ptr, ptr %72, align 8, !tbaa !72
+  %94 = load ptr, ptr %72, align 8, !tbaa !73
   %95 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.226) #12
-  %96 = load ptr, ptr %4, align 8, !tbaa !74
+  %96 = load ptr, ptr %4, align 8, !tbaa !75
   %97 = ptrtoint ptr %94 to i64
   %98 = ptrtoint ptr %96 to i64
   %99 = sub i64 %97, %98
@@ -994,8 +994,8 @@ GEN_SCRIPT_print.exit:                            ; preds = %.lr.ph.i, %print_op
   br i1 %.not23, label %106, label %109
 
 106:                                              ; preds = %GEN_SCRIPT_print.exit
-  %107 = load ptr, ptr %0, align 8, !tbaa !55
-  %108 = load ptr, ptr %11, align 8, !tbaa !57
+  %107 = load ptr, ptr %0, align 8, !tbaa !56
+  %108 = load ptr, ptr %11, align 8, !tbaa !58
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 525, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str.208, ptr noundef %107, ptr noundef %108) #12
   br label %TERP_cleanup.exit
 
@@ -1009,26 +1009,26 @@ GEN_SCRIPT_print.exit:                            ; preds = %.lr.ph.i, %print_op
   br i1 %.not.i31, label %TERP_init.exit, label %115
 
 115:                                              ; preds = %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !81
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store ptr %0, ptr %116, align 8, !tbaa !83
+  store ptr %0, ptr %116, align 8, !tbaa !84
   %117 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store ptr %8, ptr %117, align 8, !tbaa !88
+  store ptr %8, ptr %117, align 8, !tbaa !89
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  store ptr %7, ptr %118, align 8, !tbaa !89
+  store ptr %7, ptr %118, align 8, !tbaa !90
   %119 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %120 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %121 = getelementptr inbounds nuw i8, ptr %7, i64 152
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %119, i8 0, i64 16, i1 false)
-  store i32 1, ptr %121, align 8, !tbaa !90
+  store i32 1, ptr %121, align 8, !tbaa !91
   %122 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %123 = load i64, ptr %122, align 8
   %.not20.i = icmp eq i64 %123, 0
   br i1 %.not20.i, label %124, label %TERP_init.exit
 
 124:                                              ; preds = %115
-  store i64 3000000000, ptr %122, align 8, !tbaa !82
+  store i64 3000000000, ptr %122, align 8, !tbaa !83
   br label %TERP_init.exit
 
 TERP_init.exit:                                   ; preds = %109, %115, %124
@@ -1038,36 +1038,36 @@ TERP_init.exit:                                   ; preds = %109, %115, %124
   br i1 %.not24, label %TERP_cleanup.exit, label %126
 
 126:                                              ; preds = %TERP_init.exit
-  %127 = load ptr, ptr %0, align 8, !tbaa !55
-  %128 = load ptr, ptr %11, align 8, !tbaa !57
+  %127 = load ptr, ptr %0, align 8, !tbaa !56
+  %128 = load ptr, ptr %11, align 8, !tbaa !58
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.42, i32 noundef 528, ptr noundef nonnull @.str.216, ptr noundef nonnull @.str.210, ptr noundef %127, ptr noundef %128) #12
-  %129 = load ptr, ptr %7, align 8, !tbaa !91
+  %129 = load ptr, ptr %7, align 8, !tbaa !92
   %130 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %132 = load ptr, ptr %131, align 8, !tbaa !88
-  %133 = load ptr, ptr %132, align 8, !tbaa !66
+  %132 = load ptr, ptr %131, align 8, !tbaa !89
+  %133 = load ptr, ptr %132, align 8, !tbaa !67
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %135 = load i64, ptr %134, align 8, !tbaa !68
+  %135 = load i64, ptr %134, align 8, !tbaa !69
   %136 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  store ptr %133, ptr %136, align 8, !tbaa !72
-  store ptr %133, ptr %130, align 8, !tbaa !74
+  store ptr %133, ptr %136, align 8, !tbaa !73
+  store ptr %133, ptr %130, align 8, !tbaa !75
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 %135
   %138 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  store ptr %137, ptr %138, align 8, !tbaa !75
+  store ptr %137, ptr %138, align 8, !tbaa !76
   %139 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr null, ptr %139, align 8, !tbaa !76
+  store ptr null, ptr %139, align 8, !tbaa !77
   %140 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val.i = load ptr, ptr %141, align 8, !tbaa !92
+  %.val.i = load ptr, ptr %141, align 8, !tbaa !93
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val135.i = load ptr, ptr %142, align 8, !tbaa !93
+  %.val135.i = load ptr, ptr %142, align 8, !tbaa !94
   %143 = call i64 %.val.i(ptr noundef %.val135.i) #12
-  store i64 %143, ptr %140, align 8, !tbaa !82
+  store i64 %143, ptr %140, align 8, !tbaa !83
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %146 = load i64, ptr %145, align 8
   %.sroa.03.0.i.i = call i64 @llvm.uadd.sat.i64(i64 %143, i64 %146)
-  store i64 %.sroa.03.0.i.i, ptr %144, align 8, !tbaa !82
+  store i64 %.sroa.03.0.i.i, ptr %144, align 8, !tbaa !83
   %147 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %149 = getelementptr inbounds nuw i8, ptr %7, i64 120
@@ -1085,13 +1085,13 @@ TERP_init.exit:                                   ; preds = %109, %115, %124
   %.089.i = phi i64 [ 0, %126 ], [ %.089.i.be, %.thread212.i.backedge ]
   %.085.i = phi i32 [ 0, %126 ], [ %.388.i, %.thread212.i.backedge ]
   %.083.i = phi i64 [ -1, %126 ], [ %183, %.thread212.i.backedge ]
-  %158 = load i32, ptr %147, align 8, !tbaa !90
+  %158 = load i32, ptr %147, align 8, !tbaa !91
   %.not.i33 = icmp eq i32 %158, 0
   br i1 %.not.i33, label %170, label %159
 
 159:                                              ; preds = %.thread212.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false), !tbaa.struct !94
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false), !tbaa.struct !95
   %.not95.i = icmp eq i32 %.085.i, 0
   br i1 %.not95.i, label %160, label %162
 
@@ -1104,7 +1104,7 @@ TERP_init.exit:                                   ; preds = %109, %115, %124
   br i1 %.not.i.i34, label %TERP_log_spin.exit.i, label %163
 
 163:                                              ; preds = %162
-  %164 = load ptr, ptr %7, align 8, !tbaa !91
+  %164 = load ptr, ptr %7, align 8, !tbaa !92
   %165 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %164, ptr noundef nonnull @.str.271, i64 noundef %.089.i) #12
   br label %TERP_log_spin.exit.i
 
@@ -1126,8 +1126,8 @@ TERP_log_spin.exit.i:                             ; preds = %163, %162
 
 170:                                              ; preds = %.thread.i35, %.thread212.i
   %.388.i = phi i32 [ %.085.i, %.thread212.i ], [ 1, %.thread.i35 ]
-  %171 = load ptr, ptr %138, align 8, !tbaa !75
-  %172 = load ptr, ptr %136, align 8, !tbaa !72
+  %171 = load ptr, ptr %138, align 8, !tbaa !76
+  %172 = load ptr, ptr %136, align 8, !tbaa !73
   %173 = ptrtoint ptr %171 to i64
   %174 = ptrtoint ptr %172 to i64
   %175 = sub i64 %173, %174
@@ -1136,10 +1136,10 @@ TERP_log_spin.exit.i:                             ; preds = %163, %162
   br i1 %.not.i141.i, label %SRDR_get_operand.exit.i, label %177
 
 177:                                              ; preds = %170
-  %178 = load ptr, ptr %136, align 8, !tbaa !72
+  %178 = load ptr, ptr %136, align 8, !tbaa !73
   %179 = load i64, ptr %178, align 1
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr %180, ptr %136, align 8, !tbaa !72
+  store ptr %180, ptr %136, align 8, !tbaa !73
   br label %SRDR_get_operand.exit.i
 
 SRDR_get_operand.exit.i:                          ; preds = %177, %170
@@ -1151,15 +1151,15 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
 
 182:                                              ; preds = %SRDR_get_operand.exit.i
   %183 = add i64 %.083.i, 1
-  %184 = load ptr, ptr %136, align 8, !tbaa !72
-  store ptr %184, ptr %139, align 8, !tbaa !76
-  %185 = load ptr, ptr %148, align 8, !tbaa !95
-  store ptr %185, ptr %149, align 8, !tbaa !96
-  %186 = load i64, ptr %150, align 8, !tbaa !97
+  %184 = load ptr, ptr %136, align 8, !tbaa !73
+  store ptr %184, ptr %139, align 8, !tbaa !77
+  %185 = load ptr, ptr %148, align 8, !tbaa !96
+  store ptr %185, ptr %149, align 8, !tbaa !97
+  %186 = load i64, ptr %150, align 8, !tbaa !98
   %187 = add i64 %186, 1
-  store i64 %187, ptr %150, align 8, !tbaa !97
-  %.val136288.i = load ptr, ptr %141, align 8, !tbaa !92
-  %.val137289.i = load ptr, ptr %142, align 8, !tbaa !93
+  store i64 %187, ptr %150, align 8, !tbaa !98
+  %.val136288.i = load ptr, ptr %141, align 8, !tbaa !93
+  %.val137289.i = load ptr, ptr %142, align 8, !tbaa !94
   %188 = call i64 %.val136288.i(ptr noundef %.val137289.i) #12
   %189 = load i64, ptr %144, align 8
   %.not238290.i = icmp ult i64 %188, %189
@@ -1168,25 +1168,25 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
 ._crit_edge.i36:                                  ; preds = %182, %368
   %.190.lcssa.i = phi i64 [ %371, %368 ], [ 0, %182 ]
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 708, ptr noundef nonnull @.str.254, i64 noundef %183) #12
-  %190 = load i32, ptr %147, align 8, !tbaa !90
+  %190 = load i32, ptr %147, align 8, !tbaa !91
   %.not118.i = icmp eq i32 %190, 0
   %.not.i143.i = icmp eq i64 %.190.lcssa.i, 0
   %or.cond.i = select i1 %.not118.i, i1 true, i1 %.not.i143.i
   br i1 %or.cond.i, label %TERP_log_spin.exit144.i, label %191
 
 191:                                              ; preds = %._crit_edge.i36
-  %192 = load ptr, ptr %7, align 8, !tbaa !91
+  %192 = load ptr, ptr %7, align 8, !tbaa !92
   %193 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %192, ptr noundef nonnull @.str.271, i64 noundef %.190.lcssa.i) #12
   br label %TERP_log_spin.exit144.i
 
 .lr.ph.i37:                                       ; preds = %182, %368
   %.190291.i = phi i64 [ %371, %368 ], [ 0, %182 ]
-  %194 = load ptr, ptr %151, align 8, !tbaa !98
+  %194 = load ptr, ptr %151, align 8, !tbaa !99
   %.not98.i = icmp eq ptr %194, null
   br i1 %.not98.i, label %206, label %195
 
 195:                                              ; preds = %.lr.ph.i37
-  %196 = load ptr, ptr %152, align 8, !tbaa !99
+  %196 = load ptr, ptr %152, align 8, !tbaa !100
   %197 = call i32 %194(ptr noundef nonnull %7, ptr noundef %196) #12
   %198 = icmp ne i32 %197, 0
   %199 = zext i1 %198 to i32
@@ -1196,14 +1196,14 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
 
 201:                                              ; preds = %195
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 716, ptr noundef nonnull @.str.256, i64 noundef %183) #12
-  %202 = load i32, ptr %147, align 8, !tbaa !90
+  %202 = load i32, ptr %147, align 8, !tbaa !91
   %.not100.i = icmp eq i32 %202, 0
   %.not.i145.i = icmp eq i64 %.190291.i, 0
   %or.cond237.i = select i1 %.not100.i, i1 true, i1 %.not.i145.i
   br i1 %or.cond237.i, label %TERP_log_spin.exit144.i, label %203
 
 203:                                              ; preds = %201
-  %204 = load ptr, ptr %7, align 8, !tbaa !91
+  %204 = load ptr, ptr %7, align 8, !tbaa !92
   %205 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %204, ptr noundef nonnull @.str.271, i64 noundef %.190291.i) #12
   br label %TERP_log_spin.exit144.i
 
@@ -1219,8 +1219,8 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
   ]
 
 207:                                              ; preds = %206, %206
-  %208 = load ptr, ptr %138, align 8, !tbaa !75
-  %209 = load ptr, ptr %136, align 8, !tbaa !72
+  %208 = load ptr, ptr %138, align 8, !tbaa !76
+  %209 = load ptr, ptr %136, align 8, !tbaa !73
   %210 = ptrtoint ptr %208 to i64
   %211 = ptrtoint ptr %209 to i64
   %212 = sub i64 %210, %211
@@ -1229,10 +1229,10 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
   br i1 %.not.i147.i, label %SRDR_get_operand.exit149.i, label %214
 
 214:                                              ; preds = %207
-  %215 = load ptr, ptr %136, align 8, !tbaa !72
+  %215 = load ptr, ptr %136, align 8, !tbaa !73
   %216 = load i64, ptr %215, align 1
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  store ptr %217, ptr %136, align 8, !tbaa !72
+  store ptr %217, ptr %136, align 8, !tbaa !73
   br label %SRDR_get_operand.exit149.i
 
 SRDR_get_operand.exit149.i:                       ; preds = %214, %207
@@ -1243,8 +1243,8 @@ SRDR_get_operand.exit149.i:                       ; preds = %214, %207
   br i1 %.not116.i, label %TERP_log_spin.exit144.i, label %219
 
 219:                                              ; preds = %SRDR_get_operand.exit149.i
-  %220 = load ptr, ptr %156, align 8, !tbaa !100
-  %221 = load ptr, ptr %157, align 8, !tbaa !101
+  %220 = load ptr, ptr %156, align 8, !tbaa !101
+  %221 = load ptr, ptr %157, align 8, !tbaa !102
   %222 = ptrtoint ptr %220 to i64
   %223 = ptrtoint ptr %221 to i64
   %224 = sub i64 %222, %223
@@ -1252,7 +1252,7 @@ SRDR_get_operand.exit149.i:                       ; preds = %214, %207
   br i1 %225, label %TERP_stk_ensure_capacity.exit.i.i, label %226
 
 226:                                              ; preds = %219
-  %227 = load ptr, ptr %148, align 8, !tbaa !95
+  %227 = load ptr, ptr %148, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %220, %221
   %228 = shl nuw nsw i64 %224, 1
   %229 = select i1 %.not.i.i.i, i64 256, i64 %228
@@ -1264,11 +1264,11 @@ SRDR_get_operand.exit149.i:                       ; preds = %214, %207
 232:                                              ; preds = %226
   %233 = ptrtoint ptr %227 to i64
   %.neg.i.i.i = sub i64 %233, %222
-  store ptr %230, ptr %157, align 8, !tbaa !101
+  store ptr %230, ptr %157, align 8, !tbaa !102
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 %229
-  store ptr %234, ptr %156, align 8, !tbaa !100
+  store ptr %234, ptr %156, align 8, !tbaa !101
   %235 = getelementptr inbounds i8, ptr %234, i64 %.neg.i.i.i
-  store ptr %235, ptr %148, align 8, !tbaa !95
+  store ptr %235, ptr %148, align 8, !tbaa !96
   br label %TERP_stk_ensure_capacity.exit.i.i
 
 TERP_stk_ensure_capacity.exit.i.i:                ; preds = %232, %226, %219
@@ -1278,9 +1278,9 @@ TERP_stk_ensure_capacity.exit.i.i:                ; preds = %232, %226, %219
   br i1 %.not.i150.i, label %TERP_stk_push.exit.i, label %237
 
 237:                                              ; preds = %TERP_stk_ensure_capacity.exit.i.i
-  %238 = load ptr, ptr %148, align 8, !tbaa !95
+  %238 = load ptr, ptr %148, align 8, !tbaa !96
   %239 = getelementptr inbounds i8, ptr %238, i64 -8
-  store ptr %239, ptr %148, align 8, !tbaa !95
+  store ptr %239, ptr %148, align 8, !tbaa !96
   store i64 %.sroa.0186.0.i, ptr %239, align 1
   br label %TERP_stk_push.exit.i
 
@@ -1291,8 +1291,8 @@ TERP_stk_push.exit.i:                             ; preds = %237, %TERP_stk_ensu
   br i1 %.not117.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
 
 241:                                              ; preds = %206
-  %242 = load ptr, ptr %138, align 8, !tbaa !75
-  %243 = load ptr, ptr %136, align 8, !tbaa !72
+  %242 = load ptr, ptr %138, align 8, !tbaa !76
+  %243 = load ptr, ptr %136, align 8, !tbaa !73
   %244 = ptrtoint ptr %242 to i64
   %245 = ptrtoint ptr %243 to i64
   %246 = sub i64 %244, %245
@@ -1301,10 +1301,10 @@ TERP_stk_push.exit.i:                             ; preds = %237, %TERP_stk_ensu
   br i1 %.not.i152.i, label %SRDR_get_operand.exit154.i, label %248
 
 248:                                              ; preds = %241
-  %249 = load ptr, ptr %136, align 8, !tbaa !72
+  %249 = load ptr, ptr %136, align 8, !tbaa !73
   %250 = load i64, ptr %249, align 1
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
-  store ptr %251, ptr %136, align 8, !tbaa !72
+  store ptr %251, ptr %136, align 8, !tbaa !73
   br label %SRDR_get_operand.exit154.i
 
 SRDR_get_operand.exit154.i:                       ; preds = %248, %241
@@ -1315,8 +1315,8 @@ SRDR_get_operand.exit154.i:                       ; preds = %248, %241
   br i1 %.not114.i, label %TERP_log_spin.exit144.i, label %253
 
 253:                                              ; preds = %SRDR_get_operand.exit154.i
-  %254 = load ptr, ptr %156, align 8, !tbaa !100
-  %255 = load ptr, ptr %157, align 8, !tbaa !101
+  %254 = load ptr, ptr %156, align 8, !tbaa !101
+  %255 = load ptr, ptr %157, align 8, !tbaa !102
   %256 = ptrtoint ptr %254 to i64
   %257 = ptrtoint ptr %255 to i64
   %258 = sub i64 %256, %257
@@ -1324,7 +1324,7 @@ SRDR_get_operand.exit154.i:                       ; preds = %248, %241
   br i1 %259, label %TERP_stk_ensure_capacity.exit.i158.i, label %260
 
 260:                                              ; preds = %253
-  %261 = load ptr, ptr %148, align 8, !tbaa !95
+  %261 = load ptr, ptr %148, align 8, !tbaa !96
   %.not.i.i155.i = icmp eq ptr %254, %255
   %262 = shl nuw nsw i64 %258, 1
   %263 = select i1 %.not.i.i155.i, i64 256, i64 %262
@@ -1336,11 +1336,11 @@ SRDR_get_operand.exit154.i:                       ; preds = %248, %241
 266:                                              ; preds = %260
   %267 = ptrtoint ptr %261 to i64
   %.neg.i.i157.i = sub i64 %267, %256
-  store ptr %264, ptr %157, align 8, !tbaa !101
+  store ptr %264, ptr %157, align 8, !tbaa !102
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 %263
-  store ptr %268, ptr %156, align 8, !tbaa !100
+  store ptr %268, ptr %156, align 8, !tbaa !101
   %269 = getelementptr inbounds i8, ptr %268, i64 %.neg.i.i157.i
-  store ptr %269, ptr %148, align 8, !tbaa !95
+  store ptr %269, ptr %148, align 8, !tbaa !96
   br label %TERP_stk_ensure_capacity.exit.i158.i
 
 TERP_stk_ensure_capacity.exit.i158.i:             ; preds = %266, %260, %253
@@ -1350,9 +1350,9 @@ TERP_stk_ensure_capacity.exit.i158.i:             ; preds = %266, %260, %253
   br i1 %.not.i160.i, label %TERP_stk_push.exit162.i, label %271
 
 271:                                              ; preds = %TERP_stk_ensure_capacity.exit.i158.i
-  %272 = load ptr, ptr %148, align 8, !tbaa !95
+  %272 = load ptr, ptr %148, align 8, !tbaa !96
   %273 = getelementptr inbounds i8, ptr %272, i64 -8
-  store ptr %273, ptr %148, align 8, !tbaa !95
+  store ptr %273, ptr %148, align 8, !tbaa !96
   store i64 %.0191.i, ptr %273, align 1
   br label %TERP_stk_push.exit162.i
 
@@ -1363,8 +1363,8 @@ TERP_stk_push.exit162.i:                          ; preds = %271, %TERP_stk_ensu
   br i1 %.not115.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
 
 275:                                              ; preds = %206
-  %276 = load ptr, ptr %138, align 8, !tbaa !75
-  %277 = load ptr, ptr %136, align 8, !tbaa !72
+  %276 = load ptr, ptr %138, align 8, !tbaa !76
+  %277 = load ptr, ptr %136, align 8, !tbaa !73
   %278 = ptrtoint ptr %276 to i64
   %279 = ptrtoint ptr %277 to i64
   %280 = sub i64 %278, %279
@@ -1373,10 +1373,10 @@ TERP_stk_push.exit162.i:                          ; preds = %271, %TERP_stk_ensu
   br i1 %.not.i163.i, label %SRDR_get_operand.exit165.i, label %282
 
 282:                                              ; preds = %275
-  %283 = load ptr, ptr %136, align 8, !tbaa !72
+  %283 = load ptr, ptr %136, align 8, !tbaa !73
   %284 = load i64, ptr %283, align 1
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
-  store ptr %285, ptr %136, align 8, !tbaa !72
+  store ptr %285, ptr %136, align 8, !tbaa !73
   br label %SRDR_get_operand.exit165.i
 
 SRDR_get_operand.exit165.i:                       ; preds = %282, %275
@@ -1387,8 +1387,8 @@ SRDR_get_operand.exit165.i:                       ; preds = %282, %275
   br i1 %.not112.i, label %TERP_log_spin.exit144.i, label %287
 
 287:                                              ; preds = %SRDR_get_operand.exit165.i
-  %288 = load ptr, ptr %156, align 8, !tbaa !100
-  %289 = load ptr, ptr %157, align 8, !tbaa !101
+  %288 = load ptr, ptr %156, align 8, !tbaa !101
+  %289 = load ptr, ptr %157, align 8, !tbaa !102
   %290 = ptrtoint ptr %288 to i64
   %291 = ptrtoint ptr %289 to i64
   %292 = sub i64 %290, %291
@@ -1396,7 +1396,7 @@ SRDR_get_operand.exit165.i:                       ; preds = %282, %275
   br i1 %293, label %TERP_stk_ensure_capacity.exit.i169.i, label %294
 
 294:                                              ; preds = %287
-  %295 = load ptr, ptr %148, align 8, !tbaa !95
+  %295 = load ptr, ptr %148, align 8, !tbaa !96
   %.not.i.i166.i = icmp eq ptr %288, %289
   %296 = shl nuw nsw i64 %292, 1
   %297 = select i1 %.not.i.i166.i, i64 256, i64 %296
@@ -1408,11 +1408,11 @@ SRDR_get_operand.exit165.i:                       ; preds = %282, %275
 300:                                              ; preds = %294
   %301 = ptrtoint ptr %295 to i64
   %.neg.i.i168.i = sub i64 %301, %290
-  store ptr %298, ptr %157, align 8, !tbaa !101
+  store ptr %298, ptr %157, align 8, !tbaa !102
   %302 = getelementptr inbounds nuw i8, ptr %298, i64 %297
-  store ptr %302, ptr %156, align 8, !tbaa !100
+  store ptr %302, ptr %156, align 8, !tbaa !101
   %303 = getelementptr inbounds i8, ptr %302, i64 %.neg.i.i168.i
-  store ptr %303, ptr %148, align 8, !tbaa !95
+  store ptr %303, ptr %148, align 8, !tbaa !96
   br label %TERP_stk_ensure_capacity.exit.i169.i
 
 TERP_stk_ensure_capacity.exit.i169.i:             ; preds = %300, %294, %287
@@ -1422,9 +1422,9 @@ TERP_stk_ensure_capacity.exit.i169.i:             ; preds = %300, %294, %287
   br i1 %.not.i171.i, label %TERP_stk_push.exit173.i, label %305
 
 305:                                              ; preds = %TERP_stk_ensure_capacity.exit.i169.i
-  %306 = load ptr, ptr %148, align 8, !tbaa !95
+  %306 = load ptr, ptr %148, align 8, !tbaa !96
   %307 = getelementptr inbounds i8, ptr %306, i64 -8
-  store ptr %307, ptr %148, align 8, !tbaa !95
+  store ptr %307, ptr %148, align 8, !tbaa !96
   store i64 %.0190.i, ptr %307, align 1
   br label %TERP_stk_push.exit173.i
 
@@ -1435,8 +1435,8 @@ TERP_stk_push.exit173.i:                          ; preds = %305, %TERP_stk_ensu
   br i1 %.not113.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
 
 309:                                              ; preds = %206
-  %310 = load ptr, ptr %138, align 8, !tbaa !75
-  %311 = load ptr, ptr %136, align 8, !tbaa !72
+  %310 = load ptr, ptr %138, align 8, !tbaa !76
+  %311 = load ptr, ptr %136, align 8, !tbaa !73
   %312 = ptrtoint ptr %310 to i64
   %313 = ptrtoint ptr %311 to i64
   %314 = sub i64 %312, %313
@@ -1445,9 +1445,9 @@ TERP_stk_push.exit173.i:                          ; preds = %305, %TERP_stk_ensu
   br i1 %.not.i174.i, label %SRDR_get_operand.exit176.i, label %316
 
 316:                                              ; preds = %309
-  %317 = load ptr, ptr %136, align 8, !tbaa !72
+  %317 = load ptr, ptr %136, align 8, !tbaa !73
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
-  store ptr %318, ptr %136, align 8, !tbaa !72
+  store ptr %318, ptr %136, align 8, !tbaa !73
   br label %SRDR_get_operand.exit176.i
 
 SRDR_get_operand.exit176.i:                       ; preds = %316, %309
@@ -1457,8 +1457,8 @@ SRDR_get_operand.exit176.i:                       ; preds = %316, %309
   br i1 %.not111.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
 
 320:                                              ; preds = %206
-  %321 = load ptr, ptr %138, align 8, !tbaa !75
-  %322 = load ptr, ptr %136, align 8, !tbaa !72
+  %321 = load ptr, ptr %138, align 8, !tbaa !76
+  %322 = load ptr, ptr %136, align 8, !tbaa !73
   %323 = ptrtoint ptr %321 to i64
   %324 = ptrtoint ptr %322 to i64
   %325 = sub i64 %323, %324
@@ -1467,11 +1467,11 @@ SRDR_get_operand.exit176.i:                       ; preds = %316, %309
   br i1 %.not.i177.i, label %SRDR_get_operand.exit179.i, label %327
 
 327:                                              ; preds = %320
-  %328 = load ptr, ptr %136, align 8, !tbaa !72
+  %328 = load ptr, ptr %136, align 8, !tbaa !73
   %329 = load i64, ptr %328, align 1
   %330 = inttoptr i64 %329 to ptr
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 8
-  store ptr %331, ptr %136, align 8, !tbaa !72
+  store ptr %331, ptr %136, align 8, !tbaa !73
   br label %SRDR_get_operand.exit179.i
 
 SRDR_get_operand.exit179.i:                       ; preds = %327, %320
@@ -1482,8 +1482,8 @@ SRDR_get_operand.exit179.i:                       ; preds = %327, %320
   br i1 %.not101.i, label %TERP_log_spin.exit144.i, label %333
 
 333:                                              ; preds = %SRDR_get_operand.exit179.i
-  %334 = load ptr, ptr %138, align 8, !tbaa !75
-  %335 = load ptr, ptr %136, align 8, !tbaa !72
+  %334 = load ptr, ptr %138, align 8, !tbaa !76
+  %335 = load ptr, ptr %136, align 8, !tbaa !73
   %336 = ptrtoint ptr %334 to i64
   %337 = ptrtoint ptr %335 to i64
   %338 = sub i64 %336, %337
@@ -1492,11 +1492,11 @@ SRDR_get_operand.exit179.i:                       ; preds = %327, %320
   br i1 %.not.i180.i, label %SRDR_get_operand.exit182.i, label %340
 
 340:                                              ; preds = %333
-  %341 = load ptr, ptr %136, align 8, !tbaa !72
+  %341 = load ptr, ptr %136, align 8, !tbaa !73
   %342 = load i64, ptr %341, align 1
   %343 = inttoptr i64 %342 to ptr
   %344 = getelementptr inbounds nuw i8, ptr %341, i64 8
-  store ptr %344, ptr %136, align 8, !tbaa !72
+  store ptr %344, ptr %136, align 8, !tbaa !73
   br label %SRDR_get_operand.exit182.i
 
 SRDR_get_operand.exit182.i:                       ; preds = %340, %333
@@ -1515,7 +1515,7 @@ SRDR_get_operand.exit182.i:                       ; preds = %340, %333
 
 350:                                              ; preds = %346
   %351 = call i32 %.0189.i(ptr noundef nonnull %153) #12
-  %352 = load i32, ptr %154, align 4, !tbaa !102
+  %352 = load i32, ptr %154, align 4, !tbaa !103
   %.not104.i = icmp eq i32 %352, 0
   br i1 %.not104.i, label %360, label %353
 
@@ -1525,21 +1525,21 @@ SRDR_get_operand.exit182.i:                       ; preds = %340, %333
   br i1 %.not109.i, label %TERP_log_spin.exit144.i, label %355
 
 355:                                              ; preds = %353
-  %356 = load i32, ptr %147, align 8, !tbaa !90
+  %356 = load i32, ptr %147, align 8, !tbaa !91
   %.not110.i = icmp eq i32 %356, 0
   br i1 %.not110.i, label %.thread215.i, label %357
 
 357:                                              ; preds = %355
-  %358 = load ptr, ptr %7, align 8, !tbaa !91
+  %358 = load ptr, ptr %7, align 8, !tbaa !92
   %359 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %358, ptr noundef nonnull @.str.263) #12
   br label %.thread215.i
 
 .thread215.i:                                     ; preds = %357, %355
-  store i32 0, ptr %154, align 4, !tbaa !102
+  store i32 0, ptr %154, align 4, !tbaa !103
   br label %TERP_log_spin.exit144.i
 
 360:                                              ; preds = %350
-  %361 = load i32, ptr %155, align 8, !tbaa !103
+  %361 = load i32, ptr %155, align 8, !tbaa !104
   %.not105.i = icmp eq i32 %361, 0
   br i1 %.not105.i, label %364, label %362
 
@@ -1559,21 +1559,21 @@ SRDR_get_operand.exit182.i:                       ; preds = %340, %333
 
 .thread212.i.backedge:                            ; preds = %366, %SRDR_get_operand.exit176.i, %TERP_stk_push.exit173.i, %TERP_stk_push.exit162.i, %TERP_stk_push.exit.i
   %.089.i.be = phi i64 [ %.190291.i, %366 ], [ 0, %TERP_stk_push.exit173.i ], [ 0, %TERP_stk_push.exit162.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit176.i ]
-  br label %.thread212.i
+  br label %.thread212.i, !llvm.loop !105
 
 367:                                              ; preds = %366
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 793, ptr noundef nonnull @.str.266, i64 noundef %183, ptr noundef %.0188.i, i32 noundef %351) #12
   br label %TERP_log_spin.exit144.i
 
 368:                                              ; preds = %362
-  store i32 0, ptr %155, align 8, !tbaa !103
-  %369 = load ptr, ptr %139, align 8, !tbaa !76
-  store ptr %369, ptr %136, align 8, !tbaa !72
-  %370 = load ptr, ptr %149, align 8, !tbaa !96
-  store ptr %370, ptr %148, align 8, !tbaa !95
+  store i32 0, ptr %155, align 8, !tbaa !104
+  %369 = load ptr, ptr %139, align 8, !tbaa !77
+  store ptr %369, ptr %136, align 8, !tbaa !73
+  %370 = load ptr, ptr %149, align 8, !tbaa !97
+  store ptr %370, ptr %148, align 8, !tbaa !96
   %371 = add i64 %.190291.i, 1
-  %.val136.i = load ptr, ptr %141, align 8, !tbaa !92
-  %.val137.i = load ptr, ptr %142, align 8, !tbaa !93
+  %.val136.i = load ptr, ptr %141, align 8, !tbaa !93
+  %.val137.i = load ptr, ptr %142, align 8, !tbaa !94
   %372 = call i64 %.val136.i(ptr noundef %.val137.i) #12
   %373 = load i64, ptr %144, align 8
   %.not238.i = icmp ult i64 %372, %373
@@ -1601,8 +1601,8 @@ TERP_log_spin.exit144.i:                          ; preds = %364, %SRDR_get_oper
   %.184224232.i = phi i64 [ %.184.i, %375 ], [ %.184.i, %377 ], [ %.083.i, %.thread233.i ]
   %.081228231.i = phi i32 [ %.081.i, %375 ], [ %.081.i, %377 ], [ 0, %.thread233.i ]
   %379 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %380 = load ptr, ptr %379, align 8, !tbaa !83
-  %381 = load ptr, ptr %380, align 8, !tbaa !55
+  %380 = load ptr, ptr %379, align 8, !tbaa !84
+  %381 = load ptr, ptr %380, align 8, !tbaa !56
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 814, ptr noundef nonnull @.str.269, ptr noundef %381, i64 noundef %.184224232.i) #12
   br label %.sink.split.i
 
@@ -1617,7 +1617,7 @@ TERP_log_spin.exit144.i:                          ; preds = %364, %SRDR_get_oper
 
 .sink.split.i:                                    ; preds = %384, %378
   %.081228229.ph.i = phi i32 [ %.081.i, %384 ], [ %.081228231.i, %378 ]
-  %385 = load ptr, ptr %7, align 8, !tbaa !91
+  %385 = load ptr, ptr %7, align 8, !tbaa !92
   call void @ERR_print_errors(ptr noundef %385) #12
   %386 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %129, ptr noundef nonnull @.str.226) #12
   br label %TERP_execute.exit
@@ -1625,8 +1625,8 @@ TERP_log_spin.exit144.i:                          ; preds = %364, %SRDR_get_oper
 TERP_execute.exit:                                ; preds = %382, %.sink.split.i
   %.081228229.i = phi i32 [ %.081.i, %382 ], [ %.081228229.ph.i, %.sink.split.i ]
   %.not25 = icmp eq i32 %.081228229.i, 0
-  %.pre142 = load ptr, ptr %148, align 8, !tbaa !95
-  %.pre144 = load ptr, ptr %156, align 8, !tbaa !100
+  %.pre142 = load ptr, ptr %148, align 8, !tbaa !96
+  %.pre144 = load ptr, ptr %156, align 8, !tbaa !101
   br i1 %.not25, label %392, label %387
 
 387:                                              ; preds = %TERP_execute.exit
@@ -1638,8 +1638,8 @@ TERP_execute.exit:                                ; preds = %382, %.sink.split.i
   %390 = ptrtoint ptr %.pre144 to i64
   %391 = sub i64 %390, %389
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 862, ptr noundef nonnull @.str.211, i64 noundef %391) #12
-  %.pre = load ptr, ptr %148, align 8, !tbaa !95
-  %.pre143 = load ptr, ptr %156, align 8, !tbaa !100
+  %.pre = load ptr, ptr %148, align 8, !tbaa !96
+  %.pre143 = load ptr, ptr %156, align 8, !tbaa !101
   br label %392
 
 392:                                              ; preds = %388, %TERP_execute.exit, %387
@@ -1651,36 +1651,36 @@ TERP_execute.exit:                                ; preds = %382, %.sink.split.i
   %396 = ptrtoint ptr %394 to i64
   %397 = sub i64 %395, %396
   call void @test_output_memory(ptr noundef nonnull @.str.212, ptr noundef %394, i64 noundef %397) #12
-  %398 = load ptr, ptr %156, align 8, !tbaa !100
-  %399 = load ptr, ptr %148, align 8, !tbaa !95
+  %398 = load ptr, ptr %156, align 8, !tbaa !101
+  %399 = load ptr, ptr %148, align 8, !tbaa !96
   %400 = ptrtoint ptr %398 to i64
   %401 = ptrtoint ptr %399 to i64
   %402 = sub i64 %400, %401
   %403 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.273, i64 noundef %402) #12
   %404 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.226) #12
   %405 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %406 = load ptr, ptr %405, align 8, !tbaa !83
+  %406 = load ptr, ptr %405, align 8, !tbaa !84
   %407 = icmp eq ptr %406, null
   br i1 %407, label %TERP_cleanup.exit, label %408
 
 408:                                              ; preds = %392
-  %409 = load ptr, ptr %157, align 8, !tbaa !101
+  %409 = load ptr, ptr %157, align 8, !tbaa !102
   call void @CRYPTO_free(ptr noundef %409, ptr noundef nonnull @.str.42, i32 noundef 589) #12
-  store ptr null, ptr %405, align 8, !tbaa !83
+  store ptr null, ptr %405, align 8, !tbaa !84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %157, i8 0, i64 24, i1 false)
   br label %TERP_cleanup.exit
 
 TERP_cleanup.exit:                                ; preds = %68, %106, %TERP_init.exit, %408, %392
   %.043 = phi i32 [ %.0, %392 ], [ %.0, %408 ], [ 0, %TERP_init.exit ], [ 0, %106 ], [ 0, %68 ]
   %.not2842 = phi i1 [ %.not28, %392 ], [ %.not28, %408 ], [ true, %TERP_init.exit ], [ true, %106 ], [ true, %68 ]
-  %410 = load ptr, ptr %8, align 8, !tbaa !66
+  %410 = load ptr, ptr %8, align 8, !tbaa !67
   call void @CRYPTO_free(ptr noundef %410, ptr noundef nonnull @.str.42, i32 noundef 295) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %411 = getelementptr inbounds nuw i8, ptr %7, i64 144
-  %412 = load i64, ptr %411, align 8, !tbaa !97
+  %412 = load i64, ptr %411, align 8, !tbaa !98
   %413 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %9, ptr noundef nonnull @.str.213, i64 noundef %412) #12
-  %414 = load ptr, ptr %0, align 8, !tbaa !55
-  %415 = load ptr, ptr %11, align 8, !tbaa !57
+  %414 = load ptr, ptr %0, align 8, !tbaa !56
+  %415 = load ptr, ptr %11, align 8, !tbaa !58
   br i1 %.not2842, label %416, label %417
 
 416:                                              ; preds = %TERP_cleanup.exit
@@ -1708,211 +1708,211 @@ define internal void @script_gen_simple_conn(ptr noundef initializes((8, 16), (2
 
 4:                                                ; preds = %1, %8
   %5 = phi i1 [ true, %1 ], [ false, %8 ]
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %4
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.25)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 3)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_ssl, ptr noundef nonnull @.str.26)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.25)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 25, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 25, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_ssl_listener_from, ptr noundef nonnull @.str.29)
   br label %8
 
 7:                                                ; preds = %4
-  store i32 27, ptr %3, align 4, !tbaa !105
+  store i32 27, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_clear, ptr noundef nonnull @.str.34)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 28, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 28, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 28, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 28, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 28, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 28, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_ssl, ptr noundef nonnull @.str.26)
   br label %8
 
 8:                                                ; preds = %7, %6
   %.sink185 = phi i32 [ 28, %7 ], [ 25, %6 ]
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_listen, ptr noundef nonnull @.str.30)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_ssl, ptr noundef nonnull @.str.26)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_set_peer_addr_from, ptr noundef nonnull @.str.32)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 %.sink185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 %.sink185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_connect_wait, ptr noundef nonnull @.str.33)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 31, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 31, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 31, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 31, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 31, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 31, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 31, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 31, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 31, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 31, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 6)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 31, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 31, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 33, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 33, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 33, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 33, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 33, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 33, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 33, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 33, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 33, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 33, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 33, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 33, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_accept_conn, ptr noundef nonnull @.str.38)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 34, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 34, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 34, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 34, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 34, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 34, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 34, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 34, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_accept_conn_none, ptr noundef nonnull @.str.39)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 36, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 36, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 36, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 36, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 36, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 36, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 36, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 36, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.35)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 36, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 36, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 6)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 36, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 36, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 37, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 37, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 37, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 37, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 37, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 37, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 37, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 37, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.41)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 37, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 37, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 7)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 37, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 37, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 38, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 38, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 38, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 38, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 38, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 38, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 38, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 38, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.41)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 38, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 38, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 7)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 38, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 38, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
-  br i1 %5, label %4, label %9, !llvm.loop !106
+  br i1 %5, label %4, label %9, !llvm.loop !108
 
 9:                                                ; preds = %8
   ret void
@@ -1921,9 +1921,9 @@ define internal void @script_gen_simple_conn(ptr noundef initializes((8, 16), (2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @opgen_PUSH_PZ(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -1932,7 +1932,7 @@ define internal fastcc void @opgen_PUSH_PZ(ptr noundef captures(none) %0, ptr no
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %7, %14
   %16 = icmp eq ptr %4, %13
@@ -1945,16 +1945,16 @@ define internal fastcc void @opgen_PUSH_PZ(ptr noundef captures(none) %0, ptr no
 
 21:                                               ; preds = %11
   %22 = sub i64 %8, %14
-  store ptr %19, ptr %12, align 8, !tbaa !64
+  store ptr %19, ptr %12, align 8, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %18
-  store ptr %24, ptr %3, align 8, !tbaa !62
+  store ptr %24, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i
 
 openc_alloc_space.exit.i:                         ; preds = %21, %2
   %25 = phi ptr [ %23, %21 ], [ %6, %2 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %26, ptr %5, align 8, !tbaa !63
+  store ptr %26, ptr %5, align 8, !tbaa !64
   %27 = icmp eq ptr %25, null
   br i1 %27, label %openc_u64.exit, label %28
 
@@ -1963,8 +1963,8 @@ openc_alloc_space.exit.i:                         ; preds = %21, %2
   br label %openc_u64.exit
 
 openc_u64.exit:                                   ; preds = %11, %openc_alloc_space.exit.i, %28
-  %29 = load ptr, ptr %3, align 8, !tbaa !62
-  %30 = load ptr, ptr %5, align 8, !tbaa !63
+  %29 = load ptr, ptr %3, align 8, !tbaa !63
+  %30 = load ptr, ptr %5, align 8, !tbaa !64
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
@@ -1973,7 +1973,7 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 35:                                               ; preds = %openc_u64.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %31, %38
   %40 = icmp eq ptr %29, %37
@@ -1986,16 +1986,16 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 45:                                               ; preds = %35
   %46 = sub i64 %32, %38
-  store ptr %43, ptr %36, align 8, !tbaa !64
+  store ptr %43, ptr %36, align 8, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %42
-  store ptr %48, ptr %3, align 8, !tbaa !62
+  store ptr %48, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i3
 
 openc_alloc_space.exit.i3:                        ; preds = %45, %openc_u64.exit
   %49 = phi ptr [ %47, %45 ], [ %30, %openc_u64.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %50, ptr %5, align 8, !tbaa !63
+  store ptr %50, ptr %5, align 8, !tbaa !64
   %51 = icmp eq ptr %49, null
   br i1 %51, label %openc_p.exit, label %52
 
@@ -2010,9 +2010,9 @@ openc_p.exit:                                     ; preds = %35, %openc_alloc_sp
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @opgen_PUSH_U64(ptr noundef captures(none) %0, i64 noundef range(i64 0, 101) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -2021,7 +2021,7 @@ define internal fastcc void @opgen_PUSH_U64(ptr noundef captures(none) %0, i64 n
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %7, %14
   %16 = icmp eq ptr %4, %13
@@ -2034,16 +2034,16 @@ define internal fastcc void @opgen_PUSH_U64(ptr noundef captures(none) %0, i64 n
 
 21:                                               ; preds = %11
   %22 = sub i64 %8, %14
-  store ptr %19, ptr %12, align 8, !tbaa !64
+  store ptr %19, ptr %12, align 8, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %18
-  store ptr %24, ptr %3, align 8, !tbaa !62
+  store ptr %24, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i
 
 openc_alloc_space.exit.i:                         ; preds = %21, %2
   %25 = phi ptr [ %23, %21 ], [ %6, %2 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %26, ptr %5, align 8, !tbaa !63
+  store ptr %26, ptr %5, align 8, !tbaa !64
   %27 = icmp eq ptr %25, null
   br i1 %27, label %openc_u64.exit, label %28
 
@@ -2052,8 +2052,8 @@ openc_alloc_space.exit.i:                         ; preds = %21, %2
   br label %openc_u64.exit
 
 openc_u64.exit:                                   ; preds = %11, %openc_alloc_space.exit.i, %28
-  %29 = load ptr, ptr %3, align 8, !tbaa !62
-  %30 = load ptr, ptr %5, align 8, !tbaa !63
+  %29 = load ptr, ptr %3, align 8, !tbaa !63
+  %30 = load ptr, ptr %5, align 8, !tbaa !64
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
@@ -2062,7 +2062,7 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 35:                                               ; preds = %openc_u64.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %31, %38
   %40 = icmp eq ptr %29, %37
@@ -2075,16 +2075,16 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 45:                                               ; preds = %35
   %46 = sub i64 %32, %38
-  store ptr %43, ptr %36, align 8, !tbaa !64
+  store ptr %43, ptr %36, align 8, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %42
-  store ptr %48, ptr %3, align 8, !tbaa !62
+  store ptr %48, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i2
 
 openc_alloc_space.exit.i2:                        ; preds = %45, %openc_u64.exit
   %49 = phi ptr [ %47, %45 ], [ %30, %openc_u64.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %50, ptr %5, align 8, !tbaa !63
+  store ptr %50, ptr %5, align 8, !tbaa !64
   %51 = icmp eq ptr %49, null
   br i1 %51, label %openc_u64.exit4, label %52
 
@@ -2099,9 +2099,9 @@ openc_u64.exit4:                                  ; preds = %35, %openc_alloc_sp
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @opgen_FUNC(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %5 = load ptr, ptr %4, align 8, !tbaa !62
+  %5 = load ptr, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -2110,7 +2110,7 @@ define internal fastcc void @opgen_FUNC(ptr noundef captures(none) %0, ptr nound
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %14 = load ptr, ptr %13, align 8, !tbaa !64
+  %14 = load ptr, ptr %13, align 8, !tbaa !65
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %8, %15
   %17 = icmp eq ptr %5, %14
@@ -2123,16 +2123,16 @@ define internal fastcc void @opgen_FUNC(ptr noundef captures(none) %0, ptr nound
 
 22:                                               ; preds = %12
   %23 = sub i64 %9, %15
-  store ptr %20, ptr %13, align 8, !tbaa !64
+  store ptr %20, ptr %13, align 8, !tbaa !65
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 %19
-  store ptr %25, ptr %4, align 8, !tbaa !62
+  store ptr %25, ptr %4, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i
 
 openc_alloc_space.exit.i:                         ; preds = %22, %3
   %26 = phi ptr [ %24, %22 ], [ %7, %3 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store ptr %27, ptr %6, align 8, !tbaa !63
+  store ptr %27, ptr %6, align 8, !tbaa !64
   %28 = icmp eq ptr %26, null
   br i1 %28, label %openc_u64.exit, label %29
 
@@ -2141,8 +2141,8 @@ openc_alloc_space.exit.i:                         ; preds = %22, %3
   br label %openc_u64.exit
 
 openc_u64.exit:                                   ; preds = %12, %openc_alloc_space.exit.i, %29
-  %30 = load ptr, ptr %4, align 8, !tbaa !62
-  %31 = load ptr, ptr %6, align 8, !tbaa !63
+  %30 = load ptr, ptr %4, align 8, !tbaa !63
+  %31 = load ptr, ptr %6, align 8, !tbaa !64
   %32 = ptrtoint ptr %30 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
@@ -2151,7 +2151,7 @@ openc_u64.exit:                                   ; preds = %12, %openc_alloc_sp
 
 36:                                               ; preds = %openc_u64.exit
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %38 = load ptr, ptr %37, align 8, !tbaa !64
+  %38 = load ptr, ptr %37, align 8, !tbaa !65
   %39 = ptrtoint ptr %38 to i64
   %40 = sub i64 %32, %39
   %41 = icmp eq ptr %30, %38
@@ -2164,16 +2164,16 @@ openc_u64.exit:                                   ; preds = %12, %openc_alloc_sp
 
 46:                                               ; preds = %36
   %47 = sub i64 %33, %39
-  store ptr %44, ptr %37, align 8, !tbaa !64
+  store ptr %44, ptr %37, align 8, !tbaa !65
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 %43
-  store ptr %49, ptr %4, align 8, !tbaa !62
+  store ptr %49, ptr %4, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i5
 
 openc_alloc_space.exit.i5:                        ; preds = %46, %openc_u64.exit
   %50 = phi ptr [ %48, %46 ], [ %31, %openc_u64.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %51, ptr %6, align 8, !tbaa !63
+  store ptr %51, ptr %6, align 8, !tbaa !64
   %52 = icmp eq ptr %50, null
   br i1 %52, label %openc_fp.exit, label %53
 
@@ -2182,8 +2182,8 @@ openc_alloc_space.exit.i5:                        ; preds = %46, %openc_u64.exit
   br label %openc_fp.exit
 
 openc_fp.exit:                                    ; preds = %36, %openc_alloc_space.exit.i5, %53
-  %54 = load ptr, ptr %4, align 8, !tbaa !62
-  %55 = load ptr, ptr %6, align 8, !tbaa !63
+  %54 = load ptr, ptr %4, align 8, !tbaa !63
+  %55 = load ptr, ptr %6, align 8, !tbaa !64
   %56 = ptrtoint ptr %54 to i64
   %57 = ptrtoint ptr %55 to i64
   %58 = sub i64 %56, %57
@@ -2192,7 +2192,7 @@ openc_fp.exit:                                    ; preds = %36, %openc_alloc_sp
 
 60:                                               ; preds = %openc_fp.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %62 = load ptr, ptr %61, align 8, !tbaa !64
+  %62 = load ptr, ptr %61, align 8, !tbaa !65
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %56, %63
   %65 = icmp eq ptr %54, %62
@@ -2205,16 +2205,16 @@ openc_fp.exit:                                    ; preds = %36, %openc_alloc_sp
 
 70:                                               ; preds = %60
   %71 = sub i64 %57, %63
-  store ptr %68, ptr %61, align 8, !tbaa !64
+  store ptr %68, ptr %61, align 8, !tbaa !65
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 %67
-  store ptr %73, ptr %4, align 8, !tbaa !62
+  store ptr %73, ptr %4, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i7
 
 openc_alloc_space.exit.i7:                        ; preds = %70, %openc_fp.exit
   %74 = phi ptr [ %72, %70 ], [ %55, %openc_fp.exit ]
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %75, ptr %6, align 8, !tbaa !63
+  store ptr %75, ptr %6, align 8, !tbaa !64
   %76 = icmp eq ptr %74, null
   br i1 %76, label %openc_p.exit, label %77
 
@@ -2228,11 +2228,11 @@ openc_p.exit:                                     ; preds = %60, %openc_alloc_sp
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @hf_new_ssl(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !107
+  %2 = load ptr, ptr %0, align 8, !tbaa !109
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !95
+  %6 = load ptr, ptr %5, align 8, !tbaa !96
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -2241,10 +2241,10 @@ define internal range(i32 0, 2) i32 @hf_new_ssl(ptr noundef readonly captures(no
   br i1 %.not.i, label %TERP_stk_pop.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %5, align 8, !tbaa !95
+  %12 = load ptr, ptr %5, align 8, !tbaa !96
   %13 = load i64, ptr %12, align 1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %5, align 8, !tbaa !95
+  store ptr %14, ptr %5, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %11
@@ -2255,11 +2255,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %11
   br i1 %.not, label %84, label %16
 
 16:                                               ; preds = %TERP_stk_pop.exit
-  %17 = load ptr, ptr %0, align 8, !tbaa !107
+  %17 = load ptr, ptr %0, align 8, !tbaa !109
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 112
-  %19 = load ptr, ptr %18, align 8, !tbaa !100
+  %19 = load ptr, ptr %18, align 8, !tbaa !101
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 104
-  %21 = load ptr, ptr %20, align 8, !tbaa !95
+  %21 = load ptr, ptr %20, align 8, !tbaa !96
   %22 = ptrtoint ptr %19 to i64
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %22, %23
@@ -2268,11 +2268,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %11
   br i1 %.not.i32, label %TERP_stk_pop.exit34, label %26
 
 26:                                               ; preds = %16
-  %27 = load ptr, ptr %20, align 8, !tbaa !95
+  %27 = load ptr, ptr %20, align 8, !tbaa !96
   %28 = load i64, ptr %27, align 1
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %30, ptr %20, align 8, !tbaa !95
+  store ptr %30, ptr %20, align 8, !tbaa !96
   br label %TERP_stk_pop.exit34
 
 TERP_stk_pop.exit34:                              ; preds = %16, %26
@@ -2333,14 +2333,14 @@ TERP_stk_pop.exit34:                              ; preds = %16, %26
   br label %56
 
 56:                                               ; preds = %55, %53
-  %57 = load ptr, ptr @cert_file, align 8, !tbaa !43
+  %57 = load ptr, ptr @cert_file, align 8, !tbaa !44
   %58 = tail call i32 @SSL_CTX_use_certificate_file(ptr noundef %41, ptr noundef %57, i32 noundef 1) #12
   %59 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.44, i32 noundef 54, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, i32 noundef %58, i32 noundef 1) #12
   %.not8.i = icmp eq i32 %59, 0
   br i1 %.not8.i, label %ssl_ctx_configure.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = load ptr, ptr @key_file, align 8, !tbaa !43
+  %61 = load ptr, ptr @key_file, align 8, !tbaa !44
   %62 = tail call i32 @SSL_CTX_use_PrivateKey_file(ptr noundef %41, ptr noundef %61, i32 noundef 1) #12
   %63 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.44, i32 noundef 56, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.60, i32 noundef %62, i32 noundef 1) #12
   %.not9.i = icmp eq i32 %63, 0
@@ -2411,11 +2411,11 @@ ssl_ctx_configure.exit:                           ; preds = %48, %56, %60, %64
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @hf_select_ssl(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca %struct.radix_obj_st, align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !107
+  %3 = load ptr, ptr %0, align 8, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load ptr, ptr %4, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -2424,11 +2424,11 @@ define internal range(i32 0, 2) i32 @hf_select_ssl(ptr noundef readonly captures
   br i1 %.not.i, label %TERP_stk_pop.exit, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %6, align 8, !tbaa !95
+  %13 = load ptr, ptr %6, align 8, !tbaa !96
   %14 = load i64, ptr %13, align 1
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %16, ptr %6, align 8, !tbaa !95
+  store ptr %16, ptr %6, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %12
@@ -2439,11 +2439,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not, label %48, label %18
 
 18:                                               ; preds = %TERP_stk_pop.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !107
+  %19 = load ptr, ptr %0, align 8, !tbaa !109
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
-  %21 = load ptr, ptr %20, align 8, !tbaa !100
+  %21 = load ptr, ptr %20, align 8, !tbaa !101
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %23 = load ptr, ptr %22, align 8, !tbaa !95
+  %23 = load ptr, ptr %22, align 8, !tbaa !96
   %24 = ptrtoint ptr %21 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
@@ -2452,10 +2452,10 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not.i7, label %TERP_stk_pop.exit9, label %28
 
 28:                                               ; preds = %18
-  %29 = load ptr, ptr %22, align 8, !tbaa !95
+  %29 = load ptr, ptr %22, align 8, !tbaa !96
   %30 = load i64, ptr %29, align 1
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %31, ptr %22, align 8, !tbaa !95
+  store ptr %31, ptr %22, align 8, !tbaa !96
   br label %TERP_stk_pop.exit9
 
 TERP_stk_pop.exit9:                               ; preds = %18, %28
@@ -2467,7 +2467,7 @@ TERP_stk_pop.exit9:                               ; preds = %18, %28
 
 33:                                               ; preds = %TERP_stk_pop.exit9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
-  store ptr %.012, ptr %2, align 8, !tbaa !46
+  store ptr %.012, ptr %2, align 8, !tbaa !47
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 40), align 8, !tbaa !18
   %35 = call ptr @OPENSSL_LH_retrieve(ptr noundef %34, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
@@ -2484,13 +2484,13 @@ TERP_stk_pop.exit9:                               ; preds = %18, %28
   %40 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = getelementptr inbounds nuw [8 x ptr], ptr %41, i64 0, i64 %.013
-  store ptr %35, ptr %42, align 8, !tbaa !44
+  store ptr %35, ptr %42, align 8, !tbaa !45
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !108
+  %44 = load ptr, ptr %43, align 8, !tbaa !110
   %45 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 104
   %47 = getelementptr inbounds nuw [8 x ptr], ptr %46, i64 0, i64 %.013
-  store ptr %44, ptr %47, align 8, !tbaa !49
+  store ptr %44, ptr %47, align 8, !tbaa !50
   br label %48
 
 48:                                               ; preds = %37, %33, %TERP_stk_pop.exit9, %TERP_stk_pop.exit, %39
@@ -2508,7 +2508,7 @@ define internal range(i32 0, 2) i32 @hf_new_ssl_listener_from(ptr noundef readon
 4:                                                ; preds = %1
   %5 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !49
+  %7 = load ptr, ptr %6, align 8, !tbaa !50
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %7) #12
   %.not3.i = icmp ne i32 %8, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -2522,11 +2522,11 @@ expect_slot_ssl.exit:                             ; preds = %1, %4
   br i1 %.not, label %radix_activate_slot.exit, label %10
 
 10:                                               ; preds = %expect_slot_ssl.exit
-  %11 = load ptr, ptr %0, align 8, !tbaa !107
+  %11 = load ptr, ptr %0, align 8, !tbaa !109
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
-  %13 = load ptr, ptr %12, align 8, !tbaa !100
+  %13 = load ptr, ptr %12, align 8, !tbaa !101
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 104
-  %15 = load ptr, ptr %14, align 8, !tbaa !95
+  %15 = load ptr, ptr %14, align 8, !tbaa !96
   %16 = ptrtoint ptr %13 to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -2535,10 +2535,10 @@ expect_slot_ssl.exit:                             ; preds = %1, %4
   br i1 %.not.i12, label %TERP_stk_pop.exit, label %20
 
 20:                                               ; preds = %10
-  %21 = load ptr, ptr %14, align 8, !tbaa !95
+  %21 = load ptr, ptr %14, align 8, !tbaa !96
   %22 = load i64, ptr %21, align 1
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store ptr %23, ptr %14, align 8, !tbaa !95
+  store ptr %23, ptr %14, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %10, %20
@@ -2549,11 +2549,11 @@ TERP_stk_pop.exit:                                ; preds = %10, %20
   br i1 %.not6, label %radix_activate_slot.exit, label %25
 
 25:                                               ; preds = %TERP_stk_pop.exit
-  %26 = load ptr, ptr %0, align 8, !tbaa !107
+  %26 = load ptr, ptr %0, align 8, !tbaa !109
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
-  %28 = load ptr, ptr %27, align 8, !tbaa !100
+  %28 = load ptr, ptr %27, align 8, !tbaa !101
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 104
-  %30 = load ptr, ptr %29, align 8, !tbaa !95
+  %30 = load ptr, ptr %29, align 8, !tbaa !96
   %31 = ptrtoint ptr %28 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
@@ -2562,11 +2562,11 @@ TERP_stk_pop.exit:                                ; preds = %10, %20
   br i1 %.not.i14, label %TERP_stk_pop.exit16, label %35
 
 35:                                               ; preds = %25
-  %36 = load ptr, ptr %29, align 8, !tbaa !95
+  %36 = load ptr, ptr %29, align 8, !tbaa !96
   %37 = load i64, ptr %36, align 1
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %39, ptr %29, align 8, !tbaa !95
+  store ptr %39, ptr %29, align 8, !tbaa !96
   br label %TERP_stk_pop.exit16
 
 TERP_stk_pop.exit16:                              ; preds = %25, %35
@@ -2578,7 +2578,7 @@ TERP_stk_pop.exit16:                              ; preds = %25, %35
 
 41:                                               ; preds = %TERP_stk_pop.exit16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
-  store ptr %.020, ptr %2, align 8, !tbaa !46
+  store ptr %.020, ptr %2, align 8, !tbaa !47
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 40), align 8, !tbaa !18
   %43 = call ptr @OPENSSL_LH_retrieve(ptr noundef %42, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
@@ -2611,7 +2611,7 @@ TERP_stk_pop.exit16:                              ; preds = %25, %35
 55:                                               ; preds = %51
   %56 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  %58 = load ptr, ptr %57, align 8, !tbaa !44
+  %58 = load ptr, ptr %57, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %58, null
   br i1 %.not.i.i, label %radix_activate_slot.exit, label %59
 
@@ -2636,7 +2636,7 @@ define internal range(i32 0, 2) i32 @hf_listen(ptr readnone captures(none) %0) #
 3:                                                ; preds = %1
   %4 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %6) #12
   %.not3.i = icmp ne i32 %7, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -2665,7 +2665,7 @@ expect_slot_ssl.exit:                             ; preds = %1, %3
 17:                                               ; preds = %14
   %18 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !44
+  %20 = load ptr, ptr %19, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %radix_activate_slot.exit, label %21
 
@@ -2686,7 +2686,7 @@ define internal range(i32 0, 2) i32 @hf_set_peer_addr_from(ptr readnone captures
   %2 = alloca i32, align 4
   %3 = alloca %union.BIO_sock_info_u, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
-  store i32 -1, ptr %2, align 4, !tbaa !71
+  store i32 -1, ptr %2, align 4, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %4 = tail call i32 @test_size_t_lt(ptr noundef nonnull @.str.74, i32 noundef 670, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.86, i64 noundef 0, i64 noundef 8) #12
   %.not.i = icmp eq i32 %4, 0
@@ -2695,7 +2695,7 @@ define internal range(i32 0, 2) i32 @hf_set_peer_addr_from(ptr readnone captures
 5:                                                ; preds = %1
   %6 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %8 = load ptr, ptr %7, align 8, !tbaa !49
+  %8 = load ptr, ptr %7, align 8, !tbaa !50
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %8) #12
   %.not3.i = icmp ne i32 %9, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -2716,7 +2716,7 @@ expect_slot_ssl.exit:                             ; preds = %1, %5
 13:                                               ; preds = %11
   %14 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
-  %16 = load ptr, ptr %15, align 8, !tbaa !49
+  %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %16) #12
   %.not3.i21 = icmp ne i32 %17, 0
   %spec.select.i22 = zext i1 %.not3.i21 to i32
@@ -2756,14 +2756,14 @@ expect_slot_ssl.exit24:                           ; preds = %11, %13
   br i1 %.not15, label %52, label %33
 
 33:                                               ; preds = %28
-  %34 = load i32, ptr %2, align 4, !tbaa !71
+  %34 = load i32, ptr %2, align 4, !tbaa !72
   %35 = call i32 @test_int_ge(ptr noundef nonnull @.str.44, i32 noundef 955, ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.67, i32 noundef %34, i32 noundef 0) #12
   %.not16 = icmp eq i32 %35, 0
   br i1 %.not16, label %52, label %36
 
 36:                                               ; preds = %33
   store ptr %26, ptr %3, align 8, !tbaa !21
-  %37 = load i32, ptr %2, align 4, !tbaa !71
+  %37 = load i32, ptr %2, align 4, !tbaa !72
   %38 = call i32 @BIO_sock_info(i32 noundef %37, i32 noundef 0, ptr noundef nonnull %3) #12
   %39 = icmp ne i32 %38, 0
   %40 = zext i1 %39 to i32
@@ -2807,7 +2807,7 @@ define internal range(i32 0, 3) i32 @hf_connect_wait(ptr noundef writeonly captu
 3:                                                ; preds = %1
   %4 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %6) #12
   %.not3.i = icmp ne i32 %7, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -2823,7 +2823,7 @@ expect_slot_ssl.exit:                             ; preds = %1, %3
 9:                                                ; preds = %expect_slot_ssl.exit
   %10 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
-  %12 = load i64, ptr %11, align 8, !tbaa !109
+  %12 = load i64, ptr %11, align 8, !tbaa !111
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %24
 
@@ -2846,11 +2846,11 @@ expect_slot_ssl.exit:                             ; preds = %1, %3
 24:                                               ; preds = %19, %9
   %25 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 200
-  store i64 1, ptr %26, align 8, !tbaa !109
+  store i64 1, ptr %26, align 8, !tbaa !111
   %27 = tail call i32 @SSL_connect(ptr noundef %.019) #12
   %28 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  %30 = load ptr, ptr %29, align 8, !tbaa !44
+  %30 = load ptr, ptr %29, align 8, !tbaa !45
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %radix_activate_slot.exit, label %31
 
@@ -2881,7 +2881,7 @@ radix_activate_slot.exit:                         ; preds = %24, %31
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %44, align 8, !tbaa !110
+  store i32 1, ptr %44, align 8, !tbaa !112
   br label %48
 
 45:                                               ; preds = %40
@@ -2896,7 +2896,7 @@ radix_activate_slot.exit:                         ; preds = %24, %31
   %.07 = phi i32 [ 2, %43 ], [ 1, %47 ], [ 0, %45 ], [ 0, %radix_activate_slot.exit ], [ 0, %19 ], [ 0, %expect_slot_ssl.exit ]
   %49 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 200
-  store i64 0, ptr %50, align 8, !tbaa !109
+  store i64 0, ptr %50, align 8, !tbaa !111
   br label %51
 
 51:                                               ; preds = %14, %48
@@ -2923,9 +2923,9 @@ define internal noundef i32 @hf_clear(ptr readnone captures(none) %0) #1 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @opgen_PUSH_P(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -2934,7 +2934,7 @@ define internal fastcc void @opgen_PUSH_P(ptr noundef captures(none) %0, ptr nou
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %7, %14
   %16 = icmp eq ptr %4, %13
@@ -2947,16 +2947,16 @@ define internal fastcc void @opgen_PUSH_P(ptr noundef captures(none) %0, ptr nou
 
 21:                                               ; preds = %11
   %22 = sub i64 %8, %14
-  store ptr %19, ptr %12, align 8, !tbaa !64
+  store ptr %19, ptr %12, align 8, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %18
-  store ptr %24, ptr %3, align 8, !tbaa !62
+  store ptr %24, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i
 
 openc_alloc_space.exit.i:                         ; preds = %21, %2
   %25 = phi ptr [ %23, %21 ], [ %6, %2 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %26, ptr %5, align 8, !tbaa !63
+  store ptr %26, ptr %5, align 8, !tbaa !64
   %27 = icmp eq ptr %25, null
   br i1 %27, label %openc_u64.exit, label %28
 
@@ -2965,8 +2965,8 @@ openc_alloc_space.exit.i:                         ; preds = %21, %2
   br label %openc_u64.exit
 
 openc_u64.exit:                                   ; preds = %11, %openc_alloc_space.exit.i, %28
-  %29 = load ptr, ptr %3, align 8, !tbaa !62
-  %30 = load ptr, ptr %5, align 8, !tbaa !63
+  %29 = load ptr, ptr %3, align 8, !tbaa !63
+  %30 = load ptr, ptr %5, align 8, !tbaa !64
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
@@ -2975,7 +2975,7 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 35:                                               ; preds = %openc_u64.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %31, %38
   %40 = icmp eq ptr %29, %37
@@ -2988,16 +2988,16 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 45:                                               ; preds = %35
   %46 = sub i64 %32, %38
-  store ptr %43, ptr %36, align 8, !tbaa !64
+  store ptr %43, ptr %36, align 8, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %42
-  store ptr %48, ptr %3, align 8, !tbaa !62
+  store ptr %48, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i3
 
 openc_alloc_space.exit.i3:                        ; preds = %45, %openc_u64.exit
   %49 = phi ptr [ %47, %45 ], [ %30, %openc_u64.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %50, ptr %5, align 8, !tbaa !63
+  store ptr %50, ptr %5, align 8, !tbaa !64
   %51 = icmp eq ptr %49, null
   br i1 %51, label %openc_p.exit, label %52
 
@@ -3012,9 +3012,9 @@ openc_p.exit:                                     ; preds = %35, %openc_alloc_sp
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @opgen_PUSH_SIZE(ptr noundef captures(none) %0, i64 noundef range(i64 4, 12) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %4 = load ptr, ptr %3, align 8, !tbaa !62
+  %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !63
+  %6 = load ptr, ptr %5, align 8, !tbaa !64
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -3023,7 +3023,7 @@ define internal fastcc void @opgen_PUSH_SIZE(ptr noundef captures(none) %0, i64 
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %7, %14
   %16 = icmp eq ptr %4, %13
@@ -3036,16 +3036,16 @@ define internal fastcc void @opgen_PUSH_SIZE(ptr noundef captures(none) %0, i64 
 
 21:                                               ; preds = %11
   %22 = sub i64 %8, %14
-  store ptr %19, ptr %12, align 8, !tbaa !64
+  store ptr %19, ptr %12, align 8, !tbaa !65
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 %18
-  store ptr %24, ptr %3, align 8, !tbaa !62
+  store ptr %24, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i
 
 openc_alloc_space.exit.i:                         ; preds = %21, %2
   %25 = phi ptr [ %23, %21 ], [ %6, %2 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %26, ptr %5, align 8, !tbaa !63
+  store ptr %26, ptr %5, align 8, !tbaa !64
   %27 = icmp eq ptr %25, null
   br i1 %27, label %openc_u64.exit, label %28
 
@@ -3054,8 +3054,8 @@ openc_alloc_space.exit.i:                         ; preds = %21, %2
   br label %openc_u64.exit
 
 openc_u64.exit:                                   ; preds = %11, %openc_alloc_space.exit.i, %28
-  %29 = load ptr, ptr %3, align 8, !tbaa !62
-  %30 = load ptr, ptr %5, align 8, !tbaa !63
+  %29 = load ptr, ptr %3, align 8, !tbaa !63
+  %30 = load ptr, ptr %5, align 8, !tbaa !64
   %31 = ptrtoint ptr %29 to i64
   %32 = ptrtoint ptr %30 to i64
   %33 = sub i64 %31, %32
@@ -3064,7 +3064,7 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 35:                                               ; preds = %openc_u64.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %37 = load ptr, ptr %36, align 8, !tbaa !64
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = ptrtoint ptr %37 to i64
   %39 = sub i64 %31, %38
   %40 = icmp eq ptr %29, %37
@@ -3077,16 +3077,16 @@ openc_u64.exit:                                   ; preds = %11, %openc_alloc_sp
 
 45:                                               ; preds = %35
   %46 = sub i64 %32, %38
-  store ptr %43, ptr %36, align 8, !tbaa !64
+  store ptr %43, ptr %36, align 8, !tbaa !65
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %42
-  store ptr %48, ptr %3, align 8, !tbaa !62
+  store ptr %48, ptr %3, align 8, !tbaa !63
   br label %openc_alloc_space.exit.i2
 
 openc_alloc_space.exit.i2:                        ; preds = %45, %openc_u64.exit
   %49 = phi ptr [ %47, %45 ], [ %30, %openc_u64.exit ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %50, ptr %5, align 8, !tbaa !63
+  store ptr %50, ptr %5, align 8, !tbaa !64
   %51 = icmp eq ptr %49, null
   br i1 %51, label %openc_size.exit, label %52
 
@@ -3102,12 +3102,12 @@ openc_size.exit:                                  ; preds = %35, %openc_alloc_sp
 define internal range(i32 0, 2) i32 @hf_write(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 0, ptr %2, align 8, !tbaa !82
-  %3 = load ptr, ptr %0, align 8, !tbaa !107
+  store i64 0, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %0, align 8, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load ptr, ptr %4, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -3116,10 +3116,10 @@ define internal range(i32 0, 2) i32 @hf_write(ptr noundef readonly captures(none
   br i1 %.not.i, label %TERP_stk_pop.exit, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %6, align 8, !tbaa !95
+  %13 = load ptr, ptr %6, align 8, !tbaa !96
   %14 = load i64, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %15, ptr %6, align 8, !tbaa !95
+  store ptr %15, ptr %6, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %12
@@ -3130,11 +3130,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not, label %51, label %17
 
 17:                                               ; preds = %TERP_stk_pop.exit
-  %18 = load ptr, ptr %0, align 8, !tbaa !107
+  %18 = load ptr, ptr %0, align 8, !tbaa !109
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %20 = load ptr, ptr %19, align 8, !tbaa !100
+  %20 = load ptr, ptr %19, align 8, !tbaa !101
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %22 = load ptr, ptr %21, align 8, !tbaa !95
+  %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -3143,11 +3143,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not.i10, label %TERP_stk_pop.exit12, label %27
 
 27:                                               ; preds = %17
-  %28 = load ptr, ptr %21, align 8, !tbaa !95
+  %28 = load ptr, ptr %21, align 8, !tbaa !96
   %29 = load i64, ptr %28, align 1
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %31, ptr %21, align 8, !tbaa !95
+  store ptr %31, ptr %21, align 8, !tbaa !96
   br label %TERP_stk_pop.exit12
 
 TERP_stk_pop.exit12:                              ; preds = %17, %27
@@ -3165,7 +3165,7 @@ TERP_stk_pop.exit12:                              ; preds = %17, %27
 35:                                               ; preds = %33
   %36 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
-  %38 = load ptr, ptr %37, align 8, !tbaa !49
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %38) #12
   %.not3.i = icmp ne i32 %39, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -3192,7 +3192,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
   br i1 %.not8, label %51, label %48
 
 48:                                               ; preds = %46
-  %49 = load i64, ptr %2, align 8, !tbaa !82
+  %49 = load i64, ptr %2, align 8, !tbaa !83
   %50 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.44, i32 noundef 552, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.56, i64 noundef %49, i64 noundef %.018) #12
   %.not9 = icmp ne i32 %50, 0
   %spec.select = zext i1 %.not9 to i32
@@ -3207,11 +3207,11 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @hf_accept_conn(ptr noundef captures(none) %0) #1 {
   %2 = alloca %struct.radix_obj_st, align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !107
+  %3 = load ptr, ptr %0, align 8, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load ptr, ptr %4, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -3220,10 +3220,10 @@ define internal range(i32 0, 3) i32 @hf_accept_conn(ptr noundef captures(none) %
   br i1 %.not.i, label %TERP_stk_pop.exit, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %6, align 8, !tbaa !95
+  %13 = load ptr, ptr %6, align 8, !tbaa !96
   %14 = load i64, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %15, ptr %6, align 8, !tbaa !95
+  store ptr %15, ptr %6, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %12
@@ -3234,11 +3234,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not, label %67, label %17
 
 17:                                               ; preds = %TERP_stk_pop.exit
-  %18 = load ptr, ptr %0, align 8, !tbaa !107
+  %18 = load ptr, ptr %0, align 8, !tbaa !109
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %20 = load ptr, ptr %19, align 8, !tbaa !100
+  %20 = load ptr, ptr %19, align 8, !tbaa !101
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %22 = load ptr, ptr %21, align 8, !tbaa !95
+  %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -3247,11 +3247,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not.i20, label %TERP_stk_pop.exit22, label %27
 
 27:                                               ; preds = %17
-  %28 = load ptr, ptr %21, align 8, !tbaa !95
+  %28 = load ptr, ptr %21, align 8, !tbaa !96
   %29 = load i64, ptr %28, align 1
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %31, ptr %21, align 8, !tbaa !95
+  store ptr %31, ptr %21, align 8, !tbaa !96
   br label %TERP_stk_pop.exit22
 
 TERP_stk_pop.exit22:                              ; preds = %17, %27
@@ -3269,7 +3269,7 @@ TERP_stk_pop.exit22:                              ; preds = %17, %27
 35:                                               ; preds = %33
   %36 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
-  %38 = load ptr, ptr %37, align 8, !tbaa !49
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %38) #12
   %.not3.i = icmp ne i32 %39, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -3284,7 +3284,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 
 41:                                               ; preds = %expect_slot_ssl.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
-  store ptr %.029, ptr %2, align 8, !tbaa !46
+  store ptr %.029, ptr %2, align 8, !tbaa !47
   %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 40), align 8, !tbaa !18
   %43 = call ptr @OPENSSL_LH_retrieve(ptr noundef %42, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
@@ -3299,7 +3299,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %49, align 8, !tbaa !110
+  store i32 1, ptr %49, align 8, !tbaa !112
   br label %67
 
 50:                                               ; preds = %45
@@ -3327,8 +3327,8 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
   br label %66
 
 57:                                               ; preds = %55
-  %58 = load ptr, ptr @pending_ssl_obj, align 8, !tbaa !49
-  %59 = load ptr, ptr @client_hello_ssl_obj, align 8, !tbaa !49
+  %58 = load ptr, ptr @pending_ssl_obj, align 8, !tbaa !50
+  %59 = load ptr, ptr @client_hello_ssl_obj, align 8, !tbaa !50
   %60 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.44, i32 noundef 347, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.122, ptr noundef %58, ptr noundef %59) #12
   %.not18 = icmp eq i32 %60, 0
   br i1 %.not18, label %61, label %62
@@ -3338,7 +3338,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
   br label %67
 
 62:                                               ; preds = %57
-  %63 = load ptr, ptr @pending_ssl_obj, align 8, !tbaa !49
+  %63 = load ptr, ptr @pending_ssl_obj, align 8, !tbaa !50
   %64 = call i32 @test_ptr_eq(ptr noundef nonnull @.str.44, i32 noundef 351, ptr noundef nonnull @.str.121, ptr noundef nonnull @.str.123, ptr noundef %63, ptr noundef nonnull %46) #12
   %.not19 = icmp eq i32 %64, 0
   br i1 %.not19, label %65, label %66
@@ -3348,8 +3348,8 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
   br label %67
 
 66:                                               ; preds = %62, %56
-  store ptr null, ptr @client_hello_ssl_obj, align 8, !tbaa !49
-  store ptr null, ptr @pending_ssl_obj, align 8, !tbaa !49
+  store ptr null, ptr @client_hello_ssl_obj, align 8, !tbaa !50
+  store ptr null, ptr @pending_ssl_obj, align 8, !tbaa !50
   store i1 false, ptr @check_pending_match, align 4
   store i1 false, ptr @hello_cb_called, align 4
   store i1 false, ptr @pending_cb_called, align 4
@@ -3369,7 +3369,7 @@ define internal range(i32 0, 2) i32 @hf_accept_conn_none(ptr readnone captures(n
 3:                                                ; preds = %1
   %4 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !49
+  %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %6) #12
   %.not3.i = icmp ne i32 %7, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -3401,12 +3401,12 @@ expect_slot_ssl.exit:                             ; preds = %1, %3
 define internal range(i32 0, 3) i32 @hf_read_expect(ptr noundef captures(none) %0) #1 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
-  store i64 0, ptr %2, align 8, !tbaa !82
-  %3 = load ptr, ptr %0, align 8, !tbaa !107
+  store i64 0, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %0, align 8, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load ptr, ptr %4, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -3415,10 +3415,10 @@ define internal range(i32 0, 3) i32 @hf_read_expect(ptr noundef captures(none) %
   br i1 %.not.i, label %TERP_stk_pop.exit, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %6, align 8, !tbaa !95
+  %13 = load ptr, ptr %6, align 8, !tbaa !96
   %14 = load i64, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %15, ptr %6, align 8, !tbaa !95
+  store ptr %15, ptr %6, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %12
@@ -3429,11 +3429,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not, label %99, label %17
 
 17:                                               ; preds = %TERP_stk_pop.exit
-  %18 = load ptr, ptr %0, align 8, !tbaa !107
+  %18 = load ptr, ptr %0, align 8, !tbaa !109
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
-  %20 = load ptr, ptr %19, align 8, !tbaa !100
+  %20 = load ptr, ptr %19, align 8, !tbaa !101
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %22 = load ptr, ptr %21, align 8, !tbaa !95
+  %22 = load ptr, ptr %21, align 8, !tbaa !96
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -3442,11 +3442,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not.i17, label %TERP_stk_pop.exit19, label %27
 
 27:                                               ; preds = %17
-  %28 = load ptr, ptr %21, align 8, !tbaa !95
+  %28 = load ptr, ptr %21, align 8, !tbaa !96
   %29 = load i64, ptr %28, align 1
   %30 = inttoptr i64 %29 to ptr
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %31, ptr %21, align 8, !tbaa !95
+  store ptr %31, ptr %21, align 8, !tbaa !96
   br label %TERP_stk_pop.exit19
 
 TERP_stk_pop.exit19:                              ; preds = %17, %27
@@ -3464,7 +3464,7 @@ TERP_stk_pop.exit19:                              ; preds = %17, %27
 35:                                               ; preds = %33
   %36 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
-  %38 = load ptr, ptr %37, align 8, !tbaa !49
+  %38 = load ptr, ptr %37, align 8, !tbaa !50
   %39 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %38) #12
   %.not3.i = icmp ne i32 %39, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -3484,7 +3484,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 42:                                               ; preds = %41
   %43 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !53
+  %45 = load ptr, ptr %44, align 8, !tbaa !54
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %52
 
@@ -3492,7 +3492,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
   %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.028, ptr noundef nonnull @.str.44, i32 noundef 613) #12
   %49 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store ptr %48, ptr %50, align 8, !tbaa !53
+  store ptr %48, ptr %50, align 8, !tbaa !54
   %51 = tail call i32 @test_ptr(ptr noundef nonnull @.str.44, i32 noundef 613, ptr noundef nonnull @.str.124, ptr noundef %48) #12
   %.not11 = icmp eq i32 %51, 0
   br i1 %.not11, label %99, label %52
@@ -3500,14 +3500,14 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 52:                                               ; preds = %47, %42, %41
   %53 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !53
+  %55 = load ptr, ptr %54, align 8, !tbaa !54
   %56 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = load i64, ptr %57, align 8, !tbaa !111
+  %58 = load i64, ptr %57, align 8, !tbaa !113
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 %58
   %60 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
-  %62 = load i64, ptr %61, align 8, !tbaa !111
+  %62 = load i64, ptr %61, align 8, !tbaa !113
   %63 = sub i64 %.028, %62
   %64 = call i32 @SSL_read_ex(ptr noundef %.030, ptr noundef %59, i64 noundef %63, ptr noundef nonnull %2) #12
   %65 = call fastcc i32 @check_consistent_want(ptr noundef %.030, i32 noundef %64)
@@ -3523,27 +3523,27 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 
 70:                                               ; preds = %69
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %71, align 8, !tbaa !110
+  store i32 1, ptr %71, align 8, !tbaa !112
   br label %99
 
 72:                                               ; preds = %69
-  %73 = load i64, ptr %2, align 8, !tbaa !82
+  %73 = load i64, ptr %2, align 8, !tbaa !83
   %74 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  %76 = load i64, ptr %75, align 8, !tbaa !111
+  %76 = load i64, ptr %75, align 8, !tbaa !113
   %77 = add i64 %76, %73
   %.not14 = icmp eq i64 %77, %.028
   br i1 %.not14, label %85, label %78
 
 78:                                               ; preds = %72
-  %79 = load i64, ptr %2, align 8, !tbaa !82
+  %79 = load i64, ptr %2, align 8, !tbaa !83
   %80 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %82 = load i64, ptr %81, align 8, !tbaa !111
+  %82 = load i64, ptr %81, align 8, !tbaa !113
   %83 = add i64 %82, %79
-  store i64 %83, ptr %81, align 8, !tbaa !111
+  store i64 %83, ptr %81, align 8, !tbaa !113
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %84, align 8, !tbaa !110
+  store i32 1, ptr %84, align 8, !tbaa !112
   br label %99
 
 85:                                               ; preds = %72
@@ -3552,7 +3552,7 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 86:                                               ; preds = %85
   %87 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8, !tbaa !53
+  %89 = load ptr, ptr %88, align 8, !tbaa !54
   %90 = call i32 @test_mem_eq(ptr noundef nonnull @.str.44, i32 noundef 631, ptr noundef nonnull @.str.126, ptr noundef nonnull @.str.127, ptr noundef %89, i64 noundef %.028, ptr noundef %.029, i64 noundef %.028) #12
   %.not16 = icmp eq i32 %90, 0
   br i1 %.not16, label %99, label %91
@@ -3560,14 +3560,14 @@ expect_slot_ssl.exit:                             ; preds = %33, %35
 91:                                               ; preds = %86, %85
   %92 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !53
+  %94 = load ptr, ptr %93, align 8, !tbaa !54
   call void @CRYPTO_free(ptr noundef %94, ptr noundef nonnull @.str.44, i32 noundef 634) #12
   %95 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr null, ptr %96, align 8, !tbaa !53
+  store ptr null, ptr %96, align 8, !tbaa !54
   %97 = call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  store i64 0, ptr %98, align 8, !tbaa !111
+  store i64 0, ptr %98, align 8, !tbaa !113
   br label %99
 
 99:                                               ; preds = %86, %52, %47, %expect_slot_ssl.exit, %TERP_stk_pop.exit19, %TERP_stk_pop.exit, %91, %78, %70
@@ -3597,7 +3597,7 @@ declare void @SSL_CTX_set_new_pending_conn_cb(ptr noundef, ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal noundef i32 @new_pending_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #6 {
-  store ptr %1, ptr @pending_ssl_obj, align 8, !tbaa !49
+  store ptr %1, ptr @pending_ssl_obj, align 8, !tbaa !50
   store i1 true, ptr @pending_cb_called, align 4
   ret i32 1
 }
@@ -3606,7 +3606,7 @@ declare void @SSL_CTX_set_client_hello_cb(ptr noundef, ptr noundef, ptr noundef)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal noundef i32 @client_hello_cb(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #6 {
-  store ptr %0, ptr @client_hello_ssl_obj, align 8, !tbaa !49
+  store ptr %0, ptr @client_hello_ssl_obj, align 8, !tbaa !50
   store i1 true, ptr @hello_cb_called, align 4
   ret i32 1
 }
@@ -3621,7 +3621,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl_attach_bio_dgram(ptr noundef %0)
   %3 = alloca %struct.in_addr, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #12
-  store i32 16777343, ptr %3, align 4, !tbaa !112
+  store i32 16777343, ptr %3, align 4, !tbaa !114
   %4 = tail call i32 @BIO_socket(i32 noundef 2, i32 noundef 2, i32 noundef 17, i32 noundef 0) #12
   %5 = tail call i32 @test_int_ge(ptr noundef nonnull @.str.44, i32 noundef 75, ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.67, i32 noundef %4, i32 noundef 0) #12
   %.not.i = icmp eq i32 %5, 0
@@ -3748,7 +3748,7 @@ define internal fastcc range(i32 0, 2) i32 @RADIX_PROCESS_set_ssl(ptr noundef %0
 
 10:                                               ; preds = %7
   %11 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef 117) #12
-  store ptr %11, ptr %8, align 8, !tbaa !46
+  store ptr %11, ptr %8, align 8, !tbaa !47
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 117, ptr noundef nonnull @.str.80, ptr noundef %11) #12
   %.not11.i = icmp eq i32 %12, 0
   br i1 %.not11.i, label %13, label %14
@@ -3759,7 +3759,7 @@ define internal fastcc range(i32 0, 2) i32 @RADIX_PROCESS_set_ssl(ptr noundef %0
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %1, ptr %15, align 8, !tbaa !108
+  store ptr %1, ptr %15, align 8, !tbaa !110
   br label %RADIX_OBJ_new.exit
 
 RADIX_OBJ_new.exit:                               ; preds = %2, %5, %7, %13, %14
@@ -3783,7 +3783,7 @@ RADIX_OBJ_new.exit:                               ; preds = %2, %5, %7, %13, %14
 
 24:                                               ; preds = %18, %17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #12
-  store ptr %0, ptr %3, align 8, !tbaa !46
+  store ptr %0, ptr %3, align 8, !tbaa !47
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 40), align 8, !tbaa !18
   %26 = call ptr @OPENSSL_LH_retrieve(ptr noundef %25, ptr noundef nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
@@ -3808,9 +3808,9 @@ RADIX_OBJ_free.exit.i:                            ; preds = %27
   %36 = and i8 %35, -2
   store i8 %36, ptr %28, align 8
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !108
+  %38 = load ptr, ptr %37, align 8, !tbaa !110
   call void @SSL_free(ptr noundef %38) #12
-  %39 = load ptr, ptr %26, align 8, !tbaa !46
+  %39 = load ptr, ptr %26, align 8, !tbaa !47
   call void @CRYPTO_free(ptr noundef %39, ptr noundef nonnull @.str.74, i32 noundef 134) #12
   call void @CRYPTO_free(ptr noundef nonnull %26, ptr noundef nonnull @.str.74, i32 noundef 135) #12
   br label %40
@@ -3841,9 +3841,9 @@ RADIX_PROCESS_set_obj.exit.thread:                ; preds = %40
 
 49:                                               ; preds = %RADIX_PROCESS_set_obj.exit
   %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !108
+  %51 = load ptr, ptr %50, align 8, !tbaa !110
   call void @SSL_free(ptr noundef %51) #12
-  %52 = load ptr, ptr %.0.i, align 8, !tbaa !46
+  %52 = load ptr, ptr %.0.i, align 8, !tbaa !47
   call void @CRYPTO_free(ptr noundef %52, ptr noundef nonnull @.str.74, i32 noundef 134) #12
   call void @CRYPTO_free(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.74, i32 noundef 135) #12
   br label %RADIX_OBJ_free.exit
@@ -4038,9 +4038,9 @@ RADIX_OBJ_free.exit:
   %3 = and i8 %2, -2
   store i8 %3, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !108
+  %5 = load ptr, ptr %4, align 8, !tbaa !110
   tail call void @SSL_free(ptr noundef %5) #12
-  %6 = load ptr, ptr %0, align 8, !tbaa !46
+  %6 = load ptr, ptr %0, align 8, !tbaa !47
   tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.74, i32 noundef 134) #12
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str.74, i32 noundef 135) #12
   ret void
@@ -4071,28 +4071,28 @@ define internal void @script_gen_simple_thread(ptr noundef captures(none) initia
 .critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store ptr @.str.23, ptr %1, align 8, !tbaa !104
-  store i32 57, ptr %2, align 4, !tbaa !105
+  store ptr @.str.23, ptr %1, align 8, !tbaa !106
+  store i32 57, ptr %2, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @script_info_simple_thread_child)
-  store ptr @.str.23, ptr %1, align 8, !tbaa !104
-  store i32 57, ptr %2, align 4, !tbaa !105
+  store ptr @.str.23, ptr %1, align 8, !tbaa !106
+  store i32 57, ptr %2, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_spawn_thread, ptr noundef nonnull @.str.131)
-  store ptr @.str.23, ptr %1, align 8, !tbaa !104
-  store i32 57, ptr %2, align 4, !tbaa !105
+  store ptr @.str.23, ptr %1, align 8, !tbaa !106
+  store i32 57, ptr %2, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @script_info_simple_thread_child)
-  store ptr @.str.23, ptr %1, align 8, !tbaa !104
-  store i32 57, ptr %2, align 4, !tbaa !105
+  store ptr @.str.23, ptr %1, align 8, !tbaa !106
+  store i32 57, ptr %2, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_spawn_thread, ptr noundef nonnull @.str.131)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @hf_spawn_thread(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !107
+  %2 = load ptr, ptr %0, align 8, !tbaa !109
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !95
+  %6 = load ptr, ptr %5, align 8, !tbaa !96
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -4101,11 +4101,11 @@ define internal range(i32 0, 2) i32 @hf_spawn_thread(ptr noundef readonly captur
   br i1 %.not.i, label %TERP_stk_pop.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %5, align 8, !tbaa !95
+  %12 = load ptr, ptr %5, align 8, !tbaa !96
   %13 = load i64, ptr %12, align 1
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %15, ptr %5, align 8, !tbaa !95
+  store ptr %15, ptr %5, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %11
@@ -4130,31 +4130,31 @@ TERP_stk_pop.exit:                                ; preds = %1, %11
   %23 = tail call ptr @BIO_s_mem() #12
   %24 = tail call ptr @BIO_new(ptr noundef %23) #12
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 176
-  store ptr %24, ptr %25, align 8, !tbaa !42
+  store ptr %24, ptr %25, align 8, !tbaa !43
   %26 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 799, ptr noundef nonnull @.str.138, ptr noundef %24) #12
   %.not15 = icmp eq i32 %26, 0
   br i1 %.not15, label %35, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 184
-  %29 = load ptr, ptr %28, align 8, !tbaa !38
+  %29 = load ptr, ptr %28, align 8, !tbaa !39
   tail call void @ossl_crypto_mutex_lock(ptr noundef %29) #12
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 168
-  store ptr %.019, ptr %30, align 8, !tbaa !114
+  store ptr %.019, ptr %30, align 8, !tbaa !116
   %31 = tail call ptr @ossl_crypto_thread_native_start(ptr noundef nonnull @RADIX_THREAD_worker_main, ptr noundef nonnull %20, i32 noundef 1) #12
   %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %31, ptr %32, align 8, !tbaa !29
   %33 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 806, ptr noundef nonnull @.str.139, ptr noundef %31) #12
   %.not16 = icmp eq i32 %33, 0
-  %34 = load ptr, ptr %28, align 8, !tbaa !38
+  %34 = load ptr, ptr %28, align 8, !tbaa !39
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %34) #12
   br i1 %.not16, label %35, label %RADIX_THREAD_free.exit
 
 35:                                               ; preds = %27, %22
-  %36 = load ptr, ptr %25, align 8, !tbaa !42
+  %36 = load ptr, ptr %25, align 8, !tbaa !43
   tail call void @BIO_free_all(ptr noundef %36) #12
   %37 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !53
+  %38 = load ptr, ptr %37, align 8, !tbaa !54
   tail call void @CRYPTO_free(ptr noundef %38, ptr noundef nonnull @.str.74, i32 noundef 526) #12
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 184
   tail call void @ossl_crypto_mutex_free(ptr noundef nonnull %39) #12
@@ -4184,10 +4184,10 @@ define internal fastcc noundef ptr @RADIX_THREAD_new() unnamed_addr #1 {
   br i1 %.not12, label %21, label %5
 
 5:                                                ; preds = %2
-  store ptr @radix_process, ptr %3, align 8, !tbaa !115
+  store ptr @radix_process, ptr %3, align 8, !tbaa !117
   %6 = tail call ptr @ossl_crypto_mutex_new() #12
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 184
-  store ptr %6, ptr %7, align 8, !tbaa !38
+  store ptr %6, ptr %7, align 8, !tbaa !39
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 503, ptr noundef nonnull @.str.142, ptr noundef %6) #12
   %.not13 = icmp eq i32 %8, 0
   br i1 %.not13, label %9, label %10
@@ -4210,11 +4210,11 @@ define internal fastcc noundef ptr @RADIX_THREAD_new() unnamed_addr #1 {
   br label %21
 
 17:                                               ; preds = %10
-  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 16), align 8, !tbaa !52
+  %18 = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 16), align 8, !tbaa !53
   %19 = add i64 %18, 1
-  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 16), align 8, !tbaa !52
+  store i64 %19, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 16), align 8, !tbaa !53
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %18, ptr %20, align 8, !tbaa !41
+  store i64 %18, ptr %20, align 8, !tbaa !42
   br label %21
 
 21:                                               ; preds = %0, %2, %17, %16, %9
@@ -4238,15 +4238,15 @@ define internal range(i32 0, 2) i32 @RADIX_THREAD_worker_main(ptr noundef %0) #1
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %7 = load ptr, ptr %6, align 8, !tbaa !38
+  %7 = load ptr, ptr %6, align 8, !tbaa !39
   tail call void @ossl_crypto_mutex_lock(ptr noundef %7) #12
-  %8 = load ptr, ptr %6, align 8, !tbaa !38
+  %8 = load ptr, ptr %6, align 8, !tbaa !39
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %8) #12
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #12
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   store ptr %11, ptr %2, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @get_time, ptr %12, align 8, !tbaa !26
@@ -4258,20 +4258,20 @@ define internal range(i32 0, 2) i32 @RADIX_THREAD_worker_main(ptr noundef %0) #1
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %17 = load ptr, ptr %16, align 8, !tbaa !114
+  %17 = load ptr, ptr %16, align 8, !tbaa !116
   %18 = call fastcc i32 @TERP_run(ptr noundef %17, ptr noundef %2)
   br label %RADIX_THREAD_worker_run.exit
 
 RADIX_THREAD_worker_run.exit:                     ; preds = %5, %15
   %.0.i = phi i32 [ 0, %5 ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #12
-  %19 = load ptr, ptr %6, align 8, !tbaa !38
+  %19 = load ptr, ptr %6, align 8, !tbaa !39
   tail call void @ossl_crypto_mutex_lock(ptr noundef %19) #12
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %.0.i, ptr %20, align 4, !tbaa !35
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 1, ptr %21, align 8, !tbaa !34
-  %22 = load ptr, ptr %6, align 8, !tbaa !38
+  %22 = load ptr, ptr %6, align 8, !tbaa !39
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %22) #12
   %23 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %24 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 580, ptr noundef nonnull @.str.145, ptr noundef %23) #12
@@ -4316,9 +4316,9 @@ define internal fastcc range(i32 0, 2) i32 @radix_thread_init(ptr noundef %0) un
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %13 = load ptr, ptr %12, align 8, !tbaa !42
+  %13 = load ptr, ptr %12, align 8, !tbaa !43
   %14 = tail call i32 @set_override_bio_out(ptr noundef %13) #12
-  %15 = load ptr, ptr %12, align 8, !tbaa !42
+  %15 = load ptr, ptr %12, align 8, !tbaa !43
   %16 = tail call i32 @set_override_bio_err(ptr noundef %15) #12
   br label %17
 
@@ -4340,441 +4340,441 @@ declare void @ossl_crypto_mutex_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @script_gen_ssl_poll(ptr noundef initializes((8, 16), (20, 24)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_ssl, ptr noundef nonnull @.str.26)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_listen, ptr noundef nonnull @.str.30)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_ssl, ptr noundef nonnull @.str.26)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_set_peer_addr_from, ptr noundef nonnull @.str.32)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_connect_wait, ptr noundef nonnull @.str.33)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 165, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 165, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_set_default_stream_mode, ptr noundef nonnull @.str.152)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 168, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 168, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 168, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 168, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 168, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 168, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 168, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 168, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.153)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 168, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 168, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 168, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 168, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 168, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 168, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 169, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 169, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 169, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 169, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.153)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 169, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 169, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 169, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 169, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.35)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 169, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 169, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 6)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 169, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 169, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 171, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 171, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 171, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 171, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 171, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 171, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 171, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 171, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.155)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 171, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 171, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 171, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 171, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 171, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 171, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 172, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 172, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 172, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 172, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.155)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 172, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 172, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 172, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 172, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.41)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 172, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 172, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 7)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 172, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 172, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 174, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 174, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 174, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 174, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 174, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 174, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 174, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 174, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.156)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 174, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 174, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 174, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 174, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 174, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 174, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 175, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 175, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 175, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 175, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.156)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 175, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 175, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 175, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 175, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.157)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 175, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 175, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 11)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 175, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 175, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 177, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 177, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 177, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 177, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.31)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 177, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 177, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 177, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 177, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.158)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 177, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 177, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 177, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 177, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 177, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 177, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 178, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 178, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 178, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 178, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.158)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 178, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 178, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 178, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 178, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.159)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 178, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 178, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 5)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 178, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 178, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_accept_conn, ptr noundef nonnull @.str.38)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_set_default_stream_mode, ptr noundef nonnull @.str.152)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 180, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 180, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_accept_conn_none, ptr noundef nonnull @.str.39)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 182, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 182, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 182, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 182, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 182, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 182, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 182, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 182, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.160)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 182, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 182, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 182, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 182, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 182, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 182, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 183, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 183, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 183, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 183, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.160)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 183, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 183, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 183, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 183, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.35)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 183, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 183, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 6)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 183, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 183, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.161)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 185, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 185, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 186, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 186, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 186, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 186, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.161)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 186, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 186, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 186, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 186, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.41)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 186, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 186, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 7)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 186, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 186, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 188, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 188, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 188, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 188, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 188, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 188, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 188, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 188, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.162)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 188, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 188, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 188, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 188, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 188, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 188, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 189, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 189, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 189, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 189, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.162)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 189, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 189, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 189, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 189, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.157)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 189, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 189, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 11)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 189, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 189, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 191, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 191, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 191, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 191, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 191, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 191, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 191, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 191, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.163)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 191, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 191, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 191, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 191, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 191, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 191, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 192, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 192, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 192, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 192, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.163)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 192, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 192, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 192, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 192, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.159)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 192, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 192, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 5)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 192, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 192, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
   br label %4
 
@@ -4788,188 +4788,188 @@ define internal void @script_gen_ssl_poll(ptr noundef initializes((8, 16), (20, 
   ]
 
 5:                                                ; preds = %4
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 202, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 202, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 202, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 202, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.153)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 202, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 202, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 202, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 202, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.41)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 202, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 202, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 7)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 202, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 202, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 203, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 203, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 203, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 203, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.158)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 203, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 203, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 203, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 203, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.159)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 203, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 203, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 5)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 203, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 203, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 204, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 204, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 204, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 204, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.163)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 204, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 204, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 204, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 204, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.159)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 204, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 204, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 5)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 204, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 204, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
   br label %9
 
 6:                                                ; preds = %4
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 206, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 206, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 206, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 206, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.160)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 206, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 206, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 206, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 206, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.41)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 206, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 206, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 7)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 206, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 206, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
   br label %9
 
 7:                                                ; preds = %4
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 208, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 208, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @script_info_ssl_poll_child)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 208, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 208, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_spawn_thread, ptr noundef nonnull @.str.131)
   br label %9
 
 8:                                                ; preds = %4
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 210, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 210, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.164)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 210, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 210, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 210, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 210, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_new_ssl, ptr noundef nonnull @.str.26)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 211, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 211, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 211, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 211, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.164)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 211, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 211, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 211, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 211, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 211, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 211, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 211, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 211, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 211, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 211, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_set_peer_addr_from, ptr noundef nonnull @.str.32)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 212, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 212, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 212, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 212, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.164)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 212, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 212, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 212, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 212, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_connect_wait, ptr noundef nonnull @.str.33)
   br label %9
 
 9:                                                ; preds = %4, %6, %8, %7, %5
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 215, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 215, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 215, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 215, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.37)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 215, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 215, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 216, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 216, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 1)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 216, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 216, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.160)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 216, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 216, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 217, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 217, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 2)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 217, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 217, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.161)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 217, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 217, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 218, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 218, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 3)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 218, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 218, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.162)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 218, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 218, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 219, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 219, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 4)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 219, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 219, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.163)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 219, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 219, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 220, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 220, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef %.0492)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 221, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 221, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @ssl_poll_check, ptr noundef nonnull @.str.165)
   switch i64 %.0492, label %11 [
     i64 3, label %10
@@ -4977,23 +4977,23 @@ define internal void @script_gen_ssl_poll(ptr noundef initializes((8, 16), (20, 
   ]
 
 10:                                               ; preds = %9
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 224, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 224, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 224, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 224, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.160)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 224, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 224, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 224, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 224, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.166)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 224, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 224, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 6)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 224, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 224, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
   br label %11
 
@@ -5002,118 +5002,118 @@ define internal void @script_gen_ssl_poll(ptr noundef initializes((8, 16), (20, 
   br label %4
 
 13:                                               ; preds = %9
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.167)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_accept_conn, ptr noundef nonnull @.str.38)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.167)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_set_default_stream_mode, ptr noundef nonnull @.str.152)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.28)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 227, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 227, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_accept_conn_none, ptr noundef nonnull @.str.39)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 228, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 228, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 228, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 228, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.167)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 228, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 228, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 228, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 228, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.168)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 228, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 228, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 228, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 228, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 228, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 228, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_new_stream, ptr noundef nonnull @.str.154)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 229, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 229, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 229, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 229, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.168)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 229, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 229, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 229, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 229, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.169)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 229, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 229, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 4)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 229, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 229, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 230, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 230, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef nonnull %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 230, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 230, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef nonnull %0, ptr noundef nonnull @.str.164)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 230, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 230, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 230, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 230, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef nonnull %0, ptr noundef nonnull @.str.169)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 230, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 230, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef nonnull %0, i64 noundef 4)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 230, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 230, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef nonnull %0, ptr noundef nonnull @hf_read_expect, ptr noundef nonnull @.str.40)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @hf_set_default_stream_mode(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !107
+  %2 = load ptr, ptr %0, align 8, !tbaa !109
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !95
+  %6 = load ptr, ptr %5, align 8, !tbaa !96
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -5122,10 +5122,10 @@ define internal range(i32 0, 2) i32 @hf_set_default_stream_mode(ptr noundef read
   br i1 %.not.i, label %TERP_stk_pop.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %5, align 8, !tbaa !95
+  %12 = load ptr, ptr %5, align 8, !tbaa !96
   %13 = load i64, ptr %12, align 1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %5, align 8, !tbaa !95
+  store ptr %14, ptr %5, align 8, !tbaa !96
   %15 = trunc i64 %13 to i32
   br label %TERP_stk_pop.exit
 
@@ -5144,7 +5144,7 @@ TERP_stk_pop.exit:                                ; preds = %1, %11
 19:                                               ; preds = %17
   %20 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
-  %22 = load ptr, ptr %21, align 8, !tbaa !49
+  %22 = load ptr, ptr %21, align 8, !tbaa !50
   %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %22) #12
   %.not3.i = icmp ne i32 %23, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -5174,11 +5174,11 @@ expect_slot_ssl.exit:                             ; preds = %17, %19
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @hf_new_stream(ptr noundef captures(none) %0) #1 {
   %2 = alloca %struct.radix_obj_st, align 8
-  %3 = load ptr, ptr %0, align 8, !tbaa !107
+  %3 = load ptr, ptr %0, align 8, !tbaa !109
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
-  %5 = load ptr, ptr %4, align 8, !tbaa !100
+  %5 = load ptr, ptr %4, align 8, !tbaa !101
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
-  %7 = load ptr, ptr %6, align 8, !tbaa !95
+  %7 = load ptr, ptr %6, align 8, !tbaa !96
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -5187,10 +5187,10 @@ define internal range(i32 0, 3) i32 @hf_new_stream(ptr noundef captures(none) %0
   br i1 %.not.i, label %TERP_stk_pop.exit, label %12
 
 12:                                               ; preds = %1
-  %13 = load ptr, ptr %6, align 8, !tbaa !95
+  %13 = load ptr, ptr %6, align 8, !tbaa !96
   %14 = load i64, ptr %13, align 1
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %15, ptr %6, align 8, !tbaa !95
+  store ptr %15, ptr %6, align 8, !tbaa !96
   %16 = icmp eq i64 %14, 0
   br label %TERP_stk_pop.exit
 
@@ -5202,11 +5202,11 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not, label %76, label %18
 
 18:                                               ; preds = %TERP_stk_pop.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !107
+  %19 = load ptr, ptr %0, align 8, !tbaa !109
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
-  %21 = load ptr, ptr %20, align 8, !tbaa !100
+  %21 = load ptr, ptr %20, align 8, !tbaa !101
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 104
-  %23 = load ptr, ptr %22, align 8, !tbaa !95
+  %23 = load ptr, ptr %22, align 8, !tbaa !96
   %24 = ptrtoint ptr %21 to i64
   %25 = ptrtoint ptr %23 to i64
   %26 = sub i64 %24, %25
@@ -5215,10 +5215,10 @@ TERP_stk_pop.exit:                                ; preds = %1, %12
   br i1 %.not.i20, label %TERP_stk_pop.exit22, label %28
 
 28:                                               ; preds = %18
-  %29 = load ptr, ptr %22, align 8, !tbaa !95
+  %29 = load ptr, ptr %22, align 8, !tbaa !96
   %30 = load i64, ptr %29, align 1
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %31, ptr %22, align 8, !tbaa !95
+  store ptr %31, ptr %22, align 8, !tbaa !96
   br label %TERP_stk_pop.exit22
 
 TERP_stk_pop.exit22:                              ; preds = %18, %28
@@ -5229,11 +5229,11 @@ TERP_stk_pop.exit22:                              ; preds = %18, %28
   br i1 %.not12, label %76, label %33
 
 33:                                               ; preds = %TERP_stk_pop.exit22
-  %34 = load ptr, ptr %0, align 8, !tbaa !107
+  %34 = load ptr, ptr %0, align 8, !tbaa !109
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
-  %36 = load ptr, ptr %35, align 8, !tbaa !100
+  %36 = load ptr, ptr %35, align 8, !tbaa !101
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 104
-  %38 = load ptr, ptr %37, align 8, !tbaa !95
+  %38 = load ptr, ptr %37, align 8, !tbaa !96
   %39 = ptrtoint ptr %36 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
@@ -5242,11 +5242,11 @@ TERP_stk_pop.exit22:                              ; preds = %18, %28
   br i1 %.not.i23, label %TERP_stk_pop.exit25, label %43
 
 43:                                               ; preds = %33
-  %44 = load ptr, ptr %37, align 8, !tbaa !95
+  %44 = load ptr, ptr %37, align 8, !tbaa !96
   %45 = load i64, ptr %44, align 1
   %46 = inttoptr i64 %45 to ptr
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %47, ptr %37, align 8, !tbaa !95
+  store ptr %47, ptr %37, align 8, !tbaa !96
   br label %TERP_stk_pop.exit25
 
 TERP_stk_pop.exit25:                              ; preds = %33, %43
@@ -5264,7 +5264,7 @@ TERP_stk_pop.exit25:                              ; preds = %33, %43
 51:                                               ; preds = %49
   %52 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
-  %54 = load ptr, ptr %53, align 8, !tbaa !49
+  %54 = load ptr, ptr %53, align 8, !tbaa !50
   %55 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %54) #12
   %.not3.i = icmp ne i32 %55, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -5279,7 +5279,7 @@ expect_slot_ssl.exit:                             ; preds = %49, %51
 
 57:                                               ; preds = %expect_slot_ssl.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
-  store ptr %.036, ptr %2, align 8, !tbaa !46
+  store ptr %.036, ptr %2, align 8, !tbaa !47
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 40), align 8, !tbaa !18
   %59 = call ptr @OPENSSL_LH_retrieve(ptr noundef %58, ptr noundef nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
@@ -5297,7 +5297,7 @@ expect_slot_ssl.exit:                             ; preds = %49, %51
 
 65:                                               ; preds = %62
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 1, ptr %66, align 8, !tbaa !110
+  store i32 1, ptr %66, align 8, !tbaa !112
   br label %76
 
 67:                                               ; preds = %61
@@ -5343,16 +5343,16 @@ define internal range(i32 0, 2) i32 @ssl_poll_check(ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %4, i8 0, i64 192, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  store i64 0, ptr %5, align 8, !tbaa !82
+  store i64 0, ptr %5, align 8, !tbaa !83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %8 = load ptr, ptr %0, align 8, !tbaa !107
+  %8 = load ptr, ptr %0, align 8, !tbaa !109
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %10 = load ptr, ptr %9, align 8, !tbaa !100
+  %10 = load ptr, ptr %9, align 8, !tbaa !101
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %12 = load ptr, ptr %11, align 8, !tbaa !95
+  %12 = load ptr, ptr %11, align 8, !tbaa !96
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
@@ -5361,10 +5361,10 @@ define internal range(i32 0, 2) i32 @ssl_poll_check(ptr noundef readonly capture
   br i1 %.not.i, label %TERP_stk_pop.exit, label %17
 
 17:                                               ; preds = %1
-  %18 = load ptr, ptr %11, align 8, !tbaa !95
+  %18 = load ptr, ptr %11, align 8, !tbaa !96
   %19 = load i64, ptr %18, align 1
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %20, ptr %11, align 8, !tbaa !95
+  store ptr %20, ptr %11, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %17
@@ -5382,7 +5382,7 @@ TERP_stk_pop.exit:                                ; preds = %1, %17
 24:                                               ; preds = %22
   %25 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
-  %27 = load ptr, ptr %26, align 8, !tbaa !49
+  %27 = load ptr, ptr %26, align 8, !tbaa !50
   %28 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %27) #12
   %.not3.i = icmp ne i32 %28, 0
   %spec.select.i = zext i1 %.not3.i to i32
@@ -5396,7 +5396,7 @@ expect_slot_ssl.exit:                             ; preds = %22, %24
   br i1 %.not38, label %.loopexit, label %30
 
 30:                                               ; preds = %expect_slot_ssl.exit
-  store ptr null, ptr %2, align 16, !tbaa !49
+  store ptr null, ptr %2, align 16, !tbaa !50
   %31 = tail call i32 @test_size_t_lt(ptr noundef nonnull @.str.74, i32 noundef 670, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.86, i64 noundef 1, i64 noundef 8) #12
   %.not.i48 = icmp eq i32 %31, 0
   br i1 %.not.i48, label %expect_slot_ssl.exit52, label %32
@@ -5404,8 +5404,8 @@ expect_slot_ssl.exit:                             ; preds = %22, %24
 32:                                               ; preds = %30
   %33 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 112
-  %35 = load ptr, ptr %34, align 8, !tbaa !49
-  store ptr %35, ptr %2, align 16, !tbaa !49
+  %35 = load ptr, ptr %34, align 8, !tbaa !50
+  store ptr %35, ptr %2, align 16, !tbaa !50
   %36 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %35) #12
   %.not3.i49 = icmp ne i32 %36, 0
   %spec.select.i50 = zext i1 %.not3.i49 to i32
@@ -5419,7 +5419,7 @@ expect_slot_ssl.exit52:                           ; preds = %30, %32
 
 38:                                               ; preds = %expect_slot_ssl.exit52
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr null, ptr %39, align 8, !tbaa !49
+  store ptr null, ptr %39, align 8, !tbaa !50
   %40 = tail call i32 @test_size_t_lt(ptr noundef nonnull @.str.74, i32 noundef 670, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.86, i64 noundef 2, i64 noundef 8) #12
   %.not.i53 = icmp eq i32 %40, 0
   br i1 %.not.i53, label %expect_slot_ssl.exit57, label %41
@@ -5427,8 +5427,8 @@ expect_slot_ssl.exit52:                           ; preds = %30, %32
 41:                                               ; preds = %38
   %42 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 120
-  %44 = load ptr, ptr %43, align 8, !tbaa !49
-  store ptr %44, ptr %39, align 8, !tbaa !49
+  %44 = load ptr, ptr %43, align 8, !tbaa !50
+  store ptr %44, ptr %39, align 8, !tbaa !50
   %45 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %44) #12
   %.not3.i54 = icmp ne i32 %45, 0
   %spec.select.i55 = zext i1 %.not3.i54 to i32
@@ -5442,7 +5442,7 @@ expect_slot_ssl.exit57:                           ; preds = %38, %41
 
 47:                                               ; preds = %expect_slot_ssl.exit57
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr null, ptr %48, align 16, !tbaa !49
+  store ptr null, ptr %48, align 16, !tbaa !50
   %49 = tail call i32 @test_size_t_lt(ptr noundef nonnull @.str.74, i32 noundef 670, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.86, i64 noundef 3, i64 noundef 8) #12
   %.not.i58 = icmp eq i32 %49, 0
   br i1 %.not.i58, label %expect_slot_ssl.exit62, label %50
@@ -5450,8 +5450,8 @@ expect_slot_ssl.exit57:                           ; preds = %38, %41
 50:                                               ; preds = %47
   %51 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 128
-  %53 = load ptr, ptr %52, align 8, !tbaa !49
-  store ptr %53, ptr %48, align 16, !tbaa !49
+  %53 = load ptr, ptr %52, align 8, !tbaa !50
+  store ptr %53, ptr %48, align 16, !tbaa !50
   %54 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %53) #12
   %.not3.i59 = icmp ne i32 %54, 0
   %spec.select.i60 = zext i1 %.not3.i59 to i32
@@ -5465,7 +5465,7 @@ expect_slot_ssl.exit62:                           ; preds = %47, %50
 
 56:                                               ; preds = %expect_slot_ssl.exit62
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr null, ptr %57, align 8, !tbaa !49
+  store ptr null, ptr %57, align 8, !tbaa !50
   %58 = tail call i32 @test_size_t_lt(ptr noundef nonnull @.str.74, i32 noundef 670, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.86, i64 noundef 4, i64 noundef 8) #12
   %.not.i63 = icmp eq i32 %58, 0
   br i1 %.not.i63, label %expect_slot_ssl.exit67, label %59
@@ -5473,8 +5473,8 @@ expect_slot_ssl.exit62:                           ; preds = %47, %50
 59:                                               ; preds = %56
   %60 = tail call ptr @CRYPTO_THREAD_get_local(ptr noundef nonnull @radix_thread) #12
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 136
-  %62 = load ptr, ptr %61, align 8, !tbaa !49
-  store ptr %62, ptr %57, align 8, !tbaa !49
+  %62 = load ptr, ptr %61, align 8, !tbaa !50
+  store ptr %62, ptr %57, align 8, !tbaa !50
   %63 = tail call i32 @test_ptr(ptr noundef nonnull @.str.74, i32 noundef 671, ptr noundef nonnull @.str.94, ptr noundef %62) #12
   %.not3.i64 = icmp ne i32 %63, 0
   %spec.select.i65 = zext i1 %.not3.i64 to i32
@@ -5487,7 +5487,7 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
   br i1 %.not42, label %.loopexit, label %65
 
 65:                                               ; preds = %expect_slot_ssl.exit67
-  store i32 2, ptr %3, align 16, !tbaa !71
+  store i32 2, ptr %3, align 16, !tbaa !72
   %.sroa.410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.072, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !21
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -5499,21 +5499,21 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
   %68 = add nuw nsw i64 %.03574, 1
   %69 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %3, i64 0, i64 %68
   %70 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %.03574
-  %71 = load ptr, ptr %70, align 8, !tbaa !49
-  store i32 2, ptr %69, align 16, !tbaa !71
+  %71 = load ptr, ptr %70, align 8, !tbaa !50
+  store i32 2, ptr %69, align 16, !tbaa !72
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %71, ptr %.sroa.47.0..sroa_idx, align 8, !tbaa !21
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i64 1856, ptr %72, align 16, !tbaa !116
+  store i64 1856, ptr %72, align 16, !tbaa !118
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  store i64 0, ptr %73, align 8, !tbaa !119
+  store i64 0, ptr %73, align 8, !tbaa !121
   %exitcond.not = icmp eq i64 %68, 4
-  br i1 %exitcond.not, label %74, label %67, !llvm.loop !120
+  br i1 %exitcond.not, label %74, label %67, !llvm.loop !122
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %76 = tail call ptr @SSL_get0_listener(ptr noundef %.072) #12
-  store i32 2, ptr %75, align 16, !tbaa !71
+  store i32 2, ptr %75, align 16, !tbaa !72
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 168
   store ptr %76, ptr %.sroa.44.0..sroa_idx, align 8, !tbaa !21
   switch i64 %.071, label %.loopexit [
@@ -5525,46 +5525,46 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
   ]
 
 77:                                               ; preds = %74
-  store i64 6144, ptr %66, align 16, !tbaa !116
+  store i64 6144, ptr %66, align 16, !tbaa !118
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 6144, ptr %78, align 8, !tbaa !119
+  store i64 6144, ptr %78, align 8, !tbaa !121
   %79 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 64, ptr %79, align 8, !tbaa !119
+  store i64 64, ptr %79, align 8, !tbaa !121
   br label %80
 
 80:                                               ; preds = %77, %80
   %.175 = phi i64 [ 0, %77 ], [ %81, %80 ]
   %81 = add nuw nsw i64 %.175, 1
   %82 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %3, i64 0, i64 %81, i32 1
-  %83 = load i64, ptr %82, align 16, !tbaa !116
+  %83 = load i64, ptr %82, align 16, !tbaa !118
   %84 = or i64 %83, 128
-  store i64 %84, ptr %82, align 16, !tbaa !116
+  store i64 %84, ptr %82, align 16, !tbaa !118
   %85 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %4, i64 0, i64 %81, i32 2
-  %86 = load i64, ptr %85, align 8, !tbaa !119
+  %86 = load i64, ptr %85, align 8, !tbaa !121
   %87 = or i64 %86, 128
-  store i64 %87, ptr %85, align 8, !tbaa !119
+  store i64 %87, ptr %85, align 8, !tbaa !121
   %exitcond77.not = icmp eq i64 %81, 4
-  br i1 %exitcond77.not, label %.loopexit73, label %80, !llvm.loop !121
+  br i1 %exitcond77.not, label %.loopexit73, label %80, !llvm.loop !123
 
 88:                                               ; preds = %74
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i64 64, ptr %89, align 8, !tbaa !119
-  store i64 10, ptr %7, align 8, !tbaa !122
+  store i64 64, ptr %89, align 8, !tbaa !121
+  store i64 10, ptr %7, align 8, !tbaa !124
   %90 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %90, align 8, !tbaa !124
+  store i64 0, ptr %90, align 8, !tbaa !126
   br label %.loopexit73
 
 91:                                               ; preds = %74
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  store i64 256, ptr %92, align 16, !tbaa !116
+  store i64 256, ptr %92, align 16, !tbaa !118
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store i64 256, ptr %93, align 8, !tbaa !119
+  store i64 256, ptr %93, align 8, !tbaa !121
   br label %.loopexit73
 
 .loopexit73:                                      ; preds = %80, %74, %74, %91, %88
   %.037 = phi i64 [ 1, %88 ], [ 1, %91 ], [ 0, %74 ], [ 0, %74 ], [ 5, %80 ]
   %.036 = phi ptr [ %7, %88 ], [ %6, %91 ], [ %6, %74 ], [ %6, %74 ], [ %6, %80 ]
-  store i64 -1, ptr %5, align 8, !tbaa !82
+  store i64 -1, ptr %5, align 8, !tbaa !83
   %94 = tail call i64 @ossl_time_now() #12
   %95 = call i32 @SSL_poll(ptr noundef nonnull %3, i64 noundef 6, i64 noundef 32, ptr noundef nonnull %.036, i64 noundef 0, ptr noundef nonnull %5) #12
   %96 = icmp ne i32 %95, 0
@@ -5575,7 +5575,7 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
 
 99:                                               ; preds = %.loopexit73
   %100 = call i64 @ossl_time_now() #12
-  %101 = load i64, ptr %5, align 8, !tbaa !82
+  %101 = load i64, ptr %5, align 8, !tbaa !83
   %102 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.23, i32 noundef 141, ptr noundef nonnull @.str.189, ptr noundef nonnull @.str.190, i64 noundef %101, i64 noundef %.037) #12
   %.not44 = icmp eq i32 %102, 0
   br i1 %.not44, label %.loopexit, label %.preheader
@@ -5583,14 +5583,14 @@ expect_slot_ssl.exit67:                           ; preds = %56, %59
 103:                                              ; preds = %.preheader
   %104 = add nuw nsw i64 %.276, 1
   %exitcond78.not = icmp eq i64 %104, 6
-  br i1 %exitcond78.not, label %.loopexit, label %.preheader, !llvm.loop !125
+  br i1 %exitcond78.not, label %.loopexit, label %.preheader, !llvm.loop !127
 
 .preheader:                                       ; preds = %99, %103
   %.276 = phi i64 [ %104, %103 ], [ 0, %99 ]
   %105 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %3, i64 0, i64 %.276, i32 2
-  %106 = load i64, ptr %105, align 8, !tbaa !119
+  %106 = load i64, ptr %105, align 8, !tbaa !121
   %107 = getelementptr inbounds nuw [6 x %struct.ssl_poll_item_st], ptr %4, i64 0, i64 %.276, i32 2
-  %108 = load i64, ptr %107, align 8, !tbaa !119
+  %108 = load i64, ptr %107, align 8, !tbaa !121
   %109 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.23, i32 noundef 145, ptr noundef nonnull @.str.191, ptr noundef nonnull @.str.192, i64 noundef %106, i64 noundef %108) #12
   %.not45 = icmp eq i32 %109, 0
   br i1 %.not45, label %.loopexit, label %103
@@ -5615,41 +5615,41 @@ declare ptr @SSL_new_stream(ptr noundef, i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @script_gen_ssl_poll_child(ptr noundef captures(none) initializes((8, 16), (20, 24)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 67, ptr %3, align 4, !tbaa !105
+  store i32 67, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 100)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 67, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 67, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_sleep, ptr noundef nonnull @.str.181)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 68, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 68, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_U64(ptr noundef %0, i64 noundef 0)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 68, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 68, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_PZ(ptr noundef %0, ptr noundef nonnull @.str.153)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 68, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 68, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_select_ssl, ptr noundef nonnull @.str.27)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 68, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 68, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_P(ptr noundef %0, ptr noundef nonnull @.str.166)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 68, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 68, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_PUSH_SIZE(ptr noundef %0, i64 noundef 6)
-  store ptr @.str.23, ptr %2, align 8, !tbaa !104
-  store i32 68, ptr %3, align 4, !tbaa !105
+  store ptr @.str.23, ptr %2, align 8, !tbaa !106
+  store i32 68, ptr %3, align 4, !tbaa !107
   tail call fastcc void @opgen_FUNC(ptr noundef %0, ptr noundef nonnull @hf_write, ptr noundef nonnull @.str.36)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @hf_sleep(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !107
+  %2 = load ptr, ptr %0, align 8, !tbaa !109
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !101
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %6 = load ptr, ptr %5, align 8, !tbaa !95
+  %6 = load ptr, ptr %5, align 8, !tbaa !96
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
@@ -5658,10 +5658,10 @@ define internal range(i32 0, 2) i32 @hf_sleep(ptr noundef readonly captures(none
   br i1 %.not.i, label %TERP_stk_pop.exit, label %11
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %5, align 8, !tbaa !95
+  %12 = load ptr, ptr %5, align 8, !tbaa !96
   %13 = load i64, ptr %12, align 1
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %14, ptr %5, align 8, !tbaa !95
+  store ptr %14, ptr %5, align 8, !tbaa !96
   br label %TERP_stk_pop.exit
 
 TERP_stk_pop.exit:                                ; preds = %1, %11
@@ -5708,15 +5708,15 @@ define internal void @radix_thread_cleanup_tl(ptr noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @RADIX_OBJ_hash(ptr noundef readonly captures(none) %0) #1 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !46
+  %2 = load ptr, ptr %0, align 8, !tbaa !47
   %3 = tail call i64 @OPENSSL_LH_strhash(ptr noundef %2) #12
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @RADIX_OBJ_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
-  %3 = load ptr, ptr %0, align 8, !tbaa !46
-  %4 = load ptr, ptr %1, align 8, !tbaa !46
+  %3 = load ptr, ptr %0, align 8, !tbaa !47
+  %4 = load ptr, ptr %1, align 8, !tbaa !47
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #14
   ret i32 %5
 }
@@ -5769,7 +5769,7 @@ declare void @abort() local_unnamed_addr #10
 define internal i64 @get_time(ptr readnone captures(none) %0) #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 32), align 8, !tbaa !9
   tail call void @ossl_crypto_mutex_lock(ptr noundef %2) #12
-  %.sroa.01.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 48), align 8, !tbaa !82
+  %.sroa.01.0.copyload = load i64, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 48), align 8, !tbaa !83
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @radix_process, i64 32), align 8, !tbaa !9
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %3) #12
   %4 = tail call i64 @ossl_time_now() #12
@@ -5794,7 +5794,7 @@ define internal void @per_op_tick_obj(ptr noundef readonly captures(none) %0) #1
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !108
+  %7 = load ptr, ptr %6, align 8, !tbaa !110
   %8 = tail call i32 @SSL_handle_events(ptr noundef %7) #12
   br label %9
 
@@ -5810,14 +5810,14 @@ define internal fastcc range(i32 0, 2) i32 @SRDR_print_one(ptr noundef nonnull c
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %4
-  store i32 0, ptr %3, align 4, !tbaa !71
+  store i32 0, ptr %3, align 4, !tbaa !72
   br label %6
 
 6:                                                ; preds = %5, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !72
+  %8 = load ptr, ptr %7, align 8, !tbaa !73
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load ptr, ptr %9, align 8, !tbaa !75
+  %10 = load ptr, ptr %9, align 8, !tbaa !76
   %11 = ptrtoint ptr %10 to i64
   %12 = ptrtoint ptr %8 to i64
   %13 = sub i64 %11, %12
@@ -5826,10 +5826,10 @@ define internal fastcc range(i32 0, 2) i32 @SRDR_print_one(ptr noundef nonnull c
   br i1 %.not.i, label %SRDR_get_operand.exit, label %15
 
 15:                                               ; preds = %6
-  %16 = load ptr, ptr %7, align 8, !tbaa !72
+  %16 = load ptr, ptr %7, align 8, !tbaa !73
   %17 = load i64, ptr %16, align 1
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %18, ptr %7, align 8, !tbaa !72
+  store ptr %18, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit
 
 SRDR_get_operand.exit:                            ; preds = %6, %15
@@ -5851,7 +5851,7 @@ SRDR_get_operand.exit:                            ; preds = %6, %15
   ]
 
 21:                                               ; preds = %20
-  %22 = load ptr, ptr %0, align 8, !tbaa !74
+  %22 = load ptr, ptr %0, align 8, !tbaa !75
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %12, %23
   %.not.i86 = icmp eq i64 %2, -1
@@ -5869,12 +5869,12 @@ print_opc.exit:                                   ; preds = %25, %27
   br i1 %.not, label %print_opc.exit119, label %29
 
 29:                                               ; preds = %print_opc.exit
-  store i32 1, ptr %3, align 4, !tbaa !71
+  store i32 1, ptr %3, align 4, !tbaa !72
   br label %print_opc.exit119
 
 30:                                               ; preds = %20
-  %31 = load ptr, ptr %9, align 8, !tbaa !75
-  %32 = load ptr, ptr %7, align 8, !tbaa !72
+  %31 = load ptr, ptr %9, align 8, !tbaa !76
+  %32 = load ptr, ptr %7, align 8, !tbaa !73
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
@@ -5883,11 +5883,11 @@ print_opc.exit:                                   ; preds = %25, %27
   br i1 %.not.i87, label %SRDR_get_operand.exit89, label %37
 
 37:                                               ; preds = %30
-  %38 = load ptr, ptr %7, align 8, !tbaa !72
+  %38 = load ptr, ptr %7, align 8, !tbaa !73
   %39 = load i64, ptr %38, align 1
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %41, ptr %7, align 8, !tbaa !72
+  store ptr %41, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit89
 
 SRDR_get_operand.exit89:                          ; preds = %30, %37
@@ -5898,7 +5898,7 @@ SRDR_get_operand.exit89:                          ; preds = %30, %37
   br i1 %.not69, label %print_opc.exit119, label %43
 
 43:                                               ; preds = %SRDR_get_operand.exit89
-  %44 = load ptr, ptr %0, align 8, !tbaa !74
+  %44 = load ptr, ptr %0, align 8, !tbaa !75
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %12, %45
   %.not.i90 = icmp eq i64 %2, -1
@@ -5917,8 +5917,8 @@ SRDR_get_operand.exit89:                          ; preds = %30, %37
   br label %print_opc.exit119
 
 52:                                               ; preds = %20
-  %53 = load ptr, ptr %9, align 8, !tbaa !75
-  %54 = load ptr, ptr %7, align 8, !tbaa !72
+  %53 = load ptr, ptr %9, align 8, !tbaa !76
+  %54 = load ptr, ptr %7, align 8, !tbaa !73
   %55 = ptrtoint ptr %53 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
@@ -5927,11 +5927,11 @@ SRDR_get_operand.exit89:                          ; preds = %30, %37
   br i1 %.not.i92, label %SRDR_get_operand.exit94, label %59
 
 59:                                               ; preds = %52
-  %60 = load ptr, ptr %7, align 8, !tbaa !72
+  %60 = load ptr, ptr %7, align 8, !tbaa !73
   %61 = load i64, ptr %60, align 1
   %62 = inttoptr i64 %61 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %63, ptr %7, align 8, !tbaa !72
+  store ptr %63, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit94
 
 SRDR_get_operand.exit94:                          ; preds = %52, %59
@@ -5942,7 +5942,7 @@ SRDR_get_operand.exit94:                          ; preds = %52, %59
   br i1 %.not67, label %print_opc.exit119, label %65
 
 65:                                               ; preds = %SRDR_get_operand.exit94
-  %66 = load ptr, ptr %0, align 8, !tbaa !74
+  %66 = load ptr, ptr %0, align 8, !tbaa !75
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %12, %67
   %.not.i95 = icmp eq i64 %2, -1
@@ -5974,8 +5974,8 @@ print_opc.exit96:                                 ; preds = %69, %71
   br label %print_opc.exit119
 
 80:                                               ; preds = %20
-  %81 = load ptr, ptr %9, align 8, !tbaa !75
-  %82 = load ptr, ptr %7, align 8, !tbaa !72
+  %81 = load ptr, ptr %9, align 8, !tbaa !76
+  %82 = load ptr, ptr %7, align 8, !tbaa !73
   %83 = ptrtoint ptr %81 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
@@ -5984,10 +5984,10 @@ print_opc.exit96:                                 ; preds = %69, %71
   br i1 %.not.i97, label %SRDR_get_operand.exit99, label %87
 
 87:                                               ; preds = %80
-  %88 = load ptr, ptr %7, align 8, !tbaa !72
+  %88 = load ptr, ptr %7, align 8, !tbaa !73
   %89 = load i64, ptr %88, align 1
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store ptr %90, ptr %7, align 8, !tbaa !72
+  store ptr %90, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit99
 
 SRDR_get_operand.exit99:                          ; preds = %80, %87
@@ -5998,7 +5998,7 @@ SRDR_get_operand.exit99:                          ; preds = %80, %87
   br i1 %.not66, label %print_opc.exit119, label %92
 
 92:                                               ; preds = %SRDR_get_operand.exit99
-  %93 = load ptr, ptr %0, align 8, !tbaa !74
+  %93 = load ptr, ptr %0, align 8, !tbaa !75
   %94 = ptrtoint ptr %93 to i64
   %95 = sub i64 %12, %94
   %.not.i100 = icmp eq i64 %2, -1
@@ -6017,8 +6017,8 @@ SRDR_get_operand.exit99:                          ; preds = %80, %87
   br label %print_opc.exit119
 
 101:                                              ; preds = %20
-  %102 = load ptr, ptr %9, align 8, !tbaa !75
-  %103 = load ptr, ptr %7, align 8, !tbaa !72
+  %102 = load ptr, ptr %9, align 8, !tbaa !76
+  %103 = load ptr, ptr %7, align 8, !tbaa !73
   %104 = ptrtoint ptr %102 to i64
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
@@ -6027,10 +6027,10 @@ SRDR_get_operand.exit99:                          ; preds = %80, %87
   br i1 %.not.i102, label %SRDR_get_operand.exit104, label %108
 
 108:                                              ; preds = %101
-  %109 = load ptr, ptr %7, align 8, !tbaa !72
+  %109 = load ptr, ptr %7, align 8, !tbaa !73
   %110 = load i64, ptr %109, align 1
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %111, ptr %7, align 8, !tbaa !72
+  store ptr %111, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit104
 
 SRDR_get_operand.exit104:                         ; preds = %101, %108
@@ -6041,7 +6041,7 @@ SRDR_get_operand.exit104:                         ; preds = %101, %108
   br i1 %.not65, label %print_opc.exit119, label %113
 
 113:                                              ; preds = %SRDR_get_operand.exit104
-  %114 = load ptr, ptr %0, align 8, !tbaa !74
+  %114 = load ptr, ptr %0, align 8, !tbaa !75
   %115 = ptrtoint ptr %114 to i64
   %116 = sub i64 %12, %115
   %.not.i105 = icmp eq i64 %2, -1
@@ -6060,8 +6060,8 @@ SRDR_get_operand.exit104:                         ; preds = %101, %108
   br label %print_opc.exit119
 
 122:                                              ; preds = %20
-  %123 = load ptr, ptr %9, align 8, !tbaa !75
-  %124 = load ptr, ptr %7, align 8, !tbaa !72
+  %123 = load ptr, ptr %9, align 8, !tbaa !76
+  %124 = load ptr, ptr %7, align 8, !tbaa !73
   %125 = ptrtoint ptr %123 to i64
   %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
@@ -6070,9 +6070,9 @@ SRDR_get_operand.exit104:                         ; preds = %101, %108
   br i1 %.not.i107, label %SRDR_get_operand.exit109, label %129
 
 129:                                              ; preds = %122
-  %130 = load ptr, ptr %7, align 8, !tbaa !72
+  %130 = load ptr, ptr %7, align 8, !tbaa !73
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store ptr %131, ptr %7, align 8, !tbaa !72
+  store ptr %131, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit109
 
 SRDR_get_operand.exit109:                         ; preds = %122, %129
@@ -6082,8 +6082,8 @@ SRDR_get_operand.exit109:                         ; preds = %122, %129
   br i1 %.not63, label %print_opc.exit119, label %133
 
 133:                                              ; preds = %SRDR_get_operand.exit109
-  %134 = load ptr, ptr %9, align 8, !tbaa !75
-  %135 = load ptr, ptr %7, align 8, !tbaa !72
+  %134 = load ptr, ptr %9, align 8, !tbaa !76
+  %135 = load ptr, ptr %7, align 8, !tbaa !73
   %136 = ptrtoint ptr %134 to i64
   %137 = ptrtoint ptr %135 to i64
   %138 = sub i64 %136, %137
@@ -6092,11 +6092,11 @@ SRDR_get_operand.exit109:                         ; preds = %122, %129
   br i1 %.not.i110, label %SRDR_get_operand.exit112, label %140
 
 140:                                              ; preds = %133
-  %141 = load ptr, ptr %7, align 8, !tbaa !72
+  %141 = load ptr, ptr %7, align 8, !tbaa !73
   %142 = load i64, ptr %141, align 1
   %143 = inttoptr i64 %142 to ptr
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store ptr %144, ptr %7, align 8, !tbaa !72
+  store ptr %144, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit112
 
 SRDR_get_operand.exit112:                         ; preds = %133, %140
@@ -6107,7 +6107,7 @@ SRDR_get_operand.exit112:                         ; preds = %133, %140
   br i1 %.not64, label %print_opc.exit119, label %146
 
 146:                                              ; preds = %SRDR_get_operand.exit112
-  %147 = load ptr, ptr %0, align 8, !tbaa !74
+  %147 = load ptr, ptr %0, align 8, !tbaa !75
   %148 = ptrtoint ptr %147 to i64
   %149 = sub i64 %12, %148
   %.not.i113 = icmp eq i64 %2, -1
@@ -6126,8 +6126,8 @@ SRDR_get_operand.exit112:                         ; preds = %133, %140
   br label %print_opc.exit119
 
 156:                                              ; preds = %20
-  %157 = load ptr, ptr %9, align 8, !tbaa !75
-  %158 = load ptr, ptr %7, align 8, !tbaa !72
+  %157 = load ptr, ptr %9, align 8, !tbaa !76
+  %158 = load ptr, ptr %7, align 8, !tbaa !73
   %159 = ptrtoint ptr %157 to i64
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
@@ -6136,11 +6136,11 @@ SRDR_get_operand.exit112:                         ; preds = %133, %140
   br i1 %.not.i115, label %SRDR_get_operand.exit117, label %163
 
 163:                                              ; preds = %156
-  %164 = load ptr, ptr %7, align 8, !tbaa !72
+  %164 = load ptr, ptr %7, align 8, !tbaa !73
   %165 = load i64, ptr %164, align 1
   %166 = inttoptr i64 %165 to ptr
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store ptr %167, ptr %7, align 8, !tbaa !72
+  store ptr %167, ptr %7, align 8, !tbaa !73
   br label %SRDR_get_operand.exit117
 
 SRDR_get_operand.exit117:                         ; preds = %156, %163
@@ -6152,7 +6152,7 @@ SRDR_get_operand.exit117:                         ; preds = %156, %163
 
 169:                                              ; preds = %SRDR_get_operand.exit117
   %170 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.244, ptr noundef %.0126) #12
-  %171 = load ptr, ptr %0, align 8, !tbaa !74
+  %171 = load ptr, ptr %0, align 8, !tbaa !75
   %172 = ptrtoint ptr %171 to i64
   %173 = sub i64 %12, %172
   %.not.i118 = icmp eq i64 %2, -1
@@ -6202,8 +6202,8 @@ define internal void @report_obj(ptr noundef readonly captures(none) %0, ptr nou
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !108
-  %8 = load ptr, ptr %0, align 8, !tbaa !46
+  %7 = load ptr, ptr %6, align 8, !tbaa !110
+  %8 = load ptr, ptr %0, align 8, !tbaa !47
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.292, ptr noundef %8, ptr noundef %7) #12
   %10 = tail call i32 @ERR_set_mark() #12
   %11 = tail call i32 @SSL_is_quic(ptr noundef %7) #12
@@ -6238,19 +6238,19 @@ define internal void @report_obj(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not46.i, label %42, label %22
 
 22:                                               ; preds = %20
-  %23 = load i64, ptr %3, align 8, !tbaa !126
+  %23 = load i64, ptr %3, align 8, !tbaa !128
   %24 = call ptr @ossl_quic_err_to_string(i64 noundef %23) #12
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !128
+  %26 = load i64, ptr %25, align 8, !tbaa !130
   %27 = call ptr @ossl_quic_frame_type_to_string(i64 noundef %26) #12
   %28 = icmp eq ptr %24, null
   %spec.store.select.i = select i1 %28, ptr @.str.299, ptr %24
   %29 = icmp eq ptr %27, null
   %spec.store.select4.i = select i1 %29, ptr @.str.299, ptr %27
-  %30 = load i64, ptr %3, align 8, !tbaa !126
-  %31 = load i64, ptr %25, align 8, !tbaa !128
+  %30 = load i64, ptr %3, align 8, !tbaa !128
+  %31 = load i64, ptr %25, align 8, !tbaa !130
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %33 = load i32, ptr %32, align 8, !tbaa !129
+  %33 = load i32, ptr %32, align 8, !tbaa !131
   %34 = and i32 %33, 1
   %.not47.i = icmp eq i32 %34, 0
   %35 = select i1 %.not47.i, ptr @.str.302, ptr @.str.301
@@ -6258,7 +6258,7 @@ define internal void @report_obj(ptr noundef readonly captures(none) %0, ptr nou
   %.not48.i = icmp eq i32 %36, 0
   %37 = select i1 %.not48.i, ptr @.str.304, ptr @.str.303
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !130
+  %39 = load ptr, ptr %38, align 8, !tbaa !132
   %.not49.i = icmp eq ptr %39, null
   %40 = select i1 %.not49.i, ptr @.str.305, ptr %39
   %41 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.300, ptr noundef nonnull @.str.293, ptr noundef nonnull %spec.store.select.i, i64 noundef %30, ptr noundef nonnull %spec.store.select4.i, i64 noundef %31, ptr noundef nonnull %35, ptr noundef nonnull %37, ptr noundef nonnull %40) #12
@@ -6286,7 +6286,7 @@ define internal void @report_obj(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not51.i, label %51, label %50
 
 50:                                               ; preds = %46
-  store i64 -1, ptr %4, align 8, !tbaa !82
+  store i64 -1, ptr %4, align 8, !tbaa !83
   br label %51
 
 51:                                               ; preds = %50, %46
@@ -6295,11 +6295,11 @@ define internal void @report_obj(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %.not52.i, label %54, label %53
 
 53:                                               ; preds = %51
-  store i64 -1, ptr %5, align 8, !tbaa !82
+  store i64 -1, ptr %5, align 8, !tbaa !83
   br label %54
 
 54:                                               ; preds = %53, %51
-  %55 = load i64, ptr %4, align 8, !tbaa !82
+  %55 = load i64, ptr %4, align 8, !tbaa !83
   %56 = icmp ult i32 %47, 7
   br i1 %56, label %switch.lookup, label %stream_state_to_str.exit.i.i
 
@@ -6321,7 +6321,7 @@ stream_state_to_str.exit.i.i:                     ; preds = %54, %switch.lookup
 
 report_ssl_state.exit.i:                          ; preds = %59, %stream_state_to_str.exit.i.i
   %61 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.226) #12
-  %62 = load i64, ptr %5, align 8, !tbaa !82
+  %62 = load i64, ptr %5, align 8, !tbaa !83
   %63 = icmp ult i32 %48, 7
   br i1 %63, label %switch.lookup7, label %stream_state_to_str.exit.i53.i
 
@@ -6443,98 +6443,100 @@ attributes #14 = { nounwind willreturn memory(read) }
 !33 = !{!"p1 omnipotent char", !6, i64 0}
 !34 = !{!30, !17, i64 192}
 !35 = !{!30, !17, i64 196}
-!36 = distinct !{!36, !37}
+!36 = distinct !{!36, !37, !38}
 !37 = !{!"llvm.loop.mustprogress"}
-!38 = !{!30, !13, i64 184}
-!39 = !{!10, !11, i64 0}
-!40 = !{!10, !11, i64 8}
-!41 = !{!30, !11, i64 32}
-!42 = !{!30, !16, i64 176}
-!43 = !{!33, !33, i64 0}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS12radix_obj_st", !6, i64 0}
-!46 = !{!47, !33, i64 0}
-!47 = !{!"radix_obj_st", !33, i64 0, !48, i64 8, !17, i64 16, !17, i64 16}
-!48 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
-!49 = !{!48, !48, i64 0}
-!50 = distinct !{!50, !37}
-!51 = distinct !{!51, !37}
-!52 = !{!10, !11, i64 16}
-!53 = !{!30, !33, i64 16}
-!54 = distinct !{!54, !37}
-!55 = !{!56, !33, i64 0}
-!56 = !{!"script_info_st", !33, i64 0, !33, i64 8, !33, i64 16, !17, i64 24, !6, i64 32}
-!57 = !{!56, !33, i64 8}
-!58 = !{!59, !5, i64 0}
-!59 = !{!"gen_ctx_st", !5, i64 0, !33, i64 8, !17, i64 16, !17, i64 20, !33, i64 24, !33, i64 32, !17, i64 40, !33, i64 48, !33, i64 56, !33, i64 64}
-!60 = !{!59, !17, i64 40}
-!61 = !{!56, !6, i64 32}
-!62 = !{!59, !33, i64 64}
-!63 = !{!59, !33, i64 56}
-!64 = !{!59, !33, i64 48}
-!65 = !{!59, !17, i64 16}
-!66 = !{!67, !33, i64 0}
-!67 = !{!"gen_script_st", !33, i64 0, !11, i64 8}
-!68 = !{!67, !11, i64 8}
-!69 = !{!59, !33, i64 24}
-!70 = !{!59, !33, i64 32}
-!71 = !{!17, !17, i64 0}
-!72 = !{!73, !33, i64 8}
-!73 = !{!"srdr_st", !33, i64 0, !33, i64 8, !33, i64 16, !33, i64 24}
-!74 = !{!73, !33, i64 0}
-!75 = !{!73, !33, i64 16}
-!76 = !{!73, !33, i64 24}
-!77 = !{!56, !33, i64 16}
-!78 = !{!56, !17, i64 24}
-!79 = distinct !{!79, !37}
-!80 = !{i64 0, i64 8, !23, i64 8, i64 8, !81, i64 16, i64 8, !81, i64 24, i64 8, !81, i64 32, i64 8, !81, i64 40, i64 8, !82}
-!81 = !{!6, !6, i64 0}
-!82 = !{!11, !11, i64 0}
-!83 = !{!84, !5, i64 48}
-!84 = !{!"terp_st", !25, i64 0, !5, i64 48, !85, i64 56, !73, i64 64, !33, i64 96, !33, i64 104, !33, i64 112, !33, i64 120, !86, i64 128, !11, i64 144, !17, i64 152, !15, i64 160, !15, i64 168}
-!85 = !{!"p1 _ZTS13gen_script_st", !6, i64 0}
-!86 = !{!"func_ctx_st", !87, i64 0, !17, i64 8, !17, i64 12}
-!87 = !{!"p1 _ZTS7terp_st", !6, i64 0}
-!88 = !{!84, !85, i64 56}
-!89 = !{!84, !87, i64 128}
-!90 = !{!84, !17, i64 152}
-!91 = !{!84, !16, i64 0}
-!92 = !{!84, !6, i64 8}
-!93 = !{!84, !6, i64 16}
-!94 = !{i64 0, i64 8, !43, i64 8, i64 8, !43, i64 16, i64 8, !43, i64 24, i64 8, !43}
-!95 = !{!84, !33, i64 104}
-!96 = !{!84, !33, i64 120}
-!97 = !{!84, !11, i64 144}
-!98 = !{!84, !6, i64 24}
-!99 = !{!84, !6, i64 32}
-!100 = !{!84, !33, i64 112}
-!101 = !{!84, !33, i64 96}
-!102 = !{!84, !17, i64 140}
-!103 = !{!84, !17, i64 136}
-!104 = !{!59, !33, i64 8}
-!105 = !{!59, !17, i64 20}
-!106 = distinct !{!106, !37}
-!107 = !{!86, !87, i64 0}
-!108 = !{!47, !48, i64 8}
-!109 = !{!30, !11, i64 200}
-!110 = !{!86, !17, i64 8}
-!111 = !{!30, !11, i64 24}
-!112 = !{!113, !17, i64 0}
-!113 = !{!"in_addr", !17, i64 0}
-!114 = !{!30, !5, i64 168}
-!115 = !{!30, !31, i64 0}
-!116 = !{!117, !11, i64 16}
-!117 = !{!"ssl_poll_item_st", !118, i64 0, !11, i64 16, !11, i64 24}
-!118 = !{!"bio_poll_descriptor_st", !17, i64 0, !7, i64 8}
-!119 = !{!117, !11, i64 24}
-!120 = distinct !{!120, !37}
-!121 = distinct !{!121, !37}
-!122 = !{!123, !11, i64 0}
-!123 = !{!"timeval", !11, i64 0, !11, i64 8}
-!124 = !{!123, !11, i64 8}
-!125 = distinct !{!125, !37}
-!126 = !{!127, !11, i64 0}
-!127 = !{!"ssl_conn_close_info_st", !11, i64 0, !11, i64 8, !33, i64 16, !11, i64 24, !17, i64 32}
-!128 = !{!127, !11, i64 8}
-!129 = !{!127, !17, i64 32}
-!130 = !{!127, !33, i64 16}
+!38 = !{!"llvm.loop.estimated_trip_count"}
+!39 = !{!30, !13, i64 184}
+!40 = !{!10, !11, i64 0}
+!41 = !{!10, !11, i64 8}
+!42 = !{!30, !11, i64 32}
+!43 = !{!30, !16, i64 176}
+!44 = !{!33, !33, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS12radix_obj_st", !6, i64 0}
+!47 = !{!48, !33, i64 0}
+!48 = !{!"radix_obj_st", !33, i64 0, !49, i64 8, !17, i64 16, !17, i64 16}
+!49 = !{!"p1 _ZTS6ssl_st", !6, i64 0}
+!50 = !{!49, !49, i64 0}
+!51 = distinct !{!51, !37, !38}
+!52 = distinct !{!52, !37, !38}
+!53 = !{!10, !11, i64 16}
+!54 = !{!30, !33, i64 16}
+!55 = distinct !{!55, !37, !38}
+!56 = !{!57, !33, i64 0}
+!57 = !{!"script_info_st", !33, i64 0, !33, i64 8, !33, i64 16, !17, i64 24, !6, i64 32}
+!58 = !{!57, !33, i64 8}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"gen_ctx_st", !5, i64 0, !33, i64 8, !17, i64 16, !17, i64 20, !33, i64 24, !33, i64 32, !17, i64 40, !33, i64 48, !33, i64 56, !33, i64 64}
+!61 = !{!60, !17, i64 40}
+!62 = !{!57, !6, i64 32}
+!63 = !{!60, !33, i64 64}
+!64 = !{!60, !33, i64 56}
+!65 = !{!60, !33, i64 48}
+!66 = !{!60, !17, i64 16}
+!67 = !{!68, !33, i64 0}
+!68 = !{!"gen_script_st", !33, i64 0, !11, i64 8}
+!69 = !{!68, !11, i64 8}
+!70 = !{!60, !33, i64 24}
+!71 = !{!60, !33, i64 32}
+!72 = !{!17, !17, i64 0}
+!73 = !{!74, !33, i64 8}
+!74 = !{!"srdr_st", !33, i64 0, !33, i64 8, !33, i64 16, !33, i64 24}
+!75 = !{!74, !33, i64 0}
+!76 = !{!74, !33, i64 16}
+!77 = !{!74, !33, i64 24}
+!78 = !{!57, !33, i64 16}
+!79 = !{!57, !17, i64 24}
+!80 = distinct !{!80, !37, !38}
+!81 = !{i64 0, i64 8, !23, i64 8, i64 8, !82, i64 16, i64 8, !82, i64 24, i64 8, !82, i64 32, i64 8, !82, i64 40, i64 8, !83}
+!82 = !{!6, !6, i64 0}
+!83 = !{!11, !11, i64 0}
+!84 = !{!85, !5, i64 48}
+!85 = !{!"terp_st", !25, i64 0, !5, i64 48, !86, i64 56, !74, i64 64, !33, i64 96, !33, i64 104, !33, i64 112, !33, i64 120, !87, i64 128, !11, i64 144, !17, i64 152, !15, i64 160, !15, i64 168}
+!86 = !{!"p1 _ZTS13gen_script_st", !6, i64 0}
+!87 = !{!"func_ctx_st", !88, i64 0, !17, i64 8, !17, i64 12}
+!88 = !{!"p1 _ZTS7terp_st", !6, i64 0}
+!89 = !{!85, !86, i64 56}
+!90 = !{!85, !88, i64 128}
+!91 = !{!85, !17, i64 152}
+!92 = !{!85, !16, i64 0}
+!93 = !{!85, !6, i64 8}
+!94 = !{!85, !6, i64 16}
+!95 = !{i64 0, i64 8, !44, i64 8, i64 8, !44, i64 16, i64 8, !44, i64 24, i64 8, !44}
+!96 = !{!85, !33, i64 104}
+!97 = !{!85, !33, i64 120}
+!98 = !{!85, !11, i64 144}
+!99 = !{!85, !6, i64 24}
+!100 = !{!85, !6, i64 32}
+!101 = !{!85, !33, i64 112}
+!102 = !{!85, !33, i64 96}
+!103 = !{!85, !17, i64 140}
+!104 = !{!85, !17, i64 136}
+!105 = distinct !{!105, !38}
+!106 = !{!60, !33, i64 8}
+!107 = !{!60, !17, i64 20}
+!108 = distinct !{!108, !37, !38}
+!109 = !{!87, !88, i64 0}
+!110 = !{!48, !49, i64 8}
+!111 = !{!30, !11, i64 200}
+!112 = !{!87, !17, i64 8}
+!113 = !{!30, !11, i64 24}
+!114 = !{!115, !17, i64 0}
+!115 = !{!"in_addr", !17, i64 0}
+!116 = !{!30, !5, i64 168}
+!117 = !{!30, !31, i64 0}
+!118 = !{!119, !11, i64 16}
+!119 = !{!"ssl_poll_item_st", !120, i64 0, !11, i64 16, !11, i64 24}
+!120 = !{!"bio_poll_descriptor_st", !17, i64 0, !7, i64 8}
+!121 = !{!119, !11, i64 24}
+!122 = distinct !{!122, !37, !38}
+!123 = distinct !{!123, !37, !38}
+!124 = !{!125, !11, i64 0}
+!125 = !{!"timeval", !11, i64 0, !11, i64 8}
+!126 = !{!125, !11, i64 8}
+!127 = distinct !{!127, !37, !38}
+!128 = !{!129, !11, i64 0}
+!129 = !{!"ssl_conn_close_info_st", !11, i64 0, !11, i64 8, !33, i64 16, !11, i64 24, !17, i64 32}
+!130 = !{!129, !11, i64 8}
+!131 = !{!129, !17, i64 32}
+!132 = !{!129, !33, i64 16}

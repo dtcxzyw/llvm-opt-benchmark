@@ -267,7 +267,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %103, align 8, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !11
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -458,7 +458,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i
   store ptr %6, ptr %65, align 8, !tbaa !13
   %68 = add nuw nsw i32 %.0.i7, 1
   %.not = icmp samesign ult i32 %68, %34
-  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !18
+  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !20
 
 ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread10, %28, %8, %20
   ret void
@@ -715,7 +715,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %103, align 8, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %105 = load ptr, ptr %104, align 8, !tbaa !11
-  br label %.preheader34
+  br label %.preheader34, !llvm.loop !19
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -978,7 +978,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %208, align 8, !tbaa !11
   %209 = getelementptr inbounds nuw i8, ptr %182, i64 48
   %210 = load ptr, ptr %209, align 8, !tbaa !11
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %113, %._crit_edge42, %ph_merge_aux.exit
   %.0.i18 = phi ptr [ null, %ph_merge_aux.exit ], [ %114, %113 ], [ %.0.i16.i, %._crit_edge42 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -1240,7 +1240,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i6, ptr %104, align 8, !tbaa !11
   %105 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !11
-  br label %.preheader88
+  br label %.preheader88, !llvm.loop !19
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %9, %._crit_edge97
   %.081.i = phi ptr [ %8, %9 ], [ %.0.i15, %._crit_edge97 ], [ %.0.i6, %phn_merge.exit ]
@@ -1502,7 +1502,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %210, align 8, !tbaa !11
   %211 = getelementptr inbounds nuw i8, ptr %184, i64 48
   %212 = load ptr, ptr %211, align 8, !tbaa !11
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %116, %._crit_edge103, %ph_merge_aux.exit
   %.0.i20 = phi ptr [ null, %ph_merge_aux.exit ], [ %114, %116 ], [ %.0.i16.i, %._crit_edge103 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -1753,7 +1753,7 @@ phn_merge.exit.i45:                               ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i46, ptr %315, align 8, !tbaa !11
   %316 = getelementptr inbounds nuw i8, ptr %289, i64 48
   %317 = load ptr, ptr %316, align 8, !tbaa !11
-  br label %.preheader89
+  br label %.preheader89, !llvm.loop !19
 
 .loopexit:                                        ; preds = %phn_merge.exit.i45, %221, %._crit_edge
   %.0.i49.ph = phi ptr [ %.0.i16.i25, %._crit_edge ], [ %219, %221 ], [ %.0.i7.i46, %phn_merge.exit.i45 ]
@@ -1869,13 +1869,13 @@ define hidden ptr @je_edata_heap_first(ptr noundef captures(none) %0) local_unna
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %21 = getelementptr i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %.val = load ptr, ptr %21, align 8, !tbaa !20
+  %.val = load ptr, ptr %21, align 8, !tbaa !22
   %22 = getelementptr i8, ptr %7, i64 32
-  %.val17 = load i64, ptr %22, align 8, !tbaa !23
+  %.val17 = load i64, ptr %22, align 8, !tbaa !25
   %23 = getelementptr i8, ptr %12, i64 8
-  %.val18 = load ptr, ptr %23, align 8, !tbaa !20
+  %.val18 = load ptr, ptr %23, align 8, !tbaa !22
   %24 = getelementptr i8, ptr %12, i64 32
-  %.val19 = load i64, ptr %24, align 8, !tbaa !23
+  %.val19 = load i64, ptr %24, align 8, !tbaa !25
   %25 = ptrtoint ptr %.val to i64
   %26 = ptrtoint ptr %.val18 to i64
   %.sroa.23.0.insert.ext.i.i.i = zext i64 %.val17 to i128
@@ -1952,13 +1952,13 @@ phn_merge.exit16:                                 ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %48 = getelementptr i8, ptr %.077.i45, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  %.077.i.val = load ptr, ptr %48, align 8, !tbaa !20
+  %.077.i.val = load ptr, ptr %48, align 8, !tbaa !22
   %49 = getelementptr i8, ptr %.077.i45, i64 32
-  %.077.i.val20 = load i64, ptr %49, align 8, !tbaa !23
+  %.077.i.val20 = load i64, ptr %49, align 8, !tbaa !25
   %50 = getelementptr i8, ptr %40, i64 8
-  %.val21 = load ptr, ptr %50, align 8, !tbaa !20
+  %.val21 = load ptr, ptr %50, align 8, !tbaa !22
   %51 = getelementptr i8, ptr %40, i64 32
-  %.val22 = load i64, ptr %51, align 8, !tbaa !23
+  %.val22 = load i64, ptr %51, align 8, !tbaa !25
   %52 = ptrtoint ptr %.077.i.val to i64
   %53 = ptrtoint ptr %.val21 to i64
   %.sroa.23.0.insert.ext.i.i.i25 = zext i64 %.077.i.val20 to i128
@@ -2035,13 +2035,13 @@ phn_merge_ordered.exit.i6:                        ; preds = %63, %60
   store ptr null, ptr %72, align 8, !tbaa !11
   store ptr null, ptr %70, align 8, !tbaa !11
   %73 = getelementptr i8, ptr %.3.i, i64 8
-  %.3.i.val = load ptr, ptr %73, align 8, !tbaa !20
+  %.3.i.val = load ptr, ptr %73, align 8, !tbaa !22
   %74 = getelementptr i8, ptr %.3.i, i64 32
-  %.3.i.val23 = load i64, ptr %74, align 8, !tbaa !23
+  %.3.i.val23 = load i64, ptr %74, align 8, !tbaa !25
   %75 = getelementptr i8, ptr %.0.i2, i64 8
-  %.0.i2.val = load ptr, ptr %75, align 8, !tbaa !20
+  %.0.i2.val = load ptr, ptr %75, align 8, !tbaa !22
   %76 = getelementptr i8, ptr %.0.i2, i64 32
-  %.0.i2.val24 = load i64, ptr %76, align 8, !tbaa !23
+  %.0.i2.val24 = load i64, ptr %76, align 8, !tbaa !25
   %77 = ptrtoint ptr %.3.i.val to i64
   %78 = ptrtoint ptr %.0.i2.val to i64
   %.sroa.23.0.insert.ext.i.i.i34 = zext i64 %.3.i.val23 to i128
@@ -2101,7 +2101,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %94, align 8, !tbaa !11
   %95 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %96 = load ptr, ptr %95, align 8, !tbaa !11
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -2161,13 +2161,13 @@ define hidden void @je_edata_heap_insert(ptr noundef captures(none) %0, ptr noun
 
 9:                                                ; preds = %2
   %10 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %10, align 8, !tbaa !20
+  %.val = load ptr, ptr %10, align 8, !tbaa !22
   %11 = getelementptr i8, ptr %1, i64 32
-  %.val4 = load i64, ptr %11, align 8, !tbaa !23
+  %.val4 = load i64, ptr %11, align 8, !tbaa !25
   %12 = getelementptr i8, ptr %6, i64 8
-  %.val5 = load ptr, ptr %12, align 8, !tbaa !20
+  %.val5 = load ptr, ptr %12, align 8, !tbaa !22
   %13 = getelementptr i8, ptr %6, i64 32
-  %.val6 = load i64, ptr %13, align 8, !tbaa !23
+  %.val6 = load i64, ptr %13, align 8, !tbaa !25
   %14 = ptrtoint ptr %.val to i64
   %15 = ptrtoint ptr %.val5 to i64
   %.sroa.23.0.insert.ext.i.i = zext i64 %.val4 to i128
@@ -2232,13 +2232,13 @@ define hidden void @je_edata_heap_insert(ptr noundef captures(none) %0, ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %42 = getelementptr i8, ptr %33, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
-  %.val7 = load ptr, ptr %42, align 8, !tbaa !20
+  %.val7 = load ptr, ptr %42, align 8, !tbaa !22
   %43 = getelementptr i8, ptr %33, i64 32
-  %.val8 = load i64, ptr %43, align 8, !tbaa !23
+  %.val8 = load i64, ptr %43, align 8, !tbaa !25
   %44 = getelementptr i8, ptr %36, i64 8
-  %.val9 = load ptr, ptr %44, align 8, !tbaa !20
+  %.val9 = load ptr, ptr %44, align 8, !tbaa !22
   %45 = getelementptr i8, ptr %36, i64 32
-  %.val10 = load i64, ptr %45, align 8, !tbaa !23
+  %.val10 = load i64, ptr %45, align 8, !tbaa !25
   %46 = ptrtoint ptr %.val7 to i64
   %47 = ptrtoint ptr %.val9 to i64
   %.sroa.23.0.insert.ext.i.i.i = zext i64 %.val8 to i128
@@ -2306,7 +2306,7 @@ ph_try_aux_merge_pair.exit:                       ; preds = %phn_merge.exit.i
   store ptr %6, ptr %59, align 8, !tbaa !13
   %62 = add nuw nsw i32 %.0.i12, 1
   %.not = icmp samesign ult i32 %62, %31
-  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !24
+  br i1 %.not, label %.lr.ph.split.preheader, label %ph_insert.exit, !llvm.loop !26
 
 ph_insert.exit:                                   ; preds = %.lr.ph.split.preheader, %ph_try_aux_merge_pair.exit, %ph_try_aux_merge_pair.exit.thread15, %25, %8, %17
   ret void
@@ -2352,13 +2352,13 @@ define hidden ptr @je_edata_heap_remove_first(ptr noundef captures(none) %0) loc
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %21 = getelementptr i8, ptr %7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  %.val27 = load ptr, ptr %21, align 8, !tbaa !20
+  %.val27 = load ptr, ptr %21, align 8, !tbaa !22
   %22 = getelementptr i8, ptr %7, i64 32
-  %.val28 = load i64, ptr %22, align 8, !tbaa !23
+  %.val28 = load i64, ptr %22, align 8, !tbaa !25
   %23 = getelementptr i8, ptr %12, i64 8
-  %.val29 = load ptr, ptr %23, align 8, !tbaa !20
+  %.val29 = load ptr, ptr %23, align 8, !tbaa !22
   %24 = getelementptr i8, ptr %12, i64 32
-  %.val30 = load i64, ptr %24, align 8, !tbaa !23
+  %.val30 = load i64, ptr %24, align 8, !tbaa !25
   %25 = ptrtoint ptr %.val27 to i64
   %26 = ptrtoint ptr %.val29 to i64
   %.sroa.23.0.insert.ext.i.i.i = zext i64 %.val28 to i128
@@ -2435,13 +2435,13 @@ phn_merge.exit16:                                 ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %48 = getelementptr i8, ptr %.077.i84, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  %.077.i.val = load ptr, ptr %48, align 8, !tbaa !20
+  %.077.i.val = load ptr, ptr %48, align 8, !tbaa !22
   %49 = getelementptr i8, ptr %.077.i84, i64 32
-  %.077.i.val31 = load i64, ptr %49, align 8, !tbaa !23
+  %.077.i.val31 = load i64, ptr %49, align 8, !tbaa !25
   %50 = getelementptr i8, ptr %40, i64 8
-  %.val32 = load ptr, ptr %50, align 8, !tbaa !20
+  %.val32 = load ptr, ptr %50, align 8, !tbaa !22
   %51 = getelementptr i8, ptr %40, i64 32
-  %.val33 = load i64, ptr %51, align 8, !tbaa !23
+  %.val33 = load i64, ptr %51, align 8, !tbaa !25
   %52 = ptrtoint ptr %.077.i.val to i64
   %53 = ptrtoint ptr %.val32 to i64
   %.sroa.23.0.insert.ext.i.i.i36 = zext i64 %.077.i.val31 to i128
@@ -2518,13 +2518,13 @@ phn_merge_ordered.exit.i6:                        ; preds = %63, %60
   store ptr null, ptr %72, align 8, !tbaa !11
   store ptr null, ptr %70, align 8, !tbaa !11
   %73 = getelementptr i8, ptr %.3.i, i64 8
-  %.3.i.val = load ptr, ptr %73, align 8, !tbaa !20
+  %.3.i.val = load ptr, ptr %73, align 8, !tbaa !22
   %74 = getelementptr i8, ptr %.3.i, i64 32
-  %.3.i.val34 = load i64, ptr %74, align 8, !tbaa !23
+  %.3.i.val34 = load i64, ptr %74, align 8, !tbaa !25
   %75 = getelementptr i8, ptr %.0.i2, i64 8
-  %.0.i2.val = load ptr, ptr %75, align 8, !tbaa !20
+  %.0.i2.val = load ptr, ptr %75, align 8, !tbaa !22
   %76 = getelementptr i8, ptr %.0.i2, i64 32
-  %.0.i2.val35 = load i64, ptr %76, align 8, !tbaa !23
+  %.0.i2.val35 = load i64, ptr %76, align 8, !tbaa !25
   %77 = ptrtoint ptr %.3.i.val to i64
   %78 = ptrtoint ptr %.0.i2.val to i64
   %.sroa.23.0.insert.ext.i.i.i45 = zext i64 %.3.i.val34 to i128
@@ -2584,7 +2584,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i4, ptr %94, align 8, !tbaa !11
   %95 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %96 = load ptr, ptr %95, align 8, !tbaa !11
-  br label %.preheader81
+  br label %.preheader81, !llvm.loop !19
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %8, %._crit_edge
   %.081.i = phi ptr [ %7, %8 ], [ %.0.i13, %._crit_edge ], [ %.0.i4, %phn_merge.exit ]
@@ -2636,13 +2636,13 @@ ph_merge_aux.exit:                                ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %106, i8 0, i64 16, i1 false)
   %117 = getelementptr i8, ptr %105, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  %.val23 = load ptr, ptr %117, align 8, !tbaa !20
+  %.val23 = load ptr, ptr %117, align 8, !tbaa !22
   %118 = getelementptr i8, ptr %105, i64 32
-  %.val24 = load i64, ptr %118, align 8, !tbaa !23
+  %.val24 = load i64, ptr %118, align 8, !tbaa !25
   %119 = getelementptr i8, ptr %108, i64 8
-  %.val25 = load ptr, ptr %119, align 8, !tbaa !20
+  %.val25 = load ptr, ptr %119, align 8, !tbaa !22
   %120 = getelementptr i8, ptr %108, i64 32
-  %.val26 = load i64, ptr %120, align 8, !tbaa !23
+  %.val26 = load i64, ptr %120, align 8, !tbaa !25
   %121 = ptrtoint ptr %.val23 to i64
   %122 = ptrtoint ptr %.val25 to i64
   %.sroa.23.0.insert.ext.i.i.i54 = zext i64 %.val24 to i128
@@ -2719,13 +2719,13 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
   %144 = getelementptr i8, ptr %.077.i.i87, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %138, i8 0, i64 16, i1 false)
-  %.077.i.i.val = load ptr, ptr %144, align 8, !tbaa !20
+  %.077.i.i.val = load ptr, ptr %144, align 8, !tbaa !22
   %145 = getelementptr i8, ptr %.077.i.i87, i64 32
-  %.077.i.i.val21 = load i64, ptr %145, align 8, !tbaa !23
+  %.077.i.i.val21 = load i64, ptr %145, align 8, !tbaa !25
   %146 = getelementptr i8, ptr %136, i64 8
-  %.val = load ptr, ptr %146, align 8, !tbaa !20
+  %.val = load ptr, ptr %146, align 8, !tbaa !22
   %147 = getelementptr i8, ptr %136, i64 32
-  %.val22 = load i64, ptr %147, align 8, !tbaa !23
+  %.val22 = load i64, ptr %147, align 8, !tbaa !25
   %148 = ptrtoint ptr %.077.i.i.val to i64
   %149 = ptrtoint ptr %.val to i64
   %.sroa.23.0.insert.ext.i.i.i63 = zext i64 %.077.i.i.val21 to i128
@@ -2802,13 +2802,13 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %159, %156
   store ptr null, ptr %168, align 8, !tbaa !11
   store ptr null, ptr %166, align 8, !tbaa !11
   %169 = getelementptr i8, ptr %.3.i.i, i64 8
-  %.3.i.i.val = load ptr, ptr %169, align 8, !tbaa !20
+  %.3.i.i.val = load ptr, ptr %169, align 8, !tbaa !22
   %170 = getelementptr i8, ptr %.3.i.i, i64 32
-  %.3.i.i.val19 = load i64, ptr %170, align 8, !tbaa !23
+  %.3.i.i.val19 = load i64, ptr %170, align 8, !tbaa !25
   %171 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.i.i.val = load ptr, ptr %171, align 8, !tbaa !20
+  %.0.i.i.val = load ptr, ptr %171, align 8, !tbaa !22
   %172 = getelementptr i8, ptr %.0.i.i, i64 32
-  %.0.i.i.val20 = load i64, ptr %172, align 8, !tbaa !23
+  %.0.i.i.val20 = load i64, ptr %172, align 8, !tbaa !25
   %173 = ptrtoint ptr %.3.i.i.val to i64
   %174 = ptrtoint ptr %.0.i.i.val to i64
   %.sroa.23.0.insert.ext.i.i.i72 = zext i64 %.3.i.i.val19 to i128
@@ -2868,7 +2868,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %190, align 8, !tbaa !11
   %191 = getelementptr inbounds nuw i8, ptr %167, i64 48
   %192 = load ptr, ptr %191, align 8, !tbaa !11
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %104, %._crit_edge89, %ph_merge_aux.exit
   %.0.i18 = phi ptr [ null, %ph_merge_aux.exit ], [ %105, %104 ], [ %.0.i16.i, %._crit_edge89 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -2919,13 +2919,13 @@ define hidden void @je_edata_heap_remove(ptr noundef captures(none) %0, ptr noun
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %22 = getelementptr i8, ptr %8, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  %.val72 = load ptr, ptr %22, align 8, !tbaa !20
+  %.val72 = load ptr, ptr %22, align 8, !tbaa !22
   %23 = getelementptr i8, ptr %8, i64 32
-  %.val73 = load i64, ptr %23, align 8, !tbaa !23
+  %.val73 = load i64, ptr %23, align 8, !tbaa !25
   %24 = getelementptr i8, ptr %13, i64 8
-  %.val74 = load ptr, ptr %24, align 8, !tbaa !20
+  %.val74 = load ptr, ptr %24, align 8, !tbaa !22
   %25 = getelementptr i8, ptr %13, i64 32
-  %.val75 = load i64, ptr %25, align 8, !tbaa !23
+  %.val75 = load i64, ptr %25, align 8, !tbaa !25
   %26 = ptrtoint ptr %.val72 to i64
   %27 = ptrtoint ptr %.val74 to i64
   %.sroa.23.0.insert.ext.i.i.i = zext i64 %.val73 to i128
@@ -3002,13 +3002,13 @@ phn_merge.exit18:                                 ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %49 = getelementptr i8, ptr %.077.i169, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
-  %.077.i.val = load ptr, ptr %49, align 8, !tbaa !20
+  %.077.i.val = load ptr, ptr %49, align 8, !tbaa !22
   %50 = getelementptr i8, ptr %.077.i169, i64 32
-  %.077.i.val76 = load i64, ptr %50, align 8, !tbaa !23
+  %.077.i.val76 = load i64, ptr %50, align 8, !tbaa !25
   %51 = getelementptr i8, ptr %41, i64 8
-  %.val77 = load ptr, ptr %51, align 8, !tbaa !20
+  %.val77 = load ptr, ptr %51, align 8, !tbaa !22
   %52 = getelementptr i8, ptr %41, i64 32
-  %.val78 = load i64, ptr %52, align 8, !tbaa !23
+  %.val78 = load i64, ptr %52, align 8, !tbaa !25
   %53 = ptrtoint ptr %.077.i.val to i64
   %54 = ptrtoint ptr %.val77 to i64
   %.sroa.23.0.insert.ext.i.i.i81 = zext i64 %.077.i.val76 to i128
@@ -3085,13 +3085,13 @@ phn_merge_ordered.exit.i8:                        ; preds = %64, %61
   store ptr null, ptr %73, align 8, !tbaa !11
   store ptr null, ptr %71, align 8, !tbaa !11
   %74 = getelementptr i8, ptr %.3.i, i64 8
-  %.3.i.val = load ptr, ptr %74, align 8, !tbaa !20
+  %.3.i.val = load ptr, ptr %74, align 8, !tbaa !22
   %75 = getelementptr i8, ptr %.3.i, i64 32
-  %.3.i.val79 = load i64, ptr %75, align 8, !tbaa !23
+  %.3.i.val79 = load i64, ptr %75, align 8, !tbaa !25
   %76 = getelementptr i8, ptr %.0.i4, i64 8
-  %.0.i4.val = load ptr, ptr %76, align 8, !tbaa !20
+  %.0.i4.val = load ptr, ptr %76, align 8, !tbaa !22
   %77 = getelementptr i8, ptr %.0.i4, i64 32
-  %.0.i4.val80 = load i64, ptr %77, align 8, !tbaa !23
+  %.0.i4.val80 = load i64, ptr %77, align 8, !tbaa !25
   %78 = ptrtoint ptr %.3.i.val to i64
   %79 = ptrtoint ptr %.0.i4.val to i64
   %.sroa.23.0.insert.ext.i.i.i90 = zext i64 %.3.i.val79 to i128
@@ -3151,7 +3151,7 @@ phn_merge.exit:                                   ; preds = %phn_merge_ordered.e
   store ptr %.0.i6, ptr %95, align 8, !tbaa !11
   %96 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %97 = load ptr, ptr %96, align 8, !tbaa !11
-  br label %.preheader162
+  br label %.preheader162, !llvm.loop !19
 
 phn_merge_siblings.exit:                          ; preds = %phn_merge.exit, %9, %._crit_edge171
   %.081.i = phi ptr [ %8, %9 ], [ %.0.i15, %._crit_edge171 ], [ %.0.i6, %phn_merge.exit ]
@@ -3202,13 +3202,13 @@ ph_merge_aux.exit:                                ; preds = %5, %phn_merge_order
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, i8 0, i64 16, i1 false)
   %119 = getelementptr i8, ptr %105, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, i8 0, i64 16, i1 false)
-  %.val68 = load ptr, ptr %119, align 8, !tbaa !20
+  %.val68 = load ptr, ptr %119, align 8, !tbaa !22
   %120 = getelementptr i8, ptr %105, i64 32
-  %.val69 = load i64, ptr %120, align 8, !tbaa !23
+  %.val69 = load i64, ptr %120, align 8, !tbaa !25
   %121 = getelementptr i8, ptr %110, i64 8
-  %.val70 = load ptr, ptr %121, align 8, !tbaa !20
+  %.val70 = load ptr, ptr %121, align 8, !tbaa !22
   %122 = getelementptr i8, ptr %110, i64 32
-  %.val71 = load i64, ptr %122, align 8, !tbaa !23
+  %.val71 = load i64, ptr %122, align 8, !tbaa !25
   %123 = ptrtoint ptr %.val68 to i64
   %124 = ptrtoint ptr %.val70 to i64
   %.sroa.23.0.insert.ext.i.i.i99 = zext i64 %.val69 to i128
@@ -3285,13 +3285,13 @@ phn_merge.exit19.i:                               ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, i8 0, i64 16, i1 false)
   %146 = getelementptr i8, ptr %.077.i.i175, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, i8 0, i64 16, i1 false)
-  %.077.i.i.val = load ptr, ptr %146, align 8, !tbaa !20
+  %.077.i.i.val = load ptr, ptr %146, align 8, !tbaa !22
   %147 = getelementptr i8, ptr %.077.i.i175, i64 32
-  %.077.i.i.val65 = load i64, ptr %147, align 8, !tbaa !23
+  %.077.i.i.val65 = load i64, ptr %147, align 8, !tbaa !25
   %148 = getelementptr i8, ptr %138, i64 8
-  %.val66 = load ptr, ptr %148, align 8, !tbaa !20
+  %.val66 = load ptr, ptr %148, align 8, !tbaa !22
   %149 = getelementptr i8, ptr %138, i64 32
-  %.val67 = load i64, ptr %149, align 8, !tbaa !23
+  %.val67 = load i64, ptr %149, align 8, !tbaa !25
   %150 = ptrtoint ptr %.077.i.i.val to i64
   %151 = ptrtoint ptr %.val66 to i64
   %.sroa.23.0.insert.ext.i.i.i108 = zext i64 %.077.i.i.val65 to i128
@@ -3368,13 +3368,13 @@ phn_merge_ordered.exit.i9.i:                      ; preds = %161, %158
   store ptr null, ptr %170, align 8, !tbaa !11
   store ptr null, ptr %168, align 8, !tbaa !11
   %171 = getelementptr i8, ptr %.3.i.i, i64 8
-  %.3.i.i.val = load ptr, ptr %171, align 8, !tbaa !20
+  %.3.i.i.val = load ptr, ptr %171, align 8, !tbaa !22
   %172 = getelementptr i8, ptr %.3.i.i, i64 32
-  %.3.i.i.val63 = load i64, ptr %172, align 8, !tbaa !23
+  %.3.i.i.val63 = load i64, ptr %172, align 8, !tbaa !25
   %173 = getelementptr i8, ptr %.0.i.i, i64 8
-  %.0.i.i.val = load ptr, ptr %173, align 8, !tbaa !20
+  %.0.i.i.val = load ptr, ptr %173, align 8, !tbaa !22
   %174 = getelementptr i8, ptr %.0.i.i, i64 32
-  %.0.i.i.val64 = load i64, ptr %174, align 8, !tbaa !23
+  %.0.i.i.val64 = load i64, ptr %174, align 8, !tbaa !25
   %175 = ptrtoint ptr %.3.i.i.val to i64
   %176 = ptrtoint ptr %.0.i.i.val to i64
   %.sroa.23.0.insert.ext.i.i.i117 = zext i64 %.3.i.i.val63 to i128
@@ -3434,7 +3434,7 @@ phn_merge.exit.i:                                 ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i, ptr %192, align 8, !tbaa !11
   %193 = getelementptr inbounds nuw i8, ptr %169, i64 48
   %194 = load ptr, ptr %193, align 8, !tbaa !11
-  br label %.preheader
+  br label %.preheader, !llvm.loop !19
 
 ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %107, %._crit_edge177, %ph_merge_aux.exit
   %.0.i20 = phi ptr [ null, %ph_merge_aux.exit ], [ %105, %107 ], [ %.0.i16.i, %._crit_edge177 ], [ %.0.i7.i, %phn_merge.exit.i ]
@@ -3474,13 +3474,13 @@ ph_merge_children.exit:                           ; preds = %phn_merge.exit.i, %
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %204, i8 0, i64 16, i1 false)
   %215 = getelementptr i8, ptr %201, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, i8 0, i64 16, i1 false)
-  %.val59 = load ptr, ptr %215, align 8, !tbaa !20
+  %.val59 = load ptr, ptr %215, align 8, !tbaa !22
   %216 = getelementptr i8, ptr %201, i64 32
-  %.val60 = load i64, ptr %216, align 8, !tbaa !23
+  %.val60 = load i64, ptr %216, align 8, !tbaa !25
   %217 = getelementptr i8, ptr %206, i64 8
-  %.val61 = load ptr, ptr %217, align 8, !tbaa !20
+  %.val61 = load ptr, ptr %217, align 8, !tbaa !22
   %218 = getelementptr i8, ptr %206, i64 32
-  %.val62 = load i64, ptr %218, align 8, !tbaa !23
+  %.val62 = load i64, ptr %218, align 8, !tbaa !25
   %219 = ptrtoint ptr %.val59 to i64
   %220 = ptrtoint ptr %.val61 to i64
   %.sroa.23.0.insert.ext.i.i.i126 = zext i64 %.val60 to i128
@@ -3557,13 +3557,13 @@ phn_merge.exit19.i24:                             ; preds = %phn_merge_ordered.e
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %232, i8 0, i64 16, i1 false)
   %242 = getelementptr i8, ptr %.077.i.i27166, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %236, i8 0, i64 16, i1 false)
-  %.077.i.i27.val = load ptr, ptr %242, align 8, !tbaa !20
+  %.077.i.i27.val = load ptr, ptr %242, align 8, !tbaa !22
   %243 = getelementptr i8, ptr %.077.i.i27166, i64 32
-  %.077.i.i27.val57 = load i64, ptr %243, align 8, !tbaa !23
+  %.077.i.i27.val57 = load i64, ptr %243, align 8, !tbaa !25
   %244 = getelementptr i8, ptr %234, i64 8
-  %.val = load ptr, ptr %244, align 8, !tbaa !20
+  %.val = load ptr, ptr %244, align 8, !tbaa !22
   %245 = getelementptr i8, ptr %234, i64 32
-  %.val58 = load i64, ptr %245, align 8, !tbaa !23
+  %.val58 = load i64, ptr %245, align 8, !tbaa !25
   %246 = ptrtoint ptr %.077.i.i27.val to i64
   %247 = ptrtoint ptr %.val to i64
   %.sroa.23.0.insert.ext.i.i.i135 = zext i64 %.077.i.i27.val57 to i128
@@ -3640,13 +3640,13 @@ phn_merge_ordered.exit.i9.i32:                    ; preds = %257, %254
   store ptr null, ptr %266, align 8, !tbaa !11
   store ptr null, ptr %264, align 8, !tbaa !11
   %267 = getelementptr i8, ptr %.3.i.i41, i64 8
-  %.3.i.i41.val = load ptr, ptr %267, align 8, !tbaa !20
+  %.3.i.i41.val = load ptr, ptr %267, align 8, !tbaa !22
   %268 = getelementptr i8, ptr %.3.i.i41, i64 32
-  %.3.i.i41.val55 = load i64, ptr %268, align 8, !tbaa !23
+  %.3.i.i41.val55 = load i64, ptr %268, align 8, !tbaa !25
   %269 = getelementptr i8, ptr %.0.i.i42, i64 8
-  %.0.i.i42.val = load ptr, ptr %269, align 8, !tbaa !20
+  %.0.i.i42.val = load ptr, ptr %269, align 8, !tbaa !22
   %270 = getelementptr i8, ptr %.0.i.i42, i64 32
-  %.0.i.i42.val56 = load i64, ptr %270, align 8, !tbaa !23
+  %.0.i.i42.val56 = load i64, ptr %270, align 8, !tbaa !25
   %271 = ptrtoint ptr %.3.i.i41.val to i64
   %272 = ptrtoint ptr %.0.i.i42.val to i64
   %.sroa.23.0.insert.ext.i.i.i144 = zext i64 %.3.i.i41.val55 to i128
@@ -3706,7 +3706,7 @@ phn_merge.exit.i45:                               ; preds = %phn_merge_ordered.e
   store ptr %.0.i7.i46, ptr %288, align 8, !tbaa !11
   %289 = getelementptr inbounds nuw i8, ptr %265, i64 48
   %290 = load ptr, ptr %289, align 8, !tbaa !11
-  br label %.preheader163
+  br label %.preheader163, !llvm.loop !19
 
 .loopexit:                                        ; preds = %phn_merge.exit.i45, %203, %._crit_edge
   %.0.i49.ph = phi ptr [ %.0.i16.i25, %._crit_edge ], [ %201, %203 ], [ %.0.i7.i46, %phn_merge.exit.i45 ]
@@ -3809,12 +3809,14 @@ attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !13 = !{!12, !6, i64 0}
 !14 = !{!7, !7, i64 0}
 !15 = !{!12, !6, i64 16}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17, !19}
-!19 = !{!"llvm.loop.unswitch.partial.disable"}
-!20 = !{!21, !6, i64 8}
-!21 = !{!"edata_s", !9, i64 0, !6, i64 8, !7, i64 16, !22, i64 24, !9, i64 32, !7, i64 40, !7, i64 64}
-!22 = !{!"p1 _ZTS8hpdata_s", !6, i64 0}
-!23 = !{!21, !9, i64 32}
-!24 = distinct !{!24, !17, !19}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !18}
+!20 = distinct !{!20, !17, !18, !21}
+!21 = !{!"llvm.loop.unswitch.partial.disable"}
+!22 = !{!23, !6, i64 8}
+!23 = !{!"edata_s", !9, i64 0, !6, i64 8, !7, i64 16, !24, i64 24, !9, i64 32, !7, i64 40, !7, i64 64}
+!24 = !{!"p1 _ZTS8hpdata_s", !6, i64 0}
+!25 = !{!23, !9, i64 32}
+!26 = distinct !{!26, !17, !18, !21}

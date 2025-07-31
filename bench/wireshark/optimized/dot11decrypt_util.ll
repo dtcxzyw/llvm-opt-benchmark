@@ -224,17 +224,17 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 2
-  %33 = call ptr @__memcpy_chk(ptr noundef nonnull %32, ptr noundef nonnull %2, i64 noundef %12, i64 noundef 254) #9, !alias.scope !16
+  %33 = call ptr @__memcpy_chk(ptr noundef nonnull %32, ptr noundef nonnull %2, i64 noundef %12, i64 noundef 254) #9, !alias.scope !17
   %34 = getelementptr i8, ptr %9, i64 %24
   %35 = sub i64 254, %12
   %36 = icmp ugt i64 %24, 256
   %37 = select i1 %36, i64 0, i64 %35
   %38 = icmp ne i64 %37, -1
   call void @llvm.assume(i1 %38)
-  %39 = call ptr @__memcpy_chk(ptr noundef %34, ptr noundef nonnull %3, i64 noundef %4, i64 noundef %37) #9, !alias.scope !20
+  %39 = call ptr @__memcpy_chk(ptr noundef %34, ptr noundef nonnull %3, i64 noundef %4, i64 noundef %37) #9, !alias.scope !21
   %40 = getelementptr i8, ptr %9, i64 %25
   %41 = call i64 @llvm.usub.sat.i64(i64 256, i64 %25)
-  %42 = call ptr @__memcpy_chk(ptr noundef %40, ptr noundef nonnull %11, i64 noundef 2, i64 noundef %41) #9, !alias.scope !24
+  %42 = call ptr @__memcpy_chk(ptr noundef %40, ptr noundef nonnull %11, i64 noundef 2, i64 noundef %41) #9, !alias.scope !25
   br label %43
 
 43:                                               ; preds = %46, %31
@@ -251,7 +251,7 @@ define hidden noundef zeroext i1 @dot11decrypt_kdf(ptr noundef %0, i64 noundef %
   %50 = getelementptr i8, ptr %10, i64 %49
   %51 = call i32 @ws_hmac_buffer(i32 noundef %5, ptr noundef %50, ptr noundef nonnull %9, i64 noundef %26, ptr noundef nonnull %0, i64 noundef %1)
   %.not = icmp eq i32 %51, 0
-  br i1 %.not, label %43, label %.loopexit, !llvm.loop !28
+  br i1 %.not, label %43, label %.loopexit, !llvm.loop !29
 
 52:                                               ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %6, ptr noundef nonnull align 16 %10, i64 noundef %7, i1 noundef false) #9
@@ -308,7 +308,7 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
   %34 = trunc i64 %3 to i8
   store i8 %34, ptr %14, align 16
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 1
-  %36 = call ptr @__memcpy_chk(ptr noundef nonnull %35, ptr noundef nonnull %2, i64 noundef %3, i64 noundef 255) #9, !alias.scope !29
+  %36 = call ptr @__memcpy_chk(ptr noundef nonnull %35, ptr noundef nonnull %2, i64 noundef %3, i64 noundef 255) #9, !alias.scope !30
   %37 = getelementptr i8, ptr %14, i64 %3
   %38 = getelementptr i8, ptr %37, i64 1
   %39 = sub nsw i64 255, %3
@@ -317,7 +317,7 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
   %42 = select i1 %41, i64 0, i64 %39
   %43 = icmp ne i64 %42, -1
   call void @llvm.assume(i1 %43)
-  %44 = call ptr @__memcpy_chk(ptr noundef %38, ptr noundef nonnull %4, i64 noundef 2, i64 noundef %42) #9, !alias.scope !33
+  %44 = call ptr @__memcpy_chk(ptr noundef %38, ptr noundef nonnull %4, i64 noundef 2, i64 noundef %42) #9, !alias.scope !34
   %45 = trunc i64 %6 to i8
   %46 = getelementptr [256 x i8], ptr %14, i64 0, i64 %33
   store i8 %45, ptr %46, align 1
@@ -327,10 +327,10 @@ define hidden noundef zeroext i1 @dot11decrypt_derive_pmk_r0(ptr noundef %0, i64
   %50 = select i1 %49, i64 0, i64 %48
   %51 = icmp ne i64 %50, -1
   call void @llvm.assume(i1 %51)
-  %52 = call ptr @__memcpy_chk(ptr noundef %47, ptr noundef nonnull %5, i64 noundef %6, i64 noundef %50) #9, !alias.scope !37
+  %52 = call ptr @__memcpy_chk(ptr noundef %47, ptr noundef nonnull %5, i64 noundef %6, i64 noundef %50) #9, !alias.scope !38
   %53 = getelementptr i8, ptr %14, i64 %28
   %54 = call i64 @llvm.usub.sat.i64(i64 256, i64 %28)
-  %55 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef 6, i64 noundef %54) #9, !alias.scope !41
+  %55 = call ptr @__memcpy_chk(ptr noundef %53, ptr noundef nonnull %7, i64 noundef 6, i64 noundef %54) #9, !alias.scope !42
   %56 = add i32 %17, 16
   %57 = zext i32 %56 to i64
   %58 = call zeroext i1 @dot11decrypt_kdf(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i64 noundef %29, i32 noundef %8, ptr noundef nonnull %15, i64 noundef %57)
@@ -510,34 +510,35 @@ attributes #10 = { nounwind willreturn memory(read) }
 !11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
 !12 = distinct !{!12, !"memcpy.inline"}
 !13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!17, !19}
-!17 = distinct !{!17, !18, !"memcpy.inline: argument 0"}
-!18 = distinct !{!18, !"memcpy.inline"}
-!19 = distinct !{!19, !18, !"memcpy.inline: argument 1"}
-!20 = !{!21, !23}
-!21 = distinct !{!21, !22, !"memcpy.inline: argument 0"}
-!22 = distinct !{!22, !"memcpy.inline"}
-!23 = distinct !{!23, !22, !"memcpy.inline: argument 1"}
-!24 = !{!25, !27}
-!25 = distinct !{!25, !26, !"memcpy.inline: argument 0"}
-!26 = distinct !{!26, !"memcpy.inline"}
-!27 = distinct !{!27, !26, !"memcpy.inline: argument 1"}
-!28 = distinct !{!28, !15}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"memcpy.inline: argument 0"}
-!31 = distinct !{!31, !"memcpy.inline"}
-!32 = distinct !{!32, !31, !"memcpy.inline: argument 1"}
-!33 = !{!34, !36}
-!34 = distinct !{!34, !35, !"memcpy.inline: argument 0"}
-!35 = distinct !{!35, !"memcpy.inline"}
-!36 = distinct !{!36, !35, !"memcpy.inline: argument 1"}
-!37 = !{!38, !40}
-!38 = distinct !{!38, !39, !"memcpy.inline: argument 0"}
-!39 = distinct !{!39, !"memcpy.inline"}
-!40 = distinct !{!40, !39, !"memcpy.inline: argument 1"}
-!41 = !{!42, !44}
-!42 = distinct !{!42, !43, !"memcpy.inline: argument 0"}
-!43 = distinct !{!43, !"memcpy.inline"}
-!44 = distinct !{!44, !43, !"memcpy.inline: argument 1"}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!18, !20}
+!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
+!19 = distinct !{!19, !"memcpy.inline"}
+!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
+!21 = !{!22, !24}
+!22 = distinct !{!22, !23, !"memcpy.inline: argument 0"}
+!23 = distinct !{!23, !"memcpy.inline"}
+!24 = distinct !{!24, !23, !"memcpy.inline: argument 1"}
+!25 = !{!26, !28}
+!26 = distinct !{!26, !27, !"memcpy.inline: argument 0"}
+!27 = distinct !{!27, !"memcpy.inline"}
+!28 = distinct !{!28, !27, !"memcpy.inline: argument 1"}
+!29 = distinct !{!29, !15, !16}
+!30 = !{!31, !33}
+!31 = distinct !{!31, !32, !"memcpy.inline: argument 0"}
+!32 = distinct !{!32, !"memcpy.inline"}
+!33 = distinct !{!33, !32, !"memcpy.inline: argument 1"}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"memcpy.inline: argument 0"}
+!36 = distinct !{!36, !"memcpy.inline"}
+!37 = distinct !{!37, !36, !"memcpy.inline: argument 1"}
+!38 = !{!39, !41}
+!39 = distinct !{!39, !40, !"memcpy.inline: argument 0"}
+!40 = distinct !{!40, !"memcpy.inline"}
+!41 = distinct !{!41, !40, !"memcpy.inline: argument 1"}
+!42 = !{!43, !45}
+!43 = distinct !{!43, !44, !"memcpy.inline: argument 0"}
+!44 = distinct !{!44, !"memcpy.inline"}
+!45 = distinct !{!45, !44, !"memcpy.inline: argument 1"}

@@ -285,7 +285,7 @@ define hidden void @newhope_reconcile(ptr noundef captures(none) initializes((0,
   store i8 %107, ptr %104, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %108, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %108, label %4, !llvm.loop !14
 
 108:                                              ; preds = %4
   ret void
@@ -318,6 +318,7 @@ attributes #6 = { nounwind }
 !8 = !{!"Simple C/C++ TBAA"}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}

@@ -533,7 +533,7 @@ define internal noundef i32 @filter_slice(ptr noundef readonly captures(none) %0
   %116 = load i32, ptr %10, align 8, !tbaa !50
   %117 = sext i32 %116 to i64
   %118 = icmp slt i64 %indvars.iv.next, %117
-  br i1 %118, label %.lr.ph.split, label %._crit_edge, !llvm.loop !64
+  br i1 %118, label %.lr.ph.split, label %._crit_edge, !llvm.loop !65
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -582,14 +582,14 @@ define internal void @negate8(ptr noundef readonly captures(none) %0, ptr nounde
   store i8 %15, ptr %16, align 1, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !65
+  br i1 %exitcond.not, label %._crit_edge.us, label %12, !llvm.loop !66
 
 ._crit_edge.us:                                   ; preds = %12
   %17 = getelementptr inbounds i8, ptr %.01517.us, i64 %3
   %18 = getelementptr inbounds i8, ptr %.01418.us, i64 %2
   %19 = add nuw nsw i32 %.01319.us, 1
   %exitcond23.not = icmp eq i32 %19, %5
-  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !66
+  br i1 %exitcond23.not, label %._crit_edge20, label %.preheader.us, !llvm.loop !67
 
 ._crit_edge20:                                    ; preds = %._crit_edge.us, %9
   ret void
@@ -620,20 +620,20 @@ define internal void @negate16(ptr noundef readonly captures(none) %0, ptr nound
 15:                                               ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
   %16 = getelementptr inbounds nuw i16, ptr %.02022.us, i64 %indvars.iv
-  %17 = load i16, ptr %16, align 2, !tbaa !67
+  %17 = load i16, ptr %16, align 2, !tbaa !68
   %18 = sub i16 %14, %17
   %19 = getelementptr inbounds nuw i16, ptr %.01923.us, i64 %indvars.iv
-  store i16 %18, ptr %19, align 2, !tbaa !67
+  store i16 %18, ptr %19, align 2, !tbaa !68
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %15, !llvm.loop !70
 
 ._crit_edge.us:                                   ; preds = %15
   %20 = getelementptr inbounds i16, ptr %.01923.us, i64 %10
   %21 = getelementptr inbounds i16, ptr %.02022.us, i64 %11
   %22 = add nuw nsw i32 %.01824.us, 1
   %exitcond28.not = icmp eq i32 %22, %5
-  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !70
+  br i1 %exitcond28.not, label %._crit_edge25, label %.preheader.us, !llvm.loop !71
 
 ._crit_edge25:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %9
   ret void
@@ -717,12 +717,12 @@ define internal void @negate_packed8(ptr noundef readonly captures(none) %0, ptr
   %43 = getelementptr inbounds i8, ptr %.03242.us49, i64 %16
   %44 = add nuw nsw i32 %.043.us48, 1
   %exitcond.not = icmp eq i32 %44, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us55, !llvm.loop !71
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us55, !llvm.loop !72
 
 ._crit_edge.us:                                   ; preds = %40, %57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond60.not, label %._crit_edge47, label %.lr.ph.us, !llvm.loop !72
+  br i1 %exitcond60.not, label %._crit_edge47, label %.lr.ph.us, !llvm.loop !73
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us, %57
   %.043.us.us = phi i32 [ %61, %57 ], [ 0, %.lr.ph.us ]
@@ -765,7 +765,7 @@ define internal void @negate_packed8(ptr noundef readonly captures(none) %0, ptr
   %60 = getelementptr inbounds i8, ptr %.03242.us.us, i64 %16
   %61 = add nuw nsw i32 %.043.us.us, 1
   %exitcond58.not = icmp eq i32 %61, %4
-  br i1 %exitcond58.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !73
+  br i1 %exitcond58.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !74
 
 ._crit_edge47:                                    ; preds = %._crit_edge.us, %.lr.ph46, %9
   ret void
@@ -814,45 +814,45 @@ define internal void @negate_packed16(ptr noundef readonly captures(none) %0, pt
 
 22:                                               ; preds = %.lr.ph.split.us54
   %23 = getelementptr inbounds nuw i8, ptr %.03742.us52, i64 6
-  %24 = load i16, ptr %23, align 2, !tbaa !67
+  %24 = load i16, ptr %23, align 2, !tbaa !68
   %25 = sub i16 %13, %24
   %26 = getelementptr inbounds nuw i8, ptr %.03644.us51, i64 6
-  store i16 %25, ptr %26, align 2, !tbaa !67
+  store i16 %25, ptr %26, align 2, !tbaa !68
   br label %27
 
 27:                                               ; preds = %22, %.lr.ph.split.us54
   %28 = getelementptr inbounds nuw i8, ptr %.03742.us52, i64 4
-  %29 = load i16, ptr %28, align 2, !tbaa !67
+  %29 = load i16, ptr %28, align 2, !tbaa !68
   %30 = sub i16 %13, %29
   %31 = select i1 %.not39, i16 %29, i16 %30
   %32 = getelementptr inbounds nuw i8, ptr %.03644.us51, i64 4
-  store i16 %31, ptr %32, align 2, !tbaa !67
+  store i16 %31, ptr %32, align 2, !tbaa !68
   br label %33
 
 33:                                               ; preds = %27, %.lr.ph.split.us54
   %34 = getelementptr inbounds nuw i8, ptr %.03742.us52, i64 2
-  %35 = load i16, ptr %34, align 2, !tbaa !67
+  %35 = load i16, ptr %34, align 2, !tbaa !68
   %36 = sub i16 %13, %35
   %37 = select i1 %.not40, i16 %35, i16 %36
   %38 = getelementptr inbounds nuw i8, ptr %.03644.us51, i64 2
-  store i16 %37, ptr %38, align 2, !tbaa !67
+  store i16 %37, ptr %38, align 2, !tbaa !68
   br label %39
 
 39:                                               ; preds = %33, %.lr.ph.split.us54
-  %40 = load i16, ptr %.03742.us52, align 2, !tbaa !67
+  %40 = load i16, ptr %.03742.us52, align 2, !tbaa !68
   %41 = sub i16 %13, %40
   %42 = select i1 %.not41, i16 %40, i16 %41
-  store i16 %42, ptr %.03644.us51, align 2, !tbaa !67
+  store i16 %42, ptr %.03644.us51, align 2, !tbaa !68
   %43 = getelementptr inbounds i16, ptr %.03742.us52, i64 %17
   %44 = getelementptr inbounds i16, ptr %.03644.us51, i64 %17
   %45 = add nuw nsw i32 %.045.us50, 1
   %exitcond.not = icmp eq i32 %45, %4
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us54, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us54, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %39, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !75
+  br i1 %exitcond59.not, label %._crit_edge49, label %.lr.ph.us, !llvm.loop !76
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.us, %62
   %.045.us.us = phi i32 [ %68, %62 ], [ 0, %.lr.ph.us ]
@@ -866,39 +866,39 @@ define internal void @negate_packed16(ptr noundef readonly captures(none) %0, pt
 
 46:                                               ; preds = %.lr.ph.split.us.us
   %47 = getelementptr inbounds nuw i8, ptr %.03742.us.us, i64 6
-  %48 = load i16, ptr %47, align 2, !tbaa !67
+  %48 = load i16, ptr %47, align 2, !tbaa !68
   %49 = getelementptr inbounds nuw i8, ptr %.03644.us.us, i64 6
-  store i16 %48, ptr %49, align 2, !tbaa !67
+  store i16 %48, ptr %49, align 2, !tbaa !68
   br label %50
 
 50:                                               ; preds = %46, %.lr.ph.split.us.us
   %51 = getelementptr inbounds nuw i8, ptr %.03742.us.us, i64 4
-  %52 = load i16, ptr %51, align 2, !tbaa !67
+  %52 = load i16, ptr %51, align 2, !tbaa !68
   %53 = sub i16 %13, %52
   %54 = select i1 %.not39, i16 %52, i16 %53
   %55 = getelementptr inbounds nuw i8, ptr %.03644.us.us, i64 4
-  store i16 %54, ptr %55, align 2, !tbaa !67
+  store i16 %54, ptr %55, align 2, !tbaa !68
   br label %56
 
 56:                                               ; preds = %50, %.lr.ph.split.us.us
   %57 = getelementptr inbounds nuw i8, ptr %.03742.us.us, i64 2
-  %58 = load i16, ptr %57, align 2, !tbaa !67
+  %58 = load i16, ptr %57, align 2, !tbaa !68
   %59 = sub i16 %13, %58
   %60 = select i1 %.not40, i16 %58, i16 %59
   %61 = getelementptr inbounds nuw i8, ptr %.03644.us.us, i64 2
-  store i16 %60, ptr %61, align 2, !tbaa !67
+  store i16 %60, ptr %61, align 2, !tbaa !68
   br label %62
 
 62:                                               ; preds = %56, %.lr.ph.split.us.us
-  %63 = load i16, ptr %.03742.us.us, align 2, !tbaa !67
+  %63 = load i16, ptr %.03742.us.us, align 2, !tbaa !68
   %64 = sub i16 %13, %63
   %65 = select i1 %.not41, i16 %63, i16 %64
-  store i16 %65, ptr %.03644.us.us, align 2, !tbaa !67
+  store i16 %65, ptr %.03644.us.us, align 2, !tbaa !68
   %66 = getelementptr inbounds i16, ptr %.03742.us.us, i64 %17
   %67 = getelementptr inbounds i16, ptr %.03644.us.us, i64 %17
   %68 = add nuw nsw i32 %.045.us.us, 1
   %exitcond57.not = icmp eq i32 %68, %4
-  br i1 %exitcond57.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !76
+  br i1 %exitcond57.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !77
 
 ._crit_edge49:                                    ; preds = %._crit_edge.us, %.lr.ph48, %9
   ret void
@@ -985,19 +985,20 @@ attributes #7 = { nounwind willreturn memory(read) }
 !58 = !{!21, !15, i64 12}
 !59 = !{!21, !15, i64 28}
 !60 = !{!11, !11, i64 0}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62, !63, !64}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !62}
-!65 = distinct !{!65, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !62, !63}
 !66 = distinct !{!66, !62, !63}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"short", !8, i64 0}
-!69 = distinct !{!69, !62}
+!67 = distinct !{!67, !62, !63, !64}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"short", !8, i64 0}
 !70 = distinct !{!70, !62, !63}
-!71 = distinct !{!71, !62}
+!71 = distinct !{!71, !62, !63, !64}
 !72 = distinct !{!72, !62, !63}
-!73 = distinct !{!73, !62, !63}
-!74 = distinct !{!74, !62}
+!73 = distinct !{!73, !62, !63, !64}
+!74 = distinct !{!74, !62, !63, !64}
 !75 = distinct !{!75, !62, !63}
-!76 = distinct !{!76, !62, !63}
+!76 = distinct !{!76, !62, !63, !64}
+!77 = distinct !{!77, !62, !63, !64}

@@ -208,7 +208,7 @@ define hidden range(i32 0, 10) i32 @main(i32 noundef %0, ptr noundef %1) local_u
   call void @g_ptr_array_add(ptr noundef %69, ptr noundef %75)
   call void @wtap_rec_reset(ptr noundef nonnull %6)
   %92 = call zeroext i1 @wtap_read(ptr noundef nonnull %54, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  br i1 %92, label %74, label %._crit_edge, !llvm.loop !9
+  br i1 %92, label %74, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %91, %68
   %.054.lcssa = phi i32 [ 0, %68 ], [ %.1, %91 ]
@@ -339,7 +339,7 @@ frame_write.exit:                                 ; preds = %136
   %147 = load i32, ptr %97, align 8
   %148 = zext i32 %147 to i64
   %149 = icmp samesign ult i64 %indvars.iv.next101, %148
-  br i1 %149, label %123, label %._crit_edge90, !llvm.loop !10
+  br i1 %149, label %123, label %._crit_edge90, !llvm.loop !11
 
 ._crit_edge90:                                    ; preds = %frame_write.exit, %118
   call void @wtap_rec_cleanup(ptr noundef nonnull %6)
@@ -369,7 +369,7 @@ frame_write.exit:                                 ; preds = %136
   %160 = load i32, ptr %97, align 8
   %161 = zext i32 %160 to i64
   %162 = icmp samesign ult i64 %indvars.iv.next, %161
-  br i1 %162, label %.lr.ph86, label %.loopexit, !llvm.loop !11
+  br i1 %162, label %.lr.ph86, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.lr.ph86, %154, %._crit_edge90
   %163 = call ptr @g_ptr_array_free(ptr noundef %69, i32 noundef 1)
@@ -571,8 +571,9 @@ attributes #8 = { cold noreturn nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

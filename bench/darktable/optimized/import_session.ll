@@ -326,7 +326,7 @@ _import_session_filename_pattern.exit:            ; preds = %2
 29:                                               ; preds = %21
   %30 = tail call i32 @g_file_test(ptr noundef nonnull %24, i32 noundef 16) #9
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %21, label %.loopexit
+  br i1 %31, label %21, label %.loopexit, !llvm.loop !65
 
 .loopexit:                                        ; preds = %29, %15
   %.135 = phi ptr [ %.034, %15 ], [ %23, %29 ]
@@ -582,3 +582,5 @@ attributes #10 = { nounwind willreturn memory(read) }
 !62 = !{!"dt_variables_params_t", !14, i64 0, !14, i64 8, !8, i64 16, !8, i64 20, !63, i64 24, !8, i64 32, !8, i64 36, !12, i64 40}
 !63 = !{!"p1 _ZTS19dt_variables_data_t", !12, i64 0}
 !64 = !{!62, !14, i64 0}
+!65 = distinct !{!65, !66}
+!66 = !{!"llvm.loop.estimated_trip_count"}

@@ -260,7 +260,7 @@ define internal fastcc i32 @_proc_cluster() unnamed_addr #4 {
 45:                                               ; preds = %42, %.lr.ph.i
   %.pr.i = load i32, ptr @num_active_threads, align 4
   %46 = icmp sgt i32 %.pr.i, 10
-  br i1 %46, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %46, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %45, %37
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -349,7 +349,7 @@ define internal fastcc i32 @_proc_cluster() unnamed_addr #4 {
   %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.next.i
   %80 = load ptr, ptr %79, align 8
   %.not52.i = icmp eq ptr %80, null
-  br i1 %.not52.i, label %._crit_edge83.i, label %.lr.ph82.i, !llvm.loop !12
+  br i1 %.not52.i, label %._crit_edge83.i, label %.lr.ph82.i, !llvm.loop !13
 
 ._crit_edge83.i:                                  ; preds = %77, %.preheader65.i
   %81 = call i32 @pthread_mutex_lock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -381,7 +381,7 @@ define internal fastcc i32 @_proc_cluster() unnamed_addr #4 {
 90:                                               ; preds = %87, %.lr.ph84.i
   %91 = load i32, ptr @num_active_threads, align 4
   %92 = icmp sgt i32 %91, 0
-  br i1 %92, label %.lr.ph84.i, label %._crit_edge85.i, !llvm.loop !13
+  br i1 %92, label %.lr.ph84.i, label %._crit_edge85.i, !llvm.loop !14
 
 ._crit_edge85.i:                                  ; preds = %90, %.preheader.i
   %93 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -400,7 +400,7 @@ _signal_job_by_str.exit:                          ; preds = %._crit_edge85.i
   br label %542
 
 97:                                               ; preds = %10, %0
-  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 24), align 8, !range !14, !noundef !15
+  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 24), align 8, !range !15, !noundef !16
   %99 = trunc nuw i8 %98 to i1
   %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 16), align 8
   %101 = icmp eq ptr %100, null
@@ -469,7 +469,7 @@ _signal_job_by_str.exit:                          ; preds = %._crit_edge85.i
   %134 = load ptr, ptr %133, align 8
   %.not27.i = icmp eq ptr %134, null
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
-  br i1 %.not27.i, label %135, label %.preheader53.i, !llvm.loop !16
+  br i1 %.not27.i, label %135, label %.preheader53.i, !llvm.loop !17
 
 135:                                              ; preds = %.preheader53.i
   %136 = trunc nuw nsw i64 %indvars.iv.i10 to i32
@@ -477,20 +477,20 @@ _signal_job_by_str.exit:                          ; preds = %._crit_edge85.i
   br label %_init_flags.exit.i
 
 _init_flags.exit.i:                               ; preds = %135, %104
-  %137 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 8), align 8, !range !14, !noundef !15
+  %137 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 8), align 8, !range !15, !noundef !16
   %138 = trunc nuw i8 %137 to i1
   %spec.select35.i = select i1 %138, ptr @.str.18, ptr @.str.12
   %spec.select36.i = zext nneg i8 %137 to i16
-  %139 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 40), align 8, !range !14, !noundef !15
+  %139 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 40), align 8, !range !15, !noundef !16
   %140 = zext nneg i8 %139 to i16
   %141 = shl nuw nsw i16 %140, 12
   %spec.select.i.i = or disjoint i16 %141, %spec.select36.i
-  %142 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 41), align 1, !range !14, !noundef !15
+  %142 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 41), align 1, !range !15, !noundef !16
   %143 = trunc nuw i8 %142 to i1
   %144 = or disjoint i16 %spec.select.i.i, 8
   %.1.i = select i1 %143, ptr @.str.19, ptr %spec.select35.i
   %.2.i.i = select i1 %143, i16 %144, i16 %spec.select.i.i
-  %145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 42), align 2, !range !14, !noundef !15
+  %145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 42), align 2, !range !15, !noundef !16
   %146 = shl nuw nsw i8 %145, 5
   %147 = zext nneg i8 %146 to i16
   %spec.select10.i.i = or disjoint i16 %.2.i.i, %147
@@ -626,7 +626,7 @@ _log_signal_job_msg.exit.i:                       ; preds = %199, %198, %197, %1
   %206 = load i32, ptr %205, align 8
   %207 = zext i32 %206 to i64
   %208 = icmp samesign ult i64 %indvars.iv.next61.i, %207
-  br i1 %208, label %.lr.ph.i14, label %._crit_edge.loopexit.i, !llvm.loop !17
+  br i1 %208, label %.lr.ph.i14, label %._crit_edge.loopexit.i, !llvm.loop !18
 
 209:                                              ; preds = %._crit_edge.i15
   %210 = load ptr, ptr @opt, align 8
@@ -821,7 +821,7 @@ _is_task_in_job.exit.thread.sink.split.i:         ; preds = %_is_task_in_job.exi
 _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exit.thread.sink.split.i, %_is_task_in_job.exit.i, %291, %289, %281, %276, %273
   %299 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 168), align 8
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 %indvars.iv.i19
-  %301 = load i8, ptr %300, align 1, !range !14, !noundef !15
+  %301 = load i8, ptr %300, align 1, !range !15, !noundef !16
   %302 = trunc nuw i8 %301 to i1
   br i1 %302, label %303, label %311
 
@@ -846,7 +846,7 @@ _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exi
   %312 = load i16, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 136), align 8
   %313 = zext i16 %312 to i64
   %314 = icmp samesign ult i64 %indvars.iv.next.i20, %313
-  br i1 %314, label %263, label %._crit_edge.i21, !llvm.loop !18
+  br i1 %314, label %263, label %._crit_edge.i21, !llvm.loop !19
 
 ._crit_edge.i21:                                  ; preds = %311
   %.pre76.i = load i32, ptr %251, align 8
@@ -864,7 +864,7 @@ _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exi
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
   %321 = load i32, ptr %320, align 8
   %322 = icmp ult i32 %317, %321
-  br i1 %322, label %.lr.ph65.i, label %.preheader.i22, !llvm.loop !19
+  br i1 %322, label %.lr.ph65.i, label %.preheader.i22, !llvm.loop !20
 
 .lr.ph68.i:                                       ; preds = %358, %.lr.ph68.preheader.i
   %323 = phi i16 [ %250, %.lr.ph68.preheader.i ], [ %359, %358 ]
@@ -874,7 +874,7 @@ _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exi
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store ptr null, ptr %2, align 8
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 %indvars.iv73.i
-  %326 = load i8, ptr %325, align 1, !range !14, !noundef !15
+  %326 = load i8, ptr %325, align 1, !range !15, !noundef !16
   %327 = trunc nuw i8 %326 to i1
   br i1 %327, label %358, label %328
 
@@ -948,7 +948,7 @@ _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exi
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %361 = zext i16 %359 to i64
   %362 = icmp samesign ult i64 %indvars.iv.next74.i, %361
-  br i1 %362, label %.lr.ph68.i, label %_verify_job_ids.exit, !llvm.loop !20
+  br i1 %362, label %.lr.ph68.i, label %_verify_job_ids.exit, !llvm.loop !21
 
 _verify_job_ids.exit:                             ; preds = %358, %_load_job_records.exit, %.preheader.i22
   %.0.i25 = phi i32 [ 0, %_load_job_records.exit ], [ 0, %.preheader.i22 ], [ %.1.i24, %358 ]
@@ -1226,7 +1226,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 16
   %485 = load i32, ptr %484, align 8
   %486 = icmp ult i32 %481, %485
-  br i1 %486, label %.lr.ph.i29, label %._crit_edge.loopexit.i35, !llvm.loop !21
+  br i1 %486, label %.lr.ph.i29, label %._crit_edge.loopexit.i35, !llvm.loop !22
 
 ._crit_edge.loopexit.i35:                         ; preds = %480
   %487 = icmp eq i32 %.158.i, 0
@@ -1298,7 +1298,7 @@ _filter_job_records.exit:                         ; preds = %_verify_job_ids.exi
 508:                                              ; preds = %505, %.lr.ph.i50
   %509 = load i32, ptr @num_active_threads, align 4
   %510 = icmp sgt i32 %509, 0
-  br i1 %510, label %.lr.ph.i50, label %._crit_edge.i45, !llvm.loop !22
+  br i1 %510, label %.lr.ph.i50, label %._crit_edge.i45, !llvm.loop !23
 
 ._crit_edge.i45:                                  ; preds = %508, %.preheader38.i
   %511 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -1342,7 +1342,7 @@ _filter_job_records.exit:                         ; preds = %_verify_job_ids.exi
 524:                                              ; preds = %521, %.lr.ph39.i
   %525 = load i32, ptr @num_active_threads, align 4
   %526 = icmp sgt i32 %525, 0
-  br i1 %526, label %.lr.ph39.i, label %._crit_edge40.i, !llvm.loop !23
+  br i1 %526, label %.lr.ph39.i, label %._crit_edge40.i, !llvm.loop !24
 
 ._crit_edge40.i:                                  ; preds = %524, %.preheader.i48
   %527 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -1467,20 +1467,20 @@ _init_flags.exit:
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 8), align 8, !range !14, !noundef !15
+  %6 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 8), align 8, !range !15, !noundef !16
   %7 = trunc nuw i8 %6 to i1
   %spec.select56 = select i1 %7, ptr @.str.18, ptr @.str.12
   %spec.select57 = zext nneg i8 %6 to i16
-  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 40), align 8, !range !14, !noundef !15
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 40), align 8, !range !15, !noundef !16
   %9 = zext nneg i8 %8 to i16
   %10 = shl nuw nsw i16 %9, 12
   %spec.select.i = or disjoint i16 %10, %spec.select57
-  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 41), align 1, !range !14, !noundef !15
+  %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 41), align 1, !range !15, !noundef !16
   %12 = trunc nuw i8 %11 to i1
   %13 = or disjoint i16 %spec.select.i, 8
   %.148 = select i1 %12, ptr @.str.19, ptr %spec.select56
   %.2.i = select i1 %12, i16 %13, i16 %spec.select.i
-  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 42), align 2, !range !14, !noundef !15
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 42), align 2, !range !15, !noundef !16
   %15 = shl nuw nsw i8 %14, 5
   %16 = zext nneg i8 %15 to i16
   %spec.select10.i = or disjoint i16 %.2.i, %16
@@ -1612,11 +1612,11 @@ _log_signal_job_msg.exit:                         ; preds = %_log_signal_job_msg
   %76 = call i32 @sleep(i32 noundef %75) #12
   %77 = add nuw nsw i32 %.02668, 1
   %exitcond.not = icmp eq i32 %77, 10
-  br i1 %exitcond.not, label %..thread52_crit_edge, label %_log_signal_job_msg.exit, !llvm.loop !24
+  br i1 %exitcond.not, label %..thread52_crit_edge, label %_log_signal_job_msg.exit, !llvm.loop !25
 
 ..thread52_crit_edge:                             ; preds = %74
   %.pre = load i32, ptr %68, align 4
-  br label %.thread52, !llvm.loop !24
+  br label %.thread52, !llvm.loop !25
 
 .thread52:                                        ; preds = %67, %..thread52_crit_edge
   %78 = phi i32 [ %.pre, %..thread52_crit_edge ], [ %69, %67 ]
@@ -1986,7 +1986,7 @@ define internal fastcc void @_cancel_jobs_by_state(i32 noundef range(i32 0, 13) 
 20:                                               ; preds = %19
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 176), align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i
-  %23 = load i8, ptr %22, align 1, !range !14, !noundef !15
+  %23 = load i8, ptr %22, align 1, !range !15, !noundef !16
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %.loopexit.i
 
@@ -2109,12 +2109,12 @@ _is_task_in_job.exit.thread.sink.split.i:         ; preds = %_is_task_in_job.exi
 _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exit.thread.sink.split.i, %_is_task_in_job.exit.i, %78, %75, %64, %59, %55
   %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 168), align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %indvars.iv.i
-  %88 = load i8, ptr %87, align 1, !range !14, !noundef !15
+  %88 = load i8, ptr %87, align 1, !range !15, !noundef !16
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %244
 
 90:                                               ; preds = %_is_task_in_job.exit.thread.i
-  %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !14, !noundef !15
+  %91 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !15, !noundef !16
   %92 = trunc nuw i8 %91 to i1
   br i1 %92, label %93, label %105
 
@@ -2167,7 +2167,7 @@ _is_task_in_job.exit.thread.i:                    ; preds = %_is_task_in_job.exi
 117:                                              ; preds = %114, %.lr.ph.i
   %.pr.i = load i32, ptr @num_active_threads, align 4
   %118 = icmp sgt i32 %.pr.i, 10
-  br i1 %118, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !25
+  br i1 %118, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !26
 
 ._crit_edge.i:                                    ; preds = %117, %109
   %119 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -2416,7 +2416,7 @@ _build_jobid_str.exit.i:                          ; preds = %153, %150, %144, %1
   br label %225
 
 225:                                              ; preds = %224, %188, %187
-  %226 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !14, !noundef !15
+  %226 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !15, !noundef !16
   %227 = trunc nuw i8 %226 to i1
   br i1 %227, label %228, label %244
 
@@ -2450,7 +2450,7 @@ _build_jobid_str.exit.i:                          ; preds = %153, %150, %144, %1
 238:                                              ; preds = %235, %.lr.ph172.i
   %239 = load i32, ptr @num_active_threads, align 4
   %240 = icmp sgt i32 %239, 0
-  br i1 %240, label %.lr.ph172.i, label %._crit_edge173.i, !llvm.loop !26
+  br i1 %240, label %.lr.ph172.i, label %._crit_edge173.i, !llvm.loop !27
 
 ._crit_edge173.i:                                 ; preds = %238, %.preheader.i
   %241 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -2470,7 +2470,7 @@ _build_jobid_str.exit.i:                          ; preds = %153, %150, %144, %1
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load i32, ptr %248, align 8
   %250 = icmp ult i32 %245, %249
-  br i1 %250, label %.lr.ph179.i, label %.loopexit.loopexit.i, !llvm.loop !27
+  br i1 %250, label %.lr.ph179.i, label %.loopexit.loopexit.i, !llvm.loop !28
 
 .loopexit.loopexit.i:                             ; preds = %244
   %.pre220.i = load i16, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 136), align 8
@@ -2481,7 +2481,7 @@ _build_jobid_str.exit.i:                          ; preds = %153, %150, %144, %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %252 = zext i16 %251 to i64
   %253 = icmp samesign ult i64 %indvars.iv.next.i, %252
-  br i1 %253, label %13, label %_cancel_jobid_by_state.exit, !llvm.loop !28
+  br i1 %253, label %13, label %_cancel_jobid_by_state.exit, !llvm.loop !29
 
 254:                                              ; preds = %2
   %255 = load ptr, ptr @job_buffer_ptr, align 8
@@ -2520,7 +2520,7 @@ _build_jobid_str.exit.i:                          ; preds = %153, %150, %144, %1
   br i1 %or.cond269, label %270, label %362
 
 270:                                              ; preds = %267
-  %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !14, !noundef !15
+  %271 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !15, !noundef !16
   %272 = trunc nuw i8 %271 to i1
   br i1 %272, label %273, label %277
 
@@ -2612,7 +2612,7 @@ _build_jobid_str.exit:                            ; preds = %281, %287, %290
 311:                                              ; preds = %308, %.lr.ph
   %.pr = load i32, ptr @num_active_threads, align 4
   %312 = icmp sgt i32 %.pr, 10
-  br i1 %312, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  br i1 %312, label %.lr.ph, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %311, %303
   %313 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -2697,7 +2697,7 @@ _build_jobid_str.exit:                            ; preds = %281, %287, %290
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   store i32 0, ptr %269, align 4
-  %344 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !14, !noundef !15
+  %344 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 43), align 1, !range !15, !noundef !16
   %345 = trunc nuw i8 %344 to i1
   br i1 %345, label %346, label %362
 
@@ -2731,7 +2731,7 @@ _build_jobid_str.exit:                            ; preds = %281, %287, %290
 356:                                              ; preds = %353, %.lr.ph136
   %357 = load i32, ptr @num_active_threads, align 4
   %358 = icmp sgt i32 %357, 0
-  br i1 %358, label %.lr.ph136, label %._crit_edge137, !llvm.loop !30
+  br i1 %358, label %.lr.ph136, label %._crit_edge137, !llvm.loop !31
 
 ._crit_edge137:                                   ; preds = %356, %.preheader
   %359 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @num_active_threads_lock) #12
@@ -2751,7 +2751,7 @@ _build_jobid_str.exit:                            ; preds = %281, %287, %290
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %367 = load i32, ptr %366, align 8
   %368 = icmp ult i32 %363, %367
-  br i1 %368, label %261, label %_cancel_jobid_by_state.exit, !llvm.loop !31
+  br i1 %368, label %261, label %_cancel_jobid_by_state.exit, !llvm.loop !32
 
 _cancel_jobid_by_state.exit:                      ; preds = %.loopexit.i, %362, %254
   ret void
@@ -2816,7 +2816,7 @@ _build_jobid_str.exit.us:                         ; preds = %3, %_build_jobid_st
   ]
 
 _build_jobid_str.exit.us.backedge:                ; preds = %26, %22
-  br label %_build_jobid_str.exit.us, !llvm.loop !32
+  br label %_build_jobid_str.exit.us, !llvm.loop !33
 
 .split:                                           ; preds = %3
   br i1 %11, label %.split.split.us, label %.split.split
@@ -2870,7 +2870,7 @@ _build_jobid_str.exit.us17:                       ; preds = %36, %34, %30
   ]
 
 .split.split.us.backedge:                         ; preds = %45, %_build_jobid_str.exit.us17
-  br label %.split.split.us, !llvm.loop !34
+  br label %.split.split.us, !llvm.loop !35
 
 .split.split:                                     ; preds = %.split, %.split.split.backedge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #12
@@ -2913,7 +2913,7 @@ _build_jobid_str.exit:                            ; preds = %49, %53, %55
   br i1 %63, label %.split.split.backedge, label %64
 
 .split.split.backedge:                            ; preds = %_build_jobid_str.exit, %64
-  br label %.split.split, !llvm.loop !35
+  br label %.split.split, !llvm.loop !36
 
 64:                                               ; preds = %_build_jobid_str.exit
   %65 = load i8, ptr %6, align 16
@@ -3030,7 +3030,7 @@ define internal noalias noundef ptr @_cancel_step_id(ptr noundef %0) #4 {
 43:                                               ; preds = %38, %39, %35, %36
   call fastcc void @_add_delay()
   %44 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #12
-  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 24), align 8, !range !14
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 24), align 8, !range !15
   %46 = trunc nuw i8 %45 to i1
   %or.cond = select i1 %.not49, i1 true, i1 %46
   br i1 %or.cond, label %47, label %50
@@ -3111,11 +3111,11 @@ define internal noalias noundef ptr @_cancel_step_id(ptr noundef %0) #4 {
   %83 = call i32 @sleep(i32 noundef %82) #12
   %84 = add nuw nsw i32 %.03274, 1
   %exitcond.not = icmp eq i32 %84, 10
-  br i1 %exitcond.not, label %..thread60_crit_edge, label %30, !llvm.loop !36
+  br i1 %exitcond.not, label %..thread60_crit_edge, label %30, !llvm.loop !37
 
 ..thread60_crit_edge:                             ; preds = %81
   %.pre = load i32, ptr %75, align 4
-  br label %.thread60, !llvm.loop !36
+  br label %.thread60, !llvm.loop !37
 
 .thread60:                                        ; preds = %74, %..thread60_crit_edge
   %85 = phi i32 [ %.pre, %..thread60_crit_edge ], [ %76, %74 ]
@@ -3252,32 +3252,33 @@ attributes #15 = { cold noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
-!31 = distinct !{!31, !9, !10}
-!32 = distinct !{!32, !10, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !10, !33}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = distinct !{!29, !9, !10, !11}
+!30 = distinct !{!30, !9, !10, !11}
+!31 = distinct !{!31, !9, !10, !11}
+!32 = distinct !{!32, !9, !10, !11}
+!33 = distinct !{!33, !10, !11, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !10, !11, !34}
+!36 = distinct !{!36, !10, !11}
+!37 = distinct !{!37, !9, !10, !11}

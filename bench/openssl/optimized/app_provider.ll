@@ -188,7 +188,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
   %49 = load i16, ptr %48, align 2, !tbaa !18
   %50 = and i16 %49, 8192
   %.not19.i = icmp eq i16 %50, 0
-  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph25.i, !llvm.loop !22
+  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph25.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.lr.ph25.i, %.critedge.i
   %51 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 58) #7
@@ -198,7 +198,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
 
 53:                                               ; preds = %._crit_edge.i
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %54, ptr %52, align 8, !tbaa !23
+  store ptr %54, ptr %52, align 8, !tbaa !24
   store i8 0, ptr %51, align 1, !tbaa !11
   %55 = load i8, ptr %16, align 1, !tbaa !11
   %.not21.i = icmp eq i8 %55, 0
@@ -206,13 +206,13 @@ opt_provider_path.exit:                           ; preds = %7, %9
   br label %58
 
 57:                                               ; preds = %._crit_edge.i
-  store ptr %16, ptr %52, align 8, !tbaa !23
+  store ptr %16, ptr %52, align 8, !tbaa !24
   br label %58
 
 58:                                               ; preds = %57, %53
   %59 = phi ptr [ %16, %57 ], [ %54, %53 ]
   %.sink.i = phi ptr [ null, %57 ], [ %56, %53 ]
-  store ptr %.sink.i, ptr %2, align 8, !tbaa !24
+  store ptr %.sink.i, ptr %2, align 8, !tbaa !25
   %60 = load i8, ptr %59, align 1, !tbaa !11
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %62, label %65
@@ -224,7 +224,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
 
 65:                                               ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i32 0, ptr %66, align 8, !tbaa !25
+  store i32 0, ptr %66, align 8, !tbaa !26
   %67 = tail call ptr @app_get0_libctx() #6
   %68 = call i32 @OSSL_PROVIDER_do_all(ptr noundef %67, ptr noundef nonnull @set_prov_param, ptr noundef nonnull %2) #6
   %69 = icmp eq i32 %68, 0
@@ -232,19 +232,19 @@ opt_provider_path.exit:                           ; preds = %7, %9
 
 70:                                               ; preds = %65
   %71 = call ptr @opt_getprog() #6
-  %72 = load ptr, ptr %2, align 8, !tbaa !24
-  %73 = load ptr, ptr %52, align 8, !tbaa !23
+  %72 = load ptr, ptr %2, align 8, !tbaa !25
+  %73 = load ptr, ptr %52, align 8, !tbaa !24
   %74 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.3, ptr noundef %71, ptr noundef %72, ptr noundef %73) #6
   br label %opt_provider_param.exit
 
 75:                                               ; preds = %65
-  %76 = load i32, ptr %66, align 8, !tbaa !25
+  %76 = load i32, ptr %66, align 8, !tbaa !26
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %opt_provider_param.exit
 
 78:                                               ; preds = %75
   %79 = call ptr @opt_getprog() #6
-  %80 = load ptr, ptr %2, align 8, !tbaa !24
+  %80 = load ptr, ptr %2, align 8, !tbaa !25
   %81 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.4, ptr noundef %79, ptr noundef %80) #6
   br label %opt_provider_param.exit
 
@@ -303,22 +303,22 @@ declare i32 @OSSL_PROVIDER_do_all(ptr noundef, ptr noundef, ptr noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @set_prov_param(ptr noundef %0, ptr noundef captures(none) %1) #0 {
-  %3 = load ptr, ptr %1, align 8, !tbaa !24
+  %3 = load ptr, ptr %1, align 8, !tbaa !25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @OSSL_PROVIDER_get0_name(ptr noundef %0) #6
-  %6 = load ptr, ptr %1, align 8, !tbaa !24
+  %6 = load ptr, ptr %1, align 8, !tbaa !25
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %6) #7
   %.not8 = icmp eq i32 %7, 0
   br i1 %.not8, label %8, label %15
 
 8:                                                ; preds = %4, %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 1, ptr %9, align 8, !tbaa !25
+  store i32 1, ptr %9, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !23
+  %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = tail call i32 @OSSL_PROVIDER_add_conf_parameter(ptr noundef %0, ptr noundef %11, ptr noundef %13) #6
@@ -370,9 +370,10 @@ attributes #8 = { nounwind willreturn memory(none) }
 !17 = !{!"p1 short", !6, i64 0}
 !18 = !{!19, !19, i64 0}
 !19 = !{!"short", !7, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = !{!13, !14, i64 8}
-!24 = !{!13, !14, i64 0}
-!25 = !{!13, !15, i64 24}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = !{!13, !14, i64 8}
+!25 = !{!13, !14, i64 0}
+!26 = !{!13, !15, i64 24}

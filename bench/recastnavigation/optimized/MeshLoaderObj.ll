@@ -449,7 +449,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
 .critedge2.i:                                     ; preds = %.preheader.i, %.preheader.i
   %97 = getelementptr inbounds nuw i8, ptr %.1.i108, i64 1
   %.pr.i = load i8, ptr %97, align 1
-  br label %.preheader.i, !llvm.loop !7
+  br label %.preheader.i, !llvm.loop !8
 
 .critedge.i:                                      ; preds = %.preheader.i, %100
   %98 = phi i8 [ %.pre45.i, %100 ], [ %96, %.preheader.i ]
@@ -468,12 +468,12 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
 100:                                              ; preds = %99, %.critedge.i
   %101 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.pre45.i = load i8, ptr %101, align 1
-  br label %.critedge.i, !llvm.loop !8
+  br label %.critedge.i, !llvm.loop !9
 
 .critedge4.i:                                     ; preds = %.critedge.i, %.critedge.i, %.critedge.i
   %102 = load i8, ptr %.1.i108, align 1
   %103 = icmp eq i8 %102, 0
-  br i1 %103, label %94, label %104, !llvm.loop !9
+  br i1 %103, label %94, label %104, !llvm.loop !10
 
 104:                                              ; preds = %.critedge4.i
   %105 = call i32 @atoi(ptr noundef nonnull %.1.i108) #15
@@ -484,7 +484,7 @@ _ZN15rcMeshLoaderObj9addVertexEfffRi.exit:        ; preds = %._crit_edge18.i, %7
   %107 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   store i32 %106, ptr %107, align 4
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.i, label %.lr.ph, label %.outer.i, !llvm.loop !9
+  br i1 %exitcond.i, label %.lr.ph, label %.outer.i, !llvm.loop !10
 
 _ZL9parseFacePcPiii.exit:                         ; preds = %94
   %108 = icmp samesign ugt i64 %indvars.iv.i, 2
@@ -586,12 +586,12 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %.3 = phi i32 [ %.2127, %.lr.ph.split ], [ %.4, %_ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit ], [ %.2127, %117 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZL8parseRowPcS_S_i.exit, %147, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit, %switch.early.test, %switch.early.test, %.lr.ph, %_ZL9parseFacePcPiii.exit
   %.1119145 = phi i32 [ %.0118.ph, %_ZL9parseFacePcPiii.exit ], [ %.0118.ph, %.lr.ph ], [ %.0118.ph, %switch.early.test ], [ %.0118.ph, %switch.early.test ], [ %.2120, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.0118.ph, %147 ], [ %.0118.ph, %_ZL8parseRowPcS_S_i.exit ]
   %.1 = phi i32 [ %.0117.ph, %_ZL9parseFacePcPiii.exit ], [ %.0117.ph, %.lr.ph ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %switch.early.test ], [ %.0117.ph, %_ZN15rcMeshLoaderObj9addVertexEfffRi.exit ], [ %.3, %147 ], [ %.0117.ph, %_ZL8parseRowPcS_S_i.exit ]
-  br label %.outer, !llvm.loop !11
+  br label %.outer, !llvm.loop !12
 
 148:                                              ; preds = %36
   call void @_ZdaPv(ptr noundef nonnull %26) #13
@@ -651,7 +651,7 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   store float %189, ptr %190, align 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next138, 3
-  br i1 %exitcond140.not, label %191, label %180, !llvm.loop !12
+  br i1 %exitcond140.not, label %191, label %180, !llvm.loop !13
 
 191:                                              ; preds = %180
   %192 = load ptr, ptr %156, align 8
@@ -699,7 +699,7 @@ _ZN15rcMeshLoaderObj11addTriangleEiiiRi.exit:     ; preds = %._crit_edge17.i, %1
   %222 = mul nsw i32 %221, 3
   %223 = sext i32 %222 to i64
   %224 = icmp slt i64 %indvars.iv.next142, %223
-  br i1 %224, label %162, label %._crit_edge, !llvm.loop !13
+  br i1 %224, label %162, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %220, %148
   %225 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -769,12 +769,13 @@ attributes #15 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}

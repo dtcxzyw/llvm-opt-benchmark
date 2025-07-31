@@ -40,7 +40,7 @@ define void @_ZN7RSCoder4InitEi(ptr noundef nonnull align 4 captures(none) deref
   store i32 %18, ptr %19, align 4, !tbaa !10
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next22.i, 512
-  br i1 %exitcond24.not.i, label %_ZN7RSCoder6gfInitEv.exit, label %.preheader.i, !llvm.loop !13
+  br i1 %exitcond24.not.i, label %_ZN7RSCoder6gfInitEv.exit, label %.preheader.i, !llvm.loop !14
 
 _ZN7RSCoder6gfInitEv.exit:                        ; preds = %.preheader.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #5
@@ -86,7 +86,7 @@ _ZN7RSCoder6gfInitEv.exit:                        ; preds = %.preheader.i
   %35 = load i32, ptr %5, align 4, !tbaa !3
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next.i.i, %36
-  br i1 %37, label %.lr.ph.i.i, label %.preheader20.i.i, !llvm.loop !14
+  br i1 %37, label %.lr.ph.i.i, label %.preheader20.i.i, !llvm.loop !15
 
 .lr.ph26.i.i:                                     ; preds = %.preheader20.i.i, %.loopexit.i.i
   %38 = phi i32 [ %65, %.loopexit.i.i ], [ %35, %.preheader20.i.i ]
@@ -135,7 +135,7 @@ _ZN7RSCoder6gfMultEii.exit.i.i:                   ; preds = %49, %.lr.ph23.i.i
   %62 = sub nsw i32 %61, %43
   %63 = sext i32 %62 to i64
   %64 = icmp slt i64 %indvars.iv.next29.i.i, %63
-  br i1 %64, label %.lr.ph23.i.i, label %.loopexit.i.loopexit.i, !llvm.loop !15
+  br i1 %64, label %.lr.ph23.i.i, label %.loopexit.i.loopexit.i, !llvm.loop !16
 
 .loopexit.i.loopexit.i:                           ; preds = %_ZN7RSCoder6gfMultEii.exit.i.i
   %.pre.i = sext i32 %61 to i64
@@ -146,7 +146,7 @@ _ZN7RSCoder6gfMultEii.exit.i.i:                   ; preds = %49, %.lr.ph23.i.i
   %65 = phi i32 [ %61, %.loopexit.i.loopexit.i ], [ %38, %.lr.ph26.i.i ]
   %indvars.iv.next32.i.i = add nuw nsw i64 %indvars.iv31.i.i, 1
   %66 = icmp slt i64 %indvars.iv.next32.i.i, %.pre-phi.i
-  br i1 %66, label %.lr.ph26.i.i, label %_ZN7RSCoder6pnMultEPiS0_S0_.exit.i, !llvm.loop !16
+  br i1 %66, label %.lr.ph26.i.i, label %_ZN7RSCoder6pnMultEPiS0_S0_.exit.i, !llvm.loop !17
 
 _ZN7RSCoder6pnMultEPiS0_S0_.exit.i:               ; preds = %.loopexit.i.i
   %67 = icmp sgt i32 %65, 0
@@ -164,7 +164,7 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit.i:               ; preds = %.loopexit.i.i
   %indvars.iv.next.i2 = add nuw nsw i64 %indvars.iv.i1, 1
   %71 = sext i32 %70 to i64
   %.not.not.i = icmp slt i64 %indvars.iv.i1, %71
-  br i1 %.not.not.i, label %26, label %_ZN7RSCoder6pnInitEv.exit, !llvm.loop !17
+  br i1 %.not.not.i, label %26, label %_ZN7RSCoder6pnInitEv.exit, !llvm.loop !18
 
 _ZN7RSCoder6pnInitEv.exit:                        ; preds = %._crit_edge27.i, %_ZN7RSCoder6gfInitEv.exit
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3) #5
@@ -205,7 +205,7 @@ define void @_ZN7RSCoder6gfInitEv(ptr noundef nonnull align 4 captures(none) der
   store i32 %14, ptr %15, align 4, !tbaa !10
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 512
-  br i1 %exitcond24.not, label %11, label %.preheader, !llvm.loop !13
+  br i1 %exitcond24.not, label %11, label %.preheader, !llvm.loop !14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -261,7 +261,7 @@ define void @_ZN7RSCoder6pnInitEv(ptr noundef nonnull align 4 captures(none) der
   %21 = load i32, ptr %4, align 4, !tbaa !3
   %22 = sext i32 %21 to i64
   %23 = icmp slt i64 %indvars.iv.next.i, %22
-  br i1 %23, label %.lr.ph.i, label %.preheader20.i, !llvm.loop !14
+  br i1 %23, label %.lr.ph.i, label %.preheader20.i, !llvm.loop !15
 
 .lr.ph26.i:                                       ; preds = %.preheader20.i, %.loopexit.i
   %24 = phi i32 [ %51, %.loopexit.i ], [ %21, %.preheader20.i ]
@@ -310,7 +310,7 @@ _ZN7RSCoder6gfMultEii.exit.i:                     ; preds = %35, %.lr.ph23.i
   %48 = sub nsw i32 %47, %29
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next29.i, %49
-  br i1 %50, label %.lr.ph23.i, label %.loopexit.i.loopexit, !llvm.loop !15
+  br i1 %50, label %.lr.ph23.i, label %.loopexit.i.loopexit, !llvm.loop !16
 
 .loopexit.i.loopexit:                             ; preds = %_ZN7RSCoder6gfMultEii.exit.i
   %.pre = sext i32 %47 to i64
@@ -321,7 +321,7 @@ _ZN7RSCoder6gfMultEii.exit.i:                     ; preds = %35, %.lr.ph23.i
   %51 = phi i32 [ %47, %.loopexit.i.loopexit ], [ %24, %.lr.ph26.i ]
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %52 = icmp slt i64 %indvars.iv.next32.i, %.pre-phi
-  br i1 %52, label %.lr.ph26.i, label %_ZN7RSCoder6pnMultEPiS0_S0_.exit, !llvm.loop !16
+  br i1 %52, label %.lr.ph26.i, label %_ZN7RSCoder6pnMultEPiS0_S0_.exit, !llvm.loop !17
 
 _ZN7RSCoder6pnMultEPiS0_S0_.exit:                 ; preds = %.loopexit.i
   %53 = icmp sgt i32 %51, 0
@@ -339,7 +339,7 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit:                 ; preds = %.loopexit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = sext i32 %56 to i64
   %.not.not = icmp slt i64 %indvars.iv, %57
-  br i1 %.not.not, label %12, label %._crit_edge33, !llvm.loop !17
+  br i1 %.not.not, label %12, label %._crit_edge33, !llvm.loop !18
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -371,7 +371,7 @@ define void @_ZN7RSCoder6pnMultEPiS0_S0_(ptr noundef nonnull readonly align 4 ca
   %11 = load i32, ptr %5, align 4, !tbaa !3
   %12 = sext i32 %11 to i64
   %13 = icmp slt i64 %indvars.iv.next, %12
-  br i1 %13, label %.lr.ph, label %.preheader20, !llvm.loop !14
+  br i1 %13, label %.lr.ph, label %.preheader20, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.loopexit, %4, %.preheader20
   ret void
@@ -426,14 +426,14 @@ _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph23, %26
   %41 = sub nsw i32 %40, %20
   %42 = sext i32 %41 to i64
   %43 = icmp slt i64 %indvars.iv.next29, %42
-  br i1 %43, label %.lr.ph23, label %.loopexit, !llvm.loop !15
+  br i1 %43, label %.lr.ph23, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %_ZN7RSCoder6gfMultEii.exit, %14
   %44 = phi i32 [ %15, %14 ], [ %40, %_ZN7RSCoder6gfMultEii.exit ]
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next32, %45
-  br i1 %46, label %14, label %._crit_edge, !llvm.loop !16
+  br i1 %46, label %14, label %._crit_edge, !llvm.loop !17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -478,7 +478,7 @@ define void @_ZN7RSCoder6EncodeEPhiS0_(ptr noundef nonnull readonly align 4 capt
 .lr.ph31.us:                                      ; preds = %.lr.ph31.us.preheader, %_ZN7RSCoder6gfMultEii.exit.us
   %indvars.iv55 = phi i64 [ 0, %.lr.ph31.us.preheader ], [ %indvars.iv.next56, %_ZN7RSCoder6gfMultEii.exit.us ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv55
-  %24 = load i8, ptr %23, align 1, !tbaa !18
+  %24 = load i8, ptr %23, align 1, !tbaa !19
   %25 = zext i8 %24 to i32
   %26 = load i32, ptr %14, align 4, !tbaa !10
   %27 = xor i32 %26, %25
@@ -502,7 +502,7 @@ _ZN7RSCoder6gfMultEii.exit.us:                    ; preds = %_ZN7RSCoder6gfMultE
   store i32 %38, ptr %5, align 16, !tbaa !10
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.preheader, label %.lr.ph31.us, !llvm.loop !19
+  br i1 %exitcond59.not, label %.preheader, label %.lr.ph31.us, !llvm.loop !20
 
 .lr.ph31.split.us37:                              ; preds = %.lr.ph31.us, %_ZN7RSCoder6gfMultEii.exit25.us35
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %_ZN7RSCoder6gfMultEii.exit25.us35 ], [ %22, %.lr.ph31.us ]
@@ -531,7 +531,7 @@ _ZN7RSCoder6gfMultEii.exit25.us35:                ; preds = %44, %.lr.ph31.split
   %55 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv49
   store i32 %54, ptr %55, align 4, !tbaa !10
   %56 = icmp sgt i64 %indvars.iv49, 1
-  br i1 %56, label %.lr.ph31.split.us37, label %._crit_edge.us, !llvm.loop !21
+  br i1 %56, label %.lr.ph31.split.us37, label %._crit_edge.us, !llvm.loop !22
 
 ._crit_edge.us:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit25.us35
   br i1 %19, label %_ZN7RSCoder6gfMultEii.exit.us, label %31
@@ -544,7 +544,7 @@ _ZN7RSCoder6gfMultEii.exit25.us.us:               ; preds = %.lr.ph31.us, %_ZN7R
   %59 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv52
   store i32 %58, ptr %59, align 4, !tbaa !10
   %60 = icmp sgt i64 %indvars.iv52, 1
-  br i1 %60, label %_ZN7RSCoder6gfMultEii.exit25.us.us, label %_ZN7RSCoder6gfMultEii.exit.us, !llvm.loop !22
+  br i1 %60, label %_ZN7RSCoder6gfMultEii.exit25.us.us, label %_ZN7RSCoder6gfMultEii.exit.us, !llvm.loop !23
 
 .lr.ph33.split:                                   ; preds = %.lr.ph33
   br i1 %19, label %.lr.ph33.split.split.us, label %.lr.ph33.split.split.preheader
@@ -564,7 +564,7 @@ _ZN7RSCoder6gfMultEii.exit25.us.us:               ; preds = %.lr.ph31.us, %_ZN7R
 .lr.ph33.split.split:                             ; preds = %.lr.ph33.split.split.preheader, %_ZN7RSCoder6gfMultEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph33.split.split.preheader ], [ %indvars.iv.next, %_ZN7RSCoder6gfMultEii.exit ]
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %63 = load i8, ptr %62, align 1, !tbaa !18
+  %63 = load i8, ptr %62, align 1, !tbaa !19
   %64 = zext i8 %63 to i32
   %65 = load i32, ptr %14, align 4, !tbaa !10
   %66 = icmp eq i32 %65, %64
@@ -587,7 +587,7 @@ _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph33.split.spli
   store i32 %77, ptr %5, align 16, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph33.split.split, !llvm.loop !23
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph33.split.split, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph42, %.preheader
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5) #5
@@ -604,12 +604,12 @@ _ZN7RSCoder6gfMultEii.exit:                       ; preds = %.lr.ph33.split.spli
   %84 = load i32, ptr %83, align 4, !tbaa !10
   %85 = trunc i32 %84 to i8
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv60
-  store i8 %85, ptr %86, align 1, !tbaa !18
+  store i8 %85, ptr %86, align 1, !tbaa !19
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %87 = load i32, ptr %6, align 4, !tbaa !3
   %88 = sext i32 %87 to i64
   %89 = icmp slt i64 %indvars.iv.next61, %88
-  br i1 %89, label %.lr.ph42, label %._crit_edge, !llvm.loop !24
+  br i1 %89, label %.lr.ph42, label %._crit_edge, !llvm.loop !25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -648,7 +648,7 @@ define noundef zeroext i1 @_ZN7RSCoder6DecodeEPhiPii(ptr noundef nonnull align 4
   br i1 %18, label %_ZN7RSCoder6gfMultEii.exit.us.us.preheader, label %.lr.ph.split.us111
 
 _ZN7RSCoder6gfMultEii.exit.us.us.preheader:       ; preds = %.preheader96.us
-  %21 = load i8, ptr %15, align 1, !tbaa !18
+  %21 = load i8, ptr %15, align 1, !tbaa !19
   %22 = zext i8 %21 to i32
   br label %._crit_edge.us
 
@@ -656,7 +656,7 @@ _ZN7RSCoder6gfMultEii.exit.us.us.preheader:       ; preds = %.preheader96.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7RSCoder6gfMultEii.exit.us109 ], [ 0, %.preheader96.us ]
   %.07598.us = phi i32 [ %37, %_ZN7RSCoder6gfMultEii.exit.us109 ], [ 0, %.preheader96.us ]
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %24 = load i8, ptr %23, align 1, !tbaa !18
+  %24 = load i8, ptr %23, align 1, !tbaa !19
   %25 = zext i8 %24 to i32
   %26 = icmp eq i32 %.07598.us, 0
   br i1 %26, label %_ZN7RSCoder6gfMultEii.exit.us109, label %27
@@ -677,7 +677,7 @@ _ZN7RSCoder6gfMultEii.exit.us109:                 ; preds = %27, %.lr.ph.split.u
   %37 = xor i32 %36, %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us111, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us111, !llvm.loop !26
 
 ._crit_edge.us:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit.us109, %_ZN7RSCoder6gfMultEii.exit.us.us.preheader
   %.us-phi.us = phi i32 [ %22, %_ZN7RSCoder6gfMultEii.exit.us.us.preheader ], [ %37, %_ZN7RSCoder6gfMultEii.exit.us109 ]
@@ -686,14 +686,14 @@ _ZN7RSCoder6gfMultEii.exit.us109:                 ; preds = %27, %.lr.ph.split.u
   %.not81.us = icmp eq i32 %.us-phi.us, 0
   %spec.select.us = select i1 %.not81.us, i1 %.064104.us, i1 false
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, %wide.trip.count161
-  br i1 %exitcond162.not, label %._crit_edge105, label %.preheader96.us, !llvm.loop !26
+  br i1 %exitcond162.not, label %._crit_edge105, label %.preheader96.us, !llvm.loop !27
 
 ._crit_edge105:                                   ; preds = %._crit_edge.us
   br i1 %spec.select.us, label %._crit_edge105.thread, label %39
 
 39:                                               ; preds = %._crit_edge105
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 11272
-  %41 = load i8, ptr %40, align 4, !tbaa !9, !range !27, !noundef !28
+  %41 = load i8, ptr %40, align 4, !tbaa !9, !range !28, !noundef !29
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %.loopexit95, label %.lr.ph
 
@@ -756,16 +756,16 @@ _ZN7RSCoder6gfMultEii.exit84.us125:               ; preds = %64, %.lr.ph118.spli
   %76 = xor i32 %75, %73
   store i32 %76, ptr %74, align 4, !tbaa !10
   %77 = icmp sgt i64 %indvars.iv166, 1
-  br i1 %77, label %.lr.ph118.split.us128, label %._crit_edge119.us, !llvm.loop !29
+  br i1 %77, label %.lr.ph118.split.us128, label %._crit_edge119.us, !llvm.loop !30
 
 ._crit_edge119.us:                                ; preds = %_ZN7RSCoder6gfMultEii.exit84.us125, %.lr.ph118.us
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge123, label %.lr.ph118.us, !llvm.loop !30
+  br i1 %exitcond173.not, label %._crit_edge123, label %.lr.ph118.us, !llvm.loop !31
 
 ._crit_edge123:                                   ; preds = %._crit_edge119.us, %.lr.ph
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8192
-  store i32 0, ptr %78, align 4, !tbaa !31
+  store i32 0, ptr %78, align 4, !tbaa !32
   %79 = sub nsw i32 255, %2
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 2048
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 7168
@@ -823,7 +823,7 @@ _ZN7RSCoder6gfMultEii.exit86:                     ; preds = %.lr.ph132, %98
   %110 = xor i32 %109, %.069130
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
-  br i1 %exitcond178.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !32
+  br i1 %exitcond178.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !33
 
 ._crit_edge133.thread:                            ; preds = %.preheader94, %._crit_edge133
   %111 = sext i32 %84 to i64
@@ -831,7 +831,7 @@ _ZN7RSCoder6gfMultEii.exit86:                     ; preds = %.lr.ph132, %98
   %113 = trunc i64 %indvars.iv182 to i32
   %114 = sub i32 255, %113
   store i32 %114, ptr %112, align 4, !tbaa !10
-  %115 = load i32, ptr %78, align 4, !tbaa !31
+  %115 = load i32, ptr %78, align 4, !tbaa !32
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds [256 x i32], ptr %82, i64 0, i64 %116
   store i32 0, ptr %117, align 4, !tbaa !10
@@ -841,9 +841,9 @@ _ZN7RSCoder6gfMultEii.exit86:                     ; preds = %.lr.ph132, %98
 
 ._crit_edge138:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit88, %._crit_edge133.thread
   %119 = phi i32 [ %118, %._crit_edge133.thread ], [ %150, %_ZN7RSCoder6gfMultEii.exit88 ]
-  %120 = load i32, ptr %78, align 4, !tbaa !31
+  %120 = load i32, ptr %78, align 4, !tbaa !32
   %121 = add nsw i32 %120, 1
-  store i32 %121, ptr %78, align 4, !tbaa !31
+  store i32 %121, ptr %78, align 4, !tbaa !32
   br label %152
 
 .lr.ph137:                                        ; preds = %._crit_edge133.thread, %_ZN7RSCoder6gfMultEii.exit88
@@ -877,7 +877,7 @@ _ZN7RSCoder6gfMultEii.exit86:                     ; preds = %.lr.ph132, %98
 
 _ZN7RSCoder6gfMultEii.exit88:                     ; preds = %.lr.ph137, %133
   %144 = phi i32 [ %143, %133 ], [ 0, %.lr.ph137 ]
-  %145 = load i32, ptr %78, align 4, !tbaa !31
+  %145 = load i32, ptr %78, align 4, !tbaa !32
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds [256 x i32], ptr %82, i64 0, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !10
@@ -887,7 +887,7 @@ _ZN7RSCoder6gfMultEii.exit88:                     ; preds = %.lr.ph137, %133
   %150 = load i32, ptr %8, align 4, !tbaa !3
   %151 = sext i32 %150 to i64
   %.not79 = icmp sgt i64 %indvars.iv.next180, %151
-  br i1 %.not79, label %._crit_edge138, label %.lr.ph137, !llvm.loop !33
+  br i1 %.not79, label %._crit_edge138, label %.lr.ph137, !llvm.loop !34
 
 152:                                              ; preds = %._crit_edge138, %._crit_edge133
   %153 = phi i32 [ %121, %._crit_edge138 ], [ %84, %._crit_edge133 ]
@@ -895,7 +895,7 @@ _ZN7RSCoder6gfMultEii.exit88:                     ; preds = %.lr.ph137, %133
   %indvars.iv.next183 = add i64 %indvars.iv182, 1
   %155 = and i64 %indvars.iv.next183, 4294967295
   %exitcond185.not = icmp eq i64 %155, 256
-  br i1 %exitcond185.not, label %.loopexit95, label %.preheader94, !llvm.loop !34
+  br i1 %exitcond185.not, label %.loopexit95, label %.preheader94, !llvm.loop !35
 
 .loopexit95:                                      ; preds = %152, %39
   %156 = phi i32 [ %9, %39 ], [ %154, %152 ]
@@ -955,16 +955,16 @@ _ZN7RSCoder6gfMultEii.exit.i:                     ; preds = %173, %.lr.ph23.i
   store i32 %184, ptr %gep.i, align 4, !tbaa !10
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next29.i, %smax
-  br i1 %exitcond188.not, label %.loopexit.i, label %.lr.ph23.i, !llvm.loop !15
+  br i1 %exitcond188.not, label %.loopexit.i, label %.lr.ph23.i, !llvm.loop !16
 
 .loopexit.i:                                      ; preds = %_ZN7RSCoder6gfMultEii.exit.i, %163
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next32.i, %159
-  br i1 %exitcond190.not, label %_ZN7RSCoder6pnMultEPiS0_S0_.exit, label %163, !llvm.loop !16
+  br i1 %exitcond190.not, label %_ZN7RSCoder6pnMultEPiS0_S0_.exit, label %163, !llvm.loop !17
 
 _ZN7RSCoder6pnMultEPiS0_S0_.exit:                 ; preds = %.loopexit.i, %.loopexit95
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 8192
-  %186 = load i32, ptr %185, align 4, !tbaa !31
+  %186 = load i32, ptr %185, align 4, !tbaa !32
   %.not80 = icmp sle i32 %186, %156
   %187 = icmp sgt i32 %186, 0
   %or.cond = and i1 %.not80, %187
@@ -1031,7 +1031,7 @@ _ZN7RSCoder6gfMultEii.exit91:                     ; preds = %.lr.ph144, %210
   %222 = xor i32 %221, %.063141
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
-  br i1 %exitcond195.not, label %._crit_edge145, label %.lr.ph144, !llvm.loop !35
+  br i1 %exitcond195.not, label %._crit_edge145, label %.lr.ph144, !llvm.loop !36
 
 223:                                              ; preds = %._crit_edge145
   %224 = getelementptr inbounds nuw [256 x i32], ptr %190, i64 0, i64 %indvars.iv196
@@ -1066,10 +1066,10 @@ _ZN7RSCoder6gfMultEii.exit93:                     ; preds = %223, %235
   %247 = phi i8 [ %246, %235 ], [ 0, %223 ]
   %248 = zext nneg i32 %199 to i64
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 %248
-  %250 = load i8, ptr %249, align 1, !tbaa !18
+  %250 = load i8, ptr %249, align 1, !tbaa !19
   %251 = xor i8 %250, %247
-  store i8 %251, ptr %249, align 1, !tbaa !18
-  %.pre = load i32, ptr %185, align 4, !tbaa !31
+  store i8 %251, ptr %249, align 1, !tbaa !19
+  %.pre = load i32, ptr %185, align 4, !tbaa !32
   br label %252
 
 252:                                              ; preds = %_ZN7RSCoder6gfMultEii.exit93, %._crit_edge145
@@ -1077,7 +1077,7 @@ _ZN7RSCoder6gfMultEii.exit93:                     ; preds = %223, %235
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %254 = sext i32 %253 to i64
   %255 = icmp slt i64 %indvars.iv.next197, %254
-  br i1 %255, label %191, label %.loopexit.loopexit, !llvm.loop !36
+  br i1 %255, label %191, label %.loopexit.loopexit, !llvm.loop !37
 
 .loopexit.loopexit:                               ; preds = %252
   %.pre199 = load i32, ptr %8, align 4, !tbaa !3
@@ -1125,29 +1125,30 @@ attributes #5 = { nounwind }
 !8 = !{!"bool", !5, i64 0}
 !9 = !{!4, !8, i64 11272}
 !10 = !{!7, !7, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !12}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = !{!5, !5, i64 0}
-!19 = distinct !{!19, !12, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !12}
-!22 = distinct !{!22, !12, !20}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12, !20}
-!27 = !{i8 0, i8 2}
-!28 = !{}
-!29 = distinct !{!29, !12}
-!30 = distinct !{!30, !12, !20}
-!31 = !{!4, !7, i64 8192}
-!32 = distinct !{!32, !12}
-!33 = distinct !{!33, !12}
-!34 = distinct !{!34, !12}
-!35 = distinct !{!35, !12}
-!36 = distinct !{!36, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !12, !13}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = !{!5, !5, i64 0}
+!20 = distinct !{!20, !12, !13, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !12, !13}
+!23 = distinct !{!23, !12, !13, !21}
+!24 = distinct !{!24, !12, !13}
+!25 = distinct !{!25, !12, !13}
+!26 = distinct !{!26, !12, !13}
+!27 = distinct !{!27, !12, !13, !21}
+!28 = !{i8 0, i8 2}
+!29 = !{}
+!30 = distinct !{!30, !12, !13}
+!31 = distinct !{!31, !12, !13, !21}
+!32 = !{!4, !7, i64 8192}
+!33 = distinct !{!33, !12, !13}
+!34 = distinct !{!34, !12, !13}
+!35 = distinct !{!35, !12, !13}
+!36 = distinct !{!36, !12, !13}
+!37 = distinct !{!37, !12, !13}

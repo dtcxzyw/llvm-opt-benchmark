@@ -854,7 +854,7 @@ define hidden zeroext i1 @SDL_SYS_WaitProcess(ptr noundef readonly captures(none
   tail call void @SDL_Delay_REAL(i32 noundef 10) #10
   %14 = tail call i32 @kill(i32 noundef %7, i32 noundef 0) #10
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %15, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 16:                                               ; preds = %11
   br i1 %13, label %43, label %.loopexit
@@ -1033,5 +1033,6 @@ attributes #14 = { noreturn nounwind }
 !4 = !{}
 !5 = distinct !{!5, !6}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = distinct !{!7, !6, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !8}

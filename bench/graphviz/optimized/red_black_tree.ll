@@ -374,7 +374,7 @@ LeftRotate.exit58:                                ; preds = %128, %129
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load i32, ptr %134, align 8, !tbaa !16
   %.not = icmp eq i32 %135, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %131, %TreeInsertHelp.exit
   %136 = load ptr, ptr %10, align 8, !tbaa !18
@@ -404,7 +404,7 @@ define ptr @TreeSuccessor(ptr noundef readonly captures(none) %0, ptr noundef re
   %9 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   %.not23 = icmp eq ptr %10, %4
-  br i1 %.not23, label %.loopexit, label %.preheader24, !llvm.loop !23
+  br i1 %.not23, label %.loopexit, label %.preheader24, !llvm.loop !24
 
 .preheader:                                       ; preds = %2, %.preheader
   %.018 = phi ptr [ %.1, %.preheader ], [ %1, %2 ]
@@ -413,7 +413,7 @@ define ptr @TreeSuccessor(ptr noundef readonly captures(none) %0, ptr noundef re
   %11 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !11
   %13 = icmp eq ptr %.018, %12
-  br i1 %13, label %.preheader, label %14, !llvm.loop !24
+  br i1 %13, label %.preheader, label %14, !llvm.loop !25
 
 14:                                               ; preds = %.preheader
   %15 = icmp eq ptr %.1, %6
@@ -441,7 +441,7 @@ define ptr @TreePredecessor(ptr noundef readonly captures(none) %0, ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %.not23 = icmp eq ptr %10, %4
-  br i1 %.not23, label %.loopexit, label %.preheader24, !llvm.loop !25
+  br i1 %.not23, label %.loopexit, label %.preheader24, !llvm.loop !26
 
 .preheader:                                       ; preds = %2, %14
   %.018 = phi ptr [ %.1, %14 ], [ %1, %2 ]
@@ -454,7 +454,7 @@ define ptr @TreePredecessor(ptr noundef readonly captures(none) %0, ptr noundef 
 
 14:                                               ; preds = %.preheader
   %15 = icmp eq ptr %.1, %6
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader24, %.preheader, %14
   %.0 = phi ptr [ %.1, %.preheader ], [ %4, %14 ], [ %.019, %.preheader24 ]
@@ -531,7 +531,7 @@ define noundef ptr @RBExactQuery(ptr noundef readonly captures(none) %0, ptr nou
   %15 = getelementptr inbounds nuw i8, ptr %.1.sink, i64 %.sink
   %.1 = load ptr, ptr %15, align 8, !tbaa !19
   %16 = icmp eq ptr %.1, %8
-  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !27
+  br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader, %14, %2
   %.017 = phi ptr [ null, %2 ], [ %.1.sink, %.preheader ], [ null, %14 ]
@@ -560,7 +560,7 @@ define void @RBDelete(ptr noundef readonly captures(none) %0, ptr noundef %1) lo
   %14 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   %.not23.i = icmp eq ptr %15, %4
-  br i1 %.not23.i, label %TreeSuccessor.exit, label %.preheader24.i, !llvm.loop !23
+  br i1 %.not23.i, label %TreeSuccessor.exit, label %.preheader24.i, !llvm.loop !24
 
 TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2, %10
   %16 = phi ptr [ %8, %10 ], [ %8, %2 ], [ %15, %.preheader24.i ]
@@ -1048,7 +1048,7 @@ RightRotate.exit79:                               ; preds = %171, %172
   %.not = icmp eq i32 %177, 0
   %178 = icmp ne ptr %6, %.156
   %179 = select i1 %.not, i1 %178, i1 false
-  br i1 %179, label %12, label %._crit_edge, !llvm.loop !28
+  br i1 %179, label %12, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %174, %RightRotate.exit79, %LeftRotate.exit73, %2
   %.055.lcssa = phi ptr [ %1, %2 ], [ %6, %LeftRotate.exit73 ], [ %6, %RightRotate.exit79 ], [ %.156, %174 ]
@@ -1088,12 +1088,13 @@ attributes #7 = { nounwind }
 !17 = !{!12, !5, i64 0}
 !18 = !{!4, !8, i64 16}
 !19 = !{!8, !8, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}
+!25 = distinct !{!25, !21, !22}
+!26 = distinct !{!26, !21, !22}
+!27 = distinct !{!27, !21, !22}
+!28 = distinct !{!28, !21, !22}
+!29 = distinct !{!29, !21, !22}

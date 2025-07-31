@@ -3838,7 +3838,7 @@ if.then.i.i691:                                   ; preds = %invoke.cont325
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit695: ; preds = %if.then.i.i691, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i692
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %playername) #25
-  %77 = load ptr, ptr %texpool.i, align 8, !tbaa !108
+  %77 = load ptr, ptr %texpool.i, align 8, !tbaa !109
   %_M_finish.i.i697 = getelementptr inbounds nuw i8, ptr %p, i64 184
   %78 = load ptr, ptr %_M_finish.i.i697, align 8, !tbaa !105
   %cmp.not3.i.i.i.i.i = icmp eq ptr %77, %78
@@ -3866,10 +3866,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i.i
 _ZSt8_DestroyI21ServerParticleTextureEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i, i64 136
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %78
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !109
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !110
 
 invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyI21ServerParticleTextureEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %texpool.i, align 8, !tbaa !108
+  %.pr.i.i = load ptr, ptr %texpool.i, align 8, !tbaa !109
   br label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %invoke.contthread-pre-split.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit695
@@ -4330,7 +4330,7 @@ cleanup.action:                                   ; preds = %ehcleanup16, %_ZNKS
 if.end20:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %17 = load i32, ptr %v, align 4, !tbaa !36
   %conv = trunc i32 %17 to i8
-  store i8 %conv, ptr %ret, align 1, !tbaa !110
+  store i8 %conv, ptr %ret, align 1, !tbaa !111
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v) #25
   br label %return
 
@@ -4554,7 +4554,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !104
-  %1 = load ptr, ptr %this, align 8, !tbaa !108
+  %1 = load ptr, ptr %this, align 8, !tbaa !109
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -4575,53 +4575,53 @@ _ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE11_M_allocateEm.exit: ; preds
 for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE11_M_allocateEm.exit, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ], [ %call5.i.i.i, %_ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE11_M_allocateEm.exit ]
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i, i64 20, i1 false), !alias.scope !116
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i, i64 20, i1 false), !alias.scope !117
   %alpha.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %alpha3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 24
-  %3 = load i64, ptr %alpha3.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  store i64 %3, ptr %alpha.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  %3 = load i64, ptr %alpha3.i.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !112
+  store i64 %3, ptr %alpha.i.i.i.i.i.i.i.i, align 8, !alias.scope !112, !noalias !115
   %start.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !111, !noalias !114
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !112, !noalias !115
   %val.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 40
   %val2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 40
-  %4 = load float, ptr %val2.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !114, !noalias !111
-  store float %4, ptr %val.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !111, !noalias !114
+  %4 = load float, ptr %val2.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !115, !noalias !112
+  store float %4, ptr %val.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !112, !noalias !115
   %end.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 48
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !111, !noalias !114
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !112, !noalias !115
   %val.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 56
   %val2.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 56
-  %5 = load float, ptr %val2.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !114, !noalias !111
-  store float %5, ptr %val.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !111, !noalias !114
+  %5 = load float, ptr %val2.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !115, !noalias !112
+  store float %5, ptr %val.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !112, !noalias !115
   %scale.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 64
   %scale4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 64
-  %6 = load i64, ptr %scale4.i.i.i.i.i.i.i.i, align 8, !alias.scope !114, !noalias !111
-  store i64 %6, ptr %scale.i.i.i.i.i.i.i.i, align 8, !alias.scope !111, !noalias !114
+  %6 = load i64, ptr %scale4.i.i.i.i.i.i.i.i, align 8, !alias.scope !115, !noalias !112
+  store i64 %6, ptr %scale.i.i.i.i.i.i.i.i, align 8, !alias.scope !112, !noalias !115
   %start.i7.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 72
   %val.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 80
   %val2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 80
-  %7 = load i64, ptr %val2.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !114, !noalias !111
-  store i64 %7, ptr %val.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !111, !noalias !114
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i7.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !111, !noalias !114
+  %7 = load i64, ptr %val2.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !115, !noalias !112
+  store i64 %7, ptr %val.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i7.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !112, !noalias !115
   %end.i8.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 88
   %val.i.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 96
   %val2.i.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 96
-  %8 = load i64, ptr %val2.i.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !114, !noalias !111
-  store i64 %8, ptr %val.i.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !111, !noalias !114
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i8.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !111, !noalias !114
+  %8 = load i64, ptr %val2.i.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !115, !noalias !112
+  store i64 %8, ptr %val.i.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i8.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !112, !noalias !115
   %string.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 104
   %string2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 104
   %9 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 120
-  store ptr %9, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !111, !noalias !114
-  %10 = load ptr, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !114, !noalias !111
+  store ptr %9, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !112, !noalias !115
+  %10 = load ptr, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !115, !noalias !112
   %11 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 120
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %11
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 112
-  %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !114, !noalias !111
+  %12 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !115, !noalias !112
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %12, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %12, 1
@@ -4629,28 +4629,28 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  store ptr %10, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !111, !noalias !114
-  %13 = load i64, ptr %11, align 8, !tbaa !13, !alias.scope !114, !noalias !111
-  store i64 %13, ptr %9, align 8, !tbaa !13, !alias.scope !111, !noalias !114
+  store ptr %10, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !112, !noalias !115
+  %13 = load i64, ptr %11, align 8, !tbaa !13, !alias.scope !115, !noalias !112
+  store i64 %13, ptr %9, align 8, !tbaa !13, !alias.scope !112, !noalias !115
   %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 112
-  %.pre.i.i.i.i = load i64, ptr %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !14, !alias.scope !114, !noalias !111
+  %.pre.i.i.i.i = load i64, ptr %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !14, !alias.scope !115, !noalias !112
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %14 = phi i64 [ %12, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
   %_M_string_length.i23.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 112
   %_M_string_length.i24.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 112
-  store i64 %14, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !111, !noalias !114
-  store ptr %11, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !114, !noalias !111
-  store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !114, !noalias !111
-  store i8 0, ptr %11, align 1, !tbaa !13, !alias.scope !114, !noalias !111
+  store i64 %14, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !112, !noalias !115
+  store ptr %11, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !115, !noalias !112
+  store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !115, !noalias !112
+  store i8 0, ptr %11, align 1, !tbaa !13, !alias.scope !115, !noalias !112
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 136
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 136
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %2
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.loopexit, label %for.body.i.i.i, !llvm.loop !117
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.loopexit, label %for.body.i.i.i, !llvm.loop !118
 
 _ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.loopexit: ; preds = %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
-  %.pre = load ptr, ptr %this, align 8, !tbaa !108
+  %.pre = load ptr, ptr %this, align 8, !tbaa !109
   br label %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
 
 _ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.loopexit, %_ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE11_M_allocateEm.exit
@@ -4663,7 +4663,7 @@ if.then.i:                                        ; preds = %_ZNSt6vectorI21Serv
   br label %_ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE13_M_deallocateEPS0_m.exit
 
 _ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.i, %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
-  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !108
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !109
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i32
   store ptr %add.ptr, ptr %_M_finish.i, align 8, !tbaa !105
   %add.ptr21 = getelementptr inbounds nuw %struct.ServerParticleTexture, ptr %call5.i.i.i, i64 %__n
@@ -4686,7 +4686,7 @@ declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 define linkonce_odr dso_local void @_ZN25ParticleSpawnerParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(1400) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %texpool = getelementptr inbounds nuw i8, ptr %this, i64 176
-  %0 = load ptr, ptr %texpool, align 8, !tbaa !108
+  %0 = load ptr, ptr %texpool, align 8, !tbaa !109
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !105
   %cmp.not3.i.i.i.i = icmp eq ptr %0, %1
@@ -4714,10 +4714,10 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i
 _ZSt8_DestroyI21ServerParticleTextureEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 136
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !109
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !119
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyI21ServerParticleTextureEvPT_.exit.i.i.i.i
-  %.pr.i = load ptr, ptr %texpool, align 8, !tbaa !108
+  %.pr.i = load ptr, ptr %texpool, align 8, !tbaa !109
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %entry
@@ -5356,7 +5356,7 @@ cleanup.action:                                   ; preds = %ehcleanup16, %_ZNKS
 if.end20:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %17 = load i32, ptr %v, align 4, !tbaa !36
   %conv = trunc i32 %17 to i8
-  store i8 %conv, ptr %ret, align 1, !tbaa !118
+  store i8 %conv, ptr %ret, align 1, !tbaa !120
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %v) #25
   br label %return
 
@@ -5590,53 +5590,53 @@ _ZNKSt6vectorI21ServerParticleTextureSaIS0_EE12_M_check_lenEmPKc.exit: ; preds =
 for.body.i.i.i:                                   ; preds = %_ZNKSt6vectorI21ServerParticleTextureSaIS0_EE12_M_check_lenEmPKc.exit, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
   %__cur.08.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ], [ %call5.i.i.i, %_ZNKSt6vectorI21ServerParticleTextureSaIS0_EE12_M_check_lenEmPKc.exit ]
   %__first.addr.07.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ], [ %1, %_ZNKSt6vectorI21ServerParticleTextureSaIS0_EE12_M_check_lenEmPKc.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i, i64 20, i1 false), !alias.scope !124
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.08.i.i.i, ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i, i64 20, i1 false), !alias.scope !126
   %alpha.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 24
   %alpha3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 24
-  %4 = load i64, ptr %alpha3.i.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
-  store i64 %4, ptr %alpha.i.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
+  %4 = load i64, ptr %alpha3.i.i.i.i.i.i.i.i, align 8, !alias.scope !124, !noalias !121
+  store i64 %4, ptr %alpha.i.i.i.i.i.i.i.i, align 8, !alias.scope !121, !noalias !124
   %start.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 32
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !119, !noalias !122
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !121, !noalias !124
   %val.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 40
   %val2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 40
-  %5 = load float, ptr %val2.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !122, !noalias !119
-  store float %5, ptr %val.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !119, !noalias !122
+  %5 = load float, ptr %val2.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !124, !noalias !121
+  store float %5, ptr %val.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !121, !noalias !124
   %end.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 48
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !119, !noalias !122
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end.i.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !121, !noalias !124
   %val.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 56
   %val2.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 56
-  %6 = load float, ptr %val2.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !122, !noalias !119
-  store float %6, ptr %val.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !119, !noalias !122
+  %6 = load float, ptr %val2.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !124, !noalias !121
+  store float %6, ptr %val.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !alias.scope !121, !noalias !124
   %scale.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 64
   %scale4.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 64
-  %7 = load i64, ptr %scale4.i.i.i.i.i.i.i.i, align 8, !alias.scope !122, !noalias !119
-  store i64 %7, ptr %scale.i.i.i.i.i.i.i.i, align 8, !alias.scope !119, !noalias !122
+  %7 = load i64, ptr %scale4.i.i.i.i.i.i.i.i, align 8, !alias.scope !124, !noalias !121
+  store i64 %7, ptr %scale.i.i.i.i.i.i.i.i, align 8, !alias.scope !121, !noalias !124
   %start.i7.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 72
   %val.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 80
   %val2.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 80
-  %8 = load i64, ptr %val2.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !122, !noalias !119
-  store i64 %8, ptr %val.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !119, !noalias !122
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i7.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !119, !noalias !122
+  %8 = load i64, ptr %val2.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !124, !noalias !121
+  store i64 %8, ptr %val.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !121, !noalias !124
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i7.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !121, !noalias !124
   %end.i8.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 88
   %val.i.i7.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 96
   %val2.i.i8.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 96
-  %9 = load i64, ptr %val2.i.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !122, !noalias !119
-  store i64 %9, ptr %val.i.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !119, !noalias !122
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i8.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !119, !noalias !122
+  %9 = load i64, ptr %val2.i.i8.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !124, !noalias !121
+  store i64 %9, ptr %val.i.i7.i.i.i.i.i.i.i.i.i, align 8, !tbaa.struct !41, !alias.scope !121, !noalias !124
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i8.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !alias.scope !121, !noalias !124
   %string.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 104
   %string2.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 104
   %10 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 120
-  store ptr %10, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !119, !noalias !122
-  %11 = load ptr, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !122, !noalias !119
+  store ptr %10, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !4, !alias.scope !121, !noalias !124
+  %11 = load ptr, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !124, !noalias !121
   %12 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 120
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %11, %12
   br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   %_M_string_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 112
-  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !122, !noalias !119
+  %13 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !124, !noalias !121
   %cmp3.i.i.i.i.i.i.i.i.i = icmp ult i64 %13, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i)
   %add.i.i.i.i.i.i.i.i = add nuw nsw i64 %13, 1
@@ -5644,25 +5644,25 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
 
 if.else.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i
-  store ptr %11, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !119, !noalias !122
-  %14 = load i64, ptr %12, align 8, !tbaa !13, !alias.scope !122, !noalias !119
-  store i64 %14, ptr %10, align 8, !tbaa !13, !alias.scope !119, !noalias !122
+  store ptr %11, ptr %string.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !121, !noalias !124
+  %14 = load i64, ptr %12, align 8, !tbaa !13, !alias.scope !124, !noalias !121
+  store i64 %14, ptr %10, align 8, !tbaa !13, !alias.scope !121, !noalias !124
   %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 112
-  %.pre.i.i.i.i = load i64, ptr %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !14, !alias.scope !122, !noalias !119
+  %.pre.i.i.i.i = load i64, ptr %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i, align 8, !tbaa !14, !alias.scope !124, !noalias !121
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i
 
 _ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i
   %15 = phi i64 [ %13, %if.then.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i, %if.else.i.i.i.i.i.i.i.i ]
   %_M_string_length.i23.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 112
   %_M_string_length.i24.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 112
-  store i64 %15, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !119, !noalias !122
-  store ptr %12, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !122, !noalias !119
-  store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !122, !noalias !119
-  store i8 0, ptr %12, align 1, !tbaa !13, !alias.scope !122, !noalias !119
+  store i64 %15, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !121, !noalias !124
+  store ptr %12, ptr %string2.i.i.i.i.i.i.i, align 8, !tbaa !11, !alias.scope !124, !noalias !121
+  store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i, align 8, !tbaa !14, !alias.scope !124, !noalias !121
+  store i8 0, ptr %12, align 1, !tbaa !13, !alias.scope !124, !noalias !121
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i, i64 136
   %incdec.ptr1.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i, i64 136
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i, !llvm.loop !117
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, label %for.body.i.i.i, !llvm.loop !127
 
 _ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i, %_ZNKSt6vectorI21ServerParticleTextureSaIS0_EE12_M_check_lenEmPKc.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %call5.i.i.i, %_ZNKSt6vectorI21ServerParticleTextureSaIS0_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr1.i.i.i, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i ]
@@ -5673,53 +5673,53 @@ _ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ;
 for.body.i.i.i49:                                 ; preds = %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74
   %__cur.08.i.i.i50 = phi ptr [ %incdec.ptr1.i.i.i78, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74 ], [ %incdec.ptr, %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
   %__first.addr.07.i.i.i51 = phi ptr [ %incdec.ptr.i.i.i77, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74 ], [ %__position.coerce, %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.08.i.i.i50, ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i51, i64 20, i1 false), !alias.scope !130
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %__cur.08.i.i.i50, ptr noundef nonnull align 8 dereferenceable(20) %__first.addr.07.i.i.i51, i64 20, i1 false), !alias.scope !133
   %alpha.i.i.i.i.i.i.i.i52 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 24
   %alpha3.i.i.i.i.i.i.i.i53 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 24
-  %16 = load i64, ptr %alpha3.i.i.i.i.i.i.i.i53, align 8, !alias.scope !128, !noalias !125
-  store i64 %16, ptr %alpha.i.i.i.i.i.i.i.i52, align 8, !alias.scope !125, !noalias !128
+  %16 = load i64, ptr %alpha3.i.i.i.i.i.i.i.i53, align 8, !alias.scope !131, !noalias !128
+  store i64 %16, ptr %alpha.i.i.i.i.i.i.i.i52, align 8, !alias.scope !128, !noalias !131
   %start.i.i.i.i.i.i.i.i.i54 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 32
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start.i.i.i.i.i.i.i.i.i54, align 8, !tbaa !46, !alias.scope !125, !noalias !128
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %start.i.i.i.i.i.i.i.i.i54, align 8, !tbaa !46, !alias.scope !128, !noalias !131
   %val.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 40
   %val2.i.i.i.i.i.i.i.i.i.i56 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 40
-  %17 = load float, ptr %val2.i.i.i.i.i.i.i.i.i.i56, align 8, !tbaa !40, !alias.scope !128, !noalias !125
-  store float %17, ptr %val.i.i.i.i.i.i.i.i.i.i55, align 8, !tbaa !40, !alias.scope !125, !noalias !128
+  %17 = load float, ptr %val2.i.i.i.i.i.i.i.i.i.i56, align 8, !tbaa !40, !alias.scope !131, !noalias !128
+  store float %17, ptr %val.i.i.i.i.i.i.i.i.i.i55, align 8, !tbaa !40, !alias.scope !128, !noalias !131
   %end.i.i.i.i.i.i.i.i.i57 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 48
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end.i.i.i.i.i.i.i.i.i57, align 8, !tbaa !46, !alias.scope !125, !noalias !128
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %end.i.i.i.i.i.i.i.i.i57, align 8, !tbaa !46, !alias.scope !128, !noalias !131
   %val.i7.i.i.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 56
   %val2.i8.i.i.i.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 56
-  %18 = load float, ptr %val2.i8.i.i.i.i.i.i.i.i.i59, align 8, !tbaa !40, !alias.scope !128, !noalias !125
-  store float %18, ptr %val.i7.i.i.i.i.i.i.i.i.i58, align 8, !tbaa !40, !alias.scope !125, !noalias !128
+  %18 = load float, ptr %val2.i8.i.i.i.i.i.i.i.i.i59, align 8, !tbaa !40, !alias.scope !131, !noalias !128
+  store float %18, ptr %val.i7.i.i.i.i.i.i.i.i.i58, align 8, !tbaa !40, !alias.scope !128, !noalias !131
   %scale.i.i.i.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 64
   %scale4.i.i.i.i.i.i.i.i61 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 64
-  %19 = load i64, ptr %scale4.i.i.i.i.i.i.i.i61, align 8, !alias.scope !128, !noalias !125
-  store i64 %19, ptr %scale.i.i.i.i.i.i.i.i60, align 8, !alias.scope !125, !noalias !128
+  %19 = load i64, ptr %scale4.i.i.i.i.i.i.i.i61, align 8, !alias.scope !131, !noalias !128
+  store i64 %19, ptr %scale.i.i.i.i.i.i.i.i60, align 8, !alias.scope !128, !noalias !131
   %start.i7.i.i.i.i.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 72
   %val.i.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 80
   %val2.i.i.i.i.i.i.i.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 80
-  %20 = load i64, ptr %val2.i.i.i.i.i.i.i.i.i.i.i64, align 8, !tbaa.struct !41, !alias.scope !128, !noalias !125
-  store i64 %20, ptr %val.i.i.i.i.i.i.i.i.i.i.i63, align 8, !tbaa.struct !41, !alias.scope !125, !noalias !128
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i7.i.i.i.i.i.i.i.i62, align 8, !tbaa !46, !alias.scope !125, !noalias !128
+  %20 = load i64, ptr %val2.i.i.i.i.i.i.i.i.i.i.i64, align 8, !tbaa.struct !41, !alias.scope !131, !noalias !128
+  store i64 %20, ptr %val.i.i.i.i.i.i.i.i.i.i.i63, align 8, !tbaa.struct !41, !alias.scope !128, !noalias !131
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i7.i.i.i.i.i.i.i.i62, align 8, !tbaa !46, !alias.scope !128, !noalias !131
   %end.i8.i.i.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 88
   %val.i.i7.i.i.i.i.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 96
   %val2.i.i8.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 96
-  %21 = load i64, ptr %val2.i.i8.i.i.i.i.i.i.i.i.i67, align 8, !tbaa.struct !41, !alias.scope !128, !noalias !125
-  store i64 %21, ptr %val.i.i7.i.i.i.i.i.i.i.i.i66, align 8, !tbaa.struct !41, !alias.scope !125, !noalias !128
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i8.i.i.i.i.i.i.i.i65, align 8, !tbaa !46, !alias.scope !125, !noalias !128
+  %21 = load i64, ptr %val2.i.i8.i.i.i.i.i.i.i.i.i67, align 8, !tbaa.struct !41, !alias.scope !131, !noalias !128
+  store i64 %21, ptr %val.i.i7.i.i.i.i.i.i.i.i.i66, align 8, !tbaa.struct !41, !alias.scope !128, !noalias !131
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i8.i.i.i.i.i.i.i.i65, align 8, !tbaa !46, !alias.scope !128, !noalias !131
   %string.i.i.i.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 104
   %string2.i.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 104
   %22 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 120
-  store ptr %22, ptr %string.i.i.i.i.i.i.i68, align 8, !tbaa !4, !alias.scope !125, !noalias !128
-  %23 = load ptr, ptr %string2.i.i.i.i.i.i.i69, align 8, !tbaa !11, !alias.scope !128, !noalias !125
+  store ptr %22, ptr %string.i.i.i.i.i.i.i68, align 8, !tbaa !4, !alias.scope !128, !noalias !131
+  %23 = load ptr, ptr %string2.i.i.i.i.i.i.i69, align 8, !tbaa !11, !alias.scope !131, !noalias !128
   %24 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 120
   %cmp.i.i.i.i.i.i.i.i.i70 = icmp eq ptr %23, %24
   br i1 %cmp.i.i.i.i.i.i.i.i.i70, label %if.then.i.i.i.i.i.i.i.i81, label %if.else.i.i.i.i.i.i.i.i71
 
 if.then.i.i.i.i.i.i.i.i81:                        ; preds = %for.body.i.i.i49
   %_M_string_length.i.i.i.i.i.i.i.i.i82 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 112
-  %25 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i82, align 8, !tbaa !14, !alias.scope !128, !noalias !125
+  %25 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i.i82, align 8, !tbaa !14, !alias.scope !131, !noalias !128
   %cmp3.i.i.i.i.i.i.i.i.i83 = icmp ult i64 %25, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i.i83)
   %add.i.i.i.i.i.i.i.i84 = add nuw nsw i64 %25, 1
@@ -5727,25 +5727,25 @@ if.then.i.i.i.i.i.i.i.i81:                        ; preds = %for.body.i.i.i49
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74
 
 if.else.i.i.i.i.i.i.i.i71:                        ; preds = %for.body.i.i.i49
-  store ptr %23, ptr %string.i.i.i.i.i.i.i68, align 8, !tbaa !11, !alias.scope !125, !noalias !128
-  %26 = load i64, ptr %24, align 8, !tbaa !13, !alias.scope !128, !noalias !125
-  store i64 %26, ptr %22, align 8, !tbaa !13, !alias.scope !125, !noalias !128
+  store ptr %23, ptr %string.i.i.i.i.i.i.i68, align 8, !tbaa !11, !alias.scope !128, !noalias !131
+  %26 = load i64, ptr %24, align 8, !tbaa !13, !alias.scope !131, !noalias !128
+  store i64 %26, ptr %22, align 8, !tbaa !13, !alias.scope !128, !noalias !131
   %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 112
-  %.pre.i.i.i.i73 = load i64, ptr %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i72, align 8, !tbaa !14, !alias.scope !128, !noalias !125
+  %.pre.i.i.i.i73 = load i64, ptr %_M_string_length.i23.i.i.i.i.phi.trans.insert.i.i.i.i72, align 8, !tbaa !14, !alias.scope !131, !noalias !128
   br label %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74
 
 _ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74: ; preds = %if.else.i.i.i.i.i.i.i.i71, %if.then.i.i.i.i.i.i.i.i81
   %27 = phi i64 [ %25, %if.then.i.i.i.i.i.i.i.i81 ], [ %.pre.i.i.i.i73, %if.else.i.i.i.i.i.i.i.i71 ]
   %_M_string_length.i23.i.i.i.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 112
   %_M_string_length.i24.i.i.i.i.i.i.i.i76 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 112
-  store i64 %27, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i76, align 8, !tbaa !14, !alias.scope !125, !noalias !128
-  store ptr %24, ptr %string2.i.i.i.i.i.i.i69, align 8, !tbaa !11, !alias.scope !128, !noalias !125
-  store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i75, align 8, !tbaa !14, !alias.scope !128, !noalias !125
-  store i8 0, ptr %24, align 1, !tbaa !13, !alias.scope !128, !noalias !125
+  store i64 %27, ptr %_M_string_length.i24.i.i.i.i.i.i.i.i76, align 8, !tbaa !14, !alias.scope !128, !noalias !131
+  store ptr %24, ptr %string2.i.i.i.i.i.i.i69, align 8, !tbaa !11, !alias.scope !131, !noalias !128
+  store i64 0, ptr %_M_string_length.i23.i.i.i.i.i.i.i.i75, align 8, !tbaa !14, !alias.scope !131, !noalias !128
+  store i8 0, ptr %24, align 1, !tbaa !13, !alias.scope !131, !noalias !128
   %incdec.ptr.i.i.i77 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i51, i64 136
   %incdec.ptr1.i.i.i78 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i50, i64 136
   %cmp.not.i.i.i79 = icmp eq ptr %incdec.ptr.i.i.i77, %0
-  br i1 %cmp.not.i.i.i79, label %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit85, label %for.body.i.i.i49, !llvm.loop !117
+  br i1 %cmp.not.i.i.i79, label %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit85, label %for.body.i.i.i49, !llvm.loop !134
 
 _ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit85: ; preds = %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74, %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   %__cur.0.lcssa.i.i.i80 = phi ptr [ %incdec.ptr, %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit ], [ %incdec.ptr1.i.i.i78, %_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_.exit.i.i.i74 ]
@@ -5758,7 +5758,7 @@ if.then.i86:                                      ; preds = %_ZNSt6vectorI21Serv
 
 _ZNSt12_Vector_baseI21ServerParticleTextureSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.then.i86, %_ZNSt6vectorI21ServerParticleTextureSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit85
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !108
+  store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !109
   store ptr %__cur.0.lcssa.i.i.i80, ptr %_M_finish.i.i, align 8, !tbaa !105
   %add.ptr26 = getelementptr inbounds nuw %struct.ServerParticleTexture, ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !104
@@ -6027,7 +6027,7 @@ if.then.i.i208.i:                                 ; preds = %arraydestroy.body.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   %arraydestroy.done.i = icmp eq ptr %arraydestroy.element.i, @_ZL19accessDeniedStringsB5cxx11
-  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i
+  br i1 %arraydestroy.done.i, label %eh.resume.i, label %arraydestroy.body.i, !llvm.loop !135
 
 eh.resume.i:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -6196,28 +6196,33 @@ attributes #28 = { builtin allocsize(0) }
 !103 = !{!"_ZTS12ActiveObject", !27, i64 8}
 !104 = !{!82, !6, i64 16}
 !105 = !{!82, !6, i64 8}
-!106 = distinct !{!106, !107}
+!106 = distinct !{!106, !107, !108}
 !107 = !{!"llvm.loop.mustprogress"}
-!108 = !{!82, !6, i64 0}
-!109 = distinct !{!109, !107}
-!110 = !{!84, !84, i64 0}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
-!113 = distinct !{!113, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_"}
-!114 = !{!115}
-!115 = distinct !{!115, !113, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
-!116 = !{!112, !115}
-!117 = distinct !{!117, !107}
-!118 = !{!26, !26, i64 0}
-!119 = !{!120}
-!120 = distinct !{!120, !121, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
-!121 = distinct !{!121, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_"}
-!122 = !{!123}
-!123 = distinct !{!123, !121, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
-!124 = !{!120, !123}
-!125 = !{!126}
-!126 = distinct !{!126, !127, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
-!127 = distinct !{!127, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_"}
+!108 = !{!"llvm.loop.estimated_trip_count"}
+!109 = !{!82, !6, i64 0}
+!110 = distinct !{!110, !107, !108}
+!111 = !{!84, !84, i64 0}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
+!114 = distinct !{!114, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_"}
+!115 = !{!116}
+!116 = distinct !{!116, !114, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
+!117 = !{!113, !116}
+!118 = distinct !{!118, !107, !108}
+!119 = distinct !{!119, !107, !108}
+!120 = !{!26, !26, i64 0}
+!121 = !{!122}
+!122 = distinct !{!122, !123, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
+!123 = distinct !{!123, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_"}
+!124 = !{!125}
+!125 = distinct !{!125, !123, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
+!126 = !{!122, !125}
+!127 = distinct !{!127, !107, !108}
 !128 = !{!129}
-!129 = distinct !{!129, !127, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
-!130 = !{!126, !129}
+!129 = distinct !{!129, !130, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__dest"}
+!130 = distinct !{!130, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_"}
+!131 = !{!132}
+!132 = distinct !{!132, !130, !"_ZSt19__relocate_object_aI21ServerParticleTextureS0_SaIS0_EEvPT_PT0_RT1_: %__orig"}
+!133 = !{!129, !132}
+!134 = distinct !{!134, !107, !108}
+!135 = distinct !{!135, !108}

@@ -1643,13 +1643,13 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_
   br i1 %47, label %.lr.ph, label %.loopexit64
 
 .lr.ph:                                           ; preds = %42
-  %48 = load ptr, ptr %38, align 8, !tbaa !119
+  %48 = load ptr, ptr %38, align 8, !tbaa !120
   br label %51
 
 49:                                               ; preds = %51
   %50 = add i64 %.070, 1
   %exitcond.not = icmp eq i64 %50, %46
-  br i1 %exitcond.not, label %.loopexit64, label %51, !llvm.loop !120
+  br i1 %exitcond.not, label %.loopexit64, label %51, !llvm.loop !121
 
 51:                                               ; preds = %.lr.ph, %49
   %.070 = phi i64 [ %43, %.lr.ph ], [ %50, %49 ]
@@ -1707,7 +1707,7 @@ define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_
 81:                                               ; preds = %.lr.ph75
   %82 = add nuw nsw i64 %.174, 1
   %exitcond78.not = icmp eq i64 %82, %5
-  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph75, !llvm.loop !121
+  br i1 %exitcond78.not, label %.loopexit, label %.lr.ph75, !llvm.loop !122
 
 .loopexit.sink.split:                             ; preds = %8, %12, %16, %22, %29, %39, %55, %63, %73
   %putchar58 = tail call i32 @putchar(i32 10)
@@ -1766,7 +1766,7 @@ define range(i64 0, 2) i64 @validate_settings(ptr noundef readonly captures(addr
 
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i32, ptr %8, align 8, !tbaa !122
+  %9 = load i32, ptr %8, align 8, !tbaa !123
   switch i32 %9, label %validate_linsys_solver.exit [
     i32 2, label %10
     i32 1, label %13
@@ -1791,7 +1791,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 18:                                               ; preds = %13, %10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i64, ptr %19, align 8, !tbaa !123
+  %20 = load i64, ptr %19, align 8, !tbaa !124
   %switch = icmp ult i64 %20, 2
   br i1 %switch, label %.critedge, label %21
 
@@ -1802,7 +1802,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 .critedge:                                        ; preds = %18, %6
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load i64, ptr %24, align 8, !tbaa !124
+  %25 = load i64, ptr %24, align 8, !tbaa !125
   %switch124 = icmp ult i64 %25, 2
   br i1 %switch124, label %29, label %26
 
@@ -1813,7 +1813,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 29:                                               ; preds = %.critedge
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %31 = load i64, ptr %30, align 8, !tbaa !125
+  %31 = load i64, ptr %30, align 8, !tbaa !126
   %switch125 = icmp ult i64 %31, 3
   br i1 %switch125, label %35, label %32
 
@@ -1824,7 +1824,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %37 = load i64, ptr %36, align 8, !tbaa !126
+  %37 = load i64, ptr %36, align 8, !tbaa !127
   %switch126 = icmp ult i64 %37, 2
   br i1 %switch126, label %41, label %38
 
@@ -1849,13 +1849,13 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 49:                                               ; preds = %41
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load i64, ptr %50, align 8, !tbaa !127
+  %51 = load i64, ptr %50, align 8, !tbaa !128
   %switch127 = icmp ult i64 %51, 2
   br i1 %switch127, label %.critedge118, label %54
 
 .thread:                                          ; preds = %42
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %53 = load i64, ptr %52, align 8, !tbaa !127
+  %53 = load i64, ptr %52, align 8, !tbaa !128
   %switch127133 = icmp ult i64 %53, 2
   br i1 %switch127133, label %57, label %54
 
@@ -1912,7 +1912,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 83:                                               ; preds = %.critedge118
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %85 = load i64, ptr %84, align 8, !tbaa !128
+  %85 = load i64, ptr %84, align 8, !tbaa !129
   %86 = icmp slt i64 %85, 1
   br i1 %86, label %87, label %90
 
@@ -1923,7 +1923,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 90:                                               ; preds = %83
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %92 = load i64, ptr %91, align 8, !tbaa !129
+  %92 = load i64, ptr %91, align 8, !tbaa !130
   %93 = icmp slt i64 %92, 1
   br i1 %93, label %94, label %97
 
@@ -1934,7 +1934,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 97:                                               ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %99 = load double, ptr %98, align 8, !tbaa !130
+  %99 = load double, ptr %98, align 8, !tbaa !131
   %100 = fcmp ugt double %99, 0.000000e+00
   %101 = fcmp ult double %99, 1.000000e+00
   %or.cond119 = and i1 %100, %101
@@ -1947,7 +1947,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 105:                                              ; preds = %97
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %107 = load i64, ptr %106, align 8, !tbaa !131
+  %107 = load i64, ptr %106, align 8, !tbaa !132
   br i1 %.not67, label %109, label %108
 
 108:                                              ; preds = %105
@@ -1965,7 +1965,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 114:                                              ; preds = %108
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %116 = load i64, ptr %115, align 8, !tbaa !132
+  %116 = load i64, ptr %115, align 8, !tbaa !133
   %117 = icmp slt i64 %116, 0
   br i1 %117, label %118, label %121
 
@@ -1976,7 +1976,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 121:                                              ; preds = %114
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %123 = load double, ptr %122, align 8, !tbaa !133
+  %123 = load double, ptr %122, align 8, !tbaa !134
   %124 = fcmp ugt double %123, 0.000000e+00
   br i1 %124, label %.critedge121, label %125
 
@@ -1998,7 +1998,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 .critedge122:                                     ; preds = %109, %.critedge121
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %135 = load i64, ptr %134, align 8, !tbaa !134
+  %135 = load i64, ptr %134, align 8, !tbaa !135
   %136 = icmp slt i64 %135, 1
   br i1 %136, label %137, label %140
 
@@ -2075,7 +2075,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 180:                                              ; preds = %174
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %182 = load i64, ptr %181, align 8, !tbaa !135
+  %182 = load i64, ptr %181, align 8, !tbaa !136
   %183 = icmp slt i64 %182, 0
   br i1 %183, label %184, label %187
 
@@ -2097,7 +2097,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 193:                                              ; preds = %187
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %195 = load double, ptr %194, align 8, !tbaa !136
+  %195 = load double, ptr %194, align 8, !tbaa !137
   %196 = fcmp ugt double %195, 0.000000e+00
   br i1 %196, label %199, label %197
 
@@ -2108,7 +2108,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 199:                                              ; preds = %193
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %201 = load double, ptr %200, align 8, !tbaa !137
+  %201 = load double, ptr %200, align 8, !tbaa !138
   %202 = fcmp ugt double %201, 0.000000e+00
   br i1 %202, label %206, label %203
 
@@ -2119,7 +2119,7 @@ validate_linsys_solver.exit:                      ; preds = %13, %10, %7
 
 206:                                              ; preds = %199
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %208 = load i64, ptr %207, align 8, !tbaa !138
+  %208 = load i64, ptr %207, align 8, !tbaa !139
   %209 = icmp slt i64 %208, 0
   br i1 %209, label %210, label %213
 
@@ -2277,25 +2277,26 @@ attributes #10 = { nounwind }
 !114 = !{!112, !17, i64 8}
 !115 = !{!112, !113, i64 16}
 !116 = !{!17, !17, i64 0}
-!117 = distinct !{!117, !118}
+!117 = distinct !{!117, !118, !119}
 !118 = !{!"llvm.loop.mustprogress"}
-!119 = !{!112, !113, i64 24}
-!120 = distinct !{!120, !118}
-!121 = distinct !{!121, !118}
-!122 = !{!28, !29, i64 8}
-!123 = !{!28, !17, i64 16}
-!124 = !{!28, !17, i64 24}
-!125 = !{!28, !17, i64 32}
-!126 = !{!28, !17, i64 40}
-!127 = !{!28, !17, i64 56}
-!128 = !{!28, !17, i64 96}
-!129 = !{!28, !17, i64 104}
-!130 = !{!28, !15, i64 112}
-!131 = !{!28, !17, i64 128}
-!132 = !{!28, !17, i64 136}
-!133 = !{!28, !15, i64 144}
-!134 = !{!28, !17, i64 160}
-!135 = !{!28, !17, i64 208}
-!136 = !{!28, !15, i64 224}
-!137 = !{!28, !15, i64 232}
-!138 = !{!28, !17, i64 240}
+!119 = !{!"llvm.loop.estimated_trip_count"}
+!120 = !{!112, !113, i64 24}
+!121 = distinct !{!121, !118, !119}
+!122 = distinct !{!122, !118, !119}
+!123 = !{!28, !29, i64 8}
+!124 = !{!28, !17, i64 16}
+!125 = !{!28, !17, i64 24}
+!126 = !{!28, !17, i64 32}
+!127 = !{!28, !17, i64 40}
+!128 = !{!28, !17, i64 56}
+!129 = !{!28, !17, i64 96}
+!130 = !{!28, !17, i64 104}
+!131 = !{!28, !15, i64 112}
+!132 = !{!28, !17, i64 128}
+!133 = !{!28, !17, i64 136}
+!134 = !{!28, !15, i64 144}
+!135 = !{!28, !17, i64 160}
+!136 = !{!28, !17, i64 208}
+!137 = !{!28, !15, i64 224}
+!138 = !{!28, !15, i64 232}
+!139 = !{!28, !17, i64 240}

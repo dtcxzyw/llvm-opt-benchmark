@@ -769,7 +769,7 @@ _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: 
   br label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i: ; preds = %333, %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %252, align 8, !tbaa !86
+  store i8 1, ptr %252, align 8, !tbaa !87
   store ptr %.0.i.i.i, ptr %251, align 8, !tbaa !79
   store i32 %317, ptr %250, align 8, !tbaa !78
   %.pre2.i = load i32, ptr %249, align 4, !tbaa !74
@@ -784,9 +784,9 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %338 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %336, i64 %337
   %339 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %338, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef null, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %5, float noundef %305, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef %.047, float noundef %.048, i1 noundef zeroext true, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef %.050)
   %340 = getelementptr inbounds nuw i8, ptr %338, i64 208
-  store ptr %0, ptr %340, align 8, !tbaa !87
+  store ptr %0, ptr %340, align 8, !tbaa !88
   %341 = getelementptr inbounds nuw i8, ptr %338, i64 216
-  store i32 %281, ptr %341, align 8, !tbaa !89
+  store i32 %281, ptr %341, align 8, !tbaa !90
   br label %342
 
 342:                                              ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit, %304
@@ -799,7 +799,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %344 = load i32, ptr %233, align 4, !tbaa !48
   %345 = sext i32 %344 to i64
   %346 = icmp slt i64 %indvars.iv.next, %345
-  br i1 %346, label %253, label %._crit_edge, !llvm.loop !90
+  br i1 %346, label %253, label %._crit_edge, !llvm.loop !91
 
 347:                                              ; preds = %.thread, %16, %._crit_edge
   ret void
@@ -1098,10 +1098,11 @@ attributes #15 = { noreturn nounwind }
 !81 = !{!32, !32, i64 0}
 !82 = !{!83, !83, i64 0}
 !83 = !{!"p1 _ZTS21btMultiBodyConstraint", !11, i64 0}
-!84 = distinct !{!84, !85}
+!84 = distinct !{!84, !85, !86}
 !85 = !{!"llvm.loop.mustprogress"}
-!86 = !{!75, !12, i64 24}
-!87 = !{!88, !83, i64 208}
-!88 = !{!"_ZTS27btMultiBodySolverConstraint", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !16, i64 16, !16, i64 32, !16, i64 48, !16, i64 64, !16, i64 80, !16, i64 96, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !8, i64 152, !7, i64 160, !7, i64 164, !7, i64 168, !32, i64 176, !7, i64 184, !7, i64 188, !32, i64 192, !7, i64 200, !83, i64 208, !7, i64 216}
-!89 = !{!88, !7, i64 216}
-!90 = distinct !{!90, !85}
+!86 = !{!"llvm.loop.estimated_trip_count"}
+!87 = !{!75, !12, i64 24}
+!88 = !{!89, !83, i64 208}
+!89 = !{!"_ZTS27btMultiBodySolverConstraint", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !16, i64 16, !16, i64 32, !16, i64 48, !16, i64 64, !16, i64 80, !16, i64 96, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !8, i64 152, !7, i64 160, !7, i64 164, !7, i64 168, !32, i64 176, !7, i64 184, !7, i64 188, !32, i64 192, !7, i64 200, !83, i64 208, !7, i64 216}
+!90 = !{!89, !7, i64 216}
+!91 = distinct !{!91, !85, !86}

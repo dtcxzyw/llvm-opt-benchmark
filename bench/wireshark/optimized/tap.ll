@@ -108,7 +108,7 @@ define i32 @register_tap(ptr noundef %0) local_unnamed_addr #0 {
   %7 = add i32 %.13139, 1
   %8 = load ptr, ptr %.140, align 8
   %.not33 = icmp eq ptr %8, null
-  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %6, %1
   %.030 = phi i32 [ 0, %1 ], [ %7, %6 ]
@@ -208,7 +208,7 @@ define void @tap_build_interesting(ptr noundef %0) local_unnamed_addr #0 {
   %.1 = select i1 %.not20, i1 true, i1 %.023
   %11 = load ptr, ptr %.01321, align 8
   %.not17 = icmp eq ptr %11, null
-  br i1 %.not17, label %12, label %.preheader, !llvm.loop !9
+  br i1 %.not17, label %12, label %.preheader, !llvm.loop !10
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr @main_filter, align 8
@@ -272,7 +272,7 @@ define hidden void @tap_queue_init(ptr noundef %0) local_unnamed_addr #0 {
   %.1.i = select i1 %.not20.i, i1 true, i1 %.023.i
   %12 = load ptr, ptr %.01321.i, align 8
   %.not17.i = icmp eq ptr %12, null
-  br i1 %.not17.i, label %13, label %.preheader.i, !llvm.loop !9
+  br i1 %.not17.i, label %13, label %.preheader.i, !llvm.loop !10
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr @main_filter, align 8
@@ -356,7 +356,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %.045, i64 13
-  %28 = load i8, ptr %27, align 1, !range !10, !noundef !11
+  %28 = load i8, ptr %27, align 1, !range !11, !noundef !12
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %64, label %30
 
@@ -430,7 +430,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
 64:                                               ; preds = %39, %49, %63, %61, %54, %14, %18, %26, %23
   %.0 = load ptr, ptr %.045, align 8
   %.not35 = icmp eq ptr %.0, null
-  br i1 %.not35, label %._crit_edge.loopexit, label %11, !llvm.loop !12
+  br i1 %.not35, label %._crit_edge.loopexit, label %11, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %64
   %.pre = load i32, ptr @tap_packet_index, align 4
@@ -441,7 +441,7 @@ define hidden void @tap_push_tapped_queue(ptr noundef %0) local_unnamed_addr #0 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = zext i32 %65 to i64
   %67 = icmp samesign ult i64 %indvars.iv.next, %66
-  br i1 %67, label %.preheaderthread-pre-split, label %.loopexit, !llvm.loop !13
+  br i1 %67, label %.preheaderthread-pre-split, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %2, %1
   ret void
@@ -484,7 +484,7 @@ define ptr @fetch_tapped_data(i32 noundef %0, i32 noundef %1) local_unnamed_addr
   %.1 = phi i32 [ %8, %7 ], [ %.0811, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %12, %2, %9
   %.07 = phi ptr [ %11, %9 ], [ null, %2 ], [ null, %12 ]
@@ -517,7 +517,7 @@ define void @reset_tap_listeners() local_unnamed_addr #0 {
   store i8 0, ptr %8, align 1
   %.0 = load ptr, ptr %.011, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %6, %0
   ret void
@@ -550,12 +550,12 @@ define void @draw_tap_listeners(i1 noundef zeroext %0) local_unnamed_addr #0 {
   store i8 0, ptr %2, align 4
   %.0.us = load ptr, ptr %.012.us, align 8
   %.not.us = icmp eq ptr %.0.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %18
   %.012 = phi ptr [ %.0, %18 ], [ %.010, %.lr.ph ]
   %9 = getelementptr inbounds nuw i8, ptr %.012, i64 12
-  %10 = load i8, ptr %9, align 4, !range !10, !noundef !11
+  %10 = load i8, ptr %9, align 4, !range !11, !noundef !12
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %18
 
@@ -575,7 +575,7 @@ define void @draw_tap_listeners(i1 noundef zeroext %0) local_unnamed_addr #0 {
   store i8 0, ptr %9, align 4
   %.0 = load ptr, ptr %.012, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %18, %8, %1
   ret void
@@ -595,7 +595,7 @@ define ptr @get_tap_names() local_unnamed_addr #0 {
   %3 = tail call ptr @g_list_prepend(ptr noundef %.058, ptr noundef %2)
   %.0 = load ptr, ptr %.09, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.05.lcssa = phi ptr [ null, %0 ], [ %3, %.lr.ph ]
@@ -628,7 +628,7 @@ define i32 @find_tap_id(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %6 = add i32 %.011, 1
   %.06 = load ptr, ptr %.0612, align 8
   %.not = icmp eq ptr %.06, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5, %1
   %.07 = phi i32 [ 0, %1 ], [ 0, %5 ], [ %.011, %.lr.ph ]
@@ -659,7 +659,7 @@ define noundef ptr @register_tap_listener(ptr noundef %0, ptr noundef %1, ptr no
   %15 = add i32 %.011.i, 1
   %.06.i = load ptr, ptr %.0612.i, align 8
   %.not.i = icmp eq ptr %.06.i, null
-  br i1 %.not.i, label %find_tap_id.exit.thread, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %find_tap_id.exit.thread, label %.lr.ph.i, !llvm.loop !22
 
 find_tap_id.exit:                                 ; preds = %.lr.ph.i
   %.not = icmp eq i32 %.011.i, 0
@@ -797,7 +797,7 @@ define noundef ptr @set_tap_dfilter(ptr noundef readnone captures(address) %0, p
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
-  br i1 %14, label %.loopexit36, label %.preheader, !llvm.loop !22
+  br i1 %14, label %.loopexit36, label %.preheader, !llvm.loop !23
 
 .loopexit36:                                      ; preds = %11, %6
   %.023.ph = phi ptr [ %5, %6 ], [ %10, %11 ]
@@ -876,7 +876,7 @@ define noalias noundef ptr @set_tap_flags(ptr noundef readnone captures(address)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %0
-  br i1 %12, label %.loopexit24, label %.preheader, !llvm.loop !23
+  br i1 %12, label %.loopexit24, label %.preheader, !llvm.loop !24
 
 .loopexit24:                                      ; preds = %9, %4
   %.012.ph = phi ptr [ %3, %4 ], [ %8, %9 ]
@@ -937,7 +937,7 @@ define void @tap_listeners_dfilter_recompile() local_unnamed_addr #0 {
   store ptr %14, ptr %2, align 8
   %.0 = load ptr, ptr %.015, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %13, %0
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #12
@@ -966,7 +966,7 @@ define void @remove_tap_listener(ptr noundef readnone captures(address) %0) loca
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
-  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %11, label %.loopexit, label %.preheader, !llvm.loop !26
 
 12:                                               ; preds = %.preheader
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 751, ptr noundef nonnull @__func__.remove_tap_listener, ptr noundef nonnull @.str.7)
@@ -1017,7 +1017,7 @@ define noundef zeroext i1 @tap_listeners_require_dissection() local_unnamed_addr
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 8
   %.not5 = icmp eq i32 %5, 0
-  br i1 %.not5, label %6, label %1, !llvm.loop !26
+  br i1 %.not5, label %6, label %1, !llvm.loop !27
 
 6:                                                ; preds = %1, %2
   ret i1 %.not.not.not.not.not.not
@@ -1044,7 +1044,7 @@ define noundef zeroext i1 @tap_listeners_require_columns() local_unnamed_addr #0
   %7 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 @dfilter_requires_columns(ptr noundef %8)
-  br i1 %9, label %10, label %1, !llvm.loop !27
+  br i1 %9, label %10, label %1, !llvm.loop !28
 
 10:                                               ; preds = %1, %6, %2
   ret i1 %.not.not.not.not.not.not
@@ -1067,7 +1067,7 @@ define noundef zeroext i1 @have_tap_listener(i32 noundef %0) local_unnamed_addr 
   %4 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, %0
-  br i1 %6, label %7, label %2, !llvm.loop !28
+  br i1 %6, label %7, label %2, !llvm.loop !29
 
 7:                                                ; preds = %2, %3
   ret i1 %.not.not.not.not.not.not
@@ -1088,7 +1088,7 @@ define noundef zeroext i1 @have_filtering_tap_listeners() local_unnamed_addr #9 
 2:                                                ; preds = %.lr.ph
   %.0.us = load ptr, ptr %.0.us12, align 8
   %.not.us.not = icmp eq ptr %.0.us, null
-  br i1 %.not.us.not, label %.split9.us, label %.lr.ph, !llvm.loop !29
+  br i1 %.not.us.not, label %.split9.us, label %.lr.ph, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %.split.us, %2
   %.0.us12 = phi ptr [ %.0.us, %2 ], [ %.0.us10, %.split.us ]
@@ -1114,7 +1114,7 @@ define noundef zeroext i1 @have_filtering_tap_listeners() local_unnamed_addr #9 
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 64
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %.split, label %.split9.us, !llvm.loop !30
+  br i1 %.not, label %.split, label %.split9.us, !llvm.loop !31
 
 .split9.us:                                       ; preds = %5, %8, %.split, %.lr.ph, %2, %.split.us
   %.us-phi = phi i1 [ false, %.split.us ], [ %.not7.us.not.not, %2 ], [ %.not7.us.not.not, %.lr.ph ], [ %.not.not.not.not, %.split ], [ %.not.not.not.not, %8 ], [ %.not.not.not.not, %5 ]
@@ -1141,7 +1141,7 @@ define void @tap_listeners_load_field_references(ptr noundef %0) local_unnamed_a
 5:                                                ; preds = %.lr.ph, %4
   %.0 = load ptr, ptr %.09, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %5, %1
   ret void
@@ -1164,7 +1164,7 @@ define i32 @union_of_tap_listener_flags() local_unnamed_addr #9 {
   %3 = or i32 %2, %.07
   %.04 = load ptr, ptr %.048, align 8
   %.not = icmp eq ptr %.04, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %.0.lcssa = phi i32 [ 0, %0 ], [ %3, %.lr.ph ]
@@ -1201,7 +1201,7 @@ free_tap_listener.exit:                           ; preds = %.lr.ph, %6
   tail call void @g_free(ptr noundef %12)
   tail call void @g_free(ptr noundef nonnull %.0912)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %free_tap_listener.exit, %0
   store ptr null, ptr @tap_listener_queue, align 8
@@ -1216,7 +1216,7 @@ free_tap_listener.exit:                           ; preds = %.lr.ph, %6
   tail call void @g_free(ptr noundef %15)
   tail call void @g_free(ptr noundef nonnull %.014)
   %.not10 = icmp eq ptr %13, null
-  br i1 %.not10, label %._crit_edge17, label %.lr.ph16, !llvm.loop !34
+  br i1 %.not10, label %._crit_edge17, label %.lr.ph16, !llvm.loop !35
 
 ._crit_edge17:                                    ; preds = %.lr.ph16, %._crit_edge
   store ptr null, ptr @tap_dissector_list, align 8
@@ -1257,32 +1257,33 @@ attributes #12 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.partial.disable"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !18}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = !{i8 0, i8 2}
+!12 = !{}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !15}
+!15 = !{!"llvm.loop.unswitch.partial.disable"}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8, !19}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !19}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}

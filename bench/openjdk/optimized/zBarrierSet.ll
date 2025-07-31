@@ -141,7 +141,7 @@ define hidden void @_ZN11ZBarrierSet16on_thread_createEP6Thread(ptr nonnull read
   tail call void @_ZN22ZMarkThreadLocalStacksC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %.ptr.i.i) #7
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 136
   %7 = icmp eq i64 %.add.i.i, 336
-  br i1 %7, label %_ZN16ZThreadLocalData6createEP6Thread.exit, label %6
+  br i1 %7, label %_ZN16ZThreadLocalData6createEP6Thread.exit, label %6, !llvm.loop !6
 
 _ZN16ZThreadLocalData6createEP6Thread.exit:       ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 376
@@ -271,17 +271,17 @@ define internal fastcc void @_ZL21deoptimize_allocationP10JavaThread(ptr noundef
   %4 = alloca %class.frame, align 8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #7, !noalias !6
+  call void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #7, !noalias !8
   call void @_ZN10JavaThread13pd_last_frameEv(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %3, ptr noundef nonnull align 8 dereferenceable(1800) %0) #7
   call void @_ZNK5frame10sender_rawEP11RegisterMap(ptr dead_on_unwind nonnull writable sret(%class.frame) align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 4981
-  %7 = load i8, ptr %6, align 1, !noalias !9
+  %7 = load i8, ptr %6, align 1, !noalias !11
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %_ZNK5frame6senderEP11RegisterMap.exit
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 4968
-  %11 = load ptr, ptr %10, align 8, !noalias !9
+  %11 = load ptr, ptr %10, align 8, !noalias !11
   %12 = icmp eq ptr %11, null
   br i1 %12, label %_ZNK11RegisterMap7in_contEv.exit.thread.i, label %_ZNK11RegisterMap7in_contEv.exit.i
 
@@ -292,7 +292,7 @@ _ZNK11RegisterMap7in_contEv.exit.i:               ; preds = %9
 
 _ZNK11RegisterMap7in_contEv.exit.thread.i:        ; preds = %_ZNK11RegisterMap7in_contEv.exit.i, %9
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 4960
-  %15 = load ptr, ptr %14, align 8, !noalias !9
+  %15 = load ptr, ptr %14, align 8, !noalias !11
   call void @_ZN17StackWatermarkSet12on_iterationEP10JavaThreadRK5frame(ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(56) %4) #7
   br label %_ZNK5frame6senderEP11RegisterMap.exit
 
@@ -367,7 +367,7 @@ define hidden void @_ZN11ZBarrierSet15clone_obj_arrayEP15objArrayOopDescS1_(ptr 
   %33 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %.01214, i64 8
   %35 = icmp ult ptr %33, %18
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -470,7 +470,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
 
 .preheader.i.i:                                   ; preds = %48, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %3, %48 ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !14
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !16
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -480,7 +480,7 @@ _ZN8ZBarrier16remap_generationE8zpointer.exit.i.i: ; preds = %37, %35, %30, %25
   %.not.i.i = icmp eq i64 %64, 0
   %65 = icmp ne i64 %60, 0
   %66 = and i1 %65, %.not.i.i
-  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %66, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !17
 
 67:                                               ; preds = %2
   br i1 %.not.i.i24, label %_ZN8ZBarrier7barrierIZNS_31store_barrier_on_heap_oop_fieldEPV8zpointerbEUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %68
@@ -1234,7 +1234,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %62
   %.0.i16.i = phi i64 [ %60, %62 ], [ %1, %.preheader.i.i.preheader ]
-  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !14
+  %60 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i114, i64 %.0.i16.i, ptr nonnull %0) #7, !srcloc !16
   %61 = icmp eq i64 %60, %.0.i16.i
   br i1 %61, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %62
 
@@ -1242,7 +1242,7 @@ _Z15color_load_good8zaddress8zpointer.exit:       ; preds = %_ZN8ZBarrier14make_
   %63 = load i64, ptr @ZPointerLoadBadMask, align 8
   %64 = and i64 %63, %60
   %.not.i.i = icmp eq i64 %64, 0
-  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !15
+  br i1 %.not.i.i, label %_ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit, label %.preheader.i.i, !llvm.loop !17
 
 _ZN8ZBarrier7barrierIZNS_35load_barrier_on_oop_field_preloadedEPV8zpointerS1_EUl8zaddressE_EES4_PFbS1_ET_PFS1_S4_S1_ES3_S1_b.exit: ; preds = %.preheader.i.i, %62, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread, %5, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i, %_Z15color_load_good8zaddress8zpointer.exit
   %.0.i = phi i64 [ %11, %5 ], [ 0, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i ], [ %47, %_Z15color_load_good8zaddress8zpointer.exit ], [ %47, %_ZN8ZBarrier14make_load_goodE8zpointer.exit.i.thread ], [ %.0.i.i5813, %62 ], [ %.0.i.i5813, %.preheader.i.i ]
@@ -1278,13 +1278,15 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZN10JavaThread10last_frameEv: argument 0"}
-!8 = distinct !{!8, !"_ZN10JavaThread10last_frameEv"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
-!11 = distinct !{!11, !"_ZNK5frame6senderEP11RegisterMap"}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.mustprogress"}
-!14 = !{i64 2145412694}
-!15 = distinct !{!15, !13}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!9}
+!9 = distinct !{!9, !10, !"_ZN10JavaThread10last_frameEv: argument 0"}
+!10 = distinct !{!10, !"_ZN10JavaThread10last_frameEv"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZNK5frame6senderEP11RegisterMap: argument 0"}
+!13 = distinct !{!13, !"_ZNK5frame6senderEP11RegisterMap"}
+!14 = distinct !{!14, !15, !7}
+!15 = !{!"llvm.loop.mustprogress"}
+!16 = !{i64 2145412694}
+!17 = distinct !{!17, !15, !7}

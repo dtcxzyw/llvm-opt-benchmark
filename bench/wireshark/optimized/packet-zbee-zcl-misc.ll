@@ -629,7 +629,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
   %46 = add nuw nsw i32 %.04446.us49, 1
   %exitcond58.not = icmp eq i32 %46, %6
-  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !11
+  br i1 %exitcond58.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !12
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %.lr.ph.split.split
   %.047 = phi i32 [ %64, %.lr.ph.split.split ], [ 4, %.lr.ph.split ]
@@ -658,7 +658,7 @@ define internal fastcc void @dissect_zcl_thermostat_schedule(ptr noundef %0, ptr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #3
   %65 = add nuw nsw i32 %.04446, 1
   %exitcond.not = icmp eq i32 %65, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.us, %32, %2
   ret void
@@ -709,8 +709,9 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10}

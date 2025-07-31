@@ -240,7 +240,7 @@ check_flag.exit205:                               ; preds = %78, %check_flag.exi
   store double %98, ptr %99, align 8, !tbaa !27
   %100 = add nuw nsw i64 %.0164297, 1
   %exitcond.not = icmp eq i64 %100, 201
-  br i1 %exitcond.not, label %101, label %check_flag.exit205
+  br i1 %exitcond.not, label %101, label %check_flag.exit205, !llvm.loop !28
 
 101:                                              ; preds = %check_flag.exit205
   %102 = load ptr, ptr %16, align 8, !tbaa !21
@@ -317,7 +317,7 @@ check_flag.exit217:                               ; preds = %128
   %139 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.19, double noundef %138) #9
   %140 = add nuw nsw i64 %.1298, 1
   %exitcond308.not = icmp eq i64 %140, 201
-  br i1 %exitcond308.not, label %141, label %135
+  br i1 %exitcond308.not, label %141, label %135, !llvm.loop !30
 
 141:                                              ; preds = %135
   %142 = call i32 @fclose(ptr noundef %134)
@@ -333,7 +333,7 @@ check_flag.exit217:                               ; preds = %128
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.23, double noundef %148) #9
   %150 = add nuw nsw i64 %.2299, 1
   %exitcond309.not = icmp eq i64 %150, 201
-  br i1 %exitcond309.not, label %.preheader296, label %146
+  br i1 %exitcond309.not, label %.preheader296, label %146, !llvm.loop !31
 
 .preheader296:                                    ; preds = %146, %.preheader296
   %.3300 = phi i64 [ %154, %.preheader296 ], [ 0, %146 ]
@@ -342,7 +342,7 @@ check_flag.exit217:                               ; preds = %128
   %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.23, double noundef %152) #9
   %154 = add nuw nsw i64 %.3300, 1
   %exitcond310.not = icmp eq i64 %154, 201
-  br i1 %exitcond310.not, label %.preheader295, label %.preheader296
+  br i1 %exitcond310.not, label %.preheader295, label %.preheader296, !llvm.loop !32
 
 .preheader295:                                    ; preds = %.preheader296, %.preheader295
   %.4301 = phi i64 [ %158, %.preheader295 ], [ 0, %.preheader296 ]
@@ -351,7 +351,7 @@ check_flag.exit217:                               ; preds = %128
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.23, double noundef %156) #9
   %158 = add nuw nsw i64 %.4301, 1
   %exitcond311.not = icmp eq i64 %158, 201
-  br i1 %exitcond311.not, label %159, label %.preheader295
+  br i1 %exitcond311.not, label %159, label %.preheader295, !llvm.loop !33
 
 159:                                              ; preds = %.preheader295
   %fputc = call i32 @fputc(i32 10, ptr %143)
@@ -395,7 +395,7 @@ check_flag.exit219:                               ; preds = %160
   %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.23, double noundef %179) #9
   %181 = add nuw nsw i64 %.5302, 1
   %exitcond312.not = icmp eq i64 %181, 201
-  br i1 %exitcond312.not, label %.preheader294, label %177
+  br i1 %exitcond312.not, label %.preheader294, label %177, !llvm.loop !34
 
 .preheader294:                                    ; preds = %177, %.preheader294
   %.6303 = phi i64 [ %185, %.preheader294 ], [ 0, %177 ]
@@ -404,7 +404,7 @@ check_flag.exit219:                               ; preds = %160
   %184 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %144, ptr noundef nonnull @.str.23, double noundef %183) #9
   %185 = add nuw nsw i64 %.6303, 1
   %exitcond313.not = icmp eq i64 %185, 201
-  br i1 %exitcond313.not, label %.preheader, label %.preheader294
+  br i1 %exitcond313.not, label %.preheader, label %.preheader294, !llvm.loop !35
 
 .preheader:                                       ; preds = %.preheader294, %.preheader
   %.7304 = phi i64 [ %189, %.preheader ], [ 0, %.preheader294 ]
@@ -413,7 +413,7 @@ check_flag.exit219:                               ; preds = %160
   %188 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %145, ptr noundef nonnull @.str.23, double noundef %187) #9
   %189 = add nuw nsw i64 %.7304, 1
   %exitcond314.not = icmp eq i64 %189, 201
-  br i1 %exitcond314.not, label %190, label %.preheader
+  br i1 %exitcond314.not, label %190, label %.preheader, !llvm.loop !36
 
 190:                                              ; preds = %.preheader
   %191 = fadd double %.0165305, 1.000000e-01
@@ -424,7 +424,7 @@ check_flag.exit219:                               ; preds = %160
   %fputc187 = call i32 @fputc(i32 10, ptr %145)
   %194 = add nuw nsw i32 %.0306, 1
   %exitcond315.not = icmp eq i32 %194, 100
-  br i1 %exitcond315.not, label %.loopexit, label %160
+  br i1 %exitcond315.not, label %.loopexit, label %160, !llvm.loop !37
 
 .loopexit:                                        ; preds = %190, %check_flag.exit219
   %puts188 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -552,27 +552,27 @@ check_flag.exit241:                               ; preds = %check_flag.exit239,
 
 check_flag.exit243:                               ; preds = %check_flag.exit241, %255
   %puts189 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %258 = load i64, ptr %4, align 8, !tbaa !28
-  %259 = load i64, ptr %5, align 8, !tbaa !28
+  %258 = load i64, ptr %4, align 8, !tbaa !38
+  %259 = load i64, ptr %5, align 8, !tbaa !38
   %260 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i64 noundef %258, i64 noundef %259)
-  %261 = load i64, ptr %6, align 8, !tbaa !28
-  %262 = load i64, ptr %7, align 8, !tbaa !28
+  %261 = load i64, ptr %6, align 8, !tbaa !38
+  %262 = load i64, ptr %7, align 8, !tbaa !38
   %263 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.43, i64 noundef %261, i64 noundef %262)
-  %264 = load i64, ptr %8, align 8, !tbaa !28
+  %264 = load i64, ptr %8, align 8, !tbaa !38
   %265 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i64 noundef %264)
-  %266 = load i64, ptr %9, align 8, !tbaa !28
+  %266 = load i64, ptr %9, align 8, !tbaa !38
   %267 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i64 noundef %266)
-  %268 = load i64, ptr %10, align 8, !tbaa !28
+  %268 = load i64, ptr %10, align 8, !tbaa !38
   %269 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i64 noundef %268)
-  %270 = load i64, ptr %11, align 8, !tbaa !28
+  %270 = load i64, ptr %11, align 8, !tbaa !38
   %271 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i64 noundef %270)
-  %272 = load i64, ptr %12, align 8, !tbaa !28
+  %272 = load i64, ptr %12, align 8, !tbaa !38
   %273 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i64 noundef %272)
-  %274 = load i64, ptr %13, align 8, !tbaa !28
+  %274 = load i64, ptr %13, align 8, !tbaa !38
   %275 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.49, i64 noundef %274)
-  %276 = load i64, ptr %14, align 8, !tbaa !28
+  %276 = load i64, ptr %14, align 8, !tbaa !38
   %277 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i64 noundef %276)
-  %278 = load i64, ptr %15, align 8, !tbaa !28
+  %278 = load i64, ptr %15, align 8, !tbaa !38
   %279 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, i64 noundef %278)
   call void @N_VDestroy(ptr noundef nonnull %64) #9
   call void @N_VDestroy(ptr noundef nonnull %46) #9
@@ -758,7 +758,7 @@ check_flag.exit83:                                ; preds = %43
   %89 = getelementptr inbounds nuw double, ptr %45, i64 %.096
   store double %88, ptr %89, align 8, !tbaa !27
   %exitcond.not = icmp eq i64 %64, %56
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %49
   store double 0.000000e+00, ptr %45, align 8, !tbaa !27
@@ -891,7 +891,7 @@ check_flag.exit81:                                ; preds = %41
   store double %75, ptr %76, align 8, !tbaa !27
   %77 = add nuw nsw i64 %.094, 1
   %exitcond.not = icmp eq i64 %77, %48
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph, %47
   store double 0.000000e+00, ptr %43, align 8, !tbaa !27
@@ -1084,7 +1084,7 @@ check_flag.exit118:                               ; preds = %58
   store double %113, ptr %114, align 8, !tbaa !27
   %115 = add nuw nsw i64 %.0137, 1
   %exitcond.not = icmp eq i64 %115, %65
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %.lr.ph, %64
   store double 0.000000e+00, ptr %60, align 8, !tbaa !27
@@ -1208,4 +1208,17 @@ attributes #11 = { nounwind allocsize(0) }
 !25 = !{!26, !26, i64 0}
 !26 = !{!"int", !6, i64 0}
 !27 = !{!13, !13, i64 0}
-!28 = !{!12, !12, i64 0}
+!28 = distinct !{!28, !29}
+!29 = !{!"llvm.loop.estimated_trip_count"}
+!30 = distinct !{!30, !29}
+!31 = distinct !{!31, !29}
+!32 = distinct !{!32, !29}
+!33 = distinct !{!33, !29}
+!34 = distinct !{!34, !29}
+!35 = distinct !{!35, !29}
+!36 = distinct !{!36, !29}
+!37 = distinct !{!37, !29}
+!38 = !{!12, !12, i64 0}
+!39 = distinct !{!39, !29}
+!40 = distinct !{!40, !29}
+!41 = distinct !{!41, !29}

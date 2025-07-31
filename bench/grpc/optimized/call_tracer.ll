@@ -1034,7 +1034,7 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer16RecordAnnot
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 %1, ptr %2)
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1058,7 +1058,7 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer16RecordAnnot
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1157,7 +1157,7 @@ _ZNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11
   br i1 %.not.i, label %24, label %23
 
 23:                                               ; preds = %22
-  store ptr %21, ptr %.sroa.12.048, align 8, !tbaa !59
+  store ptr %21, ptr %.sroa.12.048, align 8, !tbaa !62
   br label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE9push_backERKS3_.exit
 
 24:                                               ; preds = %22
@@ -1189,7 +1189,7 @@ _ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_che
 
 .noexc10:                                         ; preds = %_ZNKSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %37 = getelementptr inbounds i8, ptr %36, i64 %27
-  store ptr %21, ptr %37, align 8, !tbaa !59
+  store ptr %21, ptr %37, align 8, !tbaa !62
   %38 = icmp sgt i64 %27, 0
   br i1 %38, label %39, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
@@ -1227,7 +1227,7 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE9push_bac
   %.sroa.12.2 = getelementptr inbounds nuw i8, ptr %.pn36, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.018.047, i64 8
   %.not35 = icmp eq ptr %42, %5
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  br i1 %.not35, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE9push_backERKS3_.exit, %12
   %.sroa.18.1.lcssa = phi ptr [ null, %12 ], [ %.sroa.18.4, %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE9push_backERKS3_.exit ]
@@ -1259,11 +1259,11 @@ _ZN9grpc_core5Arena3NewINS0_14ManagedNewImplINS_26DelegatingClientCallTracer33De
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %55, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  store ptr %.sroa.021.1.lcssa, ptr %56, align 8, !tbaa !61
+  store ptr %.sroa.021.1.lcssa, ptr %56, align 8, !tbaa !65
   %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  store ptr %.sroa.12.0.lcssa, ptr %57, align 8, !tbaa !64
+  store ptr %.sroa.12.0.lcssa, ptr %57, align 8, !tbaa !68
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  store ptr %.sroa.18.1.lcssa, ptr %58, align 8, !tbaa !65
+  store ptr %.sroa.18.1.lcssa, ptr %58, align 8, !tbaa !69
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 40
   invoke void @_ZN9grpc_core5Arena16ManagedNewObject4LinkEPSt6atomicIPS1_E(ptr noundef nonnull align 8 dereferenceable(16) %.0.i.i.i, ptr noundef nonnull %59)
           to label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit unwind label %15
@@ -1295,13 +1295,13 @@ define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingCli
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %2, align 8, !tbaa !10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !69
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
@@ -1318,13 +1318,13 @@ define linkonce_odr void @_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingCli
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %2, align 8, !tbaa !10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
   %.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i.i.i, label %_ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerEED2Ev.exit, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !69
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %4 to i64
   %10 = sub i64 %8, %9
@@ -1340,13 +1340,13 @@ _ZN9grpc_core5Arena14ManagedNewImplINS_26DelegatingClientCallTracer33DelegatingC
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1361,13 +1361,13 @@ _ZNSt6vectorIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EED2Ev.exit
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 176) (i8, ptr @_ZTVN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerE, i64 16), ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !61
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !65
+  %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -1382,9 +1382,9 @@ _ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracerD2Ev
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer16RecordAnnotationESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, ptr %2) unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1393,22 +1393,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.sroa.06.010 = phi ptr [ %12, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !59
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !62
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 %1, ptr %2)
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer16RecordAnnotationERKNS_29CallTracerAnnotationInterface10AnnotationE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1417,21 +1417,21 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !72
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer7TraceIdB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
-  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -1442,8 +1442,8 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer6SpanIdB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
-  %5 = load ptr, ptr %4, align 8, !tbaa !59
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %5 = load ptr, ptr %4, align 8, !tbaa !62
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -1454,8 +1454,8 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer9IsSampledEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !61
-  %4 = load ptr, ptr %3, align 8, !tbaa !59
+  %3 = load ptr, ptr %2, align 8, !tbaa !65
+  %4 = load ptr, ptr %3, align 8, !tbaa !62
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -1471,9 +1471,9 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core26DelegatingClientCallTrace
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer25RecordSendInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1482,22 +1482,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !73
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer26RecordSendTrailingMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1506,22 +1506,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer17RecordSendMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1530,22 +1530,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !75
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer27RecordSendCompressedMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1554,22 +1554,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !76
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer29RecordReceivedInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1578,22 +1578,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !77
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer21RecordReceivedMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1602,22 +1602,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer33RecordReceivedDecompressedMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1626,23 +1626,23 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer12RecordCancelEN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::Status", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !70
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -1651,9 +1651,9 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %.sroa.06.010 = phi ptr [ %25, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %5, %2 ]
-  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !59
-  %9 = load i64, ptr %1, align 8, !tbaa !67
-  store i64 %9, ptr %3, align 8, !tbaa !67
+  %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !62
+  %9 = load i64, ptr %1, align 8, !tbaa !80
+  store i64 %9, ptr %3, align 8, !tbaa !80
   %10 = and i64 %9, 1
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %11, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
@@ -1671,7 +1671,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %.lr.ph, %11
           to label %17 unwind label %26
 
 17:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %18 = load i64, ptr %3, align 8, !tbaa !67
+  %18 = load i64, ptr %3, align 8, !tbaa !80
   %19 = and i64 %18, 1
   %.not.i.i5 = icmp eq i64 %19, 0
   br i1 %.not.i.i5, label %20, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -1691,7 +1691,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %.lr.ph, %11
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %25, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 26:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %27 = landingpad { ptr, i32 }
@@ -1703,9 +1703,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %20
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer19RecordIncomingBytesERKNS_19CallTracerInterface17TransportByteSizeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1714,22 +1714,22 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer19RecordOutgoingBytesERKNS_19CallTracerInterface17TransportByteSizeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1738,14 +1738,14 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1758,9 +1758,9 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer30RecordReceivedTrailingMetadataEN4absl12lts_202407226StatusEP19grpc_metadata_batchPK27grpc_transport_stream_stats(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::lts_20240722::Status", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !66
+  %7 = load ptr, ptr %6, align 8, !tbaa !70
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !66
+  %9 = load ptr, ptr %8, align 8, !tbaa !70
   %.not11 = icmp eq ptr %7, %9
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1769,9 +1769,9 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %4, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %.sroa.08.012 = phi ptr [ %27, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %7, %4 ]
-  %10 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !59
-  %11 = load i64, ptr %1, align 8, !tbaa !67
-  store i64 %11, ptr %5, align 8, !tbaa !67
+  %10 = load ptr, ptr %.sroa.08.012, align 8, !tbaa !62
+  %11 = load i64, ptr %1, align 8, !tbaa !80
+  store i64 %11, ptr %5, align 8, !tbaa !80
   %12 = and i64 %11, 1
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %13, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
@@ -1789,7 +1789,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %.lr.ph, %13
           to label %19 unwind label %28
 
 19:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %20 = load i64, ptr %5, align 8, !tbaa !67
+  %20 = load i64, ptr %5, align 8, !tbaa !80
   %21 = and i64 %20, 1
   %.not.i.i7 = icmp eq i64 %21, 0
   br i1 %.not.i.i7, label %22, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -1809,7 +1809,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %.lr.ph, %13
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %19, %22
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
   %.not = icmp eq ptr %27, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 28:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %29 = landingpad { ptr, i32 }
@@ -1821,9 +1821,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %19, %22
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer9RecordEndERK12gpr_timespec(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !66
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1832,23 +1832,23 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.05.09 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
-  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !59
+  %7 = load ptr, ptr %.sroa.05.09, align 8, !tbaa !62
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingClientCallAttemptTracer16SetOptionalLabelENS_16ClientCallTracer17CallAttemptTracer16OptionalLabelKeyENS_21RefCountedStringValueE(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef zeroext %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.grpc_core::RefCountedStringValue", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !66
+  %6 = load ptr, ptr %5, align 8, !tbaa !70
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !66
+  %8 = load ptr, ptr %7, align 8, !tbaa !70
   %.not10 = icmp eq ptr %6, %8
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -1857,20 +1857,20 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingClientCallTracer33DelegatingC
 
 .lr.ph:                                           ; preds = %3, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit
   %.sroa.07.011 = phi ptr [ %26, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit ], [ %6, %3 ]
-  %9 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !59
-  store ptr null, ptr %4, align 8, !tbaa !69
-  %10 = load ptr, ptr %2, align 8, !tbaa !69
+  %9 = load ptr, ptr %.sroa.07.011, align 8, !tbaa !62
+  store ptr null, ptr %4, align 8, !tbaa !87
+  %10 = load ptr, ptr %2, align 8, !tbaa !87
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN9grpc_core21RefCountedStringValueC2ERKS0_.exit, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = atomicrmw add ptr %10, i64 1 monotonic, align 8
-  %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !69
+  %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !87
   br label %_ZN9grpc_core21RefCountedStringValueC2ERKS0_.exit
 
 _ZN9grpc_core21RefCountedStringValueC2ERKS0_.exit: ; preds = %.lr.ph, %11
   %13 = phi ptr [ %.pre.i.i, %11 ], [ null, %.lr.ph ]
-  store ptr %13, ptr %4, align 8, !tbaa !69
+  store ptr %13, ptr %4, align 8, !tbaa !87
   %14 = load ptr, ptr %9, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %16 = load ptr, ptr %15, align 8
@@ -1878,7 +1878,7 @@ _ZN9grpc_core21RefCountedStringValueC2ERKS0_.exit: ; preds = %.lr.ph, %11
           to label %17 unwind label %27
 
 17:                                               ; preds = %_ZN9grpc_core21RefCountedStringValueC2ERKS0_.exit
-  %18 = load ptr, ptr %4, align 8, !tbaa !69
+  %18 = load ptr, ptr %4, align 8, !tbaa !87
   %.not.i.i6 = icmp eq ptr %18, null
   br i1 %.not.i.i6, label %_ZN9grpc_core21RefCountedStringValueD2Ev.exit, label %19
 
@@ -1901,7 +1901,7 @@ _ZN9grpc_core21RefCountedStringValueC2ERKS0_.exit: ; preds = %.lr.ph, %11
 _ZN9grpc_core21RefCountedStringValueD2Ev.exit:    ; preds = %17, %19, %22
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 8
   %.not = icmp eq ptr %26, %8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 27:                                               ; preds = %_ZN9grpc_core21RefCountedStringValueC2ERKS0_.exit
   %28 = landingpad { ptr, i32 }
@@ -1912,7 +1912,7 @@ _ZN9grpc_core21RefCountedStringValueD2Ev.exit:    ; preds = %17, %19, %22
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load i64, ptr %0, align 8, !tbaa !67
+  %2 = load i64, ptr %0, align 8, !tbaa !80
   %3 = and i64 %2, 1
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %4, label %_ZN4absl12lts_202407226Status5UnrefEm.exit
@@ -1937,7 +1937,7 @@ declare void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr nou
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core21RefCountedStringValueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !69
+  %2 = load ptr, ptr %0, align 8, !tbaa !87
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN9grpc_core13RefCountedPtrINS_16RefCountedStringEED2Ev.exit, label %3
 
@@ -2056,9 +2056,9 @@ _ZN9grpc_core26DelegatingServerCallTracerD2Ev.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer16RecordAnnotationESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, ptr %2) unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !72
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -2074,15 +2074,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer16RecordAnnot
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %8, i64 %1, ptr %2)
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %12, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer16RecordAnnotationERKNS_29CallTracerAnnotationInterface10AnnotationE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2098,7 +2098,7 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer16RecordAnnot
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !93
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2145,9 +2145,9 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core26DelegatingServerCallTrace
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer25RecordSendInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2163,15 +2163,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer25RecordSendI
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer26RecordSendTrailingMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2187,15 +2187,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer26RecordSendT
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer17RecordSendMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2211,15 +2211,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer17RecordSendM
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer27RecordSendCompressedMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2235,15 +2235,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer27RecordSendC
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !97
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer29RecordReceivedInitialMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2259,15 +2259,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer29RecordRecei
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !98
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer21RecordReceivedMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2283,15 +2283,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer21RecordRecei
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !99
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer33RecordReceivedDecompressedMessageERKNS_7MessageE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(236) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2307,16 +2307,16 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer33RecordRecei
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(236) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !100
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer12RecordCancelEN4absl12lts_202407226StatusE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::lts_20240722::Status", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !72
+  %5 = load ptr, ptr %4, align 8, !tbaa !91
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !72
+  %7 = load ptr, ptr %6, align 8, !tbaa !91
   %.not9 = icmp eq ptr %5, %7
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
@@ -2326,8 +2326,8 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer12RecordCance
 .lr.ph:                                           ; preds = %2, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %.sroa.06.010 = phi ptr [ %25, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %5, %2 ]
   %8 = load ptr, ptr %.sroa.06.010, align 8, !tbaa !50
-  %9 = load i64, ptr %1, align 8, !tbaa !67
-  store i64 %9, ptr %3, align 8, !tbaa !67
+  %9 = load i64, ptr %1, align 8, !tbaa !80
+  store i64 %9, ptr %3, align 8, !tbaa !80
   %10 = and i64 %9, 1
   %.not.i.i = icmp eq i64 %10, 0
   br i1 %.not.i.i, label %11, label %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
@@ -2345,7 +2345,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %.lr.ph, %11
           to label %17 unwind label %26
 
 17:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
-  %18 = load i64, ptr %3, align 8, !tbaa !67
+  %18 = load i64, ptr %3, align 8, !tbaa !80
   %19 = and i64 %18, 1
   %.not.i.i5 = icmp eq i64 %19, 0
   br i1 %.not.i.i5, label %20, label %_ZN4absl12lts_202407226StatusD2Ev.exit
@@ -2365,7 +2365,7 @@ _ZN4absl12lts_202407226StatusC2ERKS1_.exit:       ; preds = %.lr.ph, %11
 _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %20
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.06.010, i64 8
   %.not = icmp eq ptr %25, %7
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !101
 
 26:                                               ; preds = %_ZN4absl12lts_202407226StatusC2ERKS1_.exit
   %27 = landingpad { ptr, i32 }
@@ -2377,9 +2377,9 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %17, %20
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer19RecordIncomingBytesERKNS_19CallTracerInterface17TransportByteSizeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2395,15 +2395,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer19RecordIncom
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !102
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer19RecordOutgoingBytesERKNS_19CallTracerInterface17TransportByteSizeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2419,7 +2419,7 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer19RecordOutgo
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2431,9 +2431,9 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer16StartNewTcp
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer30RecordReceivedTrailingMetadataEP19grpc_metadata_batch(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2449,15 +2449,15 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer30RecordRecei
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer9RecordEndEPK20grpc_call_final_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !91
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !72
+  %6 = load ptr, ptr %5, align 8, !tbaa !91
   %.not8 = icmp eq ptr %4, %6
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -2473,7 +2473,7 @@ define linkonce_odr void @_ZN9grpc_core26DelegatingServerCallTracer9RecordEndEPK
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %1)
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.05.09, i64 8
   %.not = icmp eq ptr %11, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 }
 
 ; Function Attrs: uwtable
@@ -2582,17 +2582,50 @@ attributes #27 = { noreturn nounwind }
 !56 = !{!55, !21, i64 0}
 !57 = !{!55, !21, i64 16}
 !58 = !{!20, !20, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"p1 _ZTSN9grpc_core16ClientCallTracer17CallAttemptTracerE", !14, i64 0}
-!61 = !{!62, !63, i64 0}
-!62 = !{!"_ZTSNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_Vector_impl_dataE", !63, i64 0, !63, i64 8, !63, i64 16}
-!63 = !{!"p2 _ZTSN9grpc_core16ClientCallTracer17CallAttemptTracerE", !21, i64 0}
-!64 = !{!62, !63, i64 8}
-!65 = !{!62, !63, i64 16}
-!66 = !{!63, !63, i64 0}
-!67 = !{!68, !5, i64 0}
-!68 = !{!"_ZTSN4absl12lts_202407226StatusE", !5, i64 0}
-!69 = !{!70, !71, i64 0}
-!70 = !{!"_ZTSN9grpc_core13RefCountedPtrINS_16RefCountedStringEEE", !71, i64 0}
-!71 = !{!"p1 _ZTSN9grpc_core16RefCountedStringE", !14, i64 0}
-!72 = !{!48, !48, i64 0}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = distinct !{!61, !60}
+!62 = !{!63, !63, i64 0}
+!63 = !{!"p1 _ZTSN9grpc_core16ClientCallTracer17CallAttemptTracerE", !14, i64 0}
+!64 = distinct !{!64, !60}
+!65 = !{!66, !67, i64 0}
+!66 = !{!"_ZTSNSt12_Vector_baseIPN9grpc_core16ClientCallTracer17CallAttemptTracerESaIS3_EE17_Vector_impl_dataE", !67, i64 0, !67, i64 8, !67, i64 16}
+!67 = !{!"p2 _ZTSN9grpc_core16ClientCallTracer17CallAttemptTracerE", !21, i64 0}
+!68 = !{!66, !67, i64 8}
+!69 = !{!66, !67, i64 16}
+!70 = !{!67, !67, i64 0}
+!71 = distinct !{!71, !60}
+!72 = distinct !{!72, !60}
+!73 = distinct !{!73, !60}
+!74 = distinct !{!74, !60}
+!75 = distinct !{!75, !60}
+!76 = distinct !{!76, !60}
+!77 = distinct !{!77, !60}
+!78 = distinct !{!78, !60}
+!79 = distinct !{!79, !60}
+!80 = !{!81, !5, i64 0}
+!81 = !{!"_ZTSN4absl12lts_202407226StatusE", !5, i64 0}
+!82 = distinct !{!82, !60}
+!83 = distinct !{!83, !60}
+!84 = distinct !{!84, !60}
+!85 = distinct !{!85, !60}
+!86 = distinct !{!86, !60}
+!87 = !{!88, !89, i64 0}
+!88 = !{!"_ZTSN9grpc_core13RefCountedPtrINS_16RefCountedStringEEE", !89, i64 0}
+!89 = !{!"p1 _ZTSN9grpc_core16RefCountedStringE", !14, i64 0}
+!90 = distinct !{!90, !60}
+!91 = !{!48, !48, i64 0}
+!92 = distinct !{!92, !60}
+!93 = distinct !{!93, !60}
+!94 = distinct !{!94, !60}
+!95 = distinct !{!95, !60}
+!96 = distinct !{!96, !60}
+!97 = distinct !{!97, !60}
+!98 = distinct !{!98, !60}
+!99 = distinct !{!99, !60}
+!100 = distinct !{!100, !60}
+!101 = distinct !{!101, !60}
+!102 = distinct !{!102, !60}
+!103 = distinct !{!103, !60}
+!104 = distinct !{!104, !60}
+!105 = distinct !{!105, !60}

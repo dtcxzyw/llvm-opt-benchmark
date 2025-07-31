@@ -351,7 +351,7 @@ define hidden void @"_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSig
 .backedge:                                        ; preds = %34, %37
   %35 = tail call align 8 ptr @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6b75bfb33f196942E"(ptr align 8 %14)
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %._crit_edge, label %.lr.ph
+  br i1 %36, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
 37:                                               ; preds = %.lr.ph
   br i1 %27, label %46, label %.backedge
@@ -607,3 +607,5 @@ attributes #8 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

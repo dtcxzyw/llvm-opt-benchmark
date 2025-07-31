@@ -449,7 +449,7 @@ _ZN6googleL14DumpStackTraceEiPFvPKcPvES2_.exit:   ; preds = %26, %0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %5, i8 0, i64 152, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = call i32 @sigemptyset(ptr noundef nonnull %29) #26
-  store ptr null, ptr %5, align 8, !tbaa !50
+  store ptr null, ptr %5, align 8, !tbaa !51
   %31 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %5, ptr noundef null) #26
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %5) #26
   br label %32
@@ -464,7 +464,7 @@ define hidden void @_ZN6google24glog_internal_namespace_30ShutdownGoogleLoggingU
   %1 = alloca %"class.google::LogMessageFatal", align 8
   %2 = load ptr, ptr @_ZN6googleL31g_program_invocation_short_nameE, align 8, !tbaa !39
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %3, label %.critedge, !prof !51
+  br i1 %.not, label %3, label %.critedge, !prof !52
 
 3:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %1) #26
@@ -515,10 +515,10 @@ define void @_ZN6google13GetStackTraceB5cxx11Ev(ptr dead_on_unwind noalias writa
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [32 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !52
+  store ptr %6, ptr %0, align 8, !tbaa !53
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %7, align 8, !tbaa !54
-  store i8 0, ptr %6, align 8, !tbaa !50
+  store i64 0, ptr %7, align 8, !tbaa !55
+  store i8 0, ptr %6, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #26
   %8 = invoke noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef nonnull %5, i32 noundef 32, i32 noundef 2)
           to label %.noexc unwind label %.loopexit.split-lp
@@ -561,7 +561,7 @@ define void @_ZN6google13GetStackTraceB5cxx11Ev(ptr dead_on_unwind noalias writa
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %2) #26
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 100, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.11, i32 noundef 18, ptr noundef %13) #26
   %20 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  %21 = load i64, ptr %7, align 8, !tbaa !54
+  %21 = load i64, ptr %7, align 8, !tbaa !55
   %22 = sub i64 4611686018427387903, %21
   %23 = icmp ult i64 %22, %20
   br i1 %23, label %24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -598,18 +598,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 27:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %28 = load ptr, ptr %0, align 8, !tbaa !56
+  %28 = load ptr, ptr %0, align 8, !tbaa !57
   %29 = icmp eq ptr %28, %6
   br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %27
-  %30 = load i64, ptr %7, align 8, !tbaa !54
+  %30 = load i64, ptr %7, align 8, !tbaa !55
   %31 = icmp ult i64 %30, 16
   call void @llvm.assume(i1 %31)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %27
-  %32 = load i64, ptr %6, align 8, !tbaa !50
+  %32 = load i64, ptr %6, align 8, !tbaa !51
   %33 = add i64 %32, 1
   call void @_ZdlPvm(ptr noundef %28, i64 noundef %33) #30
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -626,7 +626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define internal fastcc void @_ZN6googleL18DebugWriteToStringEPKcPv(ptr noundef %0, ptr noundef %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #26
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i64, ptr %4, align 8, !tbaa !54
+  %5 = load i64, ptr %4, align 8, !tbaa !55
   %6 = sub i64 4611686018427387903, %5
   %7 = icmp ult i64 %6, %3
   br i1 %7, label %8, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
@@ -827,16 +827,16 @@ define internal void @_GLOBAL__sub_I_utilities.cc() #24 section ".text.startup" 
   %3 = alloca [1024 x i8], align 16
   %4 = tail call i32 @getpid() #26
   store i32 %4, ptr @_ZN6google24glog_internal_namespace_L17g_main_thread_pidE, align 4, !tbaa !40
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 16), ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, align 8, !tbaa !52
-  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !54
-  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 16), align 8, !tbaa !50
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 16), ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, align 8, !tbaa !53
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !55
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 16), align 8, !tbaa !51
   %5 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, ptr nonnull @__dso_handle) #26
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.8) #26
   %.not.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i, label %11, label %7
 
 7:                                                ; preds = %0
-  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !54
+  %8 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !55
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #26
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 noundef 0, i64 noundef %8, ptr noundef nonnull %6, i64 noundef %9)
   br label %__cxx_global_var_init.2.exit
@@ -844,7 +844,7 @@ define internal void @_GLOBAL__sub_I_utilities.cc() #24 section ".text.startup" 
 11:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %1) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
-  store ptr null, ptr %2, align 8, !tbaa !57
+  store ptr null, ptr %2, align 8, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %3, i8 0, i64 1024, i1 false)
   %12 = tail call i32 @geteuid() #26
@@ -856,7 +856,7 @@ define internal void @_GLOBAL__sub_I_utilities.cc() #24 section ".text.startup" 
   br i1 %or.cond.i.i.i, label %17, label %19
 
 17:                                               ; preds = %11
-  %18 = load ptr, ptr %1, align 8, !tbaa !59
+  %18 = load ptr, ptr %1, align 8, !tbaa !60
   br label %21
 
 19:                                               ; preds = %11
@@ -865,10 +865,10 @@ define internal void @_GLOBAL__sub_I_utilities.cc() #24 section ".text.startup" 
 
 21:                                               ; preds = %19, %17
   %.sink7.i.i.i = phi ptr [ %3, %19 ], [ %18, %17 ]
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !54
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !55
   %23 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink7.i.i.i) #26
   %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 noundef 0, i64 noundef %22, ptr noundef nonnull %.sink7.i.i.i, i64 noundef %23)
-  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !54
+  %25 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6google24glog_internal_namespace_L14g_my_user_nameB5cxx11E, i64 8), align 8, !tbaa !55
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %29
 
@@ -971,16 +971,17 @@ attributes #30 = { builtin nounwind }
 !45 = !{!9, !9, i64 0}
 !46 = !{!47, !47, i64 0}
 !47 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!10, !10, i64 0}
-!51 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!52 = !{!53, !8, i64 0}
-!53 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
-!54 = !{!55, !19, i64 8}
-!55 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !53, i64 0, !19, i64 8, !10, i64 16}
-!56 = !{!55, !8, i64 0}
-!57 = !{!58, !58, i64 0}
-!58 = !{!"p1 _ZTS6passwd", !9, i64 0}
-!59 = !{!60, !8, i64 0}
-!60 = !{!"_ZTS6passwd", !8, i64 0, !8, i64 8, !29, i64 16, !29, i64 20, !8, i64 24, !8, i64 32, !8, i64 40}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!10, !10, i64 0}
+!52 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!53 = !{!54, !8, i64 0}
+!54 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !8, i64 0}
+!55 = !{!56, !19, i64 8}
+!56 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !54, i64 0, !19, i64 8, !10, i64 16}
+!57 = !{!56, !8, i64 0}
+!58 = !{!59, !59, i64 0}
+!59 = !{!"p1 _ZTS6passwd", !9, i64 0}
+!60 = !{!61, !8, i64 0}
+!61 = !{!"_ZTS6passwd", !8, i64 0, !8, i64 8, !29, i64 16, !29, i64 20, !8, i64 24, !8, i64 32, !8, i64 40}

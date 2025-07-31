@@ -290,12 +290,12 @@ _ZSt8find_endIPKcS1_ET_S2_S2_T0_S3_.exit:         ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store ptr %20, ptr %5, align 8, !tbaa !18
-  store ptr %17, ptr %6, align 8, !tbaa !18
-  store ptr %22, ptr %7, align 8, !tbaa !18
-  store ptr %21, ptr %8, align 8, !tbaa !18
+  store ptr %20, ptr %5, align 8, !tbaa !19
+  store ptr %17, ptr %6, align 8, !tbaa !19
+  store ptr %22, ptr %7, align 8, !tbaa !19
+  store ptr %21, ptr %8, align 8, !tbaa !19
   call void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %23 = load ptr, ptr %4, align 8, !tbaa !18
+  %23 = load ptr, ptr %4, align 8, !tbaa !19
   %24 = icmp eq ptr %23, %17
   %gepdiff = sub nsw i64 0, %12
   %25 = getelementptr inbounds i8, ptr %23, i64 %gepdiff
@@ -344,7 +344,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece5rfindEcm(ptr 
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !15
   %18 = icmp eq i8 %17, %1
-  br i1 %18, label %.loopexit, label %.lr.ph, !llvm.loop !20
+  br i1 %18, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %7, %3
   %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ -1, %.lr.ph ], [ %15, %14 ]
@@ -490,10 +490,10 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit.i.i:            ; preds = %22, %_ZSt4findIPKcc
   %63 = load i8, ptr %62, align 1, !tbaa !15
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 %64
-  store i8 1, ptr %65, align 1, !tbaa !21
+  store i8 1, ptr %65, align 1, !tbaa !22
   %66 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %66, %10
-  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i, !llvm.loop !24
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i
   %.not24 = icmp ult i64 %2, %6
@@ -509,14 +509,14 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %70 = load i8, ptr %69, align 1, !tbaa !15
   %71 = zext i8 %70 to i64
   %72 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1, !tbaa !21, !range !24, !noundef !25
+  %73 = load i8, ptr %72, align 1, !tbaa !22, !range !25, !noundef !26
   %74 = trunc nuw i8 %73 to i1
   br i1 %74, label %._crit_edge, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %68
   %75 = add i64 %.01225, 1
   %exitcond.not = icmp eq i64 %75, %6
-  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %68, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %68, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ %.01225, %68 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
@@ -567,7 +567,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
 19:                                               ; preds = %16
   %20 = add i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %20, %6
-  br i1 %exitcond.not.i, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit, label %16, !llvm.loop !27
+  br i1 %exitcond.not.i, label %_ZNK4i18n12phonenumbers11StringPiece17find_first_not_ofEcm.exit, label %16, !llvm.loop !28
 
 21:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
@@ -581,10 +581,10 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
   %23 = load i8, ptr %22, align 1, !tbaa !15
   %24 = zext i8 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 %24
-  store i8 1, ptr %25, align 1, !tbaa !21
+  store i8 1, ptr %25, align 1, !tbaa !22
   %26 = add nuw i64 %.01.i, 1
   %exitcond.not.i18 = icmp eq i64 %26, %10
-  br i1 %exitcond.not.i18, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i17, !llvm.loop !23
+  br i1 %exitcond.not.i18, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i17, !llvm.loop !24
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i17
   %.not19 = icmp ult i64 %2, %6
@@ -600,14 +600,14 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %30 = load i8, ptr %29, align 1, !tbaa !15
   %31 = zext i8 %30 to i64
   %32 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %31
-  %33 = load i8, ptr %32, align 1, !tbaa !21, !range !24, !noundef !25
+  %33 = load i8, ptr %32, align 1, !tbaa !22, !range !25, !noundef !26
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, label %._crit_edge
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %28
   %35 = add i64 %.01220, 1
   %exitcond.not = icmp eq i64 %35, %6
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %28, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %spec.select = phi i64 [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ %.01220, %28 ], [ -1, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
@@ -640,7 +640,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece17find_first_n
 11:                                               ; preds = %8
   %12 = add i64 %.07, 1
   %exitcond.not = icmp eq i64 %12, %5
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !28
 
 .loopexit:                                        ; preds = %8, %11, %3
   %.06 = phi i64 [ -1, %3 ], [ %.07, %8 ], [ -1, %11 ]
@@ -684,7 +684,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_of
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !15
   %24 = icmp eq i8 %23, %13
-  br i1 %24, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %24, label %_ZNK4i18n12phonenumbers11StringPiece12find_last_ofEcm.exit, label %.lr.ph.i.i, !llvm.loop !21
 
 25:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
@@ -698,10 +698,10 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece12find_last_of
   %27 = load i8, ptr %26, align 1, !tbaa !15
   %28 = zext i8 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 %28
-  store i8 1, ptr %29, align 1, !tbaa !21
+  store i8 1, ptr %29, align 1, !tbaa !22
   %30 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %30, %10
-  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, label %.lr.ph.i, !llvm.loop !24
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds = %.lr.ph.i
   %31 = add i64 %6, -1
@@ -715,12 +715,12 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   %35 = load i8, ptr %34, align 1, !tbaa !15
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !21, !range !24, !noundef !25
+  %38 = load i8, ptr %37, align 1, !tbaa !22, !range !25, !noundef !26
   %39 = trunc nuw i8 %38 to i1
   %40 = icmp eq i64 %.010, 0
   %or.cond = or i1 %40, %39
   %41 = add i64 %.010, -1
-  br i1 %or.cond, label %42, label %33, !llvm.loop !29
+  br i1 %or.cond, label %42, label %33, !llvm.loop !30
 
 42:                                               ; preds = %33
   %spec.select = select i1 %39, i64 %.010, i64 -1
@@ -769,7 +769,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !15
   %.not.not.i = icmp eq i8 %22, %14
-  br i1 %.not.not.i, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !30
+  br i1 %.not.not.i, label %.lr.ph.i, label %_ZNK4i18n12phonenumbers11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !31
 
 23:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #13
@@ -783,10 +783,10 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   %25 = load i8, ptr %24, align 1, !tbaa !15
   %26 = zext i8 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %26
-  store i8 1, ptr %27, align 1, !tbaa !21
+  store i8 1, ptr %27, align 1, !tbaa !22
   %28 = add nuw i64 %.01.i, 1
   %exitcond.not.i = icmp eq i64 %28, %11
-  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i13, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader, label %.lr.ph.i13, !llvm.loop !24
 
 _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader: ; preds = %.lr.ph.i13
   %29 = load ptr, ptr %0, align 8, !tbaa !4
@@ -794,7 +794,7 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader:
   %31 = load i8, ptr %30, align 1, !tbaa !15
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1, !tbaa !21, !range !24, !noundef !25
+  %34 = load i8, ptr %33, align 1, !tbaa !22, !range !25, !noundef !26
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %.lr.ph, label %._crit_edge
 
@@ -809,9 +809,9 @@ _ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit: ; preds =
   %39 = load i8, ptr %38, align 1, !tbaa !15
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1, !tbaa !21, !range !24, !noundef !25
+  %42 = load i8, ptr %41, align 1, !tbaa !22, !range !25, !noundef !26
   %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !31
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit, %.lr.ph, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader
   %.2 = phi i64 [ %.sroa.speculated, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit.preheader ], [ -1, %.lr.ph ], [ %37, %_ZN4i18n12phonenumbersL16BuildLookupTableERKNS0_11StringPieceEPb.exit ]
@@ -849,7 +849,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11StringPiece16find_last_no
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !15
   %.not.not = icmp eq i8 %16, %1
-  br i1 %.not.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
+  br i1 %.not.not, label %.lr.ph, label %.loopexit, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %7, %3
   %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ -1, %.lr.ph ], [ %14, %13 ]
@@ -934,7 +934,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   %34 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 4
   %35 = add nsw i64 %.047.i.i, -1
   %36 = icmp sgt i64 %.047.i.i, 1
-  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !32
+  br i1 %36, label %18, label %._crit_edge.loopexit.i.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i.i:                         ; preds = %33
   %.pre54.i.i = ptrtoint ptr %scevgep.i.i to i64
@@ -1032,7 +1032,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops
   %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i61, i64 4
   %78 = add nsw i64 %.047.i.i60, -1
   %79 = icmp sgt i64 %.047.i.i60, 1
-  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !32
+  br i1 %79, label %61, label %._crit_edge.loopexit.i.i62, !llvm.loop !33
 
 ._crit_edge.loopexit.i.i62:                       ; preds = %76
   %.pre54.i.i63 = ptrtoint ptr %scevgep.i.i59 to i64
@@ -1112,7 +1112,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit67:
   %104 = load i8, ptr %.035, align 1, !tbaa !15
   %105 = load i8, ptr %.0, align 1, !tbaa !15
   %106 = icmp eq i8 %104, %105
-  br i1 %106, label %107, label %.loopexit, !llvm.loop !33
+  br i1 %106, label %107, label %.loopexit, !llvm.loop !34
 
 107:                                              ; preds = %.preheader
   %108 = getelementptr inbounds nuw i8, ptr %.0, i64 1
@@ -1122,7 +1122,7 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit67:
 110:                                              ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %112 = icmp eq ptr %111, %1
-  br i1 %112, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !34
+  br i1 %112, label %_ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit, label %.preheader, !llvm.loop !35
 
 _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit.loopexit.split.loop.exit: ; preds = %29
   %113 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 3
@@ -1143,14 +1143,14 @@ _ZSt9__find_ifIPKcN9__gnu_cxx5__ops17_Iter_equals_iterIS1_EEET_S6_S6_T0_.exit: ;
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S7_S7_T0_S8_T1_(ptr dead_on_unwind noalias writable sret(%"class.std::reverse_iterator") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 comdat {
-  %6 = load ptr, ptr %1, align 8, !tbaa !18
-  %7 = load ptr, ptr %2, align 8, !tbaa !18
+  %6 = load ptr, ptr %1, align 8, !tbaa !19
+  %7 = load ptr, ptr %2, align 8, !tbaa !19
   %8 = icmp eq ptr %6, %7
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %3, align 8, !tbaa !18
-  %11 = load ptr, ptr %4, align 8, !tbaa !18
+  %10 = load ptr, ptr %3, align 8, !tbaa !19
+  %11 = load ptr, ptr %4, align 8, !tbaa !19
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %.critedge, label %13
 
@@ -1168,7 +1168,7 @@ define linkonce_odr dso_local void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9
   br i1 %21, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
 
 .lr.ph.i.preheader.i:                             ; preds = %16
-  %22 = load i8, ptr %14, align 1, !tbaa !15, !noalias !35
+  %22 = load i8, ptr %14, align 1, !tbaa !15, !noalias !36
   %23 = mul nsw i64 %20, -4
   %scevgep.i = getelementptr i8, ptr %6, i64 %23
   br label %.lr.ph.i.i
@@ -1177,32 +1177,32 @@ define linkonce_odr dso_local void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9
   %24 = phi ptr [ %37, %40 ], [ %6, %.lr.ph.i.preheader.i ]
   %.020.i.i = phi i64 [ %41, %40 ], [ %20, %.lr.ph.i.preheader.i ]
   %25 = getelementptr inbounds i8, ptr %24, i64 -1
-  %26 = load i8, ptr %25, align 1, !tbaa !15, !noalias !35
+  %26 = load i8, ptr %25, align 1, !tbaa !15, !noalias !36
   %27 = icmp eq i8 %26, %22
   br i1 %27, label %.critedge, label %28
 
 28:                                               ; preds = %.lr.ph.i.i
   %29 = getelementptr inbounds i8, ptr %24, i64 -2
-  %30 = load i8, ptr %29, align 1, !tbaa !15, !noalias !35
+  %30 = load i8, ptr %29, align 1, !tbaa !15, !noalias !36
   %31 = icmp eq i8 %30, %22
   br i1 %31, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95, label %32
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds i8, ptr %24, i64 -3
-  %34 = load i8, ptr %33, align 1, !tbaa !15, !noalias !35
+  %34 = load i8, ptr %33, align 1, !tbaa !15, !noalias !36
   %35 = icmp eq i8 %34, %22
   br i1 %35, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %24, i64 -4
-  %38 = load i8, ptr %37, align 1, !tbaa !15, !noalias !35
+  %38 = load i8, ptr %37, align 1, !tbaa !15, !noalias !36
   %39 = icmp eq i8 %38, %22
   br i1 %39, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, label %40
 
 40:                                               ; preds = %36
   %41 = add nsw i64 %.020.i.i, -1
   %42 = icmp sgt i64 %.020.i.i, 1
-  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !40
+  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !41
 
 ._crit_edge.loopexit.i.i:                         ; preds = %40
   %.pre38.i.i = ptrtoint ptr %scevgep.i to i64
@@ -1219,17 +1219,17 @@ define linkonce_odr dso_local void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9
   ]
 
 ._crit_edge.i._crit_edge24.i:                     ; preds = %._crit_edge.i.i
-  %.pre26.i = load i8, ptr %14, align 1, !tbaa !15, !noalias !35
+  %.pre26.i = load i8, ptr %14, align 1, !tbaa !15, !noalias !36
   br label %56
 
 ._crit_edge.i._crit_edge.i:                       ; preds = %._crit_edge.i.i
-  %.pre.i = load i8, ptr %14, align 1, !tbaa !15, !noalias !35
+  %.pre.i = load i8, ptr %14, align 1, !tbaa !15, !noalias !36
   br label %50
 
 45:                                               ; preds = %._crit_edge.i.i
   %46 = getelementptr inbounds i8, ptr %43, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !15, !noalias !35
-  %48 = load i8, ptr %14, align 1, !tbaa !15, !noalias !35
+  %47 = load i8, ptr %46, align 1, !tbaa !15, !noalias !36
+  %48 = load i8, ptr %14, align 1, !tbaa !15, !noalias !36
   %49 = icmp eq i8 %47, %48
   br i1 %49, label %.critedge, label %50
 
@@ -1237,7 +1237,7 @@ define linkonce_odr dso_local void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9
   %51 = phi i8 [ %.pre.i, %._crit_edge.i._crit_edge.i ], [ %48, %45 ]
   %52 = phi ptr [ %43, %._crit_edge.i._crit_edge.i ], [ %46, %45 ]
   %53 = getelementptr inbounds i8, ptr %52, i64 -1
-  %54 = load i8, ptr %53, align 1, !tbaa !15, !noalias !35
+  %54 = load i8, ptr %53, align 1, !tbaa !15, !noalias !36
   %55 = icmp eq i8 %54, %51
   br i1 %55, label %.critedge, label %56
 
@@ -1245,7 +1245,7 @@ define linkonce_odr dso_local void @_ZSt8__searchISt16reverse_iteratorIPKcES3_N9
   %57 = phi i8 [ %.pre26.i, %._crit_edge.i._crit_edge24.i ], [ %51, %50 ]
   %58 = phi ptr [ %43, %._crit_edge.i._crit_edge24.i ], [ %53, %50 ]
   %59 = getelementptr inbounds i8, ptr %58, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !15, !noalias !35
+  %60 = load i8, ptr %59, align 1, !tbaa !15, !noalias !36
   %61 = icmp eq i8 %60, %57
   %spec.select.i = select i1 %61, ptr %58, ptr %7
   br label %.critedge
@@ -1275,7 +1275,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 .lr.ph.i.preheader.i11:                           ; preds = %.preheader42
   %73 = getelementptr inbounds i8, ptr %65, i64 -1
-  %74 = load i8, ptr %73, align 1, !tbaa !15, !noalias !41
+  %74 = load i8, ptr %73, align 1, !tbaa !15, !noalias !42
   %75 = mul nsw i64 %71, -4
   %scevgep.i12 = getelementptr i8, ptr %67, i64 %75
   br label %.lr.ph.i.i13
@@ -1284,32 +1284,32 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %76 = phi ptr [ %89, %92 ], [ %67, %.lr.ph.i.preheader.i11 ]
   %.020.i.i14 = phi i64 [ %93, %92 ], [ %71, %.lr.ph.i.preheader.i11 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -1
-  %78 = load i8, ptr %77, align 1, !tbaa !15, !noalias !41
+  %78 = load i8, ptr %77, align 1, !tbaa !15, !noalias !42
   %79 = icmp eq i8 %78, %74
   br i1 %79, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %80
 
 80:                                               ; preds = %.lr.ph.i.i13
   %81 = getelementptr inbounds i8, ptr %76, i64 -2
-  %82 = load i8, ptr %81, align 1, !tbaa !15, !noalias !41
+  %82 = load i8, ptr %81, align 1, !tbaa !15, !noalias !42
   %83 = icmp eq i8 %82, %74
   br i1 %83, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit86, label %84
 
 84:                                               ; preds = %80
   %85 = getelementptr inbounds i8, ptr %76, i64 -3
-  %86 = load i8, ptr %85, align 1, !tbaa !15, !noalias !41
+  %86 = load i8, ptr %85, align 1, !tbaa !15, !noalias !42
   %87 = icmp eq i8 %86, %74
   br i1 %87, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit84, label %88
 
 88:                                               ; preds = %84
   %89 = getelementptr inbounds i8, ptr %76, i64 -4
-  %90 = load i8, ptr %89, align 1, !tbaa !15, !noalias !41
+  %90 = load i8, ptr %89, align 1, !tbaa !15, !noalias !42
   %91 = icmp eq i8 %90, %74
   br i1 %91, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit, label %92
 
 92:                                               ; preds = %88
   %93 = add nsw i64 %.020.i.i14, -1
   %94 = icmp sgt i64 %.020.i.i14, 1
-  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !40
+  br i1 %94, label %.lr.ph.i.i13, label %._crit_edge.loopexit.i.i15, !llvm.loop !41
 
 ._crit_edge.loopexit.i.i15:                       ; preds = %92
   %.pre38.i.i16 = ptrtoint ptr %scevgep.i12 to i64
@@ -1327,19 +1327,19 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
 
 ._crit_edge.i._crit_edge24.i3:                    ; preds = %._crit_edge.i.i1
   %.phi.trans.insert25.i4 = getelementptr inbounds i8, ptr %65, i64 -1
-  %.pre26.i5 = load i8, ptr %.phi.trans.insert25.i4, align 1, !tbaa !15, !noalias !41
+  %.pre26.i5 = load i8, ptr %.phi.trans.insert25.i4, align 1, !tbaa !15, !noalias !42
   br label %109
 
 ._crit_edge.i._crit_edge.i8:                      ; preds = %._crit_edge.i.i1
   %.phi.trans.insert.i9 = getelementptr inbounds i8, ptr %65, i64 -1
-  %.pre.i10 = load i8, ptr %.phi.trans.insert.i9, align 1, !tbaa !15, !noalias !41
+  %.pre.i10 = load i8, ptr %.phi.trans.insert.i9, align 1, !tbaa !15, !noalias !42
   br label %103
 
 97:                                               ; preds = %._crit_edge.i.i1
   %98 = getelementptr inbounds i8, ptr %95, i64 -1
-  %99 = load i8, ptr %98, align 1, !tbaa !15, !noalias !41
+  %99 = load i8, ptr %98, align 1, !tbaa !15, !noalias !42
   %100 = getelementptr inbounds i8, ptr %65, i64 -1
-  %101 = load i8, ptr %100, align 1, !tbaa !15, !noalias !41
+  %101 = load i8, ptr %100, align 1, !tbaa !15, !noalias !42
   %102 = icmp eq i8 %99, %101
   br i1 %102, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %103
 
@@ -1347,7 +1347,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %104 = phi i8 [ %.pre.i10, %._crit_edge.i._crit_edge.i8 ], [ %101, %97 ]
   %105 = phi ptr [ %95, %._crit_edge.i._crit_edge.i8 ], [ %98, %97 ]
   %106 = getelementptr inbounds i8, ptr %105, i64 -1
-  %107 = load i8, ptr %106, align 1, !tbaa !15, !noalias !41
+  %107 = load i8, ptr %106, align 1, !tbaa !15, !noalias !42
   %108 = icmp eq i8 %107, %104
   br i1 %108, label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, label %109
 
@@ -1355,7 +1355,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %110 = phi i8 [ %.pre26.i5, %._crit_edge.i._crit_edge24.i3 ], [ %104, %103 ]
   %111 = phi ptr [ %95, %._crit_edge.i._crit_edge24.i3 ], [ %106, %103 ]
   %112 = getelementptr inbounds i8, ptr %111, i64 -1
-  %113 = load i8, ptr %112, align 1, !tbaa !15, !noalias !41
+  %113 = load i8, ptr %112, align 1, !tbaa !15, !noalias !42
   %114 = icmp eq i8 %113, %110
   %spec.select.i6 = select i1 %114, ptr %111, ptr %66
   br label %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20
@@ -1376,7 +1376,7 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   %.sink.i.i7 = phi ptr [ %95, %97 ], [ %105, %103 ], [ %66, %._crit_edge.i.i1 ], [ %spec.select.i6, %109 ], [ %115, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit ], [ %116, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit84 ], [ %117, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20.loopexit.split.loop.exit86 ], [ %76, %.lr.ph.i.i13 ]
   %118 = ptrtoint ptr %.sink.i.i7 to i64
   store i64 %118, ptr %1, align 8
-  %119 = load ptr, ptr %2, align 8, !tbaa !18
+  %119 = load ptr, ptr %2, align 8, !tbaa !19
   %120 = icmp eq ptr %.sink.i.i7, %119
   br i1 %120, label %.critedge, label %121
 
@@ -1396,23 +1396,23 @@ _ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_
   br i1 %128, label %129, label %134
 
 129:                                              ; preds = %.preheader
-  %130 = load ptr, ptr %4, align 8, !tbaa !18
+  %130 = load ptr, ptr %4, align 8, !tbaa !19
   %131 = icmp eq ptr %126, %130
   br i1 %131, label %.critedge, label %132
 
 132:                                              ; preds = %129
   %133 = icmp eq ptr %124, %119
-  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !46
+  br i1 %133, label %.critedge, label %.preheader, !llvm.loop !47
 
 134:                                              ; preds = %.preheader
-  store ptr %122, ptr %1, align 8, !tbaa !18
-  %.pre = load ptr, ptr %2, align 8, !tbaa !18
-  %.pre77 = load ptr, ptr %3, align 8, !tbaa !18
-  br label %.preheader42, !llvm.loop !47
+  store ptr %122, ptr %1, align 8, !tbaa !19
+  %.pre = load ptr, ptr %2, align 8, !tbaa !19
+  %.pre77 = load ptr, ptr %3, align 8, !tbaa !19
+  br label %.preheader42, !llvm.loop !48
 
 .critedge:                                        ; preds = %121, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20, %132, %129, %.lr.ph.i.i, %56, %50, %45, %._crit_edge.i.i, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit, %5, %9
   %.sink.i.i.sink = phi ptr [ %6, %9 ], [ %6, %5 ], [ %43, %45 ], [ %52, %50 ], [ %7, %._crit_edge.i.i ], [ %spec.select.i, %56 ], [ %62, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit ], [ %63, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit93 ], [ %64, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit.loopexit.split.loop.exit95 ], [ %24, %.lr.ph.i.i ], [ %.sink.i.i7, %129 ], [ %119, %132 ], [ %119, %_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_.exit20 ], [ %119, %121 ]
-  store ptr %.sink.i.i.sink, ptr %0, align 8, !tbaa !18
+  store ptr %.sink.i.i.sink, ptr %0, align 8, !tbaa !19
   ret void
 }
 
@@ -1455,35 +1455,36 @@ attributes #13 = { nounwind }
 !13 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !14, i64 0, !10, i64 8, !8, i64 16}
 !14 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !6, i64 0}
 !15 = !{!8, !8, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !6, i64 0}
-!19 = !{!"_ZTSSt16reverse_iteratorIPKcE", !6, i64 0}
-!20 = distinct !{!20, !17}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"bool", !8, i64 0}
-!23 = distinct !{!23, !17}
-!24 = !{i8 0, i8 2}
-!25 = !{}
-!26 = distinct !{!26, !17}
-!27 = distinct !{!27, !17}
-!28 = distinct !{!28, !17}
-!29 = distinct !{!29, !17}
-!30 = distinct !{!30, !17}
-!31 = distinct !{!31, !17}
-!32 = distinct !{!32, !17}
-!33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17}
-!35 = !{!36, !38}
-!36 = distinct !{!36, !37, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!37 = distinct !{!37, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!38 = distinct !{!38, !39, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!39 = distinct !{!39, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!40 = distinct !{!40, !17}
-!41 = !{!42, !44}
-!42 = distinct !{!42, !43, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
-!43 = distinct !{!43, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
-!44 = distinct !{!44, !45, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
-!45 = distinct !{!45, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
-!46 = distinct !{!46, !17}
-!47 = distinct !{!47, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"_ZTSSt16reverse_iteratorIPKcE", !6, i64 0}
+!21 = distinct !{!21, !17, !18}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"bool", !8, i64 0}
+!24 = distinct !{!24, !17, !18}
+!25 = !{i8 0, i8 2}
+!26 = !{}
+!27 = distinct !{!27, !17, !18}
+!28 = distinct !{!28, !17, !18}
+!29 = distinct !{!29, !17, !18}
+!30 = distinct !{!30, !17, !18}
+!31 = distinct !{!31, !17, !18}
+!32 = distinct !{!32, !17, !18}
+!33 = distinct !{!33, !17, !18}
+!34 = distinct !{!34, !17, !18}
+!35 = distinct !{!35, !17, !18}
+!36 = !{!37, !39}
+!37 = distinct !{!37, !38, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!38 = distinct !{!38, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!39 = distinct !{!39, !40, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!40 = distinct !{!40, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!41 = distinct !{!41, !17, !18}
+!42 = !{!43, !45}
+!43 = distinct !{!43, !44, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag: argument 0"}
+!44 = distinct !{!44, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_St26random_access_iterator_tag"}
+!45 = distinct !{!45, !46, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_: argument 0"}
+!46 = distinct !{!46, !"_ZSt9__find_ifISt16reverse_iteratorIPKcEN9__gnu_cxx5__ops17_Iter_equals_iterIS3_EEET_S8_S8_T0_"}
+!47 = distinct !{!47, !17, !18}
+!48 = distinct !{!48, !17, !18}

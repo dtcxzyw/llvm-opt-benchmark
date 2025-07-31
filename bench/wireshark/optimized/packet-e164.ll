@@ -755,7 +755,7 @@ select.unfold:                                    ; preds = %50, %43, %43, %52, 
   %67 = lshr i16 %.01113.i, 4
   %68 = mul i16 %.016.i, 10
   %.not.i = icmp ult i16 %.01113.i, 16
-  br i1 %.not.i, label %convert_bcd_to_dec.exit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %convert_bcd_to_dec.exit, label %.lr.ph.i, !llvm.loop !9
 
 convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread177
   %.010.lcssa.i = phi i1 [ true, %.thread177 ], [ %spec.select.i, %.lr.ph.i ]
@@ -876,7 +876,7 @@ convert_bcd_to_dec.exit:                          ; preds = %.lr.ph.i, %.thread1
   %132 = lshr i16 %.01113.i117, 4
   %133 = mul i16 %.016.i114, 10
   %.not.i119 = icmp ult i16 %.01113.i117, 16
-  br i1 %.not.i119, label %convert_bcd_to_dec.exit122, label %.lr.ph.i113, !llvm.loop !8
+  br i1 %.not.i119, label %convert_bcd_to_dec.exit122, label %.lr.ph.i113, !llvm.loop !9
 
 convert_bcd_to_dec.exit122:                       ; preds = %.lr.ph.i113
   %134 = load i32, ptr @hf_E164_identification_code, align 4
@@ -998,7 +998,7 @@ default.unreachable:                              ; preds = %181
   %206 = lshr i16 %.01113.i128, 4
   %207 = mul i16 %.016.i125, 10
   %.not.i130 = icmp ult i16 %.01113.i128, 16
-  br i1 %.not.i130, label %convert_bcd_to_dec.exit133, label %.lr.ph.i124, !llvm.loop !8
+  br i1 %.not.i130, label %convert_bcd_to_dec.exit133, label %.lr.ph.i124, !llvm.loop !9
 
 convert_bcd_to_dec.exit133:                       ; preds = %.lr.ph.i124
   %208 = load i32, ptr @hf_E164_identification_code, align 4
@@ -1029,7 +1029,7 @@ convert_bcd_to_dec.exit133:                       ; preds = %.lr.ph.i124
   %220 = lshr i16 %.01113.i139, 4
   %221 = mul i16 %.016.i136, 10
   %.not.i141 = icmp ult i16 %.01113.i139, 16
-  br i1 %.not.i141, label %convert_bcd_to_dec.exit144, label %.lr.ph.i135, !llvm.loop !8
+  br i1 %.not.i141, label %convert_bcd_to_dec.exit144, label %.lr.ph.i135, !llvm.loop !9
 
 convert_bcd_to_dec.exit144:                       ; preds = %.lr.ph.i135
   %222 = load i32, ptr @hf_E164_identification_code, align 4
@@ -1201,6 +1201,7 @@ attributes #6 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

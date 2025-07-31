@@ -821,7 +821,7 @@ proto_item_set_hidden.exit330.i:                  ; preds = %56, %53, %50
   %.7.i = phi i32 [ %255, %252 ], [ %251, %250 ]
   %257 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.7.i)
   %258 = icmp sgt i32 %257, 0
-  br i1 %258, label %.lr.ph338.i, label %._crit_edge339.i, !llvm.loop !8
+  br i1 %258, label %.lr.ph338.i, label %._crit_edge339.i, !llvm.loop !9
 
 ._crit_edge339.i:                                 ; preds = %256, %142
   %.6.lcssa.i = phi i32 [ %.1309.i, %142 ], [ %.7.i, %256 ]
@@ -959,6 +959,7 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

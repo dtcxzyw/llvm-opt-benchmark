@@ -203,7 +203,7 @@ define { i8, ptr } @_ZN5folly6detail13base64_detail19base64URLDecodeSWAREPKcS3_P
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %6, %38
   %40 = icmp sgt i64 %39, 4
-  br i1 %40, label %.lr.ph.i, label %_ZN5folly6detail13base64_detail12_GLOBAL__N_124base64DecodeSWARMainLoopILb1EEEjRPKcS5_RPc.exit, !llvm.loop !14
+  br i1 %40, label %.lr.ph.i, label %_ZN5folly6detail13base64_detail12_GLOBAL__N_124base64DecodeSWARMainLoopILb1EEEjRPKcS5_RPc.exit, !llvm.loop !15
 
 _ZN5folly6detail13base64_detail12_GLOBAL__N_124base64DecodeSWARMainLoopILb1EEEjRPKcS5_RPc.exit: ; preds = %.lr.ph.i, %11
   %.pre-phi = phi i64 [ %7, %11 ], [ %38, %.lr.ph.i ]
@@ -310,6 +310,7 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: r
 !9 = !{!"Simple C++ TBAA"}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !8, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}

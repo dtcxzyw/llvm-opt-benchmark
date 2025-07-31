@@ -500,7 +500,7 @@ _check_cg_pids_correct_ns.exit.thread:            ; preds = %74
 81:                                               ; preds = %82
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_check_cg_pids_correct_ns.exit.thread30, label %82, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_check_cg_pids_correct_ns.exit.thread30, label %82, !llvm.loop !12
 
 82:                                               ; preds = %81, %.lr.ph.i14
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i, %81 ]
@@ -549,7 +549,7 @@ cgroup_p_has_feature.exit.thread:                 ; preds = %92, %96
 
 cgroup_p_has_feature.exit:                        ; preds = %96
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %24) #17
-  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 80), align 8, !range !12
+  %98 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 80), align 8, !range !13
   %99 = trunc nuw i8 %98 to i1
   br i1 %99, label %100, label %173
 
@@ -611,7 +611,7 @@ cgroup_p_has_feature.exit:                        ; preds = %96
   %124 = load i32, ptr %21, align 4
   %125 = sext i32 %124 to i64
   %126 = icmp slt i64 %indvars.iv.next.i20, %125
-  br i1 %126, label %.lr.ph.i18, label %._crit_edge.i17, !llvm.loop !13
+  br i1 %126, label %.lr.ph.i18, label %._crit_edge.i17, !llvm.loop !14
 
 .lr.ph.i18:                                       ; preds = %.preheader.i16, %123
   %indvars.iv.i19 = phi i64 [ %indvars.iv.next.i20, %123 ], [ 0, %.preheader.i16 ]
@@ -650,7 +650,7 @@ cgroup_p_has_feature.exit:                        ; preds = %96
   %147 = load i32, ptr %21, align 4
   %148 = sext i32 %147 to i64
   %149 = icmp slt i64 %indvars.iv.next19.i, %148
-  br i1 %149, label %.lr.ph12.i, label %._crit_edge13.i, !llvm.loop !14
+  br i1 %149, label %.lr.ph12.i, label %._crit_edge13.i, !llvm.loop !15
 
 .lr.ph12.i:                                       ; preds = %141, %146
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %146 ], [ 0, %141 ]
@@ -709,7 +709,7 @@ _empty_pids.exit:                                 ; preds = %168, %169
 173:                                              ; preds = %cgroup_p_has_feature.exit.thread, %_empty_pids.exit, %cgroup_p_has_feature.exit, %90
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @int_cg_ns, i64 24), align 8
   %174 = call zeroext i1 @running_in_slurmd() #17
-  %175 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 82), align 2, !range !12
+  %175 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 82), align 2, !range !13
   %176 = trunc nuw i8 %175 to i1
   %or.cond.i = select i1 %174, i1 %176, i1 false
   br i1 %or.cond.i, label %177, label %_setup_controllers.exit
@@ -781,7 +781,7 @@ _setup_controllers.exit:                          ; preds = %173, %_enable_syste
   br i1 %.not.i22, label %427, label %203
 
 203:                                              ; preds = %200
-  %204 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 80), align 8, !range !12, !noundef !15
+  %204 = load i8, ptr getelementptr inbounds nuw (i8, ptr @slurm_cgroup_conf, i64 80), align 8, !range !13, !noundef !16
   %205 = trunc nuw i8 %204 to i1
   %206 = load ptr, ptr @stepd_scope_path, align 8
   br i1 %205, label %207, label %221
@@ -937,7 +937,7 @@ _setup_controllers.exit:                          ; preds = %173, %_enable_syste
   br label %.lr.ph93.i.i.backedge
 
 .lr.ph93.i.i.backedge:                            ; preds = %268, %265
-  br label %.lr.ph93.i.i, !llvm.loop !16
+  br label %.lr.ph93.i.i, !llvm.loop !17
 
 .lr.ph93.i.i:                                     ; preds = %235, %.lr.ph93.i.i.backedge
   %.0.ph124.i.i = phi i64 [ %264, %.lr.ph93.i.i.backedge ], [ 4, %235 ]
@@ -1087,7 +1087,7 @@ _setup_controllers.exit:                          ; preds = %173, %_enable_syste
   %328 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef 10) #17
   %329 = call i32 @stat(ptr noundef %316, ptr noundef nonnull %8) #17
   %.not.i.i.i = icmp eq i32 %329, 0
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !17
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !18
 
 ._crit_edge.i.i.i:                                ; preds = %326, %308
   %.018.lcssa.i.i.i = phi i32 [ 0, %308 ], [ %327, %326 ]
@@ -1126,7 +1126,7 @@ _setup_controllers.exit:                          ; preds = %173, %_enable_syste
 344:                                              ; preds = %345
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %._crit_edge38.i.i.i, label %345, !llvm.loop !18
+  br i1 %exitcond.not.i.i.i, label %._crit_edge38.i.i.i, label %345, !llvm.loop !19
 
 345:                                              ; preds = %344, %.lr.ph37.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph37.i.i.i ], [ %indvars.iv.next.i.i.i, %344 ]
@@ -1154,7 +1154,7 @@ _setup_controllers.exit:                          ; preds = %173, %_enable_syste
 355:                                              ; preds = %._crit_edge38.i.i.i
   %356 = add nuw nsw i32 %.1.i.i.i, 1
   %357 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef 10) #17
-  br label %339, !llvm.loop !19
+  br label %339, !llvm.loop !20
 
 358:                                              ; preds = %.thread.i.i.i
   %359 = call i32 @get_log_level() #17
@@ -1301,7 +1301,7 @@ _setup_controllers.exit:                          ; preds = %173, %_enable_syste
   br label %.lr.ph.split.i.i.backedge
 
 .lr.ph.split.i.i.backedge:                        ; preds = %411, %408
-  br label %.lr.ph.split.i.i, !llvm.loop !20
+  br label %.lr.ph.split.i.i, !llvm.loop !21
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.split.i.i.backedge, %.preheader67.i.i
   %.034.ph90.i.i = phi ptr [ %13, %.preheader67.i.i ], [ %406, %.lr.ph.split.i.i.backedge ]
@@ -1794,12 +1794,12 @@ define internal fastcc range(i32 -1, 1) i32 @_get_controllers(ptr noundef %0, pt
 33:                                               ; preds = %30, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %.loopexit31, label %26, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit31, label %26, !llvm.loop !22
 
 .loopexit31:                                      ; preds = %33, %32
   %34 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.114, ptr noundef nonnull %4) #17
   %.not = icmp eq ptr %34, null
-  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.loopexit31, %23
   call void @slurm_xfree(ptr noundef nonnull %3) #17
@@ -1833,7 +1833,7 @@ switch.early.test:                                ; preds = %35
 44:                                               ; preds = %switch.early.test, %switch.early.test, %35, %38, %40
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, 5
-  br i1 %exitcond41.not, label %.loopexit, label %35, !llvm.loop !23
+  br i1 %exitcond41.not, label %.loopexit, label %35, !llvm.loop !24
 
 .loopexit:                                        ; preds = %44, %12
   %.023 = phi i32 [ -1, %12 ], [ 0, %44 ]
@@ -2107,7 +2107,7 @@ define internal fastcc range(i32 -1, 1) i32 @_enable_subtree_control(ptr noundef
   %.1 = phi i32 [ %.2, %37 ], [ %.01216, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond.not, label %39, label %5, !llvm.loop !24
+  br i1 %exitcond.not, label %39, label %5, !llvm.loop !25
 
 39:                                               ; preds = %38
   call void @slurm_xfree(ptr noundef nonnull %4) #17
@@ -2155,7 +2155,7 @@ define dso_local range(i32 -1, 1) i32 @cgroup_p_step_addto(i32 noundef %0, ptr n
   %.1 = phi i32 [ %.0911, %.lr.ph ], [ %spec.select, %9 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2786,7 +2786,7 @@ define dso_local noundef zeroext i1 @cgroup_p_has_pid(i32 noundef %0) local_unna
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %16, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %.sink.split, label %13, !llvm.loop !26
+  br i1 %or.cond, label %.sink.split, label %13, !llvm.loop !27
 
 .sink.split:                                      ; preds = %13, %.preheader
   %.04.ph = phi i1 [ false, %.preheader ], [ %16, %13 ]
@@ -2828,7 +2828,7 @@ define internal range(i32 0, 2) i32 @_find_pid_task(ptr noundef %0, ptr noundef 
 10:                                               ; preds = %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !27
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !28
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
@@ -2988,7 +2988,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %66 = tail call ptr @gres_device_id2str(ptr noundef nonnull %65) #17
   store ptr %66, ptr %4, align 8
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %68 = load i8, ptr %67, align 8, !range !12, !noundef !15
+  %68 = load i8, ptr %67, align 8, !range !13, !noundef !16
   %69 = trunc nuw i8 %68 to i1
   %70 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %71 = and i64 %70, 36028797018963968
@@ -3027,7 +3027,7 @@ define dso_local i32 @cgroup_p_constrain_set(i32 noundef %0, i32 noundef %1, ptr
   %83 = load i32, ptr %65, align 4
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %85 = load i32, ptr %84, align 4
-  %86 = load i8, ptr %67, align 8, !range !12, !noundef !15
+  %86 = load i8, ptr %67, align 8, !range !13, !noundef !16
   %87 = trunc nuw i8 %86 to i1
   %88 = call i32 @add_device_ebpf_prog(ptr noundef nonnull %.044.ph, i32 noundef %switch.select74, i32 noundef %83, i32 noundef %85, i1 noundef zeroext %87) #17
   br label %91
@@ -3307,7 +3307,7 @@ declare void @cgroup_free_limits(ptr noundef) local_unnamed_addr #1
 define dso_local range(i32 -1, 1) i32 @cgroup_p_step_start_oom_mgr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  %4 = load i8, ptr %3, align 8, !range !12, !noundef !15
+  %4 = load i8, ptr %3, align 8, !range !13, !noundef !16
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %26
 
@@ -3823,7 +3823,7 @@ cgroup_p_has_feature.exit:                        ; preds = %27, %29
   br label %87
 
 87:                                               ; preds = %77, %80, %76, %82, %85, %81, %68
-  %88 = load i8, ptr @cgroup_p_task_get_acct_data.memory_peak_interface, align 1, !range !12, !noundef !15
+  %88 = load i8, ptr @cgroup_p_task_get_acct_data.memory_peak_interface, align 1, !range !13, !noundef !16
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %109
 
@@ -4120,13 +4120,13 @@ define internal fastcc ptr @_get_root_mount_mountinfo(ptr noundef %0, ptr nounde
   %23 = add nuw nsw i32 %.01829, 1
   %24 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.114, ptr noundef nonnull %5) #17
   %.not22 = icmp eq ptr %24, null
-  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !28
+  br i1 %.not22, label %.loopexit, label %.lr.ph, !llvm.loop !29
 
 .loopexit:                                        ; preds = %22, %14, %.lr.ph42
   %.120 = phi ptr [ %.0193141, %.lr.ph42 ], [ %.0193141, %14 ], [ %.3, %22 ]
   %25 = call i64 @__getdelim(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 10, ptr noundef nonnull %8) #17
   %.not = icmp eq i64 %25, -1
-  br i1 %.not, label %.critedge, label %.lr.ph42, !llvm.loop !29
+  br i1 %.not, label %.critedge, label %.lr.ph42, !llvm.loop !30
 
 .critedge:                                        ; preds = %.loopexit, %.preheader.preheader, %.loopexit.thread
   %.019.lcssa = phi ptr [ %21, %.loopexit.thread ], [ null, %.preheader.preheader ], [ %.120, %.loopexit ]
@@ -4333,7 +4333,7 @@ define internal fastcc range(i32 -1, 1) i32 @_enable_controllers(ptr noundef %0,
   %17 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %18 = tail call ptr @xstrchr(ptr noundef nonnull %17, i32 noundef 47) #17
   %.not12 = icmp eq ptr %18, null
-  br i1 %.not12, label %19, label %14, !llvm.loop !30
+  br i1 %.not12, label %19, label %14, !llvm.loop !31
 
 19:                                               ; preds = %16, %14
   %.lcssa = phi i32 [ 0, %16 ], [ -1, %14 ]
@@ -4558,26 +4558,27 @@ attributes #20 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = !{i8 0, i8 2}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = !{}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
-!20 = distinct !{!20, !9, !10}
-!21 = distinct !{!21, !9, !10}
-!22 = distinct !{!22, !9, !10}
-!23 = distinct !{!23, !9, !10}
-!24 = distinct !{!24, !9, !10}
-!25 = distinct !{!25, !9, !10}
-!26 = distinct !{!26, !9, !10}
-!27 = distinct !{!27, !9, !10}
-!28 = distinct !{!28, !9, !10}
-!29 = distinct !{!29, !9, !10}
-!30 = distinct !{!30, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = !{i8 0, i8 2}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = !{}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}
+!21 = distinct !{!21, !9, !10, !11}
+!22 = distinct !{!22, !9, !10, !11}
+!23 = distinct !{!23, !9, !10, !11}
+!24 = distinct !{!24, !9, !10, !11}
+!25 = distinct !{!25, !9, !10, !11}
+!26 = distinct !{!26, !9, !10, !11}
+!27 = distinct !{!27, !9, !10, !11}
+!28 = distinct !{!28, !9, !10, !11}
+!29 = distinct !{!29, !9, !10, !11}
+!30 = distinct !{!30, !9, !10, !11}
+!31 = distinct !{!31, !9, !10, !11}

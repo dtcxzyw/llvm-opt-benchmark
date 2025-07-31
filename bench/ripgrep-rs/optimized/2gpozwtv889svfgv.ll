@@ -213,19 +213,19 @@ define noundef range(i64 0, -9223372036854775807) i64 @_ZN13grep_searcher5lines9
 12:                                               ; preds = %28
   %13 = add i64 %.01024.i, -1
   %14 = icmp ugt i64 %23, %1
-  br i1 %14, label %._crit_edge.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit.i"
+  br i1 %14, label %._crit_edge.i, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit.i", !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %12
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %23, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.25) #5, !noalias !47
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h332fde1d59776f82E(i64 noundef %23, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34161b2a689b304ee0cbfdce161c7f35.25) #5, !noalias !49
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E.exit.i": ; preds = %12, %6
   %.125.i = phi i64 [ %spec.select.i, %6 ], [ %23, %12 ]
   %.01024.i = phi i64 [ %3, %6 ], [ %13, %12 ]
   %15 = getelementptr inbounds i8, ptr %0, i64 %.125.i
-  %16 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr11memrchr_raw2FN17h2219dfc322f79655E monotonic, align 8, !noalias !50
+  %16 = load atomic i64, ptr @_ZN6memchr4arch6x86_646memchr11memrchr_raw2FN17h2219dfc322f79655E monotonic, align 8, !noalias !52
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call { i64, ptr } %17(i8 noundef %2, ptr noundef nonnull readonly align 1 %0, ptr noundef nonnull readonly %15), !noalias !53
+  %18 = tail call { i64, ptr } %17(i8 noundef %2, ptr noundef nonnull readonly align 1 %0, ptr noundef nonnull readonly %15), !noalias !55
   %19 = extractvalue { i64, ptr } %18, 0
   %switch8.i.not.i = icmp eq i64 %19, 0
   br i1 %switch8.i.not.i, label %_ZN13grep_searcher5lines16preceding_by_pos17h8edd383710dafcd0E.exit, label %20
@@ -327,10 +327,12 @@ attributes #5 = { noreturn }
 !44 = !{!45}
 !45 = distinct !{!45, !46, !"_ZN13grep_searcher5lines16preceding_by_pos17h8edd383710dafcd0E: argument 0"}
 !46 = distinct !{!46, !"_ZN13grep_searcher5lines16preceding_by_pos17h8edd383710dafcd0E"}
-!47 = !{!48}
-!48 = distinct !{!48, !49, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E: argument 0"}
-!49 = distinct !{!49, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E"}
-!50 = !{!51, !45}
-!51 = distinct !{!51, !52, !"_ZN6memchr6memchr7memrchr28_$u7b$$u7b$closure$u7d$$u7d$17ha7b45c55607d8a21E: argument 0"}
-!52 = distinct !{!52, !"_ZN6memchr6memchr7memrchr28_$u7b$$u7b$closure$u7d$$u7d$17ha7b45c55607d8a21E"}
-!53 = !{!51}
+!47 = distinct !{!47, !48}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E: argument 0"}
+!51 = distinct !{!51, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h63dac15b2df33c82E"}
+!52 = !{!53, !45}
+!53 = distinct !{!53, !54, !"_ZN6memchr6memchr7memrchr28_$u7b$$u7b$closure$u7d$$u7d$17ha7b45c55607d8a21E: argument 0"}
+!54 = distinct !{!54, !"_ZN6memchr6memchr7memrchr28_$u7b$$u7b$closure$u7d$$u7d$17ha7b45c55607d8a21E"}
+!55 = !{!53}

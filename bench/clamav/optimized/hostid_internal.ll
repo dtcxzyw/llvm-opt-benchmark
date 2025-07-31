@@ -18,12 +18,12 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
 5:                                                ; preds = %.lr.ph
   %6 = add nuw i64 %.03559, 1
   %exitcond.not = icmp eq i64 %6, %4
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader56, %5
   %.03559 = phi i64 [ %6, %5 ], [ 0, %.preheader56 ]
   %7 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.03559
-  %8 = load ptr, ptr %7, align 8, !tbaa !7
+  %8 = load ptr, ptr %7, align 8, !tbaa !9
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #8
   %.not46 = icmp eq i32 %9, 0
   br i1 %.not46, label %thread-pre-split, label %5
@@ -43,12 +43,12 @@ define noundef ptr @get_device_entry(ptr noundef captures(address_is_null, ret: 
 .lr.ph61:                                         ; preds = %.preheader, %.lr.ph61
   %.160 = phi i64 [ %16, %.lr.ph61 ], [ 0, %.preheader ]
   %14 = getelementptr inbounds nuw %struct.device, ptr %0, i64 %.160
-  %15 = load ptr, ptr %14, align 8, !tbaa !7
+  %15 = load ptr, ptr %14, align 8, !tbaa !9
   tail call void @free(ptr noundef %15) #10
   %16 = add nuw i64 %.160, 1
   %17 = load i64, ptr %1, align 8, !tbaa !3
   %18 = icmp ult i64 %16, %17
-  br i1 %18, label %.lr.ph61, label %.critedge52
+  br i1 %18, label %.lr.ph61, label %.critedge52, !llvm.loop !13
 
 .critedge52:                                      ; preds = %.lr.ph61, %.preheader
   tail call void @free(ptr noundef nonnull %0) #10
@@ -81,7 +81,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %19
   %26 = phi i64 [ 1, %.thread ], [ %24, %thread-pre-split ]
   %27 = getelementptr %struct.device, ptr %.255, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -32
-  %29 = load ptr, ptr %28, align 8, !tbaa !7
+  %29 = load ptr, ptr %28, align 8, !tbaa !9
   %30 = icmp eq ptr %29, null
   %31 = icmp ne ptr %2, null
   %or.cond = and i1 %31, %30
@@ -89,7 +89,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %19
 
 32:                                               ; preds = %25
   %33 = tail call noalias ptr @strdup(ptr noundef nonnull %2) #10
-  store ptr %33, ptr %28, align 8, !tbaa !7
+  store ptr %33, ptr %28, align 8, !tbaa !9
   br label %34
 
 34:                                               ; preds = %thread-pre-split, %25, %32, %22, %.critedge52
@@ -147,7 +147,10 @@ attributes #11 = { nounwind allocsize(0,1) }
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = !{!8, !9, i64 0}
-!8 = !{!"device", !9, i64 0, !5, i64 8}
-!9 = !{!"p1 omnipotent char", !10, i64 0}
-!10 = !{!"any pointer", !5, i64 0}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !11, i64 0}
+!10 = !{!"device", !11, i64 0, !5, i64 8}
+!11 = !{!"p1 omnipotent char", !12, i64 0}
+!12 = !{!"any pointer", !5, i64 0}
+!13 = distinct !{!13, !8}

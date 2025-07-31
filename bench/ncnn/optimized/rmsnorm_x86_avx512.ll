@@ -279,7 +279,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %22 = add nuw nsw i32 %.1270358, 8
   %23 = or disjoint i32 %22, 7
   %24 = icmp slt i32 %23, %6
-  br i1 %24, label %.lr.ph360, label %.preheader350, !llvm.loop !48
+  br i1 %24, label %.lr.ph360, label %.preheader350, !llvm.loop !49
 
 .preheader349:                                    ; preds = %.lr.ph367, %.preheader350
   %.0318.lcssa = phi <4 x float> [ zeroinitializer, %.preheader350 ], [ %27, %.lr.ph367 ]
@@ -298,19 +298,19 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %29 = add nuw nsw i32 %.2271365, 4
   %30 = or disjoint i32 %29, 3
   %31 = icmp slt i32 %30, %6
-  br i1 %31, label %.lr.ph367, label %.preheader349, !llvm.loop !49
+  br i1 %31, label %.lr.ph367, label %.preheader349, !llvm.loop !50
 
 .lr.ph374:                                        ; preds = %.preheader349, %.lr.ph374
   %.0263373 = phi float [ %34, %.lr.ph374 ], [ 0.000000e+00, %.preheader349 ]
   %.3268372 = phi ptr [ %35, %.lr.ph374 ], [ %.2267.lcssa, %.preheader349 ]
   %.3272371 = phi i32 [ %36, %.lr.ph374 ], [ %.2271.lcssa, %.preheader349 ]
-  %32 = load float, ptr %.3268372, align 4, !tbaa !50
+  %32 = load float, ptr %.3268372, align 4, !tbaa !51
   %33 = fmul fast float %32, %32
   %34 = fadd fast float %33, %.0263373
   %35 = getelementptr inbounds nuw i8, ptr %.3268372, i64 4
   %36 = add nuw nsw i32 %.3272371, 1
   %exitcond.not = icmp eq i32 %36, %6
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph374, !llvm.loop !51
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph374, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %.lr.ph374, %.preheader349
   %.0263.lcssa = phi float [ 0.000000e+00, %.preheader349 ], [ %34, %.lr.ph374 ]
@@ -436,7 +436,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.1241377 = phi ptr [ %127, %.lr.ph379 ], [ %1, %119 ]
   %.1274376 = phi i32 [ %128, %.lr.ph379 ], [ 0, %119 ]
   %120 = load <16 x float>, ptr %.1378, align 1, !tbaa !45
-  %121 = load float, ptr %.1241377, align 4, !tbaa !50
+  %121 = load float, ptr %.1241377, align 4, !tbaa !51
   %122 = insertelement <16 x float> poison, float %121, i64 0
   %123 = shufflevector <16 x float> %122, <16 x float> poison, <16 x i32> zeroinitializer
   %124 = fmul fast <16 x float> %120, %.4258
@@ -447,7 +447,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %128 = add nuw nsw i32 %.1274376, 16
   %129 = or disjoint i32 %128, 15
   %130 = icmp slt i32 %129, %6
-  br i1 %130, label %.lr.ph379, label %.loopexit348, !llvm.loop !52
+  br i1 %130, label %.lr.ph379, label %.loopexit348, !llvm.loop !53
 
 .loopexit348:                                     ; preds = %.lr.ph379, %119
   %.0273 = phi i32 [ 0, %119 ], [ %6, %.lr.ph379 ]
@@ -473,10 +473,10 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.3243384 = phi ptr [ %145, %.lr.ph386 ], [ %.0240, %.preheader346 ]
   %.3276383 = phi i32 [ %146, %.lr.ph386 ], [ %.0273, %.preheader346 ]
   %135 = load <16 x float>, ptr %.3385, align 1, !tbaa !45
-  %136 = load float, ptr %.3243384, align 4, !tbaa !50
+  %136 = load float, ptr %.3243384, align 4, !tbaa !51
   %137 = insertelement <8 x float> poison, float %136, i64 0
   %138 = getelementptr inbounds nuw i8, ptr %.3243384, i64 4
-  %139 = load float, ptr %138, align 4, !tbaa !50
+  %139 = load float, ptr %138, align 4, !tbaa !51
   %140 = insertelement <8 x float> poison, float %139, i64 0
   %141 = shufflevector <8 x float> %137, <8 x float> %140, <16 x i32> <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
   %142 = fmul fast <16 x float> %135, %.4258
@@ -487,14 +487,14 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %146 = add nuw nsw i32 %.3276383, 16
   %147 = or disjoint i32 %146, 15
   %148 = icmp slt i32 %147, %6
-  br i1 %148, label %.lr.ph386, label %.preheader344, !llvm.loop !53
+  br i1 %148, label %.lr.ph386, label %.preheader344, !llvm.loop !54
 
 .lr.ph393:                                        ; preds = %.preheader344, %.lr.ph393
   %.4392 = phi ptr [ %155, %.lr.ph393 ], [ %.3.lcssa, %.preheader344 ]
   %.4244391 = phi ptr [ %156, %.lr.ph393 ], [ %.3243.lcssa, %.preheader344 ]
   %.4277390 = phi i32 [ %157, %.lr.ph393 ], [ %.3276.lcssa, %.preheader344 ]
   %149 = load <8 x float>, ptr %.4392, align 1, !tbaa !45
-  %150 = load float, ptr %.4244391, align 4, !tbaa !50
+  %150 = load float, ptr %.4244391, align 4, !tbaa !51
   %151 = insertelement <8 x float> poison, float %150, i64 0
   %152 = shufflevector <8 x float> %151, <8 x float> poison, <8 x i32> zeroinitializer
   %153 = fmul fast <8 x float> %149, %.3317
@@ -505,7 +505,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %157 = add nuw nsw i32 %.4277390, 8
   %158 = or disjoint i32 %157, 7
   %159 = icmp slt i32 %158, %6
-  br i1 %159, label %.lr.ph393, label %.loopexit345, !llvm.loop !54
+  br i1 %159, label %.lr.ph393, label %.loopexit345, !llvm.loop !55
 
 .loopexit345:                                     ; preds = %.lr.ph393, %.preheader344, %.loopexit348
   %.2275 = phi i32 [ %.0273, %.loopexit348 ], [ %.3276.lcssa, %.preheader344 ], [ %157, %.lr.ph393 ]
@@ -531,16 +531,16 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.6246398 = phi ptr [ %182, %.lr.ph400 ], [ %.2242, %.preheader343 ]
   %.6279397 = phi i32 [ %183, %.lr.ph400 ], [ %.2275, %.preheader343 ]
   %164 = load <16 x float>, ptr %.6399, align 1, !tbaa !45
-  %165 = load float, ptr %.6246398, align 4, !tbaa !50
+  %165 = load float, ptr %.6246398, align 4, !tbaa !51
   %166 = insertelement <4 x float> poison, float %165, i64 0
   %167 = getelementptr inbounds nuw i8, ptr %.6246398, i64 4
-  %168 = load float, ptr %167, align 4, !tbaa !50
+  %168 = load float, ptr %167, align 4, !tbaa !51
   %169 = insertelement <4 x float> poison, float %168, i64 0
   %170 = getelementptr inbounds nuw i8, ptr %.6246398, i64 8
-  %171 = load float, ptr %170, align 4, !tbaa !50
+  %171 = load float, ptr %170, align 4, !tbaa !51
   %172 = insertelement <4 x float> poison, float %171, i64 0
   %173 = getelementptr inbounds nuw i8, ptr %.6246398, i64 12
-  %174 = load float, ptr %173, align 4, !tbaa !50
+  %174 = load float, ptr %173, align 4, !tbaa !51
   %175 = insertelement <4 x float> poison, float %174, i64 0
   %176 = shufflevector <4 x float> %166, <4 x float> %169, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %177 = shufflevector <4 x float> %172, <4 x float> %175, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
@@ -553,7 +553,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %183 = add nsw i32 %.6279397, 16
   %184 = add nsw i32 %.6279397, 31
   %185 = icmp slt i32 %184, %6
-  br i1 %185, label %.lr.ph400, label %.preheader342, !llvm.loop !55
+  br i1 %185, label %.lr.ph400, label %.preheader342, !llvm.loop !56
 
 .preheader340:                                    ; preds = %.lr.ph407, %.preheader342
   %.7280.lcssa = phi i32 [ %.6279.lcssa, %.preheader342 ], [ %199, %.lr.ph407 ]
@@ -568,10 +568,10 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.7247405 = phi ptr [ %198, %.lr.ph407 ], [ %.6246.lcssa, %.preheader342 ]
   %.7280404 = phi i32 [ %199, %.lr.ph407 ], [ %.6279.lcssa, %.preheader342 ]
   %188 = load <8 x float>, ptr %.7406, align 1, !tbaa !45
-  %189 = load float, ptr %.7247405, align 4, !tbaa !50
+  %189 = load float, ptr %.7247405, align 4, !tbaa !51
   %190 = insertelement <4 x float> poison, float %189, i64 0
   %191 = getelementptr inbounds nuw i8, ptr %.7247405, i64 4
-  %192 = load float, ptr %191, align 4, !tbaa !50
+  %192 = load float, ptr %191, align 4, !tbaa !51
   %193 = insertelement <4 x float> poison, float %192, i64 0
   %194 = shufflevector <4 x float> %190, <4 x float> %193, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %195 = fmul fast <8 x float> %188, %.3317
@@ -582,14 +582,14 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %199 = add nsw i32 %.7280404, 8
   %200 = add nsw i32 %.7280404, 15
   %201 = icmp slt i32 %200, %6
-  br i1 %201, label %.lr.ph407, label %.preheader340, !llvm.loop !56
+  br i1 %201, label %.lr.ph407, label %.preheader340, !llvm.loop !57
 
 .lr.ph414:                                        ; preds = %.preheader340, %.lr.ph414
   %.8413 = phi ptr [ %208, %.lr.ph414 ], [ %.7.lcssa, %.preheader340 ]
   %.8248412 = phi ptr [ %209, %.lr.ph414 ], [ %.7247.lcssa, %.preheader340 ]
   %.8281411 = phi i32 [ %210, %.lr.ph414 ], [ %.7280.lcssa, %.preheader340 ]
   %202 = load <4 x float>, ptr %.8413, align 1, !tbaa !45
-  %203 = load float, ptr %.8248412, align 4, !tbaa !50
+  %203 = load float, ptr %.8248412, align 4, !tbaa !51
   %204 = insertelement <4 x float> poison, float %203, i64 0
   %205 = shufflevector <4 x float> %204, <4 x float> poison, <4 x i32> zeroinitializer
   %206 = fmul fast <4 x float> %202, %.2320
@@ -600,7 +600,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %210 = add nsw i32 %.8281411, 4
   %211 = add nsw i32 %.8281411, 7
   %212 = icmp slt i32 %211, %6
-  br i1 %212, label %.lr.ph414, label %.loopexit341, !llvm.loop !57
+  br i1 %212, label %.lr.ph414, label %.loopexit341, !llvm.loop !58
 
 .loopexit341:                                     ; preds = %.lr.ph414, %.preheader340, %.loopexit345
   %.5278 = phi i32 [ %.2275, %.loopexit345 ], [ %.7280.lcssa, %.preheader340 ], [ %210, %.lr.ph414 ]
@@ -635,7 +635,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %223 = add nsw i32 %.10283418, 16
   %224 = add nsw i32 %.10283418, 31
   %225 = icmp slt i32 %224, %6
-  br i1 %225, label %.lr.ph421, label %.preheader338, !llvm.loop !58
+  br i1 %225, label %.lr.ph421, label %.preheader338, !llvm.loop !59
 
 .preheader336:                                    ; preds = %.lr.ph428, %.preheader338
   %.11284.lcssa = phi i32 [ %.10283.lcssa, %.preheader338 ], [ %234, %.lr.ph428 ]
@@ -659,7 +659,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %234 = add nsw i32 %.11284425, 8
   %235 = add nsw i32 %.11284425, 15
   %236 = icmp slt i32 %235, %6
-  br i1 %236, label %.lr.ph428, label %.preheader336, !llvm.loop !59
+  br i1 %236, label %.lr.ph428, label %.preheader336, !llvm.loop !60
 
 .lr.ph435:                                        ; preds = %.preheader336, %.lr.ph435
   %.12434 = phi ptr [ %241, %.lr.ph435 ], [ %.11.lcssa, %.preheader336 ]
@@ -675,7 +675,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %243 = add nsw i32 %.12285432, 4
   %244 = add nsw i32 %.12285432, 7
   %245 = icmp slt i32 %244, %6
-  br i1 %245, label %.lr.ph435, label %.loopexit337, !llvm.loop !60
+  br i1 %245, label %.lr.ph435, label %.loopexit337, !llvm.loop !61
 
 .loopexit337:                                     ; preds = %.lr.ph435, %.preheader336, %.loopexit341
   %.9282 = phi i32 [ %.5278, %.loopexit341 ], [ %.11284.lcssa, %.preheader336 ], [ %243, %.lr.ph435 ]
@@ -688,16 +688,16 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %.13441 = phi ptr [ %251, %.lr.ph443 ], [ %.9, %.loopexit337 ]
   %.13253440 = phi ptr [ %252, %.lr.ph443 ], [ %.9249, %.loopexit337 ]
   %.13286439 = phi i32 [ %253, %.lr.ph443 ], [ %.9282, %.loopexit337 ]
-  %247 = load float, ptr %.13441, align 4, !tbaa !50
+  %247 = load float, ptr %.13441, align 4, !tbaa !51
   %248 = fmul fast float %247, %.1264
-  %249 = load float, ptr %.13253440, align 4, !tbaa !50
+  %249 = load float, ptr %.13253440, align 4, !tbaa !51
   %250 = fmul fast float %248, %249
-  store float %250, ptr %.13441, align 4, !tbaa !50
+  store float %250, ptr %.13441, align 4, !tbaa !51
   %251 = getelementptr inbounds nuw i8, ptr %.13441, i64 4
   %252 = getelementptr inbounds nuw i8, ptr %.13253440, i64 4
   %253 = add nsw i32 %.13286439, 1
   %exitcond505.not = icmp eq i32 %253, %6
-  br i1 %exitcond505.not, label %.loopexit, label %.lr.ph443, !llvm.loop !61
+  br i1 %exitcond505.not, label %.loopexit, label %.lr.ph443, !llvm.loop !62
 
 .preheader333.loopexit:                           ; preds = %.lr.ph446
   %254 = and i32 %6, 2147483632
@@ -720,7 +720,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %260 = add nuw nsw i32 %.0259444, 16
   %261 = or disjoint i32 %260, 15
   %262 = icmp slt i32 %261, %6
-  br i1 %262, label %.lr.ph446, label %.preheader333.loopexit, !llvm.loop !62
+  br i1 %262, label %.lr.ph446, label %.preheader333.loopexit, !llvm.loop !63
 
 .preheader332:                                    ; preds = %.lr.ph451, %.preheader333
   %.1260.lcssa = phi i32 [ %.0259.lcssa, %.preheader333 ], [ %268, %.lr.ph451 ]
@@ -739,7 +739,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %268 = add nuw nsw i32 %.1260449, 8
   %269 = or disjoint i32 %268, 7
   %270 = icmp slt i32 %269, %6
-  br i1 %270, label %.lr.ph451, label %.preheader332, !llvm.loop !63
+  br i1 %270, label %.lr.ph451, label %.preheader332, !llvm.loop !64
 
 .preheader:                                       ; preds = %.lr.ph456, %.preheader332
   %.2261.lcssa = phi i32 [ %.1260.lcssa, %.preheader332 ], [ %275, %.lr.ph456 ]
@@ -757,18 +757,18 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   %275 = add nuw nsw i32 %.2261454, 4
   %276 = or disjoint i32 %275, 3
   %277 = icmp slt i32 %276, %6
-  br i1 %277, label %.lr.ph456, label %.preheader, !llvm.loop !64
+  br i1 %277, label %.lr.ph456, label %.preheader, !llvm.loop !65
 
 .lr.ph461:                                        ; preds = %.preheader, %.lr.ph461
   %.17460 = phi ptr [ %280, %.lr.ph461 ], [ %.16.lcssa, %.preheader ]
   %.3262459 = phi i32 [ %281, %.lr.ph461 ], [ %.2261.lcssa, %.preheader ]
-  %278 = load float, ptr %.17460, align 4, !tbaa !50
+  %278 = load float, ptr %.17460, align 4, !tbaa !51
   %279 = fmul fast float %278, %.1264
-  store float %279, ptr %.17460, align 4, !tbaa !50
+  store float %279, ptr %.17460, align 4, !tbaa !51
   %280 = getelementptr inbounds nuw i8, ptr %.17460, i64 4
   %281 = add nuw nsw i32 %.3262459, 1
   %exitcond506.not = icmp eq i32 %281, %6
-  br i1 %exitcond506.not, label %.loopexit, label %.lr.ph461, !llvm.loop !65
+  br i1 %exitcond506.not, label %.loopexit, label %.lr.ph461, !llvm.loop !66
 
 .loopexit:                                        ; preds = %.lr.ph443, %.lr.ph461, %.loopexit337, %.preheader
   ret void
@@ -820,7 +820,7 @@ define internal void @_ZNK4ncnn18RMSNorm_x86_avx51215forward_inplaceERNS_3MatERK
   %27 = load i32, ptr %20, align 4, !tbaa !19
   %28 = sext i32 %27 to i64
   %29 = mul nsw i64 %indvars.iv, %28
-  %30 = load i64, ptr %21, align 8, !tbaa !66
+  %30 = load i64, ptr %21, align 8, !tbaa !67
   %31 = mul i64 %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %26, i64 %31
   %33 = load ptr, ptr %22, align 8, !tbaa !16
@@ -832,7 +832,7 @@ define internal void @_ZNK4ncnn18RMSNorm_x86_avx51215forward_inplaceERNS_3MatERK
   %37 = load i32, ptr %9, align 4, !tbaa !20
   %38 = sext i32 %37 to i64
   %.not.not = icmp slt i64 %indvars.iv, %38
-  br i1 %.not.not, label %25, label %._crit_edge
+  br i1 %.not.not, label %25, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %25, %14
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %16)
@@ -873,7 +873,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #7
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
-declare !callback !67 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
+declare !callback !69 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #7
 
 ; Function Attrs: alwaysinline norecurse nounwind uwtable
 define internal void @_ZNK4ncnn18RMSNorm_x86_avx51215forward_inplaceERNS_3MatERKNS_6OptionE.omp_outlined.1(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7) #6 personality ptr @__gxx_personality_v0 {
@@ -935,15 +935,15 @@ define internal void @_ZNK4ncnn18RMSNorm_x86_avx51215forward_inplaceERNS_3MatERK
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, 1
   %34 = sext i32 %32 to i64
   %.not.not = icmp slt i64 %indvars.iv37, %34
-  br i1 %.not.not, label %.preheader, label %._crit_edge34, !llvm.loop !69
+  br i1 %.not.not, label %.preheader, label %._crit_edge34, !llvm.loop !71
 
 .noexc:                                           ; preds = %.preheader, %.noexc
   %indvars.iv = phi i64 [ %indvars.iv.next, %.noexc ], [ 0, %.preheader ]
-  %35 = load i32, ptr %21, align 4, !tbaa !19, !noalias !71
-  %36 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !71
-  %37 = load i64, ptr %22, align 8, !tbaa !17, !noalias !71
+  %35 = load i32, ptr %21, align 4, !tbaa !19, !noalias !73
+  %36 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !73
+  %37 = load i64, ptr %22, align 8, !tbaa !17, !noalias !73
   %38 = mul i64 %37, %indvars.iv37
-  %39 = load i64, ptr %23, align 8, !tbaa !66, !noalias !71
+  %39 = load i64, ptr %23, align 8, !tbaa !67, !noalias !73
   %40 = mul i64 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 %40
   %42 = sext i32 %35 to i64
@@ -959,7 +959,7 @@ define internal void @_ZNK4ncnn18RMSNorm_x86_avx51215forward_inplaceERNS_3MatERK
   %50 = load i32, ptr %3, align 4, !tbaa !20
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %.noexc, label %._crit_edge.loopexit, !llvm.loop !74
+  br i1 %52, label %.noexc, label %._crit_edge.loopexit, !llvm.loop !76
 
 ._crit_edge34:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -1012,10 +1012,10 @@ define internal void @_ZNK4ncnn18RMSNorm_x86_avx51215forward_inplaceERNS_3MatERK
 
 .noexc:                                           ; preds = %.noexc.lr.ph, %.noexc
   %indvars.iv = phi i64 [ %25, %.noexc.lr.ph ], [ %indvars.iv.next, %.noexc ]
-  %26 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !75
-  %27 = load i64, ptr %21, align 8, !tbaa !17, !noalias !75
+  %26 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !77
+  %27 = load i64, ptr %21, align 8, !tbaa !17, !noalias !77
   %28 = mul i64 %27, %indvars.iv
-  %29 = load i64, ptr %22, align 8, !tbaa !66, !noalias !75
+  %29 = load i64, ptr %22, align 8, !tbaa !67, !noalias !77
   %30 = mul i64 %28, %29
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 %30
   %32 = load ptr, ptr %23, align 8, !tbaa !16
@@ -1029,7 +1029,7 @@ define internal void @_ZNK4ncnn18RMSNorm_x86_avx51215forward_inplaceERNS_3MatERK
   %38 = load i32, ptr %10, align 4, !tbaa !20
   %39 = sext i32 %38 to i64
   %.not.not = icmp slt i64 %indvars.iv, %39
-  br i1 %.not.not, label %.noexc, label %._crit_edge
+  br i1 %.not.not, label %.noexc, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %.noexc, %15
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %17)
@@ -1144,35 +1144,38 @@ attributes #18 = { builtin nounwind }
 !43 = !{!25, !13, i64 208}
 !44 = !{!26, !27, i64 11}
 !45 = !{!10, !10, i64 0}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = distinct !{!48, !47}
-!49 = distinct !{!49, !47}
-!50 = !{!40, !40, i64 0}
-!51 = distinct !{!51, !47}
-!52 = distinct !{!52, !47}
-!53 = distinct !{!53, !47}
-!54 = distinct !{!54, !47}
-!55 = distinct !{!55, !47}
-!56 = distinct !{!56, !47}
-!57 = distinct !{!57, !47}
-!58 = distinct !{!58, !47}
-!59 = distinct !{!59, !47}
-!60 = distinct !{!60, !47}
-!61 = distinct !{!61, !47}
-!62 = distinct !{!62, !47}
-!63 = distinct !{!63, !47}
-!64 = distinct !{!64, !47}
-!65 = distinct !{!65, !47}
-!66 = !{!8, !12, i64 16}
-!67 = !{!68}
-!68 = !{i64 2, i64 -1, i64 -1, i1 true}
-!69 = distinct !{!69, !70}
-!70 = !{!"llvm.loop.unswitch.partial.disable"}
-!71 = !{!72}
-!72 = distinct !{!72, !73, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!73 = distinct !{!73, !"_ZN4ncnn3Mat7channelEi"}
-!74 = distinct !{!74, !47}
-!75 = !{!76}
-!76 = distinct !{!76, !77, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!77 = distinct !{!77, !"_ZN4ncnn3Mat7channelEi"}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = distinct !{!49, !47, !48}
+!50 = distinct !{!50, !47, !48}
+!51 = !{!40, !40, i64 0}
+!52 = distinct !{!52, !47, !48}
+!53 = distinct !{!53, !47, !48}
+!54 = distinct !{!54, !47, !48}
+!55 = distinct !{!55, !47, !48}
+!56 = distinct !{!56, !47, !48}
+!57 = distinct !{!57, !47, !48}
+!58 = distinct !{!58, !47, !48}
+!59 = distinct !{!59, !47, !48}
+!60 = distinct !{!60, !47, !48}
+!61 = distinct !{!61, !47, !48}
+!62 = distinct !{!62, !47, !48}
+!63 = distinct !{!63, !47, !48}
+!64 = distinct !{!64, !47, !48}
+!65 = distinct !{!65, !47, !48}
+!66 = distinct !{!66, !47, !48}
+!67 = !{!8, !12, i64 16}
+!68 = distinct !{!68, !48}
+!69 = !{!70}
+!70 = !{i64 2, i64 -1, i64 -1, i1 true}
+!71 = distinct !{!71, !48, !72}
+!72 = !{!"llvm.loop.unswitch.partial.disable"}
+!73 = !{!74}
+!74 = distinct !{!74, !75, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!75 = distinct !{!75, !"_ZN4ncnn3Mat7channelEi"}
+!76 = distinct !{!76, !47, !48}
+!77 = !{!78}
+!78 = distinct !{!78, !79, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!79 = distinct !{!79, !"_ZN4ncnn3Mat7channelEi"}
+!80 = distinct !{!80, !48}

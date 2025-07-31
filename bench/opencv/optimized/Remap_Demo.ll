@@ -440,7 +440,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZN
 142:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87
   %sext.mask = and i32 %141, 255
   %143 = icmp eq i32 %sext.mask, 27
-  br i1 %143, label %166, label %135
+  br i1 %143, label %166, label %135, !llvm.loop !59
 
 144:                                              ; preds = %92
   %145 = landingpad { ptr, i32 }
@@ -633,14 +633,14 @@ declare void @_ZN2cv11namedWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !59
+  %5 = load i32, ptr %4, align 8, !tbaa !61
   %6 = icmp sgt i32 %5, 0
   %.pre112 = load i32, ptr %0, align 4, !tbaa !46
   br i1 %6, label %.preheader.lr.ph, label %._crit_edge75
 
 .preheader.lr.ph:                                 ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !60
+  %8 = load i32, ptr %7, align 4, !tbaa !62
   %9 = icmp sgt i32 %8, 0
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -702,7 +702,7 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
 ._crit_edge.us:                                   ; preds = %84, %72, %61, %52, %.preheader.us
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
-  br i1 %exitcond111.not, label %._crit_edge75, label %.preheader.us, !llvm.loop !61
+  br i1 %exitcond111.not, label %._crit_edge75, label %.preheader.us, !llvm.loop !63
 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.split.us.us.preheader, %52
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %52 ], [ 0, %.lr.ph.split.us.us.preheader ]
@@ -724,12 +724,12 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   %.sink120 = phi float [ %51, %48 ], [ 0.000000e+00, %.lr.ph.split.us.us ]
   %.sink = phi float [ %37, %48 ], [ 0.000000e+00, %.lr.ph.split.us.us ]
   %53 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv102
-  store float %.sink120, ptr %53, align 4, !tbaa !64
+  store float %.sink120, ptr %53, align 4, !tbaa !66
   %54 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv102
-  store float %.sink, ptr %54, align 4, !tbaa !64
+  store float %.sink, ptr %54, align 4, !tbaa !66
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !66
+  br i1 %exitcond106.not, label %._crit_edge.us, label %.lr.ph.split.us.us, !llvm.loop !68
 
 .lr.ph.split.us68.us:                             ; preds = %.preheader.us
   %55 = load i64, ptr %33, align 8, !tbaa !10
@@ -745,12 +745,12 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   %62 = trunc nuw nsw i64 %indvars.iv97 to i32
   %63 = uitofp nneg i32 %62 to float
   %64 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv97
-  store float %63, ptr %64, align 4, !tbaa !64
+  store float %63, ptr %64, align 4, !tbaa !66
   %65 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv97
-  store float %26, ptr %65, align 4, !tbaa !64
+  store float %26, ptr %65, align 4, !tbaa !66
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge.us, label %61, !llvm.loop !67
+  br i1 %exitcond101.not, label %._crit_edge.us, label %61, !llvm.loop !69
 
 .lr.ph.split.us70.us:                             ; preds = %.preheader.us
   %66 = load i64, ptr %33, align 8, !tbaa !10
@@ -767,12 +767,12 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   %74 = sub i32 %8, %73
   %75 = sitofp i32 %74 to float
   %76 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv92
-  store float %75, ptr %76, align 4, !tbaa !64
+  store float %75, ptr %76, align 4, !tbaa !66
   %77 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv92
-  store float %28, ptr %77, align 4, !tbaa !64
+  store float %28, ptr %77, align 4, !tbaa !66
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge.us, label %72, !llvm.loop !68
+  br i1 %exitcond96.not, label %._crit_edge.us, label %72, !llvm.loop !70
 
 .lr.ph.split.us72.us:                             ; preds = %.preheader.us
   %78 = load i64, ptr %33, align 8, !tbaa !10
@@ -789,12 +789,12 @@ define hidden void @_Z10update_mapRiRN2cv3MatES2_(ptr noundef nonnull align 4 ca
   %86 = sub i32 %8, %85
   %87 = sitofp i32 %86 to float
   %88 = getelementptr inbounds nuw float, ptr %80, i64 %indvars.iv
-  store float %87, ptr %88, align 4, !tbaa !64
+  store float %87, ptr %88, align 4, !tbaa !66
   %89 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv
-  store float %26, ptr %89, align 4, !tbaa !64
+  store float %26, ptr %89, align 4, !tbaa !66
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %84, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %84, !llvm.loop !71
 
 ._crit_edge75:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %3
   %90 = add nsw i32 %.pre112, 1
@@ -930,14 +930,16 @@ attributes #15 = { noreturn }
 !56 = !{!57, !28, i64 0}
 !57 = !{!"_ZTSN2cv11_InputArrayE", !28, i64 0, !7, i64 8, !54, i64 16}
 !58 = !{!57, !7, i64 8}
-!59 = !{!48, !28, i64 8}
-!60 = !{!48, !28, i64 12}
-!61 = distinct !{!61, !62, !63}
-!62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"float", !8, i64 0}
-!66 = distinct !{!66, !62, !63}
-!67 = distinct !{!67, !62, !63}
-!68 = distinct !{!68, !62, !63}
-!69 = distinct !{!69, !62, !63}
+!59 = distinct !{!59, !60}
+!60 = !{!"llvm.loop.estimated_trip_count"}
+!61 = !{!48, !28, i64 8}
+!62 = !{!48, !28, i64 12}
+!63 = distinct !{!63, !64, !60, !65}
+!64 = !{!"llvm.loop.mustprogress"}
+!65 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"float", !8, i64 0}
+!68 = distinct !{!68, !64, !60, !65}
+!69 = distinct !{!69, !64, !60, !65}
+!70 = distinct !{!70, !64, !60, !65}
+!71 = distinct !{!71, !64, !60, !65}

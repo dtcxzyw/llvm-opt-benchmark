@@ -337,11 +337,11 @@ _ZNKSt6vectorISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EESaIS5_E
 .lr.ph.i.i.i.i57:                                 ; preds = %.noexc72, %.lr.ph.i.i.i.i57
   %.012.i.i.i.i58 = phi ptr [ %98, %.lr.ph.i.i.i.i57 ], [ %93, %.noexc72 ]
   %.0911.i.i.i.i59 = phi ptr [ %97, %.lr.ph.i.i.i.i57 ], [ %81, %.noexc72 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !11)
-  call void @llvm.experimental.noalias.scope.decl(metadata !14)
-  %96 = load i64, ptr %.0911.i.i.i.i59, align 8, !alias.scope !14, !noalias !11
-  store i64 %96, ptr %.012.i.i.i.i58, align 8, !alias.scope !11, !noalias !14
-  store ptr null, ptr %.0911.i.i.i.i59, align 8, !alias.scope !14, !noalias !11
+  call void @llvm.experimental.noalias.scope.decl(metadata !12)
+  call void @llvm.experimental.noalias.scope.decl(metadata !15)
+  %96 = load i64, ptr %.0911.i.i.i.i59, align 8, !alias.scope !15, !noalias !12
+  store i64 %96, ptr %.012.i.i.i.i58, align 8, !alias.scope !12, !noalias !15
+  store ptr null, ptr %.0911.i.i.i.i59, align 8, !alias.scope !15, !noalias !12
   %97 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i59, i64 8
   %98 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i58, i64 8
   %.not.i.i.i.i60 = icmp eq ptr %97, %74
@@ -465,7 +465,7 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit44: ; pre
   store ptr null, ptr %10, align 8
   %146 = getelementptr inbounds nuw i8, ptr %.sroa.074.083, i64 8
   %.not80 = icmp eq ptr %146, %120
-  br i1 %.not80, label %._crit_edge.loopexit, label %129
+  br i1 %.not80, label %._crit_edge.loopexit, label %129, !llvm.loop !17
 
 147:                                              ; preds = %129
   %148 = landingpad { ptr, i32 }
@@ -582,7 +582,7 @@ _ZSt8_DestroyISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EEEvPT_.e
   store ptr null, ptr %.05.i.i.i, align 8
   %9 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %9, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !16
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !18
 
 _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -782,11 +782,13 @@ attributes #20 = { noreturn nounwind }
 !6 = distinct !{!6, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
 !7 = !{!8}
 !8 = distinct !{!8, !6, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12}
-!12 = distinct !{!12, !13, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
-!13 = distinct !{!13, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!14 = !{!15}
-!15 = distinct !{!15, !13, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
-!16 = distinct !{!16, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13}
+!13 = distinct !{!13, !14, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 0"}
+!14 = distinct !{!14, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!15 = !{!16}
+!16 = distinct !{!16, !14, !"_ZSt19__relocate_object_aISt10unique_ptrIN10open_spiel5StateESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: argument 1"}
+!17 = distinct !{!17, !11}
+!18 = distinct !{!18, !10, !11}

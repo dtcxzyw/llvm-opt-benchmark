@@ -78,7 +78,7 @@ init_thread_stop.exit:                            ; preds = %1, %3, %11, %.outer
 define void @ossl_cleanup_thread() local_unnamed_addr #0 {
   %1 = tail call fastcc i32 @init_thread_deregister(ptr noundef null, i32 noundef 1)
   %2 = tail call i32 @CRYPTO_THREAD_cleanup_local(ptr noundef nonnull @destructor_key) #2
-  store i64 -1, ptr @destructor_key, align 8, !tbaa !18
+  store i64 -1, ptr @destructor_key, align 8, !tbaa !19
   ret void
 }
 
@@ -106,21 +106,21 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   br i1 %.not40, label %.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %7, align 8, !tbaa !19
+  %16 = load ptr, ptr %7, align 8, !tbaa !20
   %17 = tail call i32 @OPENSSL_sk_num(ptr noundef %16) #2
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph70.split.us, label %._crit_edge71
 
 .thread82:                                        ; preds = %10
-  store ptr null, ptr @glob_tevent_reg, align 8, !tbaa !20
-  %19 = load ptr, ptr %7, align 8, !tbaa !19
+  store ptr null, ptr @glob_tevent_reg, align 8, !tbaa !21
+  %19 = load ptr, ptr %7, align 8, !tbaa !20
   %20 = tail call i32 @OPENSSL_sk_num(ptr noundef %19) #2
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph70.split, label %._crit_edge71.thread
 
 .lr.ph70.split.us:                                ; preds = %15, %.outer._crit_edge.us
   %.03668.us = phi i32 [ %26, %.outer._crit_edge.us ], [ 0, %15 ]
-  %22 = load ptr, ptr %7, align 8, !tbaa !19
+  %22 = load ptr, ptr %7, align 8, !tbaa !20
   %23 = tail call ptr @OPENSSL_sk_value(ptr noundef %22, i32 noundef %.03668.us) #2
   %.not43.us = icmp eq ptr %23, null
   br i1 %.not43.us, label %.split.us73, label %24
@@ -132,10 +132,10 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
 
 .outer._crit_edge.us:                             ; preds = %.outer.us.us, %40, %35, %24
   %26 = add nuw nsw i32 %.03668.us, 1
-  %27 = load ptr, ptr %7, align 8, !tbaa !19
+  %27 = load ptr, ptr %7, align 8, !tbaa !20
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef %27) #2
   %29 = icmp slt i32 %26, %28
-  br i1 %29, label %.lr.ph70.split.us, label %._crit_edge71, !llvm.loop !22
+  br i1 %29, label %.lr.ph70.split.us, label %._crit_edge71, !llvm.loop !23
 
 .lr.ph.us.us:                                     ; preds = %24, %.outer.us.us
   %.034.ph61.us.us = phi ptr [ %.us-phi.us.us, %.outer.us.us ], [ null, %24 ]
@@ -149,11 +149,11 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   %31 = getelementptr inbounds nuw i8, ptr %.us-phi.us.us, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !14
   %.not4148.us.us = icmp eq ptr %32, null
-  br i1 %.not4148.us.us, label %.outer._crit_edge.us, label %.lr.ph.us.us, !llvm.loop !23
+  br i1 %.not4148.us.us, label %.outer._crit_edge.us, label %.lr.ph.us.us, !llvm.loop !24
 
 .lr.ph.split.us.us.us:                            ; preds = %.lr.ph.us.us, %35
   %.03549.us.us.us = phi ptr [ %37, %35 ], [ %.035.ph60.us.us, %.lr.ph.us.us ]
-  %33 = load ptr, ptr %.03549.us.us.us, align 8, !tbaa !24
+  %33 = load ptr, ptr %.03549.us.us.us, align 8, !tbaa !25
   %34 = icmp eq ptr %33, %0
   br i1 %34, label %35, label %.outer.us.us
 
@@ -163,11 +163,11 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   store ptr %37, ptr %23, align 8, !tbaa !9
   tail call void @CRYPTO_free(ptr noundef nonnull %.03549.us.us.us, ptr noundef nonnull @.str, i32 noundef 457) #2
   %.not41.us.us.us = icmp eq ptr %37, null
-  br i1 %.not41.us.us.us, label %.outer._crit_edge.us, label %.lr.ph.split.us.us.us, !llvm.loop !25
+  br i1 %.not41.us.us.us, label %.outer._crit_edge.us, label %.lr.ph.split.us.us.us, !llvm.loop !26
 
 .lr.ph.split.us62.us:                             ; preds = %.lr.ph.us.us, %40
   %.03549.us50.us.us = phi ptr [ %42, %40 ], [ %.035.ph60.us.us, %.lr.ph.us.us ]
-  %38 = load ptr, ptr %.03549.us50.us.us, align 8, !tbaa !24
+  %38 = load ptr, ptr %.03549.us50.us.us, align 8, !tbaa !25
   %39 = icmp eq ptr %38, %0
   br i1 %39, label %40, label %.outer.us.us
 
@@ -177,11 +177,11 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   store ptr %42, ptr %30, align 8, !tbaa !14
   tail call void @CRYPTO_free(ptr noundef nonnull %.03549.us50.us.us, ptr noundef nonnull @.str, i32 noundef 457) #2
   %.not41.us51.us.us = icmp eq ptr %42, null
-  br i1 %.not41.us51.us.us, label %.outer._crit_edge.us, label %.lr.ph.split.us62.us, !llvm.loop !26
+  br i1 %.not41.us51.us.us, label %.outer._crit_edge.us, label %.lr.ph.split.us62.us, !llvm.loop !27
 
 .lr.ph70.split:                                   ; preds = %.thread82, %.thread44
   %.03668 = phi i32 [ %53, %.thread44 ], [ 0, %.thread82 ]
-  %43 = load ptr, ptr %7, align 8, !tbaa !19
+  %43 = load ptr, ptr %7, align 8, !tbaa !20
   %44 = tail call ptr @OPENSSL_sk_value(ptr noundef %43, i32 noundef %.03668) #2
   %.not43 = icmp eq ptr %44, null
   br i1 %.not43, label %.split.us73, label %49
@@ -207,15 +207,15 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   store ptr %52, ptr %44, align 8, !tbaa !9
   tail call void @CRYPTO_free(ptr noundef nonnull %.03549.us, ptr noundef nonnull @.str, i32 noundef 457) #2
   %.not41.us = icmp eq ptr %52, null
-  br i1 %.not41.us, label %.thread44, label %.lr.ph.split.us, !llvm.loop !25
+  br i1 %.not41.us, label %.thread44, label %.lr.ph.split.us, !llvm.loop !26
 
 .thread44:                                        ; preds = %.lr.ph.split.us, %49
   tail call void @CRYPTO_free(ptr noundef nonnull %44, ptr noundef nonnull @.str, i32 noundef 464) #2
   %53 = add nuw nsw i32 %.03668, 1
-  %54 = load ptr, ptr %7, align 8, !tbaa !19
+  %54 = load ptr, ptr %7, align 8, !tbaa !20
   %55 = tail call i32 @OPENSSL_sk_num(ptr noundef %54) #2
   %56 = icmp slt i32 %53, %55
-  br i1 %56, label %.lr.ph70.split, label %._crit_edge71, !llvm.loop !27
+  br i1 %56, label %.lr.ph70.split, label %._crit_edge71, !llvm.loop !28
 
 ._crit_edge71:                                    ; preds = %.thread44, %.outer._crit_edge.us, %15
   br i1 %.not, label %60, label %._crit_edge71.thread
@@ -224,7 +224,7 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %58) #2
-  %59 = load ptr, ptr %7, align 8, !tbaa !19
+  %59 = load ptr, ptr %7, align 8, !tbaa !20
   tail call void @OPENSSL_sk_free(ptr noundef %59) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %7, ptr noundef nonnull @.str, i32 noundef 469) #2
   br label %.thread
@@ -245,7 +245,7 @@ declare i32 @CRYPTO_THREAD_cleanup_local(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @OPENSSL_thread_stop_ex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @ossl_lib_ctx_get_concrete(ptr noundef %0) #2
-  %3 = load i64, ptr @destructor_key, align 8, !tbaa !18
+  %3 = load i64, ptr @destructor_key, align 8, !tbaa !19
   %.not.i = icmp eq i64 %3, -1
   br i1 %.not.i, label %ossl_ctx_thread_stop.exit, label %4
 
@@ -262,7 +262,7 @@ declare ptr @ossl_lib_ctx_get_concrete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @ossl_ctx_thread_stop(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
-  %2 = load i64, ptr @destructor_key, align 8, !tbaa !18
+  %2 = load i64, ptr @destructor_key, align 8, !tbaa !19
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %5, label %3
 
@@ -277,7 +277,7 @@ define void @ossl_ctx_thread_stop(ptr noundef readnone captures(address) %0) loc
 
 ; Function Attrs: nounwind uwtable
 define void @OPENSSL_thread_stop() local_unnamed_addr #0 {
-  %1 = load i64, ptr @destructor_key, align 8, !tbaa !18
+  %1 = load i64, ptr @destructor_key, align 8, !tbaa !19
   %.not = icmp eq i64 %1, -1
   br i1 %.not, label %28, label %2
 
@@ -422,7 +422,7 @@ define internal fastcc void @init_thread_stop(ptr noundef readnone captures(addr
   %35 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !14
   %.not2531 = icmp eq ptr %36, null
-  br i1 %.not2531, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not2531, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !29
 
 37:                                               ; preds = %.lr.ph.split
   %38 = getelementptr inbounds nuw i8, ptr %.032, i64 16
@@ -433,7 +433,7 @@ define internal fastcc void @init_thread_stop(ptr noundef readnone captures(addr
   store ptr %41, ptr %25, align 8, !tbaa !14
   tail call void @CRYPTO_free(ptr noundef nonnull %.032, ptr noundef nonnull @.str, i32 noundef 360) #2
   %.not25 = icmp eq ptr %41, null
-  br i1 %.not25, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !28
+  br i1 %.not25, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !29
 
 .outer._crit_edge:                                ; preds = %.outer, %37, %28, %.lr.ph.split.us.us.split, %16
   %42 = load ptr, ptr %13, align 8, !tbaa !3
@@ -464,29 +464,29 @@ define internal fastcc void @init_thread_remove_handlers(ptr noundef readnone ca
   br i1 %.not, label %27, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %13 = load ptr, ptr %6, align 8, !tbaa !19
+  %13 = load ptr, ptr %6, align 8, !tbaa !20
   %14 = tail call i32 @OPENSSL_sk_num(ptr noundef %13) #2
   %15 = icmp sgt i32 %14, 0
   br i1 %15, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %.preheader, %.critedge
   %.019 = phi i32 [ %21, %.critedge ], [ 0, %.preheader ]
-  %16 = load ptr, ptr %6, align 8, !tbaa !19
+  %16 = load ptr, ptr %6, align 8, !tbaa !20
   %17 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %.019) #2
   %.not15 = icmp eq ptr %17, %0
   br i1 %.not15, label %18, label %.critedge
 
 18:                                               ; preds = %.lr.ph
-  %19 = load ptr, ptr %6, align 8, !tbaa !19
+  %19 = load ptr, ptr %6, align 8, !tbaa !20
   %20 = tail call ptr @OPENSSL_sk_delete(ptr noundef %19, i32 noundef %.019) #2
   br label %.sink.split
 
 .critedge:                                        ; preds = %.lr.ph
   %21 = add nuw nsw i32 %.019, 1
-  %22 = load ptr, ptr %6, align 8, !tbaa !19
+  %22 = load ptr, ptr %6, align 8, !tbaa !20
   %23 = tail call i32 @OPENSSL_sk_num(ptr noundef %22) #2
   %24 = icmp slt i32 %21, %23
-  br i1 %24, label %.lr.ph, label %.sink.split, !llvm.loop !29
+  br i1 %24, label %.lr.ph, label %.sink.split, !llvm.loop !30
 
 .sink.split:                                      ; preds = %.critedge, %.preheader, %18
   %25 = load ptr, ptr %10, align 8, !tbaa !3
@@ -538,7 +538,7 @@ define range(i32 0, 2) i32 @ossl_init_thread_start(ptr noundef %0, ptr noundef %
   br i1 %.not.i.i, label %init_thread_push_handlers.exit.thread.i, label %init_thread_push_handlers.exit.i
 
 init_thread_push_handlers.exit.i:                 ; preds = %20
-  %24 = load ptr, ptr %17, align 8, !tbaa !19
+  %24 = load ptr, ptr %17, align 8, !tbaa !20
   %25 = tail call i32 @OPENSSL_sk_push(ptr noundef %24, ptr noundef nonnull %7) #2
   %.not3.i = icmp eq i32 %25, 0
   %26 = load ptr, ptr %21, align 8, !tbaa !3
@@ -561,7 +561,7 @@ init_get_thread_local.exit:                       ; preds = %init_thread_push_ha
   store ptr %2, ptr %32, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %1, ptr %33, align 8, !tbaa !13
-  store ptr %0, ptr %29, align 8, !tbaa !24
+  store ptr %0, ptr %29, align 8, !tbaa !25
   %34 = load ptr, ptr %.012.i, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %34, ptr %35, align 8, !tbaa !14
@@ -596,19 +596,19 @@ declare i32 @CRYPTO_THREAD_run_once(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal void @create_global_tevent_register_ossl_() #0 {
   %1 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 60) #2
-  store ptr %1, ptr @glob_tevent_reg, align 8, !tbaa !20
+  store ptr %1, ptr @glob_tevent_reg, align 8, !tbaa !21
   %2 = icmp eq ptr %1, null
   br i1 %2, label %create_global_tevent_register.exit, label %3
 
 3:                                                ; preds = %0
   %4 = tail call ptr @OPENSSL_sk_new_null() #2
-  %5 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !20
-  store ptr %4, ptr %5, align 8, !tbaa !19
+  %5 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !21
+  store ptr %4, ptr %5, align 8, !tbaa !20
   %6 = tail call ptr @CRYPTO_THREAD_lock_new() #2
-  %7 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !20
+  %7 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %8, align 8, !tbaa !3
-  %9 = load ptr, ptr %7, align 8, !tbaa !19
+  %9 = load ptr, ptr %7, align 8, !tbaa !20
   %10 = icmp eq ptr %9, null
   %11 = icmp eq ptr %6, null
   %or.cond.i = select i1 %10, i1 true, i1 %11
@@ -616,18 +616,18 @@ define internal void @create_global_tevent_register_ossl_() #0 {
 
 12:                                               ; preds = %3
   tail call void @OPENSSL_sk_free(ptr noundef %9) #2
-  %13 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !20
+  %13 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !21
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %15) #2
-  %16 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !20
+  %16 = load ptr, ptr @glob_tevent_reg, align 8, !tbaa !21
   tail call void @CRYPTO_free(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef 69) #2
-  store ptr null, ptr @glob_tevent_reg, align 8, !tbaa !20
+  store ptr null, ptr @glob_tevent_reg, align 8, !tbaa !21
   br label %create_global_tevent_register.exit
 
 create_global_tevent_register.exit:               ; preds = %0, %3, %12
   %.0.i = phi i32 [ 0, %12 ], [ 0, %0 ], [ 1, %3 ]
-  store i32 %.0.i, ptr @create_global_tevent_register_ossl_ret_, align 4, !tbaa !30
+  store i32 %.0.i, ptr @create_global_tevent_register_ossl_ret_, align 4, !tbaa !31
   ret void
 }
 
@@ -668,20 +668,21 @@ attributes #2 = { nounwind }
 !12 = !{!"thread_event_handler_st", !6, i64 0, !6, i64 8, !6, i64 16, !10, i64 24}
 !13 = !{!12, !6, i64 8}
 !14 = !{!12, !10, i64 24}
-!15 = distinct !{!15, !16, !17}
+!15 = distinct !{!15, !16, !17, !18}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = !{!7, !7, i64 0}
-!19 = !{!4, !5, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS25global_tevent_register_st", !6, i64 0}
-!22 = distinct !{!22, !16, !17}
-!23 = distinct !{!23, !16, !17}
-!24 = !{!12, !6, i64 0}
-!25 = distinct !{!25, !16, !17}
-!26 = distinct !{!26, !16, !17}
-!27 = distinct !{!27, !16}
-!28 = distinct !{!28, !16}
-!29 = distinct !{!29, !16}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"int", !7, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = !{!7, !7, i64 0}
+!20 = !{!4, !5, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 _ZTS25global_tevent_register_st", !6, i64 0}
+!23 = distinct !{!23, !16, !17, !18}
+!24 = distinct !{!24, !16, !17, !18}
+!25 = !{!12, !6, i64 0}
+!26 = distinct !{!26, !16, !17, !18}
+!27 = distinct !{!27, !16, !17, !18}
+!28 = distinct !{!28, !16, !17}
+!29 = distinct !{!29, !16, !17}
+!30 = distinct !{!30, !16, !17}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"int", !7, i64 0}

@@ -60,7 +60,7 @@ define i32 @ff_rle_count_pixels(ptr noundef readonly captures(none) %0, i32 noun
   %19 = add nuw nsw i32 %.031, 1
   %.021 = getelementptr inbounds i8, ptr %.02132, i64 %5
   %exitcond.not = icmp eq i32 %19, %6
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
 
 .loopexit:                                        ; preds = %18, %.lr.ph.split, %.lr.ph.split.us._crit_edge, %4, %.split.us
   %.1 = phi i32 [ %17, %.split.us ], [ 1, %4 ], [ %6, %.lr.ph.split.us._crit_edge ], [ %6, %18 ], [ %.031, %.lr.ph.split ]
@@ -99,7 +99,7 @@ define i32 @ff_rle_encode(ptr noundef %0, i32 noundef %1, ptr noundef readonly c
 19:                                               ; preds = %.lr.ph.split.i
   %20 = add nuw nsw i32 %.031.i, 1
   %exitcond.not.i = icmp eq i32 %20, %17
-  br i1 %exitcond.not.i, label %ff_rle_count_pixels.exit, label %.lr.ph.split.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %ff_rle_count_pixels.exit, label %.lr.ph.split.i, !llvm.loop !11
 
 ff_rle_count_pixels.exit:                         ; preds = %.lr.ph.split.i, %19
   %.1.i = phi i32 [ %17, %19 ], [ %.031.i, %.lr.ph.split.i ]
@@ -178,7 +178,7 @@ ff_rle_count_pixels.exit56:                       ; preds = %.lr.ph.split.us._cr
   %50 = getelementptr inbounds i8, ptr %.05060, i64 %.pre-phi65
   %51 = add nsw i32 %.048, %.04761
   %52 = icmp slt i32 %51, %4
-  br i1 %52, label %15, label %._crit_edge, !llvm.loop !11
+  br i1 %52, label %15, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %49, %9
   %.0.lcssa = phi ptr [ %0, %9 ], [ %.1, %49 ]
@@ -217,8 +217,9 @@ attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}

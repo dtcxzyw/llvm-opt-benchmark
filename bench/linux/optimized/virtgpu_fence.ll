@@ -260,7 +260,7 @@ define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 nounde
 
 57:                                               ; preds = %51
   %58 = getelementptr i8, ptr %24, i64 -48
-  %59 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58, i32 -1, ptr elementtype(i32) %58) #10, !srcloc !22
+  %59 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %58, i32 -1, ptr elementtype(i32) %58) #10, !srcloc !23
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %64, label %61
 
@@ -273,13 +273,13 @@ define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 nounde
   br label %.thread
 
 64:                                               ; preds = %57
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !24
   tail call void @dma_fence_release(ptr noundef %58) #10
   br label %.thread
 
 .thread:                                          ; preds = %61, %63, %64, %51, %31, %23
   %65 = icmp eq ptr %26, %6
-  br i1 %65, label %.loopexit, label %23, !llvm.loop !24
+  br i1 %65, label %.loopexit, label %23, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.thread, %16
   %66 = tail call i32 @dma_fence_signal_locked(ptr noundef %17) #10
@@ -308,7 +308,7 @@ define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 nounde
 
 78:                                               ; preds = %72
   %79 = getelementptr i8, ptr %9, i64 -48
-  %80 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79, i32 -1, ptr elementtype(i32) %79) #10, !srcloc !22
+  %80 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %79, i32 -1, ptr elementtype(i32) %79) #10, !srcloc !23
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %85, label %82
 
@@ -321,7 +321,7 @@ define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 nounde
   br label %.thread9
 
 85:                                               ; preds = %78
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !23
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !24
   tail call void @dma_fence_release(ptr noundef %79) #10
   br label %.thread9
 
@@ -357,9 +357,9 @@ define internal noundef zeroext i1 @virtio_gpu_fence_signaled(ptr noundef readon
   br i1 %4, label %5, label %6, !prof !7
 
 5:                                                ; preds = %1
-  tail call void asm sideeffect "495: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 495b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 495) #10, !srcloc !25
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 48, i32 2307, i64 12) #10, !srcloc !26
-  tail call void asm sideeffect "496: nop\0A\09.pushsection .discard.instr_end\0A\09.long 496b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 496) #10, !srcloc !27
+  tail call void asm sideeffect "495: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 495b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 495) #10, !srcloc !26
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 48, i32 2307, i64 12) #10, !srcloc !27
+  tail call void asm sideeffect "496: nop\0A\09.pushsection .discard.instr_end\0A\09.long 496b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 496) #10, !srcloc !28
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -445,12 +445,13 @@ attributes #10 = { nounwind }
 !16 = !{i64 2154124482}
 !17 = !{i8 0, i8 2}
 !18 = !{}
-!19 = distinct !{!19, !20, !21}
+!19 = distinct !{!19, !20, !21, !22}
 !20 = !{!"llvm.loop.mustprogress"}
 !21 = !{!"llvm.loop.unroll.disable"}
-!22 = !{i64 2148401936, i64 2148401975, i64 2148401996, i64 2148402033, i64 2148402056, i64 2148402065}
-!23 = !{i64 2150998751}
-!24 = distinct !{!24, !20, !21}
-!25 = !{i64 2156475382, i64 2156475191, i64 2156475243, i64 2156475289, i64 2156475317}
-!26 = !{i64 2156475456, i64 2156475485, i64 2156475531, i64 2156475589, i64 2156475643, i64 2156475697, i64 2156475752, i64 2156475783, i64 2156476091, i64 2156476097, i64 2156476144, i64 2156476167, i64 2156476193}
-!27 = !{i64 2156476663, i64 2156476474, i64 2156476524, i64 2156476570, i64 2156476598}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{i64 2148401936, i64 2148401975, i64 2148401996, i64 2148402033, i64 2148402056, i64 2148402065}
+!24 = !{i64 2150998751}
+!25 = distinct !{!25, !20, !21, !22}
+!26 = !{i64 2156475382, i64 2156475191, i64 2156475243, i64 2156475289, i64 2156475317}
+!27 = !{i64 2156475456, i64 2156475485, i64 2156475531, i64 2156475589, i64 2156475643, i64 2156475697, i64 2156475752, i64 2156475783, i64 2156476091, i64 2156476097, i64 2156476144, i64 2156476167, i64 2156476193}
+!28 = !{i64 2156476663, i64 2156476474, i64 2156476524, i64 2156476570, i64 2156476598}

@@ -263,7 +263,7 @@ _ZN19pyo3_macros_backend12deprecations11Deprecation5ident17h90c63e64067f2b38E.ex
   call void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %10)
   %74 = call align 4 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f32e76de677ac72E"(ptr nonnull align 8 %13)
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %._crit_edge, label %.lr.ph
+  br i1 %75, label %._crit_edge, label %.lr.ph, !llvm.loop !3
 
 76:                                               ; preds = %70, %66, %63, %49, %41, %36, %31, %27, %24
   %77 = landingpad { ptr, i32 }
@@ -654,3 +654,5 @@ attributes #6 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

@@ -149,7 +149,7 @@ define dso_local ptr @xfrm_ealg_get_byid(i32 noundef %0) #0 align 16 {
 3:                                                ; preds = %6
   %4 = add nuw nsw i64 %7, 1
   %5 = icmp eq i64 %4, 11
-  br i1 %5, label %.loopexit, label %6, !llvm.loop !5
+  br i1 %5, label %.loopexit, label %6, !llvm.loop !9
 
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
@@ -195,7 +195,7 @@ define dso_local ptr @xfrm_calg_get_byid(i32 noundef %0) #0 align 16 {
 3:                                                ; preds = %6
   %4 = add nuw nsw i64 %7, 1
   %5 = icmp eq i64 %4, 3
-  br i1 %5, label %.loopexit, label %6, !llvm.loop !5
+  br i1 %5, label %.loopexit, label %6, !llvm.loop !10
 
 6:                                                ; preds = %3, %1
   %7 = phi i64 [ %4, %3 ], [ 0, %1 ]
@@ -241,7 +241,7 @@ define dso_local noundef ptr @xfrm_aalg_get_byname(ptr noundef readonly captures
 .critedge:                                        ; preds = %11, %15
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 10
-  br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
+  br i1 %5, label %.loopexit, label %.split, !llvm.loop !11
 
 .split:                                           ; preds = %2, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
@@ -300,7 +300,7 @@ define dso_local noundef ptr @xfrm_ealg_get_byname(ptr noundef readonly captures
 .critedge:                                        ; preds = %11, %15
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 11
-  br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
+  br i1 %5, label %.loopexit, label %.split, !llvm.loop !12
 
 .split:                                           ; preds = %2, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
@@ -359,7 +359,7 @@ define dso_local noundef ptr @xfrm_calg_get_byname(ptr noundef readonly captures
 .critedge:                                        ; preds = %11, %15
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 3
-  br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
+  br i1 %5, label %.loopexit, label %.split, !llvm.loop !13
 
 .split:                                           ; preds = %2, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %2 ]
@@ -418,7 +418,7 @@ define dso_local ptr @xfrm_aead_get_byname(ptr noundef readonly captures(address
 .critedge:                                        ; preds = %.split, %12
   %4 = add nuw nsw i64 %6, 1
   %5 = icmp eq i64 %4, 8
-  br i1 %5, label %.loopexit, label %.split, !llvm.loop !5
+  br i1 %5, label %.loopexit, label %.split, !llvm.loop !14
 
 .split:                                           ; preds = %3, %.critedge
   %6 = phi i64 [ %4, %.critedge ], [ 0, %3 ]
@@ -485,14 +485,14 @@ define dso_local ptr @xfrm_ealg_get_byidx(i32 noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @xfrm_probe_algs() #0 align 16 {
-  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !8
+  %1 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !15
   %2 = and i32 %1, 65280
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %.preheader7, label %4, !prof !9
+  br i1 %3, label %.preheader7, label %4, !prof !16
 
 4:                                                ; preds = %0
-  tail call void asm sideeffect "762: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 762b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 762) #5, !srcloc !10
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 816, i32 0, i64 12) #5, !srcloc !11
+  tail call void asm sideeffect "762: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 762b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 762) #5, !srcloc !17
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 816, i32 0, i64 12) #5, !srcloc !18
   unreachable
 
 .preheader7:                                      ; preds = %0, %19
@@ -518,7 +518,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
 19:                                               ; preds = %14, %.preheader7
   %20 = add nuw nsw i64 %5, 1
   %21 = icmp eq i64 %20, 10
-  br i1 %21, label %.preheader6, label %.preheader7, !llvm.loop !12
+  br i1 %21, label %.preheader6, label %.preheader7, !llvm.loop !19
 
 .preheader6:                                      ; preds = %19, %36
   %22 = phi i64 [ %37, %36 ], [ 0, %19 ]
@@ -543,7 +543,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
 36:                                               ; preds = %31, %.preheader6
   %37 = add nuw nsw i64 %22, 1
   %38 = icmp eq i64 %37, 11
-  br i1 %38, label %.preheader, label %.preheader6, !llvm.loop !13
+  br i1 %38, label %.preheader, label %.preheader6, !llvm.loop !20
 
 .preheader:                                       ; preds = %36, %53
   %39 = phi i64 [ %54, %53 ], [ 0, %36 ]
@@ -568,7 +568,7 @@ define dso_local void @xfrm_probe_algs() #0 align 16 {
 53:                                               ; preds = %48, %.preheader
   %54 = add nuw nsw i64 %39, 1
   %55 = icmp eq i64 %54, 3
-  br i1 %55, label %56, label %.preheader, !llvm.loop !14
+  br i1 %55, label %56, label %.preheader, !llvm.loop !21
 
 56:                                               ; preds = %53
   ret void
@@ -595,7 +595,7 @@ define dso_local i32 @xfrm_count_pfkey_auth_supported() #3 align 16 {
   %9 = add i32 %3, %8
   %10 = add nuw nsw i64 %2, 1
   %11 = icmp eq i64 %10, 10
-  br i1 %11, label %12, label %1, !llvm.loop !15
+  br i1 %11, label %12, label %1, !llvm.loop !22
 
 12:                                               ; preds = %1
   ret i32 %9
@@ -616,7 +616,7 @@ define dso_local i32 @xfrm_count_pfkey_enc_supported() #3 align 16 {
   %9 = add i32 %3, %8
   %10 = add nuw nsw i64 %2, 1
   %11 = icmp eq i64 %10, 11
-  br i1 %11, label %12, label %1, !llvm.loop !16
+  br i1 %11, label %12, label %1, !llvm.loop !23
 
 12:                                               ; preds = %1
   ret i32 %9
@@ -646,15 +646,22 @@ attributes #6 = { nounwind memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{i64 2148590508}
-!9 = !{!"branch_weights", i32 2000, i32 1}
-!10 = !{i64 2159480044, i64 2159479853, i64 2159479905, i64 2159479951, i64 2159479979}
-!11 = !{i64 2159480118, i64 2159480147, i64 2159480193, i64 2159480251, i64 2159480305, i64 2159480359, i64 2159480414, i64 2159480445}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = !{i64 2148590508}
+!16 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{i64 2159480044, i64 2159479853, i64 2159479905, i64 2159479951, i64 2159479979}
+!18 = !{i64 2159480118, i64 2159480147, i64 2159480193, i64 2159480251, i64 2159480305, i64 2159480359, i64 2159480414, i64 2159480445}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}

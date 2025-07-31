@@ -66,7 +66,7 @@ malloc_read_fd.exit.i:                            ; preds = %24, %17, %malloc_re
 
 27:                                               ; preds = %malloc_read_fd.exit.i
   %28 = getelementptr inbounds nuw [512 x i8], ptr %5, i64 0, i64 %.2.i.i
-  store i8 0, ptr %28, align 1, !tbaa !10
+  store i8 0, ptr %28, align 1, !tbaa !11
   %29 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #9
   br label %30
 
@@ -109,7 +109,7 @@ prof_main_thread_stack_start.exit:                ; preds = %11, %30
 
 42:                                               ; preds = %38
   %43 = tail call ptr @__errno_location() #10
-  %44 = load i32, ptr %43, align 4, !tbaa !11
+  %44 = load i32, ptr %43, align 4, !tbaa !12
   br label %prof_mapping_containing_addr.exit
 
 .preheader.i:                                     ; preds = %38, %51
@@ -140,7 +140,7 @@ malloc_read_fd.exit.i18.loopexit:                 ; preds = %.preheader.i
 malloc_read_fd.exit.i18:                          ; preds = %51, %.preheader.i, %malloc_read_fd.exit.i18.loopexit
   %.2.i.i19 = phi i64 [ %.1.i.i15, %malloc_read_fd.exit.i18.loopexit ], [ %.116.i.i14, %.preheader.i ], [ %.116.i.i14, %51 ]
   %53 = icmp slt i64 %.2.i.i19, 1
-  br i1 %53, label %.loopexit.i, label %.outer
+  br i1 %53, label %.loopexit.i, label %.outer, !llvm.loop !14
 
 54:                                               ; preds = %37
   %55 = icmp eq ptr %.049.i, null
@@ -200,7 +200,7 @@ malloc_read_fd.exit80.i:                          ; preds = %62, %.preheader99.i
 
 77:                                               ; preds = %73
   %78 = tail call ptr @__errno_location() #10
-  %79 = load i32, ptr %78, align 4, !tbaa !11
+  %79 = load i32, ptr %78, align 4, !tbaa !12
   br label %.loopexit.i
 
 .preheader100.i:                                  ; preds = %73, %86
@@ -235,15 +235,15 @@ malloc_read_fd.exit89.i:                          ; preds = %86, %.preheader100.
 
 89:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
-  store ptr %.049.i, ptr %3, align 8, !tbaa !13
+  store ptr %.049.i, ptr %3, align 8, !tbaa !15
   %90 = call i64 @strtoul(ptr noundef nonnull %.049.i, ptr noundef nonnull %3, i32 noundef 16) #9
   %.not.i = icmp ult i64 %0, %90
   br i1 %.not.i, label %.thread92.i, label %91
 
 91:                                               ; preds = %89
-  %92 = load ptr, ptr %3, align 8, !tbaa !13
+  %92 = load ptr, ptr %3, align 8, !tbaa !15
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
-  store ptr %93, ptr %3, align 8, !tbaa !13
+  store ptr %93, ptr %3, align 8, !tbaa !15
   %94 = call i64 @strtoul(ptr noundef nonnull %93, ptr noundef nonnull %3, i32 noundef 16) #9
   %.not68.i = icmp ult i64 %0, %94
   br i1 %.not68.i, label %100, label %.thread92.i
@@ -264,7 +264,7 @@ malloc_read_fd.exit89.i:                          ; preds = %86, %.preheader100.
 .backedge:                                        ; preds = %.thread92.i, %malloc_read_fd.exit89.i, %67, %65
   %.053.i.be = phi i64 [ %70, %67 ], [ %.2.i78.i, %65 ], [ %.2.i87.i, %malloc_read_fd.exit89.i ], [ %.356.i, %.thread92.i ]
   %.049.i.be = phi ptr [ %68, %67 ], [ null, %65 ], [ %2, %malloc_read_fd.exit89.i ], [ %.352.i, %.thread92.i ]
-  br label %37
+  br label %37, !llvm.loop !14
 
 100:                                              ; preds = %91
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
@@ -346,11 +346,13 @@ attributes #11 = { nounwind willreturn memory(read) }
 !5 = !{!"long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{!6, !6, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !6, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 omnipotent char", !15, i64 0}
-!15 = !{!"any pointer", !6, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!6, !6, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = distinct !{!14, !10}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}

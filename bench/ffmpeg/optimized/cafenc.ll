@@ -255,12 +255,12 @@ codec_flags.exit:                                 ; preds = %40, %40, %45, %46, 
   %107 = load ptr, ptr %79, align 8, !tbaa !48
   %108 = tail call ptr @av_dict_iterate(ptr noundef %107, ptr noundef nonnull %101) #4
   %.not108 = icmp eq ptr %108, null
-  br i1 %.not108, label %.loopexit, label %.lr.ph113, !llvm.loop !54
+  br i1 %.not108, label %.loopexit, label %.lr.ph113, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph113, %._crit_edge, %77
   tail call void @avio_wl32(ptr noundef %3, i32 noundef 1635017060) #4
   %109 = tail call i64 @avio_seek(ptr noundef %3, i64 noundef 0, i32 noundef 1) #4
-  store i64 %109, ptr %10, align 8, !tbaa !55
+  store i64 %109, ptr %10, align 8, !tbaa !56
   tail call void @avio_wb64(ptr noundef %3, i64 noundef -1) #4
   tail call void @avio_wb32(ptr noundef %3, i32 noundef 0) #4
   br label %110
@@ -286,14 +286,14 @@ define internal range(i32 -34, 1) i32 @caf_write_packet(ptr noundef readonly cap
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %14 = load i32, ptr %13, align 4, !tbaa !57
+  %14 = load i32, ptr %13, align 4, !tbaa !58
   %15 = add i32 %14, 5
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %.thread, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !58
+  %19 = load ptr, ptr %18, align 8, !tbaa !59
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = zext nneg i32 %15 to i64
   %22 = tail call ptr @av_fast_realloc(ptr noundef %19, ptr noundef nonnull %20, i64 noundef %21) #4
@@ -301,13 +301,13 @@ define internal range(i32 -34, 1) i32 @caf_write_packet(ptr noundef readonly cap
   br i1 %.not32, label %.thread, label %23
 
 23:                                               ; preds = %17
-  store ptr %22, ptr %18, align 8, !tbaa !58
+  store ptr %22, ptr %18, align 8, !tbaa !59
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %25
 
 25:                                               ; preds = %23, %36
   %.02836 = phi i32 [ 4, %23 ], [ %37, %36 ]
-  %26 = load i32, ptr %24, align 8, !tbaa !59
+  %26 = load i32, ptr %24, align 8, !tbaa !60
   %27 = mul nuw nsw i32 %.02836, 7
   %28 = ashr i32 %26, %27
   %.not33 = icmp eq i32 %28, 0
@@ -316,9 +316,9 @@ define internal range(i32 -34, 1) i32 @caf_write_packet(ptr noundef readonly cap
 29:                                               ; preds = %25
   %30 = trunc i32 %28 to i8
   %31 = or i8 %30, -128
-  %32 = load i32, ptr %13, align 4, !tbaa !57
+  %32 = load i32, ptr %13, align 4, !tbaa !58
   %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %13, align 4, !tbaa !57
+  store i32 %33, ptr %13, align 4, !tbaa !58
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds i8, ptr %22, i64 %34
   store i8 %31, ptr %35, align 1, !tbaa !45
@@ -327,31 +327,31 @@ define internal range(i32 -34, 1) i32 @caf_write_packet(ptr noundef readonly cap
 36:                                               ; preds = %29, %25
   %37 = add nsw i32 %.02836, -1
   %38 = icmp samesign ugt i32 %.02836, 1
-  br i1 %38, label %25, label %39, !llvm.loop !60
+  br i1 %38, label %25, label %39, !llvm.loop !61
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr %24, align 8, !tbaa !59
+  %40 = load i32, ptr %24, align 8, !tbaa !60
   %41 = trunc i32 %40 to i8
   %42 = and i8 %41, 127
-  %43 = load i32, ptr %13, align 4, !tbaa !57
+  %43 = load i32, ptr %13, align 4, !tbaa !58
   %44 = add nsw i32 %43, 1
-  store i32 %44, ptr %13, align 4, !tbaa !57
+  store i32 %44, ptr %13, align 4, !tbaa !58
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds i8, ptr %22, i64 %45
   store i8 %42, ptr %46, align 1, !tbaa !45
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %48 = load i32, ptr %47, align 8, !tbaa !61
+  %48 = load i32, ptr %47, align 8, !tbaa !62
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8, !tbaa !61
+  store i32 %49, ptr %47, align 8, !tbaa !62
   br label %50
 
 50:                                               ; preds = %39, %2
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %54 = load ptr, ptr %53, align 8, !tbaa !62
+  %54 = load ptr, ptr %53, align 8, !tbaa !63
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %56 = load i32, ptr %55, align 8, !tbaa !59
+  %56 = load i32, ptr %55, align 8, !tbaa !60
   tail call void @avio_write(ptr noundef %52, ptr noundef %54, i32 noundef %56) #4
   br label %.thread
 
@@ -379,9 +379,9 @@ define internal noundef i32 @caf_write_trailer(ptr noundef readonly captures(non
 
 14:                                               ; preds = %1
   %15 = tail call i64 @avio_seek(ptr noundef nonnull %5, i64 noundef 0, i32 noundef 1) #4
-  %16 = load i64, ptr %3, align 8, !tbaa !55
+  %16 = load i64, ptr %3, align 8, !tbaa !56
   %17 = tail call i64 @avio_seek(ptr noundef nonnull %5, i64 noundef %16, i32 noundef 0) #4
-  %18 = load i64, ptr %3, align 8, !tbaa !55
+  %18 = load i64, ptr %3, align 8, !tbaa !56
   %19 = add i64 %15, -8
   %20 = sub i64 %19, %18
   tail call void @avio_wb64(ptr noundef nonnull %5, i64 noundef %20) #4
@@ -397,9 +397,9 @@ define internal noundef i32 @caf_write_trailer(ptr noundef readonly captures(non
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %27 = load i64, ptr %26, align 8, !tbaa !63
+  %27 = load i64, ptr %26, align 8, !tbaa !64
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !61
+  %29 = load i32, ptr %28, align 8, !tbaa !62
   %30 = add nsw i32 %29, -1
   %31 = sext i32 %30 to i64
   %32 = sdiv i64 %27, %31
@@ -413,23 +413,23 @@ define internal noundef i32 @caf_write_trailer(ptr noundef readonly captures(non
   %36 = tail call i64 @avio_seek(ptr noundef nonnull %5, i64 noundef %15, i32 noundef 0) #4
   tail call void @avio_wl32(ptr noundef nonnull %5, i32 noundef 1953194352) #4
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %38 = load i32, ptr %37, align 4, !tbaa !57
+  %38 = load i32, ptr %37, align 4, !tbaa !58
   %39 = add i32 %38, 24
   %40 = zext i32 %39 to i64
   tail call void @avio_wb64(ptr noundef nonnull %5, i64 noundef %40) #4
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %42 = load i32, ptr %41, align 8, !tbaa !61
+  %42 = load i32, ptr %41, align 8, !tbaa !62
   %43 = sext i32 %42 to i64
   tail call void @avio_wb64(ptr noundef nonnull %5, i64 noundef %43) #4
-  %44 = load i32, ptr %41, align 8, !tbaa !61
+  %44 = load i32, ptr %41, align 8, !tbaa !62
   %45 = mul nsw i32 %44, %.0
   %46 = sext i32 %45 to i64
   tail call void @avio_wb64(ptr noundef nonnull %5, i64 noundef %46) #4
   tail call void @avio_wb32(ptr noundef nonnull %5, i32 noundef 0) #4
   tail call void @avio_wb32(ptr noundef nonnull %5, i32 noundef 0) #4
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !58
-  %49 = load i32, ptr %37, align 4, !tbaa !57
+  %48 = load ptr, ptr %47, align 8, !tbaa !59
+  %49 = load i32, ptr %37, align 4, !tbaa !58
   tail call void @avio_write(ptr noundef nonnull %5, ptr noundef %48, i32 noundef %49) #4
   br label %50
 
@@ -636,15 +636,16 @@ attributes #5 = { nounwind willreturn memory(read) }
 !49 = !{!50, !18, i64 0}
 !50 = !{!"AVDictionaryEntry", !18, i64 0, !18, i64 8}
 !51 = !{!50, !18, i64 8}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = distinct !{!54, !53}
-!55 = !{!56, !19, i64 0}
-!56 = !{!"", !19, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!57 = !{!56, !13, i64 12}
-!58 = !{!28, !7, i64 24}
-!59 = !{!31, !13, i64 32}
-!60 = distinct !{!60, !53}
-!61 = !{!56, !13, i64 16}
-!62 = !{!31, !18, i64 24}
-!63 = !{!28, !19, i64 48}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = distinct !{!55, !53, !54}
+!56 = !{!57, !19, i64 0}
+!57 = !{!"", !19, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!58 = !{!57, !13, i64 12}
+!59 = !{!28, !7, i64 24}
+!60 = !{!31, !13, i64 32}
+!61 = distinct !{!61, !53, !54}
+!62 = !{!57, !13, i64 16}
+!63 = !{!31, !18, i64 24}
+!64 = !{!28, !19, i64 48}

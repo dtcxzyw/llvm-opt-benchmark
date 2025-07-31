@@ -340,7 +340,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i: ; 
 _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: ; preds = %81, %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE8allocateEi.exit.i.i
   %85 = load ptr, ptr %47, align 8, !tbaa !69
   %.not.i5.i.i = icmp ne ptr %85, null
-  %86 = load i8, ptr %48, align 8, !range !78
+  %86 = load i8, ptr %48, align 8, !range !79
   %87 = trunc nuw i8 %86 to i1
   %or.cond.i.i = select i1 %.not.i5.i.i, i1 %87, i1 false
   br i1 %or.cond.i.i, label %88, label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
@@ -350,7 +350,7 @@ _ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i: 
   br label %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i
 
 _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE10deallocateEv.exit.i.i: ; preds = %88, %_ZNK20btAlignedObjectArrayI27btMultiBodySolverConstraintE4copyEiiPS0_.exit.i.i
-  store i8 1, ptr %48, align 8, !tbaa !79
+  store i8 1, ptr %48, align 8, !tbaa !80
   store ptr %.0.i.i.i, ptr %47, align 8, !tbaa !69
   store i32 %72, ptr %46, align 8, !tbaa !68
   %.pre2.i = load i32, ptr %45, align 4, !tbaa !64
@@ -368,15 +368,15 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %94 = sext i32 %67 to i64
   %95 = getelementptr inbounds %struct.btMultiBodySolverConstraint, ptr %93, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 208
-  store ptr %0, ptr %96, align 8, !tbaa !80
+  store ptr %0, ptr %96, align 8, !tbaa !81
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 216
-  store i32 %.0104, ptr %97, align 8, !tbaa !82
+  store i32 %.0104, ptr %97, align 8, !tbaa !83
   %98 = load ptr, ptr %17, align 8, !tbaa !36
   %99 = getelementptr inbounds nuw i8, ptr %95, i64 176
-  store ptr %98, ptr %99, align 8, !tbaa !83
+  store ptr %98, ptr %99, align 8, !tbaa !84
   %100 = load ptr, ptr %49, align 8, !tbaa !61
   %101 = getelementptr inbounds nuw i8, ptr %95, i64 192
-  store ptr %100, ptr %101, align 8, !tbaa !84
+  store ptr %100, ptr %101, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %102 = load i32, ptr %10, align 4, !tbaa !42
@@ -388,7 +388,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %108 = add nsw i32 %104, %107
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds float, ptr %89, i64 %109
-  %111 = load float, ptr %51, align 4, !tbaa !85
+  %111 = load float, ptr %51, align 4, !tbaa !86
   %112 = call noundef float @_ZN21btMultiBodyConstraint23fillMultiBodyConstraintER27btMultiBodySolverConstraintR23btMultiBodyJacobianDataPfS4_RK9btVector3S7_S7_S7_fRK19btContactSolverInfoffbfbfff(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(220) %95, ptr noundef nonnull align 8 dereferenceable(204) %2, ptr noundef %106, ptr noundef %110, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %7, float noundef 0.000000e+00, ptr noundef nonnull align 4 dereferenceable(128) %3, float noundef 0.000000e+00, float noundef %111, i1 noundef zeroext false, float noundef 1.000000e+00, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00)
   %113 = load ptr, ptr %17, align 8, !tbaa !36
   %114 = load i32, ptr %19, align 8, !tbaa !37
@@ -397,7 +397,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %117 = sext i32 %114 to i64
   %118 = getelementptr inbounds %struct.btMultibodyLink, ptr %116, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 564
-  %120 = load i32, ptr %119, align 4, !tbaa !86
+  %120 = load i32, ptr %119, align 4, !tbaa !87
   switch i32 %120, label %228 [
     i32 0, label %121
     i32 1, label %177
@@ -562,7 +562,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
 
 228:                                              ; preds = %_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingEv.exit, %177, %121
   %229 = fneg float %112
-  %230 = load i32, ptr %52, align 4, !tbaa !87
+  %230 = load i32, ptr %52, align 4, !tbaa !88
   %.not58 = icmp eq i32 %230, 0
   %231 = load float, ptr %53, align 4
   %232 = fcmp ogt float %62, %231
@@ -572,19 +572,19 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %.053 = load float, ptr %.053.in, align 4, !tbaa !41
   %233 = fneg float %62
   %234 = fmul float %.053, %233
-  %235 = load float, ptr %54, align 4, !tbaa !89
+  %235 = load float, ptr %54, align 4, !tbaa !90
   %236 = fdiv float %234, %235
   %237 = getelementptr inbounds nuw i8, ptr %95, i64 124
-  %238 = load float, ptr %237, align 4, !tbaa !90
+  %238 = load float, ptr %237, align 4, !tbaa !91
   %239 = fmul float %236, %238
   %240 = fmul float %238, %229
   %241 = fadd float %239, %240
   %.sink105 = select i1 %or.cond, float %241, float %240
   %.sink = select i1 %or.cond, float 0.000000e+00, float %239
   %242 = getelementptr inbounds nuw i8, ptr %95, i64 128
-  store float %.sink105, ptr %242, align 8, !tbaa !91
+  store float %.sink105, ptr %242, align 8, !tbaa !92
   %243 = getelementptr inbounds nuw i8, ptr %95, i64 144
-  store float %.sink, ptr %243, align 8, !tbaa !92
+  store float %.sink, ptr %243, align 8, !tbaa !93
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   %.pre107 = load i32, ptr %42, align 4, !tbaa !39
   br label %244
@@ -593,7 +593,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
   %245 = phi i32 [ %56, %55 ], [ %.pre107, %228 ]
   %246 = add nuw nsw i32 %.0104, 1
   %247 = icmp slt i32 %246, %245
-  br i1 %247, label %55, label %._crit_edge, !llvm.loop !93
+  br i1 %247, label %55, label %._crit_edge, !llvm.loop !94
 }
 
 declare noundef float @_ZNK11btMultiBody11getJointPosEi(ptr noundef nonnull align 8 dereferenceable(640), i32 noundef) local_unnamed_addr #1
@@ -879,21 +879,22 @@ attributes #14 = { noreturn nounwind }
 !73 = !{!31, !31, i64 0}
 !74 = !{!75, !75, i64 0}
 !75 = !{!"p1 _ZTS21btMultiBodyConstraint", !11, i64 0}
-!76 = distinct !{!76, !77}
+!76 = distinct !{!76, !77, !78}
 !77 = !{!"llvm.loop.mustprogress"}
-!78 = !{i8 0, i8 2}
-!79 = !{!65, !12, i64 24}
-!80 = !{!81, !75, i64 208}
-!81 = !{!"_ZTS27btMultiBodySolverConstraint", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !16, i64 16, !16, i64 32, !16, i64 48, !16, i64 64, !16, i64 80, !16, i64 96, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !8, i64 152, !7, i64 160, !7, i64 164, !7, i64 168, !31, i64 176, !7, i64 184, !7, i64 188, !31, i64 192, !7, i64 200, !75, i64 208, !7, i64 216}
-!82 = !{!81, !7, i64 216}
-!83 = !{!81, !31, i64 176}
-!84 = !{!81, !31, i64 192}
-!85 = !{!30, !15, i64 60}
-!86 = !{!14, !21, i64 564}
-!87 = !{!88, !7, i64 64}
-!88 = !{!"_ZTS23btContactSolverInfoData", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !7, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !7, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !7, i64 88, !7, i64 92, !7, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !12, i64 116, !12, i64 117, !7, i64 120, !7, i64 124}
-!89 = !{!88, !15, i64 12}
-!90 = !{!81, !15, i64 124}
-!91 = !{!81, !15, i64 128}
-!92 = !{!81, !15, i64 144}
-!93 = distinct !{!93, !77}
+!78 = !{!"llvm.loop.estimated_trip_count"}
+!79 = !{i8 0, i8 2}
+!80 = !{!65, !12, i64 24}
+!81 = !{!82, !75, i64 208}
+!82 = !{!"_ZTS27btMultiBodySolverConstraint", !7, i64 0, !7, i64 4, !7, i64 8, !7, i64 12, !16, i64 16, !16, i64 32, !16, i64 48, !16, i64 64, !16, i64 80, !16, i64 96, !15, i64 112, !15, i64 116, !15, i64 120, !15, i64 124, !15, i64 128, !15, i64 132, !15, i64 136, !15, i64 140, !15, i64 144, !8, i64 152, !7, i64 160, !7, i64 164, !7, i64 168, !31, i64 176, !7, i64 184, !7, i64 188, !31, i64 192, !7, i64 200, !75, i64 208, !7, i64 216}
+!83 = !{!82, !7, i64 216}
+!84 = !{!82, !31, i64 176}
+!85 = !{!82, !31, i64 192}
+!86 = !{!30, !15, i64 60}
+!87 = !{!14, !21, i64 564}
+!88 = !{!89, !7, i64 64}
+!89 = !{!"_ZTS23btContactSolverInfoData", !15, i64 0, !15, i64 4, !15, i64 8, !15, i64 12, !15, i64 16, !7, i64 20, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !15, i64 48, !15, i64 52, !15, i64 56, !15, i64 60, !7, i64 64, !15, i64 68, !15, i64 72, !15, i64 76, !15, i64 80, !15, i64 84, !7, i64 88, !7, i64 92, !7, i64 96, !15, i64 100, !15, i64 104, !15, i64 108, !15, i64 112, !12, i64 116, !12, i64 117, !7, i64 120, !7, i64 124}
+!90 = !{!89, !15, i64 12}
+!91 = !{!82, !15, i64 124}
+!92 = !{!82, !15, i64 128}
+!93 = !{!82, !15, i64 144}
+!94 = distinct !{!94, !77, !78}

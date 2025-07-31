@@ -66,20 +66,20 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
 
 27:                                               ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %29 = load i32, ptr %28, align 8, !tbaa !23
+  %29 = load i32, ptr %28, align 8, !tbaa !24
   %.not71 = icmp eq i32 %29, 0
   br i1 %.not71, label %36, label %30
 
 30:                                               ; preds = %27
   %. = tail call i32 @llvm.umin.i32(i32 %29, i32 %5)
   %31 = sub i32 %29, %.
-  store i32 %31, ptr %28, align 8, !tbaa !23
+  store i32 %31, ptr %28, align 8, !tbaa !24
   %.not72.not = icmp ugt i32 %29, %5
   br i1 %.not72.not, label %.loopexit, label %32
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %34 = load i32, ptr %33, align 8, !tbaa !24
+  %34 = load i32, ptr %33, align 8, !tbaa !25
   %35 = icmp eq i32 %34, -1
   br i1 %35, label %.loopexit, label %36
 
@@ -97,8 +97,8 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %.promoted90 = load i32, ptr %42, align 8, !tbaa !24
-  %.promoted = load i32, ptr %41, align 4, !tbaa !25
+  %.promoted90 = load i32, ptr %42, align 8, !tbaa !25
+  %.promoted = load i32, ptr %41, align 4, !tbaa !26
   br label %.lr.ph88.split
 
 .lr.ph88.split:                                   ; preds = %.lr.ph88.split.preheader, %76
@@ -111,29 +111,29 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
   %50 = load i8, ptr %49, align 1, !tbaa !20
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %47, %51
-  store i32 %52, ptr %41, align 4, !tbaa !25
+  store i32 %52, ptr %41, align 4, !tbaa !26
   switch i32 %45, label %74 [
     i32 3, label %53
     i32 7, label %57
   ]
 
 53:                                               ; preds = %.lr.ph88.split
-  store i32 %52, ptr %43, align 4, !tbaa !26
+  store i32 %52, ptr %43, align 4, !tbaa !27
   %54 = icmp slt i32 %47, 0
   br i1 %54, label %.split94.us, label %55
 
 .split94.us:                                      ; preds = %53
   store i32 0, ptr %11, align 8, !tbaa !16
-  store i32 0, ptr %42, align 8, !tbaa !24
+  store i32 0, ptr %42, align 8, !tbaa !25
   br label %.loopexit
 
 55:                                               ; preds = %53
   %56 = add nuw i32 %52, 4
-  store i32 %56, ptr %43, align 4, !tbaa !26
+  store i32 %56, ptr %43, align 4, !tbaa !27
   br label %74
 
 57:                                               ; preds = %.lr.ph88.split
-  %58 = load i32, ptr %43, align 4, !tbaa !26
+  %58 = load i32, ptr %43, align 4, !tbaa !27
   %59 = sub nsw i32 %5, %.387
   %.not73 = icmp ult i32 %58, %59
   br i1 %.not73, label %63, label %60
@@ -142,7 +142,7 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
   %reass.sub = sub i32 %.387, %5
   %61 = add i32 %reass.sub, 1
   %62 = add i32 %61, %58
-  store i32 %62, ptr %44, align 8, !tbaa !23
+  store i32 %62, ptr %44, align 8, !tbaa !24
   br label %63
 
 63:                                               ; preds = %60, %57
@@ -150,12 +150,12 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
   br i1 %64, label %.split.us, label %70
 
 .split.us:                                        ; preds = %63
-  %65 = load i32, ptr %44, align 8, !tbaa !23
+  %65 = load i32, ptr %44, align 8, !tbaa !24
   %.not75 = icmp eq i32 %65, 0
   br i1 %.not75, label %67, label %66
 
 66:                                               ; preds = %.split.us
-  store i32 -1, ptr %42, align 8, !tbaa !24
+  store i32 -1, ptr %42, align 8, !tbaa !25
   br label %.loopexit
 
 67:                                               ; preds = %.split.us
@@ -164,8 +164,8 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
   br label %.loopexit
 
 70:                                               ; preds = %63
-  store i32 0, ptr %42, align 8, !tbaa !24
-  %71 = load i32, ptr %44, align 8, !tbaa !23
+  store i32 0, ptr %42, align 8, !tbaa !25
+  %71 = load i32, ptr %44, align 8, !tbaa !24
   %.not74 = icmp eq i32 %71, 0
   br i1 %.not74, label %72, label %.loopexit
 
@@ -175,7 +175,7 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
 
 74:                                               ; preds = %.lr.ph88.split, %55
   %75 = add i32 %45, 1
-  store i32 %75, ptr %42, align 8, !tbaa !24
+  store i32 %75, ptr %42, align 8, !tbaa !25
   br label %76
 
 76:                                               ; preds = %74, %72
@@ -183,7 +183,7 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
   %.4 = phi i32 [ %.387, %74 ], [ %73, %72 ]
   %78 = add nsw i32 %.4, 1
   %79 = icmp slt i32 %78, %5
-  br i1 %79, label %.lr.ph88.split, label %.loopexit, !llvm.loop !27
+  br i1 %79, label %.lr.ph88.split, label %.loopexit, !llvm.loop !28
 
 .loopexit:                                        ; preds = %70, %76, %36, %32, %67, %66, %30, %.split94.us
   %.063 = phi i32 [ -100, %30 ], [ -100, %.split94.us ], [ -100, %66 ], [ %69, %67 ], [ %., %32 ], [ -100, %36 ], [ -100, %76 ], [ -100, %70 ]
@@ -198,7 +198,7 @@ define internal i32 @png_parse(ptr noundef captures(none) initializes((40, 44)) 
 84:                                               ; preds = %.loopexit
   store i32 0, ptr %11, align 8, !tbaa !16
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 0, ptr %85, align 8, !tbaa !24
+  store i32 0, ptr %85, align 8, !tbaa !25
   %86 = load ptr, ptr %7, align 8, !tbaa !4
   store ptr %86, ptr %2, align 8, !tbaa !4
   %87 = load i32, ptr %8, align 4, !tbaa !9
@@ -245,10 +245,11 @@ attributes #3 = { nounwind }
 !18 = !{!"ParseContext", !5, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !14, i64 40}
 !19 = !{!17, !14, i64 40}
 !20 = !{!7, !7, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!17, !10, i64 56}
-!24 = !{!17, !10, i64 48}
-!25 = !{!17, !10, i64 20}
-!26 = !{!17, !10, i64 52}
-!27 = distinct !{!27, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!17, !10, i64 56}
+!25 = !{!17, !10, i64 48}
+!26 = !{!17, !10, i64 20}
+!27 = !{!17, !10, i64 52}
+!28 = distinct !{!28, !22, !23}

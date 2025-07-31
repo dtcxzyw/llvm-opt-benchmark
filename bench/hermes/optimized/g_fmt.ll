@@ -78,7 +78,7 @@ while.body19:                                     ; preds = %if.then14, %while.b
   %7 = load i8, ptr %incdec.ptr17, align 1
   store i8 %7, ptr %incdec.ptr20, align 1
   %tobool18.not = icmp eq i8 %7, 0
-  br i1 %tobool18.not, label %if.end22, label %while.body19, !llvm.loop !6
+  br i1 %tobool18.not, label %if.end22, label %while.body19, !llvm.loop !7
 
 if.end22:                                         ; preds = %while.body19, %if.then14, %if.then10
   %b.addr.2 = phi ptr [ %incdec.ptr12, %if.then10 ], [ %incdec.ptr15, %if.then14 ], [ %incdec.ptr20, %while.body19 ]
@@ -112,7 +112,7 @@ for.cond:                                         ; preds = %for.cond, %if.end29
   %mul = mul nuw nsw i32 %k.0, 10
   %cmp30.not = icmp sgt i32 %mul, %10
   %inc = add nuw nsw i32 %j.0, 1
-  br i1 %cmp30.not, label %for.cond33.preheader, label %for.cond, !llvm.loop !7
+  br i1 %cmp30.not, label %for.cond33.preheader, label %for.cond, !llvm.loop !8
 
 for.cond33.preheader:                             ; preds = %for.cond
   %b.addr.4 = getelementptr inbounds nuw i8, ptr %b.addr.2, i64 2
@@ -140,7 +140,7 @@ if.end41:                                         ; preds = %for.cond33.preheade
   %incdec.ptr36 = getelementptr inbounds nuw i8, ptr %incdec.ptr3657, i64 1
   store i8 %conv35, ptr %incdec.ptr3657, align 1
   %cmp38 = icmp slt i32 %j.155, 3
-  br i1 %cmp38, label %done0.sink.split, label %if.end41
+  br i1 %cmp38, label %done0.sink.split, label %if.end41, !llvm.loop !9
 
 if.else46:                                        ; preds = %lor.lhs.false
   %cmp47 = icmp slt i32 %1, 1
@@ -179,7 +179,7 @@ for.body54:                                       ; preds = %for.body54.preheade
   %19 = phi i32 [ %inc57, %for.body54 ], [ %1, %for.body54.preheader ]
   %inc57 = add i32 %19, 1
   %exitcond.not = icmp eq i32 %inc57, 0
-  br i1 %exitcond.not, label %while.cond59.preheader.loopexit, label %for.body54, !llvm.loop !8
+  br i1 %exitcond.not, label %while.cond59.preheader.loopexit, label %for.body54, !llvm.loop !10
 
 while.cond59:                                     ; preds = %while.cond59.preheader, %while.cond59
   %s.2 = phi ptr [ %incdec.ptr60, %while.cond59 ], [ %call1, %while.cond59.preheader ]
@@ -189,7 +189,7 @@ while.cond59:                                     ; preds = %while.cond59.prehea
   %incdec.ptr61 = getelementptr inbounds nuw i8, ptr %b.addr.7, i64 1
   store i8 %20, ptr %b.addr.7, align 1
   %tobool62.not = icmp eq i8 %20, 0
-  br i1 %tobool62.not, label %done0, label %while.cond59, !llvm.loop !9
+  br i1 %tobool62.not, label %done0, label %while.cond59, !llvm.loop !11
 
 while.body69:                                     ; preds = %while.cond66.preheader, %if.end78
   %incdec.ptr6739.pn = phi ptr [ %incdec.ptr6739, %if.end78 ], [ %call1, %while.cond66.preheader ]
@@ -222,7 +222,7 @@ if.end78:                                         ; preds = %if.then76, %while.b
   %b.addr.9 = phi ptr [ %incdec.ptr77, %if.then76 ], [ %incdec.ptr70, %while.body69 ]
   store i8 %22, ptr %b.addr.9, align 1
   %tobool68.not = icmp eq i8 %22, 0
-  br i1 %tobool68.not, label %for.cond80thread-pre-split, label %while.body69, !llvm.loop !10
+  br i1 %tobool68.not, label %for.cond80thread-pre-split, label %while.body69, !llvm.loop !12
 
 for.cond80thread-pre-split:                       ; preds = %if.end78, %if.end78.thread
   %b.addr.967 = phi ptr [ %incdec.ptr70, %if.end78.thread ], [ %b.addr.9, %if.end78 ]
@@ -242,7 +242,7 @@ for.body83:                                       ; preds = %for.body83.preheade
   %dec86 = add nsw i32 %24, -1
   store i32 %dec86, ptr %decpt, align 4
   %cmp81 = icmp sgt i32 %24, 1
-  br i1 %cmp81, label %for.body83, label %done0.sink.split, !llvm.loop !11
+  br i1 %cmp81, label %for.body83, label %done0.sink.split, !llvm.loop !13
 
 done0.sink.split:                                 ; preds = %for.body83, %if.end41, %for.cond80thread-pre-split, %for.cond33.preheader
   %incdec.ptr36.lcssa.sink = phi ptr [ %incdec.ptr3653, %for.cond33.preheader ], [ %b.addr.967, %for.cond80thread-pre-split ], [ %incdec.ptr36, %if.end41 ], [ %incdec.ptr84, %for.body83 ]
@@ -277,11 +277,13 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}

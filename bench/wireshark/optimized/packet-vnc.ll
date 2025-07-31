@@ -1498,7 +1498,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %156 = add i32 %.1534.i, 16
   %157 = add nuw nsw i32 %.0486533.i, 1
   %exitcond544.not.i = icmp eq i32 %157, %146
-  br i1 %exitcond544.not.i, label %._crit_edge537.thread.i, label %.lr.ph536.i, !llvm.loop !9
+  br i1 %exitcond544.not.i, label %._crit_edge537.thread.i, label %.lr.ph536.i, !llvm.loop !10
 
 ._crit_edge537.i:                                 ; preds = %142
   %158 = icmp eq i32 %146, 0
@@ -1899,7 +1899,7 @@ define internal i32 @dissect_vnc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %367 = add i32 %.2531.i, 4
   %368 = add nuw nsw i32 %.0483532.i, 1
   %exitcond.not.i = icmp eq i32 %368, %346
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %359
   %369 = getelementptr inbounds nuw i8, ptr %.0, i64 40
@@ -2075,7 +2075,7 @@ vnc_set_depth.exit.i:                             ; preds = %439, %vnc_set_bytes
 
 468:                                              ; preds = %462, %vnc_set_depth.exit.i
   %469 = getelementptr inbounds nuw i8, ptr %.0, i64 33
-  %470 = load i8, ptr %469, align 1, !range !6, !noundef !11
+  %470 = load i8, ptr %469, align 1, !range !6, !noundef !12
   %471 = trunc nuw i8 %470 to i1
   %472 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   br i1 %471, label %473, label %474
@@ -2128,7 +2128,7 @@ vnc_set_depth.exit.i:                             ; preds = %439, %vnc_set_bytes
   %503 = add i32 %501, 8
   %504 = add nuw nsw i32 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %504, %497
-  br i1 %exitcond.not.i.i, label %process_tight_capabilities.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %process_tight_capabilities.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
 process_tight_capabilities.exit.i:                ; preds = %.lr.ph.i.i, %475
   %.017.lcssa.i.i = phi i32 [ 8, %475 ], [ %503, %.lr.ph.i.i ]
@@ -2149,7 +2149,7 @@ process_tight_capabilities.exit.i:                ; preds = %.lr.ph.i.i, %475
   %514 = add i32 %512, 8
   %515 = add nuw nsw i32 %.019.i520.i, 1
   %exitcond.not.i522.i = icmp eq i32 %515, %508
-  br i1 %exitcond.not.i522.i, label %process_tight_capabilities.exit523.i, label %.lr.ph.i519.i, !llvm.loop !12
+  br i1 %exitcond.not.i522.i, label %process_tight_capabilities.exit523.i, label %.lr.ph.i519.i, !llvm.loop !13
 
 process_tight_capabilities.exit523.i:             ; preds = %.lr.ph.i519.i, %process_tight_capabilities.exit.i
   %.017.lcssa.i518.i = phi i32 [ %.017.lcssa.i.i, %process_tight_capabilities.exit.i ], [ %514, %.lr.ph.i519.i ]
@@ -2170,7 +2170,7 @@ process_tight_capabilities.exit523.i:             ; preds = %.lr.ph.i519.i, %pro
   %525 = add i32 %523, 8
   %526 = add nuw nsw i32 %.019.i526.i, 1
   %exitcond.not.i528.i = icmp eq i32 %526, %519
-  br i1 %exitcond.not.i528.i, label %process_tight_capabilities.exit529.i, label %.lr.ph.i525.i, !llvm.loop !12
+  br i1 %exitcond.not.i528.i, label %process_tight_capabilities.exit529.i, label %.lr.ph.i525.i, !llvm.loop !13
 
 process_tight_capabilities.exit529.i:             ; preds = %.lr.ph.i525.i, %process_tight_capabilities.exit523.i
   %527 = getelementptr inbounds nuw i8, ptr %.0, i64 40
@@ -2355,7 +2355,7 @@ vnc_client_set_pixel_format.exit.i:               ; preds = %586, %vnc_set_bytes
   %624 = add i32 %615, 4
   %625 = add nuw nsw i32 %.01.i.i, 1
   %exitcond.not.i.i40 = icmp eq i32 %625, %614
-  br i1 %exitcond.not.i.i40, label %._crit_edge.i.i, label %.lr.ph.i.i39, !llvm.loop !13
+  br i1 %exitcond.not.i.i40, label %._crit_edge.i.i, label %.lr.ph.i.i39, !llvm.loop !14
 
 ._crit_edge.i.i:                                  ; preds = %623
   store i32 %624, ptr %6, align 4
@@ -2741,7 +2741,7 @@ vnc_get_bytes_per_pixel.exit.i153.i.i:            ; preds = %791
   %850 = add i32 %849, 2
   store i32 %850, ptr %6, align 4
   %exitcond.not.i.i.i = icmp eq i32 %828, %806
-  br i1 %exitcond.not.i.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !15
 
 851:                                              ; preds = %757
   %852 = call ptr @wmem_file_scope()
@@ -2771,7 +2771,7 @@ vnc_get_bytes_per_pixel.exit.i156.i.i:            ; preds = %851
 
 ..loopexit153_crit_edge.i.i.i:                    ; preds = %.loopexit.i.i.i
   %.not.i157.i.i = icmp eq i32 %869, %856
-  br i1 %.not.i157.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph159.i.i.i, !llvm.loop !15
+  br i1 %.not.i157.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph159.i.i.i, !llvm.loop !16
 
 .lr.ph159.i.i.i:                                  ; preds = %.lr.ph162.i.i.i, %..loopexit153_crit_edge.i.i.i
   %863 = phi i32 [ %869, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph162.i.i.i ]
@@ -2964,11 +2964,11 @@ vnc_get_bytes_per_pixel.exit.i156.i.i:            ; preds = %851
   %991 = add i32 %990, 1
   store i32 %991, ptr %6, align 4
   %exitcond.not.i161.i.i = icmp eq i32 %969, %960
-  br i1 %exitcond.not.i161.i.i, label %.loopexit.i.i.i, label %.lr.ph.i160.i.i, !llvm.loop !16
+  br i1 %exitcond.not.i161.i.i, label %.loopexit.i.i.i, label %.lr.ph.i160.i.i, !llvm.loop !17
 
 .loopexit.i.i.i:                                  ; preds = %976, %964, %945, %916
   %.not147.i.i.i = icmp eq i32 %886, %859
-  br i1 %.not147.i.i.i, label %..loopexit153_crit_edge.i.i.i, label %871, !llvm.loop !17
+  br i1 %.not147.i.i.i, label %..loopexit153_crit_edge.i.i.i, label %871, !llvm.loop !18
 
 992:                                              ; preds = %757
   %993 = call ptr @wmem_file_scope()
@@ -3454,7 +3454,7 @@ vnc_get_bytes_per_pixel.exit.i170.i.i:            ; preds = %1208
   %1313 = add i32 %1312, 4
   store i32 %1313, ptr %6, align 4
   %exitcond.not.i175.i.i = icmp eq i32 %1287, %1276
-  br i1 %exitcond.not.i175.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i173.i.i, !llvm.loop !18
+  br i1 %exitcond.not.i175.i.i, label %vnc_raw_encoding.exit.i.i, label %.lr.ph.i173.i.i, !llvm.loop !19
 
 1314:                                             ; preds = %757
   %1315 = zext i16 %741 to i32
@@ -3517,7 +3517,7 @@ vnc_get_bytes_per_pixel.exit.i170.i.i:            ; preds = %1208
   store i32 %1350, ptr %6, align 4
   %1351 = add i16 %.020.i.i.i, -4
   %1352 = icmp ugt i16 %1351, 3
-  br i1 %1352, label %.lr.ph.i180.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !19
+  br i1 %1352, label %.lr.ph.i180.i.i, label %._crit_edge.loopexit.i.i.i, !llvm.loop !20
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i180.i.i
   %.pre.i181.i.i = zext nneg i16 %1351 to i32
@@ -3651,7 +3651,7 @@ vnc_get_depth.exit.i.i.i:                         ; preds = %1396
   %1433 = add i32 %1432, %1415
   store i32 %1433, ptr %6, align 4
   %exitcond.not.i189.i.i = icmp eq i32 %1419, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i189.i.i, label %vnc_raw_encoding.exit.i.i, label %1407, !llvm.loop !20
+  br i1 %exitcond.not.i189.i.i, label %vnc_raw_encoding.exit.i.i, label %1407, !llvm.loop !21
 
 1434:                                             ; preds = %757
   %1435 = load i32, ptr %6, align 4
@@ -3699,7 +3699,7 @@ vnc_get_depth.exit.i.i.i:                         ; preds = %1396
 vnc_raw_encoding.exit.i.i:                        ; preds = %1428, %.lr.ph.i173.i.i, %..loopexit153_crit_edge.i.i.i, %.lr.ph.i.i.i, %1460, %vnc_get_depth.exit.i.i.i, %1370, %1360, %._crit_edge.i.i.i, %1335, %1282, %1265, %1255, %1227, %1202, %1196, %1124, %1121, %1110, %1057, %.lr.ph162.i.i.i, %vnc_get_bytes_per_pixel.exit.i156.i.i, %.preheader.i.i.i, %810, %781, %775, %757
   %.1.i.i = phi i32 [ 0, %781 ], [ 0, %1265 ], [ 0, %757 ], [ 0, %775 ], [ 0, %810 ], [ 0, %.preheader.i.i.i ], [ 0, %vnc_get_bytes_per_pixel.exit.i156.i.i ], [ 0, %.lr.ph162.i.i.i ], [ 0, %1057 ], [ %1112, %1110 ], [ 0, %1121 ], [ %1125, %1124 ], [ 0, %1227 ], [ 0, %1255 ], [ 0, %1282 ], [ 0, %1335 ], [ 0, %._crit_edge.i.i.i ], [ 0, %1360 ], [ 0, %1370 ], [ 0, %vnc_get_depth.exit.i.i.i ], [ 0, %1460 ], [ 0, %1202 ], [ 0, %1196 ], [ 0, %.lr.ph.i.i.i ], [ 0, %..loopexit153_crit_edge.i.i.i ], [ 0, %.lr.ph.i173.i.i ], [ 0, %1428 ]
   %.not.i.i50 = icmp eq i32 %.1.i.i, 0
-  br i1 %.not.i.i50, label %716, label %vnc_server_framebuffer_update.exit.i, !llvm.loop !21
+  br i1 %.not.i.i50, label %716, label %vnc_server_framebuffer_update.exit.i, !llvm.loop !22
 
 1466:                                             ; preds = %686
   %1467 = load ptr, ptr %19, align 8
@@ -3778,7 +3778,7 @@ vnc_raw_encoding.exit.i.i:                        ; preds = %1428, %.lr.ph.i173.
   %1517 = add i32 %1516, 2
   store i32 %1517, ptr %6, align 4
   %exitcond.not.i50.i = icmp eq i32 %1503, %1484
-  br i1 %exitcond.not.i50.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.i.i48, !llvm.loop !22
+  br i1 %exitcond.not.i50.i, label %vnc_server_framebuffer_update.exit.thread.i, label %.lr.ph.i.i48, !llvm.loop !23
 
 1518:                                             ; preds = %686
   %.val.i45 = load ptr, ptr %19, align 8
@@ -3866,7 +3866,7 @@ vnc_server_framebuffer_update.exit.thread.i:      ; preds = %.lr.ph.i.i48, %724,
   %1560 = load i32, ptr %6, align 4
   %1561 = call i32 @tvb_reported_length(ptr noundef %0)
   %1562 = icmp ult i32 %1560, %1561
-  br i1 %1562, label %686, label %vnc_client_to_server.exit
+  br i1 %1562, label %686, label %vnc_client_to_server.exit, !llvm.loop !24
 
 vnc_client_to_server.exit:                        ; preds = %vnc_server_framebuffer_update.exit.thread.i, %1556, %681, %679, %677, %675, %666, %645, %638, %627, %._crit_edge.thread.i.i, %._crit_edge.i.i, %vnc_client_set_pixel_format.exit.i
   %1563 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -4397,7 +4397,7 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   store i32 %173, ptr %2, align 4
   %174 = add nsw i16 %.0319332, -1
   %.not = icmp eq i16 %174, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph333, !llvm.loop !23
+  br i1 %.not, label %.loopexit, label %.lr.ph333, !llvm.loop !25
 
 175:                                              ; preds = %8
   %176 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26)
@@ -4578,7 +4578,7 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   %300 = add i32 %299, 1
   store i32 %300, ptr %2, align 4
   %exitcond.not = icmp eq i32 %282, %276
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 301:                                              ; preds = %8
   %302 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %26)
@@ -4848,21 +4848,23 @@ attributes #7 = { noreturn }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}

@@ -249,7 +249,7 @@ switch.lookup:                                    ; preds = %.fold.split.i
   store i8 %61, ptr %62, align 1, !tbaa !18
   %63 = add nuw i64 %.186.i, 1
   %exitcond92.not.i = icmp eq i64 %63, %50
-  br i1 %exitcond92.not.i, label %._crit_edge89.i, label %58, !llvm.loop !21
+  br i1 %exitcond92.not.i, label %._crit_edge89.i, label %58, !llvm.loop !22
 
 ._crit_edge89.i:                                  ; preds = %58, %._crit_edge.thread.i
   %64 = phi i64 [ %44, %._crit_edge.thread.i ], [ %56, %58 ]
@@ -678,6 +678,7 @@ attributes #5 = { nounwind }
 !16 = !{!"", !5, i64 0, !17, i64 8, !6, i64 240}
 !17 = !{!"psa_hash_operation_s", !5, i64 0, !6, i64 8}
 !18 = !{!6, !6, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}

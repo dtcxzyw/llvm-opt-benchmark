@@ -159,7 +159,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
 
 .preheader138.backedge:                           ; preds = %.lr.ph217, %81
   %99 = icmp ult ptr %46, %13
-  br i1 %99, label %.lr.ph217, label %.critedge.thread
+  br i1 %99, label %.lr.ph217, label %.critedge.thread, !llvm.loop !21
 
 .critedge.thread.loopexit.split.loop.exit:        ; preds = %81
   %100 = getelementptr inbounds nuw i8, ptr %.3216, i64 4
@@ -187,13 +187,13 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
   %111 = sext i32 %110 to i64
   %112 = getelementptr inbounds i8, ptr %18, i64 %111
   %113 = icmp ult ptr %109, %10
-  br i1 %113, label %.lr.ph155, label %.thread125, !llvm.loop !20
+  br i1 %113, label %.lr.ph155, label %.thread125, !llvm.loop !22
 
 114:                                              ; preds = %.lr.ph155
   %115 = ptrtoint ptr %.0154 to i64
   %116 = sub i64 %115, %26
   %117 = trunc i64 %116 to i32
-  %118 = load i32, ptr %25, align 4, !tbaa !21
+  %118 = load i32, ptr %25, align 4, !tbaa !23
   %119 = icmp ugt i32 %118, %117
   br i1 %119, label %.critedge3, label %.preheader137
 
@@ -206,7 +206,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
 122:                                              ; preds = %.preheader137
   %123 = load i8, ptr %120, align 1, !tbaa !17
   %124 = icmp slt i8 %123, -64
-  br i1 %124, label %.preheader137, label %.critedge3, !llvm.loop !22
+  br i1 %124, label %.preheader137, label %.critedge3, !llvm.loop !24
 
 .thread125:                                       ; preds = %.critedge.thread, %108
   %.7.lcssa = phi ptr [ %109, %108 ], [ %.2100, %.critedge.thread ]
@@ -215,7 +215,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
   %126 = ptrtoint ptr %18 to i64
   %127 = sub i64 %125, %126
   %128 = trunc i64 %127 to i32
-  %129 = load i32, ptr %25, align 4, !tbaa !21
+  %129 = load i32, ptr %25, align 4, !tbaa !23
   %130 = icmp ugt i32 %129, %128
   br i1 %130, label %.thread134, label %.preheader
 
@@ -228,7 +228,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal15UTF8GenericS
 133:                                              ; preds = %.preheader
   %134 = load i8, ptr %131, align 1, !tbaa !17
   %135 = icmp slt i8 %134, -64
-  br i1 %135, label %.preheader, label %.thread134, !llvm.loop !23
+  br i1 %135, label %.preheader, label %.thread134, !llvm.loop !25
 
 .critedge3:                                       ; preds = %.preheader137, %122, %114
   %.10 = phi ptr [ %.7153, %114 ], [ %120, %122 ], [ %120, %.preheader137 ]
@@ -295,7 +295,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
   %.not = icmp ne i64 %23, 0
   %24 = icmp ult ptr %21, %9
   %or.cond = select i1 %.not, i1 %24, i1 false
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !24
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %20, %14
   %.1.lcssa = phi ptr [ %.041, %14 ], [ %21, %20 ]
@@ -318,7 +318,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
 33:                                               ; preds = %.lr.ph55
   %34 = getelementptr inbounds nuw i8, ptr %.354, i64 8
   %35 = icmp ult ptr %34, %12
-  br i1 %35, label %.lr.ph55, label %.critedge2, !llvm.loop !25
+  br i1 %35, label %.lr.ph55, label %.critedge2, !llvm.loop !27
 
 .critedge2:                                       ; preds = %.lr.ph, %33, %.lr.ph55, %.critedge
   %.2 = phi ptr [ %.1.lcssa, %.critedge ], [ %34, %33 ], [ %.354, %.lr.ph55 ], [ %.152, %.lr.ph ]
@@ -334,7 +334,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
 39:                                               ; preds = %.lr.ph60
   %40 = getelementptr inbounds nuw i8, ptr %.459, i64 1
   %41 = icmp ult ptr %40, %9
-  br i1 %41, label %.lr.ph60, label %.critedge4, !llvm.loop !26
+  br i1 %41, label %.lr.ph60, label %.critedge4, !llvm.loop !28
 
 .critedge4:                                       ; preds = %.lr.ph60, %39, %.critedge2
   %.4.lcssa = phi ptr [ %.2, %.critedge2 ], [ %40, %39 ], [ %.459, %.lr.ph60 ]
@@ -350,7 +350,7 @@ define noundef range(i32 0, 256) i32 @_ZN6google8protobuf8internal24UTF8GenericS
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %.4.lcssa, i64 %50
   %52 = icmp eq i32 %48, 253
-  br i1 %52, label %14, label %53, !llvm.loop !27
+  br i1 %52, label %14, label %53, !llvm.loop !29
 
 53:                                               ; preds = %.critedge4
   %54 = ptrtoint ptr %51 to i64
@@ -405,7 +405,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
   %.not.i = icmp ne i64 %21, 0
   %22 = icmp ult ptr %19, %7
   %or.cond.i = select i1 %.not.i, i1 %22, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !24
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !26
 
 .critedge.i:                                      ; preds = %18, %12
   %.1.lcssa.i = phi ptr [ %.041.i, %12 ], [ %19, %18 ]
@@ -428,7 +428,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
 31:                                               ; preds = %.lr.ph55.i
   %32 = getelementptr inbounds nuw i8, ptr %.354.i, i64 8
   %33 = icmp ult ptr %32, %10
-  br i1 %33, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !25
+  br i1 %33, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !27
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %31, %.lr.ph55.i, %.critedge.i
   %.2.i = phi ptr [ %.1.lcssa.i, %.critedge.i ], [ %.354.i, %.lr.ph55.i ], [ %32, %31 ], [ %.152.i, %.lr.ph.i ]
@@ -444,7 +444,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
 37:                                               ; preds = %.lr.ph60.i
   %38 = getelementptr inbounds nuw i8, ptr %.459.i, i64 1
   %39 = icmp ult ptr %38, %7
-  br i1 %39, label %.lr.ph60.i, label %.critedge4.i, !llvm.loop !26
+  br i1 %39, label %.lr.ph60.i, label %.critedge4.i, !llvm.loop !28
 
 .critedge4.i:                                     ; preds = %37, %.lr.ph60.i, %.critedge2.i
   %.4.lcssa.i = phi ptr [ %.2.i, %.critedge2.i ], [ %.459.i, %.lr.ph60.i ], [ %38, %37 ]
@@ -460,7 +460,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal23IsStructurallyValidUTF8
   %48 = sext i32 %47 to i64
   %49 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 %48
   %50 = icmp eq i32 %46, 253
-  br i1 %50, label %12, label %51, !llvm.loop !27
+  br i1 %50, label %12, label %51, !llvm.loop !29
 
 51:                                               ; preds = %.critedge4.i
   %52 = ptrtoint ptr %49 to i64
@@ -519,7 +519,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
   %.not.i = icmp ne i64 %23, 0
   %24 = icmp ult ptr %21, %9
   %or.cond.i = select i1 %.not.i, i1 %24, i1 false
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !24
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !26
 
 .critedge.i:                                      ; preds = %20, %14
   %.1.lcssa.i = phi ptr [ %.041.i, %14 ], [ %21, %20 ]
@@ -542,7 +542,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
 33:                                               ; preds = %.lr.ph55.i
   %34 = getelementptr inbounds nuw i8, ptr %.354.i, i64 8
   %35 = icmp ult ptr %34, %12
-  br i1 %35, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !25
+  br i1 %35, label %.lr.ph55.i, label %.critedge2.i, !llvm.loop !27
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %33, %.lr.ph55.i, %.critedge.i
   %.2.i = phi ptr [ %.1.lcssa.i, %.critedge.i ], [ %.354.i, %.lr.ph55.i ], [ %34, %33 ], [ %.152.i, %.lr.ph.i ]
@@ -558,7 +558,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
 39:                                               ; preds = %.lr.ph60.i
   %40 = getelementptr inbounds nuw i8, ptr %.459.i, i64 1
   %41 = icmp ult ptr %40, %9
-  br i1 %41, label %.lr.ph60.i, label %.critedge4.i, !llvm.loop !26
+  br i1 %41, label %.lr.ph60.i, label %.critedge4.i, !llvm.loop !28
 
 .critedge4.i:                                     ; preds = %39, %.lr.ph60.i, %.critedge2.i
   %.4.lcssa.i = phi ptr [ %.2.i, %.critedge2.i ], [ %.459.i, %.lr.ph60.i ], [ %40, %39 ]
@@ -574,7 +574,7 @@ define noundef i32 @_ZN6google8protobuf8internal24UTF8SpnStructurallyValidENS0_1
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %.4.lcssa.i, i64 %50
   %52 = icmp eq i32 %48, 253
-  br i1 %52, label %14, label %53, !llvm.loop !27
+  br i1 %52, label %14, label %53, !llvm.loop !29
 
 53:                                               ; preds = %.critedge4.i
   %54 = ptrtoint ptr %51 to i64
@@ -624,7 +624,7 @@ define noundef ptr @_ZN6google8protobuf8internal29UTF8CoerceToStructurallyValidE
   %23 = getelementptr inbounds i8, ptr %17, i64 %22
   %24 = getelementptr inbounds i8, ptr %18, i64 %22
   %25 = icmp ult ptr %23, %10
-  br i1 %25, label %16, label %.loopexit, !llvm.loop !28
+  br i1 %25, label %16, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %16, %8, %4
   %.0 = phi ptr [ %0, %4 ], [ %2, %8 ], [ %2, %16 ]
@@ -671,14 +671,16 @@ attributes #7 = { nounwind }
 !15 = !{!8, !4, i64 24}
 !16 = !{!8, !4, i64 28}
 !17 = !{!5, !5, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!8, !4, i64 4}
-!22 = distinct !{!22, !19}
-!23 = distinct !{!23, !19}
-!24 = distinct !{!24, !19}
-!25 = distinct !{!25, !19}
-!26 = distinct !{!26, !19}
-!27 = distinct !{!27, !19}
-!28 = distinct !{!28, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = !{!8, !4, i64 4}
+!24 = distinct !{!24, !19, !20}
+!25 = distinct !{!25, !19, !20}
+!26 = distinct !{!26, !19, !20}
+!27 = distinct !{!27, !19, !20}
+!28 = distinct !{!28, !19, !20}
+!29 = distinct !{!29, !19, !20}
+!30 = distinct !{!30, !19, !20}

@@ -1883,7 +1883,7 @@ dissect_zbncp_body.exit.i:                        ; preds = %96, %92, %75
 102:                                              ; preds = %98
   %103 = tail call i64 @strlen(ptr noundef %99) #6
   %104 = add i64 %103, 1
-  %105 = tail call ptr @__memcpy_chk(ptr noundef nonnull %101, ptr noundef %99, i64 noundef %104, i64 noundef 64) #7, !alias.scope !8
+  %105 = tail call ptr @__memcpy_chk(ptr noundef nonnull %101, ptr noundef %99, i64 noundef %104, i64 noundef 64) #7, !alias.scope !9
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -2335,7 +2335,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %65 = add i32 %57, 5
   %66 = add nuw nsw i32 %.018492059, 1
   %exitcond2107.not = icmp eq i32 %66, %52
-  br i1 %exitcond2107.not, label %.loopexit, label %56, !llvm.loop !12
+  br i1 %exitcond2107.not, label %.loopexit, label %56, !llvm.loop !13
 
 67:                                               ; preds = %9
   %68 = icmp eq i8 %4, 0
@@ -2959,7 +2959,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %418 = add i32 %414, %416
   %419 = add nuw nsw i32 %.018502054, 1
   %exitcond2106.not = icmp eq i32 %419, %400
-  br i1 %exitcond2106.not, label %..loopexit1952_crit_edge, label %.lr.ph2055, !llvm.loop !13
+  br i1 %exitcond2106.not, label %..loopexit1952_crit_edge, label %.lr.ph2055, !llvm.loop !14
 
 420:                                              ; preds = %9
   switch i8 %4, label %.loopexit1952 [
@@ -3283,7 +3283,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %619 = add i32 %616, 2
   %620 = add nuw nsw i32 %.018512046, 1
   %exitcond2104.not = icmp eq i32 %620, %611
-  br i1 %exitcond2104.not, label %.loopexit1954, label %615, !llvm.loop !14
+  br i1 %exitcond2104.not, label %.loopexit1954, label %615, !llvm.loop !15
 
 .loopexit1954:                                    ; preds = %615
   store i32 %619, ptr %7, align 4
@@ -3309,7 +3309,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %632 = add i32 %629, 2
   %633 = add nuw nsw i32 %.12050, 1
   %exitcond2105.not = icmp eq i32 %633, %624
-  br i1 %exitcond2105.not, label %.loopexit1953, label %628, !llvm.loop !15
+  br i1 %exitcond2105.not, label %.loopexit1953, label %628, !llvm.loop !16
 
 634:                                              ; preds = %9
   %635 = icmp eq i8 %4, 0
@@ -3445,7 +3445,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %722 = add i32 %719, 2
   %723 = add nuw nsw i32 %.018522042, 1
   %exitcond2103.not = icmp eq i32 %723, %714
-  br i1 %exitcond2103.not, label %.loopexit1955, label %718, !llvm.loop !16
+  br i1 %exitcond2103.not, label %.loopexit1955, label %718, !llvm.loop !17
 
 724:                                              ; preds = %9
   switch i8 %4, label %.loopexit1952 [
@@ -3508,7 +3508,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %764 = add i32 %761, 2
   %765 = add nuw nsw i32 %.018532038, 1
   %exitcond2102.not = icmp eq i32 %765, %756
-  br i1 %exitcond2102.not, label %.loopexit1956, label %760, !llvm.loop !17
+  br i1 %exitcond2102.not, label %.loopexit1956, label %760, !llvm.loop !18
 
 766:                                              ; preds = %9
   switch i8 %4, label %.loopexit1952 [
@@ -3638,7 +3638,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %854 = add i32 %851, 2
   %855 = add nuw nsw i32 %.018542030, 1
   %exitcond2100.not = icmp eq i32 %855, %846
-  br i1 %exitcond2100.not, label %.loopexit1958, label %850, !llvm.loop !18
+  br i1 %exitcond2100.not, label %.loopexit1958, label %850, !llvm.loop !19
 
 .loopexit1958:                                    ; preds = %850, %824
   %856 = phi i32 [ %844, %824 ], [ %854, %850 ]
@@ -3660,7 +3660,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %866 = add i32 %863, 2
   %867 = add nuw nsw i32 %.118552034, 1
   %exitcond2101.not = icmp eq i32 %867, %858
-  br i1 %exitcond2101.not, label %.loopexit1957, label %862, !llvm.loop !19
+  br i1 %exitcond2101.not, label %.loopexit1957, label %862, !llvm.loop !20
 
 .loopexit1957:                                    ; preds = %862, %.loopexit1958
   %868 = phi i32 [ %856, %.loopexit1958 ], [ %866, %862 ]
@@ -3705,7 +3705,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %890 = add i32 %887, 1
   %891 = add nuw nsw i32 %.018562026, 1
   %exitcond2099.not = icmp eq i32 %891, %883
-  br i1 %exitcond2099.not, label %.loopexit1959, label %886, !llvm.loop !20
+  br i1 %exitcond2099.not, label %.loopexit1959, label %886, !llvm.loop !21
 
 .loopexit1959:                                    ; preds = %886, %877
   %892 = phi i32 [ %881, %877 ], [ %890, %886 ]
@@ -3755,7 +3755,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %921 = add i32 %918, 2
   %922 = add nuw nsw i32 %.018582018, 1
   %exitcond2097.not = icmp eq i32 %922, %913
-  br i1 %exitcond2097.not, label %.loopexit1961, label %917, !llvm.loop !21
+  br i1 %exitcond2097.not, label %.loopexit1961, label %917, !llvm.loop !22
 
 .loopexit1961:                                    ; preds = %917
   store i32 %921, ptr %7, align 4
@@ -3781,7 +3781,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %934 = add i32 %931, 2
   %935 = add nuw nsw i32 %.118592022, 1
   %exitcond2098.not = icmp eq i32 %935, %926
-  br i1 %exitcond2098.not, label %.loopexit1960, label %930, !llvm.loop !22
+  br i1 %exitcond2098.not, label %.loopexit1960, label %930, !llvm.loop !23
 
 936:                                              ; preds = %896
   %937 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %3)
@@ -3805,7 +3805,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %949 = add i32 %946, 1
   %950 = add nuw nsw i32 %.018612014, 1
   %exitcond2096.not = icmp eq i32 %950, %942
-  br i1 %exitcond2096.not, label %.loopexit1962, label %945, !llvm.loop !23
+  br i1 %exitcond2096.not, label %.loopexit1962, label %945, !llvm.loop !24
 
 .loopexit1962:                                    ; preds = %945, %936
   %951 = phi i32 [ %940, %936 ], [ %949, %945 ]
@@ -3963,7 +3963,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1060 = add i32 %1052, 5
   %1061 = add nuw nsw i32 %.018622010, 1
   %exitcond2095.not = icmp eq i32 %1061, %1047
-  br i1 %exitcond2095.not, label %.loopexit1963, label %1051, !llvm.loop !24
+  br i1 %exitcond2095.not, label %.loopexit1963, label %1051, !llvm.loop !25
 
 .loopexit1963:                                    ; preds = %1051, %1038
   %1062 = phi i32 [ %1045, %1038 ], [ %1060, %1051 ]
@@ -4397,7 +4397,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1384 = add i32 %1381, 4
   %1385 = add nuw nsw i32 %.018642006, 1
   %exitcond2094.not = icmp eq i32 %1385, %1376
-  br i1 %exitcond2094.not, label %.loopexit1964, label %1380, !llvm.loop !25
+  br i1 %exitcond2094.not, label %.loopexit1964, label %1380, !llvm.loop !26
 
 .loopexit1964:                                    ; preds = %1380, %1370
   %1386 = phi i32 [ %1374, %1370 ], [ %1384, %1380 ]
@@ -4453,7 +4453,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1427 = add i32 %1413, 5
   %1428 = add nuw nsw i32 %.018652002, 1
   %exitcond2093.not = icmp eq i32 %1428, %1408
-  br i1 %exitcond2093.not, label %.loopexit1965, label %1412, !llvm.loop !26
+  br i1 %exitcond2093.not, label %.loopexit1965, label %1412, !llvm.loop !27
 
 .loopexit1965:                                    ; preds = %1412, %1393
   %1429 = phi i32 [ %1406, %1393 ], [ %1427, %1412 ]
@@ -4506,7 +4506,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1464 = add i32 %1461, 8
   %1465 = add nuw nsw i32 %.018671998, 1
   %exitcond2092.not = icmp eq i32 %1465, %1456
-  br i1 %exitcond2092.not, label %.loopexit1966, label %1460, !llvm.loop !27
+  br i1 %exitcond2092.not, label %.loopexit1966, label %1460, !llvm.loop !28
 
 1466:                                             ; preds = %9
   switch i8 %4, label %.loopexit1952 [
@@ -5003,7 +5003,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1812 = add i32 %1804, 5
   %1813 = add nuw nsw i32 %.018711994, 1
   %exitcond2091.not = icmp eq i32 %1813, %1799
-  br i1 %exitcond2091.not, label %.loopexit1967, label %1803, !llvm.loop !28
+  br i1 %exitcond2091.not, label %.loopexit1967, label %1803, !llvm.loop !29
 
 .loopexit1967:                                    ; preds = %1803, %1793
   %1814 = phi i32 [ %1797, %1793 ], [ %1812, %1803 ]
@@ -5056,7 +5056,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1847 = add i32 %1839, 5
   %1848 = add nuw nsw i32 %.018721990, 1
   %exitcond2090.not = icmp eq i32 %1848, %1834
-  br i1 %exitcond2090.not, label %.loopexit1968, label %1838, !llvm.loop !29
+  br i1 %exitcond2090.not, label %.loopexit1968, label %1838, !llvm.loop !30
 
 .loopexit1968:                                    ; preds = %1838, %1828
   %1849 = phi i32 [ %1832, %1828 ], [ %1847, %1838 ]
@@ -5108,7 +5108,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1886 = add i32 %1859, 16
   %1887 = add nuw nsw i32 %.018691985, 1
   %exitcond2089.not = icmp eq i32 %1887, %1858
-  br i1 %exitcond2089.not, label %..loopexit1969_crit_edge, label %.lr.ph1986, !llvm.loop !30
+  br i1 %exitcond2089.not, label %..loopexit1969_crit_edge, label %.lr.ph1986, !llvm.loop !31
 
 1888:                                             ; preds = %9
   switch i8 %4, label %.loopexit1952 [
@@ -5150,7 +5150,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %1914 = add i32 %1906, 5
   %1915 = add nuw nsw i32 %.018661981, 1
   %exitcond2088.not = icmp eq i32 %1915, %1901
-  br i1 %exitcond2088.not, label %.loopexit1970, label %1905, !llvm.loop !31
+  br i1 %exitcond2088.not, label %.loopexit1970, label %1905, !llvm.loop !32
 
 .loopexit1970:                                    ; preds = %1905, %1889
   %1916 = phi i32 [ %1899, %1889 ], [ %1914, %1905 ]
@@ -5588,7 +5588,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %2220 = add i32 %2217, 2
   %2221 = add nuw nsw i32 %.018601976, 1
   %exitcond2087.not = icmp eq i32 %2221, %2216
-  br i1 %exitcond2087.not, label %..loopexit1971_crit_edge, label %.lr.ph1977, !llvm.loop !32
+  br i1 %exitcond2087.not, label %..loopexit1971_crit_edge, label %.lr.ph1977, !llvm.loop !33
 
 2222:                                             ; preds = %9
   %2223 = icmp eq i8 %4, 2
@@ -5612,7 +5612,7 @@ define internal fastcc void @dissect_zbncp_high_level_body(ptr noundef %0, ptr n
   %2233 = add i32 %2230, 2
   %2234 = add nuw nsw i32 %.018571973, 1
   %exitcond.not = icmp eq i32 %2234, %2229
-  br i1 %exitcond.not, label %..loopexit1972_crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %exitcond.not, label %..loopexit1972_crit_edge, label %.lr.ph, !llvm.loop !34
 
 2235:                                             ; preds = %9
   %2236 = icmp eq i8 %4, 2
@@ -6923,31 +6923,32 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
-!10 = distinct !{!10, !"memcpy.inline"}
-!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}

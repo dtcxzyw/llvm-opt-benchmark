@@ -455,7 +455,7 @@ sub_155:                                          ; preds = %.tail.thread, %.thr
   br label %138
 
 138:                                              ; preds = %136, %134
-  %139 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !6, !noundef !7
+  %139 = load i8, ptr getelementptr inbounds nuw (i8, ptr @log_opts, i64 8), align 8, !range !7, !noundef !8
   %140 = trunc nuw i8 %139 to i1
   br i1 %140, label %141, label %142
 
@@ -860,7 +860,7 @@ declare void @check_ok() local_unnamed_addr #2
 define dso_local void @get_sock_dir(ptr noundef captures(address) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
-  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 1), align 1, !range !6, !noundef !7
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 1), align 1, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = icmp ne ptr %0, @new_cluster
   %or.cond.not = and i1 %6, %5
@@ -978,7 +978,8 @@ attributes #14 = { cold noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}

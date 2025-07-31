@@ -1221,7 +1221,7 @@ define void @_ZN5faiss20IndexScalarQuantizerC2EiNS_15ScalarQuantizer13QuantizerT
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i64, ptr %14, align 8, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %15, ptr %16, align 8, !tbaa !79
+  store i64 %15, ptr %16, align 8, !tbaa !80
   ret void
 
 17:                                               ; preds = %4
@@ -1297,7 +1297,7 @@ _ZN5faiss20IndexScalarQuantizerC2EiNS_15ScalarQuantizer13QuantizerTypeENS_10Metr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load i64, ptr %6, align 8, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %7, ptr %8, align 8, !tbaa !79
+  store i64 %7, ptr %8, align 8, !tbaa !80
   ret void
 }
 
@@ -1363,7 +1363,7 @@ define internal void @_ZNK5faiss20IndexScalarQuantizer6searchElPKflPfPlPKNS_16Se
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 0, ptr %20, align 8, !tbaa !84
+  store i64 0, ptr %20, align 8, !tbaa !85
   %21 = load i64, ptr %4, align 8, !tbaa !24
   %22 = icmp sgt i64 %21, 0
   %.pre = load i32, ptr %0, align 4, !tbaa !50
@@ -1417,7 +1417,7 @@ define internal void @_ZNK5faiss20IndexScalarQuantizer6searchElPKflPfPlPKNS_16Se
   store i64 -1, ptr %42, align 8, !tbaa !24
   %43 = add nuw i64 %.045.i.i, 1
   %exitcond51.not.i.i = icmp eq i64 %43, %33
-  br i1 %exitcond51.not.i.i, label %_ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i, !llvm.loop !86
+  br i1 %exitcond51.not.i.i, label %_ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i, !llvm.loop !87
 
 44:                                               ; preds = %31
   br i1 %.not59, label %_ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i30
@@ -1430,7 +1430,7 @@ define internal void @_ZNK5faiss20IndexScalarQuantizer6searchElPKflPfPlPKNS_16Se
   store i64 -1, ptr %46, align 8, !tbaa !24
   %47 = add nuw i64 %.045.i.i31, 1
   %exitcond51.not.i.i32 = icmp eq i64 %47, %33
-  br i1 %exitcond51.not.i.i32, label %_ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i30, !llvm.loop !87
+  br i1 %exitcond51.not.i.i32, label %_ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit, label %.lr.ph46.i.i30, !llvm.loop !88
 
 _ZN5faiss15maxheap_heapifyIfEEvmPT_PlPKS1_PKlm.exit: ; preds = %.lr.ph46.i.i30, %.lr.ph46.i.i, %44, %40
   %48 = load ptr, ptr %8, align 8, !tbaa !25
@@ -1544,7 +1544,7 @@ _ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i:        ; preds = %102
   %110 = shl i64 %.1.i.i.i, 1
   %111 = or disjoint i64 %110, 1
   %112 = icmp ugt i64 %110, %73
-  br i1 %112, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !88
+  br i1 %112, label %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !89
 
 _ZN5faiss4CMaxIflE4cmp2Effll.exit60.thread.loopexit.i.i.i: ; preds = %107, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i, %102, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i
   %.0.lcssa.ph.i.i.i = phi i64 [ %.1.i.i.i, %107 ], [ %.062.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit60.i.i.i ], [ %.062.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit61.i.i.i ], [ %.062.i.i.i, %_ZN5faiss4CMaxIflE4cmp2Effll.exit.thread.i.i.i ], [ %.062.i.i.i, %102 ]
@@ -1571,7 +1571,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i: ; preds = %_ZN5fa
   %spec.select.i.i = add i64 %.03740.i.i, %121
   %122 = add nuw i64 %.041.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %122, %66
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %70, !llvm.loop !89
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %70, !llvm.loop !90
 
 ._crit_edge.i.i:                                  ; preds = %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i, %67
   %.037.lcssa.i.i = phi i64 [ 0, %67 ], [ %spec.select.i.i, %_ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i ]
@@ -1595,7 +1595,7 @@ _ZN5faiss8heap_popINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i: ; preds = %_ZN5fa
   store i64 -1, ptr %132, align 8, !tbaa !24
   %133 = add nuw i64 %.242.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %133, %66
-  br i1 %exitcond47.not.i.i, label %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit, label %.lr.ph44.i.i, !llvm.loop !90
+  br i1 %exitcond47.not.i.i, label %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit, label %.lr.ph44.i.i, !llvm.loop !91
 
 134:                                              ; preds = %63
   br i1 %.not46.i.i, label %._crit_edge.i.i49, label %.lr.ph.i.i34
@@ -1681,7 +1681,7 @@ _ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i:        ; preds = %169
   %177 = shl i64 %.1.i.i.i41, 1
   %178 = or disjoint i64 %177, 1
   %179 = icmp ugt i64 %177, %140
-  br i1 %179, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %.lr.ph.i.i.i37, !llvm.loop !91
+  br i1 %179, label %_ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i.i, label %.lr.ph.i.i.i37, !llvm.loop !92
 
 _ZN5faiss4CMinIflE4cmp2Effll.exit60.thread.loopexit.i.i.i: ; preds = %174, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i, %169, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i.i
   %.0.lcssa.ph.i.i.i42 = phi i64 [ %.1.i.i.i41, %174 ], [ %.062.i.i.i38, %_ZN5faiss4CMinIflE4cmp2Effll.exit60.i.i.i ], [ %.062.i.i.i38, %_ZN5faiss4CMinIflE4cmp2Effll.exit61.i.i.i ], [ %.062.i.i.i38, %_ZN5faiss4CMinIflE4cmp2Effll.exit.thread.i.i.i ], [ %.062.i.i.i38, %169 ]
@@ -1708,7 +1708,7 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i: ; preds = %_ZN5fa
   %spec.select.i.i47 = add i64 %.03740.i.i36, %188
   %189 = add nuw i64 %.041.i.i35, 1
   %exitcond.not.i.i48 = icmp eq i64 %189, %66
-  br i1 %exitcond.not.i.i48, label %._crit_edge.i.i49, label %137, !llvm.loop !92
+  br i1 %exitcond.not.i.i48, label %._crit_edge.i.i49, label %137, !llvm.loop !93
 
 ._crit_edge.i.i49:                                ; preds = %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i, %134
   %.037.lcssa.i.i50 = phi i64 [ 0, %134 ], [ %spec.select.i.i47, %_ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i ]
@@ -1732,13 +1732,13 @@ _ZN5faiss8heap_popINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIE.exit.i.i: ; preds = %_ZN5fa
   store i64 -1, ptr %199, align 8, !tbaa !24
   %200 = add nuw i64 %.242.i.i52, 1
   %exitcond47.not.i.i53 = icmp eq i64 %200, %66
-  br i1 %exitcond47.not.i.i53, label %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit, label %.lr.ph44.i.i51, !llvm.loop !93
+  br i1 %exitcond47.not.i.i53, label %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit, label %.lr.ph44.i.i51, !llvm.loop !94
 
 _ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit:       ; preds = %.lr.ph44.i.i51, %.lr.ph44.i.i, %._crit_edge.i.i49, %._crit_edge.i.i
   %201 = add nsw i64 %.063, 1
   %202 = load i64, ptr %11, align 8, !tbaa !24
   %.not.not = icmp slt i64 %.063, %202
-  br i1 %.not.not, label %31, label %._crit_edge
+  br i1 %.not.not, label %31, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %_ZN5faiss15maxheap_reorderIfEEmmPT_Pl.exit, %23
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -1792,7 +1792,7 @@ declare void @__kmpc_for_static_fini(ptr, i32) local_unnamed_addr #14
 declare void @__kmpc_barrier(ptr, i32) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
-declare !callback !94 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
+declare !callback !96 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
@@ -1829,7 +1829,7 @@ define void @_ZN5faiss23IndexIVFScalarQuantizerC2EPNS_5IndexEmmNS_15ScalarQuanti
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load ptr, ptr %16, align 8, !tbaa !74
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %13, ptr %18, align 8, !tbaa !96
+  store i64 %13, ptr %18, align 8, !tbaa !98
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %19, align 1, !tbaa !17
   ret void
@@ -2019,7 +2019,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %71 = phi i64 [ %.pre43, %._crit_edge42 ], [ %37, %36 ]
   %72 = add nsw i64 %.038, 1
   %.not.not = icmp slt i64 %.038, %71
-  br i1 %.not.not, label %36, label %._crit_edge
+  br i1 %.not.not, label %36, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %70, %28
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre44)
@@ -2205,13 +2205,13 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   store float %69, ptr %67, align 4, !tbaa !76
   %70 = add nuw i64 %.036, 1
   %exitcond.not = icmp eq i64 %70, %64
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !98
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !101
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %55
   %71 = add nsw i64 %.02738, 1
   %72 = load i64, ptr %10, align 8, !tbaa !24
   %.not.not = icmp slt i64 %.02738, %72
-  br i1 %.not.not, label %35, label %._crit_edge
+  br i1 %.not.not, label %35, label %._crit_edge, !llvm.loop !102
 
 ._crit_edge:                                      ; preds = %.loopexit, %27
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %.pre)
@@ -2446,7 +2446,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
   %96 = add nuw i64 %.054, 1
   %97 = load i64, ptr %3, align 8, !tbaa !24
   %98 = icmp ult i64 %96, %97
-  br i1 %98, label %50, label %._crit_edge, !llvm.loop !99
+  br i1 %98, label %50, label %._crit_edge, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.invoke, %75, %80, %85
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -2589,26 +2589,30 @@ attributes #26 = { noreturn nounwind }
 !74 = !{!54, !59, i64 144}
 !75 = !{!18, !19, i64 8}
 !76 = !{!23, !23, i64 0}
-!77 = distinct !{!77, !78}
+!77 = distinct !{!77, !78, !79}
 !78 = !{!"llvm.loop.mustprogress"}
-!79 = !{!80, !20, i64 40}
-!80 = !{!"_ZTSN5faiss14IndexFlatCodesE", !18, i64 0, !20, i64 40, !81, i64 48}
-!81 = !{!"_ZTSSt6vectorIhSaIhEE", !82, i64 0}
-!82 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !83, i64 0}
-!83 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !14, i64 0}
-!84 = !{!85, !20, i64 8}
-!85 = !{!"_ZTSN5faiss19InvertedListScannerE", !20, i64 8, !21, i64 16, !21, i64 17, !30, i64 24, !20, i64 32}
-!86 = distinct !{!86, !78}
-!87 = distinct !{!87, !78}
-!88 = distinct !{!88, !78}
-!89 = distinct !{!89, !78}
-!90 = distinct !{!90, !78}
-!91 = distinct !{!91, !78}
-!92 = distinct !{!92, !78}
-!93 = distinct !{!93, !78}
-!94 = !{!95}
-!95 = !{i64 2, i64 -1, i64 -1, i1 true}
-!96 = !{!97, !20, i64 16}
-!97 = !{!"_ZTSN5faiss13InvertedListsE", !20, i64 8, !20, i64 16, !21, i64 24}
-!98 = distinct !{!98, !78}
-!99 = distinct !{!99, !78}
+!79 = !{!"llvm.loop.estimated_trip_count"}
+!80 = !{!81, !20, i64 40}
+!81 = !{!"_ZTSN5faiss14IndexFlatCodesE", !18, i64 0, !20, i64 40, !82, i64 48}
+!82 = !{!"_ZTSSt6vectorIhSaIhEE", !83, i64 0}
+!83 = !{!"_ZTSSt12_Vector_baseIhSaIhEE", !84, i64 0}
+!84 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE12_Vector_implE", !14, i64 0}
+!85 = !{!86, !20, i64 8}
+!86 = !{!"_ZTSN5faiss19InvertedListScannerE", !20, i64 8, !21, i64 16, !21, i64 17, !30, i64 24, !20, i64 32}
+!87 = distinct !{!87, !78, !79}
+!88 = distinct !{!88, !78, !79}
+!89 = distinct !{!89, !78, !79}
+!90 = distinct !{!90, !78, !79}
+!91 = distinct !{!91, !78, !79}
+!92 = distinct !{!92, !78, !79}
+!93 = distinct !{!93, !78, !79}
+!94 = distinct !{!94, !78, !79}
+!95 = distinct !{!95, !79}
+!96 = !{!97}
+!97 = !{i64 2, i64 -1, i64 -1, i1 true}
+!98 = !{!99, !20, i64 16}
+!99 = !{!"_ZTSN5faiss13InvertedListsE", !20, i64 8, !20, i64 16, !21, i64 24}
+!100 = distinct !{!100, !79}
+!101 = distinct !{!101, !78, !79}
+!102 = distinct !{!102, !79}
+!103 = distinct !{!103, !78, !79}

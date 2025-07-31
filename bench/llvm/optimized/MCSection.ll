@@ -179,14 +179,14 @@ _ZN4llvm11SmallVectorISt4pairIjNS_9MCSection8FragListEELj1EED2Ev.exit: ; preds =
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph21
   %14 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %.not = icmp eq ptr %14, %7
-  br i1 %.not, label %._crit_edge22.loopexit, label %.lr.ph21
+  br i1 %.not, label %._crit_edge22.loopexit, label %.lr.ph21, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %.lr.ph21, %.lr.ph
   %.01417 = phi ptr [ %15, %.lr.ph ], [ %13, %.lr.ph21 ]
-  %15 = load ptr, ptr %.01417, align 8, !tbaa !56
+  %15 = load ptr, ptr %.01417, align 8, !tbaa !58
   tail call void @_ZN4llvm10MCFragment7destroyEv(ptr noundef nonnull align 8 dereferenceable(30) %.01417) #7
   %.not15 = icmp eq ptr %15, null
-  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 }
 
 declare void @_ZN4llvm10MCFragment7destroyEv(ptr noundef nonnull align 8 dereferenceable(30)) local_unnamed_addr #2
@@ -326,6 +326,8 @@ attributes #8 = { noreturn nounwind }
 !53 = !{!"_ZTSN4llvm8MCSymbolE", !18, i64 0, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 8, !13, i64 9, !13, i64 9, !13, i64 9, !13, i64 9, !13, i64 12, !13, i64 16, !10, i64 24}
 !54 = !{!18, !18, i64 0}
 !55 = !{!44, !18, i64 0}
-!56 = !{!17, !18, i64 0}
-!57 = distinct !{!57, !58}
-!58 = !{!"llvm.loop.mustprogress"}
+!56 = distinct !{!56, !57}
+!57 = !{!"llvm.loop.estimated_trip_count"}
+!58 = !{!17, !18, i64 0}
+!59 = distinct !{!59, !60, !57}
+!60 = !{!"llvm.loop.mustprogress"}

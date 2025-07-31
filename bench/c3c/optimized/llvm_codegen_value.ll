@@ -114,7 +114,7 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
 
 .backedge148:                                     ; preds = %40, %34
   %.0.i.in.be = phi ptr [ %39, %34 ], [ %41, %40 ]
-  br label %30
+  br label %30, !llvm.loop !7
 
 42:                                               ; preds = %30
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.9, i32 noundef 2984) #4
@@ -150,7 +150,7 @@ define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(no
 
 .backedge145:                                     ; preds = %55, %49
   %.0.i88.in.be = phi ptr [ %54, %49 ], [ %56, %55 ]
-  br label %45
+  br label %45, !llvm.loop !7
 
 57:                                               ; preds = %45
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.9, i32 noundef 2984) #4
@@ -286,7 +286,7 @@ llvm_value_fold_optional.exit:                    ; preds = %79, %81
 133:                                              ; preds = %130, %124
   %.1.in.i93 = phi ptr [ %129, %124 ], [ %131, %130 ]
   %.1.i94 = load ptr, ptr %.1.in.i93, align 8
-  br label %.preheader
+  br label %.preheader, !llvm.loop !7
 
 134:                                              ; preds = %.preheader
   %135 = getelementptr inbounds nuw i8, ptr %122, i64 56
@@ -318,7 +318,7 @@ llvm_value_fold_optional.exit:                    ; preds = %79, %81
 
 .backedge:                                        ; preds = %146, %140
   %.0.i96.in.be = phi ptr [ %145, %140 ], [ %147, %146 ]
-  br label %136
+  br label %136, !llvm.loop !7
 
 148:                                              ; preds = %136
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.9, i32 noundef 2984) #4
@@ -397,7 +397,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !9
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.8, i32 noundef 29) #4
@@ -936,3 +936,6 @@ attributes #4 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}

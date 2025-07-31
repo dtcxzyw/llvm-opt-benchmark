@@ -706,10 +706,10 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr noundef writeonly c
   %10 = lshr i32 %7, %9
   %11 = trunc i32 %10 to i8
   %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.015
-  store i8 %11, ptr %12, align 1, !tbaa !12
+  store i8 %11, ptr %12, align 1, !tbaa !13
   %13 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %13, 8
-  br i1 %exitcond.not, label %14, label %4, !llvm.loop !13
+  br i1 %exitcond.not, label %14, label %4, !llvm.loop !14
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %0, align 4, !tbaa !6
@@ -734,10 +734,10 @@ define noundef i32 @rb_Digest_MD5_Finish(ptr noundef %0, ptr noundef writeonly c
   %28 = lshr i32 %25, %27
   %29 = trunc i32 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 %.116
-  store i8 %29, ptr %30, align 1, !tbaa !12
+  store i8 %29, ptr %30, align 1, !tbaa !13
   %31 = add nuw nsw i64 %.116, 1
   %exitcond17.not = icmp eq i64 %31, 16
-  br i1 %exitcond17.not, label %32, label %22, !llvm.loop !14
+  br i1 %exitcond17.not, label %32, label %22, !llvm.loop !15
 
 32:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
@@ -771,8 +771,9 @@ attributes #7 = { nounwind }
 !7 = !{!"int", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!8, !8, i64 0}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}

@@ -69,10 +69,10 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 ._crit_edge:                                      ; preds = %31, %26
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = tail call i32 @cs_usolve(ptr noundef %39, ptr noundef nonnull %23) #2
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !25
+  %42 = load ptr, ptr %41, align 8, !tbaa !26
   %43 = tail call i32 @cs_ipvec(ptr noundef %42, ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef %11) #2
   br label %78
 
@@ -101,10 +101,10 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !25
+  %60 = load ptr, ptr %59, align 8, !tbaa !26
   %61 = tail call i32 @cs_pvec(ptr noundef %60, ptr noundef nonnull %2, ptr noundef nonnull %54, i32 noundef %13) #2
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !24
+  %63 = load ptr, ptr %62, align 8, !tbaa !25
   %64 = tail call i32 @cs_utsolve(ptr noundef %63, ptr noundef nonnull %54) #2
   %65 = icmp sgt i32 %13, 0
   br i1 %65, label %.lr.ph95, label %._crit_edge96
@@ -124,7 +124,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   %73 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %74 = tail call i32 @cs_happly(ptr noundef %69, i32 noundef %73, double noundef %72, ptr noundef nonnull %54) #2
   %75 = icmp samesign ugt i64 %indvars.iv98, 1
-  br i1 %75, label %68, label %._crit_edge96, !llvm.loop !26
+  br i1 %75, label %68, label %._crit_edge96, !llvm.loop !27
 
 ._crit_edge96:                                    ; preds = %68, %58
   %76 = load ptr, ptr %46, align 8, !tbaa !16
@@ -202,8 +202,9 @@ attributes #2 = { nounwind }
 !19 = !{!"p1 _ZTS9cs_sparse", !9, i64 0}
 !20 = !{!18, !10, i64 24}
 !21 = !{!15, !15, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!18, !19, i64 8}
-!25 = !{!14, !8, i64 8}
-!26 = distinct !{!26, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!18, !19, i64 8}
+!26 = !{!14, !8, i64 8}
+!27 = distinct !{!27, !23, !24}

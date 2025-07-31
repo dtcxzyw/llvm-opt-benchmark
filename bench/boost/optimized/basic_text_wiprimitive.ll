@@ -646,7 +646,7 @@ _ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_b
   %57 = getelementptr inbounds nuw i8, ptr %.0921, i64 1
   store i8 %56, ptr %.0921, align 1, !tbaa !27
   %.not = icmp eq i64 %31, 0
-  br i1 %.not, label %.preheader, label %28, !llvm.loop !72
+  br i1 %.not, label %.preheader, label %28, !llvm.loop !73
 
 .preheader:                                       ; preds = %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit, %68
   %58 = load ptr, ptr %0, align 8, !tbaa !3
@@ -665,7 +665,7 @@ _ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_b
 68:                                               ; preds = %.preheader
   %69 = call i32 @iswspace(i32 noundef %59) #14
   %.not20 = icmp eq i32 %69, 0
-  br i1 %.not20, label %.preheader, label %select.unfold
+  br i1 %.not20, label %.preheader, label %select.unfold, !llvm.loop !74
 
 select.unfold:                                    ; preds = %68, %.preheader
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #14
@@ -795,7 +795,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost9iterators18transform_iterator
   %11 = tail call noundef i32 @_ZNSt13basic_istreamIwSt11char_traitsIwEE4peekEv(ptr noundef nonnull align 8 dereferenceable(16) %.pre.i.i.i.i)
   %12 = tail call i32 @iswspace(i32 noundef %11) #14
   %.not.i.i.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !73
+  br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !75
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.preheader.i.i.i.i
   store i8 1, ptr %3, align 1, !tbaa !45
@@ -818,7 +818,7 @@ _ZNK5boost9iterators6detail20iterator_facade_baseINS_7archive9iterators15filter_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 1, ptr %21, align 8, !tbaa !74
+  store i32 1, ptr %21, align 8, !tbaa !76
   invoke void @_ZN5boost13serialization15throw_exceptionINS_7archive9iterators18dataflow_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(12) %2) #15
           to label %22 unwind label %23
 
@@ -843,8 +843,8 @@ define linkonce_odr hidden void @_ZN5boost13serialization15throw_exceptionINS_7a
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7archive9iterators18dataflow_exceptionE, i64 16), ptr %2, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8, !tbaa !74
-  store i32 %5, ptr %3, align 8, !tbaa !74
+  %5 = load i32, ptr %4, align 8, !tbaa !76
+  store i32 %5, ptr %3, align 8, !tbaa !76
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost7archive9iterators18dataflow_exceptionE, ptr nonnull @_ZNSt9exceptionD2Ev) #15
   unreachable
 }
@@ -862,7 +862,7 @@ define linkonce_odr hidden void @_ZN5boost7archive9iterators18dataflow_exception
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK5boost7archive9iterators18dataflow_exception4whatEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !74
+  %3 = load i32, ptr %2, align 8, !tbaa !76
   %4 = icmp ult i32 %3, 5
   br i1 %4, label %switch.lookup, label %6
 
@@ -979,11 +979,13 @@ attributes #18 = { noreturn nounwind }
 !67 = distinct !{!67, !68, !"_ZN5boost9iteratorsppINS0_18transform_iteratorINS_7archive9iterators6detail8to_6_bitIjEENS4_17remove_whitespaceINS4_16istream_iteratorIwEEEENS_11use_defaultESC_EEjNS0_25single_pass_traversal_tagEjlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISH_SI_SK_SJ_T3_EEi: argument 0"}
 !68 = distinct !{!68, !"_ZN5boost9iteratorsppINS0_18transform_iteratorINS_7archive9iterators6detail8to_6_bitIjEENS4_17remove_whitespaceINS4_16istream_iteratorIwEEEENS_11use_defaultESC_EEjNS0_25single_pass_traversal_tagEjlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISH_SI_SK_SJ_T3_EEi"}
 !69 = !{!51, !16, i64 44}
-!70 = distinct !{!70, !71}
+!70 = distinct !{!70, !71, !72}
 !71 = !{!"llvm.loop.mustprogress"}
-!72 = distinct !{!72, !71}
-!73 = distinct !{!73, !71}
-!74 = !{!75, !77, i64 8}
-!75 = !{!"_ZTSN5boost7archive9iterators18dataflow_exceptionE", !76, i64 0, !77, i64 8}
-!76 = !{!"_ZTSSt9exception"}
-!77 = !{!"_ZTSN5boost7archive9iterators18dataflow_exception14exception_codeE", !6, i64 0}
+!72 = !{!"llvm.loop.estimated_trip_count"}
+!73 = distinct !{!73, !71, !72}
+!74 = distinct !{!74, !72}
+!75 = distinct !{!75, !71, !72}
+!76 = !{!77, !79, i64 8}
+!77 = !{!"_ZTSN5boost7archive9iterators18dataflow_exceptionE", !78, i64 0, !79, i64 8}
+!78 = !{!"_ZTSSt9exception"}
+!79 = !{!"_ZTSN5boost7archive9iterators18dataflow_exception14exception_codeE", !6, i64 0}

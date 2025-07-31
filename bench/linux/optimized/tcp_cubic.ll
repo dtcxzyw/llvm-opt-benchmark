@@ -621,14 +621,14 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr noundef readonly captur
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 432
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 792
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, ptr elementtype(i64) %98) #8, !srcloc !9
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, ptr elementtype(i64) %98) #8, !srcloc !10
   %99 = load i32, ptr %28, align 4
   %100 = zext i32 %99 to i64
   %101 = load ptr, ptr %94, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 432
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr i8, ptr %103, i64 800
-  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %104, i64 %100, ptr elementtype(i64) %104) #8, !srcloc !10
+  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %104, i64 %100, ptr elementtype(i64) %104) #8, !srcloc !11
   %105 = load i32, ptr %28, align 4
   store i32 %105, ptr %30, align 32
   %.pre = load i32, ptr @hystart_detect, align 4
@@ -679,14 +679,14 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr noundef readonly captur
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 432
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr i8, ptr %134, i64 808
-  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %135, ptr elementtype(i64) %135) #8, !srcloc !11
+  tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %135, ptr elementtype(i64) %135) #8, !srcloc !12
   %136 = load i32, ptr %28, align 4
   %137 = zext i32 %136 to i64
   %138 = load ptr, ptr %131, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 432
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr i8, ptr %140, i64 816
-  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %141, i64 %137, ptr elementtype(i64) %141) #8, !srcloc !12
+  tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %141, i64 %137, ptr elementtype(i64) %141) #8, !srcloc !13
   %142 = load i32, ptr %28, align 4
   store i32 %142, ptr %30, align 32
   br label %143
@@ -766,10 +766,11 @@ attributes #9 = { nounwind memory(read) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i64 1020800}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = !{i64 2160575094}
-!10 = !{i64 2160588606}
-!11 = !{i64 2160620393}
-!12 = !{i64 2160633905}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2160575094}
+!11 = !{i64 2160588606}
+!12 = !{i64 2160620393}
+!13 = !{i64 2160633905}

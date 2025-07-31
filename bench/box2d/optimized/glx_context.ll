@@ -123,12 +123,12 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
 2:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not32 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %.not32, label %6, label %.preheader
+  br i1 %.not32, label %6, label %.preheader, !llvm.loop !93
 
 .preheader:                                       ; preds = %0, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %2 ], [ 0, %0 ]
   %3 = getelementptr inbounds nuw [4 x ptr], ptr @__const._glfwInitGLX.sonames, i64 0, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 8, !tbaa !93
+  %4 = load ptr, ptr %3, align 8, !tbaa !95
   %5 = tail call ptr @_glfwPlatformLoadModule(ptr noundef %4) #4
   store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %.not33 = icmp eq ptr %5, null
@@ -140,44 +140,44 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
 
 .thread:                                          ; preds = %.preheader
   %7 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef nonnull %5, ptr noundef nonnull @.str.4) #4
-  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143384), align 8, !tbaa !94
+  store ptr %7, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143384), align 8, !tbaa !96
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %9 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %8, ptr noundef nonnull @.str.5) #4
-  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
+  store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %11 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %10, ptr noundef nonnull @.str.6) #4
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143400), align 8, !tbaa !96
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143400), align 8, !tbaa !98
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %13 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %12, ptr noundef nonnull @.str.7) #4
-  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143408), align 8, !tbaa !97
+  store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143408), align 8, !tbaa !99
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %15 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %14, ptr noundef nonnull @.str.8) #4
-  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143416), align 8, !tbaa !98
+  store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143416), align 8, !tbaa !100
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %17 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %16, ptr noundef nonnull @.str.9) #4
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143424), align 8, !tbaa !99
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143424), align 8, !tbaa !101
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %19 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %18, ptr noundef nonnull @.str.10) #4
-  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143432), align 8, !tbaa !100
+  store ptr %19, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143432), align 8, !tbaa !102
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %21 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %20, ptr noundef nonnull @.str.11) #4
-  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143440), align 8, !tbaa !101
+  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143440), align 8, !tbaa !103
   %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %23 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %22, ptr noundef nonnull @.str.12) #4
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
   %24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %25 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %24, ptr noundef nonnull @.str.13) #4
-  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143456), align 8, !tbaa !103
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143456), align 8, !tbaa !105
   %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %27 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %26, ptr noundef nonnull @.str.14) #4
-  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143472), align 8, !tbaa !104
+  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143472), align 8, !tbaa !106
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %29 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %28, ptr noundef nonnull @.str.15) #4
-  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143480), align 8, !tbaa !105
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143480), align 8, !tbaa !107
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %31 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %30, ptr noundef nonnull @.str.16) #4
-  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143464), align 8, !tbaa !106
-  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143384), align 8, !tbaa !94
+  store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143464), align 8, !tbaa !108
+  %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143384), align 8, !tbaa !96
   %33 = icmp ne ptr %32, null
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8
   %35 = icmp ne ptr %34, null
@@ -223,12 +223,12 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
 58:                                               ; preds = %.thread
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %60 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %59, ptr noundef nonnull @.str.18) #4
-  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143488), align 8, !tbaa !107
+  store ptr %60, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143488), align 8, !tbaa !109
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143376), align 8, !tbaa !3
   %62 = tail call ptr @_glfwPlatformGetModuleSymbol(ptr noundef %61, ptr noundef nonnull @.str.19) #4
-  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143496), align 8, !tbaa !108
-  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143408), align 8, !tbaa !97
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  store ptr %62, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143496), align 8, !tbaa !110
+  %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143408), align 8, !tbaa !99
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %65 = tail call i32 %63(ptr noundef %64, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 143372), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 143368)) #4
   %.not35 = icmp eq i32 %65, 0
   br i1 %.not35, label %66, label %67
@@ -238,8 +238,8 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
   br label %extensionSupportedGLX.exit96.thread
 
 67:                                               ; preds = %58
-  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143416), align 8, !tbaa !98
-  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %68 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143416), align 8, !tbaa !100
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %70 = tail call i32 %68(ptr noundef %69, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 143360), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 143364)) #4
   %.not36 = icmp eq i32 %70, 0
   br i1 %.not36, label %71, label %72
@@ -249,7 +249,7 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
   br label %extensionSupportedGLX.exit96.thread
 
 72:                                               ; preds = %67
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143360), align 8, !tbaa !110
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143360), align 8, !tbaa !112
   %74 = icmp eq i32 %73, 1
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143364), align 4
   %76 = icmp slt i32 %75, 3
@@ -261,9 +261,9 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
   br label %extensionSupportedGLX.exit96.thread
 
 78:                                               ; preds = %72
-  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %82 = tail call ptr %79(ptr noundef %80, i32 noundef %81) #4
   %.not.i = icmp eq ptr %82, null
   br i1 %.not.i, label %extensionSupportedGLX.exit.thread, label %83
@@ -275,18 +275,18 @@ define hidden range(i32 0, 2) i32 @_glfwInitGLX() local_unnamed_addr #0 {
 
 extensionSupportedGLX.exit:                       ; preds = %83
   %85 = tail call ptr @getProcAddressGLX(ptr noundef nonnull @.str.24)
-  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143512), align 8, !tbaa !112
+  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143512), align 8, !tbaa !114
   %.not38 = icmp eq ptr %85, null
   br i1 %.not38, label %extensionSupportedGLX.exit.thread, label %86
 
 86:                                               ; preds = %extensionSupportedGLX.exit
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143540), align 4, !tbaa !113
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143540), align 4, !tbaa !115
   br label %extensionSupportedGLX.exit.thread
 
 extensionSupportedGLX.exit.thread:                ; preds = %83, %78, %extensionSupportedGLX.exit, %86
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %90 = tail call ptr %87(ptr noundef %88, i32 noundef %89) #4
   %.not.i53 = icmp eq ptr %90, null
   br i1 %.not.i53, label %extensionSupportedGLX.exit56.thread, label %91
@@ -298,18 +298,18 @@ extensionSupportedGLX.exit.thread:                ; preds = %83, %78, %extension
 
 extensionSupportedGLX.exit56:                     ; preds = %91
   %93 = tail call ptr @getProcAddressGLX(ptr noundef nonnull @.str.26)
-  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143504), align 8, !tbaa !114
+  store ptr %93, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143504), align 8, !tbaa !116
   %.not40 = icmp eq ptr %93, null
   br i1 %.not40, label %extensionSupportedGLX.exit56.thread, label %94
 
 94:                                               ; preds = %extensionSupportedGLX.exit56
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143536), align 8, !tbaa !115
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143536), align 8, !tbaa !117
   br label %extensionSupportedGLX.exit56.thread
 
 extensionSupportedGLX.exit56.thread:              ; preds = %91, %extensionSupportedGLX.exit.thread, %extensionSupportedGLX.exit56, %94
-  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %97 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %98 = tail call ptr %95(ptr noundef %96, i32 noundef %97) #4
   %.not.i57 = icmp eq ptr %98, null
   br i1 %.not.i57, label %extensionSupportedGLX.exit60.thread, label %99
@@ -321,18 +321,18 @@ extensionSupportedGLX.exit56.thread:              ; preds = %91, %extensionSuppo
 
 extensionSupportedGLX.exit60:                     ; preds = %99
   %101 = tail call ptr @getProcAddressGLX(ptr noundef nonnull @.str.28)
-  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143520), align 8, !tbaa !116
+  store ptr %101, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143520), align 8, !tbaa !118
   %.not42 = icmp eq ptr %101, null
   br i1 %.not42, label %extensionSupportedGLX.exit60.thread, label %102
 
 102:                                              ; preds = %extensionSupportedGLX.exit60
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143544), align 8, !tbaa !117
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143544), align 8, !tbaa !119
   br label %extensionSupportedGLX.exit60.thread
 
 extensionSupportedGLX.exit60.thread:              ; preds = %99, %extensionSupportedGLX.exit56.thread, %extensionSupportedGLX.exit60, %102
-  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %103 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %104 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %105 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %106 = tail call ptr %103(ptr noundef %104, i32 noundef %105) #4
   %.not.i61 = icmp eq ptr %106, null
   br i1 %.not.i61, label %extensionSupportedGLX.exit64.thread, label %107
@@ -343,13 +343,13 @@ extensionSupportedGLX.exit60.thread:              ; preds = %99, %extensionSuppo
   br i1 %.not4.i62, label %extensionSupportedGLX.exit64.thread, label %extensionSupportedGLX.exit64
 
 extensionSupportedGLX.exit64:                     ; preds = %107
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143548), align 4, !tbaa !118
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143548), align 4, !tbaa !120
   br label %extensionSupportedGLX.exit64.thread
 
 extensionSupportedGLX.exit64.thread:              ; preds = %107, %extensionSupportedGLX.exit60.thread, %extensionSupportedGLX.exit64
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %112 = tail call ptr %109(ptr noundef %110, i32 noundef %111) #4
   %.not.i65 = icmp eq ptr %112, null
   br i1 %.not.i65, label %extensionSupportedGLX.exit68.thread, label %113
@@ -360,13 +360,13 @@ extensionSupportedGLX.exit64.thread:              ; preds = %107, %extensionSupp
   br i1 %.not4.i66, label %extensionSupportedGLX.exit68.thread, label %extensionSupportedGLX.exit68
 
 extensionSupportedGLX.exit68:                     ; preds = %113
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143552), align 8, !tbaa !119
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143552), align 8, !tbaa !121
   br label %extensionSupportedGLX.exit68.thread
 
 extensionSupportedGLX.exit68.thread:              ; preds = %113, %extensionSupportedGLX.exit64.thread, %extensionSupportedGLX.exit68
-  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %115 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %118 = tail call ptr %115(ptr noundef %116, i32 noundef %117) #4
   %.not.i69 = icmp eq ptr %118, null
   br i1 %.not.i69, label %extensionSupportedGLX.exit72.thread, label %119
@@ -377,13 +377,13 @@ extensionSupportedGLX.exit68.thread:              ; preds = %113, %extensionSupp
   br i1 %.not4.i70, label %extensionSupportedGLX.exit72.thread, label %extensionSupportedGLX.exit72
 
 extensionSupportedGLX.exit72:                     ; preds = %119
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143556), align 4, !tbaa !120
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143556), align 4, !tbaa !122
   br label %extensionSupportedGLX.exit72.thread
 
 extensionSupportedGLX.exit72.thread:              ; preds = %119, %extensionSupportedGLX.exit68.thread, %extensionSupportedGLX.exit72
-  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %123 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %124 = tail call ptr %121(ptr noundef %122, i32 noundef %123) #4
   %.not.i73 = icmp eq ptr %124, null
   br i1 %.not.i73, label %extensionSupportedGLX.exit76.thread, label %125
@@ -395,18 +395,18 @@ extensionSupportedGLX.exit72.thread:              ; preds = %119, %extensionSupp
 
 extensionSupportedGLX.exit76:                     ; preds = %125
   %127 = tail call ptr @getProcAddressGLX(ptr noundef nonnull @.str.33)
-  store ptr %127, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143528), align 8, !tbaa !121
+  store ptr %127, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143528), align 8, !tbaa !123
   %.not47 = icmp eq ptr %127, null
   br i1 %.not47, label %extensionSupportedGLX.exit76.thread, label %128
 
 128:                                              ; preds = %extensionSupportedGLX.exit76
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143560), align 8, !tbaa !122
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143560), align 8, !tbaa !124
   br label %extensionSupportedGLX.exit76.thread
 
 extensionSupportedGLX.exit76.thread:              ; preds = %125, %extensionSupportedGLX.exit72.thread, %extensionSupportedGLX.exit76, %128
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %131 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %132 = tail call ptr %129(ptr noundef %130, i32 noundef %131) #4
   %.not.i77 = icmp eq ptr %132, null
   br i1 %.not.i77, label %extensionSupportedGLX.exit80.thread, label %133
@@ -417,13 +417,13 @@ extensionSupportedGLX.exit76.thread:              ; preds = %125, %extensionSupp
   br i1 %.not4.i78, label %extensionSupportedGLX.exit80.thread, label %extensionSupportedGLX.exit80
 
 extensionSupportedGLX.exit80:                     ; preds = %133
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143568), align 8, !tbaa !123
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143568), align 8, !tbaa !125
   br label %extensionSupportedGLX.exit80.thread
 
 extensionSupportedGLX.exit80.thread:              ; preds = %133, %extensionSupportedGLX.exit76.thread, %extensionSupportedGLX.exit80
-  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %135 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %138 = tail call ptr %135(ptr noundef %136, i32 noundef %137) #4
   %.not.i81 = icmp eq ptr %138, null
   br i1 %.not.i81, label %extensionSupportedGLX.exit84.thread, label %139
@@ -434,13 +434,13 @@ extensionSupportedGLX.exit80.thread:              ; preds = %133, %extensionSupp
   br i1 %.not4.i82, label %extensionSupportedGLX.exit84.thread, label %extensionSupportedGLX.exit84
 
 extensionSupportedGLX.exit84:                     ; preds = %139
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143564), align 4, !tbaa !124
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143564), align 4, !tbaa !126
   br label %extensionSupportedGLX.exit84.thread
 
 extensionSupportedGLX.exit84.thread:              ; preds = %139, %extensionSupportedGLX.exit80.thread, %extensionSupportedGLX.exit84
-  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %143 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %143 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %144 = tail call ptr %141(ptr noundef %142, i32 noundef %143) #4
   %.not.i85 = icmp eq ptr %144, null
   br i1 %.not.i85, label %extensionSupportedGLX.exit88.thread, label %145
@@ -451,13 +451,13 @@ extensionSupportedGLX.exit84.thread:              ; preds = %139, %extensionSupp
   br i1 %.not4.i86, label %extensionSupportedGLX.exit88.thread, label %extensionSupportedGLX.exit88
 
 extensionSupportedGLX.exit88:                     ; preds = %145
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143572), align 4, !tbaa !125
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143572), align 4, !tbaa !127
   br label %extensionSupportedGLX.exit88.thread
 
 extensionSupportedGLX.exit88.thread:              ; preds = %145, %extensionSupportedGLX.exit84.thread, %extensionSupportedGLX.exit88
-  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %148 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %149 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %150 = tail call ptr %147(ptr noundef %148, i32 noundef %149) #4
   %.not.i89 = icmp eq ptr %150, null
   br i1 %.not.i89, label %extensionSupportedGLX.exit92.thread, label %151
@@ -468,13 +468,13 @@ extensionSupportedGLX.exit88.thread:              ; preds = %145, %extensionSupp
   br i1 %.not4.i90, label %extensionSupportedGLX.exit92.thread, label %extensionSupportedGLX.exit92
 
 extensionSupportedGLX.exit92:                     ; preds = %151
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143576), align 8, !tbaa !126
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143576), align 8, !tbaa !128
   br label %extensionSupportedGLX.exit92.thread
 
 extensionSupportedGLX.exit92.thread:              ; preds = %151, %extensionSupportedGLX.exit88.thread, %extensionSupportedGLX.exit92
-  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %155 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %156 = tail call ptr %153(ptr noundef %154, i32 noundef %155) #4
   %.not.i93 = icmp eq ptr %156, null
   br i1 %.not.i93, label %extensionSupportedGLX.exit96.thread, label %157
@@ -485,7 +485,7 @@ extensionSupportedGLX.exit92.thread:              ; preds = %151, %extensionSupp
   br i1 %.not4.i94, label %extensionSupportedGLX.exit96.thread, label %extensionSupportedGLX.exit96
 
 extensionSupportedGLX.exit96:                     ; preds = %157
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143580), align 4, !tbaa !127
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143580), align 4, !tbaa !129
   br label %extensionSupportedGLX.exit96.thread
 
 extensionSupportedGLX.exit96.thread:              ; preds = %157, %extensionSupportedGLX.exit92.thread, %extensionSupportedGLX.exit96, %0, %77, %71, %66, %57, %6
@@ -507,9 +507,9 @@ declare ptr @_glfwPlatformGetModuleSymbol(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @extensionSupportedGLX(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !102
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143448), align 8, !tbaa !104
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %5 = tail call ptr %2(ptr noundef %3, i32 noundef %4) #4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -529,7 +529,7 @@ define internal range(i32 0, 2) i32 @extensionSupportedGLX(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @getProcAddressGLX(ptr noundef %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143488), align 8, !tbaa !107
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143488), align 8, !tbaa !109
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -538,7 +538,7 @@ define internal ptr @getProcAddressGLX(ptr noundef %0) #0 {
   br label %12
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143496), align 8, !tbaa !108
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143496), align 8, !tbaa !110
   %.not6 = icmp eq ptr %6, null
   br i1 %.not6, label %9, label %7
 
@@ -579,15 +579,15 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %4) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !128
+  store ptr null, ptr %5, align 8, !tbaa !130
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !130
+  %7 = load ptr, ptr %6, align 8, !tbaa !132
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 704
-  %10 = load ptr, ptr %9, align 8, !tbaa !131
+  %10 = load ptr, ptr %9, align 8, !tbaa !133
   br label %11
 
 11:                                               ; preds = %8, %3
@@ -601,7 +601,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   br label %178
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr %1, align 8, !tbaa !165
+  %15 = load i32, ptr %1, align 8, !tbaa !167
   %16 = icmp eq i32 %15, 196610
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143560), align 8
   br i1 %16, label %17, label %25
@@ -626,7 +626,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 25:                                               ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %27 = load i32, ptr %26, align 8, !tbaa !166
+  %27 = load i32, ptr %26, align 8, !tbaa !168
   %28 = icmp eq i32 %27, 0
   %29 = icmp ne i32 %.pre, 0
   %or.cond7 = select i1 %28, i1 true, i1 %29
@@ -640,7 +640,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %32 = phi i1 [ true, %.thread ], [ %29, %25 ]
   %33 = phi ptr [ %23, %.thread ], [ %26, %25 ]
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %35 = load i32, ptr %34, align 4, !tbaa !167
+  %35 = load i32, ptr %34, align 4, !tbaa !169
   %.not99 = icmp eq i32 %35, 0
   br i1 %.not99, label %40, label %36
 
@@ -656,20 +656,20 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 40:                                               ; preds = %36, %31
   tail call void @_glfwGrabErrorHandlerX11() #4
-  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143560), align 8, !tbaa !122
+  %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143560), align 8, !tbaa !124
   %.not100 = icmp eq i32 %41, 0
   br i1 %.not100, label %152, label %42
 
 42:                                               ; preds = %40
-  %43 = load i32, ptr %1, align 8, !tbaa !165
+  %43 = load i32, ptr %1, align 8, !tbaa !167
   %44 = icmp eq i32 %43, 196609
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %42
-  %46 = load i32, ptr %33, align 8, !tbaa !166
+  %46 = load i32, ptr %33, align 8, !tbaa !168
   %.not101 = icmp eq i32 %46, 0
   %spec.select = select i1 %.not101, i32 0, i32 2
-  %47 = load i32, ptr %34, align 4, !tbaa !167
+  %47 = load i32, ptr %34, align 4, !tbaa !169
   switch i32 %47, label %.fold.split [
     i32 204801, label %49
     i32 204802, label %48
@@ -686,12 +686,12 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %.087 = phi i32 [ 2, %48 ], [ 1, %45 ], [ 0, %.fold.split ], [ 4, %42 ]
   %.1 = phi i32 [ %spec.select, %48 ], [ %spec.select, %45 ], [ %spec.select, %.fold.split ], [ 0, %42 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %51 = load i32, ptr %50, align 4, !tbaa !168
+  %51 = load i32, ptr %50, align 4, !tbaa !170
   %.not102 = icmp ne i32 %51, 0
   %52 = zext i1 %.not102 to i32
   %spec.select110 = or disjoint i32 %.1, %52
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %54 = load i32, ptr %53, align 8, !tbaa !169
+  %54 = load i32, ptr %53, align 8, !tbaa !171
   %55 = icmp ne i32 %54, 0
   %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143568), align 8
   %57 = icmp ne i32 %56, 0
@@ -709,9 +709,9 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 .sink.split:                                      ; preds = %58, %59
   %.sink = phi i32 [ 33362, %59 ], [ 33377, %58 ]
-  store i32 33366, ptr %4, align 16, !tbaa !170
+  store i32 33366, ptr %4, align 16, !tbaa !172
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.sink, ptr %60, align 4, !tbaa !170
+  store i32 %.sink, ptr %60, align 4, !tbaa !172
   br label %61
 
 61:                                               ; preds = %.sink.split, %58
@@ -723,7 +723,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %.088 = phi i32 [ %.189, %61 ], [ 0, %49 ]
   %.3 = phi i32 [ %62, %61 ], [ %spec.select110, %49 ]
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %65 = load i32, ptr %64, align 4, !tbaa !171
+  %65 = load i32, ptr %64, align 4, !tbaa !173
   %66 = icmp ne i32 %65, 0
   %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143580), align 4
   %68 = icmp ne i32 %67, 0
@@ -744,17 +744,17 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %71 = add nuw nsw i32 %.088, 1
   %72 = zext nneg i32 %.088 to i64
   %73 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %72
-  store i32 8343, ptr %73, align 4, !tbaa !170
+  store i32 8343, ptr %73, align 4, !tbaa !172
   %74 = add nuw nsw i32 %.088, 2
   %75 = zext nneg i32 %71 to i64
   %76 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %75
-  store i32 %.sink115, ptr %76, align 4, !tbaa !170
+  store i32 %.sink115, ptr %76, align 4, !tbaa !172
   br label %77
 
 77:                                               ; preds = %.sink.split114, %69, %63
   %.290 = phi i32 [ %.088, %63 ], [ %.088, %69 ], [ %74, %.sink.split114 ]
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %79 = load i32, ptr %78, align 8, !tbaa !172
+  %79 = load i32, ptr %78, align 8, !tbaa !174
   %80 = icmp ne i32 %79, 0
   %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143576), align 8
   %82 = icmp ne i32 %81, 0
@@ -765,20 +765,20 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %84 = add nuw nsw i32 %.290, 1
   %85 = zext nneg i32 %.290 to i64
   %86 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %85
-  store i32 12723, ptr %86, align 4, !tbaa !170
+  store i32 12723, ptr %86, align 4, !tbaa !172
   %87 = add nuw nsw i32 %.290, 2
   %88 = zext nneg i32 %84 to i64
   %89 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %88
-  store i32 1, ptr %89, align 4, !tbaa !170
+  store i32 1, ptr %89, align 4, !tbaa !172
   br label %90
 
 90:                                               ; preds = %83, %77
   %.391 = phi i32 [ %87, %83 ], [ %.290, %77 ]
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !173
+  %92 = load i32, ptr %91, align 8, !tbaa !175
   %.not103 = icmp eq i32 %92, 1
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %94 = load i32, ptr %93, align 4, !tbaa !174
+  %94 = load i32, ptr %93, align 4, !tbaa !176
   %.not104 = icmp eq i32 %94, 0
   %or.cond121 = select i1 %.not103, i1 %.not104, i1 false
   br i1 %or.cond121, label %107, label %._crit_edge
@@ -787,19 +787,19 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %95 = add nuw nsw i32 %.391, 1
   %96 = zext nneg i32 %.391 to i64
   %97 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %96
-  store i32 8337, ptr %97, align 4, !tbaa !170
+  store i32 8337, ptr %97, align 4, !tbaa !172
   %98 = add nuw nsw i32 %.391, 2
   %99 = zext nneg i32 %95 to i64
   %100 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %99
-  store i32 %92, ptr %100, align 4, !tbaa !170
+  store i32 %92, ptr %100, align 4, !tbaa !172
   %101 = add nuw nsw i32 %.391, 3
   %102 = zext nneg i32 %98 to i64
   %103 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %102
-  store i32 8338, ptr %103, align 4, !tbaa !170
+  store i32 8338, ptr %103, align 4, !tbaa !172
   %104 = add nuw nsw i32 %.391, 4
   %105 = zext nneg i32 %101 to i64
   %106 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %105
-  store i32 %94, ptr %106, align 4, !tbaa !170
+  store i32 %94, ptr %106, align 4, !tbaa !172
   br label %107
 
 107:                                              ; preds = %90, %._crit_edge
@@ -810,11 +810,11 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %109 = add nuw nsw i32 %.4, 1
   %110 = zext nneg i32 %.4 to i64
   %111 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %110
-  store i32 37158, ptr %111, align 4, !tbaa !170
+  store i32 37158, ptr %111, align 4, !tbaa !172
   %112 = add nuw nsw i32 %.4, 2
   %113 = zext nneg i32 %109 to i64
   %114 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %113
-  store i32 %.087, ptr %114, align 4, !tbaa !170
+  store i32 %.087, ptr %114, align 4, !tbaa !172
   br label %115
 
 115:                                              ; preds = %108, %107
@@ -826,11 +826,11 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %117 = add nuw nsw i32 %.5, 1
   %118 = zext nneg i32 %.5 to i64
   %119 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %118
-  store i32 8340, ptr %119, align 4, !tbaa !170
+  store i32 8340, ptr %119, align 4, !tbaa !172
   %120 = add nuw nsw i32 %.5, 2
   %121 = zext nneg i32 %117 to i64
   %122 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %121
-  store i32 %.3, ptr %122, align 4, !tbaa !170
+  store i32 %.3, ptr %122, align 4, !tbaa !172
   br label %123
 
 123:                                              ; preds = %116, %115
@@ -838,62 +838,62 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   %124 = add nuw nsw i32 %.6, 1
   %125 = zext nneg i32 %.6 to i64
   %126 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %125
-  store i32 0, ptr %126, align 4, !tbaa !170
+  store i32 0, ptr %126, align 4, !tbaa !172
   %127 = zext nneg i32 %124 to i64
   %128 = getelementptr inbounds nuw [40 x i32], ptr %4, i64 0, i64 %127
-  store i32 0, ptr %128, align 4, !tbaa !170
-  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143528), align 8, !tbaa !121
-  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %131 = load ptr, ptr %5, align 8, !tbaa !128
+  store i32 0, ptr %128, align 4, !tbaa !172
+  %129 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143528), align 8, !tbaa !123
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %131 = load ptr, ptr %5, align 8, !tbaa !130
   %132 = call ptr %129(ptr noundef %130, ptr noundef %131, ptr noundef %.092, i32 noundef 1, ptr noundef nonnull %4) #4
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr %132, ptr %133, align 8, !tbaa !131
+  store ptr %132, ptr %133, align 8, !tbaa !133
   %.not107 = icmp eq ptr %132, null
   br i1 %.not107, label %134, label %158
 
 134:                                              ; preds = %123
-  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137912), align 8, !tbaa !175
-  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143372), align 4, !tbaa !176
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137912), align 8, !tbaa !177
+  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143372), align 4, !tbaa !178
   %137 = add nsw i32 %136, 13
   %138 = icmp eq i32 %135, %137
   br i1 %138, label %139, label %158
 
 139:                                              ; preds = %134
-  %140 = load i32, ptr %1, align 8, !tbaa !165
+  %140 = load i32, ptr %1, align 8, !tbaa !167
   %141 = icmp eq i32 %140, 196609
   br i1 %141, label %142, label %158
 
 142:                                              ; preds = %139
-  %143 = load i32, ptr %34, align 4, !tbaa !167
+  %143 = load i32, ptr %34, align 4, !tbaa !169
   %144 = icmp eq i32 %143, 0
   br i1 %144, label %145, label %158
 
 145:                                              ; preds = %142
-  %146 = load i32, ptr %33, align 8, !tbaa !166
+  %146 = load i32, ptr %33, align 8, !tbaa !168
   %147 = icmp eq i32 %146, 0
   br i1 %147, label %148, label %158
 
 148:                                              ; preds = %145
-  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143456), align 8, !tbaa !103
-  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143456), align 8, !tbaa !105
+  %150 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %151 = call ptr %149(ptr noundef %150, ptr noundef %131, i32 noundef 32788, ptr noundef %.092, i32 noundef 1) #4
-  store ptr %151, ptr %133, align 8, !tbaa !131
+  store ptr %151, ptr %133, align 8, !tbaa !133
   br label %158
 
 152:                                              ; preds = %40
-  %153 = load ptr, ptr %5, align 8, !tbaa !128
-  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143456), align 8, !tbaa !103
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %153 = load ptr, ptr %5, align 8, !tbaa !130
+  %154 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143456), align 8, !tbaa !105
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %156 = tail call ptr %154(ptr noundef %155, ptr noundef %153, i32 noundef 32788, ptr noundef %.092, i32 noundef 1) #4
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr %156, ptr %157, align 8, !tbaa !131
+  store ptr %156, ptr %157, align 8, !tbaa !133
   br label %158
 
 158:                                              ; preds = %123, %148, %145, %142, %139, %134, %152
   %159 = phi ptr [ %131, %123 ], [ %131, %148 ], [ %131, %145 ], [ %131, %142 ], [ %131, %139 ], [ %131, %134 ], [ %153, %152 ]
   call void @_glfwReleaseErrorHandlerX11() #4
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %161 = load ptr, ptr %160, align 8, !tbaa !131
+  %161 = load ptr, ptr %160, align 8, !tbaa !133
   %.not108 = icmp eq ptr %161, null
   br i1 %.not108, label %162, label %163
 
@@ -902,13 +902,13 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
   br label %178
 
 163:                                              ; preds = %158
-  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143472), align 8, !tbaa !104
-  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143472), align 8, !tbaa !106
+  %165 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 1248
-  %167 = load i64, ptr %166, align 8, !tbaa !177
+  %167 = load i64, ptr %166, align 8, !tbaa !179
   %168 = call i64 %164(ptr noundef %165, ptr noundef %159, i64 noundef %167, ptr noundef null) #4
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  store i64 %168, ptr %169, align 8, !tbaa !178
+  store i64 %168, ptr %169, align 8, !tbaa !180
   %.not109 = icmp eq i64 %168, 0
   br i1 %.not109, label %170, label %171
 
@@ -918,17 +918,17 @@ define hidden range(i32 0, 2) i32 @_glfwCreateContextGLX(ptr noundef captures(no
 
 171:                                              ; preds = %163
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr @makeContextCurrentGLX, ptr %172, align 8, !tbaa !179
+  store ptr @makeContextCurrentGLX, ptr %172, align 8, !tbaa !181
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr @swapBuffersGLX, ptr %173, align 8, !tbaa !180
+  store ptr @swapBuffersGLX, ptr %173, align 8, !tbaa !182
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr @swapIntervalGLX, ptr %174, align 8, !tbaa !181
+  store ptr @swapIntervalGLX, ptr %174, align 8, !tbaa !183
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr @extensionSupportedGLX, ptr %175, align 8, !tbaa !182
+  store ptr @extensionSupportedGLX, ptr %175, align 8, !tbaa !184
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  store ptr @getProcAddressGLX, ptr %176, align 8, !tbaa !183
+  store ptr @getProcAddressGLX, ptr %176, align 8, !tbaa !185
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 640
-  store ptr @destroyContextGLX, ptr %177, align 8, !tbaa !184
+  store ptr @destroyContextGLX, ptr %177, align 8, !tbaa !186
   br label %178
 
 178:                                              ; preds = %171, %170, %162, %39, %30, %24, %13
@@ -959,8 +959,8 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %20) #4
-  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143400), align 8, !tbaa !96
-  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143400), align 8, !tbaa !98
+  %22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %23 = tail call ptr %21(ptr noundef %22, i32 noundef 1) #4
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %27, label %24
@@ -972,9 +972,9 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
 
 27:                                               ; preds = %24, %2
   %28 = phi i1 [ true, %2 ], [ %26, %24 ]
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143384), align 8, !tbaa !94
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !111
+  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143384), align 8, !tbaa !96
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %31 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !113
   %32 = call ptr %29(ptr noundef %30, i32 noundef %31, ptr noundef nonnull %20) #4
   %33 = icmp ne ptr %32, null
   %34 = load i32, ptr %20, align 4
@@ -989,7 +989,7 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
 37:                                               ; preds = %27
   %38 = sext i32 %34 to i64
   %39 = call ptr @_glfw_calloc(i64 noundef %38, i64 noundef 72) #4
-  %40 = load i32, ptr %20, align 4, !tbaa !170
+  %40 = load i32, ptr %20, align 4, !tbaa !172
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph, label %._crit_edge
 
@@ -1008,14 +1008,14 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %.06580 = phi i32 [ 0, %.lr.ph ], [ %.1, %165 ]
   %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
-  %48 = load ptr, ptr %47, align 8, !tbaa !128
+  %48 = load ptr, ptr %47, align 8, !tbaa !130
   %49 = sext i32 %.06580 to i64
   %50 = getelementptr inbounds %struct._GLFWfbconfig, ptr %39, i64 %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #4
-  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %53 = call i32 %51(ptr noundef %52, ptr noundef %48, i32 noundef 32785, ptr noundef nonnull %19) #4
-  %54 = load i32, ptr %19, align 4, !tbaa !170
+  %54 = load i32, ptr %19, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #4
   %55 = and i32 %54, 1
   %.not73 = icmp eq i32 %55, 0
@@ -1023,10 +1023,10 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
 
 56:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #4
-  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %59 = call i32 %57(ptr noundef %58, ptr noundef %48, i32 noundef 32784, ptr noundef nonnull %18) #4
-  %60 = load i32, ptr %18, align 4, !tbaa !170
+  %60 = load i32, ptr %18, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #4
   %61 = and i32 %60, 1
   %62 = icmp eq i32 %61, 0
@@ -1035,156 +1035,156 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
 
 63:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #4
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %66 = call i32 %64(ptr noundef %65, ptr noundef %48, i32 noundef 5, ptr noundef nonnull %17) #4
-  %67 = load i32, ptr %17, align 4, !tbaa !170
+  %67 = load i32, ptr %17, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #4
-  %68 = load i32, ptr %42, align 8, !tbaa !185
+  %68 = load i32, ptr %42, align 8, !tbaa !187
   %.not74 = icmp eq i32 %67, %68
   br i1 %.not74, label %69, label %165
 
 69:                                               ; preds = %63
-  %70 = load i32, ptr %43, align 4, !tbaa !186
+  %70 = load i32, ptr %43, align 4, !tbaa !188
   %.not75 = icmp eq i32 %70, 0
   br i1 %.not75, label %81, label %71
 
 71:                                               ; preds = %69
-  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143464), align 8, !tbaa !106
-  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143464), align 8, !tbaa !108
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %74 = call ptr %72(ptr noundef %73, ptr noundef %48) #4
   %.not76 = icmp eq ptr %74, null
   br i1 %.not76, label %81, label %75
 
 75:                                               ; preds = %71
-  %76 = load ptr, ptr %74, align 8, !tbaa !187
+  %76 = load ptr, ptr %74, align 8, !tbaa !189
   %77 = call i32 @_glfwIsVisualTransparentX11(ptr noundef %76) #4
   %78 = getelementptr inbounds nuw i8, ptr %50, i64 60
-  store i32 %77, ptr %78, align 4, !tbaa !186
-  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !189
+  store i32 %77, ptr %78, align 4, !tbaa !188
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !191
   %80 = call i32 %79(ptr noundef nonnull %74) #4
   br label %81
 
 81:                                               ; preds = %71, %75, %69
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #4
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %84 = call i32 %82(ptr noundef %83, ptr noundef %48, i32 noundef 8, ptr noundef nonnull %16) #4
-  %85 = load i32, ptr %16, align 4, !tbaa !170
+  %85 = load i32, ptr %16, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #4
-  store i32 %85, ptr %50, align 8, !tbaa !190
+  store i32 %85, ptr %50, align 8, !tbaa !192
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #4
-  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %86 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %88 = call i32 %86(ptr noundef %87, ptr noundef %48, i32 noundef 9, ptr noundef nonnull %15) #4
-  %89 = load i32, ptr %15, align 4, !tbaa !170
+  %89 = load i32, ptr %15, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #4
   %90 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 %89, ptr %90, align 4, !tbaa !191
+  store i32 %89, ptr %90, align 4, !tbaa !193
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #4
-  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %93 = call i32 %91(ptr noundef %92, ptr noundef %48, i32 noundef 10, ptr noundef nonnull %14) #4
-  %94 = load i32, ptr %14, align 4, !tbaa !170
+  %94 = load i32, ptr %14, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #4
   %95 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 %94, ptr %95, align 8, !tbaa !192
+  store i32 %94, ptr %95, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #4
-  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %97 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %98 = call i32 %96(ptr noundef %97, ptr noundef %48, i32 noundef 11, ptr noundef nonnull %13) #4
-  %99 = load i32, ptr %13, align 4, !tbaa !170
+  %99 = load i32, ptr %13, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #4
   %100 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  store i32 %99, ptr %100, align 4, !tbaa !193
+  store i32 %99, ptr %100, align 4, !tbaa !195
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #4
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %102 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %103 = call i32 %101(ptr noundef %102, ptr noundef %48, i32 noundef 12, ptr noundef nonnull %12) #4
-  %104 = load i32, ptr %12, align 4, !tbaa !170
+  %104 = load i32, ptr %12, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #4
   %105 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i32 %104, ptr %105, align 8, !tbaa !194
+  store i32 %104, ptr %105, align 8, !tbaa !196
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #4
-  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %107 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %108 = call i32 %106(ptr noundef %107, ptr noundef %48, i32 noundef 13, ptr noundef nonnull %11) #4
-  %109 = load i32, ptr %11, align 4, !tbaa !170
+  %109 = load i32, ptr %11, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #4
   %110 = getelementptr inbounds nuw i8, ptr %50, i64 20
-  store i32 %109, ptr %110, align 4, !tbaa !195
+  store i32 %109, ptr %110, align 4, !tbaa !197
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
-  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %112 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %113 = call i32 %111(ptr noundef %112, ptr noundef %48, i32 noundef 14, ptr noundef nonnull %10) #4
-  %114 = load i32, ptr %10, align 4, !tbaa !170
+  %114 = load i32, ptr %10, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
   %115 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store i32 %114, ptr %115, align 8, !tbaa !196
+  store i32 %114, ptr %115, align 8, !tbaa !198
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
-  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %116 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %118 = call i32 %116(ptr noundef %117, ptr noundef %48, i32 noundef 15, ptr noundef nonnull %9) #4
-  %119 = load i32, ptr %9, align 4, !tbaa !170
+  %119 = load i32, ptr %9, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #4
   %120 = getelementptr inbounds nuw i8, ptr %50, i64 28
-  store i32 %119, ptr %120, align 4, !tbaa !197
+  store i32 %119, ptr %120, align 4, !tbaa !199
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #4
-  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %122 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %123 = call i32 %121(ptr noundef %122, ptr noundef %48, i32 noundef 16, ptr noundef nonnull %8) #4
-  %124 = load i32, ptr %8, align 4, !tbaa !170
+  %124 = load i32, ptr %8, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #4
   %125 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store i32 %124, ptr %125, align 8, !tbaa !198
+  store i32 %124, ptr %125, align 8, !tbaa !200
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #4
-  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %126 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %128 = call i32 %126(ptr noundef %127, ptr noundef %48, i32 noundef 17, ptr noundef nonnull %7) #4
-  %129 = load i32, ptr %7, align 4, !tbaa !170
+  %129 = load i32, ptr %7, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #4
   %130 = getelementptr inbounds nuw i8, ptr %50, i64 36
-  store i32 %129, ptr %130, align 4, !tbaa !199
+  store i32 %129, ptr %130, align 4, !tbaa !201
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #4
-  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %133 = call i32 %131(ptr noundef %132, ptr noundef %48, i32 noundef 7, ptr noundef nonnull %6) #4
-  %134 = load i32, ptr %6, align 4, !tbaa !170
+  %134 = load i32, ptr %6, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   %135 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  store i32 %134, ptr %135, align 8, !tbaa !200
+  store i32 %134, ptr %135, align 8, !tbaa !202
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #4
-  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %137 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %138 = call i32 %136(ptr noundef %137, ptr noundef %48, i32 noundef 6, ptr noundef nonnull %5) #4
-  %139 = load i32, ptr %5, align 4, !tbaa !170
+  %139 = load i32, ptr %5, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #4
   %.not77 = icmp eq i32 %139, 0
   br i1 %.not77, label %142, label %140
 
 140:                                              ; preds = %81
   %141 = getelementptr inbounds nuw i8, ptr %50, i64 44
-  store i32 1, ptr %141, align 4, !tbaa !201
+  store i32 1, ptr %141, align 4, !tbaa !203
   br label %142
 
 142:                                              ; preds = %140, %81
-  %143 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143548), align 4, !tbaa !118
+  %143 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143548), align 4, !tbaa !120
   %.not78 = icmp eq i32 %143, 0
   br i1 %.not78, label %150, label %144
 
 144:                                              ; preds = %142
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
-  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %145 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %146 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %147 = call i32 %145(ptr noundef %146, ptr noundef %48, i32 noundef 100001, ptr noundef nonnull %4) #4
-  %148 = load i32, ptr %4, align 4, !tbaa !170
+  %148 = load i32, ptr %4, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
   %149 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  store i32 %148, ptr %149, align 8, !tbaa !202
+  store i32 %148, ptr %149, align 8, !tbaa !204
   br label %150
 
 150:                                              ; preds = %144, %142
-  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143552), align 8, !tbaa !119
+  %151 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143552), align 8, !tbaa !121
   %152 = icmp ne i32 %151, 0
   %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143556), align 4
   %154 = icmp ne i32 %153, 0
@@ -1193,39 +1193,39 @@ define internal fastcc range(i32 0, 2) i32 @chooseGLXFBConfig(ptr noundef %0, pt
 
 155:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #4
-  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !95
-  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143392), align 8, !tbaa !97
+  %157 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %158 = call i32 %156(ptr noundef %157, ptr noundef %48, i32 noundef 8370, ptr noundef nonnull %3) #4
-  %159 = load i32, ptr %3, align 4, !tbaa !170
+  %159 = load i32, ptr %3, align 4, !tbaa !172
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #4
   %160 = getelementptr inbounds nuw i8, ptr %50, i64 52
-  store i32 %159, ptr %160, align 4, !tbaa !203
+  store i32 %159, ptr %160, align 4, !tbaa !205
   br label %161
 
 161:                                              ; preds = %150, %155
   %162 = ptrtoint ptr %48 to i64
   %163 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  store i64 %162, ptr %163, align 8, !tbaa !204
+  store i64 %162, ptr %163, align 8, !tbaa !206
   %164 = add nsw i32 %.06580, 1
   br label %165
 
 165:                                              ; preds = %63, %56, %46, %161
   %.1 = phi i32 [ %164, %161 ], [ %.06580, %46 ], [ %.06580, %56 ], [ %.06580, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %166 = load i32, ptr %20, align 4, !tbaa !170
+  %166 = load i32, ptr %20, align 4, !tbaa !172
   %167 = sext i32 %166 to i64
   %168 = icmp slt i64 %indvars.iv.next, %167
-  br i1 %168, label %46, label %._crit_edge
+  br i1 %168, label %46, label %._crit_edge, !llvm.loop !207
 
 169:                                              ; preds = %._crit_edge
   %170 = getelementptr inbounds nuw i8, ptr %44, i64 64
-  %171 = load i64, ptr %170, align 8, !tbaa !204
+  %171 = load i64, ptr %170, align 8, !tbaa !206
   %172 = inttoptr i64 %171 to ptr
-  store ptr %172, ptr %1, align 8, !tbaa !128
+  store ptr %172, ptr %1, align 8, !tbaa !130
   br label %173
 
 173:                                              ; preds = %169, %._crit_edge
-  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !189
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !191
   %175 = call i32 %174(ptr noundef nonnull %32) #4
   call void @_glfw_free(ptr noundef %39) #4
   %176 = zext i1 %45 to i32
@@ -1246,15 +1246,15 @@ declare void @_glfwInputErrorX11(i32 noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @makeContextCurrentGLX(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143432), align 8, !tbaa !100
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143432), align 8, !tbaa !102
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   br i1 %.not, label %11, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %7 = load i64, ptr %6, align 8, !tbaa !178
-  %8 = load ptr, ptr %5, align 8, !tbaa !131
+  %7 = load i64, ptr %6, align 8, !tbaa !180
+  %8 = load ptr, ptr %5, align 8, !tbaa !133
   %9 = tail call i32 %2(ptr noundef %3, i64 noundef %7, ptr noundef %8) #4
   %.not5 = icmp eq i32 %9, 0
   br i1 %.not5, label %10, label %14
@@ -1282,10 +1282,10 @@ define internal void @makeContextCurrentGLX(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @swapBuffersGLX(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143440), align 8, !tbaa !101
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143440), align 8, !tbaa !103
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %5 = load i64, ptr %4, align 8, !tbaa !178
+  %5 = load i64, ptr %4, align 8, !tbaa !180
   tail call void %2(ptr noundef %3, i64 noundef %5) #4
   ret void
 }
@@ -1293,37 +1293,37 @@ define internal void @swapBuffersGLX(ptr noundef readonly captures(none) %0) #0 
 ; Function Attrs: nounwind uwtable
 define internal void @swapIntervalGLX(i32 noundef %0) #0 {
   %2 = tail call ptr @_glfwPlatformGetTls(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_glfw, i64 133412)) #4
-  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143540), align 4, !tbaa !113
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143540), align 4, !tbaa !115
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143512), align 8, !tbaa !112
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143512), align 8, !tbaa !114
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 712
-  %8 = load i64, ptr %7, align 8, !tbaa !178
+  %8 = load i64, ptr %7, align 8, !tbaa !180
   tail call void %5(ptr noundef %6, i64 noundef %8, i32 noundef %0) #4
   br label %21
 
 9:                                                ; preds = %1
-  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143544), align 8, !tbaa !117
+  %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143544), align 8, !tbaa !119
   %.not5 = icmp eq i32 %10, 0
   br i1 %.not5, label %14, label %11
 
 11:                                               ; preds = %9
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143520), align 8, !tbaa !116
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143520), align 8, !tbaa !118
   %13 = tail call i32 %12(i32 noundef %0) #4
   br label %21
 
 14:                                               ; preds = %9
-  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143536), align 8, !tbaa !115
+  %15 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143536), align 8, !tbaa !117
   %16 = icmp ne i32 %15, 0
   %17 = icmp sgt i32 %0, 0
   %or.cond = and i1 %17, %16
   br i1 %or.cond, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143504), align 8, !tbaa !114
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143504), align 8, !tbaa !116
   %20 = tail call i32 %19(i32 noundef %0) #4
   br label %21
 
@@ -1335,27 +1335,27 @@ define internal void @swapIntervalGLX(i32 noundef %0) #0 {
 define internal void @destroyContextGLX(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %4 = load i64, ptr %3, align 8, !tbaa !178
+  %4 = load i64, ptr %3, align 8, !tbaa !180
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143480), align 8, !tbaa !105
-  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143480), align 8, !tbaa !107
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   tail call void %6(ptr noundef %7, i64 noundef %4) #4
-  store i64 0, ptr %3, align 8, !tbaa !178
+  store i64 0, ptr %3, align 8, !tbaa !180
   br label %8
 
 8:                                                ; preds = %5, %1
-  %9 = load ptr, ptr %2, align 8, !tbaa !131
+  %9 = load ptr, ptr %2, align 8, !tbaa !133
   %.not7 = icmp eq ptr %9, null
   br i1 %.not7, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143424), align 8, !tbaa !99
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143424), align 8, !tbaa !101
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
   tail call void %11(ptr noundef %12, ptr noundef nonnull %9) #4
-  store ptr null, ptr %2, align 8, !tbaa !131
+  store ptr null, ptr %2, align 8, !tbaa !133
   br label %13
 
 13:                                               ; preds = %10, %8
@@ -1375,9 +1375,9 @@ define hidden range(i32 0, 2) i32 @_glfwChooseVisualGLX(ptr noundef readnone cap
   br label %21
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143464), align 8, !tbaa !106
-  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !109
-  %12 = load ptr, ptr %6, align 8, !tbaa !128
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 143464), align 8, !tbaa !108
+  %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !111
+  %12 = load ptr, ptr %6, align 8, !tbaa !130
   %13 = tail call ptr %10(ptr noundef %11, ptr noundef %12) #4
   %.not8 = icmp eq ptr %13, null
   br i1 %.not8, label %14, label %15
@@ -1387,12 +1387,12 @@ define hidden range(i32 0, 2) i32 @_glfwChooseVisualGLX(ptr noundef readnone cap
   br label %21
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr %13, align 8, !tbaa !187
-  store ptr %16, ptr %3, align 8, !tbaa !205
+  %16 = load ptr, ptr %13, align 8, !tbaa !189
+  store ptr %16, ptr %3, align 8, !tbaa !208
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  %18 = load i32, ptr %17, align 4, !tbaa !206
-  store i32 %18, ptr %4, align 4, !tbaa !170
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !189
+  %18 = load i32, ptr %17, align 4, !tbaa !209
+  store i32 %18, ptr %4, align 4, !tbaa !172
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !191
   %20 = tail call i32 %19(ptr noundef nonnull %13) #4
   br label %21
 
@@ -1404,7 +1404,7 @@ define hidden range(i32 0, 2) i32 @_glfwChooseVisualGLX(ptr noundef readnone cap
 
 ; Function Attrs: nounwind uwtable
 define ptr @glfwGetGLXContext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !207
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !210
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1413,7 +1413,7 @@ define ptr @glfwGetGLXContext(ptr noundef readonly captures(none) %0) local_unna
   br label %14
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !208
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !211
   %.not4 = icmp eq i32 %5, 393220
   br i1 %.not4, label %7, label %6
 
@@ -1423,7 +1423,7 @@ define ptr @glfwGetGLXContext(ptr noundef readonly captures(none) %0) local_unna
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %9 = load i32, ptr %8, align 4, !tbaa !209
+  %9 = load i32, ptr %8, align 4, !tbaa !212
   %.not5 = icmp eq i32 %9, 221185
   br i1 %.not5, label %11, label %10
 
@@ -1433,7 +1433,7 @@ define ptr @glfwGetGLXContext(ptr noundef readonly captures(none) %0) local_unna
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %13 = load ptr, ptr %12, align 8, !tbaa !131
+  %13 = load ptr, ptr %12, align 8, !tbaa !133
   br label %14
 
 14:                                               ; preds = %11, %10, %6, %3
@@ -1443,7 +1443,7 @@ define ptr @glfwGetGLXContext(ptr noundef readonly captures(none) %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define i64 @glfwGetGLXWindow(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = load i32, ptr @_glfw, align 8, !tbaa !207
+  %2 = load i32, ptr @_glfw, align 8, !tbaa !210
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %4
 
@@ -1452,7 +1452,7 @@ define i64 @glfwGetGLXWindow(ptr noundef readonly captures(none) %0) local_unnam
   br label %14
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !208
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 40), align 8, !tbaa !211
   %.not3 = icmp eq i32 %5, 393220
   br i1 %.not3, label %7, label %6
 
@@ -1462,7 +1462,7 @@ define i64 @glfwGetGLXWindow(ptr noundef readonly captures(none) %0) local_unnam
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  %9 = load i32, ptr %8, align 4, !tbaa !209
+  %9 = load i32, ptr %8, align 4, !tbaa !212
   %.not4 = icmp eq i32 %9, 221185
   br i1 %.not4, label %11, label %10
 
@@ -1472,7 +1472,7 @@ define i64 @glfwGetGLXWindow(ptr noundef readonly captures(none) %0) local_unnam
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %13 = load i64, ptr %12, align 8, !tbaa !178
+  %13 = load i64, ptr %12, align 8, !tbaa !180
   br label %14
 
 14:                                               ; preds = %11, %10, %6, %3
@@ -1599,120 +1599,123 @@ attributes #5 = { nounwind willreturn memory(read) }
 !90 = !{!"_GLFWlibraryLinux", !5, i64 0, !5, i64 4, !91, i64 8, !5, i64 72, !5, i64 76}
 !91 = !{!"re_pattern_buffer", !92, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !18, i64 32, !18, i64 40, !16, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56, !5, i64 56}
 !92 = !{!"p1 _ZTS8re_dfa_t", !9, i64 0}
-!93 = !{!18, !18, i64 0}
-!94 = !{!4, !9, i64 143384}
-!95 = !{!4, !9, i64 143392}
-!96 = !{!4, !9, i64 143400}
-!97 = !{!4, !9, i64 143408}
-!98 = !{!4, !9, i64 143416}
-!99 = !{!4, !9, i64 143424}
-!100 = !{!4, !9, i64 143432}
-!101 = !{!4, !9, i64 143440}
-!102 = !{!4, !9, i64 143448}
-!103 = !{!4, !9, i64 143456}
-!104 = !{!4, !9, i64 143472}
-!105 = !{!4, !9, i64 143480}
-!106 = !{!4, !9, i64 143464}
-!107 = !{!4, !9, i64 143488}
-!108 = !{!4, !9, i64 143496}
-!109 = !{!4, !73, i64 137840}
-!110 = !{!4, !5, i64 143360}
-!111 = !{!4, !5, i64 137848}
-!112 = !{!4, !9, i64 143512}
-!113 = !{!4, !5, i64 143540}
-!114 = !{!4, !9, i64 143504}
-!115 = !{!4, !5, i64 143536}
-!116 = !{!4, !9, i64 143520}
-!117 = !{!4, !5, i64 143544}
-!118 = !{!4, !5, i64 143548}
-!119 = !{!4, !5, i64 143552}
-!120 = !{!4, !5, i64 143556}
-!121 = !{!4, !9, i64 143528}
-!122 = !{!4, !5, i64 143560}
-!123 = !{!4, !5, i64 143568}
-!124 = !{!4, !5, i64 143564}
-!125 = !{!4, !5, i64 143572}
-!126 = !{!4, !5, i64 143576}
-!127 = !{!4, !5, i64 143580}
-!128 = !{!129, !129, i64 0}
-!129 = !{!"p1 _ZTS13__GLXFBConfig", !9, i64 0}
-!130 = !{!21, !22, i64 40}
-!131 = !{!132, !138, i64 704}
-!132 = !{!"_GLFWwindow", !22, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !5, i64 48, !133, i64 52, !134, i64 80, !24, i64 88, !18, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !6, i64 144, !6, i64 152, !76, i64 504, !76, i64 512, !5, i64 520, !135, i64 528, !139, i64 720, !140, i64 856, !162, i64 1240, !164, i64 3368}
-!133 = !{!"GLFWvidmode", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!134 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
-!135 = !{!"_GLFWcontext", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !68, i64 120, !136, i64 152, !137, i64 176}
-!136 = !{!"", !9, i64 0, !5, i64 8, !5, i64 12, !9, i64 16}
-!137 = !{!"_GLFWcontextGLX", !138, i64 0, !16, i64 8}
-!138 = !{!"p1 _ZTS12__GLXcontext", !9, i64 0}
-!139 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128}
-!140 = !{!"_GLFWwindowWayland", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !60, i64 48, !71, i64 56, !141, i64 64, !143, i64 72, !144, i64 96, !148, i64 128, !24, i64 136, !76, i64 144, !76, i64 152, !18, i64 160, !5, i64 168, !150, i64 176, !16, i64 184, !16, i64 192, !151, i64 200, !5, i64 208, !152, i64 216, !153, i64 224, !154, i64 232, !155, i64 240, !156, i64 248, !157, i64 256, !158, i64 264}
-!141 = !{!"", !142, i64 0}
-!142 = !{!"p1 _ZTS13wl_egl_window", !9, i64 0}
-!143 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
-!144 = !{!"", !145, i64 0, !146, i64 8, !147, i64 16, !5, i64 24}
-!145 = !{!"p1 _ZTS11xdg_surface", !9, i64 0}
-!146 = !{!"p1 _ZTS12xdg_toplevel", !9, i64 0}
-!147 = !{!"p1 _ZTS27zxdg_toplevel_decoration_v1", !9, i64 0}
-!148 = !{!"", !149, i64 0}
-!149 = !{!"p1 _ZTS14libdecor_frame", !9, i64 0}
-!150 = !{!"p1 _ZTS17_GLFWscaleWayland", !9, i64 0}
-!151 = !{!"p1 _ZTS11wp_viewport", !9, i64 0}
-!152 = !{!"p1 _ZTS22wp_fractional_scale_v1", !9, i64 0}
-!153 = !{!"p1 _ZTS23zwp_relative_pointer_v1", !9, i64 0}
-!154 = !{!"p1 _ZTS21zwp_locked_pointer_v1", !9, i64 0}
-!155 = !{!"p1 _ZTS23zwp_confined_pointer_v1", !9, i64 0}
-!156 = !{!"p1 _ZTS21zwp_idle_inhibitor_v1", !9, i64 0}
-!157 = !{!"p1 _ZTS23xdg_activation_token_v1", !9, i64 0}
-!158 = !{!"", !5, i64 0, !159, i64 8, !160, i64 16, !160, i64 40, !160, i64 64, !160, i64 88, !60, i64 112}
-!159 = !{!"p1 _ZTS9wl_buffer", !9, i64 0}
-!160 = !{!"_GLFWfallbackEdgeWayland", !60, i64 0, !161, i64 8, !151, i64 16}
-!161 = !{!"p1 _ZTS13wl_subsurface", !9, i64 0}
-!162 = !{!"_GLFWwindowX11", !16, i64 0, !16, i64 8, !16, i64 16, !163, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !6, i64 80}
-!163 = !{!"p1 _ZTS4_XIC", !9, i64 0}
-!164 = !{!"_GLFWwindowNull", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !74, i64 44}
-!165 = !{!21, !5, i64 0}
-!166 = !{!21, !5, i64 16}
-!167 = !{!21, !5, i64 28}
-!168 = !{!21, !5, i64 20}
-!169 = !{!21, !5, i64 32}
-!170 = !{!5, !5, i64 0}
-!171 = !{!21, !5, i64 36}
-!172 = !{!21, !5, i64 24}
-!173 = !{!21, !5, i64 8}
-!174 = !{!21, !5, i64 12}
-!175 = !{!4, !5, i64 137912}
-!176 = !{!4, !5, i64 143372}
-!177 = !{!132, !16, i64 1248}
-!178 = !{!132, !16, i64 712}
-!179 = !{!132, !9, i64 600}
-!180 = !{!132, !9, i64 608}
-!181 = !{!132, !9, i64 616}
-!182 = !{!132, !9, i64 624}
-!183 = !{!132, !9, i64 632}
-!184 = !{!132, !9, i64 640}
-!185 = !{!15, !5, i64 56}
-!186 = !{!15, !5, i64 60}
-!187 = !{!188, !9, i64 0}
-!188 = !{!"", !9, i64 0, !16, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !5, i64 56, !5, i64 60}
-!189 = !{!4, !9, i64 141552}
-!190 = !{!15, !5, i64 0}
-!191 = !{!15, !5, i64 4}
-!192 = !{!15, !5, i64 8}
-!193 = !{!15, !5, i64 12}
-!194 = !{!15, !5, i64 16}
-!195 = !{!15, !5, i64 20}
-!196 = !{!15, !5, i64 24}
-!197 = !{!15, !5, i64 28}
-!198 = !{!15, !5, i64 32}
-!199 = !{!15, !5, i64 36}
-!200 = !{!15, !5, i64 40}
-!201 = !{!15, !5, i64 44}
-!202 = !{!15, !5, i64 48}
-!203 = !{!15, !5, i64 52}
-!204 = !{!15, !16, i64 64}
-!205 = !{!9, !9, i64 0}
-!206 = !{!188, !5, i64 20}
-!207 = !{!4, !5, i64 0}
-!208 = !{!4, !5, i64 40}
-!209 = !{!132, !5, i64 532}
+!93 = distinct !{!93, !94}
+!94 = !{!"llvm.loop.estimated_trip_count"}
+!95 = !{!18, !18, i64 0}
+!96 = !{!4, !9, i64 143384}
+!97 = !{!4, !9, i64 143392}
+!98 = !{!4, !9, i64 143400}
+!99 = !{!4, !9, i64 143408}
+!100 = !{!4, !9, i64 143416}
+!101 = !{!4, !9, i64 143424}
+!102 = !{!4, !9, i64 143432}
+!103 = !{!4, !9, i64 143440}
+!104 = !{!4, !9, i64 143448}
+!105 = !{!4, !9, i64 143456}
+!106 = !{!4, !9, i64 143472}
+!107 = !{!4, !9, i64 143480}
+!108 = !{!4, !9, i64 143464}
+!109 = !{!4, !9, i64 143488}
+!110 = !{!4, !9, i64 143496}
+!111 = !{!4, !73, i64 137840}
+!112 = !{!4, !5, i64 143360}
+!113 = !{!4, !5, i64 137848}
+!114 = !{!4, !9, i64 143512}
+!115 = !{!4, !5, i64 143540}
+!116 = !{!4, !9, i64 143504}
+!117 = !{!4, !5, i64 143536}
+!118 = !{!4, !9, i64 143520}
+!119 = !{!4, !5, i64 143544}
+!120 = !{!4, !5, i64 143548}
+!121 = !{!4, !5, i64 143552}
+!122 = !{!4, !5, i64 143556}
+!123 = !{!4, !9, i64 143528}
+!124 = !{!4, !5, i64 143560}
+!125 = !{!4, !5, i64 143568}
+!126 = !{!4, !5, i64 143564}
+!127 = !{!4, !5, i64 143572}
+!128 = !{!4, !5, i64 143576}
+!129 = !{!4, !5, i64 143580}
+!130 = !{!131, !131, i64 0}
+!131 = !{!"p1 _ZTS13__GLXFBConfig", !9, i64 0}
+!132 = !{!21, !22, i64 40}
+!133 = !{!134, !140, i64 704}
+!134 = !{!"_GLFWwindow", !22, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !9, i64 40, !5, i64 48, !135, i64 52, !136, i64 80, !24, i64 88, !18, i64 96, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116, !5, i64 120, !5, i64 124, !5, i64 128, !5, i64 132, !5, i64 136, !5, i64 140, !6, i64 144, !6, i64 152, !76, i64 504, !76, i64 512, !5, i64 520, !137, i64 528, !141, i64 720, !142, i64 856, !164, i64 1240, !166, i64 3368}
+!135 = !{!"GLFWvidmode", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!136 = !{!"p1 _ZTS12_GLFWmonitor", !9, i64 0}
+!137 = !{!"_GLFWcontext", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !68, i64 120, !138, i64 152, !139, i64 176}
+!138 = !{!"", !9, i64 0, !5, i64 8, !5, i64 12, !9, i64 16}
+!139 = !{!"_GLFWcontextGLX", !140, i64 0, !16, i64 8}
+!140 = !{!"p1 _ZTS12__GLXcontext", !9, i64 0}
+!141 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !9, i64 72, !9, i64 80, !9, i64 88, !9, i64 96, !9, i64 104, !9, i64 112, !9, i64 120, !9, i64 128}
+!142 = !{!"_GLFWwindowWayland", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !60, i64 48, !71, i64 56, !143, i64 64, !145, i64 72, !146, i64 96, !150, i64 128, !24, i64 136, !76, i64 144, !76, i64 152, !18, i64 160, !5, i64 168, !152, i64 176, !16, i64 184, !16, i64 192, !153, i64 200, !5, i64 208, !154, i64 216, !155, i64 224, !156, i64 232, !157, i64 240, !158, i64 248, !159, i64 256, !160, i64 264}
+!143 = !{!"", !144, i64 0}
+!144 = !{!"p1 _ZTS13wl_egl_window", !9, i64 0}
+!145 = !{!"", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20}
+!146 = !{!"", !147, i64 0, !148, i64 8, !149, i64 16, !5, i64 24}
+!147 = !{!"p1 _ZTS11xdg_surface", !9, i64 0}
+!148 = !{!"p1 _ZTS12xdg_toplevel", !9, i64 0}
+!149 = !{!"p1 _ZTS27zxdg_toplevel_decoration_v1", !9, i64 0}
+!150 = !{!"", !151, i64 0}
+!151 = !{!"p1 _ZTS14libdecor_frame", !9, i64 0}
+!152 = !{!"p1 _ZTS17_GLFWscaleWayland", !9, i64 0}
+!153 = !{!"p1 _ZTS11wp_viewport", !9, i64 0}
+!154 = !{!"p1 _ZTS22wp_fractional_scale_v1", !9, i64 0}
+!155 = !{!"p1 _ZTS23zwp_relative_pointer_v1", !9, i64 0}
+!156 = !{!"p1 _ZTS21zwp_locked_pointer_v1", !9, i64 0}
+!157 = !{!"p1 _ZTS23zwp_confined_pointer_v1", !9, i64 0}
+!158 = !{!"p1 _ZTS21zwp_idle_inhibitor_v1", !9, i64 0}
+!159 = !{!"p1 _ZTS23xdg_activation_token_v1", !9, i64 0}
+!160 = !{!"", !5, i64 0, !161, i64 8, !162, i64 16, !162, i64 40, !162, i64 64, !162, i64 88, !60, i64 112}
+!161 = !{!"p1 _ZTS9wl_buffer", !9, i64 0}
+!162 = !{!"_GLFWfallbackEdgeWayland", !60, i64 0, !163, i64 8, !153, i64 16}
+!163 = !{!"p1 _ZTS13wl_subsurface", !9, i64 0}
+!164 = !{!"_GLFWwindowX11", !16, i64 0, !16, i64 8, !16, i64 16, !165, i64 24, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !5, i64 64, !5, i64 68, !5, i64 72, !5, i64 76, !6, i64 80}
+!165 = !{!"p1 _ZTS4_XIC", !9, i64 0}
+!166 = !{!"_GLFWwindowNull", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !5, i64 16, !5, i64 20, !5, i64 24, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !74, i64 44}
+!167 = !{!21, !5, i64 0}
+!168 = !{!21, !5, i64 16}
+!169 = !{!21, !5, i64 28}
+!170 = !{!21, !5, i64 20}
+!171 = !{!21, !5, i64 32}
+!172 = !{!5, !5, i64 0}
+!173 = !{!21, !5, i64 36}
+!174 = !{!21, !5, i64 24}
+!175 = !{!21, !5, i64 8}
+!176 = !{!21, !5, i64 12}
+!177 = !{!4, !5, i64 137912}
+!178 = !{!4, !5, i64 143372}
+!179 = !{!134, !16, i64 1248}
+!180 = !{!134, !16, i64 712}
+!181 = !{!134, !9, i64 600}
+!182 = !{!134, !9, i64 608}
+!183 = !{!134, !9, i64 616}
+!184 = !{!134, !9, i64 624}
+!185 = !{!134, !9, i64 632}
+!186 = !{!134, !9, i64 640}
+!187 = !{!15, !5, i64 56}
+!188 = !{!15, !5, i64 60}
+!189 = !{!190, !9, i64 0}
+!190 = !{!"", !9, i64 0, !16, i64 8, !5, i64 16, !5, i64 20, !5, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !5, i64 56, !5, i64 60}
+!191 = !{!4, !9, i64 141552}
+!192 = !{!15, !5, i64 0}
+!193 = !{!15, !5, i64 4}
+!194 = !{!15, !5, i64 8}
+!195 = !{!15, !5, i64 12}
+!196 = !{!15, !5, i64 16}
+!197 = !{!15, !5, i64 20}
+!198 = !{!15, !5, i64 24}
+!199 = !{!15, !5, i64 28}
+!200 = !{!15, !5, i64 32}
+!201 = !{!15, !5, i64 36}
+!202 = !{!15, !5, i64 40}
+!203 = !{!15, !5, i64 44}
+!204 = !{!15, !5, i64 48}
+!205 = !{!15, !5, i64 52}
+!206 = !{!15, !16, i64 64}
+!207 = distinct !{!207, !94}
+!208 = !{!9, !9, i64 0}
+!209 = !{!190, !5, i64 20}
+!210 = !{!4, !5, i64 0}
+!211 = !{!4, !5, i64 40}
+!212 = !{!134, !5, i64 532}

@@ -399,7 +399,7 @@ define noundef ptr @dt_noiseprofile_init(ptr noundef %0) local_unnamed_addr #0 {
   %137 = getelementptr inbounds nuw i8, ptr %.048.i.i, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !52
   %.not.i.i = icmp eq ptr %138, null
-  br i1 %.not.i.i, label %.loopexit227.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.loopexit227.i, label %.lr.ph.i.i, !llvm.loop !53
 
 .lr.ph.i.i:                                       ; preds = %133, %136
   %139 = phi ptr [ %138, %136 ], [ %135, %133 ]
@@ -428,7 +428,7 @@ is_member.exit.i:                                 ; preds = %.lr.ph.i.i
   %146 = getelementptr inbounds nuw i8, ptr %.048.i162.i, i64 8
   %147 = load ptr, ptr %146, align 8, !tbaa !52
   %.not.i164.i = icmp eq ptr %147, null
-  br i1 %.not.i164.i, label %.loopexit226.i, label %.lr.ph.i161.i
+  br i1 %.not.i164.i, label %.loopexit226.i, label %.lr.ph.i161.i, !llvm.loop !53
 
 .lr.ph.i161.i:                                    ; preds = %is_member.exit.i, %145
   %148 = phi ptr [ %147, %145 ], [ %144, %is_member.exit.i ]
@@ -457,7 +457,7 @@ is_member.exit166.i:                              ; preds = %.lr.ph.i161.i
   %155 = getelementptr inbounds nuw i8, ptr %.048.i169.i, i64 8
   %156 = load ptr, ptr %155, align 8, !tbaa !52
   %.not.i171.i = icmp eq ptr %156, null
-  br i1 %.not.i171.i, label %.loopexit225.i, label %.lr.ph.i168.i
+  br i1 %.not.i171.i, label %.loopexit225.i, label %.lr.ph.i168.i, !llvm.loop !53
 
 .lr.ph.i168.i:                                    ; preds = %is_member.exit166.i, %154
   %157 = phi ptr [ %156, %154 ], [ %153, %is_member.exit166.i ]
@@ -504,7 +504,7 @@ is_member.exit173.i:                              ; preds = %.lr.ph.i168.i
   %171 = getelementptr inbounds nuw i8, ptr %.048.i176.i, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !52
   %.not.i178.i = icmp eq ptr %172, null
-  br i1 %.not.i178.i, label %.loopexit.i, label %.lr.ph.i175.i
+  br i1 %.not.i178.i, label %.loopexit.i, label %.lr.ph.i175.i, !llvm.loop !53
 
 .lr.ph.i175.i:                                    ; preds = %168, %170
   %173 = phi ptr [ %172, %170 ], [ %169, %168 ]
@@ -547,21 +547,21 @@ is_member.exit180.i:                              ; preds = %.lr.ph.i175.i
   call void @g_strfreev(ptr noundef nonnull %134) #11
   %185 = add nuw nsw i32 %.084325.i, 1
   %exitcond.not.i = icmp eq i32 %185, %121
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !55
 
 ._crit_edge.i:                                    ; preds = %184, %125
   call void @json_reader_end_member(ptr noundef %35) #11
   call void @json_reader_end_element(ptr noundef %35) #11
   %186 = add nuw nsw i32 %.086326.i, 1
   %exitcond433.not.i = icmp eq i32 %186, %90
-  br i1 %exitcond433.not.i, label %._crit_edge329.i, label %.lr.ph328.i
+  br i1 %exitcond433.not.i, label %._crit_edge329.i, label %.lr.ph328.i, !llvm.loop !56
 
 ._crit_edge329.i:                                 ; preds = %._crit_edge.i, %94
   call void @json_reader_end_member(ptr noundef %35) #11
   call void @json_reader_end_element(ptr noundef %35) #11
   %187 = add nuw nsw i32 %.094331.i, 1
   %exitcond434.not.i = icmp eq i32 %187, %61
-  br i1 %exitcond434.not.i, label %._crit_edge334.i, label %.lr.ph333.i
+  br i1 %exitcond434.not.i, label %._crit_edge334.i, label %.lr.ph333.i, !llvm.loop !57
 
 ._crit_edge334.i:                                 ; preds = %._crit_edge329.i, %65
   %.095.lcssa.i = phi i64 [ 0, %65 ], [ %96, %._crit_edge329.i ]
@@ -655,7 +655,7 @@ define range(i32 0, 2) i32 @is_member(ptr noundef readonly captures(none) %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %.048, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !52
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
 
 .lr.ph:                                           ; preds = %2, %4
   %7 = phi ptr [ %6, %4 ], [ %3, %2 ]
@@ -674,7 +674,7 @@ declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define ptr @dt_noiseprofile_get_matching(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.dt_noiseprofile_t, align 16
-  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 48), align 8, !tbaa !53
+  %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 48), align 8, !tbaa !58
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread143, label %4
 
@@ -810,7 +810,7 @@ define ptr @dt_noiseprofile_get_matching(ptr noundef %0) local_unnamed_addr #0 {
   %66 = getelementptr inbounds nuw i8, ptr %.048.i, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !52
   %.not.i = icmp eq ptr %67, null
-  br i1 %.not.i, label %.critedge, label %.lr.ph.i
+  br i1 %.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !53
 
 .lr.ph.i:                                         ; preds = %61, %65
   %68 = phi ptr [ %67, %65 ], [ %64, %61 ]
@@ -832,18 +832,18 @@ is_member.exit:                                   ; preds = %.lr.ph.i
 
 .critedge:                                        ; preds = %65, %61, %is_member.exit
   %73 = tail call noalias ptr @g_strdup(ptr noundef nonnull %20) #11
-  store ptr %73, ptr %55, align 8, !tbaa !54
+  store ptr %73, ptr %55, align 8, !tbaa !59
   %74 = tail call noalias ptr @g_strdup(ptr noundef nonnull %21) #11
-  store ptr %74, ptr %56, align 16, !tbaa !56
+  store ptr %74, ptr %56, align 16, !tbaa !61
   %75 = tail call i32 @json_reader_read_member(ptr noundef %12, ptr noundef nonnull @.str.20) #11
   %76 = tail call ptr @json_reader_get_string_value(ptr noundef %12) #11
   %77 = tail call noalias ptr @g_strdup(ptr noundef %76) #11
-  store ptr %77, ptr %2, align 16, !tbaa !57
+  store ptr %77, ptr %2, align 16, !tbaa !62
   tail call void @json_reader_end_member(ptr noundef %12) #11
   %78 = tail call i32 @json_reader_read_member(ptr noundef %12, ptr noundef nonnull @.str.21) #11
   %79 = tail call reassoc nsz arcp contract afn double @json_reader_get_double_value(ptr noundef %12) #11
   %80 = fptosi double %79 to i32
-  store i32 %80, ptr %57, align 8, !tbaa !58
+  store i32 %80, ptr %57, align 8, !tbaa !63
   tail call void @json_reader_end_member(ptr noundef %12) #11
   %81 = tail call i32 @json_reader_read_member(ptr noundef %12, ptr noundef nonnull @.str.22) #11
   br label %84
@@ -860,17 +860,17 @@ is_member.exit:                                   ; preds = %.lr.ph.i
   %87 = tail call reassoc nsz arcp contract afn double @json_reader_get_double_value(ptr noundef %12) #11
   %88 = fptrunc reassoc nsz arcp contract afn double %87 to float
   %89 = getelementptr inbounds nuw [4 x float], ptr %58, i64 0, i64 %indvars.iv
-  store float %88, ptr %89, align 4, !tbaa !59
+  store float %88, ptr %89, align 4, !tbaa !64
   tail call void @json_reader_end_element(ptr noundef %12) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond159.not, label %82, label %84
+  br i1 %exitcond159.not, label %82, label %84, !llvm.loop !66
 
 90:                                               ; preds = %93
   tail call void @json_reader_end_member(ptr noundef %12) #11
   tail call void @json_reader_end_element(ptr noundef %12) #11
   %91 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %91, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 64, i1 false), !tbaa.struct !61
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %91, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 64, i1 false), !tbaa.struct !67
   %92 = tail call ptr @g_list_prepend(ptr noundef %.5154, ptr noundef nonnull %91) #11
   br label %99
 
@@ -881,11 +881,11 @@ is_member.exit:                                   ; preds = %.lr.ph.i
   %96 = tail call reassoc nsz arcp contract afn double @json_reader_get_double_value(ptr noundef %12) #11
   %97 = fptrunc reassoc nsz arcp contract afn double %96 to float
   %98 = getelementptr inbounds nuw [4 x float], ptr %59, i64 0, i64 %indvars.iv160
-  store float %97, ptr %98, align 4, !tbaa !59
+  store float %97, ptr %98, align 4, !tbaa !64
   tail call void @json_reader_end_element(ptr noundef %12) #11
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 3
-  br i1 %exitcond163.not, label %90, label %93
+  br i1 %exitcond163.not, label %90, label %93, !llvm.loop !70
 
 99:                                               ; preds = %72, %90
   %.6 = phi ptr [ %92, %90 ], [ %.5154, %72 ]
@@ -893,21 +893,21 @@ is_member.exit:                                   ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #11
   %100 = add nuw nsw i32 %.099153, 1
   %exitcond164.not = icmp eq i32 %100, %49
-  br i1 %exitcond164.not, label %.loopexit, label %61
+  br i1 %exitcond164.not, label %.loopexit, label %61, !llvm.loop !71
 
 101:                                              ; preds = %.lr.ph
   tail call void @json_reader_end_member(ptr noundef %12) #11
   tail call void @json_reader_end_element(ptr noundef %12) #11
   %102 = add nuw nsw i32 %.0101148, 1
   %exitcond.not = icmp eq i32 %102, %34
-  br i1 %exitcond.not, label %.thread, label %.lr.ph
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !72
 
 .thread:                                          ; preds = %101, %38, %22
   tail call void @json_reader_end_member(ptr noundef %12) #11
   tail call void @json_reader_end_element(ptr noundef %12) #11
   %103 = add nuw nsw i32 %.0100149, 1
   %exitcond157.not = icmp eq i32 %103, %14
-  br i1 %exitcond157.not, label %._crit_edge, label %22
+  br i1 %exitcond157.not, label %._crit_edge, label %22, !llvm.loop !73
 
 ._crit_edge:                                      ; preds = %.thread, %18
   tail call void @json_reader_end_member(ptr noundef %12) #11
@@ -976,22 +976,22 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @_sort_by_iso(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load i32, ptr %3, align 8, !tbaa !58
+  %4 = load i32, ptr %3, align 8, !tbaa !63
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !58
+  %6 = load i32, ptr %5, align 8, !tbaa !63
   %7 = sub nsw i32 %4, %6
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
 define void @dt_noiseprofile_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 16, !tbaa !57
+  %2 = load ptr, ptr %0, align 16, !tbaa !62
   tail call void @g_free(ptr noundef %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !54
+  %4 = load ptr, ptr %3, align 8, !tbaa !59
   tail call void @g_free(ptr noundef %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 16, !tbaa !56
+  %6 = load ptr, ptr %5, align 16, !tbaa !61
   tail call void @g_free(ptr noundef %6) #11
   tail call void @free(ptr noundef %0) #11
   ret void
@@ -1005,13 +1005,13 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @dt_noiseprofile_interpolate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %5 = load i32, ptr %4, align 8, !tbaa !58
+  %5 = load i32, ptr %4, align 8, !tbaa !63
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !58
+  %7 = load i32, ptr %6, align 8, !tbaa !63
   %8 = sub nsw i32 %5, %7
   %9 = sitofp i32 %8 to float
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !58
+  %11 = load i32, ptr %10, align 8, !tbaa !63
   %12 = sub nsw i32 %11, %7
   %13 = sitofp i32 %12 to float
   %14 = fdiv reassoc nsz arcp contract afn float %9, %13
@@ -1042,26 +1042,26 @@ define void @dt_noiseprofile_interpolate(ptr noundef readonly captures(none) %0,
 29:                                               ; preds = %19, %29
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %29 ]
   %30 = getelementptr inbounds nuw [4 x float], ptr %22, i64 0, i64 %indvars.iv
-  %31 = load float, ptr %30, align 4, !tbaa !59
+  %31 = load float, ptr %30, align 4, !tbaa !64
   %32 = fmul reassoc nsz arcp contract afn float %31, %21
   %33 = getelementptr inbounds nuw [4 x float], ptr %23, i64 0, i64 %indvars.iv
-  %34 = load float, ptr %33, align 4, !tbaa !59
+  %34 = load float, ptr %33, align 4, !tbaa !64
   %35 = fmul reassoc nsz arcp contract afn float %34, %20
   %36 = fadd reassoc nsz arcp contract afn float %35, %32
   %37 = getelementptr inbounds nuw [4 x float], ptr %24, i64 0, i64 %indvars.iv
-  store float %36, ptr %37, align 4, !tbaa !59
+  store float %36, ptr %37, align 4, !tbaa !64
   %38 = getelementptr inbounds nuw [4 x float], ptr %25, i64 0, i64 %indvars.iv
-  %39 = load float, ptr %38, align 4, !tbaa !59
+  %39 = load float, ptr %38, align 4, !tbaa !64
   %40 = fmul reassoc nsz arcp contract afn float %39, %21
   %41 = getelementptr inbounds nuw [4 x float], ptr %26, i64 0, i64 %indvars.iv
-  %42 = load float, ptr %41, align 4, !tbaa !59
+  %42 = load float, ptr %41, align 4, !tbaa !64
   %43 = fmul reassoc nsz arcp contract afn float %42, %20
   %44 = fadd reassoc nsz arcp contract afn float %43, %40
   %45 = getelementptr inbounds nuw [4 x float], ptr %27, i64 0, i64 %indvars.iv
-  store float %44, ptr %45, align 4, !tbaa !59
+  store float %44, ptr %45, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %28, label %29
+  br i1 %exitcond.not, label %28, label %29, !llvm.loop !74
 }
 
 declare i64 @json_reader_get_int_value(ptr noundef) local_unnamed_addr #3
@@ -1137,14 +1137,25 @@ attributes #12 = { nounwind allocsize(0) }
 !50 = !{!51, !40, i64 8}
 !51 = !{!"_GError", !14, i64 0, !14, i64 4, !40, i64 8}
 !52 = !{!40, !40, i64 0}
-!53 = !{!12, !16, i64 48}
-!54 = !{!55, !40, i64 8}
-!55 = !{!"dt_noiseprofile_t", !40, i64 0, !40, i64 8, !40, i64 16, !14, i64 24, !9, i64 32, !9, i64 48}
-!56 = !{!55, !40, i64 16}
-!57 = !{!55, !40, i64 0}
-!58 = !{!55, !14, i64 24}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"float", !9, i64 0}
-!61 = !{i64 0, i64 8, !52, i64 8, i64 8, !52, i64 16, i64 8, !52, i64 24, i64 4, !62, i64 32, i64 16, !63, i64 48, i64 16, !63}
-!62 = !{!14, !14, i64 0}
-!63 = !{!9, !9, i64 0}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = distinct !{!55, !54}
+!56 = distinct !{!56, !54}
+!57 = distinct !{!57, !54}
+!58 = !{!12, !16, i64 48}
+!59 = !{!60, !40, i64 8}
+!60 = !{!"dt_noiseprofile_t", !40, i64 0, !40, i64 8, !40, i64 16, !14, i64 24, !9, i64 32, !9, i64 48}
+!61 = !{!60, !40, i64 16}
+!62 = !{!60, !40, i64 0}
+!63 = !{!60, !14, i64 24}
+!64 = !{!65, !65, i64 0}
+!65 = !{!"float", !9, i64 0}
+!66 = distinct !{!66, !54}
+!67 = !{i64 0, i64 8, !52, i64 8, i64 8, !52, i64 16, i64 8, !52, i64 24, i64 4, !68, i64 32, i64 16, !69, i64 48, i64 16, !69}
+!68 = !{!14, !14, i64 0}
+!69 = !{!9, !9, i64 0}
+!70 = distinct !{!70, !54}
+!71 = distinct !{!71, !54}
+!72 = distinct !{!72, !54}
+!73 = distinct !{!73, !54}
+!74 = distinct !{!74, !54}

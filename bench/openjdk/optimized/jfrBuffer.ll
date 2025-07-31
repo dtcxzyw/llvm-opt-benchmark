@@ -58,7 +58,7 @@ define hidden void @_ZN9JfrBuffer12reinitializeEv(ptr noundef nonnull align 8 de
   br label %3, !llvm.loop !7
 
 _ZNK9JfrBuffer10stable_topEv.exit.i:              ; preds = %3
-  %6 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %4, ptr nonnull %2) #6, !srcloc !9
+  %6 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %4, ptr nonnull %2) #6, !srcloc !10
   %7 = icmp eq ptr %6, %4
   br i1 %7, label %_ZNK9JfrBuffer28acquire_critical_section_topEv.exit, label %.backedge
 
@@ -108,7 +108,7 @@ define hidden noundef nonnull ptr @_ZNK9JfrBuffer28acquire_critical_section_topE
   br label %3, !llvm.loop !7
 
 _ZNK9JfrBuffer10stable_topEv.exit:                ; preds = %3
-  %6 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %4, ptr nonnull %2) #6, !srcloc !9
+  %6 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %4, ptr nonnull %2) #6, !srcloc !10
   %7 = icmp eq ptr %6, %4
   br i1 %7, label %8, label %.backedge
 
@@ -161,7 +161,7 @@ define hidden noundef nonnull ptr @_ZNK9JfrBuffer10stable_topEv(ptr noundef nonn
   %4 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %3, label %6, !llvm.loop !10
+  br i1 %5, label %3, label %6, !llvm.loop !11
 
 6:                                                ; preds = %3
   ret ptr %4
@@ -199,12 +199,12 @@ define hidden void @_ZN9JfrBuffer7acquireEPKv(ptr noundef nonnull align 8 derefe
   br i1 %.not, label %5, label %.critedge.backedge
 
 5:                                                ; preds = %.critedge
-  %6 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %3) #6, !srcloc !9
+  %6 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %3) #6, !srcloc !10
   %.not5 = icmp eq ptr %6, null
   br i1 %.not5, label %7, label %.critedge.backedge
 
 .critedge.backedge:                               ; preds = %5, %.critedge
-  br label %.critedge, !llvm.loop !11
+  br label %.critedge, !llvm.loop !12
 
 7:                                                ; preds = %5
   ret void
@@ -219,7 +219,7 @@ define hidden noundef zeroext i1 @_ZN9JfrBuffer11try_acquireEPKv(ptr noundef non
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %3) #6, !srcloc !9
+  %7 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %3) #6, !srcloc !10
   %8 = icmp eq ptr %7, null
   br label %9
 
@@ -259,7 +259,7 @@ define hidden void @_ZN9JfrBuffer4moveEPS_m(ptr noundef nonnull align 8 derefere
   br label %5, !llvm.loop !7
 
 _ZNK9JfrBuffer10stable_topEv.exit.i:              ; preds = %5
-  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %6, ptr nonnull %4) #6, !srcloc !9
+  %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %6, ptr nonnull %4) #6, !srcloc !10
   %9 = icmp eq ptr %8, %6
   br i1 %9, label %_ZNK9JfrBuffer28acquire_critical_section_topEv.exit, label %.backedge
 
@@ -314,7 +314,7 @@ define hidden noundef i64 @_ZN9JfrBuffer7discardEv(ptr noundef nonnull align 8 d
   %6 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %5, label %_ZNK9JfrBuffer10stable_topEv.exit, !llvm.loop !10
+  br i1 %7, label %5, label %_ZNK9JfrBuffer10stable_topEv.exit, !llvm.loop !11
 
 _ZNK9JfrBuffer10stable_topEv.exit:                ; preds = %5
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
@@ -336,7 +336,7 @@ define hidden noundef i64 @_ZNK9JfrBuffer14unflushed_sizeEv(ptr noundef nonnull 
   %6 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %5, label %_ZNK9JfrBuffer10stable_topEv.exit, !llvm.loop !10
+  br i1 %7, label %5, label %_ZNK9JfrBuffer10stable_topEv.exit, !llvm.loop !11
 
 _ZNK9JfrBuffer10stable_topEv.exit:                ; preds = %5
   %8 = ptrtoint ptr %3 to i64
@@ -502,8 +502,9 @@ attributes #6 = { nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i64 2145412694}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !9}

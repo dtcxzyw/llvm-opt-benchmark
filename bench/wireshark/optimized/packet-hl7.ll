@@ -1497,7 +1497,7 @@ parse_msh.exit.i:                                 ; preds = %56, %30
 115:                                              ; preds = %114, %112
   %116 = load i32, ptr @ett_hl7, align 4
   %117 = call ptr @proto_item_add_subtree(ptr noundef %110, i32 noundef %116)
-  %118 = load i8, ptr @global_hl7_llp, align 1, !range !8, !noundef !9
+  %118 = load i8, ptr @global_hl7_llp, align 1, !range !9, !noundef !10
   %119 = trunc nuw i8 %118 to i1
   br i1 %119, label %120, label %123
 
@@ -1507,7 +1507,7 @@ parse_msh.exit.i:                                 ; preds = %56, %30
   br label %123
 
 123:                                              ; preds = %120, %115
-  %124 = load i8, ptr @global_hl7_raw, align 1, !range !8, !noundef !9
+  %124 = load i8, ptr @global_hl7_raw, align 1, !range !9, !noundef !10
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %126, label %130
 
@@ -1577,7 +1577,7 @@ dissect_hl7_segment.exit.thread.i:                ; preds = %.lr.ph.i
 
 152:                                              ; preds = %146
   %153 = icmp slt i32 %151, %137
-  br i1 %153, label %140, label %dissect_hl7_segment.exit.i, !llvm.loop !10
+  br i1 %153, label %140, label %dissect_hl7_segment.exit.i, !llvm.loop !11
 
 .thread.i.i:                                      ; preds = %146, %145
   %154 = phi i32 [ 0, %145 ], [ %151, %146 ]
@@ -1595,7 +1595,7 @@ dissect_hl7_segment.exit.thread.i:                ; preds = %.lr.ph.i
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %160, ptr noundef nonnull @.str.29, ptr noundef %158, ptr noundef %161)
   %162 = load i32, ptr @ett_hl7_segment, align 4
   %163 = call ptr @proto_item_add_subtree(ptr noundef %160, i32 noundef %162)
-  %164 = load i8, ptr @global_hl7_raw, align 1, !range !8, !noundef !9
+  %164 = load i8, ptr @global_hl7_raw, align 1, !range !9, !noundef !10
   %165 = trunc nuw i8 %164 to i1
   br i1 %165, label %166, label %169
 
@@ -1613,15 +1613,15 @@ dissect_hl7_segment.exit.thread.i:                ; preds = %.lr.ph.i
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %173, ptr noundef nonnull @.str.818, i32 noundef %141, ptr noundef %171)
   %174 = icmp slt i32 %154, %137
   %or.cond.i56.i = select i1 %.not31.not.not.i.not.not.not.not.not, i1 %174, i1 false
-  br i1 %or.cond.i56.i, label %.lr.ph.i54.i, label %dissect_hl7_segment.exit.i, !llvm.loop !10
+  br i1 %or.cond.i56.i, label %.lr.ph.i54.i, label %dissect_hl7_segment.exit.i, !llvm.loop !11
 
 dissect_hl7_segment.exit.i:                       ; preds = %169, %145, %152, %134
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   %175 = icmp ult i32 %135, %20
-  br i1 %175, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %175, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %dissect_hl7_segment.exit.i, %130
-  %176 = load i8, ptr @global_hl7_llp, align 1, !range !8, !noundef !9
+  %176 = load i8, ptr @global_hl7_llp, align 1, !range !9, !noundef !10
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %181
 
@@ -1635,7 +1635,7 @@ dissect_hl7_segment.exit.i:                       ; preds = %169, %145, %152, %1
   %182 = add i32 %20, 2
   %183 = call i32 @tvb_reported_length(ptr noundef %0)
   %184 = icmp ult i32 %182, %183
-  br i1 %184, label %17, label %._crit_edge, !llvm.loop !12
+  br i1 %184, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %181, %4
   %185 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1744,10 +1744,11 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

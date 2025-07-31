@@ -299,7 +299,7 @@ define internal i32 @debug_transaction_abort(ptr noundef readonly captures(none)
   store ptr %5, ptr %1, align 8, !tbaa !26
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %8 = load ptr, ptr %7, align 8, !tbaa !41
+  %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = tail call i32 %8(ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef %2) #6
   ret i32 %9
 }
@@ -310,7 +310,7 @@ define internal i32 @debug_pack_refs(ptr noundef readonly captures(none) %0, ptr
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !42
+  %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = tail call i32 %7(ptr noundef nonnull %4, ptr noundef %1) #6
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %9, 0
@@ -334,7 +334,7 @@ define internal i32 @debug_rename_ref(ptr noundef readonly captures(none) %0, pt
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %9 = load ptr, ptr %8, align 8, !tbaa !43
+  %9 = load ptr, ptr %8, align 8, !tbaa !44
   %10 = tail call i32 %9(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %11, 0
@@ -358,7 +358,7 @@ define internal i32 @debug_copy_ref(ptr noundef readonly captures(none) %0, ptr 
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %9 = load ptr, ptr %8, align 8, !tbaa !44
+  %9 = load ptr, ptr %8, align 8, !tbaa !45
   %10 = tail call i32 %9(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %11, 0
@@ -382,12 +382,12 @@ define internal noundef ptr @debug_ref_iterator_begin(ptr noundef readonly captu
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = load ptr, ptr %6, align 8, !tbaa !11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %9 = load ptr, ptr %8, align 8, !tbaa !45
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = tail call ptr %9(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, i32 noundef %3) #6
   %11 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 48) #6
   tail call void @base_ref_iterator_init(ptr noundef %11, ptr noundef nonnull @debug_ref_iterator_vtable) #6
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store ptr %10, ptr %12, align 8, !tbaa !46
+  store ptr %10, ptr %12, align 8, !tbaa !47
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %13, 0
   %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 12), align 4
@@ -409,14 +409,14 @@ define internal i32 @debug_read_raw_ref(ptr noundef readonly captures(none) %0, 
   %7 = tail call ptr @null_oid() #6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %2, ptr noundef nonnull readonly align 4 dereferenceable(32) %7, i64 32, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %9 = load i32, ptr %8, align 4, !tbaa !52
+  %9 = load i32, ptr %8, align 4, !tbaa !53
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i32 %9, ptr %10, align 4, !tbaa !52
+  store i32 %9, ptr %10, align 4, !tbaa !53
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = load ptr, ptr %12, align 8, !tbaa !11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
-  %15 = load ptr, ptr %14, align 8, !tbaa !54
+  %15 = load ptr, ptr %14, align 8, !tbaa !55
   %16 = tail call i32 %15(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #6
   %17 = icmp eq i32 %16, 0
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
@@ -456,7 +456,7 @@ define internal i32 @debug_read_symbolic_ref(ptr noundef readonly captures(none)
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %8 = load ptr, ptr %7, align 8, !tbaa !55
+  %8 = load ptr, ptr %7, align 8, !tbaa !56
   %9 = tail call i32 %8(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #6
   %.not = icmp eq i32 %9, 0
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
@@ -493,7 +493,7 @@ define internal ptr @debug_reflog_iterator_begin(ptr noundef readonly captures(n
   %3 = load ptr, ptr %2, align 8, !tbaa !20
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %6 = load ptr, ptr %5, align 8, !tbaa !56
+  %6 = load ptr, ptr %5, align 8, !tbaa !57
   %7 = tail call ptr %6(ptr noundef nonnull %3) #6
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %8, 0
@@ -515,16 +515,16 @@ define internal ptr @debug_reflog_iterator_begin(ptr noundef readonly captures(n
 define internal i32 @debug_for_each_reflog_ent(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.debug_reflog, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
-  store ptr %1, ptr %5, align 8, !tbaa !57
+  store ptr %1, ptr %5, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %2, ptr %6, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !60
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %7, align 8, !tbaa !60
+  store ptr %3, ptr %7, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
-  %12 = load ptr, ptr %11, align 8, !tbaa !61
+  %12 = load ptr, ptr %11, align 8, !tbaa !62
   %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull @debug_print_reflog_ent, ptr noundef nonnull %5) #6
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %14, 0
@@ -547,16 +547,16 @@ define internal i32 @debug_for_each_reflog_ent(ptr noundef readonly captures(non
 define internal i32 @debug_for_each_reflog_ent_reverse(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.debug_reflog, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #6
-  store ptr %1, ptr %5, align 8, !tbaa !57
+  store ptr %1, ptr %5, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %2, ptr %6, align 8, !tbaa !59
+  store ptr %2, ptr %6, align 8, !tbaa !60
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %3, ptr %7, align 8, !tbaa !60
+  store ptr %3, ptr %7, align 8, !tbaa !61
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = load ptr, ptr %9, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 128
-  %12 = load ptr, ptr %11, align 8, !tbaa !62
+  %12 = load ptr, ptr %11, align 8, !tbaa !63
   %13 = call i32 %12(ptr noundef nonnull %9, ptr noundef %1, ptr noundef nonnull @debug_print_reflog_ent, ptr noundef nonnull %5) #6
   %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %14, 0
@@ -581,7 +581,7 @@ define internal i32 @debug_reflog_exists(ptr noundef readonly captures(none) %0,
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %7 = load ptr, ptr %6, align 8, !tbaa !63
+  %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = tail call i32 %7(ptr noundef nonnull %4, ptr noundef %1) #6
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %9, 0
@@ -605,7 +605,7 @@ define internal i32 @debug_create_reflog(ptr noundef readonly captures(none) %0,
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %8 = load ptr, ptr %7, align 8, !tbaa !64
+  %8 = load ptr, ptr %7, align 8, !tbaa !65
   %9 = tail call i32 %8(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #6
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %10, 0
@@ -629,7 +629,7 @@ define internal i32 @debug_delete_reflog(ptr noundef readonly captures(none) %0,
   %4 = load ptr, ptr %3, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %7 = load ptr, ptr %6, align 8, !tbaa !65
+  %7 = load ptr, ptr %6, align 8, !tbaa !66
   %8 = tail call i32 %7(ptr noundef nonnull %4, ptr noundef %1) #6
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %9, 0
@@ -651,18 +651,18 @@ define internal i32 @debug_delete_reflog(ptr noundef readonly captures(none) %0,
 define internal i32 @debug_reflog_expire(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = alloca %struct.debug_reflog_expiry_should_prune, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #6
-  store ptr %3, ptr %8, align 8, !tbaa !66
+  store ptr %3, ptr %8, align 8, !tbaa !67
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %4, ptr %9, align 8, !tbaa !68
+  store ptr %4, ptr %9, align 8, !tbaa !69
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %5, ptr %10, align 8, !tbaa !69
+  store ptr %5, ptr %10, align 8, !tbaa !70
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %6, ptr %11, align 8, !tbaa !70
+  store ptr %6, ptr %11, align 8, !tbaa !71
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = load ptr, ptr %13, align 8, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 160
-  %16 = load ptr, ptr %15, align 8, !tbaa !71
+  %16 = load ptr, ptr %15, align 8, !tbaa !72
   %17 = call i32 %16(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @debug_reflog_expiry_prepare, ptr noundef nonnull @debug_reflog_expiry_should_prune_fn, ptr noundef nonnull @debug_reflog_expiry_cleanup, ptr noundef nonnull %8) #6
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %18, 0
@@ -687,7 +687,7 @@ define internal i32 @debug_fsck(ptr noundef readonly captures(none) %0, ptr noun
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %8 = load ptr, ptr %7, align 8, !tbaa !72
+  %8 = load ptr, ptr %7, align 8, !tbaa !73
   %9 = tail call i32 %8(ptr noundef nonnull %5, ptr noundef %1, ptr noundef %2) #6
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %10, 0
@@ -717,9 +717,9 @@ declare void @base_ref_iterator_init(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_ref_iterator_advance(ptr noundef captures(none) initializes((8, 16), (24, 36)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
-  %5 = load ptr, ptr %4, align 8, !tbaa !74
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
   %6 = tail call i32 %5(ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %6, 0
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
@@ -741,36 +741,36 @@ define internal i32 @debug_ref_iterator_advance(ptr noundef captures(none) initi
   br i1 %.not12, label %17, label %13
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %2, align 8, !tbaa !46
+  %14 = load ptr, ptr %2, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !76
+  %16 = load ptr, ptr %15, align 8, !tbaa !77
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 164, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.17, ptr noundef %16) #6
   br label %17
 
 17:                                               ; preds = %12, %13, %10, %11
-  %18 = load ptr, ptr %2, align 8, !tbaa !46
+  %18 = load ptr, ptr %2, align 8, !tbaa !47
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !76
+  %20 = load ptr, ptr %19, align 8, !tbaa !77
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %20, ptr %21, align 8, !tbaa !77
+  store ptr %20, ptr %21, align 8, !tbaa !78
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !78
+  %23 = load ptr, ptr %22, align 8, !tbaa !79
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %23, ptr %24, align 8, !tbaa !79
+  store ptr %23, ptr %24, align 8, !tbaa !80
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  %26 = load i32, ptr %25, align 8, !tbaa !80
+  %26 = load i32, ptr %25, align 8, !tbaa !81
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %26, ptr %27, align 8, !tbaa !81
+  store i32 %26, ptr %27, align 8, !tbaa !82
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_ref_iterator_peel(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !46
-  %5 = load ptr, ptr %4, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !47
+  %5 = load ptr, ptr %4, align 8, !tbaa !74
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !82
+  %7 = load ptr, ptr %6, align 8, !tbaa !83
   %8 = tail call i32 %7(ptr noundef nonnull %4, ptr noundef %1) #6
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %9, 0
@@ -781,9 +781,9 @@ define internal i32 @debug_ref_iterator_peel(ptr noundef readonly captures(none)
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %2
-  %13 = load ptr, ptr %3, align 8, !tbaa !46
+  %13 = load ptr, ptr %3, align 8, !tbaa !47
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !76
+  %15 = load ptr, ptr %14, align 8, !tbaa !77
   tail call void (ptr, i32, ptr, ptr, ...) @trace_printf_key_fl(ptr noundef nonnull @.str, i32 noundef 178, ptr noundef nonnull @trace_refs, ptr noundef nonnull @.str.18, ptr noundef %15, i32 noundef %8) #6
   br label %16
 
@@ -794,10 +794,10 @@ define internal i32 @debug_ref_iterator_peel(ptr noundef readonly captures(none)
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_ref_iterator_abort(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8, !tbaa !46
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !83
+  %6 = load ptr, ptr %5, align 8, !tbaa !84
   %7 = tail call i32 %6(ptr noundef nonnull %3) #6
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %8, 0
@@ -859,9 +859,9 @@ define internal i32 @debug_print_reflog_ent(ptr noundef %0, ptr noundef %1, ptr 
 
 22:                                               ; preds = %20, %19
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !59
+  %24 = load ptr, ptr %23, align 8, !tbaa !60
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !60
+  %26 = load ptr, ptr %25, align 8, !tbaa !61
   %27 = call i32 %24(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %26) #6
   %28 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %28, 0
@@ -872,7 +872,7 @@ define internal i32 @debug_print_reflog_ent(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not23, label %37, label %31
 
 31:                                               ; preds = %22
-  %32 = load ptr, ptr %6, align 8, !tbaa !57
+  %32 = load ptr, ptr %6, align 8, !tbaa !58
   %33 = ptrtoint ptr %16 to i64
   %34 = ptrtoint ptr %5 to i64
   %35 = sub i64 %33, %34
@@ -904,9 +904,9 @@ define internal void @debug_reflog_expiry_prepare(ptr noundef %0, ptr noundef %1
   br label %8
 
 8:                                                ; preds = %7, %3
-  %9 = load ptr, ptr %2, align 8, !tbaa !66
+  %9 = load ptr, ptr %2, align 8, !tbaa !67
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !70
+  %11 = load ptr, ptr %10, align 8, !tbaa !71
   tail call void %9(ptr noundef %0, ptr noundef %1, ptr noundef %11) #6
   ret void
 }
@@ -914,9 +914,9 @@ define internal void @debug_reflog_expiry_prepare(ptr noundef %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @debug_reflog_expiry_should_prune_fn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !68
+  %9 = load ptr, ptr %8, align 8, !tbaa !69
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !70
+  %11 = load ptr, ptr %10, align 8, !tbaa !71
   %12 = tail call i32 %9(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %11) #6
   %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @trace_refs, i64 8), align 8, !tbaa !17
   %.not.i = icmp eq i32 %13, 0
@@ -937,9 +937,9 @@ define internal i32 @debug_reflog_expiry_should_prune_fn(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal void @debug_reflog_expiry_cleanup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !70
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !70
+  %5 = load ptr, ptr %4, align 8, !tbaa !71
   tail call void %3(ptr noundef %5) #6
   ret void
 }
@@ -994,48 +994,49 @@ attributes #7 = { nounwind willreturn memory(read) }
 !36 = !{!37, !37, i64 0}
 !37 = !{!"p1 _ZTS10ref_update", !7, i64 0}
 !38 = !{!19, !19, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = !{!16, !7, i64 56}
-!42 = !{!16, !7, i64 64}
-!43 = !{!16, !7, i64 72}
-!44 = !{!16, !7, i64 80}
-!45 = !{!16, !7, i64 88}
-!46 = !{!47, !51, i64 40}
-!47 = !{!"debug_ref_iterator", !48, i64 0, !51, i64 40}
-!48 = !{!"ref_iterator", !49, i64 0, !6, i64 8, !6, i64 16, !50, i64 24, !19, i64 32}
-!49 = !{!"p1 _ZTS19ref_iterator_vtable", !7, i64 0}
-!50 = !{!"p1 _ZTS9object_id", !7, i64 0}
-!51 = !{!"p1 _ZTS12ref_iterator", !7, i64 0}
-!52 = !{!53, !19, i64 32}
-!53 = !{!"object_id", !8, i64 0, !19, i64 32}
-!54 = !{!16, !7, i64 96}
-!55 = !{!16, !7, i64 104}
-!56 = !{!16, !7, i64 112}
-!57 = !{!58, !6, i64 0}
-!58 = !{!"debug_reflog", !6, i64 0, !7, i64 8, !7, i64 16}
-!59 = !{!58, !7, i64 8}
-!60 = !{!58, !7, i64 16}
-!61 = !{!16, !7, i64 120}
-!62 = !{!16, !7, i64 128}
-!63 = !{!16, !7, i64 136}
-!64 = !{!16, !7, i64 144}
-!65 = !{!16, !7, i64 152}
-!66 = !{!67, !7, i64 0}
-!67 = !{!"debug_reflog_expiry_should_prune", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24}
-!68 = !{!67, !7, i64 8}
-!69 = !{!67, !7, i64 16}
-!70 = !{!67, !7, i64 24}
-!71 = !{!16, !7, i64 160}
-!72 = !{!16, !7, i64 168}
-!73 = !{!48, !49, i64 0}
-!74 = !{!75, !7, i64 0}
-!75 = !{!"ref_iterator_vtable", !7, i64 0, !7, i64 8, !7, i64 16}
-!76 = !{!48, !6, i64 8}
-!77 = !{!47, !6, i64 8}
-!78 = !{!48, !50, i64 24}
-!79 = !{!47, !50, i64 24}
-!80 = !{!48, !19, i64 32}
-!81 = !{!47, !19, i64 32}
-!82 = !{!75, !7, i64 8}
-!83 = !{!75, !7, i64 16}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = !{!16, !7, i64 56}
+!43 = !{!16, !7, i64 64}
+!44 = !{!16, !7, i64 72}
+!45 = !{!16, !7, i64 80}
+!46 = !{!16, !7, i64 88}
+!47 = !{!48, !52, i64 40}
+!48 = !{!"debug_ref_iterator", !49, i64 0, !52, i64 40}
+!49 = !{!"ref_iterator", !50, i64 0, !6, i64 8, !6, i64 16, !51, i64 24, !19, i64 32}
+!50 = !{!"p1 _ZTS19ref_iterator_vtable", !7, i64 0}
+!51 = !{!"p1 _ZTS9object_id", !7, i64 0}
+!52 = !{!"p1 _ZTS12ref_iterator", !7, i64 0}
+!53 = !{!54, !19, i64 32}
+!54 = !{!"object_id", !8, i64 0, !19, i64 32}
+!55 = !{!16, !7, i64 96}
+!56 = !{!16, !7, i64 104}
+!57 = !{!16, !7, i64 112}
+!58 = !{!59, !6, i64 0}
+!59 = !{!"debug_reflog", !6, i64 0, !7, i64 8, !7, i64 16}
+!60 = !{!59, !7, i64 8}
+!61 = !{!59, !7, i64 16}
+!62 = !{!16, !7, i64 120}
+!63 = !{!16, !7, i64 128}
+!64 = !{!16, !7, i64 136}
+!65 = !{!16, !7, i64 144}
+!66 = !{!16, !7, i64 152}
+!67 = !{!68, !7, i64 0}
+!68 = !{!"debug_reflog_expiry_should_prune", !7, i64 0, !7, i64 8, !7, i64 16, !7, i64 24}
+!69 = !{!68, !7, i64 8}
+!70 = !{!68, !7, i64 16}
+!71 = !{!68, !7, i64 24}
+!72 = !{!16, !7, i64 160}
+!73 = !{!16, !7, i64 168}
+!74 = !{!49, !50, i64 0}
+!75 = !{!76, !7, i64 0}
+!76 = !{!"ref_iterator_vtable", !7, i64 0, !7, i64 8, !7, i64 16}
+!77 = !{!49, !6, i64 8}
+!78 = !{!48, !6, i64 8}
+!79 = !{!49, !51, i64 24}
+!80 = !{!48, !51, i64 24}
+!81 = !{!49, !19, i64 32}
+!82 = !{!48, !19, i64 32}
+!83 = !{!76, !7, i64 8}
+!84 = !{!76, !7, i64 16}

@@ -6638,7 +6638,7 @@ lean_dec.exit:                                    ; preds = %78, %77, %75, %lean
 
 lean_inc.exit:                                    ; preds = %84, %83, %81, %lean_dec.exit
   %85 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef %0, ptr noundef %.0, ptr noundef %53, ptr noundef %63) #6
-  br label %6
+  br label %6, !llvm.loop !15
 }
 
 ; Function Attrs: nounwind uwtable
@@ -6915,7 +6915,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
   %.not = icmp eq i64 %20, 0
-  br i1 %.not, label %31, label %21, !prof !15
+  br i1 %.not, label %31, label %21, !prof !17
 
 21:                                               ; preds = %13
   %22 = lshr i64 %19, 1
@@ -6931,7 +6931,7 @@ lean_obj_tag.exit:                                ; preds = %5, %8
 
 lean_dec.exit.backedge:                           ; preds = %25, %29, %38, %37, %35
   %.0.be = phi ptr [ %28, %25 ], [ %30, %29 ], [ %32, %38 ], [ %32, %37 ], [ %32, %35 ]
-  br label %lean_dec.exit
+  br label %lean_dec.exit, !llvm.loop !18
 
 29:                                               ; preds = %21
   %30 = tail call ptr @lean_big_usize_to_nat(i64 noundef range(i64 0, -1) %23) #6
@@ -8194,7 +8194,7 @@ lean_dec.exit:                                    ; preds = %78, %77, %75, %lean
 
 lean_inc.exit:                                    ; preds = %84, %83, %81, %lean_dec.exit
   %85 = tail call ptr @l_Lean_RBNode_insert___rarg(ptr noundef %0, ptr noundef %.0, ptr noundef %53, ptr noundef %63) #6
-  br label %6
+  br label %6, !llvm.loop !19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8520,4 +8520,8 @@ attributes #7 = { noreturn nounwind }
 !12 = !{!13, !13, i64 0}
 !13 = !{!"short", !7, i64 0}
 !14 = !{!"branch_weights", !"expected", i32 2146812770, i32 670878}
-!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!18 = distinct !{!18, !16}
+!19 = distinct !{!19, !16}

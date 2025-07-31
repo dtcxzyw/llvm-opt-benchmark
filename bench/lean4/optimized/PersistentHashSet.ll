@@ -2508,7 +2508,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
 
 .backedge:                                        ; preds = %lean_alloc_ctor.exit, %lean_dec.exit34
   %.031.be = phi ptr [ %.0, %lean_dec.exit34 ], [ %82, %lean_alloc_ctor.exit ]
-  br label %3
+  br label %3, !llvm.loop !17
 }
 
 declare ptr @l_List_reverse___rarg(ptr noundef) local_unnamed_addr #1
@@ -6614,3 +6614,5 @@ attributes #5 = { "function-inline-cost-multiplier"="2" }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"long", !7, i64 0}
 !16 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!17 = distinct !{!17, !18}
+!18 = !{!"llvm.loop.estimated_trip_count"}

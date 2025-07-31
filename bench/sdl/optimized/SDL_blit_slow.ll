@@ -1771,7 +1771,7 @@ GetPixelAccessMethod.exit643.thread:              ; preds = %61, %70, %71, %swit
   %1276 = add nsw i32 %1275, -1
   store i32 %1276, ptr %81, align 4
   %.not = icmp eq i32 %1275, 0
-  br i1 %.not, label %._crit_edge754, label %.lr.ph753.split, !llvm.loop !5
+  br i1 %.not, label %._crit_edge754, label %.lr.ph753.split, !llvm.loop !6
 
 ._crit_edge754:                                   ; preds = %.outer._crit_edge, %.lr.ph753.split.us, %GetPixelAccessMethod.exit643.thread
   ret void
@@ -3446,7 +3446,7 @@ WriteFloatPixel.exit:                             ; preds = %1007, %1002, %float
   %1009 = add i64 %.0118186, %139
   %1010 = getelementptr inbounds nuw i8, ptr %.0123185, i64 %166
   %.not141 = icmp eq i32 %178, 0
-  br i1 %.not141, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not141, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %WriteFloatPixel.exit
   %.pre200 = load ptr, ptr %141, align 8
@@ -3466,7 +3466,7 @@ WriteFloatPixel.exit:                             ; preds = %1007, %1002, %float
   %1017 = add nsw i32 %1011, -1
   store i32 %1017, ptr %128, align 4
   %.not140 = icmp eq i32 %1011, 0
-  br i1 %.not140, label %._crit_edge193, label %.lr.ph192.split, !llvm.loop !8
+  br i1 %.not140, label %._crit_edge193, label %.lr.ph192.split, !llvm.loop !9
 
 ._crit_edge193:                                   ; preds = %._crit_edge, %.lr.ph192.split.us, %GetPixelAccessMethod.exit163.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #5
@@ -4273,9 +4273,10 @@ attributes #5 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4, !6}
-!6 = !{!"llvm.loop.unswitch.partial.disable"}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4, !6}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5, !7}
+!7 = !{!"llvm.loop.unswitch.partial.disable"}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5, !7}

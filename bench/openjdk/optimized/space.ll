@@ -340,7 +340,7 @@ _ZN7oopDesc4sizeEv.exit:                          ; preds = %29, %32, %39, %59
   %64 = getelementptr inbounds ptr, ptr %.07, i64 %.0.i1.i
   %65 = load ptr, ptr %4, align 8
   %66 = icmp ult ptr %64, %65
-  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %66, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN7oopDesc4sizeEv.exit, %2
   ret void
@@ -387,9 +387,9 @@ define hidden noundef ptr @_ZN15ContiguousSpace12par_allocateEm(ptr noundef nonn
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds ptr, ptr %6, i64 %1
-  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13, ptr %6, ptr nonnull %3) #7, !srcloc !9
+  %14 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %13, ptr %6, ptr nonnull %3) #7, !srcloc !10
   %15 = icmp eq ptr %14, %6
-  br i1 %15, label %_ZN15ContiguousSpace17par_allocate_implEm.exit, label %5, !llvm.loop !10
+  br i1 %15, label %_ZN15ContiguousSpace17par_allocate_implEm.exit, label %5, !llvm.loop !11
 
 _ZN15ContiguousSpace17par_allocate_implEm.exit:   ; preds = %5, %12
   %.0.i = phi ptr [ %6, %12 ], [ null, %5 ]
@@ -505,8 +505,9 @@ attributes #8 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 2145412694}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2145412694}
+!11 = distinct !{!11, !7, !8}

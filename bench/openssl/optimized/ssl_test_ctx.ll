@@ -166,12 +166,12 @@ define dso_local ptr @ssl_test_result_name(i32 noundef %0) local_unnamed_addr #0
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_results, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -192,12 +192,12 @@ define dso_local ptr @ssl_alert_name(i32 noundef %0) local_unnamed_addr #0 {
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_alerts, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -218,12 +218,12 @@ define dso_local ptr @ssl_protocol_name(i32 noundef %0) local_unnamed_addr #0 {
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_protocols, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -244,12 +244,12 @@ define dso_local ptr @ssl_verify_callback_name(i32 noundef %0) local_unnamed_add
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_verify_callbacks, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -270,12 +270,12 @@ define dso_local ptr @ssl_servername_name(i32 noundef %0) local_unnamed_addr #0 
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -296,12 +296,12 @@ define dso_local ptr @ssl_servername_callback_name(i32 noundef %0) local_unnamed
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername_callbacks, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -322,12 +322,12 @@ define dso_local ptr @ssl_session_ticket_name(i32 noundef %0) local_unnamed_addr
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -348,12 +348,12 @@ define dso_local ptr @ssl_session_id_name(i32 noundef %0) local_unnamed_addr #0 
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -374,12 +374,12 @@ define dso_local ptr @ssl_test_method_name(i32 noundef %0) local_unnamed_addr #0
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_methods, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -400,12 +400,12 @@ define dso_local ptr @ssl_handshake_mode_name(i32 noundef %0) local_unnamed_addr
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_handshake_modes, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -426,12 +426,12 @@ define dso_local ptr @ssl_ct_validation_name(i32 noundef %0) local_unnamed_addr 
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -452,12 +452,12 @@ define dso_local ptr @ssl_certstatus_name(i32 noundef %0) local_unnamed_addr #0 
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_certstatus, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -478,12 +478,12 @@ define dso_local ptr @ssl_max_fragment_len_name(i32 noundef %0) local_unnamed_ad
   %.09.i = phi i64 [ 0, %1 ], [ %3, %2 ]
   %5 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %.09.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = load i32, ptr %6, align 8, !tbaa !6
+  %7 = load i32, ptr %6, align 8, !tbaa !7
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %2
 
 9:                                                ; preds = %4
-  %10 = load ptr, ptr %5, align 8, !tbaa !13
+  %10 = load ptr, ptr %5, align 8, !tbaa !14
   br label %enum_name.exit
 
 enum_name.exit:                                   ; preds = %2, %9
@@ -499,11 +499,11 @@ define dso_local noalias ptr @SSL_TEST_CTX_new(ptr noundef %0) local_unnamed_add
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 568
-  store ptr %0, ptr %4, align 8, !tbaa !14
+  store ptr %0, ptr %4, align 8, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 256, ptr %5, align 8, !tbaa !21
+  store i32 256, ptr %5, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 512, ptr %6, align 4, !tbaa !22
+  store i32 512, ptr %6, align 4, !tbaa !23
   br label %7
 
 7:                                                ; preds = %3, %1
@@ -529,25 +529,25 @@ define dso_local void @SSL_TEST_CTX_free(ptr noundef %0) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call fastcc void @ssl_test_extra_conf_free_data(ptr noundef readonly %5)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 782) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %9 = load ptr, ptr %8, align 8, !tbaa !24
+  %9 = load ptr, ptr %8, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 783) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %11 = load ptr, ptr %10, align 8, !tbaa !25
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 784) #8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
   tail call void @OPENSSL_sk_pop_free(ptr noundef %13, ptr noundef nonnull @X509_NAME_free) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
+  %15 = load ptr, ptr %14, align 8, !tbaa !28
   tail call void @OPENSSL_sk_pop_free(ptr noundef %15, ptr noundef nonnull @X509_NAME_free) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
+  %17 = load ptr, ptr %16, align 8, !tbaa !29
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 787) #8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  %19 = load ptr, ptr %18, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 788) #8
   tail call void @CRYPTO_free(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 789) #8
   br label %20
@@ -576,11 +576,11 @@ define dso_local ptr @SSL_TEST_CTX_create(ptr noundef %0, ptr noundef %1, ptr no
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 568
-  store ptr %2, ptr %9, align 8, !tbaa !14
+  store ptr %2, ptr %9, align 8, !tbaa !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 256, ptr %10, align 8, !tbaa !21
+  store i32 256, ptr %10, align 8, !tbaa !22
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 512, ptr %11, align 4, !tbaa !22
+  store i32 512, ptr %11, align 4, !tbaa !23
   br label %SSL_TEST_CTX_new.exit
 
 SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
@@ -606,14 +606,14 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   %.04972 = phi i32 [ 0, %.lr.ph ], [ %84, %83 ]
   %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.04972) #8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !30
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(7) @.str.3) #9
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %29 = load ptr, ptr %28, align 8, !tbaa !32
+  %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = tail call fastcc i32 @parse_client_options(ptr noundef nonnull %20, ptr noundef %0, ptr noundef %29)
   %.not59 = icmp eq i32 %30, 0
   br i1 %.not59, label %.thread, label %83
@@ -625,7 +625,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 
 34:                                               ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !32
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
   %37 = tail call fastcc i32 @parse_server_options(ptr noundef nonnull %19, ptr noundef %0, ptr noundef %36)
   %.not58 = icmp eq i32 %37, 0
   br i1 %.not58, label %.thread, label %83
@@ -637,7 +637,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !32
+  %43 = load ptr, ptr %42, align 8, !tbaa !33
   %44 = tail call fastcc i32 @parse_server_options(ptr noundef nonnull %18, ptr noundef %0, ptr noundef %43)
   %.not57 = icmp eq i32 %44, 0
   br i1 %.not57, label %.thread, label %83
@@ -649,7 +649,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %50 = load ptr, ptr %49, align 8, !tbaa !32
+  %50 = load ptr, ptr %49, align 8, !tbaa !33
   %51 = tail call fastcc i32 @parse_client_options(ptr noundef nonnull %17, ptr noundef %0, ptr noundef %50)
   %.not56 = icmp eq i32 %51, 0
   br i1 %.not56, label %.thread, label %83
@@ -661,7 +661,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 
 55:                                               ; preds = %52
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !32
+  %57 = load ptr, ptr %56, align 8, !tbaa !33
   %58 = tail call fastcc i32 @parse_server_options(ptr noundef nonnull %16, ptr noundef %0, ptr noundef %57)
   %.not55 = icmp eq i32 %58, 0
   br i1 %.not55, label %.thread, label %83
@@ -673,7 +673,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !32
+  %64 = load ptr, ptr %63, align 8, !tbaa !33
   %65 = tail call fastcc i32 @parse_server_options(ptr noundef nonnull %15, ptr noundef %0, ptr noundef %64)
   %.not54 = icmp eq i32 %65, 0
   br i1 %.not54, label %.thread, label %83
@@ -681,21 +681,21 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 66:                                               ; preds = %.preheader
   %67 = add nuw nsw i64 %.04868, 1
   %exitcond = icmp eq i64 %67, 32
-  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !33
+  br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !34
 
 .preheader:                                       ; preds = %59, %66
   %.04868 = phi i64 [ %67, %66 ], [ 0, %59 ]
   %68 = getelementptr inbounds nuw [32 x %struct.ssl_test_ctx_option], ptr @ssl_test_ctx_options, i64 0, i64 %.04868
-  %69 = load ptr, ptr %68, align 16, !tbaa !34
+  %69 = load ptr, ptr %68, align 16, !tbaa !35
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %69) #9
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %66
 
 72:                                               ; preds = %.preheader
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !36
+  %74 = load ptr, ptr %73, align 8, !tbaa !37
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %76 = load ptr, ptr %75, align 8, !tbaa !32
+  %76 = load ptr, ptr %75, align 8, !tbaa !33
   %77 = tail call i32 %74(ptr noundef %7, ptr noundef %76) #8
   %.not52 = icmp eq i32 %77, 0
   br i1 %.not52, label %78, label %83
@@ -703,8 +703,8 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %80 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !32
-  %82 = load ptr, ptr %79, align 8, !tbaa !30
+  %81 = load ptr, ptr %80, align 8, !tbaa !33
+  %82 = load ptr, ptr %79, align 8, !tbaa !31
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 901, ptr noundef nonnull @.str.9, ptr noundef %81, ptr noundef %82) #8
   br label %.thread
 
@@ -716,7 +716,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   %84 = add nuw nsw i32 %.04972, 1
   %85 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #8
   %86 = icmp slt i32 %84, %85
-  br i1 %86, label %21, label %.loopexit, !llvm.loop !37
+  br i1 %86, label %21, label %.loopexit, !llvm.loop !38
 
 .thread:                                          ; preds = %62, %55, %48, %41, %34, %27, %78, %.critedge, %3, %SSL_TEST_CTX_new.exit
   %.050 = phi ptr [ %7, %SSL_TEST_CTX_new.exit ], [ null, %3 ], [ %7, %.critedge ], [ %7, %78 ], [ %7, %27 ], [ %7, %34 ], [ %7, %41 ], [ %7, %48 ], [ %7, %55 ], [ %7, %62 ]
@@ -755,33 +755,33 @@ define internal fastcc range(i32 0, 2) i32 @parse_client_options(ptr noundef %0,
   %9 = add nuw nsw i32 %.02234, 1
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #8
   %11 = icmp slt i32 %9, %10
-  br i1 %11, label %.lr.ph, label %.critedge26, !llvm.loop !38
+  br i1 %11, label %.lr.ph, label %.critedge26, !llvm.loop !39
 
 .lr.ph:                                           ; preds = %.preheader, %8
   %.02234 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.02234) #8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
   br label %17
 
 15:                                               ; preds = %17
   %16 = add nuw nsw i64 %.02131, 1
   %exitcond = icmp eq i64 %16, 11
-  br i1 %exitcond, label %.critedge, label %17, !llvm.loop !39
+  br i1 %exitcond, label %.critedge, label %17, !llvm.loop !40
 
 17:                                               ; preds = %.lr.ph, %15
   %.02131 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw [11 x %struct.ssl_test_client_option], ptr @ssl_test_client_options, i64 0, i64 %.02131
-  %19 = load ptr, ptr %18, align 16, !tbaa !34
+  %19 = load ptr, ptr %18, align 16, !tbaa !35
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %19) #9
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %15
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = tail call i32 %24(ptr noundef %0, ptr noundef %26) #8
   %.not23 = icmp eq i32 %27, 0
   br i1 %.not23, label %28, label %8
@@ -789,8 +789,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_client_options(ptr noundef %0,
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
-  %32 = load ptr, ptr %29, align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !33
+  %32 = load ptr, ptr %29, align 8, !tbaa !31
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 809, ptr noundef nonnull @.str.9, ptr noundef %31, ptr noundef %32) #8
   br label %.critedge26
 
@@ -819,33 +819,33 @@ define internal fastcc range(i32 0, 2) i32 @parse_server_options(ptr noundef %0,
   %9 = add nuw nsw i32 %.02234, 1
   %10 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #8
   %11 = icmp slt i32 %9, %10
-  br i1 %11, label %.lr.ph, label %.critedge26, !llvm.loop !40
+  br i1 %11, label %.lr.ph, label %.critedge26, !llvm.loop !41
 
 .lr.ph:                                           ; preds = %.preheader, %8
   %.02234 = phi i32 [ %9, %8 ], [ 0, %.preheader ]
   %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.02234) #8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !30
+  %14 = load ptr, ptr %13, align 8, !tbaa !31
   br label %17
 
 15:                                               ; preds = %17
   %16 = add nuw nsw i64 %.02131, 1
   %exitcond = icmp eq i64 %16, 9
-  br i1 %exitcond, label %.critedge, label %17, !llvm.loop !41
+  br i1 %exitcond, label %.critedge, label %17, !llvm.loop !42
 
 17:                                               ; preds = %.lr.ph, %15
   %.02131 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
   %18 = getelementptr inbounds nuw [9 x %struct.ssl_test_server_option], ptr @ssl_test_server_options, i64 0, i64 %.02131
-  %19 = load ptr, ptr %18, align 16, !tbaa !34
+  %19 = load ptr, ptr %18, align 16, !tbaa !35
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %19) #9
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %15
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !36
+  %24 = load ptr, ptr %23, align 8, !tbaa !37
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !32
+  %26 = load ptr, ptr %25, align 8, !tbaa !33
   %27 = tail call i32 %24(ptr noundef %0, ptr noundef %26) #8
   %.not23 = icmp eq i32 %27, 0
   br i1 %.not23, label %28, label %8
@@ -853,8 +853,8 @@ define internal fastcc range(i32 0, 2) i32 @parse_server_options(ptr noundef %0,
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !32
-  %32 = load ptr, ptr %29, align 8, !tbaa !30
+  %31 = load ptr, ptr %30, align 8, !tbaa !33
+  %32 = load ptr, ptr %29, align 8, !tbaa !31
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 842, ptr noundef nonnull @.str.9, ptr noundef %31, ptr noundef %32) #8
   br label %.critedge26
 
@@ -872,49 +872,49 @@ declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unname
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ssl_test_extra_conf_free_data(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   tail call void @CRYPTO_free(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef 754) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !43
+  %5 = load ptr, ptr %4, align 8, !tbaa !44
   tail call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 755) #8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load ptr, ptr %6, align 8, !tbaa !44
+  %7 = load ptr, ptr %6, align 8, !tbaa !45
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 756) #8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8, !tbaa !45
+  %9 = load ptr, ptr %8, align 8, !tbaa !46
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 757) #8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %11 = load ptr, ptr %10, align 8, !tbaa !46
+  %11 = load ptr, ptr %10, align 8, !tbaa !47
   tail call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 758) #8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %13 = load ptr, ptr %12, align 8, !tbaa !48
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 759) #8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !48
+  %15 = load ptr, ptr %14, align 8, !tbaa !49
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 760) #8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %17 = load ptr, ptr %16, align 8, !tbaa !49
+  %17 = load ptr, ptr %16, align 8, !tbaa !50
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 761) #8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %19 = load ptr, ptr %18, align 8, !tbaa !50
+  %19 = load ptr, ptr %18, align 8, !tbaa !51
   tail call void @CRYPTO_free(ptr noundef %19, ptr noundef nonnull @.str, i32 noundef 762) #8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %21 = load ptr, ptr %20, align 8, !tbaa !51
+  %21 = load ptr, ptr %20, align 8, !tbaa !52
   tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 763) #8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %23 = load ptr, ptr %22, align 8, !tbaa !52
+  %23 = load ptr, ptr %22, align 8, !tbaa !53
   tail call void @CRYPTO_free(ptr noundef %23, ptr noundef nonnull @.str, i32 noundef 764) #8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load ptr, ptr %24, align 8, !tbaa !53
+  %25 = load ptr, ptr %24, align 8, !tbaa !54
   tail call void @CRYPTO_free(ptr noundef %25, ptr noundef nonnull @.str, i32 noundef 765) #8
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %27 = load ptr, ptr %26, align 8, !tbaa !54
+  %27 = load ptr, ptr %26, align 8, !tbaa !55
   tail call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 766) #8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %29 = load ptr, ptr %28, align 8, !tbaa !55
+  %29 = load ptr, ptr %28, align 8, !tbaa !56
   tail call void @CRYPTO_free(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef 767) #8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %31 = load ptr, ptr %30, align 8, !tbaa !56
+  %31 = load ptr, ptr %30, align 8, !tbaa !57
   tail call void @CRYPTO_free(ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 768) #8
   ret void
 }
@@ -926,20 +926,20 @@ define internal range(i32 0, 2) i32 @parse_client_verify_callback(ptr noundef wr
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 4
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_verify_callbacks, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
-  store i32 %12, ptr %0, align 8, !tbaa !58
+  %12 = load i32, ptr %11, align 8, !tbaa !7
+  store i32 %12, ptr %0, align 8, !tbaa !59
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -954,21 +954,21 @@ define internal range(i32 0, 2) i32 @parse_servername(ptr noundef writeonly capt
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 4
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !59
+  store i32 %12, ptr %13, align 4, !tbaa !60
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -979,10 +979,10 @@ parse_enum.exit.thread:                           ; preds = %3, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_client_npn_protocols(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !60
+  %4 = load ptr, ptr %3, align 8, !tbaa !61
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 352) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 352) #8
-  store ptr %5, ptr %3, align 8, !tbaa !60
+  store ptr %5, ptr %3, align 8, !tbaa !61
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 352, ptr noundef nonnull @.str.88, ptr noundef %5) #8
   ret i32 %6
 }
@@ -990,10 +990,10 @@ define internal i32 @parse_client_npn_protocols(ptr noundef captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_client_alpn_protocols(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !61
+  %4 = load ptr, ptr %3, align 8, !tbaa !62
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 355) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 355) #8
-  store ptr %5, ptr %3, align 8, !tbaa !61
+  store ptr %5, ptr %3, align 8, !tbaa !62
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 355, ptr noundef nonnull @.str.89, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1005,21 +1005,21 @@ define internal range(i32 0, 2) i32 @parse_ct_validation(ptr noundef writeonly c
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 3
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_ct_validation_modes, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %12, ptr %13, align 8, !tbaa !62
+  store i32 %12, ptr %13, align 8, !tbaa !63
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1030,10 +1030,10 @@ parse_enum.exit.thread:                           ; preds = %3, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_client_reneg_ciphers(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !63
+  %4 = load ptr, ptr %3, align 8, !tbaa !64
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 400) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 400) #8
-  store ptr %5, ptr %3, align 8, !tbaa !63
+  store ptr %5, ptr %3, align 8, !tbaa !64
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 400, ptr noundef nonnull @.str.90, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1041,10 +1041,10 @@ define internal i32 @parse_client_reneg_ciphers(ptr noundef captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_client_srp_user(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !64
+  %4 = load ptr, ptr %3, align 8, !tbaa !65
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 360) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 360) #8
-  store ptr %5, ptr %3, align 8, !tbaa !64
+  store ptr %5, ptr %3, align 8, !tbaa !65
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 360, ptr noundef nonnull @.str.91, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1052,10 +1052,10 @@ define internal i32 @parse_client_srp_user(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_client_srp_password(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !65
+  %4 = load ptr, ptr %3, align 8, !tbaa !66
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 362) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 362) #8
-  store ptr %5, ptr %3, align 8, !tbaa !65
+  store ptr %5, ptr %3, align 8, !tbaa !66
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @.str.92, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1067,21 +1067,21 @@ define internal range(i32 0, 2) i32 @parse_max_fragment_len_mode(ptr noundef wri
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 5
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_max_fragment_len_mode, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %12, ptr %13, align 8, !tbaa !66
+  store i32 %12, ptr %13, align 8, !tbaa !67
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1097,7 +1097,7 @@ define internal range(i32 0, 2) i32 @parse_client_enable_pha(ptr noundef writeon
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1106,7 +1106,7 @@ define internal range(i32 0, 2) i32 @parse_client_enable_pha(ptr noundef writeon
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1126,7 +1126,7 @@ define internal range(i32 0, 2) i32 @parse_client_no_extms_on_reneg(ptr noundef 
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1135,7 +1135,7 @@ define internal range(i32 0, 2) i32 @parse_client_no_extms_on_reneg(ptr noundef 
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1160,20 +1160,20 @@ define internal range(i32 0, 2) i32 @parse_servername_callback(ptr noundef write
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 6
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername_callbacks, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
-  store i32 %12, ptr %0, align 8, !tbaa !68
+  %12 = load i32, ptr %11, align 8, !tbaa !7
+  store i32 %12, ptr %0, align 8, !tbaa !69
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1184,10 +1184,10 @@ parse_enum.exit.thread:                           ; preds = %3, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_server_npn_protocols(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !69
+  %4 = load ptr, ptr %3, align 8, !tbaa !70
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 353) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 353) #8
-  store ptr %5, ptr %3, align 8, !tbaa !69
+  store ptr %5, ptr %3, align 8, !tbaa !70
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @.str.88, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1195,10 +1195,10 @@ define internal i32 @parse_server_npn_protocols(ptr noundef captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_server_alpn_protocols(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 8, !tbaa !71
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 356) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 356) #8
-  store ptr %5, ptr %3, align 8, !tbaa !70
+  store ptr %5, ptr %3, align 8, !tbaa !71
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 356, ptr noundef nonnull @.str.89, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1211,7 +1211,7 @@ define internal range(i32 0, 2) i32 @parse_server_broken_session_ticket(ptr noun
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1220,7 +1220,7 @@ define internal range(i32 0, 2) i32 @parse_server_broken_session_ticket(ptr noun
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1239,21 +1239,21 @@ define internal range(i32 0, 2) i32 @parse_certstatus(ptr noundef writeonly capt
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 3
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_certstatus, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %12, ptr %13, align 4, !tbaa !71
+  store i32 %12, ptr %13, align 4, !tbaa !72
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1264,10 +1264,10 @@ parse_enum.exit.thread:                           ; preds = %3, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_server_srp_user(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !72
+  %4 = load ptr, ptr %3, align 8, !tbaa !73
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 361) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 361) #8
-  store ptr %5, ptr %3, align 8, !tbaa !72
+  store ptr %5, ptr %3, align 8, !tbaa !73
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @.str.91, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1275,10 +1275,10 @@ define internal i32 @parse_server_srp_user(ptr noundef captures(none) %0, ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_server_srp_password(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 363) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 363) #8
-  store ptr %5, ptr %3, align 8, !tbaa !73
+  store ptr %5, ptr %3, align 8, !tbaa !74
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 363, ptr noundef nonnull @.str.92, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1291,7 +1291,7 @@ define internal range(i32 0, 2) i32 @parse_server_force_pha(ptr noundef writeonl
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1300,7 +1300,7 @@ define internal range(i32 0, 2) i32 @parse_server_force_pha(ptr noundef writeonl
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1315,10 +1315,10 @@ parse_boolean.exit:                               ; preds = %6, %10, %11
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_server_session_ticket_app_data(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %4 = load ptr, ptr %3, align 8, !tbaa !74
+  %4 = load ptr, ptr %3, align 8, !tbaa !75
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 367) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 367) #8
-  store ptr %5, ptr %3, align 8, !tbaa !74
+  store ptr %5, ptr %3, align 8, !tbaa !75
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 367, ptr noundef nonnull @.str.100, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1330,21 +1330,21 @@ define internal range(i32 0, 2) i32 @parse_expected_result(ptr noundef writeonly
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 5
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_results, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  store i32 %12, ptr %13, align 8, !tbaa !75
+  store i32 %12, ptr %13, align 8, !tbaa !76
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1360,20 +1360,20 @@ define internal range(i32 0, 2) i32 @parse_client_alert(ptr noundef writeonly ca
 4:                                                ; preds = %6
   %5 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %5, 7
-  br i1 %exitcond.not.i.i, label %parse_alert.exit, label %6, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %parse_alert.exit, label %6, !llvm.loop !58
 
 6:                                                ; preds = %4, %2
   %.010.i.i = phi i64 [ 0, %2 ], [ %5, %4 ]
   %7 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_alerts, i64 %.010.i.i
-  %8 = load ptr, ptr %7, align 16, !tbaa !13
+  %8 = load ptr, ptr %7, align 16, !tbaa !14
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %4
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !6
-  store i32 %13, ptr %3, align 4, !tbaa !67
+  %13 = load i32, ptr %12, align 8, !tbaa !7
+  store i32 %13, ptr %3, align 4, !tbaa !68
   br label %parse_alert.exit
 
 parse_alert.exit:                                 ; preds = %4, %11
@@ -1389,20 +1389,20 @@ define internal range(i32 0, 2) i32 @parse_server_alert(ptr noundef writeonly ca
 4:                                                ; preds = %6
   %5 = add nuw nsw i64 %.010.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %5, 7
-  br i1 %exitcond.not.i.i, label %parse_alert.exit, label %6, !llvm.loop !57
+  br i1 %exitcond.not.i.i, label %parse_alert.exit, label %6, !llvm.loop !58
 
 6:                                                ; preds = %4, %2
   %.010.i.i = phi i64 [ 0, %2 ], [ %5, %4 ]
   %7 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_alerts, i64 %.010.i.i
-  %8 = load ptr, ptr %7, align 16, !tbaa !13
+  %8 = load ptr, ptr %7, align 16, !tbaa !14
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %4
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !6
-  store i32 %13, ptr %3, align 4, !tbaa !67
+  %13 = load i32, ptr %12, align 8, !tbaa !7
+  store i32 %13, ptr %3, align 4, !tbaa !68
   br label %parse_alert.exit
 
 parse_alert.exit:                                 ; preds = %4, %11
@@ -1418,20 +1418,20 @@ define internal range(i32 0, 2) i32 @parse_protocol(ptr noundef writeonly captur
 4:                                                ; preds = %6
   %5 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %5, 7
-  br i1 %exitcond.not.i, label %parse_enum.exit, label %6, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit, label %6, !llvm.loop !58
 
 6:                                                ; preds = %4, %2
   %.010.i = phi i64 [ 0, %2 ], [ %5, %4 ]
   %7 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_protocols, i64 %.010.i
-  %8 = load ptr, ptr %7, align 16, !tbaa !13
+  %8 = load ptr, ptr %7, align 16, !tbaa !14
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %4
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %13 = load i32, ptr %12, align 8, !tbaa !6
-  store i32 %13, ptr %3, align 4, !tbaa !67
+  %13 = load i32, ptr %12, align 8, !tbaa !7
+  store i32 %13, ptr %3, align 4, !tbaa !68
   br label %parse_enum.exit
 
 parse_enum.exit:                                  ; preds = %4, %11
@@ -1446,21 +1446,21 @@ define internal range(i32 0, 2) i32 @parse_expected_servername(ptr noundef write
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 4
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_servername, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  store i32 %12, ptr %13, align 8, !tbaa !76
+  store i32 %12, ptr %13, align 8, !tbaa !77
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1475,21 +1475,21 @@ define internal range(i32 0, 2) i32 @parse_session_ticket(ptr noundef writeonly 
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 3
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 444
-  store i32 %12, ptr %13, align 4, !tbaa !77
+  store i32 %12, ptr %13, align 4, !tbaa !78
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1505,7 +1505,7 @@ define internal range(i32 0, 2) i32 @parse_test_compression_expected(ptr noundef
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1514,7 +1514,7 @@ define internal range(i32 0, 2) i32 @parse_test_compression_expected(ptr noundef
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1533,21 +1533,21 @@ define internal range(i32 0, 2) i32 @parse_session_id(ptr noundef writeonly capt
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 3
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_session_id, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i32 %12, ptr %13, align 8, !tbaa !78
+  store i32 %12, ptr %13, align 8, !tbaa !79
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1562,20 +1562,20 @@ define internal range(i32 0, 2) i32 @parse_test_method(ptr noundef writeonly cap
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 3
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_test_methods, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
-  store i32 %12, ptr %0, align 8, !tbaa !79
+  %12 = load i32, ptr %11, align 8, !tbaa !7
+  store i32 %12, ptr %0, align 8, !tbaa !80
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1586,10 +1586,10 @@ parse_enum.exit.thread:                           ; preds = %3, %10
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_test_expected_npn_protocol(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !24
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 354) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 354) #8
-  store ptr %5, ptr %3, align 8, !tbaa !23
+  store ptr %5, ptr %3, align 8, !tbaa !24
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 354, ptr noundef nonnull @.str.133, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1597,10 +1597,10 @@ define internal i32 @parse_test_expected_npn_protocol(ptr noundef captures(none)
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_test_expected_alpn_protocol(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %4 = load ptr, ptr %3, align 8, !tbaa !24
+  %4 = load ptr, ptr %3, align 8, !tbaa !25
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 357) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 357) #8
-  store ptr %5, ptr %3, align 8, !tbaa !24
+  store ptr %5, ptr %3, align 8, !tbaa !25
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 357, ptr noundef nonnull @.str.134, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1612,21 +1612,21 @@ define internal range(i32 0, 2) i32 @parse_handshake_mode(ptr noundef writeonly 
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 7
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_handshake_modes, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %12, ptr %13, align 4, !tbaa !80
+  store i32 %12, ptr %13, align 4, !tbaa !81
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1641,21 +1641,21 @@ define internal range(i32 0, 2) i32 @parse_key_update_type(ptr noundef writeonly
 3:                                                ; preds = %5
   %4 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %4, 2
-  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !57
+  br i1 %exitcond.not.i, label %parse_enum.exit.thread, label %5, !llvm.loop !58
 
 5:                                                ; preds = %3, %2
   %.010.i = phi i64 [ 0, %2 ], [ %4, %3 ]
   %6 = getelementptr inbounds nuw %struct.test_enum, ptr @ssl_key_update_types, i64 %.010.i
-  %7 = load ptr, ptr %6, align 16, !tbaa !13
+  %7 = load ptr, ptr %6, align 16, !tbaa !14
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %1) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %3
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %12 = load i32, ptr %11, align 8, !tbaa !6
+  %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %12, ptr %13, align 8, !tbaa !81
+  store i32 %12, ptr %13, align 8, !tbaa !82
   br label %parse_enum.exit.thread
 
 parse_enum.exit.thread:                           ; preds = %3, %10
@@ -1671,7 +1671,7 @@ define internal range(i32 0, 2) i32 @parse_test_resumption_expected(ptr noundef 
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1680,7 +1680,7 @@ define internal range(i32 0, 2) i32 @parse_test_resumption_expected(ptr noundef 
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1697,7 +1697,7 @@ define internal noundef i32 @parse_test_app_data_size(ptr noundef writeonly capt
   %3 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %4, ptr %5, align 8, !tbaa !21
+  store i32 %4, ptr %5, align 8, !tbaa !22
   ret i32 1
 }
 
@@ -1706,7 +1706,7 @@ define internal noundef i32 @parse_test_max_fragment_size(ptr noundef writeonly 
   %3 = tail call i64 @strtol(ptr noundef nonnull captures(none) %1, ptr noundef null, i32 noundef 10) #8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %4, ptr %5, align 4, !tbaa !22
+  store i32 %4, ptr %5, align 4, !tbaa !23
   ret i32 1
 }
 
@@ -1742,7 +1742,7 @@ define internal range(i32 0, 2) i32 @parse_expected_server_sign_hash(ptr noundef
 
 .thread.i:                                        ; preds = %8, %5
   %.011.i = phi i32 [ %9, %8 ], [ %6, %5 ]
-  store i32 %.011.i, ptr %3, align 4, !tbaa !67
+  store i32 %.011.i, ptr %3, align 4, !tbaa !68
   br label %parse_expected_sign_hash.exit
 
 parse_expected_sign_hash.exit:                    ; preds = %2, %8, %.thread.i
@@ -1761,7 +1761,7 @@ define internal range(i32 0, 2) i32 @parse_expected_server_sign_type(ptr noundef
 define internal range(i32 0, 2) i32 @parse_expected_server_ca_names(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = icmp eq ptr %1, null
   br i1 %6, label %parse_expected_ca_names.exit, label %7
 
@@ -1780,7 +1780,7 @@ define internal range(i32 0, 2) i32 @parse_expected_server_ca_names(ptr noundef 
 
 13:                                               ; preds = %11, %9
   %storemerge.i = phi ptr [ %10, %9 ], [ %12, %11 ]
-  store ptr %storemerge.i, ptr %3, align 8, !tbaa !82
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !83
   %14 = icmp ne ptr %storemerge.i, null
   %15 = zext i1 %14 to i32
   br label %parse_expected_ca_names.exit
@@ -1815,7 +1815,7 @@ define internal range(i32 0, 2) i32 @parse_expected_client_sign_hash(ptr noundef
 
 .thread.i:                                        ; preds = %8, %5
   %.011.i = phi i32 [ %9, %8 ], [ %6, %5 ]
-  store i32 %.011.i, ptr %3, align 4, !tbaa !67
+  store i32 %.011.i, ptr %3, align 4, !tbaa !68
   br label %parse_expected_sign_hash.exit
 
 parse_expected_sign_hash.exit:                    ; preds = %2, %8, %.thread.i
@@ -1834,7 +1834,7 @@ define internal range(i32 0, 2) i32 @parse_expected_client_sign_type(ptr noundef
 define internal range(i32 0, 2) i32 @parse_expected_client_ca_names(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = icmp eq ptr %1, null
   br i1 %6, label %parse_expected_ca_names.exit, label %7
 
@@ -1853,7 +1853,7 @@ define internal range(i32 0, 2) i32 @parse_expected_client_ca_names(ptr noundef 
 
 13:                                               ; preds = %11, %9
   %storemerge.i = phi ptr [ %10, %9 ], [ %12, %11 ]
-  store ptr %storemerge.i, ptr %3, align 8, !tbaa !82
+  store ptr %storemerge.i, ptr %3, align 8, !tbaa !83
   %14 = icmp ne ptr %storemerge.i, null
   %15 = zext i1 %14 to i32
   br label %parse_expected_ca_names.exit
@@ -1871,7 +1871,7 @@ define internal range(i32 0, 2) i32 @parse_test_use_sctp(ptr noundef writeonly c
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1880,7 +1880,7 @@ define internal range(i32 0, 2) i32 @parse_test_use_sctp(ptr noundef writeonly c
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1900,7 +1900,7 @@ define internal range(i32 0, 2) i32 @parse_test_compress_certificates(ptr nounde
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1909,7 +1909,7 @@ define internal range(i32 0, 2) i32 @parse_test_compress_certificates(ptr nounde
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1929,7 +1929,7 @@ define internal range(i32 0, 2) i32 @parse_test_enable_client_sctp_label_bug(ptr
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1938,7 +1938,7 @@ define internal range(i32 0, 2) i32 @parse_test_enable_client_sctp_label_bug(ptr
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1958,7 +1958,7 @@ define internal range(i32 0, 2) i32 @parse_test_enable_server_sctp_label_bug(ptr
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
-  store i32 1, ptr %3, align 4, !tbaa !67
+  store i32 1, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 7:                                                ; preds = %2
@@ -1967,7 +1967,7 @@ define internal range(i32 0, 2) i32 @parse_test_enable_server_sctp_label_bug(ptr
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %7
-  store i32 0, ptr %3, align 4, !tbaa !67
+  store i32 0, ptr %3, align 4, !tbaa !68
   br label %parse_boolean.exit
 
 11:                                               ; preds = %7
@@ -1982,10 +1982,10 @@ parse_boolean.exit:                               ; preds = %6, %10, %11
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_test_expected_cipher(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 647) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 647) #8
-  store ptr %5, ptr %3, align 8, !tbaa !28
+  store ptr %5, ptr %3, align 8, !tbaa !29
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 647, ptr noundef nonnull @.str.139, ptr noundef %5) #8
   ret i32 %6
 }
@@ -1993,10 +1993,10 @@ define internal i32 @parse_test_expected_cipher(ptr noundef captures(none) %0, p
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_test_expected_session_ticket_app_data(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 366) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 366) #8
-  store ptr %5, ptr %3, align 8, !tbaa !25
+  store ptr %5, ptr %3, align 8, !tbaa !26
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 366, ptr noundef nonnull @.str.140, ptr noundef %5) #8
   ret i32 %6
 }
@@ -2004,10 +2004,10 @@ define internal i32 @parse_test_expected_session_ticket_app_data(ptr noundef cap
 ; Function Attrs: nounwind uwtable
 define internal i32 @parse_test_fips_version(ptr noundef captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  %4 = load ptr, ptr %3, align 8, !tbaa !29
+  %4 = load ptr, ptr %3, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %4, ptr noundef nonnull @.str, i32 noundef 656) #8
   %5 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 656) #8
-  store ptr %5, ptr %3, align 8, !tbaa !29
+  store ptr %5, ptr %3, align 8, !tbaa !30
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 656, ptr noundef nonnull @.str.141, ptr noundef %5) #8
   ret i32 %6
 }
@@ -2029,12 +2029,12 @@ define internal fastcc range(i32 0, 2) i32 @parse_expected_key_type(ptr noundef 
 
 7:                                                ; preds = %5
   %8 = call i32 @EVP_PKEY_asn1_get0_info(ptr noundef nonnull %3, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %6) #8
-  %.pr = load i32, ptr %3, align 4, !tbaa !67
+  %.pr = load i32, ptr %3, align 4, !tbaa !68
   br label %11
 
 9:                                                ; preds = %5
   %10 = tail call i32 @OBJ_sn2nid(ptr noundef nonnull %1) #8
-  store i32 %10, ptr %3, align 4, !tbaa !67
+  store i32 %10, ptr %3, align 4, !tbaa !68
   br label %11
 
 11:                                               ; preds = %9, %7
@@ -2044,7 +2044,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_expected_key_type(ptr noundef 
 
 thread-pre-split:                                 ; preds = %11
   %13 = call i32 @OBJ_ln2nid(ptr noundef nonnull %1) #8
-  store i32 %13, ptr %3, align 4, !tbaa !67
+  store i32 %13, ptr %3, align 4, !tbaa !68
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %thread-pre-split12
 
@@ -2072,7 +2072,7 @@ thread-pre-split12:                               ; preds = %11, %thread-pre-spl
 
 .thread:                                          ; preds = %thread-pre-split12, %.thread.fold.split, %17, %18
   %19 = phi i32 [ 931, %17 ], [ 933, %18 ], [ 927, %thread-pre-split12 ], [ %.pr15, %.thread.fold.split ]
-  store i32 %19, ptr %0, align 4, !tbaa !67
+  store i32 %19, ptr %0, align 4, !tbaa !68
   br label %20
 
 20:                                               ; preds = %thread-pre-split12, %2, %.thread
@@ -2112,82 +2112,83 @@ attributes #9 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !12, i64 8}
-!7 = !{!"", !8, i64 0, !12, i64 8}
-!8 = !{!"p1 omnipotent char", !9, i64 0}
-!9 = !{!"any pointer", !10, i64 0}
-!10 = !{!"omnipotent char", !11, i64 0}
-!11 = !{!"Simple C/C++ TBAA"}
-!12 = !{!"int", !10, i64 0}
-!13 = !{!7, !8, i64 0}
-!14 = !{!15, !20, i64 568}
-!15 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !12, i64 16, !16, i64 24, !16, i64 224, !12, i64 424, !12, i64 428, !12, i64 432, !12, i64 436, !12, i64 440, !12, i64 444, !12, i64 448, !8, i64 456, !8, i64 464, !12, i64 472, !12, i64 476, !12, i64 480, !12, i64 484, !12, i64 488, !19, i64 496, !12, i64 504, !12, i64 508, !12, i64 512, !19, i64 520, !12, i64 528, !12, i64 532, !12, i64 536, !12, i64 540, !12, i64 544, !8, i64 552, !8, i64 560, !20, i64 568, !8, i64 576}
-!16 = !{!"", !17, i64 0, !18, i64 72, !18, i64 136}
-!17 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !8, i64 16, !8, i64 24, !12, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !12, i64 64, !12, i64 68}
-!18 = !{!"", !12, i64 0, !8, i64 8, !8, i64 16, !12, i64 24, !12, i64 28, !8, i64 32, !8, i64 40, !12, i64 48, !8, i64 56}
-!19 = !{!"p1 _ZTS18stack_st_X509_NAME", !9, i64 0}
-!20 = !{!"p1 _ZTS15ossl_lib_ctx_st", !9, i64 0}
-!21 = !{!15, !12, i64 8}
-!22 = !{!15, !12, i64 12}
-!23 = !{!15, !8, i64 456}
-!24 = !{!15, !8, i64 464}
-!25 = !{!15, !8, i64 560}
-!26 = !{!15, !19, i64 496}
-!27 = !{!15, !19, i64 520}
-!28 = !{!15, !8, i64 552}
-!29 = !{!15, !8, i64 576}
-!30 = !{!31, !8, i64 8}
-!31 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16}
-!32 = !{!31, !8, i64 16}
-!33 = distinct !{!33, !5}
-!34 = !{!35, !8, i64 0}
-!35 = !{!"", !8, i64 0, !9, i64 8}
-!36 = !{!35, !9, i64 8}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
-!41 = distinct !{!41, !5}
-!42 = !{!16, !8, i64 16}
-!43 = !{!16, !8, i64 80}
-!44 = !{!16, !8, i64 144}
-!45 = !{!16, !8, i64 24}
-!46 = !{!16, !8, i64 88}
-!47 = !{!16, !8, i64 152}
-!48 = !{!16, !8, i64 40}
-!49 = !{!16, !8, i64 104}
-!50 = !{!16, !8, i64 112}
-!51 = !{!16, !8, i64 168}
-!52 = !{!16, !8, i64 176}
-!53 = !{!16, !8, i64 48}
-!54 = !{!16, !8, i64 56}
-!55 = !{!16, !8, i64 128}
-!56 = !{!16, !8, i64 192}
-!57 = distinct !{!57, !5}
-!58 = !{!17, !12, i64 0}
-!59 = !{!17, !12, i64 4}
-!60 = !{!17, !8, i64 16}
-!61 = !{!17, !8, i64 24}
-!62 = !{!17, !12, i64 32}
-!63 = !{!17, !8, i64 40}
-!64 = !{!17, !8, i64 48}
-!65 = !{!17, !8, i64 56}
-!66 = !{!17, !12, i64 8}
-!67 = !{!12, !12, i64 0}
-!68 = !{!18, !12, i64 0}
-!69 = !{!18, !8, i64 8}
-!70 = !{!18, !8, i64 16}
-!71 = !{!18, !12, i64 28}
-!72 = !{!18, !8, i64 32}
-!73 = !{!18, !8, i64 40}
-!74 = !{!18, !8, i64 56}
-!75 = !{!15, !12, i64 424}
-!76 = !{!15, !12, i64 440}
-!77 = !{!15, !12, i64 444}
-!78 = !{!15, !12, i64 544}
-!79 = !{!15, !12, i64 0}
-!80 = !{!15, !12, i64 4}
-!81 = !{!15, !12, i64 16}
-!82 = !{!19, !19, i64 0}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !13, i64 8}
+!8 = !{!"", !9, i64 0, !13, i64 8}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !11, i64 0}
+!11 = !{!"omnipotent char", !12, i64 0}
+!12 = !{!"Simple C/C++ TBAA"}
+!13 = !{!"int", !11, i64 0}
+!14 = !{!8, !9, i64 0}
+!15 = !{!16, !21, i64 568}
+!16 = !{!"", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !17, i64 24, !17, i64 224, !13, i64 424, !13, i64 428, !13, i64 432, !13, i64 436, !13, i64 440, !13, i64 444, !13, i64 448, !9, i64 456, !9, i64 464, !13, i64 472, !13, i64 476, !13, i64 480, !13, i64 484, !13, i64 488, !20, i64 496, !13, i64 504, !13, i64 508, !13, i64 512, !20, i64 520, !13, i64 528, !13, i64 532, !13, i64 536, !13, i64 540, !13, i64 544, !9, i64 552, !9, i64 560, !21, i64 568, !9, i64 576}
+!17 = !{!"", !18, i64 0, !19, i64 72, !19, i64 136}
+!18 = !{!"", !13, i64 0, !13, i64 4, !13, i64 8, !9, i64 16, !9, i64 24, !13, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !13, i64 64, !13, i64 68}
+!19 = !{!"", !13, i64 0, !9, i64 8, !9, i64 16, !13, i64 24, !13, i64 28, !9, i64 32, !9, i64 40, !13, i64 48, !9, i64 56}
+!20 = !{!"p1 _ZTS18stack_st_X509_NAME", !10, i64 0}
+!21 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
+!22 = !{!16, !13, i64 8}
+!23 = !{!16, !13, i64 12}
+!24 = !{!16, !9, i64 456}
+!25 = !{!16, !9, i64 464}
+!26 = !{!16, !9, i64 560}
+!27 = !{!16, !20, i64 496}
+!28 = !{!16, !20, i64 520}
+!29 = !{!16, !9, i64 552}
+!30 = !{!16, !9, i64 576}
+!31 = !{!32, !9, i64 8}
+!32 = !{!"", !9, i64 0, !9, i64 8, !9, i64 16}
+!33 = !{!32, !9, i64 16}
+!34 = distinct !{!34, !5, !6}
+!35 = !{!36, !9, i64 0}
+!36 = !{!"", !9, i64 0, !10, i64 8}
+!37 = !{!36, !10, i64 8}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}
+!42 = distinct !{!42, !5, !6}
+!43 = !{!17, !9, i64 16}
+!44 = !{!17, !9, i64 80}
+!45 = !{!17, !9, i64 144}
+!46 = !{!17, !9, i64 24}
+!47 = !{!17, !9, i64 88}
+!48 = !{!17, !9, i64 152}
+!49 = !{!17, !9, i64 40}
+!50 = !{!17, !9, i64 104}
+!51 = !{!17, !9, i64 112}
+!52 = !{!17, !9, i64 168}
+!53 = !{!17, !9, i64 176}
+!54 = !{!17, !9, i64 48}
+!55 = !{!17, !9, i64 56}
+!56 = !{!17, !9, i64 128}
+!57 = !{!17, !9, i64 192}
+!58 = distinct !{!58, !5, !6}
+!59 = !{!18, !13, i64 0}
+!60 = !{!18, !13, i64 4}
+!61 = !{!18, !9, i64 16}
+!62 = !{!18, !9, i64 24}
+!63 = !{!18, !13, i64 32}
+!64 = !{!18, !9, i64 40}
+!65 = !{!18, !9, i64 48}
+!66 = !{!18, !9, i64 56}
+!67 = !{!18, !13, i64 8}
+!68 = !{!13, !13, i64 0}
+!69 = !{!19, !13, i64 0}
+!70 = !{!19, !9, i64 8}
+!71 = !{!19, !9, i64 16}
+!72 = !{!19, !13, i64 28}
+!73 = !{!19, !9, i64 32}
+!74 = !{!19, !9, i64 40}
+!75 = !{!19, !9, i64 56}
+!76 = !{!16, !13, i64 424}
+!77 = !{!16, !13, i64 440}
+!78 = !{!16, !13, i64 444}
+!79 = !{!16, !13, i64 544}
+!80 = !{!16, !13, i64 0}
+!81 = !{!16, !13, i64 4}
+!82 = !{!16, !13, i64 16}
+!83 = !{!20, !20, i64 0}

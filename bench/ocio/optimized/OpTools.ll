@@ -87,8 +87,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !9
-  %28 = load ptr, ptr %3, align 8, !tbaa !13
+  %27 = load ptr, ptr %26, align 8, !tbaa !10
+  %28 = load ptr, ptr %3, align 8, !tbaa !14
   %.not = icmp eq ptr %27, %28
   br i1 %.not, label %.preheader, label %.lr.ph74.preheader
 
@@ -109,10 +109,10 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %40
   %.03672 = phi i64 [ %41, %40 ], [ 0, %.lr.ph74.preheader ]
-  %34 = load ptr, ptr %3, align 8, !tbaa !13
+  %34 = load ptr, ptr %3, align 8, !tbaa !14
   %35 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %34, i64 %.03672
-  %36 = load ptr, ptr %35, align 8, !tbaa !14
-  %37 = load ptr, ptr %36, align 8, !tbaa !19
+  %36 = load ptr, ptr %35, align 8, !tbaa !15
+  %37 = load ptr, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = load ptr, ptr %38, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull %.sroa.047.091, ptr noundef nonnull %.sroa.047.091, i64 noundef %2)
@@ -121,7 +121,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 40:                                               ; preds = %.lr.ph74
   %41 = add nuw i64 %.03672, 1
   %exitcond83.not = icmp eq i64 %41, %32
-  br i1 %exitcond83.not, label %.preheader, label %.lr.ph74, !llvm.loop !21
+  br i1 %exitcond83.not, label %.preheader, label %.lr.ph74, !llvm.loop !22
 
 ._crit_edge82:                                    ; preds = %.preheader
   %.not.i.i.i = icmp eq ptr %.sroa.047.091, null
@@ -154,7 +154,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge82, %._c
   %51 = getelementptr inbounds nuw i8, ptr %.03479, i64 12
   %52 = add nuw nsw i64 %.080, 1
   %exitcond84.not = icmp eq i64 %52, %2
-  br i1 %exitcond84.not, label %._crit_edge82.thread, label %.lr.ph81, !llvm.loop !22
+  br i1 %exitcond84.not, label %._crit_edge82.thread, label %.lr.ph81, !llvm.loop !23
 
 53:                                               ; preds = %._crit_edge, %24
   %54 = landingpad { ptr, i32 }
@@ -222,19 +222,20 @@ attributes #12 = { nounwind }
 !4 = !{!"float", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !11, i64 8}
-!10 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEESaIS3_EE17_Vector_impl_dataE", !11, i64 0, !11, i64 8, !11, i64 16}
-!11 = !{!"p1 _ZTSSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEE", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!10, !11, i64 0}
-!14 = !{!15, !16, i64 0}
-!15 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EE", !16, i64 0, !17, i64 8}
-!16 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev2OpE", !12, i64 0}
-!17 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !18, i64 0}
-!18 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !12, i64 0}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"vtable pointer", !6, i64 0}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !12, i64 8}
+!11 = !{!"_ZTSNSt12_Vector_baseISt10shared_ptrIN19OpenColorIO_v2_5dev2OpEESaIS3_EE17_Vector_impl_dataE", !12, i64 0, !12, i64 8, !12, i64 16}
+!12 = !{!"p1 _ZTSSt10shared_ptrIN19OpenColorIO_v2_5dev2OpEE", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!11, !12, i64 0}
+!15 = !{!16, !17, i64 0}
+!16 = !{!"_ZTSSt12__shared_ptrIN19OpenColorIO_v2_5dev2OpELN9__gnu_cxx12_Lock_policyE2EE", !17, i64 0, !18, i64 8}
+!17 = !{!"p1 _ZTSN19OpenColorIO_v2_5dev2OpE", !13, i64 0}
+!18 = !{!"_ZTSSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EE", !19, i64 0}
+!19 = !{!"p1 _ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !13, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"vtable pointer", !6, i64 0}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}

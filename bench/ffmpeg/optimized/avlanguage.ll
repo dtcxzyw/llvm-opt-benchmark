@@ -53,7 +53,7 @@ define ptr @ff_convert_lang_to(ptr noundef readonly captures(none) %0, i32 nound
 bsearch.exit:                                     ; preds = %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %22 = icmp samesign ult i64 %indvars.iv, 2
-  br i1 %22, label %.preheader32, label %ff_convert_lang_to.exit, !llvm.loop !10
+  br i1 %22, label %.preheader32, label %ff_convert_lang_to.exit, !llvm.loop !11
 
 .preheader30:                                     ; preds = %17
   %23 = zext nneg i32 %1 to i64
@@ -79,12 +79,12 @@ bsearch.exit:                                     ; preds = %20
 
 35:                                               ; preds = %30, %29
   %36 = getelementptr inbounds nuw i8, ptr %.136, i64 4
-  %37 = load i16, ptr %36, align 2, !tbaa !11
+  %37 = load i16, ptr %36, align 2, !tbaa !12
   %38 = zext i16 %37 to i64
   %39 = getelementptr inbounds nuw %struct.LangEntry, ptr @lang_table, i64 %38
   %40 = add nuw nsw i32 %.12135, 1
   %exitcond.not = icmp eq i32 %40, 3
-  br i1 %exitcond.not, label %41, label %29, !llvm.loop !13
+  br i1 %exitcond.not, label %41, label %29, !llvm.loop !14
 
 41:                                               ; preds = %35
   %42 = icmp eq i32 %1, 1
@@ -129,7 +129,7 @@ bsearch.exit:                                     ; preds = %20
 bsearch.exit.i:                                   ; preds = %56
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %58 = icmp samesign ult i64 %indvars.iv43, 2
-  br i1 %58, label %.preheader29, label %ff_convert_lang_to.exit, !llvm.loop !10
+  br i1 %58, label %.preheader29, label %ff_convert_lang_to.exit, !llvm.loop !11
 
 .preheader:                                       ; preds = %53, %60
   %.1.i2639.idx = phi i64 [ %.idx69, %60 ], [ %.add, %53 ]
@@ -140,12 +140,12 @@ bsearch.exit.i:                                   ; preds = %56
 
 60:                                               ; preds = %.preheader
   %61 = getelementptr inbounds nuw i8, ptr %.1.i2639.ptr, i64 4
-  %62 = load i16, ptr %61, align 2, !tbaa !11
+  %62 = load i16, ptr %61, align 2, !tbaa !12
   %63 = zext i16 %62 to i64
   %.idx69 = mul nuw nsw i64 %63, 6
   %64 = add nuw nsw i32 %.121.i38, 1
   %exitcond46.not = icmp eq i32 %64, 3
-  br i1 %exitcond46.not, label %ff_convert_lang_to.exit, label %.preheader, !llvm.loop !13
+  br i1 %exitcond46.not, label %ff_convert_lang_to.exit, label %.preheader, !llvm.loop !14
 
 ff_convert_lang_to.exit:                          ; preds = %bsearch.exit, %30, %bsearch.exit.i, %.preheader, %60, %41, %2
   %.0 = phi ptr [ null, %2 ], [ null, %41 ], [ %.1.i2639.ptr, %.preheader ], [ null, %60 ], [ null, %bsearch.exit.i ], [ %.136, %30 ], [ null, %bsearch.exit ]
@@ -169,9 +169,10 @@ attributes #2 = { nounwind willreturn memory(read) }
 !5 = !{!"short", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !5, i64 4}
-!12 = !{!"LangEntry", !6, i64 0, !5, i64 4}
-!13 = distinct !{!13, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !5, i64 4}
+!13 = !{!"LangEntry", !6, i64 0, !5, i64 4}
+!14 = distinct !{!14, !9, !10}

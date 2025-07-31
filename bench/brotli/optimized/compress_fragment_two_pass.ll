@@ -314,7 +314,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !45
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -378,7 +378,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -612,13 +612,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -683,7 +683,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -810,7 +810,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -904,114 +904,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %402 = ptrtoint ptr %.5 to i64
   %403 = sub i64 %402, %11
   %404 = ashr exact i64 %403, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
-  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !49, !noalias !52
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !51, !noalias !54
   %406 = lshr i64 %405, 3
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !52, !noalias !49
+  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !54, !noalias !51
   %409 = zext i8 %408 to i64
-  store i64 %409, ptr %407, align 1, !noalias !49
+  store i64 %409, ptr %407, align 1, !noalias !51
   %410 = add i64 %405, 1
-  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !49, !noalias !52
+  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !51, !noalias !54
   %411 = icmp ult i64 %.037.i260, 65537
   %.0.i53 = select i1 %411, i64 4, i64 5
   %412 = add nsw i64 %.0.i53, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %413 = lshr i64 %410, 3
   %414 = getelementptr inbounds nuw i8, ptr %7, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !57, !noalias !54
+  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !59, !noalias !56
   %416 = zext i8 %415 to i64
   %417 = and i64 %410, 7
   %418 = shl nuw nsw i64 %412, %417
   %419 = or i64 %418, %416
-  store i64 %419, ptr %414, align 1, !noalias !54
+  store i64 %419, ptr %414, align 1, !noalias !56
   %420 = add i64 %405, 3
-  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !54, !noalias !57
+  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !56, !noalias !59
   %421 = shl nuw nsw i64 %.0.i53, 2
   %422 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %423 = lshr i64 %420, 3
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !62, !noalias !59
+  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !64, !noalias !61
   %426 = zext i8 %425 to i64
   %427 = and i64 %420, 7
   %428 = shl nsw i64 %422, %427
   %429 = or i64 %428, %426
-  store i64 %429, ptr %424, align 1, !noalias !59
+  store i64 %429, ptr %424, align 1, !noalias !61
   %430 = add i64 %420, %421
-  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !59, !noalias !62
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !61, !noalias !64
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 %431
-  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !67, !noalias !64
+  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !69, !noalias !66
   %434 = zext i8 %433 to i64
-  store i64 %434, ptr %432, align 1, !noalias !64
+  store i64 %434, ptr %432, align 1, !noalias !66
   %435 = add i64 %430, 1
-  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !64, !noalias !67
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
+  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !66, !noalias !69
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %436 = lshr i64 %435, 3
   %437 = getelementptr inbounds nuw i8, ptr %7, i64 %436
-  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !72, !noalias !69
+  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !74, !noalias !71
   %439 = zext i8 %438 to i64
-  store i64 %439, ptr %437, align 1, !noalias !69
+  store i64 %439, ptr %437, align 1, !noalias !71
   %440 = add i64 %430, 14
-  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !69, !noalias !72
+  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !71, !noalias !74
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %399, ptr noundef %3, i64 noundef %404, ptr noundef nonnull %6, ptr noundef %7)
   br label %484
 
 441:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !77)
-  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !74, !noalias !77
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
+  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !76, !noalias !79
   %443 = lshr i64 %442, 3
   %444 = getelementptr inbounds nuw i8, ptr %7, i64 %443
-  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !77, !noalias !74
+  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !79, !noalias !76
   %446 = zext i8 %445 to i64
-  store i64 %446, ptr %444, align 1, !noalias !74
+  store i64 %446, ptr %444, align 1, !noalias !76
   %447 = add i64 %442, 1
-  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !74, !noalias !77
+  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !76, !noalias !79
   %448 = icmp ult i64 %.037.i260, 65537
   %.0.i.i = select i1 %448, i64 4, i64 5
   %449 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %450 = lshr i64 %447, 3
   %451 = getelementptr inbounds nuw i8, ptr %7, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !82, !noalias !79
+  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !84, !noalias !81
   %453 = zext i8 %452 to i64
   %454 = and i64 %447, 7
   %455 = shl nuw nsw i64 %449, %454
   %456 = or i64 %455, %453
-  store i64 %456, ptr %451, align 1, !noalias !79
+  store i64 %456, ptr %451, align 1, !noalias !81
   %457 = add i64 %442, 3
-  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !79, !noalias !82
+  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !81, !noalias !84
   %458 = shl nuw nsw i64 %.0.i.i, 2
   %459 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %460 = lshr i64 %457, 3
   %461 = getelementptr inbounds nuw i8, ptr %7, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !87, !noalias !84
+  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !89, !noalias !86
   %463 = zext i8 %462 to i64
   %464 = and i64 %457, 7
   %465 = shl nsw i64 %459, %464
   %466 = or i64 %465, %463
-  store i64 %466, ptr %461, align 1, !noalias !84
+  store i64 %466, ptr %461, align 1, !noalias !86
   %467 = add i64 %457, %458
-  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !84, !noalias !87
+  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !86, !noalias !89
   %468 = lshr i64 %467, 3
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !89, !noalias !92
+  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !91, !noalias !94
   %471 = zext i8 %470 to i64
   %472 = and i64 %467, 7
   %473 = shl nuw nsw i64 1, %472
   %474 = or i64 %473, %471
-  store i64 %474, ptr %469, align 1, !noalias !92
+  store i64 %474, ptr %469, align 1, !noalias !94
   %475 = add i64 %467, 8
   %476 = and i64 %475, 4294967288
   store i64 %476, ptr %6, align 8, !tbaa !3
@@ -1030,7 +1030,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -1116,7 +1116,7 @@ IsMatch.exit15.thread.us195:                      ; preds = %30
   br i1 %42, label %IsMatch.exit.thread.us.loopexit, label %IsMatch.exit.us190.backedge
 
 IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thread.us195, %IsMatch.exit.thread.us
-  br label %IsMatch.exit.us190, !llvm.loop !95
+  br label %IsMatch.exit.us190, !llvm.loop !97
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds i8, ptr %.1288.i.us191, i64 %23
@@ -1170,7 +1170,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !96
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -1234,7 +1234,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -1468,13 +1468,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -1539,7 +1539,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -1666,7 +1666,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -1760,114 +1760,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %402 = ptrtoint ptr %.5 to i64
   %403 = sub i64 %402, %11
   %404 = ashr exact i64 %403, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !97, !noalias !100
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !98, !noalias !101
   %406 = lshr i64 %405, 3
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !100, !noalias !97
+  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !101, !noalias !98
   %409 = zext i8 %408 to i64
-  store i64 %409, ptr %407, align 1, !noalias !97
+  store i64 %409, ptr %407, align 1, !noalias !98
   %410 = add i64 %405, 1
-  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !97, !noalias !100
+  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !98, !noalias !101
   %411 = icmp ult i64 %.037.i260, 65537
   %.0.i53 = select i1 %411, i64 4, i64 5
   %412 = add nsw i64 %.0.i53, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %413 = lshr i64 %410, 3
   %414 = getelementptr inbounds nuw i8, ptr %7, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !105, !noalias !102
+  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !106, !noalias !103
   %416 = zext i8 %415 to i64
   %417 = and i64 %410, 7
   %418 = shl nuw nsw i64 %412, %417
   %419 = or i64 %418, %416
-  store i64 %419, ptr %414, align 1, !noalias !102
+  store i64 %419, ptr %414, align 1, !noalias !103
   %420 = add i64 %405, 3
-  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !102, !noalias !105
+  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !103, !noalias !106
   %421 = shl nuw nsw i64 %.0.i53, 2
   %422 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !107)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %423 = lshr i64 %420, 3
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !110, !noalias !107
+  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !111, !noalias !108
   %426 = zext i8 %425 to i64
   %427 = and i64 %420, 7
   %428 = shl nsw i64 %422, %427
   %429 = or i64 %428, %426
-  store i64 %429, ptr %424, align 1, !noalias !107
+  store i64 %429, ptr %424, align 1, !noalias !108
   %430 = add i64 %420, %421
-  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !107, !noalias !110
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
+  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !108, !noalias !111
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !113)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 %431
-  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !115, !noalias !112
+  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !116, !noalias !113
   %434 = zext i8 %433 to i64
-  store i64 %434, ptr %432, align 1, !noalias !112
+  store i64 %434, ptr %432, align 1, !noalias !113
   %435 = add i64 %430, 1
-  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !112, !noalias !115
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
+  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !113, !noalias !116
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
   %436 = lshr i64 %435, 3
   %437 = getelementptr inbounds nuw i8, ptr %7, i64 %436
-  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !120, !noalias !117
+  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !121, !noalias !118
   %439 = zext i8 %438 to i64
-  store i64 %439, ptr %437, align 1, !noalias !117
+  store i64 %439, ptr %437, align 1, !noalias !118
   %440 = add i64 %430, 14
-  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !117, !noalias !120
+  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !118, !noalias !121
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %399, ptr noundef %3, i64 noundef %404, ptr noundef nonnull %6, ptr noundef %7)
   br label %484
 
 441:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
-  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !122, !noalias !125
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
+  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !123, !noalias !126
   %443 = lshr i64 %442, 3
   %444 = getelementptr inbounds nuw i8, ptr %7, i64 %443
-  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !125, !noalias !122
+  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !126, !noalias !123
   %446 = zext i8 %445 to i64
-  store i64 %446, ptr %444, align 1, !noalias !122
+  store i64 %446, ptr %444, align 1, !noalias !123
   %447 = add i64 %442, 1
-  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !122, !noalias !125
+  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !123, !noalias !126
   %448 = icmp ult i64 %.037.i260, 65537
   %.0.i.i = select i1 %448, i64 4, i64 5
   %449 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !130)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   %450 = lshr i64 %447, 3
   %451 = getelementptr inbounds nuw i8, ptr %7, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !130, !noalias !127
+  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !131, !noalias !128
   %453 = zext i8 %452 to i64
   %454 = and i64 %447, 7
   %455 = shl nuw nsw i64 %449, %454
   %456 = or i64 %455, %453
-  store i64 %456, ptr %451, align 1, !noalias !127
+  store i64 %456, ptr %451, align 1, !noalias !128
   %457 = add i64 %442, 3
-  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !127, !noalias !130
+  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !128, !noalias !131
   %458 = shl nuw nsw i64 %.0.i.i, 2
   %459 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
   %460 = lshr i64 %457, 3
   %461 = getelementptr inbounds nuw i8, ptr %7, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !135, !noalias !132
+  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !136, !noalias !133
   %463 = zext i8 %462 to i64
   %464 = and i64 %457, 7
   %465 = shl nsw i64 %459, %464
   %466 = or i64 %465, %463
-  store i64 %466, ptr %461, align 1, !noalias !132
+  store i64 %466, ptr %461, align 1, !noalias !133
   %467 = add i64 %457, %458
-  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !132, !noalias !135
+  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !133, !noalias !136
   %468 = lshr i64 %467, 3
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !137, !noalias !140
+  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !138, !noalias !141
   %471 = zext i8 %470 to i64
   %472 = and i64 %467, 7
   %473 = shl nuw nsw i64 1, %472
   %474 = or i64 %473, %471
-  store i64 %474, ptr %469, align 1, !noalias !140
+  store i64 %474, ptr %469, align 1, !noalias !141
   %475 = add i64 %467, 8
   %476 = and i64 %475, 4294967288
   store i64 %476, ptr %6, align 8, !tbaa !3
@@ -1886,7 +1886,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -1972,7 +1972,7 @@ IsMatch.exit15.thread.us195:                      ; preds = %30
   br i1 %42, label %IsMatch.exit.thread.us.loopexit, label %IsMatch.exit.us190.backedge
 
 IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thread.us195, %IsMatch.exit.thread.us
-  br label %IsMatch.exit.us190, !llvm.loop !142
+  br label %IsMatch.exit.us190, !llvm.loop !143
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds i8, ptr %.1288.i.us191, i64 %23
@@ -2026,7 +2026,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !143
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -2090,7 +2090,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -2324,13 +2324,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -2395,7 +2395,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -2522,7 +2522,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -2742,7 +2742,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -2882,7 +2882,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !190
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -2946,7 +2946,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -3180,13 +3180,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -3251,7 +3251,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -3378,7 +3378,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -3472,114 +3472,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %402 = ptrtoint ptr %.5 to i64
   %403 = sub i64 %402, %11
   %404 = ashr exact i64 %403, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !191)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !191, !noalias !194
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
+  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !190, !noalias !193
   %406 = lshr i64 %405, 3
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !194, !noalias !191
+  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !193, !noalias !190
   %409 = zext i8 %408 to i64
-  store i64 %409, ptr %407, align 1, !noalias !191
+  store i64 %409, ptr %407, align 1, !noalias !190
   %410 = add i64 %405, 1
-  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !191, !noalias !194
+  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !190, !noalias !193
   %411 = icmp ult i64 %.037.i260, 65537
   %.0.i53 = select i1 %411, i64 4, i64 5
   %412 = add nsw i64 %.0.i53, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !198)
   %413 = lshr i64 %410, 3
   %414 = getelementptr inbounds nuw i8, ptr %7, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !199, !noalias !196
+  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !198, !noalias !195
   %416 = zext i8 %415 to i64
   %417 = and i64 %410, 7
   %418 = shl nuw nsw i64 %412, %417
   %419 = or i64 %418, %416
-  store i64 %419, ptr %414, align 1, !noalias !196
+  store i64 %419, ptr %414, align 1, !noalias !195
   %420 = add i64 %405, 3
-  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !196, !noalias !199
+  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !195, !noalias !198
   %421 = shl nuw nsw i64 %.0.i53, 2
   %422 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !203)
   %423 = lshr i64 %420, 3
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !204, !noalias !201
+  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !203, !noalias !200
   %426 = zext i8 %425 to i64
   %427 = and i64 %420, 7
   %428 = shl nsw i64 %422, %427
   %429 = or i64 %428, %426
-  store i64 %429, ptr %424, align 1, !noalias !201
+  store i64 %429, ptr %424, align 1, !noalias !200
   %430 = add i64 %420, %421
-  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !201, !noalias !204
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
+  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !200, !noalias !203
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 %431
-  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !209, !noalias !206
+  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !208, !noalias !205
   %434 = zext i8 %433 to i64
-  store i64 %434, ptr %432, align 1, !noalias !206
+  store i64 %434, ptr %432, align 1, !noalias !205
   %435 = add i64 %430, 1
-  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !206, !noalias !209
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
+  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !205, !noalias !208
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
   %436 = lshr i64 %435, 3
   %437 = getelementptr inbounds nuw i8, ptr %7, i64 %436
-  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !214, !noalias !211
+  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !213, !noalias !210
   %439 = zext i8 %438 to i64
-  store i64 %439, ptr %437, align 1, !noalias !211
+  store i64 %439, ptr %437, align 1, !noalias !210
   %440 = add i64 %430, 14
-  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !211, !noalias !214
+  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !210, !noalias !213
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %399, ptr noundef %3, i64 noundef %404, ptr noundef nonnull %6, ptr noundef %7)
   br label %484
 
 441:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
-  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !216, !noalias !219
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !215)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
+  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !215, !noalias !218
   %443 = lshr i64 %442, 3
   %444 = getelementptr inbounds nuw i8, ptr %7, i64 %443
-  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !219, !noalias !216
+  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !218, !noalias !215
   %446 = zext i8 %445 to i64
-  store i64 %446, ptr %444, align 1, !noalias !216
+  store i64 %446, ptr %444, align 1, !noalias !215
   %447 = add i64 %442, 1
-  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !216, !noalias !219
+  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !215, !noalias !218
   %448 = icmp ult i64 %.037.i260, 65537
   %.0.i.i = select i1 %448, i64 4, i64 5
   %449 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
   %450 = lshr i64 %447, 3
   %451 = getelementptr inbounds nuw i8, ptr %7, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !224, !noalias !221
+  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !223, !noalias !220
   %453 = zext i8 %452 to i64
   %454 = and i64 %447, 7
   %455 = shl nuw nsw i64 %449, %454
   %456 = or i64 %455, %453
-  store i64 %456, ptr %451, align 1, !noalias !221
+  store i64 %456, ptr %451, align 1, !noalias !220
   %457 = add i64 %442, 3
-  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !221, !noalias !224
+  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !220, !noalias !223
   %458 = shl nuw nsw i64 %.0.i.i, 2
   %459 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !229)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %460 = lshr i64 %457, 3
   %461 = getelementptr inbounds nuw i8, ptr %7, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !229, !noalias !226
+  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !228, !noalias !225
   %463 = zext i8 %462 to i64
   %464 = and i64 %457, 7
   %465 = shl nsw i64 %459, %464
   %466 = or i64 %465, %463
-  store i64 %466, ptr %461, align 1, !noalias !226
+  store i64 %466, ptr %461, align 1, !noalias !225
   %467 = add i64 %457, %458
-  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !226, !noalias !229
+  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !225, !noalias !228
   %468 = lshr i64 %467, 3
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !231, !noalias !234
+  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !230, !noalias !233
   %471 = zext i8 %470 to i64
   %472 = and i64 %467, 7
   %473 = shl nuw nsw i64 1, %472
   %474 = or i64 %473, %471
-  store i64 %474, ptr %469, align 1, !noalias !234
+  store i64 %474, ptr %469, align 1, !noalias !233
   %475 = add i64 %467, 8
   %476 = and i64 %475, 4294967288
   store i64 %476, ptr %6, align 8, !tbaa !3
@@ -3598,7 +3598,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -3684,7 +3684,7 @@ IsMatch.exit15.thread.us195:                      ; preds = %30
   br i1 %42, label %IsMatch.exit.thread.us.loopexit, label %IsMatch.exit.us190.backedge
 
 IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thread.us195, %IsMatch.exit.thread.us
-  br label %IsMatch.exit.us190, !llvm.loop !236
+  br label %IsMatch.exit.us190, !llvm.loop !235
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds i8, ptr %.1288.i.us191, i64 %23
@@ -3738,7 +3738,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !237
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -3802,7 +3802,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -4036,13 +4036,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -4107,7 +4107,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -4234,7 +4234,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -4328,114 +4328,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %402 = ptrtoint ptr %.5 to i64
   %403 = sub i64 %402, %11
   %404 = ashr exact i64 %403, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !238)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
-  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !238, !noalias !241
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
+  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !236, !noalias !239
   %406 = lshr i64 %405, 3
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !241, !noalias !238
+  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !239, !noalias !236
   %409 = zext i8 %408 to i64
-  store i64 %409, ptr %407, align 1, !noalias !238
+  store i64 %409, ptr %407, align 1, !noalias !236
   %410 = add i64 %405, 1
-  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !238, !noalias !241
+  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !236, !noalias !239
   %411 = icmp ult i64 %.037.i260, 65537
   %.0.i53 = select i1 %411, i64 4, i64 5
   %412 = add nsw i64 %.0.i53, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %413 = lshr i64 %410, 3
   %414 = getelementptr inbounds nuw i8, ptr %7, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !246, !noalias !243
+  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !244, !noalias !241
   %416 = zext i8 %415 to i64
   %417 = and i64 %410, 7
   %418 = shl nuw nsw i64 %412, %417
   %419 = or i64 %418, %416
-  store i64 %419, ptr %414, align 1, !noalias !243
+  store i64 %419, ptr %414, align 1, !noalias !241
   %420 = add i64 %405, 3
-  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !243, !noalias !246
+  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !241, !noalias !244
   %421 = shl nuw nsw i64 %.0.i53, 2
   %422 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %423 = lshr i64 %420, 3
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !251, !noalias !248
+  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !249, !noalias !246
   %426 = zext i8 %425 to i64
   %427 = and i64 %420, 7
   %428 = shl nsw i64 %422, %427
   %429 = or i64 %428, %426
-  store i64 %429, ptr %424, align 1, !noalias !248
+  store i64 %429, ptr %424, align 1, !noalias !246
   %430 = add i64 %420, %421
-  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !248, !noalias !251
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
+  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !246, !noalias !249
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 %431
-  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !256, !noalias !253
+  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !254, !noalias !251
   %434 = zext i8 %433 to i64
-  store i64 %434, ptr %432, align 1, !noalias !253
+  store i64 %434, ptr %432, align 1, !noalias !251
   %435 = add i64 %430, 1
-  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !253, !noalias !256
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
+  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !251, !noalias !254
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !256)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !259)
   %436 = lshr i64 %435, 3
   %437 = getelementptr inbounds nuw i8, ptr %7, i64 %436
-  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !261, !noalias !258
+  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !259, !noalias !256
   %439 = zext i8 %438 to i64
-  store i64 %439, ptr %437, align 1, !noalias !258
+  store i64 %439, ptr %437, align 1, !noalias !256
   %440 = add i64 %430, 14
-  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !258, !noalias !261
+  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !256, !noalias !259
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %399, ptr noundef %3, i64 noundef %404, ptr noundef nonnull %6, ptr noundef %7)
   br label %484
 
 441:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
-  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !263, !noalias !266
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !264)
+  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !261, !noalias !264
   %443 = lshr i64 %442, 3
   %444 = getelementptr inbounds nuw i8, ptr %7, i64 %443
-  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !266, !noalias !263
+  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !264, !noalias !261
   %446 = zext i8 %445 to i64
-  store i64 %446, ptr %444, align 1, !noalias !263
+  store i64 %446, ptr %444, align 1, !noalias !261
   %447 = add i64 %442, 1
-  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !263, !noalias !266
+  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !261, !noalias !264
   %448 = icmp ult i64 %.037.i260, 65537
   %.0.i.i = select i1 %448, i64 4, i64 5
   %449 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !268)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !266)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !269)
   %450 = lshr i64 %447, 3
   %451 = getelementptr inbounds nuw i8, ptr %7, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !271, !noalias !268
+  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !269, !noalias !266
   %453 = zext i8 %452 to i64
   %454 = and i64 %447, 7
   %455 = shl nuw nsw i64 %449, %454
   %456 = or i64 %455, %453
-  store i64 %456, ptr %451, align 1, !noalias !268
+  store i64 %456, ptr %451, align 1, !noalias !266
   %457 = add i64 %442, 3
-  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !268, !noalias !271
+  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !266, !noalias !269
   %458 = shl nuw nsw i64 %.0.i.i, 2
   %459 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !273)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !276)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   %460 = lshr i64 %457, 3
   %461 = getelementptr inbounds nuw i8, ptr %7, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !276, !noalias !273
+  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !274, !noalias !271
   %463 = zext i8 %462 to i64
   %464 = and i64 %457, 7
   %465 = shl nsw i64 %459, %464
   %466 = or i64 %465, %463
-  store i64 %466, ptr %461, align 1, !noalias !273
+  store i64 %466, ptr %461, align 1, !noalias !271
   %467 = add i64 %457, %458
-  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !273, !noalias !276
+  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !271, !noalias !274
   %468 = lshr i64 %467, 3
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !278, !noalias !281
+  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !276, !noalias !279
   %471 = zext i8 %470 to i64
   %472 = and i64 %467, 7
   %473 = shl nuw nsw i64 1, %472
   %474 = or i64 %473, %471
-  store i64 %474, ptr %469, align 1, !noalias !281
+  store i64 %474, ptr %469, align 1, !noalias !279
   %475 = add i64 %467, 8
   %476 = and i64 %475, 4294967288
   store i64 %476, ptr %6, align 8, !tbaa !3
@@ -4454,7 +4454,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -4540,7 +4540,7 @@ IsMatch.exit15.thread.us195:                      ; preds = %30
   br i1 %42, label %IsMatch.exit.thread.us.loopexit, label %IsMatch.exit.us190.backedge
 
 IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thread.us195, %IsMatch.exit.thread.us
-  br label %IsMatch.exit.us190, !llvm.loop !283
+  br label %IsMatch.exit.us190, !llvm.loop !281
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds i8, ptr %.1288.i.us191, i64 %23
@@ -4594,7 +4594,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !284
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -4658,7 +4658,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -4892,13 +4892,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -4963,7 +4963,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -5090,7 +5090,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -5184,114 +5184,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %402 = ptrtoint ptr %.5 to i64
   %403 = sub i64 %402, %11
   %404 = ashr exact i64 %403, 2
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !282)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !288)
-  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !285, !noalias !288
+  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !282, !noalias !285
   %406 = lshr i64 %405, 3
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !288, !noalias !285
+  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !285, !noalias !282
   %409 = zext i8 %408 to i64
-  store i64 %409, ptr %407, align 1, !noalias !285
+  store i64 %409, ptr %407, align 1, !noalias !282
   %410 = add i64 %405, 1
-  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !285, !noalias !288
+  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !282, !noalias !285
   %411 = icmp ult i64 %.037.i260, 65537
   %.0.i53 = select i1 %411, i64 4, i64 5
   %412 = add nsw i64 %.0.i53, -4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !290)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !293)
   %413 = lshr i64 %410, 3
   %414 = getelementptr inbounds nuw i8, ptr %7, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !293, !noalias !290
+  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !290, !noalias !287
   %416 = zext i8 %415 to i64
   %417 = and i64 %410, 7
   %418 = shl nuw nsw i64 %412, %417
   %419 = or i64 %418, %416
-  store i64 %419, ptr %414, align 1, !noalias !290
+  store i64 %419, ptr %414, align 1, !noalias !287
   %420 = add i64 %405, 3
-  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !290, !noalias !293
+  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !287, !noalias !290
   %421 = shl nuw nsw i64 %.0.i53, 2
   %422 = add nsw i64 %13, -1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !292)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %423 = lshr i64 %420, 3
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !298, !noalias !295
+  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !295, !noalias !292
   %426 = zext i8 %425 to i64
   %427 = and i64 %420, 7
   %428 = shl nsw i64 %422, %427
   %429 = or i64 %428, %426
-  store i64 %429, ptr %424, align 1, !noalias !295
+  store i64 %429, ptr %424, align 1, !noalias !292
   %430 = add i64 %420, %421
-  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !295, !noalias !298
+  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !292, !noalias !295
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !300)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !303)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 %431
-  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !303, !noalias !300
+  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !300, !noalias !297
   %434 = zext i8 %433 to i64
-  store i64 %434, ptr %432, align 1, !noalias !300
+  store i64 %434, ptr %432, align 1, !noalias !297
   %435 = add i64 %430, 1
-  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !300, !noalias !303
+  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !297, !noalias !300
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
   %436 = lshr i64 %435, 3
   %437 = getelementptr inbounds nuw i8, ptr %7, i64 %436
-  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !308, !noalias !305
+  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !305, !noalias !302
   %439 = zext i8 %438 to i64
-  store i64 %439, ptr %437, align 1, !noalias !305
+  store i64 %439, ptr %437, align 1, !noalias !302
   %440 = add i64 %430, 14
-  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !305, !noalias !308
+  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !302, !noalias !305
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %399, ptr noundef %3, i64 noundef %404, ptr noundef nonnull %6, ptr noundef %7)
   br label %484
 
 441:                                              ; preds = %CreateCommands.exit
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !310)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
-  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !310, !noalias !313
+  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !307, !noalias !310
   %443 = lshr i64 %442, 3
   %444 = getelementptr inbounds nuw i8, ptr %7, i64 %443
-  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !313, !noalias !310
+  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !310, !noalias !307
   %446 = zext i8 %445 to i64
-  store i64 %446, ptr %444, align 1, !noalias !310
+  store i64 %446, ptr %444, align 1, !noalias !307
   %447 = add i64 %442, 1
-  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !310, !noalias !313
+  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !307, !noalias !310
   %448 = icmp ult i64 %.037.i260, 65537
   %.0.i.i = select i1 %448, i64 4, i64 5
   %449 = add nsw i64 %.0.i.i, -4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !315)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   %450 = lshr i64 %447, 3
   %451 = getelementptr inbounds nuw i8, ptr %7, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !318, !noalias !315
+  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !315, !noalias !312
   %453 = zext i8 %452 to i64
   %454 = and i64 %447, 7
   %455 = shl nuw nsw i64 %449, %454
   %456 = or i64 %455, %453
-  store i64 %456, ptr %451, align 1, !noalias !315
+  store i64 %456, ptr %451, align 1, !noalias !312
   %457 = add i64 %442, 3
-  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !315, !noalias !318
+  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !312, !noalias !315
   %458 = shl nuw nsw i64 %.0.i.i, 2
   %459 = add nsw i64 %13, -1
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !317)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !320)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
   %460 = lshr i64 %457, 3
   %461 = getelementptr inbounds nuw i8, ptr %7, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !323, !noalias !320
+  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !320, !noalias !317
   %463 = zext i8 %462 to i64
   %464 = and i64 %457, 7
   %465 = shl nsw i64 %459, %464
   %466 = or i64 %465, %463
-  store i64 %466, ptr %461, align 1, !noalias !320
+  store i64 %466, ptr %461, align 1, !noalias !317
   %467 = add i64 %457, %458
-  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !320, !noalias !323
+  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !317, !noalias !320
   %468 = lshr i64 %467, 3
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !325, !noalias !328
+  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !322, !noalias !325
   %471 = zext i8 %470 to i64
   %472 = and i64 %467, 7
   %473 = shl nuw nsw i64 1, %472
   %474 = or i64 %473, %471
-  store i64 %474, ptr %469, align 1, !noalias !328
+  store i64 %474, ptr %469, align 1, !noalias !325
   %475 = add i64 %467, 8
   %476 = and i64 %475, 4294967288
   store i64 %476, ptr %6, align 8, !tbaa !3
@@ -5310,7 +5310,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -5396,7 +5396,7 @@ IsMatch.exit15.thread.us195:                      ; preds = %30
   br i1 %42, label %IsMatch.exit.thread.us.loopexit, label %IsMatch.exit.us190.backedge
 
 IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thread.us195, %IsMatch.exit.thread.us
-  br label %IsMatch.exit.us190, !llvm.loop !330
+  br label %IsMatch.exit.us190, !llvm.loop !327
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds i8, ptr %.1288.i.us191, i64 %23
@@ -5450,7 +5450,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !331
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -5514,7 +5514,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -5748,13 +5748,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -5819,7 +5819,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -5946,7 +5946,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -6040,114 +6040,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %402 = ptrtoint ptr %.5 to i64
   %403 = sub i64 %402, %11
   %404 = ashr exact i64 %403, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
-  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !332, !noalias !335
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
+  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !328, !noalias !331
   %406 = lshr i64 %405, 3
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !335, !noalias !332
+  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !331, !noalias !328
   %409 = zext i8 %408 to i64
-  store i64 %409, ptr %407, align 1, !noalias !332
+  store i64 %409, ptr %407, align 1, !noalias !328
   %410 = add i64 %405, 1
-  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !332, !noalias !335
+  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !328, !noalias !331
   %411 = icmp ult i64 %.037.i260, 65537
   %.0.i53 = select i1 %411, i64 4, i64 5
   %412 = add nsw i64 %.0.i53, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
   %413 = lshr i64 %410, 3
   %414 = getelementptr inbounds nuw i8, ptr %7, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !340, !noalias !337
+  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !336, !noalias !333
   %416 = zext i8 %415 to i64
   %417 = and i64 %410, 7
   %418 = shl nuw nsw i64 %412, %417
   %419 = or i64 %418, %416
-  store i64 %419, ptr %414, align 1, !noalias !337
+  store i64 %419, ptr %414, align 1, !noalias !333
   %420 = add i64 %405, 3
-  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !337, !noalias !340
+  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !333, !noalias !336
   %421 = shl nuw nsw i64 %.0.i53, 2
   %422 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !342)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
   %423 = lshr i64 %420, 3
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !345, !noalias !342
+  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !341, !noalias !338
   %426 = zext i8 %425 to i64
   %427 = and i64 %420, 7
   %428 = shl nsw i64 %422, %427
   %429 = or i64 %428, %426
-  store i64 %429, ptr %424, align 1, !noalias !342
+  store i64 %429, ptr %424, align 1, !noalias !338
   %430 = add i64 %420, %421
-  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !342, !noalias !345
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !347)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !350)
+  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !338, !noalias !341
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 %431
-  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !350, !noalias !347
+  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !346, !noalias !343
   %434 = zext i8 %433 to i64
-  store i64 %434, ptr %432, align 1, !noalias !347
+  store i64 %434, ptr %432, align 1, !noalias !343
   %435 = add i64 %430, 1
-  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !347, !noalias !350
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
+  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !343, !noalias !346
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   %436 = lshr i64 %435, 3
   %437 = getelementptr inbounds nuw i8, ptr %7, i64 %436
-  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !355, !noalias !352
+  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !351, !noalias !348
   %439 = zext i8 %438 to i64
-  store i64 %439, ptr %437, align 1, !noalias !352
+  store i64 %439, ptr %437, align 1, !noalias !348
   %440 = add i64 %430, 14
-  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !352, !noalias !355
+  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !348, !noalias !351
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %399, ptr noundef %3, i64 noundef %404, ptr noundef nonnull %6, ptr noundef %7)
   br label %484
 
 441:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !357)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !360)
-  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !357, !noalias !360
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !353)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !356)
+  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !353, !noalias !356
   %443 = lshr i64 %442, 3
   %444 = getelementptr inbounds nuw i8, ptr %7, i64 %443
-  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !360, !noalias !357
+  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !356, !noalias !353
   %446 = zext i8 %445 to i64
-  store i64 %446, ptr %444, align 1, !noalias !357
+  store i64 %446, ptr %444, align 1, !noalias !353
   %447 = add i64 %442, 1
-  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !357, !noalias !360
+  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !353, !noalias !356
   %448 = icmp ult i64 %.037.i260, 65537
   %.0.i.i = select i1 %448, i64 4, i64 5
   %449 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !362)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %450 = lshr i64 %447, 3
   %451 = getelementptr inbounds nuw i8, ptr %7, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !365, !noalias !362
+  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !361, !noalias !358
   %453 = zext i8 %452 to i64
   %454 = and i64 %447, 7
   %455 = shl nuw nsw i64 %449, %454
   %456 = or i64 %455, %453
-  store i64 %456, ptr %451, align 1, !noalias !362
+  store i64 %456, ptr %451, align 1, !noalias !358
   %457 = add i64 %442, 3
-  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !362, !noalias !365
+  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !358, !noalias !361
   %458 = shl nuw nsw i64 %.0.i.i, 2
   %459 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !366)
   %460 = lshr i64 %457, 3
   %461 = getelementptr inbounds nuw i8, ptr %7, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !370, !noalias !367
+  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !366, !noalias !363
   %463 = zext i8 %462 to i64
   %464 = and i64 %457, 7
   %465 = shl nsw i64 %459, %464
   %466 = or i64 %465, %463
-  store i64 %466, ptr %461, align 1, !noalias !367
+  store i64 %466, ptr %461, align 1, !noalias !363
   %467 = add i64 %457, %458
-  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !367, !noalias !370
+  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !363, !noalias !366
   %468 = lshr i64 %467, 3
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !372, !noalias !375
+  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !368, !noalias !371
   %471 = zext i8 %470 to i64
   %472 = and i64 %467, 7
   %473 = shl nuw nsw i64 1, %472
   %474 = or i64 %473, %471
-  store i64 %474, ptr %469, align 1, !noalias !375
+  store i64 %474, ptr %469, align 1, !noalias !371
   %475 = add i64 %467, 8
   %476 = and i64 %475, 4294967288
   store i64 %476, ptr %6, align 8, !tbaa !3
@@ -6166,7 +6166,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -6252,7 +6252,7 @@ IsMatch.exit15.thread.us195:                      ; preds = %30
   br i1 %42, label %IsMatch.exit.thread.us.loopexit, label %IsMatch.exit.us190.backedge
 
 IsMatch.exit.us190.backedge:                      ; preds = %IsMatch.exit15.thread.us195, %IsMatch.exit.thread.us
-  br label %IsMatch.exit.us190, !llvm.loop !377
+  br label %IsMatch.exit.us190, !llvm.loop !373
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds i8, ptr %.1288.i.us191, i64 %23
@@ -6306,7 +6306,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %70 = sub i64 %64, %69
   %71 = icmp sgt i64 %70, 262128
   %or.cond = select i1 %67, i1 true, i1 %71
-  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !378
+  br i1 %or.cond, label %IsMatch.exit.us, label %.split212.us, !llvm.loop !46
 
 .split212.us:                                     ; preds = %IsMatch.exit15.thread.us, %IsMatch.exit.thread.us
   %.us-phi213 = phi ptr [ %.3292.i100.us, %IsMatch.exit.thread.us ], [ %68, %IsMatch.exit15.thread.us ]
@@ -6370,7 +6370,7 @@ IsMatch.exit15.thread.us:                         ; preds = %IsMatch.exit.us
   %94 = getelementptr inbounds nuw i8, ptr %.126.i25224, i64 1
   %95 = getelementptr inbounds nuw i8, ptr %.224.i26225, i64 1
   %.not.i27 = icmp eq i64 %93, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph226, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %92, %.lr.ph226, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26225, %.lr.ph226 ], [ %scevgep, %92 ]
@@ -6604,13 +6604,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %323, %.lr.ph251, %.
   %.187.be = phi ptr [ %211, %212 ], [ %211, %.lr.ph251.preheader ], [ %322, %.lr.ph251 ], [ %322, %323 ]
   %.0276.i.be = phi i32 [ %.2278.i, %212 ], [ %.2278.i, %.lr.ph251.preheader ], [ %269, %.lr.ph251 ], [ %269, %323 ]
   %.0273.i.be = phi ptr [ %104, %212 ], [ %104, %.lr.ph251.preheader ], [ %268, %.lr.ph251 ], [ %268, %323 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph251:                                        ; preds = %323
   %.0.copyload.i50 = load i32, ptr %268, align 1
   %.0.copyload.i49 = load i32, ptr %.6.i, align 1
   %237 = icmp eq i32 %.0.copyload.i50, %.0.copyload.i49
-  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %237, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader, %.lr.ph251
   %.424761 = phi ptr [ %322, %.lr.ph251 ], [ %211, %.lr.ph251.preheader ]
@@ -6675,7 +6675,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph251.preheader
   %262 = getelementptr inbounds nuw i8, ptr %.126.i239, i64 1
   %263 = getelementptr inbounds nuw i8, ptr %.224.i240, i64 1
   %.not.i16 = icmp eq i64 %261, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph241, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %260, %.lr.ph241, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i240, %.lr.ph241 ], [ %scevgep319, %260 ]
@@ -6802,7 +6802,7 @@ EmitCopyLen.exit:                                 ; preds = %271, %276, %293, %3
   %350 = ptrtoint ptr %.6.i to i64
   %351 = sub i64 %331, %350
   %352 = icmp slt i64 %351, 262129
-  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge
+  br i1 %352, label %.lr.ph251, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %IsMatch.exit.us, %IsMatch.exit.us190, %EmitCopyLen.exit, %12
   %.086 = phi ptr [ %3, %12 ], [ %322, %EmitCopyLen.exit ], [ %.187, %IsMatch.exit.us190 ], [ %.187, %IsMatch.exit.us ], [ %211, %EmitCopyLenLastDistance.exit ]
@@ -6896,114 +6896,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %402 = ptrtoint ptr %.5 to i64
   %403 = sub i64 %402, %11
   %404 = ashr exact i64 %403, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
-  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !379, !noalias !382
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !374)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !377)
+  %405 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !374, !noalias !377
   %406 = lshr i64 %405, 3
   %407 = getelementptr inbounds nuw i8, ptr %7, i64 %406
-  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !382, !noalias !379
+  %408 = load i8, ptr %407, align 1, !tbaa !7, !alias.scope !377, !noalias !374
   %409 = zext i8 %408 to i64
-  store i64 %409, ptr %407, align 1, !noalias !379
+  store i64 %409, ptr %407, align 1, !noalias !374
   %410 = add i64 %405, 1
-  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !379, !noalias !382
+  store i64 %410, ptr %6, align 8, !tbaa !3, !alias.scope !374, !noalias !377
   %411 = icmp ult i64 %.037.i260, 65537
   %.0.i53 = select i1 %411, i64 4, i64 5
   %412 = add nsw i64 %.0.i53, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   %413 = lshr i64 %410, 3
   %414 = getelementptr inbounds nuw i8, ptr %7, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !387, !noalias !384
+  %415 = load i8, ptr %414, align 1, !tbaa !7, !alias.scope !382, !noalias !379
   %416 = zext i8 %415 to i64
   %417 = and i64 %410, 7
   %418 = shl nuw nsw i64 %412, %417
   %419 = or i64 %418, %416
-  store i64 %419, ptr %414, align 1, !noalias !384
+  store i64 %419, ptr %414, align 1, !noalias !379
   %420 = add i64 %405, 3
-  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !384, !noalias !387
+  store i64 %420, ptr %6, align 8, !tbaa !3, !alias.scope !379, !noalias !382
   %421 = shl nuw nsw i64 %.0.i53, 2
   %422 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !389)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !384)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !387)
   %423 = lshr i64 %420, 3
   %424 = getelementptr inbounds nuw i8, ptr %7, i64 %423
-  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !392, !noalias !389
+  %425 = load i8, ptr %424, align 1, !tbaa !7, !alias.scope !387, !noalias !384
   %426 = zext i8 %425 to i64
   %427 = and i64 %420, 7
   %428 = shl nsw i64 %422, %427
   %429 = or i64 %428, %426
-  store i64 %429, ptr %424, align 1, !noalias !389
+  store i64 %429, ptr %424, align 1, !noalias !384
   %430 = add i64 %420, %421
-  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !389, !noalias !392
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !397)
+  store i64 %430, ptr %6, align 8, !tbaa !3, !alias.scope !384, !noalias !387
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !389)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
   %431 = lshr i64 %430, 3
   %432 = getelementptr inbounds nuw i8, ptr %7, i64 %431
-  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !397, !noalias !394
+  %433 = load i8, ptr %432, align 1, !tbaa !7, !alias.scope !392, !noalias !389
   %434 = zext i8 %433 to i64
-  store i64 %434, ptr %432, align 1, !noalias !394
+  store i64 %434, ptr %432, align 1, !noalias !389
   %435 = add i64 %430, 1
-  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !394, !noalias !397
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
+  store i64 %435, ptr %6, align 8, !tbaa !3, !alias.scope !389, !noalias !392
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !394)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !397)
   %436 = lshr i64 %435, 3
   %437 = getelementptr inbounds nuw i8, ptr %7, i64 %436
-  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !402, !noalias !399
+  %438 = load i8, ptr %437, align 1, !tbaa !7, !alias.scope !397, !noalias !394
   %439 = zext i8 %438 to i64
-  store i64 %439, ptr %437, align 1, !noalias !399
+  store i64 %439, ptr %437, align 1, !noalias !394
   %440 = add i64 %430, 14
-  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !399, !noalias !402
+  store i64 %440, ptr %6, align 8, !tbaa !3, !alias.scope !394, !noalias !397
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %399, ptr noundef %3, i64 noundef %404, ptr noundef nonnull %6, ptr noundef %7)
   br label %484
 
 441:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !404)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !407)
-  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !404, !noalias !407
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !402)
+  %442 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !399, !noalias !402
   %443 = lshr i64 %442, 3
   %444 = getelementptr inbounds nuw i8, ptr %7, i64 %443
-  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !407, !noalias !404
+  %445 = load i8, ptr %444, align 1, !tbaa !7, !alias.scope !402, !noalias !399
   %446 = zext i8 %445 to i64
-  store i64 %446, ptr %444, align 1, !noalias !404
+  store i64 %446, ptr %444, align 1, !noalias !399
   %447 = add i64 %442, 1
-  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !404, !noalias !407
+  store i64 %447, ptr %6, align 8, !tbaa !3, !alias.scope !399, !noalias !402
   %448 = icmp ult i64 %.037.i260, 65537
   %.0.i.i = select i1 %448, i64 4, i64 5
   %449 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !412)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !404)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !407)
   %450 = lshr i64 %447, 3
   %451 = getelementptr inbounds nuw i8, ptr %7, i64 %450
-  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !412, !noalias !409
+  %452 = load i8, ptr %451, align 1, !tbaa !7, !alias.scope !407, !noalias !404
   %453 = zext i8 %452 to i64
   %454 = and i64 %447, 7
   %455 = shl nuw nsw i64 %449, %454
   %456 = or i64 %455, %453
-  store i64 %456, ptr %451, align 1, !noalias !409
+  store i64 %456, ptr %451, align 1, !noalias !404
   %457 = add i64 %442, 3
-  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !409, !noalias !412
+  store i64 %457, ptr %6, align 8, !tbaa !3, !alias.scope !404, !noalias !407
   %458 = shl nuw nsw i64 %.0.i.i, 2
   %459 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !417)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !412)
   %460 = lshr i64 %457, 3
   %461 = getelementptr inbounds nuw i8, ptr %7, i64 %460
-  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !417, !noalias !414
+  %462 = load i8, ptr %461, align 1, !tbaa !7, !alias.scope !412, !noalias !409
   %463 = zext i8 %462 to i64
   %464 = and i64 %457, 7
   %465 = shl nsw i64 %459, %464
   %466 = or i64 %465, %463
-  store i64 %466, ptr %461, align 1, !noalias !414
+  store i64 %466, ptr %461, align 1, !noalias !409
   %467 = add i64 %457, %458
-  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !414, !noalias !417
+  store i64 %467, ptr %6, align 8, !tbaa !3, !alias.scope !409, !noalias !412
   %468 = lshr i64 %467, 3
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 %468
-  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !419, !noalias !422
+  %470 = load i8, ptr %469, align 1, !tbaa !7, !alias.scope !414, !noalias !417
   %471 = zext i8 %470 to i64
   %472 = and i64 %467, 7
   %473 = shl nuw nsw i64 1, %472
   %474 = or i64 %473, %471
-  store i64 %474, ptr %469, align 1, !noalias !422
+  store i64 %474, ptr %469, align 1, !noalias !417
   %475 = add i64 %467, 8
   %476 = and i64 %475, 4294967288
   store i64 %476, ptr %6, align 8, !tbaa !3
@@ -7022,7 +7022,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 484:                                              ; preds = %441, %401
   %485 = sub i64 %.037.i260, %13
   %.not.i = icmp eq i64 %485, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %484, %8
   ret void
@@ -7083,7 +7083,7 @@ IsMatch.exit13.thread:                            ; preds = %IsMatch.exit13.thre
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.0287.i.us, i64 %26
   %28 = icmp ugt ptr %27, %20
-  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !424
+  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !419
 
 .lr.ph.us:                                        ; preds = %.split.us, %.backedge.us212
   %29 = phi ptr [ %77, %.backedge.us212 ], [ %27, %.split.us ]
@@ -7115,7 +7115,7 @@ IsMatch.exit15.us200:                             ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %46 = icmp eq i8 %43, %45
-  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !425
+  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !420
 
 IsMatch.exit15.thread.us201:                      ; preds = %IsMatch.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
@@ -7163,14 +7163,14 @@ IsMatch.exit.us205:                               ; preds = %56
   %72 = ptrtoint ptr %.3292.i102.us to i64
   %73 = sub i64 %.pre-phi, %72
   %74 = icmp sgt i64 %73, 262128
-  br i1 %74, label %.split.us, label %.split218.us, !llvm.loop !426
+  br i1 %74, label %.split.us, label %.split218.us, !llvm.loop !421
 
 .backedge.us212:                                  ; preds = %IsMatch.exit15.thread.us201, %56, %IsMatch.exit.us205
   %75 = lshr i32 %30, 5
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %29, i64 %76
   %78 = icmp ugt ptr %77, %20
-  br i1 %78, label %.thread124, label %.lr.ph.us, !prof !427, !llvm.loop !428
+  br i1 %78, label %.thread124, label %.lr.ph.us, !prof !422, !llvm.loop !423
 
 .split:                                           ; preds = %IsMatch.exit13.thread, %.loopexit.split.us
   %.0287.i = phi ptr [ %83, %.loopexit.split.us ], [ %.0.i9, %IsMatch.exit13.thread ]
@@ -7180,7 +7180,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %.0287.i, i64 %80
   %82 = icmp ugt ptr %81, %20
-  br i1 %82, label %.thread124, label %.lr.ph, !prof !424
+  br i1 %82, label %.thread124, label %.lr.ph, !prof !419
 
 .lr.ph:                                           ; preds = %.split, %.backedge.us
   %83 = phi ptr [ %107, %.backedge.us ], [ %81, %.split ]
@@ -7225,13 +7225,13 @@ IsMatch.exit.us:                                  ; preds = %95
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %83, i64 %106
   %108 = icmp ugt ptr %107, %20
-  br i1 %108, label %.thread124, label %.lr.ph, !prof !427, !llvm.loop !429
+  br i1 %108, label %.thread124, label %.lr.ph, !prof !422, !llvm.loop !425
 
 .loopexit.split.us:                               ; preds = %IsMatch.exit.us
   %109 = ptrtoint ptr %90 to i64
   %110 = sub i64 %91, %109
   %111 = icmp sgt i64 %110, 262128
-  br i1 %111, label %.split, label %.split218.us
+  br i1 %111, label %.split, label %.split218.us, !llvm.loop !46
 
 .split218.us:                                     ; preds = %.loopexit.split.us, %.loopexit.split.us206
   %.us-phi219 = phi ptr [ %.3292.i102.us, %.loopexit.split.us206 ], [ %90, %.loopexit.split.us ]
@@ -7295,7 +7295,7 @@ IsMatch.exit.us:                                  ; preds = %95
   %134 = getelementptr inbounds nuw i8, ptr %.126.i25238, i64 1
   %135 = getelementptr inbounds nuw i8, ptr %.224.i26239, i64 1
   %.not.i27 = icmp eq i64 %133, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph240, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph240, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %132, %.lr.ph240, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26239, %.lr.ph240 ], [ %scevgep, %132 ]
@@ -7548,13 +7548,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %38
   %.189.be = phi ptr [ %251, %252 ], [ %251, %.lr.ph265.preheader ], [ %.426180, %IsMatch.exit13 ], [ %386, %387 ], [ %.426180, %.lr.ph81 ], [ %386, %.lr.ph265 ]
   %.0276.i.be = phi i32 [ %.2278.i, %252 ], [ %.2278.i, %.lr.ph265.preheader ], [ %.3279.i26279, %IsMatch.exit13 ], [ %334, %387 ], [ %.3279.i26279, %.lr.ph81 ], [ %334, %.lr.ph265 ]
   %.0273.i.be = phi ptr [ %144, %252 ], [ %144, %.lr.ph265.preheader ], [ %.2.i26378, %IsMatch.exit13 ], [ %333, %387 ], [ %.2.i26378, %.lr.ph81 ], [ %333, %.lr.ph265 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph265:                                        ; preds = %387
   %.0.copyload.i52 = load i32, ptr %333, align 1
   %.0.copyload.i51 = load i32, ptr %.6.i, align 1
   %292 = icmp eq i32 %.0.copyload.i52, %.0.copyload.i51
-  br i1 %292, label %.lr.ph81, label %IsMatch.exit13.thread.backedge
+  br i1 %292, label %.lr.ph81, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .lr.ph81:                                         ; preds = %.lr.ph265.preheader, %.lr.ph265
   %.426180 = phi ptr [ %386, %.lr.ph265 ], [ %251, %.lr.ph265.preheader ]
@@ -7568,7 +7568,7 @@ IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %38
   %297 = getelementptr inbounds nuw i8, ptr %.6.i26477, i64 4
   %298 = load i8, ptr %297, align 1, !tbaa !7
   %299 = icmp eq i8 %296, %298
-  br i1 %299, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %299, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph81
   %300 = getelementptr inbounds nuw i8, ptr %.2.i26378, i64 5
@@ -7576,7 +7576,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph81
   %302 = getelementptr inbounds nuw i8, ptr %.6.i26477, i64 5
   %303 = load i8, ptr %302, align 1, !tbaa !7
   %.not = icmp eq i8 %301, %303
-  br i1 %.not, label %304, label %IsMatch.exit13.thread.backedge
+  br i1 %.not, label %304, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 304:                                              ; preds = %IsMatch.exit13
   %305 = getelementptr inbounds nuw i8, ptr %.6.i26477, i64 6
@@ -7636,7 +7636,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph81
   %327 = getelementptr inbounds nuw i8, ptr %.126.i253, i64 1
   %328 = getelementptr inbounds nuw i8, ptr %.224.i254, i64 1
   %.not.i16 = icmp eq i64 %326, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph255, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph255, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %325, %.lr.ph255, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i254, %.lr.ph255 ], [ %scevgep359, %325 ]
@@ -7774,7 +7774,7 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   %423 = ptrtoint ptr %.6.i to i64
   %424 = sub i64 %391, %423
   %425 = icmp slt i64 %424, 262129
-  br i1 %425, label %.lr.ph265, label %IsMatch.exit13.thread.backedge
+  br i1 %425, label %.lr.ph265, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.backedge.us, %.backedge.us212, %12
   %.088 = phi ptr [ %3, %12 ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %EmitCopyLen.exit ], [ %.189, %.split.us ], [ %.189, %.split ], [ %251, %EmitCopyLenLastDistance.exit ]
@@ -7868,114 +7868,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %475 = ptrtoint ptr %.5 to i64
   %476 = sub i64 %475, %11
   %477 = ashr exact i64 %476, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !430)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
-  %478 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !430, !noalias !433
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
+  %478 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !426, !noalias !429
   %479 = lshr i64 %478, 3
   %480 = getelementptr inbounds nuw i8, ptr %7, i64 %479
-  %481 = load i8, ptr %480, align 1, !tbaa !7, !alias.scope !433, !noalias !430
+  %481 = load i8, ptr %480, align 1, !tbaa !7, !alias.scope !429, !noalias !426
   %482 = zext i8 %481 to i64
-  store i64 %482, ptr %480, align 1, !noalias !430
+  store i64 %482, ptr %480, align 1, !noalias !426
   %483 = add i64 %478, 1
-  store i64 %483, ptr %6, align 8, !tbaa !3, !alias.scope !430, !noalias !433
+  store i64 %483, ptr %6, align 8, !tbaa !3, !alias.scope !426, !noalias !429
   %484 = icmp ult i64 %.037.i281, 65537
   %.0.i55 = select i1 %484, i64 4, i64 5
   %485 = add nsw i64 %.0.i55, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !431)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !434)
   %486 = lshr i64 %483, 3
   %487 = getelementptr inbounds nuw i8, ptr %7, i64 %486
-  %488 = load i8, ptr %487, align 1, !tbaa !7, !alias.scope !438, !noalias !435
+  %488 = load i8, ptr %487, align 1, !tbaa !7, !alias.scope !434, !noalias !431
   %489 = zext i8 %488 to i64
   %490 = and i64 %483, 7
   %491 = shl nuw nsw i64 %485, %490
   %492 = or i64 %491, %489
-  store i64 %492, ptr %487, align 1, !noalias !435
+  store i64 %492, ptr %487, align 1, !noalias !431
   %493 = add i64 %478, 3
-  store i64 %493, ptr %6, align 8, !tbaa !3, !alias.scope !435, !noalias !438
+  store i64 %493, ptr %6, align 8, !tbaa !3, !alias.scope !431, !noalias !434
   %494 = shl nuw nsw i64 %.0.i55, 2
   %495 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !436)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
   %496 = lshr i64 %493, 3
   %497 = getelementptr inbounds nuw i8, ptr %7, i64 %496
-  %498 = load i8, ptr %497, align 1, !tbaa !7, !alias.scope !443, !noalias !440
+  %498 = load i8, ptr %497, align 1, !tbaa !7, !alias.scope !439, !noalias !436
   %499 = zext i8 %498 to i64
   %500 = and i64 %493, 7
   %501 = shl nsw i64 %495, %500
   %502 = or i64 %501, %499
-  store i64 %502, ptr %497, align 1, !noalias !440
+  store i64 %502, ptr %497, align 1, !noalias !436
   %503 = add i64 %493, %494
-  store i64 %503, ptr %6, align 8, !tbaa !3, !alias.scope !440, !noalias !443
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !448)
+  store i64 %503, ptr %6, align 8, !tbaa !3, !alias.scope !436, !noalias !439
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !441)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !444)
   %504 = lshr i64 %503, 3
   %505 = getelementptr inbounds nuw i8, ptr %7, i64 %504
-  %506 = load i8, ptr %505, align 1, !tbaa !7, !alias.scope !448, !noalias !445
+  %506 = load i8, ptr %505, align 1, !tbaa !7, !alias.scope !444, !noalias !441
   %507 = zext i8 %506 to i64
-  store i64 %507, ptr %505, align 1, !noalias !445
+  store i64 %507, ptr %505, align 1, !noalias !441
   %508 = add i64 %503, 1
-  store i64 %508, ptr %6, align 8, !tbaa !3, !alias.scope !445, !noalias !448
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !453)
+  store i64 %508, ptr %6, align 8, !tbaa !3, !alias.scope !441, !noalias !444
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !446)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
   %509 = lshr i64 %508, 3
   %510 = getelementptr inbounds nuw i8, ptr %7, i64 %509
-  %511 = load i8, ptr %510, align 1, !tbaa !7, !alias.scope !453, !noalias !450
+  %511 = load i8, ptr %510, align 1, !tbaa !7, !alias.scope !449, !noalias !446
   %512 = zext i8 %511 to i64
-  store i64 %512, ptr %510, align 1, !noalias !450
+  store i64 %512, ptr %510, align 1, !noalias !446
   %513 = add i64 %503, 14
-  store i64 %513, ptr %6, align 8, !tbaa !3, !alias.scope !450, !noalias !453
+  store i64 %513, ptr %6, align 8, !tbaa !3, !alias.scope !446, !noalias !449
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %472, ptr noundef %3, i64 noundef %477, ptr noundef nonnull %6, ptr noundef %7)
   br label %557
 
 514:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !455)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !458)
-  %515 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !455, !noalias !458
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !454)
+  %515 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !451, !noalias !454
   %516 = lshr i64 %515, 3
   %517 = getelementptr inbounds nuw i8, ptr %7, i64 %516
-  %518 = load i8, ptr %517, align 1, !tbaa !7, !alias.scope !458, !noalias !455
+  %518 = load i8, ptr %517, align 1, !tbaa !7, !alias.scope !454, !noalias !451
   %519 = zext i8 %518 to i64
-  store i64 %519, ptr %517, align 1, !noalias !455
+  store i64 %519, ptr %517, align 1, !noalias !451
   %520 = add i64 %515, 1
-  store i64 %520, ptr %6, align 8, !tbaa !3, !alias.scope !455, !noalias !458
+  store i64 %520, ptr %6, align 8, !tbaa !3, !alias.scope !451, !noalias !454
   %521 = icmp ult i64 %.037.i281, 65537
   %.0.i.i = select i1 %521, i64 4, i64 5
   %522 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !456)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !459)
   %523 = lshr i64 %520, 3
   %524 = getelementptr inbounds nuw i8, ptr %7, i64 %523
-  %525 = load i8, ptr %524, align 1, !tbaa !7, !alias.scope !463, !noalias !460
+  %525 = load i8, ptr %524, align 1, !tbaa !7, !alias.scope !459, !noalias !456
   %526 = zext i8 %525 to i64
   %527 = and i64 %520, 7
   %528 = shl nuw nsw i64 %522, %527
   %529 = or i64 %528, %526
-  store i64 %529, ptr %524, align 1, !noalias !460
+  store i64 %529, ptr %524, align 1, !noalias !456
   %530 = add i64 %515, 3
-  store i64 %530, ptr %6, align 8, !tbaa !3, !alias.scope !460, !noalias !463
+  store i64 %530, ptr %6, align 8, !tbaa !3, !alias.scope !456, !noalias !459
   %531 = shl nuw nsw i64 %.0.i.i, 2
   %532 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !465)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !468)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
   %533 = lshr i64 %530, 3
   %534 = getelementptr inbounds nuw i8, ptr %7, i64 %533
-  %535 = load i8, ptr %534, align 1, !tbaa !7, !alias.scope !468, !noalias !465
+  %535 = load i8, ptr %534, align 1, !tbaa !7, !alias.scope !464, !noalias !461
   %536 = zext i8 %535 to i64
   %537 = and i64 %530, 7
   %538 = shl nsw i64 %532, %537
   %539 = or i64 %538, %536
-  store i64 %539, ptr %534, align 1, !noalias !465
+  store i64 %539, ptr %534, align 1, !noalias !461
   %540 = add i64 %530, %531
-  store i64 %540, ptr %6, align 8, !tbaa !3, !alias.scope !465, !noalias !468
+  store i64 %540, ptr %6, align 8, !tbaa !3, !alias.scope !461, !noalias !464
   %541 = lshr i64 %540, 3
   %542 = getelementptr inbounds nuw i8, ptr %7, i64 %541
-  %543 = load i8, ptr %542, align 1, !tbaa !7, !alias.scope !470, !noalias !473
+  %543 = load i8, ptr %542, align 1, !tbaa !7, !alias.scope !466, !noalias !469
   %544 = zext i8 %543 to i64
   %545 = and i64 %540, 7
   %546 = shl nuw nsw i64 1, %545
   %547 = or i64 %546, %544
-  store i64 %547, ptr %542, align 1, !noalias !473
+  store i64 %547, ptr %542, align 1, !noalias !469
   %548 = add i64 %540, 8
   %549 = and i64 %548, 4294967288
   store i64 %549, ptr %6, align 8, !tbaa !3
@@ -7994,7 +7994,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 557:                                              ; preds = %514, %474
   %558 = sub i64 %.037.i281, %13
   %.not.i = icmp eq i64 %558, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %557, %8
   ret void
@@ -8055,7 +8055,7 @@ IsMatch.exit13.thread:                            ; preds = %IsMatch.exit13.thre
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %.0287.i.us, i64 %26
   %28 = icmp ugt ptr %27, %20
-  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !424
+  br i1 %28, label %.thread124, label %.lr.ph.us, !prof !419
 
 .lr.ph.us:                                        ; preds = %.split.us, %.backedge.us212
   %29 = phi ptr [ %77, %.backedge.us212 ], [ %27, %.split.us ]
@@ -8087,7 +8087,7 @@ IsMatch.exit15.us200:                             ; preds = %36
   %44 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %45 = load i8, ptr %44, align 1, !tbaa !7
   %46 = icmp eq i8 %43, %45
-  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !425
+  br i1 %46, label %66, label %IsMatch.exit15.thread.us201, !prof !420
 
 IsMatch.exit15.thread.us201:                      ; preds = %IsMatch.exit15.us200, %36, %.lr.ph.us
   %47 = zext nneg i32 %.2283.i181.us195 to i64
@@ -8135,14 +8135,14 @@ IsMatch.exit.us205:                               ; preds = %56
   %72 = ptrtoint ptr %.3292.i102.us to i64
   %73 = sub i64 %.pre-phi, %72
   %74 = icmp sgt i64 %73, 262128
-  br i1 %74, label %.split.us, label %.split218.us, !llvm.loop !475
+  br i1 %74, label %.split.us, label %.split218.us, !llvm.loop !471
 
 .backedge.us212:                                  ; preds = %IsMatch.exit15.thread.us201, %56, %IsMatch.exit.us205
   %75 = lshr i32 %30, 5
   %76 = zext nneg i32 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %29, i64 %76
   %78 = icmp ugt ptr %77, %20
-  br i1 %78, label %.thread124, label %.lr.ph.us, !prof !427, !llvm.loop !428
+  br i1 %78, label %.thread124, label %.lr.ph.us, !prof !422, !llvm.loop !423
 
 .split:                                           ; preds = %IsMatch.exit13.thread, %.loopexit.split.us
   %.0287.i = phi ptr [ %83, %.loopexit.split.us ], [ %.0.i9, %IsMatch.exit13.thread ]
@@ -8152,7 +8152,7 @@ IsMatch.exit.us205:                               ; preds = %56
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i8, ptr %.0287.i, i64 %80
   %82 = icmp ugt ptr %81, %20
-  br i1 %82, label %.thread124, label %.lr.ph, !prof !424
+  br i1 %82, label %.thread124, label %.lr.ph, !prof !419
 
 .lr.ph:                                           ; preds = %.split, %.backedge.us
   %83 = phi ptr [ %107, %.backedge.us ], [ %81, %.split ]
@@ -8197,13 +8197,13 @@ IsMatch.exit.us:                                  ; preds = %95
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr %83, i64 %106
   %108 = icmp ugt ptr %107, %20
-  br i1 %108, label %.thread124, label %.lr.ph, !prof !427, !llvm.loop !476
+  br i1 %108, label %.thread124, label %.lr.ph, !prof !422, !llvm.loop !472
 
 .loopexit.split.us:                               ; preds = %IsMatch.exit.us
   %109 = ptrtoint ptr %90 to i64
   %110 = sub i64 %91, %109
   %111 = icmp sgt i64 %110, 262128
-  br i1 %111, label %.split, label %.split218.us
+  br i1 %111, label %.split, label %.split218.us, !llvm.loop !46
 
 .split218.us:                                     ; preds = %.loopexit.split.us, %.loopexit.split.us206
   %.us-phi219 = phi ptr [ %.3292.i102.us, %.loopexit.split.us206 ], [ %90, %.loopexit.split.us ]
@@ -8267,7 +8267,7 @@ IsMatch.exit.us:                                  ; preds = %95
   %134 = getelementptr inbounds nuw i8, ptr %.126.i25238, i64 1
   %135 = getelementptr inbounds nuw i8, ptr %.224.i26239, i64 1
   %.not.i27 = icmp eq i64 %133, 0
-  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph240, !llvm.loop !48
+  br i1 %.not.i27, label %.critedge.i28, label %.lr.ph240, !llvm.loop !49
 
 .critedge.i28:                                    ; preds = %132, %.lr.ph240, %.preheader140
   %.224.i26.lcssa = phi ptr [ %.022.i22.lcssa, %.preheader140 ], [ %.224.i26239, %.lr.ph240 ], [ %scevgep, %132 ]
@@ -8520,13 +8520,13 @@ IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %38
   %.189.be = phi ptr [ %251, %252 ], [ %251, %.lr.ph265.preheader ], [ %.426180, %IsMatch.exit13 ], [ %386, %387 ], [ %.426180, %.lr.ph81 ], [ %386, %.lr.ph265 ]
   %.0276.i.be = phi i32 [ %.2278.i, %252 ], [ %.2278.i, %.lr.ph265.preheader ], [ %.3279.i26279, %IsMatch.exit13 ], [ %334, %387 ], [ %.3279.i26279, %.lr.ph81 ], [ %334, %.lr.ph265 ]
   %.0273.i.be = phi ptr [ %144, %252 ], [ %144, %.lr.ph265.preheader ], [ %.2.i26378, %IsMatch.exit13 ], [ %333, %387 ], [ %.2.i26378, %.lr.ph81 ], [ %333, %.lr.ph265 ]
-  br label %IsMatch.exit13.thread
+  br label %IsMatch.exit13.thread, !llvm.loop !50
 
 .lr.ph265:                                        ; preds = %387
   %.0.copyload.i52 = load i32, ptr %333, align 1
   %.0.copyload.i51 = load i32, ptr %.6.i, align 1
   %292 = icmp eq i32 %.0.copyload.i52, %.0.copyload.i51
-  br i1 %292, label %.lr.ph81, label %IsMatch.exit13.thread.backedge
+  br i1 %292, label %.lr.ph81, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .lr.ph81:                                         ; preds = %.lr.ph265.preheader, %.lr.ph265
   %.426180 = phi ptr [ %386, %.lr.ph265 ], [ %251, %.lr.ph265.preheader ]
@@ -8540,7 +8540,7 @@ IsMatch.exit13.thread.backedge:                   ; preds = %IsMatch.exit13, %38
   %297 = getelementptr inbounds nuw i8, ptr %.6.i26477, i64 4
   %298 = load i8, ptr %297, align 1, !tbaa !7
   %299 = icmp eq i8 %296, %298
-  br i1 %299, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge
+  br i1 %299, label %IsMatch.exit13, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 IsMatch.exit13:                                   ; preds = %.lr.ph81
   %300 = getelementptr inbounds nuw i8, ptr %.2.i26378, i64 5
@@ -8548,7 +8548,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph81
   %302 = getelementptr inbounds nuw i8, ptr %.6.i26477, i64 5
   %303 = load i8, ptr %302, align 1, !tbaa !7
   %.not = icmp eq i8 %301, %303
-  br i1 %.not, label %304, label %IsMatch.exit13.thread.backedge
+  br i1 %.not, label %304, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 304:                                              ; preds = %IsMatch.exit13
   %305 = getelementptr inbounds nuw i8, ptr %.6.i26477, i64 6
@@ -8608,7 +8608,7 @@ IsMatch.exit13:                                   ; preds = %.lr.ph81
   %327 = getelementptr inbounds nuw i8, ptr %.126.i253, i64 1
   %328 = getelementptr inbounds nuw i8, ptr %.224.i254, i64 1
   %.not.i16 = icmp eq i64 %326, 0
-  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph255, !llvm.loop !48
+  br i1 %.not.i16, label %.critedge.i17, label %.lr.ph255, !llvm.loop !49
 
 .critedge.i17:                                    ; preds = %325, %.lr.ph255, %.preheader
   %.224.i.lcssa = phi ptr [ %.022.i.lcssa, %.preheader ], [ %.224.i254, %.lr.ph255 ], [ %scevgep359, %325 ]
@@ -8746,7 +8746,7 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
   %423 = ptrtoint ptr %.6.i to i64
   %424 = sub i64 %391, %423
   %425 = icmp slt i64 %424, 262129
-  br i1 %425, label %.lr.ph265, label %IsMatch.exit13.thread.backedge
+  br i1 %425, label %.lr.ph265, label %IsMatch.exit13.thread.backedge, !llvm.loop !50
 
 .thread124:                                       ; preds = %EmitCopyLenLastDistance.exit, %.split, %.split.us, %EmitCopyLen.exit, %.backedge.us, %.backedge.us212, %12
   %.088 = phi ptr [ %3, %12 ], [ %.189, %.backedge.us212 ], [ %.189, %.backedge.us ], [ %386, %EmitCopyLen.exit ], [ %.189, %.split.us ], [ %.189, %.split ], [ %251, %EmitCopyLenLastDistance.exit ]
@@ -8840,114 +8840,114 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
   %475 = ptrtoint ptr %.5 to i64
   %476 = sub i64 %475, %11
   %477 = ashr exact i64 %476, 2
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !477)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !480)
-  %478 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !477, !noalias !480
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !473)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !476)
+  %478 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !473, !noalias !476
   %479 = lshr i64 %478, 3
   %480 = getelementptr inbounds nuw i8, ptr %7, i64 %479
-  %481 = load i8, ptr %480, align 1, !tbaa !7, !alias.scope !480, !noalias !477
+  %481 = load i8, ptr %480, align 1, !tbaa !7, !alias.scope !476, !noalias !473
   %482 = zext i8 %481 to i64
-  store i64 %482, ptr %480, align 1, !noalias !477
+  store i64 %482, ptr %480, align 1, !noalias !473
   %483 = add i64 %478, 1
-  store i64 %483, ptr %6, align 8, !tbaa !3, !alias.scope !477, !noalias !480
+  store i64 %483, ptr %6, align 8, !tbaa !3, !alias.scope !473, !noalias !476
   %484 = icmp ult i64 %.037.i281, 65537
   %.0.i55 = select i1 %484, i64 4, i64 5
   %485 = add nsw i64 %.0.i55, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !482)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !485)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
   %486 = lshr i64 %483, 3
   %487 = getelementptr inbounds nuw i8, ptr %7, i64 %486
-  %488 = load i8, ptr %487, align 1, !tbaa !7, !alias.scope !485, !noalias !482
+  %488 = load i8, ptr %487, align 1, !tbaa !7, !alias.scope !481, !noalias !478
   %489 = zext i8 %488 to i64
   %490 = and i64 %483, 7
   %491 = shl nuw nsw i64 %485, %490
   %492 = or i64 %491, %489
-  store i64 %492, ptr %487, align 1, !noalias !482
+  store i64 %492, ptr %487, align 1, !noalias !478
   %493 = add i64 %478, 3
-  store i64 %493, ptr %6, align 8, !tbaa !3, !alias.scope !482, !noalias !485
+  store i64 %493, ptr %6, align 8, !tbaa !3, !alias.scope !478, !noalias !481
   %494 = shl nuw nsw i64 %.0.i55, 2
   %495 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !490)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   %496 = lshr i64 %493, 3
   %497 = getelementptr inbounds nuw i8, ptr %7, i64 %496
-  %498 = load i8, ptr %497, align 1, !tbaa !7, !alias.scope !490, !noalias !487
+  %498 = load i8, ptr %497, align 1, !tbaa !7, !alias.scope !486, !noalias !483
   %499 = zext i8 %498 to i64
   %500 = and i64 %493, 7
   %501 = shl nsw i64 %495, %500
   %502 = or i64 %501, %499
-  store i64 %502, ptr %497, align 1, !noalias !487
+  store i64 %502, ptr %497, align 1, !noalias !483
   %503 = add i64 %493, %494
-  store i64 %503, ptr %6, align 8, !tbaa !3, !alias.scope !487, !noalias !490
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !492)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !495)
+  store i64 %503, ptr %6, align 8, !tbaa !3, !alias.scope !483, !noalias !486
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !491)
   %504 = lshr i64 %503, 3
   %505 = getelementptr inbounds nuw i8, ptr %7, i64 %504
-  %506 = load i8, ptr %505, align 1, !tbaa !7, !alias.scope !495, !noalias !492
+  %506 = load i8, ptr %505, align 1, !tbaa !7, !alias.scope !491, !noalias !488
   %507 = zext i8 %506 to i64
-  store i64 %507, ptr %505, align 1, !noalias !492
+  store i64 %507, ptr %505, align 1, !noalias !488
   %508 = add i64 %503, 1
-  store i64 %508, ptr %6, align 8, !tbaa !3, !alias.scope !492, !noalias !495
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !497)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !500)
+  store i64 %508, ptr %6, align 8, !tbaa !3, !alias.scope !488, !noalias !491
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !493)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !496)
   %509 = lshr i64 %508, 3
   %510 = getelementptr inbounds nuw i8, ptr %7, i64 %509
-  %511 = load i8, ptr %510, align 1, !tbaa !7, !alias.scope !500, !noalias !497
+  %511 = load i8, ptr %510, align 1, !tbaa !7, !alias.scope !496, !noalias !493
   %512 = zext i8 %511 to i64
-  store i64 %512, ptr %510, align 1, !noalias !497
+  store i64 %512, ptr %510, align 1, !noalias !493
   %513 = add i64 %503, 14
-  store i64 %513, ptr %6, align 8, !tbaa !3, !alias.scope !497, !noalias !500
+  store i64 %513, ptr %6, align 8, !tbaa !3, !alias.scope !493, !noalias !496
   tail call fastcc void @StoreCommands(ptr noundef %0, ptr noundef %4, i64 noundef %472, ptr noundef %3, i64 noundef %477, ptr noundef nonnull %6, ptr noundef %7)
   br label %557
 
 514:                                              ; preds = %CreateCommands.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !502)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !505)
-  %515 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !502, !noalias !505
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !498)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !501)
+  %515 = load i64, ptr %6, align 8, !tbaa !3, !alias.scope !498, !noalias !501
   %516 = lshr i64 %515, 3
   %517 = getelementptr inbounds nuw i8, ptr %7, i64 %516
-  %518 = load i8, ptr %517, align 1, !tbaa !7, !alias.scope !505, !noalias !502
+  %518 = load i8, ptr %517, align 1, !tbaa !7, !alias.scope !501, !noalias !498
   %519 = zext i8 %518 to i64
-  store i64 %519, ptr %517, align 1, !noalias !502
+  store i64 %519, ptr %517, align 1, !noalias !498
   %520 = add i64 %515, 1
-  store i64 %520, ptr %6, align 8, !tbaa !3, !alias.scope !502, !noalias !505
+  store i64 %520, ptr %6, align 8, !tbaa !3, !alias.scope !498, !noalias !501
   %521 = icmp ult i64 %.037.i281, 65537
   %.0.i.i = select i1 %521, i64 4, i64 5
   %522 = add nsw i64 %.0.i.i, -4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !507)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !506)
   %523 = lshr i64 %520, 3
   %524 = getelementptr inbounds nuw i8, ptr %7, i64 %523
-  %525 = load i8, ptr %524, align 1, !tbaa !7, !alias.scope !510, !noalias !507
+  %525 = load i8, ptr %524, align 1, !tbaa !7, !alias.scope !506, !noalias !503
   %526 = zext i8 %525 to i64
   %527 = and i64 %520, 7
   %528 = shl nuw nsw i64 %522, %527
   %529 = or i64 %528, %526
-  store i64 %529, ptr %524, align 1, !noalias !507
+  store i64 %529, ptr %524, align 1, !noalias !503
   %530 = add i64 %515, 3
-  store i64 %530, ptr %6, align 8, !tbaa !3, !alias.scope !507, !noalias !510
+  store i64 %530, ptr %6, align 8, !tbaa !3, !alias.scope !503, !noalias !506
   %531 = shl nuw nsw i64 %.0.i.i, 2
   %532 = add nsw i64 %13, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !512)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !515)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !508)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !511)
   %533 = lshr i64 %530, 3
   %534 = getelementptr inbounds nuw i8, ptr %7, i64 %533
-  %535 = load i8, ptr %534, align 1, !tbaa !7, !alias.scope !515, !noalias !512
+  %535 = load i8, ptr %534, align 1, !tbaa !7, !alias.scope !511, !noalias !508
   %536 = zext i8 %535 to i64
   %537 = and i64 %530, 7
   %538 = shl nsw i64 %532, %537
   %539 = or i64 %538, %536
-  store i64 %539, ptr %534, align 1, !noalias !512
+  store i64 %539, ptr %534, align 1, !noalias !508
   %540 = add i64 %530, %531
-  store i64 %540, ptr %6, align 8, !tbaa !3, !alias.scope !512, !noalias !515
+  store i64 %540, ptr %6, align 8, !tbaa !3, !alias.scope !508, !noalias !511
   %541 = lshr i64 %540, 3
   %542 = getelementptr inbounds nuw i8, ptr %7, i64 %541
-  %543 = load i8, ptr %542, align 1, !tbaa !7, !alias.scope !517, !noalias !520
+  %543 = load i8, ptr %542, align 1, !tbaa !7, !alias.scope !513, !noalias !516
   %544 = zext i8 %543 to i64
   %545 = and i64 %540, 7
   %546 = shl nuw nsw i64 1, %545
   %547 = or i64 %546, %544
-  store i64 %547, ptr %542, align 1, !noalias !520
+  store i64 %547, ptr %542, align 1, !noalias !516
   %548 = add i64 %540, 8
   %549 = and i64 %548, 4294967288
   store i64 %549, ptr %6, align 8, !tbaa !3
@@ -8966,7 +8966,7 @@ CreateCommands.exit:                              ; preds = %.thread124, %EmitIn
 557:                                              ; preds = %514, %474
   %558 = sub i64 %.037.i281, %13
   %.not.i = icmp eq i64 %558, 0
-  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !94
+  br i1 %.not.i, label %BrotliCompressFragmentTwoPassImpl.exit, label %12, !llvm.loop !96
 
 BrotliCompressFragmentTwoPassImpl.exit:           ; preds = %557, %8
   ret void
@@ -9002,7 +9002,7 @@ define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(
   store i32 %18, ptr %16, align 4, !tbaa !41
   %19 = add i64 %.019, 43
   %20 = icmp ult i64 %19, %2
-  br i1 %20, label %.lr.ph, label %.preheader.preheader, !llvm.loop !522
+  br i1 %20, label %.lr.ph, label %.preheader.preheader, !llvm.loop !518
 
 .preheader.preheader:                             ; preds = %.lr.ph, %9
   br label %.preheader
@@ -9019,7 +9019,7 @@ define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(
 
 24:                                               ; preds = %.preheader
   %25 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %22
-  %26 = load double, ptr %25, align 8, !tbaa !523
+  %26 = load double, ptr %25, align 8, !tbaa !519
   %.pre = uitofp nneg i32 %21 to double
   br label %FastLog2.exit16
 
@@ -9045,7 +9045,7 @@ FastLog2.exit16:                                  ; preds = %24, %27
 
 38:                                               ; preds = %FastLog2.exit16
   %39 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %34
-  %40 = load double, ptr %39, align 8, !tbaa !523
+  %40 = load double, ptr %39, align 8, !tbaa !519
   br label %FastLog2.exit
 
 41:                                               ; preds = %FastLog2.exit16
@@ -9057,7 +9057,7 @@ FastLog2.exit:                                    ; preds = %38, %41
   %43 = fneg double %36
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %.0.i14, double %31)
   %45 = icmp samesign ult i64 %.1.idx.i22, 1016
-  br i1 %45, label %.preheader, label %46, !llvm.loop !525
+  br i1 %45, label %.preheader, label %46, !llvm.loop !521
 
 46:                                               ; preds = %FastLog2.exit
   %.not.i = icmp eq i64 %35, 0
@@ -9070,7 +9070,7 @@ FastLog2.exit:                                    ; preds = %38, %41
 
 49:                                               ; preds = %47
   %50 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %35
-  %51 = load double, ptr %50, align 8, !tbaa !523
+  %51 = load double, ptr %50, align 8, !tbaa !519
   br label %FastLog2.exit18
 
 52:                                               ; preds = %47
@@ -9116,7 +9116,7 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   store i32 %16, ptr %14, align 4, !tbaa !41
   %17 = add nuw i64 %.06267, 1
   %exitcond.not = icmp eq i64 %17, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !526
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !522
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 2688
@@ -9138,7 +9138,7 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   store i32 %27, ptr %25, align 4, !tbaa !41
   %28 = add nuw i64 %.16368, 1
   %exitcond83.not = icmp eq i64 %28, %4
-  br i1 %exitcond83.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !527
+  br i1 %exitcond83.not, label %._crit_edge71, label %.lr.ph70, !llvm.loop !523
 
 ._crit_edge71:                                    ; preds = %.lr.ph70, %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1796
@@ -9245,7 +9245,7 @@ define internal fastcc void @StoreCommands(ptr noundef initializes((0, 1024), (1
   store i8 %95, ptr %97, align 1, !tbaa !7
   %98 = add nuw nsw i64 %.067.i, 1
   %exitcond.not.i = icmp eq i64 %98, 8
-  br i1 %exitcond.not.i, label %BuildAndStoreCommandPrefixCode.exit, label %82, !llvm.loop !528
+  br i1 %exitcond.not.i, label %BuildAndStoreCommandPrefixCode.exit, label %82, !llvm.loop !524
 
 BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   tail call void @BrotliStoreHuffmanTree(ptr noundef nonnull %41, i64 noundef 704, ptr noundef nonnull %18, ptr noundef %5, ptr noundef %6) #10
@@ -9253,7 +9253,7 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   br i1 %.not80, label %._crit_edge79, label %.lr.ph78.preheader
 
 .lr.ph78.preheader:                               ; preds = %BuildAndStoreCommandPrefixCode.exit
-  %.pre = load i64, ptr %5, align 8, !tbaa !3, !alias.scope !529, !noalias !532
+  %.pre = load i64, ptr %5, align 8, !tbaa !3, !alias.scope !525, !noalias !528
   br label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.loopexit
@@ -9269,36 +9269,36 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   %106 = load i8, ptr %105, align 1, !tbaa !7
   %107 = zext i8 %106 to i64
   %108 = getelementptr inbounds nuw [128 x i16], ptr %9, i64 0, i64 %104
-  %109 = load i16, ptr %108, align 2, !tbaa !534
+  %109 = load i16, ptr %108, align 2, !tbaa !530
   %110 = zext i16 %109 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !529)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !532)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !525)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !528)
   %111 = lshr i64 %99, 3
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 %111
-  %113 = load i8, ptr %112, align 1, !tbaa !7, !alias.scope !532, !noalias !529
+  %113 = load i8, ptr %112, align 1, !tbaa !7, !alias.scope !528, !noalias !525
   %114 = zext i8 %113 to i64
   %115 = and i64 %99, 7
   %116 = shl nuw nsw i64 %110, %115
   %117 = or i64 %116, %114
-  store i64 %117, ptr %112, align 1, !noalias !529
+  store i64 %117, ptr %112, align 1, !noalias !525
   %118 = add i64 %99, %107
-  store i64 %118, ptr %5, align 8, !tbaa !3, !alias.scope !529, !noalias !532
+  store i64 %118, ptr %5, align 8, !tbaa !3, !alias.scope !525, !noalias !528
   %119 = getelementptr inbounds nuw [128 x i32], ptr @StoreCommands.kNumExtraBits, i64 0, i64 %104
   %120 = load i32, ptr %119, align 4, !tbaa !41
   %121 = zext i32 %120 to i64
   %122 = zext nneg i32 %103 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !536)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !539)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !532)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !535)
   %123 = lshr i64 %118, 3
   %124 = getelementptr inbounds nuw i8, ptr %6, i64 %123
-  %125 = load i8, ptr %124, align 1, !tbaa !7, !alias.scope !539, !noalias !536
+  %125 = load i8, ptr %124, align 1, !tbaa !7, !alias.scope !535, !noalias !532
   %126 = zext i8 %125 to i64
   %127 = and i64 %118, 7
   %128 = shl nuw nsw i64 %122, %127
   %129 = or i64 %128, %126
-  store i64 %129, ptr %124, align 1, !noalias !536
+  store i64 %129, ptr %124, align 1, !noalias !532
   %130 = add i64 %118, %121
-  store i64 %130, ptr %5, align 8, !tbaa !3, !alias.scope !536, !noalias !539
+  store i64 %130, ptr %5, align 8, !tbaa !3, !alias.scope !532, !noalias !535
   %131 = icmp samesign ult i32 %102, 24
   br i1 %131, label %132, label %.loopexit
 
@@ -9319,31 +9319,31 @@ BuildAndStoreCommandPrefixCode.exit:              ; preds = %82
   %140 = load i8, ptr %139, align 1, !tbaa !7
   %141 = zext i8 %140 to i64
   %142 = getelementptr inbounds nuw [256 x i16], ptr %20, i64 0, i64 %138
-  %143 = load i16, ptr %142, align 2, !tbaa !534
+  %143 = load i16, ptr %142, align 2, !tbaa !530
   %144 = zext i16 %143 to i64
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !541)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !537)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !540)
   %145 = lshr i64 %136, 3
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 %145
-  %147 = load i8, ptr %146, align 1, !tbaa !7, !alias.scope !544, !noalias !541
+  %147 = load i8, ptr %146, align 1, !tbaa !7, !alias.scope !540, !noalias !537
   %148 = zext i8 %147 to i64
   %149 = and i64 %136, 7
   %150 = shl nuw nsw i64 %144, %149
   %151 = or i64 %150, %148
-  store i64 %151, ptr %146, align 1, !noalias !541
+  store i64 %151, ptr %146, align 1, !noalias !537
   %152 = add i64 %136, %141
-  store i64 %152, ptr %5, align 8, !tbaa !3, !alias.scope !541, !noalias !544
+  store i64 %152, ptr %5, align 8, !tbaa !3, !alias.scope !537, !noalias !540
   %153 = getelementptr inbounds nuw i8, ptr %.273, i64 1
   %154 = add nuw i32 %.06172, 1
   %exitcond84.not = icmp eq i32 %154, %135
-  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph75, !llvm.loop !546
+  br i1 %exitcond84.not, label %.loopexit, label %.lr.ph75, !llvm.loop !542
 
 .loopexit:                                        ; preds = %.lr.ph75, %132, %.lr.ph78
   %155 = phi i64 [ %130, %.lr.ph78 ], [ %130, %132 ], [ %152, %.lr.ph75 ]
   %.1 = phi ptr [ %.077, %.lr.ph78 ], [ %.077, %132 ], [ %153, %.lr.ph75 ]
   %156 = add nuw i64 %.26476, 1
   %exitcond85.not = icmp eq i64 %156, %4
-  br i1 %exitcond85.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !547
+  br i1 %exitcond85.not, label %._crit_edge79, label %.lr.ph78, !llvm.loop !543
 
 ._crit_edge79:                                    ; preds = %.loopexit, %BuildAndStoreCommandPrefixCode.exit
   ret void
@@ -9435,107 +9435,107 @@ attributes #10 = { nounwind }
 !40 = !{!"branch_weights", i32 2146410443, i32 -2146410443}
 !41 = !{!42, !42, i64 0}
 !42 = !{!"int", !5, i64 0}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!45 = distinct !{!45, !46, !44}
-!46 = !{!"llvm.loop.mustprogress"}
-!47 = distinct !{!47, !46}
-!48 = distinct !{!48, !46}
-!49 = !{!50}
-!50 = distinct !{!50, !51, !"BrotliWriteBits: argument 0"}
-!51 = distinct !{!51, !"BrotliWriteBits"}
-!52 = !{!53}
-!53 = distinct !{!53, !51, !"BrotliWriteBits: argument 1"}
+!43 = distinct !{!43, !44, !45}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!46 = distinct !{!46, !44}
+!47 = distinct !{!47, !48, !44}
+!48 = !{!"llvm.loop.mustprogress"}
+!49 = distinct !{!49, !48, !44}
+!50 = distinct !{!50, !44}
+!51 = !{!52}
+!52 = distinct !{!52, !53, !"BrotliWriteBits: argument 0"}
+!53 = distinct !{!53, !"BrotliWriteBits"}
 !54 = !{!55}
-!55 = distinct !{!55, !56, !"BrotliWriteBits: argument 0"}
-!56 = distinct !{!56, !"BrotliWriteBits"}
-!57 = !{!58}
-!58 = distinct !{!58, !56, !"BrotliWriteBits: argument 1"}
+!55 = distinct !{!55, !53, !"BrotliWriteBits: argument 1"}
+!56 = !{!57}
+!57 = distinct !{!57, !58, !"BrotliWriteBits: argument 0"}
+!58 = distinct !{!58, !"BrotliWriteBits"}
 !59 = !{!60}
-!60 = distinct !{!60, !61, !"BrotliWriteBits: argument 0"}
-!61 = distinct !{!61, !"BrotliWriteBits"}
-!62 = !{!63}
-!63 = distinct !{!63, !61, !"BrotliWriteBits: argument 1"}
+!60 = distinct !{!60, !58, !"BrotliWriteBits: argument 1"}
+!61 = !{!62}
+!62 = distinct !{!62, !63, !"BrotliWriteBits: argument 0"}
+!63 = distinct !{!63, !"BrotliWriteBits"}
 !64 = !{!65}
-!65 = distinct !{!65, !66, !"BrotliWriteBits: argument 0"}
-!66 = distinct !{!66, !"BrotliWriteBits"}
-!67 = !{!68}
-!68 = distinct !{!68, !66, !"BrotliWriteBits: argument 1"}
+!65 = distinct !{!65, !63, !"BrotliWriteBits: argument 1"}
+!66 = !{!67}
+!67 = distinct !{!67, !68, !"BrotliWriteBits: argument 0"}
+!68 = distinct !{!68, !"BrotliWriteBits"}
 !69 = !{!70}
-!70 = distinct !{!70, !71, !"BrotliWriteBits: argument 0"}
-!71 = distinct !{!71, !"BrotliWriteBits"}
-!72 = !{!73}
-!73 = distinct !{!73, !71, !"BrotliWriteBits: argument 1"}
+!70 = distinct !{!70, !68, !"BrotliWriteBits: argument 1"}
+!71 = !{!72}
+!72 = distinct !{!72, !73, !"BrotliWriteBits: argument 0"}
+!73 = distinct !{!73, !"BrotliWriteBits"}
 !74 = !{!75}
-!75 = distinct !{!75, !76, !"BrotliWriteBits: argument 0"}
-!76 = distinct !{!76, !"BrotliWriteBits"}
-!77 = !{!78}
-!78 = distinct !{!78, !76, !"BrotliWriteBits: argument 1"}
+!75 = distinct !{!75, !73, !"BrotliWriteBits: argument 1"}
+!76 = !{!77}
+!77 = distinct !{!77, !78, !"BrotliWriteBits: argument 0"}
+!78 = distinct !{!78, !"BrotliWriteBits"}
 !79 = !{!80}
-!80 = distinct !{!80, !81, !"BrotliWriteBits: argument 0"}
-!81 = distinct !{!81, !"BrotliWriteBits"}
-!82 = !{!83}
-!83 = distinct !{!83, !81, !"BrotliWriteBits: argument 1"}
+!80 = distinct !{!80, !78, !"BrotliWriteBits: argument 1"}
+!81 = !{!82}
+!82 = distinct !{!82, !83, !"BrotliWriteBits: argument 0"}
+!83 = distinct !{!83, !"BrotliWriteBits"}
 !84 = !{!85}
-!85 = distinct !{!85, !86, !"BrotliWriteBits: argument 0"}
-!86 = distinct !{!86, !"BrotliWriteBits"}
-!87 = !{!88}
-!88 = distinct !{!88, !86, !"BrotliWriteBits: argument 1"}
+!85 = distinct !{!85, !83, !"BrotliWriteBits: argument 1"}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"BrotliWriteBits: argument 0"}
+!88 = distinct !{!88, !"BrotliWriteBits"}
 !89 = !{!90}
-!90 = distinct !{!90, !91, !"BrotliWriteBits: argument 1"}
-!91 = distinct !{!91, !"BrotliWriteBits"}
-!92 = !{!93}
-!93 = distinct !{!93, !91, !"BrotliWriteBits: argument 0"}
-!94 = distinct !{!94, !46}
-!95 = distinct !{!95, !44}
-!96 = distinct !{!96, !46, !44}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"BrotliWriteBits: argument 0"}
-!99 = distinct !{!99, !"BrotliWriteBits"}
-!100 = !{!101}
-!101 = distinct !{!101, !99, !"BrotliWriteBits: argument 1"}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"BrotliWriteBits: argument 0"}
-!104 = distinct !{!104, !"BrotliWriteBits"}
-!105 = !{!106}
-!106 = distinct !{!106, !104, !"BrotliWriteBits: argument 1"}
-!107 = !{!108}
-!108 = distinct !{!108, !109, !"BrotliWriteBits: argument 0"}
-!109 = distinct !{!109, !"BrotliWriteBits"}
-!110 = !{!111}
-!111 = distinct !{!111, !109, !"BrotliWriteBits: argument 1"}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"BrotliWriteBits: argument 0"}
-!114 = distinct !{!114, !"BrotliWriteBits"}
-!115 = !{!116}
-!116 = distinct !{!116, !114, !"BrotliWriteBits: argument 1"}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"BrotliWriteBits: argument 0"}
-!119 = distinct !{!119, !"BrotliWriteBits"}
-!120 = !{!121}
-!121 = distinct !{!121, !119, !"BrotliWriteBits: argument 1"}
-!122 = !{!123}
-!123 = distinct !{!123, !124, !"BrotliWriteBits: argument 0"}
-!124 = distinct !{!124, !"BrotliWriteBits"}
-!125 = !{!126}
-!126 = distinct !{!126, !124, !"BrotliWriteBits: argument 1"}
-!127 = !{!128}
-!128 = distinct !{!128, !129, !"BrotliWriteBits: argument 0"}
-!129 = distinct !{!129, !"BrotliWriteBits"}
-!130 = !{!131}
-!131 = distinct !{!131, !129, !"BrotliWriteBits: argument 1"}
-!132 = !{!133}
-!133 = distinct !{!133, !134, !"BrotliWriteBits: argument 0"}
-!134 = distinct !{!134, !"BrotliWriteBits"}
-!135 = !{!136}
-!136 = distinct !{!136, !134, !"BrotliWriteBits: argument 1"}
-!137 = !{!138}
-!138 = distinct !{!138, !139, !"BrotliWriteBits: argument 1"}
-!139 = distinct !{!139, !"BrotliWriteBits"}
-!140 = !{!141}
-!141 = distinct !{!141, !139, !"BrotliWriteBits: argument 0"}
-!142 = distinct !{!142, !44}
-!143 = distinct !{!143, !46, !44}
+!90 = distinct !{!90, !88, !"BrotliWriteBits: argument 1"}
+!91 = !{!92}
+!92 = distinct !{!92, !93, !"BrotliWriteBits: argument 1"}
+!93 = distinct !{!93, !"BrotliWriteBits"}
+!94 = !{!95}
+!95 = distinct !{!95, !93, !"BrotliWriteBits: argument 0"}
+!96 = distinct !{!96, !48, !44}
+!97 = distinct !{!97, !44, !45}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"BrotliWriteBits: argument 0"}
+!100 = distinct !{!100, !"BrotliWriteBits"}
+!101 = !{!102}
+!102 = distinct !{!102, !100, !"BrotliWriteBits: argument 1"}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"BrotliWriteBits: argument 0"}
+!105 = distinct !{!105, !"BrotliWriteBits"}
+!106 = !{!107}
+!107 = distinct !{!107, !105, !"BrotliWriteBits: argument 1"}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"BrotliWriteBits: argument 0"}
+!110 = distinct !{!110, !"BrotliWriteBits"}
+!111 = !{!112}
+!112 = distinct !{!112, !110, !"BrotliWriteBits: argument 1"}
+!113 = !{!114}
+!114 = distinct !{!114, !115, !"BrotliWriteBits: argument 0"}
+!115 = distinct !{!115, !"BrotliWriteBits"}
+!116 = !{!117}
+!117 = distinct !{!117, !115, !"BrotliWriteBits: argument 1"}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"BrotliWriteBits: argument 0"}
+!120 = distinct !{!120, !"BrotliWriteBits"}
+!121 = !{!122}
+!122 = distinct !{!122, !120, !"BrotliWriteBits: argument 1"}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"BrotliWriteBits: argument 0"}
+!125 = distinct !{!125, !"BrotliWriteBits"}
+!126 = !{!127}
+!127 = distinct !{!127, !125, !"BrotliWriteBits: argument 1"}
+!128 = !{!129}
+!129 = distinct !{!129, !130, !"BrotliWriteBits: argument 0"}
+!130 = distinct !{!130, !"BrotliWriteBits"}
+!131 = !{!132}
+!132 = distinct !{!132, !130, !"BrotliWriteBits: argument 1"}
+!133 = !{!134}
+!134 = distinct !{!134, !135, !"BrotliWriteBits: argument 0"}
+!135 = distinct !{!135, !"BrotliWriteBits"}
+!136 = !{!137}
+!137 = distinct !{!137, !135, !"BrotliWriteBits: argument 1"}
+!138 = !{!139}
+!139 = distinct !{!139, !140, !"BrotliWriteBits: argument 1"}
+!140 = distinct !{!140, !"BrotliWriteBits"}
+!141 = !{!142}
+!142 = distinct !{!142, !140, !"BrotliWriteBits: argument 0"}
+!143 = distinct !{!143, !44, !45}
 !144 = !{!145}
 !145 = distinct !{!145, !146, !"BrotliWriteBits: argument 0"}
 !146 = distinct !{!146, !"BrotliWriteBits"}
@@ -9581,196 +9581,196 @@ attributes #10 = { nounwind }
 !186 = distinct !{!186, !"BrotliWriteBits"}
 !187 = !{!188}
 !188 = distinct !{!188, !186, !"BrotliWriteBits: argument 0"}
-!189 = distinct !{!189, !44}
-!190 = distinct !{!190, !46, !44}
-!191 = !{!192}
-!192 = distinct !{!192, !193, !"BrotliWriteBits: argument 0"}
-!193 = distinct !{!193, !"BrotliWriteBits"}
-!194 = !{!195}
-!195 = distinct !{!195, !193, !"BrotliWriteBits: argument 1"}
-!196 = !{!197}
-!197 = distinct !{!197, !198, !"BrotliWriteBits: argument 0"}
-!198 = distinct !{!198, !"BrotliWriteBits"}
-!199 = !{!200}
-!200 = distinct !{!200, !198, !"BrotliWriteBits: argument 1"}
-!201 = !{!202}
-!202 = distinct !{!202, !203, !"BrotliWriteBits: argument 0"}
-!203 = distinct !{!203, !"BrotliWriteBits"}
-!204 = !{!205}
-!205 = distinct !{!205, !203, !"BrotliWriteBits: argument 1"}
-!206 = !{!207}
-!207 = distinct !{!207, !208, !"BrotliWriteBits: argument 0"}
-!208 = distinct !{!208, !"BrotliWriteBits"}
-!209 = !{!210}
-!210 = distinct !{!210, !208, !"BrotliWriteBits: argument 1"}
-!211 = !{!212}
-!212 = distinct !{!212, !213, !"BrotliWriteBits: argument 0"}
-!213 = distinct !{!213, !"BrotliWriteBits"}
-!214 = !{!215}
-!215 = distinct !{!215, !213, !"BrotliWriteBits: argument 1"}
-!216 = !{!217}
-!217 = distinct !{!217, !218, !"BrotliWriteBits: argument 0"}
-!218 = distinct !{!218, !"BrotliWriteBits"}
-!219 = !{!220}
-!220 = distinct !{!220, !218, !"BrotliWriteBits: argument 1"}
-!221 = !{!222}
-!222 = distinct !{!222, !223, !"BrotliWriteBits: argument 0"}
-!223 = distinct !{!223, !"BrotliWriteBits"}
-!224 = !{!225}
-!225 = distinct !{!225, !223, !"BrotliWriteBits: argument 1"}
-!226 = !{!227}
-!227 = distinct !{!227, !228, !"BrotliWriteBits: argument 0"}
-!228 = distinct !{!228, !"BrotliWriteBits"}
-!229 = !{!230}
-!230 = distinct !{!230, !228, !"BrotliWriteBits: argument 1"}
-!231 = !{!232}
-!232 = distinct !{!232, !233, !"BrotliWriteBits: argument 1"}
-!233 = distinct !{!233, !"BrotliWriteBits"}
-!234 = !{!235}
-!235 = distinct !{!235, !233, !"BrotliWriteBits: argument 0"}
-!236 = distinct !{!236, !44}
-!237 = distinct !{!237, !46, !44}
-!238 = !{!239}
-!239 = distinct !{!239, !240, !"BrotliWriteBits: argument 0"}
-!240 = distinct !{!240, !"BrotliWriteBits"}
+!189 = distinct !{!189, !44, !45}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"BrotliWriteBits: argument 0"}
+!192 = distinct !{!192, !"BrotliWriteBits"}
+!193 = !{!194}
+!194 = distinct !{!194, !192, !"BrotliWriteBits: argument 1"}
+!195 = !{!196}
+!196 = distinct !{!196, !197, !"BrotliWriteBits: argument 0"}
+!197 = distinct !{!197, !"BrotliWriteBits"}
+!198 = !{!199}
+!199 = distinct !{!199, !197, !"BrotliWriteBits: argument 1"}
+!200 = !{!201}
+!201 = distinct !{!201, !202, !"BrotliWriteBits: argument 0"}
+!202 = distinct !{!202, !"BrotliWriteBits"}
+!203 = !{!204}
+!204 = distinct !{!204, !202, !"BrotliWriteBits: argument 1"}
+!205 = !{!206}
+!206 = distinct !{!206, !207, !"BrotliWriteBits: argument 0"}
+!207 = distinct !{!207, !"BrotliWriteBits"}
+!208 = !{!209}
+!209 = distinct !{!209, !207, !"BrotliWriteBits: argument 1"}
+!210 = !{!211}
+!211 = distinct !{!211, !212, !"BrotliWriteBits: argument 0"}
+!212 = distinct !{!212, !"BrotliWriteBits"}
+!213 = !{!214}
+!214 = distinct !{!214, !212, !"BrotliWriteBits: argument 1"}
+!215 = !{!216}
+!216 = distinct !{!216, !217, !"BrotliWriteBits: argument 0"}
+!217 = distinct !{!217, !"BrotliWriteBits"}
+!218 = !{!219}
+!219 = distinct !{!219, !217, !"BrotliWriteBits: argument 1"}
+!220 = !{!221}
+!221 = distinct !{!221, !222, !"BrotliWriteBits: argument 0"}
+!222 = distinct !{!222, !"BrotliWriteBits"}
+!223 = !{!224}
+!224 = distinct !{!224, !222, !"BrotliWriteBits: argument 1"}
+!225 = !{!226}
+!226 = distinct !{!226, !227, !"BrotliWriteBits: argument 0"}
+!227 = distinct !{!227, !"BrotliWriteBits"}
+!228 = !{!229}
+!229 = distinct !{!229, !227, !"BrotliWriteBits: argument 1"}
+!230 = !{!231}
+!231 = distinct !{!231, !232, !"BrotliWriteBits: argument 1"}
+!232 = distinct !{!232, !"BrotliWriteBits"}
+!233 = !{!234}
+!234 = distinct !{!234, !232, !"BrotliWriteBits: argument 0"}
+!235 = distinct !{!235, !44, !45}
+!236 = !{!237}
+!237 = distinct !{!237, !238, !"BrotliWriteBits: argument 0"}
+!238 = distinct !{!238, !"BrotliWriteBits"}
+!239 = !{!240}
+!240 = distinct !{!240, !238, !"BrotliWriteBits: argument 1"}
 !241 = !{!242}
-!242 = distinct !{!242, !240, !"BrotliWriteBits: argument 1"}
-!243 = !{!244}
-!244 = distinct !{!244, !245, !"BrotliWriteBits: argument 0"}
-!245 = distinct !{!245, !"BrotliWriteBits"}
+!242 = distinct !{!242, !243, !"BrotliWriteBits: argument 0"}
+!243 = distinct !{!243, !"BrotliWriteBits"}
+!244 = !{!245}
+!245 = distinct !{!245, !243, !"BrotliWriteBits: argument 1"}
 !246 = !{!247}
-!247 = distinct !{!247, !245, !"BrotliWriteBits: argument 1"}
-!248 = !{!249}
-!249 = distinct !{!249, !250, !"BrotliWriteBits: argument 0"}
-!250 = distinct !{!250, !"BrotliWriteBits"}
+!247 = distinct !{!247, !248, !"BrotliWriteBits: argument 0"}
+!248 = distinct !{!248, !"BrotliWriteBits"}
+!249 = !{!250}
+!250 = distinct !{!250, !248, !"BrotliWriteBits: argument 1"}
 !251 = !{!252}
-!252 = distinct !{!252, !250, !"BrotliWriteBits: argument 1"}
-!253 = !{!254}
-!254 = distinct !{!254, !255, !"BrotliWriteBits: argument 0"}
-!255 = distinct !{!255, !"BrotliWriteBits"}
+!252 = distinct !{!252, !253, !"BrotliWriteBits: argument 0"}
+!253 = distinct !{!253, !"BrotliWriteBits"}
+!254 = !{!255}
+!255 = distinct !{!255, !253, !"BrotliWriteBits: argument 1"}
 !256 = !{!257}
-!257 = distinct !{!257, !255, !"BrotliWriteBits: argument 1"}
-!258 = !{!259}
-!259 = distinct !{!259, !260, !"BrotliWriteBits: argument 0"}
-!260 = distinct !{!260, !"BrotliWriteBits"}
+!257 = distinct !{!257, !258, !"BrotliWriteBits: argument 0"}
+!258 = distinct !{!258, !"BrotliWriteBits"}
+!259 = !{!260}
+!260 = distinct !{!260, !258, !"BrotliWriteBits: argument 1"}
 !261 = !{!262}
-!262 = distinct !{!262, !260, !"BrotliWriteBits: argument 1"}
-!263 = !{!264}
-!264 = distinct !{!264, !265, !"BrotliWriteBits: argument 0"}
-!265 = distinct !{!265, !"BrotliWriteBits"}
+!262 = distinct !{!262, !263, !"BrotliWriteBits: argument 0"}
+!263 = distinct !{!263, !"BrotliWriteBits"}
+!264 = !{!265}
+!265 = distinct !{!265, !263, !"BrotliWriteBits: argument 1"}
 !266 = !{!267}
-!267 = distinct !{!267, !265, !"BrotliWriteBits: argument 1"}
-!268 = !{!269}
-!269 = distinct !{!269, !270, !"BrotliWriteBits: argument 0"}
-!270 = distinct !{!270, !"BrotliWriteBits"}
+!267 = distinct !{!267, !268, !"BrotliWriteBits: argument 0"}
+!268 = distinct !{!268, !"BrotliWriteBits"}
+!269 = !{!270}
+!270 = distinct !{!270, !268, !"BrotliWriteBits: argument 1"}
 !271 = !{!272}
-!272 = distinct !{!272, !270, !"BrotliWriteBits: argument 1"}
-!273 = !{!274}
-!274 = distinct !{!274, !275, !"BrotliWriteBits: argument 0"}
-!275 = distinct !{!275, !"BrotliWriteBits"}
+!272 = distinct !{!272, !273, !"BrotliWriteBits: argument 0"}
+!273 = distinct !{!273, !"BrotliWriteBits"}
+!274 = !{!275}
+!275 = distinct !{!275, !273, !"BrotliWriteBits: argument 1"}
 !276 = !{!277}
-!277 = distinct !{!277, !275, !"BrotliWriteBits: argument 1"}
-!278 = !{!279}
-!279 = distinct !{!279, !280, !"BrotliWriteBits: argument 1"}
-!280 = distinct !{!280, !"BrotliWriteBits"}
-!281 = !{!282}
-!282 = distinct !{!282, !280, !"BrotliWriteBits: argument 0"}
-!283 = distinct !{!283, !44}
-!284 = distinct !{!284, !46, !44}
+!277 = distinct !{!277, !278, !"BrotliWriteBits: argument 1"}
+!278 = distinct !{!278, !"BrotliWriteBits"}
+!279 = !{!280}
+!280 = distinct !{!280, !278, !"BrotliWriteBits: argument 0"}
+!281 = distinct !{!281, !44, !45}
+!282 = !{!283}
+!283 = distinct !{!283, !284, !"BrotliWriteBits: argument 0"}
+!284 = distinct !{!284, !"BrotliWriteBits"}
 !285 = !{!286}
-!286 = distinct !{!286, !287, !"BrotliWriteBits: argument 0"}
-!287 = distinct !{!287, !"BrotliWriteBits"}
-!288 = !{!289}
-!289 = distinct !{!289, !287, !"BrotliWriteBits: argument 1"}
+!286 = distinct !{!286, !284, !"BrotliWriteBits: argument 1"}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"BrotliWriteBits: argument 0"}
+!289 = distinct !{!289, !"BrotliWriteBits"}
 !290 = !{!291}
-!291 = distinct !{!291, !292, !"BrotliWriteBits: argument 0"}
-!292 = distinct !{!292, !"BrotliWriteBits"}
-!293 = !{!294}
-!294 = distinct !{!294, !292, !"BrotliWriteBits: argument 1"}
+!291 = distinct !{!291, !289, !"BrotliWriteBits: argument 1"}
+!292 = !{!293}
+!293 = distinct !{!293, !294, !"BrotliWriteBits: argument 0"}
+!294 = distinct !{!294, !"BrotliWriteBits"}
 !295 = !{!296}
-!296 = distinct !{!296, !297, !"BrotliWriteBits: argument 0"}
-!297 = distinct !{!297, !"BrotliWriteBits"}
-!298 = !{!299}
-!299 = distinct !{!299, !297, !"BrotliWriteBits: argument 1"}
+!296 = distinct !{!296, !294, !"BrotliWriteBits: argument 1"}
+!297 = !{!298}
+!298 = distinct !{!298, !299, !"BrotliWriteBits: argument 0"}
+!299 = distinct !{!299, !"BrotliWriteBits"}
 !300 = !{!301}
-!301 = distinct !{!301, !302, !"BrotliWriteBits: argument 0"}
-!302 = distinct !{!302, !"BrotliWriteBits"}
-!303 = !{!304}
-!304 = distinct !{!304, !302, !"BrotliWriteBits: argument 1"}
+!301 = distinct !{!301, !299, !"BrotliWriteBits: argument 1"}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"BrotliWriteBits: argument 0"}
+!304 = distinct !{!304, !"BrotliWriteBits"}
 !305 = !{!306}
-!306 = distinct !{!306, !307, !"BrotliWriteBits: argument 0"}
-!307 = distinct !{!307, !"BrotliWriteBits"}
-!308 = !{!309}
-!309 = distinct !{!309, !307, !"BrotliWriteBits: argument 1"}
+!306 = distinct !{!306, !304, !"BrotliWriteBits: argument 1"}
+!307 = !{!308}
+!308 = distinct !{!308, !309, !"BrotliWriteBits: argument 0"}
+!309 = distinct !{!309, !"BrotliWriteBits"}
 !310 = !{!311}
-!311 = distinct !{!311, !312, !"BrotliWriteBits: argument 0"}
-!312 = distinct !{!312, !"BrotliWriteBits"}
-!313 = !{!314}
-!314 = distinct !{!314, !312, !"BrotliWriteBits: argument 1"}
+!311 = distinct !{!311, !309, !"BrotliWriteBits: argument 1"}
+!312 = !{!313}
+!313 = distinct !{!313, !314, !"BrotliWriteBits: argument 0"}
+!314 = distinct !{!314, !"BrotliWriteBits"}
 !315 = !{!316}
-!316 = distinct !{!316, !317, !"BrotliWriteBits: argument 0"}
-!317 = distinct !{!317, !"BrotliWriteBits"}
-!318 = !{!319}
-!319 = distinct !{!319, !317, !"BrotliWriteBits: argument 1"}
+!316 = distinct !{!316, !314, !"BrotliWriteBits: argument 1"}
+!317 = !{!318}
+!318 = distinct !{!318, !319, !"BrotliWriteBits: argument 0"}
+!319 = distinct !{!319, !"BrotliWriteBits"}
 !320 = !{!321}
-!321 = distinct !{!321, !322, !"BrotliWriteBits: argument 0"}
-!322 = distinct !{!322, !"BrotliWriteBits"}
-!323 = !{!324}
-!324 = distinct !{!324, !322, !"BrotliWriteBits: argument 1"}
+!321 = distinct !{!321, !319, !"BrotliWriteBits: argument 1"}
+!322 = !{!323}
+!323 = distinct !{!323, !324, !"BrotliWriteBits: argument 1"}
+!324 = distinct !{!324, !"BrotliWriteBits"}
 !325 = !{!326}
-!326 = distinct !{!326, !327, !"BrotliWriteBits: argument 1"}
-!327 = distinct !{!327, !"BrotliWriteBits"}
+!326 = distinct !{!326, !324, !"BrotliWriteBits: argument 0"}
+!327 = distinct !{!327, !44, !45}
 !328 = !{!329}
-!329 = distinct !{!329, !327, !"BrotliWriteBits: argument 0"}
-!330 = distinct !{!330, !44}
-!331 = distinct !{!331, !46, !44}
-!332 = !{!333}
-!333 = distinct !{!333, !334, !"BrotliWriteBits: argument 0"}
-!334 = distinct !{!334, !"BrotliWriteBits"}
-!335 = !{!336}
-!336 = distinct !{!336, !334, !"BrotliWriteBits: argument 1"}
-!337 = !{!338}
-!338 = distinct !{!338, !339, !"BrotliWriteBits: argument 0"}
-!339 = distinct !{!339, !"BrotliWriteBits"}
-!340 = !{!341}
-!341 = distinct !{!341, !339, !"BrotliWriteBits: argument 1"}
-!342 = !{!343}
-!343 = distinct !{!343, !344, !"BrotliWriteBits: argument 0"}
-!344 = distinct !{!344, !"BrotliWriteBits"}
-!345 = !{!346}
-!346 = distinct !{!346, !344, !"BrotliWriteBits: argument 1"}
-!347 = !{!348}
-!348 = distinct !{!348, !349, !"BrotliWriteBits: argument 0"}
-!349 = distinct !{!349, !"BrotliWriteBits"}
-!350 = !{!351}
-!351 = distinct !{!351, !349, !"BrotliWriteBits: argument 1"}
-!352 = !{!353}
-!353 = distinct !{!353, !354, !"BrotliWriteBits: argument 0"}
-!354 = distinct !{!354, !"BrotliWriteBits"}
-!355 = !{!356}
-!356 = distinct !{!356, !354, !"BrotliWriteBits: argument 1"}
-!357 = !{!358}
-!358 = distinct !{!358, !359, !"BrotliWriteBits: argument 0"}
-!359 = distinct !{!359, !"BrotliWriteBits"}
-!360 = !{!361}
-!361 = distinct !{!361, !359, !"BrotliWriteBits: argument 1"}
-!362 = !{!363}
-!363 = distinct !{!363, !364, !"BrotliWriteBits: argument 0"}
-!364 = distinct !{!364, !"BrotliWriteBits"}
-!365 = !{!366}
-!366 = distinct !{!366, !364, !"BrotliWriteBits: argument 1"}
-!367 = !{!368}
-!368 = distinct !{!368, !369, !"BrotliWriteBits: argument 0"}
-!369 = distinct !{!369, !"BrotliWriteBits"}
-!370 = !{!371}
-!371 = distinct !{!371, !369, !"BrotliWriteBits: argument 1"}
-!372 = !{!373}
-!373 = distinct !{!373, !374, !"BrotliWriteBits: argument 1"}
-!374 = distinct !{!374, !"BrotliWriteBits"}
-!375 = !{!376}
-!376 = distinct !{!376, !374, !"BrotliWriteBits: argument 0"}
-!377 = distinct !{!377, !44}
-!378 = distinct !{!378, !46, !44}
+!329 = distinct !{!329, !330, !"BrotliWriteBits: argument 0"}
+!330 = distinct !{!330, !"BrotliWriteBits"}
+!331 = !{!332}
+!332 = distinct !{!332, !330, !"BrotliWriteBits: argument 1"}
+!333 = !{!334}
+!334 = distinct !{!334, !335, !"BrotliWriteBits: argument 0"}
+!335 = distinct !{!335, !"BrotliWriteBits"}
+!336 = !{!337}
+!337 = distinct !{!337, !335, !"BrotliWriteBits: argument 1"}
+!338 = !{!339}
+!339 = distinct !{!339, !340, !"BrotliWriteBits: argument 0"}
+!340 = distinct !{!340, !"BrotliWriteBits"}
+!341 = !{!342}
+!342 = distinct !{!342, !340, !"BrotliWriteBits: argument 1"}
+!343 = !{!344}
+!344 = distinct !{!344, !345, !"BrotliWriteBits: argument 0"}
+!345 = distinct !{!345, !"BrotliWriteBits"}
+!346 = !{!347}
+!347 = distinct !{!347, !345, !"BrotliWriteBits: argument 1"}
+!348 = !{!349}
+!349 = distinct !{!349, !350, !"BrotliWriteBits: argument 0"}
+!350 = distinct !{!350, !"BrotliWriteBits"}
+!351 = !{!352}
+!352 = distinct !{!352, !350, !"BrotliWriteBits: argument 1"}
+!353 = !{!354}
+!354 = distinct !{!354, !355, !"BrotliWriteBits: argument 0"}
+!355 = distinct !{!355, !"BrotliWriteBits"}
+!356 = !{!357}
+!357 = distinct !{!357, !355, !"BrotliWriteBits: argument 1"}
+!358 = !{!359}
+!359 = distinct !{!359, !360, !"BrotliWriteBits: argument 0"}
+!360 = distinct !{!360, !"BrotliWriteBits"}
+!361 = !{!362}
+!362 = distinct !{!362, !360, !"BrotliWriteBits: argument 1"}
+!363 = !{!364}
+!364 = distinct !{!364, !365, !"BrotliWriteBits: argument 0"}
+!365 = distinct !{!365, !"BrotliWriteBits"}
+!366 = !{!367}
+!367 = distinct !{!367, !365, !"BrotliWriteBits: argument 1"}
+!368 = !{!369}
+!369 = distinct !{!369, !370, !"BrotliWriteBits: argument 1"}
+!370 = distinct !{!370, !"BrotliWriteBits"}
+!371 = !{!372}
+!372 = distinct !{!372, !370, !"BrotliWriteBits: argument 0"}
+!373 = distinct !{!373, !44, !45}
+!374 = !{!375}
+!375 = distinct !{!375, !376, !"BrotliWriteBits: argument 0"}
+!376 = distinct !{!376, !"BrotliWriteBits"}
+!377 = !{!378}
+!378 = distinct !{!378, !376, !"BrotliWriteBits: argument 1"}
 !379 = !{!380}
 !380 = distinct !{!380, !381, !"BrotliWriteBits: argument 0"}
 !381 = distinct !{!381, !"BrotliWriteBits"}
@@ -9807,136 +9807,132 @@ attributes #10 = { nounwind }
 !412 = !{!413}
 !413 = distinct !{!413, !411, !"BrotliWriteBits: argument 1"}
 !414 = !{!415}
-!415 = distinct !{!415, !416, !"BrotliWriteBits: argument 0"}
+!415 = distinct !{!415, !416, !"BrotliWriteBits: argument 1"}
 !416 = distinct !{!416, !"BrotliWriteBits"}
 !417 = !{!418}
-!418 = distinct !{!418, !416, !"BrotliWriteBits: argument 1"}
-!419 = !{!420}
-!420 = distinct !{!420, !421, !"BrotliWriteBits: argument 1"}
-!421 = distinct !{!421, !"BrotliWriteBits"}
-!422 = !{!423}
-!423 = distinct !{!423, !421, !"BrotliWriteBits: argument 0"}
-!424 = !{!"branch_weights", i32 1, i32 127}
-!425 = !{!"branch_weights", i32 -2147483648, i32 0}
-!426 = distinct !{!426, !44}
-!427 = !{!"branch_weights", i32 127, i32 255873}
-!428 = distinct !{!428, !46}
-!429 = distinct !{!429, !46, !44}
-!430 = !{!431}
-!431 = distinct !{!431, !432, !"BrotliWriteBits: argument 0"}
-!432 = distinct !{!432, !"BrotliWriteBits"}
-!433 = !{!434}
-!434 = distinct !{!434, !432, !"BrotliWriteBits: argument 1"}
-!435 = !{!436}
-!436 = distinct !{!436, !437, !"BrotliWriteBits: argument 0"}
-!437 = distinct !{!437, !"BrotliWriteBits"}
-!438 = !{!439}
-!439 = distinct !{!439, !437, !"BrotliWriteBits: argument 1"}
-!440 = !{!441}
-!441 = distinct !{!441, !442, !"BrotliWriteBits: argument 0"}
-!442 = distinct !{!442, !"BrotliWriteBits"}
-!443 = !{!444}
-!444 = distinct !{!444, !442, !"BrotliWriteBits: argument 1"}
-!445 = !{!446}
-!446 = distinct !{!446, !447, !"BrotliWriteBits: argument 0"}
-!447 = distinct !{!447, !"BrotliWriteBits"}
-!448 = !{!449}
-!449 = distinct !{!449, !447, !"BrotliWriteBits: argument 1"}
-!450 = !{!451}
-!451 = distinct !{!451, !452, !"BrotliWriteBits: argument 0"}
-!452 = distinct !{!452, !"BrotliWriteBits"}
-!453 = !{!454}
-!454 = distinct !{!454, !452, !"BrotliWriteBits: argument 1"}
-!455 = !{!456}
-!456 = distinct !{!456, !457, !"BrotliWriteBits: argument 0"}
-!457 = distinct !{!457, !"BrotliWriteBits"}
-!458 = !{!459}
-!459 = distinct !{!459, !457, !"BrotliWriteBits: argument 1"}
-!460 = !{!461}
-!461 = distinct !{!461, !462, !"BrotliWriteBits: argument 0"}
-!462 = distinct !{!462, !"BrotliWriteBits"}
-!463 = !{!464}
-!464 = distinct !{!464, !462, !"BrotliWriteBits: argument 1"}
-!465 = !{!466}
-!466 = distinct !{!466, !467, !"BrotliWriteBits: argument 0"}
-!467 = distinct !{!467, !"BrotliWriteBits"}
-!468 = !{!469}
-!469 = distinct !{!469, !467, !"BrotliWriteBits: argument 1"}
-!470 = !{!471}
-!471 = distinct !{!471, !472, !"BrotliWriteBits: argument 1"}
-!472 = distinct !{!472, !"BrotliWriteBits"}
+!418 = distinct !{!418, !416, !"BrotliWriteBits: argument 0"}
+!419 = !{!"branch_weights", i32 1, i32 127}
+!420 = !{!"branch_weights", i32 -2147483648, i32 0}
+!421 = distinct !{!421, !44, !45}
+!422 = !{!"branch_weights", i32 127, i32 255873}
+!423 = distinct !{!423, !48, !424}
+!424 = !{!"llvm.loop.estimated_trip_count", i32 2001}
+!425 = distinct !{!425, !48, !424, !45}
+!426 = !{!427}
+!427 = distinct !{!427, !428, !"BrotliWriteBits: argument 0"}
+!428 = distinct !{!428, !"BrotliWriteBits"}
+!429 = !{!430}
+!430 = distinct !{!430, !428, !"BrotliWriteBits: argument 1"}
+!431 = !{!432}
+!432 = distinct !{!432, !433, !"BrotliWriteBits: argument 0"}
+!433 = distinct !{!433, !"BrotliWriteBits"}
+!434 = !{!435}
+!435 = distinct !{!435, !433, !"BrotliWriteBits: argument 1"}
+!436 = !{!437}
+!437 = distinct !{!437, !438, !"BrotliWriteBits: argument 0"}
+!438 = distinct !{!438, !"BrotliWriteBits"}
+!439 = !{!440}
+!440 = distinct !{!440, !438, !"BrotliWriteBits: argument 1"}
+!441 = !{!442}
+!442 = distinct !{!442, !443, !"BrotliWriteBits: argument 0"}
+!443 = distinct !{!443, !"BrotliWriteBits"}
+!444 = !{!445}
+!445 = distinct !{!445, !443, !"BrotliWriteBits: argument 1"}
+!446 = !{!447}
+!447 = distinct !{!447, !448, !"BrotliWriteBits: argument 0"}
+!448 = distinct !{!448, !"BrotliWriteBits"}
+!449 = !{!450}
+!450 = distinct !{!450, !448, !"BrotliWriteBits: argument 1"}
+!451 = !{!452}
+!452 = distinct !{!452, !453, !"BrotliWriteBits: argument 0"}
+!453 = distinct !{!453, !"BrotliWriteBits"}
+!454 = !{!455}
+!455 = distinct !{!455, !453, !"BrotliWriteBits: argument 1"}
+!456 = !{!457}
+!457 = distinct !{!457, !458, !"BrotliWriteBits: argument 0"}
+!458 = distinct !{!458, !"BrotliWriteBits"}
+!459 = !{!460}
+!460 = distinct !{!460, !458, !"BrotliWriteBits: argument 1"}
+!461 = !{!462}
+!462 = distinct !{!462, !463, !"BrotliWriteBits: argument 0"}
+!463 = distinct !{!463, !"BrotliWriteBits"}
+!464 = !{!465}
+!465 = distinct !{!465, !463, !"BrotliWriteBits: argument 1"}
+!466 = !{!467}
+!467 = distinct !{!467, !468, !"BrotliWriteBits: argument 1"}
+!468 = distinct !{!468, !"BrotliWriteBits"}
+!469 = !{!470}
+!470 = distinct !{!470, !468, !"BrotliWriteBits: argument 0"}
+!471 = distinct !{!471, !44, !45}
+!472 = distinct !{!472, !48, !424, !45}
 !473 = !{!474}
-!474 = distinct !{!474, !472, !"BrotliWriteBits: argument 0"}
-!475 = distinct !{!475, !44}
-!476 = distinct !{!476, !46, !44}
-!477 = !{!478}
-!478 = distinct !{!478, !479, !"BrotliWriteBits: argument 0"}
-!479 = distinct !{!479, !"BrotliWriteBits"}
-!480 = !{!481}
-!481 = distinct !{!481, !479, !"BrotliWriteBits: argument 1"}
-!482 = !{!483}
-!483 = distinct !{!483, !484, !"BrotliWriteBits: argument 0"}
-!484 = distinct !{!484, !"BrotliWriteBits"}
-!485 = !{!486}
-!486 = distinct !{!486, !484, !"BrotliWriteBits: argument 1"}
-!487 = !{!488}
-!488 = distinct !{!488, !489, !"BrotliWriteBits: argument 0"}
-!489 = distinct !{!489, !"BrotliWriteBits"}
-!490 = !{!491}
-!491 = distinct !{!491, !489, !"BrotliWriteBits: argument 1"}
-!492 = !{!493}
-!493 = distinct !{!493, !494, !"BrotliWriteBits: argument 0"}
-!494 = distinct !{!494, !"BrotliWriteBits"}
-!495 = !{!496}
-!496 = distinct !{!496, !494, !"BrotliWriteBits: argument 1"}
-!497 = !{!498}
-!498 = distinct !{!498, !499, !"BrotliWriteBits: argument 0"}
-!499 = distinct !{!499, !"BrotliWriteBits"}
-!500 = !{!501}
-!501 = distinct !{!501, !499, !"BrotliWriteBits: argument 1"}
-!502 = !{!503}
-!503 = distinct !{!503, !504, !"BrotliWriteBits: argument 0"}
-!504 = distinct !{!504, !"BrotliWriteBits"}
-!505 = !{!506}
-!506 = distinct !{!506, !504, !"BrotliWriteBits: argument 1"}
-!507 = !{!508}
-!508 = distinct !{!508, !509, !"BrotliWriteBits: argument 0"}
-!509 = distinct !{!509, !"BrotliWriteBits"}
-!510 = !{!511}
-!511 = distinct !{!511, !509, !"BrotliWriteBits: argument 1"}
-!512 = !{!513}
-!513 = distinct !{!513, !514, !"BrotliWriteBits: argument 0"}
-!514 = distinct !{!514, !"BrotliWriteBits"}
-!515 = !{!516}
-!516 = distinct !{!516, !514, !"BrotliWriteBits: argument 1"}
-!517 = !{!518}
-!518 = distinct !{!518, !519, !"BrotliWriteBits: argument 1"}
-!519 = distinct !{!519, !"BrotliWriteBits"}
-!520 = !{!521}
-!521 = distinct !{!521, !519, !"BrotliWriteBits: argument 0"}
-!522 = distinct !{!522, !46}
-!523 = !{!524, !524, i64 0}
-!524 = !{!"double", !5, i64 0}
-!525 = distinct !{!525, !46}
-!526 = distinct !{!526, !46}
-!527 = distinct !{!527, !46}
-!528 = distinct !{!528, !46}
-!529 = !{!530}
-!530 = distinct !{!530, !531, !"BrotliWriteBits: argument 0"}
-!531 = distinct !{!531, !"BrotliWriteBits"}
+!474 = distinct !{!474, !475, !"BrotliWriteBits: argument 0"}
+!475 = distinct !{!475, !"BrotliWriteBits"}
+!476 = !{!477}
+!477 = distinct !{!477, !475, !"BrotliWriteBits: argument 1"}
+!478 = !{!479}
+!479 = distinct !{!479, !480, !"BrotliWriteBits: argument 0"}
+!480 = distinct !{!480, !"BrotliWriteBits"}
+!481 = !{!482}
+!482 = distinct !{!482, !480, !"BrotliWriteBits: argument 1"}
+!483 = !{!484}
+!484 = distinct !{!484, !485, !"BrotliWriteBits: argument 0"}
+!485 = distinct !{!485, !"BrotliWriteBits"}
+!486 = !{!487}
+!487 = distinct !{!487, !485, !"BrotliWriteBits: argument 1"}
+!488 = !{!489}
+!489 = distinct !{!489, !490, !"BrotliWriteBits: argument 0"}
+!490 = distinct !{!490, !"BrotliWriteBits"}
+!491 = !{!492}
+!492 = distinct !{!492, !490, !"BrotliWriteBits: argument 1"}
+!493 = !{!494}
+!494 = distinct !{!494, !495, !"BrotliWriteBits: argument 0"}
+!495 = distinct !{!495, !"BrotliWriteBits"}
+!496 = !{!497}
+!497 = distinct !{!497, !495, !"BrotliWriteBits: argument 1"}
+!498 = !{!499}
+!499 = distinct !{!499, !500, !"BrotliWriteBits: argument 0"}
+!500 = distinct !{!500, !"BrotliWriteBits"}
+!501 = !{!502}
+!502 = distinct !{!502, !500, !"BrotliWriteBits: argument 1"}
+!503 = !{!504}
+!504 = distinct !{!504, !505, !"BrotliWriteBits: argument 0"}
+!505 = distinct !{!505, !"BrotliWriteBits"}
+!506 = !{!507}
+!507 = distinct !{!507, !505, !"BrotliWriteBits: argument 1"}
+!508 = !{!509}
+!509 = distinct !{!509, !510, !"BrotliWriteBits: argument 0"}
+!510 = distinct !{!510, !"BrotliWriteBits"}
+!511 = !{!512}
+!512 = distinct !{!512, !510, !"BrotliWriteBits: argument 1"}
+!513 = !{!514}
+!514 = distinct !{!514, !515, !"BrotliWriteBits: argument 1"}
+!515 = distinct !{!515, !"BrotliWriteBits"}
+!516 = !{!517}
+!517 = distinct !{!517, !515, !"BrotliWriteBits: argument 0"}
+!518 = distinct !{!518, !48, !44}
+!519 = !{!520, !520, i64 0}
+!520 = !{!"double", !5, i64 0}
+!521 = distinct !{!521, !48, !44}
+!522 = distinct !{!522, !48, !44}
+!523 = distinct !{!523, !48, !44}
+!524 = distinct !{!524, !48, !44}
+!525 = !{!526}
+!526 = distinct !{!526, !527, !"BrotliWriteBits: argument 0"}
+!527 = distinct !{!527, !"BrotliWriteBits"}
+!528 = !{!529}
+!529 = distinct !{!529, !527, !"BrotliWriteBits: argument 1"}
+!530 = !{!531, !531, i64 0}
+!531 = !{!"short", !5, i64 0}
 !532 = !{!533}
-!533 = distinct !{!533, !531, !"BrotliWriteBits: argument 1"}
-!534 = !{!535, !535, i64 0}
-!535 = !{!"short", !5, i64 0}
-!536 = !{!537}
-!537 = distinct !{!537, !538, !"BrotliWriteBits: argument 0"}
-!538 = distinct !{!538, !"BrotliWriteBits"}
-!539 = !{!540}
-!540 = distinct !{!540, !538, !"BrotliWriteBits: argument 1"}
-!541 = !{!542}
-!542 = distinct !{!542, !543, !"BrotliWriteBits: argument 0"}
-!543 = distinct !{!543, !"BrotliWriteBits"}
-!544 = !{!545}
-!545 = distinct !{!545, !543, !"BrotliWriteBits: argument 1"}
-!546 = distinct !{!546, !46}
-!547 = distinct !{!547, !46}
+!533 = distinct !{!533, !534, !"BrotliWriteBits: argument 0"}
+!534 = distinct !{!534, !"BrotliWriteBits"}
+!535 = !{!536}
+!536 = distinct !{!536, !534, !"BrotliWriteBits: argument 1"}
+!537 = !{!538}
+!538 = distinct !{!538, !539, !"BrotliWriteBits: argument 0"}
+!539 = distinct !{!539, !"BrotliWriteBits"}
+!540 = !{!541}
+!541 = distinct !{!541, !539, !"BrotliWriteBits: argument 1"}
+!542 = distinct !{!542, !48, !44}
+!543 = distinct !{!543, !48, !44}

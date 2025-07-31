@@ -13,22 +13,22 @@ define ptr @lv_cache_create(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr 
   br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %4, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !8
 
 7:                                                ; preds = %4
-  store ptr %0, ptr %6, align 8, !tbaa !8
+  store ptr %0, ptr %6, align 8, !tbaa !10
   %8 = trunc i64 %1 to i32
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %8, ptr %9, align 8, !tbaa !14
+  store i32 %8, ptr %9, align 8, !tbaa !16
   %10 = trunc i64 %2 to i32
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %10, ptr %11, align 4, !tbaa !15
+  store i32 %10, ptr %11, align 4, !tbaa !17
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %12, align 8, !tbaa !16
+  store i32 0, ptr %12, align 8, !tbaa !18
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !19
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !19
+  %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = tail call zeroext i1 %15(ptr noundef nonnull %6) #5
   br i1 %16, label %18, label %17
 
@@ -52,12 +52,12 @@ define void @lv_cache_destroy(ptr noundef %0, ptr noundef %1) local_unnamed_addr
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !22
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !8
+  %4 = load ptr, ptr %0, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !20
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   tail call void %6(ptr noundef nonnull %0, ptr noundef %1) #5
   tail call void @lv_free(ptr noundef nonnull %0) #5
   ret void
@@ -69,25 +69,25 @@ define ptr @lv_cache_acquire(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !24
 
 4:                                                ; preds = %3
   %.not17 = icmp eq ptr %1, null
   br i1 %.not17, label %.preheader19, label %5
 
 .preheader19:                                     ; preds = %4, %.preheader19
-  br label %.preheader19
+  br label %.preheader19, !llvm.loop !25
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %16, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %0, align 8, !tbaa !8
+  %10 = load ptr, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !21
+  %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #5
   %.not18 = icmp eq ptr %13, null
   br i1 %.not18, label %16, label %14
@@ -109,7 +109,7 @@ define void @lv_cache_release(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !27
 
 4:                                                ; preds = %3
   tail call void @lv_cache_entry_release_data(ptr noundef nonnull %1, ptr noundef %2) #5
@@ -123,7 +123,7 @@ define void @lv_cache_release(ptr noundef readonly captures(none) %0, ptr nounde
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !22
+  %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %1) #5
   tail call void %11(ptr noundef %12, ptr noundef %2) #5
   tail call void @lv_cache_entry_delete(ptr noundef nonnull %1) #5
@@ -149,25 +149,25 @@ define ptr @lv_cache_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !29
 
 4:                                                ; preds = %3
   %.not16 = icmp eq ptr %1, null
   br i1 %.not16, label %.preheader21, label %5
 
 .preheader21:                                     ; preds = %4, %.preheader21
-  br label %.preheader21
+  br label %.preheader21, !llvm.loop !30
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !15
+  %7 = load i32, ptr %6, align 4, !tbaa !17
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %cache_add_internal_no_lock.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %0, align 8, !tbaa !8
+  %10 = load ptr, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
   %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0, ptr noundef %2) #5
   switch i32 %13, label %cache_add_internal_no_lock.exit [
     i32 1, label %cache_add_internal_no_lock.exit.thread
@@ -179,33 +179,33 @@ define ptr @lv_cache_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
   br label %15
 
 15:                                               ; preds = %20, %.lr.ph.i
-  %16 = load ptr, ptr %0, align 8, !tbaa !8
+  %16 = load ptr, ptr %0, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  %18 = load ptr, ptr %17, align 8, !tbaa !24
+  %18 = load ptr, ptr %17, align 8, !tbaa !32
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef %2) #5
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %cache_add_internal_no_lock.exit.thread, label %20
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %0, align 8, !tbaa !8
+  %21 = load ptr, ptr %0, align 8, !tbaa !10
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %23 = load ptr, ptr %22, align 8, !tbaa !25
+  %23 = load ptr, ptr %22, align 8, !tbaa !33
   tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %2) #5
-  %24 = load ptr, ptr %14, align 8, !tbaa !22
+  %24 = load ptr, ptr %14, align 8, !tbaa !28
   %25 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %19) #5
   tail call void %24(ptr noundef %25, ptr noundef %2) #5
   tail call void @lv_cache_entry_delete(ptr noundef nonnull %19) #5
-  %26 = load ptr, ptr %0, align 8, !tbaa !8
+  %26 = load ptr, ptr %0, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %28 = load ptr, ptr %27, align 8, !tbaa !23
+  %28 = load ptr, ptr %27, align 8, !tbaa !31
   %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0, ptr noundef %2) #5
   %30 = icmp eq i32 %29, 2
-  br i1 %30, label %15, label %cache_add_internal_no_lock.exit, !llvm.loop !26
+  br i1 %30, label %15, label %cache_add_internal_no_lock.exit, !llvm.loop !34
 
 cache_add_internal_no_lock.exit:                  ; preds = %20, %9
-  %31 = load ptr, ptr %0, align 8, !tbaa !8
+  %31 = load ptr, ptr %0, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !28
+  %33 = load ptr, ptr %32, align 8, !tbaa !36
   %34 = tail call ptr %33(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #5
   %.not17 = icmp eq ptr %34, null
   br i1 %.not17, label %cache_add_internal_no_lock.exit.thread, label %35
@@ -225,25 +225,25 @@ define ptr @lv_cache_acquire_or_create(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !37
 
 4:                                                ; preds = %3
   %.not36 = icmp eq ptr %1, null
   br i1 %.not36, label %.preheader40, label %5
 
 .preheader40:                                     ; preds = %4, %.preheader40
-  br label %.preheader40
+  br label %.preheader40, !llvm.loop !38
 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !16
+  %7 = load i32, ptr %6, align 8, !tbaa !18
   %.not37 = icmp eq i32 %7, 0
   br i1 %.not37, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %0, align 8, !tbaa !8
+  %9 = load ptr, ptr %0, align 8, !tbaa !10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !21
+  %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #5
   %.not38 = icmp eq ptr %12, null
   br i1 %.not38, label %15, label %13
@@ -254,14 +254,14 @@ define ptr @lv_cache_acquire_or_create(ptr noundef %0, ptr noundef %1, ptr nound
 
 15:                                               ; preds = %8, %5
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %17 = load i32, ptr %16, align 4, !tbaa !15
+  %17 = load i32, ptr %16, align 4, !tbaa !17
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %cache_add_internal_no_lock.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = load ptr, ptr %0, align 8, !tbaa !8
+  %20 = load ptr, ptr %0, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %22 = load ptr, ptr %21, align 8, !tbaa !23
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0, ptr noundef %2) #5
   switch i32 %23, label %cache_add_internal_no_lock.exit [
     i32 1, label %cache_add_internal_no_lock.exit.thread
@@ -273,48 +273,48 @@ define ptr @lv_cache_acquire_or_create(ptr noundef %0, ptr noundef %1, ptr nound
   br label %25
 
 25:                                               ; preds = %30, %.lr.ph.i
-  %26 = load ptr, ptr %0, align 8, !tbaa !8
+  %26 = load ptr, ptr %0, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %28 = load ptr, ptr %27, align 8, !tbaa !24
+  %28 = load ptr, ptr %27, align 8, !tbaa !32
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef %2) #5
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %cache_add_internal_no_lock.exit.thread, label %30
 
 30:                                               ; preds = %25
-  %31 = load ptr, ptr %0, align 8, !tbaa !8
+  %31 = load ptr, ptr %0, align 8, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !25
+  %33 = load ptr, ptr %32, align 8, !tbaa !33
   tail call void %33(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %2) #5
-  %34 = load ptr, ptr %24, align 8, !tbaa !22
+  %34 = load ptr, ptr %24, align 8, !tbaa !28
   %35 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %29) #5
   tail call void %34(ptr noundef %35, ptr noundef %2) #5
   tail call void @lv_cache_entry_delete(ptr noundef nonnull %29) #5
-  %36 = load ptr, ptr %0, align 8, !tbaa !8
+  %36 = load ptr, ptr %0, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  %38 = load ptr, ptr %37, align 8, !tbaa !23
+  %38 = load ptr, ptr %37, align 8, !tbaa !31
   %39 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 0, ptr noundef %2) #5
   %40 = icmp eq i32 %39, 2
-  br i1 %40, label %25, label %cache_add_internal_no_lock.exit, !llvm.loop !26
+  br i1 %40, label %25, label %cache_add_internal_no_lock.exit, !llvm.loop !34
 
 cache_add_internal_no_lock.exit:                  ; preds = %30, %19
-  %41 = load ptr, ptr %0, align 8, !tbaa !8
+  %41 = load ptr, ptr %0, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !28
+  %43 = load ptr, ptr %42, align 8, !tbaa !36
   %44 = tail call ptr %43(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #5
   %45 = icmp eq ptr %44, null
   br i1 %45, label %cache_add_internal_no_lock.exit.thread, label %46
 
 46:                                               ; preds = %cache_add_internal_no_lock.exit
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !29
+  %48 = load ptr, ptr %47, align 8, !tbaa !39
   %49 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %44) #5
   %50 = tail call zeroext i1 %48(ptr noundef %49, ptr noundef %2) #5
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %46
-  %52 = load ptr, ptr %0, align 8, !tbaa !8
+  %52 = load ptr, ptr %0, align 8, !tbaa !10
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %54 = load ptr, ptr %53, align 8, !tbaa !25
+  %54 = load ptr, ptr %53, align 8, !tbaa !33
   tail call void %54(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef %2) #5
   tail call void @lv_cache_entry_delete(ptr noundef nonnull %44) #5
   br label %cache_add_internal_no_lock.exit.thread
@@ -334,12 +334,12 @@ define void @lv_cache_reserve(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !40
 
 4:                                                ; preds = %3
-  %5 = load ptr, ptr %0, align 8, !tbaa !8
+  %5 = load ptr, ptr %0, align 8, !tbaa !10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !23
+  %7 = load ptr, ptr %6, align 8, !tbaa !31
   %8 = zext i32 %1 to i64
   %9 = tail call i32 %7(ptr noundef nonnull %0, ptr noundef null, i64 noundef %8, ptr noundef %2) #5
   %10 = icmp eq i32 %9, 2
@@ -353,31 +353,31 @@ define void @lv_cache_reserve(ptr noundef %0, i32 noundef %1, ptr noundef %2) lo
   ret void
 
 12:                                               ; preds = %.lr.ph, %cache_evict_one_internal_no_lock.exit
-  %13 = load ptr, ptr %0, align 8, !tbaa !8
+  %13 = load ptr, ptr %0, align 8, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
-  %15 = load ptr, ptr %14, align 8, !tbaa !24
+  %15 = load ptr, ptr %14, align 8, !tbaa !32
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef %2) #5
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %cache_evict_one_internal_no_lock.exit, label %17
 
 17:                                               ; preds = %12
-  %18 = load ptr, ptr %0, align 8, !tbaa !8
+  %18 = load ptr, ptr %0, align 8, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %20 = load ptr, ptr %19, align 8, !tbaa !33
   tail call void %20(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef %2) #5
-  %21 = load ptr, ptr %11, align 8, !tbaa !22
+  %21 = load ptr, ptr %11, align 8, !tbaa !28
   %22 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %16) #5
   tail call void %21(ptr noundef %22, ptr noundef %2) #5
   tail call void @lv_cache_entry_delete(ptr noundef nonnull %16) #5
   br label %cache_evict_one_internal_no_lock.exit
 
 cache_evict_one_internal_no_lock.exit:            ; preds = %12, %17
-  %23 = load ptr, ptr %0, align 8, !tbaa !8
+  %23 = load ptr, ptr %0, align 8, !tbaa !10
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %25 = load ptr, ptr %24, align 8, !tbaa !23
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
   %26 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef null, i64 noundef %8, ptr noundef %2) #5
   %27 = icmp eq i32 %26, 2
-  br i1 %27, label %12, label %._crit_edge, !llvm.loop !30
+  br i1 %27, label %12, label %._crit_edge, !llvm.loop !41
 }
 
 ; Function Attrs: nounwind uwtable
@@ -386,19 +386,19 @@ define void @lv_cache_drop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %.not, label %.preheader, label %4
 
 .preheader:                                       ; preds = %3, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !42
 
 4:                                                ; preds = %3
   %.not8 = icmp eq ptr %1, null
   br i1 %.not8, label %.preheader9, label %5
 
 .preheader9:                                      ; preds = %4, %.preheader9
-  br label %.preheader9
+  br label %.preheader9, !llvm.loop !43
 
 5:                                                ; preds = %4
-  %6 = load ptr, ptr %0, align 8, !tbaa !8
+  %6 = load ptr, ptr %0, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %cache_drop_internal_no_lock.exit, label %11
@@ -409,12 +409,12 @@ define void @lv_cache_drop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %11
-  %15 = load ptr, ptr %0, align 8, !tbaa !8
+  %15 = load ptr, ptr %0, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %17 = load ptr, ptr %16, align 8, !tbaa !25
+  %17 = load ptr, ptr %16, align 8, !tbaa !33
   tail call void %17(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %2) #5
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !22
+  %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %9) #5
   tail call void %19(ptr noundef %20, ptr noundef %2) #5
   tail call void @lv_cache_entry_delete(ptr noundef nonnull %9) #5
@@ -422,9 +422,9 @@ define void @lv_cache_drop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 
 21:                                               ; preds = %11
   tail call void @lv_cache_entry_set_invalid(ptr noundef nonnull %9, i1 noundef zeroext true) #5
-  %22 = load ptr, ptr %0, align 8, !tbaa !8
+  %22 = load ptr, ptr %0, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  %24 = load ptr, ptr %23, align 8, !tbaa !25
+  %24 = load ptr, ptr %23, align 8, !tbaa !33
   tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %2) #5
   br label %cache_drop_internal_no_lock.exit
 
@@ -438,23 +438,23 @@ define noundef zeroext i1 @lv_cache_evict_one(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !44
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !8
+  %4 = load ptr, ptr %0, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1) #5
   %8 = icmp ne ptr %7, null
   br i1 %8, label %9, label %cache_evict_one_internal_no_lock.exit
 
 9:                                                ; preds = %3
-  %10 = load ptr, ptr %0, align 8, !tbaa !8
+  %10 = load ptr, ptr %0, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
   tail call void %12(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1) #5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !22
+  %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = tail call ptr @lv_cache_entry_get_data(ptr noundef nonnull %7) #5
   tail call void %14(ptr noundef %15, ptr noundef %1) #5
   tail call void @lv_cache_entry_delete(ptr noundef nonnull %7) #5
@@ -470,12 +470,12 @@ define void @lv_cache_drop_all(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %.preheader, label %3
 
 .preheader:                                       ; preds = %2, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !45
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %0, align 8, !tbaa !8
+  %4 = load ptr, ptr %0, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !31
+  %6 = load ptr, ptr %5, align 8, !tbaa !46
   tail call void %6(ptr noundef nonnull %0, ptr noundef %1) #5
   ret void
 }
@@ -484,14 +484,14 @@ define void @lv_cache_drop_all(ptr noundef %0, ptr noundef %1) local_unnamed_add
 define void @lv_cache_set_max_size(ptr noundef writeonly captures(none) initializes((12, 16)) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
   %4 = trunc i64 %1 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %4, ptr %5, align 4, !tbaa !15
+  store i32 %4, ptr %5, align 4, !tbaa !17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 0, 4294967296) i64 @lv_cache_get_max_size(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = zext i32 %4 to i64
   ret i64 %5
 }
@@ -499,7 +499,7 @@ define range(i64 0, 4294967296) i64 @lv_cache_get_max_size(ptr noundef readonly 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 0, 4294967296) i64 @lv_cache_get_size(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !16
+  %4 = load i32, ptr %3, align 8, !tbaa !18
   %5 = zext i32 %4 to i64
   ret i64 %5
 }
@@ -507,9 +507,9 @@ define range(i64 0, 4294967296) i64 @lv_cache_get_size(ptr noundef readonly capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 0, 4294967296) i64 @lv_cache_get_free_size(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %4 = load i32, ptr %3, align 4, !tbaa !15
+  %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !16
+  %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = sub i32 %4, %6
   %8 = zext i32 %7 to i64
   ret i64 %8
@@ -518,7 +518,7 @@ define range(i64 0, 4294967296) i64 @lv_cache_get_free_size(ptr noundef readonly
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define zeroext i1 @lv_cache_is_enabled(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !15
+  %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = icmp ne i32 %3, 0
   ret i1 %4
 }
@@ -526,21 +526,21 @@ define zeroext i1 @lv_cache_is_enabled(ptr noundef readonly captures(none) %0) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_cache_set_compare_cb(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %4, align 8, !tbaa !32
+  store ptr %1, ptr %4, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_cache_set_create_cb(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %1, ptr %4, align 8, !tbaa !29
+  store ptr %1, ptr %4, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @lv_cache_set_free_cb(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %1, ptr %4, align 8, !tbaa !22
+  store ptr %1, ptr %4, align 8, !tbaa !28
   ret void
 }
 
@@ -551,7 +551,7 @@ define void @lv_cache_set_name(ptr noundef writeonly captures(address_is_null) %
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %1, ptr %5, align 8, !tbaa !33
+  store ptr %1, ptr %5, align 8, !tbaa !48
   br label %6
 
 6:                                                ; preds = %2, %4
@@ -561,7 +561,7 @@ define void @lv_cache_set_name(ptr noundef writeonly captures(address_is_null) %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @lv_cache_get_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = load ptr, ptr %2, align 8, !tbaa !33
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
   ret ptr %3
 }
 
@@ -571,12 +571,12 @@ define ptr @lv_cache_iter_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.preheader, label %2
 
 .preheader:                                       ; preds = %1, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !49
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !8
+  %3 = load ptr, ptr %0, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %5 = load ptr, ptr %4, align 8, !tbaa !34
+  %5 = load ptr, ptr %4, align 8, !tbaa !50
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
 
@@ -608,30 +608,46 @@ attributes #5 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = !{!9, !10, i64 0}
-!9 = !{!"_lv_cache_t", !10, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !12, i64 24, !11, i64 48, !13, i64 56}
-!10 = !{!"p1 _ZTS17_lv_cache_class_t", !5, i64 0}
-!11 = !{!"int", !6, i64 0}
-!12 = !{!"_lv_cache_ops_t", !5, i64 0, !5, i64 8, !5, i64 16}
-!13 = !{!"p1 omnipotent char", !5, i64 0}
-!14 = !{!9, !11, i64 8}
-!15 = !{!9, !11, i64 12}
-!16 = !{!9, !11, i64 16}
-!17 = !{i64 0, i64 8, !18, i64 8, i64 8, !18, i64 16, i64 8, !18}
-!18 = !{!5, !5, i64 0}
-!19 = !{!4, !5, i64 8}
-!20 = !{!4, !5, i64 16}
-!21 = !{!4, !5, i64 24}
-!22 = !{!9, !5, i64 40}
-!23 = !{!4, !5, i64 72}
-!24 = !{!4, !5, i64 64}
-!25 = !{!4, !5, i64 40}
-!26 = distinct !{!26, !27}
-!27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!4, !5, i64 32}
-!29 = !{!9, !5, i64 32}
-!30 = distinct !{!30, !27}
-!31 = !{!4, !5, i64 56}
-!32 = !{!9, !5, i64 24}
-!33 = !{!9, !13, i64 56}
-!34 = !{!4, !5, i64 80}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !12, i64 0}
+!11 = !{!"_lv_cache_t", !12, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !14, i64 24, !13, i64 48, !15, i64 56}
+!12 = !{!"p1 _ZTS17_lv_cache_class_t", !5, i64 0}
+!13 = !{!"int", !6, i64 0}
+!14 = !{!"_lv_cache_ops_t", !5, i64 0, !5, i64 8, !5, i64 16}
+!15 = !{!"p1 omnipotent char", !5, i64 0}
+!16 = !{!11, !13, i64 8}
+!17 = !{!11, !13, i64 12}
+!18 = !{!11, !13, i64 16}
+!19 = !{i64 0, i64 8, !20, i64 8, i64 8, !20, i64 16, i64 8, !20}
+!20 = !{!5, !5, i64 0}
+!21 = !{!4, !5, i64 8}
+!22 = distinct !{!22, !9}
+!23 = !{!4, !5, i64 16}
+!24 = distinct !{!24, !9}
+!25 = distinct !{!25, !9}
+!26 = !{!4, !5, i64 24}
+!27 = distinct !{!27, !9}
+!28 = !{!11, !5, i64 40}
+!29 = distinct !{!29, !9}
+!30 = distinct !{!30, !9}
+!31 = !{!4, !5, i64 72}
+!32 = !{!4, !5, i64 64}
+!33 = !{!4, !5, i64 40}
+!34 = distinct !{!34, !35, !9}
+!35 = !{!"llvm.loop.mustprogress"}
+!36 = !{!4, !5, i64 32}
+!37 = distinct !{!37, !9}
+!38 = distinct !{!38, !9}
+!39 = !{!11, !5, i64 32}
+!40 = distinct !{!40, !9}
+!41 = distinct !{!41, !35, !9}
+!42 = distinct !{!42, !9}
+!43 = distinct !{!43, !9}
+!44 = distinct !{!44, !9}
+!45 = distinct !{!45, !9}
+!46 = !{!4, !5, i64 56}
+!47 = !{!11, !5, i64 24}
+!48 = !{!11, !15, i64 56}
+!49 = distinct !{!49, !9}
+!50 = !{!4, !5, i64 80}

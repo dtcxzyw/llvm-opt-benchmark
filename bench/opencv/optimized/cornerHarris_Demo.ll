@@ -1135,13 +1135,13 @@ define hidden void @_Z17cornerHarris_demoiPv(i32 %0, ptr readnone captures(none)
 94:                                               ; preds = %.lr.ph, %110
   %95 = phi i32 [ %67, %.lr.ph ], [ %111, %110 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %110 ]
-  %96 = load ptr, ptr %60, align 8, !tbaa !75
-  %97 = load ptr, ptr %61, align 8, !tbaa !76
+  %96 = load ptr, ptr %60, align 8, !tbaa !76
+  %97 = load ptr, ptr %61, align 8, !tbaa !77
   %98 = load i64, ptr %97, align 8, !tbaa !10
   %99 = mul i64 %98, %indvars.iv69
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 %99
   %101 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv
-  %102 = load float, ptr %101, align 4, !tbaa !77
+  %102 = load float, ptr %101, align 4, !tbaa !78
   %103 = fptosi float %102 to i32
   %104 = load i32, ptr @thresh, align 4, !tbaa !52
   %105 = icmp slt i32 %104, %103
@@ -1176,7 +1176,7 @@ define hidden void @_Z17cornerHarris_demoiPv(i32 %0, ptr readnone captures(none)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %112 = sext i32 %111 to i64
   %113 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %113, label %94, label %._crit_edge.loopexit, !llvm.loop !79
+  br i1 %113, label %94, label %._crit_edge.loopexit, !llvm.loop !80
 
 114:                                              ; preds = %82, %80, %._crit_edge.i.i
   %115 = load i64, ptr %4, align 8, !tbaa !10
@@ -1538,11 +1538,12 @@ attributes #16 = { noreturn }
 !69 = distinct !{!69, !"_ZNK2cv7MatExprcvNS_3MatEEv"}
 !70 = !{!58, !28, i64 8}
 !71 = !{!58, !28, i64 12}
-!72 = distinct !{!72, !73, !74}
+!72 = distinct !{!72, !73, !74, !75}
 !73 = !{!"llvm.loop.mustprogress"}
-!74 = !{!"llvm.loop.unswitch.partial.disable"}
-!75 = !{!58, !6, i64 16}
-!76 = !{!58, !62, i64 72}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"float", !8, i64 0}
-!79 = distinct !{!79, !73}
+!74 = !{!"llvm.loop.estimated_trip_count"}
+!75 = !{!"llvm.loop.unswitch.partial.disable"}
+!76 = !{!58, !6, i64 16}
+!77 = !{!58, !62, i64 72}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"float", !8, i64 0}
+!80 = distinct !{!80, !73, !74}

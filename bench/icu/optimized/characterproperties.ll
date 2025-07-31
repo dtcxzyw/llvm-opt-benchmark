@@ -160,7 +160,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties24getInclusionsForPropertyE9U
   %.2.i = phi i32 [ %.154.i, %44 ], [ %43, %45 ]
   %50 = add i32 %.055.i, 1
   %exitcond.not.i = icmp eq i32 %.055.i, %35
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !25
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !26
 
 51:                                               ; preds = %55, %53
   %52 = landingpad { ptr, i32 }
@@ -173,7 +173,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties24getInclusionsForPropertyE9U
 
 55:                                               ; preds = %53
   store ptr null, ptr %3, align 8, !tbaa !7
-  store ptr %22, ptr %11, align 16, !tbaa !26
+  store ptr %22, ptr %11, align 16, !tbaa !27
   invoke void @ucln_common_registerCleanup_77(i32 noundef 16, ptr noundef nonnull @_ZN12_GLOBAL__N_127characterproperties_cleanupEv)
           to label %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i unwind label %51
 
@@ -201,13 +201,13 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i: ; preds = %56, %55, %.thr
 _ZN12_GLOBAL__N_120initIntPropInclusionE9UPropertyR10UErrorCode.exit: ; preds = %16, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i
   %59 = phi i32 [ %19, %16 ], [ %.pre, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i ]
   %60 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %59, ptr %60, align 4, !tbaa !31
+  store i32 %59, ptr %60, align 4, !tbaa !32
   tail call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %12)
   br label %_ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 61:                                               ; preds = %14, %8
   %62 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %63 = load i32, ptr %62, align 4, !tbaa !31
+  %63 = load i32, ptr %62, align 4, !tbaa !32
   %64 = icmp slt i32 %63, 1
   br i1 %64, label %_ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, label %65
 
@@ -216,7 +216,7 @@ _ZN12_GLOBAL__N_120initIntPropInclusionE9UPropertyR10UErrorCode.exit: ; preds = 
   br label %_ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 _ZN6icu_7713umtx_initOnceI9UPropertyEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit: ; preds = %_ZN12_GLOBAL__N_120initIntPropInclusionE9UPropertyR10UErrorCode.exit, %61, %65
-  %66 = load ptr, ptr %11, align 16, !tbaa !26
+  %66 = load ptr, ptr %11, align 16, !tbaa !27
   br label %70
 
 67:                                               ; preds = %6
@@ -297,13 +297,13 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122getInclusionsForSourceE15
 25:                                               ; preds = %22
   store ptr %20, ptr %3, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
-  store ptr %20, ptr %4, align 8, !tbaa !32
+  store ptr %20, ptr %4, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %26, align 8, !tbaa !35
+  store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %26, align 8, !tbaa !36
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %27, align 8, !tbaa !36
+  store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %27, align 8, !tbaa !37
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %28, align 8, !tbaa !37
+  store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %28, align 8, !tbaa !38
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   switch i32 %0, label %.thread.sink.split.i [
@@ -469,8 +469,8 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122getInclusionsForSourceE15
           to label %_ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i unwind label %30
 
 _ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i:        ; preds = %85
-  %87 = load ptr, ptr %26, align 8, !tbaa !35
-  %88 = load ptr, ptr %4, align 8, !tbaa !32
+  %87 = load ptr, ptr %26, align 8, !tbaa !36
+  %88 = load ptr, ptr %4, align 8, !tbaa !33
   invoke void %87(ptr noundef %88, i32 noundef 12288)
           to label %90 unwind label %30
 
@@ -500,7 +500,7 @@ _ZN12_GLOBAL__N_18_set_addEP4USeti.exit.i:        ; preds = %85
 
 98:                                               ; preds = %96
   store ptr null, ptr %3, align 8, !tbaa !7
-  store ptr %20, ptr %11, align 16, !tbaa !26
+  store ptr %20, ptr %11, align 16, !tbaa !27
   invoke void @ucln_common_registerCleanup_77(i32 noundef 16, ptr noundef nonnull @_ZN12_GLOBAL__N_127characterproperties_cleanupEv)
           to label %99 unwind label %30
 
@@ -538,13 +538,13 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i: ; preds = %.thread.i, %99
 _ZN12_GLOBAL__N_113initInclusionE15UPropertySourceR10UErrorCode.exit: ; preds = %18, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i
   %102 = phi i32 [ 5, %18 ], [ %.pre, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i ]
   %103 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %102, ptr %103, align 4, !tbaa !31
+  store i32 %102, ptr %103, align 4, !tbaa !32
   call void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonnull align 4 dereferenceable(8) %12)
   br label %_ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 104:                                              ; preds = %14, %9
   %105 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %106 = load i32, ptr %105, align 4, !tbaa !31
+  %106 = load i32, ptr %105, align 4, !tbaa !32
   %107 = icmp slt i32 %106, 1
   br i1 %107, label %_ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, label %108
 
@@ -553,7 +553,7 @@ _ZN12_GLOBAL__N_113initInclusionE15UPropertySourceR10UErrorCode.exit: ; preds = 
   br label %_ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit
 
 _ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit: ; preds = %_ZN12_GLOBAL__N_113initInclusionE15UPropertySourceR10UErrorCode.exit, %104, %108
-  %109 = load ptr, ptr %11, align 16, !tbaa !26
+  %109 = load ptr, ptr %11, align 16, !tbaa !27
   br label %110
 
 110:                                              ; preds = %2, %_ZN6icu_7713umtx_initOnceI15UPropertySourceEEvRNS_9UInitOnceEPFvT_R10UErrorCodeES4_S6_.exit, %8
@@ -581,7 +581,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZN12_GLOBAL__N_17cpMutexE)
   %10 = zext nneg i32 %0 to i64
   %11 = getelementptr inbounds nuw [76 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !38
+  %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %90
 
@@ -632,13 +632,13 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
 
 33:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #8
-  store ptr %18, ptr %4, align 8, !tbaa !32
+  store ptr %18, ptr %4, align 8, !tbaa !33
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %34, align 8, !tbaa !35
+  store ptr @_ZN12_GLOBAL__N_18_set_addEP4USeti, ptr %34, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %35, align 8, !tbaa !36
+  store ptr @_ZN12_GLOBAL__N_113_set_addRangeEP4USetii, ptr %35, align 8, !tbaa !37
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %36, align 8, !tbaa !37
+  store ptr @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi, ptr %36, align 8, !tbaa !38
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
   invoke void @_ZNK6icu_7710EmojiProps10addStringsEPK9USetAdder9UPropertyR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull %4, i32 noundef range(i32 0, 76) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -722,7 +722,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
   %.145.lcssa.i = phi i32 [ %.04494.i, %.preheader.i ], [ %.246.i, %75 ]
   %63 = add nuw nsw i32 %.04395.i, 1
   %exitcond99.not.i = icmp eq i32 %63, %55
-  br i1 %exitcond99.not.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !39
+  br i1 %exitcond99.not.i, label %._crit_edge97.i, label %.lr.ph96.i, !llvm.loop !40
 
 64:                                               ; preds = %.lr.ph96.i
   %65 = landingpad { ptr, i32 }
@@ -767,7 +767,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
   %.246.i = phi i32 [ %.14592.i, %70 ], [ %spec.select.i, %68 ], [ -1, %72 ]
   %76 = add i32 %.093.i, 1
   %exitcond.not.i = icmp eq i32 %.093.i, %60
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !40
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !41
 
 77:                                               ; preds = %._crit_edge97.i
   %78 = invoke noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet3addEii(ptr noundef nonnull align 8 dereferenceable(200) %47, i32 noundef %.145.lcssa.i, i32 noundef 1114111)
@@ -822,7 +822,7 @@ _ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i: ; preds = %.thread79.thre
 
 _ZN12_GLOBAL__N_17makeSetE9UPropertyR10UErrorCode.exit: ; preds = %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i, %14
   %.042.i = phi ptr [ %.185.i, %_ZN6icu_7712LocalPointerINS_10UnicodeSetEED2Ev.exit.i ], [ null, %14 ]
-  store ptr %.042.i, ptr %11, align 8, !tbaa !38
+  store ptr %.042.i, ptr %11, align 8, !tbaa !39
   br label %90
 
 87:                                               ; preds = %.body
@@ -884,7 +884,7 @@ define ptr @u_getIntPropertyMap_77(i32 noundef %0, ptr noundef %1) local_unnamed
   %10 = add nsw i32 %0, -4096
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr inbounds nuw [27 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !41
+  %13 = load ptr, ptr %12, align 8, !tbaa !42
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %73
 
@@ -901,7 +901,7 @@ define ptr @u_getIntPropertyMap_77(i32 noundef %0, ptr noundef %1) local_unnamed
           to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %18
-  store ptr %21, ptr %3, align 8, !tbaa !43
+  store ptr %21, ptr %3, align 8, !tbaa !44
   %22 = invoke noundef ptr @_ZN6icu_7719CharacterProperties24getInclusionsForPropertyE9UPropertyR10UErrorCode(i32 noundef range(i32 4096, 4123) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
           to label %23 unwind label %26
 
@@ -954,7 +954,7 @@ define ptr @u_getIntPropertyMap_77(i32 noundef %0, ptr noundef %1) local_unnamed
   %.159.lcssa.i = phi i32 [ %.05891.i, %.preheader.i ], [ %.260.i, %48 ]
   %36 = add nuw nsw i32 %.05792.i, 1
   %exitcond97.not.i = icmp eq i32 %36, %29
-  br i1 %exitcond97.not.i, label %._crit_edge94.i, label %.lr.ph93.i, !llvm.loop !46
+  br i1 %exitcond97.not.i, label %._crit_edge94.i, label %.lr.ph93.i, !llvm.loop !47
 
 37:                                               ; preds = %.lr.ph93.i
   %38 = landingpad { ptr, i32 }
@@ -996,7 +996,7 @@ define ptr @u_getIntPropertyMap_77(i32 noundef %0, ptr noundef %1) local_unnamed
   %.260.i = phi i32 [ %.15987.i, %42 ], [ %41, %44 ], [ %41, %43 ]
   %49 = add i32 %.05188.i, 1
   %exitcond.not.i = icmp eq i32 %.05188.i, %33
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !48
 
 50:                                               ; preds = %._crit_edge94.i
   invoke void @umutablecptrie_setRange_77(ptr noundef %21, i32 noundef %.061.lcssa.i, i32 noundef 1114111, i32 noundef %.058.lcssa.i, ptr noundef nonnull align 4 dereferenceable(4) %1)
@@ -1056,7 +1056,7 @@ _ZN6icu_778internal16LocalOpenPointerI14UMutableCPTrieXadL_Z23umutablecptrie_clo
 
 _ZN12_GLOBAL__N_17makeMapE9UPropertyR10UErrorCode.exit: ; preds = %_ZN6icu_778internal16LocalOpenPointerI14UMutableCPTrieXadL_Z23umutablecptrie_close_77EEED2Ev.exit.i, %15
   %.0.i = phi ptr [ %.1.i, %_ZN6icu_778internal16LocalOpenPointerI14UMutableCPTrieXadL_Z23umutablecptrie_close_77EEED2Ev.exit.i ], [ null, %15 ]
-  store ptr %.0.i, ptr %12, align 8, !tbaa !41
+  store ptr %.0.i, ptr %12, align 8, !tbaa !42
   br label %73
 
 68:                                               ; preds = %18
@@ -1125,7 +1125,7 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_127characterproperties_clean
 1:                                                ; preds = %0, %5
   %.015.idx19 = phi i64 [ 0, %0 ], [ %.015.add, %5 ]
   %.015.ptr20 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %.015.idx19
-  %2 = load ptr, ptr %.015.ptr20, align 16, !tbaa !26
+  %2 = load ptr, ptr %.015.ptr20, align 16, !tbaa !27
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
 
@@ -1135,17 +1135,17 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_127characterproperties_clean
   br label %5
 
 5:                                                ; preds = %4, %1
-  store ptr null, ptr %.015.ptr20, align 16, !tbaa !26
+  store ptr null, ptr %.015.ptr20, align 16, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %.015.ptr20, i64 8
   store atomic i32 0, ptr %6 seq_cst, align 8
   %.015.add = add nuw nsw i64 %.015.idx19, 16
   %.not = icmp eq i64 %.015.add, 752
-  br i1 %.not, label %.preheader18, label %1
+  br i1 %.not, label %.preheader18, label %1, !llvm.loop !49
 
 .preheader18:                                     ; preds = %5, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %5 ]
   %7 = getelementptr inbounds nuw [76 x ptr], ptr @_ZN12_GLOBAL__N_14setsE, i64 0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8, !tbaa !38
+  %8 = load ptr, ptr %7, align 8, !tbaa !39
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
 
@@ -1155,10 +1155,10 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_127characterproperties_clean
   br label %11
 
 11:                                               ; preds = %10, %.preheader18
-  store ptr null, ptr %7, align 8, !tbaa !38
+  store ptr null, ptr %7, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 76
-  br i1 %exitcond.not, label %.preheader, label %.preheader18, !llvm.loop !48
+  br i1 %exitcond.not, label %.preheader, label %.preheader18, !llvm.loop !50
 
 12:                                               ; preds = %.preheader
   ret i8 1
@@ -1166,12 +1166,12 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_127characterproperties_clean
 .preheader:                                       ; preds = %11, %.preheader
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.preheader ], [ 0, %11 ]
   %13 = getelementptr inbounds nuw [27 x ptr], ptr @_ZN12_GLOBAL__N_14mapsE, i64 0, i64 %indvars.iv24
-  %14 = load ptr, ptr %13, align 8, !tbaa !41
+  %14 = load ptr, ptr %13, align 8, !tbaa !42
   tail call void @ucptrie_close_77(ptr noundef %14)
-  store ptr null, ptr %13, align 8, !tbaa !41
+  store ptr null, ptr %13, align 8, !tbaa !42
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %exitcond27.not = icmp eq i64 %indvars.iv.next25, 27
-  br i1 %exitcond27.not, label %12, label %.preheader, !llvm.loop !49
+  br i1 %exitcond27.not, label %12, label %.preheader, !llvm.loop !51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1231,7 +1231,7 @@ define internal void @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi(ptr noundef 
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #8
   %.lobit = lshr i32 %2, 31
   %6 = trunc nuw nsw i32 %.lobit to i8
-  store ptr %1, ptr %5, align 8, !tbaa !50
+  store ptr %1, ptr %5, align 8, !tbaa !52
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 noundef signext %6, ptr noundef nonnull %5, i32 noundef %2)
           to label %7 unwind label %11
 
@@ -1241,8 +1241,8 @@ define internal void @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi(ptr noundef 
 
 9:                                                ; preds = %7
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #8
-  %10 = load ptr, ptr %5, align 8, !tbaa !50
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #8, !srcloc !52
+  %10 = load ptr, ptr %5, align 8, !tbaa !52
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %10) #8, !srcloc !54
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
   ret void
 
@@ -1259,8 +1259,8 @@ define internal void @_ZN12_GLOBAL__N_114_set_addStringEP4USetPKDsi(ptr noundef 
 
 15:                                               ; preds = %13, %11
   %.pn = phi { ptr, i32 } [ %14, %13 ], [ %12, %11 ]
-  %16 = load ptr, ptr %5, align 8, !tbaa !50
-  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #8, !srcloc !52
+  %16 = load ptr, ptr %5, align 8, !tbaa !52
+  call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %16) #8, !srcloc !54
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #8
   resume { ptr, i32 } %.pn
 }
@@ -1320,7 +1320,7 @@ declare ptr @umutablecptrie_buildImmutable_77(ptr noundef, i32 noundef, i32 noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_778internal16LocalOpenPointerI14UMutableCPTrieXadL_Z23umutablecptrie_close_77EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !43
+  %2 = load ptr, ptr %0, align 8, !tbaa !44
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
@@ -1380,33 +1380,35 @@ attributes #9 = { noreturn nounwind }
 !20 = !{!"p1 char16_t", !10, i64 0}
 !21 = !{!"p1 _ZTSN6icu_777UVectorE", !10, i64 0}
 !22 = !{!"p1 _ZTSN6icu_7720UnicodeSetStringSpanE", !10, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!27, !9, i64 0}
-!27 = !{!"_ZTSN12_GLOBAL__N_19InclusionE", !9, i64 0, !28, i64 8}
-!28 = !{!"_ZTSN6icu_779UInitOnceE", !29, i64 0, !4, i64 4}
-!29 = !{!"_ZTSSt6atomicIiE", !30, i64 0}
-!30 = !{!"_ZTSSt13__atomic_baseIiE", !18, i64 0}
-!31 = !{!28, !4, i64 4}
-!32 = !{!33, !34, i64 0}
-!33 = !{!"_ZTS9USetAdder", !34, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
-!34 = !{!"p1 _ZTS4USet", !10, i64 0}
-!35 = !{!33, !10, i64 8}
-!36 = !{!33, !10, i64 16}
-!37 = !{!33, !10, i64 24}
-!38 = !{!9, !9, i64 0}
-!39 = distinct !{!39, !24}
-!40 = distinct !{!40, !24}
-!41 = !{!42, !42, i64 0}
-!42 = !{!"p1 _ZTS6UCPMap", !10, i64 0}
-!43 = !{!44, !45, i64 0}
-!44 = !{!"_ZTSN6icu_7716LocalPointerBaseI14UMutableCPTrieEE", !45, i64 0}
-!45 = !{!"p1 _ZTS14UMutableCPTrie", !10, i64 0}
-!46 = distinct !{!46, !24}
-!47 = distinct !{!47, !24}
-!48 = distinct !{!48, !24}
-!49 = distinct !{!49, !24}
-!50 = !{!51, !20, i64 0}
-!51 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !20, i64 0}
-!52 = !{i64 2150021924}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = !{!28, !9, i64 0}
+!28 = !{!"_ZTSN12_GLOBAL__N_19InclusionE", !9, i64 0, !29, i64 8}
+!29 = !{!"_ZTSN6icu_779UInitOnceE", !30, i64 0, !4, i64 4}
+!30 = !{!"_ZTSSt6atomicIiE", !31, i64 0}
+!31 = !{!"_ZTSSt13__atomic_baseIiE", !18, i64 0}
+!32 = !{!29, !4, i64 4}
+!33 = !{!34, !35, i64 0}
+!34 = !{!"_ZTS9USetAdder", !35, i64 0, !10, i64 8, !10, i64 16, !10, i64 24, !10, i64 32, !10, i64 40}
+!35 = !{!"p1 _ZTS4USet", !10, i64 0}
+!36 = !{!34, !10, i64 8}
+!37 = !{!34, !10, i64 16}
+!38 = !{!34, !10, i64 24}
+!39 = !{!9, !9, i64 0}
+!40 = distinct !{!40, !24, !25}
+!41 = distinct !{!41, !24, !25}
+!42 = !{!43, !43, i64 0}
+!43 = !{!"p1 _ZTS6UCPMap", !10, i64 0}
+!44 = !{!45, !46, i64 0}
+!45 = !{!"_ZTSN6icu_7716LocalPointerBaseI14UMutableCPTrieEE", !46, i64 0}
+!46 = !{!"p1 _ZTS14UMutableCPTrie", !10, i64 0}
+!47 = distinct !{!47, !24, !25}
+!48 = distinct !{!48, !24, !25}
+!49 = distinct !{!49, !25}
+!50 = distinct !{!50, !24, !25}
+!51 = distinct !{!51, !24, !25}
+!52 = !{!53, !20, i64 0}
+!53 = !{!"_ZTSN6icu_7714ConstChar16PtrE", !20, i64 0}
+!54 = !{i64 2150021924}

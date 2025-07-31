@@ -280,7 +280,7 @@ ChooseExtendedStatisticNameAddition.exit:         ; preds = %106, %114, %80, %.l
   %127 = ptrtoint ptr %126 to i64
   %128 = call i32 @GetSysCacheOid(i32 noundef 63, i16 noundef signext 1, i64 noundef %127, i64 noundef %121, i64 noundef 0, i64 noundef 0) #10
   %.not.i257 = icmp eq i32 %128, 0
-  br i1 %.not.i257, label %ChooseExtendedStatisticName.exit, label %.lr.ph.i256
+  br i1 %.not.i257, label %ChooseExtendedStatisticName.exit, label %.lr.ph.i256, !llvm.loop !9
 
 ChooseExtendedStatisticName.exit:                 ; preds = %.lr.ph.i256, %ChooseExtendedStatisticNameAddition.exit
   %.lcssa.i = phi ptr [ %119, %ChooseExtendedStatisticNameAddition.exit ], [ %126, %.lr.ph.i256 ]
@@ -553,7 +553,7 @@ list_length.exit262:                              ; preds = %.critedge248
 272:                                              ; preds = %264
   %273 = call signext i8 @get_attgenerated(i32 noundef %29, i16 noundef signext %266) #10
   %274 = icmp eq i8 %273, 118
-  br i1 %274, label %275, label %260, !llvm.loop !8
+  br i1 %274, label %275, label %260, !llvm.loop !10
 
 275:                                              ; preds = %272
   %276 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -727,7 +727,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
 346:                                              ; preds = %.lr.ph365
   %indvars.iv.next421 = add nuw nsw i64 %indvars.iv420, 1
   %exitcond424.not = icmp eq i64 %indvars.iv.next421, %wide.trip.count423
-  br i1 %exitcond424.not, label %.preheader, label %.lr.ph365, !llvm.loop !9
+  br i1 %exitcond424.not, label %.preheader, label %.lr.ph365, !llvm.loop !11
 
 .preheader:                                       ; preds = %346, %343
   br i1 %.not234, label %.critedge252, label %.lr.ph371
@@ -760,7 +760,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   %indvars.iv.next429 = add nuw nsw i64 %indvars.iv428, 1
   %360 = sext i32 %359 to i64
   %361 = icmp slt i64 %indvars.iv.next429, %360
-  br i1 %361, label %.lr.ph376.split, label %.critedge252, !llvm.loop !10
+  br i1 %361, label %.lr.ph376.split, label %.critedge252, !llvm.loop !12
 
 .lr.ph376.split:                                  ; preds = %.lr.ph371, %.critedge254.thread
   %362 = phi i32 [ %359, %.critedge254.thread ], [ %349, %.lr.ph371 ]
@@ -789,7 +789,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   %374 = load i32, ptr %347, align 4
   %375 = sext i32 %374 to i64
   %376 = icmp slt i64 %indvars.iv.next426, %375
-  br i1 %376, label %.lr.ph368, label %.critedge254, !llvm.loop !12
+  br i1 %376, label %.lr.ph368, label %.critedge254, !llvm.loop !14
 
 .critedge254:                                     ; preds = %.lr.ph368
   %377 = icmp sgt i32 %.1192, 1
@@ -933,7 +933,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 97) #10
   %indvars.iv.next432 = add nuw nsw i64 %indvars.iv431, 1
   %exitcond435.not = icmp eq i64 %indvars.iv.next432, %wide.trip.count434
-  br i1 %exitcond435.not, label %._crit_edge.thread, label %438, !llvm.loop !13
+  br i1 %exitcond435.not, label %._crit_edge.thread, label %438, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %432
   %.not238 = icmp eq i32 %.0.lcssa443, 0
@@ -1462,11 +1462,13 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !11}
-!11 = !{!"llvm.loop.unswitch.partial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.unswitch.partial.disable"}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

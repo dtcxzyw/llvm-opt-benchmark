@@ -672,7 +672,7 @@ define hidden ptr @cba_ldev_add(ptr noundef readonly captures(none) %0, ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %3, %4
   %.028 = phi ptr [ %.0, %4 ], [ %.026, %3 ]
@@ -1044,19 +1044,19 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   %.025.in.i = getelementptr inbounds nuw i8, ptr %.02533.i, i64 8
   %.025.i = load ptr, ptr %.025.in.i, align 8
   %.not27.i = icmp eq ptr %.025.i, null
-  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %cba_packet_in_range.exit.thread.i, %.lr.ph38.i
   %46 = getelementptr inbounds nuw i8, ptr %.02436.i, i64 8
   %.024.i = load ptr, ptr %46, align 8
   %.not26.i = icmp eq ptr %.024.i, null
-  br i1 %.not26.i, label %._crit_edge39.i, label %.lr.ph38.i, !llvm.loop !10
+  br i1 %.not26.i, label %._crit_edge39.i, label %.lr.ph38.i, !llvm.loop !11
 
 ._crit_edge39.i:                                  ; preds = %._crit_edge.i, %21
   %47 = getelementptr inbounds nuw i8, ptr %.02342.i, i64 8
   %.023.i = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %.023.i, null
-  br i1 %.not.i, label %.split22, label %21, !llvm.loop !11
+  br i1 %.not.i, label %.split22, label %21, !llvm.loop !12
 
 cba_frame_find_by_cons.exit:                      ; preds = %cba_packet_in_range.exit.i
   %.not = icmp eq ptr %24, null
@@ -1201,7 +1201,7 @@ define internal i32 @dissect_ICBAAccoMgt_AddConnections_rqst(ptr noundef %0, i32
   %70 = add i32 %.pr, -1
   store i32 %70, ptr %12, align 4
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %62, %6
   %.0112.lcssa = phi i32 [ %31, %6 ], [ %.4, %62 ]
@@ -1278,7 +1278,7 @@ define internal i32 @dissect_ICBAAccoMgt_AddConnections_resp(ptr noundef %0, i32
   %35 = add i32 %.pr, -1
   store i32 %35, ptr %8, align 4
   %.not58 = icmp eq i32 %.pr, 0
-  br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %15
   %.1.lcssa = phi i32 [ %16, %15 ], [ %27, %.lr.ph ]
@@ -1331,7 +1331,7 @@ define internal i32 @dissect_ICBAAccoMgt_RemoveConnections_rqst(ptr noundef %0, 
   %20 = add i32 %19, -1
   store i32 %20, ptr %8, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.027.lcssa = phi i32 [ %13, %6 ], [ %17, %.lr.ph ]
@@ -1374,7 +1374,7 @@ define internal i32 @dissect_HResultArray_resp(ptr noundef %0, i32 noundef %1, p
   %17 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.138, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %.03439)
   %18 = add i32 %.03439, 1
   %.not36 = icmp eq i32 %16, 0
-  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %6
   %.035 = phi i32 [ %11, %6 ], [ %14, %13 ], [ %17, %.lr.ph ]
@@ -1429,7 +1429,7 @@ define internal i32 @dissect_ICBAAccoMgt_SetActivationState_rqst(ptr noundef %0,
   %23 = add i32 %22, -1
   store i32 %23, ptr %9, align 4
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.033.lcssa = phi i32 [ %16, %6 ], [ %20, %.lr.ph ]
@@ -1581,7 +1581,7 @@ define internal i32 @dissect_ICBAAccoMgt_GetIDs_resp(ptr noundef %0, i32 noundef
   %67 = add i32 %66, -1
   store i32 %67, ptr %9, align 4
   %.not79 = icmp eq i32 %66, 0
-  br i1 %.not79, label %.loopexit, label %30, !llvm.loop !17
+  br i1 %.not79, label %.loopexit, label %30, !llvm.loop !18
 
 .loopexit:                                        ; preds = %64, %25, %22
   %.0 = phi i32 [ %23, %22 ], [ %26, %25 ], [ %41, %64 ]
@@ -1629,7 +1629,7 @@ define internal i32 @dissect_ICBAAccoMgt_GetConnections_rqst(ptr noundef %0, i32
   %20 = add i32 %19, -1
   store i32 %20, ptr %9, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.026.lcssa = phi i32 [ %13, %6 ], [ %17, %.lr.ph ]
@@ -1769,7 +1769,7 @@ define internal i32 @dissect_ICBAAccoMgt_GetConnections_resp(ptr noundef %0, i32
   call void @proto_item_set_len(ptr noundef %29, i32 noundef %75)
   %76 = add i32 %.0140150, 1
   %.not142 = icmp eq i32 %27, 0
-  br i1 %.not142, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not142, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %61, %21, %6
   %.0141 = phi i32 [ %19, %6 ], [ %26, %21 ], [ %.6, %61 ]
@@ -1989,7 +1989,7 @@ define internal i32 @dissect_ICBAAccoMgt2_GetConsIDs_resp(ptr noundef %0, i32 no
   %47 = add i32 %46, -1
   store i32 %47, ptr %9, align 4
   %.not51 = icmp eq i32 %46, 0
-  br i1 %.not51, label %.loopexit, label %28, !llvm.loop !20
+  br i1 %.not51, label %.loopexit, label %28, !llvm.loop !21
 
 .loopexit:                                        ; preds = %44, %23, %20
   %.047 = phi i32 [ %21, %20 ], [ %24, %23 ], [ %30, %44 ]
@@ -2133,7 +2133,7 @@ define internal i32 @dissect_ICBAAccoMgt2_GetConsConnections_resp(ptr noundef %0
   call void @proto_item_set_len(ptr noundef %28, i32 noundef %72)
   %73 = add i32 %.0134144, 1
   %.not136 = icmp eq i32 %26, 0
-  br i1 %.not136, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %.not136, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %60, %20, %6
   %.0135 = phi i32 [ %18, %6 ], [ %25, %20 ], [ %.6, %60 ]
@@ -2220,7 +2220,7 @@ define internal i32 @dissect_ICBAAccoMgt2_DiagConsConnections_resp(ptr noundef %
   %45 = add i32 %.07275, 1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
   %.not73 = icmp eq i32 %24, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %.lr.ph, %18, %6
   %.071 = phi i32 [ %16, %6 ], [ %23, %18 ], [ %23, %.lr.ph ]
@@ -2326,7 +2326,7 @@ define internal i32 @dissect_Server_GetProvIDs_resp(ptr noundef %0, i32 noundef 
   %47 = add i32 %46, -1
   store i32 %47, ptr %9, align 4
   %.not51 = icmp eq i32 %46, 0
-  br i1 %.not51, label %.loopexit, label %28, !llvm.loop !23
+  br i1 %.not51, label %.loopexit, label %28, !llvm.loop !24
 
 .loopexit:                                        ; preds = %44, %23, %20
   %.047 = phi i32 [ %21, %20 ], [ %24, %23 ], [ %30, %44 ]
@@ -2372,7 +2372,7 @@ define internal i32 @dissect_Server_GetProvConnections_rqst(ptr noundef %0, i32 
   %20 = add i32 %19, -1
   store i32 %20, ptr %8, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %.027.lcssa = phi i32 [ %13, %6 ], [ %17, %.lr.ph ]
@@ -2485,7 +2485,7 @@ define internal i32 @dissect_Server_GetProvConnections_resp(ptr noundef %0, i32 
   call void @proto_item_set_len(ptr noundef %27, i32 noundef %59)
   %60 = add i32 %.0110116, 1
   %.not111 = icmp eq i32 %25, 0
-  br i1 %.not111, label %.loopexit, label %.lr.ph, !llvm.loop !25
+  br i1 %.not111, label %.loopexit, label %.lr.ph, !llvm.loop !26
 
 .loopexit:                                        ; preds = %49, %19, %6
   %.0109 = phi i32 [ %17, %6 ], [ %24, %19 ], [ %.4, %49 ]
@@ -3136,7 +3136,7 @@ cba_frame_incoming_data.exit:                     ; preds = %._crit_edge.i, %132
   %140 = getelementptr inbounds nuw i8, ptr %.0206278, i64 8
   %.0206 = load ptr, ptr %140, align 8
   %.not246 = icmp eq ptr %.0206, null
-  br i1 %.not246, label %cba_connection_incoming_data.exit, label %.lr.ph, !llvm.loop !26
+  br i1 %.not246, label %cba_connection_incoming_data.exit, label %.lr.ph, !llvm.loop !27
 
 .lr.ph:                                           ; preds = %cba_frame_incoming_data.exit, %139
   %.0206278 = phi ptr [ %.0206, %139 ], [ %.0206276, %cba_frame_incoming_data.exit ]
@@ -3163,7 +3163,7 @@ cba_frame_incoming_data.exit:                     ; preds = %._crit_edge.i, %132
   %150 = getelementptr inbounds nuw i8, ptr %.1207281, i64 8
   %.1207 = load ptr, ptr %150, align 8
   %.not245 = icmp eq ptr %.1207, null
-  br i1 %.not245, label %cba_connection_incoming_data.exit, label %.lr.ph282, !llvm.loop !27
+  br i1 %.not245, label %cba_connection_incoming_data.exit, label %.lr.ph282, !llvm.loop !28
 
 .lr.ph282:                                        ; preds = %148, %149
   %.1207281 = phi ptr [ %.1207, %149 ], [ %.1207279, %148 ]
@@ -3228,7 +3228,7 @@ cba_packet_in_range.exit.i251:                    ; preds = %175
 cba_connection_incoming_data.exit:                ; preds = %139, %149, %cba_frame_incoming_data.exit, %148, %178, %cba_packet_in_range.exit.i251, %175, %.critedge.i.i248, %172, %._crit_edge.i247, %147, %146
   %179 = add nuw nsw i32 %.0204289, 1
   %.not242 = icmp eq i16 %56, 0
-  br i1 %.not242, label %._crit_edge.loopexit, label %55, !llvm.loop !28
+  br i1 %.not242, label %._crit_edge.loopexit, label %55, !llvm.loop !29
 
 ._crit_edge.loopexit:                             ; preds = %cba_connection_incoming_data.exit
   %180 = add i32 %.1, -1
@@ -4170,7 +4170,7 @@ cba_ldev_link_acco.exit:                          ; preds = %77, %73, %69
   %143 = add i32 %.pr, -1
   store i32 %143, ptr %11, align 4
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %._crit_edge, label %101, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %101, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %136, %95
   %.0140.lcssa = phi i32 [ %98, %95 ], [ %.2, %136 ]
@@ -4304,7 +4304,7 @@ proto_item_set_generated.exit:                    ; preds = %20, %23, %26
   %69 = add i32 %68, -1
   store i32 %69, ptr %9, align 4
   %.not88 = icmp eq i32 %68, 0
-  br i1 %.not88, label %.loopexit, label %42, !llvm.loop !30
+  br i1 %.not88, label %.loopexit, label %42, !llvm.loop !31
 
 .loopexit:                                        ; preds = %62, %37, %proto_item_set_generated.exit
   %.084 = phi i32 [ 1, %proto_item_set_generated.exit ], [ 1, %37 ], [ %67, %62 ]
@@ -4466,7 +4466,7 @@ cba_ldev_find.exit.thread:                        ; preds = %44, %40, %cba_ldev_
   %68 = add i32 %67, -1
   store i32 %68, ptr %8, align 4
   %.not54.us = icmp eq i32 %67, 0
-  br i1 %.not54.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %.not54.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cba_connection_find_by_provid.exit
   %.05263 = phi i32 [ %70, %cba_connection_find_by_provid.exit ], [ %25, %.lr.ph ]
@@ -4521,7 +4521,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   %91 = getelementptr inbounds nuw i8, ptr %.0124.i, i64 8
   %.012.i = load ptr, ptr %91, align 8
   %.not.i57 = icmp eq ptr %.012.i, null
-  br i1 %.not.i57, label %cba_connection_find_by_provid.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i57, label %cba_connection_find_by_provid.exit, label %.lr.ph.i, !llvm.loop !34
 
 cba_connection_find_by_provid.exit:               ; preds = %cba_packet_in_range.exit.i, %cba_packet_in_range.exit.thread.i, %.lr.ph.split
   %.0.i = phi ptr [ null, %.lr.ph.split ], [ %72, %cba_packet_in_range.exit.i ], [ null, %cba_packet_in_range.exit.thread.i ]
@@ -4538,7 +4538,7 @@ cba_connection_find_by_provid.exit:               ; preds = %cba_packet_in_range
   %100 = add i32 %99, -1
   store i32 %100, ptr %8, align 4
   %.not54 = icmp eq i32 %99, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph.split, !llvm.loop !34
+  br i1 %.not54, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %cba_connection_find_by_provid.exit, %.lr.ph.split.us, %cba_ldev_find.exit.thread
   %.052.lcssa = phi i32 [ %25, %cba_ldev_find.exit.thread ], [ %65, %.lr.ph.split.us ], [ %70, %cba_connection_find_by_provid.exit ]
@@ -4622,7 +4622,7 @@ cba_connection_disconnect.exit.us:                ; preds = %.lr.ph, %cba_connec
   %41 = add i32 %.05160.us, 1
   %42 = add i32 %39, -1
   %.not55.us = icmp eq i32 %39, 0
-  br i1 %.not55.us, label %.loopexit, label %cba_connection_disconnect.exit.us, !llvm.loop !35
+  br i1 %.not55.us, label %.loopexit, label %cba_connection_disconnect.exit.us, !llvm.loop !36
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cba_connection_disconnect.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %cba_connection_disconnect.exit ], [ 1, %.lr.ph ]
@@ -4666,7 +4666,7 @@ cba_connection_disconnect.exit:                   ; preds = %60, %58, %.thread.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = add i32 %43, -1
   %.not55 = icmp eq i32 %43, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !36
+  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !37
 
 .loopexit:                                        ; preds = %cba_connection_disconnect.exit, %cba_connection_disconnect.exit.us, %33, %proto_item_set_generated.exit
   %.0 = phi i32 [ %31, %proto_item_set_generated.exit ], [ %34, %33 ], [ %40, %cba_connection_disconnect.exit.us ], [ %45, %cba_connection_disconnect.exit ]
@@ -4886,7 +4886,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %56, %55, %.thread.i
   %58 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %.0.i = load ptr, ptr %58, align 8
   %.not.i26 = icmp eq ptr %.0.i, null
-  br i1 %.not.i26, label %cba_connection_disconnectme.exit, label %32, !llvm.loop !37
+  br i1 %.not.i26, label %cba_connection_disconnectme.exit, label %32, !llvm.loop !38
 
 cba_connection_disconnectme.exit:                 ; preds = %cba_packet_in_range.exit.thread.i, %26, %proto_item_set_generated.exit
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4953,7 +4953,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   %35 = add i32 %34, -1
   store i32 %35, ptr %9, align 4
   %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit
   %.0.lcssa = phi i32 [ %28, %proto_item_set_generated.exit ], [ %32, %.lr.ph ]
@@ -5020,7 +5020,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   %29 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.146, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %.04144)
   %30 = add i32 %.04144, 1
   %.not42 = icmp eq i32 %28, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !39
+  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !40
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %proto_item_set_generated.exit
   %.0 = phi i32 [ %23, %proto_item_set_generated.exit ], [ %26, %25 ], [ %29, %.lr.ph ]
@@ -5374,7 +5374,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
   %144 = add i32 %143, -1
   store i32 %144, ptr %18, align 4
   %.not197.us = icmp eq i32 %143, 0
-  br i1 %.not197.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !40
+  br i1 %.not197.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %150
   %.3208 = phi i32 [ %145, %150 ], [ %124, %.lr.ph ]
@@ -5400,7 +5400,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
   %154 = add i32 %153, -1
   store i32 %154, ptr %18, align 4
   %.not197 = icmp eq i32 %153, 0
-  br i1 %.not197, label %.loopexit, label %.lr.ph.split, !llvm.loop !41
+  br i1 %.not197, label %.loopexit, label %.lr.ph.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %150, %.lr.ph.split.us, %128, %118
   %.1187 = phi i16 [ %.0186212, %118 ], [ %.0186212, %128 ], [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %150 ]
@@ -5458,7 +5458,7 @@ cba_ldev_link_acco.exit:                          ; preds = %.thread, %83, %79, 
   %182 = add i32 %.pr, -1
   store i32 %182, ptr %11, align 4
   %.not194 = icmp eq i32 %.pr, 0
-  br i1 %.not194, label %._crit_edge, label %108, !llvm.loop !42
+  br i1 %.not194, label %._crit_edge, label %108, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %176, %102
   %.0174.lcssa = phi i32 [ %105, %102 ], [ %.4, %176 ]
@@ -5719,7 +5719,7 @@ define internal fastcc ptr @cba_connection_connect(ptr noundef %0, ptr noundef %
   %15 = getelementptr inbounds nuw i8, ptr %.079, i64 8
   %.0 = load ptr, ptr %15, align 8
   %.not71 = icmp eq ptr %.0, null
-  br i1 %.not71, label %.loopexit, label %.lr.ph, !llvm.loop !43
+  br i1 %.not71, label %.loopexit, label %.lr.ph, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %12, %14
   %.079 = phi ptr [ %.0, %14 ], [ %.077, %12 ]
@@ -5782,7 +5782,7 @@ cba_packet_in_range.exit.thread:                  ; preds = %40, %37, %.critedge
   %43 = getelementptr inbounds nuw i8, ptr %.182, i64 8
   %.1 = load ptr, ptr %43, align 8
   %.not70 = icmp eq ptr %.1, null
-  br i1 %.not70, label %.loopexit, label %23, !llvm.loop !44
+  br i1 %.not70, label %.loopexit, label %23, !llvm.loop !45
 
 .loopexit:                                        ; preds = %14, %cba_packet_in_range.exit.thread, %12, %20
   %44 = tail call ptr @wmem_file_scope()
@@ -6138,7 +6138,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   %158 = getelementptr inbounds nuw i8, ptr %.049.i, i64 8
   %.0.i = load ptr, ptr %158, align 8
   %.not.i144 = icmp eq ptr %.0.i, null
-  br i1 %.not.i144, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.i144, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !46
 
 ._crit_edge.i:                                    ; preds = %cba_packet_in_range.exit.thread.i, %131
   %159 = call ptr @wmem_file_scope()
@@ -6210,7 +6210,7 @@ cba_frame_connect.exit:                           ; preds = %cba_packet_in_range
   %194 = add i32 %193, -1
   store i32 %194, ptr %15, align 4
   %.not139 = icmp eq i32 %193, 0
-  br i1 %.not139, label %._crit_edge, label %122, !llvm.loop !46
+  br i1 %.not139, label %._crit_edge, label %122, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %186, %116
   %.0.lcssa = phi i32 [ %101, %116 ], [ %130, %186 ]
@@ -6358,7 +6358,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %24, %27
   %74 = add i32 %73, -1
   store i32 %74, ptr %11, align 4
   %.not92 = icmp eq i32 %73, 0
-  br i1 %.not92, label %.loopexit, label %47, !llvm.loop !47
+  br i1 %.not92, label %.loopexit, label %47, !llvm.loop !48
 
 .loopexit:                                        ; preds = %67, %42, %proto_item_set_generated.exit
   %.088 = phi i32 [ 1, %proto_item_set_generated.exit ], [ 1, %42 ], [ %72, %67 ]
@@ -6529,7 +6529,7 @@ proto_item_set_generated.exit:                    ; preds = %cba_ldev_find.exit,
   %71 = add i32 %70, -1
   store i32 %71, ptr %8, align 4
   %.not51.us = icmp eq i32 %70, 0
-  br i1 %.not51.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !48
+  br i1 %.not51.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
 
 .preheader.i:                                     ; preds = %.lr.ph, %cba_frame_find_by_provcrid.exit
   %.04958 = phi i32 [ %73, %cba_frame_find_by_provcrid.exit ], [ %49, %.lr.ph ]
@@ -6584,7 +6584,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   %94 = getelementptr inbounds nuw i8, ptr %.01419.i, i64 8
   %.014.i = load ptr, ptr %94, align 8
   %.not.i54 = icmp eq ptr %.014.i, null
-  br i1 %.not.i54, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !49
+  br i1 %.not.i54, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %cba_packet_in_range.exit.thread.i, %.preheader.i
   %95 = call ptr @expert_add_info(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_prov_crid)
@@ -6605,7 +6605,7 @@ cba_frame_find_by_provcrid.exit:                  ; preds = %cba_packet_in_range
   %104 = add i32 %103, -1
   store i32 %104, ptr %8, align 4
   %.not51 = icmp eq i32 %103, 0
-  br i1 %.not51, label %._crit_edge, label %.preheader.i, !llvm.loop !50
+  br i1 %.not51, label %._crit_edge, label %.preheader.i, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %cba_frame_find_by_provcrid.exit, %.lr.ph.split.us, %.thread, %50
   %.049.lcssa = phi i32 [ %49, %50 ], [ %49, %.thread ], [ %68, %.lr.ph.split.us ], [ %73, %cba_frame_find_by_provcrid.exit ]
@@ -6683,7 +6683,7 @@ cba_frame_disconnect.exit.us:                     ; preds = %.lr.ph, %cba_frame_
   %37 = add i32 %.04959.us, 1
   %38 = add i32 %35, -1
   %.not53.us = icmp eq i32 %35, 0
-  br i1 %.not53.us, label %.loopexit, label %cba_frame_disconnect.exit.us, !llvm.loop !51
+  br i1 %.not53.us, label %.loopexit, label %cba_frame_disconnect.exit.us, !llvm.loop !52
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %cba_frame_disconnect.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %cba_frame_disconnect.exit ], [ 1, %.lr.ph ]
@@ -6727,7 +6727,7 @@ cba_frame_disconnect.exit:                        ; preds = %55, %54, %.thread.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %57 = add i32 %39, -1
   %.not53 = icmp eq i32 %39, 0
-  br i1 %.not53, label %.loopexit, label %.lr.ph.split, !llvm.loop !52
+  br i1 %.not53, label %.loopexit, label %.lr.ph.split, !llvm.loop !53
 
 .loopexit:                                        ; preds = %cba_frame_disconnect.exit, %cba_frame_disconnect.exit.us, %29, %proto_item_set_generated.exit
   %.0 = phi i32 [ %27, %proto_item_set_generated.exit ], [ %30, %29 ], [ %36, %cba_frame_disconnect.exit.us ], [ %41, %cba_frame_disconnect.exit ]
@@ -6889,7 +6889,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %cba_packet_in_range
   %81 = getelementptr inbounds nuw i8, ptr %.01419.i, i64 8
   %.014.i = load ptr, ptr %81, align 8
   %.not.i172 = icmp eq ptr %.014.i, null
-  br i1 %.not.i172, label %._crit_edge.i, label %61, !llvm.loop !49
+  br i1 %.not.i172, label %._crit_edge.i, label %61, !llvm.loop !50
 
 ._crit_edge.i:                                    ; preds = %cba_packet_in_range.exit.thread.i, %.preheader.i
   %82 = call ptr @expert_add_info(ptr noundef %2, ptr noundef null, ptr noundef nonnull @ei_cba_acco_prov_crid)
@@ -7023,7 +7023,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %147 = add i32 %.pr177, -1
   store i32 %147, ptr %15, align 4
   %.not168 = icmp eq i32 %.pr177, 0
-  br i1 %.not168, label %.loopexit, label %138, !llvm.loop !53
+  br i1 %.not168, label %.loopexit, label %138, !llvm.loop !54
 
 .loopexit:                                        ; preds = %144, %127, %122
   %.1158 = phi i16 [ %.0157185, %122 ], [ %.0157185, %127 ], [ %spec.select, %144 ]
@@ -7074,7 +7074,7 @@ cba_frame_find_by_provcrid.exit.thread:           ; preds = %proto_item_set_gene
   %174 = add i32 %.pr, -1
   store i32 %174, ptr %11, align 4
   %.not164 = icmp eq i32 %.pr, 0
-  br i1 %.not164, label %._crit_edge, label %112, !llvm.loop !54
+  br i1 %.not164, label %._crit_edge, label %112, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %168, %103
   %.0155.lcssa = phi i32 [ 0, %103 ], [ %.0155186, %168 ]
@@ -7221,7 +7221,7 @@ proto_item_set_generated.exit:                    ; preds = %19, %22, %25
   %71 = add i32 %70, -1
   store i32 %71, ptr %8, align 4
   %.not92 = icmp eq i32 %70, 0
-  br i1 %.not92, label %.loopexit, label %44, !llvm.loop !55
+  br i1 %.not92, label %.loopexit, label %44, !llvm.loop !56
 
 .loopexit:                                        ; preds = %64, %39, %37
   %.084 = phi i32 [ 1, %37 ], [ 1, %39 ], [ %69, %64 ]
@@ -7317,7 +7317,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   %32 = add i32 %31, -1
   store i32 %32, ptr %8, align 4
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit
   %.0.lcssa = phi i32 [ %25, %proto_item_set_generated.exit ], [ %29, %.lr.ph ]
@@ -7383,7 +7383,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   %29 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.146, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %.04144)
   %30 = add i32 %.04144, 1
   %.not42 = icmp eq i32 %28, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !57
+  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %proto_item_set_generated.exit
   %.0 = phi i32 [ %23, %proto_item_set_generated.exit ], [ %26, %25 ], [ %29, %.lr.ph ]
@@ -7603,7 +7603,7 @@ cba_packet_in_range.exit.thread.i:                ; preds = %55, %54, %.thread.i
   %.0.in.i = getelementptr inbounds nuw i8, ptr %.031.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.i26 = icmp eq ptr %.0.i, null
-  br i1 %.not.i26, label %cba_frame_disconnectme.exit, label %31, !llvm.loop !58
+  br i1 %.not.i26, label %cba_frame_disconnectme.exit, label %31, !llvm.loop !59
 
 cba_frame_disconnectme.exit:                      ; preds = %cba_packet_in_range.exit.thread.i, %26, %proto_item_set_generated.exit
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7670,7 +7670,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %14, %17
   %35 = add i32 %34, -1
   store i32 %35, ptr %9, align 4
   %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %proto_item_set_generated.exit
   %.0.lcssa = phi i32 [ %28, %proto_item_set_generated.exit ], [ %32, %.lr.ph ]
@@ -7737,7 +7737,7 @@ proto_item_set_generated.exit:                    ; preds = %6, %13, %16
   %29 = call i32 @dissect_dcom_indexed_HRESULT(ptr noundef %0, i32 noundef %.146, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %7, i32 noundef %.04144)
   %30 = add i32 %.04144, 1
   %.not42 = icmp eq i32 %28, 0
-  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !60
+  br i1 %.not42, label %.loopexit, label %.lr.ph, !llvm.loop !61
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %proto_item_set_generated.exit
   %.0 = phi i32 [ %23, %proto_item_set_generated.exit ], [ %26, %25 ], [ %29, %.lr.ph ]
@@ -7806,7 +7806,7 @@ define internal i32 @dissect_ICBAAccoSync_ReadItems_rqst(ptr noundef %0, i32 nou
   %26 = add i32 %.pr, -1
   store i32 %26, ptr %10, align 4
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !61
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
 
 ._crit_edge:                                      ; preds = %24, %6
   %.035.lcssa = phi i32 [ %17, %6 ], [ %.1, %24 ]
@@ -7885,7 +7885,7 @@ define internal i32 @dissect_ICBAAccoSync_ReadItems_resp(ptr noundef %0, i32 nou
   call void @proto_item_set_len(ptr noundef %21, i32 noundef %42)
   %43 = add i32 %.07077, 1
   %.not73 = icmp eq i32 %19, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !62
+  br i1 %.not73, label %.loopexit, label %.lr.ph, !llvm.loop !63
 
 .loopexit:                                        ; preds = %29, %14, %6
   %.072 = phi i32 [ %12, %6 ], [ %18, %14 ], [ %.2, %29 ]
@@ -7965,7 +7965,7 @@ define internal i32 @dissect_ICBAAccoSync_WriteItems_rqst(ptr noundef %0, i32 no
   %37 = add i32 %.pr, -1
   store i32 %37, ptr %8, align 4
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %34, %6
   %.056.lcssa = phi i32 [ %17, %6 ], [ %.2, %34 ]
@@ -8053,7 +8053,7 @@ define internal i32 @dissect_ICBAAccoSync_WriteItemsQCD_rqst(ptr noundef %0, i32
   %47 = add i32 %.pr, -1
   store i32 %47, ptr %8, align 4
   %.not = icmp eq i32 %.pr, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %35, %6
   %.068.lcssa = phi i32 [ %18, %6 ], [ %.2, %35 ]
@@ -8110,62 +8110,63 @@ attributes #13 = { allocsize(2) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
-!27 = distinct !{!27, !7}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7, !32}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
-!38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = distinct !{!40, !7, !32}
-!41 = distinct !{!41, !7}
-!42 = distinct !{!42, !7}
-!43 = distinct !{!43, !7}
-!44 = distinct !{!44, !7}
-!45 = distinct !{!45, !7}
-!46 = distinct !{!46, !7}
-!47 = distinct !{!47, !7}
-!48 = distinct !{!48, !7, !32}
-!49 = distinct !{!49, !7}
-!50 = distinct !{!50, !7}
-!51 = distinct !{!51, !7, !32}
-!52 = distinct !{!52, !7}
-!53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
-!56 = distinct !{!56, !7}
-!57 = distinct !{!57, !7}
-!58 = distinct !{!58, !7}
-!59 = distinct !{!59, !7}
-!60 = distinct !{!60, !7}
-!61 = distinct !{!61, !7}
-!62 = distinct !{!62, !7}
-!63 = distinct !{!63, !7}
-!64 = distinct !{!64, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8, !33}
+!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8, !33}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}
+!39 = distinct !{!39, !7, !8}
+!40 = distinct !{!40, !7, !8}
+!41 = distinct !{!41, !7, !8, !33}
+!42 = distinct !{!42, !7, !8}
+!43 = distinct !{!43, !7, !8}
+!44 = distinct !{!44, !7, !8}
+!45 = distinct !{!45, !7, !8}
+!46 = distinct !{!46, !7, !8}
+!47 = distinct !{!47, !7, !8}
+!48 = distinct !{!48, !7, !8}
+!49 = distinct !{!49, !7, !8, !33}
+!50 = distinct !{!50, !7, !8}
+!51 = distinct !{!51, !7, !8}
+!52 = distinct !{!52, !7, !8, !33}
+!53 = distinct !{!53, !7, !8}
+!54 = distinct !{!54, !7, !8}
+!55 = distinct !{!55, !7, !8}
+!56 = distinct !{!56, !7, !8}
+!57 = distinct !{!57, !7, !8}
+!58 = distinct !{!58, !7, !8}
+!59 = distinct !{!59, !7, !8}
+!60 = distinct !{!60, !7, !8}
+!61 = distinct !{!61, !7, !8}
+!62 = distinct !{!62, !7, !8}
+!63 = distinct !{!63, !7, !8}
+!64 = distinct !{!64, !7, !8}
+!65 = distinct !{!65, !7, !8}

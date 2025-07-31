@@ -202,7 +202,7 @@ define internal void @uv__stream_io(ptr readnone captures(none) %0, ptr noundef 
   store ptr %53, ptr %51, align 8
   %61 = load ptr, ptr %48, align 8
   %.not.i.i = icmp eq ptr %48, %61
-  br i1 %.not.i.i, label %uv__stream_flush_write_queue.exit.i, label %52
+  br i1 %.not.i.i, label %uv__stream_flush_write_queue.exit.i, label %52, !llvm.loop !4
 
 uv__stream_flush_write_queue.exit.i:              ; preds = %52, %47
   call fastcc void @uv__write_callbacks(ptr noundef nonnull %10)
@@ -306,7 +306,7 @@ uv__stream_connect.exit:                          ; preds = %23, %41, %uv__strea
   %113 = tail call ptr @__errno_location() #13
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, 4
-  br i1 %115, label %.preheader.i, label %.loopexit.i
+  br i1 %115, label %.preheader.i, label %.loopexit.i, !llvm.loop !6
 
 116:                                              ; preds = %106
   store i32 0, ptr %80, align 8
@@ -328,7 +328,7 @@ uv__stream_connect.exit:                          ; preds = %23, %41, %uv__strea
   %122 = tail call ptr @__errno_location() #13
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 4
-  br i1 %124, label %117, label %.loopexit.i
+  br i1 %124, label %117, label %.loopexit.i, !llvm.loop !7
 
 .loopexit.i:                                      ; preds = %112, %121
   %125 = phi i32 [ %123, %121 ], [ %114, %112 ]
@@ -542,7 +542,7 @@ __cmsg_nxthdr.exit.i.i:                           ; preds = %177, %242
 uv__stream_queue_fd.exit.i.i:                     ; preds = %228, %221, %198
   %.333.i.i = phi i32 [ %.3.ph.i.i, %228 ], [ 0, %198 ], [ 0, %221 ]
   %230 = icmp ult ptr %193, %191
-  br i1 %230, label %.lr.ph.i.i27, label %.loopexitthread-pre-split.i.i
+  br i1 %230, label %.lr.ph.i.i27, label %.loopexitthread-pre-split.i.i, !llvm.loop !8
 
 .loopexitthread-pre-split.i.i:                    ; preds = %uv__stream_queue_fd.exit.i.i, %184
   %.1.ph.i.i = phi i32 [ %.02437.i.i, %184 ], [ %.333.i.i, %uv__stream_queue_fd.exit.i.i ]
@@ -572,7 +572,7 @@ uv__stream_queue_fd.exit.i.i:                     ; preds = %228, %221, %198
   %245 = and i64 %244, -8
   %246 = getelementptr inbounds nuw i8, ptr %236, i64 %245
   %247 = icmp ugt ptr %246, %240
-  br i1 %247, label %uv__stream_recv_cmsg.exit.i, label %__cmsg_nxthdr.exit.i.i
+  br i1 %247, label %uv__stream_recv_cmsg.exit.i, label %__cmsg_nxthdr.exit.i.i, !llvm.loop !9
 
 uv__stream_recv_cmsg.exit.i:                      ; preds = %242, %233, %.loopexit.i.i
   %.not61.i = icmp eq i32 %.1.i.i, 0
@@ -588,7 +588,7 @@ uv__stream_recv_cmsg.exit.thread.i:               ; preds = %uv__stream_recv_cms
   %251 = load ptr, ptr %77, align 8
   call void %251(ptr noundef nonnull %10, i64 noundef %.0.i, ptr noundef nonnull %4) #12
   %252 = icmp slt i64 %.0.i, %178
-  br i1 %252, label %253, label %88
+  br i1 %252, label %253, label %88, !llvm.loop !10
 
 253:                                              ; preds = %uv__stream_recv_cmsg.exit.thread.i
   %254 = load i32, ptr %65, align 8
@@ -786,7 +786,7 @@ define hidden void @uv__stream_flush_write_queue(ptr noundef %0, i32 noundef %1)
   store ptr %8, ptr %6, align 8
   %16 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %3, %16
-  br i1 %.not, label %._crit_edge, label %7
+  br i1 %.not, label %._crit_edge, label %7, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %7, %2
   ret void
@@ -842,7 +842,7 @@ define hidden void @uv__stream_destroy(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %19, ptr %17, align 8
   %27 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %14, %27
-  br i1 %.not.i, label %uv__stream_flush_write_queue.exit, label %18
+  br i1 %.not.i, label %uv__stream_flush_write_queue.exit, label %18, !llvm.loop !4
 
 uv__stream_flush_write_queue.exit:                ; preds = %18, %13
   tail call fastcc void @uv__write_callbacks(ptr noundef nonnull %0)
@@ -940,7 +940,7 @@ uv__queue_move.exit:                              ; preds = %1
 48:                                               ; preds = %45, %42
   %49 = load ptr, ptr %2, align 8
   %.not21 = icmp eq ptr %2, %49
-  br i1 %.not21, label %.loopexit, label %13
+  br i1 %.not21, label %.loopexit, label %13, !llvm.loop !11
 
 .loopexit:                                        ; preds = %48, %uv__queue_move.exit, %1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #12
@@ -1054,7 +1054,7 @@ define hidden void @uv__server_io(ptr noundef %0, ptr noundef %1, i32 noundef %2
 20:                                               ; preds = %18, %15
   %21 = icmp eq i32 %16, -4
   %22 = or i1 %17, %21
-  br i1 %22, label %15, label %23
+  br i1 %22, label %15, label %23, !llvm.loop !12
 
 23:                                               ; preds = %20
   %24 = tail call i32 @uv__open_cloexec(ptr noundef nonnull @.str.1, i32 noundef 0) #12
@@ -1559,7 +1559,7 @@ define internal fastcc void @uv__write(ptr noundef %0) unnamed_addr #0 {
   %39 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %.022.i, i64 %38
   %40 = sub i64 %.0.i, %.0..i
   %.not25.i = icmp eq i64 %40, 0
-  br i1 %.not25.i, label %uv__write_req_update.exit, label %29
+  br i1 %.not25.i, label %uv__write_req_update.exit, label %29, !llvm.loop !13
 
 uv__write_req_update.exit:                        ; preds = %35
   %41 = load ptr, ptr %8, align 8
@@ -1616,7 +1616,7 @@ uv__write_req_finish.exit:                        ; preds = %48, %63
   tail call void @uv__io_feed(ptr noundef %68, ptr noundef nonnull %69) #12
   %70 = add nsw i32 %.0.ph, -1
   %.not52 = icmp eq i32 %.0.ph, 0
-  br i1 %.not52, label %.loopexit, label %.outer
+  br i1 %.not52, label %.loopexit, label %.outer, !llvm.loop !14
 
 71:                                               ; preds = %7
   %.not27 = icmp eq i32 %19, -11
@@ -1626,7 +1626,7 @@ uv__write_req_finish.exit:                        ; preds = %48, %63
   %73 = load i32, ptr %4, align 8
   %74 = and i32 %73, 1048576
   %.not29 = icmp eq i32 %74, 0
-  br i1 %.not29, label %75, label %5
+  br i1 %.not29, label %75, label %5, !llvm.loop !14
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1790,7 +1790,7 @@ uv__writev.exit.us:                               ; preds = %.preheader, %16
   %17 = tail call ptr @__errno_location() #13
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 4
-  br i1 %19, label %uv__writev.exit.us, label %.critedge2.thread, !llvm.loop !4
+  br i1 %19, label %uv__writev.exit.us, label %.critedge2.thread, !llvm.loop !15
 
 20:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #12
@@ -1857,7 +1857,7 @@ uv__handle_fd.exit:                               ; preds = %24, %.sink.split.i
   %47 = tail call ptr @__errno_location() #13
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, 4
-  br i1 %49, label %42, label %.critedge
+  br i1 %49, label %42, label %.critedge, !llvm.loop !17
 
 .critedge:                                        ; preds = %46, %42
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #12
@@ -1874,7 +1874,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
   %54 = tail call ptr @__errno_location() #13
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, 4
-  br i1 %56, label %uv__writev.exit, label %.critedge2.thread
+  br i1 %56, label %uv__writev.exit, label %.critedge2.thread, !llvm.loop !18
 
 .critedge2:                                       ; preds = %uv__writev.exit, %uv__writev.exit.us, %.critedge
   %.123 = phi i64 [ %44, %.critedge ], [ %14, %uv__writev.exit.us ], [ %51, %uv__writev.exit ]
@@ -2135,7 +2135,7 @@ uv_read_stop.exit:                                ; preds = %1, %22
   %60 = load i32, ptr %53, align 4
   %61 = zext i32 %60 to i64
   %62 = icmp samesign ult i64 %indvars.iv.next, %61
-  br i1 %62, label %56, label %._crit_edge.loopexit
+  br i1 %62, label %56, label %._crit_edge.loopexit, !llvm.loop !19
 
 ._crit_edge.loopexit:                             ; preds = %56
   %.pre33 = load ptr, ptr %51, align 8
@@ -2224,4 +2224,18 @@ attributes #14 = { cold nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}

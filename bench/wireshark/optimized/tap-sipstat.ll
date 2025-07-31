@@ -215,7 +215,7 @@ define internal range(i32 0, 2) i32 @sipstat_packet(ptr noundef %0, ptr readnone
 
 44:                                               ; preds = %.sink.split, %5
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %46 = load i8, ptr %45, align 4, !range !9, !noundef !10
+  %46 = load i8, ptr %45, align 4, !range !10, !noundef !11
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %52
 
@@ -494,7 +494,8 @@ attributes #11 = { nounwind }
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"PIE Level", i32 2}
 !6 = !{i32 7, !"uwtable", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{i8 0, i8 2}
-!10 = !{}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{i8 0, i8 2}
+!11 = !{}

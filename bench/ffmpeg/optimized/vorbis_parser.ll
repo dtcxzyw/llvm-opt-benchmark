@@ -409,7 +409,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %72 = lshr exact i32 128, %71
   %73 = and i32 %72, %70
   %.not61.i.i = icmp eq i32 %73, 0
-  br i1 %.not61.i.i, label %64, label %.preheader.i.i, !llvm.loop !25
+  br i1 %.not61.i.i, label %64, label %.preheader.i.i, !llvm.loop !26
 
 .preheader.i.i:                                   ; preds = %65
   %invariant.op112.i.i = add nsw i32 %.018.i.i.i, -96
@@ -481,7 +481,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %spec.select.i.i = select i1 %118, i32 1, i32 %.048115.i.i
   %spec.select66.i.i = select i1 %118, i32 %105, i32 %.0116.i.i
   %119 = icmp slt i32 %109, %invariant.op112.i.i
-  br i1 %119, label %.lr.ph117.i.i, label %._crit_edge118.i.i, !llvm.loop !26
+  br i1 %119, label %.lr.ph117.i.i, label %._crit_edge118.i.i, !llvm.loop !27
 
 ._crit_edge118.i.i:                               ; preds = %104, %93, %83, %.lr.ph117.i.i
   %.048.lcssa.ph.i.i = phi i32 [ %spec.select.i.i, %104 ], [ %.048115.i.i, %93 ], [ %.048115.i.i, %83 ], [ %.048115.i.i, %.lr.ph117.i.i ]
@@ -563,7 +563,7 @@ define ptr @av_vorbis_parse_init(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store i32 %158, ptr %159, align 4, !tbaa !13
   %indvars.iv.next135.i.i = add nsw i64 %indvars.iv134.i.i, -1
   %.not139.i.i = icmp eq i64 %indvars.iv134.i.i, 0
-  br i1 %.not139.i.i, label %.loopexit, label %143, !llvm.loop !27
+  br i1 %.not139.i.i, label %.loopexit, label %143, !llvm.loop !28
 
 parse_setup_header.exit.thread22.i:               ; preds = %125, %._crit_edge118.thread.i.i, %.thread.i.i
   call void @av_free(ptr noundef nonnull %54) #6
@@ -600,26 +600,26 @@ declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @vorbis_parse(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3, ptr noundef %4, i32 noundef returned %5) #0 {
-  %7 = load ptr, ptr %0, align 8, !tbaa !28
-  %8 = load ptr, ptr %7, align 8, !tbaa !32
+  %7 = load ptr, ptr %0, align 8, !tbaa !29
+  %8 = load ptr, ptr %7, align 8, !tbaa !33
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %.thread
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   %.not20 = icmp eq ptr %11, null
   br i1 %.not20, label %av_vorbis_parse_frame.exit.thread, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %14 = load i32, ptr %13, align 8, !tbaa !50
+  %14 = load i32, ptr %13, align 8, !tbaa !51
   %.not21 = icmp eq i32 %14, 0
   br i1 %.not21, label %av_vorbis_parse_frame.exit.thread, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %12
   %15 = tail call ptr @av_vorbis_parse_init(ptr noundef nonnull %11, i32 noundef %14)
-  store ptr %15, ptr %7, align 8, !tbaa !32
+  store ptr %15, ptr %7, align 8, !tbaa !33
   %.not22 = icmp eq ptr %15, null
   br i1 %.not22, label %av_vorbis_parse_frame.exit.thread, label %.thread
 
@@ -701,7 +701,7 @@ av_vorbis_parse_frame.exit:                       ; preds = %39, %44
 av_vorbis_parse_frame.exit.thread25:              ; preds = %.thread, %av_vorbis_parse_frame.exit
   %.1.i.i27 = phi i32 [ %58, %av_vorbis_parse_frame.exit ], [ 0, %.thread ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %.1.i.i27, ptr %60, align 8, !tbaa !51
+  store i32 %.1.i.i27, ptr %60, align 8, !tbaa !52
   br label %av_vorbis_parse_frame.exit.thread
 
 av_vorbis_parse_frame.exit.thread:                ; preds = %12, %9, %27, %38, %av_vorbis_parse_frame.exit, %av_vorbis_parse_frame.exit.thread25, %thread-pre-split
@@ -712,7 +712,7 @@ av_vorbis_parse_frame.exit.thread:                ; preds = %12, %9, %27, %38, %
 
 ; Function Attrs: nounwind uwtable
 define internal void @vorbis_parser_close(ptr noundef readonly captures(none) %0) #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !28
+  %2 = load ptr, ptr %0, align 8, !tbaa !29
   tail call void @av_freep(ptr noundef %2) #6
   ret void
 }
@@ -775,32 +775,33 @@ attributes #6 = { nounwind }
 !20 = !{!5, !10, i64 8}
 !21 = !{!22, !22, i64 0}
 !22 = !{!"p1 omnipotent char", !7, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = distinct !{!27, !24}
-!28 = !{!29, !7, i64 0}
-!29 = !{!"AVCodecParserContext", !7, i64 0, !30, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !10, i64 40, !10, i64 44, !31, i64 48, !31, i64 56, !31, i64 64, !31, i64 72, !10, i64 80, !10, i64 84, !8, i64 88, !8, i64 120, !8, i64 152, !10, i64 184, !31, i64 192, !8, i64 200, !10, i64 232, !10, i64 236, !10, i64 240, !10, i64 244, !8, i64 248, !31, i64 280, !31, i64 288, !10, i64 296, !10, i64 300, !10, i64 304, !10, i64 308, !10, i64 312, !10, i64 316, !10, i64 320, !10, i64 324, !10, i64 328}
-!30 = !{!"p1 _ZTS13AVCodecParser", !7, i64 0}
-!31 = !{!"long", !8, i64 0}
-!32 = !{!33, !18, i64 0}
-!33 = !{!"VorbisParseContext", !18, i64 0}
-!34 = !{!35, !22, i64 72}
-!35 = !{!"AVCodecContext", !6, i64 0, !10, i64 8, !10, i64 12, !36, i64 16, !10, i64 24, !10, i64 28, !7, i64 32, !37, i64 40, !7, i64 48, !31, i64 56, !10, i64 64, !10, i64 68, !22, i64 72, !10, i64 80, !38, i64 84, !38, i64 92, !38, i64 100, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !38, i64 128, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172, !10, i64 176, !7, i64 184, !7, i64 192, !10, i64 200, !39, i64 204, !39, i64 208, !39, i64 212, !39, i64 216, !39, i64 220, !39, i64 224, !39, i64 228, !39, i64 232, !39, i64 236, !10, i64 240, !10, i64 244, !10, i64 248, !10, i64 252, !10, i64 256, !10, i64 260, !10, i64 264, !10, i64 268, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !40, i64 288, !40, i64 296, !40, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !10, i64 324, !10, i64 328, !10, i64 332, !10, i64 336, !10, i64 340, !10, i64 344, !10, i64 348, !41, i64 352, !10, i64 376, !10, i64 380, !10, i64 384, !10, i64 388, !10, i64 392, !10, i64 396, !10, i64 400, !10, i64 404, !7, i64 408, !10, i64 416, !10, i64 420, !10, i64 424, !39, i64 428, !39, i64 432, !10, i64 436, !10, i64 440, !10, i64 444, !10, i64 448, !10, i64 452, !42, i64 456, !31, i64 464, !31, i64 472, !39, i64 480, !39, i64 484, !10, i64 488, !10, i64 492, !22, i64 496, !22, i64 504, !10, i64 512, !10, i64 516, !10, i64 520, !10, i64 524, !10, i64 528, !43, i64 536, !7, i64 544, !44, i64 552, !44, i64 560, !10, i64 568, !10, i64 572, !8, i64 576, !10, i64 640, !10, i64 644, !10, i64 648, !10, i64 652, !10, i64 656, !10, i64 660, !10, i64 664, !7, i64 672, !7, i64 680, !10, i64 688, !10, i64 692, !10, i64 696, !10, i64 700, !10, i64 704, !10, i64 708, !10, i64 712, !10, i64 716, !10, i64 720, !10, i64 724, !45, i64 728, !22, i64 736, !10, i64 744, !10, i64 748, !22, i64 752, !22, i64 760, !22, i64 768, !46, i64 776, !10, i64 784, !10, i64 788, !31, i64 792, !10, i64 800, !10, i64 804, !31, i64 808, !7, i64 816, !31, i64 824, !47, i64 832, !10, i64 840, !48, i64 848, !10, i64 856}
-!36 = !{!"p1 _ZTS7AVCodec", !7, i64 0}
-!37 = !{!"p1 _ZTS15AVCodecInternal", !7, i64 0}
-!38 = !{!"AVRational", !10, i64 0, !10, i64 4}
-!39 = !{!"float", !8, i64 0}
-!40 = !{!"p1 short", !7, i64 0}
-!41 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
-!42 = !{!"p1 _ZTS10RcOverride", !7, i64 0}
-!43 = !{!"p1 _ZTS9AVHWAccel", !7, i64 0}
-!44 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
-!45 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
-!46 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
-!47 = !{!"p1 int", !7, i64 0}
-!48 = !{!"p2 _ZTS15AVFrameSideData", !49, i64 0}
-!49 = !{!"any p2 pointer", !7, i64 0}
-!50 = !{!35, !10, i64 80}
-!51 = !{!29, !10, i64 296}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25}
+!28 = distinct !{!28, !24, !25}
+!29 = !{!30, !7, i64 0}
+!30 = !{!"AVCodecParserContext", !7, i64 0, !31, i64 8, !32, i64 16, !32, i64 24, !32, i64 32, !10, i64 40, !10, i64 44, !32, i64 48, !32, i64 56, !32, i64 64, !32, i64 72, !10, i64 80, !10, i64 84, !8, i64 88, !8, i64 120, !8, i64 152, !10, i64 184, !32, i64 192, !8, i64 200, !10, i64 232, !10, i64 236, !10, i64 240, !10, i64 244, !8, i64 248, !32, i64 280, !32, i64 288, !10, i64 296, !10, i64 300, !10, i64 304, !10, i64 308, !10, i64 312, !10, i64 316, !10, i64 320, !10, i64 324, !10, i64 328}
+!31 = !{!"p1 _ZTS13AVCodecParser", !7, i64 0}
+!32 = !{!"long", !8, i64 0}
+!33 = !{!34, !18, i64 0}
+!34 = !{!"VorbisParseContext", !18, i64 0}
+!35 = !{!36, !22, i64 72}
+!36 = !{!"AVCodecContext", !6, i64 0, !10, i64 8, !10, i64 12, !37, i64 16, !10, i64 24, !10, i64 28, !7, i64 32, !38, i64 40, !7, i64 48, !32, i64 56, !10, i64 64, !10, i64 68, !22, i64 72, !10, i64 80, !39, i64 84, !39, i64 92, !39, i64 100, !10, i64 108, !10, i64 112, !10, i64 116, !10, i64 120, !10, i64 124, !39, i64 128, !10, i64 136, !10, i64 140, !10, i64 144, !10, i64 148, !10, i64 152, !10, i64 156, !10, i64 160, !10, i64 164, !10, i64 168, !10, i64 172, !10, i64 176, !7, i64 184, !7, i64 192, !10, i64 200, !40, i64 204, !40, i64 208, !40, i64 212, !40, i64 216, !40, i64 220, !40, i64 224, !40, i64 228, !40, i64 232, !40, i64 236, !10, i64 240, !10, i64 244, !10, i64 248, !10, i64 252, !10, i64 256, !10, i64 260, !10, i64 264, !10, i64 268, !10, i64 272, !10, i64 276, !10, i64 280, !10, i64 284, !41, i64 288, !41, i64 296, !41, i64 304, !10, i64 312, !10, i64 316, !10, i64 320, !10, i64 324, !10, i64 328, !10, i64 332, !10, i64 336, !10, i64 340, !10, i64 344, !10, i64 348, !42, i64 352, !10, i64 376, !10, i64 380, !10, i64 384, !10, i64 388, !10, i64 392, !10, i64 396, !10, i64 400, !10, i64 404, !7, i64 408, !10, i64 416, !10, i64 420, !10, i64 424, !40, i64 428, !40, i64 432, !10, i64 436, !10, i64 440, !10, i64 444, !10, i64 448, !10, i64 452, !43, i64 456, !32, i64 464, !32, i64 472, !40, i64 480, !40, i64 484, !10, i64 488, !10, i64 492, !22, i64 496, !22, i64 504, !10, i64 512, !10, i64 516, !10, i64 520, !10, i64 524, !10, i64 528, !44, i64 536, !7, i64 544, !45, i64 552, !45, i64 560, !10, i64 568, !10, i64 572, !8, i64 576, !10, i64 640, !10, i64 644, !10, i64 648, !10, i64 652, !10, i64 656, !10, i64 660, !10, i64 664, !7, i64 672, !7, i64 680, !10, i64 688, !10, i64 692, !10, i64 696, !10, i64 700, !10, i64 704, !10, i64 708, !10, i64 712, !10, i64 716, !10, i64 720, !10, i64 724, !46, i64 728, !22, i64 736, !10, i64 744, !10, i64 748, !22, i64 752, !22, i64 760, !22, i64 768, !47, i64 776, !10, i64 784, !10, i64 788, !32, i64 792, !10, i64 800, !10, i64 804, !32, i64 808, !7, i64 816, !32, i64 824, !48, i64 832, !10, i64 840, !49, i64 848, !10, i64 856}
+!37 = !{!"p1 _ZTS7AVCodec", !7, i64 0}
+!38 = !{!"p1 _ZTS15AVCodecInternal", !7, i64 0}
+!39 = !{!"AVRational", !10, i64 0, !10, i64 4}
+!40 = !{!"float", !8, i64 0}
+!41 = !{!"p1 short", !7, i64 0}
+!42 = !{!"AVChannelLayout", !10, i64 0, !10, i64 4, !8, i64 8, !7, i64 16}
+!43 = !{!"p1 _ZTS10RcOverride", !7, i64 0}
+!44 = !{!"p1 _ZTS9AVHWAccel", !7, i64 0}
+!45 = !{!"p1 _ZTS11AVBufferRef", !7, i64 0}
+!46 = !{!"p1 _ZTS17AVCodecDescriptor", !7, i64 0}
+!47 = !{!"p1 _ZTS16AVPacketSideData", !7, i64 0}
+!48 = !{!"p1 int", !7, i64 0}
+!49 = !{!"p2 _ZTS15AVFrameSideData", !50, i64 0}
+!50 = !{!"any p2 pointer", !7, i64 0}
+!51 = !{!36, !10, i64 80}
+!52 = !{!30, !10, i64 296}

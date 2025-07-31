@@ -70,7 +70,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 38:                                               ; preds = %.lr.ph23
   %39 = extractvalue { i8, i32 } %34, 1
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %._crit_edge, label %.lr.ph23, !prof !8, !llvm.loop !9
+  br i1 %40, label %._crit_edge, label %.lr.ph23, !prof !8, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %38, %25
   %41 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %28) #5
@@ -98,7 +98,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 54:                                               ; preds = %.lr.ph25
   %55 = extractvalue { i8, i32 } %50, 1
   %56 = icmp eq i32 %55, 1
-  br i1 %56, label %._crit_edge26, label %.lr.ph25, !prof !8, !llvm.loop !9
+  br i1 %56, label %._crit_edge26, label %.lr.ph25, !prof !8, !llvm.loop !14
 
 ._crit_edge26:                                    ; preds = %54, %.loopexit22
   tail call void @__intel_wakeref_put_last(ptr noundef nonnull %28, i64 noundef 0) #5
@@ -194,12 +194,12 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 108:                                              ; preds = %.lr.ph28
   %109 = extractvalue { i8, i32 } %104, 1
   %110 = icmp eq i32 %109, 1
-  br i1 %110, label %._crit_edge29, label %.lr.ph28, !prof !8, !llvm.loop !9
+  br i1 %110, label %._crit_edge29, label %.lr.ph28, !prof !8, !llvm.loop !15
 
 ._crit_edge29:                                    ; preds = %108, %.preheader
-  %111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 2, i32 1, ptr nonnull elementtype(i32) %13) #5, !srcloc !12
+  %111 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 2, i32 1, ptr nonnull elementtype(i32) %13) #5, !srcloc !16
   %112 = icmp eq i32 %111, 1
-  br i1 %112, label %113, label %.preheader, !llvm.loop !13
+  br i1 %112, label %113, label %.preheader, !llvm.loop !17
 
 113:                                              ; preds = %._crit_edge29
   %114 = load ptr, ptr %94, align 8
@@ -289,8 +289,12 @@ attributes #5 = { nounwind }
 !6 = !{i64 2148821921, i64 2148821960, i64 2148821981, i64 2148822018, i64 2148822041, i64 2148822050, i64 2148822348}
 !7 = !{!"branch_weights", i32 1, i32 2000}
 !8 = !{!"branch_weights", i32 127, i32 255873}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2148818826, i64 2148818865, i64 2148818886, i64 2148818923, i64 2148818946, i64 2148818955}
-!13 = distinct !{!13, !10, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !10, !11, !12}
+!14 = distinct !{!14, !10, !11, !12}
+!15 = distinct !{!15, !10, !11, !12}
+!16 = !{i64 2148818826, i64 2148818865, i64 2148818886, i64 2148818923, i64 2148818946, i64 2148818955}
+!17 = distinct !{!17, !10, !11, !12}

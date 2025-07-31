@@ -152,7 +152,7 @@ define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, 
   br i1 %26, label %25, label %42, !llvm.loop !15
 
 42:                                               ; preds = %41
-  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !17
+  br i1 %21, label %.preheader, label %.loopexit, !llvm.loop !18
 
 43:                                               ; preds = %12, %14, %9, %7
   store i32 1, ptr %3, align 4, !tbaa !10
@@ -318,7 +318,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
   %6 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_1_CtypeTable, i64 0, i64 %5
-  %7 = load i16, ptr %6, align 2, !tbaa !18
+  %7 = load i16, ptr %6, align 2, !tbaa !19
   %8 = zext i16 %7 to i32
   %9 = lshr i32 %8, %1
   %10 = and i32 %9, 1
@@ -363,8 +363,9 @@ attributes #5 = { nounwind }
 !12 = !{!"int", !7, i64 0}
 !13 = !{!11, !12, i64 4}
 !14 = !{!12, !12, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"short", !7, i64 0}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"short", !7, i64 0}

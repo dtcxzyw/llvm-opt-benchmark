@@ -1091,7 +1091,7 @@ define internal fastcc void @_ZL17checkForIBOutletsPKN5clang4DeclERt(ptr noundef
 17:                                               ; preds = %.lr.ph.i.i.i.i.i
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %18, %12
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.thread12, label %.lr.ph.i.i.i.i.i, !llvm.loop !87
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.thread12, label %.lr.ph.i.i.i.i.i, !llvm.loop !88
 
 _ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
   %.not = icmp eq ptr %.sroa.07.1.i.i.i.i, %12
@@ -1125,7 +1125,7 @@ _ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.thread12: ; preds = %17, %6,
 32:                                               ; preds = %.lr.ph.i.i.i.i.i8
   %33 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i9, i64 8
   %.not.i.i.i.i.i10 = icmp eq ptr %33, %27
-  br i1 %.not.i.i.i.i.i10, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14, label %.lr.ph.i.i.i.i.i8, !llvm.loop !88
+  br i1 %.not.i.i.i.i.i10, label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14, label %.lr.ph.i.i.i.i.i8, !llvm.loop !89
 
 _ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i8
   %.not16 = icmp eq ptr %.sroa.07.1.i.i.i.i9, %27
@@ -1133,9 +1133,9 @@ _ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit: ; preds = %.lr.ph
 
 _ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14.sink.split: ; preds = %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit
   %.sink24 = phi i16 [ 16, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit ], [ 48, %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit ]
-  %34 = load i16, ptr %1, align 2, !tbaa !89
+  %34 = load i16, ptr %1, align 2, !tbaa !90
   %35 = or i16 %34, %.sink24
-  store i16 %35, ptr %1, align 2, !tbaa !89
+  store i16 %35, ptr %1, align 2, !tbaa !90
   br label %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14
 
 _ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14: ; preds = %32, %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit.thread14.sink.split, %21, %_ZNK5clang4Decl7hasAttrINS_12IBOutletAttrEEEbv.exit.thread12, %_ZNK5clang4Decl7hasAttrINS_22IBOutletCollectionAttrEEEbv.exit
@@ -1172,7 +1172,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang4Decl7getAttrINS_12AnnotateAtt
 16:                                               ; preds = %.lr.ph.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %17, %11
-  br i1 %.not.i.i.i.i, label %_ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i.i, label %_ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !91
 
 _ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i: ; preds = %.lr.ph.i.i.i.i
   %.not5.i = icmp eq ptr %.sroa.07.1.i.i.i, %11
@@ -1192,7 +1192,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPN
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load i16, ptr %26, align 8
   %28 = icmp eq i16 %27, 86
-  br i1 %28, label %_ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !91
+  br i1 %28, label %_ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !92
 
 _ZN5clang15getSpecificAttrINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEEPDaRKT0_.exit: ; preds = %16, %.lr.ph.i.i.i, %18, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i, %5, %1
   %29 = phi ptr [ null, %1 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i ], [ %19, %18 ], [ null, %5 ], [ %25, %.lr.ph.i.i.i ], [ null, %16 ]
@@ -1419,7 +1419,7 @@ define dso_local void @_ZN5clang5index22applyForEachSymbolRoleEjN4llvm12function
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
-  store ptr %4, ptr %5, align 8, !tbaa !92
+  store ptr %4, ptr %5, align 8, !tbaa !93
   %7 = ptrtoint ptr %5 to i64
   %8 = call noundef zeroext i1 @_ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE(i32 noundef %0, ptr nonnull @"_ZN4llvm12function_refIFbN5clang5index10SymbolRoleEEE11callback_fnIZNS2_22applyForEachSymbolRoleEjNS0_IFvS3_EEEE3$_0EEblS3_", i64 %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
@@ -1434,9 +1434,9 @@ define dso_local void @_ZN5clang5index16printSymbolRolesEjRN4llvm11raw_ostreamE(
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !98
+  %7 = load ptr, ptr %6, align 8, !tbaa !99
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
@@ -1449,9 +1449,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
 
 14:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i
   store i32 1818453316, ptr %7, align 1
-  %15 = load ptr, ptr %6, align 8, !tbaa !98
+  %15 = load ptr, ptr %6, align 8, !tbaa !99
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store ptr %16, ptr %6, align 8, !tbaa !98
+  store ptr %16, ptr %6, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit": ; preds = %14, %12, %2
@@ -1466,9 +1466,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %22 = load ptr, ptr %21, align 8, !tbaa !98
+  %22 = load ptr, ptr %21, align 8, !tbaa !99
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !94
+  %24 = load ptr, ptr %23, align 8, !tbaa !95
   %.not.i.i.i81 = icmp ult ptr %22, %24
   br i1 %.not.i.i.i81, label %27, label %25
 
@@ -1478,15 +1478,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 1
-  store ptr %28, ptr %21, align 8, !tbaa !98
+  store ptr %28, ptr %21, align 8, !tbaa !99
   store i8 44, ptr %22, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i80
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i80:             ; preds = %18, %27, %25
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !94
+  %30 = load ptr, ptr %29, align 8, !tbaa !95
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !98
+  %32 = load ptr, ptr %31, align 8, !tbaa !99
   %33 = ptrtoint ptr %30 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
@@ -1499,9 +1499,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i80:             ; preds = %18, %27, %25
 
 39:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %32, ptr noundef nonnull align 1 dereferenceable(3) @.str.48, i64 3, i1 false)
-  %40 = load ptr, ptr %31, align 8, !tbaa !98
+  %40 = load ptr, ptr %31, align 8, !tbaa !99
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 3
-  store ptr %41, ptr %31, align 8, !tbaa !98
+  store ptr %41, ptr %31, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82": ; preds = %39, %37, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit"
@@ -1516,9 +1516,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i80:             ; preds = %18, %27, %25
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %47 = load ptr, ptr %46, align 8, !tbaa !98
+  %47 = load ptr, ptr %46, align 8, !tbaa !99
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !94
+  %49 = load ptr, ptr %48, align 8, !tbaa !95
   %.not.i.i.i84 = icmp ult ptr %47, %49
   br i1 %.not.i.i.i84, label %52, label %50
 
@@ -1528,15 +1528,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i80:             ; preds = %18, %27, %25
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %47, i64 1
-  store ptr %53, ptr %46, align 8, !tbaa !98
+  store ptr %53, ptr %46, align 8, !tbaa !99
   store i8 44, ptr %47, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i83
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i83:             ; preds = %43, %52, %50
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !94
+  %55 = load ptr, ptr %54, align 8, !tbaa !95
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %57 = load ptr, ptr %56, align 8, !tbaa !98
+  %57 = load ptr, ptr %56, align 8, !tbaa !99
   %58 = ptrtoint ptr %55 to i64
   %59 = ptrtoint ptr %57 to i64
   %60 = sub i64 %58, %59
@@ -1549,9 +1549,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i83:             ; preds = %43, %52, %50
 
 64:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i83
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %57, ptr noundef nonnull align 1 dereferenceable(3) @.str.49, i64 3, i1 false)
-  %65 = load ptr, ptr %56, align 8, !tbaa !98
+  %65 = load ptr, ptr %56, align 8, !tbaa !99
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 3
-  store ptr %66, ptr %56, align 8, !tbaa !98
+  store ptr %66, ptr %56, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85": ; preds = %64, %62, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit82"
@@ -1566,9 +1566,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i83:             ; preds = %43, %52, %50
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %72 = load ptr, ptr %71, align 8, !tbaa !98
+  %72 = load ptr, ptr %71, align 8, !tbaa !99
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !94
+  %74 = load ptr, ptr %73, align 8, !tbaa !95
   %.not.i.i.i87 = icmp ult ptr %72, %74
   br i1 %.not.i.i.i87, label %77, label %75
 
@@ -1578,15 +1578,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i83:             ; preds = %43, %52, %50
 
 77:                                               ; preds = %70
   %78 = getelementptr inbounds nuw i8, ptr %72, i64 1
-  store ptr %78, ptr %71, align 8, !tbaa !98
+  store ptr %78, ptr %71, align 8, !tbaa !99
   store i8 44, ptr %72, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i86
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i86:             ; preds = %68, %77, %75
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %80 = load ptr, ptr %79, align 8, !tbaa !94
+  %80 = load ptr, ptr %79, align 8, !tbaa !95
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %82 = load ptr, ptr %81, align 8, !tbaa !98
+  %82 = load ptr, ptr %81, align 8, !tbaa !99
   %83 = ptrtoint ptr %80 to i64
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
@@ -1599,9 +1599,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i86:             ; preds = %68, %77, %75
 
 89:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i86
   store i32 1684104530, ptr %82, align 1
-  %90 = load ptr, ptr %81, align 8, !tbaa !98
+  %90 = load ptr, ptr %81, align 8, !tbaa !99
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
-  store ptr %91, ptr %81, align 8, !tbaa !98
+  store ptr %91, ptr %81, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88": ; preds = %89, %87, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit85"
@@ -1616,9 +1616,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i86:             ; preds = %68, %77, %75
 
 95:                                               ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %97 = load ptr, ptr %96, align 8, !tbaa !98
+  %97 = load ptr, ptr %96, align 8, !tbaa !99
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !94
+  %99 = load ptr, ptr %98, align 8, !tbaa !95
   %.not.i.i.i90 = icmp ult ptr %97, %99
   br i1 %.not.i.i.i90, label %102, label %100
 
@@ -1628,15 +1628,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i86:             ; preds = %68, %77, %75
 
 102:                                              ; preds = %95
   %103 = getelementptr inbounds nuw i8, ptr %97, i64 1
-  store ptr %103, ptr %96, align 8, !tbaa !98
+  store ptr %103, ptr %96, align 8, !tbaa !99
   store i8 44, ptr %97, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i89
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i89:             ; preds = %93, %102, %100
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %105 = load ptr, ptr %104, align 8, !tbaa !94
+  %105 = load ptr, ptr %104, align 8, !tbaa !95
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %107 = load ptr, ptr %106, align 8, !tbaa !98
+  %107 = load ptr, ptr %106, align 8, !tbaa !99
   %108 = ptrtoint ptr %105 to i64
   %109 = ptrtoint ptr %107 to i64
   %110 = sub i64 %108, %109
@@ -1649,9 +1649,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i89:             ; preds = %93, %102, %100
 
 114:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i89
   store i32 1953067607, ptr %107, align 1
-  %115 = load ptr, ptr %106, align 8, !tbaa !98
+  %115 = load ptr, ptr %106, align 8, !tbaa !99
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store ptr %116, ptr %106, align 8, !tbaa !98
+  store ptr %116, ptr %106, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91": ; preds = %114, %112, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit88"
@@ -1666,9 +1666,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i89:             ; preds = %93, %102, %100
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %122 = load ptr, ptr %121, align 8, !tbaa !98
+  %122 = load ptr, ptr %121, align 8, !tbaa !99
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %124 = load ptr, ptr %123, align 8, !tbaa !94
+  %124 = load ptr, ptr %123, align 8, !tbaa !95
   %.not.i.i.i93 = icmp ult ptr %122, %124
   br i1 %.not.i.i.i93, label %127, label %125
 
@@ -1678,15 +1678,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i89:             ; preds = %93, %102, %100
 
 127:                                              ; preds = %120
   %128 = getelementptr inbounds nuw i8, ptr %122, i64 1
-  store ptr %128, ptr %121, align 8, !tbaa !98
+  store ptr %128, ptr %121, align 8, !tbaa !99
   store i8 44, ptr %122, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i92
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i92:             ; preds = %118, %127, %125
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %130 = load ptr, ptr %129, align 8, !tbaa !94
+  %130 = load ptr, ptr %129, align 8, !tbaa !95
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %132 = load ptr, ptr %131, align 8, !tbaa !98
+  %132 = load ptr, ptr %131, align 8, !tbaa !99
   %133 = ptrtoint ptr %130 to i64
   %134 = ptrtoint ptr %132 to i64
   %135 = sub i64 %133, %134
@@ -1699,9 +1699,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i92:             ; preds = %118, %127, %125
 
 139:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i92
   store i32 1819042115, ptr %132, align 1
-  %140 = load ptr, ptr %131, align 8, !tbaa !98
+  %140 = load ptr, ptr %131, align 8, !tbaa !99
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 4
-  store ptr %141, ptr %131, align 8, !tbaa !98
+  store ptr %141, ptr %131, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94": ; preds = %139, %137, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit91"
@@ -1716,9 +1716,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i92:             ; preds = %118, %127, %125
 
 145:                                              ; preds = %143
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %147 = load ptr, ptr %146, align 8, !tbaa !98
+  %147 = load ptr, ptr %146, align 8, !tbaa !99
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %149 = load ptr, ptr %148, align 8, !tbaa !94
+  %149 = load ptr, ptr %148, align 8, !tbaa !95
   %.not.i.i.i96 = icmp ult ptr %147, %149
   br i1 %.not.i.i.i96, label %152, label %150
 
@@ -1728,15 +1728,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i92:             ; preds = %118, %127, %125
 
 152:                                              ; preds = %145
   %153 = getelementptr inbounds nuw i8, ptr %147, i64 1
-  store ptr %153, ptr %146, align 8, !tbaa !98
+  store ptr %153, ptr %146, align 8, !tbaa !99
   store i8 44, ptr %147, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i95
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i95:             ; preds = %143, %152, %150
   %154 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %155 = load ptr, ptr %154, align 8, !tbaa !94
+  %155 = load ptr, ptr %154, align 8, !tbaa !95
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %157 = load ptr, ptr %156, align 8, !tbaa !98
+  %157 = load ptr, ptr %156, align 8, !tbaa !99
   %158 = ptrtoint ptr %155 to i64
   %159 = ptrtoint ptr %157 to i64
   %160 = sub i64 %158, %159
@@ -1749,9 +1749,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i95:             ; preds = %143, %152, %150
 
 164:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i95
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %157, ptr noundef nonnull align 1 dereferenceable(3) @.str.53, i64 3, i1 false)
-  %165 = load ptr, ptr %156, align 8, !tbaa !98
+  %165 = load ptr, ptr %156, align 8, !tbaa !99
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 3
-  store ptr %166, ptr %156, align 8, !tbaa !98
+  store ptr %166, ptr %156, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97": ; preds = %164, %162, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit94"
@@ -1766,9 +1766,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i95:             ; preds = %143, %152, %150
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %172 = load ptr, ptr %171, align 8, !tbaa !98
+  %172 = load ptr, ptr %171, align 8, !tbaa !99
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %174 = load ptr, ptr %173, align 8, !tbaa !94
+  %174 = load ptr, ptr %173, align 8, !tbaa !95
   %.not.i.i.i99 = icmp ult ptr %172, %174
   br i1 %.not.i.i.i99, label %177, label %175
 
@@ -1778,15 +1778,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i95:             ; preds = %143, %152, %150
 
 177:                                              ; preds = %170
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 1
-  store ptr %178, ptr %171, align 8, !tbaa !98
+  store ptr %178, ptr %171, align 8, !tbaa !99
   store i8 44, ptr %172, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i98
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i98:             ; preds = %168, %177, %175
   %179 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %180 = load ptr, ptr %179, align 8, !tbaa !94
+  %180 = load ptr, ptr %179, align 8, !tbaa !95
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %182 = load ptr, ptr %181, align 8, !tbaa !98
+  %182 = load ptr, ptr %181, align 8, !tbaa !99
   %183 = ptrtoint ptr %180 to i64
   %184 = ptrtoint ptr %182 to i64
   %185 = sub i64 %183, %184
@@ -1799,9 +1799,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i98:             ; preds = %168, %177, %175
 
 189:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i98
   store i32 1919181889, ptr %182, align 1
-  %190 = load ptr, ptr %181, align 8, !tbaa !98
+  %190 = load ptr, ptr %181, align 8, !tbaa !99
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 4
-  store ptr %191, ptr %181, align 8, !tbaa !98
+  store ptr %191, ptr %181, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100": ; preds = %189, %187, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit97"
@@ -1816,9 +1816,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i98:             ; preds = %168, %177, %175
 
 195:                                              ; preds = %193
   %196 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %197 = load ptr, ptr %196, align 8, !tbaa !98
+  %197 = load ptr, ptr %196, align 8, !tbaa !99
   %198 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %199 = load ptr, ptr %198, align 8, !tbaa !94
+  %199 = load ptr, ptr %198, align 8, !tbaa !95
   %.not.i.i.i102 = icmp ult ptr %197, %199
   br i1 %.not.i.i.i102, label %202, label %200
 
@@ -1828,15 +1828,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i98:             ; preds = %168, %177, %175
 
 202:                                              ; preds = %195
   %203 = getelementptr inbounds nuw i8, ptr %197, i64 1
-  store ptr %203, ptr %196, align 8, !tbaa !98
+  store ptr %203, ptr %196, align 8, !tbaa !99
   store i8 44, ptr %197, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i101
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i101:            ; preds = %193, %202, %200
   %204 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %205 = load ptr, ptr %204, align 8, !tbaa !94
+  %205 = load ptr, ptr %204, align 8, !tbaa !95
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %207 = load ptr, ptr %206, align 8, !tbaa !98
+  %207 = load ptr, ptr %206, align 8, !tbaa !99
   %208 = ptrtoint ptr %205 to i64
   %209 = ptrtoint ptr %207 to i64
   %210 = sub i64 %208, %209
@@ -1849,9 +1849,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i101:            ; preds = %193, %202, %200
 
 214:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i101
   store i32 1819307337, ptr %207, align 1
-  %215 = load ptr, ptr %206, align 8, !tbaa !98
+  %215 = load ptr, ptr %206, align 8, !tbaa !99
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
-  store ptr %216, ptr %206, align 8, !tbaa !98
+  store ptr %216, ptr %206, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103": ; preds = %214, %212, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit100"
@@ -1866,9 +1866,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i101:            ; preds = %193, %202, %200
 
 220:                                              ; preds = %218
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %222 = load ptr, ptr %221, align 8, !tbaa !98
+  %222 = load ptr, ptr %221, align 8, !tbaa !99
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %224 = load ptr, ptr %223, align 8, !tbaa !94
+  %224 = load ptr, ptr %223, align 8, !tbaa !95
   %.not.i.i.i105 = icmp ult ptr %222, %224
   br i1 %.not.i.i.i105, label %227, label %225
 
@@ -1878,15 +1878,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i101:            ; preds = %193, %202, %200
 
 227:                                              ; preds = %220
   %228 = getelementptr inbounds nuw i8, ptr %222, i64 1
-  store ptr %228, ptr %221, align 8, !tbaa !98
+  store ptr %228, ptr %221, align 8, !tbaa !99
   store i8 44, ptr %222, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i104
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i104:            ; preds = %218, %227, %225
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %230 = load ptr, ptr %229, align 8, !tbaa !94
+  %230 = load ptr, ptr %229, align 8, !tbaa !95
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %232 = load ptr, ptr %231, align 8, !tbaa !98
+  %232 = load ptr, ptr %231, align 8, !tbaa !99
   %233 = ptrtoint ptr %230 to i64
   %234 = ptrtoint ptr %232 to i64
   %235 = sub i64 %233, %234
@@ -1899,9 +1899,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i104:            ; preds = %218, %227, %225
 
 239:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %232, ptr noundef nonnull align 1 dereferenceable(5) @.str.56, i64 5, i1 false)
-  %240 = load ptr, ptr %231, align 8, !tbaa !98
+  %240 = load ptr, ptr %231, align 8, !tbaa !99
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 5
-  store ptr %241, ptr %231, align 8, !tbaa !98
+  store ptr %241, ptr %231, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106": ; preds = %239, %237, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit103"
@@ -1916,9 +1916,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i104:            ; preds = %218, %227, %225
 
 245:                                              ; preds = %243
   %246 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %247 = load ptr, ptr %246, align 8, !tbaa !98
+  %247 = load ptr, ptr %246, align 8, !tbaa !99
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %249 = load ptr, ptr %248, align 8, !tbaa !94
+  %249 = load ptr, ptr %248, align 8, !tbaa !95
   %.not.i.i.i108 = icmp ult ptr %247, %249
   br i1 %.not.i.i.i108, label %252, label %250
 
@@ -1928,15 +1928,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i104:            ; preds = %218, %227, %225
 
 252:                                              ; preds = %245
   %253 = getelementptr inbounds nuw i8, ptr %247, i64 1
-  store ptr %253, ptr %246, align 8, !tbaa !98
+  store ptr %253, ptr %246, align 8, !tbaa !99
   store i8 44, ptr %247, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i107
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i107:            ; preds = %243, %252, %250
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %255 = load ptr, ptr %254, align 8, !tbaa !94
+  %255 = load ptr, ptr %254, align 8, !tbaa !95
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %257 = load ptr, ptr %256, align 8, !tbaa !98
+  %257 = load ptr, ptr %256, align 8, !tbaa !99
   %258 = ptrtoint ptr %255 to i64
   %259 = ptrtoint ptr %257 to i64
   %260 = sub i64 %258, %259
@@ -1949,9 +1949,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i107:            ; preds = %243, %252, %250
 
 264:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i107
   store i64 7236274597806237010, ptr %257, align 1
-  %265 = load ptr, ptr %256, align 8, !tbaa !98
+  %265 = load ptr, ptr %256, align 8, !tbaa !99
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  store ptr %266, ptr %256, align 8, !tbaa !98
+  store ptr %266, ptr %256, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109": ; preds = %264, %262, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit106"
@@ -1966,9 +1966,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i107:            ; preds = %243, %252, %250
 
 270:                                              ; preds = %268
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %272 = load ptr, ptr %271, align 8, !tbaa !98
+  %272 = load ptr, ptr %271, align 8, !tbaa !99
   %273 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %274 = load ptr, ptr %273, align 8, !tbaa !94
+  %274 = load ptr, ptr %273, align 8, !tbaa !95
   %.not.i.i.i111 = icmp ult ptr %272, %274
   br i1 %.not.i.i.i111, label %277, label %275
 
@@ -1978,15 +1978,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i107:            ; preds = %243, %252, %250
 
 277:                                              ; preds = %270
   %278 = getelementptr inbounds nuw i8, ptr %272, i64 1
-  store ptr %278, ptr %271, align 8, !tbaa !98
+  store ptr %278, ptr %271, align 8, !tbaa !99
   store i8 44, ptr %272, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i110
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i110:            ; preds = %268, %277, %275
   %279 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %280 = load ptr, ptr %279, align 8, !tbaa !94
+  %280 = load ptr, ptr %279, align 8, !tbaa !95
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %282 = load ptr, ptr %281, align 8, !tbaa !98
+  %282 = load ptr, ptr %281, align 8, !tbaa !99
   %283 = ptrtoint ptr %280 to i64
   %284 = ptrtoint ptr %282 to i64
   %285 = sub i64 %283, %284
@@ -1999,9 +1999,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i110:            ; preds = %268, %277, %275
 
 289:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i110
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %282, ptr noundef nonnull align 1 dereferenceable(7) @.str.58, i64 7, i1 false)
-  %290 = load ptr, ptr %281, align 8, !tbaa !98
+  %290 = load ptr, ptr %281, align 8, !tbaa !99
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 7
-  store ptr %291, ptr %281, align 8, !tbaa !98
+  store ptr %291, ptr %281, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112": ; preds = %289, %287, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit109"
@@ -2016,9 +2016,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i110:            ; preds = %268, %277, %275
 
 295:                                              ; preds = %293
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %297 = load ptr, ptr %296, align 8, !tbaa !98
+  %297 = load ptr, ptr %296, align 8, !tbaa !99
   %298 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %299 = load ptr, ptr %298, align 8, !tbaa !94
+  %299 = load ptr, ptr %298, align 8, !tbaa !95
   %.not.i.i.i114 = icmp ult ptr %297, %299
   br i1 %.not.i.i.i114, label %302, label %300
 
@@ -2028,15 +2028,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i110:            ; preds = %268, %277, %275
 
 302:                                              ; preds = %295
   %303 = getelementptr inbounds nuw i8, ptr %297, i64 1
-  store ptr %303, ptr %296, align 8, !tbaa !98
+  store ptr %303, ptr %296, align 8, !tbaa !99
   store i8 44, ptr %297, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i113
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i113:            ; preds = %293, %302, %300
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %305 = load ptr, ptr %304, align 8, !tbaa !94
+  %305 = load ptr, ptr %304, align 8, !tbaa !95
   %306 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %307 = load ptr, ptr %306, align 8, !tbaa !98
+  %307 = load ptr, ptr %306, align 8, !tbaa !99
   %308 = ptrtoint ptr %305 to i64
   %309 = ptrtoint ptr %307 to i64
   %310 = sub i64 %308, %309
@@ -2049,9 +2049,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i113:            ; preds = %293, %302, %300
 
 314:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i113
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %307, ptr noundef nonnull align 1 dereferenceable(7) @.str.59, i64 7, i1 false)
-  %315 = load ptr, ptr %306, align 8, !tbaa !98
+  %315 = load ptr, ptr %306, align 8, !tbaa !99
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 7
-  store ptr %316, ptr %306, align 8, !tbaa !98
+  store ptr %316, ptr %306, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115": ; preds = %314, %312, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit112"
@@ -2066,9 +2066,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i113:            ; preds = %293, %302, %300
 
 320:                                              ; preds = %318
   %321 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %322 = load ptr, ptr %321, align 8, !tbaa !98
+  %322 = load ptr, ptr %321, align 8, !tbaa !99
   %323 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %324 = load ptr, ptr %323, align 8, !tbaa !94
+  %324 = load ptr, ptr %323, align 8, !tbaa !95
   %.not.i.i.i117 = icmp ult ptr %322, %324
   br i1 %.not.i.i.i117, label %327, label %325
 
@@ -2078,15 +2078,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i113:            ; preds = %293, %302, %300
 
 327:                                              ; preds = %320
   %328 = getelementptr inbounds nuw i8, ptr %322, i64 1
-  store ptr %328, ptr %321, align 8, !tbaa !98
+  store ptr %328, ptr %321, align 8, !tbaa !99
   store i8 44, ptr %322, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i116
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i116:            ; preds = %318, %327, %325
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %330 = load ptr, ptr %329, align 8, !tbaa !94
+  %330 = load ptr, ptr %329, align 8, !tbaa !95
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %332 = load ptr, ptr %331, align 8, !tbaa !98
+  %332 = load ptr, ptr %331, align 8, !tbaa !99
   %333 = ptrtoint ptr %330 to i64
   %334 = ptrtoint ptr %332 to i64
   %335 = sub i64 %333, %334
@@ -2099,9 +2099,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i116:            ; preds = %318, %327, %325
 
 339:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %332, ptr noundef nonnull align 1 dereferenceable(6) @.str.60, i64 6, i1 false)
-  %340 = load ptr, ptr %331, align 8, !tbaa !98
+  %340 = load ptr, ptr %331, align 8, !tbaa !99
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 6
-  store ptr %341, ptr %331, align 8, !tbaa !98
+  store ptr %341, ptr %331, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118": ; preds = %339, %337, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit115"
@@ -2116,9 +2116,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i116:            ; preds = %318, %327, %325
 
 345:                                              ; preds = %343
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %347 = load ptr, ptr %346, align 8, !tbaa !98
+  %347 = load ptr, ptr %346, align 8, !tbaa !99
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %349 = load ptr, ptr %348, align 8, !tbaa !94
+  %349 = load ptr, ptr %348, align 8, !tbaa !95
   %.not.i.i.i120 = icmp ult ptr %347, %349
   br i1 %.not.i.i.i120, label %352, label %350
 
@@ -2128,15 +2128,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i116:            ; preds = %318, %327, %325
 
 352:                                              ; preds = %345
   %353 = getelementptr inbounds nuw i8, ptr %347, i64 1
-  store ptr %353, ptr %346, align 8, !tbaa !98
+  store ptr %353, ptr %346, align 8, !tbaa !99
   store i8 44, ptr %347, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i119
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i119:            ; preds = %343, %352, %350
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %355 = load ptr, ptr %354, align 8, !tbaa !94
+  %355 = load ptr, ptr %354, align 8, !tbaa !95
   %356 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %357 = load ptr, ptr %356, align 8, !tbaa !98
+  %357 = load ptr, ptr %356, align 8, !tbaa !99
   %358 = ptrtoint ptr %355 to i64
   %359 = ptrtoint ptr %357 to i64
   %360 = sub i64 %358, %359
@@ -2149,9 +2149,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i119:            ; preds = %343, %352, %350
 
 364:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i119
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %357, ptr noundef nonnull align 1 dereferenceable(7) @.str.61, i64 7, i1 false)
-  %365 = load ptr, ptr %356, align 8, !tbaa !98
+  %365 = load ptr, ptr %356, align 8, !tbaa !99
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 7
-  store ptr %366, ptr %356, align 8, !tbaa !98
+  store ptr %366, ptr %356, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121": ; preds = %364, %362, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit118"
@@ -2166,9 +2166,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i119:            ; preds = %343, %352, %350
 
 370:                                              ; preds = %368
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %372 = load ptr, ptr %371, align 8, !tbaa !98
+  %372 = load ptr, ptr %371, align 8, !tbaa !99
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %374 = load ptr, ptr %373, align 8, !tbaa !94
+  %374 = load ptr, ptr %373, align 8, !tbaa !95
   %.not.i.i.i123 = icmp ult ptr %372, %374
   br i1 %.not.i.i.i123, label %377, label %375
 
@@ -2178,15 +2178,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i119:            ; preds = %343, %352, %350
 
 377:                                              ; preds = %370
   %378 = getelementptr inbounds nuw i8, ptr %372, i64 1
-  store ptr %378, ptr %371, align 8, !tbaa !98
+  store ptr %378, ptr %371, align 8, !tbaa !99
   store i8 44, ptr %372, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i122
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i122:            ; preds = %368, %377, %375
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %380 = load ptr, ptr %379, align 8, !tbaa !94
+  %380 = load ptr, ptr %379, align 8, !tbaa !95
   %381 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %382 = load ptr, ptr %381, align 8, !tbaa !98
+  %382 = load ptr, ptr %381, align 8, !tbaa !99
   %383 = ptrtoint ptr %380 to i64
   %384 = ptrtoint ptr %382 to i64
   %385 = sub i64 %383, %384
@@ -2199,9 +2199,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i122:            ; preds = %368, %377, %375
 
 389:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i122
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %382, ptr noundef nonnull align 1 dereferenceable(6) @.str.62, i64 6, i1 false)
-  %390 = load ptr, ptr %381, align 8, !tbaa !98
+  %390 = load ptr, ptr %381, align 8, !tbaa !99
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 6
-  store ptr %391, ptr %381, align 8, !tbaa !98
+  store ptr %391, ptr %381, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124": ; preds = %389, %387, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit121"
@@ -2216,9 +2216,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i122:            ; preds = %368, %377, %375
 
 395:                                              ; preds = %393
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %397 = load ptr, ptr %396, align 8, !tbaa !98
+  %397 = load ptr, ptr %396, align 8, !tbaa !99
   %398 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %399 = load ptr, ptr %398, align 8, !tbaa !94
+  %399 = load ptr, ptr %398, align 8, !tbaa !95
   %.not.i.i.i126 = icmp ult ptr %397, %399
   br i1 %.not.i.i.i126, label %402, label %400
 
@@ -2228,15 +2228,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i122:            ; preds = %368, %377, %375
 
 402:                                              ; preds = %395
   %403 = getelementptr inbounds nuw i8, ptr %397, i64 1
-  store ptr %403, ptr %396, align 8, !tbaa !98
+  store ptr %403, ptr %396, align 8, !tbaa !99
   store i8 44, ptr %397, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i125
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i125:            ; preds = %393, %402, %400
   %404 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %405 = load ptr, ptr %404, align 8, !tbaa !94
+  %405 = load ptr, ptr %404, align 8, !tbaa !95
   %406 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %407 = load ptr, ptr %406, align 8, !tbaa !98
+  %407 = load ptr, ptr %406, align 8, !tbaa !99
   %408 = ptrtoint ptr %405 to i64
   %409 = ptrtoint ptr %407 to i64
   %410 = sub i64 %408, %409
@@ -2249,9 +2249,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i125:            ; preds = %393, %402, %400
 
 414:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i125
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %407, ptr noundef nonnull align 1 dereferenceable(6) @.str.63, i64 6, i1 false)
-  %415 = load ptr, ptr %406, align 8, !tbaa !98
+  %415 = load ptr, ptr %406, align 8, !tbaa !99
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 6
-  store ptr %416, ptr %406, align 8, !tbaa !98
+  store ptr %416, ptr %406, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127": ; preds = %414, %412, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit124"
@@ -2266,9 +2266,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i125:            ; preds = %393, %402, %400
 
 420:                                              ; preds = %418
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %422 = load ptr, ptr %421, align 8, !tbaa !98
+  %422 = load ptr, ptr %421, align 8, !tbaa !99
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %424 = load ptr, ptr %423, align 8, !tbaa !94
+  %424 = load ptr, ptr %423, align 8, !tbaa !95
   %.not.i.i.i129 = icmp ult ptr %422, %424
   br i1 %.not.i.i.i129, label %427, label %425
 
@@ -2278,15 +2278,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i125:            ; preds = %393, %402, %400
 
 427:                                              ; preds = %420
   %428 = getelementptr inbounds nuw i8, ptr %422, i64 1
-  store ptr %428, ptr %421, align 8, !tbaa !98
+  store ptr %428, ptr %421, align 8, !tbaa !99
   store i8 44, ptr %422, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i128
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i128:            ; preds = %418, %427, %425
   %429 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %430 = load ptr, ptr %429, align 8, !tbaa !94
+  %430 = load ptr, ptr %429, align 8, !tbaa !95
   %431 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %432 = load ptr, ptr %431, align 8, !tbaa !98
+  %432 = load ptr, ptr %431, align 8, !tbaa !99
   %433 = ptrtoint ptr %430 to i64
   %434 = ptrtoint ptr %432 to i64
   %435 = sub i64 %433, %434
@@ -2299,9 +2299,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i128:            ; preds = %418, %427, %425
 
 439:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %432, ptr noundef nonnull align 1 dereferenceable(7) @.str.64, i64 7, i1 false)
-  %440 = load ptr, ptr %431, align 8, !tbaa !98
+  %440 = load ptr, ptr %431, align 8, !tbaa !99
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 7
-  store ptr %441, ptr %431, align 8, !tbaa !98
+  store ptr %441, ptr %431, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130": ; preds = %439, %437, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit127"
@@ -2316,9 +2316,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i128:            ; preds = %418, %427, %425
 
 445:                                              ; preds = %443
   %446 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %447 = load ptr, ptr %446, align 8, !tbaa !98
+  %447 = load ptr, ptr %446, align 8, !tbaa !99
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %449 = load ptr, ptr %448, align 8, !tbaa !94
+  %449 = load ptr, ptr %448, align 8, !tbaa !95
   %.not.i.i.i132 = icmp ult ptr %447, %449
   br i1 %.not.i.i.i132, label %452, label %450
 
@@ -2328,15 +2328,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i128:            ; preds = %418, %427, %425
 
 452:                                              ; preds = %445
   %453 = getelementptr inbounds nuw i8, ptr %447, i64 1
-  store ptr %453, ptr %446, align 8, !tbaa !98
+  store ptr %453, ptr %446, align 8, !tbaa !99
   store i8 44, ptr %447, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i131
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i131:            ; preds = %443, %452, %450
   %454 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %455 = load ptr, ptr %454, align 8, !tbaa !94
+  %455 = load ptr, ptr %454, align 8, !tbaa !95
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %457 = load ptr, ptr %456, align 8, !tbaa !98
+  %457 = load ptr, ptr %456, align 8, !tbaa !99
   %458 = ptrtoint ptr %455 to i64
   %459 = ptrtoint ptr %457 to i64
   %460 = sub i64 %458, %459
@@ -2349,9 +2349,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i131:            ; preds = %443, %452, %450
 
 464:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i131
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %457, ptr noundef nonnull align 1 dereferenceable(9) @.str.65, i64 9, i1 false)
-  %465 = load ptr, ptr %456, align 8, !tbaa !98
+  %465 = load ptr, ptr %456, align 8, !tbaa !99
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 9
-  store ptr %466, ptr %456, align 8, !tbaa !98
+  store ptr %466, ptr %456, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133": ; preds = %464, %462, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit130"
@@ -2366,9 +2366,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i131:            ; preds = %443, %452, %450
 
 470:                                              ; preds = %468
   %471 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %472 = load ptr, ptr %471, align 8, !tbaa !98
+  %472 = load ptr, ptr %471, align 8, !tbaa !99
   %473 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %474 = load ptr, ptr %473, align 8, !tbaa !94
+  %474 = load ptr, ptr %473, align 8, !tbaa !95
   %.not.i.i.i135 = icmp ult ptr %472, %474
   br i1 %.not.i.i.i135, label %477, label %475
 
@@ -2378,15 +2378,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i131:            ; preds = %443, %452, %450
 
 477:                                              ; preds = %470
   %478 = getelementptr inbounds nuw i8, ptr %472, i64 1
-  store ptr %478, ptr %471, align 8, !tbaa !98
+  store ptr %478, ptr %471, align 8, !tbaa !99
   store i8 44, ptr %472, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i134
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i134:            ; preds = %468, %477, %475
   %479 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %480 = load ptr, ptr %479, align 8, !tbaa !94
+  %480 = load ptr, ptr %479, align 8, !tbaa !95
   %481 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %482 = load ptr, ptr %481, align 8, !tbaa !98
+  %482 = load ptr, ptr %481, align 8, !tbaa !99
   %483 = ptrtoint ptr %480 to i64
   %484 = ptrtoint ptr %482 to i64
   %485 = sub i64 %483, %484
@@ -2399,9 +2399,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i134:            ; preds = %468, %477, %475
 
 489:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i134
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %482, ptr noundef nonnull align 1 dereferenceable(17) @.str.66, i64 17, i1 false)
-  %490 = load ptr, ptr %481, align 8, !tbaa !98
+  %490 = load ptr, ptr %481, align 8, !tbaa !99
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 17
-  store ptr %491, ptr %481, align 8, !tbaa !98
+  store ptr %491, ptr %481, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit136"
 
 "_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit136": ; preds = %489, %487, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit133"
@@ -2416,9 +2416,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i134:            ; preds = %468, %477, %475
 
 495:                                              ; preds = %493
   %496 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %497 = load ptr, ptr %496, align 8, !tbaa !98
+  %497 = load ptr, ptr %496, align 8, !tbaa !99
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %499 = load ptr, ptr %498, align 8, !tbaa !94
+  %499 = load ptr, ptr %498, align 8, !tbaa !95
   %.not.i.i.i138 = icmp ult ptr %497, %499
   br i1 %.not.i.i.i138, label %502, label %500
 
@@ -2428,15 +2428,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i134:            ; preds = %468, %477, %475
 
 502:                                              ; preds = %495
   %503 = getelementptr inbounds nuw i8, ptr %497, i64 1
-  store ptr %503, ptr %496, align 8, !tbaa !98
+  store ptr %503, ptr %496, align 8, !tbaa !99
   store i8 44, ptr %497, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i137
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i137:            ; preds = %493, %502, %500
   %504 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %505 = load ptr, ptr %504, align 8, !tbaa !94
+  %505 = load ptr, ptr %504, align 8, !tbaa !95
   %506 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %507 = load ptr, ptr %506, align 8, !tbaa !98
+  %507 = load ptr, ptr %506, align 8, !tbaa !99
   %508 = ptrtoint ptr %505 to i64
   %509 = ptrtoint ptr %507 to i64
   %510 = sub i64 %508, %509
@@ -2449,9 +2449,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i137:            ; preds = %493, %502, %500
 
 514:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i137
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %507, ptr noundef nonnull align 1 dereferenceable(13) @.str.67, i64 13, i1 false)
-  %515 = load ptr, ptr %506, align 8, !tbaa !98
+  %515 = load ptr, ptr %506, align 8, !tbaa !99
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 13
-  store ptr %516, ptr %506, align 8, !tbaa !98
+  store ptr %516, ptr %506, align 8, !tbaa !99
   br label %_ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE.exit
 
 _ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE.exit: ; preds = %514, %512, %"_ZN4llvm12function_refIFvN5clang5index10SymbolRoleEEE11callback_fnIZNS2_16printSymbolRolesEjRNS_11raw_ostreamEE3$_0EEvlS3_.exit136"
@@ -2510,7 +2510,7 @@ define dso_local noundef zeroext i1 @_ZN5clang5index15printSymbolNameEPKNS_4Decl
   %43 = shl i64 %42, 39
   %44 = and i64 %43, 140737488355328
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %45, align 8, !tbaa !99
+  store ptr null, ptr %45, align 8, !tbaa !100
   %.masked10.masked.masked.masked.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked, %30
   %.masked.masked.masked.masked.masked.masked15.masked.masked = or i64 %.masked10.masked.masked.masked.masked.masked.masked.masked.masked, %32
   %.masked13.masked.masked.masked.masked.masked.masked = or i64 %.masked.masked.masked.masked.masked.masked15.masked.masked, %20
@@ -2679,9 +2679,9 @@ define dso_local void @_ZN5clang5index21printSymbolPropertiesEtRN4llvm11raw_ostr
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !94
+  %6 = load ptr, ptr %5, align 8, !tbaa !95
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !98
+  %8 = load ptr, ptr %7, align 8, !tbaa !99
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -2694,9 +2694,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
 
 15:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %8, ptr noundef nonnull align 1 dereferenceable(3) @.str.68, i64 3, i1 false)
-  %16 = load ptr, ptr %7, align 8, !tbaa !98
+  %16 = load ptr, ptr %7, align 8, !tbaa !99
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 3
-  store ptr %17, ptr %7, align 8, !tbaa !98
+  store ptr %17, ptr %7, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit": ; preds = %15, %13, %2
@@ -2711,9 +2711,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %23 = load ptr, ptr %22, align 8, !tbaa !98
+  %23 = load ptr, ptr %22, align 8, !tbaa !99
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !94
+  %25 = load ptr, ptr %24, align 8, !tbaa !95
   %.not.i.i.i2 = icmp ult ptr %23, %25
   br i1 %.not.i.i.i2, label %28, label %26
 
@@ -2723,15 +2723,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i:               ; preds = %2
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
-  store ptr %29, ptr %22, align 8, !tbaa !98
+  store ptr %29, ptr %22, align 8, !tbaa !99
   store i8 44, ptr %23, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i1
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i1:              ; preds = %19, %28, %26
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !94
+  %31 = load ptr, ptr %30, align 8, !tbaa !95
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !98
+  %33 = load ptr, ptr %32, align 8, !tbaa !99
   %34 = ptrtoint ptr %31 to i64
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
@@ -2744,9 +2744,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i1:              ; preds = %19, %28, %26
 
 40:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %33, ptr noundef nonnull align 1 dereferenceable(3) @.str.69, i64 3, i1 false)
-  %41 = load ptr, ptr %32, align 8, !tbaa !98
+  %41 = load ptr, ptr %32, align 8, !tbaa !99
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 3
-  store ptr %42, ptr %32, align 8, !tbaa !98
+  store ptr %42, ptr %32, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3": ; preds = %40, %38, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit"
@@ -2761,9 +2761,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i1:              ; preds = %19, %28, %26
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %48 = load ptr, ptr %47, align 8, !tbaa !98
+  %48 = load ptr, ptr %47, align 8, !tbaa !99
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !94
+  %50 = load ptr, ptr %49, align 8, !tbaa !95
   %.not.i.i.i5 = icmp ult ptr %48, %50
   br i1 %.not.i.i.i5, label %53, label %51
 
@@ -2773,15 +2773,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i1:              ; preds = %19, %28, %26
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 1
-  store ptr %54, ptr %47, align 8, !tbaa !98
+  store ptr %54, ptr %47, align 8, !tbaa !99
   store i8 44, ptr %48, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i4
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i4:              ; preds = %44, %53, %51
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !94
+  %56 = load ptr, ptr %55, align 8, !tbaa !95
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %58 = load ptr, ptr %57, align 8, !tbaa !98
+  %58 = load ptr, ptr %57, align 8, !tbaa !99
   %59 = ptrtoint ptr %56 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
@@ -2794,9 +2794,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i4:              ; preds = %44, %53, %51
 
 65:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i4
   store i16 21332, ptr %58, align 1
-  %66 = load ptr, ptr %57, align 8, !tbaa !98
+  %66 = load ptr, ptr %57, align 8, !tbaa !99
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
-  store ptr %67, ptr %57, align 8, !tbaa !98
+  store ptr %67, ptr %57, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6": ; preds = %65, %63, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit3"
@@ -2811,9 +2811,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i4:              ; preds = %44, %53, %51
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %73 = load ptr, ptr %72, align 8, !tbaa !98
+  %73 = load ptr, ptr %72, align 8, !tbaa !99
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !94
+  %75 = load ptr, ptr %74, align 8, !tbaa !95
   %.not.i.i.i8 = icmp ult ptr %73, %75
   br i1 %.not.i.i.i8, label %78, label %76
 
@@ -2823,15 +2823,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i4:              ; preds = %44, %53, %51
 
 78:                                               ; preds = %71
   %79 = getelementptr inbounds nuw i8, ptr %73, i64 1
-  store ptr %79, ptr %72, align 8, !tbaa !98
+  store ptr %79, ptr %72, align 8, !tbaa !99
   store i8 44, ptr %73, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i7
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i7:              ; preds = %69, %78, %76
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %81 = load ptr, ptr %80, align 8, !tbaa !94
+  %81 = load ptr, ptr %80, align 8, !tbaa !95
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %83 = load ptr, ptr %82, align 8, !tbaa !98
+  %83 = load ptr, ptr %82, align 8, !tbaa !99
   %84 = ptrtoint ptr %81 to i64
   %85 = ptrtoint ptr %83 to i64
   %86 = sub i64 %84, %85
@@ -2844,9 +2844,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i7:              ; preds = %69, %78, %76
 
 90:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i7
   store i32 1953719668, ptr %83, align 1
-  %91 = load ptr, ptr %82, align 8, !tbaa !98
+  %91 = load ptr, ptr %82, align 8, !tbaa !99
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
-  store ptr %92, ptr %82, align 8, !tbaa !98
+  store ptr %92, ptr %82, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9": ; preds = %90, %88, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit6"
@@ -2861,9 +2861,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i7:              ; preds = %69, %78, %76
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %98 = load ptr, ptr %97, align 8, !tbaa !98
+  %98 = load ptr, ptr %97, align 8, !tbaa !99
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %100 = load ptr, ptr %99, align 8, !tbaa !94
+  %100 = load ptr, ptr %99, align 8, !tbaa !95
   %.not.i.i.i11 = icmp ult ptr %98, %100
   br i1 %.not.i.i.i11, label %103, label %101
 
@@ -2873,15 +2873,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i7:              ; preds = %69, %78, %76
 
 103:                                              ; preds = %96
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 1
-  store ptr %104, ptr %97, align 8, !tbaa !98
+  store ptr %104, ptr %97, align 8, !tbaa !99
   store i8 44, ptr %98, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i10
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i10:             ; preds = %94, %103, %101
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %106 = load ptr, ptr %105, align 8, !tbaa !94
+  %106 = load ptr, ptr %105, align 8, !tbaa !95
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %108 = load ptr, ptr %107, align 8, !tbaa !98
+  %108 = load ptr, ptr %107, align 8, !tbaa !99
   %109 = ptrtoint ptr %106 to i64
   %110 = ptrtoint ptr %108 to i64
   %111 = sub i64 %109, %110
@@ -2894,9 +2894,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i10:             ; preds = %94, %103, %101
 
 115:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i10
   store i16 16969, ptr %108, align 1
-  %116 = load ptr, ptr %107, align 8, !tbaa !98
+  %116 = load ptr, ptr %107, align 8, !tbaa !99
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 2
-  store ptr %117, ptr %107, align 8, !tbaa !98
+  store ptr %117, ptr %107, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12": ; preds = %115, %113, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit9"
@@ -2911,9 +2911,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i10:             ; preds = %94, %103, %101
 
 121:                                              ; preds = %119
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %123 = load ptr, ptr %122, align 8, !tbaa !98
+  %123 = load ptr, ptr %122, align 8, !tbaa !99
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %125 = load ptr, ptr %124, align 8, !tbaa !94
+  %125 = load ptr, ptr %124, align 8, !tbaa !95
   %.not.i.i.i14 = icmp ult ptr %123, %125
   br i1 %.not.i.i.i14, label %128, label %126
 
@@ -2923,15 +2923,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i10:             ; preds = %94, %103, %101
 
 128:                                              ; preds = %121
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 1
-  store ptr %129, ptr %122, align 8, !tbaa !98
+  store ptr %129, ptr %122, align 8, !tbaa !99
   store i8 44, ptr %123, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i13
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i13:             ; preds = %119, %128, %126
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %131 = load ptr, ptr %130, align 8, !tbaa !94
+  %131 = load ptr, ptr %130, align 8, !tbaa !95
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %133 = load ptr, ptr %132, align 8, !tbaa !98
+  %133 = load ptr, ptr %132, align 8, !tbaa !99
   %134 = ptrtoint ptr %131 to i64
   %135 = ptrtoint ptr %133 to i64
   %136 = sub i64 %134, %135
@@ -2944,9 +2944,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i13:             ; preds = %119, %128, %126
 
 140:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %133, ptr noundef nonnull align 1 dereferenceable(6) @.str.72, i64 6, i1 false)
-  %141 = load ptr, ptr %132, align 8, !tbaa !98
+  %141 = load ptr, ptr %132, align 8, !tbaa !99
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 6
-  store ptr %142, ptr %132, align 8, !tbaa !98
+  store ptr %142, ptr %132, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15": ; preds = %140, %138, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit12"
@@ -2961,9 +2961,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i13:             ; preds = %119, %128, %126
 
 146:                                              ; preds = %144
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %148 = load ptr, ptr %147, align 8, !tbaa !98
+  %148 = load ptr, ptr %147, align 8, !tbaa !99
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %150 = load ptr, ptr %149, align 8, !tbaa !94
+  %150 = load ptr, ptr %149, align 8, !tbaa !95
   %.not.i.i.i17 = icmp ult ptr %148, %150
   br i1 %.not.i.i.i17, label %153, label %151
 
@@ -2973,15 +2973,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i13:             ; preds = %119, %128, %126
 
 153:                                              ; preds = %146
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 1
-  store ptr %154, ptr %147, align 8, !tbaa !98
+  store ptr %154, ptr %147, align 8, !tbaa !99
   store i8 44, ptr %148, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i16
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i16:             ; preds = %144, %153, %151
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %156 = load ptr, ptr %155, align 8, !tbaa !94
+  %156 = load ptr, ptr %155, align 8, !tbaa !95
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %158 = load ptr, ptr %157, align 8, !tbaa !98
+  %158 = load ptr, ptr %157, align 8, !tbaa !99
   %159 = ptrtoint ptr %156 to i64
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
@@ -2994,9 +2994,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i16:             ; preds = %144, %153, %151
 
 165:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %158, ptr noundef nonnull align 1 dereferenceable(3) @.str.73, i64 3, i1 false)
-  %166 = load ptr, ptr %157, align 8, !tbaa !98
+  %166 = load ptr, ptr %157, align 8, !tbaa !99
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 3
-  store ptr %167, ptr %157, align 8, !tbaa !98
+  store ptr %167, ptr %157, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18": ; preds = %165, %163, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit15"
@@ -3011,9 +3011,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i16:             ; preds = %144, %153, %151
 
 171:                                              ; preds = %169
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %173 = load ptr, ptr %172, align 8, !tbaa !98
+  %173 = load ptr, ptr %172, align 8, !tbaa !99
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %175 = load ptr, ptr %174, align 8, !tbaa !94
+  %175 = load ptr, ptr %174, align 8, !tbaa !95
   %.not.i.i.i20 = icmp ult ptr %173, %175
   br i1 %.not.i.i.i20, label %178, label %176
 
@@ -3023,15 +3023,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i16:             ; preds = %144, %153, %151
 
 178:                                              ; preds = %171
   %179 = getelementptr inbounds nuw i8, ptr %173, i64 1
-  store ptr %179, ptr %172, align 8, !tbaa !98
+  store ptr %179, ptr %172, align 8, !tbaa !99
   store i8 44, ptr %173, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i19
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i19:             ; preds = %169, %178, %176
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %181 = load ptr, ptr %180, align 8, !tbaa !94
+  %181 = load ptr, ptr %180, align 8, !tbaa !95
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %183 = load ptr, ptr %182, align 8, !tbaa !98
+  %183 = load ptr, ptr %182, align 8, !tbaa !99
   %184 = ptrtoint ptr %181 to i64
   %185 = ptrtoint ptr %183 to i64
   %186 = sub i64 %184, %185
@@ -3044,9 +3044,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i19:             ; preds = %169, %178, %176
 
 190:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i19
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %183, ptr noundef nonnull align 1 dereferenceable(5) @.str.74, i64 5, i1 false)
-  %191 = load ptr, ptr %182, align 8, !tbaa !98
+  %191 = load ptr, ptr %182, align 8, !tbaa !99
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 5
-  store ptr %192, ptr %182, align 8, !tbaa !98
+  store ptr %192, ptr %182, align 8, !tbaa !99
   br label %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit21"
 
 "_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit21": ; preds = %190, %188, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit18"
@@ -3061,9 +3061,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i19:             ; preds = %169, %178, %176
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %198 = load ptr, ptr %197, align 8, !tbaa !98
+  %198 = load ptr, ptr %197, align 8, !tbaa !99
   %199 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %200 = load ptr, ptr %199, align 8, !tbaa !94
+  %200 = load ptr, ptr %199, align 8, !tbaa !95
   %.not.i.i.i23 = icmp ult ptr %198, %200
   br i1 %.not.i.i.i23, label %203, label %201
 
@@ -3073,15 +3073,15 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i19:             ; preds = %169, %178, %176
 
 203:                                              ; preds = %196
   %204 = getelementptr inbounds nuw i8, ptr %198, i64 1
-  store ptr %204, ptr %197, align 8, !tbaa !98
+  store ptr %204, ptr %197, align 8, !tbaa !99
   store i8 44, ptr %198, align 1, !tbaa !75
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i22
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i22:             ; preds = %194, %203, %201
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %206 = load ptr, ptr %205, align 8, !tbaa !94
+  %206 = load ptr, ptr %205, align 8, !tbaa !95
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %208 = load ptr, ptr %207, align 8, !tbaa !98
+  %208 = load ptr, ptr %207, align 8, !tbaa !99
   %209 = ptrtoint ptr %206 to i64
   %210 = ptrtoint ptr %208 to i64
   %211 = sub i64 %209, %210
@@ -3094,9 +3094,9 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i22:             ; preds = %194, %203, %201
 
 215:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i22
   store i64 7813573208857080432, ptr %208, align 1
-  %216 = load ptr, ptr %207, align 8, !tbaa !98
+  %216 = load ptr, ptr %207, align 8, !tbaa !99
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store ptr %217, ptr %207, align 8, !tbaa !98
+  store ptr %217, ptr %207, align 8, !tbaa !99
   br label %_ZN5clang5index26applyForEachSymbolPropertyEtN4llvm12function_refIFvNS0_14SymbolPropertyEEEE.exit
 
 _ZN5clang5index26applyForEachSymbolPropertyEtN4llvm12function_refIFvNS0_14SymbolPropertyEEEE.exit: ; preds = %215, %213, %"_ZN4llvm12function_refIFvN5clang5index14SymbolPropertyEEE11callback_fnIZNS2_21printSymbolPropertiesEtRNS_11raw_ostreamEE3$_0EEvlS3_.exit21"
@@ -3118,10 +3118,10 @@ declare noundef zeroext i1 @_ZNK5clang18CXXConstructorDecl17isMoveConstructorERj
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbN5clang5index10SymbolRoleEEE11callback_fnIZNS2_22applyForEachSymbolRoleEjNS0_IFvS3_EEEE3$_0EEblS3_"(i64 noundef %0, i32 noundef %1) #0 align 2 {
   %3 = inttoptr i64 %0 to ptr
-  %.val = load ptr, ptr %3, align 8, !tbaa !102
-  %.val.val = load ptr, ptr %.val, align 8, !tbaa !104
+  %.val = load ptr, ptr %3, align 8, !tbaa !103
+  %.val.val = load ptr, ptr %.val, align 8, !tbaa !105
   %4 = getelementptr i8, ptr %.val, i64 8
-  %.val.val2 = load i64, ptr %4, align 8, !tbaa !106
+  %.val.val2 = load i64, ptr %4, align 8, !tbaa !107
   tail call void %.val.val(i64 noundef %.val.val2, i32 noundef %1) #6
   ret i1 true
 }
@@ -3228,25 +3228,26 @@ attributes #6 = { nounwind }
 !82 = !{!81, !31, i64 8}
 !83 = !{!84, !84, i64 0}
 !84 = !{!"p1 _ZTSN5clang4AttrE", !17, i64 0}
-!85 = distinct !{!85, !86}
+!85 = distinct !{!85, !86, !87}
 !86 = !{!"llvm.loop.mustprogress"}
-!87 = distinct !{!87, !86}
-!88 = distinct !{!88, !86}
-!89 = !{!10, !10, i64 0}
-!90 = distinct !{!90, !86}
-!91 = distinct !{!91, !86}
-!92 = !{!93, !93, i64 0}
-!93 = !{!"p1 _ZTSN4llvm12function_refIFvN5clang5index10SymbolRoleEEEE", !17, i64 0}
-!94 = !{!95, !61, i64 24}
-!95 = !{!"_ZTSN4llvm11raw_ostreamE", !96, i64 8, !61, i64 16, !61, i64 24, !61, i64 32, !67, i64 40, !97, i64 44}
-!96 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
-!97 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
-!98 = !{!95, !61, i64 32}
-!99 = !{!100, !101, i64 8}
-!100 = !{!"_ZTSN5clang14PrintingPolicyE", !31, i64 0, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !101, i64 8}
-!101 = !{!"p1 _ZTSN5clang17PrintingCallbacksE", !17, i64 0}
-!102 = !{!103, !93, i64 0}
-!103 = !{!"_ZTSZN5clang5index22applyForEachSymbolRoleEjN4llvm12function_refIFvNS0_10SymbolRoleEEEEE3$_0", !93, i64 0}
-!104 = !{!105, !17, i64 0}
-!105 = !{!"_ZTSN4llvm12function_refIFvN5clang5index10SymbolRoleEEEE", !17, i64 0, !33, i64 8}
-!106 = !{!105, !33, i64 8}
+!87 = !{!"llvm.loop.estimated_trip_count"}
+!88 = distinct !{!88, !86, !87}
+!89 = distinct !{!89, !86, !87}
+!90 = !{!10, !10, i64 0}
+!91 = distinct !{!91, !86, !87}
+!92 = distinct !{!92, !86, !87}
+!93 = !{!94, !94, i64 0}
+!94 = !{!"p1 _ZTSN4llvm12function_refIFvN5clang5index10SymbolRoleEEEE", !17, i64 0}
+!95 = !{!96, !61, i64 24}
+!96 = !{!"_ZTSN4llvm11raw_ostreamE", !97, i64 8, !61, i64 16, !61, i64 24, !61, i64 32, !67, i64 40, !98, i64 44}
+!97 = !{!"_ZTSN4llvm11raw_ostream11OStreamKindE", !6, i64 0}
+!98 = !{!"_ZTSN4llvm11raw_ostream10BufferKindE", !6, i64 0}
+!99 = !{!96, !61, i64 32}
+!100 = !{!101, !102, i64 8}
+!101 = !{!"_ZTSN5clang14PrintingPolicyE", !31, i64 0, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 1, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 2, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 3, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 4, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !31, i64 5, !102, i64 8}
+!102 = !{!"p1 _ZTSN5clang17PrintingCallbacksE", !17, i64 0}
+!103 = !{!104, !94, i64 0}
+!104 = !{!"_ZTSZN5clang5index22applyForEachSymbolRoleEjN4llvm12function_refIFvNS0_10SymbolRoleEEEEE3$_0", !94, i64 0}
+!105 = !{!106, !17, i64 0}
+!106 = !{!"_ZTSN4llvm12function_refIFvN5clang5index10SymbolRoleEEEE", !17, i64 0, !33, i64 8}
+!107 = !{!106, !33, i64 8}

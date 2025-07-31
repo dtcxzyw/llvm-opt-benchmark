@@ -194,7 +194,7 @@ define range(i32 0, 2) i32 @test_readstanza(ptr noundef initializes((36, 40)) %0
   store i8 0, ptr %.026.i, align 1, !tbaa !19
   %.0.i = getelementptr inbounds i8, ptr %.026.i, i64 -1
   %.not18.i = icmp eq ptr %.0.i, %.01523.i
-  br i1 %.not18.i, label %.critedge2.loopexit.i, label %44, !llvm.loop !25
+  br i1 %.not18.i, label %.critedge2.loopexit.i, label %44, !llvm.loop !26
 
 .critedge2.loopexit.i:                            ; preds = %51, %44
   %.pre.i = load i8, ptr %.01523.i, align 1, !tbaa !19
@@ -265,7 +265,7 @@ strip_spaces.exit:                                ; preds = %39, %29, %.critedge
   store i8 0, ptr %.026.i51, align 1, !tbaa !19
   %.0.i53 = getelementptr inbounds i8, ptr %.026.i51, i64 -1
   %.not18.i54 = icmp eq ptr %.0.i53, %.01523.i43
-  br i1 %.not18.i54, label %.critedge2.loopexit.i55, label %73, !llvm.loop !25
+  br i1 %.not18.i54, label %.critedge2.loopexit.i55, label %73, !llvm.loop !26
 
 .critedge2.loopexit.i55:                          ; preds = %80, %73
   %.pre.i56 = load i8, ptr %.01523.i43, align 1, !tbaa !19
@@ -299,7 +299,7 @@ strip_spaces.exit57:                              ; preds = %68, %57, %.critedge
 
 93:                                               ; preds = %90
   %94 = load i32, ptr %9, align 8, !tbaa !18
-  store i32 %94, ptr %10, align 4, !tbaa !26
+  store i32 %94, ptr %10, align 4, !tbaa !27
   br label %95
 
 95:                                               ; preds = %93, %90
@@ -319,14 +319,14 @@ strip_spaces.exit57:                              ; preds = %68, %57, %.critedge
 
 104:                                              ; preds = %101, %98, %95
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #6
-  %105 = load ptr, ptr %11, align 8, !tbaa !27
+  %105 = load ptr, ptr %11, align 8, !tbaa !28
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %111
 
 107:                                              ; preds = %104
   %108 = call ptr @BIO_s_mem() #6
   %109 = call ptr @BIO_new(ptr noundef %108) #6
-  store ptr %109, ptr %11, align 8, !tbaa !27
+  store ptr %109, ptr %11, align 8, !tbaa !28
   %110 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 46, ptr noundef nonnull @.str.21, ptr noundef %109) #6
   %.not7.i = icmp eq i32 %110, 0
   br i1 %.not7.i, label %read_key.exit.thread, label %.preheader
@@ -351,7 +351,7 @@ strip_spaces.exit57:                              ; preds = %68, %57, %.critedge
   %119 = load i32, ptr %9, align 8, !tbaa !18
   %120 = add nsw i32 %119, 1
   store i32 %120, ptr %9, align 8, !tbaa !18
-  %121 = load ptr, ptr %11, align 8, !tbaa !27
+  %121 = load ptr, ptr %11, align 8, !tbaa !28
   %122 = call i32 @BIO_puts(ptr noundef %121, ptr noundef nonnull %2) #6
   %123 = call i32 @test_int_gt(ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.23, i32 noundef %122, i32 noundef 0) #6
   %.not9.i = icmp eq i32 %123, 0
@@ -360,7 +360,7 @@ strip_spaces.exit57:                              ; preds = %68, %57, %.critedge
 124:                                              ; preds = %118
   %lhsv.i = load i64, ptr %2, align 16
   %.not11.i = icmp eq i64 %lhsv.i, 4921947503096311085
-  br i1 %.not11.i, label %read_key.exit, label %115, !llvm.loop !28
+  br i1 %.not11.i, label %read_key.exit, label %115, !llvm.loop !29
 
 125:                                              ; preds = %115
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.26) #6
@@ -385,7 +385,7 @@ read_key.exit:                                    ; preds = %124
 
 130:                                              ; preds = %126
   %131 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.016.i, ptr noundef nonnull @.str, i32 noundef 137) #6
-  store ptr %131, ptr %.032.ph78, align 8, !tbaa !29
+  store ptr %131, ptr %.032.ph78, align 8, !tbaa !30
   %132 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 137, ptr noundef nonnull @.str.19, ptr noundef %131) #6
   %.not39 = icmp eq i32 %132, 0
   br i1 %.not39, label %.loopexit, label %133
@@ -393,7 +393,7 @@ read_key.exit:                                    ; preds = %124
 133:                                              ; preds = %130
   %134 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %spec.store.select, ptr noundef nonnull @.str, i32 noundef 138) #6
   %135 = getelementptr inbounds nuw i8, ptr %.032.ph78, i64 8
-  store ptr %134, ptr %135, align 8, !tbaa !31
+  store ptr %134, ptr %135, align 8, !tbaa !32
   %136 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 138, ptr noundef nonnull @.str.20, ptr noundef %134) #6
   %.not40 = icmp eq i32 %136, 0
   br i1 %.not40, label %.loopexit, label %.outer
@@ -436,14 +436,14 @@ define void @test_clearstanza(ptr noundef captures(none) %0) local_unnamed_addr 
   %.09 = phi i32 [ %6, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %.068 = phi ptr [ %10, %.lr.ph ], [ %5, %.lr.ph.preheader ]
   %6 = add nsw i32 %.09, -1
-  %7 = load ptr, ptr %.068, align 8, !tbaa !29
+  %7 = load ptr, ptr %.068, align 8, !tbaa !30
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 153) #6
   %8 = getelementptr inbounds nuw i8, ptr %.068, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %9 = load ptr, ptr %8, align 8, !tbaa !32
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 154) #6
   %10 = getelementptr inbounds nuw i8, ptr %.068, i64 16
   %11 = icmp samesign ugt i32 %.09, 1
-  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  br i1 %11, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store i32 0, ptr %2, align 4, !tbaa !15
@@ -499,19 +499,20 @@ attributes #8 = { nounwind willreturn memory(none) }
 !14 = !{!4, !10, i64 32}
 !15 = !{!4, !10, i64 36}
 !16 = distinct !{!16, !17}
-!17 = !{!"llvm.loop.mustprogress"}
+!17 = !{!"llvm.loop.estimated_trip_count"}
 !18 = !{!4, !10, i64 16}
 !19 = !{!7, !7, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 short", !6, i64 0}
 !22 = !{!23, !23, i64 0}
 !23 = !{!"short", !7, i64 0}
-!24 = distinct !{!24, !17}
-!25 = distinct !{!25, !17}
-!26 = !{!4, !10, i64 20}
-!27 = !{!4, !9, i64 2440}
-!28 = distinct !{!28, !17}
-!29 = !{!30, !5, i64 0}
-!30 = !{!"pair_st", !5, i64 0, !5, i64 8}
-!31 = !{!30, !5, i64 8}
-!32 = distinct !{!32, !17}
+!24 = distinct !{!24, !25, !17}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = distinct !{!26, !25, !17}
+!27 = !{!4, !10, i64 20}
+!28 = !{!4, !9, i64 2440}
+!29 = distinct !{!29, !25, !17}
+!30 = !{!31, !5, i64 0}
+!31 = !{!"pair_st", !5, i64 0, !5, i64 8}
+!32 = !{!31, !5, i64 8}
+!33 = distinct !{!33, !25, !17}

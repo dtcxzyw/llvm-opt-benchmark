@@ -418,7 +418,7 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 218:                                              ; preds = %210, %215
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next522, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %210, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %210, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %218, %205
   store i32 0, ptr %17, align 4, !tbaa !3
@@ -642,7 +642,7 @@ define void @dbdsdc_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0435.neg = sub i32 0, %.1436
   %367 = sext i32 %366 to i64
   %.not474.not = icmp slt i64 %indvars.iv524, %367
-  br i1 %.not474.not, label %234, label %._crit_edge504, !llvm.loop !12
+  br i1 %.not474.not, label %234, label %._crit_edge504, !llvm.loop !13
 
 ._crit_edge504:                                   ; preds = %365, %._crit_edge
   call void @dlascl_(ptr noundef nonnull @.str.9, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull @c_b15, ptr noundef nonnull %23, ptr noundef nonnull %2, ptr noundef nonnull @c__1, ptr noundef %3, ptr noundef nonnull %2, ptr noundef nonnull %16) #5
@@ -694,7 +694,7 @@ thread-pre-split:                                 ; preds = %142, %._crit_edge50
   %.1432 = select i1 %382, i32 %383, i32 %.0431508
   %indvars.iv.next530 = add nuw nsw i64 %indvars.iv529, 1
   %exitcond533.not = icmp eq i64 %indvars.iv.next530, %wide.trip.count532
-  br i1 %exitcond533.not, label %._crit_edge511, label %.lr.ph510, !llvm.loop !13
+  br i1 %exitcond533.not, label %._crit_edge511, label %.lr.ph510, !llvm.loop !14
 
 ._crit_edge511:                                   ; preds = %.lr.ph510, %.lr.ph518
   %.0441.lcssa = phi double [ %375, %.lr.ph518 ], [ %.1442, %.lr.ph510 ]
@@ -749,7 +749,7 @@ thread-pre-split:                                 ; preds = %142, %._crit_edge50
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
   %405 = sext i32 %404 to i64
   %.not478.not = icmp slt i64 %indvars.iv527, %405
-  br i1 %.not478.not, label %.lr.ph518, label %._crit_edge519, !llvm.loop !14
+  br i1 %.not478.not, label %.lr.ph518, label %._crit_edge519, !llvm.loop !15
 
 ._crit_edge519:                                   ; preds = %403, %368
   %406 = load i32, ptr %22, align 4, !tbaa !3
@@ -857,9 +857,10 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

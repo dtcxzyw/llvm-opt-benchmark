@@ -125,7 +125,7 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr nounde
   store float %28, ptr %26, align 4, !tbaa !44
   %29 = add nuw i64 %.011, 2
   %30 = icmp ult i64 %29, %15
-  br i1 %30, label %20, label %._crit_edge
+  br i1 %30, label %20, label %._crit_edge, !llvm.loop !46
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -181,7 +181,7 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
   store float %28, ptr %26, align 4, !tbaa !44
   %29 = add nuw i64 %.011, 2
   %30 = icmp ult i64 %29, %15
-  br i1 %30, label %20, label %._crit_edge
+  br i1 %30, label %20, label %._crit_edge, !llvm.loop !48
 }
 
 ; Function Attrs: nounwind uwtable
@@ -194,11 +194,11 @@ declare void @dt_iop_copy_image_roi(ptr noundef, ptr noundef, i64 noundef, ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 20)) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #5 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !46
-  %5 = load i32, ptr %2, align 4, !tbaa !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !49
+  %5 = load i32, ptr %2, align 4, !tbaa !51
   %6 = sitofp i32 %5 to float
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %8 = load i32, ptr %7, align 4, !tbaa !49
+  %8 = load i32, ptr %7, align 4, !tbaa !52
   %9 = sitofp i32 %8 to float
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !26
@@ -208,7 +208,7 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   %15 = sitofp i32 %14 to float
   %16 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %16, align 16, !tbaa !41
-  %.val.val = load float, ptr %.val, align 4, !tbaa !50
+  %.val.val = load float, ptr %.val, align 4, !tbaa !53
   %17 = fcmp reassoc nsz arcp contract afn olt float %.val.val, 1.000000e+00
   br i1 %17, label %18, label %23
 
@@ -232,9 +232,9 @@ transform.exit21:                                 ; preds = %18, %23
   %.sroa.6.0 = phi float [ %22, %18 ], [ %15, %23 ]
   %.sroa.0.0 = phi float [ %12, %18 ], [ %27, %23 ]
   %28 = fptosi float %.sroa.024.032 to i32
-  store i32 %28, ptr %2, align 4, !tbaa !48
+  store i32 %28, ptr %2, align 4, !tbaa !51
   %29 = fptosi float %.sroa.626.030 to i32
-  store i32 %29, ptr %7, align 4, !tbaa !49
+  store i32 %29, ptr %7, align 4, !tbaa !52
   %30 = fptosi float %.sroa.0.0 to i32
   store i32 %30, ptr %10, align 4, !tbaa !26
   %31 = fptosi float %.sroa.6.0 to i32
@@ -243,7 +243,7 @@ transform.exit21:                                 ; preds = %18, %23
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %transform.exit21
-  store i32 0, ptr %2, align 4, !tbaa !48
+  store i32 0, ptr %2, align 4, !tbaa !51
   br label %34
 
 34:                                               ; preds = %33, %transform.exit21
@@ -251,7 +251,7 @@ transform.exit21:                                 ; preds = %18, %23
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %34
-  store i32 0, ptr %7, align 4, !tbaa !49
+  store i32 0, ptr %7, align 4, !tbaa !52
   br label %37
 
 37:                                               ; preds = %36, %34
@@ -286,7 +286,7 @@ declare float @llvm.ceil.f32(float) #7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 20)) %3) local_unnamed_addr #8 {
 transform.exit:
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !49
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !28
   %6 = sitofp i32 %5 to float
@@ -295,7 +295,7 @@ transform.exit:
   %9 = sitofp i32 %8 to float
   %10 = getelementptr i8, ptr %1, i64 16
   %.val = load ptr, ptr %10, align 16, !tbaa !41
-  %.val.val = load float, ptr %.val, align 4, !tbaa !50
+  %.val.val = load float, ptr %.val, align 4, !tbaa !53
   %11 = fcmp reassoc nsz arcp contract afn olt float %.val.val, 1.000000e+00
   %12 = select nsz i1 %11, float %.val.val, float 1.000000e+00
   %.sroa.6.0 = fdiv reassoc nsz arcp contract afn float %9, %12
@@ -320,31 +320,31 @@ transform.exit:
   %27 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store float %26, ptr %27, align 4, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %29 = load float, ptr %28, align 4, !tbaa !51
+  %29 = load float, ptr %28, align 4, !tbaa !54
   %30 = fcmp reassoc nsz arcp contract afn ogt float %21, %26
   %. = select reassoc nsz arcp contract afn i1 %30, float %21, float %26
   %31 = fmul reassoc nsz arcp contract afn float %., %29
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store float %31, ptr %32, align 4, !tbaa !51
-  %33 = load i32, ptr %2, align 4, !tbaa !48
+  store float %31, ptr %32, align 4, !tbaa !54
+  %33 = load i32, ptr %2, align 4, !tbaa !51
   %34 = sitofp i32 %33 to float
   %35 = fmul reassoc nsz arcp contract afn float %21, %34
   %36 = fptosi float %35 to i32
-  store i32 %36, ptr %3, align 4, !tbaa !48
+  store i32 %36, ptr %3, align 4, !tbaa !51
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %38 = load i32, ptr %37, align 4, !tbaa !49
+  %38 = load i32, ptr %37, align 4, !tbaa !52
   %39 = sitofp i32 %38 to float
   %40 = fmul reassoc nsz arcp contract afn float %26, %39
   %41 = fptosi float %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %41, ptr %42, align 4, !tbaa !49
+  store i32 %41, ptr %42, align 4, !tbaa !52
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %8 = load i32, ptr %7, align 4, !tbaa !52
+  %8 = load i32, ptr %7, align 4, !tbaa !55
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !26
   %11 = mul nsw i32 %10, %8
@@ -394,7 +394,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = sext i32 %33 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %.lr.ph31.split, label %._crit_edge32, !llvm.loop !53
+  br i1 %36, label %.lr.ph31.split, label %._crit_edge32, !llvm.loop !56
 
 37:                                               ; preds = %.lr.ph, %37
   %.02528 = phi i32 [ 0, %.lr.ph ], [ %45, %37 ]
@@ -411,7 +411,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %46 = getelementptr inbounds nuw i8, ptr %.02627, i64 16
   %47 = load i32, ptr %18, align 4, !tbaa !26
   %48 = icmp slt i32 %45, %47
-  br i1 %48, label %37, label %._crit_edge.loopexit
+  br i1 %48, label %37, label %._crit_edge.loopexit, !llvm.loop !58
 }
 
 declare ptr @dt_interpolation_new(i32 noundef) local_unnamed_addr #2
@@ -422,8 +422,8 @@ declare void @dt_interpolation_compute_pixel4c(ptr noundef, ptr noundef, ptr nou
 define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !41
-  %7 = load float, ptr %1, align 4, !tbaa !55
-  store float %7, ptr %6, align 4, !tbaa !50
+  %7 = load float, ptr %1, align 4, !tbaa !59
+  store float %7, ptr %6, align 4, !tbaa !53
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float 1.000000e+00, ptr %8, align 4, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -439,7 +439,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 
 14:                                               ; preds = %11, %4
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %15, align 16, !tbaa !57
+  store i32 0, ptr %15, align 16, !tbaa !61
   br label %16
 
 16:                                               ; preds = %11, %14
@@ -473,7 +473,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 0) #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  store ptr %2, ptr %3, align 16, !tbaa !58
+  store ptr %2, ptr %3, align 16, !tbaa !62
   %4 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.5) #17
   %5 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %4, ptr noundef %5) #17
@@ -496,23 +496,23 @@ define noundef nonnull ptr @get_introspection() local_unnamed_addr #0 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #14 {
-  %3 = load i32, ptr @introspection, align 8, !tbaa !59
+  %3 = load i32, ptr @introspection, align 8, !tbaa !63
   %4 = icmp ne i32 %3, 8
   %5 = icmp ne i32 %1, 8
   %or.cond = or i1 %5, %4
   br i1 %or.cond, label %8, label %.preheader
 
 6:                                                ; preds = %.preheader
-  store ptr @introspection_init.f1, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 160), align 16, !tbaa !63
+  store ptr @introspection_init.f1, ptr getelementptr inbounds nuw (i8, ptr @introspection_linear, i64 160), align 16, !tbaa !67
   br label %8
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw [3 x %union.dt_introspection_field_t], ptr @introspection_linear, i64 0, i64 %indvars.iv, i32 0, i32 0, i32 7
-  store ptr %0, ptr %7, align 8, !tbaa !63
+  store ptr %0, ptr %7, align 8, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %6, label %.preheader
+  br i1 %exitcond.not, label %6, label %.preheader, !llvm.loop !68
 
 8:                                                ; preds = %2, %6
   %.06 = phi i32 [ 0, %6 ], [ 1, %2 ]
@@ -611,21 +611,26 @@ attributes #19 = { nounwind willreturn memory(read) }
 !43 = !{!"dt_iop_scalepixels_data_t", !19, i64 0, !19, i64 4, !19, i64 8}
 !44 = !{!19, !19, i64 0}
 !45 = !{!43, !19, i64 8}
-!46 = !{i64 0, i64 4, !47, i64 4, i64 4, !47, i64 8, i64 4, !47, i64 12, i64 4, !47, i64 16, i64 4, !44}
-!47 = !{!13, !13, i64 0}
-!48 = !{!20, !13, i64 0}
-!49 = !{!20, !13, i64 4}
-!50 = !{!43, !19, i64 0}
-!51 = !{!20, !19, i64 16}
-!52 = !{!7, !13, i64 132}
-!53 = distinct !{!53, !54}
-!54 = !{!"llvm.loop.unswitch.partial.disable"}
-!55 = !{!56, !19, i64 0}
-!56 = !{!"dt_iop_scalepixels_params_t", !19, i64 0}
-!57 = !{!7, !13, i64 32}
-!58 = !{!30, !9, i64 704}
-!59 = !{!60, !13, i64 0}
-!60 = !{!"dt_introspection_t", !13, i64 0, !13, i64 4, !61, i64 8, !18, i64 16, !62, i64 24, !18, i64 32, !18, i64 40, !25, i64 48}
-!61 = !{!"p1 omnipotent char", !9, i64 0}
-!62 = !{!"p1 _ZTS24dt_introspection_field_t", !9, i64 0}
-!63 = !{!10, !10, i64 0}
+!46 = distinct !{!46, !47}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = distinct !{!48, !47}
+!49 = !{i64 0, i64 4, !50, i64 4, i64 4, !50, i64 8, i64 4, !50, i64 12, i64 4, !50, i64 16, i64 4, !44}
+!50 = !{!13, !13, i64 0}
+!51 = !{!20, !13, i64 0}
+!52 = !{!20, !13, i64 4}
+!53 = !{!43, !19, i64 0}
+!54 = !{!20, !19, i64 16}
+!55 = !{!7, !13, i64 132}
+!56 = distinct !{!56, !47, !57}
+!57 = !{!"llvm.loop.unswitch.partial.disable"}
+!58 = distinct !{!58, !47}
+!59 = !{!60, !19, i64 0}
+!60 = !{!"dt_iop_scalepixels_params_t", !19, i64 0}
+!61 = !{!7, !13, i64 32}
+!62 = !{!30, !9, i64 704}
+!63 = !{!64, !13, i64 0}
+!64 = !{!"dt_introspection_t", !13, i64 0, !13, i64 4, !65, i64 8, !18, i64 16, !66, i64 24, !18, i64 32, !18, i64 40, !25, i64 48}
+!65 = !{!"p1 omnipotent char", !9, i64 0}
+!66 = !{!"p1 _ZTS24dt_introspection_field_t", !9, i64 0}
+!67 = !{!10, !10, i64 0}
+!68 = distinct !{!68, !47}

@@ -98,7 +98,7 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %45 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h81e8681dd4ec5742E"(i64 %41, i64 %44, ptr nonnull align 1 %42, i64 %43)
   %46 = extractvalue { ptr, i64 } %45, 0
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %._crit_edge, label %15
+  br i1 %47, label %._crit_edge, label %15, !llvm.loop !5
 
 48:                                               ; preds = %34
   %49 = extractvalue { ptr, i64 } %38, 1
@@ -169,3 +169,5 @@ attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 1}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}

@@ -770,7 +770,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %16, i64 noundef %15, i64 noundef 16) #14
   %17 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %.not.i = icmp eq ptr %17, %7
-  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !227
+  br i1 %.not.i, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, label %.lr.ph.i, !llvm.loop !228
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit: ; preds = %.lr.ph.i, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -785,13 +785,13 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15Deall
 
 .lr.ph.i1:                                        ; preds = %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit, %.lr.ph.i1
   %.011.i = phi ptr [ %27, %.lr.ph.i1 ], [ %19, %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE15DeallocateSlabsEPPvS4_.exit ]
-  %24 = load ptr, ptr %.011.i, align 8, !tbaa !228
+  %24 = load ptr, ptr %.011.i, align 8, !tbaa !229
   %25 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !230
+  %26 = load i64, ptr %25, align 8, !tbaa !231
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %24, i64 noundef %26, i64 noundef 16) #14
   %27 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %.not.i2 = icmp eq ptr %27, %23
-  br i1 %.not.i2, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.loopexit, label %.lr.ph.i1
+  br i1 %.not.i2, label %_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.loopexit, label %.lr.ph.i1, !llvm.loop !232
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE26DeallocateCustomSizedSlabsEv.exit.loopexit: ; preds = %.lr.ph.i1
   %.pre = load ptr, ptr %18, align 8, !tbaa !60
@@ -843,10 +843,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
 define linkonce_odr hidden void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv() #4 comdat align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
   %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = load ptr, ptr %2, align 8, !tbaa !231
+  %3 = load ptr, ptr %2, align 8, !tbaa !233
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !233
-  %6 = load ptr, ptr %5, align 8, !tbaa !234
+  %5 = load ptr, ptr %4, align 8, !tbaa !235
+  %6 = load ptr, ptr %5, align 8, !tbaa !236
   %7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(160) %6) #14
   ret void
 }
@@ -1111,15 +1111,17 @@ attributes #17 = { builtin nounwind }
 !222 = distinct !{!222, !223, !"_ZSt11make_uniqueIN4llvm25MachineBlockFrequencyInfoEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
 !223 = distinct !{!223, !"_ZSt11make_uniqueIN4llvm25MachineBlockFrequencyInfoEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !224 = !{!104, !104, i64 0}
-!225 = distinct !{!225, !226}
+!225 = distinct !{!225, !226, !227}
 !226 = !{!"llvm.loop.mustprogress"}
-!227 = distinct !{!227, !226}
-!228 = !{!229, !4, i64 0}
-!229 = !{!"_ZTSSt4pairIPvmE", !4, i64 0, !12, i64 8}
-!230 = !{!229, !12, i64 8}
-!231 = !{!232, !4, i64 0}
-!232 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
-!233 = !{!232, !8, i64 8}
-!234 = !{!235, !236, i64 0}
-!235 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !236, i64 0}
-!236 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}
+!227 = !{!"llvm.loop.estimated_trip_count"}
+!228 = distinct !{!228, !226, !227}
+!229 = !{!230, !4, i64 0}
+!230 = !{!"_ZTSSt4pairIPvmE", !4, i64 0, !12, i64 8}
+!231 = !{!230, !12, i64 8}
+!232 = distinct !{!232, !227}
+!233 = !{!234, !4, i64 0}
+!234 = !{!"_ZTSZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS2_EEEvRSt9once_flagOT_DpOT0_EUlvE_", !4, i64 0, !8, i64 8}
+!235 = !{!234, !8, i64 8}
+!236 = !{!237, !238, i64 0}
+!237 = !{!"_ZTSSt17reference_wrapperIN4llvm12PassRegistryEE", !238, i64 0}
+!238 = !{!"p1 _ZTSN4llvm12PassRegistryE", !4, i64 0}

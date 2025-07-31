@@ -148,7 +148,7 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   store i64 %43, ptr %41, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %sema_add_clobbers.exit, label %38, !llvm.loop !9
+  br i1 %exitcond.not.i, label %sema_add_clobbers.exit, label %38, !llvm.loop !10
 
 sema_add_clobbers.exit:                           ; preds = %30, %38, %24, %11, %5
   %.030 = phi i1 [ false, %5 ], [ false, %24 ], [ false, %11 ], [ true, %38 ], [ false, %30 ]
@@ -606,7 +606,7 @@ switch.lookup:                                    ; preds = %200
 
 .preheader.i.backedge:                            ; preds = %222, %216
   %.0.i63.in.i.be = phi ptr [ %221, %216 ], [ %223, %222 ]
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !11
 
 224:                                              ; preds = %.preheader.i
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.18, i32 noundef 2984) #5
@@ -906,7 +906,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 361:                                              ; preds = %358, %352
   %.1.in.i.i63 = phi ptr [ %357, %352 ], [ %359, %358 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i63, align 8
-  br label %348
+  br label %348, !llvm.loop !11
 
 362:                                              ; preds = %348
   %363 = load ptr, ptr @type_uptr, align 8
@@ -1248,7 +1248,7 @@ define internal fastcc void @asm_reg_add_input(ptr noundef captures(none) %0, pt
 25:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit56, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit56, label %.lr.ph.i, !llvm.loop !12
 
 asm_reg_find_decl.exit:                           ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1302,7 +1302,7 @@ asm_reg_find_decl.exit:                           ; preds = %21
 52:                                               ; preds = %48, %.lr.ph.i43
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i42
-  br i1 %exitcond.not.i46, label %.loopexit, label %.lr.ph.i43, !llvm.loop !10
+  br i1 %exitcond.not.i46, label %.loopexit, label %.lr.ph.i43, !llvm.loop !12
 
 asm_reg_find_decl.exit48:                         ; preds = %48
   %53 = and i64 %44, 4294901760
@@ -1409,7 +1409,7 @@ asm_add_input.exit:                               ; preds = %68, %72
   store i8 %100, ptr %98, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %93, %.thread53
   ret void
@@ -1514,7 +1514,7 @@ define internal fastcc void @asm_reg_add_output(ptr noundef captures(none) %0, p
 21:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !12
 
 asm_reg_find_decl.exit:                           ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1632,7 +1632,7 @@ asm_reg_find_decl.exit:                           ; preds = %17
 81:                                               ; preds = %77, %.lr.ph.i46
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, %wide.trip.count.i45
-  br i1 %exitcond.not.i49, label %asm_reg_find_decl.exit51.thread, label %.lr.ph.i46, !llvm.loop !10
+  br i1 %exitcond.not.i49, label %asm_reg_find_decl.exit51.thread, label %.lr.ph.i46, !llvm.loop !12
 
 asm_reg_find_decl.exit51:                         ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 16
@@ -1666,8 +1666,10 @@ attributes #5 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}

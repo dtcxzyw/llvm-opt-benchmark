@@ -71,7 +71,7 @@ gv_calloc.exit:                                   ; preds = %3, %gv_calloc.exit
   store i32 %16, ptr %18, align 4, !tbaa !8
   %indvars.iv.next32 = add nsw i64 %indvars.iv31, -1
   %20 = icmp sgt i32 %14, 2
-  br i1 %20, label %.lr.ph28, label %.loopexit, !llvm.loop !12
+  br i1 %20, label %.lr.ph28, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph28, %.preheader, %1
   %.0 = phi ptr [ null, %1 ], [ %5, %.preheader ], [ %5, %.lr.ph28 ]
@@ -90,14 +90,14 @@ define noundef ptr @vector_subtract_to(i32 noundef %0, ptr noundef readonly capt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %5 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %6 = load double, ptr %5, align 8, !tbaa !13
+  %6 = load double, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %8 = load double, ptr %7, align 8, !tbaa !13
+  %8 = load double, ptr %7, align 8, !tbaa !14
   %9 = fsub double %6, %8
-  store double %9, ptr %7, align 8, !tbaa !13
+  store double %9, ptr %7, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %2
@@ -116,13 +116,13 @@ define double @vector_product(i32 noundef %0, ptr noundef readonly captures(none
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.089 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %5 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %6 = load double, ptr %5, align 8, !tbaa !13
+  %6 = load double, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %8 = load double, ptr %7, align 8, !tbaa !13
+  %8 = load double, ptr %7, align 8, !tbaa !14
   %9 = tail call double @llvm.fmuladd.f64(double %6, double %8, double %.089)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.08.lcssa = phi double [ 0.000000e+00, %3 ], [ %9, %.lr.ph ]
@@ -144,14 +144,14 @@ define noundef ptr @vector_saxpy(i32 noundef %0, ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %7 = load double, ptr %6, align 8, !tbaa !13
+  %7 = load double, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %9 = load double, ptr %8, align 8, !tbaa !13
+  %9 = load double, ptr %8, align 8, !tbaa !14
   %10 = tail call double @llvm.fmuladd.f64(double %3, double %9, double %7)
-  store double %10, ptr %8, align 8, !tbaa !13
+  store double %10, ptr %8, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret ptr %2
@@ -169,14 +169,14 @@ define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned captures(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %7 = load double, ptr %6, align 8, !tbaa !13
+  %7 = load double, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
-  %9 = load double, ptr %8, align 8, !tbaa !13
+  %9 = load double, ptr %8, align 8, !tbaa !14
   %10 = tail call double @llvm.fmuladd.f64(double %3, double %9, double %7)
-  store double %10, ptr %6, align 8, !tbaa !13
+  store double %10, ptr %6, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret ptr %1
@@ -184,7 +184,7 @@ define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned captures(
 
 ; Function Attrs: nofree nounwind uwtable
 define void @vector_float_take(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #5 {
-  %6 = load ptr, ptr %4, align 8, !tbaa !19
+  %6 = load ptr, ptr %4, align 8, !tbaa !20
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %22
 
@@ -221,7 +221,7 @@ define void @vector_float_take(i32 noundef %0, ptr noundef readonly captures(non
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %14
   %21 = phi ptr [ %9, %.thread.i ], [ %15, %14 ]
-  store ptr %21, ptr %4, align 8, !tbaa !19
+  store ptr %21, ptr %4, align 8, !tbaa !20
   br label %22
 
 22:                                               ; preds = %gv_calloc.exit, %5
@@ -239,12 +239,12 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %14
   %27 = load i32, ptr %26, align 4, !tbaa !8
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds float, ptr %1, i64 %28
-  %30 = load float, ptr %29, align 4, !tbaa !21
+  %30 = load float, ptr %29, align 4, !tbaa !22
   %31 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
-  store float %30, ptr %31, align 4, !tbaa !21
+  store float %30, ptr %31, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %25, %22
   ret void
@@ -252,7 +252,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %14
 
 ; Function Attrs: nounwind uwtable
 define void @vector_ordering(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr %2, align 8, !tbaa !24
+  %4 = load ptr, ptr %2, align 8, !tbaa !25
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %20
 
@@ -289,7 +289,7 @@ define void @vector_ordering(i32 noundef %0, ptr noundef readonly captures(none)
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %12
   %19 = phi ptr [ %7, %.thread.i ], [ %13, %12 ]
-  store ptr %19, ptr %2, align 8, !tbaa !24
+  store ptr %19, ptr %2, align 8, !tbaa !25
   br label %20
 
 20:                                               ; preds = %gv_calloc.exit, %3
@@ -337,19 +337,19 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 %.idx
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store double %37, ptr %39, align 8, !tbaa !13
+  store double %37, ptr %39, align 8, !tbaa !14
   %40 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %41 = load double, ptr %40, align 8, !tbaa !13
-  store double %41, ptr %38, align 8, !tbaa !13
+  %41 = load double, ptr %40, align 8, !tbaa !14
+  store double %41, ptr %38, align 8, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %42 = zext nneg i32 %0 to i64
   tail call void @qsort(ptr noundef nonnull %28, i64 noundef %42, i64 noundef 16, ptr noundef nonnull @comp_ascend) #18
   %invariant.gep = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %43 = load ptr, ptr %2, align 8, !tbaa !24
+  %43 = load ptr, ptr %2, align 8, !tbaa !25
   %wide.trip.count38 = zext nneg i32 %0 to i64
   br label %44
 
@@ -357,13 +357,13 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %12
   %indvars.iv35 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next36, %44 ]
   %gep.idx = shl nuw nsw i64 %indvars.iv35, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
-  %45 = load double, ptr %gep, align 8, !tbaa !13
+  %45 = load double, ptr %gep, align 8, !tbaa !14
   %46 = fptosi double %45 to i32
   %47 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv35
   store i32 %46, ptr %47, align 4, !tbaa !8
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
-  br i1 %exitcond39.not, label %._crit_edge33, label %44, !llvm.loop !27
+  br i1 %exitcond39.not, label %._crit_edge33, label %44, !llvm.loop !28
 
 ._crit_edge33:                                    ; preds = %44, %._crit_edge.thread
   %48 = phi ptr [ %34, %._crit_edge.thread ], [ %28, %44 ]
@@ -376,8 +376,8 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @comp_ascend(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
-  %3 = load double, ptr %0, align 8, !tbaa !13
-  %4 = load double, ptr %1, align 8, !tbaa !13
+  %3 = load double, ptr %0, align 8, !tbaa !14
+  %4 = load double, ptr %1, align 8, !tbaa !14
   %5 = fcmp ogt double %3, %4
   %6 = fcmp olt double %3, %4
   %. = sext i1 %6 to i32
@@ -422,14 +422,14 @@ define double @distance_cropped(ptr noundef readonly captures(none) %0, i32 noun
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %.024.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %14, %10 ]
   %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv.i
-  %11 = load double, ptr %gep.i, align 8, !tbaa !13
+  %11 = load double, ptr %gep.i, align 8, !tbaa !14
   %gep27.i = getelementptr double, ptr %invariant.gep26.i, i64 %indvars.iv.i
-  %12 = load double, ptr %gep27.i, align 8, !tbaa !13
+  %12 = load double, ptr %gep27.i, align 8, !tbaa !14
   %13 = fsub double %11, %12
   %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %.024.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %distance.exit, label %10, !llvm.loop !28
+  br i1 %exitcond.not.i, label %distance.exit, label %10, !llvm.loop !29
 
 distance.exit:                                    ; preds = %10, %4
   %.0.lcssa.i = phi double [ 0.000000e+00, %4 ], [ %14, %10 ]
@@ -457,14 +457,14 @@ define double @distance(ptr noundef readonly captures(none) %0, i32 noundef %1, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.024 = phi double [ 0.000000e+00, %.lr.ph ], [ %14, %10 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %11 = load double, ptr %gep, align 8, !tbaa !13
+  %11 = load double, ptr %gep, align 8, !tbaa !14
   %gep27 = getelementptr double, ptr %invariant.gep26, i64 %indvars.iv
-  %12 = load double, ptr %gep27, align 8, !tbaa !13
+  %12 = load double, ptr %gep27, align 8, !tbaa !14
   %13 = fsub double %11, %12
   %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %.024)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !28
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %10, %4
   %.0.lcssa = phi double [ 0.000000e+00, %4 ], [ %14, %10 ]
@@ -491,14 +491,14 @@ define double @point_distance(ptr noundef readonly captures(none) %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.014 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
   %5 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
-  %6 = load double, ptr %5, align 8, !tbaa !13
+  %6 = load double, ptr %5, align 8, !tbaa !14
   %7 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  %8 = load double, ptr %7, align 8, !tbaa !13
+  %8 = load double, ptr %7, align 8, !tbaa !14
   %9 = fsub double %6, %8
   %10 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %.014)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi double [ 0.000000e+00, %3 ], [ %10, %.lr.ph ]
@@ -519,13 +519,13 @@ define ptr @strip_dir(ptr noundef captures(address_is_null, ret: address, proven
   %.017 = phi i1 [ true, %2 ], [ %.127, %13 ]
   %.0 = phi i64 [ %3, %2 ], [ %14, %13 ]
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
-  %6 = load i8, ptr %5, align 1, !tbaa !30
+  %6 = load i8, ptr %5, align 1, !tbaa !31
   %7 = icmp eq i8 %6, 46
   %or.cond = select i1 %.017, i1 %7, i1 false
   br i1 %or.cond, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %4
-  store i8 0, ptr %5, align 1, !tbaa !30
+  store i8 0, ptr %5, align 1, !tbaa !31
   br label %11
 
 ._crit_edge:                                      ; preds = %4
@@ -544,7 +544,7 @@ define ptr @strip_dir(ptr noundef captures(address_is_null, ret: address, proven
 
 13:                                               ; preds = %11
   %14 = add i64 %.0, -1
-  br label %4
+  br label %4, !llvm.loop !32
 
 .loopexit:                                        ; preds = %11, %8, %1
   %.018 = phi ptr [ null, %1 ], [ %10, %8 ], [ %0, %11 ]
@@ -609,24 +609,26 @@ attributes #23 = { cold noreturn nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"double", !6, i64 0}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 float", !5, i64 0}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"float", !6, i64 0}
-!23 = distinct !{!23, !11}
-!24 = !{!25, !25, i64 0}
-!25 = !{!"p1 int", !5, i64 0}
-!26 = distinct !{!26, !11}
-!27 = distinct !{!27, !11}
-!28 = distinct !{!28, !11}
-!29 = distinct !{!29, !11}
-!30 = !{!6, !6, i64 0}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"double", !6, i64 0}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"p1 float", !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"float", !6, i64 0}
+!24 = distinct !{!24, !11, !12}
+!25 = !{!26, !26, i64 0}
+!26 = !{!"p1 int", !5, i64 0}
+!27 = distinct !{!27, !11, !12}
+!28 = distinct !{!28, !11, !12}
+!29 = distinct !{!29, !11, !12}
+!30 = distinct !{!30, !11, !12}
+!31 = !{!6, !6, i64 0}
+!32 = distinct !{!32, !12}

@@ -999,7 +999,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 197:                                              ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %198 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %199 = load ptr, ptr %198, align 8, !tbaa !67
+  %199 = load ptr, ptr %198, align 8, !tbaa !68
   %200 = ptrtoint ptr %199 to i64
   %201 = ptrtoint ptr %196 to i64
   %202 = sub i64 %200, %201
@@ -1072,7 +1072,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 220:                                              ; preds = %.lr.ph
   %221 = getelementptr inbounds nuw i8, ptr %.sroa.0162.0212, i64 32
   %.not210 = icmp eq ptr %221, %186
-  br i1 %.not210, label %._crit_edge, label %.lr.ph
+  br i1 %.not210, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 222:                                              ; preds = %.lr.ph
   %223 = landingpad { ptr, i32 }
@@ -1112,14 +1112,14 @@ _ZNSt10unique_ptrI21cmCursesOptionsWidgetSt14default_deleteIS0_EED2Ev.exit128: ;
           to label %.noexc129 unwind label %244
 
 .noexc129:                                        ; preds = %234
-  %236 = load i32, ptr %43, align 4, !tbaa !40, !noalias !68
+  %236 = load i32, ptr %43, align 4, !tbaa !40, !noalias !70
   invoke void @_ZN20cmCursesStringWidgetC1Eiiii(ptr noundef nonnull align 8 dereferenceable(97) %235, i32 noundef %236, i32 noundef 1, i32 noundef 1, i32 noundef 1)
-          to label %_ZSt11make_uniqueI20cmCursesStringWidgetJRiiiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %237, !noalias !68
+          to label %_ZSt11make_uniqueI20cmCursesStringWidgetJRiiiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %237, !noalias !70
 
 237:                                              ; preds = %.noexc129
   %238 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPvm(ptr noundef nonnull %235, i64 noundef 104) #17, !noalias !68
+  call void @_ZdlPvm(ptr noundef nonnull %235, i64 noundef 104) #17, !noalias !70
   br label %.body
 
 _ZSt11make_uniqueI20cmCursesStringWidgetJRiiiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %.noexc129
@@ -1339,7 +1339,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !67
+  %17 = load ptr, ptr %16, align 8, !tbaa !68
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1560,7 +1560,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 
 15:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !67
+  %17 = load ptr, ptr %16, align 8, !tbaa !68
   %18 = ptrtoint ptr %17 to i64
   %19 = ptrtoint ptr %14 to i64
   %20 = sub i64 %18, %19
@@ -1704,19 +1704,19 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 define internal void @_GLOBAL__sub_I_cmCursesCacheEntryComposite.cxx() #13 section ".text.startup" personality ptr @__gxx_personality_v0 {
   %1 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #15
-  store i32 0, ptr %1, align 4, !tbaa !71
+  store i32 0, ptr %1, align 4, !tbaa !73
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 1, ptr %2, align 4, !tbaa !71
+  store i32 1, ptr %2, align 4, !tbaa !73
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 2, ptr %3, align 4, !tbaa !71
-  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !73
+  store i32 2, ptr %3, align 4, !tbaa !73
+  store i64 0, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !75
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i, %0
   %.09.i.i.idx.i = phi i64 [ %.09.i.i.add.i, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %4 = phi i64 [ %10, %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i ], [ 0, %0 ]
   %.09.i.i.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %.09.i.i.idx.i
-  %5 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !71
+  %5 = load i32, ptr %.09.i.i.ptr.i, align 4, !tbaa !73
   %6 = zext i32 %5 to i64
   %7 = icmp ugt i32 %5, 31
   br i1 %7, label %8, label %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
@@ -1731,7 +1731,7 @@ _ZNSt6bitsetILm32EE3setEmb.exit.i.i.i:            ; preds = %.lr.ph.i.i.i
   store i64 %10, ptr @_ZN12cmStateEnumsL16AllTargetDomainsE, align 8, !tbaa !14
   %.09.i.i.add.i = add nuw nsw i64 %.09.i.i.idx.i, 4
   %.not.i.i.i = icmp eq i64 %.09.i.i.add.i, 12
-  br i1 %.not.i.i.i, label %__cxx_global_var_init.exit, label %.lr.ph.i.i.i
+  br i1 %.not.i.i.i, label %__cxx_global_var_init.exit, label %.lr.ph.i.i.i, !llvm.loop !77
 
 __cxx_global_var_init.exit:                       ; preds = %_ZNSt6bitsetILm32EE3setEmb.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %1) #15
@@ -1835,13 +1835,16 @@ attributes #18 = { noreturn }
 !62 = !{!63, !61, i64 0}
 !63 = !{!"_ZTSNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataE", !61, i64 0, !61, i64 8, !61, i64 16}
 !64 = !{!63, !61, i64 8}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
-!67 = !{!63, !61, i64 16}
-!68 = !{!69}
-!69 = distinct !{!69, !70, !"_ZSt11make_uniqueI20cmCursesStringWidgetJRiiiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!70 = distinct !{!70, !"_ZSt11make_uniqueI20cmCursesStringWidgetJRiiiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
-!73 = !{!74, !12, i64 0}
-!74 = !{!"_ZTSSt12_Base_bitsetILm1EE", !12, i64 0}
+!67 = !{!"llvm.loop.estimated_trip_count"}
+!68 = !{!63, !61, i64 16}
+!69 = distinct !{!69, !67}
+!70 = !{!71}
+!71 = distinct !{!71, !72, !"_ZSt11make_uniqueI20cmCursesStringWidgetJRiiiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!72 = distinct !{!72, !"_ZSt11make_uniqueI20cmCursesStringWidgetJRiiiiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!73 = !{!74, !74, i64 0}
+!74 = !{!"_ZTSN12cmStateEnums12TargetDomainE", !8, i64 0}
+!75 = !{!76, !12, i64 0}
+!76 = !{!"_ZTSSt12_Base_bitsetILm1EE", !12, i64 0}
+!77 = distinct !{!77, !67}

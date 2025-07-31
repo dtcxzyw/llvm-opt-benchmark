@@ -64,7 +64,7 @@ define internal i32 @h261_parse(ptr noundef readonly captures(none) %0, ptr read
 33:                                               ; preds = %26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %20
-  br i1 %exitcond.not, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %.thread.i, %12
   %.036.lcssa.i = phi i32 [ %15, %12 ], [ 1, %.thread.i ]
@@ -93,7 +93,7 @@ define internal i32 @h261_parse(ptr noundef readonly captures(none) %0, ptr read
 41:                                               ; preds = %43
   %42 = add nuw nsw i32 %.13311.i, 1
   %exitcond24.not.i = icmp eq i32 %42, 8
-  br i1 %exitcond24.not.i, label %52, label %43, !llvm.loop !23
+  br i1 %exitcond24.not.i, label %52, label %43, !llvm.loop !24
 
 43:                                               ; preds = %41, %.lr.ph14.i
   %.13311.i = phi i32 [ 0, %.lr.ph14.i ], [ %42, %41 ]
@@ -114,7 +114,7 @@ define internal i32 @h261_parse(ptr noundef readonly captures(none) %0, ptr read
 52:                                               ; preds = %41
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count.i
-  br i1 %exitcond28.not.i, label %.loopexit.i, label %.lr.ph14.i, !llvm.loop !24
+  br i1 %exitcond28.not.i, label %.loopexit.i, label %.lr.ph14.i, !llvm.loop !25
 
 .loopexit.i:                                      ; preds = %33, %52, %._crit_edge.i
   %.036.lcssa.i34 = phi i32 [ %.036.lcssa.i, %._crit_edge.i ], [ %.036.lcssa.i, %52 ], [ 0, %33 ]
@@ -183,8 +183,9 @@ attributes #2 = { nounwind }
 !17 = !{!"ParseContext", !5, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !14, i64 40}
 !18 = !{!17, !10, i64 20}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = distinct !{!24, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}
+!25 = distinct !{!25, !21, !22}

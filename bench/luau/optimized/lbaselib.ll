@@ -535,7 +535,7 @@ define internal noundef range(i32 -2147483648, 2147483647) i32 @_ZL11luaB_select
 
 5:                                                ; preds = %1
   %6 = tail call noundef ptr @_Z13lua_tolstringP9lua_StateiPm(ptr noundef %0, i32 noundef 1, ptr noundef null)
-  %7 = load i8, ptr %6, align 1, !tbaa !34
+  %7 = load i8, ptr %6, align 1, !tbaa !35
   %8 = icmp eq i8 %7, 35
   br i1 %8, label %9, label %11
 
@@ -644,9 +644,9 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #11
-  store i32 0, ptr %2, align 4, !tbaa !35
+  store i32 0, ptr %2, align 4, !tbaa !36
   %7 = call noundef double @_Z13lua_tonumberxP9lua_StateiPi(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %2)
-  %8 = load i32, ptr %2, align 4, !tbaa !35
+  %8 = load i32, ptr %2, align 4, !tbaa !36
   %.not23 = icmp eq i32 %8, 0
   br i1 %.not23, label %.thread, label %9
 
@@ -673,25 +673,25 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
 14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %15 = call i64 @strtoull(ptr noundef %11, ptr noundef nonnull %3, i32 noundef %4) #11
-  %16 = load ptr, ptr %3, align 8, !tbaa !36
+  %16 = load ptr, ptr %3, align 8, !tbaa !37
   %.not = icmp eq ptr %11, %16
   br i1 %.not, label %30, label %.preheader
 
 .preheader:                                       ; preds = %14
   %17 = tail call ptr @__ctype_b_loc() #12
-  %18 = load ptr, ptr %17, align 8, !tbaa !38
+  %18 = load ptr, ptr %17, align 8, !tbaa !39
   br label %19
 
 19:                                               ; preds = %19, %.preheader
   %20 = phi ptr [ %16, %.preheader ], [ %26, %19 ]
-  %21 = load i8, ptr %20, align 1, !tbaa !34
+  %21 = load i8, ptr %20, align 1, !tbaa !35
   %22 = zext i8 %21 to i64
   %23 = getelementptr inbounds nuw i16, ptr %18, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !40
+  %24 = load i16, ptr %23, align 2, !tbaa !41
   %25 = and i16 %24, 8192
   %.not22 = icmp eq i16 %25, 0
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 1
-  br i1 %.not22, label %27, label %19, !llvm.loop !41
+  br i1 %.not22, label %27, label %19, !llvm.loop !42
 
 27:                                               ; preds = %19
   %28 = icmp eq i8 %21, 0
@@ -963,13 +963,14 @@ attributes #12 = { nounwind willreturn memory(none) }
 !29 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
 !30 = !{!31, !31, i64 0}
 !31 = !{!"long", !6, i64 0}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = !{!6, !6, i64 0}
-!35 = !{!13, !13, i64 0}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 omnipotent char", !10, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 short", !10, i64 0}
-!40 = !{!14, !14, i64 0}
-!41 = distinct !{!41, !33}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = !{!6, !6, i64 0}
+!36 = !{!13, !13, i64 0}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 omnipotent char", !10, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 short", !10, i64 0}
+!41 = !{!14, !14, i64 0}
+!42 = distinct !{!42, !33, !34}

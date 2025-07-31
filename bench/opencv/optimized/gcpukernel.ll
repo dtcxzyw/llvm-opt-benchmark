@@ -168,11 +168,11 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv11GCPUContext7outM
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !27
+  %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = urem i64 %4, %17
-  %19 = load ptr, ptr %15, align 8, !tbaa !28
+  %19 = load ptr, ptr %15, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
 
@@ -185,7 +185,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv11GCPUContext7outM
 
 27:                                               ; preds = %30
   %28 = icmp eq i64 %32, %4
-  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
+  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %27
   %.020.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
@@ -198,10 +198,10 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv11GCPUContext7outM
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !31
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
-  br label %.loopexit.i.i, !llvm.loop !30
+  br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
@@ -210,7 +210,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv11GCPUContext7outM
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !31
+  %35 = load i64, ptr %34, align 8, !tbaa !32
   %.not.i = icmp eq i64 %35, 1
   br i1 %.not.i, label %_ZN2cv4util3getIPNS_3MatEJPNS_4UMatES3_PNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit, label %36
 
@@ -232,7 +232,7 @@ _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7S
 
 _ZN2cv4util3getIPNS_3MatEJPNS_4UMatES3_PNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !33
+  %41 = load ptr, ptr %40, align 8, !tbaa !34
   ret ptr %41
 }
 
@@ -320,11 +320,11 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GCPUContext7outV
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !27
+  %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = urem i64 %4, %17
-  %19 = load ptr, ptr %15, align 8, !tbaa !28
+  %19 = load ptr, ptr %15, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
 
@@ -337,7 +337,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GCPUContext7outV
 
 27:                                               ; preds = %30
   %28 = icmp eq i64 %32, %4
-  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
+  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %27
   %.020.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
@@ -350,10 +350,10 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GCPUContext7outV
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !31
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
-  br label %.loopexit.i.i, !llvm.loop !30
+  br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
@@ -362,7 +362,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv11GCPUContext7outV
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !31
+  %35 = load i64, ptr %34, align 8, !tbaa !32
   %.not.i = icmp eq i64 %35, 3
   br i1 %.not.i, label %_ZN2cv4util3getIPNS_7Scalar_IdEEJPNS_4UMatEPNS_3MatEPNS_4RMatES4_PNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit, label %36
 
@@ -384,7 +384,7 @@ _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7S
 
 _ZN2cv4util3getIPNS_7Scalar_IdEEJPNS_4UMatEPNS_3MatEPNS_4RMatES4_PNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !35
+  %41 = load ptr, ptr %40, align 8, !tbaa !36
   ret ptr %41
 }
 
@@ -416,11 +416,11 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext9outV
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !27
+  %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = urem i64 %4, %17
-  %19 = load ptr, ptr %15, align 8, !tbaa !28
+  %19 = load ptr, ptr %15, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
 
@@ -433,7 +433,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext9outV
 
 27:                                               ; preds = %30
   %28 = icmp eq i64 %32, %4
-  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
+  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %27
   %.020.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
@@ -446,10 +446,10 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext9outV
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !31
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
-  br label %.loopexit.i.i, !llvm.loop !30
+  br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
@@ -458,7 +458,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext9outV
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !31
+  %35 = load i64, ptr %34, align 8, !tbaa !32
   %.not.i = icmp eq i64 %35, 5
   br i1 %.not.i, label %_ZN2cv4util3getINS_6detail9VectorRefEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameES3_NS2_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit, label %36
 
@@ -511,11 +511,11 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext12out
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !27
+  %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = urem i64 %4, %17
-  %19 = load ptr, ptr %15, align 8, !tbaa !28
+  %19 = load ptr, ptr %15, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
 
@@ -528,7 +528,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext12out
 
 27:                                               ; preds = %30
   %28 = icmp eq i64 %32, %4
-  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
+  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %27
   %.020.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
@@ -541,10 +541,10 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext12out
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !31
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
-  br label %.loopexit.i.i, !llvm.loop !30
+  br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
@@ -553,7 +553,7 @@ define noundef nonnull align 8 dereferenceable(20) ptr @_ZN2cv11GCPUContext12out
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !31
+  %35 = load i64, ptr %34, align 8, !tbaa !32
   %.not.i = icmp eq i64 %35, 6
   br i1 %.not.i, label %_ZN2cv4util3getINS_6detail9OpaqueRefEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS2_9VectorRefES3_EEERT_RNS0_7variantIJDpT0_EEE.exit, label %36
 
@@ -606,11 +606,11 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11GCPUContext8outF
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %17 = load i64, ptr %16, align 8, !tbaa !27
+  %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = urem i64 %4, %17
-  %19 = load ptr, ptr %15, align 8, !tbaa !28
+  %19 = load ptr, ptr %15, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
+  %21 = load ptr, ptr %20, align 8, !tbaa !30
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i.i, label %22
 
@@ -623,7 +623,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11GCPUContext8outF
 
 27:                                               ; preds = %30
   %28 = icmp eq i64 %32, %4
-  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !30
+  br i1 %28, label %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !31
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %22, %27
   %.020.i.i.i.i.i = phi ptr [ %29, %27 ], [ %23, %22 ]
@@ -636,10 +636,10 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11GCPUContext8outF
   %32 = load i64, ptr %31, align 8, !tbaa !24
   %33 = urem i64 %32, %17
   %.not19.i.i.i.i.i = icmp eq i64 %33, %18
-  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !30
+  br i1 %.not19.i.i.i.i.i, label %27, label %..loopexit_crit_edge21.i.i.i.i.i, !llvm.loop !31
 
 ..loopexit_crit_edge21.i.i.i.i.i:                 ; preds = %30
-  br label %.loopexit.i.i, !llvm.loop !30
+  br label %.loopexit.i.i, !llvm.loop !31
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i, %9, %..loopexit_crit_edge21.i.i.i.i.i, %14
   tail call void @_ZSt20__throw_out_of_rangePKc(ptr noundef nonnull @.str.2) #17
@@ -648,7 +648,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN2cv11GCPUContext8outF
 _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit: ; preds = %27, %10, %22
   %.sroa.06.1.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.06.0.i.i.i, %10 ], [ %29, %27 ]
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
-  %35 = load i64, ptr %34, align 8, !tbaa !31
+  %35 = load i64, ptr %34, align 8, !tbaa !32
   %.not.i = icmp eq i64 %35, 4
   br i1 %.not.i, label %_ZN2cv4util3getIPNS_10MediaFrameEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEES3_NS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit, label %36
 
@@ -670,7 +670,7 @@ _ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7S
 
 _ZN2cv4util3getIPNS_10MediaFrameEJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEES3_NS_6detail9VectorRefENSD_9OpaqueRefEEEERT_RNS0_7variantIJDpT0_EEE.exit: ; preds = %_ZNSt13unordered_mapImN2cv4util7variantIJPNS0_4UMatEPNS0_3MatEPNS0_4RMatEPNS0_7Scalar_IdEEPNS0_10MediaFrameENS0_6detail9VectorRefENSE_9OpaqueRefEEEESt4hashImESt8equal_toImESaISt4pairIKmSH_EEE2atERSN_.exit
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !37
+  %41 = load ptr, ptr %40, align 8, !tbaa !38
   ret ptr %41
 }
 
@@ -686,7 +686,7 @@ define void @_ZN2cv10GCPUKernelC2ERKSt8functionIFvRNS_11GCPUContextEEERKS1_IFvRK
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %7 = load ptr, ptr %6, align 8, !tbaa !39
+  %7 = load ptr, ptr %6, align 8, !tbaa !40
   %.not.i.i.not.i = icmp eq ptr %7, null
   br i1 %.not.i.i.not.i, label %_ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit, label %8
 
@@ -696,16 +696,16 @@ define void @_ZN2cv10GCPUKernelC2ERKSt8functionIFvRNS_11GCPUContextEEERKS1_IFvRK
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !41
-  store ptr %12, ptr %5, align 8, !tbaa !41
-  %13 = load ptr, ptr %6, align 8, !tbaa !39
-  store ptr %13, ptr %4, align 8, !tbaa !39
+  %12 = load ptr, ptr %11, align 8, !tbaa !42
+  store ptr %12, ptr %5, align 8, !tbaa !42
+  %13 = load ptr, ptr %6, align 8, !tbaa !40
+  store ptr %13, ptr %4, align 8, !tbaa !40
   br label %_ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit
 
 14:                                               ; preds = %8
   %15 = landingpad { ptr, i32 }
           cleanup
-  %16 = load ptr, ptr %4, align 8, !tbaa !39
+  %16 = load ptr, ptr %4, align 8, !tbaa !40
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %common.resume, label %17
 
@@ -730,7 +730,7 @@ _ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit: ; preds = %3, %10
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
-  %26 = load ptr, ptr %25, align 8, !tbaa !39
+  %26 = load ptr, ptr %25, align 8, !tbaa !40
   %.not.i.i.not.i4 = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i4, label %_ZNSt8functionIFvRKSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11GScalarDescENS1_10GArrayDescENS1_11GOpaqueDescENS1_10GFrameDescEEEESaISA_EERKS0_INS1_4GArgESaISF_EERSF_RKS0_INS1_11GCompileArgESaISL_EEEEC2ERKSR_.exit, label %27
 
@@ -740,10 +740,10 @@ _ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit: ; preds = %3, %10
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !43
-  store ptr %31, ptr %24, align 8, !tbaa !43
-  %32 = load ptr, ptr %25, align 8, !tbaa !39
-  store ptr %32, ptr %23, align 8, !tbaa !39
+  %31 = load ptr, ptr %30, align 8, !tbaa !44
+  store ptr %31, ptr %24, align 8, !tbaa !44
+  %32 = load ptr, ptr %25, align 8, !tbaa !40
+  store ptr %32, ptr %23, align 8, !tbaa !40
   %33 = icmp ne ptr %32, null
   %34 = zext i1 %33 to i8
   br label %_ZNSt8functionIFvRKSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11GScalarDescENS1_10GArrayDescENS1_11GOpaqueDescENS1_10GFrameDescEEEESaISA_EERKS0_INS1_4GArgESaISF_EERSF_RKS0_INS1_11GCompileArgESaISL_EEEEC2ERKSR_.exit
@@ -751,7 +751,7 @@ _ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit: ; preds = %3, %10
 35:                                               ; preds = %27
   %36 = landingpad { ptr, i32 }
           cleanup
-  %37 = load ptr, ptr %23, align 8, !tbaa !39
+  %37 = load ptr, ptr %23, align 8, !tbaa !40
   %.not.i.i5 = icmp eq ptr %37, null
   br i1 %.not.i.i5, label %.body, label %38
 
@@ -769,11 +769,11 @@ _ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit: ; preds = %3, %10
 _ZNSt8functionIFvRKSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11GScalarDescENS1_10GArrayDescENS1_11GOpaqueDescENS1_10GFrameDescEEEESaISA_EERKS0_INS1_4GArgESaISF_EERSF_RKS0_INS1_11GCompileArgESaISL_EEEEC2ERKSR_.exit: ; preds = %29, %_ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit
   %.not.i.i.i = phi i8 [ %34, %29 ], [ 0, %_ZNSt8functionIFvRN2cv11GCPUContextEEEC2ERKS4_.exit ]
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i8 %.not.i.i.i, ptr %43, align 8, !tbaa !45
+  store i8 %.not.i.i.i, ptr %43, align 8, !tbaa !46
   ret void
 
 .body:                                            ; preds = %35, %38
-  %44 = load ptr, ptr %4, align 8, !tbaa !39
+  %44 = load ptr, ptr %4, align 8, !tbaa !40
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %common.resume, label %45
 
@@ -925,26 +925,27 @@ attributes #20 = { builtin nounwind }
 !22 = !{!"float", !7, i64 0}
 !23 = !{!19, !20, i64 0}
 !24 = !{!18, !18, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!15, !18, i64 8}
-!28 = !{!15, !16, i64 0}
-!29 = !{!20, !20, i64 0}
-!30 = distinct !{!30, !26}
-!31 = !{!32, !18, i64 0}
-!32 = !{!"_ZTSN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEE", !18, i64 0, !7, i64 8}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 _ZTSN2cv3MatE", !6, i64 0}
-!35 = !{!36, !36, i64 0}
-!36 = !{!"p1 _ZTSN2cv7Scalar_IdEE", !6, i64 0}
-!37 = !{!38, !38, i64 0}
-!38 = !{!"p1 _ZTSN2cv10MediaFrameE", !6, i64 0}
-!39 = !{!40, !6, i64 16}
-!40 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
-!41 = !{!42, !6, i64 24}
-!42 = !{!"_ZTSSt8functionIFvRN2cv11GCPUContextEEE", !40, i64 0, !6, i64 24}
-!43 = !{!44, !6, i64 24}
-!44 = !{!"_ZTSSt8functionIFvRKSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11GScalarDescENS1_10GArrayDescENS1_11GOpaqueDescENS1_10GFrameDescEEEESaISA_EERKS0_INS1_4GArgESaISF_EERSF_RKS0_INS1_11GCompileArgESaISL_EEEE", !40, i64 0, !6, i64 24}
-!45 = !{!46, !47, i64 64}
-!46 = !{!"_ZTSN2cv10GCPUKernelE", !42, i64 0, !44, i64 32, !47, i64 64}
-!47 = !{!"bool", !7, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!15, !18, i64 8}
+!29 = !{!15, !16, i64 0}
+!30 = !{!20, !20, i64 0}
+!31 = distinct !{!31, !26, !27}
+!32 = !{!33, !18, i64 0}
+!33 = !{!"_ZTSN2cv4util7variantIJPNS_4UMatEPNS_3MatEPNS_4RMatEPNS_7Scalar_IdEEPNS_10MediaFrameENS_6detail9VectorRefENSD_9OpaqueRefEEEE", !18, i64 0, !7, i64 8}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 _ZTSN2cv3MatE", !6, i64 0}
+!36 = !{!37, !37, i64 0}
+!37 = !{!"p1 _ZTSN2cv7Scalar_IdEE", !6, i64 0}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSN2cv10MediaFrameE", !6, i64 0}
+!40 = !{!41, !6, i64 16}
+!41 = !{!"_ZTSSt14_Function_base", !7, i64 0, !6, i64 16}
+!42 = !{!43, !6, i64 24}
+!43 = !{!"_ZTSSt8functionIFvRN2cv11GCPUContextEEE", !41, i64 0, !6, i64 24}
+!44 = !{!45, !6, i64 24}
+!45 = !{!"_ZTSSt8functionIFvRKSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11GScalarDescENS1_10GArrayDescENS1_11GOpaqueDescENS1_10GFrameDescEEEESaISA_EERKS0_INS1_4GArgESaISF_EERSF_RKS0_INS1_11GCompileArgESaISL_EEEE", !41, i64 0, !6, i64 24}
+!46 = !{!47, !48, i64 64}
+!47 = !{!"_ZTSN2cv10GCPUKernelE", !43, i64 0, !45, i64 32, !48, i64 64}
+!48 = !{!"bool", !7, i64 0}

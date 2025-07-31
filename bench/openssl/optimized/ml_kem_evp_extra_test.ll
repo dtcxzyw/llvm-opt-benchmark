@@ -187,15 +187,15 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %1) #6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store ptr null, ptr %3, align 8, !tbaa !6
+  store ptr null, ptr %3, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
-  store i32 256, ptr %7, align 4, !tbaa !11
+  store i32 256, ptr %7, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
   %25 = getelementptr inbounds nuw [3 x i32], ptr @test_non_derandomised_ml_kem.alg, i64 0, i64 %indvars.iv
-  %26 = load i32, ptr %25, align 4, !tbaa !11
+  %26 = load i32, ptr %25, align 4, !tbaa !12
   %27 = call ptr @ossl_ml_kem_get_vinfo(i32 noundef %26) #6
   %28 = icmp eq ptr %27, null
   br i1 %28, label %172, label %29
@@ -203,15 +203,15 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
 29:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.26, ptr noundef nonnull @gen_seed, i64 noundef 64) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.27, ptr noundef nonnull %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
   %30 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %14, ptr noundef nonnull %1) #6
   %31 = icmp ne i32 %30, 0
@@ -221,7 +221,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not84, label %172, label %34
 
 34:                                               ; preds = %29
-  %35 = load ptr, ptr %27, align 8, !tbaa !17
+  %35 = load ptr, ptr %27, align 8, !tbaa !18
   %36 = call ptr (ptr, ptr, ptr, ...) @EVP_PKEY_Q_keygen(ptr noundef null, ptr noundef null, ptr noundef %35) #6
   %37 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 266, ptr noundef nonnull @.str.29, ptr noundef %36) #6
   %.not85 = icmp eq i32 %37, 0
@@ -236,15 +236,15 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
 41:                                               ; preds = %38
   %42 = call i64 @EVP_PKEY_get1_encoded_public_key(ptr noundef %36, ptr noundef nonnull %3) #6
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %44 = load i64, ptr %43, align 8, !tbaa !19
+  %44 = load i64, ptr %43, align 8, !tbaa !20
   %45 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.16, i32 noundef 275, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i64 noundef %42, i64 noundef %44) #6
   %.not87 = icmp eq i32 %45, 0
   br i1 %.not87, label %172, label %46
 
 46:                                               ; preds = %41
-  %47 = load ptr, ptr %3, align 8, !tbaa !6
+  %47 = load ptr, ptr %3, align 8, !tbaa !7
   %48 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %49 = load i64, ptr %48, align 8, !tbaa !20
+  %49 = load i64, ptr %48, align 8, !tbaa !21
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
   %51 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @expected_rho, i64 0, i64 %indvars.iv
   %52 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 281, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef %50, i64 noundef 32, ptr noundef nonnull %51, i64 noundef 32) #6
@@ -264,7 +264,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not90, label %172, label %59
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr %3, align 8, !tbaa !6
+  %60 = load ptr, ptr %3, align 8, !tbaa !7
   %61 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %54, ptr noundef %60, i64 noundef %42) #6
   %62 = icmp ne i32 %61, 0
   %63 = zext i1 %62 to i32
@@ -275,7 +275,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
 65:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.26, ptr noundef nonnull @enc_seed, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #6
   %66 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %17, ptr noundef nonnull %1) #6
   %67 = icmp ne i32 %66, 0
@@ -303,23 +303,23 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not95, label %172, label %79
 
 79:                                               ; preds = %76
-  %80 = load i64, ptr %4, align 8, !tbaa !15
+  %80 = load i64, ptr %4, align 8, !tbaa !16
   %81 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %82 = load i64, ptr %81, align 8, !tbaa !21
+  %82 = load i64, ptr %81, align 8, !tbaa !22
   %83 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.16, i32 noundef 311, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, i64 noundef %80, i64 noundef %82) #6
   %.not96 = icmp eq i32 %83, 0
   br i1 %.not96, label %172, label %84
 
 84:                                               ; preds = %79
-  %85 = load i64, ptr %6, align 8, !tbaa !15
+  %85 = load i64, ptr %6, align 8, !tbaa !16
   %86 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.16, i32 noundef 312, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, i64 noundef %85, i64 noundef 32) #6
   %.not97 = icmp eq i32 %86, 0
   br i1 %.not97, label %172, label %87
 
 87:                                               ; preds = %84
-  %88 = load i64, ptr %4, align 8, !tbaa !15
+  %88 = load i64, ptr %4, align 8, !tbaa !16
   %89 = call noalias ptr @CRYPTO_zalloc(i64 noundef %88, ptr noundef nonnull @.str.16, i32 noundef 314) #6
-  %90 = load i64, ptr %6, align 8, !tbaa !15
+  %90 = load i64, ptr %6, align 8, !tbaa !16
   %91 = call noalias ptr @CRYPTO_zalloc(i64 noundef %90, ptr noundef nonnull @.str.16, i32 noundef 315) #6
   %92 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 316, ptr noundef nonnull @.str.47, ptr noundef %89) #6
   %.not98 = icmp eq i32 %92, 0
@@ -346,7 +346,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not101, label %172, label %103
 
 103:                                              ; preds = %100
-  %104 = load i64, ptr %81, align 8, !tbaa !21
+  %104 = load i64, ptr %81, align 8, !tbaa !22
   %105 = call i32 @EVP_Digest(ptr noundef %89, i64 noundef %104, ptr noundef nonnull %2, ptr noundef null, ptr noundef %20, ptr noundef null) #6
   %106 = icmp ne i32 %105, 0
   %107 = zext i1 %106 to i32
@@ -361,7 +361,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not103, label %172, label %112
 
 112:                                              ; preds = %109
-  %113 = load i64, ptr %6, align 8, !tbaa !15
+  %113 = load i64, ptr %6, align 8, !tbaa !16
   %114 = getelementptr inbounds nuw [3 x [32 x i8]], ptr @expected_shared_secret, i64 0, i64 %indvars.iv
   %115 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 337, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.54, ptr noundef %91, i64 noundef %113, ptr noundef nonnull %114, i64 noundef 32) #6
   %.not104 = icmp eq i32 %115, 0
@@ -380,7 +380,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not106, label %172, label %122
 
 122:                                              ; preds = %119
-  %123 = load i64, ptr %4, align 8, !tbaa !15
+  %123 = load i64, ptr %4, align 8, !tbaa !16
   %124 = call i32 @EVP_PKEY_decapsulate(ptr noundef %117, ptr noundef null, ptr noundef nonnull %5, ptr noundef %89, i64 noundef %123) #6
   %125 = icmp ne i32 %124, 0
   %126 = zext i1 %125 to i32
@@ -389,20 +389,20 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not107, label %172, label %128
 
 128:                                              ; preds = %122
-  %129 = load i64, ptr %5, align 8, !tbaa !15
+  %129 = load i64, ptr %5, align 8, !tbaa !16
   %130 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.16, i32 noundef 353, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.46, i64 noundef %129, i64 noundef 32) #6
   %.not108 = icmp eq i32 %130, 0
   br i1 %.not108, label %172, label %131
 
 131:                                              ; preds = %128
-  %132 = load i64, ptr %5, align 8, !tbaa !15
+  %132 = load i64, ptr %5, align 8, !tbaa !16
   %133 = call noalias ptr @CRYPTO_zalloc(i64 noundef %132, ptr noundef nonnull @.str.16, i32 noundef 355) #6
   %134 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 356, ptr noundef nonnull @.str.58, ptr noundef %133) #6
   %.not109 = icmp eq i32 %134, 0
   br i1 %.not109, label %172, label %135
 
 135:                                              ; preds = %131
-  %136 = load i64, ptr %4, align 8, !tbaa !15
+  %136 = load i64, ptr %4, align 8, !tbaa !16
   %137 = call i32 @EVP_PKEY_decapsulate(ptr noundef %117, ptr noundef %133, ptr noundef nonnull %5, ptr noundef %89, i64 noundef %136) #6
   %138 = icmp ne i32 %137, 0
   %139 = zext i1 %138 to i32
@@ -411,16 +411,16 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not110, label %172, label %141
 
 141:                                              ; preds = %135
-  %142 = load i64, ptr %5, align 8, !tbaa !15
-  %143 = load i64, ptr %6, align 8, !tbaa !15
+  %142 = load i64, ptr %5, align 8, !tbaa !16
+  %143 = load i64, ptr %6, align 8, !tbaa !16
   %144 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 362, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.48, ptr noundef %133, i64 noundef %142, ptr noundef %91, i64 noundef %143) #6
   %.not111 = icmp eq i32 %144, 0
   br i1 %.not111, label %172, label %145
 
 145:                                              ; preds = %141
-  %146 = load i64, ptr %81, align 8, !tbaa !21
+  %146 = load i64, ptr %81, align 8, !tbaa !22
   call void @llvm.memset.p0.i64(ptr align 1 %89, i8 0, i64 %146, i1 false)
-  %147 = load i64, ptr %4, align 8, !tbaa !15
+  %147 = load i64, ptr %4, align 8, !tbaa !16
   %148 = call i32 @EVP_PKEY_decapsulate(ptr noundef %117, ptr noundef %133, ptr noundef nonnull %5, ptr noundef %89, i64 noundef %147) #6
   %149 = icmp ne i32 %148, 0
   %150 = zext i1 %149 to i32
@@ -429,8 +429,8 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not112, label %172, label %152
 
 152:                                              ; preds = %145
-  %153 = load i64, ptr %5, align 8, !tbaa !15
-  %154 = load i64, ptr %6, align 8, !tbaa !15
+  %153 = load i64, ptr %5, align 8, !tbaa !16
+  %154 = load i64, ptr %6, align 8, !tbaa !16
   %155 = call i32 @test_mem_ne(ptr noundef nonnull @.str.16, i32 noundef 371, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.48, ptr noundef %133, i64 noundef %153, ptr noundef %91, i64 noundef %154) #6
   %.not113 = icmp eq i32 %155, 0
   br i1 %.not113, label %172, label %156
@@ -438,7 +438,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
 156:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.26, ptr noundef nonnull @dec_seed, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #6
   %157 = call i32 @EVP_RAND_CTX_set_params(ptr noundef %17, ptr noundef nonnull %1) #6
   %158 = icmp ne i32 %157, 0
@@ -448,7 +448,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not114, label %172, label %161
 
 161:                                              ; preds = %156
-  %162 = load i64, ptr %4, align 8, !tbaa !15
+  %162 = load i64, ptr %4, align 8, !tbaa !16
   %163 = add i64 %162, -1
   %164 = call i32 @EVP_PKEY_decapsulate(ptr noundef %117, ptr noundef %133, ptr noundef nonnull %5, ptr noundef %89, i64 noundef %163) #6
   %165 = icmp ne i32 %164, 0
@@ -458,7 +458,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   br i1 %.not115, label %172, label %168
 
 168:                                              ; preds = %161
-  %169 = load i64, ptr %5, align 8, !tbaa !15
+  %169 = load i64, ptr %5, align 8, !tbaa !16
   %170 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 386, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.61, ptr noundef %133, i64 noundef %169, ptr noundef nonnull @dec_seed, i64 noundef 32) #6
   %.fr = freeze i32 %170
   %.not116.not = icmp eq i32 %.fr, 0
@@ -476,7 +476,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   call void @EVP_PKEY_CTX_free(ptr noundef %.075) #6
   call void @EVP_PKEY_free(ptr noundef %.078) #6
   call void @EVP_PKEY_free(ptr noundef %.077) #6
-  %173 = load ptr, ptr %3, align 8, !tbaa !6
+  %173 = load ptr, ptr %3, align 8, !tbaa !7
   call void @CRYPTO_free(ptr noundef %173, ptr noundef nonnull @.str.16, i32 noundef 395) #6
   call void @CRYPTO_free(ptr noundef %.074, ptr noundef nonnull @.str.16, i32 noundef 396) #6
   call void @CRYPTO_free(ptr noundef %.073, ptr noundef nonnull @.str.16, i32 noundef 397) #6
@@ -491,7 +491,7 @@ define internal range(i32 0, 2) i32 @test_non_derandomised_ml_kem() #1 {
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %1) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %174, label %24, !llvm.loop !22
+  br i1 %exitcond.not, label %174, label %24, !llvm.loop !23
 
 174:                                              ; preds = %172
   call void @EVP_MD_free(ptr noundef %20) #6
@@ -511,7 +511,7 @@ define internal range(i32 0, 2) i32 @test_ml_kem() #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #6
-  store ptr null, ptr %1, align 8, !tbaa !6
+  store ptr null, ptr %1, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
@@ -539,7 +539,7 @@ define internal range(i32 0, 2) i32 @test_ml_kem() #1 {
   br i1 %.not48, label %79, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %1, align 8, !tbaa !6
+  %17 = load ptr, ptr %1, align 8, !tbaa !7
   %18 = call i32 @EVP_PKEY_set1_encoded_public_key(ptr noundef %11, ptr noundef %17, i64 noundef %8) #6
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
@@ -566,21 +566,21 @@ define internal range(i32 0, 2) i32 @test_ml_kem() #1 {
   br i1 %.not52, label %79, label %31
 
 31:                                               ; preds = %28
-  %32 = load i64, ptr %2, align 8, !tbaa !15
+  %32 = load i64, ptr %2, align 8, !tbaa !16
   %33 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.16, i32 noundef 158, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.31, i64 noundef %32, i64 noundef 0) #6
   %.not53 = icmp eq i32 %33, 0
   br i1 %.not53, label %79, label %34
 
 34:                                               ; preds = %31
-  %35 = load i64, ptr %4, align 8, !tbaa !15
+  %35 = load i64, ptr %4, align 8, !tbaa !16
   %36 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.16, i32 noundef 158, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.31, i64 noundef %35, i64 noundef 0) #6
   %.not54 = icmp eq i32 %36, 0
   br i1 %.not54, label %79, label %37
 
 37:                                               ; preds = %34
-  %38 = load i64, ptr %2, align 8, !tbaa !15
+  %38 = load i64, ptr %2, align 8, !tbaa !16
   %39 = call noalias ptr @CRYPTO_zalloc(i64 noundef %38, ptr noundef nonnull @.str.16, i32 noundef 161) #6
-  %40 = load i64, ptr %4, align 8, !tbaa !15
+  %40 = load i64, ptr %4, align 8, !tbaa !16
   %41 = call noalias ptr @CRYPTO_zalloc(i64 noundef %40, ptr noundef nonnull @.str.16, i32 noundef 162) #6
   %42 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 163, ptr noundef nonnull @.str.47, ptr noundef %39) #6
   %.not55 = icmp eq i32 %42, 0
@@ -611,55 +611,55 @@ define internal range(i32 0, 2) i32 @test_ml_kem() #1 {
   br i1 %.not59, label %79, label %54
 
 54:                                               ; preds = %51
-  %55 = load i64, ptr %2, align 8, !tbaa !15
+  %55 = load i64, ptr %2, align 8, !tbaa !16
   %56 = call i32 @EVP_PKEY_decapsulate(ptr noundef %49, ptr noundef null, ptr noundef nonnull %3, ptr noundef %39, i64 noundef %55) #6
   %57 = call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 181, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.31, i32 noundef %56, i32 noundef 0) #6
   %.not60 = icmp eq i32 %57, 0
   br i1 %.not60, label %79, label %58
 
 58:                                               ; preds = %54
-  %59 = load i64, ptr %3, align 8, !tbaa !15
+  %59 = load i64, ptr %3, align 8, !tbaa !16
   %60 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.16, i32 noundef 184, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.31, i64 noundef %59, i64 noundef 0) #6
   %.not61 = icmp eq i32 %60, 0
   br i1 %.not61, label %79, label %61
 
 61:                                               ; preds = %58
-  %62 = load i64, ptr %3, align 8, !tbaa !15
+  %62 = load i64, ptr %3, align 8, !tbaa !16
   %63 = call noalias ptr @CRYPTO_zalloc(i64 noundef %62, ptr noundef nonnull @.str.16, i32 noundef 187) #6
   %64 = call i32 @test_ptr(ptr noundef nonnull @.str.16, i32 noundef 188, ptr noundef nonnull @.str.58, ptr noundef %63) #6
   %.not62 = icmp eq i32 %64, 0
   br i1 %.not62, label %79, label %65
 
 65:                                               ; preds = %61
-  %66 = load i64, ptr %2, align 8, !tbaa !15
+  %66 = load i64, ptr %2, align 8, !tbaa !16
   %67 = call i32 @EVP_PKEY_decapsulate(ptr noundef %49, ptr noundef %63, ptr noundef nonnull %3, ptr noundef %39, i64 noundef %66) #6
   %68 = call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 192, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.31, i32 noundef %67, i32 noundef 0) #6
   %.not63 = icmp eq i32 %68, 0
   br i1 %.not63, label %79, label %69
 
 69:                                               ; preds = %65
-  %70 = load i64, ptr %3, align 8, !tbaa !15
-  %71 = load i64, ptr %4, align 8, !tbaa !15
+  %70 = load i64, ptr %3, align 8, !tbaa !16
+  %71 = load i64, ptr %4, align 8, !tbaa !16
   %72 = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 196, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.48, ptr noundef %63, i64 noundef %70, ptr noundef %41, i64 noundef %71) #6
   %.not64 = icmp eq i32 %72, 0
   br i1 %.not64, label %79, label %.preheader
 
 .preheader:                                       ; preds = %69
-  %73 = load i64, ptr %3, align 8, !tbaa !15
+  %73 = load i64, ptr %3, align 8, !tbaa !16
   %.not72 = icmp eq i64 %73, 0
   br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %76
   %.067 = phi i64 [ %77, %76 ], [ 0, %.preheader ]
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 %.067
-  %75 = load i8, ptr %74, align 1, !tbaa !23
+  %75 = load i8, ptr %74, align 1, !tbaa !24
   %.not65 = icmp eq i8 %75, 0
   br i1 %.not65, label %76, label %._crit_edge
 
 76:                                               ; preds = %.lr.ph
   %77 = add nuw i64 %.067, 1
   %exitcond.not = icmp eq i64 %77, %73
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %76, %.lr.ph, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %.067, %.lr.ph ], [ %73, %76 ]
@@ -678,7 +678,7 @@ define internal range(i32 0, 2) i32 @test_ml_kem() #1 {
   call void @EVP_PKEY_CTX_free(ptr noundef %.043) #6
   call void @EVP_PKEY_free(ptr noundef %5) #6
   call void @EVP_PKEY_free(ptr noundef %.044) #6
-  %80 = load ptr, ptr %1, align 8, !tbaa !6
+  %80 = load ptr, ptr %1, align 8, !tbaa !7
   call void @CRYPTO_free(ptr noundef %80, ptr noundef nonnull @.str.16, i32 noundef 211) #6
   call void @CRYPTO_free(ptr noundef %.042, ptr noundef nonnull @.str.16, i32 noundef 212) #6
   call void @CRYPTO_free(ptr noundef %.041, ptr noundef nonnull @.str.16, i32 noundef 213) #6
@@ -783,24 +783,25 @@ attributes #6 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"p1 omnipotent char", !8, i64 0}
-!8 = !{!"any pointer", !9, i64 0}
-!9 = !{!"omnipotent char", !10, i64 0}
-!10 = !{!"Simple C/C++ TBAA"}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !9, i64 0}
-!13 = !{i64 0, i64 8, !6, i64 8, i64 4, !11, i64 16, i64 8, !14, i64 24, i64 8, !15, i64 32, i64 8, !15}
-!14 = !{!8, !8, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !9, i64 0}
-!17 = !{!18, !7, i64 0}
-!18 = !{!"", !7, i64 0, !16, i64 8, !16, i64 16, !16, i64 24, !16, i64 32, !16, i64 40, !16, i64 48, !16, i64 56, !12, i64 64, !12, i64 68, !12, i64 72, !12, i64 76, !12, i64 80, !12, i64 84}
-!19 = !{!18, !16, i64 24}
-!20 = !{!18, !16, i64 48}
-!21 = !{!18, !16, i64 40}
-!22 = distinct !{!22, !5}
-!23 = !{!9, !9, i64 0}
-!24 = distinct !{!24, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 omnipotent char", !9, i64 0}
+!9 = !{!"any pointer", !10, i64 0}
+!10 = !{!"omnipotent char", !11, i64 0}
+!11 = !{!"Simple C/C++ TBAA"}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !10, i64 0}
+!14 = !{i64 0, i64 8, !7, i64 8, i64 4, !12, i64 16, i64 8, !15, i64 24, i64 8, !16, i64 32, i64 8, !16}
+!15 = !{!9, !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !10, i64 0}
+!18 = !{!19, !8, i64 0}
+!19 = !{!"", !8, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !13, i64 64, !13, i64 68, !13, i64 72, !13, i64 76, !13, i64 80, !13, i64 84}
+!20 = !{!19, !17, i64 24}
+!21 = !{!19, !17, i64 48}
+!22 = !{!19, !17, i64 40}
+!23 = distinct !{!23, !5, !6}
+!24 = !{!10, !10, i64 0}
+!25 = distinct !{!25, !5, !6}

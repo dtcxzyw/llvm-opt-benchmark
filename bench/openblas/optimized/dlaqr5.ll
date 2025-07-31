@@ -331,7 +331,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %210, ptr %gep1691, align 8, !tbaa !7
   %indvars.iv.next1604 = add nsw i64 %indvars.iv1603, 1
   %.not1440.not = icmp slt i64 %indvars.iv1603, %198
-  br i1 %.not1440.not, label %199, label %._crit_edge1511, !llvm.loop !11
+  br i1 %.not1440.not, label %199, label %._crit_edge1511, !llvm.loop !12
 
 ._crit_edge1511:                                  ; preds = %199, %183
   br i1 %switch, label %211, label %212
@@ -389,7 +389,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %239, ptr %gep1697, align 8, !tbaa !7
   %indvars.iv.next1611 = add nsw i64 %indvars.iv1610, 1
   %.not1443.not = icmp slt i64 %indvars.iv1610, %226
-  br i1 %.not1443.not, label %228, label %._crit_edge1516, !llvm.loop !12
+  br i1 %.not1443.not, label %228, label %._crit_edge1516, !llvm.loop !13
 
 ._crit_edge1516:                                  ; preds = %228, %216
   %240 = load i32, ptr %4, align 4, !tbaa !3
@@ -633,7 +633,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %410, ptr %gep1705, align 8, !tbaa !7
   %indvars.iv.next1619 = add nuw nsw i64 %indvars.iv1618, 1
   %.not1454.not = icmp samesign ult i64 %indvars.iv1618, %398
-  br i1 %.not1454.not, label %399, label %.loopexit1501, !llvm.loop !13
+  br i1 %.not1454.not, label %399, label %.loopexit1501, !llvm.loop !14
 
 411:                                              ; preds = %379
   %412 = load i32, ptr %1, align 4, !tbaa !3
@@ -683,7 +683,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next1614 = add nsw i64 %indvars.iv1613, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next1614 to i32
   %exitcond.not = icmp eq i32 %427, %lftr.wideiv
-  br i1 %exitcond.not, label %.loopexit1501, label %428, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit1501, label %428, !llvm.loop !15
 
 .loopexit1501:                                    ; preds = %428, %399, %413, %380, %411, %125
   %440 = phi i32 [ %240, %413 ], [ %240, %380 ], [ %240, %411 ], [ %126, %125 ], [ %240, %399 ], [ %240, %428 ]
@@ -936,7 +936,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %611, ptr %gep1711, align 8, !tbaa !7
   %indvars.iv.next1622 = add nsw i64 %indvars.iv1621, 1
   %.not1470.not = icmp slt i64 %indvars.iv1621, %593
-  br i1 %.not1470.not, label %594, label %._crit_edge1529, !llvm.loop !15
+  br i1 %.not1470.not, label %594, label %._crit_edge1529, !llvm.loop !16
 
 ._crit_edge1529:                                  ; preds = %594, %.._crit_edge1529_crit_edge
   %.pre-phi1677 = phi i32 [ %.pre1676, %.._crit_edge1529_crit_edge ], [ %586, %594 ]
@@ -1151,7 +1151,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 768:                                              ; preds = %644, %758, %767, %728, %._crit_edge1529
   %indvars.iv.next1625 = add nsw i64 %indvars.iv1624, -1
   %.not1455.not = icmp sgt i64 %indvars.iv1624, %448
-  br i1 %.not1455.not, label %449, label %._crit_edge1534, !llvm.loop !16
+  br i1 %.not1455.not, label %449, label %._crit_edge1534, !llvm.loop !17
 
 ._crit_edge1534:                                  ; preds = %768
   br i1 %switch, label %.thread1682, label %769
@@ -1252,13 +1252,13 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %819, ptr %gep1717, align 8, !tbaa !7
   %indvars.iv.next1630 = add nsw i64 %indvars.iv1629, 1
   %.not1468.not = icmp slt i64 %indvars.iv1629, %786
-  br i1 %.not1468.not, label %803, label %._crit_edge1539, !llvm.loop !17
+  br i1 %.not1468.not, label %803, label %._crit_edge1539, !llvm.loop !18
 
 ._crit_edge1539:                                  ; preds = %803, %789
   %indvars.iv.next1633 = add nsw i64 %indvars.iv1632, -1
   %.not1458.not = icmp sgt i64 %indvars.iv1632, %788
   %indvars.iv.next1627 = add i32 %indvars.iv1626, -2
-  br i1 %.not1458.not, label %789, label %._crit_edge1544, !llvm.loop !18
+  br i1 %.not1458.not, label %789, label %._crit_edge1544, !llvm.loop !19
 
 ._crit_edge1544:                                  ; preds = %._crit_edge1539
   br i1 %switch, label %.preheader, label %869
@@ -1342,13 +1342,13 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double %868, ptr %gep1729, align 8, !tbaa !7
   %indvars.iv.next1647 = add nuw nsw i64 %indvars.iv1646, 1
   %.not1466.not = icmp slt i64 %indvars.iv1646, %826
-  br i1 %.not1466.not, label %851, label %._crit_edge1563, !llvm.loop !19
+  br i1 %.not1466.not, label %851, label %._crit_edge1563, !llvm.loop !20
 
 ._crit_edge1563:                                  ; preds = %851, %829
   %indvars.iv.next1651 = add nsw i64 %indvars.iv1650, -1
   %.not1462.not = icmp sgt i64 %indvars.iv1650, %828
   %indvars.iv.next1643 = add i32 %indvars.iv1642, -2
-  br i1 %.not1462.not, label %829, label %.loopexit, !llvm.loop !20
+  br i1 %.not1462.not, label %829, label %.loopexit, !llvm.loop !21
 
 869:                                              ; preds = %._crit_edge1544
   %870 = load i32, ptr %1, align 4, !tbaa !3
@@ -1423,12 +1423,12 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %indvars.iv.next1635 = add nsw i64 %indvars.iv1634, 1
   %lftr.wideiv1637 = trunc i64 %indvars.iv.next1635 to i32
   %exitcond1638.not = icmp eq i32 %874, %lftr.wideiv1637
-  br i1 %exitcond1638.not, label %._crit_edge1551, label %891, !llvm.loop !21
+  br i1 %exitcond1638.not, label %._crit_edge1551, label %891, !llvm.loop !22
 
 ._crit_edge1551:                                  ; preds = %891
   %indvars.iv.next1641 = add nsw i64 %indvars.iv1640, -1
   %.not1460.not = icmp sgt i64 %indvars.iv1640, %876
-  br i1 %.not1460.not, label %.lr.ph1550, label %.loopexit, !llvm.loop !22
+  br i1 %.not1460.not, label %.lr.ph1550, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %._crit_edge1551, %._crit_edge1563, %779, %._crit_edge1534.thread, %.lr.ph1554, %.preheader, %869
   %909 = phi i32 [ %781, %.preheader ], [ %781, %869 ], [ %781, %.lr.ph1554 ], [ %442, %._crit_edge1534.thread ], [ %773, %779 ], [ %781, %._crit_edge1563 ], [ %781, %._crit_edge1551 ]
@@ -1440,7 +1440,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %915 = add i32 %.013681570, 1
   %indvars.iv.next1609 = add i32 %indvars.iv1608, 1
   %exitcond1655.not = icmp eq i32 %.013681570, %smin1654
-  br i1 %exitcond1655.not, label %._crit_edge1575, label %125, !llvm.loop !23
+  br i1 %exitcond1655.not, label %._crit_edge1575, label %125, !llvm.loop !24
 
 ._crit_edge1575:                                  ; preds = %.loopexit, %116
   %.pre1667 = phi i32 [ %119, %116 ], [ %909, %.loopexit ]
@@ -1499,7 +1499,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %946 = icmp sge i64 %indvars.iv.next1658, %938
   %947 = icmp sle i64 %indvars.iv.next1658, %938
   %.in1429 = select i1 %928, i1 %946, i1 %947
-  br i1 %.in1429, label %940, label %._crit_edge1580.loopexit, !llvm.loop !24
+  br i1 %.in1429, label %940, label %._crit_edge1580.loopexit, !llvm.loop !25
 
 ._crit_edge1580.loopexit:                         ; preds = %940
   %.pre1668 = load i32, ptr %4, align 4, !tbaa !3
@@ -1546,7 +1546,7 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %970 = icmp sge i64 %indvars.iv.next1661, %962
   %971 = icmp slt i64 %indvars.iv.next1661, %961
   %.in1431 = select i1 %951, i1 %970, i1 %971
-  br i1 %.in1431, label %964, label %._crit_edge1585, !llvm.loop !25
+  br i1 %.in1431, label %964, label %._crit_edge1585, !llvm.loop !26
 
 ._crit_edge1585:                                  ; preds = %964, %._crit_edge1580
   %972 = load i32, ptr %1, align 4, !tbaa !3
@@ -1592,14 +1592,14 @@ define void @dlaqr5_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %995 = icmp sge i64 %indvars.iv.next1664, %987
   %996 = icmp sle i64 %indvars.iv.next1664, %987
   %.in1433 = select i1 %977, i1 %995, i1 %996
-  br i1 %.in1433, label %989, label %.loopexit1503, !llvm.loop !26
+  br i1 %.in1433, label %989, label %.loopexit1503, !llvm.loop !27
 
 .loopexit1503:                                    ; preds = %989, %973, %._crit_edge1575, %._crit_edge1585
   %indvars.iv.next1617 = sub i32 %indvars.iv1616, %96
   %.not1495 = icmp sgt i32 %118, %95
   %indvars.iv.next1607 = add i32 %indvars.iv1606, %96
   %indvars.iv.next1653 = add i32 %indvars.iv1652, %96
-  br i1 %.not1495, label %.loopexit1504, label %107, !llvm.loop !27
+  br i1 %.not1495, label %.loopexit1504, label %107, !llvm.loop !28
 
 .loopexit1504:                                    ; preds = %.loopexit1503, %92, %50, %25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %33) #5
@@ -1663,22 +1663,23 @@ attributes #5 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
-!23 = distinct !{!23, !10}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}
+!24 = distinct !{!24, !10, !11}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}

@@ -1179,7 +1179,7 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph53, %172
   %187 = add nuw i32 %.0346.i46, 1
   %188 = load i32, ptr %9, align 4
   %189 = icmp ult i32 %187, %188
-  br i1 %189, label %.lr.ph48, label %._crit_edge, !llvm.loop !10
+  br i1 %189, label %.lr.ph48, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph48, %181
   %.1.i.lcssa = phi i32 [ %184, %181 ], [ %186, %.lr.ph48 ]
@@ -1202,7 +1202,7 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph53, %172
   %198 = add nuw i32 %.1347.i42, 1
   %199 = load i32, ptr %9, align 4
   %200 = icmp ult i32 %198, %199
-  br i1 %200, label %.lr.ph44, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !11
+  br i1 %200, label %.lr.ph44, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !12
 
 201:                                              ; preds = %27
   %202 = load i32, ptr @hf_erldp_binary_ext_len, align 4
@@ -1251,7 +1251,7 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph53, %172
   %235 = add nuw i32 %.2348.i38, 1
   %236 = load i32, ptr %9, align 4
   %237 = icmp ult i32 %235, %236
-  br i1 %237, label %.lr.ph40, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !12
+  br i1 %237, label %.lr.ph40, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !13
 
 238:                                              ; preds = %27
   %239 = load i32, ptr @hf_erldp_new_ref_ext_len, align 4
@@ -1275,7 +1275,7 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph53, %172
   %.4.i = add i32 %.4.i35, 4
   %250 = load i32, ptr %9, align 4
   %251 = icmp ult i32 %249, %250
-  br i1 %251, label %.lr.ph36, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !13
+  br i1 %251, label %.lr.ph36, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !14
 
 252:                                              ; preds = %27
   %253 = load i32, ptr @hf_erldp_fun_ext_num_free, align 4
@@ -1299,7 +1299,7 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph53, %172
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %12) #5
   %264 = load i32, ptr %9, align 4
   %265 = icmp ult i32 %261, %264
-  br i1 %265, label %.lr.ph31, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !14
+  br i1 %265, label %.lr.ph31, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !15
 
 266:                                              ; preds = %27
   %267 = load i32, ptr @hf_erldp_new_fun_ext_size, align 4
@@ -1335,7 +1335,7 @@ dissect_etf_tuple_content.exit:                   ; preds = %.lr.ph53, %172
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %13) #5
   %290 = load i32, ptr %9, align 4
   %291 = icmp ult i32 %287, %290
-  br i1 %291, label %.lr.ph, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !15
+  br i1 %291, label %.lr.ph, label %dissect_etf_type_content.exitthread-pre-split, !llvm.loop !16
 
 292:                                              ; preds = %27
   %293 = call fastcc i32 @dissect_etf_type(ptr noundef nonnull @.str.243, ptr noundef %1, ptr noundef %2, i32 noundef %22, ptr noundef %19)
@@ -1491,7 +1491,7 @@ define internal fastcc noundef i32 @dissect_etf_big_ext(ptr noundef %0, ptr noun
   %48 = zext i8 %47 to i32
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %45, ptr noundef nonnull @.str.253, i32 noundef %48)
   %49 = icmp samesign ugt i32 %.0.in65, 1
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread
   %50 = tail call ptr @wmem_strbuf_finalize(ptr noundef %45)
@@ -1622,7 +1622,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr noundef readonly capture
   %43 = zext i8 %42 to i32
   %44 = load i32, ptr %5, align 4
   %45 = icmp ugt i32 %44, %43
-  br i1 %45, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !17
+  br i1 %45, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !18
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %46 = lshr i32 %44, 1
@@ -1711,7 +1711,7 @@ define internal fastcc i32 @dissect_etf_dist_header(ptr noundef readonly capture
   %103 = zext i8 %102 to i32
   %104 = load i32, ptr %5, align 4
   %105 = icmp ugt i32 %104, %103
-  br i1 %105, label %70, label %._crit_edge97, !llvm.loop !18
+  br i1 %105, label %70, label %._crit_edge97, !llvm.loop !19
 
 ._crit_edge97:                                    ; preds = %101, %._crit_edge
   %.083.lcssa = phi i32 [ %65, %._crit_edge ], [ %.1, %101 ]
@@ -1817,14 +1817,15 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

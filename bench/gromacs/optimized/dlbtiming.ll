@@ -316,7 +316,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nounde
   %.3 = phi double [ %25, %20 ], [ %.238, %18 ]
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond45.not = icmp eq i64 %indvars.iv.next43, 47
-  br i1 %exitcond45.not, label %.preheader, label %.preheader34, !llvm.loop !130
+  br i1 %exitcond45.not, label %.preheader, label %.preheader34, !llvm.loop !131
 
 27:                                               ; preds = %.preheader
   ret double %33
@@ -332,7 +332,7 @@ define internal fastcc noundef double @_ZL16force_flop_countPK6t_nrnb(ptr nounde
   %33 = tail call double @llvm.fmuladd.f64(double %29, double %32, double %.439)
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 85
-  br i1 %exitcond49.not, label %27, label %.preheader, !llvm.loop !131
+  br i1 %exitcond49.not, label %27, label %.preheader, !llvm.loop !132
 }
 
 declare noundef ptr @_Z8nrnb_stri(i32 noundef) local_unnamed_addr #6
@@ -362,9 +362,9 @@ define void @_Z18dd_force_flop_stopP12gmx_domdec_tP6t_nrnb(ptr noundef readonly 
   %12 = fadd double %8, %11
   store double %12, ptr %10, align 8, !tbaa !126
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 1632
-  %14 = load i32, ptr %13, align 8, !tbaa !132
+  %14 = load i32, ptr %13, align 8, !tbaa !133
   %15 = add nsw i32 %14, 1
-  store i32 %15, ptr %13, align 8, !tbaa !132
+  store i32 %15, ptr %13, align 8, !tbaa !133
   br label %16
 
 16:                                               ; preds = %7, %2
@@ -379,7 +379,7 @@ define void @_Z21clear_dd_cycle_countsP12gmx_domdec_t(ptr noundef readonly captu
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1624
   store double 0.000000e+00, ptr %5, align 8, !tbaa !126
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1632
-  store i32 0, ptr %6, align 8, !tbaa !132
+  store i32 0, ptr %6, align 8, !tbaa !133
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %4, i8 0, i64 60, i1 false)
   ret void
 }
@@ -529,8 +529,9 @@ attributes #13 = { nounwind willreturn memory(read) }
 !125 = !{!26, !28, i64 8}
 !126 = !{!26, !118, i64 1624}
 !127 = !{!118, !118, i64 0}
-!128 = distinct !{!128, !129}
+!128 = distinct !{!128, !129, !130}
 !129 = !{!"llvm.loop.mustprogress"}
-!130 = distinct !{!130, !129}
-!131 = distinct !{!131, !129}
-!132 = !{!26, !28, i64 1632}
+!130 = !{!"llvm.loop.estimated_trip_count"}
+!131 = distinct !{!131, !129, !130}
+!132 = distinct !{!132, !129, !130}
+!133 = !{!26, !28, i64 1632}

@@ -554,21 +554,21 @@ EVP_KEYMGMT_free.exit208:                         ; preds = %CRYPTO_DOWN_REF.exi
   %249 = tail call i32 @ossl_provider_up_ref(ptr noundef nonnull %2) #5
   %.pr = load ptr, ptr %247, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
-  store i32 0, ptr %4, align 4, !tbaa !51
+  store i32 0, ptr %4, align 4, !tbaa !52
   %.not.i.i = icmp eq ptr %.pr, null
   br i1 %.not.i.i, label %get_legacy_alg_type_from_keymgmt.exit, label %250
 
 250:                                              ; preds = %248
   %251 = load i32, ptr %11, align 4, !tbaa !12
   %252 = call i32 @evp_names_do_all(ptr noundef nonnull %.pr, i32 noundef %251, ptr noundef nonnull @help_get_legacy_alg_type_from_keymgmt, ptr noundef nonnull %4) #5
-  %.pre.i = load i32, ptr %4, align 4, !tbaa !51
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !52
   br label %get_legacy_alg_type_from_keymgmt.exit
 
 get_legacy_alg_type_from_keymgmt.exit:            ; preds = %.thread, %248, %250
   %253 = phi i32 [ 0, %248 ], [ %.pre.i, %250 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
   %254 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %253, ptr %254, align 8, !tbaa !52
+  store i32 %253, ptr %254, align 8, !tbaa !53
   br label %EVP_KEYMGMT_free.exit
 
 EVP_KEYMGMT_free.exit:                            ; preds = %3, %19, %CRYPTO_DOWN_REF.exit.i, %get_legacy_alg_type_from_keymgmt.exit, %EVP_KEYMGMT_free.exit208
@@ -691,7 +691,7 @@ define i32 @evp_keymgmt_get_number(ptr noundef readonly captures(none) %0) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @evp_keymgmt_get_legacy_alg(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i32, ptr %2, align 8, !tbaa !52
+  %3 = load i32, ptr %2, align 8, !tbaa !53
   ret i32 %3
 }
 
@@ -1191,13 +1191,13 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define internal void @help_get_legacy_alg_type_from_keymgmt(ptr noundef %0, ptr noundef captures(none) %1) #0 {
-  %3 = load i32, ptr %1, align 4, !tbaa !51
+  %3 = load i32, ptr %1, align 4, !tbaa !52
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = tail call i32 @evp_pkey_name2type(ptr noundef %0) #5
-  store i32 %6, ptr %1, align 4, !tbaa !51
+  store i32 %6, ptr %1, align 4, !tbaa !52
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -1264,7 +1264,8 @@ attributes #5 = { nounwind }
 !46 = !{!13, !6, i64 224}
 !47 = !{!13, !6, i64 232}
 !48 = !{!13, !6, i64 240}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!14, !14, i64 0}
-!52 = !{!13, !14, i64 8}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!14, !14, i64 0}
+!53 = !{!13, !14, i64 8}

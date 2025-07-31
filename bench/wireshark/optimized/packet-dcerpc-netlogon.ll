@@ -3196,7 +3196,7 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
   %31 = getelementptr inbounds nuw i8, ptr %38, i64 384
   %32 = load i32, ptr %31, align 8
   %.not16.i = icmp sgt i32 %27, %32
-  br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+  br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %30
   %.01230.i16 = phi ptr [ %38, %30 ], [ %25, %.lr.ph.i ]
@@ -3214,10 +3214,10 @@ define internal i32 @netlogon_dissect_netrserverreqchallenge_reply(ptr noundef %
   %37 = getelementptr inbounds nuw i8, ptr %.01230.i16, i64 392
   %38 = load ptr, ptr %37, align 8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, label %30, !llvm.loop !10
+  br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, label %30, !llvm.loop !11
 
 .thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge: ; preds = %.thread22.i
-  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !11
 
 find_tmp_netlogon_auth_vars.exit:                 ; preds = %36, %30, %.lr.ph.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge, %6
   %.1.i = phi ptr [ null, %6 ], [ %.227.i, %.thread22.i.find_tmp_netlogon_auth_vars.exit.loopexit_crit_edge ], [ null, %.lr.ph.i ], [ %.01230.i16, %36 ], [ %.227.i, %30 ]
@@ -4073,7 +4073,7 @@ define internal noundef i32 @netlogon_dissect_netrserverpasswordset2_rqst(ptr no
   %52 = getelementptr inbounds nuw i8, ptr %.01230.i.i, i64 392
   %53 = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %53, null
-  br i1 %.not.i.i, label %find_global_netlogon_auth_vars.exit.i, label %44, !llvm.loop !11
+  br i1 %.not.i.i, label %find_global_netlogon_auth_vars.exit.i, label %44, !llvm.loop !12
 
 find_global_netlogon_auth_vars.exit.i:            ; preds = %.thread22.i.i, %51, %44, %23
   %.1.i.i = phi ptr [ null, %23 ], [ %.01329.i.i, %44 ], [ %.01329.i.i, %51 ], [ %.227.i.i, %.thread22.i.i ]
@@ -5047,7 +5047,7 @@ find_tmp_netlogon_auth_vars.exit.thread47:        ; preds = %.lr.ph.i
   %47 = getelementptr inbounds nuw i8, ptr %54, i64 384
   %48 = load i32, ptr %47, align 8
   %.not16.i = icmp sgt i32 %43, %48
-  br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+  br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %46
   %.01230.i42 = phi ptr [ %54, %46 ], [ %41, %.lr.ph.i ]
@@ -5069,10 +5069,10 @@ find_tmp_netlogon_auth_vars.exit.thread36:        ; preds = %52
   %53 = getelementptr inbounds nuw i8, ptr %.01230.i42, i64 392
   %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %54, null
-  br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %46, !llvm.loop !10
+  br i1 %.not.i, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %46, !llvm.loop !11
 
 .thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge: ; preds = %.thread22.i
-  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !11
 
 find_tmp_netlogon_auth_vars.exit:                 ; preds = %46, %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #15
@@ -6238,7 +6238,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 384
   %60 = load i32, ptr %59, align 8
   %61 = icmp sgt i32 %60, %10
-  br i1 %61, label %62, label %33, !llvm.loop !12
+  br i1 %61, label %62, label %33, !llvm.loop !13
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds nuw i8, ptr %.068, i64 392
@@ -6307,7 +6307,7 @@ define internal fastcc ptr @create_global_netlogon_auth_vars(ptr noundef readonl
   %91 = getelementptr inbounds nuw i8, ptr %.169109, i64 388
   %92 = load i32, ptr %91, align 4
   %93 = icmp eq i32 %92, %87
-  br i1 %93, label %.lr.ph, label %94, !llvm.loop !13
+  br i1 %93, label %.lr.ph, label %94, !llvm.loop !14
 
 94:                                               ; preds = %90
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.1176, i32 noundef 7, ptr noundef nonnull @.str.1177, i64 noundef 3722, ptr noundef nonnull @__func__.create_global_netlogon_auth_vars, ptr noundef nonnull @.str.1178, ptr noundef nonnull @.str.1182) #18
@@ -6542,7 +6542,7 @@ find_tmp_netlogon_auth_vars.exit.thread230:       ; preds = %.lr.ph.i
   %81 = getelementptr inbounds nuw i8, ptr %88, i64 384
   %82 = load i32, ptr %81, align 8
   %.not16.i = icmp sgt i32 %77, %82
-  br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+  br i1 %.not16.i, label %.lr.ph, label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %80
   %.01230.i171 = phi ptr [ %88, %80 ], [ %75, %.lr.ph.i ]
@@ -6564,10 +6564,10 @@ find_tmp_netlogon_auth_vars.exit.thread139:       ; preds = %86
   %87 = getelementptr inbounds nuw i8, ptr %.01230.i171, i64 392
   %88 = load ptr, ptr %87, align 8
   %.not.i134 = icmp eq ptr %88, null
-  br i1 %.not.i134, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %80, !llvm.loop !10
+  br i1 %.not.i134, label %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge, label %80, !llvm.loop !11
 
 .thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge: ; preds = %.thread22.i
-  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !10
+  br label %find_tmp_netlogon_auth_vars.exit, !llvm.loop !11
 
 find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.find_tmp_netlogon_auth_vars.exit_crit_edge
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #15
@@ -6698,7 +6698,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 135:                                              ; preds = %134, %.lr.ph174
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph174, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph174, !llvm.loop !15
 
 .loopexit:                                        ; preds = %135, %96, %.thread
   %.1111 = phi i32 [ %.2112.ph, %.thread ], [ 0, %96 ], [ 0, %135 ]
@@ -6770,7 +6770,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 158:                                              ; preds = %151, %155
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %._crit_edge, label %151, !llvm.loop !15
+  br i1 %exitcond224.not, label %._crit_edge, label %151, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %158, %155, %148
   %.5115 = phi i32 [ 0, %148 ], [ 1, %155 ], [ 0, %158 ]
@@ -6805,7 +6805,7 @@ find_tmp_netlogon_auth_vars.exit:                 ; preds = %80, %.thread22.i.fi
 170:                                              ; preds = %171
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %._crit_edge186, label %171, !llvm.loop !16
+  br i1 %exitcond229.not, label %._crit_edge186, label %171, !llvm.loop !17
 
 171:                                              ; preds = %.lr.ph185, %170
   %indvars.iv225 = phi i64 [ 0, %.lr.ph185 ], [ %indvars.iv.next226, %170 ]
@@ -8376,7 +8376,7 @@ define internal i32 @netlogon_dissect_BYTE_16_array(ptr noundef %0, i32 noundef 
   %9 = tail call i32 @dissect_ndr_uint8(ptr noundef %0, i32 noundef %.089, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null)
   %10 = add nuw nsw i32 %.010, 1
   %exitcond.not = icmp eq i32 %10, 16
-  br i1 %exitcond.not, label %11, label %7, !llvm.loop !17
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !18
 
 11:                                               ; preds = %7
   ret i32 %9
@@ -9122,7 +9122,7 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %14
   %43 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 392
   %44 = load ptr, ptr %43, align 8
   %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %35, !llvm.loop !11
+  br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %35, !llvm.loop !12
 
 find_global_netlogon_auth_vars.exit:              ; preds = %35, %42, %.thread22.i
   %.1.i = phi ptr [ %.01329.i, %35 ], [ %.01329.i, %42 ], [ %.227.i, %.thread22.i ]
@@ -9815,7 +9815,7 @@ find_global_netlogon_auth_vars.exit.thread:       ; preds = %15
   %44 = getelementptr inbounds nuw i8, ptr %.01230.i, i64 392
   %45 = load ptr, ptr %44, align 8
   %.not.i = icmp eq ptr %45, null
-  br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %36, !llvm.loop !11
+  br i1 %.not.i, label %find_global_netlogon_auth_vars.exit, label %36, !llvm.loop !12
 
 find_global_netlogon_auth_vars.exit:              ; preds = %36, %43, %.thread22.i
   %.1.i = phi ptr [ %.01329.i, %36 ], [ %.01329.i, %43 ], [ %.227.i, %.thread22.i ]
@@ -10159,7 +10159,7 @@ uncrypt_sequence.exit:                            ; preds = %uncrypt_sequence_ae
   store i8 %134, ptr %135, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %.thread, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.thread, label %.preheader.i, !llvm.loop !19
 
 .thread:                                          ; preds = %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #15
@@ -10453,14 +10453,15 @@ attributes #19 = { allocsize(2) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}

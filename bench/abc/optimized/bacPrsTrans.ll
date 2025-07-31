@@ -138,5 +138,6 @@ attributes #5 = { nounwind }
 !13 = !{!"p1 _ZTS10Abc_Nam_t_", !9, i64 0}
 !14 = !{!4, !5, i64 0}
 !15 = !{!4, !5, i64 4}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!"llvm.loop.estimated_trip_count"}

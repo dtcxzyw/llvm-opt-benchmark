@@ -247,5 +247,6 @@ attributes #5 = { nounwind }
 !34 = !{!"p1 _ZTSN4llvm6detail11PassConceptINS_6ModuleENS_15AnalysisManagerIS2_JEEEJEEE", !6, i64 0}
 !35 = !{!36, !36, i64 0}
 !36 = !{!"vtable pointer", !8, i64 0}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
+!39 = !{!"llvm.loop.estimated_trip_count"}

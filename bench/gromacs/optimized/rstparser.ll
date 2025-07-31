@@ -67,7 +67,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %.not143.not, label %.critedge.thread, label %25
 
 .critedge.thread:                                 ; preds = %.critedge, %23
-  store i64 %15, ptr %8, align 8, !tbaa !28
+  store i64 %15, ptr %8, align 8, !tbaa !29
   store i32 0, ptr %6, align 4, !tbaa !18
   store i64 %15, ptr %2, align 8, !tbaa !14
   br label %_ZN3gmx12_GLOBAL__N_111startsTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
@@ -110,7 +110,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 39:                                               ; preds = %.lr.ph.i
   %40 = add i64 %.0116.i, 1
   %exitcond.not.i = icmp eq i64 %40, %.sroa.speculated68
-  br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not.i, label %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit, label %.lr.ph.i, !llvm.loop !30
 
 _ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit: ; preds = %.lr.ph.i, %39, %29
   %.sink12.i = phi i64 [ %.sroa.speculated68, %29 ], [ %.0116.i, %.lr.ph.i ], [ %.sroa.speculated68, %39 ]
@@ -159,7 +159,7 @@ _ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_t
 61:                                               ; preds = %.lr.ph.i52
   %62 = add i64 %.03.i, 1
   %exitcond.not.i53 = icmp eq i64 %62, %34
-  br i1 %exitcond.not.i53, label %.critedge.loopexit.i, label %.lr.ph.i52, !llvm.loop !30
+  br i1 %exitcond.not.i53, label %.critedge.loopexit.i, label %.lr.ph.i52, !llvm.loop !31
 
 .critedge.loopexit.i:                             ; preds = %61, %.lr.ph.i52
   %.0.lcssa.ph.i = phi i64 [ %.03.i, %.lr.ph.i52 ], [ %34, %61 ]
@@ -191,22 +191,22 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 73:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
   store i32 1, ptr %5, align 8, !tbaa !17
-  %.pre = load i64, ptr %8, align 8, !tbaa !28
+  %.pre = load i64, ptr %8, align 8, !tbaa !29
   br label %122
 
 74:                                               ; preds = %_ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
-  store i64 %.sroa.speculated68, ptr %8, align 8, !tbaa !28
-  store i32 %42, ptr %9, align 4, !tbaa !31
-  store i32 %42, ptr %10, align 8, !tbaa !32
+  store i64 %.sroa.speculated68, ptr %8, align 8, !tbaa !29
+  store i32 %42, ptr %9, align 4, !tbaa !32
+  store i32 %42, ptr %10, align 8, !tbaa !33
   br label %75
 
 .thread:                                          ; preds = %50, %55, %.critedge.i, %64, %68, %_ZN3gmx12_GLOBAL__N_117countLeadingSpaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmm.exit
-  store i64 %.sroa.speculated68, ptr %8, align 8, !tbaa !28
+  store i64 %.sroa.speculated68, ptr %8, align 8, !tbaa !29
   br i1 %.not88, label %.thread80, label %96
 
 .thread80:                                        ; preds = %.thread
-  store i32 %42, ptr %9, align 4, !tbaa !31
-  store i32 %42, ptr %10, align 8, !tbaa !32
+  store i32 %42, ptr %9, align 4, !tbaa !32
+  store i32 %42, ptr %10, align 8, !tbaa !33
   br label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
 75:                                               ; preds = %75, %74
@@ -217,7 +217,7 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
   %79 = tail call i32 @isspace(i32 noundef %78) #10
   %.not = icmp eq i32 %79, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %.not, label %75, label %.preheader, !llvm.loop !33
+  br i1 %.not, label %75, label %.preheader, !llvm.loop !34
 
 .preheader:                                       ; preds = %75
   %80 = trunc nuw nsw i64 %indvars.iv to i32
@@ -247,7 +247,7 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %.reass = add i64 %indvars.iv134, %invariant.op
   %93 = icmp ult i64 %.reass, %34
-  br i1 %93, label %.lr.ph119, label %.thread148, !llvm.loop !34
+  br i1 %93, label %.lr.ph119, label %.thread148, !llvm.loop !35
 
 .thread148.loopexit.split.loop.exit:              ; preds = %.lr.ph119
   %94 = trunc nuw nsw i64 %indvars.iv134 to i32
@@ -256,14 +256,14 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 .thread148:                                       ; preds = %92, %.thread148.loopexit.split.loop.exit, %.preheader
   %.134.lcssa = phi i32 [ %80, %.preheader ], [ %94, %.thread148.loopexit.split.loop.exit ], [ %86, %92 ]
   %95 = add nsw i32 %.134.lcssa, %42
-  store i32 %95, ptr %9, align 4, !tbaa !31
+  store i32 %95, ptr %9, align 4, !tbaa !32
   br label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
 96:                                               ; preds = %.thread
   %97 = add nsw i32 %.038, 1
-  %98 = load i32, ptr %9, align 4, !tbaa !35
+  %98 = load i32, ptr %9, align 4, !tbaa !36
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %98, i32 %42)
-  store i32 %.sroa.speculated, ptr %9, align 4, !tbaa !31
+  store i32 %.sroa.speculated, ptr %9, align 4, !tbaa !32
   %99 = icmp eq i32 %97, 2
   br i1 %99, label %100, label %_ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit
 
@@ -283,7 +283,7 @@ _ZN3gmx12_GLOBAL__N_114startsListItemERKNSt7__cxx1112basic_stringIcSt11char_trai
 106:                                              ; preds = %110
   %107 = add i64 %.0111.i, 1
   %exitcond.not.i59 = icmp eq i64 %107, %.val48
-  br i1 %exitcond.not.i59, label %.loopexit, label %.lr.ph.i58, !llvm.loop !36
+  br i1 %exitcond.not.i59, label %.loopexit, label %.lr.ph.i58, !llvm.loop !37
 
 .lr.ph.i58:                                       ; preds = %.preheader.i56, %106
   %.0111.i = phi i64 [ %107, %106 ], [ %.036, %.preheader.i56 ]
@@ -319,7 +319,7 @@ _ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_tr
 118:                                              ; preds = %113
   %119 = load i32, ptr %4, align 8, !tbaa !16
   %120 = icmp eq i32 %119, 2
-  br i1 %120, label %121, label %29
+  br i1 %120, label %121, label %29, !llvm.loop !38
 
 121:                                              ; preds = %118
   store i32 1, ptr %5, align 8, !tbaa !17
@@ -346,9 +346,9 @@ _ZN3gmx12_GLOBAL__N_116isTitleUnderlineERKNSt7__cxx1112basic_stringIcSt11char_tr
   br label %split
 
 131:                                              ; preds = %127
-  %132 = load i32, ptr %9, align 4, !tbaa !31
+  %132 = load i32, ptr %9, align 4, !tbaa !32
   store i32 %132, ptr %7, align 4, !tbaa !9
-  %133 = load i64, ptr %8, align 8, !tbaa !28
+  %133 = load i64, ptr %8, align 8, !tbaa !29
   %134 = load i64, ptr %3, align 8, !tbaa !15
   %135 = sub i64 %133, %134
   %136 = icmp eq i64 %135, 2
@@ -375,7 +375,7 @@ tailrecurse.backedge:                             ; preds = %140, %137
   %147 = icmp eq i8 %146, 32
   %.neg = select i1 %147, i64 -3, i64 -1
   %148 = add i64 %.neg, %133
-  store i64 %148, ptr %8, align 8, !tbaa !28
+  store i64 %148, ptr %8, align 8, !tbaa !29
   br label %149
 
 split:                                            ; preds = %122, %._crit_edge
@@ -389,7 +389,7 @@ split:                                            ; preds = %122, %._crit_edge
   %.val49 = phi ptr [ %.val49.pre, %split ], [ %143, %141 ]
   %150 = phi i64 [ %.pre138, %split ], [ %134, %141 ]
   %151 = phi ptr [ %.pre137, %split ], [ %142, %141 ]
-  %152 = load i32, ptr %10, align 8, !tbaa !32
+  %152 = load i32, ptr %10, align 8, !tbaa !33
   %153 = sext i32 %152 to i64
   %154 = add i64 %150, %153
   %155 = getelementptr i8, ptr %151, i64 8
@@ -427,7 +427,7 @@ split:                                            ; preds = %122, %._crit_edge
 165:                                              ; preds = %162, %.lr.ph6.i
   %166 = add i64 %.05.i, 1
   %exitcond12.not.i = icmp eq i64 %166, %.val50
-  br i1 %exitcond12.not.i, label %.critedge.loopexit13.i, label %.lr.ph6.i, !llvm.loop !37
+  br i1 %exitcond12.not.i, label %.critedge.loopexit13.i, label %.lr.ph6.i, !llvm.loop !39
 
 .lr.ph.i61:                                       ; preds = %.preheader1.i, %169
   %.13.i = phi i64 [ %170, %169 ], [ %154, %.preheader1.i ]
@@ -442,7 +442,7 @@ split:                                            ; preds = %122, %._crit_edge
 169:                                              ; preds = %.lr.ph.i61, %.lr.ph.i61
   %170 = add i64 %.13.i, 1
   %exitcond.not.i62 = icmp eq i64 %170, %.val50
-  br i1 %exitcond.not.i62, label %.critedge.loopexit13.i, label %.lr.ph.i61, !llvm.loop !38
+  br i1 %exitcond.not.i62, label %.critedge.loopexit13.i, label %.lr.ph.i61, !llvm.loop !40
 
 .critedge.loopexit13.i:                           ; preds = %.lr.ph.i61, %169, %165, %.lr.ph6.i, %.preheader.i63, %.preheader1.i
   store i32 1, ptr %4, align 8, !tbaa !16
@@ -473,7 +473,7 @@ define void @_ZNK3gmx20RstParagraphIterator16getParagraphTextEPNSt7__cxx1112basi
   %4 = load ptr, ptr %1, align 8, !tbaa !24
   store i8 0, ptr %4, align 1, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !28
+  %6 = load i64, ptr %5, align 8, !tbaa !29
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !15
   %9 = sub i64 %6, %8
@@ -484,7 +484,7 @@ define void @_ZNK3gmx20RstParagraphIterator16getParagraphTextEPNSt7__cxx1112basi
   %13 = load i64, ptr %3, align 8, !tbaa !20
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %13, i64 noundef 0, i64 noundef %12, i8 noundef signext 10)
   %15 = load i64, ptr %7, align 8, !tbaa !15
-  %16 = load i64, ptr %5, align 8, !tbaa !28
+  %16 = load i64, ptr %5, align 8, !tbaa !29
   %17 = icmp ult i64 %15, %16
   br i1 %17, label %.lr.ph, label %._crit_edge
 
@@ -502,12 +502,12 @@ define void @_ZNK3gmx20RstParagraphIterator16getParagraphTextEPNSt7__cxx1112basi
   %22 = icmp eq i64 %.027.us, %21
   %.in.v.us = select i1 %22, i64 32, i64 36
   %.in.us = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v.us
-  %23 = load i32, ptr %.in.us, align 4, !tbaa !35
+  %23 = load i32, ptr %.in.us, align 4, !tbaa !36
   %24 = sext i32 %23 to i64
   %25 = add i64 %.027.us, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !19
   %27 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 noundef signext 10, i64 noundef %.027.us) #9
-  %28 = load i64, ptr %5, align 8, !tbaa !39
+  %28 = load i64, ptr %5, align 8, !tbaa !41
   %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %28, i64 %27)
   br i1 %22, label %50, label %29
 
@@ -574,9 +574,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit.us: ; 
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %25
   %62 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %61, i64 noundef %spec.select.i.i.us)
   %63 = add i64 %.sroa.speculated.us, 1
-  %64 = load i64, ptr %5, align 8, !tbaa !28
+  %64 = load i64, ptr %5, align 8, !tbaa !29
   %65 = icmp ult i64 %63, %64
-  br i1 %65, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !40
+  br i1 %65, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !42
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit
   %.027 = phi i64 [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit ], [ %15, %.lr.ph ]
@@ -584,12 +584,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit.us: ; 
   %67 = icmp eq i64 %.027, %66
   %.in.v = select i1 %67, i64 32, i64 36
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
-  %68 = load i32, ptr %.in, align 4, !tbaa !35
+  %68 = load i32, ptr %.in, align 4, !tbaa !36
   %69 = sext i32 %68 to i64
   %70 = add i64 %.027, %69
   %71 = load ptr, ptr %0, align 8, !tbaa !19
   %72 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %71, i8 noundef signext 10, i64 noundef %.027) #9
-  %73 = load i64, ptr %5, align 8, !tbaa !39
+  %73 = load i64, ptr %5, align 8, !tbaa !41
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %73, i64 %72)
   br i1 %67, label %89, label %74
 
@@ -657,9 +657,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit: ; pre
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 %70
   %101 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %100, i64 noundef %spec.select.i.i)
   %102 = add i64 %.sroa.speculated, 1
-  %103 = load i64, ptr %5, align 8, !tbaa !28
+  %103 = load i64, ptr %5, align 8, !tbaa !29
   %104 = icmp ult i64 %102, %103
-  br i1 %104, label %.lr.ph.split, label %._crit_edge, !llvm.loop !42
+  br i1 %104, label %.lr.ph.split, label %._crit_edge, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_mm.exit.us, %2
   ret void
@@ -732,20 +732,22 @@ attributes #11 = { noreturn }
 !23 = !{!"p1 omnipotent char", !6, i64 0}
 !24 = !{!21, !23, i64 0}
 !25 = !{!7, !7, i64 0}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!10, !11, i64 16}
-!29 = distinct !{!29, !27}
-!30 = distinct !{!30, !27}
-!31 = !{!10, !13, i64 36}
-!32 = !{!10, !13, i64 32}
-!33 = distinct !{!33, !27}
-!34 = distinct !{!34, !27}
-!35 = !{!13, !13, i64 0}
-!36 = distinct !{!36, !27}
-!37 = distinct !{!37, !27}
-!38 = distinct !{!38, !27}
-!39 = !{!11, !11, i64 0}
-!40 = distinct !{!40, !27, !41}
-!41 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!42 = distinct !{!42, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!10, !11, i64 16}
+!30 = distinct !{!30, !27, !28}
+!31 = distinct !{!31, !27, !28}
+!32 = !{!10, !13, i64 36}
+!33 = !{!10, !13, i64 32}
+!34 = distinct !{!34, !27, !28}
+!35 = distinct !{!35, !27, !28}
+!36 = !{!13, !13, i64 0}
+!37 = distinct !{!37, !27, !28}
+!38 = distinct !{!38, !28}
+!39 = distinct !{!39, !27, !28}
+!40 = distinct !{!40, !27, !28}
+!41 = !{!11, !11, i64 0}
+!42 = distinct !{!42, !27, !28, !43}
+!43 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!44 = distinct !{!44, !27, !28}

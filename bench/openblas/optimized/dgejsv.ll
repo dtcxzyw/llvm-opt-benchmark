@@ -481,7 +481,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %235 = phi double [ %224, %.lr.ph2373 ], [ %232, %230 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %236, label %.lr.ph2373, !llvm.loop !11
+  br i1 %exitcond.not, label %236, label %.lr.ph2373, !llvm.loop !12
 
 236:                                              ; preds = %233
   store double %234, ptr %22, align 8, !tbaa !7
@@ -728,7 +728,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %344, ptr %27, align 4, !tbaa !3
   %345 = load i32, ptr %20, align 4, !tbaa !3
   %.not2128.not = icmp slt i32 %333, %345
-  br i1 %.not2128.not, label %.lr.ph2382, label %.loopexit2364.thread, !llvm.loop !12
+  br i1 %.not2128.not, label %.lr.ph2382, label %.loopexit2364.thread, !llvm.loop !13
 
 .thread2327:                                      ; preds = %.thread2325..thread2327_crit_edge, %313
   %346 = phi i32 [ %.pre3176, %.thread2325..thread2327_crit_edge ], [ %311, %313 ]
@@ -769,7 +769,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %370, ptr %27, align 4, !tbaa !3
   %371 = load i32, ptr %20, align 4, !tbaa !3
   %.not2126.not = icmp slt i32 %364, %371
-  br i1 %.not2126.not, label %.lr.ph2420, label %.thread2328, !llvm.loop !13
+  br i1 %.not2126.not, label %.lr.ph2420, label %.thread2328, !llvm.loop !14
 
 .loopexit2364.thread:                             ; preds = %343
   store double 0.000000e+00, ptr %33, align 8, !tbaa !7
@@ -815,7 +815,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %391 = add nsw i32 %390, 1
   store i32 %391, ptr %27, align 4, !tbaa !3
   %.not2130.not = icmp slt i32 %390, %389
-  br i1 %.not2130.not, label %376, label %._crit_edge2390, !llvm.loop !14
+  br i1 %.not2130.not, label %376, label %._crit_edge2390, !llvm.loop !15
 
 ._crit_edge2390:                                  ; preds = %388
   store double %381, ptr %22, align 8, !tbaa !7
@@ -869,7 +869,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %storemerge2131 = add nsw i32 %416, 1
   store i32 %storemerge2131, ptr %27, align 4, !tbaa !3
   %.not2132.not = icmp slt i32 %416, %415
-  br i1 %.not2132.not, label %402, label %._crit_edge2399, !llvm.loop !15
+  br i1 %.not2132.not, label %402, label %._crit_edge2399, !llvm.loop !16
 
 ._crit_edge2399:                                  ; preds = %414
   store double %407, ptr %22, align 8, !tbaa !7
@@ -914,12 +914,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %431, ptr %gep3320, align 8, !tbaa !7
   store double %429, ptr %gep3322, align 8, !tbaa !7
   %exitcond2973.not = icmp eq i64 %indvars.iv.next2970, %wide.trip.count2975
-  br i1 %exitcond2973.not, label %432, label %428, !llvm.loop !16
+  br i1 %exitcond2973.not, label %432, label %428, !llvm.loop !17
 
 432:                                              ; preds = %428
   %indvars.iv.next2968 = add nuw nsw i64 %indvars.iv2967, 1
   %exitcond2976.not = icmp eq i64 %indvars.iv.next2968, %wide.trip.count2975
-  br i1 %exitcond2976.not, label %._crit_edge2408, label %.lr.ph2407, !llvm.loop !17
+  br i1 %exitcond2976.not, label %._crit_edge2408, label %.lr.ph2407, !llvm.loop !18
 
 ._crit_edge2408:                                  ; preds = %432
   store i32 %425, ptr %21, align 4, !tbaa !3
@@ -953,7 +953,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %443, ptr %438, align 8, !tbaa !7
   %indvars.iv.next2978 = add nuw nsw i64 %indvars.iv2977, 1
   %exitcond2981.not = icmp eq i64 %indvars.iv.next2978, %wide.trip.count2980
-  br i1 %exitcond2981.not, label %._crit_edge2414, label %437, !llvm.loop !18
+  br i1 %exitcond2981.not, label %._crit_edge2414, label %437, !llvm.loop !19
 
 ._crit_edge2414:                                  ; preds = %437, %433
   %storemerge2135.lcssa = phi i32 [ 1, %433 ], [ %436, %437 ]
@@ -1075,7 +1075,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %498 = add nsw i32 %497, 1
   store i32 %498, ptr %27, align 4, !tbaa !3
   %.not2140.not = icmp slt i32 %497, %496
-  br i1 %.not2140.not, label %.lr.ph2426, label %.loopexit2363, !llvm.loop !19
+  br i1 %.not2140.not, label %.lr.ph2426, label %.loopexit2363, !llvm.loop !20
 
 .loopexit2363:                                    ; preds = %495, %481, %478
   br i1 %.01925.shrunk, label %499, label %539
@@ -1134,7 +1134,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %531, ptr %27, align 4, !tbaa !3
   %532 = load i32, ptr %20, align 4, !tbaa !3
   %.not2142.not = icmp slt i32 %510, %532
-  br i1 %.not2142.not, label %.lr.ph2430, label %._crit_edge2431.loopexit, !llvm.loop !20
+  br i1 %.not2142.not, label %.lr.ph2430, label %._crit_edge2431.loopexit, !llvm.loop !21
 
 ._crit_edge2431.loopexit:                         ; preds = %530
   %.pre3179 = load i32, ptr %6, align 4, !tbaa !3
@@ -1220,7 +1220,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %574, ptr %31, align 4, !tbaa !3
   %indvars.iv.next3003 = add nuw nsw i64 %indvars.iv3002, 1
   %exitcond3006.not = icmp eq i64 %indvars.iv.next3003, %wide.trip.count3005
-  br i1 %exitcond3006.not, label %.loopexit2360.sink.split3375, label %564, !llvm.loop !21
+  br i1 %exitcond3006.not, label %.loopexit2360.sink.split3375, label %564, !llvm.loop !22
 
 575:                                              ; preds = %._crit_edge2437
   %.not2145.not = select i1 %257, i1 true, i1 %77
@@ -1270,7 +1270,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %601, ptr %31, align 4, !tbaa !3
   %indvars.iv.next2993 = add nuw nsw i64 %indvars.iv2992, 1
   %exitcond2996.not = icmp eq i64 %indvars.iv.next2993, %wide.trip.count3000
-  br i1 %exitcond2996.not, label %..loopexit2361_crit_edge2462, label %.lr.ph2458.split.us, !llvm.loop !22
+  br i1 %exitcond2996.not, label %..loopexit2361_crit_edge2462, label %.lr.ph2458.split.us, !llvm.loop !23
 
 .lr.ph2458.split:                                 ; preds = %.lr.ph2458, %626
   %indvars.iv2997 = phi i64 [ %indvars.iv.next2998, %626 ], [ 2, %.lr.ph2458 ]
@@ -1308,7 +1308,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %627, ptr %31, align 4, !tbaa !3
   %indvars.iv.next2998 = add nuw nsw i64 %indvars.iv2997, 1
   %exitcond3001.not = icmp eq i64 %indvars.iv.next2998, %wide.trip.count3000
-  br i1 %exitcond3001.not, label %..loopexit2361_crit_edge2462, label %.lr.ph2458.split, !llvm.loop !24
+  br i1 %exitcond3001.not, label %..loopexit2361_crit_edge2462, label %.lr.ph2458.split, !llvm.loop !25
 
 628:                                              ; preds = %575
   br i1 %.not21492455, label %.loopexit2360, label %.lr.ph2444
@@ -1340,7 +1340,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %642, ptr %31, align 4, !tbaa !3
   %indvars.iv.next2988 = add nuw nsw i64 %indvars.iv2987, 1
   %exitcond2991.not = icmp eq i64 %indvars.iv.next2988, %wide.trip.count2990
-  br i1 %exitcond2991.not, label %.loopexit2360.sink.split3375, label %631, !llvm.loop !25
+  br i1 %exitcond2991.not, label %.loopexit2360.sink.split3375, label %631, !llvm.loop !26
 
 ..loopexit2361_crit_edge2462:                     ; preds = %600, %626
   %.us-phi2473 = phi double [ %614, %626 ], [ %593, %600 ]
@@ -1394,7 +1394,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %665 = select i1 %664, double %.019272485, double %663
   %indvars.iv.next3008 = add nuw nsw i64 %indvars.iv3007, 1
   %exitcond3011.not = icmp eq i64 %indvars.iv.next3008, %wide.trip.count3010
-  br i1 %exitcond3011.not, label %._crit_edge2488, label %649, !llvm.loop !26
+  br i1 %exitcond3011.not, label %._crit_edge2488, label %649, !llvm.loop !27
 
 ._crit_edge2488:                                  ; preds = %649
   %666 = add nuw i32 %643, 1
@@ -1446,7 +1446,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %686, ptr %27, align 4, !tbaa !3
   %687 = load i32, ptr %20, align 4, !tbaa !3
   %.not2161.not = icmp slt i32 %685, %687
-  br i1 %.not2161.not, label %.lr.ph2498, label %._crit_edge2499.loopexit, !llvm.loop !27
+  br i1 %.not2161.not, label %.lr.ph2498, label %._crit_edge2499.loopexit, !llvm.loop !28
 
 ._crit_edge2499.loopexit:                         ; preds = %.lr.ph2498
   %.pre3181 = load i32, ptr %7, align 4, !tbaa !3
@@ -1499,7 +1499,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %711, ptr %27, align 4, !tbaa !3
   %712 = load i32, ptr %20, align 4, !tbaa !3
   %.not2159.not = icmp slt i32 %710, %712
-  br i1 %.not2159.not, label %.lr.ph2505, label %._crit_edge2506.loopexit, !llvm.loop !28
+  br i1 %.not2159.not, label %.lr.ph2505, label %._crit_edge2506.loopexit, !llvm.loop !29
 
 ._crit_edge2506.loopexit:                         ; preds = %.lr.ph2505
   %.pre3182 = load i32, ptr %7, align 4, !tbaa !3
@@ -1551,7 +1551,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %739, ptr %27, align 4, !tbaa !3
   %740 = load i32, ptr %20, align 4, !tbaa !3
   %.not2157.not = icmp slt i32 %738, %740
-  br i1 %.not2157.not, label %.lr.ph2512, label %._crit_edge2513.loopexit, !llvm.loop !29
+  br i1 %.not2157.not, label %.lr.ph2512, label %._crit_edge2513.loopexit, !llvm.loop !30
 
 ._crit_edge2513.loopexit:                         ; preds = %.lr.ph2512
   %.pre3183 = load i32, ptr %7, align 4, !tbaa !3
@@ -1640,7 +1640,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %794, ptr %27, align 4, !tbaa !3
   %795 = load i32, ptr %20, align 4, !tbaa !3
   %.not2165.not = icmp slt i32 %793, %795
-  br i1 %.not2165.not, label %.lr.ph2517, label %._crit_edge2518, !llvm.loop !30
+  br i1 %.not2165.not, label %.lr.ph2517, label %._crit_edge2518, !llvm.loop !31
 
 ._crit_edge2518:                                  ; preds = %.lr.ph2517, %776
   br i1 %.not21662333, label %796, label %.loopexit2358
@@ -1723,14 +1723,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %835 = phi double [ %824, %821 ], [ %819, %827 ], [ %829, %828 ]
   %indvars.iv.next3013 = add nuw nsw i64 %indvars.iv3012, 1
   %exitcond3016.not = icmp eq i64 %indvars.iv.next3013, %wide.trip.count3015
-  br i1 %exitcond3016.not, label %._crit_edge2524, label %818, !llvm.loop !31
+  br i1 %exitcond3016.not, label %._crit_edge2524, label %818, !llvm.loop !32
 
 ._crit_edge2524:                                  ; preds = %834, %805
   %836 = phi double [ %811, %805 ], [ %835, %834 ]
   %storemerge2170.lcssa = phi i32 [ 1, %805 ], [ %802, %834 ]
   %indvars.iv.next3018 = add nuw nsw i64 %indvars.iv3017, 1
   %exitcond3021.not = icmp eq i64 %indvars.iv.next3018, %wide.trip.count3020
-  br i1 %exitcond3021.not, label %..loopexit2359_crit_edge, label %805, !llvm.loop !32
+  br i1 %exitcond3021.not, label %..loopexit2359_crit_edge, label %805, !llvm.loop !33
 
 837:                                              ; preds = %796
   %838 = load i32, ptr %31, align 4, !tbaa !3
@@ -1788,7 +1788,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %865, ptr %27, align 4, !tbaa !3
   %866 = load i32, ptr %20, align 4, !tbaa !3
   %.not2169.not = icmp slt i32 %864, %866
-  br i1 %.not2169.not, label %.lr.ph2538, label %.loopexit2358, !llvm.loop !33
+  br i1 %.not2169.not, label %.lr.ph2538, label %.loopexit2358, !llvm.loop !34
 
 .loopexit2358:                                    ; preds = %.lr.ph2538, %.loopexit2359, %._crit_edge2518
   br i1 %773, label %867, label %904
@@ -1863,12 +1863,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %903 = phi double [ %892, %889 ], [ %887, %895 ], [ %897, %896 ]
   %indvars.iv.next3023 = add nuw nsw i64 %indvars.iv3022, 1
   %exitcond3026.not = icmp eq i64 %indvars.iv.next3023, %wide.trip.count3030
-  br i1 %exitcond3026.not, label %._crit_edge2544, label %886, !llvm.loop !34
+  br i1 %exitcond3026.not, label %._crit_edge2544, label %886, !llvm.loop !35
 
 ._crit_edge2544:                                  ; preds = %902
   %indvars.iv.next3028 = add nuw nsw i64 %indvars.iv3027, 1
   %exitcond3031.not = icmp eq i64 %indvars.iv.next3028, %wide.trip.count3030
-  br i1 %exitcond3031.not, label %..loopexit2357_crit_edge, label %.lr.ph2543, !llvm.loop !35
+  br i1 %exitcond3031.not, label %..loopexit2357_crit_edge, label %.lr.ph2543, !llvm.loop !36
 
 904:                                              ; preds = %.loopexit2358
   %905 = load i32, ptr %31, align 4, !tbaa !3
@@ -1947,7 +1947,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %940, ptr %27, align 4, !tbaa !3
   %941 = load i32, ptr %20, align 4, !tbaa !3
   %.not2180.not = icmp slt i32 %939, %941
-  br i1 %.not2180.not, label %929, label %._crit_edge2559.loopexit, !llvm.loop !36
+  br i1 %.not2180.not, label %929, label %._crit_edge2559.loopexit, !llvm.loop !37
 
 ._crit_edge2559.loopexit:                         ; preds = %929
   %.pre3185 = load i32, ptr %31, align 4, !tbaa !3
@@ -2045,7 +2045,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %996, ptr %27, align 4, !tbaa !3
   %997 = load i32, ptr %20, align 4, !tbaa !3
   %.not2178.not = icmp slt i32 %995, %997
-  br i1 %.not2178.not, label %988, label %._crit_edge2564.loopexit, !llvm.loop !37
+  br i1 %.not2178.not, label %988, label %._crit_edge2564.loopexit, !llvm.loop !38
 
 ._crit_edge2564.loopexit:                         ; preds = %988
   %.pre3186 = load i32, ptr %31, align 4, !tbaa !3
@@ -2158,7 +2158,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1062, ptr %27, align 4, !tbaa !3
   %1063 = load i32, ptr %20, align 4, !tbaa !3
   %.not2182.not = icmp slt i32 %1061, %1063
-  br i1 %.not2182.not, label %.lr.ph2568, label %._crit_edge2569, !llvm.loop !38
+  br i1 %.not2182.not, label %.lr.ph2568, label %._crit_edge2569, !llvm.loop !39
 
 ._crit_edge2569:                                  ; preds = %.lr.ph2568, %1050
   call void @dlacpy_(ptr noundef nonnull @.str.24, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %13, ptr noundef nonnull %14) #7
@@ -2203,7 +2203,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1082, ptr %27, align 4, !tbaa !3
   %1083 = load i32, ptr %20, align 4, !tbaa !3
   %.not2184.not = icmp slt i32 %1081, %1083
-  br i1 %.not2184.not, label %1071, label %._crit_edge2574.loopexit, !llvm.loop !39
+  br i1 %.not2184.not, label %1071, label %._crit_edge2574.loopexit, !llvm.loop !40
 
 ._crit_edge2574.loopexit:                         ; preds = %1071
   %.pre3188 = load i32, ptr %31, align 4, !tbaa !3
@@ -2258,7 +2258,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1115, ptr %27, align 4, !tbaa !3
   %1116 = load i32, ptr %20, align 4, !tbaa !3
   %.not2186.not = icmp slt i32 %1114, %1116
-  br i1 %.not2186.not, label %.lr.ph2578, label %._crit_edge2579.loopexit, !llvm.loop !40
+  br i1 %.not2186.not, label %.lr.ph2578, label %._crit_edge2579.loopexit, !llvm.loop !41
 
 ._crit_edge2579.loopexit:                         ; preds = %.lr.ph2578
   %.pre3189 = load i32, ptr %31, align 4, !tbaa !3
@@ -2392,7 +2392,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1194, ptr %27, align 4, !tbaa !3
   %1195 = load i32, ptr %20, align 4, !tbaa !3
   %.not2188.not = icmp slt i32 %1193, %1195
-  br i1 %.not2188.not, label %.lr.ph2587, label %._crit_edge2588, !llvm.loop !41
+  br i1 %.not2188.not, label %.lr.ph2587, label %._crit_edge2588, !llvm.loop !42
 
 ._crit_edge2588:                                  ; preds = %.lr.ph2587, %1184
   br i1 %.01926.shrunk, label %1196, label %.loopexit2347
@@ -2438,7 +2438,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1213, ptr %27, align 4, !tbaa !3
   %1214 = load i32, ptr %20, align 4, !tbaa !3
   %.not2192.not = icmp slt i32 %1212, %1214
-  br i1 %.not2192.not, label %1203, label %._crit_edge2692, !llvm.loop !42
+  br i1 %.not2192.not, label %1203, label %._crit_edge2692, !llvm.loop !43
 
 ._crit_edge2692:                                  ; preds = %1203, %1199
   br i1 %773, label %1215, label %1258
@@ -2530,14 +2530,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1256:                                             ; preds = %1250, %1253
   %indvars.iv.next3076 = add nuw nsw i64 %indvars.iv3075, 1
   %exitcond3079.not = icmp eq i64 %indvars.iv.next3076, %wide.trip.count3078
-  br i1 %exitcond3079.not, label %._crit_edge2698, label %1234, !llvm.loop !43
+  br i1 %exitcond3079.not, label %._crit_edge2698, label %1234, !llvm.loop !44
 
 ._crit_edge2698:                                  ; preds = %1256, %1221
   %1257 = phi double [ %1227, %1221 ], [ %1251, %1256 ]
   %storemerge2240.lcssa = phi i32 [ 1, %1221 ], [ %1218, %1256 ]
   %indvars.iv.next3081 = add nuw nsw i64 %indvars.iv3080, 1
   %exitcond3084.not = icmp eq i64 %indvars.iv.next3081, %wide.trip.count3083
-  br i1 %exitcond3084.not, label %..loopexit2353_crit_edge, label %1221, !llvm.loop !44
+  br i1 %exitcond3084.not, label %..loopexit2353_crit_edge, label %1221, !llvm.loop !45
 
 1258:                                             ; preds = %._crit_edge2692
   %1259 = load i32, ptr %31, align 4, !tbaa !3
@@ -2609,7 +2609,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1296, ptr %27, align 4, !tbaa !3
   %1297 = load i32, ptr %20, align 4, !tbaa !3
   %.not2195.not = icmp slt i32 %1295, %1297
-  br i1 %.not2195.not, label %.lr.ph2710, label %._crit_edge2711.loopexit, !llvm.loop !45
+  br i1 %.not2195.not, label %.lr.ph2710, label %._crit_edge2711.loopexit, !llvm.loop !46
 
 ._crit_edge2711.loopexit:                         ; preds = %.lr.ph2710
   %.pre3202 = load i32, ptr %31, align 4, !tbaa !3
@@ -2722,12 +2722,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1369:                                             ; preds = %1345, %1364
   %indvars.iv.next3107 = add nuw nsw i64 %indvars.iv3106, 1
   %exitcond3110.not = icmp eq i64 %indvars.iv.next3107, %indvars.iv3111
-  br i1 %exitcond3110.not, label %1370, label %1345, !llvm.loop !46
+  br i1 %exitcond3110.not, label %1370, label %1345, !llvm.loop !47
 
 1370:                                             ; preds = %1369
   %indvars.iv.next3112 = add nuw nsw i64 %indvars.iv3111, 1
   %exitcond3115.not = icmp eq i64 %indvars.iv.next3112, %wide.trip.count3114
-  br i1 %exitcond3115.not, label %..loopexit2351_crit_edge, label %1339, !llvm.loop !47
+  br i1 %exitcond3115.not, label %..loopexit2351_crit_edge, label %1339, !llvm.loop !48
 
 ..loopexit2351_crit_edge:                         ; preds = %1370
   %1371 = add nsw i32 %1335, -1
@@ -2784,7 +2784,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1395, ptr %27, align 4, !tbaa !3
   %1396 = load i32, ptr %20, align 4, !tbaa !3
   %.not2212.not = icmp slt i32 %1394, %1396
-  br i1 %.not2212.not, label %.lr.ph2754, label %.loopexit2350, !llvm.loop !48
+  br i1 %.not2212.not, label %.lr.ph2754, label %.loopexit2350, !llvm.loop !49
 
 1397:                                             ; preds = %._crit_edge2711
   %1398 = load i32, ptr %31, align 4, !tbaa !3
@@ -2804,7 +2804,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 0, ptr %1403, align 4, !tbaa !3
   %1404 = add nuw i32 %storemerge21962713, 1
   %exitcond3085.not = icmp eq i32 %storemerge21962713, %1398
-  br i1 %exitcond3085.not, label %._crit_edge2716, label %.lr.ph2715, !llvm.loop !49
+  br i1 %exitcond3085.not, label %._crit_edge2716, label %.lr.ph2715, !llvm.loop !50
 
 ._crit_edge2716:                                  ; preds = %.lr.ph2715, %1397
   %storemerge2196.lcssa = phi i32 [ 1, %1397 ], [ %1399, %.lr.ph2715 ]
@@ -2884,12 +2884,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 1452:                                             ; preds = %1428, %1447
   %indvars.iv.next3087 = add nuw nsw i64 %indvars.iv3086, 1
   %exitcond3090.not = icmp eq i64 %indvars.iv.next3087, %indvars.iv3091
-  br i1 %exitcond3090.not, label %1453, label %1428, !llvm.loop !50
+  br i1 %exitcond3090.not, label %1453, label %1428, !llvm.loop !51
 
 1453:                                             ; preds = %1452
   %indvars.iv.next3092 = add nuw nsw i64 %indvars.iv3091, 1
   %exitcond3095.not = icmp eq i64 %indvars.iv.next3092, %wide.trip.count3094
-  br i1 %exitcond3095.not, label %._crit_edge2725, label %1422, !llvm.loop !51
+  br i1 %exitcond3095.not, label %._crit_edge2725, label %1422, !llvm.loop !52
 
 ._crit_edge2725:                                  ; preds = %1453
   %1454 = add nsw i32 %1418, -1
@@ -2961,12 +2961,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1493, ptr %gep3344, align 8, !tbaa !7
   %indvars.iv.next3097 = add nuw nsw i64 %indvars.iv3096, 1
   %exitcond3100.not = icmp eq i64 %indvars.iv.next3097, %indvars.iv3101
-  br i1 %exitcond3100.not, label %1494, label %1472, !llvm.loop !52
+  br i1 %exitcond3100.not, label %1494, label %1472, !llvm.loop !53
 
 1494:                                             ; preds = %1472
   %indvars.iv.next3102 = add nuw nsw i64 %indvars.iv3101, 1
   %exitcond3105.not = icmp eq i64 %indvars.iv.next3102, %wide.trip.count3104
-  br i1 %exitcond3105.not, label %..loopexit2352_crit_edge, label %1466, !llvm.loop !53
+  br i1 %exitcond3105.not, label %..loopexit2352_crit_edge, label %1466, !llvm.loop !54
 
 .critedge:                                        ; preds = %._crit_edge2716
   %1495 = load i32, ptr %7, align 4, !tbaa !3
@@ -3058,7 +3058,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1549, ptr %27, align 4, !tbaa !3
   %1550 = load i32, ptr %20, align 4, !tbaa !3
   %.not2203.not = icmp slt i32 %1548, %1550
-  br i1 %.not2203.not, label %.lr.ph2740, label %._crit_edge2741.loopexit, !llvm.loop !54
+  br i1 %.not2203.not, label %.lr.ph2740, label %._crit_edge2741.loopexit, !llvm.loop !55
 
 ._crit_edge2741.loopexit:                         ; preds = %.lr.ph2740
   %.pre3204 = load i32, ptr %31, align 4, !tbaa !3
@@ -3142,12 +3142,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1597, ptr %gep3348, align 8, !tbaa !7
   %indvars.iv.next3117 = add nuw nsw i64 %indvars.iv3116, 1
   %exitcond3120.not = icmp eq i64 %indvars.iv.next3117, %indvars.iv3121
-  br i1 %exitcond3120.not, label %1598, label %1593, !llvm.loop !55
+  br i1 %exitcond3120.not, label %1598, label %1593, !llvm.loop !56
 
 1598:                                             ; preds = %1593
   %indvars.iv.next3122 = add nuw nsw i64 %indvars.iv3121, 1
   %exitcond3125.not = icmp eq i64 %indvars.iv.next3122, %wide.trip.count3124
-  br i1 %exitcond3125.not, label %..loopexit2349_crit_edge, label %.lr.ph2759, !llvm.loop !56
+  br i1 %exitcond3125.not, label %..loopexit2349_crit_edge, label %.lr.ph2759, !llvm.loop !57
 
 1599:                                             ; preds = %.loopexit2350
   %1600 = load i32, ptr %31, align 4, !tbaa !3
@@ -3240,7 +3240,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1649, ptr %27, align 4, !tbaa !3
   %1650 = load i32, ptr %20, align 4, !tbaa !3
   %.not2227.not = icmp slt i32 %1648, %1650
-  br i1 %.not2227.not, label %.lr.ph2819, label %._crit_edge2820.loopexit, !llvm.loop !57
+  br i1 %.not2227.not, label %.lr.ph2819, label %._crit_edge2820.loopexit, !llvm.loop !58
 
 ._crit_edge2820.loopexit:                         ; preds = %.lr.ph2819
   %.pre3213 = load i32, ptr %31, align 4, !tbaa !3
@@ -3395,7 +3395,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %1746, ptr %27, align 4, !tbaa !3
   %1747 = load i32, ptr %20, align 4, !tbaa !3
   %.not2220.not = icmp slt i32 %1745, %1747
-  br i1 %.not2220.not, label %.lr.ph2789, label %._crit_edge2790.loopexit, !llvm.loop !58
+  br i1 %.not2220.not, label %.lr.ph2789, label %._crit_edge2790.loopexit, !llvm.loop !59
 
 ._crit_edge2790.loopexit:                         ; preds = %.lr.ph2789
   %.pre3210 = load i32, ptr %7, align 4, !tbaa !3
@@ -3444,7 +3444,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1764, ptr %1768, align 8, !tbaa !7
   %indvars.iv.next3142 = add nuw nsw i64 %indvars.iv3141, 1
   %exitcond3145.not = icmp eq i64 %indvars.iv.next3142, %wide.trip.count3154
-  br i1 %exitcond3145.not, label %.lr.ph2800, label %1763, !llvm.loop !59
+  br i1 %exitcond3145.not, label %.lr.ph2800, label %1763, !llvm.loop !60
 
 .lr.ph2800:                                       ; preds = %1763
   %1769 = mul nsw i64 %indvars.iv3151, %1756
@@ -3462,12 +3462,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1774, ptr %gep3360, align 8, !tbaa !7
   %indvars.iv.next3147 = add nuw nsw i64 %indvars.iv3146, 1
   %exitcond3150.not = icmp eq i64 %indvars.iv.next3147, %wide.trip.count3154
-  br i1 %exitcond3150.not, label %._crit_edge2801, label %1770, !llvm.loop !60
+  br i1 %exitcond3150.not, label %._crit_edge2801, label %1770, !llvm.loop !61
 
 ._crit_edge2801:                                  ; preds = %1770
   %indvars.iv.next3152 = add nuw nsw i64 %indvars.iv3151, 1
   %exitcond3155.not = icmp eq i64 %indvars.iv.next3152, %wide.trip.count3154
-  br i1 %exitcond3155.not, label %._crit_edge2809, label %.lr.ph2794, !llvm.loop !61
+  br i1 %exitcond3155.not, label %._crit_edge2809, label %.lr.ph2794, !llvm.loop !62
 
 ._crit_edge2809:                                  ; preds = %._crit_edge2801
   store i32 %1753, ptr %21, align 4, !tbaa !3
@@ -3674,7 +3674,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1902, ptr %1906, align 8, !tbaa !7
   %indvars.iv.next3127 = add nuw nsw i64 %indvars.iv3126, 1
   %exitcond3130.not = icmp eq i64 %indvars.iv.next3127, %wide.trip.count3139
-  br i1 %exitcond3130.not, label %.lr.ph2771, label %1901, !llvm.loop !62
+  br i1 %exitcond3130.not, label %.lr.ph2771, label %1901, !llvm.loop !63
 
 .lr.ph2771:                                       ; preds = %1901
   %1907 = mul nsw i64 %indvars.iv3136, %1894
@@ -3692,12 +3692,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1912, ptr %gep3354, align 8, !tbaa !7
   %indvars.iv.next3132 = add nuw nsw i64 %indvars.iv3131, 1
   %exitcond3135.not = icmp eq i64 %indvars.iv.next3132, %wide.trip.count3139
-  br i1 %exitcond3135.not, label %._crit_edge2772, label %1908, !llvm.loop !63
+  br i1 %exitcond3135.not, label %._crit_edge2772, label %1908, !llvm.loop !64
 
 ._crit_edge2772:                                  ; preds = %1908
   %indvars.iv.next3137 = add nuw nsw i64 %indvars.iv3136, 1
   %exitcond3140.not = icmp eq i64 %indvars.iv.next3137, %wide.trip.count3139
-  br i1 %exitcond3140.not, label %..loopexit2348_crit_edge, label %.lr.ph2765, !llvm.loop !64
+  br i1 %exitcond3140.not, label %..loopexit2348_crit_edge, label %.lr.ph2765, !llvm.loop !65
 
 ..loopexit2348_crit_edge:                         ; preds = %._crit_edge2772
   store i32 %1891, ptr %21, align 4, !tbaa !3
@@ -3750,7 +3750,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1926, ptr %1930, align 8, !tbaa !7
   %indvars.iv.next3157 = add nuw nsw i64 %indvars.iv3156, 1
   %exitcond3160.not = icmp eq i64 %indvars.iv.next3157, %wide.trip.count3159
-  br i1 %exitcond3160.not, label %.lr.ph2832, label %1925, !llvm.loop !65
+  br i1 %exitcond3160.not, label %.lr.ph2832, label %1925, !llvm.loop !66
 
 ._crit_edge2825.._crit_edge2833_crit_edge:        ; preds = %.lr.ph2842
   store i32 %1919, ptr %21, align 4, !tbaa !3
@@ -3780,7 +3780,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1940, ptr %gep3364, align 8, !tbaa !7
   %indvars.iv.next3162 = add nuw nsw i64 %indvars.iv3161, 1
   %exitcond3165.not = icmp eq i64 %indvars.iv.next3162, %wide.trip.count3164
-  br i1 %exitcond3165.not, label %._crit_edge2833, label %1936, !llvm.loop !66
+  br i1 %exitcond3165.not, label %._crit_edge2833, label %1936, !llvm.loop !67
 
 ._crit_edge2833:                                  ; preds = %1936, %._crit_edge2825.._crit_edge2833_crit_edge
   %.pre-phi3240 = phi i64 [ %.pre3239, %._crit_edge2825.._crit_edge2833_crit_edge ], [ %1934, %1936 ]
@@ -3807,7 +3807,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1950 = load i32, ptr %20, align 4, !tbaa !3
   %1951 = sext i32 %1950 to i64
   %.not2228.not = icmp slt i64 %indvars.iv3166, %1951
-  br i1 %.not2228.not, label %.lr.ph2842, label %._crit_edge2843, !llvm.loop !67
+  br i1 %.not2228.not, label %.lr.ph2842, label %._crit_edge2843, !llvm.loop !68
 
 ._crit_edge2843:                                  ; preds = %1949, %.loopexit2348
   %1952 = load i32, ptr %31, align 4, !tbaa !3
@@ -3902,7 +3902,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2007, ptr %27, align 4, !tbaa !3
   %2008 = load i32, ptr %20, align 4, !tbaa !3
   %.not2230.not = icmp slt i32 %2006, %2008
-  br i1 %.not2230.not, label %.lr.ph2851, label %._crit_edge2852, !llvm.loop !68
+  br i1 %.not2230.not, label %.lr.ph2851, label %._crit_edge2852, !llvm.loop !69
 
 ._crit_edge2852:                                  ; preds = %2005, %1980
   br i1 %.01925.shrunk, label %.sink.split, label %2480
@@ -3957,12 +3957,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %2033, ptr %2037, align 8, !tbaa !7
   %indvars.iv.next3066 = add nuw nsw i64 %indvars.iv3065, 1
   %exitcond3069.not = icmp eq i64 %indvars.iv.next3066, %indvars.iv3070
-  br i1 %exitcond3069.not, label %2038, label %2029, !llvm.loop !69
+  br i1 %exitcond3069.not, label %2038, label %2029, !llvm.loop !70
 
 2038:                                             ; preds = %2029
   %indvars.iv.next3071 = add nuw nsw i64 %indvars.iv3070, 1
   %exitcond3074.not = icmp eq i64 %indvars.iv.next3071, %wide.trip.count3073
-  br i1 %exitcond3074.not, label %..loopexit2354_crit_edge, label %2018, !llvm.loop !70
+  br i1 %exitcond3074.not, label %..loopexit2354_crit_edge, label %2018, !llvm.loop !71
 
 2039:                                             ; preds = %2009
   %2040 = load i32, ptr %7, align 4, !tbaa !3
@@ -4058,7 +4058,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2089, ptr %27, align 4, !tbaa !3
   %2090 = load i32, ptr %20, align 4, !tbaa !3
   %.not2248.not = icmp slt i32 %2088, %2090
-  br i1 %.not2248.not, label %.lr.ph2663, label %._crit_edge2664.loopexit, !llvm.loop !71
+  br i1 %.not2248.not, label %.lr.ph2663, label %._crit_edge2664.loopexit, !llvm.loop !72
 
 ._crit_edge2664.loopexit:                         ; preds = %.lr.ph2663
   %.pre3196 = load i32, ptr %7, align 4, !tbaa !3
@@ -4094,7 +4094,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2107, ptr %27, align 4, !tbaa !3
   %2108 = load i32, ptr %20, align 4, !tbaa !3
   %.not2250.not = icmp slt i32 %2106, %2108
-  br i1 %.not2250.not, label %.lr.ph2668, label %._crit_edge2669.loopexit, !llvm.loop !72
+  br i1 %.not2250.not, label %.lr.ph2668, label %._crit_edge2669.loopexit, !llvm.loop !73
 
 ._crit_edge2669.loopexit:                         ; preds = %.lr.ph2668
   %.pre3197 = load i32, ptr %7, align 4, !tbaa !3
@@ -4143,7 +4143,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2129, ptr %27, align 4, !tbaa !3
   %2130 = load i32, ptr %20, align 4, !tbaa !3
   %.not2252.not = icmp slt i32 %2128, %2130
-  br i1 %.not2252.not, label %.lr.ph2677, label %._crit_edge2678.loopexit, !llvm.loop !73
+  br i1 %.not2252.not, label %.lr.ph2677, label %._crit_edge2678.loopexit, !llvm.loop !74
 
 ._crit_edge2678.loopexit:                         ; preds = %2127
   %.pre3198 = load i32, ptr %7, align 4, !tbaa !3
@@ -4242,7 +4242,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2186, ptr %27, align 4, !tbaa !3
   %2187 = load i32, ptr %20, align 4, !tbaa !3
   %.not2254.not = icmp slt i32 %2185, %2187
-  br i1 %.not2254.not, label %.lr.ph2686, label %._crit_edge2687, !llvm.loop !74
+  br i1 %.not2254.not, label %.lr.ph2686, label %._crit_edge2687, !llvm.loop !75
 
 ._crit_edge2687:                                  ; preds = %2184, %2159
   br i1 %.01925.shrunk, label %.sink.split, label %2480
@@ -4277,7 +4277,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2203, ptr %27, align 4, !tbaa !3
   %2204 = load i32, ptr %20, align 4, !tbaa !3
   %.not2258.not = icmp slt i32 %2202, %2204
-  br i1 %.not2258.not, label %2192, label %._crit_edge2593, !llvm.loop !75
+  br i1 %.not2258.not, label %2192, label %._crit_edge2593, !llvm.loop !76
 
 ._crit_edge2593:                                  ; preds = %2192, %2188
   br i1 %773, label %2205, label %2249
@@ -4369,14 +4369,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 2247:                                             ; preds = %2241, %2244
   %indvars.iv.next3033 = add nuw nsw i64 %indvars.iv3032, 1
   %exitcond3036.not = icmp eq i64 %indvars.iv.next3033, %wide.trip.count3035
-  br i1 %exitcond3036.not, label %._crit_edge2599, label %2225, !llvm.loop !76
+  br i1 %exitcond3036.not, label %._crit_edge2599, label %2225, !llvm.loop !77
 
 ._crit_edge2599:                                  ; preds = %2247, %2212
   %2248 = phi double [ %2218, %2212 ], [ %2242, %2247 ]
   %storemerge2275.lcssa = phi i32 [ 1, %2212 ], [ %2209, %2247 ]
   %indvars.iv.next3038 = add nuw nsw i64 %indvars.iv3037, 1
   %exitcond3041.not = icmp eq i64 %indvars.iv.next3038, %wide.trip.count3040
-  br i1 %exitcond3041.not, label %..loopexit2356_crit_edge, label %2212, !llvm.loop !77
+  br i1 %exitcond3041.not, label %..loopexit2356_crit_edge, label %2212, !llvm.loop !78
 
 2249:                                             ; preds = %._crit_edge2593
   %2250 = load i32, ptr %31, align 4, !tbaa !3
@@ -4446,7 +4446,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2285, ptr %27, align 4, !tbaa !3
   %2286 = load i32, ptr %20, align 4, !tbaa !3
   %.not2261.not = icmp slt i32 %2284, %2286
-  br i1 %.not2261.not, label %2274, label %._crit_edge2612, !llvm.loop !78
+  br i1 %.not2261.not, label %2274, label %._crit_edge2612, !llvm.loop !79
 
 ._crit_edge2612:                                  ; preds = %2274, %.loopexit2356
   br i1 %773, label %2287, label %2323
@@ -4507,12 +4507,12 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %2321, ptr %gep3330, align 8, !tbaa !7
   %indvars.iv.next3043 = add nuw nsw i64 %indvars.iv3042, 1
   %exitcond3046.not = icmp eq i64 %indvars.iv.next3043, %indvars.iv3047
-  br i1 %exitcond3046.not, label %2322, label %2300, !llvm.loop !79
+  br i1 %exitcond3046.not, label %2322, label %2300, !llvm.loop !80
 
 2322:                                             ; preds = %2300
   %indvars.iv.next3048 = add nuw nsw i64 %indvars.iv3047, 1
   %exitcond3051.not = icmp eq i64 %indvars.iv.next3048, %wide.trip.count3050
-  br i1 %exitcond3051.not, label %..loopexit2355_crit_edge, label %2294, !llvm.loop !80
+  br i1 %exitcond3051.not, label %..loopexit2355_crit_edge, label %2294, !llvm.loop !81
 
 2323:                                             ; preds = %._crit_edge2612
   %2324 = load i32, ptr %31, align 4, !tbaa !3
@@ -4677,7 +4677,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %2411, ptr %2415, align 8, !tbaa !7
   %indvars.iv.next3053 = add nuw nsw i64 %indvars.iv3052, 1
   %exitcond3056.not = icmp eq i64 %indvars.iv.next3053, %wide.trip.count3055
-  br i1 %exitcond3056.not, label %.lr.ph2634, label %2410, !llvm.loop !81
+  br i1 %exitcond3056.not, label %.lr.ph2634, label %2410, !llvm.loop !82
 
 ._crit_edge2626.._crit_edge2635_crit_edge:        ; preds = %.lr.ph2644
   store i32 %2404, ptr %21, align 4, !tbaa !3
@@ -4707,7 +4707,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %2425, ptr %gep3334, align 8, !tbaa !7
   %indvars.iv.next3058 = add nuw nsw i64 %indvars.iv3057, 1
   %exitcond3061.not = icmp eq i64 %indvars.iv.next3058, %wide.trip.count3060
-  br i1 %exitcond3061.not, label %._crit_edge2635, label %2421, !llvm.loop !82
+  br i1 %exitcond3061.not, label %._crit_edge2635, label %2421, !llvm.loop !83
 
 ._crit_edge2635:                                  ; preds = %2421, %._crit_edge2626.._crit_edge2635_crit_edge
   %.pre-phi3244 = phi i64 [ %.pre3243, %._crit_edge2626.._crit_edge2635_crit_edge ], [ %2419, %2421 ]
@@ -4734,7 +4734,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2435 = load i32, ptr %20, align 4, !tbaa !3
   %2436 = sext i32 %2435 to i64
   %.not2263.not = icmp slt i64 %indvars.iv3062, %2436
-  br i1 %.not2263.not, label %.lr.ph2644, label %._crit_edge2645, !llvm.loop !83
+  br i1 %.not2263.not, label %.lr.ph2644, label %._crit_edge2645, !llvm.loop !84
 
 ._crit_edge2645:                                  ; preds = %2434, %2382
   %2437 = load i32, ptr %31, align 4, !tbaa !3
@@ -4833,7 +4833,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %2488, ptr %27, align 4, !tbaa !3
   %2489 = load i32, ptr %20, align 4, !tbaa !3
   %.not2265.not = icmp slt i32 %2487, %2489
-  br i1 %.not2265.not, label %.lr.ph2860, label %.loopexit2347, !llvm.loop !84
+  br i1 %.not2265.not, label %.lr.ph2860, label %.loopexit2347, !llvm.loop !85
 
 .loopexit2347:                                    ; preds = %.lr.ph2860, %2481, %915, %918, %1064, %._crit_edge2569, %2480, %._crit_edge2588, %1196
   %.01949 = phi double [ %.11950, %2480 ], [ -1.000000e+00, %1196 ], [ -1.000000e+00, %._crit_edge2588 ], [ -1.000000e+00, %1064 ], [ -1.000000e+00, %._crit_edge2569 ], [ -1.000000e+00, %918 ], [ -1.000000e+00, %915 ], [ %.11950, %2481 ], [ %.11950, %.lr.ph2860 ]
@@ -4872,7 +4872,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double 0.000000e+00, ptr %2505, align 8, !tbaa !7
   %storemerge2266 = add i32 %storemerge2266.in2868, 1
   %exitcond3169.not = icmp eq i32 %storemerge2266.in2868, %smax
-  br i1 %exitcond3169.not, label %.loopexit, label %2503, !llvm.loop !85
+  br i1 %exitcond3169.not, label %.loopexit, label %2503, !llvm.loop !86
 
 .loopexit:                                        ; preds = %2503, %2497
   %2506 = load double, ptr %32, align 8, !tbaa !7
@@ -5028,80 +5028,81 @@ attributes #7 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10, !23}
-!23 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!24 = distinct !{!24, !10}
-!25 = distinct !{!25, !10}
-!26 = distinct !{!26, !10}
-!27 = distinct !{!27, !10}
-!28 = distinct !{!28, !10}
-!29 = distinct !{!29, !10}
-!30 = distinct !{!30, !10}
-!31 = distinct !{!31, !10}
-!32 = distinct !{!32, !10}
-!33 = distinct !{!33, !10}
-!34 = distinct !{!34, !10}
-!35 = distinct !{!35, !10}
-!36 = distinct !{!36, !10}
-!37 = distinct !{!37, !10}
-!38 = distinct !{!38, !10}
-!39 = distinct !{!39, !10}
-!40 = distinct !{!40, !10}
-!41 = distinct !{!41, !10}
-!42 = distinct !{!42, !10}
-!43 = distinct !{!43, !10}
-!44 = distinct !{!44, !10}
-!45 = distinct !{!45, !10}
-!46 = distinct !{!46, !10}
-!47 = distinct !{!47, !10}
-!48 = distinct !{!48, !10}
-!49 = distinct !{!49, !10}
-!50 = distinct !{!50, !10}
-!51 = distinct !{!51, !10}
-!52 = distinct !{!52, !10}
-!53 = distinct !{!53, !10}
-!54 = distinct !{!54, !10}
-!55 = distinct !{!55, !10}
-!56 = distinct !{!56, !10}
-!57 = distinct !{!57, !10}
-!58 = distinct !{!58, !10}
-!59 = distinct !{!59, !10}
-!60 = distinct !{!60, !10}
-!61 = distinct !{!61, !10}
-!62 = distinct !{!62, !10}
-!63 = distinct !{!63, !10}
-!64 = distinct !{!64, !10}
-!65 = distinct !{!65, !10}
-!66 = distinct !{!66, !10}
-!67 = distinct !{!67, !10}
-!68 = distinct !{!68, !10}
-!69 = distinct !{!69, !10}
-!70 = distinct !{!70, !10}
-!71 = distinct !{!71, !10}
-!72 = distinct !{!72, !10}
-!73 = distinct !{!73, !10}
-!74 = distinct !{!74, !10}
-!75 = distinct !{!75, !10}
-!76 = distinct !{!76, !10}
-!77 = distinct !{!77, !10}
-!78 = distinct !{!78, !10}
-!79 = distinct !{!79, !10}
-!80 = distinct !{!80, !10}
-!81 = distinct !{!81, !10}
-!82 = distinct !{!82, !10}
-!83 = distinct !{!83, !10}
-!84 = distinct !{!84, !10}
-!85 = distinct !{!85, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !10, !11}
+!26 = distinct !{!26, !10, !11}
+!27 = distinct !{!27, !10, !11}
+!28 = distinct !{!28, !10, !11}
+!29 = distinct !{!29, !10, !11}
+!30 = distinct !{!30, !10, !11}
+!31 = distinct !{!31, !10, !11}
+!32 = distinct !{!32, !10, !11}
+!33 = distinct !{!33, !10, !11}
+!34 = distinct !{!34, !10, !11}
+!35 = distinct !{!35, !10, !11}
+!36 = distinct !{!36, !10, !11}
+!37 = distinct !{!37, !10, !11}
+!38 = distinct !{!38, !10, !11}
+!39 = distinct !{!39, !10, !11}
+!40 = distinct !{!40, !10, !11}
+!41 = distinct !{!41, !10, !11}
+!42 = distinct !{!42, !10, !11}
+!43 = distinct !{!43, !10, !11}
+!44 = distinct !{!44, !10, !11}
+!45 = distinct !{!45, !10, !11}
+!46 = distinct !{!46, !10, !11}
+!47 = distinct !{!47, !10, !11}
+!48 = distinct !{!48, !10, !11}
+!49 = distinct !{!49, !10, !11}
+!50 = distinct !{!50, !10, !11}
+!51 = distinct !{!51, !10, !11}
+!52 = distinct !{!52, !10, !11}
+!53 = distinct !{!53, !10, !11}
+!54 = distinct !{!54, !10, !11}
+!55 = distinct !{!55, !10, !11}
+!56 = distinct !{!56, !10, !11}
+!57 = distinct !{!57, !10, !11}
+!58 = distinct !{!58, !10, !11}
+!59 = distinct !{!59, !10, !11}
+!60 = distinct !{!60, !10, !11}
+!61 = distinct !{!61, !10, !11}
+!62 = distinct !{!62, !10, !11}
+!63 = distinct !{!63, !10, !11}
+!64 = distinct !{!64, !10, !11}
+!65 = distinct !{!65, !10, !11}
+!66 = distinct !{!66, !10, !11}
+!67 = distinct !{!67, !10, !11}
+!68 = distinct !{!68, !10, !11}
+!69 = distinct !{!69, !10, !11}
+!70 = distinct !{!70, !10, !11}
+!71 = distinct !{!71, !10, !11}
+!72 = distinct !{!72, !10, !11}
+!73 = distinct !{!73, !10, !11}
+!74 = distinct !{!74, !10, !11}
+!75 = distinct !{!75, !10, !11}
+!76 = distinct !{!76, !10, !11}
+!77 = distinct !{!77, !10, !11}
+!78 = distinct !{!78, !10, !11}
+!79 = distinct !{!79, !10, !11}
+!80 = distinct !{!80, !10, !11}
+!81 = distinct !{!81, !10, !11}
+!82 = distinct !{!82, !10, !11}
+!83 = distinct !{!83, !10, !11}
+!84 = distinct !{!84, !10, !11}
+!85 = distinct !{!85, !10, !11}
+!86 = distinct !{!86, !10, !11}

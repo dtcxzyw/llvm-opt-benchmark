@@ -164,11 +164,11 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %10, %_ZNSt16
   %.add = add nuw nsw i64 %.idx, 920
   %60 = add nuw nsw i64 %.idx, 912
   %61 = icmp eq i64 %60, %50
-  br i1 %61, label %.loopexit16, label %.preheader
+  br i1 %61, label %.loopexit16, label %.preheader, !llvm.loop !42
 
 .loopexit16:                                      ; preds = %59, %57
-  %62 = load ptr, ptr %5, align 8, !tbaa !42
-  store ptr %.ptr8, ptr %5, align 8, !tbaa !42
+  %62 = load ptr, ptr %5, align 8, !tbaa !44
+  store ptr %.ptr8, ptr %5, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i
 
@@ -208,7 +208,7 @@ _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_
 
 75:                                               ; preds = %.loopexit, %72
   %.pn = phi { ptr, i32 } [ %73, %72 ], [ %74, %.loopexit ]
-  %76 = load ptr, ptr %5, align 8, !tbaa !42
+  %76 = load ptr, ptr %5, align 8, !tbaa !44
   %.not.i = icmp eq ptr %76, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
 
@@ -221,7 +221,7 @@ _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %75, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
-  store ptr null, ptr %5, align 8, !tbaa !42
+  store ptr null, ptr %5, align 8, !tbaa !44
   br label %80
 
 80:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %70
@@ -437,11 +437,11 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %13, %_ZNSt16
   %.add = add nuw nsw i64 %.idx, 920
   %63 = add nuw nsw i64 %.idx, 912
   %64 = icmp eq i64 %63, %53
-  br i1 %64, label %.loopexit19, label %.preheader
+  br i1 %64, label %.loopexit19, label %.preheader, !llvm.loop !45
 
 .loopexit19:                                      ; preds = %62, %60
-  %65 = load ptr, ptr %8, align 8, !tbaa !42
-  store ptr %.ptr11, ptr %8, align 8, !tbaa !42
+  %65 = load ptr, ptr %8, align 8, !tbaa !44
+  store ptr %.ptr11, ptr %8, align 8, !tbaa !44
   %.not.i.i = icmp eq ptr %65, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i
 
@@ -481,7 +481,7 @@ _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_
 
 78:                                               ; preds = %.loopexit, %75
   %.pn = phi { ptr, i32 } [ %76, %75 ], [ %77, %.loopexit ]
-  %79 = load ptr, ptr %8, align 8, !tbaa !42
+  %79 = load ptr, ptr %8, align 8, !tbaa !44
   %.not.i = icmp eq ptr %79, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
 
@@ -494,7 +494,7 @@ _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %78, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
-  store ptr null, ptr %8, align 8, !tbaa !42
+  store ptr null, ptr %8, align 8, !tbaa !44
   br label %83
 
 83:                                               ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, %73
@@ -507,7 +507,7 @@ _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: 
 define void @_ZN7rocksdb22HistogramWindowingImplD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1032) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !44
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
 
@@ -520,7 +520,7 @@ _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is
   br label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
-  store ptr null, ptr %2, align 8, !tbaa !42
+  store ptr null, ptr %2, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !34
   %.not.i.i = icmp eq ptr %8, null
@@ -628,7 +628,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 
 18:                                               ; preds = %.lr.ph, %21
   %.09 = phi i64 [ 0, %.lr.ph ], [ %22, %21 ]
-  %19 = load ptr, ptr %8, align 8, !tbaa !42
+  %19 = load ptr, ptr %8, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %19, i64 %.09
   invoke void @_ZN7rocksdb13HistogramStat5ClearEv(ptr noundef nonnull align 8 dereferenceable(920) %20)
           to label %21 unwind label %25
@@ -637,7 +637,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %22 = add nuw i64 %.09, 1
   %23 = load i64, ptr %6, align 8, !tbaa !12
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %18, label %._crit_edge, !llvm.loop !43
+  br i1 %24, label %18, label %._crit_edge, !llvm.loop !46
 
 25:                                               ; preds = %18
   %26 = landingpad { ptr, i32 }
@@ -687,7 +687,7 @@ define void @_ZN7rocksdb22HistogramWindowingImpl3AddEm(ptr noundef nonnull align
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %19 = load ptr, ptr %18, align 8, !tbaa !42
+  %19 = load ptr, ptr %18, align 8, !tbaa !44
   %20 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %19, i64 %10, i32 2
   %21 = load atomic i64, ptr %20 monotonic, align 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -704,7 +704,7 @@ _ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit: ; preds = %2, %17, %24
   tail call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %25, i64 noundef %1)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 984
   %27 = load atomic i64, ptr %9 monotonic, align 8
-  %28 = load ptr, ptr %26, align 8, !tbaa !42
+  %28 = load ptr, ptr %26, align 8, !tbaa !44
   %29 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %28, i64 %27
   tail call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %29, i64 noundef %1)
   ret void
@@ -730,7 +730,7 @@ define void @_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv(ptr noundef nonnull
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %18 = load ptr, ptr %17, align 8, !tbaa !42
+  %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %18, i64 %9, i32 2
   %20 = load atomic i64, ptr %19 monotonic, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1024
@@ -792,9 +792,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
 
 8:                                                ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %10 = load i64, ptr %9, align 8, !tbaa !45
+  %10 = load i64, ptr %9, align 8, !tbaa !48
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 976
-  %12 = load i64, ptr %11, align 8, !tbaa !45
+  %12 = load i64, ptr %11, align 8, !tbaa !48
   %.not = icmp eq i64 %10, %12
   br i1 %.not, label %13, label %.loopexit
 
@@ -818,8 +818,8 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 1008
-  %27 = load i64, ptr %26, align 8, !tbaa !46
-  %28 = load i64, ptr %25, align 8, !tbaa !46
+  %27 = load i64, ptr %26, align 8, !tbaa !49
+  %28 = load i64, ptr %25, align 8, !tbaa !49
   %29 = tail call i64 @llvm.umin.i64(i64 %27, i64 %28)
   %.not29 = icmp eq i64 %29, 0
   br i1 %.not29, label %.loopexit, label %.lr.ph
@@ -840,9 +840,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %38 = add i64 %34, %24
   %39 = add i64 %38, %.neg28
   %40 = urem i64 %39, %34
-  %41 = load ptr, ptr %30, align 8, !tbaa !42
+  %41 = load ptr, ptr %30, align 8, !tbaa !44
   %42 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %41, i64 %37
-  %43 = load ptr, ptr %31, align 8, !tbaa !42
+  %43 = load ptr, ptr %31, align 8, !tbaa !44
   %44 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %43, i64 %40
   invoke void @_ZN7rocksdb13HistogramStat5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(920) %42, ptr noundef nonnull align 8 dereferenceable(920) %44)
           to label %45 unwind label %52
@@ -851,11 +851,11 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %46 = add i32 %.02127, 1
   %47 = zext i32 %46 to i64
   %.neg = sub nsw i64 0, %47
-  %48 = load i64, ptr %26, align 8, !tbaa !46
-  %49 = load i64, ptr %25, align 8, !tbaa !46
+  %48 = load i64, ptr %26, align 8, !tbaa !49
+  %49 = load i64, ptr %25, align 8, !tbaa !49
   %50 = tail call i64 @llvm.umin.i64(i64 %48, i64 %49)
   %51 = icmp ugt i64 %50, %47
-  br i1 %51, label %32, label %.loopexit, !llvm.loop !47
+  br i1 %51, label %32, label %.loopexit, !llvm.loop !50
 
 52:                                               ; preds = %32
   %53 = landingpad { ptr, i32 }
@@ -901,7 +901,7 @@ define noundef double @_ZNK7rocksdb22HistogramWindowingImpl10PercentileEd(ptr no
 5:                                                ; preds = %7
   %6 = add nuw nsw i32 %.0811, 1
   %exitcond = icmp eq i32 %6, 3
-  br i1 %exitcond, label %11, label %7, !llvm.loop !48
+  br i1 %exitcond, label %11, label %7, !llvm.loop !51
 
 7:                                                ; preds = %2, %5
   %.0811 = phi i32 [ 0, %2 ], [ %6, %5 ]
@@ -970,14 +970,14 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %18 = add i64 %13, 1
   %19 = select i1 %17, i64 0, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %21 = load ptr, ptr %20, align 8, !tbaa !42
+  %21 = load ptr, ptr %20, align 8, !tbaa !44
   %22 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %21, i64 %19
   %23 = tail call noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr noundef nonnull align 8 dereferenceable(920) %22)
   br i1 %23, label %81, label %.preheader47
 
 .preheader47:                                     ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %25 = load i64, ptr %24, align 8, !tbaa !45
+  %25 = load i64, ptr %24, align 8, !tbaa !48
   %.not58 = icmp eq i64 %25, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
 
@@ -1009,9 +1009,9 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %37 = load atomic i64, ptr %36 monotonic, align 8
   %38 = atomicrmw sub ptr %35, i64 %37 monotonic, align 8
   %39 = add nuw i64 %.048, 1
-  %40 = load i64, ptr %24, align 8, !tbaa !45
+  %40 = load i64, ptr %24, align 8, !tbaa !48
   %41 = icmp ult i64 %39, %40
-  br i1 %41, label %34, label %._crit_edge, !llvm.loop !49
+  br i1 %41, label %34, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge52:                                    ; preds = %47, %.preheader46
   %.036.lcssa = phi i64 [ -1, %.preheader46 ], [ %.238, %47 ]
@@ -1036,7 +1036,7 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %48 = add i32 %.03949, 1
   %49 = zext i32 %48 to i64
   %50 = icmp ugt i64 %32, %49
-  br i1 %50, label %42, label %._crit_edge52, !llvm.loop !50
+  br i1 %50, label %42, label %._crit_edge52, !llvm.loop !53
 
 51:                                               ; preds = %._crit_edge52, %._crit_edge
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1078,7 +1078,7 @@ define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr nounde
   %65 = add i32 %.03454, 1
   %66 = zext i32 %65 to i64
   %67 = icmp ugt i64 %57, %66
-  br i1 %67, label %59, label %._crit_edge56, !llvm.loop !51
+  br i1 %67, label %59, label %._crit_edge56, !llvm.loop !54
 
 68:                                               ; preds = %._crit_edge56, %51
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1251,13 +1251,16 @@ attributes #16 = { nounwind willreturn memory(read) }
 !39 = !{!"_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE", !37, i64 8, !37, i64 12}
 !40 = !{!39, !37, i64 12}
 !41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!42 = !{!9, !9, i64 0}
-!43 = distinct !{!43, !44}
-!44 = !{!"llvm.loop.mustprogress"}
-!45 = !{!13, !25, i64 976}
-!46 = !{!25, !25, i64 0}
-!47 = distinct !{!47, !44}
-!48 = distinct !{!48, !44}
-!49 = distinct !{!49, !44}
-!50 = distinct !{!50, !44}
-!51 = distinct !{!51, !44}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!9, !9, i64 0}
+!45 = distinct !{!45, !43}
+!46 = distinct !{!46, !47, !43}
+!47 = !{!"llvm.loop.mustprogress"}
+!48 = !{!13, !25, i64 976}
+!49 = !{!25, !25, i64 0}
+!50 = distinct !{!50, !47, !43}
+!51 = distinct !{!51, !47, !43}
+!52 = distinct !{!52, !47, !43}
+!53 = distinct !{!53, !47, !43}
+!54 = distinct !{!54, !47, !43}

@@ -79,12 +79,12 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef
   %.sroa.8.3.us.i = phi i8 [ %31, %22 ], [ %.sroa.8.213.us.i, %17 ]
   %.021.add.us.i = add nuw nsw i64 %.021.idx14.us.i, 4
   %.not.us.i = icmp eq i64 %.021.add.us.i, 128
-  br i1 %.not.us.i, label %28, label %17
+  br i1 %.not.us.i, label %28, label %17, !llvm.loop !7
 
 28:                                               ; preds = %27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !9
 
 .preheader.us.i:                                  ; preds = %28, %.preheader.lr.ph.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.i ], [ %indvars.iv.next.i, %28 ]
@@ -101,7 +101,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation8DecodeQREjj(i32 noundef
 ._crit_edge.us.i:                                 ; preds = %28
   %.sroa.05.027.us.i.add = add nuw nsw i64 %.sroa.05.027.us.i.idx, 4
   %32 = icmp eq i64 %.sroa.05.027.us.i.add, 12
-  br i1 %32, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.us.i, !llvm.loop !9
+  br i1 %32, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.us.i, !llvm.loop !11
 
 _ZNSt6vectorIjSaIjEED2Ev.exit27:                  ; preds = %._crit_edge.us.i
   %33 = zext i8 %.sroa.8.3.us.i to i64
@@ -181,12 +181,12 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %.sroa.8.3.us.i = phi i8 [ %18, %9 ], [ %.sroa.8.213.us.i, %4 ]
   %.021.add.us.i = add nuw nsw i64 %.021.idx14.us.i, 4
   %.not.us.i = icmp eq i64 %.021.add.us.i, 128
-  br i1 %.not.us.i, label %15, label %4
+  br i1 %.not.us.i, label %15, label %4, !llvm.loop !7
 
 15:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %.preheader.us.i, !llvm.loop !9
 
 .preheader.us.i:                                  ; preds = %15, %.preheader.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %15 ]
@@ -218,7 +218,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %.sroa.7.8.insert.ext = and i64 %23, 3
   %30 = and i64 %sum.shift, 7
   %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 0, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !11
+  %32 = load i8, ptr %31, align 1, !tbaa !13
   %33 = icmp eq i8 %.sroa.8.3.us.i, 1
   %.sroa.6.0.insert.shift = select i1 %33, i64 72057594037927936, i64 0
   %34 = or disjoint i64 %.sroa.6.0.insert.shift, %25
@@ -269,7 +269,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %15 = phi i8 [ %13, %9 ], [ %3, %.preheader.lr.ph.i.i ]
   %.021.add.i.i = add nuw nsw i64 %.021.idx3.i.i, 4
   %.not.i.i = icmp eq i64 %.021.add.i.i, 256
-  br i1 %.not.i.i, label %.preheader.i11.i.preheader, label %.preheader.lr.ph.i.i
+  br i1 %.not.i.i, label %.preheader.i11.i.preheader, label %.preheader.lr.ph.i.i, !llvm.loop !14
 
 .preheader.i11.i.preheader:                       ; preds = %14, %27
   %.sroa.12.5.i = phi i8 [ %.sroa.12.6.i, %27 ], [ %.sroa.12.2.i, %14 ]
@@ -301,7 +301,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %28 = phi i8 [ %26, %22 ], [ %16, %.preheader.i11.i.preheader ]
   %.021.add.i18.i = add nuw nsw i64 %.021.idx3.i15.i, 4
   %.not.i19.i = icmp eq i64 %.021.add.i18.i, 256
-  br i1 %.not.i19.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.i11.i.preheader
+  br i1 %.not.i19.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.i11.i.preheader, !llvm.loop !14
 
 .preheader.lr.ph.i.i79:                           ; preds = %2, %40
   %.sroa.12.1.i88 = phi i8 [ %.sroa.12.2.i95, %40 ], [ -1, %2 ]
@@ -333,7 +333,7 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation10DecodeRMQREjj(i32 noun
   %41 = phi i8 [ %39, %35 ], [ %29, %.preheader.lr.ph.i.i79 ]
   %.021.add.i.i100 = add nuw nsw i64 %.021.idx3.i.i93, 4
   %.not.i.i101 = icmp eq i64 %.021.add.i.i100, 256
-  br i1 %.not.i.i101, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.i.i79
+  br i1 %.not.i.i101, label %_ZNSt6vectorIjSaIjEED2Ev.exit27, label %.preheader.lr.ph.i.i79, !llvm.loop !14
 
 _ZNSt6vectorIjSaIjEED2Ev.exit27:                  ; preds = %27, %40
   %.sroa.7.0 = phi i8 [ %.sroa.7.2.i96, %40 ], [ %.sroa.7.6.i, %27 ]
@@ -399,7 +399,10 @@ attributes #7 = { builtin nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = !{!5, !5, i64 0}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = !{!5, !5, i64 0}
+!14 = distinct !{!14, !8}

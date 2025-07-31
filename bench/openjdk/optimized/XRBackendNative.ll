@@ -240,7 +240,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_awt_X11GraphicsEnvironment_initXRende
 102:                                              ; preds = %77, %74
   %103 = call ptr @fgets(ptr noundef nonnull %11, i32 noundef 256, ptr noundef nonnull %70)
   %.not57.i = icmp eq ptr %103, null
-  br i1 %.not57.i, label %.critedge4.i, label %.lr.ph70.i, !llvm.loop !8
+  br i1 %.not57.i, label %.critedge4.i, label %.lr.ph70.i, !llvm.loop !9
 
 .critedge4.sink.split.i:                          ; preds = %98, %94
   %.1.ph.i = phi i8 [ 1, %98 ], [ 0, %94 ]
@@ -660,7 +660,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderRectanglesNative(ptr noun
   store i16 %46, ptr %47, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %48 = load ptr, ptr @awt_display, align 8
@@ -819,7 +819,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateLinearGradientPaintNative
   store i16 %67, ptr %68, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %69 = load ptr, ptr @awt_display, align 8
@@ -962,7 +962,7 @@ define i32 @Java_sun_java2d_xr_XRBackendNative_XRCreateRadialGradientPaintNative
   store i16 %69, ptr %70, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %71 = load ptr, ptr @awt_display, align 8
@@ -1099,12 +1099,12 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
   store i8 %33, ptr %gep.us, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.us, label %29, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %29
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %.loopexit80, label %.preheader78.us, !llvm.loop !13
+  br i1 %exitcond98.not, label %.loopexit80, label %.preheader78.us, !llvm.loop !14
 
 .loopexit80:                                      ; preds = %._crit_edge.us, %.preheader78.lr.ph, %21
   %34 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -1170,12 +1170,12 @@ define void @Java_sun_java2d_xr_XRBackendNative_putMaskNative(ptr noundef %0, pt
   store i8 %56, ptr %62, align 1
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %._crit_edge.us90, label %55, !llvm.loop !15
+  br i1 %exitcond103.not, label %._crit_edge.us90, label %55, !llvm.loop !16
 
 ._crit_edge.us90:                                 ; preds = %55
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit, label %.preheader.us, !llvm.loop !16
+  br i1 %exitcond108.not, label %.loopexit, label %.preheader.us, !llvm.loop !17
 
 .critedge:                                        ; preds = %.loopexit80, %37
   %63 = load ptr, ptr @awt_display, align 8
@@ -1309,7 +1309,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRAddGlyphsNative(ptr noundef %0
   store i16 %66, ptr %67, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %68 = load ptr, ptr @awt_display, align 8
@@ -1386,7 +1386,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRFreeGlyphsNative(ptr noundef %
   store i64 %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %26 = load ptr, ptr @awt_display, align 8
@@ -1528,7 +1528,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   store i32 %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !20
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
   %indvars.iv108 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next109, %.lr.ph106 ]
@@ -1558,7 +1558,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %77 = add nsw i32 %62, %.0105
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
-  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !20
+  br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.preheader
   %78 = load ptr, ptr @awt_display, align 8
@@ -1671,7 +1671,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_GCRectanglesNative(ptr noundef %
   store i16 %38, ptr %39, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %40 = load ptr, ptr @awt_display, align 8
@@ -1777,19 +1777,20 @@ attributes #16 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7, !14}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8, !15}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}

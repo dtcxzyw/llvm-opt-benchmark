@@ -246,7 +246,7 @@ define dso_local void @PHP_XXH32Update(ptr noundef captures(none) %0, ptr nounde
   store i32 %93, ptr %69, align 4, !tbaa !13
   %94 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %.not80.i = icmp ugt ptr %94, %65
-  br i1 %.not80.i, label %.loopexit.i, label %70
+  br i1 %.not80.i, label %.loopexit.i, label %70, !llvm.loop !14
 
 .loopexit.i:                                      ; preds = %70, %64
   %.173.i = phi ptr [ %.072.i, %64 ], [ %94, %70 ]
@@ -333,7 +333,7 @@ define dso_local void @PHP_XXH32Final(ptr noundef writeonly captures(none) %0, p
   %39 = mul i32 %38, 668265263
   %40 = add nsw i64 %.01419.i.i, -4
   %41 = icmp ugt i64 %40, 3
-  br i1 %41, label %.lr.ph.i.i, label %.preheader.i.i
+  br i1 %41, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !16
 
 .lr.ph27.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph27.i.i
   %.126.i.i = phi i32 [ %48, %.lr.ph27.i.i ], [ %.0.lcssa.i.i, %.preheader.i.i ]
@@ -348,7 +348,7 @@ define dso_local void @PHP_XXH32Final(ptr noundef writeonly captures(none) %0, p
   %48 = mul i32 %47, -1640531535
   %49 = add nsw i64 %.11525.i.i, -1
   %.not.i.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i, label %XXH_INLINE_XXH32_digest.exit, label %.lr.ph27.i.i
+  br i1 %.not.i.i, label %XXH_INLINE_XXH32_digest.exit, label %.lr.ph27.i.i, !llvm.loop !17
 
 XXH_INLINE_XXH32_digest.exit:                     ; preds = %.lr.ph27.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i32 [ %.0.lcssa.i.i, %.preheader.i.i ], [ %48, %.lr.ph27.i.i ]
@@ -367,7 +367,7 @@ XXH_INLINE_XXH32_digest.exit:                     ; preds = %.lr.ph27.i.i, %.pre
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @PHP_XXH32Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 48)) %2) #2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !14
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !18
   ret i32 0
 }
 
@@ -376,7 +376,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #3
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
 
@@ -387,7 +387,7 @@ define internal i32 @php_hash_xxh32_unserialize(ptr noundef %0, i64 noundef %1, 
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %12 = load i32, ptr %11, align 4, !tbaa !26
+  %12 = load i32, ptr %11, align 4, !tbaa !30
   %13 = icmp ult i32 %12, 16
   %spec.select = select i1 %13, i32 0, i32 -2000
   br label %.thread
@@ -478,11 +478,11 @@ define dso_local void @PHP_XXH64Update(ptr noundef captures(none) %0, ptr nounde
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %7 = load i64, ptr %0, align 8, !tbaa !28
+  %7 = load i64, ptr %0, align 8, !tbaa !32
   %8 = add i64 %7, %2
-  store i64 %8, ptr %0, align 8, !tbaa !28
+  store i64 %8, ptr %0, align 8, !tbaa !32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load i32, ptr %9, align 8, !tbaa !30
+  %10 = load i32, ptr %9, align 8, !tbaa !34
   %11 = zext i32 %10 to i64
   %12 = add i64 %2, %11
   %13 = icmp ult i64 %12, 32
@@ -493,7 +493,7 @@ define dso_local void @PHP_XXH64Update(ptr noundef captures(none) %0, ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %17 = trunc i64 %2 to i32
-  %18 = load i32, ptr %9, align 8, !tbaa !30
+  %18 = load i32, ptr %9, align 8, !tbaa !34
   %19 = add i32 %18, %17
   br label %.sink.split.i
 
@@ -508,45 +508,45 @@ define dso_local void @PHP_XXH64Update(ptr noundef captures(none) %0, ptr nounde
   %25 = zext i32 %24 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !31
+  %27 = load i64, ptr %26, align 8, !tbaa !35
   %.0.copyload.i.i = load i64, ptr %22, align 1
   %28 = mul i64 %.0.copyload.i.i, -4417276706812531889
   %29 = add i64 %28, %27
   %30 = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 31)
   %31 = mul i64 %30, -7046029288634856825
-  store i64 %31, ptr %26, align 8, !tbaa !31
+  store i64 %31, ptr %26, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %33 = load i64, ptr %32, align 8, !tbaa !31
+  %33 = load i64, ptr %32, align 8, !tbaa !35
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.0.copyload.i73.i = load i64, ptr %34, align 1
   %35 = mul i64 %.0.copyload.i73.i, -4417276706812531889
   %36 = add i64 %35, %33
   %37 = tail call i64 @llvm.fshl.i64(i64 %36, i64 %36, i64 31)
   %38 = mul i64 %37, -7046029288634856825
-  store i64 %38, ptr %32, align 8, !tbaa !31
+  store i64 %38, ptr %32, align 8, !tbaa !35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %40 = load i64, ptr %39, align 8, !tbaa !31
+  %40 = load i64, ptr %39, align 8, !tbaa !35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0.copyload.i74.i = load i64, ptr %41, align 1
   %42 = mul i64 %.0.copyload.i74.i, -4417276706812531889
   %43 = add i64 %42, %40
   %44 = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 31)
   %45 = mul i64 %44, -7046029288634856825
-  store i64 %45, ptr %39, align 8, !tbaa !31
+  store i64 %45, ptr %39, align 8, !tbaa !35
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %47 = load i64, ptr %46, align 8, !tbaa !31
+  %47 = load i64, ptr %46, align 8, !tbaa !35
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.0.copyload.i75.i = load i64, ptr %48, align 1
   %49 = mul i64 %.0.copyload.i75.i, -4417276706812531889
   %50 = add i64 %49, %47
   %51 = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 31)
   %52 = mul i64 %51, -7046029288634856825
-  store i64 %52, ptr %46, align 8, !tbaa !31
-  %53 = load i32, ptr %9, align 8, !tbaa !30
+  store i64 %52, ptr %46, align 8, !tbaa !35
+  %53 = load i32, ptr %9, align 8, !tbaa !34
   %54 = sub i32 32, %53
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 %55
-  store i32 0, ptr %9, align 8, !tbaa !30
+  store i32 0, ptr %9, align 8, !tbaa !34
   br label %57
 
 57:                                               ; preds = %21, %20
@@ -561,10 +561,10 @@ define dso_local void @PHP_XXH64Update(ptr noundef captures(none) %0, ptr nounde
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.promoted.i = load i64, ptr %61, align 8, !tbaa !31
-  %.promoted80.i = load i64, ptr %62, align 8, !tbaa !31
-  %.promoted81.i = load i64, ptr %63, align 8, !tbaa !31
-  %.promoted82.i = load i64, ptr %64, align 8, !tbaa !31
+  %.promoted.i = load i64, ptr %61, align 8, !tbaa !35
+  %.promoted80.i = load i64, ptr %62, align 8, !tbaa !35
+  %.promoted81.i = load i64, ptr %63, align 8, !tbaa !35
+  %.promoted82.i = load i64, ptr %64, align 8, !tbaa !35
   br label %65
 
 65:                                               ; preds = %65, %59
@@ -578,31 +578,31 @@ define dso_local void @PHP_XXH64Update(ptr noundef captures(none) %0, ptr nounde
   %71 = add i64 %70, %69
   %72 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 31)
   %73 = mul i64 %72, -7046029288634856825
-  store i64 %73, ptr %61, align 8, !tbaa !31
+  store i64 %73, ptr %61, align 8, !tbaa !35
   %74 = getelementptr inbounds nuw i8, ptr %.2.i, i64 8
   %.0.copyload.i77.i = load i64, ptr %74, align 1
   %75 = mul i64 %.0.copyload.i77.i, -4417276706812531889
   %76 = add i64 %75, %68
   %77 = tail call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 31)
   %78 = mul i64 %77, -7046029288634856825
-  store i64 %78, ptr %62, align 8, !tbaa !31
+  store i64 %78, ptr %62, align 8, !tbaa !35
   %79 = getelementptr inbounds nuw i8, ptr %.2.i, i64 16
   %.0.copyload.i78.i = load i64, ptr %79, align 1
   %80 = mul i64 %.0.copyload.i78.i, -4417276706812531889
   %81 = add i64 %80, %67
   %82 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %81, i64 31)
   %83 = mul i64 %82, -7046029288634856825
-  store i64 %83, ptr %63, align 8, !tbaa !31
+  store i64 %83, ptr %63, align 8, !tbaa !35
   %84 = getelementptr inbounds nuw i8, ptr %.2.i, i64 24
   %.0.copyload.i79.i = load i64, ptr %84, align 1
   %85 = mul i64 %.0.copyload.i79.i, -4417276706812531889
   %86 = add i64 %85, %66
   %87 = tail call i64 @llvm.fshl.i64(i64 %86, i64 %86, i64 31)
   %88 = mul i64 %87, -7046029288634856825
-  store i64 %88, ptr %64, align 8, !tbaa !31
+  store i64 %88, ptr %64, align 8, !tbaa !35
   %89 = getelementptr inbounds nuw i8, ptr %.2.i, i64 32
   %.not72.i = icmp ugt ptr %89, %60
-  br i1 %.not72.i, label %.loopexit.i, label %65
+  br i1 %.not72.i, label %.loopexit.i, label %65, !llvm.loop !36
 
 .loopexit.i:                                      ; preds = %65, %57
   %.167.i = phi ptr [ %.066.i, %57 ], [ %89, %65 ]
@@ -620,7 +620,7 @@ define dso_local void @PHP_XXH64Update(ptr noundef captures(none) %0, ptr nounde
 
 .sink.split.i:                                    ; preds = %91, %14
   %.sink.i = phi i32 [ %19, %14 ], [ %96, %91 ]
-  store i32 %.sink.i, ptr %9, align 8, !tbaa !30
+  store i32 %.sink.i, ptr %9, align 8, !tbaa !34
   br label %XXH_INLINE_XXH64_update.exit
 
 XXH_INLINE_XXH64_update.exit:                     ; preds = %3, %.loopexit.i, %.sink.split.i
@@ -629,24 +629,24 @@ XXH_INLINE_XXH64_update.exit:                     ; preds = %3, %.loopexit.i, %.
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @PHP_XXH64Final(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
-  %3 = load i64, ptr %1, align 8, !tbaa !28
+  %3 = load i64, ptr %1, align 8, !tbaa !32
   %4 = icmp ugt i64 %3, 31
   br i1 %4, label %5, label %45
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !35
   %8 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %7, i64 1)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !tbaa !31
+  %10 = load i64, ptr %9, align 8, !tbaa !35
   %11 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 7)
   %12 = add i64 %11, %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !31
+  %14 = load i64, ptr %13, align 8, !tbaa !35
   %15 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 12)
   %16 = add i64 %12, %15
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %18 = load i64, ptr %17, align 8, !tbaa !31
+  %18 = load i64, ptr %17, align 8, !tbaa !35
   %19 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 18)
   %20 = add i64 %16, %19
   %21 = mul i64 %7, -4417276706812531889
@@ -677,7 +677,7 @@ define dso_local void @PHP_XXH64Final(ptr noundef writeonly captures(none) %0, p
 
 45:                                               ; preds = %2
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %47 = load i64, ptr %46, align 8, !tbaa !31
+  %47 = load i64, ptr %46, align 8, !tbaa !35
   %48 = add i64 %47, 2870177450012600261
   br label %49
 
@@ -693,7 +693,7 @@ define dso_local void @PHP_XXH64Final(ptr noundef writeonly captures(none) %0, p
   %.030.i.i = phi i64 [ %62, %.lr.ph.i.i ], [ %50, %49 ]
   %.02229.i.i = phi ptr [ %58, %.lr.ph.i.i ], [ %51, %49 ]
   %.02528.i.i = phi i64 [ %63, %.lr.ph.i.i ], [ %52, %49 ]
-  %54 = load i64, ptr %.02229.i.i, align 8, !tbaa !31
+  %54 = load i64, ptr %.02229.i.i, align 8, !tbaa !35
   %55 = mul i64 %54, -4417276706812531889
   %56 = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 31)
   %57 = mul i64 %56, -7046029288634856825
@@ -704,7 +704,7 @@ define dso_local void @PHP_XXH64Final(ptr noundef writeonly captures(none) %0, p
   %62 = add i64 %61, -8796714831421723037
   %63 = add nsw i64 %.02528.i.i, -8
   %64 = icmp ugt i64 %63, 7
-  br i1 %64, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %64, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !37
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %49
   %.025.lcssa.i.i = phi i64 [ %52, %49 ], [ %63, %.lr.ph.i.i ]
@@ -745,7 +745,7 @@ define dso_local void @PHP_XXH64Final(ptr noundef writeonly captures(none) %0, p
   %83 = mul i64 %82, -7046029288634856825
   %84 = add nsw i64 %.22734.i.i, -1
   %.not.i.i = icmp eq i64 %84, 0
-  br i1 %.not.i.i, label %XXH_INLINE_XXH64_digest.exit, label %.lr.ph38.i.i
+  br i1 %.not.i.i, label %XXH_INLINE_XXH64_digest.exit, label %.lr.ph38.i.i, !llvm.loop !38
 
 XXH_INLINE_XXH64_digest.exit:                     ; preds = %.lr.ph38.i.i, %76
   %.2.lcssa.i.i = phi i64 [ %.1.i.i, %76 ], [ %83, %.lr.ph38.i.i ]
@@ -764,14 +764,14 @@ XXH_INLINE_XXH64_digest.exit:                     ; preds = %.lr.ph38.i.i, %76
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @PHP_XXH64Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 88)) %2) #2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false), !tbaa.struct !32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false), !tbaa.struct !39
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !15
+  %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = icmp eq i64 %1, 2
   br i1 %6, label %7, label %.thread
 
@@ -782,7 +782,7 @@ define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, 
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %12 = load i32, ptr %11, align 8, !tbaa !33
+  %12 = load i32, ptr %11, align 8, !tbaa !40
   %13 = icmp ult i32 %12, 32
   %spec.select = select i1 %13, i32 0, i32 -2000
   br label %.thread
@@ -865,34 +865,34 @@ zend_hash_str_find_deref.exit.i.thread:           ; preds = %zend_hash_str_find_
 29:                                               ; preds = %.thread
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %31, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %31, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %32, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %32, align 16, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %33, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %33, align 8, !tbaa !35
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %34, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %34, align 32, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %35, align 8, !tbaa !31
+  store i64 2246822519, ptr %35, align 8, !tbaa !35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %36, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %36, align 16, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %37, align 8, !tbaa !31
+  store i64 2654435761, ptr %37, align 8, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %38, align 8, !tbaa !35
+  store i64 0, ptr %38, align 8, !tbaa !42
   br label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit
 
 39:                                               ; preds = %.thread
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %41 = load i64, ptr %40, align 8, !tbaa !35
+  %41 = load i64, ptr %40, align 8, !tbaa !42
   %.not.i8 = icmp eq i64 %27, %41
   br i1 %.not.i8, label %42, label %45
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %44 = load ptr, ptr %43, align 8, !tbaa !37
+  %44 = load ptr, ptr %43, align 8, !tbaa !44
   %.not12.i = icmp eq ptr %44, null
   br i1 %.not12.i, label %XXH3_initCustomSecret_sse2.exit.i, label %45
 
@@ -901,7 +901,7 @@ zend_hash_str_find_deref.exit.i.thread:           ; preds = %zend_hash_str_find_
   %47 = sub i64 0, %27
   %48 = insertelement <2 x i64> poison, i64 %27, i64 0
   %49 = insertelement <2 x i64> %48, i64 %47, i64 1
-  %50 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %46) #16, !srcloc !38
+  %50 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %46) #16, !srcloc !45
   br label %51
 
 51:                                               ; preds = %51, %45
@@ -913,39 +913,39 @@ zend_hash_str_find_deref.exit.i.thread:           ; preds = %zend_hash_str_find_
   store <2 x i64> %54, ptr %55, align 16, !tbaa !4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %XXH3_initCustomSecret_sse2.exit.i, label %51
+  br i1 %exitcond.not.i, label %XXH3_initCustomSecret_sse2.exit.i, label %51, !llvm.loop !46
 
 XXH3_initCustomSecret_sse2.exit.i:                ; preds = %51, %42
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %56, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %57, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %57, align 8, !tbaa !35
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %58, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %58, align 16, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %59, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %59, align 8, !tbaa !35
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %60, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %60, align 32, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %61, align 8, !tbaa !31
+  store i64 2246822519, ptr %61, align 8, !tbaa !35
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %62, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %62, align 16, !tbaa !35
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %63, align 8, !tbaa !31
-  store i64 %27, ptr %40, align 8, !tbaa !35
+  store i64 2654435761, ptr %63, align 8, !tbaa !35
+  store i64 %27, ptr %40, align 8, !tbaa !42
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  store i32 1, ptr %64, align 4, !tbaa !39
+  store i32 1, ptr %64, align 4, !tbaa !47
   br label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit
 
 XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %29, %XXH3_initCustomSecret_sse2.exit.i
   %.sink.i = phi ptr [ null, %XXH3_initCustomSecret_sse2.exit.i ], [ @XXH3_kSecret, %29 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %.sink.i, ptr %65, align 8, !tbaa !37
+  store ptr %.sink.i, ptr %65, align 8, !tbaa !44
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %66, align 32, !tbaa !40
+  store i64 128, ptr %66, align 32, !tbaa !48
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %67, align 8, !tbaa !41
+  store i64 16, ptr %67, align 8, !tbaa !49
   br label %_PHP_XXH3_Init.exit
 
 .critedge.i:                                      ; preds = %zend_hash_str_find_deref.exit.i
@@ -958,7 +958,7 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %29, %XXH3_initCusto
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.11) #16
   %.pr21 = load i8, ptr %68, align 8, !tbaa !4
   %71 = icmp eq i8 %.pr21, 6
-  br i1 %71, label %.thread22, label %zval_try_get_string.exit, !prof !42
+  br i1 %71, label %.thread22, label %zval_try_get_string.exit, !prof !50
 
 .thread22:                                        ; preds = %.critedge.i, %70
   %72 = load ptr, ptr %.0.i.i, align 8, !tbaa !4
@@ -969,18 +969,18 @@ XXH_INLINE_XXH3_64bits_reset_withSeed.exit:       ; preds = %29, %XXH3_initCusto
   br i1 %.not.i7, label %76, label %zval_try_get_string.exit.thread
 
 76:                                               ; preds = %.thread22
-  %77 = load i32, ptr %72, align 4, !tbaa !43
+  %77 = load i32, ptr %72, align 4, !tbaa !51
   %78 = add i32 %77, 1
-  store i32 %78, ptr %72, align 4, !tbaa !43
+  store i32 %78, ptr %72, align 4, !tbaa !51
   br label %zval_try_get_string.exit.thread
 
 zval_try_get_string.exit:                         ; preds = %70
   %79 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.0.i.i) #16
   %.not44.i = icmp eq ptr %79, null
-  br i1 %.not44.i, label %80, label %zval_try_get_string.exit.thread, !prof !44
+  br i1 %.not44.i, label %80, label %zval_try_get_string.exit.thread, !prof !52
 
 80:                                               ; preds = %zval_try_get_string.exit
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !45
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !53
   %82 = icmp ne ptr %81, null
   tail call void @llvm.assume(i1 %82)
   br label %_PHP_XXH3_Init.exit
@@ -988,7 +988,7 @@ zval_try_get_string.exit:                         ; preds = %70
 zval_try_get_string.exit.thread:                  ; preds = %.thread22, %76, %zval_try_get_string.exit
   %.0.i225 = phi ptr [ %79, %zval_try_get_string.exit ], [ %72, %76 ], [ %72, %.thread22 ]
   %83 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 16
-  %84 = load i64, ptr %83, align 8, !tbaa !74
+  %84 = load i64, ptr %83, align 8, !tbaa !82
   %85 = icmp ult i64 %84, 136
   br i1 %85, label %86, label %99
 
@@ -1000,11 +1000,11 @@ zval_try_get_string.exit.thread:                  ; preds = %.thread22, %76, %zv
   br i1 %.not.i3, label %90, label %zend_string_release.exit
 
 90:                                               ; preds = %86
-  %91 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %91 = load i32, ptr %.0.i225, align 4, !tbaa !51
   %92 = icmp ne i32 %91, 0
   tail call void @llvm.assume(i1 %92)
   %93 = add i32 %91, -1
-  store i32 %93, ptr %.0.i225, align 4, !tbaa !43
+  store i32 %93, ptr %.0.i225, align 4, !tbaa !51
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %zend_string_release.exit
 
@@ -1045,11 +1045,11 @@ zend_string_release.exit:                         ; preds = %86, %90, %97, %98
   br i1 %.not.i4, label %108, label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
 108:                                              ; preds = %102
-  %109 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %109 = load i32, ptr %.0.i225, align 4, !tbaa !51
   %110 = icmp ne i32 %109, 0
   tail call void @llvm.assume(i1 %110)
   %111 = add i32 %109, -1
-  store i32 %111, ptr %.0.i225, align 4, !tbaa !43
+  store i32 %111, ptr %.0.i225, align 4, !tbaa !51
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %XXH_INLINE_XXH3_64bits_reset_withSecret.exit
 
@@ -1069,59 +1069,59 @@ zend_string_release.exit:                         ; preds = %86, %90, %97, %98
 XXH_INLINE_XXH3_64bits_reset_withSecret.exit:     ; preds = %102, %108, %115, %116
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %117, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %118, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %118, align 8, !tbaa !35
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %119, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %119, align 16, !tbaa !35
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %120, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %120, align 8, !tbaa !35
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %121, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %121, align 32, !tbaa !35
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %122, align 8, !tbaa !31
+  store i64 2246822519, ptr %122, align 8, !tbaa !35
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %123, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %123, align 16, !tbaa !35
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %124, align 8, !tbaa !31
+  store i64 2654435761, ptr %124, align 8, !tbaa !35
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %125, align 8, !tbaa !35
+  store i64 0, ptr %125, align 8, !tbaa !42
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %103, ptr %126, align 8, !tbaa !37
+  store ptr %103, ptr %126, align 8, !tbaa !44
   %127 = add nsw i64 %.0.i, -64
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %127, ptr %128, align 32, !tbaa !40
+  store i64 %127, ptr %128, align 32, !tbaa !48
   %129 = lshr i64 %127, 3
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %129, ptr %130, align 8, !tbaa !41
+  store i64 %129, ptr %130, align 8, !tbaa !49
   br label %_PHP_XXH3_Init.exit
 
 XXH_INLINE_XXH3_64bits_reset_withSeed.exit14:     ; preds = %25, %zend_hash_str_find_deref.exit47.i.thread, %2
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %131, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %132, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %132, align 8, !tbaa !35
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %133, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %133, align 16, !tbaa !35
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %134, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %134, align 8, !tbaa !35
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %135, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %135, align 32, !tbaa !35
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %136, align 8, !tbaa !31
+  store i64 2246822519, ptr %136, align 8, !tbaa !35
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %137, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %137, align 16, !tbaa !35
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %138, align 8, !tbaa !31
+  store i64 2654435761, ptr %138, align 8, !tbaa !35
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %139, align 8, !tbaa !35
+  store i64 0, ptr %139, align 8, !tbaa !42
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @XXH3_kSecret, ptr %140, align 8, !tbaa !37
+  store ptr @XXH3_kSecret, ptr %140, align 8, !tbaa !44
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %141, align 32, !tbaa !40
+  store i64 128, ptr %141, align 32, !tbaa !48
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %142, align 8, !tbaa !41
+  store i64 16, ptr %142, align 8, !tbaa !49
   br label %_PHP_XXH3_Init.exit
 
 _PHP_XXH3_Init.exit:                              ; preds = %80, %XXH_INLINE_XXH3_64bits_reset_withSecret.exit, %zend_string_release.exit, %XXH_INLINE_XXH3_64bits_reset_withSeed.exit, %22, %XXH_INLINE_XXH3_64bits_reset_withSeed.exit14
@@ -1136,16 +1136,16 @@ define dso_local void @PHP_XXH3_64_Update(ptr noundef %0, ptr noundef %1, i64 no
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %8 = load ptr, ptr %7, align 8, !tbaa !37, !alias.scope !76, !noalias !79
+  %8 = load ptr, ptr %7, align 8, !tbaa !44, !alias.scope !84, !noalias !87
   %9 = icmp eq ptr %8, null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = select i1 %9, ptr %10, ptr %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %13 = load i64, ptr %12, align 16, !tbaa !81, !alias.scope !76, !noalias !79
+  %13 = load i64, ptr %12, align 16, !tbaa !89, !alias.scope !84, !noalias !87
   %14 = add i64 %13, %2
-  store i64 %14, ptr %12, align 16, !tbaa !81, !alias.scope !76, !noalias !79
+  store i64 %14, ptr %12, align 16, !tbaa !89, !alias.scope !84, !noalias !87
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %16 = load i32, ptr %15, align 64, !tbaa !82, !alias.scope !76, !noalias !79
+  %16 = load i32, ptr %15, align 64, !tbaa !90, !alias.scope !84, !noalias !87
   %17 = zext i32 %16 to i64
   %18 = add i64 %2, %17
   %19 = icmp ult i64 %18, 257
@@ -1156,7 +1156,7 @@ define dso_local void @PHP_XXH3_64_Update(ptr noundef %0, ptr noundef %1, i64 no
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %23 = trunc i64 %2 to i32
-  %24 = load i32, ptr %15, align 64, !tbaa !82, !alias.scope !76, !noalias !79
+  %24 = load i32, ptr %15, align 64, !tbaa !90, !alias.scope !84, !noalias !87
   %25 = add i32 %24, %23
   br label %400
 
@@ -1173,12 +1173,12 @@ define dso_local void @PHP_XXH3_64_Update(ptr noundef %0, ptr noundef %1, i64 no
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %35 = load i64, ptr %34, align 8, !tbaa !41, !alias.scope !76, !noalias !79
+  %35 = load i64, ptr %34, align 8, !tbaa !49, !alias.scope !84, !noalias !87
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %37 = load i64, ptr %36, align 32, !tbaa !40, !alias.scope !76, !noalias !79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  %38 = load i64, ptr %33, align 8, !tbaa !31, !alias.scope !86, !noalias !88
+  %37 = load i64, ptr %36, align 32, !tbaa !48, !alias.scope !84, !noalias !87
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
+  %38 = load i64, ptr %33, align 8, !tbaa !35, !alias.scope !94, !noalias !96
   %39 = sub i64 %35, %38
   %.not.i6.i = icmp ugt i64 %39, 4
   br i1 %.not.i6.i, label %111, label %40
@@ -1187,7 +1187,7 @@ define dso_local void @PHP_XXH3_64_Update(ptr noundef %0, ptr noundef %1, i64 no
   %41 = sub nuw nsw i64 4, %39
   %42 = shl i64 %38, 3
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 %42
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   %.not.i = icmp eq i64 %35, %38
   br i1 %.not.i, label %XXH3_accumulate.exit20.i, label %.lr.ph.i
 
@@ -1196,18 +1196,18 @@ define dso_local void @PHP_XXH3_64_Update(ptr noundef %0, ptr noundef %1, i64 no
   %44 = shl i64 %.0.i1746.i, 6
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %46, i32 0, i32 3, i32 1), !noalias !94
+  tail call void @llvm.prefetch.p0(ptr nonnull %46, i32 0, i32 3, i32 1), !noalias !102
   %47 = shl i64 %.0.i1746.i, 3
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !95), !noalias !86
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !103), !noalias !94
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i
   %.0.i.i1845.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %49 ]
   %50 = getelementptr inbounds nuw <2 x i64>, ptr %45, i64 %.0.i.i1845.i
-  %51 = load <2 x i64>, ptr %50, align 1, !tbaa !4, !noalias !98
+  %51 = load <2 x i64>, ptr %50, align 1, !tbaa !4, !noalias !106
   %52 = getelementptr inbounds nuw <2 x i64>, ptr %48, i64 %.0.i.i1845.i
-  %53 = load <2 x i64>, ptr %52, align 1, !tbaa !4, !noalias !98
+  %53 = load <2 x i64>, ptr %52, align 1, !tbaa !4, !noalias !106
   %54 = xor <2 x i64> %53, %51
   %55 = bitcast <2 x i64> %54 to <4 x i32>
   %56 = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1217,31 +1217,31 @@ define dso_local void @PHP_XXH3_64_Update(ptr noundef %0, ptr noundef %1, i64 no
   %60 = mul nuw <2 x i64> %59, %58
   %61 = shufflevector <2 x i64> %51, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %62 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i1845.i
-  %63 = load <2 x i64>, ptr %62, align 16, !tbaa !4, !alias.scope !99, !noalias !100
+  %63 = load <2 x i64>, ptr %62, align 16, !tbaa !4, !alias.scope !107, !noalias !108
   %64 = add <2 x i64> %63, %61
   %65 = add <2 x i64> %64, %60
-  store <2 x i64> %65, ptr %62, align 16, !tbaa !4, !alias.scope !99, !noalias !100
+  store <2 x i64> %65, ptr %62, align 16, !tbaa !4, !alias.scope !107, !noalias !108
   %66 = add nuw nsw i64 %.0.i.i1845.i, 1
   %exitcond.not.i = icmp eq i64 %66, 4
-  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i19.i, label %49
+  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i19.i, label %49, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i19.i:              ; preds = %49
   %67 = add nuw i64 %.0.i1746.i, 1
   %exitcond88.not.i = icmp eq i64 %67, %39
-  br i1 %exitcond88.not.i, label %XXH3_accumulate.exit20.i, label %.lr.ph.i
+  br i1 %exitcond88.not.i, label %XXH3_accumulate.exit20.i, label %.lr.ph.i, !llvm.loop !114
 
 XXH3_accumulate.exit20.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i19.i, %40
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 %37
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   br label %69
 
 69:                                               ; preds = %69, %XXH3_accumulate.exit20.i
   %.0.i.i747.i = phi i64 [ 0, %XXH3_accumulate.exit20.i ], [ %84, %69 ]
   %70 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i747.i
-  %71 = load <2 x i64>, ptr %70, align 16, !tbaa !4, !alias.scope !108, !noalias !109
+  %71 = load <2 x i64>, ptr %70, align 16, !tbaa !4, !alias.scope !118, !noalias !119
   %72 = lshr <2 x i64> %71, splat (i64 47)
   %73 = getelementptr inbounds nuw <2 x i64>, ptr %68, i64 %.0.i.i747.i
-  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !4, !noalias !111
+  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !4, !noalias !121
   %75 = xor <2 x i64> %72, %74
   %76 = xor <2 x i64> %75, %71
   %77 = bitcast <2 x i64> %76 to <4 x i32>
@@ -1251,15 +1251,15 @@ XXH3_accumulate.exit20.i:                         ; preds = %XXH3_accumulate_512
   %81 = mul nuw <2 x i64> %80, splat (i64 2654435761)
   %82 = mul <2 x i64> %79, splat (i64 -7046029290881679360)
   %83 = add <2 x i64> %82, %81
-  store <2 x i64> %83, ptr %70, align 16, !tbaa !4, !alias.scope !108, !noalias !109
+  store <2 x i64> %83, ptr %70, align 16, !tbaa !4, !alias.scope !118, !noalias !119
   %84 = add nuw nsw i64 %.0.i.i747.i, 1
   %exitcond89.not.i = icmp eq i64 %84, 4
-  br i1 %exitcond89.not.i, label %XXH3_scrambleAcc_sse2.exit.i8.i, label %69
+  br i1 %exitcond89.not.i, label %XXH3_scrambleAcc_sse2.exit.i8.i, label %69, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i8.i:                  ; preds = %69
   %85 = shl nuw nsw i64 %39, 6
   %86 = getelementptr inbounds nuw i8, ptr %30, i64 %85
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !123)
   %.not80.i = icmp eq i64 %39, 4
   br i1 %.not80.i, label %XXH3_consumeStripes.exit10.i, label %.lr.ph50.i
 
@@ -1268,18 +1268,18 @@ XXH3_scrambleAcc_sse2.exit.i8.i:                  ; preds = %69
   %87 = shl i64 %.0.i1349.i, 6
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %89, i32 0, i32 3, i32 1), !noalias !115
+  tail call void @llvm.prefetch.p0(ptr nonnull %89, i32 0, i32 3, i32 1), !noalias !126
   %90 = shl i64 %.0.i1349.i, 3
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 %90
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !116), !noalias !86
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !127), !noalias !94
   br label %92
 
 92:                                               ; preds = %92, %.lr.ph50.i
   %.0.i.i1448.i = phi i64 [ 0, %.lr.ph50.i ], [ %109, %92 ]
   %93 = getelementptr inbounds nuw <2 x i64>, ptr %88, i64 %.0.i.i1448.i
-  %94 = load <2 x i64>, ptr %93, align 1, !tbaa !4, !noalias !119
+  %94 = load <2 x i64>, ptr %93, align 1, !tbaa !4, !noalias !130
   %95 = getelementptr inbounds nuw <2 x i64>, ptr %91, i64 %.0.i.i1448.i
-  %96 = load <2 x i64>, ptr %95, align 1, !tbaa !4, !noalias !119
+  %96 = load <2 x i64>, ptr %95, align 1, !tbaa !4, !noalias !130
   %97 = xor <2 x i64> %96, %94
   %98 = bitcast <2 x i64> %97 to <4 x i32>
   %99 = shufflevector <4 x i32> %98, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1289,23 +1289,23 @@ XXH3_scrambleAcc_sse2.exit.i8.i:                  ; preds = %69
   %103 = mul nuw <2 x i64> %102, %101
   %104 = shufflevector <2 x i64> %94, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %105 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i1448.i
-  %106 = load <2 x i64>, ptr %105, align 16, !tbaa !4, !alias.scope !120, !noalias !121
+  %106 = load <2 x i64>, ptr %105, align 16, !tbaa !4, !alias.scope !131, !noalias !132
   %107 = add <2 x i64> %106, %104
   %108 = add <2 x i64> %107, %103
-  store <2 x i64> %108, ptr %105, align 16, !tbaa !4, !alias.scope !120, !noalias !121
+  store <2 x i64> %108, ptr %105, align 16, !tbaa !4, !alias.scope !131, !noalias !132
   %109 = add nuw nsw i64 %.0.i.i1448.i, 1
   %exitcond90.not.i = icmp eq i64 %109, 4
-  br i1 %exitcond90.not.i, label %XXH3_accumulate_512_sse2.exit.i15.i, label %92
+  br i1 %exitcond90.not.i, label %XXH3_accumulate_512_sse2.exit.i15.i, label %92, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i15.i:              ; preds = %92
   %110 = add nuw i64 %.0.i1349.i, 1
   %exitcond91.not.i = icmp eq i64 %110, %41
-  br i1 %exitcond91.not.i, label %XXH3_consumeStripes.exit10.i, label %.lr.ph50.i
+  br i1 %exitcond91.not.i, label %XXH3_consumeStripes.exit10.i, label %.lr.ph50.i, !llvm.loop !114
 
 111:                                              ; preds = %27
   %112 = shl i64 %38, 3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 %112
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   br label %114
 
 114:                                              ; preds = %XXH3_accumulate_512_sse2.exit.i.i, %111
@@ -1313,18 +1313,18 @@ XXH3_accumulate_512_sse2.exit.i15.i:              ; preds = %92
   %115 = shl nuw nsw i64 %.0.i1152.i, 6
   %116 = getelementptr inbounds nuw i8, ptr %30, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %117, i32 0, i32 3, i32 1), !noalias !129
+  tail call void @llvm.prefetch.p0(ptr nonnull %117, i32 0, i32 3, i32 1), !noalias !140
   %118 = shl nuw nsw i64 %.0.i1152.i, 3
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 %118
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !130), !noalias !86
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !141), !noalias !94
   br label %120
 
 120:                                              ; preds = %120, %114
   %.0.i.i1251.i = phi i64 [ 0, %114 ], [ %137, %120 ]
   %121 = getelementptr inbounds nuw <2 x i64>, ptr %116, i64 %.0.i.i1251.i
-  %122 = load <2 x i64>, ptr %121, align 1, !tbaa !4, !noalias !133
+  %122 = load <2 x i64>, ptr %121, align 1, !tbaa !4, !noalias !144
   %123 = getelementptr inbounds nuw <2 x i64>, ptr %119, i64 %.0.i.i1251.i
-  %124 = load <2 x i64>, ptr %123, align 1, !tbaa !4, !noalias !133
+  %124 = load <2 x i64>, ptr %123, align 1, !tbaa !4, !noalias !144
   %125 = xor <2 x i64> %124, %122
   %126 = bitcast <2 x i64> %125 to <4 x i32>
   %127 = shufflevector <4 x i32> %126, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1334,18 +1334,18 @@ XXH3_accumulate_512_sse2.exit.i15.i:              ; preds = %92
   %131 = mul nuw <2 x i64> %130, %129
   %132 = shufflevector <2 x i64> %122, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %133 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i1251.i
-  %134 = load <2 x i64>, ptr %133, align 16, !tbaa !4, !alias.scope !134, !noalias !135
+  %134 = load <2 x i64>, ptr %133, align 16, !tbaa !4, !alias.scope !145, !noalias !146
   %135 = add <2 x i64> %134, %132
   %136 = add <2 x i64> %135, %131
-  store <2 x i64> %136, ptr %133, align 16, !tbaa !4, !alias.scope !134, !noalias !135
+  store <2 x i64> %136, ptr %133, align 16, !tbaa !4, !alias.scope !145, !noalias !146
   %137 = add nuw nsw i64 %.0.i.i1251.i, 1
   %exitcond92.not.i = icmp eq i64 %137, 4
-  br i1 %exitcond92.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %120
+  br i1 %exitcond92.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %120, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i.i:                ; preds = %120
   %138 = add nuw nsw i64 %.0.i1152.i, 1
   %exitcond93.not.i = icmp eq i64 %138, 4
-  br i1 %exitcond93.not.i, label %XXH3_accumulate.exit.i, label %114
+  br i1 %exitcond93.not.i, label %XXH3_accumulate.exit.i, label %114, !llvm.loop !114
 
 XXH3_accumulate.exit.i:                           ; preds = %XXH3_accumulate_512_sse2.exit.i.i
   %139 = add i64 %38, 4
@@ -1353,8 +1353,8 @@ XXH3_accumulate.exit.i:                           ; preds = %XXH3_accumulate_512
 
 XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i15.i, %XXH3_accumulate.exit.i, %XXH3_scrambleAcc_sse2.exit.i8.i
   %storemerge.i9.i = phi i64 [ %139, %XXH3_accumulate.exit.i ], [ 0, %XXH3_scrambleAcc_sse2.exit.i8.i ], [ %41, %XXH3_accumulate_512_sse2.exit.i15.i ]
-  store i64 %storemerge.i9.i, ptr %33, align 8, !tbaa !31, !alias.scope !86, !noalias !88
-  store i32 0, ptr %15, align 64, !tbaa !82, !alias.scope !76, !noalias !79
+  store i64 %storemerge.i9.i, ptr %33, align 8, !tbaa !35, !alias.scope !94, !noalias !96
+  store i32 0, ptr %15, align 64, !tbaa !90, !alias.scope !84, !noalias !87
   br label %140
 
 140:                                              ; preds = %XXH3_consumeStripes.exit10.i, %26
@@ -1363,7 +1363,7 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %142 = ptrtoint ptr %.0106.i.i to i64
   %143 = sub i64 %141, %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %145 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !76, !noalias !79
+  %145 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !84, !noalias !87
   %146 = shl i64 %145, 6
   %147 = icmp ugt i64 %143, %146
   br i1 %147, label %148, label %280
@@ -1374,11 +1374,11 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %151 = sub i64 %150, %142
   %152 = lshr i64 %151, 6
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %154 = load i64, ptr %153, align 8, !tbaa !140, !alias.scope !76, !noalias !79
+  %154 = load i64, ptr %153, align 8, !tbaa !151, !alias.scope !84, !noalias !87
   %155 = sub i64 %145, %154
   %156 = shl i64 %154, 3
   %157 = getelementptr inbounds nuw i8, ptr %11, i64 %156
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
   %.not83.i = icmp eq i64 %145, %154
   br i1 %.not83.i, label %XXH3_accumulate.exit44.i, label %.lr.ph65.i
 
@@ -1387,18 +1387,18 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %158 = shl i64 %.0.i4164.i, 6
   %159 = getelementptr inbounds nuw i8, ptr %.0106.i.i, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %160, i32 0, i32 3, i32 1), !noalias !141
+  tail call void @llvm.prefetch.p0(ptr nonnull %160, i32 0, i32 3, i32 1), !noalias !152
   %161 = shl i64 %.0.i4164.i, 3
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 %161
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   br label %163
 
 163:                                              ; preds = %163, %.lr.ph65.i
   %.0.i.i4263.i = phi i64 [ 0, %.lr.ph65.i ], [ %180, %163 ]
   %164 = getelementptr inbounds nuw <2 x i64>, ptr %159, i64 %.0.i.i4263.i
-  %165 = load <2 x i64>, ptr %164, align 1, !tbaa !4, !noalias !147
+  %165 = load <2 x i64>, ptr %164, align 1, !tbaa !4, !noalias !158
   %166 = getelementptr inbounds nuw <2 x i64>, ptr %162, i64 %.0.i.i4263.i
-  %167 = load <2 x i64>, ptr %166, align 1, !tbaa !4, !noalias !147
+  %167 = load <2 x i64>, ptr %166, align 1, !tbaa !4, !noalias !158
   %168 = xor <2 x i64> %167, %165
   %169 = bitcast <2 x i64> %168 to <4 x i32>
   %170 = shufflevector <4 x i32> %169, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1408,33 +1408,33 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %174 = mul nuw <2 x i64> %173, %172
   %175 = shufflevector <2 x i64> %165, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %176 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i4263.i
-  %177 = load <2 x i64>, ptr %176, align 16, !tbaa !4, !alias.scope !147, !noalias !148
+  %177 = load <2 x i64>, ptr %176, align 16, !tbaa !4, !alias.scope !158, !noalias !159
   %178 = add <2 x i64> %177, %175
   %179 = add <2 x i64> %178, %174
-  store <2 x i64> %179, ptr %176, align 16, !tbaa !4, !alias.scope !147, !noalias !148
+  store <2 x i64> %179, ptr %176, align 16, !tbaa !4, !alias.scope !158, !noalias !159
   %180 = add nuw nsw i64 %.0.i.i4263.i, 1
   %exitcond102.not.i = icmp eq i64 %180, 4
-  br i1 %exitcond102.not.i, label %XXH3_accumulate_512_sse2.exit.i43.i, label %163
+  br i1 %exitcond102.not.i, label %XXH3_accumulate_512_sse2.exit.i43.i, label %163, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i43.i:              ; preds = %163
   %181 = add nuw i64 %.0.i4164.i, 1
   %exitcond103.not.i = icmp eq i64 %181, %155
-  br i1 %exitcond103.not.i, label %XXH3_accumulate.exit44.i, label %.lr.ph65.i
+  br i1 %exitcond103.not.i, label %XXH3_accumulate.exit44.i, label %.lr.ph65.i, !llvm.loop !114
 
 XXH3_accumulate.exit44.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i43.i, %148
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %183 = load i64, ptr %182, align 32, !tbaa !40, !alias.scope !76, !noalias !79
+  %183 = load i64, ptr %182, align 32, !tbaa !48, !alias.scope !84, !noalias !87
   %184 = getelementptr inbounds nuw i8, ptr %11, i64 %183
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !153)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   br label %185
 
 185:                                              ; preds = %185, %XXH3_accumulate.exit44.i
   %.0.i266.i = phi i64 [ 0, %XXH3_accumulate.exit44.i ], [ %200, %185 ]
   %186 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i266.i
-  %187 = load <2 x i64>, ptr %186, align 16, !tbaa !4, !alias.scope !153, !noalias !156
+  %187 = load <2 x i64>, ptr %186, align 16, !tbaa !4, !alias.scope !164, !noalias !167
   %188 = lshr <2 x i64> %187, splat (i64 47)
   %189 = getelementptr inbounds nuw <2 x i64>, ptr %184, i64 %.0.i266.i
-  %190 = load <2 x i64>, ptr %189, align 1, !tbaa !4, !noalias !153
+  %190 = load <2 x i64>, ptr %189, align 1, !tbaa !4, !noalias !164
   %191 = xor <2 x i64> %188, %190
   %192 = xor <2 x i64> %191, %187
   %193 = bitcast <2 x i64> %192 to <4 x i32>
@@ -1444,17 +1444,17 @@ XXH3_accumulate.exit44.i:                         ; preds = %XXH3_accumulate_512
   %197 = mul nuw <2 x i64> %196, splat (i64 2654435761)
   %198 = mul <2 x i64> %195, splat (i64 -7046029290881679360)
   %199 = add <2 x i64> %198, %197
-  store <2 x i64> %199, ptr %186, align 16, !tbaa !4, !alias.scope !153, !noalias !156
+  store <2 x i64> %199, ptr %186, align 16, !tbaa !4, !alias.scope !164, !noalias !167
   %200 = add nuw nsw i64 %.0.i266.i, 1
   %exitcond104.not.i = icmp eq i64 %200, 4
-  br i1 %exitcond104.not.i, label %XXH3_scrambleAcc_sse2.exit3.i, label %185
+  br i1 %exitcond104.not.i, label %XXH3_scrambleAcc_sse2.exit3.i, label %185, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
-  store i64 0, ptr %153, align 8, !tbaa !140, !alias.scope !76, !noalias !79
+  store i64 0, ptr %153, align 8, !tbaa !151, !alias.scope !84, !noalias !87
   %201 = shl i64 %155, 6
   %202 = getelementptr inbounds nuw i8, ptr %.0106.i.i, i64 %201
   %203 = sub i64 %152, %155
-  %204 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !76, !noalias !79
+  %204 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !84, !noalias !87
   %.not115.i71.i = icmp ult i64 %203, %204
   br i1 %.not115.i71.i, label %._crit_edge.i, label %.lr.ph74.i
 
@@ -1462,7 +1462,7 @@ XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
   %205 = phi i64 [ %248, %XXH3_scrambleAcc_sse2.exit.i ], [ %204, %XXH3_scrambleAcc_sse2.exit3.i ]
   %.1107.i73.i = phi ptr [ %250, %XXH3_scrambleAcc_sse2.exit.i ], [ %202, %XXH3_scrambleAcc_sse2.exit3.i ]
   %.0108.i72.i = phi i64 [ %251, %XXH3_scrambleAcc_sse2.exit.i ], [ %203, %XXH3_scrambleAcc_sse2.exit3.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !158)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !169)
   %.not84.i = icmp eq i64 %205, 0
   br i1 %.not84.i, label %XXH3_accumulate.exit40.i, label %.lr.ph69.i
 
@@ -1471,18 +1471,18 @@ XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
   %206 = shl i64 %.0.i3768.i, 6
   %207 = getelementptr inbounds nuw i8, ptr %.1107.i73.i, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %208, i32 0, i32 3, i32 1), !noalias !158
+  tail call void @llvm.prefetch.p0(ptr nonnull %208, i32 0, i32 3, i32 1), !noalias !169
   %209 = shl i64 %.0.i3768.i, 3
   %210 = getelementptr inbounds nuw i8, ptr %11, i64 %209
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   br label %211
 
 211:                                              ; preds = %211, %.lr.ph69.i
   %.0.i.i3867.i = phi i64 [ 0, %.lr.ph69.i ], [ %228, %211 ]
   %212 = getelementptr inbounds nuw <2 x i64>, ptr %207, i64 %.0.i.i3867.i
-  %213 = load <2 x i64>, ptr %212, align 1, !tbaa !4, !noalias !164
+  %213 = load <2 x i64>, ptr %212, align 1, !tbaa !4, !noalias !175
   %214 = getelementptr inbounds nuw <2 x i64>, ptr %210, i64 %.0.i.i3867.i
-  %215 = load <2 x i64>, ptr %214, align 1, !tbaa !4, !noalias !164
+  %215 = load <2 x i64>, ptr %214, align 1, !tbaa !4, !noalias !175
   %216 = xor <2 x i64> %215, %213
   %217 = bitcast <2 x i64> %216 to <4 x i32>
   %218 = shufflevector <4 x i32> %217, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1492,32 +1492,32 @@ XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
   %222 = mul nuw <2 x i64> %221, %220
   %223 = shufflevector <2 x i64> %213, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %224 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i3867.i
-  %225 = load <2 x i64>, ptr %224, align 16, !tbaa !4, !alias.scope !164, !noalias !165
+  %225 = load <2 x i64>, ptr %224, align 16, !tbaa !4, !alias.scope !175, !noalias !176
   %226 = add <2 x i64> %225, %223
   %227 = add <2 x i64> %226, %222
-  store <2 x i64> %227, ptr %224, align 16, !tbaa !4, !alias.scope !164, !noalias !165
+  store <2 x i64> %227, ptr %224, align 16, !tbaa !4, !alias.scope !175, !noalias !176
   %228 = add nuw nsw i64 %.0.i.i3867.i, 1
   %exitcond105.not.i = icmp eq i64 %228, 4
-  br i1 %exitcond105.not.i, label %XXH3_accumulate_512_sse2.exit.i39.i, label %211
+  br i1 %exitcond105.not.i, label %XXH3_accumulate_512_sse2.exit.i39.i, label %211, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i39.i:              ; preds = %211
   %229 = add nuw i64 %.0.i3768.i, 1
   %exitcond106.not.i = icmp eq i64 %229, %205
-  br i1 %exitcond106.not.i, label %XXH3_accumulate.exit40.i, label %.lr.ph69.i
+  br i1 %exitcond106.not.i, label %XXH3_accumulate.exit40.i, label %.lr.ph69.i, !llvm.loop !114
 
 XXH3_accumulate.exit40.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i39.i, %.lr.ph74.i
-  %230 = load i64, ptr %182, align 32, !tbaa !40, !alias.scope !76, !noalias !79
+  %230 = load i64, ptr %182, align 32, !tbaa !48, !alias.scope !84, !noalias !87
   %231 = getelementptr inbounds nuw i8, ptr %11, i64 %230
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !170)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   br label %232
 
 232:                                              ; preds = %232, %XXH3_accumulate.exit40.i
   %.0.i70.i = phi i64 [ 0, %XXH3_accumulate.exit40.i ], [ %247, %232 ]
   %233 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i70.i
-  %234 = load <2 x i64>, ptr %233, align 16, !tbaa !4, !alias.scope !170, !noalias !173
+  %234 = load <2 x i64>, ptr %233, align 16, !tbaa !4, !alias.scope !181, !noalias !184
   %235 = lshr <2 x i64> %234, splat (i64 47)
   %236 = getelementptr inbounds nuw <2 x i64>, ptr %231, i64 %.0.i70.i
-  %237 = load <2 x i64>, ptr %236, align 1, !tbaa !4, !noalias !170
+  %237 = load <2 x i64>, ptr %236, align 1, !tbaa !4, !noalias !181
   %238 = xor <2 x i64> %235, %237
   %239 = xor <2 x i64> %238, %234
   %240 = bitcast <2 x i64> %239 to <4 x i32>
@@ -1527,23 +1527,23 @@ XXH3_accumulate.exit40.i:                         ; preds = %XXH3_accumulate_512
   %244 = mul nuw <2 x i64> %243, splat (i64 2654435761)
   %245 = mul <2 x i64> %242, splat (i64 -7046029290881679360)
   %246 = add <2 x i64> %245, %244
-  store <2 x i64> %246, ptr %233, align 16, !tbaa !4, !alias.scope !170, !noalias !173
+  store <2 x i64> %246, ptr %233, align 16, !tbaa !4, !alias.scope !181, !noalias !184
   %247 = add nuw nsw i64 %.0.i70.i, 1
   %exitcond107.not.i = icmp eq i64 %247, 4
-  br i1 %exitcond107.not.i, label %XXH3_scrambleAcc_sse2.exit.i, label %232
+  br i1 %exitcond107.not.i, label %XXH3_scrambleAcc_sse2.exit.i, label %232, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %232
-  %248 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !76, !noalias !79
+  %248 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !84, !noalias !87
   %249 = shl i64 %248, 6
   %250 = getelementptr inbounds nuw i8, ptr %.1107.i73.i, i64 %249
   %251 = sub i64 %.0108.i72.i, %248
   %.not115.i.i = icmp ult i64 %251, %248
-  br i1 %.not115.i.i, label %._crit_edge.i, label %.lr.ph74.i
+  br i1 %.not115.i.i, label %._crit_edge.i, label %.lr.ph74.i, !llvm.loop !186
 
 ._crit_edge.i:                                    ; preds = %XXH3_scrambleAcc_sse2.exit.i, %XXH3_scrambleAcc_sse2.exit3.i
   %.0108.i.lcssa.i = phi i64 [ %203, %XXH3_scrambleAcc_sse2.exit3.i ], [ %251, %XXH3_scrambleAcc_sse2.exit.i ]
   %.1107.i.lcssa.i = phi ptr [ %202, %XXH3_scrambleAcc_sse2.exit3.i ], [ %250, %XXH3_scrambleAcc_sse2.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !175)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %.not85.i = icmp eq i64 %.0108.i.lcssa.i, 0
   br i1 %.not85.i, label %XXH3_accumulate.exit36.i, label %.lr.ph79.i
 
@@ -1552,18 +1552,18 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %232
   %252 = shl i64 %.0.i3377.i, 6
   %253 = getelementptr inbounds nuw i8, ptr %.1107.i.lcssa.i, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %254, i32 0, i32 3, i32 1), !noalias !175
+  tail call void @llvm.prefetch.p0(ptr nonnull %254, i32 0, i32 3, i32 1), !noalias !187
   %255 = shl i64 %.0.i3377.i, 3
   %256 = getelementptr inbounds nuw i8, ptr %11, i64 %255
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !178)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   br label %257
 
 257:                                              ; preds = %257, %.lr.ph79.i
   %.0.i.i3476.i = phi i64 [ 0, %.lr.ph79.i ], [ %274, %257 ]
   %258 = getelementptr inbounds nuw <2 x i64>, ptr %253, i64 %.0.i.i3476.i
-  %259 = load <2 x i64>, ptr %258, align 1, !tbaa !4, !noalias !181
+  %259 = load <2 x i64>, ptr %258, align 1, !tbaa !4, !noalias !193
   %260 = getelementptr inbounds nuw <2 x i64>, ptr %256, i64 %.0.i.i3476.i
-  %261 = load <2 x i64>, ptr %260, align 1, !tbaa !4, !noalias !181
+  %261 = load <2 x i64>, ptr %260, align 1, !tbaa !4, !noalias !193
   %262 = xor <2 x i64> %261, %259
   %263 = bitcast <2 x i64> %262 to <4 x i32>
   %264 = shufflevector <4 x i32> %263, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1573,23 +1573,23 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %232
   %268 = mul nuw <2 x i64> %267, %266
   %269 = shufflevector <2 x i64> %259, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %270 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i3476.i
-  %271 = load <2 x i64>, ptr %270, align 16, !tbaa !4, !alias.scope !181, !noalias !182
+  %271 = load <2 x i64>, ptr %270, align 16, !tbaa !4, !alias.scope !193, !noalias !194
   %272 = add <2 x i64> %271, %269
   %273 = add <2 x i64> %272, %268
-  store <2 x i64> %273, ptr %270, align 16, !tbaa !4, !alias.scope !181, !noalias !182
+  store <2 x i64> %273, ptr %270, align 16, !tbaa !4, !alias.scope !193, !noalias !194
   %274 = add nuw nsw i64 %.0.i.i3476.i, 1
   %exitcond108.not.i = icmp eq i64 %274, 4
-  br i1 %exitcond108.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i, label %257
+  br i1 %exitcond108.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i, label %257, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i35.i:              ; preds = %257
   %275 = add nuw i64 %.0.i3377.i, 1
   %exitcond109.not.i = icmp eq i64 %275, %.0108.i.lcssa.i
-  br i1 %exitcond109.not.i, label %XXH3_accumulate.exit36.i, label %.lr.ph79.i
+  br i1 %exitcond109.not.i, label %XXH3_accumulate.exit36.i, label %.lr.ph79.i, !llvm.loop !114
 
 XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i35.i, %._crit_edge.i
   %276 = shl i64 %.0108.i.lcssa.i, 6
   %277 = getelementptr inbounds nuw i8, ptr %.1107.i.lcssa.i, i64 %276
-  store i64 %.0108.i.lcssa.i, ptr %153, align 8, !tbaa !140, !alias.scope !76, !noalias !79
+  store i64 %.0108.i.lcssa.i, ptr %153, align 8, !tbaa !151, !alias.scope !84, !noalias !87
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %279 = getelementptr inbounds i8, ptr %277, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %278, ptr noundef nonnull readonly align 1 dereferenceable(64) %279, i64 64, i1 false)
@@ -1603,16 +1603,16 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %283 = getelementptr inbounds i8, ptr %6, i64 -256
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %.promoted.i = load i64, ptr %284, align 8, !tbaa !31, !alias.scope !187, !noalias !190
+  %.promoted.i = load i64, ptr %284, align 8, !tbaa !35, !alias.scope !199, !noalias !202
   br label %286
 
 286:                                              ; preds = %XXH3_consumeStripes.exit.i, %282
   %storemerge.i562.i = phi i64 [ %.promoted.i, %282 ], [ %storemerge.i5.i, %XXH3_consumeStripes.exit.i ]
   %.3.i.i = phi ptr [ %.0106.i.i, %282 ], [ %390, %XXH3_consumeStripes.exit.i ]
-  %287 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !76, !noalias !79
-  %288 = load i64, ptr %285, align 32, !tbaa !40, !alias.scope !76, !noalias !79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !194)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
+  %287 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !84, !noalias !87
+  %288 = load i64, ptr %285, align 32, !tbaa !48, !alias.scope !84, !noalias !87
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   %289 = sub i64 %287, %storemerge.i562.i
   %.not.i4.i = icmp ugt i64 %289, 4
   br i1 %.not.i4.i, label %361, label %290
@@ -1621,7 +1621,7 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %291 = sub nuw nsw i64 4, %289
   %292 = shl i64 %storemerge.i562.i, 3
   %293 = getelementptr inbounds nuw i8, ptr %11, i64 %292
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !195)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
   %.not81.i = icmp eq i64 %287, %storemerge.i562.i
   br i1 %.not81.i, label %XXH3_accumulate.exit32.i, label %.lr.ph55.i
 
@@ -1630,18 +1630,18 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %294 = shl i64 %.0.i2954.i, 6
   %295 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %296, i32 0, i32 3, i32 1), !noalias !198
+  tail call void @llvm.prefetch.p0(ptr nonnull %296, i32 0, i32 3, i32 1), !noalias !210
   %297 = shl i64 %.0.i2954.i, 3
   %298 = getelementptr inbounds nuw i8, ptr %293, i64 %297
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !199), !noalias !187
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !211), !noalias !199
   br label %299
 
 299:                                              ; preds = %299, %.lr.ph55.i
   %.0.i.i3053.i = phi i64 [ 0, %.lr.ph55.i ], [ %316, %299 ]
   %300 = getelementptr inbounds nuw <2 x i64>, ptr %295, i64 %.0.i.i3053.i
-  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !4, !noalias !202
+  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !4, !noalias !214
   %302 = getelementptr inbounds nuw <2 x i64>, ptr %298, i64 %.0.i.i3053.i
-  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !4, !noalias !202
+  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !4, !noalias !214
   %304 = xor <2 x i64> %303, %301
   %305 = bitcast <2 x i64> %304 to <4 x i32>
   %306 = shufflevector <4 x i32> %305, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1651,31 +1651,31 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %310 = mul nuw <2 x i64> %309, %308
   %311 = shufflevector <2 x i64> %301, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %312 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i3053.i
-  %313 = load <2 x i64>, ptr %312, align 16, !tbaa !4, !alias.scope !203, !noalias !204
+  %313 = load <2 x i64>, ptr %312, align 16, !tbaa !4, !alias.scope !215, !noalias !216
   %314 = add <2 x i64> %313, %311
   %315 = add <2 x i64> %314, %310
-  store <2 x i64> %315, ptr %312, align 16, !tbaa !4, !alias.scope !203, !noalias !204
+  store <2 x i64> %315, ptr %312, align 16, !tbaa !4, !alias.scope !215, !noalias !216
   %316 = add nuw nsw i64 %.0.i.i3053.i, 1
   %exitcond94.not.i = icmp eq i64 %316, 4
-  br i1 %exitcond94.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i, label %299
+  br i1 %exitcond94.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i, label %299, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i31.i:              ; preds = %299
   %317 = add nuw i64 %.0.i2954.i, 1
   %exitcond95.not.i = icmp eq i64 %317, %289
-  br i1 %exitcond95.not.i, label %XXH3_accumulate.exit32.i, label %.lr.ph55.i
+  br i1 %exitcond95.not.i, label %XXH3_accumulate.exit32.i, label %.lr.ph55.i, !llvm.loop !114
 
 XXH3_accumulate.exit32.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i31.i, %290
   %318 = getelementptr inbounds nuw i8, ptr %11, i64 %288
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
   br label %319
 
 319:                                              ; preds = %319, %XXH3_accumulate.exit32.i
   %.0.i.i56.i = phi i64 [ 0, %XXH3_accumulate.exit32.i ], [ %334, %319 ]
   %320 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i56.i
-  %321 = load <2 x i64>, ptr %320, align 16, !tbaa !4, !alias.scope !212, !noalias !213
+  %321 = load <2 x i64>, ptr %320, align 16, !tbaa !4, !alias.scope !224, !noalias !225
   %322 = lshr <2 x i64> %321, splat (i64 47)
   %323 = getelementptr inbounds nuw <2 x i64>, ptr %318, i64 %.0.i.i56.i
-  %324 = load <2 x i64>, ptr %323, align 1, !tbaa !4, !noalias !215
+  %324 = load <2 x i64>, ptr %323, align 1, !tbaa !4, !noalias !227
   %325 = xor <2 x i64> %322, %324
   %326 = xor <2 x i64> %325, %321
   %327 = bitcast <2 x i64> %326 to <4 x i32>
@@ -1685,15 +1685,15 @@ XXH3_accumulate.exit32.i:                         ; preds = %XXH3_accumulate_512
   %331 = mul nuw <2 x i64> %330, splat (i64 2654435761)
   %332 = mul <2 x i64> %329, splat (i64 -7046029290881679360)
   %333 = add <2 x i64> %332, %331
-  store <2 x i64> %333, ptr %320, align 16, !tbaa !4, !alias.scope !212, !noalias !213
+  store <2 x i64> %333, ptr %320, align 16, !tbaa !4, !alias.scope !224, !noalias !225
   %334 = add nuw nsw i64 %.0.i.i56.i, 1
   %exitcond96.not.i = icmp eq i64 %334, 4
-  br i1 %exitcond96.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i, label %319
+  br i1 %exitcond96.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i, label %319, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i.i:                   ; preds = %319
   %335 = shl nuw nsw i64 %289, 6
   %336 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 %335
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %.not82.i = icmp eq i64 %289, 4
   br i1 %.not82.i, label %XXH3_consumeStripes.exit.i, label %.lr.ph59.i
 
@@ -1702,18 +1702,18 @@ XXH3_scrambleAcc_sse2.exit.i.i:                   ; preds = %319
   %337 = shl i64 %.0.i2558.i, 6
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %339, i32 0, i32 3, i32 1), !noalias !219
+  tail call void @llvm.prefetch.p0(ptr nonnull %339, i32 0, i32 3, i32 1), !noalias !231
   %340 = shl i64 %.0.i2558.i, 3
   %341 = getelementptr inbounds nuw i8, ptr %11, i64 %340
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !220), !noalias !187
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !232), !noalias !199
   br label %342
 
 342:                                              ; preds = %342, %.lr.ph59.i
   %.0.i.i2657.i = phi i64 [ 0, %.lr.ph59.i ], [ %359, %342 ]
   %343 = getelementptr inbounds nuw <2 x i64>, ptr %338, i64 %.0.i.i2657.i
-  %344 = load <2 x i64>, ptr %343, align 1, !tbaa !4, !noalias !223
+  %344 = load <2 x i64>, ptr %343, align 1, !tbaa !4, !noalias !235
   %345 = getelementptr inbounds nuw <2 x i64>, ptr %341, i64 %.0.i.i2657.i
-  %346 = load <2 x i64>, ptr %345, align 1, !tbaa !4, !noalias !223
+  %346 = load <2 x i64>, ptr %345, align 1, !tbaa !4, !noalias !235
   %347 = xor <2 x i64> %346, %344
   %348 = bitcast <2 x i64> %347 to <4 x i32>
   %349 = shufflevector <4 x i32> %348, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1723,23 +1723,23 @@ XXH3_scrambleAcc_sse2.exit.i.i:                   ; preds = %319
   %353 = mul nuw <2 x i64> %352, %351
   %354 = shufflevector <2 x i64> %344, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %355 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i2657.i
-  %356 = load <2 x i64>, ptr %355, align 16, !tbaa !4, !alias.scope !224, !noalias !225
+  %356 = load <2 x i64>, ptr %355, align 16, !tbaa !4, !alias.scope !236, !noalias !237
   %357 = add <2 x i64> %356, %354
   %358 = add <2 x i64> %357, %353
-  store <2 x i64> %358, ptr %355, align 16, !tbaa !4, !alias.scope !224, !noalias !225
+  store <2 x i64> %358, ptr %355, align 16, !tbaa !4, !alias.scope !236, !noalias !237
   %359 = add nuw nsw i64 %.0.i.i2657.i, 1
   %exitcond97.not.i = icmp eq i64 %359, 4
-  br i1 %exitcond97.not.i, label %XXH3_accumulate_512_sse2.exit.i27.i, label %342
+  br i1 %exitcond97.not.i, label %XXH3_accumulate_512_sse2.exit.i27.i, label %342, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i27.i:              ; preds = %342
   %360 = add nuw i64 %.0.i2558.i, 1
   %exitcond99.not.i = icmp eq i64 %360, %291
-  br i1 %exitcond99.not.i, label %XXH3_consumeStripes.exit.i, label %.lr.ph59.i
+  br i1 %exitcond99.not.i, label %XXH3_consumeStripes.exit.i, label %.lr.ph59.i, !llvm.loop !114
 
 361:                                              ; preds = %286
   %362 = shl i64 %storemerge.i562.i, 3
   %363 = getelementptr inbounds nuw i8, ptr %11, i64 %362
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !242)
   br label %364
 
 364:                                              ; preds = %XXH3_accumulate_512_sse2.exit.i23.i, %361
@@ -1747,18 +1747,18 @@ XXH3_accumulate_512_sse2.exit.i27.i:              ; preds = %342
   %365 = shl nuw nsw i64 %.0.i2161.i, 6
   %366 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 %365
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %367, i32 0, i32 3, i32 1), !noalias !233
+  tail call void @llvm.prefetch.p0(ptr nonnull %367, i32 0, i32 3, i32 1), !noalias !245
   %368 = shl nuw nsw i64 %.0.i2161.i, 3
   %369 = getelementptr inbounds nuw i8, ptr %363, i64 %368
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !234), !noalias !187
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !246), !noalias !199
   br label %370
 
 370:                                              ; preds = %370, %364
   %.0.i.i2260.i = phi i64 [ 0, %364 ], [ %387, %370 ]
   %371 = getelementptr inbounds nuw <2 x i64>, ptr %366, i64 %.0.i.i2260.i
-  %372 = load <2 x i64>, ptr %371, align 1, !tbaa !4, !noalias !237
+  %372 = load <2 x i64>, ptr %371, align 1, !tbaa !4, !noalias !249
   %373 = getelementptr inbounds nuw <2 x i64>, ptr %369, i64 %.0.i.i2260.i
-  %374 = load <2 x i64>, ptr %373, align 1, !tbaa !4, !noalias !237
+  %374 = load <2 x i64>, ptr %373, align 1, !tbaa !4, !noalias !249
   %375 = xor <2 x i64> %374, %372
   %376 = bitcast <2 x i64> %375 to <4 x i32>
   %377 = shufflevector <4 x i32> %376, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1768,18 +1768,18 @@ XXH3_accumulate_512_sse2.exit.i27.i:              ; preds = %342
   %381 = mul nuw <2 x i64> %380, %379
   %382 = shufflevector <2 x i64> %372, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %383 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i2260.i
-  %384 = load <2 x i64>, ptr %383, align 16, !tbaa !4, !alias.scope !238, !noalias !239
+  %384 = load <2 x i64>, ptr %383, align 16, !tbaa !4, !alias.scope !250, !noalias !251
   %385 = add <2 x i64> %384, %382
   %386 = add <2 x i64> %385, %381
-  store <2 x i64> %386, ptr %383, align 16, !tbaa !4, !alias.scope !238, !noalias !239
+  store <2 x i64> %386, ptr %383, align 16, !tbaa !4, !alias.scope !250, !noalias !251
   %387 = add nuw nsw i64 %.0.i.i2260.i, 1
   %exitcond100.not.i = icmp eq i64 %387, 4
-  br i1 %exitcond100.not.i, label %XXH3_accumulate_512_sse2.exit.i23.i, label %370
+  br i1 %exitcond100.not.i, label %XXH3_accumulate_512_sse2.exit.i23.i, label %370, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i23.i:              ; preds = %370
   %388 = add nuw nsw i64 %.0.i2161.i, 1
   %exitcond101.not.i = icmp eq i64 %388, 4
-  br i1 %exitcond101.not.i, label %XXH3_accumulate.exit24.i, label %364
+  br i1 %exitcond101.not.i, label %XXH3_accumulate.exit24.i, label %364, !llvm.loop !114
 
 XXH3_accumulate.exit24.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i23.i
   %389 = add i64 %storemerge.i562.i, 4
@@ -1789,10 +1789,10 @@ XXH3_consumeStripes.exit.i:                       ; preds = %XXH3_accumulate_512
   %storemerge.i5.i = phi i64 [ %389, %XXH3_accumulate.exit24.i ], [ 0, %XXH3_scrambleAcc_sse2.exit.i.i ], [ %291, %XXH3_accumulate_512_sse2.exit.i27.i ]
   %390 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 256
   %391 = icmp ult ptr %390, %283
-  br i1 %391, label %286, label %392
+  br i1 %391, label %286, label %392, !llvm.loop !256
 
 392:                                              ; preds = %XXH3_consumeStripes.exit.i
-  store i64 %storemerge.i5.i, ptr %284, align 8, !tbaa !31, !alias.scope !187, !noalias !190
+  store i64 %storemerge.i5.i, ptr %284, align 8, !tbaa !35, !alias.scope !199, !noalias !202
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %394 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %393, ptr noundef nonnull readonly align 1 dereferenceable(64) %394, i64 64, i1 false)
@@ -1809,7 +1809,7 @@ XXH3_consumeStripes.exit.i:                       ; preds = %XXH3_accumulate_512
 
 400:                                              ; preds = %395, %20
   %storemerge.i.i = phi i32 [ %399, %395 ], [ %25, %20 ]
-  store i32 %storemerge.i.i, ptr %15, align 64, !tbaa !82, !alias.scope !76, !noalias !79
+  store i32 %storemerge.i.i, ptr %15, align 64, !tbaa !90, !alias.scope !84, !noalias !87
   br label %XXH_INLINE_XXH3_64bits_update.exit
 
 XXH_INLINE_XXH3_64bits_update.exit:               ; preds = %3, %400
@@ -1821,12 +1821,12 @@ define dso_local void @PHP_XXH3_64_Final(ptr noundef writeonly captures(none) %0
   %3 = alloca [64 x i8], align 16
   %4 = alloca [8 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = select i1 %7, ptr %8, ptr %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %11 = load i64, ptr %10, align 16, !tbaa !81
+  %11 = load i64, ptr %10, align 16, !tbaa !89
   %12 = icmp ugt i64 %11, 240
   br i1 %12, label %13, label %204
 
@@ -1834,7 +1834,7 @@ define dso_local void @PHP_XXH3_64_Final(ptr noundef writeonly captures(none) %0
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %15 = load i32, ptr %14, align 64, !tbaa !82
+  %15 = load i32, ptr %14, align 64, !tbaa !90
   %16 = icmp ugt i32 %15, 63
   br i1 %16, label %17, label %150
 
@@ -1843,12 +1843,12 @@ define dso_local void @PHP_XXH3_64_Final(ptr noundef writeonly captures(none) %0
   %19 = lshr i32 %18, 6
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %22 = load i64, ptr %21, align 8, !tbaa !140
+  %22 = load i64, ptr %21, align 8, !tbaa !151
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  %24 = load i64, ptr %23, align 8, !tbaa !41
+  %24 = load i64, ptr %23, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %27 = load i64, ptr %26, align 32, !tbaa !40
+  %27 = load i64, ptr %26, align 32, !tbaa !48
   %28 = sub i64 %24, %22
   %.not.i.i.i = icmp ugt i64 %28, %20
   br i1 %.not.i.i.i, label %100, label %29
@@ -1857,7 +1857,7 @@ define dso_local void @PHP_XXH3_64_Final(ptr noundef writeonly captures(none) %0
   %30 = sub nuw nsw i64 %20, %28
   %31 = shl i64 %22, 3
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 %31
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   %.not59.i = icmp eq i64 %24, %22
   br i1 %.not59.i, label %XXH3_accumulate.exit36.i.i, label %.lr.ph.i
 
@@ -1866,18 +1866,18 @@ define dso_local void @PHP_XXH3_64_Final(ptr noundef writeonly captures(none) %0
   %33 = shl i64 %.0.i33.i50.i, 6
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %35, i32 0, i32 3, i32 1), !noalias !247
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %35, i32 0, i32 3, i32 1), !noalias !260
   %36 = shl i64 %.0.i33.i50.i, 3
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 %36
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !250), !noalias !253
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !263), !noalias !266
   br label %38
 
 38:                                               ; preds = %38, %.lr.ph.i
   %.0.i.i34.i49.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %38 ]
   %39 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %.0.i.i34.i49.i
-  %40 = load <2 x i64>, ptr %39, align 1, !tbaa !4, !noalias !254
+  %40 = load <2 x i64>, ptr %39, align 1, !tbaa !4, !noalias !267
   %41 = getelementptr inbounds nuw <2 x i64>, ptr %37, i64 %.0.i.i34.i49.i
-  %42 = load <2 x i64>, ptr %41, align 1, !tbaa !4, !noalias !254
+  %42 = load <2 x i64>, ptr %41, align 1, !tbaa !4, !noalias !267
   %43 = xor <2 x i64> %42, %40
   %44 = bitcast <2 x i64> %43 to <4 x i32>
   %45 = shufflevector <4 x i32> %44, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1887,31 +1887,31 @@ define dso_local void @PHP_XXH3_64_Final(ptr noundef writeonly captures(none) %0
   %49 = mul nuw <2 x i64> %48, %47
   %50 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %51 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i34.i49.i
-  %52 = load <2 x i64>, ptr %51, align 16, !tbaa !4, !alias.scope !255, !noalias !256
+  %52 = load <2 x i64>, ptr %51, align 16, !tbaa !4, !alias.scope !268, !noalias !269
   %53 = add <2 x i64> %52, %50
   %54 = add <2 x i64> %53, %49
-  store <2 x i64> %54, ptr %51, align 16, !tbaa !4, !alias.scope !255, !noalias !256
+  store <2 x i64> %54, ptr %51, align 16, !tbaa !4, !alias.scope !268, !noalias !269
   %55 = add nuw nsw i64 %.0.i.i34.i49.i, 1
   %exitcond63.not.i = icmp eq i64 %55, 4
-  br i1 %exitcond63.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i.i, label %38
+  br i1 %exitcond63.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i.i, label %38, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i35.i.i:            ; preds = %38
   %56 = add nuw i64 %.0.i33.i50.i, 1
   %exitcond64.not.i = icmp eq i64 %56, %28
-  br i1 %exitcond64.not.i, label %XXH3_accumulate.exit36.i.i, label %.lr.ph.i
+  br i1 %exitcond64.not.i, label %XXH3_accumulate.exit36.i.i, label %.lr.ph.i, !llvm.loop !114
 
 XXH3_accumulate.exit36.i.i:                       ; preds = %XXH3_accumulate_512_sse2.exit.i35.i.i, %29
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 %27
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !261)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   br label %58
 
 58:                                               ; preds = %58, %XXH3_accumulate.exit36.i.i
   %.0.i.i.i51.i = phi i64 [ 0, %XXH3_accumulate.exit36.i.i ], [ %73, %58 ]
   %59 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i.i51.i
-  %60 = load <2 x i64>, ptr %59, align 16, !tbaa !4, !alias.scope !264, !noalias !266
+  %60 = load <2 x i64>, ptr %59, align 16, !tbaa !4, !alias.scope !277, !noalias !279
   %61 = lshr <2 x i64> %60, splat (i64 47)
   %62 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %.0.i.i.i51.i
-  %63 = load <2 x i64>, ptr %62, align 1, !tbaa !4, !noalias !270
+  %63 = load <2 x i64>, ptr %62, align 1, !tbaa !4, !noalias !283
   %64 = xor <2 x i64> %61, %63
   %65 = xor <2 x i64> %64, %60
   %66 = bitcast <2 x i64> %65 to <4 x i32>
@@ -1921,15 +1921,15 @@ XXH3_accumulate.exit36.i.i:                       ; preds = %XXH3_accumulate_512
   %70 = mul nuw <2 x i64> %69, splat (i64 2654435761)
   %71 = mul <2 x i64> %68, splat (i64 -7046029290881679360)
   %72 = add <2 x i64> %71, %70
-  store <2 x i64> %72, ptr %59, align 16, !tbaa !4, !alias.scope !264, !noalias !266
+  store <2 x i64> %72, ptr %59, align 16, !tbaa !4, !alias.scope !277, !noalias !279
   %73 = add nuw nsw i64 %.0.i.i.i51.i, 1
   %exitcond65.not.i = icmp eq i64 %73, 4
-  br i1 %exitcond65.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i.i, label %58
+  br i1 %exitcond65.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i.i, label %58, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i.i.i:                 ; preds = %58
   %74 = shl nuw nsw i64 %28, 6
   %75 = getelementptr inbounds nuw i8, ptr %25, i64 %74
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !284)
   %.not60.i = icmp eq i64 %28, %20
   br i1 %.not60.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph54.i
 
@@ -1938,18 +1938,18 @@ XXH3_scrambleAcc_sse2.exit.i.i.i:                 ; preds = %58
   %76 = shl i64 %.0.i29.i53.i, 6
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %78, i32 0, i32 3, i32 1), !noalias !274
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %78, i32 0, i32 3, i32 1), !noalias !287
   %79 = shl i64 %.0.i29.i53.i, 3
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 %79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !275), !noalias !253
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !288), !noalias !266
   br label %81
 
 81:                                               ; preds = %81, %.lr.ph54.i
   %.0.i.i30.i52.i = phi i64 [ 0, %.lr.ph54.i ], [ %98, %81 ]
   %82 = getelementptr inbounds nuw <2 x i64>, ptr %77, i64 %.0.i.i30.i52.i
-  %83 = load <2 x i64>, ptr %82, align 1, !tbaa !4, !noalias !278
+  %83 = load <2 x i64>, ptr %82, align 1, !tbaa !4, !noalias !291
   %84 = getelementptr inbounds nuw <2 x i64>, ptr %80, i64 %.0.i.i30.i52.i
-  %85 = load <2 x i64>, ptr %84, align 1, !tbaa !4, !noalias !278
+  %85 = load <2 x i64>, ptr %84, align 1, !tbaa !4, !noalias !291
   %86 = xor <2 x i64> %85, %83
   %87 = bitcast <2 x i64> %86 to <4 x i32>
   %88 = shufflevector <4 x i32> %87, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -1959,23 +1959,23 @@ XXH3_scrambleAcc_sse2.exit.i.i.i:                 ; preds = %58
   %92 = mul nuw <2 x i64> %91, %90
   %93 = shufflevector <2 x i64> %83, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %94 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i30.i52.i
-  %95 = load <2 x i64>, ptr %94, align 16, !tbaa !4, !alias.scope !279, !noalias !280
+  %95 = load <2 x i64>, ptr %94, align 16, !tbaa !4, !alias.scope !292, !noalias !293
   %96 = add <2 x i64> %95, %93
   %97 = add <2 x i64> %96, %92
-  store <2 x i64> %97, ptr %94, align 16, !tbaa !4, !alias.scope !279, !noalias !280
+  store <2 x i64> %97, ptr %94, align 16, !tbaa !4, !alias.scope !292, !noalias !293
   %98 = add nuw nsw i64 %.0.i.i30.i52.i, 1
   %exitcond66.not.i = icmp eq i64 %98, 4
-  br i1 %exitcond66.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i.i, label %81
+  br i1 %exitcond66.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i.i, label %81, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %81
   %99 = add nuw i64 %.0.i29.i53.i, 1
   %exitcond67.not.i = icmp eq i64 %99, %30
-  br i1 %exitcond67.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph54.i
+  br i1 %exitcond67.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph54.i, !llvm.loop !114
 
 100:                                              ; preds = %17
   %101 = shl i64 %22, 3
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 %101
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !285)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %.not61.i = icmp eq i32 %15, 64
   br i1 %.not61.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.preheader.i
 
@@ -1988,18 +1988,18 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %81
   %103 = shl i64 %.0.i27.i56.i, 6
   %104 = getelementptr inbounds nuw i8, ptr %25, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %105, i32 0, i32 3, i32 1), !noalias !288
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %105, i32 0, i32 3, i32 1), !noalias !301
   %106 = shl i64 %.0.i27.i56.i, 3
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 %106
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !289), !noalias !253
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !302), !noalias !266
   br label %108
 
 108:                                              ; preds = %108, %.lr.ph57.i
   %.0.i.i28.i55.i = phi i64 [ 0, %.lr.ph57.i ], [ %125, %108 ]
   %109 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %.0.i.i28.i55.i
-  %110 = load <2 x i64>, ptr %109, align 1, !tbaa !4, !noalias !292
+  %110 = load <2 x i64>, ptr %109, align 1, !tbaa !4, !noalias !305
   %111 = getelementptr inbounds nuw <2 x i64>, ptr %107, i64 %.0.i.i28.i55.i
-  %112 = load <2 x i64>, ptr %111, align 1, !tbaa !4, !noalias !292
+  %112 = load <2 x i64>, ptr %111, align 1, !tbaa !4, !noalias !305
   %113 = xor <2 x i64> %112, %110
   %114 = bitcast <2 x i64> %113 to <4 x i32>
   %115 = shufflevector <4 x i32> %114, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -2009,18 +2009,18 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %81
   %119 = mul nuw <2 x i64> %118, %117
   %120 = shufflevector <2 x i64> %110, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %121 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i28.i55.i
-  %122 = load <2 x i64>, ptr %121, align 16, !tbaa !4, !alias.scope !293, !noalias !294
+  %122 = load <2 x i64>, ptr %121, align 16, !tbaa !4, !alias.scope !306, !noalias !307
   %123 = add <2 x i64> %122, %120
   %124 = add <2 x i64> %123, %119
-  store <2 x i64> %124, ptr %121, align 16, !tbaa !4, !alias.scope !293, !noalias !294
+  store <2 x i64> %124, ptr %121, align 16, !tbaa !4, !alias.scope !306, !noalias !307
   %125 = add nuw nsw i64 %.0.i.i28.i55.i, 1
   %exitcond68.not.i = icmp eq i64 %125, 4
-  br i1 %exitcond68.not.i, label %XXH3_accumulate_512_sse2.exit.i.i.i, label %108
+  br i1 %exitcond68.not.i, label %XXH3_accumulate_512_sse2.exit.i.i.i, label %108, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i.i.i:              ; preds = %108
   %126 = add nuw nsw i64 %.0.i27.i56.i, 1
   %exitcond70.not.i = icmp eq i64 %126, %umax69.i
-  br i1 %exitcond70.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i
+  br i1 %exitcond70.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph57.i, !llvm.loop !114
 
 XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i31.i.i, %XXH3_accumulate_512_sse2.exit.i.i.i, %100, %XXH3_scrambleAcc_sse2.exit.i.i.i
   %127 = zext i32 %15 to i64
@@ -2028,15 +2028,15 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %129 = getelementptr inbounds i8, ptr %128, i64 -64
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 %27
   %131 = getelementptr inbounds i8, ptr %130, i64 -7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !299)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !312)
   br label %132
 
 132:                                              ; preds = %132, %XXH3_consumeStripes.exit.i.i
   %.0.i25.i58.i = phi i64 [ 0, %XXH3_consumeStripes.exit.i.i ], [ %149, %132 ]
   %133 = getelementptr inbounds nuw <2 x i64>, ptr %129, i64 %.0.i25.i58.i
-  %134 = load <2 x i64>, ptr %133, align 1, !tbaa !4, !noalias !299
+  %134 = load <2 x i64>, ptr %133, align 1, !tbaa !4, !noalias !312
   %135 = getelementptr inbounds nuw <2 x i64>, ptr %131, i64 %.0.i25.i58.i
-  %136 = load <2 x i64>, ptr %135, align 1, !tbaa !4, !noalias !299
+  %136 = load <2 x i64>, ptr %135, align 1, !tbaa !4, !noalias !312
   %137 = xor <2 x i64> %136, %134
   %138 = bitcast <2 x i64> %137 to <4 x i32>
   %139 = shufflevector <4 x i32> %138, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -2046,13 +2046,13 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %143 = mul nuw <2 x i64> %142, %141
   %144 = shufflevector <2 x i64> %134, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %145 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i25.i58.i
-  %146 = load <2 x i64>, ptr %145, align 16, !tbaa !4, !alias.scope !299, !noalias !302
+  %146 = load <2 x i64>, ptr %145, align 16, !tbaa !4, !alias.scope !312, !noalias !315
   %147 = add <2 x i64> %146, %144
   %148 = add <2 x i64> %147, %143
-  store <2 x i64> %148, ptr %145, align 16, !tbaa !4, !alias.scope !299, !noalias !302
+  store <2 x i64> %148, ptr %145, align 16, !tbaa !4, !alias.scope !312, !noalias !315
   %149 = add nuw nsw i64 %.0.i25.i58.i, 1
   %exitcond71.not.i = icmp eq i64 %149, 4
-  br i1 %exitcond71.not.i, label %XXH3_digest_long.exit.i, label %132
+  br i1 %exitcond71.not.i, label %XXH3_digest_long.exit.i, label %132, !llvm.loop !113
 
 150:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
@@ -2066,18 +2066,18 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %157 = zext nneg i32 %15 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %156, ptr nonnull readonly align 1 %153, i64 %157, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %159 = load i64, ptr %158, align 32, !tbaa !40
+  %159 = load i64, ptr %158, align 32, !tbaa !48
   %160 = getelementptr inbounds nuw i8, ptr %9, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   br label %162
 
 162:                                              ; preds = %162, %150
   %.0.i.i48.i = phi i64 [ 0, %150 ], [ %179, %162 ]
   %163 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i.i48.i
-  %164 = load <2 x i64>, ptr %163, align 16, !tbaa !4, !noalias !305
+  %164 = load <2 x i64>, ptr %163, align 16, !tbaa !4, !noalias !318
   %165 = getelementptr inbounds nuw <2 x i64>, ptr %161, i64 %.0.i.i48.i
-  %166 = load <2 x i64>, ptr %165, align 1, !tbaa !4, !noalias !305
+  %166 = load <2 x i64>, ptr %165, align 1, !tbaa !4, !noalias !318
   %167 = xor <2 x i64> %166, %164
   %168 = bitcast <2 x i64> %167 to <4 x i32>
   %169 = shufflevector <4 x i32> %168, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -2087,13 +2087,13 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %173 = mul nuw <2 x i64> %172, %171
   %174 = shufflevector <2 x i64> %164, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %175 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i48.i
-  %176 = load <2 x i64>, ptr %175, align 16, !tbaa !4, !alias.scope !305, !noalias !308
+  %176 = load <2 x i64>, ptr %175, align 16, !tbaa !4, !alias.scope !318, !noalias !321
   %177 = add <2 x i64> %176, %174
   %178 = add <2 x i64> %177, %173
-  store <2 x i64> %178, ptr %175, align 16, !tbaa !4, !alias.scope !305, !noalias !308
+  store <2 x i64> %178, ptr %175, align 16, !tbaa !4, !alias.scope !318, !noalias !321
   %179 = add nuw nsw i64 %.0.i.i48.i, 1
   %exitcond.not.i = icmp eq i64 %179, 4
-  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %162
+  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %162, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i.i:                ; preds = %162
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
@@ -2102,8 +2102,8 @@ XXH3_accumulate_512_sse2.exit.i.i:                ; preds = %162
 XXH3_digest_long.exit.i:                          ; preds = %132, %XXH3_accumulate_512_sse2.exit.i.i
   %180 = getelementptr inbounds nuw i8, ptr %9, i64 11
   %181 = mul i64 %11, -7046029288634856825
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !314)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !324)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !327)
   br label %182
 
 182:                                              ; preds = %182, %XXH3_digest_long.exit.i
@@ -2112,14 +2112,14 @@ XXH3_digest_long.exit.i:                          ; preds = %132, %XXH3_accumula
   %.idx.i.i = shl nuw nsw i64 %.011.i.i, 4
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
-  %185 = load i64, ptr %183, align 16, !tbaa !31, !alias.scope !319, !noalias !320
-  %.0.copyload.i.i.i = load i64, ptr %184, align 1, !alias.scope !314, !noalias !319
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !329)
+  %185 = load i64, ptr %183, align 16, !tbaa !35, !alias.scope !332, !noalias !333
+  %.0.copyload.i.i.i = load i64, ptr %184, align 1, !alias.scope !327, !noalias !332
   %186 = xor i64 %.0.copyload.i.i.i, %185
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %188 = load i64, ptr %187, align 8, !tbaa !31, !alias.scope !319, !noalias !320
+  %188 = load i64, ptr %187, align 8, !tbaa !35, !alias.scope !332, !noalias !333
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %.0.copyload.i9.i.i = load i64, ptr %189, align 1, !alias.scope !314, !noalias !319
+  %.0.copyload.i9.i.i = load i64, ptr %189, align 1, !alias.scope !327, !noalias !332
   %190 = xor i64 %.0.copyload.i9.i.i, %188
   %191 = zext i64 %186 to i128
   %192 = zext i64 %190 to i128
@@ -2130,7 +2130,7 @@ XXH3_digest_long.exit.i:                          ; preds = %132, %XXH3_accumula
   %197 = add i64 %.0810.i.i, %196
   %198 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %198, 4
-  br i1 %exitcond.not.i.i, label %XXH3_mergeAccs.exit.i, label %182
+  br i1 %exitcond.not.i.i, label %XXH3_mergeAccs.exit.i, label %182, !llvm.loop !335
 
 XXH3_mergeAccs.exit.i:                            ; preds = %182
   %199 = lshr i64 %197, 37
@@ -2143,20 +2143,20 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
 
 204:                                              ; preds = %2
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 516
-  %206 = load i32, ptr %205, align 4, !tbaa !39
+  %206 = load i32, ptr %205, align 4, !tbaa !47
   %.not.i = icmp eq i32 %206, 0
   %207 = getelementptr inbounds nuw i8, ptr %1, i64 256
   br i1 %.not.i, label %427, label %208
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 552
-  %210 = load i64, ptr %209, align 8, !tbaa !35
+  %210 = load i64, ptr %209, align 8, !tbaa !42
   %211 = icmp samesign ult i64 %11, 17
   br i1 %211, label %212, label %301
 
 212:                                              ; preds = %208
   %213 = icmp samesign ugt i64 %11, 8
-  br i1 %213, label %214, label %236, !prof !322
+  br i1 %213, label %214, label %236, !prof !336
 
 214:                                              ; preds = %212
   %215 = add i64 %210, 7458650908927343033
@@ -2186,7 +2186,7 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
 
 236:                                              ; preds = %212
   %237 = icmp samesign ugt i64 %11, 3
-  br i1 %237, label %238, label %263, !prof !322
+  br i1 %237, label %238, label %263, !prof !336
 
 238:                                              ; preds = %236
   %239 = trunc i64 %210 to i32
@@ -2281,9 +2281,9 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
 
 310:                                              ; preds = %308
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %.0.copyload.i7.i.i = load i64, ptr %311, align 1, !noalias !323
+  %.0.copyload.i7.i.i = load i64, ptr %311, align 1, !noalias !337
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %.0.copyload.i8.i.i = load i64, ptr %312, align 1, !noalias !323
+  %.0.copyload.i8.i.i = load i64, ptr %312, align 1, !noalias !337
   %313 = add i64 %210, 4554437623014685352
   %314 = xor i64 %.0.copyload.i7.i.i, %313
   %315 = sub i64 2111919702937427193, %210
@@ -2297,9 +2297,9 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
   %323 = add i64 %304, %322
   %324 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %325 = getelementptr inbounds i8, ptr %324, i64 -64
-  %.0.copyload.i9.i19.i = load i64, ptr %325, align 1, !noalias !326
+  %.0.copyload.i9.i19.i = load i64, ptr %325, align 1, !noalias !340
   %326 = getelementptr inbounds i8, ptr %324, i64 -56
-  %.0.copyload.i10.i.i = load i64, ptr %326, align 1, !noalias !326
+  %.0.copyload.i10.i.i = load i64, ptr %326, align 1, !noalias !340
   %327 = add i64 %210, 3556072174620004746
   %328 = xor i64 %.0.copyload.i9.i19.i, %327
   %329 = sub i64 7238261902898274248, %210
@@ -2316,9 +2316,9 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
 338:                                              ; preds = %310, %308
   %.2.i.i.i = phi i64 [ %337, %310 ], [ %304, %308 ]
   %339 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %.0.copyload.i11.i.i = load i64, ptr %339, align 1, !noalias !329
+  %.0.copyload.i11.i.i = load i64, ptr %339, align 1, !noalias !343
   %340 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %.0.copyload.i12.i.i = load i64, ptr %340, align 1, !noalias !329
+  %.0.copyload.i12.i.i = load i64, ptr %340, align 1, !noalias !343
   %341 = add i64 %210, -3818837453329782724
   %342 = xor i64 %.0.copyload.i11.i.i, %341
   %343 = sub i64 -6688317018830679928, %210
@@ -2332,9 +2332,9 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
   %351 = add i64 %.2.i.i.i, %350
   %352 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %353 = getelementptr inbounds i8, ptr %352, i64 -48
-  %.0.copyload.i13.i.i = load i64, ptr %353, align 1, !noalias !332
+  %.0.copyload.i13.i.i = load i64, ptr %353, align 1, !noalias !346
   %354 = getelementptr inbounds i8, ptr %352, i64 -40
-  %.0.copyload.i14.i.i = load i64, ptr %354, align 1, !noalias !332
+  %.0.copyload.i14.i.i = load i64, ptr %354, align 1, !noalias !346
   %355 = add i64 %210, 5690594596133299313
   %356 = xor i64 %.0.copyload.i13.i.i, %355
   %357 = sub i64 -2833645246901970632, %210
@@ -2351,9 +2351,9 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
 366:                                              ; preds = %338, %306
   %.1.i.i.i = phi i64 [ %365, %338 ], [ %304, %306 ]
   %367 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %.0.copyload.i15.i.i = load i64, ptr %367, align 1, !noalias !335
+  %.0.copyload.i15.i.i = load i64, ptr %367, align 1, !noalias !349
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %.0.copyload.i16.i.i = load i64, ptr %368, align 1, !noalias !335
+  %.0.copyload.i16.i.i = load i64, ptr %368, align 1, !noalias !349
   %369 = add i64 %210, 8711581037947681227
   %370 = xor i64 %.0.copyload.i15.i.i, %369
   %371 = sub i64 2410270004345854594, %210
@@ -2367,9 +2367,9 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
   %379 = add i64 %.1.i.i.i, %378
   %380 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %381 = getelementptr inbounds i8, ptr %380, i64 -32
-  %.0.copyload.i17.i.i = load i64, ptr %381, align 1, !noalias !338
+  %.0.copyload.i17.i.i = load i64, ptr %381, align 1, !noalias !352
   %382 = getelementptr inbounds i8, ptr %380, i64 -24
-  %.0.copyload.i18.i.i = load i64, ptr %382, align 1, !noalias !338
+  %.0.copyload.i18.i.i = load i64, ptr %382, align 1, !noalias !352
   %383 = add i64 %210, -8204357891075471176
   %384 = xor i64 %.0.copyload.i17.i.i, %383
   %385 = sub i64 5487137525590930912, %210
@@ -2385,9 +2385,9 @@ XXH3_mergeAccs.exit.i:                            ; preds = %182
 
 XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
   %.0.i3.i.i = phi i64 [ %393, %366 ], [ %304, %303 ]
-  %.0.copyload.i19.i.i = load i64, ptr %207, align 1, !noalias !341
+  %.0.copyload.i19.i.i = load i64, ptr %207, align 1, !noalias !355
   %394 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %.0.copyload.i20.i.i = load i64, ptr %394, align 1, !noalias !341
+  %.0.copyload.i20.i.i = load i64, ptr %394, align 1, !noalias !355
   %395 = add i64 %210, -4734510112055689544
   %396 = xor i64 %.0.copyload.i19.i.i, %395
   %397 = sub i64 2066345149520216444, %210
@@ -2401,9 +2401,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
   %405 = add i64 %.0.i3.i.i, %404
   %406 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %407 = getelementptr inbounds i8, ptr %406, i64 -16
-  %.0.copyload.i21.i.i = load i64, ptr %407, align 1, !noalias !344
+  %.0.copyload.i21.i.i = load i64, ptr %407, align 1, !noalias !358
   %408 = getelementptr inbounds i8, ptr %406, i64 -8
-  %.0.copyload.i22.i.i = load i64, ptr %408, align 1, !noalias !344
+  %.0.copyload.i22.i.i = load i64, ptr %408, align 1, !noalias !358
   %409 = add i64 %210, -2623469361688619810
   %410 = xor i64 %.0.copyload.i21.i.i, %409
   %411 = sub i64 2262974939099578482, %210
@@ -2432,7 +2432,7 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
 
 429:                                              ; preds = %427
   %430 = icmp samesign ugt i64 %11, 8
-  br i1 %430, label %431, label %457, !prof !322
+  br i1 %430, label %431, label %457, !prof !336
 
 431:                                              ; preds = %429
   %432 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2470,7 +2470,7 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
 
 457:                                              ; preds = %429
   %458 = icmp samesign ugt i64 %11, 3
-  br i1 %458, label %459, label %481, !prof !322
+  br i1 %458, label %459, label %481, !prof !336
 
 459:                                              ; preds = %457
   %.0.copyload.i10.i36.i = load i32, ptr %207, align 1
@@ -2571,9 +2571,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
 530:                                              ; preds = %528
   %531 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %532 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %.0.copyload.i18.i26.i = load i64, ptr %531, align 1, !noalias !347
+  %.0.copyload.i18.i26.i = load i64, ptr %531, align 1, !noalias !361
   %533 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %.0.copyload.i19.i27.i = load i64, ptr %533, align 1, !noalias !347
+  %.0.copyload.i19.i27.i = load i64, ptr %533, align 1, !noalias !361
   %.0.copyload.i20.i28.i = load i64, ptr %532, align 1
   %534 = xor i64 %.0.copyload.i20.i28.i, %.0.copyload.i18.i26.i
   %535 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -2589,9 +2589,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
   %544 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %545 = getelementptr inbounds i8, ptr %544, i64 -64
   %546 = getelementptr inbounds nuw i8, ptr %9, i64 112
-  %.0.copyload.i22.i30.i = load i64, ptr %545, align 1, !noalias !350
+  %.0.copyload.i22.i30.i = load i64, ptr %545, align 1, !noalias !364
   %547 = getelementptr inbounds i8, ptr %544, i64 -56
-  %.0.copyload.i23.i.i = load i64, ptr %547, align 1, !noalias !350
+  %.0.copyload.i23.i.i = load i64, ptr %547, align 1, !noalias !364
   %.0.copyload.i24.i.i = load i64, ptr %546, align 1
   %548 = xor i64 %.0.copyload.i24.i.i, %.0.copyload.i22.i30.i
   %549 = getelementptr inbounds nuw i8, ptr %9, i64 120
@@ -2610,9 +2610,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
   %.2.i.i25.i = phi i64 [ %557, %530 ], [ %524, %528 ]
   %559 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %560 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %.0.copyload.i26.i.i = load i64, ptr %559, align 1, !noalias !353
+  %.0.copyload.i26.i.i = load i64, ptr %559, align 1, !noalias !367
   %561 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %.0.copyload.i27.i.i = load i64, ptr %561, align 1, !noalias !353
+  %.0.copyload.i27.i.i = load i64, ptr %561, align 1, !noalias !367
   %.0.copyload.i28.i.i = load i64, ptr %560, align 1
   %562 = xor i64 %.0.copyload.i28.i.i, %.0.copyload.i26.i.i
   %563 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -2628,9 +2628,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
   %572 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %573 = getelementptr inbounds i8, ptr %572, i64 -48
   %574 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %.0.copyload.i30.i.i = load i64, ptr %573, align 1, !noalias !356
+  %.0.copyload.i30.i.i = load i64, ptr %573, align 1, !noalias !370
   %575 = getelementptr inbounds i8, ptr %572, i64 -40
-  %.0.copyload.i31.i.i = load i64, ptr %575, align 1, !noalias !356
+  %.0.copyload.i31.i.i = load i64, ptr %575, align 1, !noalias !370
   %.0.copyload.i32.i.i = load i64, ptr %574, align 1
   %576 = xor i64 %.0.copyload.i32.i.i, %.0.copyload.i30.i.i
   %577 = getelementptr inbounds nuw i8, ptr %9, i64 88
@@ -2649,9 +2649,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
   %.1.i.i24.i = phi i64 [ %585, %558 ], [ %524, %526 ]
   %587 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %588 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.0.copyload.i34.i.i = load i64, ptr %587, align 1, !noalias !359
+  %.0.copyload.i34.i.i = load i64, ptr %587, align 1, !noalias !373
   %589 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %.0.copyload.i35.i.i = load i64, ptr %589, align 1, !noalias !359
+  %.0.copyload.i35.i.i = load i64, ptr %589, align 1, !noalias !373
   %.0.copyload.i36.i.i = load i64, ptr %588, align 1
   %590 = xor i64 %.0.copyload.i36.i.i, %.0.copyload.i34.i.i
   %591 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -2667,9 +2667,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
   %600 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %601 = getelementptr inbounds i8, ptr %600, i64 -32
   %602 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %.0.copyload.i38.i.i = load i64, ptr %601, align 1, !noalias !362
+  %.0.copyload.i38.i.i = load i64, ptr %601, align 1, !noalias !376
   %603 = getelementptr inbounds i8, ptr %600, i64 -24
-  %.0.copyload.i39.i.i = load i64, ptr %603, align 1, !noalias !362
+  %.0.copyload.i39.i.i = load i64, ptr %603, align 1, !noalias !376
   %.0.copyload.i40.i.i = load i64, ptr %602, align 1
   %604 = xor i64 %.0.copyload.i40.i.i, %.0.copyload.i38.i.i
   %605 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -2686,9 +2686,9 @@ XXH3_len_17to128_64b.exit.i.i:                    ; preds = %366, %303
 
 XXH3_len_17to128_64b.exit.i23.i:                  ; preds = %586, %523
   %.0.i4.i.i = phi i64 [ %613, %586 ], [ %524, %523 ]
-  %.0.copyload.i42.i.i = load i64, ptr %207, align 1, !noalias !365
+  %.0.copyload.i42.i.i = load i64, ptr %207, align 1, !noalias !379
   %614 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %.0.copyload.i43.i.i = load i64, ptr %614, align 1, !noalias !365
+  %.0.copyload.i43.i.i = load i64, ptr %614, align 1, !noalias !379
   %.0.copyload.i44.i.i = load i64, ptr %9, align 1
   %615 = xor i64 %.0.copyload.i44.i.i, %.0.copyload.i42.i.i
   %616 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2704,9 +2704,9 @@ XXH3_len_17to128_64b.exit.i23.i:                  ; preds = %586, %523
   %625 = getelementptr inbounds nuw i8, ptr %207, i64 %11
   %626 = getelementptr inbounds i8, ptr %625, i64 -16
   %627 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %.0.copyload.i46.i.i = load i64, ptr %626, align 1, !noalias !368
+  %.0.copyload.i46.i.i = load i64, ptr %626, align 1, !noalias !382
   %628 = getelementptr inbounds i8, ptr %625, i64 -8
-  %.0.copyload.i47.i.i = load i64, ptr %628, align 1, !noalias !368
+  %.0.copyload.i47.i.i = load i64, ptr %628, align 1, !noalias !382
   %.0.copyload.i48.i.i = load i64, ptr %627, align 1
   %629 = xor i64 %.0.copyload.i48.i.i, %.0.copyload.i46.i.i
   %630 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2739,7 +2739,7 @@ XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @PHP_XXH3_64_Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 576)) %2) #2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false), !tbaa.struct !371
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false), !tbaa.struct !385
   ret i32 0
 }
 
@@ -2818,34 +2818,34 @@ zend_hash_str_find_deref.exit.i.thread:           ; preds = %zend_hash_str_find_
 29:                                               ; preds = %.thread
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %30, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %31, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %31, align 8, !tbaa !35
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %32, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %32, align 16, !tbaa !35
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %33, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %33, align 8, !tbaa !35
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %34, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %34, align 32, !tbaa !35
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %35, align 8, !tbaa !31
+  store i64 2246822519, ptr %35, align 8, !tbaa !35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %36, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %36, align 16, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %37, align 8, !tbaa !31
+  store i64 2654435761, ptr %37, align 8, !tbaa !35
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %38, align 8, !tbaa !35
+  store i64 0, ptr %38, align 8, !tbaa !42
   br label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit
 
 39:                                               ; preds = %.thread
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  %41 = load i64, ptr %40, align 8, !tbaa !35
+  %41 = load i64, ptr %40, align 8, !tbaa !42
   %.not.i.i8 = icmp eq i64 %27, %41
   br i1 %.not.i.i8, label %42, label %45
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %44 = load ptr, ptr %43, align 8, !tbaa !37
+  %44 = load ptr, ptr %43, align 8, !tbaa !44
   %.not12.i.i = icmp eq ptr %44, null
   br i1 %.not12.i.i, label %XXH3_initCustomSecret_sse2.exit.i.i, label %45
 
@@ -2854,7 +2854,7 @@ zend_hash_str_find_deref.exit.i.thread:           ; preds = %zend_hash_str_find_
   %47 = sub i64 0, %27
   %48 = insertelement <2 x i64> poison, i64 %27, i64 0
   %49 = insertelement <2 x i64> %48, i64 %47, i64 1
-  %50 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %46) #16, !srcloc !38
+  %50 = tail call ptr asm sideeffect "", "=r,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull %46) #16, !srcloc !45
   br label %51
 
 51:                                               ; preds = %51, %45
@@ -2866,39 +2866,39 @@ zend_hash_str_find_deref.exit.i.thread:           ; preds = %zend_hash_str_find_
   store <2 x i64> %54, ptr %55, align 16, !tbaa !4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 12
-  br i1 %exitcond.not.i.i, label %XXH3_initCustomSecret_sse2.exit.i.i, label %51
+  br i1 %exitcond.not.i.i, label %XXH3_initCustomSecret_sse2.exit.i.i, label %51, !llvm.loop !46
 
 XXH3_initCustomSecret_sse2.exit.i.i:              ; preds = %51, %42
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %56, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %57, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %57, align 8, !tbaa !35
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %58, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %58, align 16, !tbaa !35
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %59, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %59, align 8, !tbaa !35
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %60, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %60, align 32, !tbaa !35
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %61, align 8, !tbaa !31
+  store i64 2246822519, ptr %61, align 8, !tbaa !35
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %62, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %62, align 16, !tbaa !35
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %63, align 8, !tbaa !31
-  store i64 %27, ptr %40, align 8, !tbaa !35
+  store i64 2654435761, ptr %63, align 8, !tbaa !35
+  store i64 %27, ptr %40, align 8, !tbaa !42
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 516
-  store i32 1, ptr %64, align 4, !tbaa !39
+  store i32 1, ptr %64, align 4, !tbaa !47
   br label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit
 
 XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %29, %XXH3_initCustomSecret_sse2.exit.i.i
   %.sink.i.i = phi ptr [ null, %XXH3_initCustomSecret_sse2.exit.i.i ], [ @XXH3_kSecret, %29 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %.sink.i.i, ptr %65, align 8, !tbaa !37
+  store ptr %.sink.i.i, ptr %65, align 8, !tbaa !44
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %66, align 32, !tbaa !40
+  store i64 128, ptr %66, align 32, !tbaa !48
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %67, align 8, !tbaa !41
+  store i64 16, ptr %67, align 8, !tbaa !49
   br label %_PHP_XXH3_Init.exit
 
 .critedge.i:                                      ; preds = %zend_hash_str_find_deref.exit.i
@@ -2911,7 +2911,7 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %29, %XXH3_initCusto
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.11) #16
   %.pr21 = load i8, ptr %68, align 8, !tbaa !4
   %71 = icmp eq i8 %.pr21, 6
-  br i1 %71, label %.thread22, label %zval_try_get_string.exit, !prof !42
+  br i1 %71, label %.thread22, label %zval_try_get_string.exit, !prof !50
 
 .thread22:                                        ; preds = %.critedge.i, %70
   %72 = load ptr, ptr %.0.i.i, align 8, !tbaa !4
@@ -2922,18 +2922,18 @@ XXH_INLINE_XXH3_128bits_reset_withSeed.exit:      ; preds = %29, %XXH3_initCusto
   br i1 %.not.i7, label %76, label %zval_try_get_string.exit.thread
 
 76:                                               ; preds = %.thread22
-  %77 = load i32, ptr %72, align 4, !tbaa !43
+  %77 = load i32, ptr %72, align 4, !tbaa !51
   %78 = add i32 %77, 1
-  store i32 %78, ptr %72, align 4, !tbaa !43
+  store i32 %78, ptr %72, align 4, !tbaa !51
   br label %zval_try_get_string.exit.thread
 
 zval_try_get_string.exit:                         ; preds = %70
   %79 = tail call ptr @zval_try_get_string_func(ptr noundef nonnull %.0.i.i) #16
   %.not44.i = icmp eq ptr %79, null
-  br i1 %.not44.i, label %80, label %zval_try_get_string.exit.thread, !prof !44
+  br i1 %.not44.i, label %80, label %zval_try_get_string.exit.thread, !prof !52
 
 80:                                               ; preds = %zval_try_get_string.exit
-  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !45
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !53
   %82 = icmp ne ptr %81, null
   tail call void @llvm.assume(i1 %82)
   br label %_PHP_XXH3_Init.exit
@@ -2941,7 +2941,7 @@ zval_try_get_string.exit:                         ; preds = %70
 zval_try_get_string.exit.thread:                  ; preds = %.thread22, %76, %zval_try_get_string.exit
   %.0.i225 = phi ptr [ %79, %zval_try_get_string.exit ], [ %72, %76 ], [ %72, %.thread22 ]
   %83 = getelementptr inbounds nuw i8, ptr %.0.i225, i64 16
-  %84 = load i64, ptr %83, align 8, !tbaa !74
+  %84 = load i64, ptr %83, align 8, !tbaa !82
   %85 = icmp ult i64 %84, 136
   br i1 %85, label %86, label %99
 
@@ -2953,11 +2953,11 @@ zval_try_get_string.exit.thread:                  ; preds = %.thread22, %76, %zv
   br i1 %.not.i3, label %90, label %zend_string_release.exit
 
 90:                                               ; preds = %86
-  %91 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %91 = load i32, ptr %.0.i225, align 4, !tbaa !51
   %92 = icmp ne i32 %91, 0
   tail call void @llvm.assume(i1 %92)
   %93 = add i32 %91, -1
-  store i32 %93, ptr %.0.i225, align 4, !tbaa !43
+  store i32 %93, ptr %.0.i225, align 4, !tbaa !51
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %zend_string_release.exit
 
@@ -2998,11 +2998,11 @@ zend_string_release.exit:                         ; preds = %86, %90, %97, %98
   br i1 %.not.i4, label %108, label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
 108:                                              ; preds = %102
-  %109 = load i32, ptr %.0.i225, align 4, !tbaa !43
+  %109 = load i32, ptr %.0.i225, align 4, !tbaa !51
   %110 = icmp ne i32 %109, 0
   tail call void @llvm.assume(i1 %110)
   %111 = add i32 %109, -1
-  store i32 %111, ptr %.0.i225, align 4, !tbaa !43
+  store i32 %111, ptr %.0.i225, align 4, !tbaa !51
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %XXH_INLINE_XXH3_128bits_reset_withSecret.exit
 
@@ -3022,59 +3022,59 @@ zend_string_release.exit:                         ; preds = %86, %90, %97, %98
 XXH_INLINE_XXH3_128bits_reset_withSecret.exit:    ; preds = %102, %108, %115, %116
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %117, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %118, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %118, align 8, !tbaa !35
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %119, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %119, align 16, !tbaa !35
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %120, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %120, align 8, !tbaa !35
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %121, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %121, align 32, !tbaa !35
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %122, align 8, !tbaa !31
+  store i64 2246822519, ptr %122, align 8, !tbaa !35
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %123, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %123, align 16, !tbaa !35
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %124, align 8, !tbaa !31
+  store i64 2654435761, ptr %124, align 8, !tbaa !35
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %125, align 8, !tbaa !35
+  store i64 0, ptr %125, align 8, !tbaa !42
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr %103, ptr %126, align 8, !tbaa !37
+  store ptr %103, ptr %126, align 8, !tbaa !44
   %127 = add nsw i64 %.0.i, -64
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 %127, ptr %128, align 32, !tbaa !40
+  store i64 %127, ptr %128, align 32, !tbaa !48
   %129 = lshr i64 %127, 3
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 %129, ptr %130, align 8, !tbaa !41
+  store i64 %129, ptr %130, align 8, !tbaa !49
   br label %_PHP_XXH3_Init.exit
 
 XXH_INLINE_XXH3_128bits_reset_withSeed.exit14:    ; preds = %25, %zend_hash_str_find_deref.exit47.i.thread, %2
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %131, i8 0, i64 24, i1 false)
-  store i64 3266489917, ptr %0, align 64, !tbaa !31
+  store i64 3266489917, ptr %0, align 64, !tbaa !35
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 -7046029288634856825, ptr %132, align 8, !tbaa !31
+  store i64 -7046029288634856825, ptr %132, align 8, !tbaa !35
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -4417276706812531889, ptr %133, align 16, !tbaa !31
+  store i64 -4417276706812531889, ptr %133, align 16, !tbaa !35
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 1609587929392839161, ptr %134, align 8, !tbaa !31
+  store i64 1609587929392839161, ptr %134, align 8, !tbaa !35
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 -8796714831421723037, ptr %135, align 32, !tbaa !31
+  store i64 -8796714831421723037, ptr %135, align 32, !tbaa !35
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 2246822519, ptr %136, align 8, !tbaa !31
+  store i64 2246822519, ptr %136, align 8, !tbaa !35
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 2870177450012600261, ptr %137, align 16, !tbaa !31
+  store i64 2870177450012600261, ptr %137, align 16, !tbaa !35
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 2654435761, ptr %138, align 8, !tbaa !31
+  store i64 2654435761, ptr %138, align 8, !tbaa !35
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store i64 0, ptr %139, align 8, !tbaa !35
+  store i64 0, ptr %139, align 8, !tbaa !42
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store ptr @XXH3_kSecret, ptr %140, align 8, !tbaa !37
+  store ptr @XXH3_kSecret, ptr %140, align 8, !tbaa !44
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  store i64 128, ptr %141, align 32, !tbaa !40
+  store i64 128, ptr %141, align 32, !tbaa !48
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  store i64 16, ptr %142, align 8, !tbaa !41
+  store i64 16, ptr %142, align 8, !tbaa !49
   br label %_PHP_XXH3_Init.exit
 
 _PHP_XXH3_Init.exit:                              ; preds = %80, %XXH_INLINE_XXH3_128bits_reset_withSecret.exit, %zend_string_release.exit, %XXH_INLINE_XXH3_128bits_reset_withSeed.exit, %22, %XXH_INLINE_XXH3_128bits_reset_withSeed.exit14
@@ -3089,16 +3089,16 @@ define dso_local void @PHP_XXH3_128_Update(ptr noundef %0, ptr noundef %1, i64 n
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  %8 = load ptr, ptr %7, align 8, !tbaa !37, !alias.scope !373, !noalias !376
+  %8 = load ptr, ptr %7, align 8, !tbaa !44, !alias.scope !387, !noalias !390
   %9 = icmp eq ptr %8, null
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = select i1 %9, ptr %10, ptr %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %13 = load i64, ptr %12, align 16, !tbaa !81, !alias.scope !373, !noalias !376
+  %13 = load i64, ptr %12, align 16, !tbaa !89, !alias.scope !387, !noalias !390
   %14 = add i64 %13, %2
-  store i64 %14, ptr %12, align 16, !tbaa !81, !alias.scope !373, !noalias !376
+  store i64 %14, ptr %12, align 16, !tbaa !89, !alias.scope !387, !noalias !390
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %16 = load i32, ptr %15, align 64, !tbaa !82, !alias.scope !373, !noalias !376
+  %16 = load i32, ptr %15, align 64, !tbaa !90, !alias.scope !387, !noalias !390
   %17 = zext i32 %16 to i64
   %18 = add i64 %2, %17
   %19 = icmp ult i64 %18, 257
@@ -3109,7 +3109,7 @@ define dso_local void @PHP_XXH3_128_Update(ptr noundef %0, ptr noundef %1, i64 n
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   %23 = trunc i64 %2 to i32
-  %24 = load i32, ptr %15, align 64, !tbaa !82, !alias.scope !373, !noalias !376
+  %24 = load i32, ptr %15, align 64, !tbaa !90, !alias.scope !387, !noalias !390
   %25 = add i32 %24, %23
   br label %400
 
@@ -3126,12 +3126,12 @@ define dso_local void @PHP_XXH3_128_Update(ptr noundef %0, ptr noundef %1, i64 n
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %35 = load i64, ptr %34, align 8, !tbaa !41, !alias.scope !373, !noalias !376
+  %35 = load i64, ptr %34, align 8, !tbaa !49, !alias.scope !387, !noalias !390
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %37 = load i64, ptr %36, align 32, !tbaa !40, !alias.scope !373, !noalias !376
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !378)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !381)
-  %38 = load i64, ptr %33, align 8, !tbaa !31, !alias.scope !381, !noalias !383
+  %37 = load i64, ptr %36, align 32, !tbaa !48, !alias.scope !387, !noalias !390
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
+  %38 = load i64, ptr %33, align 8, !tbaa !35, !alias.scope !395, !noalias !397
   %39 = sub i64 %35, %38
   %.not.i6.i = icmp ugt i64 %39, 4
   br i1 %.not.i6.i, label %111, label %40
@@ -3140,7 +3140,7 @@ define dso_local void @PHP_XXH3_128_Update(ptr noundef %0, ptr noundef %1, i64 n
   %41 = sub nuw nsw i64 4, %39
   %42 = shl i64 %38, 3
   %43 = getelementptr inbounds nuw i8, ptr %11, i64 %42
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
   %.not.i = icmp eq i64 %35, %38
   br i1 %.not.i, label %XXH3_accumulate.exit20.i, label %.lr.ph.i
 
@@ -3149,18 +3149,18 @@ define dso_local void @PHP_XXH3_128_Update(ptr noundef %0, ptr noundef %1, i64 n
   %44 = shl i64 %.0.i1746.i, 6
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %46, i32 0, i32 3, i32 1), !noalias !389
+  tail call void @llvm.prefetch.p0(ptr nonnull %46, i32 0, i32 3, i32 1), !noalias !403
   %47 = shl i64 %.0.i1746.i, 3
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !390), !noalias !381
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !404), !noalias !395
   br label %49
 
 49:                                               ; preds = %49, %.lr.ph.i
   %.0.i.i1845.i = phi i64 [ 0, %.lr.ph.i ], [ %66, %49 ]
   %50 = getelementptr inbounds nuw <2 x i64>, ptr %45, i64 %.0.i.i1845.i
-  %51 = load <2 x i64>, ptr %50, align 1, !tbaa !4, !noalias !393
+  %51 = load <2 x i64>, ptr %50, align 1, !tbaa !4, !noalias !407
   %52 = getelementptr inbounds nuw <2 x i64>, ptr %48, i64 %.0.i.i1845.i
-  %53 = load <2 x i64>, ptr %52, align 1, !tbaa !4, !noalias !393
+  %53 = load <2 x i64>, ptr %52, align 1, !tbaa !4, !noalias !407
   %54 = xor <2 x i64> %53, %51
   %55 = bitcast <2 x i64> %54 to <4 x i32>
   %56 = shufflevector <4 x i32> %55, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3170,31 +3170,31 @@ define dso_local void @PHP_XXH3_128_Update(ptr noundef %0, ptr noundef %1, i64 n
   %60 = mul nuw <2 x i64> %59, %58
   %61 = shufflevector <2 x i64> %51, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %62 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i1845.i
-  %63 = load <2 x i64>, ptr %62, align 16, !tbaa !4, !alias.scope !394, !noalias !395
+  %63 = load <2 x i64>, ptr %62, align 16, !tbaa !4, !alias.scope !408, !noalias !409
   %64 = add <2 x i64> %63, %61
   %65 = add <2 x i64> %64, %60
-  store <2 x i64> %65, ptr %62, align 16, !tbaa !4, !alias.scope !394, !noalias !395
+  store <2 x i64> %65, ptr %62, align 16, !tbaa !4, !alias.scope !408, !noalias !409
   %66 = add nuw nsw i64 %.0.i.i1845.i, 1
   %exitcond.not.i = icmp eq i64 %66, 4
-  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i19.i, label %49
+  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i19.i, label %49, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i19.i:              ; preds = %49
   %67 = add nuw i64 %.0.i1746.i, 1
   %exitcond88.not.i = icmp eq i64 %67, %39
-  br i1 %exitcond88.not.i, label %XXH3_accumulate.exit20.i, label %.lr.ph.i
+  br i1 %exitcond88.not.i, label %XXH3_accumulate.exit20.i, label %.lr.ph.i, !llvm.loop !114
 
 XXH3_accumulate.exit20.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i19.i, %40
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 %37
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !400)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !414)
   br label %69
 
 69:                                               ; preds = %69, %XXH3_accumulate.exit20.i
   %.0.i.i747.i = phi i64 [ 0, %XXH3_accumulate.exit20.i ], [ %84, %69 ]
   %70 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i747.i
-  %71 = load <2 x i64>, ptr %70, align 16, !tbaa !4, !alias.scope !403, !noalias !404
+  %71 = load <2 x i64>, ptr %70, align 16, !tbaa !4, !alias.scope !417, !noalias !418
   %72 = lshr <2 x i64> %71, splat (i64 47)
   %73 = getelementptr inbounds nuw <2 x i64>, ptr %68, i64 %.0.i.i747.i
-  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !4, !noalias !406
+  %74 = load <2 x i64>, ptr %73, align 1, !tbaa !4, !noalias !420
   %75 = xor <2 x i64> %72, %74
   %76 = xor <2 x i64> %75, %71
   %77 = bitcast <2 x i64> %76 to <4 x i32>
@@ -3204,15 +3204,15 @@ XXH3_accumulate.exit20.i:                         ; preds = %XXH3_accumulate_512
   %81 = mul nuw <2 x i64> %80, splat (i64 2654435761)
   %82 = mul <2 x i64> %79, splat (i64 -7046029290881679360)
   %83 = add <2 x i64> %82, %81
-  store <2 x i64> %83, ptr %70, align 16, !tbaa !4, !alias.scope !403, !noalias !404
+  store <2 x i64> %83, ptr %70, align 16, !tbaa !4, !alias.scope !417, !noalias !418
   %84 = add nuw nsw i64 %.0.i.i747.i, 1
   %exitcond89.not.i = icmp eq i64 %84, 4
-  br i1 %exitcond89.not.i, label %XXH3_scrambleAcc_sse2.exit.i8.i, label %69
+  br i1 %exitcond89.not.i, label %XXH3_scrambleAcc_sse2.exit.i8.i, label %69, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i8.i:                  ; preds = %69
   %85 = shl nuw nsw i64 %39, 6
   %86 = getelementptr inbounds nuw i8, ptr %30, i64 %85
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !407)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
   %.not80.i = icmp eq i64 %39, 4
   br i1 %.not80.i, label %XXH3_consumeStripes.exit10.i, label %.lr.ph50.i
 
@@ -3221,18 +3221,18 @@ XXH3_scrambleAcc_sse2.exit.i8.i:                  ; preds = %69
   %87 = shl i64 %.0.i1349.i, 6
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %89, i32 0, i32 3, i32 1), !noalias !410
+  tail call void @llvm.prefetch.p0(ptr nonnull %89, i32 0, i32 3, i32 1), !noalias !424
   %90 = shl i64 %.0.i1349.i, 3
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 %90
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !411), !noalias !381
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !425), !noalias !395
   br label %92
 
 92:                                               ; preds = %92, %.lr.ph50.i
   %.0.i.i1448.i = phi i64 [ 0, %.lr.ph50.i ], [ %109, %92 ]
   %93 = getelementptr inbounds nuw <2 x i64>, ptr %88, i64 %.0.i.i1448.i
-  %94 = load <2 x i64>, ptr %93, align 1, !tbaa !4, !noalias !414
+  %94 = load <2 x i64>, ptr %93, align 1, !tbaa !4, !noalias !428
   %95 = getelementptr inbounds nuw <2 x i64>, ptr %91, i64 %.0.i.i1448.i
-  %96 = load <2 x i64>, ptr %95, align 1, !tbaa !4, !noalias !414
+  %96 = load <2 x i64>, ptr %95, align 1, !tbaa !4, !noalias !428
   %97 = xor <2 x i64> %96, %94
   %98 = bitcast <2 x i64> %97 to <4 x i32>
   %99 = shufflevector <4 x i32> %98, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3242,23 +3242,23 @@ XXH3_scrambleAcc_sse2.exit.i8.i:                  ; preds = %69
   %103 = mul nuw <2 x i64> %102, %101
   %104 = shufflevector <2 x i64> %94, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %105 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i1448.i
-  %106 = load <2 x i64>, ptr %105, align 16, !tbaa !4, !alias.scope !415, !noalias !416
+  %106 = load <2 x i64>, ptr %105, align 16, !tbaa !4, !alias.scope !429, !noalias !430
   %107 = add <2 x i64> %106, %104
   %108 = add <2 x i64> %107, %103
-  store <2 x i64> %108, ptr %105, align 16, !tbaa !4, !alias.scope !415, !noalias !416
+  store <2 x i64> %108, ptr %105, align 16, !tbaa !4, !alias.scope !429, !noalias !430
   %109 = add nuw nsw i64 %.0.i.i1448.i, 1
   %exitcond90.not.i = icmp eq i64 %109, 4
-  br i1 %exitcond90.not.i, label %XXH3_accumulate_512_sse2.exit.i15.i, label %92
+  br i1 %exitcond90.not.i, label %XXH3_accumulate_512_sse2.exit.i15.i, label %92, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i15.i:              ; preds = %92
   %110 = add nuw i64 %.0.i1349.i, 1
   %exitcond91.not.i = icmp eq i64 %110, %41
-  br i1 %exitcond91.not.i, label %XXH3_consumeStripes.exit10.i, label %.lr.ph50.i
+  br i1 %exitcond91.not.i, label %XXH3_consumeStripes.exit10.i, label %.lr.ph50.i, !llvm.loop !114
 
 111:                                              ; preds = %27
   %112 = shl i64 %38, 3
   %113 = getelementptr inbounds nuw i8, ptr %11, i64 %112
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
   br label %114
 
 114:                                              ; preds = %XXH3_accumulate_512_sse2.exit.i.i, %111
@@ -3266,18 +3266,18 @@ XXH3_accumulate_512_sse2.exit.i15.i:              ; preds = %92
   %115 = shl nuw nsw i64 %.0.i1152.i, 6
   %116 = getelementptr inbounds nuw i8, ptr %30, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %117, i32 0, i32 3, i32 1), !noalias !424
+  tail call void @llvm.prefetch.p0(ptr nonnull %117, i32 0, i32 3, i32 1), !noalias !438
   %118 = shl nuw nsw i64 %.0.i1152.i, 3
   %119 = getelementptr inbounds nuw i8, ptr %113, i64 %118
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !425), !noalias !381
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !439), !noalias !395
   br label %120
 
 120:                                              ; preds = %120, %114
   %.0.i.i1251.i = phi i64 [ 0, %114 ], [ %137, %120 ]
   %121 = getelementptr inbounds nuw <2 x i64>, ptr %116, i64 %.0.i.i1251.i
-  %122 = load <2 x i64>, ptr %121, align 1, !tbaa !4, !noalias !428
+  %122 = load <2 x i64>, ptr %121, align 1, !tbaa !4, !noalias !442
   %123 = getelementptr inbounds nuw <2 x i64>, ptr %119, i64 %.0.i.i1251.i
-  %124 = load <2 x i64>, ptr %123, align 1, !tbaa !4, !noalias !428
+  %124 = load <2 x i64>, ptr %123, align 1, !tbaa !4, !noalias !442
   %125 = xor <2 x i64> %124, %122
   %126 = bitcast <2 x i64> %125 to <4 x i32>
   %127 = shufflevector <4 x i32> %126, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3287,18 +3287,18 @@ XXH3_accumulate_512_sse2.exit.i15.i:              ; preds = %92
   %131 = mul nuw <2 x i64> %130, %129
   %132 = shufflevector <2 x i64> %122, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %133 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i1251.i
-  %134 = load <2 x i64>, ptr %133, align 16, !tbaa !4, !alias.scope !429, !noalias !430
+  %134 = load <2 x i64>, ptr %133, align 16, !tbaa !4, !alias.scope !443, !noalias !444
   %135 = add <2 x i64> %134, %132
   %136 = add <2 x i64> %135, %131
-  store <2 x i64> %136, ptr %133, align 16, !tbaa !4, !alias.scope !429, !noalias !430
+  store <2 x i64> %136, ptr %133, align 16, !tbaa !4, !alias.scope !443, !noalias !444
   %137 = add nuw nsw i64 %.0.i.i1251.i, 1
   %exitcond92.not.i = icmp eq i64 %137, 4
-  br i1 %exitcond92.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %120
+  br i1 %exitcond92.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %120, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i.i:                ; preds = %120
   %138 = add nuw nsw i64 %.0.i1152.i, 1
   %exitcond93.not.i = icmp eq i64 %138, 4
-  br i1 %exitcond93.not.i, label %XXH3_accumulate.exit.i, label %114
+  br i1 %exitcond93.not.i, label %XXH3_accumulate.exit.i, label %114, !llvm.loop !114
 
 XXH3_accumulate.exit.i:                           ; preds = %XXH3_accumulate_512_sse2.exit.i.i
   %139 = add i64 %38, 4
@@ -3306,8 +3306,8 @@ XXH3_accumulate.exit.i:                           ; preds = %XXH3_accumulate_512
 
 XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i15.i, %XXH3_accumulate.exit.i, %XXH3_scrambleAcc_sse2.exit.i8.i
   %storemerge.i9.i = phi i64 [ %139, %XXH3_accumulate.exit.i ], [ 0, %XXH3_scrambleAcc_sse2.exit.i8.i ], [ %41, %XXH3_accumulate_512_sse2.exit.i15.i ]
-  store i64 %storemerge.i9.i, ptr %33, align 8, !tbaa !31, !alias.scope !381, !noalias !383
-  store i32 0, ptr %15, align 64, !tbaa !82, !alias.scope !373, !noalias !376
+  store i64 %storemerge.i9.i, ptr %33, align 8, !tbaa !35, !alias.scope !395, !noalias !397
+  store i32 0, ptr %15, align 64, !tbaa !90, !alias.scope !387, !noalias !390
   br label %140
 
 140:                                              ; preds = %XXH3_consumeStripes.exit10.i, %26
@@ -3316,7 +3316,7 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %142 = ptrtoint ptr %.0106.i.i to i64
   %143 = sub i64 %141, %142
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %145 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !373, !noalias !376
+  %145 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !387, !noalias !390
   %146 = shl i64 %145, 6
   %147 = icmp ugt i64 %143, %146
   br i1 %147, label %148, label %280
@@ -3327,11 +3327,11 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %151 = sub i64 %150, %142
   %152 = lshr i64 %151, 6
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %154 = load i64, ptr %153, align 8, !tbaa !140, !alias.scope !373, !noalias !376
+  %154 = load i64, ptr %153, align 8, !tbaa !151, !alias.scope !387, !noalias !390
   %155 = sub i64 %145, %154
   %156 = shl i64 %154, 3
   %157 = getelementptr inbounds nuw i8, ptr %11, i64 %156
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !435)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !449)
   %.not83.i = icmp eq i64 %145, %154
   br i1 %.not83.i, label %XXH3_accumulate.exit44.i, label %.lr.ph65.i
 
@@ -3340,18 +3340,18 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %158 = shl i64 %.0.i4164.i, 6
   %159 = getelementptr inbounds nuw i8, ptr %.0106.i.i, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %160, i32 0, i32 3, i32 1), !noalias !435
+  tail call void @llvm.prefetch.p0(ptr nonnull %160, i32 0, i32 3, i32 1), !noalias !449
   %161 = shl i64 %.0.i4164.i, 3
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 %161
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
   br label %163
 
 163:                                              ; preds = %163, %.lr.ph65.i
   %.0.i.i4263.i = phi i64 [ 0, %.lr.ph65.i ], [ %180, %163 ]
   %164 = getelementptr inbounds nuw <2 x i64>, ptr %159, i64 %.0.i.i4263.i
-  %165 = load <2 x i64>, ptr %164, align 1, !tbaa !4, !noalias !441
+  %165 = load <2 x i64>, ptr %164, align 1, !tbaa !4, !noalias !455
   %166 = getelementptr inbounds nuw <2 x i64>, ptr %162, i64 %.0.i.i4263.i
-  %167 = load <2 x i64>, ptr %166, align 1, !tbaa !4, !noalias !441
+  %167 = load <2 x i64>, ptr %166, align 1, !tbaa !4, !noalias !455
   %168 = xor <2 x i64> %167, %165
   %169 = bitcast <2 x i64> %168 to <4 x i32>
   %170 = shufflevector <4 x i32> %169, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3361,33 +3361,33 @@ XXH3_consumeStripes.exit10.i:                     ; preds = %XXH3_accumulate_512
   %174 = mul nuw <2 x i64> %173, %172
   %175 = shufflevector <2 x i64> %165, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %176 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i4263.i
-  %177 = load <2 x i64>, ptr %176, align 16, !tbaa !4, !alias.scope !441, !noalias !442
+  %177 = load <2 x i64>, ptr %176, align 16, !tbaa !4, !alias.scope !455, !noalias !456
   %178 = add <2 x i64> %177, %175
   %179 = add <2 x i64> %178, %174
-  store <2 x i64> %179, ptr %176, align 16, !tbaa !4, !alias.scope !441, !noalias !442
+  store <2 x i64> %179, ptr %176, align 16, !tbaa !4, !alias.scope !455, !noalias !456
   %180 = add nuw nsw i64 %.0.i.i4263.i, 1
   %exitcond102.not.i = icmp eq i64 %180, 4
-  br i1 %exitcond102.not.i, label %XXH3_accumulate_512_sse2.exit.i43.i, label %163
+  br i1 %exitcond102.not.i, label %XXH3_accumulate_512_sse2.exit.i43.i, label %163, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i43.i:              ; preds = %163
   %181 = add nuw i64 %.0.i4164.i, 1
   %exitcond103.not.i = icmp eq i64 %181, %155
-  br i1 %exitcond103.not.i, label %XXH3_accumulate.exit44.i, label %.lr.ph65.i
+  br i1 %exitcond103.not.i, label %XXH3_accumulate.exit44.i, label %.lr.ph65.i, !llvm.loop !114
 
 XXH3_accumulate.exit44.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i43.i, %148
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %183 = load i64, ptr %182, align 32, !tbaa !40, !alias.scope !373, !noalias !376
+  %183 = load i64, ptr %182, align 32, !tbaa !48, !alias.scope !387, !noalias !390
   %184 = getelementptr inbounds nuw i8, ptr %11, i64 %183
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !447)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
   br label %185
 
 185:                                              ; preds = %185, %XXH3_accumulate.exit44.i
   %.0.i266.i = phi i64 [ 0, %XXH3_accumulate.exit44.i ], [ %200, %185 ]
   %186 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i266.i
-  %187 = load <2 x i64>, ptr %186, align 16, !tbaa !4, !alias.scope !447, !noalias !450
+  %187 = load <2 x i64>, ptr %186, align 16, !tbaa !4, !alias.scope !461, !noalias !464
   %188 = lshr <2 x i64> %187, splat (i64 47)
   %189 = getelementptr inbounds nuw <2 x i64>, ptr %184, i64 %.0.i266.i
-  %190 = load <2 x i64>, ptr %189, align 1, !tbaa !4, !noalias !447
+  %190 = load <2 x i64>, ptr %189, align 1, !tbaa !4, !noalias !461
   %191 = xor <2 x i64> %188, %190
   %192 = xor <2 x i64> %191, %187
   %193 = bitcast <2 x i64> %192 to <4 x i32>
@@ -3397,17 +3397,17 @@ XXH3_accumulate.exit44.i:                         ; preds = %XXH3_accumulate_512
   %197 = mul nuw <2 x i64> %196, splat (i64 2654435761)
   %198 = mul <2 x i64> %195, splat (i64 -7046029290881679360)
   %199 = add <2 x i64> %198, %197
-  store <2 x i64> %199, ptr %186, align 16, !tbaa !4, !alias.scope !447, !noalias !450
+  store <2 x i64> %199, ptr %186, align 16, !tbaa !4, !alias.scope !461, !noalias !464
   %200 = add nuw nsw i64 %.0.i266.i, 1
   %exitcond104.not.i = icmp eq i64 %200, 4
-  br i1 %exitcond104.not.i, label %XXH3_scrambleAcc_sse2.exit3.i, label %185
+  br i1 %exitcond104.not.i, label %XXH3_scrambleAcc_sse2.exit3.i, label %185, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
-  store i64 0, ptr %153, align 8, !tbaa !140, !alias.scope !373, !noalias !376
+  store i64 0, ptr %153, align 8, !tbaa !151, !alias.scope !387, !noalias !390
   %201 = shl i64 %155, 6
   %202 = getelementptr inbounds nuw i8, ptr %.0106.i.i, i64 %201
   %203 = sub i64 %152, %155
-  %204 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !373, !noalias !376
+  %204 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !387, !noalias !390
   %.not115.i71.i = icmp ult i64 %203, %204
   br i1 %.not115.i71.i, label %._crit_edge.i, label %.lr.ph74.i
 
@@ -3415,7 +3415,7 @@ XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
   %205 = phi i64 [ %248, %XXH3_scrambleAcc_sse2.exit.i ], [ %204, %XXH3_scrambleAcc_sse2.exit3.i ]
   %.1107.i73.i = phi ptr [ %250, %XXH3_scrambleAcc_sse2.exit.i ], [ %202, %XXH3_scrambleAcc_sse2.exit3.i ]
   %.0108.i72.i = phi i64 [ %251, %XXH3_scrambleAcc_sse2.exit.i ], [ %203, %XXH3_scrambleAcc_sse2.exit3.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !452)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !466)
   %.not84.i = icmp eq i64 %205, 0
   br i1 %.not84.i, label %XXH3_accumulate.exit40.i, label %.lr.ph69.i
 
@@ -3424,18 +3424,18 @@ XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
   %206 = shl i64 %.0.i3768.i, 6
   %207 = getelementptr inbounds nuw i8, ptr %.1107.i73.i, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %208, i32 0, i32 3, i32 1), !noalias !452
+  tail call void @llvm.prefetch.p0(ptr nonnull %208, i32 0, i32 3, i32 1), !noalias !466
   %209 = shl i64 %.0.i3768.i, 3
   %210 = getelementptr inbounds nuw i8, ptr %11, i64 %209
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !455)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !469)
   br label %211
 
 211:                                              ; preds = %211, %.lr.ph69.i
   %.0.i.i3867.i = phi i64 [ 0, %.lr.ph69.i ], [ %228, %211 ]
   %212 = getelementptr inbounds nuw <2 x i64>, ptr %207, i64 %.0.i.i3867.i
-  %213 = load <2 x i64>, ptr %212, align 1, !tbaa !4, !noalias !458
+  %213 = load <2 x i64>, ptr %212, align 1, !tbaa !4, !noalias !472
   %214 = getelementptr inbounds nuw <2 x i64>, ptr %210, i64 %.0.i.i3867.i
-  %215 = load <2 x i64>, ptr %214, align 1, !tbaa !4, !noalias !458
+  %215 = load <2 x i64>, ptr %214, align 1, !tbaa !4, !noalias !472
   %216 = xor <2 x i64> %215, %213
   %217 = bitcast <2 x i64> %216 to <4 x i32>
   %218 = shufflevector <4 x i32> %217, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3445,32 +3445,32 @@ XXH3_scrambleAcc_sse2.exit3.i:                    ; preds = %185
   %222 = mul nuw <2 x i64> %221, %220
   %223 = shufflevector <2 x i64> %213, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %224 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i3867.i
-  %225 = load <2 x i64>, ptr %224, align 16, !tbaa !4, !alias.scope !458, !noalias !459
+  %225 = load <2 x i64>, ptr %224, align 16, !tbaa !4, !alias.scope !472, !noalias !473
   %226 = add <2 x i64> %225, %223
   %227 = add <2 x i64> %226, %222
-  store <2 x i64> %227, ptr %224, align 16, !tbaa !4, !alias.scope !458, !noalias !459
+  store <2 x i64> %227, ptr %224, align 16, !tbaa !4, !alias.scope !472, !noalias !473
   %228 = add nuw nsw i64 %.0.i.i3867.i, 1
   %exitcond105.not.i = icmp eq i64 %228, 4
-  br i1 %exitcond105.not.i, label %XXH3_accumulate_512_sse2.exit.i39.i, label %211
+  br i1 %exitcond105.not.i, label %XXH3_accumulate_512_sse2.exit.i39.i, label %211, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i39.i:              ; preds = %211
   %229 = add nuw i64 %.0.i3768.i, 1
   %exitcond106.not.i = icmp eq i64 %229, %205
-  br i1 %exitcond106.not.i, label %XXH3_accumulate.exit40.i, label %.lr.ph69.i
+  br i1 %exitcond106.not.i, label %XXH3_accumulate.exit40.i, label %.lr.ph69.i, !llvm.loop !114
 
 XXH3_accumulate.exit40.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i39.i, %.lr.ph74.i
-  %230 = load i64, ptr %182, align 32, !tbaa !40, !alias.scope !373, !noalias !376
+  %230 = load i64, ptr %182, align 32, !tbaa !48, !alias.scope !387, !noalias !390
   %231 = getelementptr inbounds nuw i8, ptr %11, i64 %230
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   br label %232
 
 232:                                              ; preds = %232, %XXH3_accumulate.exit40.i
   %.0.i70.i = phi i64 [ 0, %XXH3_accumulate.exit40.i ], [ %247, %232 ]
   %233 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i70.i
-  %234 = load <2 x i64>, ptr %233, align 16, !tbaa !4, !alias.scope !464, !noalias !467
+  %234 = load <2 x i64>, ptr %233, align 16, !tbaa !4, !alias.scope !478, !noalias !481
   %235 = lshr <2 x i64> %234, splat (i64 47)
   %236 = getelementptr inbounds nuw <2 x i64>, ptr %231, i64 %.0.i70.i
-  %237 = load <2 x i64>, ptr %236, align 1, !tbaa !4, !noalias !464
+  %237 = load <2 x i64>, ptr %236, align 1, !tbaa !4, !noalias !478
   %238 = xor <2 x i64> %235, %237
   %239 = xor <2 x i64> %238, %234
   %240 = bitcast <2 x i64> %239 to <4 x i32>
@@ -3480,23 +3480,23 @@ XXH3_accumulate.exit40.i:                         ; preds = %XXH3_accumulate_512
   %244 = mul nuw <2 x i64> %243, splat (i64 2654435761)
   %245 = mul <2 x i64> %242, splat (i64 -7046029290881679360)
   %246 = add <2 x i64> %245, %244
-  store <2 x i64> %246, ptr %233, align 16, !tbaa !4, !alias.scope !464, !noalias !467
+  store <2 x i64> %246, ptr %233, align 16, !tbaa !4, !alias.scope !478, !noalias !481
   %247 = add nuw nsw i64 %.0.i70.i, 1
   %exitcond107.not.i = icmp eq i64 %247, 4
-  br i1 %exitcond107.not.i, label %XXH3_scrambleAcc_sse2.exit.i, label %232
+  br i1 %exitcond107.not.i, label %XXH3_scrambleAcc_sse2.exit.i, label %232, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %232
-  %248 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !373, !noalias !376
+  %248 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !387, !noalias !390
   %249 = shl i64 %248, 6
   %250 = getelementptr inbounds nuw i8, ptr %.1107.i73.i, i64 %249
   %251 = sub i64 %.0108.i72.i, %248
   %.not115.i.i = icmp ult i64 %251, %248
-  br i1 %.not115.i.i, label %._crit_edge.i, label %.lr.ph74.i
+  br i1 %.not115.i.i, label %._crit_edge.i, label %.lr.ph74.i, !llvm.loop !186
 
 ._crit_edge.i:                                    ; preds = %XXH3_scrambleAcc_sse2.exit.i, %XXH3_scrambleAcc_sse2.exit3.i
   %.0108.i.lcssa.i = phi i64 [ %203, %XXH3_scrambleAcc_sse2.exit3.i ], [ %251, %XXH3_scrambleAcc_sse2.exit.i ]
   %.1107.i.lcssa.i = phi ptr [ %202, %XXH3_scrambleAcc_sse2.exit3.i ], [ %250, %XXH3_scrambleAcc_sse2.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !469)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !483)
   %.not85.i = icmp eq i64 %.0108.i.lcssa.i, 0
   br i1 %.not85.i, label %XXH3_accumulate.exit36.i, label %.lr.ph79.i
 
@@ -3505,18 +3505,18 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %232
   %252 = shl i64 %.0.i3377.i, 6
   %253 = getelementptr inbounds nuw i8, ptr %.1107.i.lcssa.i, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %254, i32 0, i32 3, i32 1), !noalias !469
+  tail call void @llvm.prefetch.p0(ptr nonnull %254, i32 0, i32 3, i32 1), !noalias !483
   %255 = shl i64 %.0.i3377.i, 3
   %256 = getelementptr inbounds nuw i8, ptr %11, i64 %255
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !472)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !486)
   br label %257
 
 257:                                              ; preds = %257, %.lr.ph79.i
   %.0.i.i3476.i = phi i64 [ 0, %.lr.ph79.i ], [ %274, %257 ]
   %258 = getelementptr inbounds nuw <2 x i64>, ptr %253, i64 %.0.i.i3476.i
-  %259 = load <2 x i64>, ptr %258, align 1, !tbaa !4, !noalias !475
+  %259 = load <2 x i64>, ptr %258, align 1, !tbaa !4, !noalias !489
   %260 = getelementptr inbounds nuw <2 x i64>, ptr %256, i64 %.0.i.i3476.i
-  %261 = load <2 x i64>, ptr %260, align 1, !tbaa !4, !noalias !475
+  %261 = load <2 x i64>, ptr %260, align 1, !tbaa !4, !noalias !489
   %262 = xor <2 x i64> %261, %259
   %263 = bitcast <2 x i64> %262 to <4 x i32>
   %264 = shufflevector <4 x i32> %263, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3526,23 +3526,23 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %232
   %268 = mul nuw <2 x i64> %267, %266
   %269 = shufflevector <2 x i64> %259, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %270 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i3476.i
-  %271 = load <2 x i64>, ptr %270, align 16, !tbaa !4, !alias.scope !475, !noalias !476
+  %271 = load <2 x i64>, ptr %270, align 16, !tbaa !4, !alias.scope !489, !noalias !490
   %272 = add <2 x i64> %271, %269
   %273 = add <2 x i64> %272, %268
-  store <2 x i64> %273, ptr %270, align 16, !tbaa !4, !alias.scope !475, !noalias !476
+  store <2 x i64> %273, ptr %270, align 16, !tbaa !4, !alias.scope !489, !noalias !490
   %274 = add nuw nsw i64 %.0.i.i3476.i, 1
   %exitcond108.not.i = icmp eq i64 %274, 4
-  br i1 %exitcond108.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i, label %257
+  br i1 %exitcond108.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i, label %257, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i35.i:              ; preds = %257
   %275 = add nuw i64 %.0.i3377.i, 1
   %exitcond109.not.i = icmp eq i64 %275, %.0108.i.lcssa.i
-  br i1 %exitcond109.not.i, label %XXH3_accumulate.exit36.i, label %.lr.ph79.i
+  br i1 %exitcond109.not.i, label %XXH3_accumulate.exit36.i, label %.lr.ph79.i, !llvm.loop !114
 
 XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i35.i, %._crit_edge.i
   %276 = shl i64 %.0108.i.lcssa.i, 6
   %277 = getelementptr inbounds nuw i8, ptr %.1107.i.lcssa.i, i64 %276
-  store i64 %.0108.i.lcssa.i, ptr %153, align 8, !tbaa !140, !alias.scope !373, !noalias !376
+  store i64 %.0108.i.lcssa.i, ptr %153, align 8, !tbaa !151, !alias.scope !387, !noalias !390
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %279 = getelementptr inbounds i8, ptr %277, i64 -64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %278, ptr noundef nonnull readonly align 1 dereferenceable(64) %279, i64 64, i1 false)
@@ -3556,16 +3556,16 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %283 = getelementptr inbounds i8, ptr %6, i64 -256
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %.promoted.i = load i64, ptr %284, align 8, !tbaa !31, !alias.scope !481, !noalias !484
+  %.promoted.i = load i64, ptr %284, align 8, !tbaa !35, !alias.scope !495, !noalias !498
   br label %286
 
 286:                                              ; preds = %XXH3_consumeStripes.exit.i, %282
   %storemerge.i562.i = phi i64 [ %.promoted.i, %282 ], [ %storemerge.i5.i, %XXH3_consumeStripes.exit.i ]
   %.3.i.i = phi ptr [ %.0106.i.i, %282 ], [ %390, %XXH3_consumeStripes.exit.i ]
-  %287 = load i64, ptr %144, align 8, !tbaa !41, !alias.scope !373, !noalias !376
-  %288 = load i64, ptr %285, align 32, !tbaa !40, !alias.scope !373, !noalias !376
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !488)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
+  %287 = load i64, ptr %144, align 8, !tbaa !49, !alias.scope !387, !noalias !390
+  %288 = load i64, ptr %285, align 32, !tbaa !48, !alias.scope !387, !noalias !390
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !502)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !495)
   %289 = sub i64 %287, %storemerge.i562.i
   %.not.i4.i = icmp ugt i64 %289, 4
   br i1 %.not.i4.i, label %361, label %290
@@ -3574,7 +3574,7 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %291 = sub nuw nsw i64 4, %289
   %292 = shl i64 %storemerge.i562.i, 3
   %293 = getelementptr inbounds nuw i8, ptr %11, i64 %292
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !489)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
   %.not81.i = icmp eq i64 %287, %storemerge.i562.i
   br i1 %.not81.i, label %XXH3_accumulate.exit32.i, label %.lr.ph55.i
 
@@ -3583,18 +3583,18 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %294 = shl i64 %.0.i2954.i, 6
   %295 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 %294
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %296, i32 0, i32 3, i32 1), !noalias !492
+  tail call void @llvm.prefetch.p0(ptr nonnull %296, i32 0, i32 3, i32 1), !noalias !506
   %297 = shl i64 %.0.i2954.i, 3
   %298 = getelementptr inbounds nuw i8, ptr %293, i64 %297
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !493), !noalias !481
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !507), !noalias !495
   br label %299
 
 299:                                              ; preds = %299, %.lr.ph55.i
   %.0.i.i3053.i = phi i64 [ 0, %.lr.ph55.i ], [ %316, %299 ]
   %300 = getelementptr inbounds nuw <2 x i64>, ptr %295, i64 %.0.i.i3053.i
-  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !4, !noalias !496
+  %301 = load <2 x i64>, ptr %300, align 1, !tbaa !4, !noalias !510
   %302 = getelementptr inbounds nuw <2 x i64>, ptr %298, i64 %.0.i.i3053.i
-  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !4, !noalias !496
+  %303 = load <2 x i64>, ptr %302, align 1, !tbaa !4, !noalias !510
   %304 = xor <2 x i64> %303, %301
   %305 = bitcast <2 x i64> %304 to <4 x i32>
   %306 = shufflevector <4 x i32> %305, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3604,31 +3604,31 @@ XXH3_accumulate.exit36.i:                         ; preds = %XXH3_accumulate_512
   %310 = mul nuw <2 x i64> %309, %308
   %311 = shufflevector <2 x i64> %301, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %312 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i3053.i
-  %313 = load <2 x i64>, ptr %312, align 16, !tbaa !4, !alias.scope !497, !noalias !498
+  %313 = load <2 x i64>, ptr %312, align 16, !tbaa !4, !alias.scope !511, !noalias !512
   %314 = add <2 x i64> %313, %311
   %315 = add <2 x i64> %314, %310
-  store <2 x i64> %315, ptr %312, align 16, !tbaa !4, !alias.scope !497, !noalias !498
+  store <2 x i64> %315, ptr %312, align 16, !tbaa !4, !alias.scope !511, !noalias !512
   %316 = add nuw nsw i64 %.0.i.i3053.i, 1
   %exitcond94.not.i = icmp eq i64 %316, 4
-  br i1 %exitcond94.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i, label %299
+  br i1 %exitcond94.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i, label %299, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i31.i:              ; preds = %299
   %317 = add nuw i64 %.0.i2954.i, 1
   %exitcond95.not.i = icmp eq i64 %317, %289
-  br i1 %exitcond95.not.i, label %XXH3_accumulate.exit32.i, label %.lr.ph55.i
+  br i1 %exitcond95.not.i, label %XXH3_accumulate.exit32.i, label %.lr.ph55.i, !llvm.loop !114
 
 XXH3_accumulate.exit32.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i31.i, %290
   %318 = getelementptr inbounds nuw i8, ptr %11, i64 %288
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !517)
   br label %319
 
 319:                                              ; preds = %319, %XXH3_accumulate.exit32.i
   %.0.i.i56.i = phi i64 [ 0, %XXH3_accumulate.exit32.i ], [ %334, %319 ]
   %320 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i56.i
-  %321 = load <2 x i64>, ptr %320, align 16, !tbaa !4, !alias.scope !506, !noalias !507
+  %321 = load <2 x i64>, ptr %320, align 16, !tbaa !4, !alias.scope !520, !noalias !521
   %322 = lshr <2 x i64> %321, splat (i64 47)
   %323 = getelementptr inbounds nuw <2 x i64>, ptr %318, i64 %.0.i.i56.i
-  %324 = load <2 x i64>, ptr %323, align 1, !tbaa !4, !noalias !509
+  %324 = load <2 x i64>, ptr %323, align 1, !tbaa !4, !noalias !523
   %325 = xor <2 x i64> %322, %324
   %326 = xor <2 x i64> %325, %321
   %327 = bitcast <2 x i64> %326 to <4 x i32>
@@ -3638,15 +3638,15 @@ XXH3_accumulate.exit32.i:                         ; preds = %XXH3_accumulate_512
   %331 = mul nuw <2 x i64> %330, splat (i64 2654435761)
   %332 = mul <2 x i64> %329, splat (i64 -7046029290881679360)
   %333 = add <2 x i64> %332, %331
-  store <2 x i64> %333, ptr %320, align 16, !tbaa !4, !alias.scope !506, !noalias !507
+  store <2 x i64> %333, ptr %320, align 16, !tbaa !4, !alias.scope !520, !noalias !521
   %334 = add nuw nsw i64 %.0.i.i56.i, 1
   %exitcond96.not.i = icmp eq i64 %334, 4
-  br i1 %exitcond96.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i, label %319
+  br i1 %exitcond96.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i, label %319, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i.i:                   ; preds = %319
   %335 = shl nuw nsw i64 %289, 6
   %336 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 %335
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !524)
   %.not82.i = icmp eq i64 %289, 4
   br i1 %.not82.i, label %XXH3_consumeStripes.exit.i, label %.lr.ph59.i
 
@@ -3655,18 +3655,18 @@ XXH3_scrambleAcc_sse2.exit.i.i:                   ; preds = %319
   %337 = shl i64 %.0.i2558.i, 6
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %339, i32 0, i32 3, i32 1), !noalias !513
+  tail call void @llvm.prefetch.p0(ptr nonnull %339, i32 0, i32 3, i32 1), !noalias !527
   %340 = shl i64 %.0.i2558.i, 3
   %341 = getelementptr inbounds nuw i8, ptr %11, i64 %340
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !514), !noalias !481
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !528), !noalias !495
   br label %342
 
 342:                                              ; preds = %342, %.lr.ph59.i
   %.0.i.i2657.i = phi i64 [ 0, %.lr.ph59.i ], [ %359, %342 ]
   %343 = getelementptr inbounds nuw <2 x i64>, ptr %338, i64 %.0.i.i2657.i
-  %344 = load <2 x i64>, ptr %343, align 1, !tbaa !4, !noalias !517
+  %344 = load <2 x i64>, ptr %343, align 1, !tbaa !4, !noalias !531
   %345 = getelementptr inbounds nuw <2 x i64>, ptr %341, i64 %.0.i.i2657.i
-  %346 = load <2 x i64>, ptr %345, align 1, !tbaa !4, !noalias !517
+  %346 = load <2 x i64>, ptr %345, align 1, !tbaa !4, !noalias !531
   %347 = xor <2 x i64> %346, %344
   %348 = bitcast <2 x i64> %347 to <4 x i32>
   %349 = shufflevector <4 x i32> %348, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3676,23 +3676,23 @@ XXH3_scrambleAcc_sse2.exit.i.i:                   ; preds = %319
   %353 = mul nuw <2 x i64> %352, %351
   %354 = shufflevector <2 x i64> %344, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %355 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i2657.i
-  %356 = load <2 x i64>, ptr %355, align 16, !tbaa !4, !alias.scope !518, !noalias !519
+  %356 = load <2 x i64>, ptr %355, align 16, !tbaa !4, !alias.scope !532, !noalias !533
   %357 = add <2 x i64> %356, %354
   %358 = add <2 x i64> %357, %353
-  store <2 x i64> %358, ptr %355, align 16, !tbaa !4, !alias.scope !518, !noalias !519
+  store <2 x i64> %358, ptr %355, align 16, !tbaa !4, !alias.scope !532, !noalias !533
   %359 = add nuw nsw i64 %.0.i.i2657.i, 1
   %exitcond97.not.i = icmp eq i64 %359, 4
-  br i1 %exitcond97.not.i, label %XXH3_accumulate_512_sse2.exit.i27.i, label %342
+  br i1 %exitcond97.not.i, label %XXH3_accumulate_512_sse2.exit.i27.i, label %342, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i27.i:              ; preds = %342
   %360 = add nuw i64 %.0.i2558.i, 1
   %exitcond99.not.i = icmp eq i64 %360, %291
-  br i1 %exitcond99.not.i, label %XXH3_consumeStripes.exit.i, label %.lr.ph59.i
+  br i1 %exitcond99.not.i, label %XXH3_consumeStripes.exit.i, label %.lr.ph59.i, !llvm.loop !114
 
 361:                                              ; preds = %286
   %362 = shl i64 %storemerge.i562.i, 3
   %363 = getelementptr inbounds nuw i8, ptr %11, i64 %362
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !524)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
   br label %364
 
 364:                                              ; preds = %XXH3_accumulate_512_sse2.exit.i23.i, %361
@@ -3700,18 +3700,18 @@ XXH3_accumulate_512_sse2.exit.i27.i:              ; preds = %342
   %365 = shl nuw nsw i64 %.0.i2161.i, 6
   %366 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 %365
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull %367, i32 0, i32 3, i32 1), !noalias !527
+  tail call void @llvm.prefetch.p0(ptr nonnull %367, i32 0, i32 3, i32 1), !noalias !541
   %368 = shl nuw nsw i64 %.0.i2161.i, 3
   %369 = getelementptr inbounds nuw i8, ptr %363, i64 %368
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !528), !noalias !481
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !542), !noalias !495
   br label %370
 
 370:                                              ; preds = %370, %364
   %.0.i.i2260.i = phi i64 [ 0, %364 ], [ %387, %370 ]
   %371 = getelementptr inbounds nuw <2 x i64>, ptr %366, i64 %.0.i.i2260.i
-  %372 = load <2 x i64>, ptr %371, align 1, !tbaa !4, !noalias !531
+  %372 = load <2 x i64>, ptr %371, align 1, !tbaa !4, !noalias !545
   %373 = getelementptr inbounds nuw <2 x i64>, ptr %369, i64 %.0.i.i2260.i
-  %374 = load <2 x i64>, ptr %373, align 1, !tbaa !4, !noalias !531
+  %374 = load <2 x i64>, ptr %373, align 1, !tbaa !4, !noalias !545
   %375 = xor <2 x i64> %374, %372
   %376 = bitcast <2 x i64> %375 to <4 x i32>
   %377 = shufflevector <4 x i32> %376, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3721,18 +3721,18 @@ XXH3_accumulate_512_sse2.exit.i27.i:              ; preds = %342
   %381 = mul nuw <2 x i64> %380, %379
   %382 = shufflevector <2 x i64> %372, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %383 = getelementptr inbounds nuw <2 x i64>, ptr %0, i64 %.0.i.i2260.i
-  %384 = load <2 x i64>, ptr %383, align 16, !tbaa !4, !alias.scope !532, !noalias !533
+  %384 = load <2 x i64>, ptr %383, align 16, !tbaa !4, !alias.scope !546, !noalias !547
   %385 = add <2 x i64> %384, %382
   %386 = add <2 x i64> %385, %381
-  store <2 x i64> %386, ptr %383, align 16, !tbaa !4, !alias.scope !532, !noalias !533
+  store <2 x i64> %386, ptr %383, align 16, !tbaa !4, !alias.scope !546, !noalias !547
   %387 = add nuw nsw i64 %.0.i.i2260.i, 1
   %exitcond100.not.i = icmp eq i64 %387, 4
-  br i1 %exitcond100.not.i, label %XXH3_accumulate_512_sse2.exit.i23.i, label %370
+  br i1 %exitcond100.not.i, label %XXH3_accumulate_512_sse2.exit.i23.i, label %370, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i23.i:              ; preds = %370
   %388 = add nuw nsw i64 %.0.i2161.i, 1
   %exitcond101.not.i = icmp eq i64 %388, 4
-  br i1 %exitcond101.not.i, label %XXH3_accumulate.exit24.i, label %364
+  br i1 %exitcond101.not.i, label %XXH3_accumulate.exit24.i, label %364, !llvm.loop !114
 
 XXH3_accumulate.exit24.i:                         ; preds = %XXH3_accumulate_512_sse2.exit.i23.i
   %389 = add i64 %storemerge.i562.i, 4
@@ -3742,10 +3742,10 @@ XXH3_consumeStripes.exit.i:                       ; preds = %XXH3_accumulate_512
   %storemerge.i5.i = phi i64 [ %389, %XXH3_accumulate.exit24.i ], [ 0, %XXH3_scrambleAcc_sse2.exit.i.i ], [ %291, %XXH3_accumulate_512_sse2.exit.i27.i ]
   %390 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 256
   %391 = icmp ult ptr %390, %283
-  br i1 %391, label %286, label %392
+  br i1 %391, label %286, label %392, !llvm.loop !256
 
 392:                                              ; preds = %XXH3_consumeStripes.exit.i
-  store i64 %storemerge.i5.i, ptr %284, align 8, !tbaa !31, !alias.scope !481, !noalias !484
+  store i64 %storemerge.i5.i, ptr %284, align 8, !tbaa !35, !alias.scope !495, !noalias !498
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %394 = getelementptr inbounds nuw i8, ptr %.3.i.i, i64 192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %393, ptr noundef nonnull readonly align 1 dereferenceable(64) %394, i64 64, i1 false)
@@ -3762,7 +3762,7 @@ XXH3_consumeStripes.exit.i:                       ; preds = %XXH3_accumulate_512
 
 400:                                              ; preds = %395, %20
   %storemerge.i.i = phi i32 [ %399, %395 ], [ %25, %20 ]
-  store i32 %storemerge.i.i, ptr %15, align 64, !tbaa !82, !alias.scope !373, !noalias !376
+  store i32 %storemerge.i.i, ptr %15, align 64, !tbaa !90, !alias.scope !387, !noalias !390
   br label %XXH_INLINE_XXH3_128bits_update.exit
 
 XXH_INLINE_XXH3_128bits_update.exit:              ; preds = %3, %400
@@ -3774,12 +3774,12 @@ define dso_local void @PHP_XXH3_128_Final(ptr noundef writeonly captures(none) %
   %3 = alloca [64 x i8], align 16
   %4 = alloca [8 x i64], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %6 = load ptr, ptr %5, align 8, !tbaa !37
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = icmp eq ptr %6, null
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %9 = select i1 %7, ptr %8, ptr %6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 528
-  %11 = load i64, ptr %10, align 16, !tbaa !81
+  %11 = load i64, ptr %10, align 16, !tbaa !89
   %12 = icmp ugt i64 %11, 240
   br i1 %12, label %13, label %233
 
@@ -3787,7 +3787,7 @@ define dso_local void @PHP_XXH3_128_Final(ptr noundef writeonly captures(none) %
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull readonly align 1 dereferenceable(64) %1, i64 64, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 512
-  %15 = load i32, ptr %14, align 64, !tbaa !82
+  %15 = load i32, ptr %14, align 64, !tbaa !90
   %16 = icmp ugt i32 %15, 63
   br i1 %16, label %17, label %150
 
@@ -3796,12 +3796,12 @@ define dso_local void @PHP_XXH3_128_Final(ptr noundef writeonly captures(none) %
   %19 = lshr i32 %18, 6
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 520
-  %22 = load i64, ptr %21, align 8, !tbaa !140
+  %22 = load i64, ptr %21, align 8, !tbaa !151
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 536
-  %24 = load i64, ptr %23, align 8, !tbaa !41
+  %24 = load i64, ptr %23, align 8, !tbaa !49
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %27 = load i64, ptr %26, align 32, !tbaa !40
+  %27 = load i64, ptr %26, align 32, !tbaa !48
   %28 = sub i64 %24, %22
   %.not.i.i.i = icmp ugt i64 %28, %20
   br i1 %.not.i.i.i, label %100, label %29
@@ -3810,7 +3810,7 @@ define dso_local void @PHP_XXH3_128_Final(ptr noundef writeonly captures(none) %
   %30 = sub nuw nsw i64 %20, %28
   %31 = shl i64 %22, 3
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 %31
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !538)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !552)
   %.not70.i = icmp eq i64 %24, %22
   br i1 %.not70.i, label %XXH3_accumulate.exit36.i.i, label %.lr.ph.i
 
@@ -3819,18 +3819,18 @@ define dso_local void @PHP_XXH3_128_Final(ptr noundef writeonly captures(none) %
   %33 = shl i64 %.0.i33.i61.i, 6
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %35, i32 0, i32 3, i32 1), !noalias !541
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %35, i32 0, i32 3, i32 1), !noalias !555
   %36 = shl i64 %.0.i33.i61.i, 3
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 %36
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !544), !noalias !547
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !558), !noalias !561
   br label %38
 
 38:                                               ; preds = %38, %.lr.ph.i
   %.0.i.i34.i60.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %38 ]
   %39 = getelementptr inbounds nuw <2 x i64>, ptr %34, i64 %.0.i.i34.i60.i
-  %40 = load <2 x i64>, ptr %39, align 1, !tbaa !4, !noalias !548
+  %40 = load <2 x i64>, ptr %39, align 1, !tbaa !4, !noalias !562
   %41 = getelementptr inbounds nuw <2 x i64>, ptr %37, i64 %.0.i.i34.i60.i
-  %42 = load <2 x i64>, ptr %41, align 1, !tbaa !4, !noalias !548
+  %42 = load <2 x i64>, ptr %41, align 1, !tbaa !4, !noalias !562
   %43 = xor <2 x i64> %42, %40
   %44 = bitcast <2 x i64> %43 to <4 x i32>
   %45 = shufflevector <4 x i32> %44, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3840,31 +3840,31 @@ define dso_local void @PHP_XXH3_128_Final(ptr noundef writeonly captures(none) %
   %49 = mul nuw <2 x i64> %48, %47
   %50 = shufflevector <2 x i64> %40, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %51 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i34.i60.i
-  %52 = load <2 x i64>, ptr %51, align 16, !tbaa !4, !alias.scope !549, !noalias !550
+  %52 = load <2 x i64>, ptr %51, align 16, !tbaa !4, !alias.scope !563, !noalias !564
   %53 = add <2 x i64> %52, %50
   %54 = add <2 x i64> %53, %49
-  store <2 x i64> %54, ptr %51, align 16, !tbaa !4, !alias.scope !549, !noalias !550
+  store <2 x i64> %54, ptr %51, align 16, !tbaa !4, !alias.scope !563, !noalias !564
   %55 = add nuw nsw i64 %.0.i.i34.i60.i, 1
   %exitcond75.not.i = icmp eq i64 %55, 4
-  br i1 %exitcond75.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i.i, label %38
+  br i1 %exitcond75.not.i, label %XXH3_accumulate_512_sse2.exit.i35.i.i, label %38, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i35.i.i:            ; preds = %38
   %56 = add nuw i64 %.0.i33.i61.i, 1
   %exitcond76.not.i = icmp eq i64 %56, %28
-  br i1 %exitcond76.not.i, label %XXH3_accumulate.exit36.i.i, label %.lr.ph.i
+  br i1 %exitcond76.not.i, label %XXH3_accumulate.exit36.i.i, label %.lr.ph.i, !llvm.loop !114
 
 XXH3_accumulate.exit36.i.i:                       ; preds = %XXH3_accumulate_512_sse2.exit.i35.i.i, %29
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 %27
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !569)
   br label %58
 
 58:                                               ; preds = %58, %XXH3_accumulate.exit36.i.i
   %.0.i.i.i62.i = phi i64 [ 0, %XXH3_accumulate.exit36.i.i ], [ %73, %58 ]
   %59 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i.i62.i
-  %60 = load <2 x i64>, ptr %59, align 16, !tbaa !4, !alias.scope !558, !noalias !560
+  %60 = load <2 x i64>, ptr %59, align 16, !tbaa !4, !alias.scope !572, !noalias !574
   %61 = lshr <2 x i64> %60, splat (i64 47)
   %62 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %.0.i.i.i62.i
-  %63 = load <2 x i64>, ptr %62, align 1, !tbaa !4, !noalias !564
+  %63 = load <2 x i64>, ptr %62, align 1, !tbaa !4, !noalias !578
   %64 = xor <2 x i64> %61, %63
   %65 = xor <2 x i64> %64, %60
   %66 = bitcast <2 x i64> %65 to <4 x i32>
@@ -3874,15 +3874,15 @@ XXH3_accumulate.exit36.i.i:                       ; preds = %XXH3_accumulate_512
   %70 = mul nuw <2 x i64> %69, splat (i64 2654435761)
   %71 = mul <2 x i64> %68, splat (i64 -7046029290881679360)
   %72 = add <2 x i64> %71, %70
-  store <2 x i64> %72, ptr %59, align 16, !tbaa !4, !alias.scope !558, !noalias !560
+  store <2 x i64> %72, ptr %59, align 16, !tbaa !4, !alias.scope !572, !noalias !574
   %73 = add nuw nsw i64 %.0.i.i.i62.i, 1
   %exitcond77.not.i = icmp eq i64 %73, 4
-  br i1 %exitcond77.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i.i, label %58
+  br i1 %exitcond77.not.i, label %XXH3_scrambleAcc_sse2.exit.i.i.i, label %58, !llvm.loop !122
 
 XXH3_scrambleAcc_sse2.exit.i.i.i:                 ; preds = %58
   %74 = shl nuw nsw i64 %28, 6
   %75 = getelementptr inbounds nuw i8, ptr %25, i64 %74
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !565)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   %.not71.i = icmp eq i64 %28, %20
   br i1 %.not71.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph65.i
 
@@ -3891,18 +3891,18 @@ XXH3_scrambleAcc_sse2.exit.i.i.i:                 ; preds = %58
   %76 = shl i64 %.0.i29.i64.i, 6
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %78, i32 0, i32 3, i32 1), !noalias !568
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %78, i32 0, i32 3, i32 1), !noalias !582
   %79 = shl i64 %.0.i29.i64.i, 3
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 %79
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !569), !noalias !547
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !583), !noalias !561
   br label %81
 
 81:                                               ; preds = %81, %.lr.ph65.i
   %.0.i.i30.i63.i = phi i64 [ 0, %.lr.ph65.i ], [ %98, %81 ]
   %82 = getelementptr inbounds nuw <2 x i64>, ptr %77, i64 %.0.i.i30.i63.i
-  %83 = load <2 x i64>, ptr %82, align 1, !tbaa !4, !noalias !572
+  %83 = load <2 x i64>, ptr %82, align 1, !tbaa !4, !noalias !586
   %84 = getelementptr inbounds nuw <2 x i64>, ptr %80, i64 %.0.i.i30.i63.i
-  %85 = load <2 x i64>, ptr %84, align 1, !tbaa !4, !noalias !572
+  %85 = load <2 x i64>, ptr %84, align 1, !tbaa !4, !noalias !586
   %86 = xor <2 x i64> %85, %83
   %87 = bitcast <2 x i64> %86 to <4 x i32>
   %88 = shufflevector <4 x i32> %87, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3912,23 +3912,23 @@ XXH3_scrambleAcc_sse2.exit.i.i.i:                 ; preds = %58
   %92 = mul nuw <2 x i64> %91, %90
   %93 = shufflevector <2 x i64> %83, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %94 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i30.i63.i
-  %95 = load <2 x i64>, ptr %94, align 16, !tbaa !4, !alias.scope !573, !noalias !574
+  %95 = load <2 x i64>, ptr %94, align 16, !tbaa !4, !alias.scope !587, !noalias !588
   %96 = add <2 x i64> %95, %93
   %97 = add <2 x i64> %96, %92
-  store <2 x i64> %97, ptr %94, align 16, !tbaa !4, !alias.scope !573, !noalias !574
+  store <2 x i64> %97, ptr %94, align 16, !tbaa !4, !alias.scope !587, !noalias !588
   %98 = add nuw nsw i64 %.0.i.i30.i63.i, 1
   %exitcond78.not.i = icmp eq i64 %98, 4
-  br i1 %exitcond78.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i.i, label %81
+  br i1 %exitcond78.not.i, label %XXH3_accumulate_512_sse2.exit.i31.i.i, label %81, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %81
   %99 = add nuw i64 %.0.i29.i64.i, 1
   %exitcond79.not.i = icmp eq i64 %99, %30
-  br i1 %exitcond79.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph65.i
+  br i1 %exitcond79.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph65.i, !llvm.loop !114
 
 100:                                              ; preds = %17
   %101 = shl i64 %22, 3
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 %101
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !593)
   %.not72.i = icmp eq i32 %15, 64
   br i1 %.not72.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.preheader.i
 
@@ -3941,18 +3941,18 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %81
   %103 = shl i64 %.0.i27.i67.i, 6
   %104 = getelementptr inbounds nuw i8, ptr %25, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 320
-  tail call void @llvm.prefetch.p0(ptr nonnull readonly %105, i32 0, i32 3, i32 1), !noalias !582
+  tail call void @llvm.prefetch.p0(ptr nonnull readonly %105, i32 0, i32 3, i32 1), !noalias !596
   %106 = shl i64 %.0.i27.i67.i, 3
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 %106
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !583), !noalias !547
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !597), !noalias !561
   br label %108
 
 108:                                              ; preds = %108, %.lr.ph68.i
   %.0.i.i28.i66.i = phi i64 [ 0, %.lr.ph68.i ], [ %125, %108 ]
   %109 = getelementptr inbounds nuw <2 x i64>, ptr %104, i64 %.0.i.i28.i66.i
-  %110 = load <2 x i64>, ptr %109, align 1, !tbaa !4, !noalias !586
+  %110 = load <2 x i64>, ptr %109, align 1, !tbaa !4, !noalias !600
   %111 = getelementptr inbounds nuw <2 x i64>, ptr %107, i64 %.0.i.i28.i66.i
-  %112 = load <2 x i64>, ptr %111, align 1, !tbaa !4, !noalias !586
+  %112 = load <2 x i64>, ptr %111, align 1, !tbaa !4, !noalias !600
   %113 = xor <2 x i64> %112, %110
   %114 = bitcast <2 x i64> %113 to <4 x i32>
   %115 = shufflevector <4 x i32> %114, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3962,18 +3962,18 @@ XXH3_accumulate_512_sse2.exit.i31.i.i:            ; preds = %81
   %119 = mul nuw <2 x i64> %118, %117
   %120 = shufflevector <2 x i64> %110, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %121 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i28.i66.i
-  %122 = load <2 x i64>, ptr %121, align 16, !tbaa !4, !alias.scope !587, !noalias !588
+  %122 = load <2 x i64>, ptr %121, align 16, !tbaa !4, !alias.scope !601, !noalias !602
   %123 = add <2 x i64> %122, %120
   %124 = add <2 x i64> %123, %119
-  store <2 x i64> %124, ptr %121, align 16, !tbaa !4, !alias.scope !587, !noalias !588
+  store <2 x i64> %124, ptr %121, align 16, !tbaa !4, !alias.scope !601, !noalias !602
   %125 = add nuw nsw i64 %.0.i.i28.i66.i, 1
   %exitcond80.not.i = icmp eq i64 %125, 4
-  br i1 %exitcond80.not.i, label %XXH3_accumulate_512_sse2.exit.i.i.i, label %108
+  br i1 %exitcond80.not.i, label %XXH3_accumulate_512_sse2.exit.i.i.i, label %108, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i.i.i:              ; preds = %108
   %126 = add nuw nsw i64 %.0.i27.i67.i, 1
   %exitcond82.not.i = icmp eq i64 %126, %umax81.i
-  br i1 %exitcond82.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.i
+  br i1 %exitcond82.not.i, label %XXH3_consumeStripes.exit.i.i, label %.lr.ph68.i, !llvm.loop !114
 
 XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512_sse2.exit.i31.i.i, %XXH3_accumulate_512_sse2.exit.i.i.i, %100, %XXH3_scrambleAcc_sse2.exit.i.i.i
   %127 = zext i32 %15 to i64
@@ -3981,15 +3981,15 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %129 = getelementptr inbounds i8, ptr %128, i64 -64
   %130 = getelementptr inbounds nuw i8, ptr %9, i64 %27
   %131 = getelementptr inbounds i8, ptr %130, i64 -7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !593)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !607)
   br label %132
 
 132:                                              ; preds = %132, %XXH3_consumeStripes.exit.i.i
   %.0.i25.i69.i = phi i64 [ 0, %XXH3_consumeStripes.exit.i.i ], [ %149, %132 ]
   %133 = getelementptr inbounds nuw <2 x i64>, ptr %129, i64 %.0.i25.i69.i
-  %134 = load <2 x i64>, ptr %133, align 1, !tbaa !4, !noalias !593
+  %134 = load <2 x i64>, ptr %133, align 1, !tbaa !4, !noalias !607
   %135 = getelementptr inbounds nuw <2 x i64>, ptr %131, i64 %.0.i25.i69.i
-  %136 = load <2 x i64>, ptr %135, align 1, !tbaa !4, !noalias !593
+  %136 = load <2 x i64>, ptr %135, align 1, !tbaa !4, !noalias !607
   %137 = xor <2 x i64> %136, %134
   %138 = bitcast <2 x i64> %137 to <4 x i32>
   %139 = shufflevector <4 x i32> %138, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -3999,13 +3999,13 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %143 = mul nuw <2 x i64> %142, %141
   %144 = shufflevector <2 x i64> %134, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %145 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i25.i69.i
-  %146 = load <2 x i64>, ptr %145, align 16, !tbaa !4, !alias.scope !593, !noalias !596
+  %146 = load <2 x i64>, ptr %145, align 16, !tbaa !4, !alias.scope !607, !noalias !610
   %147 = add <2 x i64> %146, %144
   %148 = add <2 x i64> %147, %143
-  store <2 x i64> %148, ptr %145, align 16, !tbaa !4, !alias.scope !593, !noalias !596
+  store <2 x i64> %148, ptr %145, align 16, !tbaa !4, !alias.scope !607, !noalias !610
   %149 = add nuw nsw i64 %.0.i25.i69.i, 1
   %exitcond83.not.i = icmp eq i64 %149, 4
-  br i1 %exitcond83.not.i, label %XXH3_digest_long.exit.i, label %132
+  br i1 %exitcond83.not.i, label %XXH3_digest_long.exit.i, label %132, !llvm.loop !113
 
 150:                                              ; preds = %13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #16
@@ -4019,18 +4019,18 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %157 = zext nneg i32 %15 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %156, ptr nonnull readonly align 1 %153, i64 %157, i1 false)
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 544
-  %159 = load i64, ptr %158, align 32, !tbaa !40
+  %159 = load i64, ptr %158, align 32, !tbaa !48
   %160 = getelementptr inbounds nuw i8, ptr %9, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -7
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !599)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !613)
   br label %162
 
 162:                                              ; preds = %162, %150
   %.0.i.i59.i = phi i64 [ 0, %150 ], [ %179, %162 ]
   %163 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i.i59.i
-  %164 = load <2 x i64>, ptr %163, align 16, !tbaa !4, !noalias !599
+  %164 = load <2 x i64>, ptr %163, align 16, !tbaa !4, !noalias !613
   %165 = getelementptr inbounds nuw <2 x i64>, ptr %161, i64 %.0.i.i59.i
-  %166 = load <2 x i64>, ptr %165, align 1, !tbaa !4, !noalias !599
+  %166 = load <2 x i64>, ptr %165, align 1, !tbaa !4, !noalias !613
   %167 = xor <2 x i64> %166, %164
   %168 = bitcast <2 x i64> %167 to <4 x i32>
   %169 = shufflevector <4 x i32> %168, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 0>
@@ -4040,13 +4040,13 @@ XXH3_consumeStripes.exit.i.i:                     ; preds = %XXH3_accumulate_512
   %173 = mul nuw <2 x i64> %172, %171
   %174 = shufflevector <2 x i64> %164, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   %175 = getelementptr inbounds nuw <2 x i64>, ptr %4, i64 %.0.i.i59.i
-  %176 = load <2 x i64>, ptr %175, align 16, !tbaa !4, !alias.scope !599, !noalias !602
+  %176 = load <2 x i64>, ptr %175, align 16, !tbaa !4, !alias.scope !613, !noalias !616
   %177 = add <2 x i64> %176, %174
   %178 = add <2 x i64> %177, %173
-  store <2 x i64> %178, ptr %175, align 16, !tbaa !4, !alias.scope !599, !noalias !602
+  store <2 x i64> %178, ptr %175, align 16, !tbaa !4, !alias.scope !613, !noalias !616
   %179 = add nuw nsw i64 %.0.i.i59.i, 1
   %exitcond.not.i = icmp eq i64 %179, 4
-  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %162
+  br i1 %exitcond.not.i, label %XXH3_accumulate_512_sse2.exit.i.i, label %162, !llvm.loop !113
 
 XXH3_accumulate_512_sse2.exit.i.i:                ; preds = %162
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #16
@@ -4056,8 +4056,8 @@ XXH3_digest_long.exit.i:                          ; preds = %132, %XXH3_accumula
   %180 = phi i64 [ %159, %XXH3_accumulate_512_sse2.exit.i.i ], [ %27, %132 ]
   %181 = getelementptr inbounds nuw i8, ptr %9, i64 11
   %182 = mul i64 %11, -7046029288634856825
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !605)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !619)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !622)
   br label %183
 
 183:                                              ; preds = %183, %XXH3_digest_long.exit.i
@@ -4066,14 +4066,14 @@ XXH3_digest_long.exit.i:                          ; preds = %132, %XXH3_accumula
   %.idx.i.i = shl nuw nsw i64 %.011.i.i, 4
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !610)
-  %186 = load i64, ptr %184, align 16, !tbaa !31, !alias.scope !613, !noalias !614
-  %.0.copyload.i.i.i = load i64, ptr %185, align 1, !alias.scope !608, !noalias !613
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !624)
+  %186 = load i64, ptr %184, align 16, !tbaa !35, !alias.scope !627, !noalias !628
+  %.0.copyload.i.i.i = load i64, ptr %185, align 1, !alias.scope !622, !noalias !627
   %187 = xor i64 %.0.copyload.i.i.i, %186
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %189 = load i64, ptr %188, align 8, !tbaa !31, !alias.scope !613, !noalias !614
+  %189 = load i64, ptr %188, align 8, !tbaa !35, !alias.scope !627, !noalias !628
   %190 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %.0.copyload.i9.i.i = load i64, ptr %190, align 1, !alias.scope !608, !noalias !613
+  %.0.copyload.i9.i.i = load i64, ptr %190, align 1, !alias.scope !622, !noalias !627
   %191 = xor i64 %.0.copyload.i9.i.i, %189
   %192 = zext i64 %187 to i128
   %193 = zext i64 %191 to i128
@@ -4084,15 +4084,15 @@ XXH3_digest_long.exit.i:                          ; preds = %132, %XXH3_accumula
   %198 = add i64 %.0810.i.i, %197
   %199 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %199, 4
-  br i1 %exitcond.not.i.i, label %XXH3_mergeAccs.exit.i, label %183
+  br i1 %exitcond.not.i.i, label %XXH3_mergeAccs.exit.i, label %183, !llvm.loop !335
 
 XXH3_mergeAccs.exit.i:                            ; preds = %183
   %200 = getelementptr inbounds nuw i8, ptr %9, i64 %180
   %201 = getelementptr inbounds i8, ptr %200, i64 -11
   %202 = mul i64 %11, -4417276706812531889
   %203 = xor i64 %202, -1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !616)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !619)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !630)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
   br label %204
 
 204:                                              ; preds = %204, %XXH3_mergeAccs.exit.i
@@ -4101,14 +4101,14 @@ XXH3_mergeAccs.exit.i:                            ; preds = %183
   %.idx.i23.i = shl nuw nsw i64 %.011.i21.i, 4
   %205 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i23.i
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 %.idx.i23.i
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !621)
-  %207 = load i64, ptr %205, align 16, !tbaa !31, !alias.scope !624, !noalias !625
-  %.0.copyload.i.i24.i = load i64, ptr %206, align 1, !alias.scope !619, !noalias !624
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !635)
+  %207 = load i64, ptr %205, align 16, !tbaa !35, !alias.scope !638, !noalias !639
+  %.0.copyload.i.i24.i = load i64, ptr %206, align 1, !alias.scope !633, !noalias !638
   %208 = xor i64 %.0.copyload.i.i24.i, %207
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  %210 = load i64, ptr %209, align 8, !tbaa !31, !alias.scope !624, !noalias !625
+  %210 = load i64, ptr %209, align 8, !tbaa !35, !alias.scope !638, !noalias !639
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %.0.copyload.i9.i25.i = load i64, ptr %211, align 1, !alias.scope !619, !noalias !624
+  %.0.copyload.i9.i25.i = load i64, ptr %211, align 1, !alias.scope !633, !noalias !638
   %212 = xor i64 %.0.copyload.i9.i25.i, %210
   %213 = zext i64 %208 to i128
   %214 = zext i64 %212 to i128
@@ -4119,7 +4119,7 @@ XXH3_mergeAccs.exit.i:                            ; preds = %183
   %219 = add i64 %.0810.i22.i, %218
   %220 = add nuw nsw i64 %.011.i21.i, 1
   %exitcond.not.i26.i = icmp eq i64 %220, 4
-  br i1 %exitcond.not.i26.i, label %XXH3_mergeAccs.exit27.i, label %204
+  br i1 %exitcond.not.i26.i, label %XXH3_mergeAccs.exit27.i, label %204, !llvm.loop !335
 
 XXH3_mergeAccs.exit27.i:                          ; preds = %204
   %221 = lshr i64 %198, 37
@@ -4139,7 +4139,7 @@ XXH3_mergeAccs.exit27.i:                          ; preds = %204
 
 233:                                              ; preds = %2
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 552
-  %235 = load i64, ptr %234, align 8, !tbaa !35
+  %235 = load i64, ptr %234, align 8, !tbaa !42
   %.not.i = icmp eq i64 %235, 0
   %236 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %237 = icmp samesign ult i64 %11, 17
@@ -4337,9 +4337,9 @@ XXH3_mergeAccs.exit27.i:                          ; preds = %204
   %392 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %393 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %394 = getelementptr inbounds i8, ptr %393, i64 -64
-  %.0.copyload.i25.i.i = load i64, ptr %392, align 1, !noalias !627
+  %.0.copyload.i25.i.i = load i64, ptr %392, align 1, !noalias !641
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %.0.copyload.i26.i.i = load i64, ptr %395, align 1, !noalias !627
+  %.0.copyload.i26.i.i = load i64, ptr %395, align 1, !noalias !641
   %396 = add i64 %235, 4554437623014685352
   %397 = xor i64 %.0.copyload.i25.i.i, %396
   %398 = sub i64 2111919702937427193, %235
@@ -4376,9 +4376,9 @@ XXH3_mergeAccs.exit27.i:                          ; preds = %204
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %424 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %425 = getelementptr inbounds i8, ptr %424, i64 -48
-  %.0.copyload.i33.i.i = load i64, ptr %423, align 1, !noalias !630
+  %.0.copyload.i33.i.i = load i64, ptr %423, align 1, !noalias !644
   %426 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %.0.copyload.i34.i.i = load i64, ptr %426, align 1, !noalias !630
+  %.0.copyload.i34.i.i = load i64, ptr %426, align 1, !noalias !644
   %427 = add i64 %235, -3818837453329782724
   %428 = xor i64 %.0.copyload.i33.i.i, %427
   %429 = sub i64 -6688317018830679928, %235
@@ -4416,9 +4416,9 @@ XXH3_mergeAccs.exit27.i:                          ; preds = %204
   %455 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %456 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %457 = getelementptr inbounds i8, ptr %456, i64 -32
-  %.0.copyload.i41.i.i = load i64, ptr %455, align 1, !noalias !633
+  %.0.copyload.i41.i.i = load i64, ptr %455, align 1, !noalias !647
   %458 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %.0.copyload.i42.i.i = load i64, ptr %458, align 1, !noalias !633
+  %.0.copyload.i42.i.i = load i64, ptr %458, align 1, !noalias !647
   %459 = add i64 %235, 8711581037947681227
   %460 = xor i64 %.0.copyload.i41.i.i, %459
   %461 = sub i64 2410270004345854594, %235
@@ -4455,9 +4455,9 @@ XXH3_len_17to128_128b.exit.i.i:                   ; preds = %454, %384
   %.sroa.13.0.i.i.i = phi i64 [ %485, %454 ], [ 0, %384 ]
   %486 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %487 = getelementptr inbounds i8, ptr %486, i64 -16
-  %.0.copyload.i49.i.i = load i64, ptr %236, align 1, !noalias !636
+  %.0.copyload.i49.i.i = load i64, ptr %236, align 1, !noalias !650
   %488 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %.0.copyload.i50.i.i = load i64, ptr %488, align 1, !noalias !636
+  %.0.copyload.i50.i.i = load i64, ptr %488, align 1, !noalias !650
   %489 = add i64 %235, -4734510112055689544
   %490 = xor i64 %.0.copyload.i49.i.i, %489
   %491 = sub i64 2066345149520216444, %235
@@ -4724,9 +4724,9 @@ XXH3_len_17to128_128b.exit.i.i:                   ; preds = %454, %384
   %695 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %696 = getelementptr inbounds i8, ptr %695, i64 -64
   %697 = getelementptr inbounds nuw i8, ptr %9, i64 96
-  %.0.copyload.i40.i.i = load i64, ptr %694, align 1, !noalias !639
+  %.0.copyload.i40.i.i = load i64, ptr %694, align 1, !noalias !653
   %698 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %.0.copyload.i41.i41.i = load i64, ptr %698, align 1, !noalias !639
+  %.0.copyload.i41.i41.i = load i64, ptr %698, align 1, !noalias !653
   %.0.copyload.i42.i42.i = load i64, ptr %697, align 1
   %699 = xor i64 %.0.copyload.i42.i42.i, %.0.copyload.i40.i.i
   %700 = getelementptr inbounds nuw i8, ptr %9, i64 104
@@ -4767,9 +4767,9 @@ XXH3_len_17to128_128b.exit.i.i:                   ; preds = %454, %384
   %726 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %727 = getelementptr inbounds i8, ptr %726, i64 -48
   %728 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %.0.copyload.i52.i40.i = load i64, ptr %725, align 1, !noalias !642
+  %.0.copyload.i52.i40.i = load i64, ptr %725, align 1, !noalias !656
   %729 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %.0.copyload.i53.i.i = load i64, ptr %729, align 1, !noalias !642
+  %.0.copyload.i53.i.i = load i64, ptr %729, align 1, !noalias !656
   %.0.copyload.i54.i.i = load i64, ptr %728, align 1
   %730 = xor i64 %.0.copyload.i54.i.i, %.0.copyload.i52.i40.i
   %731 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -4811,9 +4811,9 @@ XXH3_len_17to128_128b.exit.i.i:                   ; preds = %454, %384
   %758 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %759 = getelementptr inbounds i8, ptr %758, i64 -32
   %760 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %.0.copyload.i64.i.i = load i64, ptr %757, align 1, !noalias !645
+  %.0.copyload.i64.i.i = load i64, ptr %757, align 1, !noalias !659
   %761 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %.0.copyload.i65.i.i = load i64, ptr %761, align 1, !noalias !645
+  %.0.copyload.i65.i.i = load i64, ptr %761, align 1, !noalias !659
   %.0.copyload.i66.i.i = load i64, ptr %760, align 1
   %762 = xor i64 %.0.copyload.i66.i.i, %.0.copyload.i64.i.i
   %763 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -4853,9 +4853,9 @@ XXH3_len_17to128_128b.exit.i31.i:                 ; preds = %756, %686
   %.sroa.13.0.i.i33.i = phi i64 [ %787, %756 ], [ 0, %686 ]
   %788 = getelementptr inbounds nuw i8, ptr %236, i64 %11
   %789 = getelementptr inbounds i8, ptr %788, i64 -16
-  %.0.copyload.i76.i.i = load i64, ptr %236, align 1, !noalias !648
+  %.0.copyload.i76.i.i = load i64, ptr %236, align 1, !noalias !662
   %790 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %.0.copyload.i77.i.i = load i64, ptr %790, align 1, !noalias !648
+  %.0.copyload.i77.i.i = load i64, ptr %790, align 1, !noalias !662
   %.0.copyload.i78.i.i = load i64, ptr %9, align 1
   %791 = xor i64 %.0.copyload.i78.i.i, %.0.copyload.i76.i.i
   %792 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -4927,7 +4927,7 @@ XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @PHP_XXH3_128_Copy(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 576)) %2) #2 {
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false), !tbaa.struct !371
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false), !tbaa.struct !385
   ret i32 0
 }
 
@@ -4967,9 +4967,9 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
   %7 = shl nuw nsw i64 %indvars.iv, 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 %7
-  %.0.copyload.i = load i64, ptr %8, align 1, !noalias !651
+  %.0.copyload.i = load i64, ptr %8, align 1, !noalias !665
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.0.copyload.i27 = load i64, ptr %10, align 1, !noalias !651
+  %.0.copyload.i27 = load i64, ptr %10, align 1, !noalias !665
   %.0.copyload.i28 = load i64, ptr %9, align 1
   %11 = add i64 %.0.copyload.i28, %3
   %12 = xor i64 %11, %.0.copyload.i
@@ -4986,7 +4986,7 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
   %22 = add i64 %.02538, %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %23, label %6
+  br i1 %exitcond.not, label %23, label %6, !llvm.loop !668
 
 23:                                               ; preds = %6
   %24 = trunc nuw nsw i64 %1 to i32
@@ -5010,9 +5010,9 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
   %33 = getelementptr i8, ptr %2, i64 %31
   %34 = getelementptr i8, ptr %33, i64 -125
-  %.0.copyload.i30 = load i64, ptr %32, align 1, !noalias !654
+  %.0.copyload.i30 = load i64, ptr %32, align 1, !noalias !669
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %.0.copyload.i31 = load i64, ptr %35, align 1, !noalias !654
+  %.0.copyload.i31 = load i64, ptr %35, align 1, !noalias !669
   %.0.copyload.i32 = load i64, ptr %34, align 1
   %36 = add i64 %.0.copyload.i32, %3
   %37 = xor i64 %36, %.0.copyload.i30
@@ -5029,16 +5029,16 @@ define internal fastcc i64 @XXH3_len_129to240_64b(ptr noalias noundef readonly c
   %47 = add i64 %.12640, %46
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
-  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph, !llvm.loop !672
 
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %.126.lcssa = phi i64 [ %30, %23 ], [ %47, %.lr.ph ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %49 = getelementptr inbounds i8, ptr %48, i64 -16
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 119
-  %.0.copyload.i34 = load i64, ptr %49, align 1, !noalias !657
+  %.0.copyload.i34 = load i64, ptr %49, align 1, !noalias !673
   %51 = getelementptr inbounds i8, ptr %48, i64 -8
-  %.0.copyload.i35 = load i64, ptr %51, align 1, !noalias !657
+  %.0.copyload.i35 = load i64, ptr %51, align 1, !noalias !673
   %.0.copyload.i36 = load i64, ptr %50, align 1
   %52 = add i64 %.0.copyload.i36, %3
   %53 = xor i64 %52, %.0.copyload.i34
@@ -5074,9 +5074,9 @@ define internal fastcc { i64, i64 } @XXH3_len_129to240_128b(ptr noalias noundef 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %7
-  %.0.copyload.i = load i64, ptr %8, align 1, !noalias !660
+  %.0.copyload.i = load i64, ptr %8, align 1, !noalias !676
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.0.copyload.i51 = load i64, ptr %11, align 1, !noalias !660
+  %.0.copyload.i51 = load i64, ptr %11, align 1, !noalias !676
   %.0.copyload.i52 = load i64, ptr %10, align 1
   %12 = add i64 %.0.copyload.i52, %3
   %13 = xor i64 %12, %.0.copyload.i
@@ -5115,7 +5115,7 @@ define internal fastcc { i64, i64 } @XXH3_len_129to240_128b(ptr noalias noundef 
   %41 = xor i64 %39, %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %42, label %6
+  br i1 %exitcond.not, label %42, label %6, !llvm.loop !679
 
 42:                                               ; preds = %6
   %43 = trunc nuw nsw i64 %1 to i32
@@ -5147,9 +5147,9 @@ define internal fastcc { i64, i64 } @XXH3_len_129to240_128b(ptr noalias noundef 
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = getelementptr i8, ptr %55, i64 %57
   %61 = getelementptr i8, ptr %60, i64 -128
-  %.0.copyload.i62 = load i64, ptr %58, align 1, !noalias !663
+  %.0.copyload.i62 = load i64, ptr %58, align 1, !noalias !680
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %.0.copyload.i63 = load i64, ptr %62, align 1, !noalias !663
+  %.0.copyload.i63 = load i64, ptr %62, align 1, !noalias !680
   %.0.copyload.i64 = load i64, ptr %61, align 1
   %63 = add i64 %.0.copyload.i64, %3
   %64 = xor i64 %63, %.0.copyload.i62
@@ -5188,7 +5188,7 @@ define internal fastcc { i64, i64 } @XXH3_len_129to240_128b(ptr noalias noundef 
   %92 = xor i64 %90, %91
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count
-  br i1 %exitcond100.not, label %._crit_edge, label %56
+  br i1 %exitcond100.not, label %._crit_edge, label %56, !llvm.loop !683
 
 ._crit_edge:                                      ; preds = %56, %42
   %.sroa.015.1.lcssa = phi i64 [ %49, %42 ], [ %77, %56 ]
@@ -5197,9 +5197,9 @@ define internal fastcc { i64, i64 } @XXH3_len_129to240_128b(ptr noalias noundef 
   %94 = getelementptr inbounds i8, ptr %93, i64 -16
   %95 = getelementptr inbounds i8, ptr %93, i64 -32
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 103
-  %.0.copyload.i74 = load i64, ptr %94, align 1, !noalias !666
+  %.0.copyload.i74 = load i64, ptr %94, align 1, !noalias !684
   %97 = getelementptr inbounds i8, ptr %93, i64 -8
-  %.0.copyload.i75 = load i64, ptr %97, align 1, !noalias !666
+  %.0.copyload.i75 = load i64, ptr %97, align 1, !noalias !684
   %.0.copyload.i76 = load i64, ptr %96, align 1
   %98 = sub i64 %.0.copyload.i76, %3
   %99 = xor i64 %98, %.0.copyload.i74
@@ -5305,423 +5305,423 @@ attributes #16 = { nounwind }
 !11 = !{!9, !10, i64 4}
 !12 = !{!9, !10, i64 40}
 !13 = !{!10, !10, i64 0}
-!14 = !{i64 0, i64 4, !13, i64 4, i64 4, !13, i64 8, i64 16, !4, i64 24, i64 16, !4, i64 40, i64 4, !13, i64 44, i64 4, !13}
-!15 = !{!16, !18, i64 8}
-!16 = !{!"_php_hashcontext_object", !17, i64 0, !18, i64 8, !19, i64 16, !20, i64 24, !21, i64 32}
-!17 = !{!"p1 _ZTS13_php_hash_ops", !18, i64 0}
-!18 = !{!"any pointer", !5, i64 0}
-!19 = !{!"long", !5, i64 0}
-!20 = !{!"p1 omnipotent char", !18, i64 0}
-!21 = !{!"_zend_object", !22, i64 0, !10, i64 8, !10, i64 12, !23, i64 16, !24, i64 24, !25, i64 32, !5, i64 40}
-!22 = !{!"_zend_refcounted_h", !10, i64 0, !5, i64 4}
-!23 = !{!"p1 _ZTS17_zend_class_entry", !18, i64 0}
-!24 = !{!"p1 _ZTS21_zend_object_handlers", !18, i64 0}
-!25 = !{!"p1 _ZTS11_zend_array", !18, i64 0}
-!26 = !{!27, !10, i64 40}
-!27 = !{!"", !9, i64 0}
-!28 = !{!29, !19, i64 0}
-!29 = !{!"XXH_NAMESPACEXXH64_state_s", !19, i64 0, !5, i64 8, !5, i64 40, !10, i64 72, !10, i64 76, !19, i64 80}
-!30 = !{!29, !10, i64 72}
-!31 = !{!19, !19, i64 0}
-!32 = !{i64 0, i64 8, !31, i64 8, i64 32, !4, i64 40, i64 32, !4, i64 72, i64 4, !13, i64 76, i64 4, !13, i64 80, i64 8, !31}
-!33 = !{!34, !10, i64 72}
-!34 = !{!"", !29, i64 0}
-!35 = !{!36, !19, i64 552}
-!36 = !{!"XXH_NAMESPACEXXH3_state_s", !5, i64 0, !5, i64 64, !5, i64 256, !10, i64 512, !10, i64 516, !19, i64 520, !19, i64 528, !19, i64 536, !19, i64 544, !19, i64 552, !19, i64 560, !20, i64 568}
-!37 = !{!36, !20, i64 568}
-!38 = !{i64 2151558445}
-!39 = !{!36, !10, i64 516}
-!40 = !{!36, !19, i64 544}
-!41 = !{!36, !19, i64 536}
-!42 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
-!43 = !{!22, !10, i64 0}
-!44 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
-!45 = !{!46, !61, i64 960}
-!46 = !{!"_zend_executor_globals", !47, i64 0, !47, i64 16, !5, i64 32, !48, i64 288, !48, i64 296, !49, i64 304, !49, i64 360, !50, i64 416, !10, i64 424, !51, i64 428, !47, i64 432, !10, i64 448, !25, i64 456, !25, i64 464, !25, i64 472, !52, i64 480, !52, i64 488, !53, i64 496, !19, i64 504, !54, i64 512, !23, i64 520, !10, i64 528, !54, i64 536, !10, i64 544, !19, i64 552, !10, i64 560, !10, i64 564, !10, i64 568, !51, i64 572, !51, i64 573, !55, i64 574, !55, i64 575, !25, i64 576, !19, i64 584, !18, i64 592, !18, i64 600, !49, i64 608, !49, i64 664, !10, i64 720, !51, i64 724, !47, i64 728, !47, i64 744, !56, i64 760, !56, i64 784, !56, i64 808, !23, i64 832, !10, i64 840, !10, i64 844, !19, i64 848, !25, i64 856, !25, i64 864, !57, i64 872, !58, i64 880, !60, i64 904, !61, i64 960, !61, i64 968, !62, i64 976, !5, i64 984, !63, i64 1080, !51, i64 1088, !5, i64 1089, !19, i64 1096, !10, i64 1104, !10, i64 1108, !64, i64 1112, !5, i64 1120, !18, i64 1376, !5, i64 1384, !65, i64 1640, !49, i64 1672, !19, i64 1728, !66, i64 1736, !67, i64 1760, !67, i64 1768, !68, i64 1776, !19, i64 1784, !51, i64 1792, !10, i64 1796, !69, i64 1800, !70, i64 1808, !19, i64 1816, !71, i64 1824, !19, i64 1840, !19, i64 1848, !72, i64 1856, !5, i64 1936}
-!47 = !{!"_zval_struct", !5, i64 0, !5, i64 8, !5, i64 12}
-!48 = !{!"p2 _ZTS11_zend_array", !18, i64 0}
-!49 = !{!"_zend_array", !22, i64 0, !5, i64 8, !10, i64 12, !5, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !19, i64 40, !18, i64 48}
-!50 = !{!"p1 _ZTS13__jmp_buf_tag", !18, i64 0}
-!51 = !{!"_Bool", !5, i64 0}
-!52 = !{!"p1 _ZTS12_zval_struct", !18, i64 0}
-!53 = !{!"p1 _ZTS14_zend_vm_stack", !18, i64 0}
-!54 = !{!"p1 _ZTS18_zend_execute_data", !18, i64 0}
-!55 = !{!"zend_atomic_bool_s", !5, i64 0}
-!56 = !{!"_zend_stack", !10, i64 0, !10, i64 4, !10, i64 8, !18, i64 16}
-!57 = !{!"p1 _ZTS15_zend_ini_entry", !18, i64 0}
-!58 = !{!"_zend_objects_store", !59, i64 0, !10, i64 8, !10, i64 12, !10, i64 16}
-!59 = !{!"p2 _ZTS12_zend_object", !18, i64 0}
-!60 = !{!"_zend_lazy_objects_store", !49, i64 0}
-!61 = !{!"p1 _ZTS12_zend_object", !18, i64 0}
-!62 = !{!"p1 _ZTS8_zend_op", !18, i64 0}
-!63 = !{!"p1 _ZTS18_zend_module_entry", !18, i64 0}
-!64 = !{!"p1 _ZTS18_HashTableIterator", !18, i64 0}
-!65 = !{!"_zend_op", !18, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !10, i64 20, !10, i64 24, !5, i64 28, !5, i64 29, !5, i64 30, !5, i64 31}
-!66 = !{!"", !52, i64 0, !52, i64 8, !52, i64 16}
-!67 = !{!"p1 _ZTS19_zend_fiber_context", !18, i64 0}
-!68 = !{!"p1 _ZTS11_zend_fiber", !18, i64 0}
-!69 = !{!"p2 _ZTS16_zend_error_info", !18, i64 0}
-!70 = !{!"p1 _ZTS12_zend_string", !18, i64 0}
-!71 = !{!"_zend_call_stack", !18, i64 0, !19, i64 8}
-!72 = !{!"_zend_strtod_state", !5, i64 0, !73, i64 64, !20, i64 72}
-!73 = !{!"p1 _ZTS19_zend_strtod_bigint", !18, i64 0}
-!74 = !{!75, !19, i64 16}
-!75 = !{!"_zend_string", !22, i64 0, !19, i64 8, !19, i64 16, !5, i64 24}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"XXH3_update: argument 0"}
-!78 = distinct !{!78, !"XXH3_update"}
-!79 = !{!80}
-!80 = distinct !{!80, !78, !"XXH3_update: argument 1"}
-!81 = !{!36, !19, i64 528}
-!82 = !{!36, !10, i64 512}
-!83 = !{!84}
-!84 = distinct !{!84, !85, !"XXH3_consumeStripes: argument 0"}
-!85 = distinct !{!85, !"XXH3_consumeStripes"}
-!86 = !{!87}
-!87 = distinct !{!87, !85, !"XXH3_consumeStripes: argument 1"}
-!88 = !{!84, !89, !90}
-!89 = distinct !{!89, !85, !"XXH3_consumeStripes: argument 2"}
-!90 = distinct !{!90, !85, !"XXH3_consumeStripes: argument 3"}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
+!18 = !{i64 0, i64 4, !13, i64 4, i64 4, !13, i64 8, i64 16, !4, i64 24, i64 16, !4, i64 40, i64 4, !13, i64 44, i64 4, !13}
+!19 = !{!20, !22, i64 8}
+!20 = !{!"_php_hashcontext_object", !21, i64 0, !22, i64 8, !23, i64 16, !24, i64 24, !25, i64 32}
+!21 = !{!"p1 _ZTS13_php_hash_ops", !22, i64 0}
+!22 = !{!"any pointer", !5, i64 0}
+!23 = !{!"long", !5, i64 0}
+!24 = !{!"p1 omnipotent char", !22, i64 0}
+!25 = !{!"_zend_object", !26, i64 0, !10, i64 8, !10, i64 12, !27, i64 16, !28, i64 24, !29, i64 32, !5, i64 40}
+!26 = !{!"_zend_refcounted_h", !10, i64 0, !5, i64 4}
+!27 = !{!"p1 _ZTS17_zend_class_entry", !22, i64 0}
+!28 = !{!"p1 _ZTS21_zend_object_handlers", !22, i64 0}
+!29 = !{!"p1 _ZTS11_zend_array", !22, i64 0}
+!30 = !{!31, !10, i64 40}
+!31 = !{!"", !9, i64 0}
+!32 = !{!33, !23, i64 0}
+!33 = !{!"XXH_NAMESPACEXXH64_state_s", !23, i64 0, !5, i64 8, !5, i64 40, !10, i64 72, !10, i64 76, !23, i64 80}
+!34 = !{!33, !10, i64 72}
+!35 = !{!23, !23, i64 0}
+!36 = distinct !{!36, !15}
+!37 = distinct !{!37, !15}
+!38 = distinct !{!38, !15}
+!39 = !{i64 0, i64 8, !35, i64 8, i64 32, !4, i64 40, i64 32, !4, i64 72, i64 4, !13, i64 76, i64 4, !13, i64 80, i64 8, !35}
+!40 = !{!41, !10, i64 72}
+!41 = !{!"", !33, i64 0}
+!42 = !{!43, !23, i64 552}
+!43 = !{!"XXH_NAMESPACEXXH3_state_s", !5, i64 0, !5, i64 64, !5, i64 256, !10, i64 512, !10, i64 516, !23, i64 520, !23, i64 528, !23, i64 536, !23, i64 544, !23, i64 552, !23, i64 560, !24, i64 568}
+!44 = !{!43, !24, i64 568}
+!45 = !{i64 2151558445}
+!46 = distinct !{!46, !15}
+!47 = !{!43, !10, i64 516}
+!48 = !{!43, !23, i64 544}
+!49 = !{!43, !23, i64 536}
+!50 = !{!"branch_weights", !"expected", i32 2145337238, i32 2146410}
+!51 = !{!26, !10, i64 0}
+!52 = !{!"branch_weights", !"expected", i32 -2147483648, i32 0}
+!53 = !{!54, !69, i64 960}
+!54 = !{!"_zend_executor_globals", !55, i64 0, !55, i64 16, !5, i64 32, !56, i64 288, !56, i64 296, !57, i64 304, !57, i64 360, !58, i64 416, !10, i64 424, !59, i64 428, !55, i64 432, !10, i64 448, !29, i64 456, !29, i64 464, !29, i64 472, !60, i64 480, !60, i64 488, !61, i64 496, !23, i64 504, !62, i64 512, !27, i64 520, !10, i64 528, !62, i64 536, !10, i64 544, !23, i64 552, !10, i64 560, !10, i64 564, !10, i64 568, !59, i64 572, !59, i64 573, !63, i64 574, !63, i64 575, !29, i64 576, !23, i64 584, !22, i64 592, !22, i64 600, !57, i64 608, !57, i64 664, !10, i64 720, !59, i64 724, !55, i64 728, !55, i64 744, !64, i64 760, !64, i64 784, !64, i64 808, !27, i64 832, !10, i64 840, !10, i64 844, !23, i64 848, !29, i64 856, !29, i64 864, !65, i64 872, !66, i64 880, !68, i64 904, !69, i64 960, !69, i64 968, !70, i64 976, !5, i64 984, !71, i64 1080, !59, i64 1088, !5, i64 1089, !23, i64 1096, !10, i64 1104, !10, i64 1108, !72, i64 1112, !5, i64 1120, !22, i64 1376, !5, i64 1384, !73, i64 1640, !57, i64 1672, !23, i64 1728, !74, i64 1736, !75, i64 1760, !75, i64 1768, !76, i64 1776, !23, i64 1784, !59, i64 1792, !10, i64 1796, !77, i64 1800, !78, i64 1808, !23, i64 1816, !79, i64 1824, !23, i64 1840, !23, i64 1848, !80, i64 1856, !5, i64 1936}
+!55 = !{!"_zval_struct", !5, i64 0, !5, i64 8, !5, i64 12}
+!56 = !{!"p2 _ZTS11_zend_array", !22, i64 0}
+!57 = !{!"_zend_array", !26, i64 0, !5, i64 8, !10, i64 12, !5, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !23, i64 40, !22, i64 48}
+!58 = !{!"p1 _ZTS13__jmp_buf_tag", !22, i64 0}
+!59 = !{!"_Bool", !5, i64 0}
+!60 = !{!"p1 _ZTS12_zval_struct", !22, i64 0}
+!61 = !{!"p1 _ZTS14_zend_vm_stack", !22, i64 0}
+!62 = !{!"p1 _ZTS18_zend_execute_data", !22, i64 0}
+!63 = !{!"zend_atomic_bool_s", !5, i64 0}
+!64 = !{!"_zend_stack", !10, i64 0, !10, i64 4, !10, i64 8, !22, i64 16}
+!65 = !{!"p1 _ZTS15_zend_ini_entry", !22, i64 0}
+!66 = !{!"_zend_objects_store", !67, i64 0, !10, i64 8, !10, i64 12, !10, i64 16}
+!67 = !{!"p2 _ZTS12_zend_object", !22, i64 0}
+!68 = !{!"_zend_lazy_objects_store", !57, i64 0}
+!69 = !{!"p1 _ZTS12_zend_object", !22, i64 0}
+!70 = !{!"p1 _ZTS8_zend_op", !22, i64 0}
+!71 = !{!"p1 _ZTS18_zend_module_entry", !22, i64 0}
+!72 = !{!"p1 _ZTS18_HashTableIterator", !22, i64 0}
+!73 = !{!"_zend_op", !22, i64 0, !5, i64 8, !5, i64 12, !5, i64 16, !10, i64 20, !10, i64 24, !5, i64 28, !5, i64 29, !5, i64 30, !5, i64 31}
+!74 = !{!"", !60, i64 0, !60, i64 8, !60, i64 16}
+!75 = !{!"p1 _ZTS19_zend_fiber_context", !22, i64 0}
+!76 = !{!"p1 _ZTS11_zend_fiber", !22, i64 0}
+!77 = !{!"p2 _ZTS16_zend_error_info", !22, i64 0}
+!78 = !{!"p1 _ZTS12_zend_string", !22, i64 0}
+!79 = !{!"_zend_call_stack", !22, i64 0, !23, i64 8}
+!80 = !{!"_zend_strtod_state", !5, i64 0, !81, i64 64, !24, i64 72}
+!81 = !{!"p1 _ZTS19_zend_strtod_bigint", !22, i64 0}
+!82 = !{!83, !23, i64 16}
+!83 = !{!"_zend_string", !26, i64 0, !23, i64 8, !23, i64 16, !5, i64 24}
+!84 = !{!85}
+!85 = distinct !{!85, !86, !"XXH3_update: argument 0"}
+!86 = distinct !{!86, !"XXH3_update"}
+!87 = !{!88}
+!88 = distinct !{!88, !86, !"XXH3_update: argument 1"}
+!89 = !{!43, !23, i64 528}
+!90 = !{!43, !10, i64 512}
 !91 = !{!92}
-!92 = distinct !{!92, !93, !"XXH3_accumulate: argument 0"}
-!93 = distinct !{!93, !"XXH3_accumulate"}
-!94 = !{!92, !87}
-!95 = !{!96}
-!96 = distinct !{!96, !97, !"XXH3_accumulate_512_sse2: argument 0"}
-!97 = distinct !{!97, !"XXH3_accumulate_512_sse2"}
-!98 = !{!96, !92, !87}
-!99 = !{!96, !92}
-!100 = !{!101, !102, !103, !104, !87}
-!101 = distinct !{!101, !97, !"XXH3_accumulate_512_sse2: argument 1"}
-!102 = distinct !{!102, !97, !"XXH3_accumulate_512_sse2: argument 2"}
-!103 = distinct !{!103, !93, !"XXH3_accumulate: argument 1"}
-!104 = distinct !{!104, !93, !"XXH3_accumulate: argument 2"}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"XXH3_scrambleAcc_sse2: argument 0"}
-!107 = distinct !{!107, !"XXH3_scrambleAcc_sse2"}
-!108 = !{!106, !84}
-!109 = !{!110, !87, !89, !90}
-!110 = distinct !{!110, !107, !"XXH3_scrambleAcc_sse2: argument 1"}
-!111 = !{!106, !87}
-!112 = !{!113}
-!113 = distinct !{!113, !114, !"XXH3_accumulate: argument 0"}
-!114 = distinct !{!114, !"XXH3_accumulate"}
-!115 = !{!113, !87}
-!116 = !{!117}
-!117 = distinct !{!117, !118, !"XXH3_accumulate_512_sse2: argument 0"}
-!118 = distinct !{!118, !"XXH3_accumulate_512_sse2"}
-!119 = !{!117, !113, !87}
-!120 = !{!117, !113}
-!121 = !{!122, !123, !124, !125, !87}
-!122 = distinct !{!122, !118, !"XXH3_accumulate_512_sse2: argument 1"}
-!123 = distinct !{!123, !118, !"XXH3_accumulate_512_sse2: argument 2"}
-!124 = distinct !{!124, !114, !"XXH3_accumulate: argument 1"}
-!125 = distinct !{!125, !114, !"XXH3_accumulate: argument 2"}
-!126 = !{!127}
-!127 = distinct !{!127, !128, !"XXH3_accumulate: argument 0"}
-!128 = distinct !{!128, !"XXH3_accumulate"}
-!129 = !{!127, !87}
-!130 = !{!131}
-!131 = distinct !{!131, !132, !"XXH3_accumulate_512_sse2: argument 0"}
-!132 = distinct !{!132, !"XXH3_accumulate_512_sse2"}
-!133 = !{!131, !127, !87}
-!134 = !{!131, !127}
-!135 = !{!136, !137, !138, !139, !87}
-!136 = distinct !{!136, !132, !"XXH3_accumulate_512_sse2: argument 1"}
-!137 = distinct !{!137, !132, !"XXH3_accumulate_512_sse2: argument 2"}
-!138 = distinct !{!138, !128, !"XXH3_accumulate: argument 1"}
-!139 = distinct !{!139, !128, !"XXH3_accumulate: argument 2"}
-!140 = !{!36, !19, i64 520}
+!92 = distinct !{!92, !93, !"XXH3_consumeStripes: argument 0"}
+!93 = distinct !{!93, !"XXH3_consumeStripes"}
+!94 = !{!95}
+!95 = distinct !{!95, !93, !"XXH3_consumeStripes: argument 1"}
+!96 = !{!92, !97, !98}
+!97 = distinct !{!97, !93, !"XXH3_consumeStripes: argument 2"}
+!98 = distinct !{!98, !93, !"XXH3_consumeStripes: argument 3"}
+!99 = !{!100}
+!100 = distinct !{!100, !101, !"XXH3_accumulate: argument 0"}
+!101 = distinct !{!101, !"XXH3_accumulate"}
+!102 = !{!100, !95}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"XXH3_accumulate_512_sse2: argument 0"}
+!105 = distinct !{!105, !"XXH3_accumulate_512_sse2"}
+!106 = !{!104, !100, !95}
+!107 = !{!104, !100}
+!108 = !{!109, !110, !111, !112, !95}
+!109 = distinct !{!109, !105, !"XXH3_accumulate_512_sse2: argument 1"}
+!110 = distinct !{!110, !105, !"XXH3_accumulate_512_sse2: argument 2"}
+!111 = distinct !{!111, !101, !"XXH3_accumulate: argument 1"}
+!112 = distinct !{!112, !101, !"XXH3_accumulate: argument 2"}
+!113 = distinct !{!113, !15}
+!114 = distinct !{!114, !15}
+!115 = !{!116}
+!116 = distinct !{!116, !117, !"XXH3_scrambleAcc_sse2: argument 0"}
+!117 = distinct !{!117, !"XXH3_scrambleAcc_sse2"}
+!118 = !{!116, !92}
+!119 = !{!120, !95, !97, !98}
+!120 = distinct !{!120, !117, !"XXH3_scrambleAcc_sse2: argument 1"}
+!121 = !{!116, !95}
+!122 = distinct !{!122, !15}
+!123 = !{!124}
+!124 = distinct !{!124, !125, !"XXH3_accumulate: argument 0"}
+!125 = distinct !{!125, !"XXH3_accumulate"}
+!126 = !{!124, !95}
+!127 = !{!128}
+!128 = distinct !{!128, !129, !"XXH3_accumulate_512_sse2: argument 0"}
+!129 = distinct !{!129, !"XXH3_accumulate_512_sse2"}
+!130 = !{!128, !124, !95}
+!131 = !{!128, !124}
+!132 = !{!133, !134, !135, !136, !95}
+!133 = distinct !{!133, !129, !"XXH3_accumulate_512_sse2: argument 1"}
+!134 = distinct !{!134, !129, !"XXH3_accumulate_512_sse2: argument 2"}
+!135 = distinct !{!135, !125, !"XXH3_accumulate: argument 1"}
+!136 = distinct !{!136, !125, !"XXH3_accumulate: argument 2"}
+!137 = !{!138}
+!138 = distinct !{!138, !139, !"XXH3_accumulate: argument 0"}
+!139 = distinct !{!139, !"XXH3_accumulate"}
+!140 = !{!138, !95}
 !141 = !{!142}
-!142 = distinct !{!142, !143, !"XXH3_accumulate: argument 0"}
-!143 = distinct !{!143, !"XXH3_accumulate"}
-!144 = !{!145}
-!145 = distinct !{!145, !146, !"XXH3_accumulate_512_sse2: argument 0"}
-!146 = distinct !{!146, !"XXH3_accumulate_512_sse2"}
-!147 = !{!145, !142}
-!148 = !{!149, !150, !151, !152}
-!149 = distinct !{!149, !146, !"XXH3_accumulate_512_sse2: argument 1"}
-!150 = distinct !{!150, !146, !"XXH3_accumulate_512_sse2: argument 2"}
-!151 = distinct !{!151, !143, !"XXH3_accumulate: argument 1"}
-!152 = distinct !{!152, !143, !"XXH3_accumulate: argument 2"}
-!153 = !{!154}
-!154 = distinct !{!154, !155, !"XXH3_scrambleAcc_sse2: argument 0"}
-!155 = distinct !{!155, !"XXH3_scrambleAcc_sse2"}
-!156 = !{!157}
-!157 = distinct !{!157, !155, !"XXH3_scrambleAcc_sse2: argument 1"}
-!158 = !{!159}
-!159 = distinct !{!159, !160, !"XXH3_accumulate: argument 0"}
-!160 = distinct !{!160, !"XXH3_accumulate"}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"XXH3_accumulate_512_sse2: argument 0"}
-!163 = distinct !{!163, !"XXH3_accumulate_512_sse2"}
-!164 = !{!162, !159}
-!165 = !{!166, !167, !168, !169}
-!166 = distinct !{!166, !163, !"XXH3_accumulate_512_sse2: argument 1"}
-!167 = distinct !{!167, !163, !"XXH3_accumulate_512_sse2: argument 2"}
-!168 = distinct !{!168, !160, !"XXH3_accumulate: argument 1"}
-!169 = distinct !{!169, !160, !"XXH3_accumulate: argument 2"}
-!170 = !{!171}
-!171 = distinct !{!171, !172, !"XXH3_scrambleAcc_sse2: argument 0"}
-!172 = distinct !{!172, !"XXH3_scrambleAcc_sse2"}
-!173 = !{!174}
-!174 = distinct !{!174, !172, !"XXH3_scrambleAcc_sse2: argument 1"}
-!175 = !{!176}
-!176 = distinct !{!176, !177, !"XXH3_accumulate: argument 0"}
-!177 = distinct !{!177, !"XXH3_accumulate"}
-!178 = !{!179}
-!179 = distinct !{!179, !180, !"XXH3_accumulate_512_sse2: argument 0"}
-!180 = distinct !{!180, !"XXH3_accumulate_512_sse2"}
-!181 = !{!179, !176}
-!182 = !{!183, !184, !185, !186}
-!183 = distinct !{!183, !180, !"XXH3_accumulate_512_sse2: argument 1"}
-!184 = distinct !{!184, !180, !"XXH3_accumulate_512_sse2: argument 2"}
-!185 = distinct !{!185, !177, !"XXH3_accumulate: argument 1"}
-!186 = distinct !{!186, !177, !"XXH3_accumulate: argument 2"}
+!142 = distinct !{!142, !143, !"XXH3_accumulate_512_sse2: argument 0"}
+!143 = distinct !{!143, !"XXH3_accumulate_512_sse2"}
+!144 = !{!142, !138, !95}
+!145 = !{!142, !138}
+!146 = !{!147, !148, !149, !150, !95}
+!147 = distinct !{!147, !143, !"XXH3_accumulate_512_sse2: argument 1"}
+!148 = distinct !{!148, !143, !"XXH3_accumulate_512_sse2: argument 2"}
+!149 = distinct !{!149, !139, !"XXH3_accumulate: argument 1"}
+!150 = distinct !{!150, !139, !"XXH3_accumulate: argument 2"}
+!151 = !{!43, !23, i64 520}
+!152 = !{!153}
+!153 = distinct !{!153, !154, !"XXH3_accumulate: argument 0"}
+!154 = distinct !{!154, !"XXH3_accumulate"}
+!155 = !{!156}
+!156 = distinct !{!156, !157, !"XXH3_accumulate_512_sse2: argument 0"}
+!157 = distinct !{!157, !"XXH3_accumulate_512_sse2"}
+!158 = !{!156, !153}
+!159 = !{!160, !161, !162, !163}
+!160 = distinct !{!160, !157, !"XXH3_accumulate_512_sse2: argument 1"}
+!161 = distinct !{!161, !157, !"XXH3_accumulate_512_sse2: argument 2"}
+!162 = distinct !{!162, !154, !"XXH3_accumulate: argument 1"}
+!163 = distinct !{!163, !154, !"XXH3_accumulate: argument 2"}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"XXH3_scrambleAcc_sse2: argument 0"}
+!166 = distinct !{!166, !"XXH3_scrambleAcc_sse2"}
+!167 = !{!168}
+!168 = distinct !{!168, !166, !"XXH3_scrambleAcc_sse2: argument 1"}
+!169 = !{!170}
+!170 = distinct !{!170, !171, !"XXH3_accumulate: argument 0"}
+!171 = distinct !{!171, !"XXH3_accumulate"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"XXH3_accumulate_512_sse2: argument 0"}
+!174 = distinct !{!174, !"XXH3_accumulate_512_sse2"}
+!175 = !{!173, !170}
+!176 = !{!177, !178, !179, !180}
+!177 = distinct !{!177, !174, !"XXH3_accumulate_512_sse2: argument 1"}
+!178 = distinct !{!178, !174, !"XXH3_accumulate_512_sse2: argument 2"}
+!179 = distinct !{!179, !171, !"XXH3_accumulate: argument 1"}
+!180 = distinct !{!180, !171, !"XXH3_accumulate: argument 2"}
+!181 = !{!182}
+!182 = distinct !{!182, !183, !"XXH3_scrambleAcc_sse2: argument 0"}
+!183 = distinct !{!183, !"XXH3_scrambleAcc_sse2"}
+!184 = !{!185}
+!185 = distinct !{!185, !183, !"XXH3_scrambleAcc_sse2: argument 1"}
+!186 = distinct !{!186, !15}
 !187 = !{!188}
-!188 = distinct !{!188, !189, !"XXH3_consumeStripes: argument 1"}
-!189 = distinct !{!189, !"XXH3_consumeStripes"}
-!190 = !{!191, !192, !193}
-!191 = distinct !{!191, !189, !"XXH3_consumeStripes: argument 0"}
-!192 = distinct !{!192, !189, !"XXH3_consumeStripes: argument 2"}
-!193 = distinct !{!193, !189, !"XXH3_consumeStripes: argument 3"}
-!194 = !{!191}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"XXH3_accumulate: argument 0"}
-!197 = distinct !{!197, !"XXH3_accumulate"}
-!198 = !{!196, !188}
+!188 = distinct !{!188, !189, !"XXH3_accumulate: argument 0"}
+!189 = distinct !{!189, !"XXH3_accumulate"}
+!190 = !{!191}
+!191 = distinct !{!191, !192, !"XXH3_accumulate_512_sse2: argument 0"}
+!192 = distinct !{!192, !"XXH3_accumulate_512_sse2"}
+!193 = !{!191, !188}
+!194 = !{!195, !196, !197, !198}
+!195 = distinct !{!195, !192, !"XXH3_accumulate_512_sse2: argument 1"}
+!196 = distinct !{!196, !192, !"XXH3_accumulate_512_sse2: argument 2"}
+!197 = distinct !{!197, !189, !"XXH3_accumulate: argument 1"}
+!198 = distinct !{!198, !189, !"XXH3_accumulate: argument 2"}
 !199 = !{!200}
-!200 = distinct !{!200, !201, !"XXH3_accumulate_512_sse2: argument 0"}
-!201 = distinct !{!201, !"XXH3_accumulate_512_sse2"}
-!202 = !{!200, !196, !188}
-!203 = !{!200, !196}
-!204 = !{!205, !206, !207, !208, !188}
-!205 = distinct !{!205, !201, !"XXH3_accumulate_512_sse2: argument 1"}
-!206 = distinct !{!206, !201, !"XXH3_accumulate_512_sse2: argument 2"}
-!207 = distinct !{!207, !197, !"XXH3_accumulate: argument 1"}
-!208 = distinct !{!208, !197, !"XXH3_accumulate: argument 2"}
-!209 = !{!210}
-!210 = distinct !{!210, !211, !"XXH3_scrambleAcc_sse2: argument 0"}
-!211 = distinct !{!211, !"XXH3_scrambleAcc_sse2"}
-!212 = !{!210, !191}
-!213 = !{!214, !188, !192, !193}
-!214 = distinct !{!214, !211, !"XXH3_scrambleAcc_sse2: argument 1"}
-!215 = !{!210, !188}
-!216 = !{!217}
-!217 = distinct !{!217, !218, !"XXH3_accumulate: argument 0"}
-!218 = distinct !{!218, !"XXH3_accumulate"}
-!219 = !{!217, !188}
-!220 = !{!221}
-!221 = distinct !{!221, !222, !"XXH3_accumulate_512_sse2: argument 0"}
-!222 = distinct !{!222, !"XXH3_accumulate_512_sse2"}
-!223 = !{!221, !217, !188}
-!224 = !{!221, !217}
-!225 = !{!226, !227, !228, !229, !188}
-!226 = distinct !{!226, !222, !"XXH3_accumulate_512_sse2: argument 1"}
-!227 = distinct !{!227, !222, !"XXH3_accumulate_512_sse2: argument 2"}
-!228 = distinct !{!228, !218, !"XXH3_accumulate: argument 1"}
-!229 = distinct !{!229, !218, !"XXH3_accumulate: argument 2"}
-!230 = !{!231}
-!231 = distinct !{!231, !232, !"XXH3_accumulate: argument 0"}
-!232 = distinct !{!232, !"XXH3_accumulate"}
-!233 = !{!231, !188}
-!234 = !{!235}
-!235 = distinct !{!235, !236, !"XXH3_accumulate_512_sse2: argument 0"}
-!236 = distinct !{!236, !"XXH3_accumulate_512_sse2"}
-!237 = !{!235, !231, !188}
-!238 = !{!235, !231}
-!239 = !{!240, !241, !242, !243, !188}
-!240 = distinct !{!240, !236, !"XXH3_accumulate_512_sse2: argument 1"}
-!241 = distinct !{!241, !236, !"XXH3_accumulate_512_sse2: argument 2"}
-!242 = distinct !{!242, !232, !"XXH3_accumulate: argument 1"}
-!243 = distinct !{!243, !232, !"XXH3_accumulate: argument 2"}
-!244 = !{!245}
-!245 = distinct !{!245, !246, !"XXH3_accumulate: argument 0"}
-!246 = distinct !{!246, !"XXH3_accumulate"}
-!247 = !{!245, !248}
-!248 = distinct !{!248, !249, !"XXH3_consumeStripes: argument 1"}
-!249 = distinct !{!249, !"XXH3_consumeStripes"}
-!250 = !{!251}
-!251 = distinct !{!251, !252, !"XXH3_accumulate_512_sse2: argument 0"}
-!252 = distinct !{!252, !"XXH3_accumulate_512_sse2"}
-!253 = !{!248}
-!254 = !{!251, !245, !248}
-!255 = !{!251, !245}
-!256 = !{!257, !258, !259, !260, !248}
-!257 = distinct !{!257, !252, !"XXH3_accumulate_512_sse2: argument 1"}
-!258 = distinct !{!258, !252, !"XXH3_accumulate_512_sse2: argument 2"}
-!259 = distinct !{!259, !246, !"XXH3_accumulate: argument 1"}
-!260 = distinct !{!260, !246, !"XXH3_accumulate: argument 2"}
-!261 = !{!262}
-!262 = distinct !{!262, !263, !"XXH3_scrambleAcc_sse2: argument 0"}
-!263 = distinct !{!263, !"XXH3_scrambleAcc_sse2"}
-!264 = !{!262, !265}
-!265 = distinct !{!265, !249, !"XXH3_consumeStripes: argument 0"}
-!266 = !{!267, !248, !268, !269}
-!267 = distinct !{!267, !263, !"XXH3_scrambleAcc_sse2: argument 1"}
-!268 = distinct !{!268, !249, !"XXH3_consumeStripes: argument 2"}
-!269 = distinct !{!269, !249, !"XXH3_consumeStripes: argument 3"}
-!270 = !{!262, !248}
-!271 = !{!272}
-!272 = distinct !{!272, !273, !"XXH3_accumulate: argument 0"}
-!273 = distinct !{!273, !"XXH3_accumulate"}
-!274 = !{!272, !248}
-!275 = !{!276}
-!276 = distinct !{!276, !277, !"XXH3_accumulate_512_sse2: argument 0"}
-!277 = distinct !{!277, !"XXH3_accumulate_512_sse2"}
-!278 = !{!276, !272, !248}
-!279 = !{!276, !272}
-!280 = !{!281, !282, !283, !284, !248}
-!281 = distinct !{!281, !277, !"XXH3_accumulate_512_sse2: argument 1"}
-!282 = distinct !{!282, !277, !"XXH3_accumulate_512_sse2: argument 2"}
-!283 = distinct !{!283, !273, !"XXH3_accumulate: argument 1"}
-!284 = distinct !{!284, !273, !"XXH3_accumulate: argument 2"}
-!285 = !{!286}
-!286 = distinct !{!286, !287, !"XXH3_accumulate: argument 0"}
-!287 = distinct !{!287, !"XXH3_accumulate"}
-!288 = !{!286, !248}
-!289 = !{!290}
-!290 = distinct !{!290, !291, !"XXH3_accumulate_512_sse2: argument 0"}
-!291 = distinct !{!291, !"XXH3_accumulate_512_sse2"}
-!292 = !{!290, !286, !248}
-!293 = !{!290, !286}
-!294 = !{!295, !296, !297, !298, !248}
-!295 = distinct !{!295, !291, !"XXH3_accumulate_512_sse2: argument 1"}
-!296 = distinct !{!296, !291, !"XXH3_accumulate_512_sse2: argument 2"}
-!297 = distinct !{!297, !287, !"XXH3_accumulate: argument 1"}
-!298 = distinct !{!298, !287, !"XXH3_accumulate: argument 2"}
-!299 = !{!300}
-!300 = distinct !{!300, !301, !"XXH3_accumulate_512_sse2: argument 0"}
-!301 = distinct !{!301, !"XXH3_accumulate_512_sse2"}
-!302 = !{!303, !304}
-!303 = distinct !{!303, !301, !"XXH3_accumulate_512_sse2: argument 1"}
-!304 = distinct !{!304, !301, !"XXH3_accumulate_512_sse2: argument 2"}
-!305 = !{!306}
-!306 = distinct !{!306, !307, !"XXH3_accumulate_512_sse2: argument 0"}
-!307 = distinct !{!307, !"XXH3_accumulate_512_sse2"}
-!308 = !{!309, !310}
-!309 = distinct !{!309, !307, !"XXH3_accumulate_512_sse2: argument 1"}
-!310 = distinct !{!310, !307, !"XXH3_accumulate_512_sse2: argument 2"}
-!311 = !{!312}
-!312 = distinct !{!312, !313, !"XXH3_mergeAccs: argument 0"}
-!313 = distinct !{!313, !"XXH3_mergeAccs"}
-!314 = !{!315}
-!315 = distinct !{!315, !313, !"XXH3_mergeAccs: argument 1"}
-!316 = !{!317}
-!317 = distinct !{!317, !318, !"XXH3_mix2Accs: argument 0"}
-!318 = distinct !{!318, !"XXH3_mix2Accs"}
-!319 = !{!317, !312}
-!320 = !{!321, !315}
-!321 = distinct !{!321, !318, !"XXH3_mix2Accs: argument 1"}
-!322 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!323 = !{!324}
-!324 = distinct !{!324, !325, !"XXH3_mix16B: argument 1"}
-!325 = distinct !{!325, !"XXH3_mix16B"}
-!326 = !{!327}
-!327 = distinct !{!327, !328, !"XXH3_mix16B: argument 1"}
-!328 = distinct !{!328, !"XXH3_mix16B"}
+!200 = distinct !{!200, !201, !"XXH3_consumeStripes: argument 1"}
+!201 = distinct !{!201, !"XXH3_consumeStripes"}
+!202 = !{!203, !204, !205}
+!203 = distinct !{!203, !201, !"XXH3_consumeStripes: argument 0"}
+!204 = distinct !{!204, !201, !"XXH3_consumeStripes: argument 2"}
+!205 = distinct !{!205, !201, !"XXH3_consumeStripes: argument 3"}
+!206 = !{!203}
+!207 = !{!208}
+!208 = distinct !{!208, !209, !"XXH3_accumulate: argument 0"}
+!209 = distinct !{!209, !"XXH3_accumulate"}
+!210 = !{!208, !200}
+!211 = !{!212}
+!212 = distinct !{!212, !213, !"XXH3_accumulate_512_sse2: argument 0"}
+!213 = distinct !{!213, !"XXH3_accumulate_512_sse2"}
+!214 = !{!212, !208, !200}
+!215 = !{!212, !208}
+!216 = !{!217, !218, !219, !220, !200}
+!217 = distinct !{!217, !213, !"XXH3_accumulate_512_sse2: argument 1"}
+!218 = distinct !{!218, !213, !"XXH3_accumulate_512_sse2: argument 2"}
+!219 = distinct !{!219, !209, !"XXH3_accumulate: argument 1"}
+!220 = distinct !{!220, !209, !"XXH3_accumulate: argument 2"}
+!221 = !{!222}
+!222 = distinct !{!222, !223, !"XXH3_scrambleAcc_sse2: argument 0"}
+!223 = distinct !{!223, !"XXH3_scrambleAcc_sse2"}
+!224 = !{!222, !203}
+!225 = !{!226, !200, !204, !205}
+!226 = distinct !{!226, !223, !"XXH3_scrambleAcc_sse2: argument 1"}
+!227 = !{!222, !200}
+!228 = !{!229}
+!229 = distinct !{!229, !230, !"XXH3_accumulate: argument 0"}
+!230 = distinct !{!230, !"XXH3_accumulate"}
+!231 = !{!229, !200}
+!232 = !{!233}
+!233 = distinct !{!233, !234, !"XXH3_accumulate_512_sse2: argument 0"}
+!234 = distinct !{!234, !"XXH3_accumulate_512_sse2"}
+!235 = !{!233, !229, !200}
+!236 = !{!233, !229}
+!237 = !{!238, !239, !240, !241, !200}
+!238 = distinct !{!238, !234, !"XXH3_accumulate_512_sse2: argument 1"}
+!239 = distinct !{!239, !234, !"XXH3_accumulate_512_sse2: argument 2"}
+!240 = distinct !{!240, !230, !"XXH3_accumulate: argument 1"}
+!241 = distinct !{!241, !230, !"XXH3_accumulate: argument 2"}
+!242 = !{!243}
+!243 = distinct !{!243, !244, !"XXH3_accumulate: argument 0"}
+!244 = distinct !{!244, !"XXH3_accumulate"}
+!245 = !{!243, !200}
+!246 = !{!247}
+!247 = distinct !{!247, !248, !"XXH3_accumulate_512_sse2: argument 0"}
+!248 = distinct !{!248, !"XXH3_accumulate_512_sse2"}
+!249 = !{!247, !243, !200}
+!250 = !{!247, !243}
+!251 = !{!252, !253, !254, !255, !200}
+!252 = distinct !{!252, !248, !"XXH3_accumulate_512_sse2: argument 1"}
+!253 = distinct !{!253, !248, !"XXH3_accumulate_512_sse2: argument 2"}
+!254 = distinct !{!254, !244, !"XXH3_accumulate: argument 1"}
+!255 = distinct !{!255, !244, !"XXH3_accumulate: argument 2"}
+!256 = distinct !{!256, !15}
+!257 = !{!258}
+!258 = distinct !{!258, !259, !"XXH3_accumulate: argument 0"}
+!259 = distinct !{!259, !"XXH3_accumulate"}
+!260 = !{!258, !261}
+!261 = distinct !{!261, !262, !"XXH3_consumeStripes: argument 1"}
+!262 = distinct !{!262, !"XXH3_consumeStripes"}
+!263 = !{!264}
+!264 = distinct !{!264, !265, !"XXH3_accumulate_512_sse2: argument 0"}
+!265 = distinct !{!265, !"XXH3_accumulate_512_sse2"}
+!266 = !{!261}
+!267 = !{!264, !258, !261}
+!268 = !{!264, !258}
+!269 = !{!270, !271, !272, !273, !261}
+!270 = distinct !{!270, !265, !"XXH3_accumulate_512_sse2: argument 1"}
+!271 = distinct !{!271, !265, !"XXH3_accumulate_512_sse2: argument 2"}
+!272 = distinct !{!272, !259, !"XXH3_accumulate: argument 1"}
+!273 = distinct !{!273, !259, !"XXH3_accumulate: argument 2"}
+!274 = !{!275}
+!275 = distinct !{!275, !276, !"XXH3_scrambleAcc_sse2: argument 0"}
+!276 = distinct !{!276, !"XXH3_scrambleAcc_sse2"}
+!277 = !{!275, !278}
+!278 = distinct !{!278, !262, !"XXH3_consumeStripes: argument 0"}
+!279 = !{!280, !261, !281, !282}
+!280 = distinct !{!280, !276, !"XXH3_scrambleAcc_sse2: argument 1"}
+!281 = distinct !{!281, !262, !"XXH3_consumeStripes: argument 2"}
+!282 = distinct !{!282, !262, !"XXH3_consumeStripes: argument 3"}
+!283 = !{!275, !261}
+!284 = !{!285}
+!285 = distinct !{!285, !286, !"XXH3_accumulate: argument 0"}
+!286 = distinct !{!286, !"XXH3_accumulate"}
+!287 = !{!285, !261}
+!288 = !{!289}
+!289 = distinct !{!289, !290, !"XXH3_accumulate_512_sse2: argument 0"}
+!290 = distinct !{!290, !"XXH3_accumulate_512_sse2"}
+!291 = !{!289, !285, !261}
+!292 = !{!289, !285}
+!293 = !{!294, !295, !296, !297, !261}
+!294 = distinct !{!294, !290, !"XXH3_accumulate_512_sse2: argument 1"}
+!295 = distinct !{!295, !290, !"XXH3_accumulate_512_sse2: argument 2"}
+!296 = distinct !{!296, !286, !"XXH3_accumulate: argument 1"}
+!297 = distinct !{!297, !286, !"XXH3_accumulate: argument 2"}
+!298 = !{!299}
+!299 = distinct !{!299, !300, !"XXH3_accumulate: argument 0"}
+!300 = distinct !{!300, !"XXH3_accumulate"}
+!301 = !{!299, !261}
+!302 = !{!303}
+!303 = distinct !{!303, !304, !"XXH3_accumulate_512_sse2: argument 0"}
+!304 = distinct !{!304, !"XXH3_accumulate_512_sse2"}
+!305 = !{!303, !299, !261}
+!306 = !{!303, !299}
+!307 = !{!308, !309, !310, !311, !261}
+!308 = distinct !{!308, !304, !"XXH3_accumulate_512_sse2: argument 1"}
+!309 = distinct !{!309, !304, !"XXH3_accumulate_512_sse2: argument 2"}
+!310 = distinct !{!310, !300, !"XXH3_accumulate: argument 1"}
+!311 = distinct !{!311, !300, !"XXH3_accumulate: argument 2"}
+!312 = !{!313}
+!313 = distinct !{!313, !314, !"XXH3_accumulate_512_sse2: argument 0"}
+!314 = distinct !{!314, !"XXH3_accumulate_512_sse2"}
+!315 = !{!316, !317}
+!316 = distinct !{!316, !314, !"XXH3_accumulate_512_sse2: argument 1"}
+!317 = distinct !{!317, !314, !"XXH3_accumulate_512_sse2: argument 2"}
+!318 = !{!319}
+!319 = distinct !{!319, !320, !"XXH3_accumulate_512_sse2: argument 0"}
+!320 = distinct !{!320, !"XXH3_accumulate_512_sse2"}
+!321 = !{!322, !323}
+!322 = distinct !{!322, !320, !"XXH3_accumulate_512_sse2: argument 1"}
+!323 = distinct !{!323, !320, !"XXH3_accumulate_512_sse2: argument 2"}
+!324 = !{!325}
+!325 = distinct !{!325, !326, !"XXH3_mergeAccs: argument 0"}
+!326 = distinct !{!326, !"XXH3_mergeAccs"}
+!327 = !{!328}
+!328 = distinct !{!328, !326, !"XXH3_mergeAccs: argument 1"}
 !329 = !{!330}
-!330 = distinct !{!330, !331, !"XXH3_mix16B: argument 1"}
-!331 = distinct !{!331, !"XXH3_mix16B"}
-!332 = !{!333}
-!333 = distinct !{!333, !334, !"XXH3_mix16B: argument 1"}
-!334 = distinct !{!334, !"XXH3_mix16B"}
-!335 = !{!336}
-!336 = distinct !{!336, !337, !"XXH3_mix16B: argument 1"}
-!337 = distinct !{!337, !"XXH3_mix16B"}
-!338 = !{!339}
-!339 = distinct !{!339, !340, !"XXH3_mix16B: argument 1"}
-!340 = distinct !{!340, !"XXH3_mix16B"}
-!341 = !{!342}
-!342 = distinct !{!342, !343, !"XXH3_mix16B: argument 1"}
-!343 = distinct !{!343, !"XXH3_mix16B"}
-!344 = !{!345}
-!345 = distinct !{!345, !346, !"XXH3_mix16B: argument 1"}
-!346 = distinct !{!346, !"XXH3_mix16B"}
-!347 = !{!348}
-!348 = distinct !{!348, !349, !"XXH3_mix16B: argument 1"}
-!349 = distinct !{!349, !"XXH3_mix16B"}
-!350 = !{!351}
-!351 = distinct !{!351, !352, !"XXH3_mix16B: argument 1"}
-!352 = distinct !{!352, !"XXH3_mix16B"}
-!353 = !{!354}
-!354 = distinct !{!354, !355, !"XXH3_mix16B: argument 1"}
-!355 = distinct !{!355, !"XXH3_mix16B"}
-!356 = !{!357}
-!357 = distinct !{!357, !358, !"XXH3_mix16B: argument 1"}
-!358 = distinct !{!358, !"XXH3_mix16B"}
-!359 = !{!360}
-!360 = distinct !{!360, !361, !"XXH3_mix16B: argument 1"}
-!361 = distinct !{!361, !"XXH3_mix16B"}
-!362 = !{!363}
-!363 = distinct !{!363, !364, !"XXH3_mix16B: argument 1"}
-!364 = distinct !{!364, !"XXH3_mix16B"}
-!365 = !{!366}
-!366 = distinct !{!366, !367, !"XXH3_mix16B: argument 1"}
-!367 = distinct !{!367, !"XXH3_mix16B"}
-!368 = !{!369}
-!369 = distinct !{!369, !370, !"XXH3_mix16B: argument 1"}
-!370 = distinct !{!370, !"XXH3_mix16B"}
-!371 = !{i64 0, i64 64, !4, i64 64, i64 192, !4, i64 256, i64 256, !4, i64 512, i64 4, !13, i64 516, i64 4, !13, i64 520, i64 8, !31, i64 528, i64 8, !31, i64 536, i64 8, !31, i64 544, i64 8, !31, i64 552, i64 8, !31, i64 560, i64 8, !31, i64 568, i64 8, !372}
-!372 = !{!20, !20, i64 0}
+!330 = distinct !{!330, !331, !"XXH3_mix2Accs: argument 0"}
+!331 = distinct !{!331, !"XXH3_mix2Accs"}
+!332 = !{!330, !325}
+!333 = !{!334, !328}
+!334 = distinct !{!334, !331, !"XXH3_mix2Accs: argument 1"}
+!335 = distinct !{!335, !15}
+!336 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!337 = !{!338}
+!338 = distinct !{!338, !339, !"XXH3_mix16B: argument 1"}
+!339 = distinct !{!339, !"XXH3_mix16B"}
+!340 = !{!341}
+!341 = distinct !{!341, !342, !"XXH3_mix16B: argument 1"}
+!342 = distinct !{!342, !"XXH3_mix16B"}
+!343 = !{!344}
+!344 = distinct !{!344, !345, !"XXH3_mix16B: argument 1"}
+!345 = distinct !{!345, !"XXH3_mix16B"}
+!346 = !{!347}
+!347 = distinct !{!347, !348, !"XXH3_mix16B: argument 1"}
+!348 = distinct !{!348, !"XXH3_mix16B"}
+!349 = !{!350}
+!350 = distinct !{!350, !351, !"XXH3_mix16B: argument 1"}
+!351 = distinct !{!351, !"XXH3_mix16B"}
+!352 = !{!353}
+!353 = distinct !{!353, !354, !"XXH3_mix16B: argument 1"}
+!354 = distinct !{!354, !"XXH3_mix16B"}
+!355 = !{!356}
+!356 = distinct !{!356, !357, !"XXH3_mix16B: argument 1"}
+!357 = distinct !{!357, !"XXH3_mix16B"}
+!358 = !{!359}
+!359 = distinct !{!359, !360, !"XXH3_mix16B: argument 1"}
+!360 = distinct !{!360, !"XXH3_mix16B"}
+!361 = !{!362}
+!362 = distinct !{!362, !363, !"XXH3_mix16B: argument 1"}
+!363 = distinct !{!363, !"XXH3_mix16B"}
+!364 = !{!365}
+!365 = distinct !{!365, !366, !"XXH3_mix16B: argument 1"}
+!366 = distinct !{!366, !"XXH3_mix16B"}
+!367 = !{!368}
+!368 = distinct !{!368, !369, !"XXH3_mix16B: argument 1"}
+!369 = distinct !{!369, !"XXH3_mix16B"}
+!370 = !{!371}
+!371 = distinct !{!371, !372, !"XXH3_mix16B: argument 1"}
+!372 = distinct !{!372, !"XXH3_mix16B"}
 !373 = !{!374}
-!374 = distinct !{!374, !375, !"XXH3_update: argument 0"}
-!375 = distinct !{!375, !"XXH3_update"}
+!374 = distinct !{!374, !375, !"XXH3_mix16B: argument 1"}
+!375 = distinct !{!375, !"XXH3_mix16B"}
 !376 = !{!377}
-!377 = distinct !{!377, !375, !"XXH3_update: argument 1"}
-!378 = !{!379}
-!379 = distinct !{!379, !380, !"XXH3_consumeStripes: argument 0"}
-!380 = distinct !{!380, !"XXH3_consumeStripes"}
-!381 = !{!382}
-!382 = distinct !{!382, !380, !"XXH3_consumeStripes: argument 1"}
-!383 = !{!379, !384, !385}
-!384 = distinct !{!384, !380, !"XXH3_consumeStripes: argument 2"}
-!385 = distinct !{!385, !380, !"XXH3_consumeStripes: argument 3"}
-!386 = !{!387}
-!387 = distinct !{!387, !388, !"XXH3_accumulate: argument 0"}
-!388 = distinct !{!388, !"XXH3_accumulate"}
-!389 = !{!387, !382}
+!377 = distinct !{!377, !378, !"XXH3_mix16B: argument 1"}
+!378 = distinct !{!378, !"XXH3_mix16B"}
+!379 = !{!380}
+!380 = distinct !{!380, !381, !"XXH3_mix16B: argument 1"}
+!381 = distinct !{!381, !"XXH3_mix16B"}
+!382 = !{!383}
+!383 = distinct !{!383, !384, !"XXH3_mix16B: argument 1"}
+!384 = distinct !{!384, !"XXH3_mix16B"}
+!385 = !{i64 0, i64 64, !4, i64 64, i64 192, !4, i64 256, i64 256, !4, i64 512, i64 4, !13, i64 516, i64 4, !13, i64 520, i64 8, !35, i64 528, i64 8, !35, i64 536, i64 8, !35, i64 544, i64 8, !35, i64 552, i64 8, !35, i64 560, i64 8, !35, i64 568, i64 8, !386}
+!386 = !{!24, !24, i64 0}
+!387 = !{!388}
+!388 = distinct !{!388, !389, !"XXH3_update: argument 0"}
+!389 = distinct !{!389, !"XXH3_update"}
 !390 = !{!391}
-!391 = distinct !{!391, !392, !"XXH3_accumulate_512_sse2: argument 0"}
-!392 = distinct !{!392, !"XXH3_accumulate_512_sse2"}
-!393 = !{!391, !387, !382}
-!394 = !{!391, !387}
-!395 = !{!396, !397, !398, !399, !382}
-!396 = distinct !{!396, !392, !"XXH3_accumulate_512_sse2: argument 1"}
-!397 = distinct !{!397, !392, !"XXH3_accumulate_512_sse2: argument 2"}
-!398 = distinct !{!398, !388, !"XXH3_accumulate: argument 1"}
-!399 = distinct !{!399, !388, !"XXH3_accumulate: argument 2"}
+!391 = distinct !{!391, !389, !"XXH3_update: argument 1"}
+!392 = !{!393}
+!393 = distinct !{!393, !394, !"XXH3_consumeStripes: argument 0"}
+!394 = distinct !{!394, !"XXH3_consumeStripes"}
+!395 = !{!396}
+!396 = distinct !{!396, !394, !"XXH3_consumeStripes: argument 1"}
+!397 = !{!393, !398, !399}
+!398 = distinct !{!398, !394, !"XXH3_consumeStripes: argument 2"}
+!399 = distinct !{!399, !394, !"XXH3_consumeStripes: argument 3"}
 !400 = !{!401}
-!401 = distinct !{!401, !402, !"XXH3_scrambleAcc_sse2: argument 0"}
-!402 = distinct !{!402, !"XXH3_scrambleAcc_sse2"}
-!403 = !{!401, !379}
-!404 = !{!405, !382, !384, !385}
-!405 = distinct !{!405, !402, !"XXH3_scrambleAcc_sse2: argument 1"}
-!406 = !{!401, !382}
-!407 = !{!408}
-!408 = distinct !{!408, !409, !"XXH3_accumulate: argument 0"}
-!409 = distinct !{!409, !"XXH3_accumulate"}
-!410 = !{!408, !382}
-!411 = !{!412}
-!412 = distinct !{!412, !413, !"XXH3_accumulate_512_sse2: argument 0"}
-!413 = distinct !{!413, !"XXH3_accumulate_512_sse2"}
-!414 = !{!412, !408, !382}
-!415 = !{!412, !408}
-!416 = !{!417, !418, !419, !420, !382}
-!417 = distinct !{!417, !413, !"XXH3_accumulate_512_sse2: argument 1"}
-!418 = distinct !{!418, !413, !"XXH3_accumulate_512_sse2: argument 2"}
-!419 = distinct !{!419, !409, !"XXH3_accumulate: argument 1"}
-!420 = distinct !{!420, !409, !"XXH3_accumulate: argument 2"}
+!401 = distinct !{!401, !402, !"XXH3_accumulate: argument 0"}
+!402 = distinct !{!402, !"XXH3_accumulate"}
+!403 = !{!401, !396}
+!404 = !{!405}
+!405 = distinct !{!405, !406, !"XXH3_accumulate_512_sse2: argument 0"}
+!406 = distinct !{!406, !"XXH3_accumulate_512_sse2"}
+!407 = !{!405, !401, !396}
+!408 = !{!405, !401}
+!409 = !{!410, !411, !412, !413, !396}
+!410 = distinct !{!410, !406, !"XXH3_accumulate_512_sse2: argument 1"}
+!411 = distinct !{!411, !406, !"XXH3_accumulate_512_sse2: argument 2"}
+!412 = distinct !{!412, !402, !"XXH3_accumulate: argument 1"}
+!413 = distinct !{!413, !402, !"XXH3_accumulate: argument 2"}
+!414 = !{!415}
+!415 = distinct !{!415, !416, !"XXH3_scrambleAcc_sse2: argument 0"}
+!416 = distinct !{!416, !"XXH3_scrambleAcc_sse2"}
+!417 = !{!415, !393}
+!418 = !{!419, !396, !398, !399}
+!419 = distinct !{!419, !416, !"XXH3_scrambleAcc_sse2: argument 1"}
+!420 = !{!415, !396}
 !421 = !{!422}
 !422 = distinct !{!422, !423, !"XXH3_accumulate: argument 0"}
 !423 = distinct !{!423, !"XXH3_accumulate"}
-!424 = !{!422, !382}
+!424 = !{!422, !396}
 !425 = !{!426}
 !426 = distinct !{!426, !427, !"XXH3_accumulate_512_sse2: argument 0"}
 !427 = distinct !{!427, !"XXH3_accumulate_512_sse2"}
-!428 = !{!426, !422, !382}
+!428 = !{!426, !422, !396}
 !429 = !{!426, !422}
-!430 = !{!431, !432, !433, !434, !382}
+!430 = !{!431, !432, !433, !434, !396}
 !431 = distinct !{!431, !427, !"XXH3_accumulate_512_sse2: argument 1"}
 !432 = distinct !{!432, !427, !"XXH3_accumulate_512_sse2: argument 2"}
 !433 = distinct !{!433, !423, !"XXH3_accumulate: argument 1"}
@@ -5729,102 +5729,102 @@ attributes #16 = { nounwind }
 !435 = !{!436}
 !436 = distinct !{!436, !437, !"XXH3_accumulate: argument 0"}
 !437 = distinct !{!437, !"XXH3_accumulate"}
-!438 = !{!439}
-!439 = distinct !{!439, !440, !"XXH3_accumulate_512_sse2: argument 0"}
-!440 = distinct !{!440, !"XXH3_accumulate_512_sse2"}
-!441 = !{!439, !436}
-!442 = !{!443, !444, !445, !446}
-!443 = distinct !{!443, !440, !"XXH3_accumulate_512_sse2: argument 1"}
-!444 = distinct !{!444, !440, !"XXH3_accumulate_512_sse2: argument 2"}
-!445 = distinct !{!445, !437, !"XXH3_accumulate: argument 1"}
-!446 = distinct !{!446, !437, !"XXH3_accumulate: argument 2"}
-!447 = !{!448}
-!448 = distinct !{!448, !449, !"XXH3_scrambleAcc_sse2: argument 0"}
-!449 = distinct !{!449, !"XXH3_scrambleAcc_sse2"}
-!450 = !{!451}
-!451 = distinct !{!451, !449, !"XXH3_scrambleAcc_sse2: argument 1"}
+!438 = !{!436, !396}
+!439 = !{!440}
+!440 = distinct !{!440, !441, !"XXH3_accumulate_512_sse2: argument 0"}
+!441 = distinct !{!441, !"XXH3_accumulate_512_sse2"}
+!442 = !{!440, !436, !396}
+!443 = !{!440, !436}
+!444 = !{!445, !446, !447, !448, !396}
+!445 = distinct !{!445, !441, !"XXH3_accumulate_512_sse2: argument 1"}
+!446 = distinct !{!446, !441, !"XXH3_accumulate_512_sse2: argument 2"}
+!447 = distinct !{!447, !437, !"XXH3_accumulate: argument 1"}
+!448 = distinct !{!448, !437, !"XXH3_accumulate: argument 2"}
+!449 = !{!450}
+!450 = distinct !{!450, !451, !"XXH3_accumulate: argument 0"}
+!451 = distinct !{!451, !"XXH3_accumulate"}
 !452 = !{!453}
-!453 = distinct !{!453, !454, !"XXH3_accumulate: argument 0"}
-!454 = distinct !{!454, !"XXH3_accumulate"}
-!455 = !{!456}
-!456 = distinct !{!456, !457, !"XXH3_accumulate_512_sse2: argument 0"}
-!457 = distinct !{!457, !"XXH3_accumulate_512_sse2"}
-!458 = !{!456, !453}
-!459 = !{!460, !461, !462, !463}
-!460 = distinct !{!460, !457, !"XXH3_accumulate_512_sse2: argument 1"}
-!461 = distinct !{!461, !457, !"XXH3_accumulate_512_sse2: argument 2"}
-!462 = distinct !{!462, !454, !"XXH3_accumulate: argument 1"}
-!463 = distinct !{!463, !454, !"XXH3_accumulate: argument 2"}
+!453 = distinct !{!453, !454, !"XXH3_accumulate_512_sse2: argument 0"}
+!454 = distinct !{!454, !"XXH3_accumulate_512_sse2"}
+!455 = !{!453, !450}
+!456 = !{!457, !458, !459, !460}
+!457 = distinct !{!457, !454, !"XXH3_accumulate_512_sse2: argument 1"}
+!458 = distinct !{!458, !454, !"XXH3_accumulate_512_sse2: argument 2"}
+!459 = distinct !{!459, !451, !"XXH3_accumulate: argument 1"}
+!460 = distinct !{!460, !451, !"XXH3_accumulate: argument 2"}
+!461 = !{!462}
+!462 = distinct !{!462, !463, !"XXH3_scrambleAcc_sse2: argument 0"}
+!463 = distinct !{!463, !"XXH3_scrambleAcc_sse2"}
 !464 = !{!465}
-!465 = distinct !{!465, !466, !"XXH3_scrambleAcc_sse2: argument 0"}
-!466 = distinct !{!466, !"XXH3_scrambleAcc_sse2"}
-!467 = !{!468}
-!468 = distinct !{!468, !466, !"XXH3_scrambleAcc_sse2: argument 1"}
+!465 = distinct !{!465, !463, !"XXH3_scrambleAcc_sse2: argument 1"}
+!466 = !{!467}
+!467 = distinct !{!467, !468, !"XXH3_accumulate: argument 0"}
+!468 = distinct !{!468, !"XXH3_accumulate"}
 !469 = !{!470}
-!470 = distinct !{!470, !471, !"XXH3_accumulate: argument 0"}
-!471 = distinct !{!471, !"XXH3_accumulate"}
-!472 = !{!473}
-!473 = distinct !{!473, !474, !"XXH3_accumulate_512_sse2: argument 0"}
-!474 = distinct !{!474, !"XXH3_accumulate_512_sse2"}
-!475 = !{!473, !470}
-!476 = !{!477, !478, !479, !480}
-!477 = distinct !{!477, !474, !"XXH3_accumulate_512_sse2: argument 1"}
-!478 = distinct !{!478, !474, !"XXH3_accumulate_512_sse2: argument 2"}
-!479 = distinct !{!479, !471, !"XXH3_accumulate: argument 1"}
-!480 = distinct !{!480, !471, !"XXH3_accumulate: argument 2"}
+!470 = distinct !{!470, !471, !"XXH3_accumulate_512_sse2: argument 0"}
+!471 = distinct !{!471, !"XXH3_accumulate_512_sse2"}
+!472 = !{!470, !467}
+!473 = !{!474, !475, !476, !477}
+!474 = distinct !{!474, !471, !"XXH3_accumulate_512_sse2: argument 1"}
+!475 = distinct !{!475, !471, !"XXH3_accumulate_512_sse2: argument 2"}
+!476 = distinct !{!476, !468, !"XXH3_accumulate: argument 1"}
+!477 = distinct !{!477, !468, !"XXH3_accumulate: argument 2"}
+!478 = !{!479}
+!479 = distinct !{!479, !480, !"XXH3_scrambleAcc_sse2: argument 0"}
+!480 = distinct !{!480, !"XXH3_scrambleAcc_sse2"}
 !481 = !{!482}
-!482 = distinct !{!482, !483, !"XXH3_consumeStripes: argument 1"}
-!483 = distinct !{!483, !"XXH3_consumeStripes"}
-!484 = !{!485, !486, !487}
-!485 = distinct !{!485, !483, !"XXH3_consumeStripes: argument 0"}
-!486 = distinct !{!486, !483, !"XXH3_consumeStripes: argument 2"}
-!487 = distinct !{!487, !483, !"XXH3_consumeStripes: argument 3"}
-!488 = !{!485}
-!489 = !{!490}
-!490 = distinct !{!490, !491, !"XXH3_accumulate: argument 0"}
-!491 = distinct !{!491, !"XXH3_accumulate"}
-!492 = !{!490, !482}
-!493 = !{!494}
-!494 = distinct !{!494, !495, !"XXH3_accumulate_512_sse2: argument 0"}
-!495 = distinct !{!495, !"XXH3_accumulate_512_sse2"}
-!496 = !{!494, !490, !482}
-!497 = !{!494, !490}
-!498 = !{!499, !500, !501, !502, !482}
-!499 = distinct !{!499, !495, !"XXH3_accumulate_512_sse2: argument 1"}
-!500 = distinct !{!500, !495, !"XXH3_accumulate_512_sse2: argument 2"}
-!501 = distinct !{!501, !491, !"XXH3_accumulate: argument 1"}
-!502 = distinct !{!502, !491, !"XXH3_accumulate: argument 2"}
+!482 = distinct !{!482, !480, !"XXH3_scrambleAcc_sse2: argument 1"}
+!483 = !{!484}
+!484 = distinct !{!484, !485, !"XXH3_accumulate: argument 0"}
+!485 = distinct !{!485, !"XXH3_accumulate"}
+!486 = !{!487}
+!487 = distinct !{!487, !488, !"XXH3_accumulate_512_sse2: argument 0"}
+!488 = distinct !{!488, !"XXH3_accumulate_512_sse2"}
+!489 = !{!487, !484}
+!490 = !{!491, !492, !493, !494}
+!491 = distinct !{!491, !488, !"XXH3_accumulate_512_sse2: argument 1"}
+!492 = distinct !{!492, !488, !"XXH3_accumulate_512_sse2: argument 2"}
+!493 = distinct !{!493, !485, !"XXH3_accumulate: argument 1"}
+!494 = distinct !{!494, !485, !"XXH3_accumulate: argument 2"}
+!495 = !{!496}
+!496 = distinct !{!496, !497, !"XXH3_consumeStripes: argument 1"}
+!497 = distinct !{!497, !"XXH3_consumeStripes"}
+!498 = !{!499, !500, !501}
+!499 = distinct !{!499, !497, !"XXH3_consumeStripes: argument 0"}
+!500 = distinct !{!500, !497, !"XXH3_consumeStripes: argument 2"}
+!501 = distinct !{!501, !497, !"XXH3_consumeStripes: argument 3"}
+!502 = !{!499}
 !503 = !{!504}
-!504 = distinct !{!504, !505, !"XXH3_scrambleAcc_sse2: argument 0"}
-!505 = distinct !{!505, !"XXH3_scrambleAcc_sse2"}
-!506 = !{!504, !485}
-!507 = !{!508, !482, !486, !487}
-!508 = distinct !{!508, !505, !"XXH3_scrambleAcc_sse2: argument 1"}
-!509 = !{!504, !482}
-!510 = !{!511}
-!511 = distinct !{!511, !512, !"XXH3_accumulate: argument 0"}
-!512 = distinct !{!512, !"XXH3_accumulate"}
-!513 = !{!511, !482}
-!514 = !{!515}
-!515 = distinct !{!515, !516, !"XXH3_accumulate_512_sse2: argument 0"}
-!516 = distinct !{!516, !"XXH3_accumulate_512_sse2"}
-!517 = !{!515, !511, !482}
-!518 = !{!515, !511}
-!519 = !{!520, !521, !522, !523, !482}
-!520 = distinct !{!520, !516, !"XXH3_accumulate_512_sse2: argument 1"}
-!521 = distinct !{!521, !516, !"XXH3_accumulate_512_sse2: argument 2"}
-!522 = distinct !{!522, !512, !"XXH3_accumulate: argument 1"}
-!523 = distinct !{!523, !512, !"XXH3_accumulate: argument 2"}
+!504 = distinct !{!504, !505, !"XXH3_accumulate: argument 0"}
+!505 = distinct !{!505, !"XXH3_accumulate"}
+!506 = !{!504, !496}
+!507 = !{!508}
+!508 = distinct !{!508, !509, !"XXH3_accumulate_512_sse2: argument 0"}
+!509 = distinct !{!509, !"XXH3_accumulate_512_sse2"}
+!510 = !{!508, !504, !496}
+!511 = !{!508, !504}
+!512 = !{!513, !514, !515, !516, !496}
+!513 = distinct !{!513, !509, !"XXH3_accumulate_512_sse2: argument 1"}
+!514 = distinct !{!514, !509, !"XXH3_accumulate_512_sse2: argument 2"}
+!515 = distinct !{!515, !505, !"XXH3_accumulate: argument 1"}
+!516 = distinct !{!516, !505, !"XXH3_accumulate: argument 2"}
+!517 = !{!518}
+!518 = distinct !{!518, !519, !"XXH3_scrambleAcc_sse2: argument 0"}
+!519 = distinct !{!519, !"XXH3_scrambleAcc_sse2"}
+!520 = !{!518, !499}
+!521 = !{!522, !496, !500, !501}
+!522 = distinct !{!522, !519, !"XXH3_scrambleAcc_sse2: argument 1"}
+!523 = !{!518, !496}
 !524 = !{!525}
 !525 = distinct !{!525, !526, !"XXH3_accumulate: argument 0"}
 !526 = distinct !{!526, !"XXH3_accumulate"}
-!527 = !{!525, !482}
+!527 = !{!525, !496}
 !528 = !{!529}
 !529 = distinct !{!529, !530, !"XXH3_accumulate_512_sse2: argument 0"}
 !530 = distinct !{!530, !"XXH3_accumulate_512_sse2"}
-!531 = !{!529, !525, !482}
+!531 = !{!529, !525, !496}
 !532 = !{!529, !525}
-!533 = !{!534, !535, !536, !537, !482}
+!533 = !{!534, !535, !536, !537, !496}
 !534 = distinct !{!534, !530, !"XXH3_accumulate_512_sse2: argument 1"}
 !535 = distinct !{!535, !530, !"XXH3_accumulate_512_sse2: argument 2"}
 !536 = distinct !{!536, !526, !"XXH3_accumulate: argument 1"}
@@ -5832,131 +5832,149 @@ attributes #16 = { nounwind }
 !538 = !{!539}
 !539 = distinct !{!539, !540, !"XXH3_accumulate: argument 0"}
 !540 = distinct !{!540, !"XXH3_accumulate"}
-!541 = !{!539, !542}
-!542 = distinct !{!542, !543, !"XXH3_consumeStripes: argument 1"}
-!543 = distinct !{!543, !"XXH3_consumeStripes"}
-!544 = !{!545}
-!545 = distinct !{!545, !546, !"XXH3_accumulate_512_sse2: argument 0"}
-!546 = distinct !{!546, !"XXH3_accumulate_512_sse2"}
-!547 = !{!542}
-!548 = !{!545, !539, !542}
-!549 = !{!545, !539}
-!550 = !{!551, !552, !553, !554, !542}
-!551 = distinct !{!551, !546, !"XXH3_accumulate_512_sse2: argument 1"}
-!552 = distinct !{!552, !546, !"XXH3_accumulate_512_sse2: argument 2"}
-!553 = distinct !{!553, !540, !"XXH3_accumulate: argument 1"}
-!554 = distinct !{!554, !540, !"XXH3_accumulate: argument 2"}
-!555 = !{!556}
-!556 = distinct !{!556, !557, !"XXH3_scrambleAcc_sse2: argument 0"}
-!557 = distinct !{!557, !"XXH3_scrambleAcc_sse2"}
-!558 = !{!556, !559}
-!559 = distinct !{!559, !543, !"XXH3_consumeStripes: argument 0"}
-!560 = !{!561, !542, !562, !563}
-!561 = distinct !{!561, !557, !"XXH3_scrambleAcc_sse2: argument 1"}
-!562 = distinct !{!562, !543, !"XXH3_consumeStripes: argument 2"}
-!563 = distinct !{!563, !543, !"XXH3_consumeStripes: argument 3"}
-!564 = !{!556, !542}
-!565 = !{!566}
-!566 = distinct !{!566, !567, !"XXH3_accumulate: argument 0"}
-!567 = distinct !{!567, !"XXH3_accumulate"}
-!568 = !{!566, !542}
+!541 = !{!539, !496}
+!542 = !{!543}
+!543 = distinct !{!543, !544, !"XXH3_accumulate_512_sse2: argument 0"}
+!544 = distinct !{!544, !"XXH3_accumulate_512_sse2"}
+!545 = !{!543, !539, !496}
+!546 = !{!543, !539}
+!547 = !{!548, !549, !550, !551, !496}
+!548 = distinct !{!548, !544, !"XXH3_accumulate_512_sse2: argument 1"}
+!549 = distinct !{!549, !544, !"XXH3_accumulate_512_sse2: argument 2"}
+!550 = distinct !{!550, !540, !"XXH3_accumulate: argument 1"}
+!551 = distinct !{!551, !540, !"XXH3_accumulate: argument 2"}
+!552 = !{!553}
+!553 = distinct !{!553, !554, !"XXH3_accumulate: argument 0"}
+!554 = distinct !{!554, !"XXH3_accumulate"}
+!555 = !{!553, !556}
+!556 = distinct !{!556, !557, !"XXH3_consumeStripes: argument 1"}
+!557 = distinct !{!557, !"XXH3_consumeStripes"}
+!558 = !{!559}
+!559 = distinct !{!559, !560, !"XXH3_accumulate_512_sse2: argument 0"}
+!560 = distinct !{!560, !"XXH3_accumulate_512_sse2"}
+!561 = !{!556}
+!562 = !{!559, !553, !556}
+!563 = !{!559, !553}
+!564 = !{!565, !566, !567, !568, !556}
+!565 = distinct !{!565, !560, !"XXH3_accumulate_512_sse2: argument 1"}
+!566 = distinct !{!566, !560, !"XXH3_accumulate_512_sse2: argument 2"}
+!567 = distinct !{!567, !554, !"XXH3_accumulate: argument 1"}
+!568 = distinct !{!568, !554, !"XXH3_accumulate: argument 2"}
 !569 = !{!570}
-!570 = distinct !{!570, !571, !"XXH3_accumulate_512_sse2: argument 0"}
-!571 = distinct !{!571, !"XXH3_accumulate_512_sse2"}
-!572 = !{!570, !566, !542}
-!573 = !{!570, !566}
-!574 = !{!575, !576, !577, !578, !542}
-!575 = distinct !{!575, !571, !"XXH3_accumulate_512_sse2: argument 1"}
-!576 = distinct !{!576, !571, !"XXH3_accumulate_512_sse2: argument 2"}
-!577 = distinct !{!577, !567, !"XXH3_accumulate: argument 1"}
-!578 = distinct !{!578, !567, !"XXH3_accumulate: argument 2"}
+!570 = distinct !{!570, !571, !"XXH3_scrambleAcc_sse2: argument 0"}
+!571 = distinct !{!571, !"XXH3_scrambleAcc_sse2"}
+!572 = !{!570, !573}
+!573 = distinct !{!573, !557, !"XXH3_consumeStripes: argument 0"}
+!574 = !{!575, !556, !576, !577}
+!575 = distinct !{!575, !571, !"XXH3_scrambleAcc_sse2: argument 1"}
+!576 = distinct !{!576, !557, !"XXH3_consumeStripes: argument 2"}
+!577 = distinct !{!577, !557, !"XXH3_consumeStripes: argument 3"}
+!578 = !{!570, !556}
 !579 = !{!580}
 !580 = distinct !{!580, !581, !"XXH3_accumulate: argument 0"}
 !581 = distinct !{!581, !"XXH3_accumulate"}
-!582 = !{!580, !542}
+!582 = !{!580, !556}
 !583 = !{!584}
 !584 = distinct !{!584, !585, !"XXH3_accumulate_512_sse2: argument 0"}
 !585 = distinct !{!585, !"XXH3_accumulate_512_sse2"}
-!586 = !{!584, !580, !542}
+!586 = !{!584, !580, !556}
 !587 = !{!584, !580}
-!588 = !{!589, !590, !591, !592, !542}
+!588 = !{!589, !590, !591, !592, !556}
 !589 = distinct !{!589, !585, !"XXH3_accumulate_512_sse2: argument 1"}
 !590 = distinct !{!590, !585, !"XXH3_accumulate_512_sse2: argument 2"}
 !591 = distinct !{!591, !581, !"XXH3_accumulate: argument 1"}
 !592 = distinct !{!592, !581, !"XXH3_accumulate: argument 2"}
 !593 = !{!594}
-!594 = distinct !{!594, !595, !"XXH3_accumulate_512_sse2: argument 0"}
-!595 = distinct !{!595, !"XXH3_accumulate_512_sse2"}
-!596 = !{!597, !598}
-!597 = distinct !{!597, !595, !"XXH3_accumulate_512_sse2: argument 1"}
-!598 = distinct !{!598, !595, !"XXH3_accumulate_512_sse2: argument 2"}
-!599 = !{!600}
-!600 = distinct !{!600, !601, !"XXH3_accumulate_512_sse2: argument 0"}
-!601 = distinct !{!601, !"XXH3_accumulate_512_sse2"}
-!602 = !{!603, !604}
-!603 = distinct !{!603, !601, !"XXH3_accumulate_512_sse2: argument 1"}
-!604 = distinct !{!604, !601, !"XXH3_accumulate_512_sse2: argument 2"}
-!605 = !{!606}
-!606 = distinct !{!606, !607, !"XXH3_mergeAccs: argument 0"}
-!607 = distinct !{!607, !"XXH3_mergeAccs"}
-!608 = !{!609}
-!609 = distinct !{!609, !607, !"XXH3_mergeAccs: argument 1"}
-!610 = !{!611}
-!611 = distinct !{!611, !612, !"XXH3_mix2Accs: argument 0"}
-!612 = distinct !{!612, !"XXH3_mix2Accs"}
-!613 = !{!611, !606}
-!614 = !{!615, !609}
-!615 = distinct !{!615, !612, !"XXH3_mix2Accs: argument 1"}
-!616 = !{!617}
-!617 = distinct !{!617, !618, !"XXH3_mergeAccs: argument 0"}
-!618 = distinct !{!618, !"XXH3_mergeAccs"}
+!594 = distinct !{!594, !595, !"XXH3_accumulate: argument 0"}
+!595 = distinct !{!595, !"XXH3_accumulate"}
+!596 = !{!594, !556}
+!597 = !{!598}
+!598 = distinct !{!598, !599, !"XXH3_accumulate_512_sse2: argument 0"}
+!599 = distinct !{!599, !"XXH3_accumulate_512_sse2"}
+!600 = !{!598, !594, !556}
+!601 = !{!598, !594}
+!602 = !{!603, !604, !605, !606, !556}
+!603 = distinct !{!603, !599, !"XXH3_accumulate_512_sse2: argument 1"}
+!604 = distinct !{!604, !599, !"XXH3_accumulate_512_sse2: argument 2"}
+!605 = distinct !{!605, !595, !"XXH3_accumulate: argument 1"}
+!606 = distinct !{!606, !595, !"XXH3_accumulate: argument 2"}
+!607 = !{!608}
+!608 = distinct !{!608, !609, !"XXH3_accumulate_512_sse2: argument 0"}
+!609 = distinct !{!609, !"XXH3_accumulate_512_sse2"}
+!610 = !{!611, !612}
+!611 = distinct !{!611, !609, !"XXH3_accumulate_512_sse2: argument 1"}
+!612 = distinct !{!612, !609, !"XXH3_accumulate_512_sse2: argument 2"}
+!613 = !{!614}
+!614 = distinct !{!614, !615, !"XXH3_accumulate_512_sse2: argument 0"}
+!615 = distinct !{!615, !"XXH3_accumulate_512_sse2"}
+!616 = !{!617, !618}
+!617 = distinct !{!617, !615, !"XXH3_accumulate_512_sse2: argument 1"}
+!618 = distinct !{!618, !615, !"XXH3_accumulate_512_sse2: argument 2"}
 !619 = !{!620}
-!620 = distinct !{!620, !618, !"XXH3_mergeAccs: argument 1"}
-!621 = !{!622}
-!622 = distinct !{!622, !623, !"XXH3_mix2Accs: argument 0"}
-!623 = distinct !{!623, !"XXH3_mix2Accs"}
-!624 = !{!622, !617}
-!625 = !{!626, !620}
-!626 = distinct !{!626, !623, !"XXH3_mix2Accs: argument 1"}
-!627 = !{!628}
-!628 = distinct !{!628, !629, !"XXH3_mix16B: argument 1"}
-!629 = distinct !{!629, !"XXH3_mix16B"}
+!620 = distinct !{!620, !621, !"XXH3_mergeAccs: argument 0"}
+!621 = distinct !{!621, !"XXH3_mergeAccs"}
+!622 = !{!623}
+!623 = distinct !{!623, !621, !"XXH3_mergeAccs: argument 1"}
+!624 = !{!625}
+!625 = distinct !{!625, !626, !"XXH3_mix2Accs: argument 0"}
+!626 = distinct !{!626, !"XXH3_mix2Accs"}
+!627 = !{!625, !620}
+!628 = !{!629, !623}
+!629 = distinct !{!629, !626, !"XXH3_mix2Accs: argument 1"}
 !630 = !{!631}
-!631 = distinct !{!631, !632, !"XXH3_mix16B: argument 1"}
-!632 = distinct !{!632, !"XXH3_mix16B"}
+!631 = distinct !{!631, !632, !"XXH3_mergeAccs: argument 0"}
+!632 = distinct !{!632, !"XXH3_mergeAccs"}
 !633 = !{!634}
-!634 = distinct !{!634, !635, !"XXH3_mix16B: argument 1"}
-!635 = distinct !{!635, !"XXH3_mix16B"}
-!636 = !{!637}
-!637 = distinct !{!637, !638, !"XXH3_mix16B: argument 1"}
-!638 = distinct !{!638, !"XXH3_mix16B"}
-!639 = !{!640}
-!640 = distinct !{!640, !641, !"XXH3_mix16B: argument 1"}
-!641 = distinct !{!641, !"XXH3_mix16B"}
-!642 = !{!643}
-!643 = distinct !{!643, !644, !"XXH3_mix16B: argument 1"}
-!644 = distinct !{!644, !"XXH3_mix16B"}
-!645 = !{!646}
-!646 = distinct !{!646, !647, !"XXH3_mix16B: argument 1"}
-!647 = distinct !{!647, !"XXH3_mix16B"}
-!648 = !{!649}
-!649 = distinct !{!649, !650, !"XXH3_mix16B: argument 1"}
-!650 = distinct !{!650, !"XXH3_mix16B"}
-!651 = !{!652}
-!652 = distinct !{!652, !653, !"XXH3_mix16B: argument 1"}
-!653 = distinct !{!653, !"XXH3_mix16B"}
-!654 = !{!655}
-!655 = distinct !{!655, !656, !"XXH3_mix16B: argument 1"}
-!656 = distinct !{!656, !"XXH3_mix16B"}
-!657 = !{!658}
-!658 = distinct !{!658, !659, !"XXH3_mix16B: argument 1"}
-!659 = distinct !{!659, !"XXH3_mix16B"}
-!660 = !{!661}
-!661 = distinct !{!661, !662, !"XXH3_mix16B: argument 1"}
-!662 = distinct !{!662, !"XXH3_mix16B"}
-!663 = !{!664}
-!664 = distinct !{!664, !665, !"XXH3_mix16B: argument 1"}
-!665 = distinct !{!665, !"XXH3_mix16B"}
-!666 = !{!667}
-!667 = distinct !{!667, !668, !"XXH3_mix16B: argument 1"}
-!668 = distinct !{!668, !"XXH3_mix16B"}
+!634 = distinct !{!634, !632, !"XXH3_mergeAccs: argument 1"}
+!635 = !{!636}
+!636 = distinct !{!636, !637, !"XXH3_mix2Accs: argument 0"}
+!637 = distinct !{!637, !"XXH3_mix2Accs"}
+!638 = !{!636, !631}
+!639 = !{!640, !634}
+!640 = distinct !{!640, !637, !"XXH3_mix2Accs: argument 1"}
+!641 = !{!642}
+!642 = distinct !{!642, !643, !"XXH3_mix16B: argument 1"}
+!643 = distinct !{!643, !"XXH3_mix16B"}
+!644 = !{!645}
+!645 = distinct !{!645, !646, !"XXH3_mix16B: argument 1"}
+!646 = distinct !{!646, !"XXH3_mix16B"}
+!647 = !{!648}
+!648 = distinct !{!648, !649, !"XXH3_mix16B: argument 1"}
+!649 = distinct !{!649, !"XXH3_mix16B"}
+!650 = !{!651}
+!651 = distinct !{!651, !652, !"XXH3_mix16B: argument 1"}
+!652 = distinct !{!652, !"XXH3_mix16B"}
+!653 = !{!654}
+!654 = distinct !{!654, !655, !"XXH3_mix16B: argument 1"}
+!655 = distinct !{!655, !"XXH3_mix16B"}
+!656 = !{!657}
+!657 = distinct !{!657, !658, !"XXH3_mix16B: argument 1"}
+!658 = distinct !{!658, !"XXH3_mix16B"}
+!659 = !{!660}
+!660 = distinct !{!660, !661, !"XXH3_mix16B: argument 1"}
+!661 = distinct !{!661, !"XXH3_mix16B"}
+!662 = !{!663}
+!663 = distinct !{!663, !664, !"XXH3_mix16B: argument 1"}
+!664 = distinct !{!664, !"XXH3_mix16B"}
+!665 = !{!666}
+!666 = distinct !{!666, !667, !"XXH3_mix16B: argument 1"}
+!667 = distinct !{!667, !"XXH3_mix16B"}
+!668 = distinct !{!668, !15}
+!669 = !{!670}
+!670 = distinct !{!670, !671, !"XXH3_mix16B: argument 1"}
+!671 = distinct !{!671, !"XXH3_mix16B"}
+!672 = distinct !{!672, !15}
+!673 = !{!674}
+!674 = distinct !{!674, !675, !"XXH3_mix16B: argument 1"}
+!675 = distinct !{!675, !"XXH3_mix16B"}
+!676 = !{!677}
+!677 = distinct !{!677, !678, !"XXH3_mix16B: argument 1"}
+!678 = distinct !{!678, !"XXH3_mix16B"}
+!679 = distinct !{!679, !15}
+!680 = !{!681}
+!681 = distinct !{!681, !682, !"XXH3_mix16B: argument 1"}
+!682 = distinct !{!682, !"XXH3_mix16B"}
+!683 = distinct !{!683, !15}
+!684 = !{!685}
+!685 = distinct !{!685, !686, !"XXH3_mix16B: argument 1"}
+!686 = distinct !{!686, !"XXH3_mix16B"}

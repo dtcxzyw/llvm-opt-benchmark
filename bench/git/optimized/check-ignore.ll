@@ -327,13 +327,13 @@ define internal fastcc i32 @check_ignore(ptr noundef nonnull %0, ptr noundef %1,
   call void @parse_pathspec(ptr noundef nonnull %5, i32 noundef 126, i32 noundef 40, ptr noundef %1, ptr noundef %3) #11
   %13 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 384
-  %15 = load ptr, ptr %14, align 8, !tbaa !23
+  %15 = load ptr, ptr %14, align 8, !tbaa !24
   call void @die_path_inside_submodule(ptr noundef %15, ptr noundef nonnull %5) #11
   %16 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 384
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = call ptr @find_pathspecs_matching_against_index(ptr noundef nonnull %5, ptr noundef %18, i32 noundef 0) #11
-  %20 = load i32, ptr %5, align 8, !tbaa !41
+  %20 = load i32, ptr %5, align 8, !tbaa !42
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
@@ -350,14 +350,14 @@ define internal fastcc i32 @check_ignore(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %.not28, label %26, label %42
 
 26:                                               ; preds = %23
-  %27 = load ptr, ptr %22, align 8, !tbaa !44
+  %27 = load ptr, ptr %22, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw %struct.pathspec_item, ptr %27, i64 %indvars.iv
-  %29 = load ptr, ptr %28, align 8, !tbaa !45
+  %29 = load ptr, ptr %28, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   store i32 0, ptr %6, align 4, !tbaa !9
   %30 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 384
-  %32 = load ptr, ptr %31, align 8, !tbaa !23
+  %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = call ptr @last_matching_pattern(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %29, ptr noundef nonnull %6) #11
   %34 = load i32, ptr @verbose, align 4, !tbaa !9
   %35 = icmp eq i32 %34, 0
@@ -392,9 +392,9 @@ define internal fastcc i32 @check_ignore(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %or.cond3, label %48, label %output_pattern.exit
 
 48:                                               ; preds = %44
-  %49 = load ptr, ptr %22, align 8, !tbaa !44
+  %49 = load ptr, ptr %22, align 8, !tbaa !45
   %50 = getelementptr inbounds nuw %struct.pathspec_item, ptr %49, i64 %indvars.iv, i32 1
-  %51 = load ptr, ptr %50, align 8, !tbaa !49
+  %51 = load ptr, ptr %50, align 8, !tbaa !50
   %.not.i = icmp eq ptr %.0, null
   br i1 %.not.i, label %.thread.i, label %52
 
@@ -430,9 +430,9 @@ define internal fastcc i32 @check_ignore(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %.not.i, label %77, label %67
 
 67:                                               ; preds = %66
-  %68 = load ptr, ptr %.0, align 8, !tbaa !50
+  %68 = load ptr, ptr %.0, align 8, !tbaa !51
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !52
+  %70 = load ptr, ptr %69, align 8, !tbaa !53
   %71 = load ptr, ptr @stdout, align 8, !tbaa !11
   %72 = call i64 @quote_c_style(ptr noundef %70, ptr noundef null, ptr noundef %71, i32 noundef 0) #11
   %73 = getelementptr inbounds nuw i8, ptr %.0, i64 32
@@ -463,9 +463,9 @@ define internal fastcc i32 @check_ignore(ptr noundef nonnull %0, ptr noundef %1,
   br i1 %.not.i, label %96, label %88
 
 88:                                               ; preds = %87
-  %89 = load ptr, ptr %.0, align 8, !tbaa !50
+  %89 = load ptr, ptr %.0, align 8, !tbaa !51
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %91 = load ptr, ptr %90, align 8, !tbaa !52
+  %91 = load ptr, ptr %90, align 8, !tbaa !53
   %92 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %93 = load i32, ptr %92, align 8, !tbaa !9
   %94 = getelementptr inbounds nuw i8, ptr %.0, i64 36
@@ -481,10 +481,10 @@ output_pattern.exit:                              ; preds = %96, %88, %85, %79, 
   %98 = zext i1 %.not31 to i32
   %spec.select = add nuw nsw i32 %.02332, %98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = load i32, ptr %5, align 8, !tbaa !41
+  %99 = load i32, ptr %5, align 8, !tbaa !42
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv.next, %100
-  br i1 %101, label %23, label %._crit_edge, !llvm.loop !55
+  br i1 %101, label %23, label %._crit_edge, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %output_pattern.exit, %12
   %.023.lcssa = phi i32 [ 0, %12 ], [ %spec.select, %output_pattern.exit ]
@@ -585,38 +585,39 @@ attributes #13 = { cold }
 !18 = !{!7, !7, i64 0}
 !19 = !{!15, !16, i64 8}
 !20 = !{!17, !17, i64 0}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !37, i64 384}
-!24 = !{!"repository", !17, i64 0, !17, i64 8, !25, i64 16, !26, i64 24, !27, i64 32, !28, i64 40, !28, i64 104, !32, i64 168, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !33, i64 256, !35, i64 368, !36, i64 376, !37, i64 384, !38, i64 392, !39, i64 400, !39, i64 408, !10, i64 416, !10, i64 420, !10, i64 424, !17, i64 432, !40, i64 440, !10, i64 448, !10, i64 452, !10, i64 456}
-!25 = !{!"p1 _ZTS16raw_object_store", !6, i64 0}
-!26 = !{!"p1 _ZTS18parsed_object_pool", !6, i64 0}
-!27 = !{!"p1 _ZTS9ref_store", !6, i64 0}
-!28 = !{!"strmap", !29, i64 0, !31, i64 48, !10, i64 56}
-!29 = !{!"hashmap", !30, i64 0, !6, i64 8, !6, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
-!30 = !{!"p2 _ZTS13hashmap_entry", !6, i64 0}
-!31 = !{!"p1 _ZTS8mem_pool", !6, i64 0}
-!32 = !{!"repo_path_cache", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48}
-!33 = !{!"repo_settings", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !34, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !10, i64 80, !16, i64 88, !16, i64 96, !16, i64 104}
-!34 = !{!"p1 _ZTS18fsmonitor_settings", !6, i64 0}
-!35 = !{!"p1 _ZTS10config_set", !6, i64 0}
-!36 = !{!"p1 _ZTS15submodule_cache", !6, i64 0}
-!37 = !{!"p1 _ZTS11index_state", !6, i64 0}
-!38 = !{!"p1 _ZTS12remote_state", !6, i64 0}
-!39 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
-!40 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
-!41 = !{!42, !10, i64 0}
-!42 = !{!"pathspec", !10, i64 0, !10, i64 4, !10, i64 4, !10, i64 4, !10, i64 8, !10, i64 12, !43, i64 16}
-!43 = !{!"p1 _ZTS13pathspec_item", !6, i64 0}
-!44 = !{!42, !43, i64 16}
-!45 = !{!46, !17, i64 0}
-!46 = !{!"pathspec_item", !17, i64 0, !17, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !47, i64 40, !48, i64 48}
-!47 = !{!"p1 _ZTS10attr_match", !6, i64 0}
-!48 = !{!"p1 _ZTS10attr_check", !6, i64 0}
-!49 = !{!46, !17, i64 8}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS12pattern_list", !6, i64 0}
-!52 = !{!53, !17, i64 8}
-!53 = !{!"pattern_list", !10, i64 0, !10, i64 4, !17, i64 8, !54, i64 16, !10, i64 24, !10, i64 28, !29, i64 32, !29, i64 80}
-!54 = !{!"p2 _ZTS12path_pattern", !6, i64 0}
-!55 = distinct !{!55, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25, !38, i64 384}
+!25 = !{!"repository", !17, i64 0, !17, i64 8, !26, i64 16, !27, i64 24, !28, i64 32, !29, i64 40, !29, i64 104, !33, i64 168, !17, i64 224, !17, i64 232, !17, i64 240, !17, i64 248, !34, i64 256, !36, i64 368, !37, i64 376, !38, i64 384, !39, i64 392, !40, i64 400, !40, i64 408, !10, i64 416, !10, i64 420, !10, i64 424, !17, i64 432, !41, i64 440, !10, i64 448, !10, i64 452, !10, i64 456}
+!26 = !{!"p1 _ZTS16raw_object_store", !6, i64 0}
+!27 = !{!"p1 _ZTS18parsed_object_pool", !6, i64 0}
+!28 = !{!"p1 _ZTS9ref_store", !6, i64 0}
+!29 = !{!"strmap", !30, i64 0, !32, i64 48, !10, i64 56}
+!30 = !{!"hashmap", !31, i64 0, !6, i64 8, !6, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40}
+!31 = !{!"p2 _ZTS13hashmap_entry", !6, i64 0}
+!32 = !{!"p1 _ZTS8mem_pool", !6, i64 0}
+!33 = !{!"repo_path_cache", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48}
+!34 = !{!"repo_settings", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !10, i64 44, !35, i64 48, !10, i64 56, !10, i64 60, !10, i64 64, !10, i64 68, !10, i64 72, !10, i64 76, !10, i64 80, !16, i64 88, !16, i64 96, !16, i64 104}
+!35 = !{!"p1 _ZTS18fsmonitor_settings", !6, i64 0}
+!36 = !{!"p1 _ZTS10config_set", !6, i64 0}
+!37 = !{!"p1 _ZTS15submodule_cache", !6, i64 0}
+!38 = !{!"p1 _ZTS11index_state", !6, i64 0}
+!39 = !{!"p1 _ZTS12remote_state", !6, i64 0}
+!40 = !{!"p1 _ZTS13git_hash_algo", !6, i64 0}
+!41 = !{!"p1 _ZTS22promisor_remote_config", !6, i64 0}
+!42 = !{!43, !10, i64 0}
+!43 = !{!"pathspec", !10, i64 0, !10, i64 4, !10, i64 4, !10, i64 4, !10, i64 8, !10, i64 12, !44, i64 16}
+!44 = !{!"p1 _ZTS13pathspec_item", !6, i64 0}
+!45 = !{!43, !44, i64 16}
+!46 = !{!47, !17, i64 0}
+!47 = !{!"pathspec_item", !17, i64 0, !17, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !48, i64 40, !49, i64 48}
+!48 = !{!"p1 _ZTS10attr_match", !6, i64 0}
+!49 = !{!"p1 _ZTS10attr_check", !6, i64 0}
+!50 = !{!47, !17, i64 8}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS12pattern_list", !6, i64 0}
+!53 = !{!54, !17, i64 8}
+!54 = !{!"pattern_list", !10, i64 0, !10, i64 4, !17, i64 8, !55, i64 16, !10, i64 24, !10, i64 28, !30, i64 32, !30, i64 80}
+!55 = !{!"p2 _ZTS12path_pattern", !6, i64 0}
+!56 = distinct !{!56, !22, !23}

@@ -403,7 +403,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %_ZNSt5mutex4lockEv.
 
 17:                                               ; preds = %"_ZNSt3_V222condition_variable_any4waitISt5mutexZL11thread_funcP18scoped_timer_stateE3$_0EEvRT_T0_.exit"
   %18 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
-  %19 = load i32, ptr %6, align 4, !tbaa !59
+  %19 = load i32, ptr %6, align 4, !tbaa !60
   %20 = zext i32 %19 to i64
   %21 = mul nuw nsw i64 %20, 1000000
   %22 = add nsw i64 %21, %18
@@ -414,8 +414,8 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %_ZNSt5mutex4lockEv.
 
 25:                                               ; preds = %27, %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #23
-  store i64 %23, ptr %2, align 8, !tbaa !60
-  store i64 %24, ptr %8, align 8, !tbaa !62
+  store i64 %23, ptr %2, align 8, !tbaa !61
+  store i64 %24, ptr %8, align 8, !tbaa !63
   %26 = call i32 @pthread_mutex_clocklock(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   %.not.i.i.i = icmp eq i32 %26, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
@@ -424,7 +424,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %_ZNSt5mutex4lockEv.
 27:                                               ; preds = %25
   %28 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #23
   %.not = icmp slt i64 %28, %22
-  br i1 %.not, label %25, label %29, !llvm.loop !63
+  br i1 %.not, label %25, label %29, !llvm.loop !64
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %9, align 8, !tbaa !46
@@ -442,7 +442,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %_ZNSt5mutex4lockEv.
   store atomic i32 0, ptr %5 seq_cst, align 4
   %37 = call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL7workers) #23
   %.not.i11 = icmp eq i32 %37, 0
-  br i1 %.not.i11, label %_ZNSt5mutex4lockEv.exit, label %38, !llvm.loop !64
+  br i1 %.not.i11, label %_ZNSt5mutex4lockEv.exit, label %38, !llvm.loop !65
 
 38:                                               ; preds = %36
   call void @_ZSt20__throw_system_errori(i32 noundef %37) #24
@@ -473,7 +473,7 @@ define hidden void @_ZN12scoped_timerD2Ev(ptr noundef nonnull readonly align 8 c
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 60
   %13 = load atomic i32, ptr %12 seq_cst, align 4
   %14 = icmp eq i32 %13, 1
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !65
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %15 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL7workers) #23
@@ -652,7 +652,7 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %.lr.ph
   %17 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %10) #23
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.027.040, i64 8
   %19 = icmp eq ptr %18, %5
-  br i1 %19, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %19, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !67
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt3_V222condition_variable_any10notify_oneEv.exit
   %.pre = load ptr, ptr @_ZL17available_workers, align 8, !tbaa !3
@@ -683,7 +683,7 @@ _ZNSt3_V222condition_variable_any10notify_oneEv.exit: ; preds = %.lr.ph
 _ZNSt6vectorIP18scoped_timer_stateSaIS1_EED2Ev.exit: ; preds = %._crit_edge45, %25
   %29 = load atomic i32, ptr @_ZL11num_workers seq_cst, align 4
   %30 = icmp ult i32 %.1.lcssa, %29
-  br i1 %30, label %.lr.ph48, label %._crit_edge49, !llvm.loop !66
+  br i1 %30, label %.lr.ph48, label %._crit_edge49, !llvm.loop !68
 
 .lr.ph44:                                         ; preds = %._crit_edge, %_ZN18scoped_timer_stateD2Ev.exit
   %.142 = phi i32 [ %32, %_ZN18scoped_timer_stateD2Ev.exit ], [ %.046, %._crit_edge ]
@@ -722,13 +722,13 @@ _ZNSt6vectorIP18scoped_timer_stateSaIS1_EED2Ev.exit: ; preds = %._crit_edge45, %
   br label %_ZNSt3_V222condition_variable_anyD2Ev.exit.i
 
 50:                                               ; preds = %37
-  %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !67
+  %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i.i.i.i.i = icmp eq i8 %51, 0
   br i1 %.not.i.i.i.i.i, label %54, label %52
 
 52:                                               ; preds = %50
   %53 = add nsw i32 %41, -1
-  store i32 %53, ptr %38, align 4, !tbaa !59
+  store i32 %53, ptr %38, align 4, !tbaa !60
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
 
 54:                                               ; preds = %50
@@ -738,7 +738,7 @@ _ZNSt6vectorIP18scoped_timer_stateSaIS1_EED2Ev.exit: ; preds = %._crit_edge45, %
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %54, %52
   %.0.i.i.i.i.i.i = phi i32 [ %41, %52 ], [ %55, %54 ]
   %56 = icmp eq i32 %.0.i.i.i.i.i.i, 1
-  br i1 %56, label %57, label %_ZNSt3_V222condition_variable_anyD2Ev.exit.i, !prof !68
+  br i1 %56, label %57, label %_ZNSt3_V222condition_variable_anyD2Ev.exit.i, !prof !70
 
 57:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %36) #23
@@ -758,7 +758,7 @@ _ZN18scoped_timer_stateD2Ev.exit:                 ; preds = %_ZNSt3_V222conditio
   tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 128) #22
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.016.041, i64 8
   %60 = icmp eq ptr %59, %20
-  br i1 %60, label %._crit_edge45, label %.lr.ph44
+  br i1 %60, label %._crit_edge45, label %.lr.ph44, !llvm.loop !71
 
 61:                                               ; preds = %.lr.ph44
   %62 = landingpad { ptr, i32 }
@@ -842,12 +842,12 @@ define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceISt5mutexS
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !69
+  %7 = load ptr, ptr %6, align 8, !tbaa !72
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = load i8, ptr %7, align 1, !tbaa !67
+  %10 = load i8, ptr %7, align 1, !tbaa !69
   %.not.i = icmp eq i8 %10, 42
   br i1 %.not.i, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %_ZNKSt9type_infoeqERKS_.exit
 
@@ -889,14 +889,14 @@ define linkonce_odr hidden void @_ZNSt3_V222condition_variable_any4waitISt5mutex
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !67
+  %13 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i.i, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = load i32, ptr %12, align 4, !tbaa !59
+  %15 = load i32, ptr %12, align 4, !tbaa !60
   %16 = add nsw i32 %15, 1
-  store i32 %16, ptr %12, align 4, !tbaa !59
+  store i32 %16, ptr %12, align 4, !tbaa !60
   br label %_ZNSt10shared_ptrISt5mutexEC2ERKS1_.exit
 
 17:                                               ; preds = %11
@@ -922,19 +922,19 @@ _ZNSt10shared_ptrISt5mutexEC2ERKS1_.exit:         ; preds = %2, %14, %17
   store ptr %1, ptr %4, align 8, !tbaa !32
   %23 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
-  store ptr %19, ptr %5, align 8, !tbaa !72
+  store ptr %19, ptr %5, align 8, !tbaa !75
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 1, ptr %24, align 8, !tbaa !75
+  store i8 1, ptr %24, align 8, !tbaa !78
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(9) %5)
           to label %25 unwind label %58
 
 25:                                               ; preds = %22
-  %26 = load i8, ptr %24, align 8, !tbaa !75, !range !76, !noundef !77
+  %26 = load i8, ptr %24, align 8, !tbaa !78, !range !79, !noundef !80
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr %5, align 8, !tbaa !72
+  %29 = load ptr, ptr %5, align 8, !tbaa !75
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %30
 
@@ -975,13 +975,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %_ZNSt11unique_lockI
   br label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 46:                                               ; preds = %33
-  %47 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !67
+  %47 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i.i.i11 = icmp eq i8 %47, 0
   br i1 %.not.i.i.i11, label %50, label %48
 
 48:                                               ; preds = %46
   %49 = add nsw i32 %37, -1
-  store i32 %49, ptr %34, align 4, !tbaa !59
+  store i32 %49, ptr %34, align 4, !tbaa !60
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
 50:                                               ; preds = %46
@@ -991,7 +991,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %_ZNSt11unique_lockI
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %50, %48
   %.0.i.i.i.i = phi i32 [ %37, %48 ], [ %51, %50 ]
   %52 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %52, label %53, label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !68
+  br i1 %52, label %53, label %_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !70
 
 53:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #23
@@ -1014,12 +1014,12 @@ _ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %
 58:                                               ; preds = %22
   %59 = landingpad { ptr, i32 }
           cleanup
-  %60 = load i8, ptr %24, align 8, !tbaa !75, !range !76, !noundef !77
+  %60 = load i8, ptr %24, align 8, !tbaa !78, !range !79, !noundef !80
   %61 = trunc nuw i8 %60 to i1
   br i1 %61, label %62, label %_ZNSt11unique_lockISt5mutexED2Ev.exit13
 
 62:                                               ; preds = %58
-  %63 = load ptr, ptr %5, align 8, !tbaa !72
+  %63 = load ptr, ptr %5, align 8, !tbaa !75
   %.not.i.i12 = icmp eq ptr %63, null
   br i1 %.not.i.i12, label %_ZNSt11unique_lockISt5mutexED2Ev.exit13, label %64
 
@@ -1056,7 +1056,7 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt3_V222condition_variable_any7_UnlockISt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef zeroext i1 @_ZSt18uncaught_exceptionv() #27
-  %3 = load ptr, ptr %0, align 8, !tbaa !78
+  %3 = load ptr, ptr %0, align 8, !tbaa !81
   %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   %.not.i = icmp eq i32 %4, 0
   br i1 %2, label %5, label %19
@@ -1149,13 +1149,13 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock
   br label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 17:                                               ; preds = %4
-  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !67
+  %18 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = add nsw i32 %8, -1
-  store i32 %20, ptr %5, align 4, !tbaa !59
+  store i32 %20, ptr %5, align 4, !tbaa !60
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
 
 21:                                               ; preds = %17
@@ -1165,7 +1165,7 @@ define linkonce_odr hidden void @_ZNSt12__shared_ptrISt5mutexLN9__gnu_cxx12_Lock
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i: ; preds = %21, %19
   %.0.i.i.i = phi i32 [ %8, %19 ], [ %22, %21 ]
   %23 = icmp eq i32 %.0.i.i.i, 1
-  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !68
+  br i1 %23, label %24, label %_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !70
 
 24:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #23
@@ -1192,14 +1192,14 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !67
+  %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !69
   %.not.i = icmp eq i8 %6, 0
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = load i32, ptr %5, align 4, !tbaa !59
+  %8 = load i32, ptr %5, align 4, !tbaa !60
   %9 = add nsw i32 %8, -1
-  store i32 %9, ptr %5, align 4, !tbaa !59
+  store i32 %9, ptr %5, align 4, !tbaa !60
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i
 
 10:                                               ; preds = %1
@@ -1253,7 +1253,7 @@ define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tuple
 define linkonce_odr hidden void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP18scoped_timer_stateES4_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !80
+  %4 = load ptr, ptr %3, align 8, !tbaa !83
   %5 = load ptr, ptr %2, align 8, !tbaa !48
   tail call void %4(ptr noundef %5)
   ret void
@@ -1368,27 +1368,30 @@ attributes #27 = { nounwind willreturn memory(read) }
 !54 = !{!"p1 _ZTSNSt6thread6_StateE", !7, i64 0}
 !55 = !{!4, !5, i64 8}
 !56 = !{!45, !33, i64 0}
-!57 = distinct !{!57, !58}
+!57 = distinct !{!57, !58, !59}
 !58 = !{!"llvm.loop.mustprogress"}
-!59 = !{!25, !25, i64 0}
-!60 = !{!61, !22, i64 0}
-!61 = !{!"_ZTS8timespec", !22, i64 0, !22, i64 8}
-!62 = !{!61, !22, i64 8}
-!63 = distinct !{!63, !58}
-!64 = distinct !{!64, !58}
-!65 = distinct !{!65, !58}
-!66 = distinct !{!66, !58}
-!67 = !{!8, !8, i64 0}
-!68 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!69 = !{!70, !71, i64 8}
-!70 = !{!"_ZTSSt9type_info", !71, i64 8}
-!71 = !{!"p1 omnipotent char", !7, i64 0}
-!72 = !{!73, !33, i64 0}
-!73 = !{!"_ZTSSt11unique_lockISt5mutexE", !33, i64 0, !74, i64 8}
-!74 = !{!"bool", !8, i64 0}
-!75 = !{!73, !74, i64 8}
-!76 = !{i8 0, i8 2}
-!77 = !{}
-!78 = !{!79, !33, i64 0}
-!79 = !{!"_ZTSNSt3_V222condition_variable_any7_UnlockISt5mutexEE", !33, i64 0}
-!80 = !{!7, !7, i64 0}
+!59 = !{!"llvm.loop.estimated_trip_count"}
+!60 = !{!25, !25, i64 0}
+!61 = !{!62, !22, i64 0}
+!62 = !{!"_ZTS8timespec", !22, i64 0, !22, i64 8}
+!63 = !{!62, !22, i64 8}
+!64 = distinct !{!64, !58, !59}
+!65 = distinct !{!65, !58, !59}
+!66 = distinct !{!66, !58, !59}
+!67 = distinct !{!67, !59}
+!68 = distinct !{!68, !58, !59}
+!69 = !{!8, !8, i64 0}
+!70 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!71 = distinct !{!71, !59}
+!72 = !{!73, !74, i64 8}
+!73 = !{!"_ZTSSt9type_info", !74, i64 8}
+!74 = !{!"p1 omnipotent char", !7, i64 0}
+!75 = !{!76, !33, i64 0}
+!76 = !{!"_ZTSSt11unique_lockISt5mutexE", !33, i64 0, !77, i64 8}
+!77 = !{!"bool", !8, i64 0}
+!78 = !{!76, !77, i64 8}
+!79 = !{i8 0, i8 2}
+!80 = !{}
+!81 = !{!82, !33, i64 0}
+!82 = !{!"_ZTSNSt3_V222condition_variable_any7_UnlockISt5mutexEE", !33, i64 0}
+!83 = !{!7, !7, i64 0}

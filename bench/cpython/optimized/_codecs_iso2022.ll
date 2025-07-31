@@ -132,7 +132,7 @@ _getcodec.exit.lr.ph:                             ; preds = %11
 _getcodec.exit:                                   ; preds = %_getcodec.exit.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %_getcodec.exit.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = getelementptr %struct._multibyte_codec, ptr %16, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !31
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %9) #16
   %.not20 = icmp eq i32 %20, 0
   br i1 %.not20, label %21, label %17
@@ -148,56 +148,56 @@ _getcodec.exit:                                   ; preds = %_getcodec.exit.lr.p
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %24
-  store ptr %18, ptr %25, align 8, !tbaa !34
-  %28 = load i32, ptr %0, align 8, !tbaa !36
+  store ptr %18, ptr %25, align 8, !tbaa !35
+  %28 = load i32, ptr %0, align 8, !tbaa !37
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %27
   %31 = add nuw i32 %28, 1
-  store i32 %31, ptr %0, align 8, !tbaa !36
+  store i32 %31, ptr %0, align 8, !tbaa !37
   br label %38
 
 32:                                               ; preds = %24
   %33 = tail call ptr @PyErr_NoMemory() #15
-  %34 = load i32, ptr %22, align 8, !tbaa !36
+  %34 = load i32, ptr %22, align 8, !tbaa !37
   %.not.i.i = icmp sgt i32 %34, -1
   br i1 %.not.i.i, label %35, label %.thread
 
 35:                                               ; preds = %32
   %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %22, align 8, !tbaa !36
+  store i32 %36, ptr %22, align 8, !tbaa !37
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %Py_DECREF.exit.sink.split.i, label %.thread
 
 38:                                               ; preds = %30, %27
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %0, ptr %39, align 8, !tbaa !37
+  store ptr %0, ptr %39, align 8, !tbaa !38
   %40 = tail call ptr @PyCapsule_New(ptr noundef nonnull %25, ptr noundef nonnull @.str.6, ptr noundef nonnull @destroy_codec_capsule) #15
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %47
 
 42:                                               ; preds = %38
   tail call void @PyMem_Free(ptr noundef nonnull %25) #15
-  %43 = load i32, ptr %22, align 8, !tbaa !36
+  %43 = load i32, ptr %22, align 8, !tbaa !37
   %.not.i18.i = icmp sgt i32 %43, -1
   br i1 %.not.i18.i, label %44, label %.thread
 
 44:                                               ; preds = %42
   %45 = add nsw i32 %43, -1
-  store i32 %45, ptr %22, align 8, !tbaa !36
+  store i32 %45, ptr %22, align 8, !tbaa !37
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %Py_DECREF.exit.sink.split.i, label %.thread
 
 47:                                               ; preds = %38
   %48 = tail call ptr @PyObject_CallOneArg(ptr noundef nonnull %22, ptr noundef nonnull %40) #15
-  %49 = load i32, ptr %40, align 8, !tbaa !36
+  %49 = load i32, ptr %40, align 8, !tbaa !37
   %.not.i20.i = icmp sgt i32 %49, -1
   br i1 %.not.i20.i, label %50, label %Py_DECREF.exit21.i
 
 50:                                               ; preds = %47
   %51 = add nsw i32 %49, -1
-  store i32 %51, ptr %40, align 8, !tbaa !36
+  store i32 %51, ptr %40, align 8, !tbaa !37
   %52 = icmp eq i32 %51, 0
   br i1 %52, label %53, label %Py_DECREF.exit21.i
 
@@ -206,13 +206,13 @@ _getcodec.exit:                                   ; preds = %_getcodec.exit.lr.p
   br label %Py_DECREF.exit21.i
 
 Py_DECREF.exit21.i:                               ; preds = %53, %50, %47
-  %54 = load i32, ptr %22, align 8, !tbaa !36
+  %54 = load i32, ptr %22, align 8, !tbaa !37
   %.not.i22.i = icmp sgt i32 %54, -1
   br i1 %.not.i22.i, label %55, label %.thread
 
 55:                                               ; preds = %Py_DECREF.exit21.i
   %56 = add nsw i32 %54, -1
-  store i32 %56, ptr %22, align 8, !tbaa !36
+  store i32 %56, ptr %22, align 8, !tbaa !37
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %Py_DECREF.exit.sink.split.i, label %.thread
 
@@ -252,14 +252,14 @@ declare ptr @PyCapsule_New(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 define internal void @destroy_codec_capsule(ptr noundef %0) #0 {
   %2 = tail call ptr @PyCapsule_GetPointer(ptr noundef %0, ptr noundef nonnull @.str.6) #15
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !37
-  %5 = load i32, ptr %4, align 8, !tbaa !36
+  %4 = load ptr, ptr %3, align 8, !tbaa !38
+  %5 = load i32, ptr %4, align 8, !tbaa !37
   %.not.i = icmp sgt i32 %5, -1
   br i1 %.not.i, label %6, label %Py_DECREF.exit
 
 6:                                                ; preds = %1
   %7 = add nsw i32 %5, -1
-  store i32 %7, ptr %4, align 8, !tbaa !36
+  store i32 %7, ptr %4, align 8, !tbaa !37
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %Py_DECREF.exit
 
@@ -290,7 +290,7 @@ declare ptr @PyCapsule_GetPointer(ptr noundef, ptr noundef) local_unnamed_addr #
 define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
   %2 = alloca [256 x i8], align 16
   %3 = tail call ptr @PyModule_GetState(ptr noundef %0) #15
-  store i32 0, ptr %3, align 8, !tbaa !38
+  store i32 0, ptr %3, align 8, !tbaa !39
   %4 = tail call ptr @PyMem_Calloc(i64 noundef 0, i64 noundef 24) #15
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8, !tbaa !3
@@ -307,151 +307,151 @@ define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
   br i1 %11, label %register_maps.exit, label %12
 
 12:                                               ; preds = %7
-  store ptr @.str.11, ptr %9, align 8, !tbaa !39
+  store ptr @.str.11, ptr %9, align 8, !tbaa !40
   %.sroa.254.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @iso2022_kr_config, ptr %.sroa.254.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_kr_config, ptr %.sroa.254.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.355.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @iso2022_codec_init, ptr %.sroa.355.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_codec_init, ptr %.sroa.355.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.456.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr @iso2022_encode, ptr %.sroa.456.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode, ptr %.sroa.456.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.557.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr @iso2022_encode_init, ptr %.sroa.557.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_init, ptr %.sroa.557.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.658.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store ptr @iso2022_encode_reset, ptr %.sroa.658.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_reset, ptr %.sroa.658.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.759.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store ptr @iso2022_decode, ptr %.sroa.759.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode, ptr %.sroa.759.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.860.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 56
-  store ptr @iso2022_decode_init, ptr %.sroa.860.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_init, ptr %.sroa.860.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.961.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 64
-  store ptr @iso2022_decode_reset, ptr %.sroa.961.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_reset, ptr %.sroa.961.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.1062.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
-  store ptr null, ptr %.sroa.1062.0..sroa_idx.i.i, align 8, !tbaa !41
+  store ptr null, ptr %.sroa.1062.0..sroa_idx.i.i, align 8, !tbaa !42
   %13 = load ptr, ptr %10, align 8, !tbaa !13
   %14 = getelementptr i8, ptr %13, i64 80
-  store ptr @.str.12, ptr %14, align 8, !tbaa !39
+  store ptr @.str.12, ptr %14, align 8, !tbaa !40
   %.sroa.244.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 88
-  store ptr @iso2022_jp_config, ptr %.sroa.244.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_jp_config, ptr %.sroa.244.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.345.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 96
-  store ptr @iso2022_codec_init, ptr %.sroa.345.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_codec_init, ptr %.sroa.345.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.446.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 104
-  store ptr @iso2022_encode, ptr %.sroa.446.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode, ptr %.sroa.446.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.547.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 112
-  store ptr @iso2022_encode_init, ptr %.sroa.547.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_init, ptr %.sroa.547.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.648.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 120
-  store ptr @iso2022_encode_reset, ptr %.sroa.648.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_reset, ptr %.sroa.648.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.749.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 128
-  store ptr @iso2022_decode, ptr %.sroa.749.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode, ptr %.sroa.749.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.850.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 136
-  store ptr @iso2022_decode_init, ptr %.sroa.850.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_init, ptr %.sroa.850.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.951.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 144
-  store ptr @iso2022_decode_reset, ptr %.sroa.951.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_reset, ptr %.sroa.951.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.1052.0..sroa_idx.i.i = getelementptr i8, ptr %13, i64 152
-  store ptr null, ptr %.sroa.1052.0..sroa_idx.i.i, align 8, !tbaa !41
+  store ptr null, ptr %.sroa.1052.0..sroa_idx.i.i, align 8, !tbaa !42
   %15 = load ptr, ptr %10, align 8, !tbaa !13
   %16 = getelementptr i8, ptr %15, i64 160
-  store ptr @.str.13, ptr %16, align 8, !tbaa !39
+  store ptr @.str.13, ptr %16, align 8, !tbaa !40
   %.sroa.234.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 168
-  store ptr @iso2022_jp_1_config, ptr %.sroa.234.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_jp_1_config, ptr %.sroa.234.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.335.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 176
-  store ptr @iso2022_codec_init, ptr %.sroa.335.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_codec_init, ptr %.sroa.335.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.436.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 184
-  store ptr @iso2022_encode, ptr %.sroa.436.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode, ptr %.sroa.436.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.537.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 192
-  store ptr @iso2022_encode_init, ptr %.sroa.537.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_init, ptr %.sroa.537.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.638.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 200
-  store ptr @iso2022_encode_reset, ptr %.sroa.638.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_reset, ptr %.sroa.638.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.739.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 208
-  store ptr @iso2022_decode, ptr %.sroa.739.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode, ptr %.sroa.739.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.840.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 216
-  store ptr @iso2022_decode_init, ptr %.sroa.840.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_init, ptr %.sroa.840.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.941.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 224
-  store ptr @iso2022_decode_reset, ptr %.sroa.941.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_reset, ptr %.sroa.941.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.1042.0..sroa_idx.i.i = getelementptr i8, ptr %15, i64 232
-  store ptr null, ptr %.sroa.1042.0..sroa_idx.i.i, align 8, !tbaa !41
+  store ptr null, ptr %.sroa.1042.0..sroa_idx.i.i, align 8, !tbaa !42
   %17 = load ptr, ptr %10, align 8, !tbaa !13
   %18 = getelementptr i8, ptr %17, i64 240
-  store ptr @.str.14, ptr %18, align 8, !tbaa !39
+  store ptr @.str.14, ptr %18, align 8, !tbaa !40
   %.sroa.224.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 248
-  store ptr @iso2022_jp_2_config, ptr %.sroa.224.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_jp_2_config, ptr %.sroa.224.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.325.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 256
-  store ptr @iso2022_codec_init, ptr %.sroa.325.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_codec_init, ptr %.sroa.325.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.426.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 264
-  store ptr @iso2022_encode, ptr %.sroa.426.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode, ptr %.sroa.426.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.527.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 272
-  store ptr @iso2022_encode_init, ptr %.sroa.527.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_init, ptr %.sroa.527.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.628.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 280
-  store ptr @iso2022_encode_reset, ptr %.sroa.628.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_reset, ptr %.sroa.628.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.729.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 288
-  store ptr @iso2022_decode, ptr %.sroa.729.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode, ptr %.sroa.729.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.830.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 296
-  store ptr @iso2022_decode_init, ptr %.sroa.830.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_init, ptr %.sroa.830.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.931.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 304
-  store ptr @iso2022_decode_reset, ptr %.sroa.931.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_reset, ptr %.sroa.931.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.1032.0..sroa_idx.i.i = getelementptr i8, ptr %17, i64 312
-  store ptr null, ptr %.sroa.1032.0..sroa_idx.i.i, align 8, !tbaa !41
+  store ptr null, ptr %.sroa.1032.0..sroa_idx.i.i, align 8, !tbaa !42
   %19 = load ptr, ptr %10, align 8, !tbaa !13
   %20 = getelementptr i8, ptr %19, i64 320
-  store ptr @.str.15, ptr %20, align 8, !tbaa !39
+  store ptr @.str.15, ptr %20, align 8, !tbaa !40
   %.sroa.214.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 328
-  store ptr @iso2022_jp_2004_config, ptr %.sroa.214.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_jp_2004_config, ptr %.sroa.214.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.315.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 336
-  store ptr @iso2022_codec_init, ptr %.sroa.315.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_codec_init, ptr %.sroa.315.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.416.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 344
-  store ptr @iso2022_encode, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.517.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 352
-  store ptr @iso2022_encode_init, ptr %.sroa.517.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_init, ptr %.sroa.517.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.618.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 360
-  store ptr @iso2022_encode_reset, ptr %.sroa.618.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_reset, ptr %.sroa.618.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.719.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 368
-  store ptr @iso2022_decode, ptr %.sroa.719.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode, ptr %.sroa.719.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.820.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 376
-  store ptr @iso2022_decode_init, ptr %.sroa.820.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_init, ptr %.sroa.820.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.921.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 384
-  store ptr @iso2022_decode_reset, ptr %.sroa.921.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_reset, ptr %.sroa.921.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.1022.0..sroa_idx.i.i = getelementptr i8, ptr %19, i64 392
-  store ptr null, ptr %.sroa.1022.0..sroa_idx.i.i, align 8, !tbaa !41
+  store ptr null, ptr %.sroa.1022.0..sroa_idx.i.i, align 8, !tbaa !42
   %21 = load ptr, ptr %10, align 8, !tbaa !13
   %22 = getelementptr i8, ptr %21, i64 400
-  store ptr @.str.16, ptr %22, align 8, !tbaa !39
+  store ptr @.str.16, ptr %22, align 8, !tbaa !40
   %.sroa.24.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 408
-  store ptr @iso2022_jp_3_config, ptr %.sroa.24.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_jp_3_config, ptr %.sroa.24.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.35.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 416
-  store ptr @iso2022_codec_init, ptr %.sroa.35.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_codec_init, ptr %.sroa.35.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.46.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 424
-  store ptr @iso2022_encode, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode, ptr %.sroa.46.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.57.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 432
-  store ptr @iso2022_encode_init, ptr %.sroa.57.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_init, ptr %.sroa.57.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.68.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 440
-  store ptr @iso2022_encode_reset, ptr %.sroa.68.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_reset, ptr %.sroa.68.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.79.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 448
-  store ptr @iso2022_decode, ptr %.sroa.79.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode, ptr %.sroa.79.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.810.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 456
-  store ptr @iso2022_decode_init, ptr %.sroa.810.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_init, ptr %.sroa.810.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.911.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 464
-  store ptr @iso2022_decode_reset, ptr %.sroa.911.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_reset, ptr %.sroa.911.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.1012.0..sroa_idx.i.i = getelementptr i8, ptr %21, i64 472
-  store ptr null, ptr %.sroa.1012.0..sroa_idx.i.i, align 8, !tbaa !41
+  store ptr null, ptr %.sroa.1012.0..sroa_idx.i.i, align 8, !tbaa !42
   %23 = load ptr, ptr %10, align 8, !tbaa !13
   %24 = getelementptr i8, ptr %23, i64 480
-  store ptr @.str.17, ptr %24, align 8, !tbaa !39
+  store ptr @.str.17, ptr %24, align 8, !tbaa !40
   %.sroa.2.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 488
-  store ptr @iso2022_jp_ext_config, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_jp_ext_config, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.3.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 496
-  store ptr @iso2022_codec_init, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_codec_init, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.4.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 504
-  store ptr @iso2022_encode, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.5.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 512
-  store ptr @iso2022_encode_init, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_init, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.6.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 520
-  store ptr @iso2022_encode_reset, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_encode_reset, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.7.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 528
-  store ptr @iso2022_decode, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.8.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 536
-  store ptr @iso2022_decode_init, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_init, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.9.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 544
-  store ptr @iso2022_decode_reset, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !tbaa !40
+  store ptr @iso2022_decode_reset, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !tbaa !41
   %.sroa.10.0..sroa_idx.i.i = getelementptr i8, ptr %23, i64 552
-  store ptr null, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !41
+  store ptr null, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !tbaa !42
   %25 = load i32, ptr %8, align 4, !tbaa !28
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.i.i, label %add_codecs.exit.i
@@ -464,13 +464,13 @@ define internal range(i32 -1, 1) i32 @_cjk_exec(ptr noundef %0) #0 {
 28:                                               ; preds = %28, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
   %29 = getelementptr %struct._multibyte_codec, ptr %27, i64 %indvars.iv.i.i, i32 9
-  store ptr %3, ptr %29, align 8, !tbaa !42
+  store ptr %3, ptr %29, align 8, !tbaa !43
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %add_codecs.exit.i, label %28, !llvm.loop !43
+  br i1 %exitcond.not.i.i, label %add_codecs.exit.i, label %28, !llvm.loop !44
 
 add_codecs.exit.i:                                ; preds = %28, %12
-  %30 = load i32, ptr %3, align 8, !tbaa !38
+  %30 = load i32, ptr %3, align 8, !tbaa !39
   %.not19.i = icmp sgt i32 %30, 0
   br i1 %.not19.i, label %.lr.ph.i, label %register_maps.exit
 
@@ -485,10 +485,10 @@ add_codecs.exit.i:                                ; preds = %28, %12
 
 37:                                               ; preds = %40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %38 = load i32, ptr %3, align 8, !tbaa !38
+  %38 = load i32, ptr %3, align 8, !tbaa !39
   %39 = sext i32 %38 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %39
-  br i1 %.not.i, label %40, label %register_maps.exit, !llvm.loop !44
+  br i1 %.not.i, label %40, label %register_maps.exit, !llvm.loop !45
 
 40:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
@@ -502,7 +502,7 @@ add_codecs.exit.i:                                ; preds = %28, %12
   store i8 97, ptr %33, align 1
   store i8 112, ptr %34, align 4
   store i8 95, ptr %35, align 1
-  %43 = load ptr, ptr %42, align 8, !tbaa !45
+  %43 = load ptr, ptr %42, align 8, !tbaa !46
   %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %43) #15
   %45 = call ptr @PyCapsule_New(ptr noundef nonnull %42, ptr noundef nonnull @.str.10, ptr noundef null) #15
   %46 = call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %45) #15
@@ -528,17 +528,17 @@ declare ptr @PyMem_Calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @iso2022_codec_init(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !47
+  %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !48
-  %6 = load i8, ptr %5, align 8, !tbaa !51
+  %5 = load ptr, ptr %4, align 8, !tbaa !49
+  %6 = load i8, ptr %5, align 8, !tbaa !52
   %.not10 = icmp eq i8 %6, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %11
   %.011 = phi ptr [ %12, %11 ], [ %5, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !53
+  %8 = load ptr, ptr %7, align 8, !tbaa !54
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %11, label %9
 
@@ -549,9 +549,9 @@ define internal range(i32 -1, 1) i32 @iso2022_codec_init(ptr noundef %0) #0 {
 
 11:                                               ; preds = %.lr.ph, %9
   %12 = getelementptr i8, ptr %.011, i64 32
-  %13 = load i8, ptr %12, align 8, !tbaa !51
+  %13 = load i8, ptr %12, align 8, !tbaa !52
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %9, %11, %1
   %.06 = phi i32 [ 0, %1 ], [ 0, %11 ], [ -1, %9 ]
@@ -562,7 +562,7 @@ define internal range(i32 -1, 1) i32 @iso2022_codec_init(ptr noundef %0) #0 {
 define internal range(i64 -3, 2) i64 @iso2022_encode(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5, ptr noundef captures(none) %6, i64 noundef %7, i32 noundef %8) #0 {
   %10 = alloca [2 x i32], align 4
   %11 = alloca i64, align 8
-  %12 = load i64, ptr %4, align 8, !tbaa !55
+  %12 = load i64, ptr %4, align 8, !tbaa !56
   %13 = icmp slt i64 %12, %5
   br i1 %13, label %.lr.ph201, label %.thread184
 
@@ -585,19 +585,19 @@ define internal range(i64 -3, 2) i64 @iso2022_encode(ptr noundef captures(none) 
 
 21:                                               ; preds = %19
   %22 = getelementptr i8, ptr %3, i64 %20
-  %23 = load i8, ptr %22, align 1, !tbaa !36
+  %23 = load i8, ptr %22, align 1, !tbaa !37
   %24 = zext i8 %23 to i32
   br label %PyUnicode_READ.exit
 
 25:                                               ; preds = %19
   %26 = getelementptr i16, ptr %3, i64 %20
-  %27 = load i16, ptr %26, align 2, !tbaa !56
+  %27 = load i16, ptr %26, align 2, !tbaa !57
   %28 = zext i16 %27 to i32
   br label %PyUnicode_READ.exit
 
 29:                                               ; preds = %19
   %30 = getelementptr i32, ptr %3, i64 %20
-  %31 = load i32, ptr %30, align 4, !tbaa !57
+  %31 = load i32, ptr %30, align 4, !tbaa !58
   br label %PyUnicode_READ.exit
 
 PyUnicode_READ.exit:                              ; preds = %21, %25, %29
@@ -606,7 +606,7 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   br i1 %32, label %33, label %68
 
 33:                                               ; preds = %PyUnicode_READ.exit
-  %34 = load i8, ptr %0, align 1, !tbaa !36
+  %34 = load i8, ptr %0, align 1, !tbaa !37
   %.not159 = icmp eq i8 %34, 66
   br i1 %.not159, label %46, label %35
 
@@ -615,24 +615,24 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   br i1 %36, label %.thread184, label %37
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 27, ptr %38, align 1, !tbaa !36
-  %39 = load ptr, ptr %6, align 8, !tbaa !39
+  %38 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 27, ptr %38, align 1, !tbaa !37
+  %39 = load ptr, ptr %6, align 8, !tbaa !40
   %40 = getelementptr i8, ptr %39, i64 1
-  store i8 40, ptr %40, align 1, !tbaa !36
-  %41 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 40, ptr %40, align 1, !tbaa !37
+  %41 = load ptr, ptr %6, align 8, !tbaa !40
   %42 = getelementptr i8, ptr %41, i64 2
-  store i8 66, ptr %42, align 1, !tbaa !36
-  store i8 66, ptr %0, align 1, !tbaa !36
-  %43 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 66, ptr %42, align 1, !tbaa !37
+  store i8 66, ptr %0, align 1, !tbaa !37
+  %43 = load ptr, ptr %6, align 8, !tbaa !40
   %44 = getelementptr i8, ptr %43, i64 3
-  store ptr %44, ptr %6, align 8, !tbaa !39
+  store ptr %44, ptr %6, align 8, !tbaa !40
   %45 = add nsw i64 %.0138200, -3
   br label %46
 
 46:                                               ; preds = %37, %33
   %.1139 = phi i64 [ %45, %37 ], [ %.0138200, %33 ]
-  %47 = load i8, ptr %18, align 1, !tbaa !36
+  %47 = load i8, ptr %18, align 1, !tbaa !37
   %48 = and i8 %47, 1
   %.not160 = icmp eq i8 %48, 0
   br i1 %.not160, label %58, label %49
@@ -642,14 +642,14 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   br i1 %50, label %.thread184, label %51
 
 51:                                               ; preds = %49
-  %52 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 15, ptr %52, align 1, !tbaa !36
-  %53 = load i8, ptr %18, align 1, !tbaa !36
+  %52 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 15, ptr %52, align 1, !tbaa !37
+  %53 = load i8, ptr %18, align 1, !tbaa !37
   %54 = and i8 %53, -2
-  store i8 %54, ptr %18, align 1, !tbaa !36
-  %55 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 %54, ptr %18, align 1, !tbaa !37
+  %55 = load ptr, ptr %6, align 8, !tbaa !40
   %56 = getelementptr i8, ptr %55, i64 1
-  store ptr %56, ptr %6, align 8, !tbaa !39
+  store ptr %56, ptr %6, align 8, !tbaa !40
   %57 = add nsw i64 %.1139, -1
   br label %58
 
@@ -660,22 +660,22 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
 
 60:                                               ; preds = %58
   %61 = trunc nuw nsw i32 %.0.i to i8
-  %62 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 %61, ptr %62, align 1, !tbaa !36
-  %63 = load i64, ptr %4, align 8, !tbaa !55
+  %62 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 %61, ptr %62, align 1, !tbaa !37
+  %63 = load i64, ptr %4, align 8, !tbaa !56
   %64 = add i64 %63, 1
-  store i64 %64, ptr %4, align 8, !tbaa !55
-  %65 = load ptr, ptr %6, align 8, !tbaa !39
+  store i64 %64, ptr %4, align 8, !tbaa !56
+  %65 = load ptr, ptr %6, align 8, !tbaa !40
   %66 = getelementptr i8, ptr %65, i64 1
-  store ptr %66, ptr %6, align 8, !tbaa !39
+  store ptr %66, ptr %6, align 8, !tbaa !40
   %67 = add nsw i64 %.3141, -1
-  br label %254, !llvm.loop !58
+  br label %254, !llvm.loop !59
 
 68:                                               ; preds = %PyUnicode_READ.exit
-  %69 = load ptr, ptr %14, align 8, !tbaa !47
+  %69 = load ptr, ptr %14, align 8, !tbaa !48
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !48
-  %72 = load i8, ptr %71, align 8, !tbaa !51
+  %71 = load ptr, ptr %70, align 8, !tbaa !49
+  %72 = load i8, ptr %71, align 8, !tbaa !52
   %.not193 = icmp eq i8 %72, 0
   br i1 %.not193, label %.thread184, label %.lr.ph
 
@@ -685,12 +685,12 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold.us
   %.0137194.us = phi ptr [ %96, %select.unfold.us ], [ %71, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
-  store i32 %.0.i, ptr %10, align 4, !tbaa !57
-  store i32 0, ptr %15, align 4, !tbaa !57
+  store i32 %.0.i, ptr %10, align 4, !tbaa !58
+  store i32 0, ptr %15, align 4, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
-  store i64 1, ptr %11, align 8, !tbaa !55
+  store i64 1, ptr %11, align 8, !tbaa !56
   %73 = getelementptr inbounds nuw i8, ptr %.0137194.us, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !59
+  %74 = load ptr, ptr %73, align 8, !tbaa !60
   %75 = call zeroext i16 %74(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   switch i16 %75, label %.split.us [
     i16 -2, label %76
@@ -698,7 +698,7 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   ]
 
 76:                                               ; preds = %.lr.ph.split.us
-  %77 = load i64, ptr %4, align 8, !tbaa !55
+  %77 = load i64, ptr %4, align 8, !tbaa !56
   %78 = sub i64 %5, %77
   %79 = icmp slt i64 %78, 2
   br i1 %79, label %.split199.us, label %80
@@ -712,26 +712,26 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
 
 82:                                               ; preds = %80
   %83 = getelementptr i16, ptr %3, i64 %81
-  %84 = load i16, ptr %83, align 2, !tbaa !56
+  %84 = load i16, ptr %83, align 2, !tbaa !57
   %85 = zext i16 %84 to i32
   br label %PyUnicode_READ.exit163.us
 
 86:                                               ; preds = %80
   %87 = getelementptr i8, ptr %3, i64 %81
-  %88 = load i8, ptr %87, align 1, !tbaa !36
+  %88 = load i8, ptr %87, align 1, !tbaa !37
   %89 = zext i8 %88 to i32
   br label %PyUnicode_READ.exit163.us
 
 90:                                               ; preds = %80
   %91 = getelementptr i32, ptr %3, i64 %81
-  %92 = load i32, ptr %91, align 4, !tbaa !57
+  %92 = load i32, ptr %91, align 4, !tbaa !58
   br label %PyUnicode_READ.exit163.us
 
 PyUnicode_READ.exit163.us:                        ; preds = %90, %86, %82
   %.0.i162.us = phi i32 [ %89, %86 ], [ %85, %82 ], [ %92, %90 ]
-  store i32 %.0.i162.us, ptr %15, align 4, !tbaa !57
-  store i64 2, ptr %11, align 8, !tbaa !55
-  %93 = load ptr, ptr %73, align 8, !tbaa !59
+  store i32 %.0.i162.us, ptr %15, align 4, !tbaa !58
+  store i64 2, ptr %11, align 8, !tbaa !56
+  %93 = load ptr, ptr %73, align 8, !tbaa !60
   %94 = call zeroext i16 %93(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   %.not153.us = icmp eq i16 %94, -1
   %95 = load i64, ptr %11, align 8
@@ -741,19 +741,19 @@ select.unfold.us:                                 ; preds = %PyUnicode_READ.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   %96 = getelementptr i8, ptr %.0137194.us, i64 32
-  %97 = load i8, ptr %96, align 8, !tbaa !51
+  %97 = load i8, ptr %96, align 8, !tbaa !52
   %.not.us = icmp eq i8 %97, 0
-  br i1 %.not.us, label %.thread184, label %.lr.ph.split.us, !llvm.loop !60
+  br i1 %.not.us, label %.thread184, label %.lr.ph.split.us, !llvm.loop !61
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
   %.0137194 = phi ptr [ %122, %select.unfold ], [ %71, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
-  store i32 %.0.i, ptr %10, align 4, !tbaa !57
-  store i32 0, ptr %15, align 4, !tbaa !57
+  store i32 %.0.i, ptr %10, align 4, !tbaa !58
+  store i32 0, ptr %15, align 4, !tbaa !58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
-  store i64 1, ptr %11, align 8, !tbaa !55
+  store i64 1, ptr %11, align 8, !tbaa !56
   %98 = getelementptr inbounds nuw i8, ptr %.0137194, i64 24
-  %99 = load ptr, ptr %98, align 8, !tbaa !59
+  %99 = load ptr, ptr %98, align 8, !tbaa !60
   %100 = call zeroext i16 %99(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   switch i16 %100, label %.split.us [
     i16 -2, label %101
@@ -761,7 +761,7 @@ select.unfold.us:                                 ; preds = %PyUnicode_READ.exit
   ]
 
 101:                                              ; preds = %.lr.ph.split
-  %102 = load i64, ptr %4, align 8, !tbaa !55
+  %102 = load i64, ptr %4, align 8, !tbaa !56
   %103 = sub i64 %5, %102
   %104 = icmp slt i64 %103, 2
   br i1 %104, label %118, label %105
@@ -775,30 +775,30 @@ select.unfold.us:                                 ; preds = %PyUnicode_READ.exit
 
 107:                                              ; preds = %105
   %108 = getelementptr i8, ptr %3, i64 %106
-  %109 = load i8, ptr %108, align 1, !tbaa !36
+  %109 = load i8, ptr %108, align 1, !tbaa !37
   %110 = zext i8 %109 to i32
   br label %PyUnicode_READ.exit163
 
 111:                                              ; preds = %105
   %112 = getelementptr i16, ptr %3, i64 %106
-  %113 = load i16, ptr %112, align 2, !tbaa !56
+  %113 = load i16, ptr %112, align 2, !tbaa !57
   %114 = zext i16 %113 to i32
   br label %PyUnicode_READ.exit163
 
 115:                                              ; preds = %105
   %116 = getelementptr i32, ptr %3, i64 %106
-  %117 = load i32, ptr %116, align 4, !tbaa !57
+  %117 = load i32, ptr %116, align 4, !tbaa !58
   br label %PyUnicode_READ.exit163
 
 PyUnicode_READ.exit163:                           ; preds = %107, %111, %115
   %.0.i162 = phi i32 [ %110, %107 ], [ %114, %111 ], [ %117, %115 ]
-  store i32 %.0.i162, ptr %15, align 4, !tbaa !57
+  store i32 %.0.i162, ptr %15, align 4, !tbaa !58
   br label %118
 
 118:                                              ; preds = %101, %PyUnicode_READ.exit163
   %storemerge = phi i64 [ 2, %PyUnicode_READ.exit163 ], [ -1, %101 ]
-  store i64 %storemerge, ptr %11, align 8, !tbaa !55
-  %119 = load ptr, ptr %98, align 8, !tbaa !59
+  store i64 %storemerge, ptr %11, align 8, !tbaa !56
+  %119 = load ptr, ptr %98, align 8, !tbaa !60
   %120 = call zeroext i16 %119(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   %.not153 = icmp eq i16 %120, -1
   %121 = load i64, ptr %11, align 8
@@ -813,9 +813,9 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   %122 = getelementptr i8, ptr %.0137194, i64 32
-  %123 = load i8, ptr %122, align 8, !tbaa !51
+  %123 = load i8, ptr %122, align 8, !tbaa !52
   %.not = icmp eq i8 %123, 0
-  br i1 %.not, label %.thread184, label %.lr.ph.split, !llvm.loop !62
+  br i1 %.not, label %.thread184, label %.lr.ph.split, !llvm.loop !63
 
 .split.us:                                        ; preds = %118, %.lr.ph.split, %.lr.ph.split.us, %PyUnicode_READ.exit163.us
   %.us-phi = phi ptr [ %.0137194.us, %PyUnicode_READ.exit163.us ], [ %.0137194.us, %.lr.ph.split.us ], [ %.0137194, %.lr.ph.split ], [ %.0137194, %118 ]
@@ -823,20 +823,20 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   %.us-phi197 = phi i64 [ 1, %.lr.ph.split.us ], [ %95, %PyUnicode_READ.exit163.us ], [ %121, %118 ], [ 1, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
-  %.pr = load i8, ptr %.us-phi, align 8, !tbaa !51
+  %.pr = load i8, ptr %.us-phi, align 8, !tbaa !52
   %.not154 = icmp eq i8 %.pr, 0
   br i1 %.not154, label %.thread184, label %124
 
 124:                                              ; preds = %.split.us
   %125 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
-  %126 = load i8, ptr %125, align 1, !tbaa !63
+  %126 = load i8, ptr %125, align 1, !tbaa !64
   switch i8 %126, label %.thread184 [
     i8 0, label %127
     i8 1, label %192
   ]
 
 127:                                              ; preds = %124
-  %128 = load i8, ptr %18, align 1, !tbaa !36
+  %128 = load i8, ptr %18, align 1, !tbaa !37
   %129 = and i8 %128, 1
   %.not157 = icmp eq i8 %129, 0
   br i1 %.not157, label %139, label %130
@@ -846,28 +846,28 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %131, label %.thread184, label %132
 
 132:                                              ; preds = %130
-  %133 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 15, ptr %133, align 1, !tbaa !36
-  %134 = load i8, ptr %18, align 1, !tbaa !36
+  %133 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 15, ptr %133, align 1, !tbaa !37
+  %134 = load i8, ptr %18, align 1, !tbaa !37
   %135 = and i8 %134, -2
-  store i8 %135, ptr %18, align 1, !tbaa !36
-  %136 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 %135, ptr %18, align 1, !tbaa !37
+  %136 = load ptr, ptr %6, align 8, !tbaa !40
   %137 = getelementptr i8, ptr %136, i64 1
-  store ptr %137, ptr %6, align 8, !tbaa !39
+  store ptr %137, ptr %6, align 8, !tbaa !40
   %138 = add nsw i64 %.0138200, -1
-  %.pre = load i8, ptr %.us-phi, align 8, !tbaa !51
+  %.pre = load i8, ptr %.us-phi, align 8, !tbaa !52
   br label %139
 
 139:                                              ; preds = %132, %127
   %140 = phi i8 [ %.pre, %132 ], [ %.pr, %127 ]
   %.4142 = phi i64 [ %138, %132 ], [ %.0138200, %127 ]
-  %141 = load i8, ptr %0, align 1, !tbaa !36
+  %141 = load i8, ptr %0, align 1, !tbaa !37
   %.not158 = icmp eq i8 %141, %140
   br i1 %.not158, label %230, label %142
 
 142:                                              ; preds = %139
   %143 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 2
-  %144 = load i8, ptr %143, align 2, !tbaa !64
+  %144 = load i8, ptr %143, align 2, !tbaa !65
   %145 = icmp eq i8 %144, 1
   br i1 %145, label %146, label %160
 
@@ -876,21 +876,21 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %147, label %.thread184, label %148
 
 148:                                              ; preds = %146
-  %149 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 27, ptr %149, align 1, !tbaa !36
-  %150 = load ptr, ptr %6, align 8, !tbaa !39
+  %149 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 27, ptr %149, align 1, !tbaa !37
+  %150 = load ptr, ptr %6, align 8, !tbaa !40
   %151 = getelementptr i8, ptr %150, i64 1
-  store i8 40, ptr %151, align 1, !tbaa !36
-  %152 = load i8, ptr %.us-phi, align 8, !tbaa !51
+  store i8 40, ptr %151, align 1, !tbaa !37
+  %152 = load i8, ptr %.us-phi, align 8, !tbaa !52
   %153 = and i8 %152, 127
-  %154 = load ptr, ptr %6, align 8, !tbaa !39
+  %154 = load ptr, ptr %6, align 8, !tbaa !40
   %155 = getelementptr i8, ptr %154, i64 2
-  store i8 %153, ptr %155, align 1, !tbaa !36
-  %156 = load i8, ptr %.us-phi, align 8, !tbaa !51
-  store i8 %156, ptr %0, align 1, !tbaa !36
-  %157 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 %153, ptr %155, align 1, !tbaa !37
+  %156 = load i8, ptr %.us-phi, align 8, !tbaa !52
+  store i8 %156, ptr %0, align 1, !tbaa !37
+  %157 = load ptr, ptr %6, align 8, !tbaa !40
   %158 = getelementptr i8, ptr %157, i64 3
-  store ptr %158, ptr %6, align 8, !tbaa !39
+  store ptr %158, ptr %6, align 8, !tbaa !40
   %159 = add nsw i64 %.4142, -3
   br label %230
 
@@ -903,21 +903,21 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %163, label %.thread184, label %164
 
 164:                                              ; preds = %162
-  %165 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 27, ptr %165, align 1, !tbaa !36
-  %166 = load ptr, ptr %6, align 8, !tbaa !39
+  %165 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 27, ptr %165, align 1, !tbaa !37
+  %166 = load ptr, ptr %6, align 8, !tbaa !40
   %167 = getelementptr i8, ptr %166, i64 1
-  store i8 36, ptr %167, align 1, !tbaa !36
-  %168 = load i8, ptr %.us-phi, align 8, !tbaa !51
+  store i8 36, ptr %167, align 1, !tbaa !37
+  %168 = load i8, ptr %.us-phi, align 8, !tbaa !52
   %169 = and i8 %168, 127
-  %170 = load ptr, ptr %6, align 8, !tbaa !39
+  %170 = load ptr, ptr %6, align 8, !tbaa !40
   %171 = getelementptr i8, ptr %170, i64 2
-  store i8 %169, ptr %171, align 1, !tbaa !36
-  %172 = load i8, ptr %.us-phi, align 8, !tbaa !51
-  store i8 %172, ptr %0, align 1, !tbaa !36
-  %173 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 %169, ptr %171, align 1, !tbaa !37
+  %172 = load i8, ptr %.us-phi, align 8, !tbaa !52
+  store i8 %172, ptr %0, align 1, !tbaa !37
+  %173 = load ptr, ptr %6, align 8, !tbaa !40
   %174 = getelementptr i8, ptr %173, i64 3
-  store ptr %174, ptr %6, align 8, !tbaa !39
+  store ptr %174, ptr %6, align 8, !tbaa !40
   %175 = add nsw i64 %.4142, -3
   br label %230
 
@@ -926,35 +926,35 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %177, label %.thread184, label %178
 
 178:                                              ; preds = %176
-  %179 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 27, ptr %179, align 1, !tbaa !36
-  %180 = load ptr, ptr %6, align 8, !tbaa !39
+  %179 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 27, ptr %179, align 1, !tbaa !37
+  %180 = load ptr, ptr %6, align 8, !tbaa !40
   %181 = getelementptr i8, ptr %180, i64 1
-  store i8 36, ptr %181, align 1, !tbaa !36
-  %182 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 36, ptr %181, align 1, !tbaa !37
+  %182 = load ptr, ptr %6, align 8, !tbaa !40
   %183 = getelementptr i8, ptr %182, i64 2
-  store i8 40, ptr %183, align 1, !tbaa !36
-  %184 = load i8, ptr %.us-phi, align 8, !tbaa !51
+  store i8 40, ptr %183, align 1, !tbaa !37
+  %184 = load i8, ptr %.us-phi, align 8, !tbaa !52
   %185 = and i8 %184, 127
-  %186 = load ptr, ptr %6, align 8, !tbaa !39
+  %186 = load ptr, ptr %6, align 8, !tbaa !40
   %187 = getelementptr i8, ptr %186, i64 3
-  store i8 %185, ptr %187, align 1, !tbaa !36
-  %188 = load i8, ptr %.us-phi, align 8, !tbaa !51
-  store i8 %188, ptr %0, align 1, !tbaa !36
-  %189 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 %185, ptr %187, align 1, !tbaa !37
+  %188 = load i8, ptr %.us-phi, align 8, !tbaa !52
+  store i8 %188, ptr %0, align 1, !tbaa !37
+  %189 = load ptr, ptr %6, align 8, !tbaa !40
   %190 = getelementptr i8, ptr %189, i64 4
-  store ptr %190, ptr %6, align 8, !tbaa !39
+  store ptr %190, ptr %6, align 8, !tbaa !40
   %191 = add nsw i64 %.4142, -4
   br label %230
 
 192:                                              ; preds = %124
-  %193 = load i8, ptr %17, align 1, !tbaa !36
+  %193 = load i8, ptr %17, align 1, !tbaa !37
   %.not155 = icmp eq i8 %193, %.pr
   br i1 %.not155, label %218, label %194
 
 194:                                              ; preds = %192
   %195 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 2
-  %196 = load i8, ptr %195, align 2, !tbaa !64
+  %196 = load i8, ptr %195, align 2, !tbaa !65
   %197 = icmp eq i8 %196, 1
   br i1 %197, label %198, label %202
 
@@ -963,8 +963,8 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %199, label %.thread184, label %200
 
 200:                                              ; preds = %198
-  %201 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 27, ptr %201, align 1, !tbaa !36
+  %201 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 27, ptr %201, align 1, !tbaa !37
   br label %.sink.split
 
 202:                                              ; preds = %194
@@ -972,11 +972,11 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %203, label %.thread184, label %204
 
 204:                                              ; preds = %202
-  %205 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 27, ptr %205, align 1, !tbaa !36
-  %206 = load ptr, ptr %6, align 8, !tbaa !39
+  %205 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 27, ptr %205, align 1, !tbaa !37
+  %206 = load ptr, ptr %6, align 8, !tbaa !40
   %207 = getelementptr i8, ptr %206, i64 1
-  store i8 36, ptr %207, align 1, !tbaa !36
+  store i8 36, ptr %207, align 1, !tbaa !37
   br label %.sink.split
 
 .sink.split:                                      ; preds = %204, %200
@@ -984,25 +984,25 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   %.sink253 = phi i64 [ 2, %200 ], [ 3, %204 ]
   %.sink248 = phi i64 [ 3, %200 ], [ 4, %204 ]
   %.sink = phi i64 [ -3, %200 ], [ -4, %204 ]
-  %208 = load ptr, ptr %6, align 8, !tbaa !39
+  %208 = load ptr, ptr %6, align 8, !tbaa !40
   %209 = getelementptr i8, ptr %208, i64 %.sink257
-  store i8 41, ptr %209, align 1, !tbaa !36
-  %210 = load i8, ptr %.us-phi, align 8, !tbaa !51
+  store i8 41, ptr %209, align 1, !tbaa !37
+  %210 = load i8, ptr %.us-phi, align 8, !tbaa !52
   %211 = and i8 %210, 127
-  %212 = load ptr, ptr %6, align 8, !tbaa !39
+  %212 = load ptr, ptr %6, align 8, !tbaa !40
   %213 = getelementptr i8, ptr %212, i64 %.sink253
-  store i8 %211, ptr %213, align 1, !tbaa !36
-  %214 = load i8, ptr %.us-phi, align 8, !tbaa !51
-  store i8 %214, ptr %17, align 1, !tbaa !36
-  %215 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 %211, ptr %213, align 1, !tbaa !37
+  %214 = load i8, ptr %.us-phi, align 8, !tbaa !52
+  store i8 %214, ptr %17, align 1, !tbaa !37
+  %215 = load ptr, ptr %6, align 8, !tbaa !40
   %216 = getelementptr i8, ptr %215, i64 %.sink248
-  store ptr %216, ptr %6, align 8, !tbaa !39
+  store ptr %216, ptr %6, align 8, !tbaa !40
   %217 = add nsw i64 %.0138200, %.sink
   br label %218
 
 218:                                              ; preds = %.sink.split, %192
   %.6 = phi i64 [ %.0138200, %192 ], [ %217, %.sink.split ]
-  %219 = load i8, ptr %18, align 1, !tbaa !36
+  %219 = load i8, ptr %18, align 1, !tbaa !37
   %220 = and i8 %219, 1
   %.not156 = icmp eq i8 %220, 0
   br i1 %.not156, label %221, label %230
@@ -1012,21 +1012,21 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %222, label %.thread184, label %223
 
 223:                                              ; preds = %221
-  %224 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 14, ptr %224, align 1, !tbaa !36
-  %225 = load i8, ptr %18, align 1, !tbaa !36
+  %224 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 14, ptr %224, align 1, !tbaa !37
+  %225 = load i8, ptr %18, align 1, !tbaa !37
   %226 = or i8 %225, 1
-  store i8 %226, ptr %18, align 1, !tbaa !36
-  %227 = load ptr, ptr %6, align 8, !tbaa !39
+  store i8 %226, ptr %18, align 1, !tbaa !37
+  %227 = load ptr, ptr %6, align 8, !tbaa !40
   %228 = getelementptr i8, ptr %227, i64 1
-  store ptr %228, ptr %6, align 8, !tbaa !39
+  store ptr %228, ptr %6, align 8, !tbaa !40
   %229 = add nsw i64 %.6, -1
   br label %230
 
 230:                                              ; preds = %218, %223, %139, %164, %178, %148
   %.5143 = phi i64 [ %159, %148 ], [ %175, %164 ], [ %191, %178 ], [ %.4142, %139 ], [ %.6, %218 ], [ %229, %223 ]
   %231 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 2
-  %232 = load i8, ptr %231, align 2, !tbaa !64
+  %232 = load i8, ptr %231, align 2, !tbaa !65
   %233 = icmp eq i8 %232, 1
   br i1 %233, label %234, label %239
 
@@ -1036,8 +1036,8 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
 
 236:                                              ; preds = %234
   %237 = trunc i16 %.us-phi196 to i8
-  %238 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 %237, ptr %238, align 1, !tbaa !36
+  %238 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 %237, ptr %238, align 1, !tbaa !37
   br label %248
 
 239:                                              ; preds = %230
@@ -1047,24 +1047,24 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
 241:                                              ; preds = %239
   %242 = lshr i16 %.us-phi196, 8
   %243 = trunc nuw i16 %242 to i8
-  %244 = load ptr, ptr %6, align 8, !tbaa !39
-  store i8 %243, ptr %244, align 1, !tbaa !36
+  %244 = load ptr, ptr %6, align 8, !tbaa !40
+  store i8 %243, ptr %244, align 1, !tbaa !37
   %245 = trunc i16 %.us-phi196 to i8
-  %246 = load ptr, ptr %6, align 8, !tbaa !39
+  %246 = load ptr, ptr %6, align 8, !tbaa !40
   %247 = getelementptr i8, ptr %246, i64 1
-  store i8 %245, ptr %247, align 1, !tbaa !36
+  store i8 %245, ptr %247, align 1, !tbaa !37
   br label %248
 
 248:                                              ; preds = %236, %241
   %.sink261 = phi i64 [ 1, %236 ], [ 2, %241 ]
   %.sink258 = phi i64 [ -1, %236 ], [ -2, %241 ]
-  %249 = load ptr, ptr %6, align 8, !tbaa !39
+  %249 = load ptr, ptr %6, align 8, !tbaa !40
   %250 = getelementptr i8, ptr %249, i64 %.sink261
-  store ptr %250, ptr %6, align 8, !tbaa !39
+  store ptr %250, ptr %6, align 8, !tbaa !40
   %251 = add nsw i64 %.5143, %.sink258
-  %252 = load i64, ptr %4, align 8, !tbaa !55
+  %252 = load i64, ptr %4, align 8, !tbaa !56
   %253 = add i64 %252, %.us-phi197
-  store i64 %253, ptr %4, align 8, !tbaa !55
+  store i64 %253, ptr %4, align 8, !tbaa !56
   br label %254
 
 254:                                              ; preds = %248, %60
@@ -1081,17 +1081,17 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @iso2022_encode_init(ptr noundef writeonly captures(none) initializes((0, 2), (4, 5)) %0, ptr readnone captures(none) %1) #6 {
   %3 = getelementptr i8, ptr %0, i64 4
-  store i8 0, ptr %3, align 1, !tbaa !36
-  store i8 66, ptr %0, align 1, !tbaa !36
+  store i8 0, ptr %3, align 1, !tbaa !37
+  store i8 66, ptr %0, align 1, !tbaa !37
   %4 = getelementptr i8, ptr %0, i64 1
-  store i8 66, ptr %4, align 1, !tbaa !36
+  store i8 66, ptr %4, align 1, !tbaa !37
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i64 -1, 1) i64 @iso2022_encode_reset(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) #7 {
   %5 = getelementptr i8, ptr %0, i64 4
-  %6 = load i8, ptr %5, align 1, !tbaa !36
+  %6 = load i8, ptr %5, align 1, !tbaa !37
   %7 = and i8 %6, 1
   %.not = icmp eq i8 %7, 0
   br i1 %.not, label %17, label %8
@@ -1101,20 +1101,20 @@ define internal range(i64 -1, 1) i64 @iso2022_encode_reset(ptr noundef captures(
   br i1 %9, label %29, label %10
 
 10:                                               ; preds = %8
-  %11 = load ptr, ptr %2, align 8, !tbaa !39
-  store i8 15, ptr %11, align 1, !tbaa !36
-  %12 = load ptr, ptr %2, align 8, !tbaa !39
+  %11 = load ptr, ptr %2, align 8, !tbaa !40
+  store i8 15, ptr %11, align 1, !tbaa !37
+  %12 = load ptr, ptr %2, align 8, !tbaa !40
   %13 = getelementptr i8, ptr %12, i64 1
-  store ptr %13, ptr %2, align 8, !tbaa !39
+  store ptr %13, ptr %2, align 8, !tbaa !40
   %14 = add nsw i64 %3, -1
-  %15 = load i8, ptr %5, align 1, !tbaa !36
+  %15 = load i8, ptr %5, align 1, !tbaa !37
   %16 = and i8 %15, -2
-  store i8 %16, ptr %5, align 1, !tbaa !36
+  store i8 %16, ptr %5, align 1, !tbaa !37
   br label %17
 
 17:                                               ; preds = %10, %4
   %.0 = phi i64 [ %14, %10 ], [ %3, %4 ]
-  %18 = load i8, ptr %0, align 1, !tbaa !36
+  %18 = load i8, ptr %0, align 1, !tbaa !37
   %.not16 = icmp eq i8 %18, 66
   br i1 %.not16, label %29, label %19
 
@@ -1123,18 +1123,18 @@ define internal range(i64 -1, 1) i64 @iso2022_encode_reset(ptr noundef captures(
   br i1 %20, label %29, label %21
 
 21:                                               ; preds = %19
-  %22 = load ptr, ptr %2, align 8, !tbaa !39
-  store i8 27, ptr %22, align 1, !tbaa !36
-  %23 = load ptr, ptr %2, align 8, !tbaa !39
+  %22 = load ptr, ptr %2, align 8, !tbaa !40
+  store i8 27, ptr %22, align 1, !tbaa !37
+  %23 = load ptr, ptr %2, align 8, !tbaa !40
   %24 = getelementptr i8, ptr %23, i64 1
-  store i8 40, ptr %24, align 1, !tbaa !36
-  %25 = load ptr, ptr %2, align 8, !tbaa !39
+  store i8 40, ptr %24, align 1, !tbaa !37
+  %25 = load ptr, ptr %2, align 8, !tbaa !40
   %26 = getelementptr i8, ptr %25, i64 2
-  store i8 66, ptr %26, align 1, !tbaa !36
-  %27 = load ptr, ptr %2, align 8, !tbaa !39
+  store i8 66, ptr %26, align 1, !tbaa !37
+  %27 = load ptr, ptr %2, align 8, !tbaa !40
   %28 = getelementptr i8, ptr %27, i64 3
-  store ptr %28, ptr %2, align 8, !tbaa !39
-  store i8 66, ptr %0, align 1, !tbaa !36
+  store ptr %28, ptr %2, align 8, !tbaa !40
+  store i8 66, ptr %0, align 1, !tbaa !37
   br label %29
 
 29:                                               ; preds = %17, %21, %19, %8
@@ -1161,9 +1161,9 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso20
 15:                                               ; preds = %.lr.ph, %307
   %.0103168 = phi ptr [ null, %.lr.ph ], [ %.1104, %307 ]
   %.0142167 = phi i64 [ %3, %.lr.ph ], [ %.1143, %307 ]
-  %16 = load ptr, ptr %2, align 8, !tbaa !39
-  %17 = load i8, ptr %16, align 1, !tbaa !36
-  %18 = load i8, ptr %7, align 1, !tbaa !36
+  %16 = load ptr, ptr %2, align 8, !tbaa !40
+  %17 = load i8, ptr %16, align 1, !tbaa !37
+  %18 = load i8, ptr %7, align 1, !tbaa !37
   %19 = zext i8 %18 to i32
   %20 = and i32 %19, 2
   %.not = icmp eq i32 %20, 0
@@ -1176,19 +1176,19 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso20
   br i1 %24, label %.thread159, label %25
 
 25:                                               ; preds = %22
-  %26 = load ptr, ptr %2, align 8, !tbaa !39
+  %26 = load ptr, ptr %2, align 8, !tbaa !40
   %27 = getelementptr i8, ptr %26, i64 1
-  store ptr %27, ptr %2, align 8, !tbaa !39
+  store ptr %27, ptr %2, align 8, !tbaa !40
   %28 = add nsw i64 %.0142167, -1
   %29 = add i8 %17, -64
   %or.cond5 = icmp ult i8 %29, 27
-  br i1 %or.cond5, label %30, label %307, !llvm.loop !65
+  br i1 %or.cond5, label %30, label %307, !llvm.loop !66
 
 30:                                               ; preds = %25
-  %31 = load i8, ptr %7, align 1, !tbaa !36
+  %31 = load i8, ptr %7, align 1, !tbaa !37
   %32 = and i8 %31, -3
-  store i8 %32, ptr %7, align 1, !tbaa !36
-  br label %307, !llvm.loop !65
+  store i8 %32, ptr %7, align 1, !tbaa !37
+  br label %307, !llvm.loop !66
 
 33:                                               ; preds = %15
   switch i8 %17, label %215 [
@@ -1204,7 +1204,7 @@ define internal range(i64 -9223372036854775807, -9223372036854775808) i64 @iso20
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %16, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !36
+  %38 = load i8, ptr %37, align 1, !tbaa !37
   %switch.tableidx = add i8 %38, -36
   %39 = icmp ult i8 %switch.tableidx, 11
   br i1 %39, label %switch.hole_check, label %110
@@ -1222,14 +1222,14 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 40:                                               ; preds = %switch.lookup
   %41 = getelementptr i8, ptr %16, i64 %.05487.i
-  %42 = load i8, ptr %41, align 1, !tbaa !36
+  %42 = load i8, ptr %41, align 1, !tbaa !37
   %43 = add i8 %42, -64
   %or.cond85.i = icmp ult i8 %43, 27
   br i1 %or.cond85.i, label %60, label %44
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %8, align 8, !tbaa !47
-  %46 = load i32, ptr %45, align 8, !tbaa !66
+  %45 = load ptr, ptr %8, align 8, !tbaa !48
+  %46 = load i32, ptr %45, align 8, !tbaa !67
   %47 = and i32 %46, 4
   %.not66.i = icmp eq i32 %47, 0
   br i1 %.not66.i, label %57, label %48
@@ -1243,7 +1243,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 52:                                               ; preds = %48
   %53 = getelementptr i8, ptr %16, i64 %49
-  %54 = load i8, ptr %53, align 1, !tbaa !36
+  %54 = load i8, ptr %53, align 1, !tbaa !37
   %55 = icmp eq i8 %54, 64
   %56 = add nsw i64 %.05487.i, 2
   %spec.select.i = select i1 %55, i64 %56, i64 %.05487.i
@@ -1253,7 +1253,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %.1.i = phi i64 [ %.05487.i, %48 ], [ %.05487.i, %44 ], [ %spec.select.i, %52 ]
   %58 = add nsw i64 %.1.i, 1
   %59 = icmp slt i64 %.1.i, 15
-  br i1 %59, label %switch.lookup, label %.thread159, !llvm.loop !67
+  br i1 %59, label %switch.lookup, label %.thread159, !llvm.loop !68
 
 60:                                               ; preds = %40
   %61 = add nsw i64 %.05487.i, 1
@@ -1266,7 +1266,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 62:                                               ; preds = %60
   %63 = getelementptr i8, ptr %16, i64 2
-  %64 = load i8, ptr %63, align 1, !tbaa !36
+  %64 = load i8, ptr %63, align 1, !tbaa !37
   switch i8 %38, label %68 [
     i8 36, label %65
     i8 40, label %97
@@ -1281,8 +1281,8 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br label %97
 
 68:                                               ; preds = %62
-  %69 = load ptr, ptr %8, align 8, !tbaa !47
-  %70 = load i32, ptr %69, align 8, !tbaa !66
+  %69 = load ptr, ptr %8, align 8, !tbaa !48
+  %70 = load i32, ptr %69, align 8, !tbaa !67
   %71 = and i32 %70, 2
   %.not69.i = icmp ne i32 %71, 0
   %72 = icmp eq i8 %38, 46
@@ -1295,10 +1295,10 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 
 74:                                               ; preds = %73
   %75 = getelementptr i8, ptr %16, i64 3
-  %76 = load i8, ptr %75, align 1, !tbaa !36
+  %76 = load i8, ptr %75, align 1, !tbaa !37
   %77 = or i8 %76, -128
   %78 = getelementptr i8, ptr %16, i64 2
-  %79 = load i8, ptr %78, align 1, !tbaa !36
+  %79 = load i8, ptr %78, align 1, !tbaa !37
   switch i8 %79, label %.thread159 [
     i8 40, label %.thread77.i
     i8 41, label %80
@@ -1308,27 +1308,27 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br label %.thread77.i
 
 81:                                               ; preds = %60
-  %82 = load ptr, ptr %8, align 8, !tbaa !47
-  %83 = load i32, ptr %82, align 8, !tbaa !66
+  %82 = load ptr, ptr %8, align 8, !tbaa !48
+  %83 = load i32, ptr %82, align 8, !tbaa !67
   %84 = and i32 %83, 4
   %.not67.i = icmp eq i32 %84, 0
   br i1 %.not67.i, label %.thread159, label %85
 
 85:                                               ; preds = %81
   %86 = getelementptr i8, ptr %16, i64 3
-  %87 = load i8, ptr %86, align 1, !tbaa !36
+  %87 = load i8, ptr %86, align 1, !tbaa !37
   %88 = icmp eq i8 %87, 27
   br i1 %88, label %89, label %.thread159
 
 89:                                               ; preds = %85
   %90 = getelementptr i8, ptr %16, i64 4
-  %91 = load i8, ptr %90, align 1, !tbaa !36
+  %91 = load i8, ptr %90, align 1, !tbaa !37
   %92 = icmp eq i8 %91, 36
   br i1 %92, label %93, label %.thread159
 
 93:                                               ; preds = %89
   %94 = getelementptr i8, ptr %16, i64 5
-  %95 = load i8, ptr %94, align 1, !tbaa !36
+  %95 = load i8, ptr %94, align 1, !tbaa !37
   %96 = icmp eq i8 %95, 66
   br i1 %96, label %.thread77.i, label %.thread159
 
@@ -1340,19 +1340,19 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 .thread77.i:                                      ; preds = %97, %93, %80, %74, %65
   %.05583.i = phi i64 [ %.055.i, %97 ], [ 0, %93 ], [ 0, %74 ], [ 1, %80 ], [ 0, %65 ]
   %.05681.i = phi i8 [ %64, %97 ], [ -62, %93 ], [ %77, %74 ], [ %77, %80 ], [ %66, %65 ]
-  %98 = load ptr, ptr %8, align 8, !tbaa !47
+  %98 = load ptr, ptr %8, align 8, !tbaa !48
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !48
+  %100 = load ptr, ptr %99, align 8, !tbaa !49
   br label %101
 
 101:                                              ; preds = %101, %.thread77.i
   %.0.i = phi ptr [ %100, %.thread77.i ], [ %104, %101 ]
-  %102 = load i8, ptr %.0.i, align 8, !tbaa !51
+  %102 = load i8, ptr %.0.i, align 8, !tbaa !52
   %.not71.i = icmp eq i8 %102, 0
   %103 = icmp eq i8 %102, %.05681.i
   %or.cond75.i = or i1 %.not71.i, %103
   %104 = getelementptr i8, ptr %.0.i, i64 32
-  br i1 %or.cond75.i, label %105, label %101, !llvm.loop !68
+  br i1 %or.cond75.i, label %105, label %101, !llvm.loop !69
 
 105:                                              ; preds = %101
   br i1 %.not71.i, label %.thread159, label %iso2022processesc.exit.thread150
@@ -1361,11 +1361,11 @@ iso2022processesc.exit.thread150:                 ; preds = %97, %105
   %.05584.i = phi i64 [ %.055.i, %97 ], [ %.05583.i, %105 ]
   %.05682.i = phi i8 [ 66, %97 ], [ %.05681.i, %105 ]
   %106 = getelementptr [8 x i8], ptr %0, i64 0, i64 %.05584.i
-  store i8 %.05682.i, ptr %106, align 1, !tbaa !36
+  store i8 %.05682.i, ptr %106, align 1, !tbaa !37
   %107 = sub i64 %.0142167, %61
-  %108 = load ptr, ptr %2, align 8, !tbaa !39
+  %108 = load ptr, ptr %2, align 8, !tbaa !40
   %109 = getelementptr i8, ptr %108, i64 %61
-  store ptr %109, ptr %2, align 8, !tbaa !39
+  store ptr %109, ptr %2, align 8, !tbaa !40
   br label %307
 
 iso2022processesc.exit:                           ; preds = %60
@@ -1373,8 +1373,8 @@ iso2022processesc.exit:                           ; preds = %60
   br i1 %.not123, label %307, label %.thread159
 
 110:                                              ; preds = %switch.hole_check, %36
-  %111 = load ptr, ptr %8, align 8, !tbaa !47
-  %112 = load i32, ptr %111, align 8, !tbaa !66
+  %111 = load ptr, ptr %8, align 8, !tbaa !48
+  %112 = load i32, ptr %111, align 8, !tbaa !67
   %113 = and i32 %112, 2
   %.not121 = icmp ne i32 %113, 0
   %114 = icmp eq i8 %38, 78
@@ -1386,7 +1386,7 @@ iso2022processesc.exit:                           ; preds = %60
   br i1 %116, label %.thread159, label %117
 
 117:                                              ; preds = %115
-  %.val = load i8, ptr %9, align 1, !tbaa !36
+  %.val = load i8, ptr %9, align 1, !tbaa !37
   switch i8 %.val, label %.thread159 [
     i8 65, label %118
     i8 70, label %127
@@ -1395,7 +1395,7 @@ iso2022processesc.exit:                           ; preds = %60
 
 118:                                              ; preds = %117
   %119 = getelementptr i8, ptr %16, i64 2
-  %120 = load i8, ptr %119, align 1, !tbaa !36
+  %120 = load i8, ptr %119, align 1, !tbaa !37
   %121 = icmp sgt i8 %120, -1
   br i1 %121, label %122, label %.thread159
 
@@ -1408,7 +1408,7 @@ iso2022processesc.exit:                           ; preds = %60
 
 127:                                              ; preds = %117
   %128 = getelementptr i8, ptr %16, i64 2
-  %129 = load i8, ptr %128, align 1, !tbaa !36
+  %129 = load i8, ptr %128, align 1, !tbaa !37
   %130 = xor i8 %129, -128
   %131 = zext i8 %130 to i32
   %132 = icmp ult i8 %130, -96
@@ -1485,7 +1485,7 @@ iso2022processesc.exit:                           ; preds = %60
 
 170:                                              ; preds = %117
   %171 = getelementptr i8, ptr %16, i64 2
-  %172 = load i8, ptr %171, align 1, !tbaa !36
+  %172 = load i8, ptr %171, align 1, !tbaa !37
   %.not.i128 = icmp sgt i8 %172, -1
   br i1 %.not.i128, label %173, label %.thread159
 
@@ -1496,9 +1496,9 @@ iso2022processesc.exit:                           ; preds = %60
   br i1 %176, label %.thread159, label %iso2022processg2.exit
 
 iso2022processg2.exit:                            ; preds = %122, %133, %143, %156, %161, %164, %167, %173
-  %177 = load ptr, ptr %2, align 8, !tbaa !39
+  %177 = load ptr, ptr %2, align 8, !tbaa !40
   %178 = getelementptr i8, ptr %177, i64 3
-  store ptr %178, ptr %2, align 8, !tbaa !39
+  store ptr %178, ptr %2, align 8, !tbaa !40
   %179 = add nsw i64 %.0142167, -3
   br label %307
 
@@ -1508,58 +1508,58 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   br i1 %182, label %.thread159, label %183
 
 183:                                              ; preds = %180
-  %184 = load i8, ptr %7, align 1, !tbaa !36
+  %184 = load i8, ptr %7, align 1, !tbaa !37
   %185 = or i8 %184, 2
-  store i8 %185, ptr %7, align 1, !tbaa !36
-  %186 = load ptr, ptr %2, align 8, !tbaa !39
+  store i8 %185, ptr %7, align 1, !tbaa !37
+  %186 = load ptr, ptr %2, align 8, !tbaa !40
   %187 = getelementptr i8, ptr %186, i64 1
-  store ptr %187, ptr %2, align 8, !tbaa !39
+  store ptr %187, ptr %2, align 8, !tbaa !40
   %188 = add nsw i64 %.0142167, -1
   br label %307
 
 189:                                              ; preds = %33
-  %190 = load ptr, ptr %8, align 8, !tbaa !47
-  %191 = load i32, ptr %190, align 8, !tbaa !66
+  %190 = load ptr, ptr %8, align 8, !tbaa !48
+  %191 = load i32, ptr %190, align 8, !tbaa !67
   %192 = and i32 %191, 1
   %.not120 = icmp eq i32 %192, 0
   br i1 %.not120, label %193, label %222
 
 193:                                              ; preds = %189
   %194 = and i8 %18, -4
-  store i8 %194, ptr %7, align 1, !tbaa !36
-  %195 = load ptr, ptr %2, align 8, !tbaa !39
+  store i8 %194, ptr %7, align 1, !tbaa !37
+  %195 = load ptr, ptr %2, align 8, !tbaa !40
   %196 = getelementptr i8, ptr %195, i64 1
-  store ptr %196, ptr %2, align 8, !tbaa !39
+  store ptr %196, ptr %2, align 8, !tbaa !40
   %197 = add nsw i64 %.0142167, -1
   br label %307
 
 198:                                              ; preds = %33
-  %199 = load ptr, ptr %8, align 8, !tbaa !47
-  %200 = load i32, ptr %199, align 8, !tbaa !66
+  %199 = load ptr, ptr %8, align 8, !tbaa !48
+  %200 = load i32, ptr %199, align 8, !tbaa !67
   %201 = and i32 %200, 1
   %.not119 = icmp eq i32 %201, 0
   br i1 %.not119, label %202, label %222
 
 202:                                              ; preds = %198
   %203 = or i8 %18, 1
-  store i8 %203, ptr %7, align 1, !tbaa !36
-  %204 = load ptr, ptr %2, align 8, !tbaa !39
+  store i8 %203, ptr %7, align 1, !tbaa !37
+  %204 = load ptr, ptr %2, align 8, !tbaa !40
   %205 = getelementptr i8, ptr %204, i64 1
-  store ptr %205, ptr %2, align 8, !tbaa !39
+  store ptr %205, ptr %2, align 8, !tbaa !40
   %206 = add nsw i64 %.0142167, -1
   br label %307
 
 207:                                              ; preds = %33
   %208 = and i8 %18, -4
-  store i8 %208, ptr %7, align 1, !tbaa !36
+  store i8 %208, ptr %7, align 1, !tbaa !37
   %209 = tail call i32 @_PyUnicodeWriter_WriteChar(ptr noundef %4, i32 noundef 10) #15
   %210 = icmp slt i32 %209, 0
   br i1 %210, label %.thread159, label %211
 
 211:                                              ; preds = %207
-  %212 = load ptr, ptr %2, align 8, !tbaa !39
+  %212 = load ptr, ptr %2, align 8, !tbaa !40
   %213 = getelementptr i8, ptr %212, i64 1
-  store ptr %213, ptr %2, align 8, !tbaa !39
+  store ptr %213, ptr %2, align 8, !tbaa !40
   %214 = add nsw i64 %.0142167, -1
   br label %307
 
@@ -1575,7 +1575,7 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %220 = and i32 %19, 1
   %.0107.in.idx = zext nneg i32 %220 to i64
   %.0107.in = getelementptr i8, ptr %0, i64 %.0107.in.idx
-  %.0107 = load i8, ptr %.0107.in, align 1, !tbaa !36
+  %.0107 = load i8, ptr %.0107.in, align 1, !tbaa !37
   %221 = icmp eq i8 %.0107, 66
   br i1 %221, label %222, label %229
 
@@ -1585,9 +1585,9 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   br i1 %224, label %.thread159, label %225
 
 225:                                              ; preds = %222
-  %226 = load ptr, ptr %2, align 8, !tbaa !39
+  %226 = load ptr, ptr %2, align 8, !tbaa !40
   %227 = getelementptr i8, ptr %226, i64 1
-  store ptr %227, ptr %2, align 8, !tbaa !39
+  store ptr %227, ptr %2, align 8, !tbaa !40
   %228 = add nsw i64 %.0142167, -1
   br label %307
 
@@ -1596,40 +1596,40 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   br i1 %.not125, label %233, label %230
 
 230:                                              ; preds = %229
-  %231 = load i8, ptr %.0103168, align 8, !tbaa !51
+  %231 = load i8, ptr %.0103168, align 8, !tbaa !52
   %232 = icmp eq i8 %231, %.0107
   br i1 %232, label %.loopexit, label %233
 
 233:                                              ; preds = %230, %229
-  %234 = load ptr, ptr %8, align 8, !tbaa !47
+  %234 = load ptr, ptr %8, align 8, !tbaa !48
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
-  %236 = load ptr, ptr %235, align 8, !tbaa !48
+  %236 = load ptr, ptr %235, align 8, !tbaa !49
   br label %237
 
 237:                                              ; preds = %237, %233
   %.0108 = phi ptr [ %236, %233 ], [ %239, %237 ]
-  %238 = load i8, ptr %.0108, align 8, !tbaa !51
+  %238 = load i8, ptr %.0108, align 8, !tbaa !52
   %.not126 = icmp eq i8 %238, %.0107
   %239 = getelementptr i8, ptr %.0108, i64 32
-  br i1 %.not126, label %.loopexit, label %237, !llvm.loop !69
+  br i1 %.not126, label %.loopexit, label %237, !llvm.loop !70
 
 .loopexit:                                        ; preds = %237, %230
   %.3106 = phi ptr [ %.0103168, %230 ], [ %.0108, %237 ]
   %240 = getelementptr inbounds nuw i8, ptr %.3106, i64 2
-  %241 = load i8, ptr %240, align 2, !tbaa !64
+  %241 = load i8, ptr %240, align 2, !tbaa !65
   %242 = zext i8 %241 to i64
   %243 = icmp slt i64 %.0142167, %242
   br i1 %243, label %.thread159, label %244
 
 244:                                              ; preds = %.loopexit
   %245 = getelementptr inbounds nuw i8, ptr %.3106, i64 16
-  %246 = load ptr, ptr %245, align 8, !tbaa !70
+  %246 = load ptr, ptr %245, align 8, !tbaa !71
   %247 = tail call i32 %246(ptr noundef %1, ptr noundef nonnull %16) #15
   %248 = icmp eq i32 %247, 65535
   br i1 %248, label %249, label %252
 
 249:                                              ; preds = %244
-  %250 = load i8, ptr %240, align 2, !tbaa !64
+  %250 = load i8, ptr %240, align 2, !tbaa !65
   %251 = zext i8 %250 to i64
   br label %.thread159
 
@@ -1655,13 +1655,13 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %263 = lshr i32 %247, 16
   %264 = and i32 %247, 65535
   %265 = tail call i32 @llvm.umax.i32(i32 %263, i32 %264)
-  %266 = load i32, ptr %10, align 4, !tbaa !71
+  %266 = load i32, ptr %10, align 4, !tbaa !72
   %.not127 = icmp ugt i32 %265, %266
   br i1 %.not127, label %272, label %267
 
 267:                                              ; preds = %262
-  %268 = load i64, ptr %11, align 8, !tbaa !73
-  %269 = load i64, ptr %12, align 8, !tbaa !74
+  %268 = load i64, ptr %11, align 8, !tbaa !74
+  %269 = load i64, ptr %12, align 8, !tbaa !75
   %270 = sub i64 %268, %269
   %271 = icmp sgt i64 %270, 1
   br i1 %271, label %.thread, label %272
@@ -1672,13 +1672,13 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   br i1 %274, label %.thread159, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %272
-  %.pre = load i64, ptr %12, align 8, !tbaa !74
+  %.pre = load i64, ptr %12, align 8, !tbaa !75
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %267
   %275 = phi i64 [ %.pre, %..thread_crit_edge ], [ %269, %267 ]
-  %276 = load i32, ptr %13, align 8, !tbaa !75
-  %277 = load ptr, ptr %14, align 8, !tbaa !76
+  %276 = load i32, ptr %13, align 8, !tbaa !76
+  %277 = load ptr, ptr %14, align 8, !tbaa !77
   switch i32 %276, label %284 [
     i32 1, label %278
     i32 2, label %281
@@ -1687,26 +1687,26 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
 278:                                              ; preds = %.thread
   %279 = trunc i32 %263 to i8
   %280 = getelementptr i8, ptr %277, i64 %275
-  store i8 %279, ptr %280, align 1, !tbaa !36
-  %.pre237 = load ptr, ptr %14, align 8, !tbaa !76
-  %.pre238 = load i64, ptr %12, align 8, !tbaa !74
+  store i8 %279, ptr %280, align 1, !tbaa !37
+  %.pre237 = load ptr, ptr %14, align 8, !tbaa !77
+  %.pre238 = load i64, ptr %12, align 8, !tbaa !75
   br label %PyUnicode_WRITE.exit
 
 281:                                              ; preds = %.thread
   %282 = trunc nuw i32 %263 to i16
   %283 = getelementptr i16, ptr %277, i64 %275
-  store i16 %282, ptr %283, align 2, !tbaa !56
+  store i16 %282, ptr %283, align 2, !tbaa !57
   br label %PyUnicode_WRITE.exit
 
 284:                                              ; preds = %.thread
   %285 = getelementptr i32, ptr %277, i64 %275
-  store i32 %263, ptr %285, align 4, !tbaa !57
+  store i32 %263, ptr %285, align 4, !tbaa !58
   br label %PyUnicode_WRITE.exit
 
 PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   %286 = phi i64 [ %.pre238, %278 ], [ %275, %281 ], [ %275, %284 ]
   %287 = phi ptr [ %.pre237, %278 ], [ %277, %281 ], [ %277, %284 ]
-  %288 = load i32, ptr %13, align 8, !tbaa !75
+  %288 = load i32, ptr %13, align 8, !tbaa !76
   %289 = add i64 %286, 1
   switch i32 %288, label %296 [
     i32 1, label %290
@@ -1716,33 +1716,33 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
 290:                                              ; preds = %PyUnicode_WRITE.exit
   %291 = trunc i32 %247 to i8
   %292 = getelementptr i8, ptr %287, i64 %289
-  store i8 %291, ptr %292, align 1, !tbaa !36
-  %.pre239 = load i64, ptr %12, align 8, !tbaa !74
+  store i8 %291, ptr %292, align 1, !tbaa !37
+  %.pre239 = load i64, ptr %12, align 8, !tbaa !75
   br label %298
 
 293:                                              ; preds = %PyUnicode_WRITE.exit
   %294 = trunc i32 %247 to i16
   %295 = getelementptr i16, ptr %287, i64 %289
-  store i16 %294, ptr %295, align 2, !tbaa !56
+  store i16 %294, ptr %295, align 2, !tbaa !57
   br label %298
 
 296:                                              ; preds = %PyUnicode_WRITE.exit
   %297 = getelementptr i32, ptr %287, i64 %289
-  store i32 %264, ptr %297, align 4, !tbaa !57
+  store i32 %264, ptr %297, align 4, !tbaa !58
   br label %298
 
 298:                                              ; preds = %296, %293, %290
   %299 = phi i64 [ %286, %296 ], [ %286, %293 ], [ %.pre239, %290 ]
   %300 = add i64 %299, 2
-  store i64 %300, ptr %12, align 8, !tbaa !74
+  store i64 %300, ptr %12, align 8, !tbaa !75
   br label %301
 
 301:                                              ; preds = %298, %254, %259
-  %302 = load i8, ptr %240, align 2, !tbaa !64
-  %303 = load ptr, ptr %2, align 8, !tbaa !39
+  %302 = load i8, ptr %240, align 2, !tbaa !65
+  %303 = load ptr, ptr %2, align 8, !tbaa !40
   %304 = zext i8 %302 to i64
   %305 = getelementptr i8, ptr %303, i64 %304
-  store ptr %305, ptr %2, align 8, !tbaa !39
+  store ptr %305, ptr %2, align 8, !tbaa !40
   %306 = sub nsw i64 %.0142167, %304
   br label %307
 
@@ -1760,29 +1760,29 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @iso2022_decode_init(ptr noundef writeonly captures(none) initializes((0, 3), (4, 5)) %0, ptr readnone captures(none) %1) #6 {
   %3 = getelementptr i8, ptr %0, i64 4
-  store i8 0, ptr %3, align 1, !tbaa !36
-  store i8 66, ptr %0, align 1, !tbaa !36
+  store i8 0, ptr %3, align 1, !tbaa !37
+  store i8 66, ptr %0, align 1, !tbaa !37
   %4 = getelementptr i8, ptr %0, i64 1
-  store i8 66, ptr %4, align 1, !tbaa !36
+  store i8 66, ptr %4, align 1, !tbaa !37
   %5 = getelementptr i8, ptr %0, i64 2
-  store i8 66, ptr %5, align 1, !tbaa !36
+  store i8 66, ptr %5, align 1, !tbaa !37
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i64 @iso2022_decode_reset(ptr noundef captures(none) initializes((0, 1)) %0, ptr readnone captures(none) %1) #8 {
-  store i8 66, ptr %0, align 1, !tbaa !36
+  store i8 66, ptr %0, align 1, !tbaa !37
   %3 = getelementptr i8, ptr %0, i64 4
-  %4 = load i8, ptr %3, align 1, !tbaa !36
+  %4 = load i8, ptr %3, align 1, !tbaa !37
   %5 = and i8 %4, -2
-  store i8 %5, ptr %3, align 1, !tbaa !36
+  store i8 %5, ptr %3, align 1, !tbaa !37
   ret i64 0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @ksx1001_init(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %4, ptr noundef null)
   %.not = icmp eq i32 %5, 0
@@ -1803,36 +1803,36 @@ define internal range(i32 -1, 1) i32 @ksx1001_init(ptr noundef readonly captures
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !77
-  %7 = load i8, ptr %1, align 1, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !78
+  %7 = load i8, ptr %1, align 1, !tbaa !37
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !78
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %25, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr i8, ptr %1, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !36
+  %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !81
+  %16 = load i8, ptr %15, align 8, !tbaa !82
   %17 = zext i8 %16 to i64
   %.not18 = icmp ult i8 %13, %16
   br i1 %.not18, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !82
+  %20 = load i8, ptr %19, align 1, !tbaa !83
   %.not19 = icmp ugt i8 %13, %20
   br i1 %.not19, label %25, label %21
 
 21:                                               ; preds = %18
   %22 = sub nsw i64 %14, %17
   %23 = getelementptr i16, ptr %10, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !56
+  %24 = load i16, ptr %23, align 2, !tbaa !57
   %.not20 = icmp eq i16 %24, -2
   %narrow = select i1 %.not20, i16 -1, i16 %24
   %spec.select = zext i16 %narrow to i32
@@ -1845,33 +1845,33 @@ define internal range(i32 0, 65536) i32 @ksx1001_decoder(ptr noundef readonly ca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext range(i16 -1, -32768) i16 @ksx1001_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #9 {
-  %4 = load i32, ptr %1, align 4, !tbaa !57
+  %4 = load i32, ptr %1, align 4, !tbaa !58
   %5 = icmp ult i32 %4, 65536
   br i1 %5, label %6, label %29
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load ptr, ptr %9, align 8, !tbaa !83
+  %10 = load ptr, ptr %9, align 8, !tbaa !84
   %11 = lshr i32 %4, 8
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr %struct.unim_index, ptr %10, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %29, label %15
 
 15:                                               ; preds = %6
   %16 = and i32 %4, 255
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !86
+  %18 = load i8, ptr %17, align 8, !tbaa !87
   %19 = zext i8 %18 to i32
   %.not21 = icmp samesign ult i32 %16, %19
   br i1 %.not21, label %29, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %22 = load i8, ptr %21, align 1, !tbaa !87
+  %22 = load i8, ptr %21, align 1, !tbaa !88
   %23 = zext i8 %22 to i32
   %.not22 = icmp samesign ugt i32 %16, %23
   br i1 %.not22, label %29, label %24
@@ -1880,7 +1880,7 @@ define internal zeroext range(i16 -1, -32768) i16 @ksx1001_encoder(ptr noundef r
   %25 = sub nsw i32 %16, %19
   %26 = zext i32 %25 to i64
   %27 = getelementptr i16, ptr %14, i64 %26
-  %28 = load i16, ptr %27, align 2, !tbaa !56
+  %28 = load i16, ptr %27, align 2, !tbaa !57
   %.not24 = icmp sgt i16 %28, -1
   br i1 %.not24, label %30, label %29
 
@@ -1920,8 +1920,8 @@ define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %0, ptr nound
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !88
-  store ptr %18, ptr %2, align 8, !tbaa !40
+  %18 = load ptr, ptr %17, align 8, !tbaa !89
+  store ptr %18, ptr %2, align 8, !tbaa !41
   br label %19
 
 19:                                               ; preds = %16, %14
@@ -1930,18 +1930,18 @@ define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !89
-  store ptr %22, ptr %3, align 8, !tbaa !40
+  %22 = load ptr, ptr %21, align 8, !tbaa !90
+  store ptr %22, ptr %3, align 8, !tbaa !41
   br label %23
 
 23:                                               ; preds = %20, %19
-  %24 = load i32, ptr %8, align 8, !tbaa !36
+  %24 = load i32, ptr %8, align 8, !tbaa !37
   %.not.i24 = icmp sgt i32 %24, -1
   br i1 %.not.i24, label %25, label %Py_DECREF.exit25
 
 25:                                               ; preds = %23
   %26 = add nsw i32 %24, -1
-  store i32 %26, ptr %8, align 8, !tbaa !36
+  store i32 %26, ptr %8, align 8, !tbaa !37
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %Py_DECREF.exit25
 
@@ -1950,24 +1950,24 @@ define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %0, ptr nound
   br label %Py_DECREF.exit25
 
 Py_DECREF.exit25:                                 ; preds = %23, %25, %28
-  %29 = load i32, ptr %5, align 8, !tbaa !36
+  %29 = load i32, ptr %5, align 8, !tbaa !37
   %.not.i22 = icmp sgt i32 %29, -1
   br i1 %.not.i22, label %30, label %Py_DECREF.exit23
 
 30:                                               ; preds = %Py_DECREF.exit25
   %31 = add nsw i32 %29, -1
-  store i32 %31, ptr %5, align 8, !tbaa !36
+  store i32 %31, ptr %5, align 8, !tbaa !37
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %Py_DECREF.exit23.sink.split, label %Py_DECREF.exit23
 
 33:                                               ; preds = %7, %12
-  %34 = load i32, ptr %5, align 8, !tbaa !36
+  %34 = load i32, ptr %5, align 8, !tbaa !37
   %.not.i = icmp sgt i32 %34, -1
   br i1 %.not.i, label %35, label %Py_DECREF.exit23
 
 35:                                               ; preds = %33
   %36 = add nsw i32 %34, -1
-  store i32 %36, ptr %5, align 8, !tbaa !36
+  store i32 %36, ptr %5, align 8, !tbaa !37
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %Py_DECREF.exit23.sink.split, label %Py_DECREF.exit23
 
@@ -1994,7 +1994,7 @@ declare i32 @_PyUnicodeWriter_PrepareInternal(ptr noundef, i64 noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @jisx0208_init(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull %4, ptr noundef null)
   %.not = icmp eq i32 %5, 0
@@ -2014,47 +2014,47 @@ define internal range(i32 -1, 1) i32 @jisx0208_init(ptr noundef readonly capture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = load i8, ptr %1, align 1, !tbaa !36
+  %3 = load i8, ptr %1, align 1, !tbaa !37
   %4 = icmp eq i8 %3, 33
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 1
-  %7 = load i8, ptr %6, align 1, !tbaa !36
+  %7 = load i8, ptr %6, align 1, !tbaa !37
   %8 = icmp eq i8 %7, 64
   br i1 %8, label %31, label %9
 
 9:                                                ; preds = %5, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !90
+  %13 = load ptr, ptr %12, align 8, !tbaa !91
   %14 = zext i8 %3 to i64
   %15 = getelementptr %struct.dbcs_index, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !78
+  %16 = load ptr, ptr %15, align 8, !tbaa !79
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %31, label %17
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %1, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !36
+  %19 = load i8, ptr %18, align 1, !tbaa !37
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %22 = load i8, ptr %21, align 8, !tbaa !81
+  %22 = load i8, ptr %21, align 8, !tbaa !82
   %23 = zext i8 %22 to i64
   %.not20 = icmp ult i8 %19, %22
   br i1 %.not20, label %31, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %26 = load i8, ptr %25, align 1, !tbaa !82
+  %26 = load i8, ptr %25, align 1, !tbaa !83
   %.not21 = icmp ugt i8 %19, %26
   br i1 %.not21, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = sub nsw i64 %20, %23
   %29 = getelementptr i16, ptr %16, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !56
+  %30 = load i16, ptr %29, align 2, !tbaa !57
   %.not22 = icmp eq i16 %30, -2
   %narrow = select i1 %.not22, i16 -1, i16 %30
   %spec.select = zext i16 %narrow to i32
@@ -2067,7 +2067,7 @@ define internal range(i32 0, 65536) i32 @jisx0208_decoder(ptr noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #9 {
-  %4 = load i32, ptr %1, align 4, !tbaa !57
+  %4 = load i32, ptr %1, align 4, !tbaa !58
   %5 = icmp ult i32 %4, 65536
   br i1 %5, label %6, label %31
 
@@ -2077,27 +2077,27 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr noundef 
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %10 = load ptr, ptr %9, align 8, !tbaa !42
+  %10 = load ptr, ptr %9, align 8, !tbaa !43
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %12 = load ptr, ptr %11, align 8, !tbaa !91
+  %12 = load ptr, ptr %11, align 8, !tbaa !92
   %13 = lshr i32 %4, 8
   %14 = zext nneg i32 %13 to i64
   %15 = getelementptr %struct.unim_index, ptr %12, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !84
+  %16 = load ptr, ptr %15, align 8, !tbaa !85
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %31, label %17
 
 17:                                               ; preds = %8
   %18 = and i32 %4, 255
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %20 = load i8, ptr %19, align 8, !tbaa !86
+  %20 = load i8, ptr %19, align 8, !tbaa !87
   %21 = zext i8 %20 to i32
   %.not22 = icmp samesign ult i32 %18, %21
   br i1 %.not22, label %31, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %24 = load i8, ptr %23, align 1, !tbaa !87
+  %24 = load i8, ptr %23, align 1, !tbaa !88
   %25 = zext i8 %24 to i32
   %.not23 = icmp samesign ugt i32 %18, %25
   br i1 %.not23, label %31, label %26
@@ -2106,7 +2106,7 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr noundef 
   %27 = sub nsw i32 %18, %21
   %28 = zext i32 %27 to i64
   %29 = getelementptr i16, ptr %16, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !56
+  %30 = load i16, ptr %29, align 2, !tbaa !57
   %.not25 = icmp sgt i16 %30, -1
   br i1 %.not25, label %32, label %31
 
@@ -2120,7 +2120,7 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0208_encoder(ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 65536) i32 @jisx0201_r_decoder(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
-  %3 = load i8, ptr %1, align 1, !tbaa !36
+  %3 = load i8, ptr %1, align 1, !tbaa !37
   %4 = zext i8 %3 to i32
   %5 = icmp ult i8 %3, 92
   br i1 %5, label %11, label %6
@@ -2147,7 +2147,7 @@ define internal range(i32 0, 65536) i32 @jisx0201_r_decoder(ptr readnone capture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext range(i16 -1, 128) i16 @jisx0201_r_encoder(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #10 {
-  %4 = load i32, ptr %1, align 4, !tbaa !57
+  %4 = load i32, ptr %1, align 4, !tbaa !58
   %.fr = freeze i32 %4
   %5 = icmp ugt i32 %.fr, 127
   br i1 %5, label %8, label %switch.early.test
@@ -2177,7 +2177,7 @@ switch.early.test:                                ; preds = %3
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @jisx0212_init(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull %4, ptr noundef null)
   %.not = icmp eq i32 %5, 0
@@ -2198,36 +2198,36 @@ define internal range(i32 -1, 1) i32 @jisx0212_init(ptr noundef readonly capture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %6 = load ptr, ptr %5, align 8, !tbaa !92
-  %7 = load i8, ptr %1, align 1, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !93
+  %7 = load i8, ptr %1, align 1, !tbaa !37
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !78
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %25, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr i8, ptr %1, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !36
+  %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !81
+  %16 = load i8, ptr %15, align 8, !tbaa !82
   %17 = zext i8 %16 to i64
   %.not18 = icmp ult i8 %13, %16
   br i1 %.not18, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !82
+  %20 = load i8, ptr %19, align 1, !tbaa !83
   %.not19 = icmp ugt i8 %13, %20
   br i1 %.not19, label %25, label %21
 
 21:                                               ; preds = %18
   %22 = sub nsw i64 %14, %17
   %23 = getelementptr i16, ptr %10, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !56
+  %24 = load i16, ptr %23, align 2, !tbaa !57
   %.not20 = icmp eq i16 %24, -2
   %narrow = select i1 %.not20, i16 -1, i16 %24
   %spec.select = zext i16 %narrow to i32
@@ -2240,33 +2240,33 @@ define internal range(i32 0, 65536) i32 @jisx0212_decoder(ptr noundef readonly c
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #9 {
-  %4 = load i32, ptr %1, align 4, !tbaa !57
+  %4 = load i32, ptr %1, align 4, !tbaa !58
   %5 = icmp ult i32 %4, 65536
   br i1 %5, label %6, label %30
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %10 = load ptr, ptr %9, align 8, !tbaa !91
+  %10 = load ptr, ptr %9, align 8, !tbaa !92
   %11 = lshr i32 %4, 8
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr %struct.unim_index, ptr %10, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %30, label %15
 
 15:                                               ; preds = %6
   %16 = and i32 %4, 255
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !86
+  %18 = load i8, ptr %17, align 8, !tbaa !87
   %19 = zext i8 %18 to i32
   %.not21 = icmp samesign ult i32 %16, %19
   br i1 %.not21, label %30, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %22 = load i8, ptr %21, align 1, !tbaa !87
+  %22 = load i8, ptr %21, align 1, !tbaa !88
   %23 = zext i8 %22 to i32
   %.not22 = icmp samesign ugt i32 %16, %23
   br i1 %.not22, label %30, label %24
@@ -2275,7 +2275,7 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr noundef 
   %25 = sub nsw i32 %16, %19
   %26 = zext i32 %25 to i64
   %27 = getelementptr i16, ptr %14, i64 %26
-  %28 = load i16, ptr %27, align 2, !tbaa !56
+  %28 = load i16, ptr %27, align 2, !tbaa !57
   %29 = and i16 %28, 32767
   %or.cond.inv = icmp slt i16 %28, -1
   %spec.select = select i1 %or.cond.inv, i16 %29, i16 -1
@@ -2289,7 +2289,7 @@ define internal zeroext range(i16 -1, -32768) i16 @jisx0212_encoder(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @gb2312_init(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, ptr noundef nonnull %4, ptr noundef null)
   %.not = icmp eq i32 %5, 0
@@ -2310,36 +2310,36 @@ define internal range(i32 -1, 1) i32 @gb2312_init(ptr noundef readonly captures(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %6 = load ptr, ptr %5, align 8, !tbaa !93
-  %7 = load i8, ptr %1, align 1, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !94
+  %7 = load i8, ptr %1, align 1, !tbaa !37
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !78
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %25, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr i8, ptr %1, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !36
+  %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !81
+  %16 = load i8, ptr %15, align 8, !tbaa !82
   %17 = zext i8 %16 to i64
   %.not18 = icmp ult i8 %13, %16
   br i1 %.not18, label %25, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !82
+  %20 = load i8, ptr %19, align 1, !tbaa !83
   %.not19 = icmp ugt i8 %13, %20
   br i1 %.not19, label %25, label %21
 
 21:                                               ; preds = %18
   %22 = sub nsw i64 %14, %17
   %23 = getelementptr i16, ptr %10, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !56
+  %24 = load i16, ptr %23, align 2, !tbaa !57
   %.not20 = icmp eq i16 %24, -2
   %narrow = select i1 %.not20, i16 -1, i16 %24
   %spec.select = zext i16 %narrow to i32
@@ -2352,33 +2352,33 @@ define internal range(i32 0, 65536) i32 @gb2312_decoder(ptr noundef readonly cap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal zeroext range(i16 -1, -32768) i16 @gb2312_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #9 {
-  %4 = load i32, ptr %1, align 4, !tbaa !57
+  %4 = load i32, ptr %1, align 4, !tbaa !58
   %5 = icmp ult i32 %4, 65536
   br i1 %5, label %6, label %29
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = load ptr, ptr %7, align 8, !tbaa !42
+  %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %10 = load ptr, ptr %9, align 8, !tbaa !94
+  %10 = load ptr, ptr %9, align 8, !tbaa !95
   %11 = lshr i32 %4, 8
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr %struct.unim_index, ptr %10, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !84
+  %14 = load ptr, ptr %13, align 8, !tbaa !85
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %29, label %15
 
 15:                                               ; preds = %6
   %16 = and i32 %4, 255
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %18 = load i8, ptr %17, align 8, !tbaa !86
+  %18 = load i8, ptr %17, align 8, !tbaa !87
   %19 = zext i8 %18 to i32
   %.not21 = icmp samesign ult i32 %16, %19
   br i1 %.not21, label %29, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  %22 = load i8, ptr %21, align 1, !tbaa !87
+  %22 = load i8, ptr %21, align 1, !tbaa !88
   %23 = zext i8 %22 to i32
   %.not22 = icmp samesign ugt i32 %16, %23
   br i1 %.not22, label %29, label %24
@@ -2387,7 +2387,7 @@ define internal zeroext range(i16 -1, -32768) i16 @gb2312_encoder(ptr noundef re
   %25 = sub nsw i32 %16, %19
   %26 = zext i32 %25 to i64
   %27 = getelementptr i16, ptr %14, i64 %26
-  %28 = load i16, ptr %27, align 2, !tbaa !56
+  %28 = load i16, ptr %27, align 2, !tbaa !57
   %.not24 = icmp sgt i16 %28, -1
   br i1 %.not24, label %30, label %29
 
@@ -2412,7 +2412,7 @@ define internal noundef zeroext i16 @dummy_encoder(ptr readnone captures(none) %
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @jisx0213_init(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %3 = load ptr, ptr %2, align 8, !tbaa !42
+  %3 = load ptr, ptr %2, align 8, !tbaa !43
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.27, ptr noundef nonnull %4, ptr noundef null)
   %.not.i = icmp eq i32 %5, 0
@@ -2473,111 +2473,111 @@ jisx0208_init.exit.thread:                        ; preds = %1, %26, %jisx0208_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = load i8, ptr %1, align 1, !tbaa !36
+  %3 = load i8, ptr %1, align 1, !tbaa !37
   %4 = icmp eq i8 %3, 33
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 1
-  %7 = load i8, ptr %6, align 1, !tbaa !36
+  %7 = load i8, ptr %6, align 1, !tbaa !37
   %8 = icmp eq i8 %7, 64
   br i1 %8, label %92, label %9
 
 9:                                                ; preds = %5, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !42
+  %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %13 = load ptr, ptr %12, align 8, !tbaa !90
+  %13 = load ptr, ptr %12, align 8, !tbaa !91
   %14 = zext i8 %3 to i64
   %15 = getelementptr %struct.dbcs_index, ptr %13, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !78
+  %16 = load ptr, ptr %15, align 8, !tbaa !79
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %32, label %17
 
 17:                                               ; preds = %9
   %18 = getelementptr i8, ptr %1, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !36
+  %19 = load i8, ptr %18, align 1, !tbaa !37
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %22 = load i8, ptr %21, align 8, !tbaa !81
+  %22 = load i8, ptr %21, align 8, !tbaa !82
   %23 = zext i8 %22 to i64
   %.not68 = icmp ult i8 %19, %22
   br i1 %.not68, label %32, label %24
 
 24:                                               ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 9
-  %26 = load i8, ptr %25, align 1, !tbaa !82
+  %26 = load i8, ptr %25, align 1, !tbaa !83
   %.not69 = icmp ugt i8 %19, %26
   br i1 %.not69, label %32, label %27
 
 27:                                               ; preds = %24
   %28 = sub nsw i64 %20, %23
   %29 = getelementptr i16, ptr %16, i64 %28
-  %30 = load i16, ptr %29, align 2, !tbaa !56
+  %30 = load i16, ptr %29, align 2, !tbaa !57
   %31 = zext i16 %30 to i32
   %.not70 = icmp eq i16 %30, -2
   br i1 %.not70, label %32, label %92
 
 32:                                               ; preds = %27, %24, %17, %9
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %34 = load ptr, ptr %33, align 8, !tbaa !95
+  %34 = load ptr, ptr %33, align 8, !tbaa !96
   %35 = getelementptr %struct.dbcs_index, ptr %34, i64 %14
-  %36 = load ptr, ptr %35, align 8, !tbaa !78
+  %36 = load ptr, ptr %35, align 8, !tbaa !79
   %.not71 = icmp eq ptr %36, null
   br i1 %.not71, label %52, label %37
 
 37:                                               ; preds = %32
   %38 = getelementptr i8, ptr %1, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !36
+  %39 = load i8, ptr %38, align 1, !tbaa !37
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %42 = load i8, ptr %41, align 8, !tbaa !81
+  %42 = load i8, ptr %41, align 8, !tbaa !82
   %43 = zext i8 %42 to i64
   %.not72 = icmp ult i8 %39, %42
   br i1 %.not72, label %52, label %44
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 9
-  %46 = load i8, ptr %45, align 1, !tbaa !82
+  %46 = load i8, ptr %45, align 1, !tbaa !83
   %.not73 = icmp ugt i8 %39, %46
   br i1 %.not73, label %52, label %47
 
 47:                                               ; preds = %44
   %48 = sub nsw i64 %40, %43
   %49 = getelementptr i16, ptr %36, i64 %48
-  %50 = load i16, ptr %49, align 2, !tbaa !56
+  %50 = load i16, ptr %49, align 2, !tbaa !57
   %51 = zext i16 %50 to i32
   %.not74 = icmp eq i16 %50, -2
   br i1 %.not74, label %52, label %92
 
 52:                                               ; preds = %47, %44, %37, %32
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 96
-  %54 = load ptr, ptr %53, align 8, !tbaa !96
+  %54 = load ptr, ptr %53, align 8, !tbaa !97
   %55 = getelementptr %struct.dbcs_index, ptr %54, i64 %14
-  %56 = load ptr, ptr %55, align 8, !tbaa !78
+  %56 = load ptr, ptr %55, align 8, !tbaa !79
   %.not75 = icmp eq ptr %56, null
   br i1 %.not75, label %74, label %57
 
 57:                                               ; preds = %52
   %58 = getelementptr i8, ptr %1, i64 1
-  %59 = load i8, ptr %58, align 1, !tbaa !36
+  %59 = load i8, ptr %58, align 1, !tbaa !37
   %60 = zext i8 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %62 = load i8, ptr %61, align 8, !tbaa !81
+  %62 = load i8, ptr %61, align 8, !tbaa !82
   %63 = zext i8 %62 to i64
   %.not76 = icmp ult i8 %59, %62
   br i1 %.not76, label %74, label %64
 
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %55, i64 9
-  %66 = load i8, ptr %65, align 1, !tbaa !82
+  %66 = load i8, ptr %65, align 1, !tbaa !83
   %.not77 = icmp ugt i8 %59, %66
   br i1 %.not77, label %74, label %67
 
 67:                                               ; preds = %64
   %68 = sub nsw i64 %60, %63
   %69 = getelementptr i16, ptr %56, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !56
+  %70 = load i16, ptr %69, align 2, !tbaa !57
   %.not78 = icmp eq i16 %70, -2
   br i1 %.not78, label %74, label %71
 
@@ -2587,32 +2587,32 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
   br label %92
 
 74:                                               ; preds = %67, %64, %57, %52
-  %75 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !97
+  %75 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !98
   %76 = getelementptr %struct.widedbcs_index, ptr %75, i64 %14
-  %77 = load ptr, ptr %76, align 8, !tbaa !99
+  %77 = load ptr, ptr %76, align 8, !tbaa !100
   %.not79 = icmp eq ptr %77, null
   br i1 %.not79, label %92, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr i8, ptr %1, i64 1
-  %80 = load i8, ptr %79, align 1, !tbaa !36
+  %80 = load i8, ptr %79, align 1, !tbaa !37
   %81 = zext i8 %80 to i64
   %82 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %83 = load i8, ptr %82, align 8, !tbaa !102
+  %83 = load i8, ptr %82, align 8, !tbaa !103
   %84 = zext i8 %83 to i64
   %.not80 = icmp ult i8 %80, %83
   br i1 %.not80, label %92, label %85
 
 85:                                               ; preds = %78
   %86 = getelementptr inbounds nuw i8, ptr %76, i64 9
-  %87 = load i8, ptr %86, align 1, !tbaa !103
+  %87 = load i8, ptr %86, align 1, !tbaa !104
   %.not81 = icmp ugt i8 %80, %87
   br i1 %.not81, label %92, label %88
 
 88:                                               ; preds = %85
   %89 = sub nsw i64 %81, %84
   %90 = getelementptr i32, ptr %77, i64 %89
-  %91 = load i32, ptr %90, align 4, !tbaa !57
+  %91 = load i32, ptr %90, align 4, !tbaa !58
   %.not82 = icmp eq i32 %91, 65534
   %spec.select = select i1 %.not82, i32 65535, i32 %91
   br label %92
@@ -2624,7 +2624,7 @@ define internal i32 @jisx0213_2004_1_decoder(ptr noundef readonly captures(none)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal zeroext i16 @jisx0213_2004_1_encoder_paironly(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #12 {
-  %4 = load i64, ptr %2, align 8, !tbaa !55
+  %4 = load i64, ptr %2, align 8, !tbaa !56
   %5 = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef null)
   switch i64 %4, label %10 [
     i64 1, label %6
@@ -2637,7 +2637,7 @@ define internal zeroext i16 @jisx0213_2004_1_encoder_paironly(ptr noundef readon
   br label %10
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr %2, align 8, !tbaa !55
+  %9 = load i64, ptr %2, align 8, !tbaa !56
   %.not = icmp eq i64 %9, 2
   %.8 = select i1 %.not, i16 %5, i16 -1
   br label %10
@@ -2659,68 +2659,68 @@ define internal zeroext i16 @jisx0213_2004_1_encoder(ptr noundef readonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 196608) i32 @jisx0213_2004_2_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %4 = load ptr, ptr %3, align 8, !tbaa !42
+  %4 = load ptr, ptr %3, align 8, !tbaa !43
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %6 = load ptr, ptr %5, align 8, !tbaa !104
-  %7 = load i8, ptr %1, align 1, !tbaa !36
+  %6 = load ptr, ptr %5, align 8, !tbaa !105
+  %7 = load i8, ptr %1, align 1, !tbaa !37
   %8 = zext i8 %7 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %6, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !78
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr i8, ptr %1, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !36
+  %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !81
+  %16 = load i8, ptr %15, align 8, !tbaa !82
   %17 = zext i8 %16 to i64
   %.not37 = icmp ult i8 %13, %16
   br i1 %.not37, label %26, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !82
+  %20 = load i8, ptr %19, align 1, !tbaa !83
   %.not38 = icmp ugt i8 %13, %20
   br i1 %.not38, label %26, label %21
 
 21:                                               ; preds = %18
   %22 = sub nsw i64 %14, %17
   %23 = getelementptr i16, ptr %10, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !56
+  %24 = load i16, ptr %23, align 2, !tbaa !57
   %25 = zext i16 %24 to i32
   %.not39 = icmp eq i16 %24, -2
   br i1 %.not39, label %26, label %48
 
 26:                                               ; preds = %21, %18, %11, %2
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %28 = load ptr, ptr %27, align 8, !tbaa !105
+  %28 = load ptr, ptr %27, align 8, !tbaa !106
   %29 = getelementptr %struct.dbcs_index, ptr %28, i64 %8
-  %30 = load ptr, ptr %29, align 8, !tbaa !78
+  %30 = load ptr, ptr %29, align 8, !tbaa !79
   %.not40 = icmp eq ptr %30, null
   br i1 %.not40, label %48, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr i8, ptr %1, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !36
+  %33 = load i8, ptr %32, align 1, !tbaa !37
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %36 = load i8, ptr %35, align 8, !tbaa !81
+  %36 = load i8, ptr %35, align 8, !tbaa !82
   %37 = zext i8 %36 to i64
   %.not41 = icmp ult i8 %33, %36
   br i1 %.not41, label %48, label %38
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 9
-  %40 = load i8, ptr %39, align 1, !tbaa !82
+  %40 = load i8, ptr %39, align 1, !tbaa !83
   %.not42 = icmp ugt i8 %33, %40
   br i1 %.not42, label %48, label %41
 
 41:                                               ; preds = %38
   %42 = sub nsw i64 %34, %37
   %43 = getelementptr i16, ptr %30, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !56
+  %44 = load i16, ptr %43, align 2, !tbaa !57
   %.not43 = icmp eq i16 %44, -2
   br i1 %.not43, label %48, label %45
 
@@ -2747,7 +2747,7 @@ define internal zeroext i16 @jisx0213_2004_2_encoder(ptr noundef readonly captur
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #13 {
-  %5 = load i64, ptr %2, align 8, !tbaa !55
+  %5 = load i64, ptr %2, align 8, !tbaa !56
   switch i64 %5, label %130 [
     i64 1, label %6
     i64 2, label %84
@@ -2755,13 +2755,13 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   ]
 
 .find_pairencmap.exit.thread_crit_edge:           ; preds = %4
-  %.pre = load i32, ptr %1, align 4, !tbaa !57
-  %.pre112 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !106
+  %.pre = load i32, ptr %1, align 4, !tbaa !58
+  %.pre112 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !107
   %.pre113 = shl i32 %.pre, 16
   br label %find_pairencmap.exit.thread
 
 6:                                                ; preds = %4
-  %7 = load i32, ptr %1, align 4, !tbaa !57
+  %7 = load i32, ptr %1, align 4, !tbaa !58
   %8 = icmp ugt i32 %7, 65535
   br i1 %8, label %9, label %39
 
@@ -2778,28 +2778,28 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %16 = load ptr, ptr %15, align 8, !tbaa !42
+  %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
-  %18 = load ptr, ptr %17, align 8, !tbaa !108
+  %18 = load ptr, ptr %17, align 8, !tbaa !109
   %19 = lshr i32 %7, 8
   %20 = and i32 %19, 255
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr %struct.unim_index, ptr %18, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !84
+  %23 = load ptr, ptr %22, align 8, !tbaa !85
   %.not91 = icmp eq ptr %23, null
   br i1 %.not91, label %38, label %24
 
 24:                                               ; preds = %14
   %25 = and i32 %7, 255
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %27 = load i8, ptr %26, align 8, !tbaa !86
+  %27 = load i8, ptr %26, align 8, !tbaa !87
   %28 = zext i8 %27 to i32
   %.not92 = icmp samesign ult i32 %25, %28
   br i1 %.not92, label %38, label %29
 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 9
-  %31 = load i8, ptr %30, align 1, !tbaa !87
+  %31 = load i8, ptr %30, align 1, !tbaa !88
   %32 = zext i8 %31 to i32
   %.not93 = icmp samesign ugt i32 %25, %32
   br i1 %.not93, label %38, label %33
@@ -2808,7 +2808,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %34 = sub nsw i32 %25, %28
   %35 = zext i32 %34 to i64
   %36 = getelementptr i16, ptr %23, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !56
+  %37 = load i16, ptr %36, align 2, !tbaa !57
   %.not94 = icmp eq i16 %37, -1
   br i1 %.not94, label %38, label %130
 
@@ -2837,27 +2837,27 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
 
 .critedge:                                        ; preds = %41, %39
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %43 = load ptr, ptr %42, align 8, !tbaa !42
+  %43 = load ptr, ptr %42, align 8, !tbaa !43
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
-  %45 = load ptr, ptr %44, align 8, !tbaa !109
+  %45 = load ptr, ptr %44, align 8, !tbaa !110
   %46 = lshr i32 %7, 8
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr %struct.unim_index, ptr %45, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !84
+  %49 = load ptr, ptr %48, align 8, !tbaa !85
   %.not82 = icmp eq ptr %49, null
   br i1 %.not82, label %64, label %50
 
 50:                                               ; preds = %.critedge
   %51 = and i32 %7, 255
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %53 = load i8, ptr %52, align 8, !tbaa !86
+  %53 = load i8, ptr %52, align 8, !tbaa !87
   %54 = zext i8 %53 to i32
   %.not83 = icmp samesign ult i32 %51, %54
   br i1 %.not83, label %64, label %55
 
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 9
-  %57 = load i8, ptr %56, align 1, !tbaa !87
+  %57 = load i8, ptr %56, align 1, !tbaa !88
   %58 = zext i8 %57 to i32
   %.not84 = icmp samesign ugt i32 %51, %58
   br i1 %.not84, label %64, label %59
@@ -2866,7 +2866,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %60 = sub nsw i32 %51, %54
   %61 = zext i32 %60 to i64
   %62 = getelementptr i16, ptr %49, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !56
+  %63 = load i16, ptr %62, align 2, !tbaa !57
   switch i16 %63, label %83 [
     i16 -1, label %64
     i16 -2, label %130
@@ -2874,23 +2874,23 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
 
 64:                                               ; preds = %59, %55, %50, %.critedge
   %65 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %66 = load ptr, ptr %65, align 8, !tbaa !91
+  %66 = load ptr, ptr %65, align 8, !tbaa !92
   %67 = getelementptr %struct.unim_index, ptr %66, i64 %47
-  %68 = load ptr, ptr %67, align 8, !tbaa !84
+  %68 = load ptr, ptr %67, align 8, !tbaa !85
   %.not86 = icmp eq ptr %68, null
   br i1 %.not86, label %130, label %69
 
 69:                                               ; preds = %64
   %70 = and i32 %7, 255
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %72 = load i8, ptr %71, align 8, !tbaa !86
+  %72 = load i8, ptr %71, align 8, !tbaa !87
   %73 = zext i8 %72 to i32
   %.not87 = icmp samesign ult i32 %70, %73
   br i1 %.not87, label %130, label %74
 
 74:                                               ; preds = %69
   %75 = getelementptr inbounds nuw i8, ptr %67, i64 9
-  %76 = load i8, ptr %75, align 1, !tbaa !87
+  %76 = load i8, ptr %75, align 1, !tbaa !88
   %77 = zext i8 %76 to i32
   %.not88 = icmp samesign ugt i32 %70, %77
   br i1 %.not88, label %130, label %78
@@ -2899,7 +2899,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %79 = sub nsw i32 %70, %73
   %80 = zext i32 %79 to i64
   %81 = getelementptr i16, ptr %68, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !56
+  %82 = load i16, ptr %81, align 2, !tbaa !57
   %.not90 = icmp sgt i16 %82, -1
   br i1 %.not90, label %83, label %130
 
@@ -2908,10 +2908,10 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   br label %130
 
 84:                                               ; preds = %4
-  %85 = load i32, ptr %1, align 4, !tbaa !57
+  %85 = load i32, ptr %1, align 4, !tbaa !58
   %86 = getelementptr i8, ptr %1, i64 4
-  %87 = load i32, ptr %86, align 4, !tbaa !57
-  %88 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !106
+  %87 = load i32, ptr %86, align 4, !tbaa !58
+  %88 = load ptr, ptr @jisx0213_pair_encmap, align 8, !tbaa !107
   %89 = shl i32 %85, 16
   %90 = and i32 %87, 65535
   %91 = or disjoint i32 %90, %89
@@ -2923,7 +2923,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %.02833.i = phi i32 [ 23, %84 ], [ %102, %100 ]
   %93 = sext i32 %.02833.i to i64
   %94 = getelementptr %struct.pair_encodemap, ptr %88, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !110
+  %95 = load i32, ptr %94, align 4, !tbaa !111
   %96 = icmp ult i32 %91, %95
   br i1 %96, label %97, label %98
 
@@ -2943,26 +2943,26 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %101 = add i32 %.1.i, %.127.i
   %102 = ashr i32 %101, 1
   %.not.i = icmp eq i32 %.127.i, %.1.i
-  br i1 %.not.i, label %103, label %92, !llvm.loop !112
+  br i1 %.not.i, label %103, label %92, !llvm.loop !113
 
 103:                                              ; preds = %100, %98, %97
   %.028.lcssa.i = phi i32 [ %.02535.i, %97 ], [ %.02833.i, %98 ], [ %102, %100 ]
   %104 = sext i32 %.028.lcssa.i to i64
   %105 = getelementptr %struct.pair_encodemap, ptr %88, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !110
+  %106 = load i32, ptr %105, align 4, !tbaa !111
   %107 = icmp eq i32 %91, %106
   br i1 %107, label %find_pairencmap.exit, label %find_pairencmap.exit.thread
 
 find_pairencmap.exit:                             ; preds = %103
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %109 = load i16, ptr %108, align 4, !tbaa !113
+  %109 = load i16, ptr %108, align 4, !tbaa !114
   %.not = icmp eq i16 %109, -3
   br i1 %.not, label %find_pairencmap.exit.thread, label %130
 
 find_pairencmap.exit.thread:                      ; preds = %.find_pairencmap.exit.thread_crit_edge, %103, %find_pairencmap.exit
   %.pre-phi = phi i32 [ %.pre113, %.find_pairencmap.exit.thread_crit_edge ], [ %89, %103 ], [ %89, %find_pairencmap.exit ]
   %110 = phi ptr [ %.pre112, %.find_pairencmap.exit.thread_crit_edge ], [ %88, %103 ], [ %88, %find_pairencmap.exit ]
-  store i64 1, ptr %2, align 8, !tbaa !55
+  store i64 1, ptr %2, align 8, !tbaa !56
   br label %111
 
 111:                                              ; preds = %119, %find_pairencmap.exit.thread
@@ -2971,7 +2971,7 @@ find_pairencmap.exit.thread:                      ; preds = %.find_pairencmap.ex
   %.02833.i98 = phi i32 [ 23, %find_pairencmap.exit.thread ], [ %121, %119 ]
   %112 = sext i32 %.02833.i98 to i64
   %113 = getelementptr %struct.pair_encodemap, ptr %110, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !110
+  %114 = load i32, ptr %113, align 4, !tbaa !111
   %115 = icmp ult i32 %.pre-phi, %114
   br i1 %115, label %116, label %117
 
@@ -2991,19 +2991,19 @@ find_pairencmap.exit.thread:                      ; preds = %.find_pairencmap.ex
   %120 = add i32 %.1.i102, %.127.i101
   %121 = ashr i32 %120, 1
   %.not.i103 = icmp eq i32 %.127.i101, %.1.i102
-  br i1 %.not.i103, label %122, label %111, !llvm.loop !112
+  br i1 %.not.i103, label %122, label %111, !llvm.loop !113
 
 122:                                              ; preds = %119, %117, %116
   %.028.lcssa.i104 = phi i32 [ %.02535.i96, %116 ], [ %.02833.i98, %117 ], [ %121, %119 ]
   %123 = sext i32 %.028.lcssa.i104 to i64
   %124 = getelementptr %struct.pair_encodemap, ptr %110, i64 %123
-  %125 = load i32, ptr %124, align 4, !tbaa !110
+  %125 = load i32, ptr %124, align 4, !tbaa !111
   %126 = icmp eq i32 %.pre-phi, %125
   br i1 %126, label %find_pairencmap.exit107, label %find_pairencmap.exit107.thread
 
 find_pairencmap.exit107:                          ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 4
-  %128 = load i16, ptr %127, align 4, !tbaa !113
+  %128 = load i16, ptr %127, align 4, !tbaa !114
   %.fr = freeze i16 %128
   %129 = icmp eq i16 %.fr, -3
   br i1 %129, label %find_pairencmap.exit107.thread, label %130
@@ -3018,7 +3018,7 @@ find_pairencmap.exit107.thread:                   ; preds = %122, %find_pairencm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = load i8, ptr %1, align 1, !tbaa !36
+  %3 = load i8, ptr %1, align 1, !tbaa !37
   switch i8 %3, label %.thread117 [
     i8 46, label %4
     i8 47, label %8
@@ -3030,19 +3030,19 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %1, i64 1
-  %6 = load i8, ptr %5, align 1, !tbaa !36
+  %6 = load i8, ptr %5, align 1, !tbaa !37
   %7 = icmp eq i8 %6, 33
   br i1 %7, label %108, label %.thread117
 
 8:                                                ; preds = %2
   %9 = getelementptr i8, ptr %1, i64 1
-  %10 = load i8, ptr %9, align 1, !tbaa !36
+  %10 = load i8, ptr %9, align 1, !tbaa !37
   %11 = icmp eq i8 %10, 126
   br i1 %11, label %108, label %.thread117
 
 12:                                               ; preds = %2
   %13 = getelementptr i8, ptr %1, i64 1
-  %14 = load i8, ptr %13, align 1, !tbaa !36
+  %14 = load i8, ptr %13, align 1, !tbaa !37
   switch i8 %14, label %.thread117 [
     i8 84, label %108
     i8 126, label %108
@@ -3050,118 +3050,118 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
 
 15:                                               ; preds = %2
   %16 = getelementptr i8, ptr %1, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !36
+  %17 = load i8, ptr %16, align 1, !tbaa !37
   %18 = icmp eq i8 %17, 39
   br i1 %18, label %108, label %.thread117
 
 19:                                               ; preds = %2
   %20 = getelementptr i8, ptr %1, i64 1
-  %21 = load i8, ptr %20, align 1, !tbaa !36
+  %21 = load i8, ptr %20, align 1, !tbaa !37
   %.off = add i8 %21, -122
   %switch = icmp ult i8 %.off, 5
   br i1 %switch, label %108, label %.thread117
 
 22:                                               ; preds = %2
   %23 = getelementptr i8, ptr %1, i64 1
-  %24 = load i8, ptr %23, align 1, !tbaa !36
+  %24 = load i8, ptr %23, align 1, !tbaa !37
   %25 = icmp eq i8 %24, 64
   br i1 %25, label %108, label %.thread117
 
 .thread117:                                       ; preds = %19, %12, %2, %4, %8, %15, %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %27 = load ptr, ptr %26, align 8, !tbaa !42
+  %27 = load ptr, ptr %26, align 8, !tbaa !43
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !90
+  %29 = load ptr, ptr %28, align 8, !tbaa !91
   %30 = zext i8 %3 to i64
   %31 = getelementptr %struct.dbcs_index, ptr %29, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !78
+  %32 = load ptr, ptr %31, align 8, !tbaa !79
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %48, label %33
 
 33:                                               ; preds = %.thread117
   %34 = getelementptr i8, ptr %1, i64 1
-  %35 = load i8, ptr %34, align 1, !tbaa !36
+  %35 = load i8, ptr %34, align 1, !tbaa !37
   %36 = zext i8 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %38 = load i8, ptr %37, align 8, !tbaa !81
+  %38 = load i8, ptr %37, align 8, !tbaa !82
   %39 = zext i8 %38 to i64
   %.not88 = icmp ult i8 %35, %38
   br i1 %.not88, label %48, label %40
 
 40:                                               ; preds = %33
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 9
-  %42 = load i8, ptr %41, align 1, !tbaa !82
+  %42 = load i8, ptr %41, align 1, !tbaa !83
   %.not89 = icmp ugt i8 %35, %42
   br i1 %.not89, label %48, label %43
 
 43:                                               ; preds = %40
   %44 = sub nsw i64 %36, %39
   %45 = getelementptr i16, ptr %32, i64 %44
-  %46 = load i16, ptr %45, align 2, !tbaa !56
+  %46 = load i16, ptr %45, align 2, !tbaa !57
   %47 = zext i16 %46 to i32
   %.not90 = icmp eq i16 %46, -2
   br i1 %.not90, label %48, label %108
 
 48:                                               ; preds = %43, %40, %33, %.thread117
   %49 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %50 = load ptr, ptr %49, align 8, !tbaa !95
+  %50 = load ptr, ptr %49, align 8, !tbaa !96
   %51 = getelementptr %struct.dbcs_index, ptr %50, i64 %30
-  %52 = load ptr, ptr %51, align 8, !tbaa !78
+  %52 = load ptr, ptr %51, align 8, !tbaa !79
   %.not91 = icmp eq ptr %52, null
   br i1 %.not91, label %68, label %53
 
 53:                                               ; preds = %48
   %54 = getelementptr i8, ptr %1, i64 1
-  %55 = load i8, ptr %54, align 1, !tbaa !36
+  %55 = load i8, ptr %54, align 1, !tbaa !37
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %58 = load i8, ptr %57, align 8, !tbaa !81
+  %58 = load i8, ptr %57, align 8, !tbaa !82
   %59 = zext i8 %58 to i64
   %.not92 = icmp ult i8 %55, %58
   br i1 %.not92, label %68, label %60
 
 60:                                               ; preds = %53
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 9
-  %62 = load i8, ptr %61, align 1, !tbaa !82
+  %62 = load i8, ptr %61, align 1, !tbaa !83
   %.not93 = icmp ugt i8 %55, %62
   br i1 %.not93, label %68, label %63
 
 63:                                               ; preds = %60
   %64 = sub nsw i64 %56, %59
   %65 = getelementptr i16, ptr %52, i64 %64
-  %66 = load i16, ptr %65, align 2, !tbaa !56
+  %66 = load i16, ptr %65, align 2, !tbaa !57
   %67 = zext i16 %66 to i32
   %.not94 = icmp eq i16 %66, -2
   br i1 %.not94, label %68, label %108
 
 68:                                               ; preds = %63, %60, %53, %48
   %69 = getelementptr inbounds nuw i8, ptr %27, i64 96
-  %70 = load ptr, ptr %69, align 8, !tbaa !96
+  %70 = load ptr, ptr %69, align 8, !tbaa !97
   %71 = getelementptr %struct.dbcs_index, ptr %70, i64 %30
-  %72 = load ptr, ptr %71, align 8, !tbaa !78
+  %72 = load ptr, ptr %71, align 8, !tbaa !79
   %.not95 = icmp eq ptr %72, null
   br i1 %.not95, label %90, label %73
 
 73:                                               ; preds = %68
   %74 = getelementptr i8, ptr %1, i64 1
-  %75 = load i8, ptr %74, align 1, !tbaa !36
+  %75 = load i8, ptr %74, align 1, !tbaa !37
   %76 = zext i8 %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  %78 = load i8, ptr %77, align 8, !tbaa !81
+  %78 = load i8, ptr %77, align 8, !tbaa !82
   %79 = zext i8 %78 to i64
   %.not96 = icmp ult i8 %75, %78
   br i1 %.not96, label %90, label %80
 
 80:                                               ; preds = %73
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 9
-  %82 = load i8, ptr %81, align 1, !tbaa !82
+  %82 = load i8, ptr %81, align 1, !tbaa !83
   %.not97 = icmp ugt i8 %75, %82
   br i1 %.not97, label %90, label %83
 
 83:                                               ; preds = %80
   %84 = sub nsw i64 %76, %79
   %85 = getelementptr i16, ptr %72, i64 %84
-  %86 = load i16, ptr %85, align 2, !tbaa !56
+  %86 = load i16, ptr %85, align 2, !tbaa !57
   %.not98 = icmp eq i16 %86, -2
   br i1 %.not98, label %90, label %87
 
@@ -3171,32 +3171,32 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
   br label %108
 
 90:                                               ; preds = %83, %80, %73, %68
-  %91 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !97
+  %91 = load ptr, ptr @jisx0213_pair_decmap, align 8, !tbaa !98
   %92 = getelementptr %struct.widedbcs_index, ptr %91, i64 %30
-  %93 = load ptr, ptr %92, align 8, !tbaa !99
+  %93 = load ptr, ptr %92, align 8, !tbaa !100
   %.not99 = icmp eq ptr %93, null
   br i1 %.not99, label %108, label %94
 
 94:                                               ; preds = %90
   %95 = getelementptr i8, ptr %1, i64 1
-  %96 = load i8, ptr %95, align 1, !tbaa !36
+  %96 = load i8, ptr %95, align 1, !tbaa !37
   %97 = zext i8 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %99 = load i8, ptr %98, align 8, !tbaa !102
+  %99 = load i8, ptr %98, align 8, !tbaa !103
   %100 = zext i8 %99 to i64
   %.not100 = icmp ult i8 %96, %99
   br i1 %.not100, label %108, label %101
 
 101:                                              ; preds = %94
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 9
-  %103 = load i8, ptr %102, align 1, !tbaa !103
+  %103 = load i8, ptr %102, align 1, !tbaa !104
   %.not101 = icmp ugt i8 %96, %103
   br i1 %.not101, label %108, label %104
 
 104:                                              ; preds = %101
   %105 = sub nsw i64 %97, %100
   %106 = getelementptr i32, ptr %93, i64 %105
-  %107 = load i32, ptr %106, align 4, !tbaa !57
+  %107 = load i32, ptr %106, align 4, !tbaa !58
   %.not102 = icmp eq i32 %107, 65534
   %spec.select = select i1 %.not102, i32 65535, i32 %107
   br label %108
@@ -3208,7 +3208,7 @@ define internal i32 @jisx0213_2000_1_decoder(ptr noundef readonly captures(none)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal zeroext i16 @jisx0213_2000_1_encoder_paironly(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #12 {
-  %4 = load i64, ptr %2, align 8, !tbaa !55
+  %4 = load i64, ptr %2, align 8, !tbaa !56
   %5 = tail call fastcc zeroext i16 @jisx0213_encoder(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull inttoptr (i64 2000 to ptr))
   switch i64 %4, label %10 [
     i64 1, label %6
@@ -3221,7 +3221,7 @@ define internal zeroext i16 @jisx0213_2000_1_encoder_paironly(ptr noundef readon
   br label %10
 
 8:                                                ; preds = %3
-  %9 = load i64, ptr %2, align 8, !tbaa !55
+  %9 = load i64, ptr %2, align 8, !tbaa !56
   %.not = icmp eq i64 %9, 2
   %.8 = select i1 %.not, i16 %5, i16 -1
   br label %10
@@ -3242,69 +3242,69 @@ define internal zeroext i16 @jisx0213_2000_1_encoder(ptr noundef readonly captur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 196608) i32 @jisx0213_2000_2_decoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
-  %3 = load i8, ptr %1, align 1, !tbaa !36
+  %3 = load i8, ptr %1, align 1, !tbaa !37
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !42
+  %5 = load ptr, ptr %4, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %7 = load ptr, ptr %6, align 8, !tbaa !104
+  %7 = load ptr, ptr %6, align 8, !tbaa !105
   %8 = zext i8 %3 to i64
   %9 = getelementptr %struct.dbcs_index, ptr %7, i64 %8
-  %10 = load ptr, ptr %9, align 8, !tbaa !78
+  %10 = load ptr, ptr %9, align 8, !tbaa !79
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %26, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr i8, ptr %1, i64 1
-  %13 = load i8, ptr %12, align 1, !tbaa !36
+  %13 = load i8, ptr %12, align 1, !tbaa !37
   %14 = zext i8 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %16 = load i8, ptr %15, align 8, !tbaa !81
+  %16 = load i8, ptr %15, align 8, !tbaa !82
   %17 = zext i8 %16 to i64
   %.not39 = icmp ult i8 %13, %16
   br i1 %.not39, label %26, label %18
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 9
-  %20 = load i8, ptr %19, align 1, !tbaa !82
+  %20 = load i8, ptr %19, align 1, !tbaa !83
   %.not40 = icmp ugt i8 %13, %20
   br i1 %.not40, label %26, label %21
 
 21:                                               ; preds = %18
   %22 = sub nsw i64 %14, %17
   %23 = getelementptr i16, ptr %10, i64 %22
-  %24 = load i16, ptr %23, align 2, !tbaa !56
+  %24 = load i16, ptr %23, align 2, !tbaa !57
   %25 = zext i16 %24 to i32
   %.not41 = icmp eq i16 %24, -2
   br i1 %.not41, label %26, label %48
 
 26:                                               ; preds = %21, %18, %11, %2
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %28 = load ptr, ptr %27, align 8, !tbaa !105
+  %28 = load ptr, ptr %27, align 8, !tbaa !106
   %29 = getelementptr %struct.dbcs_index, ptr %28, i64 %8
-  %30 = load ptr, ptr %29, align 8, !tbaa !78
+  %30 = load ptr, ptr %29, align 8, !tbaa !79
   %.not42 = icmp eq ptr %30, null
   br i1 %.not42, label %48, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr i8, ptr %1, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !36
+  %33 = load i8, ptr %32, align 1, !tbaa !37
   %34 = zext i8 %33 to i64
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %36 = load i8, ptr %35, align 8, !tbaa !81
+  %36 = load i8, ptr %35, align 8, !tbaa !82
   %37 = zext i8 %36 to i64
   %.not43 = icmp ult i8 %33, %36
   br i1 %.not43, label %48, label %38
 
 38:                                               ; preds = %31
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 9
-  %40 = load i8, ptr %39, align 1, !tbaa !82
+  %40 = load i8, ptr %39, align 1, !tbaa !83
   %.not44 = icmp ugt i8 %33, %40
   br i1 %.not44, label %48, label %41
 
 41:                                               ; preds = %38
   %42 = sub nsw i64 %34, %37
   %43 = getelementptr i16, ptr %30, i64 %42
-  %44 = load i16, ptr %43, align 2, !tbaa !56
+  %44 = load i16, ptr %43, align 2, !tbaa !57
   %.not45 = icmp eq i16 %44, -2
   br i1 %.not45, label %48, label %45
 
@@ -3331,7 +3331,7 @@ define internal zeroext i16 @jisx0213_2000_2_encoder(ptr noundef readonly captur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 65377, 65536) i32 @jisx0201_k_decoder(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
-  %3 = load i8, ptr %1, align 1, !tbaa !36
+  %3 = load i8, ptr %1, align 1, !tbaa !37
   %4 = xor i8 %3, -128
   %5 = zext i8 %4 to i32
   %6 = add i8 %3, -33
@@ -3343,7 +3343,7 @@ define internal range(i32 65377, 65536) i32 @jisx0201_k_decoder(ptr readnone cap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext range(i16 -1, 96) i16 @jisx0201_k_encoder(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #10 {
-  %4 = load i32, ptr %1, align 4, !tbaa !57
+  %4 = load i32, ptr %1, align 4, !tbaa !58
   %5 = add i32 %4, -65377
   %or.cond = icmp ult i32 %5, 63
   %6 = trunc nuw i32 %4 to i16
@@ -3407,88 +3407,89 @@ attributes #16 = { nounwind willreturn memory(read) }
 !26 = !{!"short", !6, i64 0}
 !27 = !{!25, !25, i64 0}
 !28 = !{!4, !5, i64 4}
-!29 = distinct !{!29, !30}
+!29 = distinct !{!29, !30, !31}
 !30 = !{!"llvm.loop.mustprogress"}
-!31 = !{!32, !21, i64 0}
-!32 = !{!"_multibyte_codec", !21, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !33, i64 72}
-!33 = !{!"p1 _ZTS14_cjk_mod_state", !9, i64 0}
-!34 = !{!35, !10, i64 0}
-!35 = !{!"", !10, i64 0, !25, i64 8}
-!36 = !{!6, !6, i64 0}
-!37 = !{!35, !25, i64 8}
-!38 = !{!4, !5, i64 0}
-!39 = !{!21, !21, i64 0}
-!40 = !{!9, !9, i64 0}
-!41 = !{!33, !33, i64 0}
-!42 = !{!32, !33, i64 72}
-!43 = distinct !{!43, !30}
-!44 = distinct !{!44, !30}
-!45 = !{!46, !21, i64 0}
-!46 = !{!"dbcs_map", !21, i64 0, !11, i64 8, !12, i64 16}
-!47 = !{!32, !9, i64 8}
-!48 = !{!49, !50, i64 8}
-!49 = !{!"iso2022_config", !5, i64 0, !50, i64 8}
-!50 = !{!"p1 _ZTS19iso2022_designation", !9, i64 0}
-!51 = !{!52, !6, i64 0}
-!52 = !{!"iso2022_designation", !6, i64 0, !6, i64 1, !6, i64 2, !9, i64 8, !9, i64 16, !9, i64 24}
-!53 = !{!52, !9, i64 8}
-!54 = distinct !{!54, !30}
-!55 = !{!20, !20, i64 0}
-!56 = !{!26, !26, i64 0}
-!57 = !{!5, !5, i64 0}
-!58 = distinct !{!58, !30}
-!59 = !{!52, !9, i64 24}
-!60 = distinct !{!60, !30, !61}
-!61 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!62 = distinct !{!62, !30}
-!63 = !{!52, !6, i64 1}
-!64 = !{!52, !6, i64 2}
-!65 = distinct !{!65, !30}
-!66 = !{!49, !5, i64 0}
-!67 = distinct !{!67, !30}
-!68 = distinct !{!68, !30}
-!69 = distinct !{!69, !30}
-!70 = !{!52, !9, i64 16}
-!71 = !{!72, !5, i64 20}
-!72 = !{!"", !25, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !20, i64 24, !20, i64 32, !20, i64 40, !5, i64 48, !6, i64 52, !6, i64 53}
-!73 = !{!72, !20, i64 24}
-!74 = !{!72, !20, i64 32}
-!75 = !{!72, !5, i64 16}
-!76 = !{!72, !9, i64 8}
-!77 = !{!4, !12, i64 32}
-!78 = !{!79, !80, i64 0}
-!79 = !{!"dbcs_index", !80, i64 0, !6, i64 8, !6, i64 9}
-!80 = !{!"p1 short", !9, i64 0}
-!81 = !{!79, !6, i64 8}
-!82 = !{!79, !6, i64 9}
-!83 = !{!4, !11, i64 24}
-!84 = !{!85, !80, i64 0}
-!85 = !{!"unim_index", !80, i64 0, !6, i64 8, !6, i64 9}
-!86 = !{!85, !6, i64 8}
-!87 = !{!85, !6, i64 9}
-!88 = !{!46, !11, i64 8}
-!89 = !{!46, !12, i64 16}
-!90 = !{!4, !12, i64 48}
-!91 = !{!4, !11, i64 40}
-!92 = !{!4, !12, i64 56}
-!93 = !{!4, !12, i64 120}
-!94 = !{!4, !11, i64 112}
-!95 = !{!4, !12, i64 72}
-!96 = !{!4, !12, i64 96}
-!97 = !{!98, !98, i64 0}
-!98 = !{!"p1 _ZTS14widedbcs_index", !9, i64 0}
-!99 = !{!100, !101, i64 0}
-!100 = !{!"widedbcs_index", !101, i64 0, !6, i64 8, !6, i64 9}
-!101 = !{!"p1 int", !9, i64 0}
-!102 = !{!100, !6, i64 8}
-!103 = !{!100, !6, i64 9}
-!104 = !{!4, !12, i64 80}
-!105 = !{!4, !12, i64 104}
-!106 = !{!107, !107, i64 0}
-!107 = !{!"p1 _ZTS14pair_encodemap", !9, i64 0}
-!108 = !{!4, !11, i64 88}
-!109 = !{!4, !11, i64 64}
-!110 = !{!111, !5, i64 0}
-!111 = !{!"pair_encodemap", !5, i64 0, !26, i64 4}
-!112 = distinct !{!112, !30}
-!113 = !{!111, !26, i64 4}
+!31 = !{!"llvm.loop.estimated_trip_count"}
+!32 = !{!33, !21, i64 0}
+!33 = !{!"_multibyte_codec", !21, i64 0, !9, i64 8, !9, i64 16, !9, i64 24, !9, i64 32, !9, i64 40, !9, i64 48, !9, i64 56, !9, i64 64, !34, i64 72}
+!34 = !{!"p1 _ZTS14_cjk_mod_state", !9, i64 0}
+!35 = !{!36, !10, i64 0}
+!36 = !{!"", !10, i64 0, !25, i64 8}
+!37 = !{!6, !6, i64 0}
+!38 = !{!36, !25, i64 8}
+!39 = !{!4, !5, i64 0}
+!40 = !{!21, !21, i64 0}
+!41 = !{!9, !9, i64 0}
+!42 = !{!34, !34, i64 0}
+!43 = !{!33, !34, i64 72}
+!44 = distinct !{!44, !30, !31}
+!45 = distinct !{!45, !30, !31}
+!46 = !{!47, !21, i64 0}
+!47 = !{!"dbcs_map", !21, i64 0, !11, i64 8, !12, i64 16}
+!48 = !{!33, !9, i64 8}
+!49 = !{!50, !51, i64 8}
+!50 = !{!"iso2022_config", !5, i64 0, !51, i64 8}
+!51 = !{!"p1 _ZTS19iso2022_designation", !9, i64 0}
+!52 = !{!53, !6, i64 0}
+!53 = !{!"iso2022_designation", !6, i64 0, !6, i64 1, !6, i64 2, !9, i64 8, !9, i64 16, !9, i64 24}
+!54 = !{!53, !9, i64 8}
+!55 = distinct !{!55, !30, !31}
+!56 = !{!20, !20, i64 0}
+!57 = !{!26, !26, i64 0}
+!58 = !{!5, !5, i64 0}
+!59 = distinct !{!59, !30}
+!60 = !{!53, !9, i64 24}
+!61 = distinct !{!61, !30, !31, !62}
+!62 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!63 = distinct !{!63, !30, !31}
+!64 = !{!53, !6, i64 1}
+!65 = !{!53, !6, i64 2}
+!66 = distinct !{!66, !30}
+!67 = !{!50, !5, i64 0}
+!68 = distinct !{!68, !30, !31}
+!69 = distinct !{!69, !30, !31}
+!70 = distinct !{!70, !30, !31}
+!71 = !{!53, !9, i64 16}
+!72 = !{!73, !5, i64 20}
+!73 = !{!"", !25, i64 0, !9, i64 8, !5, i64 16, !5, i64 20, !20, i64 24, !20, i64 32, !20, i64 40, !5, i64 48, !6, i64 52, !6, i64 53}
+!74 = !{!73, !20, i64 24}
+!75 = !{!73, !20, i64 32}
+!76 = !{!73, !5, i64 16}
+!77 = !{!73, !9, i64 8}
+!78 = !{!4, !12, i64 32}
+!79 = !{!80, !81, i64 0}
+!80 = !{!"dbcs_index", !81, i64 0, !6, i64 8, !6, i64 9}
+!81 = !{!"p1 short", !9, i64 0}
+!82 = !{!80, !6, i64 8}
+!83 = !{!80, !6, i64 9}
+!84 = !{!4, !11, i64 24}
+!85 = !{!86, !81, i64 0}
+!86 = !{!"unim_index", !81, i64 0, !6, i64 8, !6, i64 9}
+!87 = !{!86, !6, i64 8}
+!88 = !{!86, !6, i64 9}
+!89 = !{!47, !11, i64 8}
+!90 = !{!47, !12, i64 16}
+!91 = !{!4, !12, i64 48}
+!92 = !{!4, !11, i64 40}
+!93 = !{!4, !12, i64 56}
+!94 = !{!4, !12, i64 120}
+!95 = !{!4, !11, i64 112}
+!96 = !{!4, !12, i64 72}
+!97 = !{!4, !12, i64 96}
+!98 = !{!99, !99, i64 0}
+!99 = !{!"p1 _ZTS14widedbcs_index", !9, i64 0}
+!100 = !{!101, !102, i64 0}
+!101 = !{!"widedbcs_index", !102, i64 0, !6, i64 8, !6, i64 9}
+!102 = !{!"p1 int", !9, i64 0}
+!103 = !{!101, !6, i64 8}
+!104 = !{!101, !6, i64 9}
+!105 = !{!4, !12, i64 80}
+!106 = !{!4, !12, i64 104}
+!107 = !{!108, !108, i64 0}
+!108 = !{!"p1 _ZTS14pair_encodemap", !9, i64 0}
+!109 = !{!4, !11, i64 88}
+!110 = !{!4, !11, i64 64}
+!111 = !{!112, !5, i64 0}
+!112 = !{!"pair_encodemap", !5, i64 0, !26, i64 4}
+!113 = distinct !{!113, !30, !31}
+!114 = !{!112, !26, i64 4}

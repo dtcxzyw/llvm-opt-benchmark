@@ -359,8 +359,8 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %24, %22, %14
 _ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i: ; preds = %131, %130, %38
   %.3.i.i.i = phi i32 [ 0, %130 ], [ 0, %38 ], [ %.1101.i.i.i, %131 ]
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %6) #9
-  %132 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %133 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %132 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %133 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i.i5.i = icmp slt i32 %133, 0
   br i1 %.not2.i.i5.i, label %_ZL10write_tabsP11_FileStream.exit.i.i, label %.lr.ph.i86.i.i
 
@@ -368,9 +368,9 @@ _ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i: ; preds = %131, %130, %38
   %.03.i.i.i = phi i32 [ %135, %.lr.ph.i86.i.i ], [ 0, %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i ]
   %134 = call i32 @T_FileStream_write(ptr noundef %132, ptr noundef nonnull @.str.19, i32 noundef 4)
   %135 = add nuw nsw i32 %.03.i.i.i, 1
-  %136 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %136 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i.i.i = icmp slt i32 %.03.i.i.i, %136
-  br i1 %.not.not.i.i.i, label %.lr.ph.i86.i.i, label %_ZL10write_tabsP11_FileStream.exit.i.i, !llvm.loop !30
+  br i1 %.not.not.i.i.i, label %.lr.ph.i86.i.i, label %_ZL10write_tabsP11_FileStream.exit.i.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit.i.i:           ; preds = %.lr.ph.i86.i.i, %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i
   %137 = phi i32 [ %133, %_ZL13uCharsToCharsPciPKDsiP10UErrorCode.exit.i.i ], [ %136, %.lr.ph.i86.i.i ]
@@ -394,7 +394,7 @@ _ZL10write_tabsP11_FileStream.exit.i.i:           ; preds = %.lr.ph.i86.i.i, %_Z
 
 .lr.ph98.i.i:                                     ; preds = %.preheader94.i.i, %_ZL10write_tabsP11_FileStream.exit92.i.i
   %.07897.i.i = phi i32 [ %.pre-phi.i.i, %_ZL10write_tabsP11_FileStream.exit92.i.i ], [ 0, %.preheader94.i.i ]
-  %145 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %145 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %146 = shl nsw i32 %145, 2
   %147 = sub i32 %.0.i.i4.i, %146
   %148 = add i32 %147, -5
@@ -419,7 +419,7 @@ _ZL10write_tabsP11_FileStream.exit.i.i:           ; preds = %.lr.ph.i86.i.i, %_Z
 159:                                              ; preds = %.lr.ph.i87.i.i
   %160 = getelementptr inbounds i8, ptr %.015.i.i.i, i64 -1
   %.not.i.i6.i = icmp ult ptr %160, %150
-  br i1 %.not.i.i6.i, label %_ZL6strrchPKcjc.exit.i.i, label %.lr.ph.i87.i.i, !llvm.loop !31
+  br i1 %.not.i.i6.i, label %_ZL6strrchPKcjc.exit.i.i, label %.lr.ph.i87.i.i, !llvm.loop !32
 
 _ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.i
   %.lcssa.sink.i.i.i = phi ptr [ %.015.i.i.i, %.lr.ph.i87.i.i ], [ %160, %159 ]
@@ -442,7 +442,7 @@ _ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.
   %168 = getelementptr inbounds nuw i8, ptr %150, i64 %167
   %169 = load i8, ptr %168, align 1, !tbaa !17
   %170 = icmp eq i8 %169, 92
-  br i1 %170, label %.preheader93.i.i, label %171, !llvm.loop !32
+  br i1 %170, label %.preheader93.i.i, label %171, !llvm.loop !33
 
 171:                                              ; preds = %166, %.preheader93.i.i
   %172 = sub i32 %.011.i.i.i, %indvars.i.i
@@ -463,7 +463,7 @@ _ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.
 
 183:                                              ; preds = %171, %_ZL6strrchPKcjc.exit.i.i, %.lr.ph98.i.i
   %.077.i.i = phi i32 [ %148, %.lr.ph98.i.i ], [ %.2.i.i, %171 ], [ %148, %_ZL6strrchPKcjc.exit.i.i ]
-  %184 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %184 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %185 = call i32 @T_FileStream_write(ptr noundef %184, ptr noundef nonnull @.str.10, i32 noundef 1)
   %186 = add i32 %.077.i.i, %.07897.i.i
   %187 = icmp ult i32 %186, %.3.i.i.i
@@ -497,21 +497,21 @@ _ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.
   %indvars.iv.next102.i.i = add nuw nsw i64 %indvars.iv101.i.i, 1
   %201 = zext i32 %.4.i.i to i64
   %202 = icmp samesign ult i64 %indvars.iv.next102.i.i, %201
-  br i1 %202, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !33
+  br i1 %202, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !34
 
 ._crit_edge.i.i:                                  ; preds = %200, %.preheader.i.i
   %.3.lcssa.i.i = phi i32 [ 0, %.preheader.i.i ], [ %.4.i.i, %200 ]
-  %203 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %203 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %204 = call i32 @T_FileStream_write(ptr noundef %203, ptr noundef nonnull %150, i32 noundef %.3.lcssa.i.i)
   %205 = add i32 %.3.lcssa.i.i, %.07897.i.i
   %206 = icmp ult i32 %205, %.3.i.i.i
   br i1 %206, label %207, label %_ZL10write_tabsP11_FileStream.exit92.i.i
 
 207:                                              ; preds = %._crit_edge.i.i
-  %208 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %208 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %209 = call i32 @T_FileStream_write(ptr noundef %208, ptr noundef nonnull @.str.11, i32 noundef 4)
-  %210 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %211 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %210 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %211 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i88.i.i = icmp slt i32 %211, 0
   br i1 %.not2.i88.i.i, label %_ZL10write_tabsP11_FileStream.exit92.i.i, label %.lr.ph.i89.i.i
 
@@ -519,29 +519,29 @@ _ZL6strrchPKcjc.exit.i.i:                         ; preds = %159, %.lr.ph.i87.i.
   %.03.i90.i.i = phi i32 [ %213, %.lr.ph.i89.i.i ], [ 0, %207 ]
   %212 = call i32 @T_FileStream_write(ptr noundef %210, ptr noundef nonnull @.str.19, i32 noundef 4)
   %213 = add nuw nsw i32 %.03.i90.i.i, 1
-  %214 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %214 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i91.i.i = icmp slt i32 %.03.i90.i.i, %214
-  br i1 %.not.not.i91.i.i, label %.lr.ph.i89.i.i, label %_ZL10write_tabsP11_FileStream.exit92.i.i, !llvm.loop !30
+  br i1 %.not.not.i91.i.i, label %.lr.ph.i89.i.i, label %_ZL10write_tabsP11_FileStream.exit92.i.i, !llvm.loop !31
 
 215:                                              ; preds = %183
-  %216 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %216 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %217 = call i32 @T_FileStream_write(ptr noundef %216, ptr noundef nonnull %150, i32 noundef %151)
   br label %_ZL10write_tabsP11_FileStream.exit92.i.i
 
 _ZL10write_tabsP11_FileStream.exit92.i.i:         ; preds = %.lr.ph.i89.i.i, %215, %207, %._crit_edge.i.i
   %.pre-phi.i.i = phi i32 [ %205, %207 ], [ %205, %._crit_edge.i.i ], [ %186, %215 ], [ %205, %.lr.ph.i89.i.i ]
   %218 = icmp ult i32 %.pre-phi.i.i, %.3.i.i.i
-  br i1 %218, label %.lr.ph98.i.i, label %.loopexit.i.i, !llvm.loop !34
+  br i1 %218, label %.lr.ph98.i.i, label %.loopexit.i.i, !llvm.loop !35
 
 219:                                              ; preds = %141
-  %220 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %220 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %221 = call i32 @T_FileStream_write(ptr noundef %220, ptr noundef nonnull @.str.10, i32 noundef 1)
-  %222 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %222 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %223 = call i32 @T_FileStream_write(ptr noundef %222, ptr noundef nonnull %calloc.i.i, i32 noundef %.3.i.i.i)
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %_ZL10write_tabsP11_FileStream.exit92.i.i, %219, %.preheader94.i.i
-  %224 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %224 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %225 = call i32 @T_FileStream_write(ptr noundef %224, ptr noundef nonnull @.str.12, i32 noundef 3)
   call void @uprv_free_77(ptr noundef nonnull %calloc.i.i)
   br label %_ZL17string_write_javaPK14StringResourceP10UErrorCode.exit
@@ -556,8 +556,8 @@ _ZL10write_tabsP11_FileStream.exit92.i.i:         ; preds = %.lr.ph.i89.i.i, %21
   %230 = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %229)
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %5) #9
   store i8 0, ptr %5, align 16, !tbaa !17
-  %231 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %232 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %231 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %232 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i.i = icmp slt i32 %232, 0
   br i1 %.not2.i.i, label %_ZL10write_tabsP11_FileStream.exit.i, label %.lr.ph.i.i20
 
@@ -565,31 +565,31 @@ _ZL10write_tabsP11_FileStream.exit92.i.i:         ; preds = %.lr.ph.i89.i.i, %21
   %.03.i.i = phi i32 [ %234, %.lr.ph.i.i20 ], [ 0, %228 ]
   %233 = tail call i32 @T_FileStream_write(ptr noundef %231, ptr noundef nonnull @.str.19, i32 noundef 4)
   %234 = add nuw nsw i32 %.03.i.i, 1
-  %235 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %235 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i.i = icmp slt i32 %.03.i.i, %235
-  br i1 %.not.not.i.i, label %.lr.ph.i.i20, label %_ZL10write_tabsP11_FileStream.exit.i, !llvm.loop !30
+  br i1 %.not.not.i.i, label %.lr.ph.i.i20, label %_ZL10write_tabsP11_FileStream.exit.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit.i:             ; preds = %.lr.ph.i.i20, %228
   %.not.i = icmp eq ptr %230, null
   br i1 %.not.i, label %_ZL10write_tabsP11_FileStream.exit._crit_edge.i, label %236
 
 _ZL10write_tabsP11_FileStream.exit._crit_edge.i:  ; preds = %_ZL10write_tabsP11_FileStream.exit.i
-  %.pre.i = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre.i = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %269
 
 236:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit.i
   %237 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %230, ptr noundef nonnull dereferenceable(17) @.str.22) #10
   %238 = icmp eq i32 %237, 0
-  %.pre8.i = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre8.i = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br i1 %238, label %239, label %269
 
 239:                                              ; preds = %236
   %240 = tail call i32 @T_FileStream_write(ptr noundef %.pre8.i, ptr noundef nonnull @.str.21, i32 noundef 14)
-  %241 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %241 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %242 = add nsw i32 %241, 1
-  store i32 %242, ptr @_ZL8tabCount, align 4, !tbaa !29
+  store i32 %242, ptr @_ZL8tabCount, align 4, !tbaa !30
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %244 = load i64, ptr %243, align 8, !tbaa !35
+  %244 = load i64, ptr %243, align 8, !tbaa !36
   %.not5.i = icmp eq i64 %244, 0
   br i1 %.not5.i, label %.loopexit.i, label %.lr.ph.i
 
@@ -600,8 +600,8 @@ _ZL10write_tabsP11_FileStream.exit._crit_edge.i:  ; preds = %_ZL10write_tabsP11_
 246:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit25.i, %.lr.ph.i
   %247 = phi i64 [ 0, %.lr.ph.i ], [ %266, %_ZL10write_tabsP11_FileStream.exit25.i ]
   %.02.i = phi i32 [ 0, %.lr.ph.i ], [ %265, %_ZL10write_tabsP11_FileStream.exit25.i ]
-  %248 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %249 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %248 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %249 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i21.i = icmp slt i32 %249, 0
   br i1 %.not2.i21.i, label %_ZL10write_tabsP11_FileStream.exit25.i, label %.lr.ph.i22.i
 
@@ -609,37 +609,37 @@ _ZL10write_tabsP11_FileStream.exit._crit_edge.i:  ; preds = %_ZL10write_tabsP11_
   %.03.i23.i = phi i32 [ %251, %.lr.ph.i22.i ], [ 0, %246 ]
   %250 = call i32 @T_FileStream_write(ptr noundef %248, ptr noundef nonnull @.str.19, i32 noundef 4)
   %251 = add nuw nsw i32 %.03.i23.i, 1
-  %252 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %252 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i24.i = icmp slt i32 %.03.i23.i, %252
-  br i1 %.not.not.i24.i, label %.lr.ph.i22.i, label %_ZL10write_tabsP11_FileStream.exit25.i, !llvm.loop !30
+  br i1 %.not.not.i24.i, label %.lr.ph.i22.i, label %_ZL10write_tabsP11_FileStream.exit25.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit25.i:           ; preds = %.lr.ph.i22.i, %246
-  %253 = load ptr, ptr %245, align 8, !tbaa !39
+  %253 = load ptr, ptr %245, align 8, !tbaa !40
   %254 = getelementptr inbounds nuw i32, ptr %253, i64 %247
-  %255 = load i32, ptr %254, align 4, !tbaa !29
+  %255 = load i32, ptr %254, align 4, !tbaa !30
   %256 = call i32 @itostr(ptr noundef nonnull %5, i32 noundef %255, i32 noundef 10, i32 noundef 0)
-  %257 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %257 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %258 = call i32 @T_FileStream_write(ptr noundef %257, ptr noundef nonnull @.str.10, i32 noundef 1)
-  %259 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %259 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %260 = call i32 @T_FileStream_write(ptr noundef %259, ptr noundef nonnull %5, i32 noundef %256)
-  %261 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %261 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %262 = call i32 @T_FileStream_write(ptr noundef %261, ptr noundef nonnull @.str.23, i32 noundef 2)
-  %263 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %263 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %264 = call i32 @T_FileStream_write(ptr noundef %263, ptr noundef nonnull @.str.24, i32 noundef 1)
   %265 = add i32 %.02.i, 1
   %266 = zext i32 %265 to i64
-  %267 = load i64, ptr %243, align 8, !tbaa !35
+  %267 = load i64, ptr %243, align 8, !tbaa !36
   %268 = icmp ugt i64 %267, %266
-  br i1 %268, label %246, label %.loopexitthread-pre-split.i, !llvm.loop !40
+  br i1 %268, label %246, label %.loopexitthread-pre-split.i, !llvm.loop !41
 
 269:                                              ; preds = %236, %_ZL10write_tabsP11_FileStream.exit._crit_edge.i
   %270 = phi ptr [ %.pre.i, %_ZL10write_tabsP11_FileStream.exit._crit_edge.i ], [ %.pre8.i, %236 ]
   %271 = tail call i32 @T_FileStream_write(ptr noundef %270, ptr noundef nonnull @.str.20, i32 noundef 12)
-  %272 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %272 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %273 = add nsw i32 %272, 1
-  store i32 %273, ptr @_ZL8tabCount, align 4, !tbaa !29
+  store i32 %273, ptr @_ZL8tabCount, align 4, !tbaa !30
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %275 = load i64, ptr %274, align 8, !tbaa !35
+  %275 = load i64, ptr %274, align 8, !tbaa !36
   %.not6.i = icmp eq i64 %275, 0
   br i1 %.not6.i, label %.loopexit.i, label %.lr.ph4.i
 
@@ -650,8 +650,8 @@ _ZL10write_tabsP11_FileStream.exit25.i:           ; preds = %.lr.ph.i22.i, %246
 277:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit30.i, %.lr.ph4.i
   %278 = phi i64 [ 0, %.lr.ph4.i ], [ %293, %_ZL10write_tabsP11_FileStream.exit30.i ]
   %.13.i = phi i32 [ 0, %.lr.ph4.i ], [ %292, %_ZL10write_tabsP11_FileStream.exit30.i ]
-  %279 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %280 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %279 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %280 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i26.i = icmp slt i32 %280, 0
   br i1 %.not2.i26.i, label %_ZL10write_tabsP11_FileStream.exit30.i, label %.lr.ph.i27.i
 
@@ -659,34 +659,34 @@ _ZL10write_tabsP11_FileStream.exit25.i:           ; preds = %.lr.ph.i22.i, %246
   %.03.i28.i = phi i32 [ %282, %.lr.ph.i27.i ], [ 0, %277 ]
   %281 = call i32 @T_FileStream_write(ptr noundef %279, ptr noundef nonnull @.str.19, i32 noundef 4)
   %282 = add nuw nsw i32 %.03.i28.i, 1
-  %283 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %283 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i29.i = icmp slt i32 %.03.i28.i, %283
-  br i1 %.not.not.i29.i, label %.lr.ph.i27.i, label %_ZL10write_tabsP11_FileStream.exit30.i, !llvm.loop !30
+  br i1 %.not.not.i29.i, label %.lr.ph.i27.i, label %_ZL10write_tabsP11_FileStream.exit30.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit30.i:           ; preds = %.lr.ph.i27.i, %277
-  %284 = load ptr, ptr %276, align 8, !tbaa !39
+  %284 = load ptr, ptr %276, align 8, !tbaa !40
   %285 = getelementptr inbounds nuw i32, ptr %284, i64 %278
-  %286 = load i32, ptr %285, align 4, !tbaa !29
+  %286 = load i32, ptr %285, align 4, !tbaa !30
   %287 = call i32 @itostr(ptr noundef nonnull %5, i32 noundef %286, i32 noundef 10, i32 noundef 0)
-  %288 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %288 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %289 = call i32 @T_FileStream_write(ptr noundef %288, ptr noundef nonnull %5, i32 noundef %287)
-  %290 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %290 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %291 = call i32 @T_FileStream_write(ptr noundef %290, ptr noundef nonnull @.str.25, i32 noundef 2)
   %292 = add i32 %.13.i, 1
   %293 = zext i32 %292 to i64
-  %294 = load i64, ptr %274, align 8, !tbaa !35
+  %294 = load i64, ptr %274, align 8, !tbaa !36
   %295 = icmp ugt i64 %294, %293
-  br i1 %295, label %277, label %.loopexitthread-pre-split.i, !llvm.loop !41
+  br i1 %295, label %277, label %.loopexitthread-pre-split.i, !llvm.loop !42
 
 .loopexitthread-pre-split.i:                      ; preds = %_ZL10write_tabsP11_FileStream.exit25.i, %_ZL10write_tabsP11_FileStream.exit30.i
-  %.pr.i = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %.pr.i = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexitthread-pre-split.i, %269, %239
   %296 = phi i32 [ %.pr.i, %.loopexitthread-pre-split.i ], [ %242, %239 ], [ %273, %269 ]
   %297 = add nsw i32 %296, -1
-  store i32 %297, ptr @_ZL8tabCount, align 4, !tbaa !29
-  %298 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  store i32 %297, ptr @_ZL8tabCount, align 4, !tbaa !30
+  %298 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %.not2.i31.i = icmp slt i32 %296, 1
   br i1 %.not2.i31.i, label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit, label %.lr.ph.i32.i
 
@@ -694,12 +694,12 @@ _ZL10write_tabsP11_FileStream.exit30.i:           ; preds = %.lr.ph.i27.i, %277
   %.03.i33.i = phi i32 [ %300, %.lr.ph.i32.i ], [ 0, %.loopexit.i ]
   %299 = call i32 @T_FileStream_write(ptr noundef %298, ptr noundef nonnull @.str.19, i32 noundef 4)
   %300 = add nuw nsw i32 %.03.i33.i, 1
-  %301 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %301 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i34.i = icmp slt i32 %.03.i33.i, %301
-  br i1 %.not.not.i34.i, label %.lr.ph.i32.i, label %_ZL10write_tabsP11_FileStream.exit35.loopexit.i, !llvm.loop !30
+  br i1 %.not.not.i34.i, label %.lr.ph.i32.i, label %_ZL10write_tabsP11_FileStream.exit35.loopexit.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit35.loopexit.i:  ; preds = %.lr.ph.i32.i
-  %.pre9.i = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre9.i = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %_ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit
 
 _ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit: ; preds = %.loopexit.i, %_ZL10write_tabsP11_FileStream.exit35.loopexit.i
@@ -712,15 +712,15 @@ _ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit: ; preds = %.lo
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(100) %4, i8 0, i64 100, i1 false)
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %306 = load i32, ptr %305, align 8, !tbaa !42
+  %306 = load i32, ptr %305, align 8, !tbaa !43
   %307 = icmp sgt i32 %306, 0
   br i1 %307, label %308, label %355
 
 308:                                              ; preds = %304
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %310 = load ptr, ptr %309, align 8, !tbaa !44
-  %311 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %312 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %310 = load ptr, ptr %309, align 8, !tbaa !45
+  %311 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %312 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i.i22 = icmp slt i32 %312, 0
   br i1 %.not2.i.i22, label %.lr.ph.preheader.i, label %.lr.ph.i.i23
 
@@ -728,22 +728,22 @@ _ZL20intvector_write_javaPK17IntVectorResourceP10UErrorCode.exit: ; preds = %.lo
   %.03.i.i24 = phi i32 [ %314, %.lr.ph.i.i23 ], [ 0, %308 ]
   %313 = tail call i32 @T_FileStream_write(ptr noundef %311, ptr noundef nonnull @.str.19, i32 noundef 4)
   %314 = add nuw nsw i32 %.03.i.i24, 1
-  %315 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %315 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i.i25 = icmp slt i32 %.03.i.i24, %315
-  br i1 %.not.not.i.i25, label %.lr.ph.i.i23, label %_ZL10write_tabsP11_FileStream.exit.loopexit.i, !llvm.loop !30
+  br i1 %.not.not.i.i25, label %.lr.ph.i.i23, label %_ZL10write_tabsP11_FileStream.exit.loopexit.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit.loopexit.i:    ; preds = %.lr.ph.i.i23
-  %.pre3.i = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre3.i = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit.i, %308
   %316 = phi ptr [ %.pre3.i, %_ZL10write_tabsP11_FileStream.exit.loopexit.i ], [ %311, %308 ]
   %317 = tail call i32 @T_FileStream_write(ptr noundef %316, ptr noundef nonnull @.str.27, i32 noundef 12)
-  %318 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %318 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %319 = tail call i32 @T_FileStream_write(ptr noundef %318, ptr noundef nonnull @.str.24, i32 noundef 1)
-  %320 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %320 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %321 = add nsw i32 %320, 1
-  store i32 %321, ptr @_ZL8tabCount, align 4, !tbaa !29
+  store i32 %321, ptr @_ZL8tabCount, align 4, !tbaa !30
   %wide.trip.count.i = zext nneg i32 %306 to i64
   br label %.lr.ph.i26
 
@@ -755,8 +755,8 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i:    ; preds = %.lr.ph.i.i23
   br i1 %324, label %325, label %_ZL10write_tabsP11_FileStream.exit26.i
 
 325:                                              ; preds = %.lr.ph.i26
-  %326 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %327 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %326 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %327 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i22.i = icmp slt i32 %327, 0
   br i1 %.not2.i22.i, label %_ZL10write_tabsP11_FileStream.exit26.i, label %.lr.ph.i23.i
 
@@ -764,9 +764,9 @@ _ZL10write_tabsP11_FileStream.exit.loopexit.i:    ; preds = %.lr.ph.i.i23
   %.03.i24.i = phi i32 [ %329, %.lr.ph.i23.i ], [ 0, %325 ]
   %328 = call i32 @T_FileStream_write(ptr noundef %326, ptr noundef nonnull @.str.19, i32 noundef 4)
   %329 = add nuw nsw i32 %.03.i24.i, 1
-  %330 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %330 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i25.i = icmp slt i32 %.03.i24.i, %330
-  br i1 %.not.not.i25.i, label %.lr.ph.i23.i, label %_ZL10write_tabsP11_FileStream.exit26.i, !llvm.loop !30
+  br i1 %.not.not.i25.i, label %.lr.ph.i23.i, label %_ZL10write_tabsP11_FileStream.exit26.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit26.i:           ; preds = %.lr.ph.i23.i, %325, %.lr.ph.i26
   %331 = getelementptr inbounds nuw i8, ptr %310, i64 %indvars.iv.i
@@ -776,7 +776,7 @@ _ZL10write_tabsP11_FileStream.exit26.i:           ; preds = %.lr.ph.i23.i, %325,
   %335 = icmp slt i8 %332, 0
   %.sink.i = select i1 %335, i32 %334, i32 %333
   %336 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 100, ptr noundef nonnull @.str.28, i32 noundef %.sink.i) #9
-  %337 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %337 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %338 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
   %339 = trunc i64 %338 to i32
   %340 = call i32 @T_FileStream_write(ptr noundef %337, ptr noundef nonnull %4, i32 noundef %339)
@@ -784,7 +784,7 @@ _ZL10write_tabsP11_FileStream.exit26.i:           ; preds = %.lr.ph.i23.i, %325,
   br i1 %341, label %342, label %.thread
 
 342:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit26.i
-  %343 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %343 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %344 = call i32 @T_FileStream_write(ptr noundef %343, ptr noundef nonnull @.str.24, i32 noundef 1)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -792,7 +792,7 @@ _ZL10write_tabsP11_FileStream.exit26.i:           ; preds = %.lr.ph.i23.i, %325,
 
 .lr.ph.i26.backedge:                              ; preds = %342, %.thread
   %indvars.iv.i.be = phi i64 [ %indvars.iv.next.i, %342 ], [ %indvars.iv.next.i54, %.thread ]
-  br label %.lr.ph.i26, !llvm.loop !45
+  br label %.lr.ph.i26, !llvm.loop !46
 
 .thread:                                          ; preds = %_ZL10write_tabsP11_FileStream.exit26.i
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i, 1
@@ -800,15 +800,15 @@ _ZL10write_tabsP11_FileStream.exit26.i:           ; preds = %.lr.ph.i23.i, %325,
   br i1 %exitcond.not.i55, label %._crit_edge.i.thread, label %.lr.ph.i26.backedge
 
 ._crit_edge.i.thread:                             ; preds = %.thread
-  %345 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %345 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %346 = call i32 @T_FileStream_write(ptr noundef %345, ptr noundef nonnull @.str.24, i32 noundef 1)
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %342, %._crit_edge.i.thread
-  %347 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %347 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %348 = add nsw i32 %347, -1
-  store i32 %348, ptr @_ZL8tabCount, align 4, !tbaa !29
-  %349 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  store i32 %348, ptr @_ZL8tabCount, align 4, !tbaa !30
+  %349 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %.not2.i27.i = icmp slt i32 %347, 1
   br i1 %.not2.i27.i, label %_ZL10write_tabsP11_FileStream.exit31.i, label %.lr.ph.i28.i
 
@@ -816,12 +816,12 @@ _ZL10write_tabsP11_FileStream.exit26.i:           ; preds = %.lr.ph.i23.i, %325,
   %.03.i29.i = phi i32 [ %351, %.lr.ph.i28.i ], [ 0, %._crit_edge.i ]
   %350 = call i32 @T_FileStream_write(ptr noundef %349, ptr noundef nonnull @.str.19, i32 noundef 4)
   %351 = add nuw nsw i32 %.03.i29.i, 1
-  %352 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %352 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i30.i = icmp slt i32 %.03.i29.i, %352
-  br i1 %.not.not.i30.i, label %.lr.ph.i28.i, label %_ZL10write_tabsP11_FileStream.exit31.loopexit.i, !llvm.loop !30
+  br i1 %.not.not.i30.i, label %.lr.ph.i28.i, label %_ZL10write_tabsP11_FileStream.exit31.loopexit.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit31.loopexit.i:  ; preds = %.lr.ph.i28.i
-  %.pre4.i = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre4.i = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %_ZL10write_tabsP11_FileStream.exit31.i
 
 _ZL10write_tabsP11_FileStream.exit31.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit31.loopexit.i, %._crit_edge.i
@@ -830,8 +830,8 @@ _ZL10write_tabsP11_FileStream.exit31.i:           ; preds = %_ZL10write_tabsP11_
   br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit
 
 355:                                              ; preds = %304
-  %356 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %357 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %356 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %357 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i32.i = icmp slt i32 %357, 0
   br i1 %.not2.i32.i, label %_ZL10write_tabsP11_FileStream.exit36.i, label %.lr.ph.i33.i
 
@@ -839,18 +839,18 @@ _ZL10write_tabsP11_FileStream.exit31.i:           ; preds = %_ZL10write_tabsP11_
   %.03.i34.i = phi i32 [ %359, %.lr.ph.i33.i ], [ 0, %355 ]
   %358 = tail call i32 @T_FileStream_write(ptr noundef %356, ptr noundef nonnull @.str.19, i32 noundef 4)
   %359 = add nuw nsw i32 %.03.i34.i, 1
-  %360 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %360 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i35.i = icmp slt i32 %.03.i34.i, %360
-  br i1 %.not.not.i35.i, label %.lr.ph.i33.i, label %_ZL10write_tabsP11_FileStream.exit36.loopexit.i, !llvm.loop !30
+  br i1 %.not.not.i35.i, label %.lr.ph.i33.i, label %_ZL10write_tabsP11_FileStream.exit36.loopexit.i, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit36.loopexit.i:  ; preds = %.lr.ph.i33.i
-  %.pre.i21 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre.i21 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %_ZL10write_tabsP11_FileStream.exit36.i
 
 _ZL10write_tabsP11_FileStream.exit36.i:           ; preds = %_ZL10write_tabsP11_FileStream.exit36.loopexit.i, %355
   %361 = phi ptr [ %.pre.i21, %_ZL10write_tabsP11_FileStream.exit36.loopexit.i ], [ %356, %355 ]
   %362 = tail call i32 @T_FileStream_write(ptr noundef %361, ptr noundef nonnull @.str.27, i32 noundef 12)
-  %363 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %363 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %364 = tail call i32 @T_FileStream_write(ptr noundef %363, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %_ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit
 
@@ -861,8 +861,8 @@ _ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit: ; preds = %_ZL10write
 365:                                              ; preds = %11
   call void @llvm.lifetime.start.p0(i64 100, ptr nonnull %3) #9
   store i8 0, ptr %3, align 16, !tbaa !17
-  %366 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %367 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %366 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %367 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i.i28 = icmp slt i32 %367, 0
   br i1 %.not2.i.i28, label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit, label %.lr.ph.i.i29
 
@@ -870,44 +870,44 @@ _ZL16bytes_write_javaPK14BinaryResourceP10UErrorCode.exit: ; preds = %_ZL10write
   %.03.i.i30 = phi i32 [ %369, %.lr.ph.i.i29 ], [ 0, %365 ]
   %368 = tail call i32 @T_FileStream_write(ptr noundef %366, ptr noundef nonnull @.str.19, i32 noundef 4)
   %369 = add nuw nsw i32 %.03.i.i30, 1
-  %370 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %370 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i.i31 = icmp slt i32 %.03.i.i30, %370
-  br i1 %.not.not.i.i31, label %.lr.ph.i.i29, label %_ZL10write_tabsP11_FileStream.exit.loopexit.i32, !llvm.loop !30
+  br i1 %.not.not.i.i31, label %.lr.ph.i.i29, label %_ZL10write_tabsP11_FileStream.exit.loopexit.i32, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit.loopexit.i32:  ; preds = %.lr.ph.i.i29
-  %.pre.i33 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre.i33 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %_ZL14int_write_javaPK11IntResourceP10UErrorCode.exit
 
 _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %365, %_ZL10write_tabsP11_FileStream.exit.loopexit.i32
   %371 = phi ptr [ %.pre.i33, %_ZL10write_tabsP11_FileStream.exit.loopexit.i32 ], [ %366, %365 ]
   %372 = tail call i32 @T_FileStream_write(ptr noundef %371, ptr noundef nonnull @.str.29, i32 noundef 12)
   %373 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %374 = load i32, ptr %373, align 8, !tbaa !46
+  %374 = load i32, ptr %373, align 8, !tbaa !47
   %375 = call i32 @itostr(ptr noundef nonnull %3, i32 noundef %374, i32 noundef 10, i32 noundef 0)
-  %376 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %376 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %377 = call i32 @T_FileStream_write(ptr noundef %376, ptr noundef nonnull %3, i32 noundef %375)
-  %378 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %378 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %379 = call i32 @T_FileStream_write(ptr noundef %378, ptr noundef nonnull @.str.30, i32 noundef 3)
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #9
   br label %_ZL17string_write_javaPK14StringResourceP10UErrorCode.exit
 
 380:                                              ; preds = %11
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %382 = load i32, ptr %381, align 8, !tbaa !48
+  %382 = load i32, ptr %381, align 8, !tbaa !49
   %.not19.i = icmp eq i32 %382, 0
   br i1 %.not19.i, label %409, label %383
 
 383:                                              ; preds = %380
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.0.i61 = load ptr, ptr %384, align 8, !tbaa !50
+  %.0.i61 = load ptr, ptr %384, align 8, !tbaa !51
   %.not20.not.i62 = icmp eq ptr %.0.i61, null
   br i1 %.not20.not.i62, label %._crit_edge66, label %.lr.ph65
 
 385:                                              ; preds = %.lr.ph65
   %386 = getelementptr inbounds nuw i8, ptr %.0.i63, i64 32
-  %.0.i = load ptr, ptr %386, align 8, !tbaa !50
+  %.0.i = load ptr, ptr %386, align 8, !tbaa !51
   %.not20.not.i = icmp eq ptr %.0.i, null
-  br i1 %.not20.not.i, label %._crit_edge66, label %.lr.ph65, !llvm.loop !51
+  br i1 %.not20.not.i, label %._crit_edge66, label %.lr.ph65, !llvm.loop !52
 
 .lr.ph65:                                         ; preds = %383, %385
   %.0.i63 = phi ptr [ %.0.i, %385 ], [ %.0.i61, %383 ]
@@ -917,23 +917,23 @@ _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %365, %_ZL10writ
   br i1 %.not, label %385, label %389
 
 389:                                              ; preds = %.lr.ph65
-  %390 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %390 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %390)
-  %391 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %391 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %392 = tail call i32 @T_FileStream_write(ptr noundef %391, ptr noundef nonnull @.str.32, i32 noundef 14)
   br label %396
 
 ._crit_edge66:                                    ; preds = %385, %383
-  %393 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %393 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %393)
-  %394 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %394 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %395 = tail call i32 @T_FileStream_write(ptr noundef %394, ptr noundef nonnull @.str.31, i32 noundef 16)
   br label %396
 
 396:                                              ; preds = %._crit_edge66, %389
-  %storemerge.in.i = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %storemerge.in.i = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %storemerge.i = add nsw i32 %storemerge.in.i, 1
-  store i32 %storemerge.i, ptr @_ZL8tabCount, align 4, !tbaa !29
+  store i32 %storemerge.i, ptr @_ZL8tabCount, align 4, !tbaa !30
   br i1 %.not20.not.i62, label %._crit_edge71, label %.lr.ph70
 
 .lr.ph70:                                         ; preds = %396, %399
@@ -945,36 +945,36 @@ _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %365, %_ZL10writ
 
 399:                                              ; preds = %.lr.ph70
   %400 = getelementptr inbounds nuw i8, ptr %.1.i68, i64 32
-  %401 = load ptr, ptr %400, align 8, !tbaa !52
+  %401 = load ptr, ptr %400, align 8, !tbaa !53
   %.not22.i = icmp eq ptr %401, null
-  br i1 %.not22.i, label %._crit_edge71, label %.lr.ph70, !llvm.loop !53
+  br i1 %.not22.i, label %._crit_edge71, label %.lr.ph70, !llvm.loop !54
 
 ._crit_edge71:                                    ; preds = %399, %396
-  %402 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %402 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %403 = tail call i32 @T_FileStream_write(ptr noundef %402, ptr noundef nonnull @.str.24, i32 noundef 1)
-  %404 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %404 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %405 = add nsw i32 %404, -1
-  store i32 %405, ptr @_ZL8tabCount, align 4, !tbaa !29
-  %406 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  store i32 %405, ptr @_ZL8tabCount, align 4, !tbaa !30
+  %406 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %406)
-  %407 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %407 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %408 = tail call i32 @T_FileStream_write(ptr noundef %407, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %_ZL17string_write_javaPK14StringResourceP10UErrorCode.exit
 
 409:                                              ; preds = %380
-  %410 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %410 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %410)
-  %411 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %411 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %412 = tail call i32 @T_FileStream_write(ptr noundef %411, ptr noundef nonnull @.str.31, i32 noundef 16)
-  %413 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %413 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %413)
-  %414 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %414 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %415 = tail call i32 @T_FileStream_write(ptr noundef %414, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %_ZL17string_write_javaPK14StringResourceP10UErrorCode.exit
 
 416:                                              ; preds = %11
   %417 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %418 = load i32, ptr %417, align 8, !tbaa !48
+  %418 = load i32, ptr %417, align 8, !tbaa !49
   %.not22.i37 = icmp eq i32 %418, 0
   br i1 %.not22.i37, label %476, label %419
 
@@ -983,19 +983,19 @@ _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %365, %_ZL10writ
   br i1 %.b.i, label %420, label %426
 
 420:                                              ; preds = %419
-  %421 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %421 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %421)
-  %422 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %422 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %423 = tail call i32 @T_FileStream_write(ptr noundef %422, ptr noundef nonnull @.str.33, i32 noundef 16)
-  %424 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %424 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %425 = add nsw i32 %424, 1
-  store i32 %425, ptr @_ZL8tabCount, align 4, !tbaa !29
+  store i32 %425, ptr @_ZL8tabCount, align 4, !tbaa !30
   br label %426
 
 426:                                              ; preds = %420, %419
   store i1 true, ptr @_ZL5start, align 1
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %428 = load ptr, ptr %427, align 8, !tbaa !54
+  %428 = load ptr, ptr %427, align 8, !tbaa !55
   %.not23.i3959 = icmp eq ptr %428, null
   br i1 %.not23.i3959, label %._crit_edge, label %.lr.ph
 
@@ -1003,8 +1003,8 @@ _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %365, %_ZL10writ
   %.018.i60 = phi ptr [ %460, %_ZL10write_tabsP11_FileStream.exit ], [ %428, %426 ]
   %429 = load ptr, ptr @_ZL8srBundle, align 8, !tbaa !15
   %430 = tail call noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull align 8 dereferenceable(56) %.018.i60, ptr noundef %429)
-  %431 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
-  %432 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %431 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
+  %432 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2.i48 = icmp slt i32 %432, 0
   br i1 %.not2.i48, label %_ZL10write_tabsP11_FileStream.exit53, label %.lr.ph.i49
 
@@ -1012,21 +1012,21 @@ _ZL14int_write_javaPK11IntResourceP10UErrorCode.exit: ; preds = %365, %_ZL10writ
   %.03.i50 = phi i32 [ %434, %.lr.ph.i49 ], [ 0, %.lr.ph ]
   %433 = tail call i32 @T_FileStream_write(ptr noundef %431, ptr noundef nonnull @.str.19, i32 noundef 4)
   %434 = add nuw nsw i32 %.03.i50, 1
-  %435 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %435 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i51 = icmp slt i32 %.03.i50, %435
-  br i1 %.not.not.i51, label %.lr.ph.i49, label %_ZL10write_tabsP11_FileStream.exit53.loopexit, !llvm.loop !30
+  br i1 %.not.not.i51, label %.lr.ph.i49, label %_ZL10write_tabsP11_FileStream.exit53.loopexit, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit53.loopexit:    ; preds = %.lr.ph.i49
-  %.pre = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %_ZL10write_tabsP11_FileStream.exit53
 
 _ZL10write_tabsP11_FileStream.exit53:             ; preds = %_ZL10write_tabsP11_FileStream.exit53.loopexit, %.lr.ph
   %436 = phi ptr [ %.pre, %_ZL10write_tabsP11_FileStream.exit53.loopexit ], [ %431, %.lr.ph ]
   %437 = tail call i32 @T_FileStream_write(ptr noundef %436, ptr noundef nonnull @.str.34, i32 noundef 2)
-  %438 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %438 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %439 = add nsw i32 %438, 1
-  store i32 %439, ptr @_ZL8tabCount, align 4, !tbaa !29
-  %440 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  store i32 %439, ptr @_ZL8tabCount, align 4, !tbaa !30
+  %440 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %.not2.i42 = icmp slt i32 %438, -1
   br i1 %.not2.i42, label %_ZL10write_tabsP11_FileStream.exit47, label %.lr.ph.i43
 
@@ -1034,24 +1034,24 @@ _ZL10write_tabsP11_FileStream.exit53:             ; preds = %_ZL10write_tabsP11_
   %.03.i44 = phi i32 [ %442, %.lr.ph.i43 ], [ 0, %_ZL10write_tabsP11_FileStream.exit53 ]
   %441 = tail call i32 @T_FileStream_write(ptr noundef %440, ptr noundef nonnull @.str.19, i32 noundef 4)
   %442 = add nuw nsw i32 %.03.i44, 1
-  %443 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %443 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i45 = icmp slt i32 %.03.i44, %443
-  br i1 %.not.not.i45, label %.lr.ph.i43, label %_ZL10write_tabsP11_FileStream.exit47, !llvm.loop !30
+  br i1 %.not.not.i45, label %.lr.ph.i43, label %_ZL10write_tabsP11_FileStream.exit47, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit47:             ; preds = %.lr.ph.i43, %_ZL10write_tabsP11_FileStream.exit53
   %.not24.i = icmp eq ptr %430, null
   br i1 %.not24.i, label %455, label %444
 
 444:                                              ; preds = %_ZL10write_tabsP11_FileStream.exit47
-  %445 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %445 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %446 = tail call i32 @T_FileStream_write(ptr noundef %445, ptr noundef nonnull @.str.10, i32 noundef 1)
-  %447 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %447 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %448 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %430) #10
   %449 = trunc i64 %448 to i32
   %450 = tail call i32 @T_FileStream_write(ptr noundef %447, ptr noundef nonnull %430, i32 noundef %449)
-  %451 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %451 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %452 = tail call i32 @T_FileStream_write(ptr noundef %451, ptr noundef nonnull @.str.12, i32 noundef 2)
-  %453 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %453 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %454 = tail call i32 @T_FileStream_write(ptr noundef %453, ptr noundef nonnull @.str.24, i32 noundef 1)
   br label %455
 
@@ -1063,11 +1063,11 @@ _ZL10write_tabsP11_FileStream.exit47:             ; preds = %.lr.ph.i43, %_ZL10w
 
 458:                                              ; preds = %455
   %459 = getelementptr inbounds nuw i8, ptr %.018.i60, i64 32
-  %460 = load ptr, ptr %459, align 8, !tbaa !52
-  %461 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %460 = load ptr, ptr %459, align 8, !tbaa !53
+  %461 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %462 = add nsw i32 %461, -1
-  store i32 %462, ptr @_ZL8tabCount, align 4, !tbaa !29
-  %463 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  store i32 %462, ptr @_ZL8tabCount, align 4, !tbaa !30
+  %463 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %.not2.i = icmp slt i32 %461, 1
   br i1 %.not2.i, label %_ZL10write_tabsP11_FileStream.exit, label %.lr.ph.i40
 
@@ -1075,42 +1075,42 @@ _ZL10write_tabsP11_FileStream.exit47:             ; preds = %.lr.ph.i43, %_ZL10w
   %.03.i = phi i32 [ %465, %.lr.ph.i40 ], [ 0, %458 ]
   %464 = tail call i32 @T_FileStream_write(ptr noundef %463, ptr noundef nonnull @.str.19, i32 noundef 4)
   %465 = add nuw nsw i32 %.03.i, 1
-  %466 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %466 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not.i = icmp slt i32 %.03.i, %466
-  br i1 %.not.not.i, label %.lr.ph.i40, label %_ZL10write_tabsP11_FileStream.exit.loopexit, !llvm.loop !30
+  br i1 %.not.not.i, label %.lr.ph.i40, label %_ZL10write_tabsP11_FileStream.exit.loopexit, !llvm.loop !31
 
 _ZL10write_tabsP11_FileStream.exit.loopexit:      ; preds = %.lr.ph.i40
-  %.pre74 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %.pre74 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   br label %_ZL10write_tabsP11_FileStream.exit
 
 _ZL10write_tabsP11_FileStream.exit:               ; preds = %_ZL10write_tabsP11_FileStream.exit.loopexit, %458
   %467 = phi ptr [ %.pre74, %_ZL10write_tabsP11_FileStream.exit.loopexit ], [ %463, %458 ]
   %468 = tail call i32 @T_FileStream_write(ptr noundef %467, ptr noundef nonnull @.str.26, i32 noundef 3)
   %.not23.i39 = icmp eq ptr %460, null
-  br i1 %.not23.i39, label %._crit_edge, label %.lr.ph, !llvm.loop !55
+  br i1 %.not23.i39, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
 ._crit_edge:                                      ; preds = %_ZL10write_tabsP11_FileStream.exit, %426
-  %469 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %469 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %470 = icmp sgt i32 %469, 4
   br i1 %470, label %471, label %_ZL17string_write_javaPK14StringResourceP10UErrorCode.exit
 
 471:                                              ; preds = %._crit_edge
   %472 = add nsw i32 %469, -1
-  store i32 %472, ptr @_ZL8tabCount, align 4, !tbaa !29
-  %473 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  store i32 %472, ptr @_ZL8tabCount, align 4, !tbaa !30
+  %473 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %473)
-  %474 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %474 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %475 = tail call i32 @T_FileStream_write(ptr noundef %474, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %_ZL17string_write_javaPK14StringResourceP10UErrorCode.exit
 
 476:                                              ; preds = %416
-  %477 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %477 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %477)
-  %478 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %478 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %479 = tail call i32 @T_FileStream_write(ptr noundef %478, ptr noundef nonnull @.str.33, i32 noundef 16)
-  %480 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %480 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   tail call fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %480)
-  %481 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %481 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %482 = tail call i32 @T_FileStream_write(ptr noundef %481, ptr noundef nonnull @.str.26, i32 noundef 3)
   br label %_ZL17string_write_javaPK14StringResourceP10UErrorCode.exit
 
@@ -1143,7 +1143,7 @@ define dso_local void @bundle_write_java(ptr noundef %0, ptr noundef readonly ca
   %15 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %12) #9
   store ptr %0, ptr @_ZL8srBundle, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !56
+  %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(5) @.str.3) #10
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %21, label %19
@@ -1194,7 +1194,7 @@ define dso_local void @bundle_write_java(ptr noundef %0, ptr noundef readonly ca
 
 37:                                               ; preds = %34
   %38 = call ptr @T_FileStream_open(ptr noundef nonnull %9, ptr noundef nonnull @.str.7)
-  store ptr %38, ptr @_ZL3out, align 8, !tbaa !27
+  store ptr %38, ptr @_ZL3out, align 8, !tbaa !28
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -1208,29 +1208,29 @@ define dso_local void @bundle_write_java(ptr noundef %0, ptr noundef readonly ca
   br i1 %.not32, label %48, label %43
 
 43:                                               ; preds = %41
-  %44 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %44 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %45 = call i32 @T_FileStream_write(ptr noundef %44, ptr noundef nonnull @_ZL9copyRight, i32 noundef 408)
-  %46 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %46 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %47 = call i32 @T_FileStream_write(ptr noundef %46, ptr noundef nonnull @_ZL10warningMsg, i32 noundef 507)
   br label %48
 
 48:                                               ; preds = %43, %41
-  %49 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %49 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %50 = call i32 @T_FileStream_write(ptr noundef %49, ptr noundef nonnull @.str.8, i32 noundef 8)
-  %51 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %51 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %52 = load ptr, ptr @_ZL5pName, align 8, !tbaa !21
   %53 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #10
   %54 = trunc i64 %53 to i32
   %55 = call i32 @T_FileStream_write(ptr noundef %51, ptr noundef nonnull %52, i32 noundef %54)
-  %56 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %56 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %57 = call i32 @T_FileStream_write(ptr noundef %56, ptr noundef nonnull @.str.9, i32 noundef 3)
-  %58 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %58 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %59 = call i32 @T_FileStream_write(ptr noundef %58, ptr noundef nonnull @.str.35, i32 noundef 51)
-  %60 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %60 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #10
   %62 = trunc i64 %61 to i32
   %63 = call i32 @T_FileStream_write(ptr noundef %60, ptr noundef nonnull %10, i32 noundef %62)
-  %64 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %64 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %65 = call i32 @T_FileStream_write(ptr noundef %64, ptr noundef nonnull @.str.36, i32 noundef 207)
   %.not33 = icmp eq ptr %2, null
   br i1 %.not33, label %72, label %66
@@ -1249,11 +1249,11 @@ define dso_local void @bundle_write_java(ptr noundef %0, ptr noundef readonly ca
   br i1 %71, label %72, label %78
 
 72:                                               ; preds = %68, %66, %48
-  %73 = load ptr, ptr %0, align 8, !tbaa !63
+  %73 = load ptr, ptr %0, align 8, !tbaa !64
   call void @_Z14res_write_javaP9SResourceP10UErrorCode(ptr noundef %73, ptr noundef nonnull %7)
-  %74 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %74 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   %75 = call i32 @T_FileStream_write(ptr noundef %74, ptr noundef nonnull @.str.38, i32 noundef 9)
-  %76 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
+  %76 = load ptr, ptr @_ZL3out, align 8, !tbaa !28
   call void @T_FileStream_close(ptr noundef %76)
   %77 = load ptr, ptr @_ZL4conv, align 8, !tbaa !23
   call void @ucnv_close_77(ptr noundef %77)
@@ -1305,7 +1305,7 @@ declare noundef ptr @_ZNK9SResource12getKeyStringEPK7SRBRoot(ptr noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %0) unnamed_addr #0 {
-  %2 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %2 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not2 = icmp slt i32 %2, 0
   br i1 %.not2, label %._crit_edge, label %.lr.ph
 
@@ -1313,9 +1313,9 @@ define internal fastcc void @_ZL10write_tabsP11_FileStream(ptr noundef %0) unnam
   %.03 = phi i32 [ %4, %.lr.ph ], [ 0, %1 ]
   %3 = tail call i32 @T_FileStream_write(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef 4)
   %4 = add nuw nsw i32 %.03, 1
-  %5 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !29
+  %5 = load i32, ptr @_ZL8tabCount, align 4, !tbaa !30
   %.not.not = icmp slt i32 %.03, %5
-  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !30
+  br i1 %.not.not, label %.lr.ph, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1375,42 +1375,43 @@ attributes #10 = { nounwind willreturn memory(read) }
 !22 = !{!"p1 omnipotent char", !12, i64 0}
 !23 = !{!24, !24, i64 0}
 !24 = !{!"p1 _ZTS10UConverter", !12, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS11_FileStream", !12, i64 0}
-!29 = !{!10, !10, i64 0}
-!30 = distinct !{!30, !26}
-!31 = distinct !{!31, !26}
-!32 = distinct !{!32, !26}
-!33 = distinct !{!33, !26}
-!34 = distinct !{!34, !26}
-!35 = !{!36, !37, i64 56}
-!36 = !{!"_ZTS17IntVectorResource", !9, i64 0, !37, i64 56, !37, i64 64, !38, i64 72}
-!37 = !{!"long", !6, i64 0}
-!38 = !{!"p1 int", !12, i64 0}
-!39 = !{!36, !38, i64 72}
-!40 = distinct !{!40, !26}
-!41 = distinct !{!41, !26}
-!42 = !{!43, !10, i64 56}
-!43 = !{!"_ZTS14BinaryResource", !9, i64 0, !10, i64 56, !22, i64 64, !22, i64 72}
-!44 = !{!43, !22, i64 64}
-!45 = distinct !{!45, !26}
-!46 = !{!47, !10, i64 56}
-!47 = !{!"_ZTS11IntResource", !9, i64 0, !10, i64 56}
-!48 = !{!49, !10, i64 56}
-!49 = !{!"_ZTS17ContainerResource", !9, i64 0, !10, i64 56, !11, i64 64}
-!50 = !{!11, !11, i64 0}
-!51 = distinct !{!51, !26}
-!52 = !{!9, !11, i64 32}
-!53 = distinct !{!53, !26}
-!54 = !{!49, !11, i64 64}
-!55 = distinct !{!55, !26}
-!56 = !{!57, !22, i64 8}
-!57 = !{!"_ZTS7SRBRoot", !11, i64 0, !22, i64 8, !10, i64 16, !10, i64 20, !6, i64 24, !6, i64 25, !6, i64 26, !22, i64 32, !58, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !59, i64 72, !10, i64 136, !62, i64 144, !10, i64 152, !10, i64 156, !10, i64 160, !16, i64 168}
-!58 = !{!"p1 _ZTS11KeyMapEntry", !12, i64 0}
-!59 = !{!"_ZTSN6icu_7713UnicodeStringE", !60, i64 0, !6, i64 8}
-!60 = !{!"_ZTSN6icu_7711ReplaceableE", !61, i64 0}
-!61 = !{!"_ZTSN6icu_777UObjectE"}
-!62 = !{!"p1 _ZTS7ResFile", !12, i64 0}
-!63 = !{!57, !11, i64 0}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS11_FileStream", !12, i64 0}
+!30 = !{!10, !10, i64 0}
+!31 = distinct !{!31, !26, !27}
+!32 = distinct !{!32, !26, !27}
+!33 = distinct !{!33, !26, !27}
+!34 = distinct !{!34, !26, !27}
+!35 = distinct !{!35, !26, !27}
+!36 = !{!37, !38, i64 56}
+!37 = !{!"_ZTS17IntVectorResource", !9, i64 0, !38, i64 56, !38, i64 64, !39, i64 72}
+!38 = !{!"long", !6, i64 0}
+!39 = !{!"p1 int", !12, i64 0}
+!40 = !{!37, !39, i64 72}
+!41 = distinct !{!41, !26, !27}
+!42 = distinct !{!42, !26, !27}
+!43 = !{!44, !10, i64 56}
+!44 = !{!"_ZTS14BinaryResource", !9, i64 0, !10, i64 56, !22, i64 64, !22, i64 72}
+!45 = !{!44, !22, i64 64}
+!46 = distinct !{!46, !26, !27}
+!47 = !{!48, !10, i64 56}
+!48 = !{!"_ZTS11IntResource", !9, i64 0, !10, i64 56}
+!49 = !{!50, !10, i64 56}
+!50 = !{!"_ZTS17ContainerResource", !9, i64 0, !10, i64 56, !11, i64 64}
+!51 = !{!11, !11, i64 0}
+!52 = distinct !{!52, !26, !27}
+!53 = !{!9, !11, i64 32}
+!54 = distinct !{!54, !26, !27}
+!55 = !{!50, !11, i64 64}
+!56 = distinct !{!56, !26, !27}
+!57 = !{!58, !22, i64 8}
+!58 = !{!"_ZTS7SRBRoot", !11, i64 0, !22, i64 8, !10, i64 16, !10, i64 20, !6, i64 24, !6, i64 25, !6, i64 26, !22, i64 32, !59, i64 40, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60, !10, i64 64, !60, i64 72, !10, i64 136, !63, i64 144, !10, i64 152, !10, i64 156, !10, i64 160, !16, i64 168}
+!59 = !{!"p1 _ZTS11KeyMapEntry", !12, i64 0}
+!60 = !{!"_ZTSN6icu_7713UnicodeStringE", !61, i64 0, !6, i64 8}
+!61 = !{!"_ZTSN6icu_7711ReplaceableE", !62, i64 0}
+!62 = !{!"_ZTSN6icu_777UObjectE"}
+!63 = !{!"p1 _ZTS7ResFile", !12, i64 0}
+!64 = !{!58, !11, i64 0}

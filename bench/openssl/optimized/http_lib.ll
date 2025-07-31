@@ -523,7 +523,7 @@ sub_0:                                            ; preds = %22, %24, %20, %21
   %34 = select i1 %.not36, ptr @.str.8, ptr @.str.9
   %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %34, ptr noundef nonnull @.str.10, ptr noundef nonnull %12) #6
   %36 = icmp eq i32 %35, 1
-  br i1 %36, label %37, label %46, !prof !13
+  br i1 %36, label %37, label %46, !prof !14
 
 37:                                               ; preds = %33
   %.not37 = icmp eq ptr %5, null
@@ -647,7 +647,7 @@ define noundef ptr @OSSL_HTTP_adapt_proxy(ptr noundef readonly captures(address_
 17:                                               ; preds = %.thread14
   call void @llvm.lifetime.start.p0(i64 1025, ptr nonnull %5) #6
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %.sink.split, label %18, !prof !14
+  br i1 %.not.i, label %.sink.split, label %18, !prof !15
 
 18:                                               ; preds = %17
   %19 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %2) #7
@@ -733,7 +733,7 @@ define noundef ptr @OSSL_HTTP_adapt_proxy(ptr noundef readonly captures(address_
   %56 = getelementptr inbounds nuw i8, ptr %.156.i, i64 1
   %57 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %.033.i) #7
   %.not42.i = icmp eq ptr %57, null
-  br i1 %.not42.i, label %.sink.split, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not42.i, label %.sink.split, label %.lr.ph.i, !llvm.loop !16
 
 .sink.split:                                      ; preds = %54, %48, %51, %.critedge3.i, %17, %39, %37
   %.0.ph = phi ptr [ %.116, %37 ], [ %.116, %39 ], [ null, %17 ], [ %.116, %.critedge3.i ], [ null, %51 ], [ null, %48 ], [ null, %54 ]
@@ -776,8 +776,9 @@ attributes #7 = { nounwind willreturn memory(read) }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"int", !6, i64 0}
 !10 = !{!6, !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!14 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!15 = distinct !{!15, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!16 = distinct !{!16, !12, !13}

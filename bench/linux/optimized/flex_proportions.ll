@@ -161,7 +161,7 @@ define dso_local void @fprop_fraction_single(ptr noundef %0, ptr noundef %1, ptr
 
 .loopexit:                                        ; preds = %.preheader, %10
   %17 = phi i32 [ %11, %10 ], [ %14, %.preheader ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !12
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
   %18 = load i32, ptr %6, align 8
   %19 = load i32, ptr %7, align 8
   %20 = icmp eq i32 %19, %18
@@ -197,10 +197,10 @@ define dso_local void @fprop_fraction_single(ptr noundef %0, ptr noundef %1, ptr
 35:                                               ; preds = %34, %.loopexit
   %36 = load i64, ptr %1, align 8
   %37 = load volatile i64, ptr %9, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
   %38 = load volatile i32, ptr %5, align 4
   %39 = icmp eq i32 %38, %17
-  br i1 %39, label %40, label %10, !llvm.loop !14
+  br i1 %39, label %40, label %10, !llvm.loop !15
 
 40:                                               ; preds = %35
   %41 = tail call i64 @llvm.smax.i64(i64 %37, i64 0)
@@ -241,7 +241,7 @@ define dso_local void @__fprop_add_percpu(ptr noundef %0, ptr noundef %1, i64 no
   %.val = load i32, ptr %4, align 8
   tail call fastcc void @fprop_reflect_period_percpu(i32 %.val, ptr noundef %1)
   %5 = load i32, ptr @nr_cpu_ids, align 4
-  %6 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 -1) #8, !srcloc !15
+  %6 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 -1) #8, !srcloc !16
   %7 = shl i32 %6, 3
   %8 = add i32 %7, 8
   tail call void @percpu_counter_add_batch(ptr noundef %1, i64 noundef %2, i32 noundef %8) #7
@@ -273,7 +273,7 @@ define internal fastcc void @fprop_reflect_period_percpu(i32 %.40.val, ptr nound
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = load i32, ptr @nr_cpu_ids, align 4
-  %17 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 -1) #8, !srcloc !15
+  %17 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 -1) #8, !srcloc !16
   %18 = shl i32 %17, 3
   %19 = add i32 %18, 8
   %20 = mul i32 %19, %16
@@ -295,7 +295,7 @@ define internal fastcc void @fprop_reflect_period_percpu(i32 %.40.val, ptr nound
   %28 = zext nneg i32 %.pre-phi to i64
   %29 = ashr i64 %27, %28
   %30 = sub i64 %29, %27
-  %31 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %26, i32 -1) #8, !srcloc !15
+  %31 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %26, i32 -1) #8, !srcloc !16
   %32 = shl i32 %31, 3
   %33 = add i32 %32, 8
   tail call void @percpu_counter_add_batch(ptr noundef %0, i64 noundef %30, i32 noundef %33) #7
@@ -339,19 +339,19 @@ define dso_local void @fprop_fraction_percpu(ptr noundef %0, ptr noundef %1, ptr
   %13 = load volatile i32, ptr %5, align 4
   %14 = and i32 %13, 1
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !16
+  br i1 %15, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.preheader, %9
   %16 = phi i32 [ %10, %9 ], [ %13, %.preheader ]
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !17
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !18
   %.val = load i32, ptr %8, align 8
   tail call fastcc void @fprop_reflect_period_percpu(i32 %.val, ptr noundef %1)
   %17 = load volatile i64, ptr %6, align 8
   %18 = load volatile i64, ptr %7, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
   %19 = load volatile i32, ptr %5, align 4
   %20 = icmp eq i32 %19, %16
-  br i1 %20, label %21, label %9, !llvm.loop !18
+  br i1 %20, label %21, label %9, !llvm.loop !19
 
 21:                                               ; preds = %.loopexit
   %22 = tail call i64 @llvm.smax.i64(i64 %18, i64 0)
@@ -371,13 +371,13 @@ define dso_local void @__fprop_add_percpu_max(ptr noundef %0, ptr noundef %1, i3
   %6 = alloca i64, align 8
   %7 = sext i32 %2 to i64
   %8 = icmp ult i32 %2, 1024
-  br i1 %8, label %9, label %26, !prof !19
+  br i1 %8, label %9, label %26, !prof !20
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
-  store i64 0, ptr %5, align 8, !annotation !20
+  store i64 0, ptr %5, align 8, !annotation !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
-  store i64 0, ptr %6, align 8, !annotation !20
+  store i64 0, ptr %6, align 8, !annotation !21
   call void @fprop_fraction_percpu(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %10 = load i64, ptr %6, align 8
   %11 = mul i64 %10, %7
@@ -411,7 +411,7 @@ define dso_local void @__fprop_add_percpu_max(ptr noundef %0, ptr noundef %1, i3
   %.val = load i32, ptr %28, align 8
   tail call fastcc void @fprop_reflect_period_percpu(i32 %.val, ptr noundef %1)
   %29 = load i32, ptr @nr_cpu_ids, align 4
-  %30 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %29, i32 -1) #8, !srcloc !15
+  %30 = tail call i32 asm "bsrl $1,$0", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i32 %29, i32 -1) #8, !srcloc !16
   %31 = shl i32 %30, 3
   %32 = add i32 %31, 8
   tail call void @percpu_counter_add_batch(ptr noundef %1, i64 noundef %27, i32 noundef %32) #7
@@ -474,15 +474,16 @@ attributes #8 = { nounwind memory(read) }
 !6 = !{i64 2149914573}
 !7 = !{i64 2149914846}
 !8 = !{i64 1857819}
-!9 = distinct !{!9, !10, !11}
+!9 = distinct !{!9, !10, !11, !12}
 !10 = !{!"llvm.loop.mustprogress"}
 !11 = !{!"llvm.loop.unroll.disable"}
-!12 = !{i64 2151337077}
-!13 = !{i64 2149914300}
-!14 = distinct !{!14, !10, !11}
-!15 = !{i64 794663}
-!16 = distinct !{!16, !10, !11}
-!17 = !{i64 2151345721}
-!18 = distinct !{!18, !10, !11}
-!19 = !{!"branch_weights", i32 1, i32 2000}
-!20 = !{!"auto-init"}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{i64 2151337077}
+!14 = !{i64 2149914300}
+!15 = distinct !{!15, !10, !11, !12}
+!16 = !{i64 794663}
+!17 = distinct !{!17, !10, !11, !12}
+!18 = !{i64 2151345721}
+!19 = distinct !{!19, !10, !11, !12}
+!20 = !{!"branch_weights", i32 1, i32 2000}
+!21 = !{!"auto-init"}

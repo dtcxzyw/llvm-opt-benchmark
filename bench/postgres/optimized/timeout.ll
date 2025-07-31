@@ -129,7 +129,7 @@ define internal void @handle_sig_alarm(i32 %0) #0 {
   %33 = load volatile i32, ptr @num_active_timeouts, align 4
   %34 = sext i32 %33 to i64
   %35 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %35, label %.lr.ph.i, label %remove_timeout_index.exit, !llvm.loop !6
+  br i1 %35, label %.lr.ph.i, label %remove_timeout_index.exit, !llvm.loop !7
 
 remove_timeout_index.exit:                        ; preds = %.lr.ph.i, %24
   %36 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -162,7 +162,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i, %24
   %54 = tail call i64 @GetCurrentTimestamp() #10
   %55 = load volatile i32, ptr @num_active_timeouts, align 4
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !7
+  br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !8
 
 .critedge:                                        ; preds = %.lr.ph, %53, %9
   %.014.lcssa = phi i64 [ %10, %9 ], [ %54, %53 ], [ %.01419, %.lr.ph ]
@@ -194,7 +194,7 @@ define dso_local range(i32 0, 23) i32 @RegisterTimeout(i32 noundef %0, ptr nound
 7:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %8, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %8, label %.preheader, !llvm.loop !9
 
 8:                                                ; preds = %7
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #11
@@ -360,7 +360,7 @@ define internal fastcc void @enable_timeout(i32 noundef %0, i64 noundef %1, i64 
   %5 = zext i32 %0 to i64
   %6 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %8 = load volatile i8, ptr %7, align 4, !range !9, !noundef !10
+  %8 = load volatile i8, ptr %7, align 4, !range !10, !noundef !11
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %43
 
@@ -382,7 +382,7 @@ define internal fastcc void @enable_timeout(i32 noundef %0, i64 noundef %1, i64 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = sext i32 %17 to i64
   %20 = icmp slt i64 %indvars.iv.next.i, %19
-  br i1 %20, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !11
+  br i1 %20, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !12
 
 find_active_timeout.exit:                         ; preds = %.lr.ph.i
   %21 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -427,7 +427,7 @@ find_active_timeout.exit.thread:                  ; preds = %18, %10, %find_acti
   %38 = load volatile i32, ptr @num_active_timeouts, align 4
   %39 = sext i32 %38 to i64
   %40 = icmp slt i64 %indvars.iv.next.i25, %39
-  br i1 %40, label %.lr.ph.i23, label %remove_timeout_index.exit, !llvm.loop !6
+  br i1 %40, label %.lr.ph.i23, label %remove_timeout_index.exit, !llvm.loop !7
 
 remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
   %41 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -463,7 +463,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
   %58 = add nuw nsw i32 %.02032, 1
   %59 = load volatile i32, ptr @num_active_timeouts, align 4
   %60 = icmp slt i32 %58, %59
-  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !12
+  br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %54, %.lr.ph, %57, %43
   %.020.lcssa = phi i32 [ 0, %43 ], [ %.02032, %54 ], [ %.02032, %.lr.ph ], [ %58, %57 ]
@@ -510,7 +510,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not.not.i = icmp samesign ugt i64 %indvars.iv, %74
   %79 = trunc nsw i64 %indvars.iv to i32
-  br i1 %.not.not.i, label %.lr.ph.i26, label %insert_timeout.exit, !llvm.loop !13
+  br i1 %.not.not.i, label %.lr.ph.i26, label %insert_timeout.exit, !llvm.loop !14
 
 insert_timeout.exit:                              ; preds = %.lr.ph.i26, %71
   %80 = zext nneg i32 %.020.lcssa to i64
@@ -599,7 +599,7 @@ define dso_local void @enable_timeouts(ptr noundef readonly captures(none) %0, i
 29:                                               ; preds = %18, %15, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %29, %2
   tail call fastcc void @schedule_alarm(i64 noundef %3)
@@ -614,7 +614,7 @@ define dso_local void @disable_timeout(i32 noundef %0, i1 noundef zeroext %1) lo
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = load volatile i8, ptr %5, align 4, !range !9, !noundef !10
+  %6 = load volatile i8, ptr %5, align 4, !range !10, !noundef !11
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %41
 
@@ -636,7 +636,7 @@ define dso_local void @disable_timeout(i32 noundef %0, i1 noundef zeroext %1) lo
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next.i, %17
-  br i1 %18, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !11
+  br i1 %18, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !12
 
 find_active_timeout.exit:                         ; preds = %.lr.ph.i
   %19 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -681,7 +681,7 @@ find_active_timeout.exit.thread:                  ; preds = %16, %8, %find_activ
   %36 = load volatile i32, ptr @num_active_timeouts, align 4
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i6, %37
-  br i1 %38, label %.lr.ph.i4, label %remove_timeout_index.exit, !llvm.loop !6
+  br i1 %38, label %.lr.ph.i4, label %remove_timeout_index.exit, !llvm.loop !7
 
 remove_timeout_index.exit:                        ; preds = %.lr.ph.i4, %24
   %39 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -728,7 +728,7 @@ define dso_local void @disable_timeouts(ptr noundef readonly captures(none) %0, 
   %6 = zext i32 %5 to i64
   %7 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %9 = load volatile i8, ptr %8, align 4, !range !9, !noundef !10
+  %9 = load volatile i8, ptr %8, align 4, !range !10, !noundef !11
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %44
 
@@ -750,7 +750,7 @@ define dso_local void @disable_timeouts(ptr noundef readonly captures(none) %0, 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = sext i32 %18 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %21, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !11
+  br i1 %21, label %.lr.ph.i, label %find_active_timeout.exit.thread, !llvm.loop !12
 
 find_active_timeout.exit:                         ; preds = %.lr.ph.i
   %22 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -795,7 +795,7 @@ find_active_timeout.exit.thread:                  ; preds = %11, %find_active_ti
   %39 = load volatile i32, ptr @num_active_timeouts, align 4
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next.i11, %40
-  br i1 %41, label %.lr.ph.i9, label %remove_timeout_index.exit, !llvm.loop !6
+  br i1 %41, label %.lr.ph.i9, label %remove_timeout_index.exit, !llvm.loop !7
 
 remove_timeout_index.exit:                        ; preds = %.lr.ph.i9, %27
   %42 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -805,7 +805,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i9, %27
 
 44:                                               ; preds = %remove_timeout_index.exit, %.lr.ph
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %46 = load i8, ptr %45, align 4, !range !9, !noundef !10
+  %46 = load i8, ptr %45, align 4, !range !10, !noundef !11
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %50, label %48
 
@@ -817,7 +817,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i9, %27
 50:                                               ; preds = %48, %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %50, %2
   %51 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -845,7 +845,7 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
   store volatile i8 0, ptr %gep, align 4
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 23
-  br i1 %exitcond13.not, label %.split7.us, label %.split.us, !llvm.loop !16
+  br i1 %exitcond13.not, label %.split7.us, label %.split.us, !llvm.loop !17
 
 .split:                                           ; preds = %1, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %1 ]
@@ -856,7 +856,7 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
   store volatile i8 0, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %.split7.us, label %.split, !llvm.loop !18
+  br i1 %exitcond.not, label %.split7.us, label %.split, !llvm.loop !19
 
 .split7.us:                                       ; preds = %.split, %.split.us
   ret void
@@ -866,7 +866,7 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 define dso_local zeroext i1 @get_timeout_active(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
   %3 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %2, i32 1
-  %4 = load volatile i8, ptr %3, align 4, !range !9, !noundef !10
+  %4 = load volatile i8, ptr %3, align 4, !range !10, !noundef !11
   %5 = trunc nuw i8 %4 to i1
   ret i1 %5
 }
@@ -875,7 +875,7 @@ define dso_local zeroext i1 @get_timeout_active(i32 noundef %0) local_unnamed_ad
 define dso_local zeroext i1 @get_timeout_indicator(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %3, i32 2
-  %5 = load volatile i8, ptr %4, align 1, !range !9, !noundef !10
+  %5 = load volatile i8, ptr %4, align 1, !range !10, !noundef !11
   %6 = trunc nuw i8 %5 to i1
   %brmerge.demorgan = and i1 %1, %6
   br i1 %brmerge.demorgan, label %7, label %8
@@ -936,18 +936,19 @@ attributes #11 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5, !17}
-!17 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!18 = distinct !{!18, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6, !18}
+!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!19 = distinct !{!19, !5, !6}

@@ -84,7 +84,7 @@ list_length.exit.us:                              ; preds = %.split.us.preheader
 .split.us:                                        ; preds = %list_length.exit.us
   %7 = tail call ptr @lappend(ptr noundef nonnull %.0.us47, ptr noundef null) #5
   %.not.i.us = icmp eq ptr %7, null
-  br i1 %.not.i.us, label %.thread, label %list_length.exit.us, !llvm.loop !6
+  br i1 %.not.i.us, label %.thread, label %list_length.exit.us, !llvm.loop !7
 
 .split:                                           ; preds = %2, %17
   %.0 = phi ptr [ %18, %17 ], [ %0, %2 ]
@@ -111,7 +111,7 @@ list_length.exit.thread:                          ; preds = %.split
 
 17:                                               ; preds = %list_length.exit.thread, %list_length.exit
   %18 = tail call ptr @lappend(ptr noundef %.0, ptr noundef null) #5
-  br label %.split, !llvm.loop !8
+  br label %.split, !llvm.loop !9
 
 .preheader.split30.split:                         ; preds = %.preheader.thread.thread, %35
   %indvars.iv = phi i64 [ 0, %.preheader.thread.thread ], [ %indvars.iv.next, %35 ]
@@ -150,7 +150,7 @@ list_length.exit.thread:                          ; preds = %.split
   %39 = tail call ptr @bms_add_members(ptr noundef %37, ptr noundef %38) #5
   store ptr %39, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.preheader.split30.split, !llvm.loop !9
+  br label %.preheader.split30.split, !llvm.loop !10
 }
 
 declare ptr @bms_add_members(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -212,7 +212,7 @@ list_length.exit.split.split:                     ; preds = %list_length.exit.sp
   %32 = tail call ptr @bms_int_members(ptr noundef %30, ptr noundef %31) #5
   store ptr %32, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %list_length.exit.split.split, !llvm.loop !10
+  br label %list_length.exit.split.split, !llvm.loop !11
 }
 
 declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -319,7 +319,7 @@ define dso_local ptr @mbms_overlap_sets(ptr noundef readonly captures(address_is
 31:                                               ; preds = %28, %23
   %.1 = phi ptr [ %30, %28 ], [ %.0, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split, !llvm.loop !11
+  br label %.split.split, !llvm.loop !12
 }
 
 declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -340,11 +340,12 @@ attributes #5 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

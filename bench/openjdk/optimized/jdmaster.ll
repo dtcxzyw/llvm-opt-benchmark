@@ -159,7 +159,7 @@ define hidden void @jCalcDimensions(ptr noundef %0) local_unnamed_addr #0 {
   %92 = getelementptr inbounds nuw i8, ptr %.077100, i64 96
   %93 = load i32, ptr %66, align 8
   %94 = icmp slt i32 %91, %93
-  br i1 %94, label %73, label %._crit_edge, !llvm.loop !8
+  br i1 %94, label %73, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.critedge
   %95 = icmp sgt i32 %93, 0
@@ -211,7 +211,7 @@ define hidden void @jCalcDimensions(ptr noundef %0) local_unnamed_addr #0 {
   %132 = getelementptr inbounds nuw i8, ptr %.1104, i64 96
   %.pr = load i32, ptr %66, align 8
   %133 = icmp slt i32 %131, %.pr
-  br i1 %133, label %101, label %._crit_edge107, !llvm.loop !9
+  br i1 %133, label %101, label %._crit_edge107, !llvm.loop !10
 
 ._crit_edge107:                                   ; preds = %101, %62, %._crit_edge
   %.lcssa = phi i32 [ %93, %._crit_edge ], [ %67, %62 ], [ %.pr, %101 ]
@@ -427,7 +427,7 @@ define hidden void @jIDMaster(ptr noundef %0) local_unnamed_addr #0 {
   store i8 %16, ptr %17, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
-  br i1 %exitcond.not.i.i, label %prepare_range_limit_table.exit.i, label %15, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %prepare_range_limit_table.exit.i, label %15, !llvm.loop !11
 
 prepare_range_limit_table.exit.i:                 ; preds = %15
   %scevgep.i.i = getelementptr i8, ptr %12, i64 512
@@ -1077,8 +1077,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

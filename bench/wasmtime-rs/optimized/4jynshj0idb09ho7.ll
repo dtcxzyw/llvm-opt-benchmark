@@ -797,7 +797,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator4find17h24b5988b055514
   %8 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc1abf2e1d7c7a120E"(ptr nonnull align 8 %3, ptr nonnull align 2 %6)
   %9 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %5, label %11
+  br i1 %10, label %5, label %11, !llvm.loop !5
 
 11:                                               ; preds = %7
   %12 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %9)
@@ -831,7 +831,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator4find17h4c149037c46b26
   %8 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h849516075db92f85E"(ptr nonnull align 8 %3, ptr nonnull align 2 %6)
   %9 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %5, label %11
+  br i1 %10, label %5, label %11, !llvm.loop !7
 
 11:                                               ; preds = %7
   %12 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %9)
@@ -865,7 +865,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator4find17h5c396d13b372a7
   %8 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h4ccc0e087e34faf0E"(ptr nonnull align 8 %3, ptr nonnull align 2 %6)
   %9 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %5, label %11
+  br i1 %10, label %5, label %11, !llvm.loop !8
 
 11:                                               ; preds = %7
   %12 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %9)
@@ -899,7 +899,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator4find17h7f7ebe3600644d
   %8 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h732126309f65cf2aE"(ptr nonnull align 8 %3, ptr nonnull align 2 %6)
   %9 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %5, label %11
+  br i1 %10, label %5, label %11, !llvm.loop !9
 
 11:                                               ; preds = %7
   %12 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %9)
@@ -933,7 +933,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator4find17hca28a4fe74e82e
   %8 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h023e98f4aa545917E"(ptr nonnull align 8 %3, ptr nonnull align 2 %6)
   %9 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %5, label %11
+  br i1 %10, label %5, label %11, !llvm.loop !10
 
 11:                                               ; preds = %7
   %12 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %9)
@@ -967,7 +967,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator4find17hdee8cd643d3134
   %8 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h4aeef7a20d37dedeE"(ptr nonnull align 8 %3, ptr nonnull align 2 %6)
   %9 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %5, label %11
+  br i1 %10, label %5, label %11, !llvm.loop !11
 
 11:                                               ; preds = %7
   %12 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %9)
@@ -1001,7 +1001,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator4find17hdf1c4caa4f9ef3
   %8 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h27d70744efc33478E"(ptr nonnull align 8 %3, ptr nonnull align 2 %6)
   %9 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %5, label %11
+  br i1 %10, label %5, label %11, !llvm.loop !12
 
 11:                                               ; preds = %7
   %12 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %9)
@@ -1031,7 +1031,7 @@ define i16 @_ZN4core4iter6traits8iterator8Iterator4fold17h170a35ac20c34d1eE(ptr 
   %7 = call i16 @"_ZN22cranelift_codegen_meta8gen_inst10gen_bitset28_$u7b$$u7b$closure$u7d$$u7d$17h5e9aafe468da7c5bE"(ptr nonnull align 8 %4, i16 %.08, ptr nonnull align 2 %6)
   %8 = call align 2 ptr @"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41073f7e163b6034E"(ptr align 8 %0)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i16 [ %1, %3 ], [ %7, %.lr.ph ]
@@ -1051,7 +1051,7 @@ define void @_ZN4core4iter6traits8iterator8Iterator4fold17h4aa676d3bd19c4c2E(ptr
   call void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1534838206ffaefdE"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %6 = call align 2 ptr @"_ZN108_$LT$alloc..collections..btree..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41073f7e163b6034E"(ptr align 8 %0)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -1078,7 +1078,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2d6fdda175
   %7 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h849516075db92f85E"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %8 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %7)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !7
 
 10:                                               ; preds = %6
   %11 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %8)
@@ -1108,7 +1108,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h3c4d597fd1
   %7 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h27d70744efc33478E"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %8 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %7)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !12
 
 10:                                               ; preds = %6
   %11 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %8)
@@ -1138,7 +1138,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ff5b49011
   %7 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h732126309f65cf2aE"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %8 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %7)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !9
 
 10:                                               ; preds = %6
   %11 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %8)
@@ -1168,7 +1168,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6bb72ca648
   %7 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h023e98f4aa545917E"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %8 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %7)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !10
 
 10:                                               ; preds = %6
   %11 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %8)
@@ -1198,7 +1198,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc0892ec55f
   %7 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h4aeef7a20d37dedeE"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %8 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %7)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !11
 
 10:                                               ; preds = %6
   %11 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %8)
@@ -1228,7 +1228,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc3bf9835a0
   %7 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h4ccc0e087e34faf0E"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %8 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %7)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !8
 
 10:                                               ; preds = %6
   %11 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %8)
@@ -1258,7 +1258,7 @@ define align 2 ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17hf770faeb28
   %7 = call align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hc1abf2e1d7c7a120E"(ptr nonnull align 8 %3, ptr nonnull align 2 %5)
   %8 = call align 2 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h282364e5bb224fbfE"(ptr align 2 %7)
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %4, label %10
+  br i1 %9, label %4, label %10, !llvm.loop !5
 
 10:                                               ; preds = %6
   %11 = call align 2 ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17hdee7b93f4f6fc2bbE"(ptr nonnull align 2 %8)
@@ -1566,3 +1566,13 @@ attributes #12 = { cold noreturn nounwind }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
+!11 = distinct !{!11, !6}
+!12 = distinct !{!12, !6}
+!13 = distinct !{!13, !6}
+!14 = distinct !{!14, !6}

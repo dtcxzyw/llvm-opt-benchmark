@@ -158,18 +158,18 @@ neato_extra_args.exit:                            ; preds = %41
   ]
 
 59:                                               ; preds = %55
-  %60 = load ptr, ptr @fdp_parms, align 8, !tbaa !15
-  store i32 0, ptr %60, align 8, !tbaa !17
+  %60 = load ptr, ptr @fdp_parms, align 8, !tbaa !16
+  store i32 0, ptr %60, align 8, !tbaa !18
   br label %setFDPAttr.exit.thread.i
 
 61:                                               ; preds = %55
-  %62 = load ptr, ptr @fdp_parms, align 8, !tbaa !15
+  %62 = load ptr, ptr @fdp_parms, align 8, !tbaa !16
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i32 0, ptr %63, align 4, !tbaa !20
+  store i32 0, ptr %63, align 4, !tbaa !21
   br label %setFDPAttr.exit.thread.i
 
 64:                                               ; preds = %55
-  %65 = load ptr, ptr @fdp_parms, align 8, !tbaa !15
+  %65 = load ptr, ptr @fdp_parms, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
   %66 = call i64 @strtol(ptr noundef nonnull %57, ptr noundef nonnull %8, i32 noundef 10) #4
   %67 = load ptr, ptr %8, align 8, !tbaa !3
@@ -189,7 +189,7 @@ setInt.exit.i.i:                                  ; preds = %64
   br label %fdp_extra_args.exit.thread
 
 71:                                               ; preds = %55
-  %72 = load ptr, ptr @fdp_parms, align 8, !tbaa !15
+  %72 = load ptr, ptr @fdp_parms, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #4
   %73 = call i64 @strtol(ptr noundef nonnull %57, ptr noundef nonnull %7, i32 noundef 10) #4
   %74 = load ptr, ptr %7, align 8, !tbaa !3
@@ -209,7 +209,7 @@ setInt.exit13.i.i:                                ; preds = %71
   br label %fdp_extra_args.exit.thread
 
 78:                                               ; preds = %55
-  %79 = load ptr, ptr @fdp_parms, align 8, !tbaa !15
+  %79 = load ptr, ptr @fdp_parms, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %80 = call double @strtod(ptr noundef nonnull %57, ptr noundef nonnull %6) #4
   %81 = load ptr, ptr %6, align 8, !tbaa !3
@@ -218,7 +218,7 @@ setInt.exit13.i.i:                                ; preds = %71
 
 setDouble.exit.thread.i.i:                        ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  store double %80, ptr %83, align 8, !tbaa !21
+  store double %80, ptr %83, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #4
   br label %setFDPAttr.exit.thread.i
 
@@ -230,7 +230,7 @@ setDouble.exit.i.i:                               ; preds = %78
 84:                                               ; preds = %55
   %85 = load i8, ptr %57, align 1, !tbaa !8
   %86 = icmp eq i8 %85, 42
-  %87 = load ptr, ptr @fdp_parms, align 8, !tbaa !15
+  %87 = load ptr, ptr @fdp_parms, align 8, !tbaa !16
   br i1 %86, label %88, label %94
 
 88:                                               ; preds = %84
@@ -243,7 +243,7 @@ setDouble.exit.i.i:                               ; preds = %78
 
 setDouble.exit16.thread.i.i:                      ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 24
-  store double %90, ptr %93, align 8, !tbaa !21
+  store double %90, ptr %93, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   br label %setFDPAttr.exit.thread.i
 
@@ -261,7 +261,7 @@ setDouble.exit16.i.i:                             ; preds = %88
 
 setDouble.exit18.thread.i.i:                      ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %87, i64 40
-  store double %95, ptr %98, align 8, !tbaa !21
+  store double %95, ptr %98, align 8, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #4
   br label %setFDPAttr.exit.thread.i
 
@@ -298,7 +298,7 @@ setFDPAttr.exit.thread.i:                         ; preds = %106, %99, %setDoubl
   %.1.i29 = phi i32 [ %103, %106 ], [ %.047.i, %setDouble.exit18.thread.i.i ], [ %.047.i, %setDouble.exit16.thread.i.i ], [ %.047.i, %setDouble.exit.thread.i.i ], [ %.047.i, %setInt.exit13.thread.i.i ], [ %.047.i, %setInt.exit.thread.i.i ], [ %.047.i, %99 ], [ %.047.i, %61 ], [ %.047.i, %59 ]
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i27, 1
   %exitcond.not.i31 = icmp eq i64 %indvars.iv.next.i30, %wide.trip.count.i25
-  br i1 %exitcond.not.i31, label %fdp_extra_args.exit, label %.lr.ph.i26, !llvm.loop !22
+  br i1 %exitcond.not.i31, label %fdp_extra_args.exit, label %.lr.ph.i26, !llvm.loop !23
 
 fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thread.i
   store ptr null, ptr %.121.i, align 8, !tbaa !3
@@ -341,7 +341,7 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
   ]
 
 124:                                              ; preds = %121
-  store i32 1, ptr %115, align 8, !tbaa !23
+  store i32 1, ptr %115, align 8, !tbaa !24
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 2
   %126 = load i8, ptr %125, align 1, !tbaa !8
   %127 = sext i8 %126 to i32
@@ -352,15 +352,15 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
 130:                                              ; preds = %124
   %131 = tail call i64 @strtol(ptr noundef nonnull captures(none) %125, ptr noundef null, i32 noundef 10) #4
   %132 = trunc i64 %131 to i32
-  store i32 %132, ptr %115, align 8, !tbaa !23
+  store i32 %132, ptr %115, align 8, !tbaa !24
   br label %147
 
 133:                                              ; preds = %121
-  store i8 1, ptr %114, align 1, !tbaa !42
+  store i8 1, ptr %114, align 1, !tbaa !43
   br label %147
 
 134:                                              ; preds = %121
-  store i8 1, ptr %113, align 4, !tbaa !43
+  store i8 1, ptr %113, align 4, !tbaa !44
   br label %147
 
 135:                                              ; preds = %121
@@ -396,7 +396,7 @@ fdp_extra_args.exit:                              ; preds = %setFDPAttr.exit.thr
   %.1.i38 = phi i32 [ %136, %139 ], [ %.035.i, %130 ], [ %.035.i, %124 ], [ %.035.i, %133 ], [ %.035.i, %134 ], [ %142, %145 ]
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i36, 1
   %exitcond.not.i40 = icmp eq i64 %indvars.iv.next.i39, %wide.trip.count.i35
-  br i1 %exitcond.not.i40, label %config_extra_args.exit, label %116, !llvm.loop !44
+  br i1 %exitcond.not.i40, label %config_extra_args.exit, label %116, !llvm.loop !45
 
 config_extra_args.exit.thread:                    ; preds = %45, %.thread, %111
   store ptr null, ptr %9, align 8, !tbaa !3
@@ -474,35 +474,36 @@ attributes #4 = { nounwind }
 !10 = !{!"_Bool", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 _ZTS10fdpParms_s", !5, i64 0}
-!17 = !{!18, !12, i64 0}
-!18 = !{!"fdpParms_s", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !19, i64 16, !19, i64 24, !19, i64 32, !19, i64 40}
-!19 = !{!"double", !6, i64 0}
-!20 = !{!18, !12, i64 4}
-!21 = !{!19, !19, i64 0}
-!22 = distinct !{!22, !14}
-!23 = !{!24, !12, i64 16}
-!24 = !{!"GVC_s", !25, i64 0, !4, i64 72, !10, i64 80, !26, i64 88, !12, i64 96, !27, i64 104, !27, i64 112, !6, i64 120, !6, i64 160, !28, i64 200, !5, i64 208, !29, i64 216, !30, i64 256, !31, i64 264, !33, i64 288, !33, i64 296, !34, i64 304, !35, i64 312, !4, i64 344, !33, i64 352, !4, i64 360, !37, i64 368, !37, i64 384, !37, i64 400, !38, i64 416, !39, i64 424, !12, i64 456, !10, i64 460, !10, i64 461, !10, i64 462, !4, i64 464, !4, i64 472, !4, i64 480, !26, i64 488, !12, i64 496, !40, i64 504, !4, i64 512, !19, i64 520, !26, i64 528, !41, i64 536, !12, i64 576}
-!25 = !{!"GVCOMMON_s", !26, i64 0, !4, i64 8, !12, i64 16, !10, i64 20, !10, i64 21, !5, i64 24, !26, i64 32, !26, i64 40, !12, i64 48, !5, i64 56, !12, i64 64}
-!26 = !{!"p2 omnipotent char", !5, i64 0}
-!27 = !{!"p1 _ZTS5GVG_s", !5, i64 0}
-!28 = !{!"p1 _ZTS18gvplugin_package_s", !5, i64 0}
-!29 = !{!"dtdisc_s_", !12, i64 0, !12, i64 4, !12, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
-!30 = !{!"p1 _ZTS5dt_s_", !5, i64 0}
-!31 = !{!"gvplugin_active_textlayout_s", !32, i64 0, !12, i64 8, !4, i64 16}
-!32 = !{!"p1 _ZTS21gvtextlayout_engine_s", !5, i64 0}
-!33 = !{!"p1 _ZTS5GVJ_s", !5, i64 0}
-!34 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
-!35 = !{!"gvplugin_active_layout_s", !36, i64 0, !12, i64 8, !5, i64 16, !4, i64 24}
-!36 = !{!"p1 _ZTS17gvlayout_engine_s", !5, i64 0}
-!37 = !{!"pointf_s", !19, i64 0, !19, i64 8}
-!38 = !{!"", !12, i64 0, !12, i64 4}
-!39 = !{!"", !37, i64 0, !37, i64 16}
-!40 = !{!"p1 int", !5, i64 0}
-!41 = !{!"color_s", !6, i64 0, !12, i64 32}
-!42 = !{!24, !10, i64 21}
-!43 = !{!24, !10, i64 20}
-!44 = distinct !{!44, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 _ZTS10fdpParms_s", !5, i64 0}
+!18 = !{!19, !12, i64 0}
+!19 = !{!"fdpParms_s", !12, i64 0, !12, i64 4, !12, i64 8, !12, i64 12, !20, i64 16, !20, i64 24, !20, i64 32, !20, i64 40}
+!20 = !{!"double", !6, i64 0}
+!21 = !{!19, !12, i64 4}
+!22 = !{!20, !20, i64 0}
+!23 = distinct !{!23, !14, !15}
+!24 = !{!25, !12, i64 16}
+!25 = !{!"GVC_s", !26, i64 0, !4, i64 72, !10, i64 80, !27, i64 88, !12, i64 96, !28, i64 104, !28, i64 112, !6, i64 120, !6, i64 160, !29, i64 200, !5, i64 208, !30, i64 216, !31, i64 256, !32, i64 264, !34, i64 288, !34, i64 296, !35, i64 304, !36, i64 312, !4, i64 344, !34, i64 352, !4, i64 360, !38, i64 368, !38, i64 384, !38, i64 400, !39, i64 416, !40, i64 424, !12, i64 456, !10, i64 460, !10, i64 461, !10, i64 462, !4, i64 464, !4, i64 472, !4, i64 480, !27, i64 488, !12, i64 496, !41, i64 504, !4, i64 512, !20, i64 520, !27, i64 528, !42, i64 536, !12, i64 576}
+!26 = !{!"GVCOMMON_s", !27, i64 0, !4, i64 8, !12, i64 16, !10, i64 20, !10, i64 21, !5, i64 24, !27, i64 32, !27, i64 40, !12, i64 48, !5, i64 56, !12, i64 64}
+!27 = !{!"p2 omnipotent char", !5, i64 0}
+!28 = !{!"p1 _ZTS5GVG_s", !5, i64 0}
+!29 = !{!"p1 _ZTS18gvplugin_package_s", !5, i64 0}
+!30 = !{!"dtdisc_s_", !12, i64 0, !12, i64 4, !12, i64 8, !5, i64 16, !5, i64 24, !5, i64 32}
+!31 = !{!"p1 _ZTS5dt_s_", !5, i64 0}
+!32 = !{!"gvplugin_active_textlayout_s", !33, i64 0, !12, i64 8, !4, i64 16}
+!33 = !{!"p1 _ZTS21gvtextlayout_engine_s", !5, i64 0}
+!34 = !{!"p1 _ZTS5GVJ_s", !5, i64 0}
+!35 = !{!"p1 _ZTS8Agraph_s", !5, i64 0}
+!36 = !{!"gvplugin_active_layout_s", !37, i64 0, !12, i64 8, !5, i64 16, !4, i64 24}
+!37 = !{!"p1 _ZTS17gvlayout_engine_s", !5, i64 0}
+!38 = !{!"pointf_s", !20, i64 0, !20, i64 8}
+!39 = !{!"", !12, i64 0, !12, i64 4}
+!40 = !{!"", !38, i64 0, !38, i64 16}
+!41 = !{!"p1 int", !5, i64 0}
+!42 = !{!"color_s", !6, i64 0, !12, i64 32}
+!43 = !{!25, !10, i64 21}
+!44 = !{!25, !10, i64 20}
+!45 = distinct !{!45, !14, !15}

@@ -358,14 +358,14 @@ define void @Java_sun_security_pkcs11_wrapper_PKCS11_C_1CloseSession(ptr noundef
 20:                                               ; preds = %.lr.ph.i
   %21 = load i64, ptr %23, align 8
   %.not.i = icmp eq i64 %21, %2
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %20
   %.01725.i = phi ptr [ %23, %20 ], [ %17, %.preheader.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.01725.i, i64 16
   %23 = load ptr, ptr %22, align 8
   %.not21.i = icmp eq ptr %23, null
-  br i1 %.not21.i, label %removeNotifyEntry.exit, label %20, !llvm.loop !8
+  br i1 %.not21.i, label %removeNotifyEntry.exit, label %20, !llvm.loop !9
 
 24:                                               ; preds = %.preheader.i
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -442,14 +442,14 @@ define hidden ptr @removeNotifyEntry(ptr noundef %0, i64 noundef %1) local_unnam
 11:                                               ; preds = %.lr.ph
   %12 = load i64, ptr %14, align 8
   %.not = icmp eq i64 %12, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.preheader, %11
   %.01725 = phi ptr [ %14, %11 ], [ %8, %.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %.01725, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not21 = icmp eq ptr %14, null
-  br i1 %.not21, label %.critedge, label %11, !llvm.loop !8
+  br i1 %.not21, label %.critedge, label %11, !llvm.loop !9
 
 15:                                               ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -707,6 +707,7 @@ attributes #5 = { nounwind allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

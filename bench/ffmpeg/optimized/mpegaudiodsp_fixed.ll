@@ -485,10 +485,10 @@ define hidden void @ff_mpa_synth_filter_fixed(ptr noundef readonly captures(none
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds i32, ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load ptr, ptr %12, align 8, !tbaa !12
+  %13 = load ptr, ptr %12, align 8, !tbaa !13
   tail call void %13(ptr noundef %11, ptr noundef %7) #10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !15
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
   tail call void %15(ptr noundef %11, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6) #10
   %16 = add i32 %9, 480
   %17 = and i32 %16, 511
@@ -541,7 +541,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   store i32 %18, ptr %14, align 4, !tbaa !4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %19 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %19, label %13, label %.preheader172.preheader.i, !llvm.loop !16
+  br i1 %19, label %13, label %.preheader172.preheader.i, !llvm.loop !17
 
 .preheader172.preheader.i:                        ; preds = %13
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.01828, i64 68
@@ -558,7 +558,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %24 = add i32 %22, %20
   store i32 %24, ptr %23, align 4, !tbaa !4
   %25 = icmp samesign ugt i64 %indvars.iv.next180.i, 2
-  br i1 %25, label %.preheader172.i, label %.preheader171.i, !llvm.loop !17
+  br i1 %25, label %.preheader172.i, label %.preheader171.i, !llvm.loop !18
 
 .preheader171.i:                                  ; preds = %.preheader172.i, %.preheader171.i
   %26 = phi i1 [ false, %.preheader171.i ], [ true, %.preheader172.i ]
@@ -665,7 +665,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %117 = sub i32 %97, %116
   %118 = getelementptr inbounds nuw i8, ptr %indvars.iv182.i.sroa.phi, i64 32
   store i32 %117, ptr %118, align 4, !tbaa !4
-  br i1 %26, label %.preheader171.i, label %.preheader.i.preheader, !llvm.loop !18
+  br i1 %26, label %.preheader171.i, label %.preheader.i.preheader, !llvm.loop !19
 
 .preheader.i.preheader:                           ; preds = %.preheader171.i
   %119 = icmp samesign ult i32 %.01729, 2
@@ -807,7 +807,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %indvars.iv.next186.i = add nuw nsw i64 %indvars.iv185.i, 4
   %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next188.i, 4
-  br i1 %exitcond.not.i, label %imdct36.exit, label %.preheader.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %imdct36.exit, label %.preheader.i, !llvm.loop !20
 
 imdct36.exit:                                     ; preds = %.preheader.i
   %233 = load i32, ptr %10, align 16, !tbaa !4
@@ -866,7 +866,7 @@ imdct36.exit:                                     ; preds = %.preheader.i
   %280 = getelementptr inbounds nuw i8, ptr %.031, i64 4
   %281 = add nuw nsw i32 %.01729, 1
   %exitcond.not = icmp eq i32 %281, %3
-  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %imdct36.exit, %6
   ret void
@@ -898,7 +898,7 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
 10:                                               ; preds = %5, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 257
-  br i1 %exitcond.not, label %.preheader2, label %1, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader2, label %1, !llvm.loop !22
 
 .preheader2:                                      ; preds = %10, %17
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %17 ], [ 0, %10 ]
@@ -917,12 +917,12 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
   store i32 %16, ptr %gep27, align 4, !tbaa !4
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 16
-  br i1 %exitcond14.not, label %17, label %13, !llvm.loop !22
+  br i1 %exitcond14.not, label %17, label %13, !llvm.loop !23
 
 17:                                               ; preds = %13
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %.preheader, label %.preheader2, !llvm.loop !23
+  br i1 %exitcond18.not, label %.preheader, label %.preheader2, !llvm.loop !24
 
 .preheader:                                       ; preds = %17, %24
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %24 ], [ 0, %17 ]
@@ -941,12 +941,12 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
   store i32 %23, ptr %gep, align 4, !tbaa !4
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 16
-  br i1 %exitcond22.not, label %24, label %20, !llvm.loop !24
+  br i1 %exitcond22.not, label %24, label %20, !llvm.loop !25
 
 24:                                               ; preds = %20
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 8
-  br i1 %exitcond26.not, label %25, label %.preheader, !llvm.loop !25
+  br i1 %exitcond26.not, label %25, label %.preheader, !llvm.loop !26
 
 25:                                               ; preds = %24
   ret void
@@ -983,19 +983,20 @@ attributes #11 = { cold }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"short", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!13, !14, i64 24}
-!13 = !{!"MPADSPContext", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !14, i64 32, !14, i64 40}
-!14 = !{!"any pointer", !6, i64 0}
-!15 = !{!13, !14, i64 8}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
-!18 = distinct !{!18, !11}
-!19 = distinct !{!19, !11}
-!20 = distinct !{!20, !11}
-!21 = distinct !{!21, !11}
-!22 = distinct !{!22, !11}
-!23 = distinct !{!23, !11}
-!24 = distinct !{!24, !11}
-!25 = distinct !{!25, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!14, !15, i64 24}
+!14 = !{!"MPADSPContext", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !15, i64 32, !15, i64 40}
+!15 = !{!"any pointer", !6, i64 0}
+!16 = !{!14, !15, i64 8}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}
+!19 = distinct !{!19, !11, !12}
+!20 = distinct !{!20, !11, !12}
+!21 = distinct !{!21, !11, !12}
+!22 = distinct !{!22, !11, !12}
+!23 = distinct !{!23, !11, !12}
+!24 = distinct !{!24, !11, !12}
+!25 = distinct !{!25, !11, !12}
+!26 = distinct !{!26, !11, !12}

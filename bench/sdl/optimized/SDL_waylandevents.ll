@@ -364,7 +364,7 @@ Wayland_SeatCreateCursorShape.exit:               ; preds = %.lr.ph, %7, %10, %1
   %18 = getelementptr inbounds nuw i8, ptr %.pn8, i64 8
   %.pn = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.pn, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %Wayland_SeatCreateCursorShape.exit, %1
   ret void
@@ -425,13 +425,13 @@ define hidden i32 @Wayland_WaitEventTimeout(ptr noundef readonly captures(none) 
   %.05597 = phi i64 [ %.358, %keyboard_repeat_is_set.exit.thread ], [ %1, %17 ]
   %.06296 = phi i1 [ %.264, %keyboard_repeat_is_set.exit.thread ], [ false, %17 ]
   %20 = getelementptr inbounds nuw i8, ptr %.pn98, i64 76
-  %21 = load i8, ptr %20, align 4, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 4, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %keyboard_repeat_is_set.exit, label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.pn98, i64 77
-  %24 = load i8, ptr %23, align 1, !range !6, !noundef !7
+  %24 = load i8, ptr %23, align 1, !range !7, !noundef !8
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %keyboard_repeat_is_set.exit.thread
 
@@ -522,7 +522,7 @@ Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %63, %54
   %76 = add i64 %75, %74
   store i64 %76, ptr %44, align 8
   %.not.i = icmp ult i64 %41, %76
-  br i1 %.not.i, label %.critedge, label %51, !llvm.loop !8
+  br i1 %.not.i, label %.critedge, label %51, !llvm.loop !9
 
 keyboard_repeat_handle.exit.thread:               ; preds = %37
   %77 = sub nuw i64 %43, %41
@@ -538,7 +538,7 @@ keyboard_repeat_is_set.exit.thread:               ; preds = %.lr.ph, %keyboard_r
   %81 = getelementptr inbounds nuw i8, ptr %.pn98, i64 8
   %.pn = load ptr, ptr %81, align 8
   %.not = icmp eq ptr %.pn, %18
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %keyboard_repeat_is_set.exit.thread, %17
   %.062.lcssa = phi i1 [ false, %17 ], [ %.264, %keyboard_repeat_is_set.exit.thread ]
@@ -671,7 +671,7 @@ Wayland_AdjustEventTimestampBase.exit.i80:        ; preds = %140, %131
   %153 = add i64 %152, %151
   store i64 %153, ptr %121, align 8
   %.not.i83 = icmp ult i64 %120, %153
-  br i1 %.not.i83, label %keyboard_repeat_handle.exit85, label %128, !llvm.loop !8
+  br i1 %.not.i83, label %keyboard_repeat_handle.exit85, label %128, !llvm.loop !9
 
 keyboard_repeat_handle.exit85:                    ; preds = %148, %115
   %154 = zext i1 %.not16.i75.not to i32
@@ -679,7 +679,7 @@ keyboard_repeat_handle.exit85:                    ; preds = %148, %115
   %155 = getelementptr inbounds nuw i8, ptr %.pn70103, i64 8
   %.pn70 = load ptr, ptr %155, align 8
   %.not71 = icmp eq ptr %.pn70, %18
-  br i1 %.not71, label %.critedge, label %.lr.ph104, !llvm.loop !10
+  br i1 %.not71, label %.critedge, label %.lr.ph104, !llvm.loop !11
 
 156:                                              ; preds = %100
   %157 = tail call ptr @__errno_location() #13
@@ -787,13 +787,13 @@ define hidden void @Wayland_PumpEvents(ptr noundef %0) local_unnamed_addr #0 {
   %.pn32 = phi ptr [ %.pn, %keyboard_repeat_handle.exit ], [ %.pn30, %33 ]
   %39 = getelementptr inbounds nuw i8, ptr %.pn32, i64 64
   %40 = getelementptr inbounds nuw i8, ptr %.pn32, i64 76
-  %41 = load i8, ptr %40, align 4, !range !6, !noundef !7
+  %41 = load i8, ptr %40, align 4, !range !7, !noundef !8
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %keyboard_repeat_is_set.exit, label %keyboard_repeat_handle.exit
 
 keyboard_repeat_is_set.exit:                      ; preds = %.lr.ph
   %43 = getelementptr inbounds nuw i8, ptr %.pn32, i64 77
-  %44 = load i8, ptr %43, align 1, !range !6, !noundef !7
+  %44 = load i8, ptr %43, align 1, !range !7, !noundef !8
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %keyboard_repeat_handle.exit
 
@@ -882,13 +882,13 @@ Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %81, %72
   %94 = add i64 %93, %92
   store i64 %94, ptr %62, align 8
   %.not.i = icmp ult i64 %61, %94
-  br i1 %.not.i, label %keyboard_repeat_handle.exit, label %69, !llvm.loop !8
+  br i1 %.not.i, label %keyboard_repeat_handle.exit, label %69, !llvm.loop !9
 
 keyboard_repeat_handle.exit:                      ; preds = %89, %.lr.ph, %57, %keyboard_repeat_is_set.exit
   %95 = getelementptr inbounds nuw i8, ptr %.pn32, i64 8
   %.pn = load ptr, ptr %95, align 8
   %.not = icmp eq ptr %.pn, %37
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %keyboard_repeat_handle.exit, %33
   %96 = icmp slt i32 %36, 0
@@ -1055,7 +1055,7 @@ define hidden void @Wayland_DisplayInitDataDeviceManager(ptr noundef readonly ca
   %4 = getelementptr inbounds nuw i8, ptr %.pn8, i64 8
   %.pn = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %.pn, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1210,7 +1210,7 @@ Wayland_SeatCreatePrimarySelectionDevice.exit:    ; preds = %.lr.ph, %7, %20, %2
   %27 = getelementptr inbounds nuw i8, ptr %.pn8, i64 8
   %.pn = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %.pn, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %Wayland_SeatCreatePrimarySelectionDevice.exit, %1
   ret void
@@ -1274,7 +1274,7 @@ Wayland_SeatCreateTextInput.exit:                 ; preds = %.lr.ph, %19, %27
   %32 = getelementptr inbounds nuw i8, ptr %.pn14, i64 8
   %.pn = load ptr, ptr %32, align 8
   %.not11 = icmp eq ptr %.pn, %14
-  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not11, label %.loopexit, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %Wayland_SeatCreateTextInput.exit, %7, %4
   ret void
@@ -1314,7 +1314,7 @@ define hidden void @Wayland_DisplayInitTabletManager(ptr noundef readonly captur
   %18 = getelementptr inbounds nuw i8, ptr %.pn8, i64 8
   %.pn = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %.pn, %2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -1585,7 +1585,7 @@ Wayland_SeatCancelTouch.exit:                     ; preds = %28, %29, %32, %66, 
 
 76:                                               ; preds = %23, %Wayland_SeatCancelTouch.exit
   %.not39 = icmp eq ptr %.pn3851, %19
-  br i1 %.not39, label %._crit_edge, label %23, !llvm.loop !16
+  br i1 %.not39, label %._crit_edge, label %23, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %76, %18
   %77 = getelementptr inbounds nuw i8, ptr %.pn63, i64 488
@@ -1618,13 +1618,13 @@ tablet_tool_handle_proximity_out.exit:            ; preds = %85, %83, %.lr.ph58
   %86 = getelementptr inbounds nuw i8, ptr %.pn4055, i64 8
   %.pn40 = load ptr, ptr %86, align 8
   %.not41 = icmp eq ptr %.pn40, %77
-  br i1 %.not41, label %._crit_edge59, label %.lr.ph58, !llvm.loop !17
+  br i1 %.not41, label %._crit_edge59, label %.lr.ph58, !llvm.loop !18
 
 ._crit_edge59:                                    ; preds = %tablet_tool_handle_proximity_out.exit, %._crit_edge
   %87 = getelementptr inbounds nuw i8, ptr %.pn63, i64 8
   %.pn = load ptr, ptr %87, align 8
   %.not = icmp eq ptr %.pn, %3
-  br i1 %.not, label %._crit_edge67, label %6, !llvm.loop !18
+  br i1 %.not, label %._crit_edge67, label %6, !llvm.loop !19
 
 ._crit_edge67:                                    ; preds = %._crit_edge59, %2
   ret void
@@ -1642,7 +1642,7 @@ define internal void @keyboard_handle_leave(ptr noundef captures(none) %0, ptr r
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %9 = load i8, ptr %8, align 4, !range !6, !noundef !7
+  %9 = load i8, ptr %8, align 4, !range !7, !noundef !8
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %keyboard_repeat_clear.exit
 
@@ -1677,7 +1677,7 @@ keyboard_repeat_clear.exit:                       ; preds = %7, %11
   %22 = getelementptr inbounds nuw i8, ptr %.039, i64 424
   %23 = load ptr, ptr %22, align 8
   %.not28 = icmp eq ptr %23, null
-  br i1 %.not28, label %.critedge34.thread, label %.lr.ph, !llvm.loop !19
+  br i1 %.not28, label %.critedge34.thread, label %.lr.ph, !llvm.loop !20
 
 .critedge34:                                      ; preds = %.lr.ph
   %24 = load ptr, ptr %6, align 8
@@ -1775,7 +1775,7 @@ Wayland_SeatUpdateKeyboardGrab.exit:              ; preds = %33, %48, %50, %52, 
   %75 = getelementptr inbounds nuw i8, ptr %.pn14.i, i64 8
   %.pn.i = load ptr, ptr %75, align 8
   %.not.i35 = icmp eq ptr %.pn.i, %68
-  br i1 %.not.i35, label %Wayland_DisplayUpdatePointerGrabs.exit.loopexit, label %.lr.ph.split.i, !llvm.loop !20
+  br i1 %.not.i35, label %Wayland_DisplayUpdatePointerGrabs.exit.loopexit, label %.lr.ph.split.i, !llvm.loop !21
 
 Wayland_DisplayUpdatePointerGrabs.exit.loopexit:  ; preds = %74
   %.pre = load ptr, ptr %0, align 8
@@ -2173,7 +2173,7 @@ tablet_tool_handle_removed.exit.i:                ; preds = %78, %.lr.ph.i
   tail call void %83(ptr noundef nonnull %.pn1821.i) #12
   tail call void @SDL_free_REAL(ptr noundef nonnull %.014.i) #12
   %.not.i = icmp eq ptr %.pn.i, %72
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !22
 
 84:                                               ; preds = %70
   tail call void @SDL_RemoveAllPenDevices(ptr noundef nonnull @Wayland_remove_all_pens_callback, ptr noundef null) #12
@@ -2543,7 +2543,7 @@ define internal fastcc void @Wayland_SeatDestroyTouch(ptr noundef %0) unnamed_ad
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   tail call fastcc void @Wayland_SeatCancelTouch(ptr noundef nonnull readonly %0, ptr noundef nonnull %.09.i)
   %.not.i = icmp eq ptr %.pn.i, %5
-  br i1 %.not.i, label %touch_handler_cancel.exit.loopexit, label %.lr.ph.i, !llvm.loop !22
+  br i1 %.not.i, label %touch_handler_cancel.exit.loopexit, label %.lr.ph.i, !llvm.loop !23
 
 touch_handler_cancel.exit.loopexit:               ; preds = %.lr.ph.i
   %.pre = load ptr, ptr %2, align 8
@@ -2642,7 +2642,7 @@ define hidden void @Wayland_SeatUpdatePointerGrab(ptr noundef %0) local_unnamed_
 25:                                               ; preds = %10
   %26 = tail call ptr @SDL_GetMouse() #12
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 190
-  %28 = load i8, ptr %27, align 2, !range !6, !noundef !7
+  %28 = load i8, ptr %27, align 2, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %.critedge.i
 
@@ -3008,7 +3008,7 @@ define hidden void @Wayland_DisplayUpdatePointerGrabs(ptr noundef readonly captu
   %.pn.us = load ptr, ptr %5, align 8
   %.0.us = getelementptr inbounds i8, ptr %.pn.us, i64 -40
   %.not.us = icmp eq ptr %.pn.us, %3
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !23
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %10
   %.015 = phi ptr [ %.0, %10 ], [ %.012, %.lr.ph ]
@@ -3027,7 +3027,7 @@ define hidden void @Wayland_DisplayUpdatePointerGrabs(ptr noundef readonly captu
   %.pn = load ptr, ptr %11, align 8
   %.0 = getelementptr inbounds i8, ptr %.pn, i64 -40
   %.not = icmp eq ptr %.pn, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !20
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %10, %.lr.ph.split.us, %2
   ret void
@@ -3114,7 +3114,7 @@ Wayland_SeatUpdateKeyboardGrab.exit:              ; preds = %33, %28, %25, %23, 
   %43 = getelementptr inbounds nuw i8, ptr %.pn14, i64 8
   %.pn = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %.pn, %3
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !25
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %Wayland_SeatUpdateKeyboardGrab.exit, %2
   ret void
@@ -3357,15 +3357,15 @@ define internal void @data_device_handle_enter(ptr noundef captures(none) initia
   %49 = add nuw i64 %.06571, 1
   %50 = load i64, ptr %8, align 8
   %51 = icmp ult i64 %49, %50
-  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !26
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %48, %32, %40
-  %52 = load i8, ptr %9, align 8, !range !6, !noundef !7
+  %52 = load i8, ptr %9, align 8, !range !7, !noundef !8
   %53 = trunc nuw i8 %52 to i1
   br i1 %53, label %62, label %54
 
 54:                                               ; preds = %.loopexit
-  %55 = load i8, ptr %10, align 1, !range !6, !noundef !7
+  %55 = load i8, ptr %10, align 1, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %62, label %57
 
@@ -3527,13 +3527,13 @@ define internal void @data_device_handle_motion(ptr noundef readonly captures(no
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = load i8, ptr %12, align 8, !range !6, !noundef !7
+  %13 = load i8, ptr %12, align 8, !range !7, !noundef !8
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
+  %17 = load i8, ptr %16, align 1, !range !7, !noundef !8
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %41
 
@@ -3591,13 +3591,13 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
+  %14 = load i8, ptr %13, align 8, !range !7, !noundef !8
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
+  %18 = load i8, ptr %17, align 1, !range !7, !noundef !8
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %102
 
@@ -3646,7 +3646,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   %44 = load i32, ptr %4, align 4
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %.lr.ph, label %.thread70, !llvm.loop !27
+  br i1 %46, label %.lr.ph, label %.thread70, !llvm.loop !28
 
 .thread70:                                        ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 384
@@ -3671,7 +3671,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = call ptr @Wayland_data_offer_receive(ptr noundef %52, ptr noundef %54, ptr noundef nonnull %3) #12
-  %56 = load i8, ptr %13, align 8, !range !6, !noundef !7
+  %56 = load i8, ptr %13, align 8, !range !7, !noundef !8
   %57 = trunc nuw i8 %56 to i1
   br i1 %57, label %58, label %73
 
@@ -3700,7 +3700,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
 66:                                               ; preds = %63, %.lr.ph82
   %67 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull %5) #12
   %.not65 = icmp eq ptr %67, null
-  br i1 %.not65, label %._crit_edge83, label %.lr.ph82, !llvm.loop !28
+  br i1 %.not65, label %._crit_edge83, label %.lr.ph82, !llvm.loop !29
 
 ._crit_edge83:                                    ; preds = %66, %59
   call void @SDL_free_REAL(ptr noundef nonnull %55) #12
@@ -3716,7 +3716,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
 
 73:                                               ; preds = %.thread
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %75 = load i8, ptr %74, align 1, !range !7, !noundef !8
   %76 = trunc nuw i8 %75 to i1
   br i1 %76, label %77, label %101
 
@@ -3737,7 +3737,7 @@ define internal void @data_device_handle_drop(ptr noundef captures(none) %0, ptr
   %81 = call zeroext i1 @SDL_SendDropText(ptr noundef %80, ptr noundef nonnull %.077) #12
   %82 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull %6) #12
   %.not63 = icmp eq ptr %82, null
-  br i1 %.not63, label %._crit_edge, label %.lr.ph78, !llvm.loop !29
+  br i1 %.not63, label %._crit_edge, label %.lr.ph78, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %78
   call void @SDL_free_REAL(ptr noundef nonnull %55) #12
@@ -4059,7 +4059,7 @@ define internal void @text_input_delete_surrounding_text(ptr readnone captures(n
 ; Function Attrs: nounwind uwtable
 define internal void @text_input_done(ptr noundef captures(none) %0, ptr readnone captures(none) %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 513
-  %5 = load i8, ptr %4, align 1, !range !6, !noundef !7
+  %5 = load i8, ptr %4, align 1, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %8, label %7
 
@@ -4455,7 +4455,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %25 = load i8, ptr %24, align 8, !range !6, !noundef !7
+  %25 = load i8, ptr %24, align 8, !range !7, !noundef !8
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %28 = load i32, ptr %27, align 4
@@ -4492,7 +4492,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
 41:                                               ; preds = %40
   %42 = icmp ne i32 %28, 0
   tail call void @SDL_SendPenTouch(i64 noundef %.0.i, i32 noundef %21, ptr noundef %23, i1 noundef zeroext false, i1 noundef zeroext %42) #12
-  %.pre76 = load i8, ptr %24, align 8, !range !6
+  %.pre76 = load i8, ptr %24, align 8, !range !7
   %43 = trunc nuw i8 %.pre76 to i1
   br i1 %43, label %.thread78, label %.thread79
 
@@ -4531,7 +4531,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
 59:                                               ; preds = %51, %56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond.not, label %.preheader, label %51, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader, label %51, !llvm.loop !31
 
 60:                                               ; preds = %69
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -4558,7 +4558,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_EventTimest
 69:                                               ; preds = %65, %62
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
-  br i1 %exitcond75.not, label %60, label %62, !llvm.loop !31
+  br i1 %exitcond75.not, label %60, label %62, !llvm.loop !32
 
 70:                                               ; preds = %3, %60
   ret void
@@ -4648,7 +4648,7 @@ Wayland_SeatCreateCursorShape.exit:               ; preds = %9, %19, %22
 40:                                               ; preds = %38, %36
   %41 = load i32, ptr %33, align 8
   %42 = load ptr, ptr %0, align 8
-  %43 = load i8, ptr %42, align 8, !range !6, !noundef !7
+  %43 = load i8, ptr %42, align 8, !range !7, !noundef !8
   %44 = trunc nuw i8 %43 to i1
   %45 = xor i1 %44, true
   call void @SDL_AddMouse(i32 noundef %41, ptr noundef nonnull %4, i1 noundef zeroext %45) #12
@@ -4753,7 +4753,7 @@ Wayland_SeatCreateCursorShape.exit:               ; preds = %9, %19, %22
 97:                                               ; preds = %95, %93
   %98 = load i32, ptr %90, align 4
   %99 = load ptr, ptr %0, align 8
-  %100 = load i8, ptr %99, align 8, !range !6, !noundef !7
+  %100 = load i8, ptr %99, align 8, !range !7, !noundef !8
   %101 = trunc nuw i8 %100 to i1
   %102 = xor i1 %101, true
   call void @SDL_AddKeyboard(i32 noundef %98, ptr noundef nonnull %4, i1 noundef zeroext %102) #12
@@ -5959,7 +5959,7 @@ define internal void @touch_handler_up(ptr noundef readonly captures(address) %0
   %12 = getelementptr inbounds nuw i8, ptr %.pn25.i, i64 8
   %.pn.i = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %.pn.i, %7
-  br i1 %.not.i, label %Wayland_SeatRemoveTouch.exit.thread, label %.lr.ph.i, !llvm.loop !32
+  br i1 %.not.i, label %Wayland_SeatRemoveTouch.exit.thread, label %.lr.ph.i, !llvm.loop !33
 
 Wayland_SeatRemoveTouch.exit:                     ; preds = %.lr.ph.i
   %.026.i.le = getelementptr inbounds i8, ptr %.pn25.i, i64 -24
@@ -6104,7 +6104,7 @@ define internal void @touch_handler_motion(ptr noundef readonly captures(address
   %13 = getelementptr inbounds nuw i8, ptr %.pn17.i, i64 8
   %.pn.i = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %.pn.i, %8
-  br i1 %.not.i, label %Wayland_SeatUpdateTouch.exit.thread, label %.lr.ph.i, !llvm.loop !33
+  br i1 %.not.i, label %Wayland_SeatUpdateTouch.exit.thread, label %.lr.ph.i, !llvm.loop !34
 
 Wayland_SeatUpdateTouch.exit:                     ; preds = %.lr.ph.i
   %14 = getelementptr inbounds i8, ptr %.pn17.i, i64 -16
@@ -6217,7 +6217,7 @@ define internal void @touch_handler_cancel(ptr noundef readonly captures(address
   %.pn = load ptr, ptr %.pn.in, align 8
   tail call fastcc void @Wayland_SeatCancelTouch(ptr noundef nonnull %0, ptr noundef nonnull %.09)
   %.not = icmp eq ptr %.pn, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -6561,7 +6561,7 @@ Wayland_SeatUpdateKeyboardGrab.exit:              ; preds = %9, %30, %32, %34, %
   %57 = getelementptr inbounds nuw i8, ptr %.pn14.i, i64 8
   %.pn.i = load ptr, ptr %57, align 8
   %.not.i41 = icmp eq ptr %.pn.i, %50
-  br i1 %.not.i41, label %Wayland_DisplayUpdatePointerGrabs.exit.loopexit, label %.lr.ph.split.i, !llvm.loop !20
+  br i1 %.not.i41, label %Wayland_DisplayUpdatePointerGrabs.exit.loopexit, label %.lr.ph.split.i, !llvm.loop !21
 
 Wayland_DisplayUpdatePointerGrabs.exit.loopexit:  ; preds = %56
   %.pre = load ptr, ptr %0, align 8
@@ -6611,7 +6611,7 @@ Wayland_DisplayUpdatePointerGrabs.exit:           ; preds = %Wayland_DisplayUpda
 78:                                               ; preds = %.lr.ph, %114
   %.044 = phi ptr [ %72, %.lr.ph ], [ %115, %114 ]
   %79 = load i32, ptr %.044, align 4
-  %80 = load i8, ptr %73, align 8, !range !6, !noundef !7
+  %80 = load i8, ptr %73, align 8, !range !7, !noundef !8
   %81 = trunc nuw i8 %80 to i1
   br i1 %81, label %84, label %82
 
@@ -6718,7 +6718,7 @@ Wayland_HandleModifierKeys.exit:                  ; preds = %97, %108
   %117 = load i64, ptr %4, align 8
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 %117
   %119 = icmp ult ptr %115, %118
-  br i1 %119, label %78, label %.loopexit, !llvm.loop !34
+  br i1 %119, label %78, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %114, %69, %7, %5
   ret void
@@ -6881,13 +6881,13 @@ keyboard_input_get_text.exit:                     ; preds = %72, %61, %51, %54, 
 85:                                               ; preds = %45
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %88 = load i8, ptr %87, align 4, !range !6, !noundef !7
+  %88 = load i8, ptr %87, align 4, !range !7, !noundef !8
   %89 = trunc nuw i8 %88 to i1
   br i1 %89, label %90, label %keyboard_repeat_clear.exit
 
 90:                                               ; preds = %85
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 117
-  %92 = load i8, ptr %91, align 1, !range !6, !noundef !7
+  %92 = load i8, ptr %91, align 1, !range !7, !noundef !8
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %keyboard_repeat_key_is_set.exit, label %keyboard_repeat_clear.exit
 
@@ -6961,10 +6961,10 @@ Wayland_AdjustEventTimestampBase.exit.i:          ; preds = %118, %109
   %131 = add i64 %130, %129
   store i64 %131, ptr %101, align 8
   %.not.i51 = icmp ult i64 %100, %131
-  br i1 %.not.i51, label %keyboard_repeat_handle.exit, label %106, !llvm.loop !8
+  br i1 %.not.i51, label %keyboard_repeat_handle.exit, label %106, !llvm.loop !9
 
 keyboard_repeat_handle.exit:                      ; preds = %126
-  %.pre = load i8, ptr %87, align 4, !range !6
+  %.pre = load i8, ptr %87, align 4, !range !7
   %132 = trunc nuw i8 %.pre to i1
   br i1 %132, label %keyboard_repeat_handle.exit.thread, label %keyboard_repeat_clear.exit
 
@@ -7007,7 +7007,7 @@ keyboard_input_get_text.exit56:                   ; preds = %142, %keyboard_repe
   %.0 = phi i1 [ false, %47 ], [ %.163, %keyboard_input_get_text.exit ], [ false, %49 ], [ %.2, %keyboard_input_get_text.exit56 ]
   %.1 = phi i1 [ false, %47 ], [ %.019.i, %keyboard_input_get_text.exit ], [ false, %49 ], [ false, %keyboard_input_get_text.exit56 ]
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %148 = load i8, ptr %147, align 8, !range !6, !noundef !7
+  %148 = load i8, ptr %147, align 8, !range !7, !noundef !8
   %149 = trunc nuw i8 %148 to i1
   br i1 %149, label %152, label %150
 
@@ -7146,7 +7146,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %Wayland_HandleModif
 205:                                              ; preds = %201
   %206 = load i32, ptr %189, align 4
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %208 = load i8, ptr %207, align 4, !range !6, !noundef !7
+  %208 = load i8, ptr %207, align 4, !range !7, !noundef !8
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %keyboard_repeat_set.exit
 
@@ -7206,13 +7206,13 @@ define internal void @keyboard_handle_modifiers(ptr noundef captures(none) %0, p
   store i32 %17, ptr %18, align 8
   tail call fastcc void @Wayland_ReconcileModifiers(ptr noundef nonnull %0, i1 noundef zeroext false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %20 = load i8, ptr %19, align 4, !range !6, !noundef !7
+  %20 = load i8, ptr %19, align 4, !range !7, !noundef !8
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %keyboard_repeat_is_set.exit, label %keyboard_repeat_is_set.exit.thread
 
 keyboard_repeat_is_set.exit:                      ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 117
-  %23 = load i8, ptr %22, align 1, !range !6, !noundef !7
+  %23 = load i8, ptr %22, align 1, !range !7, !noundef !8
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %keyboard_repeat_get_key.exit, label %keyboard_repeat_is_set.exit.thread
 
@@ -7292,7 +7292,7 @@ keyboard_input_get_text.exit:                     ; preds = %39, %42, %46, %50, 
   br i1 %57, label %58, label %keyboard_repeat_set_text.exit
 
 58:                                               ; preds = %keyboard_input_get_text.exit.thread26, %keyboard_input_get_text.exit
-  %59 = load i8, ptr %19, align 4, !range !6, !noundef !7
+  %59 = load i8, ptr %19, align 4, !range !7, !noundef !8
   %60 = trunc nuw i8 %59 to i1
   br i1 %60, label %61, label %keyboard_repeat_set_text.exit
 
@@ -7429,7 +7429,7 @@ define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0)
   %53 = or i32 %47, %12
   store i32 %53, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %55 = load i8, ptr %54, align 8, !range !6, !noundef !7
+  %55 = load i8, ptr %54, align 8, !range !7, !noundef !8
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %94, label %57
 
@@ -7497,7 +7497,7 @@ define internal fastcc void @Wayland_UpdateKeymap(ptr noundef captures(none) %0)
   call void %91(ptr noundef %92, ptr noundef nonnull @Wayland_keymap_iter, ptr noundef nonnull %3) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %.critedge, label %74, !llvm.loop !35
+  br i1 %exitcond.not, label %.critedge, label %74, !llvm.loop !36
 
 93:                                               ; preds = %57, %66
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
@@ -7987,7 +7987,7 @@ Wayland_AdjustEventTimestampBase.exit:            ; preds = %8, %23
 
 26:                                               ; preds = %Wayland_AdjustEventTimestampBase.exit
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 216
-  %28 = load i8, ptr %27, align 8, !range !6, !noundef !7
+  %28 = load i8, ptr %27, align 8, !range !7, !noundef !8
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %39, label %30
 
@@ -8089,36 +8089,37 @@ attributes #14 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4}
-!14 = distinct !{!14, !4}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
-!23 = distinct !{!23, !4, !24}
-!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!25 = distinct !{!25, !4}
-!26 = distinct !{!26, !4}
-!27 = distinct !{!27, !4}
-!28 = distinct !{!28, !4}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
-!31 = distinct !{!31, !4}
-!32 = distinct !{!32, !4}
-!33 = distinct !{!33, !4}
-!34 = distinct !{!34, !4}
-!35 = distinct !{!35, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5}
+!15 = distinct !{!15, !4, !5}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}
+!24 = distinct !{!24, !4, !5, !25}
+!25 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!26 = distinct !{!26, !4, !5}
+!27 = distinct !{!27, !4, !5}
+!28 = distinct !{!28, !4, !5}
+!29 = distinct !{!29, !4, !5}
+!30 = distinct !{!30, !4, !5}
+!31 = distinct !{!31, !4, !5}
+!32 = distinct !{!32, !4, !5}
+!33 = distinct !{!33, !4, !5}
+!34 = distinct !{!34, !4, !5}
+!35 = distinct !{!35, !4, !5}
+!36 = distinct !{!36, !4, !5}

@@ -66,7 +66,7 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
   %26 = getelementptr inbounds nuw [33 x i32], ptr %5, i64 0, i64 %25
   store i32 %23, ptr %26, align 4, !tbaa !4
   %27 = icmp samesign ult i32 %.02330, 2
-  br i1 %27, label %.critedge.preheader, label %14, !llvm.loop !11
+  br i1 %27, label %.critedge.preheader, label %14, !llvm.loop !12
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.critedge
   %indvars.iv34 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next35, %.critedge ]
@@ -88,7 +88,7 @@ define range(i32 -1094995529, 1) i32 @ff_huffyuv_generate_bits_table(ptr noundef
 .critedge:                                        ; preds = %.lr.ph32, %30
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
-  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph32, !llvm.loop !12
+  br i1 %exitcond38.not, label %.loopexit, label %.lr.ph32, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.critedge, %.critedge.preheader, %21
   %.1 = phi i32 [ -1094995529, %21 ], [ 0, %.critedge.preheader ], [ 0, %.critedge ]
@@ -125,7 +125,8 @@ attributes #4 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!6, !6, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}

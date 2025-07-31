@@ -959,7 +959,7 @@ define internal range(i32 0, 2) i32 @process_genm(ptr noundef %0, ptr noundef %1
   %26 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %2, i32 noundef 0) #4
   %27 = tail call ptr @OSSL_CMP_ITAV_get0_type(ptr noundef %26) #4
   %28 = tail call ptr @OPENSSL_sk_new_reserve(ptr noundef null, i32 noundef 1) #4
-  store ptr %28, ptr %3, align 8, !tbaa !36
+  store ptr %28, ptr %3, align 8, !tbaa !37
   %29 = icmp eq ptr %28, null
   br i1 %29, label %42, label %30
 
@@ -970,19 +970,19 @@ define internal range(i32 0, 2) i32 @process_genm(ptr noundef %0, ptr noundef %1
   br i1 %.not, label %36, label %33
 
 33:                                               ; preds = %30
-  %34 = load ptr, ptr %3, align 8, !tbaa !36
+  %34 = load ptr, ptr %3, align 8, !tbaa !37
   %35 = tail call i32 @OPENSSL_sk_push(ptr noundef %34, ptr noundef nonnull %32) #4
   %.not34 = icmp eq i32 %35, 0
   br i1 %.not34, label %36, label %42
 
 36:                                               ; preds = %33, %30
-  %37 = load ptr, ptr %3, align 8, !tbaa !36
+  %37 = load ptr, ptr %3, align 8, !tbaa !37
   tail call void @OPENSSL_sk_free(ptr noundef %37) #4
   br label %42
 
 38:                                               ; preds = %22
   %39 = tail call ptr @OPENSSL_sk_deep_copy(ptr noundef nonnull %2, ptr noundef nonnull @OSSL_CMP_ITAV_dup, ptr noundef nonnull @OSSL_CMP_ITAV_free) #4
-  store ptr %39, ptr %3, align 8, !tbaa !36
+  store ptr %39, ptr %3, align 8, !tbaa !37
   %40 = icmp ne ptr %39, null
   %41 = zext i1 %40 to i32
   br label %42
@@ -1009,19 +1009,19 @@ define internal void @process_error(ptr noundef %0, ptr noundef readnone capture
   br label %53
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %12 = load ptr, ptr @bio_err, align 8, !tbaa !39
   %13 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %12, ptr noundef nonnull @.str.3) #4
   %14 = icmp eq ptr %2, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %16 = load ptr, ptr @bio_err, align 8, !tbaa !39
   %17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %16, ptr noundef nonnull @.str.4) #4
   br label %23
 
 18:                                               ; preds = %11
   %19 = call ptr @OSSL_CMP_snprint_PKIStatusInfo(ptr noundef nonnull %2, ptr noundef nonnull %6, i64 noundef 1024) #4
-  %20 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %20 = load ptr, ptr @bio_err, align 8, !tbaa !39
   %.not = icmp eq ptr %19, null
   %21 = select i1 %.not, ptr @.str.6, ptr %19
   %22 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %20, ptr noundef nonnull @.str.5, ptr noundef nonnull %21) #4
@@ -1029,7 +1029,7 @@ define internal void @process_error(ptr noundef %0, ptr noundef readnone capture
 
 23:                                               ; preds = %18, %15
   %24 = icmp eq ptr %3, null
-  %25 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %25 = load ptr, ptr @bio_err, align 8, !tbaa !39
   br i1 %24, label %26, label %28
 
 26:                                               ; preds = %23
@@ -1044,7 +1044,7 @@ define internal void @process_error(ptr noundef %0, ptr noundef readnone capture
 31:                                               ; preds = %28, %26
   %32 = call i32 @OPENSSL_sk_num(ptr noundef %4) #4
   %33 = icmp slt i32 %32, 1
-  %34 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %34 = load ptr, ptr @bio_err, align 8, !tbaa !39
   br i1 %33, label %35, label %37
 
 35:                                               ; preds = %31
@@ -1063,21 +1063,21 @@ define internal void @process_error(ptr noundef %0, ptr noundef readnone capture
   br i1 %.not18, label %44, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %42 = load ptr, ptr @bio_err, align 8, !tbaa !39
   %43 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %42, ptr noundef nonnull @.str.11) #4
   br label %44
 
 44:                                               ; preds = %41, %.lr.ph
-  %45 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %45 = load ptr, ptr @bio_err, align 8, !tbaa !39
   %46 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.019) #4
   %47 = call i32 @ASN1_STRING_print_ex(ptr noundef %45, ptr noundef %46, i64 noundef 8) #4
   %48 = add nuw nsw i32 %.019, 1
   %49 = call i32 @OPENSSL_sk_num(ptr noundef %4) #4
   %50 = icmp slt i32 %48, %49
-  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %44, %37
-  %51 = load ptr, ptr @bio_err, align 8, !tbaa !38
+  %51 = load ptr, ptr @bio_err, align 8, !tbaa !39
   %52 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %51, ptr noundef nonnull @.str.12) #4
   br label %53
 
@@ -1144,7 +1144,7 @@ define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %0, ptr noundef
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %5
-  store ptr null, ptr %3, align 8, !tbaa !41
+  store ptr null, ptr %3, align 8, !tbaa !42
   %8 = icmp eq ptr %6, null
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %9, %8
@@ -1198,7 +1198,7 @@ define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %0, ptr noundef
   br i1 %.not29, label %31, label %30
 
 30:                                               ; preds = %24
-  store ptr %21, ptr %3, align 8, !tbaa !41
+  store ptr %21, ptr %3, align 8, !tbaa !42
   store ptr null, ptr %20, align 8, !tbaa !28
   br label %35
 
@@ -1210,7 +1210,7 @@ define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %0, ptr noundef
 
 35:                                               ; preds = %31, %30
   %storemerge = phi i64 [ %34, %31 ], [ 0, %30 ]
-  store i64 %storemerge, ptr %4, align 8, !tbaa !42
+  store i64 %storemerge, ptr %4, align 8, !tbaa !43
   br label %36
 
 36:                                               ; preds = %35, %23, %18, %.thread
@@ -1460,21 +1460,21 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
 
 35:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #4
-  store ptr null, ptr %8, align 8, !tbaa !44
+  store ptr null, ptr %8, align 8, !tbaa !45
   %36 = call i32 @OSSL_CMP_ITAV_get0_crlStatusList(ptr noundef %2, ptr noundef nonnull %8) #4
   %.not40.not = icmp eq i32 %36, 0
   br i1 %.not40.not, label %.critedge45, label %37
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr %8, align 8, !tbaa !44
+  %38 = load ptr, ptr %8, align 8, !tbaa !45
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
-  store ptr null, ptr %4, align 8, !tbaa !46
+  store ptr null, ptr %4, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
-  store ptr null, ptr %5, align 8, !tbaa !48
+  store ptr null, ptr %5, align 8, !tbaa !49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
-  store ptr null, ptr %6, align 8, !tbaa !50
+  store ptr null, ptr %6, align 8, !tbaa !51
   %41 = call i32 @OPENSSL_sk_num(ptr noundef %38) #4
   %.not.i = icmp eq i32 %41, 1
   br i1 %.not.i, label %42, label %check_client_crl.exit.thread.sink.split
@@ -1496,7 +1496,7 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   br i1 %.not19.i, label %check_client_crl.exit.thread, label %47
 
 47:                                               ; preds = %44
-  %48 = load ptr, ptr %5, align 8, !tbaa !48
+  %48 = load ptr, ptr %5, align 8, !tbaa !49
   %.not20.i = icmp eq ptr %48, null
   br i1 %.not20.i, label %.critedge24.i, label %49
 
@@ -1506,20 +1506,20 @@ define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captu
   br i1 %.not21.i, label %check_client_crl.exit.thread.sink.split, label %51
 
 51:                                               ; preds = %49
-  %52 = load i32, ptr %50, align 8, !tbaa !52
+  %52 = load i32, ptr %50, align 8, !tbaa !53
   %53 = icmp eq i32 %52, 4
   br i1 %53, label %54, label %check_client_crl.exit.thread.sink.split
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !54
+  %56 = load ptr, ptr %55, align 8, !tbaa !55
   %57 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %40) #4
   %58 = call i32 @X509_NAME_cmp(ptr noundef %56, ptr noundef %57) #4
   %.not22.i = icmp eq i32 %58, 0
   br i1 %.not22.i, label %.critedge24.i, label %check_client_crl.exit.thread.sink.split
 
 .critedge24.i:                                    ; preds = %54, %47
-  %59 = load ptr, ptr %6, align 8, !tbaa !50
+  %59 = load ptr, ptr %6, align 8, !tbaa !51
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.thread50, label %61
 
@@ -1568,7 +1568,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
 
 71:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #4
-  store ptr null, ptr %9, align 8, !tbaa !55
+  store ptr null, ptr %9, align 8, !tbaa !56
   %72 = tail call ptr @OSSL_CRMF_CERTTEMPLATE_new() #4
   %73 = icmp eq ptr %72, null
   br i1 %73, label %94, label %74
@@ -1603,7 +1603,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
   br i1 %.not52, label %92, label %89
 
 89:                                               ; preds = %87
-  %90 = load ptr, ptr %9, align 8, !tbaa !55
+  %90 = load ptr, ptr %9, align 8, !tbaa !56
   %91 = call ptr @OSSL_CMP_ITAV_new0_certReqTemplate(ptr noundef nonnull %72, ptr noundef %90) #4
   br label %94
 
@@ -1615,7 +1615,7 @@ check_client_crl.exit.thread:                     ; preds = %check_client_crl.ex
 
 92:                                               ; preds = %.critedge47, %87, %78, %74
   call void @OSSL_CRMF_CERTTEMPLATE_free(ptr noundef nonnull %72) #4
-  %93 = load ptr, ptr %9, align 8, !tbaa !55
+  %93 = load ptr, ptr %9, align 8, !tbaa !56
   call void @OSSL_CMP_ATAVS_free(ptr noundef %93) #4
   br label %94
 
@@ -1758,26 +1758,27 @@ attributes #5 = { nounwind willreturn memory(read) }
 !31 = !{!5, !14, i64 100}
 !32 = !{!33, !33, i64 0}
 !33 = !{!"p1 _ZTS24stack_st_ASN1_UTF8STRING", !7, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = !{!37, !37, i64 0}
-!37 = !{!"p1 _ZTS22stack_st_OSSL_CMP_ITAV", !7, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"p1 _ZTS6bio_st", !7, i64 0}
-!40 = distinct !{!40, !35}
-!41 = !{!15, !15, i64 0}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"long", !8, i64 0}
-!44 = !{!45, !45, i64 0}
-!45 = !{!"p1 _ZTS27stack_st_OSSL_CMP_CRLSTATUS", !7, i64 0}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"p1 _ZTS18DIST_POINT_NAME_st", !7, i64 0}
-!48 = !{!49, !49, i64 0}
-!49 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !7, i64 0}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS14asn1_string_st", !7, i64 0}
-!52 = !{!53, !14, i64 0}
-!53 = !{!"GENERAL_NAME_st", !14, i64 0, !8, i64 8}
-!54 = !{!8, !8, i64 0}
-!55 = !{!56, !56, i64 0}
-!56 = !{!"p1 _ZTS40stack_st_OSSL_CRMF_ATTRIBUTETYPEANDVALUE", !7, i64 0}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = !{!38, !38, i64 0}
+!38 = !{!"p1 _ZTS22stack_st_OSSL_CMP_ITAV", !7, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"p1 _ZTS6bio_st", !7, i64 0}
+!41 = distinct !{!41, !35, !36}
+!42 = !{!15, !15, i64 0}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"long", !8, i64 0}
+!45 = !{!46, !46, i64 0}
+!46 = !{!"p1 _ZTS27stack_st_OSSL_CMP_CRLSTATUS", !7, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"p1 _ZTS18DIST_POINT_NAME_st", !7, i64 0}
+!49 = !{!50, !50, i64 0}
+!50 = !{!"p1 _ZTS21stack_st_GENERAL_NAME", !7, i64 0}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS14asn1_string_st", !7, i64 0}
+!53 = !{!54, !14, i64 0}
+!54 = !{!"GENERAL_NAME_st", !14, i64 0, !8, i64 8}
+!55 = !{!8, !8, i64 0}
+!56 = !{!57, !57, i64 0}
+!57 = !{!"p1 _ZTS40stack_st_OSSL_CRMF_ATTRIBUTETYPEANDVALUE", !7, i64 0}

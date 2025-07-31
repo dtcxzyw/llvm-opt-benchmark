@@ -109,7 +109,7 @@ define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef capture
   store i64 %34, ptr %32, align 8, !tbaa !8
   %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
   %exitcond83.not.i = icmp eq i64 %indvars.iv.next80.i, %wide.trip.count82.i
-  br i1 %exitcond83.not.i, label %35, label %.preheader64.i, !llvm.loop !14
+  br i1 %exitcond83.not.i, label %35, label %.preheader64.i, !llvm.loop !15
 
 35:                                               ; preds = %.preheader64.i
   tail call fastcc void @BlockSha3(ptr noundef nonnull %0)
@@ -145,14 +145,14 @@ define internal fastcc range(i32 -173, 1) i32 @wc_Sha3Update(ptr noundef capture
   store i64 %44, ptr %42, align 8, !tbaa !8
   %indvars.iv.next85.i = add nuw nsw i64 %indvars.iv84.i, 1
   %exitcond88.not.i = icmp eq i64 %indvars.iv.next85.i, %wide.trip.count87.i
-  br i1 %exitcond88.not.i, label %45, label %38, !llvm.loop !15
+  br i1 %exitcond88.not.i, label %45, label %38, !llvm.loop !16
 
 45:                                               ; preds = %38
   tail call fastcc void @BlockSha3(ptr noundef nonnull %0)
   %46 = getelementptr inbounds nuw i8, ptr %.171.i, i64 %37
   %47 = add nsw i32 %.05570.i, -1
   %.not62.i = icmp eq i32 %47, 0
-  br i1 %.not62.i, label %._crit_edge72.loopexit.i, label %.preheader.i, !llvm.loop !16
+  br i1 %.not62.i, label %._crit_edge72.loopexit.i, label %.preheader.i, !llvm.loop !17
 
 ._crit_edge72.loopexit.i:                         ; preds = %45
   %48 = mul i32 %36, %.pre91.i
@@ -221,7 +221,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_224_Final(ptr noundef captures(address_is
   store i64 %26, ptr %24, align 8, !tbaa !8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 18
-  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !18
 
 Sha3Final.exit.i:                                 ; preds = %21
   tail call fastcc void @BlockSha3(ptr noundef nonnull %0)
@@ -289,7 +289,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_224_GetHash(ptr noundef readonly captures
   store i64 %27, ptr %25, align 8, !tbaa !8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 18
-  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !18
 
 wc_Sha3Final.exit.i:                              ; preds = %22
   call fastcc void @BlockSha3(ptr noundef nonnull %3)
@@ -388,7 +388,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_256_Final(ptr noundef captures(address_is
   store i64 %26, ptr %24, align 8, !tbaa !8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 17
-  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !18
 
 Sha3Final.exit.i:                                 ; preds = %21
   tail call fastcc void @BlockSha3(ptr noundef nonnull %0)
@@ -456,7 +456,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_256_GetHash(ptr noundef readonly captures
   store i64 %27, ptr %25, align 8, !tbaa !8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 17
-  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !18
 
 wc_Sha3Final.exit.i:                              ; preds = %22
   call fastcc void @BlockSha3(ptr noundef nonnull %3)
@@ -555,7 +555,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_384_Final(ptr noundef captures(address_is
   store i64 %26, ptr %24, align 8, !tbaa !8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 13
-  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !18
 
 Sha3Final.exit.i:                                 ; preds = %21
   tail call fastcc void @BlockSha3(ptr noundef nonnull %0)
@@ -623,7 +623,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_384_GetHash(ptr noundef readonly captures
   store i64 %27, ptr %25, align 8, !tbaa !8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 13
-  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !18
 
 wc_Sha3Final.exit.i:                              ; preds = %22
   call fastcc void @BlockSha3(ptr noundef nonnull %3)
@@ -722,7 +722,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_512_Final(ptr noundef captures(address_is
   store i64 %26, ptr %24, align 8, !tbaa !8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 9
-  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %Sha3Final.exit.i, label %21, !llvm.loop !18
 
 Sha3Final.exit.i:                                 ; preds = %21
   tail call fastcc void @BlockSha3(ptr noundef nonnull %0)
@@ -790,7 +790,7 @@ define range(i32 -173, 1) i32 @wc_Sha3_512_GetHash(ptr noundef readonly captures
   store i64 %27, ptr %25, align 8, !tbaa !8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 9
-  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %wc_Sha3Final.exit.i, label %22, !llvm.loop !18
 
 wc_Sha3Final.exit.i:                              ; preds = %22
   call fastcc void @BlockSha3(ptr noundef nonnull %3)
@@ -1202,7 +1202,7 @@ define internal fastcc void @BlockSha3(ptr noundef nonnull captures(none) %0) un
   %346 = xor i64 %345, %221
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %347 = icmp samesign ult i64 %indvars.iv, 22
-  br i1 %347, label %26, label %348, !llvm.loop !18
+  br i1 %347, label %26, label %348, !llvm.loop !19
 
 348:                                              ; preds = %26
   store i64 %346, ptr %0, align 8, !tbaa !8
@@ -1269,10 +1269,11 @@ attributes #8 = { nounwind }
 !9 = !{!"long", !5, i64 0}
 !10 = !{!4, !5, i64 400}
 !11 = !{!5, !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}

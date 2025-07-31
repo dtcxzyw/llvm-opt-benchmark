@@ -142,12 +142,12 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   store i64 %.sroa.038.0.copyload, ptr %52, align 8
   %54 = add nuw i64 %.0170196, 1
   %exitcond226.not = icmp eq i64 %54, %3
-  br i1 %exitcond226.not, label %._crit_edge198, label %50, !llvm.loop !12
+  br i1 %exitcond226.not, label %._crit_edge198, label %50, !llvm.loop !13
 
 .loopexit:                                        ; preds = %67
   %.0163 = add nuw i64 %.0163201, 1
   %exitcond228.not = icmp eq i64 %.0163, %3
-  br i1 %exitcond228.not, label %._crit_edge204, label %55, !llvm.loop !13
+  br i1 %exitcond228.not, label %._crit_edge204, label %55, !llvm.loop !14
 
 55:                                               ; preds = %.lr.ph203, %.loopexit
   %.0163201 = phi i64 [ %.0163200, %.lr.ph203 ], [ %.0163, %.loopexit ]
@@ -175,11 +175,11 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   store double %72, ptr %68, align 8, !tbaa !8
   %73 = add nuw i64 %.0161199, 1
   %exitcond227.not = icmp eq i64 %73, %3
-  br i1 %exitcond227.not, label %.loopexit, label %67, !llvm.loop !14
+  br i1 %exitcond227.not, label %.loopexit, label %67, !llvm.loop !15
 
 ._crit_edge204:                                   ; preds = %.loopexit, %._crit_edge198
   %exitcond229.not = icmp eq i64 %.0163200, %31
-  br i1 %exitcond229.not, label %._crit_edge206, label %.preheader184, !llvm.loop !15
+  br i1 %exitcond229.not, label %._crit_edge206, label %.preheader184, !llvm.loop !16
 
 ._crit_edge206:                                   ; preds = %._crit_edge204, %._crit_edge
   %.not220239 = phi i1 [ true, %._crit_edge ], [ false, %._crit_edge204 ]
@@ -238,7 +238,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   store double %101, ptr %92, align 8, !tbaa !8
   %102 = add nuw i64 %.0160211, 1
   %exitcond231.not = icmp eq i64 %102, %74
-  br i1 %exitcond231.not, label %.preheader182, label %87, !llvm.loop !16
+  br i1 %exitcond231.not, label %.preheader182, label %87, !llvm.loop !17
 
 103:                                              ; preds = %.lr.ph209, %103
   %104 = phi double [ %91, %.lr.ph209 ], [ %110, %103 ]
@@ -252,7 +252,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
   store double %110, ptr %92, align 8, !tbaa !8
   %111 = add nuw i64 %.0157207, 1
   %exitcond230.not = icmp eq i64 %111, %3
-  br i1 %exitcond230.not, label %._crit_edge210, label %103, !llvm.loop !17
+  br i1 %exitcond230.not, label %._crit_edge210, label %103, !llvm.loop !18
 
 .preheader:                                       ; preds = %.lr.ph215.preheader, %.preheader182
   br i1 %.not219233237, label %.thread178, label %.lr.ph217.preheader
@@ -329,11 +329,12 @@ attributes #13 = { cold noreturn nounwind }
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !6, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
-!17 = distinct !{!17, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}
+!18 = distinct !{!18, !11, !12}

@@ -93,7 +93,7 @@ thread-pre-split:                                 ; preds = %1
   %29 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull %26, i64 noundef %21) #22
   %30 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %2, i32 noundef 0) #22
   %31 = icmp sgt i32 %30, -1
-  br i1 %31, label %._crit_edge, label %.lr.ph
+  br i1 %31, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %._crit_edge, %8
   %.0 = phi i32 [ %9, %8 ], [ %.lcssa, %._crit_edge ], [ -1, %10 ], [ -1, %.lr.ph ]
@@ -200,7 +200,7 @@ define void @Prelease(ptr noundef %0) local_unnamed_addr #10 {
   tail call void @free(ptr noundef %12) #22
   tail call void @free(ptr noundef nonnull %.02.i) #22
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %destroy_lib_info.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not.i, label %destroy_lib_info.exit, label %.lr.ph.i, !llvm.loop !8
 
 destroy_lib_info.exit:                            ; preds = %10, %1
   %13 = getelementptr i8, ptr %0, i64 40
@@ -214,7 +214,7 @@ destroy_lib_info.exit:                            ; preds = %10, %1
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef nonnull %.02.i8) #22
   %.not.i9 = icmp eq ptr %15, null
-  br i1 %.not.i9, label %destroy_thread_info.exit, label %.lr.ph.i7, !llvm.loop !8
+  br i1 %.not.i9, label %destroy_thread_info.exit, label %.lr.ph.i7, !llvm.loop !10
 
 destroy_thread_info.exit:                         ; preds = %.lr.ph.i7, %destroy_lib_info.exit
   tail call void @free(ptr noundef nonnull %0) #22
@@ -401,7 +401,7 @@ define hidden noundef ptr @add_lib_info_fd(ptr noundef captures(none) %0, ptr no
   %98 = load i16, ptr %54, align 8
   %99 = zext i16 %98 to i32
   %100 = icmp samesign ult i32 %96, %99
-  br i1 %100, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
+  br i1 %100, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %95, %50
   call void @free(ptr noundef %45) #22
@@ -525,7 +525,7 @@ define hidden range(i32 0, 2) i32 @read_eh_frame(ptr readnone captures(none) %0,
   %42 = add nuw nsw i32 %.028, 1
   %43 = getelementptr inbounds nuw i8, ptr %.02527, i64 64
   %exitcond.not = icmp eq i32 %42, %21
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %41, %2, %27
   call void @free(ptr noundef %18) #22
@@ -588,7 +588,7 @@ define hidden i64 @lookup_symbol(ptr noundef readonly captures(none) %0, ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %.01118, i64 4432
   %.011 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %11, %3
   tail call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.11, ptr noundef %2, ptr noundef %1)
@@ -631,7 +631,7 @@ define hidden ptr @symbol_for_pc(ptr noundef readonly captures(none) %0, i64 nou
   %14 = getelementptr inbounds nuw i8, ptr %.022, i64 4432
   %.0 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %10, %13, %3
   %.012 = phi ptr [ null, %3 ], [ null, %13 ], [ %12, %10 ]
@@ -691,7 +691,7 @@ define hidden void @delete_thread_info(ptr noundef captures(none) %0, ptr nounde
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %10, %1
   %13 = and i1 %11, %12
-  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %14 = icmp eq ptr %10, null
@@ -750,7 +750,7 @@ define hidden i32 @get_lwp_id(ptr noundef readonly captures(none) %0, i32 nounde
   %9 = getelementptr inbounds nuw i8, ptr %.013, i64 224
   %.0 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %7, %2, %5
   %.08 = phi i32 [ %6, %5 ], [ -1, %2 ], [ -1, %7 ]
@@ -791,7 +791,7 @@ define hidden ptr @get_lib_name(ptr noundef readonly captures(none) %0, i32 noun
   %.not = icmp eq ptr %.0, null
   %7 = icmp eq i32 %5, %1
   %or.cond = select i1 %.not, i1 true, i1 %7
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %.09, %2 ], [ %.0, %.lr.ph ]
@@ -821,7 +821,7 @@ define hidden i64 @get_lib_base(ptr noundef readonly captures(none) %0, i32 noun
   %10 = getelementptr inbounds nuw i8, ptr %.013, i64 4432
   %.0 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 .loopexit:                                        ; preds = %8, %2, %5
   %.08 = phi i64 [ %7, %5 ], [ 0, %2 ], [ 0, %8 ]
@@ -856,7 +856,7 @@ define hidden void @get_lib_addr_range(ptr noundef readonly captures(none) %0, i
   %15 = getelementptr inbounds nuw i8, ptr %.015, i64 4432
   %.0 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit:                                        ; preds = %13, %4, %7
   ret void
@@ -873,7 +873,7 @@ define hidden range(i32 0, 2) i32 @find_lib(ptr noundef readonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %.08, i64 4432
   %.0 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %2, %4
   %.08 = phi ptr [ %.0, %4 ], [ %.06, %2 ]
@@ -910,7 +910,7 @@ define hidden ptr @find_lib_by_address(ptr noundef readonly captures(none) %0, i
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 4432
   %.0 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %6, %10, %2
   %.0.lcssa = phi ptr [ null, %2 ], [ null, %10 ], [ %.013, %6 ]
@@ -949,7 +949,7 @@ define range(i32 0, 6) i32 @ps_pglobal_lookup(ptr noundef readonly captures(none
   %13 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 4432
   %.011.i = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %.011.i, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
 
 lookup_symbol.exit:                               ; preds = %8
   %14 = inttoptr i64 %11 to ptr
@@ -1067,16 +1067,18 @@ attributes #26 = { nounwind allocsize(0,1) }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}
+!13 = distinct !{!13, !9, !7}
+!14 = distinct !{!14, !9, !7}
+!15 = distinct !{!15, !9, !7}
+!16 = distinct !{!16, !9, !7}
+!17 = distinct !{!17, !9, !7}
+!18 = distinct !{!18, !9, !7}
+!19 = distinct !{!19, !9, !7}
+!20 = distinct !{!20, !9, !7}
+!21 = distinct !{!21, !9, !7}

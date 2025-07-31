@@ -102,7 +102,7 @@ define dso_local noundef ptr @Curl_splay(i64 %0, i32 %1, ptr noundef %2) local_u
   %.246 = phi ptr [ %.044, %28 ], [ %.4, %45 ]
   %.2 = phi ptr [ %.249, %28 ], [ %.043, %45 ]
   %.3 = load ptr, ptr %.3.in, align 8, !tbaa !14
-  br label %7
+  br label %7, !llvm.loop !15
 
 49:                                               ; preds = %14, %23, %30, %40, %29
   %.148.ph = phi ptr [ %.047, %29 ], [ %41, %40 ], [ %.047, %30 ], [ %24, %23 ], [ %.047, %14 ]
@@ -149,16 +149,16 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) @Curl_splayinsert.KEY_NOTUSED, i64 16, i1 false), !tbaa.struct !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) @Curl_splayinsert.KEY_NOTUSED, i64 16, i1 false), !tbaa.struct !17
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %15, align 8, !tbaa !18
+  store ptr %6, ptr %15, align 8, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !19
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %17, ptr %18, align 8, !tbaa !19
+  store ptr %17, ptr %18, align 8, !tbaa !21
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %3, ptr %19, align 8, !tbaa !18
-  store ptr %3, ptr %16, align 8, !tbaa !19
+  store ptr %3, ptr %19, align 8, !tbaa !20
+  store ptr %3, ptr %16, align 8, !tbaa !21
   br label %36
 
 20:                                               ; preds = %4
@@ -190,13 +190,13 @@ define dso_local noundef ptr @Curl_splayinsert(i64 %0, i32 %1, ptr noundef %2, p
 
 32:                                               ; preds = %27, %29, %20
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i64 %0, ptr %33, align 8, !tbaa !16
+  store i64 %0, ptr %33, align 8, !tbaa !18
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i32 %1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !17
+  store i32 %1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %3, ptr %34, align 8, !tbaa !18
+  store ptr %3, ptr %34, align 8, !tbaa !20
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %3, ptr %35, align 8, !tbaa !19
+  store ptr %3, ptr %35, align 8, !tbaa !21
   br label %36
 
 36:                                               ; preds = %32, %13
@@ -224,13 +224,13 @@ define dso_local ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noun
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !18
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
   %.not30 = icmp eq ptr %15, %6
   br i1 %.not30, label %26, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !17
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -238,11 +238,11 @@ define dso_local ptr @Curl_splaygetbest(i64 %0, i32 %1, ptr noundef %2, ptr noun
   %21 = load ptr, ptr %6, align 8, !tbaa !4
   store ptr %21, ptr %15, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %23, ptr %24, align 8, !tbaa !19
+  store ptr %23, ptr %24, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %15, ptr %25, align 8, !tbaa !18
+  store ptr %15, ptr %25, align 8, !tbaa !20
   br label %29
 
 26:                                               ; preds = %13
@@ -273,19 +273,19 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !18
+  %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = icmp eq ptr %13, %1
   br i1 %14, label %51, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !19
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %13, ptr %18, align 8, !tbaa !18
-  %19 = load ptr, ptr %12, align 8, !tbaa !18
+  store ptr %13, ptr %18, align 8, !tbaa !20
+  %19 = load ptr, ptr %12, align 8, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store ptr %17, ptr %20, align 8, !tbaa !19
-  store ptr %1, ptr %12, align 8, !tbaa !18
+  store ptr %17, ptr %20, align 8, !tbaa !21
+  store ptr %1, ptr %12, align 8, !tbaa !20
   br label %.sink.split
 
 21:                                               ; preds = %4
@@ -297,14 +297,14 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !18
+  %27 = load ptr, ptr %26, align 8, !tbaa !20
   %.not45 = icmp eq ptr %27, %1
   br i1 %.not45, label %39, label %28
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false), !tbaa.struct !17
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -312,11 +312,11 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
   %34 = load ptr, ptr %24, align 8, !tbaa !4
   store ptr %34, ptr %27, align 8, !tbaa !4
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !19
+  %36 = load ptr, ptr %35, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store ptr %36, ptr %37, align 8, !tbaa !19
+  store ptr %36, ptr %37, align 8, !tbaa !21
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %27, ptr %38, align 8, !tbaa !18
+  store ptr %27, ptr %38, align 8, !tbaa !20
   br label %.sink.split
 
 39:                                               ; preds = %25
@@ -352,14 +352,14 @@ define dso_local range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %0, ptr nound
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @Curl_splayset(ptr noundef writeonly captures(none) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %1, ptr %3, align 8, !tbaa !20
+  store ptr %1, ptr %3, align 8, !tbaa !22
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local ptr @Curl_splayget(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %3 = load ptr, ptr %2, align 8, !tbaa !20
+  %3 = load ptr, ptr %2, align 8, !tbaa !22
   ret ptr %3
 }
 
@@ -392,9 +392,11 @@ attributes #7 = { nounwind }
 !12 = !{!"int", !8, i64 0}
 !13 = !{!5, !6, i64 8}
 !14 = !{!6, !6, i64 0}
-!15 = !{i64 0, i64 8, !16, i64 8, i64 4, !17}
-!16 = !{!11, !11, i64 0}
-!17 = !{!12, !12, i64 0}
-!18 = !{!5, !6, i64 16}
-!19 = !{!5, !6, i64 24}
-!20 = !{!5, !7, i64 48}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{i64 0, i64 8, !18, i64 8, i64 4, !19}
+!18 = !{!11, !11, i64 0}
+!19 = !{!12, !12, i64 0}
+!20 = !{!5, !6, i64 16}
+!21 = !{!5, !6, i64 24}
+!22 = !{!5, !7, i64 48}

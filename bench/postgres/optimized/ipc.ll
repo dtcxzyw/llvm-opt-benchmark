@@ -164,7 +164,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %17 = add i32 %16, -1
   store i32 %17, ptr @before_shmem_exit_index, align 4
   %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   store i32 0, ptr @before_shmem_exit_index, align 4
@@ -197,7 +197,7 @@ define dso_local void @shmem_exit(i32 noundef %0) local_unnamed_addr #4 {
   %34 = add i32 %33, -1
   store i32 %34, ptr @on_shmem_exit_index, align 4
   %35 = icmp sgt i32 %34, -1
-  br i1 %35, label %.lr.ph6, label %._crit_edge7, !llvm.loop !7
+  br i1 %35, label %.lr.ph6, label %._crit_edge7, !llvm.loop !8
 
 ._crit_edge7:                                     ; preds = %.lr.ph6, %23
   store i32 0, ptr @on_shmem_exit_index, align 4
@@ -413,7 +413,8 @@ attributes #10 = { noreturn nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

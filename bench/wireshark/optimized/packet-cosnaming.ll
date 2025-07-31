@@ -289,7 +289,7 @@ start_dissecting.exit31.i:                        ; preds = %56, %54
   tail call void @giop_add_CDR_string(ptr noundef %76, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %8, i32 noundef 12, i32 noundef %78)
   %79 = add nuw i32 %.01.i34.i, 1
   %exitcond.not.i35.i = icmp eq i32 %79, %66
-  br i1 %exitcond.not.i35.i, label %decode_user_exception.exit, label %.lr.ph.i33.i, !llvm.loop !8
+  br i1 %exitcond.not.i35.i, label %decode_user_exception.exit, label %.lr.ph.i33.i, !llvm.loop !9
 
 80:                                               ; preds = %7
   %switch = icmp eq i8 %10, 0
@@ -483,7 +483,7 @@ start_dissecting.exit318:                         ; preds = %process_RequestOper
   tail call fastcc void @decode_CosNaming_Binding_st(ptr noundef %0, ptr noundef %174, ptr noundef %3, i1 noundef zeroext %8)
   %175 = add nuw i32 %.01.i, 1
   %exitcond.not.i = icmp eq i32 %175, %164
-  br i1 %exitcond.not.i, label %decode_user_exception.exit, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %decode_user_exception.exit, label %.lr.ph.i, !llvm.loop !10
 
 176:                                              ; preds = %154
   %177 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %131, ptr noundef nonnull @ei_cosnaming_unknown_exception, ptr noundef nonnull @.str.70, i32 noundef %156)
@@ -692,7 +692,7 @@ start_dissecting.exit331:                         ; preds = %process_RequestOper
   tail call fastcc void @decode_CosNaming_Binding_st(ptr noundef %0, ptr noundef %279, ptr noundef %3, i1 noundef zeroext %8)
   %280 = add nuw i32 %.01.i334, 1
   %exitcond.not.i335 = icmp eq i32 %280, %269
-  br i1 %exitcond.not.i335, label %._crit_edge.i, label %.lr.ph.i333, !llvm.loop !10
+  br i1 %exitcond.not.i335, label %._crit_edge.i, label %.lr.ph.i333, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i333, %268
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %.0.i330, ptr noundef %3, i1 noundef zeroext %8, i32 noundef 12)
@@ -874,7 +874,7 @@ start_dissecting.exit348:                         ; preds = %process_RequestOper
   tail call void @giop_add_CDR_string(ptr noundef %363, ptr noundef %0, ptr noundef %3, i1 noundef zeroext %8, i32 noundef 12, i32 noundef %365)
   %366 = add nuw i32 %.01.i351, 1
   %exitcond.not.i352 = icmp eq i32 %366, %353
-  br i1 %exitcond.not.i352, label %decode_user_exception.exit, label %.lr.ph.i350, !llvm.loop !11
+  br i1 %exitcond.not.i352, label %decode_user_exception.exit, label %.lr.ph.i350, !llvm.loop !12
 
 367:                                              ; preds = %start_dissecting.exit348
   %368 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1185,7 +1185,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_unbind(ptr noundef %
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %23)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1238,7 +1238,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_resolve(ptr noundef 
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %23)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1297,7 +1297,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_rebind_context(ptr n
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %23)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -1354,7 +1354,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_bind_context(ptr nou
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %23)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -1411,7 +1411,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_rebind(ptr noundef %
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %23)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -1468,7 +1468,7 @@ define internal fastcc void @decode_CosNaming_NamingContext_bind(ptr noundef %0,
   tail call void @giop_add_CDR_string(ptr noundef %21, ptr noundef %0, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12, i32 noundef %23)
   %24 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %24, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %10
   tail call void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, i1 noundef zeroext %6, i32 noundef 12)
@@ -1565,7 +1565,7 @@ define internal fastcc void @decode_CosNaming_Binding_st(ptr noundef %0, ptr nou
   tail call void @giop_add_CDR_string(ptr noundef %15, ptr noundef %0, ptr noundef %2, i1 noundef zeroext %3, i32 noundef 12, i32 noundef %17)
   %18 = add nuw i32 %.01, 1
   %exitcond.not = icmp eq i32 %18, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %19 = tail call i32 @get_CDR_enum(ptr noundef %0, ptr noundef %2, i1 noundef zeroext %3, i32 noundef 12)
@@ -1591,16 +1591,17 @@ attributes #5 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

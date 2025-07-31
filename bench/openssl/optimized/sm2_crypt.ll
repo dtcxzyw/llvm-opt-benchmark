@@ -338,7 +338,7 @@ is_all_zeros.exit.thread:                         ; preds = %79, %is_all_zeros.e
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %49, i8 0, i64 %48, i1 false)
   %84 = tail call i32 @BN_priv_rand_range_ex(ptr noundef %40, ptr noundef %11, i32 noundef 0, ptr noundef nonnull %36) #5
   %.not = icmp eq i32 %84, 0
-  br i1 %.not, label %._crit_edge, label %60
+  br i1 %.not, label %._crit_edge, label %60, !llvm.loop !21
 
 .preheader:                                       ; preds = %is_all_zeros.exit, %.preheader
   %.0120160 = phi i64 [ %90, %.preheader ], [ 0, %is_all_zeros.exit ]
@@ -350,7 +350,7 @@ is_all_zeros.exit.thread:                         ; preds = %79, %is_all_zeros.e
   store i8 %89, ptr %87, align 1, !tbaa !17
   %90 = add nuw i64 %.0120160, 1
   %.not149 = icmp eq i64 %90, %3
-  br i1 %.not149, label %91, label %.preheader, !llvm.loop !20
+  br i1 %.not149, label %91, label %.preheader, !llvm.loop !22
 
 91:                                               ; preds = %.preheader
   %92 = tail call ptr @EVP_MD_get0_name(ptr noundef %1) #5
@@ -396,11 +396,11 @@ is_all_zeros.exit.thread:                         ; preds = %79, %is_all_zeros.e
   br label %131
 
 112:                                              ; preds = %108
-  store ptr %41, ptr %8, align 8, !tbaa !21
+  store ptr %41, ptr %8, align 8, !tbaa !23
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %43, ptr %113, align 8, !tbaa !22
+  store ptr %43, ptr %113, align 8, !tbaa !24
   %114 = tail call ptr @ASN1_OCTET_STRING_new() #5
-  store ptr %114, ptr %17, align 8, !tbaa !23
+  store ptr %114, ptr %17, align 8, !tbaa !25
   %115 = tail call ptr @ASN1_OCTET_STRING_new() #5
   store ptr %115, ptr %16, align 8, !tbaa !8
   %116 = icmp eq ptr %114, null
@@ -459,7 +459,7 @@ is_all_zeros.exit.thread:                         ; preds = %79, %is_all_zeros.e
   call void @EVP_MD_free(ptr noundef %.0121) #5
   %132 = load ptr, ptr %16, align 8, !tbaa !8
   call void @ASN1_OCTET_STRING_free(ptr noundef %132) #5
-  %133 = load ptr, ptr %17, align 8, !tbaa !23
+  %133 = load ptr, ptr %17, align 8, !tbaa !25
   call void @ASN1_OCTET_STRING_free(ptr noundef %133) #5
   call void @CRYPTO_free(ptr noundef %.0125, ptr noundef nonnull @.str.1, i32 noundef 265) #5
   call void @CRYPTO_free(ptr noundef %.0124, ptr noundef nonnull @.str.1, i32 noundef 266) #5
@@ -566,7 +566,7 @@ ec_field_size.exit:                               ; preds = %6, %11
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %27 = load ptr, ptr %26, align 8, !tbaa !23
+  %27 = load ptr, ptr %26, align 8, !tbaa !25
   %28 = load i32, ptr %27, align 8, !tbaa !12
   %.not = icmp eq i32 %28, %16
   br i1 %.not, label %29, label %.sink.split
@@ -575,9 +575,9 @@ ec_field_size.exit:                               ; preds = %6, %11
   %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %31 = load ptr, ptr %30, align 8, !tbaa !8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %35 = load ptr, ptr %34, align 8, !tbaa !26
   %36 = load i32, ptr %31, align 8, !tbaa !12
   %37 = load i64, ptr %5, align 8, !tbaa !16
   %38 = sext i32 %36 to i64
@@ -615,9 +615,9 @@ ec_field_size.exit:                               ; preds = %6, %11
   br i1 %58, label %.sink.split, label %59
 
 59:                                               ; preds = %56
-  %60 = load ptr, ptr %23, align 8, !tbaa !21
+  %60 = load ptr, ptr %23, align 8, !tbaa !23
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !22
+  %62 = load ptr, ptr %61, align 8, !tbaa !24
   %63 = call i32 @EC_POINT_set_affine_coordinates(ptr noundef %8, ptr noundef nonnull %57, ptr noundef %60, ptr noundef %62, ptr noundef nonnull %41) #5
   %.not129 = icmp eq i32 %63, 0
   br i1 %.not129, label %.sink.split, label %64
@@ -683,7 +683,7 @@ is_all_zeros.exit:                                ; preds = %.lr.ph.i
   store i8 %89, ptr %90, align 1, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not134 = icmp eq i64 %indvars.iv.next, %84
-  br i1 %.not134, label %91, label %.preheader, !llvm.loop !25
+  br i1 %.not134, label %91, label %.preheader, !llvm.loop !27
 
 91:                                               ; preds = %.preheader
   %92 = call ptr @EVP_MD_CTX_new() #5
@@ -811,11 +811,13 @@ attributes #5 = { nounwind }
 !15 = !{!"long", !6, i64 0}
 !16 = !{!15, !15, i64 0}
 !17 = !{!6, !6, i64 0}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = distinct !{!20, !19}
-!21 = !{!9, !10, i64 0}
-!22 = !{!9, !10, i64 8}
-!23 = !{!9, !11, i64 16}
-!24 = !{!13, !4, i64 8}
-!25 = distinct !{!25, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = distinct !{!21, !20}
+!22 = distinct !{!22, !19, !20}
+!23 = !{!9, !10, i64 0}
+!24 = !{!9, !10, i64 8}
+!25 = !{!9, !11, i64 16}
+!26 = !{!13, !4, i64 8}
+!27 = distinct !{!27, !19, !20}

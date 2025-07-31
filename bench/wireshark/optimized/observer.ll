@@ -362,7 +362,7 @@ skip_to_next_packet.exit:                         ; preds = %25, %26
   %32 = load ptr, ptr %0, align 8
   %33 = call fastcc i32 @read_packet_header(ptr noundef %0, ptr noundef %32, ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3)
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %skip_to_next_packet.exit30, label %15
+  br i1 %34, label %skip_to_next_packet.exit30, label %15, !llvm.loop !9
 
 35:                                               ; preds = %15
   %36 = call fastcc zeroext i1 @process_packet_header(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -620,7 +620,7 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
 16:                                               ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 48
-  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not, label %17, label %.preheader, !llvm.loop !10
 
 17:                                               ; preds = %16
   store i32 0, ptr %4, align 4
@@ -780,7 +780,7 @@ define internal fastcc i32 @read_packet_header(ptr noundef readonly captures(non
   %82 = load i8, ptr %30, align 2
   %83 = zext i8 %82 to i32
   %84 = icmp samesign ult i32 %81, %83
-  br i1 %84, label %44, label %.critedge, !llvm.loop !9
+  br i1 %84, label %44, label %.critedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %79, %77, %58, %44, %29, %50, %56, %10, %.thread, %17
   %.0 = phi i32 [ 0, %17 ], [ -1, %.thread ], [ %., %10 ], [ -1, %56 ], [ -1, %50 ], [ 48, %29 ], [ %80, %79 ], [ -1, %77 ], [ -1, %58 ], [ -1, %44 ]
@@ -1257,7 +1257,9 @@ attributes #16 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

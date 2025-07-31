@@ -204,7 +204,7 @@ get_weights.exit:                                 ; preds = %83, %85, %90
   %96 = getelementptr inbounds nuw i8, ptr %.01932, i64 120
   %.019 = load ptr, ptr %96, align 8, !tbaa !16
   %.not = icmp eq ptr %.019, %15
-  br i1 %.not, label %.loopexit, label %.lr.ph34.split, !llvm.loop !41
+  br i1 %.not, label %.loopexit, label %.lr.ph34.split, !llvm.loop !42
 
 .loopexit:                                        ; preds = %._crit_edge, %.lr.ph34, %14, %2
   ret ptr %12
@@ -281,7 +281,8 @@ attributes #6 = { nounwind }
 !36 = !{!"p2 int", !11, i64 0}
 !37 = !{!38, !38, i64 0}
 !38 = !{!"p1 int", !11, i64 0}
-!39 = distinct !{!39, !40}
+!39 = distinct !{!39, !40, !41}
 !40 = !{!"llvm.loop.mustprogress"}
-!41 = distinct !{!41, !40, !42}
-!42 = !{!"llvm.loop.unswitch.partial.disable"}
+!41 = !{!"llvm.loop.estimated_trip_count"}
+!42 = distinct !{!42, !40, !41, !43}
+!43 = !{!"llvm.loop.unswitch.partial.disable"}

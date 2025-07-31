@@ -170,7 +170,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %27
 86:                                               ; preds = %.lr.ph.i21
   %indvars.iv.next.i23 = add nuw nsw i64 %indvars.iv.i22, 1
   %exitcond.not.i24 = icmp eq i64 %indvars.iv.next.i23, %82
-  br i1 %exitcond.not.i24, label %.critedge.i, label %.lr.ph.i21, !llvm.loop !8
+  br i1 %exitcond.not.i24, label %.critedge.i, label %.lr.ph.i21, !llvm.loop !9
 
 87:                                               ; preds = %75
   %88 = add nsw i64 %indvars.iv115.i, -1
@@ -189,7 +189,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %27
   %95 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %43, i64 %94, i32 2
   %96 = load i32, ptr %95, align 4
   %.not95.i = icmp ult i32 %96, %90
-  br i1 %.not95.i, label %.critedge.loopexit.split.loop.exit.i, label %92, !llvm.loop !9
+  br i1 %.not95.i, label %.critedge.loopexit.split.loop.exit.i, label %92, !llvm.loop !10
 
 .critedge.loopexit.split.loop.exit.i:             ; preds = %93
   %97 = trunc nuw i64 %indvars.iv112.i to i32
@@ -242,7 +242,7 @@ _ZL22buffer_verify_monotoneP11hb_buffer_tP9hb_font_t.exit: ; preds = %27
   %114 = add i32 %113, 1
   %115 = zext i32 %114 to i64
   %116 = icmp samesign ult i64 %indvars.iv.next116.i, %115
-  br i1 %116, label %54, label %._crit_edge.i, !llvm.loop !10
+  br i1 %116, label %54, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %112, %35
   %117 = getelementptr inbounds nuw i8, ptr %39, i64 80
@@ -383,7 +383,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
 179:                                              ; preds = %.lr.ph.i32
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %175
-  br i1 %exitcond.not.i36, label %.critedge.i27, label %.lr.ph.i32, !llvm.loop !11
+  br i1 %exitcond.not.i36, label %.critedge.i27, label %.lr.ph.i32, !llvm.loop !12
 
 .critedge.loopexit.split.loop.exit.i34:           ; preds = %.lr.ph.i32
   %180 = trunc nuw i64 %indvars.iv.i33 to i32
@@ -408,7 +408,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %187 = add i32 %186, 1
   %188 = zext i32 %187 to i64
   %189 = icmp samesign ult i64 %indvars.iv.next127.i, %188
-  br i1 %189, label %.lr.ph112.i, label %._crit_edge.i26, !llvm.loop !12
+  br i1 %189, label %.lr.ph112.i, label %._crit_edge.i26, !llvm.loop !13
 
 ._crit_edge.i26:                                  ; preds = %185, %146
   %190 = call i32 @hb_shape_full(ptr noundef %2, ptr noundef %131, ptr noundef %3, i32 noundef %4, ptr noundef %5)
@@ -512,7 +512,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next133.i to i32
   %exitcond135.not.i = icmp eq i32 %223, %lftr.wideiv.i
-  br i1 %exitcond135.not.i, label %.critedge2.i, label %228, !llvm.loop !13
+  br i1 %exitcond135.not.i, label %.critedge2.i, label %228, !llvm.loop !14
 
 .critedge2.i:                                     ; preds = %.critedge4.i, %236, %.lr.ph123.i
   %.0.lcssa.i = phi i32 [ %.0114.i, %.lr.ph123.i ], [ %240, %236 ], [ %223, %.critedge4.i ]
@@ -528,7 +528,7 @@ _ZL29buffer_verify_unsafe_to_breakP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tjP
   %248 = load i32, ptr %indvars.iv129.i.sroa.gep62, align 4
   %249 = icmp ult i32 %247, %248
   %250 = select i1 %246, i1 true, i1 %249
-  br i1 %250, label %.lr.ph123.i, label %._crit_edge124.i, !llvm.loop !14
+  br i1 %250, label %.lr.ph123.i, label %._crit_edge124.i, !llvm.loop !15
 
 ._crit_edge124.i:                                 ; preds = %.critedge2.i, %.preheader.i.critedge
   br i1 %144, label %252, label %251
@@ -601,7 +601,7 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %267 = add nuw i32 %.153.i.i, 8
   %268 = add nuw i32 %267, %266
   %269 = icmp ugt i32 %265, %268
-  br i1 %269, label %.preheader.i.i, label %.thread39.i.i, !llvm.loop !15
+  br i1 %269, label %.preheader.i.i, label %.thread39.i.i, !llvm.loop !16
 
 .thread39.i.i:                                    ; preds = %.preheader.i.i
   %270 = zext i32 %268 to i64
@@ -764,13 +764,14 @@ attributes #12 = { cold nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

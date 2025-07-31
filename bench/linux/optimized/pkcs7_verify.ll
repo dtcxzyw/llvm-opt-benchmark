@@ -382,7 +382,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr noundef readonl
   store i8 0, ptr %83, align 4
   %84 = load ptr, ptr %82, align 8
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.loopexit27, label %.preheader26, !llvm.loop !10
+  br i1 %85, label %.loopexit27, label %.preheader26, !llvm.loop !11
 
 .loopexit25:                                      ; preds = %165, %.loopexit27
   %86 = phi ptr [ %75, %.loopexit27 ], [ %148, %165 ]
@@ -399,7 +399,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr noundef readonl
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, %86
-  br i1 %94, label %.loopexit18, label %.preheader21, !llvm.loop !11
+  br i1 %94, label %.loopexit18, label %.preheader21, !llvm.loop !12
 
 .preheader23:                                     ; preds = %.loopexit27, %165
   %95 = phi ptr [ %148, %165 ], [ %75, %.loopexit27 ]
@@ -438,7 +438,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr noundef readonl
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %117 = load ptr, ptr %116, align 8
   %118 = tail call zeroext i1 @asymmetric_key_id_same(ptr noundef %117, ptr noundef nonnull %98) #7
-  br i1 %118, label %133, label %.preheader19, !llvm.loop !12
+  br i1 %118, label %133, label %.preheader19, !llvm.loop !13
 
 119:                                              ; preds = %110
   %120 = icmp eq ptr %100, null
@@ -463,7 +463,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr noundef readonl
 130:                                              ; preds = %128, %.preheader
   %131 = load ptr, ptr %124, align 8
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %.loopexit18, label %.preheader, !llvm.loop !13
+  br i1 %132, label %.loopexit18, label %.preheader, !llvm.loop !14
 
 133:                                              ; preds = %115
   %134 = load ptr, ptr %99, align 8
@@ -519,7 +519,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr noundef readonl
   %167 = getelementptr inbounds nuw i8, ptr %148, i64 160
   %168 = load i8, ptr %167, align 8, !range !5, !noundef !6
   %169 = icmp eq i8 %168, 0
-  br i1 %169, label %.preheader23, label %.loopexit25, !llvm.loop !14
+  br i1 %169, label %.preheader23, label %.loopexit25, !llvm.loop !15
 
 .loopexit18:                                      ; preds = %162, %156, %121, %119, %.preheader21, %.preheader19, %130, %152, %140, %108, %104, %.loopexit25, %68, %66, %.loopexit28, %.preheader29
   %170 = phi i32 [ -129, %66 ], [ %33, %.preheader29 ], [ 0, %.loopexit28 ], [ %72, %68 ], [ 0, %108 ], [ 0, %152 ], [ -129, %140 ], [ 0, %104 ], [ 0, %.loopexit25 ], [ 0, %130 ], [ 0, %.preheader19 ], [ 0, %.preheader21 ], [ 0, %121 ], [ 0, %162 ], [ %160, %156 ], [ 0, %119 ]
@@ -550,7 +550,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pkcs7_verify(ptr noundef readonl
   %184 = phi i32 [ %176, %174 ], [ %32, %181 ], [ 0, %177 ]
   %185 = load ptr, ptr %31, align 8
   %186 = icmp eq ptr %185, null
-  br i1 %186, label %.loopexit30, label %.preheader29, !llvm.loop !15
+  br i1 %186, label %.loopexit30, label %.preheader29, !llvm.loop !16
 
 187:                                              ; preds = %23, %19, %15, %11, %7, %3
   %188 = phi ptr [ @.str, %3 ], [ @.str.1, %7 ], [ @.str.2, %11 ], [ @.str.3, %15 ], [ @.str.4, %19 ], [ @.str.5, %23 ]
@@ -643,12 +643,13 @@ attributes #9 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !8, !9, !10}

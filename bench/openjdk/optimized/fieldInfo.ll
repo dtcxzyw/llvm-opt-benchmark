@@ -138,7 +138,7 @@ define hidden noundef ptr @_ZN15FieldInfoStream22create_FieldInfoStreamEP13Growa
   %21 = icmp ule i32 %1, %20
   %22 = icmp eq i32 %18, 4
   %or.cond.i.i = select i1 %21, i1 true, i1 %22
-  br i1 %or.cond.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %or.cond.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit:       ; preds = %5, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i32 [ 1, %5 ], [ %14, %._crit_edge.loopexit.i.i ]
@@ -162,7 +162,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit:       ; preds = %5, %._crit_edge.loo
   %31 = icmp ule i32 %2, %30
   %32 = icmp eq i32 %28, 4
   %or.cond.i.i26 = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond.i.i26, label %._crit_edge.loopexit.i.i27, label %.lr.ph.i.i22, !llvm.loop !8
+  br i1 %or.cond.i.i26, label %._crit_edge.loopexit.i.i27, label %.lr.ph.i.i22, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit29:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit, %._crit_edge.loopexit.i.i27
   %.0.lcssa.i.i28 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ], [ %24, %._crit_edge.loopexit.i.i27 ]
@@ -186,7 +186,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit29:     ; preds = %_ZN9UNSIGNED55Sizer
   %40 = load i32, ptr %0, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %37, label %._crit_edge.loopexit, !llvm.loop !9
+  br i1 %42, label %37, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %37
   %.pre = load ptr, ptr %7, align 8
@@ -246,7 +246,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %65 = icmp ult i32 %61, 12224
   %66 = icmp eq i64 %indvars.iv.next.i.i, 4
   %or.cond.i.i30 = select i1 %65, i1 true, i1 %66
-  br i1 %or.cond.i.i30, label %58, label %60, !llvm.loop !10
+  br i1 %or.cond.i.i30, label %58, label %60, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit: ; preds = %53, %58
   %.sink36.i.i = phi i32 [ %59, %58 ], [ 0, %53 ]
@@ -283,7 +283,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit: ; pred
   %79 = icmp ult i32 %75, 12224
   %80 = icmp eq i64 %indvars.iv.next.i.i36, 4
   %or.cond.i.i37 = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond.i.i37, label %71, label %74, !llvm.loop !10
+  br i1 %or.cond.i.i37, label %71, label %74, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit43: ; preds = %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit, %71
   %.sink36.i.i38 = phi i32 [ %73, %71 ], [ %storemerge.i.i, %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit ]
@@ -312,7 +312,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit43: ; pr
   %89 = load i32, ptr %0, align 4
   %90 = sext i32 %89 to i64
   %91 = icmp slt i64 %indvars.iv.next52, %90
-  br i1 %91, label %86, label %._crit_edge48.loopexit, !llvm.loop !11
+  br i1 %91, label %86, label %._crit_edge48.loopexit, !llvm.loop !12
 
 ._crit_edge48.loopexit:                           ; preds = %86
   %.pre55 = load ptr, ptr %8, align 8
@@ -353,7 +353,7 @@ define linkonce_odr hidden void @_ZN6MapperIN9UNSIGNED55SizerIiEEE14map_field_in
   %18 = icmp uge i32 %17, %9
   %19 = icmp eq i32 %15, 4
   %or.cond.i.i = select i1 %18, i1 true, i1 %19
-  br i1 %or.cond.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %or.cond.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit:       ; preds = %2, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i32 [ 1, %2 ], [ %11, %._crit_edge.loopexit.i.i ]
@@ -388,7 +388,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit:       ; preds = %2, %._crit_edge.loo
   %37 = icmp uge i32 %36, %28
   %38 = icmp eq i32 %34, 4
   %or.cond.i.i17 = select i1 %37, i1 true, i1 %38
-  br i1 %or.cond.i.i17, label %._crit_edge.loopexit.i.i18, label %.lr.ph.i.i13, !llvm.loop !8
+  br i1 %or.cond.i.i17, label %._crit_edge.loopexit.i.i18, label %.lr.ph.i.i13, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit, %._crit_edge.loopexit.i.i18
   %.0.lcssa.i.i19 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit ], [ %30, %._crit_edge.loopexit.i.i18 ]
@@ -422,7 +422,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20:     ; preds = %_ZN9UNSIGNED55Sizer
   %55 = icmp ule i32 %46, %54
   %56 = icmp eq i32 %52, 4
   %or.cond.i.i25 = select i1 %55, i1 true, i1 %56
-  br i1 %or.cond.i.i25, label %._crit_edge.loopexit.i.i26, label %.lr.ph.i.i21, !llvm.loop !8
+  br i1 %or.cond.i.i25, label %._crit_edge.loopexit.i.i26, label %.lr.ph.i.i21, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20, %._crit_edge.loopexit.i.i26
   %.0.lcssa.i.i27 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit20 ], [ %48, %._crit_edge.loopexit.i.i26 ]
@@ -456,7 +456,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28:     ; preds = %_ZN9UNSIGNED55Sizer
   %72 = icmp ule i32 %.sroa.0.0.copyload.i, %71
   %73 = icmp eq i32 %69, 4
   %or.cond.i.i33 = select i1 %72, i1 true, i1 %73
-  br i1 %or.cond.i.i33, label %._crit_edge.loopexit.i.i34, label %.lr.ph.i.i29, !llvm.loop !8
+  br i1 %or.cond.i.i33, label %._crit_edge.loopexit.i.i34, label %.lr.ph.i.i29, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28, %._crit_edge.loopexit.i.i34
   %.0.lcssa.i.i35 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit28 ], [ %65, %._crit_edge.loopexit.i.i34 ]
@@ -490,7 +490,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36:     ; preds = %_ZN9UNSIGNED55Sizer
   %89 = icmp ule i32 %.sroa.0.0.copyload.i37, %88
   %90 = icmp eq i32 %86, 4
   %or.cond.i.i42 = select i1 %89, i1 true, i1 %90
-  br i1 %or.cond.i.i42, label %._crit_edge.loopexit.i.i43, label %.lr.ph.i.i38, !llvm.loop !8
+  br i1 %or.cond.i.i42, label %._crit_edge.loopexit.i.i43, label %.lr.ph.i.i38, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45:     ; preds = %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36, %._crit_edge.loopexit.i.i43
   %.0.lcssa.i.i44 = phi i32 [ 1, %_ZN9UNSIGNED55SizerIiE11accept_uintEj.exit36 ], [ %82, %._crit_edge.loopexit.i.i43 ]
@@ -536,7 +536,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit45:     ; preds = %_ZN9UNSIGNED55Sizer
   %112 = icmp uge i32 %111, %103
   %113 = icmp eq i32 %109, 4
   %or.cond.i.i52 = select i1 %112, i1 true, i1 %113
-  br i1 %or.cond.i.i52, label %._crit_edge.loopexit.i.i53, label %.lr.ph.i.i48, !llvm.loop !8
+  br i1 %or.cond.i.i52, label %._crit_edge.loopexit.i.i53, label %.lr.ph.i.i48, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55:     ; preds = %99, %._crit_edge.loopexit.i.i53
   %.0.lcssa.i.i54 = phi i32 [ 1, %99 ], [ %105, %._crit_edge.loopexit.i.i53 ]
@@ -581,7 +581,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit55:     ; preds = %99, %._crit_edge.lo
   %134 = icmp uge i32 %133, %125
   %135 = icmp eq i32 %131, 4
   %or.cond.i.i61 = select i1 %134, i1 true, i1 %135
-  br i1 %or.cond.i.i61, label %._crit_edge.loopexit.i.i62, label %.lr.ph.i.i57, !llvm.loop !8
+  br i1 %or.cond.i.i61, label %._crit_edge.loopexit.i.i62, label %.lr.ph.i.i57, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64:     ; preds = %121, %._crit_edge.loopexit.i.i62
   %.0.lcssa.i.i63 = phi i32 [ 1, %121 ], [ %127, %._crit_edge.loopexit.i.i62 ]
@@ -626,7 +626,7 @@ _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit64:     ; preds = %121, %._crit_edge.l
   %156 = icmp uge i32 %155, %147
   %157 = icmp eq i32 %153, 4
   %or.cond.i.i70 = select i1 %156, i1 true, i1 %157
-  br i1 %or.cond.i.i70, label %._crit_edge.loopexit.i.i71, label %.lr.ph.i.i66, !llvm.loop !8
+  br i1 %or.cond.i.i70, label %._crit_edge.loopexit.i.i71, label %.lr.ph.i.i66, !llvm.loop !9
 
 _ZN9UNSIGNED55SizerIiE11accept_uintEj.exit73:     ; preds = %143, %._crit_edge.loopexit.i.i71
   %.0.lcssa.i.i72 = phi i32 [ 1, %143 ], [ %149, %._crit_edge.loopexit.i.i71 ]
@@ -684,7 +684,7 @@ define linkonce_odr hidden void @_ZN6MapperIN9UNSIGNED56WriterIP5ArrayIhEi11Arra
   %25 = icmp ult i32 %21, 12224
   %26 = icmp eq i64 %indvars.iv.next.i.i, 4
   %or.cond.i.i = select i1 %25, i1 true, i1 %26
-  br i1 %or.cond.i.i, label %17, label %20, !llvm.loop !10
+  br i1 %or.cond.i.i, label %17, label %20, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit: ; preds = %2, %17
   %.sink36.i.i = phi i32 [ %19, %17 ], [ %13, %2 ]
@@ -732,7 +732,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit: ; pred
   %49 = icmp ult i32 %45, 12224
   %50 = icmp eq i64 %indvars.iv.next.i.i18, 4
   %or.cond.i.i19 = select i1 %49, i1 true, i1 %50
-  br i1 %or.cond.i.i19, label %41, label %44, !llvm.loop !10
+  br i1 %or.cond.i.i19, label %41, label %44, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit25: ; preds = %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit, %41
   %.sink36.i.i20 = phi i32 [ %43, %41 ], [ %37, %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit ]
@@ -779,7 +779,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit25: ; pr
   %72 = icmp ult i32 %68, 12224
   %73 = icmp eq i64 %indvars.iv.next.i.i31, 4
   %or.cond.i.i32 = select i1 %72, i1 true, i1 %73
-  br i1 %or.cond.i.i32, label %64, label %67, !llvm.loop !10
+  br i1 %or.cond.i.i32, label %64, label %67, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit38: ; preds = %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit25, %64
   %.sink36.i.i33 = phi i32 [ %66, %64 ], [ %60, %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit25 ]
@@ -826,7 +826,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit38: ; pr
   %94 = icmp ult i32 %90, 12224
   %95 = icmp eq i64 %indvars.iv.next.i.i44, 4
   %or.cond.i.i45 = select i1 %94, i1 true, i1 %95
-  br i1 %or.cond.i.i45, label %86, label %89, !llvm.loop !10
+  br i1 %or.cond.i.i45, label %86, label %89, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit51: ; preds = %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit38, %86
   %.sink36.i.i46 = phi i32 [ %88, %86 ], [ %82, %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit38 ]
@@ -873,7 +873,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit51: ; pr
   %116 = icmp ult i32 %112, 12224
   %117 = icmp eq i64 %indvars.iv.next.i.i58, 4
   %or.cond.i.i59 = select i1 %116, i1 true, i1 %117
-  br i1 %or.cond.i.i59, label %108, label %111, !llvm.loop !10
+  br i1 %or.cond.i.i59, label %108, label %111, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit65: ; preds = %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit51, %108
   %.sink36.i.i60 = phi i32 [ %110, %108 ], [ %104, %_ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit51 ]
@@ -932,7 +932,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit65: ; pr
   %144 = icmp ult i32 %140, 12224
   %145 = icmp eq i64 %indvars.iv.next.i.i73, 4
   %or.cond.i.i74 = select i1 %144, i1 true, i1 %145
-  br i1 %or.cond.i.i74, label %136, label %139, !llvm.loop !10
+  br i1 %or.cond.i.i74, label %136, label %139, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit80: ; preds = %124, %136
   %.sink36.i.i75 = phi i32 [ %138, %136 ], [ %132, %124 ]
@@ -990,7 +990,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit80: ; pr
   %171 = icmp ult i32 %167, 12224
   %172 = icmp eq i64 %indvars.iv.next.i.i87, 4
   %or.cond.i.i88 = select i1 %171, i1 true, i1 %172
-  br i1 %or.cond.i.i88, label %163, label %166, !llvm.loop !10
+  br i1 %or.cond.i.i88, label %163, label %166, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit94: ; preds = %151, %163
   %.sink36.i.i89 = phi i32 [ %165, %163 ], [ %159, %151 ]
@@ -1048,7 +1048,7 @@ _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit94: ; pr
   %198 = icmp ult i32 %194, 12224
   %199 = icmp eq i64 %indvars.iv.next.i.i101, 4
   %or.cond.i.i102 = select i1 %198, i1 true, i1 %199
-  br i1 %or.cond.i.i102, label %190, label %193, !llvm.loop !10
+  br i1 %or.cond.i.i102, label %190, label %193, !llvm.loop !11
 
 _ZN9UNSIGNED56WriterIP5ArrayIhEi11ArrayHelperIS3_iEE11accept_uintEj.exit108: ; preds = %178, %190
   %.sink36.i.i103 = phi i32 [ %192, %190 ], [ %186, %178 ]
@@ -1103,7 +1103,7 @@ define hidden noundef ptr @_ZN15FieldInfoStream21create_FieldInfoArrayEPK5ArrayI
   %26 = icmp ult i8 %21, -64
   %27 = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
   %or.cond.i.i.i.i = or i1 %27, %26
-  br i1 %or.cond.i.i.i.i, label %.loopexit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
+  br i1 %or.cond.i.i.i.i, label %.loopexit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i
   %28 = shl i64 %indvars.iv.i.i.i.i, 32
@@ -1146,7 +1146,7 @@ _ZN15FieldInfoReader9next_uintEv.exit.i:          ; preds = %.loopexit.loopexit.
   %49 = icmp ult i8 %44, -64
   %50 = icmp eq i64 %indvars.iv.next.i.i.i5.i, 4
   %or.cond.i.i.i6.i = or i1 %50, %49
-  br i1 %or.cond.i.i.i6.i, label %_ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit, label %.lr.ph.i.i.i2.i, !llvm.loop !12
+  br i1 %or.cond.i.i.i6.i, label %_ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit, label %.lr.ph.i.i.i2.i, !llvm.loop !13
 
 _ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit: ; preds = %.lr.ph.i.i.i2.i, %_ZN15FieldInfoReader9next_uintEv.exit.i, %.preheader.i.i.i1.i
   %.0.i.i.i9.i = phi i32 [ %33, %_ZN15FieldInfoReader9next_uintEv.exit.i ], [ %40, %.preheader.i.i.i1.i ], [ %48, %.lr.ph.i.i.i2.i ]
@@ -1171,7 +1171,7 @@ _ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit: ; preds = %.lr.ph.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %57, i8 0, i64 22, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI9FieldInfoEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI9FieldInfoEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !14
 
 _ZN13GrowableArrayI9FieldInfoEC2Ei.exit:          ; preds = %.lr.ph.i.i, %_ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
@@ -1213,7 +1213,7 @@ _ZN13GrowableArrayI9FieldInfoEC2Ei.exit:          ; preds = %.lr.ph.i.i, %_ZN15F
   %81 = icmp ult i8 %76, -64
   %82 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = or i1 %82, %81
-  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %83 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
@@ -1260,7 +1260,7 @@ _ZN15FieldInfoReader9next_uintEv.exit:            ; preds = %_ZN13GrowableArrayI
   %109 = icmp ult i8 %104, -64
   %110 = icmp eq i64 %indvars.iv.next.i.i.i10, 4
   %or.cond.i.i.i11 = or i1 %110, %109
-  br i1 %or.cond.i.i.i11, label %.loopexit.loopexit.i.i.i12, label %.lr.ph.i.i.i7, !llvm.loop !12
+  br i1 %or.cond.i.i.i11, label %.loopexit.loopexit.i.i.i12, label %.lr.ph.i.i.i7, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i12:                       ; preds = %.lr.ph.i.i.i7
   %111 = trunc nsw i64 %102 to i32
@@ -1318,7 +1318,7 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   %132 = getelementptr inbounds i8, ptr %116, i64 %131
   %133 = load i8, ptr %132, align 1
   %134 = icmp eq i8 %133, 0
-  br i1 %134, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i, !llvm.loop !14
+  br i1 %134, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i, !llvm.loop !15
 
 .lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i19, %143
   %indvars.iv.i.i.i.i20 = phi i64 [ %indvars.iv.next.i.i.i.i22, %143 ], [ 1, %.lr.ph.i.i.i.i19 ]
@@ -1340,7 +1340,7 @@ _ZN15FieldInfoReader9next_uintEv.exit16:          ; preds = %_ZN15FieldInfoReade
   %144 = trunc nuw nsw i64 %indvars.iv.i.i.i.i20 to i32
   %.reass.i.i.i.i = add i32 %121, %144
   %.not22.i.i.i.i = icmp slt i32 %.reass.i.i.i.i, %114
-  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !16
+  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !17
 
 _ZN15FieldInfoReader8has_nextEv.exit:             ; preds = %113
   %.not31 = icmp eq i8 %119, 0
@@ -1379,7 +1379,7 @@ _ZN26GrowableArrayWithAllocatorI9FieldInfo13GrowableArrayIS0_EE6appendERKS0_.exi
   %.pre = load ptr, ptr %4, align 8
   %.pre46 = load i32, ptr %60, align 4
   %.pre47 = load i32, ptr %59, align 8
-  br label %113, !llvm.loop !17
+  br label %113, !llvm.loop !18
 
 _ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.preheader.i.i.i.i17, %.lr.ph.split.us.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %143, %129
   ret ptr %52
@@ -1431,7 +1431,7 @@ define linkonce_odr hidden void @_ZN15FieldInfoReader15read_field_infoER9FieldIn
   %33 = icmp ult i8 %28, -64
   %34 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = or i1 %34, %33
-  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %35 = trunc nsw i64 %26 to i32
@@ -1483,7 +1483,7 @@ _ZN15FieldInfoReader9next_uintEv.exit:            ; preds = %2, %.preheader.i.i.
   %64 = icmp ult i8 %59, -64
   %65 = icmp eq i64 %indvars.iv.next.i.i.i20, 4
   %or.cond.i.i.i21 = or i1 %65, %64
-  br i1 %or.cond.i.i.i21, label %.loopexit.loopexit.i.i.i22, label %.lr.ph.i.i.i17, !llvm.loop !12
+  br i1 %or.cond.i.i.i21, label %.loopexit.loopexit.i.i.i22, label %.lr.ph.i.i.i17, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i22:                       ; preds = %.lr.ph.i.i.i17
   %66 = trunc nsw i64 %57 to i32
@@ -1535,7 +1535,7 @@ _ZN15FieldInfoReader9next_uintEv.exit26:          ; preds = %_ZN15FieldInfoReade
   %95 = icmp ult i8 %90, -64
   %96 = icmp eq i64 %indvars.iv.next.i.i.i31, 4
   %or.cond.i.i.i32 = or i1 %96, %95
-  br i1 %or.cond.i.i.i32, label %.loopexit.loopexit.i.i.i33, label %.lr.ph.i.i.i28, !llvm.loop !12
+  br i1 %or.cond.i.i.i32, label %.loopexit.loopexit.i.i.i33, label %.lr.ph.i.i.i28, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i33:                       ; preds = %.lr.ph.i.i.i28
   %97 = trunc nsw i64 %88 to i32
@@ -1586,7 +1586,7 @@ _ZN15FieldInfoReader9next_uintEv.exit37:          ; preds = %_ZN15FieldInfoReade
   %125 = icmp ult i8 %120, -64
   %126 = icmp eq i64 %indvars.iv.next.i.i.i42, 4
   %or.cond.i.i.i43 = or i1 %126, %125
-  br i1 %or.cond.i.i.i43, label %.loopexit.loopexit.i.i.i44, label %.lr.ph.i.i.i39, !llvm.loop !12
+  br i1 %or.cond.i.i.i43, label %.loopexit.loopexit.i.i.i44, label %.lr.ph.i.i.i39, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i44:                       ; preds = %.lr.ph.i.i.i39
   %127 = trunc nsw i64 %118 to i32
@@ -1637,7 +1637,7 @@ _ZN15FieldInfoReader9next_uintEv.exit48:          ; preds = %_ZN15FieldInfoReade
   %155 = icmp ult i8 %150, -64
   %156 = icmp eq i64 %indvars.iv.next.i.i.i53, 4
   %or.cond.i.i.i54 = or i1 %156, %155
-  br i1 %or.cond.i.i.i54, label %.loopexit.loopexit.i.i.i55, label %.lr.ph.i.i.i50, !llvm.loop !12
+  br i1 %or.cond.i.i.i54, label %.loopexit.loopexit.i.i.i55, label %.lr.ph.i.i.i50, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i55:                       ; preds = %.lr.ph.i.i.i50
   %157 = trunc nsw i64 %148 to i32
@@ -1693,7 +1693,7 @@ _ZN15FieldInfoReader9next_uintEv.exit59:          ; preds = %_ZN15FieldInfoReade
   %187 = icmp ult i8 %182, -64
   %188 = icmp eq i64 %indvars.iv.next.i.i.i64, 4
   %or.cond.i.i.i65 = or i1 %188, %187
-  br i1 %or.cond.i.i.i65, label %.loopexit.loopexit.i.i.i66, label %.lr.ph.i.i.i61, !llvm.loop !12
+  br i1 %or.cond.i.i.i65, label %.loopexit.loopexit.i.i.i66, label %.lr.ph.i.i.i61, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i66:                       ; preds = %.lr.ph.i.i.i61
   %189 = trunc nsw i64 %180 to i32
@@ -1760,7 +1760,7 @@ _ZN15FieldInfoReader9next_uintEv.exit70:          ; preds = %160, %.preheader.i.
   %224 = icmp ult i8 %219, -64
   %225 = icmp eq i64 %indvars.iv.next.i.i.i75, 4
   %or.cond.i.i.i76 = or i1 %225, %224
-  br i1 %or.cond.i.i.i76, label %.loopexit.loopexit.i.i.i77, label %.lr.ph.i.i.i72, !llvm.loop !12
+  br i1 %or.cond.i.i.i76, label %.loopexit.loopexit.i.i.i77, label %.lr.ph.i.i.i72, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i77:                       ; preds = %.lr.ph.i.i.i72
   %226 = trunc nsw i64 %217 to i32
@@ -1827,7 +1827,7 @@ _ZN15FieldInfoReader9next_uintEv.exit81:          ; preds = %197, %.preheader.i.
   %261 = icmp ult i8 %256, -64
   %262 = icmp eq i64 %indvars.iv.next.i.i.i86, 4
   %or.cond.i.i.i87 = or i1 %262, %261
-  br i1 %or.cond.i.i.i87, label %.loopexit.loopexit.i.i.i88, label %.lr.ph.i.i.i83, !llvm.loop !12
+  br i1 %or.cond.i.i.i87, label %.loopexit.loopexit.i.i.i88, label %.lr.ph.i.i.i83, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i88:                       ; preds = %.lr.ph.i.i.i83
   %263 = trunc nsw i64 %254 to i32
@@ -1879,7 +1879,7 @@ _ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit:
   %17 = icmp ult i8 %16, -64
   %18 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = or i1 %18, %17
-  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
+  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %19 = trunc nsw i64 %indvars.iv.next.i.i.i to i32
@@ -1912,7 +1912,7 @@ _ZN15FieldInfoReader9next_uintEv.exit:            ; preds = %_ZN15FieldInfoStrea
   %34 = icmp ult i8 %33, -64
   %35 = icmp eq i64 %indvars.iv.next.i.i.i8, 4
   %or.cond.i.i.i9 = or i1 %35, %34
-  br i1 %or.cond.i.i.i9, label %.loopexit.loopexit.i.i.i10, label %.lr.ph.i.i.i5, !llvm.loop !12
+  br i1 %or.cond.i.i.i9, label %.loopexit.loopexit.i.i.i10, label %.lr.ph.i.i.i5, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i10:                       ; preds = %.lr.ph.i.i.i5
   %36 = trunc nsw i64 %31 to i32
@@ -1976,7 +1976,7 @@ _ZN15FieldInfoReader9next_uintEv.exit14:          ; preds = %_ZN15FieldInfoReade
   %65 = getelementptr inbounds i8, ptr %49, i64 %64
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 0
-  br i1 %67, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i, !llvm.loop !14
+  br i1 %67, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, label %.lr.ph30.i.i.i.i, !llvm.loop !15
 
 .lr.ph.split.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i17, %76
   %indvars.iv.i.i.i.i18 = phi i64 [ %indvars.iv.next.i.i.i.i20, %76 ], [ 1, %.lr.ph.i.i.i.i17 ]
@@ -1998,7 +1998,7 @@ _ZN15FieldInfoReader9next_uintEv.exit14:          ; preds = %_ZN15FieldInfoReade
   %77 = trunc nuw nsw i64 %indvars.iv.i.i.i.i18 to i32
   %.reass.i.i.i.i = add i32 %54, %77
   %.not22.i.i.i.i = icmp slt i32 %.reass.i.i.i.i, %47
-  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !16
+  br i1 %.not22.i.i.i.i, label %.lr.ph.split.i.i.i.i, label %_ZN15FieldInfoReader8has_nextEv.exit.thread, !llvm.loop !17
 
 _ZN15FieldInfoReader8has_nextEv.exit:             ; preds = %46
   %.not27 = icmp eq i8 %52, 0
@@ -2051,7 +2051,7 @@ _ZN15FieldInfoReader8has_nextEv.exit.thread24:    ; preds = %73, %.lr.ph30.i.i.i
   %.pre = load ptr, ptr %3, align 8
   %.pre34 = load i32, ptr %10, align 4
   %.pre35 = load i32, ptr %9, align 8
-  br label %46, !llvm.loop !18
+  br label %46, !llvm.loop !19
 
 _ZN15FieldInfoReader8has_nextEv.exit.thread:      ; preds = %.preheader.i.i.i.i15, %.lr.ph.split.us.i.i.i.i, %_ZN15FieldInfoReader8has_nextEv.exit, %.lr.ph.split.i.i.i.i, %76, %62
   ret void
@@ -2131,7 +2131,7 @@ _ZN13GrowableArrayI9FieldInfoE8allocateEv.exit:   ; preds = %7, %11, %15
   %29 = load i32, ptr %0, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !19
+  br i1 %31, label %25, label %.preheader16.loopexit, !llvm.loop !20
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2147,7 +2147,7 @@ _ZN13GrowableArrayI9FieldInfoE8allocateEv.exit:   ; preds = %7, %11, %15
   %35 = load i32, ptr %3, align 4
   %36 = trunc nuw i64 %indvars.iv.next22 to i32
   %37 = icmp sgt i32 %35, %36
-  br i1 %37, label %.lr.ph19, label %.preheader, !llvm.loop !20
+  br i1 %37, label %.lr.ph19, label %.preheader, !llvm.loop !21
 
 38:                                               ; preds = %.preheader
   %39 = load i64, ptr %4, align 8
@@ -2198,18 +2198,19 @@ attributes #6 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

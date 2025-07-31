@@ -34,7 +34,7 @@ define noundef i32 @gvToolTred(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr @stderr, align 8, !tbaa !5
+  %8 = load ptr, ptr @stderr, align 8, !tbaa !6
   %9 = tail call ptr @agnameof(ptr noundef %0) #3
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.1, ptr noundef %9) #4
   br label %11
@@ -52,11 +52,11 @@ declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %5 = load ptr, ptr %4, align 8, !tbaa !10
+  %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8, !tbaa !22
+  %7 = load ptr, ptr %6, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 1, ptr %8, align 8, !tbaa !23
+  store i32 1, ptr %8, align 8, !tbaa !24
   %9 = tail call ptr @agfstin(ptr noundef %5, ptr noundef %0) #3
   %.not45 = icmp eq ptr %9, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph
@@ -74,11 +74,11 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   %.idx43 = select i1 %15, i64 0, i64 64
   %16 = getelementptr inbounds nuw i8, ptr %.03846, i64 %.idx43
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !27
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8, !tbaa !22
+  %20 = load ptr, ptr %19, align 8, !tbaa !23
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load i32, ptr %21, align 8, !tbaa !23
+  %22 = load i32, ptr %21, align 8, !tbaa !24
   %.not44 = icmp eq i32 %22, 0
   br i1 %.not44, label %25, label %23
 
@@ -88,7 +88,7 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
 
 25:                                               ; preds = %12, %23, %.lr.ph
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %25, %3
   %26 = tail call ptr @agfstout(ptr noundef %5, ptr noundef %0) #3
@@ -104,11 +104,11 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   %30 = getelementptr inbounds i8, ptr %.13948, i64 -64
   %31 = select i1 %29, ptr %.13948, ptr %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  %33 = load ptr, ptr %32, align 8, !tbaa !27
+  %33 = load ptr, ptr %32, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !22
+  %35 = load ptr, ptr %34, align 8, !tbaa !23
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load i32, ptr %36, align 8, !tbaa !23
+  %37 = load i32, ptr %36, align 8, !tbaa !24
   %.not41 = icmp eq i32 %37, 0
   br i1 %.not41, label %59, label %38
 
@@ -117,24 +117,24 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   br i1 %.not42, label %39, label %62
 
 39:                                               ; preds = %38
-  %40 = load ptr, ptr @stderr, align 8, !tbaa !5
+  %40 = load ptr, ptr @stderr, align 8, !tbaa !6
   %41 = tail call ptr @agnameof(ptr noundef %5) #3
   %42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.2, ptr noundef %41) #4
-  %43 = load ptr, ptr @stderr, align 8, !tbaa !5
+  %43 = load ptr, ptr @stderr, align 8, !tbaa !6
   %44 = load i32, ptr %.13948, align 8
   %45 = and i32 %44, 3
   %46 = icmp eq i32 %45, 3
   %.idx = select i1 %46, i64 0, i64 64
   %47 = getelementptr inbounds nuw i8, ptr %.13948, i64 %.idx
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %49 = load ptr, ptr %48, align 8, !tbaa !27
+  %49 = load ptr, ptr %48, align 8, !tbaa !28
   %50 = tail call ptr @agnameof(ptr noundef %49) #3
   %51 = load i32, ptr %.13948, align 8
   %52 = and i32 %51, 3
   %53 = icmp eq i32 %52, 2
   %54 = select i1 %53, ptr %.13948, ptr %30
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
-  %56 = load ptr, ptr %55, align 8, !tbaa !27
+  %56 = load ptr, ptr %55, align 8, !tbaa !28
   %57 = tail call ptr @agnameof(ptr noundef %56) #3
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.3, ptr noundef %50, ptr noundef %57) #4
   br label %62
@@ -148,13 +148,13 @@ define internal fastcc range(i32 0, 2) i32 @dfs(ptr noundef %0, ptr noundef read
   %.1 = phi i32 [ 1, %38 ], [ 1, %39 ], [ %61, %59 ]
   %63 = tail call ptr @agnxtout(ptr noundef %5, ptr noundef nonnull %.13948) #3
   %.not40 = icmp eq ptr %63, null
-  br i1 %.not40, label %._crit_edge52, label %.lr.ph51, !llvm.loop !30
+  br i1 %.not40, label %._crit_edge52, label %.lr.ph51, !llvm.loop !31
 
 ._crit_edge52:                                    ; preds = %62, %._crit_edge
   %.0.lcssa = phi i32 [ %2, %._crit_edge ], [ %.1, %62 ]
-  %64 = load ptr, ptr %6, align 8, !tbaa !22
+  %64 = load ptr, ptr %6, align 8, !tbaa !23
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store i32 0, ptr %65, align 8, !tbaa !23
+  store i32 0, ptr %65, align 8, !tbaa !24
   ret i32 %.0.lcssa
 }
 
@@ -188,31 +188,32 @@ attributes #4 = { cold nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{!6, !6, i64 0}
-!6 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
-!7 = !{!"any pointer", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !17, i64 24}
-!11 = !{!"Agnode_s", !12, i64 0, !17, i64 24, !18, i64 32}
-!12 = !{!"Agobj_s", !13, i64 0, !16, i64 16}
-!13 = !{!"Agtag_s", !14, i64 0, !14, i64 0, !14, i64 0, !14, i64 0, !15, i64 8}
-!14 = !{!"int", !8, i64 0}
-!15 = !{!"long", !8, i64 0}
-!16 = !{!"p1 _ZTS7Agrec_s", !7, i64 0}
-!17 = !{!"p1 _ZTS8Agraph_s", !7, i64 0}
-!18 = !{!"Agsubnode_s", !19, i64 0, !19, i64 16, !21, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64}
-!19 = !{!"dtlink_s_", !20, i64 0, !8, i64 8}
-!20 = !{!"p1 _ZTS9dtlink_s_", !7, i64 0}
-!21 = !{!"p1 _ZTS8Agnode_s", !7, i64 0}
-!22 = !{!11, !16, i64 16}
-!23 = !{!24, !14, i64 16}
-!24 = !{!"", !25, i64 0, !14, i64 16}
-!25 = !{!"Agrec_s", !26, i64 0, !16, i64 8}
-!26 = !{!"p1 omnipotent char", !7, i64 0}
-!27 = !{!28, !21, i64 56}
-!28 = !{!"Agedge_s", !12, i64 0, !19, i64 24, !19, i64 40, !21, i64 56}
-!29 = distinct !{!29, !4}
-!30 = distinct !{!30, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{!7, !7, i64 0}
+!7 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!8 = !{!"any pointer", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !18, i64 24}
+!12 = !{!"Agnode_s", !13, i64 0, !18, i64 24, !19, i64 32}
+!13 = !{!"Agobj_s", !14, i64 0, !17, i64 16}
+!14 = !{!"Agtag_s", !15, i64 0, !15, i64 0, !15, i64 0, !15, i64 0, !16, i64 8}
+!15 = !{!"int", !9, i64 0}
+!16 = !{!"long", !9, i64 0}
+!17 = !{!"p1 _ZTS7Agrec_s", !8, i64 0}
+!18 = !{!"p1 _ZTS8Agraph_s", !8, i64 0}
+!19 = !{!"Agsubnode_s", !20, i64 0, !20, i64 16, !22, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !21, i64 64}
+!20 = !{!"dtlink_s_", !21, i64 0, !9, i64 8}
+!21 = !{!"p1 _ZTS9dtlink_s_", !8, i64 0}
+!22 = !{!"p1 _ZTS8Agnode_s", !8, i64 0}
+!23 = !{!12, !17, i64 16}
+!24 = !{!25, !15, i64 16}
+!25 = !{!"", !26, i64 0, !15, i64 16}
+!26 = !{!"Agrec_s", !27, i64 0, !17, i64 8}
+!27 = !{!"p1 omnipotent char", !8, i64 0}
+!28 = !{!29, !22, i64 56}
+!29 = !{!"Agedge_s", !13, i64 0, !20, i64 24, !20, i64 40, !22, i64 56}
+!30 = distinct !{!30, !4, !5}
+!31 = distinct !{!31, !4, !5}

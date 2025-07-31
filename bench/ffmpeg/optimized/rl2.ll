@@ -110,7 +110,7 @@ define internal range(i32 -2147483648, 1) i32 @rl2_decode_init(ptr noundef %0) #
   %62 = sext i32 %61 to i64
   tail call fastcc void @rl2_rle_decode(ptr noundef nonnull %3, ptr noundef nonnull %60, i32 noundef %49, ptr noundef nonnull %57, i64 noundef %62, i32 noundef 0)
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %57, ptr %63, align 8, !tbaa !42
+  store ptr %57, ptr %63, align 8, !tbaa !43
   br label %.critedge
 
 .critedge:                                        ; preds = %47, %58, %51, %1, %28, %14
@@ -121,9 +121,9 @@ define internal range(i32 -2147483648, 1) i32 @rl2_decode_init(ptr noundef %0) #
 ; Function Attrs: nounwind uwtable
 define internal i32 @rl2_decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !43
+  %6 = load ptr, ptr %5, align 8, !tbaa !44
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %8 = load i32, ptr %7, align 8, !tbaa !45
+  %8 = load i32, ptr %7, align 8, !tbaa !46
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 0) #6
@@ -131,7 +131,7 @@ define internal i32 @rl2_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %12, label %24, label %13
 
 13:                                               ; preds = %4
-  %14 = load ptr, ptr %1, align 8, !tbaa !46
+  %14 = load ptr, ptr %1, align 8, !tbaa !47
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %16 = load i32, ptr %15, align 8, !tbaa !39
   %17 = sext i32 %16 to i64
@@ -140,7 +140,7 @@ define internal i32 @rl2_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = zext i16 %19 to i32
   tail call fastcc void @rl2_rle_decode(ptr noundef %10, ptr noundef %6, i32 noundef %8, ptr noundef %14, i64 noundef %17, i32 noundef %20)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !46
+  %22 = load ptr, ptr %21, align 8, !tbaa !47
   %23 = getelementptr inbounds nuw i8, ptr %10, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1024) %22, ptr noundef nonnull align 8 dereferenceable(1024) %23, i64 1024, i1 false)
   store i32 1, ptr %2, align 4, !tbaa !39
@@ -176,7 +176,7 @@ define internal fastcc void @rl2_rle_decode(ptr noundef readonly captures(none) 
   %12 = sext i32 %9 to i64
   %13 = sub nsw i64 %4, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !42
+  %15 = load ptr, ptr %14, align 8, !tbaa !43
   %16 = sext i32 %2 to i64
   %17 = getelementptr inbounds i8, ptr %1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 116
@@ -217,7 +217,7 @@ define internal fastcc void @rl2_rle_decode(ptr noundef readonly captures(none) 
   %36 = getelementptr inbounds i8, ptr %.0119179, i64 %35
   %37 = add nuw i32 %.0106181, 1
   %exitcond.not = icmp eq i32 %.0106181, %11
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 38:                                               ; preds = %6
   %39 = add nsw i32 %11, 1
@@ -303,10 +303,10 @@ define internal fastcc void @rl2_rle_decode(ptr noundef readonly captures(none) 
   %.7117.ph = phi ptr [ %66, %.preheader166 ], [ %74, %73 ]
   %.5.ph = phi ptr [ %.3, %.preheader166 ], [ %75, %73 ]
   %77 = icmp sgt i32 %69, 0
-  br i1 %77, label %.preheader166, label %78, !llvm.loop !48
+  br i1 %77, label %.preheader166, label %78, !llvm.loop !49
 
 78:                                               ; preds = %76
-  br label %.loopexit, !llvm.loop !49
+  br label %.loopexit, !llvm.loop !50
 
 79:                                               ; preds = %60
   %80 = zext nneg i32 %.0101 to i64
@@ -342,7 +342,7 @@ define internal fastcc void @rl2_rle_decode(ptr noundef readonly captures(none) 
   %.9 = phi ptr [ %91, %90 ], [ %86, %84 ]
   %.7 = phi ptr [ %92, %90 ], [ %.6184, %84 ]
   %.not144 = icmp eq i32 %85, 0
-  br i1 %.not144, label %.loopexit, label %84, !llvm.loop !50
+  br i1 %.not144, label %.loopexit, label %84, !llvm.loop !51
 
 .loopexit:                                        ; preds = %93, %78
   %.4123 = phi ptr [ %67, %78 ], [ %.5124, %93 ]
@@ -355,7 +355,7 @@ define internal fastcc void @rl2_rle_decode(ptr noundef readonly captures(none) 
   %.2121.lcssa = phi ptr [ %.1120, %43 ], [ %.2121185, %53 ], [ %.2121185, %52 ], [ %.4123, %.loopexit ]
   %.2112.lcssa = phi ptr [ %47, %43 ], [ %.2112186, %53 ], [ %.2112186, %52 ], [ %.4114, %.loopexit ]
   %.0107.lcssa = phi ptr [ %44, %43 ], [ %.0107187, %53 ], [ %.0107187, %52 ], [ %.2109, %.loopexit ]
-  %95 = load ptr, ptr %14, align 8, !tbaa !42
+  %95 = load ptr, ptr %14, align 8, !tbaa !43
   %.not145 = icmp eq ptr %95, null
   br i1 %.not145, label %.thread152, label %.preheader
 
@@ -376,7 +376,7 @@ define internal fastcc void @rl2_rle_decode(ptr noundef readonly captures(none) 
   %103 = getelementptr inbounds i8, ptr %.8203, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %102, ptr align 1 %101, i64 %12, i1 false)
   %104 = icmp eq ptr %103, %24
-  br i1 %104, label %.thread152, label %.lr.ph204
+  br i1 %104, label %.thread152, label %.lr.ph204, !llvm.loop !52
 
 .thread152:                                       ; preds = %71, %88, %.lr.ph204, %.preheader, %.thread159
   ret void
@@ -442,14 +442,16 @@ attributes #6 = { nounwind }
 !37 = !{!5, !10, i64 112}
 !38 = !{!5, !10, i64 116}
 !39 = !{!10, !10, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = !{!28, !14, i64 16}
-!43 = !{!44, !14, i64 24}
-!44 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
-!45 = !{!44, !10, i64 32}
-!46 = !{!14, !14, i64 0}
-!47 = distinct !{!47, !41}
-!48 = distinct !{!48, !41}
-!49 = distinct !{!49, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = !{!28, !14, i64 16}
+!44 = !{!45, !14, i64 24}
+!45 = !{!"AVPacket", !21, i64 0, !13, i64 8, !13, i64 16, !14, i64 24, !10, i64 32, !10, i64 36, !10, i64 40, !23, i64 48, !10, i64 56, !13, i64 64, !13, i64 72, !7, i64 80, !21, i64 88, !15, i64 96}
+!46 = !{!45, !10, i64 32}
+!47 = !{!14, !14, i64 0}
+!48 = distinct !{!48, !41, !42}
+!49 = distinct !{!49, !41, !42}
 !50 = distinct !{!50, !41}
+!51 = distinct !{!51, !41, !42}
+!52 = distinct !{!52, !42}

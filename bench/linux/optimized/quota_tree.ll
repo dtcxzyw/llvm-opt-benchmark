@@ -278,7 +278,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %47 = add i32 %45, -1
   %48 = udiv i32 %46, %39
   %49 = icmp eq i32 %47, 0
-  br i1 %49, label %.loopexit37, label %.preheader36, !llvm.loop !8
+  br i1 %49, label %.loopexit37, label %.preheader36, !llvm.loop !9
 
 .loopexit37:                                      ; preds = %.preheader36, %34
   %50 = phi i32 [ %37, %34 ], [ %48, %.preheader36 ]
@@ -349,7 +349,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   br label %237
 
 96:                                               ; preds = %81
-  %97 = tail call fastcc i32 @check_dquot_block_header(ptr noundef %0, ptr noundef nonnull %68), !range !9
+  %97 = tail call fastcc i32 @check_dquot_block_header(ptr noundef %0, ptr noundef nonnull %68), !range !10
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %237
 
@@ -362,12 +362,12 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   br i1 %103, label %104, label %112
 
 104:                                              ; preds = %99
-  %105 = tail call fastcc i32 @remove_free_dqentry(ptr noundef %0, ptr noundef nonnull %68, i32 noundef %54), !range !10
+  %105 = tail call fastcc i32 @remove_free_dqentry(ptr noundef %0, ptr noundef nonnull %68, i32 noundef %54), !range !11
   %106 = icmp sgt i32 %105, -1
   br i1 %106, label %107, label %.thread34
 
 107:                                              ; preds = %104
-  %108 = tail call fastcc i32 @put_free_dqblk(ptr noundef %0, ptr noundef nonnull %68, i32 noundef %54), !range !10
+  %108 = tail call fastcc i32 @put_free_dqblk(ptr noundef %0, ptr noundef nonnull %68, i32 noundef %54), !range !11
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %.thread34, label %235
 
@@ -589,7 +589,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %258 = add i32 %256, -1
   %259 = udiv i32 %257, %252
   %260 = icmp eq i32 %258, 0
-  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %260, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .loopexit:                                        ; preds = %.preheader, %248
   %261 = phi i32 [ %250, %248 ], [ %259, %.preheader ]
@@ -610,7 +610,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
 271:                                              ; preds = %266
   %272 = add nuw nsw i64 %267, 1
   %273 = icmp eq i64 %272, %265
-  br i1 %273, label %.critedge, label %266, !llvm.loop !11
+  br i1 %273, label %.critedge, label %266, !llvm.loop !13
 
 274:                                              ; preds = %266
   %275 = trunc i64 %267 to i32
@@ -764,7 +764,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
 26:                                               ; preds = %23, %21
   store i64 0, ptr %15, align 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 8, ptr nonnull elementtype(i8) %27) #7, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %27, i32 8, ptr nonnull elementtype(i8) %27) #7, !srcloc !14
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, i8 0, i64 72, i1 false)
   %29 = trunc i64 %19 to i32
@@ -804,7 +804,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
   %54 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %53) #7
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %7, ptr noundef nonnull @__func__.qtree_read_dquot, ptr noundef nonnull @.str.4, i32 noundef %54) #7
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %55, i32 8, ptr nonnull elementtype(i8) %55) #7, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %55, i32 8, ptr nonnull elementtype(i8) %55) #7, !srcloc !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, i8 0, i64 72, i1 false)
   tail call void @kfree(ptr noundef nonnull %35) #7
   br label %79
@@ -841,7 +841,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %77, i32 8, ptr nonnull elementtype(i8) %77) #7, !srcloc !12
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %77, i32 8, ptr nonnull elementtype(i8) %77) #7, !srcloc !14
   br label %78
 
 78:                                               ; preds = %76, %72, %68, %64, %56
@@ -924,8 +924,8 @@ define dso_local range(i32 -2147483648, 1) i32 @qtree_get_next_id(ptr noundef re
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %8
-  tail call void asm sideeffect "281: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 281b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 281) #7, !srcloc !13
-  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 114, i32 0, i64 12) #7, !srcloc !14
+  tail call void asm sideeffect "281: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 281b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 281) #7, !srcloc !15
+  tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.25, i32 114, i32 0, i64 12) #7, !srcloc !16
   unreachable
 
 13:                                               ; preds = %8
@@ -967,7 +967,7 @@ define internal fastcc i32 @find_next_id(ptr noundef readonly captures(none) %0,
   %19 = mul i32 %18, %10
   %20 = add nuw i32 %17, 1
   %21 = icmp eq i32 %20, %15
-  br i1 %21, label %.loopexit17, label %.preheader16, !llvm.loop !15
+  br i1 %21, label %.loopexit17, label %.preheader16, !llvm.loop !17
 
 .loopexit17:                                      ; preds = %.preheader16, %12
   %22 = phi i32 [ 1, %12 ], [ %19, %.preheader16 ]
@@ -1010,7 +1010,7 @@ define internal fastcc i32 @find_next_id(ptr noundef readonly captures(none) %0,
   %50 = add i32 %48, -1
   %51 = udiv i32 %49, %43
   %52 = icmp eq i32 %50, 0
-  br i1 %52, label %.loopexit15, label %.preheader, !llvm.loop !8
+  br i1 %52, label %.loopexit15, label %.preheader, !llvm.loop !18
 
 .loopexit15:                                      ; preds = %.preheader, %40
   %53 = phi i32 [ %41, %40 ], [ %51, %.preheader ]
@@ -1066,7 +1066,7 @@ select.unfold:                                    ; preds = %80, %68
   %.ph = phi i64 [ %64, %68 ], [ 4294967294, %80 ]
   %83 = add nuw nsw i64 %63, 1
   %84 = icmp samesign ult i64 %83, %61
-  br i1 %84, label %62, label %.loopexit, !llvm.loop !16
+  br i1 %84, label %62, label %.loopexit, !llvm.loop !19
 
 85:                                               ; preds = %80
   %86 = zext i32 %81 to i64
@@ -1169,7 +1169,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %55 = add i32 %53, -1
   %56 = udiv i32 %54, %47
   %57 = icmp eq i32 %55, 0
-  br i1 %57, label %.loopexit38, label %.preheader37, !llvm.loop !8
+  br i1 %57, label %.loopexit38, label %.preheader37, !llvm.loop !20
 
 .loopexit38:                                      ; preds = %.preheader37, %42
   %58 = phi i32 [ %45, %42 ], [ %56, %.preheader37 ]
@@ -1216,7 +1216,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %85 = add i32 %83, -1
   %86 = udiv i32 %84, %79
   %87 = icmp eq i32 %85, 0
-  br i1 %87, label %.loopexit36, label %.preheader35, !llvm.loop !8
+  br i1 %87, label %.loopexit36, label %.preheader35, !llvm.loop !21
 
 .loopexit36:                                      ; preds = %.preheader35, %74
   %88 = phi i32 [ %77, %74 ], [ %86, %.preheader35 ]
@@ -1261,7 +1261,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   br i1 %118, label %216, label %119
 
 119:                                              ; preds = %101
-  %120 = tail call fastcc i32 @check_dquot_block_header(ptr noundef %0, ptr noundef nonnull %95), !range !9
+  %120 = tail call fastcc i32 @check_dquot_block_header(ptr noundef %0, ptr noundef nonnull %95), !range !10
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %131, label %216
 
@@ -1299,7 +1299,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   br i1 %145, label %151, label %146
 
 146:                                              ; preds = %131
-  %147 = tail call fastcc i32 @remove_free_dqentry(ptr noundef %0, ptr noundef nonnull %95, i32 noundef %132), !range !10
+  %147 = tail call fastcc i32 @remove_free_dqentry(ptr noundef %0, ptr noundef nonnull %95, i32 noundef %132), !range !11
   %148 = icmp slt i32 %147, 0
   br i1 %148, label %149, label %._crit_edge
 
@@ -1344,7 +1344,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
 163:                                              ; preds = %166
   %164 = add nuw i32 %167, 1
   %165 = icmp eq i32 %164, %152
-  br i1 %165, label %.loopexit33, label %166, !llvm.loop !5
+  br i1 %165, label %.loopexit33, label %166, !llvm.loop !22
 
 166:                                              ; preds = %163, %160
   %167 = phi i32 [ %164, %163 ], [ 0, %160 ]
@@ -1358,7 +1358,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %173 = getelementptr i8, ptr %161, i64 %.pre-phi56
   %174 = add nuw i32 %162, 1
   %175 = icmp ult i32 %174, %.pre-phi60
-  br i1 %175, label %160, label %.loopexit33, !llvm.loop !17
+  br i1 %175, label %160, label %.loopexit33, !llvm.loop !23
 
 .loopexit33:                                      ; preds = %172, %163, %151
   %176 = phi i32 [ 0, %151 ], [ %162, %163 ], [ %174, %172 ]
@@ -1459,7 +1459,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %240 = add i32 %238, -1
   %241 = udiv i32 %239, %234
   %242 = icmp eq i32 %240, 0
-  br i1 %242, label %.loopexit, label %.preheader, !llvm.loop !8
+  br i1 %242, label %.loopexit, label %.preheader, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.preheader, %229
   %243 = phi i32 [ %232, %229 ], [ %241, %.preheader ]
@@ -2053,7 +2053,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %43 = add i32 %41, -1
   %44 = udiv i32 %42, %35
   %45 = icmp eq i32 %43, 0
-  br i1 %45, label %.loopexit10, label %.preheader, !llvm.loop !8
+  br i1 %45, label %.loopexit10, label %.preheader, !llvm.loop !25
 
 .loopexit10:                                      ; preds = %.preheader, %30
   %46 = phi i32 [ %33, %30 ], [ %44, %.preheader ]
@@ -2162,7 +2162,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %113 = udiv i64 %112, %108
   %114 = trunc i64 %113 to i32
   %115 = icmp slt i32 %110, %114
-  br i1 %115, label %99, label %.loopexit, !llvm.loop !18
+  br i1 %115, label %99, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %107, %..loopexit.loopexit_crit_edge, %86
   %.pre-phi19 = phi i32 [ %95, %86 ], [ %.pre23, %..loopexit.loopexit_crit_edge ], [ %114, %107 ]
@@ -2219,17 +2219,25 @@ attributes #7 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i32 -117, i32 1}
-!10 = !{i32 -2147483648, i32 1}
-!11 = distinct !{!11, !6, !7}
-!12 = !{i64 2148565020, i64 2148565059, i64 2148565080, i64 2148565117, i64 2148565140, i64 2148565010}
-!13 = !{i64 2153285724, i64 2153285533, i64 2153285585, i64 2153285631, i64 2153285659}
-!14 = !{i64 2153285798, i64 2153285827, i64 2153285873, i64 2153285931, i64 2153285985, i64 2153286039, i64 2153286094, i64 2153286125}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
-!17 = distinct !{!17, !6, !7}
-!18 = distinct !{!18, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{i32 -117, i32 1}
+!11 = !{i32 -2147483648, i32 1}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = !{i64 2148565020, i64 2148565059, i64 2148565080, i64 2148565117, i64 2148565140, i64 2148565010}
+!15 = !{i64 2153285724, i64 2153285533, i64 2153285585, i64 2153285631, i64 2153285659}
+!16 = !{i64 2153285798, i64 2153285827, i64 2153285873, i64 2153285931, i64 2153285985, i64 2153286039, i64 2153286094, i64 2153286125}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}
+!20 = distinct !{!20, !6, !7, !8}
+!21 = distinct !{!21, !6, !7, !8}
+!22 = distinct !{!22, !6, !7, !8}
+!23 = distinct !{!23, !6, !7, !8}
+!24 = distinct !{!24, !6, !7, !8}
+!25 = distinct !{!25, !6, !7, !8}
+!26 = distinct !{!26, !6, !7, !8}

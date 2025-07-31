@@ -1401,7 +1401,7 @@ define hidden void @SDL_DBus_PumpEvents() local_unnamed_addr #0 {
   %10 = load ptr, ptr @dbus, align 8
   %11 = tail call i32 %9(ptr noundef %10) #6
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !5
+  br i1 %12, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %2, %0
   ret void
@@ -1698,7 +1698,7 @@ select.unfold:                                    ; preds = %13, %8
   br label %120
 
 68:                                               ; preds = %59
-  %.old3 = load i8, ptr %61, align 8, !range !6, !noundef !7
+  %.old3 = load i8, ptr %61, align 8, !range !7, !noundef !8
   %.old4 = trunc nuw i8 %.old3 to i1
   br i1 %.old4, label %.critedge, label %.preheader
 
@@ -1707,10 +1707,10 @@ select.unfold:                                    ; preds = %13, %8
   %70 = load ptr, ptr @dbus, align 8
   %71 = call i32 %69(ptr noundef %70, i32 noundef -1) #6
   %72 = icmp eq i32 %71, 0
-  %73 = load i8, ptr %61, align 8, !range !6
+  %73 = load i8, ptr %61, align 8, !range !7
   %74 = trunc nuw i8 %73 to i1
   %or.cond5 = select i1 %72, i1 true, i1 %74
-  br i1 %or.cond5, label %.critedge, label %.preheader, !llvm.loop !8
+  br i1 %or.cond5, label %.critedge, label %.preheader, !llvm.loop !9
 
 .critedge:                                        ; preds = %.preheader, %68
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dbus, i64 40), align 8
@@ -1732,7 +1732,7 @@ select.unfold:                                    ; preds = %13, %8
   %84 = call i32 %82(ptr noundef %83, ptr noundef nonnull @SDL_DBus_CameraPortalMessageHandler, ptr noundef nonnull %1) #6
   %85 = load ptr, ptr %36, align 8
   call void @SDL_free_REAL(ptr noundef %85) #6
-  %86 = load i8, ptr %61, align 8, !range !6, !noundef !7
+  %86 = load i8, ptr %61, align 8, !range !7, !noundef !8
   %87 = trunc nuw i8 %86 to i1
   br i1 %87, label %88, label %120
 
@@ -1938,9 +1938,10 @@ attributes #6 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{i8 0, i8 2}
-!7 = !{}
-!8 = distinct !{!8, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{i8 0, i8 2}
+!8 = !{}
+!9 = distinct !{!9, !4, !5}

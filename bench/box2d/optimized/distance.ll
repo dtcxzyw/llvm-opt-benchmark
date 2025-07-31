@@ -461,7 +461,7 @@ b2MakeSimplexFromCache.exit:                      ; preds = %._crit_edge.i, %._c
   br i1 %or.cond, label %91, label %92
 
 91:                                               ; preds = %b2MakeSimplexFromCache.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !40
   br label %92
 
 92:                                               ; preds = %91, %b2MakeSimplexFromCache.exit
@@ -514,14 +514,14 @@ b2MakeSimplexFromCache.exit:                      ; preds = %._crit_edge.i, %._c
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 28
   %107 = load i32, ptr %106, align 4, !tbaa !34
   %108 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv
-  store i32 %107, ptr %108, align 4, !tbaa !40
+  store i32 %107, ptr %108, align 4, !tbaa !41
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %110 = load i32, ptr %109, align 4, !tbaa !35
   %111 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv
-  store i32 %110, ptr %111, align 4, !tbaa !40
+  store i32 %110, ptr %111, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 112:                                              ; preds = %._crit_edge
   %.sroa.011.0.copyload.i = load <2 x float>, ptr %95, align 8
@@ -539,7 +539,7 @@ b2MakeSimplexFromCache.exit:                      ; preds = %._crit_edge.i, %._c
   br i1 %120, label %122, label %121
 
 121:                                              ; preds = %112
-  store float 1.000000e+00, ptr %97, align 8, !tbaa !42
+  store float 1.000000e+00, ptr %97, align 8, !tbaa !43
   store i32 1, ptr %17, align 4, !tbaa !27
   br label %b2SolveSimplex2.exit.thread
 
@@ -552,18 +552,18 @@ b2MakeSimplexFromCache.exit:                      ; preds = %._crit_edge.i, %._c
   br i1 %127, label %129, label %128
 
 128:                                              ; preds = %122
-  store float 1.000000e+00, ptr %98, align 4, !tbaa !43
+  store float 1.000000e+00, ptr %98, align 4, !tbaa !44
   store i32 1, ptr %17, align 4, !tbaa !27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 4 dereferenceable(36) %19, i64 36, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %8, ptr noundef nonnull align 4 dereferenceable(36) %19, i64 36, i1 false), !tbaa.struct !45
   br label %b2SolveSimplex2.exit.thread
 
 129:                                              ; preds = %122
   %130 = fsub float %126, %118
   %131 = fdiv float 1.000000e+00, %130
   %132 = fmul float %126, %131
-  store float %132, ptr %97, align 8, !tbaa !42
+  store float %132, ptr %97, align 8, !tbaa !43
   %133 = fmul float %131, %119
-  store float %133, ptr %98, align 4, !tbaa !43
+  store float %133, ptr %98, align 4, !tbaa !44
   store i32 2, ptr %17, align 4, !tbaa !27
   br label %b2SolveSimplex2.exit.thread
 
@@ -582,7 +582,7 @@ b2SolveSimplex2.exit.thread:                      ; preds = %._crit_edge, %121, 
 137:                                              ; preds = %b2SolveSimplex2.exit.thread
   %138 = sext i32 %.1221 to i64
   %139 = getelementptr inbounds %struct.b2Simplex, ptr %3, i64 %138
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %139, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %139, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !40
   %140 = add nsw i32 %.1221, 1
   br label %141
 
@@ -682,7 +682,7 @@ b2ComputeSimplexSearchDirection.exit:             ; preds = %141, %142, %156, %1
   %.1.i = select i1 %189, i32 %190, i32 %.021.i
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i137, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i138, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %b2FindSupport.exit, label %.lr.ph.i136, !llvm.loop !45
+  br i1 %exitcond.not.i, label %b2FindSupport.exit, label %.lr.ph.i136, !llvm.loop !46
 
 b2FindSupport.exit:                               ; preds = %.lr.ph.i136, %166
   %.0.lcssa.i = phi i32 [ 0, %166 ], [ %.1.i, %.lr.ph.i136 ]
@@ -743,7 +743,7 @@ b2FindSupport.exit:                               ; preds = %.lr.ph.i136, %166
   %.1.i162 = select i1 %222, i32 %223, i32 %.021.i157
   %indvars.iv.next.i163 = add nuw nsw i64 %indvars.iv.i156, 1
   %exitcond.not.i164 = icmp eq i64 %indvars.iv.next.i163, %wide.trip.count.i154
-  br i1 %exitcond.not.i164, label %b2FindSupport.exit165, label %.lr.ph.i155, !llvm.loop !45
+  br i1 %exitcond.not.i164, label %b2FindSupport.exit165, label %.lr.ph.i155, !llvm.loop !46
 
 b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2FindSupport.exit
   %.0.lcssa.i150 = phi i32 [ 0, %b2FindSupport.exit ], [ %.1.i162, %.lr.ph.i155 ]
@@ -783,27 +783,27 @@ b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2Fin
 .lr.ph218:                                        ; preds = %.lr.ph218.preheader, %249
   %indvars.iv225 = phi i64 [ 0, %.lr.ph218.preheader ], [ %indvars.iv.next226, %249 ]
   %242 = getelementptr inbounds nuw [3 x i32], ptr %10, i64 0, i64 %indvars.iv225
-  %243 = load i32, ptr %242, align 4, !tbaa !40
+  %243 = load i32, ptr %242, align 4, !tbaa !41
   %244 = icmp eq i32 %.0.lcssa.i, %243
   br i1 %244, label %245, label %249
 
 245:                                              ; preds = %.lr.ph218
   %246 = getelementptr inbounds nuw [3 x i32], ptr %11, i64 0, i64 %indvars.iv225
-  %247 = load i32, ptr %246, align 4, !tbaa !40
+  %247 = load i32, ptr %246, align 4, !tbaa !41
   %248 = icmp eq i32 %.0.lcssa.i150, %247
   br i1 %248, label %.thread, label %249
 
 249:                                              ; preds = %.lr.ph218, %245
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %exitcond229.not = icmp eq i64 %indvars.iv.next226, %wide.trip.count228
-  br i1 %exitcond229.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !46
+  br i1 %exitcond229.not, label %._crit_edge219, label %.lr.ph218, !llvm.loop !47
 
 ._crit_edge219:                                   ; preds = %249, %b2FindSupport.exit165
   %250 = load i32, ptr %17, align 4, !tbaa !27
   %251 = add nsw i32 %250, 1
   store i32 %251, ptr %17, align 4, !tbaa !27
   %exitcond230.not = icmp eq i32 %241, 20
-  br i1 %exitcond230.not, label %.thread, label %101
+  br i1 %exitcond230.not, label %.thread, label %101, !llvm.loop !48
 
 .thread:                                          ; preds = %b2ComputeSimplexSearchDirection.exit, %b2SolveSimplex2.exit, %._crit_edge219, %245
   %.1103 = phi i32 [ %241, %245 ], [ 20, %._crit_edge219 ], [ %.0102220, %b2SolveSimplex2.exit ], [ %.0102220, %b2ComputeSimplexSearchDirection.exit ]
@@ -815,7 +815,7 @@ b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2Fin
 253:                                              ; preds = %.thread
   %254 = sext i32 %.2 to i64
   %255 = getelementptr inbounds %struct.b2Simplex, ptr %3, i64 %254
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %255, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !39
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %255, ptr noundef nonnull align 8 dereferenceable(112) %8, i64 112, i1 false), !tbaa.struct !40
   %256 = add nsw i32 %.2, 1
   br label %257
 
@@ -850,8 +850,8 @@ b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2Fin
   br label %b2ComputeSimplexWitnessPoints.exit
 
 276:                                              ; preds = %257
-  %277 = load float, ptr %97, align 8, !tbaa !42
-  %278 = load float, ptr %98, align 4, !tbaa !43
+  %277 = load float, ptr %97, align 8, !tbaa !43
+  %278 = load float, ptr %98, align 4, !tbaa !44
   %279 = load <2 x float>, ptr %8, align 8
   %280 = load <2 x float>, ptr %19, align 4
   %.sroa.04.0.vec.extract.i.i = extractelement <2 x float> %279, i64 0
@@ -887,10 +887,10 @@ b2FindSupport.exit165:                            ; preds = %.lr.ph.i155, %b2Fin
   br label %b2ComputeSimplexWitnessPoints.exit
 
 297:                                              ; preds = %257
-  %298 = load float, ptr %97, align 8, !tbaa !42
-  %299 = load float, ptr %98, align 4, !tbaa !43
+  %298 = load float, ptr %97, align 8, !tbaa !43
+  %299 = load float, ptr %98, align 4, !tbaa !44
   %300 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %301 = load float, ptr %300, align 8, !tbaa !47
+  %301 = load float, ptr %300, align 8, !tbaa !49
   %302 = load <2 x float>, ptr %8, align 8
   %303 = load <2 x float>, ptr %19, align 4
   %304 = load <2 x float>, ptr %21, align 8
@@ -936,11 +936,11 @@ b2ComputeSimplexWitnessPoints.exit:               ; preds = %257, %260, %276, %2
   %327 = fadd float %325, %326
   %sqrt.i = call float @llvm.sqrt.f32(float %327)
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %sqrt.i, ptr %328, align 4, !tbaa !48
+  store float %sqrt.i, ptr %328, align 4, !tbaa !50
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.1103, ptr %329, align 4, !tbaa !50
+  store i32 %.1103, ptr %329, align 4, !tbaa !52
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.5, ptr %330, align 4, !tbaa !51
+  store i32 %.5, ptr %330, align 4, !tbaa !53
   %331 = trunc i32 %259 to i16
   store i16 %331, ptr %1, align 2, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #12
@@ -974,12 +974,12 @@ b2ComputeSimplexWitnessPoints.exit:               ; preds = %257, %260, %276, %2
   store i8 %347, ptr %348, align 1, !tbaa !33
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i186, 1
   %exitcond231.not = icmp eq i64 %indvars.iv.next.i187, %337
-  br i1 %exitcond231.not, label %b2MakeSimplexCache.exit, label %338, !llvm.loop !52
+  br i1 %exitcond231.not, label %b2MakeSimplexCache.exit, label %338, !llvm.loop !54
 
 b2MakeSimplexCache.exit:                          ; preds = %338, %b2ComputeSimplexWitnessPoints.exit
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #12
   %349 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %350 = load i8, ptr %349, align 4, !tbaa !53, !range !57, !noundef !58
+  %350 = load i8, ptr %349, align 4, !tbaa !55, !range !59, !noundef !60
   %351 = trunc nuw i8 %350 to i1
   br i1 %351, label %352, label %380
 
@@ -998,7 +998,7 @@ b2MakeSimplexCache.exit:                          ; preds = %338, %b2ComputeSimp
   store float %360, ptr %357, align 4, !tbaa !15
   store float %356, ptr %258, align 4, !tbaa !15
   store float %360, ptr %358, align 4, !tbaa !15
-  store float 0.000000e+00, ptr %328, align 4, !tbaa !48
+  store float 0.000000e+00, ptr %328, align 4, !tbaa !50
   br label %380
 
 b2Normalize.exit:                                 ; preds = %352
@@ -1010,7 +1010,7 @@ b2Normalize.exit:                                 ; preds = %352
   %366 = fsub float %365, %364
   %367 = fcmp olt float %366, 0.000000e+00
   %368 = select i1 %367, float 0.000000e+00, float %366
-  store float %368, ptr %328, align 4, !tbaa !48
+  store float %368, ptr %328, align 4, !tbaa !50
   %369 = fdiv float 1.000000e+00, %sqrt.i
   %370 = fmul float %322, %369
   %371 = fmul float %323, %369
@@ -1111,7 +1111,7 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
 
 59:                                               ; preds = %1
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float 1.000000e+00, ptr %60, align 4, !tbaa !42
+  store float 1.000000e+00, ptr %60, align 4, !tbaa !43
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %61, align 4, !tbaa !27
   br label %121
@@ -1129,10 +1129,10 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
   %68 = fdiv float 1.000000e+00, %67
   %69 = fmul float %17, %68
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %69, ptr %70, align 4, !tbaa !42
+  store float %69, ptr %70, align 4, !tbaa !43
   %71 = fmul float %68, %18
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %71, ptr %72, align 4, !tbaa !43
+  store float %71, ptr %72, align 4, !tbaa !44
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 2, ptr %73, align 4, !tbaa !27
   br label %121
@@ -1150,13 +1150,13 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
   %80 = fdiv float 1.000000e+00, %79
   %81 = fmul float %29, %80
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %81, ptr %82, align 4, !tbaa !42
+  store float %81, ptr %82, align 4, !tbaa !43
   %83 = fmul float %80, %30
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store float %83, ptr %84, align 4, !tbaa !47
+  store float %83, ptr %84, align 4, !tbaa !49
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 2, ptr %85, align 4, !tbaa !27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !45
   br label %121
 
 86:                                               ; preds = %74
@@ -1167,10 +1167,10 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
 
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float 1.000000e+00, ptr %90, align 4, !tbaa !43
+  store float 1.000000e+00, ptr %90, align 4, !tbaa !44
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %91, align 4, !tbaa !27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) %3, i64 36, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) %3, i64 36, i1 false), !tbaa.struct !45
   br label %121
 
 92:                                               ; preds = %86
@@ -1181,10 +1181,10 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store float 1.000000e+00, ptr %96, align 4, !tbaa !47
+  store float 1.000000e+00, ptr %96, align 4, !tbaa !49
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 1, ptr %97, align 4, !tbaa !27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !45
   br label %121
 
 98:                                               ; preds = %92
@@ -1200,13 +1200,13 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
   %104 = fdiv float 1.000000e+00, %103
   %105 = fmul float %40, %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %105, ptr %106, align 4, !tbaa !43
+  store float %105, ptr %106, align 4, !tbaa !44
   %107 = fmul float %104, %41
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store float %107, ptr %108, align 4, !tbaa !47
+  store float %107, ptr %108, align 4, !tbaa !49
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 2, ptr %109, align 4, !tbaa !27
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !44
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 4 dereferenceable(36) %5, i64 36, i1 false), !tbaa.struct !45
   br label %121
 
 110:                                              ; preds = %98
@@ -1215,13 +1215,13 @@ define internal fastcc void @b2SolveSimplex3(ptr noundef nonnull captures(none) 
   %113 = fdiv float 1.000000e+00, %112
   %114 = fmul float %48, %113
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store float %114, ptr %115, align 4, !tbaa !42
+  store float %114, ptr %115, align 4, !tbaa !43
   %116 = fmul float %52, %113
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store float %116, ptr %117, align 4, !tbaa !43
+  store float %116, ptr %117, align 4, !tbaa !44
   %118 = fmul float %56, %113
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store float %118, ptr %119, align 4, !tbaa !47
+  store float %118, ptr %119, align 4, !tbaa !49
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 3, ptr %120, align 4, !tbaa !27
   br label %121
@@ -1238,11 +1238,11 @@ define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%str
   %6 = alloca [3 x ptr], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %8 = load float, ptr %7, align 4, !tbaa !59
+  %8 = load float, ptr %7, align 4, !tbaa !61
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store float %8, ptr %9, align 4, !tbaa !61
+  store float %8, ptr %9, align 4, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(72) %1, i64 72, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(72) %1, i64 72, i1 false), !tbaa.struct !65
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %.sroa.079.0.copyload = load <2 x float>, ptr %10, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -1278,11 +1278,11 @@ define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%str
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #12
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %32 = load i32, ptr %31, align 4, !tbaa !64
+  %32 = load i32, ptr %31, align 4, !tbaa !66
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %32, ptr %33, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %35 = load float, ptr %34, align 4, !tbaa !65
+  %35 = load float, ptr %34, align 4, !tbaa !67
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 68
   store float %35, ptr %36, align 4, !tbaa !20
   %37 = icmp sgt i32 %32, 0
@@ -1352,7 +1352,7 @@ define void @b2ShapeCast(ptr dead_on_unwind noalias writable writeonly sret(%str
   %.1.i = select i1 %68, i32 %69, i32 %.021.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %b2FindSupport.exit.loopexit, label %.lr.ph.i, !llvm.loop !45
+  br i1 %exitcond.not.i, label %b2FindSupport.exit.loopexit, label %.lr.ph.i, !llvm.loop !46
 
 b2FindSupport.exit.loopexit:                      ; preds = %.lr.ph.i
   %70 = sext i32 %.1.i to i64
@@ -1397,7 +1397,7 @@ b2FindSupport.exit.b2FindSupport.exit129_crit_edge: ; preds = %b2FindSupport.exi
   %.1.i126 = select i1 %81, i32 %82, i32 %.021.i121
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i120, 1
   %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, %wide.trip.count.i118
-  br i1 %exitcond.not.i128, label %b2FindSupport.exit129.loopexit, label %.lr.ph.i119, !llvm.loop !45
+  br i1 %exitcond.not.i128, label %b2FindSupport.exit129.loopexit, label %.lr.ph.i119, !llvm.loop !46
 
 b2FindSupport.exit129.loopexit:                   ; preds = %.lr.ph.i119
   %.phi.trans.insert = sext i32 %.1.i126 to i64
@@ -1457,7 +1457,7 @@ b2FindSupport.exit129:                            ; preds = %b2FindSupport.exit.
   %.pr = load i32, ptr %33, align 8, !tbaa !17
   %109 = sext i32 %.pr to i64
   %110 = icmp slt i64 %indvars.iv.next, %109
-  br i1 %110, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !66
+  br i1 %110, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !68
 
 111:                                              ; preds = %b2FindSupport.exit129, %b2ComputeSimplexClosestPoint.exit
   %112 = phi i32 [ 0, %b2FindSupport.exit129 ], [ %222, %b2ComputeSimplexClosestPoint.exit ]
@@ -1504,7 +1504,7 @@ b2FindSupport.exit129:                            ; preds = %b2FindSupport.exit.
   %.1.i154 = select i1 %132, i32 %133, i32 %.021.i149
   %indvars.iv.next.i155 = add nuw nsw i64 %indvars.iv.i148, 1
   %exitcond.not.i156 = icmp eq i64 %indvars.iv.next.i155, %wide.trip.count.i146
-  br i1 %exitcond.not.i156, label %b2FindSupport.exit157, label %.lr.ph.i147, !llvm.loop !45
+  br i1 %exitcond.not.i156, label %b2FindSupport.exit157, label %.lr.ph.i147, !llvm.loop !46
 
 b2FindSupport.exit157:                            ; preds = %.lr.ph.i147, %119
   %.0.lcssa.i142 = phi i32 [ 0, %119 ], [ %.1.i154, %.lr.ph.i147 ]
@@ -1537,7 +1537,7 @@ b2FindSupport.exit157:                            ; preds = %.lr.ph.i147, %119
   %.1.i172 = select i1 %146, i32 %147, i32 %.021.i167
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i166, 1
   %exitcond.not.i174 = icmp eq i64 %indvars.iv.next.i173, %wide.trip.count.i164.pre-phi
-  br i1 %exitcond.not.i174, label %b2FindSupport.exit175, label %.lr.ph.i165, !llvm.loop !45
+  br i1 %exitcond.not.i174, label %b2FindSupport.exit175, label %.lr.ph.i165, !llvm.loop !46
 
 b2FindSupport.exit175:                            ; preds = %.lr.ph.i165, %b2FindSupport.exit157
   %.0.lcssa.i160 = phi i32 [ 0, %b2FindSupport.exit157 ], [ %.1.i172, %.lr.ph.i165 ]
@@ -1640,7 +1640,7 @@ b2Normalize.exit:                                 ; preds = %b2FindSupport.exit1
   br i1 %198, label %200, label %199
 
 199:                                              ; preds = %190
-  store float 1.000000e+00, ptr %96, align 4, !tbaa !42
+  store float 1.000000e+00, ptr %96, align 4, !tbaa !43
   store i32 1, ptr %50, align 4, !tbaa !27
   br label %b2SolveSimplex2.exit.thread.thread
 
@@ -1653,18 +1653,18 @@ b2Normalize.exit:                                 ; preds = %b2FindSupport.exit1
   br i1 %205, label %b2SolveSimplex2.exit.thread.thread239, label %206
 
 206:                                              ; preds = %200
-  store float 1.000000e+00, ptr %97, align 4, !tbaa !43
+  store float 1.000000e+00, ptr %97, align 4, !tbaa !44
   store i32 1, ptr %50, align 4, !tbaa !27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %52, i64 36, i1 false), !tbaa.struct !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %5, ptr noundef nonnull align 4 dereferenceable(36) %52, i64 36, i1 false), !tbaa.struct !45
   br label %b2SolveSimplex2.exit.thread.thread
 
 b2SolveSimplex2.exit.thread.thread239:            ; preds = %200
   %207 = fsub float %204, %196
   %208 = fdiv float 1.000000e+00, %207
   %209 = fmul float %204, %208
-  store float %209, ptr %96, align 4, !tbaa !42
+  store float %209, ptr %96, align 4, !tbaa !43
   %210 = fmul float %208, %197
-  store float %210, ptr %97, align 4, !tbaa !43
+  store float %210, ptr %97, align 4, !tbaa !44
   store i32 2, ptr %50, align 4, !tbaa !27
   br label %213
 
@@ -1682,8 +1682,8 @@ b2SolveSimplex2.exit:                             ; preds = %173, %211
   ]
 
 b2SolveSimplex2.exit._crit_edge:                  ; preds = %b2SolveSimplex2.exit
-  %.pre251 = load float, ptr %96, align 4, !tbaa !42
-  %.pre252 = load float, ptr %97, align 4, !tbaa !43
+  %.pre251 = load float, ptr %96, align 4, !tbaa !43
+  %.pre252 = load float, ptr %97, align 4, !tbaa !44
   %.pre253 = load <2 x float>, ptr %94, align 4
   %.pre254 = load <2 x float>, ptr %95, align 4
   %.pre257 = extractelement <2 x float> %.pre253, i64 0
@@ -1718,7 +1718,7 @@ b2ComputeSimplexClosestPoint.exit:                ; preds = %b2SolveSimplex2.exi
   %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.0.copyload6.i, %b2SolveSimplex2.exit.thread.thread ], [ %.sroa.05.4.vec.insert.i.i, %213 ], [ zeroinitializer, %b2SolveSimplex2.exit ]
   %223 = add nuw nsw i32 %.093244, 1
   %exitcond.not = icmp eq i32 %223, 20
-  br i1 %exitcond.not, label %.critedge, label %111, !llvm.loop !67
+  br i1 %exitcond.not, label %.critedge, label %111, !llvm.loop !69
 
 .critedge:                                        ; preds = %b2ComputeSimplexClosestPoint.exit, %111
   %224 = phi i32 [ %222, %b2ComputeSimplexClosestPoint.exit ], [ %112, %111 ]
@@ -1744,8 +1744,8 @@ b2ComputeSimplexClosestPoint.exit:                ; preds = %b2SolveSimplex2.exi
   br label %b2ComputeSimplexWitnessPoints.exit
 
 232:                                              ; preds = %228
-  %233 = load float, ptr %96, align 4, !tbaa !42
-  %234 = load float, ptr %97, align 4, !tbaa !43
+  %233 = load float, ptr %96, align 4, !tbaa !43
+  %234 = load float, ptr %97, align 4, !tbaa !44
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %236 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %237 = load <2 x float>, ptr %235, align 4
@@ -1818,10 +1818,10 @@ b2Normalize.exit221:                              ; preds = %b2ComputeSimplexWit
   %275 = fadd float %273, %274
   %.sroa.010.4.vec.insert.i235 = insertelement <2 x float> %.sroa.010.0.vec.insert.i234, float %275, i64 1
   store <2 x float> %.sroa.010.4.vec.insert.i235, ptr %0, align 4
-  store float %.092.lcssa, ptr %9, align 4, !tbaa !61
-  store i32 %.093.lcssa, ptr %92, align 4, !tbaa !68
+  store float %.092.lcssa, ptr %9, align 4, !tbaa !63
+  store i32 %.093.lcssa, ptr %92, align 4, !tbaa !70
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %276, align 4, !tbaa !69
+  store i8 1, ptr %276, align 4, !tbaa !71
   br label %.critedge103
 
 .critedge103.loopexit:                            ; preds = %169, %167, %b2SolveSimplex2.exit
@@ -1843,7 +1843,7 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   %4 = alloca %struct.b2DistanceOutput, align 4
   %5 = alloca %struct.b2SeparationFunction, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %7 = load float, ptr %6, align 4, !tbaa !70
+  %7 = load float, ptr %6, align 4, !tbaa !72
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.sroa.0186.0.copyload = load <2 x float>, ptr %8, align 4
   %.sroa.6189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1887,11 +1887,11 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store i64 0, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 180, ptr nonnull %3) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(72) %0, i64 72, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %3, ptr noundef nonnull align 4 dereferenceable(72) %0, i64 72, i1 false), !tbaa.struct !65
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %22, ptr noundef nonnull align 4 dereferenceable(72) %10, i64 72, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %22, ptr noundef nonnull align 4 dereferenceable(72) %10, i64 72, i1 false), !tbaa.struct !65
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 176
-  store i8 0, ptr %23, align 4, !tbaa !53
+  store i8 0, ptr %23, align 4, !tbaa !55
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.6189.0.copyload, i64 0
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.6189.0.copyload, i64 1
   %.sroa.0.0.vec.extract.i23.i = extractelement <2 x float> %.sroa.8193.0.copyload, i64 0
@@ -2015,7 +2015,7 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #12
   call void @b2ShapeDistance(ptr dead_on_unwind nonnull writable sret(%struct.b2DistanceOutput) align 4 %4, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0)
   %99 = add nuw nsw i32 %.0103, 1
-  %100 = load float, ptr %26, align 4, !tbaa !48
+  %100 = load float, ptr %26, align 4, !tbaa !50
   %101 = fcmp ugt float %100, 0.000000e+00
   br i1 %101, label %102, label %.thread246
 
@@ -2025,10 +2025,10 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
 
 104:                                              ; preds = %102
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #12
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
-  store ptr %0, ptr %5, align 8, !tbaa !75, !alias.scope !72
-  store ptr %10, ptr %28, align 8, !tbaa !78, !alias.scope !72
-  %105 = load i16, ptr %2, align 8, !tbaa !24, !noalias !72
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
+  store ptr %0, ptr %5, align 8, !tbaa !77, !alias.scope !74
+  store ptr %10, ptr %28, align 8, !tbaa !80, !alias.scope !74
+  %105 = load i16, ptr %2, align 8, !tbaa !24, !noalias !74
   store <2 x float> %.sroa.0186.0.copyload, ptr %29, align 8
   store <2 x float> %.sroa.6189.0.copyload, ptr %.sroa.6189.0..sroa_idx190, align 8
   store <2 x float> %.sroa.8193.0.copyload, ptr %.sroa.8193.0..sroa_idx194, align 8
@@ -2047,15 +2047,15 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
   br i1 %106, label %107, label %140
 
 107:                                              ; preds = %104
-  store i32 0, ptr %33, align 8, !tbaa !79, !alias.scope !72
-  %108 = load i8, ptr %31, align 2, !tbaa !33, !noalias !72
+  store i32 0, ptr %33, align 8, !tbaa !81, !alias.scope !74
+  %108 = load i8, ptr %31, align 2, !tbaa !33, !noalias !74
   %109 = zext i8 %108 to i64
   %110 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %109
-  %.sroa.035.0.copyload.i = load <2 x float>, ptr %110, align 4, !noalias !72
-  %111 = load i8, ptr %36, align 1, !tbaa !33, !noalias !72
+  %.sroa.035.0.copyload.i = load <2 x float>, ptr %110, align 4, !noalias !74
+  %111 = load i8, ptr %36, align 1, !tbaa !33, !noalias !74
   %112 = zext i8 %111 to i64
   %113 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %10, i64 0, i64 %112
-  %.sroa.034.0.copyload.i = load <2 x float>, ptr %113, align 4, !noalias !72
+  %.sroa.034.0.copyload.i = load <2 x float>, ptr %113, align 4, !noalias !74
   %.sroa.0.0.vec.extract.i.i129 = extractelement <2 x float> %.sroa.035.0.copyload.i, i64 0
   %114 = fmul float %61, %.sroa.0.0.vec.extract.i.i129
   %.sroa.0.4.vec.extract.i.i130 = extractelement <2 x float> %.sroa.035.0.copyload.i, i64 1
@@ -2095,26 +2095,26 @@ define range(i64 1, -4294967288) i64 @b2TimeOfImpact(ptr noundef %0) local_unnam
 
 b2Normalize.exit.i:                               ; preds = %136, %107
   %.sroa.012.0.i.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i.i133, %136 ], [ zeroinitializer, %107 ]
-  store <2 x float> %.sroa.012.0.i.i, ptr %34, align 8, !alias.scope !72
-  store i64 0, ptr %35, align 8, !alias.scope !72
+  store <2 x float> %.sroa.012.0.i.i, ptr %34, align 8, !alias.scope !74
+  store i64 0, ptr %35, align 8, !alias.scope !74
   br label %b2MakeSeparationFunction.exit
 
 140:                                              ; preds = %104
-  %141 = load i8, ptr %31, align 2, !tbaa !33, !noalias !72
-  %142 = load i8, ptr %32, align 1, !tbaa !33, !noalias !72
+  %141 = load i8, ptr %31, align 2, !tbaa !33, !noalias !74
+  %142 = load i8, ptr %32, align 1, !tbaa !33, !noalias !74
   %143 = icmp eq i8 %141, %142
   br i1 %143, label %144, label %203
 
 144:                                              ; preds = %140
-  store i32 2, ptr %33, align 8, !tbaa !79, !alias.scope !72
-  %145 = load i8, ptr %36, align 1, !tbaa !33, !noalias !72
+  store i32 2, ptr %33, align 8, !tbaa !81, !alias.scope !74
+  %145 = load i8, ptr %36, align 1, !tbaa !33, !noalias !74
   %146 = zext i8 %145 to i64
   %147 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %10, i64 0, i64 %146
-  %.sroa.028.0.copyload.i = load <2 x float>, ptr %147, align 4, !noalias !72
-  %148 = load i8, ptr %37, align 2, !tbaa !33, !noalias !72
+  %.sroa.028.0.copyload.i = load <2 x float>, ptr %147, align 4, !noalias !74
+  %148 = load i8, ptr %37, align 2, !tbaa !33, !noalias !74
   %149 = zext i8 %148 to i64
   %150 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %10, i64 0, i64 %149
-  %.sroa.026.0.copyload.i = load <2 x float>, ptr %150, align 4, !noalias !72
+  %.sroa.026.0.copyload.i = load <2 x float>, ptr %150, align 4, !noalias !74
   %151 = fsub <2 x float> %.sroa.026.0.copyload.i, %.sroa.028.0.copyload.i
   %.sroa.01.4.vec.extract.i.i = extractelement <2 x float> %.sroa.026.0.copyload.i, i64 1
   %.sroa.0.4.vec.extract.i103.i = extractelement <2 x float> %.sroa.028.0.copyload.i, i64 1
@@ -2139,7 +2139,7 @@ b2Normalize.exit.i:                               ; preds = %136, %107
 
 b2Normalize.exit115.i:                            ; preds = %158, %144
   %.sroa.012.0.i114.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i113.i, %158 ], [ zeroinitializer, %144 ]
-  store <2 x float> %.sroa.012.0.i114.i, ptr %34, align 8, !alias.scope !72
+  store <2 x float> %.sroa.012.0.i114.i, ptr %34, align 8, !alias.scope !74
   %.sroa.0.0.vec.extract.i116.i = extractelement <2 x float> %.sroa.012.0.i114.i, i64 0
   %164 = fmul float %89, %.sroa.0.0.vec.extract.i116.i
   %.sroa.0.4.vec.extract.i117.i = extractelement <2 x float> %.sroa.012.0.i114.i, i64 1
@@ -2153,9 +2153,9 @@ b2Normalize.exit115.i:                            ; preds = %158, %144
   %172 = fmul float %171, 5.000000e-01
   %173 = fadd float %.sroa.0.4.vec.extract.i103.i, %.sroa.01.4.vec.extract.i.i
   %174 = fmul float %173, 5.000000e-01
-  store float %172, ptr %35, align 8, !tbaa !15, !alias.scope !72
-  store float %174, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !15, !alias.scope !72
-  %175 = load <2 x float>, ptr %35, align 8, !alias.scope !72
+  store float %172, ptr %35, align 8, !tbaa !15, !alias.scope !74
+  store float %174, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !15, !alias.scope !74
+  %175 = load <2 x float>, ptr %35, align 8, !alias.scope !74
   %.sroa.0.0.vec.extract.i119.i = extractelement <2 x float> %175, i64 0
   %176 = fmul float %89, %.sroa.0.0.vec.extract.i119.i
   %.sroa.0.4.vec.extract.i121.i = extractelement <2 x float> %175, i64 1
@@ -2168,7 +2168,7 @@ b2Normalize.exit115.i:                            ; preds = %158, %144
   %183 = fadd float %98, %182
   %184 = zext i8 %141 to i64
   %185 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %184
-  %.sroa.018.0.copyload.i = load <2 x float>, ptr %185, align 4, !noalias !72
+  %.sroa.018.0.copyload.i = load <2 x float>, ptr %185, align 4, !noalias !74
   %.sroa.0.0.vec.extract.i127.i = extractelement <2 x float> %.sroa.018.0.copyload.i, i64 0
   %186 = fmul float %61, %.sroa.0.0.vec.extract.i127.i
   %.sroa.0.4.vec.extract.i129.i = extractelement <2 x float> %.sroa.018.0.copyload.i, i64 1
@@ -2191,17 +2191,17 @@ b2Normalize.exit115.i:                            ; preds = %158, %144
   %201 = fneg float %.sroa.0.0.vec.extract.i116.i
   %202 = fneg <2 x float> %.sroa.012.0.i114.i
   %.sroa.01.4.vec.insert.i.i = insertelement <2 x float> %202, float %201, i64 0
-  store <2 x float> %.sroa.01.4.vec.insert.i.i, ptr %34, align 8, !alias.scope !72
+  store <2 x float> %.sroa.01.4.vec.insert.i.i, ptr %34, align 8, !alias.scope !74
   br label %b2MakeSeparationFunction.exit
 
 203:                                              ; preds = %140
-  store i32 1, ptr %33, align 8, !tbaa !79, !alias.scope !72
+  store i32 1, ptr %33, align 8, !tbaa !81, !alias.scope !74
   %204 = zext i8 %141 to i64
   %205 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %204
-  %.sroa.012.0.copyload.i = load <2 x float>, ptr %205, align 4, !noalias !72
+  %.sroa.012.0.copyload.i = load <2 x float>, ptr %205, align 4, !noalias !74
   %206 = zext i8 %142 to i64
   %207 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %206
-  %.sroa.010.0.copyload.i = load <2 x float>, ptr %207, align 4, !noalias !72
+  %.sroa.010.0.copyload.i = load <2 x float>, ptr %207, align 4, !noalias !74
   %208 = fsub <2 x float> %.sroa.010.0.copyload.i, %.sroa.012.0.copyload.i
   %.sroa.01.4.vec.extract.i149.i = extractelement <2 x float> %.sroa.010.0.copyload.i, i64 1
   %.sroa.0.4.vec.extract.i150.i = extractelement <2 x float> %.sroa.012.0.copyload.i, i64 1
@@ -2226,7 +2226,7 @@ b2Normalize.exit115.i:                            ; preds = %158, %144
 
 b2Normalize.exit162.i:                            ; preds = %215, %203
   %.sroa.012.0.i161.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i160.i, %215 ], [ zeroinitializer, %203 ]
-  store <2 x float> %.sroa.012.0.i161.i, ptr %34, align 8, !alias.scope !72
+  store <2 x float> %.sroa.012.0.i161.i, ptr %34, align 8, !alias.scope !74
   %.sroa.0.0.vec.extract.i164.i = extractelement <2 x float> %.sroa.012.0.i161.i, i64 0
   %221 = fmul float %61, %.sroa.0.0.vec.extract.i164.i
   %.sroa.0.4.vec.extract.i166.i = extractelement <2 x float> %.sroa.012.0.i161.i, i64 1
@@ -2240,9 +2240,9 @@ b2Normalize.exit162.i:                            ; preds = %215, %203
   %229 = fmul float %228, 5.000000e-01
   %230 = fadd float %.sroa.0.4.vec.extract.i150.i, %.sroa.01.4.vec.extract.i149.i
   %231 = fmul float %230, 5.000000e-01
-  store float %229, ptr %35, align 8, !tbaa !15, !alias.scope !72
-  store float %231, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !15, !alias.scope !72
-  %232 = load <2 x float>, ptr %35, align 8, !alias.scope !72
+  store float %229, ptr %35, align 8, !tbaa !15, !alias.scope !74
+  store float %231, ptr %.sroa.2.0..sroa_idx.i, align 4, !tbaa !15, !alias.scope !74
+  %232 = load <2 x float>, ptr %35, align 8, !alias.scope !74
   %.sroa.0.0.vec.extract.i170.i = extractelement <2 x float> %232, i64 0
   %233 = fmul float %61, %.sroa.0.0.vec.extract.i170.i
   %.sroa.0.4.vec.extract.i172.i = extractelement <2 x float> %232, i64 1
@@ -2253,10 +2253,10 @@ b2Normalize.exit162.i:                            ; preds = %215, %203
   %238 = fmul float %61, %.sroa.0.4.vec.extract.i172.i
   %239 = fadd float %237, %238
   %240 = fadd float %70, %239
-  %241 = load i8, ptr %36, align 1, !tbaa !33, !noalias !72
+  %241 = load i8, ptr %36, align 1, !tbaa !33, !noalias !74
   %242 = zext i8 %241 to i64
   %243 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %10, i64 0, i64 %242
-  %.sroa.03.0.copyload.i = load <2 x float>, ptr %243, align 4, !noalias !72
+  %.sroa.03.0.copyload.i = load <2 x float>, ptr %243, align 4, !noalias !74
   %.sroa.0.0.vec.extract.i178.i = extractelement <2 x float> %.sroa.03.0.copyload.i, i64 0
   %244 = fmul float %89, %.sroa.0.0.vec.extract.i178.i
   %.sroa.0.4.vec.extract.i180.i = extractelement <2 x float> %.sroa.03.0.copyload.i, i64 1
@@ -2279,7 +2279,7 @@ b2Normalize.exit162.i:                            ; preds = %215, %203
   %259 = fneg float %.sroa.0.0.vec.extract.i164.i
   %260 = fneg <2 x float> %.sroa.012.0.i161.i
   %.sroa.01.4.vec.insert.i198.i = insertelement <2 x float> %260, float %259, i64 0
-  store <2 x float> %.sroa.01.4.vec.insert.i198.i, ptr %34, align 8, !alias.scope !72
+  store <2 x float> %.sroa.01.4.vec.insert.i198.i, ptr %34, align 8, !alias.scope !74
   br label %b2MakeSeparationFunction.exit
 
 b2MakeSeparationFunction.exit:                    ; preds = %b2Normalize.exit.i, %b2Normalize.exit115.i, %200, %b2Normalize.exit162.i, %258
@@ -2405,7 +2405,7 @@ b2MakeSeparationFunction.exit:                    ; preds = %b2Normalize.exit.i,
   %.1.i.i = select i1 %346, i32 %347, i32 %.021.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %b2FindSupport.exit.i, label %.lr.ph.i.i, !llvm.loop !45
+  br i1 %exitcond.not.i.i, label %b2FindSupport.exit.i, label %.lr.ph.i.i, !llvm.loop !46
 
 b2FindSupport.exit.i:                             ; preds = %.lr.ph.i.i, %322
   %.0.lcssa.i.i = phi i32 [ 0, %322 ], [ %.1.i.i, %.lr.ph.i.i ]
@@ -2440,7 +2440,7 @@ b2FindSupport.exit.i:                             ; preds = %.lr.ph.i.i, %322
   %.1.i113.i = select i1 %359, i32 %360, i32 %.021.i108.i
   %indvars.iv.next.i114.i = add nuw nsw i64 %indvars.iv.i107.i, 1
   %exitcond.not.i115.i = icmp eq i64 %indvars.iv.next.i114.i, %wide.trip.count.i105.i
-  br i1 %exitcond.not.i115.i, label %b2FindSupport.exit116.i, label %.lr.ph.i106.i, !llvm.loop !45
+  br i1 %exitcond.not.i115.i, label %b2FindSupport.exit116.i, label %.lr.ph.i106.i, !llvm.loop !46
 
 b2FindSupport.exit116.i:                          ; preds = %.lr.ph.i106.i, %b2FindSupport.exit.i
   %.0.lcssa.i101.i = phi i32 [ 0, %b2FindSupport.exit.i ], [ %.1.i113.i, %.lr.ph.i106.i ]
@@ -2514,7 +2514,7 @@ b2FindSupport.exit116.i:                          ; preds = %.lr.ph.i106.i, %b2F
   %.1.i169.i = select i1 %406, i32 %407, i32 %.021.i164.i
   %indvars.iv.next.i170.i = add nuw nsw i64 %indvars.iv.i163.i, 1
   %exitcond.not.i171.i = icmp eq i64 %indvars.iv.next.i170.i, %wide.trip.count.i161.i
-  br i1 %exitcond.not.i171.i, label %b2FindSupport.exit172.i, label %.lr.ph.i162.i, !llvm.loop !45
+  br i1 %exitcond.not.i171.i, label %b2FindSupport.exit172.i, label %.lr.ph.i162.i, !llvm.loop !46
 
 b2FindSupport.exit172.i:                          ; preds = %.lr.ph.i162.i, %373
   %.0.lcssa.i157.i = phi i32 [ 0, %373 ], [ %.1.i169.i, %.lr.ph.i162.i ]
@@ -2575,7 +2575,7 @@ b2FindSupport.exit172.i:                          ; preds = %.lr.ph.i162.i, %373
   %.1.i225.i = select i1 %443, i32 %444, i32 %.021.i220.i
   %indvars.iv.next.i226.i = add nuw nsw i64 %indvars.iv.i219.i, 1
   %exitcond.not.i227.i = icmp eq i64 %indvars.iv.next.i226.i, %wide.trip.count.i217.i
-  br i1 %exitcond.not.i227.i, label %b2FindSupport.exit228.i, label %.lr.ph.i218.i, !llvm.loop !45
+  br i1 %exitcond.not.i227.i, label %b2FindSupport.exit228.i, label %.lr.ph.i218.i, !llvm.loop !46
 
 b2FindSupport.exit228.i:                          ; preds = %.lr.ph.i218.i, %410
   %.0.lcssa.i213.i = phi i32 [ 0, %410 ], [ %.1.i225.i, %.lr.ph.i218.i ]
@@ -2818,13 +2818,13 @@ b2EvaluateSeparation.exit:                        ; preds = %543, %552, %567
   %.0..075 = select i1 %599, float %.0, float %.075
   %.074..0 = select i1 %599, float %.074, float %.0
   %600 = icmp eq i32 %485, 50
-  br i1 %600, label %select.unfold, label %472
+  br i1 %600, label %select.unfold, label %472, !llvm.loop !82
 
 select.unfold:                                    ; preds = %598, %b2EvaluateSeparation.exit
   %.4.ph = phi float [ %.0, %b2EvaluateSeparation.exit ], [ %.088, %598 ]
   %601 = add nuw nsw i32 %.085, 1
   %602 = icmp eq i32 %601, 8
-  br i1 %602, label %select.unfold223, label %264
+  br i1 %602, label %select.unfold223, label %264, !llvm.loop !83
 
 select.unfold223:                                 ; preds = %461, %select.unfold
   %.3102.ph = phi float [ %.088, %461 ], [ %.099, %select.unfold ]
@@ -2840,7 +2840,7 @@ select.unfold223:                                 ; preds = %461, %select.unfold
 604:                                              ; preds = %select.unfold223
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #12
-  br label %41
+  br label %41, !llvm.loop !84
 
 .thread246:                                       ; preds = %102, %41, %.thread256
   %.sroa.8.1253 = phi float [ %.sroa.8.5.ph, %.thread256 ], [ %.099, %102 ], [ 0.000000e+00, %41 ]
@@ -2957,7 +2957,7 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   %88 = fsub float %57, %84
   %89 = fsub float %58, %87
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %91 = load i32, ptr %90, align 8, !tbaa !79
+  %91 = load i32, ptr %90, align 8, !tbaa !81
   switch i32 %91, label %194 [
     i32 0, label %92
     i32 1, label %123
@@ -2965,12 +2965,12 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   ]
 
 92:                                               ; preds = %4
-  %93 = load ptr, ptr %0, align 8, !tbaa !75
+  %93 = load ptr, ptr %0, align 8, !tbaa !77
   %94 = sext i32 %1 to i64
   %95 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %93, i64 0, i64 %94
   %.sroa.016.0.copyload = load <2 x float>, ptr %95, align 4
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !78
+  %97 = load ptr, ptr %96, align 8, !tbaa !80
   %98 = sext i32 %2 to i64
   %99 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %97, i64 0, i64 %98
   %.sroa.015.0.copyload = load <2 x float>, ptr %99, align 4
@@ -3029,7 +3029,7 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   %140 = fadd float %138, %139
   %141 = fadd float %47, %140
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %143 = load ptr, ptr %142, align 8, !tbaa !78
+  %143 = load ptr, ptr %142, align 8, !tbaa !80
   %144 = sext i32 %2 to i64
   %145 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %143, i64 0, i64 %144
   %.sroa.08.0.copyload = load <2 x float>, ptr %145, align 4
@@ -3073,7 +3073,7 @@ define internal fastcc float @b2EvaluateSeparation(ptr noundef nonnull readonly 
   %175 = fmul float %79, %.sroa.0.4.vec.extract.i106
   %176 = fadd float %174, %175
   %177 = fadd float %89, %176
-  %178 = load ptr, ptr %0, align 8, !tbaa !75
+  %178 = load ptr, ptr %0, align 8, !tbaa !77
   %179 = sext i32 %1 to i64
   %180 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %178, i64 0, i64 %179
   %.sroa.02.0.copyload = load <2 x float>, ptr %180, align 4
@@ -3164,46 +3164,51 @@ attributes #12 = { nounwind }
 !34 = !{!29, !19, i64 28}
 !35 = !{!29, !19, i64 32}
 !36 = !{!29, !6, i64 24}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !40, i64 32, i64 4, !40, i64 36, i64 4, !15, i64 40, i64 4, !15, i64 44, i64 4, !15, i64 48, i64 4, !15, i64 52, i64 4, !15, i64 56, i64 4, !15, i64 60, i64 4, !15, i64 64, i64 4, !40, i64 68, i64 4, !40, i64 72, i64 4, !15, i64 76, i64 4, !15, i64 80, i64 4, !15, i64 84, i64 4, !15, i64 88, i64 4, !15, i64 92, i64 4, !15, i64 96, i64 4, !15, i64 100, i64 4, !40, i64 104, i64 4, !40, i64 108, i64 4, !40}
-!40 = !{!19, !19, i64 0}
-!41 = distinct !{!41, !38}
-!42 = !{!28, !6, i64 24}
-!43 = !{!28, !6, i64 60}
-!44 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !40, i64 32, i64 4, !40}
-!45 = distinct !{!45, !38}
-!46 = distinct !{!46, !38}
-!47 = !{!28, !6, i64 96}
-!48 = !{!49, !6, i64 16}
-!49 = !{!"b2DistanceOutput", !5, i64 0, !5, i64 8, !6, i64 16, !19, i64 20, !19, i64 24}
-!50 = !{!49, !19, i64 20}
-!51 = !{!49, !19, i64 24}
-!52 = distinct !{!52, !38}
-!53 = !{!54, !56, i64 176}
-!54 = !{!"b2DistanceInput", !18, i64 0, !18, i64 72, !55, i64 144, !55, i64 160, !56, i64 176}
-!55 = !{!"b2Transform", !5, i64 0, !9, i64 8}
-!56 = !{!"_Bool", !7, i64 0}
-!57 = !{i8 0, i8 2}
-!58 = !{}
-!59 = !{!60, !6, i64 184}
-!60 = !{!"b2ShapeCastPairInput", !18, i64 0, !18, i64 72, !55, i64 144, !55, i64 160, !5, i64 176, !6, i64 184}
-!61 = !{!62, !6, i64 16}
-!62 = !{!"b2CastOutput", !5, i64 0, !5, i64 8, !6, i64 16, !19, i64 20, !56, i64 24}
-!63 = !{i64 0, i64 64, !33, i64 64, i64 4, !40, i64 68, i64 4, !15}
-!64 = !{!60, !19, i64 136}
-!65 = !{!60, !6, i64 140}
-!66 = distinct !{!66, !38}
-!67 = distinct !{!67, !38}
-!68 = !{!62, !19, i64 20}
-!69 = !{!62, !56, i64 24}
-!70 = !{!71, !6, i64 224}
-!71 = !{!"b2TOIInput", !18, i64 0, !18, i64 72, !4, i64 144, !4, i64 184, !6, i64 224}
-!72 = !{!73}
-!73 = distinct !{!73, !74, !"b2MakeSeparationFunction: argument 0"}
-!74 = distinct !{!74, !"b2MakeSeparationFunction"}
-!75 = !{!76, !77, i64 0}
-!76 = !{!"b2SeparationFunction", !77, i64 0, !77, i64 8, !4, i64 16, !4, i64 56, !5, i64 96, !5, i64 104, !19, i64 112}
-!77 = !{!"p1 _ZTS12b2ShapeProxy", !32, i64 0}
-!78 = !{!76, !77, i64 8}
-!79 = !{!76, !19, i64 112}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !41, i64 32, i64 4, !41, i64 36, i64 4, !15, i64 40, i64 4, !15, i64 44, i64 4, !15, i64 48, i64 4, !15, i64 52, i64 4, !15, i64 56, i64 4, !15, i64 60, i64 4, !15, i64 64, i64 4, !41, i64 68, i64 4, !41, i64 72, i64 4, !15, i64 76, i64 4, !15, i64 80, i64 4, !15, i64 84, i64 4, !15, i64 88, i64 4, !15, i64 92, i64 4, !15, i64 96, i64 4, !15, i64 100, i64 4, !41, i64 104, i64 4, !41, i64 108, i64 4, !41}
+!41 = !{!19, !19, i64 0}
+!42 = distinct !{!42, !38, !39}
+!43 = !{!28, !6, i64 24}
+!44 = !{!28, !6, i64 60}
+!45 = !{i64 0, i64 4, !15, i64 4, i64 4, !15, i64 8, i64 4, !15, i64 12, i64 4, !15, i64 16, i64 4, !15, i64 20, i64 4, !15, i64 24, i64 4, !15, i64 28, i64 4, !41, i64 32, i64 4, !41}
+!46 = distinct !{!46, !38, !39}
+!47 = distinct !{!47, !38, !39}
+!48 = distinct !{!48, !39}
+!49 = !{!28, !6, i64 96}
+!50 = !{!51, !6, i64 16}
+!51 = !{!"b2DistanceOutput", !5, i64 0, !5, i64 8, !6, i64 16, !19, i64 20, !19, i64 24}
+!52 = !{!51, !19, i64 20}
+!53 = !{!51, !19, i64 24}
+!54 = distinct !{!54, !38, !39}
+!55 = !{!56, !58, i64 176}
+!56 = !{!"b2DistanceInput", !18, i64 0, !18, i64 72, !57, i64 144, !57, i64 160, !58, i64 176}
+!57 = !{!"b2Transform", !5, i64 0, !9, i64 8}
+!58 = !{!"_Bool", !7, i64 0}
+!59 = !{i8 0, i8 2}
+!60 = !{}
+!61 = !{!62, !6, i64 184}
+!62 = !{!"b2ShapeCastPairInput", !18, i64 0, !18, i64 72, !57, i64 144, !57, i64 160, !5, i64 176, !6, i64 184}
+!63 = !{!64, !6, i64 16}
+!64 = !{!"b2CastOutput", !5, i64 0, !5, i64 8, !6, i64 16, !19, i64 20, !58, i64 24}
+!65 = !{i64 0, i64 64, !33, i64 64, i64 4, !41, i64 68, i64 4, !15}
+!66 = !{!62, !19, i64 136}
+!67 = !{!62, !6, i64 140}
+!68 = distinct !{!68, !38, !39}
+!69 = distinct !{!69, !38, !39}
+!70 = !{!64, !19, i64 20}
+!71 = !{!64, !58, i64 24}
+!72 = !{!73, !6, i64 224}
+!73 = !{!"b2TOIInput", !18, i64 0, !18, i64 72, !4, i64 144, !4, i64 184, !6, i64 224}
+!74 = !{!75}
+!75 = distinct !{!75, !76, !"b2MakeSeparationFunction: argument 0"}
+!76 = distinct !{!76, !"b2MakeSeparationFunction"}
+!77 = !{!78, !79, i64 0}
+!78 = !{!"b2SeparationFunction", !79, i64 0, !79, i64 8, !4, i64 16, !4, i64 56, !5, i64 96, !5, i64 104, !19, i64 112}
+!79 = !{!"p1 _ZTS12b2ShapeProxy", !32, i64 0}
+!80 = !{!78, !79, i64 8}
+!81 = !{!78, !19, i64 112}
+!82 = distinct !{!82, !39}
+!83 = distinct !{!83, !39}
+!84 = distinct !{!84, !39}

@@ -1403,7 +1403,7 @@ define internal void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr nou
   %119 = add i32 %.3236, 4
   %120 = add nuw nsw i32 %.1217235, 1
   %exitcond241.not = icmp eq i32 %120, %smax240
-  br i1 %exitcond241.not, label %.loopexit, label %.lr.ph237, !llvm.loop !11
+  br i1 %exitcond241.not, label %.loopexit, label %.lr.ph237, !llvm.loop !12
 
 121:                                              ; preds = %11
   %122 = load i32, ptr @hf_edonkey_file_hash, align 4
@@ -1543,7 +1543,7 @@ define internal void @dissect_emule_tcp_message(i8 noundef zeroext %0, ptr nound
   %43 = load ptr, ptr %7, align 8
   call void @proto_item_set_len(ptr noundef %43, i32 noundef 6)
   %exitcond.not.i.i = icmp eq i32 %35, %30
-  br i1 %exitcond.not.i.i, label %dissect_emule_address_list.exit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %dissect_emule_address_list.exit, label %.lr.ph.i.i, !llvm.loop !13
 
 dissect_emule_address_list.exit:                  ; preds = %.lr.ph.i.i, %25
   %.045.lcssa.i.i = phi i32 [ %33, %25 ], [ %42, %.lr.ph.i.i ]
@@ -1936,7 +1936,7 @@ dissect_edonkey_file_status.exit173.i:            ; preds = %273, %._crit_edge.i
 312:                                              ; preds = %297, %278, %dissect_edonkey_file_status.exit173.i, %246, %238, %236, %178
   %.2.i = phi i32 [ %185, %178 ], [ %237, %236 ], [ %245, %238 ], [ %253, %246 ], [ %277, %dissect_edonkey_file_status.exit173.i ], [ %296, %278 ], [ %307, %297 ]
   %313 = icmp slt i32 %.2.i, %13
-  br i1 %313, label %.lr.ph.i, label %dissect_emule_multipacket.exit, !llvm.loop !13
+  br i1 %313, label %.lr.ph.i, label %dissect_emule_multipacket.exit, !llvm.loop !14
 
 314:                                              ; preds = %12
   tail call void @dissect_edonkey_tcp_message(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %.0, ptr noundef %5)
@@ -2040,7 +2040,7 @@ define internal fastcc noundef i32 @dissect_edonkey_address_list(ptr noundef %0,
   %19 = load ptr, ptr %4, align 8
   call void @proto_item_set_len(ptr noundef %19, i32 noundef 6)
   %exitcond.not.i = icmp eq i32 %11, %6
-  br i1 %exitcond.not.i, label %dissect_edonkey_list.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %dissect_edonkey_list.exit, label %.lr.ph.i, !llvm.loop !13
 
 dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %3
   %.045.lcssa.i = phi i32 [ %9, %3 ], [ %18, %.lr.ph.i ]
@@ -2277,7 +2277,7 @@ define internal fastcc noundef i32 @dissect_edonkey_hash_list(ptr noundef %0, i3
   %19 = load ptr, ptr %4, align 8
   call void @proto_item_set_len(ptr noundef %19, i32 noundef 16)
   %exitcond.not.i = icmp eq i32 %14, %9
-  br i1 %exitcond.not.i, label %dissect_edonkey_list.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %dissect_edonkey_list.exit, label %.lr.ph.i, !llvm.loop !13
 
 dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %3
   %.045.lcssa.i = phi i32 [ %12, %3 ], [ %18, %.lr.ph.i ]
@@ -2333,7 +2333,7 @@ define internal fastcc i32 @dissect_edonkey_list(ptr noundef %0, ptr noundef %1,
   %26 = sub i32 %24, %.04551
   call void @proto_item_set_len(ptr noundef %25, i32 noundef %26)
   %exitcond.not = icmp eq i32 %22, %.047
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %17
   %.045.lcssa = phi i32 [ %20, %17 ], [ %24, %.lr.ph ]
@@ -2533,7 +2533,7 @@ edonkey_tree_add_metatag_name.exit325:            ; preds = %96, %99
   %115 = getelementptr %struct._value_string, ptr @edonkey_special_tags, i64 %indvars.iv.next.i.i, i32 1
   %116 = load ptr, ptr %115, align 8
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 41
-  br i1 %exitcond.i.i, label %edonkey_metatag_name_get_type.exit.thread, label %110, !llvm.loop !14
+  br i1 %exitcond.i.i, label %edonkey_metatag_name_get_type.exit.thread, label %110, !llvm.loop !15
 
 lookup_str_index.exit.i:                          ; preds = %110
   %117 = and i64 %indvars.iv.i.i, 4294967295
@@ -3503,12 +3503,12 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   store i8 %100, ptr %101, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %102, label %95, !llvm.loop !15
+  br i1 %.not, label %102, label %95, !llvm.loop !16
 
 102:                                              ; preds = %95
   %indvars.iv.next347 = add nuw nsw i64 %indvars.iv346, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next347, 4
-  br i1 %exitcond.not, label %103, label %.preheader328, !llvm.loop !16
+  br i1 %exitcond.not, label %103, label %.preheader328, !llvm.loop !17
 
 103:                                              ; preds = %102
   %104 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %91, ptr noundef %5, ptr noundef nonnull @hf_kademlia_target_id)
@@ -3532,12 +3532,12 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   store i8 %113, ptr %114, align 1
   %indvars.iv.next351 = add nsw i64 %indvars.iv350, -1
   %.not374 = icmp eq i64 %indvars.iv350, 0
-  br i1 %.not374, label %115, label %108, !llvm.loop !17
+  br i1 %.not374, label %115, label %108, !llvm.loop !18
 
 115:                                              ; preds = %108
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, 4
-  br i1 %exitcond357.not, label %116, label %.preheader, !llvm.loop !18
+  br i1 %exitcond357.not, label %116, label %.preheader, !llvm.loop !19
 
 116:                                              ; preds = %115
   %117 = tail call fastcc i32 @dissect_kademlia_hash(ptr noundef %1, ptr noundef %2, i32 noundef %104, ptr noundef %5, ptr noundef nonnull @hf_kademlia_recipients_id)
@@ -3568,14 +3568,14 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %128 = sdiv i32 %.0299339, 2
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next361, %indvars.iv366
-  br i1 %exitcond365.not, label %129, label %125, !llvm.loop !19
+  br i1 %exitcond365.not, label %129, label %125, !llvm.loop !20
 
 129:                                              ; preds = %125
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 8
   %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 8
   %exitcond373.not = icmp eq i64 %indvars.iv.next369, 16
-  br i1 %exitcond373.not, label %130, label %118, !llvm.loop !20
+  br i1 %exitcond373.not, label %130, label %118, !llvm.loop !21
 
 130:                                              ; preds = %129
   %131 = getelementptr inbounds nuw i8, ptr %12, i64 128
@@ -3661,7 +3661,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   %181 = sub i32 %179, %.04551.i
   call void @proto_item_set_len(ptr noundef %180, i32 noundef %181)
   %exitcond.not.i = icmp eq i32 %176, %171
-  br i1 %exitcond.not.i, label %dissect_edonkey_list.exit, label %.lr.ph.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %dissect_edonkey_list.exit, label %.lr.ph.i, !llvm.loop !13
 
 dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %168
   %.045.lcssa.i = phi i32 [ %174, %168 ], [ %179, %.lr.ph.i ]
@@ -3694,7 +3694,7 @@ dissect_edonkey_list.exit:                        ; preds = %.lr.ph.i, %168
   %197 = sub i32 %195, %.04551.i313
   call void @proto_item_set_len(ptr noundef %196, i32 noundef %197)
   %exitcond.not.i315 = icmp eq i32 %192, %187
-  br i1 %exitcond.not.i315, label %dissect_edonkey_list.exit317, label %.lr.ph.i312, !llvm.loop !12
+  br i1 %exitcond.not.i315, label %dissect_edonkey_list.exit317, label %.lr.ph.i312, !llvm.loop !13
 
 dissect_edonkey_list.exit317:                     ; preds = %.lr.ph.i312, %183
   %.045.lcssa.i316 = phi i32 [ %190, %183 ], [ %195, %.lr.ph.i312 ]
@@ -3726,7 +3726,7 @@ dissect_edonkey_list.exit317:                     ; preds = %.lr.ph.i312, %183
   %212 = sub i32 %210, %.04551.i320
   call void @proto_item_set_len(ptr noundef %211, i32 noundef %212)
   %exitcond.not.i322 = icmp eq i32 %207, %202
-  br i1 %exitcond.not.i322, label %dissect_edonkey_list.exit324, label %.lr.ph.i319, !llvm.loop !12
+  br i1 %exitcond.not.i322, label %dissect_edonkey_list.exit324, label %.lr.ph.i319, !llvm.loop !13
 
 dissect_edonkey_list.exit324:                     ; preds = %.lr.ph.i319, %199
   %.045.lcssa.i323 = phi i32 [ %205, %199 ], [ %210, %.lr.ph.i319 ]
@@ -3807,7 +3807,7 @@ dissect_edonkey_list.exit324:                     ; preds = %.lr.ph.i319, %199
   %.1289 = phi i32 [ %225, %219 ], [ %227, %226 ], [ %232, %228 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %245, %241 ]
   %247 = add nuw nsw i32 %spec.select, 1
   %.not.not = icmp slt i32 %spec.select, %217
-  br i1 %.not.not, label %219, label %._crit_edge, !llvm.loop !21
+  br i1 %.not.not, label %219, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %246
   %248 = icmp eq i8 %223, -1
@@ -3890,7 +3890,7 @@ define internal fastcc noundef i32 @dissect_kademlia_hash(ptr noundef %0, ptr no
   store i32 %13, ptr %14, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %kademlia_hash.exit, label %10, !llvm.loop !22
+  br i1 %exitcond.not.i, label %kademlia_hash.exit, label %10, !llvm.loop !23
 
 kademlia_hash.exit:                               ; preds = %10
   %15 = load i32, ptr %7, align 16
@@ -3918,7 +3918,7 @@ kademlia_hash.exit:                               ; preds = %10
   store i32 %28, ptr %29, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %kademlia_hash.exit.i, label %25, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %kademlia_hash.exit.i, label %25, !llvm.loop !23
 
 kademlia_hash.exit.i:                             ; preds = %25
   %30 = load i32, ptr %6, align 16
@@ -4134,7 +4134,7 @@ define internal noundef i32 @dissect_kademlia_tag(ptr noundef %0, ptr noundef %1
   store i32 %43, ptr %44, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
-  br i1 %exitcond.not.i.i, label %kademlia_hash.exit.i, label %40, !llvm.loop !22
+  br i1 %exitcond.not.i.i, label %kademlia_hash.exit.i, label %40, !llvm.loop !23
 
 kademlia_hash.exit.i:                             ; preds = %40
   %45 = load i32, ptr %6, align 16
@@ -4162,7 +4162,7 @@ kademlia_hash.exit.i:                             ; preds = %40
   store i32 %58, ptr %59, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
-  br i1 %exitcond.not.i.i.i, label %kademlia_hash.exit.i.i, label %55, !llvm.loop !22
+  br i1 %exitcond.not.i.i.i, label %kademlia_hash.exit.i.i, label %55, !llvm.loop !23
 
 kademlia_hash.exit.i.i:                           ; preds = %55
   %60 = load i32, ptr %5, align 16
@@ -4504,17 +4504,18 @@ attributes #9 = { nounwind willreturn memory(read) }
 !6 = !{i8 0, i8 2}
 !7 = !{}
 !8 = !{ptr @dissect_edonkey_tcp_message, ptr @dissect_emule_tcp_message}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
-!15 = distinct !{!15, !10}
-!16 = distinct !{!16, !10}
-!17 = distinct !{!17, !10}
-!18 = distinct !{!18, !10}
-!19 = distinct !{!19, !10}
-!20 = distinct !{!20, !10}
-!21 = distinct !{!21, !10}
-!22 = distinct !{!22, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}
+!17 = distinct !{!17, !10, !11}
+!18 = distinct !{!18, !10, !11}
+!19 = distinct !{!19, !10, !11}
+!20 = distinct !{!20, !10, !11}
+!21 = distinct !{!21, !10, !11}
+!22 = distinct !{!22, !10, !11}
+!23 = distinct !{!23, !10, !11}

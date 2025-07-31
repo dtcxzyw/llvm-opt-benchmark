@@ -91,12 +91,12 @@ define range(i32 0, 2) i32 @LAPACKE_dtr_nancheck(i32 noundef %0, i8 noundef sign
 35:                                               ; preds = %36
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count100
-  br i1 %exitcond101.not, label %.loopexit, label %36, !llvm.loop !5
+  br i1 %exitcond101.not, label %.loopexit, label %36, !llvm.loop !6
 
 36:                                               ; preds = %.lr.ph82, %35
   %indvars.iv95 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next96, %35 ]
   %gep111 = getelementptr double, ptr %invariant.gep110, i64 %indvars.iv95
-  %37 = load double, ptr %gep111, align 8, !tbaa !6
+  %37 = load double, ptr %gep111, align 8, !tbaa !7
   %38 = fcmp uno double %37, 0.000000e+00
   br i1 %38, label %.loopexit71, label %35
 
@@ -114,12 +114,12 @@ define range(i32 0, 2) i32 @LAPACKE_dtr_nancheck(i32 noundef %0, i8 noundef sign
 42:                                               ; preds = %43
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next88, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !11
 
 43:                                               ; preds = %.lr.ph, %42
   %indvars.iv87 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next88, %42 ]
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv87
-  %44 = load double, ptr %gep, align 8, !tbaa !6
+  %44 = load double, ptr %gep, align 8, !tbaa !7
   %45 = fcmp uno double %44, 0.000000e+00
   br i1 %45, label %.loopexit71, label %42
 
@@ -127,7 +127,7 @@ define range(i32 0, 2) i32 @LAPACKE_dtr_nancheck(i32 noundef %0, i8 noundef sign
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %.loopexit71, label %39, !llvm.loop !11
+  br i1 %exitcond94.not, label %.loopexit71, label %39, !llvm.loop !12
 
 .loopexit71:                                      ; preds = %._crit_edge, %43, %.loopexit, %36, %.preheader75, %.preheader72, %15, %18, %8, %6
   %.0 = phi i32 [ 0, %6 ], [ 0, %8 ], [ 0, %18 ], [ 0, %15 ], [ 0, %.preheader72 ], [ 0, %.preheader75 ], [ 1, %36 ], [ 0, %.loopexit ], [ 1, %43 ], [ 0, %._crit_edge ]
@@ -150,12 +150,13 @@ attributes #3 = { nounwind willreturn memory(none) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"double", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"double", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}

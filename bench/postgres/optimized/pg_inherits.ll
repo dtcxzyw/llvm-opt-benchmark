@@ -177,7 +177,7 @@ HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge: ; preds = %Heap
 68:                                               ; preds = %.sink.split, %64, %57
   %69 = call ptr @systable_getnext(ptr noundef %23) #5
   %.not.us.us = icmp eq ptr %69, null
-  br i1 %.not.us.us, label %.outer._crit_edge, label %35, !llvm.loop !10
+  br i1 %.not.us.us, label %.outer._crit_edge, label %35, !llvm.loop !11
 
 .thread.split.us.us:                              ; preds = %47, %35, %HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge
   %.val68.us = phi ptr [ %.val68.us.pre, %HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge ], [ %.val68.us.pre128, %47 ], [ %.val.us.us, %35 ]
@@ -223,7 +223,7 @@ HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge: ; preds = %Heap
   store i32 %81, ptr %89, align 4
   %90 = call ptr @systable_getnext(ptr noundef %23) #5
   %.not72.us99 = icmp eq ptr %90, null
-  br i1 %.not72.us99, label %.outer._crit_edge, label %.lr.ph.us90, !llvm.loop !11
+  br i1 %.not72.us99, label %.outer._crit_edge, label %.lr.ph.us90, !llvm.loop !12
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph.split, %.outer
   %91 = phi ptr [ %111, %.outer ], [ %24, %.lr.ph.lr.ph.split ]
@@ -273,7 +273,7 @@ HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge: ; preds = %Heap
   store i32 %102, ptr %110, align 4
   %111 = call ptr @systable_getnext(ptr noundef %23) #5
   %.not72 = icmp eq ptr %111, null
-  br i1 %.not72, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not72, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !13
 
 .outer._crit_edge:                                ; preds = %.outer, %.outer.us96, %.outer.us, %68, %20
   %.057.ph.lcssa = phi ptr [ %21, %20 ], [ %.057.ph79.us, %68 ], [ %.158.us, %.outer.us ], [ %.158.us97, %.outer.us96 ], [ %.158, %.outer ]
@@ -305,7 +305,7 @@ HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge: ; preds = %Heap
   %118 = call ptr @lappend_oid(ptr noundef %.051104.us, i32 noundef %117) #5
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %._crit_edge107, label %.lr.ph106.split.us, !llvm.loop !12
+  br i1 %exitcond126.not, label %._crit_edge107, label %.lr.ph106.split.us, !llvm.loop !14
 
 .lr.ph106.split:                                  ; preds = %.lr.ph106, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.lr.ph106 ]
@@ -329,7 +329,7 @@ HeapTupleHeaderGetXmin.exit.us.us..thread.split.us.us_crit_edge: ; preds = %Heap
   %.1 = phi ptr [ %125, %124 ], [ %.051104, %123 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count125
-  br i1 %exitcond.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge107, label %.lr.ph106.split, !llvm.loop !15
 
 ._crit_edge107:                                   ; preds = %126, %.lr.ph106.split.us, %114
   %.051.lcssa = phi ptr [ null, %114 ], [ %118, %.lr.ph106.split.us ], [ %.1, %126 ]
@@ -682,7 +682,7 @@ has_subclass.exit:                                ; preds = %9
   %50 = call ptr @lappend_oid(ptr noundef %.34173, i32 noundef %47) #5
   %51 = call ptr @systable_getnext(ptr noundef %38) #5
   %.not53 = icmp eq ptr %51, null
-  br i1 %.not53, label %.thread, label %.lr.ph
+  br i1 %.not53, label %.thread, label %.lr.ph, !llvm.loop !16
 
 .thread:                                          ; preds = %49, %35
   %.341.lcssa = phi ptr [ %.0387590, %35 ], [ %50, %49 ]
@@ -794,7 +794,7 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   call void @CatalogTupleDelete(ptr noundef %6, ptr noundef nonnull %21) #5
   %22 = call ptr @systable_getnext(ptr noundef %8) #5
   %.not26.us = icmp eq ptr %22, null
-  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
+  br i1 %.not26.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.split.split.us, label %.lr.ph.split.split.split
@@ -828,7 +828,7 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   %.1.us42 = phi i1 [ true, %36 ], [ %.034.us37, %.lr.ph.split.split.us ]
   %39 = call ptr @systable_getnext(ptr noundef %8) #5
   %.not26.us43 = icmp eq ptr %39, null
-  br i1 %.not26.us43, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !15
+  br i1 %.not26.us43, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !18
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split, %66
   %40 = phi ptr [ %67, %66 ], [ %9, %.lr.ph.split ]
@@ -882,7 +882,7 @@ define dso_local zeroext i1 @DeleteInheritsTuple(i32 noundef %0, i32 noundef %1,
   %.1 = phi i1 [ true, %59 ], [ %.034, %.lr.ph.split.split.split ]
   %67 = call ptr @systable_getnext(ptr noundef %8) #5
   %.not26 = icmp eq ptr %67, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !16
+  br i1 %.not26, label %._crit_edge, label %.lr.ph.split.split.split, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %66, %38, %20, %4
   %.0.lcssa = phi i1 [ false, %4 ], [ true, %20 ], [ %.1.us42, %38 ], [ %.1, %66 ]
@@ -957,13 +957,16 @@ attributes #6 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
 !8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !8}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.mustprogress"}
 !11 = distinct !{!11, !7, !8}
 !12 = distinct !{!12, !7, !8}
 !13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !8}
-!15 = distinct !{!15, !7, !8}
+!14 = distinct !{!14, !10, !7, !8}
+!15 = distinct !{!15, !10, !7}
 !16 = distinct !{!16, !7}
+!17 = distinct !{!17, !10, !7, !8}
+!18 = distinct !{!18, !10, !7, !8}
+!19 = distinct !{!19, !10, !7}

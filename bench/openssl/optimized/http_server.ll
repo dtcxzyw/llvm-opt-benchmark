@@ -161,7 +161,7 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
 40:                                               ; preds = %.lr.ph101
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit84, label %.lr.ph101, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit84, label %.lr.ph101, !llvm.loop !10
 
 .loopexit84:                                      ; preds = %40, %.preheader83, %37
   %.193 = phi i32 [ %39, %37 ], [ 0, %.preheader83 ], [ %.043106, %40 ]
@@ -195,7 +195,7 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = sext i32 %52 to i64
   %54 = icmp slt i64 %indvars.iv.next.i, %53
-  br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !10
+  br i1 %54, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %51, %42
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.8, i32 noundef 63) #11
@@ -242,7 +242,7 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
   %72 = tail call ptr @__errno_location() #12
   %73 = load i32, ptr %72, align 4, !tbaa !3
   %.not50 = icmp eq i32 %73, 4
-  br i1 %.not50, label %23, label %74, !llvm.loop !11
+  br i1 %.not50, label %23, label %74, !llvm.loop !12
 
 74:                                               ; preds = %71
   %75 = call ptr @strerror(i32 noundef %73) #11
@@ -269,7 +269,7 @@ define void @spawn_loop(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i59, 1
   %85 = sext i32 %84 to i64
   %86 = icmp slt i64 %indvars.iv.next.i62, %85
-  br i1 %86, label %.lr.ph.i58, label %._crit_edge.i57, !llvm.loop !10
+  br i1 %86, label %.lr.ph.i58, label %._crit_edge.i57, !llvm.loop !11
 
 ._crit_edge.i57:                                  ; preds = %83, %74
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.8, i32 noundef 63) #11
@@ -339,7 +339,7 @@ thread-pre-split:                                 ; preds = %70, %55
 105:                                              ; preds = %.lr.ph104
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.loopexit.thread, label %.lr.ph104, !llvm.loop !12
+  br i1 %exitcond129.not, label %.loopexit.thread, label %.lr.ph104, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph104
   %106 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv125
@@ -374,7 +374,7 @@ thread-pre-split:                                 ; preds = %70, %55
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i66, 1
   %119 = sext i32 %118 to i64
   %120 = icmp slt i64 %indvars.iv.next.i69, %119
-  br i1 %120, label %.lr.ph.i65, label %._crit_edge.i64, !llvm.loop !10
+  br i1 %120, label %.lr.ph.i65, label %._crit_edge.i64, !llvm.loop !11
 
 ._crit_edge.i64:                                  ; preds = %117, %.loopexit.thread
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.8, i32 noundef 63) #11
@@ -413,7 +413,7 @@ thread-pre-split:                                 ; preds = %70, %55
   %indvars.iv.next.i76 = add nuw nsw i64 %indvars.iv.i73, 1
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next.i76, %134
-  br i1 %135, label %.lr.ph.i72, label %._crit_edge.i71, !llvm.loop !10
+  br i1 %135, label %.lr.ph.i72, label %._crit_edge.i71, !llvm.loop !11
 
 ._crit_edge.i71:                                  ; preds = %132, %.thread80
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str.8, i32 noundef 63) #11
@@ -531,7 +531,7 @@ define ptr @http_server_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 
 33:                                               ; preds = %28
   %34 = call i64 @BIO_ctrl(ptr noundef nonnull %16, i32 noundef 105, i64 noundef 0, ptr noundef nonnull %4) #11
-  %35 = load ptr, ptr @bio_out, align 8, !tbaa !13
+  %35 = load ptr, ptr @bio_out, align 8, !tbaa !14
   %36 = load i32, ptr %4, align 4, !tbaa !3
   %37 = call i32 @report_server_accept(ptr noundef %35, i32 noundef %36, i32 noundef 1, i32 noundef 1) #11
   %38 = icmp eq i32 %37, 0
@@ -544,7 +544,7 @@ define ptr @http_server_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 40:                                               ; preds = %10, %39, %32, %27
   %.022 = phi ptr [ null, %10 ], [ %16, %27 ], [ %16, %32 ], [ %16, %39 ]
   %.021 = phi ptr [ null, %10 ], [ %12, %27 ], [ null, %32 ], [ null, %39 ]
-  %41 = load ptr, ptr @bio_err, align 8, !tbaa !13
+  %41 = load ptr, ptr @bio_err, align 8, !tbaa !14
   call void @ERR_print_errors(ptr noundef %41) #11
   call void @BIO_free_all(ptr noundef %.022) #11
   %42 = call i32 @BIO_free(ptr noundef %.021) #11
@@ -589,17 +589,17 @@ define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %0, ptr nounde
   %15 = alloca [2048 x i8], align 16
   %16 = alloca [2048 x i8], align 16
   %17 = alloca ptr, align 8
-  %18 = load ptr, ptr %3, align 8, !tbaa !13
+  %18 = load ptr, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %15) #11
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %16) #11
-  store ptr null, ptr %1, align 8, !tbaa !16
+  store ptr null, ptr %1, align 8, !tbaa !17
   %.not = icmp eq ptr %2, null
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sink.sroa.gep233 = getelementptr inbounds nuw i8, ptr %15, i64 5
   br i1 %.not, label %20, label %19
 
 19:                                               ; preds = %9
-  store ptr null, ptr %2, align 8, !tbaa !18
+  store ptr null, ptr %2, align 8, !tbaa !19
   br label %20
 
 20:                                               ; preds = %19, %9
@@ -611,13 +611,13 @@ define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %0, ptr nounde
   %23 = tail call i64 @BIO_ctrl(ptr noundef %4, i32 noundef 105, i64 noundef 0, ptr noundef null) #11
   %24 = trunc i64 %23 to i32
   call void @get_sock_info_address(i32 noundef %24, ptr noundef null, ptr noundef nonnull %17) #11
-  %25 = load ptr, ptr %17, align 8, !tbaa !18
+  %25 = load ptr, ptr %17, align 8, !tbaa !19
   %26 = icmp eq ptr %25, null
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %22
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 7, ptr noundef nonnull @.str.18, ptr noundef nonnull %25) #11
-  %28 = load ptr, ptr %17, align 8, !tbaa !18
+  %28 = load ptr, ptr %17, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str.8, i32 noundef 290) #11
   %29 = call i64 @BIO_ctrl(ptr noundef %4, i32 noundef 101, i64 noundef 0, ptr noundef null) #11
   %30 = icmp slt i64 %29, 1
@@ -638,7 +638,7 @@ define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %0, ptr nounde
 
 32:                                               ; preds = %27
   %33 = call ptr @BIO_pop(ptr noundef %4) #11
-  store ptr %33, ptr %3, align 8, !tbaa !13
+  store ptr %33, ptr %3, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #11
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.thread218, label %35
@@ -686,7 +686,7 @@ http_server_send_status.exit:                     ; preds = %45, %48
 
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 1
-  %55 = load i8, ptr %54, align 1, !tbaa !20
+  %55 = load i8, ptr %54, align 1, !tbaa !21
   %56 = icmp eq i8 %55, 10
   br i1 %56, label %59, label %57
 
@@ -697,7 +697,7 @@ http_server_send_status.exit:                     ; preds = %45, %48
 
 59:                                               ; preds = %57, %53
   %.0154 = phi ptr [ %52, %53 ], [ %58, %57 ]
-  store i8 0, ptr %.0154, align 1, !tbaa !20
+  store i8 0, ptr %.0154, align 1, !tbaa !21
   br label %60
 
 60:                                               ; preds = %59, %57
@@ -747,12 +747,12 @@ http_server_send_status.exit203:                  ; preds = %65, %68
 74:                                               ; preds = %72, %71
   %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %71 ], [ %.sink.sroa.gep233, %72 ]
   %75 = getelementptr inbounds i8, ptr %.sink.sroa.phi, i64 -1
-  store i8 0, ptr %75, align 1, !tbaa !20
+  store i8 0, ptr %75, align 1, !tbaa !21
   br label %76
 
 76:                                               ; preds = %78, %74
   %.1158 = phi ptr [ %.sink.sroa.phi, %74 ], [ %79, %78 ]
-  %77 = load i8, ptr %.1158, align 1, !tbaa !20
+  %77 = load i8, ptr %.1158, align 1, !tbaa !21
   switch i8 %77, label %80 [
     i8 32, label %78
     i8 47, label %86
@@ -760,7 +760,7 @@ http_server_send_status.exit203:                  ; preds = %65, %68
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %.1158, i64 1
-  br label %76, !llvm.loop !21
+  br label %76, !llvm.loop !22
 
 80:                                               ; preds = %76
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull %15, ptr noundef nonnull %.1158) #11
@@ -785,7 +785,7 @@ http_server_send_status.exit205:                  ; preds = %80, %83
 
 88:                                               ; preds = %90, %86
   %.2156 = phi ptr [ %87, %86 ], [ %91, %90 ]
-  %89 = load i8, ptr %.2156, align 1, !tbaa !20
+  %89 = load i8, ptr %.2156, align 1, !tbaa !21
   switch i8 %89, label %90 [
     i8 0, label %92
     i8 32, label %92
@@ -793,7 +793,7 @@ http_server_send_status.exit205:                  ; preds = %80, %83
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %.2156, i64 1
-  br label %88, !llvm.loop !22
+  br label %88, !llvm.loop !23
 
 92:                                               ; preds = %88, %88
   %93 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.2156, ptr noundef nonnull dereferenceable(9) @.str.28, i64 noundef 8) #15
@@ -807,13 +807,13 @@ http_server_send_status.exit205:                  ; preds = %80, %83
   br label %.thread218
 
 98:                                               ; preds = %92
-  store i8 0, ptr %.2156, align 1, !tbaa !20
+  store i8 0, ptr %.2156, align 1, !tbaa !21
   %.not195 = icmp eq ptr %5, null
   br i1 %.not195, label %104, label %99
 
 99:                                               ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %.2156, i64 8
-  %101 = load i8, ptr %100, align 1, !tbaa !20
+  %101 = load i8, ptr %100, align 1, !tbaa !21
   %102 = icmp sgt i8 %101, 48
   %103 = zext i1 %102 to i32
   store i32 %103, ptr %5, align 4, !tbaa !3
@@ -825,7 +825,7 @@ http_server_send_status.exit205:                  ; preds = %80, %83
   br i1 %106, label %107, label %112
 
 107:                                              ; preds = %104
-  %108 = load i8, ptr %87, align 1, !tbaa !20
+  %108 = load i8, ptr %87, align 1, !tbaa !21
   %109 = icmp eq i8 %108, 0
   br i1 %109, label %110, label %112
 
@@ -892,10 +892,10 @@ http_server_send_status.exit207:                  ; preds = %130, %134
 
 138:                                              ; preds = %138, %137
   %.2159 = phi ptr [ %87, %137 ], [ %141, %138 ]
-  %139 = load i8, ptr %.2159, align 1, !tbaa !20
+  %139 = load i8, ptr %.2159, align 1, !tbaa !21
   %140 = icmp eq i8 %139, 47
   %141 = getelementptr inbounds nuw i8, ptr %.2159, i64 1
-  br i1 %140, label %138, label %.preheader, !llvm.loop !23
+  br i1 %140, label %138, label %.preheader, !llvm.loop !24
 
 .preheader:                                       ; preds = %138
   %142 = getelementptr inbounds nuw i8, ptr %.2159, i64 2
@@ -908,18 +908,18 @@ http_server_send_status.exit207:                  ; preds = %130, %134
 
 144:                                              ; preds = %143
   %145 = getelementptr inbounds i8, ptr %.3, i64 -2
-  %146 = load i8, ptr %145, align 1, !tbaa !20
+  %146 = load i8, ptr %145, align 1, !tbaa !21
   %147 = icmp eq i8 %146, 47
   br i1 %147, label %148, label %.critedge
 
 148:                                              ; preds = %144
   %149 = getelementptr inbounds i8, ptr %.3, i64 -1
-  %150 = load i8, ptr %149, align 1, !tbaa !20
+  %150 = load i8, ptr %149, align 1, !tbaa !21
   %151 = icmp eq i8 %150, 47
-  br i1 %151, label %143, label %.critedge, !llvm.loop !24
+  br i1 %151, label %143, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %144, %143, %148
-  store i8 0, ptr %.3, align 1, !tbaa !20
+  store i8 0, ptr %.3, align 1, !tbaa !21
   %152 = call i32 @BIO_gets(ptr noundef nonnull %.2162217, ptr noundef nonnull %16, i32 noundef 2048) #11
   %153 = icmp slt i32 %152, 1
   br i1 %153, label %._crit_edge, label %.lr.ph
@@ -936,7 +936,7 @@ http_server_send_status.exit207:                  ; preds = %130, %134
 
 156:                                              ; preds = %.lr.ph
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 1
-  %158 = load i8, ptr %157, align 1, !tbaa !20
+  %158 = load i8, ptr %157, align 1, !tbaa !21
   %159 = icmp eq i8 %158, 10
   br i1 %159, label %.critedge201, label %160
 
@@ -947,17 +947,17 @@ http_server_send_status.exit207:                  ; preds = %130, %134
 
 .critedge201:                                     ; preds = %160, %156
   %.4 = phi ptr [ %155, %156 ], [ %161, %160 ]
-  store i8 0, ptr %.4, align 1, !tbaa !20
-  %162 = load i8, ptr %16, align 16, !tbaa !20
+  store i8 0, ptr %.4, align 1, !tbaa !21
+  %162 = load i8, ptr %16, align 16, !tbaa !21
   %163 = icmp eq i8 %162, 0
   %164 = select i1 %163, ptr @.str.36, ptr %16
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %164) #11
-  %165 = load i8, ptr %16, align 16, !tbaa !20
+  %165 = load i8, ptr %16, align 16, !tbaa !21
   %166 = icmp eq i8 %165, 0
   br i1 %166, label %194, label %172
 
 167:                                              ; preds = %160
-  %168 = load i8, ptr %16, align 16, !tbaa !20
+  %168 = load i8, ptr %16, align 16, !tbaa !21
   %169 = icmp eq i8 %168, 0
   %170 = select i1 %169, ptr @.str.36, ptr %16
   call void (i32, ptr, i32, ptr, ...) @trace_log_message(i32 noundef 18, ptr noundef %6, i32 noundef 8, ptr noundef nonnull @.str.9, ptr noundef nonnull %170) #11
@@ -976,15 +976,15 @@ http_server_send_status.exit207:                  ; preds = %130, %134
   br label %.thread218
 
 177:                                              ; preds = %172
-  store i8 0, ptr %173, align 1, !tbaa !20
+  store i8 0, ptr %173, align 1, !tbaa !21
   br label %178
 
 178:                                              ; preds = %178, %177
   %.pn = phi ptr [ %173, %177 ], [ %.0, %178 ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
-  %179 = load i8, ptr %.0, align 1, !tbaa !20
+  %179 = load i8, ptr %.0, align 1, !tbaa !21
   %180 = icmp eq i8 %179, 32
-  br i1 %180, label %178, label %181, !llvm.loop !25
+  br i1 %180, label %178, label %181, !llvm.loop !26
 
 181:                                              ; preds = %178
   br i1 %.not195, label %191, label %182
@@ -1032,7 +1032,7 @@ http_server_send_status.exit207:                  ; preds = %130, %134
 
 202:                                              ; preds = %201
   %203 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.2159, ptr noundef nonnull @.str.8, i32 noundef 473) #11
-  store ptr %203, ptr %2, align 8, !tbaa !18
+  store ptr %203, ptr %2, align 8, !tbaa !19
   %204 = icmp eq ptr %203, null
   br i1 %204, label %205, label %.thread222
 
@@ -1044,7 +1044,7 @@ http_server_send_status.exit207:                  ; preds = %130, %134
   br label %212
 
 .thread222:                                       ; preds = %199, %202, %201
-  store ptr %197, ptr %1, align 8, !tbaa !16
+  store ptr %197, ptr %1, align 8, !tbaa !17
   call void @BIO_free_all(ptr noundef %.2165) #11
   br label %211
 
@@ -1085,14 +1085,14 @@ http_server_send_status.exit209:                  ; preds = %212, %215
   br i1 %.not, label %220, label %218
 
 218:                                              ; preds = %http_server_send_status.exit209
-  %219 = load ptr, ptr %2, align 8, !tbaa !18
+  %219 = load ptr, ptr %2, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %219, ptr noundef nonnull @.str.8, i32 noundef 494) #11
-  store ptr null, ptr %2, align 8, !tbaa !18
+  store ptr null, ptr %2, align 8, !tbaa !19
   br label %220
 
 220:                                              ; preds = %218, %http_server_send_status.exit209
   call void @BIO_free_all(ptr noundef %.1161) #11
-  store ptr null, ptr %3, align 8, !tbaa !13
+  store ptr null, ptr %3, align 8, !tbaa !14
   br label %.thread218
 
 221:                                              ; preds = %.thread, %40, %211
@@ -1151,7 +1151,7 @@ define internal fastcc i32 @urldecode(ptr noundef nonnull %0) unnamed_addr #0 {
 2:                                                ; preds = %27, %1
   %.017 = phi ptr [ %0, %1 ], [ %28, %27 ]
   %.016 = phi ptr [ %0, %1 ], [ %.1, %27 ]
-  %3 = load i8, ptr %.017, align 1, !tbaa !20
+  %3 = load i8, ptr %.017, align 1, !tbaa !21
   switch i8 %3, label %27 [
     i8 0, label %29
     i8 37, label %4
@@ -1159,22 +1159,22 @@ define internal fastcc i32 @urldecode(ptr noundef nonnull %0) unnamed_addr #0 {
 
 4:                                                ; preds = %2
   %5 = tail call ptr @__ctype_b_loc() #12
-  %6 = load ptr, ptr %5, align 8, !tbaa !26
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = getelementptr inbounds nuw i8, ptr %.017, i64 1
-  %8 = load i8, ptr %7, align 1, !tbaa !20
+  %8 = load i8, ptr %7, align 1, !tbaa !21
   %9 = zext i8 %8 to i64
   %10 = getelementptr inbounds nuw i16, ptr %6, i64 %9
-  %11 = load i16, ptr %10, align 2, !tbaa !28
+  %11 = load i16, ptr %10, align 2, !tbaa !29
   %12 = and i16 %11, 4096
   %.not21 = icmp eq i16 %12, 0
   br i1 %.not21, label %.loopexit, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %.017, i64 2
-  %15 = load i8, ptr %14, align 1, !tbaa !20
+  %15 = load i8, ptr %14, align 1, !tbaa !21
   %16 = zext i8 %15 to i64
   %17 = getelementptr inbounds nuw i16, ptr %6, i64 %16
-  %18 = load i16, ptr %17, align 2, !tbaa !28
+  %18 = load i16, ptr %17, align 2, !tbaa !29
   %19 = and i16 %18, 4096
   %.not22 = icmp eq i16 %19, 0
   br i1 %.not22, label %.loopexit, label %20
@@ -1182,7 +1182,7 @@ define internal fastcc i32 @urldecode(ptr noundef nonnull %0) unnamed_addr #0 {
 20:                                               ; preds = %13
   %21 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %8) #11
   %22 = shl i32 %21, 4
-  %23 = load i8, ptr %14, align 1, !tbaa !20
+  %23 = load i8, ptr %14, align 1, !tbaa !21
   %24 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %23) #11
   %25 = or i32 %24, %22
   %26 = trunc i32 %25 to i8
@@ -1192,12 +1192,12 @@ define internal fastcc i32 @urldecode(ptr noundef nonnull %0) unnamed_addr #0 {
   %storemerge = phi i8 [ %26, %20 ], [ %3, %2 ]
   %.118 = phi ptr [ %14, %20 ], [ %.017, %2 ]
   %.1 = getelementptr inbounds nuw i8, ptr %.016, i64 1
-  store i8 %storemerge, ptr %.016, align 1, !tbaa !20
+  store i8 %storemerge, ptr %.016, align 1, !tbaa !21
   %28 = getelementptr inbounds nuw i8, ptr %.118, i64 1
-  br label %2, !llvm.loop !30
+  br label %2, !llvm.loop !31
 
 29:                                               ; preds = %2
-  store i8 0, ptr %.016, align 1, !tbaa !20
+  store i8 0, ptr %.016, align 1, !tbaa !21
   %30 = ptrtoint ptr %.016 to i64
   %31 = ptrtoint ptr %0 to i64
   %32 = sub i64 %30, %31
@@ -1320,27 +1320,28 @@ attributes #15 = { nounwind willreturn memory(read) }
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"p1 _ZTS6bio_st", !15, i64 0}
-!15 = !{!"any pointer", !5, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 _ZTS13ASN1_VALUE_st", !15, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 omnipotent char", !15, i64 0}
-!20 = !{!5, !5, i64 0}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 short", !15, i64 0}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"short", !5, i64 0}
-!30 = distinct !{!30, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"p1 _ZTS6bio_st", !16, i64 0}
+!16 = !{!"any pointer", !5, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 _ZTS13ASN1_VALUE_st", !16, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 omnipotent char", !16, i64 0}
+!21 = !{!5, !5, i64 0}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 short", !16, i64 0}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"short", !5, i64 0}
+!31 = distinct !{!31, !8, !9}

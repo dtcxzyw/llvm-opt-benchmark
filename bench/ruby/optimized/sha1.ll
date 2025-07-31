@@ -1149,10 +1149,10 @@ define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly 
   %13 = lshr i32 %9, %12
   %14 = trunc i32 %13 to i8
   %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %.033
-  store i8 %14, ptr %15, align 1, !tbaa !12
+  store i8 %14, ptr %15, align 1, !tbaa !13
   %16 = add nuw nsw i64 %.033, 1
   %exitcond.not = icmp eq i64 %16, 8
-  br i1 %exitcond.not, label %17, label %5, !llvm.loop !13
+  br i1 %exitcond.not, label %17, label %5, !llvm.loop !14
 
 17:                                               ; preds = %5
   %18 = load i32, ptr %4, align 4, !tbaa !6
@@ -1235,7 +1235,7 @@ rb_Digest_SHA1_Update.exit25:                     ; preds = %52, %47
   %57 = load i32, ptr %4, align 4, !tbaa !6
   %58 = and i32 %57, 504
   %.not = icmp eq i32 %58, 448
-  br i1 %.not, label %._crit_edge, label %40, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %40, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %rb_Digest_SHA1_Update.exit25, %rb_Digest_SHA1_Update.exit
   %.lcssa = phi i32 [ %37, %rb_Digest_SHA1_Update.exit ], [ %57, %rb_Digest_SHA1_Update.exit25 ]
@@ -1271,10 +1271,10 @@ rb_Digest_SHA1_Update.exit32:                     ; preds = %._crit_edge, %61
   %73 = lshr i32 %69, %72
   %74 = trunc i32 %73 to i8
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 %.135
-  store i8 %74, ptr %75, align 1, !tbaa !12
+  store i8 %74, ptr %75, align 1, !tbaa !13
   %76 = add nuw nsw i64 %.135, 1
   %exitcond37.not = icmp eq i64 %76, 20
-  br i1 %exitcond37.not, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %exitcond37.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.preheader, %rb_Digest_SHA1_Update.exit32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
@@ -1311,9 +1311,10 @@ attributes #7 = { nounwind }
 !7 = !{!"int", !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C/C++ TBAA"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = !{!8, !8, i64 0}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = !{!8, !8, i64 0}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}

@@ -374,7 +374,7 @@ lwDrawPixel.exit:                                 ; preds = %20, %22, %26, %28
   %.133 = add nsw i32 %42, %.032
   %43 = select i1 %41, i32 %8, i32 0
   %.2 = add nsw i32 %.131, %43
-  br label %20
+  br label %20, !llvm.loop !41
 
 44:                                               ; preds = %lwDrawPixel.exit
   ret void
@@ -426,11 +426,11 @@ lwDrawLine.exit.preheader:                        ; preds = %21
   %33 = fadd double %22, 0x3FF921FB54442D18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %lwDrawLine.exit.preheader, label %21, !llvm.loop !41
+  br i1 %exitcond.not, label %lwDrawLine.exit.preheader, label %21, !llvm.loop !43
 
 lwDrawLine.exit.loopexit:                         ; preds = %lwDrawPixel.exit.i
   %exitcond30.not = icmp eq i64 %indvars.iv.next28, 4
-  br i1 %exitcond30.not, label %34, label %35, !llvm.loop !43
+  br i1 %exitcond30.not, label %34, label %35, !llvm.loop !45
 
 34:                                               ; preds = %lwDrawLine.exit.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
@@ -507,7 +507,7 @@ lwDrawPixel.exit.i:                               ; preds = %63, %61, %57, %55
   %.133.i = add nsw i32 %77, %.032.i
   %78 = select i1 %76, i32 %46, i32 0
   %.2.i = add nsw i32 %.131.i, %78
-  br label %55
+  br label %55, !llvm.loop !41
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -587,5 +587,7 @@ attributes #16 = { nounwind allocsize(0) }
 !39 = !{!38, !11, i64 4}
 !40 = !{!38, !20, i64 8}
 !41 = distinct !{!41, !42}
-!42 = !{!"llvm.loop.mustprogress"}
-!43 = distinct !{!43, !42}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = distinct !{!43, !44, !42}
+!44 = !{!"llvm.loop.mustprogress"}
+!45 = distinct !{!45, !44, !42}

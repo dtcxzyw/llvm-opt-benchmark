@@ -120,7 +120,7 @@ define i32 @pmix_psensor_base_stop(ptr noundef %0, ptr noundef %1) local_unnamed
   %12 = getelementptr inbounds nuw i8, ptr %.01523, i64 152
   %13 = load ptr, ptr %12, align 8, !tbaa !39
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !47
+  %15 = load ptr, ptr %14, align 8, !tbaa !48
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %20, label %16
 
@@ -143,7 +143,7 @@ switch.early.test:                                ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %.01523, i64 120
   %.015 = load ptr, ptr %21, align 8, !tbaa !38
   %.not = icmp eq ptr %.015, getelementptr inbounds nuw (i8, ptr @pmix_psensor_base, i64 120)
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !48
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %20, %11
   %.0.lcssa = phi i32 [ 0, %11 ], [ %.1, %20 ]
@@ -201,7 +201,8 @@ attributes #2 = { nounwind }
 !42 = !{!"p1 _ZTS32pmix_psensor_base_module_1_0_0_t", !6, i64 0}
 !43 = !{!44, !6, i64 0}
 !44 = !{!"pmix_psensor_base_module_1_0_0_t", !6, i64 0, !6, i64 8}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!44, !6, i64 8}
-!48 = distinct !{!48, !46}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!44, !6, i64 8}
+!49 = distinct !{!49, !46, !47}

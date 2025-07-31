@@ -344,7 +344,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %25 = add nuw nsw i32 %.045, 1
   %26 = shl nuw i32 2, %.045
   %27 = icmp slt i32 %26, %2
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -395,7 +395,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %43, ptr %44, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge49.thread, label %35, !llvm.loop !22
+  br i1 %exitcond.not, label %._crit_edge49.thread, label %35, !llvm.loop !23
 
 ._crit_edge49:                                    ; preds = %.preheader
   %.not.i.i.i = icmp eq ptr %.sroa.0.0.lcssa, null
@@ -425,7 +425,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit29:                  ; preds = %45, %46
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8LightGBM19RecursiveHalvingMapC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(136) initializes((0, 4), (16, 136)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %0, align 8, !tbaa !23
+  store i32 0, ptr %0, align 8, !tbaa !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
   ret void
 }
@@ -440,10 +440,10 @@ define void @_ZN8LightGBM19RecursiveHalvingMapC2EiNS_24RecursiveHalvingNodeTypeE
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %6, i8 0, i64 120, i1 false)
-  store i32 %2, ptr %11, align 4, !tbaa !27
-  store i32 %1, ptr %0, align 8, !tbaa !23
+  store i32 %2, ptr %11, align 4, !tbaa !28
+  store i32 %1, ptr %0, align 8, !tbaa !24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %5, ptr %12, align 8, !tbaa !28
+  store i8 %5, ptr %12, align 8, !tbaa !29
   %.not = icmp ne i32 %2, 2
   %13 = icmp sgt i32 %1, 0
   %or.cond = and i1 %.not, %13
@@ -795,9 +795,9 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit50:         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i47, %123
   %145 = add nuw nsw i32 %.0889, 1
-  %146 = load i32, ptr %0, align 8, !tbaa !23
+  %146 = load i32, ptr %0, align 8, !tbaa !24
   %147 = icmp slt i32 %145, %146
-  br i1 %147, label %24, label %.loopexit, !llvm.loop !29
+  br i1 %147, label %24, label %.loopexit, !llvm.loop !30
 
 .loopexit68:                                      ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -913,7 +913,7 @@ define void @_ZN8LightGBM19RecursiveHalvingMap9ConstructEii(ptr dead_on_unwind n
   %.not = icmp sgt i32 %5, %2
   %6 = add nuw nsw i32 %.0124, 1
   %indvars.iv.next = add nsw i32 %indvars.iv, 1
-  br i1 %.not, label %7, label %4, !llvm.loop !30
+  br i1 %.not, label %7, label %4, !llvm.loop !31
 
 7:                                                ; preds = %4
   %8 = add nsw i32 %.0124, -1
@@ -1000,7 +1000,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.27.1 = getelementptr inbounds nuw i8, ptr %.pn274, i64 4
   %35 = add nuw nsw i32 %.0127288, 1
   %exitcond.not = icmp eq i32 %35, %indvars.iv
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !32
 
 .loopexit276:                                     ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1068,7 +1068,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   store i32 %68, ptr %69, align 4, !tbaa !17
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond365.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count364
-  br i1 %exitcond365.not, label %_ZNSt6vectorIN8LightGBM24RecursiveHalvingNodeTypeESaIS1_EED2Ev.exit.thread, label %49, !llvm.loop !32
+  br i1 %exitcond365.not, label %_ZNSt6vectorIN8LightGBM24RecursiveHalvingNodeTypeESaIS1_EED2Ev.exit.thread, label %49, !llvm.loop !33
 
 70:                                               ; preds = %._crit_edge
   %71 = sub i32 %2, %11
@@ -1093,20 +1093,20 @@ _ZNSt6vectorIN8LightGBM24RecursiveHalvingNodeTypeESaIS1_EE17_S_check_init_lenEmR
           to label %.noexc158 unwind label %84
 
 .noexc158:                                        ; preds = %75
-  store i32 0, ptr %77, align 4, !tbaa !33
+  store i32 0, ptr %77, align 4, !tbaa !34
   %78 = icmp eq i32 %2, 1
   br i1 %78, label %.lr.ph290.preheader, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %.noexc158
   %79 = getelementptr i8, ptr %77, i64 4
   %80 = add nsw i64 %76, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %79, i8 0, i64 %80, i1 false), !tbaa !33
+  tail call void @llvm.memset.p0.i64(ptr align 4 %79, i8 0, i64 %80, i1 false), !tbaa !34
   br label %.lr.ph290.preheader
 
 .lr.ph290.preheader:                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i, %.noexc158
   %81 = zext nneg i32 %2 to i64
   %82 = shl nuw nsw i64 %81, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %77, i8 0, i64 %82, i1 false), !tbaa !33
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %77, i8 0, i64 %82, i1 false), !tbaa !34
   br label %.preheader275
 
 .preheader275:                                    ; preds = %_ZNSt6vectorIN8LightGBM24RecursiveHalvingNodeTypeESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %.lr.ph290.preheader
@@ -1158,12 +1158,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc163
   %94 = shl nuw nsw i64 %indvars.iv329, 1
   %95 = sub nsw i64 %72, %94
   %gep = getelementptr i32, ptr %invariant.gep, i64 %95
-  store i32 1, ptr %gep, align 4, !tbaa !33
+  store i32 1, ptr %gep, align 4, !tbaa !34
   %gep292 = getelementptr i32, ptr %invariant.gep291, i64 %95
-  store i32 2, ptr %gep292, align 4, !tbaa !33
+  store i32 2, ptr %gep292, align 4, !tbaa !34
   %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
   %exitcond332.not = icmp eq i64 %indvars.iv.next330, %wide.trip.count
-  br i1 %exitcond332.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !34
+  br i1 %exitcond332.not, label %._crit_edge295, label %.lr.ph294, !llvm.loop !35
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i164: ; preds = %.noexc163, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i
   %96 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #15
@@ -1242,7 +1242,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
   %indvars.iv333 = phi i64 [ 0, %.lr.ph298.preheader ], [ %indvars.iv.next334, %122 ]
   %.0139296 = phi i32 [ 0, %.lr.ph298.preheader ], [ %.1140, %122 ]
   %115 = getelementptr inbounds nuw i32, ptr %.sroa.0236.0368, i64 %indvars.iv333
-  %116 = load i32, ptr %115, align 4, !tbaa !33
+  %116 = load i32, ptr %115, align 4, !tbaa !34
   %switch = icmp ult i32 %116, 2
   br i1 %switch, label %117, label %122
 
@@ -1266,12 +1266,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
   store i32 %128, ptr %126, align 4, !tbaa !17
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond338.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count337
-  br i1 %exitcond338.not, label %._crit_edge299, label %.lr.ph298, !llvm.loop !35
+  br i1 %exitcond338.not, label %._crit_edge299, label %.lr.ph298, !llvm.loop !36
 
 ._crit_edge303:                                   ; preds = %.lr.ph302, %._crit_edge299
   %129 = sext i32 %1 to i64
   %130 = getelementptr inbounds nuw i32, ptr %.sroa.0236.0368, i64 %129
-  %131 = load i32, ptr %130, align 4, !tbaa !33
+  %131 = load i32, ptr %130, align 4, !tbaa !34
   invoke void @_ZN8LightGBM19RecursiveHalvingMapC1EiNS_24RecursiveHalvingNodeTypeEb(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %8, i32 noundef %131, i1 noundef zeroext false)
           to label %136 unwind label %141
 
@@ -1285,10 +1285,10 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
   store i32 %134, ptr %135, align 4, !tbaa !17
   %indvars.iv.next340 = add nuw nsw i64 %indvars.iv339, 1
   %exitcond343.not = icmp eq i64 %indvars.iv.next340, %wide.trip.count342
-  br i1 %exitcond343.not, label %._crit_edge303, label %.lr.ph302, !llvm.loop !36
+  br i1 %exitcond343.not, label %._crit_edge303, label %.lr.ph302, !llvm.loop !37
 
 136:                                              ; preds = %._crit_edge303
-  %137 = load i32, ptr %130, align 4, !tbaa !33
+  %137 = load i32, ptr %130, align 4, !tbaa !34
   switch i32 %137, label %147 [
     i32 2, label %138
     i32 1, label %144
@@ -1297,7 +1297,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
 138:                                              ; preds = %136
   %139 = add nsw i32 %1, -1
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %139, ptr %140, align 4, !tbaa !37
+  store i32 %139, ptr %140, align 4, !tbaa !38
   br label %.loopexit
 
 141:                                              ; preds = %._crit_edge303
@@ -1313,7 +1313,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
 144:                                              ; preds = %136
   %145 = add nsw i32 %1, 1
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %145, ptr %146, align 4, !tbaa !37
+  store i32 %145, ptr %146, align 4, !tbaa !38
   br label %147
 
 147:                                              ; preds = %136, %144
@@ -1404,7 +1404,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
   %202 = add nsw i32 %201, %.0126304
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %exitcond348.not = icmp eq i64 %indvars.iv.next345, %wide.trip.count347
-  br i1 %exitcond348.not, label %._crit_edge308, label %200, !llvm.loop !38
+  br i1 %exitcond348.not, label %._crit_edge308, label %200, !llvm.loop !39
 
 ._crit_edge314:                                   ; preds = %204, %._crit_edge308
   %.0123.lcssa = phi i32 [ 0, %._crit_edge308 ], [ %206, %204 ]
@@ -1412,7 +1412,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
   store i32 %.0123.lcssa, ptr %203, align 4, !tbaa !17
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next355, %wide.trip.count358
-  br i1 %exitcond359.not, label %.loopexit, label %160, !llvm.loop !39
+  br i1 %exitcond359.not, label %.loopexit, label %160, !llvm.loop !40
 
 204:                                              ; preds = %.lr.ph313, %204
   %indvars.iv349 = phi i64 [ 0, %.lr.ph313 ], [ %indvars.iv.next350, %204 ]
@@ -1422,7 +1422,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i178: ; preds = %.noexc182
   %206 = add nsw i32 %205, %.0123310
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count352
-  br i1 %exitcond353.not, label %._crit_edge314, label %204, !llvm.loop !40
+  br i1 %exitcond353.not, label %._crit_edge314, label %204, !llvm.loop !41
 
 .loopexit:                                        ; preds = %._crit_edge314, %138
   %.not.i.i.i184 = icmp eq ptr %.sroa.0205.0371, null
@@ -1565,25 +1565,26 @@ attributes #17 = { nounwind }
 !16 = !{!12, !13, i64 16}
 !17 = !{!6, !6, i64 0}
 !18 = !{!12, !13, i64 0}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = !{!24, !6, i64 0}
-!24 = !{!"_ZTSN8LightGBM19RecursiveHalvingMapE", !6, i64 0, !25, i64 4, !26, i64 8, !6, i64 12, !9, i64 16, !9, i64 40, !9, i64 64, !9, i64 88, !9, i64 112}
-!25 = !{!"_ZTSN8LightGBM24RecursiveHalvingNodeTypeE", !7, i64 0}
-!26 = !{!"bool", !7, i64 0}
-!27 = !{!24, !25, i64 4}
-!28 = !{!24, !26, i64 8}
-!29 = distinct !{!29, !20}
-!30 = distinct !{!30, !20}
-!31 = distinct !{!31, !20}
-!32 = distinct !{!32, !20}
-!33 = !{!25, !25, i64 0}
-!34 = distinct !{!34, !20}
-!35 = distinct !{!35, !20}
-!36 = distinct !{!36, !20}
-!37 = !{!24, !6, i64 12}
-!38 = distinct !{!38, !20}
-!39 = distinct !{!39, !20}
-!40 = distinct !{!40, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = distinct !{!22, !20, !21}
+!23 = distinct !{!23, !20, !21}
+!24 = !{!25, !6, i64 0}
+!25 = !{!"_ZTSN8LightGBM19RecursiveHalvingMapE", !6, i64 0, !26, i64 4, !27, i64 8, !6, i64 12, !9, i64 16, !9, i64 40, !9, i64 64, !9, i64 88, !9, i64 112}
+!26 = !{!"_ZTSN8LightGBM24RecursiveHalvingNodeTypeE", !7, i64 0}
+!27 = !{!"bool", !7, i64 0}
+!28 = !{!25, !26, i64 4}
+!29 = !{!25, !27, i64 8}
+!30 = distinct !{!30, !20, !21}
+!31 = distinct !{!31, !20, !21}
+!32 = distinct !{!32, !20, !21}
+!33 = distinct !{!33, !20, !21}
+!34 = !{!26, !26, i64 0}
+!35 = distinct !{!35, !20, !21}
+!36 = distinct !{!36, !20, !21}
+!37 = distinct !{!37, !20, !21}
+!38 = !{!25, !6, i64 12}
+!39 = distinct !{!39, !20, !21}
+!40 = distinct !{!40, !20, !21}
+!41 = distinct !{!41, !20, !21}

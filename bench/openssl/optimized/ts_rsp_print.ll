@@ -125,7 +125,7 @@ define noundef i32 @TS_STATUS_INFO_print_bio(ptr noundef %0, ptr noundef readonl
 ._crit_edge:                                      ; preds = %20, %._crit_edge.thread
   %30 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.24) #2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !21
+  %32 = load ptr, ptr %31, align 8, !tbaa !22
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %.critedge, label %.preheader
 
@@ -148,16 +148,16 @@ define noundef i32 @TS_STATUS_INFO_print_bio(ptr noundef %0, ptr noundef readonl
 
 40:                                               ; preds = %38, %35
   %41 = getelementptr inbounds nuw i8, ptr %.081.i, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !22
+  %42 = load ptr, ptr %41, align 8, !tbaa !23
   %43 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %42) #2
   br label %44
 
 44:                                               ; preds = %40, %.preheader
   %.1.i = phi i32 [ %36, %40 ], [ %.02.i, %.preheader ]
   %45 = getelementptr inbounds nuw i8, ptr %.081.i, i64 16
-  %46 = load i32, ptr %45, align 8, !tbaa !25
+  %46 = load i32, ptr %45, align 8, !tbaa !26
   %47 = icmp sgt i32 %46, -1
-  br i1 %47, label %.preheader, label %ts_status_map_print.exit, !llvm.loop !26
+  br i1 %47, label %.preheader, label %ts_status_map_print.exit, !llvm.loop !27
 
 ts_status_map_print.exit:                         ; preds = %44
   %48 = icmp eq i32 %.1.i, 0
@@ -178,20 +178,20 @@ define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %0, ptr noundef re
   br i1 %3, label %86, label %4
 
 4:                                                ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !27
+  %5 = load ptr, ptr %1, align 8, !tbaa !28
   %6 = tail call i64 @ASN1_INTEGER_get(ptr noundef %5) #2
   %7 = trunc i64 %6 to i32
   %8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.26, i32 noundef %7) #2
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.27) #2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !34
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
   %12 = tail call i32 @TS_OBJ_print_bio(ptr noundef %0, ptr noundef %11) #2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !35
+  %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = tail call i32 @TS_MSG_IMPRINT_print_bio(ptr noundef %0, ptr noundef %14) #2
   %16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.28) #2
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %18 = load ptr, ptr %17, align 8, !tbaa !37
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %22
 
@@ -207,17 +207,17 @@ define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %0, ptr noundef re
   %25 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.29) #2
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !37
+  %28 = load ptr, ptr %27, align 8, !tbaa !38
   %29 = tail call i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %0, ptr noundef %28) #2
   %30 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.30) #2
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %33 = load ptr, ptr %32, align 8, !tbaa !38
+  %33 = load ptr, ptr %32, align 8, !tbaa !39
   %34 = icmp eq ptr %33, null
   br i1 %34, label %ts_ACCURACY_print_bio.exit, label %35
 
 35:                                               ; preds = %24
-  %36 = load ptr, ptr %33, align 8, !tbaa !39
+  %36 = load ptr, ptr %33, align 8, !tbaa !40
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %39, label %37
 
@@ -232,7 +232,7 @@ define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %0, ptr noundef re
 41:                                               ; preds = %39, %37
   %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.38) #2
   %43 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !41
+  %44 = load ptr, ptr %43, align 8, !tbaa !42
   %.not17.i = icmp eq ptr %44, null
   br i1 %.not17.i, label %47, label %45
 
@@ -247,7 +247,7 @@ define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %0, ptr noundef re
 49:                                               ; preds = %47, %45
   %50 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.39) #2
   %51 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %52 = load ptr, ptr %51, align 8, !tbaa !42
+  %52 = load ptr, ptr %51, align 8, !tbaa !43
   %.not18.i = icmp eq ptr %52, null
   br i1 %.not18.i, label %55, label %53
 
@@ -264,13 +264,13 @@ ts_ACCURACY_print_bio.exit:                       ; preds = %55, %53, %24
   %57 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull %.str.40.sink) #2
   %58 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %60 = load i32, ptr %59, align 8, !tbaa !43
+  %60 = load i32, ptr %59, align 8, !tbaa !44
   %.not = icmp eq i32 %60, 0
   %61 = select i1 %.not, ptr @.str.33, ptr @.str.32
   %62 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %61) #2
   %63 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.34) #2
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %65 = load ptr, ptr %64, align 8, !tbaa !44
+  %65 = load ptr, ptr %64, align 8, !tbaa !45
   %66 = icmp eq ptr %65, null
   br i1 %66, label %67, label %69
 
@@ -286,7 +286,7 @@ ts_ACCURACY_print_bio.exit:                       ; preds = %55, %53, %24
   %72 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %73 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.35) #2
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %75 = load ptr, ptr %74, align 8, !tbaa !45
+  %75 = load ptr, ptr %74, align 8, !tbaa !46
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %79
 
@@ -310,7 +310,7 @@ ts_ACCURACY_print_bio.exit:                       ; preds = %55, %53, %24
 81:                                               ; preds = %.split, %77
   %82 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef 1) #2
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %84 = load ptr, ptr %83, align 8, !tbaa !46
+  %84 = load ptr, ptr %83, align 8, !tbaa !47
   %85 = tail call i32 @TS_ext_print_bio(ptr noundef %0, ptr noundef %84) #2
   br label %86
 
@@ -376,31 +376,32 @@ attributes #2 = { nounwind }
 !16 = !{!17, !17, i64 0}
 !17 = !{!"p1 omnipotent char", !6, i64 0}
 !18 = !{!13, !15, i64 8}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!13, !14, i64 16}
-!22 = !{!23, !17, i64 8}
-!23 = !{!"status_map_st", !24, i64 0, !17, i64 8}
-!24 = !{!"int", !7, i64 0}
-!25 = !{!23, !24, i64 0}
-!26 = distinct !{!26, !20}
-!27 = !{!28, !14, i64 0}
-!28 = !{!"TS_tst_info_st", !14, i64 0, !29, i64 8, !30, i64 16, !14, i64 24, !14, i64 32, !31, i64 40, !24, i64 48, !14, i64 56, !32, i64 64, !33, i64 72}
-!29 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
-!30 = !{!"p1 _ZTS17TS_msg_imprint_st", !6, i64 0}
-!31 = !{!"p1 _ZTS14TS_accuracy_st", !6, i64 0}
-!32 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
-!33 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !6, i64 0}
-!34 = !{!28, !29, i64 8}
-!35 = !{!28, !30, i64 16}
-!36 = !{!28, !14, i64 24}
-!37 = !{!28, !14, i64 32}
-!38 = !{!28, !31, i64 40}
-!39 = !{!40, !14, i64 0}
-!40 = !{!"TS_accuracy_st", !14, i64 0, !14, i64 8, !14, i64 16}
-!41 = !{!40, !14, i64 8}
-!42 = !{!40, !14, i64 16}
-!43 = !{!28, !24, i64 48}
-!44 = !{!28, !14, i64 56}
-!45 = !{!28, !32, i64 64}
-!46 = !{!28, !33, i64 72}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!13, !14, i64 16}
+!23 = !{!24, !17, i64 8}
+!24 = !{!"status_map_st", !25, i64 0, !17, i64 8}
+!25 = !{!"int", !7, i64 0}
+!26 = !{!24, !25, i64 0}
+!27 = distinct !{!27, !20, !21}
+!28 = !{!29, !14, i64 0}
+!29 = !{!"TS_tst_info_st", !14, i64 0, !30, i64 8, !31, i64 16, !14, i64 24, !14, i64 32, !32, i64 40, !25, i64 48, !14, i64 56, !33, i64 64, !34, i64 72}
+!30 = !{!"p1 _ZTS14asn1_object_st", !6, i64 0}
+!31 = !{!"p1 _ZTS17TS_msg_imprint_st", !6, i64 0}
+!32 = !{!"p1 _ZTS14TS_accuracy_st", !6, i64 0}
+!33 = !{!"p1 _ZTS15GENERAL_NAME_st", !6, i64 0}
+!34 = !{!"p1 _ZTS23stack_st_X509_EXTENSION", !6, i64 0}
+!35 = !{!29, !30, i64 8}
+!36 = !{!29, !31, i64 16}
+!37 = !{!29, !14, i64 24}
+!38 = !{!29, !14, i64 32}
+!39 = !{!29, !32, i64 40}
+!40 = !{!41, !14, i64 0}
+!41 = !{!"TS_accuracy_st", !14, i64 0, !14, i64 8, !14, i64 16}
+!42 = !{!41, !14, i64 8}
+!43 = !{!41, !14, i64 16}
+!44 = !{!29, !25, i64 48}
+!45 = !{!29, !14, i64 56}
+!46 = !{!29, !33, i64 64}
+!47 = !{!29, !34, i64 72}

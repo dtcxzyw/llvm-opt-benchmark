@@ -1419,7 +1419,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i:          ; preds = %88, %84, %80
   %101 = load i32, ptr %7, align 8
   %102 = sext i32 %101 to i64
   %103 = icmp slt i64 %indvars.iv.next.i53, %102
-  br i1 %103, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !8
+  br i1 %103, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !9
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %104 = load ptr, ptr %10, align 8
@@ -1434,7 +1434,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i:          ; preds = %88, %84, %80
   %106 = load i32, ptr %9, align 4
   %107 = trunc nuw i64 %indvars.iv.next22.i to i32
   %108 = icmp sgt i32 %106, %107
-  br i1 %108, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !9
+  br i1 %108, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !10
 
 109:                                              ; preds = %.preheader.i
   %110 = load i64, ptr %11, align 8
@@ -1541,7 +1541,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i55:        ; preds = %144, %140, %136
   %157 = load i32, ptr %12, align 8
   %158 = sext i32 %157 to i64
   %159 = icmp slt i64 %indvars.iv.next.i68, %158
-  br i1 %159, label %.lr.ph.i66, label %.preheader16.loopexit.i69, !llvm.loop !8
+  br i1 %159, label %.lr.ph.i66, label %.preheader16.loopexit.i69, !llvm.loop !9
 
 .preheader.i59:                                   ; preds = %.lr.ph19.i63, %.preheader16.i57
   %160 = load ptr, ptr %15, align 8
@@ -1556,7 +1556,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i55:        ; preds = %144, %140, %136
   %162 = load i32, ptr %14, align 4
   %163 = trunc nuw i64 %indvars.iv.next22.i65 to i32
   %164 = icmp sgt i32 %162, %163
-  br i1 %164, label %.lr.ph19.i63, label %.preheader.i59, !llvm.loop !9
+  br i1 %164, label %.lr.ph19.i63, label %.preheader.i59, !llvm.loop !10
 
 165:                                              ; preds = %.preheader.i59
   %166 = load i64, ptr %16, align 8
@@ -1651,7 +1651,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i72:        ; preds = %193, %189, %185
   %206 = load i32, ptr %12, align 8
   %207 = sext i32 %206 to i64
   %208 = icmp slt i64 %indvars.iv.next.i85, %207
-  br i1 %208, label %.lr.ph.i83, label %.preheader16.loopexit.i86, !llvm.loop !8
+  br i1 %208, label %.lr.ph.i83, label %.preheader16.loopexit.i86, !llvm.loop !9
 
 .preheader.i76:                                   ; preds = %.lr.ph19.i80, %.preheader16.i74
   %209 = load ptr, ptr %15, align 8
@@ -1666,7 +1666,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i72:        ; preds = %193, %189, %185
   %211 = load i32, ptr %14, align 4
   %212 = trunc nuw i64 %indvars.iv.next22.i82 to i32
   %213 = icmp sgt i32 %211, %212
-  br i1 %213, label %.lr.ph19.i80, label %.preheader.i76, !llvm.loop !9
+  br i1 %213, label %.lr.ph19.i80, label %.preheader.i76, !llvm.loop !10
 
 214:                                              ; preds = %.preheader.i76
   %215 = load i64, ptr %16, align 8
@@ -1770,7 +1770,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i89:        ; preds = %245, %241, %237
   %258 = load i32, ptr %17, align 8
   %259 = sext i32 %258 to i64
   %260 = icmp slt i64 %indvars.iv.next.i102, %259
-  br i1 %260, label %.lr.ph.i100, label %.preheader16.loopexit.i103, !llvm.loop !8
+  br i1 %260, label %.lr.ph.i100, label %.preheader16.loopexit.i103, !llvm.loop !9
 
 .preheader.i93:                                   ; preds = %.lr.ph19.i97, %.preheader16.i91
   %261 = load ptr, ptr %20, align 8
@@ -1785,7 +1785,7 @@ _ZN13GrowableArrayIlE8allocateEv.exit.i89:        ; preds = %245, %241, %237
   %263 = load i32, ptr %19, align 4
   %264 = trunc nuw i64 %indvars.iv.next22.i99 to i32
   %265 = icmp sgt i32 %263, %264
-  br i1 %265, label %.lr.ph19.i97, label %.preheader.i93, !llvm.loop !9
+  br i1 %265, label %.lr.ph19.i97, label %.preheader.i93, !llvm.loop !10
 
 266:                                              ; preds = %.preheader.i93
   %267 = load i64, ptr %21, align 8
@@ -1820,7 +1820,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit51: ; preds 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next, %278
-  br i1 %279, label %35, label %._crit_edge, !llvm.loop !10
+  br i1 %279, label %35, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %276, %26
   %280 = load i32, ptr %29, align 8
@@ -1829,7 +1829,7 @@ _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit51: ; preds 
   %281 = load i32, ptr %3, align 4
   %282 = sext i32 %281 to i64
   %283 = icmp slt i64 %indvars.iv.next117, %282
-  br i1 %283, label %26, label %.loopexit, !llvm.loop !11
+  br i1 %283, label %26, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %._crit_edge, %6, %1
   ret void
@@ -3336,7 +3336,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP11Instruction1
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !13
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3417,7 +3417,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorI7LIR_Opr13Growa
   store i64 %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !14
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3498,7 +3498,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP9LIR_Const13Gr
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !15
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3579,7 +3579,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP11ResolveNode1
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %6
   %.not = icmp eq ptr %8, null
@@ -3727,7 +3727,7 @@ _ZN13GrowableArrayIP13ExceptionInfoE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !16
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3743,7 +3743,7 @@ _ZN13GrowableArrayIP13ExceptionInfoE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !17
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -3774,7 +3774,7 @@ define internal void @_GLOBAL__sub_I_c1_Compilation.cpp() #5 section ".text.star
   store i64 0, ptr %.ptr.i, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 24
   %3 = icmp eq i64 %.add.i, 312
-  br i1 %3, label %__cxx_global_var_init.4.exit, label %1
+  br i1 %3, label %__cxx_global_var_init.4.exit, label %1, !llvm.loop !19
 
 __cxx_global_var_init.4.exit:                     ; preds = %1
   ret void
@@ -3804,15 +3804,17 @@ attributes #8 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !8}

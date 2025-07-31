@@ -69,7 +69,7 @@ define dso_local void @scsi_show_rq(ptr noundef %0, ptr noundef %1) local_unname
 34:                                               ; preds = %30
   %35 = getelementptr i8, ptr %32, i64 -8
   %36 = icmp eq ptr %4, %35
-  br i1 %36, label %.loopexit, label %30, !llvm.loop !8
+  br i1 %36, label %.loopexit, label %30, !llvm.loop !9
 
 .loopexit:                                        ; preds = %25, %34, %30
   %37 = phi i1 [ %33, %30 ], [ %33, %34 ], [ false, %25 ]
@@ -104,7 +104,7 @@ define dso_local void @scsi_show_rq(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %59, label %.thread7, label %60
 
 60:                                               ; preds = %54
-  %61 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %58) #5, !srcloc !9
+  %61 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %58) #5, !srcloc !10
   %62 = trunc i64 %61 to i32
   %63 = icmp slt i32 %62, 64
   br i1 %63, label %64, label %.thread7
@@ -140,7 +140,7 @@ define dso_local void @scsi_show_rq(ptr noundef %0, ptr noundef %1) local_unname
   %76 = add i64 %68, 4294967296
   %77 = ashr exact i64 %76, 32
   %78 = icmp ugt i64 %77, 63
-  br i1 %78, label %.thread7, label %54, !prof !10, !llvm.loop !11
+  br i1 %78, label %.thread7, label %54, !prof !11, !llvm.loop !12
 
 .thread7:                                         ; preds = %54, %75, %60
   %79 = sdiv i32 %15, 1000
@@ -193,10 +193,11 @@ attributes #5 = { nounwind memory(read) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = !{i64 245611}
-!10 = !{!"branch_weights", i32 1, i32 1999}
-!11 = distinct !{!11, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = !{i64 245611}
+!11 = !{!"branch_weights", i32 1, i32 1999}
+!12 = distinct !{!12, !6, !7, !8}

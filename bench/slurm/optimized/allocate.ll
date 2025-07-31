@@ -245,7 +245,7 @@ define dso_local ptr @allocate_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr inbounds nuw [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %35 = load i32, ptr %34, align 4
   %.not57 = icmp eq i32 %35, 0
-  br i1 %.not57, label %.preheader, label %.lr.ph, !llvm.loop !11
+  br i1 %.not57, label %.preheader, label %.lr.ph, !llvm.loop !12
 
 36:                                               ; preds = %49, %.preheader
   %37 = load i32, ptr %31, align 8
@@ -913,7 +913,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
   ]
 
 .backedge.backedge:                               ; preds = %31, %31, %35
-  br label %.backedge, !llvm.loop !12
+  br label %.backedge, !llvm.loop !13
 
 32:                                               ; preds = %31
   %33 = and i32 %28, 2
@@ -1047,7 +1047,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   tail call void @list_append(ptr noundef %2, ptr noundef nonnull %14) #9
   %21 = tail call ptr @list_next(ptr noundef %4) #9
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %17
   tail call void @list_iterator_destroy(ptr noundef %4) #9
@@ -1102,7 +1102,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
   %42 = getelementptr inbounds nuw [0 x i32], ptr @sig_array, i64 0, i64 %indvars.iv.next
   %43 = load i32, ptr %42, align 4
   %.not108 = icmp eq i32 %43, 0
-  br i1 %.not108, label %._crit_edge152, label %.lr.ph151, !llvm.loop !14
+  br i1 %.not108, label %._crit_edge152, label %.lr.ph151, !llvm.loop !15
 
 ._crit_edge152:                                   ; preds = %.lr.ph151, %30
   store i1 true, ptr @is_het_job, align 1
@@ -1253,7 +1253,7 @@ define dso_local ptr @allocate_het_job_nodes() local_unnamed_addr #0 {
 114:                                              ; preds = %113, %102
   %115 = call fastcc i32 @_wait_nodes_ready(ptr noundef %71)
   %.not120 = icmp eq i32 %115, 0
-  br i1 %.not120, label %116, label %68, !llvm.loop !15
+  br i1 %.not120, label %116, label %68, !llvm.loop !16
 
 116:                                              ; preds = %114
   %117 = load i32, ptr @destroy_job, align 4
@@ -1413,7 +1413,7 @@ define dso_local ptr @existing_allocation() local_unnamed_addr #0 {
   br i1 %27, label %28, label %41
 
 28:                                               ; preds = %24
-  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 156), align 4, !range !16, !noundef !17
+  %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @sropt, i64 156), align 4, !range !17, !noundef !18
   %30 = trunc nuw i8 %29 to i1
   br i1 %30, label %43, label %31
 
@@ -1548,13 +1548,14 @@ attributes #11 = { nounwind willreturn memory(none) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = !{i8 0, i8 2}
-!17 = !{}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = !{i8 0, i8 2}
+!18 = !{}

@@ -410,7 +410,7 @@ define dso_local i32 @cmd_ls_remote(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 165:                                              ; preds = %163
   %166 = getelementptr inbounds nuw i8, ptr %159, i64 40
-  %167 = load ptr, ptr %166, align 8, !tbaa !44
+  %167 = load ptr, ptr %166, align 8, !tbaa !45
   %168 = load ptr, ptr %167, align 8, !tbaa !8
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %168)
   br label %253
@@ -427,13 +427,13 @@ define dso_local i32 @cmd_ls_remote(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 174:                                              ; preds = %172, %169
   %175 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %176 = load i64, ptr %175, align 8, !tbaa !54
+  %176 = load i64, ptr %175, align 8, !tbaa !55
   %.not56 = icmp eq i64 %176, 0
   br i1 %.not56, label %179, label %177
 
 177:                                              ; preds = %174
   %178 = getelementptr inbounds nuw i8, ptr %170, i64 72
-  store ptr %13, ptr %178, align 8, !tbaa !55
+  store ptr %13, ptr %178, align 8, !tbaa !56
   br label %179
 
 179:                                              ; preds = %177, %174
@@ -454,7 +454,7 @@ define dso_local i32 @cmd_ls_remote(i32 noundef %0, ptr noundef %1, ptr noundef 
 185:                                              ; preds = %183
   %186 = add nuw nsw i64 %.0811.i, 1
   %exitcond.not.i = icmp eq i64 %186, 3
-  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %183, !llvm.loop !63
+  br i1 %exitcond.not.i, label %hash_algo_by_ptr.exit, label %183, !llvm.loop !64
 
 .split.loop.exit9.i:                              ; preds = %183
   %187 = trunc nuw nsw i64 %.0811.i to i32
@@ -474,9 +474,9 @@ hash_algo_by_ptr.exit:                            ; preds = %185, %.split.loop.e
   br i1 %or.cond, label %199, label %193
 
 193:                                              ; preds = %189
-  %194 = load ptr, ptr @stderr, align 8, !tbaa !64
+  %194 = load ptr, ptr @stderr, align 8, !tbaa !65
   %195 = getelementptr inbounds nuw i8, ptr %159, i64 40
-  %196 = load ptr, ptr %195, align 8, !tbaa !44
+  %196 = load ptr, ptr %195, align 8, !tbaa !45
   %197 = load ptr, ptr %196, align 8, !tbaa !8
   %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.33, ptr noundef %197) #11
   br label %199
@@ -497,25 +497,25 @@ hash_algo_by_ptr.exit:                            ; preds = %185, %.split.loop.e
 
 204:                                              ; preds = %201
   %205 = getelementptr inbounds nuw i8, ptr %.04574, i64 176
-  %206 = load i64, ptr %200, align 8, !tbaa !66
+  %206 = load i64, ptr %200, align 8, !tbaa !67
   %.not.i64 = icmp eq i64 %206, 0
   br i1 %.not.i64, label %tail_match.exit.thread, label %207
 
 207:                                              ; preds = %204
   %208 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.37, ptr noundef nonnull %205) #9
-  %209 = load i64, ptr %200, align 8, !tbaa !66
+  %209 = load i64, ptr %200, align 8, !tbaa !67
   %.not1415.not.i = icmp eq i64 %209, 0
   br i1 %.not1415.not.i, label %tail_match.exit.thread68, label %.lr.ph.i
 
 210:                                              ; preds = %.lr.ph.i
   %211 = add nuw i64 %.016.i, 1
-  %212 = load i64, ptr %200, align 8, !tbaa !66
+  %212 = load i64, ptr %200, align 8, !tbaa !67
   %.not14.i = icmp ult i64 %211, %212
-  br i1 %.not14.i, label %.lr.ph.i, label %tail_match.exit.thread68, !llvm.loop !67
+  br i1 %.not14.i, label %.lr.ph.i, label %tail_match.exit.thread68, !llvm.loop !68
 
 .lr.ph.i:                                         ; preds = %207, %210
   %.016.i = phi i64 [ %211, %210 ], [ 0, %207 ]
-  %213 = load ptr, ptr %11, align 8, !tbaa !68
+  %213 = load ptr, ptr %11, align 8, !tbaa !69
   %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %.016.i
   %215 = load ptr, ptr %214, align 8, !tbaa !8
   %216 = call i32 @wildmatch(ptr noundef %215, ptr noundef %208, i32 noundef 0) #9
@@ -549,14 +549,14 @@ xstrdup_or_null.exit:                             ; preds = %tail_match.exit.thr
   br label %225
 
 225:                                              ; preds = %tail_match.exit.thread68, %201, %xstrdup_or_null.exit
-  %226 = load ptr, ptr %.04574, align 8, !tbaa !69
+  %226 = load ptr, ptr %.04574, align 8, !tbaa !70
   %.not58 = icmp eq ptr %226, null
-  br i1 %.not58, label %._crit_edge78, label %201, !llvm.loop !70
+  br i1 %.not58, label %._crit_edge78, label %201, !llvm.loop !71
 
 ._crit_edge78:                                    ; preds = %225, %199
   %227 = call ptr @ref_sorting_options(ptr noundef nonnull %15) #9
   call void @ref_array_sort(ptr noundef %227, ptr noundef nonnull %14) #9
-  %228 = load i32, ptr %14, align 8, !tbaa !71
+  %228 = load i32, ptr %14, align 8, !tbaa !72
   %229 = icmp sgt i32 %228, 0
   br i1 %229, label %.lr.ph81, label %._crit_edge82
 
@@ -566,9 +566,9 @@ xstrdup_or_null.exit:                             ; preds = %tail_match.exit.thr
 
 231:                                              ; preds = %.lr.ph81, %242
   %indvars.iv85 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next86, %242 ]
-  %232 = load ptr, ptr %230, align 8, !tbaa !76
+  %232 = load ptr, ptr %230, align 8, !tbaa !77
   %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv85
-  %234 = load ptr, ptr %233, align 8, !tbaa !77
+  %234 = load ptr, ptr %233, align 8, !tbaa !78
   %235 = load i32, ptr %9, align 4, !tbaa !4
   %.not60 = icmp eq i32 %235, 0
   br i1 %.not60, label %242, label %236
@@ -590,10 +590,10 @@ xstrdup_or_null.exit:                             ; preds = %tail_match.exit.thr
   %245 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef %243, ptr noundef nonnull %244)
   store i32 0, ptr %8, align 4, !tbaa !4
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %246 = load i32, ptr %14, align 8, !tbaa !71
+  %246 = load i32, ptr %14, align 8, !tbaa !72
   %247 = sext i32 %246 to i64
   %248 = icmp slt i64 %indvars.iv.next86, %247
-  br i1 %248, label %231, label %._crit_edge82, !llvm.loop !79
+  br i1 %248, label %231, label %._crit_edge82, !llvm.loop !80
 
 ._crit_edge82:                                    ; preds = %242, %._crit_edge78
   call void @string_list_clear(ptr noundef nonnull %13, i32 noundef 0) #9
@@ -765,41 +765,42 @@ attributes #11 = { cold nounwind }
 !39 = !{!"p1 _ZTS12remote_state", !10, i64 0}
 !40 = !{!"p1 _ZTS13git_hash_algo", !10, i64 0}
 !41 = !{!"p1 _ZTS22promisor_remote_config", !10, i64 0}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!45, !49, i64 40}
-!45 = !{!"remote", !46, i64 0, !9, i64 16, !5, i64 24, !5, i64 28, !9, i64 32, !48, i64 40, !48, i64 64, !50, i64 88, !50, i64 112, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !52, i64 192, !5, i64 232, !9, i64 240}
-!46 = !{!"hashmap_entry", !47, i64 0, !5, i64 8}
-!47 = !{!"p1 _ZTS13hashmap_entry", !10, i64 0}
-!48 = !{!"strvec", !49, i64 0, !13, i64 8, !13, i64 16}
-!49 = !{!"p2 omnipotent char", !10, i64 0}
-!50 = !{!"refspec", !51, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
-!51 = !{!"p1 _ZTS12refspec_item", !10, i64 0}
-!52 = !{!"string_list", !53, i64 0, !13, i64 8, !13, i64 16, !5, i64 24, !10, i64 32}
-!53 = !{!"p1 _ZTS16string_list_item", !10, i64 0}
-!54 = !{!52, !13, i64 8}
-!55 = !{!56, !61, i64 72}
-!56 = !{!"transport", !57, i64 0, !58, i64 8, !9, i64 16, !10, i64 24, !59, i64 32, !5, i64 40, !5, i64 40, !60, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !61, i64 64, !61, i64 72, !52, i64 80, !5, i64 120, !5, i64 120, !62, i64 128, !5, i64 136, !40, i64 144}
-!57 = !{!"p1 _ZTS16transport_vtable", !10, i64 0}
-!58 = !{!"p1 _ZTS6remote", !10, i64 0}
-!59 = !{!"p1 _ZTS3ref", !10, i64 0}
-!60 = !{!"p1 _ZTS11bundle_list", !10, i64 0}
-!61 = !{!"p1 _ZTS11string_list", !10, i64 0}
-!62 = !{!"p1 _ZTS21git_transport_options", !10, i64 0}
-!63 = distinct !{!63, !43}
-!64 = !{!65, !65, i64 0}
-!65 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!66 = !{!48, !13, i64 8}
-!67 = distinct !{!67, !43}
-!68 = !{!48, !49, i64 0}
-!69 = !{!59, !59, i64 0}
-!70 = distinct !{!70, !43}
-!71 = !{!72, !5, i64 0}
-!72 = !{!"ref_array", !5, i64 0, !5, i64 4, !73, i64 8, !74, i64 16, !75, i64 24, !13, i64 32}
-!73 = !{!"p2 _ZTS14ref_array_item", !10, i64 0}
-!74 = !{!"p1 _ZTS8rev_info", !10, i64 0}
-!75 = !{!"p1 _ZTS18ahead_behind_count", !10, i64 0}
-!76 = !{!72, !73, i64 8}
-!77 = !{!78, !78, i64 0}
-!78 = !{!"p1 _ZTS14ref_array_item", !10, i64 0}
-!79 = distinct !{!79, !43}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!46, !50, i64 40}
+!46 = !{!"remote", !47, i64 0, !9, i64 16, !5, i64 24, !5, i64 28, !9, i64 32, !49, i64 40, !49, i64 64, !51, i64 88, !51, i64 112, !5, i64 136, !5, i64 140, !5, i64 144, !5, i64 148, !5, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !9, i64 184, !53, i64 192, !5, i64 232, !9, i64 240}
+!47 = !{!"hashmap_entry", !48, i64 0, !5, i64 8}
+!48 = !{!"p1 _ZTS13hashmap_entry", !10, i64 0}
+!49 = !{!"strvec", !50, i64 0, !13, i64 8, !13, i64 16}
+!50 = !{!"p2 omnipotent char", !10, i64 0}
+!51 = !{!"refspec", !52, i64 0, !5, i64 8, !5, i64 12, !5, i64 16}
+!52 = !{!"p1 _ZTS12refspec_item", !10, i64 0}
+!53 = !{!"string_list", !54, i64 0, !13, i64 8, !13, i64 16, !5, i64 24, !10, i64 32}
+!54 = !{!"p1 _ZTS16string_list_item", !10, i64 0}
+!55 = !{!53, !13, i64 8}
+!56 = !{!57, !62, i64 72}
+!57 = !{!"transport", !58, i64 0, !59, i64 8, !9, i64 16, !10, i64 24, !60, i64 32, !5, i64 40, !5, i64 40, !61, i64 48, !5, i64 56, !5, i64 56, !5, i64 56, !62, i64 64, !62, i64 72, !53, i64 80, !5, i64 120, !5, i64 120, !63, i64 128, !5, i64 136, !40, i64 144}
+!58 = !{!"p1 _ZTS16transport_vtable", !10, i64 0}
+!59 = !{!"p1 _ZTS6remote", !10, i64 0}
+!60 = !{!"p1 _ZTS3ref", !10, i64 0}
+!61 = !{!"p1 _ZTS11bundle_list", !10, i64 0}
+!62 = !{!"p1 _ZTS11string_list", !10, i64 0}
+!63 = !{!"p1 _ZTS21git_transport_options", !10, i64 0}
+!64 = distinct !{!64, !43, !44}
+!65 = !{!66, !66, i64 0}
+!66 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!67 = !{!49, !13, i64 8}
+!68 = distinct !{!68, !43, !44}
+!69 = !{!49, !50, i64 0}
+!70 = !{!60, !60, i64 0}
+!71 = distinct !{!71, !43, !44}
+!72 = !{!73, !5, i64 0}
+!73 = !{!"ref_array", !5, i64 0, !5, i64 4, !74, i64 8, !75, i64 16, !76, i64 24, !13, i64 32}
+!74 = !{!"p2 _ZTS14ref_array_item", !10, i64 0}
+!75 = !{!"p1 _ZTS8rev_info", !10, i64 0}
+!76 = !{!"p1 _ZTS18ahead_behind_count", !10, i64 0}
+!77 = !{!73, !74, i64 8}
+!78 = !{!79, !79, i64 0}
+!79 = !{!"p1 _ZTS14ref_array_item", !10, i64 0}
+!80 = distinct !{!80, !43, !44}

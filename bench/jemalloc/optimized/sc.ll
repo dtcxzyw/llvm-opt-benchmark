@@ -90,7 +90,7 @@ size_class.exit182.i:                             ; preds = %29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.iv.next213.i = add nuw nsw i64 %indvars.iv212.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next213.i, 4
-  br i1 %exitcond.not.i, label %.preheader.i, label %18, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.preheader.i, label %18, !llvm.loop !20
 
 .preheader.i:                                     ; preds = %size_class.exit182.i, %75
   %indvars.iv227.i = phi i64 [ %indvars.iv.next228.i, %75 ], [ 6, %size_class.exit182.i ]
@@ -188,12 +188,12 @@ size_class.exit186.i:                             ; preds = %64, %.thread.i183.i
   %.8.i = add nsw i32 %.7199.i, %74
   %indvars.iv.next220.i = add nuw nsw i64 %indvars.iv219.i, 1
   %exitcond224.not.i = icmp eq i64 %indvars.iv.next220.i, %wide.trip.count.i
-  br i1 %exitcond224.not.i, label %75, label %43, !llvm.loop !20
+  br i1 %exitcond224.not.i, label %75, label %43, !llvm.loop !21
 
 75:                                               ; preds = %size_class.exit186.i
   %indvars.iv.next226.i = add nuw nsw i64 %indvars.iv225.i, 1
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next228.i, 63
-  br i1 %exitcond232.not.i, label %size_classes.exit, label %.preheader.i, !llvm.loop !21
+  br i1 %exitcond232.not.i, label %size_classes.exit, label %.preheader.i, !llvm.loop !22
 
 size_classes.exit:                                ; preds = %75
   %76 = trunc i64 %.3151206.i to i32
@@ -205,40 +205,40 @@ size_classes.exit:                                ; preds = %75
   %80 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %79, i1 false)
   %81 = trunc nuw nsw i64 %80 to i32
   %82 = sub nuw nsw i32 64, %81
-  store i32 1, ptr %0, align 8, !tbaa !22
+  store i32 1, ptr %0, align 8, !tbaa !23
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.4.i, ptr %83, align 4, !tbaa !25
+  store i32 %.4.i, ptr %83, align 4, !tbaa !26
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.8.i, ptr %84, align 8, !tbaa !26
+  store i32 %.8.i, ptr %84, align 8, !tbaa !27
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %77, ptr %85, align 4, !tbaa !27
+  store i32 %77, ptr %85, align 4, !tbaa !28
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %82, ptr %86, align 8, !tbaa !28
+  store i32 %82, ptr %86, align 8, !tbaa !29
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.8147.i, ptr %87, align 4, !tbaa !29
+  store i32 %.8147.i, ptr %87, align 4, !tbaa !30
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 3, ptr %88, align 8, !tbaa !30
+  store i32 3, ptr %88, align 8, !tbaa !31
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.2163.i, ptr %89, align 8, !tbaa !31
+  store i64 %.2163.i, ptr %89, align 8, !tbaa !32
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.2160.i, ptr %90, align 8, !tbaa !32
+  store i64 %.2160.i, ptr %90, align 8, !tbaa !33
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.2157.i, ptr %91, align 8, !tbaa !33
+  store i32 %.2157.i, ptr %91, align 8, !tbaa !34
   %92 = zext nneg i32 %.2157.i to i64
   %93 = shl nuw i64 1, %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %93, ptr %94, align 8, !tbaa !34
+  store i64 %93, ptr %94, align 8, !tbaa !35
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %51, ptr %95, align 8, !tbaa !35
+  store i64 %51, ptr %95, align 8, !tbaa !36
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 1, ptr %96, align 8, !tbaa !36
+  store i8 1, ptr %96, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @je_sc_data_update_slab_size(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !27
+  %6 = load i32, ptr %5, align 4, !tbaa !28
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
@@ -252,7 +252,7 @@ define hidden void @je_sc_data_update_slab_size(ptr noundef captures(none) %0, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %sc_data_update_sc_slab_size.exit ]
   %11 = getelementptr inbounds nuw [232 x %struct.sc_s], ptr %8, i64 0, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 17
-  %13 = load i8, ptr %12, align 1, !tbaa !14, !range !37, !noundef !38
+  %13 = load i8, ptr %12, align 1, !tbaa !14, !range !38, !noundef !39
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %.critedge
 
@@ -308,7 +308,7 @@ define hidden void @je_sc_data_update_slab_size(ptr noundef captures(none) %0, i
 sc_data_update_sc_slab_size.exit:                 ; preds = %15, %34, %41, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !39
+  br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !40
 
 .critedge:                                        ; preds = %sc_data_update_sc_slab_size.exit, %10, %4
   ret void
@@ -351,26 +351,27 @@ attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !14 = !{!5, !9, i64 17}
 !15 = !{!5, !6, i64 20}
 !16 = !{!5, !6, i64 24}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = !{!23, !6, i64 0}
-!23 = !{!"sc_data_s", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !24, i64 32, !24, i64 40, !6, i64 48, !24, i64 56, !24, i64 64, !9, i64 72, !7, i64 76}
-!24 = !{!"long", !7, i64 0}
-!25 = !{!23, !6, i64 4}
-!26 = !{!23, !6, i64 8}
-!27 = !{!23, !6, i64 12}
-!28 = !{!23, !6, i64 16}
-!29 = !{!23, !6, i64 20}
-!30 = !{!23, !6, i64 24}
-!31 = !{!23, !24, i64 32}
-!32 = !{!23, !24, i64 40}
-!33 = !{!23, !6, i64 48}
-!34 = !{!23, !24, i64 56}
-!35 = !{!23, !24, i64 64}
-!36 = !{!23, !9, i64 72}
-!37 = !{i8 0, i8 2}
-!38 = !{}
-!39 = distinct !{!39, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = !{!24, !6, i64 0}
+!24 = !{!"sc_data_s", !6, i64 0, !6, i64 4, !6, i64 8, !6, i64 12, !6, i64 16, !6, i64 20, !6, i64 24, !25, i64 32, !25, i64 40, !6, i64 48, !25, i64 56, !25, i64 64, !9, i64 72, !7, i64 76}
+!25 = !{!"long", !7, i64 0}
+!26 = !{!24, !6, i64 4}
+!27 = !{!24, !6, i64 8}
+!28 = !{!24, !6, i64 12}
+!29 = !{!24, !6, i64 16}
+!30 = !{!24, !6, i64 20}
+!31 = !{!24, !6, i64 24}
+!32 = !{!24, !25, i64 32}
+!33 = !{!24, !25, i64 40}
+!34 = !{!24, !6, i64 48}
+!35 = !{!24, !25, i64 56}
+!36 = !{!24, !25, i64 64}
+!37 = !{!24, !9, i64 72}
+!38 = !{i8 0, i8 2}
+!39 = !{}
+!40 = distinct !{!40, !18, !19}

@@ -366,7 +366,7 @@ define internal i32 @dissect_vsif(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %.1.i = phi i32 [ %29, %.lr.ph56..loopexit_crit_edge.i ], [ %29, %35 ], [ %29, %70 ], [ %29, %31 ], [ %68, %66 ]
   %74 = add i32 %.1.i, %.pre-phi.i
   %75 = icmp slt i32 %74, %7
-  br i1 %75, label %.lr.ph56.i, label %dissect_cisco.exit, !llvm.loop !8
+  br i1 %75, label %.lr.ph56.i, label %dissect_cisco.exit, !llvm.loop !9
 
 dissect_cisco.exit:                               ; preds = %.loopexit.i, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
@@ -441,7 +441,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   %103 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %102, ptr noundef %0, i32 noundef %96, i32 noundef %98, i32 noundef 0)
   %104 = add i32 %96, %98
   %105 = icmp slt i32 %104, %92
-  br i1 %105, label %.lr.ph.i.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !9
+  br i1 %105, label %.lr.ph.i.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !10
 
 106:                                              ; preds = %.lr.ph.i31
   %107 = load i32, ptr @hf_docsis_vsif_gex_sav, align 4
@@ -529,7 +529,7 @@ switch.lookup:                                    ; preds = %.lr.ph.i.i
   %152 = zext i8 %128 to i32
   %153 = add i32 %127, %152
   %154 = icmp slt i32 %153, %123
-  br i1 %154, label %.lr.ph.i.i.i, label %dissect_sav_static_prefix_rule.exit.i.i, !llvm.loop !10
+  br i1 %154, label %.lr.ph.i.i.i, label %dissect_sav_static_prefix_rule.exit.i.i, !llvm.loop !11
 
 155:                                              ; preds = %.lr.ph.i55.i
   br label %dissect_sav_static_prefix_rule.exit.sink.split.i.i
@@ -544,7 +544,7 @@ dissect_sav_static_prefix_rule.exit.sink.split.i.i: ; preds = %155, %.lr.ph.i55.
 dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_static_prefix_rule.exit.sink.split.i.i, %118
   %.pre-phi69.i = phi i32 [ %.pre.i32, %dissect_sav_static_prefix_rule.exit.sink.split.i.i ], [ %123, %118 ], [ %123, %151 ]
   %158 = icmp slt i32 %.pre-phi69.i, %111
-  br i1 %158, label %.lr.ph.i55.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !11
+  br i1 %158, label %.lr.ph.i55.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !12
 
 159:                                              ; preds = %.lr.ph.i31
   %160 = load i32, ptr @hf_docsis_vsif_gex_cmam, align 4
@@ -634,7 +634,7 @@ dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_s
   %.pre-phi.i.i = phi i32 [ %200, %198 ], [ %192, %195 ], [ %185, %188 ], [ %178, %181 ], [ %171, %174 ]
   %203 = add i32 %.pre-phi.i.i, %168
   %204 = icmp slt i32 %203, %164
-  br i1 %204, label %.lr.ph.i57.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !12
+  br i1 %204, label %.lr.ph.i57.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !13
 
 205:                                              ; preds = %.lr.ph.i31
   %206 = load i32, ptr @hf_docsis_vsif_gex_imja, align 4
@@ -805,7 +805,7 @@ dissect_sav_static_prefix_rule.exit.i.i:          ; preds = %151, %dissect_sav_s
   %289 = zext i8 %235 to i32
   %290 = add i32 %234, %289
   %291 = icmp slt i32 %290, %230
-  br i1 %291, label %.lr.ph.i.i61.i, label %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i, !llvm.loop !13
+  br i1 %291, label %.lr.ph.i.i61.i, label %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i, !llvm.loop !14
 
 292:                                              ; preds = %.lr.ph.i58.i
   %293 = zext i8 %215 to i32
@@ -831,7 +831,7 @@ dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i: ; preds = 
   %.pre-phi.i60.i = phi i32 [ %226, %224 ], [ %301, %299 ], [ %293, %296 ], [ %217, %221 ], [ %226, %288 ]
   %303 = add i32 %.pre-phi.i60.i, %214
   %304 = icmp slt i32 %303, %210
-  br i1 %304, label %.lr.ph.i58.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !14
+  br i1 %304, label %.lr.ph.i58.i, label %dissect_extended_cmts_mic.exit.i, !llvm.loop !15
 
 305:                                              ; preds = %.lr.ph.i31
   br label %dissect_extended_cmts_mic.exit.sink.split.i
@@ -849,7 +849,7 @@ dissect_extended_cmts_mic.exit.sink.split.i:      ; preds = %306, %305, %86, %85
 dissect_extended_cmts_mic.exit.i:                 ; preds = %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i, %202, %dissect_sav_static_prefix_rule.exit.i.i, %101, %dissect_extended_cmts_mic.exit.sink.split.i, %205, %159, %106, %87
   %.pre-phi = phi i32 [ %.pre, %dissect_extended_cmts_mic.exit.sink.split.i ], [ %210, %205 ], [ %164, %159 ], [ %111, %106 ], [ %92, %87 ], [ %92, %101 ], [ %111, %dissect_sav_static_prefix_rule.exit.i.i ], [ %164, %202 ], [ %210, %dissect_ip_multicast_join_authorization_static_session_rule.exit.i.i ]
   %309 = icmp slt i32 %.pre-phi, %7
-  br i1 %309, label %.lr.ph.i31, label %dissect_general_extension_information.exit, !llvm.loop !15
+  br i1 %309, label %.lr.ph.i31, label %dissect_general_extension_information.exit, !llvm.loop !16
 
 310:                                              ; preds = %23
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.128)
@@ -915,13 +915,14 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}

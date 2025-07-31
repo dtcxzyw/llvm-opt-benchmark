@@ -242,9 +242,9 @@ define range(i32 0, 2) i32 @ossl_quic_demux_set_mtu(ptr noundef writeonly captur
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ossl_quic_demux_set_default_handler(ptr noundef writeonly captures(none) initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %1, ptr %4, align 8, !tbaa !27
+  store ptr %1, ptr %4, align 8, !tbaa !28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %2, ptr %5, align 8, !tbaa !28
+  store ptr %2, ptr %5, align 8, !tbaa !29
   ret void
 }
 
@@ -282,9 +282,9 @@ define range(i32 -2, 2) i32 @ossl_quic_demux_pump(ptr noundef captures(none) %0)
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 %13, ptr %20, align 8, !tbaa !29
+  store i64 %13, ptr %20, align 8, !tbaa !30
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 0, ptr %21, align 8, !tbaa !30
+  store i64 0, ptr %21, align 8, !tbaa !31
   %22 = load ptr, ptr %11, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %24, label %23
@@ -311,9 +311,9 @@ ossl_list_urxe_insert_tail.exit.i:                ; preds = %28, %24
   %30 = add i64 %29, 1
   store i64 %30, ptr %9, align 8, !tbaa !24
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 289
-  store i8 0, ptr %31, align 1, !tbaa !31
+  store i8 0, ptr %31, align 1, !tbaa !32
   %32 = icmp ult i64 %30, 32
-  br i1 %32, label %12, label %demux_ensure_free_urxe.exit, !llvm.loop !32
+  br i1 %32, label %12, label %demux_ensure_free_urxe.exit, !llvm.loop !33
 
 demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_insert_tail.exit.i, %6
   call void @llvm.lifetime.start.p0(i64 1280, ptr nonnull %2) #8
@@ -329,13 +329,13 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
 36:                                               ; preds = %56, %.preheader.i
   %.04664.in.i = phi ptr [ %8, %.preheader.i ], [ %41, %56 ]
   %.04563.i = phi i64 [ 0, %.preheader.i ], [ %57, %56 ]
-  %.04664.i = load ptr, ptr %.04664.in.i, align 8, !tbaa !33
+  %.04664.i = load ptr, ptr %.04664.in.i, align 8, !tbaa !34
   %37 = icmp eq ptr %.04664.i, null
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %36
   %.not50.i = icmp eq i64 %.04563.i, 0
-  br i1 %.not50.i, label %demux_recv.exit.thread, label %.loopexit57.i, !prof !34
+  br i1 %.not50.i, label %demux_recv.exit.thread, label %.loopexit57.i, !prof !35
 
 39:                                               ; preds = %36
   %40 = load i64, ptr %7, align 8, !tbaa !13
@@ -348,14 +348,14 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 296
-  store ptr %46, ptr %44, align 8, !tbaa !35
+  store ptr %46, ptr %44, align 8, !tbaa !36
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %48 = load i64, ptr %47, align 8, !tbaa !29
+  %48 = load i64, ptr %47, align 8, !tbaa !30
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i64 %48, ptr %49, align 8, !tbaa !38
+  store i64 %48, ptr %49, align 8, !tbaa !39
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store ptr %50, ptr %51, align 8, !tbaa !39
+  store ptr %50, ptr %51, align 8, !tbaa !40
   tail call void @BIO_ADDR_clear(ptr noundef nonnull %50) #8
   %52 = load i8, ptr %35, align 8, !tbaa !16
   %.not.i = icmp eq i8 %52, 0
@@ -363,7 +363,7 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   br i1 %.not.i, label %55, label %54
 
 54:                                               ; preds = %43
-  store ptr %53, ptr %45, align 8, !tbaa !40
+  store ptr %53, ptr %45, align 8, !tbaa !41
   br label %56
 
 55:                                               ; preds = %43
@@ -373,7 +373,7 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
 56:                                               ; preds = %55, %54
   %57 = add nuw nsw i64 %.04563.i, 1
   %exitcond.not.i = icmp eq i64 %57, 32
-  br i1 %exitcond.not.i, label %.loopexit57.i, label %36, !llvm.loop !41
+  br i1 %exitcond.not.i, label %.loopexit57.i, label %36, !llvm.loop !42
 
 .loopexit57.i:                                    ; preds = %56, %38
   %.04561.i = phi i64 [ %.04563.i, %38 ], [ 32, %56 ]
@@ -413,7 +413,7 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
 
 77:                                               ; preds = %73, %69
   %.sroa.02.0.i = phi i64 [ %76, %73 ], [ 0, %69 ]
-  %78 = load i64, ptr %3, align 8, !tbaa !42
+  %78 = load i64, ptr %3, align 8, !tbaa !43
   %.not67.i = icmp eq i64 %78, 0
   br i1 %.not67.i, label %demux_recv.exit, label %.lr.ph.i8
 
@@ -430,16 +430,16 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   %.14765.i = phi ptr [ %.val.i, %.lr.ph.i8 ], [ %.147.val.i, %ossl_list_urxe_insert_tail.exit.i10 ]
   %.147.val.i = load ptr, ptr %.14765.i, align 8, !tbaa !18
   %84 = getelementptr inbounds nuw [32 x %struct.bio_msg_st], ptr %2, i64 0, i64 %.166.i, i32 1
-  %85 = load i64, ptr %84, align 8, !tbaa !38
+  %85 = load i64, ptr %84, align 8, !tbaa !39
   %86 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 16
-  store i64 %85, ptr %86, align 8, !tbaa !30
+  store i64 %85, ptr %86, align 8, !tbaa !31
   %87 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 280
-  store i64 %.sroa.02.0.i, ptr %87, align 8, !tbaa !42
-  %88 = load i64, ptr %79, align 8, !tbaa !43
+  store i64 %.sroa.02.0.i, ptr %87, align 8, !tbaa !43
+  %88 = load i64, ptr %79, align 8, !tbaa !44
   %89 = add i64 %88, 1
-  store i64 %89, ptr %79, align 8, !tbaa !43
+  store i64 %89, ptr %79, align 8, !tbaa !44
   %90 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 48
-  store i64 %88, ptr %90, align 8, !tbaa !44
+  store i64 %88, ptr %90, align 8, !tbaa !45
   %91 = load ptr, ptr %8, align 8, !tbaa !17
   %92 = icmp eq ptr %91, %.14765.i
   br i1 %92, label %93, label %94
@@ -506,10 +506,10 @@ ossl_list_urxe_insert_tail.exit.i10:              ; preds = %111, %108
   %113 = add i64 %112, 1
   store i64 %113, ptr %82, align 8, !tbaa !24
   %114 = getelementptr inbounds nuw i8, ptr %.14765.i, i64 289
-  store i8 1, ptr %114, align 1, !tbaa !31
+  store i8 1, ptr %114, align 1, !tbaa !32
   %115 = add nuw i64 %.166.i, 1
   %exitcond71.not.i = icmp eq i64 %115, %78
-  br i1 %exitcond71.not.i, label %demux_recv.exit, label %83, !llvm.loop !45
+  br i1 %exitcond71.not.i, label %demux_recv.exit, label %83, !llvm.loop !46
 
 demux_recv.exit.thread:                           ; preds = %39, %65, %67, %demux_ensure_free_urxe.exit, %38
   %.0.i11.ph = phi i32 [ -2, %38 ], [ -1, %demux_ensure_free_urxe.exit ], [ -2, %67 ], [ -1, %65 ], [ -2, %39 ]
@@ -558,7 +558,7 @@ define internal fastcc noundef range(i32 -2147483648, 2) i32 @demux_process_pend
   %.val17.i = load i64, ptr %4, align 8, !tbaa !12
   %13 = getelementptr inbounds nuw i8, ptr %.val9, i64 296
   %14 = getelementptr inbounds nuw i8, ptr %.val9, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !30
+  %15 = load i64, ptr %14, align 8, !tbaa !31
   %16 = call i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef nonnull %13, i64 noundef %15, i64 noundef %.val17.i, ptr noundef nonnull %2) #8
   %17 = load ptr, ptr %3, align 8, !tbaa !17
   %18 = icmp eq ptr %17, %.val9
@@ -603,14 +603,14 @@ ossl_list_urxe_remove.exit.i:                     ; preds = %29, %28
   %32 = add i64 %31, -1
   store i64 %32, ptr %6, align 8, !tbaa !24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.val9, i8 0, i64 16, i1 false)
-  %33 = load ptr, ptr %7, align 8, !tbaa !27
+  %33 = load ptr, ptr %7, align 8, !tbaa !28
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %37, label %34
 
 34:                                               ; preds = %ossl_list_urxe_remove.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %.val9, i64 289
-  store i8 2, ptr %35, align 1, !tbaa !31
-  %36 = load ptr, ptr %8, align 8, !tbaa !28
+  store i8 2, ptr %35, align 1, !tbaa !32
+  %36 = load ptr, ptr %8, align 8, !tbaa !29
   %.not16.i = icmp eq i32 %16, 0
   %..i = select i1 %.not16.i, ptr null, ptr %2
   call void %33(ptr noundef nonnull %.val9, ptr noundef %36, ptr noundef %..i) #8
@@ -642,14 +642,14 @@ ossl_list_urxe_insert_tail.exit.i:                ; preds = %43, %40
   %45 = add i64 %44, 1
   store i64 %45, ptr %11, align 8, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %.val9, i64 289
-  store i8 0, ptr %46, align 1, !tbaa !31
+  store i8 0, ptr %46, align 1, !tbaa !32
   br label %demux_process_pending_urxe.exit
 
 demux_process_pending_urxe.exit:                  ; preds = %34, %ossl_list_urxe_insert_tail.exit.i
   call void @llvm.lifetime.end.p0(i64 21, ptr nonnull %2) #8
   %.val = load ptr, ptr %3, align 8, !tbaa !17
   %.not = icmp eq ptr %.val, null
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %demux_process_pending_urxe.exit, %1
   ret i32 1
@@ -685,9 +685,9 @@ define range(i32 0, 2) i32 @ossl_quic_demux_inject(ptr noundef captures(none) %0
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 %12, ptr %19, align 8, !tbaa !29
+  store i64 %12, ptr %19, align 8, !tbaa !30
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 0, ptr %20, align 8, !tbaa !30
+  store i64 0, ptr %20, align 8, !tbaa !31
   %21 = load ptr, ptr %10, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %23, label %22
@@ -715,9 +715,9 @@ ossl_list_urxe_insert_tail.exit.i:                ; preds = %27, %23
   %29 = add i64 %28, 1
   store i64 %29, ptr %8, align 8, !tbaa !24
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 289
-  store i8 0, ptr %30, align 1, !tbaa !31
+  store i8 0, ptr %30, align 1, !tbaa !32
   %31 = icmp eq i64 %29, 0
-  br i1 %31, label %11, label %demux_ensure_free_urxe.exit, !llvm.loop !32
+  br i1 %31, label %11, label %demux_ensure_free_urxe.exit, !llvm.loop !33
 
 demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_insert_tail.exit.i, %.demux_ensure_free_urxe.exit_crit_edge
   %.val = phi ptr [ %.val.pre, %.demux_ensure_free_urxe.exit_crit_edge ], [ %.val43, %ossl_list_urxe_insert_tail.exit.i ]
@@ -729,13 +729,13 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 296
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %1, i64 %2, i1 false)
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i64 %2, ptr %36, align 8, !tbaa !30
+  store i64 %2, ptr %36, align 8, !tbaa !31
   %.not = icmp eq ptr %3, null
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 56
   br i1 %.not, label %39, label %38
 
 38:                                               ; preds = %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 4 dereferenceable(112) %3, i64 112, i1 false), !tbaa.struct !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %37, ptr noundef nonnull align 4 dereferenceable(112) %3, i64 112, i1 false), !tbaa.struct !48
   br label %40
 
 39:                                               ; preds = %34
@@ -748,7 +748,7 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
   br i1 %.not37, label %43, label %42
 
 42:                                               ; preds = %40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %41, ptr noundef nonnull align 4 dereferenceable(112) %4, i64 112, i1 false), !tbaa.struct !47
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %41, ptr noundef nonnull align 4 dereferenceable(112) %4, i64 112, i1 false), !tbaa.struct !48
   br label %44
 
 43:                                               ; preds = %40
@@ -770,7 +770,7 @@ demux_ensure_free_urxe.exit:                      ; preds = %ossl_list_urxe_inse
 
 52:                                               ; preds = %44, %48
   %storemerge = phi i64 [ %51, %48 ], [ 0, %44 ]
-  store i64 %storemerge, ptr %45, align 8, !tbaa !42
+  store i64 %storemerge, ptr %45, align 8, !tbaa !43
   %53 = load ptr, ptr %7, align 8, !tbaa !17
   %54 = icmp eq ptr %53, %32
   br i1 %54, label %55, label %57
@@ -816,11 +816,11 @@ ossl_list_urxe_remove.exit:                       ; preds = %65, %66
   store i64 %69, ptr %8, align 8, !tbaa !24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %71 = load i64, ptr %70, align 8, !tbaa !43
+  %71 = load i64, ptr %70, align 8, !tbaa !44
   %72 = add i64 %71, 1
-  store i64 %72, ptr %70, align 8, !tbaa !43
+  store i64 %72, ptr %70, align 8, !tbaa !44
   %73 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  store i64 %71, ptr %73, align 8, !tbaa !44
+  store i64 %71, ptr %73, align 8, !tbaa !45
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %76 = load ptr, ptr %75, align 8, !tbaa !22
@@ -849,7 +849,7 @@ ossl_list_urxe_insert_tail.exit:                  ; preds = %78, %81
   %84 = add i64 %83, 1
   store i64 %84, ptr %82, align 8, !tbaa !24
   %85 = getelementptr inbounds nuw i8, ptr %32, i64 289
-  store i8 1, ptr %85, align 1, !tbaa !31
+  store i8 1, ptr %85, align 1, !tbaa !32
   %86 = tail call fastcc i32 @demux_process_pending_urxl(ptr noundef nonnull %0)
   %87 = icmp sgt i32 %86, 0
   %88 = zext i1 %87 to i32
@@ -863,15 +863,15 @@ demux_ensure_free_urxe.exit.thread:               ; preds = %11, %14, %demux_ens
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @demux_reserve_urxe(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %5 = load i64, ptr %4, align 8, !tbaa !29
+  %5 = load i64, ptr %4, align 8, !tbaa !30
   %6 = icmp ult i64 %5, %2
   br i1 %6, label %7, label %demux_resize_urxe.exit
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 289
-  %9 = load i8, ptr %8, align 1, !tbaa !31
+  %9 = load i8, ptr %8, align 1, !tbaa !32
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %demux_resize_urxe.exit, !prof !49
+  br i1 %10, label %11, label %demux_resize_urxe.exit, !prof !50
 
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %1, i64 8
@@ -1034,7 +1034,7 @@ ossl_list_urxe_insert_head.exit27.i:              ; preds = %ossl_list_urxe_inse
   %storemerge.i = add i64 %storemerge.in.i, 1
   store i64 %storemerge.i, ptr %27, align 8, !tbaa !24
   %71 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store i64 %2, ptr %71, align 8, !tbaa !29
+  store i64 %2, ptr %71, align 8, !tbaa !30
   br label %demux_resize_urxe.exit
 
 demux_resize_urxe.exit:                           ; preds = %ossl_list_urxe_insert_head.exit27.i, %ossl_list_urxe_insert_after.exit.i, %ossl_list_urxe_insert_head.exit.i, %7, %3
@@ -1078,7 +1078,7 @@ ossl_list_urxe_insert_tail.exit:                  ; preds = %7, %11
   %14 = add i64 %13, 1
   store i64 %14, ptr %12, align 8, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 289
-  store i8 0, ptr %15, align 1, !tbaa !31
+  store i8 0, ptr %15, align 1, !tbaa !32
   ret void
 }
 
@@ -1114,7 +1114,7 @@ ossl_list_urxe_insert_head.exit:                  ; preds = %7, %12
   %15 = add i64 %14, 1
   store i64 %15, ptr %13, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 289
-  store i8 1, ptr %16, align 1, !tbaa !31
+  store i8 1, ptr %16, align 1, !tbaa !32
   ret void
 }
 
@@ -1185,28 +1185,29 @@ attributes #8 = { nounwind }
 !22 = !{!10, !11, i64 8}
 !23 = !{!19, !11, i64 8}
 !24 = !{!10, !9, i64 16}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!4, !6, i64 48}
-!28 = !{!4, !6, i64 56}
-!29 = !{!19, !9, i64 24}
-!30 = !{!19, !9, i64 16}
-!31 = !{!19, !7, i64 289}
-!32 = distinct !{!32, !26}
-!33 = !{!11, !11, i64 0}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = !{!36, !6, i64 0}
-!36 = !{!"bio_msg_st", !6, i64 0, !9, i64 8, !37, i64 16, !37, i64 24, !9, i64 32}
-!37 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
-!38 = !{!36, !9, i64 8}
-!39 = !{!36, !37, i64 16}
-!40 = !{!36, !37, i64 24}
-!41 = distinct !{!41, !26}
-!42 = !{!9, !9, i64 0}
-!43 = !{!4, !9, i64 24}
-!44 = !{!19, !9, i64 48}
-!45 = distinct !{!45, !26}
-!46 = distinct !{!46, !26}
-!47 = !{i64 0, i64 112, !48}
-!48 = !{!7, !7, i64 0}
-!49 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!4, !6, i64 48}
+!29 = !{!4, !6, i64 56}
+!30 = !{!19, !9, i64 24}
+!31 = !{!19, !9, i64 16}
+!32 = !{!19, !7, i64 289}
+!33 = distinct !{!33, !26, !27}
+!34 = !{!11, !11, i64 0}
+!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!36 = !{!37, !6, i64 0}
+!37 = !{!"bio_msg_st", !6, i64 0, !9, i64 8, !38, i64 16, !38, i64 24, !9, i64 32}
+!38 = !{!"p1 _ZTS11bio_addr_st", !6, i64 0}
+!39 = !{!37, !9, i64 8}
+!40 = !{!37, !38, i64 16}
+!41 = !{!37, !38, i64 24}
+!42 = distinct !{!42, !26, !27}
+!43 = !{!9, !9, i64 0}
+!44 = !{!4, !9, i64 24}
+!45 = !{!19, !9, i64 48}
+!46 = distinct !{!46, !26, !27}
+!47 = distinct !{!47, !26, !27}
+!48 = !{i64 0, i64 112, !49}
+!49 = !{!7, !7, i64 0}
+!50 = !{!"branch_weights", !"expected", i32 2000, i32 1}

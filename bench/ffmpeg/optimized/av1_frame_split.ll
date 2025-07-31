@@ -145,13 +145,13 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
 
 .thread182:                                       ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 0, ptr %32, align 4, !tbaa !43
+  store i32 0, ptr %32, align 4, !tbaa !44
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 0, ptr %33, align 4, !tbaa !44
+  store i32 0, ptr %33, align 4, !tbaa !45
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 0, ptr %34, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i32 %.2129.ph, ptr %35, align 8, !tbaa !45
+  store i32 %.2129.ph, ptr %35, align 8, !tbaa !46
   br label %.thread175
 
 .thread175:                                       ; preds = %..thread175_crit_edge, %.thread182
@@ -178,7 +178,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %.0136275 = phi ptr [ null, %.lr.ph279 ], [ %.2138205, %.thread201 ]
   %48 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %41, i64 %indvars.iv304
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %50 = load i64, ptr %49, align 8, !tbaa !46
+  %50 = load i64, ptr %49, align 8, !tbaa !47
   %51 = trunc i64 %50 to i32
   %52 = add i32 %.0130277, %51
   %53 = load i32, ptr %48, align 8, !tbaa !39
@@ -198,19 +198,19 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %57 = load ptr, ptr %56, align 8, !tbaa !47
+  %57 = load ptr, ptr %56, align 8, !tbaa !48
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 1
-  %60 = load i8, ptr %59, align 1, !tbaa !48
+  %60 = load i8, ptr %59, align 1, !tbaa !49
   %61 = zext i8 %60 to i32
-  store i32 %47, ptr %44, align 4, !tbaa !44
+  store i32 %47, ptr %44, align 4, !tbaa !45
   %62 = trunc i64 %indvars.iv304 to i32
   %63 = add i32 %62, 1
   store i32 %63, ptr %38, align 8, !tbaa !36
-  %64 = load i32, ptr %42, align 4, !tbaa !43
+  %64 = load i32, ptr %42, align 4, !tbaa !44
   %65 = add nsw i32 %64, 1
-  store i32 %65, ptr %42, align 4, !tbaa !43
-  %66 = load i32, ptr %43, align 8, !tbaa !45
+  store i32 %65, ptr %42, align 4, !tbaa !44
+  %66 = load i32, ptr %43, align 8, !tbaa !46
   %.not = icmp slt i32 %65, %66
   br i1 %.not, label %.thread220.thread, label %.thread201
 
@@ -224,21 +224,21 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
 
 69:                                               ; preds = %67
   %70 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %71 = load ptr, ptr %70, align 8, !tbaa !47
+  %71 = load ptr, ptr %70, align 8, !tbaa !48
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 1
-  %74 = load i8, ptr %73, align 1, !tbaa !48
+  %74 = load i8, ptr %73, align 1, !tbaa !49
   %75 = zext i8 %74 to i32
-  store i32 %47, ptr %44, align 4, !tbaa !44
-  %76 = load i32, ptr %42, align 4, !tbaa !43
+  store i32 %47, ptr %44, align 4, !tbaa !45
+  %76 = load i32, ptr %42, align 4, !tbaa !44
   %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %42, align 4, !tbaa !43
-  %78 = load i8, ptr %72, align 4, !tbaa !51
+  store i32 %77, ptr %42, align 4, !tbaa !44
+  %78 = load i8, ptr %72, align 4, !tbaa !52
   %.not154 = icmp eq i8 %78, 0
   br i1 %.not154, label %.thread201, label %79
 
 79:                                               ; preds = %69
-  %80 = load i32, ptr %43, align 8, !tbaa !45
+  %80 = load i32, ptr %43, align 8, !tbaa !46
   %81 = icmp slt i32 %77, %80
   br i1 %81, label %.thread220.thread.sink.split, label %.thread201
 
@@ -254,15 +254,15 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %88 = load ptr, ptr %87, align 8, !tbaa !47
+  %88 = load ptr, ptr %87, align 8, !tbaa !48
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 44
-  %90 = load i16, ptr %89, align 4, !tbaa !55
+  %90 = load i16, ptr %89, align 4, !tbaa !56
   %91 = zext i16 %90 to i32
   %92 = getelementptr inbounds nuw i8, ptr %.0136275, i64 498
-  %93 = load i16, ptr %92, align 2, !tbaa !58
+  %93 = load i16, ptr %92, align 2, !tbaa !59
   %94 = zext i16 %93 to i32
   %95 = getelementptr inbounds nuw i8, ptr %.0136275, i64 500
-  %96 = load i16, ptr %95, align 4, !tbaa !59
+  %96 = load i16, ptr %95, align 4, !tbaa !60
   %97 = zext i16 %96 to i32
   %98 = mul nuw nsw i32 %97, %94
   %99 = add nsw i32 %98, -1
@@ -270,8 +270,8 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   br i1 %100, label %101, label %.thread201
 
 101:                                              ; preds = %86
-  %102 = load i32, ptr %42, align 4, !tbaa !43
-  %103 = load i32, ptr %43, align 8, !tbaa !45
+  %102 = load i32, ptr %42, align 4, !tbaa !44
+  %103 = load i32, ptr %43, align 8, !tbaa !46
   %104 = icmp slt i32 %102, %103
   br i1 %104, label %.thread220.thread.sink.split, label %.thread201
 
@@ -282,7 +282,7 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %indvars.iv.next305 = add nsw i64 %indvars.iv304, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next305 to i32
   %exitcond307.not = icmp eq i32 %36, %lftr.wideiv
-  br i1 %exitcond307.not, label %._crit_edge280, label %46, !llvm.loop !60
+  br i1 %exitcond307.not, label %._crit_edge280, label %46, !llvm.loop !61
 
 ._crit_edge280:                                   ; preds = %.thread201
   %.not156 = icmp eq ptr %.2138205, null
@@ -297,9 +297,9 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
 
 .thread220:                                       ; preds = %._crit_edge280
   %.phi.trans.insert310 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  %.pre311 = load i32, ptr %.phi.trans.insert310, align 4, !tbaa !43
+  %.pre311 = load i32, ptr %.phi.trans.insert310, align 4, !tbaa !44
   %.phi.trans.insert312 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %.pre313 = load i32, ptr %.phi.trans.insert312, align 8, !tbaa !45
+  %.pre313 = load i32, ptr %.phi.trans.insert312, align 8, !tbaa !46
   %108 = icmp sgt i32 %.pre311, %.pre313
   br i1 %108, label %._crit_edge280.thread, label %.thread220.thread
 
@@ -321,14 +321,14 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %116 = load ptr, ptr %115, align 8, !tbaa !38
   %117 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  %118 = load i32, ptr %117, align 4, !tbaa !44
+  %118 = load i32, ptr %117, align 4, !tbaa !45
   %119 = sext i32 %118 to i64
   %120 = getelementptr inbounds %struct.CodedBitstreamUnit, ptr %116, i64 %119, i32 1
-  %121 = load ptr, ptr %120, align 8, !tbaa !61
+  %121 = load ptr, ptr %120, align 8, !tbaa !62
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %121, ptr %122, align 8, !tbaa !34
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i32 %52, ptr %123, align 8, !tbaa !62
+  store i32 %52, ptr %123, align 8, !tbaa !63
   %124 = load ptr, ptr %4, align 8, !tbaa !14
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load ptr, ptr %125, align 8, !tbaa !34
@@ -336,27 +336,27 @@ define internal range(i32 -2147483648, 1) i32 @av1_frame_split_filter(ptr nounde
   %128 = getelementptr inbounds i8, ptr %126, i64 %127
   store ptr %128, ptr %125, align 8, !tbaa !34
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 32
-  %130 = load i32, ptr %129, align 8, !tbaa !62
+  %130 = load i32, ptr %129, align 8, !tbaa !63
   %131 = sub nsw i32 %130, %52
-  store i32 %131, ptr %129, align 8, !tbaa !62
-  %132 = load i8, ptr %.5224322, align 4, !tbaa !51
+  store i32 %131, ptr %129, align 8, !tbaa !63
+  %132 = load i8, ptr %.5224322, align 4, !tbaa !52
   %.not158 = icmp eq i8 %132, 0
   br i1 %.not158, label %133, label %138
 
 133:                                              ; preds = %114
   %134 = getelementptr inbounds nuw i8, ptr %.5224322, i64 13
-  %135 = load i8, ptr %134, align 1, !tbaa !63
+  %135 = load i8, ptr %134, align 1, !tbaa !64
   %.not159 = icmp eq i8 %135, 0
   br i1 %.not159, label %136, label %138
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 -9223372036854775808, ptr %137, align 8, !tbaa !64
+  store i64 -9223372036854775808, ptr %137, align 8, !tbaa !65
   br label %138
 
 138:                                              ; preds = %136, %133, %114
-  %139 = load i32, ptr %109, align 4, !tbaa !43
-  %140 = load i32, ptr %110, align 8, !tbaa !45
+  %139 = load i32, ptr %109, align 4, !tbaa !44
+  %140 = load i32, ptr %110, align 8, !tbaa !46
   %141 = icmp eq i32 %139, %140
   br i1 %141, label %142, label %.thread227
 
@@ -486,27 +486,28 @@ attributes #4 = { noreturn nounwind }
 !38 = !{!18, !22, i64 40}
 !39 = !{!40, !13, i64 0}
 !40 = !{!"CodedBitstreamUnit", !13, i64 0, !19, i64 8, !20, i64 16, !20, i64 24, !21, i64 32, !7, i64 40, !7, i64 48}
-!41 = distinct !{!41, !42}
+!41 = distinct !{!41, !42, !43}
 !42 = !{!"llvm.loop.mustprogress"}
-!43 = !{!15, !13, i64 68}
-!44 = !{!15, !13, i64 76}
-!45 = !{!15, !13, i64 64}
-!46 = !{!40, !20, i64 16}
-!47 = !{!40, !7, i64 40}
-!48 = !{!49, !8, i64 1}
-!49 = !{!"AV1RawOBU", !50, i64 0, !20, i64 8, !8, i64 16}
-!50 = !{!"AV1RawOBUHeader", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5, !8, i64 6, !8, i64 7}
-!51 = !{!52, !8, i64 0}
-!52 = !{!"AV1RawFrameHeader", !8, i64 0, !8, i64 1, !13, i64 4, !13, i64 8, !8, i64 12, !8, i64 13, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 17, !8, i64 18, !13, i64 20, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 28, !8, i64 156, !53, i64 158, !53, i64 160, !8, i64 162, !8, i64 163, !8, i64 164, !53, i64 166, !53, i64 168, !8, i64 170, !8, i64 177, !8, i64 178, !8, i64 179, !8, i64 187, !8, i64 188, !8, i64 189, !8, i64 190, !8, i64 200, !8, i64 228, !8, i64 229, !8, i64 230, !8, i64 231, !8, i64 232, !8, i64 233, !8, i64 234, !8, i64 235, !8, i64 236, !8, i64 237, !8, i64 301, !8, i64 365, !8, i64 429, !53, i64 494, !8, i64 496, !53, i64 498, !53, i64 500, !8, i64 502, !8, i64 503, !8, i64 504, !8, i64 505, !8, i64 506, !8, i64 507, !8, i64 508, !8, i64 509, !8, i64 510, !8, i64 511, !8, i64 512, !8, i64 513, !8, i64 514, !8, i64 515, !8, i64 516, !8, i64 517, !8, i64 582, !8, i64 710, !8, i64 711, !8, i64 712, !8, i64 713, !8, i64 714, !8, i64 715, !8, i64 719, !8, i64 720, !8, i64 721, !8, i64 722, !8, i64 730, !8, i64 738, !8, i64 740, !8, i64 742, !8, i64 743, !8, i64 744, !8, i64 752, !8, i64 760, !8, i64 768, !8, i64 776, !8, i64 779, !8, i64 780, !8, i64 781, !8, i64 782, !8, i64 783, !8, i64 784, !8, i64 785, !8, i64 786, !8, i64 794, !8, i64 802, !8, i64 812, !54, i64 1004}
-!53 = !{!"short", !8, i64 0}
-!54 = !{!"AV1RawFilmGrainParams", !8, i64 0, !53, i64 2, !8, i64 4, !8, i64 5, !8, i64 6, !8, i64 7, !8, i64 21, !8, i64 35, !8, i64 36, !8, i64 37, !8, i64 47, !8, i64 57, !8, i64 58, !8, i64 68, !8, i64 78, !8, i64 79, !8, i64 80, !8, i64 104, !8, i64 129, !8, i64 154, !8, i64 155, !8, i64 156, !8, i64 157, !53, i64 158, !8, i64 160, !8, i64 161, !53, i64 162, !8, i64 164, !8, i64 165}
-!55 = !{!56, !53, i64 28}
-!56 = !{!"AV1RawTileGroup", !19, i64 0, !21, i64 8, !20, i64 16, !8, i64 24, !53, i64 26, !53, i64 28, !57, i64 32}
-!57 = !{!"AV1RawTileData", !19, i64 0, !21, i64 8, !20, i64 16}
-!58 = !{!52, !53, i64 498}
-!59 = !{!52, !53, i64 500}
-!60 = distinct !{!60, !42}
-!61 = !{!40, !19, i64 8}
-!62 = !{!35, !13, i64 32}
-!63 = !{!52, !8, i64 13}
-!64 = !{!35, !20, i64 8}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!15, !13, i64 68}
+!45 = !{!15, !13, i64 76}
+!46 = !{!15, !13, i64 64}
+!47 = !{!40, !20, i64 16}
+!48 = !{!40, !7, i64 40}
+!49 = !{!50, !8, i64 1}
+!50 = !{!"AV1RawOBU", !51, i64 0, !20, i64 8, !8, i64 16}
+!51 = !{!"AV1RawOBUHeader", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 3, !8, i64 4, !8, i64 5, !8, i64 6, !8, i64 7}
+!52 = !{!53, !8, i64 0}
+!53 = !{!"AV1RawFrameHeader", !8, i64 0, !8, i64 1, !13, i64 4, !13, i64 8, !8, i64 12, !8, i64 13, !8, i64 14, !8, i64 15, !8, i64 16, !8, i64 17, !8, i64 18, !13, i64 20, !8, i64 24, !8, i64 25, !8, i64 26, !8, i64 28, !8, i64 156, !54, i64 158, !54, i64 160, !8, i64 162, !8, i64 163, !8, i64 164, !54, i64 166, !54, i64 168, !8, i64 170, !8, i64 177, !8, i64 178, !8, i64 179, !8, i64 187, !8, i64 188, !8, i64 189, !8, i64 190, !8, i64 200, !8, i64 228, !8, i64 229, !8, i64 230, !8, i64 231, !8, i64 232, !8, i64 233, !8, i64 234, !8, i64 235, !8, i64 236, !8, i64 237, !8, i64 301, !8, i64 365, !8, i64 429, !54, i64 494, !8, i64 496, !54, i64 498, !54, i64 500, !8, i64 502, !8, i64 503, !8, i64 504, !8, i64 505, !8, i64 506, !8, i64 507, !8, i64 508, !8, i64 509, !8, i64 510, !8, i64 511, !8, i64 512, !8, i64 513, !8, i64 514, !8, i64 515, !8, i64 516, !8, i64 517, !8, i64 582, !8, i64 710, !8, i64 711, !8, i64 712, !8, i64 713, !8, i64 714, !8, i64 715, !8, i64 719, !8, i64 720, !8, i64 721, !8, i64 722, !8, i64 730, !8, i64 738, !8, i64 740, !8, i64 742, !8, i64 743, !8, i64 744, !8, i64 752, !8, i64 760, !8, i64 768, !8, i64 776, !8, i64 779, !8, i64 780, !8, i64 781, !8, i64 782, !8, i64 783, !8, i64 784, !8, i64 785, !8, i64 786, !8, i64 794, !8, i64 802, !8, i64 812, !55, i64 1004}
+!54 = !{!"short", !8, i64 0}
+!55 = !{!"AV1RawFilmGrainParams", !8, i64 0, !54, i64 2, !8, i64 4, !8, i64 5, !8, i64 6, !8, i64 7, !8, i64 21, !8, i64 35, !8, i64 36, !8, i64 37, !8, i64 47, !8, i64 57, !8, i64 58, !8, i64 68, !8, i64 78, !8, i64 79, !8, i64 80, !8, i64 104, !8, i64 129, !8, i64 154, !8, i64 155, !8, i64 156, !8, i64 157, !54, i64 158, !8, i64 160, !8, i64 161, !54, i64 162, !8, i64 164, !8, i64 165}
+!56 = !{!57, !54, i64 28}
+!57 = !{!"AV1RawTileGroup", !19, i64 0, !21, i64 8, !20, i64 16, !8, i64 24, !54, i64 26, !54, i64 28, !58, i64 32}
+!58 = !{!"AV1RawTileData", !19, i64 0, !21, i64 8, !20, i64 16}
+!59 = !{!53, !54, i64 498}
+!60 = !{!53, !54, i64 500}
+!61 = distinct !{!61, !42, !43}
+!62 = !{!40, !19, i64 8}
+!63 = !{!35, !13, i64 32}
+!64 = !{!53, !8, i64 13}
+!65 = !{!35, !20, i64 8}

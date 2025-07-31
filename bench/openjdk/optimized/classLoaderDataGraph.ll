@@ -142,7 +142,7 @@ define hidden void @_ZN20ClassLoaderDataGraph19clear_claimed_marksEi(i32 noundef
   %3 = getelementptr inbounds nuw i8, ptr %.04, i64 112
   %4 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -181,7 +181,7 @@ define hidden void @_ZN20ClassLoaderDataGraph22clean_deallocate_listsEb(i1 nound
   %6 = getelementptr inbounds nuw i8, ptr %.013.us, i64 112
   %.0.us = load volatile ptr, ptr %6, align 8
   %.not.us = icmp eq ptr %.0.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !10
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %10
   %.013 = phi ptr [ %.0, %10 ], [ %.010, %.lr.ph ]
@@ -199,7 +199,7 @@ define hidden void @_ZN20ClassLoaderDataGraph22clean_deallocate_listsEb(i1 nound
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 112
   %.0 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %10, %5, %1
   %.08.lcssa = phi i32 [ 0, %1 ], [ %.1.us, %5 ], [ %.1, %10 ]
@@ -422,7 +422,7 @@ define hidden void @_ZN20ClassLoaderDataGraph6cld_doEP10CLDClosure(ptr noundef %
   %5 = getelementptr inbounds nuw i8, ptr %.05, i64 112
   %6 = load volatile ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -454,7 +454,7 @@ define hidden void @_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_(ptr
   %12 = getelementptr inbounds nuw i8, ptr %.011, i64 112
   %13 = load volatile ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %11, %2
   ret void
@@ -481,7 +481,7 @@ define hidden void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosur
   %6 = getelementptr inbounds nuw i8, ptr %.011.i.us, i64 112
   %7 = load volatile ptr, ptr %6, align 8
   %.not.i.us = icmp eq ptr %7, null
-  br i1 %.not.i.us, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i.us, !llvm.loop !15
+  br i1 %.not.i.us, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i.us, !llvm.loop !16
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %14
   %.011.i = phi ptr [ %16, %14 ], [ %4, %.lr.ph.i.preheader ]
@@ -500,7 +500,7 @@ define hidden void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosur
   %15 = getelementptr inbounds nuw i8, ptr %.011.i, i64 112
   %16 = load volatile ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i, !llvm.loop !15
 
 17:                                               ; preds = %1
   br i1 %.not10.i, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i2
@@ -513,7 +513,7 @@ define hidden void @_ZN20ClassLoaderDataGraph20always_strong_cld_doEP10CLDClosur
   %20 = getelementptr inbounds nuw i8, ptr %.05.i, i64 112
   %21 = load volatile ptr, ptr %20, align 8
   %.not.i3 = icmp eq ptr %21, null
-  br i1 %.not.i3, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i2, !llvm.loop !13
+  br i1 %.not.i3, label %_ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit, label %.lr.ph.i2, !llvm.loop !14
 
 _ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit: ; preds = %.lr.ph.i2, %14, %.lr.ph.i.us, %17, %5
   ret void
@@ -610,7 +610,7 @@ define hidden void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr n
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %16, %13 ]
-  br label %.lr.ph.i, !llvm.loop !16
+  br label %.lr.ph.i, !llvm.loop !17
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -655,7 +655,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10classes_doEP12KlassClosure(ptr no
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %14, %13 ]
-  br label %.lr.ph.i, !llvm.loop !17
+  br label %.lr.ph.i, !llvm.loop !18
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -700,7 +700,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10classes_doEPFvP5KlassE(ptr nounde
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %14, %13 ]
-  br label %.lr.ph.i, !llvm.loop !18
+  br label %.lr.ph.i, !llvm.loop !19
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -745,7 +745,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10methods_doEPFvP6MethodE(ptr nound
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %14, %13 ]
-  br label %.lr.ph.i, !llvm.loop !19
+  br label %.lr.ph.i, !llvm.loop !20
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -790,7 +790,7 @@ define hidden void @_ZN20ClassLoaderDataGraph20modules_do_keepaliveEPFvP11Module
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %15, %13 ]
-  br label %.lr.ph.i, !llvm.loop !20
+  br label %.lr.ph.i, !llvm.loop !21
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -838,7 +838,7 @@ define hidden void @_ZN20ClassLoaderDataGraph10modules_doEPFvP11ModuleEntryE(ptr
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %14, %13 ]
-  br label %.lr.ph.i, !llvm.loop !21
+  br label %.lr.ph.i, !llvm.loop !22
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -881,7 +881,7 @@ define hidden void @_ZN20ClassLoaderDataGraph11packages_doEPFvP12PackageEntryE(p
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %14, %13 ]
-  br label %.lr.ph.i, !llvm.loop !22
+  br label %.lr.ph.i, !llvm.loop !23
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -926,7 +926,7 @@ define hidden void @_ZN20ClassLoaderDataGraph27loaded_classes_do_keepaliveEP12Kl
 
 .lr.ph.i.backedge:                                ; preds = %12, %13
   %.011.i.be = phi ptr [ %11, %12 ], [ %15, %13 ]
-  br label %.lr.ph.i, !llvm.loop !23
+  br label %.lr.ph.i, !llvm.loop !24
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -981,7 +981,7 @@ define hidden void @_ZN20ClassLoaderDataGraph17verify_dictionaryEv() local_unnam
 
 .lr.ph.i.backedge:                                ; preds = %11, %16
   %.011.i.be = phi ptr [ %10, %11 ], [ %17, %16 ]
-  br label %.lr.ph.i, !llvm.loop !24
+  br label %.lr.ph.i, !llvm.loop !25
 
 12:                                               ; preds = %.lr.ph.i
   store ptr %10, ptr %1, align 8
@@ -1036,7 +1036,7 @@ define hidden void @_ZN20ClassLoaderDataGraph16print_dictionaryEP12outputStream(
 
 .lr.ph.i.backedge:                                ; preds = %12, %18
   %.011.i.be = phi ptr [ %11, %12 ], [ %19, %18 ]
-  br label %.lr.ph.i, !llvm.loop !25
+  br label %.lr.ph.i, !llvm.loop !26
 
 13:                                               ; preds = %.lr.ph.i
   store ptr %11, ptr %2, align 8
@@ -1101,7 +1101,7 @@ define hidden void @_ZN20ClassLoaderDataGraph22print_table_statisticsEP12outputS
 
 .lr.ph.i.backedge:                                ; preds = %14, %_ZN12ResourceMarkD2Ev.exit
   %.011.i.be = phi ptr [ %13, %14 ], [ %38, %_ZN12ResourceMarkD2Ev.exit ]
-  br label %.lr.ph.i, !llvm.loop !26
+  br label %.lr.ph.i, !llvm.loop !27
 
 15:                                               ; preds = %.lr.ph.i
   store ptr %13, ptr %2, align 8
@@ -1192,7 +1192,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph8is_validEP15ClassLoa
   %6 = getelementptr inbounds nuw i8, ptr %.012, i64 112
   %.0 = load volatile ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %.0, null
-  br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !27
+  br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !28
 
 .lr.ph:                                           ; preds = %.preheader, %5
   %.012 = phi ptr [ %.0, %5 ], [ %.010, %.preheader ]
@@ -1250,7 +1250,7 @@ define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph12do_unloadingEv() lo
   %16 = getelementptr inbounds nuw i8, ptr %.024, i64 112
   %.0 = load volatile ptr, ptr %16, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %15, %0
   %.013.lcssa = phi i32 [ 0, %0 ], [ %.114, %15 ]
@@ -1303,7 +1303,7 @@ define hidden void @_ZN20ClassLoaderDataGraph29clean_module_and_package_infoEv()
   %11 = getelementptr inbounds nuw i8, ptr %.010, i64 112
   %.0 = load volatile ptr, ptr %11, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %10, %0
   ret void
@@ -1401,7 +1401,7 @@ define hidden void @_ZN39ClassLoaderDataGraphKlassIteratorAtomicC2Ev(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %.010, i64 112
   %.0 = load volatile ptr, ptr %3, align 8
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
 .lr.ph:                                           ; preds = %1, %2
   %.010 = phi ptr [ %.0, %2 ], [ %.08, %1 ]
@@ -1441,7 +1441,7 @@ define hidden noundef ptr @_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_kl
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %7, label %.loopexit, !llvm.loop !31
+  br i1 %14, label %7, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %11, %7, %1
   %.011 = phi ptr [ %3, %1 ], [ %13, %11 ], [ null, %7 ]
@@ -1480,13 +1480,13 @@ define hidden noundef ptr @_ZN39ClassLoaderDataGraphKlassIteratorAtomic10next_kl
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %10, label %_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass.exit, !llvm.loop !31
+  br i1 %17, label %10, label %_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass.exit, !llvm.loop !32
 
 _ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass.exit: ; preds = %10, %14, %4
   %.011.i = phi ptr [ %6, %4 ], [ null, %10 ], [ %16, %14 ]
-  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.011.i, ptr nonnull %.010, ptr nonnull %0) #10, !srcloc !32
+  %18 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.011.i, ptr nonnull %.010, ptr nonnull %0) #10, !srcloc !33
   %19 = icmp eq ptr %18, %.010
-  br i1 %19, label %20, label %3, !llvm.loop !33
+  br i1 %19, label %20, label %3, !llvm.loop !34
 
 20:                                               ; preds = %3, %_ZN39ClassLoaderDataGraphKlassIteratorAtomic18next_klass_in_cldgEP5Klass.exit
   ret ptr %.010
@@ -1520,7 +1520,7 @@ define hidden void @_ZN20ClassLoaderDataGraph6verifyEv() local_unnamed_addr #0 a
 
 .lr.ph.i.backedge:                                ; preds = %11, %12
   %.011.i.be = phi ptr [ %10, %11 ], [ %13, %12 ]
-  br label %.lr.ph.i, !llvm.loop !34
+  br label %.lr.ph.i, !llvm.loop !35
 
 12:                                               ; preds = %.lr.ph.i
   store ptr %10, ptr %1, align 8
@@ -1762,31 +1762,32 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8, !11}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8}
-!31 = distinct !{!31, !8}
-!32 = !{i64 2145412694}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9, !12}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = !{i64 2145412694}
+!34 = distinct !{!34, !8, !9}
+!35 = distinct !{!35, !8, !9}

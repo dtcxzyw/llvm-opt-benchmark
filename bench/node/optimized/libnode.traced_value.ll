@@ -240,7 +240,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i8 %2, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
   %cmp.i10 = icmp ugt i32 %__val.addr.016.i, 9999
-  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !7
+  br i1 %cmp.i10, label %while.body.i, label %while.end.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit
   %__val.addr.0.lcssa.i = phi i32 [ %cond, %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit ], [ %div.i, %while.body.i ]
@@ -643,7 +643,7 @@ if.else93:                                        ; preds = %sw.default
 for.inc:                                          ; preds = %sw.bb, %sw.bb72, %sw.bb74, %sw.bb76, %sw.bb78, %sw.bb80, %sw.bb82, %if.else93, %if.then86
   %i.441 = phi i32 [ %i.4, %sw.bb ], [ %i.4, %sw.bb72 ], [ %i.4, %sw.bb74 ], [ %i.4, %sw.bb76 ], [ %i.4, %sw.bb78 ], [ %i.4, %sw.bb80 ], [ %i.4, %sw.bb82 ], [ %i.4, %if.else93 ], [ %i.44248, %if.then86 ]
   %cmp = icmp slt i32 %i.441, %conv
-  br i1 %cmp, label %do.body, label %for.end, !llvm.loop !8
+  br i1 %cmp, label %do.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.inc, %entry
   %call98 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 noundef signext 34) #10
@@ -1068,7 +1068,8 @@ attributes #13 = { builtin nounwind }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !6, !7}

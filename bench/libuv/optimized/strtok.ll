@@ -33,7 +33,7 @@ define hidden noundef ptr @uv__strtok(ptr noundef %0, ptr noundef readonly captu
   %12 = getelementptr inbounds nuw i8, ptr %.01927, i64 1
   %13 = load i8, ptr %12, align 1
   %.not23 = icmp eq i8 %13, 0
-  br i1 %.not23, label %._crit_edge, label %14
+  br i1 %.not23, label %._crit_edge, label %14, !llvm.loop !4
 
 14:                                               ; preds = %.preheader, %11
   %15 = phi i8 [ %9, %.preheader ], [ %13, %11 ]
@@ -51,7 +51,7 @@ define hidden noundef ptr @uv__strtok(ptr noundef %0, ptr noundef readonly captu
   %19 = getelementptr inbounds nuw i8, ptr %.129, i64 1
   %20 = load i8, ptr %19, align 1
   %.not = icmp eq i8 %20, 0
-  br i1 %.not, label %._crit_edge30, label %.preheader
+  br i1 %.not, label %._crit_edge30, label %.preheader, !llvm.loop !6
 
 ._crit_edge30:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %.preheader24
   store ptr null, ptr %2, align 8
@@ -70,3 +70,6 @@ attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}

@@ -109,7 +109,7 @@ define hidden void @_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm(ptr 
   call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %17) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %18, label %9, !llvm.loop !8
+  br i1 %exitcond.not, label %18, label %9, !llvm.loop !9
 
 18:                                               ; preds = %9
   ret void
@@ -200,7 +200,7 @@ define hidden void @_ZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP1
   store ptr %38, ptr %36, align 8
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, %umax.i.i
-  br i1 %exitcond.not.i.i, label %.preheader15.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %.preheader15.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
 .preheader.i.i.i.i.i:                             ; preds = %.lr.ph18.preheader.i.i.i.i.i, %.preheader15.i.i.i.i.i
   %.not.i.i.i2.i.i = icmp eq ptr %.sroa.16.127.i.i, null
@@ -218,7 +218,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %41 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not.i.i = icmp eq ptr %42, null
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i.i:                         ; preds = %_ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE6appendERKS7_.exit.i.i
   %43 = trunc nsw i64 %16 to i32
@@ -279,7 +279,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %78 = icmp eq i32 %44, 0
   %79 = icmp eq ptr %77, null
   %.not1.i.i = select i1 %78, i1 %79, i1 false
-  br i1 %.not1.i.i, label %._crit_edge35.i.i, label %.preheader.i.i, !llvm.loop !11
+  br i1 %.not1.i.i, label %._crit_edge35.i.i, label %.preheader.i.i, !llvm.loop !12
 
 ._crit_edge35.i.i:                                ; preds = %"_ZZN17MemoryFileTracker15print_report_onEPKNS_10MemoryFileEP12outputStreammENK3$_0clEPN5TreapImN7VMATree14IntervalChangeENS7_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE.exit.i.i"
   %80 = icmp eq i32 %.sroa.10.1.lcssa.i.i, 0
@@ -313,7 +313,7 @@ define hidden noundef ptr @_ZN17MemoryFileTracker9make_fileEPKc(ptr noundef nonn
   store volatile i64 0, ptr %7, align 8
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 24
   %8 = icmp eq i64 %.add.i.i, 672
-  br i1 %8, label %_ZN17MemoryFileTracker10MemoryFileC2EPKc.exit, label %6
+  br i1 %8, label %_ZN17MemoryFileTracker10MemoryFileC2EPKc.exit, label %6, !llvm.loop !13
 
 _ZN17MemoryFileTracker10MemoryFileC2EPKc.exit:    ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 688
@@ -377,12 +377,12 @@ define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr nound
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next.i.i.i, %25
   %indvars.iv.next11.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i, 1
-  br i1 %26, label %19, label %.loopexit, !llvm.loop !12
+  br i1 %26, label %19, label %.loopexit, !llvm.loop !14
 
 27:                                               ; preds = %10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %10, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.loopexit2.i, label %10, !llvm.loop !15
 
 .loopexit2.i:                                     ; preds = %27, %4
   %28 = load ptr, ptr @g_assert_poison, align 8
@@ -514,7 +514,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance11free_memoryEPNS_10MemoryFil
   call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %16) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
-  br i1 %exitcond.not.i, label %_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm.exit, label %8, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm.exit, label %8, !llvm.loop !9
 
 _ZN17MemoryFileTracker11free_memoryEPNS_10MemoryFileEmm.exit: ; preds = %8
   call void @llvm.lifetime.end.p0(i64 448, ptr nonnull %4)
@@ -539,7 +539,7 @@ define hidden noundef ptr @_ZN17MemoryFileTracker8Instance9make_fileEPKc(ptr nou
   store volatile i64 0, ptr %7, align 8
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 24
   %8 = icmp eq i64 %.add.i.i.i, 672
-  br i1 %8, label %_ZN17MemoryFileTracker9make_fileEPKc.exit, label %6
+  br i1 %8, label %_ZN17MemoryFileTracker9make_fileEPKc.exit, label %6, !llvm.loop !13
 
 _ZN17MemoryFileTracker9make_fileEPKc.exit:        ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 688
@@ -605,12 +605,12 @@ define hidden void @_ZN17MemoryFileTracker8Instance9free_fileEPNS_10MemoryFileE(
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next.i.i.i.i, %25
   %indvars.iv.next11.i.i.i.i = add nuw nsw i64 %indvars.iv10.i.i.i.i, 1
-  br i1 %26, label %19, label %.loopexit.i, !llvm.loop !12
+  br i1 %26, label %19, label %.loopexit.i, !llvm.loop !14
 
 27:                                               ; preds = %10
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit2.i.i, label %10, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %.loopexit2.i.i, label %10, !llvm.loop !15
 
 .loopexit2.i.i:                                   ; preds = %27, %4
   %28 = load ptr, ptr @g_assert_poison, align 8
@@ -664,7 +664,7 @@ define hidden void @_ZN17MemoryFileTracker8Instance20print_all_reports_onEP12out
   %13 = load i32, ptr %4, align 4
   %14 = sext i32 %13 to i64
   %15 = icmp slt i64 %indvars.iv.next, %14
-  br i1 %15, label %8, label %._crit_edge, !llvm.loop !14
+  br i1 %15, label %8, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %8, %2
   ret void
@@ -709,14 +709,14 @@ define hidden void @_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySn
   tail call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %18) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 28
-  br i1 %exitcond.not, label %19, label %12, !llvm.loop !15
+  br i1 %exitcond.not, label %19, label %12, !llvm.loop !17
 
 19:                                               ; preds = %12
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %20 = load i32, ptr %3, align 8
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next16, %21
-  br i1 %22, label %7, label %._crit_edge, !llvm.loop !16
+  br i1 %22, label %7, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %19, %2
   ret void
@@ -755,14 +755,14 @@ define hidden void @_ZN17MemoryFileTracker8Instance16summary_snapshotEP21Virtual
   tail call void @_ZN13VirtualMemory11update_peakEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %18) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 28
-  br i1 %exitcond.not.i, label %19, label %12, !llvm.loop !15
+  br i1 %exitcond.not.i, label %19, label %12, !llvm.loop !17
 
 19:                                               ; preds = %12
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %20 = load i32, ptr %3, align 4
   %21 = sext i32 %20 to i64
   %22 = icmp slt i64 %indvars.iv.next16.i, %21
-  br i1 %22, label %7, label %_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit, !llvm.loop !16
+  br i1 %22, label %7, label %_ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit, !llvm.loop !18
 
 _ZNK17MemoryFileTracker16summary_snapshotEP21VirtualMemorySnapshot.exit: ; preds = %19, %1
   ret void
@@ -822,7 +822,7 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
-  br i1 %12, label %7, label %13, !llvm.loop !17
+  br i1 %12, label %7, label %13, !llvm.loop !19
 
 13:                                               ; preds = %9
   %14 = trunc nsw i64 %indvars.iv to i32
@@ -873,7 +873,7 @@ define linkonce_odr hidden void @_ZN5TreapImN7VMATree14IntervalChangeENS0_18Posi
   store ptr %38, ptr %36, align 8
   %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i23, %indvars.iv105
-  br i1 %exitcond.not, label %.preheader15.loopexit.i.i.i24, label %.lr.ph.i.i.i21, !llvm.loop !9
+  br i1 %exitcond.not, label %.preheader15.loopexit.i.i.i24, label %.lr.ph.i.i.i21, !llvm.loop !10
 
 _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18PositionComparatorE19TreapCHeapAllocatorE9TreapNodeE18GrowableArrayCHeapIS7_L8MEMFLAGS12EEE4growEi.exit.i15: ; preds = %.lr.ph18.preheader.i.i.i17, %.preheader15.i.i.i11
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.34.0.ph) #10
@@ -936,7 +936,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   store ptr %64, ptr %62, align 8
   %indvars.iv.next.i.i.i43 = add nuw nsw i64 %indvars.iv.i.i.i42, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next.i.i.i43, %umax
-  br i1 %exitcond111.not, label %.preheader15.loopexit.i.i.i44, label %.lr.ph.i.i.i41, !llvm.loop !9
+  br i1 %exitcond111.not, label %.preheader15.loopexit.i.i.i44, label %.lr.ph.i.i.i41, !llvm.loop !10
 
 .preheader.i.i.i33:                               ; preds = %.preheader15.i.i.i31, %.lr.ph18.preheader.i.i.i37
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %.sroa.34.2) #10
@@ -951,7 +951,7 @@ _ZN26GrowableArrayWithAllocatorIPN5TreapImN7VMATree14IntervalChangeENS1_18Positi
   %67 = getelementptr inbounds i8, ptr %.sroa.34.3, i64 %66
   store ptr %65, ptr %67, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef nonnull %11) #10
-  br label %.outer, !llvm.loop !17
+  br label %.outer, !llvm.loop !19
 
 68:                                               ; preds = %7
   store ptr null, ptr %3, align 8
@@ -1045,7 +1045,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN17Memo
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next.i.i, %29
-  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !18
+  br i1 %30, label %23, label %.preheader15.loopexit.i.i, !llvm.loop !20
 
 .preheader.i.i:                                   ; preds = %.lr.ph18.i.i, %.preheader15.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1061,7 +1061,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN17Memo
   %34 = load i32, ptr %4, align 4
   %35 = trunc nuw i64 %indvars.iv.next21.i.i to i32
   %36 = icmp sgt i32 %34, %35
-  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !19
+  br i1 %36, label %.lr.ph18.i.i, label %.preheader.i.i, !llvm.loop !21
 
 37:                                               ; preds = %.preheader.i.i
   tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %32) #10
@@ -1125,17 +1125,19 @@ attributes #11 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

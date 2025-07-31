@@ -634,7 +634,7 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
   %26 = getelementptr inbounds nuw i8, ptr %.030, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %._crit_edge33, label %19, !llvm.loop !8
+  br i1 %.not, label %._crit_edge33, label %19, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %19, %_ZN15FieldStreamBase4nextEv.exit
   %.127 = phi i1 [ %.2, %_ZN15FieldStreamBase4nextEv.exit ], [ %.02029, %19 ]
@@ -754,7 +754,7 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit.i: ; preds = %75, %71, %67
   %88 = load i32, ptr %4, align 8
   %89 = sext i32 %88 to i64
   %90 = icmp slt i64 %indvars.iv.next.i, %89
-  br i1 %90, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !9
+  br i1 %90, label %.lr.ph.i, label %.preheader16.loopexit.i, !llvm.loop !10
 
 .preheader.i:                                     ; preds = %.lr.ph19.i, %.preheader16.i
   %91 = load ptr, ptr %7, align 8
@@ -769,7 +769,7 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit.i: ; preds = %75, %71, %67
   %93 = load i32, ptr %6, align 4
   %94 = trunc nuw i64 %indvars.iv.next22.i to i32
   %95 = icmp sgt i32 %93, %94
-  br i1 %95, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !10
+  br i1 %95, label %.lr.ph19.i, label %.preheader.i, !llvm.loop !11
 
 96:                                               ; preds = %.preheader.i
   %97 = load i64, ptr %8, align 8
@@ -810,7 +810,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %105
   %.pre39 = load i32, ptr %9, align 8
   %.pre40 = load i32, ptr %10, align 4
   %109 = icmp slt i32 %.pre39, %.pre40
-  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge33:                                    ; preds = %._crit_edge, %2
   %.020.lcssa = phi i1 [ false, %2 ], [ %.1.lcssa, %._crit_edge ]
@@ -866,7 +866,7 @@ _ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit: ; preds = %._cr
   %135 = load i32, ptr %4, align 4
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next, %136
-  br i1 %137, label %.lr.ph36, label %._crit_edge37.loopexit, !llvm.loop !12
+  br i1 %137, label %.lr.ph36, label %._crit_edge37.loopexit, !llvm.loop !13
 
 ._crit_edge37.loopexit:                           ; preds = %.lr.ph36
   %.pre41 = load ptr, ptr %124, align 8
@@ -939,7 +939,7 @@ define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr noundef n
   %.0 = phi ptr [ %.0.pre, %19 ], [ %10, %.lr.ph ]
   %35 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge.loopexit:                             ; preds = %34
   %.pre = load i16, ptr %3, align 2
@@ -1022,7 +1022,7 @@ define hidden noundef ptr @_ZN11FieldLayout17first_field_blockEv(ptr noundef non
   %5 = load i32, ptr %4, align 8
   %.off = add i32 %5, -2
   %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %.critedge, label %3, !llvm.loop !14
+  br i1 %switch, label %.critedge, label %3, !llvm.loop !15
 
 .critedge:                                        ; preds = %3
   ret ptr %.0
@@ -1115,7 +1115,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   %.030.in = getelementptr inbounds nuw i8, ptr %.03047, i64 8
   %.030 = load ptr, ptr %.030.in, align 8
   %.not = icmp eq ptr %.030, %.031
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %45, %._crit_edge54
   %.1.lcssa = phi ptr [ null, %._crit_edge54 ], [ %.2, %45 ]
@@ -1133,7 +1133,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   %49 = load i32, ptr %1, align 4
   %50 = sext i32 %49 to i64
   %51 = icmp slt i64 %indvars.iv.next, %50
-  br i1 %51, label %13, label %.loopexit, !llvm.loop !16
+  br i1 %51, label %13, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %47, %5, %3
   ret void
@@ -1468,7 +1468,7 @@ _ZN11FieldLayout6removeEP14LayoutRawBlock.exit:   ; preds = %_ZN11FieldLayout6in
 90:                                               ; preds = %14, %20
   %91 = load ptr, ptr %.02536, align 8
   %.not = icmp eq ptr %91, null
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %90, %4
   %92 = load ptr, ptr @g_assert_poison, align 8
@@ -1554,7 +1554,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   %18 = add nsw i32 %17, %.02533
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %13, %5
   %.025.lcssa = phi i32 [ 0, %5 ], [ %18, %13 ]
@@ -1595,7 +1595,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
 
 .critedge:                                        ; preds = %27, %30
   %39 = icmp eq ptr %.1, %.0
-  br i1 %39, label %.loopexit31, label %27, !llvm.loop !19
+  br i1 %39, label %.loopexit31, label %27, !llvm.loop !20
 
 .loopexit31:                                      ; preds = %.critedge, %30, %._crit_edge
   %.026 = phi ptr [ %20, %._crit_edge ], [ %20, %.critedge ], [ %.1, %30 ]
@@ -1615,7 +1615,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   %46 = load i32, ptr %1, align 4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next39, %47
-  br i1 %48, label %41, label %.loopexit, !llvm.loop !20
+  br i1 %48, label %41, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %41, %.loopexit31, %3
   ret void
@@ -1852,7 +1852,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %145, %147
   %148 = phi i32 [ %120, %145 ], [ %.pre68, %147 ]
   %149 = phi i32 [ %146, %145 ], [ %.pre, %147 ]
   %.not57 = icmp slt i32 %149, %148
-  br i1 %.not57, label %.lr.ph, label %.loopexit, !llvm.loop !21
+  br i1 %.not57, label %.lr.ph, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %_ZN15FieldStreamBase4nextEv.exit, %113, %125
   %.1 = phi i1 [ true, %125 ], [ false, %113 ], [ false, %_ZN15FieldStreamBase4nextEv.exit ]
@@ -1864,7 +1864,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %145, %147
   %153 = call noundef ptr %152(ptr noundef nonnull align 8 dereferenceable(464) %.061) #14
   %154 = icmp eq ptr %153, null
   %.not40 = or i1 %.1, %154
-  br i1 %.not40, label %.loopexit58, label %113, !llvm.loop !22
+  br i1 %.not40, label %.loopexit58, label %113, !llvm.loop !23
 
 155:                                              ; preds = %33
   %156 = getelementptr inbounds nuw i8, ptr %.03865, i64 20
@@ -1886,7 +1886,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %145, %147
   %.038 = load ptr, ptr %.03865, align 8
   %165 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %.038, %165
-  br i1 %.not, label %._crit_edge, label %33, !llvm.loop !23
+  br i1 %.not, label %._crit_edge, label %33, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.loopexit58, %4
   %166 = load ptr, ptr %11, align 8
@@ -1966,7 +1966,7 @@ define hidden noundef ptr @_ZN18FieldLayoutBuilder29get_or_create_contended_grou
 8:                                                ; preds = %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !25
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
@@ -2104,7 +2104,7 @@ define hidden void @_ZN18FieldLayoutBuilder21regular_field_sortingEv(ptr noundef
 14:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %indvars45 = trunc i64 %indvars.iv to i32
-  %15 = load ptr, ptr %5, align 8, !noalias !25
+  %15 = load ptr, ptr %5, align 8, !noalias !26
   %16 = getelementptr inbounds nuw %class.FieldInfo, ptr %15, i64 %indvars.iv
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 6
   %.sroa.1.0.copyload = load i16, ptr %.sroa.1.0..sroa_idx, align 2
@@ -2182,7 +2182,7 @@ _ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.
 49:                                               ; preds = %50
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %50, !llvm.loop !24
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %50, !llvm.loop !25
 
 50:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
@@ -2292,7 +2292,7 @@ _ZN18FieldLayoutBuilder29get_or_create_contended_groupEi.exit: ; preds = %50, %_
   %98 = load i32, ptr %97, align 4
   %99 = zext i32 %98 to i64
   %.not34 = icmp eq i64 %indvars.iv.next, %99
-  br i1 %.not34, label %._crit_edge, label %14, !llvm.loop !28
+  br i1 %.not34, label %._crit_edge, label %14, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %96, %1
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2373,7 +2373,7 @@ _ZN10FieldGroup12sort_by_sizeEv.exit19:           ; preds = %126, %133, %137
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next49, %141
-  br i1 %142, label %126, label %.loopexit, !llvm.loop !29
+  br i1 %142, label %126, label %.loopexit, !llvm.loop !30
 
 .loopexit:                                        ; preds = %_ZN10FieldGroup12sort_by_sizeEv.exit19, %_ZN10FieldGroup12sort_by_sizeEv.exit17
   ret void
@@ -2605,7 +2605,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   %.030.in.i = getelementptr inbounds nuw i8, ptr %.03047.i, i64 8
   %.030.i = load ptr, ptr %.030.in.i, align 8
   %.not.i = icmp eq ptr %.030.i, %52
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %89, %._crit_edge54.i
   %.1.lcssa.i = phi ptr [ null, %._crit_edge54.i ], [ %.2.i, %89 ]
@@ -2623,7 +2623,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   %93 = load i32, ptr %48, align 4
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next.i, %94
-  br i1 %95, label %57, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit, !llvm.loop !16
+  br i1 %95, label %57, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit, !llvm.loop !17
 
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit: ; preds = %91
   %.pre = load ptr, ptr %43, align 8
@@ -2718,7 +2718,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   %.030.in.i30 = getelementptr inbounds nuw i8, ptr %.03047.i27, i64 8
   %.030.i31 = load ptr, ptr %.030.in.i30, align 8
   %.not.i32 = icmp eq ptr %.030.i31, %103
-  br i1 %.not.i32, label %._crit_edge.i33, label %.lr.ph.i26, !llvm.loop !15
+  br i1 %.not.i32, label %._crit_edge.i33, label %.lr.ph.i26, !llvm.loop !16
 
 ._crit_edge.i33:                                  ; preds = %140, %._crit_edge54.i22
   %.1.lcssa.i34 = phi ptr [ null, %._crit_edge54.i22 ], [ %.2.i29, %140 ]
@@ -2736,7 +2736,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   %144 = load i32, ptr %99, align 4
   %145 = sext i32 %144 to i64
   %146 = icmp slt i64 %indvars.iv.next.i21, %145
-  br i1 %146, label %108, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39, !llvm.loop !16
+  br i1 %146, label %108, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39, !llvm.loop !17
 
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39: ; preds = %142, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit, %101
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2906,7 +2906,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   %.030.in.i61 = getelementptr inbounds nuw i8, ptr %.03047.i58, i64 8
   %.030.i62 = load ptr, ptr %.030.in.i61, align 8
   %.not.i63 = icmp eq ptr %.030.i62, %.031.i
-  br i1 %.not.i63, label %._crit_edge.i64, label %.lr.ph.i57, !llvm.loop !15
+  br i1 %.not.i63, label %._crit_edge.i64, label %.lr.ph.i57, !llvm.loop !16
 
 ._crit_edge.i64:                                  ; preds = %232, %._crit_edge54.i53
   %.1.lcssa.i65 = phi ptr [ null, %._crit_edge54.i53 ], [ %.2.i60, %232 ]
@@ -3063,7 +3063,7 @@ _ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit: ; preds = %_ZN11
   %304 = load i32, ptr %189, align 4
   %305 = sext i32 %304 to i64
   %306 = icmp slt i64 %indvars.iv.next.i52, %305
-  br i1 %306, label %200, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70.loopexit, !llvm.loop !16
+  br i1 %306, label %200, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70.loopexit, !llvm.loop !17
 
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70.loopexit: ; preds = %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit
   %.pre160 = load ptr, ptr %43, align 8
@@ -3164,7 +3164,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   %.030.in.i91 = getelementptr inbounds nuw i8, ptr %.03047.i88, i64 8
   %.030.i92 = load ptr, ptr %.030.in.i91, align 8
   %.not.i93 = icmp eq ptr %.030.i92, %.031.i71
-  br i1 %.not.i93, label %._crit_edge.i94, label %.lr.ph.i87, !llvm.loop !15
+  br i1 %.not.i93, label %._crit_edge.i94, label %.lr.ph.i87, !llvm.loop !16
 
 ._crit_edge.i94:                                  ; preds = %352, %._crit_edge54.i83
   %.1.lcssa.i95 = phi ptr [ null, %._crit_edge54.i83 ], [ %.2.i90, %352 ]
@@ -3321,14 +3321,14 @@ _ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit154: ; preds = %_Z
   %424 = load i32, ptr %309, align 4
   %425 = sext i32 %424 to i64
   %426 = icmp slt i64 %indvars.iv.next.i82, %425
-  br i1 %426, label %320, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100, !llvm.loop !16
+  br i1 %426, label %320, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100, !llvm.loop !17
 
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100: ; preds = %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit154, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70, %311
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %427 = load i32, ptr %147, align 8
   %428 = sext i32 %427 to i64
   %429 = icmp slt i64 %indvars.iv.next, %428
-  br i1 %429, label %151, label %.critedge, !llvm.loop !30
+  br i1 %429, label %151, label %.critedge, !llvm.loop !31
 
 .loopexit:                                        ; preds = %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39
   br i1 %4, label %.critedge, label %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102
@@ -3425,7 +3425,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   %481 = add nsw i32 %480, %.02533.i
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i110, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i104, label %476, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.i104, label %476, !llvm.loop !19
 
 ._crit_edge.i104:                                 ; preds = %476, %469
   %.025.lcssa.i = phi i32 [ 0, %469 ], [ %481, %476 ]
@@ -3466,7 +3466,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
 
 .critedge.i:                                      ; preds = %493, %490
   %502 = icmp eq ptr %.1.i, %471
-  br i1 %502, label %.loopexit31.i, label %490, !llvm.loop !19
+  br i1 %502, label %.loopexit31.i, label %490, !llvm.loop !20
 
 .loopexit31.i:                                    ; preds = %.critedge.i, %493, %._crit_edge.i104
   %.026.i = phi ptr [ %483, %._crit_edge.i104 ], [ %.1.i, %493 ], [ %483, %.critedge.i ]
@@ -3486,7 +3486,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   %509 = load i32, ptr %467, align 4
   %510 = sext i32 %509 to i64
   %511 = icmp slt i64 %indvars.iv.next39.i, %510
-  br i1 %511, label %504, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit, !llvm.loop !20
+  br i1 %511, label %504, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit, !llvm.loop !21
 
 _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit: ; preds = %504
   %.pre164 = load ptr, ptr %462, align 8
@@ -3581,7 +3581,7 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   %.030.in.i131 = getelementptr inbounds nuw i8, ptr %.03047.i128, i64 8
   %.030.i132 = load ptr, ptr %.030.in.i131, align 8
   %.not.i133 = icmp eq ptr %.030.i132, %519
-  br i1 %.not.i133, label %._crit_edge.i134, label %.lr.ph.i127, !llvm.loop !15
+  br i1 %.not.i133, label %._crit_edge.i134, label %.lr.ph.i127, !llvm.loop !16
 
 ._crit_edge.i134:                                 ; preds = %556, %._crit_edge54.i123
   %.1.lcssa.i135 = phi ptr [ null, %._crit_edge54.i123 ], [ %.2.i130, %556 ]
@@ -3599,7 +3599,7 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   %560 = load i32, ptr %515, align 4
   %561 = sext i32 %560 to i64
   %562 = icmp slt i64 %indvars.iv.next.i122, %561
-  br i1 %562, label %524, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit140, !llvm.loop !16
+  br i1 %562, label %524, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit140, !llvm.loop !17
 
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit140: ; preds = %558, %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit, %517
   tail call void @_ZN18FieldLayoutBuilder8epilogueEv(ptr noundef nonnull align 8 dereferenceable(106) %0)
@@ -3674,7 +3674,7 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr noundef nonnull reado
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
   %47 = icmp slt i64 %indvars.iv.next, %46
-  br i1 %47, label %.lr.ph, label %.loopexit25, !llvm.loop !31
+  br i1 %47, label %.lr.ph, label %.loopexit25, !llvm.loop !32
 
 .loopexit25:                                      ; preds = %.lr.ph, %.preheader24, %28
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3714,7 +3714,7 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr noundef nonnull reado
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %70 = sext i32 %69 to i64
   %71 = icmp slt i64 %indvars.iv.next32, %70
-  br i1 %71, label %52, label %.loopexit, !llvm.loop !32
+  br i1 %71, label %52, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %68, %.loopexit25
   tail call void @_ZN19OopMapBlocksBuilder7compactEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #14
@@ -3969,7 +3969,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %3, %_ZN26Grow
   %57 = icmp ult i8 %52, -64
   %58 = icmp eq i64 %indvars.iv.next.i.i.i.i, 4
   %or.cond.i.i.i.i = or i1 %58, %57
-  br i1 %or.cond.i.i.i.i, label %.loopexit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !33
+  br i1 %or.cond.i.i.i.i, label %.loopexit.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i
   %59 = shl i64 %indvars.iv.i.i.i.i, 32
@@ -4012,7 +4012,7 @@ _ZN15FieldInfoReader9next_uintEv.exit.i:          ; preds = %.loopexit.loopexit.
   %80 = icmp ult i8 %75, -64
   %81 = icmp eq i64 %indvars.iv.next.i.i.i5.i, 4
   %or.cond.i.i.i6.i = or i1 %81, %80
-  br i1 %or.cond.i.i.i6.i, label %_ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit, label %.lr.ph.i.i.i2.i, !llvm.loop !33
+  br i1 %or.cond.i.i.i6.i, label %_ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit, label %.lr.ph.i.i.i2.i, !llvm.loop !34
 
 _ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit: ; preds = %.lr.ph.i.i.i2.i, %_ZN15FieldInfoReader9next_uintEv.exit.i, %.preheader.i.i.i1.i
   %.0.i.i.i9.i = phi i32 [ %64, %_ZN15FieldInfoReader9next_uintEv.exit.i ], [ %71, %.preheader.i.i.i1.i ], [ %79, %.lr.ph.i.i.i2.i ]
@@ -4051,7 +4051,7 @@ _ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit: ; preds = %.lr.ph.i.i.i
   %102 = icmp ult i8 %101, -64
   %103 = icmp eq i64 %indvars.iv.next.i.i.i.i6, 4
   %or.cond.i.i.i.i7 = or i1 %103, %102
-  br i1 %or.cond.i.i.i.i7, label %.loopexit.loopexit.i.i.i.i8, label %.lr.ph.i.i.i.i4, !llvm.loop !33
+  br i1 %or.cond.i.i.i.i7, label %.loopexit.loopexit.i.i.i.i8, label %.lr.ph.i.i.i.i4, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i.i8:                      ; preds = %.lr.ph.i.i.i.i4
   %104 = trunc nsw i64 %99 to i32
@@ -4085,7 +4085,7 @@ _ZN15FieldInfoReader9next_uintEv.exit.i9:         ; preds = %.loopexit.loopexit.
   %118 = icmp ult i8 %117, -64
   %119 = icmp eq i64 %indvars.iv.next.i.i.i5.i14, 4
   %or.cond.i.i.i6.i15 = or i1 %119, %118
-  br i1 %or.cond.i.i.i6.i15, label %.loopexit.loopexit.i.i.i7.i, label %.lr.ph.i.i.i2.i12, !llvm.loop !33
+  br i1 %or.cond.i.i.i6.i15, label %.loopexit.loopexit.i.i.i7.i, label %.lr.ph.i.i.i2.i12, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i7.i:                      ; preds = %.lr.ph.i.i.i2.i12
   %120 = trunc nsw i64 %115 to i32
@@ -4173,7 +4173,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !34
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !35
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4189,7 +4189,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !35
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !36
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4263,7 +4263,7 @@ define linkonce_odr hidden void @_ZN15FieldInfoReader15read_field_infoER9FieldIn
   %33 = icmp ult i8 %28, -64
   %34 = icmp eq i64 %indvars.iv.next.i.i.i, 4
   %or.cond.i.i.i = or i1 %34, %33
-  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !33
+  br i1 %or.cond.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i.i.i
   %35 = trunc nsw i64 %26 to i32
@@ -4315,7 +4315,7 @@ _ZN15FieldInfoReader9next_uintEv.exit:            ; preds = %2, %.preheader.i.i.
   %64 = icmp ult i8 %59, -64
   %65 = icmp eq i64 %indvars.iv.next.i.i.i20, 4
   %or.cond.i.i.i21 = or i1 %65, %64
-  br i1 %or.cond.i.i.i21, label %.loopexit.loopexit.i.i.i22, label %.lr.ph.i.i.i17, !llvm.loop !33
+  br i1 %or.cond.i.i.i21, label %.loopexit.loopexit.i.i.i22, label %.lr.ph.i.i.i17, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i22:                       ; preds = %.lr.ph.i.i.i17
   %66 = trunc nsw i64 %57 to i32
@@ -4367,7 +4367,7 @@ _ZN15FieldInfoReader9next_uintEv.exit26:          ; preds = %_ZN15FieldInfoReade
   %95 = icmp ult i8 %90, -64
   %96 = icmp eq i64 %indvars.iv.next.i.i.i31, 4
   %or.cond.i.i.i32 = or i1 %96, %95
-  br i1 %or.cond.i.i.i32, label %.loopexit.loopexit.i.i.i33, label %.lr.ph.i.i.i28, !llvm.loop !33
+  br i1 %or.cond.i.i.i32, label %.loopexit.loopexit.i.i.i33, label %.lr.ph.i.i.i28, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i33:                       ; preds = %.lr.ph.i.i.i28
   %97 = trunc nsw i64 %88 to i32
@@ -4418,7 +4418,7 @@ _ZN15FieldInfoReader9next_uintEv.exit37:          ; preds = %_ZN15FieldInfoReade
   %125 = icmp ult i8 %120, -64
   %126 = icmp eq i64 %indvars.iv.next.i.i.i42, 4
   %or.cond.i.i.i43 = or i1 %126, %125
-  br i1 %or.cond.i.i.i43, label %.loopexit.loopexit.i.i.i44, label %.lr.ph.i.i.i39, !llvm.loop !33
+  br i1 %or.cond.i.i.i43, label %.loopexit.loopexit.i.i.i44, label %.lr.ph.i.i.i39, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i44:                       ; preds = %.lr.ph.i.i.i39
   %127 = trunc nsw i64 %118 to i32
@@ -4469,7 +4469,7 @@ _ZN15FieldInfoReader9next_uintEv.exit48:          ; preds = %_ZN15FieldInfoReade
   %155 = icmp ult i8 %150, -64
   %156 = icmp eq i64 %indvars.iv.next.i.i.i53, 4
   %or.cond.i.i.i54 = or i1 %156, %155
-  br i1 %or.cond.i.i.i54, label %.loopexit.loopexit.i.i.i55, label %.lr.ph.i.i.i50, !llvm.loop !33
+  br i1 %or.cond.i.i.i54, label %.loopexit.loopexit.i.i.i55, label %.lr.ph.i.i.i50, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i55:                       ; preds = %.lr.ph.i.i.i50
   %157 = trunc nsw i64 %148 to i32
@@ -4525,7 +4525,7 @@ _ZN15FieldInfoReader9next_uintEv.exit59:          ; preds = %_ZN15FieldInfoReade
   %187 = icmp ult i8 %182, -64
   %188 = icmp eq i64 %indvars.iv.next.i.i.i64, 4
   %or.cond.i.i.i65 = or i1 %188, %187
-  br i1 %or.cond.i.i.i65, label %.loopexit.loopexit.i.i.i66, label %.lr.ph.i.i.i61, !llvm.loop !33
+  br i1 %or.cond.i.i.i65, label %.loopexit.loopexit.i.i.i66, label %.lr.ph.i.i.i61, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i66:                       ; preds = %.lr.ph.i.i.i61
   %189 = trunc nsw i64 %180 to i32
@@ -4592,7 +4592,7 @@ _ZN15FieldInfoReader9next_uintEv.exit70:          ; preds = %160, %.preheader.i.
   %224 = icmp ult i8 %219, -64
   %225 = icmp eq i64 %indvars.iv.next.i.i.i75, 4
   %or.cond.i.i.i76 = or i1 %225, %224
-  br i1 %or.cond.i.i.i76, label %.loopexit.loopexit.i.i.i77, label %.lr.ph.i.i.i72, !llvm.loop !33
+  br i1 %or.cond.i.i.i76, label %.loopexit.loopexit.i.i.i77, label %.lr.ph.i.i.i72, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i77:                       ; preds = %.lr.ph.i.i.i72
   %226 = trunc nsw i64 %217 to i32
@@ -4659,7 +4659,7 @@ _ZN15FieldInfoReader9next_uintEv.exit81:          ; preds = %197, %.preheader.i.
   %261 = icmp ult i8 %256, -64
   %262 = icmp eq i64 %indvars.iv.next.i.i.i86, 4
   %or.cond.i.i.i87 = or i1 %262, %261
-  br i1 %or.cond.i.i.i87, label %.loopexit.loopexit.i.i.i88, label %.lr.ph.i.i.i83, !llvm.loop !33
+  br i1 %or.cond.i.i.i87, label %.loopexit.loopexit.i.i.i88, label %.lr.ph.i.i.i83, !llvm.loop !34
 
 .loopexit.loopexit.i.i.i88:                       ; preds = %.lr.ph.i.i.i83
   %263 = trunc nsw i64 %254 to i32
@@ -4755,7 +4755,7 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !9
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !10
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4771,7 +4771,7 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !10
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !11
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4855,7 +4855,7 @@ _ZN13GrowableArrayIP10FieldGroupE8allocateEv.exit: ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !36
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !37
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4871,7 +4871,7 @@ _ZN13GrowableArrayIP10FieldGroupE8allocateEv.exit: ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !37
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !38
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -4919,35 +4919,36 @@ attributes #15 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"_ZN21GrowableArrayIteratorI9FieldInfoEdeEv: argument 0"}
-!27 = distinct !{!27, !"_ZN21GrowableArrayIteratorI9FieldInfoEdeEv"}
-!28 = distinct !{!28, !7}
-!29 = distinct !{!29, !7}
-!30 = distinct !{!30, !7}
-!31 = distinct !{!31, !7}
-!32 = distinct !{!32, !7}
-!33 = distinct !{!33, !7}
-!34 = distinct !{!34, !7}
-!35 = distinct !{!35, !7}
-!36 = distinct !{!36, !7}
-!37 = distinct !{!37, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"_ZN21GrowableArrayIteratorI9FieldInfoEdeEv: argument 0"}
+!28 = distinct !{!28, !"_ZN21GrowableArrayIteratorI9FieldInfoEdeEv"}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}
+!32 = distinct !{!32, !7, !8}
+!33 = distinct !{!33, !7, !8}
+!34 = distinct !{!34, !7, !8}
+!35 = distinct !{!35, !7, !8}
+!36 = distinct !{!36, !7, !8}
+!37 = distinct !{!37, !7, !8}
+!38 = distinct !{!38, !7, !8}

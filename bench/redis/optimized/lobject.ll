@@ -76,14 +76,14 @@ define hidden range(i32 -2147483640, -2147483648) i32 @luaO_log2(i32 noundef %0)
   %3 = add nsw i32 %.07, 8
   %4 = lshr i32 %.056, 8
   %5 = icmp ugt i32 %.056, 65535
-  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %5, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.05.lcssa = phi i32 [ %0, %1 ], [ %4, %.lr.ph ]
   %.0.lcssa = phi i32 [ -1, %1 ], [ %3, %.lr.ph ]
   %6 = zext nneg i32 %.05.lcssa to i64
   %7 = getelementptr inbounds nuw [256 x i8], ptr @luaO_log2.log_2, i64 0, i64 %6
-  %8 = load i8, ptr %7, align 1, !tbaa !7
+  %8 = load i8, ptr %7, align 1, !tbaa !8
   %9 = zext i8 %8 to i32
   %10 = add nsw i32 %.0.lcssa, %9
   ret i32 %10
@@ -92,9 +92,9 @@ define hidden range(i32 -2147483640, -2147483648) i32 @luaO_log2(i32 noundef %0)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @luaO_rawequalObj(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i32, ptr %3, align 8, !tbaa !10
+  %4 = load i32, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !10
+  %6 = load i32, ptr %5, align 8, !tbaa !11
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %24
 
@@ -107,26 +107,26 @@ define hidden range(i32 0, 2) i32 @luaO_rawequalObj(ptr noundef readonly capture
   ]
 
 8:                                                ; preds = %7
-  %9 = load double, ptr %0, align 8, !tbaa !7
-  %10 = load double, ptr %1, align 8, !tbaa !7
+  %9 = load double, ptr %0, align 8, !tbaa !8
+  %10 = load double, ptr %1, align 8, !tbaa !8
   %11 = fcmp oeq double %9, %10
   br label %24
 
 12:                                               ; preds = %7
-  %13 = load i32, ptr %0, align 8, !tbaa !7
-  %14 = load i32, ptr %1, align 8, !tbaa !7
+  %13 = load i32, ptr %0, align 8, !tbaa !8
+  %14 = load i32, ptr %1, align 8, !tbaa !8
   %15 = icmp eq i32 %13, %14
   br label %24
 
 16:                                               ; preds = %7
-  %17 = load ptr, ptr %0, align 8, !tbaa !7
-  %18 = load ptr, ptr %1, align 8, !tbaa !7
+  %17 = load ptr, ptr %0, align 8, !tbaa !8
+  %18 = load ptr, ptr %1, align 8, !tbaa !8
   %19 = icmp eq ptr %17, %18
   br label %24
 
 20:                                               ; preds = %7
-  %21 = load ptr, ptr %0, align 8, !tbaa !7
-  %22 = load ptr, ptr %1, align 8, !tbaa !7
+  %21 = load ptr, ptr %0, align 8, !tbaa !8
+  %22 = load ptr, ptr %1, align 8, !tbaa !8
   %23 = icmp eq ptr %21, %22
   br label %24
 
@@ -141,13 +141,13 @@ define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %0, ptr noundef writeo
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
   %4 = call double @strtod(ptr noundef %0, ptr noundef nonnull %3) #16
-  store double %4, ptr %1, align 8, !tbaa !13
-  %5 = load ptr, ptr %3, align 8, !tbaa !15
+  store double %4, ptr %1, align 8, !tbaa !14
+  %5 = load ptr, ptr %3, align 8, !tbaa !16
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %26, label %7
 
 7:                                                ; preds = %2
-  %8 = load i8, ptr %5, align 1, !tbaa !7
+  %8 = load i8, ptr %5, align 1, !tbaa !8
   switch i8 %8, label %12 [
     i8 120, label %9
     i8 88, label %9
@@ -156,9 +156,9 @@ define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %0, ptr noundef writeo
 9:                                                ; preds = %7, %7
   %10 = call i64 @strtoul(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 16) #16
   %11 = uitofp i64 %10 to double
-  store double %11, ptr %1, align 8, !tbaa !13
-  %.pre = load ptr, ptr %3, align 8, !tbaa !15
-  %.pre11 = load i8, ptr %.pre, align 1, !tbaa !7
+  store double %11, ptr %1, align 8, !tbaa !14
+  %.pre = load ptr, ptr %3, align 8, !tbaa !16
+  %.pre11 = load i8, ptr %.pre, align 1, !tbaa !8
   br label %12
 
 12:                                               ; preds = %7, %9
@@ -169,19 +169,19 @@ define hidden range(i32 0, 2) i32 @luaO_str2d(ptr noundef %0, ptr noundef writeo
 
 .preheader:                                       ; preds = %12
   %15 = tail call ptr @__ctype_b_loc() #17
-  %16 = load ptr, ptr %15, align 8, !tbaa !18
+  %16 = load ptr, ptr %15, align 8, !tbaa !19
   br label %17
 
 17:                                               ; preds = %17, %.preheader
   %18 = phi ptr [ %.promoted, %.preheader ], [ %24, %17 ]
-  %19 = load i8, ptr %18, align 1, !tbaa !7
+  %19 = load i8, ptr %18, align 1, !tbaa !8
   %20 = zext i8 %19 to i64
   %21 = getelementptr inbounds nuw i16, ptr %16, i64 %20
-  %22 = load i16, ptr %21, align 2, !tbaa !20
+  %22 = load i16, ptr %21, align 2, !tbaa !21
   %23 = and i16 %22, 8192
   %.not = icmp eq i16 %23, 0
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  br i1 %.not, label %25, label %17, !llvm.loop !22
+  br i1 %.not, label %25, label %17, !llvm.loop !23
 
 25:                                               ; preds = %17
   %.not8 = icmp eq i8 %19, 0
@@ -209,14 +209,14 @@ define hidden nonnull ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr
   %5 = alloca [40 x i8], align 16
   %6 = alloca [3 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = tail call ptr @luaS_newlstr(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 0) #16
-  store ptr %9, ptr %8, align 8, !tbaa !7
+  store ptr %9, ptr %8, align 8, !tbaa !8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 4, ptr %10, align 8, !tbaa !10
+  store i32 4, ptr %10, align 8, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %12 = load ptr, ptr %11, align 8, !tbaa !32
-  %13 = load ptr, ptr %7, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !33
+  %13 = load ptr, ptr %7, align 8, !tbaa !24
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
@@ -225,13 +225,13 @@ define hidden nonnull ptr @luaO_pushvfstring(ptr noundef %0, ptr noundef %1, ptr
 
 18:                                               ; preds = %3
   tail call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre.i = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre.i = load ptr, ptr %7, align 8, !tbaa !24
   br label %pushstr.exit
 
 pushstr.exit:                                     ; preds = %3, %18
   %19 = phi ptr [ %13, %3 ], [ %.pre.i, %18 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %20, ptr %7, align 8, !tbaa !23
+  store ptr %20, ptr %7, align 8, !tbaa !24
   %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 37) #18
   %22 = icmp eq ptr %21, null
   br i1 %22, label %._crit_edge, label %.lr.ph
@@ -254,11 +254,11 @@ pushstr.exit:                                     ; preds = %3, %18
   %33 = ptrtoint ptr %.081 to i64
   %34 = sub i64 %32, %33
   %35 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %.081, i64 noundef %34) #16
-  store ptr %35, ptr %30, align 8, !tbaa !7
+  store ptr %35, ptr %30, align 8, !tbaa !8
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i32 4, ptr %36, align 8, !tbaa !10
-  %37 = load ptr, ptr %11, align 8, !tbaa !32
-  %38 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 4, ptr %36, align 8, !tbaa !11
+  %37 = load ptr, ptr %11, align 8, !tbaa !33
+  %38 = load ptr, ptr %7, align 8, !tbaa !24
   %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
@@ -267,15 +267,15 @@ pushstr.exit:                                     ; preds = %3, %18
 
 43:                                               ; preds = %29
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre = load ptr, ptr %7, align 8, !tbaa !24
   br label %44
 
 44:                                               ; preds = %29, %43
   %45 = phi ptr [ %38, %29 ], [ %.pre, %43 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store ptr %46, ptr %7, align 8, !tbaa !23
+  store ptr %46, ptr %7, align 8, !tbaa !24
   %47 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  %48 = load i8, ptr %47, align 1, !tbaa !7
+  %48 = load i8, ptr %47, align 1, !tbaa !8
   switch i8 %48, label %196 [
     i8 115, label %49
     i8 99, label %77
@@ -306,17 +306,17 @@ pushstr.exit:                                     ; preds = %3, %18
 
 60:                                               ; preds = %57, %52
   %61 = phi ptr [ %55, %52 ], [ %58, %57 ]
-  %62 = load ptr, ptr %61, align 8, !tbaa !15
+  %62 = load ptr, ptr %61, align 8, !tbaa !16
   %63 = icmp eq ptr %62, null
   %spec.store.select = select i1 %63, ptr @.str.1, ptr %62
-  %64 = load ptr, ptr %7, align 8, !tbaa !23
+  %64 = load ptr, ptr %7, align 8, !tbaa !24
   %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #18
   %66 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %spec.store.select, i64 noundef %65) #16
-  store ptr %66, ptr %64, align 8, !tbaa !7
+  store ptr %66, ptr %64, align 8, !tbaa !8
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i32 4, ptr %67, align 8, !tbaa !10
-  %68 = load ptr, ptr %11, align 8, !tbaa !32
-  %69 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 4, ptr %67, align 8, !tbaa !11
+  %68 = load ptr, ptr %11, align 8, !tbaa !33
+  %69 = load ptr, ptr %7, align 8, !tbaa !24
   %70 = ptrtoint ptr %68 to i64
   %71 = ptrtoint ptr %69 to i64
   %72 = sub i64 %70, %71
@@ -325,13 +325,13 @@ pushstr.exit:                                     ; preds = %3, %18
 
 74:                                               ; preds = %60
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre.i62 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre.i62 = load ptr, ptr %7, align 8, !tbaa !24
   br label %pushstr.exit63
 
 pushstr.exit63:                                   ; preds = %60, %74
   %75 = phi ptr [ %69, %60 ], [ %.pre.i62, %74 ]
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store ptr %76, ptr %7, align 8, !tbaa !23
+  store ptr %76, ptr %7, align 8, !tbaa !24
   br label %209
 
 77:                                               ; preds = %44
@@ -356,18 +356,18 @@ pushstr.exit63:                                   ; preds = %60, %74
 
 88:                                               ; preds = %85, %80
   %89 = phi ptr [ %83, %80 ], [ %86, %85 ]
-  %90 = load i32, ptr %89, align 4, !tbaa !33
+  %90 = load i32, ptr %89, align 4, !tbaa !34
   %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %4, align 1, !tbaa !7
-  store i8 0, ptr %26, align 1, !tbaa !7
-  %92 = load ptr, ptr %7, align 8, !tbaa !23
+  store i8 %91, ptr %4, align 1, !tbaa !8
+  store i8 0, ptr %26, align 1, !tbaa !8
+  %92 = load ptr, ptr %7, align 8, !tbaa !24
   %93 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #18
   %94 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %93) #16
-  store ptr %94, ptr %92, align 8, !tbaa !7
+  store ptr %94, ptr %92, align 8, !tbaa !8
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i32 4, ptr %95, align 8, !tbaa !10
-  %96 = load ptr, ptr %11, align 8, !tbaa !32
-  %97 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 4, ptr %95, align 8, !tbaa !11
+  %96 = load ptr, ptr %11, align 8, !tbaa !33
+  %97 = load ptr, ptr %7, align 8, !tbaa !24
   %98 = ptrtoint ptr %96 to i64
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
@@ -376,13 +376,13 @@ pushstr.exit63:                                   ; preds = %60, %74
 
 102:                                              ; preds = %88
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre.i64 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre.i64 = load ptr, ptr %7, align 8, !tbaa !24
   br label %pushstr.exit65
 
 pushstr.exit65:                                   ; preds = %88, %102
   %103 = phi ptr [ %97, %88 ], [ %.pre.i64, %102 ]
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  store ptr %104, ptr %7, align 8, !tbaa !23
+  store ptr %104, ptr %7, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #16
   br label %209
 
@@ -407,13 +407,13 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 116:                                              ; preds = %113, %108
   %117 = phi ptr [ %111, %108 ], [ %114, %113 ]
-  %118 = load i32, ptr %117, align 4, !tbaa !33
+  %118 = load i32, ptr %117, align 4, !tbaa !34
   %119 = sitofp i32 %118 to double
-  store double %119, ptr %46, align 8, !tbaa !7
+  store double %119, ptr %46, align 8, !tbaa !8
   %120 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 3, ptr %120, align 8, !tbaa !10
-  %121 = load ptr, ptr %11, align 8, !tbaa !32
-  %122 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 3, ptr %120, align 8, !tbaa !11
+  %121 = load ptr, ptr %11, align 8, !tbaa !33
+  %122 = load ptr, ptr %7, align 8, !tbaa !24
   %123 = ptrtoint ptr %121 to i64
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %123, %124
@@ -422,13 +422,13 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 127:                                              ; preds = %116
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre85 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre85 = load ptr, ptr %7, align 8, !tbaa !24
   br label %128
 
 128:                                              ; preds = %116, %127
   %129 = phi ptr [ %122, %116 ], [ %.pre85, %127 ]
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  store ptr %130, ptr %7, align 8, !tbaa !23
+  store ptr %130, ptr %7, align 8, !tbaa !24
   br label %209
 
 131:                                              ; preds = %44
@@ -452,12 +452,12 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 142:                                              ; preds = %139, %134
   %143 = phi ptr [ %137, %134 ], [ %140, %139 ]
-  %144 = load double, ptr %143, align 8, !tbaa !13
-  store double %144, ptr %46, align 8, !tbaa !7
+  %144 = load double, ptr %143, align 8, !tbaa !14
+  store double %144, ptr %46, align 8, !tbaa !8
   %145 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 3, ptr %145, align 8, !tbaa !10
-  %146 = load ptr, ptr %11, align 8, !tbaa !32
-  %147 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 3, ptr %145, align 8, !tbaa !11
+  %146 = load ptr, ptr %11, align 8, !tbaa !33
+  %147 = load ptr, ptr %7, align 8, !tbaa !24
   %148 = ptrtoint ptr %146 to i64
   %149 = ptrtoint ptr %147 to i64
   %150 = sub i64 %148, %149
@@ -466,13 +466,13 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 152:                                              ; preds = %142
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre84 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre84 = load ptr, ptr %7, align 8, !tbaa !24
   br label %153
 
 153:                                              ; preds = %142, %152
   %154 = phi ptr [ %147, %142 ], [ %.pre84, %152 ]
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  store ptr %155, ptr %7, align 8, !tbaa !23
+  store ptr %155, ptr %7, align 8, !tbaa !24
   br label %209
 
 156:                                              ; preds = %44
@@ -497,16 +497,16 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 167:                                              ; preds = %164, %159
   %168 = phi ptr [ %162, %159 ], [ %165, %164 ]
-  %169 = load ptr, ptr %168, align 8, !tbaa !34
+  %169 = load ptr, ptr %168, align 8, !tbaa !35
   %170 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %169) #16
-  %171 = load ptr, ptr %7, align 8, !tbaa !23
+  %171 = load ptr, ptr %7, align 8, !tbaa !24
   %172 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
   %173 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %172) #16
-  store ptr %173, ptr %171, align 8, !tbaa !7
+  store ptr %173, ptr %171, align 8, !tbaa !8
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store i32 4, ptr %174, align 8, !tbaa !10
-  %175 = load ptr, ptr %11, align 8, !tbaa !32
-  %176 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 4, ptr %174, align 8, !tbaa !11
+  %175 = load ptr, ptr %11, align 8, !tbaa !33
+  %176 = load ptr, ptr %7, align 8, !tbaa !24
   %177 = ptrtoint ptr %175 to i64
   %178 = ptrtoint ptr %176 to i64
   %179 = sub i64 %177, %178
@@ -515,23 +515,23 @@ pushstr.exit65:                                   ; preds = %88, %102
 
 181:                                              ; preds = %167
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre.i66 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre.i66 = load ptr, ptr %7, align 8, !tbaa !24
   br label %pushstr.exit67
 
 pushstr.exit67:                                   ; preds = %167, %181
   %182 = phi ptr [ %176, %167 ], [ %.pre.i66, %181 ]
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
-  store ptr %183, ptr %7, align 8, !tbaa !23
+  store ptr %183, ptr %7, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #16
   br label %209
 
 184:                                              ; preds = %44
   %185 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, i64 noundef 1) #16
-  store ptr %185, ptr %46, align 8, !tbaa !7
+  store ptr %185, ptr %46, align 8, !tbaa !8
   %186 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 4, ptr %186, align 8, !tbaa !10
-  %187 = load ptr, ptr %11, align 8, !tbaa !32
-  %188 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 4, ptr %186, align 8, !tbaa !11
+  %187 = load ptr, ptr %11, align 8, !tbaa !33
+  %188 = load ptr, ptr %7, align 8, !tbaa !24
   %189 = ptrtoint ptr %187 to i64
   %190 = ptrtoint ptr %188 to i64
   %191 = sub i64 %189, %190
@@ -540,27 +540,27 @@ pushstr.exit67:                                   ; preds = %167, %181
 
 193:                                              ; preds = %184
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre.i68 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre.i68 = load ptr, ptr %7, align 8, !tbaa !24
   br label %pushstr.exit69
 
 pushstr.exit69:                                   ; preds = %184, %193
   %194 = phi ptr [ %188, %184 ], [ %.pre.i68, %193 ]
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  store ptr %195, ptr %7, align 8, !tbaa !23
+  store ptr %195, ptr %7, align 8, !tbaa !24
   br label %209
 
 196:                                              ; preds = %44
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6) #16
-  store i8 37, ptr %6, align 1, !tbaa !7
-  store i8 %48, ptr %27, align 1, !tbaa !7
-  store i8 0, ptr %28, align 1, !tbaa !7
+  store i8 37, ptr %6, align 1, !tbaa !8
+  store i8 %48, ptr %27, align 1, !tbaa !8
+  store i8 0, ptr %28, align 1, !tbaa !8
   %197 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
   %198 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %197) #16
-  store ptr %198, ptr %46, align 8, !tbaa !7
+  store ptr %198, ptr %46, align 8, !tbaa !8
   %199 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  store i32 4, ptr %199, align 8, !tbaa !10
-  %200 = load ptr, ptr %11, align 8, !tbaa !32
-  %201 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 4, ptr %199, align 8, !tbaa !11
+  %200 = load ptr, ptr %11, align 8, !tbaa !33
+  %201 = load ptr, ptr %7, align 8, !tbaa !24
   %202 = ptrtoint ptr %200 to i64
   %203 = ptrtoint ptr %201 to i64
   %204 = sub i64 %202, %203
@@ -569,13 +569,13 @@ pushstr.exit69:                                   ; preds = %184, %193
 
 206:                                              ; preds = %196
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre.i70 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre.i70 = load ptr, ptr %7, align 8, !tbaa !24
   br label %pushstr.exit71
 
 pushstr.exit71:                                   ; preds = %196, %206
   %207 = phi ptr [ %201, %196 ], [ %.pre.i70, %206 ]
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  store ptr %208, ptr %7, align 8, !tbaa !23
+  store ptr %208, ptr %7, align 8, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %6) #16
   br label %209
 
@@ -585,7 +585,7 @@ pushstr.exit71:                                   ; preds = %196, %206
   %212 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %213 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %212, i32 noundef 37) #18
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %._crit_edge, label %29
+  br i1 %214, label %._crit_edge, label %29, !llvm.loop !36
 
 ._crit_edge:                                      ; preds = %209, %pushstr.exit
   %215 = phi ptr [ %20, %pushstr.exit ], [ %210, %209 ]
@@ -593,11 +593,11 @@ pushstr.exit71:                                   ; preds = %196, %206
   %.0.lcssa = phi ptr [ %1, %pushstr.exit ], [ %212, %209 ]
   %216 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.lcssa) #18
   %217 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef nonnull %.0.lcssa, i64 noundef %216) #16
-  store ptr %217, ptr %215, align 8, !tbaa !7
+  store ptr %217, ptr %215, align 8, !tbaa !8
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  store i32 4, ptr %218, align 8, !tbaa !10
-  %219 = load ptr, ptr %11, align 8, !tbaa !32
-  %220 = load ptr, ptr %7, align 8, !tbaa !23
+  store i32 4, ptr %218, align 8, !tbaa !11
+  %219 = load ptr, ptr %11, align 8, !tbaa !33
+  %220 = load ptr, ptr %7, align 8, !tbaa !24
   %221 = ptrtoint ptr %219 to i64
   %222 = ptrtoint ptr %220 to i64
   %223 = sub i64 %221, %222
@@ -606,16 +606,16 @@ pushstr.exit71:                                   ; preds = %196, %206
 
 225:                                              ; preds = %._crit_edge
   call void @luaD_growstack(ptr noundef nonnull %0, i32 noundef 1) #16
-  %.pre.i72 = load ptr, ptr %7, align 8, !tbaa !23
+  %.pre.i72 = load ptr, ptr %7, align 8, !tbaa !24
   br label %pushstr.exit73
 
 pushstr.exit73:                                   ; preds = %._crit_edge, %225
   %226 = phi ptr [ %220, %._crit_edge ], [ %.pre.i72, %225 ]
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
-  store ptr %227, ptr %7, align 8, !tbaa !23
+  store ptr %227, ptr %7, align 8, !tbaa !24
   %228 = add nuw nsw i32 %.053.lcssa, 1
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %230 = load ptr, ptr %229, align 8, !tbaa !35
+  %230 = load ptr, ptr %229, align 8, !tbaa !37
   %231 = ptrtoint ptr %227 to i64
   %232 = ptrtoint ptr %230 to i64
   %233 = sub i64 %231, %232
@@ -623,13 +623,13 @@ pushstr.exit73:                                   ; preds = %._crit_edge, %225
   %235 = trunc i64 %234 to i32
   %236 = add nsw i32 %235, -1
   call void @luaV_concat(ptr noundef nonnull %0, i32 noundef %228, i32 noundef %236) #16
-  %237 = load ptr, ptr %7, align 8, !tbaa !23
+  %237 = load ptr, ptr %7, align 8, !tbaa !24
   %238 = zext nneg i32 %.053.lcssa to i64
   %239 = sub nsw i64 0, %238
   %240 = getelementptr inbounds %struct.lua_TValue, ptr %237, i64 %239
-  store ptr %240, ptr %7, align 8, !tbaa !23
+  store ptr %240, ptr %7, align 8, !tbaa !24
   %241 = getelementptr inbounds i8, ptr %240, i64 -16
-  %242 = load ptr, ptr %241, align 8, !tbaa !7
+  %242 = load ptr, ptr %241, align 8, !tbaa !8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
   ret ptr %243
 }
@@ -665,7 +665,7 @@ declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @luaO_chunkid(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #12 {
-  %4 = load i8, ptr %1, align 1, !tbaa !7
+  %4 = load i8, ptr %1, align 1, !tbaa !8
   switch i8 %4, label %20 [
     i8 61, label %5
     i8 64, label %10
@@ -676,7 +676,7 @@ define hidden void @luaO_chunkid(ptr noundef %0, ptr noundef readonly captures(n
   %7 = tail call ptr @strncpy(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %2) #16
   %8 = getelementptr i8, ptr %0, i64 %2
   %9 = getelementptr i8, ptr %8, i64 -1
-  store i8 0, ptr %9, align 1, !tbaa !7
+  store i8 0, ptr %9, align 1, !tbaa !8
   br label %30
 
 10:                                               ; preds = %3
@@ -706,7 +706,7 @@ define hidden void @luaO_chunkid(ptr noundef %0, ptr noundef readonly captures(n
   %spec.select = tail call i64 @llvm.umin.i64(i64 %21, i64 %22)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %0, ptr noundef nonnull align 1 dereferenceable(10) @.str.6, i64 10, i1 false) #16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select
-  %24 = load i8, ptr %23, align 1, !tbaa !7
+  %24 = load i8, ptr %23, align 1, !tbaa !8
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %27, label %25
 
@@ -778,35 +778,37 @@ attributes #18 = { nounwind willreturn memory(read) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = !{!8, !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!11, !12, i64 8}
-!11 = !{!"lua_TValue", !8, i64 0, !12, i64 8}
-!12 = !{!"int", !8, i64 0}
-!13 = !{!14, !14, i64 0}
-!14 = !{!"double", !8, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"p1 omnipotent char", !17, i64 0}
-!17 = !{!"any pointer", !8, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 short", !17, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !8, i64 0}
-!22 = distinct !{!22, !5}
-!23 = !{!24, !26, i64 16}
-!24 = !{!"lua_State", !25, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !26, i64 16, !26, i64 24, !27, i64 32, !28, i64 40, !29, i64 48, !26, i64 56, !26, i64 64, !28, i64 72, !28, i64 80, !12, i64 88, !12, i64 92, !21, i64 96, !21, i64 98, !8, i64 100, !8, i64 101, !12, i64 104, !12, i64 108, !17, i64 112, !11, i64 120, !11, i64 136, !25, i64 152, !25, i64 160, !30, i64 168, !31, i64 176}
-!25 = !{!"p1 _ZTS8GCObject", !17, i64 0}
-!26 = !{!"p1 _ZTS10lua_TValue", !17, i64 0}
-!27 = !{!"p1 _ZTS12global_State", !17, i64 0}
-!28 = !{!"p1 _ZTS8CallInfo", !17, i64 0}
-!29 = !{!"p1 int", !17, i64 0}
-!30 = !{!"p1 _ZTS11lua_longjmp", !17, i64 0}
-!31 = !{!"long", !8, i64 0}
-!32 = !{!24, !26, i64 56}
-!33 = !{!12, !12, i64 0}
-!34 = !{!17, !17, i64 0}
-!35 = !{!24, !26, i64 24}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!12, !13, i64 8}
+!12 = !{!"lua_TValue", !9, i64 0, !13, i64 8}
+!13 = !{!"int", !9, i64 0}
+!14 = !{!15, !15, i64 0}
+!15 = !{!"double", !9, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"p1 omnipotent char", !18, i64 0}
+!18 = !{!"any pointer", !9, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 short", !18, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !9, i64 0}
+!23 = distinct !{!23, !5, !6}
+!24 = !{!25, !27, i64 16}
+!25 = !{!"lua_State", !26, i64 0, !9, i64 8, !9, i64 9, !9, i64 10, !27, i64 16, !27, i64 24, !28, i64 32, !29, i64 40, !30, i64 48, !27, i64 56, !27, i64 64, !29, i64 72, !29, i64 80, !13, i64 88, !13, i64 92, !22, i64 96, !22, i64 98, !9, i64 100, !9, i64 101, !13, i64 104, !13, i64 108, !18, i64 112, !12, i64 120, !12, i64 136, !26, i64 152, !26, i64 160, !31, i64 168, !32, i64 176}
+!26 = !{!"p1 _ZTS8GCObject", !18, i64 0}
+!27 = !{!"p1 _ZTS10lua_TValue", !18, i64 0}
+!28 = !{!"p1 _ZTS12global_State", !18, i64 0}
+!29 = !{!"p1 _ZTS8CallInfo", !18, i64 0}
+!30 = !{!"p1 int", !18, i64 0}
+!31 = !{!"p1 _ZTS11lua_longjmp", !18, i64 0}
+!32 = !{!"long", !9, i64 0}
+!33 = !{!25, !27, i64 56}
+!34 = !{!13, !13, i64 0}
+!35 = !{!18, !18, i64 0}
+!36 = distinct !{!36, !6}
+!37 = !{!25, !27, i64 24}

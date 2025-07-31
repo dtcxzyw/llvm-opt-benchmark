@@ -196,7 +196,7 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   %48 = phi ptr [ %49, %.lr.ph.i ], [ %43, %45 ]
   %49 = getelementptr i8, ptr %48, i64 -80
   %50 = icmp ugt ptr %49, %46
-  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
+  br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   store ptr %49, ptr %0, align 8
@@ -541,13 +541,13 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   store i32 %211, ptr %5, align 8
   %212 = getelementptr i8, ptr %56, i64 -68
   %213 = zext i32 %209 to i64
-  %214 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull readonly %212, i64 noundef range(i64 0, 4294967296) %213, i64 noundef 68) #13, !alias.scope !9
+  %214 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull readonly %212, i64 noundef range(i64 0, 4294967296) %213, i64 noundef 68) #13, !alias.scope !10
   %215 = add nuw nsw i64 %213, 4
   %216 = getelementptr [64 x i8], ptr %13, i64 0, i64 %213
   %217 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %218 = zext i32 %210 to i64
   %219 = call i64 @llvm.usub.sat.i64(i64 72, i64 %215)
-  %220 = call ptr @__memcpy_chk(ptr noundef %216, ptr noundef nonnull readonly %217, i64 noundef range(i64 0, 4294967296) %218, i64 noundef %219) #13, !alias.scope !13
+  %220 = call ptr @__memcpy_chk(ptr noundef %216, ptr noundef nonnull readonly %217, i64 noundef range(i64 0, 4294967296) %218, i64 noundef %219) #13, !alias.scope !14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(68) %207, ptr noundef nonnull align 8 dereferenceable(68) %5, i64 68, i1 false)
   br label %221
 
@@ -573,7 +573,7 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   %238 = getelementptr i8, ptr %227, i64 81
   store i8 %223, ptr %238, align 1
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5)
-  br label %19
+  br label %19, !llvm.loop !18
 
 239:                                              ; preds = %yy_find_shift_action.exit
   %240 = icmp ult i8 %.0.i, -75
@@ -598,7 +598,7 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   %250 = phi ptr [ %251, %.lr.ph.i.i ], [ %242, %246 ]
   %251 = getelementptr i8, ptr %250, i64 -80
   %252 = icmp ugt ptr %251, %248
-  br i1 %252, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !8
+  br i1 %252, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   store ptr %251, ptr %0, align 8
@@ -678,7 +678,7 @@ yy_shift.exit:                                    ; preds = %yyStackOverflow.exi
   %286 = phi ptr [ %287, %.lr.ph.i38 ], [ %.promoted.i37, %282 ]
   %287 = getelementptr i8, ptr %286, i64 -80
   %288 = icmp ugt ptr %287, %284
-  br i1 %288, label %.lr.ph.i38, label %._crit_edge.i39, !llvm.loop !17
+  br i1 %288, label %.lr.ph.i38, label %._crit_edge.i39, !llvm.loop !19
 
 ._crit_edge.i39:                                  ; preds = %.lr.ph.i38
   store ptr %287, ptr %0, align 8
@@ -773,7 +773,7 @@ BusmasterParserAlloc.exit:                        ; preds = %15, %17
   %32 = icmp eq ptr %31, null
   %33 = icmp ne i32 %26, 0
   %or.cond = and i1 %33, %32
-  br i1 %or.cond, label %24, label %34, !llvm.loop !18
+  br i1 %or.cond, label %24, label %34, !llvm.loop !20
 
 34:                                               ; preds = %24, %28, %30
   br i1 %.not.i, label %BusmasterParserFree.exit, label %35
@@ -909,16 +909,18 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{!10, !12}
-!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
-!11 = distinct !{!11, !"memcpy.inline"}
-!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
-!13 = !{!14, !16}
-!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
-!15 = distinct !{!15, !"memcpy.inline"}
-!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{!11, !13}
+!11 = distinct !{!11, !12, !"memcpy.inline: argument 0"}
+!12 = distinct !{!12, !"memcpy.inline"}
+!13 = distinct !{!13, !12, !"memcpy.inline: argument 1"}
+!14 = !{!15, !17}
+!15 = distinct !{!15, !16, !"memcpy.inline: argument 0"}
+!16 = distinct !{!16, !"memcpy.inline"}
+!17 = distinct !{!17, !16, !"memcpy.inline: argument 1"}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}

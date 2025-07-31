@@ -1889,7 +1889,7 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   %8 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %2, i64 %.sroa.0.0.i
   %9 = add i64 %.sroa.0.0.i, 1
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$wast..core..expr..Instruction$GT$17h1922c3517e072e36E"(ptr noalias noundef align 8 dereferenceable(88) %8)
-          to label %5 unwind label %12
+          to label %5 unwind label %12, !llvm.loop !199
 
 10:                                               ; preds = %14, %12
   %.sroa.0.1.i = phi i64 [ %9, %12 ], [ %16, %14 ]
@@ -1905,7 +1905,7 @@ define internal void @"_ZN4core3ptr85drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   %15 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %2, i64 %.sroa.0.1.i
   %16 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr50drop_in_place$LT$wast..core..expr..Instruction$GT$17h1922c3517e072e36E"(ptr noalias noundef align 8 dereferenceable(88) %15) #10
-          to label %10 unwind label %17
+          to label %10 unwind label %17, !llvm.loop !201
 
 17:                                               ; preds = %14
   %18 = landingpad { ptr, i32 }
@@ -2016,7 +2016,7 @@ define internal noundef zeroext i1 @"_ZN61_$LT$wast..core..expr..MemArg$u20$as$u
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN63_$LT$wast..core..expr..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17hec4a8c404bbeee8eE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
-  %3 = load i8, ptr %0, align 1, !range !199, !noundef !3
+  %3 = load i8, ptr %0, align 1, !range !202, !noundef !3
   %4 = trunc nuw i8 %3 to i1
   %anon.d4d10eee0c927259e45db190374ea0da.40.anon.d4d10eee0c927259e45db190374ea0da.39 = select i1 %4, ptr @anon.d4d10eee0c927259e45db190374ea0da.40, ptr @anon.d4d10eee0c927259e45db190374ea0da.39
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %anon.d4d10eee0c927259e45db190374ea0da.40.anon.d4d10eee0c927259e45db190374ea0da.39, i64 noundef 6)
@@ -6326,7 +6326,7 @@ define hidden noundef nonnull ptr @_ZN6anyhow4kind5Trait3new17h44349d899a362c79E
 define internal noundef zeroext i1 @"_ZN72_$LT$wast..core..expr..TryTableCatchKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hde4955dc43419965E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
-  %5 = load i64, ptr %0, align 8, !range !200, !noundef !3
+  %5 = load i64, ptr %0, align 8, !range !203, !noundef !3
   switch i64 %5, label %default.unreachable1 [
     i64 0, label %6
     i64 1, label %9
@@ -6812,5 +6812,8 @@ attributes #11 = { cold noreturn nounwind }
 !196 = !{!197}
 !197 = distinct !{!197, !198, !"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$wast..core..expr..BlockType$GT$$GT$17h2c25bb29d4e3c810E: argument 0"}
 !198 = distinct !{!198, !"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$wast..core..expr..BlockType$GT$$GT$17h2c25bb29d4e3c810E"}
-!199 = !{i8 0, i8 2}
-!200 = !{i64 0, i64 4}
+!199 = distinct !{!199, !200}
+!200 = !{!"llvm.loop.estimated_trip_count"}
+!201 = distinct !{!201, !200}
+!202 = !{i8 0, i8 2}
+!203 = !{i64 0, i64 4}

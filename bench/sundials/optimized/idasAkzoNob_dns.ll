@@ -260,7 +260,7 @@ check_retval.exit105:                             ; preds = %102
   %109 = add nuw nsw i32 %.059, 1
   %110 = fmul double %101, %.058
   %exitcond = icmp eq i32 %109, 26
-  br i1 %exitcond, label %111, label %102
+  br i1 %exitcond, label %111, label %102, !llvm.loop !32
 
 111:                                              ; preds = %107
   %112 = call i32 @IDAGetQuad(ptr noundef nonnull %49, ptr noundef nonnull %2, ptr noundef nonnull %40) #11
@@ -372,8 +372,8 @@ define internal noundef i32 @res(double %0, ptr noundef readonly captures(none) 
   br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %5
-  %52 = tail call double @sqrt(double noundef %28) #11, !tbaa !32
-  %53 = tail call double @sqrt(double noundef %28) #11, !tbaa !32
+  %52 = tail call double @sqrt(double noundef %28) #11, !tbaa !34
+  %53 = tail call double @sqrt(double noundef %28) #11, !tbaa !34
   br label %.thread
 
 .thread:                                          ; preds = %5, %51
@@ -531,8 +531,8 @@ check_retval.exit14:                              ; preds = %check_retval.exit12
   %31 = load double, ptr %30, align 8, !tbaa !30
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %33 = load double, ptr %32, align 8, !tbaa !30
-  %34 = load i64, ptr %5, align 8, !tbaa !33
-  %35 = load i32, ptr %4, align 4, !tbaa !32
+  %34 = load i64, ptr %5, align 8, !tbaa !35
+  %35 = load i32, ptr %4, align 4, !tbaa !34
   %36 = load double, ptr %6, align 8, !tbaa !30
   %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %1, double noundef %23, double noundef %25, double noundef %27, double noundef %29, double noundef %31, double noundef %33, i64 noundef %34, i32 noundef %35, double noundef %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
@@ -574,19 +574,19 @@ define internal fastcc i32 @PrintFinalStats(ptr noundef %0) unnamed_addr #0 {
   %14 = call i32 @IDAGetNumNonlinSolvConvFails(ptr noundef %0, ptr noundef nonnull %8) #11
   %15 = call i32 @IDAGetNumLinResEvals(ptr noundef %0, ptr noundef nonnull %6) #11
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  %16 = load i64, ptr %2, align 8, !tbaa !33
+  %16 = load i64, ptr %2, align 8, !tbaa !35
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, i64 noundef %16)
-  %18 = load i64, ptr %5, align 8, !tbaa !33
-  %19 = load i64, ptr %6, align 8, !tbaa !33
+  %18 = load i64, ptr %5, align 8, !tbaa !35
+  %19 = load i64, ptr %6, align 8, !tbaa !35
   %20 = add nsw i64 %19, %18
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, i64 noundef %20)
-  %22 = load i64, ptr %4, align 8, !tbaa !33
+  %22 = load i64, ptr %4, align 8, !tbaa !35
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i64 noundef %22)
-  %24 = load i64, ptr %3, align 8, !tbaa !33
+  %24 = load i64, ptr %3, align 8, !tbaa !35
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.32, i64 noundef %24)
-  %26 = load i64, ptr %7, align 8, !tbaa !33
+  %26 = load i64, ptr %7, align 8, !tbaa !35
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %26)
-  %28 = load i64, ptr %8, align 8, !tbaa !33
+  %28 = load i64, ptr %8, align 8, !tbaa !35
   %29 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %28)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
@@ -695,5 +695,7 @@ attributes #13 = { nounwind allocsize(0) }
 !29 = !{!"p1 double", !6, i64 0}
 !30 = !{!11, !11, i64 0}
 !31 = !{!6, !6, i64 0}
-!32 = !{!28, !28, i64 0}
-!33 = !{!27, !27, i64 0}
+!32 = distinct !{!32, !33}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!28, !28, i64 0}
+!35 = !{!27, !27, i64 0}

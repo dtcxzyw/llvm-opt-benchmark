@@ -84,7 +84,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %44 = add i32 %43, %.0203233
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
   %exitcond252.not = icmp eq i64 %indvars.iv.next249, %wide.trip.count251
-  br i1 %exitcond252.not, label %.loopexit, label %.lr.ph234
+  br i1 %exitcond252.not, label %.loopexit, label %.lr.ph234, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -105,7 +105,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %57 = add i32 %56, %.2231
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph234
   %.1 = phi i32 [ %44, %.lr.ph234 ], [ %57, %.lr.ph ]
@@ -129,19 +129,19 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %66 = and i32 %65, -4096
   %67 = trunc i32 %34 to i16
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 214
-  store i16 %67, ptr %68, align 2, !tbaa !9
+  store i16 %67, ptr %68, align 2, !tbaa !12
   %69 = getelementptr inbounds nuw i8, ptr %61, i64 248
-  store i32 %4, ptr %69, align 4, !tbaa !12
+  store i32 %4, ptr %69, align 4, !tbaa !15
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 260
-  store i32 %3, ptr %70, align 4, !tbaa !13
+  store i32 %3, ptr %70, align 4, !tbaa !16
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 292
-  store i32 %.0207, ptr %71, align 4, !tbaa !14
+  store i32 %.0207, ptr %71, align 4, !tbaa !17
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %72, i8 0, i64 128, i1 false)
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 344
-  store i32 %5, ptr %73, align 1, !tbaa !15
+  store i32 %5, ptr %73, align 1, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 348
-  store i32 %6, ptr %74, align 1, !tbaa !15
+  store i32 %6, ptr %74, align 1, !tbaa !18
   %75 = getelementptr inbounds nuw i8, ptr %61, i64 456
   br i1 %23, label %76, label %90
 
@@ -150,11 +150,11 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %77 = load i32, ptr %1, align 4, !tbaa !3
   %78 = sub i32 %77, %66
   %79 = getelementptr inbounds nuw i8, ptr %61, i64 464
-  store i32 %78, ptr %79, align 1, !tbaa !15
+  store i32 %78, ptr %79, align 1, !tbaa !18
   %80 = getelementptr inbounds nuw i8, ptr %61, i64 468
-  store i32 %66, ptr %80, align 1, !tbaa !15
+  store i32 %66, ptr %80, align 1, !tbaa !18
   %81 = getelementptr inbounds nuw i8, ptr %61, i64 492
-  store i32 -1, ptr %81, align 1, !tbaa !15
+  store i32 -1, ptr %81, align 1, !tbaa !18
   %82 = getelementptr inbounds nuw i8, ptr %61, i64 496
   %83 = load i32, ptr %1, align 4, !tbaa !3
   %84 = sub i32 %83, %66
@@ -195,24 +195,24 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
 97:                                               ; preds = %95, %.lr.ph240.split.us
   %98 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv258
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %100 = load i32, ptr %99, align 4, !tbaa !16
+  %100 = load i32, ptr %99, align 4, !tbaa !19
   %101 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 8
-  store i32 %100, ptr %101, align 1, !tbaa !15
+  store i32 %100, ptr %101, align 1, !tbaa !18
   %102 = load i32, ptr %98, align 4, !tbaa !3
   %103 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 12
-  store i32 %102, ptr %103, align 1, !tbaa !15
+  store i32 %102, ptr %103, align 1, !tbaa !18
   %104 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %105 = load i32, ptr %104, align 4, !tbaa !8
   %106 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 16
-  store i32 %105, ptr %106, align 1, !tbaa !15
+  store i32 %105, ptr %106, align 1, !tbaa !18
   %107 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 20
-  store i32 %.1208237.us, ptr %107, align 1, !tbaa !15
+  store i32 %.1208237.us, ptr %107, align 1, !tbaa !18
   %108 = getelementptr inbounds nuw i8, ptr %.1211236.us, i64 36
-  store i32 -1, ptr %108, align 1, !tbaa !15
+  store i32 -1, ptr %108, align 1, !tbaa !18
   %109 = zext i32 %.1208237.us to i64
   %110 = getelementptr inbounds nuw i8, ptr %61, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %112 = load i32, ptr %111, align 4, !tbaa !17
+  %112 = load i32, ptr %111, align 4, !tbaa !20
   %113 = zext i32 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 %113
   %115 = load i32, ptr %104, align 4, !tbaa !8
@@ -223,7 +223,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %.not222.us = icmp eq i32 %118, 0
   %119 = select i1 %.not222.us, i32 0, i32 512
   %120 = add i32 %119, %117
-  %121 = load i32, ptr %99, align 4, !tbaa !16
+  %121 = load i32, ptr %99, align 4, !tbaa !19
   %122 = and i32 %121, 4095
   %.not223.us = icmp eq i32 %122, 0
   %123 = select i1 %.not223.us, i32 0, i32 4096
@@ -234,7 +234,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %.pn.us = and i32 %120, -512
   %.2209.us = add i32 %.pn.us, %.1208237.us
   %exitcond262.not = icmp eq i64 %indvars.iv.next259, %wide.trip.count261
-  br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph240.split.us, !llvm.loop !18
+  br i1 %exitcond262.not, label %._crit_edge, label %.lr.ph240.split.us, !llvm.loop !21
 
 .lr.ph240.split:                                  ; preds = %.lr.ph240, %131
   %indvars.iv253 = phi i64 [ %indvars.iv.next254, %131 ], [ 0, %.lr.ph240 ]
@@ -254,7 +254,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
 
 131:                                              ; preds = %129, %.lr.ph240.split
   %132 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv253, i32 1
-  %133 = load i32, ptr %132, align 4, !tbaa !16
+  %133 = load i32, ptr %132, align 4, !tbaa !19
   %134 = udiv i32 %133, %8
   %135 = urem i32 %133, %8
   %136 = icmp ne i32 %135, 0
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %138 = add i32 %134, %137
   %139 = mul i32 %138, %8
   %140 = getelementptr inbounds nuw i8, ptr %.1211236, i64 8
-  store i32 %139, ptr %140, align 1, !tbaa !15
+  store i32 %139, ptr %140, align 1, !tbaa !18
   %141 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv253
   %142 = load i32, ptr %141, align 4, !tbaa !3
   %143 = udiv i32 %142, %8
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %147 = add i32 %143, %146
   %148 = mul i32 %147, %8
   %149 = getelementptr inbounds nuw i8, ptr %.1211236, i64 12
-  store i32 %148, ptr %149, align 1, !tbaa !15
+  store i32 %148, ptr %149, align 1, !tbaa !18
   %150 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %1, i64 %indvars.iv253, i32 3
   %151 = load i32, ptr %150, align 4, !tbaa !8
   %152 = udiv i32 %151, %8
@@ -282,15 +282,15 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %156 = add i32 %152, %155
   %157 = mul i32 %156, %8
   %158 = getelementptr inbounds nuw i8, ptr %.1211236, i64 16
-  store i32 %157, ptr %158, align 1, !tbaa !15
+  store i32 %157, ptr %158, align 1, !tbaa !18
   %159 = getelementptr inbounds nuw i8, ptr %.1211236, i64 20
-  store i32 %.1208237, ptr %159, align 1, !tbaa !15
+  store i32 %.1208237, ptr %159, align 1, !tbaa !18
   %160 = getelementptr inbounds nuw i8, ptr %.1211236, i64 36
-  store i32 -1, ptr %160, align 1, !tbaa !15
+  store i32 -1, ptr %160, align 1, !tbaa !18
   %161 = zext i32 %.1208237 to i64
   %162 = getelementptr inbounds nuw i8, ptr %61, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %164 = load i32, ptr %163, align 4, !tbaa !17
+  %164 = load i32, ptr %163, align 4, !tbaa !20
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %141, i64 12
@@ -309,7 +309,7 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %178 = select i1 %.not224, i32 0, i32 512
   %179 = add i32 %178, %176
   %180 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  %181 = load i32, ptr %180, align 4, !tbaa !16
+  %181 = load i32, ptr %180, align 4, !tbaa !19
   %182 = udiv i32 %181, %8
   %183 = urem i32 %181, %8
   %184 = icmp ne i32 %183, 0
@@ -326,13 +326,13 @@ define range(i32 0, 2) i32 @cli_rebuildpe_align(ptr noundef readonly captures(no
   %.pn = and i32 %179, -512
   %.2209 = add i32 %.pn, %.1208237
   %exitcond257.not = icmp eq i64 %indvars.iv.next254, %wide.trip.count261
-  br i1 %exitcond257.not, label %._crit_edge, label %.lr.ph240.split
+  br i1 %exitcond257.not, label %._crit_edge, label %.lr.ph240.split, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %131, %97, %90
   %.1208.lcssa = phi i32 [ %.0207, %90 ], [ %.2209.us, %97 ], [ %.2209, %131 ]
   %.4.lcssa = phi i32 [ %.3, %90 ], [ %.5.us, %97 ], [ %.5, %131 ]
   %192 = getelementptr inbounds nuw i8, ptr %61, i64 288
-  store i32 %.4.lcssa, ptr %192, align 4, !tbaa !20
+  store i32 %.4.lcssa, ptr %192, align 4, !tbaa !24
   %193 = zext i32 %.1208.lcssa to i64
   %194 = tail call i64 @cli_writen(i32 noundef %7, ptr noundef nonnull %61, i64 noundef %193) #6
   %195 = icmp ne i64 %194, -1
@@ -382,15 +382,19 @@ attributes #6 = { nounwind }
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
 !8 = !{!4, !5, i64 12}
-!9 = !{!10, !11, i64 6}
-!10 = !{!"IMAGE_PE_HEADER", !5, i64 0, !11, i64 4, !11, i64 6, !5, i64 8, !5, i64 12, !5, i64 16, !11, i64 20, !11, i64 22, !11, i64 24, !6, i64 26, !6, i64 27, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !11, i64 64, !11, i64 66, !11, i64 68, !11, i64 70, !11, i64 72, !11, i64 74, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !11, i64 92, !11, i64 94, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116}
-!11 = !{!"short", !6, i64 0}
-!12 = !{!10, !5, i64 40}
-!13 = !{!10, !5, i64 52}
-!14 = !{!10, !5, i64 84}
-!15 = !{!6, !6, i64 0}
-!16 = !{!4, !5, i64 4}
-!17 = !{!4, !5, i64 8}
-!18 = distinct !{!18, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = !{!10, !5, i64 80}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !10}
+!12 = !{!13, !14, i64 6}
+!13 = !{!"IMAGE_PE_HEADER", !5, i64 0, !14, i64 4, !14, i64 6, !5, i64 8, !5, i64 12, !5, i64 16, !14, i64 20, !14, i64 22, !14, i64 24, !6, i64 26, !6, i64 27, !5, i64 28, !5, i64 32, !5, i64 36, !5, i64 40, !5, i64 44, !5, i64 48, !5, i64 52, !5, i64 56, !5, i64 60, !14, i64 64, !14, i64 66, !14, i64 68, !14, i64 70, !14, i64 72, !14, i64 74, !5, i64 76, !5, i64 80, !5, i64 84, !5, i64 88, !14, i64 92, !14, i64 94, !5, i64 96, !5, i64 100, !5, i64 104, !5, i64 108, !5, i64 112, !5, i64 116}
+!14 = !{!"short", !6, i64 0}
+!15 = !{!13, !5, i64 40}
+!16 = !{!13, !5, i64 52}
+!17 = !{!13, !5, i64 84}
+!18 = !{!6, !6, i64 0}
+!19 = !{!4, !5, i64 4}
+!20 = !{!4, !5, i64 8}
+!21 = distinct !{!21, !10, !22}
+!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!23 = distinct !{!23, !10}
+!24 = !{!13, !5, i64 80}

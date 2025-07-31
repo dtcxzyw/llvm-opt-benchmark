@@ -727,7 +727,7 @@ proto_item_set_generated.exit279:                 ; preds = %270, %279, %282
   %291 = add nuw nsw i32 %266, 4
   %292 = call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %290, ptr noundef %0, i32 noundef %291, i32 noundef 4, i32 noundef 0)
   %293 = call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %291)
-  %294 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %133) #7, !srcloc !8
+  %294 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %133) #7, !srcloc !9
   %295 = xor i32 %294, %293
   %296 = load i32, ptr @hf_classicstun_att_ipv4, align 4
   %297 = call ptr @proto_tree_add_ipv4(ptr noundef %152, i32 noundef %296, ptr noundef %0, i32 noundef %291, i32 noundef 4, i32 noundef %295)
@@ -780,7 +780,7 @@ proto_item_set_generated.exit282:                 ; preds = %250, %.preheader, %
   %324 = trunc nuw i32 %148 to i16
   %325 = sub i16 %.0246292, %324
   %.not270 = icmp eq i16 %325, 0
-  br i1 %.not270, label %.loopexit, label %141, !llvm.loop !9
+  br i1 %.not270, label %.loopexit, label %141, !llvm.loop !10
 
 .loopexit:                                        ; preds = %proto_item_set_generated.exit282, %158, %proto_item_set_generated.exit
   %326 = call i32 @tvb_reported_length(ptr noundef %0)
@@ -930,7 +930,8 @@ attributes #7 = { nounwind memory(none) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 2150815846}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 2150815846}
+!10 = distinct !{!10, !7, !8}

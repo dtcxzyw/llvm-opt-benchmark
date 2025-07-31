@@ -174,7 +174,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
 .thread59:                                        ; preds = %.preheader, %14
   %.15863 = phi i1 [ %.038, %14 ], [ true, %.preheader ]
   %16 = icmp eq i8 %13, 46
-  br i1 %16, label %.loopexit.sink.split, label %.preheader, !llvm.loop !8
+  br i1 %16, label %.loopexit.sink.split, label %.preheader, !llvm.loop !9
 
 .loopexit67:                                      ; preds = %9, %9, %.preheader, %.preheader
   %17 = load i8, ptr %0, align 1
@@ -209,7 +209,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   %21 = getelementptr inbounds nuw i8, ptr %.070.us, i64 1
   %22 = load i8, ptr %21, align 1
   %.not55.us = icmp eq i8 %22, 0
-  br i1 %.not55.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %.not55.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !10
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread65
   %.pr = phi i8 [ %25, %.thread65 ], [ %17, %.lr.ph ]
@@ -232,7 +232,7 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   %24 = getelementptr inbounds nuw i8, ptr %.070, i64 1
   %25 = load i8, ptr %24, align 1
   %.not55 = icmp eq i8 %25, 0
-  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !11
+  br i1 %.not55, label %.loopexit, label %.lr.ph.split, !llvm.loop !12
 
 .loopexit.sink.split:                             ; preds = %9, %.thread59, %14, %7
   %.str.7.sink = phi ptr [ @.str.4, %7 ], [ @.str.6, %14 ], [ @.str.7, %.thread59 ], [ @.str.5, %9 ]
@@ -1040,7 +1040,7 @@ _ZNK13MethodMatcher7matchesERK12methodHandle.exit: ; preds = %38, %28, %3
   %40 = getelementptr inbounds nuw i8, ptr %.08, i64 32
   %41 = load ptr, ptr %40, align 8
   %.not.not = icmp eq ptr %41, null
-  br i1 %.not.not, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread, label %3, !llvm.loop !12
+  br i1 %.not.not, label %_ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread, label %3, !llvm.loop !13
 
 _ZNK13MethodMatcher7matchesERK12methodHandle.exit.thread: ; preds = %34, %38, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit
   %.not.lcssa = phi i1 [ true, %34 ], [ true, %38 ], [ false, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit ]
@@ -1169,7 +1169,7 @@ _ZNK13MethodMatcher7matchesERK12methodHandle.exit: ; preds = %39, %29, %4
   %45 = getelementptr inbounds nuw i8, ptr %.010, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %.loopexit, label %4, !llvm.loop !13
+  br i1 %.not, label %.loopexit, label %4, !llvm.loop !14
 
 .loopexit:                                        ; preds = %_ZNK13MethodMatcher7matchesERK12methodHandle.exit, %41
   %.07 = phi i1 [ %44, %41 ], [ false, %_ZNK13MethodMatcher7matchesERK12methodHandle.exit ]
@@ -1406,11 +1406,12 @@ attributes #15 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

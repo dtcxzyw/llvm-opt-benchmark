@@ -672,7 +672,7 @@ patternStringMatch.exit122.thread:                ; preds = %217, %202, %eventIn
   %291 = getelementptr inbounds nuw i8, ptr %.074149, i64 32
   %292 = load i32, ptr %10, align 8
   %293 = icmp slt i32 %290, %292
-  br i1 %293, label %29, label %patternStringMatch.exit.thread, !llvm.loop !8
+  br i1 %293, label %29, label %patternStringMatch.exit.thread, !llvm.loop !9
 
 patternStringMatch.exit.thread:                   ; preds = %31, %41, %57, %53, %48, %64, %60, %75, %72, %88, %157, %171, %patternStringMatch.exit, %patternStringMatch.exit122, %227, %231, %282, %patternStringMatch.exit122.thread, %177, %192, %21, %19, %287, %patternStringMatch.exit133.thread
   %.0 = phi i8 [ 0, %287 ], [ 0, %patternStringMatch.exit133.thread ], [ 0, %19 ], [ 1, %21 ], [ 0, %31 ], [ 0, %41 ], [ 0, %57 ], [ 0, %53 ], [ 0, %48 ], [ 0, %64 ], [ 0, %60 ], [ 0, %75 ], [ 0, %72 ], [ 0, %88 ], [ 0, %157 ], [ 0, %171 ], [ 0, %patternStringMatch.exit ], [ 0, %patternStringMatch.exit122 ], [ 0, %227 ], [ 0, %231 ], [ 0, %282 ], [ 1, %patternStringMatch.exit122.thread ], [ 0, %177 ], [ 0, %192 ]
@@ -871,7 +871,7 @@ patternStringMatch.exit30.thread:                 ; preds = %69, %54, %28, %patt
   %83 = add nuw nsw i32 %.038, 1
   %84 = getelementptr inbounds nuw i8, ptr %.01437, i64 32
   %85 = icmp slt i32 %83, %82
-  br i1 %85, label %10, label %patternStringMatch.exit.thread, !llvm.loop !9
+  br i1 %85, label %10, label %patternStringMatch.exit.thread, !llvm.loop !10
 
 patternStringMatch.exit.thread:                   ; preds = %23, %patternStringMatch.exit, %patternStringMatch.exit30, %patternStringMatch.exit30.thread, %29, %44, %4, %79
   %.015 = phi i8 [ 0, %79 ], [ 1, %4 ], [ 0, %23 ], [ 0, %patternStringMatch.exit ], [ 0, %patternStringMatch.exit30 ], [ 1, %patternStringMatch.exit30.thread ], [ 0, %29 ], [ 0, %44 ]
@@ -1048,7 +1048,7 @@ patternStringMatch.exit42.thread:                 ; preds = %54, %patternStringM
   %83 = getelementptr inbounds nuw i8, ptr %.02044, i64 32
   %84 = icmp sge i32 %82, %5
   %.not49 = select i1 %84, i1 true, i1 %.119.shrunk
-  br i1 %.not49, label %._crit_edge, label %9, !llvm.loop !10
+  br i1 %.not49, label %._crit_edge, label %9, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %9, %patternStringMatch.exit42.thread, %3
   %.021.lcssa = phi i8 [ 0, %3 ], [ %.02143, %9 ], [ %.122, %patternStringMatch.exit42.thread ]
@@ -1085,7 +1085,7 @@ define hidden zeroext i8 @eventFilterRestricted_isBreakpointInClass(ptr noundef 
   %14 = add nuw nsw i32 %.013, 1
   %15 = getelementptr inbounds nuw i8, ptr %.0912, i64 32
   %exitcond.not = icmp eq i32 %14, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !12
 
 .loopexit:                                        ; preds = %13, %3, %9
   %.010 = phi i8 [ %12, %9 ], [ 1, %3 ], [ 1, %13 ]
@@ -1558,7 +1558,7 @@ define internal zeroext range(i8 0, 2) i8 @matchBreakpoint(ptr noundef %0, ptr n
   %30 = add nuw nsw i32 %.01518, 1
   %31 = getelementptr inbounds nuw i8, ptr %.01617, i64 32
   %32 = icmp slt i32 %30, %29
-  br i1 %32, label %10, label %._crit_edge, !llvm.loop !12
+  br i1 %32, label %10, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %24, %28, %3
   %.0 = phi i8 [ 0, %3 ], [ 0, %28 ], [ 1, %24 ]
@@ -1604,7 +1604,7 @@ define hidden i32 @eventFilterRestricted_install(ptr noundef %0) local_unnamed_a
   %12 = add nuw nsw i32 %.0810.i.i.i, 1
   %13 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 32
   %exitcond.not.i.i.i = icmp eq i32 %12, %6
-  br i1 %exitcond.not.i.i.i, label %enableEvents.exit, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %enableEvents.exit, label %.lr.ph.i.i.i, !llvm.loop !14
 
 findFilter.exit.i.i:                              ; preds = %.lr.ph.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
@@ -1664,7 +1664,7 @@ findFilter.exit.thread.sink.split.i.i:            ; preds = %findFilter.exit.thr
   %39 = add nuw nsw i32 %.0810.i.i16.i, 1
   %40 = getelementptr inbounds nuw i8, ptr %.011.i.i15.i, i64 32
   %exitcond.not.i.i17.i = icmp eq i32 %39, %33
-  br i1 %exitcond.not.i.i17.i, label %enableEvents.exit, label %.lr.ph.i.i14.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i17.i, label %enableEvents.exit, label %.lr.ph.i.i14.i, !llvm.loop !14
 
 findFilter.exit.i18.i:                            ; preds = %.lr.ph.i.i14.i
   %41 = getelementptr inbounds nuw i8, ptr %.011.i.i15.i, i64 8
@@ -1750,7 +1750,7 @@ setWatchpoint.exit.thread23.i:                    ; preds = %setWatchpoint.exit.
   %80 = add nuw nsw i32 %.0710.i.i, 1
   %81 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 32
   %exitcond.not.i.i = icmp eq i32 %80, %72
-  br i1 %exitcond.not.i.i, label %requestThread.exit.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %requestThread.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
 requestThread.exit.i:                             ; preds = %79, %76, %setWatchpoint.exit.thread23.i
   %.08.i.i = phi ptr [ %78, %76 ], [ null, %setWatchpoint.exit.thread23.i ], [ null, %79 ]
@@ -1808,7 +1808,7 @@ define hidden i32 @eventFilterRestricted_deinstall(ptr noundef %0) local_unnamed
   %12 = add nuw nsw i32 %.0810.i.i.i, 1
   %13 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 32
   %exitcond.not.i.i.i = icmp eq i32 %12, %6
-  br i1 %exitcond.not.i.i.i, label %clearWatchpoint.exit.i, label %.lr.ph.i.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i.i, label %clearWatchpoint.exit.i, label %.lr.ph.i.i.i, !llvm.loop !14
 
 findFilter.exit.i.i:                              ; preds = %.lr.ph.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
@@ -1868,7 +1868,7 @@ findFilter.exit.thread.sink.split.i.i:            ; preds = %findFilter.exit.thr
   %39 = add nuw nsw i32 %.0810.i.i19.i, 1
   %40 = getelementptr inbounds nuw i8, ptr %.011.i.i18.i, i64 32
   %exitcond.not.i.i20.i = icmp eq i32 %39, %33
-  br i1 %exitcond.not.i.i20.i, label %clearWatchpoint.exit.i, label %.lr.ph.i.i17.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i20.i, label %clearWatchpoint.exit.i, label %.lr.ph.i.i17.i, !llvm.loop !14
 
 findFilter.exit.i21.i:                            ; preds = %.lr.ph.i.i17.i
   %41 = getelementptr inbounds nuw i8, ptr %.011.i.i18.i, i64 8
@@ -1950,7 +1950,7 @@ clearWatchpoint.exit.i:                           ; preds = %38, %11, %59, %find
   %79 = add nuw nsw i32 %.0710.i.i, 1
   %80 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 32
   %exitcond.not.i.i = icmp eq i32 %79, %71
-  br i1 %exitcond.not.i.i, label %requestThread.exit.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %requestThread.exit.i, label %.lr.ph.i.i, !llvm.loop !15
 
 requestThread.exit.i:                             ; preds = %78, %75, %clearWatchpoint.exit.i
   %.08.i.i = phi ptr [ %77, %75 ], [ null, %clearWatchpoint.exit.i ], [ null, %78 ]
@@ -2074,7 +2074,7 @@ disableEvents.exit:                               ; preds = %1, %1, %1, %1, %1, 
   %.038.i.be = phi i32 [ %124, %123 ], [ %127, %.thread ]
   %.03136.i.be = phi i32 [ %.1.i, %123 ], [ 0, %.thread ]
   %.03037.i.be = getelementptr inbounds nuw i8, ptr %.03037.i, i64 32
-  br label %.lr.ph.i, !llvm.loop !15
+  br label %.lr.ph.i, !llvm.loop !16
 
 .thread:                                          ; preds = %118
   tail call void @tossGlobalRef(ptr noundef %88, ptr noundef nonnull %119) #6
@@ -2136,7 +2136,7 @@ define internal zeroext i8 @matchThread(ptr noundef %0, ptr noundef readonly cap
   %13 = add nuw nsw i32 %.0710.i, 1
   %14 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
   %exitcond.not.i = icmp eq i32 %13, %5
-  br i1 %exitcond.not.i, label %requestThread.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %requestThread.exit, label %.lr.ph.i, !llvm.loop !15
 
 requestThread.exit:                               ; preds = %12, %3, %9
   %.08.i = phi ptr [ %11, %9 ], [ null, %3 ], [ null, %12 ]
@@ -2190,7 +2190,7 @@ define internal zeroext range(i8 0, 2) i8 @matchWatchpoint(ptr noundef %0, ptr n
   %24 = add nuw nsw i32 %.01316, 1
   %25 = getelementptr inbounds nuw i8, ptr %.01415, i64 32
   %26 = icmp slt i32 %24, %23
-  br i1 %26, label %9, label %._crit_edge, !llvm.loop !16
+  br i1 %26, label %9, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %17, %22, %3
   %.0 = phi i8 [ 0, %3 ], [ 0, %22 ], [ 1, %17 ]
@@ -2222,14 +2222,15 @@ attributes #7 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}

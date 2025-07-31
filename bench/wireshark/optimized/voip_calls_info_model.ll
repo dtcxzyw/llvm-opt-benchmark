@@ -2616,7 +2616,7 @@ _ZN5QListIPvE7replaceExS0_.exit:                  ; preds = %_ZN17QArrayDataPoin
   %76 = getelementptr inbounds nuw i8, ptr %.136, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not30 = icmp eq ptr %77, null
-  br i1 %.not30, label %.critedge, label %.lr.ph38, !llvm.loop !17
+  br i1 %.not30, label %.critedge, label %.lr.ph38, !llvm.loop !18
 
 .critedge:                                        ; preds = %.lr.ph38, %74, %56
   call void @_ZN18QAbstractItemModel13endInsertRowsEv(ptr noundef align 8 dereferenceable_or_null(16) %0)
@@ -2738,23 +2738,23 @@ define noundef zeroext i1 @_ZNK24VoipCallsInfoSortedModel8lessThanERK11QModelInd
   %4 = alloca %class.QVariant, align 8
   %5 = alloca %class.QVariant, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %7 = load ptr, ptr %6, align 8, !noalias !18
+  %7 = load ptr, ptr %6, align 8, !noalias !19
   %.not.i.i = icmp eq ptr %7, null
   br i1 %.not.i.i, label %12, label %8
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %7, align 8, !noalias !18
+  %9 = load ptr, ptr %7, align 8, !noalias !19
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %11 = load ptr, ptr %10, align 8, !noalias !18
+  %11 = load ptr, ptr %10, align 8, !noalias !19
   call void %11(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %5, ptr noundef nonnull align 8 dereferenceable_or_null(16) %7, ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %1, i32 noundef 256)
   br label %_ZNK11QModelIndex4dataEi.exit.i
 
 12:                                               ; preds = %3
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !18
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false), !alias.scope !19
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 2, ptr %13, align 8, !alias.scope !18
+  store i64 2, ptr %13, align 8, !alias.scope !19
   br label %_ZNK11QModelIndex4dataEi.exit.i
 
 _ZNK11QModelIndex4dataEi.exit.i:                  ; preds = %12, %8
@@ -2776,23 +2776,23 @@ _ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex.exit: ; preds = %_ZNK11
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %5) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  call void @llvm.experimental.noalias.scope.decl(metadata !21)
+  call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %18 = load ptr, ptr %17, align 8, !noalias !21
+  %18 = load ptr, ptr %17, align 8, !noalias !22
   %.not.i.i18 = icmp eq ptr %18, null
   br i1 %.not.i.i18, label %23, label %19
 
 19:                                               ; preds = %_ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex.exit
-  %20 = load ptr, ptr %18, align 8, !noalias !21
+  %20 = load ptr, ptr %18, align 8, !noalias !22
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 144
-  %22 = load ptr, ptr %21, align 8, !noalias !21
+  %22 = load ptr, ptr %21, align 8, !noalias !22
   call void %22(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %4, ptr noundef nonnull align 8 dereferenceable_or_null(16) %18, ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %2, i32 noundef 256)
   br label %_ZNK11QModelIndex4dataEi.exit.i19
 
 23:                                               ; preds = %_ZN18VoipCallsInfoModel15indexToCallInfoERK11QModelIndex.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !21
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false), !alias.scope !22
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 2, ptr %24, align 8, !alias.scope !21
+  store i64 2, ptr %24, align 8, !alias.scope !22
   br label %_ZNK11QModelIndex4dataEi.exit.i19
 
 _ZNK11QModelIndex4dataEi.exit.i19:                ; preds = %23, %19
@@ -3821,12 +3821,13 @@ attributes #22 = { cold noreturn }
 !12 = !{!"branch_weights", i32 1, i32 1048575}
 !13 = !{i8 0, i8 2}
 !14 = !{}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{!19}
-!19 = distinct !{!19, !20, !"_ZNK11QModelIndex4dataEi: argument 0"}
-!20 = distinct !{!20, !"_ZNK11QModelIndex4dataEi"}
-!21 = !{!22}
-!22 = distinct !{!22, !23, !"_ZNK11QModelIndex4dataEi: argument 0"}
-!23 = distinct !{!23, !"_ZNK11QModelIndex4dataEi"}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = !{!20}
+!20 = distinct !{!20, !21, !"_ZNK11QModelIndex4dataEi: argument 0"}
+!21 = distinct !{!21, !"_ZNK11QModelIndex4dataEi"}
+!22 = !{!23}
+!23 = distinct !{!23, !24, !"_ZNK11QModelIndex4dataEi: argument 0"}
+!24 = distinct !{!24, !"_ZNK11QModelIndex4dataEi"}

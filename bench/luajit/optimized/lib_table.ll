@@ -82,10 +82,10 @@ define internal noundef i32 @lj_cf_table_maxn(ptr noundef %0) #0 {
 .loopexit:                                        ; preds = %9, %15
   %.0 = phi double [ %17, %15 ], [ 0.000000e+00, %9 ]
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %19 = load i64, ptr %18, align 8, !tbaa !20
+  %19 = load i64, ptr %18, align 8, !tbaa !21
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  %22 = load i32, ptr %21, align 4, !tbaa !21
+  %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = zext i32 %22 to i64
   br label %24
 
@@ -113,7 +113,7 @@ define internal noundef i32 @lj_cf_table_maxn(ptr noundef %0) #0 {
   %.3 = phi double [ %.127, %24 ], [ %.2, %32 ], [ %.127, %28 ]
   %36 = add nsw i64 %.12326, -1
   %37 = icmp sgt i64 %.12326, 0
-  br i1 %37, label %24, label %38, !llvm.loop !22
+  br i1 %37, label %24, label %38, !llvm.loop !23
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -131,7 +131,7 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %9 = ptrtoint ptr %6 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
@@ -206,7 +206,7 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
   %storemerge = phi i64 [ %43, %42 ], [ -1, %40 ]
   store i64 %storemerge, ptr %31, align 8, !tbaa !14
   %45 = icmp sgt i64 %indvars.iv.next, %18
-  br i1 %45, label %19, label %.loopexit, !llvm.loop !24
+  br i1 %45, label %19, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %44, %13, %1
   %.0 = phi i32 [ %4, %1 ], [ %14, %13 ], [ %14, %44 ]
@@ -257,16 +257,16 @@ define internal noundef i32 @lj_cf_table_insert(ptr noundef %0) #0 {
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !25
+  %78 = load i64, ptr %77, align 8, !tbaa !26
   %79 = inttoptr i64 %78 to ptr
   %80 = and i8 %74, -5
   store i8 %80, ptr %73, align 8, !tbaa !14
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 64
-  %82 = load i64, ptr %81, align 8, !tbaa !26
+  %82 = load i64, ptr %81, align 8, !tbaa !27
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %82, ptr %83, align 8, !tbaa !37
+  store i64 %82, ptr %83, align 8, !tbaa !38
   %84 = ptrtoint ptr %2 to i64
-  store i64 %84, ptr %81, align 8, !tbaa !26
+  store i64 %84, ptr %81, align 8, !tbaa !27
   br label %85
 
 85:                                               ; preds = %76, %72, %66, %57
@@ -279,7 +279,7 @@ define internal noundef i32 @lj_cf_table_concat(ptr noundef %0) #0 {
   %3 = tail call ptr @lj_lib_optstr(ptr noundef %0, i32 noundef 2) #4
   %4 = tail call i32 @lj_lib_optint(ptr noundef %0, i32 noundef 3, i32 noundef 1) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load ptr, ptr %5, align 8, !tbaa !23
+  %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !4
@@ -302,21 +302,21 @@ define internal noundef i32 @lj_cf_table_concat(ptr noundef %0) #0 {
 18:                                               ; preds = %16, %14
   %19 = phi i32 [ %15, %14 ], [ %17, %16 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i64, ptr %20, align 8, !tbaa !25
+  %21 = load i64, ptr %20, align 8, !tbaa !26
   %22 = inttoptr i64 %21 to ptr
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 200
   %24 = ptrtoint ptr %0 to i64
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 224
-  store i64 %24, ptr %25, align 8, !tbaa !38
+  store i64 %24, ptr %25, align 8, !tbaa !39
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 216
-  %27 = load ptr, ptr %26, align 8, !tbaa !39
-  store ptr %27, ptr %23, align 8, !tbaa !40
+  %27 = load ptr, ptr %26, align 8, !tbaa !40
+  store ptr %27, ptr %23, align 8, !tbaa !41
   %28 = tail call ptr @lj_buf_puttab(ptr noundef nonnull %23, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %19) #4
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %54, !prof !41
+  br i1 %.not, label %29, label %54, !prof !42
 
 29:                                               ; preds = %18
-  %30 = load ptr, ptr %23, align 8, !tbaa !40
+  %30 = load ptr, ptr %23, align 8, !tbaa !41
   %31 = ptrtoint ptr %30 to i64
   %32 = trunc i64 %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -352,7 +352,7 @@ define internal noundef i32 @lj_cf_table_concat(ptr noundef %0) #0 {
 50:                                               ; preds = %46, %44
   %51 = phi i64 [ 0, %44 ], [ %spec.select, %46 ]
   %52 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %51
-  %53 = load ptr, ptr %52, align 8, !tbaa !42
+  %53 = load ptr, ptr %52, align 8, !tbaa !43
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 1443, ptr noundef %53, i32 noundef %32) #5
   unreachable
 
@@ -360,8 +360,8 @@ define internal noundef i32 @lj_cf_table_concat(ptr noundef %0) #0 {
   %55 = load ptr, ptr %8, align 8, !tbaa !4
   %56 = getelementptr inbounds i8, ptr %55, i64 -8
   %57 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !39
-  %59 = load ptr, ptr %28, align 8, !tbaa !40
+  %58 = load ptr, ptr %57, align 8, !tbaa !40
+  %59 = load ptr, ptr %28, align 8, !tbaa !41
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %58 to i64
   %62 = sub i64 %60, %61
@@ -370,14 +370,14 @@ define internal noundef i32 @lj_cf_table_concat(ptr noundef %0) #0 {
   %65 = ptrtoint ptr %64 to i64
   %66 = or i64 %65, -703687441776640
   store i64 %66, ptr %56, align 8, !tbaa !14
-  %67 = load i64, ptr %20, align 8, !tbaa !25
+  %67 = load i64, ptr %20, align 8, !tbaa !26
   %68 = inttoptr i64 %67 to ptr
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load i64, ptr %69, align 8, !tbaa !43
+  %70 = load i64, ptr %69, align 8, !tbaa !44
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %72 = load i64, ptr %71, align 8, !tbaa !44
+  %72 = load i64, ptr %71, align 8, !tbaa !45
   %.not36 = icmp ult i64 %70, %72
-  br i1 %.not36, label %75, label %73, !prof !45
+  br i1 %.not36, label %75, label %73, !prof !46
 
 73:                                               ; preds = %54
   %74 = tail call i32 @lj_gc_step(ptr noundef nonnull %0) #4
@@ -393,7 +393,7 @@ define internal noundef i32 @lj_cf_table_sort(ptr noundef %0) #0 {
   %3 = tail call i32 @lj_tab_len(ptr noundef %2) #4
   tail call void @lua_settop(ptr noundef %0, i32 noundef 2) #4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = icmp eq i64 %7, -1
@@ -551,7 +551,7 @@ sort_comp.exit:                                   ; preds = %29, %31
 
 35:                                               ; preds = %33
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #4
-  br label %25, !llvm.loop !46
+  br label %25, !llvm.loop !47
 
 .preheader:                                       ; preds = %sort_comp.exit, %45
   %.1 = phi i32 [ %36, %45 ], [ %.lcssa134.sink, %sort_comp.exit ]
@@ -589,11 +589,11 @@ sort_comp.exit107:                                ; preds = %39, %41
 
 45:                                               ; preds = %43
   tail call void @lua_settop(ptr noundef %0, i32 noundef -2) #4
-  br label %.preheader, !llvm.loop !47
+  br label %.preheader, !llvm.loop !48
 
 46:                                               ; preds = %sort_comp.exit107
   %.not103 = icmp sgt i32 %.1, %26
-  br i1 %.not103, label %24, label %47
+  br i1 %.not103, label %24, label %47, !llvm.loop !49
 
 47:                                               ; preds = %46
   tail call void @lua_settop(ptr noundef %0, i32 noundef -4) #4
@@ -611,7 +611,7 @@ sort_comp.exit107:                                ; preds = %39, %41
   %.090. = select i1 %50, i32 %.090119, i32 %51
   tail call fastcc void @auxsort(ptr noundef %0, i32 noundef %.090., i32 noundef %.185..087)
   %52 = icmp slt i32 %..090, %.087..185
-  br i1 %52, label %.lr.ph, label %.thread
+  br i1 %52, label %.lr.ph, label %.thread, !llvm.loop !50
 
 .thread:                                          ; preds = %47, %8, %20, %3
   ret void
@@ -708,33 +708,36 @@ attributes #5 = { noreturn nounwind }
 !15 = !{!16, !7, i64 16}
 !16 = !{!"GCtab", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !10, i64 16, !6, i64 24, !6, i64 32, !10, i64 40, !13, i64 48, !13, i64 52, !10, i64 56}
 !17 = !{!16, !13, i64 48}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!16, !7, i64 40}
-!21 = !{!16, !13, i64 52}
-!22 = distinct !{!22, !19}
-!23 = !{!5, !11, i64 32}
-!24 = distinct !{!24, !19}
-!25 = !{!5, !7, i64 16}
-!26 = !{!27, !7, i64 64}
-!27 = !{!"global_State", !12, i64 0, !12, i64 8, !28, i64 16, !29, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !30, i64 152, !13, i64 184, !6, i64 192, !32, i64 200, !8, i64 232, !8, i64 240, !34, i64 248, !8, i64 272, !35, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !36, i64 392, !8, i64 424}
-!28 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
-!29 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
-!30 = !{!"StrInternState", !31, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
-!31 = !{!"p1 _ZTS5GCRef", !12, i64 0}
-!32 = !{!"SBuf", !33, i64 0, !33, i64 8, !33, i64 16, !10, i64 24}
-!33 = !{!"p1 omnipotent char", !12, i64 0}
-!34 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
-!35 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
-!36 = !{!"PRNGState", !8, i64 0}
-!37 = !{!16, !7, i64 24}
-!38 = !{!32, !7, i64 24}
-!39 = !{!32, !33, i64 16}
-!40 = !{!32, !33, i64 0}
-!41 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!42 = !{!33, !33, i64 0}
-!43 = !{!27, !7, i64 16}
-!44 = !{!27, !7, i64 24}
-!45 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!46 = distinct !{!46, !19}
-!47 = distinct !{!47, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!16, !7, i64 40}
+!22 = !{!16, !13, i64 52}
+!23 = distinct !{!23, !19, !20}
+!24 = !{!5, !11, i64 32}
+!25 = distinct !{!25, !19, !20}
+!26 = !{!5, !7, i64 16}
+!27 = !{!28, !7, i64 64}
+!28 = !{!"global_State", !12, i64 0, !12, i64 8, !29, i64 16, !30, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !31, i64 152, !13, i64 184, !6, i64 192, !33, i64 200, !8, i64 232, !8, i64 240, !35, i64 248, !8, i64 272, !36, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !37, i64 392, !8, i64 424}
+!29 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
+!30 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
+!31 = !{!"StrInternState", !32, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
+!32 = !{!"p1 _ZTS5GCRef", !12, i64 0}
+!33 = !{!"SBuf", !34, i64 0, !34, i64 8, !34, i64 16, !10, i64 24}
+!34 = !{!"p1 omnipotent char", !12, i64 0}
+!35 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
+!36 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
+!37 = !{!"PRNGState", !8, i64 0}
+!38 = !{!16, !7, i64 24}
+!39 = !{!33, !7, i64 24}
+!40 = !{!33, !34, i64 16}
+!41 = !{!33, !34, i64 0}
+!42 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!43 = !{!34, !34, i64 0}
+!44 = !{!28, !7, i64 16}
+!45 = !{!28, !7, i64 24}
+!46 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!47 = distinct !{!47, !19, !20}
+!48 = distinct !{!48, !19, !20}
+!49 = distinct !{!49, !20}
+!50 = distinct !{!50, !20}

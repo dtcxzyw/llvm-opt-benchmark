@@ -68,7 +68,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
   %30 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 1
   %31 = add nsw i64 %.014.i.i, -1
   %32 = icmp eq i64 %.014.i.i, 0
-  br i1 %32, label %from_oct.exit.i, label %23
+  br i1 %32, label %from_oct.exit.i, label %23, !llvm.loop !26
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %35
   %.033.i.i = phi i32 [ %39, %35 ], [ 0, %.preheader.i.i ]
@@ -87,7 +87,7 @@ define hidden range(i32 -1, 2) i32 @file_is_tar(ptr noundef %0, ptr noundef read
   %39 = or disjoint i32 %36, %38
   %40 = add nsw i64 %.132.i.i, -1
   %.not20.i.i = icmp eq i64 %40, 0
-  br i1 %.not20.i.i, label %from_oct.exit.i, label %.lr.ph.i.i
+  br i1 %.not20.i.i, label %from_oct.exit.i, label %.lr.ph.i.i, !llvm.loop !28
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
   %.not21.i.i = icmp eq i8 %33, 0
@@ -115,7 +115,7 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
   %48 = zext i8 %47 to i32
   %49 = add nuw nsw i32 %.02636.i, %48
   %exitcond.not.i = icmp eq i64 %.025.add.i, 512
-  br i1 %exitcond.not.i, label %.preheader.i, label %46
+  br i1 %exitcond.not.i, label %.preheader.i, label %46, !llvm.loop !29
 
 .preheader.i:                                     ; preds = %46, %.preheader.i
   %.02439.i = phi i64 [ %54, %.preheader.i ], [ 0, %46 ]
@@ -126,7 +126,7 @@ from_oct.exit.i:                                  ; preds = %29, %35, %41, %.cri
   %53 = sub nsw i32 %.138.i, %52
   %54 = add nuw nsw i64 %.02439.i, 1
   %exitcond48.not.i = icmp eq i64 %54, 8
-  br i1 %exitcond48.not.i, label %55, label %.preheader.i
+  br i1 %exitcond48.not.i, label %55, label %.preheader.i, !llvm.loop !30
 
 55:                                               ; preds = %.preheader.i
   %56 = add i32 %53, 256
@@ -215,3 +215,8 @@ attributes #7 = { nounwind }
 !23 = !{!"p1 short", !11, i64 0}
 !24 = !{!6, !6, i64 0}
 !25 = !{!15, !15, i64 0}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !27}
+!29 = distinct !{!29, !27}
+!30 = distinct !{!30, !27}

@@ -26,7 +26,7 @@ define hidden noundef range(i64 -288230376151711774, -9223372036854775808) i64 @
   %5 = load atomic i64, ptr %0 seq_cst, align 128
   %6 = load atomic i64, ptr %2 seq_cst, align 128
   %7 = icmp eq i64 %6, %4
-  br i1 %7, label %8, label %3
+  br i1 %7, label %8, label %3, !llvm.loop !4
 
 8:                                                ; preds = %3
   %9 = and i64 %4, -2
@@ -81,12 +81,12 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
 .backedge:                                        ; preds = %16, %34, %42
   %.018.be = phi i64 [ %17, %16 ], [ %35, %34 ], [ %43, %42 ]
   %18 = load atomic i64, ptr %5 acquire, align 8
-  br label %8
+  br label %8, !llvm.loop !6
 
 19:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #11, !srcloc !4
+  call void asm sideeffect inteldialect "lock not qword ptr [${0:q}]", "r,~{memory}"(ptr nonnull %3) #11, !srcloc !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %20 = load atomic i64, ptr %7 monotonic, align 128
   %21 = lshr i64 %20, 1
@@ -154,7 +154,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   call void @_ZN3std6thread9yield_now17h7997a258d0252531E()
   %48 = load atomic i64, ptr %45 acquire, align 8
   %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.lr.ph.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$9wait_next17h7e4718c820f60d76E.exit"
+  br i1 %49, label %.lr.ph.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$9wait_next17h7e4718c820f60d76E.exit", !llvm.loop !8
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$9wait_next17h7e4718c820f60d76E.exit": ; preds = %.lr.ph.i, %44
   %.lcssa.i = phi i64 [ %46, %44 ], [ %48, %.lr.ph.i ]
@@ -183,7 +183,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   %62 = load atomic i64, ptr %58 acquire, align 8
   %63 = and i64 %62, 1
   %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.lr.ph.i33, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hc0bbce794cc99c69E.exit"
+  br i1 %64, label %.lr.ph.i33, label %"_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hc0bbce794cc99c69E.exit", !llvm.loop !9
 
 "_ZN16concurrent_queue9unbounded13Slot$LT$T$GT$10wait_write17hc0bbce794cc99c69E.exit": ; preds = %.lr.ph.i33, %56
   %65 = load ptr, ptr %57, align 8
@@ -212,7 +212,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
 
 79:                                               ; preds = %75, %.lr.ph.i34
   %exitcond.not.i = icmp eq i64 %70, 30
-  br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split", label %.lr.ph.i34
+  br i1 %exitcond.not.i, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split", label %.lr.ph.i34, !llvm.loop !10
 
 80:                                               ; preds = %66
   %81 = icmp samesign ult i64 %10, 29
@@ -235,7 +235,7 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
 
 91:                                               ; preds = %87, %.lr.ph.i36
   %exitcond.not.i38 = icmp eq i64 %82, 30
-  br i1 %exitcond.not.i38, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split", label %.lr.ph.i36
+  br i1 %exitcond.not.i38, label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split", label %.lr.ph.i36, !llvm.loop !10
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split": ; preds = %91, %79, %80
   call void @__rust_dealloc(ptr noundef nonnull %.0.le, i64 noundef 504, i64 noundef 8) #11
@@ -286,7 +286,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
 
 .thread92:                                        ; preds = %.outer.backedge, %81, %2
   %.0.ph.lcssa125 = phi ptr [ null, %2 ], [ %.0.ph129, %81 ], [ %.0.ph.be, %.outer.backedge ]
-  %20 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %20 = load ptr, ptr %5, align 8, !nonnull !11, !noundef !11
   br label %92
 
 ._crit_edge:                                      ; preds = %16, %.lr.ph
@@ -319,7 +319,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %27 = add nuw nsw i64 %25, 1
   %exitcond.not = icmp eq i64 %27, 31
-  br i1 %exitcond.not, label %28, label %24
+  br i1 %exitcond.not, label %28, label %24, !llvm.loop !12
 
 28:                                               ; preds = %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(496) %4, i64 496, i1 false)
@@ -359,7 +359,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %39 = add nuw nsw i64 %37, 1
   %exitcond153.not = icmp eq i64 %39, 31
-  br i1 %exitcond153.not, label %40, label %36
+  br i1 %exitcond153.not, label %40, label %36, !llvm.loop !13
 
 40:                                               ; preds = %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(496) %.sroa.074, ptr noundef nonnull align 8 dereferenceable(496) %3, i64 496, i1 false)
@@ -414,7 +414,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
 
 .thread102:                                       ; preds = %59
   %60 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.148, i64 %.lcssa
-  %61 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %61 = load ptr, ptr %5, align 8, !nonnull !11, !noundef !11
   store ptr %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = atomicrmw or ptr %62, i64 1 release, align 8
@@ -450,7 +450,7 @@ define hidden { i64, ptr } @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$
   %76 = getelementptr inbounds nuw i8, ptr %.148, i64 496
   store atomic i64 %74, ptr %76 release, align 8
   %77 = getelementptr inbounds nuw i8, ptr %.148, i64 480
-  %78 = load ptr, ptr %5, align 8, !nonnull !5, !noundef !5
+  %78 = load ptr, ptr %5, align 8, !nonnull !11, !noundef !11
   store ptr %78, ptr %77, align 8
   %79 = getelementptr inbounds nuw i8, ptr %.148, i64 488
   %80 = atomicrmw or ptr %79, i64 1 release, align 8
@@ -641,5 +641,13 @@ attributes #13 = { cold noreturn nounwind }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.76.0 (07dca489a 2024-02-04)"}
-!4 = !{i32 4316837}
-!5 = !{}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !5}
+!7 = !{i32 4316837}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = !{}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}

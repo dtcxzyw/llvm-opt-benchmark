@@ -63,7 +63,7 @@ define void @ff_hyscale_fast_c(ptr noundef readnone captures(none) %0, ptr nound
   %37 = mul i32 %5, %36
   %38 = ashr i32 %37, 16
   %.not = icmp slt i32 %38, %8
-  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %31, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %31, %.preheader
   ret void
@@ -130,7 +130,7 @@ define void @ff_hcscale_fast_c(ptr noundef readnone captures(none) %0, ptr nound
   %46 = add i32 %.03538, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !13
 
 47:                                               ; preds = %.lr.ph43, %47
   %indvars.iv45 = phi i64 [ %16, %.lr.ph43 ], [ %indvars.iv.next46, %47 ]
@@ -149,7 +149,7 @@ define void @ff_hcscale_fast_c(ptr noundef readnone captures(none) %0, ptr nound
   %57 = mul i32 %7, %56
   %58 = ashr i32 %57, 16
   %.not = icmp slt i32 %58, %10
-  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %47, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %47, %.preheader
   ret void
@@ -168,8 +168,9 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"short", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}

@@ -715,7 +715,7 @@ define dso_local ptr @map_sql_value_to_xml_value(i64 noundef %0, i32 noundef %1,
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = sext i32 %47 to i64
   %49 = icmp slt i64 %indvars.iv.next, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %46, %24
   %50 = load ptr, ptr %8, align 8
@@ -972,7 +972,7 @@ define dso_local ptr @escape_xml(ptr noundef readonly captures(none) %0) local_u
 
 25:                                               ; preds = %7, %8, %9, %10, %16, %15
   %26 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  br label %5, !llvm.loop !9
+  br label %5, !llvm.loop !10
 
 27:                                               ; preds = %5
   %28 = load ptr, ptr %2, align 8
@@ -1122,7 +1122,7 @@ xmldata_root_element_start.exit:                  ; preds = %21, %23, %24
   %29 = add nuw i64 %.030, 1
   %30 = load i64, ptr @SPI_processed, align 8
   %31 = icmp ult i64 %29, %30
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %27
   br i1 %3, label %33, label %32
@@ -1202,7 +1202,7 @@ xmldata_root_element_start.exit:                  ; preds = %18, %19
   %31 = add nuw i64 %.020, 1
   %32 = load i64, ptr @SPI_processed, align 8
   %33 = icmp ult i64 %31, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %34 = call i32 @SPI_finish() #12
@@ -1371,7 +1371,7 @@ xsd_schema_element_start.exit:                    ; preds = %14, %15
 22:                                               ; preds = %23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %20
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !13
 
 23:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
@@ -1946,7 +1946,7 @@ define internal fastcc ptr @query_to_oid_list(ptr noundef %0) unnamed_addr #4 {
   %22 = add nuw i64 %.012, 1
   %23 = load i64, ptr @SPI_processed, align 8
   %24 = icmp ult i64 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %21, %.preheader
   %.09.lcssa = phi ptr [ null, %.preheader ], [ %.1, %21 ]
@@ -2032,7 +2032,7 @@ define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef read
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  br i1 %33, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %30
   %.pre91 = load i32, ptr %5, align 4
@@ -2447,12 +2447,13 @@ attributes #14 = { nounwind willreturn memory(none) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

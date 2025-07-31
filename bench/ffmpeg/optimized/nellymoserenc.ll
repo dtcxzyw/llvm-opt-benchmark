@@ -270,7 +270,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   store float %93, ptr %94, align 4, !tbaa !27
   %indvars.iv.next172.i = add nuw nsw i64 %indvars.iv171.i, 1
   %exitcond174.not.i = icmp eq i64 %indvars.iv.next172.i, 23
-  br i1 %exitcond174.not.i, label %95, label %.preheader131.i, !llvm.loop !63
+  br i1 %exitcond174.not.i, label %95, label %.preheader131.i, !llvm.loop !64
 
 95:                                               ; preds = %92
   %96 = icmp slt i32 %46, 0
@@ -297,7 +297,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   store float 0x7FF0000000000000, ptr %106, align 4, !tbaa !27
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 822664
-  br i1 %exitcond.not.i.i, label %.preheader5.i.preheader.i, label %105, !llvm.loop !64
+  br i1 %exitcond.not.i.i, label %.preheader5.i.preheader.i, label %105, !llvm.loop !65
 
 .preheader5.i.preheader.i:                        ; preds = %105
   %107 = load float, ptr %8, align 16, !tbaa !27
@@ -306,7 +306,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 .preheader5.i.i:                                  ; preds = %.preheader5.i.i, %.preheader5.i.preheader.i
   %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.preheader5.i.i ], [ 0, %.preheader5.i.preheader.i ]
   %108 = getelementptr inbounds nuw [64 x i16], ptr @ff_nelly_init_table, i64 0, i64 %indvars.iv21.i.i
-  %109 = load i16, ptr %108, align 2, !tbaa !65
+  %109 = load i16, ptr %108, align 2, !tbaa !66
   %110 = uitofp i16 %109 to float
   %111 = fsub nsz float %107, %110
   %112 = fmul nsz float %111, %111
@@ -318,7 +318,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   store i8 %115, ptr %116, align 1, !tbaa !60
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond24.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, 64
-  br i1 %exitcond24.not.i.i, label %.preheader4.i.preheader.i, label %.preheader5.i.i, !llvm.loop !67
+  br i1 %exitcond24.not.i.i, label %.preheader4.i.preheader.i, label %.preheader5.i.i, !llvm.loop !68
 
 .preheader4.i.preheader.i:                        ; preds = %.preheader5.i.i
   %invariant.gep.i = getelementptr i8, ptr %.val.i, i64 -143072
@@ -378,7 +378,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %indvars.iv25.i.i = phi i64 [ 0, %.preheader3.preheader.i.i ], [ %indvars.iv.next26.i.i, %161 ]
   %.31088.i.i = phi i32 [ %.110610.i.i, %.preheader3.preheader.i.i ], [ %.4.i.i, %161 ]
   %142 = getelementptr inbounds nuw [32 x i16], ptr @ff_nelly_delta_table, i64 0, i64 %indvars.iv25.i.i
-  %143 = load i16, ptr %142, align 2, !tbaa !65
+  %143 = load i16, ptr %142, align 2, !tbaa !66
   %144 = sext i16 %143 to i32
   %145 = add nsw i32 %144, %141
   %146 = icmp sgt i32 %145, %130
@@ -411,7 +411,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.4.i.i = phi i32 [ 1, %158 ], [ %.31088.i.i, %148 ], [ %.31088.i.i, %147 ]
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 32
-  br i1 %exitcond28.not.i.i, label %.loopexit.i.i, label %.preheader3.i.i, !llvm.loop !68
+  br i1 %exitcond28.not.i.i, label %.loopexit.i.i, label %.preheader3.i.i, !llvm.loop !69
 
 .loopexit.i.i:                                    ; preds = %161, %.preheader3.i.i, %.lr.ph.i.i
   %.2107.i.i = phi i32 [ %.110610.i.i, %.lr.ph.i.i ], [ %.4.i.i, %161 ], [ %.31088.i.i, %.preheader3.i.i ]
@@ -419,7 +419,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %162 = trunc nsw i64 %indvars.iv.next30.i.i to i32
   %163 = sitofp i32 %162 to float
   %164 = fcmp nsz ogt float %129, %163
-  br i1 %164, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !69
+  br i1 %164, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !70
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.loopexit.i.i
   %165 = icmp eq i32 %.2107.i.i, 0
@@ -430,12 +430,12 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %166 = shl i32 %.010913.i.i, 2
   %167 = icmp slt i32 %166, 35768
   %168 = and i1 %167, %.1106.lcssa.i.i
-  br i1 %168, label %122, label %169, !llvm.loop !70
+  br i1 %168, label %122, label %169, !llvm.loop !71
 
 169:                                              ; preds = %._crit_edge.i.i
   %indvars.iv.next33.i.i = add nuw nsw i64 %indvars.iv32.i.i, 1
   %exitcond35.not.i.i = icmp eq i64 %indvars.iv.next33.i.i, 23
-  br i1 %exitcond35.not.i.i, label %.preheader2.i.i, label %.preheader4.i.i, !llvm.loop !71
+  br i1 %exitcond35.not.i.i, label %.preheader2.i.i, label %.preheader4.i.i, !llvm.loop !72
 
 170:                                              ; preds = %170, %.preheader2.i.i
   %indvars.iv36.i.i = phi i64 [ 0, %.preheader2.i.i ], [ %indvars.iv.next37.i.i, %170 ]
@@ -449,7 +449,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %.1102.i.i = select i1 %173, i32 %174, i32 %.010116.i.i
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
   %exitcond39.not.i.i = icmp eq i64 %indvars.iv.next37.i.i, 35768
-  br i1 %exitcond39.not.i.i, label %.preheader.i.preheader.i, label %170, !llvm.loop !72
+  br i1 %exitcond39.not.i.i, label %.preheader.i.preheader.i, label %170, !llvm.loop !73
 
 .preheader.i.preheader.i:                         ; preds = %170
   %175 = getelementptr inbounds nuw i8, ptr %.val85.i, i64 786896
@@ -458,7 +458,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %178 = load i8, ptr %177, align 1, !tbaa !60
   %179 = zext i8 %178 to i32
   %180 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store i32 %179, ptr %180, align 8, !tbaa !73
+  store i32 %179, ptr %180, align 8, !tbaa !74
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.i.preheader.i
@@ -467,7 +467,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %indvars.iv40.i142.i = phi i64 [ 22, %.preheader.i.preheader.i ], [ %indvars.iv.next41.i.i, %.preheader.i.i ]
   %182 = zext i8 %181 to i64
   %183 = getelementptr inbounds nuw [32 x i16], ptr @ff_nelly_delta_table, i64 0, i64 %182
-  %184 = load i16, ptr %183, align 2, !tbaa !65
+  %184 = load i16, ptr %183, align 2, !tbaa !66
   %185 = sext i16 %184 to i32
   %186 = sub nsw i32 %.210318.i143.i, %185
   %indvars.iv.next41.i.i = add nsw i64 %indvars.iv40.i142.i, -1
@@ -477,9 +477,9 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %190 = load i8, ptr %189, align 1, !tbaa !60
   %191 = zext i8 %190 to i32
   %192 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.next41.i.i
-  store i32 %191, ptr %192, align 4, !tbaa !73
+  store i32 %191, ptr %192, align 4, !tbaa !74
   %.not.i.i = icmp eq i64 %indvars.iv.next41.i.i, 0
-  br i1 %.not.i.i, label %get_exponent_dynamic.exit.i, label %.preheader.i.i, !llvm.loop !74
+  br i1 %.not.i.i, label %get_exponent_dynamic.exit.i, label %.preheader.i.i, !llvm.loop !75
 
 193:                                              ; preds = %95
   %194 = load float, ptr %8, align 16, !tbaa !27
@@ -495,23 +495,23 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %204 = zext i8 %203 to i32
   %205 = zext i8 %203 to i64
   %206 = getelementptr inbounds nuw [64 x i16], ptr @ff_nelly_init_table, i64 0, i64 %205
-  %207 = load i16, ptr %206, align 2, !tbaa !65
+  %207 = load i16, ptr %206, align 2, !tbaa !66
   %208 = uitofp i16 %207 to float
   %209 = fsub nsz float %194, %208
   %210 = tail call nsz float @llvm.fabs.f32(float %209)
   %211 = add nuw nsw i32 %204, 1
   %212 = zext nneg i32 %211 to i64
   %213 = getelementptr inbounds nuw [64 x i16], ptr @ff_nelly_init_table, i64 0, i64 %212
-  %214 = load i16, ptr %213, align 2, !tbaa !65
+  %214 = load i16, ptr %213, align 2, !tbaa !66
   %215 = uitofp i16 %214 to float
   %216 = fsub nsz float %194, %215
   %217 = tail call nsz float @llvm.fabs.f32(float %216)
   %218 = fcmp nsz ogt float %210, %217
   %.025.i.i = select i1 %218, i32 %211, i32 %204
-  store i32 %.025.i.i, ptr %7, align 16, !tbaa !73
+  store i32 %.025.i.i, ptr %7, align 16, !tbaa !74
   %219 = zext nneg i32 %.025.i.i to i64
   %220 = getelementptr inbounds nuw [64 x i16], ptr @ff_nelly_init_table, i64 0, i64 %219
-  %221 = load i16, ptr %220, align 2, !tbaa !65
+  %221 = load i16, ptr %220, align 2, !tbaa !66
   %222 = zext i16 %221 to i32
   br label %223
 
@@ -534,29 +534,29 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %237 = zext i8 %236 to i32
   %238 = zext i8 %236 to i64
   %239 = getelementptr inbounds nuw [32 x i16], ptr @ff_nelly_delta_table, i64 0, i64 %238
-  %240 = load i16, ptr %239, align 2, !tbaa !65
+  %240 = load i16, ptr %239, align 2, !tbaa !66
   %241 = sitofp i16 %240 to float
   %242 = fsub nsz float %227, %241
   %243 = tail call nsz float @llvm.fabs.f32(float %242)
   %244 = add nuw nsw i32 %237, 1
   %245 = zext nneg i32 %244 to i64
   %246 = getelementptr inbounds nuw [32 x i16], ptr @ff_nelly_delta_table, i64 0, i64 %245
-  %247 = load i16, ptr %246, align 2, !tbaa !65
+  %247 = load i16, ptr %246, align 2, !tbaa !66
   %248 = sitofp i16 %247 to float
   %249 = fsub nsz float %227, %248
   %250 = tail call nsz float @llvm.fabs.f32(float %249)
   %251 = fcmp nsz ogt float %243, %250
   %.1.i.i = select i1 %251, i32 %244, i32 %237
   %252 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i88.i
-  store i32 %.1.i.i, ptr %252, align 4, !tbaa !73
+  store i32 %.1.i.i, ptr %252, align 4, !tbaa !74
   %253 = zext nneg i32 %.1.i.i to i64
   %254 = getelementptr inbounds nuw [32 x i16], ptr @ff_nelly_delta_table, i64 0, i64 %253
-  %255 = load i16, ptr %254, align 2, !tbaa !65
+  %255 = load i16, ptr %254, align 2, !tbaa !66
   %256 = sext i16 %255 to i32
   %257 = add nsw i32 %.0241.i.i, %256
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i88.i, 1
   %exitcond.not.i90.i = icmp eq i64 %indvars.iv.next.i89.i, 23
-  br i1 %exitcond.not.i90.i, label %get_exponent_dynamic.exit.i, label %223, !llvm.loop !75
+  br i1 %exitcond.not.i90.i, label %get_exponent_dynamic.exit.i, label %223, !llvm.loop !76
 
 get_exponent_dynamic.exit.i:                      ; preds = %.preheader.i.i, %223
   %258 = ptrtoint ptr %98 to i64
@@ -574,10 +574,10 @@ get_exponent_dynamic.exit.i:                      ; preds = %.preheader.i.i, %22
 
 260:                                              ; preds = %259
   %261 = getelementptr inbounds nuw [23 x i32], ptr %7, i64 0, i64 %indvars.iv179.i
-  %262 = load i32, ptr %261, align 4, !tbaa !73
+  %262 = load i32, ptr %261, align 4, !tbaa !74
   %263 = sext i32 %262 to i64
   %264 = getelementptr inbounds [32 x i16], ptr @ff_nelly_delta_table, i64 0, i64 %263
-  %265 = load i16, ptr %264, align 2, !tbaa !65
+  %265 = load i16, ptr %264, align 2, !tbaa !66
   %266 = sext i16 %265 to i32
   %267 = add nsw i32 %.076153.i, %266
   %268 = sub nsw i32 32, %.sroa.15.0151.i
@@ -615,10 +615,10 @@ put_bits.exit.i:                                  ; preds = %278, %260
   br label %302
 
 282:                                              ; preds = %259
-  %283 = load i32, ptr %7, align 16, !tbaa !73
+  %283 = load i32, ptr %7, align 16, !tbaa !74
   %284 = sext i32 %283 to i64
   %285 = getelementptr inbounds [64 x i16], ptr @ff_nelly_init_table, i64 0, i64 %284
-  %286 = load i16, ptr %285, align 2, !tbaa !65
+  %286 = load i16, ptr %285, align 2, !tbaa !66
   %287 = zext i16 %286 to i32
   %288 = sub nsw i32 32, %.sroa.15.0151.i
   %289 = shl i32 %283, %288
@@ -696,7 +696,7 @@ put_bits.exit94.i:                                ; preds = %298, %282
   %indvars.iv.next176.i = add nsw i64 %indvars.iv175.i, 1
   %326 = add nuw nsw i32 %.173144.i, 1
   %exitcond178.not.i = icmp eq i32 %326, %314
-  br i1 %exitcond178.not.i, label %._crit_edge148.loopexit.i, label %317, !llvm.loop !76
+  br i1 %exitcond178.not.i, label %._crit_edge148.loopexit.i, label %317, !llvm.loop !77
 
 ._crit_edge148.loopexit.i:                        ; preds = %317
   %327 = trunc nsw i64 %indvars.iv.next176.i to i32
@@ -706,7 +706,7 @@ put_bits.exit94.i:                                ; preds = %298, %282
   %.3.lcssa.i = phi i32 [ %.2155.i, %302 ], [ %327, %._crit_edge148.loopexit.i ]
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
   %exitcond182.not.i = icmp eq i64 %indvars.iv.next180.i, 23
-  br i1 %exitcond182.not.i, label %328, label %259, !llvm.loop !77
+  br i1 %exitcond182.not.i, label %328, label %259, !llvm.loop !78
 
 328:                                              ; preds = %._crit_edge148.i
   call void @ff_nelly_get_sample_bits(ptr noundef nonnull %5, ptr noundef nonnull %6) #9
@@ -727,7 +727,7 @@ put_bits.exit94.i:                                ; preds = %298, %282
   %.sroa.15.3157.i = phi i32 [ %.sroa.15.2161.i, %.preheader.i ], [ %.sroa.15.4.i, %387 ]
   %.sroa.31.3156.i = phi ptr [ %.sroa.31.2160.i, %.preheader.i ], [ %.sroa.31.4.i, %387 ]
   %331 = getelementptr inbounds nuw [128 x i32], ptr %6, i64 0, i64 %indvars.iv183.i
-  %332 = load i32, ptr %331, align 4, !tbaa !73
+  %332 = load i32, ptr %331, align 4, !tbaa !74
   %333 = icmp sgt i32 %332, 0
   br i1 %333, label %334, label %387
 
@@ -814,7 +814,7 @@ put_bits.exit98.i:                                ; preds = %383, %334
   %.sroa.0.4.i = phi i32 [ %.020.i.i96.i, %put_bits.exit98.i ], [ %.sroa.0.3158.i, %330 ]
   %indvars.iv.next184.i = add nuw nsw i64 %indvars.iv183.i, 1
   %exitcond186.not.i = icmp eq i64 %indvars.iv.next184.i, 124
-  br i1 %exitcond186.not.i, label %388, label %330, !llvm.loop !78
+  br i1 %exitcond186.not.i, label %388, label %330, !llvm.loop !79
 
 388:                                              ; preds = %387
   br i1 %.not83.i, label %389, label %402
@@ -853,7 +853,7 @@ put_bits.exit98.i:                                ; preds = %383, %334
   %.020.i.i100.i = phi i32 [ %.sroa.0.4.i, %389 ], [ 0, %398 ]
   %.0.i.i101.i = phi i32 [ %.sroa.15.4.i, %389 ], [ %399, %398 ]
   %401 = sub nsw i32 %.0.i.i101.i, %391
-  br label %.preheader.i, !llvm.loop !79
+  br label %.preheader.i, !llvm.loop !80
 
 402:                                              ; preds = %388
   %403 = icmp slt i32 %.sroa.15.4.i, 32
@@ -878,7 +878,7 @@ put_bits.exit98.i:                                ; preds = %383, %334
   %409 = lshr i32 %.sroa.0.6.i, 8
   %410 = add nsw i32 %.sroa.15.6.i, 8
   %411 = icmp slt i32 %.sroa.15.6.i, 24
-  br i1 %411, label %.lr.ph.i104.i, label %encode_block.exit, !llvm.loop !80
+  br i1 %411, label %.lr.ph.i104.i, label %encode_block.exit, !llvm.loop !81
 
 encode_block.exit:                                ; preds = %406, %402
   %.sroa.31.15.i = phi ptr [ %.sroa.31.4.i, %402 ], [ %408, %406 ]
@@ -898,7 +898,7 @@ encode_block.exit:                                ; preds = %406, %402
   %420 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %421 = getelementptr inbounds nuw i8, ptr %1, i64 64
   call void @ff_af_queue_remove(ptr noundef nonnull %417, i32 noundef %419, ptr noundef nonnull %420, ptr noundef nonnull %421) #9
-  store i32 1, ptr %3, align 4, !tbaa !73
+  store i32 1, ptr %3, align 4, !tbaa !74
   br label %422
 
 422:                                              ; preds = %39, %34, %4, %encode_block.exit
@@ -975,7 +975,7 @@ define internal void @nellymoser_init_static() #0 {
   store float %19, ptr %21, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 513
-  br i1 %exitcond.not, label %1, label %2, !llvm.loop !81
+  br i1 %exitcond.not, label %1, label %2, !llvm.loop !82
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -1106,24 +1106,25 @@ attributes #11 = { noreturn nounwind }
 !58 = !{!33, !7, i64 32}
 !59 = !{!33, !36, i64 24}
 !60 = !{!8, !8, i64 0}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = distinct !{!63, !62}
-!64 = distinct !{!64, !62}
-!65 = !{!66, !66, i64 0}
-!66 = !{!"short", !8, i64 0}
-!67 = distinct !{!67, !62}
-!68 = distinct !{!68, !62}
-!69 = distinct !{!69, !62}
-!70 = distinct !{!70, !62}
-!71 = distinct !{!71, !62}
-!72 = distinct !{!72, !62}
-!73 = !{!10, !10, i64 0}
-!74 = distinct !{!74, !62}
-!75 = distinct !{!75, !62}
-!76 = distinct !{!76, !62}
-!77 = distinct !{!77, !62}
-!78 = distinct !{!78, !62}
-!79 = distinct !{!79, !62}
-!80 = distinct !{!80, !62}
-!81 = distinct !{!81, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = distinct !{!64, !62, !63}
+!65 = distinct !{!65, !62, !63}
+!66 = !{!67, !67, i64 0}
+!67 = !{!"short", !8, i64 0}
+!68 = distinct !{!68, !62, !63}
+!69 = distinct !{!69, !62, !63}
+!70 = distinct !{!70, !62, !63}
+!71 = distinct !{!71, !62, !63}
+!72 = distinct !{!72, !62, !63}
+!73 = distinct !{!73, !62, !63}
+!74 = !{!10, !10, i64 0}
+!75 = distinct !{!75, !62, !63}
+!76 = distinct !{!76, !62, !63}
+!77 = distinct !{!77, !62, !63}
+!78 = distinct !{!78, !62, !63}
+!79 = distinct !{!79, !62, !63}
+!80 = distinct !{!80, !62, !63}
+!81 = distinct !{!81, !62, !63}
+!82 = distinct !{!82, !62, !63}

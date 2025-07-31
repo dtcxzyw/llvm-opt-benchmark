@@ -90,7 +90,7 @@ define hidden noundef i32 @_ZN5o3dgc8IPredictEPll(ptr noundef captures(none) %0,
   store i64 %14, ptr %5, align 8
   %15 = add nuw nsw i64 %.016, 2
   %16 = icmp slt i64 %15, %3
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !5
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 1, %2 ], [ %15, %.lr.ph ]
@@ -128,7 +128,7 @@ define hidden noundef i32 @_ZN5o3dgc5MergeEPll(ptr noundef captures(none) %0, i6
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %7 = add nuw nsw i64 %.01418, 1
   %8 = icmp samesign ugt i64 %.01519.in, 2
-  br i1 %8, label %.preheader, label %._crit_edge20, !llvm.loop !6
+  br i1 %8, label %.preheader, label %._crit_edge20, !llvm.loop !7
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.016 = phi i64 [ %13, %.lr.ph ], [ %.01519, %.preheader ]
@@ -140,7 +140,7 @@ define hidden noundef i32 @_ZN5o3dgc5MergeEPll(ptr noundef captures(none) %0, i6
   store i64 %11, ptr %10, align 8
   %13 = add nsw i64 %.016, 2
   %14 = icmp slt i64 %13, %.01418
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge20:                                    ; preds = %._crit_edge, %2
   ret i32 0
@@ -272,7 +272,7 @@ _ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %13
   %70 = add nuw nsw i32 %.0710.i.i, 7
   %71 = add nuw nsw i64 %.011.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %71, 5
-  br i1 %exitcond.not.i.i, label %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit17, label %.preheader, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %_ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit17, label %.preheader, !llvm.loop !9
 
 _ZNK5o3dgc12BinaryStream10ReadUInt32ERmNS_15O3DGCStreamTypeE.exit17: ; preds = %.preheader
   %.not14 = icmp eq i64 %69, 498
@@ -347,7 +347,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5o3dgc12BinaryStream10ReadUInt32ERmN
   %16 = add nuw nsw i32 %.0710.i, 7
   %17 = add nuw nsw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %17, 5
-  br i1 %exitcond.not.i, label %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit, label %6, !llvm.loop !8
+  br i1 %exitcond.not.i, label %_ZNK5o3dgc12BinaryStream15ReadUInt32ASCIIERm.exit, label %6, !llvm.loop !9
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -481,7 +481,7 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder14DecodePlayloadERNS_1
   %33 = add nuw nsw i32 %.0710.i.i.i, 7
   %34 = add nuw nsw i64 %.011.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %34, 5
-  br i1 %exitcond.not.i.i.i, label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit, label %24, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit, label %24, !llvm.loop !9
 
 35:                                               ; preds = %20
   %36 = load i32, ptr %17, align 8
@@ -578,7 +578,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit: ; preds = %2
   %102 = add nuw nsw i32 %.0710.i.i.i86, 7
   %103 = add nuw nsw i64 %.011.i.i.i85, 1
   %exitcond.not.i.i.i88 = icmp eq i64 %103, 5
-  br i1 %exitcond.not.i.i.i88, label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89, label %93, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i88, label %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89, label %93, !llvm.loop !9
 
 104:                                              ; preds = %_ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit
   %105 = load i32, ptr %17, align 8
@@ -654,7 +654,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   %159 = add nuw i64 %.071144, 1
   %160 = load i64, ptr %13, align 8
   %161 = icmp ult i64 %159, %160
-  br i1 %161, label %20, label %._crit_edge, !llvm.loop !9
+  br i1 %161, label %20, label %._crit_edge, !llvm.loop !10
 
 162:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #13
@@ -695,7 +695,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   %177 = select i1 %174, i32 %175, i32 0
   %.113.i = add nsw i32 %177, %.012.i
   %.not.i = icmp eq i32 %173, 0
-  br i1 %.not.i, label %.preheader.i, label %.preheader138, !llvm.loop !10
+  br i1 %.not.i, label %.preheader.i, label %.preheader138, !llvm.loop !11
 
 .preheader.i:                                     ; preds = %.noexc
   %.not1617.i = icmp eq i32 %.115.i, 0
@@ -714,7 +714,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   %182 = select i1 %180, i32 %181, i32 0
   %.1.i = or i32 %182, %.019.i
   %.not16.i = icmp eq i32 %179, 0
-  br i1 %.not16.i, label %.loopexit137, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not16.i, label %.loopexit137, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit137:                                     ; preds = %.noexc90, %.preheader.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %.noexc90 ]
@@ -735,7 +735,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   %189 = select i1 %186, i32 %187, i32 0
   %.113.i94 = add nsw i32 %189, %.012.i92
   %.not.i95 = icmp eq i32 %185, 0
-  br i1 %.not.i95, label %.preheader.i96, label %184, !llvm.loop !10
+  br i1 %.not.i95, label %.preheader.i96, label %184, !llvm.loop !11
 
 .preheader.i96:                                   ; preds = %.noexc104
   %.not1617.i97 = icmp eq i32 %.115.i93, 0
@@ -754,7 +754,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   %194 = select i1 %192, i32 %193, i32 0
   %.1.i101 = or i32 %194, %.019.i99
   %.not16.i102 = icmp eq i32 %191, 0
-  br i1 %.not16.i102, label %.loopexit131, label %.lr.ph.i98, !llvm.loop !11
+  br i1 %.not16.i102, label %.loopexit131, label %.lr.ph.i98, !llvm.loop !12
 
 .loopexit131:                                     ; preds = %.noexc105, %.preheader.i96
   %.0.lcssa.i103 = phi i32 [ 0, %.preheader.i96 ], [ %.1.i101, %.noexc105 ]
@@ -884,7 +884,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   %234 = select i1 %231, i32 %232, i32 0
   %.113.i.i.us = add nsw i32 %234, %.012.i.i.us
   %.not.i.i108.us = icmp eq i32 %230, 0
-  br i1 %.not.i.i108.us, label %.preheader.i.i109.us, label %.preheader120.us, !llvm.loop !10
+  br i1 %.not.i.i108.us, label %.preheader.i.i109.us, label %.preheader120.us, !llvm.loop !11
 
 .preheader.i.i109.us:                             ; preds = %.noexc112.us
   %.not1617.i.i.us = icmp eq i32 %.115.i.i.us, 0
@@ -903,7 +903,7 @@ _ZNK5o3dgc12BinaryStream11ReadFloat32ERmNS_15O3DGCStreamTypeE.exit89: ; preds = 
   %239 = select i1 %237, i32 %238, i32 0
   %.1.i.i110.us = or i32 %239, %.019.i.i.us
   %.not16.i.i.us = icmp eq i32 %236, 0
-  br i1 %.not16.i.i.us, label %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !11
+  br i1 %.not16.i.i.us, label %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i.us, label %.lr.ph.i.i.us, !llvm.loop !12
 
 _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i.us: ; preds = %.noexc113.us, %.preheader.i.i109.us
   %.0.lcssa.i.i.us = phi i32 [ 0, %.preheader.i.i109.us ], [ %.1.i.i110.us, %.noexc113.us ]
@@ -928,12 +928,12 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   store i64 %249, ptr %253, align 8
   %254 = add nuw i64 %.059145.us, 1
   %exitcond.not = icmp eq i64 %254, %14
-  br i1 %exitcond.not, label %._crit_edge147.us, label %226, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge147.us, label %226, !llvm.loop !13
 
 ._crit_edge147.us:                                ; preds = %243
   %255 = add nuw i64 %.060148.us, 1
   %exitcond169.not = icmp eq i64 %255, %15
-  br i1 %exitcond169.not, label %.lr.ph157, label %.preheader124.us, !llvm.loop !13
+  br i1 %exitcond169.not, label %.lr.ph157, label %.preheader124.us, !llvm.loop !14
 
 .loopexit.split-lp.loopexit.split-lp.split.us:    ; preds = %226
   %lpad.loopexit.split-lp122.us = landingpad { ptr, i32 }
@@ -989,7 +989,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   %274 = add i64 %.0.i.i.us, 6
   %275 = and i64 %270, 1
   %.not.i.i.us = icmp eq i64 %275, 0
-  br i1 %.not.i.i.us, label %.loopexit.us, label %.preheader.i.i.us, !llvm.loop !15
+  br i1 %.not.i.i.us, label %.loopexit.us, label %.preheader.i.i.us, !llvm.loop !16
 
 .loopexit.us:                                     ; preds = %.preheader.i.i.us, %257
   %.09.i.i.us = phi i64 [ %263, %257 ], [ %273, %.preheader.i.i.us ]
@@ -1007,12 +1007,12 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   store i64 %281, ptr %285, align 8
   %286 = add nuw i64 %.061151.us, 1
   %exitcond170.not = icmp eq i64 %286, %14
-  br i1 %exitcond170.not, label %._crit_edge153.us, label %257, !llvm.loop !16
+  br i1 %exitcond170.not, label %._crit_edge153.us, label %257, !llvm.loop !17
 
 ._crit_edge153.us:                                ; preds = %.loopexit.us
   %287 = add nuw i64 %.062154.us, 1
   %exitcond171.not = icmp eq i64 %287, %15
-  br i1 %exitcond171.not, label %.lr.ph157, label %.preheader.us, !llvm.loop !17
+  br i1 %exitcond171.not, label %.lr.ph157, label %.preheader.us, !llvm.loop !18
 
 .loopexit118:                                     ; preds = %.preheader125, %.preheader117
   br i1 %.not, label %._crit_edge158, label %.lr.ph157
@@ -1098,12 +1098,12 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   store float %331, ptr %gep.us.i, align 4
   %333 = add nuw i64 %.033.us.i, 1
   %exitcond.not.i = icmp eq i64 %333, %15
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %324, !llvm.loop !18
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %324, !llvm.loop !19
 
 ._crit_edge.us.i:                                 ; preds = %324
   %334 = add nuw i64 %.02734.us.i, 1
   %exitcond40.not.i = icmp eq i64 %334, %14
-  br i1 %exitcond40.not.i, label %_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m.exit, label %.lr.ph.us.i, !llvm.loop !19
+  br i1 %exitcond40.not.i, label %_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_m.exit, label %.lr.ph.us.i, !llvm.loop !20
 
 335:                                              ; preds = %.lr.ph157, %340
   %.0155 = phi i64 [ 0, %.lr.ph157 ], [ %341, %340 ]
@@ -1116,7 +1116,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
 340:                                              ; preds = %335
   %341 = add nuw i64 %.0155, 1
   %exitcond172.not = icmp eq i64 %341, %14
-  br i1 %exitcond172.not, label %._crit_edge158, label %335, !llvm.loop !20
+  br i1 %exitcond172.not, label %._crit_edge158, label %335, !llvm.loop !21
 
 342:                                              ; preds = %335
   %343 = landingpad { ptr, i32 }
@@ -1193,7 +1193,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc10ITransformEPlm(ptr noundef %0
   %10 = shl nuw i64 %8, %.02133
   %11 = add i64 %10, %.02232
   %12 = icmp ugt i64 %7, 1
-  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %12, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = add i64 %.02133, -1
@@ -1230,7 +1230,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc10ITransformEPlm(ptr noundef %0
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %25 = add nuw nsw i64 %.01418.i, 1
   %26 = icmp samesign ugt i64 %.01519.in.i, 2
-  br i1 %26, label %.preheader.i, label %_ZN5o3dgc5MergeEPll.exit, !llvm.loop !6
+  br i1 %26, label %.preheader.i, label %_ZN5o3dgc5MergeEPll.exit, !llvm.loop !7
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.016.i = phi i64 [ %31, %.lr.ph.i ], [ %.01519.i, %.preheader.i ]
@@ -1242,7 +1242,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc10ITransformEPlm(ptr noundef %0
   store i64 %29, ptr %28, align 8
   %31 = add nsw i64 %.016.i, 2
   %32 = icmp slt i64 %31, %.01418.i
-  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %32, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !8
 
 _ZN5o3dgc5MergeEPll.exit:                         ; preds = %._crit_edge.i, %16
   %33 = add nsw i64 %20, -1
@@ -1305,7 +1305,7 @@ _ZN5o3dgc7IUpdateEPll.exit:                       ; preds = %._crit_edge.i24, %5
   store i64 %69, ptr %60, align 8
   %70 = add nuw nsw i64 %.016.i29, 2
   %71 = icmp slt i64 %70, %33
-  br i1 %71, label %.lr.ph.i28, label %._crit_edge.i26, !llvm.loop !5
+  br i1 %71, label %.lr.ph.i28, label %._crit_edge.i26, !llvm.loop !6
 
 ._crit_edge.i26:                                  ; preds = %.lr.ph.i28, %_ZN5o3dgc7IUpdateEPll.exit
   %.0.lcssa.i27 = phi i64 [ 1, %_ZN5o3dgc7IUpdateEPll.exit ], [ %70, %.lr.ph.i28 ]
@@ -1324,7 +1324,7 @@ _ZN5o3dgc7IUpdateEPll.exit:                       ; preds = %._crit_edge.i24, %5
 _ZN5o3dgc8IPredictEPll.exit:                      ; preds = %._crit_edge.i26, %73
   %79 = add nsw i64 %.037, -1
   %80 = icmp sgt i64 %.037, 0
-  br i1 %80, label %16, label %._crit_edge40, !llvm.loop !22
+  br i1 %80, label %16, label %._crit_edge40, !llvm.loop !23
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1395,12 +1395,12 @@ define hidden noundef i32 @_ZN5o3dgc20DynamicVectorDecoder9IQuantizeEPfmmmPKfS3_
   store float %43, ptr %gep.us, align 4
   %45 = add nuw i64 %.033.us, 1
   %exitcond.not = icmp eq i64 %45, %2
-  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.us, label %36, !llvm.loop !19
 
 ._crit_edge.us:                                   ; preds = %36
   %46 = add nuw i64 %.02734.us, 1
   %exitcond40.not = icmp eq i64 %46, %3
-  br i1 %exitcond40.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !19
+  br i1 %exitcond40.not, label %._crit_edge37, label %.lr.ph.us, !llvm.loop !20
 
 ._crit_edge37:                                    ; preds = %._crit_edge.us, %.lr.ph36, %23
   ret i32 0
@@ -1445,23 +1445,24 @@ attributes #14 = { builtin allocsize(0) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
-!13 = distinct !{!13, !4, !14}
-!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!15 = distinct !{!15, !4}
-!16 = distinct !{!16, !4}
-!17 = distinct !{!17, !4, !14}
-!18 = distinct !{!18, !4}
-!19 = distinct !{!19, !4, !14}
-!20 = distinct !{!20, !4}
-!21 = distinct !{!21, !4}
-!22 = distinct !{!22, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}
+!14 = distinct !{!14, !4, !5, !15}
+!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!16 = distinct !{!16, !4, !5}
+!17 = distinct !{!17, !4, !5}
+!18 = distinct !{!18, !4, !5, !15}
+!19 = distinct !{!19, !4, !5}
+!20 = distinct !{!20, !4, !5, !15}
+!21 = distinct !{!21, !4, !5}
+!22 = distinct !{!22, !4, !5}
+!23 = distinct !{!23, !4, !5}

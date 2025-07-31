@@ -88,7 +88,7 @@ define hidden void @_ZN13LIR_Assembler15patching_epilogEP12PatchingStub13LIR_Pat
 43:                                               ; preds = %44
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %44, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %44, !llvm.loop !9
 
 44:                                               ; preds = %43, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %43 ]
@@ -224,7 +224,7 @@ define hidden void @_ZN13LIR_Assembler16append_code_stubEP8CodeStub(ptr noundef 
 16:                                               ; preds = %17
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %17, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %17, !llvm.loop !9
 
 17:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
@@ -435,7 +435,7 @@ _ZN13LIR_Assembler15check_codespaceEv.exit:       ; preds = %7, %23
   %31 = load i32, ptr %1, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %7, label %_ZN13LIR_Assembler15check_codespaceEv.exit._crit_edge, !llvm.loop !9
+  br i1 %33, label %7, label %_ZN13LIR_Assembler15check_codespaceEv.exit._crit_edge, !llvm.loop !10
 
 _ZN13LIR_Assembler15check_codespaceEv.exit._crit_edge: ; preds = %28, %_ZN13LIR_Assembler15check_codespaceEv.exit, %2
   ret void
@@ -493,7 +493,7 @@ _ZN13LIR_Assembler15check_codespaceEv.exit.i:     ; preds = %24, %8
   %32 = load i32, ptr %3, align 4
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %34, label %8, label %_ZN13LIR_Assembler10emit_stubsEP12CodeStubList.exit, !llvm.loop !9
+  br i1 %34, label %8, label %_ZN13LIR_Assembler10emit_stubsEP12CodeStubList.exit, !llvm.loop !10
 
 _ZN13LIR_Assembler10emit_stubsEP12CodeStubList.exit: ; preds = %_ZN13LIR_Assembler15check_codespaceEv.exit.i, %29, %1
   ret void
@@ -773,7 +773,7 @@ _ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit.sink.split: ; preds = %103,
 _ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit: ; preds = %_ZN13LIR_Assembler18process_debug_infoEP6LIR_Op.exit.sink.split, %_ZN24DebugInformationRecorder14last_pc_offsetEv.exit.i, %93, %76, %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN13LIR_Assembler13emit_lir_listEP8LIR_List.exit, label %46, !llvm.loop !10
+  br i1 %exitcond.not.i, label %_ZN13LIR_Assembler13emit_lir_listEP8LIR_List.exit, label %46, !llvm.loop !11
 
 132:                                              ; preds = %29, %26
   %133 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -788,7 +788,7 @@ _ZN13LIR_Assembler13emit_lir_listEP8LIR_List.exit: ; preds = %_ZN13LIR_Assembler
   %137 = load i32, ptr %15, align 4
   %138 = sext i32 %137 to i64
   %139 = icmp slt i64 %indvars.iv.next, %138
-  br i1 %139, label %19, label %._crit_edge.loopexit, !llvm.loop !11
+  br i1 %139, label %19, label %._crit_edge.loopexit, !llvm.loop !12
 
 ._crit_edge.loopexit:                             ; preds = %_ZN13LIR_Assembler13emit_lir_listEP8LIR_List.exit
   %.pre = load i32, ptr %1, align 4
@@ -799,7 +799,7 @@ _ZN13LIR_Assembler13emit_lir_listEP8LIR_List.exit: ; preds = %_ZN13LIR_Assembler
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %141 = sext i32 %140 to i64
   %142 = icmp slt i64 %indvars.iv.next26, %141
-  br i1 %142, label %9, label %._crit_edge23, !llvm.loop !12
+  br i1 %142, label %9, label %._crit_edge23, !llvm.loop !13
 
 ._crit_edge23:                                    ; preds = %._crit_edge, %2
   ret void
@@ -868,7 +868,7 @@ _ZN13LIR_Assembler15check_codespaceEv.exit:       ; preds = %7, %23
 38:                                               ; preds = %28, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN13LIR_Assembler15check_codespaceEv.exit._crit_edge, label %7, !llvm.loop !10
+  br i1 %exitcond.not, label %_ZN13LIR_Assembler15check_codespaceEv.exit._crit_edge, label %7, !llvm.loop !11
 
 _ZN13LIR_Assembler15check_codespaceEv.exit._crit_edge: ; preds = %38, %_ZN13LIR_Assembler15check_codespaceEv.exit, %2
   ret void
@@ -889,7 +889,7 @@ define hidden void @_ZN13LIR_Assembler9emit_codeEP9BlockList(ptr noundef nonnull
 7:                                                ; preds = %_ZN13LIR_Assembler10emit_blockEP10BlockBegin.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !14
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
@@ -1263,7 +1263,7 @@ define hidden void @_ZN13LIR_Assembler31record_non_safepoint_debug_infoEv(ptr no
   %21 = icmp samesign uge i32 %20, %.0
   %22 = icmp eq ptr %19, null
   %or.cond.i = or i1 %21, %22
-  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   br i1 %22, label %_ZL10nth_oldestP10ValueStackiRi.exit.thread, label %.preheader.i
@@ -1283,7 +1283,7 @@ define hidden void @_ZN13LIR_Assembler31record_non_safepoint_debug_infoEv(ptr no
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %_ZL10nth_oldestP10ValueStackiRi.exit, label %.lr.ph24.i, !llvm.loop !15
+  br i1 %31, label %_ZL10nth_oldestP10ValueStackiRi.exit, label %.lr.ph24.i, !llvm.loop !16
 
 _ZL10nth_oldestP10ValueStackiRi.exit:             ; preds = %.lr.ph24.i, %.preheader.i
   %.0.i16 = phi ptr [ %.0.i.fr, %.preheader.i ], [ %28, %.lr.ph24.i ]
@@ -1300,7 +1300,7 @@ _ZL10nth_oldestP10ValueStackiRi.exit:             ; preds = %.lr.ph24.i, %.prehe
   call void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %15, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %36, i32 noundef %38, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef null) #11
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
   %39 = add nuw nsw i32 %.0, 1
-  br label %.split, !llvm.loop !16
+  br label %.split, !llvm.loop !17
 
 _ZL10nth_oldestP10ValueStackiRi.exit.thread:      ; preds = %_ZL10nth_oldestP10ValueStackiRi.exit, %._crit_edge.i, %1
   call void @_ZN24DebugInformationRecorder10end_scopesEib(ptr noundef nonnull align 8 dereferenceable(76) %15, i32 noundef %4, i1 noundef zeroext false) #11
@@ -1409,7 +1409,7 @@ _ZN22CompilationResourceObjnwEm.exit._crit_edge:  ; preds = %_ZN22CompilationRes
 45:                                               ; preds = %46
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %46, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %46, !llvm.loop !9
 
 46:                                               ; preds = %45, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %45 ]
@@ -1548,7 +1548,7 @@ _ZN22CompilationResourceObjnwEm.exit._crit_edge:  ; preds = %_ZN22CompilationRes
 45:                                               ; preds = %46
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %46, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %46, !llvm.loop !9
 
 46:                                               ; preds = %45, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %45 ]
@@ -1867,7 +1867,7 @@ _ZN13LIR_Assembler10roundfp_opE7LIR_OprS0_S0_b.exit: ; preds = %switch.lookup, %
 74:                                               ; preds = %75
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %75, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %75, !llvm.loop !9
 
 75:                                               ; preds = %74, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %74 ]
@@ -2845,7 +2845,7 @@ _ZN13GrowableArrayIP8CodeStubE8allocateEv.exit:   ; preds = %7, %11, %15
   %30 = load i32, ptr %0, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !17
+  br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !18
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2861,7 +2861,7 @@ _ZN13GrowableArrayIP8CodeStubE8allocateEv.exit:   ; preds = %7, %11, %15
   %36 = load i32, ptr %3, align 4
   %37 = trunc nuw i64 %indvars.iv.next22 to i32
   %38 = icmp sgt i32 %36, %37
-  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !18
+  br i1 %38, label %.lr.ph19, label %.preheader, !llvm.loop !19
 
 39:                                               ; preds = %.preheader
   %40 = load i64, ptr %4, align 8
@@ -2934,16 +2934,17 @@ attributes #12 = { noreturn nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

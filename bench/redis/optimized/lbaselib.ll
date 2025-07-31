@@ -526,7 +526,7 @@ define internal i32 @luaB_select(ptr noundef %0) #0 {
 
 5:                                                ; preds = %1
   %6 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef 1, ptr noundef null) #8
-  %7 = load i8, ptr %6, align 1, !tbaa !15
+  %7 = load i8, ptr %6, align 1, !tbaa !16
   %8 = icmp eq i8 %7, 35
   br i1 %8, label %9, label %12
 
@@ -658,25 +658,25 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
 
 15:                                               ; preds = %10, %13
   %16 = call i64 @strtoul(ptr noundef %11, ptr noundef nonnull %2, i32 noundef %4) #8
-  %17 = load ptr, ptr %2, align 8, !tbaa !16
+  %17 = load ptr, ptr %2, align 8, !tbaa !17
   %.not = icmp eq ptr %11, %17
   br i1 %.not, label %31, label %.preheader
 
 .preheader:                                       ; preds = %15
   %18 = tail call ptr @__ctype_b_loc() #9
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
+  %19 = load ptr, ptr %18, align 8, !tbaa !19
   br label %20
 
 20:                                               ; preds = %20, %.preheader
   %21 = phi ptr [ %17, %.preheader ], [ %27, %20 ]
-  %22 = load i8, ptr %21, align 1, !tbaa !15
+  %22 = load i8, ptr %21, align 1, !tbaa !16
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw i16, ptr %19, i64 %23
-  %25 = load i16, ptr %24, align 2, !tbaa !20
+  %25 = load i16, ptr %24, align 2, !tbaa !21
   %26 = and i16 %25, 8192
   %.not19 = icmp eq i16 %26, 0
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  br i1 %.not19, label %28, label %20, !llvm.loop !22
+  br i1 %.not19, label %28, label %20, !llvm.loop !23
 
 28:                                               ; preds = %20
   %29 = icmp eq i8 %22, 0
@@ -800,7 +800,7 @@ define internal i32 @luaB_unpack(ptr noundef %0) #0 {
   %21 = add nsw i32 %.02023, 1
   tail call void @lua_rawgeti(ptr noundef %0, i32 noundef 1, i32 noundef %21) #8
   %exitcond.not = icmp eq i32 %21, %11
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 .loopexit:                                        ; preds = %.lr.ph, %19, %10, %17
   %.0 = phi i32 [ %18, %17 ], [ 0, %10 ], [ %15, %19 ], [ %15, %.lr.ph ]
@@ -1184,7 +1184,7 @@ define internal noundef i32 @luaB_costatus(ptr noundef %0) #0 {
 costatus.exit:                                    ; preds = %27, %26, %18, %.split7, %15, %14, %6, %.split
   %phi.call = phi i64 [ 3, %15 ], [ %.1.i, %14 ], [ 0, %.split ], [ 1, %6 ], [ 3, %27 ], [ %.1.i9, %26 ], [ 0, %.split7 ], [ 1, %18 ]
   %28 = getelementptr inbounds nuw [4 x ptr], ptr @statnames, i64 0, i64 %phi.call
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
+  %29 = load ptr, ptr %28, align 8, !tbaa !17
   call void @lua_pushstring(ptr noundef %0, ptr noundef %29) #8
   ret i32 1
 }
@@ -1275,7 +1275,7 @@ costatus.exit:                                    ; preds = %3, %6, %14, %15
 20:                                               ; preds = %19
   %21 = zext nneg i32 %.0.i to i64
   %22 = getelementptr inbounds nuw [4 x ptr], ptr @statnames, i64 0, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !16
+  %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = call ptr (ptr, ptr, ...) @lua_pushfstring(ptr noundef %0, ptr noundef nonnull @.str.74, ptr noundef %23) #8
   br label %35
 
@@ -1377,14 +1377,15 @@ attributes #9 = { nounwind willreturn memory(none) }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
 !12 = !{!"any pointer", !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!6, !6, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"p1 omnipotent char", !12, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"p1 short", !12, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"short", !6, i64 0}
-!22 = distinct !{!22, !14}
-!23 = distinct !{!23, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!6, !6, i64 0}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"p1 omnipotent char", !12, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 short", !12, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"short", !6, i64 0}
+!23 = distinct !{!23, !14, !15}
+!24 = distinct !{!24, !14, !15}

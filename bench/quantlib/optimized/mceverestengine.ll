@@ -710,5 +710,6 @@ attributes #18 = { builtin nounwind }
 !37 = !{!"_ZTSSt10_Head_baseILm0EPdLb0EE", !5, i64 0}
 !38 = !{!5, !5, i64 0}
 !39 = !{!21, !21, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
+!42 = !{!"llvm.loop.estimated_trip_count"}

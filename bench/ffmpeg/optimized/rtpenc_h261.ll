@@ -106,7 +106,7 @@ find_resync_marker_reverse.exit:                  ; preds = %36, %39, %31
   %53 = getelementptr inbounds i8, ptr %.041, i64 %50
   %54 = sub nsw i32 %.03540, %.036
   %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %12, label %._crit_edge, !llvm.loop !39
+  br i1 %55, label %12, label %._crit_edge, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %45, %3
   ret void
@@ -167,6 +167,7 @@ attributes #4 = { nounwind }
 !34 = distinct !{!34, !"find_resync_marker_reverse"}
 !35 = !{!36}
 !36 = distinct !{!36, !34, !"find_resync_marker_reverse: argument 0"}
-!37 = distinct !{!37, !38}
+!37 = distinct !{!37, !38, !39}
 !38 = !{!"llvm.loop.mustprogress"}
-!39 = distinct !{!39, !38}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = distinct !{!40, !38, !39}

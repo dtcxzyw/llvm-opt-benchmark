@@ -322,7 +322,7 @@ define hidden void @_ZN5zxing6qrcode8DataMask15unmaskBitMatrixERNS_9BitMatrixEm(
 14:                                               ; preds = %7, %12
   %15 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %15, %2
-  br i1 %exitcond.not, label %5, label %7, !llvm.loop !27
+  br i1 %exitcond.not, label %5, label %7, !llvm.loop !28
 }
 
 declare void @_ZN5zxing9BitMatrix4flipEii(ptr noundef nonnull align 8 dereferenceable(346), i32 noundef, i32 noundef) local_unnamed_addr #5
@@ -340,7 +340,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 define linkonce_odr hidden void @_ZNSt6vectorIN5zxing3RefINS0_6qrcode8DataMaskEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !29
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode8DataMaskEEES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
@@ -369,7 +369,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5zxing3RefINS0_6qrcode8DataMaskEE
 _ZSt8_DestroyIN5zxing3RefINS0_6qrcode8DataMaskEEEEvPT_.exit.i.i.i: ; preds = %11, %6, %.lr.ph.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %15, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode8DataMaskEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !29
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN5zxing3RefINS0_6qrcode8DataMaskEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !30
 
 _ZSt8_DestroyIPN5zxing3RefINS0_6qrcode8DataMaskEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyIN5zxing3RefINS0_6qrcode8DataMaskEEEEvPT_.exit.i.i.i
   %.pr = load ptr, ptr %0, align 8, !tbaa !19
@@ -423,7 +423,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit:                 ; preds = %_ZNKSt7__cxx1112bas
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #11 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %3 = load i32, ptr %2, align 4, !tbaa !30
+  %3 = load i32, ptr %2, align 4, !tbaa !31
   ret i32 %3
 }
 
@@ -663,7 +663,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #13 section ".text.startup" 
 .noexc.i:                                         ; preds = %30
   store ptr %33, ptr @_ZN5zxing6qrcode8DataMask10DATA_MASKSE, align 8, !tbaa !19
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
-  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @_ZN5zxing6qrcode8DataMask10DATA_MASKSE, i64 16), align 8, !tbaa !31
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @_ZN5zxing6qrcode8DataMask10DATA_MASKSE, i64 16), align 8, !tbaa !32
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %40, %.noexc.i
@@ -686,10 +686,10 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #13 section ".text.startup" 
   %.01214.i.i.i.i.i.i.add.i = add nuw nsw i64 %.01214.i.i.i.i.i.i.idx.i, 8
   %41 = getelementptr inbounds nuw i8, ptr %.015.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq i64 %.01214.i.i.i.i.i.i.add.i, 64
-  br i1 %.not.i.i.i.i.i.i.i, label %42, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !32
+  br i1 %.not.i.i.i.i.i.i.i, label %42, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !33
 
 42:                                               ; preds = %40
-  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @_ZN5zxing6qrcode8DataMask10DATA_MASKSE, i64 8), align 8, !tbaa !28
+  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @_ZN5zxing6qrcode8DataMask10DATA_MASKSE, i64 8), align 8, !tbaa !29
   br label %43
 
 43:                                               ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i, %42
@@ -717,7 +717,7 @@ define internal void @_GLOBAL__sub_I_datamask.cpp() #13 section ".text.startup" 
 
 _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i:   ; preds = %52, %47, %43
   %56 = icmp eq ptr %45, %1
-  br i1 %56, label %__cxx_global_var_init.exit, label %43
+  br i1 %56, label %__cxx_global_var_init.exit, label %43, !llvm.loop !34
 
 .thread18.i:                                      ; preds = %26, %22, %18, %14, %10, %6, %0
   %.04.ph.i = phi ptr [ %4, %0 ], [ %8, %6 ], [ %12, %10 ], [ %16, %14 ], [ %20, %18 ], [ %24, %22 ], [ %28, %26 ]
@@ -750,7 +750,7 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit.i:   ; preds = %52, %47, %43
 
 _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i: ; preds = %65, %60, %.preheader.i
   %69 = icmp eq ptr %58, %1
-  br i1 %69, label %.thread.i, label %.preheader.i
+  br i1 %69, label %.thread.i, label %.preheader.i, !llvm.loop !35
 
 70:                                               ; preds = %30
   %71 = landingpad { ptr, i32 }
@@ -782,7 +782,7 @@ _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i: ; preds = %65, %60, %.preheade
 
 _ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i: ; preds = %81, %76, %72
   %85 = icmp eq ptr %74, %1
-  br i1 %85, label %.thread.i, label %72
+  br i1 %85, label %.thread.i, label %72, !llvm.loop !36
 
 .thread.i:                                        ; preds = %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i
   %.pn8.i = phi { ptr, i32 } [ %71, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit13.i ], [ %lpad.thr_comm.i, %_ZN5zxing3RefINS_6qrcode8DataMaskEED2Ev.exit11.i ]
@@ -845,11 +845,15 @@ attributes #18 = { builtin allocsize(0) }
 !22 = !{!23, !24, i64 0}
 !23 = !{!"_ZTSN5zxing3RefINS_6qrcode8DataMaskEEE", !24, i64 0}
 !24 = !{!"p1 _ZTSN5zxing6qrcode8DataMaskE", !15, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = distinct !{!27, !26}
-!28 = !{!20, !21, i64 8}
-!29 = distinct !{!29, !26}
-!30 = !{!11, !5, i64 12}
-!31 = !{!20, !21, i64 16}
-!32 = distinct !{!32, !26}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = distinct !{!28, !26, !27}
+!29 = !{!20, !21, i64 8}
+!30 = distinct !{!30, !26, !27}
+!31 = !{!11, !5, i64 12}
+!32 = !{!20, !21, i64 16}
+!33 = distinct !{!33, !26, !27}
+!34 = distinct !{!34, !27}
+!35 = distinct !{!35, !27}
+!36 = distinct !{!36, !27}

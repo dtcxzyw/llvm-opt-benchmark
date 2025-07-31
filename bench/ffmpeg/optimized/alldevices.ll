@@ -74,13 +74,13 @@ define internal fastcc ptr @next_input(ptr noundef readnone captures(address) %0
 
 9:                                                ; preds = %.critedge
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %11 = load ptr, ptr %10, align 8, !tbaa !11
+  %11 = load ptr, ptr %10, align 8, !tbaa !12
   %.not21 = icmp eq ptr %11, null
   br i1 %.not21, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !19
+  %14 = load i32, ptr %13, align 4, !tbaa !20
   br label %15
 
 15:                                               ; preds = %9, %12
@@ -88,7 +88,7 @@ define internal fastcc ptr @next_input(ptr noundef readnone captures(address) %0
   %16 = icmp ne i32 %.115, 45
   %17 = icmp ne i32 %.115, %1
   %18 = and i1 %16, %17
-  br i1 %18, label %.critedge, label %19, !llvm.loop !22
+  br i1 %18, label %.critedge, label %19, !llvm.loop !23
 
 19:                                               ; preds = %.critedge, %15
   ret ptr %8
@@ -118,10 +118,10 @@ define internal fastcc ptr @next_output(ptr noundef readnone captures(address) %
 
 3:                                                ; preds = %.preheader
   %4 = getelementptr inbounds nuw [6 x ptr], ptr @outdev_list, i64 0, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not19 = icmp eq ptr %0, %5
-  br i1 %.not19, label %.critedge.loopexit, label %.preheader, !llvm.loop !25
+  br i1 %.not19, label %.critedge.loopexit, label %.preheader, !llvm.loop !26
 
 .critedge.loopexit:                               ; preds = %.preheader, %3
   %.1.ph = phi i64 [ %indvars.iv.next, %3 ], [ 5, %.preheader ]
@@ -137,19 +137,19 @@ define internal fastcc ptr @next_output(ptr noundef readnone captures(address) %
   %.014 = phi i32 [ %.115, %15 ], [ 0, %.critedge.preheader ]
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %7 = getelementptr inbounds nuw [6 x ptr], ptr @outdev_list, i64 0, i64 %indvars.iv23
-  %8 = load ptr, ptr %7, align 8, !tbaa !23
+  %8 = load ptr, ptr %7, align 8, !tbaa !24
   %.not20 = icmp eq i64 %indvars.iv23, 5
   br i1 %.not20, label %19, label %9
 
 9:                                                ; preds = %.critedge
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %11 = load ptr, ptr %10, align 8, !tbaa !26
+  %11 = load ptr, ptr %10, align 8, !tbaa !27
   %.not21 = icmp eq ptr %11, null
   br i1 %.not21, label %15, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !19
+  %14 = load i32, ptr %13, align 4, !tbaa !20
   br label %15
 
 15:                                               ; preds = %9, %12
@@ -157,7 +157,7 @@ define internal fastcc ptr @next_output(ptr noundef readnone captures(address) %
   %16 = icmp ne i32 %.115, 44
   %17 = icmp ne i32 %.115, %1
   %18 = and i1 %16, %17
-  br i1 %18, label %.critedge, label %19, !llvm.loop !29
+  br i1 %18, label %.critedge, label %19, !llvm.loop !30
 
 19:                                               ; preds = %.critedge, %15
   ret ptr %8
@@ -186,24 +186,25 @@ attributes #4 = { cold }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = !{!12, !18, i64 40}
-!12 = !{!"FFInputFormat", !13, i64 0, !15, i64 56, !15, i64 60, !15, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144}
-!13 = !{!"AVInputFormat", !14, i64 0, !14, i64 8, !15, i64 16, !14, i64 24, !16, i64 32, !18, i64 40, !14, i64 48}
-!14 = !{!"p1 omnipotent char", !6, i64 0}
-!15 = !{!"int", !7, i64 0}
-!16 = !{!"p2 _ZTS10AVCodecTag", !17, i64 0}
-!17 = !{!"any p2 pointer", !6, i64 0}
-!18 = !{!"p1 _ZTS7AVClass", !6, i64 0}
-!19 = !{!20, !15, i64 36}
-!20 = !{!"AVClass", !14, i64 0, !6, i64 8, !21, i64 16, !15, i64 24, !15, i64 28, !15, i64 32, !15, i64 36, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !15, i64 72}
-!21 = !{!"p1 _ZTS8AVOption", !6, i64 0}
-!22 = distinct !{!22, !10}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"p1 _ZTS14FFOutputFormat", !6, i64 0}
-!25 = distinct !{!25, !10}
-!26 = !{!27, !18, i64 56}
-!27 = !{!"FFOutputFormat", !28, i64 0, !15, i64 64, !15, i64 68, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160}
-!28 = !{!"AVOutputFormat", !14, i64 0, !14, i64 8, !14, i64 16, !14, i64 24, !15, i64 32, !15, i64 36, !15, i64 40, !15, i64 44, !16, i64 48, !18, i64 56}
-!29 = distinct !{!29, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = !{!13, !19, i64 40}
+!13 = !{!"FFInputFormat", !14, i64 0, !16, i64 56, !16, i64 60, !16, i64 64, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144}
+!14 = !{!"AVInputFormat", !15, i64 0, !15, i64 8, !16, i64 16, !15, i64 24, !17, i64 32, !19, i64 40, !15, i64 48}
+!15 = !{!"p1 omnipotent char", !6, i64 0}
+!16 = !{!"int", !7, i64 0}
+!17 = !{!"p2 _ZTS10AVCodecTag", !18, i64 0}
+!18 = !{!"any p2 pointer", !6, i64 0}
+!19 = !{!"p1 _ZTS7AVClass", !6, i64 0}
+!20 = !{!21, !16, i64 36}
+!21 = !{!"AVClass", !15, i64 0, !6, i64 8, !22, i64 16, !16, i64 24, !16, i64 28, !16, i64 32, !16, i64 36, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !16, i64 72}
+!22 = !{!"p1 _ZTS8AVOption", !6, i64 0}
+!23 = distinct !{!23, !10, !11}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 _ZTS14FFOutputFormat", !6, i64 0}
+!26 = distinct !{!26, !10, !11}
+!27 = !{!28, !19, i64 56}
+!28 = !{!"FFOutputFormat", !29, i64 0, !16, i64 64, !16, i64 68, !6, i64 72, !6, i64 80, !6, i64 88, !6, i64 96, !6, i64 104, !6, i64 112, !6, i64 120, !6, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160}
+!29 = !{!"AVOutputFormat", !15, i64 0, !15, i64 8, !15, i64 16, !15, i64 24, !16, i64 32, !16, i64 36, !16, i64 40, !16, i64 44, !17, i64 48, !19, i64 56}
+!30 = distinct !{!30, !10, !11}

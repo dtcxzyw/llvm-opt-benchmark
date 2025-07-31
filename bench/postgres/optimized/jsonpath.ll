@@ -937,7 +937,7 @@ jspGetArraySubscript.exit:                        ; preds = %.lr.ph, %93
   %97 = load i32, ptr %.0109.sroa.phi133, align 8
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
-  br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !11
+  br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %jspGetArraySubscript.exit, %.preheader, %14
   %100 = load i8, ptr %11, align 4, !range !4, !noundef !5
@@ -1003,7 +1003,7 @@ jspGetNext.exit:                                  ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #13
   %122 = load i8, ptr %7, align 1, !range !4, !noundef !5
   %123 = trunc nuw i8 %122 to i1
-  br i1 %123, label %.loopexit96, label %14
+  br i1 %123, label %.loopexit96, label %14, !llvm.loop !13
 
 .loopexit96:                                      ; preds = %jspGetNext.exit, %2, %jspGetNext.exit.thread
   %.170 = phi i32 [ %.2, %jspGetNext.exit.thread ], [ 0, %2 ], [ %.2, %jspGetNext.exit ]
@@ -1045,7 +1045,7 @@ define internal fastcc noundef zeroext i1 @flattenJsonPathParseItem(ptr noundef 
   tail call void @check_stack_depth() #13
   %19 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %21, label %20, !prof !12
+  br i1 %.not, label %21, label %20, !prof !14
 
 20:                                               ; preds = %6
   tail call void @ProcessInterrupts() #13
@@ -1447,7 +1447,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %185 = load i32, ptr %13, align 4
   %186 = sext i32 %185 to i64
   %.not143 = icmp slt i64 %indvars.iv.next, %186
-  br i1 %.not143, label %162, label %.critedge156, !llvm.loop !13
+  br i1 %.not143, label %162, label %.critedge156, !llvm.loop !15
 
 187:                                              ; preds = %173, %162
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
@@ -1526,7 +1526,7 @@ define internal fastcc void @printJsonPathItem(ptr noundef nonnull %0, ptr nound
   tail call void @check_stack_depth() #13
   %8 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %10, label %9, !prof !12
+  br i1 %.not, label %10, label %9, !prof !14
 
 9:                                                ; preds = %4
   tail call void @ProcessInterrupts() #13
@@ -1871,7 +1871,7 @@ jspGetArraySubscript.exit:                        ; preds = %103, %111
   %117 = load i32, ptr %98, align 8
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next, %118
-  br i1 %119, label %103, label %._crit_edge, !llvm.loop !14
+  br i1 %119, label %103, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %116, %97
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 93) #13
@@ -2360,9 +2360,11 @@ attributes #14 = { cold nounwind }
 !6 = !{!7}
 !7 = distinct !{!7, !8, !"pq_writeint8: argument 0"}
 !8 = distinct !{!8, !"pq_writeint8"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !11}
+!14 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!15 = distinct !{!15, !10, !11}
+!16 = distinct !{!16, !10, !11}

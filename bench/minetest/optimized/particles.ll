@@ -3505,7 +3505,7 @@ sw.bb1:                                           ; preds = %tailrecurse
 sw.bb2:                                           ; preds = %tailrecurse
   %call3 = tail call noundef i32 @_Z25getFloatSerializationTypev()
   store i32 %call3, ptr @g_serialize_f32_type, align 4, !tbaa !92
-  br label %tailrecurse
+  br label %tailrecurse, !llvm.loop !94
 
 sw.epilog:                                        ; preds = %tailrecurse
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #26
@@ -3578,7 +3578,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 entry:
   %__dnew.i = alloca i64, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  store ptr %0, ptr %this, align 8, !tbaa !94
+  store ptr %0, ptr %this, align 8, !tbaa !96
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -3589,14 +3589,14 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__s) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i) #26
-  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !95
+  store i64 %call.i, ptr %__dnew.i, align 8, !tbaa !97
   %cmp.i = icmp ugt i64 %call.i, 15
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %if.end
   %call2.i11 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %__dnew.i, i64 noundef 0)
   store ptr %call2.i11, ptr %this, align 8, !tbaa !65
-  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !95
+  %1 = load i64, ptr %__dnew.i, align 8, !tbaa !97
   store i64 %1, ptr %0, align 8, !tbaa !30
   br label %if.end.i
 
@@ -3617,7 +3617,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
-  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !95
+  %4 = load i64, ptr %__dnew.i, align 8, !tbaa !97
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   %5 = load ptr, ptr %this, align 8, !tbaa !65
@@ -3634,12 +3634,12 @@ entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !4
   %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store ptr %0, ptr %m_s.i, align 8, !tbaa !94
+  store ptr %0, ptr %m_s.i, align 8, !tbaa !96
   %1 = load ptr, ptr %s, align 8, !tbaa !65
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #26
-  store i64 %2, ptr %__dnew.i.i.i, align 8, !tbaa !95
+  store i64 %2, ptr %__dnew.i.i.i, align 8, !tbaa !97
   %cmp.i.i.i = icmp ugt i64 %2, 15
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
@@ -3649,7 +3649,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 call2.i12.i.noexc.i:                              ; preds = %if.then.i.i.i
   store ptr %call2.i12.i2.i, ptr %m_s.i, align 8, !tbaa !65
-  %3 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !95
+  %3 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !97
   store i64 %3, ptr %0, align 8, !tbaa !30
   br label %if.end.i.i.i
 
@@ -3677,7 +3677,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
-  %8 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !95
+  %8 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !97
   %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %8, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !70
   %9 = load ptr, ptr %m_s.i, align 8, !tbaa !65
@@ -3842,7 +3842,7 @@ sw.bb1:                                           ; preds = %tailrecurse
 sw.bb3:                                           ; preds = %tailrecurse
   %call4 = tail call noundef i32 @_Z25getFloatSerializationTypev()
   store i32 %call4, ptr @g_serialize_f32_type, align 4, !tbaa !92
-  br label %tailrecurse
+  br label %tailrecurse, !llvm.loop !98
 
 sw.epilog:                                        ; preds = %tailrecurse
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #26
@@ -4069,5 +4069,8 @@ attributes #29 = { noreturn nounwind }
 !91 = !{!"_ZTSSt6locale", !68, i64 0}
 !92 = !{!93, !93, i64 0}
 !93 = !{!"_ZTS9FloatType", !10, i64 0}
-!94 = !{!67, !68, i64 0}
-!95 = !{!69, !69, i64 0}
+!94 = distinct !{!94, !95}
+!95 = !{!"llvm.loop.estimated_trip_count"}
+!96 = !{!67, !68, i64 0}
+!97 = !{!69, !69, i64 0}
+!98 = distinct !{!98, !95}

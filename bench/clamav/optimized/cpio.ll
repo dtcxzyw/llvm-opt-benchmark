@@ -149,7 +149,7 @@ fmap_readn.exit92:                                ; preds = %32
   %49 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %50 = load i8, ptr %49, align 1, !tbaa !30
   %.not.i93 = icmp eq i8 %50, 0
-  br i1 %.not.i93, label %sanitname.exit, label %.lr.ph.i
+  br i1 %.not.i93, label %sanitname.exit, label %.lr.ph.i, !llvm.loop !31
 
 sanitname.exit:                                   ; preds = %48, %37
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #9
@@ -226,7 +226,7 @@ sanitname.exit:                                   ; preds = %48, %37
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 88
   %78 = load i64, ptr %77, align 8, !tbaa !23
   %or.cond103.not = icmp ult i64 %.0.be, %78
-  br i1 %or.cond103.not, label %8, label %fmap_readn.exit.thread
+  br i1 %or.cond103.not, label %8, label %fmap_readn.exit.thread, !llvm.loop !33
 
 fmap_readn.exit.thread.sink.split:                ; preds = %fmap_readn.exit92, %32, %24, %20
   %.str.2.sink = phi ptr [ @.str, %20 ], [ @.str.2, %24 ], [ @.str.2, %32 ], [ @.str.2, %fmap_readn.exit92 ]
@@ -268,9 +268,9 @@ define i32 @cli_scancpio_odc(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #9
-  store i32 0, ptr %5, align 4, !tbaa !31
+  store i32 0, ptr %5, align 4, !tbaa !34
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #9
-  store i32 0, ptr %6, align 4, !tbaa !31
+  store i32 0, ptr %6, align 4, !tbaa !34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(76) %2, i8 0, i64 76, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !3
@@ -328,7 +328,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %.not37, label %33, label %fmap_readn.exit.thread.sink.split
 
 33:                                               ; preds = %29
-  %34 = load i32, ptr %6, align 4, !tbaa !31
+  %34 = load i32, ptr %6, align 4, !tbaa !34
   %.not38 = icmp eq i32 %34, 0
   br i1 %.not38, label %66, label %35
 
@@ -385,14 +385,14 @@ fmap_readn.exit48:                                ; preds = %41
   %58 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !30
   %.not.i49 = icmp eq i8 %59, 0
-  br i1 %.not.i49, label %sanitname.exit, label %.lr.ph.i
+  br i1 %.not.i49, label %sanitname.exit, label %.lr.ph.i, !llvm.loop !31
 
 sanitname.exit:                                   ; preds = %57, %46
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %3) #9
   %bcmp40 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %3, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %.not41 = icmp eq i32 %bcmp40, 0
   %spec.select = select i1 %.not41, i32 1, i32 %.02458
-  %60 = load i32, ptr %6, align 4, !tbaa !31
+  %60 = load i32, ptr %6, align 4, !tbaa !34
   %61 = icmp ult i32 %36, %60
   br i1 %61, label %62, label %66
 
@@ -412,9 +412,9 @@ sanitname.exit:                                   ; preds = %57, %46
   br i1 %.not42, label %69, label %fmap_readn.exit.thread.sink.split
 
 69:                                               ; preds = %66
-  %70 = load i32, ptr %5, align 4, !tbaa !31
+  %70 = load i32, ptr %5, align 4, !tbaa !34
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %70) #9
-  %71 = load i32, ptr %5, align 4, !tbaa !31
+  %71 = load i32, ptr %5, align 4, !tbaa !34
   %.not43 = icmp eq i32 %71, 0
   br i1 %.not43, label %.backedge, label %72
 
@@ -426,14 +426,14 @@ sanitname.exit:                                   ; preds = %57, %46
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %7, align 8, !tbaa !3
-  %78 = load i32, ptr %5, align 4, !tbaa !31
+  %78 = load i32, ptr %5, align 4, !tbaa !34
   %79 = zext i32 %78 to i64
   %80 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %77, i64 noundef %.1, i64 noundef %79, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 0) #9
   %.not44 = icmp eq i32 %80, 0
   br i1 %.not44, label %81, label %fmap_readn.exit.thread
 
 81:                                               ; preds = %76
-  %82 = load i32, ptr %5, align 4, !tbaa !31
+  %82 = load i32, ptr %5, align 4, !tbaa !34
   %83 = zext i32 %82 to i64
   %84 = add i64 %.1, %83
   br label %.backedge
@@ -444,7 +444,7 @@ sanitname.exit:                                   ; preds = %57, %46
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 88
   %87 = load i64, ptr %86, align 8, !tbaa !23
   %or.cond53.not = icmp ult i64 %.0.be, %87
-  br i1 %or.cond53.not, label %15, label %fmap_readn.exit.thread
+  br i1 %or.cond53.not, label %15, label %fmap_readn.exit.thread, !llvm.loop !35
 
 fmap_readn.exit.thread.sink.split:                ; preds = %66, %fmap_readn.exit48, %41, %35, %29, %28
   %.str.12.sink = phi ptr [ @.str.8, %28 ], [ @.str.10, %29 ], [ @.str.11, %35 ], [ @.str.11, %41 ], [ @.str.11, %fmap_readn.exit48 ], [ @.str.12, %66 ]
@@ -544,7 +544,7 @@ fmap_readn.exit:                                  ; preds = %15
   br i1 %.not51, label %34, label %fmap_readn.exit.thread.sink.split
 
 34:                                               ; preds = %30
-  %35 = load i32, ptr %7, align 4, !tbaa !31
+  %35 = load i32, ptr %7, align 4, !tbaa !34
   %.not52 = icmp eq i32 %35, 0
   br i1 %.not52, label %78, label %36
 
@@ -601,14 +601,14 @@ fmap_readn.exit65:                                ; preds = %42
   %59 = getelementptr inbounds nuw i8, ptr %.08.i, i64 1
   %60 = load i8, ptr %59, align 1, !tbaa !30
   %.not.i66 = icmp eq i8 %60, 0
-  br i1 %.not.i66, label %sanitname.exit, label %.lr.ph.i
+  br i1 %.not.i66, label %sanitname.exit, label %.lr.ph.i, !llvm.loop !31
 
 sanitname.exit:                                   ; preds = %58, %47
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #9
   %bcmp54 = call i32 @bcmp(ptr noundef nonnull dereferenceable(11) %4, ptr noundef nonnull dereferenceable(11) @.str.4, i64 11)
   %.not55 = icmp eq i32 %bcmp54, 0
   %spec.select = select i1 %.not55, i32 1, i32 %.03475
-  %61 = load i32, ptr %7, align 4, !tbaa !31
+  %61 = load i32, ptr %7, align 4, !tbaa !34
   %62 = xor i32 %61, 1
   %.neg = add i32 %62, 1
   %63 = and i32 %.neg, 3
@@ -622,7 +622,7 @@ sanitname.exit:                                   ; preds = %58, %47
 
 67:                                               ; preds = %66
   %68 = add i32 %63, %61
-  store i32 %68, ptr %7, align 4, !tbaa !31
+  store i32 %68, ptr %7, align 4, !tbaa !34
   br label %69
 
 69:                                               ; preds = %67, %66
@@ -650,9 +650,9 @@ sanitname.exit:                                   ; preds = %58, %47
   br i1 %.not58, label %81, label %fmap_readn.exit.thread.sink.split
 
 81:                                               ; preds = %78
-  %82 = load i32, ptr %6, align 4, !tbaa !31
+  %82 = load i32, ptr %6, align 4, !tbaa !34
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %82) #9
-  %83 = load i32, ptr %6, align 4, !tbaa !31
+  %83 = load i32, ptr %6, align 4, !tbaa !34
   %.not59 = icmp eq i32 %83, 0
   br i1 %.not59, label %.backedge, label %84
 
@@ -664,14 +664,14 @@ sanitname.exit:                                   ; preds = %58, %47
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %8, align 8, !tbaa !3
-  %90 = load i32, ptr %6, align 4, !tbaa !31
+  %90 = load i32, ptr %6, align 4, !tbaa !34
   %91 = zext i32 %90 to i64
   %92 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef %89, i64 noundef %.1, i64 noundef %91, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4, i32 noundef 0) #9
   %.not60 = icmp eq i32 %92, 0
   br i1 %.not60, label %93, label %fmap_readn.exit.thread
 
 93:                                               ; preds = %88
-  %94 = load i32, ptr %6, align 4, !tbaa !31
+  %94 = load i32, ptr %6, align 4, !tbaa !34
   %95 = and i32 %94, 3
   %.not61 = icmp eq i32 %95, 0
   br i1 %.not61, label %98, label %96
@@ -679,7 +679,7 @@ sanitname.exit:                                   ; preds = %58, %47
 96:                                               ; preds = %93
   %reass.sub = and i32 %94, -4
   %97 = add i32 %reass.sub, 4
-  store i32 %97, ptr %6, align 4, !tbaa !31
+  store i32 %97, ptr %6, align 4, !tbaa !34
   br label %98
 
 98:                                               ; preds = %96, %93
@@ -694,7 +694,7 @@ sanitname.exit:                                   ; preds = %58, %47
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 88
   %104 = load i64, ptr %103, align 8, !tbaa !23
   %or.cond70.not = icmp ult i64 %.0.be, %104
-  br i1 %or.cond70.not, label %15, label %fmap_readn.exit.thread
+  br i1 %or.cond70.not, label %15, label %fmap_readn.exit.thread, !llvm.loop !36
 
 fmap_readn.exit.thread.sink.split:                ; preds = %78, %fmap_readn.exit65, %42, %36, %30, %29, %.critedge
   %.str.19.sink = phi ptr [ @.str.15, %.critedge ], [ @.str.15, %29 ], [ @.str.17, %30 ], [ @.str.18, %36 ], [ @.str.18, %42 ], [ @.str.18, %fmap_readn.exit65 ], [ @.str.19, %78 ]
@@ -776,4 +776,9 @@ attributes #9 = { nounwind }
 !28 = !{!"short", !7, i64 0}
 !29 = !{!27, !28, i64 20}
 !30 = !{!7, !7, i64 0}
-!31 = !{!14, !14, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = distinct !{!33, !32}
+!34 = !{!14, !14, i64 0}
+!35 = distinct !{!35, !32}
+!36 = distinct !{!36, !32}

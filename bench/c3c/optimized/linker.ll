@@ -281,7 +281,7 @@ define dso_local ptr @concat_string_parts(ptr noundef readonly captures(address_
   store i8 32, ptr %21, align 1
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
-  br i1 %exitcond53.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !9
+  br i1 %exitcond53.not, label %._crit_edge43, label %.lr.ph42, !llvm.loop !10
 
 ._crit_edge43:                                    ; preds = %.lr.ph42, %.thread57, %13
   %23 = phi ptr [ %14, %13 ], [ %12, %.thread57 ], [ %14, %.lr.ph42 ]
@@ -479,7 +479,7 @@ switch.lookup:                                    ; preds = %29
   store i8 32, ptr %91, align 1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !9
+  br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !10
 
 concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread57.i, %84
   %93 = phi ptr [ %85, %84 ], [ %83, %.thread57.i ], [ %85, %.lr.ph42.i ]
@@ -6188,7 +6188,7 @@ linker_setup_windows.exit:                        ; preds = %.sink.split.i291, %
   store ptr %2779, ptr %2783, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %2774, %linker_setup_windows.exit
   %2784 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 72), align 8
@@ -6278,7 +6278,7 @@ expand_.exit313:                                  ; preds = %2794, %2798
   store ptr %2818, ptr %2826, align 8
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv.next351, %wide.trip.count353
-  br i1 %exitcond354.not, label %._crit_edge332, label %.lr.ph331, !llvm.loop !11
+  br i1 %exitcond354.not, label %._crit_edge332, label %.lr.ph331, !llvm.loop !12
 
 ._crit_edge332:                                   ; preds = %2825, %._crit_edge, %2785
   %2827 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 96), align 8
@@ -6357,7 +6357,7 @@ expand_.exit313:                                  ; preds = %2794, %2798
   store ptr %2861, ptr %2865, align 8
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv.next356, %wide.trip.count358
-  br i1 %exitcond359.not, label %._crit_edge336, label %.lr.ph335, !llvm.loop !12
+  br i1 %exitcond359.not, label %._crit_edge336, label %.lr.ph335, !llvm.loop !13
 
 ._crit_edge336:                                   ; preds = %2855, %._crit_edge332, %2828
   %2866 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 80), align 8
@@ -6460,7 +6460,7 @@ expand_.exit313:                                  ; preds = %2794, %2798
   store ptr %2911, ptr %2915, align 8
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %exitcond364.not = icmp eq i64 %indvars.iv.next361, %wide.trip.count363
-  br i1 %exitcond364.not, label %._crit_edge340, label %.lr.ph339, !llvm.loop !13
+  br i1 %exitcond364.not, label %._crit_edge340, label %.lr.ph339, !llvm.loop !14
 
 ._crit_edge340:                                   ; preds = %2905, %.lr.ph343, %2878
   %2916 = getelementptr inbounds nuw i8, ptr %2875, i64 24
@@ -6468,7 +6468,7 @@ expand_.exit313:                                  ; preds = %2794, %2798
   call fastcc void @add_linked_libs(ptr noundef %0, ptr noundef %2917, i1 noundef zeroext %10)
   %indvars.iv.next366 = add nuw nsw i64 %indvars.iv365, 1
   %exitcond369.not = icmp eq i64 %indvars.iv.next366, %wide.trip.count368
-  br i1 %exitcond369.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !14
+  br i1 %exitcond369.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !15
 
 ._crit_edge344:                                   ; preds = %._crit_edge340, %._crit_edge336, %2868
   %2918 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 104), align 8
@@ -6956,7 +6956,7 @@ define dso_local ptr @platform_compiler(ptr noundef %0, ptr noundef %1) local_un
   store i8 32, ptr %242, align 1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !9
+  br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !10
 
 concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread57.i, %235
   %244 = phi ptr [ %236, %235 ], [ %234, %.thread57.i ], [ %236, %.lr.ph42.i ]
@@ -7104,7 +7104,7 @@ define dso_local noundef zeroext i1 @dynamic_lib_linker(ptr noundef %0, ptr noun
   store i8 32, ptr %58, align 1
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !9
+  br i1 %exitcond53.not.i, label %concat_string_parts.exit, label %.lr.ph42.i, !llvm.loop !10
 
 concat_string_parts.exit:                         ; preds = %.lr.ph42.i, %.thread57.i, %51
   %60 = phi ptr [ %52, %51 ], [ %50, %.thread57.i ], [ %52, %.lr.ph42.i ]
@@ -7312,7 +7312,7 @@ define dso_local noundef zeroext i1 @linker(ptr noundef %0, ptr noundef readonly
   %21 = call ptr @str_cat(ptr noundef %17, ptr noundef %20) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14, %11
   %.033.lcssa.i = phi ptr [ @.str.138, %14 ], [ @.str.138, %11 ], [ %21, %.lr.ph.i ]
@@ -7775,7 +7775,7 @@ expand_.exit109:                                  ; preds = %154, %158
 184:                                              ; preds = %182, %145, %103, %67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %184, %3, %4
   ret void
@@ -7843,13 +7843,14 @@ attributes #13 = { nounwind willreturn memory(read) }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

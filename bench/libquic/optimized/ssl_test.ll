@@ -233,7 +233,7 @@ define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #2
 
 _ZN10CipherTestD2Ev.exit:                         ; preds = %2, %7
   %8 = icmp eq ptr %4, @_ZL12kCipherTests
-  br i1 %8, label %9, label %2
+  br i1 %8, label %9, label %2, !llvm.loop !12
 
 9:                                                ; preds = %_ZN10CipherTestD2Ev.exit
   ret void
@@ -253,7 +253,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #4 personal
 4:                                                ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i
   %.028.add.i = add nuw nsw i64 %.028.idx67.i, 32
   %.not.i = icmp eq i64 %.028.add.i, 416
-  br i1 %.not.i, label %.preheader62.i, label %5
+  br i1 %.not.i, label %.preheader62.i, label %5, !llvm.loop !14
 
 5:                                                ; preds = %4, %0
   %.028.idx67.i = phi i64 [ 0, %0 ], [ %.028.add.i, %4 ]
@@ -261,7 +261,7 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #4 personal
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26
   %6 = tail call ptr @TLS_method()
   %7 = tail call ptr @SSL_CTX_new(ptr noundef %6)
-  store ptr %7, ptr %2, align 8, !tbaa !12
+  store ptr %7, ptr %2, align 8, !tbaa !15
   %.not33.i.i = icmp eq ptr %7, null
   br i1 %.not33.i.i, label %_ZL14TestCipherRuleRK10CipherTest.exit.thread.i, label %8
 
@@ -270,7 +270,7 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
   br label %_ZL15TestCipherRulesv.exit.thread
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !14
+  %9 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !17
   %10 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %7, ptr noundef %9)
           to label %11 unwind label %16
 
@@ -279,8 +279,8 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
   br i1 %.not.i.i, label %12, label %18
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %14 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !14
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %14 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !17
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.24, ptr noundef %14) #27
   br label %.critedge.i.i
 
@@ -291,15 +291,15 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %20 = load ptr, ptr %19, align 8, !tbaa !22
-  %21 = load ptr, ptr %20, align 8, !tbaa !43
+  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = invoke i64 @sk_num(ptr noundef %21)
           to label %23 unwind label %16
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %.028.ptr.i, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %.028.ptr.i, i64 16
-  %26 = load ptr, ptr %25, align 16, !tbaa !45
+  %26 = load ptr, ptr %25, align 16, !tbaa !48
   %27 = load ptr, ptr %24, align 8, !tbaa !6
   %28 = ptrtoint ptr %26 to i64
   %29 = ptrtoint ptr %27 to i64
@@ -313,38 +313,38 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
   br i1 %.not2836.i.i, label %.critedge.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %.pre.i.i = load ptr, ptr %19, align 8, !tbaa !22
+  %.pre.i.i = load ptr, ptr %19, align 8, !tbaa !25
   br label %.lr.ph.i.i
 
 32:                                               ; preds = %23
-  %33 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %34 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !14
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %34 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !17
   %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.25, ptr noundef %34) #27
-  %36 = load ptr, ptr %19, align 8, !tbaa !22
+  %36 = load ptr, ptr %19, align 8, !tbaa !25
   invoke fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_preference_list_st(ptr noundef %36)
           to label %.critedge.i.i unwind label %16
 
 37:                                               ; preds = %54
   %38 = add nuw i64 %.02037.i.i, 1
-  %39 = load ptr, ptr %25, align 16, !tbaa !45
+  %39 = load ptr, ptr %25, align 16, !tbaa !48
   %40 = ptrtoint ptr %39 to i64
   %41 = ptrtoint ptr %55 to i64
   %42 = sub i64 %40, %41
   %43 = ashr exact i64 %42, 4
   %.not28.not.i.i = icmp ult i64 %38, %43
-  br i1 %.not28.not.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !46
+  br i1 %.not28.not.i.i, label %.lr.ph.i.i, label %.critedge.i.i, !llvm.loop !49
 
 .lr.ph.i.i:                                       ; preds = %37, %.lr.ph.preheader.i.i
   %44 = phi ptr [ %58, %37 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
   %.02037.i.i = phi i64 [ %38, %37 ], [ 0, %.lr.ph.preheader.i.i ]
-  %45 = load ptr, ptr %44, align 8, !tbaa !43
+  %45 = load ptr, ptr %44, align 8, !tbaa !46
   %46 = invoke ptr @sk_value(ptr noundef %45, i64 noundef %.02037.i.i)
           to label %47 unwind label %.loopexit.i.i
 
 47:                                               ; preds = %.lr.ph.i.i
   %48 = load ptr, ptr %24, align 8, !tbaa !6
   %49 = getelementptr inbounds nuw %struct.ExpectedCipher, ptr %48, i64 %.02037.i.i
-  %50 = load i64, ptr %49, align 8, !tbaa !48
+  %50 = load i64, ptr %49, align 8, !tbaa !51
   %51 = invoke i32 @SSL_CIPHER_get_id(ptr noundef %46)
           to label %52 unwind label %.loopexit.i.i
 
@@ -356,21 +356,21 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
 54:                                               ; preds = %52
   %55 = load ptr, ptr %24, align 8, !tbaa !6
   %56 = getelementptr inbounds nuw %struct.ExpectedCipher, ptr %55, i64 %.02037.i.i, i32 1
-  %57 = load i32, ptr %56, align 8, !tbaa !50
-  %58 = load ptr, ptr %19, align 8, !tbaa !22
+  %57 = load i32, ptr %56, align 8, !tbaa !53
+  %58 = load ptr, ptr %19, align 8, !tbaa !25
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !51
+  %60 = load ptr, ptr %59, align 8, !tbaa !54
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.02037.i.i
-  %62 = load i8, ptr %61, align 1, !tbaa !52
+  %62 = load i8, ptr %61, align 1, !tbaa !55
   %63 = zext i8 %62 to i32
   %.not27.i.i = icmp eq i32 %57, %63
   br i1 %.not27.i.i, label %37, label %64
 
 64:                                               ; preds = %54, %52
-  %65 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %66 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !14
+  %65 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %66 = load ptr, ptr %.028.ptr.i, align 16, !tbaa !17
   %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.25, ptr noundef %66) #27
-  %68 = load ptr, ptr %19, align 8, !tbaa !22
+  %68 = load ptr, ptr %19, align 8, !tbaa !25
   invoke fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_preference_list_st(ptr noundef %68)
           to label %.critedge.i.i unwind label %.loopexit.split-lp.i.i
 
@@ -413,11 +413,11 @@ _ZL14TestCipherRuleRK10CipherTest.exit.i:         ; preds = %.critedge.i.i
 .preheader62.i:                                   ; preds = %4, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i
   %.036.idx68.i = phi i64 [ %.036.add.i, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ], [ 0, %4 ]
   %.036.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL9kBadRules, i64 %.036.idx68.i
-  %73 = load ptr, ptr %.036.ptr.i, align 8, !tbaa !53
+  %73 = load ptr, ptr %.036.ptr.i, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   %74 = tail call ptr @SSLv23_server_method()
   %75 = tail call ptr @SSL_CTX_new(ptr noundef %74)
-  store ptr %75, ptr %3, align 8, !tbaa !12
+  store ptr %75, ptr %3, align 8, !tbaa !15
   %.not61.i = icmp eq ptr %75, null
   br i1 %.not61.i, label %.thread56.i, label %76
 
@@ -455,10 +455,10 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
   %.036.add.i = add nuw nsw i64 %.036.idx68.i, 8
   %.not37.i = icmp eq i64 %.036.add.i, 104
-  br i1 %.not37.i, label %.preheader.i, label %.preheader62.i
+  br i1 %.not37.i, label %.preheader.i, label %.preheader62.i, !llvm.loop !57
 
 86:                                               ; preds = %78
-  %87 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !23
   %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull @.str.23, ptr noundef %73) #27
   invoke void @SSL_CTX_free(ptr noundef nonnull %75)
           to label %.thread56.i unwind label %89
@@ -477,16 +477,16 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
 92:                                               ; preds = %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i
   %.029.add.i = add nuw nsw i64 %.029.idx69.i, 8
   %.not39.i = icmp eq i64 %.029.add.i, 104
-  br i1 %.not39.i, label %_ZL15TestCipherRulesv.exit, label %.preheader.i
+  br i1 %.not39.i, label %_ZL15TestCipherRulesv.exit, label %.preheader.i, !llvm.loop !58
 
 .preheader.i:                                     ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i, %92
   %.029.idx69.i = phi i64 [ %.029.add.i, %92 ], [ 0, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ]
   %.029.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL19kMustNotIncludeNull, i64 %.029.idx69.i
-  %93 = load ptr, ptr %.029.ptr.i, align 8, !tbaa !53
+  %93 = load ptr, ptr %.029.ptr.i, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
   %94 = tail call ptr @SSLv23_server_method()
   %95 = tail call ptr @SSL_CTX_new(ptr noundef %94)
-  store ptr %95, ptr %1, align 8, !tbaa !12
+  store ptr %95, ptr %1, align 8, !tbaa !15
   %.not19.i.i = icmp eq ptr %95, null
   br i1 %.not19.i.i, label %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, label %96
 
@@ -513,8 +513,8 @@ _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %.preheader.i
 
 .preheader.i49.i:                                 ; preds = %114, %.preheader.preheader.i.i
   %.0.i.i = phi i64 [ %115, %114 ], [ 0, %.preheader.preheader.i.i ]
-  %102 = load ptr, ptr %99, align 8, !tbaa !22
-  %103 = load ptr, ptr %102, align 8, !tbaa !43
+  %102 = load ptr, ptr %99, align 8, !tbaa !25
+  %103 = load ptr, ptr %102, align 8, !tbaa !46
   %104 = invoke i64 @sk_num(ptr noundef %103)
           to label %105 unwind label %106
 
@@ -528,8 +528,8 @@ _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %.preheader.i
   br label %121
 
 108:                                              ; preds = %105
-  %109 = load ptr, ptr %99, align 8, !tbaa !22
-  %110 = load ptr, ptr %109, align 8, !tbaa !43
+  %109 = load ptr, ptr %99, align 8, !tbaa !25
+  %110 = load ptr, ptr %109, align 8, !tbaa !46
   %111 = invoke ptr @sk_value(ptr noundef %110, i64 noundef %.0.i.i)
           to label %112 unwind label %106
 
@@ -540,11 +540,11 @@ _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %.preheader.i
 114:                                              ; preds = %112
   %.not14.i.i = icmp eq i32 %113, 0
   %115 = add nuw i64 %.0.i.i, 1
-  br i1 %.not14.i.i, label %.preheader.i49.i, label %.loopexit.sink.split.i.i, !llvm.loop !54
+  br i1 %.not14.i.i, label %.preheader.i49.i, label %.loopexit.sink.split.i.i, !llvm.loop !59
 
 .loopexit.sink.split.i.i:                         ; preds = %114, %98
   %.str.57.sink.i.i = phi ptr [ @.str.57, %98 ], [ @.str.58, %114 ]
-  %116 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %116 = load ptr, ptr @stderr, align 8, !tbaa !23
   %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull %.str.57.sink.i.i, ptr noundef %93) #27
   br label %.loopexit.i50.i
 
@@ -602,13 +602,13 @@ _ZL15TestCipherRulesv.exit:                       ; preds = %92
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 66
-  %138 = load i16, ptr %137, align 2, !tbaa !55
+  %138 = load i16, ptr %137, align 2, !tbaa !60
   %139 = icmp eq i16 %138, 0
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %135, i64 64
-  %142 = load i16, ptr %141, align 8, !tbaa !56
+  %142 = load i16, ptr %141, align 8, !tbaa !61
   %143 = icmp eq i16 %142, 0
   br label %144
 
@@ -635,13 +635,13 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit: ; preds = %144
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 66
-  %153 = load i16, ptr %152, align 2, !tbaa !55
+  %153 = load i16, ptr %152, align 2, !tbaa !60
   %154 = icmp eq i16 %153, 768
   br i1 %154, label %155, label %159
 
 155:                                              ; preds = %151
   %156 = getelementptr inbounds nuw i8, ptr %150, i64 64
-  %157 = load i16, ptr %156, align 8, !tbaa !56
+  %157 = load i16, ptr %156, align 8, !tbaa !61
   %158 = icmp eq i16 %157, 768
   br label %159
 
@@ -668,13 +668,13 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7: ; preds = %159
 
 166:                                              ; preds = %163
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 66
-  %168 = load i16, ptr %167, align 2, !tbaa !55
+  %168 = load i16, ptr %167, align 2, !tbaa !60
   %169 = icmp eq i16 %168, 769
   br i1 %169, label %170, label %174
 
 170:                                              ; preds = %166
   %171 = getelementptr inbounds nuw i8, ptr %165, i64 64
-  %172 = load i16, ptr %171, align 8, !tbaa !56
+  %172 = load i16, ptr %171, align 8, !tbaa !61
   %173 = icmp eq i16 %172, 769
   br label %174
 
@@ -701,13 +701,13 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12: ; preds = %174
 
 181:                                              ; preds = %178
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 66
-  %183 = load i16, ptr %182, align 2, !tbaa !55
+  %183 = load i16, ptr %182, align 2, !tbaa !60
   %184 = icmp eq i16 %183, 770
   br i1 %184, label %185, label %189
 
 185:                                              ; preds = %181
   %186 = getelementptr inbounds nuw i8, ptr %180, i64 64
-  %187 = load i16, ptr %186, align 8, !tbaa !56
+  %187 = load i16, ptr %186, align 8, !tbaa !61
   %188 = icmp eq i16 %187, 770
   br label %189
 
@@ -734,13 +734,13 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17: ; preds = %189
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 66
-  %198 = load i16, ptr %197, align 2, !tbaa !55
+  %198 = load i16, ptr %197, align 2, !tbaa !60
   %199 = icmp eq i16 %198, 771
   br i1 %199, label %200, label %204
 
 200:                                              ; preds = %196
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 64
-  %202 = load i16, ptr %201, align 8, !tbaa !56
+  %202 = load i16, ptr %201, align 8, !tbaa !61
   %203 = icmp eq i16 %202, 771
   br label %204
 
@@ -767,13 +767,13 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22: ; preds = %204
 
 211:                                              ; preds = %208
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 66
-  %213 = load i16, ptr %212, align 2, !tbaa !55
+  %213 = load i16, ptr %212, align 2, !tbaa !60
   %214 = icmp eq i16 %213, 0
   br i1 %214, label %215, label %219
 
 215:                                              ; preds = %211
   %216 = getelementptr inbounds nuw i8, ptr %210, i64 64
-  %217 = load i16, ptr %216, align 8, !tbaa !56
+  %217 = load i16, ptr %216, align 8, !tbaa !61
   %218 = icmp eq i16 %217, 0
   br label %219
 
@@ -800,13 +800,13 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27: ; preds = %219
 
 226:                                              ; preds = %223
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 66
-  %228 = load i16, ptr %227, align 2, !tbaa !55
+  %228 = load i16, ptr %227, align 2, !tbaa !60
   %229 = icmp eq i16 %228, -257
   br i1 %229, label %230, label %234
 
 230:                                              ; preds = %226
   %231 = getelementptr inbounds nuw i8, ptr %225, i64 64
-  %232 = load i16, ptr %231, align 8, !tbaa !56
+  %232 = load i16, ptr %231, align 8, !tbaa !61
   %233 = icmp eq i16 %232, -257
   br label %234
 
@@ -833,13 +833,13 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32: ; preds = %234
 
 241:                                              ; preds = %238
   %242 = getelementptr inbounds nuw i8, ptr %240, i64 66
-  %243 = load i16, ptr %242, align 2, !tbaa !55
+  %243 = load i16, ptr %242, align 2, !tbaa !60
   %244 = icmp eq i16 %243, -259
   br i1 %244, label %245, label %249
 
 245:                                              ; preds = %241
   %246 = getelementptr inbounds nuw i8, ptr %240, i64 64
-  %247 = load i16, ptr %246, align 8, !tbaa !56
+  %247 = load i16, ptr %246, align 8, !tbaa !61
   %248 = icmp eq i16 %247, -259
   br label %249
 
@@ -883,7 +883,7 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37: ; preds = %249
   br i1 %264, label %266, label %_ZL15TestCipherRulesv.exit.thread
 
 _ZL15TestCipherRulesv.exit.thread:                ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i, %238, %223, %208, %193, %178, %163, %148, %133, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, %_ZL14TestCipherRuleRK10CipherTest.exit.thread.i, %.thread56.i, %263, %261, %259, %257, %255, %253, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit, %131, %129, %127, %125, %123, %_ZL15TestCipherRulesv.exit
-  %265 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %265 = load ptr, ptr @stderr, align 8, !tbaa !23
   tail call void @ERR_print_errors_fp(ptr noundef %265)
   br label %267
 
@@ -923,9 +923,9 @@ define internal fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr n
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  %13 = load ptr, ptr %4, align 8, !tbaa !57
+  %13 = load ptr, ptr %4, align 8, !tbaa !62
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = load ptr, ptr %14, align 8, !tbaa !59
+  %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
   %18 = sub i64 %16, %17
@@ -933,12 +933,12 @@ define internal fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr n
           to label %20 unwind label %23
 
 20:                                               ; preds = %12
-  store ptr %19, ptr %5, align 8, !tbaa !60
+  store ptr %19, ptr %5, align 8, !tbaa !65
   %.not53 = icmp eq ptr %19, null
   br i1 %.not53, label %.thread56, label %25
 
 .thread56:                                        ; preds = %20
-  %21 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !23
   %22 = call i64 @fwrite(ptr nonnull @.str.59, i64 30, i64 1, ptr %21) #29
   br label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit
 
@@ -958,7 +958,7 @@ define internal fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr n
   br i1 %.not, label %28, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !23
   %30 = call i64 @fwrite(ptr nonnull @.str.60, i64 28, i64 1, ptr %29) #29
   br label %.thread60
 
@@ -969,10 +969,10 @@ define internal fastcc noundef zeroext i1 @_ZL23TestSSL_SESSIONEncodingPKc(ptr n
   br label %117
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %27
-  %33 = load ptr, ptr %7, align 8, !tbaa !53
-  %34 = load i64, ptr %6, align 8, !tbaa !61
-  %35 = load ptr, ptr %14, align 8, !tbaa !59
-  %36 = load ptr, ptr %4, align 8, !tbaa !57
+  %33 = load ptr, ptr %7, align 8, !tbaa !56
+  %34 = load i64, ptr %6, align 8, !tbaa !66
+  %35 = load ptr, ptr %14, align 8, !tbaa !64
+  %36 = load ptr, ptr %4, align 8, !tbaa !62
   %37 = ptrtoint ptr %35 to i64
   %38 = ptrtoint ptr %36 to i64
   %39 = sub i64 %37, %38
@@ -985,11 +985,11 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %27
   br i1 %.not16, label %54, label %41
 
 41:                                               ; preds = %40, %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit
-  %42 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %42 = load ptr, ptr @stderr, align 8, !tbaa !23
   %43 = call i64 @fwrite(ptr nonnull @.str.61, i64 40, i64 1, ptr %42) #29
-  %44 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %45 = load ptr, ptr %4, align 8, !tbaa !57
-  %46 = load ptr, ptr %14, align 8, !tbaa !59
+  %44 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %45 = load ptr, ptr %4, align 8, !tbaa !62
+  %46 = load ptr, ptr %14, align 8, !tbaa !64
   %47 = ptrtoint ptr %46 to i64
   %48 = ptrtoint ptr %45 to i64
   %49 = sub i64 %47, %48
@@ -997,19 +997,19 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit: ; preds = %27
           to label %50 unwind label %31
 
 50:                                               ; preds = %41
-  %51 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %52 = load ptr, ptr %7, align 8, !tbaa !53
-  %53 = load i64, ptr %6, align 8, !tbaa !61
+  %51 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %52 = load ptr, ptr %7, align 8, !tbaa !56
+  %53 = load i64, ptr %6, align 8, !tbaa !66
   invoke void @hexdump(ptr noundef %51, ptr noundef nonnull @.str.63, ptr noundef %52, i64 noundef %53)
           to label %113 unwind label %31
 
 54:                                               ; preds = %40
-  store ptr %36, ptr %2, align 8, !tbaa !53
+  store ptr %36, ptr %2, align 8, !tbaa !56
   %55 = invoke ptr @d2i_SSL_SESSION(ptr noundef null, ptr noundef nonnull %2, i64 noundef %34)
           to label %56 unwind label %31
 
 56:                                               ; preds = %54
-  store ptr %55, ptr %5, align 8, !tbaa !60
+  store ptr %55, ptr %5, align 8, !tbaa !65
   invoke void @SSL_SESSION_free(ptr noundef nonnull %19)
           to label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE5resetEPS0_.exit unwind label %57
 
@@ -1025,13 +1025,13 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
   br i1 %.not54, label %63, label %60
 
 60:                                               ; preds = %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE5resetEPS0_.exit
-  %61 = load ptr, ptr %2, align 8, !tbaa !53
-  %62 = load ptr, ptr %14, align 8, !tbaa !59
+  %61 = load ptr, ptr %2, align 8, !tbaa !56
+  %62 = load ptr, ptr %14, align 8, !tbaa !64
   %.not17 = icmp eq ptr %61, %62
   br i1 %.not17, label %66, label %63
 
 63:                                               ; preds = %60, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE5resetEPS0_.exit
-  %64 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %64 = load ptr, ptr @stderr, align 8, !tbaa !23
   %65 = call i64 @fwrite(ptr nonnull @.str.64, i64 23, i64 1, ptr %64) #29
   br label %113
 
@@ -1045,8 +1045,8 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
 
 70:                                               ; preds = %68
   %71 = zext nneg i32 %67 to i64
-  %72 = load ptr, ptr %14, align 8, !tbaa !59
-  %73 = load ptr, ptr %4, align 8, !tbaa !57
+  %72 = load ptr, ptr %14, align 8, !tbaa !64
+  %73 = load ptr, ptr %4, align 8, !tbaa !62
   %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
@@ -1054,7 +1054,7 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
   br i1 %.not18, label %82, label %77
 
 77:                                               ; preds = %70, %68
-  %78 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %78 = load ptr, ptr @stderr, align 8, !tbaa !23
   %79 = call i64 @fwrite(ptr nonnull @.str.65, i64 46, i64 1, ptr %78) #29
   br label %113
 
@@ -1078,12 +1078,12 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit28: ; preds = %82, %84
   br i1 %.not55, label %85, label %88
 
 85:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit28
-  %86 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %86 = load ptr, ptr @stderr, align 8, !tbaa !23
   %87 = call i64 @fwrite(ptr nonnull @.str.66, i64 14, i64 1, ptr %86) #29
   br label %.thread60
 
 88:                                               ; preds = %_ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit28
-  store ptr %83, ptr %3, align 8, !tbaa !53
+  store ptr %83, ptr %3, align 8, !tbaa !56
   %89 = invoke i32 @i2d_SSL_SESSION(ptr noundef nonnull %55, ptr noundef nonnull %3)
           to label %90 unwind label %80
 
@@ -1093,8 +1093,8 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit28: ; preds = %82, %84
 
 92:                                               ; preds = %90
   %93 = zext nneg i32 %89 to i64
-  %94 = load ptr, ptr %14, align 8, !tbaa !59
-  %95 = load ptr, ptr %4, align 8, !tbaa !57
+  %94 = load ptr, ptr %14, align 8, !tbaa !64
+  %95 = load ptr, ptr %4, align 8, !tbaa !62
   %96 = ptrtoint ptr %94 to i64
   %97 = ptrtoint ptr %95 to i64
   %98 = sub i64 %96, %97
@@ -1102,18 +1102,18 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit28: ; preds = %82, %84
   br i1 %.not19, label %102, label %99
 
 99:                                               ; preds = %92, %90
-  %100 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %100 = load ptr, ptr @stderr, align 8, !tbaa !23
   %101 = call i64 @fwrite(ptr nonnull @.str.67, i64 40, i64 1, ptr %100) #29
   br label %.thread
 
 102:                                              ; preds = %92
-  %103 = load ptr, ptr %3, align 8, !tbaa !53
+  %103 = load ptr, ptr %3, align 8, !tbaa !56
   %104 = getelementptr inbounds nuw i8, ptr %83, i64 %93
   %.not20 = icmp eq ptr %103, %104
   br i1 %.not20, label %108, label %105
 
 105:                                              ; preds = %102
-  %106 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %106 = load ptr, ptr @stderr, align 8, !tbaa !23
   %107 = call i64 @fwrite(ptr nonnull @.str.68, i64 46, i64 1, ptr %106) #29
   br label %.thread
 
@@ -1123,7 +1123,7 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEE5resetEPh.exit28: ; preds = %82, %84
   br i1 %.not22, label %.thread, label %109
 
 109:                                              ; preds = %108
-  %110 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %110 = load ptr, ptr @stderr, align 8, !tbaa !23
   %111 = call i64 @fwrite(ptr nonnull @.str.69, i64 35, i64 1, ptr %110) #29
   br label %.thread
 
@@ -1199,7 +1199,7 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
 
 127:                                              ; preds = %9, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit
   %.010 = phi i1 [ %.11159, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit ], [ false, %9 ]
-  %128 = load ptr, ptr %4, align 8, !tbaa !57
+  %128 = load ptr, ptr %4, align 8, !tbaa !62
   %.not.i.i.i = icmp eq ptr %128, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %129
 
@@ -1215,7 +1215,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %127, %129
 
 130:                                              ; preds = %126, %10
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %126 ], [ %11, %10 ]
-  %131 = load ptr, ptr %4, align 8, !tbaa !57
+  %131 = load ptr, ptr %4, align 8, !tbaa !62
   %.not.i.i.i32 = icmp eq ptr %131, null
   br i1 %.not.i.i.i32, label %_ZNSt6vectorIhSaIhEED2Ev.exit33, label %132
 
@@ -1249,9 +1249,9 @@ define internal fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(pt
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  %9 = load ptr, ptr %2, align 8, !tbaa !57
+  %9 = load ptr, ptr %2, align 8, !tbaa !62
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
@@ -1259,7 +1259,7 @@ define internal fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(pt
           to label %16 unwind label %17
 
 16:                                               ; preds = %8
-  store ptr %15, ptr %3, align 8, !tbaa !60
+  store ptr %15, ptr %3, align 8, !tbaa !65
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %19, label %22
 
@@ -1279,7 +1279,7 @@ define internal fastcc noundef zeroext i1 @_ZL26TestBadSSL_SESSIONEncodingPKc(pt
   br label %28
 
 22:                                               ; preds = %16
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !23
   %24 = call i64 @fwrite(ptr nonnull @.str.73, i64 46, i64 1, ptr %23) #29
   invoke void @SSL_SESSION_free(ptr noundef nonnull %15)
           to label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit unwind label %25
@@ -1302,7 +1302,7 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
 
 29:                                               ; preds = %5, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit
   %.05 = phi i1 [ %.not, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit ], [ false, %5 ]
-  %30 = load ptr, ptr %2, align 8, !tbaa !57
+  %30 = load ptr, ptr %2, align 8, !tbaa !62
   %.not.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %31
 
@@ -1316,7 +1316,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %29, %31
 
 32:                                               ; preds = %28, %6
   %.pn.pn = phi { ptr, i32 } [ %.pn, %28 ], [ %7, %6 ]
-  %33 = load ptr, ptr %2, align 8, !tbaa !57
+  %33 = load ptr, ptr %2, align 8, !tbaa !62
   %.not.i.i.i9 = icmp eq ptr %33, null
   br i1 %.not.i.i.i9, label %_ZNSt6vectorIhSaIhEED2Ev.exit10, label %34
 
@@ -1356,10 +1356,10 @@ define internal fastcc noundef zeroext i1 @_ZL20TestCipherGetRFCNamev() unnamed_
   %.01036 = phi i64 [ 0, %0 ], [ %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16 ]
   %5 = getelementptr inbounds nuw [15 x %struct.CIPHER_RFC_NAME_TEST], ptr @_ZL19kCipherRFCNameTests, i64 0, i64 %.01036
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1) #26
-  store ptr %2, ptr %1, align 8, !tbaa !62
-  store i64 0, ptr %3, align 8, !tbaa !64
-  store i8 0, ptr %2, align 8, !tbaa !52
-  %6 = load i32, ptr %5, align 16, !tbaa !66
+  store ptr %2, ptr %1, align 8, !tbaa !67
+  store i64 0, ptr %3, align 8, !tbaa !69
+  store i8 0, ptr %2, align 8, !tbaa !55
+  %6 = load i32, ptr %5, align 16, !tbaa !71
   %7 = trunc i32 %6 to i16
   %8 = invoke ptr @SSL_get_cipher_by_value(i16 noundef zeroext %7)
           to label %.noexc unwind label %20
@@ -1377,7 +1377,7 @@ define internal fastcc noundef zeroext i1 @_ZL20TestCipherGetRFCNamev() unnamed_
   br i1 %.not.i, label %17, label %12
 
 12:                                               ; preds = %.noexc13
-  %13 = load i64, ptr %3, align 8, !tbaa !64
+  %13 = load i64, ptr %3, align 8, !tbaa !69
   %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #26
   %15 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %13, ptr noundef nonnull %11, i64 noundef %14)
           to label %26 unwind label %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit.i
@@ -1389,7 +1389,7 @@ _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit.i:  ; preds = %12
   br label %.body
 
 17:                                               ; preds = %.noexc, %.noexc13
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !23
   %19 = call i64 @fwrite(ptr nonnull @.str.74, i64 31, i64 1, ptr %18) #29
   br label %.critedge
 
@@ -1400,12 +1400,12 @@ _ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit.i:  ; preds = %12
 
 .body:                                            ; preds = %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit.i, %20
   %eh.lpad-body = phi { ptr, i32 } [ %21, %20 ], [ %16, %_ZNSt10unique_ptrIc11OpenSSLFreeIcEED2Ev.exit.i ]
-  %22 = load ptr, ptr %1, align 8, !tbaa !68
+  %22 = load ptr, ptr %1, align 8, !tbaa !73
   %23 = icmp eq ptr %22, %2
   br i1 %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %.body
-  %24 = load i64, ptr %3, align 8, !tbaa !64
+  %24 = load i64, ptr %3, align 8, !tbaa !69
   %25 = icmp ult i64 %24, 16
   call void @llvm.assume(i1 %25)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -1421,24 +1421,24 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 26:                                               ; preds = %12
   call void @free(ptr noundef nonnull %11) #26
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !69
+  %28 = load ptr, ptr %27, align 8, !tbaa !74
   %29 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %28) #26
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %34, label %30
 
 30:                                               ; preds = %26
-  %31 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %32 = load ptr, ptr %1, align 8, !tbaa !68
+  %31 = load ptr, ptr @stderr, align 8, !tbaa !23
+  %32 = load ptr, ptr %1, align 8, !tbaa !73
   %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %31, ptr noundef nonnull @.str.75, ptr noundef %32, ptr noundef %28) #27
   br label %.critedge
 
 34:                                               ; preds = %26
-  %35 = load ptr, ptr %1, align 8, !tbaa !68
+  %35 = load ptr, ptr %1, align 8, !tbaa !73
   %36 = icmp eq ptr %35, %2
   br i1 %36, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i14
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15: ; preds = %34
-  %37 = load i64, ptr %3, align 8, !tbaa !64
+  %37 = load i64, ptr %3, align 8, !tbaa !69
   %38 = icmp ult i64 %37, 16
   call void @llvm.assume(i1 %38)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
@@ -1451,15 +1451,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #26
   %39 = add nuw nsw i64 %.01036, 1
   %exitcond = icmp eq i64 %39, 15
-  br i1 %exitcond, label %.loopexit, label %4, !llvm.loop !70
+  br i1 %exitcond, label %.loopexit, label %4, !llvm.loop !75
 
 .critedge:                                        ; preds = %17, %30
-  %40 = load ptr, ptr %1, align 8, !tbaa !68
+  %40 = load ptr, ptr %1, align 8, !tbaa !73
   %41 = icmp eq ptr %40, %2
   br i1 %41, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i18: ; preds = %.critedge
-  %42 = load i64, ptr %3, align 8, !tbaa !64
+  %42 = load i64, ptr %3, align 8, !tbaa !69
   %43 = icmp ult i64 %42, 16
   call void @llvm.assume(i1 %43)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
@@ -1486,17 +1486,17 @@ define internal fastcc noundef zeroext i1 @_ZL20TestPaddingExtensionv() unnamed_
 3:                                                ; preds = %.critedge29
   %.022.add = add nuw nsw i64 %.022.idx33, 16
   %.not = icmp eq i64 %.022.add, 176
-  br i1 %.not, label %.loopexit, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !76
 
 .preheader:                                       ; preds = %0, %3
   %.022.idx33 = phi i64 [ %.022.add, %3 ], [ 0, %0 ]
   %.022.ptr34 = getelementptr inbounds nuw i8, ptr @_ZL13kPaddingTests, i64 %.022.idx33
-  %4 = load i64, ptr %.022.ptr34, align 16, !tbaa !71
+  %4 = load i64, ptr %.022.ptr34, align 16, !tbaa !77
   %5 = icmp ugt i64 %1, %4
   br i1 %5, label %.critedge, label %.critedge29
 
 .critedge:                                        ; preds = %.preheader
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !23
   %7 = tail call i64 @fwrite(ptr nonnull @.str.90, i64 31, i64 1, ptr %6) #29
   br label %.loopexit
 
@@ -1505,12 +1505,12 @@ define internal fastcc noundef zeroext i1 @_ZL20TestPaddingExtensionv() unnamed_
   %8 = add i64 %reass.sub, 1
   %9 = tail call fastcc noundef i64 @_ZL17GetClientHelloLenm(i64 noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %.022.ptr34, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !73
+  %11 = load i64, ptr %10, align 8, !tbaa !79
   %.not27 = icmp eq i64 %9, %11
   br i1 %.not27, label %3, label %12
 
 12:                                               ; preds = %.critedge29
-  %13 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %13 = load ptr, ptr @stderr, align 8, !tbaa !23
   %14 = trunc i64 %4 to i32
   %15 = trunc i64 %9 to i32
   %16 = trunc i64 %11 to i32
@@ -1529,7 +1529,7 @@ define internal fastcc noundef zeroext i1 @_ZL16TestClientCAListv() unnamed_addr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
   %3 = tail call ptr @TLS_method()
   %4 = tail call ptr @SSL_CTX_new(ptr noundef %3)
-  store ptr %4, ptr %1, align 8, !tbaa !12
+  store ptr %4, ptr %1, align 8, !tbaa !15
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit, label %5
 
@@ -1539,7 +1539,7 @@ define internal fastcc noundef zeroext i1 @_ZL16TestClientCAListv() unnamed_addr
           to label %7 unwind label %8
 
 7:                                                ; preds = %5
-  store ptr %6, ptr %2, align 8, !tbaa !74
+  store ptr %6, ptr %2, align 8, !tbaa !80
   %.not18 = icmp eq ptr %6, null
   br i1 %.not18, label %26, label %10
 
@@ -1624,7 +1624,7 @@ define internal fastcc noundef zeroext i1 @_ZL24TestInternalSessionCachev() unna
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #26
   %8 = tail call ptr @TLS_method()
   %9 = tail call ptr @SSL_CTX_new(ptr noundef %8)
-  store ptr %9, ptr %1, align 8, !tbaa !12
+  store ptr %9, ptr %1, align 8, !tbaa !15
   %.not87 = icmp eq ptr %9, null
   br i1 %.not87, label %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit, label %10
 
@@ -1641,7 +1641,7 @@ define internal fastcc noundef zeroext i1 @_ZL24TestInternalSessionCachev() unna
   %16 = phi ptr [ null, %10 ], [ %53, %50 ]
   %.02390 = phi i32 [ 0, %10 ], [ %54, %50 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %17 = invoke ptr @SSL_SESSION_new()
           to label %.noexc unwind label %18
 
@@ -1656,20 +1656,20 @@ define internal fastcc noundef zeroext i1 @_ZL24TestInternalSessionCachev() unna
 
 20:                                               ; preds = %.noexc
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 64
-  store i32 32, ptr %21, align 8, !tbaa !79, !noalias !76
+  store i32 32, ptr %21, align 8, !tbaa !85, !noalias !82
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 68
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %23, i8 0, i64 28, i1 false), !noalias !76
-  store i32 %.02390, ptr %22, align 4, !noalias !76
-  store ptr %17, ptr %3, align 8, !tbaa !60, !alias.scope !76
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %23, i8 0, i64 28, i1 false), !noalias !82
+  store i32 %.02390, ptr %22, align 4, !noalias !82
+  store ptr %17, ptr %3, align 8, !tbaa !65, !alias.scope !82
   %.not.i.i = icmp eq ptr %16, %15
   %24 = ptrtoint ptr %17 to i64
   br i1 %.not.i.i, label %26, label %_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE9push_backEOS4_.exit.thread
 
 _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE9push_backEOS4_.exit.thread: ; preds = %20
-  store i64 %24, ptr %16, align 8, !tbaa !60
+  store i64 %24, ptr %16, align 8, !tbaa !65
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %25, ptr %11, align 8, !tbaa !83
+  store ptr %25, ptr %11, align 8, !tbaa !89
   br label %50
 
 26:                                               ; preds = %20
@@ -1701,23 +1701,23 @@ _ZNKSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SES
 
 .noexc52:                                         ; preds = %_ZNKSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 %29
-  store i64 %24, ptr %39, align 8, !tbaa !60
-  store ptr null, ptr %3, align 8, !tbaa !60
+  store i64 %24, ptr %39, align 8, !tbaa !65
+  store ptr null, ptr %3, align 8, !tbaa !65
   %.not10.i.i.i.i.i.i.i = icmp eq ptr %14, %15
   br i1 %.not10.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.noexc52, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i.i ], [ %38, %.noexc52 ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i.i ], [ %14, %.noexc52 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %40 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 8, !tbaa !60, !alias.scope !89, !noalias !86
-  store i64 %40, ptr %.012.i.i.i.i.i.i.i, align 8, !tbaa !60, !alias.scope !86, !noalias !89
-  store ptr null, ptr %.0911.i.i.i.i.i.i.i, align 8, !tbaa !60, !alias.scope !89, !noalias !86
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
+  %40 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 8, !tbaa !65, !alias.scope !95, !noalias !92
+  store i64 %40, ptr %.012.i.i.i.i.i.i.i, align 8, !tbaa !65, !alias.scope !92, !noalias !95
+  store ptr null, ptr %.0911.i.i.i.i.i.i.i, align 8, !tbaa !65, !alias.scope !95, !noalias !92
   %41 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %41, %15
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !91
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !97
 
 _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %.noexc52
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %38, %.noexc52 ], [ %42, %.lr.ph.i.i.i.i.i.i.i ]
@@ -1730,11 +1730,11 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
   br label %_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE9push_backEOS4_.exit
 
 _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i, %44
-  store ptr %38, ptr %2, align 8, !tbaa !92
-  store ptr %43, ptr %11, align 8, !tbaa !83
+  store ptr %38, ptr %2, align 8, !tbaa !98
+  store ptr %43, ptr %11, align 8, !tbaa !89
   %45 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %38, i64 %36
-  store ptr %45, ptr %12, align 8, !tbaa !93
-  %.pr = load ptr, ptr %3, align 8, !tbaa !60
+  store ptr %45, ptr %12, align 8, !tbaa !99
+  %.pr = load ptr, ptr %3, align 8, !tbaa !65
   %.not.i53 = icmp eq ptr %.pr, null
   br i1 %.not.i53, label %50, label %46
 
@@ -1756,7 +1756,7 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
   %54 = add nuw nsw i32 %.02390, 1
   %exitcond = icmp eq i32 %54, 10
-  br i1 %exitcond, label %.critedge48, label %13, !llvm.loop !94
+  br i1 %exitcond, label %.critedge48, label %13, !llvm.loop !100
 
 .loopexit89:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1780,7 +1780,7 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
 
 57:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26
-  %.pre = load ptr, ptr %2, align 8, !tbaa !92
+  %.pre = load ptr, ptr %2, align 8, !tbaa !98
   br label %.loopexit
 
 .critedge48:                                      ; preds = %50
@@ -1788,14 +1788,14 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
           to label %59 unwind label %63
 
 59:                                               ; preds = %.critedge48
-  %60 = load ptr, ptr %2, align 8, !tbaa !95
+  %60 = load ptr, ptr %2, align 8, !tbaa !101
   %.not8891 = icmp eq ptr %60, %53
   br i1 %.not8891, label %.critedge50, label %.lr.ph
 
 61:                                               ; preds = %67
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.072.092, i64 8
   %.not88 = icmp eq ptr %62, %53
-  br i1 %.not88, label %.critedge50, label %.lr.ph
+  br i1 %.not88, label %.critedge50, label %.lr.ph, !llvm.loop !102
 
 63:                                               ; preds = %.critedge48
   %64 = landingpad { ptr, i32 }
@@ -1804,7 +1804,7 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
 
 .lr.ph:                                           ; preds = %59, %61
   %.sroa.072.092 = phi ptr [ %62, %61 ], [ %60, %59 ]
-  %65 = load ptr, ptr %.sroa.072.092, align 8, !tbaa !60
+  %65 = load ptr, ptr %.sroa.072.092, align 8, !tbaa !65
   %66 = invoke i32 @SSL_CTX_add_session(ptr noundef nonnull %9, ptr noundef %65)
           to label %67 unwind label %68
 
@@ -1820,23 +1820,23 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
 .critedge50:                                      ; preds = %61, %59
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 72
-  %71 = load ptr, ptr %70, align 8, !tbaa !60
+  %71 = load ptr, ptr %70, align 8, !tbaa !65
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 64
-  %73 = load ptr, ptr %72, align 8, !tbaa !60
+  %73 = load ptr, ptr %72, align 8, !tbaa !65
   %74 = getelementptr inbounds nuw i8, ptr %60, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !60
+  %75 = load ptr, ptr %74, align 8, !tbaa !65
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 48
-  %77 = load ptr, ptr %76, align 8, !tbaa !60
+  %77 = load ptr, ptr %76, align 8, !tbaa !65
   %78 = getelementptr inbounds nuw i8, ptr %60, i64 40
-  %79 = load ptr, ptr %78, align 8, !tbaa !60
+  %79 = load ptr, ptr %78, align 8, !tbaa !65
   %80 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
           to label %81 unwind label %87
 
 81:                                               ; preds = %.critedge50
-  store ptr %80, ptr %4, align 8, !tbaa !96
+  store ptr %80, ptr %4, align 8, !tbaa !103
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %82, ptr %83, align 8, !tbaa !99
+  store ptr %82, ptr %83, align 8, !tbaa !106
   store ptr %71, ptr %80, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr %73, ptr %.sroa.5.0..sroa_idx, align 8
@@ -1847,7 +1847,7 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr %79, ptr %.sroa.8.0..sroa_idx, align 8
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %82, ptr %84, align 8, !tbaa !100
+  store ptr %82, ptr %84, align 8, !tbaa !107
   %85 = invoke fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vectorIP14ssl_session_stSaIS3_EE(ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %86 unwind label %89
 
@@ -1865,7 +1865,7 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
   br label %159
 
 91:                                               ; preds = %86
-  %92 = load ptr, ptr %74, align 8, !tbaa !60
+  %92 = load ptr, ptr %74, align 8, !tbaa !65
   %93 = invoke i32 @SSL_CTX_add_session(ptr noundef nonnull %9, ptr noundef %92)
           to label %94 unwind label %89
 
@@ -1882,7 +1882,7 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
 
 98:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %99 = invoke ptr @SSL_SESSION_new()
           to label %.noexc58 unwind label %106
 
@@ -1892,12 +1892,12 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
 
 100:                                              ; preds = %.noexc58
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 64
-  store i32 32, ptr %101, align 8, !tbaa !79, !noalias !101
+  store i32 32, ptr %101, align 8, !tbaa !85, !noalias !108
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 68
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 72
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %103, i8 0, i64 28, i1 false), !noalias !101
-  store i32 7, ptr %102, align 4, !noalias !101
-  store ptr %99, ptr %5, align 8, !tbaa !60, !alias.scope !101
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %103, i8 0, i64 28, i1 false), !noalias !108
+  store i32 7, ptr %102, align 4, !noalias !108
+  store ptr %99, ptr %5, align 8, !tbaa !65, !alias.scope !108
   %104 = invoke i32 @SSL_CTX_add_session(ptr noundef nonnull %9, ptr noundef nonnull %99)
           to label %105 unwind label %108
 
@@ -1917,19 +1917,19 @@ _ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESS
 
 110:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #26
-  store ptr %99, ptr %6, align 8, !tbaa !60
+  store ptr %99, ptr %6, align 8, !tbaa !65
   %111 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %112 = load ptr, ptr %70, align 8, !tbaa !60
-  store ptr %112, ptr %111, align 8, !tbaa !60
+  %112 = load ptr, ptr %70, align 8, !tbaa !65
+  store ptr %112, ptr %111, align 8, !tbaa !65
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %114 = load ptr, ptr %72, align 8, !tbaa !60
-  store ptr %114, ptr %113, align 8, !tbaa !60
+  %114 = load ptr, ptr %72, align 8, !tbaa !65
+  store ptr %114, ptr %113, align 8, !tbaa !65
   %115 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %116 = load ptr, ptr %76, align 8, !tbaa !60
-  store ptr %116, ptr %115, align 8, !tbaa !60
+  %116 = load ptr, ptr %76, align 8, !tbaa !65
+  store ptr %116, ptr %115, align 8, !tbaa !65
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %118 = load ptr, ptr %78, align 8, !tbaa !60
-  store ptr %118, ptr %117, align 8, !tbaa !60
+  %118 = load ptr, ptr %78, align 8, !tbaa !65
+  store ptr %118, ptr %117, align 8, !tbaa !65
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 40
   invoke void @_ZNSt6vectorIP14ssl_session_stSaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %6, ptr noundef nonnull %119)
           to label %_ZNSt6vectorIP14ssl_session_stSaIS1_EEaSESt16initializer_listIS1_E.exit unwind label %122
@@ -1949,7 +1949,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EEaSESt16initializer_listIS1_E.exit: ; preds
   br label %154
 
 124:                                              ; preds = %121
-  %125 = load ptr, ptr %76, align 8, !tbaa !60
+  %125 = load ptr, ptr %76, align 8, !tbaa !65
   %126 = invoke i32 @SSL_CTX_remove_session(ptr noundef nonnull %9, ptr noundef %125)
           to label %127 unwind label %108
 
@@ -1959,16 +1959,16 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EEaSESt16initializer_listIS1_E.exit: ; preds
 
 128:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #26
-  store ptr %99, ptr %7, align 8, !tbaa !60
+  store ptr %99, ptr %7, align 8, !tbaa !65
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %130 = load ptr, ptr %70, align 8, !tbaa !60
-  store ptr %130, ptr %129, align 8, !tbaa !60
+  %130 = load ptr, ptr %70, align 8, !tbaa !65
+  store ptr %130, ptr %129, align 8, !tbaa !65
   %131 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %132 = load ptr, ptr %72, align 8, !tbaa !60
-  store ptr %132, ptr %131, align 8, !tbaa !60
+  %132 = load ptr, ptr %72, align 8, !tbaa !65
+  store ptr %132, ptr %131, align 8, !tbaa !65
   %133 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %134 = load ptr, ptr %78, align 8, !tbaa !60
-  store ptr %134, ptr %133, align 8, !tbaa !60
+  %134 = load ptr, ptr %78, align 8, !tbaa !65
+  store ptr %134, ptr %133, align 8, !tbaa !65
   %135 = getelementptr inbounds nuw i8, ptr %7, i64 32
   invoke void @_ZNSt6vectorIP14ssl_session_stSaIS1_EE13_M_assign_auxIPKS1_EEvT_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull %7, ptr noundef nonnull %135)
           to label %_ZNSt6vectorIP14ssl_session_stSaIS1_EEaSESt16initializer_listIS1_E.exit62 unwind label %138
@@ -1988,7 +1988,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EEaSESt16initializer_listIS1_E.exit62: ; pre
   br label %154
 
 140:                                              ; preds = %137
-  %141 = load ptr, ptr %60, align 8, !tbaa !60
+  %141 = load ptr, ptr %60, align 8, !tbaa !65
   %142 = invoke i32 @SSL_CTX_remove_session(ptr noundef nonnull %9, ptr noundef %141)
           to label %143 unwind label %108
 
@@ -1997,7 +1997,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EEaSESt16initializer_listIS1_E.exit62: ; pre
   br i1 %.not39, label %144, label %150
 
 144:                                              ; preds = %143
-  %145 = load ptr, ptr %74, align 8, !tbaa !60
+  %145 = load ptr, ptr %74, align 8, !tbaa !65
   %146 = invoke i32 @SSL_CTX_remove_session(ptr noundef nonnull %9, ptr noundef %145)
           to label %147 unwind label %108
 
@@ -2038,7 +2038,7 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
 
 156:                                              ; preds = %94, %97, %86, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit64
   %.8 = phi i1 [ %.981, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit64 ], [ false, %86 ], [ false, %97 ], [ false, %94 ]
-  %157 = load ptr, ptr %4, align 8, !tbaa !96
+  %157 = load ptr, ptr %4, align 8, !tbaa !103
   %.not.i.i.i = icmp eq ptr %157, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit, label %158
 
@@ -2052,7 +2052,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit:  ; preds = %156, %158
 
 159:                                              ; preds = %155, %89
   %.pn41.pn.pn = phi { ptr, i32 } [ %.pn41.pn, %155 ], [ %90, %89 ]
-  %160 = load ptr, ptr %4, align 8, !tbaa !96
+  %160 = load ptr, ptr %4, align 8, !tbaa !103
   %.not.i.i.i65 = icmp eq ptr %160, null
   br i1 %.not.i.i.i65, label %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit66, label %161
 
@@ -2074,7 +2074,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit66: ; preds = %161, %159, %87
 
 .lr.ph.i.i.i.i:                                   ; preds = %.loopexit, %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i.i
   %.05.i.i.i.i = phi ptr [ %168, %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %.loopexit ]
-  %163 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !60
+  %163 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !65
   %.not.i.i.i.i.i.i = icmp eq ptr %163, null
   br i1 %.not.i.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i.i, label %164
 
@@ -2090,10 +2090,10 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit66: ; preds = %161, %159, %87
   unreachable
 
 _ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i.i: ; preds = %164, %.lr.ph.i.i.i.i
-  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !60
+  store ptr null, ptr %.05.i.i.i.i, align 8, !tbaa !65
   %168 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i67 = icmp eq ptr %168, %162
-  br i1 %.not.i.i.i.i67, label %_ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !104
+  br i1 %.not.i.i.i.i67, label %_ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
 
 _ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i.i, %.loopexit
   %.not.i.i.i68 = icmp eq ptr %.pr.i, null
@@ -2148,7 +2148,7 @@ define internal fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef z
 13:                                               ; preds = %1
   %14 = tail call ptr @DTLS_method()
   %15 = tail call ptr @SSL_CTX_new(ptr noundef %14)
-  store ptr %15, ptr %4, align 8, !tbaa !12
+  store ptr %15, ptr %4, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   %16 = invoke ptr @DTLS_method()
           to label %21 unwind label %26
@@ -2156,7 +2156,7 @@ define internal fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef z
 17:                                               ; preds = %1
   %18 = tail call ptr @TLS_method()
   %19 = tail call ptr @SSL_CTX_new(ptr noundef %18)
-  store ptr %19, ptr %4, align 8, !tbaa !12
+  store ptr %19, ptr %4, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   %20 = invoke ptr @TLS_method()
           to label %21 unwind label %26
@@ -2168,7 +2168,7 @@ define internal fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef z
           to label %24 unwind label %26
 
 24:                                               ; preds = %21
-  store ptr %23, ptr %5, align 8, !tbaa !12
+  store ptr %23, ptr %5, align 8, !tbaa !15
   %.not151 = icmp eq ptr %.pr135, null
   br i1 %.not151, label %185, label %25
 
@@ -2187,77 +2187,77 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
 
 28:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26, !noalias !105
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !112)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26, !noalias !112
   %29 = invoke ptr @BIO_new_mem_buf(ptr noundef nonnull @_ZZL18GetTestCertificatevE8kCertPEM, i32 noundef 875)
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %28
-  store ptr %29, ptr %3, align 8, !tbaa !108, !noalias !105
+  store ptr %29, ptr %3, align 8, !tbaa !115, !noalias !112
   %30 = invoke ptr @PEM_read_bio_X509(ptr noundef %29, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %31 unwind label %36, !noalias !105
+          to label %31 unwind label %36, !noalias !112
 
 31:                                               ; preds = %.noexc
-  store ptr %30, ptr %6, align 8, !tbaa !110, !alias.scope !105
+  store ptr %30, ptr %6, align 8, !tbaa !117, !alias.scope !112
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %38, label %32
 
 32:                                               ; preds = %31
   invoke void @BIO_vfree(ptr noundef nonnull %29)
-          to label %38 unwind label %33, !noalias !105
+          to label %38 unwind label %33, !noalias !112
 
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #28, !noalias !105
+  tail call void @__clang_call_terminate(ptr %35) #28, !noalias !112
   unreachable
 
 36:                                               ; preds = %.noexc
   %37 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26, !noalias !105
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !105
+  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #26, !noalias !112
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !112
   br label %.body
 
 38:                                               ; preds = %32, %31
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !105
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #26, !noalias !112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26, !noalias !111
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #26, !noalias !118
   %39 = invoke ptr @BIO_new_mem_buf(ptr noundef nonnull @_ZZL10GetTestKeyvE7kKeyPEM, i32 noundef 891)
           to label %.noexc102 unwind label %58
 
 .noexc102:                                        ; preds = %38
-  store ptr %39, ptr %2, align 8, !tbaa !108, !noalias !111
+  store ptr %39, ptr %2, align 8, !tbaa !115, !noalias !118
   %40 = invoke ptr @PEM_read_bio_PrivateKey(ptr noundef %39, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %41 unwind label %46, !noalias !111
+          to label %41 unwind label %46, !noalias !118
 
 41:                                               ; preds = %.noexc102
-  store ptr %40, ptr %7, align 8, !tbaa !114, !alias.scope !111
+  store ptr %40, ptr %7, align 8, !tbaa !121, !alias.scope !118
   %.not.i.i101 = icmp eq ptr %39, null
   br i1 %.not.i.i101, label %48, label %42
 
 42:                                               ; preds = %41
   invoke void @BIO_vfree(ptr noundef nonnull %39)
-          to label %48 unwind label %43, !noalias !111
+          to label %48 unwind label %43, !noalias !118
 
 43:                                               ; preds = %42
   %44 = landingpad { ptr, i32 }
           catch ptr null
   %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #28, !noalias !111
+  tail call void @__clang_call_terminate(ptr %45) #28, !noalias !118
   unreachable
 
 46:                                               ; preds = %.noexc102
   %47 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #26, !noalias !111
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26, !noalias !111
+  call void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #26, !noalias !118
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26, !noalias !118
   br label %.body103
 
 48:                                               ; preds = %42, %41
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26, !noalias !111
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #26, !noalias !118
   %.not153 = icmp eq ptr %30, null
   br i1 %.not153, label %176, label %49
 
@@ -2306,13 +2306,13 @@ _ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev
           to label %64 unwind label %68
 
 64:                                               ; preds = %62
-  store ptr %63, ptr %8, align 8, !tbaa !74
+  store ptr %63, ptr %8, align 8, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #26
   %65 = invoke ptr @SSL_new(ptr noundef nonnull %23)
           to label %66 unwind label %70
 
 66:                                               ; preds = %64
-  store ptr %65, ptr %9, align 8, !tbaa !74
+  store ptr %65, ptr %9, align 8, !tbaa !80
   %.not155 = icmp eq ptr %63, null
   br i1 %.not155, label %164, label %67
 
@@ -2363,12 +2363,12 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   br label %163
 
 81:                                               ; preds = %76
-  %82 = load ptr, ptr %10, align 8, !tbaa !108
+  %82 = load ptr, ptr %10, align 8, !tbaa !115
   invoke void @SSL_set_bio(ptr noundef nonnull %63, ptr noundef %82, ptr noundef %82)
           to label %83 unwind label %79
 
 83:                                               ; preds = %81
-  %84 = load ptr, ptr %11, align 8, !tbaa !108
+  %84 = load ptr, ptr %11, align 8, !tbaa !115
   invoke void @SSL_set_bio(ptr noundef nonnull %65, ptr noundef %84, ptr noundef %84)
           to label %.preheader unwind label %79
 
@@ -2388,7 +2388,7 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   ]
 
 89:                                               ; preds = %88
-  %90 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %90 = load ptr, ptr @stderr, align 8, !tbaa !23
   %91 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %90, ptr noundef nonnull @.str.94, i32 noundef %87) #27
   br label %.thread112
 
@@ -2418,7 +2418,7 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   ]
 
 101:                                              ; preds = %100
-  %102 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %102 = load ptr, ptr @stderr, align 8, !tbaa !23
   %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.95, i32 noundef %99) #27
   br label %.thread112
 
@@ -2472,7 +2472,7 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   br i1 %or.cond150, label %132, label %121
 
 121:                                              ; preds = %120
-  %122 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %122 = load ptr, ptr @stderr, align 8, !tbaa !23
   %123 = call i64 @fwrite(ptr nonnull @.str.96, i64 12, i64 1, ptr %122) #29
   br label %.thread112
 
@@ -2503,7 +2503,7 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   br i1 %or.cond, label %140, label %133
 
 133:                                              ; preds = %132
-  %134 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %134 = load ptr, ptr @stderr, align 8, !tbaa !23
   %135 = call i64 @fwrite(ptr nonnull @.str.97, i64 31, i64 1, ptr %134) #29
   br label %.thread112
 
@@ -2514,13 +2514,13 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   br i1 %or.cond100, label %140, label %137
 
 137:                                              ; preds = %136
-  %138 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %138 = load ptr, ptr @stderr, align 8, !tbaa !23
   %139 = call i64 @fwrite(ptr nonnull @.str.97, i64 31, i64 1, ptr %138) #29
   br label %.thread112
 
 140:                                              ; preds = %136, %132
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #26
-  store i8 0, ptr %12, align 1, !tbaa !52
+  store i8 0, ptr %12, align 1, !tbaa !55
   %141 = invoke i32 @SSL_write(ptr noundef nonnull %63, ptr noundef nonnull %12, i32 noundef 1)
           to label %142 unwind label %149
 
@@ -2537,7 +2537,7 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   br i1 %.not84, label %151, label %146
 
 146:                                              ; preds = %145, %142
-  %147 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %147 = load ptr, ptr @stderr, align 8, !tbaa !23
   %148 = call i64 @fwrite(ptr nonnull @.str.98, i64 21, i64 1, ptr %147) #29
   br label %162
 
@@ -2566,7 +2566,7 @@ _ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev.exit.thread
   br i1 %.not99, label %162, label %159
 
 159:                                              ; preds = %157, %153
-  %160 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %160 = load ptr, ptr @stderr, align 8, !tbaa !23
   %161 = call i64 @fwrite(ptr nonnull @.str.99, i64 36, i64 1, ptr %160) #29
   br label %162
 
@@ -2773,7 +2773,7 @@ declare void @ERR_clear_error() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !12
+  %2 = load ptr, ptr %0, align 8, !tbaa !15
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI10ssl_ctx_stXadL_Z12SSL_CTX_freeEEEclEPS0_.exit, label %3
 
@@ -2782,7 +2782,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterI
           to label %_ZN14OpenSSLDeleterI10ssl_ctx_stXadL_Z12SSL_CTX_freeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI10ssl_ctx_stXadL_Z12SSL_CTX_freeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !12
+  store ptr null, ptr %0, align 8, !tbaa !15
   ret void
 
 4:                                                ; preds = %3
@@ -2797,7 +2797,7 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress norecurse uwtable
 define internal fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_preference_list_st(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !43
+  %2 = load ptr, ptr %0, align 8, !tbaa !46
   %3 = tail call i64 @sk_num(ptr noundef %2)
   %.not19 = icmp eq i64 %3, 0
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -2812,16 +2812,16 @@ define internal fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_prefere
 5:                                                ; preds = %.lr.ph, %31
   %.018 = phi i1 [ false, %.lr.ph ], [ %.2, %31 ]
   %.01217 = phi i64 [ 0, %.lr.ph ], [ %32, %31 ]
-  %6 = load ptr, ptr %0, align 8, !tbaa !43
+  %6 = load ptr, ptr %0, align 8, !tbaa !46
   %7 = tail call ptr @sk_value(ptr noundef %6, i64 noundef %.01217)
   br i1 %.018, label %15, label %8
 
 8:                                                ; preds = %5
-  %9 = load ptr, ptr %4, align 8, !tbaa !51
+  %9 = load ptr, ptr %4, align 8, !tbaa !54
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.01217
-  %11 = load i8, ptr %10, align 1, !tbaa !52
+  %11 = load i8, ptr %10, align 1, !tbaa !55
   %.not = icmp eq i8 %11, 0
-  %12 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %12 = load ptr, ptr @stderr, align 8, !tbaa !23
   br i1 %.not, label %.critedge, label %13
 
 13:                                               ; preds = %8
@@ -2829,27 +2829,27 @@ define internal fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_prefere
   br label %15
 
 15:                                               ; preds = %5, %13
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !23
   %fputc15 = tail call i32 @fputc(i32 9, ptr %16)
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !23
   %18 = tail call i64 @fwrite(ptr nonnull @.str.28, i64 2, i64 1, ptr %17) #29
-  %19 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %19 = load ptr, ptr @stderr, align 8, !tbaa !23
   %20 = tail call ptr @SSL_CIPHER_get_name(ptr noundef %7)
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %19, ptr noundef nonnull @.str.29, ptr noundef %20) #27
-  %22 = load ptr, ptr %4, align 8, !tbaa !51
+  %22 = load ptr, ptr %4, align 8, !tbaa !54
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.01217
-  %24 = load i8, ptr %23, align 1, !tbaa !52
+  %24 = load i8, ptr %23, align 1, !tbaa !55
   %.not13 = icmp eq i8 %24, 0
   br i1 %.not13, label %25, label %31
 
 25:                                               ; preds = %15
-  %26 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %26 = load ptr, ptr @stderr, align 8, !tbaa !23
   %27 = tail call i64 @fwrite(ptr nonnull @.str.30, i64 3, i64 1, ptr %26) #29
   br label %31
 
 .critedge:                                        ; preds = %8
   %fputc = tail call i32 @fputc(i32 9, ptr %12)
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !23
   %29 = tail call ptr @SSL_CIPHER_get_name(ptr noundef %7)
   %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.29, ptr noundef %29) #27
   br label %31
@@ -2857,10 +2857,10 @@ define internal fastcc void @_ZL25PrintCipherPreferenceListP29ssl_cipher_prefere
 31:                                               ; preds = %.critedge, %25, %15
   %.2 = phi i1 [ true, %15 ], [ false, %25 ], [ false, %.critedge ]
   %32 = add nuw i64 %.01217, 1
-  %33 = load ptr, ptr %0, align 8, !tbaa !43
+  %33 = load ptr, ptr %0, align 8, !tbaa !46
   %34 = tail call i64 @sk_num(ptr noundef %33)
   %35 = icmp ult i64 %32, %34
-  br i1 %35, label %5, label %._crit_edge, !llvm.loop !115
+  br i1 %35, label %5, label %._crit_edge, !llvm.loop !122
 }
 
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #5
@@ -2881,27 +2881,27 @@ define internal fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPK
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %7 = load ptr, ptr @stderr, align 8, !tbaa !23
   %8 = call i64 @fwrite(ptr nonnull @.str.70, i64 25, i64 1, ptr %7) #29
   br label %20
 
 9:                                                ; preds = %2
-  %10 = load i64, ptr %3, align 8, !tbaa !61
+  %10 = load i64, ptr %3, align 8, !tbaa !66
   call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %10)
-  %11 = load ptr, ptr %0, align 8, !tbaa !57
-  %12 = load i64, ptr %3, align 8, !tbaa !61
+  %11 = load ptr, ptr %0, align 8, !tbaa !62
+  %12 = load i64, ptr %3, align 8, !tbaa !66
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
   %14 = call i32 @EVP_DecodeBase64(ptr noundef %11, ptr noundef nonnull %3, i64 noundef %12, ptr noundef nonnull %1, i64 noundef %13)
   %.not7 = icmp eq i32 %14, 0
   br i1 %.not7, label %15, label %18
 
 15:                                               ; preds = %9
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !20
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !23
   %17 = call i64 @fwrite(ptr nonnull @.str.71, i64 24, i64 1, ptr %16) #29
   br label %20
 
 18:                                               ; preds = %9
-  %19 = load i64, ptr %3, align 8, !tbaa !61
+  %19 = load i64, ptr %3, align 8, !tbaa !66
   call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %19)
   br label %20
 
@@ -2928,7 +2928,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !60
+  %2 = load ptr, ptr %0, align 8, !tbaa !65
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS0_.exit, label %3
 
@@ -2937,7 +2937,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDele
           to label %_ZN14OpenSSLDeleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI14ssl_session_stXadL_Z16SSL_SESSION_freeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !60
+  store ptr null, ptr %0, align 8, !tbaa !65
   ret void
 
 4:                                                ; preds = %3
@@ -2956,8 +2956,8 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !59
-  %5 = load ptr, ptr %0, align 8, !tbaa !57
+  %4 = load ptr, ptr %3, align 8, !tbaa !64
+  %5 = load ptr, ptr %0, align 8, !tbaa !62
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2967,7 +2967,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %13 = load ptr, ptr %12, align 8, !tbaa !116
+  %13 = load ptr, ptr %12, align 8, !tbaa !123
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
   %16 = icmp sgt i64 %8, -1
@@ -2979,7 +2979,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
   br i1 %.not28.i, label %25, label %19
 
 19:                                               ; preds = %10
-  store i8 0, ptr %4, align 1, !tbaa !52
+  store i8 0, ptr %4, align 1, !tbaa !55
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
@@ -2992,7 +2992,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull alig
 
 _ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i: ; preds = %23, %19
   %.0.i.i.i.i = phi ptr [ %20, %19 ], [ %24, %23 ]
-  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !59
+  store ptr %.0.i.i.i.i, ptr %3, align 8, !tbaa !64
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 25:                                               ; preds = %10
@@ -3009,7 +3009,7 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #32
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
-  store i8 0, ptr %31, align 1, !tbaa !52
+  store i8 0, ptr %31, align 1, !tbaa !55
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i, label %34
@@ -3036,11 +3036,11 @@ _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i: ; preds = %36, %_ZSt27__u
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit.i
-  store ptr %30, ptr %0, align 8, !tbaa !57
+  store ptr %30, ptr %0, align 8, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 %1
-  store ptr %38, ptr %3, align 8, !tbaa !59
+  store ptr %38, ptr %3, align 8, !tbaa !64
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 %29
-  store ptr %39, ptr %12, align 8, !tbaa !116
+  store ptr %39, ptr %12, align 8, !tbaa !123
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %2
@@ -3053,7 +3053,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   br i1 %.not.i4, label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit, label %44
 
 44:                                               ; preds = %42
-  store ptr %43, ptr %3, align 8, !tbaa !59
+  store ptr %43, ptr %3, align 8, !tbaa !64
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
 _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %44, %42, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i, %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, %40
@@ -3101,19 +3101,19 @@ define internal fastcc noundef range(i64 0, -5) i64 @_ZL17GetClientHelloLenm(i64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   %9 = tail call ptr @TLS_method()
   %10 = tail call ptr @SSL_CTX_new(ptr noundef %9)
-  store ptr %10, ptr %3, align 8, !tbaa !12
+  store ptr %10, ptr %3, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #26, !noalias !117
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !117
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #26, !noalias !124
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false), !noalias !124
   %11 = invoke fastcc noundef zeroext i1 @_ZL12DecodeBase64PSt6vectorIhSaIhEEPKc(ptr noundef %2, ptr noundef nonnull @_ZL15kOpenSSLSession)
-          to label %12 unwind label %14, !noalias !117
+          to label %12 unwind label %14, !noalias !124
 
 12:                                               ; preds = %1
   br i1 %11, label %16, label %13
 
 13:                                               ; preds = %12
-  store ptr null, ptr %4, align 8, !tbaa !120, !alias.scope !117
+  store ptr null, ptr %4, align 8, !tbaa !127, !alias.scope !124
   br label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i
 
 14:                                               ; preds = %1
@@ -3122,21 +3122,21 @@ define internal fastcc noundef range(i64 0, -5) i64 @_ZL17GetClientHelloLenm(i64
   br label %44
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !117
+  %17 = load ptr, ptr %2, align 8, !tbaa !62, !noalias !124
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !59, !noalias !117
+  %19 = load ptr, ptr %18, align 8, !tbaa !64, !noalias !124
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %17 to i64
   %22 = sub i64 %20, %21
   %23 = invoke ptr @SSL_SESSION_from_bytes(ptr noundef %17, i64 noundef %22)
-          to label %24 unwind label %26, !noalias !117
+          to label %24 unwind label %26, !noalias !124
 
 24:                                               ; preds = %16
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %25, label %28
 
 25:                                               ; preds = %24
-  store ptr null, ptr %4, align 8, !tbaa !120, !alias.scope !117
+  store ptr null, ptr %4, align 8, !tbaa !127, !alias.scope !124
   br label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i
 
 26:                                               ; preds = %16
@@ -3146,62 +3146,62 @@ define internal fastcc noundef range(i64 0, -5) i64 @_ZL17GetClientHelloLenm(i64
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %23, i64 224
-  %30 = load ptr, ptr %29, align 8, !tbaa !122, !noalias !117
-  call void @free(ptr noundef %30) #26, !noalias !117
+  %30 = load ptr, ptr %29, align 8, !tbaa !129, !noalias !124
+  call void @free(ptr noundef %30) #26, !noalias !124
   %31 = call noalias ptr @malloc(i64 noundef %0) #30
-  store ptr %31, ptr %29, align 8, !tbaa !122, !noalias !117
+  store ptr %31, ptr %29, align 8, !tbaa !129, !noalias !124
   %32 = icmp eq ptr %31, null
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %28
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 97, i64 %0, i1 false), !noalias !117
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 97, i64 %0, i1 false), !noalias !124
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 232
-  store i64 %0, ptr %34, align 8, !tbaa !123, !noalias !117
-  %35 = call i64 @time(ptr noundef null) #26, !noalias !117
+  store i64 %0, ptr %34, align 8, !tbaa !130, !noalias !124
+  %35 = call i64 @time(ptr noundef null) #26, !noalias !124
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 176
-  store i64 %35, ptr %36, align 8, !tbaa !124, !noalias !117
+  store i64 %35, ptr %36, align 8, !tbaa !131, !noalias !124
   %37 = ptrtoint ptr %23 to i64
-  store i64 %37, ptr %4, align 8, !tbaa !60, !alias.scope !117
+  store i64 %37, ptr %4, align 8, !tbaa !65, !alias.scope !124
   br label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i
 
 38:                                               ; preds = %28
-  store ptr null, ptr %4, align 8, !tbaa !120, !alias.scope !117
+  store ptr null, ptr %4, align 8, !tbaa !127, !alias.scope !124
   invoke void @SSL_SESSION_free(ptr noundef nonnull %23)
-          to label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i unwind label %39, !noalias !117
+          to label %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i unwind label %39, !noalias !124
 
 39:                                               ; preds = %38
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
-  call void @__clang_call_terminate(ptr %41) #28, !noalias !117
+  call void @__clang_call_terminate(ptr %41) #28, !noalias !124
   unreachable
 
 _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i: ; preds = %38, %33, %25, %13
   %.pr33 = phi ptr [ null, %38 ], [ %23, %33 ], [ null, %25 ], [ null, %13 ]
-  %42 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !117
+  %42 = load ptr, ptr %2, align 8, !tbaa !62, !noalias !124
   %.not.i.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i.i, label %47, label %43
 
 43:                                               ; preds = %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %42) #25, !noalias !117
+  call void @_ZdlPv(ptr noundef nonnull %42) #25, !noalias !124
   br label %47
 
 44:                                               ; preds = %26, %14
   %.pn.i = phi { ptr, i32 } [ %27, %26 ], [ %15, %14 ]
-  %45 = load ptr, ptr %2, align 8, !tbaa !57, !noalias !117
+  %45 = load ptr, ptr %2, align 8, !tbaa !62, !noalias !124
   %.not.i.i.i6.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i6.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit7.i, label %46
 
 46:                                               ; preds = %44
-  call void @_ZdlPv(ptr noundef nonnull %45) #25, !noalias !117
+  call void @_ZdlPv(ptr noundef nonnull %45) #25, !noalias !124
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit7.i
 
 _ZNSt6vectorIhSaIhEED2Ev.exit7.i:                 ; preds = %46, %44
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #26, !noalias !117
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #26, !noalias !124
   br label %.body
 
 47:                                               ; preds = %43, %_ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEED2Ev.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #26, !noalias !117
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #26, !noalias !124
   %.not43 = icmp eq ptr %10, null
   %.not.i22 = icmp eq ptr %.pr33, null
   br i1 %.not43, label %95, label %48
@@ -3219,7 +3219,7 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
           to label %51 unwind label %60
 
 51:                                               ; preds = %49
-  store ptr %50, ptr %5, align 8, !tbaa !74
+  store ptr %50, ptr %5, align 8, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #26
   %52 = invoke ptr @BIO_s_mem()
           to label %53 unwind label %62
@@ -3229,7 +3229,7 @@ _ZNSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEE
           to label %55 unwind label %62
 
 55:                                               ; preds = %53
-  store ptr %54, ptr %6, align 8, !tbaa !108
+  store ptr %54, ptr %6, align 8, !tbaa !115
   %.not45 = icmp eq ptr %50, null
   %.not.i20 = icmp eq ptr %54, null
   br i1 %.not45, label %thread-pre-split, label %56
@@ -3440,7 +3440,7 @@ declare i32 @BIO_mem_contents(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_XadL_Z9BIO_vfreeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !108
+  %2 = load ptr, ptr %0, align 8, !tbaa !115
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_.exit, label %3
 
@@ -3449,7 +3449,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI6bio_st14OpenSSLDeleterIS0_Xa
           to label %_ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !108
+  store ptr null, ptr %0, align 8, !tbaa !115
   ret void
 
 4:                                                ; preds = %3
@@ -3462,7 +3462,7 @@ _ZN14OpenSSLDeleterI6bio_stXadL_Z9BIO_vfreeEEEclEPS0_.exit: ; preds = %3, %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_XadL_Z8SSL_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !74
+  %2 = load ptr, ptr %0, align 8, !tbaa !80
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI6ssl_stXadL_Z8SSL_freeEEEclEPS0_.exit, label %3
 
@@ -3471,7 +3471,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI6ssl_st14OpenSSLDeleterIS0_Xa
           to label %_ZN14OpenSSLDeleterI6ssl_stXadL_Z8SSL_freeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI6ssl_stXadL_Z8SSL_freeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !74
+  store ptr null, ptr %0, align 8, !tbaa !80
   ret void
 
 4:                                                ; preds = %3
@@ -3499,10 +3499,10 @@ declare i32 @SSL_CTX_add_session(ptr noundef, ptr noundef) local_unnamed_addr #5
 define internal fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vectorIP14ssl_session_stSaIS3_EE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.59", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %5 = load ptr, ptr %4, align 8, !tbaa !125
-  %6 = load ptr, ptr %1, align 8, !tbaa !126
+  %5 = load ptr, ptr %4, align 8, !tbaa !132
+  %6 = load ptr, ptr %1, align 8, !tbaa !133
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !126
+  %8 = load ptr, ptr %7, align 8, !tbaa !133
   %.not9094 = icmp eq ptr %6, %8
   br i1 %.not9094, label %._crit_edge, label %.lr.ph
 
@@ -3513,18 +3513,18 @@ define internal fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vec
 10:                                               ; preds = %.lr.ph, %12
   %.02096 = phi ptr [ %5, %.lr.ph ], [ %., %12 ]
   %.sroa.080.095 = phi ptr [ %6, %.lr.ph ], [ %16, %12 ]
-  %11 = load ptr, ptr %.sroa.080.095, align 8, !tbaa !60
+  %11 = load ptr, ptr %.sroa.080.095, align 8, !tbaa !65
   %.not = icmp eq ptr %.02096, %11
   br i1 %.not, label %12, label %.thread85
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %.02096, i64 208
-  %14 = load ptr, ptr %13, align 8, !tbaa !127
+  %14 = load ptr, ptr %13, align 8, !tbaa !134
   %15 = icmp eq ptr %14, %9
   %. = select i1 %15, ptr null, ptr %14
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.080.095, i64 8
   %.not90 = icmp eq ptr %16, %8
-  br i1 %.not90, label %._crit_edge, label %10
+  br i1 %.not90, label %._crit_edge, label %10, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %12, %2
   %.020.lcssa = phi ptr [ %5, %2 ], [ %., %12 ]
@@ -3542,8 +3542,8 @@ define internal fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vec
           to label %20 unwind label %.thread
 
 20:                                               ; preds = %19
-  %21 = load ptr, ptr %7, align 8, !tbaa !100
-  %22 = load ptr, ptr %1, align 8, !tbaa !96
+  %21 = load ptr, ptr %7, align 8, !tbaa !107
+  %22 = load ptr, ptr %1, align 8, !tbaa !103
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
@@ -3552,7 +3552,7 @@ define internal fastcc noundef zeroext i1 @_ZL11ExpectCacheP10ssl_ctx_stRKSt6vec
 
 26:                                               ; preds = %20
   %27 = icmp ugt i64 %25, 9223372036854775800
-  br i1 %27, label %28, label %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE11_M_allocateEm.exit.i.i, !prof !128
+  br i1 %27, label %28, label %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE11_M_allocateEm.exit.i.i, !prof !136
 
 28:                                               ; preds = %26
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #31
@@ -3572,9 +3572,9 @@ _ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; pre
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i: ; preds = %20, %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit.i
   %.sroa.0.1 = phi ptr [ %29, %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit.i ], [ null, %20 ]
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 %25
-  %31 = load ptr, ptr %3, align 8, !tbaa !126
+  %31 = load ptr, ptr %3, align 8, !tbaa !133
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !126
+  %33 = load ptr, ptr %32, align 8, !tbaa !133
   %.not.i.i30 = icmp eq ptr %31, %33
   br i1 %.not.i.i30, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, label %34
 
@@ -3598,8 +3598,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKP14ssl_session_stSt6vectorIS3_SaIS3_E
   %.sroa.0.018.i.idx.i.i.i = phi i64 [ %.sroa.0.018.i.add.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ 8, %.noexc31 ]
   %.pn17.i.i.i.i = phi ptr [ %.sroa.0.018.i.ptr.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i ], [ %31, %.noexc31 ]
   %.sroa.0.018.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.0.018.i.idx.i.i.i
-  %43 = load ptr, ptr %.sroa.0.018.i.ptr.i.i.i, align 8, !tbaa !60
-  %44 = load ptr, ptr %31, align 8, !tbaa !60
+  %43 = load ptr, ptr %.sroa.0.018.i.ptr.i.i.i, align 8, !tbaa !65
+  %44 = load ptr, ptr %31, align 8, !tbaa !65
   %45 = icmp ult ptr %43, %44
   br i1 %45, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i, label %46
 
@@ -3608,7 +3608,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
 46:                                               ; preds = %.lr.ph.i.i.i.i
-  %47 = load ptr, ptr %.pn17.i.i.i.i, align 8, !tbaa !60
+  %47 = load ptr, ptr %.pn17.i.i.i.i, align 8, !tbaa !65
   %48 = icmp ult ptr %43, %47
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
 
@@ -3616,18 +3616,18 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   %49 = phi ptr [ %50, %.lr.ph.i.i.i.i.i ], [ %47, %46 ]
   %.sroa.0.09.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.pn17.i.i.i.i, %46 ]
   %.sroa.04.08.i.i.i.i.i = phi ptr [ %.sroa.0.09.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.0.018.i.ptr.i.i.i, %46 ]
-  store ptr %49, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %49, ptr %.sroa.04.08.i.i.i.i.i, align 8, !tbaa !65
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i.i, i64 -8
-  %50 = load ptr, ptr %.sroa.0.0.i.i.i.i.i, align 8, !tbaa !60
+  %50 = load ptr, ptr %.sroa.0.0.i.i.i.i.i, align 8, !tbaa !65
   %51 = icmp ult ptr %43, %50
-  br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, !llvm.loop !129
+  br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i, !llvm.loop !137
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %46, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i
   %.sink.i.i.i.i = phi ptr [ %31, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i ], [ %.sroa.0.018.i.ptr.i.i.i, %46 ], [ %.sroa.0.09.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
-  store ptr %43, ptr %.sink.i.i.i.i, align 8, !tbaa !60
+  store ptr %43, ptr %.sink.i.i.i.i, align 8, !tbaa !65
   %.sroa.0.018.i.add.i.i.i = add nuw nsw i64 %.sroa.0.018.i.idx.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %.sroa.0.018.i.add.i.i.i, 128
-  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !130
+  br i1 %.not.i.i.i.i, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !138
 
 _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %31, i64 128
@@ -3636,9 +3636,9 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vecto
 
 .lr.ph.i6.i.i.i:                                  ; preds = %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i
   %.sroa.0.05.i.i.i.i = phi ptr [ %59, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i ], [ %52, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i ]
-  %53 = load ptr, ptr %.sroa.0.05.i.i.i.i, align 8, !tbaa !60
+  %53 = load ptr, ptr %.sroa.0.05.i.i.i.i, align 8, !tbaa !65
   %.sroa.0.07.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i.i.i, i64 -8
-  %54 = load ptr, ptr %.sroa.0.07.i.i.i.i.i, align 8, !tbaa !60
+  %54 = load ptr, ptr %.sroa.0.07.i.i.i.i.i, align 8, !tbaa !65
   %55 = icmp ult ptr %53, %54
   br i1 %55, label %.lr.ph.i.i9.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i
 
@@ -3646,18 +3646,18 @@ _ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vecto
   %56 = phi ptr [ %57, %.lr.ph.i.i9.i.i.i ], [ %54, %.lr.ph.i6.i.i.i ]
   %.sroa.0.09.i.i10.i.i.i = phi ptr [ %.sroa.0.0.i.i12.i.i.i, %.lr.ph.i.i9.i.i.i ], [ %.sroa.0.07.i.i.i.i.i, %.lr.ph.i6.i.i.i ]
   %.sroa.04.08.i.i11.i.i.i = phi ptr [ %.sroa.0.09.i.i10.i.i.i, %.lr.ph.i.i9.i.i.i ], [ %.sroa.0.05.i.i.i.i, %.lr.ph.i6.i.i.i ]
-  store ptr %56, ptr %.sroa.04.08.i.i11.i.i.i, align 8, !tbaa !60
+  store ptr %56, ptr %.sroa.04.08.i.i11.i.i.i, align 8, !tbaa !65
   %.sroa.0.0.i.i12.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i10.i.i.i, i64 -8
-  %57 = load ptr, ptr %.sroa.0.0.i.i12.i.i.i, align 8, !tbaa !60
+  %57 = load ptr, ptr %.sroa.0.0.i.i12.i.i.i, align 8, !tbaa !65
   %58 = icmp ult ptr %53, %57
-  br i1 %58, label %.lr.ph.i.i9.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i, !llvm.loop !129
+  br i1 %58, label %.lr.ph.i.i9.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i, !llvm.loop !137
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i: ; preds = %.lr.ph.i.i9.i.i.i, %.lr.ph.i6.i.i.i
   %.sroa.04.0.lcssa.i.i.i.i.i = phi ptr [ %.sroa.0.05.i.i.i.i, %.lr.ph.i6.i.i.i ], [ %.sroa.0.09.i.i10.i.i.i, %.lr.ph.i.i9.i.i.i ]
-  store ptr %53, ptr %.sroa.04.0.lcssa.i.i.i.i.i, align 8, !tbaa !60
+  store ptr %53, ptr %.sroa.04.0.lcssa.i.i.i.i.i, align 8, !tbaa !65
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i.i.i, i64 8
   %.not.i8.i.i.i = icmp eq ptr %59, %33
-  br i1 %.not.i8.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, label %.lr.ph.i6.i.i.i, !llvm.loop !131
+  br i1 %.not.i8.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, label %.lr.ph.i6.i.i.i, !llvm.loop !139
 
 60:                                               ; preds = %.noexc31
   %.not16.i15.i.i.i = icmp eq ptr %scevgep.i.i.i, %33
@@ -3666,8 +3666,8 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_s
 .lr.ph.i16.i.i.i:                                 ; preds = %60, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i
   %.sroa.0.018.i17.i.i.i = phi ptr [ %.sroa.0.0.i21.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i ], [ %scevgep.i.i.i, %60 ]
   %.pn17.i18.i.i.i = phi ptr [ %.sroa.0.018.i17.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i ], [ %31, %60 ]
-  %61 = load ptr, ptr %.sroa.0.018.i17.i.i.i, align 8, !tbaa !60
-  %62 = load ptr, ptr %31, align 8, !tbaa !60
+  %61 = load ptr, ptr %.sroa.0.018.i17.i.i.i, align 8, !tbaa !65
+  %62 = load ptr, ptr %31, align 8, !tbaa !65
   %63 = icmp ult ptr %61, %62
   br i1 %63, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i27.i.i.i, label %70
 
@@ -3682,7 +3682,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i
 
 70:                                               ; preds = %.lr.ph.i16.i.i.i
-  %71 = load ptr, ptr %.pn17.i18.i.i.i, align 8, !tbaa !60
+  %71 = load ptr, ptr %.pn17.i18.i.i.i, align 8, !tbaa !65
   %72 = icmp ult ptr %61, %71
   br i1 %72, label %.lr.ph.i.i23.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i
 
@@ -3690,18 +3690,18 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   %73 = phi ptr [ %74, %.lr.ph.i.i23.i.i.i ], [ %71, %70 ]
   %.sroa.0.09.i.i24.i.i.i = phi ptr [ %.sroa.0.0.i.i26.i.i.i, %.lr.ph.i.i23.i.i.i ], [ %.pn17.i18.i.i.i, %70 ]
   %.sroa.04.08.i.i25.i.i.i = phi ptr [ %.sroa.0.09.i.i24.i.i.i, %.lr.ph.i.i23.i.i.i ], [ %.sroa.0.018.i17.i.i.i, %70 ]
-  store ptr %73, ptr %.sroa.04.08.i.i25.i.i.i, align 8, !tbaa !60
+  store ptr %73, ptr %.sroa.04.08.i.i25.i.i.i, align 8, !tbaa !65
   %.sroa.0.0.i.i26.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.09.i.i24.i.i.i, i64 -8
-  %74 = load ptr, ptr %.sroa.0.0.i.i26.i.i.i, align 8, !tbaa !60
+  %74 = load ptr, ptr %.sroa.0.0.i.i26.i.i.i, align 8, !tbaa !65
   %75 = icmp ult ptr %61, %74
-  br i1 %75, label %.lr.ph.i.i23.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i, !llvm.loop !129
+  br i1 %75, label %.lr.ph.i.i23.i.i.i, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i, !llvm.loop !137
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i: ; preds = %.lr.ph.i.i23.i.i.i, %70, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i27.i.i.i
   %.sink.i20.i.i.i = phi ptr [ %31, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i27.i.i.i ], [ %.sroa.0.018.i17.i.i.i, %70 ], [ %.sroa.0.09.i.i24.i.i.i, %.lr.ph.i.i23.i.i.i ]
-  store ptr %61, ptr %.sink.i20.i.i.i, align 8, !tbaa !60
+  store ptr %61, ptr %.sink.i20.i.i.i, align 8, !tbaa !65
   %.sroa.0.0.i21.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i17.i.i.i, i64 8
   %.not.i22.i.i.i = icmp eq ptr %.sroa.0.0.i21.i.i.i, %33
-  br i1 %.not.i22.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, label %.lr.ph.i16.i.i.i, !llvm.loop !130
+  br i1 %.not.i22.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, label %.lr.ph.i16.i.i.i, !llvm.loop !138
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i, %60, %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_T0_.exit.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit.i
   %.not.i.i32 = icmp eq ptr %21, %22
@@ -3725,8 +3725,8 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EE
   %.sroa.0.018.i.idx.i.i.i48 = phi i64 [ %.sroa.0.018.i.add.i.i.i53, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51 ], [ 8, %.noexc72 ]
   %.pn17.i.i.i.i49 = phi ptr [ %.sroa.0.018.i.ptr.i.i.i50, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51 ], [ %.sroa.0.1, %.noexc72 ]
   %.sroa.0.018.i.ptr.i.i.i50 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 %.sroa.0.018.i.idx.i.i.i48
-  %83 = load ptr, ptr %.sroa.0.018.i.ptr.i.i.i50, align 8, !tbaa !60
-  %84 = load ptr, ptr %.sroa.0.1, align 8, !tbaa !60
+  %83 = load ptr, ptr %.sroa.0.018.i.ptr.i.i.i50, align 8, !tbaa !65
+  %84 = load ptr, ptr %.sroa.0.1, align 8, !tbaa !65
   %85 = icmp ult ptr %83, %84
   br i1 %85, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i71, label %86
 
@@ -3735,7 +3735,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51
 
 86:                                               ; preds = %.lr.ph.i.i.i.i47
-  %87 = load ptr, ptr %.pn17.i.i.i.i49, align 8, !tbaa !60
+  %87 = load ptr, ptr %.pn17.i.i.i.i49, align 8, !tbaa !65
   %88 = icmp ult ptr %83, %87
   br i1 %88, label %.lr.ph.i.i.i.i.i67, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51
 
@@ -3743,18 +3743,18 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   %89 = phi ptr [ %90, %.lr.ph.i.i.i.i.i67 ], [ %87, %86 ]
   %.sroa.0.09.i.i.i.i.i68 = phi ptr [ %.sroa.0.0.i.i.i.i.i70, %.lr.ph.i.i.i.i.i67 ], [ %.pn17.i.i.i.i49, %86 ]
   %.sroa.04.08.i.i.i.i.i69 = phi ptr [ %.sroa.0.09.i.i.i.i.i68, %.lr.ph.i.i.i.i.i67 ], [ %.sroa.0.018.i.ptr.i.i.i50, %86 ]
-  store ptr %89, ptr %.sroa.04.08.i.i.i.i.i69, align 8, !tbaa !60
+  store ptr %89, ptr %.sroa.04.08.i.i.i.i.i69, align 8, !tbaa !65
   %.sroa.0.0.i.i.i.i.i70 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i.i.i.i68, i64 -8
-  %90 = load ptr, ptr %.sroa.0.0.i.i.i.i.i70, align 8, !tbaa !60
+  %90 = load ptr, ptr %.sroa.0.0.i.i.i.i.i70, align 8, !tbaa !65
   %91 = icmp ult ptr %83, %90
-  br i1 %91, label %.lr.ph.i.i.i.i.i67, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51, !llvm.loop !129
+  br i1 %91, label %.lr.ph.i.i.i.i.i67, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51, !llvm.loop !137
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51: ; preds = %.lr.ph.i.i.i.i.i67, %86, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i71
   %.sink.i.i.i.i52 = phi ptr [ %.sroa.0.1, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i.i.i.i71 ], [ %.sroa.0.018.i.ptr.i.i.i50, %86 ], [ %.sroa.0.09.i.i.i.i.i68, %.lr.ph.i.i.i.i.i67 ]
-  store ptr %83, ptr %.sink.i.i.i.i52, align 8, !tbaa !60
+  store ptr %83, ptr %.sink.i.i.i.i52, align 8, !tbaa !65
   %.sroa.0.018.i.add.i.i.i53 = add nuw nsw i64 %.sroa.0.018.i.idx.i.i.i48, 8
   %.not.i.i.i.i54 = icmp eq i64 %.sroa.0.018.i.add.i.i.i53, 128
-  br i1 %.not.i.i.i.i54, label %.lr.ph.i6.i.i.i57.preheader, label %.lr.ph.i.i.i.i47, !llvm.loop !130
+  br i1 %.not.i.i.i.i54, label %.lr.ph.i6.i.i.i57.preheader, label %.lr.ph.i.i.i.i47, !llvm.loop !138
 
 .lr.ph.i6.i.i.i57.preheader:                      ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i.i.i.i51
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0.1, i64 128
@@ -3762,9 +3762,9 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_s
 
 .lr.ph.i6.i.i.i57:                                ; preds = %.lr.ph.i6.i.i.i57.preheader, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i60
   %.sroa.0.05.i.i.i.i58 = phi ptr [ %99, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i60 ], [ %92, %.lr.ph.i6.i.i.i57.preheader ]
-  %93 = load ptr, ptr %.sroa.0.05.i.i.i.i58, align 8, !tbaa !60
+  %93 = load ptr, ptr %.sroa.0.05.i.i.i.i58, align 8, !tbaa !65
   %.sroa.0.07.i.i.i.i.i59 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i.i.i58, i64 -8
-  %94 = load ptr, ptr %.sroa.0.07.i.i.i.i.i59, align 8, !tbaa !60
+  %94 = load ptr, ptr %.sroa.0.07.i.i.i.i.i59, align 8, !tbaa !65
   %95 = icmp ult ptr %93, %94
   br i1 %95, label %.lr.ph.i.i9.i.i.i63, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i60
 
@@ -3772,18 +3772,18 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_s
   %96 = phi ptr [ %97, %.lr.ph.i.i9.i.i.i63 ], [ %94, %.lr.ph.i6.i.i.i57 ]
   %.sroa.0.09.i.i10.i.i.i64 = phi ptr [ %.sroa.0.0.i.i12.i.i.i66, %.lr.ph.i.i9.i.i.i63 ], [ %.sroa.0.07.i.i.i.i.i59, %.lr.ph.i6.i.i.i57 ]
   %.sroa.04.08.i.i11.i.i.i65 = phi ptr [ %.sroa.0.09.i.i10.i.i.i64, %.lr.ph.i.i9.i.i.i63 ], [ %.sroa.0.05.i.i.i.i58, %.lr.ph.i6.i.i.i57 ]
-  store ptr %96, ptr %.sroa.04.08.i.i11.i.i.i65, align 8, !tbaa !60
+  store ptr %96, ptr %.sroa.04.08.i.i11.i.i.i65, align 8, !tbaa !65
   %.sroa.0.0.i.i12.i.i.i66 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i10.i.i.i64, i64 -8
-  %97 = load ptr, ptr %.sroa.0.0.i.i12.i.i.i66, align 8, !tbaa !60
+  %97 = load ptr, ptr %.sroa.0.0.i.i12.i.i.i66, align 8, !tbaa !65
   %98 = icmp ult ptr %93, %97
-  br i1 %98, label %.lr.ph.i.i9.i.i.i63, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i60, !llvm.loop !129
+  br i1 %98, label %.lr.ph.i.i9.i.i.i63, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i60, !llvm.loop !137
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i60: ; preds = %.lr.ph.i.i9.i.i.i63, %.lr.ph.i6.i.i.i57
   %.sroa.04.0.lcssa.i.i.i.i.i61 = phi ptr [ %.sroa.0.05.i.i.i.i58, %.lr.ph.i6.i.i.i57 ], [ %.sroa.0.09.i.i10.i.i.i64, %.lr.ph.i.i9.i.i.i63 ]
-  store ptr %93, ptr %.sroa.04.0.lcssa.i.i.i.i.i61, align 8, !tbaa !60
+  store ptr %93, ptr %.sroa.04.0.lcssa.i.i.i.i.i61, align 8, !tbaa !65
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i.i.i58, i64 8
   %.not.i8.i.i.i62 = icmp eq ptr %99, %30
-  br i1 %.not.i8.i.i.i62, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit73, label %.lr.ph.i6.i.i.i57, !llvm.loop !131
+  br i1 %.not.i8.i.i.i62, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit73, label %.lr.ph.i6.i.i.i57, !llvm.loop !139
 
 100:                                              ; preds = %.noexc72
   %.not16.i15.i.i.i34 = icmp eq i64 %25, 8
@@ -3792,8 +3792,8 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_s
 .lr.ph.i16.i.i.i35:                               ; preds = %100, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38
   %.sroa.0.018.i17.i.i.i36 = phi ptr [ %.sroa.0.0.i21.i.i.i40, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38 ], [ %scevgep.i.i.i33, %100 ]
   %.pn17.i18.i.i.i37 = phi ptr [ %.sroa.0.018.i17.i.i.i36, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38 ], [ %.sroa.0.1, %100 ]
-  %101 = load ptr, ptr %.sroa.0.018.i17.i.i.i36, align 8, !tbaa !60
-  %102 = load ptr, ptr %.sroa.0.1, align 8, !tbaa !60
+  %101 = load ptr, ptr %.sroa.0.018.i17.i.i.i36, align 8, !tbaa !65
+  %102 = load ptr, ptr %.sroa.0.1, align 8, !tbaa !65
   %103 = icmp ult ptr %101, %102
   br i1 %103, label %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i27.i.i.i46, label %110
 
@@ -3808,7 +3808,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38
 
 110:                                              ; preds = %.lr.ph.i16.i.i.i35
-  %111 = load ptr, ptr %.pn17.i18.i.i.i37, align 8, !tbaa !60
+  %111 = load ptr, ptr %.pn17.i18.i.i.i37, align 8, !tbaa !65
   %112 = icmp ult ptr %101, %111
   br i1 %112, label %.lr.ph.i.i23.i.i.i42, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38
 
@@ -3816,22 +3816,22 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   %113 = phi ptr [ %114, %.lr.ph.i.i23.i.i.i42 ], [ %111, %110 ]
   %.sroa.0.09.i.i24.i.i.i43 = phi ptr [ %.sroa.0.0.i.i26.i.i.i45, %.lr.ph.i.i23.i.i.i42 ], [ %.pn17.i18.i.i.i37, %110 ]
   %.sroa.04.08.i.i25.i.i.i44 = phi ptr [ %.sroa.0.09.i.i24.i.i.i43, %.lr.ph.i.i23.i.i.i42 ], [ %.sroa.0.018.i17.i.i.i36, %110 ]
-  store ptr %113, ptr %.sroa.04.08.i.i25.i.i.i44, align 8, !tbaa !60
+  store ptr %113, ptr %.sroa.04.08.i.i25.i.i.i44, align 8, !tbaa !65
   %.sroa.0.0.i.i26.i.i.i45 = getelementptr inbounds i8, ptr %.sroa.0.09.i.i24.i.i.i43, i64 -8
-  %114 = load ptr, ptr %.sroa.0.0.i.i26.i.i.i45, align 8, !tbaa !60
+  %114 = load ptr, ptr %.sroa.0.0.i.i26.i.i.i45, align 8, !tbaa !65
   %115 = icmp ult ptr %101, %114
-  br i1 %115, label %.lr.ph.i.i23.i.i.i42, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38, !llvm.loop !129
+  br i1 %115, label %.lr.ph.i.i23.i.i.i42, label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38, !llvm.loop !137
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38: ; preds = %.lr.ph.i.i23.i.i.i42, %110, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i27.i.i.i46
   %.sink.i20.i.i.i39 = phi ptr [ %.sroa.0.1, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEES8_ET0_T_SA_S9_.exit.i27.i.i.i46 ], [ %.sroa.0.018.i17.i.i.i36, %110 ], [ %.sroa.0.09.i.i24.i.i.i43, %.lr.ph.i.i23.i.i.i42 ]
-  store ptr %101, ptr %.sink.i20.i.i.i39, align 8, !tbaa !60
+  store ptr %101, ptr %.sink.i20.i.i.i39, align 8, !tbaa !65
   %.sroa.0.0.i21.i.i.i40 = getelementptr inbounds nuw i8, ptr %.sroa.0.018.i17.i.i.i36, i64 8
   %.not.i22.i.i.i41 = icmp eq ptr %.sroa.0.0.i21.i.i.i40, %30
-  br i1 %.not.i22.i.i.i41, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit73, label %.lr.ph.i16.i.i.i35, !llvm.loop !130
+  br i1 %.not.i22.i.i.i41, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit73, label %.lr.ph.i16.i.i.i35, !llvm.loop !138
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit73: ; preds = %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i38, %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i7.i.i.i60, %100, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
-  %116 = load ptr, ptr %32, align 8, !tbaa !100
-  %117 = load ptr, ptr %3, align 8, !tbaa !96
+  %116 = load ptr, ptr %32, align 8, !tbaa !107
+  %117 = load ptr, ptr %3, align 8, !tbaa !103
   %118 = ptrtoint ptr %116 to i64
   %119 = ptrtoint ptr %117 to i64
   %120 = sub i64 %118, %119
@@ -3854,7 +3854,7 @@ _ZSteqIP14ssl_session_stSaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %123, %12
 
 125:                                              ; preds = %_ZSteqIP14ssl_session_stSaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1) #25
-  %.pre = load ptr, ptr %3, align 8, !tbaa !96
+  %.pre = load ptr, ptr %3, align 8, !tbaa !103
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit:  ; preds = %_ZSteqIP14ssl_session_stSaIS1_EEbRKSt6vectorIT_T0_ES8_.exit, %125
@@ -3887,7 +3887,7 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit75: ; preds = %_ZNSt6vectorIP14ss
 
 _ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit77: ; preds = %.thread, %128, %129
   %lpad.phi113 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %128 ], [ %lpad.thr_comm.split-lp, %129 ]
-  %130 = load ptr, ptr %3, align 8, !tbaa !96
+  %130 = load ptr, ptr %3, align 8, !tbaa !103
   %.not.i.i.i78 = icmp eq ptr %130, null
   br i1 %.not.i.i.i78, label %_ZNSt6vectorIP14ssl_session_stSaIS1_EED2Ev.exit79, label %131
 
@@ -3908,15 +3908,15 @@ declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !92
+  %2 = load ptr, ptr %0, align 8, !tbaa !98
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !83
+  %4 = load ptr, ptr %3, align 8, !tbaa !89
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %1, %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i
   %.05.i.i.i = phi ptr [ %10, %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i ], [ %2, %1 ]
-  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !60
+  %5 = load ptr, ptr %.05.i.i.i, align 8, !tbaa !65
   %.not.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i, label %6
 
@@ -3932,13 +3932,13 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrI14ssl_session_st14O
   unreachable
 
 _ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i: ; preds = %6, %.lr.ph.i.i.i
-  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !60
+  store ptr null, ptr %.05.i.i.i, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %10, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !104
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !111
 
 _ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split: ; preds = %_ZSt8_DestroyISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEEEvPT_.exit.i.i.i
-  %.pr = load ptr, ptr %0, align 8, !tbaa !92
+  %.pr = load ptr, ptr %0, align 8, !tbaa !98
   br label %_ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exit
 
 _ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_EvT_S6_RSaIT0_E.exitthread-pre-split, %1
@@ -3963,20 +3963,20 @@ declare ptr @SSL_CTX_sessions(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL13AppendSessionP14ssl_session_stPv(ptr noundef %0, ptr noundef captures(none) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !100
+  %4 = load ptr, ptr %3, align 8, !tbaa !107
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !99
+  %6 = load ptr, ptr %5, align 8, !tbaa !106
   %.not.i = icmp eq ptr %4, %6
   br i1 %.not.i, label %9, label %7
 
 7:                                                ; preds = %2
-  store ptr %0, ptr %4, align 8, !tbaa !60
+  store ptr %0, ptr %4, align 8, !tbaa !65
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %8, ptr %3, align 8, !tbaa !100
+  store ptr %8, ptr %3, align 8, !tbaa !107
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE9push_backERKS1_.exit
 
 9:                                                ; preds = %2
-  %10 = load ptr, ptr %1, align 8, !tbaa !96
+  %10 = load ptr, ptr %1, align 8, !tbaa !103
   %11 = ptrtoint ptr %4 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -3999,7 +3999,7 @@ _ZNKSt6vectorIP14ssl_session_stSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %
   %21 = shl nuw nsw i64 %20, 3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #32
   %23 = getelementptr inbounds i8, ptr %22, i64 %13
-  store ptr %0, ptr %23, align 8, !tbaa !60
+  store ptr %0, ptr %23, align 8, !tbaa !65
   %24 = icmp sgt i64 %13, 0
   br i1 %24, label %25, label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
 
@@ -4017,10 +4017,10 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ;
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIP14ssl_session_stSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIP14ssl_session_stSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
-  store ptr %22, ptr %1, align 8, !tbaa !96
-  store ptr %26, ptr %3, align 8, !tbaa !100
+  store ptr %22, ptr %1, align 8, !tbaa !103
+  store ptr %26, ptr %3, align 8, !tbaa !107
   %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
-  store ptr %28, ptr %5, align 8, !tbaa !99
+  store ptr %28, ptr %5, align 8, !tbaa !106
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIP14ssl_session_stSaIS1_EE9push_backERKS1_.exit: ; preds = %7, %_ZNSt6vectorIP14ssl_session_stSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
@@ -4057,9 +4057,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 .lr.ph.i.i:                                       ; preds = %14, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i
   %.sroa.0.05.i.i = phi ptr [ %15, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i ], [ %storemerge17, %14 ]
   %15 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
-  %16 = load ptr, ptr %15, align 8, !tbaa !60
-  %17 = load ptr, ptr %0, align 8, !tbaa !60
-  store ptr %17, ptr %15, align 8, !tbaa !60
+  %16 = load ptr, ptr %15, align 8, !tbaa !65
+  %17 = load ptr, ptr %0, align 8, !tbaa !65
+  store ptr %17, ptr %15, align 8, !tbaa !65
   %18 = ptrtoint ptr %15 to i64
   %19 = sub i64 %18, %5
   %20 = ashr exact i64 %19, 3
@@ -4075,16 +4075,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %26 = getelementptr inbounds ptr, ptr %0, i64 %25
   %27 = or disjoint i64 %24, 1
   %28 = getelementptr inbounds ptr, ptr %0, i64 %27
-  %29 = load ptr, ptr %26, align 8, !tbaa !60
-  %30 = load ptr, ptr %28, align 8, !tbaa !60
+  %29 = load ptr, ptr %26, align 8, !tbaa !65
+  %30 = load ptr, ptr %28, align 8, !tbaa !65
   %31 = icmp ult ptr %29, %30
   %spec.select.i.i.i.i = select i1 %31, i64 %27, i64 %25
   %32 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
-  %33 = load ptr, ptr %32, align 8, !tbaa !60
+  %33 = load ptr, ptr %32, align 8, !tbaa !65
   %34 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i.i
-  store ptr %33, ptr %34, align 8, !tbaa !60
+  store ptr %33, ptr %34, align 8, !tbaa !65
   %35 = icmp slt i64 %spec.select.i.i.i.i, %22
-  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !132
+  br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !140
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
@@ -4102,9 +4102,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %42 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %43 = or disjoint i64 %42, 1
   %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !60
+  %45 = load ptr, ptr %44, align 8, !tbaa !65
   %46 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store ptr %45, ptr %46, align 8, !tbaa !60
+  store ptr %45, ptr %46, align 8, !tbaa !65
   br label %.lr.ph.i.i.i.i.i.preheader
 
 47:                                               ; preds = %38, %._crit_edge.i.i.i.i
@@ -4120,32 +4120,32 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i56.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
   %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i56.i.i.i
-  %49 = load ptr, ptr %48, align 8, !tbaa !60
+  %49 = load ptr, ptr %48, align 8, !tbaa !65
   %50 = icmp ult ptr %49, %16
   br i1 %50, label %51, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i.i.i
-  store ptr %49, ptr %52, align 8, !tbaa !60
+  store ptr %49, ptr %52, align 8, !tbaa !65
   %.not7.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
-  br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !133
+  br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !141
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %51 ]
   %53 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store ptr %16, ptr %53, align 8, !tbaa !60
+  store ptr %16, ptr %53, align 8, !tbaa !65
   %54 = icmp sgt i64 %19, 8
-  br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !134
+  br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !142
 
 55:                                               ; preds = %11
   %56 = add nsw i64 %.018, -1
   %57 = lshr i64 %12, 1
   %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   %59 = getelementptr inbounds i8, ptr %storemerge17, i64 -8
-  %60 = load ptr, ptr %10, align 8, !tbaa !60
-  %61 = load ptr, ptr %58, align 8, !tbaa !60
+  %60 = load ptr, ptr %10, align 8, !tbaa !65
+  %61 = load ptr, ptr %58, align 8, !tbaa !65
   %62 = icmp ult ptr %60, %61
-  %63 = load ptr, ptr %59, align 8, !tbaa !60
+  %63 = load ptr, ptr %59, align 8, !tbaa !65
   br i1 %62, label %64, label %73
 
 64:                                               ; preds = %55
@@ -4153,24 +4153,24 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_S
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %64
-  %67 = load ptr, ptr %0, align 8, !tbaa !60
-  store ptr %61, ptr %0, align 8, !tbaa !60
-  store ptr %67, ptr %58, align 8, !tbaa !60
+  %67 = load ptr, ptr %0, align 8, !tbaa !65
+  store ptr %61, ptr %0, align 8, !tbaa !65
+  store ptr %67, ptr %58, align 8, !tbaa !65
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader
 
 68:                                               ; preds = %64
   %69 = icmp ult ptr %60, %63
-  %70 = load ptr, ptr %0, align 8, !tbaa !60
+  %70 = load ptr, ptr %0, align 8, !tbaa !65
   br i1 %69, label %71, label %72
 
 71:                                               ; preds = %68
-  store ptr %63, ptr %0, align 8, !tbaa !60
-  store ptr %70, ptr %59, align 8, !tbaa !60
+  store ptr %63, ptr %0, align 8, !tbaa !65
+  store ptr %70, ptr %59, align 8, !tbaa !65
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader
 
 72:                                               ; preds = %68
-  store ptr %60, ptr %0, align 8, !tbaa !60
-  store ptr %70, ptr %10, align 8, !tbaa !60
+  store ptr %60, ptr %0, align 8, !tbaa !65
+  store ptr %70, ptr %10, align 8, !tbaa !65
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader
 
 73:                                               ; preds = %55
@@ -4178,24 +4178,24 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_S
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %73
-  %76 = load ptr, ptr %0, align 8, !tbaa !60
-  store ptr %60, ptr %0, align 8, !tbaa !60
-  store ptr %76, ptr %10, align 8, !tbaa !60
+  %76 = load ptr, ptr %0, align 8, !tbaa !65
+  store ptr %60, ptr %0, align 8, !tbaa !65
+  store ptr %76, ptr %10, align 8, !tbaa !65
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader
 
 77:                                               ; preds = %73
   %78 = icmp ult ptr %61, %63
-  %79 = load ptr, ptr %0, align 8, !tbaa !60
+  %79 = load ptr, ptr %0, align 8, !tbaa !65
   br i1 %78, label %80, label %81
 
 80:                                               ; preds = %77
-  store ptr %63, ptr %0, align 8, !tbaa !60
-  store ptr %79, ptr %59, align 8, !tbaa !60
+  store ptr %63, ptr %0, align 8, !tbaa !65
+  store ptr %79, ptr %59, align 8, !tbaa !65
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader
 
 81:                                               ; preds = %77
-  store ptr %61, ptr %0, align 8, !tbaa !60
-  store ptr %79, ptr %58, align 8, !tbaa !60
+  store ptr %61, ptr %0, align 8, !tbaa !65
+  store ptr %79, ptr %58, align 8, !tbaa !65
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader
 
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader: ; preds = %81, %80, %75, %72, %71, %66
@@ -4204,31 +4204,31 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt
 _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader, %91
   %.sroa.010.0.i.i = phi ptr [ %86, %91 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader ]
   %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %91 ], [ %storemerge17, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i.preheader ]
-  %82 = load ptr, ptr %0, align 8, !tbaa !60
+  %82 = load ptr, ptr %0, align 8, !tbaa !65
   br label %83
 
 83:                                               ; preds = %83, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i
   %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i ], [ %86, %83 ]
-  %84 = load ptr, ptr %.sroa.010.1.i.i, align 8, !tbaa !60
+  %84 = load ptr, ptr %.sroa.010.1.i.i, align 8, !tbaa !65
   %85 = icmp ult ptr %84, %82
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
-  br i1 %85, label %83, label %.preheader.i.i, !llvm.loop !135
+  br i1 %85, label %83, label %.preheader.i.i, !llvm.loop !143
 
 .preheader.i.i:                                   ; preds = %83, %.preheader.i.i
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %83 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %87 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !60
+  %87 = load ptr, ptr %.sroa.0.1.i.i, align 8, !tbaa !65
   %88 = icmp ult ptr %82, %87
-  br i1 %88, label %.preheader.i.i, label %89, !llvm.loop !136
+  br i1 %88, label %.preheader.i.i, label %89, !llvm.loop !144
 
 89:                                               ; preds = %.preheader.i.i
   %90 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
   br i1 %90, label %91, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_.exit
 
 91:                                               ; preds = %89
-  store ptr %87, ptr %.sroa.010.1.i.i, align 8, !tbaa !60
-  store ptr %84, ptr %.sroa.0.1.i.i, align 8, !tbaa !60
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i, !llvm.loop !137
+  store ptr %87, ptr %.sroa.010.1.i.i, align 8, !tbaa !65
+  store ptr %84, ptr %.sroa.0.1.i.i, align 8, !tbaa !65
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_.exit.i, !llvm.loop !145
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_.exit: ; preds = %89
   tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge17, i64 noundef %56)
@@ -4236,7 +4236,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP14ssl_session
   %93 = sub i64 %92, %5
   %94 = ashr exact i64 %93, 3
   %95 = icmp sgt i64 %94, 16
-  br i1 %95, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !138
+  br i1 %95, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !146
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, %3
   ret void
@@ -4271,7 +4271,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
   %.07.us = phi i64 [ %43, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us ], [ %11, %9 ]
   %20 = getelementptr inbounds ptr, ptr %0, i64 %.07.us
-  %21 = load ptr, ptr %20, align 8, !tbaa !60
+  %21 = load ptr, ptr %20, align 8, !tbaa !65
   %22 = icmp slt i64 %.07.us, %13
   br i1 %22, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
@@ -4282,16 +4282,16 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %25 = getelementptr inbounds ptr, ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
   %27 = getelementptr inbounds ptr, ptr %0, i64 %26
-  %28 = load ptr, ptr %25, align 8, !tbaa !60
-  %29 = load ptr, ptr %27, align 8, !tbaa !60
+  %28 = load ptr, ptr %25, align 8, !tbaa !65
+  %29 = load ptr, ptr %27, align 8, !tbaa !65
   %30 = icmp ult ptr %28, %29
   %spec.select.i.us = select i1 %30, i64 %26, i64 %24
   %31 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
-  %32 = load ptr, ptr %31, align 8, !tbaa !60
+  %32 = load ptr, ptr %31, align 8, !tbaa !65
   %33 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.us
-  store ptr %32, ptr %33, align 8, !tbaa !60
+  store ptr %32, ptr %33, align 8, !tbaa !65
   %34 = icmp slt i64 %spec.select.i.us, %13
-  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !132
+  br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !140
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.i.us
   %35 = icmp sgt i64 %spec.select.i.us, %.07.us
@@ -4302,28 +4302,28 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
   %36 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i.i.us
-  %37 = load ptr, ptr %36, align 8, !tbaa !60
+  %37 = load ptr, ptr %36, align 8, !tbaa !65
   %38 = icmp ult ptr %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
   %40 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.us
-  store ptr %37, ptr %40, align 8, !tbaa !60
+  store ptr %37, ptr %40, align 8, !tbaa !65
   %41 = icmp sgt i64 %.0920.i.i.us, %.07.us
-  br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us, !llvm.loop !133
+  br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us, !llvm.loop !141
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.07.us, %.split.us ], [ %.0920.i.i.us, %39 ], [ %.019.i.i.us, %.lr.ph.i.i.us ]
   %42 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.us
-  store ptr %21, ptr %42, align 8, !tbaa !60
+  store ptr %21, ptr %42, align 8, !tbaa !65
   %.not.us = icmp eq i64 %.07.us, 0
   %43 = add nsw i64 %.07.us, -1
-  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !139
+  br i1 %.not.us, label %.loopexit, label %.split.us, !llvm.loop !147
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
   %.07 = phi i64 [ %71, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit ], [ %11, %.split.preheader ]
   %44 = getelementptr inbounds ptr, ptr %0, i64 %.07
-  %45 = load ptr, ptr %44, align 8, !tbaa !60
+  %45 = load ptr, ptr %44, align 8, !tbaa !65
   %46 = icmp slt i64 %.07, %13
   br i1 %46, label %.lr.ph.i, label %._crit_edge.i
 
@@ -4334,16 +4334,16 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   %49 = getelementptr inbounds ptr, ptr %0, i64 %48
   %50 = or disjoint i64 %47, 1
   %51 = getelementptr inbounds ptr, ptr %0, i64 %50
-  %52 = load ptr, ptr %49, align 8, !tbaa !60
-  %53 = load ptr, ptr %51, align 8, !tbaa !60
+  %52 = load ptr, ptr %49, align 8, !tbaa !65
+  %53 = load ptr, ptr %51, align 8, !tbaa !65
   %54 = icmp ult ptr %52, %53
   %spec.select.i = select i1 %54, i64 %50, i64 %48
   %55 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
-  %56 = load ptr, ptr %55, align 8, !tbaa !60
+  %56 = load ptr, ptr %55, align 8, !tbaa !65
   %57 = getelementptr inbounds ptr, ptr %0, i64 %.034.i
-  store ptr %56, ptr %57, align 8, !tbaa !60
+  store ptr %56, ptr %57, align 8, !tbaa !65
   %58 = icmp slt i64 %spec.select.i, %13
-  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !132
+  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !140
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.split
   %.0.lcssa.i = phi i64 [ %.07, %.split ], [ %spec.select.i, %.lr.ph.i ]
@@ -4351,8 +4351,8 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %._crit_edge.i
-  %61 = load ptr, ptr %18, align 8, !tbaa !60
-  store ptr %61, ptr %19, align 8, !tbaa !60
+  %61 = load ptr, ptr %18, align 8, !tbaa !65
+  store ptr %61, ptr %19, align 8, !tbaa !65
   br label %62
 
 62:                                               ; preds = %60, %._crit_edge.i
@@ -4365,23 +4365,23 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
   %64 = getelementptr inbounds ptr, ptr %0, i64 %.0920.i.i
-  %65 = load ptr, ptr %64, align 8, !tbaa !60
+  %65 = load ptr, ptr %64, align 8, !tbaa !65
   %66 = icmp ult ptr %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
   %68 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i
-  store ptr %65, ptr %68, align 8, !tbaa !60
+  store ptr %65, ptr %68, align 8, !tbaa !65
   %69 = icmp sgt i64 %.0920.i.i, %.07
-  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !133
+  br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, !llvm.loop !141
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
   %70 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
-  store ptr %45, ptr %70, align 8, !tbaa !60
+  store ptr %45, ptr %70, align 8, !tbaa !65
   %.not = icmp eq i64 %.07, 0
   %71 = add nsw i64 %.07, -1
-  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !141
+  br i1 %.not, label %.loopexit, label %.split, !llvm.loop !149
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit.us, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP14ssl_session_stSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit, %3
   ret void
@@ -4396,8 +4396,8 @@ define linkonce_odr hidden void @_ZNSt6vectorIP14ssl_session_stSaIS1_EE13_M_assi
   %5 = ptrtoint ptr %1 to i64
   %6 = sub i64 %4, %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !99
-  %9 = load ptr, ptr %0, align 8, !tbaa !96
+  %8 = load ptr, ptr %7, align 8, !tbaa !106
+  %9 = load ptr, ptr %0, align 8, !tbaa !103
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
@@ -4431,15 +4431,15 @@ _ZNSt6vectorIP14ssl_session_stSaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.e
   br label %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit
 
 _ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIP14ssl_session_stSaIS1_EE20_M_allocate_and_copyIPKS1_EEPS1_mT_S8_.exit, %20
-  store ptr %17, ptr %0, align 8, !tbaa !96
+  store ptr %17, ptr %0, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %6
-  store ptr %21, ptr %19, align 8, !tbaa !100
-  store ptr %21, ptr %7, align 8, !tbaa !99
+  store ptr %21, ptr %19, align 8, !tbaa !107
+  store ptr %21, ptr %7, align 8, !tbaa !106
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE15_M_erase_at_endEPS1_.exit
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !100
+  %24 = load ptr, ptr %23, align 8, !tbaa !107
   %25 = ptrtoint ptr %24 to i64
   %26 = sub i64 %25, %11
   %.not = icmp ult i64 %26, %6
@@ -4451,7 +4451,7 @@ _ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit: ; preds
 
 28:                                               ; preds = %27
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %9, ptr align 8 %1, i64 %6, i1 false)
-  %.pre = load ptr, ptr %23, align 8, !tbaa !100
+  %.pre = load ptr, ptr %23, align 8, !tbaa !107
   br label %_ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit
 
 _ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit: ; preds = %27, %28
@@ -4461,7 +4461,7 @@ _ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit: ; preds = %27, %28
   br i1 %.not.i16, label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE15_M_erase_at_endEPS1_.exit, label %31
 
 31:                                               ; preds = %_ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit
-  store ptr %30, ptr %23, align 8, !tbaa !100
+  store ptr %30, ptr %23, align 8, !tbaa !107
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE15_M_erase_at_endEPS1_.exit
 
 _ZSt7advanceIPKP14ssl_session_stmEvRT_T0_.exit:   ; preds = %22
@@ -4472,7 +4472,7 @@ _ZSt7advanceIPKP14ssl_session_stmEvRT_T0_.exit:   ; preds = %22
 
 34:                                               ; preds = %_ZSt7advanceIPKP14ssl_session_stmEvRT_T0_.exit
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(1) %1, i64 %26, i1 false)
-  %.pre26 = load ptr, ptr %23, align 8, !tbaa !100
+  %.pre26 = load ptr, ptr %23, align 8, !tbaa !107
   br label %_ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit18
 
 _ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit18: ; preds = %_ZSt7advanceIPKP14ssl_session_stmEvRT_T0_.exit, %34
@@ -4487,7 +4487,7 @@ _ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit18: ; preds = %_ZSt7advanceIPK
 
 _ZSt22__uninitialized_copy_aIPKP14ssl_session_stPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit: ; preds = %_ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit18, %37
   %38 = getelementptr inbounds i8, ptr %35, i64 %36
-  store ptr %38, ptr %23, align 8, !tbaa !100
+  store ptr %38, ptr %23, align 8, !tbaa !107
   br label %_ZNSt6vectorIP14ssl_session_stSaIS1_EE15_M_erase_at_endEPS1_.exit
 
 _ZNSt6vectorIP14ssl_session_stSaIS1_EE15_M_erase_at_endEPS1_.exit: ; preds = %31, %_ZSt4copyIPKP14ssl_session_stPS1_ET0_T_S6_S5_.exit, %_ZSt22__uninitialized_copy_aIPKP14ssl_session_stPS1_S1_ET0_T_S6_S5_RSaIT1_E.exit, %_ZNSt12_Vector_baseIP14ssl_session_stSaIS1_EE13_M_deallocateEPS1_m.exit
@@ -4522,7 +4522,7 @@ declare i32 @SSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleterIS0_XadL_Z13EVP_PKEY_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !114
+  %2 = load ptr, ptr %0, align 8, !tbaa !121
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI11evp_pkey_stXadL_Z13EVP_PKEY_freeEEEclEPS0_.exit, label %3
 
@@ -4531,7 +4531,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI11evp_pkey_st14OpenSSLDeleter
           to label %_ZN14OpenSSLDeleterI11evp_pkey_stXadL_Z13EVP_PKEY_freeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI11evp_pkey_stXadL_Z13EVP_PKEY_freeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !114
+  store ptr null, ptr %0, align 8, !tbaa !121
   ret void
 
 4:                                                ; preds = %3
@@ -4544,7 +4544,7 @@ _ZN14OpenSSLDeleterI11evp_pkey_stXadL_Z13EVP_PKEY_freeEEEclEPS0_.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_XadL_Z9X509_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !110
+  %2 = load ptr, ptr %0, align 8, !tbaa !117
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN14OpenSSLDeleterI7x509_stXadL_Z9X509_freeEEEclEPS0_.exit, label %3
 
@@ -4553,7 +4553,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrI7x509_st14OpenSSLDeleterIS0_X
           to label %_ZN14OpenSSLDeleterI7x509_stXadL_Z9X509_freeEEEclEPS0_.exit unwind label %4
 
 _ZN14OpenSSLDeleterI7x509_stXadL_Z9X509_freeEEEclEPS0_.exit: ; preds = %3, %1
-  store ptr null, ptr %0, align 8, !tbaa !110
+  store ptr null, ptr %0, align 8, !tbaa !117
   ret void
 
 4:                                                ; preds = %3
@@ -4572,15 +4572,15 @@ declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr 
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" personality ptr @__gxx_personality_v0 {
-  store ptr @.str, ptr @_ZL12kCipherTests, align 16, !tbaa !14
+  store ptr @.str, ptr @_ZL12kCipherTests, align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 8), i8 0, i64 24, i1 false)
   %1 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32
   store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 8), align 8, !tbaa !6
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 24), align 8, !tbaa !142
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 24), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) @constinit.9, i64 96, i1 false)
-  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 16), align 16, !tbaa !45
-  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 32), align 16, !tbaa !14
+  store ptr %2, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 16), align 16, !tbaa !48
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 32), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 40), i8 0, i64 24, i1 false)
   %3 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32
           to label %4 unwind label %37
@@ -4588,10 +4588,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 4:                                                ; preds = %0
   store ptr %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 40), align 8, !tbaa !6
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 96
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 56), align 8, !tbaa !142
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 56), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) @constinit.2, i64 96, i1 false)
-  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 48), align 16, !tbaa !45
-  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 64), align 16, !tbaa !14
+  store ptr %5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 48), align 16, !tbaa !48
+  store ptr @.str.3, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 64), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 72), i8 0, i64 24, i1 false)
   %6 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
           to label %7 unwind label %39
@@ -4599,10 +4599,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 7:                                                ; preds = %4
   store ptr %6, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 72), align 8, !tbaa !6
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 88), align 8, !tbaa !142
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 88), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) @constinit.4, i64 48, i1 false)
-  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 80), align 16, !tbaa !45
-  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 96), align 16, !tbaa !14
+  store ptr %8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 80), align 16, !tbaa !48
+  store ptr @.str.5, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 96), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 104), i8 0, i64 24, i1 false)
   %9 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %10 unwind label %41
@@ -4610,12 +4610,12 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 10:                                               ; preds = %7
   store ptr %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 104), align 8, !tbaa !6
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 120), align 8, !tbaa !142
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 120), align 8, !tbaa !150
   store i64 50331804, ptr %9, align 8
   %.sroa.590.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %.sroa.590.0..sroa_idx.i, align 8
-  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 112), align 16, !tbaa !45
-  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 128), align 16, !tbaa !14
+  store ptr %11, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 112), align 16, !tbaa !48
+  store ptr @.str.6, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 128), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 136), i8 0, i64 24, i1 false)
   %12 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
           to label %13 unwind label %43
@@ -4623,10 +4623,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 13:                                               ; preds = %10
   store ptr %12, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 136), align 8, !tbaa !6
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 152), align 8, !tbaa !142
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 152), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(48) @constinit.7, i64 48, i1 false)
-  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 144), align 16, !tbaa !45
-  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 160), align 16, !tbaa !14
+  store ptr %14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 144), align 16, !tbaa !48
+  store ptr @.str.8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 160), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 168), i8 0, i64 24, i1 false)
   %15 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32
           to label %16 unwind label %45
@@ -4634,10 +4634,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 16:                                               ; preds = %13
   store ptr %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 168), align 8, !tbaa !6
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 96
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 184), align 8, !tbaa !142
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 184), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) @constinit.9, i64 96, i1 false)
-  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 176), align 16, !tbaa !45
-  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 192), align 16, !tbaa !14
+  store ptr %17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 176), align 16, !tbaa !48
+  store ptr @.str.10, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 192), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 200), i8 0, i64 24, i1 false)
   %18 = invoke noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #32
           to label %19 unwind label %47
@@ -4645,10 +4645,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 19:                                               ; preds = %16
   store ptr %18, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 200), align 8, !tbaa !6
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
-  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 216), align 8, !tbaa !142
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 216), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %18, ptr noundef nonnull align 8 dereferenceable(96) @constinit.11, i64 96, i1 false)
-  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 208), align 16, !tbaa !45
-  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 224), align 16, !tbaa !14
+  store ptr %20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 208), align 16, !tbaa !48
+  store ptr @.str.12, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 224), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 232), i8 0, i64 24, i1 false)
   %21 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #32
           to label %22 unwind label %49
@@ -4656,10 +4656,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 22:                                               ; preds = %19
   store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 232), align 8, !tbaa !6
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 128
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 248), align 8, !tbaa !142
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 248), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %21, ptr noundef nonnull align 8 dereferenceable(128) @constinit.13, i64 128, i1 false)
-  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 240), align 16, !tbaa !45
-  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 256), align 16, !tbaa !14
+  store ptr %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 240), align 16, !tbaa !48
+  store ptr @.str.14, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 256), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 264), i8 0, i64 24, i1 false)
   %24 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
           to label %25 unwind label %51
@@ -4667,10 +4667,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 25:                                               ; preds = %22
   store ptr %24, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 264), align 8, !tbaa !6
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 280), align 8, !tbaa !142
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 280), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) @constinit.15, i64 32, i1 false)
-  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 272), align 16, !tbaa !45
-  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 288), align 16, !tbaa !14
+  store ptr %26, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 272), align 16, !tbaa !48
+  store ptr @.str.16, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 288), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 296), i8 0, i64 24, i1 false)
   %27 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %28 unwind label %53
@@ -4678,12 +4678,12 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 28:                                               ; preds = %25
   store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 296), align 8, !tbaa !6
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 312), align 8, !tbaa !142
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 312), align 8, !tbaa !150
   store i64 50331708, ptr %27, align 8
   %.sroa.581.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 0, ptr %.sroa.581.0..sroa_idx.i, align 8
-  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 304), align 16, !tbaa !45
-  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 320), align 16, !tbaa !14
+  store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 304), align 16, !tbaa !48
+  store ptr @.str.17, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 320), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 328), i8 0, i64 24, i1 false)
   %30 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #32
           to label %31 unwind label %55
@@ -4691,12 +4691,12 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 31:                                               ; preds = %28
   store ptr %30, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 328), align 8, !tbaa !6
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 344), align 8, !tbaa !142
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 344), align 8, !tbaa !150
   store i64 50331695, ptr %30, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
-  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 336), align 16, !tbaa !45
-  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 352), align 16, !tbaa !14
+  store ptr %32, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 336), align 16, !tbaa !48
+  store ptr @.str.18, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 352), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 360), i8 0, i64 24, i1 false)
   %33 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #32
           to label %34 unwind label %57
@@ -4704,10 +4704,10 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 34:                                               ; preds = %31
   store ptr %33, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 360), align 8, !tbaa !6
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 376), align 8, !tbaa !142
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 376), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) @constinit.19, i64 32, i1 false)
-  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 368), align 16, !tbaa !45
-  store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 384), align 16, !tbaa !14
+  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 368), align 16, !tbaa !48
+  store ptr @.str.20, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 384), align 16, !tbaa !17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 392), i8 0, i64 24, i1 false)
   %36 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #32
           to label %__cxx_global_var_init.exit unwind label %59
@@ -4791,7 +4791,7 @@ define internal void @_GLOBAL__sub_I_ssl_test.cc() #20 section ".text.startup" p
 
 _ZN10CipherTestD2Ev.exit.i:                       ; preds = %65, %.preheader.i
   %66 = icmp eq ptr %62, @_ZL12kCipherTests
-  br i1 %66, label %.loopexit.i, label %.preheader.i
+  br i1 %66, label %.loopexit.i, label %.preheader.i, !llvm.loop !151
 
 .loopexit.i:                                      ; preds = %_ZN10CipherTestD2Ev.exit.i
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.i
@@ -4799,9 +4799,9 @@ _ZN10CipherTestD2Ev.exit.i:                       ; preds = %65, %.preheader.i
 __cxx_global_var_init.exit:                       ; preds = %34
   store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 392), align 8, !tbaa !6
   %67 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 408), align 8, !tbaa !142
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 408), align 8, !tbaa !150
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) @constinit.21, i64 64, i1 false)
-  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 400), align 16, !tbaa !45
+  store ptr %67, ptr getelementptr inbounds nuw (i8, ptr @_ZL12kCipherTests, i64 400), align 16, !tbaa !48
   %68 = tail call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #26
   ret void
 }
@@ -4879,134 +4879,143 @@ attributes #33 = { nounwind willreturn memory(read) }
 !9 = !{!"any pointer", !10, i64 0}
 !10 = !{!"omnipotent char", !11, i64 0}
 !11 = !{!"Simple C++ TBAA"}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 _ZTS10ssl_ctx_st", !9, i64 0}
-!14 = !{!15, !16, i64 0}
-!15 = !{!"_ZTS10CipherTest", !16, i64 0, !17, i64 8}
-!16 = !{!"p1 omnipotent char", !9, i64 0}
-!17 = !{!"_ZTSSt6vectorI14ExpectedCipherSaIS0_EE", !18, i64 0}
-!18 = !{!"_ZTSSt12_Vector_baseI14ExpectedCipherSaIS0_EE", !19, i64 0}
-!19 = !{!"_ZTSNSt12_Vector_baseI14ExpectedCipherSaIS0_EE12_Vector_implE", !7, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!22 = !{!23, !26, i64 72}
-!23 = !{!"_ZTS10ssl_ctx_st", !24, i64 0, !10, i64 8, !25, i64 64, !25, i64 66, !26, i64 72, !27, i64 80, !26, i64 88, !26, i64 96, !28, i64 104, !29, i64 112, !30, i64 120, !31, i64 128, !31, i64 136, !32, i64 144, !32, i64 148, !30, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !32, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !33, i64 240, !35, i64 248, !35, i64 256, !9, i64 264, !36, i64 272, !32, i64 280, !32, i64 284, !32, i64 288, !37, i64 296, !9, i64 304, !9, i64 312, !32, i64 320, !32, i64 324, !10, i64 328, !9, i64 360, !38, i64 368, !9, i64 376, !9, i64 384, !25, i64 392, !9, i64 400, !9, i64 408, !10, i64 416, !10, i64 432, !10, i64 448, !9, i64 464, !16, i64 472, !9, i64 480, !9, i64 488, !10, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !16, i64 552, !32, i64 560, !39, i64 568, !30, i64 576, !40, i64 584, !41, i64 592, !16, i64 600, !30, i64 608, !16, i64 616, !30, i64 624, !9, i64 632, !9, i64 640, !32, i64 648, !32, i64 648, !32, i64 648, !32, i64 648, !42, i64 656, !32, i64 664}
-!24 = !{!"p1 _ZTS22ssl_protocol_method_st", !9, i64 0}
-!25 = !{!"short", !10, i64 0}
-!26 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !9, i64 0}
-!27 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !9, i64 0}
-!28 = !{!"p1 _ZTS13x509_store_st", !9, i64 0}
-!29 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !9, i64 0}
-!30 = !{!"long", !10, i64 0}
-!31 = !{!"p1 _ZTS14ssl_session_st", !9, i64 0}
-!32 = !{!"int", !10, i64 0}
-!33 = !{!"_ZTS17crypto_ex_data_st", !34, i64 0}
-!34 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
-!35 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !9, i64 0}
-!36 = !{!"p1 _ZTS18stack_st_X509_NAME", !9, i64 0}
-!37 = !{!"p1 _ZTS7cert_st", !9, i64 0}
-!38 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
-!39 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !9, i64 0}
-!40 = !{!"p1 short", !9, i64 0}
-!41 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
-!42 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
-!43 = !{!44, !27, i64 0}
-!44 = !{!"_ZTS29ssl_cipher_preference_list_st", !27, i64 0, !16, i64 8}
-!45 = !{!7, !8, i64 8}
-!46 = distinct !{!46, !47}
-!47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!49, !30, i64 0}
-!49 = !{!"_ZTS14ExpectedCipher", !30, i64 0, !32, i64 8}
-!50 = !{!49, !32, i64 8}
-!51 = !{!44, !16, i64 8}
-!52 = !{!10, !10, i64 0}
-!53 = !{!16, !16, i64 0}
-!54 = distinct !{!54, !47}
-!55 = !{!23, !25, i64 66}
-!56 = !{!23, !25, i64 64}
-!57 = !{!58, !16, i64 0}
-!58 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !16, i64 0, !16, i64 8, !16, i64 16}
-!59 = !{!58, !16, i64 8}
-!60 = !{!31, !31, i64 0}
-!61 = !{!30, !30, i64 0}
-!62 = !{!63, !16, i64 0}
-!63 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !16, i64 0}
-!64 = !{!65, !30, i64 8}
-!65 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !63, i64 0, !30, i64 8, !10, i64 16}
-!66 = !{!67, !32, i64 0}
-!67 = !{!"_ZTS20CIPHER_RFC_NAME_TEST", !32, i64 0, !16, i64 8}
-!68 = !{!65, !16, i64 0}
-!69 = !{!67, !16, i64 8}
-!70 = distinct !{!70, !47}
-!71 = !{!72, !30, i64 0}
-!72 = !{!"_ZTS11PaddingTest", !30, i64 0, !30, i64 8}
-!73 = !{!72, !30, i64 8}
-!74 = !{!75, !75, i64 0}
-!75 = !{!"p1 _ZTS6ssl_st", !9, i64 0}
-!76 = !{!77}
-!77 = distinct !{!77, !78, !"_ZL17CreateTestSessionj: argument 0"}
-!78 = distinct !{!78, !"_ZL17CreateTestSessionj"}
-!79 = !{!80, !32, i64 64}
-!80 = !{!"_ZTS14ssl_session_st", !32, i64 0, !32, i64 4, !32, i64 8, !32, i64 12, !10, i64 16, !32, i64 64, !10, i64 68, !32, i64 100, !10, i64 104, !16, i64 136, !81, i64 144, !42, i64 152, !30, i64 160, !30, i64 168, !30, i64 176, !82, i64 184, !33, i64 192, !31, i64 200, !31, i64 208, !16, i64 216, !16, i64 224, !30, i64 232, !30, i64 240, !16, i64 248, !30, i64 256, !16, i64 264, !10, i64 272, !10, i64 304, !32, i64 368, !32, i64 372, !32, i64 376, !32, i64 376, !32, i64 376}
-!81 = !{!"p1 _ZTS7x509_st", !9, i64 0}
-!82 = !{!"p1 _ZTS13ssl_cipher_st", !9, i64 0}
-!83 = !{!84, !85, i64 8}
-!84 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE17_Vector_impl_dataE", !85, i64 0, !85, i64 8, !85, i64 16}
-!85 = !{!"p1 _ZTSSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE", !9, i64 0}
-!86 = !{!87}
-!87 = distinct !{!87, !88, !"_ZSt19__relocate_object_aISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
-!88 = distinct !{!88, !"_ZSt19__relocate_object_aISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_SaIS4_EEvPT_PT0_RT1_"}
-!89 = !{!90}
-!90 = distinct !{!90, !88, !"_ZSt19__relocate_object_aISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
-!91 = distinct !{!91, !47}
-!92 = !{!84, !85, i64 0}
-!93 = !{!84, !85, i64 16}
-!94 = distinct !{!94, !47}
-!95 = !{!85, !85, i64 0}
-!96 = !{!97, !98, i64 0}
-!97 = !{!"_ZTSNSt12_Vector_baseIP14ssl_session_stSaIS1_EE17_Vector_impl_dataE", !98, i64 0, !98, i64 8, !98, i64 16}
-!98 = !{!"p2 _ZTS14ssl_session_st", !9, i64 0}
-!99 = !{!97, !98, i64 16}
-!100 = !{!97, !98, i64 8}
-!101 = !{!102}
-!102 = distinct !{!102, !103, !"_ZL17CreateTestSessionj: argument 0"}
-!103 = distinct !{!103, !"_ZL17CreateTestSessionj"}
-!104 = distinct !{!104, !47}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZL18GetTestCertificatev: argument 0"}
-!107 = distinct !{!107, !"_ZL18GetTestCertificatev"}
-!108 = !{!109, !109, i64 0}
-!109 = !{!"p1 _ZTS6bio_st", !9, i64 0}
-!110 = !{!81, !81, i64 0}
-!111 = !{!112}
-!112 = distinct !{!112, !113, !"_ZL10GetTestKeyv: argument 0"}
-!113 = distinct !{!113, !"_ZL10GetTestKeyv"}
-!114 = !{!41, !41, i64 0}
-!115 = distinct !{!115, !47}
-!116 = !{!58, !16, i64 16}
-!117 = !{!118}
-!118 = distinct !{!118, !119, !"_ZL23CreateSessionWithTicketm: argument 0"}
-!119 = distinct !{!119, !"_ZL23CreateSessionWithTicketm"}
-!120 = !{!121, !31, i64 0}
-!121 = !{!"_ZTSSt10_Head_baseILm0EP14ssl_session_stLb0EE", !31, i64 0}
-!122 = !{!80, !16, i64 224}
-!123 = !{!80, !30, i64 232}
-!124 = !{!80, !30, i64 176}
-!125 = !{!23, !31, i64 128}
-!126 = !{!98, !98, i64 0}
-!127 = !{!80, !31, i64 208}
-!128 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!129 = distinct !{!129, !47}
-!130 = distinct !{!130, !47}
-!131 = distinct !{!131, !47}
-!132 = distinct !{!132, !47}
-!133 = distinct !{!133, !47}
-!134 = distinct !{!134, !47}
-!135 = distinct !{!135, !47}
-!136 = distinct !{!136, !47}
-!137 = distinct !{!137, !47}
-!138 = distinct !{!138, !47}
-!139 = distinct !{!139, !47, !140}
-!140 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!141 = distinct !{!141, !47}
-!142 = !{!7, !8, i64 16}
+!12 = distinct !{!12, !13}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS10ssl_ctx_st", !9, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_ZTS10CipherTest", !19, i64 0, !20, i64 8}
+!19 = !{!"p1 omnipotent char", !9, i64 0}
+!20 = !{!"_ZTSSt6vectorI14ExpectedCipherSaIS0_EE", !21, i64 0}
+!21 = !{!"_ZTSSt12_Vector_baseI14ExpectedCipherSaIS0_EE", !22, i64 0}
+!22 = !{!"_ZTSNSt12_Vector_baseI14ExpectedCipherSaIS0_EE12_Vector_implE", !7, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
+!25 = !{!26, !29, i64 72}
+!26 = !{!"_ZTS10ssl_ctx_st", !27, i64 0, !10, i64 8, !28, i64 64, !28, i64 66, !29, i64 72, !30, i64 80, !29, i64 88, !29, i64 96, !31, i64 104, !32, i64 112, !33, i64 120, !34, i64 128, !34, i64 136, !35, i64 144, !35, i64 148, !33, i64 152, !9, i64 160, !9, i64 168, !9, i64 176, !35, i64 184, !9, i64 192, !9, i64 200, !9, i64 208, !9, i64 216, !9, i64 224, !9, i64 232, !36, i64 240, !38, i64 248, !38, i64 256, !9, i64 264, !39, i64 272, !35, i64 280, !35, i64 284, !35, i64 288, !40, i64 296, !9, i64 304, !9, i64 312, !35, i64 320, !35, i64 324, !10, i64 328, !9, i64 360, !41, i64 368, !9, i64 376, !9, i64 384, !28, i64 392, !9, i64 400, !9, i64 408, !10, i64 416, !10, i64 432, !10, i64 448, !9, i64 464, !19, i64 472, !9, i64 480, !9, i64 488, !10, i64 496, !9, i64 504, !9, i64 512, !9, i64 520, !9, i64 528, !9, i64 536, !9, i64 544, !19, i64 552, !35, i64 560, !42, i64 568, !33, i64 576, !43, i64 584, !44, i64 592, !19, i64 600, !33, i64 608, !19, i64 616, !33, i64 624, !9, i64 632, !9, i64 640, !35, i64 648, !35, i64 648, !35, i64 648, !35, i64 648, !45, i64 656, !35, i64 664}
+!27 = !{!"p1 _ZTS22ssl_protocol_method_st", !9, i64 0}
+!28 = !{!"short", !10, i64 0}
+!29 = !{!"p1 _ZTS29ssl_cipher_preference_list_st", !9, i64 0}
+!30 = !{!"p1 _ZTS19stack_st_SSL_CIPHER", !9, i64 0}
+!31 = !{!"p1 _ZTS13x509_store_st", !9, i64 0}
+!32 = !{!"p1 _ZTS20lhash_st_SSL_SESSION", !9, i64 0}
+!33 = !{!"long", !10, i64 0}
+!34 = !{!"p1 _ZTS14ssl_session_st", !9, i64 0}
+!35 = !{!"int", !10, i64 0}
+!36 = !{!"_ZTS17crypto_ex_data_st", !37, i64 0}
+!37 = !{!"p1 _ZTS13stack_st_void", !9, i64 0}
+!38 = !{!"p1 _ZTS29stack_st_SSL_CUSTOM_EXTENSION", !9, i64 0}
+!39 = !{!"p1 _ZTS18stack_st_X509_NAME", !9, i64 0}
+!40 = !{!"p1 _ZTS7cert_st", !9, i64 0}
+!41 = !{!"p1 _ZTS20X509_VERIFY_PARAM_st", !9, i64 0}
+!42 = !{!"p1 _ZTS32stack_st_SRTP_PROTECTION_PROFILE", !9, i64 0}
+!43 = !{!"p1 short", !9, i64 0}
+!44 = !{!"p1 _ZTS11evp_pkey_st", !9, i64 0}
+!45 = !{!"p1 _ZTS13stack_st_X509", !9, i64 0}
+!46 = !{!47, !30, i64 0}
+!47 = !{!"_ZTS29ssl_cipher_preference_list_st", !30, i64 0, !19, i64 8}
+!48 = !{!7, !8, i64 8}
+!49 = distinct !{!49, !50, !13}
+!50 = !{!"llvm.loop.mustprogress"}
+!51 = !{!52, !33, i64 0}
+!52 = !{!"_ZTS14ExpectedCipher", !33, i64 0, !35, i64 8}
+!53 = !{!52, !35, i64 8}
+!54 = !{!47, !19, i64 8}
+!55 = !{!10, !10, i64 0}
+!56 = !{!19, !19, i64 0}
+!57 = distinct !{!57, !13}
+!58 = distinct !{!58, !13}
+!59 = distinct !{!59, !50, !13}
+!60 = !{!26, !28, i64 66}
+!61 = !{!26, !28, i64 64}
+!62 = !{!63, !19, i64 0}
+!63 = !{!"_ZTSNSt12_Vector_baseIhSaIhEE17_Vector_impl_dataE", !19, i64 0, !19, i64 8, !19, i64 16}
+!64 = !{!63, !19, i64 8}
+!65 = !{!34, !34, i64 0}
+!66 = !{!33, !33, i64 0}
+!67 = !{!68, !19, i64 0}
+!68 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !19, i64 0}
+!69 = !{!70, !33, i64 8}
+!70 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !68, i64 0, !33, i64 8, !10, i64 16}
+!71 = !{!72, !35, i64 0}
+!72 = !{!"_ZTS20CIPHER_RFC_NAME_TEST", !35, i64 0, !19, i64 8}
+!73 = !{!70, !19, i64 0}
+!74 = !{!72, !19, i64 8}
+!75 = distinct !{!75, !50, !13}
+!76 = distinct !{!76, !13}
+!77 = !{!78, !33, i64 0}
+!78 = !{!"_ZTS11PaddingTest", !33, i64 0, !33, i64 8}
+!79 = !{!78, !33, i64 8}
+!80 = !{!81, !81, i64 0}
+!81 = !{!"p1 _ZTS6ssl_st", !9, i64 0}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZL17CreateTestSessionj: argument 0"}
+!84 = distinct !{!84, !"_ZL17CreateTestSessionj"}
+!85 = !{!86, !35, i64 64}
+!86 = !{!"_ZTS14ssl_session_st", !35, i64 0, !35, i64 4, !35, i64 8, !35, i64 12, !10, i64 16, !35, i64 64, !10, i64 68, !35, i64 100, !10, i64 104, !19, i64 136, !87, i64 144, !45, i64 152, !33, i64 160, !33, i64 168, !33, i64 176, !88, i64 184, !36, i64 192, !34, i64 200, !34, i64 208, !19, i64 216, !19, i64 224, !33, i64 232, !33, i64 240, !19, i64 248, !33, i64 256, !19, i64 264, !10, i64 272, !10, i64 304, !35, i64 368, !35, i64 372, !35, i64 376, !35, i64 376, !35, i64 376}
+!87 = !{!"p1 _ZTS7x509_st", !9, i64 0}
+!88 = !{!"p1 _ZTS13ssl_cipher_st", !9, i64 0}
+!89 = !{!90, !91, i64 8}
+!90 = !{!"_ZTSNSt12_Vector_baseISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEESaIS4_EE17_Vector_impl_dataE", !91, i64 0, !91, i64 8, !91, i64 16}
+!91 = !{!"p1 _ZTSSt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS0_XadL_Z16SSL_SESSION_freeEEEE", !9, i64 0}
+!92 = !{!93}
+!93 = distinct !{!93, !94, !"_ZSt19__relocate_object_aISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_SaIS4_EEvPT_PT0_RT1_: argument 0"}
+!94 = distinct !{!94, !"_ZSt19__relocate_object_aISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_SaIS4_EEvPT_PT0_RT1_"}
+!95 = !{!96}
+!96 = distinct !{!96, !94, !"_ZSt19__relocate_object_aISt10unique_ptrI14ssl_session_st14OpenSSLDeleterIS1_XadL_Z16SSL_SESSION_freeEEEES4_SaIS4_EEvPT_PT0_RT1_: argument 1"}
+!97 = distinct !{!97, !50, !13}
+!98 = !{!90, !91, i64 0}
+!99 = !{!90, !91, i64 16}
+!100 = distinct !{!100, !50, !13}
+!101 = !{!91, !91, i64 0}
+!102 = distinct !{!102, !13}
+!103 = !{!104, !105, i64 0}
+!104 = !{!"_ZTSNSt12_Vector_baseIP14ssl_session_stSaIS1_EE17_Vector_impl_dataE", !105, i64 0, !105, i64 8, !105, i64 16}
+!105 = !{!"p2 _ZTS14ssl_session_st", !9, i64 0}
+!106 = !{!104, !105, i64 16}
+!107 = !{!104, !105, i64 8}
+!108 = !{!109}
+!109 = distinct !{!109, !110, !"_ZL17CreateTestSessionj: argument 0"}
+!110 = distinct !{!110, !"_ZL17CreateTestSessionj"}
+!111 = distinct !{!111, !50, !13}
+!112 = !{!113}
+!113 = distinct !{!113, !114, !"_ZL18GetTestCertificatev: argument 0"}
+!114 = distinct !{!114, !"_ZL18GetTestCertificatev"}
+!115 = !{!116, !116, i64 0}
+!116 = !{!"p1 _ZTS6bio_st", !9, i64 0}
+!117 = !{!87, !87, i64 0}
+!118 = !{!119}
+!119 = distinct !{!119, !120, !"_ZL10GetTestKeyv: argument 0"}
+!120 = distinct !{!120, !"_ZL10GetTestKeyv"}
+!121 = !{!44, !44, i64 0}
+!122 = distinct !{!122, !50, !13}
+!123 = !{!63, !19, i64 16}
+!124 = !{!125}
+!125 = distinct !{!125, !126, !"_ZL23CreateSessionWithTicketm: argument 0"}
+!126 = distinct !{!126, !"_ZL23CreateSessionWithTicketm"}
+!127 = !{!128, !34, i64 0}
+!128 = !{!"_ZTSSt10_Head_baseILm0EP14ssl_session_stLb0EE", !34, i64 0}
+!129 = !{!86, !19, i64 224}
+!130 = !{!86, !33, i64 232}
+!131 = !{!86, !33, i64 176}
+!132 = !{!26, !34, i64 128}
+!133 = !{!105, !105, i64 0}
+!134 = !{!86, !34, i64 208}
+!135 = distinct !{!135, !13}
+!136 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!137 = distinct !{!137, !50, !13}
+!138 = distinct !{!138, !50, !13}
+!139 = distinct !{!139, !50, !13}
+!140 = distinct !{!140, !50, !13}
+!141 = distinct !{!141, !50, !13}
+!142 = distinct !{!142, !50, !13}
+!143 = distinct !{!143, !50, !13}
+!144 = distinct !{!144, !50, !13}
+!145 = distinct !{!145, !50, !13}
+!146 = distinct !{!146, !50, !13}
+!147 = distinct !{!147, !50, !13, !148}
+!148 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!149 = distinct !{!149, !50, !13}
+!150 = !{!7, !8, i64 16}
+!151 = distinct !{!151, !13}

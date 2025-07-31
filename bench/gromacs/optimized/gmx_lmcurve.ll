@@ -105,22 +105,22 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
 .split.us:                                        ; preds = %.split.us.preheader, %.critedge.us
   %.050.us = phi i32 [ %61, %.critedge.us ], [ 0, %.split.us.preheader ]
   %.049.us = phi double [ %50, %.critedge.us ], [ 1.000000e+12, %.split.us.preheader ]
-  %48 = load ptr, ptr %41, align 8, !tbaa !20
+  %48 = load ptr, ptr %41, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
-  store ptr %1, ptr %9, align 8, !tbaa !21
-  store ptr %2, ptr %42, align 8, !tbaa !24
-  store ptr %3, ptr %43, align 8, !tbaa !25
-  store ptr %48, ptr %44, align 8, !tbaa !26
+  store ptr %1, ptr %9, align 8, !tbaa !22
+  store ptr %2, ptr %42, align 8, !tbaa !25
+  store ptr %3, ptr %43, align 8, !tbaa !26
+  store ptr %48, ptr %44, align 8, !tbaa !27
   call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04764, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
-  %49 = load double, ptr %20, align 8, !tbaa !27
+  %49 = load double, ptr %20, align 8, !tbaa !28
   %50 = fmul double %49, %49
-  %51 = load i32, ptr %45, align 8, !tbaa !29
-  %52 = load i32, ptr %46, align 8, !tbaa !30
-  %53 = load i32, ptr %47, align 4, !tbaa !31
+  %51 = load i32, ptr %45, align 8, !tbaa !30
+  %52 = load i32, ptr %46, align 8, !tbaa !31
+  %53 = load i32, ptr %47, align 4, !tbaa !32
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds [0 x ptr], ptr @lm_infmsg, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !32
+  %56 = load ptr, ptr %55, align 8, !tbaa !33
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %49, i32 noundef %51, i32 noundef %52, ptr noundef %56)
   %58 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.050.us, double noundef %50)
   %59 = call noundef i32 @_Z11effnNparamsi(i32 noundef %6)
@@ -132,13 +132,13 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %61 = add nuw nsw i32 %.050.us, 1
   %62 = fsub double %.049.us, %50
   %63 = call double @llvm.fabs.f64(double %62)
-  %64 = load double, ptr %10, align 8, !tbaa !34
+  %64 = load double, ptr %10, align 8, !tbaa !35
   %65 = fmul double %50, %64
   %66 = call double @llvm.fabs.f64(double %65)
   %67 = fcmp ogt double %63, %66
   %68 = icmp samesign ult i32 %.050.us, 99
   %69 = select i1 %67, i1 %68, i1 false
-  br i1 %69, label %.split.us, label %.split60.us, !llvm.loop !35
+  br i1 %69, label %.split.us, label %.split60.us, !llvm.loop !36
 
 .lr.ph.us:                                        ; preds = %.split.us, %.lr.ph.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.us ], [ 0, %.split.us ]
@@ -149,31 +149,31 @@ define noundef zeroext i1 @_Z9lmfit_expiPKdS0_S0_Pdbii(i32 noundef %0, ptr nound
   %73 = call noundef i32 @_Z11effnNparamsi(i32 noundef %6)
   %74 = sext i32 %73 to i64
   %75 = icmp slt i64 %indvars.iv.next, %74
-  br i1 %75, label %.lr.ph.us, label %.critedge.us, !llvm.loop !37
+  br i1 %75, label %.lr.ph.us, label %.critedge.us, !llvm.loop !38
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %.050 = phi i32 [ %79, %.critedge ], [ 0, %.critedge.preheader ]
   %.049 = phi double [ %78, %.critedge ], [ 1.000000e+12, %.critedge.preheader ]
-  %76 = load ptr, ptr %36, align 8, !tbaa !20
+  %76 = load ptr, ptr %36, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #8
-  store ptr %1, ptr %9, align 8, !tbaa !21
-  store ptr %2, ptr %37, align 8, !tbaa !24
-  store ptr %3, ptr %38, align 8, !tbaa !25
-  store ptr %76, ptr %39, align 8, !tbaa !26
+  store ptr %1, ptr %9, align 8, !tbaa !22
+  store ptr %2, ptr %37, align 8, !tbaa !25
+  store ptr %3, ptr %38, align 8, !tbaa !26
+  store ptr %76, ptr %39, align 8, !tbaa !27
   call void @_Z5lmminiPdiPKdPKvPFvS1_iS3_S_PiEPK17lm_control_structP16lm_status_struct(i32 noundef %.04767, ptr noundef %4, i32 noundef %0, ptr noundef null, ptr noundef nonnull %9, ptr noundef nonnull @_ZL16lmcurve_evaluatePKdiPKvPdPi, ptr noundef nonnull %10, ptr noundef %20)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #8
-  %77 = load double, ptr %20, align 8, !tbaa !27
+  %77 = load double, ptr %20, align 8, !tbaa !28
   %78 = fmul double %77, %77
   %79 = add nuw nsw i32 %.050, 1
   %80 = fsub double %.049, %78
   %81 = call double @llvm.fabs.f64(double %80)
-  %82 = load double, ptr %10, align 8, !tbaa !34
+  %82 = load double, ptr %10, align 8, !tbaa !35
   %83 = fmul double %78, %82
   %84 = call double @llvm.fabs.f64(double %83)
   %85 = fcmp ogt double %81, %84
   %86 = icmp samesign ult i32 %.050, 99
   %87 = select i1 %85, i1 %86, i1 false
-  br i1 %87, label %.critedge, label %.split60.us, !llvm.loop !38
+  br i1 %87, label %.critedge, label %.split60.us, !llvm.loop !39
 
 .split60.us:                                      ; preds = %.critedge, %.critedge.us
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 194, ptr noundef nonnull %20)
@@ -226,16 +226,16 @@ define internal void @_ZL16lmcurve_evaluatePKdiPKvPdPi(ptr noundef %0, i32 nound
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = load ptr, ptr %7, align 8, !tbaa !25
+  %11 = load ptr, ptr %7, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !10
   %14 = fcmp oeq double %13, 0.000000e+00
   %.0 = select i1 %14, double 1.000000e+00, double %13
-  %15 = load ptr, ptr %8, align 8, !tbaa !24
+  %15 = load ptr, ptr %8, align 8, !tbaa !25
   %16 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   %17 = load double, ptr %16, align 8, !tbaa !10
-  %18 = load ptr, ptr %9, align 8, !tbaa !26
-  %19 = load ptr, ptr %2, align 8, !tbaa !21
+  %18 = load ptr, ptr %9, align 8, !tbaa !27
+  %19 = load ptr, ptr %2, align 8, !tbaa !22
   %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !10
   %22 = tail call noundef double %18(double noundef %21, ptr noundef %0)
@@ -245,7 +245,7 @@ define internal void @_ZL16lmcurve_evaluatePKdiPKvPdPi(ptr noundef %0, i32 nound
   store double %24, ptr %25, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !40
 }
 
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -283,25 +283,26 @@ attributes #8 = { nounwind }
 !15 = !{!"_ZTS17lm_control_struct", !11, i64 0, !11, i64 8, !11, i64 16, !11, i64 24, !11, i64 32, !13, i64 40, !13, i64 44, !5, i64 48, !13, i64 56, !13, i64 60, !13, i64 64}
 !16 = !{!15, !13, i64 60}
 !17 = !{!15, !13, i64 64}
-!18 = distinct !{!18, !19}
+!18 = distinct !{!18, !19, !20}
 !19 = !{!"llvm.loop.mustprogress"}
-!20 = !{!6, !6, i64 0}
-!21 = !{!22, !23, i64 0}
-!22 = !{!"_ZTS19lmcurve_data_struct", !23, i64 0, !23, i64 8, !23, i64 16, !6, i64 24}
-!23 = !{!"p1 double", !6, i64 0}
-!24 = !{!22, !23, i64 8}
-!25 = !{!22, !23, i64 16}
-!26 = !{!22, !6, i64 24}
-!27 = !{!28, !11, i64 0}
-!28 = !{!"_ZTS16lm_status_struct", !11, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
-!29 = !{!28, !13, i64 8}
-!30 = !{!28, !13, i64 16}
-!31 = !{!28, !13, i64 12}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"p1 omnipotent char", !6, i64 0}
-!34 = !{!15, !11, i64 0}
-!35 = distinct !{!35, !19, !36}
-!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!37 = distinct !{!37, !19}
-!38 = distinct !{!38, !19}
-!39 = distinct !{!39, !19}
+!20 = !{!"llvm.loop.estimated_trip_count"}
+!21 = !{!6, !6, i64 0}
+!22 = !{!23, !24, i64 0}
+!23 = !{!"_ZTS19lmcurve_data_struct", !24, i64 0, !24, i64 8, !24, i64 16, !6, i64 24}
+!24 = !{!"p1 double", !6, i64 0}
+!25 = !{!23, !24, i64 8}
+!26 = !{!23, !24, i64 16}
+!27 = !{!23, !6, i64 24}
+!28 = !{!29, !11, i64 0}
+!29 = !{!"_ZTS16lm_status_struct", !11, i64 0, !13, i64 8, !13, i64 12, !13, i64 16}
+!30 = !{!29, !13, i64 8}
+!31 = !{!29, !13, i64 16}
+!32 = !{!29, !13, i64 12}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"p1 omnipotent char", !6, i64 0}
+!35 = !{!15, !11, i64 0}
+!36 = distinct !{!36, !19, !20, !37}
+!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!38 = distinct !{!38, !19, !20}
+!39 = distinct !{!39, !19, !20}
+!40 = distinct !{!40, !19, !20}

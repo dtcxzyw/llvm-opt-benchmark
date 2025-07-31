@@ -217,7 +217,7 @@ wildcardFileList.exit.i:                          ; preds = %.split.i.i, %.split
   %107 = add nuw i64 %.14256.i, 1
   %108 = load i64, ptr %82, align 8
   %109 = icmp ult i64 %107, %108
-  br i1 %109, label %.lr.ph57.i, label %._crit_edge.loopexit.i, !llvm.loop !8
+  br i1 %109, label %.lr.ph57.i, label %._crit_edge.loopexit.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph57.i
   %110 = add i64 %108, -1
@@ -245,7 +245,7 @@ isWildcard.exit.thread.i:                         ; preds = %114, %isWildcard.ex
   %115 = add i64 %.2.i, 1
   %116 = load i64, ptr %6, align 8
   %117 = icmp ult i64 %115, %116
-  br i1 %117, label %.lr.ph61.i, label %FileList_expandWildcards.exit, !llvm.loop !9
+  br i1 %117, label %.lr.ph61.i, label %FileList_expandWildcards.exit, !llvm.loop !10
 
 FileList_expandWildcards.exit:                    ; preds = %isWildcard.exit.thread.i
   %.not = icmp eq i32 %.240.i, 0
@@ -335,7 +335,8 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

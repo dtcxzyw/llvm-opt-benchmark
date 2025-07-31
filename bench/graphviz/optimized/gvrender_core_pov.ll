@@ -742,7 +742,7 @@ define internal void @pov_polygon(ptr noundef %0, ptr noundef readonly captures(
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.54, double noundef %66, double noundef %70, double noundef 0.000000e+00) #18
   %71 = add nuw i64 %.059, 1
   %exitcond65.not = icmp eq i64 %71, %2
-  br i1 %exitcond65.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !58
+  br i1 %exitcond65.not, label %._crit_edge62, label %.lr.ph61, !llvm.loop !59
 
 72:                                               ; preds = %._crit_edge62, %._crit_edge
   ret void
@@ -900,7 +900,7 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %49
 
 75:                                               ; preds = %50, %65
   %exitcond.not = icmp eq i64 %63, %2
-  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge, label %50, !llvm.loop !60
 }
 
 ; Function Attrs: nounwind uwtable
@@ -956,7 +956,7 @@ define internal void @pov_polyline(ptr noundef %0, ptr noundef readonly captures
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, double noundef %27, double noundef %31, double noundef 0.000000e+00, double noundef %34) #18
   %35 = add nuw i64 %.025, 1
   %exitcond.not = icmp eq i64 %35, %2
-  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !60
+  br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !61
 }
 
 ; Function Attrs: nounwind uwtable
@@ -990,7 +990,7 @@ define internal fastcc ptr @pov_color_as_str(ptr noundef readonly byval(%struct.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = load i32, ptr %5, align 8, !tbaa !61
+  %6 = load i32, ptr %5, align 8, !tbaa !62
   switch i32 %6, label %34 [
     i32 4, label %7
     i32 1, label %21
@@ -1048,7 +1048,7 @@ define internal fastcc ptr @pov_color_as_str(ptr noundef readonly byval(%struct.
   br label %38
 
 34:                                               ; preds = %2
-  %35 = load ptr, ptr @stderr, align 8, !tbaa !62
+  %35 = load ptr, ptr @stderr, align 8, !tbaa !63
   %36 = load ptr, ptr %0, align 8, !tbaa !30
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %35, ptr noundef nonnull @.str.40, i32 noundef %6, ptr noundef %36) #20
   br label %38
@@ -1143,7 +1143,7 @@ agxblen.exit.i:                                   ; preds = %agxbfree.exit
   br i1 %66, label %67, label %agxbdisown.exit
 
 67:                                               ; preds = %agxblen.exit.i
-  %68 = load ptr, ptr @stderr, align 8, !tbaa !62
+  %68 = load ptr, ptr @stderr, align 8, !tbaa !63
   %69 = add nuw nsw i64 %64, 1
   %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.42, i64 noundef %69) #20
   call fastcc void @graphviz_exit() #21
@@ -1372,7 +1372,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !62
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !63
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.42, i64 noundef %spec.select33) #20
   tail call fastcc void @graphviz_exit() #21
   unreachable
@@ -1395,7 +1395,7 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !62
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !63
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.42, i64 noundef %spec.select) #20
   tail call fastcc void @graphviz_exit() #21
   unreachable
@@ -1525,10 +1525,11 @@ attributes #24 = { nounwind allocsize(0,1) }
 !53 = !{!"p2 omnipotent char", !6, i64 0}
 !54 = !{!"p1 _ZTS8pointf_s", !6, i64 0}
 !55 = !{!"p1 long", !6, i64 0}
-!56 = distinct !{!56, !57}
+!56 = distinct !{!56, !57, !58}
 !57 = !{!"llvm.loop.mustprogress"}
-!58 = distinct !{!58, !57}
-!59 = distinct !{!59, !57}
-!60 = distinct !{!60, !57}
-!61 = !{!52, !13, i64 32}
-!62 = !{!14, !14, i64 0}
+!58 = !{!"llvm.loop.estimated_trip_count"}
+!59 = distinct !{!59, !57, !58}
+!60 = distinct !{!60, !57, !58}
+!61 = distinct !{!61, !57, !58}
+!62 = !{!52, !13, i64 32}
+!63 = !{!14, !14, i64 0}

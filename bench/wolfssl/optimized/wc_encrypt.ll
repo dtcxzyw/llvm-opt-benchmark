@@ -228,10 +228,10 @@ define i32 @wc_CryptKey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noun
   %.01528.i = phi ptr [ %60, %.lr.ph29.i ], [ %15, %.lr.ph29.preheader.i ]
   %.01827.i = phi i32 [ %61, %.lr.ph29.i ], [ 848, %.lr.ph29.preheader.i ]
   %60 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
-  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !8
+  store volatile i64 0, ptr %.01528.i, align 8, !tbaa !9
   %61 = add nsw i32 %.01827.i, -8
   %.not122 = icmp eq i32 %61, 0
-  br i1 %.not122, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !10
+  br i1 %.not122, label %ForceZero.exit, label %.lr.ph29.i, !llvm.loop !11
 
 ForceZero.exit:                                   ; preds = %.lr.ph29.i
   call void @llvm.lifetime.end.p0(i64 848, ptr nonnull %15) #3
@@ -245,10 +245,10 @@ ForceZero.exit:                                   ; preds = %.lr.ph29.i
   %.01528.i92 = phi ptr [ %62, %.lr.ph29.i91 ], [ %13, %.lr.ph29.preheader.i89 ]
   %.01827.i93 = phi i32 [ %63, %.lr.ph29.i91 ], [ 64, %.lr.ph29.preheader.i89 ]
   %62 = getelementptr inbounds nuw i8, ptr %.01528.i92, i64 8
-  store volatile i64 0, ptr %.01528.i92, align 8, !tbaa !8
+  store volatile i64 0, ptr %.01528.i92, align 8, !tbaa !9
   %63 = add nsw i32 %.01827.i93, -8
   %.not123 = icmp eq i32 %63, 0
-  br i1 %.not123, label %ForceZero.exit100, label %.lr.ph29.i91, !llvm.loop !10
+  br i1 %.not123, label %ForceZero.exit100, label %.lr.ph29.i91, !llvm.loop !11
 
 ForceZero.exit100:                                ; preds = %.lr.ph29.i91, %12
   %.072 = phi i32 [ -279, %12 ], [ %.4, %.lr.ph29.i91 ]
@@ -275,8 +275,9 @@ attributes #3 = { nounwind }
 !3 = !{!4, !4, i64 0}
 !4 = !{!"omnipotent char", !5, i64 0}
 !5 = !{!"Simple C/C++ TBAA"}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !9, i64 0}
-!9 = !{!"long", !4, i64 0}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"long", !4, i64 0}
+!11 = distinct !{!11, !7, !8}

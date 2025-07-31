@@ -876,7 +876,7 @@ _ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE
 define void @_ZN6icu_7718CharStringByteSinkC2EPNS_10CharStringE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6icu_7718CharStringByteSinkE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %3, align 8, !tbaa !22
+  store ptr %1, ptr %3, align 8, !tbaa !23
   ret void
 }
 
@@ -905,7 +905,7 @@ define void @_ZN6icu_7718CharStringByteSink6AppendEPKci(ptr noundef nonnull read
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !tbaa !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = call noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   ret void
@@ -929,7 +929,7 @@ define noundef ptr @_ZN6icu_7718CharStringByteSink15GetAppendBufferEiiPciPi(ptr 
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
   store i32 0, ptr %7, align 4, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8, !tbaa !24
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = call noundef ptr @_ZN6icu_7710CharString15getAppendBufferEiiRiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %13, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %15 = load i32, ptr %7, align 4, !tbaa !13
   %16 = icmp sgt i32 %15, 0
@@ -995,10 +995,11 @@ attributes #15 = { noreturn nounwind }
 !17 = !{!18, !18, i64 0}
 !18 = !{!"char16_t", !7, i64 0}
 !19 = !{!7, !7, i64 0}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"p1 _ZTSN6icu_7710CharStringE", !6, i64 0}
-!24 = !{!25, !23, i64 8}
-!25 = !{!"_ZTSN6icu_7718CharStringByteSinkE", !26, i64 0, !23, i64 8}
-!26 = !{!"_ZTSN6icu_778ByteSinkE"}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTSN6icu_7710CharStringE", !6, i64 0}
+!25 = !{!26, !24, i64 8}
+!26 = !{!"_ZTSN6icu_7718CharStringByteSinkE", !27, i64 0, !24, i64 8}
+!27 = !{!"_ZTSN6icu_778ByteSinkE"}

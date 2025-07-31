@@ -205,7 +205,7 @@ define internal i32 @dissect_fw1(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %61 = load i32, ptr @interface_anzahl, align 4
   %62 = sext i32 %61 to i64
   %63 = icmp slt i64 %indvars.iv.next93, %62
-  br i1 %63, label %53, label %._crit_edge90, !llvm.loop !10
+  br i1 %63, label %53, label %._crit_edge90, !llvm.loop !11
 
 ._crit_edge90:                                    ; preds = %60, %.thread
   %64 = load ptr, ptr %9, align 8
@@ -378,6 +378,7 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

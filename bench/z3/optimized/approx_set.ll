@@ -71,7 +71,7 @@ define hidden noundef i32 @_ZNK10approx_set4sizeEv(ptr noundef nonnull readonly 
   %spec.select = add i32 %4, %.09
   %5 = lshr i64 %.058, 1
   %.not = icmp ult i64 %.058, 2
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.0.lcssa = phi i32 [ 0, %1 ], [ %spec.select, %.lr.ph ]
@@ -108,6 +108,7 @@ attributes #6 = { nounwind }
 !5 = !{!"long long", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

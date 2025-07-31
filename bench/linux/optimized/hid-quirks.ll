@@ -221,9 +221,9 @@ define dso_local noundef i32 @hid_quirks_init(ptr noundef readonly captures(none
   br i1 %7, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %3
-  store i16 0, ptr %4, align 2, !annotation !8
-  store i16 0, ptr %5, align 2, !annotation !8
-  store i32 0, ptr %6, align 4, !annotation !8
+  store i16 0, ptr %4, align 2, !annotation !9
+  store i16 0, ptr %5, align 2, !annotation !9
+  store i32 0, ptr %6, align 4, !annotation !9
   %8 = zext nneg i32 %2 to i64
   br label %.preheader
 
@@ -287,7 +287,7 @@ define dso_local noundef i32 @hid_quirks_init(ptr noundef readonly captures(none
 41:                                               ; preds = %37
   %42 = getelementptr i8, ptr %39, i64 -24
   %43 = call zeroext i1 @hid_match_one_id(ptr noundef nonnull %23, ptr noundef %42) #7
-  br i1 %43, label %44, label %37, !llvm.loop !9
+  br i1 %43, label %44, label %37, !llvm.loop !10
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %27, i64 24
@@ -330,7 +330,7 @@ define dso_local noundef i32 @hid_quirks_init(ptr noundef readonly captures(none
 58:                                               ; preds = %55, %.critedge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = icmp eq i64 %indvars.iv.next, %8
-  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %59, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %58, %.preheader, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #7
@@ -369,7 +369,7 @@ define dso_local void @hid_quirks_exit(i16 noundef zeroext %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %9, align 8
   tail call void @kfree(ptr noundef %7) #7
   %12 = icmp eq ptr %8, @dquirks_list
-  br i1 %12, label %.loopexit, label %.split.us, !llvm.loop !11
+  br i1 %12, label %.loopexit, label %.split.us, !llvm.loop !12
 
 .split:                                           ; preds = %4, %22
   %13 = phi ptr [ %15, %22 ], [ %2, %4 ]
@@ -392,7 +392,7 @@ define dso_local void @hid_quirks_exit(i16 noundef zeroext %0) #0 align 16 {
 
 22:                                               ; preds = %18, %.split
   %23 = icmp eq ptr %15, @dquirks_list
-  br i1 %23, label %.loopexit, label %.split, !llvm.loop !13
+  br i1 %23, label %.loopexit, label %.split, !llvm.loop !14
 
 .loopexit:                                        ; preds = %22, %.split.us, %1
   tail call void @mutex_unlock(ptr noundef nonnull @dquirks_lock) #7
@@ -454,7 +454,7 @@ define dso_local i64 @hid_lookup_quirk(ptr noundef %0) #0 align 16 {
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %26, i64 -24
   %30 = tail call zeroext i1 @hid_match_one_id(ptr noundef %0, ptr noundef %29) #7
-  br i1 %30, label %31, label %24, !llvm.loop !14
+  br i1 %30, label %31, label %24, !llvm.loop !15
 
 31:                                               ; preds = %28
   %32 = icmp eq ptr %29, null
@@ -530,13 +530,14 @@ attributes #9 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = distinct !{!9, !6, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !6, !7, !12}
-!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = distinct !{!12, !6, !7, !8, !13}
+!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}

@@ -338,7 +338,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   store i32 %80, ptr %78, align 1, !tbaa !41
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.not.i.i, label %forkdata_to_host.exit.i, label %74
+  br i1 %exitcond.not.i.i, label %forkdata_to_host.exit.i, label %74, !llvm.loop !42
 
 forkdata_to_host.exit.i:                          ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %22, i64 192
@@ -368,7 +368,7 @@ forkdata_to_host.exit.i:                          ; preds = %74
   store i32 %97, ptr %95, align 1, !tbaa !41
   %indvars.iv.next.i89.i = add nuw nsw i64 %indvars.iv.i88.i, 1
   %exitcond.not.i90.i = icmp eq i64 %indvars.iv.next.i89.i, 8
-  br i1 %exitcond.not.i90.i, label %forkdata_to_host.exit91.i, label %91
+  br i1 %exitcond.not.i90.i, label %forkdata_to_host.exit91.i, label %91, !llvm.loop !42
 
 forkdata_to_host.exit91.i:                        ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %22, i64 272
@@ -398,7 +398,7 @@ forkdata_to_host.exit91.i:                        ; preds = %91
   store i32 %114, ptr %112, align 1, !tbaa !41
   %indvars.iv.next.i93.i = add nuw nsw i64 %indvars.iv.i92.i, 1
   %exitcond.not.i94.i = icmp eq i64 %indvars.iv.next.i93.i, 8
-  br i1 %exitcond.not.i94.i, label %forkdata_to_host.exit95.i, label %108
+  br i1 %exitcond.not.i94.i, label %forkdata_to_host.exit95.i, label %108, !llvm.loop !42
 
 forkdata_to_host.exit95.i:                        ; preds = %108
   %115 = getelementptr inbounds nuw i8, ptr %22, i64 352
@@ -428,7 +428,7 @@ forkdata_to_host.exit95.i:                        ; preds = %108
   store i32 %131, ptr %129, align 1, !tbaa !41
   %indvars.iv.next.i97.i = add nuw nsw i64 %indvars.iv.i96.i, 1
   %exitcond.not.i98.i = icmp eq i64 %indvars.iv.next.i97.i, 8
-  br i1 %exitcond.not.i98.i, label %forkdata_to_host.exit99.i, label %125
+  br i1 %exitcond.not.i98.i, label %forkdata_to_host.exit99.i, label %125, !llvm.loop !42
 
 forkdata_to_host.exit99.i:                        ; preds = %125
   %132 = getelementptr inbounds nuw i8, ptr %22, i64 432
@@ -458,10 +458,10 @@ forkdata_to_host.exit99.i:                        ; preds = %125
   store i32 %148, ptr %146, align 1, !tbaa !41
   %indvars.iv.next.i101.i = add nuw nsw i64 %indvars.iv.i100.i, 1
   %exitcond.not.i102.i = icmp eq i64 %indvars.iv.next.i101.i, 8
-  br i1 %exitcond.not.i102.i, label %forkdata_to_host.exit103.i, label %142
+  br i1 %exitcond.not.i102.i, label %forkdata_to_host.exit103.i, label %142, !llvm.loop !42
 
 forkdata_to_host.exit103.i:                       ; preds = %142
-  %149 = load i8, ptr @cli_debug_flag, align 1, !tbaa !42
+  %149 = load i8, ptr @cli_debug_flag, align 1, !tbaa !44
   %.not86.i = icmp eq i8 %149, 0
   br i1 %.not86.i, label %hfsplus_volumeheader.exit, label %150
 
@@ -487,7 +487,7 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
   %155 = call fastcc i32 @hfsplus_readheader(ptr noundef %0, ptr noundef nonnull %22, ptr noundef %6, ptr noundef %7, i32 noundef 4, ptr noundef nonnull @.str.4)
   %.not41 = icmp eq i32 %155, 0
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %157 = load ptr, ptr %156, align 8, !tbaa !43
+  %157 = load ptr, ptr %156, align 8, !tbaa !45
   %158 = tail call ptr @cli_gentemp_with_prefix(ptr noundef %157, ptr noundef nonnull @.str.5) #12
   %.not38 = icmp eq ptr %158, null
   br i1 %.not38, label %159, label %160
@@ -529,9 +529,9 @@ hfsplus_volumeheader.exit:                        ; preds = %150, %forkdata_to_h
 173:                                              ; preds = %162, %171, %168
   %.026 = phi i32 [ 18, %162 ], [ %170, %168 ], [ %166, %171 ]
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %175 = load ptr, ptr %174, align 8, !tbaa !44
+  %175 = load ptr, ptr %174, align 8, !tbaa !46
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
-  %177 = load i32, ptr %176, align 8, !tbaa !45
+  %177 = load i32, ptr %176, align 8, !tbaa !47
   %.not43 = icmp eq i32 %177, 0
   br i1 %.not43, label %178, label %.thread61
 
@@ -593,99 +593,99 @@ switch.lookup:
 
 19:                                               ; preds = %switch.lookup
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %2, ptr noundef nonnull align 1 dereferenceable(14) %18, i64 14, i1 false)
-  %20 = load i32, ptr %2, align 1, !tbaa !64
+  %20 = load i32, ptr %2, align 1, !tbaa !66
   %21 = tail call i32 @llvm.bswap.i32(i32 %20)
-  store i32 %21, ptr %2, align 1, !tbaa !64
+  store i32 %21, ptr %2, align 1, !tbaa !66
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %23 = load i32, ptr %22, align 1, !tbaa !66
+  %23 = load i32, ptr %22, align 1, !tbaa !68
   %24 = tail call i32 @llvm.bswap.i32(i32 %23)
-  store i32 %24, ptr %22, align 1, !tbaa !66
+  store i32 %24, ptr %22, align 1, !tbaa !68
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %26 = load i16, ptr %25, align 1, !tbaa !67
+  %26 = load i16, ptr %25, align 1, !tbaa !69
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %26)
-  store i16 %rev.i, ptr %25, align 1, !tbaa !67
+  store i16 %rev.i, ptr %25, align 1, !tbaa !69
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %28 = load i8, ptr %27, align 1, !tbaa !68
+  %28 = load i8, ptr %27, align 1, !tbaa !70
   %29 = sext i8 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 9
-  %31 = load i8, ptr %30, align 1, !tbaa !69
+  %31 = load i8, ptr %30, align 1, !tbaa !71
   %32 = zext i8 %31 to i32
   %33 = zext i16 %rev.i to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38, ptr noundef %5, i32 noundef %21, i32 noundef %24, i32 noundef %29, i32 noundef %32, i32 noundef %33) #12
-  %34 = load i8, ptr %27, align 1, !tbaa !68
+  %34 = load i8, ptr %27, align 1, !tbaa !70
   %.not58 = icmp eq i8 %34, 1
   br i1 %.not58, label %35, label %.sink.split
 
 35:                                               ; preds = %19
-  %36 = load i32, ptr %22, align 1, !tbaa !66
+  %36 = load i32, ptr %22, align 1, !tbaa !68
   %.not59 = icmp eq i32 %36, 0
   br i1 %.not59, label %37, label %.sink.split
 
 37:                                               ; preds = %35
-  %38 = load i8, ptr %30, align 1, !tbaa !69
+  %38 = load i8, ptr %30, align 1, !tbaa !71
   %.not60 = icmp eq i8 %38, 0
   br i1 %.not60, label %39, label %.sink.split
 
 39:                                               ; preds = %37
-  %40 = load i16, ptr %25, align 1, !tbaa !67
+  %40 = load i16, ptr %25, align 1, !tbaa !69
   %.not61 = icmp eq i16 %40, 3
   br i1 %.not61, label %41, label %.sink.split
 
 41:                                               ; preds = %39
   %42 = getelementptr inbounds nuw i8, ptr %18, i64 14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(106) %3, ptr noundef nonnull align 1 dereferenceable(106) %42, i64 106, i1 false)
-  %43 = load i16, ptr %3, align 1, !tbaa !70
+  %43 = load i16, ptr %3, align 1, !tbaa !72
   %rev.i65 = tail call i16 @llvm.bswap.i16(i16 %43)
-  store i16 %rev.i65, ptr %3, align 1, !tbaa !70
+  store i16 %rev.i65, ptr %3, align 1, !tbaa !72
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  %45 = load i32, ptr %44, align 1, !tbaa !72
+  %45 = load i32, ptr %44, align 1, !tbaa !74
   %46 = tail call i32 @llvm.bswap.i32(i32 %45)
-  store i32 %46, ptr %44, align 1, !tbaa !72
+  store i32 %46, ptr %44, align 1, !tbaa !74
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %48 = load i32, ptr %47, align 1, !tbaa !73
+  %48 = load i32, ptr %47, align 1, !tbaa !75
   %49 = tail call i32 @llvm.bswap.i32(i32 %48)
-  store i32 %49, ptr %47, align 1, !tbaa !73
+  store i32 %49, ptr %47, align 1, !tbaa !75
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %51 = load i32, ptr %50, align 1, !tbaa !74
+  %51 = load i32, ptr %50, align 1, !tbaa !76
   %52 = tail call i32 @llvm.bswap.i32(i32 %51)
-  store i32 %52, ptr %50, align 1, !tbaa !74
+  store i32 %52, ptr %50, align 1, !tbaa !76
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %54 = load i32, ptr %53, align 1, !tbaa !75
+  %54 = load i32, ptr %53, align 1, !tbaa !77
   %55 = tail call i32 @llvm.bswap.i32(i32 %54)
-  store i32 %55, ptr %53, align 1, !tbaa !75
+  store i32 %55, ptr %53, align 1, !tbaa !77
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 18
-  %57 = load i16, ptr %56, align 1, !tbaa !76
+  %57 = load i16, ptr %56, align 1, !tbaa !78
   %rev56.i = tail call i16 @llvm.bswap.i16(i16 %57)
-  store i16 %rev56.i, ptr %56, align 1, !tbaa !76
+  store i16 %rev56.i, ptr %56, align 1, !tbaa !78
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %59 = load i16, ptr %58, align 1, !tbaa !77
+  %59 = load i16, ptr %58, align 1, !tbaa !79
   %rev57.i = tail call i16 @llvm.bswap.i16(i16 %59)
-  store i16 %rev57.i, ptr %58, align 1, !tbaa !77
+  store i16 %rev57.i, ptr %58, align 1, !tbaa !79
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 22
-  %61 = load i32, ptr %60, align 1, !tbaa !78
+  %61 = load i32, ptr %60, align 1, !tbaa !80
   %62 = tail call i32 @llvm.bswap.i32(i32 %61)
-  store i32 %62, ptr %60, align 1, !tbaa !78
+  store i32 %62, ptr %60, align 1, !tbaa !80
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 26
-  %64 = load i32, ptr %63, align 1, !tbaa !79
+  %64 = load i32, ptr %63, align 1, !tbaa !81
   %65 = tail call i32 @llvm.bswap.i32(i32 %64)
-  store i32 %65, ptr %63, align 1, !tbaa !79
+  store i32 %65, ptr %63, align 1, !tbaa !81
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 38
-  %67 = load i32, ptr %66, align 1, !tbaa !80
+  %67 = load i32, ptr %66, align 1, !tbaa !82
   %68 = tail call i32 @llvm.bswap.i32(i32 %67)
-  store i32 %68, ptr %66, align 1, !tbaa !80
+  store i32 %68, ptr %66, align 1, !tbaa !82
   %69 = zext i16 %rev.i65 to i32
   %70 = zext i16 %rev56.i to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, ptr noundef %5, i32 noundef %69, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55, i32 noundef %70) #12
-  %71 = load i16, ptr %58, align 1, !tbaa !77
+  %71 = load i16, ptr %58, align 1, !tbaa !79
   %72 = zext i16 %71 to i32
-  %73 = load i32, ptr %60, align 1, !tbaa !78
-  %74 = load i32, ptr %63, align 1, !tbaa !79
+  %73 = load i32, ptr %60, align 1, !tbaa !80
+  %74 = load i32, ptr %63, align 1, !tbaa !81
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 36
-  %76 = load i8, ptr %75, align 1, !tbaa !81
+  %76 = load i8, ptr %75, align 1, !tbaa !83
   %77 = zext i8 %76 to i32
-  %78 = load i32, ptr %66, align 1, !tbaa !80
+  %78 = load i32, ptr %66, align 1, !tbaa !82
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.40, ptr noundef %5, i32 noundef %72, i32 noundef %73, i32 noundef %74, i32 noundef %77, i32 noundef %78) #12
-  %79 = load i16, ptr %56, align 1, !tbaa !76
+  %79 = load i16, ptr %56, align 1, !tbaa !78
   %80 = zext i16 %79 to i32
   %81 = icmp samesign ugt i32 %switch.load, %80
   %82 = icmp ugt i16 %79, -32768
@@ -705,7 +705,7 @@ switch.lookup:
   ]
 
 87:                                               ; preds = %86
-  %88 = load i16, ptr %58, align 1, !tbaa !77
+  %88 = load i16, ptr %58, align 1, !tbaa !79
   %89 = add i16 %88, -517
   %or.cond64 = icmp ult i16 %89, -511
   br i1 %or.cond64, label %.sink.split, label %90
@@ -717,7 +717,7 @@ switch.lookup:
   br i1 %93, label %.sink.split, label %96
 
 94:                                               ; preds = %86
-  %95 = load i16, ptr %58, align 1, !tbaa !77
+  %95 = load i16, ptr %58, align 1, !tbaa !79
   %.not63 = icmp eq i16 %95, 10
   br i1 %.not63, label %96, label %.sink.split
 
@@ -791,24 +791,24 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
   %18 = alloca [4096 x i8], align 16
   %19 = alloca %struct.z_stream_s, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  store ptr null, ptr %6, align 8, !tbaa !82
+  store ptr null, ptr %6, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  store ptr null, ptr %7, align 8, !tbaa !82
+  store ptr null, ptr %7, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  store i32 -1, ptr %8, align 4, !tbaa !83
+  store i32 -1, ptr %8, align 4, !tbaa !85
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  store ptr null, ptr %9, align 8, !tbaa !82
+  store ptr null, ptr %9, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
-  store i64 0, ptr %10, align 8, !tbaa !84
+  store i64 0, ptr %10, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
-  store ptr null, ptr %11, align 8, !tbaa !85
+  store ptr null, ptr %11, align 8, !tbaa !87
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 22
-  %21 = load i32, ptr %20, align 1, !tbaa !78
+  %21 = load i32, ptr %20, align 1, !tbaa !80
   %spec.select = tail call i32 @llvm.umin.i32(i32 %21, i32 1000)
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 10
-  %23 = load i32, ptr %22, align 1, !tbaa !74
+  %23 = load i32, ptr %22, align 1, !tbaa !76
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %25 = load i16, ptr %24, align 1, !tbaa !76
+  %25 = load i16, ptr %24, align 1, !tbaa !78
   %26 = zext i16 %25 to i64
   %27 = tail call ptr @cli_max_malloc(i64 noundef %26) #12
   %.not = icmp eq ptr %27, null
@@ -944,17 +944,17 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
   %.2290484 = phi i32 [ %.0288, %.lr.ph492 ], [ %.3291, %469 ]
   %.0312480 = phi i16 [ 14, %.lr.ph492 ], [ %101, %469 ]
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %12) #12
-  store ptr null, ptr %9, align 8, !tbaa !82
+  store ptr null, ptr %9, align 8, !tbaa !84
   %90 = trunc nuw i64 %indvars.iv to i16
   %91 = shl i16 %90, 1
   %92 = sub i16 %30, %91
   %93 = zext i16 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr %27, i64 %93
-  %95 = load i8, ptr %94, align 1, !tbaa !42
+  %95 = load i8, ptr %94, align 1, !tbaa !44
   %96 = zext i8 %95 to i16
   %97 = shl nuw i16 %96, 8
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  %99 = load i8, ptr %98, align 1, !tbaa !42
+  %99 = load i8, ptr %98, align 1, !tbaa !44
   %100 = zext i8 %99 to i16
   %101 = or disjoint i16 %97, %100
   %102 = zext i16 %101 to i32
@@ -970,11 +970,11 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
 105:                                              ; preds = %88
   %106 = zext i16 %101 to i64
   %107 = getelementptr inbounds nuw i8, ptr %27, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !42
+  %108 = load i8, ptr %107, align 1, !tbaa !44
   %109 = zext i8 %108 to i32
   %110 = shl nuw nsw i32 %109, 8
   %111 = getelementptr inbounds nuw i8, ptr %107, i64 1
-  %112 = load i8, ptr %111, align 1, !tbaa !42
+  %112 = load i8, ptr %111, align 1, !tbaa !44
   %113 = zext i8 %112 to i32
   %114 = or disjoint i32 %110, %113
   %115 = and i32 %113, 1
@@ -995,11 +995,11 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
 
 123:                                              ; preds = %121
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %106
-  %124 = load i8, ptr %gep, align 1, !tbaa !42
+  %124 = load i8, ptr %gep, align 1, !tbaa !44
   %125 = zext i8 %124 to i32
   %126 = shl nuw nsw i32 %125, 8
   %127 = getelementptr inbounds nuw i8, ptr %107, i64 7
-  %128 = load i8, ptr %127, align 1, !tbaa !42
+  %128 = load i8, ptr %127, align 1, !tbaa !44
   %129 = zext i8 %128 to i32
   %130 = or disjoint i32 %126, %129
   %131 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -1019,12 +1019,12 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
   br i1 %.not366, label %._crit_edge809, label %138
 
 ._crit_edge809:                                   ; preds = %135
-  %.pre = load ptr, ptr %9, align 8, !tbaa !82
+  %.pre = load ptr, ptr %9, align 8, !tbaa !84
   br label %139
 
 138:                                              ; preds = %135
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.53) #12
-  store ptr null, ptr %9, align 8, !tbaa !82
+  store ptr null, ptr %9, align 8, !tbaa !84
   br label %139
 
 139:                                              ; preds = %._crit_edge809, %138
@@ -1044,7 +1044,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
   br i1 %.not368, label %148, label %146
 
 146:                                              ; preds = %141
-  %147 = load ptr, ptr %9, align 8, !tbaa !82
+  %147 = load ptr, ptr %9, align 8, !tbaa !84
   %.not416 = icmp eq ptr %147, null
   br i1 %.not416, label %469, label %.sink.split
 
@@ -1059,12 +1059,12 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
 
 151:                                              ; preds = %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(248) %12, ptr noundef nonnull align 1 dereferenceable(248) %144, i64 248, i1 false)
-  %152 = load i32, ptr %31, align 4, !tbaa !87
+  %152 = load i32, ptr %31, align 4, !tbaa !89
   %153 = call i32 @llvm.bswap.i32(i32 %152)
-  store i32 %153, ptr %31, align 4, !tbaa !87
-  %154 = load i16, ptr %32, align 2, !tbaa !90
+  store i32 %153, ptr %31, align 4, !tbaa !89
+  %154 = load i16, ptr %32, align 2, !tbaa !92
   %rev373 = call i16 @llvm.bswap.i16(i16 %154)
-  store i16 %rev373, ptr %32, align 2, !tbaa !90
+  store i16 %rev373, ptr %32, align 2, !tbaa !92
   %155 = zext i16 %rev373 to i32
   %156 = and i32 %155, 61440
   %157 = icmp eq i32 %156, 32768
@@ -1095,7 +1095,7 @@ define internal fastcc i32 @hfsplus_walk_catalog(ptr noundef nonnull %0, ptr nou
   store i32 %171, ptr %169, align 4, !tbaa !41
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %forkdata_to_host.exit, label %165
+  br i1 %exitcond.not.i, label %forkdata_to_host.exit, label %165, !llvm.loop !42
 
 forkdata_to_host.exit:                            ; preds = %165
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.57, i64 noundef %160, i32 noundef %162, i32 noundef %164) #12
@@ -1115,7 +1115,7 @@ forkdata_to_host.exit:                            ; preds = %165
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.57, i32 noundef %179, i32 noundef %174, i32 noundef %178) #12
   %indvars.iv.next.i431 = add nuw nsw i64 %indvars.iv.i430, 1
   %exitcond.not.i432 = icmp eq i64 %indvars.iv.next.i431, 8
-  br i1 %exitcond.not.i432, label %forkdata_print.exit, label %172
+  br i1 %exitcond.not.i432, label %forkdata_print.exit, label %172, !llvm.loop !93
 
 forkdata_print.exit:                              ; preds = %172, %176
   %180 = load i64, ptr %37, align 4, !tbaa !36
@@ -1141,7 +1141,7 @@ forkdata_print.exit:                              ; preds = %172, %176
   store i32 %192, ptr %190, align 4, !tbaa !41
   %indvars.iv.next.i434 = add nuw nsw i64 %indvars.iv.i433, 1
   %exitcond.not.i435 = icmp eq i64 %indvars.iv.next.i434, 8
-  br i1 %exitcond.not.i435, label %forkdata_to_host.exit436, label %186
+  br i1 %exitcond.not.i435, label %forkdata_to_host.exit436, label %186, !llvm.loop !42
 
 forkdata_to_host.exit436:                         ; preds = %186
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.58, i64 noundef %181, i32 noundef %183, i32 noundef %185) #12
@@ -1161,16 +1161,16 @@ forkdata_to_host.exit436:                         ; preds = %186
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.58, i32 noundef %200, i32 noundef %195, i32 noundef %199) #12
   %indvars.iv.next.i438 = add nuw nsw i64 %indvars.iv.i437, 1
   %exitcond.not.i439 = icmp eq i64 %indvars.iv.next.i438, 8
-  br i1 %exitcond.not.i439, label %forkdata_print.exit440, label %193
+  br i1 %exitcond.not.i439, label %forkdata_print.exit440, label %193, !llvm.loop !93
 
 forkdata_print.exit440:                           ; preds = %193, %197
   br i1 %.not.i, label %.thread, label %201
 
 201:                                              ; preds = %forkdata_print.exit440
-  %202 = load i32, ptr %41, align 1, !tbaa !78
+  %202 = load i32, ptr %41, align 1, !tbaa !80
   %spec.select.i = call i32 @llvm.umin.i32(i32 %202, i32 1000)
-  %203 = load i32, ptr %42, align 1, !tbaa !74
-  %204 = load i16, ptr %43, align 1, !tbaa !76
+  %203 = load i32, ptr %42, align 1, !tbaa !76
+  %204 = load i16, ptr %43, align 1, !tbaa !78
   %205 = zext i16 %204 to i64
   %206 = call ptr @cli_max_malloc(i64 noundef %205) #12
   %.not141.i = icmp eq ptr %206, null
@@ -1256,11 +1256,11 @@ forkdata_print.exit440:                           ; preds = %193, %197
   %237 = sub i16 %209, %236
   %238 = zext i16 %237 to i64
   %239 = getelementptr inbounds nuw i8, ptr %206, i64 %238
-  %240 = load i8, ptr %239, align 1, !tbaa !42
+  %240 = load i8, ptr %239, align 1, !tbaa !44
   %241 = zext i8 %240 to i16
   %242 = shl nuw i16 %241, 8
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 1
-  %244 = load i8, ptr %243, align 1, !tbaa !42
+  %244 = load i8, ptr %243, align 1, !tbaa !44
   %245 = zext i8 %244 to i16
   %246 = or disjoint i16 %242, %245
   %247 = zext i16 %246 to i32
@@ -1353,7 +1353,7 @@ forkdata_print.exit440:                           ; preds = %193, %197
 285:                                              ; preds = %279, %274, %271
   %indvars.iv.next.i443 = add nuw nsw i64 %indvars.iv.i441, 1
   %exitcond.not.i444 = icmp eq i64 %indvars.iv.next.i443, %wide.trip.count.i
-  br i1 %exitcond.not.i444, label %.loopexit.i, label %234
+  br i1 %exitcond.not.i444, label %.loopexit.i, label %234, !llvm.loop !94
 
 .loopexit.i:                                      ; preds = %285, %228
   %286 = add nuw nsw i32 %213, 1
@@ -1429,7 +1429,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %.thread113
 
 303:                                              ; preds = %300
-  %304 = load i8, ptr %50, align 16, !tbaa !42
+  %304 = load i8, ptr %50, align 16, !tbaa !44
   %305 = and i8 %304, 15
   %306 = icmp eq i8 %305, 15
   br i1 %306, label %307, label %313
@@ -1444,7 +1444,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %.thread113
 
 310:                                              ; preds = %307
-  %311 = load i32, ptr %8, align 4, !tbaa !83
+  %311 = load i32, ptr %8, align 4, !tbaa !85
   %312 = call i64 @cli_writen(i32 noundef %311, ptr noundef nonnull %55, i64 noundef %.sroa.19.0) #12
   br label %337
 
@@ -1469,11 +1469,11 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 319:                                              ; preds = %316
   %320 = add nsw i32 %282, -16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
-  store i32 %320, ptr %52, align 8, !tbaa !91
-  store ptr %50, ptr %14, align 8, !tbaa !94
+  store i32 %320, ptr %52, align 8, !tbaa !95
+  store ptr %50, ptr %14, align 8, !tbaa !98
   %321 = trunc nuw nsw i64 %.sroa.19.0 to i32
-  store i32 %321, ptr %53, align 8, !tbaa !95
-  store ptr %317, ptr %54, align 8, !tbaa !96
+  store i32 %321, ptr %53, align 8, !tbaa !99
+  store ptr %317, ptr %54, align 8, !tbaa !100
   %322 = call i32 @inflateInit2_(ptr noundef nonnull %14, i32 noundef 15, ptr noundef nonnull @.str.69, i32 noundef 112) #12
   switch i32 %322, label %326 [
     i32 0, label %327
@@ -1523,7 +1523,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %.thread113
 
 334:                                              ; preds = %330, %333
-  %335 = load i32, ptr %8, align 4, !tbaa !83
+  %335 = load i32, ptr %8, align 4, !tbaa !85
   %336 = call i64 @cli_writen(i32 noundef %335, ptr noundef nonnull %317, i64 noundef %.sroa.19.0) #12
   call void @free(ptr noundef nonnull %317) #12
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %14) #12
@@ -1548,7 +1548,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %.thread113
 
 342:                                              ; preds = %339
-  %343 = load ptr, ptr %9, align 8, !tbaa !82
+  %343 = load ptr, ptr %9, align 8, !tbaa !84
   %344 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %37, ptr noundef %4, ptr noundef nonnull %7, ptr noundef %343)
   %.not388 = icmp eq i32 %344, 0
   br i1 %.not388, label %346, label %345
@@ -1558,7 +1558,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %.thread113
 
 346:                                              ; preds = %342
-  %347 = load ptr, ptr %7, align 8, !tbaa !82
+  %347 = load ptr, ptr %7, align 8, !tbaa !84
   %348 = icmp eq ptr %347, null
   br i1 %348, label %349, label %350
 
@@ -1603,7 +1603,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %18) #12
   %361 = load i32, ptr %16, align 4
   %.not511 = icmp eq i32 %361, 0
-  %.pre810 = load ptr, ptr %11, align 8, !tbaa !85
+  %.pre810 = load ptr, ptr %11, align 8, !tbaa !87
   br i1 %.not511, label %._crit_edge477, label %.lr.ph476
 
 .lr.ph476:                                        ; preds = %360, %418
@@ -1613,19 +1613,19 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %.13278472 = phi i1 [ %.15280.lcssa, %418 ], [ %.2267486, %360 ]
   %363 = zext i32 %.0229474 to i64
   %364 = getelementptr inbounds nuw %struct.hfsPlusResourceBlockTable, ptr %.pre810, i64 %363
-  %365 = load i32, ptr %364, align 1, !tbaa !97
+  %365 = load i32, ptr %364, align 1, !tbaa !101
   %366 = add i32 %365, %358
   %367 = zext i32 %366 to i64
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %19) #12
   %368 = getelementptr inbounds nuw %struct.hfsPlusResourceBlockTable, ptr %.pre810, i64 %363, i32 1
-  %369 = load i32, ptr %368, align 1, !tbaa !99
+  %369 = load i32, ptr %368, align 1, !tbaa !103
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.83, i32 noundef %.0229474, i32 noundef %362, i64 noundef %367, i32 noundef %369) #12
   %370 = call i64 @lseek(i32 noundef %351, i64 noundef %367, i32 noundef 0) #12
   %.not392 = icmp eq i64 %370, %367
   br i1 %.not392, label %.preheader136, label %373
 
 .preheader136:                                    ; preds = %.lr.ph476
-  %371 = load i32, ptr %368, align 1, !tbaa !99
+  %371 = load i32, ptr %368, align 1, !tbaa !103
   %.not512 = icmp eq i32 %371, 0
   br i1 %.not512, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1658,7 +1658,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br i1 %.not395469, label %386, label %379
 
 379:                                              ; preds = %378
-  %380 = load i8, ptr %17, align 16, !tbaa !42
+  %380 = load i8, ptr %17, align 16, !tbaa !44
   %381 = and i8 %380, 15
   %.not132 = icmp eq i8 %381, 15
   br i1 %.not132, label %.thread59, label %382
@@ -1667,10 +1667,10 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.86) #12
   %383 = trunc nuw nsw i64 %spec.store.select to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %45, i8 0, i64 24, i1 false)
-  store i32 %383, ptr %46, align 8, !tbaa !91
-  store ptr %17, ptr %19, align 8, !tbaa !94
-  store i32 4096, ptr %47, align 8, !tbaa !95
-  store ptr %18, ptr %48, align 8, !tbaa !96
+  store i32 %383, ptr %46, align 8, !tbaa !95
+  store ptr %17, ptr %19, align 8, !tbaa !98
+  store i32 4096, ptr %47, align 8, !tbaa !99
+  store ptr %18, ptr %48, align 8, !tbaa !100
   %384 = call i32 @inflateInit2_(ptr noundef nonnull %19, i32 noundef 15, ptr noundef nonnull @.str.69, i32 noundef 112) #12
   %.not396 = icmp eq i32 %384, 0
   br i1 %.not396, label %.thread64, label %385
@@ -1690,16 +1690,16 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 .thread64:                                        ; preds = %..thread64_crit_edge, %382
   %.pre-phi = phi i32 [ %.pre816, %..thread64_crit_edge ], [ %383, %382 ]
   %.167 = phi i32 [ %.0470, %..thread64_crit_edge ], [ 1, %382 ]
-  store i32 %.pre-phi, ptr %46, align 8, !tbaa !91
-  store ptr %17, ptr %19, align 8, !tbaa !94
-  store i32 4096, ptr %47, align 8, !tbaa !95
-  store ptr %18, ptr %48, align 8, !tbaa !96
+  store i32 %.pre-phi, ptr %46, align 8, !tbaa !95
+  store ptr %17, ptr %19, align 8, !tbaa !98
+  store i32 4096, ptr %47, align 8, !tbaa !99
+  store ptr %18, ptr %48, align 8, !tbaa !100
   %.not3991551 = icmp eq i32 %.pre-phi, 0
   br i1 %.not3991551, label %.loopexit135, label %.lr.ph1553
 
 387:                                              ; preds = %400
   %.not399 = icmp eq i32 %402, 0
-  br i1 %.not399, label %.loopexit135, label %.lr.ph1553
+  br i1 %.not399, label %.loopexit135, label %.lr.ph1553, !llvm.loop !104
 
 .lr.ph1553:                                       ; preds = %.thread64, %387
   %.32351552 = phi i64 [ %401, %387 ], [ %.2234467, %.thread64 ]
@@ -1712,12 +1712,12 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %425
 
 390:                                              ; preds = %.lr.ph1553
-  %391 = load i32, ptr %8, align 4, !tbaa !83
-  %392 = load i32, ptr %47, align 8, !tbaa !95
+  %391 = load i32, ptr %8, align 4, !tbaa !85
+  %392 = load i32, ptr %47, align 8, !tbaa !99
   %393 = zext i32 %392 to i64
   %394 = sub nsw i64 4096, %393
   %395 = call i64 @cli_writen(i32 noundef %391, ptr noundef nonnull %18, i64 noundef %394) #12
-  %396 = load i32, ptr %47, align 8, !tbaa !95
+  %396 = load i32, ptr %47, align 8, !tbaa !99
   %397 = zext i32 %396 to i64
   %398 = sub nsw i64 4096, %397
   %.not400 = icmp eq i64 %395, %398
@@ -1729,20 +1729,20 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 
 400:                                              ; preds = %390
   %401 = add i64 %395, %.32351552
-  store i32 4096, ptr %47, align 8, !tbaa !95
-  store ptr %18, ptr %48, align 8, !tbaa !96
-  %402 = load i32, ptr %46, align 8, !tbaa !91
+  store i32 4096, ptr %47, align 8, !tbaa !99
+  store ptr %18, ptr %48, align 8, !tbaa !100
+  %402 = load i32, ptr %46, align 8, !tbaa !95
   %403 = icmp ne i32 %402, 0
   %404 = icmp eq i32 %388, 1
   %or.cond17 = and i1 %404, %403
-  br i1 %or.cond17, label %405, label %387
+  br i1 %or.cond17, label %405, label %387, !llvm.loop !104
 
 405:                                              ; preds = %400
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.90) #12
   br label %.loopexit135
 
 .thread59:                                        ; preds = %379, %386
-  %406 = load i32, ptr %8, align 4, !tbaa !83
+  %406 = load i32, ptr %8, align 4, !tbaa !85
   %not..not395 = xor i1 %.not395469, true
   %.neg = sext i1 %not..not395 to i64
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = zext i1 %not..not395 to i64
@@ -1765,10 +1765,10 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %.17282 = phi i1 [ true, %405 ], [ true, %410 ], [ %.15280466, %.thread64 ], [ true, %387 ]
   %.4236 = phi i64 [ %401, %405 ], [ %411, %410 ], [ %.2234467, %.thread64 ], [ %401, %387 ]
   %412 = add nuw nsw i64 %spec.store.select, %.0227468
-  %413 = load i32, ptr %368, align 1, !tbaa !99
+  %413 = load i32, ptr %368, align 1, !tbaa !103
   %414 = zext i32 %413 to i64
   %415 = icmp samesign ult i64 %412, %414
-  br i1 %415, label %.lr.ph, label %._crit_edge
+  br i1 %415, label %.lr.ph, label %._crit_edge, !llvm.loop !105
 
 ._crit_edge:                                      ; preds = %.loopexit135, %.preheader136
   %.15280.lcssa = phi i1 [ %.13278472, %.preheader136 ], [ %.17282, %.loopexit135 ]
@@ -1786,15 +1786,15 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %419 = add nuw i32 %.0229474, 1
   %420 = load i32, ptr %16, align 4
   %421 = icmp ult i32 %419, %420
-  br i1 %421, label %.lr.ph476, label %._crit_edge477.thread
+  br i1 %421, label %.lr.ph476, label %._crit_edge477.thread, !llvm.loop !106
 
 ._crit_edge477.thread:                            ; preds = %418
-  %422 = load ptr, ptr %6, align 8, !tbaa !82
+  %422 = load ptr, ptr %6, align 8, !tbaa !84
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.91, ptr noundef %422, i64 noundef %.2234.lcssa) #12
   br label %424
 
 ._crit_edge477:                                   ; preds = %360
-  %423 = load ptr, ptr %6, align 8, !tbaa !82
+  %423 = load ptr, ptr %6, align 8, !tbaa !84
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.91, ptr noundef %423, i64 noundef 0) #12
   %.not391 = icmp eq ptr %.pre810, null
   br i1 %.not391, label %.thread89, label %424
@@ -1802,7 +1802,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 424:                                              ; preds = %._crit_edge477.thread, %._crit_edge477
   %.13278.lcssa820 = phi i1 [ %.15280.lcssa, %._crit_edge477.thread ], [ %.2267486, %._crit_edge477 ]
   call void @free(ptr noundef nonnull %.pre810) #12
-  store ptr null, ptr %11, align 8, !tbaa !85
+  store ptr null, ptr %11, align 8, !tbaa !87
   br label %.thread89
 
 .thread89:                                        ; preds = %424, %._crit_edge477
@@ -1825,9 +1825,9 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %.1781 = phi i32 [ %355, %.thread75 ], [ %359, %.thread82 ], [ 0, %.thread89 ]
   %.2028580 = phi i1 [ %.2267486, %.thread75 ], [ %.2267486, %.thread82 ], [ %.13278.lcssa821, %.thread89 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
-  %427 = load ptr, ptr %49, align 8, !tbaa !44
+  %427 = load ptr, ptr %49, align 8, !tbaa !46
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 40
-  %429 = load i32, ptr %428, align 8, !tbaa !45
+  %429 = load i32, ptr %428, align 8, !tbaa !47
   %.not401 = icmp eq i32 %429, 0
   br i1 %.not401, label %430, label %432
 
@@ -1838,7 +1838,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 
 432:                                              ; preds = %426, %430
   call void @free(ptr noundef %347) #12
-  store ptr null, ptr %7, align 8, !tbaa !82
+  store ptr null, ptr %7, align 8, !tbaa !84
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.92) #12
   br label %434
 
@@ -1850,7 +1850,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %.6294 = phi i32 [ %.2290484, %433 ], [ %351, %432 ], [ %.2290484, %337 ]
   %.9274 = phi i1 [ %.2267486, %433 ], [ %.2028580, %432 ], [ %.7272, %337 ]
   %.9 = phi i32 [ 0, %433 ], [ %.1781, %432 ], [ 0, %337 ]
-  %435 = load ptr, ptr %6, align 8, !tbaa !82
+  %435 = load ptr, ptr %6, align 8, !tbaa !84
   %.not407 = icmp eq ptr %435, null
   br i1 %.not407, label %450, label %436
 
@@ -1859,23 +1859,23 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 
 437:                                              ; preds = %436
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.94, ptr noundef nonnull %435) #12
-  %438 = load i32, ptr %8, align 4, !tbaa !83
-  %439 = load ptr, ptr %6, align 8, !tbaa !82
-  %440 = load ptr, ptr %9, align 8, !tbaa !82
+  %438 = load i32, ptr %8, align 4, !tbaa !85
+  %439 = load ptr, ptr %6, align 8, !tbaa !84
+  %440 = load ptr, ptr %9, align 8, !tbaa !84
   %441 = call i32 @cli_magic_scan_desc(i32 noundef %438, ptr noundef %439, ptr noundef nonnull %0, ptr noundef %440, i32 noundef 0) #12
   %.not408 = icmp eq i32 %441, 0
   br i1 %.not408, label %._crit_edge814, label %.thread113
 
 ._crit_edge814:                                   ; preds = %437
-  %.pre813.pre = load ptr, ptr %6, align 8, !tbaa !82
+  %.pre813.pre = load ptr, ptr %6, align 8, !tbaa !84
   br label %442
 
 442:                                              ; preds = %._crit_edge814, %436
   %.pre813 = phi ptr [ %.pre813.pre, %._crit_edge814 ], [ %435, %436 ]
   %.19 = phi i32 [ 0, %._crit_edge814 ], [ %.9, %436 ]
-  %443 = load ptr, ptr %49, align 8, !tbaa !44
+  %443 = load ptr, ptr %49, align 8, !tbaa !46
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 40
-  %445 = load i32, ptr %444, align 8, !tbaa !45
+  %445 = load i32, ptr %444, align 8, !tbaa !47
   %.not409 = icmp eq i32 %445, 0
   br i1 %.not409, label %446, label %448
 
@@ -1885,24 +1885,24 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br i1 %.not410, label %._crit_edge811, label %.thread113
 
 ._crit_edge811:                                   ; preds = %446
-  %.pre812 = load ptr, ptr %6, align 8, !tbaa !82
+  %.pre812 = load ptr, ptr %6, align 8, !tbaa !84
   br label %448
 
 448:                                              ; preds = %._crit_edge811, %442
   %449 = phi ptr [ %.pre812, %._crit_edge811 ], [ %.pre813, %442 ]
   call void @free(ptr noundef %449) #12
-  store ptr null, ptr %6, align 8, !tbaa !82
+  store ptr null, ptr %6, align 8, !tbaa !84
   br label %450
 
 450:                                              ; preds = %448, %434
   %.18 = phi i32 [ %.19, %448 ], [ %.9, %434 ]
-  %451 = load i32, ptr %8, align 4, !tbaa !83
+  %451 = load i32, ptr %8, align 4, !tbaa !85
   %452 = icmp sgt i32 %451, -1
   br i1 %452, label %453, label %455
 
 453:                                              ; preds = %450
   %454 = call i32 @close(i32 noundef %451) #12
-  store i32 -1, ptr %8, align 4, !tbaa !83
+  store i32 -1, ptr %8, align 4, !tbaa !85
   br label %455
 
 455:                                              ; preds = %453, %450, %.thread38, %.thread
@@ -1913,7 +1913,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br i1 %.not411, label %460, label %456
 
 456:                                              ; preds = %455
-  %457 = load ptr, ptr %9, align 8, !tbaa !82
+  %457 = load ptr, ptr %9, align 8, !tbaa !84
   %458 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %33, ptr noundef %4, ptr noundef null, ptr noundef %457)
   %.not412 = icmp eq i32 %458, 0
   br i1 %.not412, label %460, label %459
@@ -1928,7 +1928,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br i1 %.not413, label %465, label %461
 
 461:                                              ; preds = %460
-  %462 = load ptr, ptr %9, align 8, !tbaa !82
+  %462 = load ptr, ptr %9, align 8, !tbaa !84
   %463 = call fastcc i32 @hfsplus_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %37, ptr noundef %4, ptr noundef null, ptr noundef %462)
   %.not414 = icmp eq i32 %463, 0
   br i1 %.not414, label %465, label %464
@@ -1957,7 +1957,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %.9297 = phi i32 [ %.4292, %465 ], [ %.2290484, %466 ]
   %.22287 = phi i1 [ %.4269, %465 ], [ %.2267486, %466 ]
   %.23 = phi i32 [ %.20, %465 ], [ %.2489, %466 ]
-  %468 = load ptr, ptr %9, align 8, !tbaa !82
+  %468 = load ptr, ptr %9, align 8, !tbaa !84
   %.not415 = icmp eq ptr %468, null
   br i1 %.not415, label %469, label %.sink.split
 
@@ -1974,7 +1974,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %.3268.ph = phi i1 [ %.2267486, %146 ], [ %.22287, %467 ]
   %.3.ph1225 = phi i32 [ %.2489, %146 ], [ %.23, %467 ]
   call void @free(ptr noundef nonnull %.sink) #12
-  store ptr null, ptr %9, align 8, !tbaa !82
+  store ptr null, ptr %9, align 8, !tbaa !84
   br label %469
 
 469:                                              ; preds = %.sink.split, %146, %467
@@ -1985,7 +1985,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %470 = trunc nuw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge493, label %88
+  br i1 %exitcond.not, label %._crit_edge493, label %88, !llvm.loop !107
 
 ._crit_edge493:                                   ; preds = %469, %82
   %.2290.lcssa = phi i32 [ %.0288, %82 ], [ %.3291, %469 ]
@@ -2002,7 +2002,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   %.12311.ph = phi ptr [ %.3302.ph, %.thread122 ], [ null, %472 ], [ null, %81 ], [ null, %78 ], [ null, %69 ], [ null, %66 ], [ null, %62 ], [ null, %58 ]
   %.10298.ph = phi i32 [ %.3291.ph, %.thread122 ], [ %.2290.lcssa, %472 ], [ %.0288, %81 ], [ %.0288, %78 ], [ %.0288, %69 ], [ %.0288, %66 ], [ %.0288, %62 ], [ %.0288, %58 ]
   %.24.ph = phi i32 [ %.3.ph, %.thread122 ], [ 26, %472 ], [ 26, %81 ], [ 26, %78 ], [ %68, %69 ], [ 0, %66 ], [ 0, %62 ], [ %.0230, %58 ]
-  %473 = load ptr, ptr %11, align 8, !tbaa !85
+  %473 = load ptr, ptr %11, align 8, !tbaa !87
   %.not417 = icmp eq ptr %473, null
   %.not418 = icmp eq i32 %.10298.ph, -1
   %474 = load ptr, ptr %7, align 8
@@ -2026,7 +2026,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %479
 
 479:                                              ; preds = %477, %476
-  %480 = load i32, ptr %8, align 4, !tbaa !83
+  %480 = load i32, ptr %8, align 4, !tbaa !85
   %.not419.us = icmp eq i32 %480, -1
   br i1 %.not419.us, label %483, label %481
 
@@ -2035,21 +2035,21 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %483
 
 483:                                              ; preds = %481, %479
-  %484 = load ptr, ptr %6, align 8, !tbaa !82
+  %484 = load ptr, ptr %6, align 8, !tbaa !84
   %.not422.us = icmp eq ptr %484, null
   br i1 %.not422.us, label %.loopexit, label %485
 
 485:                                              ; preds = %483
-  %486 = load ptr, ptr %49, align 8, !tbaa !44
+  %486 = load ptr, ptr %49, align 8, !tbaa !46
   %487 = getelementptr inbounds nuw i8, ptr %486, i64 40
-  %488 = load i32, ptr %487, align 8, !tbaa !45
+  %488 = load i32, ptr %487, align 8, !tbaa !47
   %.not423.us = icmp eq i32 %488, 0
   br i1 %.not423.us, label %489, label %.split.us
 
 489:                                              ; preds = %485
   %490 = call i32 @cli_unlink(ptr noundef nonnull %484) #12
   %.not424.us = icmp eq i32 %490, 0
-  br i1 %.not424.us, label %.split.us, label %.preheader.split.us, !llvm.loop !100
+  br i1 %.not424.us, label %.split.us, label %.preheader.split.us, !llvm.loop !108
 
 .preheader.split:                                 ; preds = %.preheader
   br i1 %.not417, label %.preheader.split.split.us, label %.preheader.split.split
@@ -2063,7 +2063,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %493
 
 493:                                              ; preds = %491, %.preheader.split.split.us
-  %494 = load i32, ptr %8, align 4, !tbaa !83
+  %494 = load i32, ptr %8, align 4, !tbaa !85
   %.not419.us500 = icmp eq i32 %494, -1
   br i1 %.not419.us500, label %497, label %495
 
@@ -2072,9 +2072,9 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %497
 
 497:                                              ; preds = %495, %493
-  %498 = load ptr, ptr %49, align 8, !tbaa !44
+  %498 = load ptr, ptr %49, align 8, !tbaa !46
   %499 = getelementptr inbounds nuw i8, ptr %498, i64 40
-  %500 = load i32, ptr %499, align 8, !tbaa !45
+  %500 = load i32, ptr %499, align 8, !tbaa !47
   %.not421.us = icmp eq i32 %500, 0
   br i1 %.not421.us, label %501, label %503
 
@@ -2084,21 +2084,21 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 
 503:                                              ; preds = %501, %497
   call void @free(ptr noundef nonnull %.fr) #12
-  %504 = load ptr, ptr %6, align 8, !tbaa !82
+  %504 = load ptr, ptr %6, align 8, !tbaa !84
   %.not422.us501 = icmp eq ptr %504, null
   br i1 %.not422.us501, label %.loopexit, label %505
 
 505:                                              ; preds = %503
-  %506 = load ptr, ptr %49, align 8, !tbaa !44
+  %506 = load ptr, ptr %49, align 8, !tbaa !46
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 40
-  %508 = load i32, ptr %507, align 8, !tbaa !45
+  %508 = load i32, ptr %507, align 8, !tbaa !47
   %.not423.us502 = icmp eq i32 %508, 0
   br i1 %.not423.us502, label %509, label %.split.us
 
 509:                                              ; preds = %505
   %510 = call i32 @cli_unlink(ptr noundef nonnull %504) #12
   %.not424.us503 = icmp eq i32 %510, 0
-  br i1 %.not424.us503, label %.split.us, label %.preheader.split.split.us, !llvm.loop !102
+  br i1 %.not424.us503, label %.split.us, label %.preheader.split.split.us, !llvm.loop !110
 
 .preheader.split.split:                           ; preds = %.preheader.split, %529
   %.24 = phi i32 [ 10, %529 ], [ %.24.ph, %.preheader.split ]
@@ -2110,7 +2110,7 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %513
 
 513:                                              ; preds = %511, %.preheader.split.split
-  %514 = load i32, ptr %8, align 4, !tbaa !83
+  %514 = load i32, ptr %8, align 4, !tbaa !85
   %.not419 = icmp eq i32 %514, -1
   br i1 %.not419, label %517, label %515
 
@@ -2119,9 +2119,9 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
   br label %517
 
 517:                                              ; preds = %515, %513
-  %518 = load ptr, ptr %49, align 8, !tbaa !44
+  %518 = load ptr, ptr %49, align 8, !tbaa !46
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 40
-  %520 = load i32, ptr %519, align 8, !tbaa !45
+  %520 = load i32, ptr %519, align 8, !tbaa !47
   %.not421 = icmp eq i32 %520, 0
   br i1 %.not421, label %521, label %523
 
@@ -2131,32 +2131,32 @@ hfsplus_check_attribute.exit.thread30:            ; preds = %269, %263, %255, %2
 
 523:                                              ; preds = %521, %517
   call void @free(ptr noundef nonnull %.fr) #12
-  %524 = load ptr, ptr %6, align 8, !tbaa !82
+  %524 = load ptr, ptr %6, align 8, !tbaa !84
   %.not422 = icmp eq ptr %524, null
   br i1 %.not422, label %.loopexit, label %525
 
 525:                                              ; preds = %523
-  %526 = load ptr, ptr %49, align 8, !tbaa !44
+  %526 = load ptr, ptr %49, align 8, !tbaa !46
   %527 = getelementptr inbounds nuw i8, ptr %526, i64 40
-  %528 = load i32, ptr %527, align 8, !tbaa !45
+  %528 = load i32, ptr %527, align 8, !tbaa !47
   %.not423 = icmp eq i32 %528, 0
   br i1 %.not423, label %529, label %.split.us
 
 529:                                              ; preds = %525
   %530 = call i32 @cli_unlink(ptr noundef nonnull %524) #12
   %.not424 = icmp eq i32 %530, 0
-  br i1 %.not424, label %.split.us, label %.preheader.split.split
+  br i1 %.not424, label %.split.us, label %.preheader.split.split, !llvm.loop !111
 
 .split.us:                                        ; preds = %529, %525, %509, %505, %485, %489
   %.us-phi498 = phi i32 [ %.24.us, %489 ], [ %.24.us, %485 ], [ %.24.us499, %505 ], [ %.24.us499, %509 ], [ %.24, %525 ], [ %.24, %529 ]
-  %531 = load ptr, ptr %6, align 8, !tbaa !82
+  %531 = load ptr, ptr %6, align 8, !tbaa !84
   call void @free(ptr noundef %531) #12
   br label %.loopexit
 
 .loopexit:                                        ; preds = %523, %503, %483, %.split.us
   %.24139 = phi i32 [ %.us-phi498, %.split.us ], [ %.24.us, %483 ], [ %.24.us499, %503 ], [ %.24, %523 ]
   call void @free(ptr noundef %27) #12
-  %532 = load ptr, ptr %9, align 8, !tbaa !82
+  %532 = load ptr, ptr %9, align 8, !tbaa !84
   %.not425 = icmp eq ptr %532, null
   br i1 %.not425, label %534, label %533
 
@@ -2222,7 +2222,7 @@ define internal fastcc void @forkdata_print(ptr noundef %0, ptr noundef nonnull 
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef %0, i32 noundef %16, i32 noundef %11, i32 noundef %15) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %17, label %9
+  br i1 %exitcond.not, label %17, label %9, !llvm.loop !93
 
 17:                                               ; preds = %9, %13
   ret void
@@ -2233,7 +2233,7 @@ declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 1, 0) %4, ptr noundef writeonly captures(none) %5, i64 noundef range(i64 0, 65536) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 22
-  %9 = load i32, ptr %8, align 1, !tbaa !78
+  %9 = load i32, ptr %8, align 1, !tbaa !80
   %.not = icmp ult i32 %4, %9
   br i1 %.not, label %11, label %10
 
@@ -2244,7 +2244,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr noundef nonn
 11:                                               ; preds = %7
   %12 = zext i32 %4 to i64
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 18
-  %14 = load i16, ptr %13, align 1, !tbaa !76
+  %14 = load i16, ptr %13, align 1, !tbaa !78
   %15 = zext i16 %14 to i64
   %16 = mul nuw nsw i64 %15, %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2286,7 +2286,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr noundef nonn
 37:                                               ; preds = %fmap_readn.exit
   %38 = add i32 %.07931, 1
   %.not92 = icmp ugt i32 %38, %26
-  br i1 %.not92, label %.thread, label %.preheader
+  br i1 %.not92, label %.thread, label %.preheader, !llvm.loop !112
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %37
   %.06932 = phi i32 [ 0, %.preheader.lr.ph ], [ %70, %37 ]
@@ -2340,7 +2340,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_fetch_node(ptr noundef nonn
   %60 = sub i32 %.07029, %59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %61, label %39
+  br i1 %exitcond.not, label %61, label %39, !llvm.loop !113
 
 61:                                               ; preds = %58
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.106) #12
@@ -2433,9 +2433,9 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr noundef
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  store ptr null, ptr %7, align 8, !tbaa !82
+  store ptr null, ptr %7, align 8, !tbaa !84
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
-  store i32 -1, ptr %8, align 4, !tbaa !83
+  store i32 -1, ptr %8, align 4, !tbaa !85
   %9 = load i64, ptr %2, align 1, !tbaa !36
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %15, label %11
@@ -2465,7 +2465,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr noundef
   br label %.thread14
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %7, align 8, !tbaa !82
+  %22 = load ptr, ptr %7, align 8, !tbaa !84
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.126, ptr noundef %22) #12
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -2557,7 +2557,7 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr noundef
   br label %.thread14
 
 62:                                               ; preds = %52
-  %63 = load i32, ptr %8, align 4, !tbaa !83
+  %63 = load i32, ptr %8, align 4, !tbaa !85
   %64 = call i64 @cli_writen(i32 noundef %63, ptr noundef nonnull %60, i64 noundef %.277.) #12
   %.not108 = icmp eq i64 %64, %.277.
   br i1 %.not108, label %66, label %65
@@ -2591,26 +2591,26 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv80, 1
   %74 = load i32, ptr %12, align 1, !tbaa !38
   %75 = icmp eq i32 %74, 0
-  br i1 %75, label %._crit_edge, label %.lr.ph
+  br i1 %75, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
 .thread20:                                        ; preds = %39, %._crit_edge, %.thread7.thread
   %.not109 = icmp eq ptr %4, null
   br i1 %.not109, label %78, label %76
 
 76:                                               ; preds = %.thread20
-  %77 = load ptr, ptr %7, align 8, !tbaa !82
-  store ptr %77, ptr %4, align 8, !tbaa !82
+  %77 = load ptr, ptr %7, align 8, !tbaa !84
+  store ptr %77, ptr %4, align 8, !tbaa !84
   br label %.thread14
 
 78:                                               ; preds = %.thread20
-  %79 = load i32, ptr %8, align 4, !tbaa !83
-  %80 = load ptr, ptr %7, align 8, !tbaa !82
+  %79 = load i32, ptr %8, align 4, !tbaa !85
+  %80 = load ptr, ptr %7, align 8, !tbaa !84
   %81 = call i32 @cli_magic_scan_desc(i32 noundef %79, ptr noundef %80, ptr noundef nonnull %0, ptr noundef %5, i32 noundef 0) #12
   br label %.thread14
 
 .thread14:                                        ; preds = %61, %65, %34, %51, %43, %78, %76, %16, %20, %15
   %.070 = phi i32 [ 0, %15 ], [ %17, %16 ], [ %19, %20 ], [ 0, %76 ], [ %81, %78 ], [ 26, %34 ], [ 26, %51 ], [ 26, %43 ], [ 19, %61 ], [ 14, %65 ]
-  %82 = load i32, ptr %8, align 4, !tbaa !83
+  %82 = load i32, ptr %8, align 4, !tbaa !85
   %83 = icmp sgt i32 %82, -1
   br i1 %83, label %84, label %86
 
@@ -2629,15 +2629,15 @@ define internal fastcc i32 @hfsplus_scanfile(ptr noundef nonnull %0, ptr noundef
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %93 = load ptr, ptr %92, align 8, !tbaa !44
+  %93 = load ptr, ptr %92, align 8, !tbaa !46
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  %95 = load i32, ptr %94, align 8, !tbaa !45
+  %95 = load i32, ptr %94, align 8, !tbaa !47
   %.not110 = icmp eq i32 %95, 0
   br i1 %.not110, label %96, label %98
 
 96:                                               ; preds = %91
   %97 = call i32 @cli_unlink(ptr noundef nonnull %89) #12
-  %.pre = load ptr, ptr %7, align 8, !tbaa !82
+  %.pre = load ptr, ptr %7, align 8, !tbaa !84
   br label %98
 
 98:                                               ; preds = %96, %91
@@ -2675,24 +2675,24 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_seek_to_cmpf_resource(i32 n
   br label %96
 
 10:                                               ; preds = %2
-  %11 = load i32, ptr %3, align 4, !tbaa !103
+  %11 = load i32, ptr %3, align 4, !tbaa !115
   %12 = call i32 @llvm.bswap.i32(i32 %11)
-  store i32 %12, ptr %3, align 4, !tbaa !103
+  store i32 %12, ptr %3, align 4, !tbaa !115
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %14 = load i32, ptr %13, align 4, !tbaa !105
+  %14 = load i32, ptr %13, align 4, !tbaa !117
   %15 = call i32 @llvm.bswap.i32(i32 %14)
-  store i32 %15, ptr %13, align 4, !tbaa !105
+  store i32 %15, ptr %13, align 4, !tbaa !117
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load i32, ptr %16, align 4, !tbaa !106
+  %17 = load i32, ptr %16, align 4, !tbaa !118
   %18 = call i32 @llvm.bswap.i32(i32 %17)
-  store i32 %18, ptr %16, align 4, !tbaa !106
+  store i32 %18, ptr %16, align 4, !tbaa !118
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %20 = load i32, ptr %19, align 4, !tbaa !107
+  %20 = load i32, ptr %19, align 4, !tbaa !119
   %21 = call i32 @llvm.bswap.i32(i32 %20)
-  store i32 %21, ptr %19, align 4, !tbaa !107
+  store i32 %21, ptr %19, align 4, !tbaa !119
   %22 = zext i32 %15 to i64
   %23 = call i64 @lseek(i32 noundef %0, i64 noundef %22, i32 noundef 0) #12
-  %24 = load i32, ptr %13, align 4, !tbaa !105
+  %24 = load i32, ptr %13, align 4, !tbaa !117
   %25 = zext i32 %24 to i64
   %.not22 = icmp eq i64 %23, %25
   br i1 %.not22, label %27, label %26
@@ -2712,21 +2712,21 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_seek_to_cmpf_resource(i32 n
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %32 = load i16, ptr %31, align 1, !tbaa !108
+  %32 = load i16, ptr %31, align 1, !tbaa !120
   %rev = call i16 @llvm.bswap.i16(i16 %32)
-  store i16 %rev, ptr %31, align 1, !tbaa !108
+  store i16 %rev, ptr %31, align 1, !tbaa !120
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %34 = load i16, ptr %33, align 1, !tbaa !110
+  %34 = load i16, ptr %33, align 1, !tbaa !122
   %rev24 = call i16 @llvm.bswap.i16(i16 %34)
-  store i16 %rev24, ptr %33, align 1, !tbaa !110
+  store i16 %rev24, ptr %33, align 1, !tbaa !122
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 26
-  %36 = load i16, ptr %35, align 1, !tbaa !111
+  %36 = load i16, ptr %35, align 1, !tbaa !123
   %rev25 = call i16 @llvm.bswap.i16(i16 %36)
-  store i16 %rev25, ptr %35, align 1, !tbaa !111
+  store i16 %rev25, ptr %35, align 1, !tbaa !123
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  %38 = load i16, ptr %37, align 1, !tbaa !112
+  %38 = load i16, ptr %37, align 1, !tbaa !124
   %rev26 = call i16 @llvm.bswap.i16(i16 %38)
-  store i16 %rev26, ptr %37, align 1, !tbaa !112
+  store i16 %rev26, ptr %37, align 1, !tbaa !124
   %.not2739 = icmp slt i16 %rev26, 0
   br i1 %.not2739, label %._crit_edge.thread, label %.lr.ph
 
@@ -2748,12 +2748,12 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_seek_to_cmpf_resource(i32 n
   br label %96
 
 44:                                               ; preds = %41
-  %45 = load i16, ptr %39, align 1, !tbaa !113
+  %45 = load i16, ptr %39, align 1, !tbaa !125
   %rev34 = call i16 @llvm.bswap.i16(i16 %45)
-  store i16 %rev34, ptr %39, align 1, !tbaa !113
-  %46 = load i16, ptr %40, align 1, !tbaa !115
+  store i16 %rev34, ptr %39, align 1, !tbaa !125
+  %46 = load i16, ptr %40, align 1, !tbaa !127
   %rev35 = call i16 @llvm.bswap.i16(i16 %46)
-  store i16 %rev35, ptr %40, align 1, !tbaa !115
+  store i16 %rev35, ptr %40, align 1, !tbaa !127
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %5, ptr noundef nonnull dereferenceable(4) @.str.141, i64 4)
   %47 = icmp eq i32 %bcmp, 0
   br i1 %47, label %48, label %51
@@ -2768,7 +2768,7 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_seek_to_cmpf_resource(i32 n
 
 50:                                               ; preds = %48
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.143) #12
-  %.pre = load i16, ptr %39, align 1, !tbaa !113
+  %.pre = load i16, ptr %39, align 1, !tbaa !125
   br label %51
 
 51:                                               ; preds = %50, %44
@@ -2778,10 +2778,10 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_seek_to_cmpf_resource(i32 n
   %54 = add nuw nsw i32 %.01842, 1
   %55 = add nuw nsw i32 %54, %53
   %56 = add nuw nsw i32 %.02040, 1
-  %57 = load i16, ptr %37, align 1, !tbaa !112
+  %57 = load i16, ptr %37, align 1, !tbaa !124
   %58 = sext i16 %57 to i32
   %.not27.not = icmp slt i32 %.02040, %58
-  br i1 %.not27.not, label %41, label %._crit_edge
+  br i1 %.not27.not, label %41, label %._crit_edge, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %51
   %59 = icmp slt i32 %.1, 0
@@ -2813,19 +2813,19 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_seek_to_cmpf_resource(i32 n
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  %71 = load i8, ptr %70, align 1, !tbaa !42
+  %71 = load i8, ptr %70, align 1, !tbaa !44
   %72 = zext i8 %71 to i64
   %73 = shl nuw nsw i64 %72, 16
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 6
-  %75 = load i8, ptr %74, align 1, !tbaa !42
+  %75 = load i8, ptr %74, align 1, !tbaa !44
   %76 = zext i8 %75 to i64
   %77 = shl nuw nsw i64 %76, 8
   %78 = or disjoint i64 %77, %73
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 7
-  %80 = load i8, ptr %79, align 1, !tbaa !42
+  %80 = load i8, ptr %79, align 1, !tbaa !44
   %81 = zext i8 %80 to i64
   %82 = or disjoint i64 %78, %81
-  %83 = load i32, ptr %3, align 4, !tbaa !103
+  %83 = load i32, ptr %3, align 4, !tbaa !115
   %84 = zext i32 %83 to i64
   %85 = add nuw nsw i64 %82, %84
   %86 = call i64 @lseek(i32 noundef %0, i64 noundef %85, i32 noundef 0) #12
@@ -2846,10 +2846,10 @@ define internal fastcc range(i32 0, 27) i32 @hfsplus_seek_to_cmpf_resource(i32 n
   br label %96
 
 92:                                               ; preds = %89
-  %93 = load i32, ptr %7, align 4, !tbaa !83
+  %93 = load i32, ptr %7, align 4, !tbaa !85
   %94 = call i32 @llvm.bswap.i32(i32 %93)
   %95 = zext i32 %94 to i64
-  store i64 %95, ptr %1, align 8, !tbaa !84
+  store i64 %95, ptr %1, align 8, !tbaa !86
   br label %96
 
 96:                                               ; preds = %92, %91, %88, %68, %65, %._crit_edge.thread, %49, %43, %29, %26, %9
@@ -2872,20 +2872,20 @@ define internal fastcc range(i32 0, 21) i32 @hfsplus_read_block_table(i32 nounde
   br i1 %.not, label %5, label %18
 
 5:                                                ; preds = %3
-  %6 = load i32, ptr %1, align 4, !tbaa !83
+  %6 = load i32, ptr %1, align 4, !tbaa !85
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = tail call ptr @cli_max_malloc(i64 noundef %8) #12
-  store ptr %9, ptr %2, align 8, !tbaa !85
+  store ptr %9, ptr %2, align 8, !tbaa !87
   %.not35 = icmp eq ptr %9, null
   br i1 %.not35, label %18, label %10
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr %1, align 4, !tbaa !83
+  %11 = load i32, ptr %1, align 4, !tbaa !85
   %12 = zext i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 3
   %14 = tail call i64 @cli_readn(i32 noundef %0, ptr noundef nonnull %9, i64 noundef %13) #12
-  %15 = load i32, ptr %1, align 4, !tbaa !83
+  %15 = load i32, ptr %1, align 4, !tbaa !85
   %16 = zext i32 %15 to i64
   %17 = shl nuw nsw i64 %16, 3
   %.not36 = icmp eq i64 %14, %17
@@ -2895,9 +2895,9 @@ define internal fastcc range(i32 0, 21) i32 @hfsplus_read_block_table(i32 nounde
   %.str.149.sink = phi ptr [ @.str.149, %3 ], [ @.str.150, %5 ], [ @.str.151, %10 ]
   %.031.ph = phi i32 [ 12, %3 ], [ 20, %5 ], [ 12, %10 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.149.sink) #12
-  %19 = load ptr, ptr %2, align 8, !tbaa !85
+  %19 = load ptr, ptr %2, align 8, !tbaa !87
   tail call void @free(ptr noundef %19) #12
-  store ptr null, ptr %2, align 8, !tbaa !85
+  store ptr null, ptr %2, align 8, !tbaa !87
   br label %.loopexit
 
 .loopexit:                                        ; preds = %10, %18
@@ -2998,77 +2998,90 @@ attributes #13 = { nounwind allocsize(0) }
 !39 = !{!40, !14, i64 0}
 !40 = !{!"hfsPlusExtentDescriptor", !14, i64 0, !14, i64 4}
 !41 = !{!40, !14, i64 4}
-!42 = !{!7, !7, i64 0}
-!43 = !{!4, !5, i64 16}
-!44 = !{!4, !11, i64 48}
-!45 = !{!46, !14, i64 40}
-!46 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !47, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !48, i64 136, !49, i64 144, !49, i64 152, !50, i64 160, !17, i64 168, !51, i64 176, !51, i64 184, !52, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !53, i64 224, !54, i64 232, !55, i64 240, !12, i64 248, !56, i64 256, !57, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !59, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !63, i64 1192}
-!47 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!48 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!49 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!50 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!51 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!52 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!53 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!54 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!55 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!56 = !{!"p1 _ZTS2MP", !6, i64 0}
-!57 = !{!"", !58, i64 0, !14, i64 8}
-!58 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!59 = !{!"cli_all_bc", !60, i64 0, !14, i64 8, !61, i64 16, !62, i64 24, !14, i64 516}
-!60 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!61 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!62 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!63 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
-!64 = !{!65, !14, i64 0}
-!65 = !{!"hfsNodeDescriptor", !14, i64 0, !14, i64 4, !7, i64 8, !7, i64 9, !28, i64 10, !28, i64 12}
-!66 = !{!65, !14, i64 4}
-!67 = !{!65, !28, i64 10}
-!68 = !{!65, !7, i64 8}
-!69 = !{!65, !7, i64 9}
-!70 = !{!71, !28, i64 0}
-!71 = !{!"hfsHeaderRecord", !28, i64 0, !14, i64 2, !14, i64 6, !14, i64 10, !14, i64 14, !28, i64 18, !28, i64 20, !14, i64 22, !14, i64 26, !28, i64 30, !14, i64 32, !7, i64 36, !7, i64 37, !14, i64 38, !7, i64 42}
-!72 = !{!71, !14, i64 2}
-!73 = !{!71, !14, i64 6}
-!74 = !{!71, !14, i64 10}
-!75 = !{!71, !14, i64 14}
-!76 = !{!71, !28, i64 18}
-!77 = !{!71, !28, i64 20}
-!78 = !{!71, !14, i64 22}
-!79 = !{!71, !14, i64 26}
-!80 = !{!71, !14, i64 38}
-!81 = !{!71, !7, i64 36}
-!82 = !{!5, !5, i64 0}
-!83 = !{!14, !14, i64 0}
-!84 = !{!12, !12, i64 0}
-!85 = !{!86, !86, i64 0}
-!86 = !{!"p1 _ZTS25hfsPlusResourceBlockTable", !6, i64 0}
-!87 = !{!88, !14, i64 8}
-!88 = !{!"hfsPlusCatalogFile", !28, i64 0, !28, i64 2, !14, i64 4, !14, i64 8, !7, i64 12, !89, i64 32, !7, i64 48, !7, i64 64, !14, i64 80, !14, i64 84, !29, i64 88, !29, i64 168}
-!89 = !{!"hfsPlusBSDInfo", !14, i64 0, !14, i64 4, !7, i64 8, !7, i64 9, !28, i64 10, !7, i64 12}
-!90 = !{!88, !28, i64 42}
-!91 = !{!92, !14, i64 8}
-!92 = !{!"z_stream_s", !5, i64 0, !14, i64 8, !12, i64 16, !5, i64 24, !14, i64 32, !12, i64 40, !5, i64 48, !93, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !14, i64 88, !12, i64 96, !12, i64 104}
-!93 = !{!"p1 _ZTS14internal_state", !6, i64 0}
-!94 = !{!92, !5, i64 0}
-!95 = !{!92, !14, i64 32}
-!96 = !{!92, !5, i64 24}
-!97 = !{!98, !14, i64 0}
-!98 = !{!"hfsPlusResourceBlockTable", !14, i64 0, !14, i64 4}
-!99 = !{!98, !14, i64 4}
-!100 = distinct !{!100, !101}
-!101 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!102 = distinct !{!102, !101}
-!103 = !{!104, !14, i64 0}
-!104 = !{!"hfsPlusResourceHeader", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
-!105 = !{!104, !14, i64 4}
-!106 = !{!104, !14, i64 8}
-!107 = !{!104, !14, i64 12}
-!108 = !{!109, !28, i64 22}
-!109 = !{!"hfsPlusResourceMap", !7, i64 0, !14, i64 16, !28, i64 20, !28, i64 22, !28, i64 24, !28, i64 26, !28, i64 28}
-!110 = !{!109, !28, i64 24}
-!111 = !{!109, !28, i64 26}
-!112 = !{!109, !28, i64 28}
-!113 = !{!114, !28, i64 4}
-!114 = !{!"hfsPlusResourceType", !7, i64 0, !28, i64 4, !28, i64 6}
-!115 = !{!114, !28, i64 6}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!7, !7, i64 0}
+!45 = !{!4, !5, i64 16}
+!46 = !{!4, !11, i64 48}
+!47 = !{!48, !14, i64 40}
+!48 = !{!"cl_engine", !14, i64 0, !14, i64 4, !14, i64 8, !7, i64 12, !14, i64 20, !14, i64 24, !14, i64 28, !5, i64 32, !14, i64 40, !12, i64 48, !14, i64 56, !14, i64 60, !12, i64 64, !12, i64 72, !14, i64 80, !14, i64 84, !14, i64 88, !14, i64 92, !49, i64 96, !10, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !50, i64 136, !51, i64 144, !51, i64 152, !52, i64 160, !17, i64 168, !53, i64 176, !53, i64 184, !54, i64 192, !10, i64 200, !10, i64 208, !5, i64 216, !55, i64 224, !56, i64 232, !57, i64 240, !12, i64 248, !58, i64 256, !59, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !61, i64 416, !7, i64 936, !7, i64 992, !14, i64 1020, !14, i64 1024, !14, i64 1028, !14, i64 1032, !12, i64 1040, !12, i64 1048, !12, i64 1056, !12, i64 1064, !12, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !14, i64 1152, !14, i64 1156, !14, i64 1160, !12, i64 1168, !12, i64 1176, !12, i64 1184, !65, i64 1192}
+!49 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!50 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!51 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!52 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!53 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!54 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!55 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!56 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!57 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!58 = !{!"p1 _ZTS2MP", !6, i64 0}
+!59 = !{!"", !60, i64 0, !14, i64 8}
+!60 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!61 = !{!"cli_all_bc", !62, i64 0, !14, i64 8, !63, i64 16, !64, i64 24, !14, i64 516}
+!62 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!63 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!64 = !{!"cli_environment", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20, !14, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!65 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!66 = !{!67, !14, i64 0}
+!67 = !{!"hfsNodeDescriptor", !14, i64 0, !14, i64 4, !7, i64 8, !7, i64 9, !28, i64 10, !28, i64 12}
+!68 = !{!67, !14, i64 4}
+!69 = !{!67, !28, i64 10}
+!70 = !{!67, !7, i64 8}
+!71 = !{!67, !7, i64 9}
+!72 = !{!73, !28, i64 0}
+!73 = !{!"hfsHeaderRecord", !28, i64 0, !14, i64 2, !14, i64 6, !14, i64 10, !14, i64 14, !28, i64 18, !28, i64 20, !14, i64 22, !14, i64 26, !28, i64 30, !14, i64 32, !7, i64 36, !7, i64 37, !14, i64 38, !7, i64 42}
+!74 = !{!73, !14, i64 2}
+!75 = !{!73, !14, i64 6}
+!76 = !{!73, !14, i64 10}
+!77 = !{!73, !14, i64 14}
+!78 = !{!73, !28, i64 18}
+!79 = !{!73, !28, i64 20}
+!80 = !{!73, !14, i64 22}
+!81 = !{!73, !14, i64 26}
+!82 = !{!73, !14, i64 38}
+!83 = !{!73, !7, i64 36}
+!84 = !{!5, !5, i64 0}
+!85 = !{!14, !14, i64 0}
+!86 = !{!12, !12, i64 0}
+!87 = !{!88, !88, i64 0}
+!88 = !{!"p1 _ZTS25hfsPlusResourceBlockTable", !6, i64 0}
+!89 = !{!90, !14, i64 8}
+!90 = !{!"hfsPlusCatalogFile", !28, i64 0, !28, i64 2, !14, i64 4, !14, i64 8, !7, i64 12, !91, i64 32, !7, i64 48, !7, i64 64, !14, i64 80, !14, i64 84, !29, i64 88, !29, i64 168}
+!91 = !{!"hfsPlusBSDInfo", !14, i64 0, !14, i64 4, !7, i64 8, !7, i64 9, !28, i64 10, !7, i64 12}
+!92 = !{!90, !28, i64 42}
+!93 = distinct !{!93, !43}
+!94 = distinct !{!94, !43}
+!95 = !{!96, !14, i64 8}
+!96 = !{!"z_stream_s", !5, i64 0, !14, i64 8, !12, i64 16, !5, i64 24, !14, i64 32, !12, i64 40, !5, i64 48, !97, i64 56, !6, i64 64, !6, i64 72, !6, i64 80, !14, i64 88, !12, i64 96, !12, i64 104}
+!97 = !{!"p1 _ZTS14internal_state", !6, i64 0}
+!98 = !{!96, !5, i64 0}
+!99 = !{!96, !14, i64 32}
+!100 = !{!96, !5, i64 24}
+!101 = !{!102, !14, i64 0}
+!102 = !{!"hfsPlusResourceBlockTable", !14, i64 0, !14, i64 4}
+!103 = !{!102, !14, i64 4}
+!104 = distinct !{!104, !43}
+!105 = distinct !{!105, !43}
+!106 = distinct !{!106, !43}
+!107 = distinct !{!107, !43}
+!108 = distinct !{!108, !43, !109}
+!109 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!110 = distinct !{!110, !43, !109}
+!111 = distinct !{!111, !43}
+!112 = distinct !{!112, !43}
+!113 = distinct !{!113, !43}
+!114 = distinct !{!114, !43}
+!115 = !{!116, !14, i64 0}
+!116 = !{!"hfsPlusResourceHeader", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12}
+!117 = !{!116, !14, i64 4}
+!118 = !{!116, !14, i64 8}
+!119 = !{!116, !14, i64 12}
+!120 = !{!121, !28, i64 22}
+!121 = !{!"hfsPlusResourceMap", !7, i64 0, !14, i64 16, !28, i64 20, !28, i64 22, !28, i64 24, !28, i64 26, !28, i64 28}
+!122 = !{!121, !28, i64 24}
+!123 = !{!121, !28, i64 26}
+!124 = !{!121, !28, i64 28}
+!125 = !{!126, !28, i64 4}
+!126 = !{!"hfsPlusResourceType", !7, i64 0, !28, i64 4, !28, i64 6}
+!127 = !{!126, !28, i64 6}
+!128 = distinct !{!128, !43}

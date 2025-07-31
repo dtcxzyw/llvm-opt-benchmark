@@ -52,7 +52,7 @@ define dso_local void @taskqueue_run(i32 noundef %0, ptr noundef %1) local_unnam
 15:                                               ; preds = %.lr.ph19
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond25.not = icmp eq i64 %indvars.iv.next22, %4
-  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !9
+  br i1 %exitcond25.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !10
 
 .lr.ph19:                                         ; preds = %11, %15
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %15 ], [ 0, %11 ]
@@ -116,7 +116,7 @@ define internal noalias noundef nonnull ptr @taskqueue_thread(ptr noundef %0) #5
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %0) #9
   %18 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.thread, label %.lr.ph, !llvm.loop !11
 
 .thread:                                          ; preds = %.lr.ph, %8, %1
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #9
@@ -162,6 +162,8 @@ attributes #10 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !9}

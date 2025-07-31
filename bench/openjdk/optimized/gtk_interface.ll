@@ -98,7 +98,7 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %31(ptr noundef %33, i32 noundef 0) #6
   %.not15.i = icmp eq i32 %34, 0
-  br i1 %.not15.i, label %get_libs_order.exit.i, label %get_loaded.exit, !llvm.loop !8
+  br i1 %.not15.i, label %get_libs_order.exit.i, label %get_loaded.exit, !llvm.loop !9
 
 get_loaded.exit:                                  ; preds = %29, %23
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -190,7 +190,7 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.cr
 69:                                               ; preds = %97
   %70 = load ptr, ptr %73, align 8
   %.not34 = icmp eq ptr %70, null
-  br i1 %.not34, label %.critedge, label %.lr.ph59, !llvm.loop !9
+  br i1 %.not34, label %.critedge, label %.lr.ph59, !llvm.loop !10
 
 .lr.ph59:                                         ; preds = %.lr.ph, %69
   %71 = phi ptr [ %70, %69 ], [ %68, %.lr.ph ]
@@ -243,10 +243,10 @@ get_libs_order.exit:                              ; preds = %._crit_edge.i, %.cr
   %98 = phi ptr [ %92, %88 ], [ %.pre50, %94 ], [ %72, %74 ]
   %99 = phi ptr [ %92, %88 ], [ %.pre50, %94 ], [ null, %74 ]
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %69, label %..critedge.loopexit_crit_edge61, !llvm.loop !9
+  br i1 %100, label %69, label %..critedge.loopexit_crit_edge61, !llvm.loop !10
 
 ..critedge.loopexit_crit_edge61:                  ; preds = %97
-  br label %.critedge, !llvm.loop !9
+  br label %.critedge, !llvm.loop !10
 
 .critedge:                                        ; preds = %69, %82, %.lr.ph, %..critedge.loopexit_crit_edge61, %get_libs_order.exit.thread, %get_libs_order.exit, %40, %45
   %101 = phi ptr [ %44, %40 ], [ %49, %45 ], [ %65, %get_libs_order.exit ], [ %54, %get_libs_order.exit.thread ], [ %98, %..critedge.loopexit_crit_edge61 ], [ null, %.lr.ph ], [ %87, %82 ], [ %98, %69 ]
@@ -357,7 +357,7 @@ get_libs_order.exit.i:                            ; preds = %get_libs_order.exit
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %28(ptr noundef %30, i32 noundef 0) #6
   %.not15.i = icmp eq i32 %31, 0
-  br i1 %.not15.i, label %get_libs_order.exit.i, label %get_loaded.exit, !llvm.loop !8
+  br i1 %.not15.i, label %get_libs_order.exit.i, label %get_loaded.exit, !llvm.loop !9
 
 32:                                               ; preds = %18, %get_libs_order.exit.i
   %.b17.i.i3.pr = load i1, ptr @get_libs_order.n_libs, align 4
@@ -427,7 +427,7 @@ get_libs_order.exit.i11:                          ; preds = %get_libs_order.exit
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 %55(ptr noundef %57, i32 noundef 1) #6
   %.not12.i = icmp eq i32 %58, 0
-  br i1 %.not12.i, label %get_libs_order.exit.i11, label %get_loaded.exit, !llvm.loop !10
+  br i1 %.not12.i, label %get_libs_order.exit.i11, label %get_loaded.exit, !llvm.loop !11
 
 get_loaded.exit:                                  ; preds = %26, %20, %53, %47, %get_libs_order.exit.i11, %33, %1
   %.0 = phi i32 [ 1, %1 ], [ 0, %33 ], [ 1, %47 ], [ 1, %53 ], [ 0, %get_libs_order.exit.i11 ], [ 1, %20 ], [ 1, %26 ]
@@ -466,8 +466,9 @@ attributes #8 = { cold }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

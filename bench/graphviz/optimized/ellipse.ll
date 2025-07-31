@@ -161,7 +161,7 @@ gv_alloc.exit.i:                                  ; preds = %.lr.ph.i, %106
   %133 = shl i32 %.088107.i, 1
   %134 = icmp sgt i32 %133, 1023
   %.not97.i = or i1 %134, %.191.i
-  br i1 %.not97.i, label %135, label %106, !llvm.loop !12
+  br i1 %.not97.i, label %135, label %106, !llvm.loop !13
 
 135:                                              ; preds = %gv_alloc.exit.i
   %136 = sitofp i32 %133 to double
@@ -192,12 +192,12 @@ gv_alloc.exit.i:                                  ; preds = %.lr.ph.i, %106
   unreachable
 
 moveTo.exit.i:                                    ; preds = %135
-  store ptr %calloc.i, ptr %9, align 8, !tbaa !13
-  store i64 1, ptr %149, align 8, !tbaa !17
-  store double %0, ptr %calloc.i, align 8, !tbaa !18
+  store ptr %calloc.i, ptr %9, align 8, !tbaa !14
+  store i64 1, ptr %149, align 8, !tbaa !18
+  store double %0, ptr %calloc.i, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
-  store double %1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !18
-  store i64 1, ptr %148, align 8, !tbaa !20
+  store double %1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !19
+  store i64 1, ptr %148, align 8, !tbaa !21
   call fastcc void @curveTo(ptr noundef nonnull %9, double noundef %0, double noundef %1, double noundef %143, double noundef %144, double noundef %143, double noundef %144)
   %155 = fmul double %137, 5.000000e-01
   %156 = tail call double @tan(double noundef %155) #12, !tbaa !3
@@ -239,40 +239,40 @@ moveTo.exit.i:                                    ; preds = %135
   call fastcc void @curveTo(ptr noundef %9, double noundef %177, double noundef %178, double noundef %179, double noundef %180, double noundef %173, double noundef %174)
   %181 = add nuw nsw i32 %.1112.i, 1
   %exitcond.not.i = icmp eq i32 %181, %133
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %166, !llvm.loop !21
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %166, !llvm.loop !22
 
 ._crit_edge.i:                                    ; preds = %166, %moveTo.exit.i
-  %182 = load ptr, ptr %9, align 8, !tbaa !13
-  %183 = load i64, ptr %147, align 8, !tbaa !22
-  %184 = load i64, ptr %149, align 8, !tbaa !17
+  %182 = load ptr, ptr %9, align 8, !tbaa !14
+  %183 = load i64, ptr %147, align 8, !tbaa !23
+  %184 = load i64, ptr %149, align 8, !tbaa !18
   %185 = urem i64 %183, %184
   %186 = getelementptr inbounds nuw %struct.pointf_s, ptr %182, i64 %185
-  %.sroa.0.0.copyload.i.i100.i = load double, ptr %186, align 8, !tbaa !18
+  %.sroa.0.0.copyload.i.i100.i = load double, ptr %186, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i.i101.i = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %.sroa.2.0.copyload.i.i102.i = load double, ptr %.sroa.2.0..sroa_idx.i.i101.i, align 8, !tbaa !18
-  %.val.i.i.i = load i64, ptr %148, align 8, !tbaa !20
+  %.sroa.2.0.copyload.i.i102.i = load double, ptr %.sroa.2.0..sroa_idx.i.i101.i, align 8, !tbaa !19
+  %.val.i.i.i = load i64, ptr %148, align 8, !tbaa !21
   %187 = add i64 %183, -1
   %188 = add i64 %187, %.val.i.i.i
   %189 = urem i64 %188, %184
   %190 = getelementptr inbounds nuw %struct.pointf_s, ptr %182, i64 %189
-  %.sroa.0.0.copyload.i.i.i.i = load double, ptr %190, align 8, !tbaa !18
+  %.sroa.0.0.copyload.i.i.i.i = load double, ptr %190, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i.i.i103.i = getelementptr inbounds nuw i8, ptr %190, i64 8
-  %.sroa.2.0.copyload.i.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i.i103.i, align 8, !tbaa !18
+  %.sroa.2.0.copyload.i.i.i.i = load double, ptr %.sroa.2.0..sroa_idx.i.i.i103.i, align 8, !tbaa !19
   call fastcc void @curveTo(ptr noundef nonnull %9, double noundef %.sroa.0.0.copyload.i.i.i.i, double noundef %.sroa.2.0.copyload.i.i.i.i, double noundef %.sroa.0.0.copyload.i.i100.i, double noundef %.sroa.2.0.copyload.i.i102.i, double noundef %.sroa.0.0.copyload.i.i100.i, double noundef %.sroa.2.0.copyload.i.i102.i)
-  %.val99.i = load i64, ptr %148, align 8, !tbaa !20
+  %.val99.i = load i64, ptr %148, align 8, !tbaa !21
   %191 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 %.val99.i, ptr %191, align 8, !tbaa !23
-  %192 = load i64, ptr %147, align 8, !tbaa !22
+  store i64 %.val99.i, ptr %191, align 8, !tbaa !24
+  %192 = load i64, ptr %147, align 8, !tbaa !23
   %.not12.i.i.i = icmp eq i64 %192, 0
   br i1 %.not12.i.i.i, label %genEllipticPath.exit, label %.lr.ph14.i.i.i
 
 .lr.ph14.i.i.i:                                   ; preds = %._crit_edge.i
-  %193 = load i64, ptr %149, align 8, !tbaa !17
+  %193 = load i64, ptr %149, align 8, !tbaa !18
   %194 = icmp eq i64 %193, 0
   br i1 %194, label %.lr.ph14.split.us.i.i.i, label %.lr.ph14.split.i.i.preheader.i
 
 .lr.ph14.split.i.i.preheader.i:                   ; preds = %.lr.ph14.i.i.i
-  %195 = load ptr, ptr %9, align 8, !tbaa !13
+  %195 = load ptr, ptr %9, align 8, !tbaa !14
   br label %.lr.ph14.split.i.i.i
 
 .lr.ph14.split.us.i.i.i:                          ; preds = %.lr.ph14.i.i.i, %.lr.ph14.split.us.i.i.i
@@ -281,35 +281,35 @@ moveTo.exit.i:                                    ; preds = %135
   %197 = add i64 %196, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.not.us.i.i.i = icmp eq i64 %197, 0
-  br i1 %.not.us.i.i.i, label %genEllipticPath.exit, label %.lr.ph14.split.us.i.i.i, !llvm.loop !25
+  br i1 %.not.us.i.i.i, label %genEllipticPath.exit, label %.lr.ph14.split.us.i.i.i, !llvm.loop !26
 
 .lr.ph14.split.i.i.i:                             ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph14.split.i.i.preheader.i
   %.pre.i.i115.i = phi i64 [ %192, %.lr.ph14.split.i.i.preheader.i ], [ %198, %._crit_edge.loopexit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %195, i64 16, i1 false), !tbaa.struct !28
   br label %.lr.ph.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
   %198 = add i64 %.pre.i.i115.i, -1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %.not.i.i.i = icmp eq i64 %198, 0
-  br i1 %.not.i.i.i, label %genEllipticPath.exit, label %.lr.ph14.split.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i, label %genEllipticPath.exit, label %.lr.ph14.split.i.i.i, !llvm.loop !29
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph14.split.i.i.i
   %.0.in11.i.i.i = phi i64 [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %193, %.lr.ph14.split.i.i.i ]
   %.0.i.i.i = add i64 %.0.in11.i.i.i, -1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %199 = getelementptr inbounds nuw %struct.pointf_s, ptr %195, i64 %.0.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !27
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !27
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %199, i64 16, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %199, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %.not9.i.i.i = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not9.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !30
+  br i1 %.not9.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !31
 
 genEllipticPath.exit:                             ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph14.split.us.i.i.i, %._crit_edge.i
-  %200 = load ptr, ptr %9, align 8, !tbaa !13
-  store ptr %200, ptr %20, align 8, !tbaa !31
+  %200 = load ptr, ptr %9, align 8, !tbaa !14
+  store ptr %200, ptr %20, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #12
   ret ptr %20
 }
@@ -347,16 +347,16 @@ declare double @sqrt(double noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @curveTo(ptr noundef nonnull captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load i64, ptr %8, align 8, !tbaa !20
+  %9 = load i64, ptr %8, align 8, !tbaa !21
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %11 = load i64, ptr %10, align 8, !tbaa !17
+  %11 = load i64, ptr %10, align 8, !tbaa !18
   %12 = icmp eq i64 %9, %11
   br i1 %12, label %13, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %7
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !22
-  %.pre45.i.i = load ptr, ptr %0, align 8, !tbaa !13
+  %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !23
+  %.pre45.i.i = load ptr, ptr %0, align 8, !tbaa !14
   br label %bezier_path_append.exit
 
 13:                                               ; preds = %7
@@ -367,21 +367,21 @@ define internal fastcc void @curveTo(ptr noundef nonnull captures(none) %0, doub
   br i1 %mul.ov.i.i, label %39, label %16
 
 16:                                               ; preds = %13
-  %17 = load ptr, ptr %0, align 8, !tbaa !13
+  %17 = load ptr, ptr %0, align 8, !tbaa !14
   %18 = shl nuw i64 %spec.select.i.i, 4
   %19 = tail call ptr @realloc(ptr noundef %17, i64 noundef %18) #16
   %20 = icmp eq ptr %19, null
   br i1 %20, label %39, label %21
 
 21:                                               ; preds = %16
-  %22 = load i64, ptr %10, align 8, !tbaa !17
+  %22 = load i64, ptr %10, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw %struct.pointf_s, ptr %19, i64 %22
   %24 = sub i64 %spec.select.i.i, %22
   %25 = shl i64 %24, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %25, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !22
-  %28 = load i64, ptr %8, align 8, !tbaa !20
+  %27 = load i64, ptr %26, align 8, !tbaa !23
+  %28 = load i64, ptr %8, align 8, !tbaa !21
   %29 = add i64 %28, %27
   %30 = icmp ugt i64 %29, %22
   br i1 %30, label %31, label %37
@@ -393,13 +393,13 @@ define internal fastcc void @curveTo(ptr noundef nonnull captures(none) %0, doub
   %35 = getelementptr inbounds nuw %struct.pointf_s, ptr %19, i64 %27
   %36 = shl i64 %32, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 8 %35, i64 %36, i1 false)
-  store i64 %33, ptr %26, align 8, !tbaa !22
+  store i64 %33, ptr %26, align 8, !tbaa !23
   br label %37
 
 37:                                               ; preds = %31, %21
   %38 = phi i64 [ %27, %21 ], [ %33, %31 ]
-  store ptr %19, ptr %0, align 8, !tbaa !13
-  store i64 %spec.select.i.i, ptr %10, align 8, !tbaa !17
+  store ptr %19, ptr %0, align 8, !tbaa !14
+  store i64 %spec.select.i.i, ptr %10, align 8, !tbaa !18
   br label %bezier_path_append.exit
 
 39:                                               ; preds = %16, %13
@@ -418,11 +418,11 @@ bezier_path_append.exit:                          ; preds = %._crit_edge.i.i, %3
   %46 = add i64 %.pre.i.i15, %45
   %47 = urem i64 %46, %44
   %48 = getelementptr inbounds nuw %struct.pointf_s, ptr %43, i64 %47
-  store double %1, ptr %48, align 8, !tbaa !18
+  store double %1, ptr %48, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store double %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !18
+  store double %2, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !19
   %49 = add i64 %45, 1
-  store i64 %49, ptr %8, align 8, !tbaa !20
+  store i64 %49, ptr %8, align 8, !tbaa !21
   %50 = icmp eq i64 %49, %44
   br i1 %50, label %51, label %bezier_path_append.exit21
 
@@ -438,14 +438,14 @@ bezier_path_append.exit:                          ; preds = %._crit_edge.i.i, %3
   br i1 %56, label %75, label %57
 
 57:                                               ; preds = %53
-  %58 = load i64, ptr %10, align 8, !tbaa !17
+  %58 = load i64, ptr %10, align 8, !tbaa !18
   %59 = getelementptr inbounds nuw %struct.pointf_s, ptr %55, i64 %58
   %60 = sub i64 %52, %58
   %61 = shl i64 %60, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %59, i8 0, i64 %61, i1 false)
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %63 = load i64, ptr %62, align 8, !tbaa !22
-  %64 = load i64, ptr %8, align 8, !tbaa !20
+  %63 = load i64, ptr %62, align 8, !tbaa !23
+  %64 = load i64, ptr %8, align 8, !tbaa !21
   %65 = add i64 %64, %63
   %66 = icmp ugt i64 %65, %58
   br i1 %66, label %67, label %73
@@ -457,13 +457,13 @@ bezier_path_append.exit:                          ; preds = %._crit_edge.i.i, %3
   %71 = getelementptr inbounds nuw %struct.pointf_s, ptr %55, i64 %63
   %72 = shl i64 %68, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %70, ptr nonnull align 8 %71, i64 %72, i1 false)
-  store i64 %69, ptr %62, align 8, !tbaa !22
+  store i64 %69, ptr %62, align 8, !tbaa !23
   br label %73
 
 73:                                               ; preds = %67, %57
   %74 = phi i64 [ %63, %57 ], [ %69, %67 ]
-  store ptr %55, ptr %0, align 8, !tbaa !13
-  store i64 %52, ptr %10, align 8, !tbaa !17
+  store ptr %55, ptr %0, align 8, !tbaa !14
+  store i64 %52, ptr %10, align 8, !tbaa !18
   br label %bezier_path_append.exit21
 
 75:                                               ; preds = %53, %51
@@ -482,11 +482,11 @@ bezier_path_append.exit21:                        ; preds = %bezier_path_append.
   %82 = add i64 %.pre.i.i24, %81
   %83 = urem i64 %82, %80
   %84 = getelementptr inbounds nuw %struct.pointf_s, ptr %79, i64 %83
-  store double %3, ptr %84, align 8, !tbaa !18
+  store double %3, ptr %84, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store double %4, ptr %.sroa.2.0..sroa_idx.i.i17, align 8, !tbaa !18
+  store double %4, ptr %.sroa.2.0..sroa_idx.i.i17, align 8, !tbaa !19
   %85 = add i64 %81, 1
-  store i64 %85, ptr %8, align 8, !tbaa !20
+  store i64 %85, ptr %8, align 8, !tbaa !21
   %86 = icmp eq i64 %85, %80
   br i1 %86, label %87, label %bezier_path_append.exit30
 
@@ -502,14 +502,14 @@ bezier_path_append.exit21:                        ; preds = %bezier_path_append.
   br i1 %92, label %111, label %93
 
 93:                                               ; preds = %89
-  %94 = load i64, ptr %10, align 8, !tbaa !17
+  %94 = load i64, ptr %10, align 8, !tbaa !18
   %95 = getelementptr inbounds nuw %struct.pointf_s, ptr %91, i64 %94
   %96 = sub i64 %88, %94
   %97 = shl i64 %96, 4
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %95, i8 0, i64 %97, i1 false)
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load i64, ptr %98, align 8, !tbaa !22
-  %100 = load i64, ptr %8, align 8, !tbaa !20
+  %99 = load i64, ptr %98, align 8, !tbaa !23
+  %100 = load i64, ptr %8, align 8, !tbaa !21
   %101 = add i64 %100, %99
   %102 = icmp ugt i64 %101, %94
   br i1 %102, label %103, label %109
@@ -521,13 +521,13 @@ bezier_path_append.exit21:                        ; preds = %bezier_path_append.
   %107 = getelementptr inbounds nuw %struct.pointf_s, ptr %91, i64 %99
   %108 = shl i64 %104, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 8 %107, i64 %108, i1 false)
-  store i64 %105, ptr %98, align 8, !tbaa !22
+  store i64 %105, ptr %98, align 8, !tbaa !23
   br label %109
 
 109:                                              ; preds = %103, %93
   %110 = phi i64 [ %99, %93 ], [ %105, %103 ]
-  store ptr %91, ptr %0, align 8, !tbaa !13
-  store i64 %88, ptr %10, align 8, !tbaa !17
+  store ptr %91, ptr %0, align 8, !tbaa !14
+  store i64 %88, ptr %10, align 8, !tbaa !18
   br label %bezier_path_append.exit30
 
 111:                                              ; preds = %89, %87
@@ -546,11 +546,11 @@ bezier_path_append.exit30:                        ; preds = %bezier_path_append.
   %119 = add i64 %118, %117
   %120 = urem i64 %119, %116
   %121 = getelementptr inbounds nuw %struct.pointf_s, ptr %115, i64 %120
-  store double %5, ptr %121, align 8, !tbaa !18
+  store double %5, ptr %121, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx.i.i26 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store double %6, ptr %.sroa.2.0..sroa_idx.i.i26, align 8, !tbaa !18
+  store double %6, ptr %.sroa.2.0..sroa_idx.i.i26, align 8, !tbaa !19
   %122 = add i64 %117, 1
-  store i64 %122, ptr %8, align 8, !tbaa !20
+  store i64 %122, ptr %8, align 8, !tbaa !21
   ret void
 }
 
@@ -615,25 +615,26 @@ attributes #17 = { cold noreturn nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = !{!14, !15, i64 0}
-!14 = !{!"", !15, i64 0, !16, i64 8, !16, i64 16, !16, i64 24}
-!15 = !{!"p1 _ZTS8pointf_s", !9, i64 0}
-!16 = !{!"long", !5, i64 0}
-!17 = !{!14, !16, i64 24}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"double", !5, i64 0}
-!20 = !{!14, !16, i64 16}
-!21 = distinct !{!21, !11}
-!22 = !{!14, !16, i64 8}
-!23 = !{!24, !16, i64 8}
-!24 = !{!"Ppoly_t", !15, i64 0, !16, i64 8}
-!25 = distinct !{!25, !11, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = !{i64 0, i64 8, !18, i64 8, i64 8, !18}
-!28 = distinct !{!28, !11, !29}
-!29 = !{!"llvm.loop.unswitch.partial.disable"}
-!30 = distinct !{!30, !11}
-!31 = !{!24, !15, i64 0}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = !{!15, !16, i64 0}
+!15 = !{!"", !16, i64 0, !17, i64 8, !17, i64 16, !17, i64 24}
+!16 = !{!"p1 _ZTS8pointf_s", !9, i64 0}
+!17 = !{!"long", !5, i64 0}
+!18 = !{!15, !17, i64 24}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"double", !5, i64 0}
+!21 = !{!15, !17, i64 16}
+!22 = distinct !{!22, !11, !12}
+!23 = !{!15, !17, i64 8}
+!24 = !{!25, !17, i64 8}
+!25 = !{!"Ppoly_t", !16, i64 0, !17, i64 8}
+!26 = distinct !{!26, !11, !12, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = !{i64 0, i64 8, !19, i64 8, i64 8, !19}
+!29 = distinct !{!29, !11, !12, !30}
+!30 = !{!"llvm.loop.unswitch.partial.disable"}
+!31 = distinct !{!31, !11, !12}
+!32 = !{!25, !16, i64 0}

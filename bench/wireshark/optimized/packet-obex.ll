@@ -2193,7 +2193,7 @@ default.unreachable:                              ; preds = %447, %432
   %.3.i = phi i32 [ %538, %535 ], [ %518, %515 ], [ %526, %519 ], [ %534, %527 ]
   %540 = sub i32 %.1503559.i, %503
   %.not529.i = icmp eq i32 %540, 0
-  br i1 %.not529.i, label %.loopexit.i, label %.lr.ph561.i, !llvm.loop !10
+  br i1 %.not529.i, label %.loopexit.i, label %.lr.ph561.i, !llvm.loop !11
 
 .lr.ph556.i:                                      ; preds = %.preheader540.i, %577
   %.4555.i = phi i32 [ %.5.i, %577 ], [ %488, %.preheader540.i ]
@@ -2254,7 +2254,7 @@ default.unreachable:                              ; preds = %447, %432
   %.neg539.i = add i32 %.2504554.i, -2
   %579 = sub i32 %.neg539.i, %578
   %.not528.i = icmp eq i32 %579, 0
-  br i1 %.not528.i, label %.loopexit.i, label %.lr.ph556.i, !llvm.loop !11
+  br i1 %.not528.i, label %.loopexit.i, label %.lr.ph556.i, !llvm.loop !12
 
 580:                                              ; preds = %485
   %581 = load i32, ptr @hf_type, align 4
@@ -2391,7 +2391,7 @@ default.unreachable:                              ; preds = %447, %432
 655:                                              ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %651
-  br i1 %exitcond.not.i.i, label %is_ascii_str.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %exitcond.not.i.i, label %is_ascii_str.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %655
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %655 ], [ 0, %.preheader.i.i ]
@@ -2489,7 +2489,7 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   %699 = getelementptr inbounds nuw i8, ptr %698, i64 24
   %700 = load ptr, ptr %699, align 8
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.i, label %.loopexit543.i, label %.preheader542.i, !llvm.loop !13
+  br i1 %exitcond.i, label %.loopexit543.i, label %.preheader542.i, !llvm.loop !14
 
 .loopexit543.i:                                   ; preds = %697, %665
   %701 = add i32 %.0502.i, %488
@@ -2674,7 +2674,7 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   %.neg537.i = add i32 %.3505550.i, -2
   %813 = sub i32 %.neg537.i, %812
   %.not.i348 = icmp eq i32 %813, 0
-  br i1 %.not.i348, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i348, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !15
 
 814:                                              ; preds = %485
   %815 = load i32, ptr @hf_hdr_val_byte_seq, align 4
@@ -2751,7 +2751,7 @@ is_ascii_str.exit.thread.i:                       ; preds = %.lr.ph.i.i, %is_asc
   %.1.i = phi i32 [ %484, %480 ], [ %817, %814 ], [ %497, %496 ], [ %607, %606 ], [ %613, %608 ], [ %641, %640 ], [ %664, %is_ascii_str.exit.thread.i ], [ %701, %.loopexit543.i ], [ %488, %702 ], [ %711, %708 ], [ %715, %712 ], [ %721, %716 ], [ %837, %836 ], [ %846, %843 ], [ %488, %.preheader.i ], [ %488, %.preheader540.i ], [ %488, %.preheader544.i ], [ %.3.i, %539 ], [ %.5.i, %577 ], [ %.7.i, %811 ]
   %847 = call i32 @tvb_reported_length_remaining(ptr noundef %.0301356, i32 noundef %.1.i)
   %848 = icmp sgt i32 %847, 0
-  br i1 %848, label %432, label %dissect_headers.exit, !llvm.loop !15
+  br i1 %848, label %432, label %dissect_headers.exit, !llvm.loop !16
 
 dissect_headers.exit:                             ; preds = %.loopexit.i, %.thread362, %409
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
@@ -2863,7 +2863,7 @@ define internal i32 @dissect_obex_application_parameter_raw(ptr noundef %0, ptr 
   %25 = sub nsw i32 %.03132, %21
   %26 = add i32 %22, %20
   %27 = icmp sgt i32 %25, 0
-  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %27, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %26, %.lr.ph ]
@@ -2941,7 +2941,7 @@ define internal i32 @dissect_obex_application_parameter_bt_bpp(ptr noundef %0, p
   %44 = sub nsw i32 %.04951, %12
   %45 = add i32 %22, %10
   %46 = icmp sgt i32 %44, 0
-  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %43, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %45, %43 ]
@@ -3082,7 +3082,7 @@ define internal i32 @dissect_obex_application_parameter_bt_bip(ptr noundef %0, p
   %87 = sub nsw i32 %.08083, %12
   %88 = add i32 %22, %10
   %89 = icmp sgt i32 %87, 0
-  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %89, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %86, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %88, %86 ]
@@ -3407,7 +3407,7 @@ define internal i32 @dissect_obex_application_parameter_bt_map(ptr noundef %0, p
   %223 = sub nsw i32 %.0277281, %12
   %224 = add i32 %22, %10
   %225 = icmp sgt i32 %223, 0
-  br i1 %225, label %.lr.ph, label %._crit_edge, !llvm.loop !19
+  br i1 %225, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %222, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %224, %222 ]
@@ -3506,7 +3506,7 @@ define internal i32 @dissect_obex_application_parameter_bt_gpp(ptr noundef %0, p
   %58 = sub nsw i32 %.06064, %12
   %59 = add i32 %22, %10
   %60 = icmp sgt i32 %58, 0
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %57, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %59, %57 ]
@@ -3721,7 +3721,7 @@ define internal i32 @dissect_obex_application_parameter_bt_ctn(ptr noundef %0, p
   %118 = sub nsw i32 %.0122130, %12
   %119 = add i32 %22, %10
   %120 = icmp sgt i32 %118, 0
-  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+  br i1 %120, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %117, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %119, %117 ]
@@ -3893,7 +3893,7 @@ define internal i32 @dissect_obex_application_parameter_bt_pbap(ptr noundef %0, 
   %97 = sub nsw i32 %.096101, %12
   %98 = add i32 %22, %10
   %99 = icmp sgt i32 %97, 0
-  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !22
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %96, %4
   %.0.lcssa = phi i32 [ 0, %4 ], [ %98, %96 ]
@@ -4414,18 +4414,19 @@ attributes #7 = { allocsize(1) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}

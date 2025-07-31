@@ -127,7 +127,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %23, %27
 
 45:                                               ; preds = %29
   invoke void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %7 unwind label %.loopexit, !llvm.loop !19
+          to label %7 unwind label %.loopexit, !llvm.loop !20
 
 _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %41, %19, %.noexc6, %.noexc
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -174,7 +174,7 @@ define void @_Z17extendedEuclidean10BigIntegerS_RS_S0_S0_(ptr noundef %0, ptr no
 
 18:                                               ; preds = %5
   %19 = tail call ptr @__cxa_allocate_exception(i64 8) #8
-  store ptr @.str, ptr %19, align 16, !tbaa !20
+  store ptr @.str, ptr %19, align 16, !tbaa !21
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
@@ -197,10 +197,10 @@ define void @_Z17extendedEuclidean10BigIntegerS_RS_S0_S0_(ptr noundef %0, ptr no
 
 23:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #8
-  store i32 0, ptr %10, align 8, !tbaa !22
+  store i32 0, ptr %10, align 8, !tbaa !23
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
-  %25 = load i32, ptr %1, align 8, !tbaa !22
+  %25 = load i32, ptr %1, align 8, !tbaa !23
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %._crit_edge, label %.lr.ph
 
@@ -259,15 +259,15 @@ define void @_Z17extendedEuclidean10BigIntegerS_RS_S0_S0_(ptr noundef %0, ptr no
 
 44:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #8
-  store i32 0, ptr %11, align 8, !tbaa !22, !alias.scope !26
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !26
+  store i32 0, ptr %11, align 8, !tbaa !23, !alias.scope !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false), !alias.scope !27
   invoke void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZNK10BigIntegermlERKS_.exit unwind label %45
 
 45:                                               ; preds = %44
   %46 = landingpad { ptr, i32 }
           cleanup
-  %47 = load ptr, ptr %28, align 8, !tbaa !14, !alias.scope !26
+  %47 = load ptr, ptr %28, align 8, !tbaa !14, !alias.scope !27
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.body, label %.body.sink.split
 
@@ -287,15 +287,15 @@ _ZN10BigIntegermIERKS_.exit:                      ; preds = %_ZNK10BigIntegermlE
 _ZN10BigIntegerD2Ev.exit:                         ; preds = %_ZN10BigIntegermIERKS_.exit, %51
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #8
-  store i32 0, ptr %12, align 8, !tbaa !22, !alias.scope !29
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !29
+  store i32 0, ptr %12, align 8, !tbaa !23, !alias.scope !30
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false), !alias.scope !30
   invoke void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %_ZNK10BigIntegermlERKS_.exit42 unwind label %52
 
 52:                                               ; preds = %_ZN10BigIntegerD2Ev.exit
   %53 = landingpad { ptr, i32 }
           cleanup
-  %54 = load ptr, ptr %30, align 8, !tbaa !14, !alias.scope !29
+  %54 = load ptr, ptr %30, align 8, !tbaa !14, !alias.scope !30
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.body40, label %.body40.sink.split
 
@@ -314,7 +314,7 @@ _ZN10BigIntegermIERKS_.exit43:                    ; preds = %_ZNK10BigIntegermlE
 
 _ZN10BigIntegerD2Ev.exit44:                       ; preds = %_ZN10BigIntegermIERKS_.exit43, %58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #8
-  %59 = load i32, ptr %0, align 8, !tbaa !22
+  %59 = load i32, ptr %0, align 8, !tbaa !23
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %71
 
@@ -368,15 +368,15 @@ _ZN10BigIntegerD2Ev.exit44:                       ; preds = %_ZN10BigIntegermIER
 
 72:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13) #8
-  store i32 0, ptr %13, align 8, !tbaa !22, !alias.scope !32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !alias.scope !32
+  store i32 0, ptr %13, align 8, !tbaa !23, !alias.scope !33
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !alias.scope !33
   invoke void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZNK10BigIntegermlERKS_.exit50 unwind label %73
 
 73:                                               ; preds = %72
   %74 = landingpad { ptr, i32 }
           cleanup
-  %75 = load ptr, ptr %32, align 8, !tbaa !14, !alias.scope !32
+  %75 = load ptr, ptr %32, align 8, !tbaa !14, !alias.scope !33
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.body48, label %.body48.sink.split
 
@@ -396,15 +396,15 @@ _ZN10BigIntegermIERKS_.exit51:                    ; preds = %_ZNK10BigIntegermlE
 _ZN10BigIntegerD2Ev.exit52:                       ; preds = %_ZN10BigIntegermIERKS_.exit51, %79
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #8
-  store i32 0, ptr %14, align 8, !tbaa !22, !alias.scope !35
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !alias.scope !35
+  store i32 0, ptr %14, align 8, !tbaa !23, !alias.scope !36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false), !alias.scope !36
   invoke void @_ZN10BigInteger8multiplyERKS_S1_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %_ZNK10BigIntegermlERKS_.exit56 unwind label %80
 
 80:                                               ; preds = %_ZN10BigIntegerD2Ev.exit52
   %81 = landingpad { ptr, i32 }
           cleanup
-  %82 = load ptr, ptr %34, align 8, !tbaa !14, !alias.scope !35
+  %82 = load ptr, ptr %34, align 8, !tbaa !14, !alias.scope !36
   %83 = icmp eq ptr %82, null
   br i1 %83, label %.body54, label %.body54.sink.split
 
@@ -423,9 +423,9 @@ _ZN10BigIntegermIERKS_.exit57:                    ; preds = %_ZNK10BigIntegermlE
 
 _ZN10BigIntegerD2Ev.exit58:                       ; preds = %_ZN10BigIntegermIERKS_.exit57, %86
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #8
-  %87 = load i32, ptr %1, align 8, !tbaa !22
+  %87 = load i32, ptr %1, align 8, !tbaa !23
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %._crit_edge, label %43, !llvm.loop !38
+  br i1 %88, label %._crit_edge, label %43, !llvm.loop !39
 
 89:                                               ; preds = %_ZNK10BigIntegermlERKS_.exit50
   %90 = landingpad { ptr, i32 }
@@ -606,19 +606,19 @@ define void @_Z6modinvRK10BigIntegerRK11BigUnsigned(ptr dead_on_unwind noalias w
   %10 = alloca %class.BigInteger, align 8
   %11 = alloca %class.BigInteger, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  store i32 0, ptr %4, align 8, !tbaa !22
+  store i32 0, ptr %4, align 8, !tbaa !23
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #8
-  store i32 0, ptr %5, align 8, !tbaa !22
+  store i32 0, ptr %5, align 8, !tbaa !23
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #8
-  store i32 0, ptr %6, align 8, !tbaa !22
+  store i32 0, ptr %6, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = load i32, ptr %1, align 8, !tbaa !22
-  store i32 %15, ptr %7, align 8, !tbaa !22
+  %15 = load i32, ptr %1, align 8, !tbaa !23
+  store i32 %15, ptr %7, align 8, !tbaa !23
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -686,7 +686,7 @@ _ZN10BigIntegerC2ERKS_.exit:                      ; preds = %26, %.noexc
 
 .loopexit54:                                      ; preds = %40, %.noexc25
   %44 = zext i1 %.not.i.i.i20 to i32
-  store i32 %44, ptr %8, align 8, !tbaa !22
+  store i32 %44, ptr %8, align 8, !tbaa !23
   invoke void @_Z17extendedEuclidean10BigIntegerS_RS_S0_S0_(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %45 unwind label %121
 
@@ -714,8 +714,8 @@ _ZN10BigIntegerD2Ev.exit26:                       ; preds = %_ZN10BigIntegerD2Ev
           to label %52 unwind label %129
 
 52:                                               ; preds = %_ZN10BigIntegerD2Ev.exit26
-  %53 = load i32, ptr %4, align 8, !tbaa !22
-  %54 = load i32, ptr %9, align 8, !tbaa !22
+  %53 = load i32, ptr %4, align 8, !tbaa !23
+  %54 = load i32, ptr %9, align 8, !tbaa !23
   %55 = icmp eq i32 %53, %54
   br i1 %55, label %56, label %_ZNK10BigIntegereqERKS_.exit
 
@@ -749,7 +749,7 @@ _ZN10BigIntegerD2Ev.exit26:                       ; preds = %_ZN10BigIntegerD2Ev
   %indvars.iv.next.i.i.i30 = add nuw nsw i64 %indvars.iv.i.i.i29, 1
   %exitcond.not.i.i.i31 = icmp ne i64 %indvars.iv.next.i.i.i30, %wide.trip.count.i.i.i
   %or.cond.not = select i1 %.not8.i.i.i, i1 %exitcond.not.i.i.i31, i1 false
-  br i1 %or.cond.not, label %65, label %_ZNK10BigIntegereqERKS_.exit, !llvm.loop !39
+  br i1 %or.cond.not, label %65, label %_ZNK10BigIntegereqERKS_.exit, !llvm.loop !40
 
 _ZNK10BigIntegereqERKS_.exit:                     ; preds = %65, %.preheader.i.i.i, %56, %52
   %70 = phi i1 [ false, %52 ], [ false, %56 ], [ true, %.preheader.i.i.i ], [ %.not8.i.i.i, %65 ]
@@ -802,7 +802,7 @@ _ZN10BigIntegerD2Ev.exit32:                       ; preds = %_ZNK10BigIntegereqE
 
 .loopexit:                                        ; preds = %85, %.noexc38
   %89 = zext i1 %.not.i.i.i33 to i32
-  store i32 %89, ptr %11, align 8, !tbaa !22
+  store i32 %89, ptr %11, align 8, !tbaa !23
   invoke void @_ZNK10BigIntegerrmERKS_(ptr dead_on_unwind nonnull writable sret(%class.BigInteger) align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %90 unwind label %133
 
@@ -967,7 +967,7 @@ _ZN10BigIntegerD2Ev.exit50:                       ; preds = %143, %_ZN10BigInteg
 
 144:                                              ; preds = %_ZN10BigIntegerD2Ev.exit32
   %145 = call ptr @__cxa_allocate_exception(i64 8) #8
-  store ptr @.str.1, ptr %145, align 16, !tbaa !20
+  store ptr @.str.1, ptr %145, align 16, !tbaa !21
   invoke void @__cxa_throw(ptr nonnull %145, ptr nonnull @_ZTIPKc, ptr null) #11
           to label %158 unwind label %117
 
@@ -1015,22 +1015,22 @@ _ZN10BigIntegerD2Ev.exit53:                       ; preds = %_ZN10BigIntegerD2Ev
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZNK10BigIntegerrmERKS_(ptr dead_on_unwind noalias writable sret(%class.BigInteger) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.BigInteger, align 8
-  %5 = load i32, ptr %2, align 8, !tbaa !22
+  %5 = load i32, ptr %2, align 8, !tbaa !23
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %3
   %8 = tail call ptr @__cxa_allocate_exception(i64 8) #8
-  store ptr @.str.2, ptr %8, align 16, !tbaa !20
+  store ptr @.str.2, ptr %8, align 16, !tbaa !21
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTIPKc, ptr null) #11
   unreachable
 
 9:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
-  store i32 0, ptr %4, align 8, !tbaa !22
+  store i32 0, ptr %4, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
-  store i32 0, ptr %0, align 8, !tbaa !22
+  store i32 0, ptr %0, align 8, !tbaa !23
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   invoke void @_ZN10BigIntegeraSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -1126,7 +1126,7 @@ define void @_Z6modexpRK10BigIntegerRK11BigUnsignedS4_(ptr dead_on_unwind noalia
 
 .loopexit36:                                      ; preds = %20, %.noexc
   %24 = zext i1 %.not.i.i.i to i32
-  store i32 %24, ptr %9, align 8, !tbaa !22
+  store i32 %24, ptr %9, align 8, !tbaa !23
   invoke void @_ZNK10BigIntegerrmERKS_(ptr dead_on_unwind nonnull writable sret(%class.BigInteger) align 8 %8, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %9)
           to label %25 unwind label %89
 
@@ -1206,7 +1206,7 @@ _ZN11BigUnsignedmLERKS_.exit:                     ; preds = %45
 
 .invoke:                                          ; preds = %_ZN11BigUnsignedmLERKS_.exit, %_ZN11BigUnsignedmLERKS_.exit25
   %49 = call ptr @__cxa_allocate_exception(i64 8) #8
-  store ptr @.str.3, ptr %49, align 16, !tbaa !20
+  store ptr @.str.3, ptr %49, align 16, !tbaa !21
   invoke void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTIPKc, ptr null) #11
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -1369,7 +1369,7 @@ _ZN10BigIntegerD2Ev.exit32:                       ; preds = %99, %_ZN10BigIntege
 
 103:                                              ; preds = %_ZN11BigUnsignedrMERKS_.exit30, %68
   %.not = icmp eq i32 %46, 0
-  br i1 %.not, label %._crit_edge, label %45, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %45, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %103, %.preheader
   %104 = load ptr, ptr %32, align 8, !tbaa !14
@@ -1451,27 +1451,28 @@ attributes #11 = { noreturn }
 !14 = !{!7, !11, i64 8}
 !15 = !{!16, !16, i64 0}
 !16 = !{!"long", !9, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"p1 omnipotent char", !12, i64 0}
-!22 = !{!23, !24, i64 0}
-!23 = !{!"_ZTS10BigInteger", !24, i64 0, !25, i64 8}
-!24 = !{!"_ZTSN10BigInteger4SignE", !9, i64 0}
-!25 = !{!"_ZTS11BigUnsigned", !7, i64 0}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK10BigIntegermlERKS_: argument 0"}
-!28 = distinct !{!28, !"_ZNK10BigIntegermlERKS_"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZNK10BigIntegermlERKS_: argument 0"}
-!31 = distinct !{!31, !"_ZNK10BigIntegermlERKS_"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZNK10BigIntegermlERKS_: argument 0"}
-!34 = distinct !{!34, !"_ZNK10BigIntegermlERKS_"}
-!35 = !{!36}
-!36 = distinct !{!36, !37, !"_ZNK10BigIntegermlERKS_: argument 0"}
-!37 = distinct !{!37, !"_ZNK10BigIntegermlERKS_"}
-!38 = distinct !{!38, !18}
-!39 = distinct !{!39, !18}
-!40 = distinct !{!40, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"p1 omnipotent char", !12, i64 0}
+!23 = !{!24, !25, i64 0}
+!24 = !{!"_ZTS10BigInteger", !25, i64 0, !26, i64 8}
+!25 = !{!"_ZTSN10BigInteger4SignE", !9, i64 0}
+!26 = !{!"_ZTS11BigUnsigned", !7, i64 0}
+!27 = !{!28}
+!28 = distinct !{!28, !29, !"_ZNK10BigIntegermlERKS_: argument 0"}
+!29 = distinct !{!29, !"_ZNK10BigIntegermlERKS_"}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZNK10BigIntegermlERKS_: argument 0"}
+!32 = distinct !{!32, !"_ZNK10BigIntegermlERKS_"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK10BigIntegermlERKS_: argument 0"}
+!35 = distinct !{!35, !"_ZNK10BigIntegermlERKS_"}
+!36 = !{!37}
+!37 = distinct !{!37, !38, !"_ZNK10BigIntegermlERKS_: argument 0"}
+!38 = distinct !{!38, !"_ZNK10BigIntegermlERKS_"}
+!39 = distinct !{!39, !18, !19}
+!40 = distinct !{!40, !18, !19}
+!41 = distinct !{!41, !18, !19}

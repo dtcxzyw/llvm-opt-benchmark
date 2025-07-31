@@ -428,7 +428,7 @@ _ZN6icu_775Edits8Iterator4nextER10UErrorCode.exit: ; preds = %_ZNK6icu_775Edits2
   %.063 = phi ptr [ %91, %143 ], [ %6, %82 ]
   %.161 = phi i32 [ %146, %143 ], [ %69, %82 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #6
-  store ptr null, ptr %14, align 8, !tbaa !33
+  store ptr null, ptr %14, align 8, !tbaa !34
   %149 = invoke noundef signext i8 @_ZN6icu_7713UnicodeString18cloneArrayIfNeededEiiaPPia(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %.161, i32 noundef %.161, i8 noundef signext 0, ptr noundef nonnull %14, i8 noundef signext 1)
           to label %150 unwind label %151
 
@@ -458,7 +458,7 @@ _ZN6icu_775Edits8Iterator4nextER10UErrorCode.exit: ; preds = %_ZNK6icu_775Edits2
           to label %164 unwind label %151
 
 164:                                              ; preds = %153
-  %165 = load ptr, ptr %14, align 8, !tbaa !33
+  %165 = load ptr, ptr %14, align 8, !tbaa !34
   %.not82 = icmp eq ptr %165, null
   br i1 %.not82, label %167, label %166
 
@@ -747,7 +747,8 @@ attributes #6 = { nounwind }
 !28 = !{!26, !18, i64 24}
 !29 = !{!26, !18, i64 36}
 !30 = !{!26, !18, i64 28}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!34, !34, i64 0}
-!34 = !{!"p1 int", !13, i64 0}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 int", !13, i64 0}

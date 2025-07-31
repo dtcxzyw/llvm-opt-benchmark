@@ -479,14 +479,14 @@ define hidden void @_ZN9CsvWriter10writeUVXYZERKSt6vectorIN2cv7Point3_IfEESaIS3_
 30:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61
   %.02782 = phi i64 [ 0, %.lr.ph ], [ %151, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
-  %31 = load ptr, ptr %2, align 8, !tbaa !63
+  %31 = load ptr, ptr %2, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw %"class.cv::Point_", ptr %31, i64 %.02782
-  %33 = load float, ptr %32, align 4, !tbaa !66
+  %33 = load float, ptr %32, align 4, !tbaa !67
   call void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, float noundef %33)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #11
-  %34 = load ptr, ptr %2, align 8, !tbaa !63
+  %34 = load ptr, ptr %2, align 8, !tbaa !64
   %35 = getelementptr inbounds nuw %"class.cv::Point_", ptr %34, i64 %.02782, i32 1
-  %36 = load float, ptr %35, align 4, !tbaa !68
+  %36 = load float, ptr %35, align 4, !tbaa !69
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, float noundef %36)
           to label %37 unwind label %96
 
@@ -653,13 +653,13 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc77, %86
 104:                                              ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit41.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit41.preheader ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11
-  %105 = load ptr, ptr %21, align 8, !tbaa !69
-  %106 = load ptr, ptr %22, align 8, !tbaa !76
-  %107 = load i64, ptr %106, align 8, !tbaa !77
+  %105 = load ptr, ptr %21, align 8, !tbaa !70
+  %106 = load ptr, ptr %22, align 8, !tbaa !77
+  %107 = load i64, ptr %106, align 8, !tbaa !78
   %108 = mul i64 %107, %77
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
   %110 = getelementptr inbounds nuw float, ptr %109, i64 %indvars.iv
-  %111 = load float, ptr %110, align 4, !tbaa !78
+  %111 = load float, ptr %110, align 4, !tbaa !79
   invoke void @_Z13FloatToStringB5cxx11f(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, float noundef %111)
           to label %112 unwind label %123
 
@@ -694,7 +694,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %78, label %104, !llvm.loop !79
+  br i1 %exitcond.not, label %78, label %104, !llvm.loop !80
 
 123:                                              ; preds = %104
   %124 = landingpad { ptr, i32 }
@@ -812,7 +812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %_ZN
   %156 = sub i64 %154, %155
   %157 = sdiv exact i64 %156, 12
   %158 = icmp ult i64 %151, %157
-  br i1 %158, label %30, label %._crit_edge, !llvm.loop !80
+  br i1 %158, label %30, label %._crit_edge, !llvm.loop !81
 
 159:                                              ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1017,23 +1017,24 @@ attributes #13 = { noreturn }
 !58 = !{!"p1 _ZTS15__locale_struct", !7, i64 0}
 !59 = !{!"p1 int", !7, i64 0}
 !60 = !{!"p1 short", !7, i64 0}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!64, !65, i64 0}
-!64 = !{!"_ZTSNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE17_Vector_impl_dataE", !65, i64 0, !65, i64 8, !65, i64 16}
-!65 = !{!"p1 _ZTSN2cv6Point_IfEE", !7, i64 0}
-!66 = !{!67, !45, i64 0}
-!67 = !{!"_ZTSN2cv6Point_IfEE", !45, i64 0, !45, i64 4}
-!68 = !{!67, !45, i64 4}
-!69 = !{!70, !6, i64 16}
-!70 = !{!"_ZTSN2cv3MatE", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !71, i64 48, !72, i64 56, !73, i64 64, !74, i64 72}
-!71 = !{!"p1 _ZTSN2cv12MatAllocatorE", !7, i64 0}
-!72 = !{!"p1 _ZTSN2cv8UMatDataE", !7, i64 0}
-!73 = !{!"_ZTSN2cv7MatSizeE", !59, i64 0}
-!74 = !{!"_ZTSN2cv7MatStepE", !75, i64 0, !8, i64 8}
-!75 = !{!"p1 long", !7, i64 0}
-!76 = !{!70, !75, i64 72}
-!77 = !{!12, !12, i64 0}
-!78 = !{!45, !45, i64 0}
-!79 = distinct !{!79, !62}
-!80 = distinct !{!80, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!65, !66, i64 0}
+!65 = !{!"_ZTSNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE17_Vector_impl_dataE", !66, i64 0, !66, i64 8, !66, i64 16}
+!66 = !{!"p1 _ZTSN2cv6Point_IfEE", !7, i64 0}
+!67 = !{!68, !45, i64 0}
+!68 = !{!"_ZTSN2cv6Point_IfEE", !45, i64 0, !45, i64 4}
+!69 = !{!68, !45, i64 4}
+!70 = !{!71, !6, i64 16}
+!71 = !{!"_ZTSN2cv3MatE", !23, i64 0, !23, i64 4, !23, i64 8, !23, i64 12, !6, i64 16, !6, i64 24, !6, i64 32, !6, i64 40, !72, i64 48, !73, i64 56, !74, i64 64, !75, i64 72}
+!72 = !{!"p1 _ZTSN2cv12MatAllocatorE", !7, i64 0}
+!73 = !{!"p1 _ZTSN2cv8UMatDataE", !7, i64 0}
+!74 = !{!"_ZTSN2cv7MatSizeE", !59, i64 0}
+!75 = !{!"_ZTSN2cv7MatStepE", !76, i64 0, !8, i64 8}
+!76 = !{!"p1 long", !7, i64 0}
+!77 = !{!71, !76, i64 72}
+!78 = !{!12, !12, i64 0}
+!79 = !{!45, !45, i64 0}
+!80 = distinct !{!80, !62, !63}
+!81 = distinct !{!81, !62, !63}

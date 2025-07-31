@@ -287,7 +287,7 @@ check_flag.exit115:                               ; preds = %110
   %138 = select i1 %137, double 1.000000e+01, double %136
   %139 = add nuw nsw i32 %.0174, 1
   %exitcond.not = icmp eq i32 %139, 10
-  br i1 %exitcond.not, label %.loopexit, label %110
+  br i1 %exitcond.not, label %.loopexit, label %110, !llvm.loop !26
 
 .loopexit:                                        ; preds = %115, %check_flag.exit115
   %puts90 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -363,17 +363,17 @@ check_flag.exit127:                               ; preds = %check_flag.exit125,
 
 check_flag.exit129:                               ; preds = %check_flag.exit127, %173
   %puts91 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  %176 = load i64, ptr %8, align 8, !tbaa !26
-  %177 = load i64, ptr %9, align 8, !tbaa !26
+  %176 = load i64, ptr %8, align 8, !tbaa !28
+  %177 = load i64, ptr %9, align 8, !tbaa !28
   %178 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %176, i64 noundef %177)
-  %179 = load i64, ptr %10, align 8, !tbaa !26
-  %180 = load i64, ptr %11, align 8, !tbaa !26
+  %179 = load i64, ptr %10, align 8, !tbaa !28
+  %180 = load i64, ptr %11, align 8, !tbaa !28
   %181 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, i64 noundef %179, i64 noundef %180)
-  %182 = load i64, ptr %12, align 8, !tbaa !26
+  %182 = load i64, ptr %12, align 8, !tbaa !28
   %183 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.35, i64 noundef %182)
-  %184 = load i64, ptr %13, align 8, !tbaa !26
+  %184 = load i64, ptr %13, align 8, !tbaa !28
   %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %184)
-  %186 = load i64, ptr %14, align 8, !tbaa !26
+  %186 = load i64, ptr %14, align 8, !tbaa !28
   %187 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %186)
   call void @N_VDestroy(ptr noundef nonnull %52) #9
   call void @ARKodeFree(ptr noundef nonnull %6) #9
@@ -574,4 +574,6 @@ attributes #10 = { cold nounwind }
 !23 = !{!"long", !7, i64 0}
 !24 = !{!"int", !7, i64 0}
 !25 = !{!"p1 double", !6, i64 0}
-!26 = !{!23, !23, i64 0}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!23, !23, i64 0}

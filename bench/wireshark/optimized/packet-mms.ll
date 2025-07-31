@@ -7619,7 +7619,7 @@ define internal i32 @dissect_mms_AccessResult(i1 zeroext %0, ptr noundef %1, i32
   br i1 %.not32.not, label %.backedge.backedge, label %.critedge
 
 .backedge.backedge:                               ; preds = %43, %16, %19, %22, %25, %28, %31, %34, %37, %40
-  br label %.backedge, !llvm.loop !10
+  br label %.backedge, !llvm.loop !11
 
 .critedge:                                        ; preds = %40, %37, %34, %31, %28, %25, %22, %19, %16, %.backedge, %43
   store i32 %15, ptr %11, align 4
@@ -8124,6 +8124,7 @@ attributes #10 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}

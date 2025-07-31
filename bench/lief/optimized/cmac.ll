@@ -169,14 +169,14 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %10
 .lr.ph95:                                         ; preds = %.preheader89, %.lr.ph95
   %.1.i94 = phi i64 [ %38, %.lr.ph95 ], [ %.0.i.lcssa, %.preheader89 ]
   %33 = getelementptr inbounds nuw i8, ptr %25, i64 %.1.i94
-  %34 = load i8, ptr %33, align 1, !tbaa !17
+  %34 = load i8, ptr %33, align 1, !tbaa !18
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 %.1.i94
-  %36 = load i8, ptr %35, align 1, !tbaa !17
+  %36 = load i8, ptr %35, align 1, !tbaa !18
   %37 = xor i8 %36, %34
-  store i8 %37, ptr %35, align 1, !tbaa !17
+  store i8 %37, ptr %35, align 1, !tbaa !18
   %38 = add nuw nsw i64 %.1.i94, 1
   %exitcond.not = icmp eq i64 %38, %17
-  br i1 %exitcond.not, label %mbedtls_xor_no_simd.exit, label %.lr.ph95, !llvm.loop !18
+  br i1 %exitcond.not, label %mbedtls_xor_no_simd.exit, label %.lr.ph95, !llvm.loop !19
 
 mbedtls_xor_no_simd.exit:                         ; preds = %.lr.ph95, %.preheader89
   %39 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %17, ptr noundef nonnull %12, ptr noundef nonnull %4) #12
@@ -215,19 +215,19 @@ mbedtls_xor_no_simd.exit:                         ; preds = %.lr.ph95, %.prehead
   %52 = getelementptr inbounds nuw i8, ptr %.1103.us, i64 %17
   %53 = add nuw i64 %.059104.us, 1
   %54 = icmp ult i64 %53, %48
-  br i1 %54, label %.preheader88.us, label %._crit_edge, !llvm.loop !19
+  br i1 %54, label %.preheader88.us, label %._crit_edge, !llvm.loop !20
 
 55:                                               ; preds = %.preheader88.us, %55
   %.1.i82100.us = phi i64 [ 0, %.preheader88.us ], [ %61, %55 ]
   %56 = getelementptr inbounds nuw i8, ptr %.1103.us, i64 %.1.i82100.us
-  %57 = load i8, ptr %56, align 1, !tbaa !17
+  %57 = load i8, ptr %56, align 1, !tbaa !18
   %58 = getelementptr inbounds nuw i8, ptr %12, i64 %.1.i82100.us
-  %59 = load i8, ptr %58, align 1, !tbaa !17
+  %59 = load i8, ptr %58, align 1, !tbaa !18
   %60 = xor i8 %59, %57
-  store i8 %60, ptr %58, align 1, !tbaa !17
+  store i8 %60, ptr %58, align 1, !tbaa !18
   %61 = add nuw nsw i64 %.1.i82100.us, 1
   %exitcond120.not = icmp eq i64 %61, %17
-  br i1 %exitcond120.not, label %.mbedtls_xor_no_simd.exit83_crit_edge.us, label %55, !llvm.loop !18
+  br i1 %exitcond120.not, label %.mbedtls_xor_no_simd.exit83_crit_edge.us, label %55, !llvm.loop !19
 
 .mbedtls_xor_no_simd.exit83_crit_edge.us:         ; preds = %55
   %62 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %17, ptr noundef nonnull %12, ptr noundef nonnull %4) #12
@@ -260,14 +260,14 @@ mbedtls_xor_no_simd.exit:                         ; preds = %.lr.ph95, %.prehead
 .lr.ph101:                                        ; preds = %..preheader_crit_edge, %.lr.ph101
   %.1.i82100 = phi i64 [ %75, %.lr.ph101 ], [ %65, %..preheader_crit_edge ]
   %70 = getelementptr inbounds nuw i8, ptr %.1103, i64 %.1.i82100
-  %71 = load i8, ptr %70, align 1, !tbaa !17
+  %71 = load i8, ptr %70, align 1, !tbaa !18
   %72 = getelementptr inbounds nuw i8, ptr %12, i64 %.1.i82100
-  %73 = load i8, ptr %72, align 1, !tbaa !17
+  %73 = load i8, ptr %72, align 1, !tbaa !18
   %74 = xor i8 %73, %71
-  store i8 %74, ptr %72, align 1, !tbaa !17
+  store i8 %74, ptr %72, align 1, !tbaa !18
   %75 = add nuw nsw i64 %.1.i82100, 1
   %76 = icmp samesign ult i64 %75, %17
-  br i1 %76, label %.lr.ph101, label %mbedtls_xor_no_simd.exit83, !llvm.loop !18
+  br i1 %76, label %.lr.ph101, label %mbedtls_xor_no_simd.exit83, !llvm.loop !19
 
 mbedtls_xor_no_simd.exit83:                       ; preds = %.lr.ph101, %..preheader_crit_edge
   %77 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef %17, ptr noundef nonnull %12, ptr noundef nonnull %4) #12
@@ -279,7 +279,7 @@ mbedtls_xor_no_simd.exit83:                       ; preds = %.lr.ph101, %..prehe
   %80 = getelementptr inbounds nuw i8, ptr %.1103, i64 %17
   %81 = add nuw i64 %.059104, 1
   %82 = icmp ult i64 %81, %48
-  br i1 %82, label %.preheader88, label %._crit_edge, !llvm.loop !21
+  br i1 %82, label %.preheader88, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %78, %50, %45
   %.164.lcssa = phi i64 [ %.063, %45 ], [ %51, %50 ], [ %79, %78 ]
@@ -370,9 +370,9 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %11
 
 28:                                               ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 %.015.i
-  %30 = load i8, ptr %29, align 1, !tbaa !17
+  %30 = load i8, ptr %29, align 1, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.i
-  store i8 %30, ptr %31, align 1, !tbaa !17
+  store i8 %30, ptr %31, align 1, !tbaa !18
   br label %37
 
 32:                                               ; preds = %.lr.ph.i
@@ -380,18 +380,18 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %11
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %32
-  store i8 -128, ptr %26, align 1, !tbaa !17
+  store i8 -128, ptr %26, align 1, !tbaa !18
   br label %37
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 %.015.i
-  store i8 0, ptr %36, align 1, !tbaa !17
+  store i8 0, ptr %36, align 1, !tbaa !18
   br label %37
 
 37:                                               ; preds = %35, %34, %28
   %38 = add nuw nsw i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %38, %19
-  br i1 %exitcond.not.i, label %cmac_pad.exit.preheader, label %.lr.ph.i, !llvm.loop !22
+  br i1 %exitcond.not.i, label %cmac_pad.exit.preheader, label %.lr.ph.i, !llvm.loop !23
 
 cmac_pad.exit.preheader:                          ; preds = %37
   %.not.i62 = icmp samesign ult i32 %18, 8
@@ -413,19 +413,19 @@ cmac_pad.exit:                                    ; preds = %cmac_pad.exit.prehe
   store i64 %43, ptr %41, align 8
   %44 = add nuw nsw i64 %40, 8
   %.not.i = icmp samesign ugt i64 %44, %19
-  br i1 %.not.i, label %.preheader54, label %cmac_pad.exit, !llvm.loop !23
+  br i1 %.not.i, label %.preheader54, label %cmac_pad.exit, !llvm.loop !24
 
 .lr.ph67:                                         ; preds = %.preheader54, %.lr.ph67
   %.1.i66 = phi i64 [ %50, %.lr.ph67 ], [ %.0.i.lcssa, %.preheader54 ]
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i66
-  %46 = load i8, ptr %45, align 1, !tbaa !17
+  %46 = load i8, ptr %45, align 1, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i66
-  %48 = load i8, ptr %47, align 1, !tbaa !17
+  %48 = load i8, ptr %47, align 1, !tbaa !18
   %49 = xor i8 %48, %46
-  store i8 %49, ptr %45, align 1, !tbaa !17
+  store i8 %49, ptr %45, align 1, !tbaa !18
   %50 = add nuw nsw i64 %.1.i66, 1
   %exitcond78.not = icmp eq i64 %50, %19
-  br i1 %exitcond78.not, label %mbedtls_xor.exit, label %.lr.ph67, !llvm.loop !24
+  br i1 %exitcond78.not, label %mbedtls_xor.exit, label %.lr.ph67, !llvm.loop !25
 
 .preheader55:                                     ; preds = %.lr.ph, %.preheader57
   %.0.i39.lcssa = phi i64 [ 0, %.preheader57 ], [ %52, %.lr.ph ]
@@ -444,20 +444,20 @@ cmac_pad.exit:                                    ; preds = %cmac_pad.exit.prehe
   store i64 %54, ptr %.0.i3959.sroa.phi, align 8
   %55 = add nuw nsw i64 %52, 8
   %.not.i40 = icmp samesign ugt i64 %55, %19
-  br i1 %.not.i40, label %.preheader55, label %.lr.ph, !llvm.loop !23
+  br i1 %.not.i40, label %.preheader55, label %.lr.ph, !llvm.loop !24
 
 .lr.ph61:                                         ; preds = %.preheader55, %.lr.ph61
   %.1.i4160 = phi i64 [ %62, %.lr.ph61 ], [ %.0.i39.lcssa, %.preheader55 ]
   %56 = getelementptr inbounds nuw i8, ptr %22, i64 %.1.i4160
-  %57 = load i8, ptr %56, align 1, !tbaa !17
+  %57 = load i8, ptr %56, align 1, !tbaa !18
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i4160
-  %59 = load i8, ptr %58, align 1, !tbaa !17
+  %59 = load i8, ptr %58, align 1, !tbaa !18
   %60 = xor i8 %59, %57
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i4160
-  store i8 %60, ptr %61, align 1, !tbaa !17
+  store i8 %60, ptr %61, align 1, !tbaa !18
   %62 = add nuw nsw i64 %.1.i4160, 1
   %exitcond.not = icmp eq i64 %62, %19
-  br i1 %exitcond.not, label %mbedtls_xor.exit, label %.lr.ph61, !llvm.loop !24
+  br i1 %exitcond.not, label %mbedtls_xor.exit, label %.lr.ph61, !llvm.loop !25
 
 mbedtls_xor.exit:                                 ; preds = %.lr.ph61, %.lr.ph67, %.preheader55, %.preheader54
   %.not.i4468 = icmp samesign ult i32 %18, 8
@@ -479,19 +479,19 @@ mbedtls_xor.exit:                                 ; preds = %.lr.ph61, %.lr.ph67
   store i64 %67, ptr %66, align 1
   %68 = add nuw nsw i64 %64, 8
   %.not.i44 = icmp samesign ugt i64 %68, %19
-  br i1 %.not.i44, label %.preheader, label %.lr.ph70, !llvm.loop !23
+  br i1 %.not.i44, label %.preheader, label %.lr.ph70, !llvm.loop !24
 
 .lr.ph73:                                         ; preds = %.preheader, %.lr.ph73
   %.1.i4572 = phi i64 [ %74, %.lr.ph73 ], [ %.0.i43.lcssa, %.preheader ]
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i4572
-  %70 = load i8, ptr %69, align 1, !tbaa !17
+  %70 = load i8, ptr %69, align 1, !tbaa !18
   %71 = getelementptr inbounds nuw i8, ptr %13, i64 %.1.i4572
-  %72 = load i8, ptr %71, align 1, !tbaa !17
+  %72 = load i8, ptr %71, align 1, !tbaa !18
   %73 = xor i8 %72, %70
-  store i8 %73, ptr %71, align 1, !tbaa !17
+  store i8 %73, ptr %71, align 1, !tbaa !18
   %74 = add nuw nsw i64 %.1.i4572, 1
   %exitcond79.not = icmp eq i64 %74, %19
-  br i1 %exitcond79.not, label %mbedtls_xor.exit46, label %.lr.ph73, !llvm.loop !24
+  br i1 %exitcond79.not, label %mbedtls_xor.exit46, label %.lr.ph73, !llvm.loop !25
 
 mbedtls_xor.exit46:                               ; preds = %.lr.ph73, %.preheader
   %75 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %0, ptr noundef nonnull %13, i64 noundef %19, ptr noundef nonnull %13, ptr noundef nonnull %6) #12
@@ -570,20 +570,20 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %3, %8
   %22 = call i32 @llvm.bswap.i32(i32 %20)
   store i32 %22, ptr %21, align 1
   %23 = icmp samesign ugt i64 %indvars.iv.i, 7
-  br i1 %23, label %.lr.ph.i, label %24, !llvm.loop !25
+  br i1 %23, label %.lr.ph.i, label %24, !llvm.loop !26
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = load i8, ptr %4, align 16, !tbaa !17
+  %25 = load i8, ptr %4, align 16, !tbaa !18
   %26 = lshr i8 %25, 7
   %27 = zext nneg i8 %26 to i64
-  %28 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %27) #12, !srcloc !26
+  %28 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %27) #12, !srcloc !27
   %29 = trunc i64 %28 to i8
   %30 = and i8 %.019.i, %29
   %31 = getelementptr i8, ptr %1, i64 %.0.i
   %32 = getelementptr i8, ptr %31, i64 -1
-  %33 = load i8, ptr %32, align 1, !tbaa !17
+  %33 = load i8, ptr %32, align 1, !tbaa !18
   %34 = xor i8 %30, %33
-  store i8 %34, ptr %32, align 1, !tbaa !17
+  store i8 %34, ptr %32, align 1, !tbaa !18
   switch i64 %.0.i, label %cmac_multiply_by_u.exit [
     i64 16, label %.lr.ph.preheader.i12
     i64 8, label %35
@@ -610,20 +610,20 @@ mbedtls_cipher_info_get_block_size.exit:          ; preds = %3, %8
   %42 = call i32 @llvm.bswap.i32(i32 %40)
   store i32 %42, ptr %41, align 1
   %43 = icmp samesign ugt i64 %indvars.iv.i15, 7
-  br i1 %43, label %.lr.ph.i14, label %._crit_edge.i19, !llvm.loop !25
+  br i1 %43, label %.lr.ph.i14, label %._crit_edge.i19, !llvm.loop !26
 
 ._crit_edge.i19:                                  ; preds = %.lr.ph.i14
-  %44 = load i8, ptr %1, align 1, !tbaa !17
+  %44 = load i8, ptr %1, align 1, !tbaa !18
   %45 = lshr i8 %44, 7
   %46 = zext nneg i8 %45 to i64
-  %47 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %46) #12, !srcloc !26
+  %47 = call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 range(i64 0, 2) %46) #12, !srcloc !27
   %48 = trunc i64 %47 to i8
   %49 = and i8 %.019.i13, %48
   %50 = getelementptr i8, ptr %2, i64 %.0.i
   %51 = getelementptr i8, ptr %50, i64 -1
-  %52 = load i8, ptr %51, align 1, !tbaa !17
+  %52 = load i8, ptr %51, align 1, !tbaa !18
   %53 = xor i8 %49, %52
-  store i8 %53, ptr %51, align 1, !tbaa !17
+  store i8 %53, ptr %51, align 1, !tbaa !18
   br label %cmac_multiply_by_u.exit
 
 cmac_multiply_by_u.exit:                          ; preds = %._crit_edge.i19, %24, %14, %mbedtls_cipher_info_get_block_size.exit
@@ -955,7 +955,7 @@ define internal fastcc i32 @cmac_test_subkeys(i32 noundef %0, ptr noundef %1, pt
   call void @mbedtls_cipher_free(ptr noundef nonnull %8) #12
   %40 = add nuw nsw i32 %.03159, 1
   %exitcond.not = icmp eq i32 %40, 4
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !27
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !28
 
 .sink.split80:                                    ; preds = %37, %32, %29, %22
   %str.1.sink = phi ptr [ @str.5, %22 ], [ @str.5, %29 ], [ @str.11, %32 ], [ @str.11, %37 ]
@@ -993,7 +993,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 .preheader.split.us:                              ; preds = %.preheader, %23
   %indvars.iv49 = phi i64 [ %indvars.iv.next50, %23 ], [ 0, %.preheader ]
   %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv49
-  %15 = load i32, ptr %14, align 4, !tbaa !28
+  %15 = load i32, ptr %14, align 4, !tbaa !29
   %16 = zext i32 %15 to i64
   %17 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %16, ptr noundef nonnull %9)
   switch i32 %17, label %.split.us [
@@ -1018,7 +1018,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 23:                                               ; preds = %19, %18, %18
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 4
-  br i1 %exitcond52.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !29
+  br i1 %exitcond52.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !30
 
 .preheader.split:                                 ; preds = %.preheader
   switch i32 %6, label %.preheader.split.split [
@@ -1035,7 +1035,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   %25 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %24)
   %26 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %27 = load i32, ptr %26, align 4, !tbaa !28
+  %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = zext i32 %27 to i64
   %29 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %28, ptr noundef nonnull %9)
   switch i32 %29, label %.split.us [
@@ -1055,7 +1055,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   %str.6.sink = phi ptr [ @str.9, %.preheader.split.split.us ], [ @str.9, %.preheader.split.split.us ], [ @str.10, %30 ]
   %puts.us13 = call i32 @puts(ptr nonnull dereferenceable(1) %str.6.sink)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !31
 
 .preheader.split.split:                           ; preds = %.preheader.split, %45
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %45 ], [ 0, %.preheader.split ]
@@ -1063,7 +1063,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
   %35 = trunc nuw nsw i64 %indvars.iv.next46 to i32
   %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %1, i32 noundef %35)
   %37 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv45
-  %38 = load i32, ptr %37, align 4, !tbaa !28
+  %38 = load i32, ptr %37, align 4, !tbaa !29
   %39 = zext i32 %38 to i64
   %40 = call i32 @mbedtls_cipher_cmac(ptr noundef nonnull %10, ptr noundef %2, i64 noundef %12, ptr noundef nonnull @test_message, i64 noundef %39, ptr noundef nonnull %9)
   %cond = icmp eq i32 %40, 0
@@ -1087,7 +1087,7 @@ define internal fastcc i32 @cmac_test_wth_cipher(i32 noundef %0, ptr noundef %1,
 45:                                               ; preds = %41
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 4
-  br i1 %exitcond48.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !31
+  br i1 %exitcond48.not, label %.loopexit, label %.preheader.split.split, !llvm.loop !32
 
 .loopexit.sink.split:                             ; preds = %.split7.us, %.split.us
   %str.7.sink = phi ptr [ @str.11, %.split.us ], [ @str.11, %.split7.us ]
@@ -1115,7 +1115,7 @@ define internal fastcc i32 @test_aes128_cmac_prf(i32 noundef %0) unnamed_addr #0
   %5 = trunc nuw nsw i64 %indvars.iv33 to i32
   %6 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %5)
   %7 = getelementptr inbounds nuw [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv33
-  %8 = load i64, ptr %7, align 8, !tbaa !32
+  %8 = load i64, ptr %7, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %9 = call ptr @mbedtls_cipher_info_from_type(i32 noundef 2) #12
@@ -1153,14 +1153,14 @@ mbedtls_aes_cmac_prf_128.exit.us:                 ; preds = %15, %13
 19:                                               ; preds = %17
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next34, 3
-  br i1 %exitcond36.not, label %.loopexit, label %.split.us, !llvm.loop !33
+  br i1 %exitcond36.not, label %.loopexit, label %.split.us, !llvm.loop !34
 
 .split:                                           ; preds = %1, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %20)
   %22 = getelementptr inbounds nuw [3 x i64], ptr @PRFKlen, i64 0, i64 %indvars.iv
-  %23 = load i64, ptr %22, align 8, !tbaa !32
+  %23 = load i64, ptr %22, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   %24 = call ptr @mbedtls_cipher_info_from_type(i32 noundef 2) #12
@@ -1214,7 +1214,7 @@ mbedtls_aes_cmac_prf_128.exit:                    ; preds = %28, %29
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !34
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !35
 
 .loopexit:                                        ; preds = %35, %19, %.loopexit21, %34
   %.012 = phi i32 [ %.018.i20, %34 ], [ %.018.i20, %.loopexit21 ], [ 0, %19 ], [ 0, %35 ]
@@ -1273,23 +1273,24 @@ attributes #14 = { nounwind willreturn memory(read) }
 !12 = !{!4, !11, i64 88}
 !13 = !{!14, !10, i64 32}
 !14 = !{!"mbedtls_cmac_context_t", !7, i64 0, !7, i64 16, !10, i64 32}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!7, !7, i64 0}
-!18 = distinct !{!18, !16}
-!19 = distinct !{!19, !16, !20}
-!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!21 = distinct !{!21, !16}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
-!24 = distinct !{!24, !16}
-!25 = distinct !{!25, !16}
-!26 = !{i64 1026475, i64 1026525, i64 1026597, i64 1026669, i64 1026741}
-!27 = distinct !{!27, !16}
-!28 = !{!9, !9, i64 0}
-!29 = distinct !{!29, !16, !20}
-!30 = distinct !{!30, !16, !20}
-!31 = distinct !{!31, !16}
-!32 = !{!10, !10, i64 0}
-!33 = distinct !{!33, !16, !20}
-!34 = distinct !{!34, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!7, !7, i64 0}
+!19 = distinct !{!19, !16, !17}
+!20 = distinct !{!20, !16, !17, !21}
+!21 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!22 = distinct !{!22, !16, !17}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}
+!25 = distinct !{!25, !16, !17}
+!26 = distinct !{!26, !16, !17}
+!27 = !{i64 1026475, i64 1026525, i64 1026597, i64 1026669, i64 1026741}
+!28 = distinct !{!28, !16, !17}
+!29 = !{!9, !9, i64 0}
+!30 = distinct !{!30, !16, !17, !21}
+!31 = distinct !{!31, !16, !17, !21}
+!32 = distinct !{!32, !16, !17}
+!33 = !{!10, !10, i64 0}
+!34 = distinct !{!34, !16, !17, !21}
+!35 = distinct !{!35, !16, !17}

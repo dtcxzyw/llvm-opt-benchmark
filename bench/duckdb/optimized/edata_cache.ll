@@ -316,7 +316,7 @@ edata_list_inactive_append.exit.i:                ; preds = %57, %52
   store atomic i64 %75, ptr %73 monotonic, align 8
   %76 = add nuw nsw i32 %.011.i, 1
   %exitcond.not.i = icmp eq i32 %76, 4
-  br i1 %exitcond.not.i, label %edata_cache_fast_try_fill_from_fallback.exit, label %malloc_mutex_lock.exit.i
+  br i1 %exitcond.not.i, label %edata_cache_fast_try_fill_from_fallback.exit, label %malloc_mutex_lock.exit.i, !llvm.loop !33
 
 edata_cache_fast_try_fill_from_fallback.exit:     ; preds = %malloc_mutex_lock.exit.i, %edata_list_inactive_append.exit.i
   %77 = load ptr, ptr %32, align 8, !tbaa !25
@@ -547,7 +547,7 @@ edata_list_inactive_remove.exit.i:                ; preds = %39, %.thread.i.i
   %41 = add i64 %.014.i, 1
   %.val.i = load ptr, ptr %1, align 8, !tbaa !21
   %.not.i = icmp eq ptr %.val.i, null
-  br i1 %.not.i, label %edata_cache_fast_flush_all.exit, label %.lr.ph.i
+  br i1 %.not.i, label %edata_cache_fast_flush_all.exit, label %.lr.ph.i, !llvm.loop !35
 
 edata_cache_fast_flush_all.exit:                  ; preds = %edata_list_inactive_remove.exit.i, %malloc_mutex_lock.exit.i
   %.0.lcssa.i = phi i64 [ 0, %malloc_mutex_lock.exit.i ], [ %41, %edata_list_inactive_remove.exit.i ]
@@ -617,3 +617,6 @@ attributes #4 = { nounwind }
 !30 = !{i8 0, i8 2}
 !31 = !{}
 !32 = !{!8, !8, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !34}

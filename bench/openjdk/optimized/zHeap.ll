@@ -195,7 +195,7 @@ define hidden void @_ZN5ZHeapC2Ev(ptr noundef nonnull align 64 dereferenceable(1
   tail call void @_ZN23ZAllocatorForRelocationC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.ptr) #10
   %.add = add nuw nsw i64 %.idx, 40
   %11 = icmp eq i64 %.add, 1272
-  br i1 %11, label %12, label %10
+  br i1 %11, label %12, label %10, !llvm.loop !6
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1272
@@ -785,7 +785,7 @@ define hidden noundef i64 @_ZN5ZHeap16free_empty_pagesEPK18GrowableArrayCHeapIP5
   %22 = add i64 %20, %.014
   %23 = sub i64 %22, %21
   %.not = icmp eq i64 %10, %7
-  br i1 %.not, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit, label %9, !llvm.loop !6
+  br i1 %.not, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit, label %9, !llvm.loop !8
 
 _ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit: ; preds = %17, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %23, %17 ]
@@ -999,12 +999,12 @@ define hidden void @_ZNK5ZHeap17print_extended_onEP12outputStream(ptr noundef no
 
 17:                                               ; preds = %.lr.ph.i
   %.not11.i = icmp eq i64 %14, %12
-  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 _ZN18ZPageTableIterator4nextEPP5ZPage.exit:       ; preds = %.lr.ph.i
   tail call void @_ZNK5ZPage8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(192) %16, ptr noundef nonnull %1) #10
   %.not10.i = icmp eq i64 %14, %12
-  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !9
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %_ZN18ZPageTableIterator4nextEPP5ZPage.exit, %17, %2
   tail call void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %0) #10
@@ -1230,7 +1230,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStream8zad
   %29 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %30 = load i8, ptr %29, align 1
   %31 = load volatile i32, ptr %28, align 4
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %32 = icmp eq i8 %30, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1533,7 +1533,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i64, ptr %28, align 8
   %30 = load volatile i32, ptr %24, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %31 = icmp eq i8 %26, 0
   %_ZN11ZGeneration6_youngE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %_ZN11ZGeneration4_oldE.val.i.i.i.i = load ptr, ptr @_ZN11ZGeneration4_oldE, align 8
@@ -1549,7 +1549,7 @@ _ZNK5ZPage9bit_indexE8zaddress.exit.i:            ; preds = %_ZNK5ZPage22object_
   %38 = lshr i64 %36, 6
   %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
   %40 = load volatile i64, ptr %39, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %41 = and i64 %36, 63
   %42 = shl nuw i64 1, %41
   %43 = and i64 %40, %42
@@ -1603,7 +1603,7 @@ define linkonce_odr hidden noundef i64 @_ZN8ZLiveMap13find_base_bitEm(ptr nounde
   %7 = lshr i64 %5, 6
   %8 = getelementptr inbounds nuw i64, ptr %6, i64 %7
   %9 = load volatile i64, ptr %8, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %10 = and i64 %5, 63
   %11 = shl nuw i64 1, %10
   %12 = and i64 %11, %9
@@ -1655,7 +1655,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread32: ; preds = %20
   %40 = getelementptr inbounds i64, ptr %23, i64 %39
   %41 = load i64, ptr %40, align 8
   %.not37.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !11
+  br i1 %.not37.i.i.i, label %36, label %.loopexit45.i.i.i, !llvm.loop !13
 
 .loopexit45.i.i.i:                                ; preds = %38, %30
   %.028.ph.i.i.i = phi i64 [ %32, %30 ], [ %41, %38 ]
@@ -1685,7 +1685,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit.thread: ; preds = %36, %.loopexit
   %52 = lshr i64 %51, 6
   %53 = getelementptr inbounds nuw i64, ptr %6, i64 %52
   %54 = load volatile i64, ptr %53, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
   %55 = and i64 %51, 63
   %56 = shl nuw i64 1, %55
   %57 = and i64 %54, %56
@@ -1736,7 +1736,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
   %84 = getelementptr inbounds i64, ptr %67, i64 %83
   %85 = load i64, ptr %84, align 8
   %.not37.i.i.i28 = icmp eq i64 %85, 0
-  br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !11
+  br i1 %.not37.i.i.i28, label %80, label %.loopexit45.i.i.i23, !llvm.loop !13
 
 .loopexit45.i.i.i23:                              ; preds = %82, %74
   %.028.ph.i.i.i24 = phi i64 [ %76, %74 ], [ %85, %82 ]
@@ -1752,7 +1752,7 @@ _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread37: ; preds = %64
 
 _ZN8ZLiveMap24find_base_bit_in_segmentEmm.exit29.thread: ; preds = %80, %.loopexit45.i.i.i23, %58, %50
   %.not17 = icmp eq i64 %51, 0
-  br i1 %.not17, label %.loopexit, label %50, !llvm.loop !12
+  br i1 %.not17, label %.loopexit, label %50, !llvm.loop !14
 
 .loopexit.split.loop.exit48:                      ; preds = %.loopexit45.i.i.i23
   %91 = and i64 %89, -2
@@ -1906,9 +1906,11 @@ attributes #11 = { noreturn nounwind }
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i64 2145392468}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = !{i64 2145392468}
+!13 = distinct !{!13, !9, !7}
+!14 = distinct !{!14, !9, !7}

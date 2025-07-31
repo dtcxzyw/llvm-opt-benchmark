@@ -299,7 +299,7 @@ define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0
 
 .backedge.backedge:                               ; preds = %.backedge, %7, %10, %17, %30
   %.026.be = phi ptr [ %9, %7 ], [ %16, %10 ], [ %23, %17 ], [ %36, %30 ], [ %2, %.backedge ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !7
 
 6:                                                ; preds = %.backedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_lowering, ptr noundef nonnull @.str.2, i32 noundef 29) #5
@@ -635,7 +635,7 @@ define dso_local void @c_abi_func_create_aarch64(ptr noundef captures(none) init
 
 .backedge:                                        ; preds = %23, %17
   %.0.i.in.be = phi ptr [ %22, %17 ], [ %24, %23 ]
-  br label %13
+  br label %13, !llvm.loop !9
 
 25:                                               ; preds = %13
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.3, i32 noundef 2984) #5
@@ -675,7 +675,7 @@ type_flatten.exit:                                ; preds = %13
   store ptr %42, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %36
-  br i1 %exitcond.not, label %44, label %39, !llvm.loop !7
+  br i1 %exitcond.not, label %44, label %39, !llvm.loop !10
 
 44:                                               ; preds = %39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -709,7 +709,7 @@ type_flatten.exit:                                ; preds = %13
   store ptr %58, ptr %59, align 8
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %52
-  br i1 %exitcond62.not, label %60, label %55, !llvm.loop !9
+  br i1 %exitcond62.not, label %60, label %55, !llvm.loop !12
 
 60:                                               ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -751,5 +751,8 @@ attributes #5 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!8 = !{!"llvm.loop.estimated_trip_count"}
 !9 = distinct !{!9, !8}
+!10 = distinct !{!10, !11, !8}
+!11 = !{!"llvm.loop.mustprogress"}
+!12 = distinct !{!12, !11, !8}

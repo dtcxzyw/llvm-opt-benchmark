@@ -157,7 +157,7 @@ _ZN10XStatTimerC2ERK10XStatPhase.exit:            ; preds = %6, %16
   %27 = load i8, ptr %22, align 4
   %28 = trunc i8 %27 to i1
   %or.cond = select i1 %.not3.not8, i1 true, i1 %28
-  br i1 %or.cond, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !10
+  br i1 %or.cond, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !11
 
 _ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %.lr.ph, %_ZN10XStatTimerC2ERK10XStatPhase.exit
   %.not3.not8.lcssa = phi i1 [ %.not3.not89, %_ZN10XStatTimerC2ERK10XStatPhase.exit ], [ %.not3.not8, %.lr.ph ]
@@ -203,7 +203,7 @@ define hidden noundef ptr @_ZN11XForwarding10claim_pageEv(ptr noundef nonnull al
   %5 = sub nsw i32 0, %4
   %6 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %5, i32 %4, ptr nonnull %2) #7, !srcloc !7
   %.not = icmp eq i32 %6, %4
-  br i1 %.not, label %7, label %3, !llvm.loop !11
+  br i1 %.not, label %7, label %3, !llvm.loop !12
 
 7:                                                ; preds = %3
   %.not4 = icmp eq i32 %4, 1
@@ -222,7 +222,7 @@ define hidden noundef ptr @_ZN11XForwarding10claim_pageEv(ptr noundef nonnull al
   %13 = load volatile i32, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %.not5 = icmp eq i32 %13, -1
-  br i1 %.not5, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !12
+  br i1 %.not5, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !13
 
 _ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %.lr.ph, %8
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %9) #7
@@ -251,7 +251,7 @@ define hidden void @_ZN11XForwarding12release_pageEv(ptr noundef nonnull align 8
   br i1 %.not11, label %8, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %5, %10
-  br label %.backedge, !llvm.loop !13
+  br label %.backedge, !llvm.loop !14
 
 8:                                                ; preds = %5
   %9 = icmp eq i32 %3, 1
@@ -300,7 +300,7 @@ define hidden noundef ptr @_ZN11XForwarding11detach_pageEv(ptr noundef nonnull a
   %9 = load volatile i32, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
   %.not2 = icmp eq i32 %9, 0
-  br i1 %.not2, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !14
+  br i1 %.not2, label %_ZN7XLockerI14XConditionLockED2Ev.exit, label %.lr.ph, !llvm.loop !15
 
 _ZN7XLockerI14XConditionLockED2Ev.exit:           ; preds = %.lr.ph, %4
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(88) %5) #7
@@ -466,7 +466,7 @@ _ZNK5XPage16object_max_countEv.exit:              ; preds = %22, %_ZNK5XPage22ob
   %storemerge10 = add nuw i64 %storemerge1035, 1
   %55 = load i64, ptr %9, align 8
   %56 = icmp ult i64 %storemerge10, %55
-  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %56, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %54, %.preheader
   %57 = lshr i64 %20, 1
@@ -589,7 +589,7 @@ _ZNK5XPage16object_alignmentEv.exit:              ; preds = %_ZNK5XPage16object_
   %.1 = phi i32 [ %.038, %._crit_edge43 ], [ %130, %_ZNK5XPage16object_alignmentEv.exit ]
   %132 = load i64, ptr %9, align 8
   %133 = icmp ult i64 %.pre-phi, %132
-  br i1 %133, label %18, label %._crit_edge40.loopexit, !llvm.loop !16
+  br i1 %133, label %18, label %._crit_edge40.loopexit, !llvm.loop !17
 
 ._crit_edge40.loopexit:                           ; preds = %131
   %.pre = load ptr, ptr %7, align 8
@@ -744,12 +744,13 @@ attributes #8 = { noreturn nounwind }
 !5 = !{i32 7, !"frame-pointer", i32 2}
 !6 = !{i64 2145392468}
 !7 = !{i64 2145411161}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}

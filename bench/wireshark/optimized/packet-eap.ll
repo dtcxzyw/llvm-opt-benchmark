@@ -1671,7 +1671,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 211:                                              ; preds = %208, %194
   %212 = add nsw i32 %105, -6
-  %213 = load i8, ptr %9, align 1, !range !8, !noundef !9
+  %213 = load i8, ptr %9, align 1, !range !9, !noundef !10
   %214 = trunc nuw i8 %213 to i1
   br i1 %214, label %215, label %219
 
@@ -1684,7 +1684,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 219:                                              ; preds = %215, %211
   %.0491 = phi i32 [ 10, %215 ], [ 6, %211 ]
   %.0487 = phi i32 [ %218, %215 ], [ %212, %211 ]
-  %220 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %220 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %221 = trunc nuw i8 %220 to i1
   br i1 %221, label %222, label %227
 
@@ -1698,7 +1698,7 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 227:                                              ; preds = %222, %219
   %.1492 = phi i32 [ %226, %222 ], [ %.0491, %219 ]
   %.1488 = phi i32 [ %225, %222 ], [ %.0487, %219 ]
-  %228 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %228 = load i8, ptr %10, align 1, !range !9, !noundef !10
   %229 = trunc nuw i8 %228 to i1
   br i1 %229, label %230, label %.thread529
 
@@ -1783,9 +1783,9 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %284
 
 275:                                              ; preds = %269
-  %276 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %276 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %277 = trunc nuw i8 %276 to i1
-  %278 = load i8, ptr %9, align 1, !range !8
+  %278 = load i8, ptr %9, align 1, !range !9
   %279 = trunc nuw i8 %278 to i1
   %or.cond23 = select i1 %277, i1 %279, i1 false
   br i1 %or.cond23, label %280, label %324
@@ -1817,9 +1817,9 @@ define internal i32 @dissect_eap(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.1481.ph = phi i32 [ 0, %289 ], [ %.0480.ph, %284 ]
   %.1479.ph = phi i32 [ %290, %289 ], [ %.0478.ph, %284 ]
   %292 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %293 = load i8, ptr %292, align 8, !range !8, !noundef !9
+  %293 = load i8, ptr %292, align 8, !range !9, !noundef !10
   store i8 1, ptr %292, align 8
-  %294 = load i8, ptr %8, align 1, !range !8, !noundef !9
+  %294 = load i8, ptr %8, align 1, !range !9, !noundef !10
   %295 = trunc nuw i8 %294 to i1
   %296 = call ptr @fragment_add_seq(ptr noundef nonnull @eap_tls_reassembly_table, ptr noundef %0, i32 noundef %.2493, ptr noundef %1, i32 noundef %.1479.ph, ptr noundef null, i32 noundef %.1481.ph, i32 noundef %.2489, i1 noundef zeroext %295, i32 noundef 0)
   %.not514 = icmp eq ptr %296, null
@@ -1904,7 +1904,7 @@ proto_item_set_generated.exit:                    ; preds = %320, %317, %314, %3
   br label %.sink.split
 
 333:                                              ; preds = %327
-  %334 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %334 = load i8, ptr %11, align 1, !range !9, !noundef !10
   %335 = trunc nuw i8 %334 to i1
   br i1 %335, label %336, label %.sink.split
 
@@ -2154,7 +2154,7 @@ dissect_eap_identity.exit.i:                      ; preds = %454, %450, %444
   %474 = sub nsw i32 %.095105.i, %404
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
   %475 = icmp sgt i32 %474, 1
-  br i1 %475, label %.lr.ph.i, label %dissect_eap_aka.exit
+  br i1 %475, label %.lr.ph.i, label %dissect_eap_aka.exit, !llvm.loop !11
 
 476:                                              ; preds = %158
   %477 = load i32, ptr @ett_eap_exp_attr, align 4
@@ -2193,7 +2193,7 @@ dissect_eap_identity.exit.i:                      ; preds = %454, %450, %444
   %492 = load i32, ptr @hf_eap_ikev2_flag_i, align 4
   %493 = call ptr @proto_tree_add_item_ret_boolean(ptr noundef %487, i32 noundef %492, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %18)
   %494 = add nsw i32 %105, -6
-  %495 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %495 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %496 = trunc nuw i8 %495 to i1
   br i1 %496, label %497, label %501
 
@@ -2211,9 +2211,9 @@ dissect_eap_identity.exit.i:                      ; preds = %454, %450, %444
 
 503:                                              ; preds = %501
   %504 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.3494)
-  %505 = load i8, ptr %17, align 1, !range !8, !noundef !9
+  %505 = load i8, ptr %17, align 1, !range !9, !noundef !10
   %506 = trunc nuw i8 %505 to i1
-  %507 = load i8, ptr %16, align 1, !range !8
+  %507 = load i8, ptr %16, align 1, !range !9
   %508 = trunc nuw i8 %507 to i1
   %or.cond25 = select i1 %506, i1 true, i1 %508
   br i1 %or.cond25, label %521, label %509
@@ -2224,7 +2224,7 @@ dissect_eap_identity.exit.i:                      ; preds = %454, %450, %444
   %511 = load ptr, ptr @isakmp_handle, align 8
   %512 = call i32 @call_dissector(ptr noundef %511, ptr noundef %510, ptr noundef %1, ptr noundef %109)
   %513 = sub i32 %.3490, %512
-  %514 = load i8, ptr %18, align 1, !range !8, !noundef !9
+  %514 = load i8, ptr %18, align 1, !range !9, !noundef !10
   %515 = trunc nuw i8 %514 to i1
   %516 = icmp sgt i32 %513, 0
   %or.cond27 = select i1 %515, i1 %516, i1 false
@@ -2628,7 +2628,7 @@ dissect_eap_identity.exit:                        ; preds = %31, %38, %42
   %65 = add i32 %17, %.083
   %66 = sub nsw i32 %.07282, %17
   %67 = icmp sgt i32 %66, 1
-  br i1 %67, label %.lr.ph, label %.thread
+  br i1 %67, label %.lr.ph, label %.thread, !llvm.loop !12
 
 .thread:                                          ; preds = %64, %.lr.ph, %8, %4
   ret void
@@ -2974,7 +2974,7 @@ dissect_eap_sake_attribute.exit.i:                ; preds = %36, %35, %24, %24
   %39 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %37, ptr noundef %1, i32 noundef %33, i32 noundef %38, i32 noundef 0)
   %40 = add i32 %33, %38
   %41 = icmp slt i32 %40, %16
-  br i1 %41, label %.lr.ph.i, label %dissect_eap_sake_attributes.exit, !llvm.loop !10
+  br i1 %41, label %.lr.ph.i, label %dissect_eap_sake_attributes.exit, !llvm.loop !13
 
 dissect_eap_sake_attributes.exit:                 ; preds = %dissect_eap_sake_attribute.exit.i, %.lr.ph.i, %15, %9, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
@@ -3236,7 +3236,7 @@ define internal fastcc void @dissect_eap_msauth_tlv(ptr noundef %0, ptr noundef 
 59:                                               ; preds = %57, %31, %27
   %.1 = phi i32 [ %58, %57 ], [ %30, %27 ], [ %49, %31 ]
   %60 = icmp slt i32 %.1, %3
-  br i1 %60, label %7, label %61
+  br i1 %60, label %7, label %61, !llvm.loop !14
 
 61:                                               ; preds = %59
   ret void
@@ -3295,7 +3295,7 @@ define internal fastcc noundef i32 @dissect_eap_gpsk_csuite_list(ptr noundef %0,
   %19 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %18, ptr noundef %1, i32 noundef %17, i32 noundef 2, i32 noundef 0)
   %.0 = add i32 %.0.in26, 8
   %20 = icmp slt i32 %.0, %11
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   %.0.lcssa = phi i32 [ %.025, %3 ], [ %.0, %.lr.ph ]
@@ -3326,9 +3326,13 @@ attributes #8 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i8 0, i8 2}
-!9 = !{}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i8 0, i8 2}
+!10 = !{}
+!11 = distinct !{!11, !8}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !8}
+!15 = distinct !{!15, !7, !8}

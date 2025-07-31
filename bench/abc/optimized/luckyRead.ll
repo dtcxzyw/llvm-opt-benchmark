@@ -76,7 +76,7 @@ define noalias noundef ptr @setTtStore(ptr noundef %0) local_unnamed_addr #2 {
 21:                                               ; preds = %18
   %22 = add nuw nsw i32 %.03854.i, 1
   %exitcond.not.i = icmp eq i32 %22, 32
-  br i1 %exitcond.not.i, label %.thread.i, label %18, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.thread.i, label %18, !llvm.loop !16
 
 23:                                               ; preds = %18
   %24 = add nsw i32 %.03854.i, -17
@@ -102,21 +102,21 @@ define noalias noundef ptr @setTtStore(ptr noundef %0) local_unnamed_addr #2 {
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.next63.i
   %31 = load i8, ptr %30, align 1, !tbaa !12
   %.not48.i = icmp eq i8 %31, 0
-  br i1 %.not48.i, label %Abc_TruthGetParams.exit, label %.lr.ph.i, !llvm.loop !16
+  br i1 %.not48.i, label %Abc_TruthGetParams.exit, label %.lr.ph.i, !llvm.loop !17
 
 Abc_TruthGetParams.exit:                          ; preds = %.lr.ph.i, %25, %1, %.thread.i
   %.016 = phi i32 [ 0, %1 ], [ 0, %.thread.i ], [ %.03854.i, %25 ], [ %.03854.i, %.lr.ph.i ]
   %.0 = phi i32 [ 0, %1 ], [ 0, %.thread.i ], [ 0, %25 ], [ %29, %.lr.ph.i ]
   %32 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #8
-  store i32 %.016, ptr %32, align 8, !tbaa !17
+  store i32 %.016, ptr %32, align 8, !tbaa !18
   %33 = icmp samesign ult i32 %.016, 7
   %34 = add nsw i32 %.016, -6
   %35 = shl nuw nsw i32 1, %34
   %36 = select i1 %33, i32 1, i32 %35
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 %36, ptr %37, align 4, !tbaa !18
+  store i32 %36, ptr %37, align 4, !tbaa !19
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 %.0, ptr %38, align 8, !tbaa !19
+  store i32 %.0, ptr %38, align 8, !tbaa !20
   %39 = sext i32 %.0 to i64
   %40 = shl nsw i64 %39, 3
   %41 = tail call noalias ptr @malloc(i64 noundef %40) #8
@@ -144,7 +144,7 @@ Abc_TruthGetParams.exit:                          ; preds = %.lr.ph.i, %25, %1, 
   store ptr %51, ptr %50, align 8, !tbaa !10
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i6, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %wide.trip.count.i
-  br i1 %exitcond.not.i8, label %Abc_TruthStoreAlloc.exit, label %49, !llvm.loop !20
+  br i1 %exitcond.not.i8, label %Abc_TruthStoreAlloc.exit, label %49, !llvm.loop !21
 
 Abc_TruthStoreAlloc.exit:                         ; preds = %49, %Abc_TruthGetParams.exit
   %52 = tail call fastcc ptr @Abc_FileRead(ptr noundef %0)
@@ -227,12 +227,12 @@ Abc_TruthReadHexDigit.exit.i.us.i:                ; preds = %82, %80, %77
   %88 = lshr i64 %indvars.iv.i.us.i, 4
   %89 = and i64 %88, 268435455
   %90 = getelementptr inbounds nuw i64, ptr %63, i64 %89
-  %91 = load i64, ptr %90, align 8, !tbaa !21
+  %91 = load i64, ptr %90, align 8, !tbaa !22
   %92 = or i64 %87, %91
-  store i64 %92, ptr %90, align 8, !tbaa !21
+  store i64 %92, ptr %90, align 8, !tbaa !22
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %59
-  br i1 %exitcond.not.i.us.i, label %Abc_TruthReadHex.exit.loopexit.us.preheader.i, label %.lr.ph.i.us.i, !llvm.loop !23
+  br i1 %exitcond.not.i.us.i, label %Abc_TruthReadHex.exit.loopexit.us.preheader.i, label %.lr.ph.i.us.i, !llvm.loop !24
 
 Abc_TruthReadHex.exit.loopexit.us.preheader.i:    ; preds = %Abc_TruthReadHexDigit.exit.i.us.i
   %sext29.i = shl i64 %.01216.us.i, 32
@@ -245,7 +245,7 @@ Abc_TruthReadHex.exit.loopexit.us.i:              ; preds = %Abc_TruthReadHex.ex
   %94 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv23.i
   %95 = load i8, ptr %94, align 1, !tbaa !12
   %.not14.us.i = icmp eq i8 %95, 10
-  br i1 %.not14.us.i, label %96, label %Abc_TruthReadHex.exit.loopexit.us.i, !llvm.loop !24
+  br i1 %.not14.us.i, label %96, label %Abc_TruthReadHex.exit.loopexit.us.i, !llvm.loop !25
 
 96:                                               ; preds = %Abc_TruthReadHex.exit.loopexit.us.i
   %sext30.i = shl i64 %indvars.iv.next24.i, 32
@@ -253,7 +253,7 @@ Abc_TruthReadHex.exit.loopexit.us.i:              ; preds = %Abc_TruthReadHex.ex
   %98 = getelementptr inbounds i8, ptr %52, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !12
   %.not.us.i = icmp eq i8 %99, 10
-  br i1 %.not.us.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !25
+  br i1 %.not.us.i, label %._crit_edge.loopexit.i, label %.lr.ph.split.us.i, !llvm.loop !26
 
 ._crit_edge.loopexit.i:                           ; preds = %96
   %100 = trunc nuw i64 %indvars.iv.next27.i to i32
@@ -261,7 +261,7 @@ Abc_TruthReadHex.exit.loopexit.us.i:              ; preds = %Abc_TruthReadHex.ex
 
 ._crit_edge.i13:                                  ; preds = %._crit_edge.loopexit.i, %.preheader.i9
   %.0.lcssa.i14 = phi i32 [ 0, %.preheader.i9 ], [ %100, %._crit_edge.loopexit.i ]
-  store i32 %.0.lcssa.i14, ptr %38, align 8, !tbaa !19
+  store i32 %.0.lcssa.i14, ptr %38, align 8, !tbaa !20
   br label %Abc_TruthStoreRead.exit
 
 Abc_TruthStoreRead.exit:                          ; preds = %Abc_TruthStoreAlloc.exit, %._crit_edge.i13
@@ -362,17 +362,18 @@ attributes #9 = { nounwind allocsize(0,1) }
 !10 = !{!11, !11, i64 0}
 !11 = !{!"p1 long", !9, i64 0}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = !{!4, !5, i64 0}
-!18 = !{!4, !5, i64 4}
-!19 = !{!4, !5, i64 8}
-!20 = distinct !{!20, !14}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"long", !6, i64 0}
-!23 = distinct !{!23, !14}
-!24 = distinct !{!24, !14}
-!25 = distinct !{!25, !14, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = !{!4, !5, i64 0}
+!19 = !{!4, !5, i64 4}
+!20 = !{!4, !5, i64 8}
+!21 = distinct !{!21, !14, !15}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"long", !6, i64 0}
+!24 = distinct !{!24, !14, !15}
+!25 = distinct !{!25, !14, !15}
+!26 = distinct !{!26, !14, !15, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}

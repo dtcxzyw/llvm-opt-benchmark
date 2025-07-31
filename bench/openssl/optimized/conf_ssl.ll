@@ -71,10 +71,10 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @conf_ssl_get_cmd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %0, i64 %1
-  %6 = load ptr, ptr %5, align 8, !tbaa !19
+  %6 = load ptr, ptr %5, align 8, !tbaa !20
   store ptr %6, ptr %2, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  %8 = load ptr, ptr %7, align 8, !tbaa !22
   store ptr %8, ptr %3, align 8, !tbaa !13
   ret void
 }
@@ -125,7 +125,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   %19 = trunc i64 %.05687 to i32
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %19) #7
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !22
+  %22 = load ptr, ptr %21, align 8, !tbaa !23
   %23 = tail call ptr @NCONF_get_section(ptr noundef %1, ptr noundef %22) #7
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef %23) #7
   %25 = icmp slt i32 %24, 1
@@ -138,14 +138,14 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 96, ptr noundef nonnull @__func__.ssl_module_init) #7
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !24
-  %32 = load ptr, ptr %27, align 8, !tbaa !22
+  %31 = load ptr, ptr %30, align 8, !tbaa !25
+  %32 = load ptr, ptr %27, align 8, !tbaa !23
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 14, i32 noundef %29, ptr noundef nonnull @.str.3, ptr noundef %31, ptr noundef %32) #7
   br label %.thread
 
 33:                                               ; preds = %.lr.ph88
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !24
+  %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 100) #7
   store ptr %36, ptr %18, align 8, !tbaa !8
   %37 = icmp eq ptr %36, null
@@ -170,7 +170,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
 47:                                               ; preds = %.lr.ph
   %48 = add nuw i64 %.05885, 1
   %exitcond.not = icmp eq i64 %48, %40
-  br i1 %exitcond.not, label %.thread66, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.thread66, label %.lr.ph, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %45, %47
   %.05885 = phi i64 [ %48, %47 ], [ 0, %45 ]
@@ -179,19 +179,19 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   %51 = load ptr, ptr %43, align 8, !tbaa !16
   %52 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %51, i64 %.05885
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !24
+  %54 = load ptr, ptr %53, align 8, !tbaa !25
   %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 46) #6
   %.not = icmp eq ptr %55, null
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   %.057 = select i1 %.not, ptr %54, ptr %56
   %57 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %.057, ptr noundef nonnull @.str.1, i32 noundef 119) #7
-  store ptr %57, ptr %52, align 8, !tbaa !19
+  store ptr %57, ptr %52, align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !22
+  %59 = load ptr, ptr %58, align 8, !tbaa !23
   %60 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %59, ptr noundef nonnull @.str.1, i32 noundef 120) #7
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %60, ptr %61, align 8, !tbaa !21
-  %62 = load ptr, ptr %52, align 8, !tbaa !19
+  store ptr %60, ptr %61, align 8, !tbaa !22
+  %62 = load ptr, ptr %52, align 8, !tbaa !20
   %63 = icmp ne ptr %62, null
   %64 = icmp ne ptr %60, null
   %or.cond.not = select i1 %63, i1 %64, i1 false
@@ -201,7 +201,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   %65 = add nuw i64 %.05687, 1
   %66 = load i64, ptr @ssl_names_count, align 8, !tbaa !15
   %67 = icmp ult i64 %65, %66
-  br i1 %67, label %.lr.ph88, label %.loopexit, !llvm.loop !26
+  br i1 %67, label %.lr.ph88, label %.loopexit, !llvm.loop !27
 
 .thread:                                          ; preds = %38, %33, %.lr.ph, %26, %7, %10
   tail call void @ssl_module_free(ptr poison)
@@ -242,16 +242,16 @@ define internal void @ssl_module_free(ptr readnone captures(none) %0) #4 {
   %.01112 = phi i64 [ 0, %.lr.ph ], [ %18, %11 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !16
   %13 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %12, i64 %.01112
-  %14 = load ptr, ptr %13, align 8, !tbaa !19
+  %14 = load ptr, ptr %13, align 8, !tbaa !20
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str.1, i32 noundef 51) #7
   %15 = load ptr, ptr %10, align 8, !tbaa !16
   %16 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %15, i64 %.01112, i32 1
-  %17 = load ptr, ptr %16, align 8, !tbaa !21
+  %17 = load ptr, ptr %16, align 8, !tbaa !22
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.1, i32 noundef 52) #7
   %18 = add nuw i64 %.01112, 1
   %19 = load i64, ptr %8, align 8, !tbaa !14
   %20 = icmp ult i64 %18, %19
-  br i1 %20, label %11, label %._crit_edge, !llvm.loop !27
+  br i1 %20, label %11, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph14
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -260,7 +260,7 @@ define internal void @ssl_module_free(ptr readnone captures(none) %0) #4 {
   %23 = add nuw i64 %.013, 1
   %24 = load i64, ptr @ssl_names_count, align 8, !tbaa !15
   %25 = icmp ult i64 %23, %24
-  br i1 %25, label %.lr.ph14, label %._crit_edge15.loopexit, !llvm.loop !28
+  br i1 %25, label %.lr.ph14, label %._crit_edge15.loopexit, !llvm.loop !29
 
 ._crit_edge15.loopexit:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr @ssl_names, align 8, !tbaa !3
@@ -328,15 +328,16 @@ attributes #7 = { nounwind }
 !14 = !{!9, !12, i64 16}
 !15 = !{!12, !12, i64 0}
 !16 = !{!9, !11, i64 8}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!20, !10, i64 0}
-!20 = !{!"ssl_conf_cmd_st", !10, i64 0, !10, i64 8}
-!21 = !{!20, !10, i64 8}
-!22 = !{!23, !10, i64 16}
-!23 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
-!24 = !{!23, !10, i64 8}
-!25 = distinct !{!25, !18}
-!26 = distinct !{!26, !18}
-!27 = distinct !{!27, !18}
-!28 = distinct !{!28, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !10, i64 0}
+!21 = !{!"ssl_conf_cmd_st", !10, i64 0, !10, i64 8}
+!22 = !{!21, !10, i64 8}
+!23 = !{!24, !10, i64 16}
+!24 = !{!"", !10, i64 0, !10, i64 8, !10, i64 16}
+!25 = !{!24, !10, i64 8}
+!26 = distinct !{!26, !18, !19}
+!27 = distinct !{!27, !18, !19}
+!28 = distinct !{!28, !18, !19}
+!29 = distinct !{!29, !18, !19}

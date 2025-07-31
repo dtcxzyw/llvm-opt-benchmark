@@ -404,7 +404,7 @@ pbl_reinit_state.exit:                            ; preds = %ProtobufLangParserA
   %73 = load ptr, ptr %4, align 8
   %74 = call i32 @g_queue_is_empty(ptr noundef %73)
   %.not = icmp eq i32 %74, 0
-  br i1 %.not, label %16, label %.loopexit, !llvm.loop !13
+  br i1 %.not, label %16, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %69, %.critedge, %1, %52, %49
   %.1 = phi i32 [ -1, %49 ], [ %51, %52 ], [ 0, %1 ], [ 0, %69 ], [ -2, %.critedge ]
@@ -549,7 +549,7 @@ define internal fastcc void @ProtobufLangParser(ptr noundef initializes((16, 24)
   %23 = getelementptr [64 x i8], ptr @yyFallback, i64 0, i64 %18
   %24 = load i8, ptr %23, align 1
   %.not17.not.i = icmp eq i8 %24, 0
-  br i1 %.not17.not.i, label %.thread.i, label %17
+  br i1 %.not17.not.i, label %.thread.i, label %17, !llvm.loop !15
 
 .thread.i:                                        ; preds = %22
   %25 = getelementptr [166 x i16], ptr @yy_default, i64 0, i64 %13
@@ -1498,7 +1498,7 @@ yyStackOverflow.exit:                             ; preds = %629, %618, %609, %6
   store i16 %655, ptr %656, align 8
   %657 = getelementptr i8, ptr %646, i64 18
   store i8 %644, ptr %657, align 2
-  br label %11
+  br label %11, !llvm.loop !16
 
 658:                                              ; preds = %yy_find_shift_action.exit
   %659 = icmp samesign ult i16 %.0.i, 529
@@ -1723,6 +1723,9 @@ attributes #13 = { nounwind willreturn memory(read) }
 !8 = distinct !{!8, !"vprintf.inline"}
 !9 = !{i8 0, i8 2}
 !10 = !{}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = distinct !{!15, !13}
+!16 = distinct !{!16, !13}

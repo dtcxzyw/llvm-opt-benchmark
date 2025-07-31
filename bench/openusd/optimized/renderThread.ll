@@ -632,7 +632,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %.loopexit.split-lp,
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit8
 
 _ZNSt11unique_lockISt5mutexED2Ev.exit8:           ; preds = %27, %30, %32
-  br i1 %switch, label %11, label %34
+  br i1 %switch, label %11, label %34, !llvm.loop !7
 
 34:                                               ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -887,7 +887,7 @@ define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN32p
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr i8, ptr %8, i64 %.unpack.i.i.i.i
   %10 = getelementptr i8, ptr %9, i64 -1
-  %11 = load ptr, ptr %10, align 8, !nosanitize !6
+  %11 = load ptr, ptr %10, align 8, !nosanitize !8
   br label %_ZNSt6thread8_InvokerISt5tupleIJMN32pxrInternal_v0_24__pxrReserved__14HdRenderThreadEFvvEPS3_EEEclEv.exit
 
 12:                                               ; preds = %1
@@ -947,6 +947,8 @@ attributes #19 = { builtin nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !6}
+!8 = !{}

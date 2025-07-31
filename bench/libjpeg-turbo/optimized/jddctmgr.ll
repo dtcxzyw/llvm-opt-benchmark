@@ -88,7 +88,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
   %.06283 = phi i32 [ 0, %.lr.ph ], [ %.163, %.loopexit ]
   %.06482 = phi ptr [ null, %.lr.ph ], [ %.165, %.loopexit ]
   %13 = getelementptr inbounds nuw i8, ptr %.06184, i64 36
-  %14 = load i32, ptr %13, align 4, !tbaa !50
+  %14 = load i32, ptr %13, align 4, !tbaa !51
   switch i32 %14, label %43 [
     i32 1, label %49
     i32 2, label %15
@@ -133,7 +133,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
   br label %49
 
 23:                                               ; preds = %12
-  %24 = load i32, ptr %9, align 8, !tbaa !51
+  %24 = load i32, ptr %9, align 8, !tbaa !52
   switch i32 %24, label %31 [
     i32 0, label %25
     i32 1, label %27
@@ -205,9 +205,9 @@ define internal void @start_pass(ptr noundef %0) #0 {
   %.165 = phi ptr [ %.06482, %43 ], [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_5x5, %20 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_7x7, %22 ], [ %.06482, %31 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %27 ], [ %jpeg_idct_float.jsimd_idct_float, %29 ], [ @jpeg_idct_9x9, %35 ], [ @jpeg_idct_10x10, %36 ], [ @jpeg_idct_11x11, %37 ], [ @jpeg_idct_12x12, %38 ], [ @jpeg_idct_13x13, %39 ], [ @jpeg_idct_14x14, %40 ], [ @jpeg_idct_15x15, %41 ], [ @jpeg_idct_16x16, %42 ], [ @jpeg_idct_1x1, %12 ]
   %.163 = phi i32 [ %.06283, %43 ], [ 0, %15 ], [ 0, %17 ], [ 0, %18 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ %.06283, %31 ], [ 0, %25 ], [ 1, %27 ], [ 2, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %42 ], [ 0, %12 ]
   %50 = getelementptr inbounds nuw [10 x ptr], ptr %10, i64 0, i64 %indvars.iv105
-  store ptr %.165, ptr %50, align 8, !tbaa !52
+  store ptr %.165, ptr %50, align 8, !tbaa !53
   %51 = getelementptr inbounds nuw i8, ptr %.06184, i64 48
-  %52 = load i32, ptr %51, align 8, !tbaa !53
+  %52 = load i32, ptr %51, align 8, !tbaa !54
   %.not73 = icmp eq i32 %52, 0
   br i1 %.not73, label %.loopexit, label %53
 
@@ -219,7 +219,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %.06184, i64 80
-  %59 = load ptr, ptr %58, align 8, !tbaa !54
+  %59 = load ptr, ptr %58, align 8, !tbaa !55
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.loopexit, label %61
 
@@ -236,36 +236,36 @@ define internal void @start_pass(ptr noundef %0) #0 {
 .preheader111:                                    ; preds = %61, %.preheader111
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.preheader111 ], [ 0, %61 ]
   %64 = getelementptr inbounds nuw [64 x i16], ptr %59, i64 0, i64 %indvars.iv101
-  %65 = load i16, ptr %64, align 2, !tbaa !55
+  %65 = load i16, ptr %64, align 2, !tbaa !56
   %66 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv101
-  store i16 %65, ptr %66, align 2, !tbaa !55
+  store i16 %65, ptr %66, align 2, !tbaa !56
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 64
-  br i1 %exitcond104.not, label %.loopexit, label %.preheader111, !llvm.loop !56
+  br i1 %exitcond104.not, label %.loopexit, label %.preheader111, !llvm.loop !57
 
 .preheader112:                                    ; preds = %61, %.preheader112
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader112 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw [64 x i16], ptr %59, i64 0, i64 %indvars.iv97
-  %68 = load i16, ptr %67, align 2, !tbaa !55
+  %68 = load i16, ptr %67, align 2, !tbaa !56
   %69 = zext i16 %68 to i32
   %70 = getelementptr inbounds nuw [64 x i16], ptr @start_pass.aanscales, i64 0, i64 %indvars.iv97
-  %71 = load i16, ptr %70, align 2, !tbaa !55
+  %71 = load i16, ptr %70, align 2, !tbaa !56
   %72 = sext i16 %71 to i32
   %73 = mul nsw i32 %72, %69
   %74 = add nsw i32 %73, 2048
   %75 = lshr i32 %74, 12
   %76 = trunc i32 %75 to i16
   %77 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv97
-  store i16 %76, ptr %77, align 2, !tbaa !55
+  store i16 %76, ptr %77, align 2, !tbaa !56
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 64
-  br i1 %exitcond100.not, label %.loopexit, label %.preheader112, !llvm.loop !57
+  br i1 %exitcond100.not, label %.loopexit, label %.preheader112, !llvm.loop !58
 
 .preheader:                                       ; preds = %61, %91
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %91 ], [ 0, %61 ]
   %.278 = phi i64 [ %indvars.iv.next89, %91 ], [ 0, %61 ]
   %78 = getelementptr inbounds nuw [8 x double], ptr @start_pass.aanscalefactor, i64 0, i64 %indvars.iv93
-  %79 = load double, ptr %78, align 8, !tbaa !58
+  %79 = load double, ptr %78, align 8, !tbaa !59
   %sext = shl i64 %.278, 32
   %80 = ashr exact i64 %sext, 32
   br label %81
@@ -274,24 +274,24 @@ define internal void @start_pass(ptr noundef %0) #0 {
   %indvars.iv88 = phi i64 [ %80, %.preheader ], [ %indvars.iv.next89, %81 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %81 ]
   %82 = getelementptr inbounds [64 x i16], ptr %59, i64 0, i64 %indvars.iv88
-  %83 = load i16, ptr %82, align 2, !tbaa !55
+  %83 = load i16, ptr %82, align 2, !tbaa !56
   %84 = uitofp i16 %83 to double
   %85 = fmul double %79, %84
   %86 = getelementptr inbounds nuw [8 x double], ptr @start_pass.aanscalefactor, i64 0, i64 %indvars.iv
-  %87 = load double, ptr %86, align 8, !tbaa !58
+  %87 = load double, ptr %86, align 8, !tbaa !59
   %88 = fmul double %85, %87
   %89 = fptrunc double %88 to float
   %90 = getelementptr inbounds float, ptr %63, i64 %indvars.iv88
-  store float %89, ptr %90, align 4, !tbaa !59
+  store float %89, ptr %90, align 4, !tbaa !60
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %91, label %81, !llvm.loop !61
+  br i1 %exitcond.not, label %91, label %81, !llvm.loop !62
 
 91:                                               ; preds = %81
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, 8
-  br i1 %exitcond96.not, label %.loopexit, label %.preheader, !llvm.loop !62
+  br i1 %exitcond96.not, label %.loopexit, label %.preheader, !llvm.loop !63
 
 default.unreachable108:                           ; preds = %61
   unreachable
@@ -302,7 +302,7 @@ default.unreachable108:                           ; preds = %61
   %93 = load i32, ptr %2, align 8, !tbaa !43
   %94 = sext i32 %93 to i64
   %95 = icmp slt i64 %indvars.iv.next106, %94
-  br i1 %95, label %12, label %._crit_edge, !llvm.loop !63
+  br i1 %95, label %12, label %._crit_edge, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %.loopexit, %1
   ret void
@@ -422,19 +422,20 @@ attributes #3 = { nounwind }
 !45 = !{!46, !6, i64 88}
 !46 = !{!"", !11, i64 0, !11, i64 4, !11, i64 8, !11, i64 12, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !11, i64 32, !11, i64 36, !11, i64 40, !11, i64 44, !11, i64 48, !11, i64 52, !11, i64 56, !11, i64 60, !11, i64 64, !11, i64 68, !11, i64 72, !6, i64 80, !6, i64 88}
 !47 = !{!11, !11, i64 0}
-!48 = distinct !{!48, !49}
+!48 = distinct !{!48, !49, !50}
 !49 = !{!"llvm.loop.mustprogress"}
-!50 = !{!46, !11, i64 36}
-!51 = !{!4, !11, i64 96}
-!52 = !{!6, !6, i64 0}
-!53 = !{!46, !11, i64 48}
-!54 = !{!46, !6, i64 80}
-!55 = !{!16, !16, i64 0}
-!56 = distinct !{!56, !49}
-!57 = distinct !{!57, !49}
-!58 = !{!13, !13, i64 0}
-!59 = !{!60, !60, i64 0}
-!60 = !{!"float", !7, i64 0}
-!61 = distinct !{!61, !49}
-!62 = distinct !{!62, !49}
-!63 = distinct !{!63, !49}
+!50 = !{!"llvm.loop.estimated_trip_count"}
+!51 = !{!46, !11, i64 36}
+!52 = !{!4, !11, i64 96}
+!53 = !{!6, !6, i64 0}
+!54 = !{!46, !11, i64 48}
+!55 = !{!46, !6, i64 80}
+!56 = !{!16, !16, i64 0}
+!57 = distinct !{!57, !49, !50}
+!58 = distinct !{!58, !49, !50}
+!59 = !{!13, !13, i64 0}
+!60 = !{!61, !61, i64 0}
+!61 = !{!"float", !7, i64 0}
+!62 = distinct !{!62, !49, !50}
+!63 = distinct !{!63, !49, !50}
+!64 = distinct !{!64, !49, !50}

@@ -327,7 +327,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %160, ptr %25, align 4, !tbaa !3
   %161 = load i32, ptr %21, align 4, !tbaa !3
   %.not390.not = icmp slt i32 %159, %161
-  br i1 %.not390.not, label %.lr.ph439, label %.loopexit433, !llvm.loop !11
+  br i1 %.not390.not, label %.lr.ph439, label %.loopexit433, !llvm.loop !12
 
 .loopexit433:                                     ; preds = %147, %.lr.ph439, %145, %156
   %162 = load double, ptr %10, align 8, !tbaa !7
@@ -452,7 +452,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 223:                                              ; preds = %196, %.thread422, %198
   %.406 = select i1 %.not, i8 66, i8 69
-  store i8 %.406, ptr %28, align 1, !tbaa !12
+  store i8 %.406, ptr %28, align 1, !tbaa !13
   %224 = load i32, ptr %3, align 4, !tbaa !3
   %225 = add nsw i32 %224, 1
   %226 = add nsw i32 %225, %224
@@ -534,7 +534,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.2 = select i1 %255, i32 %256, i32 %.1357445
   %.1 = select i1 %255, double %254, double %.0446
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph447, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph447, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph447
   %.not400 = icmp eq i32 %.2, 0
@@ -579,7 +579,7 @@ define void @dsyevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %276, ptr %25, align 4, !tbaa !3
   %277 = load i32, ptr %21, align 4, !tbaa !3
   %.not398.not = icmp slt i32 %275, %277
-  br i1 %.not398.not, label %.lr.ph456, label %.loopexit, !llvm.loop !14
+  br i1 %.not398.not, label %.lr.ph456, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %._crit_edge.thread, %246, %245
   store double %.1353, ptr %15, align 8, !tbaa !7
@@ -675,9 +675,10 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = !{!5, !5, i64 0}
-!13 = distinct !{!13, !10}
-!14 = distinct !{!14, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = !{!5, !5, i64 0}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !10, !11}

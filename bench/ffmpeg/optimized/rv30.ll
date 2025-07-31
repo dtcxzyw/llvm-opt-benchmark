@@ -399,7 +399,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %20, %.loopexit.i
   %64 = phi i1 [ true, %.preheader.preheader ], [ false, %.critedge ]
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ 1, %.critedge ]
   %.32748 = phi ptr [ %.12550, %.preheader.preheader ], [ %85, %.critedge ]
-  %65 = load i32, ptr %6, align 8, !tbaa !81
+  %65 = load i32, ptr %6, align 8, !tbaa !82
   %66 = sub nsw i32 0, %65
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds i8, ptr %.32748, i64 %67
@@ -425,19 +425,19 @@ get_interleaved_ue_golomb.exit:                   ; preds = %20, %.loopexit.i
 
 .critedge:                                        ; preds = %.preheader
   %85 = getelementptr inbounds nuw i8, ptr %.32748, i64 1
-  br i1 %64, label %.preheader, label %86, !llvm.loop !82
+  br i1 %64, label %.preheader, label %86, !llvm.loop !83
 
 86:                                               ; preds = %.critedge
-  br i1 %8, label %7, label %87, !llvm.loop !83
+  br i1 %8, label %7, label %87, !llvm.loop !84
 
 87:                                               ; preds = %86
   %88 = add nuw nsw i32 %.03051, 1
-  %89 = load i32, ptr %6, align 8, !tbaa !81
+  %89 = load i32, ptr %6, align 8, !tbaa !82
   %90 = sext i32 %89 to i64
   %91 = getelementptr i8, ptr %85, i64 %90
   %92 = getelementptr i8, ptr %91, i64 -4
   %exitcond.not = icmp eq i32 %88, 4
-  br i1 %exitcond.not, label %.critedge35, label %.preheader36, !llvm.loop !84
+  br i1 %exitcond.not, label %.critedge35, label %.preheader36, !llvm.loop !85
 
 .critedge35.sink.split:                           ; preds = %get_interleaved_ue_golomb.exit, %.preheader
   %.str.6.sink = phi ptr [ @.str.6, %.preheader ], [ @.str.5, %get_interleaved_ue_golomb.exit ]
@@ -541,7 +541,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %16, %.loopexit.i
 
 58:                                               ; preds = %get_interleaved_ue_golomb.exit
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %60 = load ptr, ptr %59, align 8, !tbaa !85
+  %60 = load ptr, ptr %59, align 8, !tbaa !86
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %60, i32 noundef 16, ptr noundef nonnull @.str.7) #6
   br label %77
 
@@ -551,7 +551,7 @@ get_interleaved_ue_golomb.exit:                   ; preds = %16, %.loopexit.i
 
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %65 = load ptr, ptr %64, align 8, !tbaa !85
+  %65 = load ptr, ptr %64, align 8, !tbaa !86
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %65, i32 noundef 16, ptr noundef nonnull @.str.8) #6
   %66 = add nsw i32 %.043.i, -6
   br label %67
@@ -559,19 +559,19 @@ get_interleaved_ue_golomb.exit:                   ; preds = %16, %.loopexit.i
 67:                                               ; preds = %63, %61
   %.0 = phi i32 [ %66, %63 ], [ %.043.i, %61 ]
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %69 = load i32, ptr %68, align 8, !tbaa !86
+  %69 = load i32, ptr %68, align 8, !tbaa !87
   %.not = icmp eq i32 %69, 3
   %70 = zext nneg i32 %.0 to i64
   br i1 %.not, label %74, label %71
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw [6 x i32], ptr @rv30_decode_mb_info.rv30_p_types, i64 0, i64 %70
-  %73 = load i32, ptr %72, align 4, !tbaa !87
+  %73 = load i32, ptr %72, align 4, !tbaa !88
   br label %77
 
 74:                                               ; preds = %67
   %75 = getelementptr inbounds nuw [6 x i32], ptr @rv30_decode_mb_info.rv30_b_types, i64 0, i64 %70
-  %76 = load i32, ptr %75, align 4, !tbaa !87
+  %76 = load i32, ptr %75, align 4, !tbaa !88
   br label %77
 
 77:                                               ; preds = %74, %71, %58
@@ -583,12 +583,12 @@ get_interleaved_ue_golomb.exit:                   ; preds = %16, %.loopexit.i
 define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i32 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 540
-  %5 = load i32, ptr %4, align 4, !tbaa !88
+  %5 = load i32, ptr %4, align 4, !tbaa !89
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge330
 
 .lr.ph:                                           ; preds = %2
-  %7 = load i32, ptr %3, align 4, !tbaa !89
+  %7 = load i32, ptr %3, align 4, !tbaa !90
   %8 = mul i32 %7, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 6664
@@ -600,9 +600,9 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
   %14 = phi i32 [ %5, %.lr.ph ], [ %26, %.thread ]
   %indvars.iv = phi i64 [ %12, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %.0182303 = phi i32 [ 0, %.lr.ph ], [ %27, %.thread ]
-  %15 = load ptr, ptr %9, align 8, !tbaa !90
+  %15 = load ptr, ptr %9, align 8, !tbaa !91
   %16 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv
-  %17 = load i32, ptr %16, align 4, !tbaa !87
+  %17 = load i32, ptr %16, align 4, !tbaa !88
   %18 = and i32 %17, 16777223
   %or.cond = icmp eq i32 %18, 0
   br i1 %or.cond, label %.thread, label %19
@@ -610,16 +610,16 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
 19:                                               ; preds = %13
   %20 = and i32 %17, 7
   %.not228 = icmp eq i32 %20, 0
-  %21 = load ptr, ptr %10, align 8, !tbaa !91
+  %21 = load ptr, ptr %10, align 8, !tbaa !92
   %22 = getelementptr inbounds i16, ptr %21, i64 %indvars.iv
-  store i16 -1, ptr %22, align 2, !tbaa !92
+  store i16 -1, ptr %22, align 2, !tbaa !93
   br i1 %.not228, label %.thread, label %23
 
 23:                                               ; preds = %19
-  %24 = load ptr, ptr %11, align 8, !tbaa !93
+  %24 = load ptr, ptr %11, align 8, !tbaa !94
   %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
   store i8 -1, ptr %25, align 1, !tbaa !61
-  %.pre = load i32, ptr %4, align 4, !tbaa !88
+  %.pre = load i32, ptr %4, align 4, !tbaa !89
   br label %.thread
 
 .thread:                                          ; preds = %13, %23, %19
@@ -627,14 +627,14 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
   %27 = add nuw nsw i32 %.0182303, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %28 = icmp slt i32 %27, %26
-  br i1 %28, label %13, label %._crit_edge, !llvm.loop !94
+  br i1 %28, label %13, label %._crit_edge, !llvm.loop !95
 
 ._crit_edge:                                      ; preds = %.thread
   %29 = icmp sgt i32 %26, 0
   br i1 %29, label %.lr.ph316, label %._crit_edge330
 
 .lr.ph316:                                        ; preds = %._crit_edge
-  %30 = load i32, ptr %3, align 4, !tbaa !89
+  %30 = load i32, ptr %3, align 4, !tbaa !90
   %31 = mul i32 %30, %1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1216
@@ -653,7 +653,7 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
   %indvars.iv343 = phi i64 [ 0, %.lr.ph316 ], [ %indvars.iv.next344, %197 ]
   %indvars.iv341 = phi i64 [ %42, %.lr.ph316 ], [ %indvars.iv.next342, %197 ]
   %.0201312 = phi i32 [ 0, %.lr.ph316 ], [ %.1202, %197 ]
-  %44 = load ptr, ptr %33, align 8, !tbaa !95
+  %44 = load ptr, ptr %33, align 8, !tbaa !96
   %45 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv341
   %46 = load i8, ptr %45, align 1, !tbaa !61
   %47 = sext i8 %46 to i64
@@ -686,10 +686,10 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
 
 64:                                               ; preds = %58, %123
   %indvars.iv332 = phi i64 [ 0, %58 ], [ %indvars.iv.next333, %123 ]
-  %65 = load ptr, ptr %32, align 8, !tbaa !96
+  %65 = load ptr, ptr %32, align 8, !tbaa !97
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %60
   %67 = add nuw nsw i64 %indvars.iv332, %40
-  %68 = load i64, ptr %35, align 8, !tbaa !97
+  %68 = load i64, ptr %35, align 8, !tbaa !98
   %69 = mul nsw i64 %68, %67
   %70 = getelementptr inbounds i8, ptr %66, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 %59
@@ -701,9 +701,9 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
   %.0185306 = phi i32 [ %61, %64 ], [ %121, %rv30_weak_loop_filter.exit ]
   %.0195305 = phi ptr [ %71, %64 ], [ %122, %rv30_weak_loop_filter.exit ]
   %75 = or disjoint i32 %.0185306, %72
-  %76 = load ptr, ptr %36, align 8, !tbaa !91
+  %76 = load ptr, ptr %36, align 8, !tbaa !92
   %77 = getelementptr inbounds i16, ptr %76, i64 %indvars.iv341
-  %78 = load i16, ptr %77, align 2, !tbaa !92
+  %78 = load i16, ptr %77, align 2, !tbaa !93
   %79 = zext i16 %78 to i32
   %80 = shl nuw nsw i32 1, %75
   %81 = and i32 %80, %79
@@ -716,7 +716,7 @@ define internal void @rv30_loop_filter(ptr noundef readonly captures(none) %0, i
 
 83:                                               ; preds = %82
   %84 = getelementptr i8, ptr %77, i64 -2
-  %85 = load i16, ptr %84, align 2, !tbaa !92
+  %85 = load i16, ptr %84, align 2, !tbaa !93
   %86 = zext i16 %85 to i32
   %87 = and i32 %73, %86
   %.not225.not = icmp eq i32 %87, 0
@@ -735,7 +735,7 @@ select.unfold:                                    ; preds = %83, %.critedge, %74
   br i1 %.not227, label %rv30_weak_loop_filter.exit, label %91
 
 91:                                               ; preds = %select.unfold
-  %92 = load i64, ptr %35, align 8, !tbaa !97
+  %92 = load i64, ptr %35, align 8, !tbaa !98
   %93 = sub nsw i32 0, %.0203
   %sext297 = shl i64 %92, 32
   %94 = ashr exact i64 %sext297, 32
@@ -776,23 +776,23 @@ select.unfold:                                    ; preds = %83, %.critedge, %74
   %119 = getelementptr inbounds i8, ptr %.030.i, i64 %94
   %120 = add nuw nsw i32 %.02629.i, 1
   %exitcond.not.i = icmp eq i32 %120, 4
-  br i1 %exitcond.not.i, label %rv30_weak_loop_filter.exit, label %95, !llvm.loop !98
+  br i1 %exitcond.not.i, label %rv30_weak_loop_filter.exit, label %95, !llvm.loop !99
 
 rv30_weak_loop_filter.exit:                       ; preds = %95, %.critedge, %83, %select.unfold
   %121 = add nuw nsw i32 %.0185306, 1
   %122 = getelementptr inbounds nuw i8, ptr %.0195305, i64 4
   %exitcond.not = icmp eq i32 %121, 4
-  br i1 %exitcond.not, label %123, label %74, !llvm.loop !99
+  br i1 %exitcond.not, label %123, label %74, !llvm.loop !100
 
 123:                                              ; preds = %rv30_weak_loop_filter.exit
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 4
   %124 = icmp samesign ult i64 %indvars.iv332, 12
-  br i1 %124, label %64, label %.preheader302, !llvm.loop !100
+  br i1 %124, label %64, label %.preheader302, !llvm.loop !101
 
 125:                                              ; preds = %.preheader302, %196
   %126 = phi i1 [ true, %.preheader302 ], [ false, %196 ]
   %indvars.iv338 = phi i64 [ 0, %.preheader302 ], [ 1, %196 ]
-  %127 = load ptr, ptr %37, align 8, !tbaa !93
+  %127 = load ptr, ptr %37, align 8, !tbaa !94
   %128 = getelementptr inbounds i8, ptr %127, i64 %indvars.iv341
   %129 = load i8, ptr %128, align 1, !tbaa !61
   %130 = zext i8 %129 to i32
@@ -819,10 +819,10 @@ rv30_weak_loop_filter.exit:                       ; preds = %95, %.critedge, %83
 142:                                              ; preds = %140, %rv30_weak_loop_filter.exit251.thread
   %143 = phi i1 [ true, %140 ], [ false, %rv30_weak_loop_filter.exit251.thread ]
   %indvars.iv335 = phi i64 [ 0, %140 ], [ 4, %rv30_weak_loop_filter.exit251.thread ]
-  %144 = load ptr, ptr %141, align 8, !tbaa !96
+  %144 = load ptr, ptr %141, align 8, !tbaa !97
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 %62
   %146 = or disjoint i64 %indvars.iv335, %41
-  %147 = load i64, ptr %39, align 8, !tbaa !101
+  %147 = load i64, ptr %39, align 8, !tbaa !102
   %148 = mul nsw i64 %147, %146
   %149 = getelementptr inbounds i8, ptr %145, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %63
@@ -862,7 +862,7 @@ select.unfold272:                                 ; preds = %160, %.critedge231,
   br i1 %.not222, label %rv30_weak_loop_filter.exit251, label %164
 
 164:                                              ; preds = %select.unfold272
-  %165 = load i64, ptr %39, align 8, !tbaa !101
+  %165 = load i64, ptr %39, align 8, !tbaa !102
   %166 = sub nsw i32 0, %.1204
   %sext296 = shl i64 %165, 32
   %167 = ashr exact i64 %sext296, 32
@@ -903,33 +903,33 @@ select.unfold272:                                 ; preds = %160, %.critedge231,
   %192 = getelementptr inbounds i8, ptr %.030.i244, i64 %167
   %193 = add nuw nsw i32 %.02629.i245, 1
   %exitcond.not.i250 = icmp eq i32 %193, 4
-  br i1 %exitcond.not.i250, label %rv30_weak_loop_filter.exit251, label %168, !llvm.loop !98
+  br i1 %exitcond.not.i250, label %rv30_weak_loop_filter.exit251, label %168, !llvm.loop !99
 
 rv30_weak_loop_filter.exit251:                    ; preds = %168, %160, %select.unfold272
   %194 = getelementptr inbounds nuw i8, ptr %.0197308, i64 4
   %195 = icmp eq i32 %.1186309, 0
-  br i1 %195, label %155, label %rv30_weak_loop_filter.exit251.thread, !llvm.loop !102
+  br i1 %195, label %155, label %rv30_weak_loop_filter.exit251.thread, !llvm.loop !103
 
 rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30_weak_loop_filter.exit251
-  br i1 %143, label %142, label %196, !llvm.loop !103
+  br i1 %143, label %142, label %196, !llvm.loop !104
 
 196:                                              ; preds = %rv30_weak_loop_filter.exit251.thread
-  br i1 %126, label %125, label %197, !llvm.loop !104
+  br i1 %126, label %125, label %197, !llvm.loop !105
 
 197:                                              ; preds = %196
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %indvars.iv.next342 = add nsw i64 %indvars.iv341, 1
-  %198 = load i32, ptr %4, align 4, !tbaa !88
+  %198 = load i32, ptr %4, align 4, !tbaa !89
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvars.iv.next344, %199
-  br i1 %200, label %43, label %._crit_edge317, !llvm.loop !105
+  br i1 %200, label %43, label %._crit_edge317, !llvm.loop !106
 
 ._crit_edge317:                                   ; preds = %197
   %201 = icmp sgt i32 %198, 0
   br i1 %201, label %.lr.ph329, label %._crit_edge330
 
 .lr.ph329:                                        ; preds = %._crit_edge317
-  %202 = load i32, ptr %3, align 4, !tbaa !89
+  %202 = load i32, ptr %3, align 4, !tbaa !90
   %203 = mul i32 %202, %1
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 1216
@@ -949,7 +949,7 @@ rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30
   %indvars.iv360 = phi i64 [ 0, %.lr.ph329 ], [ %indvars.iv.next361, %384 ]
   %indvars.iv358 = phi i64 [ %214, %.lr.ph329 ], [ %indvars.iv.next359, %384 ]
   %.0199325 = phi i32 [ 0, %.lr.ph329 ], [ %.1200, %384 ]
-  %216 = load ptr, ptr %205, align 8, !tbaa !95
+  %216 = load ptr, ptr %205, align 8, !tbaa !96
   %217 = getelementptr inbounds i8, ptr %216, i64 %indvars.iv358
   %218 = load i8, ptr %217, align 1, !tbaa !61
   %219 = sext i8 %218 to i64
@@ -959,7 +959,7 @@ rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30
   br i1 %.not, label %233, label %223
 
 223:                                              ; preds = %215
-  %224 = load i32, ptr %3, align 4, !tbaa !89
+  %224 = load i32, ptr %3, align 4, !tbaa !90
   %225 = sext i32 %224 to i64
   %226 = sub nsw i64 %indvars.iv358, %225
   %227 = getelementptr inbounds i8, ptr %216, i64 %226
@@ -982,10 +982,10 @@ rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30
 
 237:                                              ; preds = %233, %302
   %indvars.iv349 = phi i64 [ %234, %233 ], [ %indvars.iv.next350, %302 ]
-  %238 = load ptr, ptr %204, align 8, !tbaa !96
+  %238 = load ptr, ptr %204, align 8, !tbaa !97
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 %235
   %240 = add nuw nsw i64 %indvars.iv349, %212
-  %241 = load i64, ptr %207, align 8, !tbaa !97
+  %241 = load i64, ptr %207, align 8, !tbaa !98
   %242 = mul nsw i64 %241, %240
   %243 = getelementptr inbounds i8, ptr %239, i64 %242
   %.not213 = icmp eq i64 %indvars.iv349, 0
@@ -996,9 +996,9 @@ rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30
   %.2187319 = phi i32 [ 0, %237 ], [ %300, %rv30_weak_loop_filter.exit259 ]
   %.1196318 = phi ptr [ %243, %237 ], [ %301, %rv30_weak_loop_filter.exit259 ]
   %246 = or disjoint i32 %.2187319, %244
-  %247 = load ptr, ptr %208, align 8, !tbaa !91
+  %247 = load ptr, ptr %208, align 8, !tbaa !92
   %248 = getelementptr inbounds i16, ptr %247, i64 %indvars.iv358
-  %249 = load i16, ptr %248, align 2, !tbaa !92
+  %249 = load i16, ptr %248, align 2, !tbaa !93
   %250 = zext i16 %249 to i32
   %251 = shl nuw nsw i32 1, %246
   %252 = and i32 %251, %250
@@ -1009,11 +1009,11 @@ rv30_weak_loop_filter.exit251.thread:             ; preds = %.critedge231, %rv30
   br i1 %.not213, label %254, label %.critedge236
 
 254:                                              ; preds = %253
-  %255 = load i32, ptr %3, align 4, !tbaa !89
+  %255 = load i32, ptr %3, align 4, !tbaa !90
   %256 = sext i32 %255 to i64
   %257 = sub nsw i64 %indvars.iv358, %256
   %258 = getelementptr inbounds i16, ptr %247, i64 %257
-  %259 = load i16, ptr %258, align 2, !tbaa !92
+  %259 = load i16, ptr %258, align 2, !tbaa !93
   %260 = zext i16 %259 to i32
   %261 = shl nuw nsw i32 4096, %.2187319
   %262 = and i32 %261, %260
@@ -1033,7 +1033,7 @@ select.unfold278:                                 ; preds = %254, %.critedge236,
   br i1 %.not216, label %rv30_weak_loop_filter.exit259, label %266
 
 266:                                              ; preds = %select.unfold278
-  %267 = load i64, ptr %207, align 8, !tbaa !97
+  %267 = load i64, ptr %207, align 8, !tbaa !98
   %sext292 = mul i64 %267, -8589934592
   %268 = ashr exact i64 %sext292, 32
   %sext293 = shl i64 %267, 32
@@ -1080,23 +1080,23 @@ select.unfold278:                                 ; preds = %254, %.critedge236,
   %298 = getelementptr inbounds nuw i8, ptr %.030.i252, i64 1
   %299 = add nuw nsw i32 %.02629.i253, 1
   %exitcond.not.i258 = icmp eq i32 %299, 4
-  br i1 %exitcond.not.i258, label %rv30_weak_loop_filter.exit259, label %272, !llvm.loop !98
+  br i1 %exitcond.not.i258, label %rv30_weak_loop_filter.exit259, label %272, !llvm.loop !99
 
 rv30_weak_loop_filter.exit259:                    ; preds = %272, %.critedge236, %254, %select.unfold278
   %300 = add nuw nsw i32 %.2187319, 1
   %301 = getelementptr inbounds nuw i8, ptr %.1196318, i64 4
   %exitcond348.not = icmp eq i32 %300, 4
-  br i1 %exitcond348.not, label %302, label %245, !llvm.loop !106
+  br i1 %exitcond348.not, label %302, label %245, !llvm.loop !107
 
 302:                                              ; preds = %rv30_weak_loop_filter.exit259
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 4
   %303 = icmp samesign ult i64 %indvars.iv349, 12
-  br i1 %303, label %237, label %.preheader, !llvm.loop !107
+  br i1 %303, label %237, label %.preheader, !llvm.loop !108
 
 304:                                              ; preds = %.preheader, %.thread365
   %305 = phi i1 [ true, %.preheader ], [ false, %.thread365 ]
   %indvars.iv355 = phi i64 [ 0, %.preheader ], [ 1, %.thread365 ]
-  %306 = load ptr, ptr %209, align 8, !tbaa !93
+  %306 = load ptr, ptr %209, align 8, !tbaa !94
   %307 = getelementptr inbounds i8, ptr %306, i64 %indvars.iv358
   %308 = load i8, ptr %307, align 1, !tbaa !61
   %309 = zext i8 %308 to i32
@@ -1107,7 +1107,7 @@ rv30_weak_loop_filter.exit259:                    ; preds = %272, %.critedge236,
   br i1 %.not, label %322, label %313
 
 313:                                              ; preds = %304
-  %314 = load i32, ptr %3, align 4, !tbaa !89
+  %314 = load i32, ptr %3, align 4, !tbaa !90
   %315 = sext i32 %314 to i64
   %316 = sub nsw i64 %indvars.iv358, %315
   %317 = getelementptr inbounds i8, ptr %306, i64 %316
@@ -1125,10 +1125,10 @@ rv30_weak_loop_filter.exit259:                    ; preds = %272, %.critedge236,
 
 324:                                              ; preds = %322, %383
   %indvars.iv352 = phi i64 [ %234, %322 ], [ 4, %383 ]
-  %325 = load ptr, ptr %323, align 8, !tbaa !96
+  %325 = load ptr, ptr %323, align 8, !tbaa !97
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 %236
   %327 = add nuw nsw i64 %indvars.iv352, %213
-  %328 = load i64, ptr %211, align 8, !tbaa !101
+  %328 = load i64, ptr %211, align 8, !tbaa !102
   %329 = mul nsw i64 %328, %327
   %330 = getelementptr inbounds i8, ptr %326, i64 %329
   %331 = trunc nuw nsw i64 %indvars.iv352 to i32
@@ -1141,7 +1141,7 @@ rv30_weak_loop_filter.exit259:                    ; preds = %272, %.critedge236,
   %.3322 = phi i32 [ 0, %324 ], [ 1, %.backedge ]
   %.1198321 = phi ptr [ %330, %324 ], [ %.1198321.be, %.backedge ]
   %335 = or disjoint i32 %.3322, %332
-  %336 = load ptr, ptr %209, align 8, !tbaa !93
+  %336 = load ptr, ptr %209, align 8, !tbaa !94
   %337 = getelementptr inbounds i8, ptr %336, i64 %indvars.iv358
   %338 = load i8, ptr %337, align 1, !tbaa !61
   %339 = zext i8 %338 to i32
@@ -1172,7 +1172,7 @@ select.unfold284:                                 ; preds = %343, %.critedge240,
   br i1 %.not211, label %rv30_weak_loop_filter.exit267, label %349
 
 349:                                              ; preds = %select.unfold284
-  %350 = load i64, ptr %211, align 8, !tbaa !101
+  %350 = load i64, ptr %211, align 8, !tbaa !102
   %sext = mul i64 %350, -8589934592
   %351 = ashr exact i64 %sext, 32
   %sext290 = shl i64 %350, 32
@@ -1219,31 +1219,31 @@ select.unfold284:                                 ; preds = %343, %.critedge240,
   %381 = getelementptr inbounds nuw i8, ptr %.030.i260, i64 1
   %382 = add nuw nsw i32 %.02629.i261, 1
   %exitcond.not.i266 = icmp eq i32 %382, 4
-  br i1 %exitcond.not.i266, label %rv30_weak_loop_filter.exit267, label %355, !llvm.loop !98
+  br i1 %exitcond.not.i266, label %rv30_weak_loop_filter.exit267, label %355, !llvm.loop !99
 
 rv30_weak_loop_filter.exit267:                    ; preds = %355, %343, %select.unfold284
   br i1 %334, label %.backedge, label %383
 
 .backedge:                                        ; preds = %rv30_weak_loop_filter.exit267, %rv30_weak_loop_filter.exit267.thread
   %.1198321.be = getelementptr inbounds nuw i8, ptr %.1198321, i64 4
-  br label %333, !llvm.loop !108
+  br label %333, !llvm.loop !109
 
 rv30_weak_loop_filter.exit267.thread:             ; preds = %.critedge240
   br i1 %334, label %.backedge, label %.thread365
 
 383:                                              ; preds = %rv30_weak_loop_filter.exit267
-  br i1 %.not208, label %324, label %.thread365, !llvm.loop !109
+  br i1 %.not208, label %324, label %.thread365, !llvm.loop !110
 
 .thread365:                                       ; preds = %383, %rv30_weak_loop_filter.exit267.thread
-  br i1 %305, label %304, label %384, !llvm.loop !110
+  br i1 %305, label %304, label %384, !llvm.loop !111
 
 384:                                              ; preds = %.thread365
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360, 1
   %indvars.iv.next359 = add nsw i64 %indvars.iv358, 1
-  %385 = load i32, ptr %4, align 4, !tbaa !88
+  %385 = load i32, ptr %4, align 4, !tbaa !89
   %386 = sext i32 %385 to i64
   %387 = icmp slt i64 %indvars.iv.next361, %386
-  br i1 %387, label %215, label %._crit_edge330, !llvm.loop !111
+  br i1 %387, label %215, label %._crit_edge330, !llvm.loop !112
 
 ._crit_edge330:                                   ; preds = %384, %2, %._crit_edge, %._crit_edge317
   ret void
@@ -1357,36 +1357,37 @@ attributes #6 = { nounwind }
 !76 = !{!55, !10, i64 20}
 !77 = !{!55, !10, i64 24}
 !78 = !{!55, !10, i64 12}
-!79 = distinct !{!79, !80}
+!79 = distinct !{!79, !80, !81}
 !80 = !{!"llvm.loop.mustprogress"}
-!81 = !{!29, !10, i64 6008}
-!82 = distinct !{!82, !80}
-!83 = distinct !{!83, !80}
-!84 = distinct !{!84, !80}
-!85 = !{!30, !32, i64 472}
-!86 = !{!30, !10, i64 1480}
-!87 = !{!10, !10, i64 0}
-!88 = !{!30, !10, i64 540}
-!89 = !{!30, !10, i64 548}
-!90 = !{!30, !24, i64 1240}
-!91 = !{!29, !17, i64 6664}
-!92 = !{!46, !46, i64 0}
-!93 = !{!29, !14, i64 6656}
-!94 = distinct !{!94, !80}
-!95 = !{!30, !14, i64 1216}
-!96 = !{!14, !14, i64 0}
-!97 = !{!30, !13, i64 568}
-!98 = distinct !{!98, !80}
-!99 = distinct !{!99, !80}
-!100 = distinct !{!100, !80}
-!101 = !{!30, !13, i64 576}
-!102 = distinct !{!102, !80}
-!103 = distinct !{!103, !80}
-!104 = distinct !{!104, !80}
-!105 = distinct !{!105, !80}
-!106 = distinct !{!106, !80}
-!107 = distinct !{!107, !80}
-!108 = distinct !{!108, !80}
-!109 = distinct !{!109, !80}
-!110 = distinct !{!110, !80}
-!111 = distinct !{!111, !80}
+!81 = !{!"llvm.loop.estimated_trip_count"}
+!82 = !{!29, !10, i64 6008}
+!83 = distinct !{!83, !80, !81}
+!84 = distinct !{!84, !80, !81}
+!85 = distinct !{!85, !80, !81}
+!86 = !{!30, !32, i64 472}
+!87 = !{!30, !10, i64 1480}
+!88 = !{!10, !10, i64 0}
+!89 = !{!30, !10, i64 540}
+!90 = !{!30, !10, i64 548}
+!91 = !{!30, !24, i64 1240}
+!92 = !{!29, !17, i64 6664}
+!93 = !{!46, !46, i64 0}
+!94 = !{!29, !14, i64 6656}
+!95 = distinct !{!95, !80, !81}
+!96 = !{!30, !14, i64 1216}
+!97 = !{!14, !14, i64 0}
+!98 = !{!30, !13, i64 568}
+!99 = distinct !{!99, !80, !81}
+!100 = distinct !{!100, !80, !81}
+!101 = distinct !{!101, !80, !81}
+!102 = !{!30, !13, i64 576}
+!103 = distinct !{!103, !80, !81}
+!104 = distinct !{!104, !80, !81}
+!105 = distinct !{!105, !80, !81}
+!106 = distinct !{!106, !80, !81}
+!107 = distinct !{!107, !80, !81}
+!108 = distinct !{!108, !80, !81}
+!109 = distinct !{!109, !80, !81}
+!110 = distinct !{!110, !80, !81}
+!111 = distinct !{!111, !80, !81}
+!112 = distinct !{!112, !80, !81}

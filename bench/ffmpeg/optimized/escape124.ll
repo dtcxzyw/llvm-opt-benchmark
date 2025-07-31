@@ -275,7 +275,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond27.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count.i
-  br i1 %exitcond27.not.i, label %.thread314.loopexit, label %105, !llvm.loop !42
+  br i1 %exitcond27.not.i, label %.thread314.loopexit, label %105, !llvm.loop !43
 
 .thread314.loopexit:                              ; preds = %142
   %145 = shl nuw nsw i64 %wide.trip.count.i, 32
@@ -287,7 +287,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %146 = zext nneg i32 %.0137 to i64
   %147 = or disjoint i64 %.pre-phi.i, %146
   store i64 %147, ptr %94, align 8
-  store ptr %104, ptr %95, align 8, !tbaa !43
+  store ptr %104, ptr %95, align 8, !tbaa !44
   br label %149
 
 148:                                              ; preds = %101
@@ -298,7 +298,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %.sroa.20.3 = phi i32 [ %.sroa.20.0351, %51 ], [ %.sroa.20.15, %.thread314 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %150, label %51, !llvm.loop !45
+  br i1 %exitcond.not, label %150, label %51, !llvm.loop !46
 
 150:                                              ; preds = %149
   %151 = tail call i32 @ff_get_buffer(ptr noundef %0, ptr noundef %1, i32 noundef 1) #7
@@ -420,7 +420,7 @@ decode_skip_count.exit.thread:                    ; preds = %174, %196, %185, %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %219, ptr noundef nonnull readonly align 2 dereferenceable(16) %221, i64 16, i1 false)
   %indvars.iv.next.i176 = add nuw nsw i64 %indvars.iv.i175, 1
   %exitcond.not.i177 = icmp eq i64 %indvars.iv.next.i176, 8
-  br i1 %exitcond.not.i177, label %copy_superblock.exit, label %.preheader14.i, !llvm.loop !46
+  br i1 %exitcond.not.i177, label %copy_superblock.exit, label %.preheader14.i, !llvm.loop !47
 
 .preheader.i178:                                  ; preds = %decode_skip_count.exit.thread, %.preheader.i178
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %.preheader.i178 ], [ 0, %decode_skip_count.exit.thread ]
@@ -429,7 +429,7 @@ decode_skip_count.exit.thread:                    ; preds = %174, %196, %185, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %223, i8 0, i64 16, i1 false)
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond23.not.i = icmp eq i64 %indvars.iv.next21.i, 8
-  br i1 %exitcond23.not.i, label %copy_superblock.exit, label %.preheader.i178, !llvm.loop !47
+  br i1 %exitcond23.not.i, label %copy_superblock.exit, label %.preheader.i178, !llvm.loop !48
 
 decode_skip_count.exit.thread327:                 ; preds = %174, %176
   %.sroa.20.5331 = phi i32 [ %spec.select.i.i, %176 ], [ %.sroa.20.4377, %174 ]
@@ -449,7 +449,7 @@ decode_skip_count.exit.thread327:                 ; preds = %174, %176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %224, ptr noundef nonnull readonly align 2 dereferenceable(16) %226, i64 16, i1 false)
   %indvars.iv.next.i182 = add nuw nsw i64 %indvars.iv.i181, 1
   %exitcond.not.i183 = icmp eq i64 %indvars.iv.next.i182, 8
-  br i1 %exitcond.not.i183, label %copy_superblock.exit188, label %.preheader14.i180, !llvm.loop !46
+  br i1 %exitcond.not.i183, label %copy_superblock.exit188, label %.preheader14.i180, !llvm.loop !47
 
 copy_superblock.exit188:                          ; preds = %.preheader14.i180, %.preheader.i184.preheader
   %227 = icmp sgt i32 %.018.i.i, %.sroa.20.5331
@@ -460,7 +460,7 @@ copy_superblock.exit188:                          ; preds = %.preheader14.i180, 
   %229 = tail call i32 @llvm.umin.i32(i32 %19, i32 %228)
   %230 = or i32 %304, %.0127356
   %231 = icmp sgt i32 %.018.i.i, %229
-  br i1 %231, label %.lr.ph, label %.critedge, !llvm.loop !48
+  br i1 %231, label %.lr.ph, label %.critedge, !llvm.loop !49
 
 .lr.ph:                                           ; preds = %copy_superblock.exit188, %.loopexit
   %.0127356 = phi i32 [ %230, %.loopexit ], [ 0, %copy_superblock.exit188 ]
@@ -518,7 +518,7 @@ copy_superblock.exit188:                          ; preds = %.preheader14.i180, 
   %.7 = phi i32 [ %267, %251 ], [ %.2309355, %240 ]
   %268 = sext i32 %.7 to i64
   %269 = getelementptr inbounds [3 x %struct.CodeBook], ptr %43, i64 0, i64 %268
-  %270 = load i32, ptr %269, align 8, !tbaa !49
+  %270 = load i32, ptr %269, align 8, !tbaa !50
   %.not.i.i = icmp eq i32 %270, 0
   br i1 %.not.i.i, label %get_bitsz.exit.i, label %271
 
@@ -543,7 +543,7 @@ get_bitsz.exit.i:                                 ; preds = %271, %._crit_edge.i
   br i1 %284, label %285, label %289
 
 285:                                              ; preds = %get_bitsz.exit.i
-  %286 = load i32, ptr %166, align 8, !tbaa !49
+  %286 = load i32, ptr %166, align 8, !tbaa !50
   %287 = shl i32 %.0122384, %286
   %288 = add i32 %287, %283
   br label %289
@@ -551,13 +551,13 @@ get_bitsz.exit.i:                                 ; preds = %271, %._crit_edge.i
 289:                                              ; preds = %285, %get_bitsz.exit.i
   %.0.i192 = phi i32 [ %288, %285 ], [ %283, %get_bitsz.exit.i ]
   %290 = getelementptr inbounds nuw i8, ptr %269, i64 4
-  %291 = load i32, ptr %290, align 4, !tbaa !51
+  %291 = load i32, ptr %290, align 4, !tbaa !52
   %.not22.i193 = icmp ult i32 %.0.i192, %291
   br i1 %.not22.i193, label %292, label %decode_macroblock.exit
 
 292:                                              ; preds = %289
   %293 = getelementptr inbounds nuw i8, ptr %269, i64 8
-  %294 = load ptr, ptr %293, align 8, !tbaa !52
+  %294 = load ptr, ptr %293, align 8, !tbaa !53
   %.not23.i = icmp eq ptr %294, null
   br i1 %.not23.i, label %decode_macroblock.exit, label %295
 
@@ -583,7 +583,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
 305:                                              ; preds = %decode_macroblock.exit, %315
   %indvars.iv401 = phi i64 [ 0, %decode_macroblock.exit ], [ %indvars.iv.next402, %315 ]
   %306 = getelementptr inbounds nuw [16 x i16], ptr @mask_matrix, i64 0, i64 %indvars.iv401
-  %307 = load i16, ptr %306, align 2, !tbaa !53
+  %307 = load i16, ptr %306, align 2, !tbaa !54
   %308 = zext i16 %307 to i32
   %309 = and i32 %304, %308
   %.not155 = icmp eq i32 %309, 0
@@ -601,7 +601,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
 315:                                              ; preds = %305, %310
   %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401, 1
   %exitcond404.not = icmp eq i64 %indvars.iv.next402, 16
-  br i1 %exitcond404.not, label %.loopexit, label %305, !llvm.loop !55
+  br i1 %exitcond404.not, label %.loopexit, label %305, !llvm.loop !56
 
 .critedge:                                        ; preds = %.lr.ph, %.loopexit, %copy_superblock.exit188
   %.2309.lcssa = phi i32 [ %.0307378, %copy_superblock.exit188 ], [ %.7, %.loopexit ], [ %.2309355, %.lr.ph ]
@@ -661,14 +661,14 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   %.2129 = xor i32 %350, %.1128372
   %351 = add nuw nsw i32 %.2120373, 1
   %exitcond405.not = icmp eq i32 %351, 4
-  br i1 %exitcond405.not, label %.preheader, label %335, !llvm.loop !56
+  br i1 %exitcond405.not, label %.preheader, label %335, !llvm.loop !57
 
 .preheader:                                       ; preds = %348, %419
   %indvars.iv406 = phi i64 [ %indvars.iv.next407, %419 ], [ 0, %348 ]
   %.3310375 = phi i32 [ %.4, %419 ], [ %.2309.lcssa, %348 ]
   %.sroa.20.11374 = phi i32 [ %.sroa.20.12, %419 ], [ %.sroa.20.10, %348 ]
   %352 = getelementptr inbounds nuw [16 x i16], ptr @mask_matrix, i64 0, i64 %indvars.iv406
-  %353 = load i16, ptr %352, align 2, !tbaa !53
+  %353 = load i16, ptr %352, align 2, !tbaa !54
   %354 = zext i16 %353 to i32
   %355 = and i32 %.2129, %354
   %.not151 = icmp eq i32 %355, 0
@@ -714,7 +714,7 @@ decode_macroblock.exit:                           ; preds = %289, %292, %295
   %.8 = phi i32 [ %383, %367 ], [ %.3310375, %356 ]
   %384 = sext i32 %.8 to i64
   %385 = getelementptr inbounds [3 x %struct.CodeBook], ptr %43, i64 0, i64 %384
-  %386 = load i32, ptr %385, align 8, !tbaa !49
+  %386 = load i32, ptr %385, align 8, !tbaa !50
   %.not.i.i199 = icmp eq i32 %386, 0
   br i1 %.not.i.i199, label %get_bitsz.exit.i201, label %387
 
@@ -739,7 +739,7 @@ get_bitsz.exit.i201:                              ; preds = %387, %._crit_edge.i
   br i1 %400, label %401, label %405
 
 401:                                              ; preds = %get_bitsz.exit.i201
-  %402 = load i32, ptr %166, align 8, !tbaa !49
+  %402 = load i32, ptr %166, align 8, !tbaa !50
   %403 = shl i32 %.0122384, %402
   %404 = add i32 %403, %399
   br label %405
@@ -747,13 +747,13 @@ get_bitsz.exit.i201:                              ; preds = %387, %._crit_edge.i
 405:                                              ; preds = %401, %get_bitsz.exit.i201
   %.0.i202 = phi i32 [ %404, %401 ], [ %399, %get_bitsz.exit.i201 ]
   %406 = getelementptr inbounds nuw i8, ptr %385, i64 4
-  %407 = load i32, ptr %406, align 4, !tbaa !51
+  %407 = load i32, ptr %406, align 4, !tbaa !52
   %.not22.i203 = icmp ult i32 %.0.i202, %407
   br i1 %.not22.i203, label %408, label %decode_macroblock.exit208
 
 408:                                              ; preds = %405
   %409 = getelementptr inbounds nuw i8, ptr %385, i64 8
-  %410 = load ptr, ptr %409, align 8, !tbaa !52
+  %410 = load ptr, ptr %409, align 8, !tbaa !53
   %.not23.i205 = icmp eq ptr %410, null
   br i1 %.not23.i205, label %decode_macroblock.exit208, label %411
 
@@ -781,7 +781,7 @@ decode_macroblock.exit208:                        ; preds = %405, %408, %411
   %.4 = phi i32 [ %.3310375, %.preheader ], [ %.8, %decode_macroblock.exit208 ]
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond409.not = icmp eq i64 %indvars.iv.next407, 16
-  br i1 %exitcond409.not, label %.critedge2, label %.preheader, !llvm.loop !57
+  br i1 %exitcond409.not, label %.critedge2, label %.preheader, !llvm.loop !58
 
 420:                                              ; preds = %.critedge
   %421 = icmp sgt i32 %.018.i.i, %spec.select.i195
@@ -843,7 +843,7 @@ decode_macroblock.exit208:                        ; preds = %405, %408, %411
   %.9 = phi i32 [ %457, %441 ], [ %.6364, %430 ]
   %458 = sext i32 %.9 to i64
   %459 = getelementptr inbounds [3 x %struct.CodeBook], ptr %43, i64 0, i64 %458
-  %460 = load i32, ptr %459, align 8, !tbaa !49
+  %460 = load i32, ptr %459, align 8, !tbaa !50
   %.not.i.i216 = icmp eq i32 %460, 0
   br i1 %.not.i.i216, label %get_bitsz.exit.i218, label %461
 
@@ -868,7 +868,7 @@ get_bitsz.exit.i218:                              ; preds = %461, %._crit_edge.i
   br i1 %474, label %475, label %479
 
 475:                                              ; preds = %get_bitsz.exit.i218
-  %476 = load i32, ptr %166, align 8, !tbaa !49
+  %476 = load i32, ptr %166, align 8, !tbaa !50
   %477 = shl i32 %.0122384, %476
   %478 = add i32 %477, %473
   br label %479
@@ -876,13 +876,13 @@ get_bitsz.exit.i218:                              ; preds = %461, %._crit_edge.i
 479:                                              ; preds = %475, %get_bitsz.exit.i218
   %.0.i219 = phi i32 [ %478, %475 ], [ %473, %get_bitsz.exit.i218 ]
   %480 = getelementptr inbounds nuw i8, ptr %459, i64 4
-  %481 = load i32, ptr %480, align 4, !tbaa !51
+  %481 = load i32, ptr %480, align 4, !tbaa !52
   %.not22.i220 = icmp ult i32 %.0.i219, %481
   br i1 %.not22.i220, label %482, label %decode_macroblock.exit225
 
 482:                                              ; preds = %479
   %483 = getelementptr inbounds nuw i8, ptr %459, i64 8
-  %484 = load ptr, ptr %483, align 8, !tbaa !52
+  %484 = load ptr, ptr %483, align 8, !tbaa !53
   %.not23.i222 = icmp eq ptr %484, null
   br i1 %.not23.i222, label %decode_macroblock.exit225, label %485
 
@@ -915,7 +915,7 @@ decode_macroblock.exit225:                        ; preds = %479, %482, %485
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 16
   store i32 %.sroa.2.0.extract.trunc.i228, ptr %503, align 4, !tbaa !39
   %504 = icmp sgt i32 %.018.i.i, %497
-  br i1 %504, label %.lr.ph365, label %.critedge2, !llvm.loop !58
+  br i1 %504, label %.lr.ph365, label %.critedge2, !llvm.loop !59
 
 .critedge2:                                       ; preds = %.lr.ph365, %decode_macroblock.exit225, %419, %420
   %.sroa.20.13 = phi i32 [ %spec.select.i195, %420 ], [ %.sroa.20.12, %419 ], [ %spec.select.i212, %.lr.ph365 ], [ %497, %decode_macroblock.exit225 ]
@@ -931,7 +931,7 @@ decode_macroblock.exit225:                        ; preds = %479, %482, %485
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %506, ptr noundef nonnull readonly align 4 dereferenceable(16) %507, i64 16, i1 false)
   %indvars.iv.next.i232 = add nuw nsw i64 %indvars.iv.i231, 1
   %exitcond.not.i233 = icmp eq i64 %indvars.iv.next.i232, 8
-  br i1 %exitcond.not.i233, label %copy_superblock.exit, label %.preheader14.i230, !llvm.loop !46
+  br i1 %exitcond.not.i233, label %copy_superblock.exit, label %.preheader14.i230, !llvm.loop !47
 
 copy_superblock.exit:                             ; preds = %.preheader14.i230, %.preheader14.i, %.preheader.i178
   %.1126325 = phi i32 [ %.1126326, %.preheader.i178 ], [ %.1126326, %.preheader14.i ], [ 0, %.preheader14.i230 ]
@@ -954,7 +954,7 @@ copy_superblock.exit:                             ; preds = %.preheader14.i230, 
   %514 = add nuw i32 %.0122384, 1
   %515 = load i32, ptr %22, align 8, !tbaa !30
   %516 = icmp ult i32 %514, %515
-  br i1 %516, label %174, label %._crit_edge, !llvm.loop !59
+  br i1 %516, label %174, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %copy_superblock.exit, %153
   %.sroa.20.4.lcssa = phi i32 [ %.sroa.20.3, %153 ], [ %.sroa.20.6, %copy_superblock.exit ]
@@ -988,7 +988,7 @@ define internal noundef i32 @escape124_decode_close(ptr noundef readonly capture
   tail call void @av_freep(ptr noundef nonnull %gep) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %6, label %4, !llvm.loop !60
+  br i1 %exitcond.not, label %6, label %4, !llvm.loop !61
 
 6:                                                ; preds = %4
   tail call void @av_frame_free(ptr noundef nonnull %3) #7
@@ -1080,24 +1080,25 @@ attributes #7 = { nounwind }
 !37 = !{!8, !8, i64 0}
 !38 = !{!14, !14, i64 0}
 !39 = !{!10, !10, i64 0}
-!40 = distinct !{!40, !41}
+!40 = distinct !{!40, !41, !42}
 !41 = !{!"llvm.loop.mustprogress"}
-!42 = distinct !{!42, !41}
-!43 = !{!44, !44, i64 0}
-!44 = !{!"p1 _ZTS10MacroBlock", !7, i64 0}
-!45 = distinct !{!45, !41}
-!46 = distinct !{!46, !41}
-!47 = distinct !{!47, !41}
-!48 = distinct !{!48, !41}
-!49 = !{!50, !10, i64 0}
-!50 = !{!"CodeBook", !10, i64 0, !10, i64 4, !44, i64 8}
-!51 = !{!50, !10, i64 4}
-!52 = !{!50, !44, i64 8}
-!53 = !{!54, !54, i64 0}
-!54 = !{!"short", !8, i64 0}
-!55 = distinct !{!55, !41}
-!56 = distinct !{!56, !41}
-!57 = distinct !{!57, !41}
-!58 = distinct !{!58, !41}
-!59 = distinct !{!59, !41}
-!60 = distinct !{!60, !41}
+!42 = !{!"llvm.loop.estimated_trip_count"}
+!43 = distinct !{!43, !41, !42}
+!44 = !{!45, !45, i64 0}
+!45 = !{!"p1 _ZTS10MacroBlock", !7, i64 0}
+!46 = distinct !{!46, !41, !42}
+!47 = distinct !{!47, !41, !42}
+!48 = distinct !{!48, !41, !42}
+!49 = distinct !{!49, !41, !42}
+!50 = !{!51, !10, i64 0}
+!51 = !{!"CodeBook", !10, i64 0, !10, i64 4, !45, i64 8}
+!52 = !{!51, !10, i64 4}
+!53 = !{!51, !45, i64 8}
+!54 = !{!55, !55, i64 0}
+!55 = !{!"short", !8, i64 0}
+!56 = distinct !{!56, !41, !42}
+!57 = distinct !{!57, !41, !42}
+!58 = distinct !{!58, !41, !42}
+!59 = distinct !{!59, !41, !42}
+!60 = distinct !{!60, !41, !42}
+!61 = distinct !{!61, !41, !42}

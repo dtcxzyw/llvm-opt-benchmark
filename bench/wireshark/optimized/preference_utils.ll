@@ -361,7 +361,7 @@ define hidden noundef zeroext i1 @column_prefs_custom_display_strings(ptr nounde
   %20 = tail call i32 @g_strv_length(ptr noundef %2)
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %indvars.iv.next, %21
-  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %19, %10, %17, %1
   %.lcssa = phi i1 [ false, %1 ], [ true, %17 ], [ true, %10 ], [ false, %19 ]
@@ -421,7 +421,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @column_prefs_has_custom(pt
   %22 = add nuw nsw i32 %.012, 1
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 8), align 8
   %24 = icmp slt i32 %22, %23
-  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %24, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %21, %16, %1
   %.010 = phi i32 [ -1, %1 ], [ %.012, %16 ], [ -1, %21 ]
@@ -482,7 +482,7 @@ define hidden noundef zeroext i1 @column_prefs_custom_display_details(ptr nounde
   %15 = tail call i32 @g_strv_length(ptr noundef %2)
   %16 = zext i32 %15 to i64
   %17 = icmp samesign ult i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %14, %10, %1
   %.lcssa = phi i1 [ false, %1 ], [ true, %10 ], [ false, %14 ]
@@ -573,7 +573,7 @@ define hidden void @save_migrated_uat(ptr noundef %0, ptr noundef captures(none)
   br label %13
 
 9:                                                ; preds = %2
-  %10 = load i8, ptr %1, align 1, !range !11, !noundef !12
+  %10 = load i8, ptr %1, align 1, !range !12, !noundef !13
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %13
 
@@ -637,10 +637,11 @@ attributes #10 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}

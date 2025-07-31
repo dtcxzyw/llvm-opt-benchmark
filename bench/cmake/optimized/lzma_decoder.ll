@@ -102,7 +102,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
 .loopexit1610:                                    ; preds = %18, %..loopexit1610_crit_edge
   %25 = phi i64 [ %.pre, %..loopexit1610_crit_edge ], [ %23, %18 ]
   %.sroa.230.0.copyload = phi i32 [ %.sroa.230.0.copyload.pre, %..loopexit1610_crit_edge ], [ %22, %18 ]
-  %.sroa.0.0.copyload1459 = load ptr, ptr %1, align 8, !tbaa !37
+  %.sroa.0.0.copyload1459 = load ptr, ptr %1, align 8, !tbaa !38
   %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.17.0.copyload = load i64, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !32
   %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -112,7 +112,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %.sroa.74.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.sroa.74.0.copyload = load i64, ptr %.sroa.74.0..sroa_idx, align 8, !tbaa !32
   %.sroa.80.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.80.0.copyload = load i8, ptr %.sroa.80.0..sroa_idx, align 8, !tbaa !38
+  %.sroa.80.0.copyload = load i8, ptr %.sroa.80.0..sroa_idx, align 8, !tbaa !39
   %.sroa.0.0.copyload = load i32, ptr %6, align 4, !tbaa !31
   %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28272
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 %25
@@ -122,35 +122,35 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %29 = getelementptr inbounds i8, ptr %27, i64 -20
   %30 = select i1 %28, ptr %26, ptr %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28280
-  %32 = load i32, ptr %31, align 8, !tbaa !40
+  %32 = load i32, ptr %31, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 28284
-  %34 = load i32, ptr %33, align 4, !tbaa !45
+  %34 = load i32, ptr %33, align 4, !tbaa !46
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28288
-  %36 = load i32, ptr %35, align 8, !tbaa !46
+  %36 = load i32, ptr %35, align 8, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 28292
-  %38 = load i32, ptr %37, align 4, !tbaa !47
+  %38 = load i32, ptr %37, align 4, !tbaa !48
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 28296
-  %40 = load i32, ptr %39, align 8, !tbaa !48
+  %40 = load i32, ptr %39, align 8, !tbaa !49
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 28300
-  %42 = load i32, ptr %41, align 4, !tbaa !49
+  %42 = load i32, ptr %41, align 4, !tbaa !50
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 28328
-  %44 = load ptr, ptr %43, align 8, !tbaa !50
+  %44 = load ptr, ptr %43, align 8, !tbaa !51
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 28336
-  %46 = load i32, ptr %45, align 8, !tbaa !51
+  %46 = load i32, ptr %45, align 8, !tbaa !52
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 28340
-  %48 = load i32, ptr %47, align 4, !tbaa !52
+  %48 = load i32, ptr %47, align 4, !tbaa !53
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 28344
-  %50 = load i32, ptr %49, align 8, !tbaa !53
+  %50 = load i32, ptr %49, align 8, !tbaa !54
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 28348
-  %52 = load i32, ptr %51, align 4, !tbaa !54
+  %52 = load i32, ptr %51, align 4, !tbaa !55
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 28308
-  %54 = load i32, ptr %53, align 4, !tbaa !55
+  %54 = load i32, ptr %53, align 4, !tbaa !56
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 28304
-  %56 = load i32, ptr %55, align 8, !tbaa !56
+  %56 = load i32, ptr %55, align 8, !tbaa !57
   %57 = trunc i64 %.sroa.17.0.copyload to i32
   %58 = and i32 %42, %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 28312
-  %60 = load i64, ptr %59, align 8, !tbaa !57
+  %60 = load i64, ptr %59, align 8, !tbaa !58
   %61 = icmp eq i64 %60, -1
   %62 = sub i64 %.sroa.66.0.copyload, %.sroa.17.0.copyload
   %.not1408 = icmp ugt i64 %60, %62
@@ -158,7 +158,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %63 = add i64 %60, %.sroa.17.0.copyload
   %.sroa.66.0 = select i1 %or.cond1560, i64 %.sroa.66.0.copyload, i64 %63
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 28324
-  %65 = load i32, ptr %64, align 4, !tbaa !58
+  %65 = load i32, ptr %64, align 4, !tbaa !59
   switch i32 %65, label %.loopexit1575 [
     i32 0, label %.loopexit1574
     i32 1, label %.loopexit1574
@@ -214,7 +214,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %79 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %1022, i64 0, i64 %78
   %80 = zext i32 %67 to i64
   %81 = getelementptr inbounds nuw [16 x i16], ptr %79, i64 0, i64 %80
-  %82 = load i16, ptr %81, align 2, !tbaa !59
+  %82 = load i16, ptr %81, align 2, !tbaa !60
   %83 = zext i16 %82 to i32
   %84 = mul i32 %77, %83
   %85 = icmp ult i32 %.sroa.230.13, %84
@@ -225,7 +225,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
   %88 = lshr i32 %87, 5
   %89 = trunc i32 %88 to i16
   %90 = add i16 %82, %89
-  store i16 %90, ptr %81, align 2, !tbaa !59
+  store i16 %90, ptr %81, align 2, !tbaa !60
   %91 = shl i64 %.sroa.17.121833, 8
   %92 = getelementptr i8, ptr %.sroa.0.0.copyload1459, i64 %.sroa.17.121833
   %93 = getelementptr i8, ptr %92, i64 -1
@@ -241,7 +241,7 @@ define internal range(i32 0, 10) i32 @lzma_decode(ptr noundef %0, ptr noalias no
 
 101:                                              ; preds = %86
   %102 = tail call i32 @llvm.usub.sat.i32(i32 %.129871834, i32 3)
-  %103 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %99, i32 -1, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %84, i32 %.sroa.230.13, ptr %.13) #8, !srcloc !60
+  %103 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %99, i32 -1, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %84, i32 %.sroa.230.13, ptr %.13) #8, !srcloc !61
   %104 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %103, 0
   %105 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %103, 1
   %106 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %103, 6
@@ -259,7 +259,7 @@ dict_get.exit:                                    ; preds = %86
   %113 = load i8, ptr %112, align 1, !tbaa !33
   %114 = zext i8 %113 to i32
   %115 = shl nuw nsw i32 %114, 1
-  %116 = tail call { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } asm "add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,0,1,5,6,7,8,9,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %99, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %84, i32 %.sroa.230.13, i32 %115, i32 1, i32 %115, i32 256, ptr %.13) #8, !srcloc !61
+  %116 = tail call { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } asm "add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09xor\09$5, $8\0A\09add\09$7, $7\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09cmovae\09$5, $8\0A\09mov\09$7, $5\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09add\09$8, $6\0A\09and\09$8, $5\0A\09add\09$5, $6\0A\09movzwl\09($10, ${6:q}, 2), $4\0A\09add\09$6, $6\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$15, $2\0A\09and\09$$0x1FF, $6\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,0,1,5,6,7,8,9,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %99, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %84, i32 %.sroa.230.13, i32 %115, i32 1, i32 %115, i32 256, ptr %.13) #8, !srcloc !62
   %117 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } %116, 0
   %118 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } %116, 1
   %119 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } %116, 6
@@ -282,7 +282,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %126 = icmp uge ptr %.14, %30
   %127 = icmp eq i64 %122, %.sroa.66.0
   %128 = select i1 %126, i1 true, i1 %127
-  br i1 %128, label %.loopexit1574, label %.lr.ph, !prof !62
+  br i1 %128, label %.loopexit1574, label %.lr.ph, !prof !63, !llvm.loop !64
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %dict_put.exit
   %129 = phi i32 [ %473, %.lr.ph.lr.ph ], [ %125, %dict_put.exit ]
@@ -301,7 +301,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %132 = sub nuw i32 %.sroa.230.13, %84
   %133 = lshr i16 %82, 5
   %134 = sub i16 %82, %133
-  store i16 %134, ptr %81, align 2, !tbaa !59
+  store i16 %134, ptr %81, align 2, !tbaa !60
   %135 = icmp ult i32 %131, 16777216
   br i1 %135, label %136, label %143
 
@@ -320,7 +320,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.230.15 = phi i32 [ %142, %136 ], [ %132, %130 ]
   %144 = lshr i32 %.sroa.0.15, 11
   %145 = getelementptr inbounds nuw [12 x i16], ptr %1023, i64 0, i64 %78
-  %146 = load i16, ptr %145, align 2, !tbaa !59
+  %146 = load i16, ptr %145, align 2, !tbaa !60
   %147 = zext i16 %146 to i32
   %148 = mul i32 %144, %147
   %149 = icmp ult i32 %.sroa.230.15, %148
@@ -331,7 +331,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %152 = lshr i32 %151, 5
   %153 = trunc i32 %152 to i16
   %154 = add i16 %146, %153
-  store i16 %154, ptr %145, align 2, !tbaa !59
+  store i16 %154, ptr %145, align 2, !tbaa !60
   %155 = icmp ult i32 %.129871834, 7
   %156 = select i1 %155, i32 7, i32 10
   %157 = icmp ult i32 %148, 16777216
@@ -351,7 +351,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.0.16 = phi i32 [ %159, %158 ], [ %148, %150 ]
   %.sroa.230.16 = phi i32 [ %164, %158 ], [ %.sroa.230.15, %150 ]
   %166 = lshr i32 %.sroa.0.16, 11
-  %167 = load i16, ptr %1035, align 4, !tbaa !63
+  %167 = load i16, ptr %1035, align 4, !tbaa !65
   %168 = zext i16 %167 to i32
   %169 = mul i32 %166, %168
   %170 = icmp ult i32 %.sroa.230.16, %169
@@ -362,9 +362,9 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %173 = lshr i32 %172, 5
   %174 = trunc i32 %173 to i16
   %175 = add i16 %167, %174
-  store i16 %175, ptr %1035, align 4, !tbaa !63
+  store i16 %175, ptr %1035, align 4, !tbaa !65
   %176 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1039, i64 0, i64 %80
-  %177 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %176, i32 5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %169, i32 %.sroa.230.16, ptr %.16) #8, !srcloc !64
+  %177 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %176, i32 5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %169, i32 %.sroa.230.16, ptr %.16) #8, !srcloc !66
   br label %210
 
 178:                                              ; preds = %165
@@ -372,7 +372,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %180 = sub nuw i32 %.sroa.230.16, %169
   %181 = lshr i16 %167, 5
   %182 = sub i16 %167, %181
-  store i16 %182, ptr %1035, align 4, !tbaa !63
+  store i16 %182, ptr %1035, align 4, !tbaa !65
   %183 = icmp ult i32 %179, 16777216
   br i1 %183, label %184, label %191
 
@@ -390,7 +390,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.0.17 = phi i32 [ %185, %184 ], [ %179, %178 ]
   %.sroa.230.17 = phi i32 [ %190, %184 ], [ %180, %178 ]
   %192 = lshr i32 %.sroa.0.17, 11
-  %193 = load i16, ptr %1036, align 2, !tbaa !65
+  %193 = load i16, ptr %1036, align 2, !tbaa !67
   %194 = zext i16 %193 to i32
   %195 = mul i32 %192, %194
   %196 = icmp ult i32 %.sroa.230.17, %195
@@ -401,9 +401,9 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %199 = lshr i32 %198, 5
   %200 = trunc i32 %199 to i16
   %201 = add i16 %193, %200
-  store i16 %201, ptr %1036, align 2, !tbaa !65
+  store i16 %201, ptr %1036, align 2, !tbaa !67
   %202 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1038, i64 0, i64 %80
-  %203 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %202, i32 -3, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %195, i32 %.sroa.230.17, ptr %.17) #8, !srcloc !66
+  %203 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %202, i32 -3, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %195, i32 %.sroa.230.17, ptr %.17) #8, !srcloc !68
   br label %210
 
 204:                                              ; preds = %191
@@ -411,8 +411,8 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %206 = sub nuw i32 %.sroa.230.17, %195
   %207 = lshr i16 %193, 5
   %208 = sub i16 %193, %207
-  store i16 %208, ptr %1036, align 2, !tbaa !65
-  %209 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1037, i32 237, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %205, i32 %206, ptr %.17) #8, !srcloc !67
+  store i16 %208, ptr %1036, align 2, !tbaa !67
+  %209 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1037, i32 237, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %205, i32 %206, ptr %.17) #8, !srcloc !69
   br label %210
 
 210:                                              ; preds = %197, %204, %171
@@ -425,7 +425,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %212 = add nsw i32 %211, -2
   %213 = zext i32 %212 to i64
   %214 = getelementptr inbounds nuw [4 x [64 x i16]], ptr %1040, i64 0, i64 %213
-  %215 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %214, i32 63, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %.sroa.0.18, i32 %.sroa.230.18, ptr %.18) #8, !srcloc !68
+  %215 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %214, i32 63, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %.sroa.0.18, i32 %.sroa.230.18, ptr %.18) #8, !srcloc !70
   %216 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %215, 0
   %217 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %215, 1
   %218 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %215, 6
@@ -459,7 +459,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.20 = phi ptr [ %219, %226 ], [ %241, %235 ]
   %.sroa.0.20 = phi i32 [ %216, %226 ], [ %237, %235 ]
   %.sroa.230.20 = phi i32 [ %217, %226 ], [ %238, %235 ]
-  %236 = tail call { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\09($10, ${6:q}, 2), $4\0A\09mov\09$6, $5\0A\09add\09$8, $7\0A\09add\09$6, $6\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09cmovae\09$4, $2\0A\09cmovae\09$7, $8\0A\09sbb\09$$-1, $6\0A\09sar\09$15, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${5:q}, 2)", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,0,1,6,7,8,9,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %234, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %.sroa.0.20, i32 %.sroa.230.20, i32 %.151181, i32 %.141259, i32 %.141020, ptr %.20) #8, !srcloc !69
+  %236 = tail call { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\09($10, ${6:q}, 2), $4\0A\09mov\09$6, $5\0A\09add\09$8, $7\0A\09add\09$6, $6\0A\09cmp\09$11, $0\0A\09jae\091f\0A\09shl\09$12, $1\0A\09mov\09($9), ${1:b}\0A\09shl\09$12, $0\0A\09inc\09$9\0A1:\0Amov\09$0, $2\0A\09shr\09$13, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${14:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09cmovae\09$4, $2\0A\09cmovae\09$7, $8\0A\09sbb\09$$-1, $6\0A\09sar\09$15, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($10, ${5:q}, 2)", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,0,1,6,7,8,9,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %234, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %.sroa.0.20, i32 %.sroa.230.20, i32 %.151181, i32 %.141259, i32 %.141020, ptr %.20) #8, !srcloc !71
   %237 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } %236, 0
   %238 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } %236, 1
   %239 = extractvalue { i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr } %236, 6
@@ -468,18 +468,18 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %242 = shl i32 %.141259, 1
   %243 = add nsw i32 %.141226, -1
   %.not1412 = icmp eq i32 %243, 0
-  br i1 %.not1412, label %.loopexit, label %235, !llvm.loop !70
+  br i1 %.not1412, label %.loopexit, label %235, !llvm.loop !72
 
 244:                                              ; preds = %221
   %245 = add nsw i32 %222, -5
-  %246 = tail call { i32, i32, i32, i32, i32, i32, ptr } asm "2:\0A\09add\09$4, $4\0A\09lea\091(${4:q}), $3\0A\09cmp\09$7, $0\0A\09jae\091f\0A\09shl\09$8, $1\0A\09mov\09($6), ${1:b}\0A\09shl\09$8, $0\0A\09inc\09$6\0A1:\0Ashr\09$$1, $0\0A\09mov\09$1, $2\0A\09sub\09$0, $1\0A\09cmovns\09$3, $4\0A\09cmovs\09$2, $1\0A\09dec\09$5\0A\09jnz\092b\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,n,n,0,1,4,5,6,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16777216, i32 8, i32 %216, i32 %217, i32 %224, i32 %245, ptr %219) #8, !srcloc !71
+  %246 = tail call { i32, i32, i32, i32, i32, i32, ptr } asm "2:\0A\09add\09$4, $4\0A\09lea\091(${4:q}), $3\0A\09cmp\09$7, $0\0A\09jae\091f\0A\09shl\09$8, $1\0A\09mov\09($6), ${1:b}\0A\09shl\09$8, $0\0A\09inc\09$6\0A1:\0Ashr\09$$1, $0\0A\09mov\09$1, $2\0A\09sub\09$0, $1\0A\09cmovns\09$3, $4\0A\09cmovs\09$2, $1\0A\09dec\09$5\0A\09jnz\092b\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,n,n,0,1,4,5,6,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 16777216, i32 8, i32 %216, i32 %217, i32 %224, i32 %245, ptr %219) #8, !srcloc !73
   %247 = extractvalue { i32, i32, i32, i32, i32, i32, ptr } %246, 0
   %248 = extractvalue { i32, i32, i32, i32, i32, i32, ptr } %246, 1
   %249 = extractvalue { i32, i32, i32, i32, i32, i32, ptr } %246, 4
   %250 = extractvalue { i32, i32, i32, i32, i32, i32, ptr } %246, 5
   %251 = extractvalue { i32, i32, i32, i32, i32, i32, ptr } %246, 6
   %252 = shl i32 %249, 4
-  %253 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09xor\09$6, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\091(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovae\09$4, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, 2($8)\0A\09movzwl\098($8, ${6:q}, 2), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\0912($8, ${6:q}, 2), $2\0A\09cmovae\09$2, $4\0A\09lea\092(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovae\09$5, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, 4($8, ${3:q}, 2)\0A\09movzwl\0916($8, ${6:q}, 2), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\0924($8, ${6:q}, 2), $2\0A\09cmovae\09$2, $5\0A\09lea\094(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovae\09$4, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, 8($8, ${3:q}, 2)\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\098(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovae\09$5, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, 16($8, ${3:q}, 2)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1041, i32 -5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %247, i32 %248, ptr %251) #8, !srcloc !72
+  %253 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09xor\09$6, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\091(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovae\09$4, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, 2($8)\0A\09movzwl\098($8, ${6:q}, 2), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\0912($8, ${6:q}, 2), $2\0A\09cmovae\09$2, $4\0A\09lea\092(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovae\09$5, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, 4($8, ${3:q}, 2)\0A\09movzwl\0916($8, ${6:q}, 2), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\0924($8, ${6:q}, 2), $2\0A\09cmovae\09$2, $5\0A\09lea\094(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovae\09$4, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, 8($8, ${3:q}, 2)\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\098(${6:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$2, $6\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovae\09$5, $2\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, 16($8, ${3:q}, 2)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1041, i32 -5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %247, i32 %248, ptr %251) #8, !srcloc !74
   %254 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %253, 0
   %255 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %253, 1
   %256 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %253, 6
@@ -499,16 +499,16 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.230.19 = phi i32 [ %255, %244 ], [ %217, %210 ], [ %238, %235 ]
   %260 = zext i32 %.131019 to i64
   %261 = icmp ugt i64 %.sroa.55.121832, %260
-  br i1 %261, label %450, label %.loopexit1575, !prof !73
+  br i1 %261, label %450, label %.loopexit1575, !prof !75
 
 262:                                              ; preds = %143
   %263 = sub i32 %.sroa.0.15, %148
   %264 = sub nuw i32 %.sroa.230.15, %148
   %265 = lshr i16 %146, 5
   %266 = sub i16 %146, %265
-  store i16 %266, ptr %145, align 2, !tbaa !59
+  store i16 %266, ptr %145, align 2, !tbaa !60
   %.not1571 = icmp eq i64 %.sroa.55.121832, 0
-  br i1 %.not1571, label %.loopexit1575, label %267, !prof !74
+  br i1 %.not1571, label %.loopexit1575, label %267, !prof !76
 
 267:                                              ; preds = %262
   %268 = icmp ult i32 %263, 16777216
@@ -529,7 +529,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %.sroa.230.24 = phi i32 [ %275, %269 ], [ %264, %267 ]
   %277 = lshr i32 %.sroa.0.24, 11
   %278 = getelementptr inbounds nuw [12 x i16], ptr %1024, i64 0, i64 %78
-  %279 = load i16, ptr %278, align 2, !tbaa !59
+  %279 = load i16, ptr %278, align 2, !tbaa !60
   %280 = zext i16 %279 to i32
   %281 = mul i32 %277, %280
   %282 = icmp ult i32 %.sroa.230.24, %281
@@ -540,7 +540,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %285 = lshr i32 %284, 5
   %286 = trunc i32 %285 to i16
   %287 = add i16 %279, %286
-  store i16 %287, ptr %278, align 2, !tbaa !59
+  store i16 %287, ptr %278, align 2, !tbaa !60
   %288 = icmp ult i32 %281, 16777216
   br i1 %288, label %289, label %296
 
@@ -560,7 +560,7 @@ dict_put.exit:                                    ; preds = %dict_get.exit, %101
   %297 = lshr i32 %.sroa.0.25, 11
   %298 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %1025, i64 0, i64 %78
   %299 = getelementptr inbounds nuw [16 x i16], ptr %298, i64 0, i64 %80
-  %300 = load i16, ptr %299, align 2, !tbaa !59
+  %300 = load i16, ptr %299, align 2, !tbaa !60
   %301 = zext i16 %300 to i32
   %302 = mul i32 %297, %301
   %303 = icmp ult i32 %.sroa.230.25, %302
@@ -571,7 +571,7 @@ dict_get.exit1424:                                ; preds = %296
   %305 = lshr i32 %304, 5
   %306 = trunc i32 %305 to i16
   %307 = add i16 %300, %306
-  store i16 %307, ptr %299, align 2, !tbaa !59
+  store i16 %307, ptr %299, align 2, !tbaa !60
   %308 = icmp ult i32 %.129871834, 7
   %309 = select i1 %308, i32 9, i32 11
   %310 = icmp ugt i64 %.sroa.17.121833, %477
@@ -589,14 +589,14 @@ dict_get.exit1424:                                ; preds = %296
   %319 = icmp uge ptr %.25, %30
   %320 = icmp eq i64 %315, %.sroa.66.0
   %321 = select i1 %319, i1 true, i1 %320
-  br i1 %321, label %.loopexit1574, label %66, !prof !75
+  br i1 %321, label %.loopexit1574, label %66, !prof !77, !llvm.loop !64
 
 322:                                              ; preds = %296
   %323 = sub i32 %.sroa.0.25, %302
   %324 = sub nuw i32 %.sroa.230.25, %302
   %325 = lshr i16 %300, 5
   %326 = sub i16 %300, %325
-  store i16 %326, ptr %299, align 2, !tbaa !59
+  store i16 %326, ptr %299, align 2, !tbaa !60
   br label %382
 
 327:                                              ; preds = %276
@@ -604,7 +604,7 @@ dict_get.exit1424:                                ; preds = %296
   %329 = sub nuw i32 %.sroa.230.24, %281
   %330 = lshr i16 %279, 5
   %331 = sub i16 %279, %330
-  store i16 %331, ptr %278, align 2, !tbaa !59
+  store i16 %331, ptr %278, align 2, !tbaa !60
   %332 = icmp ult i32 %328, 16777216
   br i1 %332, label %333, label %340
 
@@ -623,7 +623,7 @@ dict_get.exit1424:                                ; preds = %296
   %.sroa.230.27 = phi i32 [ %339, %333 ], [ %329, %327 ]
   %341 = lshr i32 %.sroa.0.27, 11
   %342 = getelementptr inbounds nuw [12 x i16], ptr %1028, i64 0, i64 %78
-  %343 = load i16, ptr %342, align 2, !tbaa !59
+  %343 = load i16, ptr %342, align 2, !tbaa !60
   %344 = zext i16 %343 to i32
   %345 = mul i32 %341, %344
   %346 = icmp ult i32 %.sroa.230.27, %345
@@ -634,7 +634,7 @@ dict_get.exit1424:                                ; preds = %296
   %349 = lshr i32 %348, 5
   %350 = trunc i32 %349 to i16
   %351 = add i16 %343, %350
-  store i16 %351, ptr %342, align 2, !tbaa !59
+  store i16 %351, ptr %342, align 2, !tbaa !60
   br label %382
 
 352:                                              ; preds = %340
@@ -642,7 +642,7 @@ dict_get.exit1424:                                ; preds = %296
   %354 = sub nuw i32 %.sroa.230.27, %345
   %355 = lshr i16 %343, 5
   %356 = sub i16 %343, %355
-  store i16 %356, ptr %342, align 2, !tbaa !59
+  store i16 %356, ptr %342, align 2, !tbaa !60
   %357 = icmp ult i32 %353, 16777216
   br i1 %357, label %358, label %365
 
@@ -661,7 +661,7 @@ dict_get.exit1424:                                ; preds = %296
   %.sroa.230.28 = phi i32 [ %364, %358 ], [ %354, %352 ]
   %366 = lshr i32 %.sroa.0.28, 11
   %367 = getelementptr inbounds nuw [12 x i16], ptr %1029, i64 0, i64 %78
-  %368 = load i16, ptr %367, align 2, !tbaa !59
+  %368 = load i16, ptr %367, align 2, !tbaa !60
   %369 = zext i16 %368 to i32
   %370 = mul i32 %366, %369
   %371 = icmp ult i32 %.sroa.230.28, %370
@@ -672,7 +672,7 @@ dict_get.exit1424:                                ; preds = %296
   %374 = lshr i32 %373, 5
   %375 = trunc i32 %374 to i16
   %376 = add i16 %368, %375
-  store i16 %376, ptr %367, align 2, !tbaa !59
+  store i16 %376, ptr %367, align 2, !tbaa !60
   br label %382
 
 377:                                              ; preds = %365
@@ -680,7 +680,7 @@ dict_get.exit1424:                                ; preds = %296
   %379 = sub nuw i32 %.sroa.230.28, %370
   %380 = lshr i16 %368, 5
   %381 = sub i16 %368, %380
-  store i16 %381, ptr %367, align 2, !tbaa !59
+  store i16 %381, ptr %367, align 2, !tbaa !60
   br label %382
 
 382:                                              ; preds = %347, %377, %372, %322
@@ -710,7 +710,7 @@ dict_get.exit1424:                                ; preds = %296
   %.sroa.0.29 = phi i32 [ %387, %386 ], [ %.sroa.0.26, %382 ]
   %.sroa.230.29 = phi i32 [ %392, %386 ], [ %.sroa.230.26, %382 ]
   %394 = lshr i32 %.sroa.0.29, 11
-  %395 = load i16, ptr %1030, align 8, !tbaa !76
+  %395 = load i16, ptr %1030, align 8, !tbaa !78
   %396 = zext i16 %395 to i32
   %397 = mul i32 %394, %396
   %398 = icmp ult i32 %.sroa.230.29, %397
@@ -721,9 +721,9 @@ dict_get.exit1424:                                ; preds = %296
   %401 = lshr i32 %400, 5
   %402 = trunc i32 %401 to i16
   %403 = add i16 %395, %402
-  store i16 %403, ptr %1030, align 8, !tbaa !76
+  store i16 %403, ptr %1030, align 8, !tbaa !78
   %404 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1034, i64 0, i64 %80
-  %405 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %404, i32 5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %397, i32 %.sroa.230.29, ptr %.29) #8, !srcloc !77
+  %405 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %404, i32 5, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %397, i32 %.sroa.230.29, ptr %.29) #8, !srcloc !79
   %406 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %405, 0
   %407 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %405, 1
   %408 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %405, 6
@@ -735,7 +735,7 @@ dict_get.exit1424:                                ; preds = %296
   %412 = sub nuw i32 %.sroa.230.29, %397
   %413 = lshr i16 %395, 5
   %414 = sub i16 %395, %413
-  store i16 %414, ptr %1030, align 8, !tbaa !76
+  store i16 %414, ptr %1030, align 8, !tbaa !78
   %415 = icmp ult i32 %411, 16777216
   br i1 %415, label %416, label %423
 
@@ -753,7 +753,7 @@ dict_get.exit1424:                                ; preds = %296
   %.sroa.0.30 = phi i32 [ %417, %416 ], [ %411, %410 ]
   %.sroa.230.30 = phi i32 [ %422, %416 ], [ %412, %410 ]
   %424 = lshr i32 %.sroa.0.30, 11
-  %425 = load i16, ptr %1031, align 2, !tbaa !78
+  %425 = load i16, ptr %1031, align 2, !tbaa !80
   %426 = zext i16 %425 to i32
   %427 = mul i32 %424, %426
   %428 = icmp ult i32 %.sroa.230.30, %427
@@ -764,9 +764,9 @@ dict_get.exit1424:                                ; preds = %296
   %431 = lshr i32 %430, 5
   %432 = trunc i32 %431 to i16
   %433 = add i16 %425, %432
-  store i16 %433, ptr %1031, align 2, !tbaa !78
+  store i16 %433, ptr %1031, align 2, !tbaa !80
   %434 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1033, i64 0, i64 %80
-  %435 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %434, i32 -3, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %427, i32 %.sroa.230.30, ptr %.30) #8, !srcloc !79
+  %435 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %434, i32 -3, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %427, i32 %.sroa.230.30, ptr %.30) #8, !srcloc !81
   %436 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %435, 0
   %437 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %435, 1
   %438 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %435, 6
@@ -778,8 +778,8 @@ dict_get.exit1424:                                ; preds = %296
   %442 = sub nuw i32 %.sroa.230.30, %427
   %443 = lshr i16 %425, 5
   %444 = sub i16 %425, %443
-  store i16 %444, ptr %1031, align 2, !tbaa !78
-  %445 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1032, i32 237, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %441, i32 %442, ptr %.30) #8, !srcloc !80
+  store i16 %444, ptr %1031, align 2, !tbaa !80
+  %445 = tail call { i32, i32, i32, i32, i32, i32, i32, ptr } asm "movzwl\092($8), $4\0A\09mov\09$$2, $6\0A\09movzwl\094($8), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\096($8), $2\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $4\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $4\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09movzwl\09($8, ${6:q}, 4), $5\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$4, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09movzwl\092($8, ${6:q}, 4), $2\0A\09lea\09(${6:q}, ${6:q}), $6\0A\09cmovae\09$2, $5\0A\09lea\09${13:c}(${4:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$4, $2\0A\09sbb\09$$-1, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $4\0A\09mov\09${4:w}, ($8, ${3:q}, 1)\0A\09add\09$6, $6\0A\09cmp\09$10, $0\0A\09jae\091f\0A\09shl\09$11, $1\0A\09mov\09($7), ${1:b}\0A\09shl\09$11, $0\0A\09inc\09$7\0A1:\0Amov\09$0, $2\0A\09shr\09$12, $0\0A\09imul\09$5, $0\0A\09sub\09$0, $2\0A\09mov\09$1, $3\0A\09sub\09$0, $1\0A\09cmovae\09$2, $0\0A\09lea\09${13:c}(${5:q}), $2\0A\09cmovb\09$3, $1\0A\09mov\09$6, $3\0A\09cmovae\09$5, $2\0A\09sbb\09$9, $6\0A\09shr\09$14, $2\0A\09sub\09$2, $5\0A\09mov\09${5:w}, ($8, ${3:q}, 1)\0A\09", "=&r,=&r,=&r,=&r,=&r,=&r,=&r,=&r,r,n,n,n,n,n,n,0,1,7,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %1032, i32 237, i32 16777216, i32 8, i32 11, i32 -2017, i32 5, i32 %441, i32 %442, ptr %.30) #8, !srcloc !82
   %446 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %445, 0
   %447 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %445, 1
   %448 = extractvalue { i32, i32, i32, i32, i32, i32, i32, ptr } %445, 6
@@ -826,7 +826,7 @@ dict_get.exit1424:                                ; preds = %296
   store i8 %463, ptr %465, align 1, !tbaa !33
   %466 = add i32 %.031.i, -1
   %.not36.i = icmp eq i32 %466, 0
-  br i1 %.not36.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !81
+  br i1 %.not36.i, label %.loopexit.i, label %.preheader.i, !llvm.loop !83
 
 467:                                              ; preds = %450
   %468 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload1459, i64 %.sroa.17.121833
@@ -840,7 +840,7 @@ dict_get.exit1424:                                ; preds = %296
   %471 = add i64 %.sroa.17.27, -576
   %spec.select1563 = select i1 %.pre-phi2236, i64 %.sroa.55.121832, i64 %471
   %.not1573 = icmp eq i32 %455, 0
-  br i1 %.not1573, label %.outer, label %479, !prof !73
+  br i1 %.not1573, label %.outer, label %479, !prof !75, !llvm.loop !64
 
 .outer:                                           ; preds = %.preheader, %.loopexit.i
   %.sroa.55.12.ph1577 = phi i64 [ %.sroa.55.12.ph, %.preheader ], [ %spec.select1563, %.loopexit.i ]
@@ -863,7 +863,7 @@ dict_get.exit1424:                                ; preds = %296
   %474 = icmp uge ptr %.12.ph1590, %30
   %475 = icmp eq i64 %.sroa.17.12.ph1578, %.sroa.66.0
   %476 = select i1 %474, i1 true, i1 %475
-  br i1 %476, label %.loopexit1574, label %.lr.ph.lr.ph, !prof !82
+  br i1 %476, label %.loopexit1574, label %.lr.ph.lr.ph, !prof !84
 
 .lr.ph.lr.ph:                                     ; preds = %.outer
   %477 = zext i32 %.121018.ph1588 to i64
@@ -871,7 +871,7 @@ dict_get.exit1424:                                ; preds = %296
   br label %.lr.ph
 
 479:                                              ; preds = %.loopexit.i
-  store i32 22, ptr %64, align 4, !tbaa !58
+  store i32 22, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 .loopexit1574:                                    ; preds = %.outer, %dict_put.exit, %dict_get.exit1424, %.loopexit1610, %.loopexit1610
@@ -894,7 +894,7 @@ dict_get.exit1424:                                ; preds = %296
   %.sroa.230.0 = phi i32 [ %.sroa.230.0.copyload, %.loopexit1610 ], [ %.sroa.230.0.copyload, %.loopexit1610 ], [ %.sroa.230.25, %dict_get.exit1424 ], [ %.sroa.230.14, %dict_put.exit ], [ %.sroa.230.12.ph1592, %.outer ]
   %480 = icmp ne i64 %.sroa.17.0, %.sroa.66.0
   %.not1569 = select i1 %or.cond1560, i1 true, i1 %480
-  br i1 %.not1569, label %499, label %481, !prof !73
+  br i1 %.not1569, label %499, label %481, !prof !75
 
 481:                                              ; preds = %.loopexit1574
   %482 = icmp ult i32 %.sroa.0.0, 16777216
@@ -905,7 +905,7 @@ dict_get.exit1424:                                ; preds = %296
   br i1 %484, label %485, label %486
 
 485:                                              ; preds = %483
-  store i32 0, ptr %64, align 4, !tbaa !58
+  store i32 0, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 486:                                              ; preds = %483
@@ -926,7 +926,7 @@ dict_get.exit1424:                                ; preds = %296
 
 495:                                              ; preds = %493
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 28320
-  %497 = load i8, ptr %496, align 8, !tbaa !83, !range !84, !noundef !85
+  %497 = load i8, ptr %496, align 8, !tbaa !85, !range !86, !noundef !87
   %498 = trunc nuw i8 %497 to i1
   br i1 %498, label %499, label %.loopexit1575
 
@@ -943,7 +943,7 @@ dict_get.exit1424:                                ; preds = %296
   br i1 %502, label %503, label %504
 
 503:                                              ; preds = %501
-  store i32 1, ptr %64, align 4, !tbaa !58
+  store i32 1, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 504:                                              ; preds = %501
@@ -965,7 +965,7 @@ dict_get.exit1424:                                ; preds = %296
   %515 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %513, i64 0, i64 %514
   %516 = zext i32 %.01282 to i64
   %517 = getelementptr inbounds nuw [16 x i16], ptr %515, i64 0, i64 %516
-  %518 = load i16, ptr %517, align 2, !tbaa !59
+  %518 = load i16, ptr %517, align 2, !tbaa !60
   %519 = zext i16 %518 to i32
   %520 = mul i32 %512, %519
   %521 = icmp ult i32 %.sroa.230.33, %520
@@ -976,7 +976,7 @@ dict_get.exit1424:                                ; preds = %296
   %524 = lshr i32 %523, 5
   %525 = trunc i32 %524 to i16
   %526 = add i16 %518, %525
-  store i16 %526, ptr %517, align 2, !tbaa !59
+  store i16 %526, ptr %517, align 2, !tbaa !60
   %527 = shl i64 %.sroa.17.0, 8
   %528 = getelementptr i8, ptr %.sroa.0.0.copyload1459, i64 %.sroa.17.0
   %529 = getelementptr i8, ptr %528, i64 -1
@@ -1028,7 +1028,7 @@ dict_get.exit1424:                                ; preds = %296
   br i1 %545, label %546, label %547
 
 546:                                              ; preds = %544
-  store i32 2, ptr %64, align 4, !tbaa !58
+  store i32 2, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 547:                                              ; preds = %544
@@ -1047,7 +1047,7 @@ dict_get.exit1424:                                ; preds = %296
   %555 = lshr i32 %.sroa.0.35, 11
   %556 = zext i32 %.191185 to i64
   %557 = getelementptr inbounds nuw i16, ptr %.11136, i64 %556
-  %558 = load i16, ptr %557, align 2, !tbaa !59
+  %558 = load i16, ptr %557, align 2, !tbaa !60
   %559 = zext i16 %558 to i32
   %560 = mul i32 %555, %559
   %561 = icmp ult i32 %.sroa.230.35, %560
@@ -1074,9 +1074,9 @@ dict_get.exit1424:                                ; preds = %296
   %.201186 = phi i32 [ %562, %563 ], [ %573, %568 ]
   %.sroa.0.36 = phi i32 [ %560, %563 ], [ %569, %568 ]
   %.sroa.230.36 = phi i32 [ %.sroa.230.35, %563 ], [ %570, %568 ]
-  store i16 %.sink, ptr %557, align 2, !tbaa !59
+  store i16 %.sink, ptr %557, align 2, !tbaa !60
   %575 = icmp ult i32 %.201186, 256
-  br i1 %575, label %542, label %.loopexit1607, !llvm.loop !86
+  br i1 %575, label %542, label %.loopexit1607, !llvm.loop !88
 
 dict_get.exit1428:                                ; preds = %522
   %576 = icmp ult i32 %.0975, 10
@@ -1146,7 +1146,7 @@ dict_get.exit1428:                                ; preds = %522
   %603 = lshr i32 %.sroa.0.39, 11
   %604 = zext i32 %591 to i64
   %605 = getelementptr inbounds nuw i16, ptr %.21137, i64 %604
-  %606 = load i16, ptr %605, align 2, !tbaa !59
+  %606 = load i16, ptr %605, align 2, !tbaa !60
   %607 = zext i16 %606 to i32
   %608 = mul i32 %603, %607
   %609 = icmp ult i32 %.sroa.230.39, %608
@@ -1170,7 +1170,7 @@ dict_get.exit1428:                                ; preds = %522
   br label %624
 
 623:                                              ; preds = %593
-  store i32 3, ptr %64, align 4, !tbaa !58
+  store i32 3, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 624:                                              ; preds = %611, %617
@@ -1179,10 +1179,10 @@ dict_get.exit1428:                                ; preds = %522
   %.231189 = phi i32 [ %610, %611 ], [ %622, %617 ]
   %.sroa.0.40 = phi i32 [ %608, %611 ], [ %618, %617 ]
   %.sroa.230.40 = phi i32 [ %.sroa.230.39, %611 ], [ %619, %617 ]
-  store i16 %.sink2228, ptr %605, align 2, !tbaa !59
+  store i16 %.sink2228, ptr %605, align 2, !tbaa !60
   %625 = shl i32 %.171519, 1
   %626 = icmp ult i32 %.231189, 256
-  br i1 %626, label %588, label %.loopexit1607, !llvm.loop !87
+  br i1 %626, label %588, label %.loopexit1607, !llvm.loop !89
 
 .loopexit1607:                                    ; preds = %624, %574, %.loopexit1610
   %.sroa.55.3 = phi i64 [ %.sroa.55.0.copyload, %.loopexit1610 ], [ %.sroa.55.1, %574 ], [ %.sroa.55.2, %624 ]
@@ -1202,7 +1202,7 @@ dict_get.exit1428:                                ; preds = %522
   %.sroa.0.3 = phi i32 [ %.sroa.0.0.copyload, %.loopexit1610 ], [ %.sroa.0.36, %574 ], [ %.sroa.0.40, %624 ]
   %.sroa.230.3 = phi i32 [ %.sroa.230.0.copyload, %.loopexit1610 ], [ %.sroa.230.36, %574 ], [ %.sroa.230.40, %624 ]
   %627 = icmp eq i64 %.sroa.17.3, %.sroa.66.0
-  br i1 %627, label %633, label %dict_put_safe.exit, !prof !74
+  br i1 %627, label %633, label %dict_put_safe.exit, !prof !76
 
 dict_put_safe.exit:                               ; preds = %.loopexit1607
   %628 = trunc i32 %.31169 to i8
@@ -1216,7 +1216,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br label %.preheader
 
 633:                                              ; preds = %.loopexit1607
-  store i32 4, ptr %64, align 4, !tbaa !58
+  store i32 4, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 634:                                              ; preds = %511
@@ -1224,7 +1224,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %636 = sub nuw i32 %.sroa.230.33, %520
   %637 = lshr i16 %518, 5
   %638 = sub i16 %518, %637
-  store i16 %638, ptr %517, align 2, !tbaa !59
+  store i16 %638, ptr %517, align 2, !tbaa !60
   br label %639
 
 639:                                              ; preds = %.loopexit1610, %634
@@ -1253,7 +1253,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %642, label %643, label %644
 
 643:                                              ; preds = %641
-  store i32 5, ptr %64, align 4, !tbaa !58
+  store i32 5, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 644:                                              ; preds = %641
@@ -1273,7 +1273,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %653 = getelementptr inbounds nuw i8, ptr %0, i64 24960
   %654 = zext i32 %.17992 to i64
   %655 = getelementptr inbounds nuw [12 x i16], ptr %653, i64 0, i64 %654
-  %656 = load i16, ptr %655, align 2, !tbaa !59
+  %656 = load i16, ptr %655, align 2, !tbaa !60
   %657 = zext i16 %656 to i32
   %658 = mul i32 %652, %657
   %659 = icmp ult i32 %.sroa.230.42, %658
@@ -1284,7 +1284,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %662 = lshr i32 %661, 5
   %663 = trunc i32 %662 to i16
   %664 = add i16 %656, %663
-  store i16 %664, ptr %655, align 2, !tbaa !59
+  store i16 %664, ptr %655, align 2, !tbaa !60
   %665 = icmp ult i32 %.17992, 7
   %666 = select i1 %665, i32 7, i32 10
   br label %667
@@ -1315,7 +1315,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %670, label %671, label %672
 
 671:                                              ; preds = %669
-  store i32 6, ptr %64, align 4, !tbaa !58
+  store i32 6, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 672:                                              ; preds = %669
@@ -1333,7 +1333,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %.sroa.230.44 = phi i32 [ %678, %672 ], [ %.sroa.230.43, %667 ]
   %680 = lshr i32 %.sroa.0.44, 11
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 26212
-  %682 = load i16, ptr %681, align 4, !tbaa !63
+  %682 = load i16, ptr %681, align 4, !tbaa !65
   %683 = zext i16 %682 to i32
   %684 = mul i32 %680, %683
   %685 = icmp ult i32 %.sroa.230.44, %684
@@ -1344,7 +1344,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %688 = lshr i32 %687, 5
   %689 = trunc i32 %688 to i16
   %690 = add i16 %682, %689
-  store i16 %690, ptr %681, align 4, !tbaa !63
+  store i16 %690, ptr %681, align 4, !tbaa !65
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 26216
   %692 = zext i32 %.21284 to i64
   %693 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %691, i64 0, i64 %692
@@ -1355,7 +1355,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %696 = sub nuw i32 %.sroa.230.44, %684
   %697 = lshr i16 %682, 5
   %698 = sub i16 %682, %697
-  store i16 %698, ptr %681, align 4, !tbaa !63
+  store i16 %698, ptr %681, align 4, !tbaa !65
   br label %699
 
 699:                                              ; preds = %.loopexit1610, %694
@@ -1384,7 +1384,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %702, label %703, label %704
 
 703:                                              ; preds = %701
-  store i32 7, ptr %64, align 4, !tbaa !58
+  store i32 7, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 704:                                              ; preds = %701
@@ -1402,7 +1402,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %.sroa.230.47 = phi i32 [ %710, %704 ], [ %.sroa.230.46, %699 ]
   %712 = lshr i32 %.sroa.0.47, 11
   %713 = getelementptr inbounds nuw i8, ptr %0, i64 26214
-  %714 = load i16, ptr %713, align 2, !tbaa !65
+  %714 = load i16, ptr %713, align 2, !tbaa !67
   %715 = zext i16 %714 to i32
   %716 = mul i32 %712, %715
   %717 = icmp ult i32 %.sroa.230.47, %716
@@ -1413,7 +1413,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %720 = lshr i32 %719, 5
   %721 = trunc i32 %720 to i16
   %722 = add i16 %714, %721
-  store i16 %722, ptr %713, align 2, !tbaa !65
+  store i16 %722, ptr %713, align 2, !tbaa !67
   %723 = getelementptr inbounds nuw i8, ptr %0, i64 26472
   %724 = zext i32 %.31285 to i64
   %725 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %723, i64 0, i64 %724
@@ -1424,7 +1424,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %728 = sub nuw i32 %.sroa.230.47, %716
   %729 = lshr i16 %714, 5
   %730 = sub i16 %714, %729
-  store i16 %730, ptr %713, align 2, !tbaa !65
+  store i16 %730, ptr %713, align 2, !tbaa !67
   %731 = getelementptr inbounds nuw i8, ptr %0, i64 26728
   br label %732
 
@@ -1460,7 +1460,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %736, label %737, label %738
 
 737:                                              ; preds = %735
-  store i32 8, ptr %64, align 4, !tbaa !58
+  store i32 8, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 738:                                              ; preds = %735
@@ -1479,7 +1479,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %746 = lshr i32 %.sroa.0.49, 11
   %747 = zext i32 %.271193 to i64
   %748 = getelementptr inbounds nuw i16, ptr %.41139, i64 %747
-  %749 = load i16, ptr %748, align 2, !tbaa !59
+  %749 = load i16, ptr %748, align 2, !tbaa !60
   %750 = zext i16 %749 to i32
   %751 = mul i32 %746, %750
   %752 = icmp ult i32 %.sroa.230.49, %751
@@ -1506,9 +1506,9 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %.281194 = phi i32 [ %753, %754 ], [ %764, %759 ]
   %.sroa.0.50 = phi i32 [ %751, %754 ], [ %760, %759 ]
   %.sroa.230.50 = phi i32 [ %.sroa.230.49, %754 ], [ %761, %759 ]
-  store i16 %.sink2229, ptr %748, align 2, !tbaa !59
+  store i16 %.sink2229, ptr %748, align 2, !tbaa !60
   %766 = icmp ult i32 %.281194, %.41216
-  br i1 %766, label %733, label %767, !llvm.loop !88
+  br i1 %766, label %733, label %767, !llvm.loop !90
 
 767:                                              ; preds = %765
   %768 = sub nuw i32 %.281194, %.41216
@@ -1552,7 +1552,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %779, label %780, label %781
 
 780:                                              ; preds = %778
-  store i32 9, ptr %64, align 4, !tbaa !58
+  store i32 9, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 781:                                              ; preds = %778
@@ -1571,7 +1571,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %789 = lshr i32 %.sroa.0.52, 11
   %790 = zext i32 %.291195 to i64
   %791 = getelementptr inbounds nuw i16, ptr %.51140, i64 %790
-  %792 = load i16, ptr %791, align 2, !tbaa !59
+  %792 = load i16, ptr %791, align 2, !tbaa !60
   %793 = zext i16 %792 to i32
   %794 = mul i32 %789, %793
   %795 = icmp ult i32 %.sroa.230.52, %794
@@ -1598,9 +1598,9 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %.301196 = phi i32 [ %796, %797 ], [ %807, %802 ]
   %.sroa.0.53 = phi i32 [ %794, %797 ], [ %803, %802 ]
   %.sroa.230.53 = phi i32 [ %.sroa.230.52, %797 ], [ %804, %802 ]
-  store i16 %.sink2230, ptr %791, align 2, !tbaa !59
+  store i16 %.sink2230, ptr %791, align 2, !tbaa !60
   %809 = icmp ult i32 %.301196, 64
-  br i1 %809, label %776, label %810, !llvm.loop !89
+  br i1 %809, label %776, label %810, !llvm.loop !91
 
 810:                                              ; preds = %808
   %811 = add i32 %.301196, -64
@@ -1662,7 +1662,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %833, label %834, label %835
 
 834:                                              ; preds = %832
-  store i32 10, ptr %64, align 4, !tbaa !58
+  store i32 10, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 835:                                              ; preds = %832
@@ -1681,7 +1681,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %843 = lshr i32 %.sroa.0.56, 11
   %844 = zext i32 %.321198 to i64
   %845 = getelementptr inbounds nuw i16, ptr %.61141, i64 %844
-  %846 = load i16, ptr %845, align 2, !tbaa !59
+  %846 = load i16, ptr %845, align 2, !tbaa !60
   %847 = zext i16 %846 to i32
   %848 = mul i32 %843, %847
   %849 = icmp ult i32 %.sroa.230.56, %848
@@ -1711,10 +1711,10 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %.251031 = phi i32 [ %.241030, %851 ], [ %863, %856 ]
   %.sroa.0.57 = phi i32 [ %848, %851 ], [ %857, %856 ]
   %.sroa.230.57 = phi i32 [ %.sroa.230.56, %851 ], [ %858, %856 ]
-  store i16 %.sink2231, ptr %845, align 2, !tbaa !59
+  store i16 %.sink2231, ptr %845, align 2, !tbaa !60
   %865 = add i32 %.261271, 1
   %866 = icmp ult i32 %865, %.61218
-  br i1 %866, label %830, label %.loopexit1609, !llvm.loop !90
+  br i1 %866, label %830, label %.loopexit1609, !llvm.loop !92
 
 867:                                              ; preds = %813
   %868 = add nsw i32 %814, -5
@@ -1753,7 +1753,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %873, label %874, label %875
 
 874:                                              ; preds = %872
-  store i32 11, ptr %64, align 4, !tbaa !58
+  store i32 11, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 875:                                              ; preds = %872
@@ -1779,7 +1779,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %889 = add nsw i32 %888, %.neg
   %890 = add i32 %.231235, -1
   %.not1409 = icmp eq i32 %890, 0
-  br i1 %.not1409, label %891, label %870, !llvm.loop !91
+  br i1 %.not1409, label %891, label %870, !llvm.loop !93
 
 891:                                              ; preds = %882
   %892 = shl i32 %889, 4
@@ -1819,7 +1819,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %898, label %899, label %900
 
 899:                                              ; preds = %897
-  store i32 12, ptr %64, align 4, !tbaa !58
+  store i32 12, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 900:                                              ; preds = %897
@@ -1839,7 +1839,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %909 = add i32 %.341200, %.271272
   %910 = zext i32 %909 to i64
   %911 = getelementptr inbounds nuw [16 x i16], ptr %894, i64 0, i64 %910
-  %912 = load i16, ptr %911, align 2, !tbaa !59
+  %912 = load i16, ptr %911, align 2, !tbaa !60
   %913 = zext i16 %912 to i32
   %914 = mul i32 %908, %913
   %915 = icmp ult i32 %.sroa.230.61, %914
@@ -1864,10 +1864,10 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %.351201 = phi i32 [ %909, %921 ], [ %.341200, %916 ]
   %.sroa.0.62 = phi i32 [ %922, %921 ], [ %914, %916 ]
   %.sroa.230.62 = phi i32 [ %923, %921 ], [ %.sroa.230.61, %916 ]
-  store i16 %storemerge, ptr %911, align 2, !tbaa !59
+  store i16 %storemerge, ptr %911, align 2, !tbaa !60
   %927 = shl i32 %.271272, 1
   %928 = icmp ult i32 %927, 16
-  br i1 %928, label %895, label %929, !llvm.loop !92
+  br i1 %928, label %895, label %929, !llvm.loop !94
 
 929:                                              ; preds = %926
   %930 = add i32 %.351201, %.81014
@@ -1916,7 +1916,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %935, label %936, label %937
 
 936:                                              ; preds = %934
-  store i32 13, ptr %64, align 4, !tbaa !58
+  store i32 13, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 937:                                              ; preds = %934
@@ -1955,16 +1955,16 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %.sroa.230.54 = phi i32 [ %.sroa.230.53, %810 ], [ %.sroa.230.62, %929 ], [ %.sroa.230.57, %864 ]
   %947 = zext i32 %.231029 to i64
   %948 = icmp ugt i64 %.sroa.55.18, %947
-  br i1 %948, label %1222, label %.loopexit1575, !prof !73
+  br i1 %948, label %1222, label %.loopexit1575, !prof !75
 
 949:                                              ; preds = %651
   %950 = sub i32 %.sroa.0.42, %658
   %951 = sub nuw i32 %.sroa.230.42, %658
   %952 = lshr i16 %656, 5
   %953 = sub i16 %656, %952
-  store i16 %953, ptr %655, align 2, !tbaa !59
+  store i16 %953, ptr %655, align 2, !tbaa !60
   %.not = icmp eq i64 %.sroa.55.15, 0
-  br i1 %.not, label %.loopexit1575, label %954, !prof !74
+  br i1 %.not, label %.loopexit1575, label %954, !prof !76
 
 954:                                              ; preds = %.loopexit1610, %949
   %.sroa.55.20 = phi i64 [ %.sroa.55.15, %949 ], [ %.sroa.55.0.copyload, %.loopexit1610 ]
@@ -1992,7 +1992,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %957, label %958, label %959
 
 958:                                              ; preds = %956
-  store i32 14, ptr %64, align 4, !tbaa !58
+  store i32 14, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 959:                                              ; preds = %956
@@ -2012,7 +2012,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %968 = getelementptr inbounds nuw i8, ptr %0, i64 24984
   %969 = zext i32 %.23998 to i64
   %970 = getelementptr inbounds nuw [12 x i16], ptr %968, i64 0, i64 %969
-  %971 = load i16, ptr %970, align 2, !tbaa !59
+  %971 = load i16, ptr %970, align 2, !tbaa !60
   %972 = zext i16 %971 to i32
   %973 = mul i32 %967, %972
   %974 = icmp ult i32 %.sroa.230.66, %973
@@ -2023,7 +2023,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %977 = lshr i32 %976, 5
   %978 = trunc i32 %977 to i16
   %979 = add i16 %971, %978
-  store i16 %979, ptr %970, align 2, !tbaa !59
+  store i16 %979, ptr %970, align 2, !tbaa !60
   br label %980
 
 980:                                              ; preds = %.loopexit1610, %975
@@ -2052,7 +2052,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   br i1 %983, label %984, label %985
 
 984:                                              ; preds = %982
-  store i32 16, ptr %64, align 4, !tbaa !58
+  store i32 16, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 985:                                              ; preds = %982
@@ -2074,7 +2074,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %996 = getelementptr inbounds nuw [12 x [16 x i16]], ptr %994, i64 0, i64 %995
   %997 = zext i32 %.51287 to i64
   %998 = getelementptr inbounds nuw [16 x i16], ptr %996, i64 0, i64 %997
-  %999 = load i16, ptr %998, align 2, !tbaa !59
+  %999 = load i16, ptr %998, align 2, !tbaa !60
   %1000 = zext i16 %999 to i32
   %1001 = mul i32 %993, %1000
   %1002 = icmp ult i32 %.sroa.230.68, %1001
@@ -2085,7 +2085,7 @@ dict_put_safe.exit:                               ; preds = %.loopexit1607
   %1005 = lshr i32 %1004, 5
   %1006 = trunc i32 %1005 to i16
   %1007 = add i16 %999, %1006
-  store i16 %1007, ptr %998, align 2, !tbaa !59
+  store i16 %1007, ptr %998, align 2, !tbaa !60
   %1008 = icmp ult i32 %.24999, 7
   %1009 = select i1 %1008, i32 9, i32 11
   br label %dict_get.exit1429
@@ -2108,7 +2108,7 @@ dict_get.exit1429:                                ; preds = %1003, %.loopexit161
   %.sroa.0.9 = phi i32 [ %1001, %1003 ], [ %.sroa.0.0.copyload, %.loopexit1610 ]
   %.sroa.230.9 = phi i32 [ %.sroa.230.68, %1003 ], [ %.sroa.230.0.copyload, %.loopexit1610 ]
   %1010 = icmp eq i64 %.sroa.17.9, %.sroa.66.0
-  br i1 %1010, label %1043, label %dict_put_safe.exit1430, !prof !74
+  br i1 %1010, label %1043, label %dict_put_safe.exit1430, !prof !76
 
 dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1011 = getelementptr i8, ptr %.sroa.0.0.copyload1459, i64 %.sroa.17.9
@@ -2170,7 +2170,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   br label %.outer
 
 1043:                                             ; preds = %dict_get.exit1429
-  store i32 15, ptr %64, align 4, !tbaa !58
+  store i32 15, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 1044:                                             ; preds = %992
@@ -2178,7 +2178,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1046 = sub nuw i32 %.sroa.230.68, %1001
   %1047 = lshr i16 %999, 5
   %1048 = sub i16 %999, %1047
-  store i16 %1048, ptr %998, align 2, !tbaa !59
+  store i16 %1048, ptr %998, align 2, !tbaa !60
   br label %1116
 
 1049:                                             ; preds = %966
@@ -2186,7 +2186,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1051 = sub nuw i32 %.sroa.230.66, %973
   %1052 = lshr i16 %971, 5
   %1053 = sub i16 %971, %1052
-  store i16 %1053, ptr %970, align 2, !tbaa !59
+  store i16 %1053, ptr %970, align 2, !tbaa !60
   br label %1054
 
 1054:                                             ; preds = %.loopexit1610, %1049
@@ -2215,7 +2215,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   br i1 %1057, label %1058, label %1059
 
 1058:                                             ; preds = %1056
-  store i32 17, ptr %64, align 4, !tbaa !58
+  store i32 17, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 1059:                                             ; preds = %1056
@@ -2235,7 +2235,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1068 = getelementptr inbounds nuw i8, ptr %0, i64 25008
   %1069 = zext i32 %.261001 to i64
   %1070 = getelementptr inbounds nuw [12 x i16], ptr %1068, i64 0, i64 %1069
-  %1071 = load i16, ptr %1070, align 2, !tbaa !59
+  %1071 = load i16, ptr %1070, align 2, !tbaa !60
   %1072 = zext i16 %1071 to i32
   %1073 = mul i32 %1067, %1072
   %1074 = icmp ult i32 %.sroa.230.71, %1073
@@ -2246,7 +2246,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1077 = lshr i32 %1076, 5
   %1078 = trunc i32 %1077 to i16
   %1079 = add i16 %1071, %1078
-  store i16 %1079, ptr %1070, align 2, !tbaa !59
+  store i16 %1079, ptr %1070, align 2, !tbaa !60
   br label %1116
 
 1080:                                             ; preds = %1066
@@ -2254,7 +2254,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1082 = sub nuw i32 %.sroa.230.71, %1073
   %1083 = lshr i16 %1071, 5
   %1084 = sub i16 %1071, %1083
-  store i16 %1084, ptr %1070, align 2, !tbaa !59
+  store i16 %1084, ptr %1070, align 2, !tbaa !60
   br label %1085
 
 1085:                                             ; preds = %.loopexit1610, %1080
@@ -2283,7 +2283,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   br i1 %1088, label %1089, label %1090
 
 1089:                                             ; preds = %1087
-  store i32 18, ptr %64, align 4, !tbaa !58
+  store i32 18, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 1090:                                             ; preds = %1087
@@ -2303,7 +2303,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1099 = getelementptr inbounds nuw i8, ptr %0, i64 25032
   %1100 = zext i32 %.271002 to i64
   %1101 = getelementptr inbounds nuw [12 x i16], ptr %1099, i64 0, i64 %1100
-  %1102 = load i16, ptr %1101, align 2, !tbaa !59
+  %1102 = load i16, ptr %1101, align 2, !tbaa !60
   %1103 = zext i16 %1102 to i32
   %1104 = mul i32 %1098, %1103
   %1105 = icmp ult i32 %.sroa.230.73, %1104
@@ -2314,7 +2314,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1108 = lshr i32 %1107, 5
   %1109 = trunc i32 %1108 to i16
   %1110 = add i16 %1102, %1109
-  store i16 %1110, ptr %1101, align 2, !tbaa !59
+  store i16 %1110, ptr %1101, align 2, !tbaa !60
   br label %1116
 
 1111:                                             ; preds = %1097
@@ -2322,7 +2322,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1113 = sub nuw i32 %.sroa.230.73, %1104
   %1114 = lshr i16 %1102, 5
   %1115 = sub i16 %1102, %1114
-  store i16 %1115, ptr %1101, align 2, !tbaa !59
+  store i16 %1115, ptr %1101, align 2, !tbaa !60
   br label %1116
 
 1116:                                             ; preds = %1075, %1111, %1106, %1044
@@ -2373,7 +2373,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   br i1 %1122, label %1123, label %1124
 
 1123:                                             ; preds = %1121
-  store i32 19, ptr %64, align 4, !tbaa !58
+  store i32 19, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 1124:                                             ; preds = %1121
@@ -2391,7 +2391,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %.sroa.230.75 = phi i32 [ %1130, %1124 ], [ %.sroa.230.74, %1119 ]
   %1132 = lshr i32 %.sroa.0.75, 11
   %1133 = getelementptr inbounds nuw i8, ptr %0, i64 27240
-  %1134 = load i16, ptr %1133, align 8, !tbaa !76
+  %1134 = load i16, ptr %1133, align 8, !tbaa !78
   %1135 = zext i16 %1134 to i32
   %1136 = mul i32 %1132, %1135
   %1137 = icmp ult i32 %.sroa.230.75, %1136
@@ -2402,7 +2402,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1140 = lshr i32 %1139, 5
   %1141 = trunc i32 %1140 to i16
   %1142 = add i16 %1134, %1141
-  store i16 %1142, ptr %1133, align 8, !tbaa !76
+  store i16 %1142, ptr %1133, align 8, !tbaa !78
   %1143 = getelementptr inbounds nuw i8, ptr %0, i64 27244
   %1144 = zext i32 %.91291 to i64
   %1145 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1143, i64 0, i64 %1144
@@ -2413,7 +2413,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1148 = sub nuw i32 %.sroa.230.75, %1136
   %1149 = lshr i16 %1134, 5
   %1150 = sub i16 %1134, %1149
-  store i16 %1150, ptr %1133, align 8, !tbaa !76
+  store i16 %1150, ptr %1133, align 8, !tbaa !78
   br label %1151
 
 1151:                                             ; preds = %.loopexit1610, %1146
@@ -2442,7 +2442,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   br i1 %1154, label %1155, label %1156
 
 1155:                                             ; preds = %1153
-  store i32 20, ptr %64, align 4, !tbaa !58
+  store i32 20, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 1156:                                             ; preds = %1153
@@ -2460,7 +2460,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %.sroa.230.78 = phi i32 [ %1162, %1156 ], [ %.sroa.230.77, %1151 ]
   %1164 = lshr i32 %.sroa.0.78, 11
   %1165 = getelementptr inbounds nuw i8, ptr %0, i64 27242
-  %1166 = load i16, ptr %1165, align 2, !tbaa !78
+  %1166 = load i16, ptr %1165, align 2, !tbaa !80
   %1167 = zext i16 %1166 to i32
   %1168 = mul i32 %1164, %1167
   %1169 = icmp ult i32 %.sroa.230.78, %1168
@@ -2471,7 +2471,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1172 = lshr i32 %1171, 5
   %1173 = trunc i32 %1172 to i16
   %1174 = add i16 %1166, %1173
-  store i16 %1174, ptr %1165, align 2, !tbaa !78
+  store i16 %1174, ptr %1165, align 2, !tbaa !80
   %1175 = getelementptr inbounds nuw i8, ptr %0, i64 27500
   %1176 = zext i32 %.101292 to i64
   %1177 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %1175, i64 0, i64 %1176
@@ -2482,7 +2482,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1180 = sub nuw i32 %.sroa.230.78, %1168
   %1181 = lshr i16 %1166, 5
   %1182 = sub i16 %1166, %1181
-  store i16 %1182, ptr %1165, align 2, !tbaa !78
+  store i16 %1182, ptr %1165, align 2, !tbaa !80
   %1183 = getelementptr inbounds nuw i8, ptr %0, i64 27756
   br label %1184
 
@@ -2518,7 +2518,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   br i1 %1188, label %1189, label %1190
 
 1189:                                             ; preds = %1187
-  store i32 21, ptr %64, align 4, !tbaa !58
+  store i32 21, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 1190:                                             ; preds = %1187
@@ -2537,7 +2537,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1198 = lshr i32 %.sroa.0.80, 11
   %1199 = zext i32 %.441210 to i64
   %1200 = getelementptr inbounds nuw i16, ptr %.101145, i64 %1199
-  %1201 = load i16, ptr %1200, align 2, !tbaa !59
+  %1201 = load i16, ptr %1200, align 2, !tbaa !60
   %1202 = zext i16 %1201 to i32
   %1203 = mul i32 %1198, %1202
   %1204 = icmp ult i32 %.sroa.230.80, %1203
@@ -2564,9 +2564,9 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %.451211 = phi i32 [ %1205, %1206 ], [ %1216, %1211 ]
   %.sroa.0.81 = phi i32 [ %1203, %1206 ], [ %1212, %1211 ]
   %.sroa.230.81 = phi i32 [ %.sroa.230.80, %1206 ], [ %1213, %1211 ]
-  store i16 %.sink2232, ptr %1200, align 2, !tbaa !59
+  store i16 %.sink2232, ptr %1200, align 2, !tbaa !60
   %1218 = icmp ult i32 %.451211, %.101222
-  br i1 %1218, label %1185, label %1219, !llvm.loop !93
+  br i1 %1218, label %1185, label %1219, !llvm.loop !95
 
 1219:                                             ; preds = %1217
   %1220 = sub i32 %.101512, %.101222
@@ -2617,7 +2617,7 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   store i8 %1236, ptr %1238, align 1, !tbaa !33
   %1239 = add i32 %.031.i1435, -1
   %.not36.i1437 = icmp eq i32 %1239, 0
-  br i1 %.not36.i1437, label %.loopexit.i1433, label %.preheader.i1434, !llvm.loop !81
+  br i1 %.not36.i1437, label %.loopexit.i1433, label %.preheader.i1434, !llvm.loop !83
 
 1240:                                             ; preds = %1222
   %1241 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload1459, i64 %.sroa.17.11
@@ -2632,10 +2632,10 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1245 = add i64 %.sroa.17.31, -576
   %spec.select1568 = select i1 %1244, i64 %.sroa.55.11, i64 %1245
   %.not1570 = icmp eq i32 %1227, 0
-  br i1 %.not1570, label %.preheader, label %1246, !prof !73
+  br i1 %.not1570, label %.preheader, label %1246, !prof !75
 
 1246:                                             ; preds = %.loopexit.i1433
-  store i32 22, ptr %64, align 4, !tbaa !58
+  store i32 22, ptr %64, align 4, !tbaa !59
   br label %.loopexit1575
 
 .loopexit1575:                                    ; preds = %.loopexit, %262, %623, %949, %.loopexit1609, %.loopexit1576, %495, %493, %.loopexit1610, %1246, %1189, %1155, %1123, %1089, %1058, %1043, %984, %958, %944, %936, %899, %874, %834, %780, %737, %703, %671, %643, %633, %546, %503, %485, %479
@@ -2655,8 +2655,8 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %.22 = phi ptr [ %26, %.loopexit1610 ], [ %27, %485 ], [ %.31, %493 ], [ %27, %503 ], [ %27, %546 ], [ %.3, %633 ], [ %.23, %479 ], [ %27, %936 ], [ %.58, %944 ], [ %.21, %.loopexit1576 ], [ %27, %623 ], [ %27, %643 ], [ %27, %671 ], [ %27, %737 ], [ %27, %780 ], [ %.11, %1246 ], [ %.50, %.loopexit1609 ], [ %27, %834 ], [ %27, %874 ], [ %27, %899 ], [ %27, %703 ], [ %27, %958 ], [ %27, %984 ], [ %.9, %1043 ], [ %27, %1123 ], [ %27, %1189 ], [ %27, %1155 ], [ %27, %1058 ], [ %27, %1089 ], [ %.40, %949 ], [ %.31, %495 ], [ %.15, %262 ], [ %.19, %.loopexit ]
   %.sroa.0.22 = phi i32 [ %.sroa.0.0.copyload, %.loopexit1610 ], [ %.sroa.0.0, %485 ], [ %.sroa.0.31, %493 ], [ %.sroa.0.32, %503 ], [ %.sroa.0.34, %546 ], [ %.sroa.0.3, %633 ], [ %.sroa.0.23, %479 ], [ %.sroa.0.63, %936 ], [ %.sroa.0.64, %944 ], [ %.sroa.0.21, %.loopexit1576 ], [ %.sroa.0.37, %623 ], [ %.sroa.0.41, %643 ], [ %.sroa.0.43, %671 ], [ %.sroa.0.48, %737 ], [ %.sroa.0.51, %780 ], [ %.sroa.0.11, %1246 ], [ %.sroa.0.54, %.loopexit1609 ], [ %.sroa.0.55, %834 ], [ %.sroa.0.58, %874 ], [ %.sroa.0.60, %899 ], [ %.sroa.0.46, %703 ], [ %.sroa.0.65, %958 ], [ %.sroa.0.67, %984 ], [ %.sroa.0.9, %1043 ], [ %.sroa.0.74, %1123 ], [ %.sroa.0.79, %1189 ], [ %.sroa.0.77, %1155 ], [ %.sroa.0.70, %1058 ], [ %.sroa.0.72, %1089 ], [ %950, %949 ], [ %.sroa.0.31, %495 ], [ %263, %262 ], [ %.sroa.0.19, %.loopexit ]
   %.sroa.230.22 = phi i32 [ %.sroa.230.0.copyload, %.loopexit1610 ], [ %.sroa.230.0, %485 ], [ 0, %493 ], [ %.sroa.230.32, %503 ], [ %.sroa.230.34, %546 ], [ %.sroa.230.3, %633 ], [ %.sroa.230.23, %479 ], [ %.sroa.230.63, %936 ], [ %.sroa.230.64, %944 ], [ %.sroa.230.21, %.loopexit1576 ], [ %.sroa.230.37, %623 ], [ %.sroa.230.41, %643 ], [ %.sroa.230.43, %671 ], [ %.sroa.230.48, %737 ], [ %.sroa.230.51, %780 ], [ %.sroa.230.11, %1246 ], [ %.sroa.230.54, %.loopexit1609 ], [ %.sroa.230.55, %834 ], [ %.sroa.230.58, %874 ], [ %.sroa.230.60, %899 ], [ %.sroa.230.46, %703 ], [ %.sroa.230.65, %958 ], [ %.sroa.230.67, %984 ], [ %.sroa.230.9, %1043 ], [ %.sroa.230.74, %1123 ], [ %.sroa.230.79, %1189 ], [ %.sroa.230.77, %1155 ], [ %.sroa.230.70, %1058 ], [ %.sroa.230.72, %1089 ], [ %951, %949 ], [ %.sroa.230.31, %495 ], [ %264, %262 ], [ %.sroa.230.19, %.loopexit ]
-  store i64 %.sroa.17.14, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !94
-  store i64 %.sroa.55.14, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !96
+  store i64 %.sroa.17.14, ptr %.sroa.17.0..sroa_idx, align 8, !tbaa !96
+  store i64 %.sroa.55.14, ptr %.sroa.55.0..sroa_idx, align 8, !tbaa !98
   store i32 %.sroa.0.22, ptr %6, align 4, !tbaa !31
   store i32 %.sroa.230.22, ptr %.sroa.230.0..sroa_idx, align 4, !tbaa !31
   store i32 0, ptr %7, align 4, !tbaa !31
@@ -2664,31 +2664,31 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   %1248 = ptrtoint ptr %2 to i64
   %1249 = sub i64 %1247, %1248
   store i64 %1249, ptr %3, align 8, !tbaa !32
-  store i32 %.15990, ptr %31, align 8, !tbaa !40
-  store i32 %.161022, ptr %33, align 4, !tbaa !45
-  store i32 %.141056, ptr %35, align 8, !tbaa !46
-  store i32 %.141087, ptr %37, align 4, !tbaa !47
-  store i32 %.141118, ptr %39, align 8, !tbaa !48
-  store ptr %.151150, ptr %43, align 8, !tbaa !50
-  store i32 %.171183, ptr %45, align 8, !tbaa !51
-  store i32 %.161228, ptr %47, align 4, !tbaa !52
-  store i32 %.161261, ptr %49, align 8, !tbaa !53
-  store i32 %.151517, ptr %51, align 4, !tbaa !54
-  %1250 = load i64, ptr %59, align 8, !tbaa !57
+  store i32 %.15990, ptr %31, align 8, !tbaa !41
+  store i32 %.161022, ptr %33, align 4, !tbaa !46
+  store i32 %.141056, ptr %35, align 8, !tbaa !47
+  store i32 %.141087, ptr %37, align 4, !tbaa !48
+  store i32 %.141118, ptr %39, align 8, !tbaa !49
+  store ptr %.151150, ptr %43, align 8, !tbaa !51
+  store i32 %.171183, ptr %45, align 8, !tbaa !52
+  store i32 %.161228, ptr %47, align 4, !tbaa !53
+  store i32 %.161261, ptr %49, align 8, !tbaa !54
+  store i32 %.151517, ptr %51, align 4, !tbaa !55
+  %1250 = load i64, ptr %59, align 8, !tbaa !58
   %.not1415 = icmp eq i64 %1250, -1
   br i1 %.not1415, label %1258, label %1251
 
 1251:                                             ; preds = %.loopexit1575
   %.neg1416 = sub i64 %.sroa.17.0.copyload, %.sroa.17.14
   %1252 = add i64 %1250, %.neg1416
-  store i64 %1252, ptr %59, align 8, !tbaa !57
+  store i64 %1252, ptr %59, align 8, !tbaa !58
   %1253 = icmp eq i64 %1252, 0
   %1254 = icmp eq i32 %.01293, 0
   %or.cond = select i1 %1253, i1 %1254, i1 false
   br i1 %or.cond, label %1255, label %1258
 
 1255:                                             ; preds = %1251
-  %1256 = load i32, ptr %64, align 4, !tbaa !58
+  %1256 = load i32, ptr %64, align 4, !tbaa !59
   switch i32 %1256, label %rc_read_init.exit [
     i32 4, label %1257
     i32 15, label %1257
@@ -2703,10 +2703,10 @@ dict_put_safe.exit1430:                           ; preds = %dict_get.exit1429
   br i1 %1259, label %1260, label %rc_read_init.exit
 
 1260:                                             ; preds = %1258
-  store i32 -1, ptr %6, align 4, !tbaa !97
-  store i32 0, ptr %.sroa.230.0..sroa_idx, align 4, !tbaa !98
-  store i32 5, ptr %7, align 4, !tbaa !99
-  store i32 1, ptr %64, align 4, !tbaa !58
+  store i32 -1, ptr %6, align 4, !tbaa !99
+  store i32 0, ptr %.sroa.230.0..sroa_idx, align 4, !tbaa !100
+  store i32 5, ptr %7, align 4, !tbaa !101
+  store i32 1, ptr %64, align 4, !tbaa !59
   br label %rc_read_init.exit
 
 rc_read_init.exit:                                ; preds = %17, %8, %1260, %1258, %1257, %1255
@@ -2717,14 +2717,14 @@ rc_read_init.exit:                                ; preds = %17, %8, %1260, %125
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @lzma_decoder_reset(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %4 = load i32, ptr %3, align 4, !tbaa !100
+  %4 = load i32, ptr %3, align 4, !tbaa !102
   %notmask = shl nsw i32 -1, %4
   %5 = xor i32 %notmask, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28300
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !101
+  %8 = load i32, ptr %7, align 4, !tbaa !103
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %10 = load i32, ptr %9, align 8, !tbaa !102
+  %10 = load i32, ptr %9, align 8, !tbaa !104
   %11 = add i32 %10, %8
   %.not.i = icmp ugt i32 %11, 23
   br i1 %.not.i, label %literal_init.exit, label %.lr.ph.preheader.i
@@ -2738,28 +2738,28 @@ define internal void @lzma_decoder_reset(ptr noundef writeonly captures(none) %0
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.06.i = phi i64 [ %15, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %14 = getelementptr inbounds nuw i16, ptr %0, i64 %.06.i
-  store i16 1024, ptr %14, align 2, !tbaa !59
+  store i16 1024, ptr %14, align 2, !tbaa !60
   %15 = add nuw nsw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %15, %umax.i
-  br i1 %exitcond.not.i, label %literal_init.exit, label %.lr.ph.i, !llvm.loop !103
+  br i1 %exitcond.not.i, label %literal_init.exit, label %.lr.ph.i, !llvm.loop !105
 
 literal_init.exit:                                ; preds = %.lr.ph.i, %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 28304
-  store i32 %8, ptr %16, align 8, !tbaa !56
+  store i32 %8, ptr %16, align 8, !tbaa !57
   %17 = shl i32 256, %10
   %18 = lshr i32 256, %8
   %19 = sub i32 %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28308
-  store i32 %19, ptr %20, align 4, !tbaa !55
+  store i32 %19, ptr %20, align 4, !tbaa !56
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
-  store i32 %5, ptr %6, align 4, !tbaa !49
+  store i32 %5, ptr %6, align 4, !tbaa !50
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 28268
-  store i32 -1, ptr %22, align 4, !tbaa !97
+  store i32 -1, ptr %22, align 4, !tbaa !99
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 28272
-  store i32 0, ptr %23, align 4, !tbaa !98
+  store i32 0, ptr %23, align 4, !tbaa !100
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28276
-  store i32 5, ptr %24, align 4, !tbaa !99
+  store i32 5, ptr %24, align 4, !tbaa !101
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24576
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 25056
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24960
@@ -2782,26 +2782,26 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 
 35:                                               ; preds = %40
   %36 = getelementptr inbounds nuw [12 x i16], ptr %27, i64 0, i64 %indvars.iv134
-  store i16 1024, ptr %36, align 2, !tbaa !59
+  store i16 1024, ptr %36, align 2, !tbaa !60
   %37 = getelementptr inbounds nuw [12 x i16], ptr %28, i64 0, i64 %indvars.iv134
-  store i16 1024, ptr %37, align 2, !tbaa !59
+  store i16 1024, ptr %37, align 2, !tbaa !60
   %38 = getelementptr inbounds nuw [12 x i16], ptr %29, i64 0, i64 %indvars.iv134
-  store i16 1024, ptr %38, align 2, !tbaa !59
+  store i16 1024, ptr %38, align 2, !tbaa !60
   %39 = getelementptr inbounds nuw [12 x i16], ptr %30, i64 0, i64 %indvars.iv134
-  store i16 1024, ptr %39, align 2, !tbaa !59
+  store i16 1024, ptr %39, align 2, !tbaa !60
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, 12
-  br i1 %exitcond137.not, label %.preheader118, label %.preheader119, !llvm.loop !104
+  br i1 %exitcond137.not, label %.preheader118, label %.preheader119, !llvm.loop !106
 
 40:                                               ; preds = %.preheader119, %40
   %indvars.iv = phi i64 [ 0, %.preheader119 ], [ %indvars.iv.next, %40 ]
   %41 = getelementptr inbounds nuw [16 x i16], ptr %32, i64 0, i64 %indvars.iv
-  store i16 1024, ptr %41, align 2, !tbaa !59
+  store i16 1024, ptr %41, align 2, !tbaa !60
   %42 = getelementptr inbounds nuw [16 x i16], ptr %33, i64 0, i64 %indvars.iv
-  store i16 1024, ptr %42, align 2, !tbaa !59
+  store i16 1024, ptr %42, align 2, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %35, label %40, !llvm.loop !105
+  br i1 %exitcond, label %35, label %40, !llvm.loop !107
 
 .preheader117:                                    ; preds = %.preheader118, %45
   %indvars.iv142 = phi i64 [ 0, %.preheader118 ], [ %indvars.iv.next143, %45 ]
@@ -2815,15 +2815,15 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 45:                                               ; preds = %46
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond145.not = icmp eq i64 %indvars.iv.next143, 4
-  br i1 %exitcond145.not, label %.preheader116, label %.preheader117, !llvm.loop !106
+  br i1 %exitcond145.not, label %.preheader116, label %.preheader117, !llvm.loop !108
 
 46:                                               ; preds = %.preheader117, %46
   %indvars.iv138 = phi i64 [ 0, %.preheader117 ], [ %indvars.iv.next139, %46 ]
   %47 = getelementptr inbounds nuw [64 x i16], ptr %43, i64 0, i64 %indvars.iv138
-  store i16 1024, ptr %47, align 2, !tbaa !59
+  store i16 1024, ptr %47, align 2, !tbaa !60
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 64
-  br i1 %exitcond141.not, label %45, label %46, !llvm.loop !107
+  br i1 %exitcond141.not, label %45, label %46, !llvm.loop !109
 
 .preheader115:                                    ; preds = %49
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 26180
@@ -2832,20 +2832,20 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 49:                                               ; preds = %.preheader116, %49
   %indvars.iv146 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next147, %49 ]
   %50 = getelementptr inbounds nuw [114 x i16], ptr %44, i64 0, i64 %indvars.iv146
-  store i16 1024, ptr %50, align 2, !tbaa !59
+  store i16 1024, ptr %50, align 2, !tbaa !60
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next147, 114
-  br i1 %exitcond149.not, label %.preheader115, label %49, !llvm.loop !108
+  br i1 %exitcond149.not, label %.preheader115, label %49, !llvm.loop !110
 
 51:                                               ; preds = %60
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 26212
-  store i16 1024, ptr %52, align 4, !tbaa !63
+  store i16 1024, ptr %52, align 4, !tbaa !65
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 26214
-  store i16 1024, ptr %53, align 2, !tbaa !65
+  store i16 1024, ptr %53, align 2, !tbaa !67
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 27240
-  store i16 1024, ptr %54, align 8, !tbaa !76
+  store i16 1024, ptr %54, align 8, !tbaa !78
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 27242
-  store i16 1024, ptr %55, align 2, !tbaa !78
+  store i16 1024, ptr %55, align 2, !tbaa !80
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 26216
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 26472
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 27244
@@ -2855,10 +2855,10 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 60:                                               ; preds = %.preheader115, %60
   %indvars.iv150 = phi i64 [ 0, %.preheader115 ], [ %indvars.iv.next151, %60 ]
   %61 = getelementptr inbounds nuw [16 x i16], ptr %48, i64 0, i64 %indvars.iv150
-  store i16 1024, ptr %61, align 2, !tbaa !59
+  store i16 1024, ptr %61, align 2, !tbaa !60
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next151, 16
-  br i1 %exitcond153.not, label %51, label %60, !llvm.loop !109
+  br i1 %exitcond153.not, label %51, label %60, !llvm.loop !111
 
 .preheader114:                                    ; preds = %51, %74
   %.0102130 = phi i32 [ 0, %51 ], [ %75, %74 ]
@@ -2877,10 +2877,10 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 66:                                               ; preds = %.preheader114, %66
   %indvars.iv154 = phi i64 [ 0, %.preheader114 ], [ %indvars.iv.next155, %66 ]
   %67 = getelementptr inbounds nuw [8 x i16], ptr %63, i64 0, i64 %indvars.iv154
-  store i16 1024, ptr %67, align 2, !tbaa !59
+  store i16 1024, ptr %67, align 2, !tbaa !60
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, 1
   %exitcond157.not = icmp eq i64 %indvars.iv.next155, 8
-  br i1 %exitcond157.not, label %.preheader113, label %66, !llvm.loop !110
+  br i1 %exitcond157.not, label %.preheader113, label %66, !llvm.loop !112
 
 .preheader112:                                    ; preds = %69
   %68 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %58, i64 0, i64 %62
@@ -2889,10 +2889,10 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 69:                                               ; preds = %.preheader113, %69
   %indvars.iv158 = phi i64 [ 0, %.preheader113 ], [ %indvars.iv.next159, %69 ]
   %70 = getelementptr inbounds nuw [8 x i16], ptr %65, i64 0, i64 %indvars.iv158
-  store i16 1024, ptr %70, align 2, !tbaa !59
+  store i16 1024, ptr %70, align 2, !tbaa !60
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 8
-  br i1 %exitcond161.not, label %.preheader112, label %69, !llvm.loop !111
+  br i1 %exitcond161.not, label %.preheader112, label %69, !llvm.loop !113
 
 .preheader111:                                    ; preds = %72
   %71 = getelementptr inbounds nuw [16 x [8 x i16]], ptr %59, i64 0, i64 %62
@@ -2901,24 +2901,24 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 72:                                               ; preds = %.preheader112, %72
   %indvars.iv162 = phi i64 [ 0, %.preheader112 ], [ %indvars.iv.next163, %72 ]
   %73 = getelementptr inbounds nuw [8 x i16], ptr %68, i64 0, i64 %indvars.iv162
-  store i16 1024, ptr %73, align 2, !tbaa !59
+  store i16 1024, ptr %73, align 2, !tbaa !60
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 8
-  br i1 %exitcond165.not, label %.preheader111, label %72, !llvm.loop !112
+  br i1 %exitcond165.not, label %.preheader111, label %72, !llvm.loop !114
 
 74:                                               ; preds = %77
   %75 = add i32 %.0102130, 1
   %.0102.highbits = lshr i32 %75, %4
   %76 = icmp eq i32 %.0102.highbits, 0
-  br i1 %76, label %.preheader114, label %.preheader110, !llvm.loop !113
+  br i1 %76, label %.preheader114, label %.preheader110, !llvm.loop !115
 
 77:                                               ; preds = %.preheader111, %77
   %indvars.iv166 = phi i64 [ 0, %.preheader111 ], [ %indvars.iv.next167, %77 ]
   %78 = getelementptr inbounds nuw [8 x i16], ptr %71, i64 0, i64 %indvars.iv166
-  store i16 1024, ptr %78, align 2, !tbaa !59
+  store i16 1024, ptr %78, align 2, !tbaa !60
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond169.not = icmp eq i64 %indvars.iv.next167, 8
-  br i1 %exitcond169.not, label %74, label %77, !llvm.loop !114
+  br i1 %exitcond169.not, label %74, label %77, !llvm.loop !116
 
 .preheader:                                       ; preds = %80
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 27756
@@ -2927,14 +2927,14 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 80:                                               ; preds = %.preheader110, %80
   %indvars.iv170 = phi i64 [ 0, %.preheader110 ], [ %indvars.iv.next171, %80 ]
   %81 = getelementptr inbounds nuw [256 x i16], ptr %64, i64 0, i64 %indvars.iv170
-  store i16 1024, ptr %81, align 2, !tbaa !59
+  store i16 1024, ptr %81, align 2, !tbaa !60
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next171, 256
-  br i1 %exitcond173.not, label %.preheader, label %80, !llvm.loop !115
+  br i1 %exitcond173.not, label %.preheader, label %80, !llvm.loop !117
 
 82:                                               ; preds = %85
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 28324
-  store i32 1, ptr %83, align 4, !tbaa !58
+  store i32 1, ptr %83, align 4, !tbaa !59
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 28328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
   ret void
@@ -2942,19 +2942,19 @@ literal_init.exit:                                ; preds = %.lr.ph.i, %2
 85:                                               ; preds = %.preheader, %85
   %indvars.iv174 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next175, %85 ]
   %86 = getelementptr inbounds nuw [256 x i16], ptr %79, i64 0, i64 %indvars.iv174
-  store i16 1024, ptr %86, align 2, !tbaa !59
+  store i16 1024, ptr %86, align 2, !tbaa !60
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond177.not = icmp eq i64 %indvars.iv.next175, 256
-  br i1 %exitcond177.not, label %82, label %85, !llvm.loop !116
+  br i1 %exitcond177.not, label %82, label %85, !llvm.loop !118
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @lzma_decoder_uncompressed(ptr noundef writeonly captures(none) initializes((28312, 28321)) %0, i64 noundef %1, i1 noundef zeroext %2) #3 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28312
-  store i64 %1, ptr %5, align 8, !tbaa !57
+  store i64 %1, ptr %5, align 8, !tbaa !58
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28320
-  store i8 %4, ptr %6, align 8, !tbaa !83
+  store i8 %4, ptr %6, align 8, !tbaa !85
   ret void
 }
 
@@ -2969,13 +2969,13 @@ declare i32 @lzma_lz_decoder_init(ptr noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %7 = load i32, ptr %6, align 4, !tbaa !101
+  %7 = load i32, ptr %6, align 4, !tbaa !103
   %8 = icmp ult i32 %7, 5
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %11 = load i32, ptr %10, align 8, !tbaa !102
+  %11 = load i32, ptr %10, align 8, !tbaa !104
   %12 = icmp ult i32 %11, 5
   %13 = add nuw nsw i32 %11, %7
   %14 = icmp ult i32 %13, 5
@@ -2984,7 +2984,7 @@ define internal range(i32 0, 12) i32 @lzma_decoder_init(ptr noundef captures(non
 
 is_lclppb_valid.exit:                             ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  %16 = load i32, ptr %15, align 4, !tbaa !100
+  %16 = load i32, ptr %15, align 4, !tbaa !102
   %17 = icmp ult i32 %16, 5
   br i1 %17, label %18, label %.critedge
 
@@ -2994,16 +2994,16 @@ is_lclppb_valid.exit:                             ; preds = %9
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %22 = load i32, ptr %21, align 8, !tbaa !117
+  %22 = load i32, ptr %21, align 8, !tbaa !119
   %.not = icmp ult i32 %22, 2
   br i1 %.not, label %23, label %.critedge
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 52
-  %25 = load i32, ptr %24, align 4, !tbaa !118
+  %25 = load i32, ptr %24, align 4, !tbaa !120
   %26 = zext i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %28 = load i32, ptr %27, align 8, !tbaa !119
+  %28 = load i32, ptr %27, align 8, !tbaa !121
   %29 = zext i32 %28 to i64
   %30 = shl nuw i64 %29, 32
   %31 = or disjoint i64 %30, %26
@@ -3052,9 +3052,9 @@ is_lclppb_valid.exit:                             ; preds = %9
   tail call void @lzma_decoder_reset(ptr noundef nonnull %47, ptr noundef nonnull %3)
   %57 = load ptr, ptr %0, align 8, !tbaa !4
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 28312
-  store i64 %.125, ptr %58, align 8, !tbaa !57
+  store i64 %.125, ptr %58, align 8, !tbaa !58
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 28320
-  store i8 %.127, ptr %59, align 8, !tbaa !83
+  store i8 %.127, ptr %59, align 8, !tbaa !85
   br label %.critedge
 
 .critedge:                                        ; preds = %39, %5, %9, %46, %20, %is_lclppb_valid.exit
@@ -3071,18 +3071,18 @@ define dso_local zeroext i1 @lzma_lzma_lclppb_decode(ptr noundef writeonly captu
   %5 = udiv i8 %1, 45
   %6 = zext nneg i8 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %6, ptr %7, align 4, !tbaa !100
+  store i32 %6, ptr %7, align 4, !tbaa !102
   %8 = mul i8 %5, -45
   %9 = add i8 %8, %1
   %10 = zext i8 %9 to i32
   %11 = udiv i8 %9, 9
   %.zext = zext nneg i8 %11 to i32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.zext, ptr %12, align 8, !tbaa !102
+  store i32 %.zext, ptr %12, align 8, !tbaa !104
   %.neg = mul nsw i32 %.zext, -9
   %13 = add nsw i32 %.neg, %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %13, ptr %14, align 4, !tbaa !101
+  store i32 %13, ptr %14, align 4, !tbaa !103
   %15 = add nsw i32 %13, %.zext
   %16 = icmp ugt i32 %15, 4
   br label %17
@@ -3106,13 +3106,13 @@ declare i64 @lzma_lz_decoder_memusage(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @lzma_lzma_decoder_memusage(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !101
+  %3 = load i32, ptr %2, align 4, !tbaa !103
   %4 = icmp ult i32 %3, 5
   br i1 %4, label %5, label %is_lclppb_valid.exit.thread
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load i32, ptr %6, align 8, !tbaa !102
+  %7 = load i32, ptr %6, align 8, !tbaa !104
   %8 = icmp ult i32 %7, 5
   %9 = add nuw nsw i32 %7, %3
   %10 = icmp ult i32 %9, 5
@@ -3121,7 +3121,7 @@ define dso_local i64 @lzma_lzma_decoder_memusage(ptr noundef readonly captures(n
 
 is_lclppb_valid.exit:                             ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %12 = load i32, ptr %11, align 4, !tbaa !100
+  %12 = load i32, ptr %11, align 4, !tbaa !102
   %13 = icmp ult i32 %12, 5
   br i1 %13, label %14, label %is_lclppb_valid.exit.thread
 
@@ -3156,18 +3156,18 @@ lzma_lzma_lclppb_decode.exit:                     ; preds = %8
   %11 = udiv i8 %9, 45
   %12 = zext nneg i8 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  store i32 %12, ptr %13, align 4, !tbaa !100
+  store i32 %12, ptr %13, align 4, !tbaa !102
   %14 = mul i8 %11, -45
   %15 = add i8 %14, %9
   %16 = zext i8 %15 to i32
   %17 = udiv i8 %15, 9
   %.zext.i = zext nneg i8 %17 to i32
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i32 %.zext.i, ptr %18, align 8, !tbaa !102
+  store i32 %.zext.i, ptr %18, align 8, !tbaa !104
   %.neg.i = mul nsw i32 %.zext.i, -9
   %19 = add nsw i32 %.neg.i, %16
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 %19, ptr %20, align 4, !tbaa !101
+  store i32 %19, ptr %20, align 4, !tbaa !103
   %21 = add nsw i32 %19, %.zext.i
   %22 = icmp ugt i32 %21, 4
   br i1 %22, label %lzma_lzma_lclppb_decode.exit.thread, label %23
@@ -3180,7 +3180,7 @@ lzma_lzma_lclppb_decode.exit:                     ; preds = %8
   store ptr null, ptr %25, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %26, align 8, !tbaa !21
-  store ptr %6, ptr %0, align 8, !tbaa !120
+  store ptr %6, ptr %0, align 8, !tbaa !122
   br label %27
 
 lzma_lzma_lclppb_decode.exit.thread:              ; preds = %8, %lzma_lzma_lclppb_decode.exit
@@ -3262,89 +3262,91 @@ attributes #8 = { nounwind }
 !32 = !{!18, !18, i64 0}
 !33 = !{!7, !7, i64 0}
 !34 = !{!29, !14, i64 4}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!15, !15, i64 0}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"_Bool", !7, i64 0}
-!40 = !{!41, !14, i64 28280}
-!41 = !{!"", !7, i64 0, !7, i64 24576, !7, i64 24960, !7, i64 24984, !7, i64 25008, !7, i64 25032, !7, i64 25056, !7, i64 25440, !7, i64 25952, !7, i64 26180, !42, i64 26212, !42, i64 27240, !29, i64 28268, !14, i64 28280, !14, i64 28284, !14, i64 28288, !14, i64 28292, !14, i64 28296, !14, i64 28300, !14, i64 28304, !14, i64 28308, !18, i64 28312, !39, i64 28320, !14, i64 28324, !44, i64 28328, !14, i64 28336, !14, i64 28340, !14, i64 28344, !14, i64 28348}
-!42 = !{!"", !43, i64 0, !43, i64 2, !7, i64 4, !7, i64 260, !7, i64 516}
-!43 = !{!"short", !7, i64 0}
-!44 = !{!"p1 short", !6, i64 0}
-!45 = !{!41, !14, i64 28284}
-!46 = !{!41, !14, i64 28288}
-!47 = !{!41, !14, i64 28292}
-!48 = !{!41, !14, i64 28296}
-!49 = !{!41, !14, i64 28300}
-!50 = !{!41, !44, i64 28328}
-!51 = !{!41, !14, i64 28336}
-!52 = !{!41, !14, i64 28340}
-!53 = !{!41, !14, i64 28344}
-!54 = !{!41, !14, i64 28348}
-!55 = !{!41, !14, i64 28308}
-!56 = !{!41, !14, i64 28304}
-!57 = !{!41, !18, i64 28312}
-!58 = !{!41, !14, i64 28324}
-!59 = !{!43, !43, i64 0}
-!60 = !{i64 2148564254, i64 2148564296, i64 2148564324, i64 2148564374, i64 2148564407, i64 2148564423, i64 2148564459, i64 2148564494, i64 2148564531, i64 2148564560, i64 2148564567, i64 2148564588, i64 2148564636, i64 2148564679, i64 2148564709, i64 2148564738, i64 2148564770, i64 2148564799, i64 2148564836, i64 2148564875, i64 2148564930, i64 2148564961, i64 2148564992, i64 2148565031, i64 2148565056, i64 2148565086, i64 2148565122, i64 2148565176, i64 2148565236, i64 2148565269, i64 2148565285, i64 2148565321, i64 2148565356, i64 2148565393, i64 2148565422, i64 2148565429, i64 2148565450, i64 2148565498, i64 2148565541, i64 2148565571, i64 2148565600, i64 2148565632, i64 2148565661, i64 2148565713, i64 2148565759, i64 2148565798, i64 2148565853, i64 2148565884, i64 2148565915, i64 2148565954, i64 2148565979, i64 2148566009, i64 2148566045, i64 2148566099, i64 2148566159, i64 2148566192, i64 2148566208, i64 2148566244, i64 2148566279, i64 2148566316, i64 2148566345, i64 2148566352, i64 2148566373, i64 2148566421, i64 2148566464, i64 2148566494, i64 2148566523, i64 2148566555, i64 2148566584, i64 2148566636, i64 2148566682, i64 2148566721, i64 2148566776, i64 2148566807, i64 2148566838, i64 2148566877, i64 2148566902, i64 2148566932, i64 2148566968, i64 2148567022, i64 2148567082, i64 2148567115, i64 2148567131, i64 2148567167, i64 2148567202, i64 2148567239, i64 2148567268, i64 2148567275, i64 2148567296, i64 2148567344, i64 2148567387, i64 2148567417, i64 2148567446, i64 2148567478, i64 2148567507, i64 2148567559, i64 2148567605, i64 2148567644, i64 2148567699, i64 2148567730, i64 2148567761, i64 2148567800, i64 2148567825, i64 2148567855, i64 2148567891, i64 2148567945, i64 2148568005, i64 2148568038, i64 2148568054, i64 2148568090, i64 2148568125, i64 2148568162, i64 2148568191, i64 2148568198, i64 2148568219, i64 2148568267, i64 2148568310, i64 2148568340, i64 2148568369, i64 2148568401, i64 2148568430, i64 2148568482, i64 2148568528, i64 2148568567, i64 2148568622, i64 2148568653, i64 2148568684, i64 2148568723, i64 2148568748, i64 2148568778, i64 2148568814, i64 2148568868, i64 2148568928, i64 2148568961, i64 2148568977, i64 2148569013, i64 2148569048, i64 2148569085, i64 2148569114, i64 2148569121, i64 2148569142, i64 2148569190, i64 2148569233, i64 2148569263, i64 2148569292, i64 2148569324, i64 2148569353, i64 2148569405, i64 2148569451, i64 2148569490, i64 2148569545, i64 2148569576, i64 2148569607, i64 2148569646, i64 2148569671, i64 2148569701, i64 2148569737, i64 2148569791, i64 2148569851, i64 2148569884, i64 2148569900, i64 2148569936, i64 2148569971, i64 2148570008, i64 2148570037, i64 2148570044, i64 2148570065, i64 2148570113, i64 2148570156, i64 2148570186, i64 2148570215, i64 2148570247, i64 2148570276, i64 2148570328, i64 2148570374, i64 2148570413, i64 2148570468, i64 2148570499, i64 2148570530, i64 2148570569, i64 2148570594, i64 2148570624, i64 2148570660, i64 2148570714, i64 2148570745, i64 2148570778, i64 2148570794, i64 2148570830, i64 2148570865, i64 2148570902, i64 2148570931, i64 2148570938, i64 2148570959, i64 2148571007, i64 2148571050, i64 2148571080, i64 2148571109, i64 2148571141, i64 2148571170, i64 2148571225, i64 2148571256, i64 2148571287, i64 2148571326, i64 2148571359, i64 2148571389, i64 2148571425, i64 2148571479}
-!61 = !{i64 2148573006, i64 2148573033, i64 2148573071, i64 2148573109, i64 2148573170, i64 2148573209, i64 2148574003, i64 2148574046, i64 2148574079, i64 2148574095, i64 2148574131, i64 2148574166, i64 2148574203, i64 2148574232, i64 2148574239, i64 2148574260, i64 2148574308, i64 2148574345, i64 2148574375, i64 2148574404, i64 2148574436, i64 2148573402, i64 2148573454, i64 2148573485, i64 2148573516, i64 2148573548, i64 2148574484, i64 2148574526, i64 2148573690, i64 2148573728, i64 2148573805, i64 2148573834, i64 2148573947, i64 2148574557, i64 2148574595, i64 2148574633, i64 2148574694, i64 2148574733, i64 2148575527, i64 2148575570, i64 2148575603, i64 2148575619, i64 2148575655, i64 2148575690, i64 2148575727, i64 2148575756, i64 2148575763, i64 2148575784, i64 2148575832, i64 2148575869, i64 2148575899, i64 2148575928, i64 2148575960, i64 2148574926, i64 2148574978, i64 2148575009, i64 2148575040, i64 2148575072, i64 2148576008, i64 2148576050, i64 2148575214, i64 2148575252, i64 2148575329, i64 2148575358, i64 2148575471, i64 2148576081, i64 2148576119, i64 2148576157, i64 2148576218, i64 2148576257, i64 2148577051, i64 2148577094, i64 2148577127, i64 2148577143, i64 2148577179, i64 2148577214, i64 2148577251, i64 2148577280, i64 2148577287, i64 2148577308, i64 2148577356, i64 2148577393, i64 2148577423, i64 2148577452, i64 2148577484, i64 2148576450, i64 2148576502, i64 2148576533, i64 2148576564, i64 2148576596, i64 2148577532, i64 2148577574, i64 2148576738, i64 2148576776, i64 2148576853, i64 2148576882, i64 2148576995, i64 2148577605, i64 2148577643, i64 2148577681, i64 2148577742, i64 2148577781, i64 2148578575, i64 2148578618, i64 2148578651, i64 2148578667, i64 2148578703, i64 2148578738, i64 2148578775, i64 2148578804, i64 2148578811, i64 2148578832, i64 2148578880, i64 2148578917, i64 2148578947, i64 2148578976, i64 2148579008, i64 2148577974, i64 2148578026, i64 2148578057, i64 2148578088, i64 2148578120, i64 2148579056, i64 2148579098, i64 2148578262, i64 2148578300, i64 2148578377, i64 2148578406, i64 2148578519, i64 2148579129, i64 2148579167, i64 2148579205, i64 2148579266, i64 2148579305, i64 2148580099, i64 2148580142, i64 2148580175, i64 2148580191, i64 2148580227, i64 2148580262, i64 2148580299, i64 2148580328, i64 2148580335, i64 2148580356, i64 2148580404, i64 2148580441, i64 2148580471, i64 2148580500, i64 2148580532, i64 2148579498, i64 2148579550, i64 2148579581, i64 2148579612, i64 2148579644, i64 2148580580, i64 2148580622, i64 2148579786, i64 2148579824, i64 2148579901, i64 2148579930, i64 2148580043, i64 2148580653, i64 2148580691, i64 2148580729, i64 2148580790, i64 2148580829, i64 2148581623, i64 2148581666, i64 2148581699, i64 2148581715, i64 2148581751, i64 2148581786, i64 2148581823, i64 2148581852, i64 2148581859, i64 2148581880, i64 2148581928, i64 2148581965, i64 2148581995, i64 2148582024, i64 2148582056, i64 2148581022, i64 2148581074, i64 2148581105, i64 2148581136, i64 2148581168, i64 2148582104, i64 2148582146, i64 2148581310, i64 2148581348, i64 2148581425, i64 2148581454, i64 2148581567, i64 2148582177, i64 2148582215, i64 2148582253, i64 2148582314, i64 2148582353, i64 2148583147, i64 2148583190, i64 2148583223, i64 2148583239, i64 2148583275, i64 2148583310, i64 2148583347, i64 2148583376, i64 2148583383, i64 2148583404, i64 2148583452, i64 2148583489, i64 2148583519, i64 2148583548, i64 2148583580, i64 2148582546, i64 2148582598, i64 2148582629, i64 2148582660, i64 2148582692, i64 2148583628, i64 2148583670, i64 2148582834, i64 2148582872, i64 2148582949, i64 2148582978, i64 2148583091, i64 2148583701, i64 2148583739, i64 2148583777, i64 2148583838, i64 2148583877, i64 2148584666, i64 2148584682, i64 2148584718, i64 2148584753, i64 2148584790, i64 2148584819, i64 2148584826, i64 2148584847, i64 2148584895, i64 2148584932, i64 2148584962, i64 2148584991, i64 2148585023, i64 2148584070, i64 2148584122, i64 2148584153, i64 2148584184, i64 2148584216, i64 2148584358, i64 2148584396, i64 2148584473, i64 2148584502, i64 2148584615}
-!62 = !{!"branch_weights", i32 127, i32 16129}
-!63 = !{!41, !43, i64 26212}
-!64 = !{i64 2148594251, i64 2148594293, i64 2148594321, i64 2148594371, i64 2148594404, i64 2148594420, i64 2148594456, i64 2148594491, i64 2148594528, i64 2148594557, i64 2148594564, i64 2148594585, i64 2148594633, i64 2148594676, i64 2148594706, i64 2148594735, i64 2148594767, i64 2148594796, i64 2148594833, i64 2148594872, i64 2148594927, i64 2148594958, i64 2148594989, i64 2148595028, i64 2148595053, i64 2148595083, i64 2148595119, i64 2148595173, i64 2148595233, i64 2148595266, i64 2148595282, i64 2148595318, i64 2148595353, i64 2148595390, i64 2148595419, i64 2148595426, i64 2148595447, i64 2148595495, i64 2148595538, i64 2148595568, i64 2148595597, i64 2148595629, i64 2148595658, i64 2148595710, i64 2148595756, i64 2148595795, i64 2148595850, i64 2148595881, i64 2148595912, i64 2148595951, i64 2148595976, i64 2148596006, i64 2148596042, i64 2148596096, i64 2148596127, i64 2148596160, i64 2148596176, i64 2148596212, i64 2148596247, i64 2148596284, i64 2148596313, i64 2148596320, i64 2148596341, i64 2148596389, i64 2148596432, i64 2148596462, i64 2148596491, i64 2148596523, i64 2148596552, i64 2148596607, i64 2148596638, i64 2148596669, i64 2148596708, i64 2148596741, i64 2148596771, i64 2148596807, i64 2148596861}
-!65 = !{!41, !43, i64 26214}
-!66 = !{i64 2148604654, i64 2148604696, i64 2148604724, i64 2148604774, i64 2148604807, i64 2148604823, i64 2148604859, i64 2148604894, i64 2148604931, i64 2148604960, i64 2148604967, i64 2148604988, i64 2148605036, i64 2148605079, i64 2148605109, i64 2148605138, i64 2148605170, i64 2148605199, i64 2148605236, i64 2148605275, i64 2148605330, i64 2148605361, i64 2148605392, i64 2148605431, i64 2148605456, i64 2148605486, i64 2148605522, i64 2148605576, i64 2148605636, i64 2148605669, i64 2148605685, i64 2148605721, i64 2148605756, i64 2148605793, i64 2148605822, i64 2148605829, i64 2148605850, i64 2148605898, i64 2148605941, i64 2148605971, i64 2148606000, i64 2148606032, i64 2148606061, i64 2148606113, i64 2148606159, i64 2148606198, i64 2148606253, i64 2148606284, i64 2148606315, i64 2148606354, i64 2148606379, i64 2148606409, i64 2148606445, i64 2148606499, i64 2148606530, i64 2148606563, i64 2148606579, i64 2148606615, i64 2148606650, i64 2148606687, i64 2148606716, i64 2148606723, i64 2148606744, i64 2148606792, i64 2148606835, i64 2148606865, i64 2148606894, i64 2148606926, i64 2148606955, i64 2148607010, i64 2148607041, i64 2148607072, i64 2148607111, i64 2148607144, i64 2148607174, i64 2148607210, i64 2148607264}
-!67 = !{i64 2148624436, i64 2148624478, i64 2148624506, i64 2148624556, i64 2148624589, i64 2148624605, i64 2148624641, i64 2148624676, i64 2148624713, i64 2148624742, i64 2148624749, i64 2148624770, i64 2148624818, i64 2148624861, i64 2148624891, i64 2148624920, i64 2148624952, i64 2148624981, i64 2148625018, i64 2148625057, i64 2148625112, i64 2148625143, i64 2148625174, i64 2148625213, i64 2148625238, i64 2148625268, i64 2148625304, i64 2148625358, i64 2148625418, i64 2148625451, i64 2148625467, i64 2148625503, i64 2148625538, i64 2148625575, i64 2148625604, i64 2148625611, i64 2148625632, i64 2148625680, i64 2148625723, i64 2148625753, i64 2148625782, i64 2148625814, i64 2148625843, i64 2148625895, i64 2148625941, i64 2148625980, i64 2148626035, i64 2148626066, i64 2148626097, i64 2148626136, i64 2148626161, i64 2148626191, i64 2148626227, i64 2148626281, i64 2148626341, i64 2148626374, i64 2148626390, i64 2148626426, i64 2148626461, i64 2148626498, i64 2148626527, i64 2148626534, i64 2148626555, i64 2148626603, i64 2148626646, i64 2148626676, i64 2148626705, i64 2148626737, i64 2148626766, i64 2148626818, i64 2148626864, i64 2148626903, i64 2148626958, i64 2148626989, i64 2148627020, i64 2148627059, i64 2148627084, i64 2148627114, i64 2148627150, i64 2148627204, i64 2148627264, i64 2148627297, i64 2148627313, i64 2148627349, i64 2148627384, i64 2148627421, i64 2148627450, i64 2148627457, i64 2148627478, i64 2148627526, i64 2148627569, i64 2148627599, i64 2148627628, i64 2148627660, i64 2148627689, i64 2148627741, i64 2148627787, i64 2148627826, i64 2148627881, i64 2148627912, i64 2148627943, i64 2148627982, i64 2148628007, i64 2148628037, i64 2148628073, i64 2148628127, i64 2148628187, i64 2148628220, i64 2148628236, i64 2148628272, i64 2148628307, i64 2148628344, i64 2148628373, i64 2148628380, i64 2148628401, i64 2148628449, i64 2148628492, i64 2148628522, i64 2148628551, i64 2148628583, i64 2148628612, i64 2148628664, i64 2148628710, i64 2148628749, i64 2148628804, i64 2148628835, i64 2148628866, i64 2148628905, i64 2148628930, i64 2148628960, i64 2148628996, i64 2148629050, i64 2148629110, i64 2148629143, i64 2148629159, i64 2148629195, i64 2148629230, i64 2148629267, i64 2148629296, i64 2148629303, i64 2148629324, i64 2148629372, i64 2148629415, i64 2148629445, i64 2148629474, i64 2148629506, i64 2148629535, i64 2148629587, i64 2148629633, i64 2148629672, i64 2148629727, i64 2148629758, i64 2148629789, i64 2148629828, i64 2148629853, i64 2148629883, i64 2148629919, i64 2148629973, i64 2148630033, i64 2148630066, i64 2148630082, i64 2148630118, i64 2148630153, i64 2148630190, i64 2148630219, i64 2148630226, i64 2148630247, i64 2148630295, i64 2148630338, i64 2148630368, i64 2148630397, i64 2148630429, i64 2148630458, i64 2148630510, i64 2148630556, i64 2148630595, i64 2148630650, i64 2148630681, i64 2148630712, i64 2148630751, i64 2148630776, i64 2148630806, i64 2148630842, i64 2148630896, i64 2148630927, i64 2148630960, i64 2148630976, i64 2148631012, i64 2148631047, i64 2148631084, i64 2148631113, i64 2148631120, i64 2148631141, i64 2148631189, i64 2148631232, i64 2148631262, i64 2148631291, i64 2148631323, i64 2148631352, i64 2148631407, i64 2148631438, i64 2148631469, i64 2148631508, i64 2148631541, i64 2148631571, i64 2148631607, i64 2148631661}
-!68 = !{i64 2148644674, i64 2148644716, i64 2148644744, i64 2148644794, i64 2148644827, i64 2148644843, i64 2148644879, i64 2148644914, i64 2148644951, i64 2148644980, i64 2148644987, i64 2148645008, i64 2148645056, i64 2148645099, i64 2148645129, i64 2148645158, i64 2148645190, i64 2148645219, i64 2148645256, i64 2148645295, i64 2148645350, i64 2148645381, i64 2148645412, i64 2148645451, i64 2148645476, i64 2148645506, i64 2148645542, i64 2148645596, i64 2148645656, i64 2148645689, i64 2148645705, i64 2148645741, i64 2148645776, i64 2148645813, i64 2148645842, i64 2148645849, i64 2148645870, i64 2148645918, i64 2148645961, i64 2148645991, i64 2148646020, i64 2148646052, i64 2148646081, i64 2148646133, i64 2148646179, i64 2148646218, i64 2148646273, i64 2148646304, i64 2148646335, i64 2148646374, i64 2148646399, i64 2148646429, i64 2148646465, i64 2148646519, i64 2148646579, i64 2148646612, i64 2148646628, i64 2148646664, i64 2148646699, i64 2148646736, i64 2148646765, i64 2148646772, i64 2148646793, i64 2148646841, i64 2148646884, i64 2148646914, i64 2148646943, i64 2148646975, i64 2148647004, i64 2148647056, i64 2148647102, i64 2148647141, i64 2148647196, i64 2148647227, i64 2148647258, i64 2148647297, i64 2148647322, i64 2148647352, i64 2148647388, i64 2148647442, i64 2148647502, i64 2148647535, i64 2148647551, i64 2148647587, i64 2148647622, i64 2148647659, i64 2148647688, i64 2148647695, i64 2148647716, i64 2148647764, i64 2148647807, i64 2148647837, i64 2148647866, i64 2148647898, i64 2148647927, i64 2148647979, i64 2148648025, i64 2148648064, i64 2148648119, i64 2148648150, i64 2148648181, i64 2148648220, i64 2148648245, i64 2148648275, i64 2148648311, i64 2148648365, i64 2148648425, i64 2148648458, i64 2148648474, i64 2148648510, i64 2148648545, i64 2148648582, i64 2148648611, i64 2148648618, i64 2148648639, i64 2148648687, i64 2148648730, i64 2148648760, i64 2148648789, i64 2148648821, i64 2148648850, i64 2148648902, i64 2148648948, i64 2148648987, i64 2148649042, i64 2148649073, i64 2148649104, i64 2148649143, i64 2148649168, i64 2148649198, i64 2148649234, i64 2148649288, i64 2148649319, i64 2148649352, i64 2148649368, i64 2148649404, i64 2148649439, i64 2148649476, i64 2148649505, i64 2148649512, i64 2148649533, i64 2148649581, i64 2148649624, i64 2148649654, i64 2148649683, i64 2148649715, i64 2148649744, i64 2148649799, i64 2148649830, i64 2148649861, i64 2148649900, i64 2148649933, i64 2148649963, i64 2148649999, i64 2148650053}
-!69 = !{i64 2148650587, i64 2148650636, i64 2148650670, i64 2148650703, i64 2148650738, i64 2148651827, i64 2148651843, i64 2148651879, i64 2148651914, i64 2148651951, i64 2148651980, i64 2148651987, i64 2148652008, i64 2148652056, i64 2148652093, i64 2148652123, i64 2148652152, i64 2148652184, i64 2148650824, i64 2148650876, i64 2148650907, i64 2148650939, i64 2148650975, i64 2148651004, i64 2148651042, i64 2148651071}
-!70 = distinct !{!70, !36}
-!71 = !{i64 2148652529, i64 2148652534, i64 2148652565, i64 2148652598, i64 2148653222, i64 2148653238, i64 2148653274, i64 2148653309, i64 2148653346, i64 2148653375, i64 2148652636, i64 2148652654, i64 2148652683, i64 2148652715, i64 2148652747, i64 2148652778, i64 2148652801, i64 2148652818}
-!72 = !{i64 2148662458, i64 2148662500, i64 2148662535, i64 2148662585, i64 2148662618, i64 2148662634, i64 2148662670, i64 2148662705, i64 2148662742, i64 2148662771, i64 2148662778, i64 2148662799, i64 2148662847, i64 2148662890, i64 2148662920, i64 2148662949, i64 2148662981, i64 2148663010, i64 2148663047, i64 2148663086, i64 2148663123, i64 2148663154, i64 2148663184, i64 2148663243, i64 2148663282, i64 2148663320, i64 2148663356, i64 2148663400, i64 2148663475, i64 2148663508, i64 2148663524, i64 2148663560, i64 2148663595, i64 2148663632, i64 2148663661, i64 2148663668, i64 2148663689, i64 2148663737, i64 2148663780, i64 2148663810, i64 2148663839, i64 2148663871, i64 2148663900, i64 2148663959, i64 2148663998, i64 2148664035, i64 2148664066, i64 2148664093, i64 2148664123, i64 2148664182, i64 2148664221, i64 2148664259, i64 2148664295, i64 2148664356, i64 2148664432, i64 2148664465, i64 2148664481, i64 2148664517, i64 2148664552, i64 2148664589, i64 2148664618, i64 2148664625, i64 2148664646, i64 2148664694, i64 2148664737, i64 2148664767, i64 2148664796, i64 2148664828, i64 2148664857, i64 2148664916, i64 2148664955, i64 2148664992, i64 2148665023, i64 2148665050, i64 2148665080, i64 2148665139, i64 2148665178, i64 2148665216, i64 2148665252, i64 2148665313, i64 2148665346, i64 2148665362, i64 2148665398, i64 2148665433, i64 2148665470, i64 2148665499, i64 2148665506, i64 2148665527, i64 2148665575, i64 2148665618, i64 2148665648, i64 2148665677, i64 2148665709, i64 2148665738, i64 2148665775, i64 2148665806, i64 2148665833, i64 2148665863, i64 2148665922, i64 2148665961, i64 2148665999, i64 2148666035, i64 2148666097}
-!73 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!74 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!75 = !{!"branch_weights", i32 127, i32 255873}
-!76 = !{!41, !43, i64 27240}
-!77 = !{i64 2148678063, i64 2148678105, i64 2148678133, i64 2148678183, i64 2148678216, i64 2148678232, i64 2148678268, i64 2148678303, i64 2148678340, i64 2148678369, i64 2148678376, i64 2148678397, i64 2148678445, i64 2148678488, i64 2148678518, i64 2148678547, i64 2148678579, i64 2148678608, i64 2148678645, i64 2148678684, i64 2148678739, i64 2148678770, i64 2148678801, i64 2148678840, i64 2148678865, i64 2148678895, i64 2148678931, i64 2148678985, i64 2148679045, i64 2148679078, i64 2148679094, i64 2148679130, i64 2148679165, i64 2148679202, i64 2148679231, i64 2148679238, i64 2148679259, i64 2148679307, i64 2148679350, i64 2148679380, i64 2148679409, i64 2148679441, i64 2148679470, i64 2148679522, i64 2148679568, i64 2148679607, i64 2148679662, i64 2148679693, i64 2148679724, i64 2148679763, i64 2148679788, i64 2148679818, i64 2148679854, i64 2148679908, i64 2148679939, i64 2148679972, i64 2148679988, i64 2148680024, i64 2148680059, i64 2148680096, i64 2148680125, i64 2148680132, i64 2148680153, i64 2148680201, i64 2148680244, i64 2148680274, i64 2148680303, i64 2148680335, i64 2148680364, i64 2148680419, i64 2148680450, i64 2148680481, i64 2148680520, i64 2148680553, i64 2148680583, i64 2148680619, i64 2148680673}
-!78 = !{!41, !43, i64 27242}
-!79 = !{i64 2148688452, i64 2148688494, i64 2148688522, i64 2148688572, i64 2148688605, i64 2148688621, i64 2148688657, i64 2148688692, i64 2148688729, i64 2148688758, i64 2148688765, i64 2148688786, i64 2148688834, i64 2148688877, i64 2148688907, i64 2148688936, i64 2148688968, i64 2148688997, i64 2148689034, i64 2148689073, i64 2148689128, i64 2148689159, i64 2148689190, i64 2148689229, i64 2148689254, i64 2148689284, i64 2148689320, i64 2148689374, i64 2148689434, i64 2148689467, i64 2148689483, i64 2148689519, i64 2148689554, i64 2148689591, i64 2148689620, i64 2148689627, i64 2148689648, i64 2148689696, i64 2148689739, i64 2148689769, i64 2148689798, i64 2148689830, i64 2148689859, i64 2148689911, i64 2148689957, i64 2148689996, i64 2148690051, i64 2148690082, i64 2148690113, i64 2148690152, i64 2148690177, i64 2148690207, i64 2148690243, i64 2148690297, i64 2148690328, i64 2148690361, i64 2148690377, i64 2148690413, i64 2148690448, i64 2148690485, i64 2148690514, i64 2148690521, i64 2148690542, i64 2148690590, i64 2148690633, i64 2148690663, i64 2148690692, i64 2148690724, i64 2148690753, i64 2148690808, i64 2148690839, i64 2148690870, i64 2148690909, i64 2148690942, i64 2148690972, i64 2148691008, i64 2148691062}
-!80 = !{i64 2148708226, i64 2148708268, i64 2148708296, i64 2148708346, i64 2148708379, i64 2148708395, i64 2148708431, i64 2148708466, i64 2148708503, i64 2148708532, i64 2148708539, i64 2148708560, i64 2148708608, i64 2148708651, i64 2148708681, i64 2148708710, i64 2148708742, i64 2148708771, i64 2148708808, i64 2148708847, i64 2148708902, i64 2148708933, i64 2148708964, i64 2148709003, i64 2148709028, i64 2148709058, i64 2148709094, i64 2148709148, i64 2148709208, i64 2148709241, i64 2148709257, i64 2148709293, i64 2148709328, i64 2148709365, i64 2148709394, i64 2148709401, i64 2148709422, i64 2148709470, i64 2148709513, i64 2148709543, i64 2148709572, i64 2148709604, i64 2148709633, i64 2148709685, i64 2148709731, i64 2148709770, i64 2148709825, i64 2148709856, i64 2148709887, i64 2148709926, i64 2148709951, i64 2148709981, i64 2148710017, i64 2148710071, i64 2148710131, i64 2148710164, i64 2148710180, i64 2148710216, i64 2148710251, i64 2148710288, i64 2148710317, i64 2148710324, i64 2148710345, i64 2148710393, i64 2148710436, i64 2148710466, i64 2148710495, i64 2148710527, i64 2148710556, i64 2148710608, i64 2148710654, i64 2148710693, i64 2148710748, i64 2148710779, i64 2148710810, i64 2148710849, i64 2148710874, i64 2148710904, i64 2148710940, i64 2148710994, i64 2148711054, i64 2148711087, i64 2148711103, i64 2148711139, i64 2148711174, i64 2148711211, i64 2148711240, i64 2148711247, i64 2148711268, i64 2148711316, i64 2148711359, i64 2148711389, i64 2148711418, i64 2148711450, i64 2148711479, i64 2148711531, i64 2148711577, i64 2148711616, i64 2148711671, i64 2148711702, i64 2148711733, i64 2148711772, i64 2148711797, i64 2148711827, i64 2148711863, i64 2148711917, i64 2148711977, i64 2148712010, i64 2148712026, i64 2148712062, i64 2148712097, i64 2148712134, i64 2148712163, i64 2148712170, i64 2148712191, i64 2148712239, i64 2148712282, i64 2148712312, i64 2148712341, i64 2148712373, i64 2148712402, i64 2148712454, i64 2148712500, i64 2148712539, i64 2148712594, i64 2148712625, i64 2148712656, i64 2148712695, i64 2148712720, i64 2148712750, i64 2148712786, i64 2148712840, i64 2148712900, i64 2148712933, i64 2148712949, i64 2148712985, i64 2148713020, i64 2148713057, i64 2148713086, i64 2148713093, i64 2148713114, i64 2148713162, i64 2148713205, i64 2148713235, i64 2148713264, i64 2148713296, i64 2148713325, i64 2148713377, i64 2148713423, i64 2148713462, i64 2148713517, i64 2148713548, i64 2148713579, i64 2148713618, i64 2148713643, i64 2148713673, i64 2148713709, i64 2148713763, i64 2148713823, i64 2148713856, i64 2148713872, i64 2148713908, i64 2148713943, i64 2148713980, i64 2148714009, i64 2148714016, i64 2148714037, i64 2148714085, i64 2148714128, i64 2148714158, i64 2148714187, i64 2148714219, i64 2148714248, i64 2148714300, i64 2148714346, i64 2148714385, i64 2148714440, i64 2148714471, i64 2148714502, i64 2148714541, i64 2148714566, i64 2148714596, i64 2148714632, i64 2148714686, i64 2148714717, i64 2148714750, i64 2148714766, i64 2148714802, i64 2148714837, i64 2148714874, i64 2148714903, i64 2148714910, i64 2148714931, i64 2148714979, i64 2148715022, i64 2148715052, i64 2148715081, i64 2148715113, i64 2148715142, i64 2148715197, i64 2148715228, i64 2148715259, i64 2148715298, i64 2148715331, i64 2148715361, i64 2148715397, i64 2148715451}
-!81 = distinct !{!81, !36}
-!82 = !{!"branch_weights", i32 1, i32 127}
-!83 = !{!41, !39, i64 28320}
-!84 = !{i8 0, i8 2}
-!85 = !{}
-!86 = distinct !{!86, !36}
-!87 = distinct !{!87, !36}
-!88 = distinct !{!88, !36}
-!89 = distinct !{!89, !36}
-!90 = distinct !{!90, !36}
-!91 = distinct !{!91, !36}
-!92 = distinct !{!92, !36}
-!93 = distinct !{!93, !36}
-!94 = !{!95, !18, i64 8}
-!95 = !{!"", !15, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !39, i64 40, !39, i64 41}
-!96 = !{!95, !18, i64 16}
-!97 = !{!41, !14, i64 28268}
-!98 = !{!41, !14, i64 28272}
-!99 = !{!41, !14, i64 28276}
-!100 = !{!13, !14, i64 28}
-!101 = !{!13, !14, i64 20}
-!102 = !{!13, !14, i64 24}
-!103 = distinct !{!103, !36}
-!104 = distinct !{!104, !36}
-!105 = distinct !{!105, !36}
-!106 = distinct !{!106, !36}
-!107 = distinct !{!107, !36}
-!108 = distinct !{!108, !36}
-!109 = distinct !{!109, !36}
-!110 = distinct !{!110, !36}
-!111 = distinct !{!111, !36}
-!112 = distinct !{!112, !36}
-!113 = distinct !{!113, !36}
-!114 = distinct !{!114, !36}
-!115 = distinct !{!115, !36}
-!116 = distinct !{!116, !36}
-!117 = !{!13, !14, i64 48}
-!118 = !{!13, !14, i64 52}
-!119 = !{!13, !14, i64 56}
-!120 = !{!6, !6, i64 0}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!15, !15, i64 0}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"_Bool", !7, i64 0}
+!41 = !{!42, !14, i64 28280}
+!42 = !{!"", !7, i64 0, !7, i64 24576, !7, i64 24960, !7, i64 24984, !7, i64 25008, !7, i64 25032, !7, i64 25056, !7, i64 25440, !7, i64 25952, !7, i64 26180, !43, i64 26212, !43, i64 27240, !29, i64 28268, !14, i64 28280, !14, i64 28284, !14, i64 28288, !14, i64 28292, !14, i64 28296, !14, i64 28300, !14, i64 28304, !14, i64 28308, !18, i64 28312, !40, i64 28320, !14, i64 28324, !45, i64 28328, !14, i64 28336, !14, i64 28340, !14, i64 28344, !14, i64 28348}
+!43 = !{!"", !44, i64 0, !44, i64 2, !7, i64 4, !7, i64 260, !7, i64 516}
+!44 = !{!"short", !7, i64 0}
+!45 = !{!"p1 short", !6, i64 0}
+!46 = !{!42, !14, i64 28284}
+!47 = !{!42, !14, i64 28288}
+!48 = !{!42, !14, i64 28292}
+!49 = !{!42, !14, i64 28296}
+!50 = !{!42, !14, i64 28300}
+!51 = !{!42, !45, i64 28328}
+!52 = !{!42, !14, i64 28336}
+!53 = !{!42, !14, i64 28340}
+!54 = !{!42, !14, i64 28344}
+!55 = !{!42, !14, i64 28348}
+!56 = !{!42, !14, i64 28308}
+!57 = !{!42, !14, i64 28304}
+!58 = !{!42, !18, i64 28312}
+!59 = !{!42, !14, i64 28324}
+!60 = !{!44, !44, i64 0}
+!61 = !{i64 2148564254, i64 2148564296, i64 2148564324, i64 2148564374, i64 2148564407, i64 2148564423, i64 2148564459, i64 2148564494, i64 2148564531, i64 2148564560, i64 2148564567, i64 2148564588, i64 2148564636, i64 2148564679, i64 2148564709, i64 2148564738, i64 2148564770, i64 2148564799, i64 2148564836, i64 2148564875, i64 2148564930, i64 2148564961, i64 2148564992, i64 2148565031, i64 2148565056, i64 2148565086, i64 2148565122, i64 2148565176, i64 2148565236, i64 2148565269, i64 2148565285, i64 2148565321, i64 2148565356, i64 2148565393, i64 2148565422, i64 2148565429, i64 2148565450, i64 2148565498, i64 2148565541, i64 2148565571, i64 2148565600, i64 2148565632, i64 2148565661, i64 2148565713, i64 2148565759, i64 2148565798, i64 2148565853, i64 2148565884, i64 2148565915, i64 2148565954, i64 2148565979, i64 2148566009, i64 2148566045, i64 2148566099, i64 2148566159, i64 2148566192, i64 2148566208, i64 2148566244, i64 2148566279, i64 2148566316, i64 2148566345, i64 2148566352, i64 2148566373, i64 2148566421, i64 2148566464, i64 2148566494, i64 2148566523, i64 2148566555, i64 2148566584, i64 2148566636, i64 2148566682, i64 2148566721, i64 2148566776, i64 2148566807, i64 2148566838, i64 2148566877, i64 2148566902, i64 2148566932, i64 2148566968, i64 2148567022, i64 2148567082, i64 2148567115, i64 2148567131, i64 2148567167, i64 2148567202, i64 2148567239, i64 2148567268, i64 2148567275, i64 2148567296, i64 2148567344, i64 2148567387, i64 2148567417, i64 2148567446, i64 2148567478, i64 2148567507, i64 2148567559, i64 2148567605, i64 2148567644, i64 2148567699, i64 2148567730, i64 2148567761, i64 2148567800, i64 2148567825, i64 2148567855, i64 2148567891, i64 2148567945, i64 2148568005, i64 2148568038, i64 2148568054, i64 2148568090, i64 2148568125, i64 2148568162, i64 2148568191, i64 2148568198, i64 2148568219, i64 2148568267, i64 2148568310, i64 2148568340, i64 2148568369, i64 2148568401, i64 2148568430, i64 2148568482, i64 2148568528, i64 2148568567, i64 2148568622, i64 2148568653, i64 2148568684, i64 2148568723, i64 2148568748, i64 2148568778, i64 2148568814, i64 2148568868, i64 2148568928, i64 2148568961, i64 2148568977, i64 2148569013, i64 2148569048, i64 2148569085, i64 2148569114, i64 2148569121, i64 2148569142, i64 2148569190, i64 2148569233, i64 2148569263, i64 2148569292, i64 2148569324, i64 2148569353, i64 2148569405, i64 2148569451, i64 2148569490, i64 2148569545, i64 2148569576, i64 2148569607, i64 2148569646, i64 2148569671, i64 2148569701, i64 2148569737, i64 2148569791, i64 2148569851, i64 2148569884, i64 2148569900, i64 2148569936, i64 2148569971, i64 2148570008, i64 2148570037, i64 2148570044, i64 2148570065, i64 2148570113, i64 2148570156, i64 2148570186, i64 2148570215, i64 2148570247, i64 2148570276, i64 2148570328, i64 2148570374, i64 2148570413, i64 2148570468, i64 2148570499, i64 2148570530, i64 2148570569, i64 2148570594, i64 2148570624, i64 2148570660, i64 2148570714, i64 2148570745, i64 2148570778, i64 2148570794, i64 2148570830, i64 2148570865, i64 2148570902, i64 2148570931, i64 2148570938, i64 2148570959, i64 2148571007, i64 2148571050, i64 2148571080, i64 2148571109, i64 2148571141, i64 2148571170, i64 2148571225, i64 2148571256, i64 2148571287, i64 2148571326, i64 2148571359, i64 2148571389, i64 2148571425, i64 2148571479}
+!62 = !{i64 2148573006, i64 2148573033, i64 2148573071, i64 2148573109, i64 2148573170, i64 2148573209, i64 2148574003, i64 2148574046, i64 2148574079, i64 2148574095, i64 2148574131, i64 2148574166, i64 2148574203, i64 2148574232, i64 2148574239, i64 2148574260, i64 2148574308, i64 2148574345, i64 2148574375, i64 2148574404, i64 2148574436, i64 2148573402, i64 2148573454, i64 2148573485, i64 2148573516, i64 2148573548, i64 2148574484, i64 2148574526, i64 2148573690, i64 2148573728, i64 2148573805, i64 2148573834, i64 2148573947, i64 2148574557, i64 2148574595, i64 2148574633, i64 2148574694, i64 2148574733, i64 2148575527, i64 2148575570, i64 2148575603, i64 2148575619, i64 2148575655, i64 2148575690, i64 2148575727, i64 2148575756, i64 2148575763, i64 2148575784, i64 2148575832, i64 2148575869, i64 2148575899, i64 2148575928, i64 2148575960, i64 2148574926, i64 2148574978, i64 2148575009, i64 2148575040, i64 2148575072, i64 2148576008, i64 2148576050, i64 2148575214, i64 2148575252, i64 2148575329, i64 2148575358, i64 2148575471, i64 2148576081, i64 2148576119, i64 2148576157, i64 2148576218, i64 2148576257, i64 2148577051, i64 2148577094, i64 2148577127, i64 2148577143, i64 2148577179, i64 2148577214, i64 2148577251, i64 2148577280, i64 2148577287, i64 2148577308, i64 2148577356, i64 2148577393, i64 2148577423, i64 2148577452, i64 2148577484, i64 2148576450, i64 2148576502, i64 2148576533, i64 2148576564, i64 2148576596, i64 2148577532, i64 2148577574, i64 2148576738, i64 2148576776, i64 2148576853, i64 2148576882, i64 2148576995, i64 2148577605, i64 2148577643, i64 2148577681, i64 2148577742, i64 2148577781, i64 2148578575, i64 2148578618, i64 2148578651, i64 2148578667, i64 2148578703, i64 2148578738, i64 2148578775, i64 2148578804, i64 2148578811, i64 2148578832, i64 2148578880, i64 2148578917, i64 2148578947, i64 2148578976, i64 2148579008, i64 2148577974, i64 2148578026, i64 2148578057, i64 2148578088, i64 2148578120, i64 2148579056, i64 2148579098, i64 2148578262, i64 2148578300, i64 2148578377, i64 2148578406, i64 2148578519, i64 2148579129, i64 2148579167, i64 2148579205, i64 2148579266, i64 2148579305, i64 2148580099, i64 2148580142, i64 2148580175, i64 2148580191, i64 2148580227, i64 2148580262, i64 2148580299, i64 2148580328, i64 2148580335, i64 2148580356, i64 2148580404, i64 2148580441, i64 2148580471, i64 2148580500, i64 2148580532, i64 2148579498, i64 2148579550, i64 2148579581, i64 2148579612, i64 2148579644, i64 2148580580, i64 2148580622, i64 2148579786, i64 2148579824, i64 2148579901, i64 2148579930, i64 2148580043, i64 2148580653, i64 2148580691, i64 2148580729, i64 2148580790, i64 2148580829, i64 2148581623, i64 2148581666, i64 2148581699, i64 2148581715, i64 2148581751, i64 2148581786, i64 2148581823, i64 2148581852, i64 2148581859, i64 2148581880, i64 2148581928, i64 2148581965, i64 2148581995, i64 2148582024, i64 2148582056, i64 2148581022, i64 2148581074, i64 2148581105, i64 2148581136, i64 2148581168, i64 2148582104, i64 2148582146, i64 2148581310, i64 2148581348, i64 2148581425, i64 2148581454, i64 2148581567, i64 2148582177, i64 2148582215, i64 2148582253, i64 2148582314, i64 2148582353, i64 2148583147, i64 2148583190, i64 2148583223, i64 2148583239, i64 2148583275, i64 2148583310, i64 2148583347, i64 2148583376, i64 2148583383, i64 2148583404, i64 2148583452, i64 2148583489, i64 2148583519, i64 2148583548, i64 2148583580, i64 2148582546, i64 2148582598, i64 2148582629, i64 2148582660, i64 2148582692, i64 2148583628, i64 2148583670, i64 2148582834, i64 2148582872, i64 2148582949, i64 2148582978, i64 2148583091, i64 2148583701, i64 2148583739, i64 2148583777, i64 2148583838, i64 2148583877, i64 2148584666, i64 2148584682, i64 2148584718, i64 2148584753, i64 2148584790, i64 2148584819, i64 2148584826, i64 2148584847, i64 2148584895, i64 2148584932, i64 2148584962, i64 2148584991, i64 2148585023, i64 2148584070, i64 2148584122, i64 2148584153, i64 2148584184, i64 2148584216, i64 2148584358, i64 2148584396, i64 2148584473, i64 2148584502, i64 2148584615}
+!63 = !{!"branch_weights", i32 127, i32 16129}
+!64 = distinct !{!64, !37}
+!65 = !{!42, !44, i64 26212}
+!66 = !{i64 2148594251, i64 2148594293, i64 2148594321, i64 2148594371, i64 2148594404, i64 2148594420, i64 2148594456, i64 2148594491, i64 2148594528, i64 2148594557, i64 2148594564, i64 2148594585, i64 2148594633, i64 2148594676, i64 2148594706, i64 2148594735, i64 2148594767, i64 2148594796, i64 2148594833, i64 2148594872, i64 2148594927, i64 2148594958, i64 2148594989, i64 2148595028, i64 2148595053, i64 2148595083, i64 2148595119, i64 2148595173, i64 2148595233, i64 2148595266, i64 2148595282, i64 2148595318, i64 2148595353, i64 2148595390, i64 2148595419, i64 2148595426, i64 2148595447, i64 2148595495, i64 2148595538, i64 2148595568, i64 2148595597, i64 2148595629, i64 2148595658, i64 2148595710, i64 2148595756, i64 2148595795, i64 2148595850, i64 2148595881, i64 2148595912, i64 2148595951, i64 2148595976, i64 2148596006, i64 2148596042, i64 2148596096, i64 2148596127, i64 2148596160, i64 2148596176, i64 2148596212, i64 2148596247, i64 2148596284, i64 2148596313, i64 2148596320, i64 2148596341, i64 2148596389, i64 2148596432, i64 2148596462, i64 2148596491, i64 2148596523, i64 2148596552, i64 2148596607, i64 2148596638, i64 2148596669, i64 2148596708, i64 2148596741, i64 2148596771, i64 2148596807, i64 2148596861}
+!67 = !{!42, !44, i64 26214}
+!68 = !{i64 2148604654, i64 2148604696, i64 2148604724, i64 2148604774, i64 2148604807, i64 2148604823, i64 2148604859, i64 2148604894, i64 2148604931, i64 2148604960, i64 2148604967, i64 2148604988, i64 2148605036, i64 2148605079, i64 2148605109, i64 2148605138, i64 2148605170, i64 2148605199, i64 2148605236, i64 2148605275, i64 2148605330, i64 2148605361, i64 2148605392, i64 2148605431, i64 2148605456, i64 2148605486, i64 2148605522, i64 2148605576, i64 2148605636, i64 2148605669, i64 2148605685, i64 2148605721, i64 2148605756, i64 2148605793, i64 2148605822, i64 2148605829, i64 2148605850, i64 2148605898, i64 2148605941, i64 2148605971, i64 2148606000, i64 2148606032, i64 2148606061, i64 2148606113, i64 2148606159, i64 2148606198, i64 2148606253, i64 2148606284, i64 2148606315, i64 2148606354, i64 2148606379, i64 2148606409, i64 2148606445, i64 2148606499, i64 2148606530, i64 2148606563, i64 2148606579, i64 2148606615, i64 2148606650, i64 2148606687, i64 2148606716, i64 2148606723, i64 2148606744, i64 2148606792, i64 2148606835, i64 2148606865, i64 2148606894, i64 2148606926, i64 2148606955, i64 2148607010, i64 2148607041, i64 2148607072, i64 2148607111, i64 2148607144, i64 2148607174, i64 2148607210, i64 2148607264}
+!69 = !{i64 2148624436, i64 2148624478, i64 2148624506, i64 2148624556, i64 2148624589, i64 2148624605, i64 2148624641, i64 2148624676, i64 2148624713, i64 2148624742, i64 2148624749, i64 2148624770, i64 2148624818, i64 2148624861, i64 2148624891, i64 2148624920, i64 2148624952, i64 2148624981, i64 2148625018, i64 2148625057, i64 2148625112, i64 2148625143, i64 2148625174, i64 2148625213, i64 2148625238, i64 2148625268, i64 2148625304, i64 2148625358, i64 2148625418, i64 2148625451, i64 2148625467, i64 2148625503, i64 2148625538, i64 2148625575, i64 2148625604, i64 2148625611, i64 2148625632, i64 2148625680, i64 2148625723, i64 2148625753, i64 2148625782, i64 2148625814, i64 2148625843, i64 2148625895, i64 2148625941, i64 2148625980, i64 2148626035, i64 2148626066, i64 2148626097, i64 2148626136, i64 2148626161, i64 2148626191, i64 2148626227, i64 2148626281, i64 2148626341, i64 2148626374, i64 2148626390, i64 2148626426, i64 2148626461, i64 2148626498, i64 2148626527, i64 2148626534, i64 2148626555, i64 2148626603, i64 2148626646, i64 2148626676, i64 2148626705, i64 2148626737, i64 2148626766, i64 2148626818, i64 2148626864, i64 2148626903, i64 2148626958, i64 2148626989, i64 2148627020, i64 2148627059, i64 2148627084, i64 2148627114, i64 2148627150, i64 2148627204, i64 2148627264, i64 2148627297, i64 2148627313, i64 2148627349, i64 2148627384, i64 2148627421, i64 2148627450, i64 2148627457, i64 2148627478, i64 2148627526, i64 2148627569, i64 2148627599, i64 2148627628, i64 2148627660, i64 2148627689, i64 2148627741, i64 2148627787, i64 2148627826, i64 2148627881, i64 2148627912, i64 2148627943, i64 2148627982, i64 2148628007, i64 2148628037, i64 2148628073, i64 2148628127, i64 2148628187, i64 2148628220, i64 2148628236, i64 2148628272, i64 2148628307, i64 2148628344, i64 2148628373, i64 2148628380, i64 2148628401, i64 2148628449, i64 2148628492, i64 2148628522, i64 2148628551, i64 2148628583, i64 2148628612, i64 2148628664, i64 2148628710, i64 2148628749, i64 2148628804, i64 2148628835, i64 2148628866, i64 2148628905, i64 2148628930, i64 2148628960, i64 2148628996, i64 2148629050, i64 2148629110, i64 2148629143, i64 2148629159, i64 2148629195, i64 2148629230, i64 2148629267, i64 2148629296, i64 2148629303, i64 2148629324, i64 2148629372, i64 2148629415, i64 2148629445, i64 2148629474, i64 2148629506, i64 2148629535, i64 2148629587, i64 2148629633, i64 2148629672, i64 2148629727, i64 2148629758, i64 2148629789, i64 2148629828, i64 2148629853, i64 2148629883, i64 2148629919, i64 2148629973, i64 2148630033, i64 2148630066, i64 2148630082, i64 2148630118, i64 2148630153, i64 2148630190, i64 2148630219, i64 2148630226, i64 2148630247, i64 2148630295, i64 2148630338, i64 2148630368, i64 2148630397, i64 2148630429, i64 2148630458, i64 2148630510, i64 2148630556, i64 2148630595, i64 2148630650, i64 2148630681, i64 2148630712, i64 2148630751, i64 2148630776, i64 2148630806, i64 2148630842, i64 2148630896, i64 2148630927, i64 2148630960, i64 2148630976, i64 2148631012, i64 2148631047, i64 2148631084, i64 2148631113, i64 2148631120, i64 2148631141, i64 2148631189, i64 2148631232, i64 2148631262, i64 2148631291, i64 2148631323, i64 2148631352, i64 2148631407, i64 2148631438, i64 2148631469, i64 2148631508, i64 2148631541, i64 2148631571, i64 2148631607, i64 2148631661}
+!70 = !{i64 2148644674, i64 2148644716, i64 2148644744, i64 2148644794, i64 2148644827, i64 2148644843, i64 2148644879, i64 2148644914, i64 2148644951, i64 2148644980, i64 2148644987, i64 2148645008, i64 2148645056, i64 2148645099, i64 2148645129, i64 2148645158, i64 2148645190, i64 2148645219, i64 2148645256, i64 2148645295, i64 2148645350, i64 2148645381, i64 2148645412, i64 2148645451, i64 2148645476, i64 2148645506, i64 2148645542, i64 2148645596, i64 2148645656, i64 2148645689, i64 2148645705, i64 2148645741, i64 2148645776, i64 2148645813, i64 2148645842, i64 2148645849, i64 2148645870, i64 2148645918, i64 2148645961, i64 2148645991, i64 2148646020, i64 2148646052, i64 2148646081, i64 2148646133, i64 2148646179, i64 2148646218, i64 2148646273, i64 2148646304, i64 2148646335, i64 2148646374, i64 2148646399, i64 2148646429, i64 2148646465, i64 2148646519, i64 2148646579, i64 2148646612, i64 2148646628, i64 2148646664, i64 2148646699, i64 2148646736, i64 2148646765, i64 2148646772, i64 2148646793, i64 2148646841, i64 2148646884, i64 2148646914, i64 2148646943, i64 2148646975, i64 2148647004, i64 2148647056, i64 2148647102, i64 2148647141, i64 2148647196, i64 2148647227, i64 2148647258, i64 2148647297, i64 2148647322, i64 2148647352, i64 2148647388, i64 2148647442, i64 2148647502, i64 2148647535, i64 2148647551, i64 2148647587, i64 2148647622, i64 2148647659, i64 2148647688, i64 2148647695, i64 2148647716, i64 2148647764, i64 2148647807, i64 2148647837, i64 2148647866, i64 2148647898, i64 2148647927, i64 2148647979, i64 2148648025, i64 2148648064, i64 2148648119, i64 2148648150, i64 2148648181, i64 2148648220, i64 2148648245, i64 2148648275, i64 2148648311, i64 2148648365, i64 2148648425, i64 2148648458, i64 2148648474, i64 2148648510, i64 2148648545, i64 2148648582, i64 2148648611, i64 2148648618, i64 2148648639, i64 2148648687, i64 2148648730, i64 2148648760, i64 2148648789, i64 2148648821, i64 2148648850, i64 2148648902, i64 2148648948, i64 2148648987, i64 2148649042, i64 2148649073, i64 2148649104, i64 2148649143, i64 2148649168, i64 2148649198, i64 2148649234, i64 2148649288, i64 2148649319, i64 2148649352, i64 2148649368, i64 2148649404, i64 2148649439, i64 2148649476, i64 2148649505, i64 2148649512, i64 2148649533, i64 2148649581, i64 2148649624, i64 2148649654, i64 2148649683, i64 2148649715, i64 2148649744, i64 2148649799, i64 2148649830, i64 2148649861, i64 2148649900, i64 2148649933, i64 2148649963, i64 2148649999, i64 2148650053}
+!71 = !{i64 2148650587, i64 2148650636, i64 2148650670, i64 2148650703, i64 2148650738, i64 2148651827, i64 2148651843, i64 2148651879, i64 2148651914, i64 2148651951, i64 2148651980, i64 2148651987, i64 2148652008, i64 2148652056, i64 2148652093, i64 2148652123, i64 2148652152, i64 2148652184, i64 2148650824, i64 2148650876, i64 2148650907, i64 2148650939, i64 2148650975, i64 2148651004, i64 2148651042, i64 2148651071}
+!72 = distinct !{!72, !36, !37}
+!73 = !{i64 2148652529, i64 2148652534, i64 2148652565, i64 2148652598, i64 2148653222, i64 2148653238, i64 2148653274, i64 2148653309, i64 2148653346, i64 2148653375, i64 2148652636, i64 2148652654, i64 2148652683, i64 2148652715, i64 2148652747, i64 2148652778, i64 2148652801, i64 2148652818}
+!74 = !{i64 2148662458, i64 2148662500, i64 2148662535, i64 2148662585, i64 2148662618, i64 2148662634, i64 2148662670, i64 2148662705, i64 2148662742, i64 2148662771, i64 2148662778, i64 2148662799, i64 2148662847, i64 2148662890, i64 2148662920, i64 2148662949, i64 2148662981, i64 2148663010, i64 2148663047, i64 2148663086, i64 2148663123, i64 2148663154, i64 2148663184, i64 2148663243, i64 2148663282, i64 2148663320, i64 2148663356, i64 2148663400, i64 2148663475, i64 2148663508, i64 2148663524, i64 2148663560, i64 2148663595, i64 2148663632, i64 2148663661, i64 2148663668, i64 2148663689, i64 2148663737, i64 2148663780, i64 2148663810, i64 2148663839, i64 2148663871, i64 2148663900, i64 2148663959, i64 2148663998, i64 2148664035, i64 2148664066, i64 2148664093, i64 2148664123, i64 2148664182, i64 2148664221, i64 2148664259, i64 2148664295, i64 2148664356, i64 2148664432, i64 2148664465, i64 2148664481, i64 2148664517, i64 2148664552, i64 2148664589, i64 2148664618, i64 2148664625, i64 2148664646, i64 2148664694, i64 2148664737, i64 2148664767, i64 2148664796, i64 2148664828, i64 2148664857, i64 2148664916, i64 2148664955, i64 2148664992, i64 2148665023, i64 2148665050, i64 2148665080, i64 2148665139, i64 2148665178, i64 2148665216, i64 2148665252, i64 2148665313, i64 2148665346, i64 2148665362, i64 2148665398, i64 2148665433, i64 2148665470, i64 2148665499, i64 2148665506, i64 2148665527, i64 2148665575, i64 2148665618, i64 2148665648, i64 2148665677, i64 2148665709, i64 2148665738, i64 2148665775, i64 2148665806, i64 2148665833, i64 2148665863, i64 2148665922, i64 2148665961, i64 2148665999, i64 2148666035, i64 2148666097}
+!75 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!76 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!77 = !{!"branch_weights", i32 127, i32 255873}
+!78 = !{!42, !44, i64 27240}
+!79 = !{i64 2148678063, i64 2148678105, i64 2148678133, i64 2148678183, i64 2148678216, i64 2148678232, i64 2148678268, i64 2148678303, i64 2148678340, i64 2148678369, i64 2148678376, i64 2148678397, i64 2148678445, i64 2148678488, i64 2148678518, i64 2148678547, i64 2148678579, i64 2148678608, i64 2148678645, i64 2148678684, i64 2148678739, i64 2148678770, i64 2148678801, i64 2148678840, i64 2148678865, i64 2148678895, i64 2148678931, i64 2148678985, i64 2148679045, i64 2148679078, i64 2148679094, i64 2148679130, i64 2148679165, i64 2148679202, i64 2148679231, i64 2148679238, i64 2148679259, i64 2148679307, i64 2148679350, i64 2148679380, i64 2148679409, i64 2148679441, i64 2148679470, i64 2148679522, i64 2148679568, i64 2148679607, i64 2148679662, i64 2148679693, i64 2148679724, i64 2148679763, i64 2148679788, i64 2148679818, i64 2148679854, i64 2148679908, i64 2148679939, i64 2148679972, i64 2148679988, i64 2148680024, i64 2148680059, i64 2148680096, i64 2148680125, i64 2148680132, i64 2148680153, i64 2148680201, i64 2148680244, i64 2148680274, i64 2148680303, i64 2148680335, i64 2148680364, i64 2148680419, i64 2148680450, i64 2148680481, i64 2148680520, i64 2148680553, i64 2148680583, i64 2148680619, i64 2148680673}
+!80 = !{!42, !44, i64 27242}
+!81 = !{i64 2148688452, i64 2148688494, i64 2148688522, i64 2148688572, i64 2148688605, i64 2148688621, i64 2148688657, i64 2148688692, i64 2148688729, i64 2148688758, i64 2148688765, i64 2148688786, i64 2148688834, i64 2148688877, i64 2148688907, i64 2148688936, i64 2148688968, i64 2148688997, i64 2148689034, i64 2148689073, i64 2148689128, i64 2148689159, i64 2148689190, i64 2148689229, i64 2148689254, i64 2148689284, i64 2148689320, i64 2148689374, i64 2148689434, i64 2148689467, i64 2148689483, i64 2148689519, i64 2148689554, i64 2148689591, i64 2148689620, i64 2148689627, i64 2148689648, i64 2148689696, i64 2148689739, i64 2148689769, i64 2148689798, i64 2148689830, i64 2148689859, i64 2148689911, i64 2148689957, i64 2148689996, i64 2148690051, i64 2148690082, i64 2148690113, i64 2148690152, i64 2148690177, i64 2148690207, i64 2148690243, i64 2148690297, i64 2148690328, i64 2148690361, i64 2148690377, i64 2148690413, i64 2148690448, i64 2148690485, i64 2148690514, i64 2148690521, i64 2148690542, i64 2148690590, i64 2148690633, i64 2148690663, i64 2148690692, i64 2148690724, i64 2148690753, i64 2148690808, i64 2148690839, i64 2148690870, i64 2148690909, i64 2148690942, i64 2148690972, i64 2148691008, i64 2148691062}
+!82 = !{i64 2148708226, i64 2148708268, i64 2148708296, i64 2148708346, i64 2148708379, i64 2148708395, i64 2148708431, i64 2148708466, i64 2148708503, i64 2148708532, i64 2148708539, i64 2148708560, i64 2148708608, i64 2148708651, i64 2148708681, i64 2148708710, i64 2148708742, i64 2148708771, i64 2148708808, i64 2148708847, i64 2148708902, i64 2148708933, i64 2148708964, i64 2148709003, i64 2148709028, i64 2148709058, i64 2148709094, i64 2148709148, i64 2148709208, i64 2148709241, i64 2148709257, i64 2148709293, i64 2148709328, i64 2148709365, i64 2148709394, i64 2148709401, i64 2148709422, i64 2148709470, i64 2148709513, i64 2148709543, i64 2148709572, i64 2148709604, i64 2148709633, i64 2148709685, i64 2148709731, i64 2148709770, i64 2148709825, i64 2148709856, i64 2148709887, i64 2148709926, i64 2148709951, i64 2148709981, i64 2148710017, i64 2148710071, i64 2148710131, i64 2148710164, i64 2148710180, i64 2148710216, i64 2148710251, i64 2148710288, i64 2148710317, i64 2148710324, i64 2148710345, i64 2148710393, i64 2148710436, i64 2148710466, i64 2148710495, i64 2148710527, i64 2148710556, i64 2148710608, i64 2148710654, i64 2148710693, i64 2148710748, i64 2148710779, i64 2148710810, i64 2148710849, i64 2148710874, i64 2148710904, i64 2148710940, i64 2148710994, i64 2148711054, i64 2148711087, i64 2148711103, i64 2148711139, i64 2148711174, i64 2148711211, i64 2148711240, i64 2148711247, i64 2148711268, i64 2148711316, i64 2148711359, i64 2148711389, i64 2148711418, i64 2148711450, i64 2148711479, i64 2148711531, i64 2148711577, i64 2148711616, i64 2148711671, i64 2148711702, i64 2148711733, i64 2148711772, i64 2148711797, i64 2148711827, i64 2148711863, i64 2148711917, i64 2148711977, i64 2148712010, i64 2148712026, i64 2148712062, i64 2148712097, i64 2148712134, i64 2148712163, i64 2148712170, i64 2148712191, i64 2148712239, i64 2148712282, i64 2148712312, i64 2148712341, i64 2148712373, i64 2148712402, i64 2148712454, i64 2148712500, i64 2148712539, i64 2148712594, i64 2148712625, i64 2148712656, i64 2148712695, i64 2148712720, i64 2148712750, i64 2148712786, i64 2148712840, i64 2148712900, i64 2148712933, i64 2148712949, i64 2148712985, i64 2148713020, i64 2148713057, i64 2148713086, i64 2148713093, i64 2148713114, i64 2148713162, i64 2148713205, i64 2148713235, i64 2148713264, i64 2148713296, i64 2148713325, i64 2148713377, i64 2148713423, i64 2148713462, i64 2148713517, i64 2148713548, i64 2148713579, i64 2148713618, i64 2148713643, i64 2148713673, i64 2148713709, i64 2148713763, i64 2148713823, i64 2148713856, i64 2148713872, i64 2148713908, i64 2148713943, i64 2148713980, i64 2148714009, i64 2148714016, i64 2148714037, i64 2148714085, i64 2148714128, i64 2148714158, i64 2148714187, i64 2148714219, i64 2148714248, i64 2148714300, i64 2148714346, i64 2148714385, i64 2148714440, i64 2148714471, i64 2148714502, i64 2148714541, i64 2148714566, i64 2148714596, i64 2148714632, i64 2148714686, i64 2148714717, i64 2148714750, i64 2148714766, i64 2148714802, i64 2148714837, i64 2148714874, i64 2148714903, i64 2148714910, i64 2148714931, i64 2148714979, i64 2148715022, i64 2148715052, i64 2148715081, i64 2148715113, i64 2148715142, i64 2148715197, i64 2148715228, i64 2148715259, i64 2148715298, i64 2148715331, i64 2148715361, i64 2148715397, i64 2148715451}
+!83 = distinct !{!83, !36, !37}
+!84 = !{!"branch_weights", i32 1, i32 127}
+!85 = !{!42, !40, i64 28320}
+!86 = !{i8 0, i8 2}
+!87 = !{}
+!88 = distinct !{!88, !36, !37}
+!89 = distinct !{!89, !36, !37}
+!90 = distinct !{!90, !36, !37}
+!91 = distinct !{!91, !36, !37}
+!92 = distinct !{!92, !36, !37}
+!93 = distinct !{!93, !36, !37}
+!94 = distinct !{!94, !36, !37}
+!95 = distinct !{!95, !36, !37}
+!96 = !{!97, !18, i64 8}
+!97 = !{!"", !15, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !40, i64 40, !40, i64 41}
+!98 = !{!97, !18, i64 16}
+!99 = !{!42, !14, i64 28268}
+!100 = !{!42, !14, i64 28272}
+!101 = !{!42, !14, i64 28276}
+!102 = !{!13, !14, i64 28}
+!103 = !{!13, !14, i64 20}
+!104 = !{!13, !14, i64 24}
+!105 = distinct !{!105, !36, !37}
+!106 = distinct !{!106, !36, !37}
+!107 = distinct !{!107, !36, !37}
+!108 = distinct !{!108, !36, !37}
+!109 = distinct !{!109, !36, !37}
+!110 = distinct !{!110, !36, !37}
+!111 = distinct !{!111, !36, !37}
+!112 = distinct !{!112, !36, !37}
+!113 = distinct !{!113, !36, !37}
+!114 = distinct !{!114, !36, !37}
+!115 = distinct !{!115, !36, !37}
+!116 = distinct !{!116, !36, !37}
+!117 = distinct !{!117, !36, !37}
+!118 = distinct !{!118, !36, !37}
+!119 = !{!13, !14, i64 48}
+!120 = !{!13, !14, i64 52}
+!121 = !{!13, !14, i64 56}
+!122 = !{!6, !6, i64 0}

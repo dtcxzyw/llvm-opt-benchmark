@@ -1002,7 +1002,7 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %127
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load ptr, ptr %136, align 8
   invoke void %137(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %134, i32 noundef %134, ptr noundef nonnull align 8 dereferenceable(64) %109)
-          to label %127 unwind label %138, !llvm.loop !40
+          to label %127 unwind label %138, !llvm.loop !41
 
 138:                                              ; preds = %_ZN6icu_779UVector324popiEv.exit
   %139 = landingpad { ptr, i32 }
@@ -1010,7 +1010,7 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %127
   br label %.body
 
 .loopexit.loopexit:                               ; preds = %127
-  %.pre = load i32, ptr %57, align 4, !tbaa !41
+  %.pre = load i32, ptr %57, align 4, !tbaa !42
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.critedge
@@ -1018,11 +1018,11 @@ _ZN6icu_779UVector324popiEv.exit:                 ; preds = %127
   %.036 = phi i32 [ 0, %.critedge ], [ %118, %.loopexit.loopexit ]
   %.035 = phi i32 [ 0, %.critedge ], [ %126, %.loopexit.loopexit ]
   %141 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %142 = load i32, ptr %141, align 4, !tbaa !42
+  %142 = load i32, ptr %141, align 4, !tbaa !43
   %143 = add nsw i32 %142, %.036
-  store i32 %143, ptr %141, align 4, !tbaa !42
+  store i32 %143, ptr %141, align 4, !tbaa !43
   %144 = add nsw i32 %140, %.036
-  store i32 %144, ptr %57, align 4, !tbaa !41
+  store i32 %144, ptr %57, align 4, !tbaa !42
   %.not52 = icmp eq i8 %3, 0
   %145 = add nsw i32 %.035, %.036
   %146 = select i1 %.not52, i32 %144, i32 %145
@@ -1301,8 +1301,9 @@ attributes #18 = { noreturn nounwind }
 !35 = !{!"_ZTSN6icu_777UObjectE"}
 !36 = !{!"p1 int", !6, i64 0}
 !37 = !{!34, !36, i64 24}
-!38 = distinct !{!38, !39}
+!38 = distinct !{!38, !39, !40}
 !39 = !{!"llvm.loop.mustprogress"}
-!40 = distinct !{!40, !39}
-!41 = !{!32, !9, i64 12}
-!42 = !{!32, !9, i64 4}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !39, !40}
+!42 = !{!32, !9, i64 12}
+!43 = !{!32, !9, i64 4}

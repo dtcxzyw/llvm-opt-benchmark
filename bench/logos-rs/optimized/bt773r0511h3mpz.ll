@@ -127,7 +127,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   %17 = call align 8 ptr @_ZN4core3fmt8builders8DebugSet5entry17h97cee4100b5a60bdE(ptr nonnull align 8 %6, ptr nonnull align 1 %4, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.4)
   %18 = call i64 @"_ZN95_$LT$logos_codegen..graph..fork..ForkIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31bda62dc7938527E"(ptr nonnull align 8 %5)
   %19 = icmp ult i64 %18, 4294967296
-  br i1 %19, label %._crit_edge, label %14
+  br i1 %19, label %._crit_edge, label %14, !llvm.loop !3
 
 20:                                               ; preds = %._crit_edge
   store i32 95, ptr %3, align 4
@@ -218,3 +218,5 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}

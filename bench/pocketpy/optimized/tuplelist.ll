@@ -129,7 +129,7 @@ define void @_ZN4pkpy5TupleC2EOS0_(ptr noundef nonnull align 8 dereferenceable(3
   %17 = load i32, ptr %5, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 20:                                               ; preds = %2
   store ptr %6, ptr %0, align 8
@@ -263,7 +263,7 @@ define void @_ZNK4pkpy8ArgsView7to_listEv(ptr dead_on_unwind noalias writable wr
   %sext = shl i64 %32, 29
   %33 = ashr i64 %sext, 32
   %34 = icmp slt i64 %indvars.iv.next, %33
-  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !7
+  br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -307,7 +307,7 @@ define void @_ZNK4pkpy8ArgsView8to_tupleEv(ptr dead_on_unwind noalias writable s
   %sext = shl i64 %28, 29
   %29 = ashr i64 %sext, 32
   %30 = icmp slt i64 %indvars.iv.next, %29
-  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %30, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -341,8 +341,9 @@ attributes #10 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

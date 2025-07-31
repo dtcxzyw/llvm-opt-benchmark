@@ -219,8 +219,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringR
 34:                                               ; preds = %.loopexit
   %35 = getelementptr inbounds nuw i8, ptr %.lcssa53, i64 1
   %36 = add i64 %.lcssa56, -1
-  store ptr %35, ptr %4, align 8, !tbaa !30
-  store i64 %36, ptr %7, align 8, !tbaa !31
+  store ptr %35, ptr %4, align 8, !tbaa !31
+  store i64 %36, ptr %7, align 8, !tbaa !32
   %37 = icmp eq i64 %36, 0
   br i1 %37, label %_ZL8parseIntRN4llvm9StringRefERj.exit, label %38
 
@@ -228,8 +228,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringR
   %39 = load i8, ptr %35, align 1, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %.lcssa53, i64 2
   %41 = add i64 %.lcssa56, -2
-  store ptr %40, ptr %4, align 8, !tbaa !30
-  store i64 %41, ptr %7, align 8, !tbaa !31
+  store ptr %40, ptr %4, align 8, !tbaa !31
+  store i64 %41, ptr %7, align 8, !tbaa !32
   %42 = add i8 %39, -58
   %or.cond.i2 = icmp ult i8 %42, -10
   br i1 %or.cond.i2, label %_ZL8parseIntRN4llvm9StringRefERj.exit, label %43
@@ -289,13 +289,13 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %.lr.ph.i3, %.lr.ph.
 68:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %69 = getelementptr inbounds nuw i8, ptr %.lcssa63, i64 1
   %70 = add i64 %.lcssa66, -1
-  store ptr %69, ptr %4, align 8, !tbaa !30
-  store i64 %70, ptr %7, align 8, !tbaa !31
+  store ptr %69, ptr %4, align 8, !tbaa !31
+  store i64 %70, ptr %7, align 8, !tbaa !32
   %71 = call fastcc noundef zeroext i1 @_ZL8parseIntRN4llvm9StringRefERj(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   br i1 %71, label %_ZL8parseIntRN4llvm9StringRefERj.exit, label %72
 
 72:                                               ; preds = %68
-  %73 = load i64, ptr %7, align 8, !tbaa !32
+  %73 = load i64, ptr %7, align 8, !tbaa !33
   %74 = icmp eq i64 %73, 0
   br i1 %74, label %75, label %_ZNK4llvm9StringRef11starts_withES0_.exit.i10
 
@@ -312,7 +312,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i:      ; preds = %.lr.ph.i3, %.lr.ph.
   br label %_ZL8parseIntRN4llvm9StringRefERj.exit.sink.split
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.i10:    ; preds = %72
-  %.pre.i9 = load ptr, ptr %4, align 8, !tbaa !34
+  %.pre.i9 = load ptr, ptr %4, align 8, !tbaa !35
   %lhsc47 = load i8, ptr %.pre.i9, align 1
   %85 = icmp eq i8 %lhsc47, 46
   br i1 %85, label %86, label %_ZL8parseIntRN4llvm9StringRefERj.exit
@@ -320,8 +320,8 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.i10:    ; preds = %72
 86:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i10
   %87 = getelementptr inbounds nuw i8, ptr %.pre.i9, i64 1
   %88 = add i64 %73, -1
-  store ptr %87, ptr %4, align 8, !tbaa !30
-  store i64 %88, ptr %7, align 8, !tbaa !31
+  store ptr %87, ptr %4, align 8, !tbaa !31
+  store i64 %88, ptr %7, align 8, !tbaa !32
   %89 = call fastcc noundef zeroext i1 @_ZL8parseIntRN4llvm9StringRefERj(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %90 = load i64, ptr %7, align 8
   %91 = icmp ne i64 %90, 0
@@ -363,17 +363,17 @@ _ZL8parseIntRN4llvm9StringRefERj.exit:            ; preds = %_ZL8parseIntRN4llvm
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZL8parseIntRN4llvm9StringRefERj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !32
+  %4 = load i64, ptr %3, align 8, !tbaa !33
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = load ptr, ptr %0, align 8, !tbaa !34
+  %7 = load ptr, ptr %0, align 8, !tbaa !35
   %8 = load i8, ptr %7, align 1, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %10 = add i64 %4, -1
-  store ptr %9, ptr %0, align 8, !tbaa !30
-  store i64 %10, ptr %3, align 8, !tbaa !31
+  store ptr %9, ptr %0, align 8, !tbaa !31
+  store i64 %10, ptr %3, align 8, !tbaa !32
   %11 = add i8 %8, -58
   %or.cond = icmp ult i8 %11, -10
   br i1 %or.cond, label %.loopexit, label %12
@@ -398,8 +398,8 @@ define internal fastcc noundef zeroext i1 @_ZL8parseIntRN4llvm9StringRefERj(ptr 
   %21 = zext nneg i8 %18 to i32
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %23 = add i64 %16, -1
-  store ptr %22, ptr %0, align 8, !tbaa !30
-  store i64 %23, ptr %3, align 8, !tbaa !31
+  store ptr %22, ptr %0, align 8, !tbaa !31
+  store i64 %23, ptr %3, align 8, !tbaa !32
   %24 = mul i32 %storemerge29, 10
   %25 = add i32 %24, -48
   %26 = add i32 %25, %21
@@ -459,10 +459,11 @@ attributes #6 = { nounwind }
 !25 = !{!14, !5, i64 24}
 !26 = !{!27, !27, i64 0}
 !27 = !{!"int", !7, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = !{!5, !5, i64 0}
-!31 = !{!11, !11, i64 0}
-!32 = !{!33, !11, i64 8}
-!33 = !{!"_ZTSN4llvm9StringRefE", !5, i64 0, !11, i64 8}
-!34 = !{!33, !5, i64 0}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = !{!5, !5, i64 0}
+!32 = !{!11, !11, i64 0}
+!33 = !{!34, !11, i64 8}
+!34 = !{!"_ZTSN4llvm9StringRefE", !5, i64 0, !11, i64 8}
+!35 = !{!34, !5, i64 0}

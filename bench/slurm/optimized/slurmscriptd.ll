@@ -520,7 +520,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr noundef readonly captures(
   br label %.lr.ph155.backedge
 
 .lr.ph155.backedge:                               ; preds = %111, %108
-  br label %.lr.ph155, !llvm.loop !13
+  br label %.lr.ph155, !llvm.loop !14
 
 .outer._crit_edge:                                ; preds = %.split162.us
   %112 = call ptr @create_buf(ptr noundef %64, i32 noundef %61) #13
@@ -603,7 +603,7 @@ define internal range(i32 -1, 1) i32 @_msg_accept(ptr noundef readonly captures(
 143:                                              ; preds = %140, %138
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  br label %7, !llvm.loop !14
+  br label %7, !llvm.loop !15
 
 .thread:                                          ; preds = %.split165.us, %104, %93, %88, %.split130, %33, %22, %17
   %144 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.62, ptr noundef nonnull @__func__._msg_accept) #13
@@ -1287,7 +1287,7 @@ define internal fastcc void @_wait_for_all_scripts() unnamed_addr #0 {
   %25 = load i32, ptr @script_count, align 4
   %26 = icmp ne i32 %25, 0
   %or.cond3 = select i1 %24, i1 %26, i1 false
-  br i1 %or.cond3, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %or.cond3, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %22, %.preheader
   %27 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @script_count_mutex) #13
@@ -1464,7 +1464,7 @@ define dso_local void @slurmscriptd_handle_bb_lua_mode(i32 noundef %0, ptr nound
   br label %.lr.ph.i.i.backedge
 
 .lr.ph.i.i.backedge:                              ; preds = %59, %56
-  br label %.lr.ph.i.i, !llvm.loop !16
+  br label %.lr.ph.i.i, !llvm.loop !17
 
 .outer99._crit_edge.i.i:                          ; preds = %.split119.us.i.i
   %60 = load i32, ptr %3, align 4
@@ -1550,7 +1550,7 @@ define dso_local void @slurmscriptd_handle_bb_lua_mode(i32 noundef %0, ptr nound
   br label %.lr.ph147.i.i.backedge
 
 .lr.ph147.i.i.backedge:                           ; preds = %89, %86
-  br label %.lr.ph147.i.i, !llvm.loop !17
+  br label %.lr.ph147.i.i, !llvm.loop !18
 
 .lr.ph147.i.i:                                    ; preds = %.outer99._crit_edge.i.i, %.lr.ph147.i.i.backedge
   %.063.ph179.i.i = phi ptr [ %84, %.lr.ph147.i.i.backedge ], [ %4, %.outer99._crit_edge.i.i ]
@@ -1741,7 +1741,7 @@ define dso_local void @slurmscriptd_handle_bb_lua_mode(i32 noundef %0, ptr nound
   br label %.lr.ph182.i.i.backedge
 
 .lr.ph182.i.i.backedge:                           ; preds = %155, %152
-  br label %.lr.ph182.i.i, !llvm.loop !18
+  br label %.lr.ph182.i.i, !llvm.loop !19
 
 .outer._crit_edge.i.i:                            ; preds = %.split188.us.i.i
   %156 = tail call ptr @create_buf(ptr noundef %111, i32 noundef %107) #13
@@ -1924,7 +1924,7 @@ _init_bb_script_config.exit:                      ; preds = %169, %174
   br label %.lr.ph87.split.backedge
 
 .lr.ph87.split.backedge:                          ; preds = %227, %224
-  br label %.lr.ph87.split, !llvm.loop !19
+  br label %.lr.ph87.split, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.split.us, %205, %217, %.split89.us, %202
   call void @exit(i32 noundef %203) #15
@@ -3063,7 +3063,7 @@ _send_to_slurmscriptd.exit.i:                     ; preds = %21, %_script_resp_m
   %35 = tail call ptr @__errno_location() #14
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %30, label %38, !llvm.loop !20
+  br i1 %37, label %30, label %38, !llvm.loop !21
 
 38:                                               ; preds = %34
   %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.115, ptr noundef nonnull @__func__._kill_slurmscriptd) #13
@@ -3211,7 +3211,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
 25:                                               ; preds = %19, %19, %22
   %26 = call i64 @time(ptr noundef null) #13
   %27 = icmp slt i64 %26, %8
-  br i1 %27, label %9, label %28, !llvm.loop !21
+  br i1 %27, label %9, label %28, !llvm.loop !22
 
 28:                                               ; preds = %25, %9
   %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @powersave_script_count_mutex) #13
@@ -3260,7 +3260,7 @@ define internal fastcc void @_wait_for_powersave_scripts() unnamed_addr #0 {
 44:                                               ; preds = %.preheader, %.preheader, %41
   %45 = load i32, ptr @powersave_script_count, align 4
   %.not42 = icmp eq i32 %45, 0
-  br i1 %.not42, label %46, label %.preheader, !llvm.loop !22
+  br i1 %.not42, label %46, label %.preheader, !llvm.loop !23
 
 46:                                               ; preds = %44
   %47 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @powersave_script_count_mutex) #13
@@ -4082,7 +4082,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %28, %25
-  br label %.lr.ph.split, !llvm.loop !23
+  br label %.lr.ph.split, !llvm.loop !24
 
 .outer117._crit_edge:                             ; preds = %.split.us
   %.not92 = icmp eq ptr %2, null
@@ -4146,7 +4146,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph142.split.backedge
 
 .lr.ph142.split.backedge:                         ; preds = %49, %46
-  br label %.lr.ph142.split, !llvm.loop !24
+  br label %.lr.ph142.split, !llvm.loop !25
 
 .outer116._crit_edge:                             ; preds = %.split145.us
   %.not99174 = icmp eq i32 %31, 0
@@ -4210,7 +4210,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph161.split.backedge
 
 .lr.ph161.split.backedge:                         ; preds = %70, %67
-  br label %.lr.ph161.split, !llvm.loop !25
+  br label %.lr.ph161.split, !llvm.loop !26
 
 71:                                               ; preds = %.lr.ph191, %73
   %72 = load i32, ptr %88, align 4
@@ -4252,7 +4252,7 @@ define internal fastcc range(i32 -1, 1) i32 @_write_msg(i32 noundef %0, i32 noun
   br label %.lr.ph180.split.backedge
 
 .lr.ph180.split.backedge:                         ; preds = %85, %82
-  br label %.lr.ph180.split, !llvm.loop !26
+  br label %.lr.ph180.split, !llvm.loop !27
 
 .lr.ph180.split:                                  ; preds = %.outer117._crit_edge, %.lr.ph180.split.backedge
   %.066.ph195 = phi ptr [ %80, %.lr.ph180.split.backedge ], [ %6, %.outer117._crit_edge ]
@@ -4799,20 +4799,21 @@ attributes #16 = { nounwind willreturn memory(read) }
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
 !8 = !{i8 0, i8 2}
 !9 = !{}
-!10 = distinct !{!10, !11, !12}
+!10 = distinct !{!10, !11, !12, !13}
 !11 = !{!"llvm.loop.mustprogress"}
 !12 = !{!"llvm.loop.unroll.disable"}
-!13 = distinct !{!13, !11, !12}
-!14 = distinct !{!14, !12}
-!15 = distinct !{!15, !11, !12}
-!16 = distinct !{!16, !11, !12}
-!17 = distinct !{!17, !11, !12}
-!18 = distinct !{!18, !11, !12}
-!19 = distinct !{!19, !11, !12}
-!20 = distinct !{!20, !11, !12}
-!21 = distinct !{!21, !11, !12}
-!22 = distinct !{!22, !11, !12}
-!23 = distinct !{!23, !11, !12}
-!24 = distinct !{!24, !11, !12}
-!25 = distinct !{!25, !11, !12}
-!26 = distinct !{!26, !11, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !11, !12, !13}
+!15 = distinct !{!15, !12, !13}
+!16 = distinct !{!16, !11, !12, !13}
+!17 = distinct !{!17, !11, !12, !13}
+!18 = distinct !{!18, !11, !12, !13}
+!19 = distinct !{!19, !11, !12, !13}
+!20 = distinct !{!20, !11, !12, !13}
+!21 = distinct !{!21, !11, !12, !13}
+!22 = distinct !{!22, !11, !12, !13}
+!23 = distinct !{!23, !11, !12, !13}
+!24 = distinct !{!24, !11, !12, !13}
+!25 = distinct !{!25, !11, !12, !13}
+!26 = distinct !{!26, !11, !12, !13}
+!27 = distinct !{!27, !11, !12, !13}

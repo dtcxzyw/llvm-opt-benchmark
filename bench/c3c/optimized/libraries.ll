@@ -159,7 +159,7 @@ define dso_local void @resolve_libraries() local_unnamed_addr #0 {
 44:                                               ; preds = %41
   %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %3, ptr noundef nonnull dereferenceable(14) @.str.2, i64 14)
   %45 = icmp eq i32 %bcmp.i, 0
-  br i1 %45, label %46, label %.preheader57.i
+  br i1 %45, label %46, label %.preheader57.i, !llvm.loop !10
 
 46:                                               ; preds = %44
   %47 = call ptr @zip_file_read(ptr noundef nonnull %33, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -236,7 +236,7 @@ define dso_local void @resolve_libraries() local_unnamed_addr #0 {
   %78 = load i32, ptr %21, align 4
   %79 = load i32, ptr %22, align 8
   %80 = icmp slt i32 %78, %79
-  br i1 %80, label %.lr.ph.i, label %resolve_zip_library.exit, !llvm.loop !9
+  br i1 %80, label %.lr.ph.i, label %resolve_zip_library.exit, !llvm.loop !11
 
 resolve_zip_library.exit:                         ; preds = %.backedge.i, %.preheader.i
   %81 = call i32 @fclose(ptr noundef nonnull %33)
@@ -456,7 +456,7 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
 183:                                              ; preds = %184
   %indvars.iv.next.i.i206 = add nuw i64 %indvars.iv.i.i204, 1
   %exitcond.not.i.i207 = icmp eq i64 %indvars.iv.next.i.i206, %178
-  br i1 %exitcond.not.i.i207, label %190, label %184, !llvm.loop !10
+  br i1 %exitcond.not.i.i207, label %190, label %184, !llvm.loop !12
 
 184:                                              ; preds = %183, %.lr.ph.i.i203
   %indvars.iv.i.i204 = phi i64 [ 0, %.lr.ph.i.i203 ], [ %indvars.iv.next.i.i206, %183 ]
@@ -529,7 +529,7 @@ get_mandatory_string.exit.i:                      ; preds = %get_mandatory.exit.
   %225 = add nuw i64 %.02031.i210, 1
   %226 = load i64, ptr %177, align 8
   %227 = icmp ult i64 %225, %226
-  br i1 %227, label %.lr.ph.i209, label %get_optional_string_array_as_array.exit217, !llvm.loop !11
+  br i1 %227, label %.lr.ph.i209, label %get_optional_string_array_as_array.exit217, !llvm.loop !13
 
 get_optional_string_array_as_array.exit217:       ; preds = %214, %166, %.preheader.i.i201, %190
   %.022.i215 = phi ptr [ null, %166 ], [ %196, %190 ], [ null, %.preheader.i.i201 ], [ %217, %214 ]
@@ -563,7 +563,7 @@ get_optional_string_array_as_array.exit217:       ; preds = %214, %166, %.prehea
 238:                                              ; preds = %239
   %indvars.iv.next.i.i187 = add nuw i64 %indvars.iv.i.i185, 1
   %exitcond.not.i.i188 = icmp eq i64 %indvars.iv.next.i.i187, %233
-  br i1 %exitcond.not.i.i188, label %245, label %239, !llvm.loop !10
+  br i1 %exitcond.not.i.i188, label %245, label %239, !llvm.loop !12
 
 239:                                              ; preds = %238, %.lr.ph.i.i184
   %indvars.iv.i.i185 = phi i64 [ 0, %.lr.ph.i.i184 ], [ %indvars.iv.next.i.i187, %238 ]
@@ -636,7 +636,7 @@ get_optional_string_array_as_array.exit217:       ; preds = %214, %166, %.prehea
   %280 = add nuw i64 %.02031.i191, 1
   %281 = load i64, ptr %232, align 8
   %282 = icmp ult i64 %280, %281
-  br i1 %282, label %.lr.ph.i190, label %get_optional_string_array_as_array.exit198, !llvm.loop !11
+  br i1 %282, label %.lr.ph.i190, label %get_optional_string_array_as_array.exit198, !llvm.loop !13
 
 get_optional_string_array_as_array.exit198:       ; preds = %269, %get_optional_string_array_as_array.exit217, %.preheader.i.i182, %245
   %.022.i196 = phi ptr [ null, %get_optional_string_array_as_array.exit217 ], [ %251, %245 ], [ null, %.preheader.i.i182 ], [ %272, %269 ]
@@ -670,7 +670,7 @@ get_optional_string_array_as_array.exit198:       ; preds = %269, %get_optional_
 293:                                              ; preds = %294
   %indvars.iv.next.i.i168 = add nuw i64 %indvars.iv.i.i166, 1
   %exitcond.not.i.i169 = icmp eq i64 %indvars.iv.next.i.i168, %288
-  br i1 %exitcond.not.i.i169, label %300, label %294, !llvm.loop !10
+  br i1 %exitcond.not.i.i169, label %300, label %294, !llvm.loop !12
 
 294:                                              ; preds = %293, %.lr.ph.i.i165
   %indvars.iv.i.i166 = phi i64 [ 0, %.lr.ph.i.i165 ], [ %indvars.iv.next.i.i168, %293 ]
@@ -743,7 +743,7 @@ get_optional_string_array_as_array.exit198:       ; preds = %269, %get_optional_
   %335 = add nuw i64 %.02031.i172, 1
   %336 = load i64, ptr %287, align 8
   %337 = icmp ult i64 %335, %336
-  br i1 %337, label %.lr.ph.i171, label %get_optional_string_array_as_array.exit179, !llvm.loop !11
+  br i1 %337, label %.lr.ph.i171, label %get_optional_string_array_as_array.exit179, !llvm.loop !13
 
 get_optional_string_array_as_array.exit179:       ; preds = %324, %get_optional_string_array_as_array.exit198, %.preheader.i.i163, %300
   %.022.i177 = phi ptr [ null, %get_optional_string_array_as_array.exit198 ], [ %306, %300 ], [ null, %.preheader.i.i163 ], [ %327, %324 ]
@@ -777,7 +777,7 @@ get_optional_string_array_as_array.exit179:       ; preds = %324, %get_optional_
 348:                                              ; preds = %349
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %343
-  br i1 %exitcond.not.i.i, label %355, label %349, !llvm.loop !10
+  br i1 %exitcond.not.i.i, label %355, label %349, !llvm.loop !12
 
 349:                                              ; preds = %348, %.lr.ph.i.i158
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i158 ], [ %indvars.iv.next.i.i, %348 ]
@@ -850,7 +850,7 @@ get_optional_string_array_as_array.exit179:       ; preds = %324, %get_optional_
   %390 = add nuw i64 %.02031.i, 1
   %391 = load i64, ptr %342, align 8
   %392 = icmp ult i64 %390, %391
-  br i1 %392, label %.lr.ph.i160, label %get_optional_string_array_as_array.exit, !llvm.loop !11
+  br i1 %392, label %.lr.ph.i160, label %get_optional_string_array_as_array.exit, !llvm.loop !13
 
 get_optional_string_array_as_array.exit:          ; preds = %379, %get_optional_string_array_as_array.exit179, %.preheader.i.i157, %355
   %.022.i = phi ptr [ null, %get_optional_string_array_as_array.exit179 ], [ %361, %355 ], [ null, %.preheader.i.i157 ], [ %382, %379 ]
@@ -859,14 +859,14 @@ get_optional_string_array_as_array.exit:          ; preds = %379, %get_optional_
   %394 = add nuw i64 %.03038.i.i, 1
   %395 = load i64, ptr %119, align 8
   %396 = icmp ult i64 %394, %395
-  br i1 %396, label %125, label %add_library.exit, !llvm.loop !12
+  br i1 %396, label %125, label %add_library.exit, !llvm.loop !14
 
 add_library.exit:                                 ; preds = %get_optional_string_array_as_array.exit, %109, %.preheader.i.i
   %397 = add nuw nsw i64 %.0111354, 1
   %398 = getelementptr inbounds nuw [2048 x ptr], ptr %7, i64 0, i64 %.0111354
   store ptr %93, ptr %398, align 8
   %exitcond485.not = icmp eq i64 %397, %wide.trip.count484
-  br i1 %exitcond485.not, label %._crit_edge, label %27, !llvm.loop !13
+  br i1 %exitcond485.not, label %._crit_edge, label %27, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %add_library.exit, %.loopexit223, %18
   %.0111.lcssa = phi i64 [ 0, %18 ], [ 0, %.loopexit223 ], [ %wide.trip.count484, %add_library.exit ]
@@ -915,7 +915,7 @@ add_library.exit:                                 ; preds = %get_optional_string
 412:                                              ; preds = %.lr.ph.i147
   %413 = add nuw nsw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %413, %.0111.lcssa
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i147, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i147, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %412, %.lr.ph357.split.us
   %414 = phi ptr [ %403, %.lr.ph357.split.us ], [ %406, %412 ]
@@ -928,7 +928,7 @@ find_library.exit:                                ; preds = %.lr.ph.i147
   call fastcc void @add_library_dependency(ptr noundef %416, ptr noundef %7, i64 noundef %.0111.lcssa)
   %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
   %exitcond490.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count489
-  br i1 %exitcond490.not, label %.preheader, label %.lr.ph.i147.preheader, !llvm.loop !15
+  br i1 %exitcond490.not, label %.preheader, label %.lr.ph.i147.preheader, !llvm.loop !17
 
 .lr.ph366:                                        ; preds = %.preheader, %.loopexit
   %.0110365 = phi i64 [ %540, %.loopexit ], [ 0, %.preheader ]
@@ -1130,7 +1130,7 @@ find_library.exit:                                ; preds = %.lr.ph.i147
   %526 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %525)
   %indvars.iv.next492 = add nuw nsw i64 %indvars.iv491, 1
   %exitcond495.not = icmp eq i64 %indvars.iv.next492, %wide.trip.count494
-  br i1 %exitcond495.not, label %._crit_edge361, label %520, !llvm.loop !16
+  br i1 %exitcond495.not, label %._crit_edge361, label %520, !llvm.loop !18
 
 ._crit_edge361:                                   ; preds = %520, %.critedge145, %.critedge145.thread
   %527 = getelementptr inbounds nuw i8, ptr %420, i64 8
@@ -1159,12 +1159,12 @@ find_library.exit:                                ; preds = %.lr.ph.i147
   %539 = call i32 @puts(ptr noundef nonnull dereferenceable(1) %538)
   %indvars.iv.next497 = add nuw nsw i64 %indvars.iv496, 1
   %exitcond500.not = icmp eq i64 %indvars.iv.next497, %wide.trip.count499
-  br i1 %exitcond500.not, label %.loopexit, label %533, !llvm.loop !17
+  br i1 %exitcond500.not, label %.loopexit, label %533, !llvm.loop !19
 
 .loopexit:                                        ; preds = %533, %._crit_edge361, %529, %.lr.ph366
   %540 = add nuw nsw i64 %.0110365, 1
   %exitcond501.not = icmp eq i64 %540, %.0111.lcssa
-  br i1 %exitcond501.not, label %._crit_edge367, label %.lr.ph366, !llvm.loop !18
+  br i1 %exitcond501.not, label %._crit_edge367, label %.lr.ph366, !llvm.loop !20
 
 ._crit_edge367:                                   ; preds = %.loopexit, %.preheader
   ret void
@@ -1212,7 +1212,7 @@ define internal fastcc void @add_library_dependency(ptr noundef captures(none) %
 12:                                               ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !21
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
@@ -1276,7 +1276,7 @@ define internal fastcc void @add_library_dependency(ptr noundef captures(none) %
 38:                                               ; preds = %.lr.ph.i
   %39 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %39, %2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
 ._crit_edge.i:                                    ; preds = %38, %.lr.ph78.split.us
   %40 = phi ptr [ %29, %.lr.ph78.split.us ], [ %32, %38 ]
@@ -1289,7 +1289,7 @@ find_library.exit:                                ; preds = %.lr.ph.i
   tail call fastcc void @add_library_dependency(ptr noundef %42, ptr noundef %1, i64 noundef %2)
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
   %exitcond98.not = icmp eq i64 %indvars.iv.next95, %wide.trip.count97
-  br i1 %exitcond98.not, label %._crit_edge79, label %.lr.ph.i.preheader, !llvm.loop !20
+  br i1 %exitcond98.not, label %._crit_edge79, label %.lr.ph.i.preheader, !llvm.loop !22
 
 ._crit_edge79:                                    ; preds = %find_library.exit, %23, %26
   %43 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -1334,7 +1334,7 @@ find_library.exit:                                ; preds = %.lr.ph.i
 57:                                               ; preds = %.lr.ph.i58
   %58 = add nuw i64 %.08.i59, 1
   %exitcond.not.i60 = icmp eq i64 %58, %2
-  br i1 %exitcond.not.i60, label %._crit_edge.i61, label %.lr.ph.i58, !llvm.loop !14
+  br i1 %exitcond.not.i60, label %._crit_edge.i61, label %.lr.ph.i58, !llvm.loop !16
 
 ._crit_edge.i61:                                  ; preds = %57, %.lr.ph82.split.us
   %59 = phi ptr [ %48, %.lr.ph82.split.us ], [ %51, %57 ]
@@ -1347,7 +1347,7 @@ find_library.exit62:                              ; preds = %.lr.ph.i58
   tail call fastcc void @add_library_dependency(ptr noundef %61, ptr noundef %1, i64 noundef %2)
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %exitcond103.not = icmp eq i64 %indvars.iv.next100, %wide.trip.count102
-  br i1 %exitcond103.not, label %.loopexit, label %.lr.ph.i58.preheader, !llvm.loop !21
+  br i1 %exitcond103.not, label %.loopexit, label %.lr.ph.i58.preheader, !llvm.loop !23
 
 .loopexit:                                        ; preds = %find_library.exit62, %._crit_edge79, %45, %3
   ret void
@@ -1436,7 +1436,7 @@ define internal fastcc ptr @get_optional_string_array_as_array(ptr noundef reado
 13:                                               ; preds = %14
   %indvars.iv.next.i = add nuw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %8
-  br i1 %exitcond.not.i, label %20, label %14, !llvm.loop !10
+  br i1 %exitcond.not.i, label %20, label %14, !llvm.loop !12
 
 14:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
@@ -1510,7 +1510,7 @@ define internal fastcc ptr @get_optional_string_array_as_array(ptr noundef reado
   %56 = add nuw i64 %.02031, 1
   %57 = load i64, ptr %7, align 8
   %58 = icmp ult i64 %56, %57
-  br i1 %58, label %.lr.ph, label %get_optional_string_array.exit.thread, !llvm.loop !11
+  br i1 %58, label %.lr.ph, label %get_optional_string_array.exit.thread, !llvm.loop !13
 
 get_optional_string_array.exit.thread:            ; preds = %45, %.preheader.i, %20, %3
   %.022 = phi ptr [ null, %3 ], [ %27, %20 ], [ null, %.preheader.i ], [ %48, %45 ]
@@ -1553,18 +1553,20 @@ attributes #9 = { noreturn nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}

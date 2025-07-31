@@ -135,7 +135,7 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
 
 .thread72:                                        ; preds = %23, %.loopexit, %46, %11
   %.150 = phi i32 [ 0, %11 ], [ %44, %46 ], [ 8, %.loopexit ], [ %44, %23 ]
-  %50 = load ptr, ptr @main_auth_data, align 8, !tbaa !21
+  %50 = load ptr, ptr @main_auth_data, align 8, !tbaa !22
   %.not68 = icmp eq ptr %50, null
   br i1 %.not68, label %52, label %51
 
@@ -144,8 +144,8 @@ define dso_local range(i32 0, 5) i32 @authfile_load(ptr noundef readonly capture
   br label %52
 
 52:                                               ; preds = %51, %.thread72
-  store i32 %.150, ptr @entry_cnt, align 4, !tbaa !22
-  store ptr %15, ptr @main_auth_data, align 8, !tbaa !21
+  store i32 %.150, ptr @entry_cnt, align 4, !tbaa !23
+  store ptr %15, ptr @main_auth_data, align 8, !tbaa !22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @main_auth_entries, ptr noundef nonnull align 16 dereferenceable(256) %3, i64 256, i1 false)
   %53 = tail call i32 @fclose(ptr noundef nonnull %4)
   br label %54
@@ -191,7 +191,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %5 = load i32, ptr @entry_cnt, align 4, !tbaa !22
+  %5 = load i32, ptr @entry_cnt, align 4, !tbaa !23
   %.not22 = icmp sgt i32 %5, 0
   br i1 %.not22, label %.lr.ph, label %._crit_edge
 
@@ -223,10 +223,10 @@ define dso_local range(i32 0, 2) i32 @authfile_check(ptr noundef %0, ptr noundef
 
 .critedge:                                        ; preds = %17, %14, %10, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = load i32, ptr @entry_cnt, align 4, !tbaa !22
+  %22 = load i32, ptr @entry_cnt, align 4, !tbaa !23
   %23 = sext i32 %22 to i64
   %.not = icmp slt i64 %indvars.iv.next, %23
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.critedge, %17, %2
   %.not.lcssa = phi i32 [ 0, %2 ], [ 1, %17 ], [ 0, %.critedge ]
@@ -275,8 +275,9 @@ attributes #11 = { nounwind willreturn memory(read) }
 !16 = !{!13, !6, i64 8}
 !17 = !{!13, !14, i64 16}
 !18 = !{!13, !6, i64 24}
-!19 = distinct !{!19, !20}
+!19 = distinct !{!19, !20, !21}
 !20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!14, !14, i64 0}
-!22 = !{!9, !9, i64 0}
-!23 = distinct !{!23, !20}
+!21 = !{!"llvm.loop.estimated_trip_count"}
+!22 = !{!14, !14, i64 0}
+!23 = !{!9, !9, i64 0}
+!24 = distinct !{!24, !20, !21}

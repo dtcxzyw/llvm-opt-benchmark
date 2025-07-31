@@ -216,7 +216,7 @@ zend_string_alloc.exit:                           ; preds = %2
   %.1.us41 = phi i64 [ %37, %35 ], [ %.02935.us38, %.lr.ph.split.split.us ]
   %39 = add nuw i64 %.036.us37, 1
   %40 = icmp ult i64 %39, %16
-  br i1 %40, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !19
+  br i1 %40, label %.lr.ph.split.split.us, label %._crit_edge, !llvm.loop !20
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not32, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
@@ -240,7 +240,7 @@ zend_string_alloc.exit:                           ; preds = %2
   %.1.us47 = phi i64 [ %46, %44 ], [ %.02935.us45, %.lr.ph.split.split.split.us ]
   %48 = add nuw i64 %.036.us44, 1
   %49 = icmp ult i64 %48, %16
-  br i1 %49, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !20
+  br i1 %49, label %.lr.ph.split.split.split.us, label %._crit_edge, !llvm.loop !21
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %57
   %.036 = phi i64 [ %58, %57 ], [ 0, %.lr.ph.split.split ]
@@ -263,7 +263,7 @@ zend_string_alloc.exit:                           ; preds = %2
   %.1 = phi i64 [ %56, %54 ], [ %.02935, %.lr.ph.split.split.split ]
   %58 = add nuw i64 %.036, 1
   %59 = icmp ult i64 %58, %16
-  br i1 %59, label %.lr.ph.split.split.split, label %._crit_edge
+  br i1 %59, label %.lr.ph.split.split.split, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %57, %47, %38, %28, %zend_string_alloc.exit
   %.029.lcssa = phi i64 [ 0, %zend_string_alloc.exit ], [ %.1.us, %28 ], [ %.1.us41, %38 ], [ %.1.us47, %47 ], [ %.1, %57 ]
@@ -313,20 +313,20 @@ define internal fastcc void @php_filter_encode_html(ptr noundef %0, ptr noundef 
   br i1 %.not17, label %62, label %20
 
 20:                                               ; preds = %14
-  br i1 %.not.i.i20, label %26, label %21, !prof !21
+  br i1 %.not.i.i20, label %26, label %21, !prof !23
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %23 = load i64, ptr %22, align 8, !tbaa !7
   %24 = add i64 %23, 2
-  %25 = load i64, ptr %11, align 8, !tbaa !22
+  %25 = load i64, ptr %11, align 8, !tbaa !24
   %.not12.i = icmp ult i64 %24, %25
-  br i1 %.not12.i, label %smart_str_alloc.exit, label %26, !prof !24
+  br i1 %.not12.i, label %smart_str_alloc.exit, label %26, !prof !26
 
 26:                                               ; preds = %21, %20
   %.0.i = phi i64 [ 2, %20 ], [ %24, %21 ]
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0.i) #9
-  %.pre = load ptr, ptr %4, align 8, !tbaa !25
+  %.pre = load ptr, ptr %4, align 8, !tbaa !27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre36 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !7
   br label %smart_str_alloc.exit
@@ -338,7 +338,7 @@ smart_str_alloc.exit:                             ; preds = %21, %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %27
   store i16 8998, ptr %30, align 1
-  %31 = load ptr, ptr %4, align 8, !tbaa !25
+  %31 = load ptr, ptr %4, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 %.1.i, ptr %32, align 8, !tbaa !7
   %33 = load i8, ptr %.035, align 1, !tbaa !4
@@ -357,20 +357,20 @@ smart_str_alloc.exit:                             ; preds = %21, %26
   store i8 %38, ptr %39, align 1, !tbaa !4
   %40 = udiv i64 %.0.i18, 10
   %.not.i19 = icmp samesign ult i64 %.0.i18, 10
-  br i1 %.not.i19, label %41, label %35
+  br i1 %.not.i19, label %41, label %35, !llvm.loop !28
 
 41:                                               ; preds = %35
   %42 = ptrtoint ptr %39 to i64
   %43 = sub i64 %13, %42
   %44 = load i64, ptr %32, align 8, !tbaa !7
   %45 = add i64 %44, %43
-  %46 = load i64, ptr %11, align 8, !tbaa !22
+  %46 = load i64, ptr %11, align 8, !tbaa !24
   %.not12.i.i = icmp ult i64 %45, %46
-  br i1 %.not12.i.i, label %48, label %47, !prof !24
+  br i1 %.not12.i.i, label %48, label %47, !prof !26
 
 47:                                               ; preds = %41
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %45) #9
-  %.pre37 = load ptr, ptr %4, align 8, !tbaa !25
+  %.pre37 = load ptr, ptr %4, align 8, !tbaa !27
   %.phi.trans.insert38 = getelementptr inbounds nuw i8, ptr %.pre37, i64 16
   %.pre39 = load i64, ptr %.phi.trans.insert38, align 8, !tbaa !7
   br label %48
@@ -381,19 +381,19 @@ smart_str_alloc.exit:                             ; preds = %21, %26
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %39, i64 %43, i1 false)
-  %53 = load ptr, ptr %4, align 8, !tbaa !25
+  %53 = load ptr, ptr %4, align 8, !tbaa !27
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store i64 %45, ptr %54, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   %55 = load i64, ptr %54, align 8, !tbaa !7
   %56 = add i64 %55, 1
-  %57 = load i64, ptr %11, align 8, !tbaa !22
+  %57 = load i64, ptr %11, align 8, !tbaa !24
   %.not12.i.i25 = icmp ult i64 %56, %57
-  br i1 %.not12.i.i25, label %smart_str_appendc_ex.exit28, label %58, !prof !24
+  br i1 %.not12.i.i25, label %smart_str_appendc_ex.exit28, label %58, !prof !26
 
 58:                                               ; preds = %48
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %56) #9
-  %.pre40 = load ptr, ptr %4, align 8, !tbaa !25
+  %.pre40 = load ptr, ptr %4, align 8, !tbaa !27
   br label %smart_str_appendc_ex.exit28
 
 smart_str_appendc_ex.exit28:                      ; preds = %48, %58
@@ -404,20 +404,20 @@ smart_str_appendc_ex.exit28:                      ; preds = %48, %58
   br label %73
 
 62:                                               ; preds = %14
-  br i1 %.not.i.i20, label %68, label %63, !prof !21
+  br i1 %.not.i.i20, label %68, label %63, !prof !23
 
 63:                                               ; preds = %62
   %64 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %65 = load i64, ptr %64, align 8, !tbaa !7
   %66 = add i64 %65, 1
-  %67 = load i64, ptr %11, align 8, !tbaa !22
+  %67 = load i64, ptr %11, align 8, !tbaa !24
   %.not12.i.i21 = icmp ult i64 %66, %67
-  br i1 %.not12.i.i21, label %smart_str_appendc_ex.exit, label %68, !prof !24
+  br i1 %.not12.i.i21, label %smart_str_appendc_ex.exit, label %68, !prof !26
 
 68:                                               ; preds = %63, %62
   %.0.i.i22 = phi i64 [ 1, %62 ], [ %66, %63 ]
   call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0.i.i22) #9
-  %.pre41 = load ptr, ptr %4, align 8, !tbaa !25
+  %.pre41 = load ptr, ptr %4, align 8, !tbaa !27
   br label %smart_str_appendc_ex.exit
 
 smart_str_appendc_ex.exit:                        ; preds = %63, %68
@@ -431,16 +431,16 @@ smart_str_appendc_ex.exit:                        ; preds = %63, %68
 
 73:                                               ; preds = %smart_str_appendc_ex.exit, %smart_str_appendc_ex.exit28
   %.1.i.i23.sink = phi i64 [ %.1.i.i23, %smart_str_appendc_ex.exit ], [ %56, %smart_str_appendc_ex.exit28 ]
-  %74 = load ptr, ptr %4, align 8, !tbaa !25
+  %74 = load ptr, ptr %4, align 8, !tbaa !27
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   store i64 %.1.i.i23.sink, ptr %75, align 8, !tbaa !7
   %76 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %77 = icmp ult ptr %76, %9
-  br i1 %77, label %14, label %._crit_edge
+  br i1 %77, label %14, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %73
   call void @zval_ptr_dtor(ptr noundef nonnull %0) #9
-  %78 = load ptr, ptr %4, align 8, !tbaa !25
+  %78 = load ptr, ptr %4, align 8, !tbaa !27
   %.not.i29 = icmp eq ptr %78, null
   br i1 %.not.i29, label %123, label %smart_str_0.exit
 
@@ -450,13 +450,13 @@ smart_str_0.exit:                                 ; preds = %._crit_edge
   %81 = load i64, ptr %80, align 8, !tbaa !7
   %82 = getelementptr inbounds nuw [1 x i8], ptr %79, i64 0, i64 %81
   store i8 0, ptr %82, align 1, !tbaa !4
-  %83 = load ptr, ptr %4, align 8, !tbaa !25
+  %83 = load ptr, ptr %4, align 8, !tbaa !27
   %.not.i32 = icmp eq ptr %83, null
   br i1 %.not.i32, label %smart_str_trim_to_size_ex.exit, label %84
 
 84:                                               ; preds = %smart_str_0.exit
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !22
+  %86 = load i64, ptr %85, align 8, !tbaa !24
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %88 = load i64, ptr %87, align 8, !tbaa !7
   %89 = icmp ugt i64 %86, %88
@@ -472,7 +472,7 @@ smart_str_0.exit:                                 ; preds = %._crit_edge
 94:                                               ; preds = %90
   %95 = load i32, ptr %83, align 4, !tbaa !12
   %96 = icmp eq i32 %95, 1
-  br i1 %96, label %97, label %zend_string_alloc.exit.i, !prof !24
+  br i1 %96, label %97, label %zend_string_alloc.exit.i, !prof !26
 
 97:                                               ; preds = %94
   %98 = and i64 %88, -8
@@ -520,12 +520,12 @@ zend_string_alloc.exit.i:                         ; preds = %90, %94
 
 zend_string_realloc.exit:                         ; preds = %97, %zend_string_alloc.exit.i, %118
   %.0.i34 = phi ptr [ %100, %97 ], [ %108, %118 ], [ %108, %zend_string_alloc.exit.i ]
-  store i64 %88, ptr %85, align 8, !tbaa !22
+  store i64 %88, ptr %85, align 8, !tbaa !24
   br label %smart_str_trim_to_size_ex.exit
 
 smart_str_trim_to_size_ex.exit:                   ; preds = %smart_str_0.exit, %84, %zend_string_realloc.exit
   %122 = phi ptr [ null, %smart_str_0.exit ], [ %83, %84 ], [ %.0.i34, %zend_string_realloc.exit ]
-  store ptr null, ptr %4, align 8, !tbaa !25
+  store ptr null, ptr %4, align 8, !tbaa !27
   br label %smart_str_extract_ex.exit
 
 123:                                              ; preds = %._crit_edge
@@ -570,7 +570,7 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nound
   %9 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %8
   store i8 0, ptr %9, align 1, !tbaa !4
   %exitcond.not.i = icmp eq i64 %.031.add.i, 65
-  br i1 %exitcond.not.i, label %10, label %6
+  br i1 %exitcond.not.i, label %10, label %6, !llvm.loop !30
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %0, align 8, !tbaa !4
@@ -628,7 +628,7 @@ define hidden void @php_filter_encoded(ptr noundef %0, i64 noundef %1, ptr nound
   %.1.i = phi ptr [ %40, %28 ], [ %27, %41 ]
   %43 = getelementptr inbounds nuw i8, ptr %.1322.i, i64 1
   %44 = icmp ult ptr %43, %22
-  br i1 %44, label %.lr.ph.i, label %php_filter_encode_url.exit
+  br i1 %44, label %.lr.ph.i, label %php_filter_encode_url.exit, !llvm.loop !31
 
 php_filter_encode_url.exit:                       ; preds = %42, %10
   %.0.lcssa.i = phi ptr [ %17, %10 ], [ %.1.i, %42 ]
@@ -781,10 +781,10 @@ define hidden void @php_filter_email(ptr noundef %0, i64 noundef %1, ptr noundef
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %8
-  store i64 1, ptr %9, align 8, !tbaa !26
+  store i64 1, ptr %9, align 8, !tbaa !32
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 84
-  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i, !llvm.loop !33
 
 filter_map_update.exit:                           ; preds = %.lr.ph.i
   %11 = load ptr, ptr %0, align 8, !tbaa !4
@@ -816,7 +816,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !26
+  %29 = load i64, ptr %28, align 8, !tbaa !32
   %.not.i2 = icmp eq i64 %29, 0
   br i1 %.not.i2, label %33, label %30
 
@@ -830,7 +830,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %.1.i = phi i64 [ %32, %30 ], [ %.02223.i, %24 ]
   %34 = add nuw i64 %.024.i, 1
   %exitcond.not = icmp eq i64 %34, %22
-  br i1 %exitcond.not, label %filter_map_apply.exit, label %24
+  br i1 %exitcond.not, label %filter_map_apply.exit, label %24, !llvm.loop !34
 
 filter_map_apply.exit:                            ; preds = %33, %filter_map_update.exit
   %.022.lcssa.i = phi i64 [ 0, %filter_map_update.exit ], [ %.1.i, %33 ]
@@ -863,10 +863,10 @@ define hidden void @php_filter_url(ptr noundef %0, i64 noundef %1, ptr noundef r
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %8
-  store i64 1, ptr %9, align 8, !tbaa !26
+  store i64 1, ptr %9, align 8, !tbaa !32
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 94
-  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i, !llvm.loop !33
 
 filter_map_update.exit:                           ; preds = %.lr.ph.i
   %11 = load ptr, ptr %0, align 8, !tbaa !4
@@ -898,7 +898,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !26
+  %29 = load i64, ptr %28, align 8, !tbaa !32
   %.not.i2 = icmp eq i64 %29, 0
   br i1 %.not.i2, label %33, label %30
 
@@ -912,7 +912,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %.1.i = phi i64 [ %32, %30 ], [ %.02223.i, %24 ]
   %34 = add nuw i64 %.024.i, 1
   %exitcond.not = icmp eq i64 %34, %22
-  br i1 %exitcond.not, label %filter_map_apply.exit, label %24
+  br i1 %exitcond.not, label %filter_map_apply.exit, label %24, !llvm.loop !34
 
 filter_map_apply.exit:                            ; preds = %33, %filter_map_update.exit
   %.022.lcssa.i = phi i64 [ 0, %filter_map_update.exit ], [ %.1.i, %33 ]
@@ -942,10 +942,10 @@ define hidden void @php_filter_number_int(ptr noundef %0, i64 noundef %1, ptr no
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %8
-  store i64 1, ptr %9, align 8, !tbaa !26
+  store i64 1, ptr %9, align 8, !tbaa !32
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 12
-  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i, !llvm.loop !33
 
 filter_map_update.exit:                           ; preds = %.lr.ph.i
   %11 = load ptr, ptr %0, align 8, !tbaa !4
@@ -977,7 +977,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = zext i8 %26 to i64
   %28 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8, !tbaa !26
+  %29 = load i64, ptr %28, align 8, !tbaa !32
   %.not.i2 = icmp eq i64 %29, 0
   br i1 %.not.i2, label %33, label %30
 
@@ -991,7 +991,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
   %.1.i = phi i64 [ %32, %30 ], [ %.02223.i, %24 ]
   %34 = add nuw i64 %.024.i, 1
   %exitcond.not = icmp eq i64 %34, %22
-  br i1 %exitcond.not, label %filter_map_apply.exit, label %24
+  br i1 %exitcond.not, label %filter_map_apply.exit, label %24, !llvm.loop !34
 
 filter_map_apply.exit:                            ; preds = %33, %filter_map_update.exit
   %.022.lcssa.i = phi i64 [ 0, %filter_map_update.exit ], [ %.1.i, %33 ]
@@ -1021,10 +1021,10 @@ define hidden void @php_filter_number_float(ptr noundef %0, i64 noundef %1, ptr 
   %7 = load i8, ptr %6, align 1, !tbaa !4
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %8
-  store i64 1, ptr %9, align 8, !tbaa !26
+  store i64 1, ptr %9, align 8, !tbaa !32
   %10 = add nuw nsw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %10, 12
-  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %filter_map_update.exit, label %.lr.ph.i, !llvm.loop !33
 
 filter_map_update.exit:                           ; preds = %.lr.ph.i
   %11 = and i64 %1, 4096
@@ -1033,7 +1033,7 @@ filter_map_update.exit:                           ; preds = %.lr.ph.i
 
 .lr.ph.i6.preheader:                              ; preds = %filter_map_update.exit
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 368
-  store i64 2, ptr %12, align 16, !tbaa !26
+  store i64 2, ptr %12, align 16, !tbaa !32
   br label %filter_map_update.exit9
 
 filter_map_update.exit9:                          ; preds = %.lr.ph.i6.preheader, %filter_map_update.exit
@@ -1043,7 +1043,7 @@ filter_map_update.exit9:                          ; preds = %.lr.ph.i6.preheader
 
 .lr.ph.i11.preheader:                             ; preds = %filter_map_update.exit9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  store i64 3, ptr %14, align 16, !tbaa !26
+  store i64 3, ptr %14, align 16, !tbaa !32
   br label %filter_map_update.exit14
 
 filter_map_update.exit14:                         ; preds = %.lr.ph.i11.preheader, %filter_map_update.exit9
@@ -1057,10 +1057,10 @@ filter_map_update.exit14:                         ; preds = %.lr.ph.i11.preheade
   %17 = load i8, ptr %16, align 1, !tbaa !4
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %18
-  store i64 4, ptr %19, align 8, !tbaa !26
+  store i64 4, ptr %19, align 8, !tbaa !32
   %20 = add nuw nsw i64 %.07.i17, 1
   %exitcond.not.i18 = icmp eq i64 %20, 2
-  br i1 %exitcond.not.i18, label %filter_map_update.exit19, label %.lr.ph.i16
+  br i1 %exitcond.not.i18, label %filter_map_update.exit19, label %.lr.ph.i16, !llvm.loop !33
 
 filter_map_update.exit19:                         ; preds = %.lr.ph.i16, %filter_map_update.exit14
   %21 = load ptr, ptr %0, align 8, !tbaa !4
@@ -1092,7 +1092,7 @@ filter_map_update.exit19:                         ; preds = %.lr.ph.i16, %filter
   %36 = load i8, ptr %35, align 1, !tbaa !4
   %37 = zext i8 %36 to i64
   %38 = getelementptr inbounds nuw [256 x i64], ptr %5, i64 0, i64 %37
-  %39 = load i64, ptr %38, align 8, !tbaa !26
+  %39 = load i64, ptr %38, align 8, !tbaa !32
   %.not.i21 = icmp eq i64 %39, 0
   br i1 %.not.i21, label %43, label %40
 
@@ -1106,7 +1106,7 @@ filter_map_update.exit19:                         ; preds = %.lr.ph.i16, %filter
   %.1.i = phi i64 [ %42, %40 ], [ %.02223.i, %34 ]
   %44 = add nuw i64 %.024.i, 1
   %exitcond.not = icmp eq i64 %44, %32
-  br i1 %exitcond.not, label %filter_map_apply.exit, label %34
+  br i1 %exitcond.not, label %filter_map_apply.exit, label %34, !llvm.loop !34
 
 filter_map_apply.exit:                            ; preds = %43, %filter_map_update.exit19
   %.022.lcssa.i = phi i64 [ 0, %filter_map_update.exit19 ], [ %.1.i, %43 ]
@@ -1189,13 +1189,21 @@ attributes #11 = { nounwind allocsize(1) }
 !14 = !{!15, !15, i64 0}
 !15 = !{!"p1 _ZTS12_zend_string", !16, i64 0}
 !16 = !{!"any pointer", !5, i64 0}
-!17 = distinct !{!17, !18}
-!18 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!22 = !{!23, !11, i64 8}
-!23 = !{!"", !15, i64 0, !11, i64 8}
-!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!25 = !{!23, !15, i64 0}
-!26 = !{!11, !11, i64 0}
+!17 = distinct !{!17, !18, !19}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18}
+!23 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!24 = !{!25, !11, i64 8}
+!25 = !{!"", !15, i64 0, !11, i64 8}
+!26 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!27 = !{!25, !15, i64 0}
+!28 = distinct !{!28, !18}
+!29 = distinct !{!29, !18}
+!30 = distinct !{!30, !18}
+!31 = distinct !{!31, !18}
+!32 = !{!11, !11, i64 0}
+!33 = distinct !{!33, !18}
+!34 = distinct !{!34, !18}

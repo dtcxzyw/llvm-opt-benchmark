@@ -44,10 +44,10 @@ define hidden void @lj_meta_init(ptr noundef %0) local_unnamed_addr #0 {
   %16 = ptrtoint ptr %15 to i64
   %17 = zext i32 %.01520 to i64
   %18 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %5, i64 0, i64 %17
-  store i64 %16, ptr %18, align 8, !tbaa !17
+  store i64 %16, ptr %18, align 8, !tbaa !18
   %19 = add i32 %.01520, 1
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %20, label %6, !llvm.loop !18
+  br i1 %.not, label %20, label %6, !llvm.loop !19
 
 20:                                               ; preds = %.critedge
   ret void
@@ -75,10 +75,10 @@ define hidden ptr @lj_meta_cache(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 8:                                                ; preds = %5, %3
   %9 = shl nuw i32 1, %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %11 = load i8, ptr %10, align 2, !tbaa !19
+  %11 = load i8, ptr %10, align 2, !tbaa !20
   %12 = trunc i32 %9 to i8
   %13 = or i8 %11, %12
-  store i8 %13, ptr %10, align 2, !tbaa !19
+  store i8 %13, ptr %10, align 2, !tbaa !20
   br label %14
 
 14:                                               ; preds = %5, %8
@@ -134,7 +134,7 @@ define hidden nonnull ptr @lj_meta_lookup(ptr noundef readonly captures(none) %0
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 424
   %28 = zext i32 %2 to i64
   %29 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %27, i64 0, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !17
+  %30 = load i64, ptr %29, align 8, !tbaa !18
   %31 = inttoptr i64 %30 to ptr
   %32 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016, ptr noundef %31) #6
   %.not18 = icmp eq ptr %32, null
@@ -155,9 +155,9 @@ define hidden nonnull ptr @lj_meta_lookup(ptr noundef readonly captures(none) %0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @lj_meta_tailcall(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load ptr, ptr %3, align 8, !tbaa !21
+  %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds i8, ptr %4, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !14
   %9 = getelementptr inbounds i8, ptr %4, i64 -16
@@ -177,8 +177,8 @@ define hidden noundef i32 @lj_meta_tailcall(ptr noundef %0, ptr noundef readonly
   %reass.sub = sub i64 %17, %18
   %19 = add i64 %reass.sub, 2
   store i64 %19, ptr %15, align 8, !tbaa !14
-  store ptr %16, ptr %5, align 8, !tbaa !22
-  store ptr %16, ptr %3, align 8, !tbaa !21
+  store ptr %16, ptr %5, align 8, !tbaa !23
+  store ptr %16, ptr %3, align 8, !tbaa !22
   ret i32 0
 }
 
@@ -191,7 +191,7 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
 5:                                                ; preds = %lj_meta_cache.exit
   %6 = add nuw nsw i32 %.03662, 1
   %exitcond.not = icmp eq i32 %6, 100
-  br i1 %exitcond.not, label %72, label %7, !llvm.loop !23
+  br i1 %exitcond.not, label %72, label %7, !llvm.loop !24
 
 7:                                                ; preds = %3, %5
   %8 = phi i64 [ %.pre, %3 ], [ %44, %5 ]
@@ -199,7 +199,7 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
   %.03662 = phi i32 [ 0, %3 ], [ %6, %5 ]
   %.mask = and i64 %8, -140737488355328
   %9 = icmp eq i64 %.mask, -1688849860263936
-  br i1 %9, label %10, label %39, !prof !24
+  br i1 %9, label %10, label %39, !prof !25
 
 10:                                               ; preds = %7
   %11 = and i64 %8, 140737488355327
@@ -211,14 +211,14 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %18 = load i64, ptr %17, align 8, !tbaa !25
+  %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = inttoptr i64 %18 to ptr
   %20 = icmp eq i64 %18, 0
   br i1 %20, label %lj_meta_cache.exit.thread46, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 10
-  %23 = load i8, ptr %22, align 2, !tbaa !19
+  %23 = load i8, ptr %22, align 2, !tbaa !20
   %24 = and i8 %23, 1
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %25, label %lj_meta_cache.exit.thread46
@@ -227,7 +227,7 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
   %26 = load i64, ptr %4, align 8, !tbaa !4
   %27 = inttoptr i64 %26 to ptr
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 424
-  %29 = load i64, ptr %28, align 8, !tbaa !17
+  %29 = load i64, ptr %28, align 8, !tbaa !18
   %30 = inttoptr i64 %29 to ptr
   %31 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %19, ptr noundef %30) #6
   %.not.i = icmp eq ptr %31, null
@@ -240,9 +240,9 @@ define hidden noundef ptr @lj_meta_tget(ptr noundef %0, ptr noundef %1, ptr noun
 
 35:                                               ; preds = %32, %25
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 10
-  %37 = load i8, ptr %36, align 2, !tbaa !19
+  %37 = load i8, ptr %36, align 2, !tbaa !20
   %38 = or i8 %37, 1
-  store i8 %38, ptr %36, align 2, !tbaa !19
+  store i8 %38, ptr %36, align 2, !tbaa !20
   br label %lj_meta_cache.exit.thread46
 
 39:                                               ; preds = %7
@@ -264,9 +264,9 @@ lj_meta_cache.exit:                               ; preds = %32, %39
 
 46:                                               ; preds = %lj_meta_cache.exit
   %47 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %47, align 8, !tbaa !21
+  %.val = load ptr, ptr %47, align 8, !tbaa !22
   %48 = getelementptr i8, ptr %0, i64 40
-  %.val42 = load ptr, ptr %48, align 8, !tbaa !22
+  %.val42 = load ptr, ptr %48, align 8, !tbaa !23
   %49 = getelementptr inbounds i8, ptr %.val, i64 -16
   %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = and i64 %50, 140737488355327
@@ -281,7 +281,7 @@ lj_meta_cache.exit:                               ; preds = %32, %39
   %58 = load i64, ptr %57, align 8, !tbaa !14
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds i8, ptr %59, i64 -93
-  %61 = load i8, ptr %60, align 1, !tbaa !26
+  %61 = load i8, ptr %60, align 1, !tbaa !27
   %62 = zext i8 %61 to i64
   %63 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %62
   br label %mmcall.exit
@@ -302,7 +302,7 @@ mmcall.exit:                                      ; preds = %46, %56
   %70 = getelementptr inbounds nuw i8, ptr %.0.i43, i64 40
   %71 = load i64, ptr %2, align 8, !tbaa !14
   store i64 %71, ptr %70, align 8, !tbaa !14
-  store ptr %68, ptr %48, align 8, !tbaa !22
+  store ptr %68, ptr %48, align 8, !tbaa !23
   br label %lj_meta_cache.exit.thread46
 
 72:                                               ; preds = %5
@@ -338,7 +338,7 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.05797 = phi i32 [ 0, %3 ], [ %109, %108 ]
   %.mask = and i64 %7, -140737488355328
   %8 = icmp eq i64 %.mask, -1688849860263936
-  br i1 %8, label %9, label %75, !prof !24
+  br i1 %8, label %9, label %75, !prof !25
 
 9:                                                ; preds = %6
   %10 = and i64 %7, 140737488355327
@@ -346,16 +346,16 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %12 = tail call ptr @lj_tab_get(ptr noundef %0, ptr noundef %11, ptr noundef %2) #6
   %13 = load i64, ptr %12, align 8, !tbaa !14
   %.not = icmp eq i64 %13, -1
-  br i1 %.not, label %26, label %14, !prof !29
+  br i1 %.not, label %26, label %14, !prof !30
 
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  store i8 0, ptr %15, align 2, !tbaa !19
+  store i8 0, ptr %15, align 2, !tbaa !20
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i8, ptr %16, align 8, !tbaa !14
   %18 = and i8 %17, 4
   %.not67 = icmp eq i8 %18, 0
-  br i1 %.not67, label %lj_meta_cache.exit.thread73, label %19, !prof !24
+  br i1 %.not67, label %lj_meta_cache.exit.thread73, label %19, !prof !25
 
 19:                                               ; preds = %14
   %20 = load i64, ptr %5, align 8, !tbaa !4
@@ -363,22 +363,22 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %22 = and i8 %17, -5
   store i8 %22, ptr %16, align 8, !tbaa !14
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  %24 = load i64, ptr %23, align 8, !tbaa !30
+  %24 = load i64, ptr %23, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %24, ptr %25, align 8, !tbaa !41
-  store i64 %10, ptr %23, align 8, !tbaa !30
+  store i64 %24, ptr %25, align 8, !tbaa !42
+  store i64 %10, ptr %23, align 8, !tbaa !31
   br label %lj_meta_cache.exit.thread73
 
 26:                                               ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %28 = load i64, ptr %27, align 8, !tbaa !25
+  %28 = load i64, ptr %27, align 8, !tbaa !26
   %29 = inttoptr i64 %28 to ptr
   %30 = icmp eq i64 %28, 0
   br i1 %30, label %.loopexit, label %31
 
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 10
-  %33 = load i8, ptr %32, align 2, !tbaa !19
+  %33 = load i8, ptr %32, align 2, !tbaa !20
   %34 = and i8 %33, 2
   %.not63 = icmp eq i8 %34, 0
   br i1 %.not63, label %35, label %.loopexit
@@ -387,7 +387,7 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %36 = load i64, ptr %5, align 8, !tbaa !4
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 432
-  %39 = load i64, ptr %38, align 8, !tbaa !17
+  %39 = load i64, ptr %38, align 8, !tbaa !18
   %40 = inttoptr i64 %39 to ptr
   %41 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %29, ptr noundef %40) #6
   %.not.i = icmp eq ptr %41, null
@@ -400,19 +400,19 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 45:                                               ; preds = %42, %35
   %46 = getelementptr inbounds nuw i8, ptr %29, i64 10
-  %47 = load i8, ptr %46, align 2, !tbaa !19
+  %47 = load i8, ptr %46, align 2, !tbaa !20
   %48 = or i8 %47, 2
-  store i8 %48, ptr %46, align 2, !tbaa !19
+  store i8 %48, ptr %46, align 2, !tbaa !20
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %31, %45
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 10
-  store i8 0, ptr %49, align 2, !tbaa !19
+  store i8 0, ptr %49, align 2, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %51 = load i8, ptr %50, align 8, !tbaa !14
   %52 = and i8 %51, 4
   %.not65 = icmp eq i8 %52, 0
-  br i1 %.not65, label %60, label %53, !prof !24
+  br i1 %.not65, label %60, label %53, !prof !25
 
 53:                                               ; preds = %.loopexit
   %54 = load i64, ptr %5, align 8, !tbaa !4
@@ -420,10 +420,10 @@ define hidden ptr @lj_meta_tset(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %56 = and i8 %51, -5
   store i8 %56, ptr %50, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 64
-  %58 = load i64, ptr %57, align 8, !tbaa !30
+  %58 = load i64, ptr %57, align 8, !tbaa !31
   %59 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %58, ptr %59, align 8, !tbaa !41
-  store i64 %10, ptr %57, align 8, !tbaa !30
+  store i64 %58, ptr %59, align 8, !tbaa !42
+  store i64 %10, ptr %57, align 8, !tbaa !31
   br label %60
 
 60:                                               ; preds = %53, %.loopexit
@@ -476,9 +476,9 @@ lj_meta_cache.exit:                               ; preds = %42, %75
 
 82:                                               ; preds = %lj_meta_cache.exit
   %83 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %83, align 8, !tbaa !21
+  %.val = load ptr, ptr %83, align 8, !tbaa !22
   %84 = getelementptr i8, ptr %0, i64 40
-  %.val69 = load ptr, ptr %84, align 8, !tbaa !22
+  %.val69 = load ptr, ptr %84, align 8, !tbaa !23
   %85 = getelementptr inbounds i8, ptr %.val, i64 -16
   %86 = load i64, ptr %85, align 8, !tbaa !14
   %87 = and i64 %86, 140737488355327
@@ -493,7 +493,7 @@ lj_meta_cache.exit:                               ; preds = %42, %75
   %94 = load i64, ptr %93, align 8, !tbaa !14
   %95 = inttoptr i64 %94 to ptr
   %96 = getelementptr inbounds i8, ptr %95, i64 -93
-  %97 = load i8, ptr %96, align 1, !tbaa !26
+  %97 = load i8, ptr %96, align 1, !tbaa !27
   %98 = zext i8 %97 to i64
   %99 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %98
   br label %mmcall.exit
@@ -514,14 +514,14 @@ mmcall.exit:                                      ; preds = %82, %92
   %106 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 40
   %107 = load i64, ptr %2, align 8, !tbaa !14
   store i64 %107, ptr %106, align 8, !tbaa !14
-  store ptr %104, ptr %84, align 8, !tbaa !22
+  store ptr %104, ptr %84, align 8, !tbaa !23
   br label %lj_meta_cache.exit.thread73
 
 108:                                              ; preds = %lj_meta_cache.exit
   store i64 %80, ptr %4, align 8, !tbaa !14
   %109 = add nuw nsw i32 %.05797, 1
   %exitcond.not = icmp eq i32 %109, 100
-  br i1 %exitcond.not, label %110, label %6, !llvm.loop !42
+  br i1 %exitcond.not, label %110, label %6, !llvm.loop !43
 
 110:                                              ; preds = %108
   tail call void @lj_err_msg(ptr noundef %0, i32 noundef 381) #7
@@ -543,7 +543,7 @@ define hidden noundef ptr @lj_meta_arith(ptr noundef %0, ptr noundef writeonly c
   %7 = alloca %union.TValue, align 8
   %8 = zext i32 %4 to i64
   %9 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %8
-  %10 = load i16, ptr %9, align 2, !tbaa !43
+  %10 = load i16, ptr %9, align 2, !tbaa !44
   %11 = lshr i16 %10, 11
   %12 = zext nneg i16 %11 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
@@ -640,7 +640,7 @@ str2num.exit:                                     ; preds = %29, %27, %18, %16
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 424
   %62 = zext nneg i16 %11 to i64
   %63 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %61, i64 0, i64 %62
-  %64 = load i64, ptr %63, align 8, !tbaa !17
+  %64 = load i64, ptr %63, align 8, !tbaa !18
   %65 = inttoptr i64 %64 to ptr
   %66 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %65) #6
   %.not18.i = icmp eq ptr %66, null
@@ -704,7 +704,7 @@ lj_meta_lookup.exit:                              ; preds = %57, %67
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 424
   %99 = zext nneg i16 %11 to i64
   %100 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %98, i64 0, i64 %99
-  %101 = load i64, ptr %100, align 8, !tbaa !17
+  %101 = load i64, ptr %100, align 8, !tbaa !18
   %102 = inttoptr i64 %101 to ptr
   %103 = call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i36, ptr noundef %102) #6
   %.not18.i37 = icmp eq ptr %103, null
@@ -733,9 +733,9 @@ lj_meta_lookup.exit40:                            ; preds = %94, %104
 114:                                              ; preds = %lj_meta_lookup.exit40, %lj_meta_lookup.exit
   %.0 = phi ptr [ %.1.i38, %lj_meta_lookup.exit40 ], [ %.1.i, %lj_meta_lookup.exit ]
   %115 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %115, align 8, !tbaa !21
+  %.val = load ptr, ptr %115, align 8, !tbaa !22
   %116 = getelementptr i8, ptr %0, i64 40
-  %.val28 = load ptr, ptr %116, align 8, !tbaa !22
+  %.val28 = load ptr, ptr %116, align 8, !tbaa !23
   %117 = getelementptr inbounds i8, ptr %.val, i64 -16
   %118 = load i64, ptr %117, align 8, !tbaa !14
   %119 = and i64 %118, 140737488355327
@@ -750,7 +750,7 @@ lj_meta_lookup.exit40:                            ; preds = %94, %104
   %126 = load i64, ptr %125, align 8, !tbaa !14
   %127 = inttoptr i64 %126 to ptr
   %128 = getelementptr inbounds i8, ptr %127, i64 -93
-  %129 = load i8, ptr %128, align 1, !tbaa !26
+  %129 = load i8, ptr %128, align 1, !tbaa !27
   %130 = zext i8 %129 to i64
   %131 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %130
   br label %mmcall.exit
@@ -902,7 +902,7 @@ define hidden noundef ptr @lj_meta_cat(ptr noundef %0, ptr noundef %1, i32 nound
   %.016.i = inttoptr i64 %.016.in.i to ptr
   %55 = inttoptr i64 %.pre140 to ptr
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 488
-  %57 = load i64, ptr %56, align 8, !tbaa !17
+  %57 = load i64, ptr %56, align 8, !tbaa !18
   %58 = inttoptr i64 %57 to ptr
   %59 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %58) #6
   %.not18.i = icmp eq ptr %59, null
@@ -965,7 +965,7 @@ lj_meta_lookup.exit:                              ; preds = %54, %60
   %.016.i120 = inttoptr i64 %.016.in.i118 to ptr
   %85 = inttoptr i64 %.pre143 to ptr
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 488
-  %87 = load i64, ptr %86, align 8, !tbaa !17
+  %87 = load i64, ptr %86, align 8, !tbaa !18
   %88 = inttoptr i64 %87 to ptr
   %89 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i120, ptr noundef %88) #6
   %.not18.i121 = icmp eq ptr %89, null
@@ -1043,9 +1043,9 @@ lj_meta_lookup.exit124._crit_edge:                ; preds = %lj_meta_lookup.exit
 
 122:                                              ; preds = %116
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 48
-  %124 = load ptr, ptr %123, align 8, !tbaa !44
+  %124 = load ptr, ptr %123, align 8, !tbaa !45
   %125 = getelementptr inbounds nuw i8, ptr %118, i64 88
-  %126 = load ptr, ptr %125, align 8, !tbaa !46
+  %126 = load ptr, ptr %125, align 8, !tbaa !47
   %127 = ptrtoint ptr %124 to i64
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
@@ -1088,9 +1088,9 @@ lj_meta_lookup.exit124._crit_edge:                ; preds = %lj_meta_lookup.exit
 
 149:                                              ; preds = %143
   %150 = getelementptr inbounds nuw i8, ptr %145, i64 48
-  %151 = load ptr, ptr %150, align 8, !tbaa !44
+  %151 = load ptr, ptr %150, align 8, !tbaa !45
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 88
-  %153 = load ptr, ptr %152, align 8, !tbaa !46
+  %153 = load ptr, ptr %152, align 8, !tbaa !47
   %154 = ptrtoint ptr %151 to i64
   %155 = ptrtoint ptr %153 to i64
   %156 = sub i64 %154, %155
@@ -1112,7 +1112,7 @@ lj_meta_lookup.exit124._crit_edge:                ; preds = %lj_meta_lookup.exit
   %168 = icmp eq i64 %167, -5
   %169 = icmp ult i64 %167, -13
   %or.cond116 = or i1 %168, %169
-  br i1 %or.cond116, label %.critedge2, label %.critedge, !llvm.loop !47
+  br i1 %or.cond116, label %.critedge2, label %.critedge, !llvm.loop !48
 
 .critedge:                                        ; preds = %163, %158
   %.lcssa134 = phi i32 [ %164, %163 ], [ %134, %158 ]
@@ -1128,19 +1128,19 @@ lj_meta_lookup.exit124._crit_edge:                ; preds = %lj_meta_lookup.exit
   %174 = inttoptr i64 %173 to ptr
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 200
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 224
-  store i64 %6, ptr %176, align 8, !tbaa !48
+  store i64 %6, ptr %176, align 8, !tbaa !49
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 216
-  %178 = load ptr, ptr %177, align 8, !tbaa !49
-  store ptr %178, ptr %175, align 8, !tbaa !50
+  %178 = load ptr, ptr %177, align 8, !tbaa !50
+  store ptr %178, ptr %175, align 8, !tbaa !51
   %179 = trunc nuw nsw i64 %161 to i32
   %180 = getelementptr inbounds nuw i8, ptr %174, i64 208
-  %181 = load ptr, ptr %180, align 8, !tbaa !51
+  %181 = load ptr, ptr %180, align 8, !tbaa !52
   %182 = ptrtoint ptr %181 to i64
   %183 = ptrtoint ptr %178 to i64
   %184 = sub i64 %182, %183
   %185 = trunc i64 %184 to i32
   %186 = icmp ugt i32 %179, %185
-  br i1 %186, label %187, label %lj_buf_more.exit, !prof !29
+  br i1 %186, label %187, label %lj_buf_more.exit, !prof !30
 
 187:                                              ; preds = %172
   %188 = tail call ptr @lj_buf_more2(ptr noundef nonnull %175, i32 noundef range(i32 0, 2147483392) %179) #6
@@ -1164,7 +1164,7 @@ lj_buf_more.exit:                                 ; preds = %172, %187
   %193 = and i64 %189, 140737488355327
   %194 = inttoptr i64 %193 to ptr
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 20
-  %196 = load i32, ptr %195, align 4, !tbaa !52
+  %196 = load i32, ptr %195, align 4, !tbaa !53
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %198 = tail call ptr @lj_buf_putmem(ptr noundef nonnull %175, ptr noundef nonnull %197, i32 noundef %196) #6
   br label %217
@@ -1180,8 +1180,8 @@ lj_buf_more.exit:                                 ; preds = %172, %187
 205:                                              ; preds = %199
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 48
   %207 = getelementptr inbounds nuw i8, ptr %201, i64 88
-  %208 = load ptr, ptr %207, align 8, !tbaa !46
-  %209 = load ptr, ptr %206, align 8, !tbaa !44
+  %208 = load ptr, ptr %207, align 8, !tbaa !47
+  %209 = load ptr, ptr %206, align 8, !tbaa !45
   %210 = ptrtoint ptr %209 to i64
   %211 = ptrtoint ptr %208 to i64
   %212 = sub i64 %210, %211
@@ -1196,11 +1196,11 @@ lj_buf_more.exit:                                 ; preds = %172, %187
 217:                                              ; preds = %192, %215, %205
   %218 = getelementptr inbounds nuw i8, ptr %.198132, i64 8
   %.not = icmp ugt ptr %218, %.092
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !53
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %217, %lj_buf_more.exit
-  %219 = load ptr, ptr %177, align 8, !tbaa !49
-  %220 = load ptr, ptr %175, align 8, !tbaa !50
+  %219 = load ptr, ptr %177, align 8, !tbaa !50
+  %220 = load ptr, ptr %175, align 8, !tbaa !51
   %221 = ptrtoint ptr %220 to i64
   %222 = ptrtoint ptr %219 to i64
   %223 = sub i64 %221, %222
@@ -1209,24 +1209,24 @@ lj_buf_more.exit:                                 ; preds = %172, %187
   %226 = ptrtoint ptr %225 to i64
   %227 = or i64 %226, -703687441776640
   store i64 %227, ptr %135, align 8, !tbaa !14
-  br i1 %162, label %7, label %228, !llvm.loop !54
+  br i1 %162, label %7, label %228, !llvm.loop !55
 
 228:                                              ; preds = %._crit_edge
   %229 = load i64, ptr %5, align 8, !tbaa !4
   %230 = inttoptr i64 %229 to ptr
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
-  %232 = load i64, ptr %231, align 8, !tbaa !55
+  %232 = load i64, ptr %231, align 8, !tbaa !56
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 24
-  %234 = load i64, ptr %233, align 8, !tbaa !56
+  %234 = load i64, ptr %233, align 8, !tbaa !57
   %.not112 = icmp ult i64 %232, %234
-  br i1 %.not112, label %253, label %235, !prof !24
+  br i1 %.not112, label %253, label %235, !prof !25
 
 235:                                              ; preds = %228
   br i1 %4, label %236, label %251
 
 236:                                              ; preds = %235
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %238 = load ptr, ptr %237, align 8, !tbaa !21
+  %238 = load ptr, ptr %237, align 8, !tbaa !22
   %239 = getelementptr inbounds i8, ptr %238, i64 -16
   %240 = load i64, ptr %239, align 8, !tbaa !14
   %241 = and i64 %240, 140737488355327
@@ -1235,11 +1235,11 @@ lj_buf_more.exit:                                 ; preds = %172, %187
   %244 = load i64, ptr %243, align 8, !tbaa !14
   %245 = inttoptr i64 %244 to ptr
   %246 = getelementptr inbounds i8, ptr %245, i64 -93
-  %247 = load i8, ptr %246, align 1, !tbaa !26
+  %247 = load i8, ptr %246, align 1, !tbaa !27
   %248 = zext i8 %247 to i64
   %249 = getelementptr inbounds nuw %union.TValue, ptr %238, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %249, ptr %250, align 8, !tbaa !22
+  store ptr %249, ptr %250, align 8, !tbaa !23
   br label %251
 
 251:                                              ; preds = %236, %235
@@ -1303,7 +1303,7 @@ define hidden noundef nonnull ptr @lj_meta_len(ptr noundef %0, ptr noundef %1) l
   %24 = load i64, ptr %23, align 8, !tbaa !4
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 464
-  %27 = load i64, ptr %26, align 8, !tbaa !17
+  %27 = load i64, ptr %26, align 8, !tbaa !18
   %28 = inttoptr i64 %27 to ptr
   %29 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %28) #6
   %.not18.i = icmp eq ptr %29, null
@@ -1330,9 +1330,9 @@ lj_meta_lookup.exit:                              ; preds = %22, %30
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i64, ptr %39, align 8, !tbaa !4
   %41 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %41, align 8, !tbaa !21
+  %.val = load ptr, ptr %41, align 8, !tbaa !22
   %42 = getelementptr i8, ptr %0, i64 40
-  %.val9 = load ptr, ptr %42, align 8, !tbaa !22
+  %.val9 = load ptr, ptr %42, align 8, !tbaa !23
   %43 = getelementptr inbounds i8, ptr %.val, i64 -16
   %44 = load i64, ptr %43, align 8, !tbaa !14
   %45 = and i64 %44, 140737488355327
@@ -1347,7 +1347,7 @@ lj_meta_lookup.exit:                              ; preds = %22, %30
   %52 = load i64, ptr %51, align 8, !tbaa !14
   %53 = inttoptr i64 %52 to ptr
   %54 = getelementptr inbounds i8, ptr %53, i64 -93
-  %55 = load i8, ptr %54, align 1, !tbaa !26
+  %55 = load i8, ptr %54, align 1, !tbaa !27
   %56 = zext i8 %55 to i64
   %57 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %56
   br label %mmcall.exit
@@ -1383,7 +1383,7 @@ define hidden noundef ptr @lj_meta_equal(ptr noundef readonly captures(none) %0,
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 10
-  %11 = load i8, ptr %10, align 2, !tbaa !19
+  %11 = load i8, ptr %10, align 2, !tbaa !20
   %12 = and i8 %11, 16
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %13, label %91
@@ -1393,7 +1393,7 @@ define hidden noundef ptr @lj_meta_equal(ptr noundef readonly captures(none) %0,
   %15 = load i64, ptr %14, align 8, !tbaa !4
   %16 = inttoptr i64 %15 to ptr
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 456
-  %18 = load i64, ptr %17, align 8, !tbaa !17
+  %18 = load i64, ptr %17, align 8, !tbaa !18
   %19 = inttoptr i64 %18 to ptr
   %20 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %7, ptr noundef %19) #6
   %.not.i = icmp eq ptr %20, null
@@ -1405,9 +1405,9 @@ define hidden noundef ptr @lj_meta_equal(ptr noundef readonly captures(none) %0,
   br i1 %23, label %24, label %lj_meta_cache.exit
 
 24:                                               ; preds = %21, %13
-  %25 = load i8, ptr %10, align 2, !tbaa !19
+  %25 = load i8, ptr %10, align 2, !tbaa !20
   %26 = or i8 %25, 16
-  store i8 %26, ptr %10, align 2, !tbaa !19
+  store i8 %26, ptr %10, align 2, !tbaa !20
   br label %91
 
 lj_meta_cache.exit:                               ; preds = %21
@@ -1424,7 +1424,7 @@ lj_meta_cache.exit:                               ; preds = %21
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 10
-  %35 = load i8, ptr %34, align 2, !tbaa !19
+  %35 = load i8, ptr %34, align 2, !tbaa !20
   %36 = and i8 %35, 16
   %.not45 = icmp eq i8 %36, 0
   br i1 %.not45, label %37, label %lj_meta_cache.exit50.thread
@@ -1433,7 +1433,7 @@ lj_meta_cache.exit:                               ; preds = %21
   %38 = load i64, ptr %14, align 8, !tbaa !4
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 456
-  %41 = load i64, ptr %40, align 8, !tbaa !17
+  %41 = load i64, ptr %40, align 8, !tbaa !18
   %42 = inttoptr i64 %41 to ptr
   %43 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %30, ptr noundef %42) #6
   %.not.i48 = icmp eq ptr %43, null
@@ -1445,9 +1445,9 @@ lj_meta_cache.exit:                               ; preds = %21
   br i1 %46, label %47, label %lj_meta_cache.exit50
 
 47:                                               ; preds = %44, %37
-  %48 = load i8, ptr %34, align 2, !tbaa !19
+  %48 = load i8, ptr %34, align 2, !tbaa !20
   %49 = or i8 %48, 16
-  store i8 %49, ptr %34, align 2, !tbaa !19
+  store i8 %49, ptr %34, align 2, !tbaa !20
   br label %lj_meta_cache.exit50.thread
 
 lj_meta_cache.exit50:                             ; preds = %44
@@ -1462,7 +1462,7 @@ lj_meta_cache.exit50.thread:                      ; preds = %47, %33, %31, %lj_m
 
 .thread:                                          ; preds = %lj_meta_cache.exit50, %lj_meta_cache.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %54 = load ptr, ptr %53, align 8, !tbaa !21
+  %54 = load ptr, ptr %53, align 8, !tbaa !22
   %55 = getelementptr inbounds i8, ptr %54, i64 -16
   %56 = load i64, ptr %55, align 8, !tbaa !14
   %57 = and i64 %56, 140737488355327
@@ -1477,14 +1477,14 @@ lj_meta_cache.exit50.thread:                      ; preds = %47, %33, %31, %lj_m
   %64 = load i64, ptr %63, align 8, !tbaa !14
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds i8, ptr %65, i64 -93
-  %67 = load i8, ptr %66, align 1, !tbaa !26
+  %67 = load i8, ptr %66, align 1, !tbaa !27
   %68 = zext i8 %67 to i64
   %69 = getelementptr inbounds nuw %union.TValue, ptr %54, i64 %68
   br label %73
 
 70:                                               ; preds = %.thread
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %72 = load ptr, ptr %71, align 8, !tbaa !22
+  %72 = load ptr, ptr %71, align 8, !tbaa !23
   br label %73
 
 73:                                               ; preds = %70, %62
@@ -1537,7 +1537,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %.not = icmp eq i32 %3, 0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.0)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = lshr i32 %1, 8
   %7 = and i32 %6, 255
   %8 = zext nneg i32 %7 to i64
@@ -1569,13 +1569,13 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %23 = load i64, ptr %22, align 8, !tbaa !14
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds i8, ptr %24, i64 -72
-  %26 = load i64, ptr %25, align 8, !tbaa !57
+  %26 = load i64, ptr %25, align 8, !tbaa !58
   %27 = inttoptr i64 %26 to ptr
   %28 = lshr i32 %1, 16
   %29 = xor i32 %28, -1
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds %struct.GCRef, ptr %27, i64 %30
-  %32 = load i64, ptr %31, align 8, !tbaa !17
+  %32 = load i64, ptr %31, align 8, !tbaa !18
   %33 = or i64 %32, -703687441776640
   store i64 %33, ptr %.sroa.0, align 8, !tbaa !14
   br label %53
@@ -1589,7 +1589,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %40 = load i64, ptr %39, align 8, !tbaa !14
   %41 = inttoptr i64 %40 to ptr
   %42 = getelementptr inbounds i8, ptr %41, i64 -72
-  %43 = load i64, ptr %42, align 8, !tbaa !57
+  %43 = load i64, ptr %42, align 8, !tbaa !58
   %44 = inttoptr i64 %43 to ptr
   %45 = lshr i32 %1, 16
   %46 = zext nneg i32 %45 to i64
@@ -1649,7 +1649,7 @@ define hidden ptr @lj_meta_equal_cd(ptr noundef readonly captures(none) %0, i32 
   %75 = load i64, ptr %74, align 8, !tbaa !4
   %76 = inttoptr i64 %75 to ptr
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 456
-  %78 = load i64, ptr %77, align 8, !tbaa !17
+  %78 = load i64, ptr %77, align 8, !tbaa !18
   %79 = inttoptr i64 %78 to ptr
   %80 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %79) #6
   %.not18.i = icmp eq ptr %80, null
@@ -1666,12 +1666,12 @@ lj_meta_lookup.exit:                              ; preds = %73, %81
   %.1.i = phi ptr [ %85, %81 ], [ %80, %73 ]
   %86 = load i64, ptr %.1.i, align 8, !tbaa !14
   %.not30 = icmp eq i64 %86, -1
-  br i1 %.not30, label %113, label %87, !prof !29
+  br i1 %.not30, label %113, label %87, !prof !30
 
 87:                                               ; preds = %lj_meta_lookup.exit
-  %.val = load ptr, ptr %4, align 8, !tbaa !21
+  %.val = load ptr, ptr %4, align 8, !tbaa !22
   %88 = getelementptr i8, ptr %0, i64 40
-  %.val31 = load ptr, ptr %88, align 8, !tbaa !22
+  %.val31 = load ptr, ptr %88, align 8, !tbaa !23
   %89 = getelementptr inbounds i8, ptr %.val, i64 -16
   %90 = load i64, ptr %89, align 8, !tbaa !14
   %91 = and i64 %90, 140737488355327
@@ -1686,7 +1686,7 @@ lj_meta_lookup.exit:                              ; preds = %73, %81
   %98 = load i64, ptr %97, align 8, !tbaa !14
   %99 = inttoptr i64 %98 to ptr
   %100 = getelementptr inbounds i8, ptr %99, i64 -93
-  %101 = load i8, ptr %100, align 1, !tbaa !26
+  %101 = load i8, ptr %100, align 1, !tbaa !27
   %102 = zext i8 %101 to i64
   %103 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %102
   br label %mmcall.exit
@@ -1784,7 +1784,7 @@ define hidden ptr @lj_meta_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %39 = inttoptr i64 %38 to ptr
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 424
   %41 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %40, i64 0, i64 %14
-  %42 = load i64, ptr %41, align 8, !tbaa !17
+  %42 = load i64, ptr %41, align 8, !tbaa !18
   %43 = inttoptr i64 %42 to ptr
   %44 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %43) #6
   %.not18.i = icmp eq ptr %44, null
@@ -1801,15 +1801,15 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %.1.i = phi ptr [ %49, %45 ], [ %44, %36 ]
   %50 = load i64, ptr %.1.i, align 8, !tbaa !14
   %51 = icmp eq i64 %50, -1
-  br i1 %51, label %.thread107, label %52, !prof !29
+  br i1 %51, label %.thread107, label %52, !prof !30
 
 52:                                               ; preds = %lj_meta_lookup.exit
   %53 = and i32 %3, 1
   %.not71 = icmp eq i32 %53, 0
   %54 = getelementptr i8, ptr %0, i64 32
-  %.val77 = load ptr, ptr %54, align 8, !tbaa !21
+  %.val77 = load ptr, ptr %54, align 8, !tbaa !22
   %55 = getelementptr i8, ptr %0, i64 40
-  %.val78 = load ptr, ptr %55, align 8, !tbaa !22
+  %.val78 = load ptr, ptr %55, align 8, !tbaa !23
   %56 = getelementptr inbounds i8, ptr %.val77, i64 -16
   %57 = load i64, ptr %56, align 8, !tbaa !14
   %58 = and i64 %57, 140737488355327
@@ -1824,7 +1824,7 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %65 = load i64, ptr %64, align 8, !tbaa !14
   %66 = inttoptr i64 %65 to ptr
   %67 = getelementptr inbounds i8, ptr %66, i64 -93
-  %68 = load i8, ptr %67, align 1, !tbaa !26
+  %68 = load i8, ptr %67, align 1, !tbaa !27
   %69 = zext i8 %68 to i64
   %70 = getelementptr inbounds nuw %union.TValue, ptr %.val77, i64 %69
   br label %.thread
@@ -1927,7 +1927,7 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 424
   %124 = zext nneg i32 %103 to i64
   %125 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %123, i64 0, i64 %124
-  %126 = load i64, ptr %125, align 8, !tbaa !17
+  %126 = load i64, ptr %125, align 8, !tbaa !18
   %127 = inttoptr i64 %126 to ptr
   %128 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i82, ptr noundef %127) #6
   %.not18.i83 = icmp eq ptr %128, null
@@ -1987,7 +1987,7 @@ lj_meta_lookup.exit86:                            ; preds = %121, %129
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
   %154 = zext nneg i32 %103 to i64
   %155 = getelementptr inbounds nuw [39 x %struct.GCRef], ptr %153, i64 0, i64 %154
-  %156 = load i64, ptr %155, align 8, !tbaa !17
+  %156 = load i64, ptr %155, align 8, !tbaa !18
   %157 = inttoptr i64 %156 to ptr
   %158 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i90, ptr noundef %157) #6
   %.not18.i91 = icmp eq ptr %158, null
@@ -2021,9 +2021,9 @@ lj_meta_lookup.exit94:                            ; preds = %151, %159
   %169 = and i32 %.061, 1
   %.not.le = icmp eq i32 %169, 0
   %170 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %170, align 8, !tbaa !21
+  %.val = load ptr, ptr %170, align 8, !tbaa !22
   %171 = getelementptr i8, ptr %0, i64 40
-  %.val76 = load ptr, ptr %171, align 8, !tbaa !22
+  %.val76 = load ptr, ptr %171, align 8, !tbaa !23
   %172 = getelementptr inbounds i8, ptr %.val, i64 -16
   %173 = load i64, ptr %172, align 8, !tbaa !14
   %174 = and i64 %173, 140737488355327
@@ -2038,7 +2038,7 @@ lj_meta_lookup.exit94:                            ; preds = %151, %159
   %181 = load i64, ptr %180, align 8, !tbaa !14
   %182 = inttoptr i64 %181 to ptr
   %183 = getelementptr inbounds i8, ptr %182, i64 -93
-  %184 = load i8, ptr %183, align 1, !tbaa !26
+  %184 = load i8, ptr %183, align 1, !tbaa !27
   %185 = zext i8 %184 to i64
   %186 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %185
   br label %.thread101
@@ -2094,7 +2094,7 @@ declare hidden void @lj_err_comp(ptr noundef, ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = getelementptr inbounds i8, ptr %5, i64 -16
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = and i64 %7, 140737488355327
@@ -2103,11 +2103,11 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
   %11 = load i64, ptr %10, align 8, !tbaa !14
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds i8, ptr %12, i64 -93
-  %14 = load i8, ptr %13, align 1, !tbaa !26
+  %14 = load i8, ptr %13, align 1, !tbaa !27
   %15 = zext i8 %14 to i64
   %16 = getelementptr inbounds nuw %union.TValue, ptr %5, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %16, ptr %17, align 8, !tbaa !22
+  store ptr %16, ptr %17, align 8, !tbaa !23
   %18 = add i32 %1, 1
   switch i32 %2, label %23 [
     i32 15, label %19
@@ -2126,7 +2126,7 @@ define hidden void @lj_meta_istype(ptr noundef initializes((40, 48)) %0, i32 nou
   %24 = add i32 %2, -1
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %25
-  %27 = load ptr, ptr %26, align 8, !tbaa !58
+  %27 = load ptr, ptr %26, align 8, !tbaa !59
   tail call void @lj_err_argtype(ptr noundef nonnull %0, i32 noundef %18, ptr noundef %27) #7
   unreachable
 
@@ -2185,7 +2185,7 @@ define hidden void @lj_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef cap
   %25 = load i64, ptr %24, align 8, !tbaa !4
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 496
-  %28 = load i64, ptr %27, align 8, !tbaa !17
+  %28 = load i64, ptr %27, align 8, !tbaa !18
   %29 = inttoptr i64 %28 to ptr
   %30 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i, ptr noundef %29) #6
   %.not18.i = icmp eq ptr %30, null
@@ -2220,7 +2220,7 @@ lj_meta_lookup.exit:                              ; preds = %23, %31
   %42 = load i64, ptr %41, align 8, !tbaa !14
   store i64 %42, ptr %.019, align 8, !tbaa !14
   %43 = icmp ugt ptr %41, %38
-  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !59
+  br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %44 = load i64, ptr %1, align 8, !tbaa !14
@@ -2339,48 +2339,49 @@ attributes #7 = { noreturn nounwind }
 !12 = !{!"any pointer", !8, i64 0}
 !13 = !{!"int", !8, i64 0}
 !14 = !{!8, !8, i64 0}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!6, !7, i64 0}
-!18 = distinct !{!18, !16}
-!19 = !{!20, !8, i64 10}
-!20 = !{!"GCtab", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !10, i64 16, !6, i64 24, !6, i64 32, !10, i64 40, !13, i64 48, !13, i64 52, !10, i64 56}
-!21 = !{!5, !11, i64 32}
-!22 = !{!5, !11, i64 40}
-!23 = distinct !{!23, !16}
-!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!25 = !{!20, !7, i64 32}
-!26 = !{!27, !8, i64 11}
-!27 = !{!"GCproto", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !6, i64 24, !10, i64 32, !10, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !8, i64 60, !8, i64 61, !28, i64 62, !6, i64 64, !13, i64 72, !13, i64 76, !10, i64 80, !10, i64 88, !10, i64 96}
-!28 = !{!"short", !8, i64 0}
-!29 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!30 = !{!31, !7, i64 64}
-!31 = !{!"global_State", !12, i64 0, !12, i64 8, !32, i64 16, !33, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !34, i64 152, !13, i64 184, !6, i64 192, !36, i64 200, !8, i64 232, !8, i64 240, !38, i64 248, !8, i64 272, !39, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !40, i64 392, !8, i64 424}
-!32 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
-!33 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
-!34 = !{!"StrInternState", !35, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
-!35 = !{!"p1 _ZTS5GCRef", !12, i64 0}
-!36 = !{!"SBuf", !37, i64 0, !37, i64 8, !37, i64 16, !10, i64 24}
-!37 = !{!"p1 omnipotent char", !12, i64 0}
-!38 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
-!39 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
-!40 = !{!"PRNGState", !8, i64 0}
-!41 = !{!20, !7, i64 24}
-!42 = distinct !{!42, !16}
-!43 = !{!28, !28, i64 0}
-!44 = !{!45, !37, i64 0}
-!45 = !{!"SBufExt", !37, i64 0, !37, i64 8, !37, i64 16, !10, i64 24, !8, i64 32, !37, i64 40, !6, i64 48, !6, i64 56, !13, i64 64}
-!46 = !{!45, !37, i64 40}
-!47 = distinct !{!47, !16}
-!48 = !{!36, !7, i64 24}
-!49 = !{!36, !37, i64 16}
-!50 = !{!36, !37, i64 0}
-!51 = !{!36, !37, i64 8}
-!52 = !{!33, !13, i64 20}
-!53 = distinct !{!53, !16}
-!54 = distinct !{!54, !16}
-!55 = !{!31, !7, i64 16}
-!56 = !{!31, !7, i64 24}
-!57 = !{!27, !7, i64 32}
-!58 = !{!37, !37, i64 0}
-!59 = distinct !{!59, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!6, !7, i64 0}
+!19 = distinct !{!19, !16, !17}
+!20 = !{!21, !8, i64 10}
+!21 = !{!"GCtab", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !10, i64 16, !6, i64 24, !6, i64 32, !10, i64 40, !13, i64 48, !13, i64 52, !10, i64 56}
+!22 = !{!5, !11, i64 32}
+!23 = !{!5, !11, i64 40}
+!24 = distinct !{!24, !16, !17}
+!25 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!26 = !{!21, !7, i64 32}
+!27 = !{!28, !8, i64 11}
+!28 = !{!"GCproto", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !6, i64 24, !10, i64 32, !10, i64 40, !13, i64 48, !13, i64 52, !13, i64 56, !8, i64 60, !8, i64 61, !29, i64 62, !6, i64 64, !13, i64 72, !13, i64 76, !10, i64 80, !10, i64 88, !10, i64 96}
+!29 = !{!"short", !8, i64 0}
+!30 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!31 = !{!32, !7, i64 64}
+!32 = !{!"global_State", !12, i64 0, !12, i64 8, !33, i64 16, !34, i64 120, !8, i64 144, !8, i64 145, !8, i64 146, !8, i64 147, !35, i64 152, !13, i64 184, !6, i64 192, !37, i64 200, !8, i64 232, !8, i64 240, !39, i64 248, !8, i64 272, !40, i64 280, !13, i64 328, !13, i64 332, !12, i64 336, !12, i64 344, !12, i64 352, !13, i64 360, !13, i64 364, !6, i64 368, !10, i64 376, !10, i64 384, !41, i64 392, !8, i64 424}
+!33 = !{!"GCState", !7, i64 0, !7, i64 8, !8, i64 16, !8, i64 17, !8, i64 18, !8, i64 19, !13, i64 20, !6, i64 24, !10, i64 32, !6, i64 40, !6, i64 48, !6, i64 56, !6, i64 64, !7, i64 72, !7, i64 80, !13, i64 88, !13, i64 92, !10, i64 96}
+!34 = !{!"GCstr", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !13, i64 12, !13, i64 16, !13, i64 20}
+!35 = !{!"StrInternState", !36, i64 0, !13, i64 8, !13, i64 12, !13, i64 16, !8, i64 20, !8, i64 21, !8, i64 22, !8, i64 23, !7, i64 24}
+!36 = !{!"p1 _ZTS5GCRef", !12, i64 0}
+!37 = !{!"SBuf", !38, i64 0, !38, i64 8, !38, i64 16, !10, i64 24}
+!38 = !{!"p1 omnipotent char", !12, i64 0}
+!39 = !{!"Node", !8, i64 0, !8, i64 8, !10, i64 16}
+!40 = !{!"GCupval", !6, i64 0, !8, i64 8, !8, i64 9, !8, i64 10, !8, i64 11, !8, i64 16, !10, i64 32, !13, i64 40}
+!41 = !{!"PRNGState", !8, i64 0}
+!42 = !{!21, !7, i64 24}
+!43 = distinct !{!43, !16, !17}
+!44 = !{!29, !29, i64 0}
+!45 = !{!46, !38, i64 0}
+!46 = !{!"SBufExt", !38, i64 0, !38, i64 8, !38, i64 16, !10, i64 24, !8, i64 32, !38, i64 40, !6, i64 48, !6, i64 56, !13, i64 64}
+!47 = !{!46, !38, i64 40}
+!48 = distinct !{!48, !16, !17}
+!49 = !{!37, !7, i64 24}
+!50 = !{!37, !38, i64 16}
+!51 = !{!37, !38, i64 0}
+!52 = !{!37, !38, i64 8}
+!53 = !{!34, !13, i64 20}
+!54 = distinct !{!54, !16, !17}
+!55 = distinct !{!55, !16, !17}
+!56 = !{!32, !7, i64 16}
+!57 = !{!32, !7, i64 24}
+!58 = !{!28, !7, i64 32}
+!59 = !{!38, !38, i64 0}
+!60 = distinct !{!60, !16, !17}

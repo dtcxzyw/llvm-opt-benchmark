@@ -278,7 +278,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %152 = load i32, ptr %26, align 8
   %153 = sext i32 %152 to i64
   %154 = icmp slt i64 %indvars.iv.next155, %153
-  br i1 %154, label %91, label %._crit_edge, !llvm.loop !6
+  br i1 %154, label %91, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %151, %.preheader
   %.099.lcssa = phi i64 [ 0, %.preheader ], [ %.1100, %151 ]
@@ -430,7 +430,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 221:                                              ; preds = %218, %.split.us
   %222 = add nuw nsw i32 %.2105148.us, 1
   %exitcond160.not = icmp eq i32 %222, 5
-  br i1 %exitcond160.not, label %.split152.us, label %.split.us, !llvm.loop !7
+  br i1 %exitcond160.not, label %.split152.us, label %.split.us, !llvm.loop !8
 
 .split:                                           ; preds = %.split.preheader, %232
   %indvars.iv158 = phi i64 [ 1, %.split.preheader ], [ %indvars.iv.next159, %232 ]
@@ -456,7 +456,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
   %.13 = phi i1 [ %.12150, %.split ], [ false, %228 ], [ false, %226 ]
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next159, 5
-  br i1 %exitcond.not, label %.split152.us, label %.split, !llvm.loop !9
+  br i1 %exitcond.not, label %.split152.us, label %.split, !llvm.loop !10
 
 .split152.us:                                     ; preds = %232, %221
   %.us-phi = phi i1 [ false, %221 ], [ %.13, %232 ]
@@ -519,9 +519,10 @@ attributes #5 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5, !8}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6, !9}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !5, !6}

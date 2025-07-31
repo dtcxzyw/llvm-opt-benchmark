@@ -747,7 +747,7 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   %242 = sub i32 %240, %.13.i
   call void @proto_item_set_len(ptr noundef %241, i32 noundef %242)
   %243 = icmp slt i32 %240, %213
-  br i1 %243, label %.lr.ph.i108, label %.loopexit.i, !llvm.loop !8
+  br i1 %243, label %.lr.ph.i108, label %.loopexit.i, !llvm.loop !9
 
 244:                                              ; preds = %.lr.ph7.i
   %245 = load i32, ptr @hf_a21_mob_sub_info_record_content, align 4
@@ -759,7 +759,7 @@ dissect_a21_pilot_list.exit:                      ; preds = %112, %50
   %.265.i = phi i32 [ %.0635.i, %244 ], [ %.0635.i, %215 ], [ %222, %238 ]
   %.2.i107 = phi i32 [ %247, %244 ], [ %220, %215 ], [ %240, %238 ]
   %248 = icmp slt i32 %.2.i107, %33
-  br i1 %248, label %.lr.ph7.i, label %dissect_a21_mobile_subscription_information.exit, !llvm.loop !9
+  br i1 %248, label %.lr.ph7.i, label %dissect_a21_mobile_subscription_information.exit, !llvm.loop !10
 
 dissect_a21_mobile_subscription_information.exit: ; preds = %.loopexit.i, %199
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #3
@@ -827,7 +827,7 @@ dissect_a21_mobile_identity.exit:                 ; preds = %276, %274, %270, %2
   %287 = add i32 %42, %33
   %288 = call i32 @tvb_reported_length(ptr noundef %0)
   %289 = icmp slt i32 %287, %288
-  br i1 %289, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %289, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %dissect_a21_mobile_identity.exit, %6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #3
@@ -1006,8 +1006,9 @@ attributes #3 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

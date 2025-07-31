@@ -149,7 +149,7 @@ define dso_local void @ResourceOwnerEnlarge(ptr noundef captures(none) %0) local
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   %61 = add i32 %.0.i, 1
-  br i1 %60, label %ResourceOwnerAddToHash.exit, label %55
+  br i1 %60, label %ResourceOwnerAddToHash.exit, label %55, !llvm.loop !6
 
 ResourceOwnerAddToHash.exit:                      ; preds = %55
   store i64 %37, ptr %57, align 8
@@ -164,7 +164,7 @@ ResourceOwnerAddToHash.exit:                      ; preds = %55
 66:                                               ; preds = %.lr.ph, %ResourceOwnerAddToHash.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %66, %.preheader
   tail call void @pfree(ptr noundef nonnull %21) #10
@@ -219,7 +219,7 @@ ResourceOwnerAddToHash.exit:                      ; preds = %55
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, null
   %100 = add i32 %.0.i50, 1
-  br i1 %99, label %ResourceOwnerAddToHash.exit51, label %94
+  br i1 %99, label %ResourceOwnerAddToHash.exit51, label %94, !llvm.loop !6
 
 ResourceOwnerAddToHash.exit51:                    ; preds = %94
   store i64 %74, ptr %96, align 8
@@ -233,7 +233,7 @@ ResourceOwnerAddToHash.exit51:                    ; preds = %94
   %105 = load i8, ptr %9, align 1
   %106 = zext i8 %105 to i64
   %107 = icmp samesign ult i64 %indvars.iv.next67, %106
-  br i1 %107, label %72, label %._crit_edge59, !llvm.loop !8
+  br i1 %107, label %72, label %._crit_edge59, !llvm.loop !10
 
 108:                                              ; preds = %8, %._crit_edge59
   ret void
@@ -318,7 +318,7 @@ define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 no
 
 24:                                               ; preds = %16, %20
   %25 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %25, label %16, label %._crit_edge, !llvm.loop !9
+  br i1 %25, label %16, label %._crit_edge, !llvm.loop !11
 
 26:                                               ; preds = %20
   %27 = add nsw i64 %15, -1
@@ -381,7 +381,7 @@ define dso_local void @ResourceOwnerForget(ptr noundef captures(none) %0, i64 no
   %63 = add nuw i32 %.061, 1
   %.042 = and i32 %62, %35
   %exitcond.not = icmp eq i32 %63, %34
-  br i1 %exitcond.not, label %.thread51, label %52, !llvm.loop !10
+  br i1 %exitcond.not, label %.thread51, label %52, !llvm.loop !12
 
 64:                                               ; preds = %57
   store i64 0, ptr %54, align 8
@@ -430,7 +430,7 @@ define internal fastcc void @ResourceOwnerReleaseInternal(ptr noundef %0, i32 no
   %6 = getelementptr inbounds nuw i8, ptr %.04350, i64 16
   %.043 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.043, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -518,7 +518,7 @@ define internal fastcc void @ResourceOwnerReleaseInternal(ptr noundef %0, i32 no
   %.1.i = phi i32 [ %43, %42 ], [ %.03035.i, %31 ]
   %46 = add nuw i32 %.02936.i, 1
   %47 = icmp ult i32 %46, %45
-  br i1 %47, label %31, label %.preheader.i, !llvm.loop !12
+  br i1 %47, label %31, label %.preheader.i, !llvm.loop !14
 
 ._crit_edge.i:                                    ; preds = %50, %.preheader.i
   %.2.lcssa.i = phi i32 [ %.030.lcssa.i, %.preheader.i ], [ %55, %50 ]
@@ -541,7 +541,7 @@ define internal fastcc void @ResourceOwnerReleaseInternal(ptr noundef %0, i32 no
   %56 = load i8, ptr %27, align 1
   %57 = zext i8 %56 to i64
   %58 = icmp samesign ult i64 %indvars.iv.next.i, %57
-  br i1 %58, label %50, label %._crit_edge.i, !llvm.loop !13
+  br i1 %58, label %50, label %._crit_edge.i, !llvm.loop !15
 
 ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
   %.032.i = phi ptr [ %23, %22 ], [ %49, %._crit_edge.i ]
@@ -613,7 +613,7 @@ ResourceOwnerSort.exit:                           ; preds = %22, %._crit_edge.i
   %82 = load ptr, ptr %81, align 8
   tail call void %80(i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %82) #10
   %.not47 = icmp eq ptr %78, null
-  br i1 %.not47, label %._crit_edge55, label %.lr.ph54, !llvm.loop !14
+  br i1 %.not47, label %._crit_edge55, label %.lr.ph54, !llvm.loop !16
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %76
   store ptr %61, ptr @CurrentResourceOwner, align 8
@@ -692,7 +692,7 @@ define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) 
   %40 = add i32 %.1, 1
   %41 = zext i8 %39 to i32
   %42 = icmp slt i32 %40, %41
-  br i1 %42, label %21, label %.preheader, !llvm.loop !15
+  br i1 %42, label %21, label %.preheader, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %58, %.preheader
   store i8 0, ptr %3, align 8
@@ -727,7 +727,7 @@ define dso_local void @ResourceOwnerReleaseAllOfKind(ptr noundef captures(none) 
   %59 = phi i32 [ %44, %43 ], [ %.pre42, %51 ]
   %60 = add nuw i32 %.03439, 1
   %61 = icmp ult i32 %60, %59
-  br i1 %61, label %43, label %._crit_edge, !llvm.loop !16
+  br i1 %61, label %43, label %._crit_edge, !llvm.loop !18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -742,7 +742,7 @@ define dso_local void @ResourceOwnerDelete(ptr noundef %0) local_unnamed_addr #0
   tail call void @ResourceOwnerDelete(ptr noundef nonnull %4)
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %6 = load ptr, ptr %0, align 8
@@ -770,7 +770,7 @@ define dso_local void @ResourceOwnerDelete(ptr noundef %0) local_unnamed_addr #0
   %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %0, %16
-  br i1 %17, label %18, label %.preheader.i, !llvm.loop !18
+  br i1 %17, label %18, label %.preheader.i, !llvm.loop !20
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -824,7 +824,7 @@ define dso_local void @ResourceOwnerNewParent(ptr noundef %0, ptr noundef %1) lo
   %12 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %0, %13
-  br i1 %14, label %15, label %.preheader, !llvm.loop !18
+  br i1 %14, label %15, label %.preheader, !llvm.loop !20
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %.0, i64 16
@@ -909,7 +909,7 @@ define dso_local void @UnregisterResourceReleaseCallback(ptr noundef readnone ca
 12:                                               ; preds = %.lr.ph, %6
   %.012 = load ptr, ptr %.01219, align 8
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
 
 .loopexit:                                        ; preds = %12, %2, %10
   ret void
@@ -1011,7 +1011,7 @@ define dso_local void @ResourceOwnerForgetLock(ptr noundef captures(none) %0, pt
   %12 = getelementptr inbounds nuw [15 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %1, %13
-  br i1 %14, label %15, label %9, !llvm.loop !20
+  br i1 %14, label %15, label %9, !llvm.loop !22
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw [15 x ptr], ptr %7, i64 0, i64 %indvars.iv.next
@@ -1108,7 +1108,7 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   tail call void %39(i64 noundef %17) #10
   %40 = and i64 %indvars.iv.next46, 4294967295
   %.not.us = icmp eq i64 %40, 0
-  br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !21
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ %14, %.lr.ph ]
@@ -1129,7 +1129,7 @@ define internal fastcc void @ResourceOwnerReleaseAll(ptr noundef captures(none) 
   tail call void %51(i64 noundef %49) #10
   %52 = and i64 %indvars.iv.next, 4294967295
   %.not = icmp eq i64 %52, 0
-  br i1 %.not, label %.thread, label %.lr.ph.split
+  br i1 %.not, label %.thread, label %.lr.ph.split, !llvm.loop !25
 
 .thread.loopexit.split.loop.exit:                 ; preds = %.lr.ph.split.us
   %53 = trunc nuw i64 %indvars.iv45 to i32
@@ -1233,19 +1233,22 @@ attributes #11 = { cold nounwind }
 !4 = !{i8 0, i8 2}
 !5 = !{}
 !6 = distinct !{!6, !7}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !22}
-!22 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !9, !7}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = distinct !{!10, !9, !7}
+!11 = distinct !{!11, !9, !7}
+!12 = distinct !{!12, !9, !7}
+!13 = distinct !{!13, !9, !7}
+!14 = distinct !{!14, !9, !7}
+!15 = distinct !{!15, !9, !7}
+!16 = distinct !{!16, !9, !7}
+!17 = distinct !{!17, !9, !7}
+!18 = distinct !{!18, !9, !7}
+!19 = distinct !{!19, !9, !7}
+!20 = distinct !{!20, !9, !7}
+!21 = distinct !{!21, !9, !7}
+!22 = distinct !{!22, !9, !7}
+!23 = distinct !{!23, !7, !24}
+!24 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!25 = distinct !{!25, !7}

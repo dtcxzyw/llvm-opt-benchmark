@@ -1057,7 +1057,7 @@ define noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier15createImmuta
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i.i, i8 0, i64 32, i1 false), !tbaa !52
   %.add.i = add nuw nsw i64 %.idx.i, 40
   %11 = icmp eq i64 %.add.i, 328
-  br i1 %11, label %_ZN6icu_776number4impl21AdoptingModifierStoreC2Ev.exit, label %10
+  br i1 %11, label %_ZN6icu_776number4impl21AdoptingModifierStoreC2Ev.exit, label %10, !llvm.loop !62
 
 12:                                               ; preds = %2
   store i32 7, ptr %1, align 4, !tbaa !13
@@ -1093,35 +1093,35 @@ _ZN6icu_776number4impl21AdoptingModifierStoreC2Ev.exit: ; preds = %10
 28:                                               ; preds = %.preheader, %_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit
   %.027.idx38 = phi i64 [ 0, %.preheader ], [ %.027.add, %_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit ]
   %.027.ptr = getelementptr inbounds nuw i8, ptr @_ZZN6icu_776number4impl22MutablePatternModifier15createImmutableER10UErrorCodeE22STANDARD_PLURAL_VALUES, i64 %.027.idx38
-  %29 = load i32, ptr %.027.ptr, align 4, !tbaa !62
-  call void @llvm.experimental.noalias.scope.decl(metadata !63)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_776number4impl27AdoptingSignumModifierStoreE, i64 16), ptr %4, align 8, !tbaa !15, !alias.scope !63
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i.i35, i8 0, i64 32, i1 false), !tbaa !52, !alias.scope !63
-  store i32 3, ptr %19, align 8, !tbaa !50, !noalias !63
-  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !63
+  %29 = load i32, ptr %.027.ptr, align 4, !tbaa !64
+  call void @llvm.experimental.noalias.scope.decl(metadata !65)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_776number4impl27AdoptingSignumModifierStoreE, i64 16), ptr %4, align 8, !tbaa !15, !alias.scope !65
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i.i35, i8 0, i64 32, i1 false), !tbaa !52, !alias.scope !65
+  store i32 3, ptr %19, align 8, !tbaa !50, !noalias !65
+  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !65
   %30 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %31 unwind label %37, !noalias !63
+          to label %31 unwind label %37, !noalias !65
 
 31:                                               ; preds = %28
-  store ptr %30, ptr %21, align 8, !tbaa !52, !alias.scope !63
-  store i32 1, ptr %19, align 8, !tbaa !50, !noalias !63
-  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !63
+  store ptr %30, ptr %21, align 8, !tbaa !52, !alias.scope !65
+  store i32 1, ptr %19, align 8, !tbaa !50, !noalias !65
+  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !65
   %32 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %33 unwind label %37, !noalias !63
+          to label %33 unwind label %37, !noalias !65
 
 33:                                               ; preds = %31
-  store ptr %32, ptr %22, align 8, !tbaa !52, !alias.scope !63
-  store i32 2, ptr %19, align 8, !tbaa !50, !noalias !63
-  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !63
+  store ptr %32, ptr %22, align 8, !tbaa !52, !alias.scope !65
+  store i32 2, ptr %19, align 8, !tbaa !50, !noalias !65
+  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !65
   %34 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %35 unwind label %37, !noalias !63
+          to label %35 unwind label %37, !noalias !65
 
 35:                                               ; preds = %33
-  store ptr %34, ptr %23, align 8, !tbaa !52, !alias.scope !63
-  store i32 0, ptr %19, align 8, !tbaa !50, !noalias !63
-  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !63
+  store ptr %34, ptr %23, align 8, !tbaa !52, !alias.scope !65
+  store i32 0, ptr %19, align 8, !tbaa !50, !noalias !65
+  store i32 %29, ptr %20, align 4, !tbaa !51, !noalias !65
   %36 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit unwind label %37, !noalias !63
+          to label %_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit unwind label %37, !noalias !65
 
 common.resume:                                    ; preds = %52, %81, %67, %37
   %common.resume.op = phi { ptr, i32 } [ %38, %37 ], [ %68, %67 ], [ %53, %52 ], [ %82, %81 ]
@@ -1134,14 +1134,14 @@ common.resume:                                    ; preds = %52, %81, %67, %37
   br label %common.resume
 
 _ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit: ; preds = %35
-  store ptr %36, ptr %scevgep.i.i35, align 8, !tbaa !52, !alias.scope !63
+  store ptr %36, ptr %scevgep.i.i35, align 8, !tbaa !52, !alias.scope !65
   %39 = zext i32 %29 to i64
   %40 = getelementptr inbounds nuw [8 x %"class.icu_77::number::impl::AdoptingSignumModifierStore"], ptr %24, i64 0, i64 %39
   %41 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_776number4impl27AdoptingSignumModifierStoreaSEOS2_(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   call void @_ZN6icu_776number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #24
   %.027.add = add nuw nsw i64 %.027.idx38, 4
   %.not32 = icmp eq i64 %.027.add, 24
-  br i1 %.not32, label %25, label %28
+  br i1 %.not32, label %25, label %28, !llvm.loop !68
 
 42:                                               ; preds = %25
   %43 = load ptr, ptr %6, align 8, !tbaa !15
@@ -1168,40 +1168,40 @@ _ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14St
   br label %common.resume
 
 54:                                               ; preds = %_ZN6icu_776number4impl21AdoptingModifierStoreC2Ev.exit
-  call void @llvm.experimental.noalias.scope.decl(metadata !66)
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_776number4impl27AdoptingSignumModifierStoreE, i64 16), ptr %5, align 8, !tbaa !15, !alias.scope !66
+  call void @llvm.experimental.noalias.scope.decl(metadata !69)
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN6icu_776number4impl27AdoptingSignumModifierStoreE, i64 16), ptr %5, align 8, !tbaa !15, !alias.scope !69
   %scevgep.i.i36 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i.i36, i8 0, i64 32, i1 false), !tbaa !52, !alias.scope !66
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %scevgep.i.i36, i8 0, i64 32, i1 false), !tbaa !52, !alias.scope !69
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 3, ptr %55, align 8, !tbaa !50, !noalias !66
+  store i32 3, ptr %55, align 8, !tbaa !50, !noalias !69
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !66
+  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !69
   %57 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %58 unwind label %67, !noalias !66
+          to label %58 unwind label %67, !noalias !69
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %57, ptr %59, align 8, !tbaa !52, !alias.scope !66
-  store i32 1, ptr %55, align 8, !tbaa !50, !noalias !66
-  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !66
+  store ptr %57, ptr %59, align 8, !tbaa !52, !alias.scope !69
+  store i32 1, ptr %55, align 8, !tbaa !50, !noalias !69
+  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !69
   %60 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %61 unwind label %67, !noalias !66
+          to label %61 unwind label %67, !noalias !69
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %60, ptr %62, align 8, !tbaa !52, !alias.scope !66
-  store i32 2, ptr %55, align 8, !tbaa !50, !noalias !66
-  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !66
+  store ptr %60, ptr %62, align 8, !tbaa !52, !alias.scope !69
+  store i32 2, ptr %55, align 8, !tbaa !50, !noalias !69
+  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !69
   %63 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %64 unwind label %67, !noalias !66
+          to label %64 unwind label %67, !noalias !69
 
 64:                                               ; preds = %61
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %63, ptr %65, align 8, !tbaa !52, !alias.scope !66
-  store i32 0, ptr %55, align 8, !tbaa !50, !noalias !66
-  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !66
+  store ptr %63, ptr %65, align 8, !tbaa !52, !alias.scope !69
+  store i32 0, ptr %55, align 8, !tbaa !50, !noalias !69
+  store i32 8, ptr %56, align 4, !tbaa !51, !noalias !69
   %66 = invoke noundef ptr @_ZN6icu_776number4impl22MutablePatternModifier22createConstantModifierER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit37 unwind label %67, !noalias !66
+          to label %_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit37 unwind label %67, !noalias !69
 
 67:                                               ; preds = %64, %61, %58, %54
   %68 = landingpad { ptr, i32 }
@@ -1210,7 +1210,7 @@ _ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14St
   br label %common.resume
 
 _ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode.exit37: ; preds = %64
-  store ptr %66, ptr %scevgep.i.i36, align 8, !tbaa !52, !alias.scope !66
+  store ptr %66, ptr %scevgep.i.i36, align 8, !tbaa !52, !alias.scope !69
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %70 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_776number4impl27AdoptingSignumModifierStoreaSEOS2_(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(40) %5) #24
   call void @_ZN6icu_776number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #24
@@ -1317,18 +1317,18 @@ declare void @_ZN6icu_7722FormattedStringBuilderD1Ev(ptr noundef nonnull align 8
 define void @_ZN6icu_776number4impl24ImmutablePatternModifierC2EPNS1_21AdoptingModifierStoreEPKNS_11PluralRulesE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_776number4impl24ImmutablePatternModifierE, i64 16), ptr %0, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %4, align 8, !tbaa !69
+  store ptr %1, ptr %4, align 8, !tbaa !72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %5, align 8, !tbaa !72
+  store ptr %2, ptr %5, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %6, align 8, !tbaa !75
+  store ptr null, ptr %6, align 8, !tbaa !78
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_776number4impl24ImmutablePatternModifier15processQuantityERNS1_15DecimalQuantityERNS1_10MicroPropsER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 8 dereferenceable(489) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !75
+  %6 = load ptr, ptr %5, align 8, !tbaa !78
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -1336,7 +1336,7 @@ define void @_ZNK6icu_776number4impl24ImmutablePatternModifier15processQuantityE
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %10, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %12 = load ptr, ptr %11, align 8, !tbaa !76
+  %12 = load ptr, ptr %11, align 8, !tbaa !79
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %14
 
@@ -1355,13 +1355,13 @@ define void @_ZNK6icu_776number4impl24ImmutablePatternModifier13applyToMicrosERN
   %5 = alloca %"class.icu_77::UnicodeString", align 8
   %6 = alloca %"class.icu_77::number::impl::DecimalQuantity", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !72
+  %8 = load ptr, ptr %7, align 8, !tbaa !75
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !69
+  %12 = load ptr, ptr %11, align 8, !tbaa !72
   %13 = tail call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity6signumEv(ptr noundef nonnull align 8 dereferenceable(66) %2)
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %15 = zext i32 %13 to i64
@@ -1420,7 +1420,7 @@ _ZN6icu_776number4impl5utils13getPluralSafeERKNS1_12RoundingImplEPKNS_11PluralRu
   call void @_ZN6icu_776number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %6) #24
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #24
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !69
+  %33 = load ptr, ptr %32, align 8, !tbaa !72
   %34 = call noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity6signumEv(ptr noundef nonnull align 8 dereferenceable(66) %2)
   %35 = load ptr, ptr %33, align 8, !tbaa !15
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
@@ -1431,7 +1431,7 @@ _ZN6icu_776number4impl5utils13getPluralSafeERKNS1_12RoundingImplEPKNS_11PluralRu
 39:                                               ; preds = %_ZN6icu_776number4impl5utils13getPluralSafeERKNS1_12RoundingImplEPKNS_11PluralRulesERKNS1_15DecimalQuantityER10UErrorCode.exit, %10
   %.sink = phi ptr [ %38, %_ZN6icu_776number4impl5utils13getPluralSafeERKNS1_12RoundingImplEPKNS_11PluralRulesERKNS1_15DecimalQuantityER10UErrorCode.exit ], [ %17, %10 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  store ptr %.sink, ptr %40, align 8, !tbaa !76
+  store ptr %.sink, ptr %40, align 8, !tbaa !79
   ret void
 }
 
@@ -1440,10 +1440,10 @@ declare noundef i32 @_ZNK6icu_776number4impl15DecimalQuantity6signumEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZNK6icu_776number4impl24ImmutablePatternModifier11getModifierENS1_6SignumENS_14StandardPlural4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load ptr, ptr %4, align 8, !tbaa !72
+  %5 = load ptr, ptr %4, align 8, !tbaa !75
   %6 = icmp eq ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !69
+  %8 = load ptr, ptr %7, align 8, !tbaa !72
   br i1 %6, label %9, label %14
 
 9:                                                ; preds = %3
@@ -1468,14 +1468,14 @@ define noundef ptr @_ZNK6icu_776number4impl24ImmutablePatternModifier11getModifi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_776number4impl24ImmutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %1, ptr %3, align 8, !tbaa !75
+  store ptr %1, ptr %3, align 8, !tbaa !78
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_776number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(392) initializes((320, 328)) %0, ptr noundef %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr %1, ptr %3, align 8, !tbaa !100
+  store ptr %1, ptr %3, align 8, !tbaa !103
   ret ptr %0
 }
 
@@ -1485,7 +1485,7 @@ define void @_ZNK6icu_776number4impl22MutablePatternModifier15processQuantityERN
   %6 = alloca %"class.icu_77::number::impl::DecimalQuantity", align 8
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %9 = load ptr, ptr %8, align 8, !tbaa !100
+  %9 = load ptr, ptr %8, align 8, !tbaa !103
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -1493,7 +1493,7 @@ define void @_ZNK6icu_776number4impl22MutablePatternModifier15processQuantityERN
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 104
   tail call void @_ZNK6icu_776number4impl12RoundingImpl5applyERNS1_15DecimalQuantityER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(37) %13, ptr noundef nonnull align 8 dereferenceable(66) %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  %15 = load ptr, ptr %14, align 8, !tbaa !76
+  %15 = load ptr, ptr %14, align 8, !tbaa !79
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %16, label %44
 
@@ -1572,7 +1572,7 @@ _ZN6icu_776number4impl5utils13getPluralSafeERKNS1_12RoundingImplEPKNS_11PluralRu
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store i32 %.sink, ptr %42, align 4, !tbaa !51
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %43, ptr %14, align 8, !tbaa !76
+  store ptr %43, ptr %14, align 8, !tbaa !79
   br label %44
 
 44:                                               ; preds = %4, %39
@@ -2216,7 +2216,7 @@ define linkonce_odr void @_ZThn16_N6icu_776number4impl22MutablePatternModifierD0
 define linkonce_odr void @_ZN6icu_776number4impl24ImmutablePatternModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_776number4impl24ImmutablePatternModifierE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !72
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN6icu_7712LocalPointerINS_6number4impl21AdoptingModifierStoreEED2Ev.exit, label %5
 
@@ -2235,7 +2235,7 @@ _ZN6icu_7712LocalPointerINS_6number4impl21AdoptingModifierStoreEED2Ev.exit: ; pr
 define linkonce_odr void @_ZN6icu_776number4impl24ImmutablePatternModifierD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN6icu_776number4impl24ImmutablePatternModifierE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !69
+  %3 = load ptr, ptr %2, align 8, !tbaa !72
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN6icu_776number4impl24ImmutablePatternModifierD2Ev.exit, label %5
 
@@ -2274,7 +2274,7 @@ define linkonce_odr void @_ZN6icu_776number4impl21AdoptingModifierStoreD2Ev(ptr 
   %.ptr1 = getelementptr inbounds i8, ptr %0, i64 %.add
   tail call void @_ZN6icu_776number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.ptr1) #24
   %3 = icmp eq i64 %.add, 8
-  br i1 %3, label %4, label %2
+  br i1 %3, label %4, label %2, !llvm.loop !104
 
 4:                                                ; preds = %2
   tail call void @_ZN6icu_776number4impl13ModifierStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #24
@@ -2292,7 +2292,7 @@ define linkonce_odr void @_ZN6icu_776number4impl21AdoptingModifierStoreD0Ev(ptr 
   %.ptr1.i = getelementptr inbounds i8, ptr %0, i64 %.add.i
   tail call void @_ZN6icu_776number4impl27AdoptingSignumModifierStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.ptr1.i) #24
   %3 = icmp eq i64 %.add.i, 8
-  br i1 %3, label %_ZN6icu_776number4impl21AdoptingModifierStoreD2Ev.exit, label %2
+  br i1 %3, label %_ZN6icu_776number4impl21AdoptingModifierStoreD2Ev.exit, label %2, !llvm.loop !104
 
 _ZN6icu_776number4impl21AdoptingModifierStoreD2Ev.exit: ; preds = %2
   tail call void @_ZN6icu_776number4impl13ModifierStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) #24
@@ -2449,42 +2449,46 @@ attributes #26 = { noreturn nounwind }
 !59 = !{!"_ZTSN6icu_776number4impl8Modifier10ParametersE", !60, i64 0, !38, i64 8, !39, i64 12}
 !60 = !{!"p1 _ZTSN6icu_776number4impl13ModifierStoreE", !6, i64 0}
 !61 = !{!57, !22, i64 281}
-!62 = !{!39, !39, i64 0}
-!63 = !{!64}
-!64 = distinct !{!64, !65, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode: argument 0"}
-!65 = distinct !{!65, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode"}
-!66 = !{!67}
-!67 = distinct !{!67, !68, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode: argument 0"}
-!68 = distinct !{!68, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode"}
-!69 = !{!70, !71, i64 0}
-!70 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_6number4impl21AdoptingModifierStoreEEE", !71, i64 0}
-!71 = !{!"p1 _ZTSN6icu_776number4impl21AdoptingModifierStoreE", !6, i64 0}
-!72 = !{!73, !37, i64 16}
-!73 = !{!"_ZTSN6icu_776number4impl24ImmutablePatternModifierE", !19, i64 0, !74, i64 8, !37, i64 16, !40, i64 24}
-!74 = !{!"_ZTSN6icu_7712LocalPointerINS_6number4impl21AdoptingModifierStoreEEE", !70, i64 0}
-!75 = !{!73, !40, i64 24}
-!76 = !{!77, !53, i64 200}
-!77 = !{!"_ZTSN6icu_776number4impl10MicroPropsE", !19, i64 0, !78, i64 8, !82, i64 104, !87, i64 144, !88, i64 156, !25, i64 168, !7, i64 172, !5, i64 184, !53, i64 192, !53, i64 200, !53, i64 208, !89, i64 216, !30, i64 416, !97, i64 440, !9, i64 480, !9, i64 484, !22, i64 488}
-!78 = !{!"_ZTSN6icu_776number4impl16SimpleMicroPropsE", !79, i64 4, !22, i64 16, !81, i64 20, !35, i64 24, !26, i64 88}
-!79 = !{!"_ZTSN6icu_776number4impl7GrouperE", !33, i64 0, !33, i64 2, !33, i64 4, !80, i64 8}
-!80 = !{!"_ZTS23UNumberGroupingStrategy", !7, i64 0}
-!81 = !{!"_ZTS30UNumberDecimalSeparatorDisplay", !7, i64 0}
-!82 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !83, i64 0, !86, i64 32, !22, i64 36}
-!83 = !{!"_ZTSN6icu_776number9PrecisionE", !84, i64 0, !7, i64 8, !85, i64 24}
-!84 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
-!85 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
-!86 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
-!87 = !{!"_ZTSN6icu_776number4impl6PadderE", !9, i64 0, !7, i64 4}
-!88 = !{!"_ZTSN6icu_776number12IntegerWidthE", !7, i64 0, !22, i64 8}
-!89 = !{!"_ZTSN6icu_776number4impl10MicroPropsUt_E", !90, i64 0, !92, i64 24, !92, i64 40, !93, i64 56, !96, i64 96}
-!90 = !{!"_ZTSN6icu_776number4impl18ScientificModifierE", !20, i64 0, !9, i64 8, !91, i64 16}
-!91 = !{!"p1 _ZTSN6icu_776number4impl17ScientificHandlerE", !6, i64 0}
-!92 = !{!"_ZTSN6icu_776number4impl13EmptyModifierE", !20, i64 0, !22, i64 8}
-!93 = !{!"_ZTSN6icu_776number4impl23MultiplierFormatHandlerE", !19, i64 0, !94, i64 8, !40, i64 32}
-!94 = !{!"_ZTSN6icu_776number5ScaleE", !9, i64 0, !95, i64 8, !14, i64 16}
-!95 = !{!"p1 _ZTSN6icu_776number4impl6DecNumE", !6, i64 0}
-!96 = !{!"_ZTSN6icu_776number4impl14SimpleModifierE", !20, i64 0, !35, i64 8, !24, i64 72, !22, i64 73, !9, i64 76, !9, i64 80, !9, i64 84, !59, i64 88}
-!97 = !{!"_ZTSN6icu_776number4impl11IntMeasuresE", !98, i64 0, !14, i64 32}
-!98 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi2EEE", !99, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
-!99 = !{!"p1 long", !6, i64 0}
-!100 = !{!18, !40, i64 320}
+!62 = distinct !{!62, !63}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!39, !39, i64 0}
+!65 = !{!66}
+!66 = distinct !{!66, !67, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode: argument 0"}
+!67 = distinct !{!67, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode"}
+!68 = distinct !{!68, !63}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode: argument 0"}
+!71 = distinct !{!71, !"_ZN6icu_776number4impl22MutablePatternModifier24createImmutableForPluralENS_14StandardPlural4FormER10UErrorCode"}
+!72 = !{!73, !74, i64 0}
+!73 = !{!"_ZTSN6icu_7716LocalPointerBaseINS_6number4impl21AdoptingModifierStoreEEE", !74, i64 0}
+!74 = !{!"p1 _ZTSN6icu_776number4impl21AdoptingModifierStoreE", !6, i64 0}
+!75 = !{!76, !37, i64 16}
+!76 = !{!"_ZTSN6icu_776number4impl24ImmutablePatternModifierE", !19, i64 0, !77, i64 8, !37, i64 16, !40, i64 24}
+!77 = !{!"_ZTSN6icu_7712LocalPointerINS_6number4impl21AdoptingModifierStoreEEE", !73, i64 0}
+!78 = !{!76, !40, i64 24}
+!79 = !{!80, !53, i64 200}
+!80 = !{!"_ZTSN6icu_776number4impl10MicroPropsE", !19, i64 0, !81, i64 8, !85, i64 104, !90, i64 144, !91, i64 156, !25, i64 168, !7, i64 172, !5, i64 184, !53, i64 192, !53, i64 200, !53, i64 208, !92, i64 216, !30, i64 416, !100, i64 440, !9, i64 480, !9, i64 484, !22, i64 488}
+!81 = !{!"_ZTSN6icu_776number4impl16SimpleMicroPropsE", !82, i64 4, !22, i64 16, !84, i64 20, !35, i64 24, !26, i64 88}
+!82 = !{!"_ZTSN6icu_776number4impl7GrouperE", !33, i64 0, !33, i64 2, !33, i64 4, !83, i64 8}
+!83 = !{!"_ZTS23UNumberGroupingStrategy", !7, i64 0}
+!84 = !{!"_ZTS30UNumberDecimalSeparatorDisplay", !7, i64 0}
+!85 = !{!"_ZTSN6icu_776number4impl12RoundingImplE", !86, i64 0, !89, i64 32, !22, i64 36}
+!86 = !{!"_ZTSN6icu_776number9PrecisionE", !87, i64 0, !7, i64 8, !88, i64 24}
+!87 = !{!"_ZTSN6icu_776number9Precision13PrecisionTypeE", !7, i64 0}
+!88 = !{!"_ZTS26UNumberTrailingZeroDisplay", !7, i64 0}
+!89 = !{!"_ZTS25UNumberFormatRoundingMode", !7, i64 0}
+!90 = !{!"_ZTSN6icu_776number4impl6PadderE", !9, i64 0, !7, i64 4}
+!91 = !{!"_ZTSN6icu_776number12IntegerWidthE", !7, i64 0, !22, i64 8}
+!92 = !{!"_ZTSN6icu_776number4impl10MicroPropsUt_E", !93, i64 0, !95, i64 24, !95, i64 40, !96, i64 56, !99, i64 96}
+!93 = !{!"_ZTSN6icu_776number4impl18ScientificModifierE", !20, i64 0, !9, i64 8, !94, i64 16}
+!94 = !{!"p1 _ZTSN6icu_776number4impl17ScientificHandlerE", !6, i64 0}
+!95 = !{!"_ZTSN6icu_776number4impl13EmptyModifierE", !20, i64 0, !22, i64 8}
+!96 = !{!"_ZTSN6icu_776number4impl23MultiplierFormatHandlerE", !19, i64 0, !97, i64 8, !40, i64 32}
+!97 = !{!"_ZTSN6icu_776number5ScaleE", !9, i64 0, !98, i64 8, !14, i64 16}
+!98 = !{!"p1 _ZTSN6icu_776number4impl6DecNumE", !6, i64 0}
+!99 = !{!"_ZTSN6icu_776number4impl14SimpleModifierE", !20, i64 0, !35, i64 8, !24, i64 72, !22, i64 73, !9, i64 76, !9, i64 80, !9, i64 84, !59, i64 88}
+!100 = !{!"_ZTSN6icu_776number4impl11IntMeasuresE", !101, i64 0, !14, i64 32}
+!101 = !{!"_ZTSN6icu_7715MaybeStackArrayIlLi2EEE", !102, i64 0, !9, i64 8, !7, i64 12, !7, i64 16}
+!102 = !{!"p1 long", !6, i64 0}
+!103 = !{!18, !40, i64 320}
+!104 = distinct !{!104, !63}

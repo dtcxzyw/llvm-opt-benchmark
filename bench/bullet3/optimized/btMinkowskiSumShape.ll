@@ -434,7 +434,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK16btCollisionSha
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN21btConvexInternalShape9setMarginEf(ptr noundef nonnull align 8 dereferenceable(72) %0, float noundef %1) unnamed_addr #6 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store float %1, ptr %3, align 8, !tbaa !26
+  store float %1, ptr %3, align 8, !tbaa !27
   ret void
 }
 
@@ -458,7 +458,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
   store float %9, ptr %10, align 4, !tbaa !22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !27
+  br i1 %exitcond.not.i, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit, label %7, !llvm.loop !28
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -473,15 +473,15 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
   store float %15, ptr %16, align 4, !tbaa !22
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
-  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !27
+  br i1 %exitcond.not.i10, label %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit11, label %13, !llvm.loop !28
 
 _ZNK9btVector314serializeFloatER18btVector3FloatData.exit11: ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = load float, ptr %17, align 8, !tbaa !26
+  %18 = load float, ptr %17, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  store float %18, ptr %19, align 8, !tbaa !28
+  store float %18, ptr %19, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  store i32 0, ptr %20, align 4, !tbaa !33
+  store i32 0, ptr %20, align 4, !tbaa !34
   ret ptr @.str.1
 }
 
@@ -566,13 +566,14 @@ attributes #13 = { noreturn nounwind }
 !21 = !{!11, !12, i64 8}
 !22 = !{!16, !16, i64 0}
 !23 = !{!13, !13, i64 0}
-!24 = distinct !{!24, !25}
+!24 = distinct !{!24, !25, !26}
 !25 = !{!"llvm.loop.mustprogress"}
-!26 = !{!9, !16, i64 64}
-!27 = distinct !{!27, !25}
-!28 = !{!29, !16, i64 48}
-!29 = !{!"_ZTS25btConvexInternalShapeData", !30, i64 0, !32, i64 16, !32, i64 32, !16, i64 48, !12, i64 52}
-!30 = !{!"_ZTS20btCollisionShapeData", !31, i64 0, !12, i64 8, !13, i64 12}
-!31 = !{!"p1 omnipotent char", !14, i64 0}
-!32 = !{!"_ZTS18btVector3FloatData", !13, i64 0}
-!33 = !{!29, !12, i64 52}
+!26 = !{!"llvm.loop.estimated_trip_count"}
+!27 = !{!9, !16, i64 64}
+!28 = distinct !{!28, !25, !26}
+!29 = !{!30, !16, i64 48}
+!30 = !{!"_ZTS25btConvexInternalShapeData", !31, i64 0, !33, i64 16, !33, i64 32, !16, i64 48, !12, i64 52}
+!31 = !{!"_ZTS20btCollisionShapeData", !32, i64 0, !12, i64 8, !13, i64 12}
+!32 = !{!"p1 omnipotent char", !14, i64 0}
+!33 = !{!"_ZTS18btVector3FloatData", !13, i64 0}
+!34 = !{!30, !12, i64 52}

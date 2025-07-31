@@ -52,8 +52,8 @@ compareFingerprints.exit.i:                       ; preds = %13
   %30 = getelementptr inbounds i8, ptr %29, i64 -256
   tail call void @HIST_add(ptr noundef nonnull %27, ptr noundef nonnull %30, i64 noundef 512) #5
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 6144
-  store i64 512, ptr %31, align 8, !tbaa !14
-  %32 = load i64, ptr %12, align 8, !tbaa !14
+  store i64 512, ptr %31, align 8, !tbaa !15
+  %32 = load i64, ptr %12, align 8, !tbaa !15
   br label %33
 
 33:                                               ; preds = %33, %26
@@ -75,7 +75,7 @@ compareFingerprints.exit.i:                       ; preds = %13
   br i1 %exitcond33.not.i, label %fpDistance.exit.i, label %33, !llvm.loop !12
 
 fpDistance.exit.i:                                ; preds = %33
-  %46 = load i64, ptr %11, align 8, !tbaa !14
+  %46 = load i64, ptr %11, align 8, !tbaa !15
   br label %47
 
 47:                                               ; preds = %47, %fpDistance.exit.i
@@ -109,7 +109,7 @@ fpDistance.exit28.i:                              ; preds = %47
   %66 = add nsw i32 %2, -1
   %67 = sext i32 %66 to i64
   %68 = getelementptr inbounds [4 x ptr], ptr @ZSTD_splitBlock_byChunks.records_fs, i64 0, i64 %67
-  %69 = load ptr, ptr %68, align 8, !tbaa !15
+  %69 = load ptr, ptr %68, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8208) %3, i8 0, i64 8208, i1 false)
   tail call void %69(ptr noundef nonnull %3, ptr noundef %0, i64 noundef 8192) #5
   %70 = add i64 %1, -8192
@@ -129,8 +129,8 @@ fpDistance.exit28.i:                              ; preds = %47
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.030.i
   tail call void %69(ptr noundef nonnull %71, ptr noundef %76, i64 noundef 8192) #5
   %77 = load i32, ptr %72, align 4, !tbaa !10
-  %78 = load i64, ptr %73, align 8, !tbaa !14
-  %79 = load i64, ptr %74, align 8, !tbaa !14
+  %78 = load i64, ptr %73, align 8, !tbaa !15
+  %79 = load i64, ptr %74, align 8, !tbaa !15
   %80 = zext nneg i32 %77 to i64
   br label %81
 
@@ -172,17 +172,17 @@ compareFingerprints.exit.i13:                     ; preds = %81
   store i32 %104, ptr %102, align 4, !tbaa !10
   %105 = add nuw nsw i64 %.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %105, 1024
-  br i1 %exitcond.not.i.i, label %mergeEvents.exit.i, label %.preheader.i, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %mergeEvents.exit.i, label %.preheader.i, !llvm.loop !18
 
 mergeEvents.exit.i:                               ; preds = %.preheader.i
   %106 = add i64 %79, %78
-  store i64 %106, ptr %73, align 8, !tbaa !14
+  store i64 %106, ptr %73, align 8, !tbaa !15
   %107 = icmp sgt i32 %.02429.i, 0
   %108 = sext i1 %107 to i32
   %spec.select.i = add nsw i32 %.02429.i, %108
   %109 = add i64 %.030.i, 8192
   %.not.i = icmp ugt i64 %109, %70
-  br i1 %.not.i, label %ZSTD_splitBlock_fromBorders.exit, label %75, !llvm.loop !18
+  br i1 %.not.i, label %ZSTD_splitBlock_fromBorders.exit, label %75, !llvm.loop !19
 
 ZSTD_splitBlock_fromBorders.exit:                 ; preds = %mergeEvents.exit.i, %compareFingerprints.exit.i13, %65, %fpDistance.exit28.i, %compareFingerprints.exit.i
   %.0 = phi i64 [ %.1.i, %fpDistance.exit28.i ], [ %1, %compareFingerprints.exit.i ], [ %1, %65 ], [ %.030.i, %compareFingerprints.exit.i13 ], [ %1, %mergeEvents.exit.i ]
@@ -198,7 +198,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define internal void @ZSTD_recordFingerprint_43(ptr noundef captures(none) initializes((0, 1024), (4096, 4104)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  store i64 0, ptr %4, align 8, !tbaa !14
+  store i64 0, ptr %4, align 8, !tbaa !15
   %5 = add i64 %2, -1
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %addEvents_generic.exit, label %.lr.ph
@@ -206,7 +206,7 @@ define internal void @ZSTD_recordFingerprint_43(ptr noundef captures(none) initi
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0.i3 = phi i64 [ %12, %.lr.ph ], [ 0, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i3
-  %7 = load i8, ptr %6, align 1, !tbaa !19
+  %7 = load i8, ptr %6, align 1, !tbaa !20
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw [1024 x i32], ptr %0, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !10
@@ -214,11 +214,11 @@ define internal void @ZSTD_recordFingerprint_43(ptr noundef captures(none) initi
   store i32 %11, ptr %9, align 4, !tbaa !10
   %12 = add i64 %.0.i3, 43
   %13 = icmp ult i64 %12, %5
-  br i1 %13, label %.lr.ph, label %addEvents_generic.exit, !llvm.loop !20
+  br i1 %13, label %.lr.ph, label %addEvents_generic.exit, !llvm.loop !21
 
 addEvents_generic.exit:                           ; preds = %.lr.ph, %3
   %14 = udiv i64 %5, 43
-  store i64 %14, ptr %4, align 8, !tbaa !14
+  store i64 %14, ptr %4, align 8, !tbaa !15
   ret void
 }
 
@@ -232,7 +232,7 @@ define internal void @ZSTD_recordFingerprint_11(ptr noundef captures(none) initi
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0.i3 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i3
-  %.val = load i16, ptr %5, align 1, !tbaa !21
+  %.val = load i16, ptr %5, align 1, !tbaa !22
   %6 = zext i16 %.val to i64
   %7 = mul nuw nsw i64 %6, 2654435769
   %8 = lshr i64 %7, 23
@@ -243,12 +243,12 @@ define internal void @ZSTD_recordFingerprint_11(ptr noundef captures(none) initi
   store i32 %12, ptr %10, align 4, !tbaa !10
   %13 = add i64 %.0.i3, 11
   %14 = icmp ult i64 %13, %4
-  br i1 %14, label %.lr.ph, label %addEvents_generic.exit, !llvm.loop !20
+  br i1 %14, label %.lr.ph, label %addEvents_generic.exit, !llvm.loop !21
 
 addEvents_generic.exit:                           ; preds = %.lr.ph, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %16 = udiv i64 %4, 11
-  store i64 %16, ptr %15, align 8, !tbaa !14
+  store i64 %16, ptr %15, align 8, !tbaa !15
   ret void
 }
 
@@ -262,7 +262,7 @@ define internal void @ZSTD_recordFingerprint_5(ptr noundef captures(none) initia
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0.i3 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i3
-  %.val = load i16, ptr %5, align 1, !tbaa !21
+  %.val = load i16, ptr %5, align 1, !tbaa !22
   %6 = zext i16 %.val to i64
   %7 = mul nuw nsw i64 %6, 2654435769
   %8 = lshr i64 %7, 22
@@ -273,12 +273,12 @@ define internal void @ZSTD_recordFingerprint_5(ptr noundef captures(none) initia
   store i32 %12, ptr %10, align 4, !tbaa !10
   %13 = add i64 %.0.i3, 5
   %14 = icmp ult i64 %13, %4
-  br i1 %14, label %.lr.ph, label %addEvents_generic.exit, !llvm.loop !20
+  br i1 %14, label %.lr.ph, label %addEvents_generic.exit, !llvm.loop !21
 
 addEvents_generic.exit:                           ; preds = %.lr.ph, %3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 4096
   %16 = udiv i64 %4, 5
-  store i64 %16, ptr %15, align 8, !tbaa !14
+  store i64 %16, ptr %15, align 8, !tbaa !15
   ret void
 }
 
@@ -292,7 +292,7 @@ define internal void @ZSTD_recordFingerprint_1(ptr noundef captures(none) initia
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0.i3 = phi i64 [ %13, %.lr.ph ], [ 0, %3 ]
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i3
-  %.val = load i16, ptr %5, align 1, !tbaa !21
+  %.val = load i16, ptr %5, align 1, !tbaa !22
   %6 = zext i16 %.val to i64
   %7 = mul nuw nsw i64 %6, 2654435769
   %8 = lshr i64 %7, 22
@@ -303,11 +303,11 @@ define internal void @ZSTD_recordFingerprint_1(ptr noundef captures(none) initia
   store i32 %12, ptr %10, align 4, !tbaa !10
   %13 = add nuw i64 %.0.i3, 1
   %exitcond.not = icmp eq i64 %13, %4
-  br i1 %exitcond.not, label %addEvents_generic.exit, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %addEvents_generic.exit, label %.lr.ph, !llvm.loop !21
 
 addEvents_generic.exit:                           ; preds = %.lr.ph, %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4096
-  store i64 %4, ptr %14, align 8, !tbaa !14
+  store i64 %4, ptr %14, align 8, !tbaa !15
   ret void
 }
 
@@ -335,14 +335,15 @@ attributes #5 = { nounwind }
 !9 = !{!4, !8, i64 4096}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"int", !6, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!5, !8, i64 4096}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"any pointer", !6, i64 0}
-!17 = distinct !{!17, !13}
-!18 = distinct !{!18, !13}
-!19 = !{!6, !6, i64 0}
-!20 = distinct !{!20, !13}
-!21 = !{!22, !22, i64 0}
-!22 = !{!"short", !6, i64 0}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!5, !8, i64 4096}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"any pointer", !6, i64 0}
+!18 = distinct !{!18, !13, !14}
+!19 = distinct !{!19, !13, !14}
+!20 = !{!6, !6, i64 0}
+!21 = distinct !{!21, !13, !14}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"short", !6, i64 0}

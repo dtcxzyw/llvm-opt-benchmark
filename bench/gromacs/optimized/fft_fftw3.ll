@@ -211,18 +211,18 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %94
 
 87:                                               ; preds = %77
-  br i1 %75, label %.preheader, label %88, !llvm.loop !15
+  br i1 %75, label %.preheader, label %88, !llvm.loop !16
 
 88:                                               ; preds = %87
-  br i1 %73, label %.preheader103, label %89, !llvm.loop !16
+  br i1 %73, label %.preheader103, label %89, !llvm.loop !17
 
 89:                                               ; preds = %88
   call void @fftwf_free(ptr noundef nonnull %39)
   call void @fftwf_free(ptr noundef nonnull %44)
   %90 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  store i32 0, ptr %90, align 8, !tbaa !17
+  store i32 0, ptr %90, align 8, !tbaa !18
   %91 = getelementptr inbounds nuw i8, ptr %29, i64 68
-  store i32 1, ptr %91, align 4, !tbaa !19
+  store i32 1, ptr %91, align 4, !tbaa !20
   store ptr %29, ptr %0, align 8, !tbaa !8
   %92 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
   br label %93
@@ -254,17 +254,17 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
   %4 = alloca i64, align 8
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(123) %1) #13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %0, align 8, !tbaa !20
+  store ptr %6, ptr %0, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  store i64 %5, ptr %4, align 8, !tbaa !23
+  store i64 %5, ptr %4, align 8, !tbaa !24
   %7 = icmp ugt i64 %5, 15
   br i1 %7, label %.noexc.i.i.i, label %._crit_edge.i.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %3
   %8 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
-  store ptr %8, ptr %0, align 8, !tbaa !25
-  %9 = load i64, ptr %4, align 8, !tbaa !23
-  store i64 %9, ptr %6, align 8, !tbaa !27
+  store ptr %8, ptr %0, align 8, !tbaa !26
+  %9 = load i64, ptr %4, align 8, !tbaa !24
+  store i64 %9, ptr %6, align 8, !tbaa !28
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.noexc.i.i.i, %3
@@ -275,8 +275,8 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
   ]
 
 11:                                               ; preds = %._crit_edge.i.i.i.i
-  %12 = load i8, ptr %1, align 1, !tbaa !27
-  store i8 %12, ptr %10, align 1, !tbaa !27
+  %12 = load i8, ptr %1, align 1, !tbaa !28
+  store i8 %12, ptr %10, align 1, !tbaa !28
   br label %14
 
 13:                                               ; preds = %._crit_edge.i.i.i.i
@@ -284,12 +284,12 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
   br label %14
 
 14:                                               ; preds = %13, %11, %._crit_edge.i.i.i.i
-  %15 = load i64, ptr %4, align 8, !tbaa !23
+  %15 = load i64, ptr %4, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %15, ptr %16, align 8, !tbaa !28
-  %17 = load ptr, ptr %0, align 8, !tbaa !25
+  store i64 %15, ptr %16, align 8, !tbaa !29
+  %17 = load ptr, ptr %0, align 8, !tbaa !26
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %15
-  store i8 0, ptr %18, align 1, !tbaa !27
+  store i8 0, ptr %18, align 1, !tbaa !28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -310,7 +310,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
 24:                                               ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  %26 = load ptr, ptr %19, align 8, !tbaa !29
+  %26 = load ptr, ptr %19, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %27
 
@@ -319,23 +319,23 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %24, %27
-  store ptr null, ptr %19, align 8, !tbaa !29
+  store ptr null, ptr %19, align 8, !tbaa !30
   br label %28
 
 28:                                               ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, %22
   %.pn = phi { ptr, i32 } [ %25, %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit ], [ %23, %22 ]
-  %29 = load ptr, ptr %0, align 8, !tbaa !25
+  %29 = load ptr, ptr %0, align 8, !tbaa !26
   %30 = icmp eq ptr %29, %6
   br i1 %30, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %28
-  %31 = load i64, ptr %16, align 8, !tbaa !28
+  %31 = load i64, ptr %16, align 8, !tbaa !29
   %32 = icmp ult i64 %31, 16
   call void @llvm.assume(i1 %32)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %28
-  %33 = load i64, ptr %6, align 8, !tbaa !27
+  %33 = load i64, ptr %6, align 8, !tbaa !28
   %34 = add i64 %33, 1
   call void @_ZdlPvm(ptr noundef %29, i64 noundef %34) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -349,7 +349,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %3 = load ptr, ptr %2, align 8, !tbaa !29
+  %3 = load ptr, ptr %2, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
 
@@ -358,21 +358,21 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull
   br label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
 
 _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
-  store ptr null, ptr %2, align 8, !tbaa !29
-  %5 = load ptr, ptr %0, align 8, !tbaa !25
+  store ptr null, ptr %2, align 8, !tbaa !30
+  %5 = load ptr, ptr %0, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !28
+  %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = icmp ult i64 %9, 16
   tail call void @llvm.assume(i1 %10)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit
-  %11 = load i64, ptr %6, align 8, !tbaa !27
+  %11 = load i64, ptr %6, align 8, !tbaa !28
   %12 = add i64 %11, 1
   tail call void @_ZdlPvm(ptr noundef %5, i64 noundef %12) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -614,7 +614,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %102
 
 101:                                              ; preds = %102
-  br i1 %103, label %102, label %111, !llvm.loop !31
+  br i1 %103, label %102, label %111, !llvm.loop !32
 
 102:                                              ; preds = %.preheader, %101
   %103 = phi i1 [ true, %.preheader ], [ false, %101 ]
@@ -641,18 +641,18 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %118
 
 111:                                              ; preds = %101
-  br i1 %99, label %.preheader, label %112, !llvm.loop !32
+  br i1 %99, label %.preheader, label %112, !llvm.loop !33
 
 112:                                              ; preds = %111
-  br i1 %97, label %.preheader103, label %113, !llvm.loop !33
+  br i1 %97, label %.preheader103, label %113, !llvm.loop !34
 
 113:                                              ; preds = %112
   call void @fftwf_free(ptr noundef nonnull %41)
   call void @fftwf_free(ptr noundef nonnull %46)
   %114 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  store i32 1, ptr %114, align 8, !tbaa !17
+  store i32 1, ptr %114, align 8, !tbaa !18
   %115 = getelementptr inbounds nuw i8, ptr %29, i64 68
-  store i32 1, ptr %115, align 4, !tbaa !19
+  store i32 1, ptr %115, align 4, !tbaa !20
   store ptr %29, ptr %0, align 8, !tbaa !8
   %116 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
   br label %117
@@ -811,7 +811,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   br label %68
 
 67:                                               ; preds = %68
-  br i1 %69, label %68, label %77, !llvm.loop !34
+  br i1 %69, label %68, label %77, !llvm.loop !35
 
 68:                                               ; preds = %.preheader, %67
   %69 = phi i1 [ true, %.preheader ], [ false, %67 ]
@@ -838,18 +838,18 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   br label %84
 
 77:                                               ; preds = %67
-  br i1 %65, label %.preheader, label %78, !llvm.loop !35
+  br i1 %65, label %.preheader, label %78, !llvm.loop !36
 
 78:                                               ; preds = %77
-  br i1 %63, label %.preheader113, label %79, !llvm.loop !36
+  br i1 %63, label %.preheader113, label %79, !llvm.loop !37
 
 79:                                               ; preds = %78
   tail call void @fftwf_free(ptr noundef nonnull %38)
   tail call void @fftwf_free(ptr noundef nonnull %42)
   %80 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store i32 1, ptr %80, align 8, !tbaa !17
+  store i32 1, ptr %80, align 8, !tbaa !18
   %81 = getelementptr inbounds nuw i8, ptr %28, i64 68
-  store i32 2, ptr %81, align 4, !tbaa !19
+  store i32 2, ptr %81, align 4, !tbaa !20
   store ptr %28, ptr %0, align 8, !tbaa !8
   br label %82
 
@@ -878,13 +878,13 @@ declare ptr @fftwf_plan_dft_r2c_2d(i32 noundef, i32 noundef, ptr noundef, ptr no
 define noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i32, ptr %6, align 8, !tbaa !17
+  %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %11 = load i32, ptr %10, align 4, !tbaa !19
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %.not = icmp ne i32 %11, 1
   %or.cond = icmp ugt i32 %1, 1
   %or.cond17 = or i1 %or.cond, %.not
@@ -931,13 +931,13 @@ declare void @fftwf_execute_dft(ptr noundef, ptr noundef, ptr noundef) local_unn
 define noundef i32 @_Z15gmx_fft_many_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %7 = load i32, ptr %6, align 8, !tbaa !17
+  %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %11 = load i32, ptr %10, align 4, !tbaa !19
+  %11 = load i32, ptr %10, align 4, !tbaa !20
   %.not.i = icmp ne i32 %11, 1
   %or.cond.i = icmp ugt i32 %1, 1
   %or.cond17.i = or i1 %or.cond.i, %.not.i
@@ -989,13 +989,13 @@ define noundef i32 @_Z15gmx_fft_1d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
   %11 = icmp eq ptr %2, %3
   %12 = icmp eq i32 %1, 2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load i32, ptr %13, align 8, !tbaa !17
+  %14 = load i32, ptr %13, align 8, !tbaa !18
   %.not = icmp eq i32 %14, 1
   br i1 %.not, label %15, label %19
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %17 = load i32, ptr %16, align 4, !tbaa !19
+  %17 = load i32, ptr %16, align 4, !tbaa !20
   %.not24 = icmp ne i32 %17, 1
   %18 = add i32 %1, -4
   %or.cond = icmp ult i32 %18, -2
@@ -1061,13 +1061,13 @@ define noundef i32 @_Z15gmx_fft_2d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr nou
   %11 = icmp eq ptr %2, %3
   %12 = icmp eq i32 %1, 2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %14 = load i32, ptr %13, align 8, !tbaa !17
+  %14 = load i32, ptr %13, align 8, !tbaa !18
   %.not = icmp eq i32 %14, 1
   br i1 %.not, label %15, label %19
 
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %17 = load i32, ptr %16, align 4, !tbaa !19
+  %17 = load i32, ptr %16, align 4, !tbaa !20
   %.not24 = icmp ne i32 %17, 2
   %18 = add i32 %1, -4
   %or.cond = icmp ult i32 %18, -2
@@ -1181,13 +1181,13 @@ define void @_Z15gmx_fft_destroyP7gmx_fft(ptr noundef %0) local_unnamed_addr #0 
   br label %27
 
 27:                                               ; preds = %6, %24
-  br i1 %7, label %6, label %28, !llvm.loop !37
+  br i1 %7, label %6, label %28, !llvm.loop !38
 
 28:                                               ; preds = %27
-  br i1 %4, label %.preheader, label %29, !llvm.loop !38
+  br i1 %4, label %.preheader, label %29, !llvm.loop !39
 
 29:                                               ; preds = %28
-  br i1 %2, label %.preheader46, label %30, !llvm.loop !39
+  br i1 %2, label %.preheader46, label %30, !llvm.loop !40
 
 30:                                               ; preds = %29
   %31 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL14big_fftw_mutex) #13
@@ -1297,30 +1297,31 @@ attributes #16 = { builtin nounwind }
 !10 = !{!"any pointer", !6, i64 0}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS12fftwf_plan_s", !10, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
-!16 = distinct !{!16, !14}
-!17 = !{!18, !5, i64 64}
-!18 = !{!"_ZTS7gmx_fft", !6, i64 0, !5, i64 64, !5, i64 68}
-!19 = !{!18, !5, i64 68}
-!20 = !{!21, !22, i64 0}
-!21 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !22, i64 0}
-!22 = !{!"p1 omnipotent char", !10, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !6, i64 0}
-!25 = !{!26, !22, i64 0}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !21, i64 0, !24, i64 8, !6, i64 16}
-!27 = !{!6, !6, i64 0}
-!28 = !{!26, !24, i64 8}
-!29 = !{!30, !30, i64 0}
-!30 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !10, i64 0}
-!31 = distinct !{!31, !14}
-!32 = distinct !{!32, !14}
-!33 = distinct !{!33, !14}
-!34 = distinct !{!34, !14}
-!35 = distinct !{!35, !14}
-!36 = distinct !{!36, !14}
-!37 = distinct !{!37, !14}
-!38 = distinct !{!38, !14}
-!39 = distinct !{!39, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}
+!17 = distinct !{!17, !14, !15}
+!18 = !{!19, !5, i64 64}
+!19 = !{!"_ZTS7gmx_fft", !6, i64 0, !5, i64 64, !5, i64 68}
+!20 = !{!19, !5, i64 68}
+!21 = !{!22, !23, i64 0}
+!22 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !23, i64 0}
+!23 = !{!"p1 omnipotent char", !10, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"long", !6, i64 0}
+!26 = !{!27, !23, i64 0}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !22, i64 0, !25, i64 8, !6, i64 16}
+!28 = !{!6, !6, i64 0}
+!29 = !{!27, !25, i64 8}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 _ZTSNSt10filesystem7__cxx114path5_List5_ImplE", !10, i64 0}
+!32 = distinct !{!32, !14, !15}
+!33 = distinct !{!33, !14, !15}
+!34 = distinct !{!34, !14, !15}
+!35 = distinct !{!35, !14, !15}
+!36 = distinct !{!36, !14, !15}
+!37 = distinct !{!37, !14, !15}
+!38 = distinct !{!38, !14, !15}
+!39 = distinct !{!39, !14, !15}
+!40 = distinct !{!40, !14, !15}

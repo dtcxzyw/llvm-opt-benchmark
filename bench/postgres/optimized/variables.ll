@@ -284,7 +284,7 @@ define dso_local noundef zeroext i1 @SetVariable(ptr noundef captures(address_is
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %.pr.i = load i8, ptr %13, align 1
   %.not.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i, label %valid_variable_name.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %.not.i, label %valid_variable_name.exit, label %.preheader.i, !llvm.loop !7
 
 .loopexit:                                        ; preds = %10, %6
   %.not = icmp eq ptr %2, null
@@ -433,7 +433,7 @@ define dso_local void @SetVariableHooks(ptr noundef captures(address_is_null) %0
   %14 = getelementptr inbounds nuw i8, ptr %.011.i, i64 1
   %.pr.i = load i8, ptr %14, align 1
   %.not.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i, label %valid_variable_name.exit, label %.preheader.i, !llvm.loop !6
+  br i1 %.not.i, label %valid_variable_name.exit, label %.preheader.i, !llvm.loop !7
 
 valid_variable_name.exit:                         ; preds = %13, %29
   %.043 = phi ptr [ %.0, %29 ], [ %0, %13 ]
@@ -599,6 +599,7 @@ attributes #13 = { nounwind willreturn memory(none) }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

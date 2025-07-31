@@ -211,16 +211,16 @@ Abc_Clock.exit:                                   ; preds = %6, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph96 ], [ 0, %.preheader88 ]
   %46 = call i64 @Abc_RandomW(i32 noundef 0) #14
   %47 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
-  store i64 %46, ptr %47, align 8, !tbaa !19
+  store i64 %46, ptr %47, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next, %32
-  br i1 %exitcond107.not, label %.loopexit, label %.lr.ph96, !llvm.loop !20
+  br i1 %exitcond107.not, label %.loopexit, label %.lr.ph96, !llvm.loop !21
 
 48:                                               ; preds = %44
   br i1 %31, label %.lr.ph.preheader.i, label %Abc_TtClear.exit
 
 .lr.ph.preheader.i:                               ; preds = %48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, i8 0, i64 %33, i1 false), !tbaa !19
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %22, i8 0, i64 %33, i1 false), !tbaa !20
   br label %Abc_TtClear.exit
 
 Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.preheader.i
@@ -236,21 +236,21 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
   %52 = lshr i32 %51, 6
   %53 = zext nneg i32 %52 to i64
   %54 = getelementptr inbounds nuw i64, ptr %22, i64 %53
-  %55 = load i64, ptr %54, align 8, !tbaa !19
+  %55 = load i64, ptr %54, align 8, !tbaa !20
   %.reass = and i32 %50, %invariant.op
   %56 = zext nneg i32 %.reass to i64
   %57 = shl nuw i64 1, %56
   %58 = and i64 %57, %55
   %.not75 = icmp eq i64 %58, 0
-  br i1 %.not75, label %59, label %49, !llvm.loop !21
+  br i1 %.not75, label %59, label %49, !llvm.loop !22
 
 59:                                               ; preds = %49
   %60 = getelementptr inbounds nuw i64, ptr %22, i64 %53
   %61 = or i64 %57, %55
-  store i64 %61, ptr %60, align 8, !tbaa !19
+  store i64 %61, ptr %60, align 8, !tbaa !20
   %62 = add nuw nsw i32 %.16694, 1
   %exitcond105.not = icmp eq i32 %62, %1
-  br i1 %exitcond105.not, label %.loopexit, label %.preheader87, !llvm.loop !22
+  br i1 %exitcond105.not, label %.loopexit, label %.preheader87, !llvm.loop !23
 
 .loopexit:                                        ; preds = %59, %.lr.ph96, %Abc_TtClear.exit, %.preheader88
   %63 = call noalias ptr @calloc(i64 noundef %41, i64 noundef 1) #17
@@ -359,7 +359,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %76, %74, %84, %82, 
 109:                                              ; preds = %108, %107
   %110 = add nuw nsw i32 %.197, 1
   %exitcond108.not = icmp eq i32 %110, %2
-  br i1 %exitcond108.not, label %.preheader, label %44, !llvm.loop !23
+  br i1 %exitcond108.not, label %.preheader, label %44, !llvm.loop !24
 
 111:                                              ; preds = %.lr.ph101, %120
   %indvars.iv109 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next110, %120 ]
@@ -379,7 +379,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %76, %74, %84, %82, 
 120:                                              ; preds = %111, %114
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond113.not = icmp eq i64 %indvars.iv.next110, %wide.trip.count112
-  br i1 %exitcond113.not, label %.critedge, label %111, !llvm.loop !24
+  br i1 %exitcond113.not, label %.critedge, label %111, !llvm.loop !25
 
 .critedge:                                        ; preds = %120, %._crit_edge, %.preheader
   %.not = icmp eq ptr %22, null
@@ -506,11 +506,12 @@ attributes #18 = { nounwind allocsize(1) }
 !14 = !{!"timespec", !15, i64 0, !15, i64 8}
 !15 = !{!"long", !5, i64 0}
 !16 = !{!14, !15, i64 8}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = !{!15, !15, i64 0}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!15, !15, i64 0}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}

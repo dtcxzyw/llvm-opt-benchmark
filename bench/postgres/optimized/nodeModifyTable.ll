@@ -272,7 +272,7 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
 .lr.ph.split.split.us._crit_edge:                 ; preds = %.lr.ph.split.split.us, %80, %71
   %.4.us74 = phi i32 [ %.3.us73, %80 ], [ %.05266.us68, %71 ], [ %.05266.us68, %.lr.ph.split.split.us ]
   %exitcond90.not = icmp eq i64 %.pre96, %wide.trip.count94
-  br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
+  br i1 %exitcond90.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph.split.split._crit_edge, %.lr.ph.split.split.us._crit_edge, %.lr.ph.split.us._crit_edge
   %.052.lcssa = phi i32 [ %.4.us, %.lr.ph.split.us._crit_edge ], [ %.4.us74, %.lr.ph.split.split.us._crit_edge ], [ %.4, %.lr.ph.split.split._crit_edge ]
@@ -331,7 +331,7 @@ define dso_local void @ExecInitGenerated(ptr noundef %0, ptr noundef %1, i32 nou
 .lr.ph.split.split._crit_edge:                    ; preds = %.lr.ph.split.split, %104, %100
   %.4 = phi i32 [ %107, %104 ], [ %.05266, %100 ], [ %.05266, %.lr.ph.split.split ]
   %exitcond.not = icmp eq i64 %.pre97, %wide.trip.count94
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !11
 
 ._crit_edge.thread:                               ; preds = %32, %._crit_edge
   call void @pfree(ptr noundef %38) #9
@@ -574,7 +574,7 @@ slot_getallattrs.exit:                            ; preds = %36, %52
 109:                                              ; preds = %93, %97, %89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %70, !llvm.loop !12
 
 110:                                              ; preds = %23, %._crit_edge
   ret void
@@ -691,7 +691,7 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i3
 20:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
 
 21:                                               ; preds = %4
   %22 = call ptr @hash_search(ptr noundef nonnull %7, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #9
@@ -730,7 +730,7 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i3
 36:                                               ; preds = %.lr.ph.split
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %36 ], [ 0, %.lr.ph ]
@@ -1195,7 +1195,7 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %126, %122, %106, %1
 216:                                              ; preds = %193, %209, %205, %200, %185
   %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next481, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %167, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %167, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %216, %.critedge384
   %217 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -1342,7 +1342,7 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %126, %122, %106, %1
   %293 = load i32, ptr %279, align 4
   %294 = sext i32 %293 to i64
   %.not361 = icmp slt i64 %indvars.iv.next490, %294
-  br i1 %.not361, label %.lr.ph456, label %.critedge390, !llvm.loop !15
+  br i1 %.not361, label %.lr.ph456, label %.critedge390, !llvm.loop !16
 
 295:                                              ; preds = %.critedge386
   %296 = load ptr, ptr %33, align 8
@@ -1526,7 +1526,7 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %126, %122, %106, %1
   %402 = getelementptr inbounds nuw i8, ptr %397, i64 88
   %403 = load i8, ptr %402, align 8, !range !4, !noundef !5
   %404 = trunc nuw i8 %403 to i1
-  br i1 %404, label %406, label %405, !prof !16
+  br i1 %404, label %406, label %405, !prof !17
 
 405:                                              ; preds = %390
   tail call void @ExecInitMergeTupleSlots(ptr noundef nonnull %32, ptr noundef nonnull %397)
@@ -1585,7 +1585,7 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %126, %122, %106, %1
   %435 = load i32, ptr %383, align 4
   %436 = sext i32 %435 to i64
   %.not.i398 = icmp slt i64 %indvars.iv.next94.i, %436
-  br i1 %.not.i398, label %390, label %ExecInitMerge.exit, !llvm.loop !17
+  br i1 %.not.i398, label %390, label %ExecInitMerge.exit, !llvm.loop !18
 
 437:                                              ; preds = %.lr.ph470
   %438 = load ptr, ptr %387, align 8
@@ -1702,7 +1702,7 @@ ExecInitMerge.exit:                               ; preds = %.critedge84.i, %381
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   %indvars.iv.next496 = add nuw nsw i64 %indvars.iv495, 1
   %exitcond499.not = icmp eq i64 %indvars.iv.next496, %wide.trip.count498
-  br i1 %exitcond499.not, label %493, label %483, !llvm.loop !18
+  br i1 %exitcond499.not, label %493, label %483, !llvm.loop !19
 
 493:                                              ; preds = %483
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #9
@@ -1800,7 +1800,7 @@ define internal ptr @ExecModifyTable(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14) #9
   %19 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %21, label %20, !prof !16
+  br i1 %.not, label %21, label %20, !prof !17
 
 20:                                               ; preds = %1
   tail call void @ProcessInterrupts() #9
@@ -2000,7 +2000,7 @@ fireBSTriggers.exit:                              ; preds = %39, %46, %48, %50, 
   br i1 %.not170, label %.backedge.backedge, label %.thread196
 
 .backedge.backedge:                               ; preds = %118, %150
-  br label %.backedge
+  br label %.backedge, !llvm.loop !20
 
 124:                                              ; preds = %116
   %125 = load ptr, ptr %89, align 8
@@ -2269,7 +2269,7 @@ ExecGetJunkAttribute.exit181:                     ; preds = %217, %slot_getsomea
   %256 = getelementptr inbounds nuw i8, ptr %.1132, i64 88
   %257 = load i8, ptr %256, align 8, !range !4, !noundef !5
   %258 = trunc nuw i8 %257 to i1
-  br i1 %258, label %260, label %259, !prof !16
+  br i1 %258, label %260, label %259, !prof !17
 
 259:                                              ; preds = %255
   call fastcc void @ExecInitInsertProjection(ptr noundef %0, ptr noundef nonnull %.1132)
@@ -2346,7 +2346,7 @@ ExecGetInsertNewTuple.exit:                       ; preds = %265, %272, %276
   %306 = getelementptr inbounds nuw i8, ptr %.1132, i64 88
   %307 = load i8, ptr %306, align 8, !range !4, !noundef !5
   %308 = trunc nuw i8 %307 to i1
-  br i1 %308, label %310, label %309, !prof !16
+  br i1 %308, label %310, label %309, !prof !17
 
 309:                                              ; preds = %305
   call fastcc void @ExecInitUpdateProjection(ptr noundef %0, ptr noundef nonnull %.1132)
@@ -2380,7 +2380,7 @@ ExecGetInsertNewTuple.exit:                       ; preds = %265, %272, %276
   %324 = load i8, ptr @bsysscan, align 1, !range !4
   %325 = trunc nuw i8 %324 to i1
   %.not5.i = select i1 %323, i1 true, i1 %325
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %326, !prof !16
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %326, !prof !17
 
 326:                                              ; preds = %321
   %327 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -2492,7 +2492,7 @@ ExecMerge.exit.thread467:                         ; preds = %392
   br label %.outer.backedge
 
 .outer.backedge:                                  ; preds = %ExecMerge.exit.thread467, %198, %230, %ExecMerge.exit
-  br label %.outer
+  br label %.outer, !llvm.loop !20
 
 396:                                              ; preds = %392, %383
   %397 = getelementptr inbounds nuw i8, ptr %.1132, i64 80
@@ -2534,7 +2534,7 @@ ExecMerge.exit.thread467:                         ; preds = %392
   %415 = load i8, ptr @bsysscan, align 1, !range !4
   %416 = trunc nuw i8 %415 to i1
   %.not5.i.i.i = select i1 %414, i1 true, i1 %416
-  br i1 %.not5.i.i.i, label %table_tuple_fetch_row_version.exit.i.i, label %417, !prof !16
+  br i1 %.not5.i.i.i, label %table_tuple_fetch_row_version.exit.i.i, label %417, !prof !17
 
 417:                                              ; preds = %412
   %418 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -3059,7 +3059,7 @@ ExecGetJunkAttribute.exit.i.i:                    ; preds = %slot_getsomeattrs.e
   %681 = load i8, ptr @bsysscan, align 1, !range !4
   %682 = trunc nuw i8 %681 to i1
   %.not5.i195.i.i = select i1 %680, i1 true, i1 %682
-  br i1 %.not5.i195.i.i, label %table_tuple_fetch_row_version.exit196.i.i, label %683, !prof !16
+  br i1 %.not5.i195.i.i, label %table_tuple_fetch_row_version.exit196.i.i, label %683, !prof !17
 
 683:                                              ; preds = %678
   %684 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -3410,7 +3410,7 @@ ExecMerge.exit:                                   ; preds = %.thread22.i, %797, 
   %847 = trunc nuw i8 %846 to i1
   call fastcc void @ExecBatchInsert(ptr noundef %838, ptr noundef %837, ptr noundef %840, ptr noundef %842, i32 noundef %844, ptr noundef %16, i1 noundef zeroext %847)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.split.split.i, !llvm.loop !19
+  br label %.split.split.i, !llvm.loop !21
 
 ExecPendingInserts.exit:                          ; preds = %812, %.thread.loopexit.i
   %848 = phi ptr [ %.pre.i187, %.thread.loopexit.i ], [ %811, %812 ]
@@ -3625,14 +3625,14 @@ define dso_local void @ExecEndModifyTable(ptr noundef %0) local_unnamed_addr #0 
   %34 = load i32, ptr %22, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
-  br i1 %36, label %27, label %._crit_edge, !llvm.loop !20
+  br i1 %36, label %27, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %27, %21
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %37 = load i32, ptr %2, align 8
   %38 = sext i32 %37 to i64
   %39 = icmp slt i64 %indvars.iv.next39, %38
-  br i1 %39, label %7, label %._crit_edge36, !llvm.loop !21
+  br i1 %39, label %7, label %._crit_edge36, !llvm.loop !23
 
 ._crit_edge36:                                    ; preds = %._crit_edge, %1
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -4206,7 +4206,7 @@ ExecPrepareTupleRouting.exit:                     ; preds = %44, %42, %6
   %112 = trunc nuw i8 %111 to i1
   tail call fastcc void @ExecBatchInsert(ptr noundef %103, ptr noundef %102, ptr noundef %105, ptr noundef %107, i32 noundef %109, ptr noundef %18, i1 noundef zeroext %112)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.split.split.i, !llvm.loop !19
+  br label %.split.split.i, !llvm.loop !21
 
 ExecPendingInserts.exit:                          ; preds = %77, %.thread.loopexit.i
   %113 = phi ptr [ %.pre.i, %.thread.loopexit.i ], [ %76, %77 ]
@@ -4531,7 +4531,7 @@ ExecPendingInserts.exit:                          ; preds = %77, %.thread.loopex
 .backedge:                                        ; preds = %.backedge.backedge, %296
   %305 = load volatile i32, ptr @InterruptPending, align 4
   %.not261 = icmp eq i32 %305, 0
-  br i1 %.not261, label %307, label %306, !prof !16
+  br i1 %.not261, label %307, label %306, !prof !17
 
 306:                                              ; preds = %.backedge
   call void @ProcessInterrupts() #9
@@ -4835,7 +4835,7 @@ ExecQual.exit:                                    ; preds = %ExecCheckTupleVisib
   %480 = load i8, ptr @bsysscan, align 1, !range !4
   %481 = trunc nuw i8 %480 to i1
   %.not5.i.i = select i1 %479, i1 true, i1 %481
-  br i1 %.not5.i.i, label %table_tuple_fetch_row_version.exit.i, label %482, !prof !16
+  br i1 %.not5.i.i, label %table_tuple_fetch_row_version.exit.i, label %482, !prof !17
 
 482:                                              ; preds = %477
   %483 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -4937,7 +4937,7 @@ ExecCheckTIDVisible.exit:                         ; preds = %473, %ExecCheckTupl
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %539, %468
-  br label %.backedge
+  br label %.backedge, !llvm.loop !24
 
 540:                                              ; preds = %292, %291
   %541 = getelementptr inbounds nuw i8, ptr %18, i64 120
@@ -5196,7 +5196,7 @@ define internal fastcc zeroext i1 @table_tuple_fetch_row_version(ptr noundef %0,
   %6 = load i8, ptr @bsysscan, align 1, !range !4
   %7 = trunc nuw i8 %6 to i1
   %.not5 = select i1 %5, i1 true, i1 %7
-  br i1 %.not5, label %11, label %8, !prof !16
+  br i1 %.not5, label %11, label %8, !prof !17
 
 8:                                                ; preds = %3
   %9 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -5403,7 +5403,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %34, %43, %47
 114:                                              ; preds = %110
   %115 = load i8, ptr %70, align 8, !range !4, !noundef !5
   %116 = trunc nuw i8 %115 to i1
-  br i1 %116, label %119, label %117, !prof !16
+  br i1 %116, label %119, label %117, !prof !17
 
 117:                                              ; preds = %114
   %118 = load ptr, ptr %0, align 8
@@ -5427,7 +5427,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %34, %43, %47
   %127 = load i8, ptr @bsysscan, align 1, !range !4
   %128 = trunc nuw i8 %127 to i1
   %.not5.i = select i1 %126, i1 true, i1 %128
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %129, !prof !16
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %129, !prof !17
 
 129:                                              ; preds = %123
   %130 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -5514,7 +5514,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %123
   %179 = call fastcc i32 @ExecUpdateAct(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %160, i1 noundef zeroext %6, ptr noundef %9)
   %180 = load i8, ptr %9, align 4, !range !4, !noundef !5
   %181 = trunc nuw i8 %180 to i1
-  br i1 %181, label %._crit_edge, label %76
+  br i1 %181, label %._crit_edge, label %76, !llvm.loop !25
 
 182:                                              ; preds = %76
   %183 = load i32, ptr @XactIsoLevel, align 4
@@ -5751,7 +5751,7 @@ define internal fastcc noundef ptr @ExecDelete(ptr noundef nonnull %0, ptr nound
   br i1 %.not131, label %107, label %.critedge
 
 107:                                              ; preds = %103
-  br i1 %.not132, label %56, label %108
+  br i1 %.not132, label %56, label %108, !llvm.loop !26
 
 108:                                              ; preds = %107
   store ptr %101, ptr %9, align 8
@@ -6147,7 +6147,7 @@ define internal fastcc zeroext i1 @ExecUpdatePrologue(ptr noundef nonnull %0, pt
   %72 = trunc nuw i8 %71 to i1
   tail call fastcc void @ExecBatchInsert(ptr noundef %63, ptr noundef %62, ptr noundef %65, ptr noundef %67, i32 noundef %69, ptr noundef %34, i1 noundef zeroext %72)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.split.split.i, !llvm.loop !19
+  br label %.split.split.i, !llvm.loop !21
 
 ExecPendingInserts.exit:                          ; preds = %37, %.thread.loopexit.i
   %73 = phi ptr [ %.pre.i, %.thread.loopexit.i ], [ %36, %37 ]
@@ -6331,7 +6331,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
 98:                                               ; preds = %94
   %99 = load i8, ptr %21, align 8, !range !4, !noundef !5
   %100 = trunc nuw i8 %99 to i1
-  br i1 %100, label %102, label %101, !prof !16
+  br i1 %100, label %102, label %101, !prof !17
 
 101:                                              ; preds = %98
   call fastcc void @ExecInitUpdateProjection(ptr noundef nonnull %51, ptr noundef nonnull %1)
@@ -6344,7 +6344,7 @@ ExecUpdatePrepareSlot.exit:                       ; preds = %24, %33, %37
   %106 = load i8, ptr @bsysscan, align 1, !range !4
   %107 = trunc nuw i8 %106 to i1
   %.not5.i = select i1 %105, i1 true, i1 %107
-  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %108, !prof !16
+  br i1 %.not5.i, label %table_tuple_fetch_row_version.exit, label %108, !prof !17
 
 108:                                              ; preds = %102
   %109 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -6536,7 +6536,7 @@ ExecCrossPartitionUpdate.exit:                    ; preds = %87
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %210 = sext i32 %209 to i64
   %211 = icmp slt i64 %indvars.iv.next.i, %210
-  br i1 %211, label %.lr.ph.i, label %.critedge41.loopexit.i, !llvm.loop !22
+  br i1 %211, label %.lr.ph.i, label %.critedge41.loopexit.i, !llvm.loop !27
 
 .thread4.i:                                       ; preds = %203
   %212 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -6599,7 +6599,7 @@ ExecCrossPartitionUpdateForeignKey.exit:          ; preds = %.critedge41.i, %173
 242:                                              ; preds = %235
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  br label %24
+  br label %24, !llvm.loop !28
 
 243:                                              ; preds = %.thread, %50
   %244 = getelementptr inbounds nuw i8, ptr %17, i64 64
@@ -6763,7 +6763,7 @@ define internal fastcc zeroext i1 @ExecDeletePrologue(ptr noundef nonnull %0, pt
   %55 = trunc nuw i8 %54 to i1
   tail call fastcc void @ExecBatchInsert(ptr noundef %46, ptr noundef %45, ptr noundef %48, ptr noundef %50, i32 noundef %52, ptr noundef %17, i1 noundef zeroext %55)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br label %.split.split.i, !llvm.loop !19
+  br label %.split.split.i, !llvm.loop !21
 
 ExecPendingInserts.exit:                          ; preds = %20, %.thread.loopexit.i
   %56 = phi ptr [ %.pre.i, %.thread.loopexit.i ], [ %19, %20 ]
@@ -7010,7 +7010,7 @@ define internal fastcc void @ExecBatchInsert(ptr noundef readonly captures(none)
   %30 = load i32, ptr %8, align 4
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %19, label %._crit_edge, !llvm.loop !23
+  br i1 %32, label %19, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %29
   %33 = icmp sgt i32 %30, 0
@@ -7051,7 +7051,7 @@ define internal fastcc void @ExecBatchInsert(ptr noundef readonly captures(none)
   call void %51(ptr noundef %47) #9
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge35, label %.lr.ph34, !llvm.loop !30
 
 ._crit_edge35:                                    ; preds = %.lr.ph34, %._crit_edge.thread
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 180
@@ -7115,22 +7115,28 @@ attributes #10 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = distinct !{!11, !7, !8}
 !12 = distinct !{!12, !7, !8}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !8}
+!25 = distinct !{!25, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !8}
+!29 = distinct !{!29, !7, !8}
+!30 = distinct !{!30, !7, !8}

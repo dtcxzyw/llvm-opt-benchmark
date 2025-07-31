@@ -67,7 +67,7 @@ define range(i64 0, 4294967296) i64 @crc32_z(i64 noundef %0, ptr noundef %1, i64
   %29 = getelementptr inbounds nuw i8, ptr %.0176252, i64 40
   %30 = add i64 %31, -1
   %.not = icmp eq i64 %30, 0
-  br i1 %.not, label %._crit_edge255.loopexit, label %.lr.ph254, !llvm.loop !10
+  br i1 %.not, label %._crit_edge255.loopexit, label %.lr.ph254, !llvm.loop !11
 
 .lr.ph254:                                        ; preds = %._crit_edge, %.loopexit
   %31 = phi i64 [ %30, %.loopexit ], [ %28, %._crit_edge ]
@@ -78,23 +78,23 @@ define range(i64 0, 4294967296) i64 @crc32_z(i64 noundef %0, ptr noundef %1, i64
   %.0189248 = phi i32 [ %78, %.loopexit ], [ 0, %._crit_edge ]
   %.0191247 = phi i32 [ %83, %.loopexit ], [ 0, %._crit_edge ]
   %32 = zext i32 %.0185250 to i64
-  %33 = load i64, ptr %.0176252, align 8, !tbaa !11
+  %33 = load i64, ptr %.0176252, align 8, !tbaa !12
   %34 = xor i64 %33, %32
   %35 = zext i32 %.0189248 to i64
   %36 = getelementptr inbounds nuw i8, ptr %.0176252, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !11
+  %37 = load i64, ptr %36, align 8, !tbaa !12
   %38 = xor i64 %37, %35
   %39 = zext i32 %.0191247 to i64
   %40 = getelementptr inbounds nuw i8, ptr %.0176252, i64 16
-  %41 = load i64, ptr %40, align 8, !tbaa !11
+  %41 = load i64, ptr %40, align 8, !tbaa !12
   %42 = xor i64 %41, %39
   %43 = zext i32 %.0187249 to i64
   %44 = getelementptr inbounds nuw i8, ptr %.0176252, i64 24
-  %45 = load i64, ptr %44, align 8, !tbaa !11
+  %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = xor i64 %45, %43
   %47 = zext i32 %.0183251 to i64
   %48 = getelementptr inbounds nuw i8, ptr %.0176252, i64 32
-  %49 = load i64, ptr %48, align 8, !tbaa !11
+  %49 = load i64, ptr %48, align 8, !tbaa !12
   %50 = xor i64 %49, %47
   %51 = and i64 %34, 255
   %52 = getelementptr inbounds nuw [256 x i32], ptr @crc_braid_table, i64 0, i64 %51
@@ -149,7 +149,7 @@ define range(i64 0, 4294967296) i64 @crc32_z(i64 noundef %0, ptr noundef %1, i64
   %93 = xor i32 %92, %.1184244
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit, label %66, !llvm.loop !14
 
 ._crit_edge255.loopexit:                          ; preds = %.loopexit
   %94 = mul nuw i64 %25, 40
@@ -169,7 +169,7 @@ define range(i64 0, 4294967296) i64 @crc32_z(i64 noundef %0, ptr noundef %1, i64
   %.0183.lcssa = phi i64 [ 0, %._crit_edge ], [ %99, %._crit_edge255.loopexit ]
   %.0176.lcssa = phi ptr [ %.1163.lcssa, %._crit_edge ], [ %scevgep, %._crit_edge255.loopexit ]
   %100 = zext i32 %.0185.lcssa to i64
-  %101 = load i64, ptr %.0176.lcssa, align 8, !tbaa !11
+  %101 = load i64, ptr %.0176.lcssa, align 8, !tbaa !12
   %102 = xor i64 %101, %100
   br label %103
 
@@ -184,12 +184,12 @@ define range(i64 0, 4294967296) i64 @crc32_z(i64 noundef %0, ptr noundef %1, i64
   %109 = xor i64 %104, %108
   %110 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %110, 8
-  br i1 %exitcond.not.i, label %crc_word.exit, label %103, !llvm.loop !14
+  br i1 %exitcond.not.i, label %crc_word.exit, label %103, !llvm.loop !15
 
 crc_word.exit:                                    ; preds = %103
   %111 = and i64 %109, 4294967295
   %112 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 8
-  %113 = load i64, ptr %112, align 8, !tbaa !11
+  %113 = load i64, ptr %112, align 8, !tbaa !12
   %114 = xor i64 %111, %.0189.lcssa
   %115 = xor i64 %114, %113
   br label %116
@@ -205,12 +205,12 @@ crc_word.exit:                                    ; preds = %103
   %122 = xor i64 %117, %121
   %123 = add nuw nsw i32 %.07.i214, 1
   %exitcond.not.i216 = icmp eq i32 %123, 8
-  br i1 %exitcond.not.i216, label %crc_word.exit217, label %116, !llvm.loop !14
+  br i1 %exitcond.not.i216, label %crc_word.exit217, label %116, !llvm.loop !15
 
 crc_word.exit217:                                 ; preds = %116
   %124 = and i64 %122, 4294967295
   %125 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 16
-  %126 = load i64, ptr %125, align 8, !tbaa !11
+  %126 = load i64, ptr %125, align 8, !tbaa !12
   %127 = xor i64 %124, %.0191.lcssa
   %128 = xor i64 %127, %126
   br label %129
@@ -226,12 +226,12 @@ crc_word.exit217:                                 ; preds = %116
   %135 = xor i64 %130, %134
   %136 = add nuw nsw i32 %.07.i218, 1
   %exitcond.not.i220 = icmp eq i32 %136, 8
-  br i1 %exitcond.not.i220, label %crc_word.exit221, label %129, !llvm.loop !14
+  br i1 %exitcond.not.i220, label %crc_word.exit221, label %129, !llvm.loop !15
 
 crc_word.exit221:                                 ; preds = %129
   %137 = and i64 %135, 4294967295
   %138 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 24
-  %139 = load i64, ptr %138, align 8, !tbaa !11
+  %139 = load i64, ptr %138, align 8, !tbaa !12
   %140 = xor i64 %137, %.0187.lcssa
   %141 = xor i64 %140, %139
   br label %142
@@ -247,12 +247,12 @@ crc_word.exit221:                                 ; preds = %129
   %148 = xor i64 %143, %147
   %149 = add nuw nsw i32 %.07.i222, 1
   %exitcond.not.i224 = icmp eq i32 %149, 8
-  br i1 %exitcond.not.i224, label %crc_word.exit225, label %142, !llvm.loop !14
+  br i1 %exitcond.not.i224, label %crc_word.exit225, label %142, !llvm.loop !15
 
 crc_word.exit225:                                 ; preds = %142
   %150 = and i64 %148, 4294967295
   %151 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 32
-  %152 = load i64, ptr %151, align 8, !tbaa !11
+  %152 = load i64, ptr %151, align 8, !tbaa !12
   %153 = xor i64 %150, %.0183.lcssa
   %154 = xor i64 %153, %152
   br label %155
@@ -268,7 +268,7 @@ crc_word.exit225:                                 ; preds = %142
   %161 = xor i64 %156, %160
   %162 = add nuw nsw i32 %.07.i226, 1
   %exitcond.not.i228 = icmp eq i32 %162, 8
-  br i1 %exitcond.not.i228, label %crc_word.exit229, label %155, !llvm.loop !14
+  br i1 %exitcond.not.i228, label %crc_word.exit229, label %155, !llvm.loop !15
 
 crc_word.exit229:                                 ; preds = %155
   %163 = getelementptr inbounds nuw i8, ptr %.0176.lcssa, i64 40
@@ -375,7 +375,7 @@ crc_word.exit229:                                 ; preds = %155
   %230 = zext i32 %229 to i64
   %231 = xor i64 %224, %230
   %232 = icmp ugt i64 %167, 7
-  br i1 %232, label %.lr.ph266, label %.preheader, !llvm.loop !15
+  br i1 %232, label %.lr.ph266, label %.preheader, !llvm.loop !16
 
 .lr.ph274:                                        ; preds = %.preheader, %.lr.ph274
   %.4273 = phi i64 [ %241, %.lr.ph274 ], [ %.3.lcssa, %.preheader ]
@@ -393,7 +393,7 @@ crc_word.exit229:                                 ; preds = %155
   %240 = zext i32 %239 to i64
   %241 = xor i64 %234, %240
   %.not198 = icmp eq i64 %233, 0
-  br i1 %.not198, label %._crit_edge275, label %.lr.ph274, !llvm.loop !16
+  br i1 %.not198, label %._crit_edge275, label %.lr.ph274, !llvm.loop !17
 
 ._crit_edge275:                                   ; preds = %.lr.ph274, %.preheader
   %.4.lcssa = phi i64 [ %.3.lcssa, %.preheader ], [ %241, %.lr.ph274 ]
@@ -455,14 +455,14 @@ define range(i64 0, 4294967296) i64 @crc32_combine64(i64 noundef %0, i64 noundef
   %20 = lshr i32 %.012.i.i, 1
   %21 = xor i32 %20, -306674912
   %22 = select i1 %.not13.i.i, i32 %20, i32 %21
-  br label %10
+  br label %10, !llvm.loop !18
 
 multmodp.exit.i:                                  ; preds = %12, %.lr.ph.i
   %.1.i = phi i32 [ %.013.i, %.lr.ph.i ], [ %13, %12 ]
   %23 = ashr i64 %.0811.i, 1
   %24 = add i32 %.0712.i, 1
   %.not.i = icmp ult i64 %.0811.i, 2
-  br i1 %.not.i, label %x2nmodp.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %x2nmodp.exit, label %.lr.ph.i, !llvm.loop !19
 
 x2nmodp.exit:                                     ; preds = %multmodp.exit.i, %3
   %.0.lcssa.i = phi i32 [ -2147483648, %3 ], [ %.1.i, %multmodp.exit.i ]
@@ -492,7 +492,7 @@ x2nmodp.exit:                                     ; preds = %multmodp.exit.i, %3
   %36 = lshr i32 %.012.i, 1
   %37 = xor i32 %36, -306674912
   %38 = select i1 %.not13.i, i32 %36, i32 %37
-  br label %26
+  br label %26, !llvm.loop !18
 
 multmodp.exit:                                    ; preds = %28
   %39 = zext i32 %29 to i64
@@ -544,14 +544,14 @@ define range(i64 0, 4294967296) i64 @crc32_combine(i64 noundef %0, i64 noundef %
   %20 = lshr i32 %.012.i.i.i, 1
   %21 = xor i32 %20, -306674912
   %22 = select i1 %.not13.i.i.i, i32 %20, i32 %21
-  br label %10
+  br label %10, !llvm.loop !18
 
 multmodp.exit.i.i:                                ; preds = %12, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %.013.i.i, %.lr.ph.i.i ], [ %13, %12 ]
   %23 = ashr i64 %.0811.i.i, 1
   %24 = add i32 %.0712.i.i, 1
   %.not.i.i = icmp ult i64 %.0811.i.i, 2
-  br i1 %.not.i.i, label %x2nmodp.exit.i, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.i.i, label %x2nmodp.exit.i, label %.lr.ph.i.i, !llvm.loop !19
 
 x2nmodp.exit.i:                                   ; preds = %multmodp.exit.i.i, %3
   %.0.lcssa.i.i = phi i32 [ -2147483648, %3 ], [ %.1.i.i, %multmodp.exit.i.i ]
@@ -581,7 +581,7 @@ x2nmodp.exit.i:                                   ; preds = %multmodp.exit.i.i, 
   %36 = lshr i32 %.012.i.i, 1
   %37 = xor i32 %36, -306674912
   %38 = select i1 %.not13.i.i, i32 %36, i32 %37
-  br label %26
+  br label %26, !llvm.loop !18
 
 crc32_combine64.exit:                             ; preds = %28
   %39 = zext i32 %29 to i64
@@ -633,14 +633,14 @@ define range(i64 0, 4294967296) i64 @crc32_combine_gen64(i64 noundef %0) local_u
   %18 = lshr i32 %.012.i.i, 1
   %19 = xor i32 %18, -306674912
   %20 = select i1 %.not13.i.i, i32 %18, i32 %19
-  br label %8
+  br label %8, !llvm.loop !18
 
 multmodp.exit.i:                                  ; preds = %10, %.lr.ph.i
   %.1.i = phi i32 [ %.013.i, %.lr.ph.i ], [ %11, %10 ]
   %21 = ashr i64 %.0811.i, 1
   %22 = add i32 %.0712.i, 1
   %.not.i = icmp ult i64 %.0811.i, 2
-  br i1 %.not.i, label %x2nmodp.exit.loopexit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %.not.i, label %x2nmodp.exit.loopexit, label %.lr.ph.i, !llvm.loop !19
 
 x2nmodp.exit.loopexit:                            ; preds = %multmodp.exit.i
   %23 = zext i32 %.1.i to i64
@@ -694,14 +694,14 @@ define range(i64 0, 4294967296) i64 @crc32_combine_gen(i64 noundef %0) local_unn
   %18 = lshr i32 %.012.i.i.i, 1
   %19 = xor i32 %18, -306674912
   %20 = select i1 %.not13.i.i.i, i32 %18, i32 %19
-  br label %8
+  br label %8, !llvm.loop !18
 
 multmodp.exit.i.i:                                ; preds = %10, %.lr.ph.i.i
   %.1.i.i = phi i32 [ %.013.i.i, %.lr.ph.i.i ], [ %11, %10 ]
   %21 = ashr i64 %.0811.i.i, 1
   %22 = add i32 %.0712.i.i, 1
   %.not.i.i = icmp ult i64 %.0811.i.i, 2
-  br i1 %.not.i.i, label %x2nmodp.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !17
+  br i1 %.not.i.i, label %x2nmodp.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !19
 
 x2nmodp.exit.loopexit.i:                          ; preds = %multmodp.exit.i.i
   %23 = zext i32 %.1.i.i to i64
@@ -741,7 +741,7 @@ define range(i64 0, 4294967296) i64 @crc32_combine_op(i64 noundef %0, i64 nounde
   %16 = lshr i32 %.012.i, 1
   %17 = xor i32 %16, -306674912
   %18 = select i1 %.not13.i, i32 %16, i32 %17
-  br label %6
+  br label %6, !llvm.loop !18
 
 multmodp.exit:                                    ; preds = %8
   %19 = zext i32 %9 to i64
@@ -764,13 +764,15 @@ attributes #2 = { nofree norecurse nosync nounwind memory(none) uwtable "min-leg
 !5 = !{!"Simple C/C++ TBAA"}
 !6 = !{!7, !7, i64 0}
 !7 = !{!"int", !4, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"long", !4, i64 0}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !4, i64 0}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !10}
+!19 = distinct !{!19, !9, !10}

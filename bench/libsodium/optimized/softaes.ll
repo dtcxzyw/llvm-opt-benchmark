@@ -150,15 +150,15 @@ define hidden { i64, i64 } @_sodium_softaes_block_encrypt(i64 %0, i64 %1, i64 %2
   store i32 %98, ptr %100, align 4
   %101 = add nuw nsw i64 %.161.i, 1
   %exitcond63.not.i = icmp eq i64 %101, 4
-  br i1 %exitcond63.not.i, label %102, label %68, !llvm.loop !6
+  br i1 %exitcond63.not.i, label %102, label %68, !llvm.loop !7
 
 102:                                              ; preds = %68
   %103 = add nuw nsw i64 %.05862.i, 1
   %exitcond64.not.i = icmp eq i64 %103, 16
-  br i1 %exitcond64.not.i, label %_encrypt.exit, label %.preheader.i, !llvm.loop !7
+  br i1 %exitcond64.not.i, label %_encrypt.exit, label %.preheader.i, !llvm.loop !8
 
 _encrypt.exit:                                    ; preds = %102
-  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #3, !srcloc !8
+  call void asm sideeffect "", "r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5) #3, !srcloc !9
   %104 = lshr i64 %0, 4
   %105 = and i64 %104, 15
   %106 = getelementptr [16 x i32], ptr %5, i64 0, i64 %105
@@ -301,8 +301,9 @@ attributes #3 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = !{i64 19039}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = !{i64 19039}

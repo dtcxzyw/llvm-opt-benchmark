@@ -551,12 +551,12 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
   %40 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(184) %27, ptr noundef %39)
   %.not51.not = icmp eq i32 %40, 0
-  br i1 %.not51.not, label %24, label %.thread
+  br i1 %.not51.not, label %24, label %.thread, !llvm.loop !39
 
 .loopexit:                                        ; preds = %57
   %41 = load i64, ptr %3, align 8, !tbaa !37
   %42 = icmp ult i64 %41, %2
-  br i1 %42, label %43, label %.thread
+  br i1 %42, label %43, label %.thread, !llvm.loop !41
 
 43:                                               ; preds = %.lr.ph, %.loopexit
   %44 = phi i64 [ %.pre, %.lr.ph ], [ %58, %.loopexit ]
@@ -616,7 +616,7 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 %72
   %74 = tail call noundef i32 %71(ptr noundef nonnull align 8 dereferenceable(184) %61, ptr noundef %73)
   %.not44 = icmp eq i32 %74, 0
-  br i1 %.not44, label %57, label %.thread, !llvm.loop !39
+  br i1 %.not44, label %57, label %.thread, !llvm.loop !42
 
 .thread:                                          ; preds = %.loopexit, %70, %36, %24, %.preheader
   %.2 = phi i32 [ 0, %.preheader ], [ 0, %24 ], [ %40, %36 ], [ %74, %70 ], [ 0, %.loopexit ]
@@ -740,4 +740,7 @@ attributes #19 = { builtin nounwind }
 !37 = !{!12, !12, i64 0}
 !38 = !{!13, !12, i64 8}
 !39 = distinct !{!39, !40}
-!40 = !{!"llvm.loop.mustprogress"}
+!40 = !{!"llvm.loop.estimated_trip_count"}
+!41 = distinct !{!41, !40}
+!42 = distinct !{!42, !43, !40}
+!43 = !{!"llvm.loop.mustprogress"}

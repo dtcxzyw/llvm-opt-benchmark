@@ -709,7 +709,7 @@ _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE
   %245 = load i32, ptr %237, align 8
   %246 = zext i32 %245 to i64
   %247 = icmp samesign ult i64 %indvars.iv.next.i.i.i.i.i70, %246
-  br i1 %247, label %240, label %._crit_edge.i.i.i.i.i71, !llvm.loop !8
+  br i1 %247, label %240, label %._crit_edge.i.i.i.i.i71, !llvm.loop !9
 
 ._crit_edge.i.i.i.i.i71:                          ; preds = %240, %236
   %248 = getelementptr inbounds nuw i8, ptr %235, i64 16
@@ -1073,7 +1073,7 @@ define linkonce_odr hidden void @_ZN2OT4cff119accelerator_templ_tIN3CFF25cff1_pr
 _ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i: ; preds = %15, %.lr.ph.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %.not.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i, label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i, label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !10
 
 _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i: ; preds = %_ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i, %5
   store i32 0, ptr %6, align 4
@@ -1123,7 +1123,7 @@ _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i.i:  ; preds = %33, %.lr.ph.i.i.i4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %.not.i.i.i9 = icmp eq i32 %30, 0
-  br i1 %.not.i.i.i9, label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i4, !llvm.loop !10
+  br i1 %.not.i.i.i9, label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i4, !llvm.loop !11
 
 _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i: ; preds = %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i.i, %23
   store i32 0, ptr %24, align 4
@@ -1244,7 +1244,7 @@ _ZN3CFF22cff1_top_dict_values_t4finiEv.exit:      ; preds = %1, %7
 _ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i:    ; preds = %23, %.lr.ph.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i, label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %.not.i.i, label %_ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE13shrink_vectorEj.exit.i: ; preds = %_ZN3CFF23cff1_font_dict_values_tD2Ev.exit.i.i, %13
   store i32 0, ptr %14, align 4
@@ -1294,7 +1294,7 @@ _ZN11hb_vector_tIN3CFF23cff1_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_Z
 _ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i: ; preds = %41, %.lr.ph.i.i4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %.not.i.i9 = icmp eq i32 %38, 0
-  br i1 %.not.i.i9, label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i4, !llvm.loop !9
+  br i1 %.not.i.i9, label %_ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i4, !llvm.loop !10
 
 _ZN11hb_vector_tIN3CFF31cff1_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i: ; preds = %_ZN3CFF31cff1_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i, %31
   store i32 0, ptr %32, align 4
@@ -1357,7 +1357,7 @@ define linkonce_odr hidden void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_pr
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i: ; preds = %15, %.lr.ph.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %.not.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i, label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
+  br i1 %.not.i.i.i, label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !12
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i.i: ; preds = %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i.i, %5
   store i32 0, ptr %6, align 4
@@ -1407,7 +1407,7 @@ _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i:  ; preds = %33, %.lr.ph.i.i.i4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %.not.i.i.i9 = icmp eq i32 %30, 0
-  br i1 %.not.i.i.i9, label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i4, !llvm.loop !12
+  br i1 %.not.i.i.i9, label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i, label %.lr.ph.i.i.i4, !llvm.loop !13
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i.i: ; preds = %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i.i, %23
   store i32 0, ptr %24, align 4
@@ -1528,7 +1528,7 @@ _ZN3CFF22cff2_top_dict_values_t4finiEv.exit:      ; preds = %1, %7
 _ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i:    ; preds = %23, %.lr.ph.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %.not.i.i = icmp eq i32 %20, 0
-  br i1 %.not.i.i, label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %_ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i, !llvm.loop !13
 
 _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE13shrink_vectorEj.exit.i: ; preds = %_ZN3CFF23cff2_font_dict_values_tD2Ev.exit.i.i, %13
   store i32 0, ptr %14, align 4
@@ -1578,7 +1578,7 @@ _ZN11hb_vector_tIN3CFF23cff2_font_dict_values_tELb0EE4finiEv.exit: ; preds = %_Z
 _ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i: ; preds = %41, %.lr.ph.i.i4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   %.not.i.i9 = icmp eq i32 %38, 0
-  br i1 %.not.i.i9, label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i4, !llvm.loop !11
+  br i1 %.not.i.i9, label %_ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i, label %.lr.ph.i.i4, !llvm.loop !12
 
 _ZN11hb_vector_tIN3CFF31cff2_private_dict_values_base_tINS0_10dict_val_tEEELb0EE13shrink_vectorEj.exit.i: ; preds = %_ZN3CFF31cff2_private_dict_values_base_tINS_10dict_val_tEED2Ev.exit.i.i, %31
   store i32 0, ptr %32, align 4
@@ -1618,10 +1618,11 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}

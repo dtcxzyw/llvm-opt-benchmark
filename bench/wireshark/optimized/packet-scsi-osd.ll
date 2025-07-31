@@ -614,7 +614,7 @@ define hidden noundef ptr @osd_lookup_attribute(i32 noundef %0, i32 noundef %1) 
   %16 = getelementptr i8, ptr %.124, i64 48
   %17 = load ptr, ptr %16, align 8
   %.not16 = icmp eq ptr %17, null
-  br i1 %.not16, label %.thread, label %.lr.ph, !llvm.loop !8
+  br i1 %.not16, label %.thread, label %.lr.ph, !llvm.loop !9
 
 .thread:                                          ; preds = %.lr.ph34, %.lr.ph, %14, %.preheader
   %.013 = phi ptr [ null, %.preheader ], [ %.124, %.lr.ph ], [ null, %14 ], [ null, %.lr.ph34 ]
@@ -1205,7 +1205,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %65 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %66 = load i32, ptr %65, align 4
   %67 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %68 = load i8, ptr %67, align 4, !range !9, !noundef !10
+  %68 = load i8, ptr %67, align 4, !range !10, !noundef !11
   %69 = trunc nuw i8 %68 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %66, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %69)
   br label %dissect_osd_attribute_data_in.exit
@@ -1323,7 +1323,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %74 = load i8, ptr %73, align 4, !range !9, !noundef !10
+  %74 = load i8, ptr %73, align 4, !range !10, !noundef !11
   %75 = trunc nuw i8 %74 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %72, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %75)
   br label %dissect_osd_attribute_data_in.exit
@@ -1531,7 +1531,7 @@ dissect_osd_allocation_length.exit251:            ; preds = %78, %72, %dissect_o
   %119 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %120 = load i32, ptr %119, align 4
   %121 = getelementptr inbounds nuw i8, ptr %111, i64 32
-  %122 = load i8, ptr %121, align 4, !range !9, !noundef !10
+  %122 = load i8, ptr %121, align 4, !range !10, !noundef !11
   %123 = trunc nuw i8 %122 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %120, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %123)
   %.pre = load ptr, ptr %12, align 8
@@ -1675,7 +1675,7 @@ select.unfold:                                    ; preds = %150, %153, %154
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   %201 = add i32 %200, 16
   %202 = icmp ult i32 %201, %190
-  br i1 %202, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !11
+  br i1 %202, label %.lr.ph.us, label %.loopexit.us, !llvm.loop !12
 
 .preheader.us:                                    ; preds = %181
   %203 = add i32 %.2269.us, 32
@@ -1686,7 +1686,7 @@ select.unfold:                                    ; preds = %150, %153, %154
   %205 = add i32 %190, -8
   %206 = zext i32 %205 to i64
   %207 = icmp samesign ugt i64 %spec.select239, %206
-  br i1 %207, label %.lr.ph270.split.us, label %.critedge246, !llvm.loop !12
+  br i1 %207, label %.lr.ph270.split.us, label %.critedge246, !llvm.loop !13
 
 .lr.ph270.split:                                  ; preds = %.lr.ph270
   br i1 %.1224, label %.lr.ph270.split.split.us, label %.lr.ph270.split.split
@@ -1709,7 +1709,7 @@ select.unfold:                                    ; preds = %150, %153, %154
   %215 = add i32 %.2269.us273, 8
   %216 = zext i32 %.2269.us273 to i64
   %217 = icmp samesign ugt i64 %spec.select239, %216
-  br i1 %217, label %.lr.ph270.split.split.us, label %.critedge246, !llvm.loop !14
+  br i1 %217, label %.lr.ph270.split.split.us, label %.critedge246, !llvm.loop !15
 
 .lr.ph270.split.split:                            ; preds = %.lr.ph270.split, %.lr.ph270.split.split
   %.2269 = phi i32 [ %220, %.lr.ph270.split.split ], [ %162, %.lr.ph270.split ]
@@ -1718,7 +1718,7 @@ select.unfold:                                    ; preds = %150, %153, %154
   %220 = add i32 %.2269, 8
   %221 = zext i32 %.2269 to i64
   %222 = icmp samesign ugt i64 %spec.select239, %221
-  br i1 %222, label %.lr.ph270.split.split, label %.critedge246
+  br i1 %222, label %.lr.ph270.split.split, label %.critedge246, !llvm.loop !16
 
 .critedge246:                                     ; preds = %.lr.ph270.split.split, %214, %.loopexit.us, %181, %177, %.critedge, %select.unfold, %dissect_osd_attribute_data_in.exit, %106
   ret void
@@ -1836,7 +1836,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %77 = load i8, ptr %76, align 4, !range !9, !noundef !10
+  %77 = load i8, ptr %76, align 4, !range !10, !noundef !11
   %78 = trunc nuw i8 %77 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %78)
   br label %dissect_osd_attribute_data_in.exit
@@ -1957,7 +1957,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %77 = load i8, ptr %76, align 4, !range !9, !noundef !10
+  %77 = load i8, ptr %76, align 4, !range !10, !noundef !11
   %78 = trunc nuw i8 %77 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %78)
   br label %dissect_osd_attribute_data_in.exit
@@ -2075,7 +2075,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %71 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %72 = load i32, ptr %71, align 4
   %73 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %74 = load i8, ptr %73, align 4, !range !9, !noundef !10
+  %74 = load i8, ptr %73, align 4, !range !10, !noundef !11
   %75 = trunc nuw i8 %74 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %72, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %75)
   br label %dissect_osd_attribute_data_in.exit
@@ -2191,7 +2191,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %15, %18, %21
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %73 = load i8, ptr %72, align 4, !range !9, !noundef !10
+  %73 = load i8, ptr %72, align 4, !range !10, !noundef !11
   %74 = trunc nuw i8 %73 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %74)
   br label %dissect_osd_attribute_data_in.exit
@@ -2306,7 +2306,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %68 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %69 = load i32, ptr %68, align 4
   %70 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %71 = load i8, ptr %70, align 4, !range !9, !noundef !10
+  %71 = load i8, ptr %70, align 4, !range !10, !noundef !11
   %72 = trunc nuw i8 %71 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %69, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %72)
   br label %dissect_osd_attribute_data_in.exit
@@ -2504,7 +2504,7 @@ dissect_osd2_cdb_continuation_length.exit:        ; preds = %56, %54, %dissect_o
   %112 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %113 = load i32, ptr %112, align 4
   %114 = getelementptr inbounds nuw i8, ptr %104, i64 32
-  %115 = load i8, ptr %114, align 4, !range !9, !noundef !10
+  %115 = load i8, ptr %114, align 4, !range !10, !noundef !11
   %116 = trunc nuw i8 %115 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %113, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %116)
   br label %dissect_osd_attribute_data_in.exit
@@ -2702,7 +2702,7 @@ dissect_osd2_cdb_continuation_length.exit:        ; preds = %70, %68, %dissect_o
   %107 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %108 = load i32, ptr %107, align 4
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %110 = load i8, ptr %109, align 4, !range !9, !noundef !10
+  %110 = load i8, ptr %109, align 4, !range !10, !noundef !11
   %111 = trunc nuw i8 %110 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %108, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %111)
   br label %dissect_osd_attribute_data_in.exit
@@ -2861,7 +2861,7 @@ dissect_osd2_cdb_continuation_length.exit:        ; preds = %57, %55, %dissect_o
   %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %95 = load i8, ptr %94, align 4, !range !9, !noundef !10
+  %95 = load i8, ptr %94, align 4, !range !10, !noundef !11
   %96 = trunc nuw i8 %95 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %96)
   br label %dissect_osd_attribute_data_in.exit
@@ -3020,7 +3020,7 @@ dissect_osd2_cdb_continuation_length.exit:        ; preds = %57, %55, %dissect_o
   %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %95 = load i8, ptr %94, align 4, !range !9, !noundef !10
+  %95 = load i8, ptr %94, align 4, !range !10, !noundef !11
   %96 = trunc nuw i8 %95 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %96)
   br label %dissect_osd_attribute_data_in.exit
@@ -3141,7 +3141,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %77 = load i8, ptr %76, align 4, !range !9, !noundef !10
+  %77 = load i8, ptr %76, align 4, !range !10, !noundef !11
   %78 = trunc nuw i8 %77 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %75, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %78)
   br label %dissect_osd_attribute_data_in.exit
@@ -3258,7 +3258,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %71 = load i32, ptr %70, align 4
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %73 = load i8, ptr %72, align 4, !range !9, !noundef !10
+  %73 = load i8, ptr %72, align 4, !range !10, !noundef !11
   %74 = trunc nuw i8 %73 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %71, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %74)
   br label %dissect_osd_attribute_data_in.exit
@@ -3423,7 +3423,7 @@ dissect_osd2_cdb_continuation_length.exit:        ; preds = %59, %57, %dissect_o
   %96 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %97 = load i32, ptr %96, align 4
   %98 = getelementptr inbounds nuw i8, ptr %88, i64 32
-  %99 = load i8, ptr %98, align 4, !range !9, !noundef !10
+  %99 = load i8, ptr %98, align 4, !range !10, !noundef !11
   %100 = trunc nuw i8 %99 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %97, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %100)
   br label %dissect_osd_attribute_data_in.exit
@@ -3545,7 +3545,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %13, %16, %19
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %77 = load i32, ptr %76, align 4
   %78 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %79 = load i8, ptr %78, align 4, !range !9, !noundef !10
+  %79 = load i8, ptr %78, align 4, !range !10, !noundef !11
   %80 = trunc nuw i8 %79 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %77, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %80)
   br label %dissect_osd_attribute_data_in.exit
@@ -3663,7 +3663,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %15, %18, %21
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %73 = load i32, ptr %72, align 4
   %74 = getelementptr inbounds nuw i8, ptr %64, i64 32
-  %75 = load i8, ptr %74, align 4, !range !9, !noundef !10
+  %75 = load i8, ptr %74, align 4, !range !10, !noundef !11
   %76 = trunc nuw i8 %75 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %73, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %76)
   br label %dissect_osd_attribute_data_in.exit
@@ -3776,7 +3776,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %15, %18, %21
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %68 = load i32, ptr %67, align 4
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %70 = load i8, ptr %69, align 4, !range !9, !noundef !10
+  %70 = load i8, ptr %69, align 4, !range !10, !noundef !11
   %71 = trunc nuw i8 %70 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %68, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %71)
   br label %dissect_osd_attribute_data_in.exit
@@ -3886,7 +3886,7 @@ dissect_osd_getsetattrib.exit:                    ; preds = %11, %15, %18, %21
   %64 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %65 = load i32, ptr %64, align 4
   %66 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %67 = load i8, ptr %66, align 4, !range !9, !noundef !10
+  %67 = load i8, ptr %66, align 4, !range !10, !noundef !11
   %68 = trunc nuw i8 %67 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %68)
   br label %dissect_osd_attribute_data_in.exit
@@ -4045,7 +4045,7 @@ dissect_osd2_cdb_continuation_length.exit:        ; preds = %55, %57
   %92 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %95 = load i8, ptr %94, align 4, !range !9, !noundef !10
+  %95 = load i8, ptr %94, align 4, !range !10, !noundef !11
   %96 = trunc nuw i8 %95 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %93, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %96)
   br label %dissect_osd_attribute_data_in.exit
@@ -4222,7 +4222,7 @@ dissect_osd2_cdb_continuation_length.exit:        ; preds = %65, %67
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %102 = load i32, ptr %101, align 4
   %103 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %104 = load i8, ptr %103, align 4, !range !9, !noundef !10
+  %104 = load i8, ptr %103, align 4, !range !10, !noundef !11
   %105 = trunc nuw i8 %104 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %1, ptr noundef %0, i32 noundef %102, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %105)
   %.pre = load ptr, ptr %11, align 8
@@ -4276,7 +4276,7 @@ dissect_osd_attribute_data_in.exit:               ; preds = %89, %90, %91, %94, 
   %.reass = add i32 %.1127, 4
   %132 = zext i32 %.reass to i64
   %133 = icmp samesign ugt i64 %spec.select123, %132
-  br i1 %133, label %.lr.ph, label %.loopexit, !llvm.loop !15
+  br i1 %133, label %.lr.ph, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %127, %dissect_osd_attribute_data_in.exit, %88
   ret void
@@ -4338,7 +4338,7 @@ define internal fastcc void @dissect_osd_attribute_parameters(ptr noundef %0, pt
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %16 = load i8, ptr %15, align 2
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %18 = load i8, ptr %17, align 4, !range !9, !noundef !10
+  %18 = load i8, ptr %17, align 4, !range !10, !noundef !11
   %19 = trunc nuw i8 %18 to i1
   switch i8 %16, label %137 [
     i8 1, label %20
@@ -4799,7 +4799,7 @@ define internal fastcc void @dissect_osd_attribute_data_out(ptr noundef %0, ptr 
   %22 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %1, i32 noundef %20, i32 noundef %17, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.295)
   %23 = load i32, ptr %19, align 4
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %25 = load i8, ptr %24, align 4, !range !9, !noundef !10
+  %25 = load i8, ptr %24, align 4, !range !10, !noundef !11
   %26 = trunc nuw i8 %25 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr noundef %1, i32 noundef %23, ptr noundef %22, ptr noundef %4, i1 noundef zeroext %26)
   br label %27
@@ -4817,7 +4817,7 @@ define internal fastcc void @dissect_osd_attribute_data_out(ptr noundef %0, ptr 
   %34 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %1, i32 noundef %32, i32 noundef %29, i32 noundef %33, ptr noundef null, ptr noundef nonnull @.str.296)
   %35 = load i32, ptr %31, align 4
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %37 = load i8, ptr %36, align 4, !range !9, !noundef !10
+  %37 = load i8, ptr %36, align 4, !range !10, !noundef !11
   %38 = trunc nuw i8 %37 to i1
   tail call fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr noundef %1, i32 noundef %35, ptr noundef %34, ptr noundef %4, i1 noundef zeroext %38)
   br label %39
@@ -4970,7 +4970,7 @@ define internal fastcc void @dissect_osd_attributes_list(ptr noundef %0, ptr nou
   %71 = getelementptr i8, ptr %.124.i, i64 48
   %72 = load ptr, ptr %71, align 8
   %.not16.i = icmp eq ptr %72, null
-  br i1 %.not16.i, label %osd_lookup_attribute.exit.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not16.i, label %osd_lookup_attribute.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 osd_lookup_attribute.exit:                        ; preds = %.lr.ph.i
   %.not = icmp eq ptr %.124.i, null
@@ -5012,7 +5012,7 @@ osd_lookup_attribute.exit.thread:                 ; preds = %.lr.ph, %69, %.preh
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7
   %87 = sub i32 %.2, %2
   %88 = icmp ult i32 %87, %29
-  br i1 %88, label %.lr.ph108, label %.loopexit
+  br i1 %88, label %.lr.ph108, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %86, %27, %.thread98
   ret void
@@ -5073,7 +5073,7 @@ define internal fastcc i32 @dissect_osd_attribute_list_entry(ptr noundef %0, ptr
   %33 = getelementptr i8, ptr %.124.i, i64 48
   %34 = load ptr, ptr %33, align 8
   %.not16.i = icmp eq ptr %34, null
-  br i1 %.not16.i, label %osd_lookup_attribute.exit.thread, label %.lr.ph.i, !llvm.loop !8
+  br i1 %.not16.i, label %osd_lookup_attribute.exit.thread, label %.lr.ph.i, !llvm.loop !9
 
 osd_lookup_attribute.exit:                        ; preds = %.lr.ph.i
   %.not = icmp eq ptr %.124.i, null
@@ -5276,7 +5276,7 @@ define internal fastcc void @dissect_osd2_cdb_continuation(ptr noundef %0, ptr n
   %79 = getelementptr i8, ptr %.124.i.i, i64 48
   %80 = load ptr, ptr %79, align 8
   %.not16.i.i = icmp eq ptr %80, null
-  br i1 %.not16.i.i, label %osd_lookup_attribute.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not16.i.i, label %osd_lookup_attribute.exit.thread.i, label %.lr.ph.i.i, !llvm.loop !9
 
 osd_lookup_attribute.exit.i:                      ; preds = %.lr.ph.i.i
   %.not.i = icmp eq ptr %.124.i.i, null
@@ -5316,7 +5316,7 @@ osd_lookup_attribute.exit.thread.i:               ; preds = %.lr.ph.i, %77, %osd
 99:                                               ; preds = %.lr.ph82.i
   %100 = add nuw nsw i32 %.06781.i, 1
   %exitcond.not.i = icmp eq i32 %100, %95
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph82.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph82.i, !llvm.loop !19
 
 .lr.ph82.i:                                       ; preds = %.preheader.i, %99
   %.06781.i = phi i32 [ %100, %99 ], [ 0, %.preheader.i ]
@@ -5333,7 +5333,7 @@ osd_lookup_attribute.exit.thread.i:               ; preds = %.lr.ph.i, %77, %osd
 
 .critedge.i:                                      ; preds = %._crit_edge.i, %85
   %106 = icmp ult i32 %97, %49
-  br i1 %106, label %.lr.ph85.i, label %dissect_osd2_query_list_descriptor.exit
+  br i1 %106, label %.lr.ph85.i, label %dissect_osd2_query_list_descriptor.exit, !llvm.loop !20
 
 107:                                              ; preds = %.lr.ph
   %108 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %35, ptr noundef nonnull @ei_osd2_cdb_continuation_descriptor_type_unknown)
@@ -5357,7 +5357,7 @@ dissect_osd2_query_list_descriptor.exit:          ; preds = %.critedge.i, %.lr.p
   %spec.select80 = add i32 %116, %47
   %117 = load i32, ptr %13, align 4
   %118 = icmp ult i32 %spec.select80, %117
-  br i1 %118, label %.lr.ph, label %.thread, !llvm.loop !17
+  br i1 %118, label %.lr.ph, label %.thread, !llvm.loop !21
 
 .thread:                                          ; preds = %112, %30, %5, %6, %.thread83, %9, %12, %20
   ret void
@@ -5383,15 +5383,19 @@ attributes #7 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !8, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !8, !14}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !8}
+!21 = distinct !{!21, !7, !8}

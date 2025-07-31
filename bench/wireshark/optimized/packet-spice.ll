@@ -1809,7 +1809,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.4 = phi i32 [ %215, %214 ], [ %226, %222 ]
   %228 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %229 = icmp ult i32 %.4, %228
-  br i1 %229, label %.lr.ph544, label %._crit_edge, !llvm.loop !8
+  br i1 %229, label %.lr.ph544, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %227, %200
   %.2441.lcssa = phi i32 [ 0, %200 ], [ %.3442, %227 ]
@@ -1919,7 +1919,7 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %.6 = phi i32 [ %266, %264 ], [ %281, %274 ]
   %283 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %284 = icmp ult i32 %.6, %283
-  br i1 %284, label %252, label %.loopexit, !llvm.loop !9
+  br i1 %284, label %252, label %.loopexit, !llvm.loop !10
 
 .lr.ph536:                                        ; preds = %.preheader498, %303
   %.7535 = phi i32 [ %311, %303 ], [ 0, %.preheader498 ]
@@ -1969,17 +1969,17 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   %311 = add i32 %292, %308
   %312 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %313 = icmp ult i32 %311, %312
-  br i1 %313, label %.lr.ph536, label %.loopexit, !llvm.loop !10
+  br i1 %313, label %.lr.ph536, label %.loopexit, !llvm.loop !11
 
 314:                                              ; preds = %.lr.ph, %581
   %.8533 = phi i32 [ 0, %.lr.ph ], [ %.9, %581 ]
   %315 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.8533)
-  %316 = load i8, ptr %55, align 4, !range !11, !noundef !12
+  %316 = load i8, ptr %55, align 4, !range !12, !noundef !13
   %317 = trunc nuw i8 %316 to i1
   br i1 %317, label %318, label %327
 
 318:                                              ; preds = %314
-  %319 = load i8, ptr %56, align 1, !range !11, !noundef !12
+  %319 = load i8, ptr %56, align 1, !range !12, !noundef !13
   %320 = trunc nuw i8 %319 to i1
   br i1 %320, label %321, label %327
 
@@ -2035,12 +2035,12 @@ define internal i32 @dissect_spice(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
   store ptr null, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #5
-  %347 = load i8, ptr %55, align 4, !range !11, !noundef !12
+  %347 = load i8, ptr %55, align 4, !range !12, !noundef !13
   %348 = trunc nuw i8 %347 to i1
   br i1 %348, label %349, label %369
 
 349:                                              ; preds = %346
-  %350 = load i8, ptr %56, align 1, !range !11, !noundef !12
+  %350 = load i8, ptr %56, align 1, !range !12, !noundef !13
   %351 = trunc nuw i8 %350 to i1
   br i1 %351, label %352, label %369
 
@@ -2411,7 +2411,7 @@ dissect_spice_data_client_pdu.exit:               ; preds = %382, %383, %387, %3
   %.9 = phi i32 [ %.085.i, %dissect_spice_data_client_pdu.exit ], [ %580, %579 ]
   %582 = call i32 @tvb_reported_length(ptr noundef %0)
   %583 = icmp ult i32 %.9, %582
-  br i1 %583, label %314, label %.loopexit, !llvm.loop !13
+  br i1 %583, label %314, label %.loopexit, !llvm.loop !14
 
 584:                                              ; preds = %38
   %585 = getelementptr inbounds nuw i8, ptr %.0434, i64 8
@@ -2683,7 +2683,7 @@ dissect_spice_link_common_header.exit:            ; preds = %10, %5, %4
   %.1.us.i = add i32 %.027.us.i, 4
   %52 = add nuw i32 %.02326.us.i, 1
   %exitcond31.not.i = icmp eq i32 %52, %25
-  br i1 %exitcond31.not.i, label %dissect_spice_common_capabilities.exit, label %.split.us.i, !llvm.loop !14
+  br i1 %exitcond31.not.i, label %dissect_spice_common_capabilities.exit, label %.split.us.i, !llvm.loop !15
 
 dissect_spice_common_capabilities.exit:           ; preds = %51
   %53 = add i32 %40, 34
@@ -2782,7 +2782,7 @@ dissect_spice_link_common_header.exit:            ; preds = %5, %10
   %.1.i = add i32 %.027.i, 4
   %42 = add nuw i32 %.02326.i, 1
   %exitcond.not.i = icmp eq i32 %42, %29
-  br i1 %exitcond.not.i, label %dissect_spice_common_capabilities.exit, label %.split.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %dissect_spice_common_capabilities.exit, label %.split.i, !llvm.loop !17
 
 dissect_spice_common_capabilities.exit:           ; preds = %41
   %43 = add i32 %32, 194
@@ -2837,13 +2837,13 @@ define internal fastcc i32 @dissect_spice_data_server_pdu(ptr noundef %0, ptr no
   store ptr null, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %12 = load i8, ptr %11, align 4, !range !11, !noundef !12
+  %12 = load i8, ptr %11, align 4, !range !12, !noundef !13
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %40
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 33
-  %16 = load i8, ptr %15, align 1, !range !11, !noundef !12
+  %16 = load i8, ptr %15, align 1, !range !12, !noundef !13
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %40
 
@@ -3057,7 +3057,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %152 = add i32 %.167.i, 2
   %153 = add nuw i8 %.06566.i, 1
   %exitcond.not.i = icmp eq i8 %153, %142
-  br i1 %exitcond.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph.i, !llvm.loop !18
 
 154:                                              ; preds = %110
   %155 = load i32, ptr @hf_audio_mute, align 4
@@ -3103,7 +3103,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %177 = add i32 %.126.i, 2
   %178 = add nuw i8 %.02425.i, 1
   %exitcond.not.i139 = icmp eq i8 %178, %167
-  br i1 %exitcond.not.i139, label %dissect_spice_playback_server.exit, label %.lr.ph.i138, !llvm.loop !18
+  br i1 %exitcond.not.i139, label %dissect_spice_playback_server.exit, label %.lr.ph.i138, !llvm.loop !19
 
 179:                                              ; preds = %165
   %180 = load i32, ptr @hf_audio_mute, align 4
@@ -3224,7 +3224,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %258 = add i32 %.1160.i, 2
   %259 = add nuw i32 %.0156159.i, 1
   %exitcond.not.i143 = icmp eq i32 %259, %241
-  br i1 %exitcond.not.i143, label %dissect_spice_playback_server.exit, label %.lr.ph.i142, !llvm.loop !19
+  br i1 %exitcond.not.i143, label %dissect_spice_playback_server.exit, label %.lr.ph.i142, !llvm.loop !20
 
 260:                                              ; preds = %186
   %hf_supported_mouse_modes_flags.val.i157.i = load i32, ptr @hf_supported_mouse_modes_flags, align 4
@@ -3435,7 +3435,7 @@ dissect_spice_mini_data_header.exit:              ; preds = %18, %30
   %375 = call ptr @proto_tree_add_item(ptr noundef %371, i32 noundef %374, ptr noundef %0, i32 noundef %.1455.i, i32 noundef 8, i32 noundef -2147483648)
   %376 = add i32 %.1455.i, 9
   %exitcond466.not.i = icmp eq i32 %indvars.iv.next463.i, %wide.trip.count465.i
-  br i1 %exitcond466.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph456.i, !llvm.loop !20
+  br i1 %exitcond466.not.i, label %dissect_spice_playback_server.exit, label %.lr.ph456.i, !llvm.loop !21
 
 377:                                              ; preds = %348
   %378 = call fastcc i32 @dissect_DisplayBase(ptr noundef %0, ptr noundef %.0131, i32 noundef %55)
@@ -3797,7 +3797,7 @@ dissect_Clip.exit447.i:                           ; preds = %559, %528
   %658 = add i32 %.3453.i, 28
   %indvars.iv.next.i = add nuw nsw i32 %indvars.iv.i, 1
   %exitcond.not.i148 = icmp eq i32 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.i147, !llvm.loop !21
+  br i1 %exitcond.not.i148, label %dissect_spice_playback_server.exit, label %.lr.ph.i147, !llvm.loop !22
 
 659:                                              ; preds = %348
   %660 = load i32, ptr @hf_display_stream_id, align 4
@@ -4022,7 +4022,7 @@ define internal fastcc void @dissect_spice_link_capabilities(ptr noundef %0, ptr
   %27 = add i32 %.03035, 4
   %28 = add nuw i32 %.036, 1
   %exitcond.not = icmp eq i32 %28, %4
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !23
 
 .loopexit:                                        ; preds = %26, %22, %14, %12, %10, %24
   ret void
@@ -4275,7 +4275,7 @@ define internal fastcc noundef i32 @dissect_spice_agent_message(ptr noundef %0, 
   %51 = add i32 %.1116, 20
   %52 = add nuw i32 %.0117, 1
   %exitcond.not = icmp eq i32 %52, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
 
 53:                                               ; preds = %7
   %54 = load i32, ptr @hf_vd_agent_reply_type, align 4
@@ -4555,7 +4555,7 @@ dissect_Clip.exit:                                ; preds = %3, %16
   %32 = add i32 %.023.i, 16
   %33 = add nuw i32 %.02022.i, 1
   %exitcond.not.i = icmp eq i32 %33, %24
-  br i1 %exitcond.not.i, label %dissect_RectList.exit, label %.lr.ph.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %dissect_RectList.exit, label %.lr.ph.i, !llvm.loop !25
 
 dissect_RectList.exit:                            ; preds = %.lr.ph.i, %22, %25
   %34 = load ptr, ptr %4, align 8
@@ -5017,7 +5017,7 @@ define internal fastcc range(i32 4, -8) i32 @dissect_RectList(ptr noundef %0, pt
   %12 = add i32 %.023, 16
   %13 = add nuw i32 %.02022, 1
   %exitcond.not = icmp eq i32 %13, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %3, %5
   ret i32 %.pre25
@@ -5171,22 +5171,23 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = !{i8 0, i8 2}
-!12 = !{}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7, !15}
-!15 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8, !16}
+!16 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}

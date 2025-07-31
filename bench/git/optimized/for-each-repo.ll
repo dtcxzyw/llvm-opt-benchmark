@@ -144,7 +144,7 @@ define dso_local i32 @cmd_for_each_repo(i32 noundef %0, ptr noundef %1, ptr noun
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !26
   %.not29.us = icmp ult i64 %54, %57
-  br i1 %.not29.us, label %.lr.ph.preheader.i.us, label %.loopexit, !llvm.loop !34
+  br i1 %.not29.us, label %.lr.ph.preheader.i.us, label %.loopexit, !llvm.loop !35
 
 run_command_on_repo.exit.loopexit.us:             ; preds = %.lr.ph.i.us
   call void @free(ptr noundef %47) #9
@@ -183,7 +183,7 @@ run_command_on_repo.exit:                         ; preds = %.lr.ph, %67
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !26
   %.not29 = icmp ult i64 %68, %71
-  br i1 %.not29, label %run_command_on_repo.exit, label %.loopexit, !llvm.loop !36
+  br i1 %.not29, label %run_command_on_repo.exit, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %65, %67, %51, %53, %.preheader, %37
   %.0 = phi i32 [ 0, %37 ], [ 0, %.preheader ], [ %58, %51 ], [ %.322.ph.us, %53 ], [ %64, %65 ], [ %.322.ph, %67 ]
@@ -206,7 +206,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint nounwind uwtable
 define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #5 {
-  %2 = load i8, ptr %0, align 1, !tbaa !37
+  %2 = load i8, ptr %0, align 1, !tbaa !38
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %7, label %3
 
@@ -295,9 +295,10 @@ attributes #10 = { noreturn nounwind }
 !29 = !{!27, !28, i64 0}
 !30 = !{!31, !10, i64 0}
 !31 = !{!"string_list_item", !10, i64 0, !11, i64 8}
-!32 = distinct !{!32, !33}
+!32 = distinct !{!32, !33, !34}
 !33 = !{!"llvm.loop.mustprogress"}
-!34 = distinct !{!34, !33, !35}
-!35 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!36 = distinct !{!36, !33}
-!37 = !{!6, !6, i64 0}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !33, !34, !36}
+!36 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!37 = distinct !{!37, !33, !34}
+!38 = !{!6, !6, i64 0}

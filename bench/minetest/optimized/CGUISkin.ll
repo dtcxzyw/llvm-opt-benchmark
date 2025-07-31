@@ -1147,7 +1147,7 @@ for.body.i.prol:                                  ; preds = %for.body.i.preheade
   %indvars.iv.next.i.prol = add nuw nsw i64 %indvars.iv.i.prol, 1
   %prol.iter.next = add nuw nsw i64 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i64 %prol.iter.next, %xtraiter
-  br i1 %prol.iter.cmp.not, label %for.body.i.prol.loopexit, label %for.body.i.prol, !llvm.loop !34
+  br i1 %prol.iter.cmp.not, label %for.body.i.prol.loopexit, label %for.body.i.prol, !llvm.loop !35
 
 for.body.i.prol.loopexit:                         ; preds = %for.body.i.prol, %for.body.i.preheader
   %indvars.iv.i.unr = phi i64 [ %indvars.iv.i.ph, %for.body.i.preheader ], [ %indvars.iv.next.i.prol, %for.body.i.prol ]
@@ -1178,7 +1178,7 @@ for.body.i:                                       ; preds = %for.body.i.prol.loo
   store i32 %17, ptr %arrayidx.i.i.3, align 4, !tbaa !18
   %indvars.iv.next.i.3 = add nuw nsw i64 %indvars.iv.i, 4
   %exitcond.not.i.3 = icmp eq i64 %indvars.iv.next.i.3, %conv.i
-  br i1 %exitcond.not.i.3, label %if.end, label %for.body.i, !llvm.loop !36
+  br i1 %exitcond.not.i.3, label %if.end, label %for.body.i, !llvm.loop !37
 
 if.end:                                           ; preds = %for.body.i, %for.body.i.prol.loopexit, %middle.block, %if.end.i, %_ZN3irr4core6stringIwE5clearEb.exit.i, %entry
   ret void
@@ -1195,7 +1195,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rect) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 612
   %1 = load i32, ptr %Type, align 4, !tbaa !21
   %cmp = icmp eq i32 %1, 2
@@ -1288,7 +1288,7 @@ if.end15:                                         ; preds = %if.end
   %27 = add nsw <2 x i32> %26, splat (i32 -1)
   store <2 x i32> %27, ptr %LowerRightCorner, align 8, !tbaa !22
   %UseGradient = getelementptr inbounds nuw i8, ptr %this, i64 608
-  %28 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
+  %28 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !39, !noundef !40
   %tobool61.not = icmp eq i8 %28, 0
   br i1 %tobool61.not, label %if.then62, label %if.else
 
@@ -1385,7 +1385,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rect) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %1 = load ptr, ptr %vtable, align 8
   %call = tail call i32 %1(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 3) #16
@@ -1420,7 +1420,7 @@ if.end:                                           ; preds = %entry
   %14 = add nsw <2 x i32> %13, splat (i32 1)
   store <2 x i32> %14, ptr %rect, align 8, !tbaa !22
   %UseGradient = getelementptr inbounds nuw i8, ptr %this, i64 608
-  %15 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
+  %15 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !39, !noundef !40
   %tobool36.not = icmp eq i8 %15, 0
   br i1 %tobool36.not, label %if.then37, label %if.else
 
@@ -1517,7 +1517,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rect) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   br i1 %fillBackGround, label %if.then4, label %if.end7
 
 if.then4:                                         ; preds = %if.end
@@ -1531,11 +1531,11 @@ if.then4:                                         ; preds = %if.end
 if.end7:                                          ; preds = %if.then4, %if.end
   %2 = phi ptr [ %.pre, %if.then4 ], [ %0, %if.end ]
   %Y = getelementptr inbounds nuw i8, ptr %rect, i64 4
-  %3 = load i32, ptr %Y, align 4, !tbaa !40
+  %3 = load i32, ptr %Y, align 4, !tbaa !41
   %add = add nsw i32 %3, 1
   %LowerRightCorner = getelementptr inbounds nuw i8, ptr %rect, i64 8
   %Y10 = getelementptr inbounds nuw i8, ptr %rect, i64 12
-  store i32 %add, ptr %Y10, align 4, !tbaa !43
+  store i32 %add, ptr %Y10, align 4, !tbaa !44
   %vtable13 = load ptr, ptr %this, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable13, align 8
   %call = call i32 %4(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 1) #16
@@ -1547,8 +1547,8 @@ if.end7:                                          ; preds = %if.then4, %if.end
 
 if.then9:                                         ; preds = %if.end7
   %Y22 = getelementptr inbounds nuw i8, ptr %r, i64 12
-  %6 = load i32, ptr %Y22, align 4, !tbaa !43
-  store i32 %6, ptr %Y10, align 4, !tbaa !43
+  %6 = load i32, ptr %Y22, align 4, !tbaa !44
+  store i32 %6, ptr %Y10, align 4, !tbaa !44
   %7 = load <2 x i32>, ptr %rect, align 16, !tbaa !22
   %8 = add nsw <2 x i32> %7, splat (i32 1)
   %9 = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -1561,7 +1561,7 @@ if.then9:                                         ; preds = %if.end7
   %vfn37 = getelementptr inbounds nuw i8, ptr %vtable36, i64 408
   %12 = load ptr, ptr %vfn37, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 %call33, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %13 = load <2 x i32>, ptr %Y, align 4, !tbaa !22
   %14 = add nsw <2 x i32> %13, <i32 1, i32 -1>
   %15 = shufflevector <2 x i32> %14, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -1574,10 +1574,10 @@ if.then9:                                         ; preds = %if.end7
   %vfn53 = getelementptr inbounds nuw i8, ptr %vtable52, i64 408
   %18 = load ptr, ptr %vfn53, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, i32 %call49, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
-  %19 = load i32, ptr %rect, align 16, !tbaa !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
+  %19 = load i32, ptr %rect, align 16, !tbaa !45
   %inc56 = add nsw i32 %19, 1
-  store i32 %inc56, ptr %rect, align 16, !tbaa !44
+  store i32 %inc56, ptr %rect, align 16, !tbaa !45
   br label %if.end235
 
 if.else:                                          ; preds = %if.end7
@@ -1594,13 +1594,13 @@ if.else:                                          ; preds = %if.end7
   call void %24(ptr noundef nonnull align 8 dereferenceable(8) %22, i32 %call103, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %25 = load <2 x i32>, ptr %r, align 4, !tbaa !22
   %26 = extractelement <2 x i32> %25, i64 0
-  store i32 %26, ptr %rect, align 16, !tbaa !44
+  store i32 %26, ptr %rect, align 16, !tbaa !45
   %27 = add nsw <2 x i32> %25, splat (i32 1)
   %28 = shufflevector <2 x i32> %27, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %28, ptr %Y, align 4, !tbaa !22
   %Y123 = getelementptr inbounds nuw i8, ptr %r, i64 12
-  %29 = load i32, ptr %Y123, align 4, !tbaa !43
-  store i32 %29, ptr %Y10, align 4, !tbaa !43
+  %29 = load i32, ptr %Y123, align 4, !tbaa !44
+  store i32 %29, ptr %Y10, align 4, !tbaa !44
   %30 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable128 = load ptr, ptr %this, align 8, !tbaa !3
   %31 = load ptr, ptr %vtable128, align 8
@@ -1623,7 +1623,7 @@ if.else:                                          ; preds = %if.end7
   %vfn155 = getelementptr inbounds nuw i8, ptr %vtable154, i64 408
   %39 = load ptr, ptr %vfn155, align 8
   call void %39(ptr noundef nonnull align 8 dereferenceable(8) %37, i32 %call151, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %40 = load <2 x i32>, ptr %Y, align 4, !tbaa !22
   %41 = add nsw <2 x i32> %40, <i32 1, i32 -1>
   %42 = shufflevector <2 x i32> %41, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -1647,16 +1647,16 @@ if.else:                                          ; preds = %if.end7
   %vfn193 = getelementptr inbounds nuw i8, ptr %vtable192, i64 408
   %50 = load ptr, ptr %vfn193, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(8) %48, i32 %call189, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
-  %51 = load i32, ptr %rect, align 16, !tbaa !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
+  %51 = load i32, ptr %rect, align 16, !tbaa !45
   %inc196 = add nsw i32 %51, 1
-  store i32 %inc196, ptr %rect, align 16, !tbaa !44
-  %52 = load i32, ptr %Y123, align 4, !tbaa !43
+  store i32 %inc196, ptr %rect, align 16, !tbaa !45
+  %52 = load i32, ptr %Y123, align 4, !tbaa !44
   %sub199 = add nsw i32 %52, -1
-  store i32 %sub199, ptr %Y, align 4, !tbaa !40
-  %53 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub199, ptr %Y, align 4, !tbaa !41
+  %53 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
   %dec204 = add nsw i32 %53, -1
-  store i32 %dec204, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %dec204, ptr %LowerRightCorner, align 8, !tbaa !46
   %54 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable207 = load ptr, ptr %this, align 8, !tbaa !3
   %55 = load ptr, ptr %vtable207, align 8
@@ -1710,21 +1710,21 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %checkClientArea, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %checkClientArea, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   br label %return
 
 if.end4:                                          ; preds = %entry
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %Y = getelementptr inbounds nuw i8, ptr %retval, i64 4
-  %1 = load i32, ptr %Y, align 4, !tbaa !40
+  %1 = load i32, ptr %Y, align 4, !tbaa !41
   %add = add nsw i32 %1, 1
   %LowerRightCorner = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %Y5 = getelementptr inbounds nuw i8, ptr %retval, i64 12
-  store i32 %add, ptr %Y5, align 4, !tbaa !43
+  store i32 %add, ptr %Y5, align 4, !tbaa !44
   %tobool6.not = icmp eq ptr %checkClientArea, null
   br i1 %tobool6.not, label %if.then23, label %if.end61.critedge
 
@@ -1738,11 +1738,11 @@ if.then23:                                        ; preds = %if.end4
   call void %3(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call, ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef %clip) #16
   %LowerRightCorner14455 = getelementptr inbounds nuw i8, ptr %r, i64 8
   %Y15456 = getelementptr inbounds nuw i8, ptr %r, i64 12
-  %4 = load i32, ptr %Y15456, align 4, !tbaa !43
-  store i32 %4, ptr %Y5, align 4, !tbaa !43
-  %5 = load i32, ptr %retval, align 16, !tbaa !44
+  %4 = load i32, ptr %Y15456, align 4, !tbaa !44
+  store i32 %4, ptr %Y5, align 4, !tbaa !44
+  %5 = load i32, ptr %retval, align 16, !tbaa !45
   %add19457 = add nsw i32 %5, 1
-  store i32 %add19457, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %add19457, ptr %LowerRightCorner, align 8, !tbaa !46
   %6 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable26 = load ptr, ptr %this, align 8, !tbaa !3
   %7 = load ptr, ptr %vtable26, align 8
@@ -1752,12 +1752,12 @@ if.then23:                                        ; preds = %if.end4
   %8 = load ptr, ptr %vfn32, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 %call28, ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef %clip) #16
   %Y43 = getelementptr inbounds nuw i8, ptr %r, i64 4
-  %9 = load i32, ptr %Y43, align 4, !tbaa !40
-  store i32 %9, ptr %Y, align 4, !tbaa !40
+  %9 = load i32, ptr %Y43, align 4, !tbaa !41
+  store i32 %9, ptr %Y, align 4, !tbaa !41
   %10 = load <2 x i32>, ptr %LowerRightCorner14455, align 4, !tbaa !22
   %11 = extractelement <2 x i32> %10, i64 0
   %sub = add nsw i32 %11, -1
-  store i32 %sub, ptr %retval, align 16, !tbaa !44
+  store i32 %sub, ptr %retval, align 16, !tbaa !45
   store <2 x i32> %10, ptr %LowerRightCorner, align 8, !tbaa !22
   %12 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable54 = load ptr, ptr %this, align 8, !tbaa !3
@@ -1767,21 +1767,21 @@ if.then23:                                        ; preds = %if.end4
   %vfn60 = getelementptr inbounds nuw i8, ptr %vtable59, i64 408
   %14 = load ptr, ptr %vfn60, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %12, i32 %call56, ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef %clip) #16
-  %.pre = load i32, ptr %retval, align 16, !tbaa !44
-  %.pre462 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
-  %.pre463 = load i32, ptr %Y, align 4, !tbaa !40
-  %.pre464 = load i32, ptr %Y5, align 4, !tbaa !43
+  %.pre = load i32, ptr %retval, align 16, !tbaa !45
+  %.pre462 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
+  %.pre463 = load i32, ptr %Y, align 4, !tbaa !41
+  %.pre464 = load i32, ptr %Y5, align 4, !tbaa !44
   %.pre469 = add nsw i32 %.pre462, -1
   br label %if.end61
 
 if.end61.critedge:                                ; preds = %if.end4
   %LowerRightCorner14 = getelementptr inbounds nuw i8, ptr %r, i64 8
   %Y15 = getelementptr inbounds nuw i8, ptr %r, i64 12
-  %15 = load i32, ptr %Y15, align 4, !tbaa !43
-  %16 = load i32, ptr %LowerRightCorner14, align 4, !tbaa !45
+  %15 = load i32, ptr %Y15, align 4, !tbaa !44
+  %16 = load i32, ptr %LowerRightCorner14, align 4, !tbaa !46
   %sub.c = add nsw i32 %16, -1
   %Y43.c = getelementptr inbounds nuw i8, ptr %r, i64 4
-  %17 = load i32, ptr %Y43.c, align 4, !tbaa !40
+  %17 = load i32, ptr %Y43.c, align 4, !tbaa !41
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end61.critedge, %if.then23
@@ -1792,12 +1792,12 @@ if.end61:                                         ; preds = %if.end61.critedge, 
   %Y15461 = phi ptr [ %Y15, %if.end61.critedge ], [ %Y15456, %if.then23 ]
   %LowerRightCorner14458 = phi ptr [ %LowerRightCorner14, %if.end61.critedge ], [ %LowerRightCorner14455, %if.then23 ]
   %sub64 = add nsw i32 %20, -1
-  store i32 %sub64, ptr %retval, align 16, !tbaa !44
-  store i32 %sub67.pre-phi, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub64, ptr %retval, align 16, !tbaa !45
+  store i32 %sub67.pre-phi, ptr %LowerRightCorner, align 8, !tbaa !46
   %add70 = add nsw i32 %19, 1
-  store i32 %add70, ptr %Y, align 4, !tbaa !40
+  store i32 %add70, ptr %Y, align 4, !tbaa !41
   %sub73 = add nsw i32 %18, -1
-  store i32 %sub73, ptr %Y5, align 4, !tbaa !43
+  store i32 %sub73, ptr %Y5, align 4, !tbaa !44
   br i1 %tobool6.not, label %if.then75, label %if.end114.critedge
 
 if.then75:                                        ; preds = %if.end61
@@ -1809,14 +1809,14 @@ if.then75:                                        ; preds = %if.end61
   %vfn84 = getelementptr inbounds nuw i8, ptr %vtable83, i64 408
   %23 = load ptr, ptr %vfn84, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 %call80, ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef %clip) #16
-  %24 = load i32, ptr %r, align 4, !tbaa !44
-  store i32 %24, ptr %retval, align 16, !tbaa !44
-  %25 = load i32, ptr %Y15461, align 4, !tbaa !43
+  %24 = load i32, ptr %r, align 4, !tbaa !45
+  store i32 %24, ptr %retval, align 16, !tbaa !45
+  %25 = load i32, ptr %Y15461, align 4, !tbaa !44
   %sub92 = add nsw i32 %25, -1
-  store i32 %sub92, ptr %Y, align 4, !tbaa !40
-  store i32 %25, ptr %Y5, align 4, !tbaa !43
-  %26 = load i32, ptr %LowerRightCorner14458, align 4, !tbaa !45
-  store i32 %26, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub92, ptr %Y, align 4, !tbaa !41
+  store i32 %25, ptr %Y5, align 4, !tbaa !44
+  %26 = load i32, ptr %LowerRightCorner14458, align 4, !tbaa !46
+  store i32 %26, ptr %LowerRightCorner, align 8, !tbaa !46
   %27 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable107 = load ptr, ptr %this, align 8, !tbaa !3
   %28 = load ptr, ptr %vtable107, align 8
@@ -1825,16 +1825,16 @@ if.then75:                                        ; preds = %if.end61
   %vfn113 = getelementptr inbounds nuw i8, ptr %vtable112, i64 408
   %29 = load ptr, ptr %vfn113, align 8
   call void %29(ptr noundef nonnull align 8 dereferenceable(8) %27, i32 %call109, ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef %clip) #16
-  %.pre466 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
-  %.pre467 = load i32, ptr %Y, align 4, !tbaa !40
-  %.pre468 = load i32, ptr %Y5, align 4, !tbaa !43
+  %.pre466 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
+  %.pre467 = load i32, ptr %Y, align 4, !tbaa !41
+  %.pre468 = load i32, ptr %Y5, align 4, !tbaa !44
   %.pre470 = add nsw i32 %.pre468, -1
   br label %if.end114
 
 if.end114.critedge:                               ; preds = %if.end61
-  %30 = load i32, ptr %Y15461, align 4, !tbaa !43
+  %30 = load i32, ptr %Y15461, align 4, !tbaa !44
   %sub92.c = add nsw i32 %30, -1
-  %31 = load i32, ptr %LowerRightCorner14458, align 4, !tbaa !45
+  %31 = load i32, ptr %LowerRightCorner14458, align 4, !tbaa !46
   br label %if.end114
 
 if.end114:                                        ; preds = %if.end114.critedge, %if.then75
@@ -1842,14 +1842,14 @@ if.end114:                                        ; preds = %if.end114.critedge,
   %32 = phi i32 [ %sub92.c, %if.end114.critedge ], [ %.pre467, %if.then75 ]
   %33 = phi i32 [ %31, %if.end114.critedge ], [ %.pre466, %if.then75 ]
   %.in = phi ptr [ %r, %if.end114.critedge ], [ %retval, %if.then75 ]
-  %34 = load i32, ptr %.in, align 4, !tbaa !44
+  %34 = load i32, ptr %.in, align 4, !tbaa !45
   %add117 = add nsw i32 %34, 1
-  store i32 %add117, ptr %retval, align 16, !tbaa !44
+  store i32 %add117, ptr %retval, align 16, !tbaa !45
   %sub120 = add nsw i32 %33, -1
-  store i32 %sub120, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub120, ptr %LowerRightCorner, align 8, !tbaa !46
   %sub123 = add nsw i32 %32, -1
-  store i32 %sub123, ptr %Y, align 4, !tbaa !40
-  store i32 %sub126.pre-phi, ptr %Y5, align 4, !tbaa !43
+  store i32 %sub123, ptr %Y, align 4, !tbaa !41
+  store i32 %sub126.pre-phi, ptr %Y5, align 4, !tbaa !44
   br i1 %tobool6.not, label %if.then128, label %if.then152.critedge
 
 if.then128:                                       ; preds = %if.end114
@@ -1861,21 +1861,21 @@ if.then128:                                       ; preds = %if.end114
   %vfn137 = getelementptr inbounds nuw i8, ptr %vtable136, i64 408
   %37 = load ptr, ptr %vfn137, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %35, i32 %call133, ptr noundef nonnull align 4 dereferenceable(16) %retval, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %38 = load <4 x i32>, ptr %retval, align 16, !tbaa !22
   %39 = add nsw <4 x i32> %38, <i32 1, i32 1, i32 -2, i32 -2>
   store <4 x i32> %39, ptr %retval, align 16, !tbaa !22
   %UseGradient = getelementptr inbounds nuw i8, ptr %this, i64 608
-  %40 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
+  %40 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !39, !noundef !40
   %tobool156.not = icmp eq i8 %40, 0
   br i1 %tobool156.not, label %if.then157, label %if.else
 
 if.then152.critedge:                              ; preds = %if.end114
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %41 = load <4 x i32>, ptr %retval, align 16, !tbaa !22
   %42 = add nsw <4 x i32> %41, <i32 1, i32 1, i32 -2, i32 -2>
   store <4 x i32> %42, ptr %retval, align 16, !tbaa !22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %checkClientArea, ptr noundef nonnull align 16 dereferenceable(16) %retval, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %checkClientArea, ptr noundef nonnull align 16 dereferenceable(16) %retval, i64 16, i1 false), !tbaa.struct !38
   br label %if.end218
 
 if.then157:                                       ; preds = %if.then128
@@ -2000,13 +2000,13 @@ if.else194:                                       ; preds = %if.else
   br label %if.end218
 
 if.end218:                                        ; preds = %if.else194, %if.then167, %if.then157, %if.then152.critedge
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %70 = load <2 x i32>, ptr %retval, align 16, !tbaa !22
   %71 = add nsw <2 x i32> %70, splat (i32 2)
   store <2 x i32> %71, ptr %retval, align 16, !tbaa !22
-  %72 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
+  %72 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
   %sub227 = add nsw i32 %72, -2
-  store i32 %sub227, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub227, ptr %LowerRightCorner, align 8, !tbaa !46
   %vtable230 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn231 = getelementptr inbounds nuw i8, ptr %vtable230, i64 16
   %73 = load ptr, ptr %vfn231, align 8
@@ -2014,7 +2014,7 @@ if.end218:                                        ; preds = %if.else194, %if.the
   %74 = extractelement <2 x i32> %70, i64 1
   %add233 = add i32 %74, 4
   %add234 = add i32 %add233, %call232
-  store i32 %add234, ptr %Y5, align 4, !tbaa !43
+  store i32 %add234, ptr %Y5, align 4, !tbaa !44
   br i1 %drawTitleBar, label %if.then238, label %return
 
 if.then238:                                       ; preds = %if.end218
@@ -2022,7 +2022,7 @@ if.then238:                                       ; preds = %if.end218
 
 if.then240:                                       ; preds = %if.then238
   %Y244 = getelementptr inbounds nuw i8, ptr %checkClientArea, i64 4
-  store i32 %add234, ptr %Y244, align 4, !tbaa !40
+  store i32 %add234, ptr %Y244, align 4, !tbaa !41
   br label %return
 
 if.else245:                                       ; preds = %if.then238
@@ -2135,17 +2135,17 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rect) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %Type = getelementptr inbounds nuw i8, ptr %this, i64 612
   %1 = load i32, ptr %Type, align 4, !tbaa !21
   %cmp = icmp eq i32 %1, 2
   %Y = getelementptr inbounds nuw i8, ptr %rect, i64 4
-  %2 = load i32, ptr %Y, align 4, !tbaa !40
+  %2 = load i32, ptr %Y, align 4, !tbaa !41
   br i1 %cmp, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   %sub = add nsw i32 %2, -3
-  store i32 %sub, ptr %Y, align 4, !tbaa !40
+  store i32 %sub, ptr %Y, align 4, !tbaa !41
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %3 = load ptr, ptr %vfn, align 8
@@ -2156,7 +2156,7 @@ if.end3:                                          ; preds = %if.end
   %add = add nsw i32 %2, 1
   %LowerRightCorner = getelementptr inbounds nuw i8, ptr %rect, i64 8
   %Y6 = getelementptr inbounds nuw i8, ptr %rect, i64 12
-  store i32 %add, ptr %Y6, align 4, !tbaa !43
+  store i32 %add, ptr %Y6, align 4, !tbaa !44
   %vtable8 = load ptr, ptr %this, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable8, align 8
   %call = tail call i32 %4(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 3) #16
@@ -2166,11 +2166,11 @@ if.end3:                                          ; preds = %if.end
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %LowerRightCorner13 = getelementptr inbounds nuw i8, ptr %r, i64 8
   %Y14 = getelementptr inbounds nuw i8, ptr %r, i64 12
-  %6 = load i32, ptr %Y14, align 4, !tbaa !43
-  store i32 %6, ptr %Y6, align 4, !tbaa !43
-  %7 = load i32, ptr %rect, align 16, !tbaa !44
+  %6 = load i32, ptr %Y14, align 4, !tbaa !44
+  store i32 %6, ptr %Y6, align 4, !tbaa !44
+  %7 = load i32, ptr %rect, align 16, !tbaa !45
   %add18 = add nsw i32 %7, 1
-  store i32 %add18, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %add18, ptr %LowerRightCorner, align 8, !tbaa !46
   %8 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable23 = load ptr, ptr %this, align 8, !tbaa !3
   %9 = load ptr, ptr %vtable23, align 8
@@ -2180,12 +2180,12 @@ if.end3:                                          ; preds = %if.end
   %10 = load ptr, ptr %vfn29, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 %call25, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %Y40 = getelementptr inbounds nuw i8, ptr %r, i64 4
-  %11 = load i32, ptr %Y40, align 4, !tbaa !40
-  store i32 %11, ptr %Y, align 4, !tbaa !40
+  %11 = load i32, ptr %Y40, align 4, !tbaa !41
+  store i32 %11, ptr %Y, align 4, !tbaa !41
   %12 = load <2 x i32>, ptr %LowerRightCorner13, align 4, !tbaa !22
   %13 = extractelement <2 x i32> %12, i64 0
   %sub32 = add nsw i32 %13, -1
-  store i32 %sub32, ptr %rect, align 16, !tbaa !44
+  store i32 %sub32, ptr %rect, align 16, !tbaa !45
   store <2 x i32> %12, ptr %LowerRightCorner, align 8, !tbaa !22
   %14 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable49 = load ptr, ptr %this, align 8, !tbaa !3
@@ -2206,14 +2206,14 @@ if.end3:                                          ; preds = %if.end
   %vfn76 = getelementptr inbounds nuw i8, ptr %vtable75, i64 408
   %21 = load ptr, ptr %vfn76, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 %call72, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
-  %22 = load i32, ptr %r, align 4, !tbaa !44
-  store i32 %22, ptr %rect, align 16, !tbaa !44
-  %23 = load i32, ptr %Y14, align 4, !tbaa !43
+  %22 = load i32, ptr %r, align 4, !tbaa !45
+  store i32 %22, ptr %rect, align 16, !tbaa !45
+  %23 = load i32, ptr %Y14, align 4, !tbaa !44
   %sub83 = add nsw i32 %23, -1
-  store i32 %sub83, ptr %Y, align 4, !tbaa !40
-  store i32 %23, ptr %Y6, align 4, !tbaa !43
-  %24 = load i32, ptr %LowerRightCorner13, align 4, !tbaa !45
-  store i32 %24, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub83, ptr %Y, align 4, !tbaa !41
+  store i32 %23, ptr %Y6, align 4, !tbaa !44
+  %24 = load i32, ptr %LowerRightCorner13, align 4, !tbaa !46
+  store i32 %24, ptr %LowerRightCorner, align 8, !tbaa !46
   %25 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable96 = load ptr, ptr %this, align 8, !tbaa !3
   %26 = load ptr, ptr %vtable96, align 8
@@ -2233,12 +2233,12 @@ if.end3:                                          ; preds = %if.end
   %vfn123 = getelementptr inbounds nuw i8, ptr %vtable122, i64 408
   %32 = load ptr, ptr %vfn123, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 %call119, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
   %33 = load <4 x i32>, ptr %rect, align 16, !tbaa !22
   %34 = add nsw <4 x i32> %33, <i32 1, i32 1, i32 -2, i32 -2>
   store <4 x i32> %34, ptr %rect, align 16, !tbaa !22
   %UseGradient = getelementptr inbounds nuw i8, ptr %this, i64 608
-  %35 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
+  %35 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !39, !noundef !40
   %tobool136.not = icmp eq i8 %35, 0
   br i1 %tobool136.not, label %if.then137, label %if.else
 
@@ -2286,19 +2286,19 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %rect) #16
-  %1 = load i32, ptr %r, align 4, !tbaa !44
-  store i32 %1, ptr %rect, align 4, !tbaa !44
+  %1 = load i32, ptr %r, align 4, !tbaa !45
+  store i32 %1, ptr %rect, align 4, !tbaa !45
   %LowerRightCorner = getelementptr inbounds nuw i8, ptr %r, i64 8
   %Y = getelementptr inbounds nuw i8, ptr %r, i64 12
-  %2 = load i32, ptr %Y, align 4, !tbaa !43
+  %2 = load i32, ptr %Y, align 4, !tbaa !44
   %sub = add nsw i32 %2, -1
   %Y5 = getelementptr inbounds nuw i8, ptr %rect, i64 4
-  store i32 %sub, ptr %Y5, align 4, !tbaa !40
+  store i32 %sub, ptr %Y5, align 4, !tbaa !41
   %LowerRightCorner8 = getelementptr inbounds nuw i8, ptr %rect, i64 8
   %Y9 = getelementptr inbounds nuw i8, ptr %rect, i64 12
-  store i32 %2, ptr %Y9, align 4, !tbaa !43
-  %3 = load i32, ptr %LowerRightCorner, align 4, !tbaa !45
-  store i32 %3, ptr %LowerRightCorner8, align 4, !tbaa !45
+  store i32 %2, ptr %Y9, align 4, !tbaa !44
+  %3 = load i32, ptr %LowerRightCorner, align 4, !tbaa !46
+  store i32 %3, ptr %LowerRightCorner8, align 4, !tbaa !46
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable, align 8
   %call = tail call i32 %4(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 1) #16
@@ -2306,12 +2306,12 @@ if.end:                                           ; preds = %entry
   %vfn17 = getelementptr inbounds nuw i8, ptr %vtable16, i64 408
   %5 = load ptr, ptr %vfn17, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
-  %6 = load i32, ptr %Y9, align 4, !tbaa !43
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !38
+  %6 = load i32, ptr %Y9, align 4, !tbaa !44
   %sub20 = add nsw i32 %6, -1
-  store i32 %sub20, ptr %Y9, align 4, !tbaa !43
+  store i32 %sub20, ptr %Y9, align 4, !tbaa !44
   %UseGradient = getelementptr inbounds nuw i8, ptr %this, i64 608
-  %7 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
+  %7 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !39, !noundef !40
   %tobool21.not = icmp eq i8 %7, 0
   br i1 %tobool21.not, label %if.then22, label %if.else
 
@@ -2341,9 +2341,9 @@ if.then32:                                        ; preds = %if.else
   %13 = load ptr, ptr %vtable38, align 8
   %call40 = call i32 %13(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 1) #16
   %or43 = or i32 %call40, -268435456
-  %14 = load i32, ptr %Y9, align 4, !tbaa !43
+  %14 = load i32, ptr %Y9, align 4, !tbaa !44
   %add = add nsw i32 %14, 1
-  store i32 %add, ptr %Y9, align 4, !tbaa !43
+  store i32 %add, ptr %Y9, align 4, !tbaa !44
   %15 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable55 = load ptr, ptr %15, align 8, !tbaa !3
   %vfn56 = getelementptr inbounds nuw i8, ptr %vtable55, i64 416
@@ -2381,23 +2381,23 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tr) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !38
   %cmp = icmp eq i32 %alignment, 0
   %LowerRightCorner = getelementptr inbounds nuw i8, ptr %tr, i64 8
-  %1 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
+  %1 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
   %sub = add nsw i32 %1, -2
-  store i32 %sub, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub, ptr %LowerRightCorner, align 8, !tbaa !46
   br i1 %cmp, label %if.then2, label %if.else
 
 if.then2:                                         ; preds = %if.end
   %Y = getelementptr inbounds nuw i8, ptr %tr, i64 4
-  %2 = load i32, ptr %Y, align 4, !tbaa !40
+  %2 = load i32, ptr %Y, align 4, !tbaa !41
   %add = add nsw i32 %2, 1
   %Y4 = getelementptr inbounds nuw i8, ptr %tr, i64 12
-  store i32 %add, ptr %Y4, align 4, !tbaa !43
-  %3 = load i32, ptr %tr, align 16, !tbaa !44
+  store i32 %add, ptr %Y4, align 4, !tbaa !44
+  %3 = load i32, ptr %tr, align 16, !tbaa !45
   %add7 = add nsw i32 %3, 1
-  store i32 %add7, ptr %tr, align 16, !tbaa !44
+  store i32 %add7, ptr %tr, align 16, !tbaa !45
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %4 = load ptr, ptr %vtable, align 8
   %call = tail call i32 %4(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 3) #16
@@ -2405,7 +2405,7 @@ if.then2:                                         ; preds = %if.end
   %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 408
   %5 = load ptr, ptr %vfn11, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !38
   %6 = load <2 x i32>, ptr %tr, align 16, !tbaa !22
   %7 = add nsw <2 x i32> %6, splat (i32 1)
   %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -2418,24 +2418,24 @@ if.then2:                                         ; preds = %if.end
   %vfn28 = getelementptr inbounds nuw i8, ptr %vtable27, i64 408
   %11 = load ptr, ptr %vfn28, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 %call24, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !38
   %12 = load <2 x i32>, ptr %tr, align 16, !tbaa !22
   %13 = add nsw <2 x i32> %12, splat (i32 1)
   store <2 x i32> %13, ptr %tr, align 16, !tbaa !22
-  %14 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
+  %14 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
   %sub37 = add nsw i32 %14, -2
-  store i32 %sub37, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub37, ptr %LowerRightCorner, align 8, !tbaa !46
   br label %if.end175
 
 if.else:                                          ; preds = %if.end
   %Y86 = getelementptr inbounds nuw i8, ptr %tr, i64 12
-  %15 = load i32, ptr %Y86, align 4, !tbaa !43
+  %15 = load i32, ptr %Y86, align 4, !tbaa !44
   %sub87 = add nsw i32 %15, -1
   %Y89 = getelementptr inbounds nuw i8, ptr %tr, i64 4
-  store i32 %sub87, ptr %Y89, align 4, !tbaa !40
-  %16 = load i32, ptr %tr, align 16, !tbaa !44
+  store i32 %sub87, ptr %Y89, align 4, !tbaa !41
+  %16 = load i32, ptr %tr, align 16, !tbaa !45
   %add92 = add nsw i32 %16, 1
-  store i32 %add92, ptr %tr, align 16, !tbaa !44
+  store i32 %add92, ptr %tr, align 16, !tbaa !45
   %vtable95 = load ptr, ptr %this, align 8, !tbaa !3
   %17 = load ptr, ptr %vtable95, align 8
   %call97 = tail call i32 %17(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef 3) #16
@@ -2443,13 +2443,13 @@ if.else:                                          ; preds = %if.end
   %vfn101 = getelementptr inbounds nuw i8, ptr %vtable100, i64 408
   %18 = load ptr, ptr %vfn101, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call97, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !37
-  %19 = load i32, ptr %tr, align 16, !tbaa !44
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !38
+  %19 = load i32, ptr %tr, align 16, !tbaa !45
   %add104 = add nsw i32 %19, 1
-  store i32 %add104, ptr %LowerRightCorner, align 8, !tbaa !45
-  %20 = load i32, ptr %Y86, align 4, !tbaa !43
+  store i32 %add104, ptr %LowerRightCorner, align 8, !tbaa !46
+  %20 = load i32, ptr %Y86, align 4, !tbaa !44
   %sub109 = add nsw i32 %20, -1
-  store i32 %sub109, ptr %Y86, align 4, !tbaa !43
+  store i32 %sub109, ptr %Y86, align 4, !tbaa !44
   %21 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable112 = load ptr, ptr %this, align 8, !tbaa !3
   %22 = load ptr, ptr %vtable112, align 8
@@ -2458,7 +2458,7 @@ if.else:                                          ; preds = %if.end
   %vfn118 = getelementptr inbounds nuw i8, ptr %vtable117, i64 408
   %23 = load ptr, ptr %vfn118, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 %call114, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !38
   %24 = load <4 x i32>, ptr %tr, align 16, !tbaa !22
   %25 = add nsw <4 x i32> %24, <i32 1, i32 -1, i32 -2, i32 -1>
   store <4 x i32> %25, ptr %tr, align 16, !tbaa !22
@@ -2475,10 +2475,10 @@ if.end175:                                        ; preds = %if.else, %if.then2
   %vfn139 = getelementptr inbounds nuw i8, ptr %vtable138, i64 408
   %28 = load ptr, ptr %vfn139, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 %call135, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  %29 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
+  %29 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
   %storemerge199 = add nsw i32 %29, 1
-  store i32 %storemerge199, ptr %LowerRightCorner, align 8, !tbaa !45
-  store i32 %29, ptr %tr, align 16, !tbaa !44
+  store i32 %storemerge199, ptr %LowerRightCorner, align 8, !tbaa !46
+  store i32 %29, ptr %tr, align 16, !tbaa !45
   %30 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable150 = load ptr, ptr %this, align 8, !tbaa !3
   %31 = load ptr, ptr %vtable150, align 8
@@ -2487,12 +2487,12 @@ if.end175:                                        ; preds = %if.else, %if.then2
   %vfn156 = getelementptr inbounds nuw i8, ptr %vtable155, i64 408
   %32 = load ptr, ptr %vfn156, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 %call152, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  %33 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
+  %33 = load i32, ptr %LowerRightCorner, align 8, !tbaa !46
   %storemerge194 = add nsw i32 %33, 1
-  store i32 %storemerge194, ptr %LowerRightCorner, align 8, !tbaa !45
-  %storemerge.in = load i32, ptr %tr, align 16, !tbaa !44
+  store i32 %storemerge194, ptr %LowerRightCorner, align 8, !tbaa !46
+  %storemerge.in = load i32, ptr %tr, align 16, !tbaa !45
   %storemerge = add nsw i32 %storemerge.in, 1
-  store i32 %storemerge, ptr %tr, align 16, !tbaa !44
+  store i32 %storemerge, ptr %tr, align 16, !tbaa !45
   %34 = load i32, ptr %Y86.sink193, align 4, !tbaa !22
   %sub165 = add nsw i32 %34, %.sink192
   store i32 %sub165, ptr %Y86.sink193, align 4, !tbaa !22
@@ -2522,7 +2522,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tr) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !38
   %cmp = icmp eq i32 %tabHeight, -1
   br i1 %cmp, label %if.then3, label %if.end4
 
@@ -2545,13 +2545,13 @@ if.then6:                                         ; preds = %if.end4
 if.else:                                          ; preds = %if.then6
   %LowerRightCorner53 = getelementptr inbounds nuw i8, ptr %tr, i64 8
   %Y54 = getelementptr inbounds nuw i8, ptr %tr, i64 12
-  %2 = load i32, ptr %Y54, align 4, !tbaa !43
+  %2 = load i32, ptr %Y54, align 4, !tbaa !44
   %reass.sub1 = sub i32 %2, %tabHeight.addr.0
   %sub55 = add i32 %reass.sub1, -2
-  store i32 %sub55, ptr %Y54, align 4, !tbaa !43
-  %3 = load i32, ptr %tr, align 16, !tbaa !44
+  store i32 %sub55, ptr %Y54, align 4, !tbaa !44
+  %3 = load i32, ptr %tr, align 16, !tbaa !45
   %add58 = add nsw i32 %3, 1
-  store i32 %add58, ptr %LowerRightCorner53, align 8, !tbaa !45
+  store i32 %add58, ptr %LowerRightCorner53, align 8, !tbaa !46
   %4 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable63 = load ptr, ptr %this, align 8, !tbaa !3
   %5 = load ptr, ptr %vtable63, align 8
@@ -2560,10 +2560,10 @@ if.else:                                          ; preds = %if.then6
   %vfn69 = getelementptr inbounds nuw i8, ptr %vtable68, i64 408
   %6 = load ptr, ptr %vfn69, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 %call65, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  %7 = load i32, ptr %LowerRightCorner20, align 4, !tbaa !45
+  %7 = load i32, ptr %LowerRightCorner20, align 4, !tbaa !46
   %sub72 = add nsw i32 %7, -1
-  store i32 %sub72, ptr %tr, align 16, !tbaa !44
-  store i32 %7, ptr %LowerRightCorner53, align 8, !tbaa !45
+  store i32 %sub72, ptr %tr, align 16, !tbaa !45
+  store i32 %7, ptr %LowerRightCorner53, align 8, !tbaa !46
   %8 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable82 = load ptr, ptr %this, align 8, !tbaa !3
   %9 = load ptr, ptr %vtable82, align 8
@@ -2572,11 +2572,11 @@ if.else:                                          ; preds = %if.then6
   %vfn88 = getelementptr inbounds nuw i8, ptr %vtable87, i64 408
   %10 = load ptr, ptr %vfn88, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 %call84, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !38
   %Y90 = getelementptr inbounds nuw i8, ptr %tr, i64 4
-  %11 = load i32, ptr %Y90, align 4, !tbaa !40
+  %11 = load i32, ptr %Y90, align 4, !tbaa !41
   %add91 = add nsw i32 %11, 1
-  store i32 %add91, ptr %Y54, align 4, !tbaa !43
+  store i32 %add91, ptr %Y54, align 4, !tbaa !44
   %12 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable96 = load ptr, ptr %this, align 8, !tbaa !3
   %13 = load ptr, ptr %vtable96, align 8
@@ -2593,13 +2593,13 @@ if.end104:                                        ; preds = %if.else, %if.end4
 if.end104.thread:                                 ; preds = %if.then6
   %add = add nsw i32 %tabHeight.addr.0, 2
   %Y = getelementptr inbounds nuw i8, ptr %tr, i64 4
-  %15 = load i32, ptr %Y, align 4, !tbaa !40
+  %15 = load i32, ptr %Y, align 4, !tbaa !41
   %add9 = add nsw i32 %15, %add
-  store i32 %add9, ptr %Y, align 4, !tbaa !40
-  %16 = load i32, ptr %tr, align 16, !tbaa !44
+  store i32 %add9, ptr %Y, align 4, !tbaa !41
+  %16 = load i32, ptr %tr, align 16, !tbaa !45
   %add11 = add nsw i32 %16, 1
   %LowerRightCorner = getelementptr inbounds nuw i8, ptr %tr, i64 8
-  store i32 %add11, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %add11, ptr %LowerRightCorner, align 8, !tbaa !46
   %17 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable14 = load ptr, ptr %this, align 8, !tbaa !3
   %18 = load ptr, ptr %vtable14, align 8
@@ -2608,10 +2608,10 @@ if.end104.thread:                                 ; preds = %if.then6
   %vfn19 = getelementptr inbounds nuw i8, ptr %vtable18, i64 408
   %19 = load ptr, ptr %vfn19, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 %call16, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  %20 = load i32, ptr %LowerRightCorner20, align 4, !tbaa !45
+  %20 = load i32, ptr %LowerRightCorner20, align 4, !tbaa !46
   %sub = add nsw i32 %20, -1
-  store i32 %sub, ptr %tr, align 16, !tbaa !44
-  store i32 %20, ptr %LowerRightCorner, align 8, !tbaa !45
+  store i32 %sub, ptr %tr, align 16, !tbaa !45
+  store i32 %20, ptr %LowerRightCorner, align 8, !tbaa !46
   %21 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable31 = load ptr, ptr %this, align 8, !tbaa !3
   %22 = load ptr, ptr %vtable31, align 8
@@ -2620,11 +2620,11 @@ if.end104.thread:                                 ; preds = %if.then6
   %vfn37 = getelementptr inbounds nuw i8, ptr %vtable36, i64 408
   %23 = load ptr, ptr %vfn37, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 %call33, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !38
   %Y39 = getelementptr inbounds nuw i8, ptr %tr, i64 12
-  %24 = load i32, ptr %Y39, align 4, !tbaa !43
+  %24 = load i32, ptr %Y39, align 4, !tbaa !44
   %sub40 = add nsw i32 %24, -1
-  store i32 %sub40, ptr %Y, align 4, !tbaa !40
+  store i32 %sub40, ptr %Y, align 4, !tbaa !41
   %25 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable45 = load ptr, ptr %this, align 8, !tbaa !3
   %26 = load ptr, ptr %vtable45, align 8
@@ -2645,14 +2645,14 @@ if.then106.if.then108_crit_edge:                  ; preds = %if.then106
 
 if.then108:                                       ; preds = %if.then106.if.then108_crit_edge, %if.end104.thread
   %add109.pre-phi = phi i32 [ %.pre, %if.then106.if.then108_crit_edge ], [ %add, %if.end104.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !38
   %28 = load <4 x i32>, ptr %tr, align 16, !tbaa !22
   %29 = insertelement <4 x i32> <i32 1, i32 poison, i32 -1, i32 -1>, i32 %add109.pre-phi, i64 1
   %30 = add nsw <4 x i32> %28, %29
   br label %if.end136
 
 if.else122:                                       ; preds = %if.then106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %rect, i64 16, i1 false), !tbaa.struct !38
   %31 = load <4 x i32>, ptr %tr, align 16
   %32 = bitcast <4 x i32> %31 to i128
   %33 = lshr i128 %32, 32
@@ -2670,7 +2670,7 @@ if.end136:                                        ; preds = %if.else122, %if.the
   %storemerge = phi <4 x i32> [ %40, %if.else122 ], [ %30, %if.then108 ]
   store <4 x i32> %storemerge, ptr %tr, align 16, !tbaa !22
   %UseGradient = getelementptr inbounds nuw i8, ptr %this, i64 608
-  %41 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
+  %41 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !39, !noundef !40
   %tobool137.not = icmp eq i8 %41, 0
   br i1 %tobool137.not, label %if.then138, label %if.else148
 
@@ -2882,19 +2882,20 @@ attributes #19 = { noreturn nounwind }
 !27 = !{!28, !10, i64 8}
 !28 = !{!"_ZTSN3irr17IReferenceCountedE", !10, i64 8, !23, i64 16}
 !29 = !{!28, !23, i64 16}
-!30 = distinct !{!30, !31, !32, !33}
+!30 = distinct !{!30, !31, !32, !33, !34}
 !31 = !{!"llvm.loop.mustprogress"}
 !32 = !{!"llvm.loop.isvectorized", i32 1}
 !33 = !{!"llvm.loop.unroll.runtime.disable"}
-!34 = distinct !{!34, !35}
-!35 = !{!"llvm.loop.unroll.disable"}
-!36 = distinct !{!36, !31, !32}
-!37 = !{i64 0, i64 4, !22, i64 4, i64 4, !22, i64 8, i64 4, !22, i64 12, i64 4, !22}
-!38 = !{i8 0, i8 2}
-!39 = !{}
-!40 = !{!41, !23, i64 4}
-!41 = !{!"_ZTSN3irr4core4rectIiEE", !42, i64 0, !42, i64 8}
-!42 = !{!"_ZTSN3irr4core8vector2dIiEE", !23, i64 0, !23, i64 4}
-!43 = !{!41, !23, i64 12}
-!44 = !{!41, !23, i64 0}
-!45 = !{!41, !23, i64 8}
+!34 = !{!"llvm.loop.estimated_trip_count"}
+!35 = distinct !{!35, !36, !34}
+!36 = !{!"llvm.loop.unroll.disable"}
+!37 = distinct !{!37, !31, !32, !34}
+!38 = !{i64 0, i64 4, !22, i64 4, i64 4, !22, i64 8, i64 4, !22, i64 12, i64 4, !22}
+!39 = !{i8 0, i8 2}
+!40 = !{}
+!41 = !{!42, !23, i64 4}
+!42 = !{!"_ZTSN3irr4core4rectIiEE", !43, i64 0, !43, i64 8}
+!43 = !{!"_ZTSN3irr4core8vector2dIiEE", !23, i64 0, !23, i64 4}
+!44 = !{!42, !23, i64 12}
+!45 = !{!42, !23, i64 0}
+!46 = !{!42, !23, i64 8}

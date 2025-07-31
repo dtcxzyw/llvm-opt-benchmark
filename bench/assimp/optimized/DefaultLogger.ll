@@ -587,7 +587,7 @@ define void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSever
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %14 = load i8, ptr %13, align 8, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 8, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %.loopexit, label %16
 
@@ -640,7 +640,7 @@ define void @_ZN6Assimp13DefaultLogger14WriteToStreamsEPKcNS_6Logger13ErrorSever
   %40 = phi ptr [ %29, %.lr.ph ], [ %.pre, %33 ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 8
   %.not13 = icmp eq ptr %41, %40
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %39, %17, %12, %16
   ret void
@@ -716,7 +716,7 @@ define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12attachStreamEPNS_9LogStrea
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
   %.not = icmp eq ptr %12, %10
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %5, %11
   %.sroa.011.021 = phi ptr [ %12, %11 ], [ %8, %5 ]
@@ -891,7 +891,7 @@ _ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_itera
 48:                                               ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.012.027, i64 8
   %.not = icmp eq ptr %49, %10
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 .loopexit:                                        ; preds = %48, %5, %15, %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %3
   %.0 = phi i1 [ false, %3 ], [ true, %15 ], [ true, %_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit ], [ false, %5 ], [ false, %48 ]
@@ -970,7 +970,7 @@ _ZN6Assimp13LogStreamInfoD2Ev.exit:               ; preds = %16, %20
   %25 = phi ptr [ %13, %.lr.ph ], [ %.pre, %_ZN6Assimp13LogStreamInfoD2Ev.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %.sroa.01.05, i64 8
   %.not = icmp eq ptr %26, %25
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1205,11 +1205,12 @@ attributes #26 = { noreturn }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}

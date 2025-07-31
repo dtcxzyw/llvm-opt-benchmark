@@ -78,7 +78,7 @@ define hidden void @InterpolateRow_C(ptr noundef writeonly captures(none) %0, pt
   %37 = getelementptr inbounds nuw i8, ptr %.02429, i64 1
   %38 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %38, %3
-  br i1 %exitcond.not, label %HalfRow_C.exit, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %HalfRow_C.exit, label %.lr.ph, !llvm.loop !7
 
 HalfRow_C.exit:                                   ; preds = %13, %.lr.ph, %.preheader, %11, %9
   ret void
@@ -127,7 +127,7 @@ define hidden void @InterpolateRow_16_C(ptr noundef writeonly captures(none) %0,
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %HalfRow_16_C.exit, label %14, !llvm.loop !7
+  br i1 %exitcond.not.i, label %HalfRow_16_C.exit, label %14, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.031 = phi i32 [ %39, %.lr.ph ], [ 0, %.preheader ]
@@ -150,7 +150,7 @@ define hidden void @InterpolateRow_16_C(ptr noundef writeonly captures(none) %0,
   %38 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %39 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %39, %3
-  br i1 %exitcond.not, label %HalfRow_16_C.exit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %HalfRow_16_C.exit, label %.lr.ph, !llvm.loop !9
 
 HalfRow_16_C.exit:                                ; preds = %14, %.lr.ph, %.preheader, %12, %9
   ret void
@@ -166,8 +166,9 @@ attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}

@@ -347,7 +347,7 @@ define void @_ZN4YAML4DumpB5cxx11ERKNS_4NodeE(ptr dead_on_unwind noalias writabl
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %9, ptr %0, align 8, !tbaa !33
+  store ptr %9, ptr %0, align 8, !tbaa !34
   %10 = icmp eq ptr %7, null
   br i1 %10, label %11, label %12
 
@@ -361,7 +361,7 @@ define void @_ZN4YAML4DumpB5cxx11ERKNS_4NodeE(ptr dead_on_unwind noalias writabl
 12:                                               ; preds = %8
   %13 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
-  store i64 %13, ptr %3, align 8, !tbaa !36
+  store i64 %13, ptr %3, align 8, !tbaa !37
   %14 = icmp ugt i64 %13, 15
   br i1 %14, label %.noexc.i, label %._crit_edge.i.i
 
@@ -370,8 +370,8 @@ define void @_ZN4YAML4DumpB5cxx11ERKNS_4NodeE(ptr dead_on_unwind noalias writabl
           to label %.noexc4 unwind label %28
 
 .noexc4:                                          ; preds = %.noexc.i
-  store ptr %15, ptr %0, align 8, !tbaa !37
-  %16 = load i64, ptr %3, align 8, !tbaa !36
+  store ptr %15, ptr %0, align 8, !tbaa !38
+  %16 = load i64, ptr %3, align 8, !tbaa !37
   store i64 %16, ptr %9, align 8, !tbaa !21
   br label %._crit_edge.i.i
 
@@ -392,10 +392,10 @@ define void @_ZN4YAML4DumpB5cxx11ERKNS_4NodeE(ptr dead_on_unwind noalias writabl
   br label %21
 
 21:                                               ; preds = %20, %18, %._crit_edge.i.i
-  %22 = load i64, ptr %3, align 8, !tbaa !36
+  %22 = load i64, ptr %3, align 8, !tbaa !37
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %22, ptr %23, align 8, !tbaa !39
-  %24 = load ptr, ptr %0, align 8, !tbaa !37
+  store i64 %22, ptr %23, align 8, !tbaa !40
+  %24 = load ptr, ptr %0, align 8, !tbaa !38
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   store i8 0, ptr %25, align 1, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
@@ -432,13 +432,13 @@ define linkonce_odr void @_ZNSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_iE
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
   %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !40
+  %4 = load ptr, ptr %3, align 8, !tbaa !41
   tail call void @_ZNSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_iESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
   %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !41
+  %6 = load ptr, ptr %5, align 8, !tbaa !42
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #15
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   ret void
@@ -558,15 +558,16 @@ attributes #16 = { noreturn }
 !28 = !{!25, !26, i64 40}
 !29 = !{!25, !26, i64 72}
 !30 = !{!10, !10, i64 0}
-!31 = distinct !{!31, !32}
+!31 = distinct !{!31, !32, !33}
 !32 = !{!"llvm.loop.mustprogress"}
-!33 = !{!34, !35, i64 0}
-!34 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !35, i64 0}
-!35 = !{!"p1 omnipotent char", !10, i64 0}
-!36 = !{!11, !11, i64 0}
-!37 = !{!38, !35, i64 0}
-!38 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !34, i64 0, !11, i64 8, !7, i64 16}
-!39 = !{!38, !11, i64 8}
-!40 = !{!5, !9, i64 24}
-!41 = !{!5, !9, i64 16}
-!42 = distinct !{!42, !32}
+!33 = !{!"llvm.loop.estimated_trip_count"}
+!34 = !{!35, !36, i64 0}
+!35 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !36, i64 0}
+!36 = !{!"p1 omnipotent char", !10, i64 0}
+!37 = !{!11, !11, i64 0}
+!38 = !{!39, !36, i64 0}
+!39 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !35, i64 0, !11, i64 8, !7, i64 16}
+!40 = !{!39, !11, i64 8}
+!41 = !{!5, !9, i64 24}
+!42 = !{!5, !9, i64 16}
+!43 = distinct !{!43, !32, !33}

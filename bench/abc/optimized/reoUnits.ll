@@ -48,12 +48,12 @@ define ptr @reoUnitsGetNextUnit(ptr noundef captures(none) %0) local_unnamed_add
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 239984
   store ptr null, ptr %21, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %23 = load ptr, ptr %22, align 8, !tbaa !27
+  %23 = load ptr, ptr %22, align 8, !tbaa !28
   %24 = add nsw i32 %7, 1
   store i32 %24, ptr %6, align 8, !tbaa !18
   %25 = sext i32 %7 to i64
   %26 = getelementptr inbounds ptr, ptr %23, i64 %25
-  store ptr %15, ptr %26, align 8, !tbaa !28
+  store ptr %15, ptr %26, align 8, !tbaa !29
   br label %reoUnitsAddToFreeUnitList.exit
 
 reoUnitsAddToFreeUnitList.exit:                   ; preds = %20, %11, %1
@@ -62,9 +62,9 @@ reoUnitsAddToFreeUnitList.exit:                   ; preds = %20, %11, %1
   %29 = load ptr, ptr %28, align 8, !tbaa !22
   store ptr %29, ptr %2, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %31 = load i32, ptr %30, align 8, !tbaa !29
+  %31 = load i32, ptr %30, align 8, !tbaa !30
   %32 = add nsw i32 %31, 1
-  store i32 %32, ptr %30, align 8, !tbaa !29
+  store i32 %32, ptr %30, align 8, !tbaa !30
   ret ptr %27
 }
 
@@ -76,16 +76,16 @@ define void @reoUnitsRecycleUnit(ptr noundef captures(none) %0, ptr noundef init
   store ptr %4, ptr %5, align 8, !tbaa !22
   store ptr %1, ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %7 = load i32, ptr %6, align 8, !tbaa !29
+  %7 = load i32, ptr %6, align 8, !tbaa !30
   %8 = add nsw i32 %7, -1
-  store i32 %8, ptr %6, align 8, !tbaa !29
+  store i32 %8, ptr %6, align 8, !tbaa !30
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @reoUnitsRecycleUnitList(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
   %5 = icmp eq ptr %4, null
   br i1 %5, label %12, label %.preheader
 
@@ -94,7 +94,7 @@ define void @reoUnitsRecycleUnitList(ptr noundef captures(none) %0, ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %.01012, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !22
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %.preheader, !llvm.loop !32
+  br i1 %.not, label %8, label %.preheader, !llvm.loop !33
 
 8:                                                ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %.01012, i64 32
@@ -121,7 +121,7 @@ define void @reoUnitsStopDispenser(ptr noundef captures(none) %0) local_unnamed_
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %.pre = load ptr, ptr %5, align 8, !tbaa !27
+  %.pre = load ptr, ptr %5, align 8, !tbaa !28
   br label %6
 
 6:                                                ; preds = %.lr.ph, %14
@@ -129,15 +129,15 @@ define void @reoUnitsStopDispenser(ptr noundef captures(none) %0) local_unnamed_
   %8 = phi ptr [ %.pre, %.lr.ph ], [ %16, %14 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %14, label %11
 
 11:                                               ; preds = %6
   tail call void @free(ptr noundef nonnull %10) #10
-  %12 = load ptr, ptr %5, align 8, !tbaa !27
+  %12 = load ptr, ptr %5, align 8, !tbaa !28
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  store ptr null, ptr %13, align 8, !tbaa !28
+  store ptr null, ptr %13, align 8, !tbaa !29
   %.pre12 = load i32, ptr %2, align 8, !tbaa !18
   br label %14
 
@@ -147,7 +147,7 @@ define void @reoUnitsStopDispenser(ptr noundef captures(none) %0) local_unnamed_
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = sext i32 %15 to i64
   %18 = icmp slt i64 %indvars.iv.next, %17
-  br i1 %18, label %6, label %._crit_edge, !llvm.loop !33
+  br i1 %18, label %6, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %14, %1
   store i32 0, ptr %2, align 8, !tbaa !18
@@ -160,14 +160,14 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @reoUnitsAddUnitToPlane(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
-  store ptr %1, ptr %3, align 8, !tbaa !30
+  %4 = load ptr, ptr %3, align 8, !tbaa !31
+  store ptr %1, ptr %3, align 8, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %4, ptr %5, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !34
+  %7 = load i32, ptr %6, align 4, !tbaa !35
   %8 = add nsw i32 %7, 1
-  store i32 %8, ptr %6, align 4, !tbaa !34
+  store i32 %8, ptr %6, align 4, !tbaa !35
   ret void
 }
 
@@ -219,13 +219,14 @@ attributes #10 = { nounwind }
 !22 = !{!23, !17, i64 32}
 !23 = !{!"_reo_unit", !24, i64 0, !24, i64 2, !24, i64 4, !24, i64 6, !5, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !13, i64 40}
 !24 = !{!"short", !6, i64 0}
-!25 = distinct !{!25, !26}
+!25 = distinct !{!25, !26, !27}
 !26 = !{!"llvm.loop.mustprogress"}
-!27 = !{!4, !12, i64 248}
-!28 = !{!17, !17, i64 0}
-!29 = !{!4, !5, i64 264}
-!30 = !{!31, !17, i64 48}
-!31 = !{!"_reo_plane", !5, i64 0, !5, i64 4, !5, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !17, i64 48}
-!32 = distinct !{!32, !26}
-!33 = distinct !{!33, !26}
-!34 = !{!31, !5, i64 4}
+!27 = !{!"llvm.loop.estimated_trip_count"}
+!28 = !{!4, !12, i64 248}
+!29 = !{!17, !17, i64 0}
+!30 = !{!4, !5, i64 264}
+!31 = !{!32, !17, i64 48}
+!32 = !{!"_reo_plane", !5, i64 0, !5, i64 4, !5, i64 8, !13, i64 16, !13, i64 24, !13, i64 32, !13, i64 40, !17, i64 48}
+!33 = distinct !{!33, !26, !27}
+!34 = distinct !{!34, !26, !27}
+!35 = !{!32, !5, i64 4}

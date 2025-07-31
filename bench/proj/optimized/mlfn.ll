@@ -96,7 +96,7 @@ _ZL7polyvaldPKdi.exit42:                          ; preds = %.lr.ph.i37, %_ZL7po
   %42 = add nuw nsw i32 %.02748, 1
   %43 = add nuw nsw i32 %42, %14
   %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 6
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !10
 
 .loopexit:                                        ; preds = %_ZL7polyvaldPKdi.exit42, %1
   ret ptr %3
@@ -125,7 +125,7 @@ define hidden noundef double @_Z7pj_mlfndddPKd(double noundef %0, double noundef
   %14 = load double, ptr %13, align 8, !tbaa !3
   %15 = fadd double %12, %14
   %16 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %16, label %10, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
+  br i1 %16, label %10, label %_ZL8clenshawddPKdi.exit, !llvm.loop !11
 
 _ZL8clenshawddPKdi.exit:                          ; preds = %10
   %17 = fmul double %1, 2.000000e+00
@@ -140,8 +140,8 @@ _ZL8clenshawddPKdi.exit:                          ; preds = %10
 define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load double, ptr %1, align 8, !tbaa !3
   %4 = fdiv double %0, %3
-  %5 = tail call double @sin(double noundef %4) #7, !tbaa !11
-  %6 = tail call double @cos(double noundef %4) #7, !tbaa !11
+  %5 = tail call double @sin(double noundef %4) #7, !tbaa !12
+  %6 = tail call double @cos(double noundef %4) #7, !tbaa !12
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = fsub double %6, %5
   %9 = fmul double %8, 2.000000e+00
@@ -160,7 +160,7 @@ define hidden noundef double @_Z11pj_inv_mlfndPKd(double noundef %0, ptr noundef
   %16 = load double, ptr %15, align 8, !tbaa !3
   %17 = fadd double %14, %16
   %18 = icmp samesign ugt i64 %indvars.iv.i, 1
-  br i1 %18, label %12, label %_ZL8clenshawddPKdi.exit, !llvm.loop !10
+  br i1 %18, label %12, label %_ZL8clenshawddPKdi.exit, !llvm.loop !11
 
 _ZL8clenshawddPKdi.exit:                          ; preds = %12
   %19 = fmul double %5, 2.000000e+00
@@ -197,9 +197,10 @@ attributes #7 = { nounwind }
 !4 = !{!"double", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"int", !5, i64 0}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"int", !5, i64 0}

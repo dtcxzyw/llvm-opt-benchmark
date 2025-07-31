@@ -530,7 +530,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 .thread102.backedge:                              ; preds = %199, %206, %208, %205, %191, %189
   %.053.be = phi ptr [ %190, %189 ], [ %192, %191 ], [ %197, %205 ], [ %197, %208 ], [ %197, %206 ], [ %197, %199 ]
   %.051.be = phi i1 [ false, %189 ], [ true, %191 ], [ true, %205 ], [ true, %208 ], [ true, %206 ], [ false, %199 ]
-  br label %.thread102, !llvm.loop !8
+  br label %.thread102, !llvm.loop !9
 
 200:                                              ; preds = %199
   %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
@@ -662,6 +662,7 @@ attributes #12 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

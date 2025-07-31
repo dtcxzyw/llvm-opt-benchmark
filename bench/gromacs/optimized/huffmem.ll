@@ -302,7 +302,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   store i8 %172, ptr %gep243, align 1, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader206, label %170, !llvm.loop !10
+  br i1 %exitcond.not, label %.preheader206, label %170, !llvm.loop !11
 
 173:                                              ; preds = %.lr.ph210, %173
   %indvars.iv220 = phi i64 [ 0, %.lr.ph210 ], [ %indvars.iv.next221, %173 ]
@@ -312,7 +312,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   store i8 %175, ptr %gep, align 1, !tbaa !7
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next221, %wide.trip.count223
-  br i1 %exitcond224.not, label %.loopexit, label %173, !llvm.loop !11
+  br i1 %exitcond224.not, label %.loopexit, label %173, !llvm.loop !12
 
 176:                                              ; preds = %41, %.thread
   store i32 2, ptr %6, align 4, !tbaa !3
@@ -428,7 +428,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   store i8 %244, ptr %gep250, align 1, !tbaa !7
   %indvars.iv.next231 = add nuw nsw i64 %indvars.iv230, 1
   %exitcond234.not = icmp eq i64 %indvars.iv.next231, %wide.trip.count233
-  br i1 %exitcond234.not, label %.preheader, label %242, !llvm.loop !12
+  br i1 %exitcond234.not, label %.preheader, label %242, !llvm.loop !13
 
 245:                                              ; preds = %.lr.ph216, %245
   %indvars.iv235 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next236, %245 ]
@@ -438,7 +438,7 @@ define void @Ptngc_comp_huff_compress_verbose(ptr noundef %0, i32 noundef %1, pt
   store i8 %247, ptr %gep252, align 1, !tbaa !7
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count238
-  br i1 %exitcond239.not, label %.loopexit, label %245, !llvm.loop !13
+  br i1 %exitcond239.not, label %.loopexit, label %245, !llvm.loop !14
 
 .loopexit:                                        ; preds = %173, %105, %245, %.preheader206, %75, %.preheader
   br i1 %.not, label %248, label %249
@@ -715,7 +715,7 @@ define ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %0) local_unnamed_addr #0 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
   %4 = getelementptr inbounds nuw [3 x ptr], ptr @huff_algo_names, i64 0, i64 %3
-  %5 = load ptr, ptr %4, align 8, !tbaa !14
+  %5 = load ptr, ptr %4, align 8, !tbaa !15
   br label %6
 
 6:                                                ; preds = %1, %2
@@ -740,12 +740,13 @@ attributes #5 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 omnipotent char", !16, i64 0}
-!16 = !{!"any pointer", !5, i64 0}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !17, i64 0}
+!17 = !{!"any pointer", !5, i64 0}

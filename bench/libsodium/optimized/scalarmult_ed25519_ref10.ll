@@ -83,7 +83,7 @@ define internal fastcc range(i32 -1, 1) i32 @_crypto_scalarmult_ed25519(ptr noun
   %35 = or i8 %34, %.089.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 31
-  br i1 %exitcond.not.i, label %_crypto_scalarmult_ed25519_is_inf.exit, label %32, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_crypto_scalarmult_ed25519_is_inf.exit, label %32, !llvm.loop !7
 
 _crypto_scalarmult_ed25519_is_inf.exit:           ; preds = %32
   %36 = load i8, ptr %28, align 1
@@ -128,7 +128,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base(ptr nounde
   store i8 %6, ptr %7, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %8, label %4, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %4, !llvm.loop !8
 
 8:                                                ; preds = %4
   %9 = load i8, ptr %0, align 1
@@ -153,7 +153,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base(ptr nounde
   %20 = or i8 %19, %.089.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
-  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %17, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %17, !llvm.loop !7
 
 _crypto_scalarmult_ed25519_is_inf.exit.i:         ; preds = %17
   %21 = load i8, ptr %11, align 1
@@ -191,7 +191,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base_noclamp(pt
   store i8 %6, ptr %7, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %8, label %4, !llvm.loop !7
+  br i1 %exitcond.not.i, label %8, label %4, !llvm.loop !8
 
 8:                                                ; preds = %4
   %.phi.trans.insert.i = getelementptr i8, ptr %0, i64 31
@@ -212,7 +212,7 @@ define dso_local range(i32 -1, 1) i32 @crypto_scalarmult_ed25519_base_noclamp(pt
   %15 = or i8 %14, %.089.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 31
-  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %12, !llvm.loop !6
+  br i1 %exitcond.not.i.i, label %_crypto_scalarmult_ed25519_is_inf.exit.i, label %12, !llvm.loop !7
 
 _crypto_scalarmult_ed25519_is_inf.exit.i:         ; preds = %12
   %16 = load i8, ptr %.phi.trans.insert.i, align 1
@@ -280,7 +280,8 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}

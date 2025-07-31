@@ -269,7 +269,7 @@ _ZL11isAtLineEndPKc.exit.thread80:                ; preds = %_ZL15skipIfAtLineEn
   %46 = getelementptr inbounds nuw i8, ptr %.3.ph52.us, i64 %.sink7.i20.us
   %47 = add i32 %34, 1
   store i32 %47, ptr %32, align 4, !tbaa !20
-  br label %.preheader57.split.us, !llvm.loop !30
+  br label %.preheader57.split.us, !llvm.loop !31
 
 .preheader55:                                     ; preds = %_ZL11isAtLineEndPKc.exit.thread80, %_ZL11isAtLineEndPKc.exit
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -296,7 +296,7 @@ _ZL11isAtLineEndPKc.exit.thread80:                ; preds = %_ZL15skipIfAtLineEn
   %57 = getelementptr inbounds nuw i8, ptr %.1, i64 %.sink7.i12
   %58 = add i32 %50, 1
   store i32 %58, ptr %48, align 4, !tbaa !20
-  br label %49, !llvm.loop !32
+  br label %49, !llvm.loop !33
 
 .preheader57.split:                               ; preds = %.preheader57, %.critedge.thread49
   %59 = phi i32 [ %75, %.critedge.thread49 ], [ %.promoted, %.preheader57 ]
@@ -355,7 +355,7 @@ _ZL11isAtLineEndPKc.exit15.thread:                ; preds = %61, %.preheader57.s
   %74 = getelementptr inbounds nuw i8, ptr %.3.ph52, i64 %.sink7.i20
   %75 = add i32 %59, 1
   store i32 %75, ptr %33, align 4, !tbaa !20
-  br label %.preheader57.split, !llvm.loop !33
+  br label %.preheader57.split, !llvm.loop !34
 
 _ZL11isAtLineEndPKc.exit.thread:                  ; preds = %.critedge, %.critedge.us, %49
   %76 = phi i8 [ %51, %49 ], [ %35, %.critedge.us ], [ %60, %.critedge ]
@@ -402,7 +402,7 @@ _ZL11isAtLineEndPKc.exit23:                       ; preds = %.preheader, %84
   %87 = add i64 %.0, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.03398, i64 %87
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !25
-  br label %.preheader, !llvm.loop !34
+  br label %.preheader, !llvm.loop !35
 
 .critedge2:                                       ; preds = %.preheader, %.preheader, %84
   store ptr %.03398, ptr %2, align 8, !tbaa !22
@@ -457,10 +457,11 @@ attributes #6 = { nounwind }
 !25 = !{!7, !7, i64 0}
 !26 = !{i8 0, i8 2}
 !27 = !{}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !29}
-!33 = distinct !{!33, !29}
-!34 = distinct !{!34, !29}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30, !32}
+!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!33 = distinct !{!33, !29, !30}
+!34 = distinct !{!34, !29, !30}
+!35 = distinct !{!35, !29, !30}

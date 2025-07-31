@@ -1405,7 +1405,7 @@ define internal noundef i64 @passwd_iterate(i64 %0) #0 {
   %35 = tail call i64 @rb_yield(i64 noundef %34) #13
   %36 = tail call ptr @getpwent() #13
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret i64 4
@@ -1438,8 +1438,8 @@ declare ptr @getgrgid(i32 noundef) local_unnamed_addr #2
 define internal fastcc i64 @setup_group(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = tail call i64 @rb_ary_new() #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
-  %5 = load ptr, ptr %4, align 8, !tbaa !28
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -1449,23 +1449,23 @@ define internal fastcc i64 @setup_group(ptr noundef nonnull readonly captures(no
   %7 = tail call i64 @rb_locale_str_new_cstr(ptr noundef nonnull %6) #13
   %8 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %7) #13
   %9 = getelementptr inbounds nuw i8, ptr %.012, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !28
+  %10 = load ptr, ptr %9, align 8, !tbaa !29
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %11 = load i64, ptr @sGroup, align 8, !tbaa !6
-  %12 = load ptr, ptr %0, align 8, !tbaa !30
+  %12 = load ptr, ptr %0, align 8, !tbaa !31
   %13 = icmp eq ptr %12, null
   %spec.store.select.i9 = select i1 %13, ptr @.str.216, ptr %12
   %14 = tail call i64 @rb_locale_str_new_cstr(ptr noundef nonnull %spec.store.select.i9) #13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8, !tbaa !31
+  %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = icmp eq ptr %16, null
   %spec.store.select.i10 = select i1 %17, ptr @.str.216, ptr %16
   %18 = tail call i64 @rb_str_new_cstr(ptr noundef nonnull %spec.store.select.i10) #13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %20 = load i32, ptr %19, align 8, !tbaa !32
+  %20 = load i32, ptr %19, align 8, !tbaa !33
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 1
   %23 = or disjoint i64 %22, 1
@@ -1492,7 +1492,7 @@ define internal noundef i64 @group_iterate(i64 %0) #0 {
   %5 = tail call i64 @rb_yield(i64 noundef %4) #13
   %6 = tail call ptr @getgrent() #13
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret i64 4
@@ -1621,15 +1621,16 @@ attributes #18 = { nounwind allocsize(0,1) }
 !19 = !{!11, !12, i64 32}
 !20 = !{!11, !12, i64 40}
 !21 = !{!14, !14, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = !{!26, !27, i64 24}
-!26 = !{!"group", !12, i64 0, !12, i64 8, !14, i64 16, !27, i64 24}
-!27 = !{!"p2 omnipotent char", !13, i64 0}
-!28 = !{!12, !12, i64 0}
-!29 = distinct !{!29, !23}
-!30 = !{!26, !12, i64 0}
-!31 = !{!26, !12, i64 8}
-!32 = !{!26, !14, i64 16}
-!33 = distinct !{!33, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = !{!27, !28, i64 24}
+!27 = !{!"group", !12, i64 0, !12, i64 8, !14, i64 16, !28, i64 24}
+!28 = !{!"p2 omnipotent char", !13, i64 0}
+!29 = !{!12, !12, i64 0}
+!30 = distinct !{!30, !23, !24}
+!31 = !{!27, !12, i64 0}
+!32 = !{!27, !12, i64 8}
+!33 = !{!27, !14, i64 16}
+!34 = distinct !{!34, !23, !24}

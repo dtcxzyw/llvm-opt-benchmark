@@ -213,7 +213,7 @@ define ptr @mm_map_find(ptr noundef %0, ptr noundef readnone captures(address) %
   %or.cond17.not.i = select i1 %or.cond.not19.not21.i, i1 %.not16.i, i1 false
   %16 = icmp ule ptr %7, %14
   %spec.select.i = select i1 %or.cond17.not.i, i1 %16, i1 false
-  br i1 %spec.select.i, label %.critedge, label %8, !llvm.loop !8
+  br i1 %spec.select.i, label %.critedge, label %8, !llvm.loop !9
 
 .critedge:                                        ; preds = %8, %9
   %17 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %4) #6
@@ -262,7 +262,7 @@ define range(i32 -2147483648, 1) i32 @mm_map_remove(ptr noundef %0, ptr noundef 
 
 18:                                               ; preds = %.preheader
   %19 = icmp eq ptr %1, %17
-  br i1 %19, label %20, label %.preheader, !llvm.loop !9
+  br i1 %19, label %20, label %.preheader, !llvm.loop !10
 
 20:                                               ; preds = %18
   %21 = tail call ptr @sq_remafter(ptr noundef nonnull %.025, ptr noundef nonnull %0) #6
@@ -309,7 +309,8 @@ attributes #7 = { allocsize(0) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

@@ -996,7 +996,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %.4453 = phi i32 [ %.04491385, %49 ], [ %.04491385, %72 ], [ %.04491385, %76 ], [ %.04491385, %44 ], [ %.04491385, %isoptish.exit.thread863.tail ], [ %.3452.ph, %isoption.exit691.thread ], [ %.04491385, %isoption.exit691 ]
   %411 = add nsw i32 %.5491, 1
   %412 = icmp slt i32 %411, %0
-  br i1 %412, label %27, label %._crit_edge.loopexit, !llvm.loop !24
+  br i1 %412, label %27, label %._crit_edge.loopexit, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %413 = icmp eq i32 %.1456, 0
@@ -1396,7 +1396,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
 .outer.us:                                        ; preds = %.split.us.us
   %653 = call i32 @jq_util_input_errors(ptr noundef %20) #19
   %654 = icmp eq i32 %653, 0
-  br i1 %654, label %.lr.ph1396.us, label %.critedge, !llvm.loop !25
+  br i1 %654, label %.lr.ph1396.us, label %.critedge, !llvm.loop !26
 
 .lr.ph1396.us:                                    ; preds = %.outer.us.preheader, %.outer.us
   %.13.ph.us1970 = phi i32 [ %666, %.outer.us ], [ -4, %.outer.us.preheader ]
@@ -1432,7 +1432,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %.4461.us = select i1 %or.cond9.us, i32 %670, i32 %.2459.ph.us1969
   %671 = call i32 @jq_halted(ptr noundef nonnull %16) #19
   %.not577.us = icmp eq i32 %671, 0
-  br i1 %.not577.us, label %.outer.us, label %.split.us.us..critedge.loopexit_crit_edge, !llvm.loop !25
+  br i1 %.not577.us, label %.outer.us, label %.split.us.us..critedge.loopexit_crit_edge, !llvm.loop !26
 
 672:                                              ; preds = %649
   %673 = call { i64, ptr } @jv_null() #19
@@ -1475,7 +1475,7 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   %.4461 = select i1 %or.cond9, i32 %694, i32 %.2459.ph
   %695 = call i32 @jq_halted(ptr noundef %688) #19
   %.not577 = icmp eq i32 %695, 0
-  br i1 %.not577, label %.outer, label %.critedge, !llvm.loop !27
+  br i1 %.not577, label %.outer, label %.critedge, !llvm.loop !28
 
 .outer:                                           ; preds = %.preheader, %.split
   %.2459.ph = phi i32 [ %.4461, %.split ], [ -1, %.preheader ]
@@ -1504,10 +1504,10 @@ isoption.exit691:                                 ; preds = %198, %isoption.exit
   call void @jv_free(i64 %706, ptr %707) #19
   %711 = call i32 @jq_util_input_errors(ptr noundef %20) #19
   %712 = icmp eq i32 %711, 0
-  br i1 %712, label %.lr.ph1396, label %.critedge
+  br i1 %712, label %.lr.ph1396, label %.critedge, !llvm.loop !28
 
 .split.us.us..critedge.loopexit_crit_edge:        ; preds = %.split.us.us
-  br label %.critedge, !llvm.loop !25
+  br label %.critedge, !llvm.loop !26
 
 .critedge:                                        ; preds = %.outer, %.split, %704, %682, %.outer.us, %659, %.outer.us.preheader, %.split.us.us..critedge.loopexit_crit_edge, %.split1427.us, %672
   %.1458 = phi i32 [ -1, %672 ], [ %.2459.ph.us1969, %.split1427.us ], [ %.4461.us, %.split.us.us..critedge.loopexit_crit_edge ], [ -1, %.outer.us.preheader ], [ %.2459.ph.us1969, %659 ], [ %.4461.us, %.outer.us ], [ %.2459.ph, %682 ], [ %.2459.ph, %704 ], [ %.2459.ph, %.outer ], [ %.4461, %.split ]
@@ -1841,7 +1841,7 @@ define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef 
   %40 = extractvalue { i64, ptr } %38, 1
   %41 = tail call i32 @jv_get_kind(i64 %39, ptr %40) #19
   %.not119.us = icmp eq i32 %41, 0
-  br i1 %.not119.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !28
+  br i1 %.not119.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %98
   %42 = phi ptr [ %101, %98 ], [ %9, %.lr.ph ]
@@ -1956,7 +1956,7 @@ define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef 
   %101 = extractvalue { i64, ptr } %99, 1
   %102 = tail call i32 @jv_get_kind(i64 %100, ptr %101) #19
   %.not119 = icmp eq i32 %102, 0
-  br i1 %.not119, label %.loopexit, label %.lr.ph.split, !llvm.loop !29
+  br i1 %.not119, label %.loopexit, label %.lr.ph.split, !llvm.loop !30
 
 .loopexit:                                        ; preds = %98, %37, %6, %61
   %.0127 = phi i32 [ %.0129, %61 ], [ -4, %6 ], [ %.2.us, %37 ], [ %.1, %98 ]
@@ -2222,11 +2222,12 @@ attributes #25 = { noreturn nounwind }
 !19 = !{!"short", !7, i64 0}
 !20 = !{!21, !21, i64 0}
 !21 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = distinct !{!24, !23}
-!25 = distinct !{!25, !23, !26}
-!26 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!27 = distinct !{!27, !23}
-!28 = distinct !{!28, !23, !26}
-!29 = distinct !{!29, !23}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = distinct !{!25, !23, !24}
+!26 = distinct !{!26, !24, !27}
+!27 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!28 = distinct !{!28, !24}
+!29 = distinct !{!29, !23, !24, !27}
+!30 = distinct !{!30, !23, !24}

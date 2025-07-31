@@ -48,7 +48,7 @@ define dso_local void @io_futex_cache_free(ptr noundef captures(none) %0) local_
   tail call void @kfree(ptr noundef nonnull %6) #10
   %10 = load ptr, ptr %2, align 8
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %._crit_edge, label %.lr.ph
+  br i1 %11, label %._crit_edge, label %.lr.ph, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   store i32 0, ptr %3, align 8
@@ -124,7 +124,7 @@ define dso_local i32 @io_futex_cancel(ptr noundef %0, ptr noundef readonly captu
   br i1 %48, label %49, label %68
 
 49:                                               ; preds = %44
-  %50 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 0, ptr nonnull elementtype(i64) %45) #10, !srcloc !5
+  %50 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %45, i64 0, ptr nonnull elementtype(i64) %45) #10, !srcloc !7
   %51 = icmp ult i8 %50, 2
   tail call void @llvm.assume(i1 %51)
   %52 = icmp eq i8 %50, 0
@@ -176,7 +176,7 @@ define dso_local i32 @io_futex_cancel(ptr noundef %0, ptr noundef readonly captu
   %77 = getelementptr i8, ptr %26, i64 -160
   %78 = icmp eq ptr %77, null
   %79 = or i1 %76, %78
-  br i1 %79, label %.loopexit, label %22, !llvm.loop !6
+  br i1 %79, label %.loopexit, label %22, !llvm.loop !8
 
 .loopexit:                                        ; preds = %74, %68, %13
   %80 = phi i32 [ 0, %13 ], [ %75, %74 ], [ %70, %68 ]
@@ -242,7 +242,7 @@ define dso_local zeroext i1 @io_futex_remove_all(ptr noundef readonly captures(n
   br i1 %28, label %29, label %48
 
 29:                                               ; preds = %24
-  %30 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 0, ptr nonnull elementtype(i64) %25) #10, !srcloc !5
+  %30 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %25, i64 0, ptr nonnull elementtype(i64) %25) #10, !srcloc !7
   %31 = icmp ult i8 %30, 2
   tail call void @llvm.assume(i1 %31)
   %32 = icmp eq i8 %30, 0
@@ -286,7 +286,7 @@ define dso_local zeroext i1 @io_futex_remove_all(ptr noundef readonly captures(n
   %51 = getelementptr i8, ptr %13, i64 -160
   %52 = icmp eq ptr %51, null
   %53 = or i1 %50, %52
-  br i1 %53, label %54, label %.preheader, !llvm.loop !9
+  br i1 %53, label %54, label %.preheader, !llvm.loop !11
 
 54:                                               ; preds = %48
   %55 = icmp ne i8 %49, 0
@@ -305,25 +305,25 @@ define dso_local range(i32 -22, 1) i32 @io_futex_prep(ptr noundef writeonly capt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %46, !prof !10
+  br i1 %5, label %6, label %46, !prof !12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %46, !prof !10
+  br i1 %9, label %10, label %46, !prof !12
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i16, ptr %11, align 8
   %13 = icmp eq i16 %12, 0
-  br i1 %13, label %14, label %46, !prof !10
+  br i1 %13, label %14, label %46, !prof !12
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %46, !prof !10
+  br i1 %17, label %18, label %46, !prof !12
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -352,7 +352,7 @@ define dso_local range(i32 -22, 1) i32 @io_futex_prep(ptr noundef writeonly capt
   %37 = xor i32 %36, 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %37, ptr %38, align 8
-  %39 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !11
+  %39 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !13
   %40 = icmp eq i32 %34, 2
   %41 = icmp ult i64 %24, 4294967296
   %42 = select i1 %40, i1 %41, i1 false
@@ -373,37 +373,37 @@ define dso_local i32 @io_futexv_prep(ptr noundef %0, ptr noundef %1) local_unnam
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %54, !prof !10
+  br i1 %5, label %6, label %54, !prof !12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i16, ptr %7, align 8
   %9 = icmp eq i16 %8, 0
-  br i1 %9, label %10, label %54, !prof !10
+  br i1 %9, label %10, label %54, !prof !12
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %54, !prof !10
+  br i1 %13, label %14, label %54, !prof !12
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
-  br i1 %17, label %18, label %54, !prof !10
+  br i1 %17, label %18, label %54, !prof !12
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %54, !prof !10
+  br i1 %21, label %22, label %54, !prof !12
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %54, !prof !10
+  br i1 %25, label %26, label %54, !prof !12
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -469,7 +469,7 @@ define internal void @io_futex_wakev_fn(ptr readnone captures(none) %0, ptr noun
   br i1 %8, label %9, label %19
 
 9:                                                ; preds = %2
-  %10 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 0, ptr nonnull elementtype(i64) %5) #10, !srcloc !5
+  %10 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %5, i64 0, ptr nonnull elementtype(i64) %5) #10, !srcloc !7
   %11 = icmp ult i8 %10, 2
   tail call void @llvm.assume(i1 %11)
   %12 = icmp eq i8 %10, 0
@@ -477,7 +477,7 @@ define internal void @io_futex_wakev_fn(ptr readnone captures(none) %0, ptr noun
 
 13:                                               ; preds = %9
   %14 = tail call zeroext i1 @__futex_wake_mark(ptr noundef %1) #10
-  br i1 %14, label %15, label %19, !prof !10
+  br i1 %14, label %15, label %19, !prof !12
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -514,7 +514,7 @@ define dso_local noundef range(i32 -529, 1) i32 @io_futexv_wait(ptr noundef %0, 
   %12 = load i32, ptr %11, align 4
   %13 = call i32 @futex_wait_multiple_setup(ptr noundef %5, i32 noundef %12, ptr noundef nonnull %3) #10
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %21, label %35, !prof !12
+  br i1 %14, label %21, label %35, !prof !14
 
 .thread:                                          ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 64
@@ -523,7 +523,7 @@ define dso_local noundef range(i32 -529, 1) i32 @io_futexv_wait(ptr noundef %0, 
   %17 = load i32, ptr %16, align 4
   %18 = call i32 @futex_wait_multiple_setup(ptr noundef %5, i32 noundef %17, ptr noundef nonnull %3) #10
   %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %35, !prof !12
+  br i1 %19, label %20, label %35, !prof !14
 
 20:                                               ; preds = %.thread
   call void @mutex_unlock(ptr noundef nonnull %15) #10
@@ -557,7 +557,7 @@ define dso_local noundef range(i32 -529, 1) i32 @io_futexv_wait(ptr noundef %0, 
   br i1 %37, label %38, label %50
 
 38:                                               ; preds = %35
-  %39 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !11
+  %39 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !13
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store volatile i32 0, ptr %41, align 8
@@ -616,7 +616,7 @@ define dso_local noundef range(i32 -529, 1) i32 @io_futex_wait(ptr noundef %0, i
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #10
-  store ptr null, ptr %3, align 8, !annotation !13
+  store ptr null, ptr %3, align 8, !annotation !15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 0
@@ -760,7 +760,7 @@ define internal void @io_futex_wake_fn(ptr readnone captures(none) %0, ptr nound
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = tail call zeroext i1 @__futex_wake_mark(ptr noundef %1) #10
-  br i1 %5, label %6, label %10, !prof !10
+  br i1 %5, label %6, label %10, !prof !12
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -831,7 +831,7 @@ define internal void @io_futex_complete(ptr noundef %0, ptr noundef %1) #1 align
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = load i8, ptr %1, align 1, !range !14, !noundef !15
+  %7 = load i8, ptr %1, align 1, !range !16, !noundef !17
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %11
 
@@ -894,7 +894,7 @@ define internal void @io_futex_complete(ptr noundef %0, ptr noundef %1) #1 align
 define internal void @io_futexv_complete(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
-  %5 = load i8, ptr %1, align 1, !range !14, !noundef !15
+  %5 = load i8, ptr %1, align 1, !range !16, !noundef !17
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %11
 
@@ -908,7 +908,7 @@ define internal void @io_futexv_complete(ptr noundef %0, ptr noundef %1) #1 alig
 
 11:                                               ; preds = %7, %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %13 = load i8, ptr %12, align 8, !range !14, !noundef !15
+  %13 = load i8, ptr %12, align 8, !range !16, !noundef !17
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %23
 
@@ -1015,14 +1015,16 @@ attributes #13 = { nounwind allocsize(2) }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = !{i64 2147799266, i64 2147799305, i64 2147799326, i64 2147799363, i64 2147799386, i64 2147799395, i64 2147799498}
-!6 = distinct !{!6, !7, !8}
-!7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = !{i64 2148458900}
-!12 = !{!"branch_weights", i32 1, i32 2000}
-!13 = !{!"auto-init"}
-!14 = !{i8 0, i8 2}
-!15 = !{}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i64 2147799266, i64 2147799305, i64 2147799326, i64 2147799363, i64 2147799386, i64 2147799395, i64 2147799498}
+!8 = distinct !{!8, !9, !10, !6}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10, !6}
+!12 = !{!"branch_weights", i32 2000, i32 1}
+!13 = !{i64 2148458900}
+!14 = !{!"branch_weights", i32 1, i32 2000}
+!15 = !{!"auto-init"}
+!16 = !{i8 0, i8 2}
+!17 = !{}

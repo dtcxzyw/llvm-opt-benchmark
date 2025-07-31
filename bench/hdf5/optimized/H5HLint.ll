@@ -228,5 +228,6 @@ attributes #3 = { nounwind }
 !23 = !{!13, !14, i64 40}
 !24 = !{!25, !14, i64 24}
 !25 = !{!"H5HL_free_t", !11, i64 0, !11, i64 8, !14, i64 16, !14, i64 24}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
+!28 = !{!"llvm.loop.estimated_trip_count"}

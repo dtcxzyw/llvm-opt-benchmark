@@ -1514,7 +1514,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %10
 29:                                               ; preds = %27
   %30 = load i32, ptr %28, align 8
   %31 = icmp eq i32 %30, %0
-  br i1 %31, label %32, label %27, !llvm.loop !11
+  br i1 %31, label %32, label %27, !llvm.loop !12
 
 32:                                               ; preds = %29
   tail call void @list_iterator_destroy(ptr noundef %26) #10
@@ -1710,7 +1710,7 @@ define internal fastcc void @_copy_tres_usage(ptr noundef nonnull captures(none)
   %126 = load i32, ptr %10, align 8
   %127 = zext i32 %126 to i64
   %128 = icmp samesign ult i64 %indvars.iv.next, %127
-  br i1 %128, label %27, label %._crit_edge, !llvm.loop !12
+  br i1 %128, label %27, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %27, %7
   ret void
@@ -1791,7 +1791,7 @@ _jobacct_shutdown_test.exit:                      ; preds = %8
 24:                                               ; preds = %.split
   %25 = load i32, ptr %23, align 8
   %26 = icmp eq i32 %25, %0
-  br i1 %26, label %.split32.us, label %.split, !llvm.loop !13
+  br i1 %26, label %.split32.us, label %.split, !llvm.loop !14
 
 .split32.us:                                      ; preds = %24, %.split.us
   %.us-phi = phi ptr [ %22, %.split.us ], [ %23, %24 ]
@@ -2196,7 +2196,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_setinfo(ptr noundef %0, i32 n
   br label %.lr.ph.split.backedge
 
 .lr.ph.split.backedge:                            ; preds = %44, %41
-  br label %.lr.ph.split, !llvm.loop !14
+  br label %.lr.ph.split, !llvm.loop !15
 
 .outer90._crit_edge:                              ; preds = %.split.us
   %.not73123 = icmp eq i32 %24, 0
@@ -2262,7 +2262,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_setinfo(ptr noundef %0, i32 n
   br label %.lr.ph109.split.backedge
 
 .lr.ph109.split.backedge:                         ; preds = %67, %64
-  br label %.lr.ph109.split, !llvm.loop !15
+  br label %.lr.ph109.split, !llvm.loop !16
 
 .outer._crit_edge:                                ; preds = %.split112.us, %.outer90._crit_edge
   %.not76 = icmp eq ptr %18, null
@@ -2530,7 +2530,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
   br label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %65, %62
-  br label %.lr.ph, !llvm.loop !16
+  br label %.lr.ph, !llvm.loop !17
 
 .outer85._crit_edge:                              ; preds = %.split99.us
   %66 = load i32, ptr %8, align 4
@@ -2662,7 +2662,7 @@ define dso_local range(i32 -1, 1) i32 @jobacctinfo_getinfo(ptr noundef %0, i32 n
   br label %.lr.ph127.backedge
 
 .lr.ph127.backedge:                               ; preds = %115, %112
-  br label %.lr.ph127, !llvm.loop !17
+  br label %.lr.ph127, !llvm.loop !18
 
 .outer._crit_edge:                                ; preds = %.split133.us, %.outer85._crit_edge
   %116 = tail call ptr @create_buf(ptr noundef %68, i32 noundef %66) #10
@@ -3086,7 +3086,7 @@ define dso_local void @jobacctinfo_aggregate(ptr noundef captures(none) %0, ptr 
   %196 = load i32, ptr %57, align 8
   %197 = zext i32 %196 to i64
   %198 = icmp samesign ult i64 %indvars.iv.next.i, %197
-  br i1 %198, label %87, label %_jobacctinfo_aggregate_tres_usage.exit, !llvm.loop !18
+  br i1 %198, label %87, label %_jobacctinfo_aggregate_tres_usage.exit, !llvm.loop !19
 
 _jobacctinfo_aggregate_tres_usage.exit:           ; preds = %195, %56, %2
   ret void
@@ -3403,7 +3403,7 @@ define internal fastcc void @_init_tres_usage(ptr noundef captures(none) initial
   %116 = load i32, ptr %4, align 8
   %117 = zext i32 %116 to i64
   %118 = icmp samesign ult i64 %indvars.iv.next, %117
-  br i1 %118, label %40, label %._crit_edge, !llvm.loop !19
+  br i1 %118, label %40, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %113, %3
   ret void
@@ -3441,15 +3441,16 @@ attributes #12 = { noreturn nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = distinct !{!14, !9, !10}
-!15 = distinct !{!15, !9, !10}
-!16 = distinct !{!16, !9, !10}
-!17 = distinct !{!17, !9, !10}
-!18 = distinct !{!18, !9, !10}
-!19 = distinct !{!19, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = distinct !{!15, !9, !10, !11}
+!16 = distinct !{!16, !9, !10, !11}
+!17 = distinct !{!17, !9, !10, !11}
+!18 = distinct !{!18, !9, !10, !11}
+!19 = distinct !{!19, !9, !10, !11}
+!20 = distinct !{!20, !9, !10, !11}

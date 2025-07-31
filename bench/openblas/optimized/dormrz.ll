@@ -196,7 +196,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = sext i32 %92 to i64
   %94 = icmp slt i64 %indvars.iv.next, %93
-  br i1 %94, label %.lr.ph327, label %.preheader319, !llvm.loop !13
+  br i1 %94, label %.lr.ph327, label %.preheader319, !llvm.loop !14
 
 .thread285:                                       ; preds = %.preheader319, %.lr.ph332.preheader
   %95 = call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 2) #5
@@ -205,7 +205,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %98 = add nsw i32 %97, 4160
   %99 = sitofp i32 %98 to double
   %.pr289.pr.pr.pre = load i32, ptr %13, align 4, !tbaa !3
-  store double %99, ptr %11, align 8, !tbaa !14
+  store double %99, ptr %11, align 8, !tbaa !15
   %.not264 = icmp eq i32 %.pr289.pr.pr.pre, 0
   br i1 %.not264, label %103, label %.thread290
 
@@ -222,7 +222,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %186
 
 .sink.split:                                      ; preds = %70
-  store double 1.000000e+00, ptr %11, align 8, !tbaa !14
+  store double 1.000000e+00, ptr %11, align 8, !tbaa !15
   br label %103
 
 103:                                              ; preds = %.sink.split, %.thread285
@@ -241,7 +241,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %107, %104
-  store double 1.000000e+00, ptr %11, align 8, !tbaa !14
+  store double 1.000000e+00, ptr %11, align 8, !tbaa !15
   br label %186
 
 111:                                              ; preds = %107
@@ -313,7 +313,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %141 = getelementptr inbounds nuw i8, ptr %.1336, i64 1
   store i8 %140, ptr %.1336, align 1, !tbaa !10
   %exitcond367.not = icmp eq ptr %.1336, %scevgep366
-  br i1 %exitcond367.not, label %._crit_edge339.loopexit, label %.lr.ph338, !llvm.loop !16
+  br i1 %exitcond367.not, label %._crit_edge339.loopexit, label %.lr.ph338, !llvm.loop !17
 
 ._crit_edge339.loopexit:                          ; preds = %.lr.ph338
   %.pre375 = load i32, ptr @c__2, align 4, !tbaa !3
@@ -325,7 +325,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next369, %143
-  br i1 %144, label %.lr.ph345, label %.preheader, !llvm.loop !17
+  br i1 %144, label %.lr.ph345, label %.preheader, !llvm.loop !18
 
 ._crit_edge351:                                   ; preds = %.lr.ph350.preheader, %.preheader
   %145 = call i32 @ilaenv_(ptr noundef nonnull @c__2, ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 2) #5
@@ -423,10 +423,10 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %184 = icmp sge i64 %indvars.iv.next372, %171
   %185 = icmp sle i64 %indvars.iv.next372, %171
   %.in = select i1 %162, i1 %184, i1 %185
-  br i1 %.in, label %172, label %.loopexit, !llvm.loop !18
+  br i1 %.in, label %172, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %172, %157, %.thread300
-  store double %.1226315, ptr %11, align 8, !tbaa !14
+  store double %.1226315, ptr %11, align 8, !tbaa !15
   br label %186
 
 186:                                              ; preds = %103, %.loopexit, %110, %.thread290
@@ -493,11 +493,12 @@ attributes #5 = { nounwind }
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"double", !5, i64 0}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"double", !5, i64 0}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}

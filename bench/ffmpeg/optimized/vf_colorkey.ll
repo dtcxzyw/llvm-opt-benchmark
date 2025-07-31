@@ -260,7 +260,7 @@ do_colorkey_pixel.exit.us:                        ; preds = %.lr.ph, %do_colorke
   %102 = phi i32 [ %40, %.lr.ph45.split ], [ %100, %do_colorkey_pixel.exit.us ], [ %151, %do_colorkey_pixel.exit ]
   %103 = add nsw i32 %.043, 1
   %exitcond.not = icmp eq i32 %103, %11
-  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge46, label %.lr.ph45.split, !llvm.loop !65
 
 do_colorkey_pixel.exit:                           ; preds = %.lr.ph, %do_colorkey_pixel.exit
   %.04142 = phi i32 [ %150, %do_colorkey_pixel.exit ], [ 0, %.lr.ph ]
@@ -314,7 +314,7 @@ do_colorkey_pixel.exit:                           ; preds = %.lr.ph, %do_colorke
   %150 = add nuw nsw i32 %.04142, 1
   %151 = load i32, ptr %27, align 8, !tbaa !57
   %152 = icmp slt i32 %150, %151
-  br i1 %152, label %do_colorkey_pixel.exit, label %._crit_edge, !llvm.loop !66
+  br i1 %152, label %do_colorkey_pixel.exit, label %._crit_edge, !llvm.loop !67
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -381,19 +381,19 @@ do_colorkey_pixel.exit.us47:                      ; preds = %.lr.ph.us, %do_colo
   %49 = add nuw nsw i32 %46, %48
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i16, ptr %45, i64 %50
-  %52 = load i16, ptr %51, align 2, !tbaa !67
+  %52 = load i16, ptr %51, align 2, !tbaa !68
   %53 = load i8, ptr %30, align 1, !tbaa !60
   %54 = zext i8 %53 to i32
   %55 = add nuw nsw i32 %46, %54
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw i16, ptr %45, i64 %56
-  %58 = load i16, ptr %57, align 2, !tbaa !67
+  %58 = load i16, ptr %57, align 2, !tbaa !68
   %59 = load i8, ptr %31, align 1, !tbaa !60
   %60 = zext i8 %59 to i32
   %61 = add nuw nsw i32 %46, %60
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds nuw i16, ptr %45, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !67
+  %64 = load i16, ptr %63, align 2, !tbaa !68
   %65 = uitofp i16 %52 to double
   %66 = load i8, ptr %14, align 1, !tbaa !60
   %67 = uitofp i8 %66 to double
@@ -421,15 +421,15 @@ do_colorkey_pixel.exit.us47:                      ; preds = %.lr.ph.us, %do_colo
   %89 = add nuw nsw i32 %46, %88
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i16, ptr %45, i64 %90
-  store i16 %86, ptr %91, align 2, !tbaa !67
+  store i16 %86, ptr %91, align 2, !tbaa !68
   %92 = add nuw nsw i32 %.04142.us48, 1
   %exitcond.not = icmp eq i32 %92, %28
-  br i1 %exitcond.not, label %._crit_edge.us, label %do_colorkey_pixel.exit.us47, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge.us, label %do_colorkey_pixel.exit.us47, !llvm.loop !70
 
 ._crit_edge.us:                                   ; preds = %do_colorkey_pixel.exit.us47, %do_colorkey_pixel.exit.us.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond55.not, label %._crit_edge46, label %.lr.ph.us, !llvm.loop !70
+  br i1 %exitcond55.not, label %._crit_edge46, label %.lr.ph.us, !llvm.loop !71
 
 do_colorkey_pixel.exit.us.us:                     ; preds = %.lr.ph.us, %do_colorkey_pixel.exit.us.us
   %.04142.us.us = phi i32 [ %145, %do_colorkey_pixel.exit.us.us ], [ 0, %.lr.ph.us ]
@@ -439,19 +439,19 @@ do_colorkey_pixel.exit.us.us:                     ; preds = %.lr.ph.us, %do_colo
   %96 = add nuw nsw i32 %93, %95
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds nuw i16, ptr %45, i64 %97
-  %99 = load i16, ptr %98, align 2, !tbaa !67
+  %99 = load i16, ptr %98, align 2, !tbaa !68
   %100 = load i8, ptr %30, align 1, !tbaa !60
   %101 = zext i8 %100 to i32
   %102 = add nuw nsw i32 %93, %101
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr inbounds nuw i16, ptr %45, i64 %103
-  %105 = load i16, ptr %104, align 2, !tbaa !67
+  %105 = load i16, ptr %104, align 2, !tbaa !68
   %106 = load i8, ptr %31, align 1, !tbaa !60
   %107 = zext i8 %106 to i32
   %108 = add nuw nsw i32 %93, %107
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw i16, ptr %45, i64 %109
-  %111 = load i16, ptr %110, align 2, !tbaa !67
+  %111 = load i16, ptr %110, align 2, !tbaa !68
   %112 = uitofp i16 %99 to double
   %113 = load i8, ptr %14, align 1, !tbaa !60
   %114 = uitofp i8 %113 to double
@@ -486,10 +486,10 @@ do_colorkey_pixel.exit.us.us:                     ; preds = %.lr.ph.us, %do_colo
   %142 = add nuw nsw i32 %93, %141
   %143 = zext nneg i32 %142 to i64
   %144 = getelementptr inbounds nuw i16, ptr %45, i64 %143
-  store i16 %139, ptr %144, align 2, !tbaa !67
+  store i16 %139, ptr %144, align 2, !tbaa !68
   %145 = add nuw nsw i32 %.04142.us.us, 1
   %exitcond53.not = icmp eq i32 %145, %28
-  br i1 %exitcond53.not, label %._crit_edge.us, label %do_colorkey_pixel.exit.us.us, !llvm.loop !71
+  br i1 %exitcond53.not, label %._crit_edge.us, label %do_colorkey_pixel.exit.us.us, !llvm.loop !72
 
 ._crit_edge46:                                    ; preds = %._crit_edge.us, %.lr.ph45, %4
   ret i32 0
@@ -558,7 +558,7 @@ define internal noundef i32 @do_colorhold_slice8(ptr noundef readonly captures(n
   %50 = phi i32 [ %42, %.lr.ph82.split ], [ %135, %do_colorkey_pixel.exit.thread ]
   %51 = add nsw i32 %.080, 1
   %exitcond.not = icmp eq i32 %51, %11
-  br i1 %exitcond.not, label %._crit_edge83, label %.lr.ph82.split, !llvm.loop !72
+  br i1 %exitcond.not, label %._crit_edge83, label %.lr.ph82.split, !llvm.loop !73
 
 .lr.ph:                                           ; preds = %.lr.ph82.split, %do_colorkey_pixel.exit.thread
   %52 = phi i32 [ %135, %do_colorkey_pixel.exit.thread ], [ %41, %.lr.ph82.split ]
@@ -668,7 +668,7 @@ do_colorkey_pixel.exit.thread:                    ; preds = %103, %106, %do_colo
   %135 = phi i32 [ %52, %103 ], [ %.pre, %106 ], [ %52, %do_colorkey_pixel.exit ]
   %136 = add nuw nsw i32 %.07679, 1
   %137 = icmp slt i32 %136, %135
-  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %137, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -738,21 +738,21 @@ define internal noundef i32 @do_colorhold_slice16(ptr noundef readonly captures(
   %53 = add nuw nsw i32 %50, %52
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw i16, ptr %48, i64 %54
-  %56 = load i16, ptr %55, align 2, !tbaa !67
+  %56 = load i16, ptr %55, align 2, !tbaa !68
   %57 = zext i16 %56 to i32
   %58 = load i8, ptr %33, align 1, !tbaa !60
   %59 = zext i8 %58 to i32
   %60 = add nuw nsw i32 %50, %59
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i16, ptr %48, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !67
+  %63 = load i16, ptr %62, align 2, !tbaa !68
   %64 = zext i16 %63 to i32
   %65 = load i8, ptr %34, align 1, !tbaa !60
   %66 = zext i8 %65 to i32
   %67 = add nuw nsw i32 %50, %66
   %68 = zext nneg i32 %67 to i64
   %69 = getelementptr inbounds nuw i16, ptr %48, i64 %68
-  %70 = load i16, ptr %69, align 2, !tbaa !67
+  %70 = load i16, ptr %69, align 2, !tbaa !68
   %71 = zext i16 %70 to i32
   %72 = uitofp i16 %56 to double
   %73 = load i8, ptr %17, align 1, !tbaa !60
@@ -811,7 +811,7 @@ do_colorkey_pixel.exit.us:                        ; preds = %94, %92
   %115 = add nsw i64 %114, %113
   %116 = ashr i64 %115, %42
   %117 = trunc i64 %116 to i16
-  store i16 %117, ptr %55, align 2, !tbaa !67
+  store i16 %117, ptr %55, align 2, !tbaa !68
   %118 = zext i16 %63 to i64
   %119 = mul nsw i64 %109, %118
   %120 = add nsw i64 %114, %119
@@ -822,7 +822,7 @@ do_colorkey_pixel.exit.us:                        ; preds = %94, %92
   %125 = add nuw nsw i32 %50, %124
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr inbounds nuw i16, ptr %48, i64 %126
-  store i16 %122, ptr %127, align 2, !tbaa !67
+  store i16 %122, ptr %127, align 2, !tbaa !68
   %128 = zext i16 %70 to i64
   %129 = mul nsw i64 %109, %128
   %130 = add nsw i64 %114, %129
@@ -833,18 +833,18 @@ do_colorkey_pixel.exit.us:                        ; preds = %94, %92
   %135 = add nuw nsw i32 %50, %134
   %136 = zext nneg i32 %135 to i64
   %137 = getelementptr inbounds nuw i16, ptr %48, i64 %136
-  store i16 %132, ptr %137, align 2, !tbaa !67
+  store i16 %132, ptr %137, align 2, !tbaa !68
   br label %do_colorkey_pixel.exit.thread.us
 
 do_colorkey_pixel.exit.thread.us:                 ; preds = %103, %do_colorkey_pixel.exit.us, %92
   %138 = add nuw nsw i32 %.07679.us, 1
   %exitcond.not = icmp eq i32 %138, %31
-  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !74
+  br i1 %exitcond.not, label %._crit_edge.us, label %49, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %do_colorkey_pixel.exit.thread.us
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond86.not, label %._crit_edge83, label %.lr.ph.us, !llvm.loop !75
+  br i1 %exitcond86.not, label %._crit_edge83, label %.lr.ph.us, !llvm.loop !76
 
 ._crit_edge83:                                    ; preds = %._crit_edge.us, %.lr.ph82, %4
   ret i32 0
@@ -935,18 +935,19 @@ attributes #9 = { nounwind }
 !58 = !{!23, !23, i64 0}
 !59 = !{!11, !11, i64 0}
 !60 = !{!8, !8, i64 0}
-!61 = distinct !{!61, !62, !63}
+!61 = distinct !{!61, !62, !63, !64}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!64 = distinct !{!64, !62, !65}
-!65 = !{!"llvm.loop.unswitch.partial.disable"}
-!66 = distinct !{!66, !62}
-!67 = !{!68, !68, i64 0}
-!68 = !{!"short", !8, i64 0}
-!69 = distinct !{!69, !62}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!65 = distinct !{!65, !62, !63, !66}
+!66 = !{!"llvm.loop.unswitch.partial.disable"}
+!67 = distinct !{!67, !62, !63}
+!68 = !{!69, !69, i64 0}
+!69 = !{!"short", !8, i64 0}
 !70 = distinct !{!70, !62, !63}
-!71 = distinct !{!71, !62, !63}
-!72 = distinct !{!72, !62, !65}
-!73 = distinct !{!73, !62}
-!74 = distinct !{!74, !62}
+!71 = distinct !{!71, !62, !63, !64}
+!72 = distinct !{!72, !62, !63, !64}
+!73 = distinct !{!73, !62, !63, !66}
+!74 = distinct !{!74, !62, !63}
 !75 = distinct !{!75, !62, !63}
+!76 = distinct !{!76, !62, !63, !64}

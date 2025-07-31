@@ -212,7 +212,7 @@ _ZN13StackIteratorI13PreservedMarkL8MEMFLAGS5EE9next_addrEv.exit: ; preds = %10,
 
 _ZN14PreservedMarks21adjust_preserved_markEP13PreservedMark.exit: ; preds = %_ZN13StackIteratorI13PreservedMarkL8MEMFLAGS5EE9next_addrEv.exit, %22
   %26 = icmp eq ptr %.sroa.6.1, null
-  br i1 %26, label %._crit_edge, label %8, !llvm.loop !8
+  br i1 %26, label %._crit_edge, label %8, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_ZN14PreservedMarks21adjust_preserved_markEP13PreservedMark.exit, %1
   ret void
@@ -299,7 +299,7 @@ _ZN14PreservedMarks7restoreEv.exit:               ; preds = %_ZN5StackI13Preserv
   br i1 %.not, label %47, label %45
 
 45:                                               ; preds = %_ZN14PreservedMarks7restoreEv.exit
-  %46 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, ptr %1) #7, !srcloc !9
+  %46 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %11, ptr %1) #7, !srcloc !10
   br label %47
 
 47:                                               ; preds = %45, %_ZN14PreservedMarks7restoreEv.exit
@@ -350,7 +350,7 @@ define hidden void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 ca
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %13, %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -533,12 +533,12 @@ _ZN14PreservedMarks7restoreEv.exit.i:             ; preds = %_ZN5StackI13Preserv
   br i1 %.not.i, label %_ZN14PreservedMarks21restore_and_incrementEPVm.exit, label %57
 
 57:                                               ; preds = %_ZN14PreservedMarks7restoreEv.exit.i
-  %58 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %23, ptr nonnull %7) #7, !srcloc !9
+  %58 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %23, ptr nonnull %7) #7, !srcloc !10
   br label %_ZN14PreservedMarks21restore_and_incrementEPVm.exit
 
 _ZN14PreservedMarks21restore_and_incrementEPVm.exit: ; preds = %_ZN14PreservedMarks7restoreEv.exit.i, %57
   %59 = call noundef zeroext i1 @_ZN22SequentialSubTasksDone14try_claim_taskERj(ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(4) %3) #7
-  br i1 %59, label %8, label %._crit_edge, !llvm.loop !11
+  br i1 %59, label %8, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN14PreservedMarks21restore_and_incrementEPVm.exit, %2
   ret void
@@ -605,7 +605,7 @@ define hidden void @_ZN17PreservedMarksSet7reclaimEv(ptr noundef nonnull align 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %.06.i.i.i.i.i, i64 noundef %13) #7
   %.not.i.i.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i.i.i.i.i, label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !13
 
 _ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i.i = load i64, ptr %10, align 8
@@ -632,7 +632,7 @@ _ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i: ; preds
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %.06.i4.i.i.i.i, i64 noundef %.pre-phi3.i.i.i) #7
   %.not.i5.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i5.i.i.i.i, label %.loopexit.loopexit.i.i.i.i, label %.lr.ph.i3.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i5.i.i.i.i, label %.loopexit.loopexit.i.i.i.i, label %.lr.ph.i3.i.i.i.i, !llvm.loop !13
 
 .loopexit.loopexit.i.i.i.i:                       ; preds = %.lr.ph.i3.i.i.i.i
   %.pre.i.i.i.i = load i64, ptr %10, align 8
@@ -648,7 +648,7 @@ _ZN6PaddedI14PreservedMarksLm128EED2Ev.exit:      ; preds = %_ZN5StackI13Preserv
   %34 = load i32, ptr %2, align 4
   %35 = zext i32 %34 to i64
   %36 = icmp samesign ult i64 %indvars.iv.next, %35
-  br i1 %36, label %5, label %._crit_edge, !llvm.loop !13
+  br i1 %36, label %5, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit, %1
   %37 = load i8, ptr %0, align 8
@@ -813,11 +813,12 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i64 2145411697}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i64 2145411697}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

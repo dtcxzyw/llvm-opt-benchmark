@@ -560,7 +560,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @dissect_mp4_box(i32 nound
   %65 = add i32 %68, %.1157
   %66 = sub i32 %65, %2
   %67 = icmp slt i32 %66, %40
-  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !8
+  br i1 %67, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %62, %64
   %.1157 = phi i32 [ %65, %64 ], [ %34, %62 ]
@@ -622,7 +622,7 @@ define internal fastcc void @dissect_mp4_ftyp_body(ptr noundef %0, i32 noundef %
   %14 = add i32 %.01, 4
   %15 = sub i32 %14, %1
   %16 = icmp slt i32 %15, %2
-  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
@@ -865,7 +865,7 @@ define internal fastcc void @dissect_mp4_stsz_body(ptr noundef %0, i32 noundef %
   %23 = add i32 %.0382, 4
   %24 = add i32 %.0373, 1
   %.not39 = icmp ugt i32 %24, %16
-  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -925,7 +925,7 @@ define internal fastcc void @dissect_mp4_stsc_body(ptr noundef %0, i32 noundef %
   %34 = add i32 %.0262, 1
   %35 = load i32, ptr %4, align 4
   %.not = icmp ugt i32 %34, %35
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
@@ -978,7 +978,7 @@ define internal fastcc void @dissect_mp4_dref_body(ptr noundef %0, i32 noundef %
   %19 = add i32 %16, %.026
   %20 = add nuw i32 %.02325, 1
   %exitcond.not = icmp eq i32 %20, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph, %5
   ret void
@@ -1025,7 +1025,7 @@ define internal fastcc void @dissect_mp4_stsd_body(ptr noundef %0, i32 noundef %
   %19 = add i32 %16, %.024
   %20 = add nuw i32 %.02123, 1
   %exitcond.not = icmp eq i32 %20, %12
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph, %5
   ret void
@@ -1074,7 +1074,7 @@ define internal fastcc void @dissect_mp4_stts_body(ptr noundef %0, i32 noundef %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %28 = load i32, ptr %4, align 4
   %29 = icmp ult i32 %18, %28
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
@@ -1111,7 +1111,7 @@ define internal fastcc void @dissect_mp4_stco_body(ptr noundef %0, i32 noundef %
   %19 = add i32 %.0192, 1
   %20 = load i32, ptr %4, align 4
   %.not = icmp ugt i32 %19, %20
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
@@ -1165,7 +1165,7 @@ define internal fastcc void @dissect_mp4_ctts_body(ptr noundef %0, i32 noundef %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
   %32 = load i32, ptr %4, align 4
   %33 = icmp ult i32 %23, %32
-  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #5
@@ -1309,7 +1309,7 @@ timescaled_val_to_str.exit58:                     ; preds = %62, %64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
   %84 = load i32, ptr %7, align 4
   %85 = icmp ult i32 %29, %84
-  br i1 %85, label %27, label %._crit_edge, !llvm.loop !17
+  br i1 %85, label %27, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %timescaled_val_to_str.exit58, %4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
@@ -1385,7 +1385,7 @@ define internal fastcc void @dissect_mp4_sidx_body(ptr noundef %0, i32 noundef %
   %48 = add i16 %.0683, 1
   %.1 = add i32 %.1.in4, 16
   %.not = icmp ugt i16 %48, %28
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret void
@@ -1457,16 +1457,17 @@ attributes #5 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}

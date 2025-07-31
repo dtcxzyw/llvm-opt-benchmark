@@ -141,7 +141,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 16:                                               ; preds = %15
   fence syncscope("singlethread") seq_cst
-  %17 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
+  %17 = call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
   store ptr @_ZZ13TestScopeFuncvE15TraceKeyData_26, ptr %2, align 8
   %.sroa.516.12.insert.insert = or disjoint i64 %.sroa.8.0, %.sroa.516.0
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %.sroa.516.12.insert.insert, i64 noundef %17) #17
@@ -269,7 +269,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit: ; preds = %_ZN3
 28:                                               ; preds = %28, %_ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit
   %29 = load atomic i32, ptr @colCleared seq_cst, align 4
   %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %28, label %41, !llvm.loop !9
+  br i1 %.not, label %28, label %41, !llvm.loop !10
 
 30:                                               ; preds = %71, %69, %_ZN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyD2Ev.exit26, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit19, %41, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit, %0
   %31 = landingpad { ptr, i32 }
@@ -549,7 +549,7 @@ _ZNSt6threadC2IRPFvvEJEvEEOT_DpOT0_.exit:         ; preds = %43, %_ZNKSt14defaul
 54:                                               ; preds = %_ZNSt6threadC2IRPFvvEJEvEEOT_DpOT0_.exit, %54
   %55 = load atomic i32, ptr @threadStarted seq_cst, align 4
   %.not40 = icmp eq i32 %55, 0
-  br i1 %.not40, label %54, label %67, !llvm.loop !10
+  br i1 %.not40, label %54, label %67, !llvm.loop !11
 
 56:                                               ; preds = %40, %15, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13TraceReporterEED2Ev.exit, %19, %18, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector11GetInstanceEv.exit
   %57 = landingpad { ptr, i32 }
@@ -720,7 +720,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %101
   call void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #17
   %.039.add = add nuw nsw i64 %.039.idx93, 8
   %.not = icmp eq i64 %.039.add, 16
-  br i1 %.not, label %113, label %15
+  br i1 %.not, label %113, label %15, !llvm.loop !12
 
 .loopexit71:                                      ; preds = %_ZNKSt8functionIFvvEEclEv.exit, %72, %70, %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_13TraceReporterEED2Ev.exit59, %97
   %lpad.loopexit73 = landingpad { ptr, i32 }
@@ -1469,8 +1469,10 @@ attributes #21 = { builtin nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i64 6804927, i64 6804936, i64 6804960}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{i64 6803873, i64 6803882, i64 6803911, i64 6803938}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{i64 6803873, i64 6803882, i64 6803911, i64 6803938}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !8}

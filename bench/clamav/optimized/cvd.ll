@@ -353,7 +353,7 @@ define noalias noundef ptr @cl_cvdhead(ptr noundef %0) local_unnamed_addr #0 {
   store i8 0, ptr %20, align 1, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %22 = icmp sgt i64 %indvars.iv, 1
-  br i1 %22, label %.lr.ph, label %.critedge
+  br i1 %22, label %.lr.ph, label %.critedge, !llvm.loop !18
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %17
   %23 = call ptr @cl_cvdparse(ptr noundef nonnull %2)
@@ -416,7 +416,7 @@ define range(i32 0, 27) i32 @cl_cvdverify(ptr noundef %0) local_unnamed_addr #0 
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 1112
-  store ptr null, ptr %10, align 8, !tbaa !18
+  store ptr null, ptr %10, align 8, !tbaa !20
   %11 = tail call i32 @cli_strbcasestr(ptr noundef %0, ptr noundef nonnull @.str.18) #19
   %.not16 = icmp eq i32 %11, 0
   br i1 %.not16, label %12, label %14
@@ -454,7 +454,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #19
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #19
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  store ptr null, ptr %12, align 8, !tbaa !40
+  store ptr null, ptr %12, align 8, !tbaa !42
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #19
   %13 = call fastcc i32 @cli_cvdverify(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %4)
   %.not = icmp eq i32 %13, 0
@@ -535,7 +535,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %50 = load i32, ptr %49, align 8, !tbaa !16
   %51 = zext i32 %50 to i64
-  %52 = load i64, ptr %10, align 8, !tbaa !44
+  %52 = load i64, ptr %10, align 8, !tbaa !46
   %53 = icmp slt i64 %52, %51
   %54 = trunc i64 %52 to i32
   br i1 %53, label %55, label %58
@@ -564,9 +564,9 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !10
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 %63, ptr %64, align 4, !tbaa !45
+  store i32 %63, ptr %64, align 4, !tbaa !47
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %50, ptr %65, align 4, !tbaa !45
+  store i32 %50, ptr %65, align 4, !tbaa !47
   br label %66
 
 66:                                               ; preds = %61, %45
@@ -586,7 +586,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 72:                                               ; preds = %71, %66
   %73 = call i32 @fileno(ptr noundef %0) #19
   %74 = getelementptr inbounds nuw i8, ptr %11, i64 60
-  store i32 0, ptr %74, align 4, !tbaa !46
+  store i32 0, ptr %74, align 4, !tbaa !48
   %75 = icmp eq i32 %4, 2
   %. = select i1 %75, i32 65536, i32 64
   %76 = or i32 %3, %.
@@ -596,13 +596,13 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 
 78:                                               ; preds = %72
   %79 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %80 = load ptr, ptr %79, align 8, !tbaa !47
+  %80 = load ptr, ptr %79, align 8, !tbaa !49
   %.not95 = icmp eq ptr %80, null
   br i1 %.not95, label %102, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !48
+  %83 = load ptr, ptr %82, align 8, !tbaa !50
   %.not96 = icmp eq ptr %83, null
   br i1 %.not96, label %102, label %84
 
@@ -642,7 +642,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 
 103:                                              ; preds = %97
   %104 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %105 = load ptr, ptr %104, align 8, !tbaa !51
+  %105 = load ptr, ptr %104, align 8, !tbaa !53
   %.not101 = icmp eq ptr %105, null
   br i1 %.not101, label %106, label %107
 
@@ -651,11 +651,11 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.loopexit
 
 107:                                              ; preds = %103
-  store i32 %6, ptr %74, align 4, !tbaa !46
+  store i32 %6, ptr %74, align 4, !tbaa !48
   %.074.v = select i1 %75, i32 65536, i32 16448
   %.074 = or i32 %.074.v, %3
   %108 = call fastcc i32 @cli_tgzload(i32 noundef %73, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %.074, ptr noundef %11, ptr noundef nonnull %105)
-  %109 = load ptr, ptr %79, align 8, !tbaa !47
+  %109 = load ptr, ptr %79, align 8, !tbaa !49
   %.not102104 = icmp eq ptr %109, null
   br i1 %.not102104, label %.loopexit, label %.lr.ph
 
@@ -666,17 +666,17 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 111:                                              ; preds = %.lr.ph, %130
   %112 = phi ptr [ %109, %.lr.ph ], [ %132, %130 ]
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !51
-  store ptr %114, ptr %79, align 8, !tbaa !47
-  %115 = load ptr, ptr %110, align 8, !tbaa !52
-  %116 = load ptr, ptr %112, align 8, !tbaa !53
+  %114 = load ptr, ptr %113, align 8, !tbaa !53
+  store ptr %114, ptr %79, align 8, !tbaa !49
+  %115 = load ptr, ptr %110, align 8, !tbaa !54
+  %116 = load ptr, ptr %112, align 8, !tbaa !55
   call void @mpool_free(ptr noundef %115, ptr noundef %116) #19
-  %117 = load ptr, ptr %110, align 8, !tbaa !52
+  %117 = load ptr, ptr %110, align 8, !tbaa !54
   %118 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !54
+  %119 = load ptr, ptr %118, align 8, !tbaa !56
   call void @mpool_free(ptr noundef %117, ptr noundef %119) #19
   %120 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !48
+  %121 = load ptr, ptr %120, align 8, !tbaa !50
   %.not103 = icmp eq ptr %121, null
   br i1 %.not103, label %130, label %122
 
@@ -696,11 +696,11 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
   br label %130
 
 130:                                              ; preds = %122, %111
-  %131 = load ptr, ptr %110, align 8, !tbaa !52
+  %131 = load ptr, ptr %110, align 8, !tbaa !54
   call void @mpool_free(ptr noundef %131, ptr noundef nonnull %112) #19
-  %132 = load ptr, ptr %79, align 8, !tbaa !47
+  %132 = load ptr, ptr %79, align 8, !tbaa !49
   %.not102 = icmp eq ptr %132, null
-  br i1 %.not102, label %.loopexit, label %111
+  br i1 %.not102, label %.loopexit, label %111, !llvm.loop !57
 
 .loopexit:                                        ; preds = %130, %107, %72, %16, %7, %106, %102, %43, %40, %33
   %.0 = phi i32 [ 4, %102 ], [ 4, %106 ], [ %31, %33 ], [ 0, %40 ], [ 0, %43 ], [ %13, %7 ], [ 20, %16 ], [ %77, %72 ], [ %108, %107 ], [ %108, %130 ]
@@ -744,7 +744,7 @@ define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr n
   store i8 0, ptr %11, align 1, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %13 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %13, label %10, label %.critedge
+  br i1 %13, label %10, label %.critedge, !llvm.loop !58
 
 .critedge:                                        ; preds = %10, %.critedge2
   %14 = call ptr @cl_cvdparse(ptr noundef nonnull %4)
@@ -911,13 +911,13 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 24:                                               ; preds = %23
   %25 = call ptr @gzdopen(i32 noundef %20, ptr noundef nonnull @.str.12) #19
-  store ptr %25, ptr %4, align 8, !tbaa !55
+  store ptr %25, ptr %4, align 8, !tbaa !59
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %24
   %28 = tail call ptr @__errno_location() #21
-  %29 = load i32, ptr %28, align 4, !tbaa !45
+  %29 = load i32, ptr %28, align 4, !tbaa !47
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.56, i32 noundef %20, i32 noundef %29) #19
   %30 = icmp sgt i32 %20, -1
   br i1 %30, label %31, label %cli_tgzload_cleanup.exit
@@ -928,19 +928,19 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr null, ptr %34, align 8, !tbaa !56
+  store ptr null, ptr %34, align 8, !tbaa !60
   br label %46
 
 35:                                               ; preds = %23
   %36 = call noalias ptr @fdopen(i32 noundef %20, ptr noundef nonnull @.str.12) #19
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %36, ptr %37, align 8, !tbaa !56
+  store ptr %36, ptr %37, align 8, !tbaa !60
   %38 = icmp eq ptr %36, null
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %35
   %40 = tail call ptr @__errno_location() #21
-  %41 = load i32, ptr %40, align 4, !tbaa !45
+  %41 = load i32, ptr %40, align 4, !tbaa !47
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.57, i32 noundef %20, i32 noundef %41) #19
   %42 = icmp sgt i32 %20, -1
   br i1 %42, label %43, label %cli_tgzload_cleanup.exit
@@ -950,15 +950,15 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 45:                                               ; preds = %35
-  store ptr null, ptr %4, align 8, !tbaa !55
+  store ptr null, ptr %4, align 8, !tbaa !59
   br label %46
 
 46:                                               ; preds = %45, %33
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 32769, ptr %47, align 4, !tbaa !57
+  store i32 32769, ptr %47, align 4, !tbaa !61
   %48 = call noalias dereferenceable_or_null(32769) ptr @malloc(i64 noundef 32769) #20
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %48, ptr %49, align 8, !tbaa !58
+  store ptr %48, ptr %49, align 8, !tbaa !62
   %.not137 = icmp eq ptr %48, null
   br i1 %.not137, label %50, label %65
 
@@ -968,46 +968,46 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not135, label %51, label %54
 
 51:                                               ; preds = %50
-  %52 = load ptr, ptr %4, align 8, !tbaa !55
+  %52 = load ptr, ptr %4, align 8, !tbaa !59
   %53 = call i32 @gzclose(ptr noundef %52) #19
-  store ptr null, ptr %4, align 8, !tbaa !55
+  store ptr null, ptr %4, align 8, !tbaa !59
   br label %58
 
 54:                                               ; preds = %50
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !56
+  %56 = load ptr, ptr %55, align 8, !tbaa !60
   %57 = call i32 @fclose(ptr noundef %56)
-  store ptr null, ptr %55, align 8, !tbaa !56
+  store ptr null, ptr %55, align 8, !tbaa !60
   br label %58
 
 58:                                               ; preds = %54, %51
-  %59 = load ptr, ptr %49, align 8, !tbaa !58
+  %59 = load ptr, ptr %49, align 8, !tbaa !62
   %.not11.i = icmp eq ptr %59, null
   br i1 %.not11.i, label %61, label %60
 
 60:                                               ; preds = %58
   call void @free(ptr noundef nonnull %59) #19
-  store ptr null, ptr %49, align 8, !tbaa !58
+  store ptr null, ptr %49, align 8, !tbaa !62
   br label %61
 
 61:                                               ; preds = %60, %58
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %63 = load ptr, ptr %62, align 8, !tbaa !40
+  %63 = load ptr, ptr %62, align 8, !tbaa !42
   %.not12.i = icmp eq ptr %63, null
   br i1 %.not12.i, label %cli_tgzload_cleanup.exit, label %64
 
 64:                                               ; preds = %61
   call void @cl_hash_destroy(ptr noundef nonnull %63) #19
-  store ptr null, ptr %62, align 8, !tbaa !40
+  store ptr null, ptr %62, align 8, !tbaa !42
   br label %cli_tgzload_cleanup.exit
 
 65:                                               ; preds = %46
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %66, align 8, !tbaa !59
+  store ptr null, ptr %66, align 8, !tbaa !63
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store i32 1, ptr %67, align 8, !tbaa !60
+  store i32 1, ptr %67, align 8, !tbaa !64
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %48, ptr %68, align 8, !tbaa !61
+  store ptr %48, ptr %68, align 8, !tbaa !65
   %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 100
   %71 = getelementptr inbounds nuw i8, ptr %9, i64 156
@@ -1024,12 +1024,12 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not135, label %79, label %82
 
 79:                                               ; preds = %78
-  %80 = load ptr, ptr %4, align 8, !tbaa !55
+  %80 = load ptr, ptr %4, align 8, !tbaa !59
   %81 = call i32 @gzread(ptr noundef %80, ptr noundef nonnull %9, i32 noundef 512) #19
   br label %86
 
 82:                                               ; preds = %78
-  %83 = load ptr, ptr %69, align 8, !tbaa !56
+  %83 = load ptr, ptr %69, align 8, !tbaa !60
   %84 = call i64 @fread(ptr noundef nonnull %9, i64 noundef 1, i64 noundef 512, ptr noundef %83)
   %85 = trunc i64 %84 to i32
   br label %86
@@ -1095,23 +1095,23 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 105:                                              ; preds = %100
-  %106 = load i32, ptr %10, align 4, !tbaa !45
-  store i32 %106, ptr %74, align 8, !tbaa !62
-  %107 = load i32, ptr %47, align 4, !tbaa !57
+  %106 = load i32, ptr %10, align 4, !tbaa !47
+  store i32 %106, ptr %74, align 8, !tbaa !66
+  %107 = load i32, ptr %47, align 4, !tbaa !61
   %108 = icmp ult i32 %106, %107
   %109 = add i32 %107, -1
   %110 = select i1 %108, i32 %106, i32 %109
-  store i32 %110, ptr %75, align 8, !tbaa !63
-  store ptr null, ptr %66, align 8, !tbaa !59
-  %111 = load ptr, ptr %49, align 8, !tbaa !58
-  store ptr %111, ptr %68, align 8, !tbaa !61
-  %112 = load ptr, ptr %76, align 8, !tbaa !40
+  store i32 %110, ptr %75, align 8, !tbaa !67
+  store ptr null, ptr %66, align 8, !tbaa !63
+  %111 = load ptr, ptr %49, align 8, !tbaa !62
+  store ptr %111, ptr %68, align 8, !tbaa !65
+  %112 = load ptr, ptr %76, align 8, !tbaa !42
   %.not141 = icmp eq ptr %112, null
   br i1 %.not141, label %113, label %116
 
 113:                                              ; preds = %105
   %114 = call ptr @cl_hash_init(ptr noundef nonnull @.str.65) #19
-  store ptr %114, ptr %76, align 8, !tbaa !40
+  store ptr %114, ptr %76, align 8, !tbaa !42
   %.not142 = icmp eq ptr %114, null
   br i1 %.not142, label %115, label %116
 
@@ -1120,16 +1120,16 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 116:                                              ; preds = %113, %105
-  store i32 0, ptr %77, align 4, !tbaa !64
+  store i32 0, ptr %77, align 4, !tbaa !68
   br i1 %.not135, label %117, label %120
 
 117:                                              ; preds = %116
-  %118 = load ptr, ptr %4, align 8, !tbaa !55
+  %118 = load ptr, ptr %4, align 8, !tbaa !59
   %119 = call i64 @gzseek(ptr noundef %118, i64 noundef 0, i32 noundef 1) #19
   br label %123
 
 120:                                              ; preds = %116
-  %121 = load ptr, ptr %69, align 8, !tbaa !56
+  %121 = load ptr, ptr %69, align 8, !tbaa !60
   %122 = call i64 @ftell(ptr noundef %121)
   br label %123
 
@@ -1353,16 +1353,16 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 .preheader:                                       ; preds = %201, %207
   %.0217 = phi ptr [ %209, %207 ], [ %5, %201 ]
-  %205 = load ptr, ptr %.0217, align 8, !tbaa !53
+  %205 = load ptr, ptr %.0217, align 8, !tbaa !55
   %206 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %205, ptr noundef nonnull dereferenceable(1) %8) #18
   %.not185 = icmp eq i32 %206, 0
   br i1 %.not185, label %.critedge, label %207
 
 207:                                              ; preds = %.preheader
   %208 = getelementptr inbounds nuw i8, ptr %.0217, i64 32
-  %209 = load ptr, ptr %208, align 8, !tbaa !51
+  %209 = load ptr, ptr %208, align 8, !tbaa !53
   %.not184 = icmp eq ptr %209, null
-  br i1 %.not184, label %.critedge194, label %.preheader
+  br i1 %.not184, label %.critedge194, label %.preheader, !llvm.loop !69
 
 .critedge194:                                     ; preds = %207
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.103, ptr noundef nonnull %8) #19
@@ -1370,45 +1370,45 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not135, label %210, label %213
 
 210:                                              ; preds = %.critedge194
-  %211 = load ptr, ptr %4, align 8, !tbaa !55
+  %211 = load ptr, ptr %4, align 8, !tbaa !59
   %212 = call i32 @gzclose(ptr noundef %211) #19
-  store ptr null, ptr %4, align 8, !tbaa !55
+  store ptr null, ptr %4, align 8, !tbaa !59
   br label %216
 
 213:                                              ; preds = %.critedge194
-  %214 = load ptr, ptr %69, align 8, !tbaa !56
+  %214 = load ptr, ptr %69, align 8, !tbaa !60
   %215 = call i32 @fclose(ptr noundef %214)
-  store ptr null, ptr %69, align 8, !tbaa !56
+  store ptr null, ptr %69, align 8, !tbaa !60
   br label %216
 
 216:                                              ; preds = %213, %210
-  %217 = load ptr, ptr %49, align 8, !tbaa !58
+  %217 = load ptr, ptr %49, align 8, !tbaa !62
   %.not11.i195 = icmp eq ptr %217, null
   br i1 %.not11.i195, label %219, label %218
 
 218:                                              ; preds = %216
   call void @free(ptr noundef nonnull %217) #19
-  store ptr null, ptr %49, align 8, !tbaa !58
+  store ptr null, ptr %49, align 8, !tbaa !62
   br label %219
 
 219:                                              ; preds = %218, %216
-  %220 = load ptr, ptr %76, align 8, !tbaa !40
+  %220 = load ptr, ptr %76, align 8, !tbaa !42
   %.not12.i196 = icmp eq ptr %220, null
   br i1 %.not12.i196, label %cli_tgzload_cleanup.exit, label %221
 
 221:                                              ; preds = %219
   call void @cl_hash_destroy(ptr noundef nonnull %220) #19
-  store ptr null, ptr %76, align 8, !tbaa !40
+  store ptr null, ptr %76, align 8, !tbaa !42
   br label %cli_tgzload_cleanup.exit
 
 .critedge:                                        ; preds = %.preheader
-  %222 = load i32, ptr %77, align 4, !tbaa !64
+  %222 = load i32, ptr %77, align 4, !tbaa !68
   %.not186 = icmp eq i32 %222, 0
   br i1 %.not186, label %237, label %223
 
 223:                                              ; preds = %.critedge
   %224 = getelementptr inbounds nuw i8, ptr %.0217, i64 16
-  %225 = load i64, ptr %224, align 8, !tbaa !65
+  %225 = load i64, ptr %224, align 8, !tbaa !70
   %226 = zext i32 %222 to i64
   %.not187 = icmp eq i64 %225, %226
   br i1 %.not187, label %228, label %227
@@ -1419,10 +1419,10 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 228:                                              ; preds = %223
-  %229 = load ptr, ptr %76, align 8, !tbaa !40
+  %229 = load ptr, ptr %76, align 8, !tbaa !42
   %230 = call i32 @cl_finish_hash(ptr noundef %229, ptr noundef nonnull %11) #19
   %231 = call ptr @cl_hash_init(ptr noundef nonnull @.str.65) #19
-  store ptr %231, ptr %76, align 8, !tbaa !40
+  store ptr %231, ptr %76, align 8, !tbaa !42
   %.not188 = icmp eq ptr %231, null
   br i1 %.not188, label %232, label %233
 
@@ -1432,7 +1432,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 233:                                              ; preds = %228
   %234 = getelementptr inbounds nuw i8, ptr %.0217, i64 8
-  %235 = load ptr, ptr %234, align 8, !tbaa !54
+  %235 = load ptr, ptr %234, align 8, !tbaa !56
   %bcmp189 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %235, ptr noundef nonnull dereferenceable(32) %11, i64 32)
   %.not190 = icmp eq i32 %bcmp189, 0
   br i1 %.not190, label %237, label %236
@@ -1443,7 +1443,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br label %cli_tgzload_cleanup.exit
 
 237:                                              ; preds = %124, %233, %.critedge, %199
-  %238 = load i32, ptr %10, align 4, !tbaa !45
+  %238 = load i32, ptr %10, align 4, !tbaa !47
   %239 = and i32 %238, 511
   %.not191 = icmp eq i32 %239, 0
   %240 = sub nuw nsw i32 512, %239
@@ -1451,14 +1451,14 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not135, label %242, label %257
 
 242:                                              ; preds = %237
-  %243 = load ptr, ptr %4, align 8, !tbaa !55
+  %243 = load ptr, ptr %4, align 8, !tbaa !59
   %244 = call i64 @gzseek(ptr noundef %243, i64 noundef 0, i32 noundef 1) #19
   %245 = icmp eq i64 %.0126, %244
   br i1 %245, label %246, label %252
 
 246:                                              ; preds = %242
-  %247 = load ptr, ptr %4, align 8, !tbaa !55
-  %248 = load i32, ptr %10, align 4, !tbaa !45
+  %247 = load ptr, ptr %4, align 8, !tbaa !59
+  %248 = load i32, ptr %10, align 4, !tbaa !47
   %249 = add i32 %248, %241
   %250 = zext i32 %249 to i64
   %251 = call i64 @gzseek(ptr noundef %247, i64 noundef %250, i32 noundef 1) #19
@@ -1468,33 +1468,33 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
   br i1 %.not191, label %.backedge, label %253
 
 253:                                              ; preds = %252
-  %254 = load ptr, ptr %4, align 8, !tbaa !55
+  %254 = load ptr, ptr %4, align 8, !tbaa !59
   %255 = zext nneg i32 %240 to i64
   %256 = call i64 @gzseek(ptr noundef %254, i64 noundef %255, i32 noundef 1) #19
   br label %.backedge
 
 257:                                              ; preds = %237
-  %258 = load ptr, ptr %69, align 8, !tbaa !56
+  %258 = load ptr, ptr %69, align 8, !tbaa !60
   %259 = call i64 @ftell(ptr noundef %258)
   %260 = icmp eq i64 %.0126, %259
   br i1 %260, label %261, label %267
 
 261:                                              ; preds = %257
-  %262 = load ptr, ptr %69, align 8, !tbaa !56
-  %263 = load i32, ptr %10, align 4, !tbaa !45
+  %262 = load ptr, ptr %69, align 8, !tbaa !60
+  %263 = load i32, ptr %10, align 4, !tbaa !47
   %264 = add i32 %263, %241
   %265 = zext i32 %264 to i64
   %266 = call i32 @fseek(ptr noundef %262, i64 noundef %265, i32 noundef 1)
   br label %.backedge
 
 .backedge:                                        ; preds = %261, %268, %267, %246, %253, %252
-  br label %78
+  br label %78, !llvm.loop !71
 
 267:                                              ; preds = %257
   br i1 %.not191, label %.backedge, label %268
 
 268:                                              ; preds = %267
-  %269 = load ptr, ptr %69, align 8, !tbaa !56
+  %269 = load ptr, ptr %69, align 8, !tbaa !60
   %270 = zext nneg i32 %240 to i64
   %271 = call i32 @fseek(ptr noundef %269, i64 noundef %270, i32 noundef 1)
   br label %.backedge
@@ -1530,7 +1530,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #19
   %13 = tail call ptr @__errno_location() #21
-  %14 = load i32, ptr %13, align 4, !tbaa !45
+  %14 = load i32, ptr %13, align 4, !tbaa !47
   %15 = call ptr @cli_strerror(i32 noundef %14, ptr noundef nonnull %9, i64 noundef 128) #19
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.35, ptr noundef %0, ptr noundef %15) #19
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #19
@@ -1586,7 +1586,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
 
 37:                                               ; preds = %34
   %38 = tail call ptr @__errno_location() #21
-  %39 = load i32, ptr %38, align 4, !tbaa !45
+  %39 = load i32, ptr %38, align 4, !tbaa !47
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.109, i32 noundef %31, i32 noundef %39) #19
   %40 = call i32 @fstat(i32 noundef %31, ptr noundef nonnull %8) #19
   %41 = icmp eq i32 %40, 0
@@ -1717,12 +1717,12 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
   br label %cli_cvdunpack.exit.thread23
 
 87:                                               ; preds = %82
-  %88 = load i32, ptr %7, align 4, !tbaa !45
+  %88 = load i32, ptr %7, align 4, !tbaa !47
   %.not87.i.i = icmp ne i32 %88, 0
   br label %103
 
 89:                                               ; preds = %61
-  %90 = load i32, ptr %7, align 4, !tbaa !45
+  %90 = load i32, ptr %7, align 4, !tbaa !47
   %91 = call i32 @llvm.umin.i32(i32 %90, i32 512)
   %92 = zext nneg i32 %91 to i64
   %93 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 1, i64 noundef %92, ptr noundef %.0112.i.i)
@@ -1743,9 +1743,9 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
   br label %cli_cvdunpack.exit.thread23
 
 99:                                               ; preds = %89
-  %100 = load i32, ptr %7, align 4, !tbaa !45
+  %100 = load i32, ptr %7, align 4, !tbaa !47
   %101 = sub i32 %100, %91
-  store i32 %101, ptr %7, align 4, !tbaa !45
+  store i32 %101, ptr %7, align 4, !tbaa !47
   %102 = icmp ne i32 %100, %91
   br label %103
 
@@ -1755,7 +1755,7 @@ define range(i32 -1, 21) i32 @cl_cvdunpack(ptr noundef %0, ptr noundef %1, i1 no
   %104 = call i32 @gzread(ptr noundef nonnull %35, ptr noundef nonnull %6, i32 noundef 512) #19
   %105 = icmp ne i32 %104, 0
   %or.cond.i.i = select i1 %.174.in.i.i, i1 true, i1 %105
-  br i1 %or.cond.i.i, label %54, label %._crit_edge.i.i
+  br i1 %or.cond.i.i, label %54, label %._crit_edge.i.i, !llvm.loop !72
 
 ._crit_edge.i.i:                                  ; preds = %103, %62, %.preheader.i.i
   %.0.lcssa.i.i = phi ptr [ null, %.preheader.i.i ], [ %.0112.i.i, %62 ], [ %.1.i.i, %103 ]
@@ -1825,7 +1825,7 @@ define range(i32 0, 21) i32 @cl_cvdgetage(ptr noundef %0, ptr noundef captures(n
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !66
+  %14 = load i32, ptr %13, align 8, !tbaa !73
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 16384
   br i1 %16, label %32, label %17
@@ -1851,11 +1851,11 @@ define range(i32 0, 21) i32 @cl_cvdgetage(ptr noundef %0, ptr noundef captures(n
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %25 = load i32, ptr %24, align 8, !tbaa !16
   %26 = zext i32 %25 to i64
-  %27 = load i64, ptr %6, align 8, !tbaa !44
+  %27 = load i64, ptr %6, align 8, !tbaa !46
   %28 = icmp slt i64 %27, %26
   %29 = sub nsw i64 %27, %26
   %.sink.i = select i1 %28, i64 0, i64 %29
-  store i64 %.sink.i, ptr %1, align 8, !tbaa !44
+  store i64 %.sink.i, ptr %1, align 8, !tbaa !46
   br label %30
 
 30:                                               ; preds = %.sink.split.i, %21
@@ -1913,7 +1913,7 @@ sub_0:                                            ; preds = %36
   %.03196 = phi i1 [ true, %.lr.ph ], [ %.132, %80 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
-  %48 = load i64, ptr %47, align 8, !tbaa !69
+  %48 = load i64, ptr %47, align 8, !tbaa !76
   %.not46 = icmp eq i64 %48, 0
   br i1 %.not46, label %80, label %sub_086
 
@@ -1976,7 +1976,7 @@ cvdgetfileage.exit57:                             ; preds = %66
   %70 = call i64 @time(ptr noundef nonnull %4) #19
   %71 = load i32, ptr %45, align 8, !tbaa !16
   %72 = zext i32 %71 to i64
-  %73 = load i64, ptr %4, align 8, !tbaa !44
+  %73 = load i64, ptr %4, align 8, !tbaa !46
   %74 = icmp slt i64 %73, %72
   %75 = sub nsw i64 %73, %72
   %.sink.i56 = select i1 %74, i64 0, i64 %75
@@ -1986,13 +1986,13 @@ cvdgetfileage.exit57:                             ; preds = %66
   br i1 %.03196, label %79, label %77
 
 77:                                               ; preds = %69
-  %78 = load i64, ptr %1, align 8, !tbaa !44
+  %78 = load i64, ptr %1, align 8, !tbaa !46
   %. = call i64 @llvm.smin.i64(i64 %.sink.i56, i64 %78)
   br label %79
 
 79:                                               ; preds = %69, %77
   %storemerge = phi i64 [ %., %77 ], [ %.sink.i56, %69 ]
-  store i64 %storemerge, ptr %1, align 8, !tbaa !44
+  store i64 %storemerge, ptr %1, align 8, !tbaa !46
   br label %80
 
 80:                                               ; preds = %60, %.tail85, %.tail89, %46, %79
@@ -2076,38 +2076,38 @@ define internal fastcc void @cli_tgzload_cleanup(i32 noundef range(i32 0, 2) %0,
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = load ptr, ptr %1, align 8, !tbaa !55
+  %4 = load ptr, ptr %1, align 8, !tbaa !59
   %5 = tail call i32 @gzclose(ptr noundef %4) #19
-  store ptr null, ptr %1, align 8, !tbaa !55
+  store ptr null, ptr %1, align 8, !tbaa !59
   br label %10
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !56
+  %8 = load ptr, ptr %7, align 8, !tbaa !60
   %9 = tail call i32 @fclose(ptr noundef %8)
-  store ptr null, ptr %7, align 8, !tbaa !56
+  store ptr null, ptr %7, align 8, !tbaa !60
   br label %10
 
 10:                                               ; preds = %6, %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !58
+  %12 = load ptr, ptr %11, align 8, !tbaa !62
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %14, label %13
 
 13:                                               ; preds = %10
   tail call void @free(ptr noundef nonnull %12) #19
-  store ptr null, ptr %11, align 8, !tbaa !58
+  store ptr null, ptr %11, align 8, !tbaa !62
   br label %14
 
 14:                                               ; preds = %13, %10
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = load ptr, ptr %15, align 8, !tbaa !40
+  %16 = load ptr, ptr %15, align 8, !tbaa !42
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %18, label %17
 
 17:                                               ; preds = %14
   tail call void @cl_hash_destroy(ptr noundef nonnull %16) #19
-  store ptr null, ptr %15, align 8, !tbaa !40
+  store ptr null, ptr %15, align 8, !tbaa !42
   br label %18
 
 18:                                               ; preds = %17, %14
@@ -2228,57 +2228,64 @@ attributes #22 = { nounwind allocsize(0,1) }
 !15 = !{!4, !5, i64 40}
 !16 = !{!4, !9, i64 48}
 !17 = !{!7, !7, i64 0}
-!18 = !{!19, !6, i64 1112}
-!19 = !{!"cl_engine", !9, i64 0, !9, i64 4, !9, i64 8, !7, i64 12, !9, i64 20, !9, i64 24, !9, i64 28, !5, i64 32, !9, i64 40, !20, i64 48, !9, i64 56, !9, i64 60, !20, i64 64, !20, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !21, i64 96, !22, i64 104, !22, i64 112, !22, i64 120, !22, i64 128, !23, i64 136, !24, i64 144, !24, i64 152, !25, i64 160, !26, i64 168, !27, i64 176, !27, i64 184, !28, i64 192, !22, i64 200, !22, i64 208, !5, i64 216, !29, i64 224, !30, i64 232, !31, i64 240, !20, i64 248, !32, i64 256, !33, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !35, i64 416, !7, i64 936, !7, i64 992, !9, i64 1020, !9, i64 1024, !9, i64 1028, !9, i64 1032, !20, i64 1040, !20, i64 1048, !20, i64 1056, !20, i64 1064, !20, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !9, i64 1152, !9, i64 1156, !9, i64 1160, !20, i64 1168, !20, i64 1176, !20, i64 1184, !39, i64 1192}
-!20 = !{!"long", !7, i64 0}
-!21 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
-!22 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
-!23 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
-!24 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
-!25 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
-!26 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
-!27 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
-!28 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
-!29 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
-!30 = !{!"p1 _ZTS5CACHE", !6, i64 0}
-!31 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
-!32 = !{!"p1 _ZTS2MP", !6, i64 0}
-!33 = !{!"", !34, i64 0, !9, i64 8}
-!34 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
-!35 = !{!"cli_all_bc", !36, i64 0, !9, i64 8, !37, i64 16, !38, i64 24, !9, i64 516}
-!36 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
-!37 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
-!38 = !{!"cli_environment", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
-!39 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
-!40 = !{!41, !6, i64 64}
-!41 = !{!"cli_dbio", !42, i64 0, !43, i64 8, !9, i64 16, !9, i64 20, !5, i64 24, !5, i64 32, !5, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !6, i64 64}
-!42 = !{!"p1 _ZTS8gzFile_s", !6, i64 0}
-!43 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!44 = !{!20, !20, i64 0}
-!45 = !{!9, !9, i64 0}
-!46 = !{!41, !9, i64 60}
-!47 = !{!19, !31, i64 240}
-!48 = !{!49, !50, i64 24}
-!49 = !{!"cli_dbinfo", !5, i64 0, !5, i64 8, !20, i64 16, !50, i64 24, !31, i64 32}
-!50 = !{!"p1 _ZTS6cl_cvd", !6, i64 0}
-!51 = !{!49, !31, i64 32}
-!52 = !{!19, !32, i64 256}
-!53 = !{!49, !5, i64 0}
-!54 = !{!49, !5, i64 8}
-!55 = !{!41, !42, i64 0}
-!56 = !{!41, !43, i64 8}
-!57 = !{!41, !9, i64 52}
-!58 = !{!41, !5, i64 24}
-!59 = !{!41, !5, i64 32}
-!60 = !{!41, !9, i64 48}
-!61 = !{!41, !5, i64 40}
-!62 = !{!41, !9, i64 16}
-!63 = !{!41, !9, i64 56}
-!64 = !{!41, !9, i64 20}
-!65 = !{!49, !20, i64 16}
-!66 = !{!67, !9, i64 24}
-!67 = !{!"stat", !20, i64 0, !20, i64 8, !20, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !68, i64 72, !68, i64 88, !68, i64 104, !7, i64 120}
-!68 = !{!"timespec", !20, i64 0, !20, i64 8}
-!69 = !{!70, !20, i64 0}
-!70 = !{!"dirent", !20, i64 0, !20, i64 8, !71, i64 16, !7, i64 18, !7, i64 19}
-!71 = !{!"short", !7, i64 0}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !6, i64 1112}
+!21 = !{!"cl_engine", !9, i64 0, !9, i64 4, !9, i64 8, !7, i64 12, !9, i64 20, !9, i64 24, !9, i64 28, !5, i64 32, !9, i64 40, !22, i64 48, !9, i64 56, !9, i64 60, !22, i64 64, !22, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !23, i64 96, !24, i64 104, !24, i64 112, !24, i64 120, !24, i64 128, !25, i64 136, !26, i64 144, !26, i64 152, !27, i64 160, !28, i64 168, !29, i64 176, !29, i64 184, !30, i64 192, !24, i64 200, !24, i64 208, !5, i64 216, !31, i64 224, !32, i64 232, !33, i64 240, !22, i64 248, !34, i64 256, !35, i64 264, !6, i64 280, !6, i64 288, !6, i64 296, !6, i64 304, !6, i64 312, !6, i64 320, !6, i64 328, !6, i64 336, !6, i64 344, !6, i64 352, !6, i64 360, !6, i64 368, !6, i64 376, !6, i64 384, !6, i64 392, !6, i64 400, !6, i64 408, !37, i64 416, !7, i64 936, !7, i64 992, !9, i64 1020, !9, i64 1024, !9, i64 1028, !9, i64 1032, !22, i64 1040, !22, i64 1048, !22, i64 1056, !22, i64 1064, !22, i64 1072, !6, i64 1080, !6, i64 1088, !6, i64 1096, !6, i64 1104, !6, i64 1112, !6, i64 1120, !6, i64 1128, !6, i64 1136, !6, i64 1144, !9, i64 1152, !9, i64 1156, !9, i64 1160, !22, i64 1168, !22, i64 1176, !22, i64 1184, !41, i64 1192}
+!22 = !{!"long", !7, i64 0}
+!23 = !{!"p2 _ZTS11cli_matcher", !6, i64 0}
+!24 = !{!"p1 _ZTS11cli_matcher", !6, i64 0}
+!25 = !{!"p1 _ZTS7cli_cdb", !6, i64 0}
+!26 = !{!"p1 _ZTS13regex_matcher", !6, i64 0}
+!27 = !{!"p1 _ZTS10phishcheck", !6, i64 0}
+!28 = !{!"p1 _ZTS9cli_dconf", !6, i64 0}
+!29 = !{!"p1 _ZTS9cli_ftype", !6, i64 0}
+!30 = !{!"p2 _ZTS8cli_pwdb", !6, i64 0}
+!31 = !{!"p1 _ZTS12icon_matcher", !6, i64 0}
+!32 = !{!"p1 _ZTS5CACHE", !6, i64 0}
+!33 = !{!"p1 _ZTS10cli_dbinfo", !6, i64 0}
+!34 = !{!"p1 _ZTS2MP", !6, i64 0}
+!35 = !{!"", !36, i64 0, !9, i64 8}
+!36 = !{!"p1 _ZTS9cli_crt_t", !6, i64 0}
+!37 = !{!"cli_all_bc", !38, i64 0, !9, i64 8, !39, i64 16, !40, i64 24, !9, i64 516}
+!38 = !{!"p1 _ZTS6cli_bc", !6, i64 0}
+!39 = !{!"p1 _ZTS12cli_bcengine", !6, i64 0}
+!40 = !{!"cli_environment", !9, i64 0, !9, i64 4, !9, i64 8, !9, i64 12, !9, i64 16, !9, i64 20, !9, i64 24, !7, i64 28, !7, i64 93, !7, i64 158, !7, i64 223, !7, i64 288, !7, i64 353, !7, i64 418, !7, i64 483, !7, i64 484, !7, i64 485, !7, i64 486, !7, i64 487, !7, i64 488, !7, i64 489, !7, i64 490, !7, i64 491}
+!41 = !{!"p1 _ZTS12_yara_global", !6, i64 0}
+!42 = !{!43, !6, i64 64}
+!43 = !{!"cli_dbio", !44, i64 0, !45, i64 8, !9, i64 16, !9, i64 20, !5, i64 24, !5, i64 32, !5, i64 40, !9, i64 48, !9, i64 52, !9, i64 56, !9, i64 60, !6, i64 64}
+!44 = !{!"p1 _ZTS8gzFile_s", !6, i64 0}
+!45 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!46 = !{!22, !22, i64 0}
+!47 = !{!9, !9, i64 0}
+!48 = !{!43, !9, i64 60}
+!49 = !{!21, !33, i64 240}
+!50 = !{!51, !52, i64 24}
+!51 = !{!"cli_dbinfo", !5, i64 0, !5, i64 8, !22, i64 16, !52, i64 24, !33, i64 32}
+!52 = !{!"p1 _ZTS6cl_cvd", !6, i64 0}
+!53 = !{!51, !33, i64 32}
+!54 = !{!21, !34, i64 256}
+!55 = !{!51, !5, i64 0}
+!56 = !{!51, !5, i64 8}
+!57 = distinct !{!57, !19}
+!58 = distinct !{!58, !19}
+!59 = !{!43, !44, i64 0}
+!60 = !{!43, !45, i64 8}
+!61 = !{!43, !9, i64 52}
+!62 = !{!43, !5, i64 24}
+!63 = !{!43, !5, i64 32}
+!64 = !{!43, !9, i64 48}
+!65 = !{!43, !5, i64 40}
+!66 = !{!43, !9, i64 16}
+!67 = !{!43, !9, i64 56}
+!68 = !{!43, !9, i64 20}
+!69 = distinct !{!69, !19}
+!70 = !{!51, !22, i64 16}
+!71 = distinct !{!71, !19}
+!72 = distinct !{!72, !19}
+!73 = !{!74, !9, i64 24}
+!74 = !{!"stat", !22, i64 0, !22, i64 8, !22, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !22, i64 40, !22, i64 48, !22, i64 56, !22, i64 64, !75, i64 72, !75, i64 88, !75, i64 104, !7, i64 120}
+!75 = !{!"timespec", !22, i64 0, !22, i64 8}
+!76 = !{!77, !22, i64 0}
+!77 = !{!"dirent", !22, i64 0, !22, i64 8, !78, i64 16, !7, i64 18, !7, i64 19}
+!78 = !{!"short", !7, i64 0}

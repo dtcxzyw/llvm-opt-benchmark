@@ -20,12 +20,12 @@ define void @ff_simple_idct_put_int16_8bit(ptr noundef writeonly captures(none) 
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %idctSparseColPut_int16_8bit.exit ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv16
   %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv16
-  %8 = load i16, ptr %7, align 2, !tbaa !6
+  %8 = load i16, ptr %7, align 2, !tbaa !7
   %9 = sext i16 %8 to i32
   %10 = mul nsw i32 %9, 16383
   %11 = add nsw i32 %10, 524256
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %13 = load i16, ptr %12, align 2, !tbaa !6
+  %13 = load i16, ptr %12, align 2, !tbaa !7
   %14 = sext i16 %13 to i32
   %15 = mul nsw i32 %14, 21407
   %16 = add nsw i32 %11, %15
@@ -36,14 +36,14 @@ define void @ff_simple_idct_put_int16_8bit(ptr noundef writeonly captures(none) 
   %21 = mul nsw i32 %14, -21407
   %22 = add nsw i32 %11, %21
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %24 = load i16, ptr %23, align 2, !tbaa !6
+  %24 = load i16, ptr %23, align 2, !tbaa !7
   %25 = sext i16 %24 to i32
   %26 = mul nsw i32 %25, 22725
   %27 = mul nsw i32 %25, 19266
   %28 = mul nsw i32 %25, 12873
   %29 = mul nsw i32 %25, 4520
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %31 = load i16, ptr %30, align 2, !tbaa !6
+  %31 = load i16, ptr %30, align 2, !tbaa !7
   %32 = sext i16 %31 to i32
   %33 = mul nsw i32 %32, 19266
   %34 = add nsw i32 %33, %26
@@ -54,7 +54,7 @@ define void @ff_simple_idct_put_int16_8bit(ptr noundef writeonly captures(none) 
   %39 = mul nsw i32 %32, -12873
   %40 = add nsw i32 %39, %29
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %42 = load i16, ptr %41, align 2, !tbaa !6
+  %42 = load i16, ptr %41, align 2, !tbaa !7
   %.not.i = icmp eq i16 %42, 0
   br i1 %.not.i, label %51, label %43
 
@@ -74,7 +74,7 @@ define void @ff_simple_idct_put_int16_8bit(ptr noundef writeonly captures(none) 
   %.0105.i = phi i32 [ %49, %43 ], [ %20, %.preheader ]
   %.0103.i = phi i32 [ %50, %43 ], [ %22, %.preheader ]
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %53 = load i16, ptr %52, align 2, !tbaa !6
+  %53 = load i16, ptr %52, align 2, !tbaa !7
   %.not115.i = icmp eq i16 %53, 0
   br i1 %.not115.i, label %64, label %54
 
@@ -96,7 +96,7 @@ define void @ff_simple_idct_put_int16_8bit(ptr noundef writeonly captures(none) 
   %.097.i = phi i32 [ %61, %54 ], [ %38, %51 ]
   %.0.i = phi i32 [ %63, %54 ], [ %40, %51 ]
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %66 = load i16, ptr %65, align 2, !tbaa !6
+  %66 = load i16, ptr %65, align 2, !tbaa !7
   %.not116.i = icmp eq i16 %66, 0
   br i1 %.not116.i, label %77, label %67
 
@@ -118,7 +118,7 @@ define void @ff_simple_idct_put_int16_8bit(ptr noundef writeonly captures(none) 
   %.1106.i = phi i32 [ %74, %67 ], [ %.0105.i, %64 ]
   %.1104.i = phi i32 [ %76, %67 ], [ %.0103.i, %64 ]
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %79 = load i16, ptr %78, align 2, !tbaa !6
+  %79 = load i16, ptr %78, align 2, !tbaa !7
   %.not117.i = icmp eq i16 %79, 0
   br i1 %.not117.i, label %idctSparseColPut_int16_8bit.exit, label %80
 
@@ -146,7 +146,7 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %92 = sext i1 %isnotneg.i.i to i8
   %93 = trunc nuw i32 %91 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %93, i8 %92
-  store i8 %.0.i.i, ptr %6, align 1, !tbaa !10
+  store i8 %.0.i.i, ptr %6, align 1, !tbaa !11
   %94 = getelementptr inbounds i8, ptr %6, i64 %1
   %95 = add i32 %.1100.i, %.1108.i
   %96 = ashr i32 %95, 20
@@ -155,7 +155,7 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %97 = sext i1 %isnotneg.i119.i to i8
   %98 = trunc nuw i32 %96 to i8
   %.0.i120.i = select i1 %.not.i118.i, i8 %98, i8 %97
-  store i8 %.0.i120.i, ptr %94, align 1, !tbaa !10
+  store i8 %.0.i120.i, ptr %94, align 1, !tbaa !11
   %99 = getelementptr inbounds i8, ptr %94, i64 %1
   %100 = add i32 %.198.i, %.1106.i
   %101 = ashr i32 %100, 20
@@ -164,7 +164,7 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %102 = sext i1 %isnotneg.i122.i to i8
   %103 = trunc nuw i32 %101 to i8
   %.0.i123.i = select i1 %.not.i121.i, i8 %103, i8 %102
-  store i8 %.0.i123.i, ptr %99, align 1, !tbaa !10
+  store i8 %.0.i123.i, ptr %99, align 1, !tbaa !11
   %104 = getelementptr inbounds i8, ptr %99, i64 %1
   %105 = add i32 %.1.i, %.1104.i
   %106 = ashr i32 %105, 20
@@ -173,7 +173,7 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %107 = sext i1 %isnotneg.i125.i to i8
   %108 = trunc nuw i32 %106 to i8
   %.0.i126.i = select i1 %.not.i124.i, i8 %108, i8 %107
-  store i8 %.0.i126.i, ptr %104, align 1, !tbaa !10
+  store i8 %.0.i126.i, ptr %104, align 1, !tbaa !11
   %109 = getelementptr inbounds i8, ptr %104, i64 %1
   %110 = sub i32 %.1104.i, %.1.i
   %111 = ashr i32 %110, 20
@@ -182,7 +182,7 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %112 = sext i1 %isnotneg.i128.i to i8
   %113 = trunc nuw i32 %111 to i8
   %.0.i129.i = select i1 %.not.i127.i, i8 %113, i8 %112
-  store i8 %.0.i129.i, ptr %109, align 1, !tbaa !10
+  store i8 %.0.i129.i, ptr %109, align 1, !tbaa !11
   %114 = getelementptr inbounds i8, ptr %109, i64 %1
   %115 = sub i32 %.1106.i, %.198.i
   %116 = ashr i32 %115, 20
@@ -191,7 +191,7 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %117 = sext i1 %isnotneg.i131.i to i8
   %118 = trunc nuw i32 %116 to i8
   %.0.i132.i = select i1 %.not.i130.i, i8 %118, i8 %117
-  store i8 %.0.i132.i, ptr %114, align 1, !tbaa !10
+  store i8 %.0.i132.i, ptr %114, align 1, !tbaa !11
   %119 = getelementptr inbounds i8, ptr %114, i64 %1
   %120 = sub i32 %.1108.i, %.1100.i
   %121 = ashr i32 %120, 20
@@ -200,7 +200,7 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %122 = sext i1 %isnotneg.i134.i to i8
   %123 = trunc nuw i32 %121 to i8
   %.0.i135.i = select i1 %.not.i133.i, i8 %123, i8 %122
-  store i8 %.0.i135.i, ptr %119, align 1, !tbaa !10
+  store i8 %.0.i135.i, ptr %119, align 1, !tbaa !11
   %124 = getelementptr inbounds i8, ptr %119, i64 %1
   %125 = sub i32 %.1110.i, %.1102.i
   %126 = ashr i32 %125, 20
@@ -209,10 +209,10 @@ idctSparseColPut_int16_8bit.exit:                 ; preds = %77, %80
   %127 = sext i1 %isnotneg.i137.i to i8
   %128 = trunc nuw i32 %126 to i8
   %.0.i138.i = select i1 %.not.i136.i, i8 %128, i8 %127
-  store i8 %.0.i138.i, ptr %124, align 1, !tbaa !10
+  store i8 %.0.i138.i, ptr %124, align 1, !tbaa !11
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 8
-  br i1 %exitcond19.not, label %129, label %.preheader, !llvm.loop !11
+  br i1 %exitcond19.not, label %129, label %.preheader, !llvm.loop !12
 
 129:                                              ; preds = %idctSparseColPut_int16_8bit.exit
   ret void
@@ -223,17 +223,17 @@ define internal fastcc void @idctRowCondDC_int16_8bit(ptr noundef captures(none)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !10
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = or i32 %5, %7
   %9 = or i32 %8, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %11 = load i16, ptr %10, align 2, !tbaa !6
+  %11 = load i16, ptr %10, align 2, !tbaa !7
   %12 = sext i16 %11 to i32
   %13 = or i32 %9, %12
   %.not = icmp eq i32 %13, 0
-  %14 = load i16, ptr %0, align 2, !tbaa !6
+  %14 = load i16, ptr %0, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   br i1 %.not, label %16, label %20
 
@@ -241,10 +241,10 @@ define internal fastcc void @idctRowCondDC_int16_8bit(ptr noundef captures(none)
   %17 = shl nsw i32 %15, 3
   %18 = and i32 %17, 65528
   %19 = mul nuw i32 %18, 65537
-  store i32 %19, ptr %0, align 4, !tbaa !10
-  store i32 %19, ptr %2, align 4, !tbaa !10
-  store i32 %19, ptr %4, align 4, !tbaa !10
-  store i32 %19, ptr %6, align 4, !tbaa !10
+  store i32 %19, ptr %0, align 4, !tbaa !11
+  store i32 %19, ptr %2, align 4, !tbaa !11
+  store i32 %19, ptr %4, align 4, !tbaa !11
+  store i32 %19, ptr %6, align 4, !tbaa !11
   br label %107
 
 20:                                               ; preds = %1
@@ -330,37 +330,37 @@ define internal fastcc void @idctRowCondDC_int16_8bit(ptr noundef captures(none)
   %81 = add i32 %.0108, %.0112
   %82 = lshr i32 %81, 11
   %83 = trunc i32 %82 to i16
-  store i16 %83, ptr %0, align 2, !tbaa !6
+  store i16 %83, ptr %0, align 2, !tbaa !7
   %84 = sub i32 %.0112, %.0108
   %85 = lshr i32 %84, 11
   %86 = trunc i32 %85 to i16
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %86, ptr %87, align 2, !tbaa !6
+  store i16 %86, ptr %87, align 2, !tbaa !7
   %88 = add i32 %.0107, %.0111
   %89 = lshr i32 %88, 11
   %90 = trunc i32 %89 to i16
-  store i16 %90, ptr %10, align 2, !tbaa !6
+  store i16 %90, ptr %10, align 2, !tbaa !7
   %91 = sub i32 %.0111, %.0107
   %92 = lshr i32 %91, 11
   %93 = trunc i32 %92 to i16
-  store i16 %93, ptr %6, align 2, !tbaa !6
+  store i16 %93, ptr %6, align 2, !tbaa !7
   %94 = add i32 %.0106, %.0110
   %95 = lshr i32 %94, 11
   %96 = trunc i32 %95 to i16
-  store i16 %96, ptr %2, align 2, !tbaa !6
+  store i16 %96, ptr %2, align 2, !tbaa !7
   %97 = sub i32 %.0110, %.0106
   %98 = lshr i32 %97, 11
   %99 = trunc i32 %98 to i16
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %99, ptr %100, align 2, !tbaa !6
+  store i16 %99, ptr %100, align 2, !tbaa !7
   %101 = add i32 %.0105, %.0109
   %102 = lshr i32 %101, 11
   %103 = trunc i32 %102 to i16
-  store i16 %103, ptr %31, align 2, !tbaa !6
+  store i16 %103, ptr %31, align 2, !tbaa !7
   %104 = sub i32 %.0109, %.0105
   %105 = lshr i32 %104, 11
   %106 = trunc i32 %105 to i16
-  store i16 %106, ptr %4, align 2, !tbaa !6
+  store i16 %106, ptr %4, align 2, !tbaa !7
   br label %107
 
 107:                                              ; preds = %80, %16
@@ -378,7 +378,7 @@ define void @ff_simple_idct_add_int16_8bit(ptr noundef captures(none) %0, i64 no
   tail call fastcc void @idctRowCondDC_int16_8bit(ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !12
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !13
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv15 = phi i64 [ %indvars.iv.next16, %.preheader ], [ 0, %4 ]
@@ -387,7 +387,7 @@ define void @ff_simple_idct_add_int16_8bit(ptr noundef captures(none) %0, i64 no
   tail call fastcc void @idctSparseColAdd_int16_8bit(ptr noundef %6, i64 noundef %1, ptr noundef %7)
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %8, label %.preheader, !llvm.loop !13
+  br i1 %exitcond18.not, label %8, label %.preheader, !llvm.loop !14
 
 8:                                                ; preds = %.preheader
   ret void
@@ -395,12 +395,12 @@ define void @ff_simple_idct_add_int16_8bit(ptr noundef captures(none) %0, i64 no
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 {
-  %4 = load i16, ptr %2, align 2, !tbaa !6
+  %4 = load i16, ptr %2, align 2, !tbaa !7
   %5 = sext i16 %4 to i32
   %6 = mul nsw i32 %5, 16383
   %7 = add nsw i32 %6, 524256
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %9 = load i16, ptr %8, align 2, !tbaa !6
+  %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i32
   %11 = mul nsw i32 %10, 21407
   %12 = add nsw i32 %7, %11
@@ -411,14 +411,14 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %17 = mul nsw i32 %10, -21407
   %18 = add nsw i32 %7, %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %20 = load i16, ptr %19, align 2, !tbaa !6
+  %20 = load i16, ptr %19, align 2, !tbaa !7
   %21 = sext i16 %20 to i32
   %22 = mul nsw i32 %21, 22725
   %23 = mul nsw i32 %21, 19266
   %24 = mul nsw i32 %21, 12873
   %25 = mul nsw i32 %21, 4520
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %27 = load i16, ptr %26, align 2, !tbaa !6
+  %27 = load i16, ptr %26, align 2, !tbaa !7
   %28 = sext i16 %27 to i32
   %29 = mul nsw i32 %28, 19266
   %30 = add nsw i32 %29, %22
@@ -429,7 +429,7 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %35 = mul nsw i32 %28, -12873
   %36 = add nsw i32 %35, %25
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %38 = load i16, ptr %37, align 2, !tbaa !6
+  %38 = load i16, ptr %37, align 2, !tbaa !7
   %.not = icmp eq i16 %38, 0
   br i1 %.not, label %47, label %39
 
@@ -449,7 +449,7 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %.0113 = phi i32 [ %45, %39 ], [ %16, %3 ]
   %.0111 = phi i32 [ %46, %39 ], [ %18, %3 ]
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  %49 = load i16, ptr %48, align 2, !tbaa !6
+  %49 = load i16, ptr %48, align 2, !tbaa !7
   %.not123 = icmp eq i16 %49, 0
   br i1 %.not123, label %60, label %50
 
@@ -471,7 +471,7 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %.0105 = phi i32 [ %57, %50 ], [ %34, %47 ]
   %.0 = phi i32 [ %59, %50 ], [ %36, %47 ]
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %62 = load i16, ptr %61, align 2, !tbaa !6
+  %62 = load i16, ptr %61, align 2, !tbaa !7
   %.not124 = icmp eq i16 %62, 0
   br i1 %.not124, label %73, label %63
 
@@ -493,7 +493,7 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %.1114 = phi i32 [ %70, %63 ], [ %.0113, %60 ]
   %.1112 = phi i32 [ %72, %63 ], [ %.0111, %60 ]
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %75 = load i16, ptr %74, align 2, !tbaa !6
+  %75 = load i16, ptr %74, align 2, !tbaa !7
   %.not125 = icmp eq i16 %75, 0
   br i1 %.not125, label %86, label %76
 
@@ -514,7 +514,7 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %.1108 = phi i32 [ %81, %76 ], [ %.0107, %73 ]
   %.1106 = phi i32 [ %83, %76 ], [ %.0105, %73 ]
   %.1 = phi i32 [ %85, %76 ], [ %.0, %73 ]
-  %87 = load i8, ptr %0, align 1, !tbaa !10
+  %87 = load i8, ptr %0, align 1, !tbaa !11
   %88 = zext i8 %87 to i32
   %89 = add i32 %.1110, %.1118
   %90 = ashr i32 %89, 20
@@ -524,9 +524,9 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %92 = sext i1 %isnotneg.i to i8
   %93 = trunc nuw i32 %91 to i8
   %.0.i = select i1 %.not.i, i8 %93, i8 %92
-  store i8 %.0.i, ptr %0, align 1, !tbaa !10
+  store i8 %.0.i, ptr %0, align 1, !tbaa !11
   %94 = getelementptr inbounds i8, ptr %0, i64 %1
-  %95 = load i8, ptr %94, align 1, !tbaa !10
+  %95 = load i8, ptr %94, align 1, !tbaa !11
   %96 = zext i8 %95 to i32
   %97 = add i32 %.1108, %.1116
   %98 = ashr i32 %97, 20
@@ -536,9 +536,9 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %100 = sext i1 %isnotneg.i127 to i8
   %101 = trunc nuw i32 %99 to i8
   %.0.i128 = select i1 %.not.i126, i8 %101, i8 %100
-  store i8 %.0.i128, ptr %94, align 1, !tbaa !10
+  store i8 %.0.i128, ptr %94, align 1, !tbaa !11
   %102 = getelementptr inbounds i8, ptr %94, i64 %1
-  %103 = load i8, ptr %102, align 1, !tbaa !10
+  %103 = load i8, ptr %102, align 1, !tbaa !11
   %104 = zext i8 %103 to i32
   %105 = add i32 %.1106, %.1114
   %106 = ashr i32 %105, 20
@@ -548,9 +548,9 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %108 = sext i1 %isnotneg.i130 to i8
   %109 = trunc nuw i32 %107 to i8
   %.0.i131 = select i1 %.not.i129, i8 %109, i8 %108
-  store i8 %.0.i131, ptr %102, align 1, !tbaa !10
+  store i8 %.0.i131, ptr %102, align 1, !tbaa !11
   %110 = getelementptr inbounds i8, ptr %102, i64 %1
-  %111 = load i8, ptr %110, align 1, !tbaa !10
+  %111 = load i8, ptr %110, align 1, !tbaa !11
   %112 = zext i8 %111 to i32
   %113 = add i32 %.1, %.1112
   %114 = ashr i32 %113, 20
@@ -560,9 +560,9 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %116 = sext i1 %isnotneg.i133 to i8
   %117 = trunc nuw i32 %115 to i8
   %.0.i134 = select i1 %.not.i132, i8 %117, i8 %116
-  store i8 %.0.i134, ptr %110, align 1, !tbaa !10
+  store i8 %.0.i134, ptr %110, align 1, !tbaa !11
   %118 = getelementptr inbounds i8, ptr %110, i64 %1
-  %119 = load i8, ptr %118, align 1, !tbaa !10
+  %119 = load i8, ptr %118, align 1, !tbaa !11
   %120 = zext i8 %119 to i32
   %121 = sub i32 %.1112, %.1
   %122 = ashr i32 %121, 20
@@ -572,9 +572,9 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %124 = sext i1 %isnotneg.i136 to i8
   %125 = trunc nuw i32 %123 to i8
   %.0.i137 = select i1 %.not.i135, i8 %125, i8 %124
-  store i8 %.0.i137, ptr %118, align 1, !tbaa !10
+  store i8 %.0.i137, ptr %118, align 1, !tbaa !11
   %126 = getelementptr inbounds i8, ptr %118, i64 %1
-  %127 = load i8, ptr %126, align 1, !tbaa !10
+  %127 = load i8, ptr %126, align 1, !tbaa !11
   %128 = zext i8 %127 to i32
   %129 = sub i32 %.1114, %.1106
   %130 = ashr i32 %129, 20
@@ -584,9 +584,9 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %132 = sext i1 %isnotneg.i139 to i8
   %133 = trunc nuw i32 %131 to i8
   %.0.i140 = select i1 %.not.i138, i8 %133, i8 %132
-  store i8 %.0.i140, ptr %126, align 1, !tbaa !10
+  store i8 %.0.i140, ptr %126, align 1, !tbaa !11
   %134 = getelementptr inbounds i8, ptr %126, i64 %1
-  %135 = load i8, ptr %134, align 1, !tbaa !10
+  %135 = load i8, ptr %134, align 1, !tbaa !11
   %136 = zext i8 %135 to i32
   %137 = sub i32 %.1116, %.1108
   %138 = ashr i32 %137, 20
@@ -596,9 +596,9 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %140 = sext i1 %isnotneg.i142 to i8
   %141 = trunc nuw i32 %139 to i8
   %.0.i143 = select i1 %.not.i141, i8 %141, i8 %140
-  store i8 %.0.i143, ptr %134, align 1, !tbaa !10
+  store i8 %.0.i143, ptr %134, align 1, !tbaa !11
   %142 = getelementptr inbounds i8, ptr %134, i64 %1
-  %143 = load i8, ptr %142, align 1, !tbaa !10
+  %143 = load i8, ptr %142, align 1, !tbaa !11
   %144 = zext i8 %143 to i32
   %145 = sub i32 %.1118, %.1110
   %146 = ashr i32 %145, 20
@@ -608,7 +608,7 @@ define internal fastcc void @idctSparseColAdd_int16_8bit(ptr noundef captures(no
   %148 = sext i1 %isnotneg.i145 to i8
   %149 = trunc nuw i32 %147 to i8
   %.0.i146 = select i1 %.not.i144, i8 %149, i8 %148
-  store i8 %.0.i146, ptr %142, align 1, !tbaa !10
+  store i8 %.0.i146, ptr %142, align 1, !tbaa !11
   ret void
 }
 
@@ -623,17 +623,17 @@ define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unna
   tail call fastcc void @idctRowCondDC_int16_8bit(ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !14
+  br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !15
 
 .preheader:                                       ; preds = %2, %idctSparseCol_int16_8bit.exit
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %idctSparseCol_int16_8bit.exit ], [ 0, %2 ]
   %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv10
-  %5 = load i16, ptr %4, align 2, !tbaa !6
+  %5 = load i16, ptr %4, align 2, !tbaa !7
   %6 = sext i16 %5 to i32
   %7 = mul nsw i32 %6, 16383
   %8 = add nsw i32 %7, 524256
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %10 = load i16, ptr %9, align 2, !tbaa !6
+  %10 = load i16, ptr %9, align 2, !tbaa !7
   %11 = sext i16 %10 to i32
   %12 = mul nsw i32 %11, 21407
   %13 = add nsw i32 %8, %12
@@ -644,14 +644,14 @@ define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unna
   %18 = mul nsw i32 %11, -21407
   %19 = add nsw i32 %8, %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = load i16, ptr %20, align 2, !tbaa !6
+  %21 = load i16, ptr %20, align 2, !tbaa !7
   %22 = sext i16 %21 to i32
   %23 = mul nsw i32 %22, 22725
   %24 = mul nsw i32 %22, 19266
   %25 = mul nsw i32 %22, 12873
   %26 = mul nsw i32 %22, 4520
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %28 = load i16, ptr %27, align 2, !tbaa !6
+  %28 = load i16, ptr %27, align 2, !tbaa !7
   %29 = sext i16 %28 to i32
   %30 = mul nsw i32 %29, 19266
   %31 = add nsw i32 %30, %23
@@ -662,7 +662,7 @@ define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unna
   %36 = mul nsw i32 %29, -12873
   %37 = add nsw i32 %36, %26
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %39 = load i16, ptr %38, align 2, !tbaa !6
+  %39 = load i16, ptr %38, align 2, !tbaa !7
   %.not.i = icmp eq i16 %39, 0
   br i1 %.not.i, label %48, label %40
 
@@ -682,7 +682,7 @@ define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unna
   %.091.i = phi i32 [ %46, %40 ], [ %17, %.preheader ]
   %.089.i = phi i32 [ %47, %40 ], [ %19, %.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %50 = load i16, ptr %49, align 2, !tbaa !6
+  %50 = load i16, ptr %49, align 2, !tbaa !7
   %.not101.i = icmp eq i16 %50, 0
   br i1 %.not101.i, label %61, label %51
 
@@ -704,7 +704,7 @@ define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unna
   %.083.i = phi i32 [ %58, %51 ], [ %35, %48 ]
   %.0.i = phi i32 [ %60, %51 ], [ %37, %48 ]
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %63 = load i16, ptr %62, align 2, !tbaa !6
+  %63 = load i16, ptr %62, align 2, !tbaa !7
   %.not102.i = icmp eq i16 %63, 0
   br i1 %.not102.i, label %74, label %64
 
@@ -726,7 +726,7 @@ define void @ff_simple_idct_int16_8bit(ptr noundef captures(none) %0) local_unna
   %.192.i = phi i32 [ %71, %64 ], [ %.091.i, %61 ]
   %.190.i = phi i32 [ %73, %64 ], [ %.089.i, %61 ]
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %76 = load i16, ptr %75, align 2, !tbaa !6
+  %76 = load i16, ptr %75, align 2, !tbaa !7
   %.not103.i = icmp eq i16 %76, 0
   br i1 %.not103.i, label %idctSparseCol_int16_8bit.exit, label %77
 
@@ -750,38 +750,38 @@ idctSparseCol_int16_8bit.exit:                    ; preds = %74, %77
   %87 = add i32 %.188.i, %.196.i
   %88 = ashr i32 %87, 20
   %89 = trunc nsw i32 %88 to i16
-  store i16 %89, ptr %4, align 2, !tbaa !6
+  store i16 %89, ptr %4, align 2, !tbaa !7
   %90 = add i32 %.186.i, %.194.i
   %91 = ashr i32 %90, 20
   %92 = trunc nsw i32 %91 to i16
-  store i16 %92, ptr %20, align 2, !tbaa !6
+  store i16 %92, ptr %20, align 2, !tbaa !7
   %93 = add i32 %.184.i, %.192.i
   %94 = ashr i32 %93, 20
   %95 = trunc nsw i32 %94 to i16
-  store i16 %95, ptr %9, align 2, !tbaa !6
+  store i16 %95, ptr %9, align 2, !tbaa !7
   %96 = add i32 %.1.i, %.190.i
   %97 = ashr i32 %96, 20
   %98 = trunc nsw i32 %97 to i16
-  store i16 %98, ptr %27, align 2, !tbaa !6
+  store i16 %98, ptr %27, align 2, !tbaa !7
   %99 = sub i32 %.190.i, %.1.i
   %100 = ashr i32 %99, 20
   %101 = trunc nsw i32 %100 to i16
-  store i16 %101, ptr %38, align 2, !tbaa !6
+  store i16 %101, ptr %38, align 2, !tbaa !7
   %102 = sub i32 %.192.i, %.184.i
   %103 = ashr i32 %102, 20
   %104 = trunc nsw i32 %103 to i16
-  store i16 %104, ptr %49, align 2, !tbaa !6
+  store i16 %104, ptr %49, align 2, !tbaa !7
   %105 = sub i32 %.194.i, %.186.i
   %106 = ashr i32 %105, 20
   %107 = trunc nsw i32 %106 to i16
-  store i16 %107, ptr %62, align 2, !tbaa !6
+  store i16 %107, ptr %62, align 2, !tbaa !7
   %108 = sub i32 %.196.i, %.188.i
   %109 = ashr i32 %108, 20
   %110 = trunc nsw i32 %109 to i16
-  store i16 %110, ptr %75, align 2, !tbaa !6
+  store i16 %110, ptr %75, align 2, !tbaa !7
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 8
-  br i1 %exitcond13.not, label %111, label %.preheader, !llvm.loop !15
+  br i1 %exitcond13.not, label %111, label %.preheader, !llvm.loop !16
 
 111:                                              ; preds = %idctSparseCol_int16_8bit.exit
   ret void
@@ -798,7 +798,7 @@ define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none)
   tail call fastcc void @idctRowCondDC_int16_10bit(ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !16
+  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !17
 
 .preheader.preheader:                             ; preds = %4
   %6 = lshr i64 %1, 1
@@ -808,12 +808,12 @@ define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none)
   %indvars.iv16 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next17, %idctSparseColPut_int16_10bit.exit ]
   %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv16
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv16
-  %9 = load i16, ptr %8, align 2, !tbaa !6
+  %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i32
   %11 = shl nsw i32 %10, 14
   %12 = add nsw i32 %11, 262144
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %14 = load i16, ptr %13, align 2, !tbaa !6
+  %14 = load i16, ptr %13, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   %16 = mul nsw i32 %15, 21407
   %17 = add nsw i32 %12, %16
@@ -824,14 +824,14 @@ define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none)
   %22 = mul nsw i32 %15, -21407
   %23 = add nsw i32 %12, %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %25 = load i16, ptr %24, align 2, !tbaa !6
+  %25 = load i16, ptr %24, align 2, !tbaa !7
   %26 = sext i16 %25 to i32
   %27 = mul nsw i32 %26, 22725
   %28 = mul nsw i32 %26, 19265
   %29 = mul nsw i32 %26, 12873
   %30 = mul nsw i32 %26, 4520
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %32 = load i16, ptr %31, align 2, !tbaa !6
+  %32 = load i16, ptr %31, align 2, !tbaa !7
   %33 = sext i16 %32 to i32
   %34 = mul nsw i32 %33, 19265
   %35 = add nsw i32 %34, %27
@@ -842,7 +842,7 @@ define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none)
   %40 = mul nsw i32 %33, -12873
   %41 = add nsw i32 %40, %30
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %43 = load i16, ptr %42, align 2, !tbaa !6
+  %43 = load i16, ptr %42, align 2, !tbaa !7
   %.not.i = icmp eq i16 %43, 0
   br i1 %.not.i, label %52, label %44
 
@@ -862,7 +862,7 @@ define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none)
   %.0105.i = phi i32 [ %50, %44 ], [ %21, %.preheader ]
   %.0103.i = phi i32 [ %51, %44 ], [ %23, %.preheader ]
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %54 = load i16, ptr %53, align 2, !tbaa !6
+  %54 = load i16, ptr %53, align 2, !tbaa !7
   %.not115.i = icmp eq i16 %54, 0
   br i1 %.not115.i, label %65, label %55
 
@@ -884,7 +884,7 @@ define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none)
   %.097.i = phi i32 [ %62, %55 ], [ %39, %52 ]
   %.0.i = phi i32 [ %64, %55 ], [ %41, %52 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %67 = load i16, ptr %66, align 2, !tbaa !6
+  %67 = load i16, ptr %66, align 2, !tbaa !7
   %.not116.i = icmp eq i16 %67, 0
   br i1 %.not116.i, label %78, label %68
 
@@ -906,7 +906,7 @@ define void @ff_simple_idct_put_int16_10bit(ptr noundef writeonly captures(none)
   %.1106.i = phi i32 [ %75, %68 ], [ %.0105.i, %65 ]
   %.1104.i = phi i32 [ %77, %68 ], [ %.0103.i, %65 ]
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %80 = load i16, ptr %79, align 2, !tbaa !6
+  %80 = load i16, ptr %79, align 2, !tbaa !7
   %.not117.i = icmp eq i16 %80, 0
   br i1 %.not117.i, label %idctSparseColPut_int16_10bit.exit, label %81
 
@@ -932,59 +932,59 @@ idctSparseColPut_int16_10bit.exit:                ; preds = %78, %81
   %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
   %94 = tail call i32 @llvm.umin.i32(i32 %93, i32 1023)
   %95 = trunc nuw nsw i32 %94 to i16
-  store i16 %95, ptr %7, align 2, !tbaa !6
+  store i16 %95, ptr %7, align 2, !tbaa !7
   %96 = getelementptr inbounds nuw i16, ptr %7, i64 %6
   %97 = add i32 %.1100.i, %.1108.i
   %98 = ashr i32 %97, 19
   %99 = tail call i32 @llvm.smax.i32(i32 %98, i32 0)
   %100 = tail call i32 @llvm.umin.i32(i32 %99, i32 1023)
   %101 = trunc nuw nsw i32 %100 to i16
-  store i16 %101, ptr %96, align 2, !tbaa !6
+  store i16 %101, ptr %96, align 2, !tbaa !7
   %102 = getelementptr inbounds nuw i16, ptr %96, i64 %6
   %103 = add i32 %.198.i, %.1106.i
   %104 = ashr i32 %103, 19
   %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
   %106 = tail call i32 @llvm.umin.i32(i32 %105, i32 1023)
   %107 = trunc nuw nsw i32 %106 to i16
-  store i16 %107, ptr %102, align 2, !tbaa !6
+  store i16 %107, ptr %102, align 2, !tbaa !7
   %108 = getelementptr inbounds nuw i16, ptr %102, i64 %6
   %109 = add i32 %.1.i, %.1104.i
   %110 = ashr i32 %109, 19
   %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 1023)
   %113 = trunc nuw nsw i32 %112 to i16
-  store i16 %113, ptr %108, align 2, !tbaa !6
+  store i16 %113, ptr %108, align 2, !tbaa !7
   %114 = getelementptr inbounds nuw i16, ptr %108, i64 %6
   %115 = sub i32 %.1104.i, %.1.i
   %116 = ashr i32 %115, 19
   %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
   %118 = tail call i32 @llvm.umin.i32(i32 %117, i32 1023)
   %119 = trunc nuw nsw i32 %118 to i16
-  store i16 %119, ptr %114, align 2, !tbaa !6
+  store i16 %119, ptr %114, align 2, !tbaa !7
   %120 = getelementptr inbounds nuw i16, ptr %114, i64 %6
   %121 = sub i32 %.1106.i, %.198.i
   %122 = ashr i32 %121, 19
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
   %124 = tail call i32 @llvm.umin.i32(i32 %123, i32 1023)
   %125 = trunc nuw nsw i32 %124 to i16
-  store i16 %125, ptr %120, align 2, !tbaa !6
+  store i16 %125, ptr %120, align 2, !tbaa !7
   %126 = getelementptr inbounds nuw i16, ptr %120, i64 %6
   %127 = sub i32 %.1108.i, %.1100.i
   %128 = ashr i32 %127, 19
   %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 0)
   %130 = tail call i32 @llvm.umin.i32(i32 %129, i32 1023)
   %131 = trunc nuw nsw i32 %130 to i16
-  store i16 %131, ptr %126, align 2, !tbaa !6
+  store i16 %131, ptr %126, align 2, !tbaa !7
   %132 = getelementptr inbounds nuw i16, ptr %126, i64 %6
   %133 = sub i32 %.1110.i, %.1102.i
   %134 = ashr i32 %133, 19
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 0)
   %136 = tail call i32 @llvm.umin.i32(i32 %135, i32 1023)
   %137 = trunc nuw nsw i32 %136 to i16
-  store i16 %137, ptr %132, align 2, !tbaa !6
+  store i16 %137, ptr %132, align 2, !tbaa !7
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 8
-  br i1 %exitcond19.not, label %138, label %.preheader, !llvm.loop !17
+  br i1 %exitcond19.not, label %138, label %.preheader, !llvm.loop !18
 
 138:                                              ; preds = %idctSparseColPut_int16_10bit.exit
   ret void
@@ -995,17 +995,17 @@ define internal fastcc void @idctRowCondDC_int16_10bit(ptr noundef captures(none
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !10
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = or i32 %5, %7
   %9 = or i32 %8, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %11 = load i16, ptr %10, align 2, !tbaa !6
+  %11 = load i16, ptr %10, align 2, !tbaa !7
   %12 = sext i16 %11 to i32
   %13 = or i32 %9, %12
   %.not = icmp eq i32 %13, 0
-  %14 = load i16, ptr %0, align 2, !tbaa !6
+  %14 = load i16, ptr %0, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   br i1 %.not, label %16, label %20
 
@@ -1013,10 +1013,10 @@ define internal fastcc void @idctRowCondDC_int16_10bit(ptr noundef captures(none
   %17 = shl nsw i32 %15, 2
   %18 = and i32 %17, 65532
   %19 = mul nuw i32 %18, 65537
-  store i32 %19, ptr %0, align 4, !tbaa !10
-  store i32 %19, ptr %2, align 4, !tbaa !10
-  store i32 %19, ptr %4, align 4, !tbaa !10
-  store i32 %19, ptr %6, align 4, !tbaa !10
+  store i32 %19, ptr %0, align 4, !tbaa !11
+  store i32 %19, ptr %2, align 4, !tbaa !11
+  store i32 %19, ptr %4, align 4, !tbaa !11
+  store i32 %19, ptr %6, align 4, !tbaa !11
   br label %107
 
 20:                                               ; preds = %1
@@ -1102,37 +1102,37 @@ define internal fastcc void @idctRowCondDC_int16_10bit(ptr noundef captures(none
   %81 = add i32 %.0108, %.0112
   %82 = lshr i32 %81, 12
   %83 = trunc i32 %82 to i16
-  store i16 %83, ptr %0, align 2, !tbaa !6
+  store i16 %83, ptr %0, align 2, !tbaa !7
   %84 = sub i32 %.0112, %.0108
   %85 = lshr i32 %84, 12
   %86 = trunc i32 %85 to i16
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %86, ptr %87, align 2, !tbaa !6
+  store i16 %86, ptr %87, align 2, !tbaa !7
   %88 = add i32 %.0107, %.0111
   %89 = lshr i32 %88, 12
   %90 = trunc i32 %89 to i16
-  store i16 %90, ptr %10, align 2, !tbaa !6
+  store i16 %90, ptr %10, align 2, !tbaa !7
   %91 = sub i32 %.0111, %.0107
   %92 = lshr i32 %91, 12
   %93 = trunc i32 %92 to i16
-  store i16 %93, ptr %6, align 2, !tbaa !6
+  store i16 %93, ptr %6, align 2, !tbaa !7
   %94 = add i32 %.0106, %.0110
   %95 = lshr i32 %94, 12
   %96 = trunc i32 %95 to i16
-  store i16 %96, ptr %2, align 2, !tbaa !6
+  store i16 %96, ptr %2, align 2, !tbaa !7
   %97 = sub i32 %.0110, %.0106
   %98 = lshr i32 %97, 12
   %99 = trunc i32 %98 to i16
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %99, ptr %100, align 2, !tbaa !6
+  store i16 %99, ptr %100, align 2, !tbaa !7
   %101 = add i32 %.0105, %.0109
   %102 = lshr i32 %101, 12
   %103 = trunc i32 %102 to i16
-  store i16 %103, ptr %31, align 2, !tbaa !6
+  store i16 %103, ptr %31, align 2, !tbaa !7
   %104 = sub i32 %.0109, %.0105
   %105 = lshr i32 %104, 12
   %106 = trunc i32 %105 to i16
-  store i16 %106, ptr %4, align 2, !tbaa !6
+  store i16 %106, ptr %4, align 2, !tbaa !7
   br label %107
 
 107:                                              ; preds = %80, %16
@@ -1150,7 +1150,7 @@ define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 n
   tail call fastcc void @idctRowCondDC_int16_10bit(ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !18
+  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !19
 
 .preheader.preheader:                             ; preds = %4
   %6 = lshr i64 %1, 1
@@ -1160,12 +1160,12 @@ define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 n
   %indvars.iv15 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next16, %idctSparseColAdd_int16_10bit.exit ]
   %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv15
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv15
-  %9 = load i16, ptr %8, align 2, !tbaa !6
+  %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i32
   %11 = shl nsw i32 %10, 14
   %12 = add nsw i32 %11, 262144
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %14 = load i16, ptr %13, align 2, !tbaa !6
+  %14 = load i16, ptr %13, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   %16 = mul nsw i32 %15, 21407
   %17 = add nsw i32 %12, %16
@@ -1176,14 +1176,14 @@ define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 n
   %22 = mul nsw i32 %15, -21407
   %23 = add nsw i32 %12, %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %25 = load i16, ptr %24, align 2, !tbaa !6
+  %25 = load i16, ptr %24, align 2, !tbaa !7
   %26 = sext i16 %25 to i32
   %27 = mul nsw i32 %26, 22725
   %28 = mul nsw i32 %26, 19265
   %29 = mul nsw i32 %26, 12873
   %30 = mul nsw i32 %26, 4520
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %32 = load i16, ptr %31, align 2, !tbaa !6
+  %32 = load i16, ptr %31, align 2, !tbaa !7
   %33 = sext i16 %32 to i32
   %34 = mul nsw i32 %33, 19265
   %35 = add nsw i32 %34, %27
@@ -1194,7 +1194,7 @@ define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 n
   %40 = mul nsw i32 %33, -12873
   %41 = add nsw i32 %40, %30
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %43 = load i16, ptr %42, align 2, !tbaa !6
+  %43 = load i16, ptr %42, align 2, !tbaa !7
   %.not.i = icmp eq i16 %43, 0
   br i1 %.not.i, label %52, label %44
 
@@ -1214,7 +1214,7 @@ define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 n
   %.0113.i = phi i32 [ %50, %44 ], [ %21, %.preheader ]
   %.0111.i = phi i32 [ %51, %44 ], [ %23, %.preheader ]
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %54 = load i16, ptr %53, align 2, !tbaa !6
+  %54 = load i16, ptr %53, align 2, !tbaa !7
   %.not123.i = icmp eq i16 %54, 0
   br i1 %.not123.i, label %65, label %55
 
@@ -1236,7 +1236,7 @@ define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 n
   %.0105.i = phi i32 [ %62, %55 ], [ %39, %52 ]
   %.0.i = phi i32 [ %64, %55 ], [ %41, %52 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %67 = load i16, ptr %66, align 2, !tbaa !6
+  %67 = load i16, ptr %66, align 2, !tbaa !7
   %.not124.i = icmp eq i16 %67, 0
   br i1 %.not124.i, label %78, label %68
 
@@ -1258,7 +1258,7 @@ define void @ff_simple_idct_add_int16_10bit(ptr noundef captures(none) %0, i64 n
   %.1114.i = phi i32 [ %75, %68 ], [ %.0113.i, %65 ]
   %.1112.i = phi i32 [ %77, %68 ], [ %.0111.i, %65 ]
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %80 = load i16, ptr %79, align 2, !tbaa !6
+  %80 = load i16, ptr %79, align 2, !tbaa !7
   %.not125.i = icmp eq i16 %80, 0
   br i1 %.not125.i, label %idctSparseColAdd_int16_10bit.exit, label %81
 
@@ -1279,7 +1279,7 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %.1108.i = phi i32 [ %86, %81 ], [ %.0107.i, %78 ]
   %.1106.i = phi i32 [ %88, %81 ], [ %.0105.i, %78 ]
   %.1.i = phi i32 [ %90, %81 ], [ %.0.i, %78 ]
-  %91 = load i16, ptr %7, align 2, !tbaa !6
+  %91 = load i16, ptr %7, align 2, !tbaa !7
   %92 = zext i16 %91 to i32
   %93 = add i32 %.1110.i, %.1118.i
   %94 = ashr i32 %93, 19
@@ -1287,9 +1287,9 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 1023)
   %98 = trunc nuw nsw i32 %97 to i16
-  store i16 %98, ptr %7, align 2, !tbaa !6
+  store i16 %98, ptr %7, align 2, !tbaa !7
   %99 = getelementptr inbounds nuw i16, ptr %7, i64 %6
-  %100 = load i16, ptr %99, align 2, !tbaa !6
+  %100 = load i16, ptr %99, align 2, !tbaa !7
   %101 = zext i16 %100 to i32
   %102 = add i32 %.1108.i, %.1116.i
   %103 = ashr i32 %102, 19
@@ -1297,9 +1297,9 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
   %106 = tail call i32 @llvm.umin.i32(i32 %105, i32 1023)
   %107 = trunc nuw nsw i32 %106 to i16
-  store i16 %107, ptr %99, align 2, !tbaa !6
+  store i16 %107, ptr %99, align 2, !tbaa !7
   %108 = getelementptr inbounds nuw i16, ptr %99, i64 %6
-  %109 = load i16, ptr %108, align 2, !tbaa !6
+  %109 = load i16, ptr %108, align 2, !tbaa !7
   %110 = zext i16 %109 to i32
   %111 = add i32 %.1106.i, %.1114.i
   %112 = ashr i32 %111, 19
@@ -1307,9 +1307,9 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %114 = tail call i32 @llvm.smax.i32(i32 %113, i32 0)
   %115 = tail call i32 @llvm.umin.i32(i32 %114, i32 1023)
   %116 = trunc nuw nsw i32 %115 to i16
-  store i16 %116, ptr %108, align 2, !tbaa !6
+  store i16 %116, ptr %108, align 2, !tbaa !7
   %117 = getelementptr inbounds nuw i16, ptr %108, i64 %6
-  %118 = load i16, ptr %117, align 2, !tbaa !6
+  %118 = load i16, ptr %117, align 2, !tbaa !7
   %119 = zext i16 %118 to i32
   %120 = add i32 %.1.i, %.1112.i
   %121 = ashr i32 %120, 19
@@ -1317,9 +1317,9 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
   %124 = tail call i32 @llvm.umin.i32(i32 %123, i32 1023)
   %125 = trunc nuw nsw i32 %124 to i16
-  store i16 %125, ptr %117, align 2, !tbaa !6
+  store i16 %125, ptr %117, align 2, !tbaa !7
   %126 = getelementptr inbounds nuw i16, ptr %117, i64 %6
-  %127 = load i16, ptr %126, align 2, !tbaa !6
+  %127 = load i16, ptr %126, align 2, !tbaa !7
   %128 = zext i16 %127 to i32
   %129 = sub i32 %.1112.i, %.1.i
   %130 = ashr i32 %129, 19
@@ -1327,9 +1327,9 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 0)
   %133 = tail call i32 @llvm.umin.i32(i32 %132, i32 1023)
   %134 = trunc nuw nsw i32 %133 to i16
-  store i16 %134, ptr %126, align 2, !tbaa !6
+  store i16 %134, ptr %126, align 2, !tbaa !7
   %135 = getelementptr inbounds nuw i16, ptr %126, i64 %6
-  %136 = load i16, ptr %135, align 2, !tbaa !6
+  %136 = load i16, ptr %135, align 2, !tbaa !7
   %137 = zext i16 %136 to i32
   %138 = sub i32 %.1114.i, %.1106.i
   %139 = ashr i32 %138, 19
@@ -1337,9 +1337,9 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 0)
   %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 1023)
   %143 = trunc nuw nsw i32 %142 to i16
-  store i16 %143, ptr %135, align 2, !tbaa !6
+  store i16 %143, ptr %135, align 2, !tbaa !7
   %144 = getelementptr inbounds nuw i16, ptr %135, i64 %6
-  %145 = load i16, ptr %144, align 2, !tbaa !6
+  %145 = load i16, ptr %144, align 2, !tbaa !7
   %146 = zext i16 %145 to i32
   %147 = sub i32 %.1116.i, %.1108.i
   %148 = ashr i32 %147, 19
@@ -1347,9 +1347,9 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %150 = tail call i32 @llvm.smax.i32(i32 %149, i32 0)
   %151 = tail call i32 @llvm.umin.i32(i32 %150, i32 1023)
   %152 = trunc nuw nsw i32 %151 to i16
-  store i16 %152, ptr %144, align 2, !tbaa !6
+  store i16 %152, ptr %144, align 2, !tbaa !7
   %153 = getelementptr inbounds nuw i16, ptr %144, i64 %6
-  %154 = load i16, ptr %153, align 2, !tbaa !6
+  %154 = load i16, ptr %153, align 2, !tbaa !7
   %155 = zext i16 %154 to i32
   %156 = sub i32 %.1118.i, %.1110.i
   %157 = ashr i32 %156, 19
@@ -1357,10 +1357,10 @@ idctSparseColAdd_int16_10bit.exit:                ; preds = %78, %81
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 0)
   %160 = tail call i32 @llvm.umin.i32(i32 %159, i32 1023)
   %161 = trunc nuw nsw i32 %160 to i16
-  store i16 %161, ptr %153, align 2, !tbaa !6
+  store i16 %161, ptr %153, align 2, !tbaa !7
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %162, label %.preheader, !llvm.loop !19
+  br i1 %exitcond18.not, label %162, label %.preheader, !llvm.loop !20
 
 162:                                              ; preds = %idctSparseColAdd_int16_10bit.exit
   ret void
@@ -1377,17 +1377,17 @@ define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unn
   tail call fastcc void @idctRowCondDC_int16_10bit(ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !21
 
 .preheader:                                       ; preds = %2, %idctSparseCol_int16_10bit.exit
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %idctSparseCol_int16_10bit.exit ], [ 0, %2 ]
   %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv10
-  %5 = load i16, ptr %4, align 2, !tbaa !6
+  %5 = load i16, ptr %4, align 2, !tbaa !7
   %6 = sext i16 %5 to i32
   %7 = shl nsw i32 %6, 14
   %8 = add nsw i32 %7, 262144
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %10 = load i16, ptr %9, align 2, !tbaa !6
+  %10 = load i16, ptr %9, align 2, !tbaa !7
   %11 = sext i16 %10 to i32
   %12 = mul nsw i32 %11, 21407
   %13 = add nsw i32 %8, %12
@@ -1398,14 +1398,14 @@ define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unn
   %18 = mul nsw i32 %11, -21407
   %19 = add nsw i32 %8, %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = load i16, ptr %20, align 2, !tbaa !6
+  %21 = load i16, ptr %20, align 2, !tbaa !7
   %22 = sext i16 %21 to i32
   %23 = mul nsw i32 %22, 22725
   %24 = mul nsw i32 %22, 19265
   %25 = mul nsw i32 %22, 12873
   %26 = mul nsw i32 %22, 4520
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %28 = load i16, ptr %27, align 2, !tbaa !6
+  %28 = load i16, ptr %27, align 2, !tbaa !7
   %29 = sext i16 %28 to i32
   %30 = mul nsw i32 %29, 19265
   %31 = add nsw i32 %30, %23
@@ -1416,7 +1416,7 @@ define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unn
   %36 = mul nsw i32 %29, -12873
   %37 = add nsw i32 %36, %26
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %39 = load i16, ptr %38, align 2, !tbaa !6
+  %39 = load i16, ptr %38, align 2, !tbaa !7
   %.not.i = icmp eq i16 %39, 0
   br i1 %.not.i, label %48, label %40
 
@@ -1436,7 +1436,7 @@ define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unn
   %.091.i = phi i32 [ %46, %40 ], [ %17, %.preheader ]
   %.089.i = phi i32 [ %47, %40 ], [ %19, %.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %50 = load i16, ptr %49, align 2, !tbaa !6
+  %50 = load i16, ptr %49, align 2, !tbaa !7
   %.not101.i = icmp eq i16 %50, 0
   br i1 %.not101.i, label %61, label %51
 
@@ -1458,7 +1458,7 @@ define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unn
   %.083.i = phi i32 [ %58, %51 ], [ %35, %48 ]
   %.0.i = phi i32 [ %60, %51 ], [ %37, %48 ]
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %63 = load i16, ptr %62, align 2, !tbaa !6
+  %63 = load i16, ptr %62, align 2, !tbaa !7
   %.not102.i = icmp eq i16 %63, 0
   br i1 %.not102.i, label %74, label %64
 
@@ -1480,7 +1480,7 @@ define void @ff_simple_idct_int16_10bit(ptr noundef captures(none) %0) local_unn
   %.192.i = phi i32 [ %71, %64 ], [ %.091.i, %61 ]
   %.190.i = phi i32 [ %73, %64 ], [ %.089.i, %61 ]
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %76 = load i16, ptr %75, align 2, !tbaa !6
+  %76 = load i16, ptr %75, align 2, !tbaa !7
   %.not103.i = icmp eq i16 %76, 0
   br i1 %.not103.i, label %idctSparseCol_int16_10bit.exit, label %77
 
@@ -1504,38 +1504,38 @@ idctSparseCol_int16_10bit.exit:                   ; preds = %74, %77
   %87 = add i32 %.188.i, %.196.i
   %88 = ashr i32 %87, 19
   %89 = trunc nsw i32 %88 to i16
-  store i16 %89, ptr %4, align 2, !tbaa !6
+  store i16 %89, ptr %4, align 2, !tbaa !7
   %90 = add i32 %.186.i, %.194.i
   %91 = ashr i32 %90, 19
   %92 = trunc nsw i32 %91 to i16
-  store i16 %92, ptr %20, align 2, !tbaa !6
+  store i16 %92, ptr %20, align 2, !tbaa !7
   %93 = add i32 %.184.i, %.192.i
   %94 = ashr i32 %93, 19
   %95 = trunc nsw i32 %94 to i16
-  store i16 %95, ptr %9, align 2, !tbaa !6
+  store i16 %95, ptr %9, align 2, !tbaa !7
   %96 = add i32 %.1.i, %.190.i
   %97 = ashr i32 %96, 19
   %98 = trunc nsw i32 %97 to i16
-  store i16 %98, ptr %27, align 2, !tbaa !6
+  store i16 %98, ptr %27, align 2, !tbaa !7
   %99 = sub i32 %.190.i, %.1.i
   %100 = ashr i32 %99, 19
   %101 = trunc nsw i32 %100 to i16
-  store i16 %101, ptr %38, align 2, !tbaa !6
+  store i16 %101, ptr %38, align 2, !tbaa !7
   %102 = sub i32 %.192.i, %.184.i
   %103 = ashr i32 %102, 19
   %104 = trunc nsw i32 %103 to i16
-  store i16 %104, ptr %49, align 2, !tbaa !6
+  store i16 %104, ptr %49, align 2, !tbaa !7
   %105 = sub i32 %.194.i, %.186.i
   %106 = ashr i32 %105, 19
   %107 = trunc nsw i32 %106 to i16
-  store i16 %107, ptr %62, align 2, !tbaa !6
+  store i16 %107, ptr %62, align 2, !tbaa !7
   %108 = sub i32 %.196.i, %.188.i
   %109 = ashr i32 %108, 19
   %110 = trunc nsw i32 %109 to i16
-  store i16 %110, ptr %75, align 2, !tbaa !6
+  store i16 %110, ptr %75, align 2, !tbaa !7
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 8
-  br i1 %exitcond13.not, label %111, label %.preheader, !llvm.loop !21
+  br i1 %exitcond13.not, label %111, label %.preheader, !llvm.loop !22
 
 111:                                              ; preds = %idctSparseCol_int16_10bit.exit
   ret void
@@ -1552,7 +1552,7 @@ define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none)
   tail call fastcc void @idctRowCondDC_int16_12bit(ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !23
 
 .preheader.preheader:                             ; preds = %4
   %6 = lshr i64 %1, 1
@@ -1562,12 +1562,12 @@ define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none)
   %indvars.iv16 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next17, %idctSparseColPut_int16_12bit.exit ]
   %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv16
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv16
-  %9 = load i16, ptr %8, align 2, !tbaa !6
+  %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i32
   %11 = mul nsw i32 %10, 32767
   %12 = add nsw i32 %11, 65534
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %14 = load i16, ptr %13, align 2, !tbaa !6
+  %14 = load i16, ptr %13, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   %16 = mul nsw i32 %15, 42813
   %17 = add i32 %12, %16
@@ -1578,14 +1578,14 @@ define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none)
   %22 = mul nsw i32 %15, -42813
   %23 = add i32 %12, %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %25 = load i16, ptr %24, align 2, !tbaa !6
+  %25 = load i16, ptr %24, align 2, !tbaa !7
   %26 = sext i16 %25 to i32
   %27 = mul nsw i32 %26, 45451
   %28 = mul nsw i32 %26, 38531
   %29 = mul nsw i32 %26, 25746
   %30 = mul nsw i32 %26, 9041
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %32 = load i16, ptr %31, align 2, !tbaa !6
+  %32 = load i16, ptr %31, align 2, !tbaa !7
   %33 = sext i16 %32 to i32
   %34 = mul nsw i32 %33, 38531
   %35 = add i32 %34, %27
@@ -1596,7 +1596,7 @@ define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none)
   %40 = mul nsw i32 %33, -25746
   %41 = add nsw i32 %40, %30
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %43 = load i16, ptr %42, align 2, !tbaa !6
+  %43 = load i16, ptr %42, align 2, !tbaa !7
   %.not.i = icmp eq i16 %43, 0
   br i1 %.not.i, label %52, label %44
 
@@ -1616,7 +1616,7 @@ define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none)
   %.0105.i = phi i32 [ %50, %44 ], [ %21, %.preheader ]
   %.0103.i = phi i32 [ %51, %44 ], [ %23, %.preheader ]
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %54 = load i16, ptr %53, align 2, !tbaa !6
+  %54 = load i16, ptr %53, align 2, !tbaa !7
   %.not115.i = icmp eq i16 %54, 0
   br i1 %.not115.i, label %65, label %55
 
@@ -1638,7 +1638,7 @@ define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none)
   %.097.i = phi i32 [ %62, %55 ], [ %39, %52 ]
   %.0.i = phi i32 [ %64, %55 ], [ %41, %52 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %67 = load i16, ptr %66, align 2, !tbaa !6
+  %67 = load i16, ptr %66, align 2, !tbaa !7
   %.not116.i = icmp eq i16 %67, 0
   br i1 %.not116.i, label %78, label %68
 
@@ -1660,7 +1660,7 @@ define void @ff_simple_idct_put_int16_12bit(ptr noundef writeonly captures(none)
   %.1106.i = phi i32 [ %75, %68 ], [ %.0105.i, %65 ]
   %.1104.i = phi i32 [ %77, %68 ], [ %.0103.i, %65 ]
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %80 = load i16, ptr %79, align 2, !tbaa !6
+  %80 = load i16, ptr %79, align 2, !tbaa !7
   %.not117.i = icmp eq i16 %80, 0
   br i1 %.not117.i, label %idctSparseColPut_int16_12bit.exit, label %81
 
@@ -1686,59 +1686,59 @@ idctSparseColPut_int16_12bit.exit:                ; preds = %78, %81
   %93 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
   %94 = tail call i32 @llvm.umin.i32(i32 %93, i32 4095)
   %95 = trunc nuw nsw i32 %94 to i16
-  store i16 %95, ptr %7, align 2, !tbaa !6
+  store i16 %95, ptr %7, align 2, !tbaa !7
   %96 = getelementptr inbounds nuw i16, ptr %7, i64 %6
   %97 = add i32 %.1100.i, %.1108.i
   %98 = ashr i32 %97, 17
   %99 = tail call i32 @llvm.smax.i32(i32 %98, i32 0)
   %100 = tail call i32 @llvm.umin.i32(i32 %99, i32 4095)
   %101 = trunc nuw nsw i32 %100 to i16
-  store i16 %101, ptr %96, align 2, !tbaa !6
+  store i16 %101, ptr %96, align 2, !tbaa !7
   %102 = getelementptr inbounds nuw i16, ptr %96, i64 %6
   %103 = add i32 %.198.i, %.1106.i
   %104 = ashr i32 %103, 17
   %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
   %106 = tail call i32 @llvm.umin.i32(i32 %105, i32 4095)
   %107 = trunc nuw nsw i32 %106 to i16
-  store i16 %107, ptr %102, align 2, !tbaa !6
+  store i16 %107, ptr %102, align 2, !tbaa !7
   %108 = getelementptr inbounds nuw i16, ptr %102, i64 %6
   %109 = add i32 %.1.i, %.1104.i
   %110 = ashr i32 %109, 17
   %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 4095)
   %113 = trunc nuw nsw i32 %112 to i16
-  store i16 %113, ptr %108, align 2, !tbaa !6
+  store i16 %113, ptr %108, align 2, !tbaa !7
   %114 = getelementptr inbounds nuw i16, ptr %108, i64 %6
   %115 = sub i32 %.1104.i, %.1.i
   %116 = ashr i32 %115, 17
   %117 = tail call i32 @llvm.smax.i32(i32 %116, i32 0)
   %118 = tail call i32 @llvm.umin.i32(i32 %117, i32 4095)
   %119 = trunc nuw nsw i32 %118 to i16
-  store i16 %119, ptr %114, align 2, !tbaa !6
+  store i16 %119, ptr %114, align 2, !tbaa !7
   %120 = getelementptr inbounds nuw i16, ptr %114, i64 %6
   %121 = sub i32 %.1106.i, %.198.i
   %122 = ashr i32 %121, 17
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
   %124 = tail call i32 @llvm.umin.i32(i32 %123, i32 4095)
   %125 = trunc nuw nsw i32 %124 to i16
-  store i16 %125, ptr %120, align 2, !tbaa !6
+  store i16 %125, ptr %120, align 2, !tbaa !7
   %126 = getelementptr inbounds nuw i16, ptr %120, i64 %6
   %127 = sub i32 %.1108.i, %.1100.i
   %128 = ashr i32 %127, 17
   %129 = tail call i32 @llvm.smax.i32(i32 %128, i32 0)
   %130 = tail call i32 @llvm.umin.i32(i32 %129, i32 4095)
   %131 = trunc nuw nsw i32 %130 to i16
-  store i16 %131, ptr %126, align 2, !tbaa !6
+  store i16 %131, ptr %126, align 2, !tbaa !7
   %132 = getelementptr inbounds nuw i16, ptr %126, i64 %6
   %133 = sub i32 %.1110.i, %.1102.i
   %134 = ashr i32 %133, 17
   %135 = tail call i32 @llvm.smax.i32(i32 %134, i32 0)
   %136 = tail call i32 @llvm.umin.i32(i32 %135, i32 4095)
   %137 = trunc nuw nsw i32 %136 to i16
-  store i16 %137, ptr %132, align 2, !tbaa !6
+  store i16 %137, ptr %132, align 2, !tbaa !7
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %exitcond19.not = icmp eq i64 %indvars.iv.next17, 8
-  br i1 %exitcond19.not, label %138, label %.preheader, !llvm.loop !23
+  br i1 %exitcond19.not, label %138, label %.preheader, !llvm.loop !24
 
 138:                                              ; preds = %idctSparseColPut_int16_12bit.exit
   ret void
@@ -1749,17 +1749,17 @@ define internal fastcc void @idctRowCondDC_int16_12bit(ptr noundef captures(none
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 4, !tbaa !10
+  %5 = load i32, ptr %4, align 4, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %7 = load i32, ptr %6, align 4, !tbaa !10
+  %7 = load i32, ptr %6, align 4, !tbaa !11
   %8 = or i32 %5, %7
   %9 = or i32 %8, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %11 = load i16, ptr %10, align 2, !tbaa !6
+  %11 = load i16, ptr %10, align 2, !tbaa !7
   %12 = sext i16 %11 to i32
   %13 = or i32 %9, %12
   %.not = icmp eq i32 %13, 0
-  %14 = load i16, ptr %0, align 2, !tbaa !6
+  %14 = load i16, ptr %0, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   br i1 %.not, label %16, label %21
 
@@ -1768,10 +1768,10 @@ define internal fastcc void @idctRowCondDC_int16_12bit(ptr noundef captures(none
   %18 = lshr i32 %17, 1
   %19 = and i32 %18, 65535
   %20 = mul nuw i32 %19, 65537
-  store i32 %20, ptr %0, align 4, !tbaa !10
-  store i32 %20, ptr %2, align 4, !tbaa !10
-  store i32 %20, ptr %4, align 4, !tbaa !10
-  store i32 %20, ptr %6, align 4, !tbaa !10
+  store i32 %20, ptr %0, align 4, !tbaa !11
+  store i32 %20, ptr %2, align 4, !tbaa !11
+  store i32 %20, ptr %4, align 4, !tbaa !11
+  store i32 %20, ptr %6, align 4, !tbaa !11
   br label %108
 
 21:                                               ; preds = %1
@@ -1857,37 +1857,37 @@ define internal fastcc void @idctRowCondDC_int16_12bit(ptr noundef captures(none
   %82 = add i32 %.0108, %.0112
   %83 = lshr i32 %82, 16
   %84 = trunc nuw i32 %83 to i16
-  store i16 %84, ptr %0, align 2, !tbaa !6
+  store i16 %84, ptr %0, align 2, !tbaa !7
   %85 = sub i32 %.0112, %.0108
   %86 = lshr i32 %85, 16
   %87 = trunc nuw i32 %86 to i16
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  store i16 %87, ptr %88, align 2, !tbaa !6
+  store i16 %87, ptr %88, align 2, !tbaa !7
   %89 = add i32 %.0107, %.0111
   %90 = lshr i32 %89, 16
   %91 = trunc nuw i32 %90 to i16
-  store i16 %91, ptr %10, align 2, !tbaa !6
+  store i16 %91, ptr %10, align 2, !tbaa !7
   %92 = sub i32 %.0111, %.0107
   %93 = lshr i32 %92, 16
   %94 = trunc nuw i32 %93 to i16
-  store i16 %94, ptr %6, align 2, !tbaa !6
+  store i16 %94, ptr %6, align 2, !tbaa !7
   %95 = add i32 %.0106, %.0110
   %96 = lshr i32 %95, 16
   %97 = trunc nuw i32 %96 to i16
-  store i16 %97, ptr %2, align 2, !tbaa !6
+  store i16 %97, ptr %2, align 2, !tbaa !7
   %98 = sub i32 %.0110, %.0106
   %99 = lshr i32 %98, 16
   %100 = trunc nuw i32 %99 to i16
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  store i16 %100, ptr %101, align 2, !tbaa !6
+  store i16 %100, ptr %101, align 2, !tbaa !7
   %102 = add i32 %.0105, %.0109
   %103 = lshr i32 %102, 16
   %104 = trunc nuw i32 %103 to i16
-  store i16 %104, ptr %32, align 2, !tbaa !6
+  store i16 %104, ptr %32, align 2, !tbaa !7
   %105 = sub i32 %.0109, %.0105
   %106 = lshr i32 %105, 16
   %107 = trunc nuw i32 %106 to i16
-  store i16 %107, ptr %4, align 2, !tbaa !6
+  store i16 %107, ptr %4, align 2, !tbaa !7
   br label %108
 
 108:                                              ; preds = %81, %16
@@ -1905,7 +1905,7 @@ define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 n
   tail call fastcc void @idctRowCondDC_int16_12bit(ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !24
+  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !25
 
 .preheader.preheader:                             ; preds = %4
   %6 = lshr i64 %1, 1
@@ -1915,12 +1915,12 @@ define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 n
   %indvars.iv15 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next16, %idctSparseColAdd_int16_12bit.exit ]
   %7 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv15
   %8 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv15
-  %9 = load i16, ptr %8, align 2, !tbaa !6
+  %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i32
   %11 = mul nsw i32 %10, 32767
   %12 = add nsw i32 %11, 65534
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %14 = load i16, ptr %13, align 2, !tbaa !6
+  %14 = load i16, ptr %13, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   %16 = mul nsw i32 %15, 42813
   %17 = add i32 %12, %16
@@ -1931,14 +1931,14 @@ define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 n
   %22 = mul nsw i32 %15, -42813
   %23 = add i32 %12, %22
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %25 = load i16, ptr %24, align 2, !tbaa !6
+  %25 = load i16, ptr %24, align 2, !tbaa !7
   %26 = sext i16 %25 to i32
   %27 = mul nsw i32 %26, 45451
   %28 = mul nsw i32 %26, 38531
   %29 = mul nsw i32 %26, 25746
   %30 = mul nsw i32 %26, 9041
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %32 = load i16, ptr %31, align 2, !tbaa !6
+  %32 = load i16, ptr %31, align 2, !tbaa !7
   %33 = sext i16 %32 to i32
   %34 = mul nsw i32 %33, 38531
   %35 = add i32 %34, %27
@@ -1949,7 +1949,7 @@ define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 n
   %40 = mul nsw i32 %33, -25746
   %41 = add nsw i32 %40, %30
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %43 = load i16, ptr %42, align 2, !tbaa !6
+  %43 = load i16, ptr %42, align 2, !tbaa !7
   %.not.i = icmp eq i16 %43, 0
   br i1 %.not.i, label %52, label %44
 
@@ -1969,7 +1969,7 @@ define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 n
   %.0113.i = phi i32 [ %50, %44 ], [ %21, %.preheader ]
   %.0111.i = phi i32 [ %51, %44 ], [ %23, %.preheader ]
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  %54 = load i16, ptr %53, align 2, !tbaa !6
+  %54 = load i16, ptr %53, align 2, !tbaa !7
   %.not123.i = icmp eq i16 %54, 0
   br i1 %.not123.i, label %65, label %55
 
@@ -1991,7 +1991,7 @@ define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 n
   %.0105.i = phi i32 [ %62, %55 ], [ %39, %52 ]
   %.0.i = phi i32 [ %64, %55 ], [ %41, %52 ]
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %67 = load i16, ptr %66, align 2, !tbaa !6
+  %67 = load i16, ptr %66, align 2, !tbaa !7
   %.not124.i = icmp eq i16 %67, 0
   br i1 %.not124.i, label %78, label %68
 
@@ -2013,7 +2013,7 @@ define void @ff_simple_idct_add_int16_12bit(ptr noundef captures(none) %0, i64 n
   %.1114.i = phi i32 [ %75, %68 ], [ %.0113.i, %65 ]
   %.1112.i = phi i32 [ %77, %68 ], [ %.0111.i, %65 ]
   %79 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %80 = load i16, ptr %79, align 2, !tbaa !6
+  %80 = load i16, ptr %79, align 2, !tbaa !7
   %.not125.i = icmp eq i16 %80, 0
   br i1 %.not125.i, label %idctSparseColAdd_int16_12bit.exit, label %81
 
@@ -2034,7 +2034,7 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %.1108.i = phi i32 [ %86, %81 ], [ %.0107.i, %78 ]
   %.1106.i = phi i32 [ %88, %81 ], [ %.0105.i, %78 ]
   %.1.i = phi i32 [ %90, %81 ], [ %.0.i, %78 ]
-  %91 = load i16, ptr %7, align 2, !tbaa !6
+  %91 = load i16, ptr %7, align 2, !tbaa !7
   %92 = zext i16 %91 to i32
   %93 = add i32 %.1110.i, %.1118.i
   %94 = ashr i32 %93, 17
@@ -2042,9 +2042,9 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %96 = tail call i32 @llvm.smax.i32(i32 %95, i32 0)
   %97 = tail call i32 @llvm.umin.i32(i32 %96, i32 4095)
   %98 = trunc nuw nsw i32 %97 to i16
-  store i16 %98, ptr %7, align 2, !tbaa !6
+  store i16 %98, ptr %7, align 2, !tbaa !7
   %99 = getelementptr inbounds nuw i16, ptr %7, i64 %6
-  %100 = load i16, ptr %99, align 2, !tbaa !6
+  %100 = load i16, ptr %99, align 2, !tbaa !7
   %101 = zext i16 %100 to i32
   %102 = add i32 %.1108.i, %.1116.i
   %103 = ashr i32 %102, 17
@@ -2052,9 +2052,9 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %105 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
   %106 = tail call i32 @llvm.umin.i32(i32 %105, i32 4095)
   %107 = trunc nuw nsw i32 %106 to i16
-  store i16 %107, ptr %99, align 2, !tbaa !6
+  store i16 %107, ptr %99, align 2, !tbaa !7
   %108 = getelementptr inbounds nuw i16, ptr %99, i64 %6
-  %109 = load i16, ptr %108, align 2, !tbaa !6
+  %109 = load i16, ptr %108, align 2, !tbaa !7
   %110 = zext i16 %109 to i32
   %111 = add i32 %.1106.i, %.1114.i
   %112 = ashr i32 %111, 17
@@ -2062,9 +2062,9 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %114 = tail call i32 @llvm.smax.i32(i32 %113, i32 0)
   %115 = tail call i32 @llvm.umin.i32(i32 %114, i32 4095)
   %116 = trunc nuw nsw i32 %115 to i16
-  store i16 %116, ptr %108, align 2, !tbaa !6
+  store i16 %116, ptr %108, align 2, !tbaa !7
   %117 = getelementptr inbounds nuw i16, ptr %108, i64 %6
-  %118 = load i16, ptr %117, align 2, !tbaa !6
+  %118 = load i16, ptr %117, align 2, !tbaa !7
   %119 = zext i16 %118 to i32
   %120 = add i32 %.1.i, %.1112.i
   %121 = ashr i32 %120, 17
@@ -2072,9 +2072,9 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
   %124 = tail call i32 @llvm.umin.i32(i32 %123, i32 4095)
   %125 = trunc nuw nsw i32 %124 to i16
-  store i16 %125, ptr %117, align 2, !tbaa !6
+  store i16 %125, ptr %117, align 2, !tbaa !7
   %126 = getelementptr inbounds nuw i16, ptr %117, i64 %6
-  %127 = load i16, ptr %126, align 2, !tbaa !6
+  %127 = load i16, ptr %126, align 2, !tbaa !7
   %128 = zext i16 %127 to i32
   %129 = sub i32 %.1112.i, %.1.i
   %130 = ashr i32 %129, 17
@@ -2082,9 +2082,9 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %132 = tail call i32 @llvm.smax.i32(i32 %131, i32 0)
   %133 = tail call i32 @llvm.umin.i32(i32 %132, i32 4095)
   %134 = trunc nuw nsw i32 %133 to i16
-  store i16 %134, ptr %126, align 2, !tbaa !6
+  store i16 %134, ptr %126, align 2, !tbaa !7
   %135 = getelementptr inbounds nuw i16, ptr %126, i64 %6
-  %136 = load i16, ptr %135, align 2, !tbaa !6
+  %136 = load i16, ptr %135, align 2, !tbaa !7
   %137 = zext i16 %136 to i32
   %138 = sub i32 %.1114.i, %.1106.i
   %139 = ashr i32 %138, 17
@@ -2092,9 +2092,9 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %141 = tail call i32 @llvm.smax.i32(i32 %140, i32 0)
   %142 = tail call i32 @llvm.umin.i32(i32 %141, i32 4095)
   %143 = trunc nuw nsw i32 %142 to i16
-  store i16 %143, ptr %135, align 2, !tbaa !6
+  store i16 %143, ptr %135, align 2, !tbaa !7
   %144 = getelementptr inbounds nuw i16, ptr %135, i64 %6
-  %145 = load i16, ptr %144, align 2, !tbaa !6
+  %145 = load i16, ptr %144, align 2, !tbaa !7
   %146 = zext i16 %145 to i32
   %147 = sub i32 %.1116.i, %.1108.i
   %148 = ashr i32 %147, 17
@@ -2102,9 +2102,9 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %150 = tail call i32 @llvm.smax.i32(i32 %149, i32 0)
   %151 = tail call i32 @llvm.umin.i32(i32 %150, i32 4095)
   %152 = trunc nuw nsw i32 %151 to i16
-  store i16 %152, ptr %144, align 2, !tbaa !6
+  store i16 %152, ptr %144, align 2, !tbaa !7
   %153 = getelementptr inbounds nuw i16, ptr %144, i64 %6
-  %154 = load i16, ptr %153, align 2, !tbaa !6
+  %154 = load i16, ptr %153, align 2, !tbaa !7
   %155 = zext i16 %154 to i32
   %156 = sub i32 %.1118.i, %.1110.i
   %157 = ashr i32 %156, 17
@@ -2112,10 +2112,10 @@ idctSparseColAdd_int16_12bit.exit:                ; preds = %78, %81
   %159 = tail call i32 @llvm.smax.i32(i32 %158, i32 0)
   %160 = tail call i32 @llvm.umin.i32(i32 %159, i32 4095)
   %161 = trunc nuw nsw i32 %160 to i16
-  store i16 %161, ptr %153, align 2, !tbaa !6
+  store i16 %161, ptr %153, align 2, !tbaa !7
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
-  br i1 %exitcond18.not, label %162, label %.preheader, !llvm.loop !25
+  br i1 %exitcond18.not, label %162, label %.preheader, !llvm.loop !26
 
 162:                                              ; preds = %idctSparseColAdd_int16_12bit.exit
   ret void
@@ -2132,17 +2132,17 @@ define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unn
   tail call fastcc void @idctRowCondDC_int16_12bit(ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !26
+  br i1 %exitcond.not, label %.preheader, label %2, !llvm.loop !27
 
 .preheader:                                       ; preds = %2, %idctSparseCol_int16_12bit.exit
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %idctSparseCol_int16_12bit.exit ], [ 0, %2 ]
   %4 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv10
-  %5 = load i16, ptr %4, align 2, !tbaa !6
+  %5 = load i16, ptr %4, align 2, !tbaa !7
   %6 = sext i16 %5 to i32
   %7 = mul nsw i32 %6, 32767
   %8 = add nsw i32 %7, 65534
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %10 = load i16, ptr %9, align 2, !tbaa !6
+  %10 = load i16, ptr %9, align 2, !tbaa !7
   %11 = sext i16 %10 to i32
   %12 = mul nsw i32 %11, 42813
   %13 = add i32 %8, %12
@@ -2153,14 +2153,14 @@ define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unn
   %18 = mul nsw i32 %11, -42813
   %19 = add i32 %8, %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %21 = load i16, ptr %20, align 2, !tbaa !6
+  %21 = load i16, ptr %20, align 2, !tbaa !7
   %22 = sext i16 %21 to i32
   %23 = mul nsw i32 %22, 45451
   %24 = mul nsw i32 %22, 38531
   %25 = mul nsw i32 %22, 25746
   %26 = mul nsw i32 %22, 9041
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %28 = load i16, ptr %27, align 2, !tbaa !6
+  %28 = load i16, ptr %27, align 2, !tbaa !7
   %29 = sext i16 %28 to i32
   %30 = mul nsw i32 %29, 38531
   %31 = add i32 %30, %23
@@ -2171,7 +2171,7 @@ define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unn
   %36 = mul nsw i32 %29, -25746
   %37 = add nsw i32 %36, %26
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %39 = load i16, ptr %38, align 2, !tbaa !6
+  %39 = load i16, ptr %38, align 2, !tbaa !7
   %.not.i = icmp eq i16 %39, 0
   br i1 %.not.i, label %48, label %40
 
@@ -2191,7 +2191,7 @@ define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unn
   %.091.i = phi i32 [ %46, %40 ], [ %17, %.preheader ]
   %.089.i = phi i32 [ %47, %40 ], [ %19, %.preheader ]
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %50 = load i16, ptr %49, align 2, !tbaa !6
+  %50 = load i16, ptr %49, align 2, !tbaa !7
   %.not101.i = icmp eq i16 %50, 0
   br i1 %.not101.i, label %61, label %51
 
@@ -2213,7 +2213,7 @@ define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unn
   %.083.i = phi i32 [ %58, %51 ], [ %35, %48 ]
   %.0.i = phi i32 [ %60, %51 ], [ %37, %48 ]
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %63 = load i16, ptr %62, align 2, !tbaa !6
+  %63 = load i16, ptr %62, align 2, !tbaa !7
   %.not102.i = icmp eq i16 %63, 0
   br i1 %.not102.i, label %74, label %64
 
@@ -2235,7 +2235,7 @@ define void @ff_simple_idct_int16_12bit(ptr noundef captures(none) %0) local_unn
   %.192.i = phi i32 [ %71, %64 ], [ %.091.i, %61 ]
   %.190.i = phi i32 [ %73, %64 ], [ %.089.i, %61 ]
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  %76 = load i16, ptr %75, align 2, !tbaa !6
+  %76 = load i16, ptr %75, align 2, !tbaa !7
   %.not103.i = icmp eq i16 %76, 0
   br i1 %.not103.i, label %idctSparseCol_int16_12bit.exit, label %77
 
@@ -2259,38 +2259,38 @@ idctSparseCol_int16_12bit.exit:                   ; preds = %74, %77
   %87 = add i32 %.188.i, %.196.i
   %88 = ashr i32 %87, 17
   %89 = trunc nsw i32 %88 to i16
-  store i16 %89, ptr %4, align 2, !tbaa !6
+  store i16 %89, ptr %4, align 2, !tbaa !7
   %90 = add i32 %.186.i, %.194.i
   %91 = ashr i32 %90, 17
   %92 = trunc nsw i32 %91 to i16
-  store i16 %92, ptr %20, align 2, !tbaa !6
+  store i16 %92, ptr %20, align 2, !tbaa !7
   %93 = add i32 %.184.i, %.192.i
   %94 = ashr i32 %93, 17
   %95 = trunc nsw i32 %94 to i16
-  store i16 %95, ptr %9, align 2, !tbaa !6
+  store i16 %95, ptr %9, align 2, !tbaa !7
   %96 = add i32 %.1.i, %.190.i
   %97 = ashr i32 %96, 17
   %98 = trunc nsw i32 %97 to i16
-  store i16 %98, ptr %27, align 2, !tbaa !6
+  store i16 %98, ptr %27, align 2, !tbaa !7
   %99 = sub i32 %.190.i, %.1.i
   %100 = ashr i32 %99, 17
   %101 = trunc nsw i32 %100 to i16
-  store i16 %101, ptr %38, align 2, !tbaa !6
+  store i16 %101, ptr %38, align 2, !tbaa !7
   %102 = sub i32 %.192.i, %.184.i
   %103 = ashr i32 %102, 17
   %104 = trunc nsw i32 %103 to i16
-  store i16 %104, ptr %49, align 2, !tbaa !6
+  store i16 %104, ptr %49, align 2, !tbaa !7
   %105 = sub i32 %.194.i, %.186.i
   %106 = ashr i32 %105, 17
   %107 = trunc nsw i32 %106 to i16
-  store i16 %107, ptr %62, align 2, !tbaa !6
+  store i16 %107, ptr %62, align 2, !tbaa !7
   %108 = sub i32 %.196.i, %.188.i
   %109 = ashr i32 %108, 17
   %110 = trunc nsw i32 %109 to i16
-  store i16 %110, ptr %75, align 2, !tbaa !6
+  store i16 %110, ptr %75, align 2, !tbaa !7
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %exitcond13.not = icmp eq i64 %indvars.iv.next11, 8
-  br i1 %exitcond13.not, label %111, label %.preheader, !llvm.loop !27
+  br i1 %exitcond13.not, label %111, label %.preheader, !llvm.loop !28
 
 111:                                              ; preds = %idctSparseCol_int16_12bit.exit
   ret void
@@ -2304,11 +2304,11 @@ define void @ff_simple_idct_put_int32_10bit(ptr noundef writeonly captures(none)
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %idctRowCondDC_int32_10bit.exit ]
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %6 = load i32, ptr %5, align 4, !tbaa !28
+  %6 = load i32, ptr %5, align 4, !tbaa !29
   %7 = shl i32 %6, 14
   %8 = or disjoint i32 %7, 4096
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %10 = load i32, ptr %9, align 4, !tbaa !28
+  %10 = load i32, ptr %9, align 4, !tbaa !29
   %11 = mul i32 %10, 21407
   %12 = add i32 %8, %11
   %13 = mul i32 %10, 8867
@@ -2316,10 +2316,10 @@ define void @ff_simple_idct_put_int32_10bit(ptr noundef writeonly captures(none)
   %15 = sub i32 %8, %13
   %16 = sub i32 %8, %11
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !28
+  %18 = load i32, ptr %17, align 4, !tbaa !29
   %19 = mul i32 %18, 22725
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !28
+  %21 = load i32, ptr %20, align 4, !tbaa !29
   %22 = mul i32 %21, 19265
   %23 = add i32 %22, %19
   %24 = mul i32 %18, 19265
@@ -2387,33 +2387,33 @@ idctRowCondDC_int32_10bit.exit:                   ; preds = %4, %38
   %.0.i = phi i32 [ %72, %38 ], [ %32, %4 ]
   %73 = add i32 %.088.i, %.092.i
   %74 = ashr i32 %73, 13
-  store i32 %74, ptr %5, align 4, !tbaa !28
+  store i32 %74, ptr %5, align 4, !tbaa !29
   %75 = sub i32 %.092.i, %.088.i
   %76 = ashr i32 %75, 13
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 %76, ptr %77, align 4, !tbaa !28
+  store i32 %76, ptr %77, align 4, !tbaa !29
   %78 = add i32 %.087.i, %.091.i
   %79 = ashr i32 %78, 13
-  store i32 %79, ptr %17, align 4, !tbaa !28
+  store i32 %79, ptr %17, align 4, !tbaa !29
   %80 = sub i32 %.091.i, %.087.i
   %81 = ashr i32 %80, 13
-  store i32 %81, ptr %35, align 4, !tbaa !28
+  store i32 %81, ptr %35, align 4, !tbaa !29
   %82 = add i32 %.086.i, %.090.i
   %83 = ashr i32 %82, 13
-  store i32 %83, ptr %9, align 4, !tbaa !28
+  store i32 %83, ptr %9, align 4, !tbaa !29
   %84 = sub i32 %.090.i, %.086.i
   %85 = ashr i32 %84, 13
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %85, ptr %86, align 4, !tbaa !28
+  store i32 %85, ptr %86, align 4, !tbaa !29
   %87 = add i32 %.0.i, %.089.i
   %88 = ashr i32 %87, 13
-  store i32 %88, ptr %20, align 4, !tbaa !28
+  store i32 %88, ptr %20, align 4, !tbaa !29
   %89 = sub i32 %.089.i, %.0.i
   %90 = ashr i32 %89, 13
-  store i32 %90, ptr %33, align 4, !tbaa !28
+  store i32 %90, ptr %33, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !30
+  br i1 %exitcond.not, label %.preheader.preheader, label %4, !llvm.loop !31
 
 .preheader.preheader:                             ; preds = %idctRowCondDC_int32_10bit.exit
   %91 = lshr i64 %1, 1
@@ -2423,11 +2423,11 @@ idctRowCondDC_int32_10bit.exit:                   ; preds = %4, %38
   %indvars.iv19 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next20, %idctSparseColPut_int32_10bit.exit ]
   %92 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv19
   %93 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv19
-  %94 = load i32, ptr %93, align 4, !tbaa !28
+  %94 = load i32, ptr %93, align 4, !tbaa !29
   %95 = shl i32 %94, 14
   %96 = add i32 %95, 1048576
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 64
-  %98 = load i32, ptr %97, align 4, !tbaa !28
+  %98 = load i32, ptr %97, align 4, !tbaa !29
   %99 = mul i32 %98, 21407
   %100 = add i32 %96, %99
   %101 = mul i32 %98, 8867
@@ -2437,13 +2437,13 @@ idctRowCondDC_int32_10bit.exit:                   ; preds = %4, %38
   %105 = mul i32 %98, -21407
   %106 = add i32 %96, %105
   %107 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %108 = load i32, ptr %107, align 4, !tbaa !28
+  %108 = load i32, ptr %107, align 4, !tbaa !29
   %109 = mul i32 %108, 22725
   %110 = mul i32 %108, 19265
   %111 = mul i32 %108, 12873
   %112 = mul i32 %108, 4520
   %113 = getelementptr inbounds nuw i8, ptr %93, i64 96
-  %114 = load i32, ptr %113, align 4, !tbaa !28
+  %114 = load i32, ptr %113, align 4, !tbaa !29
   %115 = mul i32 %114, 19265
   %116 = add i32 %115, %109
   %117 = mul i32 %114, -4520
@@ -2453,7 +2453,7 @@ idctRowCondDC_int32_10bit.exit:                   ; preds = %4, %38
   %121 = mul i32 %114, -12873
   %122 = add i32 %121, %112
   %123 = getelementptr inbounds nuw i8, ptr %93, i64 128
-  %124 = load i32, ptr %123, align 4, !tbaa !28
+  %124 = load i32, ptr %123, align 4, !tbaa !29
   %.not.i13 = icmp eq i32 %124, 0
   br i1 %.not.i13, label %132, label %125
 
@@ -2472,7 +2472,7 @@ idctRowCondDC_int32_10bit.exit:                   ; preds = %4, %38
   %.0105.i = phi i32 [ %130, %125 ], [ %104, %.preheader ]
   %.0103.i = phi i32 [ %131, %125 ], [ %106, %.preheader ]
   %133 = getelementptr inbounds nuw i8, ptr %93, i64 160
-  %134 = load i32, ptr %133, align 4, !tbaa !28
+  %134 = load i32, ptr %133, align 4, !tbaa !29
   %.not115.i = icmp eq i32 %134, 0
   br i1 %.not115.i, label %144, label %135
 
@@ -2493,7 +2493,7 @@ idctRowCondDC_int32_10bit.exit:                   ; preds = %4, %38
   %.097.i = phi i32 [ %141, %135 ], [ %120, %132 ]
   %.0.i14 = phi i32 [ %143, %135 ], [ %122, %132 ]
   %145 = getelementptr inbounds nuw i8, ptr %93, i64 192
-  %146 = load i32, ptr %145, align 4, !tbaa !28
+  %146 = load i32, ptr %145, align 4, !tbaa !29
   %.not116.i = icmp eq i32 %146, 0
   br i1 %.not116.i, label %156, label %147
 
@@ -2514,7 +2514,7 @@ idctRowCondDC_int32_10bit.exit:                   ; preds = %4, %38
   %.1106.i = phi i32 [ %153, %147 ], [ %.0105.i, %144 ]
   %.1104.i = phi i32 [ %155, %147 ], [ %.0103.i, %144 ]
   %157 = getelementptr inbounds nuw i8, ptr %93, i64 224
-  %158 = load i32, ptr %157, align 4, !tbaa !28
+  %158 = load i32, ptr %157, align 4, !tbaa !29
   %.not117.i = icmp eq i32 %158, 0
   br i1 %.not117.i, label %idctSparseColPut_int32_10bit.exit, label %159
 
@@ -2538,52 +2538,52 @@ idctSparseColPut_int32_10bit.exit:                ; preds = %156, %159
   %169 = ashr i32 %168, 21
   %170 = tail call i32 @llvm.smax.i32(i32 %169, i32 0)
   %171 = trunc nuw nsw i32 %170 to i16
-  store i16 %171, ptr %92, align 2, !tbaa !6
+  store i16 %171, ptr %92, align 2, !tbaa !7
   %172 = getelementptr inbounds nuw i16, ptr %92, i64 %91
   %173 = add i32 %.1100.i, %.1108.i
   %174 = ashr i32 %173, 21
   %175 = tail call i32 @llvm.smax.i32(i32 %174, i32 0)
   %176 = trunc nuw nsw i32 %175 to i16
-  store i16 %176, ptr %172, align 2, !tbaa !6
+  store i16 %176, ptr %172, align 2, !tbaa !7
   %177 = getelementptr inbounds nuw i16, ptr %172, i64 %91
   %178 = add i32 %.198.i, %.1106.i
   %179 = ashr i32 %178, 21
   %180 = tail call i32 @llvm.smax.i32(i32 %179, i32 0)
   %181 = trunc nuw nsw i32 %180 to i16
-  store i16 %181, ptr %177, align 2, !tbaa !6
+  store i16 %181, ptr %177, align 2, !tbaa !7
   %182 = getelementptr inbounds nuw i16, ptr %177, i64 %91
   %183 = add i32 %.1.i, %.1104.i
   %184 = ashr i32 %183, 21
   %185 = tail call i32 @llvm.smax.i32(i32 %184, i32 0)
   %186 = trunc nuw nsw i32 %185 to i16
-  store i16 %186, ptr %182, align 2, !tbaa !6
+  store i16 %186, ptr %182, align 2, !tbaa !7
   %187 = getelementptr inbounds nuw i16, ptr %182, i64 %91
   %188 = sub i32 %.1104.i, %.1.i
   %189 = ashr i32 %188, 21
   %190 = tail call i32 @llvm.smax.i32(i32 %189, i32 0)
   %191 = trunc nuw nsw i32 %190 to i16
-  store i16 %191, ptr %187, align 2, !tbaa !6
+  store i16 %191, ptr %187, align 2, !tbaa !7
   %192 = getelementptr inbounds nuw i16, ptr %187, i64 %91
   %193 = sub i32 %.1106.i, %.198.i
   %194 = ashr i32 %193, 21
   %195 = tail call i32 @llvm.smax.i32(i32 %194, i32 0)
   %196 = trunc nuw nsw i32 %195 to i16
-  store i16 %196, ptr %192, align 2, !tbaa !6
+  store i16 %196, ptr %192, align 2, !tbaa !7
   %197 = getelementptr inbounds nuw i16, ptr %192, i64 %91
   %198 = sub i32 %.1108.i, %.1100.i
   %199 = ashr i32 %198, 21
   %200 = tail call i32 @llvm.smax.i32(i32 %199, i32 0)
   %201 = trunc nuw nsw i32 %200 to i16
-  store i16 %201, ptr %197, align 2, !tbaa !6
+  store i16 %201, ptr %197, align 2, !tbaa !7
   %202 = getelementptr inbounds nuw i16, ptr %197, i64 %91
   %203 = sub i32 %.1110.i, %.1102.i
   %204 = ashr i32 %203, 21
   %205 = tail call i32 @llvm.smax.i32(i32 %204, i32 0)
   %206 = trunc nuw nsw i32 %205 to i16
-  store i16 %206, ptr %202, align 2, !tbaa !6
+  store i16 %206, ptr %202, align 2, !tbaa !7
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
-  br i1 %exitcond22.not, label %207, label %.preheader, !llvm.loop !31
+  br i1 %exitcond22.not, label %207, label %.preheader, !llvm.loop !32
 
 207:                                              ; preds = %idctSparseColPut_int32_10bit.exit
   ret void
@@ -2596,73 +2596,73 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
 4:                                                ; preds = %3, %4
   %.0100 = phi i32 [ 0, %3 ], [ %53, %4 ]
   %.08499 = phi ptr [ %2, %3 ], [ %52, %4 ]
-  %5 = load i16, ptr %.08499, align 2, !tbaa !6
+  %5 = load i16, ptr %.08499, align 2, !tbaa !7
   %6 = getelementptr inbounds nuw i8, ptr %.08499, i64 16
-  %7 = load i16, ptr %6, align 2, !tbaa !6
+  %7 = load i16, ptr %6, align 2, !tbaa !7
   %8 = add i16 %7, %5
-  store i16 %8, ptr %.08499, align 2, !tbaa !6
+  store i16 %8, ptr %.08499, align 2, !tbaa !7
   %9 = sub i16 %5, %7
-  store i16 %9, ptr %6, align 2, !tbaa !6
+  store i16 %9, ptr %6, align 2, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %.08499, i64 2
-  %11 = load i16, ptr %10, align 2, !tbaa !6
+  %11 = load i16, ptr %10, align 2, !tbaa !7
   %12 = getelementptr inbounds nuw i8, ptr %.08499, i64 18
-  %13 = load i16, ptr %12, align 2, !tbaa !6
+  %13 = load i16, ptr %12, align 2, !tbaa !7
   %14 = add i16 %13, %11
-  store i16 %14, ptr %10, align 2, !tbaa !6
+  store i16 %14, ptr %10, align 2, !tbaa !7
   %15 = sub i16 %11, %13
-  store i16 %15, ptr %12, align 2, !tbaa !6
+  store i16 %15, ptr %12, align 2, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %.08499, i64 4
-  %17 = load i16, ptr %16, align 2, !tbaa !6
+  %17 = load i16, ptr %16, align 2, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %.08499, i64 20
-  %19 = load i16, ptr %18, align 2, !tbaa !6
+  %19 = load i16, ptr %18, align 2, !tbaa !7
   %20 = add i16 %19, %17
-  store i16 %20, ptr %16, align 2, !tbaa !6
+  store i16 %20, ptr %16, align 2, !tbaa !7
   %21 = sub i16 %17, %19
-  store i16 %21, ptr %18, align 2, !tbaa !6
+  store i16 %21, ptr %18, align 2, !tbaa !7
   %22 = getelementptr inbounds nuw i8, ptr %.08499, i64 6
-  %23 = load i16, ptr %22, align 2, !tbaa !6
+  %23 = load i16, ptr %22, align 2, !tbaa !7
   %24 = getelementptr inbounds nuw i8, ptr %.08499, i64 22
-  %25 = load i16, ptr %24, align 2, !tbaa !6
+  %25 = load i16, ptr %24, align 2, !tbaa !7
   %26 = add i16 %25, %23
-  store i16 %26, ptr %22, align 2, !tbaa !6
+  store i16 %26, ptr %22, align 2, !tbaa !7
   %27 = sub i16 %23, %25
-  store i16 %27, ptr %24, align 2, !tbaa !6
+  store i16 %27, ptr %24, align 2, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %.08499, i64 8
-  %29 = load i16, ptr %28, align 2, !tbaa !6
+  %29 = load i16, ptr %28, align 2, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %.08499, i64 24
-  %31 = load i16, ptr %30, align 2, !tbaa !6
+  %31 = load i16, ptr %30, align 2, !tbaa !7
   %32 = add i16 %31, %29
-  store i16 %32, ptr %28, align 2, !tbaa !6
+  store i16 %32, ptr %28, align 2, !tbaa !7
   %33 = sub i16 %29, %31
-  store i16 %33, ptr %30, align 2, !tbaa !6
+  store i16 %33, ptr %30, align 2, !tbaa !7
   %34 = getelementptr inbounds nuw i8, ptr %.08499, i64 10
-  %35 = load i16, ptr %34, align 2, !tbaa !6
+  %35 = load i16, ptr %34, align 2, !tbaa !7
   %36 = getelementptr inbounds nuw i8, ptr %.08499, i64 26
-  %37 = load i16, ptr %36, align 2, !tbaa !6
+  %37 = load i16, ptr %36, align 2, !tbaa !7
   %38 = add i16 %37, %35
-  store i16 %38, ptr %34, align 2, !tbaa !6
+  store i16 %38, ptr %34, align 2, !tbaa !7
   %39 = sub i16 %35, %37
-  store i16 %39, ptr %36, align 2, !tbaa !6
+  store i16 %39, ptr %36, align 2, !tbaa !7
   %40 = getelementptr inbounds nuw i8, ptr %.08499, i64 12
-  %41 = load i16, ptr %40, align 2, !tbaa !6
+  %41 = load i16, ptr %40, align 2, !tbaa !7
   %42 = getelementptr inbounds nuw i8, ptr %.08499, i64 28
-  %43 = load i16, ptr %42, align 2, !tbaa !6
+  %43 = load i16, ptr %42, align 2, !tbaa !7
   %44 = add i16 %43, %41
-  store i16 %44, ptr %40, align 2, !tbaa !6
+  store i16 %44, ptr %40, align 2, !tbaa !7
   %45 = sub i16 %41, %43
-  store i16 %45, ptr %42, align 2, !tbaa !6
+  store i16 %45, ptr %42, align 2, !tbaa !7
   %46 = getelementptr inbounds nuw i8, ptr %.08499, i64 14
-  %47 = load i16, ptr %46, align 2, !tbaa !6
+  %47 = load i16, ptr %46, align 2, !tbaa !7
   %48 = getelementptr inbounds nuw i8, ptr %.08499, i64 30
-  %49 = load i16, ptr %48, align 2, !tbaa !6
+  %49 = load i16, ptr %48, align 2, !tbaa !7
   %50 = add i16 %49, %47
-  store i16 %50, ptr %46, align 2, !tbaa !6
+  store i16 %50, ptr %46, align 2, !tbaa !7
   %51 = sub i16 %47, %49
-  store i16 %51, ptr %48, align 2, !tbaa !6
+  store i16 %51, ptr %48, align 2, !tbaa !7
   %52 = getelementptr inbounds nuw i8, ptr %.08499, i64 32
   %53 = add nuw nsw i32 %.0100, 1
   %exitcond.not = icmp eq i32 %53, 4
-  br i1 %exitcond.not, label %.preheader98, label %4, !llvm.loop !32
+  br i1 %exitcond.not, label %.preheader98, label %4, !llvm.loop !33
 
 .preheader:                                       ; preds = %.preheader98
   %54 = shl nsw i64 %1, 1
@@ -2677,22 +2677,22 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   tail call fastcc void @idctRowCondDC_int16_8bit(ptr noundef %57)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond104.not, label %.preheader, label %.preheader98, !llvm.loop !33
+  br i1 %exitcond104.not, label %.preheader, label %.preheader98, !llvm.loop !34
 
 58:                                               ; preds = %.preheader, %58
   %indvars.iv105 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next106, %58 ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv105
   %60 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv105
-  %61 = load i16, ptr %60, align 2, !tbaa !6
+  %61 = load i16, ptr %60, align 2, !tbaa !7
   %62 = sext i16 %61 to i32
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %64 = load i16, ptr %63, align 2, !tbaa !6
+  %64 = load i16, ptr %63, align 2, !tbaa !7
   %65 = sext i16 %64 to i32
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 64
-  %67 = load i16, ptr %66, align 2, !tbaa !6
+  %67 = load i16, ptr %66, align 2, !tbaa !7
   %68 = sext i16 %67 to i32
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 96
-  %70 = load i16, ptr %69, align 2, !tbaa !6
+  %70 = load i16, ptr %69, align 2, !tbaa !7
   %71 = sext i16 %70 to i32
   %72 = add nsw i32 %68, %62
   %73 = shl nsw i32 %72, 11
@@ -2713,7 +2713,7 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %85 = sext i1 %isnotneg.i.i to i8
   %86 = trunc nuw i32 %84 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %86, i8 %85
-  store i8 %.0.i.i, ptr %59, align 1, !tbaa !10
+  store i8 %.0.i.i, ptr %59, align 1, !tbaa !11
   %87 = getelementptr inbounds i8, ptr %59, i64 %54
   %88 = add nsw i32 %77, %82
   %89 = ashr i32 %88, 17
@@ -2722,7 +2722,7 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %90 = sext i1 %isnotneg.i30.i to i8
   %91 = trunc nuw i32 %89 to i8
   %.0.i31.i = select i1 %.not.i29.i, i8 %91, i8 %90
-  store i8 %.0.i31.i, ptr %87, align 1, !tbaa !10
+  store i8 %.0.i31.i, ptr %87, align 1, !tbaa !11
   %92 = getelementptr inbounds i8, ptr %87, i64 %54
   %93 = sub nsw i32 %77, %82
   %94 = ashr i32 %93, 17
@@ -2731,7 +2731,7 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %95 = sext i1 %isnotneg.i33.i to i8
   %96 = trunc nuw i32 %94 to i8
   %.0.i34.i = select i1 %.not.i32.i, i8 %96, i8 %95
-  store i8 %.0.i34.i, ptr %92, align 1, !tbaa !10
+  store i8 %.0.i34.i, ptr %92, align 1, !tbaa !11
   %97 = getelementptr inbounds i8, ptr %92, i64 %54
   %98 = sub nsw i32 %74, %80
   %99 = ashr i32 %98, 17
@@ -2740,19 +2740,19 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %100 = sext i1 %isnotneg.i36.i to i8
   %101 = trunc nuw i32 %99 to i8
   %.0.i37.i = select i1 %.not.i35.i, i8 %101, i8 %100
-  store i8 %.0.i37.i, ptr %97, align 1, !tbaa !10
+  store i8 %.0.i37.i, ptr %97, align 1, !tbaa !11
   %102 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv105
   %103 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv105
-  %104 = load i16, ptr %103, align 2, !tbaa !6
+  %104 = load i16, ptr %103, align 2, !tbaa !7
   %105 = sext i16 %104 to i32
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 32
-  %107 = load i16, ptr %106, align 2, !tbaa !6
+  %107 = load i16, ptr %106, align 2, !tbaa !7
   %108 = sext i16 %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %103, i64 64
-  %110 = load i16, ptr %109, align 2, !tbaa !6
+  %110 = load i16, ptr %109, align 2, !tbaa !7
   %111 = sext i16 %110 to i32
   %112 = getelementptr inbounds nuw i8, ptr %103, i64 96
-  %113 = load i16, ptr %112, align 2, !tbaa !6
+  %113 = load i16, ptr %112, align 2, !tbaa !7
   %114 = sext i16 %113 to i32
   %115 = add nsw i32 %111, %105
   %116 = shl nsw i32 %115, 11
@@ -2773,7 +2773,7 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %128 = sext i1 %isnotneg.i.i87 to i8
   %129 = trunc nuw i32 %127 to i8
   %.0.i.i88 = select i1 %.not.i.i86, i8 %129, i8 %128
-  store i8 %.0.i.i88, ptr %102, align 1, !tbaa !10
+  store i8 %.0.i.i88, ptr %102, align 1, !tbaa !11
   %130 = getelementptr inbounds i8, ptr %102, i64 %54
   %131 = add nsw i32 %120, %125
   %132 = ashr i32 %131, 17
@@ -2782,7 +2782,7 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %133 = sext i1 %isnotneg.i30.i90 to i8
   %134 = trunc nuw i32 %132 to i8
   %.0.i31.i91 = select i1 %.not.i29.i89, i8 %134, i8 %133
-  store i8 %.0.i31.i91, ptr %130, align 1, !tbaa !10
+  store i8 %.0.i31.i91, ptr %130, align 1, !tbaa !11
   %135 = getelementptr inbounds i8, ptr %130, i64 %54
   %136 = sub nsw i32 %120, %125
   %137 = ashr i32 %136, 17
@@ -2791,7 +2791,7 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %138 = sext i1 %isnotneg.i33.i93 to i8
   %139 = trunc nuw i32 %137 to i8
   %.0.i34.i94 = select i1 %.not.i32.i92, i8 %139, i8 %138
-  store i8 %.0.i34.i94, ptr %135, align 1, !tbaa !10
+  store i8 %.0.i34.i94, ptr %135, align 1, !tbaa !11
   %140 = getelementptr inbounds i8, ptr %135, i64 %54
   %141 = sub nsw i32 %117, %123
   %142 = ashr i32 %141, 17
@@ -2800,10 +2800,10 @@ define void @ff_simple_idct248_put(ptr noundef writeonly captures(none) %0, i64 
   %143 = sext i1 %isnotneg.i36.i96 to i8
   %144 = trunc nuw i32 %142 to i8
   %.0.i37.i97 = select i1 %.not.i35.i95, i8 %144, i8 %143
-  store i8 %.0.i37.i97, ptr %140, align 1, !tbaa !10
+  store i8 %.0.i37.i97, ptr %140, align 1, !tbaa !11
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 8
-  br i1 %exitcond108.not, label %145, label %58, !llvm.loop !34
+  br i1 %exitcond108.not, label %145, label %58, !llvm.loop !35
 
 145:                                              ; preds = %58
   ret void
@@ -2820,22 +2820,22 @@ define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1,
   tail call fastcc void @idctRowCondDC_int16_8bit(ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !36
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %.preheader ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv13
   %7 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv13
-  %8 = load i16, ptr %7, align 2, !tbaa !6
+  %8 = load i16, ptr %7, align 2, !tbaa !7
   %9 = sext i16 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %11 = load i16, ptr %10, align 2, !tbaa !6
+  %11 = load i16, ptr %10, align 2, !tbaa !7
   %12 = sext i16 %11 to i32
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %14 = load i16, ptr %13, align 2, !tbaa !6
+  %14 = load i16, ptr %13, align 2, !tbaa !7
   %15 = sext i16 %14 to i32
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %17 = load i16, ptr %16, align 2, !tbaa !6
+  %17 = load i16, ptr %16, align 2, !tbaa !7
   %18 = sext i16 %17 to i32
   %19 = add nsw i32 %15, %9
   %20 = mul nsw i32 %19, 2896
@@ -2849,7 +2849,7 @@ define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1,
   %28 = mul nsw i32 %12, 1567
   %.neg.i = mul nsw i32 %18, -3784
   %29 = add nsw i32 %.neg.i, %28
-  %30 = load i8, ptr %6, align 1, !tbaa !10
+  %30 = load i8, ptr %6, align 1, !tbaa !11
   %31 = zext i8 %30 to i32
   %32 = add nsw i32 %21, %27
   %33 = ashr i32 %32, 17
@@ -2859,9 +2859,9 @@ define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1,
   %35 = sext i1 %isnotneg.i.i to i8
   %36 = trunc nuw i32 %34 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %36, i8 %35
-  store i8 %.0.i.i, ptr %6, align 1, !tbaa !10
+  store i8 %.0.i.i, ptr %6, align 1, !tbaa !11
   %37 = getelementptr inbounds i8, ptr %6, i64 %1
-  %38 = load i8, ptr %37, align 1, !tbaa !10
+  %38 = load i8, ptr %37, align 1, !tbaa !11
   %39 = zext i8 %38 to i32
   %40 = add nsw i32 %24, %29
   %41 = ashr i32 %40, 17
@@ -2871,9 +2871,9 @@ define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1,
   %43 = sext i1 %isnotneg.i34.i to i8
   %44 = trunc nuw i32 %42 to i8
   %.0.i35.i = select i1 %.not.i33.i, i8 %44, i8 %43
-  store i8 %.0.i35.i, ptr %37, align 1, !tbaa !10
+  store i8 %.0.i35.i, ptr %37, align 1, !tbaa !11
   %45 = getelementptr inbounds i8, ptr %37, i64 %1
-  %46 = load i8, ptr %45, align 1, !tbaa !10
+  %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = zext i8 %46 to i32
   %48 = sub nsw i32 %24, %29
   %49 = ashr i32 %48, 17
@@ -2883,9 +2883,9 @@ define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1,
   %51 = sext i1 %isnotneg.i37.i to i8
   %52 = trunc nuw i32 %50 to i8
   %.0.i38.i = select i1 %.not.i36.i, i8 %52, i8 %51
-  store i8 %.0.i38.i, ptr %45, align 1, !tbaa !10
+  store i8 %.0.i38.i, ptr %45, align 1, !tbaa !11
   %53 = getelementptr inbounds i8, ptr %45, i64 %1
-  %54 = load i8, ptr %53, align 1, !tbaa !10
+  %54 = load i8, ptr %53, align 1, !tbaa !11
   %55 = zext i8 %54 to i32
   %56 = sub nsw i32 %21, %27
   %57 = ashr i32 %56, 17
@@ -2895,10 +2895,10 @@ define void @ff_simple_idct84_add(ptr noundef captures(none) %0, i64 noundef %1,
   %59 = sext i1 %isnotneg.i40.i to i8
   %60 = trunc nuw i32 %58 to i8
   %.0.i41.i = select i1 %.not.i39.i, i8 %60, i8 %59
-  store i8 %.0.i41.i, ptr %53, align 1, !tbaa !10
+  store i8 %.0.i41.i, ptr %53, align 1, !tbaa !11
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, 8
-  br i1 %exitcond16.not, label %61, label %.preheader, !llvm.loop !36
+  br i1 %exitcond16.not, label %61, label %.preheader, !llvm.loop !37
 
 61:                                               ; preds = %.preheader
   ret void
@@ -2912,16 +2912,16 @@ define void @ff_simple_idct48_add(ptr noundef captures(none) %0, i64 noundef %1,
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %6 = load i16, ptr %5, align 2, !tbaa !6
+  %6 = load i16, ptr %5, align 2, !tbaa !7
   %7 = sext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %9 = load i16, ptr %8, align 2, !tbaa !6
+  %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %12 = load i16, ptr %11, align 2, !tbaa !6
+  %12 = load i16, ptr %11, align 2, !tbaa !7
   %13 = sext i16 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %15 = load i16, ptr %14, align 2, !tbaa !6
+  %15 = load i16, ptr %14, align 2, !tbaa !7
   %16 = sext i16 %15 to i32
   %17 = add nsw i32 %13, %7
   %18 = mul nsw i32 %17, 23170
@@ -2938,22 +2938,22 @@ define void @ff_simple_idct48_add(ptr noundef captures(none) %0, i64 noundef %1,
   %28 = add i32 %19, %25
   %29 = lshr i32 %28, 11
   %30 = trunc i32 %29 to i16
-  store i16 %30, ptr %5, align 2, !tbaa !6
+  store i16 %30, ptr %5, align 2, !tbaa !7
   %31 = add i32 %22, %27
   %32 = lshr i32 %31, 11
   %33 = trunc i32 %32 to i16
-  store i16 %33, ptr %8, align 2, !tbaa !6
+  store i16 %33, ptr %8, align 2, !tbaa !7
   %34 = sub i32 %22, %27
   %35 = lshr i32 %34, 11
   %36 = trunc i32 %35 to i16
-  store i16 %36, ptr %11, align 2, !tbaa !6
+  store i16 %36, ptr %11, align 2, !tbaa !7
   %37 = sub i32 %19, %25
   %38 = lshr i32 %37, 11
   %39 = trunc i32 %38 to i16
-  store i16 %39, ptr %14, align 2, !tbaa !6
+  store i16 %39, ptr %14, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !37
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !38
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv13 = phi i64 [ %indvars.iv.next14, %.preheader ], [ 0, %4 ]
@@ -2962,7 +2962,7 @@ define void @ff_simple_idct48_add(ptr noundef captures(none) %0, i64 noundef %1,
   tail call fastcc void @idctSparseColAdd_int16_8bit(ptr noundef %40, i64 noundef %1, ptr noundef %41)
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond16.not = icmp eq i64 %indvars.iv.next14, 4
-  br i1 %exitcond16.not, label %42, label %.preheader, !llvm.loop !38
+  br i1 %exitcond16.not, label %42, label %.preheader, !llvm.loop !39
 
 42:                                               ; preds = %.preheader
   ret void
@@ -2976,16 +2976,16 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %6 = load i16, ptr %5, align 2, !tbaa !6
+  %6 = load i16, ptr %5, align 2, !tbaa !7
   %7 = sext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %9 = load i16, ptr %8, align 2, !tbaa !6
+  %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %12 = load i16, ptr %11, align 2, !tbaa !6
+  %12 = load i16, ptr %11, align 2, !tbaa !7
   %13 = sext i16 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %15 = load i16, ptr %14, align 2, !tbaa !6
+  %15 = load i16, ptr %14, align 2, !tbaa !7
   %16 = sext i16 %15 to i32
   %17 = add nsw i32 %13, %7
   %18 = mul nsw i32 %17, 23170
@@ -3002,37 +3002,37 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
   %28 = add i32 %19, %25
   %29 = lshr i32 %28, 11
   %30 = trunc i32 %29 to i16
-  store i16 %30, ptr %5, align 2, !tbaa !6
+  store i16 %30, ptr %5, align 2, !tbaa !7
   %31 = add i32 %22, %27
   %32 = lshr i32 %31, 11
   %33 = trunc i32 %32 to i16
-  store i16 %33, ptr %8, align 2, !tbaa !6
+  store i16 %33, ptr %8, align 2, !tbaa !7
   %34 = sub i32 %22, %27
   %35 = lshr i32 %34, 11
   %36 = trunc i32 %35 to i16
-  store i16 %36, ptr %11, align 2, !tbaa !6
+  store i16 %36, ptr %11, align 2, !tbaa !7
   %37 = sub i32 %19, %25
   %38 = lshr i32 %37, 11
   %39 = trunc i32 %38 to i16
-  store i16 %39, ptr %14, align 2, !tbaa !6
+  store i16 %39, ptr %14, align 2, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !39
+  br i1 %exitcond.not, label %.preheader, label %4, !llvm.loop !40
 
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %4 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv14
   %41 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv14
-  %42 = load i16, ptr %41, align 2, !tbaa !6
+  %42 = load i16, ptr %41, align 2, !tbaa !7
   %43 = sext i16 %42 to i32
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %45 = load i16, ptr %44, align 2, !tbaa !6
+  %45 = load i16, ptr %44, align 2, !tbaa !7
   %46 = sext i16 %45 to i32
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %48 = load i16, ptr %47, align 2, !tbaa !6
+  %48 = load i16, ptr %47, align 2, !tbaa !7
   %49 = sext i16 %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %51 = load i16, ptr %50, align 2, !tbaa !6
+  %51 = load i16, ptr %50, align 2, !tbaa !7
   %52 = sext i16 %51 to i32
   %53 = add nsw i32 %49, %43
   %54 = mul nsw i32 %53, 2896
@@ -3046,7 +3046,7 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
   %62 = mul nsw i32 %46, 1567
   %.neg.i10 = mul nsw i32 %52, -3784
   %63 = add nsw i32 %.neg.i10, %62
-  %64 = load i8, ptr %40, align 1, !tbaa !10
+  %64 = load i8, ptr %40, align 1, !tbaa !11
   %65 = zext i8 %64 to i32
   %66 = add nsw i32 %55, %61
   %67 = ashr i32 %66, 17
@@ -3056,9 +3056,9 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
   %69 = sext i1 %isnotneg.i.i to i8
   %70 = trunc nuw i32 %68 to i8
   %.0.i.i = select i1 %.not.i.i, i8 %70, i8 %69
-  store i8 %.0.i.i, ptr %40, align 1, !tbaa !10
+  store i8 %.0.i.i, ptr %40, align 1, !tbaa !11
   %71 = getelementptr inbounds i8, ptr %40, i64 %1
-  %72 = load i8, ptr %71, align 1, !tbaa !10
+  %72 = load i8, ptr %71, align 1, !tbaa !11
   %73 = zext i8 %72 to i32
   %74 = add nsw i32 %58, %63
   %75 = ashr i32 %74, 17
@@ -3068,9 +3068,9 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
   %77 = sext i1 %isnotneg.i34.i to i8
   %78 = trunc nuw i32 %76 to i8
   %.0.i35.i = select i1 %.not.i33.i, i8 %78, i8 %77
-  store i8 %.0.i35.i, ptr %71, align 1, !tbaa !10
+  store i8 %.0.i35.i, ptr %71, align 1, !tbaa !11
   %79 = getelementptr inbounds i8, ptr %71, i64 %1
-  %80 = load i8, ptr %79, align 1, !tbaa !10
+  %80 = load i8, ptr %79, align 1, !tbaa !11
   %81 = zext i8 %80 to i32
   %82 = sub nsw i32 %58, %63
   %83 = ashr i32 %82, 17
@@ -3080,9 +3080,9 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
   %85 = sext i1 %isnotneg.i37.i to i8
   %86 = trunc nuw i32 %84 to i8
   %.0.i38.i = select i1 %.not.i36.i, i8 %86, i8 %85
-  store i8 %.0.i38.i, ptr %79, align 1, !tbaa !10
+  store i8 %.0.i38.i, ptr %79, align 1, !tbaa !11
   %87 = getelementptr inbounds i8, ptr %79, i64 %1
-  %88 = load i8, ptr %87, align 1, !tbaa !10
+  %88 = load i8, ptr %87, align 1, !tbaa !11
   %89 = zext i8 %88 to i32
   %90 = sub nsw i32 %55, %61
   %91 = ashr i32 %90, 17
@@ -3092,10 +3092,10 @@ define void @ff_simple_idct44_add(ptr noundef captures(none) %0, i64 noundef %1,
   %93 = sext i1 %isnotneg.i40.i to i8
   %94 = trunc nuw i32 %92 to i8
   %.0.i41.i = select i1 %.not.i39.i, i8 %94, i8 %93
-  store i8 %.0.i41.i, ptr %87, align 1, !tbaa !10
+  store i8 %.0.i41.i, ptr %87, align 1, !tbaa !11
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
   %exitcond17.not = icmp eq i64 %indvars.iv.next15, 4
-  br i1 %exitcond17.not, label %95, label %.preheader, !llvm.loop !40
+  br i1 %exitcond17.not, label %95, label %.preheader, !llvm.loop !41
 
 95:                                               ; preds = %.preheader
   ret void
@@ -3117,40 +3117,41 @@ attributes #2 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 1, !"override-stack-alignment", i32 16}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7, !7, i64 0}
-!7 = !{!"short", !8, i64 0}
-!8 = !{!"omnipotent char", !9, i64 0}
-!9 = !{!"Simple C/C++ TBAA"}
-!10 = !{!8, !8, i64 0}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}
-!15 = distinct !{!15, !5}
-!16 = distinct !{!16, !5}
-!17 = distinct !{!17, !5}
-!18 = distinct !{!18, !5}
-!19 = distinct !{!19, !5}
-!20 = distinct !{!20, !5}
-!21 = distinct !{!21, !5}
-!22 = distinct !{!22, !5}
-!23 = distinct !{!23, !5}
-!24 = distinct !{!24, !5}
-!25 = distinct !{!25, !5}
-!26 = distinct !{!26, !5}
-!27 = distinct !{!27, !5}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"int", !8, i64 0}
-!30 = distinct !{!30, !5}
-!31 = distinct !{!31, !5}
-!32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = distinct !{!34, !5}
-!35 = distinct !{!35, !5}
-!36 = distinct !{!36, !5}
-!37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}
-!39 = distinct !{!39, !5}
-!40 = distinct !{!40, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"short", !9, i64 0}
+!9 = !{!"omnipotent char", !10, i64 0}
+!10 = !{!"Simple C/C++ TBAA"}
+!11 = !{!9, !9, i64 0}
+!12 = distinct !{!12, !5, !6}
+!13 = distinct !{!13, !5, !6}
+!14 = distinct !{!14, !5, !6}
+!15 = distinct !{!15, !5, !6}
+!16 = distinct !{!16, !5, !6}
+!17 = distinct !{!17, !5, !6}
+!18 = distinct !{!18, !5, !6}
+!19 = distinct !{!19, !5, !6}
+!20 = distinct !{!20, !5, !6}
+!21 = distinct !{!21, !5, !6}
+!22 = distinct !{!22, !5, !6}
+!23 = distinct !{!23, !5, !6}
+!24 = distinct !{!24, !5, !6}
+!25 = distinct !{!25, !5, !6}
+!26 = distinct !{!26, !5, !6}
+!27 = distinct !{!27, !5, !6}
+!28 = distinct !{!28, !5, !6}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"int", !9, i64 0}
+!31 = distinct !{!31, !5, !6}
+!32 = distinct !{!32, !5, !6}
+!33 = distinct !{!33, !5, !6}
+!34 = distinct !{!34, !5, !6}
+!35 = distinct !{!35, !5, !6}
+!36 = distinct !{!36, !5, !6}
+!37 = distinct !{!37, !5, !6}
+!38 = distinct !{!38, !5, !6}
+!39 = distinct !{!39, !5, !6}
+!40 = distinct !{!40, !5, !6}
+!41 = distinct !{!41, !5, !6}

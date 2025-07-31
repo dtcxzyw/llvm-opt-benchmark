@@ -119,7 +119,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
 
 18:                                               ; preds = %14, %7
   %19 = phi ptr [ %15, %14 ], [ %4, %7 ]
-  store i64 0, ptr %9, align 8, !annotation !8
+  store i64 0, ptr %9, align 8, !annotation !9
   %20 = icmp ne ptr %0, null
   %21 = icmp ne ptr %2, null
   %22 = and i1 %20, %21
@@ -168,7 +168,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
 39:                                               ; preds = %36, %35
   %40 = phi i64 [ %38, %36 ], [ %1, %35 ]
   %41 = phi ptr [ %37, %36 ], [ %32, %35 ]
-  %42 = call i64 @parse_header(ptr noundef %41, ptr noundef nonnull %8, i64 noundef %40) #9, !range !9
+  %42 = call i64 @parse_header(ptr noundef %41, ptr noundef nonnull %8, i64 noundef %40) #9, !range !10
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %44, label %45
 
@@ -314,7 +314,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
 119:                                              ; preds = %._crit_edge
   store i64 %82, ptr %9, align 8
   %120 = icmp eq i32 %72, %99
-  br i1 %120, label %121, label %122, !prof !10
+  br i1 %120, label %121, label %122, !prof !11
 
 121:                                              ; preds = %119
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr align 1 %101, i64 %108, i1 false)
@@ -376,11 +376,11 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
   %153 = add nuw nsw i64 %149, 1
   store i64 %153, ptr %8, align 8
   %154 = icmp eq i64 %153, %144
-  br i1 %154, label %.loopexit, label %148, !llvm.loop !11
+  br i1 %154, label %.loopexit, label %148, !llvm.loop !12
 
 .loopexit:                                        ; preds = %148, %145, %142
   %155 = phi ptr [ %143, %142 ], [ %32, %145 ], [ %32, %148 ]
-  br label %55, !llvm.loop !12
+  br label %55, !llvm.loop !13
 
 .loopexit23:                                      ; preds = %131, %129, %118, %106, %97, %84, %78, %77, %70, %44
   %156 = phi ptr [ %58, %70 ], [ %58, %84 ], [ %58, %97 ], [ %58, %106 ], [ %58, %118 ], [ %58, %129 ], [ %19, %44 ], [ %58, %77 ], [ %58, %78 ], [ %58, %131 ]
@@ -446,11 +446,12 @@ attributes #9 = { cold }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = !{i64 0, i64 2}
-!10 = !{!"branch_weights", i32 1, i32 2000}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = !{i64 0, i64 2}
+!11 = !{!"branch_weights", i32 1, i32 2000}
+!12 = distinct !{!12, !6, !7, !8}
+!13 = distinct !{!13, !7, !8}

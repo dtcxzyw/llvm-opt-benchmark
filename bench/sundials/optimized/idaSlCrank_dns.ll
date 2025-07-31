@@ -149,7 +149,7 @@ check_retval.exit62:                              ; preds = %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #12
   %72 = add nuw nsw i32 %.072, 1
   %exitcond.not = icmp eq i32 %72, 41
-  br i1 %exitcond.not, label %73, label %52
+  br i1 %exitcond.not, label %73, label %52, !llvm.loop !33
 
 73:                                               ; preds = %52, %57
   call fastcc void @PrintFinalStats(ptr noundef %29)
@@ -786,3 +786,5 @@ attributes #14 = { nounwind allocsize(0) }
 !30 = !{!11, !11, i64 0}
 !31 = !{!26, !26, i64 0}
 !32 = !{!27, !27, i64 0}
+!33 = distinct !{!33, !34}
+!34 = !{!"llvm.loop.estimated_trip_count"}

@@ -678,7 +678,7 @@ ensure_last_message.exit:                         ; preds = %begin_replication_s
 103:                                              ; preds = %96, %101, %99
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #17
-  br label %51
+  br label %51, !llvm.loop !7
 
 .loopexit:                                        ; preds = %54, %ensure_last_message.exit
   %.1.ph = phi i32 [ %76, %ensure_last_message.exit ], [ %.017, %54 ]
@@ -1037,7 +1037,7 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   %.1.i.i = phi i32 [ %.04147.i.i, %147 ], [ %.04147.i.i, %139 ], [ %.04147.i.i, %150 ], [ %167, %161 ], [ %.04147.i.i, %156 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %139, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %139, !llvm.loop !9
 
 169:                                              ; preds = %169, %.lr.ph50.i.i
   %indvars.iv52.i.i = phi i64 [ 0, %.lr.ph50.i.i ], [ %indvars.iv.next53.i.i, %169 ]
@@ -1058,7 +1058,7 @@ begin_replication_step.exit.i:                    ; preds = %81, %79
   store i64 %179, ptr %183, align 8
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
   %exitcond56.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, %wide.trip.count55.i.i
-  br i1 %exitcond56.not.i.i, label %slot_fill_defaults.exit.i, label %169, !llvm.loop !9
+  br i1 %exitcond56.not.i.i, label %slot_fill_defaults.exit.i, label %169, !llvm.loop !11
 
 slot_fill_defaults.exit.i:                        ; preds = %169, %.preheader.i.i, %128, %123
   store ptr %115, ptr @CurrentMemoryContext, align 8
@@ -1254,7 +1254,7 @@ begin_replication_step.exit.i23:                  ; preds = %212, %210
   %277 = phi ptr [ %252, %265 ], [ %.pre.i, %270 ], [ %252, %250 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %278 = icmp slt i64 %indvars.iv.next.i, %.pre-phi.i
-  br i1 %278, label %250, label %._crit_edge.i, !llvm.loop !10
+  br i1 %278, label %250, label %._crit_edge.i, !llvm.loop !12
 
 279:                                              ; preds = %._crit_edge.i
   %280 = call ptr @MakePerTupleExprContext(ptr noundef nonnull %232) #17
@@ -1980,7 +1980,7 @@ get_transaction_apply_action.exit.thread.i:       ; preds = %582
   %603 = getelementptr inbounds nuw i8, ptr %581, i64 32
   %604 = load ptr, ptr %603, align 8
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 20
-  %606 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %605, i32 1, ptr nonnull elementtype(i32) %605) #17, !srcloc !11
+  %606 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %605, i32 1, ptr nonnull elementtype(i32) %605) #17, !srcloc !13
   call void @pa_set_stream_apply_worker(ptr noundef nonnull %581) #17
   br label %apply_handle_stream_start.exit
 
@@ -2314,7 +2314,7 @@ begin_replication_step.exit.i.i:                  ; preds = %745, %743
   %758 = getelementptr inbounds nuw %struct.SubXactInfo, ptr %753, i64 %757
   %759 = load i32, ptr %758, align 8
   %760 = icmp eq i32 %759, %715
-  br i1 %760, label %762, label %754, !llvm.loop !12
+  br i1 %760, label %762, label %754, !llvm.loop !14
 
 .critedge.i.i:                                    ; preds = %754
   %.not.i.i.i56 = icmp eq ptr %753, null
@@ -2388,7 +2388,7 @@ get_transaction_apply_action.exit.thread.i53:     ; preds = %726
   %791 = getelementptr inbounds nuw i8, ptr %725, i64 32
   %792 = load ptr, ptr %791, align 8
   %793 = getelementptr inbounds nuw i8, ptr %792, i64 20
-  %794 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %793, i32 1, ptr nonnull elementtype(i32) %793) #17, !srcloc !11
+  %794 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %793, i32 1, ptr nonnull elementtype(i32) %793) #17, !srcloc !13
   call void @pa_lock_stream(i32 noundef %713, i32 noundef 8) #17
   %795 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %796 = load i32, ptr %795, align 8
@@ -3905,7 +3905,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr @LogRepWorkerWalRcvConn, align 8
   %80 = call i32 %78(ptr noundef %79, ptr noundef nonnull %5, ptr noundef nonnull %4) #17
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !15
 
 .loopexit.i:                                      ; preds = %35, %41, %39, %26
   %.053.i = phi i1 [ false, %26 ], [ true, %41 ], [ true, %39 ], [ false, %35 ]
@@ -4021,7 +4021,7 @@ define dso_local void @start_apply(i64 noundef %0) local_unnamed_addr #0 {
   %.348.i = phi i1 [ %.146.i, %104 ], [ %.550.i, %127 ], [ %.550.i, %125 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
-  br label %23
+  br label %23, !llvm.loop !16
 
 LogicalRepApplyLoop.exit:                         ; preds = %84
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
@@ -5017,7 +5017,7 @@ get_transaction_apply_action.exit.thread:         ; preds = %15, %am_parallel_ap
 34:                                               ; preds = %.lr.ph.i
   %35 = add nsw i64 %.01419.i, -1
   %36 = icmp sgt i64 %.01419.i, 1
-  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %36, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !17
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
   %.01419.i = phi i64 [ %35, %34 ], [ %33, %.lr.ph.preheader.i ]
@@ -5436,7 +5436,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr noundef readonl
 90:                                               ; preds = %85, %84
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %90, %3
   %91 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %0) #17
@@ -6162,7 +6162,7 @@ slot_getallattrs.exit:                            ; preds = %4, %23
 100:                                              ; preds = %51, %99, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %100, %slot_getallattrs.exit
   %101 = call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %0) #17
@@ -6544,74 +6544,74 @@ get_flush_position.exit:                          ; preds = %7, %select.unfold._
 45:                                               ; preds = %44, %40
   %46 = phi ptr [ %.pre, %44 ], [ %43, %40 ]
   tail call void @enlargeStringInfo(ptr noundef %46, i32 noundef 1) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
-  %47 = load ptr, ptr %46, align 8, !alias.scope !16
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %47 = load ptr, ptr %46, align 8, !alias.scope !20
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %49 = load i32, ptr %48, align 8, !alias.scope !16
+  %49 = load i32, ptr %48, align 8, !alias.scope !20
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %47, i64 %50
-  store i8 114, ptr %51, align 1, !noalias !16
+  store i8 114, ptr %51, align 1, !noalias !20
   %52 = add i32 %49, 1
-  store i32 %52, ptr %48, align 8, !alias.scope !16
+  store i32 %52, ptr %48, align 8, !alias.scope !20
   %53 = load ptr, ptr @send_feedback.reply_message, align 8
   tail call void @enlargeStringInfo(ptr noundef %53, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %54 = tail call i64 @llvm.bswap.i64(i64 %spec.select)
-  %55 = load ptr, ptr %53, align 8, !alias.scope !19
+  %55 = load ptr, ptr %53, align 8, !alias.scope !23
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %57 = load i32, ptr %56, align 8, !alias.scope !19
+  %57 = load i32, ptr %56, align 8, !alias.scope !23
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i8, ptr %55, i64 %58
-  store i64 %54, ptr %59, align 1, !noalias !19
+  store i64 %54, ptr %59, align 1, !noalias !23
   %60 = add i32 %57, 8
-  store i32 %60, ptr %56, align 8, !alias.scope !19
+  store i32 %60, ptr %56, align 8, !alias.scope !23
   %61 = load ptr, ptr @send_feedback.reply_message, align 8
   tail call void @enlargeStringInfo(ptr noundef %61, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !22)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %62 = tail call i64 @llvm.bswap.i64(i64 %.134)
-  %63 = load ptr, ptr %61, align 8, !alias.scope !22
+  %63 = load ptr, ptr %61, align 8, !alias.scope !26
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  %65 = load i32, ptr %64, align 8, !alias.scope !22
+  %65 = load i32, ptr %64, align 8, !alias.scope !26
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
-  store i64 %62, ptr %67, align 1, !noalias !22
+  store i64 %62, ptr %67, align 1, !noalias !26
   %68 = add i32 %65, 8
-  store i32 %68, ptr %64, align 8, !alias.scope !22
+  store i32 %68, ptr %64, align 8, !alias.scope !26
   %69 = load ptr, ptr @send_feedback.reply_message, align 8
   tail call void @enlargeStringInfo(ptr noundef %69, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %70 = tail call i64 @llvm.bswap.i64(i64 %spec.select42)
-  %71 = load ptr, ptr %69, align 8, !alias.scope !25
+  %71 = load ptr, ptr %69, align 8, !alias.scope !29
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %73 = load i32, ptr %72, align 8, !alias.scope !25
+  %73 = load i32, ptr %72, align 8, !alias.scope !29
   %74 = sext i32 %73 to i64
   %75 = getelementptr inbounds i8, ptr %71, i64 %74
-  store i64 %70, ptr %75, align 1, !noalias !25
+  store i64 %70, ptr %75, align 1, !noalias !29
   %76 = add i32 %73, 8
-  store i32 %76, ptr %72, align 8, !alias.scope !25
+  store i32 %76, ptr %72, align 8, !alias.scope !29
   %77 = load ptr, ptr @send_feedback.reply_message, align 8
   tail call void @enlargeStringInfo(ptr noundef %77, i32 noundef 8) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %78 = tail call i64 @llvm.bswap.i64(i64 %28)
-  %79 = load ptr, ptr %77, align 8, !alias.scope !28
+  %79 = load ptr, ptr %77, align 8, !alias.scope !32
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %81 = load i32, ptr %80, align 8, !alias.scope !28
+  %81 = load i32, ptr %80, align 8, !alias.scope !32
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i8, ptr %79, i64 %82
-  store i64 %78, ptr %83, align 1, !noalias !28
+  store i64 %78, ptr %83, align 1, !noalias !32
   %84 = add i32 %81, 8
-  store i32 %84, ptr %80, align 8, !alias.scope !28
+  store i32 %84, ptr %80, align 8, !alias.scope !32
   %85 = load ptr, ptr @send_feedback.reply_message, align 8
   tail call void @enlargeStringInfo(ptr noundef %85, i32 noundef 1) #17
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
-  %86 = load ptr, ptr %85, align 8, !alias.scope !31
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
+  %86 = load ptr, ptr %85, align 8, !alias.scope !35
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %88 = load i32, ptr %87, align 8, !alias.scope !31
+  %88 = load i32, ptr %87, align 8, !alias.scope !35
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds i8, ptr %86, i64 %89
-  store i8 %4, ptr %90, align 1, !noalias !31
+  store i8 %4, ptr %90, align 1, !noalias !35
   %91 = add i32 %88, 1
-  store i32 %91, ptr %87, align 8, !alias.scope !31
+  store i32 %91, ptr %87, align 8, !alias.scope !35
   %92 = tail call zeroext i1 @errstart(i32 noundef 13, ptr noundef null) #17
   br i1 %92, label %93, label %105
 
@@ -6968,29 +6968,33 @@ attributes #21 = { nounwind returns_twice }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = !{i64 2268979, i64 2268996}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !10, !8}
+!10 = !{!"llvm.loop.mustprogress"}
+!11 = distinct !{!11, !10, !8}
+!12 = distinct !{!12, !10, !8}
+!13 = !{i64 2268979, i64 2268996}
+!14 = distinct !{!14, !10, !8}
 !15 = distinct !{!15, !8}
-!16 = !{!17}
-!17 = distinct !{!17, !18, !"pq_writeint8: argument 0"}
-!18 = distinct !{!18, !"pq_writeint8"}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"pq_writeint64: argument 0"}
-!21 = distinct !{!21, !"pq_writeint64"}
-!22 = !{!23}
-!23 = distinct !{!23, !24, !"pq_writeint64: argument 0"}
-!24 = distinct !{!24, !"pq_writeint64"}
-!25 = !{!26}
-!26 = distinct !{!26, !27, !"pq_writeint64: argument 0"}
-!27 = distinct !{!27, !"pq_writeint64"}
-!28 = !{!29}
-!29 = distinct !{!29, !30, !"pq_writeint64: argument 0"}
-!30 = distinct !{!30, !"pq_writeint64"}
-!31 = !{!32}
-!32 = distinct !{!32, !33, !"pq_writeint8: argument 0"}
-!33 = distinct !{!33, !"pq_writeint8"}
+!16 = distinct !{!16, !8}
+!17 = distinct !{!17, !10, !8}
+!18 = distinct !{!18, !10, !8}
+!19 = distinct !{!19, !10, !8}
+!20 = !{!21}
+!21 = distinct !{!21, !22, !"pq_writeint8: argument 0"}
+!22 = distinct !{!22, !"pq_writeint8"}
+!23 = !{!24}
+!24 = distinct !{!24, !25, !"pq_writeint64: argument 0"}
+!25 = distinct !{!25, !"pq_writeint64"}
+!26 = !{!27}
+!27 = distinct !{!27, !28, !"pq_writeint64: argument 0"}
+!28 = distinct !{!28, !"pq_writeint64"}
+!29 = !{!30}
+!30 = distinct !{!30, !31, !"pq_writeint64: argument 0"}
+!31 = distinct !{!31, !"pq_writeint64"}
+!32 = !{!33}
+!33 = distinct !{!33, !34, !"pq_writeint64: argument 0"}
+!34 = distinct !{!34, !"pq_writeint64"}
+!35 = !{!36}
+!36 = distinct !{!36, !37, !"pq_writeint8: argument 0"}
+!37 = distinct !{!37, !"pq_writeint8"}

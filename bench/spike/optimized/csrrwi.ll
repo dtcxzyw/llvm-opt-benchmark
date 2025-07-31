@@ -264,7 +264,7 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   %.08.lcssa.i.i.i14 = phi ptr [ %.19.i.i.i, %10 ], [ %.19.i.i.i, %_ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit ], [ %5, %2 ]
   %14 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i64 %.pre, ptr %15, align 8, !tbaa !92
+  store i64 %.pre, ptr %15, align 8, !tbaa !93
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   %17 = invoke { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS3_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -293,9 +293,9 @@ _ZNSt3mapIm10float128_tSt4lessImESaISt4pairIKmS0_EEE11lower_boundERS4_.exit: ; p
   %28 = phi i1 [ true, %21 ], [ %27, %23 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %28, ptr noundef nonnull %14, ptr noundef nonnull %20, ptr noundef nonnull align 8 dereferenceable(32) %5) #14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %30 = load i64, ptr %29, align 8, !tbaa !95
+  %30 = load i64, ptr %29, align 8, !tbaa !96
   %31 = add i64 %30, 1
-  store i64 %31, ptr %29, align 8, !tbaa !95
+  store i64 %31, ptr %29, align 8, !tbaa !96
   br label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOmEESE_IJEEEEESt17_Rb_tree_iteratorIS3_ESt23_Rb_tree_const_iteratorIS3_EDpOT_.exit
 
 _ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE10_Auto_nodeD2Ev.exit.i: ; preds = %.critedge
@@ -389,17 +389,17 @@ define noundef range(i64 3, 6) i64 @_Z17fast_rv32e_csrrwiP11processor_t6insn_tm(
   %17 = lshr i64 %1, 7
   %18 = and i64 %17, 31
   %19 = icmp samesign ugt i64 %18, 15
-  br i1 %19, label %20, label %25, !prof !96
+  br i1 %19, label %20, label %25, !prof !97
 
 20:                                               ; preds = %11
   %21 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 2, ptr %22, align 8, !tbaa !97
+  store i64 2, ptr %22, align 8, !tbaa !98
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i8 0, ptr %23, align 8, !tbaa !99
+  store i8 0, ptr %23, align 8, !tbaa !100
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  store i64 %1, ptr %24, align 8, !tbaa !101
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %21, align 8, !tbaa !102
+  store i64 %1, ptr %24, align 8, !tbaa !102
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %21, align 8, !tbaa !103
   tail call void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
@@ -462,17 +462,17 @@ define noundef range(i64 3, 6) i64 @_Z17fast_rv64e_csrrwiP11processor_t6insn_tm(
   %15 = lshr i64 %1, 7
   %16 = and i64 %15, 31
   %17 = icmp samesign ugt i64 %16, 15
-  br i1 %17, label %18, label %23, !prof !96
+  br i1 %17, label %18, label %23, !prof !97
 
 18:                                               ; preds = %9
   %19 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 2, ptr %20, align 8, !tbaa !97
+  store i64 2, ptr %20, align 8, !tbaa !98
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i8 0, ptr %21, align 8, !tbaa !99
+  store i8 0, ptr %21, align 8, !tbaa !100
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 %1, ptr %22, align 8, !tbaa !101
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8, !tbaa !102
+  store i64 %1, ptr %22, align 8, !tbaa !102
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %19, align 8, !tbaa !103
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
@@ -524,17 +524,17 @@ define noundef range(i64 3, 6) i64 @_Z19logged_rv32e_csrrwiP11processor_t6insn_t
   %18 = lshr i64 %1, 7
   %19 = and i64 %18, 31
   %20 = icmp samesign ugt i64 %19, 15
-  br i1 %20, label %21, label %26, !prof !96
+  br i1 %20, label %21, label %26, !prof !97
 
 21:                                               ; preds = %12
   %22 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 2, ptr %23, align 8, !tbaa !97
+  store i64 2, ptr %23, align 8, !tbaa !98
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i8 0, ptr %24, align 8, !tbaa !99
+  store i8 0, ptr %24, align 8, !tbaa !100
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 %1, ptr %25, align 8, !tbaa !101
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !102
+  store i64 %1, ptr %25, align 8, !tbaa !102
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %22, align 8, !tbaa !103
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
@@ -595,17 +595,17 @@ define noundef range(i64 3, 6) i64 @_Z19logged_rv64e_csrrwiP11processor_t6insn_t
   %16 = lshr i64 %1, 7
   %17 = and i64 %16, 31
   %18 = icmp samesign ugt i64 %17, 15
-  br i1 %18, label %19, label %24, !prof !96
+  br i1 %18, label %19, label %24, !prof !97
 
 19:                                               ; preds = %10
   %20 = tail call ptr @__cxa_allocate_exception(i64 32) #14
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 2, ptr %21, align 8, !tbaa !97
+  store i64 2, ptr %21, align 8, !tbaa !98
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i8 0, ptr %22, align 8, !tbaa !99
+  store i8 0, ptr %22, align 8, !tbaa !100
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i64 %1, ptr %23, align 8, !tbaa !101
-  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %20, align 8, !tbaa !102
+  store i64 %1, ptr %23, align 8, !tbaa !102
+  store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTV24trap_illegal_instruction, i64 16), ptr %20, align 8, !tbaa !103
   tail call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN6trap_tD2Ev) #17
   unreachable
 
@@ -646,7 +646,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %24, %28
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t7has_gvaEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i8, ptr %2, align 8, !tbaa !99, !range !83, !noundef !84
+  %3 = load i8, ptr %2, align 8, !tbaa !100, !range !83, !noundef !84
   %4 = trunc nuw i8 %3 to i1
   ret i1 %4
 }
@@ -659,7 +659,7 @@ define linkonce_odr noundef zeroext i1 @_ZN11insn_trap_t8has_tvalEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZN11insn_trap_t8get_tvalEv(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load i64, ptr %2, align 8, !tbaa !101
+  %3 = load i64, ptr %2, align 8, !tbaa !102
   ret i64 %3
 }
 
@@ -688,11 +688,11 @@ define linkonce_odr void @_ZN24trap_illegal_instruction4nameB5cxx11Ev(ptr dead_o
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noalias noundef nonnull dereferenceable(25) ptr @_Znwm(i64 noundef 25) #15
-  store ptr %3, ptr %0, align 8, !tbaa !104
+  store ptr %3, ptr %0, align 8, !tbaa !105
   store i64 24, ptr %2, align 8, !tbaa !87
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str.6, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 24, ptr %4, align 8, !tbaa !108
+  store i64 24, ptr %4, align 8, !tbaa !109
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i8 0, ptr %5, align 1, !tbaa !87
   ret void
@@ -721,7 +721,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !95
+  %8 = load i64, ptr %7, align 8, !tbaa !96
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
@@ -753,7 +753,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i = getelementptr inbounds nuw i8, ptr %.02024.i, i64 %.in.v.i
   %.020.i = load ptr, ptr %.in.i, align 8, !tbaa !89
   %.not.i = icmp eq ptr %.020.i, null
-  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !109
+  br i1 %.not.i, label %._crit_edge.i, label %19, !llvm.loop !110
 
 ._crit_edge.i:                                    ; preds = %19
   br i1 %22, label %._crit_edge.thread.i, label %28
@@ -761,7 +761,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !110
+  %24 = load ptr, ptr %23, align 8, !tbaa !111
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %26
 
@@ -804,7 +804,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !111
+  %48 = load ptr, ptr %47, align 8, !tbaa !112
   %49 = icmp eq ptr %48, null
   %spec.select = select i1 %49, ptr null, ptr %1
   %spec.select71 = select i1 %49, ptr %42, ptr %1
@@ -825,7 +825,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i15 = getelementptr inbounds nuw i8, ptr %.02024.i13, i64 %.in.v.i14
   %.020.i16 = load ptr, ptr %.in.i15, align 8, !tbaa !89
   %.not.i17 = icmp eq ptr %.020.i16, null
-  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !109
+  br i1 %.not.i17, label %._crit_edge.i18, label %.lr.ph.i12, !llvm.loop !110
 
 ._crit_edge.i18:                                  ; preds = %.lr.ph.i12
   br i1 %54, label %._crit_edge.thread.i27, label %58
@@ -869,7 +869,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !111
+  %74 = load ptr, ptr %73, align 8, !tbaa !112
   %75 = icmp eq ptr %74, null
   %spec.select72 = select i1 %75, ptr null, ptr %68
   %spec.select73 = select i1 %75, ptr %1, ptr %68
@@ -890,7 +890,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
   %.in.i35 = getelementptr inbounds nuw i8, ptr %.02024.i33, i64 %.in.v.i34
   %.020.i36 = load ptr, ptr %.in.i35, align 8, !tbaa !89
   %.not.i37 = icmp eq ptr %.020.i36, null
-  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !109
+  br i1 %.not.i37, label %._crit_edge.i38, label %.lr.ph.i32, !llvm.loop !110
 
 ._crit_edge.i38:                                  ; preds = %.lr.ph.i32
   br i1 %80, label %._crit_edge.thread.i47, label %86
@@ -898,7 +898,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Se
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %82 = load ptr, ptr %81, align 8, !tbaa !110
+  %82 = load ptr, ptr %81, align 8, !tbaa !111
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKm10float128_tESt10_Select1stIS3_ESt4lessImESaIS3_EE24_M_get_insert_unique_posERS1_.exit, label %84
 
@@ -1054,25 +1054,26 @@ attributes #18 = { nounwind willreturn memory(read) }
 !87 = !{!6, !6, i64 0}
 !88 = !{!72, !75, i64 8}
 !89 = !{!75, !75, i64 0}
-!90 = distinct !{!90, !91}
+!90 = distinct !{!90, !91, !92}
 !91 = !{!"llvm.loop.mustprogress"}
-!92 = !{!93, !5, i64 0}
-!93 = !{!"_ZTSSt4pairIKm10float128_tE", !5, i64 0, !94, i64 8}
-!94 = !{!"_ZTS10float128_t", !6, i64 0}
-!95 = !{!72, !5, i64 32}
-!96 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!97 = !{!98, !5, i64 8}
-!98 = !{!"_ZTS6trap_t", !5, i64 8}
-!99 = !{!100, !18, i64 16}
-!100 = !{!"_ZTS11insn_trap_t", !98, i64 0, !18, i64 16, !5, i64 24}
-!101 = !{!100, !5, i64 24}
-!102 = !{!103, !103, i64 0}
-!103 = !{!"vtable pointer", !7, i64 0}
-!104 = !{!105, !107, i64 0}
-!105 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !106, i64 0, !5, i64 8, !6, i64 16}
-!106 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !107, i64 0}
-!107 = !{!"p1 omnipotent char", !13, i64 0}
-!108 = !{!105, !5, i64 8}
-!109 = distinct !{!109, !91}
-!110 = !{!72, !75, i64 16}
-!111 = !{!73, !75, i64 24}
+!92 = !{!"llvm.loop.estimated_trip_count"}
+!93 = !{!94, !5, i64 0}
+!94 = !{!"_ZTSSt4pairIKm10float128_tE", !5, i64 0, !95, i64 8}
+!95 = !{!"_ZTS10float128_t", !6, i64 0}
+!96 = !{!72, !5, i64 32}
+!97 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!98 = !{!99, !5, i64 8}
+!99 = !{!"_ZTS6trap_t", !5, i64 8}
+!100 = !{!101, !18, i64 16}
+!101 = !{!"_ZTS11insn_trap_t", !99, i64 0, !18, i64 16, !5, i64 24}
+!102 = !{!101, !5, i64 24}
+!103 = !{!104, !104, i64 0}
+!104 = !{!"vtable pointer", !7, i64 0}
+!105 = !{!106, !108, i64 0}
+!106 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !107, i64 0, !5, i64 8, !6, i64 16}
+!107 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !108, i64 0}
+!108 = !{!"p1 omnipotent char", !13, i64 0}
+!109 = !{!106, !5, i64 8}
+!110 = distinct !{!110, !91, !92}
+!111 = !{!72, !75, i64 16}
+!112 = !{!73, !75, i64 24}

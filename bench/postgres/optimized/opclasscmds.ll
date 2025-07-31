@@ -1821,7 +1821,7 @@ define internal fastcc void @storeOperators(ptr noundef %0, i32 noundef %1, i32 
 113:                                              ; preds = %114
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %114, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %114, !llvm.loop !9
 
 114:                                              ; preds = %113, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %113 ]
@@ -1899,7 +1899,7 @@ typeDepNeeded.exit.thread:                        ; preds = %._crit_edge.i, %66,
 139:                                              ; preds = %140
   %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i61
-  br i1 %exitcond.not.i65, label %._crit_edge.i66.thread, label %140, !llvm.loop !8
+  br i1 %exitcond.not.i65, label %._crit_edge.i66.thread, label %140, !llvm.loop !9
 
 140:                                              ; preds = %139, %.lr.ph.i60
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i60 ], [ %indvars.iv.next.i64, %139 ]
@@ -2144,7 +2144,7 @@ define internal fastcc void @storeProcedures(ptr noundef %0, i32 noundef %1, ptr
 103:                                              ; preds = %104
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %104, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i.thread, label %104, !llvm.loop !9
 
 104:                                              ; preds = %103, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %103 ]
@@ -2222,7 +2222,7 @@ typeDepNeeded.exit.thread:                        ; preds = %._crit_edge.i, %61,
 129:                                              ; preds = %130
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i52
-  br i1 %exitcond.not.i56, label %._crit_edge.i57.thread, label %130, !llvm.loop !8
+  br i1 %exitcond.not.i56, label %._crit_edge.i57.thread, label %130, !llvm.loop !9
 
 130:                                              ; preds = %129, %.lr.ph.i51
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i55, %129 ]
@@ -3011,6 +3011,7 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

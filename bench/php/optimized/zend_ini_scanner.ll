@@ -239,7 +239,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   %.promoted3053 = phi ptr [ %14, %18 ], [ %.lcssa3356.sink, %3295 ]
   store ptr %.promoted3053, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %.not = icmp ult ptr %.promoted3053, %2
-  br i1 %.not, label %11, label %._crit_edge
+  br i1 %.not, label %11, label %._crit_edge, !llvm.loop !31
 
 19:                                               ; preds = %16, %13, %11
   br i1 %5, label %20, label %25
@@ -422,7 +422,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 98:                                               ; preds = %41
   %99 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %99, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.thread2300
 
 .loopexit2339:                                    ; preds = %215, %437, %573, %517, %592, %570, %567, %536, %514, %511, %456, %434, %431, %241, %234, %219, %94, %78, %63, %577, %521, %441, %590, %586, %583, %534, %530, %527, %454, %450, %447, %239, %231, %225, %222, %105, %95, %90, %86, %79, %74, %64, %58, %56, %50, %48, %44, %41
@@ -468,7 +468,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   %117 = ptrtoint ptr %.promoted28104653 to i64
   %118 = sub i64 %116, %117
   %119 = trunc i64 %118 to i32
-  store i32 %119, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %119, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not22442780 = icmp eq i32 %119, 0
   br i1 %.not22442780, label %.critedge, label %.lr.ph2783
 
@@ -485,9 +485,9 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
   %123 = getelementptr inbounds nuw i8, ptr %120, i64 1
   store ptr %123, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %124 = add i32 %storemerge22432781, -1
-  store i32 %124, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %124, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2244 = icmp eq i32 %124, 0
-  br i1 %.not2244, label %.critedge, label %.lr.ph2783
+  br i1 %.not2244, label %.critedge, label %.lr.ph2783, !llvm.loop !34
 
 .lr.ph2788:                                       ; preds = %.lr.ph2783
   %125 = zext i32 %storemerge22432781 to i64
@@ -508,9 +508,9 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 .critedge3:                                       ; preds = %126, %126, %126, %126
   %indvars3045 = trunc i64 %indvars.iv.next3044 to i32
-  store i32 %indvars3045, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %indvars3045, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2245 = icmp eq i32 %indvars3045, 0
-  br i1 %.not2245, label %.critedge, label %126
+  br i1 %.not2245, label %.critedge, label %126, !llvm.loop !35
 
 .critedge.loopexit.split.loop.exit:               ; preds = %126
   %130 = trunc nuw i64 %indvars.iv3043 to i32
@@ -531,7 +531,7 @@ define hidden range(i32 -128, 274) i32 @ini_lex(ptr noundef %0) local_unnamed_ad
 
 135:                                              ; preds = %134, %134
   %136 = sext i32 %.lcssa2465 to i64
-  %137 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %137 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %138 = trunc nuw i8 %137 to i1
   %139 = and i64 %136, -8
   %140 = add nsw i64 %139, 32
@@ -552,9 +552,9 @@ zend_ini_copy_typed_value.exit:                   ; preds = %141, %143
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %145, ptr %147, align 4, !tbaa !14
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  store i64 0, ptr %148, align 8, !tbaa !51
+  store i64 0, ptr %148, align 8, !tbaa !55
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  store i64 %136, ptr %149, align 8, !tbaa !53
+  store i64 %136, ptr %149, align 8, !tbaa !57
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %150, ptr readonly align 1 %131, i64 range(i64 -2147483648, 4294967296) %136, i1 false)
   %151 = getelementptr inbounds nuw [1 x i8], ptr %150, i64 0, i64 %136
@@ -568,7 +568,7 @@ zend_ini_copy_typed_value.exit:                   ; preds = %141, %143
 
 154:                                              ; preds = %134, %.critedge
   %155 = zext i32 %.lcssa2465 to i64
-  %156 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %156 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %157 = trunc nuw i8 %156 to i1
   %158 = and i64 %155, 4294967288
   %159 = add nuw nsw i64 %158, 32
@@ -589,9 +589,9 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 4
   store i32 %164, ptr %166, align 4, !tbaa !14
   %167 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  store i64 0, ptr %167, align 8, !tbaa !51
+  store i64 0, ptr %167, align 8, !tbaa !55
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  store i64 %155, ptr %168, align 8, !tbaa !53
+  store i64 %155, ptr %168, align 8, !tbaa !57
   %169 = getelementptr inbounds nuw i8, ptr %165, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %169, ptr align 1 %131, i64 range(i64 -2147483648, 4294967296) %155, i1 false)
   %170 = getelementptr inbounds nuw [1 x i8], ptr %169, i64 0, i64 %155
@@ -613,7 +613,7 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   %174 = getelementptr inbounds nuw i8, ptr %172, i64 1
   store ptr %174, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %175 = icmp ugt ptr %174, %2
-  br i1 %175, label %.thread2300, label %.lr.ph
+  br i1 %175, label %.thread2300, label %.lr.ph, !llvm.loop !58
 
 176:                                              ; preds = %.lr.ph
   %177 = icmp ult i8 %173, 14
@@ -655,7 +655,7 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   %195 = ptrtoint ptr %.promoted2810 to i64
   %196 = sub i64 %194, %195
   %197 = trunc i64 %196 to i32
-  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %197, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %198 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %199 = add nsw i32 %198, 1
   store i32 %199, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
@@ -679,7 +679,7 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
 207:                                              ; preds = %.preheader2442
   %208 = load i8, ptr %205, align 1, !tbaa !14
   %.not2232.not = icmp eq i8 %208, 32
-  br i1 %.not2232.not, label %.preheader2442, label %209
+  br i1 %.not2232.not, label %.preheader2442, label %209, !llvm.loop !59
 
 209:                                              ; preds = %207
   %210 = icmp ult i8 %208, 39
@@ -775,7 +775,7 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
 244:                                              ; preds = %95, %79, %58, %56, %50
   %245 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %245, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %246 = load i8, ptr %.promoted2810, align 1, !tbaa !14
   %247 = sext i8 %246 to i32
   br label %.thread2300
@@ -792,7 +792,7 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   switch i8 %252, label %.preheader2328 [
     i8 13, label %253
     i8 10, label %253
-  ]
+  ], !llvm.loop !60
 
 253:                                              ; preds = %251, %251
   %254 = icmp samesign ult i8 %252, 11
@@ -810,14 +810,14 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 1
   store ptr %257, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %258 = icmp ugt ptr %257, %2
-  br i1 %258, label %.thread2300, label %.lr.ph2777
+  br i1 %258, label %.thread2300, label %.lr.ph2777, !llvm.loop !61
 
 259:                                              ; preds = %.lr.ph2777
   %260 = ptrtoint ptr %255 to i64
   %261 = ptrtoint ptr %.promoted2810 to i64
   %262 = sub i64 %260, %261
   %263 = trunc i64 %262 to i32
-  store i32 %263, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %263, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %264 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %265 = icmp eq i32 %264, 1
   %. = select i1 %265, i32 8, i32 3
@@ -905,7 +905,7 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
 298:                                              ; preds = %78
   %299 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %299, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %300 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %301 = icmp eq i32 %300, 1
   %.2246 = select i1 %301, i32 4, i32 2
@@ -924,14 +924,14 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   %304 = getelementptr inbounds nuw i8, ptr %302, i64 1
   store ptr %304, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %305 = icmp ugt ptr %304, %2
-  br i1 %305, label %.thread2300, label %.lr.ph2793
+  br i1 %305, label %.thread2300, label %.lr.ph2793, !llvm.loop !62
 
 306:                                              ; preds = %.lr.ph2793
   %307 = ptrtoint ptr %302 to i64
   %308 = ptrtoint ptr %.promoted28104647 to i64
   %309 = sub i64 %307, %308
   %310 = trunc i64 %309 to i32
-  store i32 %310, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %310, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not22412795 = icmp eq i32 %310, 0
   br i1 %.not22412795, label %.critedge7, label %.lr.ph2798
 
@@ -948,9 +948,9 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   %314 = getelementptr inbounds nuw i8, ptr %311, i64 1
   store ptr %314, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %315 = add i32 %storemerge22402796, -1
-  store i32 %315, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %315, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2241 = icmp eq i32 %315, 0
-  br i1 %.not2241, label %.critedge7, label %.lr.ph2798
+  br i1 %.not2241, label %.critedge7, label %.lr.ph2798, !llvm.loop !63
 
 .lr.ph2803:                                       ; preds = %.lr.ph2798
   %316 = zext i32 %storemerge22402796 to i64
@@ -972,9 +972,9 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
 
 .critedge9:                                       ; preds = %317, %317, %317, %317, %317
   %indvars3049 = trunc i64 %indvars.iv.next3048 to i32
-  store i32 %indvars3049, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %indvars3049, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2242 = icmp eq i32 %indvars3049, 0
-  br i1 %.not2242, label %.critedge7.loopexit, label %317
+  br i1 %.not2242, label %.critedge7.loopexit, label %317, !llvm.loop !64
 
 .critedge7.loopexit:                              ; preds = %317, %.critedge9
   %.lcssa2462.ph = phi i64 [ 0, %.critedge9 ], [ %indvars.iv3047, %317 ]
@@ -985,7 +985,7 @@ zend_string_alloc.exit2283:                       ; preds = %160, %162
   %322 = phi ptr [ %311, %.critedge7.loopexit ], [ %.promoted28104647, %306 ], [ %314, %313 ]
   %.lcssa2462 = phi i64 [ %321, %.critedge7.loopexit ], [ 0, %306 ], [ 0, %313 ]
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
-  %323 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %323 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %324 = trunc nuw i8 %323 to i1
   %325 = and i64 %.lcssa2462, 4294967288
   %326 = add nuw nsw i64 %325, 32
@@ -1006,9 +1006,9 @@ zend_string_alloc.exit2282:                       ; preds = %327, %329
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
   store i32 %331, ptr %333, align 4, !tbaa !14
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 8
-  store i64 0, ptr %334, align 8, !tbaa !51
+  store i64 0, ptr %334, align 8, !tbaa !55
   %335 = getelementptr inbounds nuw i8, ptr %332, i64 16
-  store i64 %.lcssa2462, ptr %335, align 8, !tbaa !53
+  store i64 %.lcssa2462, ptr %335, align 8, !tbaa !57
   %336 = getelementptr inbounds nuw i8, ptr %332, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %336, ptr align 1 %322, i64 range(i64 -2147483648, 4294967296) %.lcssa2462, i1 false)
   %337 = getelementptr inbounds nuw [1 x i8], ptr %336, i64 0, i64 %.lcssa2462
@@ -1031,7 +1031,7 @@ zend_string_alloc.exit2282:                       ; preds = %327, %329
   %346 = ptrtoint ptr %.promoted2810 to i64
   %347 = sub i64 %345, %346
   %348 = trunc i64 %347 to i32
-  store i32 %348, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %348, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %349 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %350 = add nsw i32 %349, 1
@@ -1143,7 +1143,7 @@ zend_string_alloc.exit2282:                       ; preds = %327, %329
   %392 = ptrtoint ptr %.promoted2810 to i64
   %393 = sub i64 %391, %392
   %394 = trunc i64 %393 to i32
-  store i32 %394, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %394, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %395 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %396 = icmp eq i32 %395, 2
   br i1 %396, label %397, label %401
@@ -1162,7 +1162,7 @@ zend_string_alloc.exit2282:                       ; preds = %327, %329
   br label %.thread2300
 
 401:                                              ; preds = %397, %.loopexit2335
-  %402 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %402 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %403 = trunc nuw i8 %402 to i1
   br i1 %403, label %404, label %406
 
@@ -1251,7 +1251,7 @@ zend_string_alloc.exit2281:                       ; preds = %404, %406
 
 439:                                              ; preds = %437
   %440 = icmp eq i8 %425, 32
-  br i1 %440, label %.preheader2353, label %.loopexit2351
+  br i1 %440, label %.preheader2353, label %.loopexit2351, !llvm.loop !65
 
 441:                                              ; preds = %435
   %442 = and i8 %425, 61
@@ -1297,7 +1297,7 @@ zend_string_alloc.exit2281:                       ; preds = %404, %406
   %461 = ptrtoint ptr %.promoted2810 to i64
   %462 = sub i64 %460, %461
   %463 = trunc i64 %462 to i32
-  store i32 %463, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %463, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %464 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %465 = icmp eq i32 %464, 2
   br i1 %465, label %466, label %470
@@ -1316,7 +1316,7 @@ zend_string_alloc.exit2281:                       ; preds = %404, %406
   br label %.thread2300
 
 470:                                              ; preds = %466, %.loopexit2351
-  %471 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %471 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %472 = trunc nuw i8 %471 to i1
   br i1 %472, label %473, label %475
 
@@ -1335,9 +1335,9 @@ zend_string_alloc.exit2280:                       ; preds = %473, %475
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 4
   store i32 %477, ptr %479, align 4, !tbaa !14
   %480 = getelementptr inbounds nuw i8, ptr %478, i64 8
-  store i64 0, ptr %480, align 8, !tbaa !51
+  store i64 0, ptr %480, align 8, !tbaa !55
   %481 = getelementptr inbounds nuw i8, ptr %478, i64 16
-  store i64 1, ptr %481, align 8, !tbaa !53
+  store i64 1, ptr %481, align 8, !tbaa !57
   %482 = getelementptr inbounds nuw i8, ptr %478, i64 24
   store i8 49, ptr %482, align 8
   %483 = getelementptr inbounds nuw i8, ptr %478, i64 25
@@ -1383,7 +1383,7 @@ zend_string_alloc.exit2280:                       ; preds = %473, %475
   %499 = getelementptr inbounds nuw i8, ptr %497, i64 1
   store ptr %499, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %500 = icmp ugt ptr %499, %2
-  br i1 %500, label %.thread2300, label %.lr.ph2775
+  br i1 %500, label %.thread2300, label %.lr.ph2775, !llvm.loop !66
 
 .preheader2337:                                   ; preds = %.preheader2337.preheader, %519
   %501 = phi ptr [ %502, %519 ], [ %.ph3977, %.preheader2337.preheader ]
@@ -1434,7 +1434,7 @@ zend_string_alloc.exit2280:                       ; preds = %473, %475
 
 519:                                              ; preds = %517
   %520 = icmp eq i8 %505, 32
-  br i1 %520, label %.preheader2337, label %.loopexit2335
+  br i1 %520, label %.preheader2337, label %.loopexit2335, !llvm.loop !67
 
 521:                                              ; preds = %515
   %522 = and i8 %505, 61
@@ -1504,7 +1504,7 @@ zend_string_alloc.exit2280:                       ; preds = %473, %475
   %551 = getelementptr inbounds nuw i8, ptr %549, i64 1
   store ptr %551, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %552 = icmp ugt ptr %551, %2
-  br i1 %552, label %.thread2300, label %.lr.ph2769
+  br i1 %552, label %.thread2300, label %.lr.ph2769, !llvm.loop !68
 
 553:                                              ; preds = %485
   %554 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 3
@@ -1562,7 +1562,7 @@ zend_string_alloc.exit2280:                       ; preds = %473, %475
 
 575:                                              ; preds = %573
   %576 = icmp eq i8 %561, 32
-  br i1 %576, label %.preheader2345, label %.loopexit2343
+  br i1 %576, label %.preheader2345, label %.loopexit2343, !llvm.loop !69
 
 577:                                              ; preds = %571
   %578 = and i8 %561, 61
@@ -1608,7 +1608,7 @@ zend_string_alloc.exit2280:                       ; preds = %473, %475
   %597 = ptrtoint ptr %.promoted2810 to i64
   %598 = sub i64 %596, %597
   %599 = trunc i64 %598 to i32
-  store i32 %599, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %599, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %600 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %601 = icmp eq i32 %600, 2
   br i1 %601, label %602, label %606
@@ -1627,7 +1627,7 @@ zend_string_alloc.exit2280:                       ; preds = %473, %475
   br label %.thread2300
 
 606:                                              ; preds = %602, %.loopexit2343
-  %607 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %607 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %608 = trunc nuw i8 %607 to i1
   br i1 %608, label %609, label %611
 
@@ -1664,7 +1664,7 @@ zend_string_alloc.exit2279:                       ; preds = %609, %611
   %620 = getelementptr inbounds nuw i8, ptr %618, i64 1
   store ptr %620, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %621 = icmp ugt ptr %620, %2
-  br i1 %621, label %.thread2300, label %.lr.ph2772
+  br i1 %621, label %.thread2300, label %.lr.ph2772, !llvm.loop !70
 
 622:                                              ; preds = %21
   switch i8 %22, label %625 [
@@ -1675,7 +1675,7 @@ zend_string_alloc.exit2279:                       ; preds = %609, %611
 .preheader2322:                                   ; preds = %622, %622
   %623 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %623, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %623, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %623, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %624 = icmp ugt ptr %623, %2
   br i1 %624, label %.thread2300, label %.lr.ph2808
 
@@ -1765,7 +1765,7 @@ zend_string_alloc.exit2279:                       ; preds = %609, %611
   %658 = phi ptr [ %887, %894 ], [ %862, %867 ], [ %801, %817 ], [ %801, %814 ], [ %801, %813 ], [ %752, %770 ], [ %752, %762 ], [ %738, %741 ], [ %698, %714 ], [ %698, %711 ], [ %698, %708 ], [ %887, %913 ], [ %887, %909 ], [ %887, %898 ], [ %887, %897 ], [ %862, %871 ], [ %849, %847 ], [ %801, %822 ], [ %801, %818 ], [ %752, %776 ], [ %752, %773 ], [ %752, %766 ], [ %752, %765 ], [ %738, %742 ], [ %698, %719 ], [ %698, %715 ], [ %698, %706 ], [ %664, %663 ], [ %.promoted2810, %655 ], [ %.promoted2810, %650 ], [ %.promoted2810, %640 ], [ %.promoted2810, %631 ], [ %.promoted2810, %654 ], [ %.promoted2810, %633 ], [ %.promoted2810, %648 ], [ %.promoted2810, %636 ], [ %874, %.lr.ph2814 ], [ %887, %904 ]
   %659 = getelementptr inbounds nuw i8, ptr %658, i64 1
   store ptr %659, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %659, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %659, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %660 = icmp ugt ptr %659, %2
   br i1 %660, label %.thread2300, label %661
 
@@ -1802,9 +1802,9 @@ zend_string_alloc.exit2279:                       ; preds = %609, %611
   %678 = ptrtoint ptr %.promoted2810 to i64
   %679 = sub i64 %677, %678
   %680 = trunc i64 %679 to i32
-  store i32 %680, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %680, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %681 = and i64 %679, 4294967295
-  %682 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %682 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %683 = trunc nuw i8 %682 to i1
   %684 = and i64 %679, 4294967288
   %685 = add nuw nsw i64 %684, 32
@@ -1825,9 +1825,9 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
   %692 = getelementptr inbounds nuw i8, ptr %691, i64 4
   store i32 %690, ptr %692, align 4, !tbaa !14
   %693 = getelementptr inbounds nuw i8, ptr %691, i64 8
-  store i64 0, ptr %693, align 8, !tbaa !51
+  store i64 0, ptr %693, align 8, !tbaa !55
   %694 = getelementptr inbounds nuw i8, ptr %691, i64 16
-  store i64 %681, ptr %694, align 8, !tbaa !53
+  store i64 %681, ptr %694, align 8, !tbaa !57
   %695 = getelementptr inbounds nuw i8, ptr %691, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %695, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %681, i1 false)
   %696 = getelementptr inbounds nuw [1 x i8], ptr %695, i64 0, i64 %681
@@ -1848,9 +1848,9 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
 .backedge2324:                                    ; preds = %.lr.ph2808, %.lr.ph2808
   %700 = getelementptr inbounds nuw i8, ptr %698, i64 1
   store ptr %700, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %700, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %700, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %701 = icmp ugt ptr %700, %2
-  br i1 %701, label %.thread2300, label %.lr.ph2808
+  br i1 %701, label %.thread2300, label %.lr.ph2808, !llvm.loop !72
 
 702:                                              ; preds = %.lr.ph2808
   %703 = icmp ult i8 %699, 37
@@ -1909,7 +1909,7 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
   %726 = ptrtoint ptr %.promoted2810 to i64
   %727 = sub i64 %725, %726
   %728 = trunc i64 %727 to i32
-  store i32 %728, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %728, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.thread2300
 
 729:                                              ; preds = %711, %633
@@ -1920,7 +1920,7 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
   %733 = ptrtoint ptr %.promoted2810 to i64
   %734 = sub i64 %732, %733
   %735 = trunc i64 %734 to i32
-  store i32 %735, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %735, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %736 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -1952,7 +1952,7 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
 747:                                              ; preds = %640
   %748 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %748, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %748, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %748, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %749 = load i8, ptr %748, align 1, !tbaa !14
   %750 = add i8 %749, -48
   %or.cond204 = icmp ult i8 %750, 10
@@ -1962,7 +1962,7 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
   %751 = phi ptr [ %752, %754 ], [ %.promoted2810, %646 ]
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 1
   store ptr %752, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %752, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %752, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %753 = icmp ugt ptr %752, %2
   br i1 %753, label %.thread2300, label %754
 
@@ -1971,7 +1971,7 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
   %756 = zext i8 %755 to i64
   %757 = add nsw i64 %756, -58
   %.not2203 = icmp ult i64 %757, -10
-  br i1 %.not2203, label %758, label %.preheader2318
+  br i1 %.not2203, label %758, label %.preheader2318, !llvm.loop !73
 
 758:                                              ; preds = %754
   %759 = icmp ult i8 %755, 39
@@ -2035,9 +2035,9 @@ zend_string_alloc.exit2278:                       ; preds = %686, %688
   %780 = ptrtoint ptr %.promoted2810 to i64
   %781 = sub i64 %779, %780
   %782 = trunc i64 %781 to i32
-  store i32 %782, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %782, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %783 = and i64 %781, 4294967295
-  %784 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %784 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %785 = trunc nuw i8 %784 to i1
   %786 = and i64 %781, 4294967288
   %787 = add nuw nsw i64 %786, 32
@@ -2058,9 +2058,9 @@ zend_string_alloc.exit2277:                       ; preds = %788, %790
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 4
   store i32 %792, ptr %794, align 4, !tbaa !14
   %795 = getelementptr inbounds nuw i8, ptr %793, i64 8
-  store i64 0, ptr %795, align 8, !tbaa !51
+  store i64 0, ptr %795, align 8, !tbaa !55
   %796 = getelementptr inbounds nuw i8, ptr %793, i64 16
-  store i64 %783, ptr %796, align 8, !tbaa !53
+  store i64 %783, ptr %796, align 8, !tbaa !57
   %797 = getelementptr inbounds nuw i8, ptr %793, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %797, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %783, i1 false)
   %798 = getelementptr inbounds nuw [1 x i8], ptr %797, i64 0, i64 %783
@@ -2074,7 +2074,7 @@ zend_string_alloc.exit2277:                       ; preds = %788, %790
   %800 = phi ptr [ %801, %803 ], [ %.promoted2810, %.preheader2320.preheader ]
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 1
   store ptr %801, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %801, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %801, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %802 = icmp ugt ptr %801, %2
   br i1 %802, label %.thread2300, label %803
 
@@ -2085,7 +2085,7 @@ zend_string_alloc.exit2277:                       ; preds = %788, %790
   %807 = load i8, ptr %806, align 1, !tbaa !14
   %808 = and i8 %807, 32
   %.not2201 = icmp eq i8 %808, 0
-  br i1 %.not2201, label %809, label %.preheader2320
+  br i1 %.not2201, label %809, label %.preheader2320, !llvm.loop !74
 
 809:                                              ; preds = %803
   %810 = icmp ult i8 %804, 37
@@ -2135,9 +2135,9 @@ zend_string_alloc.exit2277:                       ; preds = %788, %790
   %827 = ptrtoint ptr %.promoted2810 to i64
   %828 = sub i64 %826, %827
   %829 = trunc i64 %828 to i32
-  store i32 %829, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %829, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %830 = and i64 %828, 4294967295
-  %831 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %831 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %832 = trunc nuw i8 %831 to i1
   %833 = and i64 %828, 4294967288
   %834 = add nuw nsw i64 %833, 32
@@ -2158,9 +2158,9 @@ zend_string_alloc.exit2276:                       ; preds = %835, %837
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 4
   store i32 %839, ptr %841, align 4, !tbaa !14
   %842 = getelementptr inbounds nuw i8, ptr %840, i64 8
-  store i64 0, ptr %842, align 8, !tbaa !51
+  store i64 0, ptr %842, align 8, !tbaa !55
   %843 = getelementptr inbounds nuw i8, ptr %840, i64 16
-  store i64 %830, ptr %843, align 8, !tbaa !53
+  store i64 %830, ptr %843, align 8, !tbaa !57
   %844 = getelementptr inbounds nuw i8, ptr %840, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %844, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %830, i1 false)
   %845 = getelementptr inbounds nuw [1 x i8], ptr %844, i64 0, i64 %830
@@ -2185,7 +2185,7 @@ zend_string_alloc.exit2276:                       ; preds = %835, %837
   %855 = ptrtoint ptr %.promoted2810 to i64
   %856 = sub i64 %854, %855
   %857 = trunc i64 %856 to i32
-  store i32 %857, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %857, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
 
@@ -2239,12 +2239,12 @@ zend_string_alloc.exit2276:                       ; preds = %835, %837
   %876 = getelementptr inbounds nuw i8, ptr %874, i64 1
   store ptr %876, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %877 = icmp ugt ptr %876, %2
-  br i1 %877, label %.thread2300, label %.lr.ph2814
+  br i1 %877, label %.thread2300, label %.lr.ph2814, !llvm.loop !75
 
 878:                                              ; preds = %742
   %879 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %879, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %880 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -2259,13 +2259,13 @@ zend_string_alloc.exit2276:                       ; preds = %835, %837
 884:                                              ; preds = %.preheader2312
   %885 = load i8, ptr %882, align 1, !tbaa !14
   %.not2209 = icmp eq i8 %885, 39
-  br i1 %.not2209, label %915, label %.preheader2312
+  br i1 %.not2209, label %915, label %.preheader2312, !llvm.loop !76
 
 .preheader2314:                                   ; preds = %.preheader2314.preheader, %904
   %886 = phi ptr [ %887, %904 ], [ %.ph, %.preheader2314.preheader ]
   %887 = getelementptr inbounds nuw i8, ptr %886, i64 1
   store ptr %887, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %887, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %887, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %888 = icmp ugt ptr %887, %2
   br i1 %888, label %.thread2300, label %889
 
@@ -2308,7 +2308,7 @@ zend_string_alloc.exit2276:                       ; preds = %835, %837
   %905 = icmp samesign ugt i8 %890, 47
   %906 = icmp ne i8 %890, 58
   %or.cond219 = and i1 %905, %906
-  br i1 %or.cond219, label %.preheader2314, label %.loopexit
+  br i1 %or.cond219, label %.preheader2314, label %.loopexit, !llvm.loop !77
 
 907:                                              ; preds = %900
   %908 = icmp ult i8 %890, 92
@@ -2333,7 +2333,7 @@ zend_string_alloc.exit2276:                       ; preds = %835, %837
   %918 = ptrtoint ptr %.promoted2810 to i64
   %919 = sub i64 %917, %918
   %920 = trunc i64 %919 to i32
-  store i32 %920, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %920, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %921 = load i8, ptr %.promoted2810, align 1, !tbaa !14
   %922 = icmp eq i8 %921, 39
   br i1 %922, label %923, label %931
@@ -2349,14 +2349,14 @@ zend_string_alloc.exit2276:                       ; preds = %835, %837
 929:                                              ; preds = %923
   store ptr %745, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %930 = add i32 %920, -2
-  store i32 %930, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %930, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %931
 
 931:                                              ; preds = %929, %923, %915
   %932 = phi i32 [ %930, %929 ], [ %920, %923 ], [ %920, %915 ]
   %933 = phi ptr [ %745, %929 ], [ %.promoted2810, %923 ], [ %.promoted2810, %915 ]
   %934 = zext i32 %932 to i64
-  %935 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %935 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %936 = trunc nuw i8 %935 to i1
   %937 = and i64 %934, 4294967288
   %938 = add nuw nsw i64 %937, 32
@@ -2377,9 +2377,9 @@ zend_string_alloc.exit2275:                       ; preds = %939, %941
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 4
   store i32 %943, ptr %945, align 4, !tbaa !14
   %946 = getelementptr inbounds nuw i8, ptr %944, i64 8
-  store i64 0, ptr %946, align 8, !tbaa !51
+  store i64 0, ptr %946, align 8, !tbaa !55
   %947 = getelementptr inbounds nuw i8, ptr %944, i64 16
-  store i64 %934, ptr %947, align 8, !tbaa !53
+  store i64 %934, ptr %947, align 8, !tbaa !57
   %948 = getelementptr inbounds nuw i8, ptr %944, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %948, ptr nonnull align 1 %933, i64 range(i64 -2147483648, 4294967296) %934, i1 false)
   %949 = getelementptr inbounds nuw [1 x i8], ptr %948, i64 0, i64 %934
@@ -2398,7 +2398,7 @@ zend_string_alloc.exit2275:                       ; preds = %939, %941
 .preheader2409:                                   ; preds = %951, %951
   %952 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %952, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %952, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %952, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %953 = icmp ugt ptr %952, %2
   br i1 %953, label %.thread2300, label %.lr.ph2734
 
@@ -2494,7 +2494,7 @@ zend_string_alloc.exit2275:                       ; preds = %939, %941
   %989 = phi ptr [ %1266, %1273 ], [ %1241, %1246 ], [ %1161, %1177 ], [ %1161, %1174 ], [ %1161, %1173 ], [ %1106, %1124 ], [ %1106, %1116 ], [ %1092, %1095 ], [ %1052, %1068 ], [ %1052, %1065 ], [ %1052, %1062 ], [ %1266, %1292 ], [ %1266, %1288 ], [ %1266, %1277 ], [ %1266, %1276 ], [ %1241, %1250 ], [ %1215, %1213 ], [ %1161, %1182 ], [ %1161, %1178 ], [ %1106, %1130 ], [ %1106, %1127 ], [ %1106, %1120 ], [ %1106, %1119 ], [ %1092, %1096 ], [ %1052, %1073 ], [ %1052, %1069 ], [ %1052, %1060 ], [ %995, %994 ], [ %.promoted2810, %986 ], [ %.promoted2810, %979 ], [ %.promoted2810, %969 ], [ %.promoted2810, %960 ], [ %.promoted2810, %983 ], [ %.promoted2810, %962 ], [ %.promoted2810, %977 ], [ %.promoted2810, %965 ], [ %1253, %.lr.ph2742 ], [ %1266, %1283 ]
   %990 = getelementptr inbounds nuw i8, ptr %989, i64 1
   store ptr %990, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %990, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %990, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %991 = icmp ugt ptr %990, %2
   br i1 %991, label %.thread2300, label %992
 
@@ -2531,7 +2531,7 @@ zend_string_alloc.exit2275:                       ; preds = %939, %941
   %1009 = ptrtoint ptr %.promoted2810 to i64
   %1010 = sub i64 %1008, %1009
   %1011 = trunc i64 %1010 to i32
-  store i32 %1011, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1011, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1012 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %1013 = icmp eq i32 %1012, 2
   br i1 %1013, label %1014, label %1034
@@ -2545,7 +2545,7 @@ zend_string_alloc.exit2275:                       ; preds = %939, %941
 1015:                                             ; preds = %1014, %1014
   %sext2309 = shl i64 %1010, 32
   %1016 = ashr exact i64 %sext2309, 32
-  %1017 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1017 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1018 = trunc nuw i8 %1017 to i1
   %1019 = and i64 %1016, -8
   %1020 = add nsw i64 %1019, 32
@@ -2566,9 +2566,9 @@ zend_ini_copy_typed_value.exit2285:               ; preds = %1021, %1023
   %1027 = getelementptr inbounds nuw i8, ptr %1026, i64 4
   store i32 %1025, ptr %1027, align 4, !tbaa !14
   %1028 = getelementptr inbounds nuw i8, ptr %1026, i64 8
-  store i64 0, ptr %1028, align 8, !tbaa !51
+  store i64 0, ptr %1028, align 8, !tbaa !55
   %1029 = getelementptr inbounds nuw i8, ptr %1026, i64 16
-  store i64 %1016, ptr %1029, align 8, !tbaa !53
+  store i64 %1016, ptr %1029, align 8, !tbaa !57
   %1030 = getelementptr inbounds nuw i8, ptr %1026, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1030, ptr nonnull readonly align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1016, i1 false)
   %1031 = getelementptr inbounds nuw [1 x i8], ptr %1030, i64 0, i64 %1016
@@ -2582,7 +2582,7 @@ zend_ini_copy_typed_value.exit2285:               ; preds = %1021, %1023
 
 1034:                                             ; preds = %1014, %1006
   %1035 = and i64 %1010, 4294967295
-  %1036 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1036 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1037 = trunc nuw i8 %1036 to i1
   %1038 = and i64 %1010, 4294967288
   %1039 = add nuw nsw i64 %1038, 32
@@ -2603,9 +2603,9 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
   %1046 = getelementptr inbounds nuw i8, ptr %1045, i64 4
   store i32 %1044, ptr %1046, align 4, !tbaa !14
   %1047 = getelementptr inbounds nuw i8, ptr %1045, i64 8
-  store i64 0, ptr %1047, align 8, !tbaa !51
+  store i64 0, ptr %1047, align 8, !tbaa !55
   %1048 = getelementptr inbounds nuw i8, ptr %1045, i64 16
-  store i64 %1035, ptr %1048, align 8, !tbaa !53
+  store i64 %1035, ptr %1048, align 8, !tbaa !57
   %1049 = getelementptr inbounds nuw i8, ptr %1045, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1049, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1035, i1 false)
   %1050 = getelementptr inbounds nuw [1 x i8], ptr %1049, i64 0, i64 %1035
@@ -2626,9 +2626,9 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
 .backedge2411:                                    ; preds = %.lr.ph2734, %.lr.ph2734
   %1054 = getelementptr inbounds nuw i8, ptr %1052, i64 1
   store ptr %1054, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1054, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1054, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1055 = icmp ugt ptr %1054, %2
-  br i1 %1055, label %.thread2300, label %.lr.ph2734
+  br i1 %1055, label %.thread2300, label %.lr.ph2734, !llvm.loop !78
 
 1056:                                             ; preds = %.lr.ph2734
   %1057 = icmp ult i8 %1053, 37
@@ -2687,7 +2687,7 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
   %1080 = ptrtoint ptr %.promoted2810 to i64
   %1081 = sub i64 %1079, %1080
   %1082 = trunc i64 %1081 to i32
-  store i32 %1082, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1082, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.thread2300
 
 1083:                                             ; preds = %1065, %962
@@ -2698,7 +2698,7 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
   %1087 = ptrtoint ptr %.promoted2810 to i64
   %1088 = sub i64 %1086, %1087
   %1089 = trunc i64 %1088 to i32
-  store i32 %1089, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1089, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1090 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -2730,7 +2730,7 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
 1101:                                             ; preds = %969
   %1102 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %1102, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1102, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1102, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1103 = load i8, ptr %1102, align 1, !tbaa !14
   %1104 = add i8 %1103, -48
   %or.cond231 = icmp ult i8 %1104, 10
@@ -2740,7 +2740,7 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
   %1105 = phi ptr [ %1106, %1108 ], [ %.promoted2810, %975 ]
   %1106 = getelementptr inbounds nuw i8, ptr %1105, i64 1
   store ptr %1106, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1106, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1106, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1107 = icmp ugt ptr %1106, %2
   br i1 %1107, label %.thread2300, label %1108
 
@@ -2749,7 +2749,7 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
   %1110 = zext i8 %1109 to i64
   %1111 = add nsw i64 %1110, -58
   %.not2183 = icmp ult i64 %1111, -10
-  br i1 %.not2183, label %1112, label %.preheader2401
+  br i1 %.not2183, label %1112, label %.preheader2401, !llvm.loop !79
 
 1112:                                             ; preds = %1108
   %1113 = icmp ult i8 %1109, 39
@@ -2813,7 +2813,7 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
   %1134 = ptrtoint ptr %.promoted2810 to i64
   %1135 = sub i64 %1133, %1134
   %1136 = trunc i64 %1135 to i32
-  store i32 %1136, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1136, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1137 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %1138 = icmp eq i32 %1137, 2
   br i1 %1138, label %1139, label %1142
@@ -2832,7 +2832,7 @@ zend_string_alloc.exit2274:                       ; preds = %1040, %1042
 
 1142:                                             ; preds = %1139, %.loopexit2399
   %1143 = and i64 %1135, 4294967295
-  %1144 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1144 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1145 = trunc nuw i8 %1144 to i1
   %1146 = and i64 %1135, 4294967288
   %1147 = add nuw nsw i64 %1146, 32
@@ -2853,9 +2853,9 @@ zend_string_alloc.exit2273:                       ; preds = %1148, %1150
   %1154 = getelementptr inbounds nuw i8, ptr %1153, i64 4
   store i32 %1152, ptr %1154, align 4, !tbaa !14
   %1155 = getelementptr inbounds nuw i8, ptr %1153, i64 8
-  store i64 0, ptr %1155, align 8, !tbaa !51
+  store i64 0, ptr %1155, align 8, !tbaa !55
   %1156 = getelementptr inbounds nuw i8, ptr %1153, i64 16
-  store i64 %1143, ptr %1156, align 8, !tbaa !53
+  store i64 %1143, ptr %1156, align 8, !tbaa !57
   %1157 = getelementptr inbounds nuw i8, ptr %1153, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1157, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1143, i1 false)
   %1158 = getelementptr inbounds nuw [1 x i8], ptr %1157, i64 0, i64 %1143
@@ -2869,7 +2869,7 @@ zend_string_alloc.exit2273:                       ; preds = %1148, %1150
   %1160 = phi ptr [ %1161, %1163 ], [ %.promoted2810, %.preheader2403.preheader ]
   %1161 = getelementptr inbounds nuw i8, ptr %1160, i64 1
   store ptr %1161, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1161, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1161, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1162 = icmp ugt ptr %1161, %2
   br i1 %1162, label %.thread2300, label %1163
 
@@ -2880,7 +2880,7 @@ zend_string_alloc.exit2273:                       ; preds = %1148, %1150
   %1167 = load i8, ptr %1166, align 1, !tbaa !14
   %1168 = and i8 %1167, 32
   %.not2181 = icmp eq i8 %1168, 0
-  br i1 %.not2181, label %1169, label %.preheader2403
+  br i1 %.not2181, label %1169, label %.preheader2403, !llvm.loop !80
 
 1169:                                             ; preds = %1163
   %1170 = icmp ult i8 %1164, 37
@@ -2930,7 +2930,7 @@ zend_string_alloc.exit2273:                       ; preds = %1148, %1150
   %1187 = ptrtoint ptr %.promoted2810 to i64
   %1188 = sub i64 %1186, %1187
   %1189 = trunc i64 %1188 to i32
-  store i32 %1189, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1189, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %1191 = icmp eq i32 %1190, 2
   br i1 %1191, label %1192, label %1195
@@ -2949,7 +2949,7 @@ zend_string_alloc.exit2273:                       ; preds = %1148, %1150
 
 1195:                                             ; preds = %1192, %1184
   %1196 = and i64 %1188, 4294967295
-  %1197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1198 = trunc nuw i8 %1197 to i1
   %1199 = and i64 %1188, 4294967288
   %1200 = add nuw nsw i64 %1199, 32
@@ -2970,9 +2970,9 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
   %1207 = getelementptr inbounds nuw i8, ptr %1206, i64 4
   store i32 %1205, ptr %1207, align 4, !tbaa !14
   %1208 = getelementptr inbounds nuw i8, ptr %1206, i64 8
-  store i64 0, ptr %1208, align 8, !tbaa !51
+  store i64 0, ptr %1208, align 8, !tbaa !55
   %1209 = getelementptr inbounds nuw i8, ptr %1206, i64 16
-  store i64 %1196, ptr %1209, align 8, !tbaa !53
+  store i64 %1196, ptr %1209, align 8, !tbaa !57
   %1210 = getelementptr inbounds nuw i8, ptr %1206, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1210, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1196, i1 false)
   %1211 = getelementptr inbounds nuw [1 x i8], ptr %1210, i64 0, i64 %1196
@@ -3008,7 +3008,7 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
   %1225 = getelementptr inbounds nuw i8, ptr %1217, i64 1
   store ptr %1225, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %1226 = icmp ugt ptr %1225, %2
-  br i1 %1226, label %.thread2300, label %.lr.ph2736
+  br i1 %1226, label %.thread2300, label %.lr.ph2736, !llvm.loop !81
 
 1227:                                             ; preds = %1223
   %1228 = icmp samesign ult i8 %1219, 11
@@ -3026,7 +3026,7 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
   %1232 = ptrtoint ptr %.promoted2810 to i64
   %1233 = sub i64 %1231, %1232
   %1234 = trunc i64 %1233 to i32
-  store i32 %1234, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1234, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %1235 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %1236 = add nsw i32 %1235, 1
@@ -3083,12 +3083,12 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
   %1255 = getelementptr inbounds nuw i8, ptr %1253, i64 1
   store ptr %1255, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %1256 = icmp ugt ptr %1255, %2
-  br i1 %1256, label %.thread2300, label %.lr.ph2742
+  br i1 %1256, label %.thread2300, label %.lr.ph2742, !llvm.loop !82
 
 1257:                                             ; preds = %1096
   %1258 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %1258, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1259 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -3103,13 +3103,13 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
 1263:                                             ; preds = %.preheader2395
   %1264 = load i8, ptr %1261, align 1, !tbaa !14
   %.not2189 = icmp eq i8 %1264, 39
-  br i1 %.not2189, label %1301, label %.preheader2395
+  br i1 %.not2189, label %1301, label %.preheader2395, !llvm.loop !83
 
 .preheader2397:                                   ; preds = %.preheader2397.preheader, %1283
   %1265 = phi ptr [ %1266, %1283 ], [ %.ph4105, %.preheader2397.preheader ]
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 1
   store ptr %1266, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1266, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1266, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1267 = icmp ugt ptr %1266, %2
   br i1 %1267, label %.thread2300, label %1268
 
@@ -3152,7 +3152,7 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
   %1284 = icmp samesign ugt i8 %1269, 47
   %1285 = icmp ne i8 %1269, 58
   %or.cond246 = and i1 %1284, %1285
-  br i1 %or.cond246, label %.preheader2397, label %.loopexit2393
+  br i1 %or.cond246, label %.preheader2397, label %.loopexit2393, !llvm.loop !84
 
 1286:                                             ; preds = %1279
   %1287 = icmp ult i8 %1269, 92
@@ -3190,7 +3190,7 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
   %1304 = ptrtoint ptr %.promoted2810 to i64
   %1305 = sub i64 %1303, %1304
   %1306 = trunc i64 %1305 to i32
-  store i32 %1306, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1306, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1307 = load i8, ptr %.promoted2810, align 1, !tbaa !14
   %1308 = icmp eq i8 %1307, 39
   br i1 %1308, label %1309, label %1317
@@ -3206,7 +3206,7 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
 1315:                                             ; preds = %1309
   store ptr %1099, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %1316 = add i32 %1306, -2
-  store i32 %1316, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1316, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %1317
 
 1317:                                             ; preds = %1315, %1309, %1301
@@ -3230,7 +3230,7 @@ zend_string_alloc.exit2272:                       ; preds = %1201, %1203
 
 1325:                                             ; preds = %1322, %1317
   %1326 = zext i32 %1318 to i64
-  %1327 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1327 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1328 = trunc nuw i8 %1327 to i1
   %1329 = and i64 %1326, 4294967288
   %1330 = add nuw nsw i64 %1329, 32
@@ -3251,9 +3251,9 @@ zend_string_alloc.exit2271:                       ; preds = %1331, %1333
   %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 4
   store i32 %1335, ptr %1337, align 4, !tbaa !14
   %1338 = getelementptr inbounds nuw i8, ptr %1336, i64 8
-  store i64 0, ptr %1338, align 8, !tbaa !51
+  store i64 0, ptr %1338, align 8, !tbaa !55
   %1339 = getelementptr inbounds nuw i8, ptr %1336, i64 16
-  store i64 %1326, ptr %1339, align 8, !tbaa !53
+  store i64 %1326, ptr %1339, align 8, !tbaa !57
   %1340 = getelementptr inbounds nuw i8, ptr %1336, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1340, ptr nonnull align 1 %1319, i64 range(i64 -2147483648, 4294967296) %1326, i1 false)
   %1341 = getelementptr inbounds nuw [1 x i8], ptr %1340, i64 0, i64 %1326
@@ -3380,7 +3380,7 @@ zend_string_alloc.exit2271:                       ; preds = %1331, %1333
   %1355 = ptrtoint ptr %.promoted2810 to i64
   %1356 = sub i64 %1354, %1355
   %1357 = trunc i64 %1356 to i32
-  store i32 %1357, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1357, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
 
@@ -3388,7 +3388,7 @@ zend_string_alloc.exit2271:                       ; preds = %1331, %1333
   %1358 = phi ptr [ %.pre3080, %..loopexit2359_crit_edge ], [ %1886, %1918 ], [ %1855, %1860 ], [ %1581, %1616 ], [ %1510, %1541 ], [ %1510, %1537 ], [ %1495, %1498 ], [ %1886, %1895 ], [ %1581, %1596 ], [ %1510, %1522 ], [ %1886, %1919 ], [ %1886, %1914 ], [ %1886, %1913 ], [ %1886, %1904 ], [ %1886, %1903 ], [ %1886, %1897 ], [ %1855, %1864 ], [ %1581, %1617 ], [ %1581, %1613 ], [ %1581, %1612 ], [ %1581, %1606 ], [ %1581, %1601 ], [ %1581, %1595 ], [ %1510, %1542 ], [ %1510, %1538 ], [ %1510, %1530 ], [ %1510, %1529 ], [ %1510, %1524 ], [ %1495, %1499 ], [ %.promoted2810, %1346 ], [ %2261, %2263 ], [ %1875, %.lr.ph2766 ]
   %1359 = getelementptr inbounds nuw i8, ptr %1358, i64 1
   store ptr %1359, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1359, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1359, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1360 = icmp ugt ptr %1359, %2
   br i1 %1360, label %.thread2300, label %1361
 
@@ -3425,7 +3425,7 @@ zend_string_alloc.exit2271:                       ; preds = %1331, %1333
   %1372 = ptrtoint ptr %.promoted2810 to i64
   %1373 = sub i64 %1371, %1372
   %1374 = trunc i64 %1373 to i32
-  store i32 %1374, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1374, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1375 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %1376 = icmp eq i32 %1375, 2
   br i1 %1376, label %1377, label %1379
@@ -3438,7 +3438,7 @@ zend_string_alloc.exit2271:                       ; preds = %1331, %1333
 
 1379:                                             ; preds = %.loopexit2360
   %1380 = and i64 %1373, 4294967295
-  %1381 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1381 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1382 = trunc nuw i8 %1381 to i1
   %1383 = and i64 %1373, 4294967288
   %1384 = add nuw nsw i64 %1383, 32
@@ -3459,9 +3459,9 @@ zend_string_alloc.exit2270:                       ; preds = %1385, %1387
   %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 4
   store i32 %1389, ptr %1391, align 4, !tbaa !14
   %1392 = getelementptr inbounds nuw i8, ptr %1390, i64 8
-  store i64 0, ptr %1392, align 8, !tbaa !51
+  store i64 0, ptr %1392, align 8, !tbaa !55
   %1393 = getelementptr inbounds nuw i8, ptr %1390, i64 16
-  store i64 %1380, ptr %1393, align 8, !tbaa !53
+  store i64 %1380, ptr %1393, align 8, !tbaa !57
   %1394 = getelementptr inbounds nuw i8, ptr %1390, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1394, ptr align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1380, i1 false)
   %1395 = getelementptr inbounds nuw [1 x i8], ptr %1394, i64 0, i64 %1380
@@ -3483,7 +3483,7 @@ zend_string_alloc.exit2270:                       ; preds = %1385, %1387
   %1399 = getelementptr inbounds nuw i8, ptr %1397, i64 1
   store ptr %1399, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %1400 = icmp ugt ptr %1399, %2
-  br i1 %1400, label %.thread2300, label %.lr.ph2744
+  br i1 %1400, label %.thread2300, label %.lr.ph2744, !llvm.loop !85
 
 1401:                                             ; preds = %.lr.ph2744
   %1402 = icmp ult i8 %1398, 14
@@ -3522,7 +3522,7 @@ zend_string_alloc.exit2270:                       ; preds = %1385, %1387
   %1417 = ptrtoint ptr %.promoted2810 to i64
   %1418 = sub i64 %1416, %1417
   %1419 = trunc i64 %1418 to i32
-  store i32 %1419, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1419, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1420 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %1421 = icmp eq i32 %1420, 2
   br i1 %1421, label %1422, label %1441
@@ -3530,7 +3530,7 @@ zend_string_alloc.exit2270:                       ; preds = %1385, %1387
 1422:                                             ; preds = %1415
   %sext2310 = shl i64 %1418, 32
   %1423 = ashr exact i64 %sext2310, 32
-  %1424 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1424 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1425 = trunc nuw i8 %1424 to i1
   %1426 = and i64 %1423, -8
   %1427 = add nsw i64 %1426, 32
@@ -3551,9 +3551,9 @@ zend_ini_copy_typed_value.exit2286:               ; preds = %1428, %1430
   %1434 = getelementptr inbounds nuw i8, ptr %1433, i64 4
   store i32 %1432, ptr %1434, align 4, !tbaa !14
   %1435 = getelementptr inbounds nuw i8, ptr %1433, i64 8
-  store i64 0, ptr %1435, align 8, !tbaa !51
+  store i64 0, ptr %1435, align 8, !tbaa !55
   %1436 = getelementptr inbounds nuw i8, ptr %1433, i64 16
-  store i64 %1423, ptr %1436, align 8, !tbaa !53
+  store i64 %1423, ptr %1436, align 8, !tbaa !57
   %1437 = getelementptr inbounds nuw i8, ptr %1433, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1437, ptr nonnull readonly align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1423, i1 false)
   %1438 = getelementptr inbounds nuw [1 x i8], ptr %1437, i64 0, i64 %1423
@@ -3567,7 +3567,7 @@ zend_ini_copy_typed_value.exit2286:               ; preds = %1428, %1430
 
 1441:                                             ; preds = %1415
   %1442 = and i64 %1418, 4294967295
-  %1443 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1443 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1444 = trunc nuw i8 %1443 to i1
   %1445 = and i64 %1418, 4294967288
   %1446 = add nuw nsw i64 %1445, 32
@@ -3588,9 +3588,9 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
   %1453 = getelementptr inbounds nuw i8, ptr %1452, i64 4
   store i32 %1451, ptr %1453, align 4, !tbaa !14
   %1454 = getelementptr inbounds nuw i8, ptr %1452, i64 8
-  store i64 0, ptr %1454, align 8, !tbaa !51
+  store i64 0, ptr %1454, align 8, !tbaa !55
   %1455 = getelementptr inbounds nuw i8, ptr %1452, i64 16
-  store i64 %1442, ptr %1455, align 8, !tbaa !53
+  store i64 %1442, ptr %1455, align 8, !tbaa !57
   %1456 = getelementptr inbounds nuw i8, ptr %1452, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1456, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1442, i1 false)
   %1457 = getelementptr inbounds nuw [1 x i8], ptr %1456, i64 0, i64 %1442
@@ -3612,7 +3612,7 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
   %1465 = ptrtoint ptr %.promoted2810 to i64
   %1466 = sub i64 %1464, %1465
   %1467 = trunc i64 %1466 to i32
-  store i32 %1467, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1467, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %1468 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %1469 = add nsw i32 %1468, 1
@@ -3639,14 +3639,14 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
   %1477 = getelementptr inbounds nuw i8, ptr %1475, i64 1
   store ptr %1477, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %1478 = icmp ugt ptr %1477, %2
-  br i1 %1478, label %.thread2300, label %.lr.ph2755
+  br i1 %1478, label %.thread2300, label %.lr.ph2755, !llvm.loop !86
 
 1479:                                             ; preds = %.lr.ph2755
   %1480 = ptrtoint ptr %1475 to i64
   %1481 = ptrtoint ptr %.promoted2810 to i64
   %1482 = sub i64 %1480, %1481
   %1483 = trunc i64 %1482 to i32
-  store i32 %1483, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1483, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1484 = load i8, ptr %.promoted2810, align 1, !tbaa !14
   %1485 = sext i8 %1484 to i32
   br label %.thread2300
@@ -3659,7 +3659,7 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
   %1490 = ptrtoint ptr %.promoted2810 to i64
   %1491 = sub i64 %1489, %1490
   %1492 = trunc i64 %1491 to i32
-  store i32 %1492, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1492, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1493 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -3691,7 +3691,7 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
 1504:                                             ; preds = %1346, %1346
   %1505 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %1505, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1505, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1505, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1506 = load i8, ptr %1505, align 1, !tbaa !14
   %1507 = add i8 %1506, -48
   %or.cond255 = icmp ult i8 %1507, 10
@@ -3701,7 +3701,7 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
   %1509 = phi ptr [ %1510, %1512 ], [ %.promoted2810, %.preheader4078 ]
   %1510 = getelementptr inbounds nuw i8, ptr %1509, i64 1
   store ptr %1510, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1510, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1510, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1511 = icmp ugt ptr %1510, %2
   br i1 %1511, label %.thread2300, label %1512
 
@@ -3710,7 +3710,7 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
   %1514 = zext i8 %1513 to i64
   %1515 = add nsw i64 %1514, -58
   %.not2159 = icmp ult i64 %1515, -10
-  br i1 %.not2159, label %1516, label %1508
+  br i1 %.not2159, label %1516, label %1508, !llvm.loop !87
 
 1516:                                             ; preds = %1512
   %1517 = icmp ult i8 %1513, 46
@@ -3793,7 +3793,7 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
   %1546 = ptrtoint ptr %.promoted2810 to i64
   %1547 = sub i64 %1545, %1546
   %1548 = trunc i64 %1547 to i32
-  store i32 %1548, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1548, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1549 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %1550 = icmp eq i32 %1549, 2
   br i1 %1550, label %1551, label %1553
@@ -3806,7 +3806,7 @@ zend_string_alloc.exit2269:                       ; preds = %1447, %1449
 
 1553:                                             ; preds = %1543
   %1554 = and i64 %1547, 4294967295
-  %1555 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1555 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1556 = trunc nuw i8 %1555 to i1
   %1557 = and i64 %1547, 4294967288
   %1558 = add nuw nsw i64 %1557, 32
@@ -3827,9 +3827,9 @@ zend_string_alloc.exit2268:                       ; preds = %1559, %1561
   %1565 = getelementptr inbounds nuw i8, ptr %1564, i64 4
   store i32 %1563, ptr %1565, align 4, !tbaa !14
   %1566 = getelementptr inbounds nuw i8, ptr %1564, i64 8
-  store i64 0, ptr %1566, align 8, !tbaa !51
+  store i64 0, ptr %1566, align 8, !tbaa !55
   %1567 = getelementptr inbounds nuw i8, ptr %1564, i64 16
-  store i64 %1554, ptr %1567, align 8, !tbaa !53
+  store i64 %1554, ptr %1567, align 8, !tbaa !57
   %1568 = getelementptr inbounds nuw i8, ptr %1564, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1568, ptr align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1554, i1 false)
   %1569 = getelementptr inbounds nuw [1 x i8], ptr %1568, i64 0, i64 %1554
@@ -3851,7 +3851,7 @@ zend_string_alloc.exit2268:                       ; preds = %1559, %1561
   switch i8 %1575, label %.preheader2378 [
     i8 13, label %1576
     i8 10, label %1576
-  ]
+  ], !llvm.loop !88
 
 1576:                                             ; preds = %1574, %1574
   %1577 = icmp samesign ult i8 %1575, 11
@@ -3859,7 +3859,7 @@ zend_string_alloc.exit2268:                       ; preds = %1559, %1561
 
 1578:                                             ; preds = %1346
   store ptr %.promoted2810, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
 
@@ -3867,7 +3867,7 @@ zend_string_alloc.exit2268:                       ; preds = %1559, %1561
   %1580 = phi ptr [ %.promoted2758, %.preheader2365 ], [ %1581, %1583 ]
   %1581 = getelementptr inbounds nuw i8, ptr %1580, i64 1
   store ptr %1581, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1581, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1581, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1582 = icmp ugt ptr %1581, %2
   br i1 %1582, label %.thread2300, label %1583
 
@@ -3878,7 +3878,7 @@ zend_string_alloc.exit2268:                       ; preds = %1559, %1561
   %1587 = load i8, ptr %1586, align 1, !tbaa !14
   %1588 = and i8 %1587, 32
   %.not2154 = icmp eq i8 %1588, 0
-  br i1 %.not2154, label %1589, label %1579
+  br i1 %.not2154, label %1589, label %1579, !llvm.loop !89
 
 1589:                                             ; preds = %1583
   %1590 = icmp ult i8 %1584, 42
@@ -3956,7 +3956,7 @@ zend_string_alloc.exit2268:                       ; preds = %1559, %1561
   %1621 = ptrtoint ptr %.promoted2810 to i64
   %1622 = sub i64 %1620, %1621
   %1623 = trunc i64 %1622 to i32
-  store i32 %1623, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1623, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1624 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %1625 = icmp eq i32 %1624, 2
   br i1 %1625, label %1626, label %1628
@@ -3969,7 +3969,7 @@ zend_string_alloc.exit2268:                       ; preds = %1559, %1561
 
 1628:                                             ; preds = %1618
   %1629 = and i64 %1622, 4294967295
-  %1630 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %1630 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %1631 = trunc nuw i8 %1630 to i1
   %1632 = and i64 %1622, 4294967288
   %1633 = add nuw nsw i64 %1632, 32
@@ -3990,9 +3990,9 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
   %1640 = getelementptr inbounds nuw i8, ptr %1639, i64 4
   store i32 %1638, ptr %1640, align 4, !tbaa !14
   %1641 = getelementptr inbounds nuw i8, ptr %1639, i64 8
-  store i64 0, ptr %1641, align 8, !tbaa !51
+  store i64 0, ptr %1641, align 8, !tbaa !55
   %1642 = getelementptr inbounds nuw i8, ptr %1639, i64 16
-  store i64 %1629, ptr %1642, align 8, !tbaa !53
+  store i64 %1629, ptr %1642, align 8, !tbaa !57
   %1643 = getelementptr inbounds nuw i8, ptr %1639, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1643, ptr align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %1629, i1 false)
   %1644 = getelementptr inbounds nuw [1 x i8], ptr %1643, i64 0, i64 %1629
@@ -4005,7 +4005,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1646:                                             ; preds = %1346, %1346
   %1647 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %1647, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1647, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1647, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1648 = load i8, ptr %1647, align 1, !tbaa !14
   %1649 = icmp ult i8 %1648, 61
   br i1 %1649, label %1650, label %1667
@@ -4097,7 +4097,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1687:                                             ; preds = %1346, %1346
   %1688 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %1688, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1688, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1688, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1689 = load i8, ptr %1688, align 1, !tbaa !14
   %1690 = icmp ult i8 %1689, 79
   br i1 %1690, label %1691, label %1712
@@ -4206,7 +4206,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1731:                                             ; preds = %1346, %1346
   %1732 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %1732, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1732, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1732, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1733 = load i8, ptr %1732, align 1, !tbaa !14
   %1734 = icmp ult i8 %1733, 70
   br i1 %1734, label %1735, label %1756
@@ -4315,7 +4315,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1775:                                             ; preds = %1346, %1346
   %1776 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %1776, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1776, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1776, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1777 = load i8, ptr %1776, align 1, !tbaa !14
   %1778 = icmp ult i8 %1777, 62
   br i1 %1778, label %1779, label %1797
@@ -4406,7 +4406,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1814:                                             ; preds = %1346, %1346
   %1815 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %1815, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1815, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1815, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1816 = load i8, ptr %1815, align 1, !tbaa !14
   %1817 = icmp ult i8 %1816, 62
   br i1 %1817, label %1818, label %1836
@@ -4525,7 +4525,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
   br i1 %.not2171, label %1865, label %.loopexit2359
 
 1865:                                             ; preds = %1860, %1864
-  %1866 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  %1866 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   store ptr %1866, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %1867 = icmp samesign ult i32 %.51847, 3
   br i1 %1867, label %1868, label %1869
@@ -4548,7 +4548,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
   %1873 = getelementptr inbounds nuw i8, ptr %2260, i64 2
   store ptr %1873, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %1874 = icmp ugt ptr %1873, %2
-  br i1 %1874, label %.thread2300, label %.lr.ph2766
+  br i1 %1874, label %.thread2300, label %.lr.ph2766, !llvm.loop !90
 
 .lr.ph2766:                                       ; preds = %.preheader2362, %.loopexit2361
   %1875 = phi ptr [ %1873, %.loopexit2361 ], [ %1862, %.preheader2362 ]
@@ -4559,7 +4559,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1877:                                             ; preds = %1499
   %1878 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %1878, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %1879 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -4574,13 +4574,13 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1883:                                             ; preds = %.preheader2373
   %1884 = load i8, ptr %1881, align 1, !tbaa !14
   %.not2168 = icmp eq i8 %1884, 39
-  br i1 %.not2168, label %2265, label %.preheader2373
+  br i1 %.not2168, label %2265, label %.preheader2373, !llvm.loop !91
 
 .preheader2375:                                   ; preds = %.preheader2375.preheader, %1911
   %1885 = phi ptr [ %1886, %1911 ], [ %.ph4067, %.preheader2375.preheader ]
   %1886 = getelementptr inbounds nuw i8, ptr %1885, i64 1
   store ptr %1886, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1886, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1886, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1887 = icmp ugt ptr %1886, %2
   br i1 %1887, label %.thread2300, label %1888
 
@@ -4634,7 +4634,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 
 1911:                                             ; preds = %1909
   %1912 = icmp samesign ult i8 %1889, 58
-  br i1 %1912, label %.preheader2375, label %1913
+  br i1 %1912, label %.preheader2375, label %1913, !llvm.loop !92
 
 1913:                                             ; preds = %1911
   %.not2165 = icmp eq i8 %1889, 59
@@ -4671,7 +4671,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
   %1928 = ptrtoint ptr %.promoted2810 to i64
   %1929 = sub i64 %1927, %1928
   %1930 = trunc i64 %1929 to i32
-  store i32 %1930, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %1930, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %1931 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %1932 = add nsw i32 %1931, 1
@@ -4688,7 +4688,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1937:                                             ; preds = %1671, %1681
   %1938 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %1938, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1938, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1938, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1939 = load i8, ptr %1938, align 1, !tbaa !14
   %1940 = icmp ult i8 %1939, 62
   br i1 %1940, label %1941, label %1959
@@ -4779,7 +4779,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
 1976:                                             ; preds = %1724, %1716
   %1977 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %1977, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %1977, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %1977, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %1978 = load i8, ptr %1977, align 1, !tbaa !14
   %1979 = icmp ult i8 %1978, 61
   br i1 %1979, label %1980, label %1998
@@ -4889,7 +4889,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
   %2023 = ptrtoint ptr %.promoted2810 to i64
   %2024 = sub i64 %2022, %2023
   %2025 = trunc i64 %2024 to i32
-  store i32 %2025, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2025, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2026 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %2027 = icmp eq i32 %2026, 2
   br i1 %2027, label %2028, label %2031
@@ -4902,7 +4902,7 @@ zend_string_alloc.exit2267:                       ; preds = %1634, %1636
   br label %.thread2300
 
 2031:                                             ; preds = %.loopexit2382
-  %2032 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2032 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2033 = trunc nuw i8 %2032 to i1
   br i1 %2033, label %2034, label %2036
 
@@ -4930,7 +4930,7 @@ zend_string_alloc.exit2266:                       ; preds = %2034, %2036
 2043:                                             ; preds = %1724, %1716
   %2044 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %2044, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2044, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2044, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2045 = load i8, ptr %2044, align 1, !tbaa !14
   %2046 = icmp ult i8 %2045, 62
   br i1 %2046, label %2047, label %2065
@@ -5021,7 +5021,7 @@ zend_string_alloc.exit2266:                       ; preds = %2034, %2036
 2082:                                             ; preds = %1768, %1760
   %2083 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %2083, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2083, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2083, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2084 = load i8, ptr %2083, align 1, !tbaa !14
   %2085 = icmp ult i8 %2084, 62
   br i1 %2085, label %2086, label %2104
@@ -5113,7 +5113,7 @@ zend_string_alloc.exit2266:                       ; preds = %2034, %2036
   %2122 = phi ptr [ %2472, %2506 ], [ %2222, %2256 ], [ %1732, %1768 ], [ %1732, %1760 ], [ %2472, %2499 ], [ %2222, %2249 ]
   %2123 = getelementptr inbounds nuw i8, ptr %2122, i64 1
   store ptr %2123, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2123, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2123, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2124 = load i8, ptr %2123, align 1, !tbaa !14
   %2125 = zext i8 %2124 to i64
   %2126 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2125
@@ -5203,7 +5203,7 @@ zend_string_alloc.exit2266:                       ; preds = %2034, %2036
   %2159 = ptrtoint ptr %.promoted2810 to i64
   %2160 = sub i64 %2158, %2159
   %2161 = trunc i64 %2160 to i32
-  store i32 %2161, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2161, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %2163 = icmp eq i32 %2162, 2
   br i1 %2163, label %2164, label %2167
@@ -5216,7 +5216,7 @@ zend_string_alloc.exit2266:                       ; preds = %2034, %2036
   br label %.thread2300
 
 2167:                                             ; preds = %.loopexit2369
-  %2168 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2168 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2169 = trunc nuw i8 %2168 to i1
   br i1 %2169, label %2170, label %2172
 
@@ -5235,9 +5235,9 @@ zend_string_alloc.exit2265:                       ; preds = %2170, %2172
   %2176 = getelementptr inbounds nuw i8, ptr %2175, i64 4
   store i32 %2174, ptr %2176, align 4, !tbaa !14
   %2177 = getelementptr inbounds nuw i8, ptr %2175, i64 8
-  store i64 0, ptr %2177, align 8, !tbaa !51
+  store i64 0, ptr %2177, align 8, !tbaa !55
   %2178 = getelementptr inbounds nuw i8, ptr %2175, i64 16
-  store i64 1, ptr %2178, align 8, !tbaa !53
+  store i64 1, ptr %2178, align 8, !tbaa !57
   %2179 = getelementptr inbounds nuw i8, ptr %2175, i64 24
   store i8 49, ptr %2179, align 8
   %2180 = getelementptr inbounds nuw i8, ptr %2175, i64 25
@@ -5250,7 +5250,7 @@ zend_string_alloc.exit2265:                       ; preds = %2170, %2172
 2182:                                             ; preds = %1810, %1803
   %2183 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %2183, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2183, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2183, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2184 = load i8, ptr %2183, align 1, !tbaa !14
   %2185 = icmp ult i8 %2184, 62
   br i1 %2185, label %2186, label %2204
@@ -5341,7 +5341,7 @@ zend_string_alloc.exit2265:                       ; preds = %2170, %2172
 2221:                                             ; preds = %1849, %1842
   %2222 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %2222, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2222, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2222, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2223 = load i8, ptr %2222, align 1, !tbaa !14
   %2224 = icmp ult i8 %2223, 62
   br i1 %2224, label %2225, label %2243
@@ -5442,7 +5442,7 @@ zend_string_alloc.exit2265:                       ; preds = %2170, %2172
     i8 36, label %.preheader2357
     i8 0, label %.loopexit2360
     i8 92, label %.loopexit2361
-  ]
+  ], !llvm.loop !90
 
 2265:                                             ; preds = %1883
   %2266 = getelementptr inbounds nuw i8, ptr %1880, i64 2
@@ -5451,7 +5451,7 @@ zend_string_alloc.exit2265:                       ; preds = %2170, %2172
   %2268 = ptrtoint ptr %.promoted2810 to i64
   %2269 = sub i64 %2267, %2268
   %2270 = trunc i64 %2269 to i32
-  store i32 %2270, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2270, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2271 = load i8, ptr %.promoted2810, align 1, !tbaa !14
   %2272 = icmp eq i8 %2271, 39
   br i1 %2272, label %2273, label %2281
@@ -5467,7 +5467,7 @@ zend_string_alloc.exit2265:                       ; preds = %2170, %2172
 2279:                                             ; preds = %2273
   store ptr %1502, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %2280 = add i32 %2270, -2
-  store i32 %2280, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2280, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %2281
 
 2281:                                             ; preds = %2279, %2273, %2265
@@ -5485,7 +5485,7 @@ zend_string_alloc.exit2265:                       ; preds = %2170, %2172
 
 2288:                                             ; preds = %2281
   %2289 = zext i32 %2282 to i64
-  %2290 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2290 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2291 = trunc nuw i8 %2290 to i1
   %2292 = and i64 %2289, 4294967288
   %2293 = add nuw nsw i64 %2292, 32
@@ -5506,9 +5506,9 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
   %2300 = getelementptr inbounds nuw i8, ptr %2299, i64 4
   store i32 %2298, ptr %2300, align 4, !tbaa !14
   %2301 = getelementptr inbounds nuw i8, ptr %2299, i64 8
-  store i64 0, ptr %2301, align 8, !tbaa !51
+  store i64 0, ptr %2301, align 8, !tbaa !55
   %2302 = getelementptr inbounds nuw i8, ptr %2299, i64 16
-  store i64 %2289, ptr %2302, align 8, !tbaa !53
+  store i64 %2289, ptr %2302, align 8, !tbaa !57
   %2303 = getelementptr inbounds nuw i8, ptr %2299, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2303, ptr nonnull align 1 %2283, i64 range(i64 -2147483648, 4294967296) %2289, i1 false)
   %2304 = getelementptr inbounds nuw [1 x i8], ptr %2303, i64 0, i64 %2289
@@ -5521,7 +5521,7 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
 2306:                                             ; preds = %1972, %1965
   %2307 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 3
   store ptr %2307, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2307, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2307, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2308 = load i8, ptr %2307, align 1, !tbaa !14
   %2309 = icmp ult i8 %2308, 62
   br i1 %2309, label %2310, label %2328
@@ -5621,13 +5621,13 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
   %2347 = getelementptr inbounds nuw i8, ptr %2345, i64 1
   store ptr %2347, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %2348 = icmp ugt ptr %2347, %2
-  br i1 %2348, label %.thread2300, label %.lr.ph2748
+  br i1 %2348, label %.thread2300, label %.lr.ph2748, !llvm.loop !93
 
 2349:                                             ; preds = %2341, %2015, %2334, %2006
   %2350 = phi ptr [ %2307, %2341 ], [ %1977, %2015 ], [ %2307, %2334 ], [ %1977, %2006 ]
   %2351 = getelementptr inbounds nuw i8, ptr %2350, i64 1
   store ptr %2351, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2351, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2351, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2352 = load i8, ptr %2351, align 1, !tbaa !14
   %2353 = icmp ult i8 %2352, 62
   br i1 %2353, label %2354, label %2372
@@ -5718,7 +5718,7 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
 2389:                                             ; preds = %2078, %2071
   %2390 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 3
   store ptr %2390, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2390, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2390, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2391 = load i8, ptr %2390, align 1, !tbaa !14
   %2392 = icmp ult i8 %2391, 62
   br i1 %2392, label %2393, label %2411
@@ -5810,7 +5810,7 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
   %2429 = phi ptr [ %2351, %2385 ], [ %2083, %2117 ], [ %2351, %2378 ], [ %2083, %2110 ]
   %2430 = getelementptr inbounds nuw i8, ptr %2429, i64 1
   store ptr %2430, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2430, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2430, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2431 = load i8, ptr %2430, align 1, !tbaa !14
   %2432 = zext i8 %2431 to i64
   %2433 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2432
@@ -5907,12 +5907,12 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
   %2469 = getelementptr inbounds nuw i8, ptr %2467, i64 1
   store ptr %2469, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %2470 = icmp ugt ptr %2469, %2
-  br i1 %2470, label %.thread2300, label %.lr.ph2757
+  br i1 %2470, label %.thread2300, label %.lr.ph2757, !llvm.loop !94
 
 2471:                                             ; preds = %2217, %2210
   %2472 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 3
   store ptr %2472, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2472, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2472, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2473 = load i8, ptr %2472, align 1, !tbaa !14
   %2474 = icmp ult i8 %2473, 62
   br i1 %2474, label %2475, label %2493
@@ -6007,7 +6007,7 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
 2510:                                             ; preds = %2424, %2417
   %2511 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 4
   store ptr %2511, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2511, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2511, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2512 = load i8, ptr %2511, align 1, !tbaa !14
   %2513 = zext i8 %2512 to i64
   %2514 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.6, i64 0, i64 %2513
@@ -6097,7 +6097,7 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
   %2547 = ptrtoint ptr %.promoted2810 to i64
   %2548 = sub i64 %2546, %2547
   %2549 = trunc i64 %2548 to i32
-  store i32 %2549, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2549, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2550 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 108), align 4, !tbaa !18
   %2551 = icmp eq i32 %2550, 2
   br i1 %2551, label %2552, label %2555
@@ -6110,7 +6110,7 @@ zend_string_alloc.exit2264:                       ; preds = %2294, %2296
   br label %.thread2300
 
 2555:                                             ; preds = %.loopexit2386
-  %2556 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2556 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2557 = trunc nuw i8 %2556 to i1
   br i1 %2557, label %2558, label %2560
 
@@ -6147,7 +6147,7 @@ zend_string_alloc.exit2263:                       ; preds = %2558, %2560
   %2569 = getelementptr inbounds nuw i8, ptr %2567, i64 1
   store ptr %2569, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %2570 = icmp ugt ptr %2569, %2
-  br i1 %2570, label %.thread2300, label %.lr.ph2746
+  br i1 %2570, label %.thread2300, label %.lr.ph2746, !llvm.loop !95
 
 2571:                                             ; preds = %26
   %2572 = zext i8 %28 to i64
@@ -6181,16 +6181,16 @@ zend_string_alloc.exit2263:                       ; preds = %2558, %2560
   %2587 = load i8, ptr %2586, align 1, !tbaa !14
   %2588 = and i8 %2587, 64
   %.not2104 = icmp eq i8 %2588, 0
-  br i1 %.not2104, label %2589, label %.preheader2415
+  br i1 %.not2104, label %2589, label %.preheader2415, !llvm.loop !96
 
 2589:                                             ; preds = %2583
   %2590 = ptrtoint ptr %2581 to i64
   %2591 = ptrtoint ptr %.promoted2810 to i64
   %2592 = sub i64 %2590, %2591
   %2593 = trunc i64 %2592 to i32
-  store i32 %2593, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2593, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2594 = and i64 %2592, 4294967295
-  %2595 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2595 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2596 = trunc nuw i8 %2595 to i1
   %2597 = and i64 %2592, 4294967288
   %2598 = add nuw nsw i64 %2597, 32
@@ -6211,9 +6211,9 @@ zend_string_alloc.exit2262:                       ; preds = %2599, %2601
   %2605 = getelementptr inbounds nuw i8, ptr %2604, i64 4
   store i32 %2603, ptr %2605, align 4, !tbaa !14
   %2606 = getelementptr inbounds nuw i8, ptr %2604, i64 8
-  store i64 0, ptr %2606, align 8, !tbaa !51
+  store i64 0, ptr %2606, align 8, !tbaa !55
   %2607 = getelementptr inbounds nuw i8, ptr %2604, i64 16
-  store i64 %2594, ptr %2607, align 8, !tbaa !53
+  store i64 %2594, ptr %2607, align 8, !tbaa !57
   %2608 = getelementptr inbounds nuw i8, ptr %2604, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2608, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2594, i1 false)
   %2609 = getelementptr inbounds nuw [1 x i8], ptr %2608, i64 0, i64 %2594
@@ -6224,7 +6224,7 @@ zend_string_alloc.exit2262:                       ; preds = %2599, %2601
   br label %.thread2300
 
 2611:                                             ; preds = %2576
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.thread2300
 
 .lr.ph2732:                                       ; preds = %.preheader2412, %.backedge2414
@@ -6240,7 +6240,7 @@ zend_string_alloc.exit2262:                       ; preds = %2599, %2601
   %2615 = getelementptr inbounds nuw i8, ptr %2612, i64 1
   store ptr %2615, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %2616 = icmp ugt ptr %2615, %2
-  br i1 %2616, label %.thread2300, label %.lr.ph2732
+  br i1 %2616, label %.thread2300, label %.lr.ph2732, !llvm.loop !97
 
 2617:                                             ; preds = %.lr.ph2732
   %2618 = icmp ult i8 %2614, 9
@@ -6260,7 +6260,7 @@ zend_string_alloc.exit2262:                       ; preds = %2599, %2601
   %2626 = ptrtoint ptr %.promoted2810 to i64
   %2627 = sub i64 %2625, %2626
   %2628 = trunc i64 %2627 to i32
-  store i32 %2628, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2628, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %2629 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %2630 = add nsw i32 %2629, 1
@@ -6297,7 +6297,7 @@ zend_string_alloc.exit2262:                       ; preds = %2599, %2601
   %2644 = ptrtoint ptr %.promoted2810 to i64
   %2645 = sub i64 %2643, %2644
   %2646 = trunc i64 %2645 to i32
-  store i32 %2646, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2646, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2647 = icmp ugt ptr %2642, %2
   br i1 %2647, label %.thread2300, label %.preheader2417
 
@@ -6327,7 +6327,7 @@ zend_string_alloc.exit2262:                       ; preds = %2599, %2601
 .backedge2419:                                    ; preds = %.lr.ph2728, %2657, %2659, %2664, %2651, %2653
   %.01850.be = phi ptr [ %2649, %2653 ], [ %2649, %2651 ], [ %2649, %.lr.ph2728 ], [ %2649, %2657 ], [ %2660, %2664 ], [ %2660, %2659 ]
   %2656 = icmp ult ptr %.01850.be, %2
-  br i1 %2656, label %.lr.ph2728, label %.loopexit2418
+  br i1 %2656, label %.lr.ph2728, label %.loopexit2418, !llvm.loop !98
 
 2657:                                             ; preds = %.lr.ph2728
   %2658 = icmp ult ptr %2649, %2
@@ -6362,10 +6362,10 @@ select.unfold:                                    ; preds = %2664, %2664, %2663,
   %2669 = ptrtoint ptr %.11851 to i64
   %2670 = sub i64 %2669, %2644
   %2671 = trunc i64 %2670 to i32
-  store i32 %2671, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2671, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %sext2307 = shl i64 %2670, 32
   %2672 = ashr exact i64 %sext2307, 32
-  %2673 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2673 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2674 = trunc nuw i8 %2673 to i1
   %2675 = and i64 %2672, -8
   %2676 = add nsw i64 %2675, 32
@@ -6386,9 +6386,9 @@ zend_string_alloc.exit.i:                         ; preds = %2679, %2677
   %2683 = getelementptr inbounds nuw i8, ptr %2682, i64 4
   store i32 %2681, ptr %2683, align 4, !tbaa !14
   %2684 = getelementptr inbounds nuw i8, ptr %2682, i64 8
-  store i64 0, ptr %2684, align 8, !tbaa !51
+  store i64 0, ptr %2684, align 8, !tbaa !55
   %2685 = getelementptr inbounds nuw i8, ptr %2682, i64 16
-  store i64 %2672, ptr %2685, align 8, !tbaa !53
+  store i64 %2672, ptr %2685, align 8, !tbaa !57
   %2686 = getelementptr inbounds nuw i8, ptr %2682, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2686, ptr nonnull readonly align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2672, i1 false)
   %2687 = getelementptr inbounds nuw [1 x i8], ptr %2686, i64 0, i64 %2672
@@ -6420,7 +6420,7 @@ zend_string_alloc.exit.i:                         ; preds = %2679, %2677
   %.034.be.i = phi ptr [ %2694, %2693 ], [ %.135.i, %2718 ]
   %.0.be.i = phi ptr [ %2692, %2693 ], [ %2719, %2718 ]
   %2695 = icmp ult ptr %.0.be.i, %2687
-  br i1 %2695, label %.lr.ph.i, label %zend_ini_escape_string.exit
+  br i1 %2695, label %.lr.ph.i, label %zend_ini_escape_string.exit, !llvm.loop !99
 
 2696:                                             ; preds = %2691
   %2697 = load i8, ptr %2692, align 1, !tbaa !14
@@ -6435,9 +6435,9 @@ zend_string_alloc.exit.i:                         ; preds = %2679, %2677
   store i8 %2697, ptr %.03442.i, align 1, !tbaa !14
   %2700 = load ptr, ptr %0, align 8, !tbaa !14
   %2701 = getelementptr inbounds nuw i8, ptr %2700, i64 16
-  %2702 = load i64, ptr %2701, align 8, !tbaa !53
+  %2702 = load i64, ptr %2701, align 8, !tbaa !57
   %2703 = add i64 %2702, -1
-  store i64 %2703, ptr %2701, align 8, !tbaa !53
+  store i64 %2703, ptr %2701, align 8, !tbaa !57
   br label %2710
 
 2704:                                             ; preds = %2696
@@ -6498,16 +6498,16 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
   %2727 = getelementptr inbounds nuw [256 x i8], ptr @ini_lex.yybm.8, i64 0, i64 %2726
   %2728 = load i8, ptr %2727, align 1, !tbaa !14
   %.not2101 = icmp sgt i8 %2728, -1
-  br i1 %.not2101, label %2729, label %.preheader2420
+  br i1 %.not2101, label %2729, label %.preheader2420, !llvm.loop !100
 
 2729:                                             ; preds = %2724
   %2730 = ptrtoint ptr %2722 to i64
   %2731 = ptrtoint ptr %.promoted2810 to i64
   %2732 = sub i64 %2730, %2731
   %2733 = trunc i64 %2732 to i32
-  store i32 %2733, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2733, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2734 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
-  %2735 = load i32, ptr %2734, align 4, !tbaa !55
+  %2735 = load i32, ptr %2734, align 4, !tbaa !101
   store i32 %2735, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
   br label %.thread2300
@@ -6522,7 +6522,7 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
 2739:                                             ; preds = %2736
   %2740 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %2740, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2741 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -6536,7 +6536,7 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
 .preheader2432:                                   ; preds = %2742, %2742
   %2743 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %2743, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2743, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2743, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2744 = icmp ugt ptr %2743, %2
   br i1 %2744, label %.thread2300, label %.lr.ph2720
 
@@ -6632,7 +6632,7 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
   %2784 = phi ptr [ %2998, %3005 ], [ %2978, %2983 ], [ %2924, %2940 ], [ %2924, %2937 ], [ %2924, %2936 ], [ %2874, %2895 ], [ %2874, %2884 ], [ %2863, %2866 ], [ %2824, %2840 ], [ %2824, %2837 ], [ %2824, %2834 ], [ %2998, %3023 ], [ %2998, %3022 ], [ %2998, %3019 ], [ %2998, %3015 ], [ %2998, %3009 ], [ %2998, %3008 ], [ %2978, %2987 ], [ %2970, %2968 ], [ %2924, %2944 ], [ %2924, %2943 ], [ %2874, %2899 ], [ %2874, %2898 ], [ %2874, %2894 ], [ %2874, %2888 ], [ %2874, %2887 ], [ %2863, %2867 ], [ %2824, %2844 ], [ %2824, %2843 ], [ %2824, %2832 ], [ %2790, %2789 ], [ %.promoted2810, %2770 ], [ %.promoted2810, %2760 ], [ %.promoted2810, %2751 ], [ %.promoted2810, %2753 ], [ %.promoted2810, %2774 ], [ %.promoted2810, %2768 ], [ %.promoted2810, %2782 ], [ %.promoted2810, %2778 ], [ %.promoted2810, %2756 ], [ %2990, %.lr.ph2725 ]
   %2785 = getelementptr inbounds nuw i8, ptr %2784, i64 1
   store ptr %2785, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2785, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2785, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2786 = icmp ugt ptr %2785, %2
   br i1 %2786, label %.thread2300, label %2787
 
@@ -6669,9 +6669,9 @@ zend_ini_escape_string.exit:                      ; preds = %.backedge.i, %zend_
   %2804 = ptrtoint ptr %.promoted2810 to i64
   %2805 = sub i64 %2803, %2804
   %2806 = trunc i64 %2805 to i32
-  store i32 %2806, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2806, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2807 = and i64 %2805, 4294967295
-  %2808 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2808 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2809 = trunc nuw i8 %2808 to i1
   %2810 = and i64 %2805, 4294967288
   %2811 = add nuw nsw i64 %2810, 32
@@ -6692,9 +6692,9 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
   %2818 = getelementptr inbounds nuw i8, ptr %2817, i64 4
   store i32 %2816, ptr %2818, align 4, !tbaa !14
   %2819 = getelementptr inbounds nuw i8, ptr %2817, i64 8
-  store i64 0, ptr %2819, align 8, !tbaa !51
+  store i64 0, ptr %2819, align 8, !tbaa !55
   %2820 = getelementptr inbounds nuw i8, ptr %2817, i64 16
-  store i64 %2807, ptr %2820, align 8, !tbaa !53
+  store i64 %2807, ptr %2820, align 8, !tbaa !57
   %2821 = getelementptr inbounds nuw i8, ptr %2817, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2821, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2807, i1 false)
   %2822 = getelementptr inbounds nuw [1 x i8], ptr %2821, i64 0, i64 %2807
@@ -6715,9 +6715,9 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
 .backedge2434:                                    ; preds = %.lr.ph2720, %.lr.ph2720
   %2826 = getelementptr inbounds nuw i8, ptr %2824, i64 1
   store ptr %2826, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2826, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2826, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2827 = icmp ugt ptr %2826, %2
-  br i1 %2827, label %.thread2300, label %.lr.ph2720
+  br i1 %2827, label %.thread2300, label %.lr.ph2720, !llvm.loop !102
 
 2828:                                             ; preds = %.lr.ph2720
   %2829 = icmp ult i8 %2825, 37
@@ -6776,7 +6776,7 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
   %2851 = ptrtoint ptr %.promoted2810 to i64
   %2852 = sub i64 %2850, %2851
   %2853 = trunc i64 %2852 to i32
-  store i32 %2853, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2853, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.thread2300
 
 2854:                                             ; preds = %2837, %2753
@@ -6787,7 +6787,7 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
   %2858 = ptrtoint ptr %.promoted2810 to i64
   %2859 = sub i64 %2857, %2858
   %2860 = trunc i64 %2859 to i32
-  store i32 %2860, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2860, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2861 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 5, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -6812,7 +6812,7 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
 2869:                                             ; preds = %2760
   %2870 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %2870, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2870, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2870, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2871 = load i8, ptr %2870, align 1, !tbaa !14
   %2872 = add i8 %2871, -48
   %or.cond486 = icmp ult i8 %2872, 10
@@ -6822,7 +6822,7 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
   %2873 = phi ptr [ %2874, %2876 ], [ %.promoted2810, %2766 ]
   %2874 = getelementptr inbounds nuw i8, ptr %2873, i64 1
   store ptr %2874, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2874, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2874, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2875 = icmp ugt ptr %2874, %2
   br i1 %2875, label %.thread2300, label %2876
 
@@ -6831,7 +6831,7 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
   %2878 = zext i8 %2877 to i64
   %2879 = add nsw i64 %2878, -58
   %.not2081 = icmp ult i64 %2879, -10
-  br i1 %.not2081, label %2880, label %.preheader2428
+  br i1 %.not2081, label %2880, label %.preheader2428, !llvm.loop !103
 
 2880:                                             ; preds = %2876
   %2881 = icmp ult i8 %2877, 39
@@ -6899,9 +6899,9 @@ zend_string_alloc.exit2261:                       ; preds = %2812, %2814
   %2903 = ptrtoint ptr %.promoted2810 to i64
   %2904 = sub i64 %2902, %2903
   %2905 = trunc i64 %2904 to i32
-  store i32 %2905, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2905, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2906 = and i64 %2904, 4294967295
-  %2907 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2907 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2908 = trunc nuw i8 %2907 to i1
   %2909 = and i64 %2904, 4294967288
   %2910 = add nuw nsw i64 %2909, 32
@@ -6922,9 +6922,9 @@ zend_string_alloc.exit2260:                       ; preds = %2911, %2913
   %2917 = getelementptr inbounds nuw i8, ptr %2916, i64 4
   store i32 %2915, ptr %2917, align 4, !tbaa !14
   %2918 = getelementptr inbounds nuw i8, ptr %2916, i64 8
-  store i64 0, ptr %2918, align 8, !tbaa !51
+  store i64 0, ptr %2918, align 8, !tbaa !55
   %2919 = getelementptr inbounds nuw i8, ptr %2916, i64 16
-  store i64 %2906, ptr %2919, align 8, !tbaa !53
+  store i64 %2906, ptr %2919, align 8, !tbaa !57
   %2920 = getelementptr inbounds nuw i8, ptr %2916, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2920, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2906, i1 false)
   %2921 = getelementptr inbounds nuw [1 x i8], ptr %2920, i64 0, i64 %2906
@@ -6938,7 +6938,7 @@ zend_string_alloc.exit2260:                       ; preds = %2911, %2913
   %2923 = phi ptr [ %2924, %2926 ], [ %.promoted2810, %.preheader2430.preheader ]
   %2924 = getelementptr inbounds nuw i8, ptr %2923, i64 1
   store ptr %2924, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2924, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2924, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2925 = icmp ugt ptr %2924, %2
   br i1 %2925, label %.thread2300, label %2926
 
@@ -6949,7 +6949,7 @@ zend_string_alloc.exit2260:                       ; preds = %2911, %2913
   %2930 = load i8, ptr %2929, align 1, !tbaa !14
   %2931 = and i8 %2930, 64
   %.not2077 = icmp eq i8 %2931, 0
-  br i1 %.not2077, label %2932, label %.preheader2430
+  br i1 %.not2077, label %2932, label %.preheader2430, !llvm.loop !104
 
 2932:                                             ; preds = %2926
   %2933 = icmp ult i8 %2927, 37
@@ -6999,9 +6999,9 @@ zend_string_alloc.exit2260:                       ; preds = %2911, %2913
   %2948 = ptrtoint ptr %.promoted2810 to i64
   %2949 = sub i64 %2947, %2948
   %2950 = trunc i64 %2949 to i32
-  store i32 %2950, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %2950, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2951 = and i64 %2949, 4294967295
-  %2952 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %2952 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %2953 = trunc nuw i8 %2952 to i1
   %2954 = and i64 %2949, 4294967288
   %2955 = add nuw nsw i64 %2954, 32
@@ -7022,9 +7022,9 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
   %2962 = getelementptr inbounds nuw i8, ptr %2961, i64 4
   store i32 %2960, ptr %2962, align 4, !tbaa !14
   %2963 = getelementptr inbounds nuw i8, ptr %2961, i64 8
-  store i64 0, ptr %2963, align 8, !tbaa !51
+  store i64 0, ptr %2963, align 8, !tbaa !55
   %2964 = getelementptr inbounds nuw i8, ptr %2961, i64 16
-  store i64 %2951, ptr %2964, align 8, !tbaa !53
+  store i64 %2951, ptr %2964, align 8, !tbaa !57
   %2965 = getelementptr inbounds nuw i8, ptr %2961, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2965, ptr nonnull align 1 %.promoted2810, i64 range(i64 -2147483648, 4294967296) %2951, i1 false)
   %2966 = getelementptr inbounds nuw [1 x i8], ptr %2965, i64 0, i64 %2951
@@ -7044,7 +7044,7 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
 2972:                                             ; preds = %2782
   %2973 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %2973, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   tail call fastcc void @yy_pop_state()
   br label %.thread2300
 
@@ -7098,12 +7098,12 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
   %2992 = getelementptr inbounds nuw i8, ptr %2990, i64 1
   store ptr %2992, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %2993 = icmp ugt ptr %2992, %2
-  br i1 %2993, label %.thread2300, label %.lr.ph2725
+  br i1 %2993, label %.thread2300, label %.lr.ph2725, !llvm.loop !105
 
 2994:                                             ; preds = %2867
   %2995 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %2995, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %2996 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
   store i32 7, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
@@ -7112,7 +7112,7 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
   %2997 = phi ptr [ %2998, %3017 ], [ %.ph4160, %.preheader2426.preheader ]
   %2998 = getelementptr inbounds nuw i8, ptr %2997, i64 1
   store ptr %2998, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store ptr %2998, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !54
+  store ptr %2998, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 48), align 8, !tbaa !71
   %2999 = icmp ugt ptr %2998, %2
   br i1 %2999, label %.thread2300, label %3000
 
@@ -7157,7 +7157,7 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
 
 3017:                                             ; preds = %3013
   %3018 = icmp samesign ult i8 %3001, 58
-  br i1 %3018, label %.preheader2426, label %3019
+  br i1 %3018, label %.preheader2426, label %3019, !llvm.loop !106
 
 3019:                                             ; preds = %3017
   %.not2089 = icmp eq i8 %3001, 59
@@ -7253,7 +7253,7 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
 3058:                                             ; preds = %3048, %3048, %3051, %3036, %3033, %3056, %3047, %3038, %3031
   %3059 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %3059, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.thread2300
 
 3060:                                             ; preds = %3048, %3038, %3031, %3056, %3051, %3045, %3036, %3033
@@ -7267,7 +7267,7 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
   %3064 = ptrtoint ptr %.promoted2810 to i64
   %3065 = sub i64 %3063, %3064
   %3066 = trunc i64 %3065 to i32
-  store i32 %3066, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3066, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %3067 = load i8, ptr %.promoted2704, align 1, !tbaa !14
   %3068 = icmp eq i8 %3067, 58
   br i1 %3068, label %3069, label %3074
@@ -7326,14 +7326,14 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
 
 .backedge2436:                                    ; preds = %3081, %.lr.ph2706
   %exitcond.not = icmp eq ptr %3079, %scevgep
-  br i1 %exitcond.not, label %.loopexit2435, label %.lr.ph2706
+  br i1 %exitcond.not, label %.loopexit2435, label %.lr.ph2706, !llvm.loop !107
 
 3084:                                             ; preds = %3081, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706, %.lr.ph2706
   store ptr %3078, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %3085 = ptrtoint ptr %3078 to i64
   %3086 = sub i64 %3085, %3064
   %3087 = trunc i64 %3086 to i32
-  store i32 %3087, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3087, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.loopexit2435
 
 .loopexit2435:                                    ; preds = %.backedge2436, %3074, %3084
@@ -7354,9 +7354,9 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
   %3092 = getelementptr inbounds nuw i8, ptr %3089, i64 1
   store ptr %3092, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %3093 = add i32 %3088, -1
-  store i32 %3093, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3093, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2074 = icmp eq i32 %3093, 0
-  br i1 %.not2074, label %.critedge59, label %.lr.ph2710
+  br i1 %.not2074, label %.critedge59, label %.lr.ph2710, !llvm.loop !108
 
 .lr.ph2715:                                       ; preds = %.lr.ph2710
   %3094 = zext i32 %3088 to i64
@@ -7377,9 +7377,9 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
 
 .critedge61:                                      ; preds = %3095, %3095, %3095, %3095
   %indvars3041 = trunc i64 %indvars.iv.next3040 to i32
-  store i32 %indvars3041, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %indvars3041, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2075 = icmp eq i32 %indvars3041, 0
-  br i1 %.not2075, label %.critedge59.loopexit, label %3095
+  br i1 %.not2075, label %.critedge59.loopexit, label %3095, !llvm.loop !109
 
 .critedge59.loopexit:                             ; preds = %3095, %.critedge61
   %.lcssa2533.ph = phi i64 [ 0, %.critedge61 ], [ %indvars.iv3039, %3095 ]
@@ -7389,7 +7389,7 @@ zend_string_alloc.exit2259:                       ; preds = %2956, %2958
 .critedge59:                                      ; preds = %3091, %.loopexit2435, %.critedge59.loopexit
   %3100 = phi ptr [ %3089, %.critedge59.loopexit ], [ %.promoted2810, %.loopexit2435 ], [ %3092, %3091 ]
   %.lcssa2533 = phi i64 [ %3099, %.critedge59.loopexit ], [ 0, %.loopexit2435 ], [ 0, %3091 ]
-  %3101 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %3101 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %3102 = trunc nuw i8 %3101 to i1
   %3103 = and i64 %.lcssa2533, 4294967288
   %3104 = add nuw nsw i64 %3103, 32
@@ -7410,9 +7410,9 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
   %3111 = getelementptr inbounds nuw i8, ptr %3110, i64 4
   store i32 %3109, ptr %3111, align 4, !tbaa !14
   %3112 = getelementptr inbounds nuw i8, ptr %3110, i64 8
-  store i64 0, ptr %3112, align 8, !tbaa !51
+  store i64 0, ptr %3112, align 8, !tbaa !55
   %3113 = getelementptr inbounds nuw i8, ptr %3110, i64 16
-  store i64 %.lcssa2533, ptr %3113, align 8, !tbaa !53
+  store i64 %.lcssa2533, ptr %3113, align 8, !tbaa !57
   %3114 = getelementptr inbounds nuw i8, ptr %3110, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3114, ptr nonnull align 1 %3100, i64 range(i64 -2147483648, 4294967296) %.lcssa2533, i1 false)
   %3115 = getelementptr inbounds nuw [1 x i8], ptr %3114, i64 0, i64 %.lcssa2533
@@ -7432,9 +7432,9 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
 3121:                                             ; preds = %3054
   %3122 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %3122, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %3123 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
-  %3124 = load i32, ptr %3123, align 4, !tbaa !55
+  %3124 = load i32, ptr %3123, align 4, !tbaa !101
   store i32 %3124, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
   br label %.thread2300
@@ -7442,12 +7442,12 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
 3125:                                             ; preds = %3117
   %3126 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 2
   store ptr %3126, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %3127
 
 3127:                                             ; preds = %3125, %3073
   %3128 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
-  %3129 = load i32, ptr %3128, align 4, !tbaa !55
+  %3129 = load i32, ptr %3128, align 4, !tbaa !101
   store i32 %3129, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
   %3130 = tail call i32 @zend_stack_push(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72), ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64)) #11
@@ -7495,7 +7495,7 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
 3145:                                             ; preds = %3135
   %3146 = getelementptr inbounds nuw i8, ptr %.promoted2810, i64 1
   store ptr %3146, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
-  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   br label %.thread2300
 
@@ -7510,7 +7510,7 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
   %3149 = ptrtoint ptr %.promoted2810 to i64
   %3150 = sub i64 %3148, %3149
   %3151 = trunc i64 %3150 to i32
-  store i32 %3151, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3151, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not20672682 = icmp eq i32 %3151, 0
   br i1 %.not20672682, label %._crit_edge2686, label %.lr.ph2685
 
@@ -7527,9 +7527,9 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
   %3155 = getelementptr inbounds nuw i8, ptr %3152, i64 1
   store ptr %3155, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %3156 = add i32 %storemerge2683, -1
-  store i32 %3156, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3156, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2067 = icmp eq i32 %3156, 0
-  br i1 %.not2067, label %._crit_edge2686, label %.lr.ph2685
+  br i1 %.not2067, label %._crit_edge2686, label %.lr.ph2685, !llvm.loop !110
 
 ._crit_edge2686:                                  ; preds = %3154, %.lr.ph2685, %.loopexit2448
   %3157 = phi ptr [ %.promoted2810, %.loopexit2448 ], [ %3155, %3154 ], [ %3152, %.lr.ph2685 ]
@@ -7563,7 +7563,7 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
   %3167 = getelementptr inbounds nuw i8, ptr %3159, i64 1
   store ptr %3167, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 40), align 8, !tbaa !27
   %3168 = icmp ult ptr %3167, %2
-  br i1 %3168, label %.lr.ph2691, label %._crit_edge2692.loopexit
+  br i1 %3168, label %.lr.ph2691, label %._crit_edge2692.loopexit, !llvm.loop !111
 
 ._crit_edge2692.loopexit:                         ; preds = %3166, %.lr.ph2691, %.lr.ph2691
   %.01838.lcssa.ph = phi ptr [ %.018382689, %.lr.ph2691 ], [ %.018382689, %.lr.ph2691 ], [ %.21840, %3166 ]
@@ -7580,7 +7580,7 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
   %storemerge2069.in.v = select i1 %.not2068, i64 %.pre-phi, i64 %3170
   %storemerge2069.in = sub i64 %storemerge2069.in.v, %3169
   %storemerge2069 = trunc i64 %storemerge2069.in to i32
-  store i32 %storemerge2069, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %storemerge2069, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not20712700 = icmp eq i32 %storemerge2069, 0
   br i1 %.not20712700, label %.critedge65.thread, label %.lr.ph2703
 
@@ -7604,9 +7604,9 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
 
 .critedge67:                                      ; preds = %3172, %3172, %3172, %3172
   %indvars = trunc i64 %indvars.iv.next to i32
-  store i32 %indvars, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %indvars, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   %.not2071 = icmp eq i32 %indvars, 0
-  br i1 %.not2071, label %.critedge65.thread, label %3172
+  br i1 %.not2071, label %.critedge65.thread, label %3172, !llvm.loop !112
 
 .critedge65:                                      ; preds = %3172
   %3177 = trunc nuw i64 %indvars.iv to i32
@@ -7630,7 +7630,7 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
   %3188 = getelementptr inbounds nuw i8, ptr %3157, i64 1
   store ptr %3188, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 32), align 8, !tbaa !30
   %3189 = add i32 %3177, -2
-  store i32 %3189, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3189, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.critedge65.thread
 
 .critedge65.thread:                               ; preds = %.critedge67, %._crit_edge2692, %3187, %3181, %3178, %.critedge65
@@ -7648,7 +7648,7 @@ zend_string_alloc.exit2258:                       ; preds = %3105, %3107
 
 3195:                                             ; preds = %3194, %3194
   %3196 = sext i32 %3190 to i64
-  %3197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %3197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %3198 = trunc nuw i8 %3197 to i1
   %3199 = and i64 %3196, -8
   %3200 = add nsw i64 %3199, 32
@@ -7669,9 +7669,9 @@ zend_ini_copy_typed_value.exit2293:               ; preds = %3201, %3203
   %3207 = getelementptr inbounds nuw i8, ptr %3206, i64 4
   store i32 %3205, ptr %3207, align 4, !tbaa !14
   %3208 = getelementptr inbounds nuw i8, ptr %3206, i64 8
-  store i64 0, ptr %3208, align 8, !tbaa !51
+  store i64 0, ptr %3208, align 8, !tbaa !55
   %3209 = getelementptr inbounds nuw i8, ptr %3206, i64 16
-  store i64 %3196, ptr %3209, align 8, !tbaa !53
+  store i64 %3196, ptr %3209, align 8, !tbaa !57
   %3210 = getelementptr inbounds nuw i8, ptr %3206, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3210, ptr readonly align 1 %3191, i64 range(i64 -2147483648, 4294967296) %3196, i1 false)
   %3211 = getelementptr inbounds nuw [1 x i8], ptr %3210, i64 0, i64 %3196
@@ -7685,7 +7685,7 @@ zend_ini_copy_typed_value.exit2293:               ; preds = %3201, %3203
 
 3214:                                             ; preds = %3194, %.critedge65.thread
   %3215 = zext i32 %3190 to i64
-  %3216 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %3216 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %3217 = trunc nuw i8 %3216 to i1
   %3218 = and i64 %3215, 4294967288
   %3219 = add nuw nsw i64 %3218, 32
@@ -7706,9 +7706,9 @@ zend_string_alloc.exit:                           ; preds = %3220, %3222
   %3226 = getelementptr inbounds nuw i8, ptr %3225, i64 4
   store i32 %3224, ptr %3226, align 4, !tbaa !14
   %3227 = getelementptr inbounds nuw i8, ptr %3225, i64 8
-  store i64 0, ptr %3227, align 8, !tbaa !51
+  store i64 0, ptr %3227, align 8, !tbaa !55
   %3228 = getelementptr inbounds nuw i8, ptr %3225, i64 16
-  store i64 %3215, ptr %3228, align 8, !tbaa !53
+  store i64 %3215, ptr %3228, align 8, !tbaa !57
   %3229 = getelementptr inbounds nuw i8, ptr %3225, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %3229, ptr align 1 %3191, i64 range(i64 -2147483648, 4294967296) %3215, i1 false)
   %3230 = getelementptr inbounds nuw [1 x i8], ptr %3229, i64 0, i64 %3215
@@ -7762,7 +7762,7 @@ zend_string_alloc.exit:                           ; preds = %3220, %3222
   %3251 = ptrtoint ptr %.promoted2810 to i64
   %3252 = sub i64 %3250, %3251
   %3253 = trunc i64 %3252 to i32
-  store i32 %3253, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3253, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %3254 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %3255 = add nsw i32 %3254, 1
@@ -7789,7 +7789,7 @@ zend_string_alloc.exit:                           ; preds = %3220, %3222
   switch i8 %3265, label %.preheader2437 [
     i8 13, label %3266
     i8 10, label %3266
-  ]
+  ], !llvm.loop !113
 
 3266:                                             ; preds = %3264, %3264
   %3267 = icmp samesign ult i8 %3265, 11
@@ -7797,7 +7797,7 @@ zend_string_alloc.exit:                           ; preds = %3220, %3222
 
 3268:                                             ; preds = %3271
   %3269 = load i8, ptr %3272, align 1, !tbaa !14
-  br label %.preheader2444
+  br label %.preheader2444, !llvm.loop !114
 
 .preheader2444:                                   ; preds = %.preheader2444.preheader, %3268
   %3270 = phi ptr [ %3272, %3268 ], [ %3233, %.preheader2444.preheader ]
@@ -7841,7 +7841,7 @@ zend_string_alloc.exit:                           ; preds = %3220, %3222
   %3286 = ptrtoint ptr %.promoted2810 to i64
   %3287 = sub i64 %3285, %3286
   %3288 = trunc i64 %3287 to i32
-  store i32 %3288, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %3288, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   store i32 0, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   %3289 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 104), align 8, !tbaa !17
   %3290 = add nsw i32 %3289, 1
@@ -7861,7 +7861,7 @@ zend_string_alloc.exit:                           ; preds = %3220, %3222
   %3297 = ptrtoint ptr %.promoted2810 to i64
   %3298 = sub i64 %3296, %3297
   %storemerge2305 = trunc i64 %3298 to i32
-  store i32 %storemerge2305, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !31
+  store i32 %storemerge2305, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 16), align 8, !tbaa !33
   br label %.backedge2454
 
 .thread2300:                                      ; preds = %.preheader2439, %3271, %.preheader2442, %.backedge2441, %.preheader2437, %.backedge2434, %.preheader2430, %.preheader2428, %.preheader2426, %.backedge2425, %.preheader2420, %.preheader2415, %.backedge2414, %.backedge2411, %.backedge2408, %.preheader2403, %.preheader2401, %.preheader2397, %.preheader2395, %.backedge2394, %.backedge2390, %.backedge2387, %.backedge2383, %.preheader2378, %1508, %.preheader2375, %.preheader2373, %.backedge2372, %.backedge2370, %1579, %.loopexit2361, %.preheader2357, %.preheader2353, %.backedge2352, %.preheader2345, %.backedge2344, %.preheader2337, %.backedge2336, %.backedge2332, %.preheader2328, %.backedge2327, %.backedge2324, %.preheader2320, %.preheader2318, %.preheader2314, %.preheader2312, %.backedge, %.preheader2432, %.preheader2422, %.preheader2412, %.preheader2409, %.preheader2405, %.preheader2391, %.preheader2388, %.preheader2384, %.preheader2380, %1347, %.preheader2367, %.preheader2362, %.preheader2349, %.preheader2341, %.preheader2333, %.preheader2330, %.preheader2325, %.preheader2322, %.preheader, %zend_ini_copy_typed_value.exit2293, %zend_string_alloc.exit, %zend_string_alloc.exit2258, %2974, %2968, %zend_string_alloc.exit2259, %zend_string_alloc.exit2260, %zend_string_alloc.exit2261, %.loopexit2424, %2641, %zend_string_alloc.exit2262, %2552, %zend_string_alloc.exit2263, %2286, %zend_string_alloc.exit2264, %2164, %zend_string_alloc.exit2265, %2028, %zend_string_alloc.exit2266, %1853, %1626, %zend_string_alloc.exit2267, %1551, %zend_string_alloc.exit2268, %zend_ini_copy_typed_value.exit2286, %zend_string_alloc.exit2269, %1377, %zend_string_alloc.exit2270, %.loopexit2359, %1323, %zend_string_alloc.exit2271, %1237, %1213, %1193, %zend_string_alloc.exit2272, %1140, %zend_string_alloc.exit2273, %zend_ini_copy_typed_value.exit2285, %zend_string_alloc.exit2274, %.loopexit2393, %zend_string_alloc.exit2275, %858, %847, %zend_string_alloc.exit2276, %zend_string_alloc.exit2277, %zend_string_alloc.exit2278, %.loopexit, %603, %zend_string_alloc.exit2279, %467, %zend_string_alloc.exit2280, %398, %zend_string_alloc.exit2281, %zend_ini_copy_typed_value.exit, %zend_string_alloc.exit2283, %.loopexit2339, %3283, %3248, %3145, %3121, %3058, %3127, %2972, %2994, %2848, %2854, %2739, %zend_ini_escape_string.exit, %2729, %2623, %2611, %1578, %1877, %1479, %1352, %1925, %1486, %1462, %.loopexit2407, %1257, %1077, %1083, %878, %723, %851, %729, %298, %244, %98, %259, %343, %192, %zend_string_alloc.exit2282, %._crit_edge, %10
@@ -7877,7 +7877,7 @@ define internal fastcc void @zend_ini_copy_typed_value(ptr noundef writeonly cap
 
 6:                                                ; preds = %4
   %7 = sext i32 %3 to i64
-  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !32, !range !49, !noundef !50
+  %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 84), align 4, !tbaa !36, !range !53, !noundef !54
   %9 = trunc nuw i8 %8 to i1
   %10 = and i64 %7, -8
   %11 = add nsw i64 %10, 32
@@ -7898,9 +7898,9 @@ zend_string_alloc.exit:                           ; preds = %12, %14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %16, ptr %18, align 4, !tbaa !14
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 0, ptr %19, align 8, !tbaa !51
+  store i64 0, ptr %19, align 8, !tbaa !55
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 %7, ptr %20, align 8, !tbaa !53
+  store i64 %7, ptr %20, align 8, !tbaa !57
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr align 1 %2, i64 range(i64 -2147483648, 4294967296) %7, i1 false)
   %22 = getelementptr inbounds nuw [1 x i8], ptr %21, i64 0, i64 %7
@@ -7922,7 +7922,7 @@ switch.lookup:                                    ; preds = %4
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @yy_pop_state() unnamed_addr #0 {
   %1 = tail call ptr @zend_stack_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
-  %2 = load i32, ptr %1, align 4, !tbaa !55
+  %2 = load i32, ptr %1, align 4, !tbaa !101
   store i32 %2, ptr getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 64), align 8, !tbaa !24
   tail call void @zend_stack_del_top(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ini_scanner_globals, i64 72)) #11
   ret void
@@ -8011,28 +8011,87 @@ attributes #13 = { nounwind allocsize(0) }
 !28 = !{!5, !11, i64 24}
 !29 = !{!5, !11, i64 56}
 !30 = !{!5, !11, i64 32}
-!31 = !{!5, !10, i64 16}
-!32 = !{!33, !22, i64 84}
-!33 = !{!"_zend_compiler_globals", !12, i64 0, !34, i64 24, !13, i64 32, !10, i64 40, !35, i64 48, !36, i64 56, !36, i64 64, !36, i64 72, !8, i64 80, !22, i64 81, !22, i64 82, !22, i64 83, !22, i64 84, !37, i64 88, !39, i64 144, !22, i64 152, !22, i64 153, !22, i64 154, !22, i64 155, !13, i64 160, !10, i64 168, !10, i64 172, !40, i64 176, !43, i64 256, !46, i64 360, !45, i64 368, !47, i64 424, !23, i64 432, !22, i64 440, !22, i64 441, !22, i64 442, !48, i64 448, !46, i64 456, !12, i64 464, !36, i64 488, !10, i64 496, !7, i64 504, !7, i64 512, !23, i64 520, !23, i64 528, !36, i64 536, !36, i64 544, !36, i64 552, !34, i64 560, !10, i64 568, !7, i64 576, !10, i64 584, !12, i64 592}
-!34 = !{!"p1 _ZTS17_zend_class_entry", !7, i64 0}
-!35 = !{!"p1 _ZTS14_zend_op_array", !7, i64 0}
-!36 = !{!"p1 _ZTS11_zend_array", !7, i64 0}
-!37 = !{!"_zend_llist", !38, i64 0, !38, i64 8, !23, i64 16, !23, i64 24, !7, i64 32, !8, i64 40, !38, i64 48}
-!38 = !{!"p1 _ZTS19_zend_llist_element", !7, i64 0}
-!39 = !{!"p1 _ZTS22_zend_ini_parser_param", !7, i64 0}
-!40 = !{!"_zend_oparray_context", !41, i64 0, !35, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !42, i64 48, !36, i64 56, !13, i64 64, !10, i64 72, !22, i64 76}
-!41 = !{!"p1 _ZTS21_zend_oparray_context", !7, i64 0}
-!42 = !{!"p1 _ZTS22_zend_brk_cont_element", !7, i64 0}
-!43 = !{!"_zend_file_context", !44, i64 0, !13, i64 8, !22, i64 16, !22, i64 17, !36, i64 24, !36, i64 32, !36, i64 40, !45, i64 48}
-!44 = !{!"_zend_declarables", !23, i64 0}
-!45 = !{!"_zend_array", !16, i64 0, !8, i64 8, !10, i64 12, !8, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !23, i64 40, !7, i64 48}
-!46 = !{!"p1 _ZTS11_zend_arena", !7, i64 0}
-!47 = !{!"p2 _ZTS14_zend_encoding", !7, i64 0}
-!48 = !{!"p1 _ZTS9_zend_ast", !7, i64 0}
-!49 = !{i8 0, i8 2}
-!50 = !{}
-!51 = !{!52, !23, i64 8}
-!52 = !{!"_zend_string", !16, i64 0, !23, i64 8, !23, i64 16, !8, i64 24}
-!53 = !{!52, !23, i64 16}
-!54 = !{!5, !11, i64 48}
-!55 = !{!10, !10, i64 0}
+!31 = distinct !{!31, !32}
+!32 = !{!"llvm.loop.estimated_trip_count"}
+!33 = !{!5, !10, i64 16}
+!34 = distinct !{!34, !32}
+!35 = distinct !{!35, !32}
+!36 = !{!37, !22, i64 84}
+!37 = !{!"_zend_compiler_globals", !12, i64 0, !38, i64 24, !13, i64 32, !10, i64 40, !39, i64 48, !40, i64 56, !40, i64 64, !40, i64 72, !8, i64 80, !22, i64 81, !22, i64 82, !22, i64 83, !22, i64 84, !41, i64 88, !43, i64 144, !22, i64 152, !22, i64 153, !22, i64 154, !22, i64 155, !13, i64 160, !10, i64 168, !10, i64 172, !44, i64 176, !47, i64 256, !50, i64 360, !49, i64 368, !51, i64 424, !23, i64 432, !22, i64 440, !22, i64 441, !22, i64 442, !52, i64 448, !50, i64 456, !12, i64 464, !40, i64 488, !10, i64 496, !7, i64 504, !7, i64 512, !23, i64 520, !23, i64 528, !40, i64 536, !40, i64 544, !40, i64 552, !38, i64 560, !10, i64 568, !7, i64 576, !10, i64 584, !12, i64 592}
+!38 = !{!"p1 _ZTS17_zend_class_entry", !7, i64 0}
+!39 = !{!"p1 _ZTS14_zend_op_array", !7, i64 0}
+!40 = !{!"p1 _ZTS11_zend_array", !7, i64 0}
+!41 = !{!"_zend_llist", !42, i64 0, !42, i64 8, !23, i64 16, !23, i64 24, !7, i64 32, !8, i64 40, !42, i64 48}
+!42 = !{!"p1 _ZTS19_zend_llist_element", !7, i64 0}
+!43 = !{!"p1 _ZTS22_zend_ini_parser_param", !7, i64 0}
+!44 = !{!"_zend_oparray_context", !45, i64 0, !39, i64 8, !10, i64 16, !10, i64 20, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !10, i64 40, !46, i64 48, !40, i64 56, !13, i64 64, !10, i64 72, !22, i64 76}
+!45 = !{!"p1 _ZTS21_zend_oparray_context", !7, i64 0}
+!46 = !{!"p1 _ZTS22_zend_brk_cont_element", !7, i64 0}
+!47 = !{!"_zend_file_context", !48, i64 0, !13, i64 8, !22, i64 16, !22, i64 17, !40, i64 24, !40, i64 32, !40, i64 40, !49, i64 48}
+!48 = !{!"_zend_declarables", !23, i64 0}
+!49 = !{!"_zend_array", !16, i64 0, !8, i64 8, !10, i64 12, !8, i64 16, !10, i64 24, !10, i64 28, !10, i64 32, !10, i64 36, !23, i64 40, !7, i64 48}
+!50 = !{!"p1 _ZTS11_zend_arena", !7, i64 0}
+!51 = !{!"p2 _ZTS14_zend_encoding", !7, i64 0}
+!52 = !{!"p1 _ZTS9_zend_ast", !7, i64 0}
+!53 = !{i8 0, i8 2}
+!54 = !{}
+!55 = !{!56, !23, i64 8}
+!56 = !{!"_zend_string", !16, i64 0, !23, i64 8, !23, i64 16, !8, i64 24}
+!57 = !{!56, !23, i64 16}
+!58 = distinct !{!58, !32}
+!59 = distinct !{!59, !32}
+!60 = distinct !{!60, !32}
+!61 = distinct !{!61, !32}
+!62 = distinct !{!62, !32}
+!63 = distinct !{!63, !32}
+!64 = distinct !{!64, !32}
+!65 = distinct !{!65, !32}
+!66 = distinct !{!66, !32}
+!67 = distinct !{!67, !32}
+!68 = distinct !{!68, !32}
+!69 = distinct !{!69, !32}
+!70 = distinct !{!70, !32}
+!71 = !{!5, !11, i64 48}
+!72 = distinct !{!72, !32}
+!73 = distinct !{!73, !32}
+!74 = distinct !{!74, !32}
+!75 = distinct !{!75, !32}
+!76 = distinct !{!76, !32}
+!77 = distinct !{!77, !32}
+!78 = distinct !{!78, !32}
+!79 = distinct !{!79, !32}
+!80 = distinct !{!80, !32}
+!81 = distinct !{!81, !32}
+!82 = distinct !{!82, !32}
+!83 = distinct !{!83, !32}
+!84 = distinct !{!84, !32}
+!85 = distinct !{!85, !32}
+!86 = distinct !{!86, !32}
+!87 = distinct !{!87, !32}
+!88 = distinct !{!88, !32}
+!89 = distinct !{!89, !32}
+!90 = distinct !{!90, !32}
+!91 = distinct !{!91, !32}
+!92 = distinct !{!92, !32}
+!93 = distinct !{!93, !32}
+!94 = distinct !{!94, !32}
+!95 = distinct !{!95, !32}
+!96 = distinct !{!96, !32}
+!97 = distinct !{!97, !32}
+!98 = distinct !{!98, !32}
+!99 = distinct !{!99, !32}
+!100 = distinct !{!100, !32}
+!101 = !{!10, !10, i64 0}
+!102 = distinct !{!102, !32}
+!103 = distinct !{!103, !32}
+!104 = distinct !{!104, !32}
+!105 = distinct !{!105, !32}
+!106 = distinct !{!106, !32}
+!107 = distinct !{!107, !32}
+!108 = distinct !{!108, !32}
+!109 = distinct !{!109, !32}
+!110 = distinct !{!110, !32}
+!111 = distinct !{!111, !32}
+!112 = distinct !{!112, !32}
+!113 = distinct !{!113, !32}
+!114 = distinct !{!114, !32}

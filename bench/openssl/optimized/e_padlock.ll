@@ -1307,13 +1307,13 @@ define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr no
   store i32 %110, ptr %75, align 4, !tbaa !12
   %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next102.i, 4
-  br i1 %exitcond.not.i, label %111, label %74, !llvm.loop !22
+  br i1 %exitcond.not.i, label %111, label %74, !llvm.loop !23
 
 111:                                              ; preds = %74
   %112 = add nuw nsw i32 %.193.i, 1
   %113 = load i32, ptr %50, align 4, !tbaa !18
   %114 = icmp slt i32 %112, %113
-  br i1 %114, label %.lr.ph95.i, label %padlock_aes_set_decrypt_key.exit, !llvm.loop !23
+  br i1 %114, label %.lr.ph95.i, label %padlock_aes_set_decrypt_key.exit, !llvm.loop !24
 
 padlock_aes_set_decrypt_key.exit:                 ; preds = %111, %43, %.preheader.i, %49
   %115 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -1410,80 +1410,80 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   br label %14
 
 14:                                               ; preds = %12, %13, %7
-  %15 = load i8, ptr %0, align 1, !tbaa !24
+  %15 = load i8, ptr %0, align 1, !tbaa !25
   %16 = zext i8 %15 to i32
   %17 = shl nuw i32 %16, 24
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %19 = load i8, ptr %18, align 1, !tbaa !24
+  %19 = load i8, ptr %18, align 1, !tbaa !25
   %20 = zext i8 %19 to i32
   %21 = shl nuw nsw i32 %20, 16
   %22 = or disjoint i32 %21, %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %24 = load i8, ptr %23, align 1, !tbaa !24
+  %24 = load i8, ptr %23, align 1, !tbaa !25
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 8
   %27 = or disjoint i32 %22, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %29 = load i8, ptr %28, align 1, !tbaa !24
+  %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   store i32 %31, ptr %2, align 4, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %33 = load i8, ptr %32, align 1, !tbaa !24
+  %33 = load i8, ptr %32, align 1, !tbaa !25
   %34 = zext i8 %33 to i32
   %35 = shl nuw i32 %34, 24
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  %37 = load i8, ptr %36, align 1, !tbaa !24
+  %37 = load i8, ptr %36, align 1, !tbaa !25
   %38 = zext i8 %37 to i32
   %39 = shl nuw nsw i32 %38, 16
   %40 = or disjoint i32 %39, %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %42 = load i8, ptr %41, align 1, !tbaa !24
+  %42 = load i8, ptr %41, align 1, !tbaa !25
   %43 = zext i8 %42 to i32
   %44 = shl nuw nsw i32 %43, 8
   %45 = or disjoint i32 %40, %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 7
-  %47 = load i8, ptr %46, align 1, !tbaa !24
+  %47 = load i8, ptr %46, align 1, !tbaa !25
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %49, ptr %50, align 4, !tbaa !12
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load i8, ptr %51, align 1, !tbaa !24
+  %52 = load i8, ptr %51, align 1, !tbaa !25
   %53 = zext i8 %52 to i32
   %54 = shl nuw i32 %53, 24
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %56 = load i8, ptr %55, align 1, !tbaa !24
+  %56 = load i8, ptr %55, align 1, !tbaa !25
   %57 = zext i8 %56 to i32
   %58 = shl nuw nsw i32 %57, 16
   %59 = or disjoint i32 %58, %54
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %61 = load i8, ptr %60, align 1, !tbaa !24
+  %61 = load i8, ptr %60, align 1, !tbaa !25
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 8
   %64 = or disjoint i32 %59, %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 11
-  %66 = load i8, ptr %65, align 1, !tbaa !24
+  %66 = load i8, ptr %65, align 1, !tbaa !25
   %67 = zext i8 %66 to i32
   %68 = or disjoint i32 %64, %67
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %68, ptr %69, align 4, !tbaa !12
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %71 = load i8, ptr %70, align 1, !tbaa !24
+  %71 = load i8, ptr %70, align 1, !tbaa !25
   %72 = zext i8 %71 to i32
   %73 = shl nuw i32 %72, 24
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 13
-  %75 = load i8, ptr %74, align 1, !tbaa !24
+  %75 = load i8, ptr %74, align 1, !tbaa !25
   %76 = zext i8 %75 to i32
   %77 = shl nuw nsw i32 %76, 16
   %78 = or disjoint i32 %77, %73
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 14
-  %80 = load i8, ptr %79, align 1, !tbaa !24
+  %80 = load i8, ptr %79, align 1, !tbaa !25
   %81 = zext i8 %80 to i32
   %82 = shl nuw nsw i32 %81, 8
   %83 = or disjoint i32 %78, %82
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 15
-  %85 = load i8, ptr %84, align 1, !tbaa !24
+  %85 = load i8, ptr %84, align 1, !tbaa !25
   %86 = zext i8 %85 to i32
   %87 = or disjoint i32 %83, %86
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1500,7 +1500,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %93 = and i32 %92, 255
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !24
+  %96 = load i8, ptr %95, align 1, !tbaa !25
   %97 = zext i8 %96 to i32
   %98 = shl nuw i32 %97, 24
   %99 = xor i32 %98, %89
@@ -1508,21 +1508,21 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %101 = and i32 %100, 255
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %102
-  %104 = load i8, ptr %103, align 1, !tbaa !24
+  %104 = load i8, ptr %103, align 1, !tbaa !25
   %105 = zext i8 %104 to i32
   %106 = shl nuw nsw i32 %105, 16
   %107 = xor i32 %99, %106
   %108 = and i32 %91, 255
   %109 = zext nneg i32 %108 to i64
   %110 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %109
-  %111 = load i8, ptr %110, align 1, !tbaa !24
+  %111 = load i8, ptr %110, align 1, !tbaa !25
   %112 = zext i8 %111 to i32
   %113 = shl nuw nsw i32 %112, 8
   %114 = xor i32 %107, %113
   %115 = lshr i32 %91, 24
   %116 = zext nneg i32 %115 to i64
   %117 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %116
-  %118 = load i8, ptr %117, align 1, !tbaa !24
+  %118 = load i8, ptr %117, align 1, !tbaa !25
   %119 = zext i8 %118 to i32
   %120 = xor i32 %114, %119
   %121 = getelementptr inbounds nuw [10 x i32], ptr @rcon, i64 0, i64 %indvars.iv159
@@ -1545,45 +1545,45 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   store i32 %133, ptr %134, align 4, !tbaa !12
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %135 = icmp eq i64 %indvars.iv.next160, 10
-  br i1 %135, label %.loopexit, label %.preheader
+  br i1 %135, label %.loopexit, label %.preheader, !llvm.loop !26
 
 136:                                              ; preds = %14
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %138 = load i8, ptr %137, align 1, !tbaa !24
+  %138 = load i8, ptr %137, align 1, !tbaa !25
   %139 = zext i8 %138 to i32
   %140 = shl nuw i32 %139, 24
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %142 = load i8, ptr %141, align 1, !tbaa !24
+  %142 = load i8, ptr %141, align 1, !tbaa !25
   %143 = zext i8 %142 to i32
   %144 = shl nuw nsw i32 %143, 16
   %145 = or disjoint i32 %144, %140
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %147 = load i8, ptr %146, align 1, !tbaa !24
+  %147 = load i8, ptr %146, align 1, !tbaa !25
   %148 = zext i8 %147 to i32
   %149 = shl nuw nsw i32 %148, 8
   %150 = or disjoint i32 %145, %149
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %152 = load i8, ptr %151, align 1, !tbaa !24
+  %152 = load i8, ptr %151, align 1, !tbaa !25
   %153 = zext i8 %152 to i32
   %154 = or disjoint i32 %150, %153
   %155 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %154, ptr %155, align 4, !tbaa !12
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %157 = load i8, ptr %156, align 1, !tbaa !24
+  %157 = load i8, ptr %156, align 1, !tbaa !25
   %158 = zext i8 %157 to i32
   %159 = shl nuw i32 %158, 24
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %161 = load i8, ptr %160, align 1, !tbaa !24
+  %161 = load i8, ptr %160, align 1, !tbaa !25
   %162 = zext i8 %161 to i32
   %163 = shl nuw nsw i32 %162, 16
   %164 = or disjoint i32 %163, %159
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %166 = load i8, ptr %165, align 1, !tbaa !24
+  %166 = load i8, ptr %165, align 1, !tbaa !25
   %167 = zext i8 %166 to i32
   %168 = shl nuw nsw i32 %167, 8
   %169 = or disjoint i32 %164, %168
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %171 = load i8, ptr %170, align 1, !tbaa !24
+  %171 = load i8, ptr %170, align 1, !tbaa !25
   %172 = zext i8 %171 to i32
   %173 = or disjoint i32 %169, %172
   %174 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -1603,7 +1603,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %182 = and i32 %181, 255
   %183 = zext nneg i32 %182 to i64
   %184 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %183
-  %185 = load i8, ptr %184, align 1, !tbaa !24
+  %185 = load i8, ptr %184, align 1, !tbaa !25
   %186 = zext i8 %185 to i32
   %187 = shl nuw i32 %186, 24
   %188 = xor i32 %187, %179
@@ -1611,21 +1611,21 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %190 = and i32 %189, 255
   %191 = zext nneg i32 %190 to i64
   %192 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %191
-  %193 = load i8, ptr %192, align 1, !tbaa !24
+  %193 = load i8, ptr %192, align 1, !tbaa !25
   %194 = zext i8 %193 to i32
   %195 = shl nuw nsw i32 %194, 16
   %196 = xor i32 %188, %195
   %197 = and i32 %180, 255
   %198 = zext nneg i32 %197 to i64
   %199 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %198
-  %200 = load i8, ptr %199, align 1, !tbaa !24
+  %200 = load i8, ptr %199, align 1, !tbaa !25
   %201 = zext i8 %200 to i32
   %202 = shl nuw nsw i32 %201, 8
   %203 = xor i32 %196, %202
   %204 = lshr i32 %180, 24
   %205 = zext nneg i32 %204 to i64
   %206 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %205
-  %207 = load i8, ptr %206, align 1, !tbaa !24
+  %207 = load i8, ptr %206, align 1, !tbaa !25
   %208 = zext i8 %207 to i32
   %209 = xor i32 %203, %208
   %210 = getelementptr inbounds nuw [10 x i32], ptr @rcon, i64 0, i64 %indvars.iv156
@@ -1655,45 +1655,45 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %226 = xor i32 %224, %180
   %227 = getelementptr inbounds nuw i8, ptr %.1139, i64 44
   store i32 %226, ptr %227, align 4, !tbaa !12
-  br label %.preheader149
+  br label %.preheader149, !llvm.loop !27
 
 228:                                              ; preds = %136
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %230 = load i8, ptr %229, align 1, !tbaa !24
+  %230 = load i8, ptr %229, align 1, !tbaa !25
   %231 = zext i8 %230 to i32
   %232 = shl nuw i32 %231, 24
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %234 = load i8, ptr %233, align 1, !tbaa !24
+  %234 = load i8, ptr %233, align 1, !tbaa !25
   %235 = zext i8 %234 to i32
   %236 = shl nuw nsw i32 %235, 16
   %237 = or disjoint i32 %236, %232
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %239 = load i8, ptr %238, align 1, !tbaa !24
+  %239 = load i8, ptr %238, align 1, !tbaa !25
   %240 = zext i8 %239 to i32
   %241 = shl nuw nsw i32 %240, 8
   %242 = or disjoint i32 %237, %241
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  %244 = load i8, ptr %243, align 1, !tbaa !24
+  %244 = load i8, ptr %243, align 1, !tbaa !25
   %245 = zext i8 %244 to i32
   %246 = or disjoint i32 %242, %245
   %247 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %246, ptr %247, align 4, !tbaa !12
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %249 = load i8, ptr %248, align 1, !tbaa !24
+  %249 = load i8, ptr %248, align 1, !tbaa !25
   %250 = zext i8 %249 to i32
   %251 = shl nuw i32 %250, 24
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %253 = load i8, ptr %252, align 1, !tbaa !24
+  %253 = load i8, ptr %252, align 1, !tbaa !25
   %254 = zext i8 %253 to i32
   %255 = shl nuw nsw i32 %254, 16
   %256 = or disjoint i32 %255, %251
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %258 = load i8, ptr %257, align 1, !tbaa !24
+  %258 = load i8, ptr %257, align 1, !tbaa !25
   %259 = zext i8 %258 to i32
   %260 = shl nuw nsw i32 %259, 8
   %261 = or disjoint i32 %256, %260
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  %263 = load i8, ptr %262, align 1, !tbaa !24
+  %263 = load i8, ptr %262, align 1, !tbaa !25
   %264 = zext i8 %263 to i32
   %265 = or disjoint i32 %261, %264
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 28
@@ -1713,7 +1713,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %274 = and i32 %273, 255
   %275 = zext nneg i32 %274 to i64
   %276 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %275
-  %277 = load i8, ptr %276, align 1, !tbaa !24
+  %277 = load i8, ptr %276, align 1, !tbaa !25
   %278 = zext i8 %277 to i32
   %279 = shl nuw i32 %278, 24
   %280 = xor i32 %279, %271
@@ -1721,21 +1721,21 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %282 = and i32 %281, 255
   %283 = zext nneg i32 %282 to i64
   %284 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %283
-  %285 = load i8, ptr %284, align 1, !tbaa !24
+  %285 = load i8, ptr %284, align 1, !tbaa !25
   %286 = zext i8 %285 to i32
   %287 = shl nuw nsw i32 %286, 16
   %288 = xor i32 %280, %287
   %289 = and i32 %272, 255
   %290 = zext nneg i32 %289 to i64
   %291 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %290
-  %292 = load i8, ptr %291, align 1, !tbaa !24
+  %292 = load i8, ptr %291, align 1, !tbaa !25
   %293 = zext i8 %292 to i32
   %294 = shl nuw nsw i32 %293, 8
   %295 = xor i32 %288, %294
   %296 = lshr i32 %272, 24
   %297 = zext nneg i32 %296 to i64
   %298 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %297
-  %299 = load i8, ptr %298, align 1, !tbaa !24
+  %299 = load i8, ptr %298, align 1, !tbaa !25
   %300 = zext i8 %299 to i32
   %301 = xor i32 %295, %300
   %302 = getelementptr inbounds nuw [10 x i32], ptr @rcon, i64 0, i64 %indvars.iv
@@ -1762,7 +1762,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %316 = lshr i32 %310, 24
   %317 = zext nneg i32 %316 to i64
   %318 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %317
-  %319 = load i8, ptr %318, align 1, !tbaa !24
+  %319 = load i8, ptr %318, align 1, !tbaa !25
   %320 = zext i8 %319 to i32
   %321 = shl nuw i32 %320, 24
   %322 = xor i32 %321, %315
@@ -1770,7 +1770,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %324 = and i32 %323, 255
   %325 = zext nneg i32 %324 to i64
   %326 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %325
-  %327 = load i8, ptr %326, align 1, !tbaa !24
+  %327 = load i8, ptr %326, align 1, !tbaa !25
   %328 = zext i8 %327 to i32
   %329 = shl nuw nsw i32 %328, 16
   %330 = xor i32 %322, %329
@@ -1778,14 +1778,14 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %332 = and i32 %331, 255
   %333 = zext nneg i32 %332 to i64
   %334 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %333
-  %335 = load i8, ptr %334, align 1, !tbaa !24
+  %335 = load i8, ptr %334, align 1, !tbaa !25
   %336 = zext i8 %335 to i32
   %337 = shl nuw nsw i32 %336, 8
   %338 = xor i32 %330, %337
   %339 = and i32 %310, 255
   %340 = zext nneg i32 %339 to i64
   %341 = getelementptr inbounds nuw [256 x i8], ptr @Te4, i64 0, i64 %340
-  %342 = load i8, ptr %341, align 1, !tbaa !24
+  %342 = load i8, ptr %341, align 1, !tbaa !25
   %343 = zext i8 %342 to i32
   %344 = xor i32 %338, %343
   %345 = getelementptr inbounds nuw i8, ptr %.2140, i64 48
@@ -1803,7 +1803,7 @@ define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr nou
   %354 = xor i32 %352, %272
   %355 = getelementptr inbounds nuw i8, ptr %.2140, i64 60
   store i32 %354, ptr %355, align 4, !tbaa !12
-  br label %.preheader151
+  br label %.preheader151, !llvm.loop !28
 
 .loopexit:                                        ; preds = %.preheader151, %.preheader149, %.preheader, %228, %4, %3
   %.0141 = phi i32 [ -1, %3 ], [ -2, %4 ], [ 0, %228 ], [ 0, %.preheader ], [ 0, %.preheader149 ], [ 0, %.preheader151 ]
@@ -1881,19 +1881,19 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %.086112 = phi i64 [ %24, %.lr.ph ], [ %12, %.preheader109 ]
   %.291111 = phi i64 [ %25, %.lr.ph ], [ %3, %.preheader109 ]
   %18 = getelementptr inbounds nuw i8, ptr %.281113, i64 1
-  %19 = load i8, ptr %.281113, align 1, !tbaa !24
+  %19 = load i8, ptr %.281113, align 1, !tbaa !25
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %.086112
-  %21 = load i8, ptr %20, align 1, !tbaa !24
+  %21 = load i8, ptr %20, align 1, !tbaa !25
   %22 = xor i8 %21, %19
   %23 = getelementptr inbounds nuw i8, ptr %.2114, i64 1
-  store i8 %22, ptr %.2114, align 1, !tbaa !24
-  store i8 %22, ptr %20, align 1, !tbaa !24
+  store i8 %22, ptr %.2114, align 1, !tbaa !25
+  store i8 %22, ptr %20, align 1, !tbaa !25
   %24 = add nuw nsw i64 %.086112, 1
   %25 = add i64 %.291111, -1
   %26 = icmp ult i64 %.086112, 15
   %27 = icmp ne i64 %25, 0
   %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph, label %.loopexit108, !llvm.loop !25
+  br i1 %28, label %.lr.ph, label %.loopexit108, !llvm.loop !29
 
 .lr.ph122:                                        ; preds = %.preheader, %.lr.ph122
   %.4121 = phi ptr [ %34, %.lr.ph122 ], [ %1, %.preheader ]
@@ -1901,19 +1901,19 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %.288119 = phi i64 [ %35, %.lr.ph122 ], [ %12, %.preheader ]
   %.493118 = phi i64 [ %36, %.lr.ph122 ], [ %3, %.preheader ]
   %29 = getelementptr inbounds nuw i8, ptr %.483120, i64 1
-  %30 = load i8, ptr %.483120, align 1, !tbaa !24
+  %30 = load i8, ptr %.483120, align 1, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 %.288119
-  %32 = load i8, ptr %31, align 1, !tbaa !24
+  %32 = load i8, ptr %31, align 1, !tbaa !25
   %33 = xor i8 %32, %30
   %34 = getelementptr inbounds nuw i8, ptr %.4121, i64 1
-  store i8 %33, ptr %.4121, align 1, !tbaa !24
+  store i8 %33, ptr %.4121, align 1, !tbaa !25
   %35 = add nuw nsw i64 %.288119, 1
-  store i8 %30, ptr %31, align 1, !tbaa !24
+  store i8 %30, ptr %31, align 1, !tbaa !25
   %36 = add i64 %.493118, -1
   %37 = icmp ult i64 %.288119, 15
   %38 = icmp ne i64 %36, 0
   %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %.lr.ph122, label %.loopexit108, !llvm.loop !26
+  br i1 %39, label %.lr.ph122, label %.loopexit108, !llvm.loop !30
 
 .loopexit108:                                     ; preds = %.lr.ph, %.lr.ph122, %.preheader109, %.preheader
   %.392 = phi i64 [ 0, %.preheader ], [ 0, %.preheader109 ], [ %36, %.lr.ph122 ], [ %25, %.lr.ph ]
@@ -1978,16 +1978,16 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %.584128 = phi ptr [ %53, %59 ], [ %64, %63 ]
   %.695127 = phi i64 [ %.594106, %59 ], [ %70, %63 ]
   %64 = getelementptr inbounds nuw i8, ptr %.584128, i64 1
-  %65 = load i8, ptr %.584128, align 1, !tbaa !24
-  %66 = load i8, ptr %.074130, align 1, !tbaa !24
+  %65 = load i8, ptr %.584128, align 1, !tbaa !25
+  %66 = load i8, ptr %.074130, align 1, !tbaa !25
   %67 = xor i8 %66, %65
   %68 = getelementptr inbounds nuw i8, ptr %.5129, i64 1
-  store i8 %67, ptr %.5129, align 1, !tbaa !24
+  store i8 %67, ptr %.5129, align 1, !tbaa !25
   %69 = getelementptr inbounds nuw i8, ptr %.074130, i64 1
-  store i8 %65, ptr %.074130, align 1, !tbaa !24
+  store i8 %65, ptr %.074130, align 1, !tbaa !25
   %70 = add i64 %.695127, -1
   %.not103 = icmp eq i64 %70, 0
-  br i1 %.not103, label %.loopexit, label %63, !llvm.loop !27
+  br i1 %.not103, label %.loopexit, label %63, !llvm.loop !31
 
 71:                                               ; preds = %.thread
   tail call void @padlock_reload_key() #10
@@ -2001,16 +2001,16 @@ define internal range(i32 0, 2) i32 @padlock_cfb_cipher(ptr noundef %0, ptr noun
   %.685132 = phi ptr [ %53, %71 ], [ %73, %72 ]
   %.7131 = phi i64 [ %.594106, %71 ], [ %79, %72 ]
   %73 = getelementptr inbounds nuw i8, ptr %.685132, i64 1
-  %74 = load i8, ptr %.685132, align 1, !tbaa !24
-  %75 = load i8, ptr %.175134, align 1, !tbaa !24
+  %74 = load i8, ptr %.685132, align 1, !tbaa !25
+  %75 = load i8, ptr %.175134, align 1, !tbaa !25
   %76 = xor i8 %75, %74
   %77 = getelementptr inbounds nuw i8, ptr %.6133, i64 1
-  store i8 %76, ptr %.6133, align 1, !tbaa !24
-  store i8 %76, ptr %.175134, align 1, !tbaa !24
+  store i8 %76, ptr %.6133, align 1, !tbaa !25
+  store i8 %76, ptr %.175134, align 1, !tbaa !25
   %78 = getelementptr inbounds nuw i8, ptr %.175134, i64 1
   %79 = add i64 %.7131, -1
   %.not102 = icmp eq i64 %79, 0
-  br i1 %.not102, label %.loopexit, label %72, !llvm.loop !28
+  br i1 %.not102, label %.loopexit, label %72, !llvm.loop !32
 
 .loopexit:                                        ; preds = %63, %72, %50
   %80 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %0) #10
@@ -2061,18 +2061,18 @@ define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %0, ptr noun
   %.25268 = phi i64 [ %23, %.lr.ph ], [ %3, %.lr.ph.preheader ]
   %.25667 = phi ptr [ %16, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %16 = getelementptr inbounds nuw i8, ptr %.25667, i64 1
-  %17 = load i8, ptr %.25667, align 1, !tbaa !24
+  %17 = load i8, ptr %.25667, align 1, !tbaa !25
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 %.04770
-  %19 = load i8, ptr %18, align 1, !tbaa !24
+  %19 = load i8, ptr %18, align 1, !tbaa !25
   %20 = xor i8 %19, %17
   %21 = getelementptr inbounds nuw i8, ptr %.269, i64 1
-  store i8 %20, ptr %.269, align 1, !tbaa !24
+  store i8 %20, ptr %.269, align 1, !tbaa !25
   %22 = add nuw nsw i64 %.04770, 1
   %23 = add i64 %.25268, -1
   %24 = icmp samesign ult i64 %.04770, 15
   %25 = icmp ne i64 %23, 0
   %26 = select i1 %24, i1 %25, i1 false
-  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !29
+  br i1 %26, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !33
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %27 = trunc nuw nsw i64 %22 to i32
@@ -2128,15 +2128,15 @@ define internal range(i32 0, 2) i32 @padlock_ofb_cipher(ptr noundef %0, ptr noun
   %.475 = phi i64 [ %.35366, %.thread ], [ %50, %43 ]
   %.35774 = phi ptr [ %40, %.thread ], [ %44, %43 ]
   %44 = getelementptr inbounds nuw i8, ptr %.35774, i64 1
-  %45 = load i8, ptr %.35774, align 1, !tbaa !24
-  %46 = load i8, ptr %.077, align 1, !tbaa !24
+  %45 = load i8, ptr %.35774, align 1, !tbaa !25
+  %46 = load i8, ptr %.077, align 1, !tbaa !25
   %47 = xor i8 %46, %45
   %48 = getelementptr inbounds nuw i8, ptr %.376, i64 1
-  store i8 %47, ptr %.376, align 1, !tbaa !24
+  store i8 %47, ptr %.376, align 1, !tbaa !25
   %49 = getelementptr inbounds nuw i8, ptr %.077, i64 1
   %50 = add i64 %.475, -1
   %.not63 = icmp eq i64 %50, 0
-  br i1 %.not63, label %.loopexit, label %43, !llvm.loop !30
+  br i1 %.not63, label %.loopexit, label %43, !llvm.loop !34
 
 .loopexit:                                        ; preds = %43, %37
   %51 = tail call ptr @EVP_CIPHER_CTX_iv_noconst(ptr noundef %0) #10
@@ -2231,14 +2231,18 @@ attributes #11 = { nounwind willreturn memory(read) }
 !17 = !{!"p1 _ZTS13evp_cipher_st", !5, i64 0}
 !18 = !{!19, !13, i64 240}
 !19 = !{!"aes_key_st", !6, i64 0, !13, i64 240}
-!20 = distinct !{!20, !21}
+!20 = distinct !{!20, !21, !22}
 !21 = !{!"llvm.loop.mustprogress"}
-!22 = distinct !{!22, !21}
-!23 = distinct !{!23, !21}
-!24 = !{!6, !6, i64 0}
-!25 = distinct !{!25, !21}
-!26 = distinct !{!26, !21}
-!27 = distinct !{!27, !21}
-!28 = distinct !{!28, !21}
-!29 = distinct !{!29, !21}
-!30 = distinct !{!30, !21}
+!22 = !{!"llvm.loop.estimated_trip_count"}
+!23 = distinct !{!23, !21, !22}
+!24 = distinct !{!24, !21, !22}
+!25 = !{!6, !6, i64 0}
+!26 = distinct !{!26, !22}
+!27 = distinct !{!27, !22}
+!28 = distinct !{!28, !22}
+!29 = distinct !{!29, !21, !22}
+!30 = distinct !{!30, !21, !22}
+!31 = distinct !{!31, !21, !22}
+!32 = distinct !{!32, !21, !22}
+!33 = distinct !{!33, !21, !22}
+!34 = distinct !{!34, !21, !22}

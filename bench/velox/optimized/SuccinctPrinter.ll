@@ -312,5 +312,6 @@ attributes #5 = { nounwind }
 !4 = !{!5}
 !5 = distinct !{!5, !6, !"_ZN8facebook5velox12_GLOBAL__N_115succinctSecondsB5cxx11Em: %agg.result"}
 !6 = distinct !{!6, !"_ZN8facebook5velox12_GLOBAL__N_115succinctSecondsB5cxx11Em"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
+!9 = !{!"llvm.loop.estimated_trip_count"}

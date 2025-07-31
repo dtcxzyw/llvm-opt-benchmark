@@ -311,7 +311,7 @@ async_check_interrupt.exit:                       ; preds = %64
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 240
   %81 = load i32, ptr %80, align 8, !tbaa !35
   %.not.i = icmp eq i32 %81, 0
-  br i1 %.not.i, label %64, label %async_check_interrupt.exit.thread
+  br i1 %.not.i, label %64, label %async_check_interrupt.exit.thread, !llvm.loop !38
 
 async_check_interrupt.exit.thread:                ; preds = %async_check_interrupt.exit, %76, %51, %69, %72, %75
   %.064 = phi i64 [ %73, %75 ], [ %73, %72 ], [ -1414092869, %69 ], [ -1414092869, %51 ], [ -1414092869, %76 ], [ -1414092869, %async_check_interrupt.exit ]
@@ -336,7 +336,7 @@ define internal noundef i32 @async_close(ptr noundef %0) #0 {
   %9 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %8) #7
   %10 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #7
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  %12 = load i64, ptr %11, align 8, !tbaa !38
+  %12 = load i64, ptr %11, align 8, !tbaa !40
   %13 = tail call i32 @pthread_join(i64 noundef %12, ptr noundef null) #7
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %16, label %14
@@ -468,14 +468,14 @@ async_check_interrupt.exit:                       ; preds = %24
 32:                                               ; preds = %30
   %33 = load ptr, ptr %13, align 8, !tbaa !26
   %34 = load i64, ptr %14, align 8, !tbaa !34
-  %35 = load i32, ptr %15, align 8, !tbaa !39
+  %35 = load i32, ptr %15, align 8, !tbaa !41
   %36 = call i64 @ffurl_seek2(ptr noundef %33, i64 noundef %34, i32 noundef %35) #7
   %37 = icmp sgt i64 %36, -1
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %32
-  store i32 0, ptr %16, align 8, !tbaa !40
-  store i32 0, ptr %17, align 4, !tbaa !41
+  store i32 0, ptr %16, align 8, !tbaa !42
+  store i32 0, ptr %17, align 4, !tbaa !43
   %39 = load ptr, ptr %5, align 8, !tbaa !18
   call void @av_fifo_reset2(ptr noundef %39) #7
   store i32 0, ptr %18, align 4, !tbaa !32
@@ -492,7 +492,7 @@ async_check_interrupt.exit:                       ; preds = %24
   %.val = load ptr, ptr %5, align 8, !tbaa !18
   %43 = call i64 @av_fifo_can_write(ptr noundef %.val) #7
   %44 = trunc i64 %43 to i32
-  %45 = load i32, ptr %16, align 8, !tbaa !40
+  %45 = load i32, ptr %16, align 8, !tbaa !42
   %46 = icmp ne i32 %45, 0
   %47 = icmp slt i32 %44, 1
   %or.cond = select i1 %46, i1 true, i1 %47
@@ -509,7 +509,7 @@ async_check_interrupt.exit:                       ; preds = %24
   %54 = zext nneg i32 %53 to i64
   %.val48 = load ptr, ptr %5, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store i64 %54, ptr %2, align 8, !tbaa !42
+  store i64 %54, ptr %2, align 8, !tbaa !44
   %55 = call i32 @av_fifo_write_from_cb(ptr noundef %.val48, ptr noundef nonnull @wrapped_url_read, ptr noundef nonnull %0, ptr noundef nonnull %2) #7
   %56 = icmp slt i32 %55, 0
   %57 = load i64, ptr %2, align 8
@@ -521,13 +521,13 @@ async_check_interrupt.exit:                       ; preds = %24
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %51
-  store i32 1, ptr %16, align 8, !tbaa !40
-  %63 = load i32, ptr %22, align 8, !tbaa !43
+  store i32 1, ptr %16, align 8, !tbaa !42
+  %63 = load i32, ptr %22, align 8, !tbaa !45
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %62
-  store i32 %63, ptr %17, align 4, !tbaa !41
+  store i32 %63, ptr %17, align 4, !tbaa !43
   br label %66
 
 66:                                               ; preds = %62, %65, %51
@@ -545,9 +545,9 @@ async_check_interrupt.exit:                       ; preds = %24
 
 async_check_interrupt.exit.thread:                ; preds = %async_check_interrupt.exit, %68, %1, %29
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  store i32 1, ptr %74, align 8, !tbaa !40
+  store i32 1, ptr %74, align 8, !tbaa !42
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  store i32 -1414092869, ptr %75, align 4, !tbaa !41
+  store i32 -1414092869, ptr %75, align 4, !tbaa !43
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %77 = call i32 @pthread_cond_signal(ptr noundef nonnull %76) #7
   %78 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #7
@@ -599,15 +599,15 @@ define internal range(i32 -2147483648, 1) i32 @wrapped_url_read(ptr noundef read
   %5 = load ptr, ptr %4, align 8, !tbaa !9
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !26
-  %8 = load i64, ptr %2, align 8, !tbaa !42
+  %8 = load i64, ptr %2, align 8, !tbaa !44
   %9 = trunc i64 %8 to i32
   %10 = tail call i32 @ffurl_read2(ptr noundef %7, ptr noundef %1, i32 noundef %9) #7
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 0)
   %12 = zext nneg i32 %11 to i64
-  store i64 %12, ptr %2, align 8, !tbaa !42
+  store i64 %12, ptr %2, align 8, !tbaa !44
   %13 = tail call i32 @llvm.smin.i32(i32 %10, i32 0)
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %13, ptr %14, align 8, !tbaa !43
+  store i32 %13, ptr %14, align 8, !tbaa !45
   ret i32 %13
 }
 
@@ -713,7 +713,7 @@ ring_read.exit:                                   ; preds = %38, %43
   br i1 %or.cond, label %62, label %.thread
 
 55:                                               ; preds = %24
-  %56 = load i32, ptr %11, align 8, !tbaa !40
+  %56 = load i32, ptr %11, align 8, !tbaa !42
   %.not50 = icmp eq i32 %56, 0
   br i1 %.not50, label %62, label %57
 
@@ -723,7 +723,7 @@ ring_read.exit:                                   ; preds = %38, %43
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %61 = load i32, ptr %60, align 4, !tbaa !41
+  %61 = load i32, ptr %60, align 4, !tbaa !43
   %.not51 = icmp eq i32 %61, 0
   %. = select i1 %.not51, i32 -541478725, i32 %61
   br label %.thread
@@ -735,7 +735,7 @@ ring_read.exit:                                   ; preds = %38, %43
   %63 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %14) #7
   %64 = tail call i32 @pthread_cond_wait(ptr noundef nonnull %15, ptr noundef nonnull %7) #7
   %65 = icmp sgt i32 %.241, 0
-  br i1 %65, label %16, label %.thread
+  br i1 %65, label %16, label %.thread, !llvm.loop !46
 
 .thread:                                          ; preds = %62, %async_check_interrupt.exit, %ring_read.exit, %16, %3, %23, %57, %59
   %.143 = phi i32 [ %., %59 ], [ %.04265, %57 ], [ -1414092869, %23 ], [ 0, %3 ], [ %.345, %62 ], [ -1414092869, %async_check_interrupt.exit ], [ %53, %ring_read.exit ], [ -1414092869, %16 ]
@@ -813,9 +813,12 @@ attributes #7 = { nounwind }
 !35 = !{!27, !13, i64 240}
 !36 = !{!27, !13, i64 36}
 !37 = !{!27, !15, i64 40}
-!38 = !{!27, !15, i64 232}
-!39 = !{!27, !13, i64 32}
-!40 = !{!27, !13, i64 56}
-!41 = !{!27, !13, i64 52}
-!42 = !{!15, !15, i64 0}
-!43 = !{!27, !13, i64 48}
+!38 = distinct !{!38, !39}
+!39 = !{!"llvm.loop.estimated_trip_count"}
+!40 = !{!27, !15, i64 232}
+!41 = !{!27, !13, i64 32}
+!42 = !{!27, !13, i64 56}
+!43 = !{!27, !13, i64 52}
+!44 = !{!15, !15, i64 0}
+!45 = !{!27, !13, i64 48}
+!46 = distinct !{!46, !39}

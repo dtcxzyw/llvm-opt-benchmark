@@ -114,7 +114,7 @@ define dso_local void @tr2_emit_per_thread_counters(ptr noundef readonly capture
 16:                                               ; preds = %7, %12, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !12
 
 .loopexit:                                        ; preds = %16, %1
   ret void
@@ -139,7 +139,7 @@ define dso_local void @tr2_emit_final_counters(ptr noundef readonly captures(non
 7:                                                ; preds = %2, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %8, label %2, !llvm.loop !12
+  br i1 %exitcond.not, label %8, label %2, !llvm.loop !13
 
 8:                                                ; preds = %7
   ret void
@@ -160,7 +160,8 @@ attributes #2 = { nounwind }
 !6 = !{!"long", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}

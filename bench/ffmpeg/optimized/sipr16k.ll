@@ -67,26 +67,26 @@ dequant.exit.i:                                   ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, ptr noundef nonnull align 16 dereferenceable(16) %29, i64 16, i1 false)
   %30 = sext i32 %13 to i64
   %31 = getelementptr inbounds [2 x float], ptr @qu, i64 0, i64 %30
-  %32 = load float, ptr %31, align 4, !tbaa !15
+  %32 = load float, ptr %31, align 4, !tbaa !16
   %33 = fsub nsz float 1.000000e+00, %32
   br label %34
 
 34:                                               ; preds = %34, %dequant.exit.i
   %indvars.iv.i = phi i64 [ 0, %dequant.exit.i ], [ %indvars.iv.next.i, %34 ]
   %35 = getelementptr inbounds nuw [16 x float], ptr %6, i64 0, i64 %indvars.iv.i
-  %36 = load float, ptr %35, align 4, !tbaa !15
+  %36 = load float, ptr %35, align 4, !tbaa !16
   %37 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv.i
-  %38 = load float, ptr %37, align 4, !tbaa !15
+  %38 = load float, ptr %37, align 4, !tbaa !16
   %39 = fmul nsz float %32, %38
   %40 = tail call nsz float @llvm.fmuladd.f32(float %33, float %36, float %39)
   %41 = getelementptr inbounds nuw [16 x float], ptr @mean_lsf_16k, i64 0, i64 %indvars.iv.i
-  %42 = load float, ptr %41, align 4, !tbaa !15
+  %42 = load float, ptr %41, align 4, !tbaa !16
   %43 = fadd nsz float %42, %40
   %44 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i
-  store float %43, ptr %44, align 4, !tbaa !15
+  store float %43, ptr %44, align 4, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %lsf_decode_fp_16k.exit, label %34, !llvm.loop !17
+  br i1 %exitcond.not.i, label %lsf_decode_fp_16k.exit, label %34, !llvm.loop !18
 
 lsf_decode_fp_16k.exit:                           ; preds = %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %23, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false)
@@ -97,14 +97,14 @@ lsf_decode_fp_16k.exit:                           ; preds = %34
 45:                                               ; preds = %45, %lsf_decode_fp_16k.exit
   %indvars.iv.i65 = phi i64 [ 0, %lsf_decode_fp_16k.exit ], [ %indvars.iv.next.i66, %45 ]
   %46 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i65
-  %47 = load float, ptr %46, align 4, !tbaa !15
+  %47 = load float, ptr %46, align 4, !tbaa !16
   %48 = call nsz float @llvm.cos.f32(float %47)
   %49 = fpext nsz float %48 to double
   %50 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i65
-  store double %49, ptr %50, align 8, !tbaa !18
+  store double %49, ptr %50, align 8, !tbaa !19
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, 16
-  br i1 %exitcond.not.i67, label %lsf2lsp.exit, label %45, !llvm.loop !20
+  br i1 %exitcond.not.i67, label %lsf2lsp.exit, label %45, !llvm.loop !21
 
 lsf2lsp.exit:                                     ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 5568
@@ -114,16 +114,16 @@ lsf2lsp.exit:                                     ; preds = %45
 52:                                               ; preds = %52, %lsf2lsp.exit
   %indvars.iv.i68 = phi i64 [ 0, %lsf2lsp.exit ], [ %indvars.iv.next.i69, %52 ]
   %53 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i68
-  %54 = load double, ptr %53, align 8, !tbaa !18
+  %54 = load double, ptr %53, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i68
-  %56 = load double, ptr %55, align 8, !tbaa !18
+  %56 = load double, ptr %55, align 8, !tbaa !19
   %57 = fadd nsz double %54, %56
   %58 = fmul nsz double %57, 5.000000e-01
   %59 = getelementptr inbounds nuw [16 x double], ptr %5, i64 0, i64 %indvars.iv.i68
-  store double %58, ptr %59, align 8, !tbaa !18
+  store double %58, ptr %59, align 8, !tbaa !19
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 16
-  br i1 %exitcond.not.i70, label %acelp_lp_decodef.exit, label %52, !llvm.loop !21
+  br i1 %exitcond.not.i70, label %acelp_lp_decodef.exit, label %52, !llvm.loop !22
 
 acelp_lp_decodef.exit:                            ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 1952
@@ -167,7 +167,7 @@ acelp_lp_decodef.exit:                            ; preds = %52
 
 83:                                               ; preds = %75
   %84 = load i32, ptr %69, align 4, !tbaa !12
-  %85 = load i32, ptr %68, align 4, !tbaa !22
+  %85 = load i32, ptr %68, align 4, !tbaa !23
   %86 = icmp slt i32 %84, 62
   br i1 %86, label %87, label %94
 
@@ -191,15 +191,15 @@ dec_delay3_2nd.exit:                              ; preds = %94, %87, %77
   %97 = load i32, ptr %96, align 4, !tbaa !12
   %98 = sext i32 %97 to i64
   %99 = getelementptr inbounds [16 x float], ptr @gain_pitch_cb_16k, i64 0, i64 %98
-  %100 = load float, ptr %99, align 4, !tbaa !15
+  %100 = load float, ptr %99, align 4, !tbaa !16
   %101 = fcmp nsz ogt float %100, 1.000000e+00
   %narrow.sel = select nsz i1 %101, float 1.000000e+00, float %100
-  store float %narrow.sel, ptr %66, align 4, !tbaa !24
+  store float %narrow.sel, ptr %66, align 4, !tbaa !25
   %102 = mul i32 %.064, 10923
   %103 = add i32 %102, 10923
   %104 = ashr i32 %103, 15
-  store i32 %104, ptr %67, align 4, !tbaa !26
-  store i32 %104, ptr %68, align 4, !tbaa !22
+  store i32 %104, ptr %67, align 4, !tbaa !27
+  store i32 %104, ptr %68, align 4, !tbaa !23
   %105 = add i32 %102, 21846
   %106 = ashr i32 %105, 15
   %.neg = mul nsw i32 %106, -3
@@ -219,7 +219,7 @@ dec_delay3_2nd.exit:                              ; preds = %94, %87, %77
   %114 = load i32, ptr %113, align 4, !tbaa !12
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds [32 x float], ptr @gain_cb_16k, i64 0, i64 %115
-  %117 = load float, ptr %116, align 4, !tbaa !15
+  %117 = load float, ptr %116, align 4, !tbaa !16
   %118 = call nsz float @ff_scalarproduct_float_c(ptr noundef nonnull @pred_16k, ptr noundef nonnull %73, i32 noundef 2) #8
   %119 = fadd nsz float %118, 0xC051D3C6A0000000
   %120 = fpext nsz float %119 to double
@@ -233,16 +233,16 @@ dec_delay3_2nd.exit:                              ; preds = %94, %87, %77
   %128 = fdiv nsz double %123, %127
   %129 = fptrunc nsz double %128 to float
   %130 = fmul nsz float %117, %129
-  %131 = load float, ptr %73, align 4, !tbaa !15
-  store float %131, ptr %74, align 4, !tbaa !15
+  %131 = load float, ptr %73, align 4, !tbaa !16
+  store float %131, ptr %74, align 4, !tbaa !16
   %132 = call nsz float @llvm.log10.f32(float %117)
   %133 = fmul nsz float %132, 2.000000e+01
-  store float %133, ptr %73, align 4, !tbaa !15
+  store float %133, ptr %73, align 4, !tbaa !16
   call void @ff_weighted_vector_sumf(ptr noundef nonnull %107, ptr noundef nonnull %107, ptr noundef nonnull %10, float noundef %100, float noundef %130, i32 noundef 80) #8
   %134 = getelementptr inbounds nuw float, ptr %60, i64 %76
   call void @ff_celp_lp_synthesis_filterf(ptr noundef nonnull %134, ptr noundef nonnull %indvars.iv.sroa.phi, ptr noundef nonnull %107, i32 noundef 80, i32 noundef 16) #8
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %11) #8
-  br i1 %.not, label %75, label %135, !llvm.loop !27
+  br i1 %.not, label %75, label %135, !llvm.loop !28
 
 135:                                              ; preds = %dec_delay3_2nd.exit
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -259,15 +259,15 @@ dec_delay3_2nd.exit:                              ; preds = %94, %87, %77
 142:                                              ; preds = %142, %135
   %indvars.iv.i72 = phi i64 [ 0, %135 ], [ %indvars.iv.next.i73, %142 ]
   %143 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv.i72
-  %144 = load float, ptr %143, align 4, !tbaa !15
+  %144 = load float, ptr %143, align 4, !tbaa !16
   %145 = getelementptr inbounds nuw [16 x float], ptr @ff_pow_0_5, i64 0, i64 %indvars.iv.i72
-  %146 = load float, ptr %145, align 4, !tbaa !15
+  %146 = load float, ptr %145, align 4, !tbaa !16
   %147 = fmul nsz float %144, %146
   %148 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i72
-  store float %147, ptr %148, align 4, !tbaa !15
+  store float %147, ptr %148, align 4, !tbaa !16
   %indvars.iv.next.i73 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i74 = icmp eq i64 %indvars.iv.next.i73, 16
-  br i1 %exitcond.not.i74, label %149, label %142, !llvm.loop !28
+  br i1 %exitcond.not.i74, label %149, label %142, !llvm.loop !29
 
 149:                                              ; preds = %142
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 5440
@@ -298,19 +298,19 @@ dec_delay3_2nd.exit:                              ; preds = %94, %87, %77
   %indvars.iv45.i = phi i64 [ 0, %149 ], [ %indvars.iv.next46.i, %163 ]
   %.043.i = phi float [ 0.000000e+00, %149 ], [ %173, %163 ]
   %164 = getelementptr inbounds nuw float, ptr %151, i64 %indvars.iv45.i
-  %165 = load float, ptr %164, align 4, !tbaa !15
+  %165 = load float, ptr %164, align 4, !tbaa !16
   %166 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv45.i
-  %167 = load float, ptr %166, align 4, !tbaa !15
+  %167 = load float, ptr %166, align 4, !tbaa !16
   %168 = fsub nsz float %167, %165
   %169 = call nsz float @llvm.fmuladd.f32(float %.043.i, float %168, float %165)
   %170 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv45.i
-  store float %169, ptr %170, align 4, !tbaa !15
+  store float %169, ptr %170, align 4, !tbaa !16
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
   %171 = fpext nsz float %.043.i to double
   %172 = fadd nsz double %171, 0x3FA1111111111111
   %173 = fptrunc nsz double %172 to float
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next46.i, 30
-  br i1 %exitcond48.not.i, label %postfilter.exit, label %163, !llvm.loop !29
+  br i1 %exitcond48.not.i, label %postfilter.exit, label %163, !llvm.loop !30
 
 postfilter.exit:                                  ; preds = %163
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4) #8
@@ -369,9 +369,9 @@ define void @ff_sipr_init_16k(ptr noundef %0) local_unnamed_addr #6 {
   %7 = fdiv nsz double %6, 1.700000e+01
   %8 = tail call nsz double @llvm.cos.f64(double %7)
   %9 = getelementptr inbounds nuw [16 x double], ptr %2, i64 0, i64 %indvars.iv
-  store double %8, ptr %9, align 8, !tbaa !18
+  store double %8, ptr %9, align 8, !tbaa !19
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %10, label %3, !llvm.loop !30
+  br i1 %exitcond.not, label %10, label %3, !llvm.loop !31
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 5284
@@ -381,7 +381,7 @@ define void @ff_sipr_init_16k(ptr noundef %0) local_unnamed_addr #6 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 5432
   store ptr %13, ptr %14, align 8, !tbaa !9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 5212
-  store i32 180, ptr %15, align 4, !tbaa !22
+  store i32 180, ptr %15, align 4, !tbaa !23
   ret void
 }
 
@@ -429,21 +429,22 @@ attributes #8 = { nounwind }
 !10 = !{!"p1 float", !11, i64 0}
 !11 = !{!"any pointer", !7, i64 0}
 !12 = !{!6, !6, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"float", !7, i64 0}
-!17 = distinct !{!17, !14}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"double", !7, i64 0}
-!20 = distinct !{!20, !14}
-!21 = distinct !{!21, !14}
-!22 = !{!23, !6, i64 5212}
-!23 = !{!"SiprContext", !6, i64 0, !16, i64 4, !7, i64 8, !7, i64 72, !7, i64 1888, !7, i64 2912, !16, i64 2952, !7, i64 2956, !7, i64 2972, !7, i64 2980, !16, i64 3592, !16, i64 3596, !7, i64 3600, !7, i64 4212, !6, i64 5212, !7, i64 5216, !7, i64 5284, !7, i64 5424, !7, i64 5440, !7, i64 5504, !7, i64 5568, !11, i64 5696}
-!24 = !{!25, !16, i64 92}
-!25 = !{!"AMRFixed", !6, i64 0, !7, i64 4, !7, i64 44, !6, i64 84, !6, i64 88, !16, i64 92}
-!26 = !{!25, !6, i64 88}
-!27 = distinct !{!27, !14}
-!28 = distinct !{!28, !14}
-!29 = distinct !{!29, !14}
-!30 = distinct !{!30, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"float", !7, i64 0}
+!18 = distinct !{!18, !14, !15}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"double", !7, i64 0}
+!21 = distinct !{!21, !14, !15}
+!22 = distinct !{!22, !14, !15}
+!23 = !{!24, !6, i64 5212}
+!24 = !{!"SiprContext", !6, i64 0, !17, i64 4, !7, i64 8, !7, i64 72, !7, i64 1888, !7, i64 2912, !17, i64 2952, !7, i64 2956, !7, i64 2972, !7, i64 2980, !17, i64 3592, !17, i64 3596, !7, i64 3600, !7, i64 4212, !6, i64 5212, !7, i64 5216, !7, i64 5284, !7, i64 5424, !7, i64 5440, !7, i64 5504, !7, i64 5568, !11, i64 5696}
+!25 = !{!26, !17, i64 92}
+!26 = !{!"AMRFixed", !6, i64 0, !7, i64 4, !7, i64 44, !6, i64 84, !6, i64 88, !17, i64 92}
+!27 = !{!26, !6, i64 88}
+!28 = distinct !{!28, !14, !15}
+!29 = distinct !{!29, !14, !15}
+!30 = distinct !{!30, !14, !15}
+!31 = distinct !{!31, !14, !15}

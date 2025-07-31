@@ -289,7 +289,7 @@ define dso_local void @tool_help(ptr noundef %0) local_unnamed_addr #7 {
   %14 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull %.str.34..str.35, ptr noundef nonnull %10) #16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i67, 1
   %15 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.next.i
-  %16 = load ptr, ptr %15, align 8, !tbaa !23
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #15
   %18 = icmp eq i64 %indvars.iv.next.i, 24
   br i1 %18, label %get_categories_list.exit, label %8
@@ -320,13 +320,13 @@ get_categories_list.exit:                         ; preds = %8
 .preheader60:                                     ; preds = %27, %.preheader60
   %indvars.iv.i43 = phi i64 [ %indvars.iv.next.i44, %.preheader60 ], [ 0, %27 ]
   %29 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i43
-  %30 = load ptr, ptr %29, align 8, !tbaa !23
+  %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !26
+  %32 = load ptr, ptr %31, align 8, !tbaa !27
   %33 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.86, ptr noundef %30, ptr noundef %32) #16
   %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i43, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i44, 25
-  br i1 %exitcond.not.i, label %get_categories.exit, label %.preheader60, !llvm.loop !27
+  br i1 %exitcond.not.i, label %get_categories.exit, label %.preheader60, !llvm.loop !28
 
 34:                                               ; preds = %27
   %35 = load i8, ptr %0, align 1, !tbaa !17
@@ -369,7 +369,7 @@ sub_1:                                            ; preds = %sub_0
 
 52:                                               ; preds = %.tail
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %54 = load i8, ptr %53, align 8, !tbaa !28
+  %54 = load i8, ptr %53, align 8, !tbaa !29
   %55 = and i8 %54, 3
   %.not39 = icmp eq i8 %55, 1
   br i1 %.not39, label %.thread54, label %.thread
@@ -396,7 +396,7 @@ sub_1:                                            ; preds = %sub_0
   %.157 = phi ptr [ %.1, %59 ], [ %50, %52 ]
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #16
   %62 = getelementptr inbounds nuw i8, ptr %.157, i64 9
-  %63 = load i8, ptr %62, align 1, !tbaa !31
+  %63 = load i8, ptr %62, align 1, !tbaa !32
   %.not41 = icmp eq i8 %63, 32
   br i1 %.not41, label %67, label %64
 
@@ -407,12 +407,12 @@ sub_1:                                            ; preds = %sub_0
 
 67:                                               ; preds = %.thread54
   %68 = getelementptr inbounds nuw i8, ptr %.157, i64 8
-  %69 = load i8, ptr %68, align 8, !tbaa !28
+  %69 = load i8, ptr %68, align 8, !tbaa !29
   %.not42 = icmp sgt i8 %69, -1
   br i1 %.not42, label %73, label %70
 
 70:                                               ; preds = %67
-  %71 = load ptr, ptr %.157, align 8, !tbaa !32
+  %71 = load ptr, ptr %.157, align 8, !tbaa !33
   %72 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %2, i64 noundef 80, ptr noundef nonnull @.str.8, ptr noundef %71) #16
   br label %75
 
@@ -422,7 +422,7 @@ sub_1:                                            ; preds = %sub_0
 
 75:                                               ; preds = %70, %73, %64
   %76 = getelementptr inbounds nuw i8, ptr %.157, i64 10
-  %77 = load i16, ptr %76, align 2, !tbaa !33
+  %77 = load i16, ptr %76, align 2, !tbaa !34
   %78 = icmp eq i16 %77, 275
   %.str.11..str.12 = select i1 %78, ptr @.str.11, ptr @.str.12
   call void @showhelp(ptr noundef nonnull @.str.10, ptr noundef nonnull %2, ptr noundef nonnull %.str.11..str.12) #16
@@ -432,22 +432,22 @@ sub_1:                                            ; preds = %sub_0
 79:                                               ; preds = %.preheader
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 25
-  br i1 %exitcond.not.i47, label %get_category_content.exit, label %.preheader, !llvm.loop !34
+  br i1 %exitcond.not.i47, label %get_category_content.exit, label %.preheader, !llvm.loop !35
 
 .preheader:                                       ; preds = %34, %79
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i46, %79 ], [ 0, %34 ]
   %80 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i45
-  %81 = load ptr, ptr %80, align 8, !tbaa !23
+  %81 = load ptr, ptr %80, align 8, !tbaa !24
   %82 = tail call i32 @curl_strequal(ptr noundef %81, ptr noundef nonnull %0) #16
   %.not.i = icmp eq i32 %82, 0
   br i1 %.not.i, label %79, label %get_category_content.exit.thread
 
 get_category_content.exit.thread:                 ; preds = %.preheader
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !26
+  %84 = load ptr, ptr %83, align 8, !tbaa !27
   %85 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.87, ptr noundef %81, ptr noundef %84) #16
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %87 = load i32, ptr %86, align 8, !tbaa !35
+  %87 = load i32, ptr %86, align 8, !tbaa !36
   tail call fastcc void @print_category(i32 noundef %87, i32 noundef %3)
   br label %get_categories.exit
 
@@ -458,13 +458,13 @@ get_category_content.exit:                        ; preds = %79
 89:                                               ; preds = %89, %get_category_content.exit
   %indvars.iv.i48 = phi i64 [ 0, %get_category_content.exit ], [ %indvars.iv.next.i49, %89 ]
   %90 = getelementptr inbounds nuw [25 x %struct.category_descriptors], ptr @categories, i64 0, i64 %indvars.iv.i48
-  %91 = load ptr, ptr %90, align 8, !tbaa !23
+  %91 = load ptr, ptr %90, align 8, !tbaa !24
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %93 = load ptr, ptr %92, align 8, !tbaa !26
+  %93 = load ptr, ptr %92, align 8, !tbaa !27
   %94 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.86, ptr noundef %91, ptr noundef %93) #16
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i48, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i49, 25
-  br i1 %exitcond.not.i50, label %get_categories.exit, label %89, !llvm.loop !27
+  br i1 %exitcond.not.i50, label %get_categories.exit, label %89, !llvm.loop !28
 
 get_categories.exit:                              ; preds = %.preheader60, %89, %get_category_content.exit.thread, %.thread, %75, %26, %get_categories_list.exit
   call void @free(ptr noundef %0) #16
@@ -475,7 +475,7 @@ declare i32 @get_terminal_columns() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unnamed_addr #7 {
-  %3 = load ptr, ptr @helptext, align 8, !tbaa !36
+  %3 = load ptr, ptr @helptext, align 8, !tbaa !37
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %._crit_edge59, label %.lr.ph
 
@@ -486,7 +486,7 @@ define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unna
   %.03452 = phi i64 [ %.135, %14 ], [ 5, %2 ]
   %.03651 = phi i64 [ %.137, %14 ], [ 5, %2 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %7 = load i32, ptr %6, align 8, !tbaa !38
+  %7 = load i32, ptr %6, align 8, !tbaa !39
   %8 = and i32 %7, %0
   %.not48 = icmp eq i32 %8, 0
   br i1 %.not48, label %14, label %9
@@ -495,7 +495,7 @@ define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unna
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #15
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 %.03651)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !39
+  %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %12) #15
   %.2 = tail call i64 @llvm.umax.i64(i64 %13, i64 %.03452)
   br label %14
@@ -506,9 +506,9 @@ define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unna
   %15 = add i32 %.053, 1
   %16 = zext i32 %15 to i64
   %17 = getelementptr inbounds nuw [0 x %struct.helptxt], ptr @helptext, i64 0, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !36
+  %18 = load ptr, ptr %17, align 8, !tbaa !37
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %14
   %19 = add i64 %.135, %.137
@@ -527,14 +527,14 @@ define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unna
   %29 = phi ptr [ @helptext, %._crit_edge ], [ %45, %42 ]
   %.156 = phi i32 [ 0, %._crit_edge ], [ %43, %42 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !38
+  %31 = load i32, ptr %30, align 8, !tbaa !39
   %32 = and i32 %31, %0
   %.not46 = icmp eq i32 %32, 0
   br i1 %.not46, label %42, label %33
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !39
+  %35 = load ptr, ptr %34, align 8, !tbaa !40
   %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #15
   %37 = add i64 %36, %spec.select49
   %.not47 = icmp ult i64 %37, %24
@@ -550,9 +550,9 @@ define internal fastcc void @print_category(i32 noundef %0, i32 noundef %1) unna
   %43 = add i32 %.156, 1
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw [0 x %struct.helptxt], ptr @helptext, i64 0, i64 %44
-  %46 = load ptr, ptr %45, align 8, !tbaa !36
+  %46 = load ptr, ptr %45, align 8, !tbaa !37
   %.not45 = icmp eq ptr %46, null
-  br i1 %.not45, label %._crit_edge59, label %27, !llvm.loop !41
+  br i1 %.not45, label %._crit_edge59, label %27, !llvm.loop !42
 
 ._crit_edge59:                                    ; preds = %42, %2
   ret void
@@ -575,16 +575,16 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @tool_version_info() local_unnamed_addr #7 {
-  %1 = load ptr, ptr @feature_names, align 8, !tbaa !42
-  %2 = load ptr, ptr %1, align 8, !tbaa !44
+  %1 = load ptr, ptr @feature_names, align 8, !tbaa !43
+  %2 = load ptr, ptr %1, align 8, !tbaa !45
   %.not7.not.i = icmp eq ptr %2, null
   br i1 %.not7.not.i, label %is_debug.exit.thread, label %.lr.ph.i
 
 3:                                                ; preds = %.lr.ph.i
   %4 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !44
+  %5 = load ptr, ptr %4, align 8, !tbaa !45
   %.not.not.i = icmp eq ptr %5, null
-  br i1 %.not.not.i, label %is_debug.exit.thread, label %.lr.ph.i, !llvm.loop !45
+  br i1 %.not.not.i, label %is_debug.exit.thread, label %.lr.ph.i, !llvm.loop !46
 
 .lr.ph.i:                                         ; preds = %0, %3
   %6 = phi ptr [ %5, %3 ], [ %2, %0 ]
@@ -602,8 +602,8 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
   %10 = tail call ptr @curl_version() #16
   %11 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.15, ptr noundef %10) #16
   %12 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17) #16
-  %13 = load ptr, ptr @built_in_protos, align 8, !tbaa !42
-  %14 = load ptr, ptr %13, align 8, !tbaa !44
+  %13 = load ptr, ptr @built_in_protos, align 8, !tbaa !43
+  %14 = load ptr, ptr %13, align 8, !tbaa !45
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %43, label %.preheader
 
@@ -628,15 +628,15 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
 21:                                               ; preds = %19, %16
   %.127 = phi ptr [ %15, %16 ], [ %spec.select, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %.047, i64 8
-  %.pr = load ptr, ptr %22, align 8, !tbaa !44
+  %.pr = load ptr, ptr %22, align 8, !tbaa !45
   %.not33 = icmp eq ptr %.pr, null
-  br i1 %.not33, label %23, label %.preheader, !llvm.loop !46
+  br i1 %.not33, label %23, label %.preheader, !llvm.loop !47
 
 23:                                               ; preds = %16, %21
   %.026.lcssa = phi ptr [ %.02646, %16 ], [ %.127, %21 ]
   %24 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.20) #16
-  %25 = load ptr, ptr @built_in_protos, align 8, !tbaa !42
-  %26 = load ptr, ptr %25, align 8, !tbaa !44
+  %25 = load ptr, ptr @built_in_protos, align 8, !tbaa !43
+  %26 = load ptr, ptr %25, align 8, !tbaa !45
   %.not3648 = icmp eq ptr %26, null
   br i1 %.not3648, label %._crit_edge, label %.lr.ph
 
@@ -646,7 +646,7 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
   %.22849 = phi ptr [ %.3, %40 ], [ %.026.lcssa, %23 ]
   %28 = tail call i32 @curl_strnequal(ptr noundef nonnull %27, ptr noundef nonnull @.str.21, i64 noundef 4) #16
   %.not42 = icmp eq i32 %28, 0
-  %.pre = load ptr, ptr %.150, align 8, !tbaa !44
+  %.pre = load ptr, ptr %.150, align 8, !tbaa !45
   br i1 %.not42, label %32, label %29
 
 29:                                               ; preds = %.lr.ph
@@ -664,7 +664,7 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
   br i1 %.not44, label %40, label %35
 
 35:                                               ; preds = %34
-  %36 = load ptr, ptr %.150, align 8, !tbaa !44
+  %36 = load ptr, ptr %.150, align 8, !tbaa !45
   %37 = icmp eq ptr %.22849, %36
   br i1 %37, label %38, label %40
 
@@ -675,22 +675,22 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
 40:                                               ; preds = %34, %35, %38
   %.3 = phi ptr [ null, %38 ], [ %.22849, %35 ], [ null, %34 ]
   %41 = getelementptr inbounds nuw i8, ptr %.150, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !44
+  %42 = load ptr, ptr %41, align 8, !tbaa !45
   %.not36 = icmp eq ptr %42, null
-  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %40, %23
   %putchar = tail call i32 @putchar(i32 10)
   br label %43
 
 43:                                               ; preds = %._crit_edge, %is_debug.exit.thread
-  %44 = load ptr, ptr @feature_names, align 8, !tbaa !42
-  %45 = load ptr, ptr %44, align 8, !tbaa !44
+  %44 = load ptr, ptr @feature_names, align 8, !tbaa !43
+  %45 = load ptr, ptr %44, align 8, !tbaa !45
   %.not37 = icmp eq ptr %45, null
   br i1 %.not37, label %59, label %46
 
 46:                                               ; preds = %43
-  %47 = load i64, ptr @feature_count, align 8, !tbaa !48
+  %47 = load i64, ptr @feature_count, align 8, !tbaa !49
   %48 = shl i64 %47, 3
   %49 = add i64 %48, 8
   %50 = tail call noalias ptr @malloc(i64 noundef %49) #17
@@ -700,10 +700,10 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
 51:                                               ; preds = %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 8 %44, i64 %48, i1 false)
   %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %47
-  store ptr null, ptr %52, align 8, !tbaa !44
+  store ptr null, ptr %52, align 8, !tbaa !45
   tail call void @qsort(ptr noundef nonnull %50, i64 noundef %47, i64 noundef 8, ptr noundef nonnull @struplocompare4sort) #16
   %53 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.25) #16
-  %54 = load ptr, ptr %50, align 8, !tbaa !44
+  %54 = load ptr, ptr %50, align 8, !tbaa !45
   %.not3951 = icmp eq ptr %54, null
   br i1 %.not3951, label %._crit_edge55, label %.lr.ph54
 
@@ -712,9 +712,9 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
   %.252 = phi ptr [ %57, %.lr.ph54 ], [ %50, %51 ]
   %56 = tail call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.22, ptr noundef nonnull %55) #16
   %57 = getelementptr inbounds nuw i8, ptr %.252, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !44
+  %58 = load ptr, ptr %57, align 8, !tbaa !45
   %.not39 = icmp eq ptr %58, null
-  br i1 %.not39, label %._crit_edge55, label %.lr.ph54, !llvm.loop !49
+  br i1 %.not39, label %._crit_edge55, label %.lr.ph54, !llvm.loop !50
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %51
   %putchar40 = tail call i32 @putchar(i32 10)
@@ -722,9 +722,9 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
   br label %59
 
 59:                                               ; preds = %46, %._crit_edge55, %43
-  %60 = load ptr, ptr @curlinfo, align 8, !tbaa !50
+  %60 = load ptr, ptr @curlinfo, align 8, !tbaa !51
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !52
+  %62 = load ptr, ptr %61, align 8, !tbaa !53
   %63 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.26, ptr noundef nonnull dereferenceable(1) %62) #15
   %.not41 = icmp eq i32 %63, 0
   br i1 %.not41, label %66, label %64
@@ -762,27 +762,27 @@ define dso_local void @tool_list_engines() local_unnamed_addr #7 {
   %1 = alloca ptr, align 8
   %2 = tail call ptr @curl_easy_init() #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #16
-  store ptr null, ptr %1, align 8, !tbaa !54
+  store ptr null, ptr %1, align 8, !tbaa !55
   %3 = call i32 (ptr, i32, ...) @curl_easy_getinfo(ptr noundef %2, i32 noundef 4194331, ptr noundef nonnull %1) #16
   %4 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.28)
-  %5 = load ptr, ptr %1, align 8, !tbaa !54
+  %5 = load ptr, ptr %1, align 8, !tbaa !55
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %.preheader
 
 .preheader:                                       ; preds = %0, %.preheader
   %6 = phi ptr [ %11, %.preheader ], [ %5, %0 ]
-  %7 = load ptr, ptr %6, align 8, !tbaa !56
+  %7 = load ptr, ptr %6, align 8, !tbaa !57
   %8 = call i32 (ptr, ...) @curl_mprintf(ptr noundef nonnull @.str.29, ptr noundef %7) #16
-  %9 = load ptr, ptr %1, align 8, !tbaa !54
+  %9 = load ptr, ptr %1, align 8, !tbaa !55
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !58
-  store ptr %11, ptr %1, align 8, !tbaa !54
+  %11 = load ptr, ptr %10, align 8, !tbaa !59
+  store ptr %11, ptr %1, align 8, !tbaa !55
   %.not2 = icmp eq ptr %11, null
-  br i1 %.not2, label %.loopexit, label %.preheader, !llvm.loop !59
+  br i1 %.not2, label %.loopexit, label %.preheader, !llvm.loop !60
 
 12:                                               ; preds = %0
   %13 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.30)
-  %.pre = load ptr, ptr %1, align 8, !tbaa !54
+  %.pre = load ptr, ptr %1, align 8, !tbaa !55
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %12
@@ -852,42 +852,43 @@ attributes #17 = { nounwind allocsize(0) }
 !18 = !{!19, !19, i64 0}
 !19 = !{!"p1 _ZTS8_IO_FILE", !7, i64 0}
 !20 = !{!5, !10, i64 48}
-!21 = distinct !{!21, !22}
+!21 = distinct !{!21, !22, !23}
 !22 = !{!"llvm.loop.mustprogress"}
-!23 = !{!24, !6, i64 0}
-!24 = !{!"category_descriptors", !6, i64 0, !6, i64 8, !25, i64 16}
-!25 = !{!"int", !8, i64 0}
-!26 = !{!24, !6, i64 8}
-!27 = distinct !{!27, !22}
-!28 = !{!29, !8, i64 8}
-!29 = !{!"LongShort", !6, i64 0, !8, i64 8, !8, i64 9, !30, i64 10}
-!30 = !{!"short", !8, i64 0}
-!31 = !{!29, !8, i64 9}
-!32 = !{!29, !6, i64 0}
-!33 = !{!29, !30, i64 10}
-!34 = distinct !{!34, !22}
-!35 = !{!24, !25, i64 16}
-!36 = !{!37, !6, i64 0}
-!37 = !{!"helptxt", !6, i64 0, !6, i64 8, !25, i64 16}
-!38 = !{!37, !25, i64 16}
-!39 = !{!37, !6, i64 8}
-!40 = distinct !{!40, !22}
-!41 = distinct !{!41, !22}
-!42 = !{!43, !43, i64 0}
-!43 = !{!"p2 omnipotent char", !7, i64 0}
-!44 = !{!6, !6, i64 0}
-!45 = distinct !{!45, !22}
-!46 = distinct !{!46, !22}
-!47 = distinct !{!47, !22}
-!48 = !{!10, !10, i64 0}
-!49 = distinct !{!49, !22}
-!50 = !{!51, !51, i64 0}
-!51 = !{!"p1 _ZTS22curl_version_info_data", !7, i64 0}
-!52 = !{!53, !6, i64 8}
-!53 = !{!"curl_version_info_data", !25, i64 0, !6, i64 8, !25, i64 16, !6, i64 24, !25, i64 32, !6, i64 40, !10, i64 48, !6, i64 56, !43, i64 64, !6, i64 72, !25, i64 80, !6, i64 88, !25, i64 96, !6, i64 104, !25, i64 112, !6, i64 120, !25, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !25, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !43, i64 200, !6, i64 208}
-!54 = !{!55, !55, i64 0}
-!55 = !{!"p1 _ZTS10curl_slist", !7, i64 0}
-!56 = !{!57, !6, i64 0}
-!57 = !{!"curl_slist", !6, i64 0, !55, i64 8}
-!58 = !{!57, !55, i64 8}
-!59 = distinct !{!59, !22}
+!23 = !{!"llvm.loop.estimated_trip_count"}
+!24 = !{!25, !6, i64 0}
+!25 = !{!"category_descriptors", !6, i64 0, !6, i64 8, !26, i64 16}
+!26 = !{!"int", !8, i64 0}
+!27 = !{!25, !6, i64 8}
+!28 = distinct !{!28, !22, !23}
+!29 = !{!30, !8, i64 8}
+!30 = !{!"LongShort", !6, i64 0, !8, i64 8, !8, i64 9, !31, i64 10}
+!31 = !{!"short", !8, i64 0}
+!32 = !{!30, !8, i64 9}
+!33 = !{!30, !6, i64 0}
+!34 = !{!30, !31, i64 10}
+!35 = distinct !{!35, !22, !23}
+!36 = !{!25, !26, i64 16}
+!37 = !{!38, !6, i64 0}
+!38 = !{!"helptxt", !6, i64 0, !6, i64 8, !26, i64 16}
+!39 = !{!38, !26, i64 16}
+!40 = !{!38, !6, i64 8}
+!41 = distinct !{!41, !22, !23}
+!42 = distinct !{!42, !22, !23}
+!43 = !{!44, !44, i64 0}
+!44 = !{!"p2 omnipotent char", !7, i64 0}
+!45 = !{!6, !6, i64 0}
+!46 = distinct !{!46, !22, !23}
+!47 = distinct !{!47, !22, !23}
+!48 = distinct !{!48, !22, !23}
+!49 = !{!10, !10, i64 0}
+!50 = distinct !{!50, !22, !23}
+!51 = !{!52, !52, i64 0}
+!52 = !{!"p1 _ZTS22curl_version_info_data", !7, i64 0}
+!53 = !{!54, !6, i64 8}
+!54 = !{!"curl_version_info_data", !26, i64 0, !6, i64 8, !26, i64 16, !6, i64 24, !26, i64 32, !6, i64 40, !10, i64 48, !6, i64 56, !44, i64 64, !6, i64 72, !26, i64 80, !6, i64 88, !26, i64 96, !6, i64 104, !26, i64 112, !6, i64 120, !26, i64 128, !6, i64 136, !6, i64 144, !6, i64 152, !6, i64 160, !26, i64 168, !6, i64 176, !6, i64 184, !6, i64 192, !44, i64 200, !6, i64 208}
+!55 = !{!56, !56, i64 0}
+!56 = !{!"p1 _ZTS10curl_slist", !7, i64 0}
+!57 = !{!58, !6, i64 0}
+!58 = !{!"curl_slist", !6, i64 0, !56, i64 8}
+!59 = !{!58, !56, i64 8}
+!60 = distinct !{!60, !22, !23}

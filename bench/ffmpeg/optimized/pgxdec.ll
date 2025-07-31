@@ -283,7 +283,7 @@ pgx_get_number.exit.thread.i:                     ; preds = %31, %29, %52, %50, 
 ._crit_edge.us.i:                                 ; preds = %122
   %130 = add nuw nsw i32 %.018.us.i, 1
   %exitcond24.not.i = icmp eq i32 %130, %.154
-  br i1 %exitcond24.not.i, label %write_frame_8.exit, label %.lr.ph.us.i, !llvm.loop !36
+  br i1 %exitcond24.not.i, label %write_frame_8.exit, label %.lr.ph.us.i, !llvm.loop !37
 
 131:                                              ; preds = %110
   %132 = select i1 %.056, i32 0, i32 32768
@@ -321,15 +321,15 @@ pgx_get_number.exit.thread.i:                     ; preds = %31, %29, %52, %50, 
   %148 = xor i32 %147, %132
   %149 = trunc i32 %148 to i16
   %150 = getelementptr inbounds nuw i16, ptr %140, i64 %indvars.iv.i32
-  store i16 %149, ptr %150, align 2, !tbaa !38
+  store i16 %149, ptr %150, align 2, !tbaa !39
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
   %exitcond.not.i34 = icmp eq i64 %indvars.iv.next.i33, %wide.trip.count.i30
-  br i1 %exitcond.not.i34, label %._crit_edge.us.i35, label %141, !llvm.loop !40
+  br i1 %exitcond.not.i34, label %._crit_edge.us.i35, label %141, !llvm.loop !41
 
 ._crit_edge.us.i35:                               ; preds = %141
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count27.i
-  br i1 %exitcond28.not.i, label %write_frame_8.exit, label %.lr.ph.us.i31, !llvm.loop !41
+  br i1 %exitcond28.not.i, label %write_frame_8.exit, label %.lr.ph.us.i31, !llvm.loop !42
 
 write_frame_8.exit:                               ; preds = %._crit_edge.us.i, %._crit_edge.us.i35, %.lr.ph20.i28, %131, %.lr.ph20.i, %112
   store i32 1, ptr %2, align 4, !tbaa !33
@@ -395,11 +395,12 @@ attributes #5 = { noreturn nounwind }
 !31 = !{!18, !12, i64 652}
 !32 = !{!11, !11, i64 0}
 !33 = !{!12, !12, i64 0}
-!34 = distinct !{!34, !35}
+!34 = distinct !{!34, !35, !36}
 !35 = !{!"llvm.loop.mustprogress"}
-!36 = distinct !{!36, !35, !37}
-!37 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!38 = !{!39, !39, i64 0}
-!39 = !{!"short", !8, i64 0}
-!40 = distinct !{!40, !35}
-!41 = distinct !{!41, !35, !37}
+!36 = !{!"llvm.loop.estimated_trip_count"}
+!37 = distinct !{!37, !35, !36, !38}
+!38 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!39 = !{!40, !40, i64 0}
+!40 = !{!"short", !8, i64 0}
+!41 = distinct !{!41, !35, !36}
+!42 = distinct !{!42, !35, !36, !38}

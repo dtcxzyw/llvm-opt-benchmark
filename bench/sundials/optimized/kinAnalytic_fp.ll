@@ -195,7 +195,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %82 = trunc nuw i64 %indvars.iv.next.i to i32
   %83 = icmp sgt i32 %0, %82
-  br i1 %83, label %.lr.ph.i, label %.loopexit
+  br i1 %83, label %.lr.ph.i, label %.loopexit, !llvm.loop !9
 
 84:                                               ; preds = %72, %69
   %putchar.i49.i = tail call i32 @putchar(i32 10)
@@ -207,7 +207,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   %puts5.i55.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.16)
   %puts6.i56.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.17)
   %puts7.i57.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.18)
-  %85 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %85 = load ptr, ptr @stderr, align 8, !tbaa !11
   %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.1, i32 noundef -1) #11
   br label %185
 
@@ -240,18 +240,18 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly 
   br i1 %.not.i43, label %107, label %check_retval.exit45
 
 check_retval.exit45:                              ; preds = %.loopexit
-  %105 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %105 = load ptr, ptr @stderr, align 8, !tbaa !11
   %106 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.18, i32 noundef %104) #11
   br label %185
 
 107:                                              ; preds = %.loopexit
-  %108 = load ptr, ptr %3, align 8, !tbaa !11
+  %108 = load ptr, ptr %3, align 8, !tbaa !13
   %109 = call ptr @N_VNew_Serial(i64 noundef 3, ptr noundef %108) #9
   %110 = icmp eq ptr %109, null
   br i1 %110, label %check_retval.exit47, label %113
 
 check_retval.exit47:                              ; preds = %107
-  %111 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %111 = load ptr, ptr @stderr, align 8, !tbaa !11
   %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.19) #11
   br label %185
 
@@ -261,19 +261,19 @@ check_retval.exit47:                              ; preds = %107
   br i1 %115, label %check_retval.exit49, label %118
 
 check_retval.exit49:                              ; preds = %113
-  %116 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %116 = load ptr, ptr @stderr, align 8, !tbaa !11
   %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.20) #11
   br label %185
 
 118:                                              ; preds = %113
-  %119 = load ptr, ptr %3, align 8, !tbaa !11
+  %119 = load ptr, ptr %3, align 8, !tbaa !13
   %120 = call ptr @KINCreate(ptr noundef %119) #9
-  store ptr %120, ptr %6, align 8, !tbaa !13
+  store ptr %120, ptr %6, align 8, !tbaa !15
   %121 = icmp eq ptr %120, null
   br i1 %121, label %check_retval.exit51, label %124
 
 check_retval.exit51:                              ; preds = %118
-  %122 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %122 = load ptr, ptr @stderr, align 8, !tbaa !11
   %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %122, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.21) #11
   br label %185
 
@@ -284,7 +284,7 @@ check_retval.exit51:                              ; preds = %118
   br i1 %.not.i52, label %129, label %check_retval.exit54
 
 check_retval.exit54:                              ; preds = %124
-  %127 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %127 = load ptr, ptr @stderr, align 8, !tbaa !11
   %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %127, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.22, i32 noundef %126) #11
   br label %185
 
@@ -294,7 +294,7 @@ check_retval.exit54:                              ; preds = %124
   br i1 %.not.i55, label %133, label %check_retval.exit57
 
 check_retval.exit57:                              ; preds = %129
-  %131 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %131 = load ptr, ptr @stderr, align 8, !tbaa !11
   %132 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.23, i32 noundef %130) #11
   br label %185
 
@@ -304,7 +304,7 @@ check_retval.exit57:                              ; preds = %129
   br i1 %.not.i58, label %137, label %check_retval.exit60
 
 check_retval.exit60:                              ; preds = %133
-  %135 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %135 = load ptr, ptr @stderr, align 8, !tbaa !11
   %136 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.24, i32 noundef %134) #11
   br label %185
 
@@ -314,7 +314,7 @@ check_retval.exit60:                              ; preds = %133
   br i1 %.not.i61, label %141, label %check_retval.exit63
 
 check_retval.exit63:                              ; preds = %137
-  %139 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %139 = load ptr, ptr @stderr, align 8, !tbaa !11
   %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %139, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.25, i32 noundef %138) #11
   br label %185
 
@@ -336,7 +336,7 @@ check_retval.exit63:                              ; preds = %137
   br i1 %.not.i64, label %150, label %check_retval.exit66
 
 check_retval.exit66:                              ; preds = %146
-  %148 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %148 = load ptr, ptr @stderr, align 8, !tbaa !11
   %149 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.26, i32 noundef %147) #11
   br label %185
 
@@ -346,7 +346,7 @@ check_retval.exit66:                              ; preds = %146
   br i1 %.not.i67, label %check_retval.exit69.thread, label %check_retval.exit69
 
 check_retval.exit69:                              ; preds = %150
-  %152 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %152 = load ptr, ptr @stderr, align 8, !tbaa !11
   %153 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.27, i32 noundef %151) #11
   br label %185
 
@@ -356,7 +356,7 @@ check_retval.exit69.thread:                       ; preds = %150, %.thread, %144
   br i1 %155, label %check_retval.exit71, label %158
 
 check_retval.exit71:                              ; preds = %check_retval.exit69.thread
-  %156 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %156 = load ptr, ptr @stderr, align 8, !tbaa !11
   %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %156, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.30) #11
   br label %185
 
@@ -366,23 +366,23 @@ check_retval.exit71:                              ; preds = %check_retval.exit69
   br i1 %160, label %check_retval.exit73, label %163
 
 check_retval.exit73:                              ; preds = %158
-  %161 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %161 = load ptr, ptr @stderr, align 8, !tbaa !11
   %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %161, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.31) #11
   br label %185
 
 163:                                              ; preds = %158
-  store double 1.000000e-01, ptr %159, align 8, !tbaa !14
+  store double 1.000000e-01, ptr %159, align 8, !tbaa !16
   %164 = getelementptr inbounds nuw i8, ptr %159, i64 8
-  store double 1.000000e-01, ptr %164, align 8, !tbaa !14
+  store double 1.000000e-01, ptr %164, align 8, !tbaa !16
   %165 = getelementptr inbounds nuw i8, ptr %159, i64 16
-  store double -1.000000e-01, ptr %165, align 8, !tbaa !14
+  store double -1.000000e-01, ptr %165, align 8, !tbaa !16
   call void @N_VConst(double noundef 1.000000e+00, ptr noundef nonnull %114) #9
   %166 = call i32 @KINSol(ptr noundef nonnull %120, ptr noundef nonnull %109, i32 noundef 3, ptr noundef nonnull %114, ptr noundef nonnull %114) #9
   %.not.i74 = icmp eq i32 %166, 0
   br i1 %.not.i74, label %169, label %check_retval.exit76
 
 check_retval.exit76:                              ; preds = %163
-  %167 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %167 = load ptr, ptr @stderr, align 8, !tbaa !11
   %168 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %167, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.32, i32 noundef %166) #11
   br label %185
 
@@ -392,7 +392,7 @@ check_retval.exit76:                              ; preds = %163
   br i1 %.not.i77, label %check_retval.exit79, label %171
 
 171:                                              ; preds = %169
-  %172 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %172 = load ptr, ptr @stderr, align 8, !tbaa !11
   %173 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %172, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.33, i32 noundef %170) #11
   br label %check_retval.exit79
 
@@ -402,15 +402,15 @@ check_retval.exit79:                              ; preds = %169, %171
   br i1 %.not.i80, label %check_retval.exit82, label %175
 
 175:                                              ; preds = %check_retval.exit79
-  %176 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %176 = load ptr, ptr @stderr, align 8, !tbaa !11
   %177 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %176, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.34, i32 noundef %174) #11
   br label %check_retval.exit82
 
 check_retval.exit82:                              ; preds = %check_retval.exit79, %175
   %puts37 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  %178 = load i64, ptr %4, align 8, !tbaa !16
+  %178 = load i64, ptr %4, align 8, !tbaa !18
   %179 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.36, i64 noundef %178)
-  %180 = load i64, ptr %5, align 8, !tbaa !16
+  %180 = load i64, ptr %5, align 8, !tbaa !18
   %181 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i64 noundef %180)
   %182 = call fastcc i32 @check_ans(ptr noundef nonnull %109, double noundef %93)
   %183 = call i32 @fclose(ptr noundef nonnull %154)
@@ -456,7 +456,7 @@ define internal range(i32 -1, 1) i32 @FPFunction(ptr noundef %0, ptr noundef %1,
   br i1 %5, label %check_retval.exit, label %8
 
 check_retval.exit:                                ; preds = %3
-  %6 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !11
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.31) #11
   br label %34
 
@@ -466,34 +466,34 @@ check_retval.exit:                                ; preds = %3
   br i1 %10, label %check_retval.exit19, label %13
 
 check_retval.exit19:                              ; preds = %8
-  %11 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !11
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.31) #11
   br label %34
 
 13:                                               ; preds = %8
-  %14 = load double, ptr %4, align 8, !tbaa !14
+  %14 = load double, ptr %4, align 8, !tbaa !16
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %16 = load double, ptr %15, align 8, !tbaa !14
+  %16 = load double, ptr %15, align 8, !tbaa !16
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %18 = load double, ptr %17, align 8, !tbaa !14
+  %18 = load double, ptr %17, align 8, !tbaa !16
   %19 = fadd double %16, -1.000000e+00
   %20 = fmul double %19, %18
-  %21 = tail call double @cos(double noundef %20) #9, !tbaa !18
+  %21 = tail call double @cos(double noundef %20) #9, !tbaa !20
   %22 = tail call double @llvm.fmuladd.f64(double %21, double 0x3FD5555555555555, double 0x3FC5555555555555)
-  store double %22, ptr %9, align 8, !tbaa !14
-  %23 = tail call double @sin(double noundef %18) #9, !tbaa !18
+  store double %22, ptr %9, align 8, !tbaa !16
+  %23 = tail call double @sin(double noundef %18) #9, !tbaa !20
   %24 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %23)
   %25 = fadd double %24, 1.060000e+00
-  %26 = tail call double @sqrt(double noundef %25) #9, !tbaa !18
+  %26 = tail call double @sqrt(double noundef %25) #9, !tbaa !20
   %27 = tail call double @llvm.fmuladd.f64(double %26, double 0x3FBC71C71C71C71C, double 9.000000e-01)
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store double %27, ptr %28, align 8, !tbaa !14
+  store double %27, ptr %28, align 8, !tbaa !16
   %29 = fneg double %14
   %30 = fmul double %19, %29
-  %31 = tail call double @exp(double noundef %30) #9, !tbaa !18
+  %31 = tail call double @exp(double noundef %30) #9, !tbaa !20
   %32 = tail call double @llvm.fmuladd.f64(double %31, double -5.000000e-02, double 0xBFDE4F713D27B3AD)
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store double %32, ptr %33, align 8, !tbaa !14
+  store double %32, ptr %33, align 8, !tbaa !16
   br label %34
 
 34:                                               ; preds = %check_retval.exit19, %check_retval.exit, %13
@@ -531,27 +531,27 @@ define internal fastcc range(i32 0, 2) i32 @check_ans(ptr noundef %0, double nou
   br i1 %4, label %check_retval.exit, label %7
 
 check_retval.exit:                                ; preds = %2
-  %5 = load ptr, ptr @stderr, align 8, !tbaa !9
+  %5 = load ptr, ptr @stderr, align 8, !tbaa !11
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.31) #11
   br label %34
 
 7:                                                ; preds = %2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  %8 = load double, ptr %3, align 8, !tbaa !14
+  %8 = load double, ptr %3, align 8, !tbaa !16
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %8)
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load double, ptr %10, align 8, !tbaa !14
+  %11 = load double, ptr %10, align 8, !tbaa !16
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %11)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load double, ptr %13, align 8, !tbaa !14
+  %14 = load double, ptr %13, align 8, !tbaa !16
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %14)
-  %16 = load double, ptr %3, align 8, !tbaa !14
+  %16 = load double, ptr %3, align 8, !tbaa !16
   %17 = fadd double %16, -5.000000e-01
   %18 = tail call double @llvm.fabs.f64(double %17)
-  %19 = load double, ptr %10, align 8, !tbaa !14
+  %19 = load double, ptr %10, align 8, !tbaa !16
   %20 = fadd double %19, -1.000000e+00
   %21 = tail call double @llvm.fabs.f64(double %20)
-  %22 = load double, ptr %13, align 8, !tbaa !14
+  %22 = load double, ptr %13, align 8, !tbaa !16
   %23 = fadd double %22, 0x3FE0C152382D7370
   %24 = tail call double @llvm.fabs.f64(double %23)
   %puts19 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
@@ -651,14 +651,16 @@ attributes #11 = { cold nounwind }
 !6 = !{!"any pointer", !7, i64 0}
 !7 = !{!"omnipotent char", !8, i64 0}
 !8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
 !11 = !{!12, !12, i64 0}
-!12 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
-!13 = !{!6, !6, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"double", !7, i64 0}
+!12 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 _ZTS11SUNContext_", !6, i64 0}
+!15 = !{!6, !6, i64 0}
 !16 = !{!17, !17, i64 0}
-!17 = !{!"long", !7, i64 0}
+!17 = !{!"double", !7, i64 0}
 !18 = !{!19, !19, i64 0}
-!19 = !{!"int", !7, i64 0}
+!19 = !{!"long", !7, i64 0}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"int", !7, i64 0}

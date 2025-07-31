@@ -57,7 +57,7 @@ define hidden void @aom_blend_a64_vmask_c(ptr noundef writeonly captures(none) %
 ._crit_edge.us:                                   ; preds = %20
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
-  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !6
+  br i1 %exitcond33.not, label %._crit_edge26, label %.lr.ph.us, !llvm.loop !7
 
 ._crit_edge26:                                    ; preds = %._crit_edge.us, %9
   ret void
@@ -121,12 +121,12 @@ define hidden void @aom_highbd_blend_a64_vmask_c(ptr noundef %0, i32 noundef %1,
   store i16 %47, ptr %50, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.us, label %30, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %30
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond36.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count35
-  br i1 %exitcond36.not, label %._crit_edge29, label %.lr.ph.us, !llvm.loop !9
+  br i1 %exitcond36.not, label %._crit_edge29, label %.lr.ph.us, !llvm.loop !10
 
 ._crit_edge29:                                    ; preds = %._crit_edge.us, %10
   ret void
@@ -141,9 +141,10 @@ attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessibl
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5, !7}
-!7 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5, !7}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6, !8}
+!8 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6, !8}

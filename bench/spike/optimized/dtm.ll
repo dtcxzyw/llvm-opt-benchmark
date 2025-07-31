@@ -192,7 +192,7 @@ define noundef range(i32 0, 3) i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 908
-  %4 = load i8, ptr %3, align 4, !tbaa !92, !range !93, !noundef !94
+  %4 = load i8, ptr %3, align 4, !tbaa !93, !range !94, !noundef !95
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %6, label %11
 
@@ -232,7 +232,7 @@ define void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 captures(none) derefer
   %21 = load i32, ptr %18, align 8, !tbaa !88
   %22 = and i32 %21, 512
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %19, label %24, !llvm.loop !95
+  br i1 %23, label %19, label %24, !llvm.loop !96
 
 24:                                               ; preds = %19
   %25 = or disjoint i32 %13, 1
@@ -272,7 +272,7 @@ define void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 captures(none) deref
   %12 = load i32, ptr %9, align 8, !tbaa !88
   %13 = and i32 %12, 131072
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %10, label %15, !llvm.loop !96
+  br i1 %14, label %10, label %15, !llvm.loop !97
 
 15:                                               ; preds = %10
   %16 = or disjoint i32 %4, 1
@@ -287,7 +287,7 @@ define void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 captures(none) deref
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 940
   store i32 %1, ptr %19, align 4, !tbaa !89
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 908
-  %21 = load i8, ptr %20, align 4, !tbaa !92, !range !93, !noundef !94
+  %21 = load i8, ptr %20, align 4, !tbaa !93, !range !94, !noundef !95
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %26
 
@@ -309,7 +309,7 @@ define void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 captures(none) deref
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %4 = load i32, ptr %3, align 4, !tbaa !97
+  %4 = load i32, ptr %3, align 4, !tbaa !98
   %5 = lshr i32 %4, 5
   %6 = zext nneg i32 %5 to i64
   %7 = alloca i32, i64 %6, align 16
@@ -330,7 +330,7 @@ define noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 captures(no
 17:                                               ; preds = %15
   %18 = zext nneg i32 %14 to i64
   %19 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !98
+  %20 = load ptr, ptr %19, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit
 
 _ZN5dtm_t3dieEj.exit:                             ; preds = %15, %17
@@ -349,7 +349,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %15, %17
 26:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %2
   %27 = load i32, ptr %7, align 16, !tbaa !3
   %28 = zext i32 %27 to i64
-  %29 = load i32, ptr %3, align 4, !tbaa !97
+  %29 = load i32, ptr %3, align 4, !tbaa !98
   %30 = icmp ugt i32 %29, 32
   br i1 %30, label %31, label %37
 
@@ -407,7 +407,7 @@ define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %20)
   %21 = add nuw i64 %.02541, 1
   %exitcond.not = icmp eq i64 %21, %3
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !99
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !100
 
 22:                                               ; preds = %.lr.ph43, %22
   %.02642 = phi i64 [ 0, %.lr.ph43 ], [ %27, %22 ]
@@ -422,7 +422,7 @@ define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
   %27 = add nuw i64 %.02642, 1
   %exitcond51.not = icmp eq i64 %27, %5
-  br i1 %exitcond51.not, label %.loopexit40, label %22, !llvm.loop !100
+  br i1 %exitcond51.not, label %.loopexit40, label %22, !llvm.loop !101
 
 .loopexit40:                                      ; preds = %22, %._crit_edge
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 888
@@ -443,7 +443,7 @@ define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr
   %34 = load i32, ptr %31, align 8, !tbaa !88
   %35 = and i32 %34, 4096
   %.not28 = icmp eq i32 %35, 0
-  br i1 %.not28, label %36, label %32, !llvm.loop !101
+  br i1 %.not28, label %36, label %32, !llvm.loop !102
 
 36:                                               ; preds = %32
   %37 = icmp ne i32 %10, 0
@@ -465,7 +465,7 @@ define noundef range(i32 0, 8) i32 @_ZN5dtm_t20run_abstract_commandEjPKjmPjm(ptr
   store i32 %41, ptr %42, align 4, !tbaa !3
   %43 = add nuw i64 %.044, 1
   %exitcond52.not = icmp eq i64 %43, %5
-  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph45, !llvm.loop !102
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph45, !llvm.loop !103
 
 .loopexit:                                        ; preds = %.lr.ph45, %36
   %44 = lshr i32 %34, 8
@@ -481,7 +481,7 @@ define void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 captures(none) derefere
 4:                                                ; preds = %2
   %5 = zext nneg i32 %1 to i64
   %6 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %5
-  %7 = load ptr, ptr %6, align 8, !tbaa !98
+  %7 = load ptr, ptr %6, align 8, !tbaa !99
   br label %8
 
 8:                                                ; preds = %2, %4
@@ -501,7 +501,7 @@ define void @_ZN5dtm_t3dieEj(ptr noundef nonnull align 8 captures(none) derefere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %5 = load i32, ptr %4, align 4, !tbaa !97
+  %5 = load i32, ptr %4, align 4, !tbaa !98
   %6 = lshr i32 %5, 5
   %7 = zext nneg i32 %6 to i64
   %8 = alloca i32, i64 %7, align 16
@@ -535,7 +535,7 @@ define void @_ZN5dtm_t11restore_regEjm(ptr noundef nonnull align 8 captures(none
 25:                                               ; preds = %23
   %26 = zext nneg i32 %22 to i64
   %27 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !98
+  %28 = load ptr, ptr %27, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit
 
 _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
@@ -558,7 +558,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i64 0, 536870912) i64 @_ZN5dtm_t11chunk_alignEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(944) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %3 = load i32, ptr %2, align 4, !tbaa !97
+  %3 = load i32, ptr %2, align 4, !tbaa !98
   %4 = lshr i32 %3, 3
   %5 = zext nneg i32 %4 to i64
   ret i64 %5
@@ -567,10 +567,10 @@ define noundef range(i64 0, 536870912) i64 @_ZN5dtm_t11chunk_alignEv(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %6 = load i64, ptr %5, align 8, !tbaa !103
+  %6 = load i64, ptr %5, align 8, !tbaa !104
   %7 = alloca i32, i64 %6, align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %9 = load i64, ptr %8, align 8, !tbaa !104
+  %9 = load i64, ptr %8, align 8, !tbaa !105
   %10 = alloca i32, i64 %9, align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 940
   %12 = load i32, ptr %11, align 4, !tbaa !89
@@ -578,7 +578,7 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 captures(non
   %13 = tail call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 8)
   %14 = tail call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 9)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %16 = load i32, ptr %15, align 4, !tbaa !97
+  %16 = load i32, ptr %15, align 4, !tbaa !98
   %17 = icmp eq i32 %16, 64
   %18 = select i1 %17, i32 275587, i32 271491
   store i32 %18, ptr %7, align 16, !tbaa !3
@@ -618,7 +618,7 @@ define void @_ZN5dtm_t10read_chunkEmmPv(ptr noundef nonnull align 8 captures(non
 39:                                               ; preds = %37
   %40 = zext nneg i32 %36 to i64
   %41 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !98
+  %42 = load ptr, ptr %41, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit
 
 _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
@@ -636,7 +636,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
 
 48:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %30
   %49 = shl i64 %2, 3
-  %50 = load i32, ptr %15, align 4, !tbaa !97
+  %50 = load i32, ptr %15, align 4, !tbaa !98
   %51 = zext i32 %50 to i64
   %.not32 = icmp ult i64 %49, %51
   br i1 %.not32, label %._crit_edge, label %.lr.ph
@@ -681,7 +681,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
 71:                                               ; preds = %69
   %72 = zext nneg i32 %68 to i64
   %73 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %72
-  %74 = load ptr, ptr %73, align 8, !tbaa !98
+  %74 = load ptr, ptr %73, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit29
 
 _ZN5dtm_t3dieEj.exit29:                           ; preds = %69, %71
@@ -695,27 +695,27 @@ _ZN5dtm_t3dieEj.exit29:                           ; preds = %69, %71
   br label %78
 
 78:                                               ; preds = %_ZN5dtm_t3dieEj.exit29, %56
-  %79 = load i32, ptr %15, align 4, !tbaa !97
+  %79 = load i32, ptr %15, align 4, !tbaa !98
   %80 = lshr i32 %79, 3
   %81 = zext nneg i32 %80 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.031, ptr nonnull align 16 %10, i64 %81, i1 false)
-  %82 = load i32, ptr %15, align 4, !tbaa !97
+  %82 = load i32, ptr %15, align 4, !tbaa !98
   %83 = lshr i32 %82, 3
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %.031, i64 %84
   %86 = zext i32 %82 to i64
   %87 = udiv i64 %49, %86
   %88 = icmp ult i64 %63, %87
-  br i1 %88, label %56, label %._crit_edge, !llvm.loop !105
+  br i1 %88, label %56, label %._crit_edge, !llvm.loop !106
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %6 = load i64, ptr %5, align 8, !tbaa !103
+  %6 = load i64, ptr %5, align 8, !tbaa !104
   %7 = alloca i32, i64 %6, align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %9 = load i64, ptr %8, align 8, !tbaa !104
+  %9 = load i64, ptr %8, align 8, !tbaa !105
   %10 = alloca i32, i64 %9, align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 940
   %12 = load i32, ptr %11, align 4, !tbaa !89
@@ -723,7 +723,7 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 captures(n
   %13 = tail call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 8)
   %14 = tail call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 9)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %16 = load i32, ptr %15, align 4, !tbaa !97
+  %16 = load i32, ptr %15, align 4, !tbaa !98
   %17 = icmp eq i32 %16, 64
   %18 = select i1 %17, i32 9711651, i32 9707555
   store i32 %18, ptr %7, align 16, !tbaa !3
@@ -763,7 +763,7 @@ define void @_ZN5dtm_t11write_chunkEmmPKv(ptr noundef nonnull align 8 captures(n
 39:                                               ; preds = %37
   %40 = zext nneg i32 %36 to i64
   %41 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %40
-  %42 = load ptr, ptr %41, align 8, !tbaa !98
+  %42 = load ptr, ptr %41, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit
 
 _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
@@ -780,7 +780,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
   br label %48
 
 48:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %30
-  %49 = load i32, ptr %15, align 4, !tbaa !97
+  %49 = load i32, ptr %15, align 4, !tbaa !98
   %50 = lshr i32 %49, 3
   %51 = zext nneg i32 %50 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %3, i64 %51, i1 false)
@@ -802,7 +802,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %37, %39
 62:                                               ; preds = %60
   %63 = zext nneg i32 %59 to i64
   %64 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %63
-  %65 = load ptr, ptr %64, align 8, !tbaa !98
+  %65 = load ptr, ptr %64, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit36
 
 _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
@@ -820,7 +820,7 @@ _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
 
 71:                                               ; preds = %_ZN5dtm_t3dieEj.exit36, %48
   %72 = shl i64 %2, 3
-  %73 = load i32, ptr %15, align 4, !tbaa !97
+  %73 = load i32, ptr %15, align 4, !tbaa !98
   %74 = zext i32 %73 to i64
   %75 = udiv i64 %72, %74
   %76 = icmp ugt i64 %75, 1
@@ -850,7 +850,7 @@ _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
   store i32 1, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
   %86 = load ptr, ptr %78, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %86)
-  %.pre = load i32, ptr %15, align 4, !tbaa !97
+  %.pre = load i32, ptr %15, align 4, !tbaa !98
   br label %87
 
 87:                                               ; preds = %85, %82
@@ -886,7 +886,7 @@ _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
   %101 = load i32, ptr %80, align 8, !tbaa !88
   %102 = and i32 %101, 4096
   %.not32 = icmp eq i32 %102, 0
-  br i1 %.not32, label %103, label %99, !llvm.loop !106
+  br i1 %.not32, label %103, label %99, !llvm.loop !107
 
 103:                                              ; preds = %99
   %104 = lshr i32 %101, 8
@@ -901,7 +901,7 @@ _ZN5dtm_t3dieEj.exit36:                           ; preds = %60, %62
 108:                                              ; preds = %106
   %109 = zext nneg i32 %105 to i64
   %110 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %109
-  %111 = load ptr, ptr %110, align 8, !tbaa !98
+  %111 = load ptr, ptr %110, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit42
 
 _ZN5dtm_t3dieEj.exit42:                           ; preds = %106, %108
@@ -916,11 +916,11 @@ _ZN5dtm_t3dieEj.exit42:                           ; preds = %106, %108
 
 115:                                              ; preds = %103, %_ZN5dtm_t3dieEj.exit42
   %116 = add nuw i64 %.046, 1
-  %117 = load i32, ptr %15, align 4, !tbaa !97
+  %117 = load i32, ptr %15, align 4, !tbaa !98
   %118 = zext i32 %117 to i64
   %119 = udiv i64 %72, %118
   %120 = icmp ult i64 %116, %119
-  br i1 %120, label %82, label %._crit_edge, !llvm.loop !107
+  br i1 %120, label %82, label %._crit_edge, !llvm.loop !108
 
 121:                                              ; preds = %._crit_edge
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 888
@@ -946,10 +946,10 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %5 = load i64, ptr %4, align 8, !tbaa !103
+  %5 = load i64, ptr %4, align 8, !tbaa !104
   %6 = alloca i32, i64 %5, align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  %8 = load i64, ptr %7, align 8, !tbaa !104
+  %8 = load i64, ptr %7, align 8, !tbaa !105
   %9 = alloca i32, i64 %8, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 940
   %11 = load i32, ptr %10, align 4, !tbaa !89
@@ -958,7 +958,7 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 captures(none
   %13 = tail call noundef i64 @_ZN5dtm_t8save_regEj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 9)
   store i64 %1, ptr %9, align 16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %15 = load i32, ptr %14, align 4, !tbaa !97
+  %15 = load i32, ptr %14, align 4, !tbaa !98
   %16 = icmp eq i32 %15, 128
   %17 = icmp eq i32 %15, 64
   %18 = select i1 %17, i32 3346440, i32 2297864
@@ -976,7 +976,7 @@ define void @_ZN5dtm_t11clear_chunkEmm(ptr noundef nonnull align 8 captures(none
 25:                                               ; preds = %23
   %26 = zext nneg i32 %22 to i64
   %27 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %26
-  %28 = load ptr, ptr %27, align 8, !tbaa !98
+  %28 = load ptr, ptr %27, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit
 
 _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
@@ -993,7 +993,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
   br label %34
 
 34:                                               ; preds = %_ZN5dtm_t3dieEj.exit, %3
-  %35 = load i32, ptr %14, align 4, !tbaa !97
+  %35 = load i32, ptr %14, align 4, !tbaa !98
   %36 = icmp eq i32 %35, 64
   %37 = select i1 %36, i32 274467, i32 270371
   store i32 %37, ptr %6, align 16, !tbaa !3
@@ -1024,7 +1024,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %23, %25
 53:                                               ; preds = %51
   %54 = zext nneg i32 %50 to i64
   %55 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %54
-  %56 = load ptr, ptr %55, align 8, !tbaa !98
+  %56 = load ptr, ptr %55, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit21
 
 _ZN5dtm_t3dieEj.exit21:                           ; preds = %51, %53
@@ -1065,11 +1065,11 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr nound
   store i32 2065962099, ptr %5, align 16, !tbaa !3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %11 = load i32, ptr %10, align 4, !tbaa !97
+  %11 = load i32, ptr %10, align 4, !tbaa !98
   %12 = icmp eq i32 %11, 64
   %13 = select i1 %12, i32 13315, i32 9219
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %15 = load i32, ptr %14, align 8, !tbaa !108
+  %15 = load i32, ptr %14, align 8, !tbaa !109
   %16 = shl i32 %15, 20
   %17 = or disjoint i32 %13, %16
   store i32 %17, ptr %9, align 4, !tbaa !3
@@ -1109,7 +1109,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr nound
 40:                                               ; preds = %38
   %41 = zext nneg i32 %37 to i64
   %42 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !98
+  %43 = load ptr, ptr %42, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit
 
 _ZN5dtm_t3dieEj.exit:                             ; preds = %38, %40
@@ -1135,7 +1135,7 @@ _ZN5dtm_t3dieEj.exit:                             ; preds = %38, %40
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %52)
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %54 = load i32, ptr %53, align 8, !tbaa !88
-  %55 = load i32, ptr %10, align 4, !tbaa !97
+  %55 = load i32, ptr %10, align 4, !tbaa !98
   %56 = icmp eq i32 %55, 64
   br i1 %56, label %57, label %61
 
@@ -1201,7 +1201,7 @@ define noundef range(i32 32, 65) i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull a
   %8 = load i32, ptr %5, align 8, !tbaa !88
   %9 = and i32 %8, 4096
   %.not28.i = icmp eq i32 %9, 0
-  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %6, !llvm.loop !101
+  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %6, !llvm.loop !102
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %6
   %10 = and i32 %8, 1792
@@ -1241,7 +1241,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %6
   %22 = load i32, ptr %5, align 8, !tbaa !88
   %23 = and i32 %22, 4096
   %.not28.i13 = icmp eq i32 %23, 0
-  br i1 %.not28.i13, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14, label %20, !llvm.loop !101
+  br i1 %.not28.i13, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14, label %20, !llvm.loop !102
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14:  ; preds = %20
   %24 = and i32 %22, 1792
@@ -1267,7 +1267,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit14:  ; preds = %20
   %31 = load i32, ptr %5, align 8, !tbaa !88
   %32 = and i32 %31, 4096
   %.not28.i17 = icmp eq i32 %32, 0
-  br i1 %.not28.i17, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit18, label %29, !llvm.loop !101
+  br i1 %.not28.i17, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit18, label %29, !llvm.loop !102
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit18:  ; preds = %29
   %33 = and i32 %31, 1792
@@ -1322,7 +1322,7 @@ define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 captures(none) dere
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store i64 4504093548613647, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  %6 = load i32, ptr %5, align 4, !tbaa !97
+  %6 = load i32, ptr %5, align 4, !tbaa !98
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 896
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 744
@@ -1352,7 +1352,7 @@ define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 captures(none) dere
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %19)
   %20 = add nuw nsw i64 %.02541.i, 1
   %exitcond.not.i = icmp eq i64 %20, 2
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !99
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %15, !llvm.loop !100
 
 21:                                               ; preds = %21, %._crit_edge.i
   store i64 4294967318, ptr %7, align 8
@@ -1362,7 +1362,7 @@ define void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 captures(none) dere
   %23 = load i32, ptr %14, align 8, !tbaa !88
   %24 = and i32 %23, 4096
   %.not28.i = icmp eq i32 %24, 0
-  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %21, !llvm.loop !101
+  br i1 %.not28.i, label %_ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit, label %21, !llvm.loop !102
 
 _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %21
   %25 = lshr i32 %23, 8
@@ -1377,7 +1377,7 @@ _ZN5dtm_t20run_abstract_commandEjPKjmPjm.exit:    ; preds = %21
 29:                                               ; preds = %27
   %30 = zext nneg i32 %26 to i64
   %31 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN5dtm_t3dieEj.codes, i64 0, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !98
+  %32 = load ptr, ptr %31, align 8, !tbaa !99
   br label %_ZN5dtm_t3dieEj.exit
 
 _ZN5dtm_t3dieEj.exit:                             ; preds = %27, %29
@@ -1423,7 +1423,7 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
   %8 = load i32, ptr %5, align 8, !tbaa !88
   %9 = and i32 %8, 1
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %6, label %11, !llvm.loop !109
+  br i1 %10, label %6, label %11, !llvm.loop !110
 
 11:                                               ; preds = %6
   store i64 4294967318, ptr %2, align 8
@@ -1435,11 +1435,11 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
   %15 = and i32 %14, 31
   %16 = zext nneg i32 %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  store i64 %16, ptr %17, align 8, !tbaa !103
+  store i64 %16, ptr %17, align 8, !tbaa !104
   %18 = and i32 %13, 15
   %19 = zext nneg i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 928
-  store i64 %19, ptr %20, align 8, !tbaa !104
+  store i64 %19, ptr %20, align 8, !tbaa !105
   store i64 4294967314, ptr %2, align 8
   store i32 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
   %21 = load ptr, ptr %3, align 8, !tbaa !7
@@ -1447,17 +1447,17 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
   %22 = load i32, ptr %5, align 8, !tbaa !88
   %23 = and i32 %22, 4095
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  store i32 %23, ptr %24, align 8, !tbaa !108
+  store i32 %23, ptr %24, align 8, !tbaa !109
   %25 = tail call noundef i32 @_ZN5dtm_t15enumerate_hartsEv(ptr noundef nonnull align 8 dereferenceable(944) %0)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  store i32 %25, ptr %26, align 8, !tbaa !110
+  store i32 %25, ptr %26, align 8, !tbaa !111
   tail call void @_ZN5dtm_t4haltEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 0)
   %27 = tail call noundef i32 @_ZN5dtm_t8get_xlenEv(ptr noundef nonnull align 8 dereferenceable(944) %0)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 916
-  store i32 %27, ptr %28, align 4, !tbaa !97
+  store i32 %27, ptr %28, align 4, !tbaa !98
   tail call void @_ZN5dtm_t6resumeEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 0)
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 908
-  store i8 1, ptr %29, align 4, !tbaa !92
+  store i8 1, ptr %29, align 4, !tbaa !93
   %30 = tail call noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(712) %0)
   br label %31
 
@@ -1466,13 +1466,13 @@ define void @_ZN5dtm_t15producer_threadEv(ptr noundef nonnull align 8 dereferenc
   store i32 0, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
   %32 = load ptr, ptr %3, align 8, !tbaa !7
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %32)
-  br label %31, !llvm.loop !111
+  br label %31, !llvm.loop !112
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(944) initializes((888, 900), (940, 944)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 936
-  %3 = load i32, ptr %2, align 8, !tbaa !110
+  %3 = load i32, ptr %2, align 8, !tbaa !111
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1525,12 +1525,12 @@ define void @_ZN5dtm_t5resetEv(ptr noundef nonnull align 8 captures(none) derefe
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %26)
   store i32 %.04, ptr %8, align 4, !tbaa !89
   tail call void @_ZN5dtm_t7fence_iEv(ptr noundef nonnull align 8 dereferenceable(944) %0)
-  %27 = load i64, ptr %9, align 8, !tbaa !112
+  %27 = load i64, ptr %9, align 8, !tbaa !113
   %28 = tail call noundef range(i64 0, 4294967296) i64 @_ZN5dtm_t10modify_csrEjmj(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef 1969, i64 noundef %27, i32 noundef 1)
   %29 = add nuw nsw i32 %.04, 1
-  %30 = load i32, ptr %2, align 8, !tbaa !110
+  %30 = load i32, ptr %2, align 8, !tbaa !111
   %31 = icmp slt i32 %29, %30
-  br i1 %31, label %19, label %._crit_edge, !llvm.loop !113
+  br i1 %31, label %19, label %._crit_edge, !llvm.loop !114
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1551,7 +1551,7 @@ define void @_ZN5dtm_t4idleEv(ptr noundef nonnull align 8 captures(none) derefer
   tail call void @_ZN9context_t9switch_toEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
   %7 = add nuw nsw i32 %.02, 1
   %exitcond.not = icmp eq i32 %7, 10000
-  br i1 %exitcond.not, label %4, label %5, !llvm.loop !114
+  br i1 %exitcond.not, label %4, label %5, !llvm.loop !115
 }
 
 declare noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceable(712)) local_unnamed_addr #2
@@ -1559,9 +1559,9 @@ declare noundef i32 @_ZN6htif_t3runEv(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t17start_host_threadEv(ptr noundef nonnull align 8 dereferenceable(944) initializes((744, 752), (909, 911)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 909
-  store i8 0, ptr %2, align 1, !tbaa !115
+  store i8 0, ptr %2, align 1, !tbaa !116
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 910
-  store i8 0, ptr %3, align 2, !tbaa !116
+  store i8 0, ptr %3, align 2, !tbaa !117
   %4 = tail call noundef ptr @_ZN9context_t7currentEv()
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 744
   store ptr %4, ptr %5, align 8, !tbaa !7
@@ -1578,18 +1578,18 @@ declare void @_ZN9context_t4initEPFvPvES0_(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTV5dtm_t, i64 16), ptr %0, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTV5dtm_t, i64 16), ptr %0, align 8, !tbaa !118
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 712
   invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %5 unwind label %11
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 908
-  store i8 0, ptr %6, align 4, !tbaa !92
+  store i8 0, ptr %6, align 4, !tbaa !93
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 909
-  store i8 0, ptr %7, align 1, !tbaa !115
+  store i8 0, ptr %7, align 1, !tbaa !116
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 910
-  store i8 0, ptr %8, align 2, !tbaa !116
+  store i8 0, ptr %8, align 2, !tbaa !117
   %9 = invoke noundef ptr @_ZN9context_t7currentEv()
           to label %.noexc unwind label %13
 
@@ -1635,7 +1635,7 @@ declare void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(712)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5dtm_tD2Ev(ptr noundef nonnull align 8 dereferenceable(944) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTV5dtm_t, i64 16), ptr %0, align 8, !tbaa !117
+  store ptr getelementptr inbounds nuw inrange(-16, 128) (i8, ptr @_ZTV5dtm_t, i64 16), ptr %0, align 8, !tbaa !118
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   tail call void @_ZN9context_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
   tail call void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) #12
@@ -1655,33 +1655,33 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5dtm_t4tickEbbNS_4respE(ptr noundef nonnull align 8 dereferenceable(944) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 910
-  %6 = load i8, ptr %5, align 2, !tbaa !116, !range !93, !noundef !94
+  %6 = load i8, ptr %5, align 2, !tbaa !117, !range !94, !noundef !95
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 909
-  %10 = load i8, ptr %9, align 1, !tbaa !115, !range !93, !noundef !94
+  %10 = load i8, ptr %9, align 1, !tbaa !116, !range !94, !noundef !95
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %13, label %12
 
 12:                                               ; preds = %8
-  store i8 1, ptr %9, align 1, !tbaa !115
+  store i8 1, ptr %9, align 1, !tbaa !116
   br label %15
 
 13:                                               ; preds = %8
   br i1 %1, label %14, label %15
 
 14:                                               ; preds = %13
-  store i8 0, ptr %9, align 1, !tbaa !115
-  store i8 1, ptr %5, align 2, !tbaa !116
+  store i8 0, ptr %9, align 1, !tbaa !116
+  store i8 1, ptr %5, align 2, !tbaa !117
   br label %15
 
 15:                                               ; preds = %12, %14, %13, %4
   br i1 %2, label %16, label %21
 
 16:                                               ; preds = %15
-  store i8 0, ptr %5, align 2, !tbaa !116
+  store i8 0, ptr %5, align 2, !tbaa !117
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 900
   store i64 %3, ptr %17, align 4
   %18 = tail call noundef ptr @_ZN9context_t7currentEv()
@@ -1840,32 +1840,33 @@ attributes #14 = { builtin nounwind }
 !87 = !{!"_ZTSN5dtm_t4respE", !4, i64 0, !4, i64 4}
 !88 = !{!8, !4, i64 904}
 !89 = !{!8, !4, i64 940}
-!90 = distinct !{!90, !91}
+!90 = distinct !{!90, !91, !92}
 !91 = !{!"llvm.loop.mustprogress"}
-!92 = !{!8, !15, i64 908}
-!93 = !{i8 0, i8 2}
-!94 = !{}
-!95 = distinct !{!95, !91}
-!96 = distinct !{!96, !91}
-!97 = !{!8, !4, i64 916}
-!98 = !{!23, !23, i64 0}
-!99 = distinct !{!99, !91}
-!100 = distinct !{!100, !91}
-!101 = distinct !{!101, !91}
-!102 = distinct !{!102, !91}
-!103 = !{!8, !11, i64 920}
-!104 = !{!8, !11, i64 928}
-!105 = distinct !{!105, !91}
-!106 = distinct !{!106, !91}
-!107 = distinct !{!107, !91}
-!108 = !{!8, !4, i64 912}
-!109 = distinct !{!109, !91}
-!110 = !{!8, !4, i64 936}
-!111 = distinct !{!111, !91}
-!112 = !{!9, !11, i64 40}
-!113 = distinct !{!113, !91}
-!114 = distinct !{!114, !91}
-!115 = !{!8, !15, i64 909}
-!116 = !{!8, !15, i64 910}
-!117 = !{!118, !118, i64 0}
-!118 = !{!"vtable pointer", !6, i64 0}
+!92 = !{!"llvm.loop.estimated_trip_count"}
+!93 = !{!8, !15, i64 908}
+!94 = !{i8 0, i8 2}
+!95 = !{}
+!96 = distinct !{!96, !91, !92}
+!97 = distinct !{!97, !91, !92}
+!98 = !{!8, !4, i64 916}
+!99 = !{!23, !23, i64 0}
+!100 = distinct !{!100, !91, !92}
+!101 = distinct !{!101, !91, !92}
+!102 = distinct !{!102, !91, !92}
+!103 = distinct !{!103, !91, !92}
+!104 = !{!8, !11, i64 920}
+!105 = !{!8, !11, i64 928}
+!106 = distinct !{!106, !91, !92}
+!107 = distinct !{!107, !91, !92}
+!108 = distinct !{!108, !91, !92}
+!109 = !{!8, !4, i64 912}
+!110 = distinct !{!110, !91, !92}
+!111 = !{!8, !4, i64 936}
+!112 = distinct !{!112, !91, !92}
+!113 = !{!9, !11, i64 40}
+!114 = distinct !{!114, !91, !92}
+!115 = distinct !{!115, !91, !92}
+!116 = !{!8, !15, i64 909}
+!117 = !{!8, !15, i64 910}
+!118 = !{!119, !119, i64 0}
+!119 = !{!"vtable pointer", !6, i64 0}

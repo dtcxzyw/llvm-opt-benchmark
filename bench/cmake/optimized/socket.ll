@@ -1586,7 +1586,7 @@ _ZNSt18condition_variable4waitIZN3dap7RWMutex10lockWriterEvEUlvE_EEvRSt11unique_
 46:                                               ; preds = %.lr.ph.i.i.i
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = load i8, ptr %34, align 8, !tbaa !69, !range !73, !noundef !74
+  %48 = load i8, ptr %34, align 8, !tbaa !69, !range !74, !noundef !75
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %50, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i
 
@@ -1689,7 +1689,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i:     ; preds = %15
 _ZN3dap5RLockD2Ev.exit:                           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i, %24
   %29 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store ptr %4, ptr %3, align 8, !tbaa !75
+  store ptr %4, ptr %3, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #18
   store ptr %5, ptr %2, align 8, !tbaa !65
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1732,7 +1732,7 @@ _ZNSt18condition_variable4waitIZN3dap7RWMutex10lockWriterEvEUlvE_EEvRSt11unique_
 43:                                               ; preds = %.lr.ph.i.i.i
   %44 = landingpad { ptr, i32 }
           cleanup
-  %45 = load i8, ptr %30, align 8, !tbaa !69, !range !73, !noundef !74
+  %45 = load i8, ptr %30, align 8, !tbaa !69, !range !74, !noundef !75
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %47, label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i
 
@@ -2108,7 +2108,7 @@ _ZN3dap7RWMutex12unlockReaderEv.exit:             ; preds = %_ZNSt11unique_lockI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap5WLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !75
+  %2 = load ptr, ptr %0, align 8, !tbaa !76
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3
 
@@ -2462,9 +2462,10 @@ attributes #22 = { builtin nounwind }
 !68 = !{!"bool", !8, i64 0}
 !69 = !{!66, !68, i64 8}
 !70 = !{!13, !14, i64 4}
-!71 = distinct !{!71, !72}
+!71 = distinct !{!71, !72, !73}
 !72 = !{!"llvm.loop.mustprogress"}
-!73 = !{i8 0, i8 2}
-!74 = !{}
-!75 = !{!76, !51, i64 0}
-!76 = !{!"_ZTSN3dap5WLockE", !51, i64 0}
+!73 = !{!"llvm.loop.estimated_trip_count"}
+!74 = !{i8 0, i8 2}
+!75 = !{}
+!76 = !{!77, !51, i64 0}
+!77 = !{!"_ZTSN3dap5WLockE", !51, i64 0}

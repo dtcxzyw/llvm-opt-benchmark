@@ -31,7 +31,7 @@ define void @softfloat_add256M(ptr noundef readonly captures(none) %0, ptr nound
   %19 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
   store i64 %18, ptr %19, align 8, !tbaa !3
   %20 = icmp eq i64 %indvars.iv.next, 3
-  br i1 %20, label %21, label %7
+  br i1 %20, label %21, label %7, !llvm.loop !7
 
 21:                                               ; preds = %7
   ret void
@@ -48,3 +48,5 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !4 = !{!"long", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}

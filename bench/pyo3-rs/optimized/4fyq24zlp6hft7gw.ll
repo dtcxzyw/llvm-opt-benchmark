@@ -406,7 +406,7 @@ define void @_ZN19pyo3_macros_backend6pyimpl16build_py_methods17ha1721821b52190d
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !3
   %68 = icmp eq i64 %.sroa.0.0.i, -9223372036854775808
-  br i1 %68, label %46, label %69
+  br i1 %68, label %46, label %69, !llvm.loop !9
 
 69:                                               ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i, i64 16, i1 false)
@@ -2612,12 +2612,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %37)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %38)
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %38)
-          to label %735 unwind label %733, !noalias !9
+          to label %735 unwind label %733, !noalias !11
 
 732:                                              ; preds = %736, %733
   %.pn24.pn.i = phi { ptr, i32 } [ %.pn24.i, %736 ], [ %734, %733 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %133) #8
-          to label %867 unwind label %874, !noalias !9
+          to label %867 unwind label %874, !noalias !11
 
 733:                                              ; preds = %731
   %734 = landingpad { ptr, i32 }
@@ -2626,12 +2626,12 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 735:                                              ; preds = %731
   invoke void @_ZN5quote9__private10push_pound17hc944c2b14b9b0805E(ptr nonnull align 8 %38)
-          to label %739 unwind label %737, !noalias !9
+          to label %739 unwind label %737, !noalias !11
 
 736:                                              ; preds = %776, %741, %737
   %.pn24.i = phi { ptr, i32 } [ %738, %737 ], [ %.pn22.i, %776 ], [ %.pn.i166, %741 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %38) #8
-          to label %732 unwind label %874, !noalias !9
+          to label %732 unwind label %874, !noalias !11
 
 737:                                              ; preds = %865, %774, %773, %772, %771, %770, %769, %768, %767, %766, %765, %764, %763, %762, %761, %760, %759, %758, %757, %756, %755, %754, %753, %752, %751, %739, %735
   %738 = landingpad { ptr, i32 }
@@ -2640,16 +2640,16 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 739:                                              ; preds = %735
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %36)
-          to label %740 unwind label %737, !noalias !9
+          to label %740 unwind label %737, !noalias !11
 
 740:                                              ; preds = %739
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %36, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.5, i64 5)
-          to label %744 unwind label %742, !noalias !9
+          to label %744 unwind label %742, !noalias !11
 
 741:                                              ; preds = %746, %742
   %.pn.i166 = phi { ptr, i32 } [ %743, %742 ], [ %747, %746 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %36) #8
-          to label %736 unwind label %874, !noalias !9
+          to label %736 unwind label %874, !noalias !11
 
 742:                                              ; preds = %750, %744, %740
   %743 = landingpad { ptr, i32 }
@@ -2658,136 +2658,136 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 744:                                              ; preds = %740
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %34)
-          to label %745 unwind label %742, !noalias !9
+          to label %745 unwind label %742, !noalias !11
 
 745:                                              ; preds = %744
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %34, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.37, i64 13)
-          to label %748 unwind label %746, !noalias !9
+          to label %748 unwind label %746, !noalias !11
 
 746:                                              ; preds = %749, %748, %745
   %747 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %34) #8
-          to label %741 unwind label %874, !noalias !9
+          to label %741 unwind label %874, !noalias !11
 
 748:                                              ; preds = %745
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %34)
-          to label %749 unwind label %746, !noalias !9
+          to label %749 unwind label %746, !noalias !11
 
 749:                                              ; preds = %748
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %34, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.38, i64 21)
-          to label %750 unwind label %746, !noalias !9
+          to label %750 unwind label %746, !noalias !11
 
 750:                                              ; preds = %749
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %36, i8 0, ptr nonnull align 8 %35)
-          to label %751 unwind label %742, !noalias !9
+          to label %751 unwind label %742, !noalias !11
 
 751:                                              ; preds = %750
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %38, i8 2, ptr nonnull align 8 %37)
-          to label %752 unwind label %737, !noalias !9
+          to label %752 unwind label %737, !noalias !11
 
 752:                                              ; preds = %751
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.7, i64 4)
-          to label %753 unwind label %737, !noalias !9
+          to label %753 unwind label %737, !noalias !11
 
 753:                                              ; preds = %752
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %38)
-          to label %754 unwind label %737, !noalias !9
+          to label %754 unwind label %737, !noalias !11
 
 754:                                              ; preds = %753
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %38)
-          to label %755 unwind label %737, !noalias !9
+          to label %755 unwind label %737, !noalias !11
 
 755:                                              ; preds = %754
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.28, i64 5)
-          to label %756 unwind label %737, !noalias !9
+          to label %756 unwind label %737, !noalias !11
 
 756:                                              ; preds = %755
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %38)
-          to label %757 unwind label %737, !noalias !9
+          to label %757 unwind label %737, !noalias !11
 
 757:                                              ; preds = %756
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.29, i64 7)
-          to label %758 unwind label %737, !noalias !9
+          to label %758 unwind label %737, !noalias !11
 
 758:                                              ; preds = %757
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %38)
-          to label %759 unwind label %737, !noalias !9
+          to label %759 unwind label %737, !noalias !11
 
 759:                                              ; preds = %758
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.39, i64 9)
-          to label %760 unwind label %737, !noalias !9
+          to label %760 unwind label %737, !noalias !11
 
 760:                                              ; preds = %759
   invoke void @_ZN5quote9__private7push_lt17hf3b0abe914a434ecE(ptr nonnull align 8 %38)
-          to label %761 unwind label %737, !noalias !9
+          to label %761 unwind label %737, !noalias !11
 
 761:                                              ; preds = %760
   invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9c5683aaf726593eE"(ptr align 8 %1, ptr nonnull align 8 %38)
-          to label %762 unwind label %737, !noalias !9
+          to label %762 unwind label %737, !noalias !11
 
 762:                                              ; preds = %761
   invoke void @_ZN5quote9__private7push_gt17h7ef2ae542f7cb115E(ptr nonnull align 8 %38)
-          to label %763 unwind label %737, !noalias !9
+          to label %763 unwind label %737, !noalias !11
 
 763:                                              ; preds = %762
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.40, i64 3)
-          to label %764 unwind label %737, !noalias !9
+          to label %764 unwind label %737, !noalias !11
 
 764:                                              ; preds = %763
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %38)
-          to label %765 unwind label %737, !noalias !9
+          to label %765 unwind label %737, !noalias !11
 
 765:                                              ; preds = %764
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %38)
-          to label %766 unwind label %737, !noalias !9
+          to label %766 unwind label %737, !noalias !11
 
 766:                                              ; preds = %765
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.28, i64 5)
-          to label %767 unwind label %737, !noalias !9
+          to label %767 unwind label %737, !noalias !11
 
 767:                                              ; preds = %766
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %38)
-          to label %768 unwind label %737, !noalias !9
+          to label %768 unwind label %737, !noalias !11
 
 768:                                              ; preds = %767
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.29, i64 7)
-          to label %769 unwind label %737, !noalias !9
+          to label %769 unwind label %737, !noalias !11
 
 769:                                              ; preds = %768
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %38)
-          to label %770 unwind label %737, !noalias !9
+          to label %770 unwind label %737, !noalias !11
 
 770:                                              ; preds = %769
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %38, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.41, i64 20)
-          to label %771 unwind label %737, !noalias !9
+          to label %771 unwind label %737, !noalias !11
 
 771:                                              ; preds = %770
   invoke void @_ZN5quote9__private7push_lt17hf3b0abe914a434ecE(ptr nonnull align 8 %38)
-          to label %772 unwind label %737, !noalias !9
+          to label %772 unwind label %737, !noalias !11
 
 772:                                              ; preds = %771
   invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9c5683aaf726593eE"(ptr align 8 %1, ptr nonnull align 8 %38)
-          to label %773 unwind label %737, !noalias !9
+          to label %773 unwind label %737, !noalias !11
 
 773:                                              ; preds = %772
   invoke void @_ZN5quote9__private7push_gt17h7ef2ae542f7cb115E(ptr nonnull align 8 %38)
-          to label %774 unwind label %737, !noalias !9
+          to label %774 unwind label %737, !noalias !11
 
 774:                                              ; preds = %773
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %32)
-          to label %775 unwind label %737, !noalias !9
+          to label %775 unwind label %737, !noalias !11
 
 775:                                              ; preds = %774
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %32, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.16, i64 2)
-          to label %779 unwind label %777, !noalias !9
+          to label %779 unwind label %777, !noalias !11
 
 776:                                              ; preds = %797, %782, %777
   %.pn22.i = phi { ptr, i32 } [ %778, %777 ], [ %.pn20.i, %797 ], [ %783, %782 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %32) #8
-          to label %736 unwind label %874, !noalias !9
+          to label %736 unwind label %874, !noalias !11
 
 777:                                              ; preds = %864, %795, %794, %793, %792, %791, %790, %789, %788, %787, %786, %785, %784, %780, %779, %775
   %778 = landingpad { ptr, i32 }
@@ -2796,79 +2796,79 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 779:                                              ; preds = %775
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %32, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.42, i64 10)
-          to label %780 unwind label %777, !noalias !9
+          to label %780 unwind label %777, !noalias !11
 
 780:                                              ; preds = %779
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %30)
-          to label %781 unwind label %777, !noalias !9
+          to label %781 unwind label %777, !noalias !11
 
 781:                                              ; preds = %780
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %30, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.43, i64 4)
-          to label %784 unwind label %782, !noalias !9
+          to label %784 unwind label %782, !noalias !11
 
 782:                                              ; preds = %781
   %783 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %30) #8
-          to label %776 unwind label %874, !noalias !9
+          to label %776 unwind label %874, !noalias !11
 
 784:                                              ; preds = %781
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %32, i8 0, ptr nonnull align 8 %31)
-          to label %785 unwind label %777, !noalias !9
+          to label %785 unwind label %777, !noalias !11
 
 785:                                              ; preds = %784
   invoke void @_ZN5quote9__private11push_rarrow17h391d335d697fbecaE(ptr nonnull align 8 %32)
-          to label %786 unwind label %777, !noalias !9
+          to label %786 unwind label %777, !noalias !11
 
 786:                                              ; preds = %785
   invoke void @_ZN5quote9__private8push_and17h73cde5387efd4fe0E(ptr nonnull align 8 %32)
-          to label %787 unwind label %777, !noalias !9
+          to label %787 unwind label %777, !noalias !11
 
 787:                                              ; preds = %786
   invoke void @_ZN5quote9__private13push_lifetime17h15bd6746738ab22dE(ptr nonnull align 8 %32, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.44, i64 7)
-          to label %788 unwind label %777, !noalias !9
+          to label %788 unwind label %777, !noalias !11
 
 788:                                              ; preds = %787
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %32)
-          to label %789 unwind label %777, !noalias !9
+          to label %789 unwind label %777, !noalias !11
 
 789:                                              ; preds = %788
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %32)
-          to label %790 unwind label %777, !noalias !9
+          to label %790 unwind label %777, !noalias !11
 
 790:                                              ; preds = %789
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %32, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.28, i64 5)
-          to label %791 unwind label %777, !noalias !9
+          to label %791 unwind label %777, !noalias !11
 
 791:                                              ; preds = %790
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %32)
-          to label %792 unwind label %777, !noalias !9
+          to label %792 unwind label %777, !noalias !11
 
 792:                                              ; preds = %791
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %32, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.29, i64 7)
-          to label %793 unwind label %777, !noalias !9
+          to label %793 unwind label %777, !noalias !11
 
 793:                                              ; preds = %792
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %32)
-          to label %794 unwind label %777, !noalias !9
+          to label %794 unwind label %777, !noalias !11
 
 794:                                              ; preds = %793
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %32, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.45, i64 12)
-          to label %795 unwind label %777, !noalias !9
+          to label %795 unwind label %777, !noalias !11
 
 795:                                              ; preds = %794
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %28)
-          to label %796 unwind label %777, !noalias !9
+          to label %796 unwind label %777, !noalias !11
 
 796:                                              ; preds = %795
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.46, i64 6)
-          to label %800 unwind label %798, !noalias !9
+          to label %800 unwind label %798, !noalias !11
 
 797:                                              ; preds = %819, %798
   %.pn20.i = phi { ptr, i32 } [ %799, %798 ], [ %.pn18.i, %819 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %28) #8
-          to label %776 unwind label %874, !noalias !9
+          to label %776 unwind label %874, !noalias !11
 
 798:                                              ; preds = %863, %862, %861, %860, %817, %816, %815, %814, %813, %812, %811, %810, %809, %808, %807, %806, %805, %804, %803, %802, %801, %800, %796
   %799 = landingpad { ptr, i32 }
@@ -2877,84 +2877,84 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 800:                                              ; preds = %796
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.47, i64 5)
-          to label %801 unwind label %798, !noalias !9
+          to label %801 unwind label %798, !noalias !11
 
 801:                                              ; preds = %800
   invoke void @_ZN5quote9__private10push_colon17h14447a13ff8b2ca3E(ptr nonnull align 8 %28)
-          to label %802 unwind label %798, !noalias !9
+          to label %802 unwind label %798, !noalias !11
 
 802:                                              ; preds = %801
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %28)
-          to label %803 unwind label %798, !noalias !9
+          to label %803 unwind label %798, !noalias !11
 
 803:                                              ; preds = %802
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %28)
-          to label %804 unwind label %798, !noalias !9
+          to label %804 unwind label %798, !noalias !11
 
 804:                                              ; preds = %803
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.28, i64 5)
-          to label %805 unwind label %798, !noalias !9
+          to label %805 unwind label %798, !noalias !11
 
 805:                                              ; preds = %804
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %28)
-          to label %806 unwind label %798, !noalias !9
+          to label %806 unwind label %798, !noalias !11
 
 806:                                              ; preds = %805
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.29, i64 7)
-          to label %807 unwind label %798, !noalias !9
+          to label %807 unwind label %798, !noalias !11
 
 807:                                              ; preds = %806
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %28)
-          to label %808 unwind label %798, !noalias !9
+          to label %808 unwind label %798, !noalias !11
 
 808:                                              ; preds = %807
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.45, i64 12)
-          to label %809 unwind label %798, !noalias !9
+          to label %809 unwind label %798, !noalias !11
 
 809:                                              ; preds = %808
   invoke void @_ZN5quote9__private7push_eq17heacdd0bdc0384f44E(ptr nonnull align 8 %28)
-          to label %810 unwind label %798, !noalias !9
+          to label %810 unwind label %798, !noalias !11
 
 810:                                              ; preds = %809
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %28)
-          to label %811 unwind label %798, !noalias !9
+          to label %811 unwind label %798, !noalias !11
 
 811:                                              ; preds = %810
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %28)
-          to label %812 unwind label %798, !noalias !9
+          to label %812 unwind label %798, !noalias !11
 
 812:                                              ; preds = %811
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.28, i64 5)
-          to label %813 unwind label %798, !noalias !9
+          to label %813 unwind label %798, !noalias !11
 
 813:                                              ; preds = %812
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %28)
-          to label %814 unwind label %798, !noalias !9
+          to label %814 unwind label %798, !noalias !11
 
 814:                                              ; preds = %813
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.29, i64 7)
-          to label %815 unwind label %798, !noalias !9
+          to label %815 unwind label %798, !noalias !11
 
 815:                                              ; preds = %814
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %28)
-          to label %816 unwind label %798, !noalias !9
+          to label %816 unwind label %798, !noalias !11
 
 816:                                              ; preds = %815
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.45, i64 12)
-          to label %817 unwind label %798, !noalias !9
+          to label %817 unwind label %798, !noalias !11
 
 817:                                              ; preds = %816
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %26)
-          to label %818 unwind label %798, !noalias !9
+          to label %818 unwind label %798, !noalias !11
 
 818:                                              ; preds = %817
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %26, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.48, i64 7)
-          to label %822 unwind label %820, !noalias !9
+          to label %822 unwind label %820, !noalias !11
 
 819:                                              ; preds = %854, %834, %820
   %.pn18.i = phi { ptr, i32 } [ %821, %820 ], [ %855, %854 ], [ %835, %834 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %26) #8
-          to label %797 unwind label %874, !noalias !9
+          to label %797 unwind label %874, !noalias !11
 
 820:                                              ; preds = %858, %844, %843, %842, %841, %840, %838, %824, %823, %822, %818
   %821 = landingpad { ptr, i32 }
@@ -2963,46 +2963,46 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 822:                                              ; preds = %818
   invoke void @_ZN5quote9__private10push_colon17h14447a13ff8b2ca3E(ptr nonnull align 8 %26)
-          to label %823 unwind label %820, !noalias !9
+          to label %823 unwind label %820, !noalias !11
 
 823:                                              ; preds = %822
   invoke void @_ZN5quote9__private8push_and17h73cde5387efd4fe0E(ptr nonnull align 8 %26)
-          to label %824 unwind label %820, !noalias !9
+          to label %824 unwind label %820, !noalias !11
 
 824:                                              ; preds = %823
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %24)
-          to label %825 unwind label %820, !noalias !9
+          to label %825 unwind label %820, !noalias !11
 
 825:                                              ; preds = %824
   %826 = getelementptr inbounds nuw i8, ptr %134, i64 8
-  %827 = load ptr, ptr %826, align 8, !noalias !9
+  %827 = load ptr, ptr %826, align 8, !noalias !11
   %828 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %829 = load i64, ptr %828, align 8, !noalias !9
+  %829 = load i64, ptr %828, align 8, !noalias !11
   %830 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %827, i64 %829
-  store ptr %827, ptr %23, align 8, !noalias !9
+  store ptr %827, ptr %23, align 8, !noalias !11
   %831 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %830, ptr %831, align 8, !noalias !9
+  store ptr %830, ptr %831, align 8, !noalias !11
   br label %832
 
 832:                                              ; preds = %876, %825
   %.sroa.0.0.i = phi i64 [ 0, %825 ], [ %877, %876 ]
   %833 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28ad565903d53485E"(ptr nonnull align 8 %23)
-          to label %836 unwind label %834, !noalias !9
+          to label %836 unwind label %834, !noalias !11
 
 834:                                              ; preds = %878, %876, %832
   %835 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %24) #8
-          to label %819 unwind label %874, !noalias !9
+          to label %819 unwind label %874, !noalias !11
 
 836:                                              ; preds = %832
   %837 = icmp eq ptr %833, null
   br i1 %837, label %838, label %839
 
 838:                                              ; preds = %836
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %26, i8 2, ptr nonnull align 8 %25)
-          to label %840 unwind label %820, !noalias !9
+          to label %840 unwind label %820, !noalias !11
 
 839:                                              ; preds = %836
   %.not.i = icmp eq i64 %.sroa.0.0.i, 0
@@ -3010,95 +3010,95 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 
 840:                                              ; preds = %838
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %26)
-          to label %841 unwind label %820, !noalias !9
+          to label %841 unwind label %820, !noalias !11
 
 841:                                              ; preds = %840
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %26, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.49, i64 5)
-          to label %842 unwind label %820, !noalias !9
+          to label %842 unwind label %820, !noalias !11
 
 842:                                              ; preds = %841
   invoke void @_ZN5quote9__private10push_colon17h14447a13ff8b2ca3E(ptr nonnull align 8 %26)
-          to label %843 unwind label %820, !noalias !9
+          to label %843 unwind label %820, !noalias !11
 
 843:                                              ; preds = %842
   invoke void @_ZN5quote9__private8push_and17h73cde5387efd4fe0E(ptr nonnull align 8 %26)
-          to label %844 unwind label %820, !noalias !9
+          to label %844 unwind label %820, !noalias !11
 
 844:                                              ; preds = %843
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %21)
-          to label %845 unwind label %820, !noalias !9
+          to label %845 unwind label %820, !noalias !11
 
 845:                                              ; preds = %844
   %846 = getelementptr inbounds nuw i8, ptr %133, i64 8
-  %847 = load ptr, ptr %846, align 8, !noalias !9
+  %847 = load ptr, ptr %846, align 8, !noalias !11
   %848 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %849 = load i64, ptr %848, align 8, !noalias !9
+  %849 = load i64, ptr %848, align 8, !noalias !11
   %850 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %847, i64 %849
-  store ptr %847, ptr %20, align 8, !noalias !9
+  store ptr %847, ptr %20, align 8, !noalias !11
   %851 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %850, ptr %851, align 8, !noalias !9
+  store ptr %850, ptr %851, align 8, !noalias !11
   br label %852
 
 852:                                              ; preds = %871, %845
   %.sroa.05.0.i = phi i64 [ 0, %845 ], [ %872, %871 ]
   %853 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28ad565903d53485E"(ptr nonnull align 8 %20)
-          to label %856 unwind label %854, !noalias !9
+          to label %856 unwind label %854, !noalias !11
 
 854:                                              ; preds = %873, %871, %852
   %855 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %21) #8
-          to label %819 unwind label %874, !noalias !9
+          to label %819 unwind label %874, !noalias !11
 
 856:                                              ; preds = %852
   %857 = icmp eq ptr %853, null
   br i1 %857, label %858, label %859
 
 858:                                              ; preds = %856
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %26, i8 2, ptr nonnull align 8 %22)
-          to label %860 unwind label %820, !noalias !9
+          to label %860 unwind label %820, !noalias !11
 
 859:                                              ; preds = %856
   %.not17.i = icmp eq i64 %.sroa.05.0.i, 0
   br i1 %.not17.i, label %871, label %873
 
 860:                                              ; preds = %858
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %28, i8 1, ptr nonnull align 8 %27)
-          to label %861 unwind label %798, !noalias !9
+          to label %861 unwind label %798, !noalias !11
 
 861:                                              ; preds = %860
   invoke void @_ZN5quote9__private9push_semi17hf00f37cd883dc110E(ptr nonnull align 8 %28)
-          to label %862 unwind label %798, !noalias !9
+          to label %862 unwind label %798, !noalias !11
 
 862:                                              ; preds = %861
   invoke void @_ZN5quote9__private8push_and17h73cde5387efd4fe0E(ptr nonnull align 8 %28)
-          to label %863 unwind label %798, !noalias !9
+          to label %863 unwind label %798, !noalias !11
 
 863:                                              ; preds = %862
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %28, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.47, i64 5)
-          to label %864 unwind label %798, !noalias !9
+          to label %864 unwind label %798, !noalias !11
 
 864:                                              ; preds = %863
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %32, i8 1, ptr nonnull align 8 %29)
-          to label %865 unwind label %777, !noalias !9
+          to label %865 unwind label %777, !noalias !11
 
 865:                                              ; preds = %864
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !noalias !11
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %38, i8 1, ptr nonnull align 8 %33)
-          to label %866 unwind label %737, !noalias !9
+          to label %866 unwind label %737, !noalias !11
 
 866:                                              ; preds = %865
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %38, i64 32, i1 false)
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %133)
-          to label %870 unwind label %868, !noalias !9
+          to label %870 unwind label %868, !noalias !11
 
 867:                                              ; preds = %868, %732
   %.pn27.i = phi { ptr, i32 } [ %869, %868 ], [ %.pn24.pn.i, %732 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %134) #8
-          to label %.body unwind label %874, !noalias !9
+          to label %.body unwind label %874, !noalias !11
 
 868:                                              ; preds = %866
   %869 = landingpad { ptr, i32 }
@@ -3112,26 +3112,26 @@ define internal fastcc void @_ZN19pyo3_macros_backend6pyimpl12impl_methods17hf99
 871:                                              ; preds = %873, %859
   %872 = add i64 %.sroa.05.0.i, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %853, ptr nonnull align 8 %21)
-          to label %852 unwind label %854, !noalias !9
+          to label %852 unwind label %854, !noalias !11, !llvm.loop !14
 
 873:                                              ; preds = %859
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %21)
-          to label %871 unwind label %854, !noalias !9
+          to label %871 unwind label %854, !noalias !11
 
 874:                                              ; preds = %867, %854, %834, %819, %797, %782, %776, %746, %741, %736, %732
   %875 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9, !noalias !9
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9, !noalias !11
   unreachable
 
 876:                                              ; preds = %878, %839
   %877 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %833, ptr nonnull align 8 %24)
-          to label %832 unwind label %834, !noalias !9
+          to label %832 unwind label %834, !noalias !11, !llvm.loop !15
 
 878:                                              ; preds = %839
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %24)
-          to label %876 unwind label %834, !noalias !9
+          to label %876 unwind label %834, !noalias !11
 
 _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; preds = %870
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20)
@@ -3172,12 +3172,12 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19)
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %19)
-          to label %883 unwind label %881, !noalias !12
+          to label %883 unwind label %881, !noalias !16
 
 880:                                              ; preds = %884, %881
   %.pn22.pn.i = phi { ptr, i32 } [ %.pn22.i170, %884 ], [ %882, %881 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %131) #8
-          to label %974 unwind label %981, !noalias !12
+          to label %974 unwind label %981, !noalias !16
 
 881:                                              ; preds = %879
   %882 = landingpad { ptr, i32 }
@@ -3186,12 +3186,12 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
 
 883:                                              ; preds = %879
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %19)
-          to label %887 unwind label %885, !noalias !12
+          to label %887 unwind label %885, !noalias !16
 
 884:                                              ; preds = %894, %885
   %.pn22.i170 = phi { ptr, i32 } [ %886, %885 ], [ %.pn20.i171, %894 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %19) #8
-          to label %880 unwind label %981, !noalias !12
+          to label %880 unwind label %981, !noalias !16
 
 885:                                              ; preds = %972, %892, %891, %890, %889, %888, %887, %883
   %886 = landingpad { ptr, i32 }
@@ -3200,36 +3200,36 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
 
 887:                                              ; preds = %883
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %19)
-          to label %888 unwind label %885, !noalias !12
+          to label %888 unwind label %885, !noalias !16
 
 888:                                              ; preds = %887
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %19, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.113, i64 9)
-          to label %889 unwind label %885, !noalias !12
+          to label %889 unwind label %885, !noalias !16
 
 889:                                              ; preds = %888
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %19)
-          to label %890 unwind label %885, !noalias !12
+          to label %890 unwind label %885, !noalias !16
 
 890:                                              ; preds = %889
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %19, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.114, i64 6)
-          to label %891 unwind label %885, !noalias !12
+          to label %891 unwind label %885, !noalias !16
 
 891:                                              ; preds = %890
   invoke void @_ZN5quote9__private9push_bang17hf19cb2f2ce8fb599E(ptr nonnull align 8 %19)
-          to label %892 unwind label %885, !noalias !12
+          to label %892 unwind label %885, !noalias !16
 
 892:                                              ; preds = %891
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %17)
-          to label %893 unwind label %885, !noalias !12
+          to label %893 unwind label %885, !noalias !16
 
 893:                                              ; preds = %892
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.115, i64 4)
-          to label %897 unwind label %895, !noalias !12
+          to label %897 unwind label %895, !noalias !16
 
 894:                                              ; preds = %918, %895
   %.pn20.i171 = phi { ptr, i32 } [ %896, %895 ], [ %.pn18.i172, %918 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %17) #8
-          to label %884 unwind label %981, !noalias !12
+          to label %884 unwind label %981, !noalias !16
 
 895:                                              ; preds = %971, %916, %915, %914, %913, %912, %911, %910, %909, %908, %907, %906, %905, %904, %903, %902, %901, %900, %899, %898, %897, %893
   %896 = landingpad { ptr, i32 }
@@ -3238,92 +3238,92 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
 
 897:                                              ; preds = %893
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.116, i64 9)
-          to label %898 unwind label %895, !noalias !12
+          to label %898 unwind label %895, !noalias !16
 
 898:                                              ; preds = %897
   invoke void @_ZN5quote9__private7push_eq17heacdd0bdc0384f44E(ptr nonnull align 8 %17)
-          to label %899 unwind label %895, !noalias !12
+          to label %899 unwind label %895, !noalias !16
 
 899:                                              ; preds = %898
   invoke void @_ZN5quote9__private7push_lt17hf3b0abe914a434ecE(ptr nonnull align 8 %17)
-          to label %900 unwind label %895, !noalias !12
+          to label %900 unwind label %895, !noalias !16
 
 900:                                              ; preds = %899
   invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h9c5683aaf726593eE"(ptr align 8 %1, ptr nonnull align 8 %17)
-          to label %901 unwind label %895, !noalias !12
+          to label %901 unwind label %895, !noalias !16
 
 901:                                              ; preds = %900
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.117, i64 2)
-          to label %902 unwind label %895, !noalias !12
+          to label %902 unwind label %895, !noalias !16
 
 902:                                              ; preds = %901
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %17)
-          to label %903 unwind label %895, !noalias !12
+          to label %903 unwind label %895, !noalias !16
 
 903:                                              ; preds = %902
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %17)
-          to label %904 unwind label %895, !noalias !12
+          to label %904 unwind label %895, !noalias !16
 
 904:                                              ; preds = %903
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.28, i64 5)
-          to label %905 unwind label %895, !noalias !12
+          to label %905 unwind label %895, !noalias !16
 
 905:                                              ; preds = %904
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %17)
-          to label %906 unwind label %895, !noalias !12
+          to label %906 unwind label %895, !noalias !16
 
 906:                                              ; preds = %905
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.29, i64 7)
-          to label %907 unwind label %895, !noalias !12
+          to label %907 unwind label %895, !noalias !16
 
 907:                                              ; preds = %906
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %17)
-          to label %908 unwind label %895, !noalias !12
+          to label %908 unwind label %895, !noalias !16
 
 908:                                              ; preds = %907
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.118, i64 11)
-          to label %909 unwind label %895, !noalias !12
+          to label %909 unwind label %895, !noalias !16
 
 909:                                              ; preds = %908
   invoke void @_ZN5quote9__private7push_gt17h7ef2ae542f7cb115E(ptr nonnull align 8 %17)
-          to label %910 unwind label %895, !noalias !12
+          to label %910 unwind label %895, !noalias !16
 
 910:                                              ; preds = %909
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %17)
-          to label %911 unwind label %895, !noalias !12
+          to label %911 unwind label %895, !noalias !16
 
 911:                                              ; preds = %910
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.116, i64 9)
-          to label %912 unwind label %895, !noalias !12
+          to label %912 unwind label %895, !noalias !16
 
 912:                                              ; preds = %911
   invoke void @_ZN5quote9__private9push_semi17hf00f37cd883dc110E(ptr nonnull align 8 %17)
-          to label %913 unwind label %895, !noalias !12
+          to label %913 unwind label %895, !noalias !16
 
 913:                                              ; preds = %912
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.116, i64 9)
-          to label %914 unwind label %895, !noalias !12
+          to label %914 unwind label %895, !noalias !16
 
 914:                                              ; preds = %913
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %17)
-          to label %915 unwind label %895, !noalias !12
+          to label %915 unwind label %895, !noalias !16
 
 915:                                              ; preds = %914
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %17, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.36, i64 3)
-          to label %916 unwind label %895, !noalias !12
+          to label %916 unwind label %895, !noalias !16
 
 916:                                              ; preds = %915
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %15)
-          to label %917 unwind label %895, !noalias !12
+          to label %917 unwind label %895, !noalias !16
 
 917:                                              ; preds = %916
   invoke void @"_ZN88_$LT$pyo3_macros_backend..utils..PyO3CratePath$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hadf7bb3993e3bab1E"(ptr nonnull align 8 %137, ptr nonnull align 8 %15)
-          to label %921 unwind label %919, !noalias !12
+          to label %921 unwind label %919, !noalias !16
 
 918:                                              ; preds = %929, %919
   %.pn18.i172 = phi { ptr, i32 } [ %920, %919 ], [ %.pn.i173, %929 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %15) #8
-          to label %894 unwind label %981, !noalias !12
+          to label %894 unwind label %981, !noalias !16
 
 919:                                              ; preds = %970, %927, %926, %925, %924, %923, %922, %921, %917
   %920 = landingpad { ptr, i32 }
@@ -3332,40 +3332,40 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
 
 921:                                              ; preds = %917
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %15)
-          to label %922 unwind label %919, !noalias !12
+          to label %922 unwind label %919, !noalias !16
 
 922:                                              ; preds = %921
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.28, i64 5)
-          to label %923 unwind label %919, !noalias !12
+          to label %923 unwind label %919, !noalias !16
 
 923:                                              ; preds = %922
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %15)
-          to label %924 unwind label %919, !noalias !12
+          to label %924 unwind label %919, !noalias !16
 
 924:                                              ; preds = %923
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.29, i64 7)
-          to label %925 unwind label %919, !noalias !12
+          to label %925 unwind label %919, !noalias !16
 
 925:                                              ; preds = %924
   invoke void @_ZN5quote9__private11push_colon217h84d2ca0d7c93c19cE(ptr nonnull align 8 %15)
-          to label %926 unwind label %919, !noalias !12
+          to label %926 unwind label %919, !noalias !16
 
 926:                                              ; preds = %925
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %15, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.45, i64 12)
-          to label %927 unwind label %919, !noalias !12
+          to label %927 unwind label %919, !noalias !16
 
 927:                                              ; preds = %926
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %13)
-          to label %928 unwind label %919, !noalias !12
+          to label %928 unwind label %919, !noalias !16
 
 928:                                              ; preds = %927
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %13, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.48, i64 7)
-          to label %932 unwind label %930, !noalias !12
+          to label %932 unwind label %930, !noalias !16
 
 929:                                              ; preds = %964, %944, %930
   %.pn.i173 = phi { ptr, i32 } [ %931, %930 ], [ %965, %964 ], [ %945, %944 ]
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %13) #8
-          to label %918 unwind label %981, !noalias !12
+          to label %918 unwind label %981, !noalias !16
 
 930:                                              ; preds = %968, %954, %953, %952, %951, %950, %948, %934, %933, %932, %928
   %931 = landingpad { ptr, i32 }
@@ -3374,46 +3374,46 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
 
 932:                                              ; preds = %928
   invoke void @_ZN5quote9__private10push_colon17h14447a13ff8b2ca3E(ptr nonnull align 8 %13)
-          to label %933 unwind label %930, !noalias !12
+          to label %933 unwind label %930, !noalias !16
 
 933:                                              ; preds = %932
   invoke void @_ZN5quote9__private8push_and17h73cde5387efd4fe0E(ptr nonnull align 8 %13)
-          to label %934 unwind label %930, !noalias !12
+          to label %934 unwind label %930, !noalias !16
 
 934:                                              ; preds = %933
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %11)
-          to label %935 unwind label %930, !noalias !12
+          to label %935 unwind label %930, !noalias !16
 
 935:                                              ; preds = %934
   %936 = getelementptr inbounds nuw i8, ptr %132, i64 8
-  %937 = load ptr, ptr %936, align 8, !noalias !12
+  %937 = load ptr, ptr %936, align 8, !noalias !16
   %938 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %939 = load i64, ptr %938, align 8, !noalias !12
+  %939 = load i64, ptr %938, align 8, !noalias !16
   %940 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %937, i64 %939
-  store ptr %937, ptr %10, align 8, !noalias !12
+  store ptr %937, ptr %10, align 8, !noalias !16
   %941 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %940, ptr %941, align 8, !noalias !12
+  store ptr %940, ptr %941, align 8, !noalias !16
   br label %942
 
 942:                                              ; preds = %983, %935
   %.sroa.0.0.i174 = phi i64 [ 0, %935 ], [ %984, %983 ]
   %943 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28ad565903d53485E"(ptr nonnull align 8 %10)
-          to label %946 unwind label %944, !noalias !12
+          to label %946 unwind label %944, !noalias !16
 
 944:                                              ; preds = %985, %983, %942
   %945 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %11) #8
-          to label %929 unwind label %981, !noalias !12
+          to label %929 unwind label %981, !noalias !16
 
 946:                                              ; preds = %942
   %947 = icmp eq ptr %943, null
   br i1 %947, label %948, label %949
 
 948:                                              ; preds = %946
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !16
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %13, i8 2, ptr nonnull align 8 %12)
-          to label %950 unwind label %930, !noalias !12
+          to label %950 unwind label %930, !noalias !16
 
 949:                                              ; preds = %946
   %.not.i175 = icmp eq i64 %.sroa.0.0.i174, 0
@@ -3421,83 +3421,83 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
 
 950:                                              ; preds = %948
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %13)
-          to label %951 unwind label %930, !noalias !12
+          to label %951 unwind label %930, !noalias !16
 
 951:                                              ; preds = %950
   invoke void @_ZN5quote9__private10push_ident17h95babe7bdbaea7e6E(ptr nonnull align 8 %13, ptr nonnull align 1 @anon.859c971086dc2330fefd4e5113c8592c.49, i64 5)
-          to label %952 unwind label %930, !noalias !12
+          to label %952 unwind label %930, !noalias !16
 
 952:                                              ; preds = %951
   invoke void @_ZN5quote9__private10push_colon17h14447a13ff8b2ca3E(ptr nonnull align 8 %13)
-          to label %953 unwind label %930, !noalias !12
+          to label %953 unwind label %930, !noalias !16
 
 953:                                              ; preds = %952
   invoke void @_ZN5quote9__private8push_and17h73cde5387efd4fe0E(ptr nonnull align 8 %13)
-          to label %954 unwind label %930, !noalias !12
+          to label %954 unwind label %930, !noalias !16
 
 954:                                              ; preds = %953
   invoke void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %8)
-          to label %955 unwind label %930, !noalias !12
+          to label %955 unwind label %930, !noalias !16
 
 955:                                              ; preds = %954
   %956 = getelementptr inbounds nuw i8, ptr %131, i64 8
-  %957 = load ptr, ptr %956, align 8, !noalias !12
+  %957 = load ptr, ptr %956, align 8, !noalias !16
   %958 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %959 = load i64, ptr %958, align 8, !noalias !12
+  %959 = load i64, ptr %958, align 8, !noalias !16
   %960 = getelementptr inbounds { { i64, [3 x i64] }, { {} } }, ptr %957, i64 %959
-  store ptr %957, ptr %7, align 8, !noalias !12
+  store ptr %957, ptr %7, align 8, !noalias !16
   %961 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %960, ptr %961, align 8, !noalias !12
+  store ptr %960, ptr %961, align 8, !noalias !16
   br label %962
 
 962:                                              ; preds = %978, %955
   %.sroa.05.0.i176 = phi i64 [ 0, %955 ], [ %979, %978 ]
   %963 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h28ad565903d53485E"(ptr nonnull align 8 %7)
-          to label %966 unwind label %964, !noalias !12
+          to label %966 unwind label %964, !noalias !16
 
 964:                                              ; preds = %980, %978, %962
   %965 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr nonnull align 8 %8) #8
-          to label %929 unwind label %981, !noalias !12
+          to label %929 unwind label %981, !noalias !16
 
 966:                                              ; preds = %962
   %967 = icmp eq ptr %963, null
   br i1 %967, label %968, label %969
 
 968:                                              ; preds = %966
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !16
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %13, i8 2, ptr nonnull align 8 %9)
-          to label %970 unwind label %930, !noalias !12
+          to label %970 unwind label %930, !noalias !16
 
 969:                                              ; preds = %966
   %.not16.i = icmp eq i64 %.sroa.05.0.i176, 0
   br i1 %.not16.i, label %978, label %980
 
 970:                                              ; preds = %968
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false), !noalias !16
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %15, i8 1, ptr nonnull align 8 %14)
-          to label %971 unwind label %919, !noalias !12
+          to label %971 unwind label %919, !noalias !16
 
 971:                                              ; preds = %970
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !noalias !16
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %17, i8 0, ptr nonnull align 8 %16)
-          to label %972 unwind label %895, !noalias !12
+          to label %972 unwind label %895, !noalias !16
 
 972:                                              ; preds = %971
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !noalias !12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false), !noalias !16
   invoke void @_ZN5quote9__private10push_group17h810119743fa808a5E(ptr nonnull align 8 %19, i8 1, ptr nonnull align 8 %18)
-          to label %973 unwind label %885, !noalias !12
+          to label %973 unwind label %885, !noalias !16
 
 973:                                              ; preds = %972
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %135, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %131)
-          to label %977 unwind label %975, !noalias !12
+          to label %977 unwind label %975, !noalias !16
 
 974:                                              ; preds = %975, %880
   %.pn25.i = phi { ptr, i32 } [ %976, %975 ], [ %.pn22.pn.i, %880 ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$proc_macro2..TokenStream$GT$$GT$17h9b80df938d2fbe17E"(ptr nonnull align 8 %132) #8
-          to label %.body unwind label %981, !noalias !12
+          to label %.body unwind label %981, !noalias !16
 
 975:                                              ; preds = %973
   %976 = landingpad { ptr, i32 }
@@ -3511,26 +3511,26 @@ _ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E.exit: ; pre
 978:                                              ; preds = %980, %969
   %979 = add i64 %.sroa.05.0.i176, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %963, ptr nonnull align 8 %8)
-          to label %962 unwind label %964, !noalias !12
+          to label %962 unwind label %964, !noalias !16, !llvm.loop !19
 
 980:                                              ; preds = %969
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %8)
-          to label %978 unwind label %964, !noalias !12
+          to label %978 unwind label %964, !noalias !16
 
 981:                                              ; preds = %974, %964, %944, %929, %918, %894, %884, %880
   %982 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9, !noalias !12
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9, !noalias !16
   unreachable
 
 983:                                              ; preds = %985, %949
   %984 = add i64 %.sroa.0.0.i174, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %943, ptr nonnull align 8 %11)
-          to label %942 unwind label %944, !noalias !12
+          to label %942 unwind label %944, !noalias !16, !llvm.loop !20
 
 985:                                              ; preds = %949
   invoke void @_ZN5quote9__private10push_comma17hf5a80416035dae13E(ptr nonnull align 8 %11)
-          to label %983 unwind label %944, !noalias !12
+          to label %983 unwind label %944, !noalias !16
 
 _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.exit: ; preds = %977
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -3600,7 +3600,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
 
 1001:                                             ; preds = %998
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %996, ptr nonnull align 8 %130)
-          to label %995 unwind label %.loopexit
+          to label %995 unwind label %.loopexit, !llvm.loop !21
 
 1002:                                             ; preds = %1000
   invoke void @_ZN5quote9__private10push_pound17hc944c2b14b9b0805E(ptr nonnull align 8 %130)
@@ -3736,7 +3736,7 @@ _ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE.ex
 
 1041:                                             ; preds = %1038
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8c934df59465f27dE"(ptr nonnull align 8 %1035, ptr nonnull align 8 %119)
-          to label %1034 unwind label %1036
+          to label %1034 unwind label %1036, !llvm.loop !22
 
 1042:                                             ; preds = %1040
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false)
@@ -3920,7 +3920,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit: ; 
 
 1098:                                             ; preds = %1095
   invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfeba65545eac0415E"(ptr nonnull align 8 %1093, ptr nonnull align 8 %153)
-          to label %1092 unwind label %.loopexit214
+          to label %1092 unwind label %.loopexit214, !llvm.loop !23
 
 1099:                                             ; preds = %1097
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, ptr noundef nonnull align 8 dereferenceable(32) %153, i64 32, i1 false)
@@ -3968,7 +3968,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit: ; 
 
 1111:                                             ; preds = %1108
   invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfeba65545eac0415E"(ptr nonnull align 8 %1106, ptr nonnull align 8 %150)
-          to label %1105 unwind label %.loopexit209
+          to label %1105 unwind label %.loopexit209, !llvm.loop !24
 
 1112:                                             ; preds = %1110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %151, ptr noundef nonnull align 8 dereferenceable(32) %150, i64 32, i1 false)
@@ -4287,7 +4287,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180:
 
 1203:                                             ; preds = %1200
   invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfeba65545eac0415E"(ptr nonnull align 8 %1198, ptr nonnull align 8 %182)
-          to label %1197 unwind label %.loopexit224
+          to label %1197 unwind label %.loopexit224, !llvm.loop !25
 
 1204:                                             ; preds = %1202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(32) %182, i64 32, i1 false)
@@ -4335,7 +4335,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180:
 
 1216:                                             ; preds = %1213
   invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfeba65545eac0415E"(ptr nonnull align 8 %1211, ptr nonnull align 8 %179)
-          to label %1210 unwind label %.loopexit219
+          to label %1210 unwind label %.loopexit219, !llvm.loop !26
 
 1217:                                             ; preds = %1215
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %180, ptr noundef nonnull align 8 dereferenceable(32) %179, i64 32, i1 false)
@@ -4376,7 +4376,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit180:
           to label %.backedge.backedge unwind label %.thread193.loopexit
 
 .backedge.backedge:                               ; preds = %.invoke, %242
-  br label %.backedge
+  br label %.backedge, !llvm.loop !27
 
 1227:                                             ; preds = %1230, %1228
   %.pn114 = phi { ptr, i32 } [ %1229, %1228 ], [ %.pn112, %1230 ]
@@ -4439,7 +4439,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit181:
 
 1243:                                             ; preds = %1240
   invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfeba65545eac0415E"(ptr nonnull align 8 %1238, ptr nonnull align 8 %167)
-          to label %1237 unwind label %.loopexit234
+          to label %1237 unwind label %.loopexit234, !llvm.loop !28
 
 1244:                                             ; preds = %1242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %168, ptr noundef nonnull align 8 dereferenceable(32) %167, i64 32, i1 false)
@@ -4487,7 +4487,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit181:
 
 1256:                                             ; preds = %1253
   invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfeba65545eac0415E"(ptr nonnull align 8 %1251, ptr nonnull align 8 %164)
-          to label %1250 unwind label %.loopexit229
+          to label %1250 unwind label %.loopexit229, !llvm.loop !29
 
 1257:                                             ; preds = %1255
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %165, ptr noundef nonnull align 8 dereferenceable(32) %164, i64 32, i1 false)
@@ -4582,7 +4582,7 @@ _ZN19pyo3_macros_backend6pyimpl18get_cfg_attributes17h7680a531bb667ecbE.exit182:
 
 1285:                                             ; preds = %1282
   invoke void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfeba65545eac0415E"(ptr nonnull align 8 %1280, ptr nonnull align 8 %173)
-          to label %1279 unwind label %.loopexit239
+          to label %1279 unwind label %.loopexit239, !llvm.loop !30
 
 1286:                                             ; preds = %1284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull align 8 dereferenceable(32) %173, i64 32, i1 false)
@@ -5531,9 +5531,25 @@ attributes #10 = { noreturn }
 !6 = !{!7, !4}
 !7 = distinct !{!7, !8, !"_ZN19pyo3_macros_backend6pyimpl13PyImplOptions9set_crate17h658dd7776f84f5ceE: argument 0"}
 !8 = distinct !{!8, !"_ZN19pyo3_macros_backend6pyimpl13PyImplOptions9set_crate17h658dd7776f84f5ceE"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E: argument 0"}
-!11 = distinct !{!11, !"_ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E"}
-!12 = !{!13}
-!13 = distinct !{!13, !14, !"_ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE: argument 0"}
-!14 = distinct !{!14, !"_ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE"}
+!9 = distinct !{!9, !10}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E: argument 0"}
+!13 = distinct !{!13, !"_ZN19pyo3_macros_backend6pyimpl15impl_py_methods17hf82d990aadb69e20E"}
+!14 = distinct !{!14, !10}
+!15 = distinct !{!15, !10}
+!16 = !{!17}
+!17 = distinct !{!17, !18, !"_ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE: argument 0"}
+!18 = distinct !{!18, !"_ZN19pyo3_macros_backend6pyimpl24submit_methods_inventory17hf87546b4ff16e8aeE"}
+!19 = distinct !{!19, !10}
+!20 = distinct !{!20, !10}
+!21 = distinct !{!21, !10}
+!22 = distinct !{!22, !10}
+!23 = distinct !{!23, !10}
+!24 = distinct !{!24, !10}
+!25 = distinct !{!25, !10}
+!26 = distinct !{!26, !10}
+!27 = distinct !{!27, !10}
+!28 = distinct !{!28, !10}
+!29 = distinct !{!29, !10}
+!30 = distinct !{!30, !10}

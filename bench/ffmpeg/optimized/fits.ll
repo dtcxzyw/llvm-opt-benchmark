@@ -111,7 +111,7 @@ define range(i32 -1094995529, 2) i32 @avpriv_fits_header_parse_line(ptr noundef 
   %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
   %exitcond103.not.i = icmp eq i64 %indvars.iv.next101.i, 80
   %indvars.iv.next105.i = add nuw nsw i64 %indvars.iv104.i, 1
-  br i1 %exitcond103.not.i, label %read_keyword_value.exit, label %.preheader69.i, !llvm.loop !25
+  br i1 %exitcond103.not.i, label %read_keyword_value.exit, label %.preheader69.i, !llvm.loop !26
 
 .critedge2.i:                                     ; preds = %.preheader69.i
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -144,7 +144,7 @@ define range(i32 -1094995529, 2) i32 @avpriv_fits_header_parse_line(ptr noundef 
   store i8 %28, ptr %.15880.i, align 1, !tbaa !22
   %indvars.iv.next114.i = add nuw nsw i64 %indvars.iv113.i, 1
   %exitcond116.not.i = icmp eq i64 %indvars.iv.next114.i, 80
-  br i1 %exitcond116.not.i, label %.critedge4.i, label %.lr.ph82.i, !llvm.loop !26
+  br i1 %exitcond116.not.i, label %.critedge4.i, label %.lr.ph82.i, !llvm.loop !27
 
 .critedge4.i:                                     ; preds = %29, %.lr.ph82.i, %.preheader67.i
   %.158.lcssa.i = phi ptr [ %25, %.preheader67.i ], [ %.15880.i, %.lr.ph82.i ], [ %30, %29 ]
@@ -165,7 +165,7 @@ define range(i32 -1094995529, 2) i32 @avpriv_fits_header_parse_line(ptr noundef 
   store i8 %33, ptr %.25976.i, align 1, !tbaa !22
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
   %exitcond110.not.i = icmp eq i64 %indvars.iv.next108.i, 80
-  br i1 %exitcond110.not.i, label %.critedge6.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond110.not.i, label %.critedge6.i, label %.lr.ph.i, !llvm.loop !28
 
 .critedge6.i:                                     ; preds = %34, %.lr.ph.i, %.preheader68.i
   %.259.lcssa.i = phi ptr [ %25, %.preheader68.i ], [ %.25976.i, %.lr.ph.i ], [ %35, %34 ]
@@ -188,7 +188,7 @@ define range(i32 -1094995529, 2) i32 @avpriv_fits_header_parse_line(ptr noundef 
   store i8 %38, ptr %.36086.i, align 1, !tbaa !22
   %indvars.iv.next120.i = add nuw nsw i64 %indvars.iv119.i, 1
   %exitcond122.not.i = icmp eq i64 %indvars.iv.next120.i, 80
-  br i1 %exitcond122.not.i, label %read_keyword_value.exit, label %.lr.ph88.i, !llvm.loop !28
+  br i1 %exitcond122.not.i, label %read_keyword_value.exit, label %.lr.ph88.i, !llvm.loop !29
 
 read_keyword_value.exit:                          ; preds = %24, %.lr.ph88.i, %.lr.ph88.i, %39, %.critedge.i, %.preheader.i, %.critedge4.i, %.critedge6.i
   %.057.i = phi ptr [ %31, %.critedge4.i ], [ %36, %.critedge6.i ], [ %9, %.critedge.i ], [ %25, %.preheader.i ], [ %.36086.i, %.lr.ph88.i ], [ %.36086.i, %.lr.ph88.i ], [ %40, %39 ], [ %9, %24 ]
@@ -275,7 +275,7 @@ read_keyword_value.exit:                          ; preds = %24, %.lr.ph88.i, %.
   br label %dict_set_if_not_null.exit101
 
 62:                                               ; preds = %58
-  %63 = load i32, ptr %59, align 8, !tbaa !29
+  %63 = load i32, ptr %59, align 8, !tbaa !30
   switch i32 %63, label %64 [
     i32 8, label %65
     i32 16, label %65
@@ -294,7 +294,7 @@ read_keyword_value.exit:                          ; preds = %24, %.lr.ph88.i, %.
   br i1 %.not.i95, label %dict_set_if_not_null.exit, label %66
 
 66:                                               ; preds = %65
-  %67 = load ptr, ptr %3, align 8, !tbaa !30
+  %67 = load ptr, ptr %3, align 8, !tbaa !31
   %68 = call i32 @av_dict_set(ptr noundef %67, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0) #6
   br label %dict_set_if_not_null.exit
 
@@ -326,12 +326,12 @@ dict_set_if_not_null.exit:                        ; preds = %65, %66
   br i1 %.not.i96, label %dict_set_if_not_null.exit97, label %76
 
 76:                                               ; preds = %75
-  %77 = load ptr, ptr %3, align 8, !tbaa !30
+  %77 = load ptr, ptr %3, align 8, !tbaa !31
   %78 = call i32 @av_dict_set(ptr noundef %77, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0) #6
   br label %dict_set_if_not_null.exit97
 
 dict_set_if_not_null.exit97:                      ; preds = %75, %76
-  %79 = load i32, ptr %72, align 4, !tbaa !34
+  %79 = load i32, ptr %72, align 4, !tbaa !35
   %.not83 = icmp eq i32 %79, 0
   br i1 %.not83, label %81, label %80
 
@@ -355,7 +355,7 @@ dict_set_if_not_null.exit97:                      ; preds = %75, %76
   br label %89
 
 84:                                               ; preds = %82
-  %85 = load i32, ptr %5, align 4, !tbaa !35
+  %85 = load i32, ptr %5, align 4, !tbaa !36
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %87 = load i32, ptr %86, align 4, !tbaa !11
   %88 = add i32 %87, 1
@@ -386,7 +386,7 @@ dict_set_if_not_null.exit97:                      ; preds = %75, %76
   br i1 %.not.i98, label %dict_set_if_not_null.exit99, label %99
 
 99:                                               ; preds = %98
-  %100 = load ptr, ptr %3, align 8, !tbaa !30
+  %100 = load ptr, ptr %3, align 8, !tbaa !31
   %101 = call i32 @av_dict_set(ptr noundef %100, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0) #6
   br label %dict_set_if_not_null.exit99
 
@@ -395,7 +395,7 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   %103 = add i32 %102, 1
   store i32 %103, ptr %86, align 4, !tbaa !11
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %105 = load i32, ptr %104, align 4, !tbaa !34
+  %105 = load i32, ptr %104, align 4, !tbaa !35
   %106 = icmp eq i32 %103, %105
   br i1 %106, label %107, label %dict_set_if_not_null.exit101
 
@@ -414,9 +414,9 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   br i1 %111, label %112, label %116
 
 112:                                              ; preds = %109
-  %113 = load i64, ptr %6, align 8, !tbaa !36
+  %113 = load i64, ptr %6, align 8, !tbaa !37
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i64 %113, ptr %114, align 8, !tbaa !37
+  store i64 %113, ptr %114, align 8, !tbaa !38
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %115, align 8, !tbaa !12
   br label %179
@@ -432,7 +432,7 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   br i1 %119, label %120, label %125
 
 120:                                              ; preds = %117
-  %121 = load double, ptr %7, align 8, !tbaa !38
+  %121 = load double, ptr %7, align 8, !tbaa !39
   %122 = fcmp nsz ugt double %121, 0.000000e+00
   br i1 %122, label %123, label %dict_set_if_not_null.exit101
 
@@ -452,7 +452,7 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %126
-  %130 = load double, ptr %7, align 8, !tbaa !38
+  %130 = load double, ptr %7, align 8, !tbaa !39
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   store double %130, ptr %131, align 8, !tbaa !19
   br label %179
@@ -483,9 +483,9 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
 139:                                              ; preds = %136
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 4080
   store i32 1, ptr %140, align 8, !tbaa !21
-  %141 = load double, ptr %7, align 8, !tbaa !38
+  %141 = load double, ptr %7, align 8, !tbaa !39
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 4088
-  store double %141, ptr %142, align 8, !tbaa !39
+  store double %141, ptr %142, align 8, !tbaa !40
   br label %179
 
 143:                                              ; preds = %136, %135
@@ -501,9 +501,9 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
 147:                                              ; preds = %144
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 4064
   store i32 1, ptr %148, align 8, !tbaa !20
-  %149 = load double, ptr %7, align 8, !tbaa !38
+  %149 = load double, ptr %7, align 8, !tbaa !39
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 4072
-  store double %149, ptr %150, align 8, !tbaa !40
+  store double %149, ptr %150, align 8, !tbaa !41
   br label %179
 
 151:                                              ; preds = %144, %143
@@ -540,7 +540,7 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   br i1 %164, label %165, label %170
 
 165:                                              ; preds = %162
-  %166 = load i64, ptr %6, align 8, !tbaa !36
+  %166 = load i64, ptr %6, align 8, !tbaa !37
   %or.cond = icmp ugt i64 %166, 2147483647
   br i1 %or.cond, label %dict_set_if_not_null.exit101, label %167
 
@@ -561,7 +561,7 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   br i1 %173, label %174, label %179
 
 174:                                              ; preds = %171
-  %175 = load i64, ptr %6, align 8, !tbaa !36
+  %175 = load i64, ptr %6, align 8, !tbaa !37
   %or.cond3 = icmp ugt i64 %175, 2147483647
   br i1 %or.cond3, label %dict_set_if_not_null.exit101, label %176
 
@@ -576,7 +576,7 @@ dict_set_if_not_null.exit99:                      ; preds = %98, %99
   br i1 %.not.i100, label %dict_set_if_not_null.exit101, label %180
 
 180:                                              ; preds = %179
-  %181 = load ptr, ptr %3, align 8, !tbaa !30
+  %181 = load ptr, ptr %3, align 8, !tbaa !31
   %182 = call i32 @av_dict_set(ptr noundef %181, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef 0) #6
   br label %dict_set_if_not_null.exit101
 
@@ -640,21 +640,22 @@ attributes #6 = { nounwind }
 !20 = !{!5, !6, i64 4064}
 !21 = !{!5, !6, i64 4080}
 !22 = !{!7, !7, i64 0}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = distinct !{!26, !24}
-!27 = distinct !{!27, !24}
-!28 = distinct !{!28, !24}
-!29 = !{!5, !6, i64 8}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p2 _ZTS12AVDictionary", !32, i64 0}
-!32 = !{!"any p2 pointer", !33, i64 0}
-!33 = !{!"any pointer", !7, i64 0}
-!34 = !{!5, !6, i64 28}
-!35 = !{!6, !6, i64 0}
-!36 = !{!9, !9, i64 0}
-!37 = !{!5, !9, i64 16}
-!38 = !{!10, !10, i64 0}
-!39 = !{!5, !10, i64 4088}
-!40 = !{!5, !10, i64 4072}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = distinct !{!27, !24, !25}
+!28 = distinct !{!28, !24, !25}
+!29 = distinct !{!29, !24, !25}
+!30 = !{!5, !6, i64 8}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p2 _ZTS12AVDictionary", !33, i64 0}
+!33 = !{!"any p2 pointer", !34, i64 0}
+!34 = !{!"any pointer", !7, i64 0}
+!35 = !{!5, !6, i64 28}
+!36 = !{!6, !6, i64 0}
+!37 = !{!9, !9, i64 0}
+!38 = !{!5, !9, i64 16}
+!39 = !{!10, !10, i64 0}
+!40 = !{!5, !10, i64 4088}
+!41 = !{!5, !10, i64 4072}

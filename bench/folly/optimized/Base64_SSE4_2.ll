@@ -89,7 +89,7 @@ _ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_Platfo
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %4, %58
   %60 = icmp sgt i64 %59, 2
-  br i1 %60, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !12
+  br i1 %60, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit
   %.023.lcssa.i.i = phi ptr [ %.011.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb0EEEPcPKcS6_S4_.exit ], [ %57, %.lr.ph.i.i ]
@@ -190,7 +190,7 @@ define noundef ptr @_ZN5folly6detail13base64_detail22base64URLEncode_SSE4_2EPKcS
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %4, %24
   %26 = icmp ugt i64 %25, 15
-  br i1 %26, label %.lr.ph, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit, !llvm.loop !13
+  br i1 %26, label %.lr.ph, label %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit, !llvm.loop !14
 
 _ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit: ; preds = %.lr.ph, %3
   %.011.i.lcssa = phi ptr [ %2, %3 ], [ %23, %.lr.ph ]
@@ -241,7 +241,7 @@ _ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_Platfo
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %4, %58
   %60 = icmp sgt i64 %59, 2
-  br i1 %60, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !14
+  br i1 %60, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit
   %.023.lcssa.i.i = phi ptr [ %.011.i.lcssa, %_ZN5folly6detail13base64_detail20base64SimdEncodeImplINS1_22Base64_SSE4_2_PlatformELb1EEEPcPKcS6_S4_.exit ], [ %57, %.lr.ph.i.i ]
@@ -333,7 +333,7 @@ define { i8, ptr } @_ZN5folly6detail13base64_detail19base64Decode_SSE4_2EPKcS3_P
   %29 = ptrtoint ptr %27 to i64
   %30 = sub i64 %4, %29
   %31 = icmp ugt i64 %30, 23
-  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %32 = icmp eq <16 x i8> %20, zeroinitializer
@@ -391,9 +391,10 @@ attributes #6 = { nounwind }
 !7 = !{!8, !8, i64 0}
 !8 = !{!"omnipotent char", !9, i64 0}
 !9 = !{!"Simple C++ TBAA"}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}

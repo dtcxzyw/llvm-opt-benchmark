@@ -491,7 +491,7 @@ define internal noundef i32 @luaB_print(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   %12 = add nuw i32 %.010, 1
   %exitcond.not = icmp eq i32 %.010, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %8, %1
   %13 = load ptr, ptr @stdout, align 8, !tbaa !11
@@ -513,7 +513,7 @@ define internal noundef i32 @luaB_warn(ptr noundef %0) #0 {
   %4 = tail call ptr @luaL_checklstring(ptr noundef %0, i32 noundef %.017, ptr noundef null) #9
   %5 = add nuw i32 %.017, 1
   %exitcond.not = icmp eq i32 %.017, %2
-  br i1 %exitcond.not, label %.lr.ph19, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph19, label %.lr.ph, !llvm.loop !16
 
 .lr.ph19:                                         ; preds = %.lr.ph, %.lr.ph19
   %.118 = phi i32 [ %7, %.lr.ph19 ], [ 1, %.lr.ph ]
@@ -521,7 +521,7 @@ define internal noundef i32 @luaB_warn(ptr noundef %0) #0 {
   tail call void @lua_warning(ptr noundef %0, ptr noundef %6, i32 noundef 1) #9
   %7 = add nuw nsw i32 %.118, 1
   %exitcond20.not = icmp eq i32 %7, %2
-  br i1 %exitcond20.not, label %._crit_edge, label %.lr.ph19
+  br i1 %exitcond20.not, label %._crit_edge, label %.lr.ph19, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph19, %1
   %8 = tail call ptr @lua_tolstring(ptr noundef %0, i32 noundef %2, ptr noundef null) #9
@@ -712,11 +712,11 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
   %.027.idx.i = zext i1 %31 to i64
   %.027.i = getelementptr inbounds nuw i8, ptr %28, i64 %.027.idx.i
   %32 = tail call ptr @__ctype_b_loc() #11
-  %33 = load ptr, ptr %32, align 8, !tbaa !14
+  %33 = load ptr, ptr %32, align 8, !tbaa !18
   %34 = load i8, ptr %.027.i, align 1, !tbaa !5
   %35 = zext i8 %34 to i64
   %36 = getelementptr inbounds nuw i16, ptr %33, i64 %35
-  %37 = load i16, ptr %36, align 2, !tbaa !16
+  %37 = load i16, ptr %36, align 2, !tbaa !20
   %38 = and i16 %37, 8
   %.not.i = icmp eq i16 %38, 0
   br i1 %.not.i, label %b_str2int.exit, label %.preheader.i
@@ -742,9 +742,9 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
 47:                                               ; preds = %40
   %48 = zext i8 %42 to i64
   %49 = tail call ptr @__ctype_toupper_loc() #11
-  %50 = load ptr, ptr %49, align 8, !tbaa !18
+  %50 = load ptr, ptr %49, align 8, !tbaa !22
   %51 = getelementptr inbounds nuw i32, ptr %50, i64 %48
-  %52 = load i32, ptr %51, align 4, !tbaa !20
+  %52 = load i32, ptr %51, align 4, !tbaa !24
   %53 = add nsw i32 %52, -55
   br label %54
 
@@ -761,10 +761,10 @@ define internal noundef i32 @luaB_tonumber(ptr noundef %0) #0 {
   %61 = load i8, ptr %57, align 1, !tbaa !5
   %62 = zext i8 %61 to i64
   %63 = getelementptr inbounds nuw i16, ptr %33, i64 %62
-  %64 = load i16, ptr %63, align 2, !tbaa !16
+  %64 = load i16, ptr %63, align 2, !tbaa !20
   %65 = and i16 %64, 8
   %.not39.i = icmp eq i16 %65, 0
-  br i1 %.not39.i, label %66, label %40
+  br i1 %.not39.i, label %66, label %40, !llvm.loop !26
 
 66:                                               ; preds = %56
   %67 = call i64 @strspn(ptr noundef nonnull %57, ptr noundef nonnull @.str.56) #10
@@ -1079,11 +1079,16 @@ attributes #11 = { nounwind willreturn memory(none) }
 !11 = !{!12, !12, i64 0}
 !12 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
 !13 = !{!"any pointer", !6, i64 0}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 short", !13, i64 0}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"short", !6, i64 0}
+!14 = distinct !{!14, !15}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !15}
+!17 = distinct !{!17, !15}
 !18 = !{!19, !19, i64 0}
-!19 = !{!"p1 int", !13, i64 0}
+!19 = !{!"p1 short", !13, i64 0}
 !20 = !{!21, !21, i64 0}
-!21 = !{!"int", !6, i64 0}
+!21 = !{!"short", !6, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 int", !13, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"int", !6, i64 0}
+!26 = distinct !{!26, !15}

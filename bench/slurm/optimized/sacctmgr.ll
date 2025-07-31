@@ -583,7 +583,7 @@ _get_command.exit.thread:                         ; preds = %141
   %.1.i = phi i1 [ %.069.i, %154 ], [ %157, %156 ], [ %.069.i, %158 ], [ false, %159 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %129
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !12
 
 .loopexit.loopexit.split.loop.exit.i:             ; preds = %.lr.ph.i
   %169 = trunc nsw i64 %indvars.iv.i to i32
@@ -594,7 +594,7 @@ _get_command.exit.thread:                         ; preds = %141
   %.146.ph.i = phi i32 [ %167, %165 ], [ %169, %.loopexit.loopexit.split.loop.exit.i ], [ %.267.i, %146 ], [ %.04573.i, %134 ], [ %.044.i, %168 ]
   %170 = add nsw i32 %.146.ph.i, 1
   %171 = icmp slt i32 %170, %.044.i
-  br i1 %171, label %.lr.ph74.i, label %_get_command.exit, !llvm.loop !12
+  br i1 %171, label %.lr.ph74.i, label %_get_command.exit, !llvm.loop !13
 
 _get_command.exit:                                ; preds = %.lr.ph74.i, %.loopexit.i, %114, %127
   %.258.ph = phi i32 [ 0, %127 ], [ 0, %114 ], [ %.056, %.lr.ph74.i ], [ %.157, %.loopexit.i ]
@@ -616,7 +616,7 @@ _get_command.exit:                                ; preds = %.lr.ph74.i, %.loope
   %.3 = phi i32 [ %173, %174 ], [ %.1, %172 ]
   %176 = load i32, ptr @exit_flag, align 4
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %108, label %.loopexit, !llvm.loop !13
+  br i1 %177, label %108, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %175, %_get_command.exit, %_get_command.exit.thread86, %_get_command.exit.thread
   %.2 = phi i32 [ %.1, %_get_command.exit.thread ], [ %.1, %_get_command.exit.thread86 ], [ %.3, %175 ], [ %.1, %_get_command.exit ]
@@ -1272,7 +1272,7 @@ declare void @load_sacctmgr_cfg_file(i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #7 {
-  %3 = load i8, ptr @have_db_conn, align 1, !range !14, !noundef !15
+  %3 = load i8, ptr @have_db_conn, align 1, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %6, label %5
 
@@ -1425,7 +1425,7 @@ define internal fastcc void @_add_it(i32 noundef range(i32 0, 2147483647) %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_archive_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #7 {
-  %3 = load i8, ptr @have_db_conn, align 1, !range !14, !noundef !15
+  %3 = load i8, ptr @have_db_conn, align 1, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %6, label %5
 
@@ -1504,7 +1504,7 @@ define internal fastcc void @_archive_it(i32 noundef range(i32 0, 2147483647) %0
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_clear_it(ptr noundef readonly captures(none) %0) unnamed_addr #7 {
-  %2 = load i8, ptr @have_db_conn, align 1, !range !14, !noundef !15
+  %2 = load i8, ptr @have_db_conn, align 1, !range !15, !noundef !16
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %5, label %4
 
@@ -1559,7 +1559,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 4:                                                ; preds = %2
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #21
   %6 = trunc i64 %5 to i32
-  %7 = load i8, ptr @have_db_conn, align 1, !range !14, !noundef !15
+  %7 = load i8, ptr @have_db_conn, align 1, !range !15, !noundef !16
   %8 = trunc nuw i8 %7 to i1
   %.pre = tail call i32 @llvm.smax.i32(i32 %6, i32 2)
   %.pre118 = zext nneg i32 %.pre to i64
@@ -1837,7 +1837,7 @@ define internal fastcc void @_show_it(i32 noundef range(i32 0, 2147483647) %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #7 {
-  %3 = load i8, ptr @have_db_conn, align 1, !range !14, !noundef !15
+  %3 = load i8, ptr @have_db_conn, align 1, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %6, label %5
 
@@ -1986,7 +1986,7 @@ define internal fastcc void @_modify_it(i32 noundef range(i32 0, 2147483647) %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_delete_it(i32 noundef range(i32 0, 2147483647) %0, ptr noundef %1) unnamed_addr #7 {
-  %3 = load i8, ptr @have_db_conn, align 1, !range !14, !noundef !15
+  %3 = load i8, ptr @have_db_conn, align 1, !range !15, !noundef !16
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %6, label %5
 
@@ -2220,7 +2220,7 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
   %35 = phi ptr [ %50, %_set_ping_exit_code.exit ], [ %11, %.preheader ]
   %36 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %38 = load i8, ptr %37, align 8, !range !14, !noundef !15
+  %38 = load i8, ptr %37, align 8, !range !15, !noundef !16
   %39 = trunc nuw i8 %38 to i1
   %.str.107..str.108.i = select i1 %39, ptr @.str.107, ptr @.str.108
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 24
@@ -2229,7 +2229,7 @@ define internal fastcc i32 @_ping(i32 noundef range(i32 1, -2147483648) %0, ptr 
   %.0.i = select i1 %42, ptr @.str.109, ptr @.str.110
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef nonnull %.0.i, ptr noundef nonnull %35, ptr noundef nonnull %.str.107..str.108.i)
   %44 = getelementptr %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv, i32 1
-  %.val = load i8, ptr %44, align 8, !range !14, !noundef !15
+  %.val = load i8, ptr %44, align 8, !range !15, !noundef !16
   %45 = trunc nuw i8 %.val to i1
   br i1 %45, label %46, label %47
 
@@ -2251,7 +2251,7 @@ _set_ping_exit_code.exit:                         ; preds = %46, %47, %48
   %49 = getelementptr inbounds nuw %struct.slurmdbd_ping_t, ptr %6, i64 %indvars.iv.next
   %50 = load ptr, ptr %49, align 8
   %.not24 = icmp eq ptr %50, null
-  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not24, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit:                                        ; preds = %_set_ping_exit_code.exit, %.preheader, %33
   %.018 = phi i32 [ %27, %33 ], [ 0, %.preheader ], [ 0, %_set_ping_exit_code.exit ]
@@ -2409,12 +2409,13 @@ attributes #21 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
-!12 = distinct !{!12, !9, !10}
-!13 = distinct !{!13, !9, !10}
-!14 = !{i8 0, i8 2}
-!15 = !{}
-!16 = distinct !{!16, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}
+!13 = distinct !{!13, !9, !10, !11}
+!14 = distinct !{!14, !9, !10, !11}
+!15 = !{i8 0, i8 2}
+!16 = !{}
+!17 = distinct !{!17, !9, !10, !11}

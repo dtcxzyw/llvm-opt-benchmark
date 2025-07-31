@@ -482,7 +482,7 @@ define range(i32 -1, 1) i32 @H5D__select_read(ptr noundef %0, ptr noundef %1) lo
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %11 = load i64, ptr %10, align 8, !tbaa !14
+  %11 = load i64, ptr %10, align 8, !tbaa !15
   %12 = tail call fastcc i32 @H5D__select_io(ptr noundef %0, ptr noundef %1, i64 noundef %11)
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %18
@@ -536,7 +536,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %29 = load i64, ptr %28, align 8, !tbaa !28
+  %29 = load i64, ptr %28, align 8, !tbaa !29
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %31, label %76
 
@@ -546,7 +546,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #4
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %33 = load ptr, ptr %32, align 8, !tbaa !29
+  %33 = load ptr, ptr %32, align 8, !tbaa !30
   %34 = call i32 @H5S_get_select_offset(ptr noundef %33, ptr noundef nonnull %10) #4
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %40
@@ -559,7 +559,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
 
 40:                                               ; preds = %31
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %42 = load ptr, ptr %41, align 8, !tbaa !30
+  %42 = load ptr, ptr %41, align 8, !tbaa !31
   %43 = call i32 @H5S_get_select_offset(ptr noundef %42, ptr noundef nonnull %9) #4
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %49
@@ -582,13 +582,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   store i64 %2, ptr %11, align 8, !tbaa !10
   store i64 %2, ptr %12, align 8, !tbaa !10
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %55 = load i32, ptr %54, align 8, !tbaa !31
+  %55 = load i32, ptr %54, align 8, !tbaa !32
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %66
 
 57:                                               ; preds = %49
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %59 = load ptr, ptr %58, align 8, !tbaa !40
+  %59 = load ptr, ptr %58, align 8, !tbaa !41
   %60 = call i64 %59(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %10, i64 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #4
   %61 = icmp slt i64 %60, 0
   br i1 %61, label %62, label %75
@@ -601,7 +601,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
 
 66:                                               ; preds = %49
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %68 = load ptr, ptr %67, align 8, !tbaa !41
+  %68 = load ptr, ptr %67, align 8, !tbaa !42
   %69 = call i64 %68(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %12, ptr noundef nonnull %10, i64 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %11, ptr noundef nonnull %9) #4
   %70 = icmp slt i64 %69, 0
   br i1 %70, label %71, label %75
@@ -703,14 +703,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
 
 126:                                              ; preds = %119
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %128 = load ptr, ptr %127, align 8, !tbaa !29
+  %128 = load ptr, ptr %127, align 8, !tbaa !30
   %129 = call i32 @H5S_select_iter_init(ptr noundef nonnull %120, ptr noundef %128, i64 noundef %2, i32 noundef 1) #4
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %.thread298, label %131
 
 131:                                              ; preds = %126
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %133 = load ptr, ptr %132, align 8, !tbaa !30
+  %133 = load ptr, ptr %132, align 8, !tbaa !31
   %134 = call i32 @H5S_select_iter_init(ptr noundef nonnull %113, ptr noundef %133, i64 noundef %2, i32 noundef 0) #4
   %135 = icmp sgt i32 %134, -1
   br i1 %135, label %140, label %136
@@ -779,14 +779,14 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %166
 
 166:                                              ; preds = %165, %155
-  %167 = load i32, ptr %141, align 8, !tbaa !31
+  %167 = load i32, ptr %141, align 8, !tbaa !32
   %168 = icmp eq i32 %167, 0
   %169 = load i64, ptr %7, align 8, !tbaa !10
   %170 = load i64, ptr %6, align 8, !tbaa !10
   br i1 %168, label %171, label %179
 
 171:                                              ; preds = %166
-  %172 = load ptr, ptr %143, align 8, !tbaa !40
+  %172 = load ptr, ptr %143, align 8, !tbaa !41
   %173 = call i64 %172(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %169, ptr noundef nonnull %5, ptr noundef nonnull %99, ptr noundef nonnull %106, i64 noundef %170, ptr noundef nonnull %4, ptr noundef nonnull %85, ptr noundef nonnull %92) #4
   %174 = icmp slt i64 %173, 0
   br i1 %174, label %175, label %187
@@ -798,7 +798,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   br label %.loopexit
 
 179:                                              ; preds = %166
-  %180 = load ptr, ptr %142, align 8, !tbaa !41
+  %180 = load ptr, ptr %142, align 8, !tbaa !42
   %181 = call i64 %180(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %169, ptr noundef nonnull %5, ptr noundef nonnull %99, ptr noundef nonnull %106, i64 noundef %170, ptr noundef nonnull %4, ptr noundef nonnull %85, ptr noundef nonnull %92) #4
   %182 = icmp slt i64 %181, 0
   br i1 %182, label %183, label %187
@@ -814,7 +814,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__select_io(ptr noundef %0, ptr 
   %188 = udiv i64 %.096, %2
   %189 = sub i64 %.095242, %188
   %.not = icmp eq i64 %189, 0
-  br i1 %.not, label %.loopexit, label %144, !llvm.loop !42
+  br i1 %.not, label %.loopexit, label %144, !llvm.loop !43
 
 .loopexit:                                        ; preds = %187, %140, %183, %175, %161, %150, %136
   %.3 = phi i32 [ -1, %136 ], [ -1, %150 ], [ -1, %161 ], [ -1, %175 ], [ -1, %183 ], [ 0, %140 ], [ 0, %187 ]
@@ -944,7 +944,7 @@ define range(i32 -1, 1) i32 @H5D__select_write(ptr noundef %0, ptr noundef %1) l
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %11 = load i64, ptr %10, align 8, !tbaa !43
+  %11 = load i64, ptr %10, align 8, !tbaa !44
   %12 = tail call fastcc i32 @H5D__select_io(ptr noundef %0, ptr noundef %1, i64 noundef %11)
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %14, label %18
@@ -983,35 +983,36 @@ attributes #4 = { nounwind }
 !9 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !10 = !{!11, !11, i64 0}
 !11 = !{!"long", !5, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = !{!15, !11, i64 248}
-!15 = !{!"H5D_dset_io_info_t", !16, i64 0, !18, i64 8, !19, i64 16, !5, i64 120, !20, i64 128, !21, i64 160, !11, i64 168, !22, i64 176, !22, i64 184, !5, i64 192, !23, i64 200, !24, i64 208, !4, i64 296}
-!16 = !{!"p1 _ZTS5H5D_t", !17, i64 0}
-!17 = !{!"any pointer", !5, i64 0}
-!18 = !{!"p1 _ZTS13H5D_storage_t", !17, i64 0}
-!19 = !{!"H5D_layout_ops_t", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24, !17, i64 32, !17, i64 40, !17, i64 48, !17, i64 56, !17, i64 64, !17, i64 72, !17, i64 80, !17, i64 88, !17, i64 96}
-!20 = !{!"H5D_io_ops_t", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24}
-!21 = !{!"p1 _ZTS12H5O_layout_t", !17, i64 0}
-!22 = !{!"p1 _ZTS5H5S_t", !17, i64 0}
-!23 = !{!"p1 _ZTS5H5T_t", !17, i64 0}
-!24 = !{!"H5D_type_info_t", !23, i64 0, !23, i64 8, !23, i64 16, !23, i64 24, !25, i64 32, !11, i64 40, !11, i64 48, !4, i64 56, !4, i64 57, !26, i64 64, !27, i64 72, !11, i64 80}
-!25 = !{!"p1 _ZTS10H5T_path_t", !17, i64 0}
-!26 = !{!"p1 _ZTS17H5T_subset_info_t", !17, i64 0}
-!27 = !{!"int", !5, i64 0}
-!28 = !{!15, !11, i64 168}
-!29 = !{!15, !22, i64 176}
-!30 = !{!15, !22, i64 184}
-!31 = !{!32, !27, i64 40}
-!32 = !{!"H5D_io_info_t", !33, i64 0, !34, i64 8, !27, i64 40, !11, i64 48, !11, i64 56, !35, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !36, i64 96, !37, i64 104, !37, i64 112, !38, i64 120, !38, i64 128, !17, i64 136, !17, i64 144, !11, i64 152, !5, i64 160, !27, i64 168, !39, i64 176, !4, i64 184, !11, i64 192, !39, i64 200, !4, i64 208, !11, i64 216, !11, i64 224, !4, i64 232, !4, i64 233, !27, i64 236}
-!33 = !{!"p1 _ZTS12H5F_shared_t", !17, i64 0}
-!34 = !{!"H5D_md_io_ops_t", !17, i64 0, !17, i64 8, !17, i64 16, !17, i64 24}
-!35 = !{!"p1 _ZTS18H5D_dset_io_info_t", !17, i64 0}
-!36 = !{!"p2 _ZTS16H5D_piece_info_t", !17, i64 0}
-!37 = !{!"p2 _ZTS5H5S_t", !17, i64 0}
-!38 = !{!"p1 long", !17, i64 0}
-!39 = !{!"p1 omnipotent char", !17, i64 0}
-!40 = !{!15, !17, i64 80}
-!41 = !{!15, !17, i64 88}
-!42 = distinct !{!42, !13}
-!43 = !{!15, !11, i64 256}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = !{!16, !11, i64 248}
+!16 = !{!"H5D_dset_io_info_t", !17, i64 0, !19, i64 8, !20, i64 16, !5, i64 120, !21, i64 128, !22, i64 160, !11, i64 168, !23, i64 176, !23, i64 184, !5, i64 192, !24, i64 200, !25, i64 208, !4, i64 296}
+!17 = !{!"p1 _ZTS5H5D_t", !18, i64 0}
+!18 = !{!"any pointer", !5, i64 0}
+!19 = !{!"p1 _ZTS13H5D_storage_t", !18, i64 0}
+!20 = !{!"H5D_layout_ops_t", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !18, i64 72, !18, i64 80, !18, i64 88, !18, i64 96}
+!21 = !{!"H5D_io_ops_t", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24}
+!22 = !{!"p1 _ZTS12H5O_layout_t", !18, i64 0}
+!23 = !{!"p1 _ZTS5H5S_t", !18, i64 0}
+!24 = !{!"p1 _ZTS5H5T_t", !18, i64 0}
+!25 = !{!"H5D_type_info_t", !24, i64 0, !24, i64 8, !24, i64 16, !24, i64 24, !26, i64 32, !11, i64 40, !11, i64 48, !4, i64 56, !4, i64 57, !27, i64 64, !28, i64 72, !11, i64 80}
+!26 = !{!"p1 _ZTS10H5T_path_t", !18, i64 0}
+!27 = !{!"p1 _ZTS17H5T_subset_info_t", !18, i64 0}
+!28 = !{!"int", !5, i64 0}
+!29 = !{!16, !11, i64 168}
+!30 = !{!16, !23, i64 176}
+!31 = !{!16, !23, i64 184}
+!32 = !{!33, !28, i64 40}
+!33 = !{!"H5D_io_info_t", !34, i64 0, !35, i64 8, !28, i64 40, !11, i64 48, !11, i64 56, !36, i64 64, !11, i64 72, !11, i64 80, !11, i64 88, !37, i64 96, !38, i64 104, !38, i64 112, !39, i64 120, !39, i64 128, !18, i64 136, !18, i64 144, !11, i64 152, !5, i64 160, !28, i64 168, !40, i64 176, !4, i64 184, !11, i64 192, !40, i64 200, !4, i64 208, !11, i64 216, !11, i64 224, !4, i64 232, !4, i64 233, !28, i64 236}
+!34 = !{!"p1 _ZTS12H5F_shared_t", !18, i64 0}
+!35 = !{!"H5D_md_io_ops_t", !18, i64 0, !18, i64 8, !18, i64 16, !18, i64 24}
+!36 = !{!"p1 _ZTS18H5D_dset_io_info_t", !18, i64 0}
+!37 = !{!"p2 _ZTS16H5D_piece_info_t", !18, i64 0}
+!38 = !{!"p2 _ZTS5H5S_t", !18, i64 0}
+!39 = !{!"p1 long", !18, i64 0}
+!40 = !{!"p1 omnipotent char", !18, i64 0}
+!41 = !{!16, !18, i64 80}
+!42 = !{!16, !18, i64 88}
+!43 = distinct !{!43, !13, !14}
+!44 = !{!16, !11, i64 256}

@@ -116,7 +116,7 @@ define hidden noundef zeroext i1 @_ZNK3ue219AsciiComponentClass11class_emptyEv(p
   %.012.add.i.i = add nuw nsw i64 %.012.idx14.i.i, 8
   %.not.i.i = icmp ne i64 %.012.add.i.i, 32
   %or.cond.not.i.i = select i1 %.not13.i.i, i1 %.not.i.i, i1 false
-  br i1 %or.cond.not.i.i, label %3, label %_ZNK3ue29CharReach4noneEv.exit
+  br i1 %or.cond.not.i.i, label %3, label %_ZNK3ue29CharReach4noneEv.exit, !llvm.loop !7
 
 _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %3
   ret i1 %.not13.i.i
@@ -381,7 +381,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %29 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %29)
   %.not22.i = icmp eq ptr %1, %12
-  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %30, !prof !7
+  br i1 %.not22.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, label %30, !prof !9
 
 30:                                               ; preds = %25
   switch i64 %28, label %33 [
@@ -597,7 +597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   store i64 %33, ptr %.0.ptr.i.i, align 8
   %.0.add.i.i = add nuw nsw i64 %.0.idx9.i.i, 8
   %.not.i.i = icmp eq i64 %.0.add.i.i, 32
-  br i1 %.not.i.i, label %_ZN3ue29CharReach4flipEv.exit, label %.preheader
+  br i1 %.not.i.i, label %_ZN3ue29CharReach4flipEv.exit, label %.preheader, !llvm.loop !10
 
 _ZN3ue29CharReach4flipEv.exit:                    ; preds = %.preheader, %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -821,7 +821,7 @@ define hidden void @_ZN3ue219AsciiComponentClass8finalizeEv(ptr noundef nonnull 
   store i64 %21, ptr %.0.ptr.i.i, align 8
   %.0.add.i.i = add nuw nsw i64 %.0.idx9.i.i, 8
   %.not.i.i = icmp eq i64 %.0.add.i.i, 32
-  br i1 %.not.i.i, label %_ZN3ue29CharReach4flipEv.exit, label %19
+  br i1 %.not.i.i, label %_ZN3ue29CharReach4flipEv.exit, label %19, !llvm.loop !10
 
 _ZN3ue29CharReach4flipEv.exit:                    ; preds = %19, %13
   store i8 1, ptr %2, align 4
@@ -959,4 +959,7 @@ attributes #17 = { builtin nounwind }
 !4 = !{i32 7, !"frame-pointer", i32 2}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!10 = distinct !{!10, !8}

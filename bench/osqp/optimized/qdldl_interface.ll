@@ -479,7 +479,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr noundef writeonly captu
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 32
   store ptr %138, ptr %139, align 8, !tbaa !17
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 40
-  store i64 %127, ptr %140, align 8, !tbaa !66
+  store i64 %127, ptr %140, align 8, !tbaa !67
   %141 = load i64, ptr %118, align 8, !tbaa !40
   %142 = load ptr, ptr %120, align 8, !tbaa !14
   %143 = load ptr, ptr %122, align 8, !tbaa !16
@@ -580,7 +580,7 @@ define noundef i64 @solve_linsys_qdldl(ptr noundef readonly captures(none) %0, p
   store double %26, ptr %27, align 8, !tbaa !63
   %28 = add nuw nsw i64 %.023.i, 1
   %exitcond.not.i = icmp eq i64 %28, %21
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !67
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -602,7 +602,7 @@ define noundef i64 @solve_linsys_qdldl(ptr noundef readonly captures(none) %0, p
   store double %36, ptr %39, align 8, !tbaa !63
   %40 = add nuw nsw i64 %.124.i, 1
   %exitcond28.not.i = icmp eq i64 %40, %21
-  br i1 %exitcond28.not.i, label %LDLSolve.exit, label %.lr.ph26.i, !llvm.loop !68
+  br i1 %exitcond28.not.i, label %LDLSolve.exit, label %.lr.ph26.i, !llvm.loop !69
 
 ._crit_edge27.critedge.i:                         ; preds = %11
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -640,7 +640,7 @@ define noundef i64 @solve_linsys_qdldl(ptr noundef readonly captures(none) %0, p
   store double %64, ptr %65, align 8, !tbaa !63
   %66 = add nuw nsw i64 %.023.i48, 1
   %exitcond.not.i49 = icmp eq i64 %66, %59
-  br i1 %exitcond.not.i49, label %._crit_edge.i50, label %.lr.ph.i47, !llvm.loop !67
+  br i1 %exitcond.not.i49, label %._crit_edge.i50, label %.lr.ph.i47, !llvm.loop !68
 
 ._crit_edge.i50:                                  ; preds = %.lr.ph.i47
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -662,7 +662,7 @@ define noundef i64 @solve_linsys_qdldl(ptr noundef readonly captures(none) %0, p
   store double %74, ptr %77, align 8, !tbaa !63
   %78 = add nuw nsw i64 %.124.i52, 1
   %exitcond28.not.i53 = icmp eq i64 %78, %59
-  br i1 %exitcond28.not.i53, label %LDLSolve.exit54, label %.lr.ph26.i51, !llvm.loop !68
+  br i1 %exitcond28.not.i53, label %LDLSolve.exit54, label %.lr.ph26.i51, !llvm.loop !69
 
 ._crit_edge27.critedge.i46:                       ; preds = %47
   %79 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -690,7 +690,7 @@ LDLSolve.exit54:                                  ; preds = %.lr.ph26.i51, %._cr
   store double %89, ptr %90, align 8, !tbaa !63
   %91 = add nuw nsw i64 %.058, 1
   %exitcond.not = icmp eq i64 %91, %5
-  br i1 %exitcond.not, label %._crit_edge, label %87, !llvm.loop !69
+  br i1 %exitcond.not, label %._crit_edge, label %87, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %87, %LDLSolve.exit54
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -727,7 +727,7 @@ LDLSolve.exit54:                                  ; preds = %.lr.ph26.i51, %._cr
   store double %106, ptr %104, align 8, !tbaa !63
   %107 = add nuw nsw i64 %.159, 1
   %exitcond65.not = icmp eq i64 %107, %7
-  br i1 %exitcond65.not, label %LDLSolve.exit, label %98, !llvm.loop !70
+  br i1 %exitcond65.not, label %LDLSolve.exit, label %98, !llvm.loop !71
 
 108:                                              ; preds = %.lr.ph62, %108
   %.261 = phi i64 [ 0, %.lr.ph62 ], [ %116, %108 ]
@@ -741,7 +741,7 @@ LDLSolve.exit54:                                  ; preds = %.lr.ph26.i51, %._cr
   store double %115, ptr %113, align 8, !tbaa !63
   %116 = add nuw nsw i64 %.261, 1
   %exitcond66.not = icmp eq i64 %116, %7
-  br i1 %exitcond66.not, label %LDLSolve.exit, label %108, !llvm.loop !71
+  br i1 %exitcond66.not, label %LDLSolve.exit, label %108, !llvm.loop !72
 
 LDLSolve.exit:                                    ; preds = %.lr.ph26.i, %98, %108, %.preheader55, %.preheader, %._crit_edge27.critedge.i
   ret i64 0
@@ -801,7 +801,7 @@ define i64 @adjoint_derivative_qdldl(ptr readnone captures(none) %0, ptr noundef
   store i64 %37, ptr %35, align 8, !tbaa !60
   %38 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not.i = icmp eq i64 %38, %29
-  br i1 %exitcond.not.i, label %_colcount_diag.exit.i, label %.lr.ph.i.i, !llvm.loop !72
+  br i1 %exitcond.not.i, label %_colcount_diag.exit.i, label %.lr.ph.i.i, !llvm.loop !73
 
 _colcount_diag.exit.i:                            ; preds = %.lr.ph.i.i, %._crit_edge.i, %24
   %39 = phi i1 [ false, %._crit_edge.i ], [ false, %24 ], [ true, %.lr.ph.i.i ]
@@ -833,7 +833,7 @@ _colcount_diag.exit.i:                            ; preds = %.lr.ph.i.i, %._crit
   store i64 %56, ptr %gep24.i.i, align 8, !tbaa !60
   %57 = load i64, ptr %41, align 8, !tbaa !40
   %58 = icmp slt i64 %49, %57
-  br i1 %58, label %48, label %_colcount_block.exit.i, !llvm.loop !73
+  br i1 %58, label %48, label %_colcount_block.exit.i, !llvm.loop !74
 
 _colcount_block.exit.i:                           ; preds = %48, %_colcount_diag.exit.i
   %59 = load ptr, ptr %2, align 8, !tbaa !38
@@ -864,7 +864,7 @@ _colcount_block.exit.i:                           ; preds = %48, %_colcount_diag
   store i64 %75, ptr %gep24.i112.i, align 8, !tbaa !60
   %76 = load i64, ptr %60, align 8, !tbaa !40
   %77 = icmp slt i64 %68, %76
-  br i1 %77, label %67, label %_colcount_block.exit113.i, !llvm.loop !73
+  br i1 %77, label %67, label %_colcount_block.exit113.i, !llvm.loop !74
 
 _colcount_block.exit113.i:                        ; preds = %67, %_colcount_block.exit.i
   %78 = load ptr, ptr %3, align 8, !tbaa !38
@@ -895,7 +895,7 @@ _colcount_block.exit113.i:                        ; preds = %67, %_colcount_bloc
   store i64 %94, ptr %gep24.i117.i, align 8, !tbaa !60
   %95 = load i64, ptr %79, align 8, !tbaa !40
   %96 = icmp slt i64 %87, %95
-  br i1 %96, label %86, label %_colcount_block.exit118.i, !llvm.loop !73
+  br i1 %96, label %86, label %_colcount_block.exit118.i, !llvm.loop !74
 
 _colcount_block.exit118.i:                        ; preds = %86, %_colcount_block.exit113.i
   %97 = load ptr, ptr %4, align 8, !tbaa !38
@@ -927,7 +927,7 @@ _colcount_block.exit118.i:                        ; preds = %86, %_colcount_bloc
   store i64 %114, ptr %gep.i.i, align 8, !tbaa !60
   %115 = add nuw nsw i64 %.020.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %115, %104
-  br i1 %exitcond.not.i.i, label %_colcount_block.exit120.i, label %110, !llvm.loop !74
+  br i1 %exitcond.not.i.i, label %_colcount_block.exit120.i, label %110, !llvm.loop !75
 
 _colcount_block.exit120.i:                        ; preds = %110, %_colcount_block.exit118.i
   %116 = add nsw i64 %98, %26
@@ -947,7 +947,7 @@ _colcount_block.exit120.i:                        ; preds = %110, %_colcount_blo
   store i64 %123, ptr %121, align 8, !tbaa !60
   %124 = add nsw i64 %.06.i122.i, 1
   %125 = icmp slt i64 %124, %116
-  br i1 %125, label %120, label %_colcount_diag.exit123.i, !llvm.loop !72
+  br i1 %125, label %120, label %_colcount_diag.exit123.i, !llvm.loop !73
 
 _colcount_diag.exit123.i:                         ; preds = %120, %_colcount_block.exit120.i
   %126 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -976,7 +976,7 @@ _colcount_diag.exit123.i:                         ; preds = %120, %_colcount_blo
   store i64 %140, ptr %gep.i127.i, align 8, !tbaa !60
   %141 = add nuw nsw i64 %.020.i126.i, 1
   %exitcond.not.i128.i = icmp eq i64 %141, %130
-  br i1 %exitcond.not.i128.i, label %_colcount_block.exit129.i, label %136, !llvm.loop !74
+  br i1 %exitcond.not.i128.i, label %_colcount_block.exit129.i, label %136, !llvm.loop !75
 
 _colcount_block.exit129.i:                        ; preds = %136, %_colcount_diag.exit123.i
   br i1 %39, label %.lr.ph.i130.i, label %_colcount_diag.exit132.i
@@ -994,7 +994,7 @@ _colcount_block.exit129.i:                        ; preds = %136, %_colcount_dia
   store i64 %147, ptr %145, align 8, !tbaa !60
   %148 = add nuw nsw i64 %.06.i131.i, 1
   %149 = icmp slt i64 %148, %30
-  br i1 %149, label %144, label %_colcount_diag.exit132.i, !llvm.loop !72
+  br i1 %149, label %144, label %_colcount_diag.exit132.i, !llvm.loop !73
 
 _colcount_diag.exit132.i:                         ; preds = %144, %_colcount_block.exit129.i
   %150 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -1017,7 +1017,7 @@ _colcount_diag.exit132.i:                         ; preds = %144, %_colcount_blo
   %158 = add nuw nsw i64 %.0911.i.i, 1
   %159 = load i64, ptr %150, align 8, !tbaa !40
   %.not.not.i.i = icmp slt i64 %.0911.i.i, %159
-  br i1 %.not.not.i.i, label %154, label %_colcount_to_colptr.exit.i, !llvm.loop !75
+  br i1 %.not.not.i.i, label %154, label %_colcount_to_colptr.exit.i, !llvm.loop !76
 
 _colcount_to_colptr.exit.i:                       ; preds = %154, %_colcount_diag.exit132.i
   br i1 %39, label %.lr.ph.i134.i, label %_fill_diag_values.exit.i
@@ -1044,7 +1044,7 @@ _colcount_to_colptr.exit.i:                       ; preds = %154, %_colcount_dia
   store i64 %170, ptr %gep.us.i.i, align 8, !tbaa !60
   %171 = add nuw nsw i64 %.01.us.i.i, 1
   %exitcond3.not.i.i = icmp eq i64 %171, %29
-  br i1 %exitcond3.not.i.i, label %_fill_diag_values.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !76
+  br i1 %exitcond3.not.i.i, label %_fill_diag_values.exit.i, label %.lr.ph.split.us.i.i, !llvm.loop !77
 
 _fill_diag_values.exit.i:                         ; preds = %.lr.ph.split.us.i.i, %_colcount_to_colptr.exit.i
   %172 = load i64, ptr %41, align 8, !tbaa !40
@@ -1080,7 +1080,7 @@ _fill_diag_values.exit.i:                         ; preds = %.lr.ph.split.us.i.i
   %187 = phi i64 [ %.pre7.i.i, %.loopexit.us.loopexit.i.i ], [ %181, %.lr.ph3.split.us.i.i ]
   %188 = phi i64 [ %205, %.loopexit.us.loopexit.i.i ], [ %185, %.lr.ph3.split.us.i.i ]
   %189 = icmp slt i64 %183, %187
-  br i1 %189, label %.lr.ph3.split.us.i.i, label %_fill_block.exit.i, !llvm.loop !78
+  br i1 %189, label %.lr.ph3.split.us.i.i, label %_fill_block.exit.i, !llvm.loop !79
 
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph3.split.us.i.i
   %190 = load ptr, ptr %177, align 8, !tbaa !14
@@ -1108,7 +1108,7 @@ _fill_diag_values.exit.i:                         ; preds = %.lr.ph.split.us.i.i
   %204 = add nsw i64 %.0341.us.us.i.i, 1
   %205 = load i64, ptr %184, align 8, !tbaa !60
   %206 = icmp slt i64 %204, %205
-  br i1 %206, label %195, label %.loopexit.us.loopexit.i.i, !llvm.loop !79
+  br i1 %206, label %195, label %.loopexit.us.loopexit.i.i, !llvm.loop !80
 
 _fill_block.exit.i:                               ; preds = %.loopexit.us.i.i, %_fill_diag_values.exit.i
   %207 = load i64, ptr %60, align 8, !tbaa !40
@@ -1144,7 +1144,7 @@ _fill_block.exit.i:                               ; preds = %.loopexit.us.i.i, %
   %222 = phi i64 [ %.pre7.i146.i, %.loopexit.us.loopexit.i145.i ], [ %216, %.lr.ph3.split.us.i138.i ]
   %223 = phi i64 [ %240, %.loopexit.us.loopexit.i145.i ], [ %220, %.lr.ph3.split.us.i138.i ]
   %224 = icmp slt i64 %218, %222
-  br i1 %224, label %.lr.ph3.split.us.i138.i, label %_fill_block.exit147.i, !llvm.loop !78
+  br i1 %224, label %.lr.ph3.split.us.i138.i, label %_fill_block.exit147.i, !llvm.loop !79
 
 .lr.ph.us.i141.i:                                 ; preds = %.lr.ph3.split.us.i138.i
   %225 = load ptr, ptr %212, align 8, !tbaa !14
@@ -1173,7 +1173,7 @@ _fill_block.exit.i:                               ; preds = %.loopexit.us.i.i, %
   %239 = add nsw i64 %.0341.us.us.i144.i, 1
   %240 = load i64, ptr %219, align 8, !tbaa !60
   %241 = icmp slt i64 %239, %240
-  br i1 %241, label %230, label %.loopexit.us.loopexit.i145.i, !llvm.loop !79
+  br i1 %241, label %230, label %.loopexit.us.loopexit.i145.i, !llvm.loop !80
 
 _fill_block.exit147.i:                            ; preds = %.loopexit.us.i140.i, %_fill_block.exit.i
   %242 = load i64, ptr %79, align 8, !tbaa !40
@@ -1207,7 +1207,7 @@ _fill_block.exit147.i:                            ; preds = %.loopexit.us.i140.i
   %255 = phi i64 [ %.pre7.i159.i, %.loopexit.us.loopexit.i158.i ], [ %249, %.lr.ph3.split.us.i150.i ]
   %256 = phi i64 [ %273, %.loopexit.us.loopexit.i158.i ], [ %253, %.lr.ph3.split.us.i150.i ]
   %257 = icmp slt i64 %251, %255
-  br i1 %257, label %.lr.ph3.split.us.i150.i, label %_fill_block.exit160.i, !llvm.loop !78
+  br i1 %257, label %.lr.ph3.split.us.i150.i, label %_fill_block.exit160.i, !llvm.loop !79
 
 .lr.ph.us.i153.i:                                 ; preds = %.lr.ph3.split.us.i150.i
   %258 = load ptr, ptr %245, align 8, !tbaa !14
@@ -1236,7 +1236,7 @@ _fill_block.exit147.i:                            ; preds = %.loopexit.us.i140.i
   %272 = add nsw i64 %.0341.us.us.i156.i, 1
   %273 = load i64, ptr %252, align 8, !tbaa !60
   %274 = icmp slt i64 %272, %273
-  br i1 %274, label %263, label %.loopexit.us.loopexit.i158.i, !llvm.loop !79
+  br i1 %274, label %263, label %.loopexit.us.loopexit.i158.i, !llvm.loop !80
 
 _fill_block.exit160.i:                            ; preds = %.loopexit.us.i152.i, %_fill_block.exit147.i
   %275 = load i64, ptr %101, align 8, !tbaa !40
@@ -1260,7 +1260,7 @@ _fill_block.exit160.i:                            ; preds = %.loopexit.us.i152.i
   %282 = phi i64 [ %.pre5.i.i, %.loopexit.loopexit.i.i ], [ %285, %.lr.ph3.split.i.i ]
   %283 = phi i64 [ %306, %.loopexit.loopexit.i.i ], [ %289, %.lr.ph3.split.i.i ]
   %284 = icmp slt i64 %287, %282
-  br i1 %284, label %.lr.ph3.split.i.i, label %_fill_block.exit166.i, !llvm.loop !80
+  br i1 %284, label %.lr.ph3.split.i.i, label %_fill_block.exit166.i, !llvm.loop !81
 
 .lr.ph3.split.i.i:                                ; preds = %.loopexit.i.i, %.lr.ph3.i161.i
   %285 = phi i64 [ %282, %.loopexit.i.i ], [ %275, %.lr.ph3.i161.i ]
@@ -1298,7 +1298,7 @@ _fill_block.exit160.i:                            ; preds = %.loopexit.us.i152.i
   %305 = add nsw i64 %.0341.i.i, 1
   %306 = load i64, ptr %288, align 8, !tbaa !60
   %307 = icmp slt i64 %305, %306
-  br i1 %307, label %296, label %.loopexit.loopexit.i.i, !llvm.loop !81
+  br i1 %307, label %296, label %.loopexit.loopexit.i.i, !llvm.loop !82
 
 _fill_block.exit166.i:                            ; preds = %.loopexit.i.i, %_fill_block.exit160.i
   %308 = load ptr, ptr %5, align 8, !tbaa !61
@@ -1329,7 +1329,7 @@ _fill_block.exit166.i:                            ; preds = %.loopexit.i.i, %_fi
   store i64 %320, ptr %gep.us.i173.i, align 8, !tbaa !60
   %321 = add nuw nsw i64 %.01.us.i172.i, 1
   %exitcond3.not.i174.i = icmp eq i64 %321, %26
-  br i1 %exitcond3.not.i174.i, label %_fill_diag_values.exit175.i, label %.lr.ph.split.us.i171.i, !llvm.loop !76
+  br i1 %exitcond3.not.i174.i, label %_fill_diag_values.exit175.i, label %.lr.ph.split.us.i171.i, !llvm.loop !77
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i167.i, %.lr.ph.split.i.i
   %.01.i.i = phi i64 [ %330, %.lr.ph.split.i.i ], [ 0, %.lr.ph.i167.i ]
@@ -1347,7 +1347,7 @@ _fill_block.exit166.i:                            ; preds = %.loopexit.i.i, %_fi
   store i64 %329, ptr %gep.i169.i, align 8, !tbaa !60
   %330 = add nuw nsw i64 %.01.i.i, 1
   %exitcond.not.i170.i = icmp eq i64 %330, %26
-  br i1 %exitcond.not.i170.i, label %_fill_diag_values.exit175.i, label %.lr.ph.split.i.i, !llvm.loop !82
+  br i1 %exitcond.not.i170.i, label %_fill_diag_values.exit175.i, label %.lr.ph.split.i.i, !llvm.loop !83
 
 _fill_diag_values.exit175.i:                      ; preds = %.lr.ph.split.i.i, %.lr.ph.split.us.i171.i, %_fill_block.exit166.i
   %331 = load i64, ptr %79, align 8, !tbaa !40
@@ -1371,7 +1371,7 @@ _fill_diag_values.exit175.i:                      ; preds = %.lr.ph.split.i.i, %
   %338 = phi i64 [ %.pre5.i186.i, %.loopexit.loopexit.i185.i ], [ %341, %.lr.ph3.split.i178.i ]
   %339 = phi i64 [ %362, %.loopexit.loopexit.i185.i ], [ %345, %.lr.ph3.split.i178.i ]
   %340 = icmp slt i64 %343, %338
-  br i1 %340, label %.lr.ph3.split.i178.i, label %_fill_block.exit187.i, !llvm.loop !80
+  br i1 %340, label %.lr.ph3.split.i178.i, label %_fill_block.exit187.i, !llvm.loop !81
 
 .lr.ph3.split.i178.i:                             ; preds = %.loopexit.i180.i, %.lr.ph3.i176.i
   %341 = phi i64 [ %338, %.loopexit.i180.i ], [ %331, %.lr.ph3.i176.i ]
@@ -1409,7 +1409,7 @@ _fill_diag_values.exit175.i:                      ; preds = %.lr.ph.split.i.i, %
   %361 = add nsw i64 %.0341.i183.i, 1
   %362 = load i64, ptr %344, align 8, !tbaa !60
   %363 = icmp slt i64 %361, %362
-  br i1 %363, label %352, label %.loopexit.loopexit.i185.i, !llvm.loop !81
+  br i1 %363, label %352, label %.loopexit.loopexit.i185.i, !llvm.loop !82
 
 _fill_block.exit187.i:                            ; preds = %.loopexit.i180.i, %_fill_diag_values.exit175.i
   %364 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -1438,7 +1438,7 @@ _fill_block.exit187.i:                            ; preds = %.loopexit.i180.i, %
   store i64 %375, ptr %gep.us.i192.i, align 8, !tbaa !60
   %376 = add nuw nsw i64 %.01.us.i191.i, 1
   %exitcond3.not.i193.i = icmp eq i64 %376, %29
-  br i1 %exitcond3.not.i193.i, label %_fill_diag_values.exit194.i, label %.lr.ph.split.us.i190.i, !llvm.loop !76
+  br i1 %exitcond3.not.i193.i, label %_fill_diag_values.exit194.i, label %.lr.ph.split.us.i190.i, !llvm.loop !77
 
 _fill_diag_values.exit194.i:                      ; preds = %.lr.ph.split.us.i190.i, %_fill_block.exit187.i
   %377 = load i64, ptr %150, align 8, !tbaa !40
@@ -1458,7 +1458,7 @@ _fill_diag_values.exit194.i:                      ; preds = %.lr.ph.split.us.i19
   store i64 %384, ptr %382, align 8, !tbaa !60
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %385 = icmp samesign ugt i64 %indvars.iv.i.i, 1
-  br i1 %385, label %381, label %_adj_assemble_csc.exit, !llvm.loop !83
+  br i1 %385, label %381, label %_adj_assemble_csc.exit, !llvm.loop !84
 
 _adj_assemble_csc.exit:                           ; preds = %381, %_fill_diag_values.exit194.i
   store i64 0, ptr %365, align 8, !tbaa !60
@@ -1505,7 +1505,7 @@ _adj_assemble_csc.exit:                           ; preds = %381, %_fill_diag_va
   %402 = fadd double %401, 0x3EB0C6F7A0B5ED8D
   store double %402, ptr %gep.i, align 8, !tbaa !63
   %exitcond.not.i220 = icmp eq i64 %398, %389
-  br i1 %exitcond.not.i220, label %.lr.ph21.i, label %397, !llvm.loop !84
+  br i1 %exitcond.not.i220, label %.lr.ph21.i, label %397, !llvm.loop !85
 
 403:                                              ; preds = %403, %.lr.ph21.i
   %.120.i = phi i64 [ %389, %.lr.ph21.i ], [ %404, %403 ]
@@ -1517,7 +1517,7 @@ _adj_assemble_csc.exit:                           ; preds = %381, %_fill_diag_va
   %408 = fadd double %407, 0xBEB0C6F7A0B5ED8D
   store double %408, ptr %gep23.i, align 8, !tbaa !63
   %409 = icmp slt i64 %404, %388
-  br i1 %409, label %403, label %_adj_perturb.exit, !llvm.loop !85
+  br i1 %409, label %403, label %_adj_perturb.exit, !llvm.loop !86
 
 _adj_perturb.exit:                                ; preds = %403, %.preheader.i
   %410 = shl i64 %15, 4
@@ -1615,7 +1615,7 @@ _adj_perturb.exit:                                ; preds = %403, %.preheader.i
   store double %468, ptr %469, align 8, !tbaa !63
   %470 = add nuw nsw i64 %.0200233, 1
   %exitcond.not = icmp eq i64 %470, %smax
-  br i1 %exitcond.not, label %.lr.ph236.preheader, label %464, !llvm.loop !86
+  br i1 %exitcond.not, label %.lr.ph236.preheader, label %464, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %.preheader227
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %412, ptr noundef nonnull %448, ptr noundef nonnull %449, ptr noundef nonnull %414, ptr noundef nonnull %459) #12
@@ -1636,7 +1636,7 @@ _adj_perturb.exit:                                ; preds = %403, %.preheader.i
   store double %472, ptr %475, align 8, !tbaa !63
   %476 = add nuw nsw i64 %.1201234, 1
   %exitcond253.not = icmp eq i64 %476, %smax252
-  br i1 %exitcond253.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !87
+  br i1 %exitcond253.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !88
 
 ._crit_edge237:                                   ; preds = %.lr.ph236, %._crit_edge
   %477 = tail call ptr @OSQPVectorf_new(ptr noundef nonnull %458, i64 noundef %20) #12
@@ -1675,7 +1675,7 @@ _adj_perturb.exit:                                ; preds = %403, %.preheader.i
   store double %489, ptr %490, align 8, !tbaa !63
   %491 = add nuw nsw i64 %.2202238, 1
   %exitcond255.not = icmp eq i64 %491, %smax254
-  br i1 %exitcond255.not, label %.lr.ph243, label %485, !llvm.loop !88
+  br i1 %exitcond255.not, label %.lr.ph243, label %485, !llvm.loop !89
 
 ._crit_edge240:                                   ; preds = %.preheader
   tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %412, ptr noundef nonnull %448, ptr noundef nonnull %449, ptr noundef nonnull %414, ptr noundef nonnull %459) #12
@@ -1696,13 +1696,13 @@ _adj_perturb.exit:                                ; preds = %403, %.preheader.i
   store double %495, ptr %498, align 8, !tbaa !63
   %499 = add nuw nsw i64 %.3203241, 1
   %exitcond257.not = icmp eq i64 %499, %smax254
-  br i1 %exitcond257.not, label %._crit_edge244, label %493, !llvm.loop !89
+  br i1 %exitcond257.not, label %._crit_edge244, label %493, !llvm.loop !90
 
 ._crit_edge244:                                   ; preds = %493, %._crit_edge240
   tail call void @OSQPVectorf_minus(ptr noundef nonnull %477, ptr noundef nonnull %477, ptr noundef nonnull %478) #12
   %500 = add nuw nsw i64 %.0245, 1
   %exitcond258.not = icmp eq i64 %500, 200
-  br i1 %exitcond258.not, label %501, label %481, !llvm.loop !90
+  br i1 %exitcond258.not, label %501, label %481, !llvm.loop !91
 
 501:                                              ; preds = %481, %._crit_edge244
   %502 = tail call ptr @OSQPVectorf_data(ptr noundef nonnull %477) #12
@@ -1840,7 +1840,7 @@ define range(i64 0, 2) i64 @update_linsys_solver_rho_vec_qdldl(ptr noundef captu
   store double %13, ptr %14, align 8, !tbaa !63
   %15 = add nuw nsw i64 %.031, 1
   %exitcond.not = icmp eq i64 %15, %5
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !91
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !92
 
 16:                                               ; preds = %3
   %17 = fdiv double 1.000000e+00, %2
@@ -1954,7 +1954,7 @@ define internal fastcc void @permute_KKT(ptr noundef nonnull captures(none) %0, 
   store i64 %47, ptr %44, align 8, !tbaa !60
   %48 = add nuw nsw i64 %.05666, 1
   %exitcond.not = icmp eq i64 %48, %2
-  br i1 %exitcond.not, label %.loopexit65, label %.lr.ph, !llvm.loop !92
+  br i1 %exitcond.not, label %.loopexit65, label %.lr.ph, !llvm.loop !93
 
 .loopexit65:                                      ; preds = %.lr.ph, %33
   %49 = icmp sgt i64 %3, 0
@@ -1970,7 +1970,7 @@ define internal fastcc void @permute_KKT(ptr noundef nonnull captures(none) %0, 
   store i64 %53, ptr %50, align 8, !tbaa !60
   %54 = add nuw nsw i64 %.167, 1
   %exitcond74.not = icmp eq i64 %54, %3
-  br i1 %exitcond74.not, label %.loopexit63, label %.lr.ph68, !llvm.loop !93
+  br i1 %exitcond74.not, label %.loopexit63, label %.lr.ph68, !llvm.loop !94
 
 .loopexit63:                                      ; preds = %.lr.ph68, %.loopexit65
   %55 = icmp sgt i64 %4, 0
@@ -1986,7 +1986,7 @@ define internal fastcc void @permute_KKT(ptr noundef nonnull captures(none) %0, 
   store i64 %59, ptr %56, align 8, !tbaa !60
   %60 = add nuw nsw i64 %.269, 1
   %exitcond75.not = icmp eq i64 %60, %4
-  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph70, !llvm.loop !94
+  br i1 %exitcond75.not, label %.loopexit, label %.lr.ph70, !llvm.loop !95
 
 .loopexit:                                        ; preds = %.lr.ph70, %.loopexit63
   tail call void @free(ptr noundef %41) #12
@@ -2155,34 +2155,35 @@ attributes #14 = { nounwind allocsize(0) }
 !61 = !{!62, !10, i64 0}
 !62 = !{!"OSQPVectorf_", !10, i64 0, !9, i64 8}
 !63 = !{!12, !12, i64 0}
-!64 = distinct !{!64, !65}
+!64 = distinct !{!64, !65, !66}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = !{!15, !9, i64 40}
-!67 = distinct !{!67, !65}
-!68 = distinct !{!68, !65}
-!69 = distinct !{!69, !65}
-!70 = distinct !{!70, !65}
-!71 = distinct !{!71, !65}
-!72 = distinct !{!72, !65}
-!73 = distinct !{!73, !65}
-!74 = distinct !{!74, !65}
-!75 = distinct !{!75, !65}
-!76 = distinct !{!76, !65, !77}
-!77 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!78 = distinct !{!78, !65, !77}
-!79 = distinct !{!79, !65, !77}
-!80 = distinct !{!80, !65}
-!81 = distinct !{!81, !65}
-!82 = distinct !{!82, !65}
-!83 = distinct !{!83, !65}
-!84 = distinct !{!84, !65}
-!85 = distinct !{!85, !65}
-!86 = distinct !{!86, !65}
-!87 = distinct !{!87, !65}
-!88 = distinct !{!88, !65}
-!89 = distinct !{!89, !65}
-!90 = distinct !{!90, !65}
-!91 = distinct !{!91, !65}
-!92 = distinct !{!92, !65}
-!93 = distinct !{!93, !65}
-!94 = distinct !{!94, !65}
+!66 = !{!"llvm.loop.estimated_trip_count"}
+!67 = !{!15, !9, i64 40}
+!68 = distinct !{!68, !65, !66}
+!69 = distinct !{!69, !65, !66}
+!70 = distinct !{!70, !65, !66}
+!71 = distinct !{!71, !65, !66}
+!72 = distinct !{!72, !65, !66}
+!73 = distinct !{!73, !65, !66}
+!74 = distinct !{!74, !65, !66}
+!75 = distinct !{!75, !65, !66}
+!76 = distinct !{!76, !65, !66}
+!77 = distinct !{!77, !65, !66, !78}
+!78 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!79 = distinct !{!79, !65, !66, !78}
+!80 = distinct !{!80, !65, !66, !78}
+!81 = distinct !{!81, !65, !66}
+!82 = distinct !{!82, !65, !66}
+!83 = distinct !{!83, !65, !66}
+!84 = distinct !{!84, !65, !66}
+!85 = distinct !{!85, !65, !66}
+!86 = distinct !{!86, !65, !66}
+!87 = distinct !{!87, !65, !66}
+!88 = distinct !{!88, !65, !66}
+!89 = distinct !{!89, !65, !66}
+!90 = distinct !{!90, !65, !66}
+!91 = distinct !{!91, !65, !66}
+!92 = distinct !{!92, !65, !66}
+!93 = distinct !{!93, !65, !66}
+!94 = distinct !{!94, !65, !66}
+!95 = distinct !{!95, !65, !66}

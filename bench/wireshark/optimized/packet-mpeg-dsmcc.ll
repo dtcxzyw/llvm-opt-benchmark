@@ -1176,7 +1176,7 @@ define internal fastcc void @dissect_dsmcc_un(ptr noundef %0, ptr noundef %1, pt
   %.1.lcssa.i.i.i = phi i32 [ %66, %.lr.ph79.i.i.i ], [ %78, %.lr.ph.i.i.i ]
   %80 = add nuw nsw i32 %.07176.i.i.i, 1
   %exitcond84.not.i.i.i = icmp eq i32 %80, %41
-  br i1 %exitcond84.not.i.i.i, label %._crit_edge80.i.i.i, label %.lr.ph79.i.i.i, !llvm.loop !10
+  br i1 %exitcond84.not.i.i.i, label %._crit_edge80.i.i.i, label %.lr.ph79.i.i.i, !llvm.loop !11
 
 ._crit_edge80.i.i.i:                              ; preds = %._crit_edge.i.i.i
   %81 = icmp eq i32 %.1.lcssa.i.i.i, 1000
@@ -1233,7 +1233,7 @@ dissect_dsmcc_dii_compat_desc.exit.i.i:           ; preds = %82, %._crit_edge80.
   %.1.i.i = phi i32 [ %114, %110 ], [ %109, %.lr.ph.i.i ]
   %116 = add nuw nsw i32 %.08386.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %116, %89
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !12
 
 ._crit_edge.i.i:                                  ; preds = %115, %dissect_dsmcc_dii_compat_desc.exit.i.i
   %.0.lcssa.i.i = phi i32 [ %88, %dissect_dsmcc_dii_compat_desc.exit.i.i ], [ %.1.i.i, %115 ]
@@ -1506,7 +1506,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %120 = add nuw i32 %.0104363, 1
   %121 = load i32, ptr %5, align 4
   %122 = icmp ult i32 %120, %121
-  br i1 %122, label %.lr.ph66, label %._crit_edge67, !llvm.loop !12
+  br i1 %122, label %.lr.ph66, label %._crit_edge67, !llvm.loop !13
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %108
   %.1.lcssa = phi i32 [ %115, %108 ], [ %119, %.lr.ph66 ]
@@ -1557,7 +1557,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %155 = add nuw i32 %.1104458, 1
   %156 = load i32, ptr %5, align 4
   %157 = icmp ult i32 %155, %156
-  br i1 %157, label %.lr.ph61, label %.loopexit, !llvm.loop !13
+  br i1 %157, label %.lr.ph61, label %.loopexit, !llvm.loop !14
 
 158:                                              ; preds = %3
   %159 = load i32, ptr @hf_dsmcc_un_sess_response, align 4
@@ -1582,7 +1582,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %172 = add nuw i32 %.2104553, 1
   %173 = load i32, ptr %5, align 4
   %174 = icmp ult i32 %172, %173
-  br i1 %174, label %.lr.ph56, label %.loopexit, !llvm.loop !14
+  br i1 %174, label %.lr.ph56, label %.loopexit, !llvm.loop !15
 
 175:                                              ; preds = %3
   %176 = load i32, ptr @hf_dsmcc_un_sess_reason, align 4
@@ -1607,7 +1607,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %189 = add nuw i32 %.3104648, 1
   %190 = load i32, ptr %5, align 4
   %191 = icmp ult i32 %189, %190
-  br i1 %191, label %.lr.ph51, label %.loopexit, !llvm.loop !15
+  br i1 %191, label %.lr.ph51, label %.loopexit, !llvm.loop !16
 
 192:                                              ; preds = %3
   %193 = load i32, ptr @hf_dsmcc_un_sess_response, align 4
@@ -1632,7 +1632,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %206 = add nuw i32 %.4104743, 1
   %207 = load i32, ptr %5, align 4
   %208 = icmp ult i32 %206, %207
-  br i1 %208, label %.lr.ph46, label %.loopexit, !llvm.loop !16
+  br i1 %208, label %.lr.ph46, label %.loopexit, !llvm.loop !17
 
 209:                                              ; preds = %3
   %210 = load i32, ptr @ett_dsmcc_heading, align 4
@@ -1760,7 +1760,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %303 = add nuw i32 %.5104838, 1
   %304 = load i32, ptr %5, align 4
   %305 = icmp ult i32 %303, %304
-  br i1 %305, label %292, label %.loopexit, !llvm.loop !17
+  br i1 %305, label %292, label %.loopexit, !llvm.loop !18
 
 306:                                              ; preds = %3
   call fastcc void @dissect_dsmcc_un_session_id(ptr noundef %0, i32 noundef %14, ptr noundef %1, ptr noundef %10)
@@ -1806,7 +1806,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %340 = add nuw i32 %.6104932, 1
   %341 = load i32, ptr %5, align 4
   %342 = icmp ult i32 %340, %341
-  br i1 %342, label %.lr.ph35, label %._crit_edge36, !llvm.loop !18
+  br i1 %342, label %.lr.ph35, label %._crit_edge36, !llvm.loop !19
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %306
   %.7.lcssa = phi i32 [ %321, %306 ], [ %339, %.lr.ph35 ]
@@ -1939,7 +1939,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %439 = add nuw i32 %.7105028, 1
   %440 = load i32, ptr %5, align 4
   %441 = icmp ult i32 %439, %440
-  br i1 %441, label %.lr.ph30, label %._crit_edge, !llvm.loop !19
+  br i1 %441, label %.lr.ph30, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph30, %427
   %.8.lcssa = phi i32 [ %434, %427 ], [ %438, %.lr.ph30 ]
@@ -2016,7 +2016,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %495 = add nuw i32 %.8105124, 1
   %496 = load i32, ptr %5, align 4
   %497 = icmp ult i32 %495, %496
-  br i1 %497, label %.lr.ph26, label %.loopexit, !llvm.loop !20
+  br i1 %497, label %.lr.ph26, label %.loopexit, !llvm.loop !21
 
 498:                                              ; preds = %3
   %499 = load i32, ptr @hf_dsmcc_un_sess_response, align 4
@@ -2041,7 +2041,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %512 = add nuw i32 %.9105220, 1
   %513 = load i32, ptr %5, align 4
   %514 = icmp ult i32 %512, %513
-  br i1 %514, label %.lr.ph22, label %.loopexit, !llvm.loop !21
+  br i1 %514, label %.lr.ph22, label %.loopexit, !llvm.loop !22
 
 515:                                              ; preds = %3
   %516 = load i32, ptr @hf_dsmcc_un_sess_reason, align 4
@@ -2066,7 +2066,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %529 = add nuw i32 %.10105316, 1
   %530 = load i32, ptr %5, align 4
   %531 = icmp ult i32 %529, %530
-  br i1 %531, label %.lr.ph18, label %.loopexit, !llvm.loop !22
+  br i1 %531, label %.lr.ph18, label %.loopexit, !llvm.loop !23
 
 532:                                              ; preds = %3
   %533 = load i32, ptr @hf_dsmcc_un_sess_response, align 4
@@ -2091,7 +2091,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %546 = add nuw i32 %.11105412, 1
   %547 = load i32, ptr %5, align 4
   %548 = icmp ult i32 %546, %547
-  br i1 %548, label %.lr.ph14, label %.loopexit, !llvm.loop !23
+  br i1 %548, label %.lr.ph14, label %.loopexit, !llvm.loop !24
 
 549:                                              ; preds = %3
   %550 = load i32, ptr @ett_dsmcc_heading, align 4
@@ -2255,7 +2255,7 @@ define internal fastcc void @dissect_dsmcc_un_session(ptr noundef %0, ptr nounde
   %673 = add nuw i32 %.12105510, 1
   %674 = load i32, ptr %5, align 4
   %675 = icmp ult i32 %673, %674
-  br i1 %675, label %662, label %.loopexit, !llvm.loop !24
+  br i1 %675, label %662, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %662, %.lr.ph14, %.lr.ph18, %.lr.ph22, %.lr.ph26, %292, %.lr.ph46, %.lr.ph51, %.lr.ph56, %.lr.ph61, %656, %532, %515, %498, %477, %286, %192, %175, %158, %136, %3, %643, %618, %609, %592, %586, %581, %573, %565, %557, %549, %468, %455, %446, %._crit_edge, %414, %404, %395, %386, %377, %368, %347, %._crit_edge36, %277, %252, %246, %241, %233, %225, %217, %209, %127, %._crit_edge67, %95, %85, %76, %67, %58, %49, %32, %15
   %.0 = phi i32 [ %14, %3 ], [ %31, %15 ], [ %48, %32 ], [ %57, %49 ], [ %66, %58 ], [ %75, %67 ], [ %84, %76 ], [ %94, %85 ], [ %107, %95 ], [ %126, %._crit_edge67 ], [ %135, %127 ], [ %216, %209 ], [ %224, %217 ], [ %232, %225 ], [ %240, %233 ], [ %245, %241 ], [ %251, %246 ], [ %276, %252 ], [ %285, %277 ], [ %346, %._crit_edge36 ], [ %367, %347 ], [ %376, %368 ], [ %385, %377 ], [ %394, %386 ], [ %403, %395 ], [ %413, %404 ], [ %426, %414 ], [ %445, %._crit_edge ], [ %454, %446 ], [ %467, %455 ], [ %476, %468 ], [ %556, %549 ], [ %564, %557 ], [ %572, %565 ], [ %580, %573 ], [ %585, %581 ], [ %591, %586 ], [ %608, %592 ], [ %617, %609 ], [ %642, %618 ], [ %655, %643 ], [ %150, %136 ], [ %167, %158 ], [ %184, %175 ], [ %201, %192 ], [ %289, %286 ], [ %490, %477 ], [ %507, %498 ], [ %524, %515 ], [ %541, %532 ], [ %659, %656 ], [ %154, %.lr.ph61 ], [ %171, %.lr.ph56 ], [ %188, %.lr.ph51 ], [ %205, %.lr.ph46 ], [ %302, %292 ], [ %494, %.lr.ph26 ], [ %511, %.lr.ph22 ], [ %528, %.lr.ph18 ], [ %545, %.lr.ph14 ], [ %672, %662 ]
@@ -2585,7 +2585,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %63 = add nuw i32 %.0528576, 1
   %64 = load i32, ptr %5, align 4
   %65 = icmp ult i32 %63, %64
-  br i1 %65, label %.lr.ph578, label %.loopexit, !llvm.loop !25
+  br i1 %65, label %.lr.ph578, label %.loopexit, !llvm.loop !26
 
 66:                                               ; preds = %.lr.ph582
   %67 = load i32, ptr @ett_dsmcc_heading, align 4
@@ -2642,7 +2642,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %110 = add nuw i32 %.1529570, 1
   %111 = load i32, ptr %5, align 4
   %112 = icmp ult i32 %110, %111
-  br i1 %112, label %.lr.ph573, label %._crit_edge574, !llvm.loop !26
+  br i1 %112, label %.lr.ph573, label %._crit_edge574, !llvm.loop !27
 
 ._crit_edge574:                                   ; preds = %.lr.ph573, %79
   %.1.lcssa = phi i32 [ %93, %79 ], [ %109, %.lr.ph573 ]
@@ -2750,7 +2750,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %194 = add nuw i32 %.2530565, 1
   %195 = load i32, ptr %5, align 4
   %196 = icmp ult i32 %194, %195
-  br i1 %196, label %.lr.ph568, label %.loopexit, !llvm.loop !27
+  br i1 %196, label %.lr.ph568, label %.loopexit, !llvm.loop !28
 
 197:                                              ; preds = %.lr.ph582
   %198 = load i32, ptr @hf_dsmcc_un_sess_rsrc_headend_count, align 4
@@ -2769,7 +2769,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %205 = add nuw i32 %.3531560, 1
   %206 = load i32, ptr %5, align 4
   %207 = icmp ult i32 %205, %206
-  br i1 %207, label %.lr.ph563, label %.loopexit, !llvm.loop !28
+  br i1 %207, label %.lr.ph563, label %.loopexit, !llvm.loop !29
 
 208:                                              ; preds = %.lr.ph582
   %209 = load i32, ptr @hf_dsmcc_un_sess_rsrc_atm_vpi, align 4
@@ -2803,7 +2803,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %229 = add nuw i32 %.4532555, 1
   %230 = load i32, ptr %5, align 4
   %231 = icmp ult i32 %229, %230
-  br i1 %231, label %.lr.ph558, label %.loopexit, !llvm.loop !29
+  br i1 %231, label %.lr.ph558, label %.loopexit, !llvm.loop !30
 
 232:                                              ; preds = %.lr.ph582
   %233 = load i32, ptr @hf_dsmcc_un_sess_rsrc_sdb_control_association_tag, align 4
@@ -2834,7 +2834,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %250 = add nuw i32 %.5533545, 1
   %251 = load i32, ptr %5, align 4
   %252 = icmp ult i32 %250, %251
-  br i1 %252, label %.lr.ph547, label %._crit_edge, !llvm.loop !30
+  br i1 %252, label %.lr.ph547, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph547, %239
   %.5.lcssa = phi i32 [ %245, %239 ], [ %249, %.lr.ph547 ]
@@ -2854,7 +2854,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %.6 = add i32 %.6551, 2
   %259 = load i32, ptr %5, align 4
   %260 = icmp ult i32 %258, %259
-  br i1 %260, label %.lr.ph553, label %.loopexit, !llvm.loop !31
+  br i1 %260, label %.lr.ph553, label %.loopexit, !llvm.loop !32
 
 261:                                              ; preds = %.lr.ph582
   %262 = load i32, ptr @hf_dsmcc_un_sess_rsrc_trans_system, align 4
@@ -2960,7 +2960,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %347 = add i32 %.7544, 20
   %348 = load i32, ptr %5, align 4
   %349 = icmp ult i32 %331, %348
-  br i1 %349, label %.lr.ph, label %.loopexit, !llvm.loop !32
+  br i1 %349, label %.lr.ph, label %.loopexit, !llvm.loop !33
 
 350:                                              ; preds = %.lr.ph582
   %351 = load i32, ptr @ett_dsmcc_heading, align 4
@@ -3042,7 +3042,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resources(ptr nound
   %.8 = phi i32 [ %44, %.lr.ph582 ], [ %78, %66 ], [ %116, %._crit_edge574 ], [ %124, %117 ], [ %133, %125 ], [ %142, %134 ], [ %410, %404 ], [ %403, %400 ], [ %158, %143 ], [ %175, %159 ], [ %182, %176 ], [ %399, %396 ], [ %395, %389 ], [ %214, %208 ], [ %238, %232 ], [ %288, %261 ], [ %317, %296 ], [ %363, %359 ], [ %358, %350 ], [ %388, %364 ], [ %59, %48 ], [ %186, %183 ], [ %200, %197 ], [ %221, %215 ], [ %.6549, %._crit_edge ], [ %328, %318 ], [ %59, %.lr.ph578 ], [ %193, %.lr.ph568 ], [ %204, %.lr.ph563 ], [ %228, %.lr.ph558 ], [ %.6, %.lr.ph553 ], [ %347, %.lr.ph ]
   %411 = load i32, ptr %6, align 4
   %412 = icmp ult i32 %12, %411
-  br i1 %412, label %.lr.ph582, label %._crit_edge583, !llvm.loop !33
+  br i1 %412, label %.lr.ph582, label %._crit_edge583, !llvm.loop !34
 
 ._crit_edge583:                                   ; preds = %.loopexit, %4
   %.0.lcssa = phi i32 [ %9, %4 ], [ %.8, %.loopexit ]
@@ -3115,7 +3115,7 @@ define internal fastcc noundef i32 @dissect_dsmcc_un_session_resource_value(ptr 
   %23 = add nuw i32 %.0361, 1
   %24 = load i32, ptr %5, align 4
   %25 = icmp ult i32 %23, %24
-  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !34
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !35
 
 26:                                               ; preds = %4
   %27 = load i32, ptr @hf_dsmcc_un_sess_rsrc_most_desired, align 4
@@ -3155,30 +3155,31 @@ attributes #3 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
-!27 = distinct !{!27, !9}
-!28 = distinct !{!28, !9}
-!29 = distinct !{!29, !9}
-!30 = distinct !{!30, !9}
-!31 = distinct !{!31, !9}
-!32 = distinct !{!32, !9}
-!33 = distinct !{!33, !9}
-!34 = distinct !{!34, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}
+!28 = distinct !{!28, !9, !10}
+!29 = distinct !{!29, !9, !10}
+!30 = distinct !{!30, !9, !10}
+!31 = distinct !{!31, !9, !10}
+!32 = distinct !{!32, !9, !10}
+!33 = distinct !{!33, !9, !10}
+!34 = distinct !{!34, !9, !10}
+!35 = distinct !{!35, !9, !10}

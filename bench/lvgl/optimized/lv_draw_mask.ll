@@ -43,7 +43,7 @@ define void @lv_draw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %.not, label %.preheader, label %11
 
 .preheader:                                       ; preds = %6, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !18
 
 11:                                               ; preds = %6
   %12 = tail call ptr @lv_memcpy(ptr noundef nonnull %9, ptr noundef %1, i64 noundef 72) #3
@@ -51,8 +51,8 @@ define void @lv_draw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   store i32 11, ptr %13, align 8, !tbaa !3
   %14 = load ptr, ptr %10, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %0, ptr %15, align 8, !tbaa !18
-  %16 = load ptr, ptr %14, align 8, !tbaa !22
+  store ptr %0, ptr %15, align 8, !tbaa !20
+  %16 = load ptr, ptr %14, align 8, !tbaa !24
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %24, label %17
 
@@ -61,11 +61,11 @@ define void @lv_draw_mask_rect(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %18, label %19, label %24
 
 19:                                               ; preds = %17
-  %20 = load ptr, ptr %14, align 8, !tbaa !22
+  %20 = load ptr, ptr %14, align 8, !tbaa !24
   tail call void @lv_obj_remove_flag(ptr noundef %20, i32 noundef 524288) #3
-  %21 = load ptr, ptr %1, align 8, !tbaa !23
+  %21 = load ptr, ptr %1, align 8, !tbaa !25
   %22 = tail call i32 @lv_obj_send_event(ptr noundef %21, i32 noundef 34, ptr noundef nonnull %8) #3
-  %23 = load ptr, ptr %14, align 8, !tbaa !22
+  %23 = load ptr, ptr %14, align 8, !tbaa !24
   tail call void @lv_obj_add_flag(ptr noundef %23, i32 noundef 524288) #3
   br label %24
 
@@ -122,10 +122,12 @@ attributes #3 = { nounwind }
 !15 = !{!"_lv_layer_t", !16, i64 0, !10, i64 8, !9, i64 24, !10, i64 28, !10, i64 44, !7, i64 60, !9, i64 64, !5, i64 72, !11, i64 80, !11, i64 88, !17, i64 96, !6, i64 104}
 !16 = !{!"p1 _ZTS14_lv_draw_buf_t", !6, i64 0}
 !17 = !{!"_Bool", !7, i64 0}
-!18 = !{!19, !11, i64 24}
-!19 = !{!"", !20, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !11, i64 24, !21, i64 32, !6, i64 40}
-!20 = !{!"p1 _ZTS9_lv_obj_t", !6, i64 0}
-!21 = !{!"long", !7, i64 0}
-!22 = !{!19, !20, i64 0}
-!23 = !{!24, !20, i64 0}
-!24 = !{!"_lv_draw_mask_rect_dsc_t", !19, i64 0, !10, i64 48, !9, i64 64}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = !{!21, !11, i64 24}
+!21 = !{!"", !22, i64 0, !9, i64 8, !9, i64 12, !9, i64 16, !11, i64 24, !23, i64 32, !6, i64 40}
+!22 = !{!"p1 _ZTS9_lv_obj_t", !6, i64 0}
+!23 = !{!"long", !7, i64 0}
+!24 = !{!21, !22, i64 0}
+!25 = !{!26, !22, i64 0}
+!26 = !{!"_lv_draw_mask_rect_dsc_t", !21, i64 0, !10, i64 48, !9, i64 64}

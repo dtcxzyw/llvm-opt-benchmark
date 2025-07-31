@@ -141,7 +141,7 @@ define internal i32 @yuv4_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %83 = add nsw i32 %70, 1
   %84 = ashr i32 %83, 1
   %85 = icmp slt i32 %82, %84
-  br i1 %85, label %.preheader, label %._crit_edge59, !llvm.loop !37
+  br i1 %85, label %.preheader, label %._crit_edge59, !llvm.loop !38
 
 ._crit_edge59:                                    ; preds = %._crit_edge, %24
   store i32 1, ptr %2, align 4, !tbaa !34
@@ -199,6 +199,7 @@ attributes #3 = { nounwind }
 !32 = !{!14, !14, i64 0}
 !33 = !{!8, !8, i64 0}
 !34 = !{!10, !10, i64 0}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = distinct !{!38, !36, !37}

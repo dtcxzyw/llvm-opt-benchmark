@@ -354,5 +354,6 @@ attributes #6 = { nounwind willreturn memory(read) }
 !19 = !{!"p1 _ZTS15ossl_lib_ctx_st", !10, i64 0}
 !20 = !{!"p1 _ZTS13stack_st_void", !10, i64 0}
 !21 = !{!"p1 _ZTS9engine_st", !10, i64 0}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!"llvm.loop.estimated_trip_count"}

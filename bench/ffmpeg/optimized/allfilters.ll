@@ -535,5 +535,6 @@ attributes #3 = { nounwind willreturn memory(read) }
 !13 = !{!"p1 _ZTS11AVFilterPad", !5, i64 0}
 !14 = !{!"p1 _ZTS7AVClass", !5, i64 0}
 !15 = !{!"int", !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
+!18 = !{!"llvm.loop.estimated_trip_count"}

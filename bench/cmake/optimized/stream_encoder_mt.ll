@@ -285,13 +285,13 @@ get_options.exit:                                 ; preds = %30
   %105 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %104, i64 %indvars.iv50.i
   %106 = load i32, ptr %105, align 8, !tbaa !50
   %.not3546.i = icmp eq i32 %106, 0
-  br i1 %.not3546.i, label %.critedge40.i, label %.lr.ph.i, !llvm.loop !56
+  br i1 %.not3546.i, label %.critedge40.i, label %.lr.ph.i, !llvm.loop !57
 
 .lr.ph.i:                                         ; preds = %.critedge44.i
-  br label %113, !llvm.loop !56
+  br label %113, !llvm.loop !57
 
 ..critedge40_crit_edge.i:                         ; preds = %113
-  br label %.critedge40.i, !llvm.loop !56
+  br label %.critedge40.i, !llvm.loop !57
 
 .critedge40.i:                                    ; preds = %..critedge40_crit_edge.i, %.critedge44.i
   %107 = phi ptr [ %118, %..critedge40_crit_edge.i ], [ %104, %.critedge44.i ]
@@ -301,7 +301,7 @@ get_options.exit:                                 ; preds = %30
   %110 = load i32, ptr %85, align 4, !tbaa !49
   %111 = zext i32 %110 to i64
   %112 = icmp samesign ult i64 %indvars.iv.next51.i, %111
-  br i1 %112, label %.critedge44.i, label %threads_stop.exit, !llvm.loop !57
+  br i1 %112, label %.critedge44.i, label %threads_stop.exit, !llvm.loop !58
 
 113:                                              ; preds = %113, %.lr.ph.i
   %114 = phi ptr [ %105, %.lr.ph.i ], [ %119, %113 ]
@@ -312,7 +312,7 @@ get_options.exit:                                 ; preds = %30
   %119 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %118, i64 %indvars.iv50.i
   %120 = load i32, ptr %119, align 8, !tbaa !50
   %.not35.i = icmp eq i32 %120, 0
-  br i1 %.not35.i, label %..critedge40_crit_edge.i, label %113, !llvm.loop !58
+  br i1 %.not35.i, label %..critedge40_crit_edge.i, label %113, !llvm.loop !59
 
 threads_stop.exit:                                ; preds = %.critedge40.i, %._crit_edge.i, %84, %82
   %121 = getelementptr inbounds nuw i8, ptr %.097, i64 344
@@ -323,9 +323,9 @@ threads_stop.exit:                                ; preds = %.critedge40.i, %._c
 
 124:                                              ; preds = %threads_stop.exit
   %125 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %126 = load i32, ptr %125, align 8, !tbaa !59
+  %126 = load i32, ptr %125, align 8, !tbaa !60
   %127 = getelementptr inbounds nuw i8, ptr %.097, i64 416
-  store i32 %126, ptr %127, align 8, !tbaa !60
+  store i32 %126, ptr %127, align 8, !tbaa !61
   %128 = getelementptr inbounds nuw i8, ptr %.097, i64 16
   call void @lzma_filters_free(ptr noundef nonnull %128, ptr noundef %1) #12
   %129 = getelementptr inbounds nuw i8, ptr %.097, i64 96
@@ -345,10 +345,10 @@ threads_stop.exit:                                ; preds = %.critedge40.i, %._c
 
 136:                                              ; preds = %131
   %137 = getelementptr inbounds nuw i8, ptr %.097, i64 264
-  store i32 0, ptr %137, align 8, !tbaa !61
+  store i32 0, ptr %137, align 8, !tbaa !62
   %138 = load i32, ptr %36, align 8, !tbaa !24
   %139 = getelementptr inbounds nuw i8, ptr %.097, i64 280
-  store i32 %138, ptr %139, align 8, !tbaa !62
+  store i32 %138, ptr %139, align 8, !tbaa !63
   %140 = getelementptr inbounds nuw i8, ptr %.097, i64 320
   %141 = call i32 @lzma_stream_header_encode(ptr noundef nonnull %137, ptr noundef nonnull %140) #12
   %.not110 = icmp eq i32 %141, 0
@@ -356,11 +356,11 @@ threads_stop.exit:                                ; preds = %.critedge40.i, %._c
 
 142:                                              ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %.097, i64 336
-  store i64 0, ptr %143, align 8, !tbaa !63
+  store i64 0, ptr %143, align 8, !tbaa !64
   %144 = getelementptr inbounds nuw i8, ptr %.097, i64 456
-  store i64 0, ptr %144, align 8, !tbaa !64
+  store i64 0, ptr %144, align 8, !tbaa !65
   %145 = getelementptr inbounds nuw i8, ptr %.097, i64 464
-  store i64 12, ptr %145, align 8, !tbaa !65
+  store i64 12, ptr %145, align 8, !tbaa !66
   br label %get_options.exit.thread
 
 get_options.exit.thread:                          ; preds = %30, %28, %19, %10, %12, %8, %50, %54, %142, %threads_stop.exit, %124, %136, %44, %75, %131, %39, %35, %get_options.exit
@@ -499,12 +499,12 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %21 = tail call i64 @lzma_bufcpy(ptr noundef nonnull %19, ptr noundef nonnull %20, i64 noundef 12, ptr noundef %5, ptr noundef %6, i64 noundef %7) #12
-  %22 = load i64, ptr %20, align 8, !tbaa !63
+  %22 = load i64, ptr %20, align 8, !tbaa !64
   %23 = icmp ult i64 %22, 12
   br i1 %23, label %.thread138, label %24
 
 24:                                               ; preds = %18
-  store i64 0, ptr %20, align 8, !tbaa !63
+  store i64 0, ptr %20, align 8, !tbaa !64
   store i32 1, ptr %0, align 8, !tbaa !43
   br label %25
 
@@ -549,7 +549,7 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
 
 49:                                               ; preds = %46
   %50 = call i32 @lzma_outq_read(ptr noundef nonnull %28, ptr noundef %1, ptr noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef nonnull %14, ptr noundef nonnull %15) #12
-  br label %51, !llvm.loop !66
+  br label %51, !llvm.loop !67
 
 51:                                               ; preds = %49, %46
   %.393 = phi i32 [ %50, %49 ], [ %48, %46 ]
@@ -594,7 +594,7 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
 73:                                               ; preds = %53
   %74 = load i64, ptr %6, align 8, !tbaa !41
   %75 = icmp ult i64 %74, %7
-  br i1 %75, label %46, label %.thread131
+  br i1 %75, label %46, label %.thread131, !llvm.loop !68
 
 76:                                               ; preds = %51
   %77 = load i32, ptr %38, align 4, !tbaa !49
@@ -621,13 +621,13 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   br i1 %90, label %.critedge.i113, label %threads_stop.exit.thread, !llvm.loop !54
 
 .thread131:                                       ; preds = %51, %73
-  call void @llvm.experimental.noalias.scope.decl(metadata !67)
+  call void @llvm.experimental.noalias.scope.decl(metadata !69)
   br label %91
 
 91:                                               ; preds = %208, %.thread131
-  %92 = load i64, ptr %3, align 8, !tbaa !41, !alias.scope !67, !noalias !70
+  %92 = load i64, ptr %3, align 8, !tbaa !41, !alias.scope !69, !noalias !72
   %93 = icmp ult i64 %92, %4
-  %.pre.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %.pre.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   br i1 %93, label %.critedge.i118, label %94
 
 94:                                               ; preds = %91
@@ -640,19 +640,19 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   br i1 %97, label %98, label %.critedge.thread.i
 
 98:                                               ; preds = %.critedge.i118
-  %.val.i.i = load i32, ptr %32, align 8, !tbaa !73, !noalias !72
-  %.val70.i.i = load i32, ptr %33, align 8, !tbaa !74, !noalias !72
+  %.val.i.i = load i32, ptr %32, align 8, !tbaa !75, !noalias !74
+  %.val70.i.i = load i32, ptr %33, align 8, !tbaa !76, !noalias !74
   %99 = icmp ult i32 %.val.i.i, %.val70.i.i
   br i1 %99, label %100, label %get_thread.exit.i
 
 100:                                              ; preds = %98
-  %101 = load i64, ptr %34, align 8, !tbaa !45, !noalias !72
+  %101 = load i64, ptr %34, align 8, !tbaa !45, !noalias !74
   %102 = call i32 @lzma_outq_prealloc_buf(ptr noundef nonnull %28, ptr noundef %1, i64 noundef %101) #12
   %.not.not.i.i = icmp eq i32 %102, 0
   br i1 %.not.not.i.i, label %103, label %get_thread.exit.i
 
 103:                                              ; preds = %100
-  %104 = load i64, ptr %35, align 8, !tbaa !38, !noalias !72
+  %104 = load i64, ptr %35, align 8, !tbaa !38, !noalias !74
   %105 = icmp eq i64 %104, -1
   br i1 %105, label %106, label %.critedge77.i.i
 
@@ -663,37 +663,37 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
 
 .critedge77.i.i:                                  ; preds = %106, %103
   %108 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #12
-  %109 = load ptr, ptr %37, align 8, !tbaa !75, !noalias !72
+  %109 = load ptr, ptr %37, align 8, !tbaa !77, !noalias !74
   %.not63.i.i = icmp eq ptr %109, null
   br i1 %.not63.i.i, label %.critedge.i.i, label %110
 
 110:                                              ; preds = %.critedge77.i.i
-  store ptr %109, ptr %30, align 8, !tbaa !47, !noalias !72
+  store ptr %109, ptr %30, align 8, !tbaa !47, !noalias !74
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 432
-  %112 = load ptr, ptr %111, align 8, !tbaa !76
-  store ptr %112, ptr %37, align 8, !tbaa !75, !noalias !72
+  %112 = load ptr, ptr %111, align 8, !tbaa !78
+  store ptr %112, ptr %37, align 8, !tbaa !77, !noalias !74
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %110, %.critedge77.i.i
   %113 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
-  %114 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %114 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %115 = icmp eq ptr %114, null
   br i1 %115, label %116, label %.critedge65.critedge.i.i
 
 116:                                              ; preds = %.critedge.i.i
-  %117 = load i32, ptr %38, align 4, !tbaa !49, !noalias !72
-  %118 = load i32, ptr %39, align 8, !tbaa !26, !noalias !72
+  %117 = load i32, ptr %38, align 4, !tbaa !49, !noalias !74
+  %118 = load i32, ptr %39, align 8, !tbaa !26, !noalias !74
   %119 = icmp eq i32 %117, %118
   br i1 %119, label %get_thread.exit.i, label %120
 
 120:                                              ; preds = %116
-  %121 = load ptr, ptr %40, align 8, !tbaa !48, !noalias !72
+  %121 = load ptr, ptr %40, align 8, !tbaa !48, !noalias !74
   %122 = zext i32 %117 to i64
   %123 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %121, i64 %122
-  %124 = load i64, ptr %41, align 8, !tbaa !44, !noalias !72
+  %124 = load i64, ptr %41, align 8, !tbaa !44, !noalias !74
   %125 = call ptr @lzma_alloc(i64 noundef %124, ptr noundef %1) #12
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store ptr %125, ptr %126, align 8, !tbaa !77
+  store ptr %125, ptr %126, align 8, !tbaa !79
   %127 = icmp eq ptr %125, null
   br i1 %127, label %get_thread.exit.i, label %128
 
@@ -712,9 +712,9 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
 134:                                              ; preds = %131
   store i32 0, ptr %123, align 8, !tbaa !50
   %135 = getelementptr inbounds nuw i8, ptr %123, i64 40
-  store ptr %1, ptr %135, align 8, !tbaa !78
+  store ptr %1, ptr %135, align 8, !tbaa !80
   %136 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  store ptr %0, ptr %136, align 8, !tbaa !79
+  store ptr %0, ptr %136, align 8, !tbaa !81
   %137 = getelementptr inbounds nuw i8, ptr %123, i64 48
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %123, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, i8 0, i64 24, i1 false)
@@ -724,14 +724,14 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   %138 = getelementptr inbounds nuw i8, ptr %123, i64 352
   store i64 -1, ptr %138, align 8, !tbaa !38
   %139 = getelementptr inbounds nuw i8, ptr %123, i64 528
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #12, !noalias !72
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #12, !noalias !72
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #12, !noalias !74
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %12) #12, !noalias !74
   %140 = call i32 @sigfillset(ptr noundef nonnull %12) #12
   %141 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %12, ptr noundef nonnull %11) #12
   %142 = call i32 @pthread_create(ptr noundef nonnull %139, ptr noundef null, ptr noundef nonnull @worker_start, ptr noundef nonnull %123) #12
   %143 = call i32 @pthread_sigmask(i32 noundef 2, ptr noundef nonnull %11, ptr noundef null) #12
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #12, !noalias !72
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #12, !noalias !72
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %12) #12, !noalias !74
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #12, !noalias !74
   %.not27.i.i.i = icmp eq i32 %142, 0
   br i1 %.not27.i.i.i, label %initialize_new_thread.exit.i.i, label %144
 
@@ -744,116 +744,116 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   br label %148
 
 148:                                              ; preds = %146, %128
-  %149 = load ptr, ptr %126, align 8, !tbaa !77
+  %149 = load ptr, ptr %126, align 8, !tbaa !79
   call void @lzma_free(ptr noundef %149, ptr noundef %1) #12
   br label %get_thread.exit.i
 
 initialize_new_thread.exit.i.i:                   ; preds = %134
-  %150 = load i32, ptr %38, align 4, !tbaa !49, !noalias !72
+  %150 = load i32, ptr %38, align 4, !tbaa !49, !noalias !74
   %151 = add i32 %150, 1
-  store i32 %151, ptr %38, align 4, !tbaa !49, !noalias !72
-  store ptr %123, ptr %30, align 8, !tbaa !47, !noalias !72
+  store i32 %151, ptr %38, align 4, !tbaa !49, !noalias !74
+  store ptr %123, ptr %30, align 8, !tbaa !47, !noalias !74
   br label %.critedge65.critedge.i.i
 
 .critedge65.critedge.i.i:                         ; preds = %initialize_new_thread.exit.i.i, %.critedge.i.i
   %152 = phi ptr [ %123, %initialize_new_thread.exit.i.i ], [ %114, %.critedge.i.i ]
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 440
   %154 = call i32 @pthread_mutex_lock(ptr noundef nonnull %153) #12
-  %155 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %155 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   store i32 1, ptr %155, align 8, !tbaa !50
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  store i64 0, ptr %156, align 8, !tbaa !80
+  store i64 0, ptr %156, align 8, !tbaa !82
   %157 = call ptr @lzma_outq_get_buf(ptr noundef nonnull %28, ptr noundef null) #12
-  %158 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %158 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 24
-  store ptr %157, ptr %159, align 8, !tbaa !81
+  store ptr %157, ptr %159, align 8, !tbaa !83
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 352
   call void @lzma_filters_free(ptr noundef nonnull %160, ptr noundef %1) #12
-  %161 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %161 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 352
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %162, ptr noundef nonnull align 8 dereferenceable(80) %35, i64 80, i1 false)
-  store i64 -1, ptr %35, align 8, !tbaa !38, !noalias !72
-  %163 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  store i64 -1, ptr %35, align 8, !tbaa !38, !noalias !74
+  %163 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 480
   %165 = call i32 @pthread_cond_signal(ptr noundef nonnull %164) #12
-  %166 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %166 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 440
   %168 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %167) #12
   br label %get_thread.exit.i
 
 get_thread.exit.i:                                ; preds = %.critedge65.critedge.i.i, %148, %120, %116, %106, %100, %98
   %.046.i.i = phi i32 [ %107, %106 ], [ %102, %100 ], [ 0, %98 ], [ 0, %116 ], [ 0, %.critedge65.critedge.i.i ], [ 5, %148 ], [ 5, %120 ]
-  %169 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %169 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %.not57.i = icmp eq ptr %169, null
   br i1 %.not57.i, label %stream_encode_in.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %get_thread.exit.i, %.critedge.i118, %94
   %170 = phi ptr [ %169, %get_thread.exit.i ], [ %.pre.i, %.critedge.i118 ], [ %.pre.i, %94 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12, !noalias !72
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12, !noalias !74
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %172 = load i64, ptr %171, align 8, !tbaa !80
-  store i64 %172, ptr %13, align 8, !tbaa !41, !noalias !72
+  %172 = load i64, ptr %171, align 8, !tbaa !82
+  store i64 %172, ptr %13, align 8, !tbaa !41, !noalias !74
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %174 = load ptr, ptr %173, align 8, !tbaa !77
-  %175 = load i64, ptr %41, align 8, !tbaa !44, !noalias !72
+  %174 = load ptr, ptr %173, align 8, !tbaa !79
+  %175 = load i64, ptr %41, align 8, !tbaa !44, !noalias !74
   %176 = call i64 @lzma_bufcpy(ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %174, ptr noundef nonnull %13, i64 noundef %175) #12
-  %177 = load i64, ptr %13, align 8, !tbaa !41, !noalias !72
-  %178 = load i64, ptr %41, align 8, !tbaa !44, !noalias !72
+  %177 = load i64, ptr %13, align 8, !tbaa !41, !noalias !74
+  %178 = load i64, ptr %41, align 8, !tbaa !44, !noalias !74
   %179 = icmp eq i64 %177, %178
   br i1 %179, label %184, label %180
 
 180:                                              ; preds = %.critedge.thread.i
-  %181 = load i64, ptr %3, align 8, !tbaa !41, !alias.scope !67, !noalias !70
+  %181 = load i64, ptr %3, align 8, !tbaa !41, !alias.scope !69, !noalias !72
   %182 = icmp eq i64 %181, %4
   %183 = and i1 %31, %182
   br label %184
 
 184:                                              ; preds = %180, %.critedge.thread.i
   %185 = phi i1 [ true, %.critedge.thread.i ], [ %183, %180 ]
-  %186 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %186 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 440
   %188 = call i32 @pthread_mutex_lock(ptr noundef nonnull %187) #12
-  %189 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %189 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %190 = load i32, ptr %189, align 8, !tbaa !50
   %191 = icmp eq i32 %190, 0
   br i1 %191, label %.thread.i, label %.split.i
 
 .split.i:                                         ; preds = %184
-  %192 = load i64, ptr %13, align 8, !tbaa !41, !noalias !72
+  %192 = load i64, ptr %13, align 8, !tbaa !41, !noalias !74
   %193 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store i64 %192, ptr %193, align 8, !tbaa !80
+  store i64 %192, ptr %193, align 8, !tbaa !82
   br i1 %185, label %194, label %.critedge64.i
 
 194:                                              ; preds = %.split.i
   store i32 2, ptr %189, align 8, !tbaa !50
   %195 = getelementptr inbounds nuw i8, ptr %189, i64 480
   %196 = call i32 @pthread_cond_signal(ptr noundef nonnull %195) #12
-  %.pre61.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %.pre61.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %197 = getelementptr inbounds nuw i8, ptr %.pre61.i, i64 440
   %198 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %197) #12
-  store ptr null, ptr %30, align 8, !tbaa !47, !noalias !72
+  store ptr null, ptr %30, align 8, !tbaa !47, !noalias !74
   br label %208
 
 .thread.i:                                        ; preds = %184
   %199 = getelementptr inbounds nuw i8, ptr %189, i64 440
   %200 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %199) #12
   %201 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #12
-  %202 = load i32, ptr %27, align 4, !tbaa !46, !noalias !72
+  %202 = load i32, ptr %27, align 4, !tbaa !46, !noalias !74
   %203 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12, !noalias !72
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12, !noalias !74
   br label %stream_encode_in.exit
 
 .critedge64.i:                                    ; preds = %.split.i
   %204 = getelementptr inbounds nuw i8, ptr %189, i64 480
   %205 = call i32 @pthread_cond_signal(ptr noundef nonnull %204) #12
-  %.pre61.c.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !72
+  %.pre61.c.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !74
   %206 = getelementptr inbounds nuw i8, ptr %.pre61.c.i, i64 440
   %207 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %206) #12
   br label %208
 
 208:                                              ; preds = %.critedge64.i, %194
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12, !noalias !72
-  br label %91
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12, !noalias !74
+  br label %91, !llvm.loop !84
 
 stream_encode_in.exit:                            ; preds = %get_thread.exit.i, %.thread.i
   %.3.i = phi i32 [ %202, %.thread.i ], [ %.046.i.i, %get_thread.exit.i ]
@@ -900,7 +900,7 @@ stream_encode_in.exit.thread:                     ; preds = %94, %stream_encode_
   ]
 
 227:                                              ; preds = %226
-  %.val = load i32, ptr %32, align 8, !tbaa !73
+  %.val = load i32, ptr %32, align 8, !tbaa !75
   %228 = icmp eq i32 %.val, 0
   br i1 %228, label %229, label %230
 
@@ -917,7 +917,7 @@ stream_encode_in.exit.thread:                     ; preds = %94, %stream_encode_
 
 233:                                              ; preds = %230
   %234 = icmp ult i64 %224, %4
-  %235 = load i32, ptr %42, align 8, !tbaa !60
+  %235 = load i32, ptr %42, align 8, !tbaa !61
   %.not.i126 = icmp eq i32 %235, 0
   %brmerge = select i1 %.not.i126, i1 true, i1 %.0129.ph
   %not..not.i126 = xor i1 %.not.i126, true
@@ -927,30 +927,30 @@ stream_encode_in.exit.thread:                     ; preds = %94, %stream_encode_
 236:                                              ; preds = %233
   %237 = udiv i32 %235, 1000
   %238 = zext nneg i32 %237 to i64
-  store i64 %238, ptr %16, align 8, !tbaa !82
+  store i64 %238, ptr %16, align 8, !tbaa !85
   %239 = urem i32 %235, 1000
   %240 = mul nuw nsw i32 %239, 1000000
   %241 = zext nneg i32 %240 to i64
-  store i64 %241, ptr %43, align 8, !tbaa !84
+  store i64 %241, ptr %43, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #12
   %242 = call i32 @gettimeofday(ptr noundef nonnull %10, ptr noundef null) #12
-  %243 = load i64, ptr %10, align 8, !tbaa !85
-  %244 = load i64, ptr %16, align 8, !tbaa !82
+  %243 = load i64, ptr %10, align 8, !tbaa !88
+  %244 = load i64, ptr %16, align 8, !tbaa !85
   %245 = add nsw i64 %244, %243
-  store i64 %245, ptr %16, align 8, !tbaa !82
-  %246 = load i64, ptr %44, align 8, !tbaa !87
+  store i64 %245, ptr %16, align 8, !tbaa !85
+  %246 = load i64, ptr %44, align 8, !tbaa !90
   %247 = mul nsw i64 %246, 1000
-  %248 = load i64, ptr %43, align 8, !tbaa !84
+  %248 = load i64, ptr %43, align 8, !tbaa !87
   %249 = add nsw i64 %248, %247
-  store i64 %249, ptr %43, align 8, !tbaa !84
+  store i64 %249, ptr %43, align 8, !tbaa !87
   %250 = icmp sgt i64 %249, 999999999
   br i1 %250, label %251, label %mythread_condtime_set.exit.i
 
 251:                                              ; preds = %236
   %252 = add nsw i64 %249, -1000000000
-  store i64 %252, ptr %43, align 8, !tbaa !84
+  store i64 %252, ptr %43, align 8, !tbaa !87
   %253 = add nsw i64 %245, 1
-  store i64 %253, ptr %16, align 8, !tbaa !82
+  store i64 %253, ptr %16, align 8, !tbaa !85
   br label %mythread_condtime_set.exit.i
 
 mythread_condtime_set.exit.i:                     ; preds = %251, %236
@@ -964,13 +964,13 @@ mythread_condtime_set.exit.i:                     ; preds = %251, %236
 
 .split.us.us.i:                                   ; preds = %254, %.split.us.us.i.backedge
   %.2.us.us.us.i = phi i8 [ %.2.us.us.us.i.be, %.split.us.us.i.backedge ], [ 0, %254 ]
-  %256 = load ptr, ptr %37, align 8, !tbaa !75
+  %256 = load ptr, ptr %37, align 8, !tbaa !77
   %257 = icmp eq ptr %256, null
   br i1 %257, label %260, label %258
 
 258:                                              ; preds = %.split.us.us.i
-  %.val.us.us.us.i = load i32, ptr %32, align 8, !tbaa !73
-  %.val31.us.us.us.i = load i32, ptr %33, align 8, !tbaa !74
+  %.val.us.us.us.i = load i32, ptr %32, align 8, !tbaa !75
+  %.val31.us.us.us.i = load i32, ptr %33, align 8, !tbaa !76
   %259 = icmp ult i32 %.val.us.us.us.i, %.val31.us.us.us.i
   br i1 %259, label %wait_for_work.exit, label %260
 
@@ -986,7 +986,7 @@ mythread_condtime_set.exit.i:                     ; preds = %251, %236
   br i1 %or.cond.not.us.us.us.i, label %wait_for_work.exit, label %266
 
 266:                                              ; preds = %262
-  %267 = load i32, ptr %42, align 8, !tbaa !60
+  %267 = load i32, ptr %42, align 8, !tbaa !61
   %.not30.us.us.us.i = icmp eq i32 %267, 0
   br i1 %.not30.us.us.us.i, label %272, label %268
 
@@ -1002,7 +1002,7 @@ mythread_condtime_set.exit.i:                     ; preds = %251, %236
 
 .split.us.us.i.backedge:                          ; preds = %272, %268
   %.2.us.us.us.i.be = phi i8 [ %271, %268 ], [ 0, %272 ]
-  br label %.split.us.us.i, !llvm.loop !88
+  br label %.split.us.us.i, !llvm.loop !91
 
 .split.i127:                                      ; preds = %254
   %274 = call zeroext i1 @lzma_outq_is_readable(ptr noundef nonnull %28) #12
@@ -1017,7 +1017,7 @@ mythread_condtime_set.exit.i:                     ; preds = %251, %236
   br i1 %or.cond.not.i, label %wait_for_work.exit, label %278
 
 278:                                              ; preds = %.lr.ph.i
-  %279 = load i32, ptr %42, align 8, !tbaa !60
+  %279 = load i32, ptr %42, align 8, !tbaa !61
   %.not30.i = icmp eq i32 %279, 0
   br i1 %.not30.i, label %284, label %280
 
@@ -1034,13 +1034,13 @@ mythread_condtime_set.exit.i:                     ; preds = %251, %236
 286:                                              ; preds = %284, %280
   %.3.i128 = phi i8 [ %283, %280 ], [ 0, %284 ]
   %287 = call zeroext i1 @lzma_outq_is_readable(ptr noundef nonnull %28) #12
-  br i1 %287, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !90
+  br i1 %287, label %wait_for_work.exit, label %.lr.ph.i, !llvm.loop !93
 
 wait_for_work.exit:                               ; preds = %.lr.ph.i, %286, %258, %260, %262, %.split.i127
   %.us-phi.i = phi i8 [ 0, %.split.i127 ], [ %.2.us.us.us.i, %262 ], [ %.2.us.us.us.i, %260 ], [ %.2.us.us.us.i, %258 ], [ %.232.i, %.lr.ph.i ], [ %.3.i128, %286 ]
   %288 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
   %289 = trunc nuw i8 %.us-phi.i to i1
-  br i1 %289, label %threads_stop.exit.thread, label %.outer
+  br i1 %289, label %threads_stop.exit.thread, label %.outer, !llvm.loop !68
 
 290:                                              ; preds = %229
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -1065,9 +1065,9 @@ threads_stop.exit:                                ; preds = %290
   %295 = call i64 @lzma_index_size(ptr noundef %294) #13
   %296 = add i64 %295, 12
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %298 = load i64, ptr %297, align 8, !tbaa !65
+  %298 = load i64, ptr %297, align 8, !tbaa !66
   %299 = add i64 %296, %298
-  store i64 %299, ptr %297, align 8, !tbaa !65
+  store i64 %299, ptr %297, align 8, !tbaa !66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
@@ -1076,8 +1076,8 @@ threads_stop.exit:                                ; preds = %290
 300:                                              ; preds = %threads_stop.exit, %9
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %303 = load ptr, ptr %302, align 8, !tbaa !91
-  %304 = load ptr, ptr %301, align 8, !tbaa !92
+  %303 = load ptr, ptr %302, align 8, !tbaa !94
+  %304 = load ptr, ptr %301, align 8, !tbaa !95
   %305 = call i32 %303(ptr noundef %304, ptr noundef %1, ptr noundef null, ptr noundef null, i64 noundef 0, ptr noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef 0) #12
   %.not107 = icmp eq i32 %305, 1
   br i1 %.not107, label %306, label %.thread138
@@ -1088,7 +1088,7 @@ threads_stop.exit:                                ; preds = %290
   %309 = call i64 @lzma_index_size(ptr noundef %308) #13
   %310 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  store i64 %309, ptr %311, align 8, !tbaa !93
+  store i64 %309, ptr %311, align 8, !tbaa !96
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %313 = call i32 @lzma_stream_footer_encode(ptr noundef nonnull %310, ptr noundef nonnull %312) #12
   %.not108 = icmp eq i32 %313, 0
@@ -1102,7 +1102,7 @@ threads_stop.exit:                                ; preds = %290
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %318 = call i64 @lzma_bufcpy(ptr noundef nonnull %316, ptr noundef nonnull %317, i64 noundef 12, ptr noundef %5, ptr noundef %6, i64 noundef %7) #12
-  %319 = load i64, ptr %317, align 8, !tbaa !63
+  %319 = load i64, ptr %317, align 8, !tbaa !64
   %320 = icmp ugt i64 %319, 11
   %321 = zext i1 %320 to i32
   br label %.thread138
@@ -1140,22 +1140,22 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %6 = load i64, ptr %5, align 8, !tbaa !64
+  %6 = load i64, ptr %5, align 8, !tbaa !65
   store i64 %6, ptr %1, align 8, !tbaa !41
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 464
-  %8 = load i64, ptr %7, align 8, !tbaa !65
+  %8 = load i64, ptr %7, align 8, !tbaa !66
   store i64 %8, ptr %2, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %10 = load i32, ptr %9, align 4, !tbaa !49
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %.critedge, label %.critedge33.lr.ph, !llvm.loop !94
+  br i1 %.not, label %.critedge, label %.critedge33.lr.ph, !llvm.loop !97
 
 .critedge33.lr.ph:                                ; preds = %.critedge35
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  br label %.critedge33, !llvm.loop !94
+  br label %.critedge33, !llvm.loop !97
 
 ..critedge_crit_edge:                             ; preds = %.critedge33
-  br label %.critedge, !llvm.loop !94
+  br label %.critedge, !llvm.loop !97
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %.critedge35
   %12 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #12
@@ -1168,12 +1168,12 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
   %15 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %14) #12
   %16 = load ptr, ptr %11, align 8, !tbaa !48
   %17 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %16, i64 %.02438, i32 6
-  %18 = load i64, ptr %17, align 8, !tbaa !95
+  %18 = load i64, ptr %17, align 8, !tbaa !98
   %19 = load i64, ptr %1, align 8, !tbaa !41
   %20 = add i64 %19, %18
   store i64 %20, ptr %1, align 8, !tbaa !41
   %21 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %16, i64 %.02438, i32 7
-  %22 = load i64, ptr %21, align 8, !tbaa !96
+  %22 = load i64, ptr %21, align 8, !tbaa !99
   %23 = load i64, ptr %2, align 8, !tbaa !41
   %24 = add i64 %23, %22
   store i64 %24, ptr %2, align 8, !tbaa !41
@@ -1183,7 +1183,7 @@ define internal void @get_progress(ptr noundef %0, ptr noundef captures(none) in
   %28 = load i32, ptr %9, align 4, !tbaa !49
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %27, %29
-  br i1 %30, label %.critedge33, label %..critedge_crit_edge, !llvm.loop !97
+  br i1 %30, label %.critedge33, label %..critedge_crit_edge, !llvm.loop !100
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1269,7 +1269,7 @@ define internal fastcc void @threads_end(ptr noundef readonly captures(none) %0,
   %18 = load i32, ptr %3, align 4, !tbaa !49
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.next, %19
-  br i1 %20, label %.critedge, label %.preheader, !llvm.loop !98
+  br i1 %20, label %.critedge, label %.preheader, !llvm.loop !101
 
 ._crit_edge:                                      ; preds = %23, %2, %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -1281,13 +1281,13 @@ define internal fastcc void @threads_end(ptr noundef readonly captures(none) %0,
   %indvars.iv30 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next31, %23 ]
   %24 = load ptr, ptr %7, align 8, !tbaa !48
   %25 = getelementptr inbounds nuw %struct.worker_thread_s, ptr %24, i64 %indvars.iv30, i32 14
-  %26 = load i64, ptr %25, align 8, !tbaa !99
+  %26 = load i64, ptr %25, align 8, !tbaa !102
   %27 = tail call i32 @pthread_join(i64 noundef %26, ptr noundef null) #12
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %28 = load i32, ptr %3, align 4, !tbaa !49
   %29 = zext i32 %28 to i64
   %30 = icmp samesign ult i64 %indvars.iv.next31, %29
-  br i1 %30, label %23, label %._crit_edge, !llvm.loop !100
+  br i1 %30, label %23, label %._crit_edge, !llvm.loop !103
 }
 
 declare i32 @lzma_outq_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1393,23 +1393,23 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
 28:                                               ; preds = %26, %.critedge69
   %29 = phi i32 [ %.pr, %26 ], [ %24, %.critedge69 ]
   %.not65 = icmp eq i32 %29, 0
-  br i1 %.not65, label %30, label %21, !llvm.loop !101
+  br i1 %.not65, label %30, label %21, !llvm.loop !104
 
 30:                                               ; preds = %28
   %31 = call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %4) #12
-  br label %.critedge69
+  br label %.critedge69, !llvm.loop !105
 
 32:                                               ; preds = %21
-  %33 = load ptr, ptr %7, align 8, !tbaa !79
+  %33 = load ptr, ptr %7, align 8, !tbaa !81
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 280
-  %35 = load i32, ptr %34, align 8, !tbaa !62
-  %36 = load ptr, ptr %8, align 8, !tbaa !81
+  %35 = load i32, ptr %34, align 8, !tbaa !63
+  %36 = load ptr, ptr %8, align 8, !tbaa !83
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !41
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !44
   store i64 0, ptr %6, align 8
-  store i32 %35, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !102
+  store i32 %35, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !106
   store i32 0, ptr %.sroa.3.0..sroa_idx.i, align 4
   store i64 %38, ptr %.sroa.325.0..sroa_idx.i, align 8, !tbaa !41
   store i64 %40, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !41
@@ -1420,10 +1420,10 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   br i1 %.not.i, label %51, label %42
 
 42:                                               ; preds = %32
-  %43 = load ptr, ptr %7, align 8, !tbaa !79
+  %43 = load ptr, ptr %7, align 8, !tbaa !81
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 472
   %45 = call i32 @pthread_mutex_lock(ptr noundef nonnull %44) #12
-  %46 = load ptr, ptr %7, align 8, !tbaa !79
+  %46 = load ptr, ptr %7, align 8, !tbaa !81
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 420
   %48 = load i32, ptr %47, align 4, !tbaa !46
   %49 = icmp eq i32 %48, 0
@@ -1434,16 +1434,16 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   br label %worker_encode.exit.thread.sink.split
 
 51:                                               ; preds = %32
-  %52 = load ptr, ptr %11, align 8, !tbaa !78
+  %52 = load ptr, ptr %11, align 8, !tbaa !80
   %53 = call i32 @lzma_block_encoder_init(ptr noundef nonnull %10, ptr noundef %52, ptr noundef nonnull %6) #12
   %.not101.i = icmp eq i32 %53, 0
   br i1 %.not101.i, label %63, label %54
 
 54:                                               ; preds = %51
-  %55 = load ptr, ptr %7, align 8, !tbaa !79
+  %55 = load ptr, ptr %7, align 8, !tbaa !81
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 472
   %57 = call i32 @pthread_mutex_lock(ptr noundef nonnull %56) #12
-  %58 = load ptr, ptr %7, align 8, !tbaa !79
+  %58 = load ptr, ptr %7, align 8, !tbaa !81
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 420
   %60 = load i32, ptr %59, align 4, !tbaa !46
   %61 = icmp eq i32 %60, 0
@@ -1456,10 +1456,10 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
 63:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
   store i64 0, ptr %2, align 8, !tbaa !41
-  %64 = load i32, ptr %12, align 4, !tbaa !103
+  %64 = load i32, ptr %12, align 4, !tbaa !107
   %65 = zext i32 %64 to i64
   store i64 %65, ptr %3, align 8, !tbaa !41
-  %66 = load ptr, ptr %8, align 8, !tbaa !81
+  %66 = load ptr, ptr %8, align 8, !tbaa !83
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !41
   br label %69
@@ -1468,10 +1468,10 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   %.090.i = phi i64 [ 0, %63 ], [ %.lcssa118.i, %98 ]
   %70 = call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #12
   %71 = load i64, ptr %2, align 8, !tbaa !41
-  store i64 %71, ptr %13, align 8, !tbaa !95
+  store i64 %71, ptr %13, align 8, !tbaa !98
   %72 = load i64, ptr %3, align 8, !tbaa !41
-  store i64 %72, ptr %14, align 8, !tbaa !96
-  %73 = load i64, ptr %15, align 8, !tbaa !80
+  store i64 %72, ptr %14, align 8, !tbaa !99
+  %73 = load i64, ptr %15, align 8, !tbaa !82
   %74 = icmp eq i64 %.090.i, %73
   br i1 %74, label %.lr.ph.i, label %.critedgethread-pre-split.i
 
@@ -1482,9 +1482,9 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
 
 77:                                               ; preds = %.lr.ph.i
   %78 = call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %4) #12
-  %79 = load i64, ptr %15, align 8, !tbaa !80
+  %79 = load i64, ptr %15, align 8, !tbaa !82
   %80 = icmp eq i64 %.090.i, %79
-  br i1 %80, label %.lr.ph.i, label %.critedgethread-pre-split.i, !llvm.loop !104
+  br i1 %80, label %.lr.ph.i, label %.critedgethread-pre-split.i, !llvm.loop !108
 
 .critedgethread-pre-split.i:                      ; preds = %77, %69
   %.lcssa118.ph.i = phi i64 [ %73, %69 ], [ %79, %77 ]
@@ -1507,11 +1507,11 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   %90 = add i64 %87, 16384
   %spec.select.i = select i1 %89, i32 0, i32 %86
   %spec.select110.i = select i1 %89, i64 %90, i64 %.lcssa118.i
-  %91 = load ptr, ptr %16, align 8, !tbaa !105
-  %92 = load ptr, ptr %10, align 8, !tbaa !106
-  %93 = load ptr, ptr %11, align 8, !tbaa !78
-  %94 = load ptr, ptr %17, align 8, !tbaa !77
-  %95 = load ptr, ptr %8, align 8, !tbaa !81
+  %91 = load ptr, ptr %16, align 8, !tbaa !109
+  %92 = load ptr, ptr %10, align 8, !tbaa !110
+  %93 = load ptr, ptr %11, align 8, !tbaa !80
+  %94 = load ptr, ptr %17, align 8, !tbaa !79
+  %95 = load ptr, ptr %8, align 8, !tbaa !83
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 64
   %97 = call i32 %91(ptr noundef %92, ptr noundef %93, ptr noundef %94, ptr noundef nonnull %2, i64 noundef %spec.select110.i, ptr noundef nonnull %96, ptr noundef nonnull %3, i64 noundef %68, i32 noundef %spec.select.i) #12
   switch i32 %97, label %147 [
@@ -1522,7 +1522,7 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
 98:                                               ; preds = %84
   %99 = load i64, ptr %3, align 8, !tbaa !41
   %100 = icmp ult i64 %99, %68
-  br i1 %100, label %69, label %.critedge2.preheader.i, !llvm.loop !107
+  br i1 %100, label %69, label %.critedge2.preheader.i, !llvm.loop !111
 
 .critedge2.preheader.i:                           ; preds = %98
   %101 = call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #12
@@ -1531,17 +1531,17 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   br i1 %103, label %.critedge112.i, label %.critedge2.i
 
 104:                                              ; preds = %84
-  %105 = load ptr, ptr %8, align 8, !tbaa !81
+  %105 = load ptr, ptr %8, align 8, !tbaa !83
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %107 = call i32 @lzma_block_header_encode(ptr noundef nonnull %6, ptr noundef nonnull %106) #12
   %.not108.i = icmp eq i32 %107, 0
   br i1 %.not108.i, label %161, label %108
 
 108:                                              ; preds = %104
-  %109 = load ptr, ptr %7, align 8, !tbaa !79
+  %109 = load ptr, ptr %7, align 8, !tbaa !81
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 472
   %111 = call i32 @pthread_mutex_lock(ptr noundef nonnull %110) #12
-  %112 = load ptr, ptr %7, align 8, !tbaa !79
+  %112 = load ptr, ptr %7, align 8, !tbaa !81
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 420
   %114 = load i32, ptr %113, align 4, !tbaa !46
   %115 = icmp eq i32 %114, 0
@@ -1554,7 +1554,7 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
 worker_error.exit114.i:                           ; preds = %116, %108
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 512
   %118 = call i32 @pthread_cond_signal(ptr noundef nonnull %117) #12
-  %119 = load ptr, ptr %7, align 8, !tbaa !79
+  %119 = load ptr, ptr %7, align 8, !tbaa !81
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 472
   %121 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %120) #12
   br label %.loopexit117.i
@@ -1563,29 +1563,29 @@ worker_error.exit114.i:                           ; preds = %116, %108
   %122 = call i32 @pthread_cond_wait(ptr noundef nonnull %5, ptr noundef nonnull %4) #12
   %123 = load i32, ptr %0, align 8, !tbaa !50
   %124 = icmp eq i32 %123, 1
-  br i1 %124, label %.critedge112.i, label %.critedge2.i, !llvm.loop !108
+  br i1 %124, label %.critedge112.i, label %.critedge2.i, !llvm.loop !112
 
 .critedge2.i:                                     ; preds = %.critedge112.i, %.critedge2.preheader.i
   %.lcssa.i = phi i32 [ %102, %.critedge2.preheader.i ], [ %123, %.critedge112.i ]
-  %125 = load i64, ptr %15, align 8, !tbaa !80
+  %125 = load i64, ptr %15, align 8, !tbaa !82
   %126 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #12
   %127 = icmp ugt i32 %.lcssa.i, 2
   br i1 %127, label %.loopexit117.i, label %128
 
 128:                                              ; preds = %.critedge2.i
   store i64 0, ptr %3, align 8, !tbaa !41
-  %129 = load ptr, ptr %17, align 8, !tbaa !77
-  %130 = load ptr, ptr %8, align 8, !tbaa !81
+  %129 = load ptr, ptr %17, align 8, !tbaa !79
+  %130 = load ptr, ptr %8, align 8, !tbaa !83
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 64
   %132 = call i32 @lzma_block_uncomp_encode(ptr noundef nonnull %6, ptr noundef %129, i64 noundef %125, ptr noundef nonnull %131, ptr noundef nonnull %3, i64 noundef %68) #12
   %.not106.i = icmp eq i32 %132, 0
   br i1 %.not106.i, label %161, label %133
 
 133:                                              ; preds = %128
-  %134 = load ptr, ptr %7, align 8, !tbaa !79
+  %134 = load ptr, ptr %7, align 8, !tbaa !81
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 472
   %136 = call i32 @pthread_mutex_lock(ptr noundef nonnull %135) #12
-  %137 = load ptr, ptr %7, align 8, !tbaa !79
+  %137 = load ptr, ptr %7, align 8, !tbaa !81
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 420
   %139 = load i32, ptr %138, align 4, !tbaa !46
   %140 = icmp eq i32 %139, 0
@@ -1598,16 +1598,16 @@ worker_error.exit114.i:                           ; preds = %116, %108
 worker_error.exit:                                ; preds = %133, %141
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 512
   %143 = call i32 @pthread_cond_signal(ptr noundef nonnull %142) #12
-  %144 = load ptr, ptr %7, align 8, !tbaa !79
+  %144 = load ptr, ptr %7, align 8, !tbaa !81
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 472
   %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %145) #12
   br label %.loopexit117.i
 
 147:                                              ; preds = %84
-  %148 = load ptr, ptr %7, align 8, !tbaa !79
+  %148 = load ptr, ptr %7, align 8, !tbaa !81
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 472
   %150 = call i32 @pthread_mutex_lock(ptr noundef nonnull %149) #12
-  %151 = load ptr, ptr %7, align 8, !tbaa !79
+  %151 = load ptr, ptr %7, align 8, !tbaa !81
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 420
   %153 = load i32, ptr %152, align 4, !tbaa !46
   %154 = icmp eq i32 %153, 0
@@ -1620,17 +1620,17 @@ worker_error.exit:                                ; preds = %133, %141
 worker_error.exit115.i:                           ; preds = %155, %147
   %156 = getelementptr inbounds nuw i8, ptr %151, i64 512
   %157 = call i32 @pthread_cond_signal(ptr noundef nonnull %156) #12
-  %158 = load ptr, ptr %7, align 8, !tbaa !79
+  %158 = load ptr, ptr %7, align 8, !tbaa !81
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 472
   %160 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %159) #12
   br label %.loopexit117.i
 
 161:                                              ; preds = %128, %104
   %162 = call i64 @lzma_block_unpadded_size(ptr noundef nonnull %6) #13
-  %163 = load ptr, ptr %8, align 8, !tbaa !81
+  %163 = load ptr, ptr %8, align 8, !tbaa !83
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 48
   store i64 %162, ptr %164, align 8, !tbaa !41
-  %165 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !109
+  %165 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !113
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 56
   store i64 %165, ptr %166, align 8, !tbaa !41
   br label %.loopexit117.i
@@ -1649,7 +1649,7 @@ worker_encode.exit.thread.sink.split:             ; preds = %54, %62, %42, %50
   %.sink117 = phi ptr [ %46, %50 ], [ %46, %42 ], [ %58, %62 ], [ %58, %54 ]
   %168 = getelementptr inbounds nuw i8, ptr %.sink117, i64 512
   %169 = call i32 @pthread_cond_signal(ptr noundef nonnull %168) #12
-  %170 = load ptr, ptr %7, align 8, !tbaa !79
+  %170 = load ptr, ptr %7, align 8, !tbaa !81
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 472
   %172 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %171) #12
   br label %worker_encode.exit.thread
@@ -1668,11 +1668,11 @@ worker_encode.exit.thread:                        ; preds = %worker_encode.exit.
 
 .critedge:                                        ; preds = %worker_encode.exit.thread, %175
   %177 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #12
-  %178 = load ptr, ptr %7, align 8, !tbaa !79
+  %178 = load ptr, ptr %7, align 8, !tbaa !81
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 472
   %180 = call i32 @pthread_mutex_lock(ptr noundef nonnull %179) #12
   %181 = icmp eq i32 %.3104, 2
-  %.pre = load ptr, ptr %8, align 8, !tbaa !81
+  %.pre = load ptr, ptr %8, align 8, !tbaa !83
   %.pre102 = load i64, ptr %3, align 8, !tbaa !41
   br i1 %181, label %182, label %.critedge67
 
@@ -1686,38 +1686,38 @@ worker_encode.exit.thread:                        ; preds = %worker_encode.exit.
 .critedge67:                                      ; preds = %182, %.critedge
   %185 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   %186 = load i64, ptr %185, align 8, !tbaa !41
-  %187 = load ptr, ptr %7, align 8, !tbaa !79
+  %187 = load ptr, ptr %7, align 8, !tbaa !81
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 456
-  %189 = load i64, ptr %188, align 8, !tbaa !64
+  %189 = load i64, ptr %188, align 8, !tbaa !65
   %190 = add i64 %189, %186
-  store i64 %190, ptr %188, align 8, !tbaa !64
+  store i64 %190, ptr %188, align 8, !tbaa !65
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 464
-  %192 = load i64, ptr %191, align 8, !tbaa !65
+  %192 = load i64, ptr %191, align 8, !tbaa !66
   %193 = add i64 %192, %.pre102
-  store i64 %193, ptr %191, align 8, !tbaa !65
+  store i64 %193, ptr %191, align 8, !tbaa !66
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
-  %195 = load ptr, ptr %194, align 8, !tbaa !75
-  store ptr %195, ptr %18, align 8, !tbaa !76
-  store ptr %0, ptr %194, align 8, !tbaa !75
+  %195 = load ptr, ptr %194, align 8, !tbaa !77
+  store ptr %195, ptr %18, align 8, !tbaa !78
+  store ptr %0, ptr %194, align 8, !tbaa !77
   %196 = getelementptr inbounds nuw i8, ptr %187, i64 512
   %197 = call i32 @pthread_cond_signal(ptr noundef nonnull %196) #12
-  %198 = load ptr, ptr %7, align 8, !tbaa !79
+  %198 = load ptr, ptr %7, align 8, !tbaa !81
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 472
   %200 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %199) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %19
+  br label %19, !llvm.loop !114
 
 201:                                              ; preds = %worker_encode.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  %202 = load ptr, ptr %11, align 8, !tbaa !78
+  %202 = load ptr, ptr %11, align 8, !tbaa !80
   call void @lzma_filters_free(ptr noundef nonnull %9, ptr noundef %202) #12
   %203 = call i32 @pthread_mutex_destroy(ptr noundef nonnull %4) #12
   %204 = call i32 @pthread_cond_destroy(ptr noundef nonnull %5) #12
-  %205 = load ptr, ptr %11, align 8, !tbaa !78
+  %205 = load ptr, ptr %11, align 8, !tbaa !80
   call void @lzma_next_end(ptr noundef nonnull %10, ptr noundef %205) #12
-  %206 = load ptr, ptr %17, align 8, !tbaa !77
-  %207 = load ptr, ptr %11, align 8, !tbaa !78
+  %206 = load ptr, ptr %17, align 8, !tbaa !79
+  %207 = load ptr, ptr %11, align 8, !tbaa !80
   call void @lzma_free(ptr noundef %206, ptr noundef %207) #12
   ret ptr null
 }
@@ -1849,59 +1849,64 @@ attributes #14 = { nounwind willreturn memory(none) }
 !51 = !{!"worker_thread_s", !12, i64 0, !6, i64 8, !10, i64 16, !31, i64 24, !52, i64 32, !7, i64 40, !10, i64 48, !10, i64 56, !17, i64 64, !53, i64 144, !8, i64 352, !32, i64 432, !8, i64 440, !33, i64 480, !10, i64 528}
 !52 = !{!"p1 _ZTS19lzma_stream_coder_s", !7, i64 0}
 !53 = !{!"", !12, i64 0, !12, i64 4, !12, i64 8, !10, i64 16, !10, i64 24, !7, i64 32, !8, i64 40, !7, i64 104, !7, i64 112, !7, i64 120, !12, i64 128, !12, i64 132, !10, i64 136, !10, i64 144, !10, i64 152, !10, i64 160, !10, i64 168, !10, i64 176, !12, i64 184, !12, i64 188, !12, i64 192, !12, i64 196, !8, i64 200, !8, i64 201, !8, i64 202, !8, i64 203, !8, i64 204, !8, i64 205, !8, i64 206, !8, i64 207}
-!54 = distinct !{!54, !55}
+!54 = distinct !{!54, !55, !56}
 !55 = !{!"llvm.loop.mustprogress"}
-!56 = distinct !{!56, !55}
-!57 = distinct !{!57, !55}
-!58 = distinct !{!58, !55}
-!59 = !{!19, !12, i64 16}
-!60 = !{!27, !12, i64 416}
-!61 = !{!27, !12, i64 264}
-!62 = !{!27, !12, i64 280}
-!63 = !{!27, !10, i64 336}
-!64 = !{!27, !10, i64 456}
-!65 = !{!27, !10, i64 464}
-!66 = distinct !{!66, !55}
-!67 = !{!68}
-!68 = distinct !{!68, !69, !"stream_encode_in: argument 1"}
-!69 = distinct !{!69, !"stream_encode_in"}
-!70 = !{!71}
-!71 = distinct !{!71, !69, !"stream_encode_in: argument 0"}
-!72 = !{!71, !68}
-!73 = !{!30, !12, i64 48}
-!74 = !{!30, !12, i64 56}
-!75 = !{!27, !32, i64 440}
-!76 = !{!51, !32, i64 432}
-!77 = !{!51, !6, i64 8}
-!78 = !{!51, !7, i64 40}
-!79 = !{!51, !52, i64 32}
-!80 = !{!51, !10, i64 16}
-!81 = !{!51, !31, i64 24}
-!82 = !{!83, !10, i64 0}
-!83 = !{!"timespec", !10, i64 0, !10, i64 8}
-!84 = !{!83, !10, i64 8}
+!56 = !{!"llvm.loop.estimated_trip_count"}
+!57 = distinct !{!57, !55, !56}
+!58 = distinct !{!58, !55, !56}
+!59 = distinct !{!59, !55, !56}
+!60 = !{!19, !12, i64 16}
+!61 = !{!27, !12, i64 416}
+!62 = !{!27, !12, i64 264}
+!63 = !{!27, !12, i64 280}
+!64 = !{!27, !10, i64 336}
+!65 = !{!27, !10, i64 456}
+!66 = !{!27, !10, i64 464}
+!67 = distinct !{!67, !55, !56}
+!68 = distinct !{!68, !56}
+!69 = !{!70}
+!70 = distinct !{!70, !71, !"stream_encode_in: argument 1"}
+!71 = distinct !{!71, !"stream_encode_in"}
+!72 = !{!73}
+!73 = distinct !{!73, !71, !"stream_encode_in: argument 0"}
+!74 = !{!73, !70}
+!75 = !{!30, !12, i64 48}
+!76 = !{!30, !12, i64 56}
+!77 = !{!27, !32, i64 440}
+!78 = !{!51, !32, i64 432}
+!79 = !{!51, !6, i64 8}
+!80 = !{!51, !7, i64 40}
+!81 = !{!51, !52, i64 32}
+!82 = !{!51, !10, i64 16}
+!83 = !{!51, !31, i64 24}
+!84 = distinct !{!84, !56}
 !85 = !{!86, !10, i64 0}
-!86 = !{!"timeval", !10, i64 0, !10, i64 8}
+!86 = !{!"timespec", !10, i64 0, !10, i64 8}
 !87 = !{!86, !10, i64 8}
-!88 = distinct !{!88, !55, !89}
-!89 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!90 = distinct !{!90, !55}
-!91 = !{!27, !7, i64 208}
-!92 = !{!27, !7, i64 184}
-!93 = !{!27, !10, i64 272}
-!94 = distinct !{!94, !55}
-!95 = !{!51, !10, i64 48}
-!96 = !{!51, !10, i64 56}
-!97 = distinct !{!97, !55}
-!98 = distinct !{!98, !55}
-!99 = !{!51, !10, i64 528}
-!100 = distinct !{!100, !55}
-!101 = distinct !{!101, !55}
-!102 = !{!12, !12, i64 0}
-!103 = !{!51, !12, i64 148}
+!88 = !{!89, !10, i64 0}
+!89 = !{!"timeval", !10, i64 0, !10, i64 8}
+!90 = !{!89, !10, i64 8}
+!91 = distinct !{!91, !55, !56, !92}
+!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!93 = distinct !{!93, !55, !56}
+!94 = !{!27, !7, i64 208}
+!95 = !{!27, !7, i64 184}
+!96 = !{!27, !10, i64 272}
+!97 = distinct !{!97, !55, !56}
+!98 = !{!51, !10, i64 48}
+!99 = !{!51, !10, i64 56}
+!100 = distinct !{!100, !55, !56}
+!101 = distinct !{!101, !55, !56}
+!102 = !{!51, !10, i64 528}
+!103 = distinct !{!103, !55, !56}
 !104 = distinct !{!104, !55}
-!105 = !{!51, !7, i64 88}
-!106 = !{!51, !7, i64 64}
-!107 = distinct !{!107, !55}
-!108 = distinct !{!108, !55}
-!109 = !{!51, !10, i64 168}
+!105 = distinct !{!105, !56}
+!106 = !{!12, !12, i64 0}
+!107 = !{!51, !12, i64 148}
+!108 = distinct !{!108, !55, !56}
+!109 = !{!51, !7, i64 88}
+!110 = !{!51, !7, i64 64}
+!111 = distinct !{!111, !55, !56}
+!112 = distinct !{!112, !55, !56}
+!113 = !{!51, !10, i64 168}
+!114 = distinct !{!114, !56}

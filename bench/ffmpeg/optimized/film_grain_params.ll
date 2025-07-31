@@ -314,5 +314,6 @@ attributes #3 = { nounwind }
 !49 = !{!"AVPixFmtDescriptor", !11, i64 0, !6, i64 8, !6, i64 9, !6, i64 10, !5, i64 16, !6, i64 24, !11, i64 104}
 !50 = !{!32, !10, i64 28}
 !51 = !{!49, !6, i64 10}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
+!54 = !{!"llvm.loop.estimated_trip_count"}

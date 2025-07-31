@@ -66,7 +66,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
   %indvars.iv.next165 = add nuw i32 %indvars.iv164, 1
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %22
   %23 = shl nuw nsw i32 %0, 1
@@ -89,7 +89,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   store ptr null, ptr %29, align 8, !tbaa !3
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next193, %wide.trip.count196
-  br i1 %exitcond197.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !11
+  br i1 %exitcond197.not, label %._crit_edge158, label %.lr.ph157, !llvm.loop !12
 
 ._crit_edge158:                                   ; preds = %.lr.ph157
   tail call void @free(ptr noundef nonnull %11) #6
@@ -115,7 +115,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   store ptr null, ptr %35, align 8, !tbaa !3
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count190
-  br i1 %exitcond191.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !12
+  br i1 %exitcond191.not, label %._crit_edge154, label %.lr.ph153, !llvm.loop !13
 
 ._crit_edge154:                                   ; preds = %.lr.ph153
   tail call void @free(ptr noundef nonnull %11) #6
@@ -142,7 +142,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   store ptr null, ptr %41, align 8, !tbaa !3
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !13
+  br i1 %exitcond185.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !14
 
 ._crit_edge149:                                   ; preds = %.lr.ph148
   tail call void @free(ptr noundef nonnull %11) #6
@@ -170,7 +170,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   store ptr null, ptr %47, align 8, !tbaa !3
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond179.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count178
-  br i1 %exitcond179.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !14
+  br i1 %exitcond179.not, label %._crit_edge144, label %.lr.ph143, !llvm.loop !15
 
 ._crit_edge144:                                   ; preds = %.lr.ph143
   tail call void @free(ptr noundef nonnull %11) #6
@@ -199,7 +199,7 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   store ptr null, ptr %53, align 8, !tbaa !3
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %exitcond173.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count172
-  br i1 %exitcond173.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !15
+  br i1 %exitcond173.not, label %._crit_edge139, label %.lr.ph138, !llvm.loop !16
 
 ._crit_edge139:                                   ; preds = %.lr.ph138
   tail call void @free(ptr noundef nonnull %11) #6
@@ -207,19 +207,19 @@ define noalias noundef ptr @SpgmrMalloc(i32 noundef %0, ptr noundef %1) local_un
   br label %62
 
 55:                                               ; preds = %49
-  store i32 %0, ptr %50, align 8, !tbaa !16
+  store i32 %0, ptr %50, align 8, !tbaa !17
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %6, ptr %56, align 8, !tbaa !22
+  store ptr %6, ptr %56, align 8, !tbaa !23
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %11, ptr %57, align 8, !tbaa !23
+  store ptr %11, ptr %57, align 8, !tbaa !24
   %58 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  store ptr %26, ptr %58, align 8, !tbaa !24
+  store ptr %26, ptr %58, align 8, !tbaa !25
   %59 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  store ptr %32, ptr %59, align 8, !tbaa !25
+  store ptr %32, ptr %59, align 8, !tbaa !26
   %60 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  store ptr %38, ptr %60, align 8, !tbaa !26
+  store ptr %38, ptr %60, align 8, !tbaa !27
   %61 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  store ptr %44, ptr %61, align 8, !tbaa !27
+  store ptr %44, ptr %61, align 8, !tbaa !28
   br label %62
 
 62:                                               ; preds = %4, %2, %55, %._crit_edge139, %._crit_edge144, %._crit_edge149, %._crit_edge154, %._crit_edge158, %._crit_edge134, %15
@@ -247,21 +247,21 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br i1 %17, label %.loopexit, label %18
 
 18:                                               ; preds = %16
-  %19 = load i32, ptr %0, align 8, !tbaa !16
+  %19 = load i32, ptr %0, align 8, !tbaa !17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !22
+  %21 = load ptr, ptr %20, align 8, !tbaa !23
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !23
+  %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = load ptr, ptr %24, align 8, !tbaa !24
+  %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !25
+  %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %29 = load ptr, ptr %28, align 8, !tbaa !26
+  %29 = load ptr, ptr %28, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %31 = load ptr, ptr %30, align 8, !tbaa !27
-  store i32 0, ptr %15, align 4, !tbaa !28
-  store i32 0, ptr %14, align 4, !tbaa !28
+  %31 = load ptr, ptr %30, align 8, !tbaa !28
+  store i32 0, ptr %15, align 4, !tbaa !29
+  store i32 0, ptr %14, align 4, !tbaa !29
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %32 = add i32 %4, -4
   %or.cond3 = icmp ult i32 %32, -3
@@ -294,16 +294,16 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br label %43
 
 43:                                               ; preds = %42, %36
-  %44 = load ptr, ptr %21, align 8, !tbaa !29
+  %44 = load ptr, ptr %21, align 8, !tbaa !30
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %31, ptr noundef %44) #6
-  %45 = load ptr, ptr %21, align 8, !tbaa !29
+  %45 = load ptr, ptr %21, align 8, !tbaa !30
   br i1 %.not295, label %53, label %46
 
 46:                                               ; preds = %43
   %47 = tail call i32 %12(ptr noundef %8, ptr noundef %45, ptr noundef %31, i32 noundef 1) #6
-  %48 = load i32, ptr %15, align 4, !tbaa !28
+  %48 = load i32, ptr %15, align 4, !tbaa !29
   %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %15, align 4, !tbaa !28
+  store i32 %49, ptr %15, align 4, !tbaa !29
   %.not299 = icmp eq i32 %47, 0
   br i1 %.not299, label %54, label %50
 
@@ -317,7 +317,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br label %54
 
 54:                                               ; preds = %46, %53
-  %55 = load ptr, ptr %21, align 8, !tbaa !29
+  %55 = load ptr, ptr %21, align 8, !tbaa !30
   br i1 %.not296, label %57, label %56
 
 56:                                               ; preds = %54
@@ -329,10 +329,10 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br label %58
 
 58:                                               ; preds = %57, %56
-  %59 = load ptr, ptr %21, align 8, !tbaa !29
+  %59 = load ptr, ptr %21, align 8, !tbaa !30
   %60 = tail call double @N_VDotProd(ptr noundef %59, ptr noundef %59) #6
   %61 = tail call double @SUNRsqrt(double noundef %60) #6
-  store double %61, ptr %13, align 8, !tbaa !30
+  store double %61, ptr %13, align 8, !tbaa !31
   %62 = fcmp ugt double %61, %6
   br i1 %62, label %63, label %.loopexit
 
@@ -359,33 +359,33 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.us ], [ 0, %.preheader318 ]
   %69 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %70, i8 0, i64 %67, i1 false), !tbaa !30
+  tail call void @llvm.memset.p0.i64(ptr align 8 %70, i8 0, i64 %67, i1 false), !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader.us, !llvm.loop !32
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %.preheader.us, !llvm.loop !33
 
 ._crit_edge331.thread:                            ; preds = %.preheader318
   %71 = fdiv double 1.000000e+00, %.0270366
-  %72 = load ptr, ptr %21, align 8, !tbaa !29
+  %72 = load ptr, ptr %21, align 8, !tbaa !30
   tail call void @N_VScale(double noundef %71, ptr noundef %72, ptr noundef %72) #6
   br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader.us
   %73 = fdiv double 1.000000e+00, %.0270366
-  %74 = load ptr, ptr %21, align 8, !tbaa !29
+  %74 = load ptr, ptr %21, align 8, !tbaa !30
   tail call void @N_VScale(double noundef %73, ptr noundef %74, ptr noundef %74) #6
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %130
   %indvars.iv387 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next388, %130 ]
   %.0269333 = phi double [ 1.000000e+00, %.lr.ph.preheader ], [ %126, %130 ]
-  %75 = load i32, ptr %14, align 4, !tbaa !28
+  %75 = load i32, ptr %14, align 4, !tbaa !29
   %76 = add nsw i32 %75, 1
-  store i32 %76, ptr %14, align 4, !tbaa !28
+  store i32 %76, ptr %14, align 4, !tbaa !29
   %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
   %indvars = trunc i64 %indvars.iv.next388 to i32
   %77 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv387
-  %78 = load ptr, ptr %77, align 8, !tbaa !29
+  %78 = load ptr, ptr %77, align 8, !tbaa !30
   br i1 %.not297, label %80, label %79
 
 79:                                               ; preds = %.lr.ph
@@ -401,13 +401,13 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 
 82:                                               ; preds = %81
   %83 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next388
-  %84 = load ptr, ptr %83, align 8, !tbaa !29
+  %84 = load ptr, ptr %83, align 8, !tbaa !30
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %31, ptr noundef %84) #6
-  %85 = load ptr, ptr %83, align 8, !tbaa !29
+  %85 = load ptr, ptr %83, align 8, !tbaa !30
   %86 = tail call i32 %12(ptr noundef %8, ptr noundef %85, ptr noundef %31, i32 noundef 2) #6
-  %87 = load i32, ptr %15, align 4, !tbaa !28
+  %87 = load i32, ptr %15, align 4, !tbaa !29
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %15, align 4, !tbaa !28
+  store i32 %88, ptr %15, align 4, !tbaa !29
   %.not302 = icmp eq i32 %86, 0
   br i1 %.not302, label %92, label %89
 
@@ -418,7 +418,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 
 92:                                               ; preds = %82, %81
   %93 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next388
-  %94 = load ptr, ptr %93, align 8, !tbaa !29
+  %94 = load ptr, ptr %93, align 8, !tbaa !30
   %95 = tail call i32 %11(ptr noundef %1, ptr noundef %31, ptr noundef %94) #6
   %.not303 = icmp eq i32 %95, 0
   br i1 %.not303, label %99, label %96
@@ -429,14 +429,14 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br label %.loopexit
 
 99:                                               ; preds = %92
-  %100 = load ptr, ptr %93, align 8, !tbaa !29
+  %100 = load ptr, ptr %93, align 8, !tbaa !30
   br i1 %.not295, label %108, label %101
 
 101:                                              ; preds = %99
   %102 = tail call i32 %12(ptr noundef %8, ptr noundef %100, ptr noundef %31, i32 noundef 1) #6
-  %103 = load i32, ptr %15, align 4, !tbaa !28
+  %103 = load i32, ptr %15, align 4, !tbaa !29
   %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %15, align 4, !tbaa !28
+  store i32 %104, ptr %15, align 4, !tbaa !29
   %.not304 = icmp eq i32 %102, 0
   br i1 %.not304, label %109, label %105
 
@@ -450,7 +450,7 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   br label %109
 
 109:                                              ; preds = %101, %108
-  %110 = load ptr, ptr %93, align 8, !tbaa !29
+  %110 = load ptr, ptr %93, align 8, !tbaa !30
   br i1 %.not296, label %112, label %111
 
 111:                                              ; preds = %109
@@ -486,11 +486,11 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 124:                                              ; preds = %121
   %gep.idx = shl nuw nsw i64 %indvars.iv387, 4
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
-  %125 = load double, ptr %gep, align 8, !tbaa !30
+  %125 = load double, ptr %gep, align 8, !tbaa !31
   %126 = fmul double %.0269333, %125
   %127 = fmul double %.0270366, %126
   %128 = tail call double @SUNRabs(double noundef %127) #6
-  store double %128, ptr %13, align 8, !tbaa !30
+  store double %128, ptr %13, align 8, !tbaa !31
   %129 = fcmp ole double %128, %6
   br i1 %129, label %._crit_edge, label %130
 
@@ -498,25 +498,25 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   %131 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next388
   %132 = load ptr, ptr %131, align 8, !tbaa !3
   %133 = getelementptr inbounds nuw double, ptr %132, i64 %indvars.iv387
-  %134 = load double, ptr %133, align 8, !tbaa !30
+  %134 = load double, ptr %133, align 8, !tbaa !31
   %135 = fdiv double 1.000000e+00, %134
-  %136 = load ptr, ptr %93, align 8, !tbaa !29
+  %136 = load ptr, ptr %93, align 8, !tbaa !30
   tail call void @N_VScale(double noundef %135, ptr noundef %136, ptr noundef %136) #6
   %exitcond391.not = icmp eq i64 %indvars.iv.next388, %66
-  br i1 %exitcond391.not, label %._crit_edge, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond391.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %130, %124, %._crit_edge331.thread
   %.not311.lcssa = phi i1 [ false, %._crit_edge331.thread ], [ %129, %124 ], [ %129, %130 ]
   %.3274 = phi double [ %.0271365, %._crit_edge331.thread ], [ %128, %124 ], [ %128, %130 ]
   %.2 = phi i32 [ %.0258367, %._crit_edge331.thread ], [ %19, %130 ], [ %indvars, %124 ]
-  store double %.0270366, ptr %29, align 8, !tbaa !30
+  store double %.0270366, ptr %29, align 8, !tbaa !31
   %.not308342 = icmp slt i32 %.2, 1
   br i1 %.not308342, label %._crit_edge346, label %.lr.ph345.preheader
 
 .lr.ph345.preheader:                              ; preds = %._crit_edge
   %137 = zext nneg i32 %.2 to i64
   %138 = shl nuw nsw i64 %137, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %138, i1 false), !tbaa !30
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %138, i1 false), !tbaa !31
   br label %._crit_edge346
 
 ._crit_edge346:                                   ; preds = %.lr.ph345.preheader, %._crit_edge
@@ -535,13 +535,13 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 .lr.ph348:                                        ; preds = %.lr.ph348.preheader, %.lr.ph348
   %indvars.iv396 = phi i64 [ 0, %.lr.ph348.preheader ], [ %indvars.iv.next397, %.lr.ph348 ]
   %141 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv396
-  %142 = load double, ptr %141, align 8, !tbaa !30
+  %142 = load double, ptr %141, align 8, !tbaa !31
   %143 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv396
-  %144 = load ptr, ptr %143, align 8, !tbaa !29
+  %144 = load ptr, ptr %143, align 8, !tbaa !30
   tail call void @N_VLinearSum(double noundef %142, ptr noundef %144, double noundef 1.000000e+00, ptr noundef %27, ptr noundef %27) #6
   %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396, 1
   %exitcond401.not = icmp eq i64 %indvars.iv.next397, %wide.trip.count400
-  br i1 %exitcond401.not, label %._crit_edge349, label %.lr.ph348, !llvm.loop !35
+  br i1 %exitcond401.not, label %._crit_edge349, label %.lr.ph348, !llvm.loop !36
 
 ._crit_edge349:                                   ; preds = %.lr.ph348, %.preheader317
   br i1 %.not311.lcssa, label %145, label %157
@@ -558,9 +558,9 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 
 148:                                              ; preds = %147
   %149 = tail call i32 %12(ptr noundef %8, ptr noundef %27, ptr noundef %31, i32 noundef 2) #6
-  %150 = load i32, ptr %15, align 4, !tbaa !28
+  %150 = load i32, ptr %15, align 4, !tbaa !29
   %151 = add nsw i32 %150, 1
-  store i32 %151, ptr %15, align 4, !tbaa !28
+  store i32 %151, ptr %15, align 4, !tbaa !29
   %.not315 = icmp eq i32 %149, 0
   br i1 %.not315, label %156, label %152
 
@@ -594,24 +594,24 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
   %.idx = shl i64 %indvars.iv402, 4
   %160 = getelementptr i8, ptr %25, i64 %.idx
   %161 = getelementptr i8, ptr %160, i64 -16
-  %162 = load double, ptr %161, align 8, !tbaa !30
+  %162 = load double, ptr %161, align 8, !tbaa !31
   %163 = fmul double %.0275350, %162
   %164 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv402
-  store double %163, ptr %164, align 8, !tbaa !30
+  store double %163, ptr %164, align 8, !tbaa !31
   %165 = getelementptr i8, ptr %160, i64 -8
-  %166 = load double, ptr %165, align 8, !tbaa !30
+  %166 = load double, ptr %165, align 8, !tbaa !31
   %167 = fmul double %.0275350, %166
   %indvars.iv.next403 = add nsw i64 %indvars.iv402, -1
   %168 = icmp samesign ugt i64 %indvars.iv402, 1
-  br i1 %168, label %.lr.ph352, label %._crit_edge353.thread, !llvm.loop !36
+  br i1 %168, label %.lr.ph352, label %._crit_edge353.thread, !llvm.loop !37
 
 ._crit_edge353.thread:                            ; preds = %.lr.ph352
-  store double %167, ptr %29, align 8, !tbaa !30
+  store double %167, ptr %29, align 8, !tbaa !31
   %169 = fmul double %.0270366, %167
   br label %.lr.ph358.preheader
 
 ._crit_edge353:                                   ; preds = %.preheader316
-  store double 1.000000e+00, ptr %29, align 8, !tbaa !30
+  store double 1.000000e+00, ptr %29, align 8, !tbaa !31
   %.not312355 = icmp slt i32 %.2, 0
   br i1 %.not312355, label %._crit_edge359, label %.lr.ph358.preheader
 
@@ -624,18 +624,18 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 .lr.ph358:                                        ; preds = %.lr.ph358.preheader, %.lr.ph358
   %indvars.iv406 = phi i64 [ 0, %.lr.ph358.preheader ], [ %indvars.iv.next407, %.lr.ph358 ]
   %172 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv406
-  %173 = load double, ptr %172, align 8, !tbaa !30
+  %173 = load double, ptr %172, align 8, !tbaa !31
   %174 = fmul double %170, %173
-  store double %174, ptr %172, align 8, !tbaa !30
+  store double %174, ptr %172, align 8, !tbaa !31
   %indvars.iv.next407 = add nuw nsw i64 %indvars.iv406, 1
   %exitcond411.not = icmp eq i64 %indvars.iv.next407, %wide.trip.count410
-  br i1 %exitcond411.not, label %._crit_edge359, label %.lr.ph358, !llvm.loop !37
+  br i1 %exitcond411.not, label %._crit_edge359, label %.lr.ph358, !llvm.loop !38
 
 ._crit_edge359:                                   ; preds = %.lr.ph358, %._crit_edge353
   %175 = phi double [ %.0270366, %._crit_edge353 ], [ %170, %.lr.ph358 ]
   %176 = tail call double @SUNRabs(double noundef %175) #6
-  %177 = load double, ptr %29, align 8, !tbaa !30
-  %178 = load ptr, ptr %21, align 8, !tbaa !29
+  %177 = load double, ptr %29, align 8, !tbaa !31
+  %178 = load ptr, ptr %21, align 8, !tbaa !30
   tail call void @N_VScale(double noundef %177, ptr noundef %178, ptr noundef %178) #6
   br i1 %.not308342, label %._crit_edge364, label %.lr.ph363.preheader
 
@@ -647,14 +647,14 @@ define range(i32 -5, 6) i32 @SpgmrSolve(ptr noundef readonly captures(address_is
 .lr.ph363:                                        ; preds = %.lr.ph363.preheader, %.lr.ph363
   %indvars.iv412 = phi i64 [ 1, %.lr.ph363.preheader ], [ %indvars.iv.next413, %.lr.ph363 ]
   %180 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv412
-  %181 = load double, ptr %180, align 8, !tbaa !30
+  %181 = load double, ptr %180, align 8, !tbaa !31
   %182 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv412
-  %183 = load ptr, ptr %182, align 8, !tbaa !29
-  %184 = load ptr, ptr %21, align 8, !tbaa !29
+  %183 = load ptr, ptr %182, align 8, !tbaa !30
+  %184 = load ptr, ptr %21, align 8, !tbaa !30
   tail call void @N_VLinearSum(double noundef %181, ptr noundef %183, double noundef 1.000000e+00, ptr noundef %184, ptr noundef %184) #6
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %exitcond417.not = icmp eq i64 %indvars.iv.next413, %wide.trip.count416
-  br i1 %exitcond417.not, label %._crit_edge364, label %.lr.ph363, !llvm.loop !38
+  br i1 %exitcond417.not, label %._crit_edge364, label %.lr.ph363, !llvm.loop !39
 
 ._crit_edge364:                                   ; preds = %.lr.ph363, %._crit_edge359
   %185 = add nuw nsw i32 %.0368, 1
@@ -676,9 +676,9 @@ split:                                            ; preds = %157
 
 190:                                              ; preds = %189
   %191 = tail call i32 %12(ptr noundef %8, ptr noundef %27, ptr noundef %31, i32 noundef 2) #6
-  %192 = load i32, ptr %15, align 4, !tbaa !28
+  %192 = load i32, ptr %15, align 4, !tbaa !29
   %193 = add nsw i32 %192, 1
-  store i32 %193, ptr %15, align 4, !tbaa !28
+  store i32 %193, ptr %15, align 4, !tbaa !29
   %.not314 = icmp eq i32 %191, 0
   br i1 %.not314, label %198, label %194
 
@@ -730,7 +730,7 @@ define void @SpgmrFree(ptr noundef captures(address_is_null) %0) local_unnamed_a
   br i1 %2, label %23, label %3
 
 3:                                                ; preds = %1
-  %4 = load i32, ptr %0, align 8, !tbaa !16
+  %4 = load i32, ptr %0, align 8, !tbaa !17
   %.not16 = icmp slt i32 %4, 0
   br i1 %.not16, label %.._crit_edge_crit_edge, label %.lr.ph
 
@@ -746,33 +746,33 @@ define void @SpgmrFree(ptr noundef captures(address_is_null) %0) local_unnamed_a
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = load ptr, ptr %5, align 8, !tbaa !23
+  %8 = load ptr, ptr %5, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   tail call void @free(ptr noundef %10) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !39
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %7, %.._crit_edge_crit_edge
   %.pre-phi = phi i32 [ %.pre, %.._crit_edge_crit_edge ], [ %6, %7 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !23
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
   tail call void @free(ptr noundef %12) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
   tail call void @free(ptr noundef %14) #6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   tail call void @free(ptr noundef %16) #6
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !22
+  %18 = load ptr, ptr %17, align 8, !tbaa !23
   tail call void @N_VDestroyVectorArray(ptr noundef %18, i32 noundef %.pre-phi) #6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %20 = load ptr, ptr %19, align 8, !tbaa !25
+  %20 = load ptr, ptr %19, align 8, !tbaa !26
   tail call void @N_VDestroy(ptr noundef %20) #6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
+  %22 = load ptr, ptr %21, align 8, !tbaa !28
   tail call void @N_VDestroy(ptr noundef %22) #6
   tail call void @free(ptr noundef nonnull %0) #6
   br label %23
@@ -806,35 +806,36 @@ attributes #7 = { nounwind allocsize(0) }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"_SpgmrMemRec", !18, i64 0, !19, i64 8, !20, i64 16, !4, i64 24, !21, i64 32, !4, i64 40, !21, i64 48}
-!18 = !{!"int", !6, i64 0}
-!19 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
-!20 = !{!"p2 double", !5, i64 0}
-!21 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
-!22 = !{!17, !19, i64 8}
-!23 = !{!17, !20, i64 16}
-!24 = !{!17, !4, i64 24}
-!25 = !{!17, !21, i64 32}
-!26 = !{!17, !4, i64 40}
-!27 = !{!17, !21, i64 48}
-!28 = !{!18, !18, i64 0}
-!29 = !{!21, !21, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"double", !6, i64 0}
-!32 = distinct !{!32, !9, !33}
-!33 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!34 = distinct !{!34, !9}
-!35 = distinct !{!35, !9}
-!36 = distinct !{!36, !9}
-!37 = distinct !{!37, !9}
-!38 = distinct !{!38, !9}
-!39 = distinct !{!39, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"_SpgmrMemRec", !19, i64 0, !20, i64 8, !21, i64 16, !4, i64 24, !22, i64 32, !4, i64 40, !22, i64 48}
+!19 = !{!"int", !6, i64 0}
+!20 = !{!"p2 _ZTS17_generic_N_Vector", !5, i64 0}
+!21 = !{!"p2 double", !5, i64 0}
+!22 = !{!"p1 _ZTS17_generic_N_Vector", !5, i64 0}
+!23 = !{!18, !20, i64 8}
+!24 = !{!18, !21, i64 16}
+!25 = !{!18, !4, i64 24}
+!26 = !{!18, !22, i64 32}
+!27 = !{!18, !4, i64 40}
+!28 = !{!18, !22, i64 48}
+!29 = !{!19, !19, i64 0}
+!30 = !{!22, !22, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"double", !6, i64 0}
+!33 = distinct !{!33, !9, !10, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !9, !10}
+!36 = distinct !{!36, !9, !10}
+!37 = distinct !{!37, !9, !10}
+!38 = distinct !{!38, !9, !10}
+!39 = distinct !{!39, !9, !10}
+!40 = distinct !{!40, !9, !10}

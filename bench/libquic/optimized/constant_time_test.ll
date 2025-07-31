@@ -228,7 +228,7 @@ test_binary_op_8.exit166:                         ; preds = %106, %104, %98
 113:                                              ; preds = %test_binary_op_8.exit166
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond209.not = icmp eq i64 %indvars.iv.next207, 10
-  br i1 %exitcond209.not, label %.preheader187, label %6, !llvm.loop !15
+  br i1 %exitcond209.not, label %.preheader187, label %6, !llvm.loop !16
 
 114:                                              ; preds = %.preheader187
   %115 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.7, i32 noundef 1908) #4
@@ -272,6 +272,7 @@ attributes #4 = { nounwind }
 !10 = !{!"Simple C/C++ TBAA"}
 !11 = !{!12, !12, i64 0}
 !12 = !{!"int", !9, i64 0}
-!13 = distinct !{!13, !14}
+!13 = distinct !{!13, !14, !15}
 !14 = !{!"llvm.loop.mustprogress"}
-!15 = distinct !{!15, !14}
+!15 = !{!"llvm.loop.estimated_trip_count"}
+!16 = distinct !{!16, !14, !15}

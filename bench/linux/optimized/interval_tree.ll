@@ -180,7 +180,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %.preheader, !llvm.loop !8
+  br i1 %62, label %63, label %.preheader, !llvm.loop !9
 
 63:                                               ; preds = %.preheader
   %64 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -241,7 +241,7 @@ define dso_local void @interval_tree_remove(ptr noundef %0, ptr noundef %1) #0 a
   %101 = and i64 %100, -4
   %102 = inttoptr i64 %101 to ptr
   %103 = icmp eq ptr %58, %102
-  br i1 %103, label %.critedge, label %.lr.ph
+  br i1 %103, label %.critedge, label %.lr.ph, !llvm.loop !10
 
 .critedge:                                        ; preds = %99, %94, %63, %52
   %.pre-phi = phi i64 [ %69, %63 ], [ %.pre, %52 ], [ %69, %94 ], [ %69, %99 ]
@@ -413,7 +413,7 @@ define dso_local ptr @interval_tree_iter_first(ptr noundef readonly captures(non
 
 .preheader.backedge:                              ; preds = %36, %20
   %.be = phi ptr [ %18, %20 ], [ %34, %36 ]
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %36, %32, %28, %24, %10, %6, %3
   %40 = phi ptr [ null, %3 ], [ null, %6 ], [ null, %10 ], [ null, %24 ], [ null, %36 ], [ null, %32 ], [ %16, %28 ]
@@ -480,7 +480,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(addr
 
 .preheader.backedge:                              ; preds = %34, %18
   %.be = phi ptr [ %16, %18 ], [ %32, %34 ]
-  br label %.preheader, !llvm.loop !9
+  br label %.preheader, !llvm.loop !12
 
 .thread:                                          ; preds = %.thread.preheader, %42
   %38 = phi ptr [ %43, %42 ], [ %8, %.thread.preheader ]
@@ -494,7 +494,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(addr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %38, %45
-  br i1 %46, label %.thread, label %47, !llvm.loop !10
+  br i1 %46, label %.thread, label %47, !llvm.loop !13
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 24
@@ -506,7 +506,7 @@ define dso_local ptr @interval_tree_iter_next(ptr noundef readonly captures(addr
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %53 = load i64, ptr %52, align 8
   %54 = icmp ult i64 %53, %1
-  br i1 %54, label %6, label %.loopexit, !llvm.loop !11
+  br i1 %54, label %6, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %51, %47, %.thread, %22, %26, %30, %34
   %55 = phi ptr [ null, %22 ], [ null, %34 ], [ null, %30 ], [ %14, %26 ], [ null, %.thread ], [ %43, %51 ], [ null, %47 ]
@@ -581,10 +581,13 @@ attributes #6 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !6, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !6, !7, !8}
+!14 = distinct !{!14, !7, !8}

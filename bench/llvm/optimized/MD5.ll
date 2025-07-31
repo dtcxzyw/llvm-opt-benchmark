@@ -798,17 +798,17 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm3MD5C2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(152) initializes((0, 24)) %0) unnamed_addr #2 align 2 {
-  store i32 1732584193, ptr %0, align 4, !tbaa !16
+  store i32 1732584193, ptr %0, align 4, !tbaa !17
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %2, align 4, !tbaa !17
+  store i32 -271733879, ptr %2, align 4, !tbaa !18
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %3, align 4, !tbaa !18
+  store i32 -1732584194, ptr %3, align 4, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %4, align 4, !tbaa !19
+  store i32 271733878, ptr %4, align 4, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %5, align 4, !tbaa !20
+  store i32 0, ptr %5, align 4, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %6, align 4, !tbaa !21
+  store i32 0, ptr %6, align 4, !tbaa !22
   ret void
 }
 
@@ -816,21 +816,21 @@ define dso_local void @_ZN4llvm3MD5C2Ev(ptr noundef nonnull writeonly align 4 ca
 define dso_local void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) %0, ptr captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !23
   %5 = trunc i64 %2 to i32
   %6 = add i32 %4, %5
   %7 = and i32 %6, 536870911
-  store i32 %7, ptr %3, align 4, !tbaa !22
+  store i32 %7, ptr %3, align 4, !tbaa !23
   %8 = icmp ult i32 %7, %4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i32, ptr %9, align 4, !tbaa !23
+  %10 = load i32, ptr %9, align 4, !tbaa !24
   %11 = zext i1 %8 to i32
   %12 = add i32 %10, %11
   %13 = lshr i64 %2, 29
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = trunc i64 %13 to i32
   %16 = add i32 %12, %15
-  store i32 %16, ptr %14, align 4, !tbaa !23
+  store i32 %16, ptr %14, align 4, !tbaa !24
   %17 = and i32 %4, 63
   %.not = icmp eq i32 %17, 0
   br i1 %.not, label %29, label %18
@@ -883,20 +883,20 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) %0, ptr captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !22
+  %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = trunc i64 %2 to i32
   %7 = add i32 %5, %6
   %8 = and i32 %7, 536870911
-  store i32 %8, ptr %4, align 4, !tbaa !22
+  store i32 %8, ptr %4, align 4, !tbaa !23
   %9 = icmp ult i32 %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i32, ptr %10, align 4, !tbaa !23
+  %11 = load i32, ptr %10, align 4, !tbaa !24
   %12 = zext i1 %9 to i32
   %13 = lshr i64 %2, 29
   %14 = trunc i64 %13 to i32
   %15 = add i32 %11, %14
   %16 = add i32 %15, %12
-  store i32 %16, ptr %10, align 4, !tbaa !23
+  store i32 %16, ptr %10, align 4, !tbaa !24
   %17 = and i32 %5, 63
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %29, label %18
@@ -946,7 +946,7 @@ _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 1 dereferenceable(16) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !23
   %5 = and i32 %4, 63
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -961,7 +961,7 @@ define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull a
   %13 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %10, i1 false)
   %14 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
-  %.pre = load i32, ptr %3, align 4, !tbaa !22
+  %.pre = load i32, ptr %3, align 4, !tbaa !23
   br label %15
 
 15:                                               ; preds = %12, %2
@@ -972,13 +972,13 @@ define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull a
   %18 = add nsw i64 %.0, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %18, i1 false)
   %19 = shl i32 %16, 3
-  store i32 %19, ptr %3, align 4, !tbaa !22
+  store i32 %19, ptr %3, align 4, !tbaa !23
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
   store i32 %19, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load i32, ptr %22, align 4, !tbaa !23
+  %23 = load i32, ptr %22, align 4, !tbaa !24
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 1) ]
   store i32 %23, ptr %21, align 4
   %24 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
@@ -1009,7 +1009,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
 define dso_local { i64, i64 } @_ZN4llvm3MD55finalEv(ptr noundef nonnull align 4 dereferenceable(152) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %3 = load i32, ptr %2, align 4, !tbaa !22
+  %3 = load i32, ptr %2, align 4, !tbaa !23
   %4 = and i32 %3, 63
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1024,7 +1024,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD55finalEv(ptr noundef nonnull align 4 
   %12 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %7
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %9, i1 false)
   %13 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 64)
-  %.pre.i = load i32, ptr %2, align 4, !tbaa !22
+  %.pre.i = load i32, ptr %2, align 4, !tbaa !23
   br label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %1, %11
@@ -1035,13 +1035,13 @@ _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %1, %11
   %16 = add nsw i64 %.0.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 0, i64 %16, i1 false)
   %17 = shl i32 %14, 3
-  store i32 %17, ptr %2, align 4, !tbaa !22
+  store i32 %17, ptr %2, align 4, !tbaa !23
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
   store i32 %17, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load i32, ptr %20, align 4, !tbaa !23
+  %21 = load i32, ptr %20, align 4, !tbaa !24
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
   store i32 %21, ptr %19, align 4
   %22 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 64)
@@ -1057,9 +1057,9 @@ _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %1, %11
 define dso_local { i64, i64 } @_ZN4llvm3MD56resultEv(ptr noundef nonnull align 4 dereferenceable(152) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca %struct.anon, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %2, ptr noundef nonnull align 4 dereferenceable(152) %0, i64 152, i1 false), !tbaa.struct !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %2, ptr noundef nonnull align 4 dereferenceable(152) %0, i64 152, i1 false), !tbaa.struct !25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !22
+  %4 = load i32, ptr %3, align 4, !tbaa !23
   %5 = and i32 %4, 63
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1074,7 +1074,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD56resultEv(ptr noundef nonnull align 4
   %13 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %10, i1 false)
   %14 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
-  %.pre.i.i = load i32, ptr %3, align 4, !tbaa !22
+  %.pre.i.i = load i32, ptr %3, align 4, !tbaa !23
   br label %_ZN4llvm3MD55finalEv.exit
 
 _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
@@ -1085,13 +1085,13 @@ _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
   %17 = add nsw i64 %.0.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %17, i1 false)
   %18 = shl i32 %15, 3
-  store i32 %18, ptr %3, align 4, !tbaa !22
+  store i32 %18, ptr %3, align 4, !tbaa !23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
   store i32 %18, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load i32, ptr %21, align 4, !tbaa !23
+  %22 = load i32, ptr %21, align 4, !tbaa !24
   call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
   store i32 %22, ptr %20, align 4
   %23 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
@@ -1100,7 +1100,7 @@ _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
   %26 = load i64, ptr %25, align 4
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %24, 0
   %.fca.1.insert.i = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %26, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(152) %2, i64 152, i1 false), !tbaa.struct !24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr noundef nonnull align 4 dereferenceable(152) %2, i64 152, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %2)
   ret { i64, i64 } %.fca.1.insert.i
 }
@@ -1109,11 +1109,11 @@ _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
 define dso_local void @_ZNK4llvm3MD59MD5Result6digestEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallString") align 8 %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
 .lr.ph.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %2, ptr %0, align 8, !tbaa !25
+  store ptr %2, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 32, ptr %4, align 8, !tbaa !29
-  store i64 32, ptr %3, align 8, !tbaa !30
+  store i64 32, ptr %4, align 8, !tbaa !30
+  store i64 32, ptr %3, align 8, !tbaa !31
   br label %5
 
 5:                                                ; preds = %5, %.lr.ph.i
@@ -1127,7 +1127,7 @@ define dso_local void @_ZNK4llvm3MD59MD5Result6digestEv(ptr dead_on_unwind noali
   %12 = load i8, ptr %11, align 1, !tbaa !12
   %13 = or i8 %12, 32
   %14 = shl nuw i64 %.013.i, 1
-  %15 = load ptr, ptr %0, align 8, !tbaa !25
+  %15 = load ptr, ptr %0, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   store i8 %13, ptr %16, align 1, !tbaa !12
   %17 = and i32 %8, 15
@@ -1135,13 +1135,13 @@ define dso_local void @_ZNK4llvm3MD59MD5Result6digestEv(ptr dead_on_unwind noali
   %19 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = or i8 %20, 32
-  %22 = load ptr, ptr %0, align 8, !tbaa !25
+  %22 = load ptr, ptr %0, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 %21, ptr %24, align 1, !tbaa !12
   %25 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %25, 16
-  br i1 %exitcond.not.i, label %_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit, label %5, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit, label %5, !llvm.loop !32
 
 _ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit: ; preds = %5
   ret void
@@ -1150,7 +1150,7 @@ _ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit: ; preds = %5
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15SmallVectorImplIcEE(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !30
+  %4 = load i64, ptr %3, align 8, !tbaa !31
   %5 = icmp eq i64 %4, 32
   br i1 %5, label %.lr.ph.i.preheader, label %6
 
@@ -1168,7 +1168,7 @@ define dso_local void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15Small
   br label %.sink.split.i.i.i
 
 .sink.split.i.i.i:                                ; preds = %11, %6
-  store i64 32, ptr %3, align 8, !tbaa !30
+  store i64 32, ptr %3, align 8, !tbaa !31
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %2, %.sink.split.i.i.i
@@ -1185,7 +1185,7 @@ define dso_local void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15Small
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = or i8 %19, 32
   %21 = shl nuw i64 %.013.i, 1
-  %22 = load ptr, ptr %1, align 8, !tbaa !25
+  %22 = load ptr, ptr %1, align 8, !tbaa !26
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   store i8 %20, ptr %23, align 1, !tbaa !12
   %24 = and i32 %15, 15
@@ -1193,13 +1193,13 @@ define dso_local void @_ZN4llvm3MD515stringifyResultERNS0_9MD5ResultERNS_15Small
   %26 = getelementptr inbounds nuw [17 x i8], ptr @_ZZN4llvm8hexdigitEjbE3LUT, i64 0, i64 %25
   %27 = load i8, ptr %26, align 1, !tbaa !12
   %28 = or i8 %27, 32
-  %29 = load ptr, ptr %1, align 8, !tbaa !25
+  %29 = load ptr, ptr %1, align 8, !tbaa !26
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %21
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store i8 %28, ptr %31, align 1, !tbaa !12
   %32 = add nuw nsw i64 %.013.i, 1
   %exitcond.not.i = icmp eq i64 %32, 16
-  br i1 %exitcond.not.i, label %_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %_ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit, label %.lr.ph.i, !llvm.loop !32
 
 _ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit: ; preds = %.lr.ph.i
   ret void
@@ -1211,20 +1211,20 @@ define dso_local { i64, i64 } @_ZN4llvm3MD54hashENS_8ArrayRefIhEE(ptr captures(n
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #12
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %5 = load i32, ptr %4, align 4, !tbaa !22
+  %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = trunc i64 %1 to i32
   %7 = add i32 %5, %6
   %8 = and i32 %7, 536870911
-  store i32 %8, ptr %4, align 4, !tbaa !22
+  store i32 %8, ptr %4, align 4, !tbaa !23
   %9 = icmp ult i32 %8, %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %11 = load i32, ptr %10, align 8, !tbaa !23
+  %11 = load i32, ptr %10, align 8, !tbaa !24
   %12 = zext i1 %9 to i32
   %13 = lshr i64 %1, 29
   %14 = trunc i64 %13 to i32
   %15 = add i32 %11, %14
   %16 = add i32 %15, %12
-  store i32 %16, ptr %10, align 8, !tbaa !23
+  store i32 %16, ptr %10, align 8, !tbaa !24
   %17 = and i32 %5, 63
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %29, label %18
@@ -1265,7 +1265,7 @@ define dso_local { i64, i64 } @_ZN4llvm3MD54hashENS_8ArrayRefIhEE(ptr captures(n
   %.1.i = phi i64 [ %34, %31 ], [ %.0.i, %29 ]
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 1 %.126.i, i64 %.1.i, i1 false)
-  %.pre = load i32, ptr %4, align 4, !tbaa !22
+  %.pre = load i32, ptr %4, align 4, !tbaa !23
   br label %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit
 
 _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
@@ -1284,7 +1284,7 @@ _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
   %46 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 0, i64 %41
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 0, i64 %43, i1 false)
   %47 = call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %40, i64 64)
-  %.pre.i = load i32, ptr %4, align 4, !tbaa !22
+  %.pre.i = load i32, ptr %4, align 4, !tbaa !23
   br label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit, %45
@@ -1295,12 +1295,12 @@ _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvm3MD56update
   %50 = add nsw i64 %.0.i3, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %49, i8 0, i64 %50, i1 false)
   %51 = shl i32 %48, 3
-  store i32 %51, ptr %4, align 4, !tbaa !22
+  store i32 %51, ptr %4, align 4, !tbaa !23
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]
   store i32 %51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 84
-  %54 = load i32, ptr %10, align 8, !tbaa !23
+  %54 = load i32, ptr %10, align 8, !tbaa !24
   call void @llvm.assume(i1 true) [ "align"(ptr %53, i64 1) ]
   store i32 %54, ptr %53, align 4
   %55 = call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %40, i64 64)
@@ -1351,21 +1351,22 @@ attributes #12 = { nounwind }
 !11 = !{!4, !6, i64 12}
 !12 = !{!7, !7, i64 0}
 !13 = !{!6, !6, i64 0}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!5, !6, i64 0}
-!17 = !{!5, !6, i64 4}
-!18 = !{!5, !6, i64 8}
-!19 = !{!5, !6, i64 12}
-!20 = !{!5, !6, i64 16}
-!21 = !{!5, !6, i64 20}
-!22 = !{!4, !6, i64 20}
-!23 = !{!4, !6, i64 16}
-!24 = !{i64 0, i64 4, !13, i64 4, i64 4, !13, i64 8, i64 4, !13, i64 12, i64 4, !13, i64 16, i64 4, !13, i64 20, i64 4, !13, i64 24, i64 64, !12, i64 88, i64 64, !12}
-!25 = !{!26, !27, i64 0}
-!26 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !27, i64 0, !28, i64 8, !28, i64 16}
-!27 = !{!"any pointer", !7, i64 0}
-!28 = !{!"long", !7, i64 0}
-!29 = !{!26, !28, i64 16}
-!30 = !{!26, !28, i64 8}
-!31 = distinct !{!31, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!5, !6, i64 0}
+!18 = !{!5, !6, i64 4}
+!19 = !{!5, !6, i64 8}
+!20 = !{!5, !6, i64 12}
+!21 = !{!5, !6, i64 16}
+!22 = !{!5, !6, i64 20}
+!23 = !{!4, !6, i64 20}
+!24 = !{!4, !6, i64 16}
+!25 = !{i64 0, i64 4, !13, i64 4, i64 4, !13, i64 8, i64 4, !13, i64 12, i64 4, !13, i64 16, i64 4, !13, i64 20, i64 4, !13, i64 24, i64 64, !12, i64 88, i64 64, !12}
+!26 = !{!27, !28, i64 0}
+!27 = !{!"_ZTSN4llvm15SmallVectorBaseImEE", !28, i64 0, !29, i64 8, !29, i64 16}
+!28 = !{!"any pointer", !7, i64 0}
+!29 = !{!"long", !7, i64 0}
+!30 = !{!27, !29, i64 16}
+!31 = !{!27, !29, i64 8}
+!32 = distinct !{!32, !15, !16}

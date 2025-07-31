@@ -429,7 +429,7 @@ define dso_local noundef i32 @pcmcia_release_configuration(ptr noundef captures(
   br label %57
 
 57:                                               ; preds = %51, %46, %39
-  br i1 %40, label %39, label %.loopexit, !llvm.loop !10
+  br i1 %40, label %39, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %57, %32, %27
   call void @mutex_unlock(ptr noundef nonnull %5) #7
@@ -906,7 +906,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_enable_device(ptr noundef
   br label %236
 
 236:                                              ; preds = %225, %210
-  br i1 %211, label %210, label %.loopexit.loopexit, !llvm.loop !11
+  br i1 %211, label %210, label %.loopexit.loopexit, !llvm.loop !12
 
 .loopexit.loopexit:                               ; preds = %236
   %.pre8 = load i32, ptr %21, align 4
@@ -1035,7 +1035,7 @@ define dso_local i32 @pcmcia_request_io(ptr noundef captures(none) %0) #0 align 
   br label %71
 
 71:                                               ; preds = %67, %64, %52, %48, %41
-  br i1 %42, label %41, label %release_io_space.exit, !llvm.loop !12
+  br i1 %42, label %41, label %release_io_space.exit, !llvm.loop !13
 
 release_io_space.exit:                            ; preds = %71
   %reass.sub = sub i64 %33, %31
@@ -1099,7 +1099,7 @@ define internal fastcc i32 @alloc_io_space(ptr noundef %0, ptr noundef %1, i32 n
   %25 = icmp ult i32 %23, %9
   %26 = select i1 %24, i1 %25, i1 false
   %27 = shl i32 %23, 1
-  br i1 %26, label %.preheader, label %.loopexit, !llvm.loop !13
+  br i1 %26, label %.preheader, label %.loopexit, !llvm.loop !14
 
 .loopexit:                                        ; preds = %.preheader, %16, %3
   %28 = phi i32 [ %22, %16 ], [ 0, %3 ], [ %23, %.preheader ]
@@ -1210,7 +1210,7 @@ define internal fastcc void @release_io_space(ptr noundef captures(none) %0, ptr
   br label %42
 
 42:                                               ; preds = %38, %35, %23, %19, %12
-  br i1 %13, label %12, label %43, !llvm.loop !12
+  br i1 %13, label %12, label %43, !llvm.loop !13
 
 43:                                               ; preds = %42
   ret void
@@ -1354,7 +1354,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_request_window(ptr nounde
 50:                                               ; preds = %45
   %51 = add nuw nsw i32 %46, 1
   %52 = icmp eq i32 %51, 4
-  br i1 %52, label %.thread, label %45, !llvm.loop !14
+  br i1 %52, label %.thread, label %45, !llvm.loop !15
 
 53:                                               ; preds = %45
   %54 = icmp eq i32 %46, 4
@@ -1498,13 +1498,13 @@ define dso_local void @pcmcia_disable_device(ptr noundef captures(none) %0) #0 a
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %3
-  %13 = tail call i32 @pcmcia_release_window(ptr noundef %0, ptr noundef %7), !range !15
+  %13 = tail call i32 @pcmcia_release_window(ptr noundef %0, ptr noundef %7), !range !16
   br label %14
 
 14:                                               ; preds = %12, %3
   %15 = add nuw nsw i64 %4, 1
   %16 = icmp eq i64 %15, 4
-  br i1 %16, label %17, label %3, !llvm.loop !16
+  br i1 %16, label %17, label %3, !llvm.loop !17
 
 17:                                               ; preds = %14
   %18 = tail call i32 @pcmcia_release_configuration(ptr noundef %0)
@@ -1582,7 +1582,7 @@ define dso_local void @pcmcia_disable_device(ptr noundef captures(none) %0) #0 a
   br label %68
 
 68:                                               ; preds = %64, %61, %49, %45, %38
-  br i1 %39, label %38, label %release_io_space.exit, !llvm.loop !12
+  br i1 %39, label %38, label %release_io_space.exit, !llvm.loop !13
 
 release_io_space.exit:                            ; preds = %68
   %69 = getelementptr i8, ptr %27, i64 80
@@ -1650,7 +1650,7 @@ release_io_space.exit:                            ; preds = %68
   br label %110
 
 110:                                              ; preds = %106, %103, %91, %87, %80
-  br i1 %81, label %80, label %release_io_space.exit1, !llvm.loop !12
+  br i1 %81, label %80, label %release_io_space.exit1, !llvm.loop !13
 
 release_io_space.exit1:                           ; preds = %110, %release_io_space.exit
   %111 = load i16, ptr %21, align 8
@@ -1709,13 +1709,14 @@ attributes #8 = { cold nounwind }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{ptr @pcmcia_read_cis_mem, ptr @pcmcia_write_cis_mem}
 !6 = !{!"auto-init"}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = distinct !{!11, !8, !9}
-!12 = distinct !{!12, !8, !9}
-!13 = distinct !{!13, !8, !9}
-!14 = distinct !{!14, !8, !9}
-!15 = !{i32 -22, i32 1}
-!16 = distinct !{!16, !8, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = distinct !{!12, !8, !9, !10}
+!13 = distinct !{!13, !8, !9, !10}
+!14 = distinct !{!14, !8, !9, !10}
+!15 = distinct !{!15, !8, !9, !10}
+!16 = !{i32 -22, i32 1}
+!17 = distinct !{!17, !8, !9, !10}

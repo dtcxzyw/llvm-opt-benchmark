@@ -1803,7 +1803,7 @@ define hidden void @parseArraySimple(ptr noundef %0, ptr noundef %1, ptr noundef
 27:                                               ; preds = %26, %.lr.ph
   %28 = add nuw nsw i32 %.033, 1
   %exitcond.not = icmp eq i32 %28, %14
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %27
   %.pre = load i32, ptr %3, align 4
@@ -1854,7 +1854,7 @@ define hidden void @parseArrayComplex(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #4
   %26 = add nuw nsw i32 %.029, 1
   %exitcond.not = icmp eq i32 %26, %14
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %3, align 4
@@ -2205,7 +2205,7 @@ define hidden void @parseArrayEnum(ptr noundef %0, ptr noundef %1, ptr noundef %
   call void %6(ptr noundef %11, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %24 = add nuw nsw i32 %.028, 1
   %exitcond.not = icmp eq i32 %24, %13
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %3, align 4
@@ -2331,8 +2331,9 @@ attributes #4 = { nounwind }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

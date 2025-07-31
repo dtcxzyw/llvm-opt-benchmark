@@ -200,7 +200,7 @@ define hidden noundef ptr @_ZN10XPageCache16alloc_small_pageEv(ptr noundef nonnu
 28:                                               ; preds = %.lr.ph
   %29 = add nuw i32 %.01527, 1
   %exitcond.not = icmp eq i32 %29, %27
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %26, %28
   %.01527 = phi i32 [ %29, %28 ], [ 0, %26 ]
@@ -328,7 +328,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %21 = load i64, ptr %18, align 8
   %22 = sub i64 %20, %21
   %23 = icmp eq i64 %1, %22
-  br i1 %23, label %24, label %select.unfold, !llvm.loop !9
+  br i1 %23, label %24, label %select.unfold, !llvm.loop !10
 
 24:                                               ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.2.0, i64 120
@@ -425,7 +425,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %21 = load i64, ptr %18, align 8
   %22 = sub i64 %20, %21
   %.not = icmp ugt i64 %1, %22
-  br i1 %.not, label %select.unfold, label %23, !llvm.loop !10
+  br i1 %.not, label %select.unfold, label %23, !llvm.loop !11
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.2.0, i64 120
@@ -480,7 +480,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i.pre
   %21 = load i64, ptr %18, align 8
   %22 = sub i64 %20, %21
   %.not.i = icmp ugt i64 %1, %22
-  br i1 %.not.i, label %select.unfold.i, label %_ZN10XPageCache26alloc_oversized_large_pageEm.exit, !llvm.loop !10
+  br i1 %.not.i, label %select.unfold.i, label %_ZN10XPageCache26alloc_oversized_large_pageEm.exit, !llvm.loop !11
 
 _ZN10XPageCache26alloc_oversized_large_pageEm.exit: ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i, i64 120
@@ -611,7 +611,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i.pre
   %42 = load i64, ptr %39, align 8
   %43 = sub i64 %41, %42
   %44 = icmp eq i64 %2, %43
-  br i1 %44, label %45, label %select.unfold.i, !llvm.loop !9
+  br i1 %44, label %45, label %select.unfold.i, !llvm.loop !10
 
 45:                                               ; preds = %31
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i, i64 120
@@ -665,7 +665,7 @@ select.unfold.i.i:                                ; preds = %_ZN10XPageCache17al
   %75 = load i64, ptr %72, align 8
   %76 = sub i64 %74, %75
   %.not.i.i20 = icmp ugt i64 %2, %76
-  br i1 %.not.i.i20, label %select.unfold.i.i, label %_ZN10XPageCache26alloc_oversized_large_pageEm.exit.i, !llvm.loop !10
+  br i1 %.not.i.i20, label %select.unfold.i.i, label %_ZN10XPageCache26alloc_oversized_large_pageEm.exit.i, !llvm.loop !11
 
 _ZN10XPageCache26alloc_oversized_large_pageEm.exit.i: ; preds = %64
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.i.i, i64 120
@@ -1032,7 +1032,7 @@ _ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.ex
   %40 = add i64 %39, -120
   %41 = icmp eq i64 %40, 0
   %42 = select i1 %37, i1 true, i1 %41
-  br i1 %42, label %._crit_edge, label %16, !llvm.loop !11
+  br i1 %42, label %._crit_edge, label %16, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %_ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit, %16, %4
   ret void
@@ -1113,7 +1113,7 @@ _ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.ex
 47:                                               ; preds = %_ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit.thread, %31
   %48 = phi i32 [ 0, %31 ], [ %30, %_ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit.thread ]
   %49 = icmp ult i32 %48, %5
-  br i1 %49, label %8, label %._crit_edge, !llvm.loop !12
+  br i1 %49, label %8, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %47, %4
   ret void
@@ -1179,7 +1179,7 @@ _ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.ex
   %40 = add i64 %39, -120
   %41 = icmp eq i64 %40, 0
   %42 = select i1 %37, i1 true, i1 %41
-  br i1 %42, label %_ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit, label %16, !llvm.loop !11
+  br i1 %42, label %_ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit, label %16, !llvm.loop !12
 
 _ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit: ; preds = %16, %_ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit.i, %3
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1240,7 +1240,7 @@ _ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.ex
   %79 = add i64 %78, -120
   %80 = icmp eq i64 %79, 0
   %81 = select i1 %76, i1 true, i1 %80
-  br i1 %81, label %_ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit19, label %55, !llvm.loop !11
+  br i1 %81, label %_ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit19, label %55, !llvm.loop !12
 
 _ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit19: ; preds = %55, %_ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit.i18, %_ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit
   %82 = tail call noundef i32 @_ZN5XNUMA5countEv() #9
@@ -1316,7 +1316,7 @@ _ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.ex
 124:                                              ; preds = %108, %_ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit.thread.i
   %125 = phi i32 [ 0, %108 ], [ %107, %_ZN10XPageCache16flush_list_innerEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit.thread.i ]
   %126 = icmp ult i32 %125, %82
-  br i1 %126, label %85, label %_ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNUMAStorage5XListI5XPageEEPS6_.exit, !llvm.loop !12
+  br i1 %126, label %85, label %_ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNUMAStorage5XListI5XPageEEPS6_.exit, !llvm.loop !13
 
 _ZN10XPageCache20flush_per_numa_listsEP22XPageCacheFlushClosureP6XValueI15XPerNUMAStorage5XListI5XPageEEPS6_.exit: ; preds = %124, %_ZN10XPageCache10flush_listEP22XPageCacheFlushClosureP5XListI5XPageES5_.exit19
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1504,7 +1504,7 @@ _ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit: ; preds = %select.u
   %4 = tail call noundef i32 @_ZN5XNUMA5countEv() #9
   %5 = zext i32 %4 to i64
   %6 = icmp samesign ult i64 %indvars.iv.next, %5
-  br i1 %6, label %.lr.ph56, label %_ZN19XValueConstIteratorI15XPerNUMAStorage5XListI5XPageEE4nextEPPKS3_.exit, !llvm.loop !13
+  br i1 %6, label %.lr.ph56, label %_ZN19XValueConstIteratorI15XPerNUMAStorage5XListI5XPageEE4nextEPPKS3_.exit, !llvm.loop !14
 
 .lr.ph56:                                         ; preds = %2, %_ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN17XListIteratorImplI5XPageLb1EE4nextEPPS0_.exit.loopexit ], [ 0, %2 ]
@@ -1790,11 +1790,12 @@ attributes #9 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

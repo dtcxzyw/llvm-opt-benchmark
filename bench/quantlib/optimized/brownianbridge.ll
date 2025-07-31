@@ -453,7 +453,7 @@ entry:
   %t_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %t_, align 8, !tbaa !17
   %1 = load double, ptr %0, align 8, !tbaa !19
-  %call2 = tail call double @sqrt(double noundef %1) #10, !tbaa !28
+  %call2 = tail call double @sqrt(double noundef %1) #10, !tbaa !29
   %sqrtdt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %sqrtdt_, align 8, !tbaa !17
   store double %call2, ptr %2, align 8, !tbaa !19
@@ -489,12 +489,12 @@ for.body:                                         ; preds = %entry, %for.body
   %gep = getelementptr double, ptr %invariant.gep, i64 %i.0103
   %6 = load double, ptr %gep, align 8, !tbaa !19
   %sub8 = fsub double %5, %6
-  %call9 = tail call double @sqrt(double noundef %sub8) #10, !tbaa !28
+  %call9 = tail call double @sqrt(double noundef %sub8) #10, !tbaa !29
   %add.ptr.i53 = getelementptr inbounds nuw double, ptr %2, i64 %i.0103
   store double %call9, ptr %add.ptr.i53, align 8, !tbaa !19
   %inc = add nuw i64 %i.0103, 1
   %exitcond.not = icmp eq i64 %inc, %3
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !30
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !31
 
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %map.sroa.12.0 = phi i64 [ 0, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i ], [ %4, %if.end.i.i.i.i.i.i.i ]
@@ -509,7 +509,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.
   %9 = getelementptr double, ptr %0, i64 %8
   %add.ptr.i56 = getelementptr i8, ptr %9, i64 -8
   %10 = load double, ptr %add.ptr.i56, align 8, !tbaa !19
-  %call24 = tail call double @sqrt(double noundef %10) #10, !tbaa !28
+  %call24 = tail call double @sqrt(double noundef %10) #10, !tbaa !29
   %stdDev_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %11 = load ptr, ptr %stdDev_, align 8, !tbaa !17
   store double %call24, ptr %11, align 8, !tbaa !19
@@ -546,7 +546,7 @@ while.cond:                                       ; preds = %while.cond, %while.
   %16 = load i64, ptr %add.ptr.i60, align 8, !tbaa !24
   %cmp35.not = icmp eq i64 %16, 0
   %inc36 = add i64 %j.1, 1
-  br i1 %cmp35.not, label %while.cond37, label %while.cond, !llvm.loop !31
+  br i1 %cmp35.not, label %while.cond37, label %while.cond, !llvm.loop !32
 
 while.cond37:                                     ; preds = %while.cond, %while.cond37
   %k.0 = phi i64 [ %inc41, %while.cond37 ], [ %j.1, %while.cond ]
@@ -554,7 +554,7 @@ while.cond37:                                     ; preds = %while.cond, %while.
   %17 = load i64, ptr %add.ptr.i61, align 8, !tbaa !24
   %cmp39 = icmp eq i64 %17, 0
   %inc41 = add i64 %k.0, 1
-  br i1 %cmp39, label %while.cond37, label %while.end42, !llvm.loop !32
+  br i1 %cmp39, label %while.cond37, label %while.end42, !llvm.loop !33
 
 while.end42:                                      ; preds = %while.cond37
   %18 = xor i64 %j.1, -1
@@ -620,7 +620,7 @@ if.else:                                          ; preds = %while.end42
 
 if.end:                                           ; preds = %if.else, %if.then
   %div127.sink = phi double [ %div127, %if.else ], [ %div96, %if.then ]
-  %call128 = tail call double @sqrt(double noundef %div127.sink) #10, !tbaa !28
+  %call128 = tail call double @sqrt(double noundef %div127.sink) #10, !tbaa !29
   %32 = getelementptr inbounds nuw double, ptr %11, i64 %i28.0108
   store double %call128, ptr %32, align 8, !tbaa !19
   %33 = load i64, ptr %this, align 8, !tbaa !3
@@ -628,7 +628,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %spec.store.select = select i1 %cmp133.not, i64 %inc41, i64 0
   %inc137 = add nuw i64 %i28.0108, 1
   %cmp31 = icmp ult i64 %inc137, %33
-  br i1 %cmp31, label %while.cond.preheader, label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !33
+  br i1 %cmp31, label %while.cond.preheader, label %_ZNSt6vectorImSaImEED2Ev.exit, !llvm.loop !34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -649,7 +649,7 @@ entry:
 
 cond.true.i.i.i.i:                                ; preds = %entry
   %cmp.i.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
-  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !34
+  br i1 %cmp.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaIdEE8allocateERS0_m.exit.i.i.i.i, !prof !35
 
 if.then3.i.i.i.i.i.i:                             ; preds = %cond.true.i.i.i.i
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #7
@@ -667,8 +667,8 @@ invoke.cont.i:                                    ; preds = %_ZNSt16allocator_tr
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !18
-  %2 = load ptr, ptr %times, align 8, !tbaa !35
-  %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !35
+  %2 = load ptr, ptr %times, align 8, !tbaa !36
+  %3 = load ptr, ptr %_M_finish.i, align 8, !tbaa !36
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i.i.i
@@ -1363,7 +1363,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i13, i64 %i.0300
   store double %18, ptr %add.ptr.i, align 8, !tbaa !19
   %exitcond.not = icmp eq i64 %add, %sub
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !36
+  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !37
 
 invoke.cont38:                                    ; preds = %for.cond.cleanup
   ret void
@@ -1575,14 +1575,15 @@ attributes #10 = { nounwind }
 !23 = !{!16, !12, i64 16}
 !24 = !{!5, !5, i64 0}
 !25 = !{!16, !12, i64 8}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = !{!29, !29, i64 0}
-!29 = !{!"int", !6, i64 0}
-!30 = distinct !{!30, !27}
-!31 = distinct !{!31, !27}
-!32 = distinct !{!32, !27}
-!33 = distinct !{!33, !27}
-!34 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!35 = !{!12, !12, i64 0}
-!36 = distinct !{!36, !27}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"int", !6, i64 0}
+!31 = distinct !{!31, !27, !28}
+!32 = distinct !{!32, !27, !28}
+!33 = distinct !{!33, !27, !28}
+!34 = distinct !{!34, !27, !28}
+!35 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!36 = !{!12, !12, i64 0}
+!37 = distinct !{!37, !27, !28}

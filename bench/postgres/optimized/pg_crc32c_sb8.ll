@@ -103,7 +103,7 @@ define i32 @pg_comp_crc32c_sb8(i32 noundef %0, ptr noundef %1, i64 noundef %2) l
   %70 = xor i32 %65, %69
   %71 = add i64 %.13649, -8
   %72 = icmp ugt i64 %71, 7
-  br i1 %72, label %.lr.ph51, label %.preheader, !llvm.loop !5
+  br i1 %72, label %.lr.ph51, label %.preheader, !llvm.loop !6
 
 .lr.ph59:                                         ; preds = %.preheader, %.lr.ph59
   %.258 = phi i32 [ %79, %.lr.ph59 ], [ %.1.lcssa, %.preheader ]
@@ -120,7 +120,7 @@ define i32 @pg_comp_crc32c_sb8(i32 noundef %0, ptr noundef %1, i64 noundef %2) l
   %79 = xor i32 %77, %78
   %80 = add nsw i64 %.23757, -1
   %.not = icmp eq i64 %80, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph59, !llvm.loop !6
+  br i1 %.not, label %._crit_edge, label %.lr.ph59, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph59, %.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %79, %.lr.ph59 ]
@@ -134,7 +134,8 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

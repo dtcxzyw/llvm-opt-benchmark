@@ -210,7 +210,7 @@ ReadWiredSerial.exit:                             ; preds = %39, %43, %62
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %74 = load i8, ptr %73, align 4, !range !5, !noundef !6
+  %74 = load i8, ptr %73, align 4, !range !6, !noundef !7
   %75 = trunc nuw i8 %74 to i1
   %76 = getelementptr i8, ptr %0, i64 128
   %77 = load ptr, ptr %76, align 8
@@ -433,13 +433,13 @@ switch.lookup:                                    ; preds = %184
 201:                                              ; preds = %191, %194, %198, %195, %121
   %.0112 = phi i32 [ 1, %121 ], [ 1, %198 ], [ 1, %195 ], [ %.1, %194 ], [ %.1, %191 ]
   %202 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %203 = load i8, ptr %202, align 4, !range !5, !noundef !6
+  %203 = load i8, ptr %202, align 4, !range !6, !noundef !7
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %208, label %205
 
 205:                                              ; preds = %201
   %206 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  %207 = load i8, ptr %206, align 1, !range !5, !noundef !6
+  %207 = load i8, ptr %206, align 1, !range !6, !noundef !7
   br label %208
 
 208:                                              ; preds = %205, %201
@@ -481,7 +481,7 @@ switch.lookup:                                    ; preds = %184
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 5, ptr %223, align 4
   %224 = getelementptr inbounds nuw i8, ptr %6, i64 18
-  %225 = load i8, ptr %224, align 2, !range !5, !noundef !6
+  %225 = load i8, ptr %224, align 2, !range !6, !noundef !7
   %226 = trunc nuw i8 %225 to i1
   br i1 %226, label %227, label %228
 
@@ -492,7 +492,7 @@ switch.lookup:                                    ; preds = %184
 228:                                              ; preds = %227, %.thread133
   call void @HIDAPI_SetDeviceSerial(ptr noundef nonnull %0, ptr noundef nonnull %5) #9
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %230 = load i8, ptr %229, align 4, !range !5, !noundef !6
+  %230 = load i8, ptr %229, align 4, !range !6, !noundef !7
   %231 = trunc nuw i8 %230 to i1
   %232 = load ptr, ptr %13, align 8
   br i1 %231, label %233, label %235
@@ -506,13 +506,13 @@ switch.lookup:                                    ; preds = %184
   br label %236
 
 236:                                              ; preds = %233, %235
-  %237 = load i8, ptr %118, align 8, !range !5, !noundef !6
+  %237 = load i8, ptr %118, align 8, !range !6, !noundef !7
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %245, label %239
 
 239:                                              ; preds = %236
   %240 = getelementptr inbounds nuw i8, ptr %6, i64 17
-  %241 = load i8, ptr %240, align 1, !range !5, !noundef !6
+  %241 = load i8, ptr %240, align 1, !range !6, !noundef !7
   %242 = trunc nuw i8 %241 to i1
   %243 = load i8, ptr %5, align 16
   %244 = icmp eq i8 %243, 0
@@ -556,7 +556,7 @@ define internal void @HIDAPI_DriverPS4_SetDevicePlayerIndex(ptr noundef readonly
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %4, i8 0, i64 19, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 21
-  %12 = load i8, ptr %11, align 1, !range !5, !noundef !6
+  %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %20
 
@@ -572,13 +572,13 @@ define internal void @HIDAPI_DriverPS4_SetDevicePlayerIndex(ptr noundef readonly
 
 20:                                               ; preds = %14, %9
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %22 = load i8, ptr %21, align 4, !range !5, !noundef !6
+  %22 = load i8, ptr %21, align 4, !range !6, !noundef !7
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %HIDAPI_DriverPS4_UpdateEffects.exit
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 102
-  %26 = load i8, ptr %25, align 2, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 2, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %32
 
@@ -700,7 +700,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_UpdateDevice(ptr noundef %0) #0 {
   br i1 %45, label %.thread33.i, label %46
 
 46:                                               ; preds = %44
-  %47 = load i8, ptr %25, align 1, !range !5, !noundef !6
+  %47 = load i8, ptr %25, align 1, !range !6, !noundef !7
   %48 = trunc nuw i8 %47 to i1
   %49 = icmp samesign ugt i32 %42, 42
   %or.cond.i = select i1 %48, i1 %49, i1 false
@@ -792,7 +792,7 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   %91 = load ptr, ptr %18, align 8
   %92 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %91, ptr noundef nonnull %4, i64 noundef 128, i32 noundef 0) #9
   %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %41, label %.outer._crit_edge.loopexit, !llvm.loop !7
+  br i1 %93, label %41, label %.outer._crit_edge.loopexit, !llvm.loop !8
 
 .thread33.i:                                      ; preds = %87, %88, %44, %73, %85
   %94 = add nuw nsw i32 %.068.ph90, 1
@@ -835,7 +835,7 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   %102 = load ptr, ptr %18, align 8
   %103 = call i32 @SDL_hid_read_timeout_REAL(ptr noundef %102, ptr noundef nonnull %4, i64 noundef 128, i32 noundef 0) #9
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph, label %.outer._crit_edge.thread, !llvm.loop !7
+  br i1 %104, label %.lr.ph, label %.outer._crit_edge.thread, !llvm.loop !8
 
 .outer._crit_edge.loopexit:                       ; preds = %HIDAPI_DriverPS4_IsPacketValid.exit
   %105 = icmp eq i32 %.068.ph90, 0
@@ -845,13 +845,13 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
   %.068.ph.lcssa = phi i1 [ true, %17 ], [ %105, %.outer._crit_edge.loopexit ]
   %.lcssa81 = phi i32 [ %20, %17 ], [ %92, %.outer._crit_edge.loopexit ]
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %107 = load i8, ptr %106, align 4, !range !5, !noundef !6
+  %107 = load i8, ptr %106, align 4, !range !6, !noundef !7
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %112, label %136
 
 .outer._crit_edge.thread:                         ; preds = %.outer.backedge
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %110 = load i8, ptr %109, align 4, !range !5, !noundef !6
+  %110 = load i8, ptr %109, align 4, !range !6, !noundef !7
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %.thread108, label %136
 
@@ -868,7 +868,7 @@ HIDAPI_DriverPS4_IsPacketValid.exit:              ; preds = %41, %.thread.i, %73
 117:                                              ; preds = %113
   %118 = load ptr, ptr %6, align 8
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 28
-  %120 = load i8, ptr %119, align 4, !range !5, !noundef !6
+  %120 = load i8, ptr %119, align 4, !range !6, !noundef !7
   %121 = trunc nuw i8 %120 to i1
   br i1 %121, label %122, label %HIDAPI_DriverPS4_TickleBluetooth.exit
 
@@ -913,13 +913,13 @@ HIDAPI_DriverPS4_TickleBluetooth.exit:            ; preds = %117, %127
   %.lcssa81106 = phi i32 [ %103, %.outer._crit_edge.thread ], [ %.lcssa81, %HIDAPI_DriverPS4_TickleBluetooth.exit ], [ %.lcssa81, %113 ], [ %.lcssa81107111, %134 ], [ %.lcssa81107111, %130 ], [ %.lcssa81107111, %.thread108 ], [ %.lcssa81, %.outer._crit_edge ]
   %.068.ph.lcssa104 = phi i1 [ false, %.outer._crit_edge.thread ], [ true, %HIDAPI_DriverPS4_TickleBluetooth.exit ], [ true, %113 ], [ false, %134 ], [ false, %130 ], [ false, %.thread108 ], [ %.068.ph.lcssa, %.outer._crit_edge ]
   %137 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %138 = load i8, ptr %137, align 8, !range !5, !noundef !6
+  %138 = load i8, ptr %137, align 8, !range !6, !noundef !7
   %139 = trunc nuw i8 %138 to i1
   br i1 %139, label %144, label %140
 
 140:                                              ; preds = %136
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 17
-  %142 = load i8, ptr %141, align 1, !range !5, !noundef !6
+  %142 = load i8, ptr %141, align 1, !range !6, !noundef !7
   %143 = trunc nuw i8 %142 to i1
   br i1 %143, label %144, label %191
 
@@ -1052,7 +1052,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS4_OpenJoystick(ptr noundef re
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 11, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 22
-  %18 = load i8, ptr %17, align 2, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 2, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   %spec.store.select = select i1 %19, i32 12, i32 11
   store i32 %spec.store.select, ptr %16, align 8
@@ -1071,7 +1071,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_RumbleJoystick(ptr noundef readonly
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 21
-  %9 = load i8, ptr %8, align 1, !range !5, !noundef !6
+  %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %13, label %11
 
@@ -1095,13 +1095,13 @@ define internal zeroext i1 @HIDAPI_DriverPS4_RumbleJoystick(ptr noundef readonly
   store i8 %15, ptr %21, align 1
   store i8 %18, ptr %5, align 1
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %23 = load i8, ptr %22, align 4, !range !5, !noundef !6
+  %23 = load i8, ptr %22, align 4, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %25, label %HIDAPI_DriverPS4_UpdateEffects.exit
 
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 102
-  %27 = load i8, ptr %26, align 2, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %33
 
@@ -1159,16 +1159,16 @@ define internal range(i32 0, 19) i32 @HIDAPI_DriverPS4_GetJoystickCapabilities(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 30
-  %6 = load i8, ptr %5, align 2, !range !5, !noundef !6
+  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %8, label %15
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %10 = load i8, ptr %9, align 4, !range !5, !noundef !6
+  %10 = load i8, ptr %9, align 4, !range !6, !noundef !7
   %11 = shl nuw nsw i8 %10, 1
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 21
-  %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
   %14 = shl nuw nsw i8 %13, 4
   %spec.select67 = or disjoint i8 %14, %11
   %spec.select6 = zext nneg i8 %spec.select67 to i32
@@ -1185,7 +1185,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_SetJoystickLED(ptr noundef readonly
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  %10 = load i8, ptr %9, align 4, !range !5, !noundef !6
+  %10 = load i8, ptr %9, align 4, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %14, label %12
 
@@ -1205,7 +1205,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_SetJoystickLED(ptr noundef readonly
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %6, i8 0, i64 19, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 21
-  %20 = load i8, ptr %19, align 1, !range !5, !noundef !6
+  %20 = load i8, ptr %19, align 1, !range !6, !noundef !7
   %21 = trunc nuw i8 %20 to i1
   br i1 %21, label %22, label %HIDAPI_DriverPS4_UpdateEffects.exit
 
@@ -1260,7 +1260,7 @@ define internal zeroext i1 @HIDAPI_DriverPS4_SetJoystickSensorsEnabled(ptr nound
 
 HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 19
-  %13 = load i8, ptr %12, align 1, !range !5, !noundef !6
+  %13 = load i8, ptr %12, align 1, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %20
 
@@ -1269,7 +1269,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 29
-  %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %22, label %20
 
@@ -1281,7 +1281,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %23 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #9
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 18
-  %25 = load i8, ptr %24, align 2, !range !5, !noundef !6
+  %25 = load i8, ptr %24, align 2, !range !6, !noundef !7
   %26 = trunc nuw i8 %25 to i1
   br i1 %26, label %.preheader.i.i, label %HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i
 
@@ -1300,7 +1300,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   br i1 %32, label %HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i, label %33
 
 33:                                               ; preds = %29
-  %34 = load i8, ptr %28, align 4, !range !5, !noundef !6
+  %34 = load i8, ptr %28, align 4, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %36, label %.lr.ph.preheader.i.i
 
@@ -1320,7 +1320,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 40:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 .lr.ph.i.i:                                       ; preds = %40, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %40 ]
@@ -1333,7 +1333,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   call void @SDL_Delay_REAL(i32 noundef 2) #9
   %43 = add nuw nsw i32 %.088112.i.i, 1
   %exitcond116.not.i.i = icmp eq i32 %43, 5
-  br i1 %exitcond116.not.i.i, label %.loopexit.i.i, label %29, !llvm.loop !9
+  br i1 %exitcond116.not.i.i, label %.loopexit.i.i, label %29, !llvm.loop !10
 
 .thread.i.i:                                      ; preds = %.lr.ph.i.i
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -1360,13 +1360,13 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %65 = zext i8 %64 to i16
   %66 = shl nuw i16 %65, 8
   %67 = or disjoint i16 %66, %62
-  %68 = load i8, ptr %28, align 4, !range !5, !noundef !6
+  %68 = load i8, ptr %28, align 4, !range !6, !noundef !7
   %69 = trunc nuw i8 %68 to i1
   br i1 %69, label %74, label %70
 
 70:                                               ; preds = %.thread.i.i
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %72 = load i8, ptr %71, align 8, !range !5, !noundef !6
+  %72 = load i8, ptr %71, align 8, !range !6, !noundef !7
   %73 = trunc nuw i8 %72 to i1
   br i1 %73, label %74, label %85
 
@@ -1577,11 +1577,11 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
 231:                                              ; preds = %230, %224
   %indvars.iv.next118.i.i = add nuw nsw i64 %indvars.iv117.i.i, 1
   %exitcond120.not.i.i = icmp eq i64 %indvars.iv.next118.i.i, 6
-  br i1 %exitcond120.not.i.i, label %.loopexit.i.i, label %218, !llvm.loop !10
+  br i1 %exitcond120.not.i.i, label %.loopexit.i.i, label %218, !llvm.loop !11
 
 .loopexit.i.i:                                    ; preds = %._crit_edge.i.i, %231
   %232 = getelementptr inbounds nuw i8, ptr %23, i64 35
-  %233 = load i8, ptr %232, align 1, !range !5, !noundef !6
+  %233 = load i8, ptr %232, align 1, !range !6, !noundef !7
   %234 = trunc nuw i8 %233 to i1
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #9
   br i1 %234, label %.loopexit.i, label %.preheader.i
@@ -1602,7 +1602,7 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   store float 1.000000e+00, ptr %238, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.not.i, label %.loopexit.i, label %236, !llvm.loop !11
+  br i1 %exitcond.not.i, label %.loopexit.i, label %236, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %236, %.loopexit.i.i
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %23, i64 40
@@ -1672,7 +1672,7 @@ HIDAPI_DriverPS4_LoadOfficialCalibrationData.exit.i: ; preds = %36, %29, %22
   store float %282, ptr %gep.i, align 4
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %exitcond38.not.i = icmp eq i64 %indvars.iv.next36.i, 6
-  br i1 %exitcond38.not.i, label %.critedge, label %245, !llvm.loop !12
+  br i1 %exitcond38.not.i, label %.critedge, label %245, !llvm.loop !13
 
 .critedge:                                        ; preds = %281, %15
   %283 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1750,7 +1750,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(p
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 78, ptr nonnull %5) #9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %8 = load i8, ptr %7, align 1, !range !5, !noundef !6
+  %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = trunc nuw i8 %8 to i1
   %.021.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 6
   %.021.sroa.gep23 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1762,7 +1762,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(p
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %14 = load i8, ptr %13, align 1, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %23, label %16
 
@@ -1777,7 +1777,7 @@ define internal fastcc zeroext i1 @HIDAPI_DriverPS4_InternalSendJoystickEffect(p
 
 HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %17
   tail call fastcc void @HIDAPI_DriverPS4_SetEnhancedReportHint(ptr noundef nonnull %0, i32 noundef 1)
-  %.pre = load i8, ptr %13, align 1, !range !5
+  %.pre = load i8, ptr %13, align 1, !range !6
   %21 = trunc nuw i8 %.pre to i1
   br i1 %21, label %23, label %HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread
 
@@ -1789,13 +1789,13 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit.thread: ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(78) %5, i8 0, i64 78, i1 false)
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 84
-  %26 = load i8, ptr %25, align 4, !range !5, !noundef !6
+  %26 = load i8, ptr %25, align 4, !range !6, !noundef !7
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %30 = load i8, ptr %29, align 2, !range !5, !noundef !6
+  %30 = load i8, ptr %29, align 2, !range !6, !noundef !7
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %.thread, label %38
 
@@ -1881,14 +1881,14 @@ define internal fastcc void @HIDAPI_DriverPS4_SetEnhancedReportHint(ptr noundef 
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %6 = load i8, ptr %5, align 2, !range !5, !noundef !6
+  %6 = load i8, ptr %5, align 2, !range !6, !noundef !7
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %HIDAPI_DriverPS4_SetEnhancedModeAvailable.exit6, label %8
 
 8:                                                ; preds = %4
   store i8 1, ptr %5, align 2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %10 = load i8, ptr %9, align 2, !range !5, !noundef !6
+  %10 = load i8, ptr %9, align 2, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %16
 
@@ -1902,7 +1902,7 @@ define internal fastcc void @HIDAPI_DriverPS4_SetEnhancedReportHint(ptr noundef 
 
 16:                                               ; preds = %12, %8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %18 = load i8, ptr %17, align 1, !range !5, !noundef !6
+  %18 = load i8, ptr %17, align 1, !range !6, !noundef !7
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %20, label %31
 
@@ -1925,7 +1925,7 @@ define internal fastcc void @HIDAPI_DriverPS4_SetEnhancedReportHint(ptr noundef 
 
 31:                                               ; preds = %20, %16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %33 = load i8, ptr %32, align 2, !range !5, !noundef !6
+  %33 = load i8, ptr %32, align 2, !range !6, !noundef !7
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %35, label %37
 
@@ -1941,7 +1941,7 @@ define internal fastcc void @HIDAPI_DriverPS4_SetEnhancedReportHint(ptr noundef 
 
 HIDAPI_DriverPS4_SetEnhancedModeAvailable.exit6:  ; preds = %4, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %40 = load i8, ptr %39, align 1, !range !5, !noundef !6
+  %40 = load i8, ptr %39, align 1, !range !6, !noundef !7
   %41 = trunc nuw i8 %40 to i1
   br i1 %41, label %HIDAPI_DriverPS4_SetEnhancedMode.exit, label %42
 
@@ -1950,7 +1950,7 @@ HIDAPI_DriverPS4_SetEnhancedModeAvailable.exit6:  ; preds = %4, %37
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %3, i8 0, i64 19, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %44 = load i8, ptr %43, align 1, !range !5, !noundef !6
+  %44 = load i8, ptr %43, align 1, !range !6, !noundef !7
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %52
 
@@ -1966,13 +1966,13 @@ HIDAPI_DriverPS4_SetEnhancedModeAvailable.exit6:  ; preds = %4, %37
 
 52:                                               ; preds = %46, %42
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %54 = load i8, ptr %53, align 4, !range !5, !noundef !6
+  %54 = load i8, ptr %53, align 4, !range !6, !noundef !7
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %HIDAPI_DriverPS4_UpdateEffects.exit
 
 56:                                               ; preds = %52
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 102
-  %58 = load i8, ptr %57, align 2, !range !5, !noundef !6
+  %58 = load i8, ptr %57, align 2, !range !6, !noundef !7
   %59 = trunc nuw i8 %58 to i1
   br i1 %59, label %60, label %68
 
@@ -2020,14 +2020,14 @@ HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %HIDAPI_DriverPS4_Up
 
 81:                                               ; preds = %2
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %83 = load i8, ptr %82, align 2, !range !5, !noundef !6
+  %83 = load i8, ptr %82, align 2, !range !6, !noundef !7
   %84 = trunc nuw i8 %83 to i1
   br i1 %84, label %HIDAPI_DriverPS4_SetEnhancedMode.exit, label %85
 
 85:                                               ; preds = %81
   store i8 1, ptr %82, align 2
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %87 = load i8, ptr %86, align 2, !range !5, !noundef !6
+  %87 = load i8, ptr %86, align 2, !range !6, !noundef !7
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %93
 
@@ -2041,7 +2041,7 @@ HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %HIDAPI_DriverPS4_Up
 
 93:                                               ; preds = %89, %85
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %95 = load i8, ptr %94, align 1, !range !5, !noundef !6
+  %95 = load i8, ptr %94, align 1, !range !6, !noundef !7
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %97, label %108
 
@@ -2064,7 +2064,7 @@ HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %HIDAPI_DriverPS4_Up
 
 108:                                              ; preds = %97, %93
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %110 = load i8, ptr %109, align 2, !range !5, !noundef !6
+  %110 = load i8, ptr %109, align 2, !range !6, !noundef !7
   %111 = trunc nuw i8 %110 to i1
   br i1 %111, label %112, label %114
 
@@ -2103,13 +2103,13 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 33
-  %10 = load i8, ptr %9, align 1, !range !5, !noundef !6
+  %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %63
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %14 = load i8, ptr %13, align 4, !range !5, !noundef !6
+  %14 = load i8, ptr %13, align 4, !range !6, !noundef !7
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %63
 
@@ -2312,13 +2312,13 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
 
 152:                                              ; preds = %122
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 34
-  %154 = load i8, ptr %153, align 2, !range !5, !noundef !6
+  %154 = load i8, ptr %153, align 2, !range !6, !noundef !7
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %174
 
 156:                                              ; preds = %152
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %158 = load i8, ptr %157, align 4, !range !5, !noundef !6
+  %158 = load i8, ptr %157, align 4, !range !6, !noundef !7
   %159 = trunc nuw i8 %158 to i1
   br i1 %159, label %160, label %174
 
@@ -2361,7 +2361,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
 
 174:                                              ; preds = %152, %156, %173
   %175 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %176 = load i8, ptr %175, align 8, !range !5, !noundef !6
+  %176 = load i8, ptr %175, align 8, !range !6, !noundef !7
   %177 = trunc nuw i8 %176 to i1
   br i1 %177, label %178, label %.critedge
 
@@ -2523,7 +2523,7 @@ switch.lookup:                                    ; preds = %6
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %5, i8 0, i64 19, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %17 = load i8, ptr %16, align 1, !range !5, !noundef !6
+  %17 = load i8, ptr %16, align 1, !range !6, !noundef !7
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %25
 
@@ -2539,13 +2539,13 @@ switch.lookup:                                    ; preds = %6
 
 25:                                               ; preds = %19, %14
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %27 = load i8, ptr %26, align 4, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 4, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %HIDAPI_DriverPS4_UpdateEffects.exit
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 102
-  %31 = load i8, ptr %30, align 2, !range !5, !noundef !6
+  %31 = load i8, ptr %30, align 2, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
   br i1 %32, label %33, label %37
 
@@ -2610,7 +2610,7 @@ HIDAPI_DriverPS4_UpdateEffects.exit:              ; preds = %25, %.sink.split.i
 define internal void @SDL_PS4EnhancedReportsChanged(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
-  %7 = load i8, ptr %6, align 4, !range !5, !noundef !6
+  %7 = load i8, ptr %6, align 4, !range !6, !noundef !7
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %54
 
@@ -2625,14 +2625,14 @@ define internal void @SDL_PS4EnhancedReportsChanged(ptr noundef captures(none) %
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %15 = load i8, ptr %14, align 2, !range !5, !noundef !6
+  %15 = load i8, ptr %14, align 2, !range !6, !noundef !7
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %HIDAPI_DriverPS4_SetEnhancedReportHint.exit, label %17
 
 17:                                               ; preds = %13
   store i8 1, ptr %14, align 2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %19 = load i8, ptr %18, align 2, !range !5, !noundef !6
+  %19 = load i8, ptr %18, align 2, !range !6, !noundef !7
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %21, label %25
 
@@ -2646,7 +2646,7 @@ define internal void @SDL_PS4EnhancedReportsChanged(ptr noundef captures(none) %
 
 25:                                               ; preds = %21, %17
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %27 = load i8, ptr %26, align 1, !range !5, !noundef !6
+  %27 = load i8, ptr %26, align 1, !range !6, !noundef !7
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %40
 
@@ -2669,7 +2669,7 @@ define internal void @SDL_PS4EnhancedReportsChanged(ptr noundef captures(none) %
 
 40:                                               ; preds = %29, %25
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %42 = load i8, ptr %41, align 2, !range !5, !noundef !6
+  %42 = load i8, ptr %41, align 2, !range !6, !noundef !7
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %46
 
@@ -2750,13 +2750,14 @@ attributes #10 = { nounwind allocsize(0,1) }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = !{i8 0, i8 2}
-!6 = !{}
-!7 = distinct !{!7, !4}
-!8 = distinct !{!8, !4}
-!9 = distinct !{!9, !4}
-!10 = distinct !{!10, !4}
-!11 = distinct !{!11, !4}
-!12 = distinct !{!12, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = !{i8 0, i8 2}
+!7 = !{}
+!8 = distinct !{!8, !4, !5}
+!9 = distinct !{!9, !4, !5}
+!10 = distinct !{!10, !4, !5}
+!11 = distinct !{!11, !4, !5}
+!12 = distinct !{!12, !4, !5}
+!13 = distinct !{!13, !4, !5}

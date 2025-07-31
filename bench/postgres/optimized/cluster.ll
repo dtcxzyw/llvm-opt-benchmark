@@ -373,7 +373,7 @@ cluster_is_permitted_for_relation.exit.thread.i72: ; preds = %cluster_is_permitt
   %.1.i73 = phi ptr [ %147, %cluster_is_permitted_for_relation.exit.i75 ], [ %.017.i, %137 ], [ %.017.i, %139 ]
   %148 = call ptr @heap_getnext(ptr noundef %124, i32 noundef 1) #7
   %.not.i74 = icmp eq ptr %148, null
-  br i1 %.not.i74, label %get_tables_to_cluster.exit, label %.lr.ph.i71
+  br i1 %.not.i74, label %get_tables_to_cluster.exit, label %.lr.ph.i71, !llvm.loop !6
 
 get_tables_to_cluster.exit:                       ; preds = %cluster_is_permitted_for_relation.exit.thread.i72, %122
   %.0.lcssa.i = phi ptr [ null, %122 ], [ %.1.i73, %cluster_is_permitted_for_relation.exit.thread.i72 ]
@@ -494,7 +494,7 @@ define dso_local void @cluster_rel(ptr noundef %0, i32 noundef %1, ptr noundef r
   %.not = icmp eq i32 %16, 0
   %17 = load volatile i32, ptr @InterruptPending, align 4
   %.not37 = icmp eq i32 %17, 0
-  br i1 %.not37, label %19, label %18, !prof !6
+  br i1 %.not37, label %19, label %18, !prof !8
 
 18:                                               ; preds = %3
   tail call void @ProcessInterrupts() #7
@@ -1394,7 +1394,7 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   %45 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %44
   %46 = load i32, ptr %45, align 4
   %.not52 = icmp eq i32 %46, 0
-  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %.not52, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %38
   br i1 %3, label %64, label %47
@@ -2032,6 +2032,8 @@ attributes #9 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!7 = distinct !{!7, !8}
-!8 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !7}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!9 = distinct !{!9, !10, !7}
+!10 = !{!"llvm.loop.mustprogress"}

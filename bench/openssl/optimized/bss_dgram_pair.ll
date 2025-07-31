@@ -725,7 +725,7 @@ define internal range(i32 0, 2) i32 @dgram_pair_recvmmsg(ptr noundef %0, ptr nou
   store i64 0, ptr %42, align 8, !tbaa !41
   %43 = add nuw i64 %.03442, 1
   %exitcond.not = icmp eq i64 %43, %3
-  br i1 %exitcond.not, label %44, label %.preheader, !llvm.loop !44
+  br i1 %exitcond.not, label %44, label %.preheader, !llvm.loop !45
 
 44:                                               ; preds = %41
   store i64 %3, ptr %5, align 8, !tbaa !35
@@ -776,7 +776,7 @@ define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %0, ptr 
 
 15:                                               ; preds = %14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !45
+  %17 = load ptr, ptr %16, align 8, !tbaa !46
   %.not56 = icmp eq ptr %17, null
   br i1 %.not56, label %.critedge, label %18, !prof !34
 
@@ -820,13 +820,13 @@ define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %0, ptr 
   br i1 %37, label %.critedge, label %38
 
 38:                                               ; preds = %33
-  store i64 %2, ptr %7, align 8, !tbaa !46
+  store i64 %2, ptr %7, align 8, !tbaa !47
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %39, ptr noundef nonnull align 4 dereferenceable(112) %4, i64 112, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %39, ptr noundef nonnull align 4 dereferenceable(112) %4, i64 112, i1 false), !tbaa.struct !49
   br label %42
 
 40:                                               ; preds = %32
-  store i64 %2, ptr %7, align 8, !tbaa !46
+  store i64 %2, ptr %7, align 8, !tbaa !47
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %41, i8 0, i64 112, i1 false)
   br label %42
@@ -848,7 +848,7 @@ define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %0, ptr 
 48:                                               ; preds = %.thread52, %44
   %49 = phi ptr [ %43, %.thread52 ], [ %47, %44 ]
   %.03855 = phi ptr [ %3, %.thread52 ], [ %46, %44 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %49, ptr noundef nonnull align 4 dereferenceable(112) %.03855, i64 112, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %49, ptr noundef nonnull align 4 dereferenceable(112) %.03855, i64 112, i1 false), !tbaa.struct !49
   br label %51
 
 50:                                               ; preds = %44
@@ -859,7 +859,7 @@ define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %0, ptr 
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %53 = load i64, ptr %52, align 8, !tbaa !35
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %55 = load i64, ptr %54, align 8, !tbaa !50
+  %55 = load i64, ptr %54, align 8, !tbaa !51
   %56 = call fastcc i64 @dgram_pair_write_inner(ptr noundef nonnull %9, ptr noundef nonnull %7, i64 noundef 232)
   %.not50 = icmp eq i64 %56, 232
   br i1 %.not50, label %57, label %59
@@ -871,7 +871,7 @@ define internal fastcc noundef i64 @dgram_pair_write_actual(ptr noundef %0, ptr 
 
 59:                                               ; preds = %57, %51
   store i64 %53, ptr %52, align 8, !tbaa !35
-  store i64 %55, ptr %54, align 8, !tbaa !50
+  store i64 %55, ptr %54, align 8, !tbaa !51
   br i1 %.not, label %60, label %.critedge
 
 60:                                               ; preds = %59
@@ -918,7 +918,7 @@ define internal fastcc i64 @dgram_pair_write_inner(ptr noundef captures(none) %0
   %.02254 = phi i64 [ 0, %.lr.ph ], [ %83, %79 ]
   %.02453 = phi i64 [ %2, %.lr.ph ], [ %82, %79 ]
   %14 = sub i64 %13, %12
-  %15 = load i64, ptr %7, align 8, !tbaa !51
+  %15 = load i64, ptr %7, align 8, !tbaa !52
   %16 = sub i64 %13, %15
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %16)
   %17 = load ptr, ptr %4, align 8, !tbaa !28
@@ -967,7 +967,7 @@ safe_mul_size_t.exit33.i.i:                       ; preds = %28
 safe_muldiv_size_t.exit.i:                        ; preds = %safe_mul_size_t.exit33.i.i, %30
   %.0.i.i = phi i64 [ %32, %30 ], [ %38, %safe_mul_size_t.exit33.i.i ]
   %39 = icmp ult i64 %.0.i.i, %25
-  br i1 %39, label %.lr.ph.i, label %compute_rbuf_growth.exit.thread36, !llvm.loop !52
+  br i1 %39, label %.lr.ph.i, label %compute_rbuf_growth.exit.thread36, !llvm.loop !53
 
 compute_rbuf_growth.exit:                         ; preds = %23
   %40 = icmp eq i64 %24, 0
@@ -1005,7 +1005,7 @@ compute_rbuf_growth.exit.thread36:                ; preds = %safe_muldiv_size_t.
   br i1 %52, label %.thread43, label %53
 
 53:                                               ; preds = %50
-  %54 = load i64, ptr %7, align 8, !tbaa !51
+  %54 = load i64, ptr %7, align 8, !tbaa !52
   %.not35.i = icmp eq i64 %54, 0
   br i1 %.not35.i, label %66, label %55
 
@@ -1050,7 +1050,7 @@ compute_rbuf_growth.exit.thread36:                ; preds = %safe_muldiv_size_t.
   br i1 %.not.i29, label %79, label %73, !prof !34
 
 73:                                               ; preds = %69
-  %74 = load i64, ptr %7, align 8, !tbaa !51
+  %74 = load i64, ptr %7, align 8, !tbaa !52
   %75 = add i64 %74, %spec.select
   %.not25.i = icmp ugt i64 %75, %70
   br i1 %.not25.i, label %79, label %76, !prof !34
@@ -1060,7 +1060,7 @@ compute_rbuf_growth.exit.thread36:                ; preds = %safe_muldiv_size_t.
   %78 = icmp eq i64 %77, %70
   %spec.store.select23.i = select i1 %78, i64 0, i64 %77
   store i64 %spec.store.select23.i, ptr %6, align 8, !tbaa !35
-  store i64 %75, ptr %7, align 8, !tbaa !51
+  store i64 %75, ptr %7, align 8, !tbaa !52
   br label %79
 
 79:                                               ; preds = %76, %73, %69
@@ -1069,7 +1069,7 @@ compute_rbuf_growth.exit.thread36:                ; preds = %safe_muldiv_size_t.
   %82 = sub i64 %.02453, %spec.select
   %83 = add i64 %spec.select, %.02254
   %.not = icmp eq i64 %82, 0
-  br i1 %.not, label %.thread43, label %11
+  br i1 %.not, label %.thread43, label %11, !llvm.loop !54
 
 .thread43:                                        ; preds = %79, %42, %50, %48, %compute_rbuf_growth.exit, %20, %.lr.ph.i, %3
   %.02251 = phi i64 [ 0, %3 ], [ %.02254, %.lr.ph.i ], [ %83, %79 ], [ %.02254, %42 ], [ %.02254, %50 ], [ %.02254, %48 ], [ %.02254, %compute_rbuf_growth.exit ], [ %.02254, %20 ]
@@ -1122,7 +1122,7 @@ define internal fastcc i64 @dgram_pair_read_actual(ptr noundef %0, ptr noundef w
 .thread:                                          ; preds = %15, %17
   %.0103 = phi ptr [ %19, %17 ], [ %9, %15 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0103, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !45
+  %21 = load ptr, ptr %20, align 8, !tbaa !46
   %.not104 = icmp eq ptr %21, null
   br i1 %.not104, label %.critedge, label %22, !prof !34
 
@@ -1147,7 +1147,7 @@ define internal fastcc i64 @dgram_pair_read_actual(ptr noundef %0, ptr noundef w
   %32 = getelementptr inbounds nuw i8, ptr %.0103, i64 40
   %33 = load i64, ptr %32, align 8, !tbaa !35
   %34 = getelementptr inbounds nuw i8, ptr %.0103, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !50
+  %35 = load i64, ptr %34, align 8, !tbaa !51
   %36 = getelementptr inbounds nuw i8, ptr %.0103, i64 16
   %.pre.i = load i64, ptr %36, align 8, !tbaa !29
   br label %37
@@ -1181,7 +1181,7 @@ define internal fastcc i64 @dgram_pair_read_actual(ptr noundef %0, ptr noundef w
   %spec.store.select.i.i = select i1 %51, i64 0, i64 %50
   store i64 %spec.store.select.i.i, ptr %32, align 8, !tbaa !35
   %52 = sub nuw i64 %38, %spec.select.i
-  store i64 %52, ptr %34, align 8, !tbaa !51
+  store i64 %52, ptr %34, align 8, !tbaa !52
   br label %ring_buf_push_pop.exit.i
 
 ring_buf_push_pop.exit.i:                         ; preds = %43, %49
@@ -1191,7 +1191,7 @@ ring_buf_push_pop.exit.i:                         ; preds = %43, %49
   %56 = add i64 %spec.select.i, %.01238.i
   %57 = sub i64 %.01337.i, %spec.select.i
   %.not.i = icmp eq i64 %57, 0
-  br i1 %.not.i, label %dgram_pair_read_inner.exit, label %37
+  br i1 %.not.i, label %dgram_pair_read_inner.exit, label %37, !llvm.loop !55
 
 dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_pop.exit.i
   %.pre41.i64 = phi i64 [ %39, %37 ], [ %54, %ring_buf_push_pop.exit.i ]
@@ -1200,7 +1200,7 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
   switch i64 %.012.lcssa.i, label %.critedge [
     i64 0, label %58
     i64 232, label %60
-  ], !prof !53
+  ], !prof !56
 
 58:                                               ; preds = %dgram_pair_read_inner.exit
   br i1 %.not, label %59, label %.critedge
@@ -1210,7 +1210,7 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
   br label %.critedge
 
 60:                                               ; preds = %dgram_pair_read_inner.exit
-  %61 = load i64, ptr %7, align 8, !tbaa !46
+  %61 = load i64, ptr %7, align 8, !tbaa !47
   %62 = icmp ugt i64 %2, %61
   br i1 %62, label %71, label %63
 
@@ -1228,7 +1228,7 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
 
 70:                                               ; preds = %65
   store i64 %33, ptr %32, align 8, !tbaa !35
-  store i64 %35, ptr %34, align 8, !tbaa !50
+  store i64 %35, ptr %34, align 8, !tbaa !51
   br label %.critedge
 
 71:                                               ; preds = %60, %63, %65
@@ -1244,7 +1244,7 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
   %.01337.i66 = phi i64 [ %99, %95 ], [ %.045, %71 ]
   %.01536.i67 = phi ptr [ %.217.i75, %95 ], [ %1, %71 ]
   %74 = sub i64 %73, %72
-  %75 = load i64, ptr %34, align 8, !tbaa !51
+  %75 = load i64, ptr %34, align 8, !tbaa !52
   %spec.select.i.i68 = tail call i64 @llvm.umin.i64(i64 %74, i64 %75)
   %76 = load ptr, ptr %20, align 8, !tbaa !28
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %72
@@ -1265,7 +1265,7 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
   br i1 %.not.i.i71, label %ring_buf_push_pop.exit.i74, label %84, !prof !34
 
 84:                                               ; preds = %80
-  %85 = load i64, ptr %34, align 8, !tbaa !51
+  %85 = load i64, ptr %34, align 8, !tbaa !52
   %.not24.i.i72 = icmp ugt i64 %spec.select.i69, %85
   br i1 %.not24.i.i72, label %ring_buf_push_pop.exit.i74, label %86, !prof !34
 
@@ -1275,7 +1275,7 @@ dgram_pair_read_inner.exit:                       ; preds = %37, %ring_buf_push_
   %spec.store.select.i.i73 = select i1 %88, i64 0, i64 %87
   store i64 %spec.store.select.i.i73, ptr %32, align 8, !tbaa !35
   %89 = sub nuw i64 %85, %spec.select.i69
-  store i64 %89, ptr %34, align 8, !tbaa !51
+  store i64 %89, ptr %34, align 8, !tbaa !52
   br label %ring_buf_push_pop.exit.i74
 
 ring_buf_push_pop.exit.i74:                       ; preds = %86, %84, %80
@@ -1289,7 +1289,7 @@ ring_buf_push_pop.exit.i74:                       ; preds = %86, %84, %80
   %spec.store.select.i22.i79 = select i1 %93, i64 0, i64 %92
   store i64 %spec.store.select.i22.i79, ptr %32, align 8, !tbaa !35
   %94 = sub nuw i64 %75, %spec.select.i69
-  store i64 %94, ptr %34, align 8, !tbaa !51
+  store i64 %94, ptr %34, align 8, !tbaa !52
   br label %95
 
 95:                                               ; preds = %.critedge.i78, %ring_buf_push_pop.exit.i74
@@ -1299,14 +1299,14 @@ ring_buf_push_pop.exit.i74:                       ; preds = %86, %84, %80
   %98 = add i64 %spec.select.i69, %.01238.i65
   %99 = sub i64 %.01337.i66, %spec.select.i69
   %.not.i76 = icmp eq i64 %99, 0
-  br i1 %.not.i76, label %dgram_pair_read_inner.exit80, label %.lr.ph.i
+  br i1 %.not.i76, label %dgram_pair_read_inner.exit80, label %.lr.ph.i, !llvm.loop !55
 
 dgram_pair_read_inner.exit80:                     ; preds = %.lr.ph.i, %95
   %.pre41.i84110 = phi i64 [ %72, %.lr.ph.i ], [ %96, %95 ]
   %.pre.i83108 = phi i64 [ %73, %.lr.ph.i ], [ %97, %95 ]
   %.012.lcssa.i77.ph = phi i64 [ %.01238.i65, %.lr.ph.i ], [ %98, %95 ]
   %100 = icmp eq i64 %.012.lcssa.i77.ph, %.045
-  br i1 %100, label %dgram_pair_read_inner.exit80.thread, label %.critedge, !prof !54
+  br i1 %100, label %dgram_pair_read_inner.exit80.thread, label %.critedge, !prof !57
 
 dgram_pair_read_inner.exit80.thread:              ; preds = %71, %dgram_pair_read_inner.exit80
   %.pre.i83115 = phi i64 [ %.pre.i83108, %dgram_pair_read_inner.exit80 ], [ %.pre.i63, %71 ]
@@ -1315,7 +1315,7 @@ dgram_pair_read_inner.exit80.thread:              ; preds = %71, %dgram_pair_rea
   br i1 %.not61, label %113, label %.lr.ph.i82
 
 .lr.ph.i82:                                       ; preds = %dgram_pair_read_inner.exit80.thread
-  %.promoted116 = load i64, ptr %34, align 8, !tbaa !51
+  %.promoted116 = load i64, ptr %34, align 8, !tbaa !52
   br label %101
 
 101:                                              ; preds = %106, %.lr.ph.i82
@@ -1335,11 +1335,11 @@ dgram_pair_read_inner.exit80.thread:              ; preds = %71, %dgram_pair_rea
   %spec.store.select.i22.i99 = select i1 %108, i64 0, i64 %107
   store i64 %spec.store.select.i22.i99, ptr %32, align 8, !tbaa !35
   %109 = sub nuw i64 %102, %spec.select.i89
-  store i64 %109, ptr %34, align 8, !tbaa !51
+  store i64 %109, ptr %34, align 8, !tbaa !52
   %110 = add i64 %spec.select.i89, %.01238.i85
   %111 = sub i64 %.01337.i86, %spec.select.i89
   %.not.i96 = icmp eq i64 %111, 0
-  br i1 %.not.i96, label %dgram_pair_read_inner.exit100, label %101
+  br i1 %.not.i96, label %dgram_pair_read_inner.exit100, label %101, !llvm.loop !55
 
 dgram_pair_read_inner.exit100:                    ; preds = %101, %106
   %.012.lcssa.i97 = phi i64 [ %.01238.i85, %101 ], [ %110, %106 ]
@@ -1351,7 +1351,7 @@ dgram_pair_read_inner.exit100:                    ; preds = %101, %106
 
 114:                                              ; preds = %113
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %115, i64 112, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %115, i64 112, i1 false), !tbaa.struct !49
   br label %116
 
 116:                                              ; preds = %114, %113
@@ -1360,7 +1360,7 @@ dgram_pair_read_inner.exit100:                    ; preds = %101, %106
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %118, i64 112, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %4, ptr noundef nonnull align 8 dereferenceable(112) %118, i64 112, i1 false), !tbaa.struct !49
   br label %.critedge
 
 .critedge:                                        ; preds = %17, %116, %117, %dgram_pair_read_inner.exit100, %dgram_pair_read_inner.exit80, %dgram_pair_read_inner.exit, %58, %59, %26, %22, %.thread, %14, %11, %70
@@ -1413,7 +1413,7 @@ define internal i64 @dgram_mem_ctrl(ptr noundef readonly captures(none) %0, i32 
 12:                                               ; preds = %9
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %2, i64 1024)
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %14 = load ptr, ptr %13, align 8, !tbaa !45
+  %14 = load ptr, ptr %13, align 8, !tbaa !46
   %.not9.i = icmp eq ptr %14, null
   br i1 %.not9.i, label %ring_buf_resize.exit.i, label %15
 
@@ -1425,7 +1425,7 @@ define internal i64 @dgram_mem_ctrl(ptr noundef readonly captures(none) %0, i32 
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %21 = load i64, ptr %20, align 8, !tbaa !51
+  %21 = load i64, ptr %20, align 8, !tbaa !52
   %.not.i.i = icmp ne i64 %21, 0
   %22 = icmp ult i64 %spec.store.select.i, %17
   %or.cond.i.i = and i1 %22, %.not.i.i
@@ -1437,7 +1437,7 @@ define internal i64 @dgram_mem_ctrl(ptr noundef readonly captures(none) %0, i32 
   br i1 %25, label %dgram_pair_ctrl_get_write_guarantee.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = load i64, ptr %20, align 8, !tbaa !51
+  %27 = load i64, ptr %20, align 8, !tbaa !52
   %.not35.i.i = icmp eq i64 %27, 0
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br i1 %.not35.i.i, label %41, label %29
@@ -1500,7 +1500,7 @@ ring_buf_resize.exit.i:                           ; preds = %42, %15, %12
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !27
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %61 = load i64, ptr %60, align 8, !tbaa !50
+  %61 = load i64, ptr %60, align 8, !tbaa !51
   %62 = sub i64 %59, %61
   %63 = icmp ugt i64 %62, 231
   %64 = add i64 %62, -232
@@ -1542,7 +1542,7 @@ ring_buf_resize.exit.i:                           ; preds = %42, %15, %12
   %83 = getelementptr inbounds nuw i8, ptr %.017.i, i64 40
   %84 = load i64, ptr %83, align 8, !tbaa !35
   %85 = getelementptr inbounds nuw i8, ptr %.017.i, i64 24
-  %86 = load i64, ptr %85, align 8, !tbaa !50
+  %86 = load i64, ptr %85, align 8, !tbaa !51
   %87 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %88 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %.pre.i.i = load i64, ptr %88, align 8, !tbaa !29
@@ -1569,17 +1569,17 @@ ring_buf_push_pop.exit.i.i:                       ; preds = %89
   %spec.store.select.i.i.i = select i1 %97, i64 0, i64 %96
   store i64 %spec.store.select.i.i.i, ptr %83, align 8, !tbaa !35
   %98 = sub nuw i64 %91, %spec.select.i.i
-  store i64 %98, ptr %85, align 8, !tbaa !51
+  store i64 %98, ptr %85, align 8, !tbaa !52
   %99 = getelementptr inbounds nuw i8, ptr %.01536.i.i, i64 %spec.select.i.i
   %100 = add i64 %spec.select.i.i, %.01238.i.i
   %101 = sub i64 %.01337.i.i, %spec.select.i.i
   %.not.i.i46 = icmp eq i64 %101, 0
-  br i1 %.not.i.i46, label %dgram_pair_read_inner.exit.i, label %89
+  br i1 %.not.i.i46, label %dgram_pair_read_inner.exit.i, label %89, !llvm.loop !55
 
 dgram_pair_read_inner.exit.i:                     ; preds = %ring_buf_push_pop.exit.i.i, %89
   %.012.lcssa.i.i = phi i64 [ %.01238.i.i, %89 ], [ %100, %ring_buf_push_pop.exit.i.i ]
   store i64 %84, ptr %83, align 8, !tbaa !35
-  store i64 %86, ptr %85, align 8, !tbaa !50
+  store i64 %86, ptr %85, align 8, !tbaa !51
   %102 = load ptr, ptr %78, align 8, !tbaa !18
   %103 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %102) #7
   switch i64 %.012.lcssa.i.i, label %dgram_pair_ctrl_pending.exit [
@@ -1621,7 +1621,7 @@ dgram_pair_ctrl_pending.exit:                     ; preds = %70, %77, %dgram_pai
   %121 = lshr i8 %.val33.val, 1
   %122 = and i8 %121, 1
   %123 = zext nneg i8 %122 to i32
-  store i32 %123, ptr %3, align 4, !tbaa !55
+  store i32 %123, ptr %3, align 4, !tbaa !58
   br label %dgram_pair_ctrl_get_write_guarantee.exit
 
 124:                                              ; preds = %8
@@ -1935,17 +1935,20 @@ attributes #7 = { nounwind }
 !39 = !{!37, !21, i64 24}
 !40 = !{!37, !21, i64 16}
 !41 = !{!37, !15, i64 32}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = distinct !{!44, !43}
-!45 = !{!19, !12, i64 8}
-!46 = !{!47, !15, i64 0}
-!47 = !{!"dgram_hdr", !15, i64 0, !6, i64 8, !6, i64 120}
-!48 = !{i64 0, i64 112, !49}
-!49 = !{!6, !6, i64 0}
-!50 = !{!19, !15, i64 24}
-!51 = !{!20, !15, i64 16}
-!52 = distinct !{!52, !43}
-!53 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!54 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
-!55 = !{!13, !13, i64 0}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = distinct !{!45, !43, !44}
+!46 = !{!19, !12, i64 8}
+!47 = !{!48, !15, i64 0}
+!48 = !{!"dgram_hdr", !15, i64 0, !6, i64 8, !6, i64 120}
+!49 = !{i64 0, i64 112, !50}
+!50 = !{!6, !6, i64 0}
+!51 = !{!19, !15, i64 24}
+!52 = !{!20, !15, i64 16}
+!53 = distinct !{!53, !43, !44}
+!54 = distinct !{!54, !44}
+!55 = distinct !{!55, !44}
+!56 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!57 = !{!"branch_weights", !"expected", i32 2145766520, i32 1717128}
+!58 = !{!13, !13, i64 0}

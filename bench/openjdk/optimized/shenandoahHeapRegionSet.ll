@@ -207,7 +207,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 544
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %21, %23
-  br i1 %24, label %9, label %._crit_edge, !llvm.loop !8
+  br i1 %24, label %9, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %19, %2
   ret void
@@ -325,6 +325,7 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

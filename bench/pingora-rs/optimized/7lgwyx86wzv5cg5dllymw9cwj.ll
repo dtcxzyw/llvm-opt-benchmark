@@ -40,7 +40,7 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17h14fa6bbfcd329268E(ptr noalia
 12:                                               ; preds = %.lr.ph
   %13 = add nuw i64 %.sroa.01.1.i9, 1
   %exitcond.not = icmp eq i64 %13, %1
-  br i1 %exitcond.not, label %_ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread, label %.lr.ph
+  br i1 %exitcond.not, label %_ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread, label %.lr.ph, !llvm.loop !3
 
 .lr.ph13:                                         ; preds = %.lr.ph13.preheader, %17
   %.sroa.01.0.i12 = phi i64 [ %18, %17 ], [ 2, %.lr.ph13.preheader ]
@@ -53,7 +53,7 @@ define void @_ZN4core5slice4sort8unstable7ipnsort17h14fa6bbfcd329268E(ptr noalia
 17:                                               ; preds = %.lr.ph13
   %18 = add nuw i64 %.sroa.01.0.i12, 1
   %exitcond20.not = icmp eq i64 %18, %1
-  br i1 %exitcond20.not, label %_ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread, label %.lr.ph13
+  br i1 %exitcond20.not, label %_ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread, label %.lr.ph13, !llvm.loop !5
 
 _ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit: ; preds = %.lr.ph, %.lr.ph13, %.preheader7, %.preheader
   %.sroa.0.0.i = phi i64 [ 2, %.preheader ], [ 2, %.preheader7 ], [ %.sroa.01.0.i12, %.lr.ph13 ], [ %.sroa.01.1.i9, %.lr.ph ]
@@ -79,8 +79,8 @@ _ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread: ;
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread
   %27 = lshr i64 %1, 1
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
   %28 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %1
   br label %29
 
@@ -89,17 +89,17 @@ _ZN4core5slice4sort6shared17find_existing_run17h9146416ce80f2023E.exit.thread: ;
   %30 = xor i64 %.sroa.0.014.i.i, -1
   %31 = getelementptr inbounds nuw { i32, i32 }, ptr %0, i64 %.sroa.0.014.i.i
   %32 = getelementptr { i32, i32 }, ptr %28, i64 %30
-  %33 = load i32, ptr %31, align 4, !alias.scope !8, !noalias !6, !noundef !11
+  %33 = load i32, ptr %31, align 4, !alias.scope !11, !noalias !9, !noundef !14
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  %35 = load i32, ptr %34, align 4, !alias.scope !8, !noalias !6, !noundef !11
-  %36 = load i64, ptr %32, align 4, !alias.scope !12, !noalias !3
-  store i64 %36, ptr %31, align 4, !alias.scope !8, !noalias !6
-  store i32 %33, ptr %32, align 4, !alias.scope !12, !noalias !3
+  %35 = load i32, ptr %34, align 4, !alias.scope !11, !noalias !9, !noundef !14
+  %36 = load i64, ptr %32, align 4, !alias.scope !15, !noalias !6
+  store i64 %36, ptr %31, align 4, !alias.scope !11, !noalias !9
+  store i32 %33, ptr %32, align 4, !alias.scope !15, !noalias !6
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 %35, ptr %37, align 4, !alias.scope !12, !noalias !3
+  store i32 %35, ptr %37, align 4, !alias.scope !15, !noalias !6
   %38 = add nuw nsw i64 %.sroa.0.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %38, %27
-  br i1 %exitcond.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h32f0253dac50d22eE.exit", label %29
+  br i1 %exitcond.not.i.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h32f0253dac50d22eE.exit", label %29, !llvm.loop !16
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -128,13 +128,17 @@ attributes #3 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.89.0-nightly (60dabef95 2025-05-19)"}
-!3 = !{!4}
-!4 = distinct !{!4, !5, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h6b91b34522b75b3aE: argument 0"}
-!5 = distinct !{!5, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h6b91b34522b75b3aE"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
 !6 = !{!7}
-!7 = distinct !{!7, !5, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h6b91b34522b75b3aE: argument 1"}
-!8 = !{!4, !9}
-!9 = distinct !{!9, !10, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h32f0253dac50d22eE: argument 0"}
-!10 = distinct !{!10, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h32f0253dac50d22eE"}
-!11 = !{}
-!12 = !{!7, !9}
+!7 = distinct !{!7, !8, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h6b91b34522b75b3aE: argument 0"}
+!8 = distinct !{!8, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h6b91b34522b75b3aE"}
+!9 = !{!10}
+!10 = distinct !{!10, !8, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse7revswap17h6b91b34522b75b3aE: argument 1"}
+!11 = !{!7, !12}
+!12 = distinct !{!12, !13, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h32f0253dac50d22eE: argument 0"}
+!13 = distinct !{!13, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h32f0253dac50d22eE"}
+!14 = !{}
+!15 = !{!10, !12}
+!16 = distinct !{!16, !4}

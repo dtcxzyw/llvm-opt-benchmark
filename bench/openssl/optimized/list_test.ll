@@ -346,10 +346,10 @@ define internal range(i32 0, 2) i32 @test_insert() #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = trunc nuw nsw i64 %.027168 to i32
   %5 = getelementptr inbounds nuw [20 x %struct.int_st], ptr %1, i64 0, i64 %.027168
-  store i32 %4, ptr %5, align 8, !tbaa !18
+  store i32 %4, ptr %5, align 8, !tbaa !19
   %6 = add nuw nsw i64 %.027168, 1
   %exitcond.not = icmp eq i64 %6, 20
-  br i1 %exitcond.not, label %ossl_list_int_insert_after.exit73, label %2, !llvm.loop !22
+  br i1 %exitcond.not, label %ossl_list_int_insert_after.exit73, label %2, !llvm.loop !23
 
 ossl_list_int_insert_after.exit73:                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -360,35 +360,35 @@ ossl_list_int_insert_after.exit73:                ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store ptr %10, ptr %14, align 16, !tbaa !23
+  store ptr %10, ptr %14, align 16, !tbaa !24
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %13, ptr %12, align 16, !tbaa !24
+  store ptr %13, ptr %12, align 16, !tbaa !25
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store ptr null, ptr %18, align 8, !tbaa !24
+  store ptr null, ptr %18, align 8, !tbaa !25
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %16, ptr %21, align 16, !tbaa !24
-  store ptr %7, ptr %20, align 8, !tbaa !23
+  store ptr %16, ptr %21, align 16, !tbaa !25
+  store ptr %7, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  store ptr %19, ptr %22, align 8, !tbaa !24
-  store ptr %19, ptr %17, align 16, !tbaa !23
+  store ptr %19, ptr %22, align 8, !tbaa !25
+  store ptr %19, ptr %17, align 16, !tbaa !24
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  store ptr %10, ptr %25, align 8, !tbaa !24
-  store ptr null, ptr %24, align 16, !tbaa !23
-  store ptr %23, ptr %11, align 8, !tbaa !23
+  store ptr %10, ptr %25, align 8, !tbaa !25
+  store ptr null, ptr %24, align 16, !tbaa !24
+  store ptr %23, ptr %11, align 8, !tbaa !24
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr %7, ptr %28, align 16, !tbaa !24
-  store ptr %13, ptr %27, align 8, !tbaa !23
+  store ptr %7, ptr %28, align 16, !tbaa !25
+  store ptr %13, ptr %27, align 8, !tbaa !24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %26, ptr %29, align 8, !tbaa !24
-  store ptr %26, ptr %8, align 16, !tbaa !23
+  store ptr %26, ptr %29, align 8, !tbaa !25
+  store ptr %26, ptr %8, align 16, !tbaa !24
   %30 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.2, i32 noundef 117, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, i64 noundef 7, i64 noundef 7) #4
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -397,13 +397,13 @@ ossl_list_int_insert_after.exit73:                ; preds = %2
   %.0171 = phi i32 [ %40, %37 ], [ 1, %ossl_list_int_insert_after.exit73 ]
   %.028170 = phi ptr [ %.028.val, %37 ], [ %23, %ossl_list_int_insert_after.exit73 ]
   %.030169 = phi ptr [ %.030.val, %37 ], [ %16, %ossl_list_int_insert_after.exit73 ]
-  %31 = load i32, ptr %.030169, align 8, !tbaa !18
+  %31 = load i32, ptr %.030169, align 8, !tbaa !19
   %32 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 122, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %31, i32 noundef %.0171) #4
   %.not49 = icmp eq i32 %32, 0
   br i1 %.not49, label %.loopexit, label %33
 
 33:                                               ; preds = %.preheader
-  %34 = load i32, ptr %.028170, align 8, !tbaa !18
+  %34 = load i32, ptr %.028170, align 8, !tbaa !19
   %35 = sub nsw i32 8, %.0171
   %36 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 122, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i32 noundef %34, i32 noundef %35) #4
   %.not50 = icmp eq i32 %36, 0
@@ -411,14 +411,14 @@ ossl_list_int_insert_after.exit73:                ; preds = %2
 
 37:                                               ; preds = %33
   %38 = getelementptr i8, ptr %.030169, i64 8
-  %.030.val = load ptr, ptr %38, align 8, !tbaa !23
+  %.030.val = load ptr, ptr %38, align 8, !tbaa !24
   %39 = getelementptr i8, ptr %.028170, i64 16
-  %.028.val = load ptr, ptr %39, align 8, !tbaa !24
+  %.028.val = load ptr, ptr %39, align 8, !tbaa !25
   %40 = add nuw nsw i32 %.0171, 1
   %41 = icmp ne ptr %.030.val, null
   %42 = icmp ne ptr %.028.val, null
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.preheader, label %44, !llvm.loop !25
+  br i1 %43, label %.preheader, label %44, !llvm.loop !26
 
 44:                                               ; preds = %37
   %45 = call i32 @test_ptr_null(ptr noundef nonnull @.str.2, i32 noundef 128, ptr noundef nonnull @.str.36, ptr noundef %.030.val) #4
@@ -431,14 +431,14 @@ ossl_list_int_insert_after.exit73:                ; preds = %2
   br i1 %.not34, label %.loopexit, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %46
-  %48 = load ptr, ptr %17, align 16, !tbaa !23
-  %49 = load ptr, ptr %18, align 8, !tbaa !24
+  %48 = load ptr, ptr %17, align 16, !tbaa !24
+  %49 = load ptr, ptr %18, align 8, !tbaa !25
   %.not.i74 = icmp eq ptr %49, null
   br i1 %.not.i74, label %52, label %50
 
 50:                                               ; preds = %._crit_edge.i
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %48, ptr %51, align 8, !tbaa !23
+  store ptr %48, ptr %51, align 8, !tbaa !24
   br label %52
 
 52:                                               ; preds = %50, %._crit_edge.i
@@ -447,7 +447,7 @@ ossl_list_int_insert_after.exit73:                ; preds = %2
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %49, ptr %54, align 8, !tbaa !24
+  store ptr %49, ptr %54, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit
 
 ossl_list_int_remove.exit:                        ; preds = %52, %53
@@ -455,13 +455,13 @@ ossl_list_int_remove.exit:                        ; preds = %52, %53
   %55 = icmp eq ptr %48, %10
   %56 = load ptr, ptr %11, align 8
   %spec.select156 = select i1 %55, ptr %56, ptr %48
-  %57 = load ptr, ptr %12, align 16, !tbaa !24
+  %57 = load ptr, ptr %12, align 16, !tbaa !25
   %.not.i76 = icmp eq ptr %57, null
   br i1 %.not.i76, label %60, label %58
 
 58:                                               ; preds = %ossl_list_int_remove.exit
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %56, ptr %59, align 8, !tbaa !23
+  store ptr %56, ptr %59, align 8, !tbaa !24
   br label %60
 
 60:                                               ; preds = %58, %ossl_list_int_remove.exit
@@ -470,7 +470,7 @@ ossl_list_int_remove.exit:                        ; preds = %52, %53
 
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store ptr %57, ptr %62, align 8, !tbaa !24
+  store ptr %57, ptr %62, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit79
 
 ossl_list_int_remove.exit79:                      ; preds = %60, %61
@@ -478,13 +478,13 @@ ossl_list_int_remove.exit79:                      ; preds = %60, %61
   %63 = icmp eq ptr %spec.select156, %23
   %64 = load ptr, ptr %24, align 16
   %spec.select157 = select i1 %63, ptr %64, ptr %spec.select156
-  %65 = load ptr, ptr %25, align 8, !tbaa !24
+  %65 = load ptr, ptr %25, align 8, !tbaa !25
   %.not.i81 = icmp eq ptr %65, null
   br i1 %.not.i81, label %68, label %66
 
 66:                                               ; preds = %ossl_list_int_remove.exit79
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %64, ptr %67, align 8, !tbaa !23
+  store ptr %64, ptr %67, align 8, !tbaa !24
   br label %68
 
 68:                                               ; preds = %66, %ossl_list_int_remove.exit79
@@ -493,7 +493,7 @@ ossl_list_int_remove.exit79:                      ; preds = %60, %61
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store ptr %65, ptr %70, align 8, !tbaa !24
+  store ptr %65, ptr %70, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit84
 
 ossl_list_int_remove.exit84:                      ; preds = %68, %69
@@ -507,13 +507,13 @@ ossl_list_int_remove.exit84:                      ; preds = %68, %69
   %.1174 = phi i32 [ %83, %80 ], [ 2, %ossl_list_int_remove.exit84 ]
   %.129173 = phi ptr [ %.129.val, %80 ], [ %65, %ossl_list_int_remove.exit84 ]
   %.131172 = phi ptr [ %.131.val, %80 ], [ %spec.select157, %ossl_list_int_remove.exit84 ]
-  %74 = load i32, ptr %.131172, align 8, !tbaa !18
+  %74 = load i32, ptr %.131172, align 8, !tbaa !19
   %75 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef %74, i32 noundef %.1174) #4
   %.not47 = icmp eq i32 %75, 0
   br i1 %.not47, label %.loopexit, label %76
 
 76:                                               ; preds = %.lr.ph
-  %77 = load i32, ptr %.129173, align 8, !tbaa !18
+  %77 = load i32, ptr %.129173, align 8, !tbaa !19
   %78 = sub nsw i32 7, %.1174
   %79 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.38, i32 noundef %77, i32 noundef %78) #4
   %.not48 = icmp eq i32 %79, 0
@@ -521,14 +521,14 @@ ossl_list_int_remove.exit84:                      ; preds = %68, %69
 
 80:                                               ; preds = %76
   %81 = getelementptr i8, ptr %.131172, i64 8
-  %.131.val = load ptr, ptr %81, align 8, !tbaa !23
+  %.131.val = load ptr, ptr %81, align 8, !tbaa !24
   %82 = getelementptr i8, ptr %.129173, i64 16
-  %.129.val = load ptr, ptr %82, align 8, !tbaa !24
+  %.129.val = load ptr, ptr %82, align 8, !tbaa !25
   %83 = add nuw nsw i32 %.1174, 1
   %84 = icmp ne ptr %.131.val, null
   %85 = icmp ne ptr %.129.val, null
   %86 = select i1 %84, i1 %85, i1 false
-  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %80, %ossl_list_int_remove.exit84
   %.131.lcssa = phi ptr [ %spec.select157, %ossl_list_int_remove.exit84 ], [ %.131.val, %80 ]
@@ -547,14 +547,14 @@ ossl_list_int_remove.exit84:                      ; preds = %68, %69
   %91 = load ptr, ptr %20, align 8
   %spec.select158 = select i1 %90, ptr %91, ptr %spec.select157
   %92 = icmp eq ptr %65, %19
-  %93 = load ptr, ptr %21, align 16, !tbaa !24
+  %93 = load ptr, ptr %21, align 16, !tbaa !25
   %.sroa.36.7 = select i1 %92, ptr %93, ptr %65
   %.not.i86 = icmp eq ptr %93, null
   br i1 %.not.i86, label %96, label %94
 
 94:                                               ; preds = %._crit_edge.i85
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
-  store ptr %91, ptr %95, align 8, !tbaa !23
+  store ptr %91, ptr %95, align 8, !tbaa !24
   br label %96
 
 96:                                               ; preds = %94, %._crit_edge.i85
@@ -563,7 +563,7 @@ ossl_list_int_remove.exit84:                      ; preds = %68, %69
 
 97:                                               ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  store ptr %93, ptr %98, align 8, !tbaa !24
+  store ptr %93, ptr %98, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit89
 
 ossl_list_int_remove.exit89:                      ; preds = %96, %97
@@ -572,14 +572,14 @@ ossl_list_int_remove.exit89:                      ; preds = %96, %97
   %100 = load ptr, ptr %27, align 8
   %spec.select159 = select i1 %99, ptr %100, ptr %spec.select158
   %101 = icmp eq ptr %.sroa.36.7, %26
-  %102 = load ptr, ptr %28, align 16, !tbaa !24
+  %102 = load ptr, ptr %28, align 16, !tbaa !25
   %.sroa.36.8 = select i1 %101, ptr %102, ptr %.sroa.36.7
   %.not.i91 = icmp eq ptr %102, null
   br i1 %.not.i91, label %105, label %103
 
 103:                                              ; preds = %ossl_list_int_remove.exit89
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  store ptr %100, ptr %104, align 8, !tbaa !23
+  store ptr %100, ptr %104, align 8, !tbaa !24
   br label %105
 
 105:                                              ; preds = %103, %ossl_list_int_remove.exit89
@@ -588,7 +588,7 @@ ossl_list_int_remove.exit89:                      ; preds = %96, %97
 
 106:                                              ; preds = %105
   %107 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  store ptr %102, ptr %107, align 8, !tbaa !24
+  store ptr %102, ptr %107, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit94
 
 ossl_list_int_remove.exit94:                      ; preds = %105, %106
@@ -597,14 +597,14 @@ ossl_list_int_remove.exit94:                      ; preds = %105, %106
   %109 = load ptr, ptr %8, align 16
   %spec.select160 = select i1 %108, ptr %109, ptr %spec.select159
   %110 = icmp eq ptr %.sroa.36.8, %7
-  %111 = load ptr, ptr %9, align 8, !tbaa !24
+  %111 = load ptr, ptr %9, align 8, !tbaa !25
   %.sroa.36.9 = select i1 %110, ptr %111, ptr %.sroa.36.8
   %.not.i96 = icmp eq ptr %111, null
   br i1 %.not.i96, label %114, label %112
 
 112:                                              ; preds = %ossl_list_int_remove.exit94
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store ptr %109, ptr %113, align 8, !tbaa !23
+  store ptr %109, ptr %113, align 8, !tbaa !24
   br label %114
 
 114:                                              ; preds = %112, %ossl_list_int_remove.exit94
@@ -613,7 +613,7 @@ ossl_list_int_remove.exit94:                      ; preds = %105, %106
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 16
-  store ptr %111, ptr %116, align 8, !tbaa !24
+  store ptr %111, ptr %116, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit99
 
 ossl_list_int_remove.exit99:                      ; preds = %114, %115
@@ -628,34 +628,34 @@ ossl_list_int_remove.exit99:                      ; preds = %114, %115
   br i1 %.not38, label %.loopexit, label %120
 
 120:                                              ; preds = %118
-  %121 = load i32, ptr %spec.select160, align 8, !tbaa !18
+  %121 = load i32, ptr %spec.select160, align 8, !tbaa !19
   %122 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 154, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.19, i32 noundef %121, i32 noundef 5) #4
   %.not39 = icmp eq i32 %122, 0
   br i1 %.not39, label %.loopexit, label %123
 
 123:                                              ; preds = %120
-  %124 = load i32, ptr %.sroa.36.9, align 8, !tbaa !18
+  %124 = load i32, ptr %.sroa.36.9, align 8, !tbaa !19
   %125 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.19, i32 noundef %124, i32 noundef 5) #4
   %.not40 = icmp eq i32 %125, 0
   br i1 %.not40, label %.loopexit, label %._crit_edge.i102
 
 ._crit_edge.i102:                                 ; preds = %123
   %126 = getelementptr inbounds nuw i8, ptr %spec.select160, i64 16
-  store ptr %1, ptr %126, align 8, !tbaa !24
+  store ptr %1, ptr %126, align 8, !tbaa !25
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %spec.select160, ptr %127, align 8, !tbaa !23
+  store ptr %spec.select160, ptr %127, align 8, !tbaa !24
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %128, align 16, !tbaa !24
+  store ptr null, ptr %128, align 16, !tbaa !25
   %129 = icmp eq ptr %.sroa.36.9, %13
-  %130 = load ptr, ptr %15, align 8, !tbaa !24
+  %130 = load ptr, ptr %15, align 8, !tbaa !25
   %spec.select161 = select i1 %129, ptr %130, ptr %.sroa.36.9
   %.not.i103 = icmp eq ptr %130, null
-  %.pre19.i104 = load ptr, ptr %14, align 16, !tbaa !23
+  %.pre19.i104 = load ptr, ptr %14, align 16, !tbaa !24
   br i1 %.not.i103, label %133, label %131
 
 131:                                              ; preds = %._crit_edge.i102
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  store ptr %.pre19.i104, ptr %132, align 8, !tbaa !23
+  store ptr %.pre19.i104, ptr %132, align 8, !tbaa !24
   br label %133
 
 133:                                              ; preds = %131, %._crit_edge.i102
@@ -664,7 +664,7 @@ ossl_list_int_remove.exit99:                      ; preds = %114, %115
 
 134:                                              ; preds = %133
   %135 = getelementptr inbounds nuw i8, ptr %.pre19.i104, i64 16
-  store ptr %130, ptr %135, align 8, !tbaa !24
+  store ptr %130, ptr %135, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit106
 
 ossl_list_int_remove.exit106:                     ; preds = %133, %134
@@ -679,13 +679,13 @@ ossl_list_int_remove.exit106:                     ; preds = %133, %134
   br i1 %.not42, label %.loopexit, label %139
 
 139:                                              ; preds = %137
-  %140 = load i32, ptr %1, align 16, !tbaa !18
+  %140 = load i32, ptr %1, align 16, !tbaa !19
   %141 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 163, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.43, i32 noundef %140, i32 noundef 0) #4
   %.not43 = icmp eq i32 %141, 0
   br i1 %.not43, label %.loopexit, label %142
 
 142:                                              ; preds = %139
-  %143 = load i32, ptr %spec.select161, align 8, !tbaa !18
+  %143 = load i32, ptr %spec.select161, align 8, !tbaa !19
   %144 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 164, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %143, i32 noundef 0) #4
   %.not44 = icmp eq i32 %144, 0
   br i1 %.not44, label %.loopexit, label %._crit_edge.i107
@@ -693,14 +693,14 @@ ossl_list_int_remove.exit106:                     ; preds = %133, %134
 ._crit_edge.i107:                                 ; preds = %142
   %145 = load ptr, ptr %127, align 8
   %146 = icmp eq ptr %spec.select161, %1
-  %147 = load ptr, ptr %128, align 16, !tbaa !24
+  %147 = load ptr, ptr %128, align 16, !tbaa !25
   %.sroa.36.12 = select i1 %146, ptr %147, ptr %spec.select161
   %.not.i108 = icmp eq ptr %147, null
   br i1 %.not.i108, label %150, label %148
 
 148:                                              ; preds = %._crit_edge.i107
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store ptr %145, ptr %149, align 8, !tbaa !23
+  store ptr %145, ptr %149, align 8, !tbaa !24
   br label %150
 
 150:                                              ; preds = %148, %._crit_edge.i107
@@ -709,7 +709,7 @@ ossl_list_int_remove.exit106:                     ; preds = %133, %134
 
 151:                                              ; preds = %150
   %152 = getelementptr inbounds nuw i8, ptr %145, i64 16
-  store ptr %147, ptr %152, align 8, !tbaa !24
+  store ptr %147, ptr %152, align 8, !tbaa !25
   br label %ossl_list_int_remove.exit111
 
 ossl_list_int_remove.exit111:                     ; preds = %150, %151
@@ -775,14 +775,15 @@ attributes #4 = { nounwind }
 !13 = !{!5, !10, i64 16}
 !14 = !{!5, !10, i64 32}
 !15 = !{!5, !10, i64 24}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !6, i64 0}
-!19 = !{!"int_st", !6, i64 0, !20, i64 8}
-!20 = !{!"", !21, i64 0, !21, i64 8}
-!21 = !{!"p1 _ZTS6int_st", !11, i64 0}
-!22 = distinct !{!22, !17}
-!23 = !{!19, !21, i64 8}
-!24 = !{!19, !21, i64 16}
-!25 = distinct !{!25, !17}
-!26 = distinct !{!26, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !6, i64 0}
+!20 = !{!"int_st", !6, i64 0, !21, i64 8}
+!21 = !{!"", !22, i64 0, !22, i64 8}
+!22 = !{!"p1 _ZTS6int_st", !11, i64 0}
+!23 = distinct !{!23, !17, !18}
+!24 = !{!20, !22, i64 8}
+!25 = !{!20, !22, i64 16}
+!26 = distinct !{!26, !17, !18}
+!27 = distinct !{!27, !17, !18}

@@ -1781,7 +1781,7 @@ define internal void @VFilter16i_SSE2(ptr noundef captures(none) %0, i32 noundef
   store <2 x i64> %126, ptr %129, align 1, !tbaa !7
   %130 = add nsw i32 %.040101, -1
   %131 = icmp samesign ugt i32 %.040101, 1
-  br i1 %131, label %29, label %132, !llvm.loop !10
+  br i1 %131, label %29, label %132, !llvm.loop !11
 
 132:                                              ; preds = %29
   ret void
@@ -2170,7 +2170,7 @@ Store4x4_SSE2.exit36.i:                           ; preds = %282
 Store16x4_SSE2.exit:                              ; preds = %293
   %300 = add nsw i32 %.018129, -1
   %301 = icmp samesign ugt i32 %.018129, 1
-  br i1 %301, label %93, label %302, !llvm.loop !11
+  br i1 %301, label %93, label %302, !llvm.loop !12
 
 302:                                              ; preds = %Store16x4_SSE2.exit
   ret void
@@ -3109,7 +3109,7 @@ define internal void @SimpleVFilter16i_SSE2(ptr noundef captures(none) %0, i32 n
   store <2 x i64> %65, ptr %15, align 1, !tbaa !7
   %66 = add nsw i32 %.08, -1
   %67 = icmp samesign ugt i32 %.08, 1
-  br i1 %67, label %14, label %68, !llvm.loop !12
+  br i1 %67, label %14, label %68, !llvm.loop !13
 
 68:                                               ; preds = %14
   ret void
@@ -3126,7 +3126,7 @@ define internal void @SimpleHFilter16i_SSE2(ptr noundef captures(none) %0, i32 n
   tail call void @SimpleHFilter16_SSE2(ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2)
   %6 = add nsw i32 %.07, -1
   %7 = icmp samesign ugt i32 %.07, 1
-  br i1 %7, label %4, label %8, !llvm.loop !13
+  br i1 %7, label %4, label %8, !llvm.loop !14
 
 8:                                                ; preds = %4
   ret void
@@ -3162,7 +3162,7 @@ define internal void @TM4_SSE2(ptr noundef captures(none) %0) #2 {
   %21 = add nuw nsw i32 %.04957.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.058.i, i64 32
   %exitcond63.not.i = icmp eq i32 %21, 4
-  br i1 %exitcond63.not.i, label %TrueMotion_SSE2.exit, label %8, !llvm.loop !14
+  br i1 %exitcond63.not.i, label %TrueMotion_SSE2.exit, label %8, !llvm.loop !15
 
 TrueMotion_SSE2.exit:                             ; preds = %8
   ret void
@@ -3192,7 +3192,7 @@ define internal void @VE4_SSE2(ptr noundef captures(none) %0) #2 {
   store i32 %14, ptr %17, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %18, label %15, !llvm.loop !15
+  br i1 %exitcond.not, label %18, label %15, !llvm.loop !16
 
 18:                                               ; preds = %15
   ret void
@@ -3425,7 +3425,7 @@ define internal void @DC16_SSE2(ptr noundef captures(none) %0) #2 {
   %8 = add nuw nsw i32 %.015, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !16
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !17
 
 9:                                                ; preds = %4
   %10 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %3, <16 x i8> zeroinitializer)
@@ -3451,7 +3451,7 @@ define internal void @DC16_SSE2(ptr noundef captures(none) %0) #2 {
   store <16 x i8> %23, ptr %26, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %24, !llvm.loop !17
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %24, !llvm.loop !18
 
 Put16_SSE2.exit:                                  ; preds = %24
   ret void
@@ -3486,7 +3486,7 @@ define internal void @TM16_SSE2(ptr noundef captures(none) %0) #2 {
   %21 = add nuw nsw i32 %.25159.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.260.i, i64 32
   %exitcond64.not.i = icmp eq i32 %21, 16
-  br i1 %exitcond64.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !18
+  br i1 %exitcond64.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !19
 
 TrueMotion_SSE2.exit:                             ; preds = %9
   ret void
@@ -3505,7 +3505,7 @@ define internal void @VE16_SSE2(ptr noundef captures(none) %0) #2 {
   store <2 x i64> %3, ptr %6, align 1, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !19
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !20
 
 7:                                                ; preds = %4
   ret void
@@ -3526,7 +3526,7 @@ define internal void @HE16_SSE2(ptr noundef captures(none) %0) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %8 = add nsw i32 %.056, -1
   %9 = icmp samesign ugt i32 %.056, 1
-  br i1 %9, label %2, label %10, !llvm.loop !20
+  br i1 %9, label %2, label %10, !llvm.loop !21
 
 10:                                               ; preds = %2
   ret void
@@ -3547,7 +3547,7 @@ define internal void @DC16NoTop_SSE2(ptr noundef captures(none) %0) #2 {
   %6 = add nuw nsw i32 %.067, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !21
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !22
 
 7:                                                ; preds = %2
   %8 = lshr i32 %6, 4
@@ -3563,7 +3563,7 @@ define internal void @DC16NoTop_SSE2(ptr noundef captures(none) %0) #2 {
   store <16 x i8> %11, ptr %14, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %12, !llvm.loop !17
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %12, !llvm.loop !18
 
 Put16_SSE2.exit:                                  ; preds = %12
   ret void
@@ -3595,7 +3595,7 @@ define internal void @DC16NoLeft_SSE2(ptr noundef captures(none) %0) #2 {
   store <16 x i8> %16, ptr %19, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %17, !llvm.loop !17
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %17, !llvm.loop !18
 
 Put16_SSE2.exit:                                  ; preds = %17
   ret void
@@ -3612,7 +3612,7 @@ define internal void @DC16NoTopLeft_SSE2(ptr noundef writeonly captures(none) %0
   store <16 x i8> splat (i8 -128), ptr %4, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %2, !llvm.loop !17
+  br i1 %exitcond.not.i, label %Put16_SSE2.exit, label %2, !llvm.loop !18
 
 Put16_SSE2.exit:                                  ; preds = %2
   ret void
@@ -3635,7 +3635,7 @@ define internal void @DC8uv_SSE2(ptr noundef captures(none) %0) #2 {
   %8 = add nuw nsw i32 %.013, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %9, label %4, !llvm.loop !22
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !23
 
 9:                                                ; preds = %4
   %10 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %3, i64 0
@@ -3660,7 +3660,7 @@ define internal void @DC8uv_SSE2(ptr noundef captures(none) %0) #2 {
   store i64 %22, ptr %25, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %23, !llvm.loop !23
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %23, !llvm.loop !24
 
 Put8x8uv_SSE2.exit:                               ; preds = %23
   ret void
@@ -3696,7 +3696,7 @@ define internal void @TM8uv_SSE2(ptr noundef captures(none) %0) #2 {
   %22 = add nuw nsw i32 %.15055.i, 1
   %23 = getelementptr inbounds nuw i8, ptr %.156.i, i64 32
   %exitcond.not.i = icmp eq i32 %22, 8
-  br i1 %exitcond.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !24
+  br i1 %exitcond.not.i, label %TrueMotion_SSE2.exit, label %9, !llvm.loop !25
 
 TrueMotion_SSE2.exit:                             ; preds = %9
   ret void
@@ -3715,7 +3715,7 @@ define internal void @VE8uv_SSE2(ptr noundef captures(none) %0) #2 {
   store i64 %3, ptr %6, align 1, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %7, label %4, !llvm.loop !25
+  br i1 %exitcond.not, label %7, label %4, !llvm.loop !26
 
 7:                                                ; preds = %4
   ret void
@@ -3736,7 +3736,7 @@ define internal void @DC8uvNoTop_SSE2(ptr noundef captures(none) %0) #2 {
   %6 = add nuw nsw i32 %.067, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %7, label %2, !llvm.loop !26
+  br i1 %exitcond.not, label %7, label %2, !llvm.loop !27
 
 7:                                                ; preds = %2
   %8 = lshr i32 %6, 3
@@ -3754,7 +3754,7 @@ define internal void @DC8uvNoTop_SSE2(ptr noundef captures(none) %0) #2 {
   store i64 %13, ptr %16, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %14, !llvm.loop !23
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %14, !llvm.loop !24
 
 Put8x8uv_SSE2.exit:                               ; preds = %14
   ret void
@@ -3785,7 +3785,7 @@ define internal void @DC8uvNoLeft_SSE2(ptr noundef captures(none) %0) #2 {
   store i64 %15, ptr %18, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %16, !llvm.loop !23
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %16, !llvm.loop !24
 
 Put8x8uv_SSE2.exit:                               ; preds = %16
   ret void
@@ -3802,7 +3802,7 @@ define internal void @DC8uvNoTopLeft_SSE2(ptr noundef writeonly captures(none) %
   store i64 -9187201950435737472, ptr %4, align 1, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %2, !llvm.loop !23
+  br i1 %exitcond.not.i, label %Put8x8uv_SSE2.exit, label %2, !llvm.loop !24
 
 Put8x8uv_SSE2.exit:                               ; preds = %2
   ret void
@@ -3856,22 +3856,23 @@ attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
-!26 = distinct !{!26, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}
+!27 = distinct !{!27, !9, !10}

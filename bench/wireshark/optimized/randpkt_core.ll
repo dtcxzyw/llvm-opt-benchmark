@@ -151,7 +151,7 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = tail call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %15, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef 232) #10, !alias.scope !8
+  %20 = tail call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %15, i64 noundef range(i64 -2147483648, 4294967296) %19, i64 noundef 232) #10, !alias.scope !9
   br label %21
 
 21:                                               ; preds = %16, %3
@@ -164,7 +164,7 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  %28 = tail call ptr @__memcpy_chk(ptr noundef %7, ptr noundef nonnull %23, i64 noundef range(i64 -2147483648, 4294967296) %27, i64 noundef 65536) #10, !alias.scope !12
+  %28 = tail call ptr @__memcpy_chk(ptr noundef %7, ptr noundef nonnull %23, i64 noundef range(i64 -2147483648, 4294967296) %27, i64 noundef 65536) #10, !alias.scope !13
   br label %29
 
 29:                                               ; preds = %24, %21
@@ -222,7 +222,7 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = and i64 %indvars.iv.next, 4294967295
   %exitcond.not = icmp eq i64 %55, 152
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load i32, ptr %31, align 8
@@ -256,7 +256,7 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %71 = select i1 %70, i64 0, i64 %69
   %72 = icmp ne i64 %71, -1
   call void @llvm.assume(i1 %72)
-  %73 = call ptr @__memcpy_chk(ptr noundef %68, ptr noundef nonnull @.str.1, i64 noundef 3, i64 noundef %71) #10, !alias.scope !17
+  %73 = call ptr @__memcpy_chk(ptr noundef %68, ptr noundef nonnull @.str.1, i64 noundef 3, i64 noundef %71) #10, !alias.scope !18
   %74 = add i32 %.179, 2
   br label %81
 
@@ -273,7 +273,7 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %.2 = phi i32 [ %74, %66 ], [ %.179, %75 ]
   %82 = add i32 %.2, 1
   %83 = icmp ult i32 %82, %spec.store.select
-  br i1 %83, label %59, label %._crit_edge82, !llvm.loop !21
+  br i1 %83, label %59, label %._crit_edge82, !llvm.loop !22
 
 ._crit_edge82:                                    ; preds = %81, %._crit_edge
   %84 = load ptr, ptr %35, align 8
@@ -310,7 +310,7 @@ define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 nou
   %102 = add i32 %.083, 1
   %103 = zext i32 %102 to i64
   %104 = icmp ugt i64 %1, %103
-  br i1 %104, label %38, label %._crit_edge86, !llvm.loop !22
+  br i1 %104, label %38, label %._crit_edge86, !llvm.loop !23
 
 ._crit_edge86:                                    ; preds = %101, %29
   call void @g_free(ptr noundef %6)
@@ -511,7 +511,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #1 {
 8:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %15, label %.preheader, !llvm.loop !23
+  br i1 %exitcond.not, label %15, label %.preheader, !llvm.loop !24
 
 .preheader:                                       ; preds = %2, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %2 ]
@@ -568,7 +568,7 @@ define hidden void @randpkt_example_list(ptr noundef captures(none) initializes(
   store ptr %13, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
-  br i1 %exitcond.not, label %16, label %5, !llvm.loop !24
+  br i1 %exitcond.not, label %16, label %5, !llvm.loop !25
 
 16:                                               ; preds = %5
   ret void
@@ -608,22 +608,23 @@ attributes #12 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = !{!9, !11}
-!9 = distinct !{!9, !10, !"memcpy.inline: argument 0"}
-!10 = distinct !{!10, !"memcpy.inline"}
-!11 = distinct !{!11, !10, !"memcpy.inline: argument 1"}
-!12 = !{!13, !15}
-!13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
-!14 = distinct !{!14, !"memcpy.inline"}
-!15 = distinct !{!15, !14, !"memcpy.inline: argument 1"}
-!16 = distinct !{!16, !7}
-!17 = !{!18, !20}
-!18 = distinct !{!18, !19, !"memcpy.inline: argument 0"}
-!19 = distinct !{!19, !"memcpy.inline"}
-!20 = distinct !{!20, !19, !"memcpy.inline: argument 1"}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!10, !12}
+!10 = distinct !{!10, !11, !"memcpy.inline: argument 0"}
+!11 = distinct !{!11, !"memcpy.inline"}
+!12 = distinct !{!12, !11, !"memcpy.inline: argument 1"}
+!13 = !{!14, !16}
+!14 = distinct !{!14, !15, !"memcpy.inline: argument 0"}
+!15 = distinct !{!15, !"memcpy.inline"}
+!16 = distinct !{!16, !15, !"memcpy.inline: argument 1"}
+!17 = distinct !{!17, !7, !8}
+!18 = !{!19, !21}
+!19 = distinct !{!19, !20, !"memcpy.inline: argument 0"}
+!20 = distinct !{!20, !"memcpy.inline"}
+!21 = distinct !{!21, !20, !"memcpy.inline: argument 1"}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !7, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}

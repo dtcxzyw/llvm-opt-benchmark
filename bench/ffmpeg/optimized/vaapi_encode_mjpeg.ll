@@ -292,20 +292,20 @@ define internal noundef i32 @vaapi_encode_mjpeg_init_picture_params(ptr noundef 
 ._crit_edge:                                      ; preds = %58, %23
   %65 = mul nuw nsw i16 %38, 3
   %66 = add nuw nsw i16 %65, 8
-  store i16 %66, ptr %8, align 2, !tbaa !89
+  store i16 %66, ptr %8, align 2, !tbaa !90
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 1976
-  %68 = load i32, ptr %67, align 8, !tbaa !90
+  %68 = load i32, ptr %67, align 8, !tbaa !91
   %.not158 = icmp eq i32 %68, 0
   br i1 %.not158, label %96, label %bytestream2_put_byte.exit
 
 bytestream2_put_byte.exit:                        ; preds = %._crit_edge
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 3832
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %71 = load ptr, ptr %70, align 8, !tbaa !91
+  %71 = load ptr, ptr %70, align 8, !tbaa !92
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 124
-  %.sroa.017.0.copyload = load i32, ptr %72, align 4, !tbaa !92
+  %.sroa.017.0.copyload = load i32, ptr %72, align 4, !tbaa !93
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %71, i64 128
-  %.sroa.418.0.copyload = load i32, ptr %.sroa.418.0..sroa_idx, align 4, !tbaa !92
+  %.sroa.418.0.copyload = load i32, ptr %.sroa.418.0..sroa_idx, align 4, !tbaa !93
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 1988
@@ -318,7 +318,7 @@ bytestream2_put_byte.exit:                        ; preds = %._crit_edge
   %77 = sext i32 %.sroa.017.0.copyload to i64
   %78 = sext i32 %.sroa.418.0.copyload to i64
   %79 = call i32 @av_reduce(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %77, i64 noundef %78, i64 noundef 65535) #9
-  %80 = load i32, ptr %3, align 4, !tbaa !92
+  %80 = load i32, ptr %3, align 4, !tbaa !93
   %81 = icmp ne i32 %80, 0
   %82 = load i32, ptr %4, align 4
   %83 = icmp ne i32 %82, 0
@@ -346,11 +346,11 @@ bytestream2_put_byte.exit:                        ; preds = %._crit_edge
   store i8 0, ptr %.sroa.0.0, align 1, !tbaa !86
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 2001
   store i8 0, ptr %93, align 1, !tbaa !86
-  store i16 16, ptr %69, align 8, !tbaa !93
+  store i16 16, ptr %69, align 8, !tbaa !94
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 3840
-  store ptr %73, ptr %94, align 8, !tbaa !94
+  store ptr %73, ptr %94, align 8, !tbaa !95
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 3848
-  store ptr null, ptr %95, align 8, !tbaa !95
+  store ptr null, ptr %95, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   br label %96
@@ -381,10 +381,10 @@ bytestream2_put_byte.exit:                        ; preds = %._crit_edge
   %.0145246 = phi i16 [ 2, %105 ], [ %125, %124 ]
   %109 = getelementptr inbounds nuw [4 x %struct.JPEGRawQuantisationTable], ptr %106, i64 0, i64 %indvars.iv278
   %110 = select i1 %108, ptr @vaapi_encode_mjpeg_quant_luminance, ptr @vaapi_encode_mjpeg_quant_chrominance
-  store i8 0, ptr %109, align 2, !tbaa !96
+  store i8 0, ptr %109, align 2, !tbaa !97
   %111 = trunc nuw nsw i64 %indvars.iv278 to i8
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 1
-  store i8 %111, ptr %112, align 1, !tbaa !98
+  store i8 %111, ptr %112, align 1, !tbaa !99
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 2
   br label %114
 
@@ -399,21 +399,21 @@ bytestream2_put_byte.exit:                        ; preds = %._crit_edge
   %121 = call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw nsw i32 %121 to i16
   %123 = getelementptr inbounds nuw [64 x i16], ptr %113, i64 0, i64 %indvars.iv275
-  store i16 %122, ptr %123, align 2, !tbaa !99
+  store i16 %122, ptr %123, align 2, !tbaa !100
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next276, 64
-  br i1 %exitcond.not, label %124, label %114, !llvm.loop !100
+  br i1 %exitcond.not, label %124, label %114, !llvm.loop !101
 
 124:                                              ; preds = %114
   %125 = add nuw nsw i16 %.0145246, 65
   %126 = load i16, ptr %39, align 2, !tbaa !85
   %127 = icmp ugt i16 %126, 1
   %128 = and i1 %127, %108
-  br i1 %128, label %107, label %129, !llvm.loop !101
+  br i1 %128, label %107, label %129, !llvm.loop !102
 
 129:                                              ; preds = %124
   %130 = getelementptr inbounds nuw i8, ptr %6, i64 3856
-  store i16 %125, ptr %130, align 8, !tbaa !102
+  store i16 %125, ptr %130, align 8, !tbaa !103
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 4380
   %132 = select i1 %127, i64 4, i64 2
   br label %switch.lookup
@@ -430,11 +430,11 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   %switch.load310 = load ptr, ptr %switch.gep309, align 8
   %136 = trunc nuw nsw i64 %indvars.iv288 to i8
   %137 = and i8 %136, 1
-  store i8 %137, ptr %133, align 1, !tbaa !103
+  store i8 %137, ptr %133, align 1, !tbaa !104
   %138 = lshr i64 %indvars.iv288, 1
   %139 = trunc nuw nsw i64 %138 to i8
   %140 = getelementptr inbounds nuw i8, ptr %133, i64 1
-  store i8 %139, ptr %140, align 1, !tbaa !105
+  store i8 %139, ptr %140, align 1, !tbaa !106
   %141 = getelementptr inbounds nuw i8, ptr %133, i64 2
   br label %143
 
@@ -458,7 +458,7 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   %148 = add nuw nsw i32 %.0151248, %147
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %exitcond283.not = icmp eq i64 %indvars.iv.next281, 16
-  br i1 %exitcond283.not, label %.preheader, label %143, !llvm.loop !106
+  br i1 %exitcond283.not, label %.preheader, label %143, !llvm.loop !107
 
 149:                                              ; preds = %.lr.ph251, %149
   %indvars.iv284 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next285, %149 ]
@@ -468,22 +468,22 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   store i8 %151, ptr %152, align 1, !tbaa !86
   %indvars.iv.next285 = add nuw nsw i64 %indvars.iv284, 1
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, %wide.trip.count
-  br i1 %exitcond287.not, label %._crit_edge252, label %149, !llvm.loop !107
+  br i1 %exitcond287.not, label %._crit_edge252, label %149, !llvm.loop !108
 
 ._crit_edge252:                                   ; preds = %149, %.preheader
   %153 = add nuw nsw i32 %.1146253, 17
   %154 = add nuw nsw i32 %153, %148
   %indvars.iv.next289 = add nuw nsw i64 %indvars.iv288, 1
   %155 = icmp samesign ult i64 %indvars.iv.next289, %132
-  br i1 %155, label %switch.lookup, label %156, !llvm.loop !108
+  br i1 %155, label %switch.lookup, label %156, !llvm.loop !109
 
 156:                                              ; preds = %._crit_edge252
   %157 = trunc i32 %154 to i16
   %158 = getelementptr inbounds nuw i8, ptr %6, i64 4378
-  store i16 %157, ptr %158, align 2, !tbaa !109
+  store i16 %157, ptr %158, align 2, !tbaa !110
   %159 = trunc i16 %126 to i8
   %160 = getelementptr inbounds nuw i8, ptr %6, i64 3034
-  store i8 %159, ptr %160, align 2, !tbaa !110
+  store i8 %159, ptr %160, align 2, !tbaa !111
   %.not266 = icmp eq i16 %126, 0
   br i1 %.not266, label %._crit_edge258, label %.lr.ph257
 
@@ -509,35 +509,35 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   store i8 %171, ptr %173, align 1, !tbaa !86
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %174 = icmp samesign ult i64 %indvars.iv.next292, %165
-  br i1 %174, label %166, label %._crit_edge258, !llvm.loop !111
+  br i1 %174, label %166, label %._crit_edge258, !llvm.loop !112
 
 ._crit_edge258:                                   ; preds = %166, %156
   %175 = getelementptr inbounds nuw i8, ptr %6, i64 3800
-  store i8 0, ptr %175, align 2, !tbaa !112
+  store i8 0, ptr %175, align 2, !tbaa !113
   %176 = getelementptr inbounds nuw i8, ptr %6, i64 3801
-  store i8 63, ptr %176, align 1, !tbaa !113
+  store i8 63, ptr %176, align 1, !tbaa !114
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 3802
-  store i8 0, ptr %177, align 2, !tbaa !114
+  store i8 0, ptr %177, align 2, !tbaa !115
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 3803
-  store i8 0, ptr %178, align 1, !tbaa !115
+  store i8 0, ptr %178, align 1, !tbaa !116
   %179 = shl i16 %126, 1
   %180 = and i16 %179, 510
   %181 = add nuw nsw i16 %180, 6
-  store i16 %181, ptr %9, align 2, !tbaa !116
+  store i16 %181, ptr %9, align 2, !tbaa !117
   %182 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  %183 = load i32, ptr %182, align 4, !tbaa !117
+  %183 = load i32, ptr %182, align 4, !tbaa !118
   %184 = load i16, ptr %35, align 2, !tbaa !83
   %185 = load i16, ptr %31, align 2, !tbaa !82
   %186 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %187 = load i32, ptr %186, align 8, !tbaa !118
+  %187 = load i32, ptr %186, align 8, !tbaa !119
   %188 = load i8, ptr %27, align 2, !tbaa !81
-  store i32 %183, ptr %11, align 4, !tbaa !92
+  store i32 %183, ptr %11, align 4, !tbaa !93
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i16 %184, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !99
+  store i16 %184, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !100
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 6
-  store i16 %185, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !99
+  store i16 %185, ptr %.sroa.3.0..sroa_idx, align 2, !tbaa !100
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 %187, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !92
+  store i32 %187, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !93
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 12
   store i8 8, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 13
@@ -547,7 +547,7 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 17
   store i8 1, ptr %.sroa.18.0..sroa_idx, align 1, !tbaa !86
   %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 18
-  store i16 %126, ptr %.sroa.19.0..sroa_idx, align 2, !tbaa !99
+  store i16 %126, ptr %.sroa.19.0..sroa_idx, align 2, !tbaa !100
   %.sroa.20.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 0, ptr %.sroa.20.0..sroa_idx, align 4, !tbaa !86
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -579,11 +579,11 @@ switch.lookup:                                    ; preds = %129, %._crit_edge25
   %199 = load i16, ptr %39, align 2, !tbaa !85
   %200 = zext i16 %199 to i64
   %201 = icmp samesign ult i64 %indvars.iv.next295, %200
-  br i1 %201, label %192, label %._crit_edge263, !llvm.loop !119
+  br i1 %201, label %192, label %._crit_edge263, !llvm.loop !120
 
 ._crit_edge263:                                   ; preds = %192, %._crit_edge258
   %202 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  store i32 1, ptr %202, align 8, !tbaa !120
+  store i32 1, ptr %202, align 8, !tbaa !121
   ret i32 0
 }
 
@@ -592,16 +592,16 @@ define internal noundef i32 @vaapi_encode_mjpeg_init_slice_params(ptr noundef re
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !121
+  %7 = load ptr, ptr %6, align 8, !tbaa !122
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 3034
-  %9 = load i8, ptr %8, align 2, !tbaa !110
+  %9 = load i8, ptr %8, align 2, !tbaa !111
   %10 = zext i8 %9 to i16
-  store i16 0, ptr %7, align 4, !tbaa !99
+  store i16 0, ptr %7, align 4, !tbaa !100
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 2
-  store i16 %10, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !99
+  store i16 %10, ptr %.sroa.2.0..sroa_idx, align 2, !tbaa !100
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.sroa.3.0..sroa_idx, i8 0, i64 28, i1 false)
-  %11 = load i8, ptr %8, align 2, !tbaa !110
+  %11 = load i8, ptr %8, align 2, !tbaa !111
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -617,18 +617,18 @@ define internal noundef i32 @vaapi_encode_mjpeg_init_slice_params(ptr noundef re
   %16 = getelementptr inbounds nuw [255 x i8], ptr %12, i64 0, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !86
   %18 = getelementptr inbounds nuw [4 x %struct.anon.7], ptr %.sroa.3.0..sroa_idx, i64 0, i64 %indvars.iv
-  store i8 %17, ptr %18, align 1, !tbaa !123
+  store i8 %17, ptr %18, align 1, !tbaa !124
   %19 = getelementptr inbounds nuw [255 x i8], ptr %13, i64 0, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !86
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store i8 %20, ptr %21, align 1, !tbaa !125
+  store i8 %20, ptr %21, align 1, !tbaa !126
   %22 = getelementptr inbounds nuw [255 x i8], ptr %14, i64 0, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !86
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  store i8 %23, ptr %24, align 1, !tbaa !126
+  store i8 %23, ptr %24, align 1, !tbaa !127
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !127
+  br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !128
 
 ._crit_edge:                                      ; preds = %15, %3
   ret i32 0
@@ -640,7 +640,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_mjpeg_write_image_he
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 6584
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 1976
-  %10 = load i32, ptr %9, align 8, !tbaa !90
+  %10 = load i32, ptr %9, align 8, !tbaa !91
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %15, label %11
 
@@ -664,7 +664,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_mjpeg_write_image_he
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 1980
-  %25 = load i32, ptr %24, align 4, !tbaa !128
+  %25 = load i32, ptr %24, align 4, !tbaa !129
   %.not42 = icmp eq i32 %25, 0
   br i1 %.not42, label %30, label %26
 
@@ -682,7 +682,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_mjpeg_write_image_he
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 6576
-  %36 = load ptr, ptr %35, align 8, !tbaa !129
+  %36 = load ptr, ptr %35, align 8, !tbaa !130
   %37 = tail call i32 @ff_cbs_write_fragment_data(ptr noundef %36, ptr noundef nonnull %8) #9
   %38 = icmp slt i32 %37, 0
   br i1 %38, label %39, label %40
@@ -692,9 +692,9 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_mjpeg_write_image_he
   br label %53
 
 40:                                               ; preds = %34
-  %41 = load i64, ptr %4, align 8, !tbaa !130
+  %41 = load i64, ptr %4, align 8, !tbaa !131
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 6592
-  %43 = load i64, ptr %42, align 8, !tbaa !131
+  %43 = load i64, ptr %42, align 8, !tbaa !132
   %44 = shl i64 %43, 3
   %45 = icmp ult i64 %41, %44
   br i1 %45, label %46, label %47
@@ -704,13 +704,13 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_encode_mjpeg_write_image_he
   br label %53
 
 47:                                               ; preds = %40
-  %48 = load ptr, ptr %8, align 8, !tbaa !132
+  %48 = load ptr, ptr %8, align 8, !tbaa !133
   %49 = add i64 %43, -2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %48, i64 %49, i1 false)
-  %50 = load i64, ptr %42, align 8, !tbaa !131
+  %50 = load i64, ptr %42, align 8, !tbaa !132
   %51 = shl i64 %50, 3
   %52 = add i64 %51, -16
-  store i64 %52, ptr %4, align 8, !tbaa !130
+  store i64 %52, ptr %4, align 8, !tbaa !131
   br label %53
 
 53:                                               ; preds = %30, %26, %19, %15, %11, %47, %46, %39
@@ -729,16 +729,16 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   ]
 
 9:                                                ; preds = %6
-  %10 = load i64, ptr %5, align 8, !tbaa !130
+  %10 = load i64, ptr %5, align 8, !tbaa !131
   %11 = icmp ugt i64 %10, 151
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %9
-  store i32 11, ptr %3, align 4, !tbaa !92
-  store i64 152, ptr %5, align 8, !tbaa !130
+  store i32 11, ptr %3, align 4, !tbaa !93
+  store i64 152, ptr %5, align 8, !tbaa !131
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(148) %13, i8 0, i64 148, i1 false)
-  store i32 1, ptr %4, align 4, !tbaa !133
+  store i32 1, ptr %4, align 4, !tbaa !134
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 2777
   %15 = getelementptr i8, ptr %8, i64 3860
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -751,13 +751,13 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %.idx91 = mul nuw nsw i64 %19, 130
   %20 = getelementptr i8, ptr %15, i64 %.idx91
   %21 = getelementptr inbounds nuw [64 x i16], ptr %20, i64 0, i64 %indvars.iv129
-  %22 = load i16, ptr %21, align 2, !tbaa !99
+  %22 = load i16, ptr %21, align 2, !tbaa !100
   %23 = trunc i16 %22 to i8
   %24 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 0, i64 %indvars.iv129
   store i8 %23, ptr %24, align 1, !tbaa !86
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next130, 64
-  br i1 %exitcond132.not, label %25, label %17, !llvm.loop !135
+  br i1 %exitcond132.not, label %25, label %17, !llvm.loop !136
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 2010
@@ -767,7 +767,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 1, ptr %30, align 4, !tbaa !136
+  store i32 1, ptr %30, align 4, !tbaa !137
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 2778
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %33
@@ -779,22 +779,22 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %.idx90 = mul nuw nsw i64 %35, 130
   %36 = getelementptr i8, ptr %15, i64 %.idx90
   %37 = getelementptr inbounds nuw [64 x i16], ptr %36, i64 0, i64 %indvars.iv133
-  %38 = load i16, ptr %37, align 2, !tbaa !99
+  %38 = load i16, ptr %37, align 2, !tbaa !100
   %39 = trunc i16 %38 to i8
   %40 = getelementptr inbounds nuw [64 x i8], ptr %32, i64 0, i64 %indvars.iv133
   store i8 %39, ptr %40, align 1, !tbaa !86
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next134, 64
-  br i1 %exitcond136.not, label %.critedge, label %33, !llvm.loop !137
+  br i1 %exitcond136.not, label %.critedge, label %33, !llvm.loop !138
 
 41:                                               ; preds = %6
-  %42 = load i64, ptr %5, align 8, !tbaa !130
+  %42 = load i64, ptr %5, align 8, !tbaa !131
   %43 = icmp ugt i64 %42, 435
   br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %41
-  store i32 12, ptr %3, align 4, !tbaa !92
-  store i64 436, ptr %5, align 8, !tbaa !130
+  store i32 12, ptr %3, align 4, !tbaa !93
+  store i64 436, ptr %5, align 8, !tbaa !131
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(436) %4, i8 0, i64 436, i1 false)
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 3034
   %46 = getelementptr inbounds nuw i8, ptr %8, i64 4380
@@ -826,7 +826,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %63 = add nuw nsw i32 %.08696, %62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %64, label %58, !llvm.loop !138
+  br i1 %exitcond.not, label %64, label %58, !llvm.loop !139
 
 64:                                               ; preds = %58
   %65 = icmp samesign ult i32 %63, 13
@@ -860,7 +860,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   store i8 %71, ptr %72, align 1, !tbaa !86
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond115.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
-  br i1 %exitcond115.not, label %._crit_edge, label %69, !llvm.loop !139
+  br i1 %exitcond115.not, label %._crit_edge, label %69, !llvm.loop !140
 
 ._crit_edge:                                      ; preds = %69, %.preheader94.._crit_edge_crit_edge
   %.idx88.pre-phi = phi i64 [ %.pre, %.preheader94.._crit_edge_crit_edge ], [ %.idx89, %69 ]
@@ -881,7 +881,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %82 = add nuw nsw i32 %.18799, %81
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond119.not = icmp eq i64 %indvars.iv.next117, 16
-  br i1 %exitcond119.not, label %83, label %77, !llvm.loop !140
+  br i1 %exitcond119.not, label %83, label %77, !llvm.loop !141
 
 83:                                               ; preds = %77
   %84 = icmp samesign ult i32 %82, 163
@@ -910,13 +910,13 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   store i8 %90, ptr %91, align 1, !tbaa !86
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
   %exitcond125.not = icmp eq i64 %indvars.iv.next122, %wide.trip.count124
-  br i1 %exitcond125.not, label %._crit_edge103, label %88, !llvm.loop !141
+  br i1 %exitcond125.not, label %._crit_edge103, label %88, !llvm.loop !142
 
 ._crit_edge103:                                   ; preds = %88, %.preheader
-  %92 = load i8, ptr %45, align 2, !tbaa !110
+  %92 = load i8, ptr %45, align 2, !tbaa !111
   %93 = icmp ugt i8 %92, 1
   %94 = and i1 %93, %52
-  br i1 %94, label %51, label %.critedge, !llvm.loop !142
+  br i1 %94, label %51, label %.critedge, !llvm.loop !143
 
 .critedge:                                        ; preds = %._crit_edge103, %33, %25, %41, %9, %6
   %.1 = phi i32 [ -541478725, %6 ], [ -28, %9 ], [ -28, %41 ], [ 0, %25 ], [ 0, %33 ], [ 0, %._crit_edge103 ]
@@ -1065,59 +1065,60 @@ attributes #10 = { noreturn nounwind }
 !84 = !{!54, !8, i64 8}
 !85 = !{!62, !63, i64 8}
 !86 = !{!8, !8, i64 0}
-!87 = distinct !{!87, !88}
+!87 = distinct !{!87, !88, !89}
 !88 = !{!"llvm.loop.mustprogress"}
-!89 = !{!62, !63, i64 0}
-!90 = !{!61, !10, i64 1976}
-!91 = !{!74, !34, i64 96}
-!92 = !{!10, !10, i64 0}
-!93 = !{!66, !63, i64 0}
-!94 = !{!66, !14, i64 8}
-!95 = !{!66, !21, i64 16}
-!96 = !{!97, !8, i64 0}
-!97 = !{!"JPEGRawQuantisationTable", !8, i64 0, !8, i64 1, !8, i64 2}
-!98 = !{!97, !8, i64 1}
-!99 = !{!63, !63, i64 0}
-!100 = distinct !{!100, !88}
-!101 = distinct !{!101, !88}
-!102 = !{!61, !63, i64 3856}
-!103 = !{!104, !8, i64 0}
-!104 = !{!"JPEGRawHuffmanTable", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 18}
-!105 = !{!104, !8, i64 1}
-!106 = distinct !{!106, !88}
-!107 = distinct !{!107, !88}
-!108 = distinct !{!108, !88}
-!109 = !{!61, !63, i64 4378}
-!110 = !{!65, !8, i64 2}
-!111 = distinct !{!111, !88}
-!112 = !{!65, !8, i64 768}
-!113 = !{!65, !8, i64 769}
-!114 = !{!65, !8, i64 770}
-!115 = !{!65, !8, i64 771}
-!116 = !{!65, !63, i64 0}
-!117 = !{!76, !10, i64 12}
-!118 = !{!76, !10, i64 40}
-!119 = distinct !{!119, !88}
-!120 = !{!76, !10, i64 56}
-!121 = !{!122, !7, i64 24}
-!122 = !{!"VAAPIEncodeSlice", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !7, i64 24}
-!123 = !{!124, !8, i64 0}
-!124 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
-!125 = !{!124, !8, i64 1}
-!126 = !{!124, !8, i64 2}
-!127 = distinct !{!127, !88}
-!128 = !{!61, !10, i64 1980}
-!129 = !{!61, !69, i64 6576}
-!130 = !{!13, !13, i64 0}
-!131 = !{!70, !13, i64 8}
-!132 = !{!70, !14, i64 0}
-!133 = !{!134, !10, i64 0}
-!134 = !{!"_VAQMatrixBufferJPEG", !10, i64 0, !10, i64 4, !8, i64 8, !8, i64 72, !8, i64 136}
-!135 = distinct !{!135, !88}
-!136 = !{!134, !10, i64 4}
-!137 = distinct !{!137, !88}
-!138 = distinct !{!138, !88}
-!139 = distinct !{!139, !88}
-!140 = distinct !{!140, !88}
-!141 = distinct !{!141, !88}
-!142 = distinct !{!142, !88}
+!89 = !{!"llvm.loop.estimated_trip_count"}
+!90 = !{!62, !63, i64 0}
+!91 = !{!61, !10, i64 1976}
+!92 = !{!74, !34, i64 96}
+!93 = !{!10, !10, i64 0}
+!94 = !{!66, !63, i64 0}
+!95 = !{!66, !14, i64 8}
+!96 = !{!66, !21, i64 16}
+!97 = !{!98, !8, i64 0}
+!98 = !{!"JPEGRawQuantisationTable", !8, i64 0, !8, i64 1, !8, i64 2}
+!99 = !{!98, !8, i64 1}
+!100 = !{!63, !63, i64 0}
+!101 = distinct !{!101, !88, !89}
+!102 = distinct !{!102, !88, !89}
+!103 = !{!61, !63, i64 3856}
+!104 = !{!105, !8, i64 0}
+!105 = !{!"JPEGRawHuffmanTable", !8, i64 0, !8, i64 1, !8, i64 2, !8, i64 18}
+!106 = !{!105, !8, i64 1}
+!107 = distinct !{!107, !88, !89}
+!108 = distinct !{!108, !88, !89}
+!109 = distinct !{!109, !88, !89}
+!110 = !{!61, !63, i64 4378}
+!111 = !{!65, !8, i64 2}
+!112 = distinct !{!112, !88, !89}
+!113 = !{!65, !8, i64 768}
+!114 = !{!65, !8, i64 769}
+!115 = !{!65, !8, i64 770}
+!116 = !{!65, !8, i64 771}
+!117 = !{!65, !63, i64 0}
+!118 = !{!76, !10, i64 12}
+!119 = !{!76, !10, i64 40}
+!120 = distinct !{!120, !88, !89}
+!121 = !{!76, !10, i64 56}
+!122 = !{!123, !7, i64 24}
+!123 = !{!"VAAPIEncodeSlice", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !7, i64 24}
+!124 = !{!125, !8, i64 0}
+!125 = !{!"", !8, i64 0, !8, i64 1, !8, i64 2}
+!126 = !{!125, !8, i64 1}
+!127 = !{!125, !8, i64 2}
+!128 = distinct !{!128, !88, !89}
+!129 = !{!61, !10, i64 1980}
+!130 = !{!61, !69, i64 6576}
+!131 = !{!13, !13, i64 0}
+!132 = !{!70, !13, i64 8}
+!133 = !{!70, !14, i64 0}
+!134 = !{!135, !10, i64 0}
+!135 = !{!"_VAQMatrixBufferJPEG", !10, i64 0, !10, i64 4, !8, i64 8, !8, i64 72, !8, i64 136}
+!136 = distinct !{!136, !88, !89}
+!137 = !{!135, !10, i64 4}
+!138 = distinct !{!138, !88, !89}
+!139 = distinct !{!139, !88, !89}
+!140 = distinct !{!140, !88, !89}
+!141 = distinct !{!141, !88, !89}
+!142 = distinct !{!142, !88, !89}
+!143 = distinct !{!143, !88, !89}

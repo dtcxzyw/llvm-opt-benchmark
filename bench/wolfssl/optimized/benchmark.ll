@@ -1173,7 +1173,7 @@ bench_ecc_curve.exit.i:                           ; preds = %247, %.thread.i.i
 249:                                              ; preds = %248, %bench_ecc_curve.exit.i, %238
   %250 = add nuw nsw i32 %.068.i, 1
   %.not169.i = icmp eq i32 %250, 29
-  br i1 %.not169.i, label %.thread.i, label %238, !llvm.loop !13
+  br i1 %.not169.i, label %.thread.i, label %238, !llvm.loop !14
 
 251:                                              ; preds = %231
   %252 = and i32 %232, 16777216
@@ -1267,21 +1267,21 @@ define dso_local void @bench_rng() local_unnamed_addr #0 {
   %12 = tail call ptr @__errno_location() #17
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %13, ptr noundef nonnull @.str.80)
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !15
   %16 = call i32 @fflush(ptr noundef %15)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %8
-  %17 = load i64, ptr %2, align 8, !tbaa !16
+  %17 = load i64, ptr %2, align 8, !tbaa !17
   %18 = sitofp i64 %17 to double
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !19
+  %20 = load i64, ptr %19, align 8, !tbaa !20
   %21 = sitofp i64 %20 to double
   %22 = fdiv double %21, 1.000000e+09
   %23 = fadd double %22, %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
-  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
   %27 = zext i32 %25 to i64
@@ -1289,7 +1289,7 @@ bench_stats_start.exit:                           ; preds = %8
   %29 = shl nuw i64 %28, 32
   %30 = or disjoint i64 %29, %27
   %31 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %30, ptr %31, align 8, !tbaa !21
+  store i64 %30, ptr %31, align 8, !tbaa !22
   %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %34
@@ -1328,7 +1328,7 @@ bench_stats_start.exit:                           ; preds = %8
   %48 = sub nsw i64 %.036, %41
   %49 = add nuw nsw i64 %41, %.01635
   %50 = icmp sgt i64 %48, 0
-  br i1 %50, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !22
+  br i1 %50, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %47
   %.pre = load i32, ptr @numBlocks, align 4, !tbaa !4
@@ -1339,7 +1339,7 @@ bench_stats_start.exit:                           ; preds = %8
   %.2.lcssa = phi i32 [ %.137, %.lr.ph40 ], [ %45, %._crit_edge.loopexit ]
   %52 = add nuw nsw i32 %.01738, 1
   %53 = icmp slt i32 %52, %51
-  br i1 %53, label %.lr.ph40, label %._crit_edge41, !llvm.loop !23
+  br i1 %53, label %.lr.ph40, label %._crit_edge41, !llvm.loop !24
 
 ._crit_edge41:                                    ; preds = %._crit_edge, %34
   %.1.lcssa = phi i32 [ %.018, %34 ], [ %.2.lcssa, %._crit_edge ]
@@ -1353,23 +1353,23 @@ bench_stats_start.exit:                           ; preds = %8
   %57 = tail call ptr @__errno_location() #17
   %58 = load i32, ptr %57, align 4, !tbaa !4
   %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %58, ptr noundef nonnull @.str.80)
-  %60 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %60 = load ptr, ptr @stdout, align 8, !tbaa !15
   %61 = call i32 @fflush(ptr noundef %60)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %._crit_edge41
   %62 = add nuw nsw i32 %.017.lcssa, %.025
-  %63 = load i64, ptr %1, align 8, !tbaa !16
+  %63 = load i64, ptr %1, align 8, !tbaa !17
   %64 = sitofp i64 %63 to double
-  %65 = load i64, ptr %33, align 8, !tbaa !19
+  %65 = load i64, ptr %33, align 8, !tbaa !20
   %66 = sitofp i64 %65 to double
   %67 = fdiv double %66, 1.000000e+09
   %68 = fadd double %67, %64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
   %69 = fsub double %68, %23
   %70 = fcmp uge double %69, 1.000000e+00
-  br i1 %70, label %.loopexit, label %34, !llvm.loop !24
+  br i1 %70, label %.loopexit, label %34, !llvm.loop !25
 
 .loopexit:                                        ; preds = %bench_stats_check.exit, %.lr.ph
   %.126 = phi i32 [ %.025, %.lr.ph ], [ %62, %bench_stats_check.exit ]
@@ -1400,17 +1400,17 @@ define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef 
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds [2 x [4 x ptr]], ptr @bench_result_words1, i64 0, i64 %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(150) %7, i8 0, i64 150, i1 false)
-  %11 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %11 = tail call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %12 = extractvalue { i32, i32 } %11, 0
   %13 = extractvalue { i32, i32 } %11, 1
   %14 = zext i32 %12 to i64
   %15 = zext i32 %13 to i64
   %16 = shl nuw i64 %15, 32
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  %18 = load i64, ptr %17, align 8, !tbaa !21
+  %18 = load i64, ptr %17, align 8, !tbaa !22
   %19 = sub i64 %14, %18
   %20 = add i64 %19, %16
-  store i64 %20, ptr %17, align 8, !tbaa !21
+  store i64 %20, ptr %17, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
   %21 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %6) #16
   %22 = icmp slt i32 %21, 0
@@ -1420,17 +1420,17 @@ define internal fastcc void @bench_stats_sym_finish(ptr noundef %0, i32 noundef 
   %24 = tail call ptr @__errno_location() #17
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %25, ptr noundef nonnull @.str.80)
-  %27 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %27 = load ptr, ptr @stdout, align 8, !tbaa !15
   %28 = call i32 @fflush(ptr noundef %27)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 current_time.exit:                                ; preds = %5
   %29 = sitofp i32 %1 to double
-  %30 = load i64, ptr %6, align 8, !tbaa !16
+  %30 = load i64, ptr %6, align 8, !tbaa !17
   %31 = sitofp i64 %30 to double
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !19
+  %33 = load i64, ptr %32, align 8, !tbaa !20
   %34 = sitofp i64 %33 to double
   %35 = fdiv double %34, 1.000000e+09
   %36 = fadd double %35, %31
@@ -1502,7 +1502,7 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
   br i1 %62, label %71, label %63
 
 63:                                               ; preds = %57
-  %64 = load i64, ptr %17, align 8, !tbaa !21
+  %64 = load i64, ptr %17, align 8, !tbaa !22
   %65 = uitofp i64 %64 to double
   %66 = sext i32 %1 to i64
   %67 = zext i32 %2 to i64
@@ -1532,7 +1532,7 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
   br i1 %86, label %95, label %87
 
 87:                                               ; preds = %74
-  %88 = load i64, ptr %17, align 8, !tbaa !21
+  %88 = load i64, ptr %17, align 8, !tbaa !22
   %89 = uitofp i64 %88 to double
   %90 = sext i32 %1 to i64
   %91 = zext i32 %2 to i64
@@ -1556,7 +1556,7 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
   br label %103
 
 103:                                              ; preds = %101, %98
-  %104 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %104 = load ptr, ptr @stdout, align 8, !tbaa !15
   %105 = call i32 @fflush(ptr noundef %104)
   call void @llvm.lifetime.end.p0(i64 150, ptr nonnull %7) #16
   ret void
@@ -1621,21 +1621,21 @@ define internal fastcc void @bench_aescbc_internal(ptr noundef %0, i32 noundef r
   %25 = tail call ptr @__errno_location() #17
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %26, ptr noundef nonnull @.str.80)
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !15
   %29 = call i32 @fflush(ptr noundef %28)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %21
-  %30 = load i64, ptr %8, align 8, !tbaa !16
+  %30 = load i64, ptr %8, align 8, !tbaa !17
   %31 = sitofp i64 %30 to double
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !19
+  %33 = load i64, ptr %32, align 8, !tbaa !20
   %34 = sitofp i64 %33 to double
   %35 = fdiv double %34, 1.000000e+09
   %36 = fadd double %35, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
-  %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %38 = extractvalue { i32, i32 } %37, 0
   %39 = extractvalue { i32, i32 } %37, 1
   %40 = zext i32 %38 to i64
@@ -1643,7 +1643,7 @@ bench_stats_start.exit:                           ; preds = %21
   %42 = shl nuw i64 %41, 32
   %43 = or disjoint i64 %42, %40
   %44 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %43, ptr %44, align 8, !tbaa !21
+  store i64 %43, ptr %44, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %46
 
@@ -1670,7 +1670,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %53 = add nuw nsw i32 %.073104, 1
   %54 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %55 = icmp slt i32 %53, %54
-  br i1 %55, label %.lr.ph, label %.critedge44._crit_edge
+  br i1 %55, label %.lr.ph, label %.critedge44._crit_edge, !llvm.loop !26
 
 .critedge44._crit_edge:                           ; preds = %bench_async_handle.exit, %46
   %.073.lcssa = phi i32 [ 0, %46 ], [ %53, %bench_async_handle.exit ]
@@ -1684,23 +1684,23 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %59 = tail call ptr @__errno_location() #17
   %60 = load i32, ptr %59, align 4, !tbaa !4
   %61 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %60, ptr noundef nonnull @.str.80)
-  %62 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %62 = load ptr, ptr @stdout, align 8, !tbaa !15
   %63 = call i32 @fflush(ptr noundef %62)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %.critedge44._crit_edge
   %64 = add nuw nsw i32 %.073.lcssa, %.077
-  %65 = load i64, ptr %7, align 8, !tbaa !16
+  %65 = load i64, ptr %7, align 8, !tbaa !17
   %66 = sitofp i64 %65 to double
-  %67 = load i64, ptr %45, align 8, !tbaa !19
+  %67 = load i64, ptr %45, align 8, !tbaa !20
   %68 = sitofp i64 %67 to double
   %69 = fdiv double %68, 1.000000e+09
   %70 = fadd double %69, %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %71 = fsub double %70, %36
   %72 = fcmp uge double %71, 1.000000e+00
-  br i1 %72, label %73, label %46, !llvm.loop !25
+  br i1 %72, label %73, label %46, !llvm.loop !27
 
 73:                                               ; preds = %bench_stats_check.exit
   %74 = load i32, ptr @bench_size, align 4, !tbaa !4
@@ -1723,28 +1723,28 @@ bench_stats_check.exit:                           ; preds = %.critedge44._crit_e
   %81 = tail call ptr @__errno_location() #17
   %82 = load i32, ptr %81, align 4, !tbaa !4
   %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %82, ptr noundef nonnull @.str.80)
-  %84 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %84 = load ptr, ptr @stdout, align 8, !tbaa !15
   %85 = call i32 @fflush(ptr noundef %84)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit52:                         ; preds = %.critedge46
-  %86 = load i64, ptr %6, align 8, !tbaa !16
+  %86 = load i64, ptr %6, align 8, !tbaa !17
   %87 = sitofp i64 %86 to double
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %89 = load i64, ptr %88, align 8, !tbaa !19
+  %89 = load i64, ptr %88, align 8, !tbaa !20
   %90 = sitofp i64 %89 to double
   %91 = fdiv double %90, 1.000000e+09
   %92 = fadd double %91, %87
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  %93 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %93 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %94 = extractvalue { i32, i32 } %93, 0
   %95 = extractvalue { i32, i32 } %93, 1
   %96 = zext i32 %94 to i64
   %97 = zext i32 %95 to i64
   %98 = shl nuw i64 %97, 32
   %99 = or disjoint i64 %98, %96
-  store i64 %99, ptr %44, align 8, !tbaa !21
+  store i64 %99, ptr %44, align 8, !tbaa !22
   %100 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %101
 
@@ -1766,7 +1766,7 @@ bench_async_handle.exit54:                        ; preds = %.lr.ph107
   %107 = add nuw nsw i32 %.174106, 1
   %108 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %109 = icmp slt i32 %107, %108
-  br i1 %109, label %.lr.ph107, label %.critedge48._crit_edge
+  br i1 %109, label %.lr.ph107, label %.critedge48._crit_edge, !llvm.loop !28
 
 .critedge48._crit_edge:                           ; preds = %bench_async_handle.exit54, %101
   %.174.lcssa = phi i32 [ 0, %101 ], [ %107, %bench_async_handle.exit54 ]
@@ -1780,23 +1780,23 @@ bench_async_handle.exit54:                        ; preds = %.lr.ph107
   %113 = tail call ptr @__errno_location() #17
   %114 = load i32, ptr %113, align 4, !tbaa !4
   %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %114, ptr noundef nonnull @.str.80)
-  %116 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %116 = load ptr, ptr @stdout, align 8, !tbaa !15
   %117 = call i32 @fflush(ptr noundef %116)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit55:                         ; preds = %.critedge48._crit_edge
   %118 = add nuw nsw i32 %.174.lcssa, %.279
-  %119 = load i64, ptr %5, align 8, !tbaa !16
+  %119 = load i64, ptr %5, align 8, !tbaa !17
   %120 = sitofp i64 %119 to double
-  %121 = load i64, ptr %100, align 8, !tbaa !19
+  %121 = load i64, ptr %100, align 8, !tbaa !20
   %122 = sitofp i64 %121 to double
   %123 = fdiv double %122, 1.000000e+09
   %124 = fadd double %123, %120
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %125 = fsub double %124, %92
   %126 = fcmp uge double %125, 1.000000e+00
-  br i1 %126, label %bench_async_handle.exit54.thread, label %101, !llvm.loop !26
+  br i1 %126, label %bench_async_handle.exit54.thread, label %101, !llvm.loop !29
 
 bench_async_handle.exit54.thread:                 ; preds = %bench_stats_check.exit55, %.lr.ph107
   %.380 = phi i32 [ %.279, %.lr.ph107 ], [ %118, %bench_stats_check.exit55 ]
@@ -1898,21 +1898,21 @@ define internal fastcc void @bench_aesgcm_internal(ptr noundef %0, i32 noundef r
   %25 = tail call ptr @__errno_location() #17
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %26, ptr noundef nonnull @.str.80)
-  %28 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %28 = load ptr, ptr @stdout, align 8, !tbaa !15
   %29 = call i32 @fflush(ptr noundef %28)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %21
-  %30 = load i64, ptr %8, align 8, !tbaa !16
+  %30 = load i64, ptr %8, align 8, !tbaa !17
   %31 = sitofp i64 %30 to double
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !19
+  %33 = load i64, ptr %32, align 8, !tbaa !20
   %34 = sitofp i64 %33 to double
   %35 = fdiv double %34, 1.000000e+09
   %36 = fadd double %35, %31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
-  %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %37 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %38 = extractvalue { i32, i32 } %37, 0
   %39 = extractvalue { i32, i32 } %37, 1
   %40 = zext i32 %38 to i64
@@ -1920,7 +1920,7 @@ bench_stats_start.exit:                           ; preds = %21
   %42 = shl nuw i64 %41, 32
   %43 = or disjoint i64 %42, %40
   %44 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %43, ptr %44, align 8, !tbaa !21
+  store i64 %43, ptr %44, align 8, !tbaa !22
   %45 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
   %46 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1937,7 +1937,7 @@ bench_stats_start.exit:                           ; preds = %21
   %51 = add nsw i32 %.1103, 1
   %52 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %53 = icmp slt i32 %51, %52
-  br i1 %53, label %.lr.ph, label %.critedge61._crit_edge
+  br i1 %53, label %.lr.ph, label %.critedge61._crit_edge, !llvm.loop !30
 
 .lr.ph:                                           ; preds = %48, %.critedge61
   %.0102139 = phi i32 [ %51, %.critedge61 ], [ 0, %48 ]
@@ -1975,23 +1975,23 @@ bench_async_handle.exit74:                        ; preds = %bench_async_handle.
   %67 = tail call ptr @__errno_location() #17
   %68 = load i32, ptr %67, align 4, !tbaa !4
   %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %68, ptr noundef nonnull @.str.80)
-  %70 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %70 = load ptr, ptr @stdout, align 8, !tbaa !15
   %71 = call i32 @fflush(ptr noundef %70)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %.critedge61._crit_edge
   %72 = add nsw i32 %.0102.lcssa, %.0110
-  %73 = load i64, ptr %7, align 8, !tbaa !16
+  %73 = load i64, ptr %7, align 8, !tbaa !17
   %74 = sitofp i64 %73 to double
-  %75 = load i64, ptr %47, align 8, !tbaa !19
+  %75 = load i64, ptr %47, align 8, !tbaa !20
   %76 = sitofp i64 %75 to double
   %77 = fdiv double %76, 1.000000e+09
   %78 = fadd double %77, %74
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %79 = fsub double %78, %36
   %80 = fcmp uge double %79, 1.000000e+00
-  br i1 %80, label %.critedge63, label %48, !llvm.loop !27
+  br i1 %80, label %.critedge63, label %48, !llvm.loop !31
 
 .critedge63:                                      ; preds = %bench_stats_check.exit, %bench_async_handle.exit74, %54
   %.1111 = phi i32 [ %.0110, %54 ], [ %.0110, %bench_async_handle.exit74 ], [ %72, %bench_stats_check.exit ]
@@ -2029,28 +2029,28 @@ bench_stats_check.exit:                           ; preds = %.critedge61._crit_e
   %94 = tail call ptr @__errno_location() #17
   %95 = load i32, ptr %94, align 4, !tbaa !4
   %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %95, ptr noundef nonnull @.str.80)
-  %97 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = load ptr, ptr @stdout, align 8, !tbaa !15
   %98 = call i32 @fflush(ptr noundef %97)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit75:                         ; preds = %90
-  %99 = load i64, ptr %6, align 8, !tbaa !16
+  %99 = load i64, ptr %6, align 8, !tbaa !17
   %100 = sitofp i64 %99 to double
   %101 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !19
+  %102 = load i64, ptr %101, align 8, !tbaa !20
   %103 = sitofp i64 %102 to double
   %104 = fdiv double %103, 1.000000e+09
   %105 = fadd double %104, %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %107 = extractvalue { i32, i32 } %106, 0
   %108 = extractvalue { i32, i32 } %106, 1
   %109 = zext i32 %107 to i64
   %110 = zext i32 %108 to i64
   %111 = shl nuw i64 %110, 32
   %112 = or disjoint i64 %111, %109
-  store i64 %112, ptr %44, align 8, !tbaa !21
+  store i64 %112, ptr %44, align 8, !tbaa !22
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %114
 
@@ -2065,7 +2065,7 @@ bench_stats_start.exit75:                         ; preds = %90
   %117 = add nsw i32 %.3105, 1
   %118 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %119 = icmp slt i32 %117, %118
-  br i1 %119, label %.lr.ph142, label %.critedge65._crit_edge
+  br i1 %119, label %.lr.ph142, label %.critedge65._crit_edge, !llvm.loop !32
 
 .lr.ph142:                                        ; preds = %114, %.critedge65
   %.2104141 = phi i32 [ %117, %.critedge65 ], [ 0, %114 ]
@@ -2103,23 +2103,23 @@ bench_async_handle.exit79:                        ; preds = %bench_async_handle.
   %133 = tail call ptr @__errno_location() #17
   %134 = load i32, ptr %133, align 4, !tbaa !4
   %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %134, ptr noundef nonnull @.str.80)
-  %136 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %136 = load ptr, ptr @stdout, align 8, !tbaa !15
   %137 = call i32 @fflush(ptr noundef %136)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit80:                         ; preds = %.critedge65._crit_edge
   %138 = add nsw i32 %.2104.lcssa, %.2112
-  %139 = load i64, ptr %5, align 8, !tbaa !16
+  %139 = load i64, ptr %5, align 8, !tbaa !17
   %140 = sitofp i64 %139 to double
-  %141 = load i64, ptr %113, align 8, !tbaa !19
+  %141 = load i64, ptr %113, align 8, !tbaa !20
   %142 = sitofp i64 %141 to double
   %143 = fdiv double %142, 1.000000e+09
   %144 = fadd double %143, %140
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %145 = fsub double %144, %105
   %146 = fcmp uge double %145, 1.000000e+00
-  br i1 %146, label %bench_async_handle.exit77.thread, label %114, !llvm.loop !28
+  br i1 %146, label %bench_async_handle.exit77.thread, label %114, !llvm.loop !33
 
 bench_async_handle.exit77.thread:                 ; preds = %bench_stats_check.exit80, %bench_async_handle.exit79, %120
   %.3113 = phi i32 [ %.2112, %120 ], [ %.2112, %bench_async_handle.exit79 ], [ %138, %bench_stats_check.exit80 ]
@@ -2175,21 +2175,21 @@ define dso_local void @bench_gmac(i32 %0) local_unnamed_addr #0 {
   %17 = tail call ptr @__errno_location() #17
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %18, ptr noundef nonnull @.str.80)
-  %20 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %20 = load ptr, ptr @stdout, align 8, !tbaa !15
   %21 = call i32 @fflush(ptr noundef %20)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %1
-  %22 = load i64, ptr %3, align 8, !tbaa !16
+  %22 = load i64, ptr %3, align 8, !tbaa !17
   %23 = sitofp i64 %22 to double
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !19
+  %25 = load i64, ptr %24, align 8, !tbaa !20
   %26 = sitofp i64 %25 to double
   %27 = fdiv double %26, 1.000000e+09
   %28 = fadd double %27, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
   %32 = zext i32 %30 to i64
@@ -2197,7 +2197,7 @@ bench_stats_start.exit:                           ; preds = %1
   %34 = shl nuw i64 %33, 32
   %35 = or disjoint i64 %34, %32
   %36 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %35, ptr %36, align 8, !tbaa !21
+  store i64 %35, ptr %36, align 8, !tbaa !22
   %37 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %39
@@ -2217,23 +2217,23 @@ bench_stats_start.exit:                           ; preds = %1
   %47 = tail call ptr @__errno_location() #17
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %48, ptr noundef nonnull @.str.80)
-  %50 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %50 = load ptr, ptr @stdout, align 8, !tbaa !15
   %51 = call i32 @fflush(ptr noundef %50)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %39
   %52 = add nuw nsw i32 %.0, 1
-  %53 = load i64, ptr %2, align 8, !tbaa !16
+  %53 = load i64, ptr %2, align 8, !tbaa !17
   %54 = sitofp i64 %53 to double
-  %55 = load i64, ptr %38, align 8, !tbaa !19
+  %55 = load i64, ptr %38, align 8, !tbaa !20
   %56 = sitofp i64 %55 to double
   %57 = fdiv double %56, 1.000000e+09
   %58 = fadd double %57, %54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %59 = fsub double %58, %28
   %60 = fcmp uge double %59, 1.000000e+00
-  br i1 %60, label %61, label %39, !llvm.loop !29
+  br i1 %60, label %61, label %39, !llvm.loop !34
 
 61:                                               ; preds = %bench_stats_check.exit
   call void @wc_AesFree(ptr noundef nonnull %4) #16
@@ -2289,21 +2289,21 @@ define dso_local void @bench_poly1305() local_unnamed_addr #0 {
   %17 = tail call ptr @__errno_location() #17
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %18, ptr noundef nonnull @.str.80)
-  %20 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %20 = load ptr, ptr @stdout, align 8, !tbaa !15
   %21 = call i32 @fflush(ptr noundef %20)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %13
-  %22 = load i64, ptr %4, align 8, !tbaa !16
+  %22 = load i64, ptr %4, align 8, !tbaa !17
   %23 = sitofp i64 %22 to double
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !19
+  %25 = load i64, ptr %24, align 8, !tbaa !20
   %26 = sitofp i64 %25 to double
   %27 = fdiv double %26, 1.000000e+09
   %28 = fadd double %27, %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %29 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %30 = extractvalue { i32, i32 } %29, 0
   %31 = extractvalue { i32, i32 } %29, 1
   %32 = zext i32 %30 to i64
@@ -2311,7 +2311,7 @@ bench_stats_start.exit:                           ; preds = %13
   %34 = shl nuw i64 %33, 32
   %35 = or disjoint i64 %34, %32
   %36 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %35, ptr %36, align 8, !tbaa !21
+  store i64 %35, ptr %36, align 8, !tbaa !22
   %37 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %39
@@ -2339,7 +2339,7 @@ bench_stats_start.exit:                           ; preds = %13
   %48 = add nuw nsw i32 %.057, 1
   %49 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %50 = icmp slt i32 %48, %49
-  br i1 %50, label %.lr.ph, label %.loopexit40, !llvm.loop !30
+  br i1 %50, label %.lr.ph, label %.loopexit40, !llvm.loop !35
 
 .loopexit40:                                      ; preds = %47, %39, %45
   %.052 = phi i32 [ %.057, %45 ], [ 0, %39 ], [ %48, %47 ]
@@ -2354,23 +2354,23 @@ bench_stats_start.exit:                           ; preds = %13
   %55 = tail call ptr @__errno_location() #17
   %56 = load i32, ptr %55, align 4, !tbaa !4
   %57 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %56, ptr noundef nonnull @.str.80)
-  %58 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %58 = load ptr, ptr @stdout, align 8, !tbaa !15
   %59 = call i32 @fflush(ptr noundef %58)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %.loopexit40
   %60 = add nuw nsw i32 %.052, %.035
-  %61 = load i64, ptr %3, align 8, !tbaa !16
+  %61 = load i64, ptr %3, align 8, !tbaa !17
   %62 = sitofp i64 %61 to double
-  %63 = load i64, ptr %38, align 8, !tbaa !19
+  %63 = load i64, ptr %38, align 8, !tbaa !20
   %64 = sitofp i64 %63 to double
   %65 = fdiv double %64, 1.000000e+09
   %66 = fadd double %65, %62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %67 = fsub double %66, %28
   %68 = fcmp uge double %67, 1.000000e+00
-  br i1 %68, label %.loopexit39, label %39, !llvm.loop !31
+  br i1 %68, label %.loopexit39, label %39, !llvm.loop !36
 
 69:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
@@ -2382,21 +2382,21 @@ bench_stats_check.exit:                           ; preds = %.loopexit40
   %73 = tail call ptr @__errno_location() #17
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %74, ptr noundef nonnull @.str.80)
-  %76 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %76 = load ptr, ptr @stdout, align 8, !tbaa !15
   %77 = call i32 @fflush(ptr noundef %76)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit29:                         ; preds = %69
-  %78 = load i64, ptr %2, align 8, !tbaa !16
+  %78 = load i64, ptr %2, align 8, !tbaa !17
   %79 = sitofp i64 %78 to double
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %81 = load i64, ptr %80, align 8, !tbaa !19
+  %81 = load i64, ptr %80, align 8, !tbaa !20
   %82 = sitofp i64 %81 to double
   %83 = fdiv double %82, 1.000000e+09
   %84 = fadd double %83, %79
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
-  %85 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %85 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %86 = extractvalue { i32, i32 } %85, 0
   %87 = extractvalue { i32, i32 } %85, 1
   %88 = zext i32 %86 to i64
@@ -2404,7 +2404,7 @@ bench_stats_start.exit29:                         ; preds = %69
   %90 = shl nuw i64 %89, 32
   %91 = or disjoint i64 %90, %88
   %92 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %91, ptr %92, align 8, !tbaa !21
+  store i64 %91, ptr %92, align 8, !tbaa !22
   %93 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %94 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2444,7 +2444,7 @@ bench_stats_start.exit29:                         ; preds = %69
   %111 = add nuw nsw i32 %.159, 1
   %112 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %113 = icmp slt i32 %111, %112
-  br i1 %113, label %.lr.ph60, label %.loopexit, !llvm.loop !32
+  br i1 %113, label %.lr.ph60, label %.loopexit, !llvm.loop !37
 
 .loopexit:                                        ; preds = %109, %96, %107
   %.144 = phi i32 [ %.159, %107 ], [ 0, %96 ], [ %111, %109 ]
@@ -2458,23 +2458,23 @@ bench_stats_start.exit29:                         ; preds = %69
   %117 = tail call ptr @__errno_location() #17
   %118 = load i32, ptr %117, align 4, !tbaa !4
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %118, ptr noundef nonnull @.str.80)
-  %120 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %120 = load ptr, ptr @stdout, align 8, !tbaa !15
   %121 = call i32 @fflush(ptr noundef %120)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit30:                         ; preds = %.loopexit
   %122 = add nuw nsw i32 %.144, %.237
-  %123 = load i64, ptr %1, align 8, !tbaa !16
+  %123 = load i64, ptr %1, align 8, !tbaa !17
   %124 = sitofp i64 %123 to double
-  %125 = load i64, ptr %95, align 8, !tbaa !19
+  %125 = load i64, ptr %95, align 8, !tbaa !20
   %126 = sitofp i64 %125 to double
   %127 = fdiv double %126, 1.000000e+09
   %128 = fadd double %127, %124
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
   %129 = fsub double %128, %84
   %130 = fcmp uge double %129, 1.000000e+00
-  br i1 %130, label %.loopexit39, label %96, !llvm.loop !33
+  br i1 %130, label %.loopexit39, label %96, !llvm.loop !38
 
 .loopexit39:                                      ; preds = %bench_stats_check.exit, %bench_stats_check.exit30
   %.038 = phi double [ %84, %bench_stats_check.exit30 ], [ %28, %bench_stats_check.exit ]
@@ -2532,21 +2532,21 @@ define dso_local void @bench_chacha() local_unnamed_addr #0 {
   %20 = tail call ptr @__errno_location() #17
   %21 = load i32, ptr %20, align 4, !tbaa !4
   %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %21, ptr noundef nonnull @.str.80)
-  %23 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %23 = load ptr, ptr @stdout, align 8, !tbaa !15
   %24 = call i32 @fflush(ptr noundef %23)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %16
-  %25 = load i64, ptr %4, align 8, !tbaa !16
+  %25 = load i64, ptr %4, align 8, !tbaa !17
   %26 = sitofp i64 %25 to double
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !19
+  %28 = load i64, ptr %27, align 8, !tbaa !20
   %29 = sitofp i64 %28 to double
   %30 = fdiv double %29, 1.000000e+09
   %31 = fadd double %30, %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  %32 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %32 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %33 = extractvalue { i32, i32 } %32, 0
   %34 = extractvalue { i32, i32 } %32, 1
   %35 = zext i32 %33 to i64
@@ -2554,7 +2554,7 @@ bench_stats_start.exit:                           ; preds = %16
   %37 = shl nuw i64 %36, 32
   %38 = or disjoint i64 %37, %35
   %39 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %38, ptr %39, align 8, !tbaa !21
+  store i64 %38, ptr %39, align 8, !tbaa !22
   %40 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
   %41 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2583,7 +2583,7 @@ bench_stats_start.exit:                           ; preds = %16
   %54 = add nuw nsw i32 %.038, 1
   %55 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %56 = icmp slt i32 %54, %55
-  br i1 %56, label %.lr.ph40, label %._crit_edge41, !llvm.loop !34
+  br i1 %56, label %.lr.ph40, label %._crit_edge41, !llvm.loop !39
 
 ._crit_edge41:                                    ; preds = %53, %43
   %.0.lcssa = phi i32 [ 0, %43 ], [ %54, %53 ]
@@ -2596,23 +2596,23 @@ bench_stats_start.exit:                           ; preds = %16
   %60 = tail call ptr @__errno_location() #17
   %61 = load i32, ptr %60, align 4, !tbaa !4
   %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %61, ptr noundef nonnull @.str.80)
-  %63 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %63 = load ptr, ptr @stdout, align 8, !tbaa !15
   %64 = call i32 @fflush(ptr noundef %63)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %._crit_edge41
   %65 = add nuw nsw i32 %.0.lcssa, %.025
-  %66 = load i64, ptr %3, align 8, !tbaa !16
+  %66 = load i64, ptr %3, align 8, !tbaa !17
   %67 = sitofp i64 %66 to double
-  %68 = load i64, ptr %42, align 8, !tbaa !19
+  %68 = load i64, ptr %42, align 8, !tbaa !20
   %69 = sitofp i64 %68 to double
   %70 = fdiv double %69, 1.000000e+09
   %71 = fadd double %70, %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %72 = fsub double %71, %31
   %73 = fcmp uge double %72, 1.000000e+00
-  br i1 %73, label %.loopexit, label %43, !llvm.loop !35
+  br i1 %73, label %.loopexit, label %43, !llvm.loop !40
 
 74:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
@@ -2624,21 +2624,21 @@ bench_stats_check.exit:                           ; preds = %._crit_edge41
   %78 = tail call ptr @__errno_location() #17
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %79, ptr noundef nonnull @.str.80)
-  %81 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %81 = load ptr, ptr @stdout, align 8, !tbaa !15
   %82 = call i32 @fflush(ptr noundef %81)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit19:                         ; preds = %74
-  %83 = load i64, ptr %2, align 8, !tbaa !16
+  %83 = load i64, ptr %2, align 8, !tbaa !17
   %84 = sitofp i64 %83 to double
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !19
+  %86 = load i64, ptr %85, align 8, !tbaa !20
   %87 = sitofp i64 %86 to double
   %88 = fdiv double %87, 1.000000e+09
   %89 = fadd double %88, %84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
-  %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %91 = extractvalue { i32, i32 } %90, 0
   %92 = extractvalue { i32, i32 } %90, 1
   %93 = zext i32 %91 to i64
@@ -2646,7 +2646,7 @@ bench_stats_start.exit19:                         ; preds = %74
   %95 = shl nuw i64 %94, 32
   %96 = or disjoint i64 %95, %93
   %97 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %96, ptr %97, align 8, !tbaa !21
+  store i64 %96, ptr %97, align 8, !tbaa !22
   %98 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %99 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_cipher)
   %100 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
@@ -2686,7 +2686,7 @@ bench_stats_start.exit19:                         ; preds = %74
   %119 = add nuw nsw i32 %.137, 1
   %120 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %121 = icmp slt i32 %119, %120
-  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !36
+  br i1 %121, label %.lr.ph, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %118, %102
   %.1.lcssa = phi i32 [ 0, %102 ], [ %119, %118 ]
@@ -2699,23 +2699,23 @@ bench_stats_start.exit19:                         ; preds = %74
   %125 = tail call ptr @__errno_location() #17
   %126 = load i32, ptr %125, align 4, !tbaa !4
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %126, ptr noundef nonnull @.str.80)
-  %128 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %128 = load ptr, ptr @stdout, align 8, !tbaa !15
   %129 = call i32 @fflush(ptr noundef %128)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit20:                         ; preds = %._crit_edge
   %130 = add nuw nsw i32 %.1.lcssa, %.2
-  %131 = load i64, ptr %1, align 8, !tbaa !16
+  %131 = load i64, ptr %1, align 8, !tbaa !17
   %132 = sitofp i64 %131 to double
-  %133 = load i64, ptr %101, align 8, !tbaa !19
+  %133 = load i64, ptr %101, align 8, !tbaa !20
   %134 = sitofp i64 %133 to double
   %135 = fdiv double %134, 1.000000e+09
   %136 = fadd double %135, %132
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
   %137 = fsub double %136, %89
   %138 = fcmp uge double %137, 1.000000e+00
-  br i1 %138, label %.loopexit, label %102, !llvm.loop !37
+  br i1 %138, label %.loopexit, label %102, !llvm.loop !42
 
 .loopexit:                                        ; preds = %bench_stats_check.exit20, %bench_stats_check.exit
   %.027 = phi double [ %31, %bench_stats_check.exit ], [ %89, %bench_stats_check.exit20 ]
@@ -2754,21 +2754,21 @@ define dso_local void @bench_chacha20_poly1305_aead() local_unnamed_addr #0 {
   %8 = tail call ptr @__errno_location() #17
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %9, ptr noundef nonnull @.str.80)
-  %11 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %11 = load ptr, ptr @stdout, align 8, !tbaa !15
   %12 = call i32 @fflush(ptr noundef %11)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %0
-  %13 = load i64, ptr %2, align 8, !tbaa !16
+  %13 = load i64, ptr %2, align 8, !tbaa !17
   %14 = sitofp i64 %13 to double
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !19
+  %16 = load i64, ptr %15, align 8, !tbaa !20
   %17 = sitofp i64 %16 to double
   %18 = fdiv double %17, 1.000000e+09
   %19 = fadd double %18, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
-  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %21 = extractvalue { i32, i32 } %20, 0
   %22 = extractvalue { i32, i32 } %20, 1
   %23 = zext i32 %21 to i64
@@ -2776,7 +2776,7 @@ bench_stats_start.exit:                           ; preds = %0
   %25 = shl nuw i64 %24, 32
   %26 = or disjoint i64 %25, %23
   %27 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %26, ptr %27, align 8, !tbaa !21
+  store i64 %26, ptr %27, align 8, !tbaa !22
   %28 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %29 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_iv)
   %30 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
@@ -2811,7 +2811,7 @@ bench_stats_start.exit:                           ; preds = %0
   %47 = add nuw nsw i32 %.017, 1
   %48 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %49 = icmp slt i32 %47, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %46, %33
   %.1.lcssa = phi i32 [ %.06, %33 ], [ %42, %46 ]
@@ -2825,23 +2825,23 @@ bench_stats_start.exit:                           ; preds = %0
   %53 = tail call ptr @__errno_location() #17
   %54 = load i32, ptr %53, align 4, !tbaa !4
   %55 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %54, ptr noundef nonnull @.str.80)
-  %56 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %56 = load ptr, ptr @stdout, align 8, !tbaa !15
   %57 = call i32 @fflush(ptr noundef %56)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %._crit_edge
   %58 = add nuw nsw i32 %.0.lcssa, %.011
-  %59 = load i64, ptr %1, align 8, !tbaa !16
+  %59 = load i64, ptr %1, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %32, align 8, !tbaa !19
+  %61 = load i64, ptr %32, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
   %65 = fsub double %64, %19
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %67, label %33, !llvm.loop !39
+  br i1 %66, label %67, label %33, !llvm.loop !44
 
 67:                                               ; preds = %bench_stats_check.exit
   %68 = load i32, ptr @bench_size, align 4, !tbaa !4
@@ -2889,21 +2889,21 @@ define dso_local void @bench_md5(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -2911,7 +2911,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -2934,7 +2934,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.04577, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge24
+  br i1 %46, label %.lr.ph, label %.critedge24, !llvm.loop !45
 
 .critedge24:                                      ; preds = %bench_async_handle.exit, %37
   %.045.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -2953,22 +2953,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !40
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !46
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -2980,21 +2980,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit28:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -3002,7 +3002,7 @@ bench_stats_start.exit28:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -3035,7 +3035,7 @@ bench_stats_start.exit28:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge78, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph79, label %._crit_edge, !llvm.loop !41
+  br i1 %108, label %.lr.ph79, label %._crit_edge, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -3048,23 +3048,23 @@ bench_stats_start.exit28:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit29:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.248
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !42
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !48
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge24, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit29, %.lr.ph79, %98, %103
   %.049 = phi i32 [ %96, %.lr.ph79 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit29 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge24 ]
@@ -3119,21 +3119,21 @@ define dso_local void @bench_sha(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -3141,7 +3141,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -3164,7 +3164,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !49
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -3183,22 +3183,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !43
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !50
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -3210,21 +3210,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -3232,7 +3232,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -3265,7 +3265,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !44
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -3278,23 +3278,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !45
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !52
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -3352,21 +3352,21 @@ define dso_local void @bench_sha224(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -3374,7 +3374,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -3397,7 +3397,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !53
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -3416,22 +3416,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !46
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !54
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -3443,21 +3443,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -3465,7 +3465,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -3498,7 +3498,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !47
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -3511,23 +3511,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !48
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !56
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -3585,21 +3585,21 @@ define dso_local void @bench_sha256(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -3607,7 +3607,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -3630,7 +3630,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !57
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -3649,22 +3649,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !49
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !58
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -3676,21 +3676,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -3698,7 +3698,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -3731,7 +3731,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !50
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -3744,23 +3744,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !51
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !60
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -3818,21 +3818,21 @@ define dso_local void @bench_sha384(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -3840,7 +3840,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -3863,7 +3863,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !61
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -3882,22 +3882,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !52
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !62
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -3909,21 +3909,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -3931,7 +3931,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -3964,7 +3964,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !53
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !63
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -3977,23 +3977,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !54
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !64
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -4051,21 +4051,21 @@ define dso_local void @bench_sha512(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -4073,7 +4073,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -4096,7 +4096,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !65
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -4115,22 +4115,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !55
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !66
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -4142,21 +4142,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -4164,7 +4164,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -4197,7 +4197,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !56
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !67
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -4210,23 +4210,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !57
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !68
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -4284,21 +4284,21 @@ define dso_local void @bench_sha512_224(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -4306,7 +4306,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -4329,7 +4329,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !69
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -4348,22 +4348,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !58
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !70
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -4375,21 +4375,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -4397,7 +4397,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -4430,7 +4430,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !59
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -4443,23 +4443,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !60
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !72
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -4517,21 +4517,21 @@ define dso_local void @bench_sha512_256(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -4539,7 +4539,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -4562,7 +4562,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !73
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -4581,22 +4581,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !61
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !74
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -4608,21 +4608,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -4630,7 +4630,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -4663,7 +4663,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !62
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !75
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -4676,23 +4676,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !63
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !76
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -4750,21 +4750,21 @@ define dso_local void @bench_sha3_224(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -4772,7 +4772,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -4795,7 +4795,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !77
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -4814,22 +4814,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !64
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !78
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -4841,21 +4841,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -4863,7 +4863,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -4896,7 +4896,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !65
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -4909,23 +4909,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !66
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !80
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -4983,21 +4983,21 @@ define dso_local void @bench_sha3_256(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -5005,7 +5005,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -5028,7 +5028,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !81
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -5047,22 +5047,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !67
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !82
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -5074,21 +5074,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -5096,7 +5096,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -5129,7 +5129,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !68
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -5142,23 +5142,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !69
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !84
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -5216,21 +5216,21 @@ define dso_local void @bench_sha3_384(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -5238,7 +5238,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -5261,7 +5261,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !85
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -5280,22 +5280,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !70
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !86
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -5307,21 +5307,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -5329,7 +5329,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -5362,7 +5362,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !71
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !87
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -5375,23 +5375,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !72
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !88
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -5449,21 +5449,21 @@ define dso_local void @bench_sha3_512(i32 %0) local_unnamed_addr #0 {
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge
-  %20 = load i64, ptr %5, align 8, !tbaa !16
+  %20 = load i64, ptr %5, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %27 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %28 = extractvalue { i32, i32 } %27, 0
   %29 = extractvalue { i32, i32 } %27, 1
   %30 = zext i32 %28 to i64
@@ -5471,7 +5471,7 @@ bench_stats_start.exit:                           ; preds = %.critedge
   %32 = shl nuw i64 %31, 32
   %33 = or disjoint i64 %32, %30
   %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %33, ptr %34, align 8, !tbaa !21
+  store i64 %33, ptr %34, align 8, !tbaa !22
   %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %37
@@ -5494,7 +5494,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %44 = add nuw nsw i32 %.05284, 1
   %45 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %46 = icmp slt i32 %44, %45
-  br i1 %46, label %.lr.ph, label %.critedge29
+  br i1 %46, label %.lr.ph, label %.critedge29, !llvm.loop !89
 
 .critedge29:                                      ; preds = %bench_async_handle.exit, %37
   %.052.lcssa = phi i32 [ 0, %37 ], [ %44, %bench_async_handle.exit ]
@@ -5513,22 +5513,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %54 = tail call ptr @__errno_location() #17
   %55 = load i32, ptr %54, align 4, !tbaa !4
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %55, ptr noundef nonnull @.str.80)
-  %57 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %57 = load ptr, ptr @stdout, align 8, !tbaa !15
   %58 = call i32 @fflush(ptr noundef %57)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %50
-  %59 = load i64, ptr %4, align 8, !tbaa !16
+  %59 = load i64, ptr %4, align 8, !tbaa !17
   %60 = sitofp i64 %59 to double
-  %61 = load i64, ptr %36, align 8, !tbaa !19
+  %61 = load i64, ptr %36, align 8, !tbaa !20
   %62 = sitofp i64 %61 to double
   %63 = fdiv double %62, 1.000000e+09
   %64 = fadd double %63, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %65 = fsub double %64, %26
   %66 = fcmp uge double %65, 1.000000e+00
-  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !73
+  br i1 %66, label %bench_async_handle.exit.thread, label %37, !llvm.loop !90
 
 67:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -5540,21 +5540,21 @@ bench_stats_check.exit:                           ; preds = %50
   %71 = tail call ptr @__errno_location() #17
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %72, ptr noundef nonnull @.str.80)
-  %74 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %74 = load ptr, ptr @stdout, align 8, !tbaa !15
   %75 = call i32 @fflush(ptr noundef %74)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit35:                         ; preds = %67
-  %76 = load i64, ptr %3, align 8, !tbaa !16
+  %76 = load i64, ptr %3, align 8, !tbaa !17
   %77 = sitofp i64 %76 to double
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %79 = load i64, ptr %78, align 8, !tbaa !19
+  %79 = load i64, ptr %78, align 8, !tbaa !20
   %80 = sitofp i64 %79 to double
   %81 = fdiv double %80, 1.000000e+09
   %82 = fadd double %81, %77
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %83 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %84 = extractvalue { i32, i32 } %83, 0
   %85 = extractvalue { i32, i32 } %83, 1
   %86 = zext i32 %84 to i64
@@ -5562,7 +5562,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %88 = shl nuw i64 %87, 32
   %89 = or disjoint i64 %88, %86
   %90 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %89, ptr %90, align 8, !tbaa !21
+  store i64 %89, ptr %90, align 8, !tbaa !22
   %91 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %93
@@ -5595,7 +5595,7 @@ bench_stats_start.exit35:                         ; preds = %67
   %106 = add nuw nsw i32 %storemerge85, 1
   %107 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %108 = icmp slt i32 %106, %107
-  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !74
+  br i1 %108, label %.lr.ph86, label %._crit_edge, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %105, %93
   %storemerge.lcssa = phi i32 [ 0, %93 ], [ %106, %105 ]
@@ -5608,23 +5608,23 @@ bench_stats_start.exit35:                         ; preds = %67
   %112 = tail call ptr @__errno_location() #17
   %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %113, ptr noundef nonnull @.str.80)
-  %115 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !15
   %116 = call i32 @fflush(ptr noundef %115)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit36:                         ; preds = %._crit_edge
   %117 = add nuw nsw i32 %storemerge.lcssa, %.255
-  %118 = load i64, ptr %2, align 8, !tbaa !16
+  %118 = load i64, ptr %2, align 8, !tbaa !17
   %119 = sitofp i64 %118 to double
-  %120 = load i64, ptr %92, align 8, !tbaa !19
+  %120 = load i64, ptr %92, align 8, !tbaa !20
   %121 = sitofp i64 %120 to double
   %122 = fdiv double %121, 1.000000e+09
   %123 = fadd double %122, %119
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %124 = fsub double %123, %82
   %125 = fcmp uge double %124, 1.000000e+00
-  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !75
+  br i1 %125, label %bench_async_handle.exit.thread, label %93, !llvm.loop !92
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge29, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit36, %.lr.ph86, %98, %103
   %.056 = phi i32 [ %96, %.lr.ph86 ], [ %101, %98 ], [ %104, %103 ], [ 0, %bench_stats_check.exit36 ], [ %42, %.lr.ph ], [ %48, %bench_stats_check.exit ], [ %48, %.critedge29 ]
@@ -5705,21 +5705,21 @@ define internal fastcc void @bench_hmac(i32 noundef range(i32 3, 9) %0, ptr noun
   %22 = tail call ptr @__errno_location() #17
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %23, ptr noundef nonnull @.str.80)
-  %25 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %25 = load ptr, ptr @stdout, align 8, !tbaa !15
   %26 = call i32 @fflush(ptr noundef %25)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %18
-  %27 = load i64, ptr %7, align 8, !tbaa !16
+  %27 = load i64, ptr %7, align 8, !tbaa !17
   %28 = sitofp i64 %27 to double
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !19
+  %30 = load i64, ptr %29, align 8, !tbaa !20
   %31 = sitofp i64 %30 to double
   %32 = fdiv double %31, 1.000000e+09
   %33 = fadd double %32, %28
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  %34 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %34 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %35 = extractvalue { i32, i32 } %34, 0
   %36 = extractvalue { i32, i32 } %34, 1
   %37 = zext i32 %35 to i64
@@ -5727,7 +5727,7 @@ bench_stats_start.exit:                           ; preds = %18
   %39 = shl nuw i64 %38, 32
   %40 = or disjoint i64 %39, %37
   %41 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %40, ptr %41, align 8, !tbaa !21
+  store i64 %40, ptr %41, align 8, !tbaa !22
   %42 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %44
@@ -5750,7 +5750,7 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %51 = add nuw nsw i32 %.075110, 1
   %52 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %53 = icmp slt i32 %51, %52
-  br i1 %53, label %.lr.ph, label %.critedge41
+  br i1 %53, label %.lr.ph, label %.critedge41, !llvm.loop !93
 
 .critedge41:                                      ; preds = %bench_async_handle.exit, %44
   %.075.lcssa = phi i32 [ 0, %44 ], [ %51, %bench_async_handle.exit ]
@@ -5769,22 +5769,22 @@ bench_async_handle.exit:                          ; preds = %.lr.ph
   %61 = tail call ptr @__errno_location() #17
   %62 = load i32, ptr %61, align 4, !tbaa !4
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %62, ptr noundef nonnull @.str.80)
-  %64 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %64 = load ptr, ptr @stdout, align 8, !tbaa !15
   %65 = call i32 @fflush(ptr noundef %64)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %57
-  %66 = load i64, ptr %6, align 8, !tbaa !16
+  %66 = load i64, ptr %6, align 8, !tbaa !17
   %67 = sitofp i64 %66 to double
-  %68 = load i64, ptr %43, align 8, !tbaa !19
+  %68 = load i64, ptr %43, align 8, !tbaa !20
   %69 = sitofp i64 %68 to double
   %70 = fdiv double %69, 1.000000e+09
   %71 = fadd double %70, %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %72 = fsub double %71, %33
   %73 = fcmp uge double %72, 1.000000e+00
-  br i1 %73, label %bench_async_handle.exit.thread, label %44, !llvm.loop !76
+  br i1 %73, label %bench_async_handle.exit.thread, label %44, !llvm.loop !94
 
 74:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
@@ -5796,21 +5796,21 @@ bench_stats_check.exit:                           ; preds = %57
   %78 = tail call ptr @__errno_location() #17
   %79 = load i32, ptr %78, align 4, !tbaa !4
   %80 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %79, ptr noundef nonnull @.str.80)
-  %81 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %81 = load ptr, ptr @stdout, align 8, !tbaa !15
   %82 = call i32 @fflush(ptr noundef %81)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit51:                         ; preds = %74
-  %83 = load i64, ptr %5, align 8, !tbaa !16
+  %83 = load i64, ptr %5, align 8, !tbaa !17
   %84 = sitofp i64 %83 to double
   %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %86 = load i64, ptr %85, align 8, !tbaa !19
+  %86 = load i64, ptr %85, align 8, !tbaa !20
   %87 = sitofp i64 %86 to double
   %88 = fdiv double %87, 1.000000e+09
   %89 = fadd double %88, %84
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %90 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %91 = extractvalue { i32, i32 } %90, 0
   %92 = extractvalue { i32, i32 } %90, 1
   %93 = zext i32 %91 to i64
@@ -5818,7 +5818,7 @@ bench_stats_start.exit51:                         ; preds = %74
   %95 = shl nuw i64 %94, 32
   %96 = or disjoint i64 %95, %93
   %97 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %96, ptr %97, align 8, !tbaa !21
+  store i64 %96, ptr %97, align 8, !tbaa !22
   %98 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_plain)
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %100
@@ -5847,7 +5847,7 @@ bench_async_handle.exit55:                        ; preds = %107
   %110 = add nuw nsw i32 %.2111, 2
   %111 = load i32, ptr @numBlocks, align 4, !tbaa !4
   %112 = icmp slt i32 %110, %111
-  br i1 %112, label %.lr.ph112, label %.critedge43._crit_edge
+  br i1 %112, label %.lr.ph112, label %.critedge43._crit_edge, !llvm.loop !95
 
 .critedge43._crit_edge:                           ; preds = %bench_async_handle.exit55, %100
   %.281.lcssa = phi i32 [ %.180, %100 ], [ %108, %bench_async_handle.exit55 ]
@@ -5861,23 +5861,23 @@ bench_async_handle.exit55:                        ; preds = %107
   %116 = tail call ptr @__errno_location() #17
   %117 = load i32, ptr %116, align 4, !tbaa !4
   %118 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %117, ptr noundef nonnull @.str.80)
-  %119 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %119 = load ptr, ptr @stdout, align 8, !tbaa !15
   %120 = call i32 @fflush(ptr noundef %119)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit56:                         ; preds = %.critedge43._crit_edge
   %121 = add nuw nsw i32 %.2.lcssa, %.278
-  %122 = load i64, ptr %4, align 8, !tbaa !16
+  %122 = load i64, ptr %4, align 8, !tbaa !17
   %123 = sitofp i64 %122 to double
-  %124 = load i64, ptr %99, align 8, !tbaa !19
+  %124 = load i64, ptr %99, align 8, !tbaa !20
   %125 = sitofp i64 %124 to double
   %126 = fdiv double %125, 1.000000e+09
   %127 = fadd double %126, %123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %128 = fsub double %127, %89
   %129 = fcmp uge double %128, 1.000000e+00
-  br i1 %129, label %bench_async_handle.exit.thread, label %100, !llvm.loop !77
+  br i1 %129, label %bench_async_handle.exit.thread, label %100, !llvm.loop !96
 
 bench_async_handle.exit.thread:                   ; preds = %.critedge41, %bench_stats_check.exit, %.lr.ph, %bench_stats_check.exit56, %107, %.lr.ph112
   %.079 = phi i32 [ %108, %107 ], [ %105, %.lr.ph112 ], [ %.281.lcssa, %bench_stats_check.exit56 ], [ %49, %.lr.ph ], [ %55, %bench_stats_check.exit ], [ %55, %.critedge41 ]
@@ -5962,21 +5962,21 @@ define dso_local void @bench_pbkdf2() local_unnamed_addr #0 {
   %8 = tail call ptr @__errno_location() #17
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %9, ptr noundef nonnull @.str.80)
-  %11 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %11 = load ptr, ptr @stdout, align 8, !tbaa !15
   %12 = call i32 @fflush(ptr noundef %11)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %0
-  %13 = load i64, ptr %2, align 8, !tbaa !16
+  %13 = load i64, ptr %2, align 8, !tbaa !17
   %14 = sitofp i64 %13 to double
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %16 = load i64, ptr %15, align 8, !tbaa !19
+  %16 = load i64, ptr %15, align 8, !tbaa !20
   %17 = sitofp i64 %16 to double
   %18 = fdiv double %17, 1.000000e+09
   %19 = fadd double %18, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
-  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %20 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %21 = extractvalue { i32, i32 } %20, 0
   %22 = extractvalue { i32, i32 } %20, 1
   %23 = zext i32 %21 to i64
@@ -5984,7 +5984,7 @@ bench_stats_start.exit:                           ; preds = %0
   %25 = shl nuw i64 %24, 32
   %26 = or disjoint i64 %25, %23
   %27 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %26, ptr %27, align 8, !tbaa !21
+  store i64 %26, ptr %27, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %29
 
@@ -6000,23 +6000,23 @@ bench_stats_start.exit:                           ; preds = %0
   %34 = tail call ptr @__errno_location() #17
   %35 = load i32, ptr %34, align 4, !tbaa !4
   %36 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %35, ptr noundef nonnull @.str.80)
-  %37 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !15
   %38 = call i32 @fflush(ptr noundef %37)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %29
   %39 = add nuw nsw i32 %.0, 1
-  %40 = load i64, ptr %1, align 8, !tbaa !16
+  %40 = load i64, ptr %1, align 8, !tbaa !17
   %41 = sitofp i64 %40 to double
-  %42 = load i64, ptr %28, align 8, !tbaa !19
+  %42 = load i64, ptr %28, align 8, !tbaa !20
   %43 = sitofp i64 %42 to double
   %44 = fdiv double %43, 1.000000e+09
   %45 = fadd double %44, %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
   %46 = fsub double %45, %19
   %47 = fcmp uge double %46, 1.000000e+00
-  br i1 %47, label %48, label %29, !llvm.loop !78
+  br i1 %47, label %48, label %29, !llvm.loop !97
 
 48:                                               ; preds = %bench_stats_check.exit
   call fastcc void @bench_stats_sym_finish(ptr noundef nonnull @.str.71, i32 noundef %39, i32 noundef 32, double noundef %19, i32 noundef %30)
@@ -6074,7 +6074,7 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(i64 25, ptr nonnull %9) #16
   %25 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.critedge124.thread.i, label %27, !llvm.loop !79
+  br i1 %26, label %.critedge124.thread.i, label %27, !llvm.loop !98
 
 27:                                               ; preds = %21
   %28 = call ptr @wolfSSL_Malloc(i64 noundef 2048) #16
@@ -6100,21 +6100,21 @@ define dso_local void @bench_rsa(i32 %0) local_unnamed_addr #0 {
   %35 = tail call ptr @__errno_location() #17
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %36, ptr noundef nonnull @.str.80)
-  %38 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %38 = load ptr, ptr @stdout, align 8, !tbaa !15
   %39 = call i32 @fflush(ptr noundef %38)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit.i:                         ; preds = %31
-  %40 = load i64, ptr %8, align 8, !tbaa !16
+  %40 = load i64, ptr %8, align 8, !tbaa !17
   %41 = sitofp i64 %40 to double
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %43 = load i64, ptr %42, align 8, !tbaa !19
+  %43 = load i64, ptr %42, align 8, !tbaa !20
   %44 = sitofp i64 %43 to double
   %45 = fdiv double %44, 1.000000e+09
   %46 = fadd double %45, %41
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #16
-  %47 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %47 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %48 = extractvalue { i32, i32 } %47, 0
   %49 = extractvalue { i32, i32 } %47, 1
   %50 = zext i32 %48 to i64
@@ -6122,7 +6122,7 @@ bench_stats_start.exit.i:                         ; preds = %31
   %52 = shl nuw i64 %51, 32
   %53 = or disjoint i64 %52, %50
   %54 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %53, ptr %54, align 8, !tbaa !21
+  store i64 %53, ptr %54, align 8, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %56
 
@@ -6144,7 +6144,7 @@ bench_stats_start.exit.i:                         ; preds = %31
 bench_async_handle.exit.i:                        ; preds = %57
   %61 = add nuw nsw i32 %.0195293.i, 1
   %exitcond.not.i = icmp eq i32 %61, 100
-  br i1 %exitcond.not.i, label %62, label %57
+  br i1 %exitcond.not.i, label %62, label %57, !llvm.loop !99
 
 62:                                               ; preds = %bench_async_handle.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
@@ -6156,23 +6156,23 @@ bench_async_handle.exit.i:                        ; preds = %57
   %66 = tail call ptr @__errno_location() #17
   %67 = load i32, ptr %66, align 4, !tbaa !4
   %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %67, ptr noundef nonnull @.str.80)
-  %69 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %69 = load ptr, ptr @stdout, align 8, !tbaa !15
   %70 = call i32 @fflush(ptr noundef %69)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit.i:                         ; preds = %62
   %71 = add nuw nsw i32 %.0187.i, 100
-  %72 = load i64, ptr %7, align 8, !tbaa !16
+  %72 = load i64, ptr %7, align 8, !tbaa !17
   %73 = sitofp i64 %72 to double
-  %74 = load i64, ptr %55, align 8, !tbaa !19
+  %74 = load i64, ptr %55, align 8, !tbaa !20
   %75 = sitofp i64 %74 to double
   %76 = fdiv double %75, 1.000000e+09
   %77 = fadd double %76, %73
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
   %78 = fsub double %77, %46
   %79 = fcmp uge double %78, 1.000000e+00
-  br i1 %79, label %80, label %56, !llvm.loop !80
+  br i1 %79, label %80, label %56, !llvm.loop !100
 
 80:                                               ; preds = %bench_stats_check.exit.i
   %81 = load ptr, ptr %24, align 8, !tbaa !8
@@ -6186,28 +6186,28 @@ bench_stats_check.exit.i:                         ; preds = %62
   %85 = tail call ptr @__errno_location() #17
   %86 = load i32, ptr %85, align 4, !tbaa !4
   %87 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %86, ptr noundef nonnull @.str.80)
-  %88 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %88 = load ptr, ptr @stdout, align 8, !tbaa !15
   %89 = call i32 @fflush(ptr noundef %88)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit130.i:                      ; preds = %80
-  %90 = load i64, ptr %6, align 8, !tbaa !16
+  %90 = load i64, ptr %6, align 8, !tbaa !17
   %91 = sitofp i64 %90 to double
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %93 = load i64, ptr %92, align 8, !tbaa !19
+  %93 = load i64, ptr %92, align 8, !tbaa !20
   %94 = sitofp i64 %93 to double
   %95 = fdiv double %94, 1.000000e+09
   %96 = fadd double %95, %91
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
-  %97 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %97 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %98 = extractvalue { i32, i32 } %97, 0
   %99 = extractvalue { i32, i32 } %97, 1
   %100 = zext i32 %98 to i64
   %101 = zext i32 %99 to i64
   %102 = shl nuw i64 %101, 32
   %103 = or disjoint i64 %102, %100
-  store i64 %103, ptr %54, align 8, !tbaa !21
+  store i64 %103, ptr %54, align 8, !tbaa !22
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %105
 
@@ -6224,7 +6224,7 @@ bench_stats_start.exit130.i:                      ; preds = %80
 bench_async_handle.exit132.i:                     ; preds = %106
   %109 = add nuw nsw i32 %.1196294.i, 1
   %exitcond326.not.i = icmp eq i32 %109, 100
-  br i1 %exitcond326.not.i, label %110, label %106
+  br i1 %exitcond326.not.i, label %110, label %106, !llvm.loop !101
 
 110:                                              ; preds = %bench_async_handle.exit132.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
@@ -6236,23 +6236,23 @@ bench_async_handle.exit132.i:                     ; preds = %106
   %114 = tail call ptr @__errno_location() #17
   %115 = load i32, ptr %114, align 4, !tbaa !4
   %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %115, ptr noundef nonnull @.str.80)
-  %117 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %117 = load ptr, ptr @stdout, align 8, !tbaa !15
   %118 = call i32 @fflush(ptr noundef %117)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit133.i:                      ; preds = %110
   %119 = add nuw nsw i32 %.2189.i, 100
-  %120 = load i64, ptr %5, align 8, !tbaa !16
+  %120 = load i64, ptr %5, align 8, !tbaa !17
   %121 = sitofp i64 %120 to double
-  %122 = load i64, ptr %104, align 8, !tbaa !19
+  %122 = load i64, ptr %104, align 8, !tbaa !20
   %123 = sitofp i64 %122 to double
   %124 = fdiv double %123, 1.000000e+09
   %125 = fadd double %124, %121
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
   %126 = fsub double %125, %96
   %127 = fcmp uge double %126, 1.000000e+00
-  br i1 %127, label %bench_async_handle.exit132.thread.i, label %105, !llvm.loop !81
+  br i1 %127, label %bench_async_handle.exit132.thread.i, label %105, !llvm.loop !102
 
 bench_async_handle.exit132.thread.i:              ; preds = %bench_stats_check.exit133.i, %106
   %.3190.i = phi i32 [ %.2189.i, %106 ], [ %119, %bench_stats_check.exit133.i ]
@@ -6271,21 +6271,21 @@ bench_async_handle.exit132.thread.i:              ; preds = %bench_stats_check.e
   %134 = tail call ptr @__errno_location() #17
   %135 = load i32, ptr %134, align 4, !tbaa !4
   %136 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %135, ptr noundef nonnull @.str.80)
-  %137 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %137 = load ptr, ptr @stdout, align 8, !tbaa !15
   %138 = call i32 @fflush(ptr noundef %137)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit134.i:                      ; preds = %130
-  %139 = load i64, ptr %4, align 8, !tbaa !16
+  %139 = load i64, ptr %4, align 8, !tbaa !17
   %140 = sitofp i64 %139 to double
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %142 = load i64, ptr %141, align 8, !tbaa !19
+  %142 = load i64, ptr %141, align 8, !tbaa !20
   %143 = sitofp i64 %142 to double
   %144 = fdiv double %143, 1.000000e+09
   %145 = fadd double %144, %140
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  %146 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %146 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %147 = extractvalue { i32, i32 } %146, 0
   %148 = extractvalue { i32, i32 } %146, 1
   %149 = zext i32 %147 to i64
@@ -6293,7 +6293,7 @@ bench_stats_start.exit134.i:                      ; preds = %130
   %151 = shl nuw i64 %150, 32
   %152 = or disjoint i64 %151, %149
   %153 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %152, ptr %153, align 8, !tbaa !21
+  store i64 %152, ptr %153, align 8, !tbaa !22
   %154 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %155
 
@@ -6316,7 +6316,7 @@ bench_stats_start.exit134.i:                      ; preds = %130
 bench_async_handle.exit136.i:                     ; preds = %156
   %161 = add nuw nsw i32 %.2197295.i, 1
   %exitcond327.not.i = icmp eq i32 %161, 100
-  br i1 %exitcond327.not.i, label %162, label %156
+  br i1 %exitcond327.not.i, label %162, label %156, !llvm.loop !103
 
 162:                                              ; preds = %bench_async_handle.exit136.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -6328,23 +6328,23 @@ bench_async_handle.exit136.i:                     ; preds = %156
   %166 = tail call ptr @__errno_location() #17
   %167 = load i32, ptr %166, align 4, !tbaa !4
   %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %167, ptr noundef nonnull @.str.80)
-  %169 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %169 = load ptr, ptr @stdout, align 8, !tbaa !15
   %170 = call i32 @fflush(ptr noundef %169)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit137.i:                      ; preds = %162
   %171 = add nuw nsw i32 %.4191.i, 100
-  %172 = load i64, ptr %3, align 8, !tbaa !16
+  %172 = load i64, ptr %3, align 8, !tbaa !17
   %173 = sitofp i64 %172 to double
-  %174 = load i64, ptr %154, align 8, !tbaa !19
+  %174 = load i64, ptr %154, align 8, !tbaa !20
   %175 = sitofp i64 %174 to double
   %176 = fdiv double %175, 1.000000e+09
   %177 = fadd double %176, %173
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %178 = fsub double %177, %145
   %179 = fcmp uge double %178, 1.000000e+00
-  br i1 %179, label %180, label %155, !llvm.loop !82
+  br i1 %179, label %180, label %155, !llvm.loop !104
 
 180:                                              ; preds = %bench_stats_check.exit137.i
   %181 = getelementptr inbounds nuw i8, ptr %24, i64 32
@@ -6359,28 +6359,28 @@ bench_stats_check.exit137.i:                      ; preds = %162
   %186 = tail call ptr @__errno_location() #17
   %187 = load i32, ptr %186, align 4, !tbaa !4
   %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %187, ptr noundef nonnull @.str.80)
-  %189 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %189 = load ptr, ptr @stdout, align 8, !tbaa !15
   %190 = call i32 @fflush(ptr noundef %189)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit138.i:                      ; preds = %180
-  %191 = load i64, ptr %2, align 8, !tbaa !16
+  %191 = load i64, ptr %2, align 8, !tbaa !17
   %192 = sitofp i64 %191 to double
   %193 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %194 = load i64, ptr %193, align 8, !tbaa !19
+  %194 = load i64, ptr %193, align 8, !tbaa !20
   %195 = sitofp i64 %194 to double
   %196 = fdiv double %195, 1.000000e+09
   %197 = fadd double %196, %192
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
-  %198 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %198 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %199 = extractvalue { i32, i32 } %198, 0
   %200 = extractvalue { i32, i32 } %198, 1
   %201 = zext i32 %199 to i64
   %202 = zext i32 %200 to i64
   %203 = shl nuw i64 %202, 32
   %204 = or disjoint i64 %203, %201
-  store i64 %204, ptr %153, align 8, !tbaa !21
+  store i64 %204, ptr %153, align 8, !tbaa !22
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %206
 
@@ -6397,7 +6397,7 @@ bench_stats_start.exit138.i:                      ; preds = %180
 bench_async_handle.exit140.i:                     ; preds = %207
   %210 = add nuw nsw i32 %.3198296.i, 1
   %exitcond328.not.i = icmp eq i32 %210, 100
-  br i1 %exitcond328.not.i, label %211, label %207
+  br i1 %exitcond328.not.i, label %211, label %207, !llvm.loop !105
 
 211:                                              ; preds = %bench_async_handle.exit140.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1) #16
@@ -6409,23 +6409,23 @@ bench_async_handle.exit140.i:                     ; preds = %207
   %215 = tail call ptr @__errno_location() #17
   %216 = load i32, ptr %215, align 4, !tbaa !4
   %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %216, ptr noundef nonnull @.str.80)
-  %218 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %218 = load ptr, ptr @stdout, align 8, !tbaa !15
   %219 = call i32 @fflush(ptr noundef %218)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit141.i:                      ; preds = %211
   %220 = add nuw nsw i32 %.6193.i, 100
-  %221 = load i64, ptr %1, align 8, !tbaa !16
+  %221 = load i64, ptr %1, align 8, !tbaa !17
   %222 = sitofp i64 %221 to double
-  %223 = load i64, ptr %205, align 8, !tbaa !19
+  %223 = load i64, ptr %205, align 8, !tbaa !20
   %224 = sitofp i64 %223 to double
   %225 = fdiv double %224, 1.000000e+09
   %226 = fadd double %225, %222
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #16
   %227 = fsub double %226, %197
   %228 = fcmp uge double %227, 1.000000e+00
-  br i1 %228, label %bench_async_handle.exit140.thread.i, label %206, !llvm.loop !83
+  br i1 %228, label %bench_async_handle.exit140.thread.i, label %206, !llvm.loop !106
 
 bench_async_handle.exit140.thread.i:              ; preds = %bench_stats_check.exit141.i, %207
   %.7194.i = phi i32 [ %.6193.i, %207 ], [ %220, %bench_stats_check.exit141.i ]
@@ -6531,13 +6531,13 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   br i1 %.not51, label %.thread, label %28
 
 28:                                               ; preds = %27
-  %29 = load ptr, ptr %.0, align 8, !tbaa !84
+  %29 = load ptr, ptr %.0, align 8, !tbaa !107
   %30 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %31 = load i32, ptr %30, align 8, !tbaa !86
+  %31 = load i32, ptr %30, align 8, !tbaa !109
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %33 = load ptr, ptr %32, align 8, !tbaa !87
+  %33 = load ptr, ptr %32, align 8, !tbaa !110
   %34 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %35 = load i32, ptr %34, align 8, !tbaa !88
+  %35 = load i32, ptr %34, align 8, !tbaa !111
   %36 = call i32 @wc_DhSetKey(ptr noundef nonnull %6, ptr noundef %29, i32 noundef %31, ptr noundef %33, i32 noundef %35) #16
   br label %37
 
@@ -6560,21 +6560,21 @@ define dso_local void @bench_dh(i32 %0) local_unnamed_addr #0 {
   %43 = tail call ptr @__errno_location() #17
   %44 = load i32, ptr %43, align 4, !tbaa !4
   %45 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %44, ptr noundef nonnull @.str.80)
-  %46 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %46 = load ptr, ptr @stdout, align 8, !tbaa !15
   %47 = call i32 @fflush(ptr noundef %46)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.thread
-  %48 = load i64, ptr %5, align 8, !tbaa !16
+  %48 = load i64, ptr %5, align 8, !tbaa !17
   %49 = sitofp i64 %48 to double
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %51 = load i64, ptr %50, align 8, !tbaa !19
+  %51 = load i64, ptr %50, align 8, !tbaa !20
   %52 = sitofp i64 %51 to double
   %53 = fdiv double %52, 1.000000e+09
   %54 = fadd double %53, %49
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %55 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %55 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %56 = extractvalue { i32, i32 } %55, 0
   %57 = extractvalue { i32, i32 } %55, 1
   %58 = zext i32 %56 to i64
@@ -6582,7 +6582,7 @@ bench_stats_start.exit:                           ; preds = %.thread
   %60 = shl nuw i64 %59, 32
   %61 = or disjoint i64 %60, %58
   %62 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %61, ptr %62, align 8, !tbaa !21
+  store i64 %61, ptr %62, align 8, !tbaa !22
   %63 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
   %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %65
@@ -6593,41 +6593,41 @@ bench_stats_start.exit:                           ; preds = %.thread
   store i32 384, ptr %8, align 4, !tbaa !4
   %66 = call i32 @wc_DhGenerateKeyPair(ptr noundef nonnull %6, ptr noundef nonnull %63, ptr noundef nonnull %16, ptr noundef nonnull %9, ptr noundef nonnull %13, ptr noundef nonnull %8) #16
   %67 = icmp sgt i32 %66, -1
-  br i1 %67, label %.critedge54, label %.thread98
-
-.thread98:                                        ; preds = %65
-  %68 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %69 = load ptr, ptr %68, align 8, !tbaa !8
-  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %69, i32 noundef %.189, double noundef %54, i32 noundef %66)
-  br label %.critedge58
+  br i1 %67, label %.critedge54, label %.thread98, !llvm.loop !112
 
 .critedge54:                                      ; preds = %65
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
-  %70 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
-  %71 = icmp slt i32 %70, 0
-  br i1 %71, label %72, label %bench_stats_check.exit
+  %68 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %4) #16
+  %69 = icmp slt i32 %68, 0
+  br i1 %69, label %72, label %bench_stats_check.exit
+
+.thread98:                                        ; preds = %65
+  %70 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !8
+  call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.74, i32 noundef 2048, ptr noundef %71, i32 noundef %.189, double noundef %54, i32 noundef %66)
+  br label %.critedge58
 
 72:                                               ; preds = %.critedge54
   %73 = tail call ptr @__errno_location() #17
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %74, ptr noundef nonnull @.str.80)
-  %76 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %76 = load ptr, ptr @stdout, align 8, !tbaa !15
   %77 = call i32 @fflush(ptr noundef %76)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %.critedge54
   %78 = add nuw nsw i32 %.189, 1
-  %79 = load i64, ptr %4, align 8, !tbaa !16
+  %79 = load i64, ptr %4, align 8, !tbaa !17
   %80 = sitofp i64 %79 to double
-  %81 = load i64, ptr %64, align 8, !tbaa !19
+  %81 = load i64, ptr %64, align 8, !tbaa !20
   %82 = sitofp i64 %81 to double
   %83 = fdiv double %82, 1.000000e+09
   %84 = fadd double %83, %80
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %85 = fsub double %84, %54
   %86 = fcmp uge double %85, 1.000000e+00
-  br i1 %86, label %87, label %65, !llvm.loop !89
+  br i1 %86, label %87, label %65, !llvm.loop !113
 
 87:                                               ; preds = %bench_stats_check.exit
   %88 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -6643,28 +6643,28 @@ bench_stats_check.exit:                           ; preds = %.critedge54
   %94 = tail call ptr @__errno_location() #17
   %95 = load i32, ptr %94, align 4, !tbaa !4
   %96 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %95, ptr noundef nonnull @.str.80)
-  %97 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %97 = load ptr, ptr @stdout, align 8, !tbaa !15
   %98 = call i32 @fflush(ptr noundef %97)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit60:                         ; preds = %87
-  %99 = load i64, ptr %3, align 8, !tbaa !16
+  %99 = load i64, ptr %3, align 8, !tbaa !17
   %100 = sitofp i64 %99 to double
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %102 = load i64, ptr %101, align 8, !tbaa !19
+  %102 = load i64, ptr %101, align 8, !tbaa !20
   %103 = sitofp i64 %102 to double
   %104 = fdiv double %103, 1.000000e+09
   %105 = fadd double %104, %100
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %106 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %107 = extractvalue { i32, i32 } %106, 0
   %108 = extractvalue { i32, i32 } %106, 1
   %109 = zext i32 %107 to i64
   %110 = zext i32 %108 to i64
   %111 = shl nuw i64 %110, 32
   %112 = or disjoint i64 %111, %109
-  store i64 %112, ptr %62, align 8, !tbaa !21
+  store i64 %112, ptr %62, align 8, !tbaa !22
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %114
 
@@ -6683,7 +6683,7 @@ bench_stats_start.exit60:                         ; preds = %87
 bench_async_handle.exit62:                        ; preds = %115
   %120 = add nuw nsw i32 %.185119, 1
   %exitcond.not = icmp eq i32 %120, 100
-  br i1 %exitcond.not, label %121, label %115
+  br i1 %exitcond.not, label %121, label %115, !llvm.loop !114
 
 121:                                              ; preds = %bench_async_handle.exit62
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
@@ -6695,23 +6695,23 @@ bench_async_handle.exit62:                        ; preds = %115
   %125 = tail call ptr @__errno_location() #17
   %126 = load i32, ptr %125, align 4, !tbaa !4
   %127 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %126, ptr noundef nonnull @.str.80)
-  %128 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %128 = load ptr, ptr @stdout, align 8, !tbaa !15
   %129 = call i32 @fflush(ptr noundef %128)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit63:                         ; preds = %121
   %130 = add nuw nsw i32 %.391, 100
-  %131 = load i64, ptr %2, align 8, !tbaa !16
+  %131 = load i64, ptr %2, align 8, !tbaa !17
   %132 = sitofp i64 %131 to double
-  %133 = load i64, ptr %113, align 8, !tbaa !19
+  %133 = load i64, ptr %113, align 8, !tbaa !20
   %134 = sitofp i64 %133 to double
   %135 = fdiv double %134, 1.000000e+09
   %136 = fadd double %135, %132
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %137 = fsub double %136, %105
   %138 = fcmp uge double %137, 1.000000e+00
-  br i1 %138, label %.critedge58, label %114, !llvm.loop !90
+  br i1 %138, label %.critedge58, label %114, !llvm.loop !115
 
 .critedge58:                                      ; preds = %bench_stats_check.exit63, %115, %.thread98, %.critedge, %38
   %.088 = phi i32 [ 0, %38 ], [ 0, %.critedge ], [ %.189, %.thread98 ], [ %.391, %115 ], [ %130, %bench_stats_check.exit63 ]
@@ -6764,16 +6764,16 @@ define internal fastcc void @bench_stats_asym_finish(ptr noundef %0, i32 noundef
   %15 = tail call ptr @__errno_location() #17
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %16, ptr noundef nonnull @.str.80)
-  %18 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %18 = load ptr, ptr @stdout, align 8, !tbaa !15
   %19 = call i32 @fflush(ptr noundef %18)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 current_time.exit.i:                              ; preds = %6
-  %20 = load i64, ptr %7, align 8, !tbaa !16
+  %20 = load i64, ptr %7, align 8, !tbaa !17
   %21 = sitofp i64 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !19
+  %23 = load i64, ptr %22, align 8, !tbaa !20
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %24, 1.000000e+09
   %26 = fadd double %25, %21
@@ -6828,7 +6828,7 @@ current_time.exit.i:                              ; preds = %6
   br label %bench_stats_asym_finish_ex.exit
 
 bench_stats_asym_finish_ex.exit:                  ; preds = %50, %53
-  %55 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %55 = load ptr, ptr @stdout, align 8, !tbaa !15
   %56 = call i32 @fflush(ptr noundef %55)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %8) #16
   ret void
@@ -6892,21 +6892,21 @@ define dso_local void @bench_eccMakeKey(i32 %0, i32 noundef %1) local_unnamed_ad
   %12 = tail call ptr @__errno_location() #17
   %13 = load i32, ptr %12, align 4, !tbaa !4
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %13, ptr noundef nonnull @.str.80)
-  %15 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %15 = load ptr, ptr @stdout, align 8, !tbaa !15
   %16 = call i32 @fflush(ptr noundef %15)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %2
-  %17 = load i64, ptr %4, align 8, !tbaa !16
+  %17 = load i64, ptr %4, align 8, !tbaa !17
   %18 = sitofp i64 %17 to double
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %20 = load i64, ptr %19, align 8, !tbaa !19
+  %20 = load i64, ptr %19, align 8, !tbaa !20
   %21 = sitofp i64 %20 to double
   %22 = fdiv double %21, 1.000000e+09
   %23 = fadd double %22, %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
-  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %24 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %25 = extractvalue { i32, i32 } %24, 0
   %26 = extractvalue { i32, i32 } %24, 1
   %27 = zext i32 %25 to i64
@@ -6914,7 +6914,7 @@ bench_stats_start.exit:                           ; preds = %2
   %29 = shl nuw i64 %28, 32
   %30 = or disjoint i64 %29, %27
   %31 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %30, ptr %31, align 8, !tbaa !21
+  store i64 %30, ptr %31, align 8, !tbaa !22
   %32 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %34
@@ -6938,7 +6938,7 @@ bench_stats_start.exit:                           ; preds = %2
 bench_async_handle.exit:                          ; preds = %39
   %42 = add nuw nsw i32 %.02940, 1
   %exitcond.not = icmp eq i32 %42, 100
-  br i1 %exitcond.not, label %43, label %35
+  br i1 %exitcond.not, label %43, label %35, !llvm.loop !116
 
 43:                                               ; preds = %bench_async_handle.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #16
@@ -6950,23 +6950,23 @@ bench_async_handle.exit:                          ; preds = %39
   %47 = tail call ptr @__errno_location() #17
   %48 = load i32, ptr %47, align 4, !tbaa !4
   %49 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %48, ptr noundef nonnull @.str.80)
-  %50 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %50 = load ptr, ptr @stdout, align 8, !tbaa !15
   %51 = call i32 @fflush(ptr noundef %50)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %43
   %52 = add nuw nsw i32 %.027, 100
-  %53 = load i64, ptr %3, align 8, !tbaa !16
+  %53 = load i64, ptr %3, align 8, !tbaa !17
   %54 = sitofp i64 %53 to double
-  %55 = load i64, ptr %33, align 8, !tbaa !19
+  %55 = load i64, ptr %33, align 8, !tbaa !20
   %56 = sitofp i64 %55 to double
   %57 = fdiv double %56, 1.000000e+09
   %58 = fadd double %57, %54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
   %59 = fsub double %58, %23
   %60 = fcmp uge double %59, 1.000000e+00
-  br i1 %60, label %.critedge19, label %34, !llvm.loop !91
+  br i1 %60, label %.critedge19, label %34, !llvm.loop !117
 
 .critedge19:                                      ; preds = %bench_stats_check.exit, %39, %35
   %.128 = phi i32 [ %.027, %35 ], [ %.027, %39 ], [ %52, %bench_stats_check.exit ]
@@ -7049,21 +7049,21 @@ define dso_local void @bench_ecc(i32 %0, i32 noundef %1) local_unnamed_addr #0 {
   %36 = tail call ptr @__errno_location() #17
   %37 = load i32, ptr %36, align 4, !tbaa !4
   %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %37, ptr noundef nonnull @.str.80)
-  %39 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %39 = load ptr, ptr @stdout, align 8, !tbaa !15
   %40 = call i32 @fflush(ptr noundef %39)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit:                           ; preds = %.critedge75
-  %41 = load i64, ptr %7, align 8, !tbaa !16
+  %41 = load i64, ptr %7, align 8, !tbaa !17
   %42 = sitofp i64 %41 to double
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !19
+  %44 = load i64, ptr %43, align 8, !tbaa !20
   %45 = sitofp i64 %44 to double
   %46 = fdiv double %45, 1.000000e+09
   %47 = fadd double %46, %42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
-  %48 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %48 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %49 = extractvalue { i32, i32 } %48, 0
   %50 = extractvalue { i32, i32 } %48, 1
   %51 = zext i32 %49 to i64
@@ -7071,7 +7071,7 @@ bench_stats_start.exit:                           ; preds = %.critedge75
   %53 = shl nuw i64 %52, 32
   %54 = or disjoint i64 %53, %51
   %55 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @total_cycles)
-  store i64 %54, ptr %55, align 8, !tbaa !21
+  store i64 %54, ptr %55, align 8, !tbaa !22
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %57
 
@@ -7089,7 +7089,7 @@ bench_stats_start.exit:                           ; preds = %.critedge75
 bench_async_handle.exit:                          ; preds = %58
   %61 = add nuw nsw i32 %.0132170, 1
   %exitcond.not = icmp eq i32 %61, 100
-  br i1 %exitcond.not, label %62, label %58
+  br i1 %exitcond.not, label %62, label %58, !llvm.loop !118
 
 62:                                               ; preds = %bench_async_handle.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #16
@@ -7101,23 +7101,23 @@ bench_async_handle.exit:                          ; preds = %58
   %66 = tail call ptr @__errno_location() #17
   %67 = load i32, ptr %66, align 4, !tbaa !4
   %68 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %67, ptr noundef nonnull @.str.80)
-  %69 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %69 = load ptr, ptr @stdout, align 8, !tbaa !15
   %70 = call i32 @fflush(ptr noundef %69)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit:                           ; preds = %62
   %71 = add nuw nsw i32 %.0126, 100
-  %72 = load i64, ptr %6, align 8, !tbaa !16
+  %72 = load i64, ptr %6, align 8, !tbaa !17
   %73 = sitofp i64 %72 to double
-  %74 = load i64, ptr %56, align 8, !tbaa !19
+  %74 = load i64, ptr %56, align 8, !tbaa !20
   %75 = sitofp i64 %74 to double
   %76 = fdiv double %75, 1.000000e+09
   %77 = fadd double %76, %73
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #16
   %78 = fsub double %77, %47
   %79 = fcmp uge double %78, 1.000000e+00
-  br i1 %79, label %bench_async_handle.exit.thread, label %57, !llvm.loop !92
+  br i1 %79, label %bench_async_handle.exit.thread, label %57, !llvm.loop !119
 
 bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.exit, %58
   %.1127 = phi i32 [ %.0126, %58 ], [ %71, %bench_stats_check.exit ]
@@ -7142,10 +7142,10 @@ bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.e
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %87 = trunc i64 %indvars.iv to i8
   %88 = getelementptr inbounds nuw [66 x i8], ptr %15, i64 0, i64 %indvars.iv
-  store i8 %87, ptr %88, align 1, !tbaa !93
+  store i8 %87, ptr %88, align 1, !tbaa !120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond198.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond198.not, label %.critedge79, label %.lr.ph, !llvm.loop !94
+  br i1 %exitcond198.not, label %.critedge79, label %.lr.ph, !llvm.loop !121
 
 .critedge79:                                      ; preds = %.lr.ph, %.preheader
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #16
@@ -7157,28 +7157,28 @@ bench_async_handle.exit.thread:                   ; preds = %bench_stats_check.e
   %92 = tail call ptr @__errno_location() #17
   %93 = load i32, ptr %92, align 4, !tbaa !4
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %93, ptr noundef nonnull @.str.80)
-  %95 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %95 = load ptr, ptr @stdout, align 8, !tbaa !15
   %96 = call i32 @fflush(ptr noundef %95)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit90:                         ; preds = %.critedge79
-  %97 = load i64, ptr %5, align 8, !tbaa !16
+  %97 = load i64, ptr %5, align 8, !tbaa !17
   %98 = sitofp i64 %97 to double
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %100 = load i64, ptr %99, align 8, !tbaa !19
+  %100 = load i64, ptr %99, align 8, !tbaa !20
   %101 = sitofp i64 %100 to double
   %102 = fdiv double %101, 1.000000e+09
   %103 = fadd double %102, %98
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #16
-  %104 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %104 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %105 = extractvalue { i32, i32 } %104, 0
   %106 = extractvalue { i32, i32 } %104, 1
   %107 = zext i32 %105 to i64
   %108 = zext i32 %106 to i64
   %109 = shl nuw i64 %108, 32
   %110 = or disjoint i64 %109, %107
-  store i64 %110, ptr %55, align 8, !tbaa !21
+  store i64 %110, ptr %55, align 8, !tbaa !22
   %111 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %113
@@ -7189,7 +7189,7 @@ bench_stats_start.exit90:                         ; preds = %.critedge79
 
 114:                                              ; preds = %113, %bench_async_handle.exit92
   %.1133172 = phi i32 [ 0, %113 ], [ %121, %bench_async_handle.exit92 ]
-  %115 = load i32, ptr %111, align 8, !tbaa !95
+  %115 = load i32, ptr %111, align 8, !tbaa !122
   %116 = icmp eq i32 %115, 0
   br i1 %116, label %117, label %118
 
@@ -7205,7 +7205,7 @@ bench_stats_start.exit90:                         ; preds = %.critedge79
 bench_async_handle.exit92:                        ; preds = %118
   %121 = add nuw nsw i32 %.1133172, 1
   %exitcond199.not = icmp eq i32 %121, 100
-  br i1 %exitcond199.not, label %122, label %114
+  br i1 %exitcond199.not, label %122, label %114, !llvm.loop !127
 
 122:                                              ; preds = %bench_async_handle.exit92
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #16
@@ -7217,23 +7217,23 @@ bench_async_handle.exit92:                        ; preds = %118
   %126 = tail call ptr @__errno_location() #17
   %127 = load i32, ptr %126, align 4, !tbaa !4
   %128 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %127, ptr noundef nonnull @.str.80)
-  %129 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %129 = load ptr, ptr @stdout, align 8, !tbaa !15
   %130 = call i32 @fflush(ptr noundef %129)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit93:                         ; preds = %122
   %131 = add nuw nsw i32 %.2128, 100
-  %132 = load i64, ptr %4, align 8, !tbaa !16
+  %132 = load i64, ptr %4, align 8, !tbaa !17
   %133 = sitofp i64 %132 to double
-  %134 = load i64, ptr %112, align 8, !tbaa !19
+  %134 = load i64, ptr %112, align 8, !tbaa !20
   %135 = sitofp i64 %134 to double
   %136 = fdiv double %135, 1.000000e+09
   %137 = fadd double %136, %133
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #16
   %138 = fsub double %137, %103
   %139 = fcmp uge double %138, 1.000000e+00
-  br i1 %139, label %bench_async_handle.exit92.thread, label %113, !llvm.loop !100
+  br i1 %139, label %bench_async_handle.exit92.thread, label %113, !llvm.loop !128
 
 bench_async_handle.exit92.thread:                 ; preds = %bench_stats_check.exit93, %118
   %.3129 = phi i32 [ %.2128, %118 ], [ %131, %bench_stats_check.exit93 ]
@@ -7255,28 +7255,28 @@ bench_async_handle.exit92.thread:                 ; preds = %bench_stats_check.e
   %149 = tail call ptr @__errno_location() #17
   %150 = load i32, ptr %149, align 4, !tbaa !4
   %151 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %150, ptr noundef nonnull @.str.80)
-  %152 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %152 = load ptr, ptr @stdout, align 8, !tbaa !15
   %153 = call i32 @fflush(ptr noundef %152)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_start.exit94:                         ; preds = %145
-  %154 = load i64, ptr %3, align 8, !tbaa !16
+  %154 = load i64, ptr %3, align 8, !tbaa !17
   %155 = sitofp i64 %154 to double
   %156 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %157 = load i64, ptr %156, align 8, !tbaa !19
+  %157 = load i64, ptr %156, align 8, !tbaa !20
   %158 = sitofp i64 %157 to double
   %159 = fdiv double %158, 1.000000e+09
   %160 = fadd double %159, %155
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #16
-  %161 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !20
+  %161 = call { i32, i32 } asm sideeffect "cpuid\0A\09rdtsc", "={ax},={dx},{ax},~{ebx},~{ecx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !21
   %162 = extractvalue { i32, i32 } %161, 0
   %163 = extractvalue { i32, i32 } %161, 1
   %164 = zext i32 %162 to i64
   %165 = zext i32 %163 to i64
   %166 = shl nuw i64 %165, 32
   %167 = or disjoint i64 %166, %164
-  store i64 %167, ptr %55, align 8, !tbaa !21
+  store i64 %167, ptr %55, align 8, !tbaa !22
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %169
 
@@ -7286,7 +7286,7 @@ bench_stats_start.exit94:                         ; preds = %145
 
 170:                                              ; preds = %169, %bench_async_handle.exit96
   %.2134173 = phi i32 [ 0, %169 ], [ %178, %bench_async_handle.exit96 ]
-  %171 = load i32, ptr %111, align 8, !tbaa !95
+  %171 = load i32, ptr %111, align 8, !tbaa !122
   %172 = icmp eq i32 %171, 0
   br i1 %172, label %173, label %174
 
@@ -7303,7 +7303,7 @@ bench_stats_start.exit94:                         ; preds = %145
 bench_async_handle.exit96:                        ; preds = %174
   %178 = add nuw nsw i32 %.2134173, 1
   %exitcond200.not = icmp eq i32 %178, 100
-  br i1 %exitcond200.not, label %179, label %170
+  br i1 %exitcond200.not, label %179, label %170, !llvm.loop !129
 
 179:                                              ; preds = %bench_async_handle.exit96
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #16
@@ -7315,23 +7315,23 @@ bench_async_handle.exit96:                        ; preds = %174
   %183 = tail call ptr @__errno_location() #17
   %184 = load i32, ptr %183, align 4, !tbaa !4
   %185 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %184, ptr noundef nonnull @.str.80)
-  %186 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %186 = load ptr, ptr @stdout, align 8, !tbaa !15
   %187 = call i32 @fflush(ptr noundef %186)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 bench_stats_check.exit97:                         ; preds = %179
   %188 = add nuw nsw i32 %.4130, 100
-  %189 = load i64, ptr %2, align 8, !tbaa !16
+  %189 = load i64, ptr %2, align 8, !tbaa !17
   %190 = sitofp i64 %189 to double
-  %191 = load i64, ptr %168, align 8, !tbaa !19
+  %191 = load i64, ptr %168, align 8, !tbaa !20
   %192 = sitofp i64 %191 to double
   %193 = fdiv double %192, 1.000000e+09
   %194 = fadd double %193, %190
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #16
   %195 = fsub double %194, %160
   %196 = fcmp uge double %195, 1.000000e+00
-  br i1 %196, label %bench_async_handle.exit96.thread, label %169, !llvm.loop !101
+  br i1 %196, label %bench_async_handle.exit96.thread, label %169, !llvm.loop !130
 
 bench_async_handle.exit96.thread:                 ; preds = %bench_stats_check.exit97, %174
   %.5131 = phi i32 [ %.4130, %174 ], [ %188, %bench_stats_check.exit97 ]
@@ -7389,16 +7389,16 @@ define dso_local double @current_time(i32 noundef %0) local_unnamed_addr #0 {
   %6 = tail call ptr @__errno_location() #17
   %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.78, ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.79, i32 noundef 14994, i32 noundef %7, ptr noundef nonnull @.str.80)
-  %9 = load ptr, ptr @stdout, align 8, !tbaa !14
+  %9 = load ptr, ptr @stdout, align 8, !tbaa !15
   %10 = call i32 @fflush(ptr noundef %9)
   call void @_exit(i32 noundef 1) #18
   unreachable
 
 11:                                               ; preds = %1
-  %12 = load i64, ptr %2, align 8, !tbaa !16
+  %12 = load i64, ptr %2, align 8, !tbaa !17
   %13 = sitofp i64 %12 to double
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load i64, ptr %14, align 8, !tbaa !19
+  %15 = load i64, ptr %14, align 8, !tbaa !20
   %16 = sitofp i64 %15 to double
   %17 = fdiv double %16, 1.000000e+09
   %18 = fadd double %17, %13
@@ -7718,19 +7718,19 @@ sub_1:                                            ; preds = %sub_0
 106:                                              ; preds = %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv310, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !102
+  br i1 %exitcond, label %.lr.ph.preheader, label %107, !llvm.loop !131
 
 107:                                              ; preds = %.preheader, %106
   %indvars.iv310 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %106 ]
   %108 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv310
-  %109 = load ptr, ptr %108, align 16, !tbaa !103
+  %109 = load ptr, ptr %108, align 16, !tbaa !132
   %110 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %109) #19
   %.not180.not = icmp eq i32 %110, 0
   br i1 %.not180.not, label %.critedge5.thread, label %106
 
 .critedge5.thread:                                ; preds = %107
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !105
+  %112 = load i32, ptr %111, align 8, !tbaa !134
   %113 = or i32 %bench_cipher_algs.promoted, %112
   store i32 %113, ptr @bench_cipher_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7743,19 +7743,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph:                                           ; preds = %114
   %indvars.iv.next234 = add nuw nsw i64 %indvars.iv233311, 1
   %exitcond236 = icmp eq i64 %indvars.iv.next234, 14
-  br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !106
+  br i1 %exitcond236, label %.lr.ph201.preheader, label %114, !llvm.loop !135
 
 114:                                              ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv233311 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next234, %.lr.ph ]
   %115 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv233311
-  %116 = load ptr, ptr %115, align 16, !tbaa !103
+  %116 = load ptr, ptr %115, align 16, !tbaa !132
   %117 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %116) #19
   %.not181.not = icmp eq i32 %117, 0
   br i1 %.not181.not, label %.critedge5, label %.lr.ph
 
 .critedge5:                                       ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  %119 = load i32, ptr %118, align 8, !tbaa !105
+  %119 = load i32, ptr %118, align 8, !tbaa !134
   %120 = or i32 %bench_digest_algs.promoted, %119
   store i32 %120, ptr @bench_digest_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7768,19 +7768,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph201:                                        ; preds = %121
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237312, 1
   %exitcond240 = icmp eq i64 %indvars.iv.next238, 9
-  br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !107
+  br i1 %exitcond240, label %.lr.ph208.preheader, label %121, !llvm.loop !136
 
 121:                                              ; preds = %.lr.ph201.preheader, %.lr.ph201
   %indvars.iv237312 = phi i64 [ 0, %.lr.ph201.preheader ], [ %indvars.iv.next238, %.lr.ph201 ]
   %122 = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv237312
-  %123 = load ptr, ptr %122, align 16, !tbaa !103
+  %123 = load ptr, ptr %122, align 16, !tbaa !132
   %124 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %123) #19
   %.not182.not = icmp eq i32 %124, 0
   br i1 %.not182.not, label %.critedge7, label %.lr.ph201
 
 .critedge7:                                       ; preds = %121
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %126 = load i32, ptr %125, align 8, !tbaa !105
+  %126 = load i32, ptr %125, align 8, !tbaa !134
   %127 = or i32 %bench_mac_algs.promoted, %126
   store i32 %127, ptr @bench_mac_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7803,19 +7803,19 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph215:                                        ; preds = %129
   %indvars.iv.next246 = add nuw nsw i64 %indvars.iv245314, 1
   %exitcond248 = icmp eq i64 %indvars.iv.next246, 6
-  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !108
+  br i1 %exitcond248, label %.lr.ph221.preheader, label %129, !llvm.loop !137
 
 129:                                              ; preds = %.lr.ph215.preheader, %.lr.ph215
   %indvars.iv245314 = phi i64 [ 0, %.lr.ph215.preheader ], [ %indvars.iv.next246, %.lr.ph215 ]
   %130 = getelementptr inbounds nuw [7 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv245314
-  %131 = load ptr, ptr %130, align 16, !tbaa !103
+  %131 = load ptr, ptr %130, align 16, !tbaa !132
   %132 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %131) #19
   %.not184.not = icmp eq i32 %132, 0
   br i1 %.not184.not, label %.critedge11, label %.lr.ph215
 
 .critedge11:                                      ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %134 = load i32, ptr %133, align 8, !tbaa !105
+  %134 = load i32, ptr %133, align 8, !tbaa !134
   %135 = or i32 %bench_asym_algs.promoted, %134
   store i32 %135, ptr @bench_asym_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7828,12 +7828,12 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph221:                                        ; preds = %136
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249315, 1
   %exitcond252 = icmp eq i64 %indvars.iv.next250, 2
-  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !109
+  br i1 %exitcond252, label %.critedge13, label %136, !llvm.loop !138
 
 136:                                              ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv249315 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next250, %.lr.ph221 ]
   %137 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv249315
-  %138 = load ptr, ptr %137, align 16, !tbaa !103
+  %138 = load ptr, ptr %137, align 16, !tbaa !132
   %139 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %10, ptr noundef nonnull readonly dereferenceable(1) %138) #19
   %.not185.not = icmp eq i32 %139, 0
   br i1 %.not185.not, label %.critedge163.loopexit, label %.lr.ph221
@@ -7860,7 +7860,7 @@ sub_1:                                            ; preds = %sub_0
 
 .critedge163.loopexit:                            ; preds = %136
   %149 = getelementptr inbounds nuw i8, ptr %137, i64 8
-  %150 = load i32, ptr %149, align 8, !tbaa !105
+  %150 = load i32, ptr %149, align 8, !tbaa !134
   %151 = or i32 %bench_other_algs.promoted, %150
   store i32 %151, ptr @bench_other_algs, align 4, !tbaa !4
   store i1 true, ptr @bench_all, align 4
@@ -7872,7 +7872,7 @@ sub_1:                                            ; preds = %sub_0
   %152 = add nsw i32 %.1105, -1
   %153 = getelementptr inbounds nuw i8, ptr %.1103, i64 8
   %154 = icmp sgt i32 %.1105, 2
-  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !110
+  br i1 %154, label %sub_0, label %._crit_edge, !llvm.loop !139
 
 ._crit_edge:                                      ; preds = %100, %93, %84, %47, %25, %.critedge163, %2
   %155 = tail call i32 @benchmark_test(ptr poison)
@@ -7967,9 +7967,9 @@ print_alg.exit:                                   ; preds = %51, %58
   %.7 = phi i32 [ 0, %58 ], [ %56, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = getelementptr inbounds nuw [6 x %struct.bench_alg], ptr @bench_cipher_opt, i64 0, i64 %indvars.iv.next
-  %60 = load ptr, ptr %59, align 16, !tbaa !103
+  %60 = load ptr, ptr %59, align 16, !tbaa !132
   %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !111
+  br i1 %exitcond, label %.preheader89, label %46, !llvm.loop !140
 
 .preheader89:                                     ; preds = %print_alg.exit, %print_alg.exit60
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %print_alg.exit60 ], [ 0, %print_alg.exit ]
@@ -8000,9 +8000,9 @@ print_alg.exit60:                                 ; preds = %65, %72
   %.9 = phi i32 [ 0, %72 ], [ %70, %65 ]
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %73 = getelementptr inbounds nuw [15 x %struct.bench_alg], ptr @bench_digest_opt, i64 0, i64 %indvars.iv.next110
-  %74 = load ptr, ptr %73, align 16, !tbaa !103
+  %74 = load ptr, ptr %73, align 16, !tbaa !132
   %exitcond112 = icmp eq i64 %indvars.iv.next110, 14
-  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !112
+  br i1 %exitcond112, label %.preheader88, label %.preheader89, !llvm.loop !141
 
 .preheader88:                                     ; preds = %print_alg.exit60, %.preheader88.backedge
   %indvars.iv113 = phi i64 [ %indvars.iv113.be, %.preheader88.backedge ], [ 0, %print_alg.exit60 ]
@@ -8034,8 +8034,8 @@ print_alg.exit62:                                 ; preds = %79
   %indvars.iv113.be = phi i64 [ %indvars.iv.next114, %print_alg.exit62 ], [ %indvars.iv.next114129, %print_alg.exit62.thread ]
   %.28294.be = phi i32 [ %84, %print_alg.exit62 ], [ 0, %print_alg.exit62.thread ]
   %.be.in = getelementptr inbounds nuw [10 x %struct.bench_alg], ptr @bench_mac_opt, i64 0, i64 %indvars.iv113.be
-  %.be = load ptr, ptr %.be.in, align 16, !tbaa !103
-  br label %.preheader88, !llvm.loop !113
+  %.be = load ptr, ptr %.be.in, align 16, !tbaa !132
+  br label %.preheader88, !llvm.loop !142
 
 print_alg.exit62.thread:                          ; preds = %79
   %putchar.i61 = tail call i32 @putchar(i32 10)
@@ -8095,9 +8095,9 @@ print_alg.exit66:                                 ; preds = %98, %105
   %.15 = phi i32 [ 0, %105 ], [ %103, %98 ]
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %106 = getelementptr inbounds nuw [7 x %struct.bench_alg], ptr @bench_asym_opt, i64 0, i64 %indvars.iv.next121
-  %107 = load ptr, ptr %106, align 16, !tbaa !103
+  %107 = load ptr, ptr %106, align 16, !tbaa !132
   %exitcond123 = icmp eq i64 %indvars.iv.next121, 6
-  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !114
+  br i1 %exitcond123, label %.preheader, label %.preheader86, !llvm.loop !143
 
 .preheader:                                       ; preds = %print_alg.exit66, %print_alg.exit68
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %print_alg.exit68 ], [ 0, %print_alg.exit66 ]
@@ -8128,9 +8128,9 @@ print_alg.exit68:                                 ; preds = %112, %119
   %.17 = phi i32 [ 0, %119 ], [ %117, %112 ]
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %120 = getelementptr inbounds nuw [3 x %struct.bench_alg], ptr @bench_other_opt, i64 0, i64 %indvars.iv.next125
-  %121 = load ptr, ptr %120, align 16, !tbaa !103
+  %121 = load ptr, ptr %120, align 16, !tbaa !132
   %exitcond127 = icmp eq i64 %indvars.iv.next125, 2
-  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !115
+  br i1 %exitcond127, label %122, label %.preheader, !llvm.loop !144
 
 122:                                              ; preds = %print_alg.exit68
   %putchar = tail call i32 @putchar(i32 10)
@@ -8259,108 +8259,137 @@ attributes #19 = { nounwind willreturn memory(read) }
 !8 = !{!9, !9, i64 0}
 !9 = !{!"p1 omnipotent char", !10, i64 0}
 !10 = !{!"any pointer", !6, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
-!16 = !{!17, !18, i64 0}
-!17 = !{!"timespec", !18, i64 0, !18, i64 8}
-!18 = !{!"long", !6, i64 0}
-!19 = !{!17, !18, i64 8}
-!20 = !{i64 522633, i64 522641}
-!21 = !{!18, !18, i64 0}
-!22 = distinct !{!22, !12}
-!23 = distinct !{!23, !12}
-!24 = distinct !{!24, !12}
-!25 = distinct !{!25, !12}
-!26 = distinct !{!26, !12}
-!27 = distinct !{!27, !12}
-!28 = distinct !{!28, !12}
-!29 = distinct !{!29, !12}
-!30 = distinct !{!30, !12}
-!31 = distinct !{!31, !12}
-!32 = distinct !{!32, !12}
-!33 = distinct !{!33, !12}
-!34 = distinct !{!34, !12}
-!35 = distinct !{!35, !12}
-!36 = distinct !{!36, !12}
-!37 = distinct !{!37, !12}
-!38 = distinct !{!38, !12}
-!39 = distinct !{!39, !12}
-!40 = distinct !{!40, !12}
-!41 = distinct !{!41, !12}
-!42 = distinct !{!42, !12}
-!43 = distinct !{!43, !12}
-!44 = distinct !{!44, !12}
-!45 = distinct !{!45, !12}
-!46 = distinct !{!46, !12}
-!47 = distinct !{!47, !12}
-!48 = distinct !{!48, !12}
-!49 = distinct !{!49, !12}
-!50 = distinct !{!50, !12}
-!51 = distinct !{!51, !12}
-!52 = distinct !{!52, !12}
-!53 = distinct !{!53, !12}
-!54 = distinct !{!54, !12}
-!55 = distinct !{!55, !12}
-!56 = distinct !{!56, !12}
-!57 = distinct !{!57, !12}
-!58 = distinct !{!58, !12}
-!59 = distinct !{!59, !12}
-!60 = distinct !{!60, !12}
-!61 = distinct !{!61, !12}
-!62 = distinct !{!62, !12}
-!63 = distinct !{!63, !12}
-!64 = distinct !{!64, !12}
-!65 = distinct !{!65, !12}
-!66 = distinct !{!66, !12}
-!67 = distinct !{!67, !12}
-!68 = distinct !{!68, !12}
-!69 = distinct !{!69, !12}
-!70 = distinct !{!70, !12}
-!71 = distinct !{!71, !12}
-!72 = distinct !{!72, !12}
-!73 = distinct !{!73, !12}
-!74 = distinct !{!74, !12}
-!75 = distinct !{!75, !12}
-!76 = distinct !{!76, !12}
-!77 = distinct !{!77, !12}
-!78 = distinct !{!78, !12}
-!79 = distinct !{!79, !12}
-!80 = distinct !{!80, !12}
-!81 = distinct !{!81, !12}
-!82 = distinct !{!82, !12}
-!83 = distinct !{!83, !12}
-!84 = !{!85, !9, i64 0}
-!85 = !{!"DhParams", !9, i64 0, !5, i64 8, !9, i64 16, !5, i64 24}
-!86 = !{!85, !5, i64 8}
-!87 = !{!85, !9, i64 16}
-!88 = !{!85, !5, i64 24}
-!89 = distinct !{!89, !12}
-!90 = distinct !{!90, !12}
-!91 = distinct !{!91, !12}
-!92 = distinct !{!92, !12}
-!93 = !{!6, !6, i64 0}
-!94 = distinct !{!94, !12}
-!95 = !{!96, !5, i64 8}
-!96 = !{!"ecc_key", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !97, i64 16, !10, i64 24, !98, i64 32, !6, i64 3160, !99, i64 4200}
-!97 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
-!98 = !{!"ecc_point", !6, i64 0, !6, i64 1040, !6, i64 2080, !6, i64 3120}
-!99 = !{!"p1 _ZTS6WC_RNG", !10, i64 0}
-!100 = distinct !{!100, !12}
-!101 = distinct !{!101, !12}
-!102 = distinct !{!102, !12}
-!103 = !{!104, !9, i64 0}
-!104 = !{!"bench_alg", !9, i64 0, !5, i64 8}
-!105 = !{!104, !5, i64 8}
-!106 = distinct !{!106, !12}
-!107 = distinct !{!107, !12}
-!108 = distinct !{!108, !12}
-!109 = distinct !{!109, !12}
-!110 = distinct !{!110, !12}
-!111 = distinct !{!111, !12}
-!112 = distinct !{!112, !12}
-!113 = distinct !{!113, !12}
-!114 = distinct !{!114, !12}
-!115 = distinct !{!115, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !10, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"timespec", !19, i64 0, !19, i64 8}
+!19 = !{!"long", !6, i64 0}
+!20 = !{!18, !19, i64 8}
+!21 = !{i64 522633, i64 522641}
+!22 = !{!19, !19, i64 0}
+!23 = distinct !{!23, !12, !13}
+!24 = distinct !{!24, !12, !13}
+!25 = distinct !{!25, !12, !13}
+!26 = distinct !{!26, !13}
+!27 = distinct !{!27, !12, !13}
+!28 = distinct !{!28, !13}
+!29 = distinct !{!29, !12, !13}
+!30 = distinct !{!30, !13}
+!31 = distinct !{!31, !12, !13}
+!32 = distinct !{!32, !13}
+!33 = distinct !{!33, !12, !13}
+!34 = distinct !{!34, !12, !13}
+!35 = distinct !{!35, !12, !13}
+!36 = distinct !{!36, !12, !13}
+!37 = distinct !{!37, !12, !13}
+!38 = distinct !{!38, !12, !13}
+!39 = distinct !{!39, !12, !13}
+!40 = distinct !{!40, !12, !13}
+!41 = distinct !{!41, !12, !13}
+!42 = distinct !{!42, !12, !13}
+!43 = distinct !{!43, !12, !13}
+!44 = distinct !{!44, !12, !13}
+!45 = distinct !{!45, !13}
+!46 = distinct !{!46, !12, !13}
+!47 = distinct !{!47, !12, !13}
+!48 = distinct !{!48, !12, !13}
+!49 = distinct !{!49, !13}
+!50 = distinct !{!50, !12, !13}
+!51 = distinct !{!51, !12, !13}
+!52 = distinct !{!52, !12, !13}
+!53 = distinct !{!53, !13}
+!54 = distinct !{!54, !12, !13}
+!55 = distinct !{!55, !12, !13}
+!56 = distinct !{!56, !12, !13}
+!57 = distinct !{!57, !13}
+!58 = distinct !{!58, !12, !13}
+!59 = distinct !{!59, !12, !13}
+!60 = distinct !{!60, !12, !13}
+!61 = distinct !{!61, !13}
+!62 = distinct !{!62, !12, !13}
+!63 = distinct !{!63, !12, !13}
+!64 = distinct !{!64, !12, !13}
+!65 = distinct !{!65, !13}
+!66 = distinct !{!66, !12, !13}
+!67 = distinct !{!67, !12, !13}
+!68 = distinct !{!68, !12, !13}
+!69 = distinct !{!69, !13}
+!70 = distinct !{!70, !12, !13}
+!71 = distinct !{!71, !12, !13}
+!72 = distinct !{!72, !12, !13}
+!73 = distinct !{!73, !13}
+!74 = distinct !{!74, !12, !13}
+!75 = distinct !{!75, !12, !13}
+!76 = distinct !{!76, !12, !13}
+!77 = distinct !{!77, !13}
+!78 = distinct !{!78, !12, !13}
+!79 = distinct !{!79, !12, !13}
+!80 = distinct !{!80, !12, !13}
+!81 = distinct !{!81, !13}
+!82 = distinct !{!82, !12, !13}
+!83 = distinct !{!83, !12, !13}
+!84 = distinct !{!84, !12, !13}
+!85 = distinct !{!85, !13}
+!86 = distinct !{!86, !12, !13}
+!87 = distinct !{!87, !12, !13}
+!88 = distinct !{!88, !12, !13}
+!89 = distinct !{!89, !13}
+!90 = distinct !{!90, !12, !13}
+!91 = distinct !{!91, !12, !13}
+!92 = distinct !{!92, !12, !13}
+!93 = distinct !{!93, !13}
+!94 = distinct !{!94, !12, !13}
+!95 = distinct !{!95, !13}
+!96 = distinct !{!96, !12, !13}
+!97 = distinct !{!97, !12, !13}
+!98 = distinct !{!98, !12, !13}
+!99 = distinct !{!99, !13}
+!100 = distinct !{!100, !12, !13}
+!101 = distinct !{!101, !13}
+!102 = distinct !{!102, !12, !13}
+!103 = distinct !{!103, !13}
+!104 = distinct !{!104, !12, !13}
+!105 = distinct !{!105, !13}
+!106 = distinct !{!106, !12, !13}
+!107 = !{!108, !9, i64 0}
+!108 = !{!"DhParams", !9, i64 0, !5, i64 8, !9, i64 16, !5, i64 24}
+!109 = !{!108, !5, i64 8}
+!110 = !{!108, !9, i64 16}
+!111 = !{!108, !5, i64 24}
+!112 = distinct !{!112, !13}
+!113 = distinct !{!113, !12, !13}
+!114 = distinct !{!114, !13}
+!115 = distinct !{!115, !12, !13}
+!116 = distinct !{!116, !13}
+!117 = distinct !{!117, !12, !13}
+!118 = distinct !{!118, !13}
+!119 = distinct !{!119, !12, !13}
+!120 = !{!6, !6, i64 0}
+!121 = distinct !{!121, !12, !13}
+!122 = !{!123, !5, i64 8}
+!123 = !{!"ecc_key", !5, i64 0, !5, i64 4, !5, i64 8, !5, i64 12, !124, i64 16, !10, i64 24, !125, i64 32, !6, i64 3160, !126, i64 4200}
+!124 = !{!"p1 _ZTS12ecc_set_type", !10, i64 0}
+!125 = !{!"ecc_point", !6, i64 0, !6, i64 1040, !6, i64 2080, !6, i64 3120}
+!126 = !{!"p1 _ZTS6WC_RNG", !10, i64 0}
+!127 = distinct !{!127, !13}
+!128 = distinct !{!128, !12, !13}
+!129 = distinct !{!129, !13}
+!130 = distinct !{!130, !12, !13}
+!131 = distinct !{!131, !12, !13}
+!132 = !{!133, !9, i64 0}
+!133 = !{!"bench_alg", !9, i64 0, !5, i64 8}
+!134 = !{!133, !5, i64 8}
+!135 = distinct !{!135, !12, !13}
+!136 = distinct !{!136, !12, !13}
+!137 = distinct !{!137, !12, !13}
+!138 = distinct !{!138, !12, !13}
+!139 = distinct !{!139, !12, !13}
+!140 = distinct !{!140, !12, !13}
+!141 = distinct !{!141, !12, !13}
+!142 = distinct !{!142, !12, !13}
+!143 = distinct !{!143, !12, !13}
+!144 = distinct !{!144, !12, !13}

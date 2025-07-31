@@ -1350,7 +1350,7 @@ define hidden void @proto_register_gsm_sms() local_unnamed_addr #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next14 = add nuw nsw i64 %indvars.iv13, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %18, label %15, !llvm.loop !8
+  br i1 %exitcond.not, label %18, label %15, !llvm.loop !9
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 2160
@@ -1421,7 +1421,7 @@ define internal i32 @dissect_gsm_sms(ptr noundef %0, ptr noundef %1, ptr noundef
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 35, ptr noundef nonnull @.str.615)
   %8 = icmp ne ptr %2, null
-  %9 = load i8, ptr @reassemble_sms, align 1, !range !9
+  %9 = load i8, ptr @reassemble_sms, align 1, !range !10
   %10 = trunc nuw i8 %9 to i1
   %or.cond = select i1 %8, i1 true, i1 %10
   br i1 %or.cond, label %11, label %.thread
@@ -2170,7 +2170,7 @@ define internal void @dis_msg_deliver(ptr noundef %0, ptr noundef %1, ptr nounde
   %.neg = add i32 %9, %3
   %39 = add i32 %.neg, %.neg45
   %40 = load i32, ptr %7, align 4
-  %41 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %41 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %42 = trunc nuw i8 %41 to i1
   tail call fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %38, i32 noundef %39, i1 noundef zeroext %37, i8 noundef zeroext %30, i32 noundef %40, i1 noundef zeroext %42, ptr noundef %4)
   br label %43
@@ -2294,7 +2294,7 @@ define internal void @dis_msg_deliver_report(ptr noundef %0, ptr noundef %1, ptr
   %reass.sub = sub i32 %.neg, %.2
   %64 = add i32 %reass.sub, -2
   %65 = load i32, ptr %6, align 4
-  %66 = load i8, ptr %7, align 1, !range !9, !noundef !10
+  %66 = load i8, ptr %7, align 1, !range !10, !noundef !11
   %67 = trunc nuw i8 %66 to i1
   tail call fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %63, i32 noundef %64, i1 noundef zeroext %11, i8 noundef zeroext %57, i32 noundef %65, i1 noundef zeroext %67, ptr noundef %4)
   br label %.thread
@@ -2593,7 +2593,7 @@ dis_field_vp.exit:                                ; preds = %5, %.sink.split.i
   %.neg = add i32 %14, %3
   %197 = add i32 %.neg, %.neg49
   %198 = load i32, ptr %12, align 4
-  %199 = load i8, ptr %13, align 1, !range !9, !noundef !10
+  %199 = load i8, ptr %13, align 1, !range !10, !noundef !11
   %200 = trunc nuw i8 %199 to i1
   call fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %196, i32 noundef %197, i1 noundef zeroext %195, i8 noundef zeroext %188, i32 noundef %198, i1 noundef zeroext %200, ptr noundef %4)
   br label %201
@@ -2714,7 +2714,7 @@ define internal void @dis_msg_submit_report(ptr noundef %0, ptr noundef %1, ptr 
   %.neg = add i32 %9, %3
   %65 = sub i32 %.neg, %64
   %66 = load i32, ptr %7, align 4
-  %67 = load i8, ptr %8, align 1, !range !9, !noundef !10
+  %67 = load i8, ptr %8, align 1, !range !10, !noundef !11
   %68 = trunc nuw i8 %67 to i1
   tail call fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %64, i32 noundef %65, i1 noundef zeroext %12, i8 noundef zeroext %58, i32 noundef %66, i1 noundef zeroext %68, ptr noundef %4)
   br label %.thread
@@ -2937,7 +2937,7 @@ dis_field_st.exit:                                ; preds = %dis_field_dt.exit
   %.neg = add i32 %15, %3
   %143 = sub i32 %.neg, %142
   %144 = load i32, ptr %13, align 4
-  %145 = load i8, ptr %14, align 1, !range !9, !noundef !10
+  %145 = load i8, ptr %14, align 1, !range !10, !noundef !11
   %146 = trunc nuw i8 %145 to i1
   call fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %142, i32 noundef %143, i1 noundef zeroext %18, i8 noundef zeroext %136, i32 noundef %144, i1 noundef zeroext %146, ptr noundef %4)
   br label %.thread
@@ -3268,7 +3268,7 @@ define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr no
   %20 = tail call ptr @p_get_proto_data(ptr noundef %18, ptr noundef %1, i32 noundef %19, i32 noundef 0)
   %21 = icmp eq ptr %20, null
   %spec.store.select = select i1 %21, ptr @.str.627, ptr %20
-  %22 = load i8, ptr @reassemble_sms_with_lower_layers_info, align 1, !range !9, !noundef !10
+  %22 = load i8, ptr @reassemble_sms_with_lower_layers_info, align 1, !range !10, !noundef !11
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %24, label %93
 
@@ -3355,7 +3355,7 @@ define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr no
   %66 = tail call ptr @wmem_list_frame_prev(ptr noundef nonnull %.0180251)
   %.0179 = add i8 %.0179252, -1
   %.not = icmp eq ptr %66, null
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %.lr.ph, %65, %55
   %.0179.lcssa = phi i8 [ %.0179249, %55 ], [ %.0179, %65 ], [ %.0179252, %.lr.ph ]
@@ -3425,7 +3425,7 @@ define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %.not212, label %99, label %96
 
 96:                                               ; preds = %93
-  %97 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %97 = load i8, ptr %9, align 1, !range !10, !noundef !11
   %98 = trunc nuw i8 %97 to i1
   %spec.select = select i1 %98, i32 3, i32 %7
   br label %99
@@ -3446,14 +3446,14 @@ define internal fastcc void @dis_field_ud(ptr noundef %0, ptr noundef %1, ptr no
   %.pre270.pre = load i32, ptr %11, align 4
   %103 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %104 = icmp ugt i16 %.pre, 1
-  %105 = load i8, ptr @reassemble_sms, align 1, !range !9
+  %105 = load i8, ptr @reassemble_sms, align 1, !range !10
   %106 = trunc nuw i8 %105 to i1
   %or.cond = select i1 %104, i1 %106, i1 false
   br i1 %or.cond, label %107, label %.thread232
 
 107:                                              ; preds = %101
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %109 = load i8, ptr %108, align 8, !range !9, !noundef !10
+  %109 = load i8, ptr %108, align 8, !range !10, !noundef !11
   store i8 1, ptr %108, align 8
   %110 = load i16, ptr %16, align 2
   %111 = zext i16 %110 to i32
@@ -3727,7 +3727,7 @@ copy_address_wmem.exit223:                        ; preds = %copy_address_wmem.e
   %269 = load i16, ptr %210, align 2
   %270 = zext i16 %269 to i32
   %271 = icmp samesign ult i32 %268, %270
-  br i1 %271, label %246, label %.loopexit, !llvm.loop !12
+  br i1 %271, label %246, label %.loopexit, !llvm.loop !13
 
 272:                                              ; preds = %216
   %273 = trunc nuw i8 %.0193238 to i1
@@ -3830,7 +3830,7 @@ copy_address_wmem.exit223:                        ; preds = %copy_address_wmem.e
   %336 = load i16, ptr %210, align 2
   %337 = zext i16 %336 to i32
   %338 = icmp samesign ult i32 %335, %337
-  br i1 %338, label %307, label %.loopexit, !llvm.loop !13
+  br i1 %338, label %307, label %.loopexit, !llvm.loop !14
 
 339:                                              ; preds = %216
   br i1 %209, label %340, label %346
@@ -3965,7 +3965,7 @@ copy_address_wmem.exit223:                        ; preds = %copy_address_wmem.e
   %419 = load i16, ptr %210, align 2
   %420 = zext i16 %419 to i32
   %421 = icmp samesign ult i32 %418, %420
-  br i1 %421, label %395, label %.loopexit, !llvm.loop !14
+  br i1 %421, label %395, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %417, %334, %267, %.preheader247, %.preheader245, %.preheader, %392, %216, %241, %346, %358, %352, %362, %296, %211
   br i1 %or.cond274, label %422, label %424
@@ -4535,12 +4535,13 @@ attributes #14 = { allocsize(0) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = !{i8 0, i8 2}
-!10 = !{}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = !{i8 0, i8 2}
+!11 = !{}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}

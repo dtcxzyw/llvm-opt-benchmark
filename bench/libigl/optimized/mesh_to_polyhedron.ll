@@ -248,42 +248,42 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
           to label %.preheader unwind label %61
 
 44:                                               ; preds = %70
-  %45 = load i8, ptr %5, align 8, !tbaa !4, !range !37, !noundef !48
+  %45 = load i8, ptr %5, align 8, !tbaa !4, !range !37, !noundef !49
   %46 = trunc nuw i8 %45 to i1
   br i1 %46, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE9end_facetEv.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = load i64, ptr %18, align 8, !tbaa !49
+  %48 = load i64, ptr %18, align 8, !tbaa !50
   invoke void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE19add_vertex_to_facetEm(ptr noundef nonnull align 8 dereferenceable(178) %5, i64 noundef %48)
           to label %.noexc unwind label %61
 
 .noexc:                                           ; preds = %47
-  %49 = load i8, ptr %5, align 8, !tbaa !4, !range !37, !noundef !48
+  %49 = load i8, ptr %5, align 8, !tbaa !4, !range !37, !noundef !49
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE9end_facetEv.exit, label %51
 
 51:                                               ; preds = %.noexc
-  store i8 1, ptr %19, align 1, !tbaa !50
-  %52 = load i64, ptr %20, align 8, !tbaa !51
+  store i8 1, ptr %19, align 1, !tbaa !51
+  %52 = load i64, ptr %20, align 8, !tbaa !52
   invoke void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE19add_vertex_to_facetEm(ptr noundef nonnull align 8 dereferenceable(178) %5, i64 noundef %52)
           to label %.noexc36 unwind label %61
 
 .noexc36:                                         ; preds = %51
-  %53 = load i8, ptr %5, align 8, !tbaa !4, !range !37, !noundef !48
+  %53 = load i8, ptr %5, align 8, !tbaa !4, !range !37, !noundef !49
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE9end_facetEv.exit, label %55
 
 55:                                               ; preds = %.noexc36
-  %56 = load i64, ptr %18, align 8, !tbaa !49
-  %57 = load ptr, ptr %21, align 8, !tbaa !52
+  %56 = load i64, ptr %18, align 8, !tbaa !50
+  %57 = load ptr, ptr %21, align 8, !tbaa !53
   %58 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %57, i64 %56
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %58, align 8, !tbaa !53
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i, align 8, !tbaa !54
-  %.sroa.01.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !55
-  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %.sroa.01.0.copyload.i, align 8, !tbaa !54
-  %59 = load i64, ptr %22, align 8, !tbaa !56
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %58, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i.i, align 8, !tbaa !55
+  %.sroa.01.0.copyload.i = load ptr, ptr %9, align 8, !tbaa !56
+  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %.sroa.01.0.copyload.i, align 8, !tbaa !55
+  %59 = load i64, ptr %22, align 8, !tbaa !57
   %60 = add i64 %59, 1
-  store i64 %60, ptr %22, align 8, !tbaa !56
+  store i64 %60, ptr %22, align 8, !tbaa !57
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE9end_facetEv.exit
 
 61:                                               ; preds = %51, %47, %42
@@ -293,12 +293,12 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
 
 .preheader:                                       ; preds = %42, %70
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %70 ], [ 0, %42 ]
-  %63 = load ptr, ptr %1, align 8, !tbaa !57
+  %63 = load ptr, ptr %1, align 8, !tbaa !58
   %64 = load i64, ptr %12, align 8, !tbaa !34
   %65 = mul nsw i64 %64, %indvars.iv46
   %66 = getelementptr i32, ptr %63, i64 %indvars.iv49
   %67 = getelementptr i32, ptr %66, i64 %65
-  %68 = load i32, ptr %67, align 4, !tbaa !58
+  %68 = load i32, ptr %67, align 4, !tbaa !59
   %69 = sext i32 %68 to i64
   invoke void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE19add_vertex_to_facetEm(ptr noundef nonnull align 8 dereferenceable(178) %5, i64 noundef %69)
           to label %70 unwind label %71
@@ -306,7 +306,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl8copyleft4cgal18mesh_to_pol
 70:                                               ; preds = %.preheader
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, 3
-  br i1 %exitcond.not, label %44, label %.preheader, !llvm.loop !60
+  br i1 %exitcond.not, label %44, label %.preheader, !llvm.loop !61
 
 71:                                               ; preds = %.preheader
   %72 = landingpad { ptr, i32 }
@@ -318,7 +318,7 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %74 = load i64, ptr %12, align 8, !tbaa !34
   %75 = icmp sgt i64 %74, %indvars.iv.next50
-  br i1 %75, label %42, label %._crit_edge, !llvm.loop !61
+  br i1 %75, label %42, label %._crit_edge, !llvm.loop !62
 
 76:                                               ; preds = %._crit_edge
   invoke void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE8rollbackEv(ptr noundef nonnull align 8 dereferenceable(178) %5)
@@ -326,18 +326,18 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
 
 77:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #17
-  store ptr %2, ptr %4, align 8, !tbaa !62
+  store ptr %2, ptr %4, align 8, !tbaa !63
   %78 = invoke noundef zeroext i1 @_ZNK4CGAL26HalfedgeDS_const_decoratorINS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE8is_validEbi(ptr noundef nonnull align 8 dereferenceable(8) %4, i1 noundef zeroext false, i32 noundef 3)
           to label %.noexc38 unwind label %23
 
 .noexc38:                                         ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %80 = load ptr, ptr %79, align 8, !tbaa !64
+  %80 = load ptr, ptr %79, align 8, !tbaa !65
   br i1 %78, label %.lr.ph.i, label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit
 
 .lr.ph.i:                                         ; preds = %.noexc38
   %.sroa.095.0.in154.i = getelementptr inbounds nuw i8, ptr %80, i64 48
-  %.sroa.095.0155.i = load ptr, ptr %.sroa.095.0.in154.i, align 8, !tbaa !67
+  %.sroa.095.0155.i = load ptr, ptr %.sroa.095.0.in154.i, align 8, !tbaa !68
   %.not142.us166.i = icmp eq ptr %.sroa.095.0155.i, %80
   br i1 %.not142.us166.i, label %.critedge.i, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit36.i
 
@@ -345,56 +345,56 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit36.i:   ; preds = %.lr.ph.i, %94
   %.0139156165.i = phi i64 [ %95, %94 ], [ 0, %.lr.ph.i ]
   %.sroa.095.0157164.i = phi ptr [ %.sroa.095.0.i, %94 ], [ %.sroa.095.0155.i, %.lr.ph.i ]
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.095.0157164.i, i64 8
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %81, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %81, align 8, !tbaa !55
   %.not143.i = icmp eq ptr %.sroa.0.0.copyload.i.i, %.sroa.095.0157164.i
   br i1 %.not143.i, label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, label %82
 
 82:                                               ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit36.i
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 8
-  %.sroa.0.0.copyload.i38.i = load ptr, ptr %83, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i38.i = load ptr, ptr %83, align 8, !tbaa !55
   %.not144.i = icmp eq ptr %.sroa.0.0.copyload.i38.i, %.sroa.095.0157164.i
   br i1 %.not144.i, label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, label %84
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.095.0157164.i, i64 24
-  %.sroa.0.0.copyload.i.i.i.i37 = load ptr, ptr %85, align 8, !tbaa !53
-  %.sroa.0.0.copyload.i39.i = load ptr, ptr %.sroa.095.0157164.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i.i37 = load ptr, ptr %85, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i39.i = load ptr, ptr %.sroa.095.0157164.i, align 8, !tbaa !55
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i39.i, i64 24
-  %.sroa.0.0.copyload.i.i.i40.i = load ptr, ptr %86, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i.i40.i = load ptr, ptr %86, align 8, !tbaa !54
   %.not145.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i37, %.sroa.0.0.copyload.i.i.i40.i
   br i1 %.not145.i, label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, label %87
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 24
-  %.sroa.0.0.copyload.i.i.i43.i = load ptr, ptr %88, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i.i43.i = load ptr, ptr %88, align 8, !tbaa !54
   %.not146.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i37, %.sroa.0.0.copyload.i.i.i43.i
   br i1 %.not146.i, label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, label %89
 
 89:                                               ; preds = %87
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i38.i, i64 24
-  %.sroa.0.0.copyload.i.i.i47.i = load ptr, ptr %90, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i.i47.i = load ptr, ptr %90, align 8, !tbaa !54
   %.not147.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i37, %.sroa.0.0.copyload.i.i.i47.i
   br i1 %.not147.i, label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, label %91
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.095.0157164.i, i64 32
-  %.sroa.0.0.copyload.i.i.i49.i = load ptr, ptr %92, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i49.i = load ptr, ptr %92, align 8, !tbaa !56
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i39.i, i64 32
-  %.sroa.0.0.copyload.i.i.i51.i = load ptr, ptr %93, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i51.i = load ptr, ptr %93, align 8, !tbaa !56
   %.not148.i = icmp eq ptr %.sroa.0.0.copyload.i.i.i49.i, %.sroa.0.0.copyload.i.i.i51.i
   br i1 %.not148.i, label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, label %94
 
 94:                                               ; preds = %91
   %95 = add i64 %.0139156165.i, 1
   %.sroa.095.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.095.0157164.i, i64 48
-  %.sroa.095.0.i = load ptr, ptr %.sroa.095.0.in.i, align 8, !tbaa !67
+  %.sroa.095.0.i = load ptr, ptr %.sroa.095.0.in.i, align 8, !tbaa !68
   %.not142.i = icmp eq ptr %.sroa.095.0.i, %80
   br i1 %.not142.i, label %.critedge.i, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit36.i
 
 .critedge.i:                                      ; preds = %94, %.lr.ph.i
   %.us-phi.i = phi i64 [ 0, %.lr.ph.i ], [ %95, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %97 = load i64, ptr %96, align 8, !tbaa !69
+  %97 = load i64, ptr %96, align 8, !tbaa !70
   %98 = icmp eq i64 %.us-phi.i, %97
   br label %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit
 
@@ -406,13 +406,13 @@ _ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3
 100:                                              ; preds = %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit, %76
   %.0 = phi i1 [ false, %76 ], [ %99, %_ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3ENS_18HalfedgeDS_defaultESaIiEE8is_validEbi.exit ]
   %101 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  %102 = load ptr, ptr %101, align 8, !tbaa !70
+  %102 = load ptr, ptr %101, align 8, !tbaa !71
   %.not.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit.i, label %103
 
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  %105 = load ptr, ptr %104, align 8, !tbaa !71
+  %105 = load ptr, ptr %104, align 8, !tbaa !72
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %102 to i64
   %108 = sub i64 %106, %107
@@ -421,13 +421,13 @@ _ZNK4CGAL12Polyhedron_3INS_16Simple_cartesianIdEENS_26Polyhedron_items_with_id_3
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit.i: ; preds = %103, %100
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %110 = load ptr, ptr %109, align 8, !tbaa !52
+  %110 = load ptr, ptr %109, align 8, !tbaa !53
   %.not.i.i.i.i.i = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i.i, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEED2Ev.exit, label %111
 
 111:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit.i
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %113 = load ptr, ptr %112, align 8, !tbaa !72
+  %113 = load ptr, ptr %112, align 8, !tbaa !73
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %110 to i64
   %116 = sub i64 %114, %115
@@ -452,13 +452,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE13begin_surfaceEmmmi(ptr noundef nonnull align 8 dereferenceable(178) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = icmp eq i32 %4, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !73
+  %8 = load ptr, ptr %7, align 8, !tbaa !74
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %10 = load i64, ptr %9, align 8, !tbaa !74
+  %10 = load i64, ptr %9, align 8, !tbaa !75
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %12 = load i64, ptr %11, align 8, !tbaa !77
+  %12 = load i64, ptr %11, align 8, !tbaa !78
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !69
+  %14 = load i64, ptr %13, align 8, !tbaa !70
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br i1 %6, label %17, label %58
@@ -467,17 +467,17 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  store i64 %10, ptr %19, align 8, !tbaa !80
+  store i64 %10, ptr %19, align 8, !tbaa !81
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %12, ptr %20, align 8, !tbaa !81
-  store i64 %14, ptr %18, align 8, !tbaa !82
-  %21 = load ptr, ptr %16, align 8, !tbaa !83
+  store i64 %12, ptr %20, align 8, !tbaa !82
+  store i64 %14, ptr %18, align 8, !tbaa !83
+  %21 = load ptr, ptr %16, align 8, !tbaa !84
   %22 = ptrtoint ptr %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %24 = load ptr, ptr %23, align 8, !tbaa !52
+  %24 = load ptr, ptr %23, align 8, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %27 = load ptr, ptr %26, align 8, !tbaa !72
+  %27 = load ptr, ptr %26, align 8, !tbaa !73
   %.not.i.i.i.i.i.i = icmp eq ptr %24, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i.i.i, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit, label %28
@@ -491,7 +491,7 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit: ; preds = %28, %17
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %22, ptr %32, align 8, !tbaa !53
+  store i64 %22, ptr %32, align 8, !tbaa !54
   %33 = icmp ugt i64 %1, 1152921504606846975
   br i1 %33, label %34, label %35
 
@@ -500,8 +500,8 @@ _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31Halfed
   unreachable
 
 35:                                               ; preds = %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit
-  %36 = load ptr, ptr %26, align 8, !tbaa !72
-  %37 = load ptr, ptr %23, align 8, !tbaa !52
+  %36 = load ptr, ptr %26, align 8, !tbaa !73
+  %37 = load ptr, ptr %23, align 8, !tbaa !53
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
@@ -510,7 +510,7 @@ _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31Halfed
   br i1 %42, label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %35
-  %43 = load ptr, ptr %25, align 8, !tbaa !84
+  %43 = load ptr, ptr %25, align 8, !tbaa !85
   %44 = ptrtoint ptr %43 to i64
   %45 = sub i64 %44, %39
   %46 = shl nuw nsw i64 %1, 3
@@ -521,14 +521,14 @@ _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i.i ], [ %47, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i ]
   %.0911.i.i.i.i.i.i.i = phi ptr [ %49, %.lr.ph.i.i.i.i.i.i.i ], [ %37, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
-  %48 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 8, !tbaa !53, !alias.scope !88, !noalias !85
-  store i64 %48, ptr %.012.i.i.i.i.i.i.i, align 8, !tbaa !53, !alias.scope !85, !noalias !88
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !86)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
+  %48 = load i64, ptr %.0911.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !89, !noalias !86
+  store i64 %48, ptr %.012.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !86, !noalias !89
   %49 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i, i64 8
   %50 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %49, %43
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !91
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i
   %.not.i8.i.i.i.i = icmp eq ptr %37, null
@@ -539,23 +539,23 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   br label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i: ; preds = %51, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i
-  store ptr %47, ptr %23, align 8, !tbaa !52
+  store ptr %47, ptr %23, align 8, !tbaa !53
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %45
-  store ptr %52, ptr %25, align 8, !tbaa !84
+  store ptr %52, ptr %25, align 8, !tbaa !85
   %53 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %47, i64 %1
-  store ptr %53, ptr %26, align 8, !tbaa !72
+  store ptr %53, ptr %26, align 8, !tbaa !73
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit: ; preds = %35, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %55 = load ptr, ptr %54, align 8, !tbaa !70
+  %55 = load ptr, ptr %54, align 8, !tbaa !71
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %57 = load ptr, ptr %56, align 8, !tbaa !91
+  %57 = load ptr, ptr %56, align 8, !tbaa !92
   %.not.i.i.i.i13 = icmp eq ptr %57, %55
   br i1 %.not.i.i.i.i13, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit, label %_ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i.i.i.i
 
 _ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i.i.i.i: ; preds = %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit
-  store ptr %55, ptr %56, align 8, !tbaa !91
+  store ptr %55, ptr %56, align 8, !tbaa !92
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit
 
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit: ; preds = %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit, %_ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i.i.i.i
@@ -563,17 +563,17 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit32
 
 58:                                               ; preds = %5
-  store i64 %10, ptr %15, align 8, !tbaa !92
+  store i64 %10, ptr %15, align 8, !tbaa !93
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %12, ptr %59, align 8, !tbaa !56
+  store i64 %12, ptr %59, align 8, !tbaa !57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i64 %14, ptr %60, align 8, !tbaa !93
+  store i64 %14, ptr %60, align 8, !tbaa !94
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
-  %63 = load ptr, ptr %16, align 8, !tbaa !83
+  %63 = load ptr, ptr %16, align 8, !tbaa !84
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %65 = load ptr, ptr %64, align 8, !tbaa !94
+  %65 = load ptr, ptr %64, align 8, !tbaa !95
   %66 = ptrtoint ptr %65 to i64
   %67 = icmp eq ptr %65, %63
   br i1 %67, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEEC2ERKSK_SN_.exit, label %.preheader.i.i
@@ -589,7 +589,7 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
 
 70:                                               ; preds = %.preheader.i.i
   %71 = ptrtoint ptr %.sroa.0.0.i.i to i64
-  store i64 %71, ptr %69, align 8, !tbaa !53
+  store i64 %71, ptr %69, align 8, !tbaa !54
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE9push_backERKSK_.exit.i.i
 
 72:                                               ; preds = %.preheader.i.i
@@ -622,21 +622,21 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_
 .noexc39:                                         ; preds = %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %75
   %86 = ptrtoint ptr %.sroa.0.0.i.i to i64
-  store i64 %86, ptr %85, align 8, !tbaa !53
+  store i64 %86, ptr %85, align 8, !tbaa !54
   %.not10.i.i.i.i.i.i.i34 = icmp eq ptr %.sroa.042.0, %68
   br i1 %.not10.i.i.i.i.i.i.i34, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i35
 
 .lr.ph.i.i.i.i.i.i.i35:                           ; preds = %.noexc39, %.lr.ph.i.i.i.i.i.i.i35
   %.012.i.i.i.i.i.i.i36 = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i.i35 ], [ %84, %.noexc39 ]
   %.0911.i.i.i.i.i.i.i37 = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i.i35 ], [ %.sroa.042.0, %.noexc39 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
-  %87 = load i64, ptr %.0911.i.i.i.i.i.i.i37, align 8, !tbaa !53, !alias.scope !99, !noalias !96
-  store i64 %87, ptr %.012.i.i.i.i.i.i.i36, align 8, !tbaa !53, !alias.scope !96, !noalias !99
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
+  %87 = load i64, ptr %.0911.i.i.i.i.i.i.i37, align 8, !tbaa !54, !alias.scope !100, !noalias !97
+  store i64 %87, ptr %.012.i.i.i.i.i.i.i36, align 8, !tbaa !54, !alias.scope !97, !noalias !100
   %88 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i37, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i36, i64 8
   %.not.i.i.i.i.i.i.i38 = icmp eq ptr %88, %68
-  br i1 %.not.i.i.i.i.i.i.i38, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i35, !llvm.loop !90
+  br i1 %.not.i.i.i.i.i.i.i38, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i35, !llvm.loop !91
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i35, %.noexc39
   %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %84, %.noexc39 ], [ %89, %.lr.ph.i.i.i.i.i.i.i35 ]
@@ -660,9 +660,9 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   %93 = icmp ne ptr %.sroa.0.0.i.i, null
   tail call void @llvm.assume(i1 %93)
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
-  %95 = load ptr, ptr %94, align 8, !tbaa !94
+  %95 = load ptr, ptr %94, align 8, !tbaa !95
   %.not.i.i33 = icmp eq ptr %95, %63
-  br i1 %.not.i.i33, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEEC2ERKSK_SN_.exit, label %.preheader.i.i, !llvm.loop !101
+  br i1 %.not.i.i33, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEEC2ERKSK_SN_.exit, label %.preheader.i.i, !llvm.loop !102
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE12_M_check_lenEmPKc.exit.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -693,13 +693,13 @@ _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31Halfed
   %.sroa.9.1 = phi ptr [ null, %58 ], [ %.sroa.9.0, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE9push_backERKSK_.exit.i.i ]
   %.sroa.13.2 = phi ptr [ null, %58 ], [ %.sroa.13.1, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE9push_backERKSK_.exit.i.i ]
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %101 = load ptr, ptr %100, align 8, !tbaa !52
+  %101 = load ptr, ptr %100, align 8, !tbaa !53
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %104 = load ptr, ptr %103, align 8, !tbaa !72
-  store ptr %.sroa.042.2, ptr %100, align 8, !tbaa !52
-  store ptr %.sroa.9.1, ptr %102, align 8, !tbaa !84
-  store ptr %.sroa.13.2, ptr %103, align 8, !tbaa !72
+  %104 = load ptr, ptr %103, align 8, !tbaa !73
+  store ptr %.sroa.042.2, ptr %100, align 8, !tbaa !53
+  store ptr %.sroa.9.1, ptr %102, align 8, !tbaa !85
+  store ptr %.sroa.13.2, ptr %103, align 8, !tbaa !73
   %.not.i.i.i.i.i.i15 = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i.i.i15, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit19, label %105
 
@@ -712,10 +712,10 @@ _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31Halfed
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit19: ; preds = %105, %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEEC2ERKSK_SN_.exit
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %66, ptr %109, align 8, !tbaa !53
-  %110 = load ptr, ptr %62, align 8, !tbaa !73
+  store i64 %66, ptr %109, align 8, !tbaa !54
+  %110 = load ptr, ptr %62, align 8, !tbaa !74
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %112 = load i64, ptr %111, align 8, !tbaa !74
+  %112 = load i64, ptr %111, align 8, !tbaa !75
   %113 = add i64 %112, %1
   %114 = icmp ugt i64 %113, 1152921504606846975
   br i1 %114, label %115, label %116
@@ -725,8 +725,8 @@ _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31Halfed
   unreachable
 
 116:                                              ; preds = %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit19
-  %117 = load ptr, ptr %103, align 8, !tbaa !72
-  %118 = load ptr, ptr %100, align 8, !tbaa !52
+  %117 = load ptr, ptr %103, align 8, !tbaa !73
+  %118 = load ptr, ptr %100, align 8, !tbaa !53
   %119 = ptrtoint ptr %117 to i64
   %120 = ptrtoint ptr %118 to i64
   %121 = sub i64 %119, %120
@@ -735,7 +735,7 @@ _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31Halfed
   br i1 %123, label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i20, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit29
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i20: ; preds = %116
-  %124 = load ptr, ptr %102, align 8, !tbaa !84
+  %124 = load ptr, ptr %102, align 8, !tbaa !85
   %125 = ptrtoint ptr %124 to i64
   %126 = sub i64 %125, %120
   %127 = shl nuw nsw i64 %113, 3
@@ -746,14 +746,14 @@ _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_
 .lr.ph.i.i.i.i.i.i.i22:                           ; preds = %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i20, %.lr.ph.i.i.i.i.i.i.i22
   %.012.i.i.i.i.i.i.i23 = phi ptr [ %131, %.lr.ph.i.i.i.i.i.i.i22 ], [ %128, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i20 ]
   %.0911.i.i.i.i.i.i.i24 = phi ptr [ %130, %.lr.ph.i.i.i.i.i.i.i22 ], [ %118, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i20 ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  %129 = load i64, ptr %.0911.i.i.i.i.i.i.i24, align 8, !tbaa !53, !alias.scope !105, !noalias !102
-  store i64 %129, ptr %.012.i.i.i.i.i.i.i23, align 8, !tbaa !53, !alias.scope !102, !noalias !105
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  %129 = load i64, ptr %.0911.i.i.i.i.i.i.i24, align 8, !tbaa !54, !alias.scope !106, !noalias !103
+  store i64 %129, ptr %.012.i.i.i.i.i.i.i23, align 8, !tbaa !54, !alias.scope !103, !noalias !106
   %130 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i24, i64 8
   %131 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i23, i64 8
   %.not.i.i.i.i.i.i.i25 = icmp eq ptr %130, %124
-  br i1 %.not.i.i.i.i.i.i.i25, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i26, label %.lr.ph.i.i.i.i.i.i.i22, !llvm.loop !90
+  br i1 %.not.i.i.i.i.i.i.i25, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i26, label %.lr.ph.i.i.i.i.i.i.i22, !llvm.loop !91
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i26: ; preds = %.lr.ph.i.i.i.i.i.i.i22, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_M_allocateEm.exit.i.i.i.i20
   %.not.i8.i.i.i.i27 = icmp eq ptr %118, null
@@ -761,63 +761,63 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
 
 132:                                              ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i26
   tail call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %121) #18
-  %.pre.pre = load ptr, ptr %62, align 8, !tbaa !73
+  %.pre.pre = load ptr, ptr %62, align 8, !tbaa !74
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre.pre, i64 24
-  %.pre80.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !74
+  %.pre80.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !75
   %.pre84 = add i64 %.pre80.pre, %1
   br label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i28
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i28: ; preds = %132, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i26
   %.pre83.pre-phi = phi i64 [ %.pre84, %132 ], [ %113, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit.i.i.i.i26 ]
-  store ptr %128, ptr %100, align 8, !tbaa !52
+  store ptr %128, ptr %100, align 8, !tbaa !53
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 %126
-  store ptr %133, ptr %102, align 8, !tbaa !84
+  store ptr %133, ptr %102, align 8, !tbaa !85
   %134 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %128, i64 %113
-  store ptr %134, ptr %103, align 8, !tbaa !72
+  store ptr %134, ptr %103, align 8, !tbaa !73
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit29
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit29: ; preds = %116, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i28
   %.pre-phi = phi i64 [ %113, %116 ], [ %.pre83.pre-phi, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE13_M_deallocateEPSK_m.exit.i.i.i.i28 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %136 = load ptr, ptr %135, align 8, !tbaa !70
+  %136 = load ptr, ptr %135, align 8, !tbaa !71
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %138 = load ptr, ptr %137, align 8, !tbaa !91
+  %138 = load ptr, ptr %137, align 8, !tbaa !92
   %.not.i.i.i.i30 = icmp eq ptr %138, %136
   br i1 %.not.i.i.i.i30, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE5clearEv.exit.i.i, label %_ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i.i.i.i31
 
 _ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i.i.i.i31: ; preds = %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit29
-  store ptr %136, ptr %137, align 8, !tbaa !91
+  store ptr %136, ptr %137, align 8, !tbaa !92
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE5clearEv.exit.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE5clearEv.exit.i.i: ; preds = %_ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i.i.i.i31, %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE7reserveEm.exit29
   tail call void @_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %135, i64 noundef %.pre-phi)
-  %139 = load ptr, ptr %62, align 8, !tbaa !73
+  %139 = load ptr, ptr %62, align 8, !tbaa !74
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !83
+  %141 = load ptr, ptr %140, align 8, !tbaa !84
   %.sroa.04.0.in7.i.i = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %.sroa.04.08.i.i = load ptr, ptr %.sroa.04.0.in7.i.i, align 8, !tbaa !94
+  %.sroa.04.08.i.i = load ptr, ptr %.sroa.04.0.in7.i.i, align 8, !tbaa !95
   %.not9.i.i = icmp eq ptr %.sroa.04.08.i.i, %141
   br i1 %.not9.i.i, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit32, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE5clearEv.exit.i.i
-  %142 = load ptr, ptr %135, align 8, !tbaa !70
-  %143 = load ptr, ptr %100, align 8, !tbaa !52
+  %142 = load ptr, ptr %135, align 8, !tbaa !71
+  %143 = load ptr, ptr %100, align 8, !tbaa !53
   br label %144
 
 144:                                              ; preds = %144, %.lr.ph.i.i
   %.sroa.04.011.i.i = phi ptr [ %.sroa.04.08.i.i, %.lr.ph.i.i ], [ %.sroa.04.0.i.i, %144 ]
   %.010.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %147, %144 ]
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.04.011.i.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.04.011.i.i, align 8, !tbaa !55
   %145 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %142, i64 %.010.i.i
-  store ptr %.sroa.0.0.copyload.i.i.i, ptr %145, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i.i.i, ptr %145, align 8, !tbaa !55
   %146 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %143, i64 %.010.i.i
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %146, align 8, !tbaa !53
-  store ptr %.sroa.0.0.copyload.i.i.i, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %146, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i.i.i, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, align 8, !tbaa !55
   %147 = add i64 %.010.i.i, 1
   %.sroa.04.0.in.i.i = getelementptr inbounds nuw i8, ptr %.sroa.04.011.i.i, i64 40
-  %.sroa.04.0.i.i = load ptr, ptr %.sroa.04.0.in.i.i, align 8, !tbaa !94
+  %.sroa.04.0.i.i = load ptr, ptr %.sroa.04.0.in.i.i, align 8, !tbaa !95
   %.not.i.i = icmp eq ptr %.sroa.04.0.i.i, %141
-  br i1 %.not.i.i, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit32, label %144, !llvm.loop !107
+  br i1 %.not.i.i, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit32, label %144, !llvm.loop !108
 
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit32: ; preds = %144, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE5clearEv.exit.i.i, %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE29initialize_vertex_to_edge_mapEmb.exit
   ret void
@@ -828,26 +828,26 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10add_vertexERKNS_7Point_3IS3_EE(ptr noundef nonnull align 8 dereferenceable(178) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !73
+  %4 = load ptr, ptr %3, align 8, !tbaa !74
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !74
+  %6 = load i64, ptr %5, align 8, !tbaa !75
   %.not.not = icmp eq i64 %6, -1
   br i1 %.not.not, label %7, label %78
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %9 = load i8, ptr %8, align 1, !tbaa !29, !range !37, !noundef !48
+  %9 = load i8, ptr %8, align 1, !tbaa !29, !range !37, !noundef !49
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit3
 
 11:                                               ; preds = %7
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %13 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %13 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %14 = getelementptr i8, ptr %13, i64 -24
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 240
-  %18 = load ptr, ptr %17, align 8, !tbaa !110
+  %18 = load ptr, ptr %17, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i, label %19, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -857,18 +857,18 @@ define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %21 = load i8, ptr %20, align 8, !tbaa !125
+  %21 = load i8, ptr %20, align 8, !tbaa !126
   %.not.i1.i.i = icmp eq i8 %21, 0
   br i1 %.not.i1.i.i, label %25, label %22
 
 22:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 67
-  %24 = load i8, ptr %23, align 1, !tbaa !130
+  %24 = load i8, ptr %23, align 1, !tbaa !131
   br label %30
 
 25:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %18)
-  %26 = load ptr, ptr %18, align 8, !tbaa !108
+  %26 = load ptr, ptr %18, align 8, !tbaa !109
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef signext i8 %28(ptr noundef nonnull align 8 dereferenceable(570) %18, i8 noundef signext 10)
@@ -879,12 +879,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %11
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %31)
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 45)
-  %34 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %34 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %35 = getelementptr i8, ptr %34, i64 -24
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 240
-  %39 = load ptr, ptr %38, align 8, !tbaa !110
+  %39 = load ptr, ptr %38, align 8, !tbaa !111
   %.not.i.i.i14 = icmp eq ptr %39, null
   br i1 %.not.i.i.i14, label %40, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15
 
@@ -894,18 +894,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %11
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15: ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 56
-  %42 = load i8, ptr %41, align 8, !tbaa !125
+  %42 = load i8, ptr %41, align 8, !tbaa !126
   %.not.i1.i.i16 = icmp eq i8 %42, 0
   br i1 %.not.i1.i.i16, label %46, label %43
 
 43:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 67
-  %45 = load i8, ptr %44, align 1, !tbaa !130
+  %45 = load i8, ptr %44, align 1, !tbaa !131
   br label %51
 
 46:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %39)
-  %47 = load ptr, ptr %39, align 8, !tbaa !108
+  %47 = load ptr, ptr %39, align 8, !tbaa !109
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef signext i8 %49(ptr noundef nonnull align 8 dereferenceable(570) %39, i8 noundef signext 10)
@@ -917,15 +917,15 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15: ; preds = %30
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
   %54 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.9, i64 noundef 40)
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %56 = load i64, ptr %55, align 8, !tbaa !131
+  %56 = load i64, ptr %55, align 8, !tbaa !132
   %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %56)
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.10, i64 noundef 16)
-  %59 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %59 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %60 = getelementptr i8, ptr %59, i64 -24
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 240
-  %64 = load ptr, ptr %63, align 8, !tbaa !110
+  %64 = load ptr, ptr %63, align 8, !tbaa !111
   %.not.i.i.i19 = icmp eq ptr %64, null
   br i1 %.not.i.i.i19, label %65, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i20
 
@@ -935,18 +935,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i15: ; preds = %30
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i20: ; preds = %51
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 56
-  %67 = load i8, ptr %66, align 8, !tbaa !125
+  %67 = load i8, ptr %66, align 8, !tbaa !126
   %.not.i1.i.i21 = icmp eq i8 %67, 0
   br i1 %.not.i1.i.i21, label %71, label %68
 
 68:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i20
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 67
-  %70 = load i8, ptr %69, align 1, !tbaa !130
+  %70 = load i8, ptr %69, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit23
 
 71:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i20
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %64)
-  %72 = load ptr, ptr %64, align 8, !tbaa !108
+  %72 = load ptr, ptr %64, align 8, !tbaa !109
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = load ptr, ptr %73, align 8
   %75 = tail call noundef signext i8 %74(ptr noundef nonnull align 8 dereferenceable(570) %64, i8 noundef signext 10)
@@ -970,35 +970,35 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit3:      ; preds = %7, %_ZSt4endlIcSt11
   %.sroa.528.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 32
   store i64 -1, ptr %.sroa.528.0..sroa_idx, align 8
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !83, !nonnull !48, !noundef !48
+  %81 = load ptr, ptr %80, align 8, !tbaa !84, !nonnull !49, !noundef !49
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 40
-  store ptr %81, ptr %82, align 8, !tbaa !94
+  store ptr %81, ptr %82, align 8, !tbaa !95
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 48
-  %84 = load ptr, ptr %83, align 8, !tbaa !132
+  %84 = load ptr, ptr %83, align 8, !tbaa !133
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  store ptr %84, ptr %85, align 8, !tbaa !132
+  store ptr %84, ptr %85, align 8, !tbaa !133
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  store ptr %79, ptr %86, align 8, !tbaa !94
-  store ptr %79, ptr %83, align 8, !tbaa !132
+  store ptr %79, ptr %86, align 8, !tbaa !95
+  store ptr %79, ptr %83, align 8, !tbaa !133
   %87 = add nuw i64 %6, 1
-  store i64 %87, ptr %5, align 8, !tbaa !74
+  store i64 %87, ptr %5, align 8, !tbaa !75
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %90 = load ptr, ptr %89, align 8, !tbaa !84
+  %90 = load ptr, ptr %89, align 8, !tbaa !85
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %92 = load ptr, ptr %91, align 8, !tbaa !72
+  %92 = load ptr, ptr %91, align 8, !tbaa !73
   %.not.i.i.i.i = icmp eq ptr %90, %92
   br i1 %.not.i.i.i.i, label %96, label %93
 
 93:                                               ; preds = %78
   %94 = ptrtoint ptr %79 to i64
-  store i64 %94, ptr %90, align 8, !tbaa !53
+  store i64 %94, ptr %90, align 8, !tbaa !54
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %95, ptr %89, align 8, !tbaa !84
+  store ptr %95, ptr %89, align 8, !tbaa !85
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE9push_backERKSK_.exit
 
 96:                                               ; preds = %78
-  %97 = load ptr, ptr %88, align 8, !tbaa !52
+  %97 = load ptr, ptr %88, align 8, !tbaa !53
   %98 = ptrtoint ptr %90 to i64
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %98, %99
@@ -1022,21 +1022,21 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_
   %109 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %108) #20
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 %100
   %111 = ptrtoint ptr %79 to i64
-  store i64 %111, ptr %110, align 8, !tbaa !53
+  store i64 %111, ptr %110, align 8, !tbaa !54
   %.not10.i.i.i.i.i.i.i.i = icmp eq ptr %97, %90
   br i1 %.not10.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE12_M_check_lenEmPKc.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i
   %.012.i.i.i.i.i.i.i.i = phi ptr [ %114, %.lr.ph.i.i.i.i.i.i.i.i ], [ %109, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
   %.0911.i.i.i.i.i.i.i.i = phi ptr [ %113, %.lr.ph.i.i.i.i.i.i.i.i ], [ %97, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !136)
-  %112 = load i64, ptr %.0911.i.i.i.i.i.i.i.i, align 8, !tbaa !53, !alias.scope !136, !noalias !133
-  store i64 %112, ptr %.012.i.i.i.i.i.i.i.i, align 8, !tbaa !53, !alias.scope !133, !noalias !136
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !134)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
+  %112 = load i64, ptr %.0911.i.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !137, !noalias !134
+  store i64 %112, ptr %.012.i.i.i.i.i.i.i.i, align 8, !tbaa !54, !alias.scope !134, !noalias !137
   %113 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %113, %90
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !90
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !91
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i = phi ptr [ %109, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %114, %.lr.ph.i.i.i.i.i.i.i.i ]
@@ -1049,30 +1049,30 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_l
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i.i: ; preds = %116, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE11_S_relocateEPSK_SN_SN_RSL_.exit22.i.i.i.i.i
-  store ptr %109, ptr %88, align 8, !tbaa !52
-  store ptr %115, ptr %89, align 8, !tbaa !84
+  store ptr %109, ptr %88, align 8, !tbaa !53
+  store ptr %115, ptr %89, align 8, !tbaa !85
   %117 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %109, i64 %107
-  store ptr %117, ptr %91, align 8, !tbaa !72
+  store ptr %117, ptr %91, align 8, !tbaa !73
   br label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE9push_backERKSK_.exit
 
 _ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE9push_backERKSK_.exit: ; preds = %93, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESaISK_EE17_M_realloc_insertIJRKSK_EEEvN9__gnu_cxx17__normal_iteratorIPSK_SM_EEDpOT_.exit.i.i.i.i
-  store ptr null, ptr %79, align 8, !tbaa !54
+  store ptr null, ptr %79, align 8, !tbaa !55
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %120 = load ptr, ptr %119, align 8, !tbaa !91
+  %120 = load ptr, ptr %119, align 8, !tbaa !92
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %122 = load ptr, ptr %121, align 8, !tbaa !71
+  %122 = load ptr, ptr %121, align 8, !tbaa !72
   %.not.i.i.i.i4 = icmp eq ptr %120, %122
   br i1 %.not.i.i.i.i4, label %125, label %123
 
 123:                                              ; preds = %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE9push_backERKSK_.exit
-  store i64 0, ptr %120, align 8, !tbaa !54
+  store i64 0, ptr %120, align 8, !tbaa !55
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store ptr %124, ptr %119, align 8, !tbaa !91
+  store ptr %124, ptr %119, align 8, !tbaa !92
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE28push_back_vertex_to_edge_mapENS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EEmEEEEEESaISJ_EEE.exit
 
 125:                                              ; preds = %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEE9push_backERKSK_.exit
-  %126 = load ptr, ptr %118, align 8, !tbaa !70
+  %126 = load ptr, ptr %118, align 8, !tbaa !71
   %127 = ptrtoint ptr %120 to i64
   %128 = ptrtoint ptr %126 to i64
   %129 = sub i64 %127, %128
@@ -1095,21 +1095,21 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_
   %137 = shl nuw nsw i64 %136, 3
   %138 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %137) #20
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 %129
-  store i64 0, ptr %139, align 8, !tbaa !54
+  store i64 0, ptr %139, align 8, !tbaa !55
   %.not10.i.i.i.i.i.i.i.i7 = icmp eq ptr %126, %120
   br i1 %.not10.i.i.i.i.i.i.i.i7, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i8
 
 .lr.ph.i.i.i.i.i.i.i.i8:                          ; preds = %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i8
   %.012.i.i.i.i.i.i.i.i9 = phi ptr [ %142, %.lr.ph.i.i.i.i.i.i.i.i8 ], [ %138, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
   %.0911.i.i.i.i.i.i.i.i10 = phi ptr [ %141, %.lr.ph.i.i.i.i.i.i.i.i8 ], [ %126, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
-  %140 = load i64, ptr %.0911.i.i.i.i.i.i.i.i10, align 8, !tbaa !54, !alias.scope !141, !noalias !138
-  store i64 %140, ptr %.012.i.i.i.i.i.i.i.i9, align 8, !tbaa !54, !alias.scope !138, !noalias !141
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !139)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !142)
+  %140 = load i64, ptr %.0911.i.i.i.i.i.i.i.i10, align 8, !tbaa !55, !alias.scope !142, !noalias !139
+  store i64 %140, ptr %.012.i.i.i.i.i.i.i.i9, align 8, !tbaa !55, !alias.scope !139, !noalias !142
   %141 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i.i.i10, i64 8
   %142 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i.i.i9, i64 8
   %.not.i.i.i.i.i.i.i.i11 = icmp eq ptr %141, %120
-  br i1 %.not.i.i.i.i.i.i.i.i11, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i8, !llvm.loop !143
+  br i1 %.not.i.i.i.i.i.i.i.i11, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i8, !llvm.loop !144
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i8, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i.i.i.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i12 = phi ptr [ %138, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i.i.i.i.i ], [ %142, %.lr.ph.i.i.i.i.i.i.i.i8 ]
@@ -1122,17 +1122,17 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_realloc_insertIJRKSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i.i.i
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_realloc_insertIJRKSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i.i.i: ; preds = %144, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit22.i.i.i.i.i
-  store ptr %138, ptr %118, align 8, !tbaa !70
-  store ptr %143, ptr %119, align 8, !tbaa !91
+  store ptr %138, ptr %118, align 8, !tbaa !71
+  store ptr %143, ptr %119, align 8, !tbaa !92
   %145 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %138, i64 %136
-  store ptr %145, ptr %121, align 8, !tbaa !71
+  store ptr %145, ptr %121, align 8, !tbaa !72
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE28push_back_vertex_to_edge_mapENS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EEmEEEEEESaISJ_EEE.exit
 
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE28push_back_vertex_to_edge_mapENS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EEmEEEEEESaISJ_EEE.exit: ; preds = %123, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_realloc_insertIJRKSI_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit.i.i.i.i
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %147 = load i64, ptr %146, align 8, !tbaa !92
+  %147 = load i64, ptr %146, align 8, !tbaa !93
   %148 = add i64 %147, 1
-  store i64 %148, ptr %146, align 8, !tbaa !92
+  store i64 %148, ptr %146, align 8, !tbaa !93
   br label %149
 
 149:                                              ; preds = %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE28push_back_vertex_to_edge_mapENS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EEmEEEEEESaISJ_EEE.exit, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit3
@@ -1145,32 +1145,32 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE11begin_facetEv(ptr noundef nonnull align 8 dereferenceable(178) %0) local_unnamed_addr #1 comdat align 2 {
-  %2 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !48
+  %2 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !49
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %94, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !73
+  %6 = load ptr, ptr %5, align 8, !tbaa !74
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %8 = load i64, ptr %7, align 8, !tbaa !77
+  %8 = load i64, ptr %7, align 8, !tbaa !78
   %.not.not = icmp eq i64 %8, -1
   br i1 %.not.not, label %9, label %80
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !29, !range !37, !noundef !48
+  %11 = load i8, ptr %10, align 1, !tbaa !29, !range !37, !noundef !49
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit2
 
 13:                                               ; preds = %9
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %15 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %15 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 240
-  %20 = load ptr, ptr %19, align 8, !tbaa !110
+  %20 = load ptr, ptr %19, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %21, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -1180,18 +1180,18 @@ define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %23 = load i8, ptr %22, align 8, !tbaa !125
+  %23 = load i8, ptr %22, align 8, !tbaa !126
   %.not.i1.i.i = icmp eq i8 %23, 0
   br i1 %.not.i1.i.i, label %27, label %24
 
 24:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 67
-  %26 = load i8, ptr %25, align 1, !tbaa !130
+  %26 = load i8, ptr %25, align 1, !tbaa !131
   br label %32
 
 27:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %20)
-  %28 = load ptr, ptr %20, align 8, !tbaa !108
+  %28 = load ptr, ptr %20, align 8, !tbaa !109
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef signext i8 %30(ptr noundef nonnull align 8 dereferenceable(570) %20, i8 noundef signext 10)
@@ -1202,12 +1202,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %13
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %33)
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 45)
-  %36 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %36 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %37 = getelementptr i8, ptr %36, i64 -24
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 240
-  %41 = load ptr, ptr %40, align 8, !tbaa !110
+  %41 = load ptr, ptr %40, align 8, !tbaa !111
   %.not.i.i.i3 = icmp eq ptr %41, null
   br i1 %.not.i.i.i3, label %42, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i4
 
@@ -1217,18 +1217,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %13
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i4: ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %44 = load i8, ptr %43, align 8, !tbaa !125
+  %44 = load i8, ptr %43, align 8, !tbaa !126
   %.not.i1.i.i5 = icmp eq i8 %44, 0
   br i1 %.not.i1.i.i5, label %48, label %45
 
 45:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i4
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 67
-  %47 = load i8, ptr %46, align 1, !tbaa !130
+  %47 = load i8, ptr %46, align 1, !tbaa !131
   br label %53
 
 48:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i4
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %41)
-  %49 = load ptr, ptr %41, align 8, !tbaa !108
+  %49 = load ptr, ptr %41, align 8, !tbaa !109
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef signext i8 %51(ptr noundef nonnull align 8 dereferenceable(570) %41, i8 noundef signext 10)
@@ -1240,15 +1240,15 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i4: ; preds = %32
   %55 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %54)
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.11, i64 noundef 41)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %58 = load i64, ptr %57, align 8, !tbaa !131
+  %58 = load i64, ptr %57, align 8, !tbaa !132
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %58)
   %60 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.12, i64 noundef 14)
-  %61 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %61 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %62 = getelementptr i8, ptr %61, i64 -24
   %63 = load i64, ptr %62, align 8
   %64 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 240
-  %66 = load ptr, ptr %65, align 8, !tbaa !110
+  %66 = load ptr, ptr %65, align 8, !tbaa !111
   %.not.i.i.i8 = icmp eq ptr %66, null
   br i1 %.not.i.i.i8, label %67, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i9
 
@@ -1258,18 +1258,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i4: ; preds = %32
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i9: ; preds = %53
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %69 = load i8, ptr %68, align 8, !tbaa !125
+  %69 = load i8, ptr %68, align 8, !tbaa !126
   %.not.i1.i.i10 = icmp eq i8 %69, 0
   br i1 %.not.i1.i.i10, label %73, label %70
 
 70:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i9
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 67
-  %72 = load i8, ptr %71, align 1, !tbaa !130
+  %72 = load i8, ptr %71, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit12
 
 73:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i9
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %66)
-  %74 = load ptr, ptr %66, align 8, !tbaa !108
+  %74 = load ptr, ptr %66, align 8, !tbaa !109
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %76 = load ptr, ptr %75, align 8
   %77 = tail call noundef signext i8 %76(ptr noundef nonnull align 8 dereferenceable(570) %66, i8 noundef signext 10)
@@ -1287,30 +1287,30 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit2:      ; preds = %9, %_ZSt4endlIcSt11
 
 80:                                               ; preds = %4
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 1, ptr %81, align 8, !tbaa !144
+  store i8 1, ptr %81, align 8, !tbaa !145
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store i64 0, ptr %82, align 8, !tbaa !54
+  store i64 0, ptr %82, align 8, !tbaa !55
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  store i8 0, ptr %83, align 1, !tbaa !50
+  store i8 0, ptr %83, align 1, !tbaa !51
   %84 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr null, ptr %84, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 -1, ptr %.sroa.4.0..sroa_idx, align 8
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %86 = load ptr, ptr %85, align 8, !tbaa !145, !nonnull !48, !noundef !48
+  %86 = load ptr, ptr %85, align 8, !tbaa !146, !nonnull !49, !noundef !49
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store ptr %86, ptr %87, align 8, !tbaa !146
+  store ptr %86, ptr %87, align 8, !tbaa !147
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !148
+  %89 = load ptr, ptr %88, align 8, !tbaa !149
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store ptr %89, ptr %90, align 8, !tbaa !148
+  store ptr %89, ptr %90, align 8, !tbaa !149
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %84, ptr %91, align 8, !tbaa !146
-  store ptr %84, ptr %88, align 8, !tbaa !148
+  store ptr %84, ptr %91, align 8, !tbaa !147
+  store ptr %84, ptr %88, align 8, !tbaa !149
   %92 = add nuw i64 %8, 1
-  store i64 %92, ptr %7, align 8, !tbaa !77
+  store i64 %92, ptr %7, align 8, !tbaa !78
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %84, ptr %93, align 8, !tbaa !55
+  store ptr %84, ptr %93, align 8, !tbaa !56
   br label %94
 
 94:                                               ; preds = %1, %80, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit2
@@ -1321,30 +1321,30 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit2:      ; preds = %9, %_ZSt4endlIcSt11
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE19add_vertex_to_facetEm(ptr noundef nonnull align 8 dereferenceable(178) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = alloca %"class.CGAL::Verbose_ostream", align 8
-  %4 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !48
+  %4 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !49
   %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %.critedge49, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i64, ptr %7, align 8, !tbaa !92
+  %8 = load i64, ptr %7, align 8, !tbaa !93
   %.not = icmp ult i64 %1, %8
   br i1 %.not, label %82, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %11 = load i8, ptr %10, align 1, !tbaa !29, !range !37, !noundef !48
+  %11 = load i8, ptr %10, align 1, !tbaa !29, !range !37, !noundef !49
   %12 = trunc nuw i8 %11 to i1
   br i1 %12, label %13, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56
 
 13:                                               ; preds = %9
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %15 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %15 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 240
-  %20 = load ptr, ptr %19, align 8, !tbaa !110
+  %20 = load ptr, ptr %19, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i, label %21, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -1354,18 +1354,18 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %23 = load i8, ptr %22, align 8, !tbaa !125
+  %23 = load i8, ptr %22, align 8, !tbaa !126
   %.not.i1.i.i = icmp eq i8 %23, 0
   br i1 %.not.i1.i.i, label %27, label %24
 
 24:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 67
-  %26 = load i8, ptr %25, align 1, !tbaa !130
+  %26 = load i8, ptr %25, align 1, !tbaa !131
   br label %32
 
 27:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %20)
-  %28 = load ptr, ptr %20, align 8, !tbaa !108
+  %28 = load ptr, ptr %20, align 8, !tbaa !109
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef signext i8 %30(ptr noundef nonnull align 8 dereferenceable(570) %20, i8 noundef signext 10)
@@ -1376,12 +1376,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %13
   %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %33)
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 45)
-  %36 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %36 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %37 = getelementptr i8, ptr %36, i64 -24
   %38 = load i64, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 240
-  %41 = load ptr, ptr %40, align 8, !tbaa !110
+  %41 = load ptr, ptr %40, align 8, !tbaa !111
   %.not.i.i.i110 = icmp eq ptr %41, null
   br i1 %.not.i.i.i110, label %42, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i111
 
@@ -1391,18 +1391,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %13
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i111: ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
-  %44 = load i8, ptr %43, align 8, !tbaa !125
+  %44 = load i8, ptr %43, align 8, !tbaa !126
   %.not.i1.i.i112 = icmp eq i8 %44, 0
   br i1 %.not.i1.i.i112, label %48, label %45
 
 45:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i111
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 67
-  %47 = load i8, ptr %46, align 1, !tbaa !130
+  %47 = load i8, ptr %46, align 1, !tbaa !131
   br label %53
 
 48:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i111
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %41)
-  %49 = load ptr, ptr %41, align 8, !tbaa !108
+  %49 = load ptr, ptr %41, align 8, !tbaa !109
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef signext i8 %51(ptr noundef nonnull align 8 dereferenceable(570) %41, i8 noundef signext 10)
@@ -1415,16 +1415,16 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i111: ; preds = %32
   %56 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.13, i64 noundef 36)
   %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %1)
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.14, i64 noundef 20)
-  %59 = load i64, ptr %7, align 8, !tbaa !92
+  %59 = load i64, ptr %7, align 8, !tbaa !93
   %60 = add i64 %59, -1
   %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %60)
   %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.15, i64 noundef 2)
-  %63 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %63 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %64 = getelementptr i8, ptr %63, i64 -24
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 240
-  %68 = load ptr, ptr %67, align 8, !tbaa !110
+  %68 = load ptr, ptr %67, align 8, !tbaa !111
   %.not.i.i.i115 = icmp eq ptr %68, null
   br i1 %.not.i.i.i115, label %69, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i116
 
@@ -1434,18 +1434,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i111: ; preds = %32
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i116: ; preds = %53
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 56
-  %71 = load i8, ptr %70, align 8, !tbaa !125
+  %71 = load i8, ptr %70, align 8, !tbaa !126
   %.not.i1.i.i117 = icmp eq i8 %71, 0
   br i1 %.not.i1.i.i117, label %75, label %72
 
 72:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i116
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 67
-  %74 = load i8, ptr %73, align 1, !tbaa !130
+  %74 = load i8, ptr %73, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit119
 
 75:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i116
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %68)
-  %76 = load ptr, ptr %68, align 8, !tbaa !108
+  %76 = load ptr, ptr %68, align 8, !tbaa !109
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef signext i8 %78(ptr noundef nonnull align 8 dereferenceable(570) %68, i8 noundef signext 10)
@@ -1463,134 +1463,134 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56:     ; preds = %9, %_ZSt4endlIcSt11
 
 82:                                               ; preds = %6
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %84 = load i8, ptr %83, align 8, !tbaa !144, !range !37, !noundef !48
+  %84 = load i8, ptr %83, align 8, !tbaa !145, !range !37, !noundef !49
   %85 = trunc nuw i8 %84 to i1
   br i1 %85, label %86, label %88
 
 86:                                               ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 %1, ptr %87, align 8, !tbaa !49
-  store i8 0, ptr %83, align 8, !tbaa !144
+  store i64 %1, ptr %87, align 8, !tbaa !50
+  store i8 0, ptr %83, align 8, !tbaa !145
   br label %.critedge49
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %90 = load ptr, ptr %89, align 8, !tbaa !149
+  %90 = load ptr, ptr %89, align 8, !tbaa !150
   %91 = icmp eq ptr %90, null
   br i1 %91, label %92, label %104
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %94 = load i64, ptr %93, align 8, !tbaa !49
+  %94 = load i64, ptr %93, align 8, !tbaa !50
   %95 = tail call ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE15lookup_halfedgeEmm(ptr noundef nonnull align 8 dereferenceable(178) %0, i64 noundef %94, i64 noundef %1)
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %95, ptr %96, align 8, !tbaa !54
-  %97 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !48
+  store ptr %95, ptr %96, align 8, !tbaa !55
+  %97 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !49
   %98 = trunc nuw i8 %97 to i1
   br i1 %98, label %.critedge49, label %99
 
 99:                                               ; preds = %92
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %100, align 8, !tbaa !54
-  store ptr %.sroa.0.0.copyload.i, ptr %89, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i = load ptr, ptr %100, align 8, !tbaa !55
+  store ptr %.sroa.0.0.copyload.i, ptr %89, align 8, !tbaa !55
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.cast = ptrtoint ptr %.sroa.0.0.copyload.i to i64
-  store i64 %.cast, ptr %101, align 8, !tbaa !54
+  store i64 %.cast, ptr %101, align 8, !tbaa !55
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %1, ptr %102, align 8, !tbaa !51
+  store i64 %1, ptr %102, align 8, !tbaa !52
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i64 %1, ptr %103, align 8, !tbaa !150
+  store i64 %1, ptr %103, align 8, !tbaa !151
   br label %.critedge49
 
 104:                                              ; preds = %88
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %106 = load i8, ptr %105, align 1, !tbaa !50, !range !37, !noundef !48
+  %106 = load i8, ptr %105, align 1, !tbaa !51, !range !37, !noundef !49
   %107 = trunc nuw i8 %106 to i1
   br i1 %107, label %108, label %112
 
 108:                                              ; preds = %104
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %110 = load i64, ptr %109, align 8, !tbaa !54
+  %110 = load i64, ptr %109, align 8, !tbaa !55
   %111 = inttoptr i64 %110 to ptr
   br label %118
 
 112:                                              ; preds = %104
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %114 = load i64, ptr %113, align 8, !tbaa !150
+  %114 = load i64, ptr %113, align 8, !tbaa !151
   %115 = tail call ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE15lookup_halfedgeEmm(ptr noundef nonnull align 8 dereferenceable(178) %0, i64 noundef %114, i64 noundef %1)
-  %116 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !48
+  %116 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !49
   %117 = trunc nuw i8 %116 to i1
   br i1 %117, label %.critedge49, label %118
 
 118:                                              ; preds = %112, %108
   %.sroa.0164.0 = phi ptr [ %111, %108 ], [ %115, %112 ]
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0164.0, i64 8
-  %.sroa.0.0.copyload.i57 = load ptr, ptr %119, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i57 = load ptr, ptr %119, align 8, !tbaa !55
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %121 = load ptr, ptr %120, align 8, !tbaa !149
+  %121 = load ptr, ptr %120, align 8, !tbaa !150
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %.sroa.0.0.copyload.i58 = load ptr, ptr %122, align 8, !tbaa !54
-  store ptr %.sroa.0.0.copyload.i57, ptr %122, align 8, !tbaa !54
-  %.sroa.039.0.copyload = load ptr, ptr %120, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i58 = load ptr, ptr %122, align 8, !tbaa !55
+  store ptr %.sroa.0.0.copyload.i57, ptr %122, align 8, !tbaa !55
+  %.sroa.039.0.copyload = load ptr, ptr %120, align 8, !tbaa !55
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i57, i64 16
-  store ptr %.sroa.039.0.copyload, ptr %123, align 8, !tbaa !54
+  store ptr %.sroa.039.0.copyload, ptr %123, align 8, !tbaa !55
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %125 = load i64, ptr %124, align 8, !tbaa !150
+  %125 = load i64, ptr %124, align 8, !tbaa !151
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %127 = load ptr, ptr %126, align 8, !tbaa !52
+  %127 = load ptr, ptr %126, align 8, !tbaa !53
   %128 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %127, i64 %125
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %128, align 8, !tbaa !53
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %128, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !55
   %129 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, null
   br i1 %129, label %130, label %134
 
 130:                                              ; preds = %118
-  %.sroa.0.0.copyload.i59 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i60 = load ptr, ptr %.sroa.039.0.copyload, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i59 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i60 = load ptr, ptr %.sroa.039.0.copyload, align 8, !tbaa !55
   %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i59, i64 8
-  store ptr %.sroa.0.0.copyload.i60, ptr %131, align 8, !tbaa !54
-  %132 = load ptr, ptr %120, align 8, !tbaa !149
-  %.sroa.0.0.copyload.i61 = load ptr, ptr %132, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i62 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i60, ptr %131, align 8, !tbaa !55
+  %132 = load ptr, ptr %120, align 8, !tbaa !150
+  %.sroa.0.0.copyload.i61 = load ptr, ptr %132, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i62 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !55
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i61, i64 16
-  store ptr %.sroa.0.0.copyload.i62, ptr %133, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i62, ptr %133, align 8, !tbaa !55
   br label %.critedge53
 
 134:                                              ; preds = %118
-  %.sroa.0.0.copyload.i63 = load ptr, ptr %.sroa.039.0.copyload, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i63 = load ptr, ptr %.sroa.039.0.copyload, align 8, !tbaa !55
   %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i63, i64 32
-  %136 = load ptr, ptr %135, align 8, !tbaa !151
+  %136 = load ptr, ptr %135, align 8, !tbaa !152
   %137 = icmp eq ptr %136, null
-  %.sroa.0.0.copyload.i64 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i64 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !55
   %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i64, i64 32
-  %139 = load ptr, ptr %138, align 8, !tbaa !151
+  %139 = load ptr, ptr %138, align 8, !tbaa !152
   %140 = icmp eq ptr %139, null
   %or.cond = and i1 %137, %140
   br i1 %or.cond, label %141, label %152
 
 141:                                              ; preds = %134
   %142 = tail call ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE11lookup_holeENS_8internal22In_place_list_iteratorINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EEmEEEEEESaISJ_EEE(ptr noundef nonnull align 8 dereferenceable(178) %0, ptr nonnull %.sroa.0.0.copyload.i.i.i)
-  %143 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !48
+  %143 = load i8, ptr %0, align 8, !tbaa !4, !range !37, !noundef !49
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %.critedge49, label %145
 
 145:                                              ; preds = %141
-  %.sroa.0.0.copyload.i66 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i66 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !55
   %146 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %.sroa.0.0.copyload.i67 = load ptr, ptr %146, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i67 = load ptr, ptr %146, align 8, !tbaa !55
   %147 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i66, i64 8
-  store ptr %.sroa.0.0.copyload.i67, ptr %147, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i69 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i67, ptr %147, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i69 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !55
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i67, i64 16
-  store ptr %.sroa.0.0.copyload.i69, ptr %148, align 8, !tbaa !54
-  %149 = load ptr, ptr %120, align 8, !tbaa !149
-  %.sroa.0.0.copyload.i70 = load ptr, ptr %149, align 8, !tbaa !54
-  store ptr %.sroa.0.0.copyload.i70, ptr %146, align 8, !tbaa !54
-  %150 = load ptr, ptr %120, align 8, !tbaa !149
-  %.sroa.0.0.copyload.i71 = load ptr, ptr %150, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i69, ptr %148, align 8, !tbaa !55
+  %149 = load ptr, ptr %120, align 8, !tbaa !150
+  %.sroa.0.0.copyload.i70 = load ptr, ptr %149, align 8, !tbaa !55
+  store ptr %.sroa.0.0.copyload.i70, ptr %146, align 8, !tbaa !55
+  %150 = load ptr, ptr %120, align 8, !tbaa !150
+  %.sroa.0.0.copyload.i71 = load ptr, ptr %150, align 8, !tbaa !55
   %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i71, i64 16
-  store ptr %142, ptr %151, align 8, !tbaa !54
-  %.pre = load ptr, ptr %126, align 8, !tbaa !52
+  store ptr %142, ptr %151, align 8, !tbaa !55
+  %.pre = load ptr, ptr %126, align 8, !tbaa !53
   br label %.critedge53
 
 152:                                              ; preds = %134
@@ -1598,39 +1598,39 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56:     ; preds = %9, %_ZSt4endlIcSt11
 
 153:                                              ; preds = %152
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i64, i64 8
-  store ptr %.sroa.0.0.copyload.i58, ptr %154, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i73 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i58, ptr %154, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i73 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !55
   %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i58, i64 16
-  store ptr %.sroa.0.0.copyload.i73, ptr %155, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i73, ptr %155, align 8, !tbaa !55
   br label %.critedge53
 
 156:                                              ; preds = %152
   br i1 %137, label %157, label %160
 
 157:                                              ; preds = %156
-  store ptr %.sroa.0.0.copyload.i63, ptr %119, align 8, !tbaa !54
-  %158 = load ptr, ptr %120, align 8, !tbaa !149
-  %.sroa.0.0.copyload.i75 = load ptr, ptr %158, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i63, ptr %119, align 8, !tbaa !55
+  %158 = load ptr, ptr %120, align 8, !tbaa !150
+  %.sroa.0.0.copyload.i75 = load ptr, ptr %158, align 8, !tbaa !55
   %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i75, i64 16
-  store ptr %.sroa.0164.0, ptr %159, align 8, !tbaa !54
+  store ptr %.sroa.0164.0, ptr %159, align 8, !tbaa !55
   br label %.critedge53
 
 160:                                              ; preds = %156
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i64, i64 8
-  %.sroa.0.0.copyload.i77 = load ptr, ptr %161, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i77 = load ptr, ptr %161, align 8, !tbaa !55
   %162 = icmp eq ptr %.sroa.0.0.copyload.i77, %.sroa.0.0.copyload.i63
   %163 = icmp eq ptr %.sroa.0.0.copyload.i58, %.sroa.0.0.copyload.i57
   %or.cond198 = select i1 %162, i1 true, i1 %163
   br i1 %or.cond198, label %.critedge53, label %164
 
 164:                                              ; preds = %160
-  store ptr %.sroa.0.0.copyload.i58, ptr %119, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i58, ptr %119, align 8, !tbaa !55
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i58, i64 16
-  store ptr %.sroa.0164.0, ptr %165, align 8, !tbaa !54
+  store ptr %.sroa.0164.0, ptr %165, align 8, !tbaa !55
   %166 = load i64, ptr %120, align 8
   %167 = inttoptr i64 %166 to ptr
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %167, i64 8
-  %.sroa.0.0.copyload.i79.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i79.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !55
   br label %168
 
 168:                                              ; preds = %168, %164
@@ -1638,16 +1638,16 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56:     ; preds = %9, %_ZSt4endlIcSt11
   %.sroa.0126.0 = phi ptr [ %167, %164 ], [ %.sroa.0.0.copyload.i80, %168 ]
   %.sroa.0136.0 = phi ptr [ null, %164 ], [ %spec.select, %168 ]
   %169 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0, i64 32
-  %170 = load ptr, ptr %169, align 8, !tbaa !151
+  %170 = load ptr, ptr %169, align 8, !tbaa !152
   %171 = icmp eq ptr %170, null
   %spec.select = select i1 %171, ptr %.sroa.0126.0, ptr %.sroa.0136.0
-  %.sroa.0.0.copyload.i80 = load ptr, ptr %.sroa.0.0.copyload.i79, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i80 = load ptr, ptr %.sroa.0.0.copyload.i79, align 8, !tbaa !55
   %172 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 8
-  %.sroa.0.0.copyload.i81 = load ptr, ptr %172, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i81 = load ptr, ptr %172, align 8, !tbaa !55
   %173 = icmp ne ptr %.sroa.0.0.copyload.i81, %.sroa.0.0.copyload.i58
   %174 = icmp ne ptr %.sroa.0.0.copyload.i80, %167
   %or.cond200 = and i1 %173, %174
-  br i1 %or.cond200, label %168, label %.critedge, !llvm.loop !152
+  br i1 %or.cond200, label %168, label %.critedge, !llvm.loop !153
 
 .critedge:                                        ; preds = %168
   %175 = icmp eq ptr %.sroa.0.0.copyload.i80, %167
@@ -1659,71 +1659,71 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56:     ; preds = %9, %_ZSt4endlIcSt11
 
 177:                                              ; preds = %176
   %178 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
-  %.sroa.0.0.copyload.i82 = load ptr, ptr %178, align 8, !tbaa !54
-  store ptr %.sroa.0.0.copyload.i82, ptr %119, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i82 = load ptr, ptr %178, align 8, !tbaa !55
+  store ptr %.sroa.0.0.copyload.i82, ptr %119, align 8, !tbaa !55
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i82, i64 16
-  store ptr %.sroa.0164.0, ptr %179, align 8, !tbaa !54
-  store ptr %.sroa.0.0.copyload.i58, ptr %178, align 8, !tbaa !54
-  store ptr %spec.select, ptr %165, align 8, !tbaa !54
+  store ptr %.sroa.0164.0, ptr %179, align 8, !tbaa !55
+  store ptr %.sroa.0.0.copyload.i58, ptr %178, align 8, !tbaa !55
+  store ptr %spec.select, ptr %165, align 8, !tbaa !55
   br label %.critedge53
 
 180:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #17
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %182 = load i8, ptr %181, align 1, !tbaa !29, !range !37, !noundef !48
-  store i8 %182, ptr %3, align 8, !tbaa !153
+  %182 = load i8, ptr %181, align 1, !tbaa !29, !range !37, !noundef !49
+  store i8 %182, ptr %3, align 8, !tbaa !154
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @_ZSt4cerr, ptr %183, align 8, !tbaa !155
+  store ptr @_ZSt4cerr, ptr %183, align 8, !tbaa !156
   %184 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
-  %185 = load i8, ptr %184, align 8, !tbaa !153, !range !37, !noundef !48
+  %185 = load i8, ptr %184, align 8, !tbaa !154, !range !37, !noundef !49
   %186 = trunc nuw i8 %185 to i1
   br i1 %186, label %187, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit84
 
 187:                                              ; preds = %180
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
-  %189 = load ptr, ptr %188, align 8, !tbaa !155
+  %189 = load ptr, ptr %188, align 8, !tbaa !156
   %190 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %189)
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit84
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit84:     ; preds = %180, %187
   %191 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA46_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(46) @.str.8)
-  %192 = load i8, ptr %191, align 8, !tbaa !153, !range !37, !noundef !48
+  %192 = load i8, ptr %191, align 8, !tbaa !154, !range !37, !noundef !49
   %193 = trunc nuw i8 %192 to i1
   br i1 %193, label %194, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit85
 
 194:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit84
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  %196 = load ptr, ptr %195, align 8, !tbaa !155
+  %196 = load ptr, ptr %195, align 8, !tbaa !156
   %197 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %196)
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit85
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit85:     ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit84, %194
   %198 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA76_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(76) @.str.16)
-  %199 = load i8, ptr %198, align 8, !tbaa !153, !range !37, !noundef !48
+  %199 = load i8, ptr %198, align 8, !tbaa !154, !range !37, !noundef !49
   %200 = trunc nuw i8 %199 to i1
   br i1 %200, label %201, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit86
 
 201:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit85
   %202 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  %203 = load ptr, ptr %202, align 8, !tbaa !155
-  %204 = load i64, ptr %124, align 8, !tbaa !131
+  %203 = load ptr, ptr %202, align 8, !tbaa !156
+  %204 = load i64, ptr %124, align 8, !tbaa !132
   %205 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %203, i64 noundef %204)
   br label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit86
 
 _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit86:   ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit85, %201
   %206 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %198, ptr noundef nonnull align 1 dereferenceable(2) @.str.17)
-  %207 = load i8, ptr %206, align 8, !tbaa !153, !range !37, !noundef !48
+  %207 = load i8, ptr %206, align 8, !tbaa !154, !range !37, !noundef !49
   %208 = trunc nuw i8 %207 to i1
   br i1 %208, label %209, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit87
 
 209:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit86
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %211 = load ptr, ptr %210, align 8, !tbaa !155
+  %211 = load ptr, ptr %210, align 8, !tbaa !156
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %211)
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit87
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit87:     ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit86, %209
-  %213 = load i8, ptr %181, align 1, !tbaa !29, !range !37, !noundef !48
+  %213 = load i8, ptr %181, align 1, !tbaa !29, !range !37, !noundef !49
   %214 = trunc nuw i8 %213 to i1
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %216 = load ptr, ptr %215, align 8
@@ -1740,22 +1740,22 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit87:     ; preds = %_ZN4CGAL15Verbose_o
 222:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89, %218
   %.sroa.0126.1 = phi ptr [ %.sroa.0.0.copyload.i80, %218 ], [ %.sroa.0.0.copyload.i91, %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89 ]
   %223 = getelementptr inbounds nuw i8, ptr %.sroa.0126.1, i64 32
-  %224 = load ptr, ptr %223, align 8, !tbaa !151
+  %224 = load ptr, ptr %223, align 8, !tbaa !152
   %225 = icmp eq ptr %224, null
   br i1 %225, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89, label %226
 
 226:                                              ; preds = %222
   %227 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
-  %.sroa.0.0.copyload.i.i.i88 = load ptr, ptr %223, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i88 = load ptr, ptr %223, align 8, !tbaa !56
   %228 = icmp eq ptr %.sroa.0.0.copyload.i.i.i88, null
   br i1 %228, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit, label %229
 
 229:                                              ; preds = %226
-  %230 = load ptr, ptr %220, align 8, !tbaa !73
+  %230 = load ptr, ptr %220, align 8, !tbaa !74
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 64
-  %232 = load ptr, ptr %231, align 8, !tbaa !145
+  %232 = load ptr, ptr %231, align 8, !tbaa !146
   %.sroa.0.0.in9.i = getelementptr inbounds nuw i8, ptr %232, i64 16
-  %.sroa.0.010.i = load ptr, ptr %.sroa.0.0.in9.i, align 8, !tbaa !146
+  %.sroa.0.010.i = load ptr, ptr %.sroa.0.0.in9.i, align 8, !tbaa !147
   %.not11.i = icmp eq ptr %.sroa.0.010.i, %.sroa.0.0.copyload.i.i.i88
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -1766,55 +1766,55 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit87:     ; preds = %_ZN4CGAL15Verbose_o
   %234 = icmp ne ptr %.sroa.0.013.i, null
   call void @llvm.assume(i1 %234)
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 16
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !146
+  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !147
   %.not.i = icmp eq ptr %.sroa.0.0.i, %.sroa.0.0.copyload.i.i.i88
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !156
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !157
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %229
   %.0.lcssa.i = phi i64 [ 0, %229 ], [ %233, %.lr.ph.i ]
-  %235 = load i64, ptr %221, align 8, !tbaa !81
+  %235 = load i64, ptr %221, align 8, !tbaa !82
   %236 = sub i64 %.0.lcssa.i, %235
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit
 
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit: ; preds = %226, %._crit_edge.i
   %.04.i = phi i64 [ %236, %._crit_edge.i ], [ 0, %226 ]
-  %237 = load i8, ptr %227, align 8, !tbaa !153, !range !37, !noundef !48
+  %237 = load i8, ptr %227, align 8, !tbaa !154, !range !37, !noundef !49
   %238 = trunc nuw i8 %237 to i1
   br i1 %238, label %239, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89
 
 239:                                              ; preds = %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit
   %240 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %241 = load ptr, ptr %240, align 8, !tbaa !155
+  %241 = load ptr, ptr %240, align 8, !tbaa !156
   %242 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %241, i64 noundef %.04.i)
   br label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89
 
 _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89:   ; preds = %239, %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit, %222
   %243 = getelementptr inbounds nuw i8, ptr %.sroa.0126.1, i64 8
-  %.sroa.0.0.copyload.i90 = load ptr, ptr %243, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i91 = load ptr, ptr %.sroa.0.0.copyload.i90, align 8, !tbaa !54
-  %244 = load ptr, ptr %120, align 8, !tbaa !149
+  %.sroa.0.0.copyload.i90 = load ptr, ptr %243, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i91 = load ptr, ptr %.sroa.0.0.copyload.i90, align 8, !tbaa !55
+  %244 = load ptr, ptr %120, align 8, !tbaa !150
   %.not205 = icmp eq ptr %.sroa.0.0.copyload.i91, %244
-  br i1 %.not205, label %245, label %222, !llvm.loop !157
+  br i1 %.not205, label %245, label %222, !llvm.loop !158
 
 245:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89
   %246 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA20_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(20) @.str.19)
   %247 = getelementptr inbounds nuw i8, ptr %.sroa.0164.0, i64 32
-  %248 = load ptr, ptr %247, align 8, !tbaa !151
+  %248 = load ptr, ptr %247, align 8, !tbaa !152
   %249 = icmp eq ptr %248, null
   br i1 %249, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106, label %250
 
 250:                                              ; preds = %245
   %251 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(2) @.str.7)
-  %.sroa.0.0.copyload.i.i.i92 = load ptr, ptr %247, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i92 = load ptr, ptr %247, align 8, !tbaa !56
   %252 = icmp eq ptr %.sroa.0.0.copyload.i.i.i92, null
   br i1 %252, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit105, label %253
 
 253:                                              ; preds = %250
-  %254 = load ptr, ptr %220, align 8, !tbaa !73
+  %254 = load ptr, ptr %220, align 8, !tbaa !74
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 64
-  %256 = load ptr, ptr %255, align 8, !tbaa !145
+  %256 = load ptr, ptr %255, align 8, !tbaa !146
   %.sroa.0.0.in9.i93 = getelementptr inbounds nuw i8, ptr %256, i64 16
-  %.sroa.0.010.i94 = load ptr, ptr %.sroa.0.0.in9.i93, align 8, !tbaa !146
+  %.sroa.0.010.i94 = load ptr, ptr %.sroa.0.0.in9.i93, align 8, !tbaa !147
   %.not11.i95 = icmp eq ptr %.sroa.0.010.i94, %.sroa.0.0.copyload.i.i.i92
   br i1 %.not11.i95, label %._crit_edge.i102, label %.lr.ph.i96
 
@@ -1825,37 +1825,37 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit89:   ; preds = %239, %_ZN4CGAL32Pol
   %258 = icmp ne ptr %.sroa.0.013.i97, null
   call void @llvm.assume(i1 %258)
   %.sroa.0.0.in.i99 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i97, i64 16
-  %.sroa.0.0.i100 = load ptr, ptr %.sroa.0.0.in.i99, align 8, !tbaa !146
+  %.sroa.0.0.i100 = load ptr, ptr %.sroa.0.0.in.i99, align 8, !tbaa !147
   %.not.i101 = icmp eq ptr %.sroa.0.0.i100, %.sroa.0.0.copyload.i.i.i92
-  br i1 %.not.i101, label %._crit_edge.i102, label %.lr.ph.i96, !llvm.loop !156
+  br i1 %.not.i101, label %._crit_edge.i102, label %.lr.ph.i96, !llvm.loop !157
 
 ._crit_edge.i102:                                 ; preds = %.lr.ph.i96, %253
   %.0.lcssa.i103 = phi i64 [ 0, %253 ], [ %257, %.lr.ph.i96 ]
-  %259 = load i64, ptr %221, align 8, !tbaa !81
+  %259 = load i64, ptr %221, align 8, !tbaa !82
   %260 = sub i64 %.0.lcssa.i103, %259
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit105
 
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit105: ; preds = %250, %._crit_edge.i102
   %.04.i104 = phi i64 [ %260, %._crit_edge.i102 ], [ 0, %250 ]
-  %261 = load i8, ptr %251, align 8, !tbaa !153, !range !37, !noundef !48
+  %261 = load i8, ptr %251, align 8, !tbaa !154, !range !37, !noundef !49
   %262 = trunc nuw i8 %261 to i1
   br i1 %262, label %263, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106
 
 263:                                              ; preds = %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit105
   %264 = getelementptr inbounds nuw i8, ptr %251, i64 8
-  %265 = load ptr, ptr %264, align 8, !tbaa !155
+  %265 = load ptr, ptr %264, align 8, !tbaa !156
   %266 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %265, i64 noundef %.04.i104)
   br label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106
 
 _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106:  ; preds = %245, %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit105, %263
   %267 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(2) @.str.20)
-  %268 = load i8, ptr %267, align 8, !tbaa !153, !range !37, !noundef !48
+  %268 = load i8, ptr %267, align 8, !tbaa !154, !range !37, !noundef !49
   %269 = trunc nuw i8 %268 to i1
   br i1 %269, label %270, label %.critedge51
 
 270:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106
   %271 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  %272 = load ptr, ptr %271, align 8, !tbaa !155
+  %272 = load ptr, ptr %271, align 8, !tbaa !156
   %273 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) %272)
   br label %.critedge51
 
@@ -1866,27 +1866,27 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106:  ; preds = %245, %_ZN4CGAL32Pol
 
 .critedge53:                                      ; preds = %177, %.critedge, %157, %160, %153, %145, %130
   %274 = phi ptr [ %127, %177 ], [ %127, %.critedge ], [ %127, %157 ], [ %127, %160 ], [ %127, %153 ], [ %.pre, %145 ], [ %127, %130 ]
-  %275 = load ptr, ptr %120, align 8, !tbaa !149
+  %275 = load ptr, ptr %120, align 8, !tbaa !150
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 24
-  %.sroa.0.0.copyload.i108 = load ptr, ptr %276, align 8, !tbaa !53
-  %277 = load i64, ptr %124, align 8, !tbaa !150
+  %.sroa.0.0.copyload.i108 = load ptr, ptr %276, align 8, !tbaa !54
+  %277 = load i64, ptr %124, align 8, !tbaa !151
   %278 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %274, i64 %277
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %278, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %278, align 8, !tbaa !54
   %279 = icmp eq ptr %.sroa.0.0.copyload.i108, %.sroa.0.0.copyload.i.i
   br i1 %279, label %280, label %284
 
 280:                                              ; preds = %.critedge53
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %282 = load ptr, ptr %281, align 8, !tbaa !70
+  %282 = load ptr, ptr %281, align 8, !tbaa !71
   %283 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %282, i64 %277
-  store ptr %275, ptr %283, align 8, !tbaa !54
-  store ptr %275, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !54
+  store ptr %275, ptr %283, align 8, !tbaa !55
+  store ptr %275, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !55
   br label %284
 
 284:                                              ; preds = %280, %.critedge53
   %285 = ptrtoint ptr %.sroa.0.0.copyload.i57 to i64
-  store i64 %285, ptr %120, align 8, !tbaa !54
-  store i64 %1, ptr %124, align 8, !tbaa !150
+  store i64 %285, ptr %120, align 8, !tbaa !55
+  store i64 %1, ptr %124, align 8, !tbaa !151
   br label %.critedge49
 
 .critedge49:                                      ; preds = %86, %99, %92, %284, %.critedge51, %141, %112, %2, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit56
@@ -1896,7 +1896,7 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit106:  ; preds = %245, %_ZN4CGAL32Pol
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE8rollbackEv(ptr noundef nonnull align 8 dereferenceable(178) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load i64, ptr %2, align 8, !tbaa !80
+  %3 = load i64, ptr %2, align 8, !tbaa !81
   %4 = icmp eq i64 %3, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
@@ -1907,12 +1907,12 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   %10 = icmp eq i64 %9, 0
   %or.cond7 = select i1 %or.cond, i1 %10, i1 false
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !tbaa !73
+  %12 = load ptr, ptr %11, align 8, !tbaa !74
   br i1 %or.cond7, label %15, label %.preheader9
 
 .preheader9:                                      ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load i64, ptr %13, align 8, !tbaa !74
+  %14 = load i64, ptr %13, align 8, !tbaa !75
   %.not10 = icmp eq i64 %3, %14
   br i1 %.not10, label %.preheader8, label %.lr.ph
 
@@ -1921,14 +1921,14 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   br label %.loopexit
 
 .preheader8.loopexit:                             ; preds = %.lr.ph
-  %.pre = load i64, ptr %5, align 8, !tbaa !82
+  %.pre = load i64, ptr %5, align 8, !tbaa !83
   br label %.preheader8
 
 .preheader8:                                      ; preds = %.preheader8.loopexit, %.preheader9
   %16 = phi ptr [ %35, %.preheader8.loopexit ], [ %12, %.preheader9 ]
   %17 = phi i64 [ %.pre, %.preheader8.loopexit ], [ %6, %.preheader9 ]
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  %19 = load i64, ptr %18, align 8, !tbaa !69
+  %19 = load i64, ptr %18, align 8, !tbaa !70
   %.not111 = icmp eq i64 %17, %19
   br i1 %.not111, label %.preheader, label %.lr.ph12
 
@@ -1937,32 +1937,32 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   %21 = phi ptr [ %36, %.lr.ph ], [ %13, %.preheader9 ]
   %22 = phi ptr [ %35, %.lr.ph ], [ %12, %.preheader9 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !83, !nonnull !48, !noundef !48
+  %24 = load ptr, ptr %23, align 8, !tbaa !84, !nonnull !49, !noundef !49
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %26 = load ptr, ptr %25, align 8, !tbaa !132
+  %26 = load ptr, ptr %25, align 8, !tbaa !133
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !94
+  %28 = load ptr, ptr %27, align 8, !tbaa !95
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !132
+  %30 = load ptr, ptr %29, align 8, !tbaa !133
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store ptr %28, ptr %31, align 8, !tbaa !94
+  store ptr %28, ptr %31, align 8, !tbaa !95
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store ptr %30, ptr %32, align 8, !tbaa !132
+  store ptr %30, ptr %32, align 8, !tbaa !133
   %33 = add i64 %20, -1
-  store i64 %33, ptr %21, align 8, !tbaa !74
+  store i64 %33, ptr %21, align 8, !tbaa !75
   tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 56) #18
-  %34 = load i64, ptr %2, align 8, !tbaa !80
-  %35 = load ptr, ptr %11, align 8, !tbaa !73
+  %34 = load i64, ptr %2, align 8, !tbaa !81
+  %35 = load ptr, ptr %11, align 8, !tbaa !74
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !74
+  %37 = load i64, ptr %36, align 8, !tbaa !75
   %.not = icmp eq i64 %34, %37
-  br i1 %.not, label %.preheader8.loopexit, label %.lr.ph, !llvm.loop !158
+  br i1 %.not, label %.preheader8.loopexit, label %.lr.ph, !llvm.loop !159
 
 .preheader:                                       ; preds = %.lr.ph12, %.preheader8
   %38 = phi ptr [ %16, %.preheader8 ], [ %64, %.lr.ph12 ]
-  %39 = load i64, ptr %8, align 8, !tbaa !81
+  %39 = load i64, ptr %8, align 8, !tbaa !82
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 72
-  %41 = load i64, ptr %40, align 8, !tbaa !77
+  %41 = load i64, ptr %40, align 8, !tbaa !78
   %.not213 = icmp eq i64 %39, %41
   br i1 %.not213, label %.loopexit, label %.lr.ph14
 
@@ -1971,64 +1971,64 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
   %43 = phi ptr [ %65, %.lr.ph12 ], [ %18, %.preheader8 ]
   %44 = phi ptr [ %64, %.lr.ph12 ], [ %16, %.preheader8 ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %46 = load ptr, ptr %45, align 8, !tbaa !64, !nonnull !48, !noundef !48
+  %46 = load ptr, ptr %45, align 8, !tbaa !65, !nonnull !49, !noundef !49
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %48 = load ptr, ptr %47, align 8, !tbaa !159
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %48, align 8, !tbaa !54
+  %48 = load ptr, ptr %47, align 8, !tbaa !160
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %48, align 8, !tbaa !55
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 48
-  %50 = load ptr, ptr %49, align 8, !tbaa !67
+  %50 = load ptr, ptr %49, align 8, !tbaa !68
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  %52 = load ptr, ptr %51, align 8, !tbaa !159
+  %52 = load ptr, ptr %51, align 8, !tbaa !160
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
-  store ptr %50, ptr %53, align 8, !tbaa !67
+  store ptr %50, ptr %53, align 8, !tbaa !68
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 56
-  store ptr %52, ptr %54, align 8, !tbaa !159
+  store ptr %52, ptr %54, align 8, !tbaa !160
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !67
+  %56 = load ptr, ptr %55, align 8, !tbaa !68
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 56
-  %58 = load ptr, ptr %57, align 8, !tbaa !159
+  %58 = load ptr, ptr %57, align 8, !tbaa !160
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  store ptr %56, ptr %59, align 8, !tbaa !67
+  store ptr %56, ptr %59, align 8, !tbaa !68
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 56
-  store ptr %58, ptr %60, align 8, !tbaa !159
+  store ptr %58, ptr %60, align 8, !tbaa !160
   %61 = add i64 %42, -2
-  store i64 %61, ptr %43, align 8, !tbaa !69
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !54
+  store i64 %61, ptr %43, align 8, !tbaa !70
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !55
   %62 = icmp ugt ptr %48, %.sroa.0.0.copyload.i.i.i.i
   %spec.select.i.i.i = select i1 %62, ptr %.sroa.0.0.copyload.i.i.i.i, ptr %48
   tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i, i64 noundef 128) #18
-  %63 = load i64, ptr %5, align 8, !tbaa !82
-  %64 = load ptr, ptr %11, align 8, !tbaa !73
+  %63 = load i64, ptr %5, align 8, !tbaa !83
+  %64 = load ptr, ptr %11, align 8, !tbaa !74
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  %66 = load i64, ptr %65, align 8, !tbaa !69
+  %66 = load i64, ptr %65, align 8, !tbaa !70
   %.not1 = icmp eq i64 %63, %66
-  br i1 %.not1, label %.preheader, label %.lr.ph12, !llvm.loop !160
+  br i1 %.not1, label %.preheader, label %.lr.ph12, !llvm.loop !161
 
 .lr.ph14:                                         ; preds = %.preheader, %.lr.ph14
   %67 = phi i64 [ %84, %.lr.ph14 ], [ %41, %.preheader ]
   %68 = phi ptr [ %83, %.lr.ph14 ], [ %40, %.preheader ]
   %69 = phi ptr [ %82, %.lr.ph14 ], [ %38, %.preheader ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !145, !nonnull !48, !noundef !48
+  %71 = load ptr, ptr %70, align 8, !tbaa !146, !nonnull !49, !noundef !49
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !148
+  %73 = load ptr, ptr %72, align 8, !tbaa !149
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !146
+  %75 = load ptr, ptr %74, align 8, !tbaa !147
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  %77 = load ptr, ptr %76, align 8, !tbaa !148
+  %77 = load ptr, ptr %76, align 8, !tbaa !149
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  store ptr %75, ptr %78, align 8, !tbaa !146
+  store ptr %75, ptr %78, align 8, !tbaa !147
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  store ptr %77, ptr %79, align 8, !tbaa !148
+  store ptr %77, ptr %79, align 8, !tbaa !149
   %80 = add i64 %67, -1
-  store i64 %80, ptr %68, align 8, !tbaa !77
+  store i64 %80, ptr %68, align 8, !tbaa !78
   tail call void @_ZdlPvm(ptr noundef nonnull %73, i64 noundef 32) #18
-  %81 = load i64, ptr %8, align 8, !tbaa !81
-  %82 = load ptr, ptr %11, align 8, !tbaa !73
+  %81 = load i64, ptr %8, align 8, !tbaa !82
+  %82 = load ptr, ptr %11, align 8, !tbaa !74
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 72
-  %84 = load i64, ptr %83, align 8, !tbaa !77
+  %84 = load i64, ptr %83, align 8, !tbaa !78
   %.not2 = icmp eq i64 %81, %84
-  br i1 %.not2, label %.loopexit, label %.lr.ph14, !llvm.loop !161
+  br i1 %.not2, label %.loopexit, label %.lr.ph14, !llvm.loop !162
 
 .loopexit:                                        ; preds = %.lr.ph14, %.preheader, %15
   store i8 0, ptr %0, align 8, !tbaa !4
@@ -2038,13 +2038,13 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(178) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %3 = load ptr, ptr %2, align 8, !tbaa !70
+  %3 = load ptr, ptr %2, align 8, !tbaa !71
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load ptr, ptr %5, align 8, !tbaa !71
+  %6 = load ptr, ptr %5, align 8, !tbaa !72
   %7 = ptrtoint ptr %6 to i64
   %8 = ptrtoint ptr %3 to i64
   %9 = sub i64 %7, %8
@@ -2053,13 +2053,13 @@ define linkonce_odr dso_local void @_ZN4CGAL32Polyhedron_incremental_builder_3IN
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit: ; preds = %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load ptr, ptr %10, align 8, !tbaa !52
+  %11 = load ptr, ptr %10, align 8, !tbaa !53
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %_ZN4CGAL21Random_access_adaptorINS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS8_EEmEEEEEESaISI_EEEED2Ev.exit, label %12
 
 12:                                               ; preds = %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EED2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %14 = load ptr, ptr %13, align 8, !tbaa !72
+  %14 = load ptr, ptr %13, align 8, !tbaa !73
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %11 to i64
   %17 = sub i64 %15, %16
@@ -2080,7 +2080,7 @@ define internal void @__cxx_global_var_init.4() #4 section ".text.startup" comda
   store i8 1, ptr @_ZGVN5boost4math6detail21min_shift_initializerIdE11initializerE, align 8
   %4 = load atomic i8, ptr @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val acquire, align 8
   %5 = icmp eq i8 %4, 0
-  br i1 %5, label %6, label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit, !prof !162
+  br i1 %5, label %6, label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit, !prof !163
 
 6:                                                ; preds = %3
   %7 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #17
@@ -2088,7 +2088,7 @@ define internal void @__cxx_global_var_init.4() #4 section ".text.startup" comda
   br i1 %.not.i.i.i, label %_ZN5boost4math6detail21min_shift_initializerIdE4initC2Ev.exit, label %8
 
 8:                                                ; preds = %6
-  %9 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #17, !tbaa !58
+  %9 = tail call noundef double @ldexp(double noundef 0x10000000000000, i32 noundef 54) #17, !tbaa !59
   store double %9, ptr @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val, align 8, !tbaa !39
   %10 = tail call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5boost4math6detail19get_min_shift_valueIdEET_vE3val)
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost4math6detail19get_min_shift_valueIdEET_vE3val) #17
@@ -2126,8 +2126,8 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !91
-  %5 = load ptr, ptr %0, align 8, !tbaa !70
+  %4 = load ptr, ptr %3, align 8, !tbaa !92
+  %5 = load ptr, ptr %0, align 8, !tbaa !71
   %6 = ptrtoint ptr %4 to i64
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
@@ -2138,7 +2138,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4CGAL8internal22In_place_list_
 11:                                               ; preds = %2
   %12 = sub nuw i64 %1, %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8, !tbaa !71
+  %14 = load ptr, ptr %13, align 8, !tbaa !72
   %15 = ptrtoint ptr %14 to i64
   %16 = sub i64 %15, %6
   %17 = ashr exact i64 %16, 3
@@ -2152,9 +2152,9 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4CGAL8internal22In_place_list_
 
 _ZSt27__uninitialized_default_n_aIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEEmSI_ET_SK_T0_RSaIT1_E.exit.i: ; preds = %11
   %21 = shl nuw i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false), !tbaa !149
+  tail call void @llvm.memset.p0.i64(ptr align 8 %4, i8 0, i64 %21, i1 false), !tbaa !150
   %scevgep.i.i.i.i = getelementptr i8, ptr %4, i64 %21
-  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !91
+  store ptr %scevgep.i.i.i.i, ptr %3, align 8, !tbaa !92
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit
 
 22:                                               ; preds = %11
@@ -2173,21 +2173,21 @@ _ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #20
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %8
   %30 = shl nuw nsw i64 %12, 3
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %30, i1 false), !tbaa !149
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %29, i8 0, i64 %30, i1 false), !tbaa !150
   %.not10.i.i.i.i = icmp eq ptr %5, %4
   br i1 %.not10.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i, %.lr.ph.i.i.i.i
   %.012.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i ], [ %28, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i ]
   %.0911.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i ], [ %5, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  %31 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !54, !alias.scope !166, !noalias !163
-  store i64 %31, ptr %.012.i.i.i.i, align 8, !tbaa !54, !alias.scope !163, !noalias !166
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
+  %31 = load i64, ptr %.0911.i.i.i.i, align 8, !tbaa !55, !alias.scope !167, !noalias !164
+  store i64 %31, ptr %.012.i.i.i.i, align 8, !tbaa !55, !alias.scope !164, !noalias !167
   %32 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %32, %4
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !144
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNKSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE12_M_check_lenEmPKc.exit.i
   %.not.i36.i = icmp eq ptr %5, null
@@ -2199,11 +2199,11 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
   br label %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE13_M_deallocateEPSI_m.exit37.i
 
 _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE13_M_deallocateEPSI_m.exit37.i: ; preds = %34, %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE11_S_relocateEPSI_SL_SL_RSJ_.exit.i
-  store ptr %28, ptr %0, align 8, !tbaa !70
+  store ptr %28, ptr %0, align 8, !tbaa !71
   %36 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %29, i64 %12
-  store ptr %36, ptr %3, align 8, !tbaa !91
+  store ptr %36, ptr %3, align 8, !tbaa !92
   %37 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %28, i64 %26
-  store ptr %37, ptr %13, align 8, !tbaa !71
+  store ptr %37, ptr %13, align 8, !tbaa !72
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %2
@@ -2216,7 +2216,7 @@ _ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_
   br i1 %.not.i4, label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit, label %_ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i: ; preds = %40
-  store ptr %41, ptr %3, align 8, !tbaa !91
+  store ptr %41, ptr %3, align 8, !tbaa !92
   br label %_ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit
 
 _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE17_M_default_appendEm.exit: ; preds = %_ZSt8_DestroyIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_EvT_SK_RSaIT0_E.exit.i, %40, %_ZNSt12_Vector_baseIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESaISI_EE13_M_deallocateEPSI_m.exit37.i, %_ZSt27__uninitialized_default_n_aIPN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEEmSI_ET_SK_T0_RSaIT1_E.exit.i, %38
@@ -2225,13 +2225,13 @@ _ZNSt6vectorIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_l
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = load i8, ptr %0, align 8, !tbaa !153, !range !37, !noundef !48
+  %3 = load i8, ptr %0, align 8, !tbaa !154, !range !37, !noundef !49
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
@@ -2245,13 +2245,13 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA46_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(46) %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = load i8, ptr %0, align 8, !tbaa !153, !range !37, !noundef !48
+  %3 = load i8, ptr %0, align 8, !tbaa !154, !range !37, !noundef !49
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
@@ -2281,39 +2281,39 @@ define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !52
+  %7 = load ptr, ptr %6, align 8, !tbaa !53
   %8 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %7, i64 %1
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !53
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %8, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %.sroa.0.0.copyload.i.i.i.i, align 8, !tbaa !55
   %.not272 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, null
   br i1 %.not272, label %.loopexit, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %11 = load ptr, ptr %10, align 8, !tbaa !151
+  %11 = load ptr, ptr %10, align 8, !tbaa !152
   %.not273 = icmp eq ptr %11, null
   br i1 %.not273, label %.critedge, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 32
-  %.sroa.0.0.copyload.i.i.i21 = load ptr, ptr %13, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i21 = load ptr, ptr %13, align 8, !tbaa !56
   %14 = icmp eq ptr %11, %.sroa.0.0.copyload.i.i.i21
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !29, !range !37, !noundef !48
+  %17 = load i8, ptr %16, align 1, !tbaa !29, !range !37, !noundef !49
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %19, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit25
 
 19:                                               ; preds = %15
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %21 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %21 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %22 = getelementptr i8, ptr %21, i64 -24
   %23 = load i64, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 240
-  %26 = load ptr, ptr %25, align 8, !tbaa !110
+  %26 = load ptr, ptr %25, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.i, label %27, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -2323,18 +2323,18 @@ define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %19
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %29 = load i8, ptr %28, align 8, !tbaa !125
+  %29 = load i8, ptr %28, align 8, !tbaa !126
   %.not.i1.i.i = icmp eq i8 %29, 0
   br i1 %.not.i1.i.i, label %33, label %30
 
 30:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 67
-  %32 = load i8, ptr %31, align 1, !tbaa !130
+  %32 = load i8, ptr %31, align 1, !tbaa !131
   br label %38
 
 33:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %26)
-  %34 = load ptr, ptr %26, align 8, !tbaa !108
+  %34 = load ptr, ptr %26, align 8, !tbaa !109
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef signext i8 %36(ptr noundef nonnull align 8 dereferenceable(570) %26, i8 noundef signext 10)
@@ -2345,12 +2345,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %19
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
   %41 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 45)
-  %42 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %42 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %43 = getelementptr i8, ptr %42, i64 -24
   %44 = load i64, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 240
-  %47 = load ptr, ptr %46, align 8, !tbaa !110
+  %47 = load ptr, ptr %46, align 8, !tbaa !111
   %.not.i.i.i79 = icmp eq ptr %47, null
   br i1 %.not.i.i.i79, label %48, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i80
 
@@ -2360,18 +2360,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %19
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i80: ; preds = %38
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %50 = load i8, ptr %49, align 8, !tbaa !125
+  %50 = load i8, ptr %49, align 8, !tbaa !126
   %.not.i1.i.i81 = icmp eq i8 %50, 0
   br i1 %.not.i1.i.i81, label %54, label %51
 
 51:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i80
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 67
-  %53 = load i8, ptr %52, align 1, !tbaa !130
+  %53 = load i8, ptr %52, align 1, !tbaa !131
   br label %59
 
 54:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i80
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %47)
-  %55 = load ptr, ptr %47, align 8, !tbaa !108
+  %55 = load ptr, ptr %47, align 8, !tbaa !109
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef signext i8 %57(ptr noundef nonnull align 8 dereferenceable(570) %47, i8 noundef signext 10)
@@ -2383,17 +2383,17 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i80: ; preds = %38
   %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %60)
   %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.21, i64 noundef 38)
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %64 = load i64, ptr %63, align 8, !tbaa !131
+  %64 = load i64, ptr %63, align 8, !tbaa !132
   %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %64)
   %66 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.22, i64 noundef 35)
   %67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %1)
   %68 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.20, i64 noundef 1)
-  %69 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %69 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %70 = getelementptr i8, ptr %69, i64 -24
   %71 = load i64, ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 240
-  %74 = load ptr, ptr %73, align 8, !tbaa !110
+  %74 = load ptr, ptr %73, align 8, !tbaa !111
   %.not.i.i.i84 = icmp eq ptr %74, null
   br i1 %.not.i.i.i84, label %75, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i85
 
@@ -2403,18 +2403,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i80: ; preds = %38
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i85: ; preds = %59
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 56
-  %77 = load i8, ptr %76, align 8, !tbaa !125
+  %77 = load i8, ptr %76, align 8, !tbaa !126
   %.not.i1.i.i86 = icmp eq i8 %77, 0
   br i1 %.not.i1.i.i86, label %81, label %78
 
 78:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i85
   %79 = getelementptr inbounds nuw i8, ptr %74, i64 67
-  %80 = load i8, ptr %79, align 1, !tbaa !130
+  %80 = load i8, ptr %79, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit88
 
 81:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i85
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %74)
-  %82 = load ptr, ptr %74, align 8, !tbaa !108
+  %82 = load ptr, ptr %74, align 8, !tbaa !109
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
   %85 = tail call noundef signext i8 %84(ptr noundef nonnull align 8 dereferenceable(570) %74, i8 noundef signext 10)
@@ -2432,39 +2432,39 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit25:     ; preds = %15, %_ZSt4endlIcSt1
 
 .critedge:                                        ; preds = %9, %12
   %88 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %7, i64 %2
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %88, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %88, align 8, !tbaa !54
   br label %89
 
 89:                                               ; preds = %229, %.critedge
   %.sroa.0238.0 = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.critedge ], [ %.sroa.0.0.copyload.i61, %229 ]
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0, i64 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %90, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i = load ptr, ptr %90, align 8, !tbaa !55
   %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 24
-  %.sroa.0.0.copyload.i26 = load ptr, ptr %91, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i26 = load ptr, ptr %91, align 8, !tbaa !54
   %92 = icmp eq ptr %.sroa.0.0.copyload.i26, %.sroa.0.0.copyload.i.i
   br i1 %92, label %93, label %229
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.0238.0, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 32
-  %96 = load ptr, ptr %95, align 8, !tbaa !151
+  %96 = load ptr, ptr %95, align 8, !tbaa !152
   %97 = icmp eq ptr %96, null
   br i1 %97, label %202, label %98
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %100 = load i8, ptr %99, align 1, !tbaa !29, !range !37, !noundef !48
+  %100 = load i8, ptr %99, align 1, !tbaa !29, !range !37, !noundef !49
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit39
 
 102:                                              ; preds = %98
   %103 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %104 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %104 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %105 = getelementptr i8, ptr %104, i64 -24
   %106 = load i64, ptr %105, align 8
   %107 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 240
-  %109 = load ptr, ptr %108, align 8, !tbaa !110
+  %109 = load ptr, ptr %108, align 8, !tbaa !111
   %.not.i.i.i89 = icmp eq ptr %109, null
   br i1 %.not.i.i.i89, label %110, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i90
 
@@ -2474,18 +2474,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit25:     ; preds = %15, %_ZSt4endlIcSt1
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i90: ; preds = %102
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 56
-  %112 = load i8, ptr %111, align 8, !tbaa !125
+  %112 = load i8, ptr %111, align 8, !tbaa !126
   %.not.i1.i.i91 = icmp eq i8 %112, 0
   br i1 %.not.i1.i.i91, label %116, label %113
 
 113:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i90
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 67
-  %115 = load i8, ptr %114, align 1, !tbaa !130
+  %115 = load i8, ptr %114, align 1, !tbaa !131
   br label %121
 
 116:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i90
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %109)
-  %117 = load ptr, ptr %109, align 8, !tbaa !108
+  %117 = load ptr, ptr %109, align 8, !tbaa !109
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 48
   %119 = load ptr, ptr %118, align 8
   %120 = tail call noundef signext i8 %119(ptr noundef nonnull align 8 dereferenceable(570) %109, i8 noundef signext 10)
@@ -2496,12 +2496,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i90: ; preds = %102
   %122 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i92)
   %123 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %122)
   %124 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 45)
-  %125 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %125 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %126 = getelementptr i8, ptr %125, i64 -24
   %127 = load i64, ptr %126, align 8
   %128 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 240
-  %130 = load ptr, ptr %129, align 8, !tbaa !110
+  %130 = load ptr, ptr %129, align 8, !tbaa !111
   %.not.i.i.i94 = icmp eq ptr %130, null
   br i1 %.not.i.i.i94, label %131, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i95
 
@@ -2511,18 +2511,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i90: ; preds = %102
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i95: ; preds = %121
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 56
-  %133 = load i8, ptr %132, align 8, !tbaa !125
+  %133 = load i8, ptr %132, align 8, !tbaa !126
   %.not.i1.i.i96 = icmp eq i8 %133, 0
   br i1 %.not.i1.i.i96, label %137, label %134
 
 134:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i95
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 67
-  %136 = load i8, ptr %135, align 1, !tbaa !130
+  %136 = load i8, ptr %135, align 1, !tbaa !131
   br label %_ZN4CGAL15Verbose_ostreamlsIA6_cEERS0_RKT_.exit
 
 137:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i95
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %130)
-  %138 = load ptr, ptr %130, align 8, !tbaa !108
+  %138 = load ptr, ptr %130, align 8, !tbaa !109
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8
   %141 = tail call noundef signext i8 %140(ptr noundef nonnull align 8 dereferenceable(570) %130, i8 noundef signext 10)
@@ -2534,7 +2534,7 @@ _ZN4CGAL15Verbose_ostreamlsIA6_cEERS0_RKT_.exit:  ; preds = %134, %137
   %143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %142)
   %144 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.21, i64 noundef 38)
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %146 = load i64, ptr %145, align 8, !tbaa !131
+  %146 = load i64, ptr %145, align 8, !tbaa !132
   %147 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %146)
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.23, i64 noundef 31)
   %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %1)
@@ -2550,19 +2550,19 @@ _ZN4CGAL15Verbose_ostreamlsIA6_cEERS0_RKT_.exit:  ; preds = %134, %137
 
 _ZN4CGAL15Verbose_ostreamlsIA8_cEERS0_RKT_.exit:  ; preds = %_ZN4CGAL15Verbose_ostreamlsIA6_cEERS0_RKT_.exit
   %155 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.26, i64 noundef 7)
-  %.sroa.0.0.copyload.i36 = load ptr, ptr %94, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i36 = load ptr, ptr %94, align 8, !tbaa !55
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i36, i64 32
-  %.sroa.0.0.copyload.i.i.i37 = load ptr, ptr %156, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i37 = load ptr, ptr %156, align 8, !tbaa !56
   %157 = icmp eq ptr %.sroa.0.0.copyload.i.i.i37, null
   br i1 %157, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit, label %158
 
 158:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsIA8_cEERS0_RKT_.exit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %160 = load ptr, ptr %159, align 8, !tbaa !73
+  %160 = load ptr, ptr %159, align 8, !tbaa !74
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 64
-  %162 = load ptr, ptr %161, align 8, !tbaa !145
+  %162 = load ptr, ptr %161, align 8, !tbaa !146
   %.sroa.0.0.in9.i = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %.sroa.0.010.i = load ptr, ptr %.sroa.0.0.in9.i, align 8, !tbaa !146
+  %.sroa.0.010.i = load ptr, ptr %.sroa.0.0.in9.i, align 8, !tbaa !147
   %.not11.i = icmp eq ptr %.sroa.0.010.i, %.sroa.0.0.copyload.i.i.i37
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -2573,14 +2573,14 @@ _ZN4CGAL15Verbose_ostreamlsIA8_cEERS0_RKT_.exit:  ; preds = %_ZN4CGAL15Verbose_o
   %164 = icmp ne ptr %.sroa.0.013.i, null
   tail call void @llvm.assume(i1 %164)
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 16
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !146
+  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !147
   %.not.i = icmp eq ptr %.sroa.0.0.i, %.sroa.0.0.copyload.i.i.i37
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !156
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !157
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %158
   %.0.lcssa.i = phi i64 [ 0, %158 ], [ %163, %.lr.ph.i ]
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %166 = load i64, ptr %165, align 8, !tbaa !81
+  %166 = load i64, ptr %165, align 8, !tbaa !82
   %167 = sub i64 %.0.lcssa.i, %166
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit
 
@@ -2588,13 +2588,13 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
   %.04.i = phi i64 [ %167, %._crit_edge.i ], [ 0, %_ZN4CGAL15Verbose_ostreamlsIA8_cEERS0_RKT_.exit ]
   %168 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  store i8 46, ptr %5, align 1, !tbaa !130
-  %169 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  store i8 46, ptr %5, align 1, !tbaa !131
+  %169 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %170 = getelementptr i8, ptr %169, i64 -24
   %171 = load i64, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load i64, ptr %173, align 8, !tbaa !168
+  %174 = load i64, ptr %173, align 8, !tbaa !169
   %.not.i.i = icmp eq i64 %174, 0
   br i1 %.not.i.i, label %177, label %175
 
@@ -2613,12 +2613,12 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
 
 181:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsIA6_cEERS0_RKT_.exit
   %182 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.27, i64 noundef 15)
-  %183 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %183 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %184 = getelementptr i8, ptr %183, i64 -24
   %185 = load i64, ptr %184, align 8
   %186 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %185
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 240
-  %188 = load ptr, ptr %187, align 8, !tbaa !110
+  %188 = load ptr, ptr %187, align 8, !tbaa !111
   %.not.i.i.i99 = icmp eq ptr %188, null
   br i1 %.not.i.i.i99, label %189, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i100
 
@@ -2628,18 +2628,18 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i100: ; preds = %181
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 56
-  %191 = load i8, ptr %190, align 8, !tbaa !125
+  %191 = load i8, ptr %190, align 8, !tbaa !126
   %.not.i1.i.i101 = icmp eq i8 %191, 0
   br i1 %.not.i1.i.i101, label %195, label %192
 
 192:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i100
   %193 = getelementptr inbounds nuw i8, ptr %188, i64 67
-  %194 = load i8, ptr %193, align 1, !tbaa !130
+  %194 = load i8, ptr %193, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit103
 
 195:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i100
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %188)
-  %196 = load ptr, ptr %188, align 8, !tbaa !108
+  %196 = load ptr, ptr %188, align 8, !tbaa !109
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 48
   %198 = load ptr, ptr %197, align 8
   %199 = tail call noundef signext i8 %198(ptr noundef nonnull align 8 dereferenceable(570) %188, i8 noundef signext 10)
@@ -2659,15 +2659,15 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit39:     ; preds = %98, %_ZSt4endlIcSt1
   br i1 %.not273, label %.critedge4, label %203
 
 203:                                              ; preds = %202
-  %.sroa.0.0.copyload.i42 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i42 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !55
   %204 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i42, i64 32
-  %.sroa.0.0.copyload.i.i.i43 = load ptr, ptr %204, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i43 = load ptr, ptr %204, align 8, !tbaa !56
   %205 = icmp eq ptr %11, %.sroa.0.0.copyload.i.i.i43
   br i1 %205, label %206, label %.critedge4
 
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %208 = load i8, ptr %207, align 1, !tbaa !29, !range !37, !noundef !48
+  %208 = load i8, ptr %207, align 1, !tbaa !29, !range !37, !noundef !49
   %209 = trunc nuw i8 %208 to i1
   br i1 %209, label %210, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit54
 
@@ -2678,7 +2678,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit39:     ; preds = %98, %_ZSt4endlIcSt1
   %214 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr)
   %215 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.21, i64 noundef 38)
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %217 = load i64, ptr %216, align 8, !tbaa !131
+  %217 = load i64, ptr %216, align 8, !tbaa !132
   %218 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %217)
   %219 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.28, i64 noundef 53)
   %220 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %1)
@@ -2693,44 +2693,44 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit54:     ; preds = %206, %210
   br label %.thread
 
 .critedge4:                                       ; preds = %202, %203
-  store ptr %11, ptr %95, align 8, !tbaa !55
+  store ptr %11, ptr %95, align 8, !tbaa !56
   %225 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 8
-  %.sroa.0.0.copyload.i57 = load ptr, ptr %225, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i58 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i57 = load ptr, ptr %225, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i58 = load ptr, ptr %.sroa.0.0.copyload.i57, align 8, !tbaa !55
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %227 = load ptr, ptr %226, align 8, !tbaa !70
+  %227 = load ptr, ptr %226, align 8, !tbaa !71
   %228 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.7", ptr %227, i64 %2
-  store ptr %.sroa.0.0.copyload.i58, ptr %228, align 8, !tbaa !54
-  store ptr %.sroa.0.0.copyload.i58, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i58, ptr %228, align 8, !tbaa !55
+  store ptr %.sroa.0.0.copyload.i58, ptr %.sroa.0.0.copyload.i.i, align 8, !tbaa !55
   br label %.thread
 
 229:                                              ; preds = %89
-  %.sroa.0.0.copyload.i61 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i61 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !55
   %.not274 = icmp eq ptr %.sroa.0.0.copyload.i61, %.sroa.0.0.copyload.i.i.i
-  br i1 %.not274, label %.loopexit, label %89, !llvm.loop !169
+  br i1 %.not274, label %.loopexit, label %89, !llvm.loop !170
 
 .loopexit:                                        ; preds = %229, %3
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %231 = load ptr, ptr %230, align 8, !tbaa !73
+  %231 = load ptr, ptr %230, align 8, !tbaa !74
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 48
-  %233 = load i64, ptr %232, align 8, !tbaa !69
+  %233 = load i64, ptr %232, align 8, !tbaa !70
   %.not.not = icmp eq i64 %233, -1
   br i1 %.not.not, label %234, label %319
 
 234:                                              ; preds = %.loopexit
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %236 = load i8, ptr %235, align 1, !tbaa !29, !range !37, !noundef !48
+  %236 = load i8, ptr %235, align 1, !tbaa !29, !range !37, !noundef !49
   %237 = trunc nuw i8 %236 to i1
   br i1 %237, label %238, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit72
 
 238:                                              ; preds = %234
   %239 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %240 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %240 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %241 = getelementptr i8, ptr %240, i64 -24
   %242 = load i64, ptr %241, align 8
   %243 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 240
-  %245 = load ptr, ptr %244, align 8, !tbaa !110
+  %245 = load ptr, ptr %244, align 8, !tbaa !111
   %.not.i.i.i104 = icmp eq ptr %245, null
   br i1 %.not.i.i.i104, label %246, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105
 
@@ -2740,18 +2740,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit54:     ; preds = %206, %210
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105: ; preds = %238
   %247 = getelementptr inbounds nuw i8, ptr %245, i64 56
-  %248 = load i8, ptr %247, align 8, !tbaa !125
+  %248 = load i8, ptr %247, align 8, !tbaa !126
   %.not.i1.i.i106 = icmp eq i8 %248, 0
   br i1 %.not.i1.i.i106, label %252, label %249
 
 249:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 67
-  %251 = load i8, ptr %250, align 1, !tbaa !130
+  %251 = load i8, ptr %250, align 1, !tbaa !131
   br label %257
 
 252:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %245)
-  %253 = load ptr, ptr %245, align 8, !tbaa !108
+  %253 = load ptr, ptr %245, align 8, !tbaa !109
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 48
   %255 = load ptr, ptr %254, align 8
   %256 = tail call noundef signext i8 %255(ptr noundef nonnull align 8 dereferenceable(570) %245, i8 noundef signext 10)
@@ -2762,12 +2762,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105: ; preds = %238
   %258 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i107)
   %259 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %258)
   %260 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 45)
-  %261 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %261 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %262 = getelementptr i8, ptr %261, i64 -24
   %263 = load i64, ptr %262, align 8
   %264 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 240
-  %266 = load ptr, ptr %265, align 8, !tbaa !110
+  %266 = load ptr, ptr %265, align 8, !tbaa !111
   %.not.i.i.i109 = icmp eq ptr %266, null
   br i1 %.not.i.i.i109, label %267, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110
 
@@ -2777,18 +2777,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i105: ; preds = %238
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110: ; preds = %257
   %268 = getelementptr inbounds nuw i8, ptr %266, i64 56
-  %269 = load i8, ptr %268, align 8, !tbaa !125
+  %269 = load i8, ptr %268, align 8, !tbaa !126
   %.not.i1.i.i111 = icmp eq i8 %269, 0
   br i1 %.not.i1.i.i111, label %273, label %270
 
 270:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 67
-  %272 = load i8, ptr %271, align 1, !tbaa !130
+  %272 = load i8, ptr %271, align 1, !tbaa !131
   br label %278
 
 273:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %266)
-  %274 = load ptr, ptr %266, align 8, !tbaa !108
+  %274 = load ptr, ptr %266, align 8, !tbaa !109
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 48
   %276 = load ptr, ptr %275, align 8
   %277 = tail call noundef signext i8 %276(ptr noundef nonnull align 8 dereferenceable(570) %266, i8 noundef signext 10)
@@ -2800,20 +2800,20 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110: ; preds = %257
   %280 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %279)
   %281 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.29, i64 noundef 45)
   %282 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %283 = load i64, ptr %282, align 8, !tbaa !131
+  %283 = load i64, ptr %282, align 8, !tbaa !132
   %284 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %283)
   %285 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.30, i64 noundef 37)
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %287 = load i64, ptr %286, align 8, !tbaa !131
+  %287 = load i64, ptr %286, align 8, !tbaa !132
   %288 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %287)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 46, ptr %4, align 1, !tbaa !130
-  %289 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  store i8 46, ptr %4, align 1, !tbaa !131
+  %289 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %290 = getelementptr i8, ptr %289, i64 -24
   %291 = load i64, ptr %290, align 8
   %292 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
-  %294 = load i64, ptr %293, align 8, !tbaa !168
+  %294 = load i64, ptr %293, align 8, !tbaa !169
   %.not.i.i69 = icmp eq i64 %294, 0
   br i1 %.not.i.i69, label %297, label %295
 
@@ -2827,12 +2827,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110: ; preds = %257
 
 299:                                              ; preds = %295, %297
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %300 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %300 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %301 = getelementptr i8, ptr %300, i64 -24
   %302 = load i64, ptr %301, align 8
   %303 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 240
-  %305 = load ptr, ptr %304, align 8, !tbaa !110
+  %305 = load ptr, ptr %304, align 8, !tbaa !111
   %.not.i.i.i114 = icmp eq ptr %305, null
   br i1 %.not.i.i.i114, label %306, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i115
 
@@ -2842,18 +2842,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i110: ; preds = %257
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i115: ; preds = %299
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 56
-  %308 = load i8, ptr %307, align 8, !tbaa !125
+  %308 = load i8, ptr %307, align 8, !tbaa !126
   %.not.i1.i.i116 = icmp eq i8 %308, 0
   br i1 %.not.i1.i.i116, label %312, label %309
 
 309:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i115
   %310 = getelementptr inbounds nuw i8, ptr %305, i64 67
-  %311 = load i8, ptr %310, align 1, !tbaa !130
+  %311 = load i8, ptr %310, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit118
 
 312:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i115
   call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %305)
-  %313 = load ptr, ptr %305, align 8, !tbaa !108
+  %313 = load ptr, ptr %305, align 8, !tbaa !109
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 48
   %315 = load ptr, ptr %314, align 8
   %316 = call noundef signext i8 %315(ptr noundef nonnull align 8 dereferenceable(570) %305, i8 noundef signext 10)
@@ -2882,48 +2882,48 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit72:     ; preds = %234, %_ZSt4endlIcSt
   store i64 -1, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %320, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx, i8 0, i64 16, i1 false)
-  store ptr %322, ptr %320, align 8, !tbaa !54
-  store ptr %320, ptr %322, align 8, !tbaa !54
+  store ptr %322, ptr %320, align 8, !tbaa !55
+  store ptr %320, ptr %322, align 8, !tbaa !55
   %323 = getelementptr inbounds nuw i8, ptr %231, i64 40
-  %324 = load ptr, ptr %323, align 8, !tbaa !64, !nonnull !48, !noundef !48
+  %324 = load ptr, ptr %323, align 8, !tbaa !65, !nonnull !49, !noundef !49
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 56
-  %326 = load ptr, ptr %325, align 8, !tbaa !159
+  %326 = load ptr, ptr %325, align 8, !tbaa !160
   %327 = getelementptr inbounds nuw i8, ptr %320, i64 56
-  store ptr %326, ptr %327, align 8, !tbaa !159
+  store ptr %326, ptr %327, align 8, !tbaa !160
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 48
-  store ptr %320, ptr %328, align 8, !tbaa !67
-  store ptr %320, ptr %325, align 8, !tbaa !159
-  %.sroa.0.0.copyload.i.i73 = load ptr, ptr %320, align 8, !tbaa !54
+  store ptr %320, ptr %328, align 8, !tbaa !68
+  store ptr %320, ptr %325, align 8, !tbaa !160
+  %.sroa.0.0.copyload.i.i73 = load ptr, ptr %320, align 8, !tbaa !55
   %329 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i73, i64 48
-  store ptr %324, ptr %329, align 8, !tbaa !67
+  store ptr %324, ptr %329, align 8, !tbaa !68
   %330 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i73, i64 56
-  store ptr %320, ptr %330, align 8, !tbaa !159
-  store ptr %.sroa.0.0.copyload.i.i73, ptr %.sroa.5122.0..sroa_idx, align 8, !tbaa !67
-  store ptr %.sroa.0.0.copyload.i.i73, ptr %325, align 8, !tbaa !159
+  store ptr %320, ptr %330, align 8, !tbaa !160
+  store ptr %.sroa.0.0.copyload.i.i73, ptr %.sroa.5122.0..sroa_idx, align 8, !tbaa !68
+  store ptr %.sroa.0.0.copyload.i.i73, ptr %325, align 8, !tbaa !160
   %331 = add i64 %233, 2
-  store i64 %331, ptr %232, align 8, !tbaa !69
+  store i64 %331, ptr %232, align 8, !tbaa !70
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %333 = load i64, ptr %332, align 8, !tbaa !93
+  %333 = load i64, ptr %332, align 8, !tbaa !94
   %334 = add i64 %333, 2
-  store i64 %334, ptr %332, align 8, !tbaa !93
+  store i64 %334, ptr %332, align 8, !tbaa !94
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.sroa.010.0.copyload = load ptr, ptr %335, align 8, !tbaa !55
+  %.sroa.010.0.copyload = load ptr, ptr %335, align 8, !tbaa !56
   %336 = getelementptr inbounds nuw i8, ptr %320, i64 32
-  store ptr %.sroa.010.0.copyload, ptr %336, align 8, !tbaa !55
+  store ptr %.sroa.010.0.copyload, ptr %336, align 8, !tbaa !56
   %337 = getelementptr inbounds nuw %"class.CGAL::internal::In_place_list_iterator.1", ptr %7, i64 %2
-  %.sroa.0.0.copyload.i.i74 = load ptr, ptr %337, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i74 = load ptr, ptr %337, align 8, !tbaa !54
   %338 = getelementptr inbounds nuw i8, ptr %320, i64 24
-  store ptr %.sroa.0.0.copyload.i.i74, ptr %338, align 8, !tbaa !53
+  store ptr %.sroa.0.0.copyload.i.i74, ptr %338, align 8, !tbaa !54
   %339 = getelementptr inbounds nuw i8, ptr %320, i64 8
-  store ptr null, ptr %339, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i75 = load ptr, ptr %320, align 8, !tbaa !54
+  store ptr null, ptr %339, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i75 = load ptr, ptr %320, align 8, !tbaa !55
   %340 = getelementptr inbounds nuw i8, ptr %320, i64 16
-  store ptr %.sroa.0.0.copyload.i75, ptr %340, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i75, ptr %340, align 8, !tbaa !55
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i75, i64 24
-  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %341, align 8, !tbaa !53
-  %.sroa.0.0.copyload.i78 = load ptr, ptr %.sroa.0.0.copyload.i75, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %341, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i78 = load ptr, ptr %.sroa.0.0.copyload.i75, align 8, !tbaa !55
   %342 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i75, i64 8
-  store ptr %.sroa.0.0.copyload.i78, ptr %342, align 8, !tbaa !54
+  store ptr %.sroa.0.0.copyload.i78, ptr %342, align 8, !tbaa !55
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit39, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit54, %.critedge4, %319, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit72, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit25
@@ -2933,13 +2933,13 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit72:     ; preds = %234, %_ZSt4endlIcSt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA76_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(76) %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = load i8, ptr %0, align 8, !tbaa !153, !range !37, !noundef !48
+  %3 = load i8, ptr %0, align 8, !tbaa !154, !range !37, !noundef !49
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
@@ -2950,13 +2950,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA32_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = load i8, ptr %0, align 8, !tbaa !153, !range !37, !noundef !48
+  %3 = load i8, ptr %0, align 8, !tbaa !154, !range !37, !noundef !49
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
@@ -2967,13 +2967,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN4CGAL15Verbose_ostreamlsIA20_cEERS0_RKT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(20) %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = load i8, ptr %0, align 8, !tbaa !153, !range !37, !noundef !48
+  %3 = load i8, ptr %0, align 8, !tbaa !154, !range !37, !noundef !49
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !155
+  %7 = load ptr, ptr %6, align 8, !tbaa !156
   %8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %1, i64 noundef %8)
   br label %10
@@ -2990,31 +2990,31 @@ define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS
 4:                                                ; preds = %9, %2
   %.sroa.082.0 = phi ptr [ %1, %2 ], [ %.sroa.0.0.copyload.i6, %9 ]
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.082.0, i64 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i = load ptr, ptr %5, align 8, !tbaa !55
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 32
-  %7 = load ptr, ptr %6, align 8, !tbaa !151
+  %7 = load ptr, ptr %6, align 8, !tbaa !152
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %4
-  %.sroa.0.0.copyload.i6 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i6 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !55
   %.not = icmp eq ptr %.sroa.0.0.copyload.i6, %1
-  br i1 %.not, label %10, label %4, !llvm.loop !170
+  br i1 %.not, label %10, label %4, !llvm.loop !171
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %12 = load i8, ptr %11, align 1, !tbaa !29, !range !37, !noundef !48
+  %12 = load i8, ptr %11, align 1, !tbaa !29, !range !37, !noundef !49
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %_ZN4CGAL15Verbose_ostreamlsIA39_cEERS0_RKT_.exit
 
 14:                                               ; preds = %10
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %16 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %16 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %17 = getelementptr i8, ptr %16, i64 -24
   %18 = load i64, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 240
-  %21 = load ptr, ptr %20, align 8, !tbaa !110
+  %21 = load ptr, ptr %20, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %22, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -3024,18 +3024,18 @@ define linkonce_odr dso_local ptr @_ZN4CGAL32Polyhedron_incremental_builder_3INS
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 56
-  %24 = load i8, ptr %23, align 8, !tbaa !125
+  %24 = load i8, ptr %23, align 8, !tbaa !126
   %.not.i1.i.i = icmp eq i8 %24, 0
   br i1 %.not.i1.i.i, label %28, label %25
 
 25:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 67
-  %27 = load i8, ptr %26, align 1, !tbaa !130
+  %27 = load i8, ptr %26, align 1, !tbaa !131
   br label %33
 
 28:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %21)
-  %29 = load ptr, ptr %21, align 8, !tbaa !108
+  %29 = load ptr, ptr %21, align 8, !tbaa !109
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef signext i8 %31(ptr noundef nonnull align 8 dereferenceable(570) %21, i8 noundef signext 10)
@@ -3046,12 +3046,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %14
   %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %34)
   %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.8, i64 noundef 45)
-  %37 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %37 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %38 = getelementptr i8, ptr %37, i64 -24
   %39 = load i64, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 240
-  %42 = load ptr, ptr %41, align 8, !tbaa !110
+  %42 = load ptr, ptr %41, align 8, !tbaa !111
   %.not.i.i.i29 = icmp eq ptr %42, null
   br i1 %.not.i.i.i29, label %43, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i30
 
@@ -3061,18 +3061,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %14
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i30: ; preds = %33
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 56
-  %45 = load i8, ptr %44, align 8, !tbaa !125
+  %45 = load i8, ptr %44, align 8, !tbaa !126
   %.not.i1.i.i31 = icmp eq i8 %45, 0
   br i1 %.not.i1.i.i31, label %49, label %46
 
 46:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i30
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 67
-  %48 = load i8, ptr %47, align 1, !tbaa !130
+  %48 = load i8, ptr %47, align 1, !tbaa !131
   br label %54
 
 49:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i30
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %42)
-  %50 = load ptr, ptr %42, align 8, !tbaa !108
+  %50 = load ptr, ptr %42, align 8, !tbaa !109
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef signext i8 %52(ptr noundef nonnull align 8 dereferenceable(570) %42, i8 noundef signext 10)
@@ -3087,17 +3087,17 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i30: ; preds = %33
 
 _ZN4CGAL15Verbose_ostreamlsIA39_cEERS0_RKT_.exit: ; preds = %10, %54
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i6, i64 24
-  %.sroa.0.0.copyload.i8 = load ptr, ptr %58, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i8 = load ptr, ptr %58, align 8, !tbaa !54
   %59 = icmp eq ptr %.sroa.0.0.copyload.i8, null
   br i1 %59, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE11find_vertexENS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EENS_7Point_3IS3_EEmEEEEEESaISL_EEE.exit, label %60
 
 60:                                               ; preds = %_ZN4CGAL15Verbose_ostreamlsIA39_cEERS0_RKT_.exit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !73
+  %62 = load ptr, ptr %61, align 8, !tbaa !74
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8, !tbaa !83
+  %64 = load ptr, ptr %63, align 8, !tbaa !84
   %.sroa.0.0.in9.i = getelementptr inbounds nuw i8, ptr %64, i64 40
-  %.sroa.0.010.i = load ptr, ptr %.sroa.0.0.in9.i, align 8, !tbaa !94
+  %.sroa.0.010.i = load ptr, ptr %.sroa.0.0.in9.i, align 8, !tbaa !95
   %.not11.i = icmp eq ptr %.sroa.0.010.i, %.sroa.0.0.copyload.i8
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -3108,14 +3108,14 @@ _ZN4CGAL15Verbose_ostreamlsIA39_cEERS0_RKT_.exit: ; preds = %10, %54
   %66 = icmp ne ptr %.sroa.0.013.i, null
   tail call void @llvm.assume(i1 %66)
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 40
-  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !94
+  %.sroa.0.0.i = load ptr, ptr %.sroa.0.0.in.i, align 8, !tbaa !95
   %.not.i = icmp eq ptr %.sroa.0.0.i, %.sroa.0.0.copyload.i8
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !171
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !172
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %60
   %.0.lcssa.i = phi i64 [ 0, %60 ], [ %65, %.lr.ph.i ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %68 = load i64, ptr %67, align 8, !tbaa !80
+  %68 = load i64, ptr %67, align 8, !tbaa !81
   %69 = sub i64 %.0.lcssa.i, %68
   br label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE11find_vertexENS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EENS_7Point_3IS3_EEmEEEEEESaISL_EEE.exit
 
@@ -3127,15 +3127,15 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
   %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04.i)
   %72 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.32, i64 noundef 43)
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %74 = load i64, ptr %73, align 8, !tbaa !131
+  %74 = load i64, ptr %73, align 8, !tbaa !132
   %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %74)
   %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.33, i64 noundef 25)
-  %77 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %77 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %78 = getelementptr i8, ptr %77, i64 -24
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 240
-  %82 = load ptr, ptr %81, align 8, !tbaa !110
+  %82 = load ptr, ptr %81, align 8, !tbaa !111
   %.not.i.i.i34 = icmp eq ptr %82, null
   br i1 %.not.i.i.i34, label %83, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i35
 
@@ -3145,18 +3145,18 @@ _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_c
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i35: ; preds = %70
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 56
-  %85 = load i8, ptr %84, align 8, !tbaa !125
+  %85 = load i8, ptr %84, align 8, !tbaa !126
   %.not.i1.i.i36 = icmp eq i8 %85, 0
   br i1 %.not.i1.i.i36, label %89, label %86
 
 86:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i35
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 67
-  %88 = load i8, ptr %87, align 1, !tbaa !130
+  %88 = load i8, ptr %87, align 1, !tbaa !131
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10
 
 89:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i35
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %82)
-  %90 = load ptr, ptr %82, align 8, !tbaa !108
+  %90 = load ptr, ptr %82, align 8, !tbaa !109
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   %93 = tail call noundef signext i8 %92(ptr noundef nonnull align 8 dereferenceable(570) %82, i8 noundef signext 10)
@@ -3166,7 +3166,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10:     ; preds = %89, %86
   %.0.i.i.i37 = phi i8 [ %88, %86 ], [ %93, %89 ]
   %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i37)
   %95 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %94)
-  %96 = load i8, ptr %11, align 1, !tbaa !29, !range !37, !noundef !48
+  %96 = load i8, ptr %11, align 1, !tbaa !29, !range !37, !noundef !49
   %97 = trunc nuw i8 %96 to i1
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %99 = load ptr, ptr %98, align 8
@@ -3175,7 +3175,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10:     ; preds = %89, %86
   br i1 %or.cond, label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.preheader, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit28
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10.thread: ; preds = %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE11find_vertexENS_8internal22In_place_list_iteratorINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EENS_7Point_3IS3_EEmEEEEEESaISL_EEE.exit
-  %101 = load i8, ptr %11, align 1, !tbaa !29, !range !37, !noundef !48
+  %101 = load i8, ptr %11, align 1, !tbaa !29, !range !37, !noundef !49
   %102 = trunc nuw i8 %101 to i1
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %104 = load ptr, ptr %103, align 8
@@ -3192,22 +3192,22 @@ _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.preheader: ; p
 _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split: ; preds = %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.backedge, %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.preheader
   %.sroa.082.1.us = phi ptr [ %.sroa.0.0.copyload.i6, %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.preheader ], [ %.sroa.082.1.us.be, %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.backedge ]
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.082.1.us, i64 32
-  %110 = load ptr, ptr %109, align 8, !tbaa !55
+  %110 = load ptr, ptr %109, align 8, !tbaa !56
   %111 = icmp eq ptr %110, null
   br i1 %111, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.us, label %_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.us
 
 _ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.us: ; preds = %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split
   %112 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.7, i64 noundef 1)
-  %.sroa.0.0.copyload.i.i.i.pr.us = load ptr, ptr %109, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i.pr.us = load ptr, ptr %109, align 8, !tbaa !56
   %113 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.pr.us, null
   br i1 %113, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.thread97.us, label %_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.thread.us
 
 _ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.thread.us: ; preds = %_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.us
-  %114 = load ptr, ptr %107, align 8, !tbaa !73
+  %114 = load ptr, ptr %107, align 8, !tbaa !74
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
-  %116 = load ptr, ptr %115, align 8, !tbaa !145
+  %116 = load ptr, ptr %115, align 8, !tbaa !146
   %.sroa.0.0.in9.i13.us = getelementptr inbounds nuw i8, ptr %116, i64 16
-  %.sroa.0.010.i14.us = load ptr, ptr %.sroa.0.0.in9.i13.us, align 8, !tbaa !146
+  %.sroa.0.010.i14.us = load ptr, ptr %.sroa.0.0.in9.i13.us, align 8, !tbaa !147
   %.not11.i15.us = icmp eq ptr %.sroa.0.010.i14.us, %.sroa.0.0.copyload.i.i.i.pr.us
   br i1 %.not11.i15.us, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit.us, label %.lr.ph.i16.us
 
@@ -3218,13 +3218,13 @@ _ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.thread.us: ; preds = %_ZN4CGAL
   %118 = icmp ne ptr %.sroa.0.013.i17.us, null
   tail call void @llvm.assume(i1 %118)
   %.sroa.0.0.in.i19.us = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i17.us, i64 16
-  %.sroa.0.0.i20.us = load ptr, ptr %.sroa.0.0.in.i19.us, align 8, !tbaa !146
+  %.sroa.0.0.i20.us = load ptr, ptr %.sroa.0.0.in.i19.us, align 8, !tbaa !147
   %.not.i21.us = icmp eq ptr %.sroa.0.0.i20.us, %.sroa.0.0.copyload.i.i.i.pr.us
-  br i1 %.not.i21.us, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit.us, label %.lr.ph.i16.us, !llvm.loop !156
+  br i1 %.not.i21.us, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit.us, label %.lr.ph.i16.us, !llvm.loop !157
 
 _ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit.us: ; preds = %.lr.ph.i16.us, %_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.thread.us
   %.0.lcssa.i23.us = phi i64 [ 0, %_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.thread.us ], [ %117, %.lr.ph.i16.us ]
-  %119 = load i64, ptr %108, align 8, !tbaa !81
+  %119 = load i64, ptr %108, align 8, !tbaa !82
   %120 = sub i64 %.0.lcssa.i23.us, %119
   br label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.thread97.us
 
@@ -3232,30 +3232,30 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.thread97.us: ; preds = %_ZN4CGAL3
   %.04.i2494.us = phi i64 [ %120, %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit.us ], [ 0, %_ZN4CGAL15Verbose_ostreamlsIA2_cEERS0_RKT_.exit12.us ]
   %121 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04.i2494.us)
   %122 = getelementptr inbounds nuw i8, ptr %.sroa.082.1.us, i64 8
-  %.sroa.0.0.copyload.i2698.us = load ptr, ptr %122, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i2799.us = load ptr, ptr %.sroa.0.0.copyload.i2698.us, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i2698.us = load ptr, ptr %122, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i2799.us = load ptr, ptr %.sroa.0.0.copyload.i2698.us, align 8, !tbaa !55
   %.not104.us = icmp eq ptr %.sroa.0.0.copyload.i2799.us, %1
   br i1 %.not104.us, label %.thread100, label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.backedge
 
 _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.us: ; preds = %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split
   %123 = getelementptr inbounds nuw i8, ptr %.sroa.082.1.us, i64 8
-  %.sroa.0.0.copyload.i26.us = load ptr, ptr %123, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i27.us = load ptr, ptr %.sroa.0.0.copyload.i26.us, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i26.us = load ptr, ptr %123, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i27.us = load ptr, ptr %.sroa.0.0.copyload.i26.us, align 8, !tbaa !55
   %.not105.us = icmp eq ptr %.sroa.0.0.copyload.i27.us, %1
   br i1 %.not105.us, label %.split.us, label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.backedge
 
 _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split.backedge: ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.us, %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.thread97.us
   %.sroa.082.1.us.be = phi ptr [ %.sroa.0.0.copyload.i27.us, %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.us ], [ %.sroa.0.0.copyload.i2799.us, %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.thread97.us ]
-  br label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split, !llvm.loop !172
+  br label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.us.split, !llvm.loop !173
 
 _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split: ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10.thread, %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge
   %.sroa.082.1 = phi ptr [ %.sroa.0.0.copyload.i27, %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge ], [ %.sroa.0.0.copyload.i6, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit10.thread ]
   %124 = getelementptr inbounds nuw i8, ptr %.sroa.082.1, i64 32
-  %125 = load ptr, ptr %124, align 8, !tbaa !55
+  %125 = load ptr, ptr %124, align 8, !tbaa !56
   %126 = icmp eq ptr %125, null
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.082.1, i64 8
-  %.sroa.0.0.copyload.i26 = load ptr, ptr %127, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i27 = load ptr, ptr %.sroa.0.0.copyload.i26, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i26 = load ptr, ptr %127, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i27 = load ptr, ptr %.sroa.0.0.copyload.i26, align 8, !tbaa !55
   %.not105 = icmp eq ptr %.sroa.0.0.copyload.i27, %1
   br i1 %126, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25, label %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit
 
@@ -3266,20 +3266,20 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25:   ; preds = %_ZN4CGAL15Verbose_o
   br i1 %.not105, label %.split.us, label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge
 
 _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge: ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25, %_ZN4CGAL32Polyhedron_incremental_builder_3INS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEE10find_facetENS_8internal22In_place_list_iteratorINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesIS3_S6_S7_EESt17integral_constantIbLb0EEmEEEEEESaISL_EEE.exit
-  br label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split, !llvm.loop !174
+  br label %_ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split, !llvm.loop !175
 
 .split.us:                                        ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25, %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.us
   br i1 %13, label %.thread100, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit28
 
 .thread100:                                       ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit25.thread97.us, %.split.us
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  store i8 46, ptr %3, align 1, !tbaa !130
-  %128 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  store i8 46, ptr %3, align 1, !tbaa !131
+  %128 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %129 = getelementptr i8, ptr %128, i64 -24
   %130 = load i64, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %133 = load i64, ptr %132, align 8, !tbaa !168
+  %133 = load i64, ptr %132, align 8, !tbaa !169
   %.not.i.i = icmp eq i64 %133, 0
   br i1 %.not.i.i, label %136, label %134
 
@@ -3293,12 +3293,12 @@ _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge: ; preds
 
 138:                                              ; preds = %136, %134
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  %139 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %139 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %140 = getelementptr i8, ptr %139, i64 -24
   %141 = load i64, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 240
-  %144 = load ptr, ptr %143, align 8, !tbaa !110
+  %144 = load ptr, ptr %143, align 8, !tbaa !111
   %.not.i.i.i39 = icmp eq ptr %144, null
   br i1 %.not.i.i.i39, label %145, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40
 
@@ -3308,18 +3308,18 @@ _ZN4CGAL15Verbose_ostreamlsIA44_cEERS0_RKT_.exit11.split.split.backedge: ; preds
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40: ; preds = %138
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 56
-  %147 = load i8, ptr %146, align 8, !tbaa !125
+  %147 = load i8, ptr %146, align 8, !tbaa !126
   %.not.i1.i.i41 = icmp eq i8 %147, 0
   br i1 %.not.i1.i.i41, label %151, label %148
 
 148:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40
   %149 = getelementptr inbounds nuw i8, ptr %144, i64 67
-  %150 = load i8, ptr %149, align 1, !tbaa !130
+  %150 = load i8, ptr %149, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit43
 
 151:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i40
   call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %144)
-  %152 = load ptr, ptr %144, align 8, !tbaa !108
+  %152 = load ptr, ptr %144, align 8, !tbaa !109
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
   %154 = load ptr, ptr %153, align 8
   %155 = call noundef signext i8 %154(ptr noundef nonnull align 8 dereferenceable(570) %144, i8 noundef signext 10)
@@ -3343,36 +3343,36 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit28:     ; preds = %_ZN4CGAL32Polyhedro
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE5clearEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #1 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !83
+  %3 = load ptr, ptr %2, align 8, !tbaa !84
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %5 = load ptr, ptr %4, align 8, !tbaa !94
+  %5 = load ptr, ptr %4, align 8, !tbaa !95
   %.not2.i.i = icmp eq ptr %5, %3
   br i1 %.not2.i.i, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE14vertices_clearEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %.lr.ph.i.i
   %.sroa.01.03.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %5, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !94
+  %7 = load ptr, ptr %6, align 8, !tbaa !95
   tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i, i64 noundef 56) #18
   %.not.i.i = icmp eq ptr %7, %3
-  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !175
+  br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !176
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !83
+  %.pre.i.i = load ptr, ptr %2, align 8, !tbaa !84
   br label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE14vertices_clearEv.exit
 
 _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE14vertices_clearEv.exit: ; preds = %1, %._crit_edge.loopexit.i.i
   %8 = phi ptr [ %.pre.i.i, %._crit_edge.loopexit.i.i ], [ %3, %1 ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %9, align 8, !tbaa !74
+  store i64 0, ptr %9, align 8, !tbaa !75
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %8, ptr %10, align 8, !tbaa !94
+  store ptr %8, ptr %10, align 8, !tbaa !95
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %8, ptr %11, align 8, !tbaa !132
+  store ptr %8, ptr %11, align 8, !tbaa !133
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8, !tbaa !64
+  %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !67
+  %15 = load ptr, ptr %14, align 8, !tbaa !68
   %.not4.i.i = icmp eq ptr %15, %13
   br i1 %.not4.i.i, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, label %.lr.ph.i.i1
 
@@ -3385,64 +3385,64 @@ _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_ite
   %18 = icmp ne ptr %.sroa.03.05.i.i, null
   tail call void @llvm.assume(i1 %18)
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !67, !nonnull !48, !noundef !48
+  %20 = load ptr, ptr %19, align 8, !tbaa !68, !nonnull !49, !noundef !49
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !67
-  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.sroa.03.05.i.i, align 8, !tbaa !54
+  %22 = load ptr, ptr %21, align 8, !tbaa !68
+  %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.sroa.03.05.i.i, align 8, !tbaa !55
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.03.05.i.i, i64 56
-  %24 = load ptr, ptr %23, align 8, !tbaa !159
+  %24 = load ptr, ptr %23, align 8, !tbaa !160
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store ptr %20, ptr %25, align 8, !tbaa !67
+  store ptr %20, ptr %25, align 8, !tbaa !68
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  store ptr %24, ptr %26, align 8, !tbaa !159
-  %27 = load i64, ptr %16, align 8, !tbaa !69
+  store ptr %24, ptr %26, align 8, !tbaa !160
+  %27 = load i64, ptr %16, align 8, !tbaa !70
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 48
-  %29 = load ptr, ptr %28, align 8, !tbaa !67
+  %29 = load ptr, ptr %28, align 8, !tbaa !68
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i, i64 56
-  %31 = load ptr, ptr %30, align 8, !tbaa !159
+  %31 = load ptr, ptr %30, align 8, !tbaa !160
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store ptr %29, ptr %32, align 8, !tbaa !67
+  store ptr %29, ptr %32, align 8, !tbaa !68
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  store ptr %31, ptr %33, align 8, !tbaa !159
+  store ptr %31, ptr %33, align 8, !tbaa !160
   %34 = add i64 %27, -2
-  store i64 %34, ptr %16, align 8, !tbaa !69
-  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.03.05.i.i, align 8, !tbaa !54
+  store i64 %34, ptr %16, align 8, !tbaa !70
+  %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %.sroa.03.05.i.i, align 8, !tbaa !55
   %35 = icmp ugt ptr %.sroa.03.05.i.i, %.sroa.0.0.copyload.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %35, ptr %.sroa.0.0.copyload.i.i.i.i.i, ptr %.sroa.03.05.i.i
   tail call void @_ZdlPvm(ptr noundef %spec.select.i.i.i.i, i64 noundef 128) #18
   %.not.i.i2 = icmp eq ptr %22, %13
-  br i1 %.not.i.i2, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, label %17, !llvm.loop !176
+  br i1 %.not.i.i2, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, label %17, !llvm.loop !177
 
 _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit: ; preds = %17, %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE14vertices_clearEv.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %38 = load ptr, ptr %37, align 8, !tbaa !145
+  %38 = load ptr, ptr %37, align 8, !tbaa !146
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %40 = load ptr, ptr %39, align 8, !tbaa !146
+  %40 = load ptr, ptr %39, align 8, !tbaa !147
   %.not2.i.i3 = icmp eq ptr %40, %38
   br i1 %.not2.i.i3, label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11faces_clearEv.exit, label %.lr.ph.i.i4
 
 .lr.ph.i.i4:                                      ; preds = %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, %.lr.ph.i.i4
   %.sroa.01.03.i.i5 = phi ptr [ %42, %.lr.ph.i.i4 ], [ %40, %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.01.03.i.i5, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !146
+  %42 = load ptr, ptr %41, align 8, !tbaa !147
   tail call void @_ZdlPvm(ptr noundef %.sroa.01.03.i.i5, i64 noundef 32) #18
   %.not.i.i6 = icmp eq ptr %42, %38
-  br i1 %.not.i.i6, label %._crit_edge.loopexit.i.i7, label %.lr.ph.i.i4, !llvm.loop !177
+  br i1 %.not.i.i6, label %._crit_edge.loopexit.i.i7, label %.lr.ph.i.i4, !llvm.loop !178
 
 ._crit_edge.loopexit.i.i7:                        ; preds = %.lr.ph.i.i4
-  %.pre.i.i8 = load ptr, ptr %37, align 8, !tbaa !145
+  %.pre.i.i8 = load ptr, ptr %37, align 8, !tbaa !146
   br label %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11faces_clearEv.exit
 
 _ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11faces_clearEv.exit: ; preds = %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit, %._crit_edge.loopexit.i.i7
   %43 = phi ptr [ %.pre.i.i8, %._crit_edge.loopexit.i.i7 ], [ %38, %_ZN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEE11edges_clearEv.exit ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 0, ptr %44, align 8, !tbaa !77
+  store i64 0, ptr %44, align 8, !tbaa !78
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store ptr %43, ptr %45, align 8, !tbaa !146
+  store ptr %43, ptr %45, align 8, !tbaa !147
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  store ptr %43, ptr %46, align 8, !tbaa !148
+  store ptr %43, ptr %46, align 8, !tbaa !149
   ret void
 }
 
@@ -3454,12 +3454,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL26HalfedgeDS_const_de
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.44, i64 noundef 74)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i32 noundef %2)
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.36, i64 noundef 2)
-  %8 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %8 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 240
-  %13 = load ptr, ptr %12, align 8, !tbaa !110
+  %13 = load ptr, ptr %12, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %14, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -3469,18 +3469,18 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL26HalfedgeDS_const_de
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %16 = load i8, ptr %15, align 8, !tbaa !125
+  %16 = load i8, ptr %15, align 8, !tbaa !126
   %.not.i1.i.i = icmp eq i8 %16, 0
   br i1 %.not.i1.i.i, label %20, label %17
 
 17:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 67
-  %19 = load i8, ptr %18, align 1, !tbaa !130
+  %19 = load i8, ptr %18, align 1, !tbaa !131
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
 
 20:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %13)
-  %21 = load ptr, ptr %13, align 8, !tbaa !108
+  %21 = load ptr, ptr %13, align 8, !tbaa !109
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef signext i8 %23(ptr noundef nonnull align 8 dereferenceable(570) %13, i8 noundef signext 10)
@@ -3490,39 +3490,39 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit:       ; preds = %20, %17
   %.0.i.i.i = phi i8 [ %19, %17 ], [ %24, %20 ]
   %25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i)
   %26 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
-  %27 = load ptr, ptr %0, align 8, !tbaa !62
+  %27 = load ptr, ptr %0, align 8, !tbaa !63
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %29 = load i64, ptr %28, align 8, !tbaa !69
+  %29 = load i64, ptr %28, align 8, !tbaa !70
   %30 = and i64 %29, 1
   %31 = icmp eq i64 %30, 0
   %32 = trunc i64 %29 to i1
   br i1 %31, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120, label %42
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit.thread: ; preds = %3
-  %33 = load ptr, ptr %0, align 8, !tbaa !62
+  %33 = load ptr, ptr %0, align 8, !tbaa !63
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  %35 = load i64, ptr %34, align 8, !tbaa !69
+  %35 = load i64, ptr %34, align 8, !tbaa !70
   %36 = and i64 %35, 1
   %37 = icmp eq i64 %36, 0
   %38 = trunc i64 %35 to i1
   br i1 %37, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120, label %_ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread
 
 _ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread: ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit.thread
-  %39 = load ptr, ptr %0, align 8, !tbaa !62
+  %39 = load ptr, ptr %0, align 8, !tbaa !63
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  %41 = load ptr, ptr %40, align 8, !tbaa !64
+  %41 = load ptr, ptr %40, align 8, !tbaa !65
   %.sroa.0378.0.in486756 = getelementptr inbounds nuw i8, ptr %41, i64 48
-  %.sroa.0378.0487757 = load ptr, ptr %.sroa.0378.0.in486756, align 8, !tbaa !67
+  %.sroa.0378.0487757 = load ptr, ptr %.sroa.0378.0.in486756, align 8, !tbaa !68
   br i1 %38, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150, label %.lr.ph
 
 42:                                               ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
   %43 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.45, i64 noundef 27)
-  %44 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %44 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 240
-  %49 = load ptr, ptr %48, align 8, !tbaa !110
+  %49 = load ptr, ptr %48, align 8, !tbaa !111
   %.not.i.i.i187 = icmp eq ptr %49, null
   br i1 %.not.i.i.i187, label %50, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i188
 
@@ -3532,18 +3532,18 @@ _ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread: ; preds = %_ZN4CGAL15Ve
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i188: ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
-  %52 = load i8, ptr %51, align 8, !tbaa !125
+  %52 = load i8, ptr %51, align 8, !tbaa !126
   %.not.i1.i.i189 = icmp eq i8 %52, 0
   br i1 %.not.i1.i.i189, label %56, label %53
 
 53:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i188
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 67
-  %55 = load i8, ptr %54, align 1, !tbaa !130
+  %55 = load i8, ptr %54, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191
 
 56:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i188
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %49)
-  %57 = load ptr, ptr %49, align 8, !tbaa !108
+  %57 = load ptr, ptr %49, align 8, !tbaa !109
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef signext i8 %59(ptr noundef nonnull align 8 dereferenceable(570) %49, i8 noundef signext 10)
@@ -3553,20 +3553,20 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191: ; preds = %5
   %.0.i.i.i190 = phi i8 [ %55, %53 ], [ %60, %56 ]
   %61 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i190)
   %62 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %61)
-  %63 = load ptr, ptr %0, align 8, !tbaa !62
+  %63 = load ptr, ptr %0, align 8, !tbaa !63
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %65 = load ptr, ptr %64, align 8, !tbaa !64
+  %65 = load ptr, ptr %64, align 8, !tbaa !65
   %.sroa.0378.0.in486753 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %.sroa.0378.0487754 = load ptr, ptr %.sroa.0378.0.in486753, align 8, !tbaa !67
+  %.sroa.0378.0487754 = load ptr, ptr %.sroa.0378.0.in486753, align 8, !tbaa !68
   br i1 %32, label %.critedge.thread, label %.lr.ph
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120:    ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit.thread, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
   %66 = phi i1 [ %38, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit.thread ], [ %32, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit ]
-  %67 = load ptr, ptr %0, align 8, !tbaa !62
+  %67 = load ptr, ptr %0, align 8, !tbaa !63
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
-  %69 = load ptr, ptr %68, align 8, !tbaa !64
+  %69 = load ptr, ptr %68, align 8, !tbaa !65
   %.sroa.0378.0.in486 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  %.sroa.0378.0487 = load ptr, ptr %.sroa.0378.0.in486, align 8, !tbaa !67
+  %.sroa.0378.0487 = load ptr, ptr %.sroa.0378.0.in486, align 8, !tbaa !68
   br i1 %66, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4CGAL15Verbose_ostreamlsIA28_cEERS0_RKT_.exit.thread, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit191, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120
@@ -3585,11 +3585,11 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120:    ; preds = %_ZN4CGAL15Verbose_o
 72:                                               ; preds = %.lr.ph1018
   %73 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.37, i64 noundef 9)
   %74 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04044881017)
-  %75 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %75 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %76 = getelementptr i8, ptr %75, i64 -24
   %77 = load i64, ptr %76, align 8
   %gep = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %77
-  %78 = load ptr, ptr %gep, align 8, !tbaa !110
+  %78 = load ptr, ptr %gep, align 8, !tbaa !111
   %.not.i.i.i192 = icmp eq ptr %78, null
   br i1 %.not.i.i.i192, label %79, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i193
 
@@ -3599,18 +3599,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120:    ; preds = %_ZN4CGAL15Verbose_o
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i193: ; preds = %72
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 56
-  %81 = load i8, ptr %80, align 8, !tbaa !125
+  %81 = load i8, ptr %80, align 8, !tbaa !126
   %.not.i1.i.i194 = icmp eq i8 %81, 0
   br i1 %.not.i1.i.i194, label %85, label %82
 
 82:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i193
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 67
-  %84 = load i8, ptr %83, align 1, !tbaa !130
+  %84 = load i8, ptr %83, align 1, !tbaa !131
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121
 
 85:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i193
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %78)
-  %86 = load ptr, ptr %78, align 8, !tbaa !108
+  %86 = load ptr, ptr %78, align 8, !tbaa !109
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
   %88 = load ptr, ptr %87, align 8
   %89 = tail call noundef signext i8 %88(ptr noundef nonnull align 8 dereferenceable(570) %78, i8 noundef signext 10)
@@ -3621,7 +3621,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121:    ; preds = %85, %82
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i195)
   %91 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %90)
   %92 = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901015, i64 32
-  %93 = load ptr, ptr %92, align 8, !tbaa !151
+  %93 = load ptr, ptr %92, align 8, !tbaa !152
   %94 = icmp eq ptr %93, null
   br i1 %94, label %96, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122
 
@@ -3631,11 +3631,11 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread: ; preds = %.lr.ph1018
 
 96:                                               ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121
   %97 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.46, i64 noundef 22)
-  %98 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %98 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %99 = getelementptr i8, ptr %98, i64 -24
   %100 = load i64, ptr %99, align 8
   %gep500 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %100
-  %101 = load ptr, ptr %gep500, align 8, !tbaa !110
+  %101 = load ptr, ptr %gep500, align 8, !tbaa !111
   %.not.i.i.i197 = icmp eq ptr %101, null
   br i1 %.not.i.i.i197, label %102, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i198
 
@@ -3645,18 +3645,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread: ; preds = %.lr.ph1018
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i198: ; preds = %96
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 56
-  %104 = load i8, ptr %103, align 8, !tbaa !125
+  %104 = load i8, ptr %103, align 8, !tbaa !126
   %.not.i1.i.i199 = icmp eq i8 %104, 0
   br i1 %.not.i1.i.i199, label %108, label %105
 
 105:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i198
   %106 = getelementptr inbounds nuw i8, ptr %101, i64 67
-  %107 = load i8, ptr %106, align 1, !tbaa !130
+  %107 = load i8, ptr %106, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit201
 
 108:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i198
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %101)
-  %109 = load ptr, ptr %101, align 8, !tbaa !108
+  %109 = load ptr, ptr %101, align 8, !tbaa !109
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef signext i8 %111(ptr noundef nonnull align 8 dereferenceable(570) %101, i8 noundef signext 10)
@@ -3671,12 +3671,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit201: ; preds = %1
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122:    ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit201, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121
   %115 = phi ptr [ %92, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit201 ], [ %92, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121 ], [ %95, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit121.thread ]
   %116 = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901015, i64 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %116, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i = load ptr, ptr %116, align 8, !tbaa !55
   %.not423 = icmp eq ptr %.sroa.0.0.copyload.i, null
   br i1 %.not423, label %.critedge103, label %117
 
 117:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122
-  %.sroa.0.0.copyload.i123 = load ptr, ptr %.sroa.0378.04901015, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i123 = load ptr, ptr %.sroa.0378.04901015, align 8, !tbaa !55
   %.not424 = icmp eq ptr %.sroa.0.0.copyload.i123, null
   br i1 %.not424, label %.critedge103, label %139
 
@@ -3685,12 +3685,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122:    ; preds = %_ZN4CGAL15Verbose_o
 
 118:                                              ; preds = %.critedge103
   %119 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.47, i64 noundef 41)
-  %120 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %120 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %121 = getelementptr i8, ptr %120, i64 -24
   %122 = load i64, ptr %121, align 8
   %123 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 240
-  %125 = load ptr, ptr %124, align 8, !tbaa !110
+  %125 = load ptr, ptr %124, align 8, !tbaa !111
   %.not.i.i.i202 = icmp eq ptr %125, null
   br i1 %.not.i.i.i202, label %126, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i203
 
@@ -3700,18 +3700,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit122:    ; preds = %_ZN4CGAL15Verbose_o
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i203: ; preds = %118
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 56
-  %128 = load i8, ptr %127, align 8, !tbaa !125
+  %128 = load i8, ptr %127, align 8, !tbaa !126
   %.not.i1.i.i204 = icmp eq i8 %128, 0
   br i1 %.not.i1.i.i204, label %132, label %129
 
 129:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i203
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 67
-  %131 = load i8, ptr %130, align 1, !tbaa !130
+  %131 = load i8, ptr %130, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206
 
 132:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i203
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %125)
-  %133 = load ptr, ptr %125, align 8, !tbaa !108
+  %133 = load ptr, ptr %125, align 8, !tbaa !109
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef signext i8 %135(ptr noundef nonnull align 8 dereferenceable(570) %125, i8 noundef signext 10)
@@ -3728,7 +3728,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206: ; preds = %1
   br i1 %.not425, label %.critedge105, label %140
 
 140:                                              ; preds = %139
-  %.sroa.0.0.copyload.i127 = load ptr, ptr %.sroa.0.0.copyload.i123, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i127 = load ptr, ptr %.sroa.0.0.copyload.i123, align 8, !tbaa !55
   %141 = icmp eq ptr %.sroa.0.0.copyload.i127, %.sroa.0378.04901015
   br i1 %141, label %163, label %.critedge105
 
@@ -3737,12 +3737,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206: ; preds = %1
 
 142:                                              ; preds = %.critedge105
   %143 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.48, i64 noundef 41)
-  %144 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %144 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %145 = getelementptr i8, ptr %144, i64 -24
   %146 = load i64, ptr %145, align 8
   %147 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 240
-  %149 = load ptr, ptr %148, align 8, !tbaa !110
+  %149 = load ptr, ptr %148, align 8, !tbaa !111
   %.not.i.i.i207 = icmp eq ptr %149, null
   br i1 %.not.i.i.i207, label %150, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i208
 
@@ -3752,18 +3752,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit206: ; preds = %1
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i208: ; preds = %142
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 56
-  %152 = load i8, ptr %151, align 8, !tbaa !125
+  %152 = load i8, ptr %151, align 8, !tbaa !126
   %.not.i1.i.i209 = icmp eq i8 %152, 0
   br i1 %.not.i1.i.i209, label %156, label %153
 
 153:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i208
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 67
-  %155 = load i8, ptr %154, align 1, !tbaa !130
+  %155 = load i8, ptr %154, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211
 
 156:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i208
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %149)
-  %157 = load ptr, ptr %149, align 8, !tbaa !108
+  %157 = load ptr, ptr %149, align 8, !tbaa !109
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %159 = load ptr, ptr %158, align 8
   %160 = tail call noundef signext i8 %159(ptr noundef nonnull align 8 dereferenceable(570) %149, i8 noundef signext 10)
@@ -3777,7 +3777,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211: ; preds = %1
 
 163:                                              ; preds = %140
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 16
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %164, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %164, align 8, !tbaa !55
   %165 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, %.sroa.0378.04901015
   br i1 %165, label %188, label %166
 
@@ -3786,12 +3786,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211: ; preds = %1
 
 167:                                              ; preds = %166
   %168 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.49, i64 noundef 41)
-  %169 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %169 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %170 = getelementptr i8, ptr %169, i64 -24
   %171 = load i64, ptr %170, align 8
   %172 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 240
-  %174 = load ptr, ptr %173, align 8, !tbaa !110
+  %174 = load ptr, ptr %173, align 8, !tbaa !111
   %.not.i.i.i212 = icmp eq ptr %174, null
   br i1 %.not.i.i.i212, label %175, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i213
 
@@ -3801,18 +3801,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit211: ; preds = %1
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i213: ; preds = %167
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 56
-  %177 = load i8, ptr %176, align 8, !tbaa !125
+  %177 = load i8, ptr %176, align 8, !tbaa !126
   %.not.i1.i.i214 = icmp eq i8 %177, 0
   br i1 %.not.i1.i.i214, label %181, label %178
 
 178:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i213
   %179 = getelementptr inbounds nuw i8, ptr %174, i64 67
-  %180 = load i8, ptr %179, align 1, !tbaa !130
+  %180 = load i8, ptr %179, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216
 
 181:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i213
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %174)
-  %182 = load ptr, ptr %174, align 8, !tbaa !108
+  %182 = load ptr, ptr %174, align 8, !tbaa !109
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 48
   %184 = load ptr, ptr %183, align 8
   %185 = tail call noundef signext i8 %184(ptr noundef nonnull align 8 dereferenceable(570) %174, i8 noundef signext 10)
@@ -3828,12 +3828,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216: ; preds = %1
   br i1 %71, label %189, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %188
-  %.pre = load ptr, ptr %115, align 8, !tbaa !151
+  %.pre = load ptr, ptr %115, align 8, !tbaa !152
   br label %244
 
 189:                                              ; preds = %188
   %190 = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901015, i64 24
-  %.sroa.0.0.copyload.i.i.i133 = load ptr, ptr %190, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i.i133 = load ptr, ptr %190, align 8, !tbaa !54
   %.not426 = icmp eq ptr %.sroa.0.0.copyload.i.i.i133, null
   br i1 %.not426, label %191, label %195
 
@@ -3846,9 +3846,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216: ; preds = %1
   br label %.critedge.thread
 
 195:                                              ; preds = %189
-  %.sroa.0.0.copyload.i137 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i137 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !55
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i137, i64 24
-  %.sroa.0.0.copyload.i.i.i138 = load ptr, ptr %196, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i.i138 = load ptr, ptr %196, align 8, !tbaa !54
   %197 = icmp eq ptr %.sroa.0.0.copyload.i.i.i133, %.sroa.0.0.copyload.i.i.i138
   br i1 %197, label %.critedge109, label %198
 
@@ -3857,12 +3857,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216: ; preds = %1
 
 199:                                              ; preds = %198
   %200 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.51, i64 noundef 40)
-  %201 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %201 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %202 = getelementptr i8, ptr %201, i64 -24
   %203 = load i64, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %203
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 240
-  %206 = load ptr, ptr %205, align 8, !tbaa !110
+  %206 = load ptr, ptr %205, align 8, !tbaa !111
   %.not.i.i.i217 = icmp eq ptr %206, null
   br i1 %.not.i.i.i217, label %207, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i218
 
@@ -3872,18 +3872,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit216: ; preds = %1
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i218: ; preds = %199
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 56
-  %209 = load i8, ptr %208, align 8, !tbaa !125
+  %209 = load i8, ptr %208, align 8, !tbaa !126
   %.not.i1.i.i219 = icmp eq i8 %209, 0
   br i1 %.not.i1.i.i219, label %213, label %210
 
 210:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i218
   %211 = getelementptr inbounds nuw i8, ptr %206, i64 67
-  %212 = load i8, ptr %211, align 1, !tbaa !130
+  %212 = load i8, ptr %211, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221
 
 213:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i218
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %206)
-  %214 = load ptr, ptr %206, align 8, !tbaa !108
+  %214 = load ptr, ptr %206, align 8, !tbaa !109
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 48
   %216 = load ptr, ptr %215, align 8
   %217 = tail call noundef signext i8 %216(ptr noundef nonnull align 8 dereferenceable(570) %206, i8 noundef signext 10)
@@ -3896,9 +3896,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221: ; preds = %2
   br label %.critedge.thread
 
 .critedge109:                                     ; preds = %195
-  %.sroa.0.0.copyload.i.i.i142 = load ptr, ptr %115, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i142 = load ptr, ptr %115, align 8, !tbaa !56
   %220 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 32
-  %.sroa.0.0.copyload.i.i.i144 = load ptr, ptr %220, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i144 = load ptr, ptr %220, align 8, !tbaa !56
   %221 = icmp eq ptr %.sroa.0.0.copyload.i.i.i142, %.sroa.0.0.copyload.i.i.i144
   br i1 %221, label %244, label %222
 
@@ -3907,12 +3907,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221: ; preds = %2
 
 223:                                              ; preds = %222
   %224 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.53, i64 noundef 38)
-  %225 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %225 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %226 = getelementptr i8, ptr %225, i64 -24
   %227 = load i64, ptr %226, align 8
   %228 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 240
-  %230 = load ptr, ptr %229, align 8, !tbaa !110
+  %230 = load ptr, ptr %229, align 8, !tbaa !111
   %.not.i.i.i222 = icmp eq ptr %230, null
   br i1 %.not.i.i.i222, label %231, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i223
 
@@ -3922,18 +3922,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit221: ; preds = %2
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i223: ; preds = %223
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 56
-  %233 = load i8, ptr %232, align 8, !tbaa !125
+  %233 = load i8, ptr %232, align 8, !tbaa !126
   %.not.i1.i.i224 = icmp eq i8 %233, 0
   br i1 %.not.i1.i.i224, label %237, label %234
 
 234:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i223
   %235 = getelementptr inbounds nuw i8, ptr %230, i64 67
-  %236 = load i8, ptr %235, align 1, !tbaa !130
+  %236 = load i8, ptr %235, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226
 
 237:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i223
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %230)
-  %238 = load ptr, ptr %230, align 8, !tbaa !108
+  %238 = load ptr, ptr %230, align 8, !tbaa !109
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 48
   %240 = load ptr, ptr %239, align 8
   %241 = tail call noundef signext i8 %240(ptr noundef nonnull align 8 dereferenceable(570) %230, i8 noundef signext 10)
@@ -3952,9 +3952,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226: ; preds = %2
   %248 = zext i1 %247 to i64
   %spec.select = add i64 %.0894891016, %248
   %.sroa.0378.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0378.04901015, i64 48
-  %.sroa.0378.0 = load ptr, ptr %.sroa.0378.0.in, align 8, !tbaa !67
+  %.sroa.0378.0 = load ptr, ptr %.sroa.0378.0.in, align 8, !tbaa !68
   %.not422 = icmp eq ptr %.sroa.0378.0, %70
-  br i1 %.not422, label %.critedge, label %.lr.ph1018, !llvm.loop !178
+  br i1 %.not422, label %.critedge, label %.lr.ph1018, !llvm.loop !179
 
 .critedge:                                        ; preds = %244, %.lr.ph, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120
   %.0404485 = phi i64 [ 0, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit120 ], [ 0, %.lr.ph ], [ %246, %244 ]
@@ -3971,12 +3971,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226: ; preds = %2
   %249 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.54, i64 noundef 30)
   %250 = shl i64 %.089476767, 1
   %251 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %250)
-  %252 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %252 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %253 = getelementptr i8, ptr %252, i64 -24
   %254 = load i64, ptr %253, align 8
   %255 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %254
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 240
-  %257 = load ptr, ptr %256, align 8, !tbaa !110
+  %257 = load ptr, ptr %256, align 8, !tbaa !111
   %.not.i.i.i227 = icmp eq ptr %257, null
   br i1 %.not.i.i.i227, label %258, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i228
 
@@ -3986,18 +3986,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit226: ; preds = %2
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i228: ; preds = %.critedge.thread
   %259 = getelementptr inbounds nuw i8, ptr %257, i64 56
-  %260 = load i8, ptr %259, align 8, !tbaa !125
+  %260 = load i8, ptr %259, align 8, !tbaa !126
   %.not.i1.i.i229 = icmp eq i8 %260, 0
   br i1 %.not.i1.i.i229, label %264, label %261
 
 261:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i228
   %262 = getelementptr inbounds nuw i8, ptr %257, i64 67
-  %263 = load i8, ptr %262, align 1, !tbaa !130
+  %263 = load i8, ptr %262, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit231
 
 264:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i228
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %257)
-  %265 = load ptr, ptr %257, align 8, !tbaa !108
+  %265 = load ptr, ptr %257, align 8, !tbaa !109
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 48
   %267 = load ptr, ptr %266, align 8
   %268 = tail call noundef signext i8 %267(ptr noundef nonnull align 8 dereferenceable(570) %257, i8 noundef signext 10)
@@ -4013,21 +4013,21 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148:    ; preds = %.critedge
   br i1 %.1, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150
 
 271:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit231
-  %272 = load ptr, ptr %0, align 8, !tbaa !62
+  %272 = load ptr, ptr %0, align 8, !tbaa !63
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 48
-  %274 = load i64, ptr %273, align 8, !tbaa !69
+  %274 = load i64, ptr %273, align 8, !tbaa !70
   %.not = icmp ne i64 %.0404485765, %274
   %brmerge947.not = and i1 %.not, %1
   br i1 %brmerge947.not, label %275, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149
 
 275:                                              ; preds = %271
   %276 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.40, i64 noundef 26)
-  %277 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %277 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %278 = getelementptr i8, ptr %277, i64 -24
   %279 = load i64, ptr %278, align 8
   %280 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 240
-  %282 = load ptr, ptr %281, align 8, !tbaa !110
+  %282 = load ptr, ptr %281, align 8, !tbaa !111
   %.not.i.i.i232 = icmp eq ptr %282, null
   br i1 %.not.i.i.i232, label %283, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i233
 
@@ -4037,18 +4037,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit148:    ; preds = %.critedge
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i233: ; preds = %275
   %284 = getelementptr inbounds nuw i8, ptr %282, i64 56
-  %285 = load i8, ptr %284, align 8, !tbaa !125
+  %285 = load i8, ptr %284, align 8, !tbaa !126
   %.not.i1.i.i234 = icmp eq i8 %285, 0
   br i1 %.not.i1.i.i234, label %289, label %286
 
 286:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i233
   %287 = getelementptr inbounds nuw i8, ptr %282, i64 67
-  %288 = load i8, ptr %287, align 1, !tbaa !130
+  %288 = load i8, ptr %287, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit236
 
 289:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i233
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %282)
-  %290 = load ptr, ptr %282, align 8, !tbaa !108
+  %290 = load ptr, ptr %282, align 8, !tbaa !109
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 48
   %292 = load ptr, ptr %291, align 8
   %293 = tail call noundef signext i8 %292(ptr noundef nonnull align 8 dereferenceable(570) %282, i8 noundef signext 10)
@@ -4068,21 +4068,21 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149:    ; preds = %271, %_ZN4CGAL15Ver
   br i1 %296, label %297, label %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
 
 297:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149
-  %298 = load ptr, ptr %0, align 8, !tbaa !62
+  %298 = load ptr, ptr %0, align 8, !tbaa !63
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 80
-  %300 = load i64, ptr %299, align 8, !tbaa !179
+  %300 = load i64, ptr %299, align 8, !tbaa !180
   %.not97 = icmp ne i64 %.089476766787795810820, %300
   %brmerge949.not = and i1 %.not97, %1
   br i1 %brmerge949.not, label %301, label %_ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit
 
 301:                                              ; preds = %297
   %302 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.55, i64 noundef 33)
-  %303 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %303 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %304 = getelementptr i8, ptr %303, i64 -24
   %305 = load i64, ptr %304, align 8
   %306 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 240
-  %308 = load ptr, ptr %307, align 8, !tbaa !110
+  %308 = load ptr, ptr %307, align 8, !tbaa !111
   %.not.i.i.i237 = icmp eq ptr %308, null
   br i1 %.not.i.i.i237, label %309, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i238
 
@@ -4092,18 +4092,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149:    ; preds = %271, %_ZN4CGAL15Ver
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i238: ; preds = %301
   %310 = getelementptr inbounds nuw i8, ptr %308, i64 56
-  %311 = load i8, ptr %310, align 8, !tbaa !125
+  %311 = load i8, ptr %310, align 8, !tbaa !126
   %.not.i1.i.i239 = icmp eq i8 %311, 0
   br i1 %.not.i1.i.i239, label %315, label %312
 
 312:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i238
   %313 = getelementptr inbounds nuw i8, ptr %308, i64 67
-  %314 = load i8, ptr %313, align 1, !tbaa !130
+  %314 = load i8, ptr %313, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit241
 
 315:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i238
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %308)
-  %316 = load ptr, ptr %308, align 8, !tbaa !108
+  %316 = load ptr, ptr %308, align 8, !tbaa !109
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 48
   %318 = load ptr, ptr %317, align 8
   %319 = tail call noundef signext i8 %318(ptr noundef nonnull align 8 dereferenceable(570) %308, i8 noundef signext 10)
@@ -4120,9 +4120,9 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit150:    ; preds = %222, %198, %191, %1
   br i1 %322, label %.critedge115.thread.thread, label %675
 
 _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %297, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit241, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit149
-  %323 = load ptr, ptr %0, align 8, !tbaa !62
+  %323 = load ptr, ptr %0, align 8, !tbaa !63
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 48
-  %325 = load i64, ptr %324, align 8, !tbaa !69
+  %325 = load i64, ptr %324, align 8, !tbaa !70
   %326 = icmp eq i64 %.0404485764788793811818, %325
   br i1 %326, label %327, label %.critedge115.thread
 
@@ -4132,17 +4132,17 @@ _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %297, %_ZSt4endlIcSt
 
 .critedge111:                                     ; preds = %327
   %329 = getelementptr inbounds nuw i8, ptr %323, i64 80
-  %330 = load i64, ptr %329, align 8, !tbaa !179
+  %330 = load i64, ptr %329, align 8, !tbaa !180
   %331 = icmp eq i64 %.089476766787795810820, %330
   br i1 %331, label %.lr.ph535, label %.critedge115.thread.thread
 
 .lr.ph535:                                        ; preds = %327, %.critedge111
   %332 = phi i1 [ true, %.critedge111 ], [ %296, %327 ]
   %.in = getelementptr inbounds nuw i8, ptr %323, i64 16
-  %333 = load ptr, ptr %.in, align 8, !tbaa !83
+  %333 = load ptr, ptr %.in, align 8, !tbaa !84
   %334 = icmp sgt i32 %2, 1
   %.sroa.0340.0534.in1021 = getelementptr inbounds nuw i8, ptr %333, i64 40
-  %.sroa.0340.05341022 = load ptr, ptr %.sroa.0340.0534.in1021, align 8, !tbaa !94
+  %.sroa.0340.05341022 = load ptr, ptr %.sroa.0340.0534.in1021, align 8, !tbaa !95
   %.not4281023 = icmp eq ptr %.sroa.0340.05341022, %333
   br i1 %.not4281023, label %.critedge3, label %.lr.ph1027
 
@@ -4155,11 +4155,11 @@ _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %297, %_ZSt4endlIcSt
 335:                                              ; preds = %.lr.ph1027
   %336 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.56, i64 noundef 7)
   %337 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04115321025)
-  %338 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %338 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %339 = getelementptr i8, ptr %338, i64 -24
   %340 = load i64, ptr %339, align 8
   %gep537 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %340
-  %341 = load ptr, ptr %gep537, align 8, !tbaa !110
+  %341 = load ptr, ptr %gep537, align 8, !tbaa !111
   %.not.i.i.i242 = icmp eq ptr %341, null
   br i1 %.not.i.i.i242, label %342, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i243
 
@@ -4169,18 +4169,18 @@ _ZN4CGAL15Verbose_ostreamlsIA34_cEERS0_RKT_.exit: ; preds = %297, %_ZSt4endlIcSt
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i243: ; preds = %335
   %343 = getelementptr inbounds nuw i8, ptr %341, i64 56
-  %344 = load i8, ptr %343, align 8, !tbaa !125
+  %344 = load i8, ptr %343, align 8, !tbaa !126
   %.not.i1.i.i244 = icmp eq i8 %344, 0
   br i1 %.not.i1.i.i244, label %348, label %345
 
 345:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i243
   %346 = getelementptr inbounds nuw i8, ptr %341, i64 67
-  %347 = load i8, ptr %346, align 1, !tbaa !130
+  %347 = load i8, ptr %346, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit246
 
 348:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i243
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %341)
-  %349 = load ptr, ptr %341, align 8, !tbaa !108
+  %349 = load ptr, ptr %341, align 8, !tbaa !109
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 48
   %351 = load ptr, ptr %350, align 8
   %352 = tail call noundef signext i8 %351(ptr noundef nonnull align 8 dereferenceable(570) %341, i8 noundef signext 10)
@@ -4193,13 +4193,13 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit246: ; preds = %3
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152:    ; preds = %.lr.ph1027, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit246
-  %.sroa.0.0.copyload.i.i.i153 = load ptr, ptr %.sroa.0340.05341026, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i153 = load ptr, ptr %.sroa.0340.05341026, align 8, !tbaa !55
   %.not429 = icmp eq ptr %.sroa.0.0.copyload.i.i.i153, null
   br i1 %.not429, label %.thread, label %355
 
 355:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152
   %356 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i153, i64 24
-  %.sroa.0.0.copyload.i.i.i155 = load ptr, ptr %356, align 8, !tbaa !53
+  %.sroa.0.0.copyload.i.i.i155 = load ptr, ptr %356, align 8, !tbaa !54
   %357 = icmp eq ptr %.sroa.0.0.copyload.i.i.i155, %.sroa.0340.05341026
   br i1 %357, label %379, label %.thread
 
@@ -4208,12 +4208,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152:    ; preds = %.lr.ph1027, %_ZSt4e
 
 358:                                              ; preds = %.thread
   %359 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.57, i64 noundef 41)
-  %360 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %360 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %361 = getelementptr i8, ptr %360, i64 -24
   %362 = load i64, ptr %361, align 8
   %363 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %362
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 240
-  %365 = load ptr, ptr %364, align 8, !tbaa !110
+  %365 = load ptr, ptr %364, align 8, !tbaa !111
   %.not.i.i.i247 = icmp eq ptr %365, null
   br i1 %.not.i.i.i247, label %366, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i248
 
@@ -4223,18 +4223,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit152:    ; preds = %.lr.ph1027, %_ZSt4e
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i248: ; preds = %358
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 56
-  %368 = load i8, ptr %367, align 8, !tbaa !125
+  %368 = load i8, ptr %367, align 8, !tbaa !126
   %.not.i1.i.i249 = icmp eq i8 %368, 0
   br i1 %.not.i1.i.i249, label %372, label %369
 
 369:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i248
   %370 = getelementptr inbounds nuw i8, ptr %365, i64 67
-  %371 = load i8, ptr %370, align 1, !tbaa !130
+  %371 = load i8, ptr %370, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251
 
 372:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i248
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %365)
-  %373 = load ptr, ptr %365, align 8, !tbaa !108
+  %373 = load ptr, ptr %365, align 8, !tbaa !109
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 48
   %375 = load ptr, ptr %374, align 8
   %376 = tail call noundef signext i8 %375(ptr noundef nonnull align 8 dereferenceable(570) %365, i8 noundef signext 10)
@@ -4257,28 +4257,28 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit159.us: ; preds = %.preheader435, %.
   %.3407.us = phi i64 [ %402, %.critedge113.us ], [ %.14055331024, %.preheader435 ]
   %380 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.58, i64 noundef 13)
   %381 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.3407.us)
-  %382 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %382 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %383 = getelementptr i8, ptr %382, i64 -24
   %384 = load i64, ptr %383, align 8
   %gep502.us = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %384
-  %385 = load ptr, ptr %gep502.us, align 8, !tbaa !110
+  %385 = load ptr, ptr %gep502.us, align 8, !tbaa !111
   %.not.i.i.i252.us = icmp eq ptr %385, null
   br i1 %.not.i.i.i252.us, label %.split.us, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i253.us
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i253.us: ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit159.us
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 56
-  %387 = load i8, ptr %386, align 8, !tbaa !125
+  %387 = load i8, ptr %386, align 8, !tbaa !126
   %.not.i1.i.i254.us = icmp eq i8 %387, 0
   br i1 %.not.i1.i.i254.us, label %391, label %388
 
 388:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i253.us
   %389 = getelementptr inbounds nuw i8, ptr %385, i64 67
-  %390 = load i8, ptr %389, align 1, !tbaa !130
+  %390 = load i8, ptr %389, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit256.us
 
 391:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i253.us
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %385)
-  %392 = load ptr, ptr %385, align 8, !tbaa !108
+  %392 = load ptr, ptr %385, align 8, !tbaa !109
   %393 = getelementptr inbounds nuw i8, ptr %392, i64 48
   %394 = load ptr, ptr %393, align 8
   %395 = tail call noundef signext i8 %394(ptr noundef nonnull align 8 dereferenceable(570) %385, i8 noundef signext 10)
@@ -4288,24 +4288,24 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit256.us: ; preds =
   %.0.i.i.i255.us = phi i8 [ %390, %388 ], [ %395, %391 ]
   %396 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i255.us)
   %397 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %396)
-  %398 = load ptr, ptr %0, align 8, !tbaa !62
+  %398 = load ptr, ptr %0, align 8, !tbaa !63
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 48
-  %400 = load i64, ptr %399, align 8, !tbaa !69
+  %400 = load i64, ptr %399, align 8, !tbaa !70
   %401 = icmp ult i64 %.3407.us, %400
   br i1 %401, label %.critedge113.us, label %.split504.us
 
 .critedge113.us:                                  ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit256.us
   %402 = add i64 %.3407.us, 1
   %403 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0.us, i64 8
-  %.sroa.0.0.copyload.i161.us = load ptr, ptr %403, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i162.us = load ptr, ptr %.sroa.0.0.copyload.i161.us, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i161.us = load ptr, ptr %403, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i162.us = load ptr, ptr %.sroa.0.0.copyload.i161.us, align 8, !tbaa !55
   %.not434.us = icmp eq ptr %.sroa.0.0.copyload.i162.us, %.sroa.0.0.copyload.i.i.i153
-  br i1 %.not434.us, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit159.us, !llvm.loop !182
+  br i1 %.not434.us, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit159.us, !llvm.loop !183
 
 .preheader435.split.split.split:                  ; preds = %.preheader435
-  %404 = load ptr, ptr %0, align 8, !tbaa !62
+  %404 = load ptr, ptr %0, align 8, !tbaa !63
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 48
-  %406 = load i64, ptr %405, align 8, !tbaa !69
+  %406 = load i64, ptr %405, align 8, !tbaa !70
   br label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit
 
 _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit: ; preds = %.preheader435.split.split.split, %.critedge113
@@ -4323,11 +4323,11 @@ _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit: ; preds = %.preheader435.split
 
 408:                                              ; preds = %.split504.us
   %409 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.59, i64 noundef 39)
-  %410 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %410 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %411 = getelementptr i8, ptr %410, i64 -24
   %412 = load i64, ptr %411, align 8
   %gep539 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %412
-  %413 = load ptr, ptr %gep539, align 8, !tbaa !110
+  %413 = load ptr, ptr %gep539, align 8, !tbaa !111
   %.not.i.i.i257 = icmp eq ptr %413, null
   br i1 %.not.i.i.i257, label %414, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i258
 
@@ -4337,18 +4337,18 @@ _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit: ; preds = %.preheader435.split
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i258: ; preds = %408
   %415 = getelementptr inbounds nuw i8, ptr %413, i64 56
-  %416 = load i8, ptr %415, align 8, !tbaa !125
+  %416 = load i8, ptr %415, align 8, !tbaa !126
   %.not.i1.i.i259 = icmp eq i8 %416, 0
   br i1 %.not.i1.i.i259, label %420, label %417
 
 417:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i258
   %418 = getelementptr inbounds nuw i8, ptr %413, i64 67
-  %419 = load i8, ptr %418, align 1, !tbaa !130
+  %419 = load i8, ptr %418, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261
 
 420:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i258
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %413)
-  %421 = load ptr, ptr %413, align 8, !tbaa !108
+  %421 = load ptr, ptr %413, align 8, !tbaa !109
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 48
   %423 = load ptr, ptr %422, align 8
   %424 = tail call noundef signext i8 %423(ptr noundef nonnull align 8 dereferenceable(570) %413, i8 noundef signext 10)
@@ -4363,37 +4363,37 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261: ; preds = %4
 .critedge113:                                     ; preds = %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit
   %427 = add i64 %.3407, 1
   %428 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0, i64 8
-  %.sroa.0.0.copyload.i161 = load ptr, ptr %428, align 8, !tbaa !54
-  %.sroa.0.0.copyload.i162 = load ptr, ptr %.sroa.0.0.copyload.i161, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i161 = load ptr, ptr %428, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i162 = load ptr, ptr %.sroa.0.0.copyload.i161, align 8, !tbaa !55
   %.not434 = icmp eq ptr %.sroa.0.0.copyload.i162, %.sroa.0.0.copyload.i.i.i153
-  br i1 %.not434, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit, !llvm.loop !183
+  br i1 %.not434, label %.critedge7, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit, !llvm.loop !184
 
 .critedge7:                                       ; preds = %.critedge113, %.critedge113.us, %379
   %.2406 = phi i64 [ %.14055331024, %379 ], [ %402, %.critedge113.us ], [ %427, %.critedge113 ]
   %429 = add i64 %.04115321025, 1
   %.sroa.0340.0534.in = getelementptr inbounds nuw i8, ptr %.sroa.0340.05341026, i64 40
-  %.sroa.0340.0534 = load ptr, ptr %.sroa.0340.0534.in, align 8, !tbaa !94
+  %.sroa.0340.0534 = load ptr, ptr %.sroa.0340.0534.in, align 8, !tbaa !95
   %.not428 = icmp eq ptr %.sroa.0340.0534, %333
-  br i1 %.not428, label %.critedge3, label %.lr.ph1027, !llvm.loop !184
+  br i1 %.not428, label %.critedge3, label %.lr.ph1027, !llvm.loop !185
 
 .critedge3:                                       ; preds = %.critedge7, %.lr.ph535
   %.1405533.lcssa = phi i64 [ 0, %.lr.ph535 ], [ %.2406, %.critedge7 ]
   %.0411532.lcssa = phi i64 [ 0, %.lr.ph535 ], [ %429, %.critedge7 ]
-  %430 = load ptr, ptr %0, align 8, !tbaa !62
+  %430 = load ptr, ptr %0, align 8, !tbaa !63
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 24
-  %432 = load i64, ptr %431, align 8, !tbaa !74
+  %432 = load i64, ptr %431, align 8, !tbaa !75
   %.not98 = icmp ne i64 %.0411532.lcssa, %432
   %brmerge951.not = and i1 %.not98, %1
   br i1 %brmerge951.not, label %433, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165
 
 433:                                              ; preds = %.critedge3
   %434 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.60, i64 noundef 25)
-  %435 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %435 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %436 = getelementptr i8, ptr %435, i64 -24
   %437 = load i64, ptr %436, align 8
   %438 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %437
   %439 = getelementptr inbounds nuw i8, ptr %438, i64 240
-  %440 = load ptr, ptr %439, align 8, !tbaa !110
+  %440 = load ptr, ptr %439, align 8, !tbaa !111
   %.not.i.i.i262 = icmp eq ptr %440, null
   br i1 %.not.i.i.i262, label %441, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i263
 
@@ -4403,18 +4403,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261: ; preds = %4
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i263: ; preds = %433
   %442 = getelementptr inbounds nuw i8, ptr %440, i64 56
-  %443 = load i8, ptr %442, align 8, !tbaa !125
+  %443 = load i8, ptr %442, align 8, !tbaa !126
   %.not.i1.i.i264 = icmp eq i8 %443, 0
   br i1 %.not.i1.i.i264, label %447, label %444
 
 444:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i263
   %445 = getelementptr inbounds nuw i8, ptr %440, i64 67
-  %446 = load i8, ptr %445, align 1, !tbaa !130
+  %446 = load i8, ptr %445, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit266
 
 447:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i263
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %440)
-  %448 = load ptr, ptr %440, align 8, !tbaa !108
+  %448 = load ptr, ptr %440, align 8, !tbaa !109
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 48
   %450 = load ptr, ptr %449, align 8
   %451 = tail call noundef signext i8 %450(ptr noundef nonnull align 8 dereferenceable(570) %440, i8 noundef signext 10)
@@ -4430,21 +4430,21 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165:    ; preds = %.critedge3, %_ZSt4e
   br i1 %334, label %454, label %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166
 
 454:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165
-  %455 = load ptr, ptr %0, align 8, !tbaa !62
+  %455 = load ptr, ptr %0, align 8, !tbaa !63
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 48
-  %457 = load i64, ptr %456, align 8, !tbaa !69
+  %457 = load i64, ptr %456, align 8, !tbaa !70
   %.not99 = icmp ne i64 %.1405533.lcssa, %457
   %brmerge953.not = and i1 %.not99, %1
   br i1 %brmerge953.not, label %458, label %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166
 
 458:                                              ; preds = %454
   %459 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.61, i64 noundef 39)
-  %460 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %460 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %461 = getelementptr i8, ptr %460, i64 -24
   %462 = load i64, ptr %461, align 8
   %463 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %462
   %464 = getelementptr inbounds nuw i8, ptr %463, i64 240
-  %465 = load ptr, ptr %464, align 8, !tbaa !110
+  %465 = load ptr, ptr %464, align 8, !tbaa !111
   %.not.i.i.i267 = icmp eq ptr %465, null
   br i1 %.not.i.i.i267, label %466, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i268
 
@@ -4454,18 +4454,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165:    ; preds = %.critedge3, %_ZSt4e
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i268: ; preds = %458
   %467 = getelementptr inbounds nuw i8, ptr %465, i64 56
-  %468 = load i8, ptr %467, align 8, !tbaa !125
+  %468 = load i8, ptr %467, align 8, !tbaa !126
   %.not.i1.i.i269 = icmp eq i8 %468, 0
   br i1 %.not.i1.i.i269, label %472, label %469
 
 469:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i268
   %470 = getelementptr inbounds nuw i8, ptr %465, i64 67
-  %471 = load i8, ptr %470, align 1, !tbaa !130
+  %471 = load i8, ptr %470, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit271
 
 472:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i268
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %465)
-  %473 = load ptr, ptr %465, align 8, !tbaa !108
+  %473 = load ptr, ptr %465, align 8, !tbaa !109
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 48
   %475 = load ptr, ptr %474, align 8
   %476 = tail call noundef signext i8 %475(ptr noundef nonnull align 8 dereferenceable(570) %465, i8 noundef signext 10)
@@ -4478,9 +4478,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit271: ; preds = %4
   br label %_ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166
 
 _ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166: ; preds = %454, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit165, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit271
-  %479 = load ptr, ptr %0, align 8, !tbaa !62
+  %479 = load ptr, ptr %0, align 8, !tbaa !63
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 24
-  %481 = load i64, ptr %480, align 8, !tbaa !74
+  %481 = load i64, ptr %480, align 8, !tbaa !75
   %482 = icmp eq i64 %.0411532.lcssa, %481
   br i1 %482, label %483, label %.critedge115.thread
 
@@ -4494,18 +4494,18 @@ _ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166: ; preds = %454, %_ZN4CGAL15
 
 .critedge115:                                     ; preds = %483
   %485 = getelementptr inbounds nuw i8, ptr %479, i64 48
-  %486 = load i64, ptr %485, align 8, !tbaa !69
+  %486 = load i64, ptr %485, align 8, !tbaa !70
   %487 = icmp eq i64 %.1405533.lcssa, %486
   br i1 %487, label %.lr.ph575, label %.critedge119
 
 .lr.ph575:                                        ; preds = %483, %.critedge115
-  %.pn962 = load ptr, ptr %0, align 8, !tbaa !62
+  %.pn962 = load ptr, ptr %0, align 8, !tbaa !63
   %.in961 = getelementptr inbounds nuw i8, ptr %.pn962, i64 64
-  %488 = load ptr, ptr %.in961, align 8, !tbaa !145
+  %488 = load ptr, ptr %.in961, align 8, !tbaa !146
   %489 = getelementptr inbounds nuw i8, ptr %.sroa.0378.0467768786797809822, i64 32
   %490 = icmp slt i32 %2, 3
   %.sroa.0323.0574.in1030 = getelementptr inbounds nuw i8, ptr %488, i64 16
-  %.sroa.0323.05741031 = load ptr, ptr %.sroa.0323.0574.in1030, align 8, !tbaa !146
+  %.sroa.0323.05741031 = load ptr, ptr %.sroa.0323.0574.in1030, align 8, !tbaa !147
   %.not4311032 = icmp eq ptr %.sroa.0323.05741031, %488
   br i1 %.not4311032, label %.critedge11, label %.lr.ph1036
 
@@ -4518,11 +4518,11 @@ _ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166: ; preds = %454, %_ZN4CGAL15
 491:                                              ; preds = %.lr.ph1036
   %492 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.62, i64 noundef 5)
   %493 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.04125721034)
-  %494 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %494 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %495 = getelementptr i8, ptr %494, i64 -24
   %496 = load i64, ptr %495, align 8
   %gep577 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %496
-  %497 = load ptr, ptr %gep577, align 8, !tbaa !110
+  %497 = load ptr, ptr %gep577, align 8, !tbaa !111
   %.not.i.i.i272 = icmp eq ptr %497, null
   br i1 %.not.i.i.i272, label %498, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i273
 
@@ -4532,18 +4532,18 @@ _ZN4CGAL15Verbose_ostreamlsIA40_cEERS0_RKT_.exit166: ; preds = %454, %_ZN4CGAL15
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i273: ; preds = %491
   %499 = getelementptr inbounds nuw i8, ptr %497, i64 56
-  %500 = load i8, ptr %499, align 8, !tbaa !125
+  %500 = load i8, ptr %499, align 8, !tbaa !126
   %.not.i1.i.i274 = icmp eq i8 %500, 0
   br i1 %.not.i1.i.i274, label %504, label %501
 
 501:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i273
   %502 = getelementptr inbounds nuw i8, ptr %497, i64 67
-  %503 = load i8, ptr %502, align 1, !tbaa !130
+  %503 = load i8, ptr %502, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit276
 
 504:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i273
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %497)
-  %505 = load ptr, ptr %497, align 8, !tbaa !108
+  %505 = load ptr, ptr %497, align 8, !tbaa !109
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 48
   %507 = load ptr, ptr %506, align 8
   %508 = tail call noundef signext i8 %507(ptr noundef nonnull align 8 dereferenceable(570) %497, i8 noundef signext 10)
@@ -4556,18 +4556,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit276: ; preds = %5
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169:    ; preds = %.lr.ph1036, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit276
-  %.sroa.0.0.copyload.i.i.i170 = load ptr, ptr %.sroa.0323.05741035, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i.i.i170 = load ptr, ptr %.sroa.0323.05741035, align 8, !tbaa !55
   %.not432 = icmp eq ptr %.sroa.0.0.copyload.i.i.i170, null
   br i1 %.not432, label %514, label %511
 
 511:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169
   %512 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i170, i64 32
-  %.sroa.0.0.copyload.i.i.i172 = load ptr, ptr %512, align 8, !tbaa !55
+  %.sroa.0.0.copyload.i.i.i172 = load ptr, ptr %512, align 8, !tbaa !56
   %513 = icmp eq ptr %.sroa.0.0.copyload.i.i.i172, %.sroa.0323.05741035
   br i1 %513, label %539, label %517
 
 514:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169
-  %515 = load ptr, ptr %489, align 8, !tbaa !151
+  %515 = load ptr, ptr %489, align 8, !tbaa !152
   %516 = icmp eq ptr %515, null
   br i1 %516, label %.critedge15, label %517
 
@@ -4576,12 +4576,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169:    ; preds = %.lr.ph1036, %_ZSt4e
 
 518:                                              ; preds = %517
   %519 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.63, i64 noundef 39)
-  %520 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %520 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %521 = getelementptr i8, ptr %520, i64 -24
   %522 = load i64, ptr %521, align 8
   %523 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %522
   %524 = getelementptr inbounds nuw i8, ptr %523, i64 240
-  %525 = load ptr, ptr %524, align 8, !tbaa !110
+  %525 = load ptr, ptr %524, align 8, !tbaa !111
   %.not.i.i.i277 = icmp eq ptr %525, null
   br i1 %.not.i.i.i277, label %526, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i278
 
@@ -4591,18 +4591,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit169:    ; preds = %.lr.ph1036, %_ZSt4e
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i278: ; preds = %518
   %527 = getelementptr inbounds nuw i8, ptr %525, i64 56
-  %528 = load i8, ptr %527, align 8, !tbaa !125
+  %528 = load i8, ptr %527, align 8, !tbaa !126
   %.not.i1.i.i279 = icmp eq i8 %528, 0
   br i1 %.not.i1.i.i279, label %532, label %529
 
 529:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i278
   %530 = getelementptr inbounds nuw i8, ptr %525, i64 67
-  %531 = load i8, ptr %530, align 1, !tbaa !130
+  %531 = load i8, ptr %530, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281
 
 532:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i278
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %525)
-  %533 = load ptr, ptr %525, align 8, !tbaa !108
+  %533 = load ptr, ptr %525, align 8, !tbaa !109
   %534 = getelementptr inbounds nuw i8, ptr %533, i64 48
   %535 = load ptr, ptr %534, align 8
   %536 = tail call noundef signext i8 %535(ptr noundef nonnull align 8 dereferenceable(570) %525, i8 noundef signext 10)
@@ -4625,28 +4625,28 @@ _ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit177.us: ; preds = %.preheader, %.cri
   %.6410.us = phi i64 [ %562, %.critedge117.us ], [ %.44085731033, %.preheader ]
   %540 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.58, i64 noundef 13)
   %541 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %.6410.us)
-  %542 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %542 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %543 = getelementptr i8, ptr %542, i64 -24
   %544 = load i64, ptr %543, align 8
   %gep541.us = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %544
-  %545 = load ptr, ptr %gep541.us, align 8, !tbaa !110
+  %545 = load ptr, ptr %gep541.us, align 8, !tbaa !111
   %.not.i.i.i282.us = icmp eq ptr %545, null
   br i1 %.not.i.i.i282.us, label %.split.us542, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i283.us
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i283.us: ; preds = %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit177.us
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 56
-  %547 = load i8, ptr %546, align 8, !tbaa !125
+  %547 = load i8, ptr %546, align 8, !tbaa !126
   %.not.i1.i.i284.us = icmp eq i8 %547, 0
   br i1 %.not.i1.i.i284.us, label %551, label %548
 
 548:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i283.us
   %549 = getelementptr inbounds nuw i8, ptr %545, i64 67
-  %550 = load i8, ptr %549, align 1, !tbaa !130
+  %550 = load i8, ptr %549, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit286.us
 
 551:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i283.us
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %545)
-  %552 = load ptr, ptr %545, align 8, !tbaa !108
+  %552 = load ptr, ptr %545, align 8, !tbaa !109
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 48
   %554 = load ptr, ptr %553, align 8
   %555 = tail call noundef signext i8 %554(ptr noundef nonnull align 8 dereferenceable(570) %545, i8 noundef signext 10)
@@ -4656,23 +4656,23 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit286.us: ; preds =
   %.0.i.i.i285.us = phi i8 [ %550, %548 ], [ %555, %551 ]
   %556 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i285.us)
   %557 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %556)
-  %558 = load ptr, ptr %0, align 8, !tbaa !62
+  %558 = load ptr, ptr %0, align 8, !tbaa !63
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 48
-  %560 = load i64, ptr %559, align 8, !tbaa !69
+  %560 = load i64, ptr %559, align 8, !tbaa !70
   %561 = icmp ult i64 %.6410.us, %560
   br i1 %561, label %.critedge117.us, label %.split544.us
 
 .critedge117.us:                                  ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit286.us
   %562 = add i64 %.6410.us, 1
   %563 = getelementptr inbounds nuw i8, ptr %.sroa.0313.0.us, i64 8
-  %.sroa.0.0.copyload.i179.us = load ptr, ptr %563, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i179.us = load ptr, ptr %563, align 8, !tbaa !55
   %.not433.us = icmp eq ptr %.sroa.0.0.copyload.i179.us, %.sroa.0.0.copyload.i.i.i170
-  br i1 %.not433.us, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit177.us, !llvm.loop !185
+  br i1 %.not433.us, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsImEERS0_RKT_.exit177.us, !llvm.loop !186
 
 .preheader.split.split.split:                     ; preds = %.preheader
-  %564 = load ptr, ptr %0, align 8, !tbaa !62
+  %564 = load ptr, ptr %0, align 8, !tbaa !63
   %565 = getelementptr inbounds nuw i8, ptr %564, i64 48
-  %566 = load i64, ptr %565, align 8, !tbaa !69
+  %566 = load i64, ptr %565, align 8, !tbaa !70
   br label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176
 
 _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176: ; preds = %.preheader.split.split.split, %.critedge117
@@ -4690,11 +4690,11 @@ _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176: ; preds = %.preheader.split
 
 568:                                              ; preds = %.split544.us
   %569 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.64, i64 noundef 36)
-  %570 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %570 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %571 = getelementptr i8, ptr %570, i64 -24
   %572 = load i64, ptr %571, align 8
   %gep579 = getelementptr i8, ptr getelementptr inbounds nuw (i8, ptr @_ZSt4cerr, i64 240), i64 %572
-  %573 = load ptr, ptr %gep579, align 8, !tbaa !110
+  %573 = load ptr, ptr %gep579, align 8, !tbaa !111
   %.not.i.i.i287 = icmp eq ptr %573, null
   br i1 %.not.i.i.i287, label %574, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i288
 
@@ -4704,18 +4704,18 @@ _ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176: ; preds = %.preheader.split
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i288: ; preds = %568
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 56
-  %576 = load i8, ptr %575, align 8, !tbaa !125
+  %576 = load i8, ptr %575, align 8, !tbaa !126
   %.not.i1.i.i289 = icmp eq i8 %576, 0
   br i1 %.not.i1.i.i289, label %580, label %577
 
 577:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i288
   %578 = getelementptr inbounds nuw i8, ptr %573, i64 67
-  %579 = load i8, ptr %578, align 1, !tbaa !130
+  %579 = load i8, ptr %578, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291
 
 580:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i288
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %573)
-  %581 = load ptr, ptr %573, align 8, !tbaa !108
+  %581 = load ptr, ptr %573, align 8, !tbaa !109
   %582 = getelementptr inbounds nuw i8, ptr %581, i64 48
   %583 = load ptr, ptr %582, align 8
   %584 = tail call noundef signext i8 %583(ptr noundef nonnull align 8 dereferenceable(570) %573, i8 noundef signext 10)
@@ -4730,36 +4730,36 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
 .critedge117:                                     ; preds = %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176
   %587 = add i64 %.6410, 1
   %588 = getelementptr inbounds nuw i8, ptr %.sroa.0313.0, i64 8
-  %.sroa.0.0.copyload.i179 = load ptr, ptr %588, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i179 = load ptr, ptr %588, align 8, !tbaa !55
   %.not433 = icmp eq ptr %.sroa.0.0.copyload.i179, %.sroa.0.0.copyload.i.i.i170
-  br i1 %.not433, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176, !llvm.loop !186
+  br i1 %.not433, label %.critedge15, label %_ZN4CGAL15Verbose_ostreamlsIA14_cEERS0_RKT_.exit176, !llvm.loop !187
 
 .critedge15:                                      ; preds = %.critedge117, %.critedge117.us, %514, %539
   %.5409 = phi i64 [ %.44085731033, %539 ], [ %.44085731033, %514 ], [ %562, %.critedge117.us ], [ %587, %.critedge117 ]
   %589 = add i64 %.04125721034, 1
   %.sroa.0323.0574.in = getelementptr inbounds nuw i8, ptr %.sroa.0323.05741035, i64 16
-  %.sroa.0323.0574 = load ptr, ptr %.sroa.0323.0574.in, align 8, !tbaa !146
+  %.sroa.0323.0574 = load ptr, ptr %.sroa.0323.0574.in, align 8, !tbaa !147
   %.not431 = icmp eq ptr %.sroa.0323.0574, %488
-  br i1 %.not431, label %.critedge11, label %.lr.ph1036, !llvm.loop !187
+  br i1 %.not431, label %.critedge11, label %.lr.ph1036, !llvm.loop !188
 
 .critedge11:                                      ; preds = %.critedge15, %.lr.ph575
   %.4408573.lcssa = phi i64 [ 0, %.lr.ph575 ], [ %.5409, %.critedge15 ]
   %.0412572.lcssa = phi i64 [ 0, %.lr.ph575 ], [ %589, %.critedge15 ]
-  %590 = load ptr, ptr %0, align 8, !tbaa !62
+  %590 = load ptr, ptr %0, align 8, !tbaa !63
   %591 = getelementptr inbounds nuw i8, ptr %590, i64 72
-  %592 = load i64, ptr %591, align 8, !tbaa !77
+  %592 = load i64, ptr %591, align 8, !tbaa !78
   %.not100 = icmp ne i64 %.0412572.lcssa, %592
   %brmerge955.not = and i1 %.not100, %1
   br i1 %brmerge955.not, label %593, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182
 
 593:                                              ; preds = %.critedge11
   %594 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.65, i64 noundef 22)
-  %595 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %595 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %596 = getelementptr i8, ptr %595, i64 -24
   %597 = load i64, ptr %596, align 8
   %598 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %597
   %599 = getelementptr inbounds nuw i8, ptr %598, i64 240
-  %600 = load ptr, ptr %599, align 8, !tbaa !110
+  %600 = load ptr, ptr %599, align 8, !tbaa !111
   %.not.i.i.i292 = icmp eq ptr %600, null
   br i1 %.not.i.i.i292, label %601, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i293
 
@@ -4769,18 +4769,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291: ; preds = %5
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i293: ; preds = %593
   %602 = getelementptr inbounds nuw i8, ptr %600, i64 56
-  %603 = load i8, ptr %602, align 8, !tbaa !125
+  %603 = load i8, ptr %602, align 8, !tbaa !126
   %.not.i1.i.i294 = icmp eq i8 %603, 0
   br i1 %.not.i1.i.i294, label %607, label %604
 
 604:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i293
   %605 = getelementptr inbounds nuw i8, ptr %600, i64 67
-  %606 = load i8, ptr %605, align 1, !tbaa !130
+  %606 = load i8, ptr %605, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit296
 
 607:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i293
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %600)
-  %608 = load ptr, ptr %600, align 8, !tbaa !108
+  %608 = load ptr, ptr %600, align 8, !tbaa !109
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 48
   %610 = load ptr, ptr %609, align 8
   %611 = tail call noundef signext i8 %610(ptr noundef nonnull align 8 dereferenceable(570) %600, i8 noundef signext 10)
@@ -4798,21 +4798,21 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182:    ; preds = %.critedge11, %_ZSt4
 
 615:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182
   %616 = add i64 %.4408573.lcssa, %.089476766787795810820
-  %617 = load ptr, ptr %0, align 8, !tbaa !62
+  %617 = load ptr, ptr %0, align 8, !tbaa !63
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 48
-  %619 = load i64, ptr %618, align 8, !tbaa !69
+  %619 = load i64, ptr %618, align 8, !tbaa !70
   %.not101 = icmp ne i64 %616, %619
   %brmerge957.not = and i1 %.not101, %1
   br i1 %brmerge957.not, label %620, label %_ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183
 
 620:                                              ; preds = %615
   %621 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.66, i64 noundef 36)
-  %622 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %622 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %623 = getelementptr i8, ptr %622, i64 -24
   %624 = load i64, ptr %623, align 8
   %625 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %624
   %626 = getelementptr inbounds nuw i8, ptr %625, i64 240
-  %627 = load ptr, ptr %626, align 8, !tbaa !110
+  %627 = load ptr, ptr %626, align 8, !tbaa !111
   %.not.i.i.i297 = icmp eq ptr %627, null
   br i1 %.not.i.i.i297, label %628, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i298
 
@@ -4822,18 +4822,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182:    ; preds = %.critedge11, %_ZSt4
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i298: ; preds = %620
   %629 = getelementptr inbounds nuw i8, ptr %627, i64 56
-  %630 = load i8, ptr %629, align 8, !tbaa !125
+  %630 = load i8, ptr %629, align 8, !tbaa !126
   %.not.i1.i.i299 = icmp eq i8 %630, 0
   br i1 %.not.i1.i.i299, label %634, label %631
 
 631:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i298
   %632 = getelementptr inbounds nuw i8, ptr %627, i64 67
-  %633 = load i8, ptr %632, align 1, !tbaa !130
+  %633 = load i8, ptr %632, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit301
 
 634:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i298
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %627)
-  %635 = load ptr, ptr %627, align 8, !tbaa !108
+  %635 = load ptr, ptr %627, align 8, !tbaa !109
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 48
   %637 = load ptr, ptr %636, align 8
   %638 = tail call noundef signext i8 %637(ptr noundef nonnull align 8 dereferenceable(570) %627, i8 noundef signext 10)
@@ -4846,9 +4846,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit301: ; preds = %6
   br label %_ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183
 
 _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %615, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit182, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit301
-  %641 = load ptr, ptr %0, align 8, !tbaa !62
+  %641 = load ptr, ptr %0, align 8, !tbaa !63
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 72
-  %643 = load i64, ptr %642, align 8, !tbaa !77
+  %643 = load i64, ptr %642, align 8, !tbaa !78
   %644 = icmp ne i64 %.0412572.lcssa, %643
   %brmerge959 = or i1 %644, %490
   %not. = xor i1 %644, true
@@ -4857,7 +4857,7 @@ _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %615, %_ZN4CGAL15
 645:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183
   %646 = add i64 %.4408573.lcssa, %.089476766787795810820
   %647 = getelementptr inbounds nuw i8, ptr %641, i64 48
-  %648 = load i64, ptr %647, align 8, !tbaa !69
+  %648 = load i64, ptr %647, align 8, !tbaa !70
   %649 = icmp eq i64 %646, %648
   br i1 %332, label %.critedge115.thread.thread, label %675
 
@@ -4872,12 +4872,12 @@ _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %615, %_ZN4CGAL15
 .thread858:                                       ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291, %.critedge115.thread.thread
   %652 = phi i1 [ %651, %.critedge115.thread.thread ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit291 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit281 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit251 ], [ false, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit261 ]
   %653 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.67, i64 noundef 52)
-  %654 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %654 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %655 = getelementptr i8, ptr %654, i64 -24
   %656 = load i64, ptr %655, align 8
   %657 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %656
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 240
-  %659 = load ptr, ptr %658, align 8, !tbaa !110
+  %659 = load ptr, ptr %658, align 8, !tbaa !111
   %.not.i.i.i302 = icmp eq ptr %659, null
   br i1 %.not.i.i.i302, label %660, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i303
 
@@ -4887,18 +4887,18 @@ _ZN4CGAL15Verbose_ostreamlsIA37_cEERS0_RKT_.exit183: ; preds = %615, %_ZN4CGAL15
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i303: ; preds = %.thread858
   %661 = getelementptr inbounds nuw i8, ptr %659, i64 56
-  %662 = load i8, ptr %661, align 8, !tbaa !125
+  %662 = load i8, ptr %661, align 8, !tbaa !126
   %.not.i1.i.i304 = icmp eq i8 %662, 0
   br i1 %.not.i1.i.i304, label %666, label %663
 
 663:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i303
   %664 = getelementptr inbounds nuw i8, ptr %659, i64 67
-  %665 = load i8, ptr %664, align 1, !tbaa !130
+  %665 = load i8, ptr %664, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit306
 
 666:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i303
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %659)
-  %667 = load ptr, ptr %659, align 8, !tbaa !108
+  %667 = load ptr, ptr %659, align 8, !tbaa !109
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 48
   %669 = load ptr, ptr %668, align 8
   %670 = tail call noundef signext i8 %669(ptr noundef nonnull align 8 dereferenceable(570) %659, i8 noundef signext 10)
@@ -4938,12 +4938,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185:    ; preds = %.critedge115.thread
   %.13863871876 = phi i1 [ true, %676 ], [ false, %678 ], [ false, %.sink.split ]
   %682 = phi i64 [ 6, %676 ], [ 10, %678 ], [ 10, %.sink.split ]
   %683 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %681, i64 noundef %682)
-  %684 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %684 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %685 = getelementptr i8, ptr %684, i64 -24
   %686 = load i64, ptr %685, align 8
   %687 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %686
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 240
-  %689 = load ptr, ptr %688, align 8, !tbaa !110
+  %689 = load ptr, ptr %688, align 8, !tbaa !111
   %.not.i.i.i307 = icmp eq ptr %689, null
   br i1 %.not.i.i.i307, label %690, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i308
 
@@ -4953,18 +4953,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit185:    ; preds = %.critedge115.thread
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i308: ; preds = %680
   %691 = getelementptr inbounds nuw i8, ptr %689, i64 56
-  %692 = load i8, ptr %691, align 8, !tbaa !125
+  %692 = load i8, ptr %691, align 8, !tbaa !126
   %.not.i1.i.i309 = icmp eq i8 %692, 0
   br i1 %.not.i1.i.i309, label %696, label %693
 
 693:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i308
   %694 = getelementptr inbounds nuw i8, ptr %689, i64 67
-  %695 = load i8, ptr %694, align 1, !tbaa !130
+  %695 = load i8, ptr %694, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit311
 
 696:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i308
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %689)
-  %697 = load ptr, ptr %689, align 8, !tbaa !108
+  %697 = load ptr, ptr %689, align 8, !tbaa !109
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 48
   %699 = load ptr, ptr %698, align 8
   %700 = tail call noundef signext i8 %699(ptr noundef nonnull align 8 dereferenceable(570) %689, i8 noundef signext 10)
@@ -4989,12 +4989,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL26HalfedgeDS_const_de
 
 3:                                                ; preds = %2
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.69, i64 noundef 84)
-  %5 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %5 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %6 = getelementptr i8, ptr %5, i64 -24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 240
-  %10 = load ptr, ptr %9, align 8, !tbaa !110
+  %10 = load ptr, ptr %9, align 8, !tbaa !111
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %11, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
 
@@ -5004,18 +5004,18 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4CGAL26HalfedgeDS_const_de
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i: ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %13 = load i8, ptr %12, align 8, !tbaa !125
+  %13 = load i8, ptr %12, align 8, !tbaa !126
   %.not.i1.i.i = icmp eq i8 %13, 0
   br i1 %.not.i1.i.i, label %17, label %14
 
 14:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 67
-  %16 = load i8, ptr %15, align 1, !tbaa !130
+  %16 = load i8, ptr %15, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
 
 17:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %10)
-  %18 = load ptr, ptr %10, align 8, !tbaa !108
+  %18 = load ptr, ptr %10, align 8, !tbaa !109
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef signext i8 %20(ptr noundef nonnull align 8 dereferenceable(570) %10, i8 noundef signext 10)
@@ -5028,11 +5028,11 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %14, 
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit:       ; preds = %2, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  %24 = load ptr, ptr %0, align 8, !tbaa !62
+  %24 = load ptr, ptr %0, align 8, !tbaa !63
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %26 = load ptr, ptr %25, align 8, !tbaa !64
+  %26 = load ptr, ptr %25, align 8, !tbaa !65
   %.sroa.066.0.in152 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %.sroa.066.0153 = load ptr, ptr %.sroa.066.0.in152, align 8, !tbaa !67
+  %.sroa.066.0153 = load ptr, ptr %.sroa.066.0.in152, align 8, !tbaa !68
   %.not154 = icmp eq ptr %.sroa.066.0153, %26
   br i1 %.not154, label %.critedge, label %.lr.ph
 
@@ -5040,25 +5040,25 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit:       ; preds = %2, %_ZSt4endlIcSt11
   %.sroa.066.0156 = phi ptr [ %.sroa.066.0, %34 ], [ %.sroa.066.0153, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit ]
   %storemerge155 = phi i64 [ %37, %34 ], [ 0, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit ]
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.066.0156, i64 32
-  %28 = load ptr, ptr %27, align 8, !tbaa !151
+  %28 = load ptr, ptr %27, align 8, !tbaa !152
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.critedge, label %30
 
 30:                                               ; preds = %.lr.ph
-  %.sroa.0.0.copyload.i = load ptr, ptr %.sroa.066.0156, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i = load ptr, ptr %.sroa.066.0156, align 8, !tbaa !55
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 32
-  %32 = load ptr, ptr %31, align 8, !tbaa !151
+  %32 = load ptr, ptr %31, align 8, !tbaa !152
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.critedge, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.066.0156, i64 48
-  %36 = load ptr, ptr %35, align 8, !tbaa !67, !nonnull !48, !noundef !48
+  %36 = load ptr, ptr %35, align 8, !tbaa !68, !nonnull !49, !noundef !49
   %37 = add i64 %storemerge155, 1
   %.sroa.066.0.in = getelementptr inbounds nuw i8, ptr %36, i64 48
-  %.sroa.066.0 = load ptr, ptr %.sroa.066.0.in, align 8, !tbaa !67
+  %.sroa.066.0 = load ptr, ptr %.sroa.066.0.in, align 8, !tbaa !68
   %.not = icmp eq ptr %.sroa.066.0, %26
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !188
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !189
 
 .critedge:                                        ; preds = %30, %34, %.lr.ph, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit
   %storemerge.lcssa = phi i64 [ 0, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit ], [ %storemerge155, %.lr.ph ], [ %37, %34 ], [ %storemerge155, %30 ]
@@ -5068,12 +5068,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit:       ; preds = %2, %_ZSt4endlIcSt11
 38:                                               ; preds = %.critedge
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.70, i64 noundef 22)
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %storemerge.lcssa)
-  %41 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %41 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %42 = getelementptr i8, ptr %41, i64 -24
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 240
-  %46 = load ptr, ptr %45, align 8, !tbaa !110
+  %46 = load ptr, ptr %45, align 8, !tbaa !111
   %.not.i.i.i21 = icmp eq ptr %46, null
   br i1 %.not.i.i.i21, label %47, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i22
 
@@ -5083,18 +5083,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit:       ; preds = %2, %_ZSt4endlIcSt11
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i22: ; preds = %38
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %49 = load i8, ptr %48, align 8, !tbaa !125
+  %49 = load i8, ptr %48, align 8, !tbaa !126
   %.not.i1.i.i23 = icmp eq i8 %49, 0
   br i1 %.not.i1.i.i23, label %53, label %50
 
 50:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i22
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 67
-  %52 = load i8, ptr %51, align 1, !tbaa !130
+  %52 = load i8, ptr %51, align 1, !tbaa !131
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7
 
 53:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i22
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %46)
-  %54 = load ptr, ptr %46, align 8, !tbaa !108
+  %54 = load ptr, ptr %46, align 8, !tbaa !109
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef signext i8 %56(ptr noundef nonnull align 8 dereferenceable(570) %46, i8 noundef signext 10)
@@ -5104,20 +5104,20 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7:      ; preds = %53, %50
   %.0.i.i.i24 = phi i8 [ %52, %50 ], [ %57, %53 ]
   %58 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i24)
   %59 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %58)
-  %60 = load ptr, ptr %0, align 8, !tbaa !62
+  %60 = load ptr, ptr %0, align 8, !tbaa !63
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 96
-  %.sroa.0.0.copyload.i8 = load ptr, ptr %61, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i8 = load ptr, ptr %61, align 8, !tbaa !55
   %.not148 = icmp eq ptr %.sroa.066.0.lcssa, %.sroa.0.0.copyload.i8
   br i1 %.not148, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7..preheader_crit_edge, label %64
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7..preheader_crit_edge: ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %60, i64 40
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !64
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !65
   br label %.preheader
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7.thread: ; preds = %.critedge
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 96
-  %.sroa.0.0.copyload.i8122 = load ptr, ptr %62, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i8122 = load ptr, ptr %62, align 8, !tbaa !55
   %.not147 = icmp eq ptr %.sroa.066.0.lcssa, %.sroa.0.0.copyload.i8122
   br i1 %.not147, label %.preheader, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit20
 
@@ -5128,12 +5128,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7.thread: ; preds = %.critedge
 
 64:                                               ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7
   %65 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.71, i64 noundef 64)
-  %66 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %66 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %67 = getelementptr i8, ptr %66, i64 -24
   %68 = load i64, ptr %67, align 8
   %69 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 240
-  %71 = load ptr, ptr %70, align 8, !tbaa !110
+  %71 = load ptr, ptr %70, align 8, !tbaa !111
   %.not.i.i.i26 = icmp eq ptr %71, null
   br i1 %.not.i.i.i26, label %72, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27
 
@@ -5143,18 +5143,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit7.thread: ; preds = %.critedge
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27: ; preds = %64
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  %74 = load i8, ptr %73, align 8, !tbaa !125
+  %74 = load i8, ptr %73, align 8, !tbaa !126
   %.not.i1.i.i28 = icmp eq i8 %74, 0
   br i1 %.not.i1.i.i28, label %78, label %75
 
 75:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 67
-  %77 = load i8, ptr %76, align 1, !tbaa !130
+  %77 = load i8, ptr %76, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30
 
 78:                                               ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %71)
-  %79 = load ptr, ptr %71, align 8, !tbaa !108
+  %79 = load ptr, ptr %71, align 8, !tbaa !109
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef signext i8 %81(ptr noundef nonnull align 8 dereferenceable(570) %71, i8 noundef signext 10)
@@ -5163,20 +5163,20 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27: ; preds = %64
 .lr.ph167:                                        ; preds = %.preheader, %86
   %storemerge6166 = phi i64 [ %91, %86 ], [ 0, %.preheader ]
   %.sroa.066.1165 = phi ptr [ %90, %86 ], [ %.sroa.066.0.lcssa, %.preheader ]
-  %.sroa.0.0.copyload.i10 = load ptr, ptr %.sroa.066.1165, align 8, !tbaa !54
+  %.sroa.0.0.copyload.i10 = load ptr, ptr %.sroa.066.1165, align 8, !tbaa !55
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i10, i64 32
-  %84 = load ptr, ptr %83, align 8, !tbaa !151
+  %84 = load ptr, ptr %83, align 8, !tbaa !152
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %.critedge2
 
 86:                                               ; preds = %.lr.ph167
   %87 = getelementptr inbounds nuw i8, ptr %.sroa.066.1165, i64 48
-  %88 = load ptr, ptr %87, align 8, !tbaa !67, !nonnull !48, !noundef !48
+  %88 = load ptr, ptr %87, align 8, !tbaa !68, !nonnull !49, !noundef !49
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
-  %90 = load ptr, ptr %89, align 8, !tbaa !67
+  %90 = load ptr, ptr %89, align 8, !tbaa !68
   %91 = add i64 %storemerge6166, 1
   %.not149 = icmp eq ptr %90, %63
-  br i1 %.not149, label %.critedge2, label %.lr.ph167, !llvm.loop !189
+  br i1 %.not149, label %.critedge2, label %.lr.ph167, !llvm.loop !190
 
 .critedge2:                                       ; preds = %.lr.ph167, %86, %.preheader
   %.sroa.066.1.lcssa = phi ptr [ %.sroa.066.0.lcssa, %.preheader ], [ %90, %86 ], [ %.sroa.066.1165, %.lr.ph167 ]
@@ -5186,12 +5186,12 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27: ; preds = %64
 92:                                               ; preds = %.critedge2
   %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.72, i64 noundef 22)
   %94 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %storemerge6.lcssa)
-  %95 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %95 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %96 = getelementptr i8, ptr %95, i64 -24
   %97 = load i64, ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 240
-  %100 = load ptr, ptr %99, align 8, !tbaa !110
+  %100 = load ptr, ptr %99, align 8, !tbaa !111
   %.not.i.i.i31 = icmp eq ptr %100, null
   br i1 %.not.i.i.i31, label %101, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32
 
@@ -5201,18 +5201,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i27: ; preds = %64
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32: ; preds = %92
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 56
-  %103 = load i8, ptr %102, align 8, !tbaa !125
+  %103 = load i8, ptr %102, align 8, !tbaa !126
   %.not.i1.i.i33 = icmp eq i8 %103, 0
   br i1 %.not.i1.i.i33, label %107, label %104
 
 104:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32
   %105 = getelementptr inbounds nuw i8, ptr %100, i64 67
-  %106 = load i8, ptr %105, align 1, !tbaa !130
+  %106 = load i8, ptr %105, align 1, !tbaa !131
   br label %112
 
 107:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %100)
-  %108 = load ptr, ptr %100, align 8, !tbaa !108
+  %108 = load ptr, ptr %100, align 8, !tbaa !109
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %110 = load ptr, ptr %109, align 8
   %111 = tail call noundef signext i8 %110(ptr noundef nonnull align 8 dereferenceable(570) %100, i8 noundef signext 10)
@@ -5223,17 +5223,17 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32: ; preds = %92
   %113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i34)
   %114 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %113)
   %115 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.73, i64 noundef 22)
-  %116 = load ptr, ptr %0, align 8, !tbaa !62
+  %116 = load ptr, ptr %0, align 8, !tbaa !63
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 48
-  %118 = load i64, ptr %117, align 8, !tbaa !69
+  %118 = load i64, ptr %117, align 8, !tbaa !70
   %119 = lshr i64 %118, 1
   %120 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %119)
-  %121 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %121 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %122 = getelementptr i8, ptr %121, i64 -24
   %123 = load i64, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 240
-  %126 = load ptr, ptr %125, align 8, !tbaa !110
+  %126 = load ptr, ptr %125, align 8, !tbaa !111
   %.not.i.i.i36 = icmp eq ptr %126, null
   br i1 %.not.i.i.i36, label %127, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i37
 
@@ -5243,18 +5243,18 @@ _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i32: ; preds = %92
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i37: ; preds = %112
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 56
-  %129 = load i8, ptr %128, align 8, !tbaa !125
+  %129 = load i8, ptr %128, align 8, !tbaa !126
   %.not.i1.i.i38 = icmp eq i8 %129, 0
   br i1 %.not.i1.i.i38, label %133, label %130
 
 130:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i37
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 67
-  %132 = load i8, ptr %131, align 1, !tbaa !130
+  %132 = load i8, ptr %131, align 1, !tbaa !131
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16
 
 133:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i37
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %126)
-  %134 = load ptr, ptr %126, align 8, !tbaa !108
+  %134 = load ptr, ptr %126, align 8, !tbaa !109
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %136 = load ptr, ptr %135, align 8
   %137 = tail call noundef signext i8 %136(ptr noundef nonnull align 8 dereferenceable(570) %126, i8 noundef signext 10)
@@ -5264,9 +5264,9 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16:     ; preds = %133, %130
   %.0.i.i.i39 = phi i8 [ %132, %130 ], [ %137, %133 ]
   %138 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i8 noundef signext %.0.i.i.i39)
   %139 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %138)
-  %140 = load ptr, ptr %0, align 8, !tbaa !62
+  %140 = load ptr, ptr %0, align 8, !tbaa !63
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
-  %142 = load ptr, ptr %141, align 8, !tbaa !64
+  %142 = load ptr, ptr %141, align 8, !tbaa !65
   %.not151 = icmp eq ptr %.sroa.066.1.lcssa, %142
   br i1 %.not151, label %190, label %143
 
@@ -5276,7 +5276,7 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16.thread: ; preds = %.critedge2
 
 143:                                              ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.066.1.lcssa, i64 32
-  %145 = load ptr, ptr %144, align 8, !tbaa !151
+  %145 = load ptr, ptr %144, align 8, !tbaa !152
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit18
 
@@ -5284,12 +5284,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16.thread: ; preds = %.critedge2
   %148 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.74, i64 noundef 16)
   %149 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, i64 noundef %storemerge6.lcssa)
   %150 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.75, i64 noundef 20)
-  %151 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %151 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %152 = getelementptr i8, ptr %151, i64 -24
   %153 = load i64, ptr %152, align 8
   %154 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 240
-  %156 = load ptr, ptr %155, align 8, !tbaa !110
+  %156 = load ptr, ptr %155, align 8, !tbaa !111
   %.not.i.i.i41 = icmp eq ptr %156, null
   br i1 %.not.i.i.i41, label %157, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i42
 
@@ -5299,18 +5299,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16.thread: ; preds = %.critedge2
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i42: ; preds = %147
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 56
-  %159 = load i8, ptr %158, align 8, !tbaa !125
+  %159 = load i8, ptr %158, align 8, !tbaa !126
   %.not.i1.i.i43 = icmp eq i8 %159, 0
   br i1 %.not.i1.i.i43, label %163, label %160
 
 160:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i42
   %161 = getelementptr inbounds nuw i8, ptr %156, i64 67
-  %162 = load i8, ptr %161, align 1, !tbaa !130
+  %162 = load i8, ptr %161, align 1, !tbaa !131
   br label %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit18.thread
 
 163:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i42
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %156)
-  %164 = load ptr, ptr %156, align 8, !tbaa !108
+  %164 = load ptr, ptr %156, align 8, !tbaa !109
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 48
   %166 = load ptr, ptr %165, align 8
   %167 = tail call noundef signext i8 %166(ptr noundef nonnull align 8 dereferenceable(570) %156, i8 noundef signext 10)
@@ -5324,12 +5324,12 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit18.thread: ; preds = %163, %160
 
 _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit18:     ; preds = %143, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit18.thread
   %170 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.76, i64 noundef 52)
-  %171 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %171 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %172 = getelementptr i8, ptr %171, i64 -24
   %173 = load i64, ptr %172, align 8
   %174 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %173
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 240
-  %176 = load ptr, ptr %175, align 8, !tbaa !110
+  %176 = load ptr, ptr %175, align 8, !tbaa !111
   %.not.i.i.i46 = icmp eq ptr %176, null
   br i1 %.not.i.i.i46, label %177, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i47
 
@@ -5339,18 +5339,18 @@ _ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit18:     ; preds = %143, %_ZN4CGAL15Ver
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i47: ; preds = %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit18
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 56
-  %179 = load i8, ptr %178, align 8, !tbaa !125
+  %179 = load i8, ptr %178, align 8, !tbaa !126
   %.not.i1.i.i48 = icmp eq i8 %179, 0
   br i1 %.not.i1.i.i48, label %183, label %180
 
 180:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i47
   %181 = getelementptr inbounds nuw i8, ptr %176, i64 67
-  %182 = load i8, ptr %181, align 1, !tbaa !130
+  %182 = load i8, ptr %181, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30
 
 183:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i47
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %176)
-  %184 = load ptr, ptr %176, align 8, !tbaa !108
+  %184 = load ptr, ptr %176, align 8, !tbaa !109
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 48
   %186 = load ptr, ptr %185, align 8
   %187 = tail call noundef signext i8 %186(ptr noundef nonnull align 8 dereferenceable(570) %176, i8 noundef signext 10)
@@ -5368,12 +5368,12 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30: ; preds = %18
   %192 = phi i64 [ 10, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30 ], [ 6, %_ZN4CGAL15Verbose_ostreamlsEPFRSoS1_E.exit16 ]
   %193 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull @.str.77, i64 noundef 89)
   %194 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef nonnull %191, i64 noundef %192)
-  %195 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !108
+  %195 = load ptr, ptr @_ZSt4cerr, align 8, !tbaa !109
   %196 = getelementptr i8, ptr %195, i64 -24
   %197 = load i64, ptr %196, align 8
   %198 = getelementptr inbounds i8, ptr @_ZSt4cerr, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 240
-  %200 = load ptr, ptr %199, align 8, !tbaa !110
+  %200 = load ptr, ptr %199, align 8, !tbaa !111
   %.not.i.i.i51 = icmp eq ptr %200, null
   br i1 %.not.i.i.i51, label %201, label %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i52
 
@@ -5383,18 +5383,18 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit30: ; preds = %18
 
 _ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i52: ; preds = %190
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 56
-  %203 = load i8, ptr %202, align 8, !tbaa !125
+  %203 = load i8, ptr %202, align 8, !tbaa !126
   %.not.i1.i.i53 = icmp eq i8 %203, 0
   br i1 %.not.i1.i.i53, label %207, label %204
 
 204:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i52
   %205 = getelementptr inbounds nuw i8, ptr %200, i64 67
-  %206 = load i8, ptr %205, align 1, !tbaa !130
+  %206 = load i8, ptr %205, align 1, !tbaa !131
   br label %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit55
 
 207:                                              ; preds = %_ZSt13__check_facetISt5ctypeIcEERKT_PS3_.exit.i.i52
   tail call void @_ZNKSt5ctypeIcE13_M_widen_initEv(ptr noundef nonnull align 8 dereferenceable(570) %200)
-  %208 = load ptr, ptr %200, align 8, !tbaa !108
+  %208 = load ptr, ptr %200, align 8, !tbaa !109
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 48
   %210 = load ptr, ptr %209, align 8
   %211 = tail call noundef signext i8 %210(ptr noundef nonnull align 8 dereferenceable(570) %200, i8 noundef signext 10)
@@ -5496,147 +5496,148 @@ attributes #20 = { builtin allocsize(0) }
 !43 = distinct !{!43, !"_ZNK4CGAL23CartesianKernelFunctors18Construct_vector_3INS_16Simple_cartesianIdEEEclENS_15Return_base_tagERKdS7_S7_"}
 !44 = distinct !{!44, !45, !"_ZNK4CGAL23CartesianKernelFunctors17Construct_point_3INS_16Simple_cartesianIdEEEclIJRKdS7_S7_EEENS_7PointC3IS3_EENS_15Return_base_tagEDpOT_: argument 0"}
 !45 = distinct !{!45, !"_ZNK4CGAL23CartesianKernelFunctors17Construct_point_3INS_16Simple_cartesianIdEEEclIJRKdS7_S7_EEENS_7PointC3IS3_EENS_15Return_base_tagEDpOT_"}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{}
-!49 = !{!5, !11, i64 152}
-!50 = !{!5, !6, i64 177}
-!51 = !{!5, !11, i64 160}
-!52 = !{!18, !19, i64 0}
-!53 = !{!21, !21, i64 0}
-!54 = !{!28, !28, i64 0}
-!55 = !{!13, !13, i64 0}
-!56 = !{!5, !11, i64 48}
-!57 = !{!35, !36, i64 0}
-!58 = !{!59, !59, i64 0}
-!59 = !{!"int", !7, i64 0}
-!60 = distinct !{!60, !47}
-!61 = distinct !{!61, !47}
-!62 = !{!63, !9, i64 0}
-!63 = !{!"_ZTSN4CGAL26HalfedgeDS_const_decoratorINS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEEE", !9, i64 0}
-!64 = !{!65, !28, i64 8}
-!65 = !{!"_ZTSN4CGAL13In_place_listINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEELb0ESaISE_EEE", !66, i64 0, !28, i64 8, !11, i64 16}
-!66 = !{!"_ZTSSaIN4CGAL33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEEE"}
-!67 = !{!68, !28, i64 0}
-!68 = !{!"_ZTSN4CGAL18In_place_list_baseINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEEEE", !28, i64 0, !28, i64 8}
-!69 = !{!65, !11, i64 16}
-!70 = !{!25, !26, i64 0}
-!71 = !{!25, !26, i64 16}
-!72 = !{!18, !19, i64 16}
-!73 = !{!5, !9, i64 8}
-!74 = !{!75, !11, i64 16}
-!75 = !{!"_ZTSN4CGAL13In_place_listINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS6_EEmEEEEEELb0ESaISG_EEE", !76, i64 0, !21, i64 8, !11, i64 16}
-!76 = !{!"_ZTSSaIN4CGAL31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS5_EEmEEEEEEE"}
-!77 = !{!78, !11, i64 16}
-!78 = !{!"_ZTSN4CGAL13In_place_listINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEESt17integral_constantIbLb0EEmEEEEEELb0ESaISG_EEE", !79, i64 0, !13, i64 8, !11, i64 16}
-!79 = !{!"_ZTSSaIN4CGAL29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEESt17integral_constantIbLb0EEmEEEEEEE"}
-!80 = !{!5, !11, i64 16}
-!81 = !{!5, !11, i64 24}
-!82 = !{!5, !11, i64 32}
-!83 = !{!75, !21, i64 8}
-!84 = !{!18, !19, i64 8}
-!85 = !{!86}
-!86 = distinct !{!86, !87, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
-!87 = distinct !{!87, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
-!88 = !{!89}
-!89 = distinct !{!89, !87, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
-!90 = distinct !{!90, !47}
-!91 = !{!25, !26, i64 8}
-!92 = !{!5, !11, i64 40}
-!93 = !{!5, !11, i64 56}
-!94 = !{!95, !21, i64 0}
-!95 = !{!"_ZTSN4CGAL18In_place_list_baseINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS6_EEmEEEEEEEE", !21, i64 0, !21, i64 8}
-!96 = !{!97}
-!97 = distinct !{!97, !98, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
-!98 = distinct !{!98, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
-!99 = !{!100}
-!100 = distinct !{!100, !98, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
-!101 = distinct !{!101, !47}
-!102 = !{!103}
-!103 = distinct !{!103, !104, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
-!104 = distinct !{!104, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
-!105 = !{!106}
-!106 = distinct !{!106, !104, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
-!107 = distinct !{!107, !47}
-!108 = !{!109, !109, i64 0}
-!109 = !{!"vtable pointer", !8, i64 0}
-!110 = !{!111, !122, i64 240}
-!111 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !112, i64 0, !120, i64 216, !7, i64 224, !6, i64 225, !121, i64 232, !122, i64 240, !123, i64 248, !124, i64 256}
-!112 = !{!"_ZTSSt8ios_base", !11, i64 8, !11, i64 16, !113, i64 24, !114, i64 28, !114, i64 32, !115, i64 40, !116, i64 48, !7, i64 64, !59, i64 192, !117, i64 200, !118, i64 208}
-!113 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
-!114 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
-!115 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !10, i64 0}
-!116 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !11, i64 8}
-!117 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
-!118 = !{!"_ZTSSt6locale", !119, i64 0}
-!119 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
-!120 = !{!"p1 _ZTSSo", !10, i64 0}
-!121 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !10, i64 0}
-!122 = !{!"p1 _ZTSSt5ctypeIcE", !10, i64 0}
-!123 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !10, i64 0}
-!124 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !10, i64 0}
-!125 = !{!126, !7, i64 56}
-!126 = !{!"_ZTSSt5ctypeIcE", !127, i64 0, !128, i64 16, !6, i64 24, !36, i64 32, !36, i64 40, !129, i64 48, !7, i64 56, !7, i64 57, !7, i64 313, !7, i64 569}
-!127 = !{!"_ZTSNSt6locale5facetE", !59, i64 8}
-!128 = !{!"p1 _ZTS15__locale_struct", !10, i64 0}
-!129 = !{!"p1 short", !10, i64 0}
-!130 = !{!7, !7, i64 0}
-!131 = !{!11, !11, i64 0}
-!132 = !{!95, !21, i64 8}
-!133 = !{!134}
-!134 = distinct !{!134, !135, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
-!135 = distinct !{!135, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
-!136 = !{!137}
-!137 = distinct !{!137, !135, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
-!138 = !{!139}
-!139 = distinct !{!139, !140, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 0"}
-!140 = distinct !{!140, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_"}
-!141 = !{!142}
-!142 = distinct !{!142, !140, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 1"}
-!143 = distinct !{!143, !47}
-!144 = !{!5, !6, i64 176}
-!145 = !{!78, !13, i64 8}
-!146 = !{!147, !13, i64 0}
-!147 = !{!"_ZTSN4CGAL18In_place_list_baseINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEESt17integral_constantIbLb0EEmEEEEEEEE", !13, i64 0, !13, i64 8}
-!148 = !{!147, !13, i64 8}
-!149 = !{!27, !28, i64 0}
-!150 = !{!5, !11, i64 168}
-!151 = !{!12, !13, i64 0}
-!152 = distinct !{!152, !47}
-!153 = !{!154, !6, i64 0}
-!154 = !{!"_ZTSN4CGAL15Verbose_ostreamE", !6, i64 0, !120, i64 8}
-!155 = !{!154, !120, i64 8}
-!156 = distinct !{!156, !47}
-!157 = distinct !{!157, !47}
-!158 = distinct !{!158, !47}
-!159 = !{!68, !28, i64 8}
-!160 = distinct !{!160, !47}
-!161 = distinct !{!161, !47}
-!162 = !{!"branch_weights", i32 1, i32 1048575}
-!163 = !{!164}
-!164 = distinct !{!164, !165, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 0"}
-!165 = distinct !{!165, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_"}
-!166 = !{!167}
-!167 = distinct !{!167, !165, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 1"}
-!168 = !{!112, !11, i64 16}
-!169 = distinct !{!169, !47}
-!170 = distinct !{!170, !47}
-!171 = distinct !{!171, !47}
-!172 = distinct !{!172, !47, !173}
-!173 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!174 = distinct !{!174, !47}
-!175 = distinct !{!175, !47}
-!176 = distinct !{!176, !47}
-!177 = distinct !{!177, !47}
-!178 = distinct !{!178, !47}
-!179 = !{!180, !11, i64 80}
-!180 = !{!"_ZTSN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEE", !76, i64 0, !181, i64 1, !79, i64 2, !75, i64 8, !65, i64 32, !78, i64 56, !11, i64 80, !11, i64 88, !27, i64 96}
-!181 = !{!"_ZTSSaISt4pairIN4CGAL33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESE_EE"}
-!182 = distinct !{!182, !47, !173}
-!183 = distinct !{!183, !47}
-!184 = distinct !{!184, !47}
-!185 = distinct !{!185, !47, !173}
-!186 = distinct !{!186, !47}
-!187 = distinct !{!187, !47}
-!188 = distinct !{!188, !47}
-!189 = distinct !{!189, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{}
+!50 = !{!5, !11, i64 152}
+!51 = !{!5, !6, i64 177}
+!52 = !{!5, !11, i64 160}
+!53 = !{!18, !19, i64 0}
+!54 = !{!21, !21, i64 0}
+!55 = !{!28, !28, i64 0}
+!56 = !{!13, !13, i64 0}
+!57 = !{!5, !11, i64 48}
+!58 = !{!35, !36, i64 0}
+!59 = !{!60, !60, i64 0}
+!60 = !{!"int", !7, i64 0}
+!61 = distinct !{!61, !47, !48}
+!62 = distinct !{!62, !47, !48}
+!63 = !{!64, !9, i64 0}
+!64 = !{!"_ZTSN4CGAL26HalfedgeDS_const_decoratorINS_18HalfedgeDS_defaultINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEEE", !9, i64 0}
+!65 = !{!66, !28, i64 8}
+!66 = !{!"_ZTSN4CGAL13In_place_listINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEELb0ESaISE_EEE", !67, i64 0, !28, i64 8, !11, i64 16}
+!67 = !{!"_ZTSSaIN4CGAL33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEEE"}
+!68 = !{!69, !28, i64 0}
+!69 = !{!"_ZTSN4CGAL18In_place_list_baseINS_33HalfedgeDS_in_place_list_halfedgeINS_21I_Polyhedron_halfedgeINS_36HalfedgeDS_halfedge_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEEEE", !28, i64 0, !28, i64 8}
+!70 = !{!66, !11, i64 16}
+!71 = !{!25, !26, i64 0}
+!72 = !{!25, !26, i64 16}
+!73 = !{!18, !19, i64 16}
+!74 = !{!5, !9, i64 8}
+!75 = !{!76, !11, i64 16}
+!76 = !{!"_ZTSN4CGAL13In_place_listINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS6_EEmEEEEEELb0ESaISG_EEE", !77, i64 0, !21, i64 8, !11, i64 16}
+!77 = !{!"_ZTSSaIN4CGAL31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS5_EEmEEEEEEE"}
+!78 = !{!79, !11, i64 16}
+!79 = !{!"_ZTSN4CGAL13In_place_listINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEESt17integral_constantIbLb0EEmEEEEEELb0ESaISG_EEE", !80, i64 0, !13, i64 8, !11, i64 16}
+!80 = !{!"_ZTSSaIN4CGAL29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEESt17integral_constantIbLb0EEmEEEEEEE"}
+!81 = !{!5, !11, i64 16}
+!82 = !{!5, !11, i64 24}
+!83 = !{!5, !11, i64 32}
+!84 = !{!76, !21, i64 8}
+!85 = !{!18, !19, i64 8}
+!86 = !{!87}
+!87 = distinct !{!87, !88, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
+!88 = distinct !{!88, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
+!89 = !{!90}
+!90 = distinct !{!90, !88, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
+!91 = distinct !{!91, !47, !48}
+!92 = !{!25, !26, i64 8}
+!93 = !{!5, !11, i64 40}
+!94 = !{!5, !11, i64 56}
+!95 = !{!96, !21, i64 0}
+!96 = !{!"_ZTSN4CGAL18In_place_list_baseINS_31HalfedgeDS_in_place_list_vertexINS_19I_Polyhedron_vertexINS_34HalfedgeDS_vertex_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEENS_7Point_3IS6_EEmEEEEEEEE", !21, i64 0, !21, i64 8}
+!97 = !{!98}
+!98 = distinct !{!98, !99, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
+!99 = distinct !{!99, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
+!100 = !{!101}
+!101 = distinct !{!101, !99, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
+!102 = distinct !{!102, !47, !48}
+!103 = !{!104}
+!104 = distinct !{!104, !105, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
+!105 = distinct !{!105, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
+!106 = !{!107}
+!107 = distinct !{!107, !105, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
+!108 = distinct !{!108, !47, !48}
+!109 = !{!110, !110, i64 0}
+!110 = !{!"vtable pointer", !8, i64 0}
+!111 = !{!112, !123, i64 240}
+!112 = !{!"_ZTSSt9basic_iosIcSt11char_traitsIcEE", !113, i64 0, !121, i64 216, !7, i64 224, !6, i64 225, !122, i64 232, !123, i64 240, !124, i64 248, !125, i64 256}
+!113 = !{!"_ZTSSt8ios_base", !11, i64 8, !11, i64 16, !114, i64 24, !115, i64 28, !115, i64 32, !116, i64 40, !117, i64 48, !7, i64 64, !60, i64 192, !118, i64 200, !119, i64 208}
+!114 = !{!"_ZTSSt13_Ios_Fmtflags", !7, i64 0}
+!115 = !{!"_ZTSSt12_Ios_Iostate", !7, i64 0}
+!116 = !{!"p1 _ZTSNSt8ios_base14_Callback_listE", !10, i64 0}
+!117 = !{!"_ZTSNSt8ios_base6_WordsE", !10, i64 0, !11, i64 8}
+!118 = !{!"p1 _ZTSNSt8ios_base6_WordsE", !10, i64 0}
+!119 = !{!"_ZTSSt6locale", !120, i64 0}
+!120 = !{!"p1 _ZTSNSt6locale5_ImplE", !10, i64 0}
+!121 = !{!"p1 _ZTSSo", !10, i64 0}
+!122 = !{!"p1 _ZTSSt15basic_streambufIcSt11char_traitsIcEE", !10, i64 0}
+!123 = !{!"p1 _ZTSSt5ctypeIcE", !10, i64 0}
+!124 = !{!"p1 _ZTSSt7num_putIcSt19ostreambuf_iteratorIcSt11char_traitsIcEEE", !10, i64 0}
+!125 = !{!"p1 _ZTSSt7num_getIcSt19istreambuf_iteratorIcSt11char_traitsIcEEE", !10, i64 0}
+!126 = !{!127, !7, i64 56}
+!127 = !{!"_ZTSSt5ctypeIcE", !128, i64 0, !129, i64 16, !6, i64 24, !36, i64 32, !36, i64 40, !130, i64 48, !7, i64 56, !7, i64 57, !7, i64 313, !7, i64 569}
+!128 = !{!"_ZTSNSt6locale5facetE", !60, i64 8}
+!129 = !{!"p1 _ZTS15__locale_struct", !10, i64 0}
+!130 = !{!"p1 short", !10, i64 0}
+!131 = !{!7, !7, i64 0}
+!132 = !{!11, !11, i64 0}
+!133 = !{!96, !21, i64 8}
+!134 = !{!135}
+!135 = distinct !{!135, !136, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}
+!136 = distinct !{!136, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_"}
+!137 = !{!138}
+!138 = distinct !{!138, !136, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_31HalfedgeDS_in_place_list_vertexINS0_19I_Polyhedron_vertexINS0_34HalfedgeDS_vertex_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEENS0_7Point_3IS8_EEmEEEEEESaISI_EEESK_SaISK_EEvPT_PT0_RT1_: argument 1"}
+!139 = !{!140}
+!140 = distinct !{!140, !141, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 0"}
+!141 = distinct !{!141, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_"}
+!142 = !{!143}
+!143 = distinct !{!143, !141, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 1"}
+!144 = distinct !{!144, !47, !48}
+!145 = !{!5, !6, i64 176}
+!146 = !{!79, !13, i64 8}
+!147 = !{!148, !13, i64 0}
+!148 = !{!"_ZTSN4CGAL18In_place_list_baseINS_29HalfedgeDS_in_place_list_faceINS_18I_Polyhedron_facetINS_32HalfedgeDS_face_max_base_with_idINS_21HalfedgeDS_list_typesINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEESt17integral_constantIbLb0EEmEEEEEEEE", !13, i64 0, !13, i64 8}
+!149 = !{!148, !13, i64 8}
+!150 = !{!27, !28, i64 0}
+!151 = !{!5, !11, i64 168}
+!152 = !{!12, !13, i64 0}
+!153 = distinct !{!153, !47, !48}
+!154 = !{!155, !6, i64 0}
+!155 = !{!"_ZTSN4CGAL15Verbose_ostreamE", !6, i64 0, !121, i64 8}
+!156 = !{!155, !121, i64 8}
+!157 = distinct !{!157, !47, !48}
+!158 = distinct !{!158, !47, !48}
+!159 = distinct !{!159, !47, !48}
+!160 = !{!69, !28, i64 8}
+!161 = distinct !{!161, !47, !48}
+!162 = distinct !{!162, !47, !48}
+!163 = !{!"branch_weights", i32 1, i32 1048575}
+!164 = !{!165}
+!165 = distinct !{!165, !166, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 0"}
+!166 = distinct !{!166, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_"}
+!167 = !{!168}
+!168 = distinct !{!168, !166, !"_ZSt19__relocate_object_aIN4CGAL8internal22In_place_list_iteratorINS0_33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESaISG_EEESI_SaISI_EEvPT_PT0_RT1_: argument 1"}
+!169 = !{!113, !11, i64 16}
+!170 = distinct !{!170, !47, !48}
+!171 = distinct !{!171, !47, !48}
+!172 = distinct !{!172, !47, !48}
+!173 = distinct !{!173, !47, !48, !174}
+!174 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!175 = distinct !{!175, !47, !48}
+!176 = distinct !{!176, !47, !48}
+!177 = distinct !{!177, !47, !48}
+!178 = distinct !{!178, !47, !48}
+!179 = distinct !{!179, !47, !48}
+!180 = !{!181, !11, i64 80}
+!181 = !{!"_ZTSN4CGAL15HalfedgeDS_listINS_16Simple_cartesianIdEENS_28I_Polyhedron_derived_items_3INS_26Polyhedron_items_with_id_3EEESaIiEEE", !77, i64 0, !182, i64 1, !80, i64 2, !76, i64 8, !66, i64 32, !79, i64 56, !11, i64 80, !11, i64 88, !27, i64 96}
+!182 = !{!"_ZTSSaISt4pairIN4CGAL33HalfedgeDS_in_place_list_halfedgeINS0_21I_Polyhedron_halfedgeINS0_36HalfedgeDS_halfedge_max_base_with_idINS0_21HalfedgeDS_list_typesINS0_16Simple_cartesianIdEENS0_28I_Polyhedron_derived_items_3INS0_26Polyhedron_items_with_id_3EEESaIiEEEmEEEEEESE_EE"}
+!183 = distinct !{!183, !47, !48, !174}
+!184 = distinct !{!184, !47, !48}
+!185 = distinct !{!185, !47, !48}
+!186 = distinct !{!186, !47, !48, !174}
+!187 = distinct !{!187, !47, !48}
+!188 = distinct !{!188, !47, !48}
+!189 = distinct !{!189, !47, !48}
+!190 = distinct !{!190, !47, !48}

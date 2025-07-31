@@ -229,7 +229,7 @@ keepwal_update_parameters.exit.i:                 ; preds = %keepwal_compute_siz
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, 0
   %66 = add i32 %.048.i, 1
-  br i1 %65, label %67, label %60
+  br i1 %65, label %67, label %60, !llvm.loop !9
 
 67:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
@@ -243,7 +243,7 @@ keepwal_update_parameters.exit.i:                 ; preds = %keepwal_compute_siz
   %71 = add i32 %.169.i, 1
   %72 = zext i32 %71 to i64
   %73 = icmp ugt i64 %11, %72
-  br i1 %73, label %.lr.ph70.i, label %keepwal_grow.exit, !llvm.loop !8
+  br i1 %73, label %.lr.ph70.i, label %keepwal_grow.exit, !llvm.loop !10
 
 keepwal_grow.exit:                                ; preds = %68, %keepwal_update_parameters.exit.i
   tail call void @pfree(ptr noundef %16) #12
@@ -350,7 +350,7 @@ keepwal_distance.exit.i.i:                        ; preds = %91, %88
   %121 = getelementptr inbounds nuw %struct.keepwal_entry, ptr %75, i64 %120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.279132.i.i, ptr noundef nonnull align 8 dereferenceable(16) %121, i64 16, i1 false)
   %.not88.i.i = icmp eq i32 %119, %.071.i26.i
-  br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !9
+  br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %122 = load i32, ptr %4, align 8
@@ -423,7 +423,7 @@ define dso_local void @process_source_file(ptr noundef %0, i32 noundef %1, i64 n
 11:                                               ; preds = %8, %4
   %12 = tail call fastcc ptr @insert_filehash_entry(ptr noundef nonnull %0)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %14 = load i8, ptr %13, align 8, !range !10, !noundef !11
+  %14 = load i8, ptr %13, align 8, !range !12, !noundef !13
   %15 = trunc nuw i8 %14 to i1
   br i1 %15, label %16, label %17
 
@@ -631,7 +631,7 @@ filehash_update_parameters.exit.i:                ; preds = %filehash_compute_si
   %50 = add i32 %.063.i, 1
   %51 = zext i32 %50 to i64
   %52 = icmp ugt i64 %11, %51
-  br i1 %52, label %.lr.ph.i19, label %.lr.ph70.i.preheader, !llvm.loop !12
+  br i1 %52, label %.lr.ph.i19, label %.lr.ph70.i.preheader, !llvm.loop !14
 
 .lr.ph70.i.preheader:                             ; preds = %49, %44, %.lr.ph.i19
   %.05168.i.ph = phi i32 [ %.063.i, %.lr.ph.i19 ], [ %.063.i, %44 ], [ 0, %49 ]
@@ -661,7 +661,7 @@ filehash_update_parameters.exit.i:                ; preds = %filehash_compute_si
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, 0
   %65 = add i32 %.048.i, 1
-  br i1 %64, label %66, label %60
+  br i1 %64, label %66, label %60, !llvm.loop !15
 
 66:                                               ; preds = %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %62, ptr noundef nonnull align 8 dereferenceable(88) %54, i64 88, i1 false)
@@ -675,7 +675,7 @@ filehash_update_parameters.exit.i:                ; preds = %filehash_compute_si
   %70 = add i32 %.169.i, 1
   %71 = zext i32 %70 to i64
   %72 = icmp ugt i64 %11, %71
-  br i1 %72, label %.lr.ph70.i, label %filehash_grow.exit, !llvm.loop !13
+  br i1 %72, label %.lr.ph70.i, label %filehash_grow.exit, !llvm.loop !16
 
 filehash_grow.exit:                               ; preds = %67, %filehash_update_parameters.exit.i
   tail call void @pfree(ptr noundef %16) #12
@@ -779,7 +779,7 @@ filehash_distance.exit.i.i:                       ; preds = %90, %87
   %119 = getelementptr inbounds nuw %struct.file_entry_t, ptr %74, i64 %118
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %.279130.i.i, ptr noundef nonnull align 8 dereferenceable(88) %119, i64 88, i1 false)
   %.not88.i.i = icmp eq i32 %117, %.071.i24.i
-  br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not88.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %120 = load i32, ptr %4, align 8
@@ -841,7 +841,7 @@ define dso_local void @process_target_file(ptr noundef %0, i32 noundef %1, i64 n
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(7) @.str) #14
   %6 = tail call fastcc ptr @insert_filehash_entry(ptr noundef nonnull %0)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 17
-  %8 = load i8, ptr %7, align 1, !range !10, !noundef !11
+  %8 = load i8, ptr %7, align 1, !range !12, !noundef !13
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %11
 
@@ -912,7 +912,7 @@ datasegpath.exit:                                 ; preds = %4, %7
   %22 = getelementptr inbounds nuw %struct.file_entry_t, ptr %14, i64 %21
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %lookup_filehash_entry.exit.thread, label %.lr.ph.i.i.i
+  br i1 %24, label %lookup_filehash_entry.exit.thread, label %.lr.ph.i.i.i, !llvm.loop !18
 
 .lr.ph.i.i.i:                                     ; preds = %datasegpath.exit, %19
   %25 = phi ptr [ %22, %19 ], [ %16, %datasegpath.exit ]
@@ -930,7 +930,7 @@ lookup_filehash_entry.exit.thread:                ; preds = %19, %datasegpath.ex
 30:                                               ; preds = %.lr.ph.i.i.i
   tail call void @pfree(ptr noundef nonnull %.0.i) #12
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 17
-  %32 = load i8, ptr %31, align 1, !range !10, !noundef !11
+  %32 = load i8, ptr %31, align 1, !range !12, !noundef !13
   %33 = trunc nuw i8 %32 to i1
   br i1 %33, label %34, label %55
 
@@ -949,7 +949,7 @@ lookup_filehash_entry.exit.thread:                ; preds = %19, %datasegpath.ex
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %42 = load i8, ptr %41, align 8, !range !10, !noundef !11
+  %42 = load i8, ptr %41, align 8, !range !12, !noundef !13
   %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %44, label %55
 
@@ -1056,7 +1056,7 @@ define dso_local void @calculate_totals(ptr noundef captures(none) initializes((
   %41 = add i64 %40, 8192
   store i64 %41, ptr %3, align 8
   %42 = call zeroext i1 @datapagemap_next(ptr noundef %38, ptr noundef nonnull %2) #12
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %36
   call void @pg_free(ptr noundef %38) #12
@@ -1069,7 +1069,7 @@ define dso_local void @calculate_totals(ptr noundef captures(none) initializes((
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %8, label %._crit_edge25, !llvm.loop !16
+  br i1 %46, label %8, label %._crit_edge25, !llvm.loop !20
 
 ._crit_edge25:                                    ; preds = %43, %1
   ret void
@@ -1146,7 +1146,7 @@ action_to_str.exit:                               ; preds = %18, %switch.lookup
   %30 = load i32, ptr %2, align 8
   %31 = sext i32 %30 to i64
   %32 = icmp slt i64 %indvars.iv.next, %31
-  br i1 %32, label %6, label %._crit_edge, !llvm.loop !17
+  br i1 %32, label %6, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %29, %1
   %33 = load ptr, ptr @stdout, align 8
@@ -1184,7 +1184,7 @@ define dso_local ptr @decide_file_actions() local_unnamed_addr #0 {
   %11 = add i32 %.01315.i, 1
   %12 = zext i32 %11 to i64
   %13 = icmp ugt i64 %3, %12
-  br i1 %13, label %6, label %filehash_start_iterate.exit, !llvm.loop !18
+  br i1 %13, label %6, label %filehash_start_iterate.exit, !llvm.loop !22
 
 filehash_start_iterate.exit:                      ; preds = %6, %10, %0
   %.1.i = phi i32 [ -1, %0 ], [ %.01315.i, %6 ], [ -1, %10 ]
@@ -1217,7 +1217,7 @@ filehash_start_iterate.exit:                      ; preds = %6, %10, %0
   %spec.select = select i1 %29, i1 true, i1 %.sroa.12.2
   %30 = load i32, ptr %23, align 8
   %.not.i11 = icmp eq i32 %30, 1
-  br i1 %.not.i11, label %filehash_iterate.exit, label %18
+  br i1 %.not.i11, label %filehash_iterate.exit, label %18, !llvm.loop !23
 
 filehash_iterate.exit:                            ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -1247,7 +1247,7 @@ filehash_iterate.exit:                            ; preds = %20
   %42 = getelementptr inbounds nuw [9 x %struct.exclude_list_item], ptr @excludeFiles, i64 0, i64 %indvars.iv.next.i.i
   %43 = load ptr, ptr %42, align 16
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.i.i, label %.preheader.i.i, label %.critedge.i.i, !llvm.loop !19
+  br i1 %exitcond.i.i, label %.preheader.i.i, label %.critedge.i.i, !llvm.loop !24
 
 .critedge.i.i:                                    ; preds = %39, %41
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %41 ], [ 0, %39 ]
@@ -1259,7 +1259,7 @@ filehash_iterate.exit:                            ; preds = %20
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %.027.i.i = select i1 %48, ptr %32, ptr %49
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %51 = load i8, ptr %50, align 8, !range !10, !noundef !11
+  %51 = load i8, ptr %50, align 8, !range !12, !noundef !13
   %52 = xor i8 %51, 1
   %53 = zext nneg i8 %52 to i64
   %.0.i.i = add i64 %46, %53
@@ -1277,7 +1277,7 @@ filehash_iterate.exit:                            ; preds = %20
 59:                                               ; preds = %.preheader.i.i
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %.not37.i.i = icmp eq i64 %indvars.iv.next44.i.i, 7
-  br i1 %.not37.i.i, label %70, label %.preheader.i.i, !llvm.loop !20
+  br i1 %.not37.i.i, label %70, label %.preheader.i.i, !llvm.loop !25
 
 .preheader.i.i:                                   ; preds = %41, %59
   %indvars.iv43.i.i = phi i64 [ %indvars.iv.next44.i.i, %59 ], [ 0, %41 ]
@@ -1301,7 +1301,7 @@ filehash_iterate.exit:                            ; preds = %20
 66:                                               ; preds = %.sink.split, %63, %56, %39, %37
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #12
   %67 = getelementptr inbounds nuw i8, ptr %23, i64 17
-  %68 = load i8, ptr %67, align 1, !range !10, !noundef !11
+  %68 = load i8, ptr %67, align 1, !range !12, !noundef !13
   %69 = trunc nuw i8 %68 to i1
   %..i = select i1 %69, i32 6, i32 4
   br label %decide_file_action.exit
@@ -1309,10 +1309,10 @@ filehash_iterate.exit:                            ; preds = %20
 70:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #12
   %71 = getelementptr inbounds nuw i8, ptr %23, i64 17
-  %72 = load i8, ptr %71, align 1, !range !10, !noundef !11
+  %72 = load i8, ptr %71, align 1, !range !12, !noundef !13
   %73 = trunc nuw i8 %72 to i1
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  %75 = load i8, ptr %74, align 8, !range !10, !noundef !11
+  %75 = load i8, ptr %74, align 8, !range !12, !noundef !13
   %76 = trunc nuw i8 %75 to i1
   br i1 %73, label %84, label %77
 
@@ -1369,7 +1369,7 @@ filehash_iterate.exit:                            ; preds = %20
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %decide_file_action.exit, label %.lr.ph.i.i.i.i
+  br i1 %102, label %decide_file_action.exit, label %.lr.ph.i.i.i.i, !llvm.loop !26
 
 .lr.ph.i.i.i.i:                                   ; preds = %85, %96
   %103 = phi ptr [ %99, %96 ], [ %92, %85 ]
@@ -1417,7 +1417,7 @@ keepwal_entry_exists.exit.i:                      ; preds = %.lr.ph.i.i.i.i
 
 120:                                              ; preds = %118
   %121 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %122 = load i8, ptr %121, align 8, !range !10, !noundef !11
+  %122 = load i8, ptr %121, align 8, !range !12, !noundef !13
   %123 = trunc nuw i8 %122 to i1
   br i1 %123, label %124, label %decide_file_action.exit
 
@@ -1449,7 +1449,7 @@ decide_file_action.exit:                          ; preds = %96, %filehash_itera
   %134 = getelementptr inbounds nuw i8, ptr %23, i64 80
   store i32 %.0.i, ptr %134, align 8
   %.pre = load ptr, ptr @filehash, align 8
-  br label %14, !llvm.loop !21
+  br label %14, !llvm.loop !27
 
 135:                                              ; preds = %18
   %136 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1484,7 +1484,7 @@ decide_file_action.exit:                          ; preds = %96, %filehash_itera
   %154 = add i32 %.01315.i15, 1
   %155 = zext i32 %154 to i64
   %156 = icmp ugt i64 %146, %155
-  br i1 %156, label %149, label %filehash_start_iterate.exit18, !llvm.loop !18
+  br i1 %156, label %149, label %filehash_start_iterate.exit18, !llvm.loop !22
 
 filehash_start_iterate.exit18:                    ; preds = %149, %153, %135
   %.1.i17 = phi i32 [ -1, %135 ], [ %.01315.i15, %149 ], [ -1, %153 ]
@@ -1518,14 +1518,14 @@ filehash_start_iterate.exit18:                    ; preds = %149, %153, %135
   %spec.select35 = select i1 %172, i1 true, i1 %.sroa.12.5
   %173 = load i32, ptr %166, align 8
   %.not.i20 = icmp eq i32 %173, 1
-  br i1 %.not.i20, label %filehash_iterate.exit22, label %161
+  br i1 %.not.i20, label %filehash_iterate.exit22, label %161, !llvm.loop !23
 
 filehash_iterate.exit22:                          ; preds = %163
   %174 = add i32 %.0, 1
   %175 = sext i32 %.0 to i64
   %176 = getelementptr inbounds [0 x ptr], ptr %159, i64 0, i64 %175
   store ptr %166, ptr %176, align 8
-  br label %160, !llvm.loop !22
+  br label %160, !llvm.loop !28
 
 177:                                              ; preds = %161
   %178 = load i32, ptr %145, align 8
@@ -1608,7 +1608,7 @@ define internal fastcc i32 @hash_string(ptr noundef %0) unnamed_addr #9 {
   %24 = xor i64 %23, -9187201950435737472
   %25 = and i64 %24, %22
   %.not.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !29
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %5
   %.0.copyload.i.i.i.in = phi i64 [ %6, %5 ], [ %21, %.lr.ph.i.i ]
@@ -1722,7 +1722,7 @@ fasthash_accum_cstring_aligned.exit.i:            ; preds = %.sink.split.i.i.i, 
 81:                                               ; preds = %78
   %82 = add nuw nsw i64 %.014.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %82, 8
-  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !23
+  br i1 %exitcond.not.i.i, label %.critedge.thread.i.i, label %78, !llvm.loop !30
 
 .critedge.i.i:                                    ; preds = %78
   switch i64 %.014.i.i, label %.sink.split.i.i6.i [
@@ -1816,7 +1816,7 @@ fasthash_accum.exit.i.i:                          ; preds = %.sink.split.i.i6.i,
   %.0.lcssa20.i.i = phi i64 [ %.0.lcssa23.i.i, %.sink.split.i.i6.i ], [ %.014.i.i, %.critedge.i.i ]
   %132 = getelementptr inbounds nuw i8, ptr %.01216.i.i, i64 %.0.lcssa20.i.i
   %.not.i8.i = icmp eq i8 %131, 0
-  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !24
+  br i1 %.not.i8.i, label %fasthash_accum_cstring.exit, label %.preheader.i.i, !llvm.loop !31
 
 fasthash_accum_cstring.exit:                      ; preds = %fasthash_accum.exit.i.i, %fasthash_accum_cstring_aligned.exit.i, %75
   %.sroa.19.4 = phi i64 [ %.sroa.19.3, %fasthash_accum_cstring_aligned.exit.i ], [ -8645972361240307355, %75 ], [ %.sroa.19.1, %fasthash_accum.exit.i.i ]
@@ -1893,22 +1893,29 @@ attributes #14 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = !{i8 0, i8 2}
-!11 = !{}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
-!21 = distinct !{!21, !7}
-!22 = distinct !{!22, !7}
-!23 = distinct !{!23, !7}
-!24 = distinct !{!24, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = !{i8 0, i8 2}
+!13 = !{}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}
+!22 = distinct !{!22, !7, !8}
+!23 = distinct !{!23, !8}
+!24 = distinct !{!24, !7, !8}
+!25 = distinct !{!25, !7, !8}
+!26 = distinct !{!26, !8}
+!27 = distinct !{!27, !7, !8}
+!28 = distinct !{!28, !7, !8}
+!29 = distinct !{!29, !8}
+!30 = distinct !{!30, !7, !8}
+!31 = distinct !{!31, !7, !8}

@@ -253,7 +253,7 @@ declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) l
 define dso_local i32 @acpi_install_table(ptr noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4, !annotation !8
+  store i32 0, ptr %2, align 4, !annotation !9
   %3 = ptrtoint ptr %0 to i64
   %4 = call i32 @acpi_tb_install_standard_table(i64 noundef %3, i8 noundef zeroext 0, ptr noundef %0, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
@@ -267,7 +267,7 @@ declare dso_local i32 @acpi_tb_install_standard_table(i64 noundef, i8 noundef ze
 define dso_local i32 @acpi_install_physical_table(i64 noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #5
-  store i32 0, ptr %2, align 4, !annotation !8
+  store i32 0, ptr %2, align 4, !annotation !9
   %3 = call i32 @acpi_tb_install_standard_table(i64 noundef %0, i8 noundef zeroext 1, ptr noundef null, i8 noundef zeroext 0, i8 noundef zeroext 0, ptr noundef nonnull %2) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #5
   ret i32 %3
@@ -281,7 +281,7 @@ define dso_local i32 @acpi_load_table(ptr noundef %0, ptr noundef writeonly capt
   br i1 %4, label %15, label %5
 
 5:                                                ; preds = %2
-  store i32 0, ptr %3, align 4, !annotation !8
+  store i32 0, ptr %3, align 4, !annotation !9
   tail call void (ptr, ...) @acpi_info(ptr noundef nonnull @.str.10) #5
   %6 = ptrtoint ptr %0 to i64
   %7 = call i32 @acpi_tb_install_and_load_table(i64 noundef %6, i8 noundef zeroext 0, ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %3) #5
@@ -360,7 +360,7 @@ define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly captures(add
 30:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp eq i64 %indvars.iv.next, %15
-  br i1 %31, label %.loopexit, label %16, !llvm.loop !9
+  br i1 %31, label %.loopexit, label %16, !llvm.loop !10
 
 .loopexit:                                        ; preds = %30, %25, %21, %10
   %32 = phi i32 [ %28, %25 ], [ 8, %21 ], [ 0, %10 ], [ 0, %30 ]
@@ -403,8 +403,9 @@ attributes #5 = { nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = distinct !{!9, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = distinct !{!10, !6, !7, !8}

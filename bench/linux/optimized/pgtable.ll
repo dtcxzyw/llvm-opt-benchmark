@@ -766,7 +766,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
 41:                                               ; preds = %34, %28
   %42 = add nuw nsw i64 %29, 1
   %43 = icmp eq i64 %42, 512
-  br i1 %43, label %44, label %28, !llvm.loop !16
+  br i1 %43, label %44, label %28, !llvm.loop !17
 
 44:                                               ; preds = %41
   tail call void @free_pages(i64 noundef %13, i32 noundef 0) #14
@@ -931,7 +931,8 @@ attributes #15 = { cold nounwind }
 !10 = !{i64 2155759867, i64 2155759896, i64 2155759942, i64 2155760000, i64 2155760054, i64 2155760108, i64 2155760163, i64 2155760194}
 !11 = !{!"auto-init"}
 !12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = distinct !{!13, !14, !15}
+!13 = distinct !{!13, !14, !15, !16}
 !14 = !{!"llvm.loop.mustprogress"}
 !15 = !{!"llvm.loop.unroll.disable"}
-!16 = distinct !{!16, !14, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = distinct !{!17, !14, !15, !16}

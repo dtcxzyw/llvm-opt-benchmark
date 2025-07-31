@@ -264,7 +264,7 @@ define hidden void @utf8sToUtf8m(ptr noundef readonly captures(none) %0, i32 nou
   %.1 = phi i32 [ %.078, %13 ], [ %.078, %18 ], [ %28, %25 ], [ %42, %37 ], [ %54, %51 ], [ %.078, %48 ]
   %87 = add nsw i32 %.1, 1
   %88 = icmp slt i32 %87, %1
-  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !8
+  br i1 %88, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %86, %4
   %.069.lcssa = phi i32 [ 0, %4 ], [ %.170, %86 ]
@@ -413,7 +413,7 @@ define hidden i32 @utf8mToUtf8sLength(ptr noundef readonly captures(none) %0, i3
   %.2 = phi i32 [ %10, %9 ], [ %24, %23 ], [ %26, %25 ], [ %59, %58 ], [ %39, %52 ], [ %39, %45 ], [ %39, %38 ]
   %61 = add nsw i32 %.255, 1
   %62 = icmp slt i32 %61, %1
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %60, %16, %14, %34, %32, %30, %57, %27, %2
   %.154 = phi i32 [ 0, %2 ], [ %.05369, %27 ], [ %31, %57 ], [ %.05369, %30 ], [ %.05369, %32 ], [ %.05369, %34 ], [ %.05369, %14 ], [ %.05369, %16 ], [ %61, %60 ]
@@ -566,7 +566,7 @@ define hidden void @utf8mToUtf8s(ptr noundef readonly captures(none) %0, i32 nou
   %.1 = phi i32 [ %.087, %11 ], [ %19, %25 ], [ %19, %30 ], [ %44, %58 ], [ %40, %91 ], [ %.087, %34 ]
   %98 = add nsw i32 %.1, 1
   %99 = icmp slt i32 %98, %1
-  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %99, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %97, %4
   %.076.lcssa = phi i32 [ 0, %4 ], [ %.177, %97 ]
@@ -775,8 +775,9 @@ attributes #11 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

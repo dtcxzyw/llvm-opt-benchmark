@@ -682,7 +682,7 @@ define internal i32 @test_bio_dgram(i32 noundef %0) #0 {
   %253 = add nuw nsw i64 %.1204.i, 1
   %exitcond205.not.i = icmp eq i64 %253, 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %252, i8 0, i64 24, i1 false)
-  br i1 %exitcond205.not.i, label %254, label %.preheader.i, !llvm.loop !25
+  br i1 %exitcond205.not.i, label %254, label %.preheader.i, !llvm.loop !26
 
 254:                                              ; preds = %.preheader.i
   %255 = call fastcc i32 @do_recvmmsg(ptr noundef %76, ptr noundef %9, i64 noundef 128, ptr noundef %11)
@@ -763,9 +763,9 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   %9 = alloca [2 x %struct.bio_msg_st], align 16
   %10 = alloca %struct.in_addr, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
-  store ptr null, ptr %2, align 8, !tbaa !26
+  store ptr null, ptr %2, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
-  store ptr null, ptr %3, align 8, !tbaa !26
+  store ptr null, ptr %3, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(i64 2052, ptr nonnull %4) #5
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %5) #5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
@@ -783,10 +783,10 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   %.070160 = phi i64 [ 0, %1 ], [ %14, %11 ]
   %12 = tail call i32 @test_random() #5
   %13 = getelementptr inbounds nuw [8 x i32], ptr %6, i64 0, i64 %.070160
-  store i32 %12, ptr %13, align 4, !tbaa !28
+  store i32 %12, ptr %13, align 4, !tbaa !29
   %14 = add nuw nsw i64 %.070160, 1
   %exitcond.not = icmp eq i64 %14, 8
-  br i1 %exitcond.not, label %15, label %11, !llvm.loop !29
+  br i1 %exitcond.not, label %15, label %11, !llvm.loop !30
 
 15:                                               ; preds = %11
   %16 = icmp eq i32 %0, 0
@@ -799,14 +799,14 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not72, label %.thread145, label %._crit_edge167
 
 ._crit_edge167:                                   ; preds = %17
-  %.pre = load ptr, ptr %2, align 8, !tbaa !26
+  %.pre = load ptr, ptr %2, align 8, !tbaa !27
   br label %24
 
 20:                                               ; preds = %15
   %21 = tail call ptr @BIO_s_dgram_mem() #5
   %22 = tail call ptr @BIO_new(ptr noundef %21) #5
-  store ptr %22, ptr %3, align 8, !tbaa !26
-  store ptr %22, ptr %2, align 8, !tbaa !26
+  store ptr %22, ptr %3, align 8, !tbaa !27
+  store ptr %22, ptr %2, align 8, !tbaa !27
   %23 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 521, ptr noundef nonnull @.str.71, ptr noundef %22) #5
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.thread133, label %24
@@ -828,7 +828,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   %32 = ashr exact i64 %sext, 32
   %33 = mul nsw i64 %32, 9
   %34 = add nsw i64 %33, 2088
-  %35 = load ptr, ptr %2, align 8, !tbaa !26
+  %35 = load ptr, ptr %2, align 8, !tbaa !27
   %36 = call i64 @BIO_ctrl(ptr noundef %35, i32 noundef 136, i64 noundef %34, ptr noundef null) #5
   %37 = and i64 %36, 4294967295
   %38 = icmp ne i64 %37, 0
@@ -838,7 +838,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not74, label %.thread133, label %41
 
 41:                                               ; preds = %31, %29
-  %42 = load ptr, ptr %3, align 8, !tbaa !26
+  %42 = load ptr, ptr %3, align 8, !tbaa !27
   %43 = call i64 @BIO_ctrl(ptr noundef %42, i32 noundef 41, i64 noundef 0, ptr noundef null) #5
   %44 = trunc i64 %43 to i32
   %45 = call i32 @test_int_ge(ptr noundef nonnull @.str, i32 noundef 542, ptr noundef nonnull @.str.75, ptr noundef nonnull @.str.73, i32 noundef %44, i32 noundef 1280) #5
@@ -868,10 +868,10 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not78, label %.loopexit, label %54
 
 54:                                               ; preds = %51
-  %55 = load i32, ptr %4, align 16, !tbaa !28
+  %55 = load i32, ptr %4, align 16, !tbaa !29
   %56 = urem i32 %55, %27
   %57 = add nuw i32 %56, 1
-  %58 = load ptr, ptr %2, align 8, !tbaa !26
+  %58 = load ptr, ptr %2, align 8, !tbaa !27
   %59 = call i32 @BIO_write(ptr noundef %58, ptr noundef nonnull %50, i32 noundef %57) #5
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %68, label %61
@@ -886,7 +886,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   %65 = add nsw i64 %.065162, %64
   %66 = add i64 %.1161, 1
   %67 = icmp ult i64 %65, 1048576
-  br i1 %67, label %51, label %68, !llvm.loop !30
+  br i1 %67, label %51, label %68, !llvm.loop !31
 
 68:                                               ; preds = %54, %63
   %.1.lcssa = phi i64 [ %.1161, %54 ], [ %66, %63 ]
@@ -921,7 +921,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
 78:                                               ; preds = %89
   %79 = add nuw i64 %.2163, 1
   %exitcond166.not = icmp eq i64 %79, %.1.lcssa
-  br i1 %exitcond166.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond166.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %.preheader, %78
   %.2163 = phi i64 [ %79, %78 ], [ 0, %.preheader ]
@@ -931,10 +931,10 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not130, label %.loopexit, label %82
 
 82:                                               ; preds = %.lr.ph
-  %83 = load i32, ptr %4, align 16, !tbaa !28
+  %83 = load i32, ptr %4, align 16, !tbaa !29
   %84 = urem i32 %83, %27
   %85 = add nuw i32 %84, 1
-  %86 = load ptr, ptr %3, align 8, !tbaa !26
+  %86 = load ptr, ptr %3, align 8, !tbaa !27
   %87 = call i32 @BIO_read(ptr noundef %86, ptr noundef nonnull %5, i32 noundef 2048) #5
   %88 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 590, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i32 noundef %87, i32 noundef %85) #5
   %.not131 = icmp eq i32 %88, 0
@@ -947,7 +947,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not132, label %.loopexit, label %78
 
 ._crit_edge:                                      ; preds = %78, %.preheader
-  %92 = load ptr, ptr %3, align 8, !tbaa !26
+  %92 = load ptr, ptr %3, align 8, !tbaa !27
   %93 = call i32 @BIO_read(ptr noundef %92, ptr noundef nonnull %5, i32 noundef 2048) #5
   %94 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 598, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87, i32 noundef %93, i32 noundef -1) #5
   %.not83 = icmp eq i32 %94, 0
@@ -968,7 +968,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   store ptr %100, ptr %101, align 8, !tbaa !15
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 46, ptr %102, align 16, !tbaa !19
-  %103 = load ptr, ptr %2, align 8, !tbaa !26
+  %103 = load ptr, ptr %2, align 8, !tbaa !27
   %104 = call i32 @BIO_sendmmsg(ptr noundef %103, ptr noundef nonnull %8, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %7) #5
   %105 = icmp ne i32 %104, 0
   %106 = zext i1 %105 to i32
@@ -991,7 +991,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   store ptr %113, ptr %114, align 8, !tbaa !15
   %115 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 64, ptr %115, align 16, !tbaa !19
-  %116 = load ptr, ptr %3, align 8, !tbaa !26
+  %116 = load ptr, ptr %3, align 8, !tbaa !27
   %117 = call i32 @BIO_recvmmsg(ptr noundef %116, ptr noundef nonnull %9, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %7) #5
   %118 = icmp ne i32 %117, 0
   %119 = zext i1 %118 to i32
@@ -1058,7 +1058,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
 150:                                              ; preds = %147
   %151 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %133, ptr %151, align 16, !tbaa !20
-  %152 = load ptr, ptr %2, align 8, !tbaa !26
+  %152 = load ptr, ptr %2, align 8, !tbaa !27
   %153 = call i32 @BIO_sendmmsg(ptr noundef %152, ptr noundef nonnull %8, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %7) #5
   %154 = icmp ne i32 %153, 0
   %155 = zext i1 %154 to i32
@@ -1073,7 +1073,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not98, label %.loopexit, label %160
 
 160:                                              ; preds = %157
-  %161 = load ptr, ptr %3, align 8, !tbaa !26
+  %161 = load ptr, ptr %3, align 8, !tbaa !27
   %162 = call i64 @BIO_ctrl(ptr noundef %161, i32 noundef 87, i64 noundef 15, ptr noundef null) #5
   %163 = trunc i64 %162 to i32
   %164 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 663, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.13, i32 noundef %163, i32 noundef 1) #5
@@ -1081,7 +1081,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not99, label %.loopexit, label %165
 
 165:                                              ; preds = %160
-  %166 = load ptr, ptr %3, align 8, !tbaa !26
+  %166 = load ptr, ptr %3, align 8, !tbaa !27
   %167 = call i64 @BIO_ctrl(ptr noundef %166, i32 noundef 86, i64 noundef 0, ptr noundef null) #5
   %168 = trunc i64 %167 to i32
   %169 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 666, ptr noundef nonnull @.str.98, ptr noundef nonnull @.str.99, i32 noundef %168, i32 noundef 15) #5
@@ -1089,7 +1089,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not100, label %.loopexit, label %170
 
 170:                                              ; preds = %165
-  %171 = load ptr, ptr %2, align 8, !tbaa !26
+  %171 = load ptr, ptr %2, align 8, !tbaa !27
   %172 = call i64 @BIO_ctrl(ptr noundef %171, i32 noundef 85, i64 noundef 0, ptr noundef null) #5
   %173 = trunc i64 %172 to i32
   %174 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 669, ptr noundef nonnull @.str.100, ptr noundef nonnull @.str.99, i32 noundef %173, i32 noundef 15) #5
@@ -1100,7 +1100,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %16, label %176, label %181
 
 176:                                              ; preds = %175
-  %177 = load ptr, ptr %3, align 8, !tbaa !26
+  %177 = load ptr, ptr %3, align 8, !tbaa !27
   %178 = call i64 @BIO_ctrl(ptr noundef %177, i32 noundef 85, i64 noundef 0, ptr noundef null) #5
   %179 = trunc i64 %178 to i32
   %180 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 672, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.16, i32 noundef %179, i32 noundef 0) #5
@@ -1108,7 +1108,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not102, label %.thread145, label %181
 
 181:                                              ; preds = %176, %175
-  %182 = load ptr, ptr %2, align 8, !tbaa !26
+  %182 = load ptr, ptr %2, align 8, !tbaa !27
   %183 = call i64 @BIO_ctrl(ptr noundef %182, i32 noundef 87, i64 noundef 15, ptr noundef null) #5
   %184 = trunc i64 %183 to i32
   %185 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 675, ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.13, i32 noundef %184, i32 noundef 1) #5
@@ -1116,7 +1116,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not103, label %.loopexit, label %186
 
 186:                                              ; preds = %181
-  %187 = load ptr, ptr %2, align 8, !tbaa !26
+  %187 = load ptr, ptr %2, align 8, !tbaa !27
   %188 = call i32 @BIO_sendmmsg(ptr noundef %187, ptr noundef nonnull %8, i64 noundef 40, i64 noundef 1, i64 noundef 0, ptr noundef nonnull %7) #5
   %189 = icmp ne i32 %188, 0
   %190 = zext i1 %189 to i32
@@ -1131,7 +1131,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not105, label %.loopexit, label %195
 
 195:                                              ; preds = %192
-  %196 = load ptr, ptr %3, align 8, !tbaa !26
+  %196 = load ptr, ptr %3, align 8, !tbaa !27
   %197 = call i64 @BIO_ctrl(ptr noundef %196, i32 noundef 84, i64 noundef 1, ptr noundef null) #5
   %198 = trunc i64 %197 to i32
   %199 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 684, ptr noundef nonnull @.str.104, ptr noundef nonnull @.str.13, i32 noundef %198, i32 noundef 1) #5
@@ -1145,7 +1145,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   store ptr %145, ptr %201, align 16, !tbaa !20
   %202 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %148, ptr %202, align 8, !tbaa !21
-  %203 = load ptr, ptr %3, align 8, !tbaa !26
+  %203 = load ptr, ptr %3, align 8, !tbaa !27
   %204 = call i32 @BIO_recvmmsg(ptr noundef %203, ptr noundef nonnull %9, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %7) #5
   %205 = icmp ne i32 %204, 0
   %206 = zext i1 %205 to i32
@@ -1189,7 +1189,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
 226:                                              ; preds = %222
   %227 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %139, ptr %227, align 8, !tbaa !21
-  %228 = load ptr, ptr %2, align 8, !tbaa !26
+  %228 = load ptr, ptr %2, align 8, !tbaa !27
   %229 = call i64 @BIO_ctrl(ptr noundef %228, i32 noundef 84, i64 noundef 1, ptr noundef null) #5
   %230 = trunc i64 %229 to i32
   %231 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 712, ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.13, i32 noundef %230, i32 noundef 1) #5
@@ -1197,7 +1197,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not113, label %.loopexit, label %232
 
 232:                                              ; preds = %226
-  %233 = load ptr, ptr %2, align 8, !tbaa !26
+  %233 = load ptr, ptr %2, align 8, !tbaa !27
   %234 = call i32 @BIO_sendmmsg(ptr noundef %233, ptr noundef nonnull %8, i64 noundef 40, i64 noundef 1, i64 noundef 0, ptr noundef nonnull %7) #5
   %235 = icmp ne i32 %234, 0
   %236 = zext i1 %235 to i32
@@ -1214,7 +1214,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
 241:                                              ; preds = %238
   store ptr %5, ptr %9, align 16, !tbaa !15
   store i64 64, ptr %112, align 8, !tbaa !19
-  %242 = load ptr, ptr %3, align 8, !tbaa !26
+  %242 = load ptr, ptr %3, align 8, !tbaa !27
   %243 = call i32 @BIO_recvmmsg(ptr noundef %242, ptr noundef nonnull %9, i64 noundef 40, i64 noundef 2, i64 noundef 0, ptr noundef nonnull %7) #5
   %244 = icmp ne i32 %243, 0
   %245 = zext i1 %244 to i32
@@ -1264,7 +1264,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not122, label %.loopexit, label %270
 
 270:                                              ; preds = %266
-  %271 = load ptr, ptr %2, align 8, !tbaa !26
+  %271 = load ptr, ptr %2, align 8, !tbaa !27
   %272 = call i32 @BIO_write(ptr noundef %271, ptr noundef nonnull %4, i32 noundef 64) #5
   %273 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 743, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.114, i32 noundef %272, i32 noundef 64) #5
   %.not123 = icmp eq i32 %273, 0
@@ -1272,7 +1272,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
 
 274:                                              ; preds = %270
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  %275 = load ptr, ptr %3, align 8, !tbaa !26
+  %275 = load ptr, ptr %3, align 8, !tbaa !27
   %276 = call i64 @BIO_ctrl(ptr noundef %275, i32 noundef 89, i64 noundef 1, ptr noundef null) #5
   %277 = trunc i64 %276 to i32
   %278 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 747, ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.13, i32 noundef %277, i32 noundef 1) #5
@@ -1280,14 +1280,14 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not124, label %.loopexit, label %279
 
 279:                                              ; preds = %274
-  %280 = load ptr, ptr %3, align 8, !tbaa !26
+  %280 = load ptr, ptr %3, align 8, !tbaa !27
   %281 = call i32 @BIO_read(ptr noundef %280, ptr noundef nonnull %5, i32 noundef 32) #5
   %282 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 750, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.87, i32 noundef %281, i32 noundef -1) #5
   %.not125 = icmp eq i32 %282, 0
   br i1 %.not125, label %.loopexit, label %283
 
 283:                                              ; preds = %279
-  %284 = load ptr, ptr %3, align 8, !tbaa !26
+  %284 = load ptr, ptr %3, align 8, !tbaa !27
   %285 = call i64 @BIO_ctrl(ptr noundef %284, i32 noundef 10, i64 noundef 0, ptr noundef null) #5
   %286 = trunc i64 %285 to i32
   %287 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 753, ptr noundef nonnull @.str.117, ptr noundef nonnull @.str.114, i32 noundef %286, i32 noundef 64) #5
@@ -1295,7 +1295,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not126, label %.loopexit, label %288
 
 288:                                              ; preds = %283
-  %289 = load ptr, ptr %3, align 8, !tbaa !26
+  %289 = load ptr, ptr %3, align 8, !tbaa !27
   %290 = call i64 @BIO_ctrl(ptr noundef %289, i32 noundef 89, i64 noundef 0, ptr noundef null) #5
   %291 = trunc i64 %290 to i32
   %292 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 756, ptr noundef nonnull @.str.118, ptr noundef nonnull @.str.13, i32 noundef %291, i32 noundef 1) #5
@@ -1303,7 +1303,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   br i1 %.not127, label %.loopexit, label %293
 
 293:                                              ; preds = %288
-  %294 = load ptr, ptr %3, align 8, !tbaa !26
+  %294 = load ptr, ptr %3, align 8, !tbaa !27
   %295 = call i32 @BIO_read(ptr noundef %294, ptr noundef nonnull %5, i32 noundef 32) #5
   %296 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 759, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.119, i32 noundef %295, i32 noundef 32) #5
   %.not128 = icmp eq i32 %296, 0
@@ -1329,7 +1329,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   %.067153 = phi ptr [ %.067, %.loopexit ], [ %145, %176 ], [ null, %17 ]
   %.068152 = phi ptr [ %.068, %.loopexit ], [ %139, %176 ], [ null, %17 ]
   %.069151 = phi ptr [ %.069, %.loopexit ], [ %133, %176 ], [ null, %17 ]
-  %299 = load ptr, ptr %2, align 8, !tbaa !26
+  %299 = load ptr, ptr %2, align 8, !tbaa !27
   %300 = call i32 @BIO_free(ptr noundef %299) #5
   br label %.thread133
 
@@ -1339,7 +1339,7 @@ define internal range(i32 0, 2) i32 @test_bio_dgram_pair(i32 noundef %0) #0 {
   %.067141 = phi ptr [ %.067153, %.thread145 ], [ %.067, %.loopexit ], [ null, %31 ], [ null, %74 ], [ null, %20 ]
   %.068140 = phi ptr [ %.068152, %.thread145 ], [ %.068, %.loopexit ], [ null, %31 ], [ null, %74 ], [ null, %20 ]
   %.069139 = phi ptr [ %.069151, %.thread145 ], [ %.069, %.loopexit ], [ null, %31 ], [ null, %74 ], [ null, %20 ]
-  %301 = load ptr, ptr %3, align 8, !tbaa !26
+  %301 = load ptr, ptr %3, align 8, !tbaa !27
   %302 = call i32 @BIO_free(ptr noundef %301) #5
   call void @BIO_ADDR_free(ptr noundef %.069139) #5
   call void @BIO_ADDR_free(ptr noundef %.068140) #5
@@ -1484,7 +1484,7 @@ define internal fastcc range(i32 0, 2) i32 @do_sendmmsg(ptr noundef %0, ptr noun
   %10 = load i64, ptr %3, align 8, !tbaa !10
   %11 = add i64 %10, %.016
   %12 = icmp ult i64 %11, %2
-  br i1 %12, label %5, label %13, !llvm.loop !32
+  br i1 %12, label %5, label %13, !llvm.loop !33
 
 13:                                               ; preds = %9
   store i64 %11, ptr %3, align 8, !tbaa !10
@@ -1515,7 +1515,7 @@ define internal fastcc range(i32 0, 2) i32 @do_recvmmsg(ptr noundef %0, ptr noun
   %10 = load i64, ptr %3, align 8, !tbaa !10
   %11 = add i64 %10, %.016
   %12 = icmp ult i64 %11, %2
-  br i1 %12, label %5, label %13, !llvm.loop !33
+  br i1 %12, label %5, label %13, !llvm.loop !34
 
 13:                                               ; preds = %9
   store i64 %11, ptr %3, align 8, !tbaa !10
@@ -1563,7 +1563,7 @@ define internal fastcc range(i32 0, 2) i32 @random_data(ptr noundef nonnull %0, 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = trunc i64 %2 to i32
-  store i32 %6, ptr %5, align 16, !tbaa !28
+  store i32 %6, ptr %5, align 16, !tbaa !29
   %7 = tail call ptr @EVP_CIPHER_CTX_new() #5
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
@@ -1583,18 +1583,18 @@ define internal fastcc range(i32 0, 2) i32 @random_data(ptr noundef nonnull %0, 
   %.01721 = phi i64 [ %22, %18 ], [ 2052, %12 ]
   %15 = call i64 @llvm.umin.i64(i64 %.01721, i64 2048)
   %16 = trunc nuw nsw i64 %15 to i32
-  store i32 %16, ptr %4, align 4, !tbaa !28
+  store i32 %16, ptr %4, align 4, !tbaa !29
   %17 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %7, ptr noundef %.01622, ptr noundef nonnull %4, ptr noundef nonnull @random_data.zeroes, i32 noundef %16) #5
   %.not20 = icmp eq i32 %17, 1
   br i1 %.not20, label %18, label %.loopexit
 
 18:                                               ; preds = %.preheader
-  %19 = load i32, ptr %4, align 4, !tbaa !28
+  %19 = load i32, ptr %4, align 4, !tbaa !29
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i8, ptr %.01622, i64 %20
   %22 = sub i64 %.01721, %20
   %.not = icmp eq i64 %22, 0
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !34
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %18, %.preheader, %12, %9, %3
   %.015 = phi i32 [ 0, %3 ], [ 0, %9 ], [ 0, %12 ], [ 1, %18 ], [ 0, %.preheader ]
@@ -1657,15 +1657,16 @@ attributes #5 = { nounwind }
 !20 = !{!16, !18, i64 16}
 !21 = !{!16, !18, i64 24}
 !22 = !{!16, !11, i64 32}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = distinct !{!25, !24}
-!26 = !{!27, !27, i64 0}
-!27 = !{!"p1 _ZTS6bio_st", !17, i64 0}
-!28 = !{!6, !6, i64 0}
-!29 = distinct !{!29, !24}
-!30 = distinct !{!30, !24}
-!31 = distinct !{!31, !24}
-!32 = distinct !{!32, !24}
-!33 = distinct !{!33, !24}
-!34 = distinct !{!34, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = distinct !{!26, !24, !25}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTS6bio_st", !17, i64 0}
+!29 = !{!6, !6, i64 0}
+!30 = distinct !{!30, !24, !25}
+!31 = distinct !{!31, !24, !25}
+!32 = distinct !{!32, !24, !25}
+!33 = distinct !{!33, !24, !25}
+!34 = distinct !{!34, !24, !25}
+!35 = distinct !{!35, !24, !25}

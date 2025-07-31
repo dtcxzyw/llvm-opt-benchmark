@@ -149,7 +149,7 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr noundef readonly captur
   switch i32 %46, label %.loopexit.loopexit [
     i32 0, label %18
     i32 1, label %.loopexit
-  ]
+  ], !llvm.loop !4
 
 .loopexit.loopexit:                               ; preds = %64
   br label %.loopexit
@@ -221,3 +221,5 @@ attributes #6 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.estimated_trip_count"}

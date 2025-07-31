@@ -315,7 +315,7 @@ nodemask_isset_compat.exit.i:                     ; preds = %32, %43
 43:                                               ; preds = %nodemask_isset_compat.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 128
-  br i1 %exitcond.not.i, label %_numa_set_preferred.exit, label %nodemask_isset_compat.exit.i, !llvm.loop !11
+  br i1 %exitcond.not.i, label %_numa_set_preferred.exit, label %nodemask_isset_compat.exit.i, !llvm.loop !12
 
 44:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #5
@@ -453,7 +453,8 @@ attributes #5 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
 !7 = !{i32 7, !"debug-info-assignment-tracking", i1 true}
-!8 = distinct !{!8, !9, !10}
+!8 = distinct !{!8, !9, !10, !11}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
-!11 = distinct !{!11, !9, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !9, !10, !11}

@@ -223,7 +223,7 @@ check_retval.exit71:                              ; preds = %97
   %.1 = add nuw nsw i32 %.032, %104
   %105 = call i32 @CVodePrintAllStats(ptr noundef nonnull %32, ptr noundef %74, i32 noundef 1) #9
   %106 = icmp eq i32 %.1, 12
-  br i1 %106, label %.loopexit, label %76
+  br i1 %106, label %.loopexit, label %76, !llvm.loop !23
 
 .loopexit:                                        ; preds = %101, %check_retval.exit71
   %107 = call i32 @fclose(ptr noundef %74)
@@ -324,18 +324,18 @@ define internal noundef i32 @Jac(double %0, ptr noundef readonly captures(none) 
   %13 = load double, ptr %12, align 8, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load double, ptr %14, align 8, !tbaa !19
-  %16 = load ptr, ptr %3, align 8, !tbaa !23
+  %16 = load ptr, ptr %3, align 8, !tbaa !25
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %18 = load ptr, ptr %17, align 8, !tbaa !26
-  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %19 = load ptr, ptr %18, align 8, !tbaa !31
   store double -4.000000e-02, ptr %19, align 8, !tbaa !19
   %20 = fmul double %15, 1.000000e+04
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %22 = load ptr, ptr %21, align 8, !tbaa !29
+  %22 = load ptr, ptr %21, align 8, !tbaa !31
   store double %20, ptr %22, align 8, !tbaa !19
   %23 = fmul double %13, 1.000000e+04
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !29
+  %25 = load ptr, ptr %24, align 8, !tbaa !31
   store double %23, ptr %25, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double 4.000000e-02, ptr %26, align 8, !tbaa !19
@@ -495,10 +495,12 @@ attributes #11 = { cold }
 !20 = !{!"double", !7, i64 0}
 !21 = !{!6, !6, i64 0}
 !22 = !{!17, !17, i64 0}
-!23 = !{!24, !6, i64 0}
-!24 = !{!"_generic_SUNMatrix", !6, i64 0, !25, i64 8, !10, i64 16}
-!25 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
-!26 = !{!27, !28, i64 32}
-!27 = !{!"_SUNMatrixContent_Dense", !16, i64 0, !16, i64 8, !18, i64 16, !16, i64 24, !28, i64 32}
-!28 = !{!"p2 double", !6, i64 0}
-!29 = !{!18, !18, i64 0}
+!23 = distinct !{!23, !24}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!26, !6, i64 0}
+!26 = !{!"_generic_SUNMatrix", !6, i64 0, !27, i64 8, !10, i64 16}
+!27 = !{!"p1 _ZTS22_generic_SUNMatrix_Ops", !6, i64 0}
+!28 = !{!29, !30, i64 32}
+!29 = !{!"_SUNMatrixContent_Dense", !16, i64 0, !16, i64 8, !18, i64 16, !16, i64 24, !30, i64 32}
+!30 = !{!"p2 double", !6, i64 0}
+!31 = !{!18, !18, i64 0}

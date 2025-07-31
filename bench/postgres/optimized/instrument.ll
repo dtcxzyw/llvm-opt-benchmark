@@ -94,7 +94,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
-  %3 = load i8, ptr %0, align 8, !range !6, !noundef !7
+  %3 = load i8, ptr %0, align 8, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %19
 
@@ -125,7 +125,7 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
 
 19:                                               ; preds = %9, %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
+  %21 = load i8, ptr %20, align 1, !range !7, !noundef !8
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %23, label %25
 
@@ -136,7 +136,7 @@ define dso_local void @InstrStartNode(ptr noundef captures(none) %0) local_unnam
 
 25:                                               ; preds = %23, %19
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %27 = load i8, ptr %26, align 2, !range !6, !noundef !7
+  %27 = load i8, ptr %26, align 2, !range !7, !noundef !8
   %28 = trunc nuw i8 %27 to i1
   br i1 %28, label %29, label %31
 
@@ -166,7 +166,7 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
   %5 = load double, ptr %4, align 8
   %6 = fadd double %1, %5
   store double %6, ptr %4, align 8
-  %7 = load i8, ptr %0, align 8, !range !6, !noundef !7
+  %7 = load i8, ptr %0, align 8, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %9, label %28
 
@@ -203,7 +203,7 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
 
 28:                                               ; preds = %16, %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %30 = load i8, ptr %29, align 1, !range !6, !noundef !7
+  %30 = load i8, ptr %29, align 1, !range !7, !noundef !8
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %32, label %35
 
@@ -215,7 +215,7 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
 
 35:                                               ; preds = %32, %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %37 = load i8, ptr %36, align 2, !range !6, !noundef !7
+  %37 = load i8, ptr %36, align 2, !range !7, !noundef !8
   %38 = trunc nuw i8 %37 to i1
   br i1 %38, label %39, label %68
 
@@ -256,7 +256,7 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
 
 68:                                               ; preds = %39, %35
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %70 = load i8, ptr %69, align 4, !range !6, !noundef !7
+  %70 = load i8, ptr %69, align 4, !range !7, !noundef !8
   %71 = trunc nuw i8 %70 to i1
   br i1 %71, label %73, label %72
 
@@ -266,7 +266,7 @@ define dso_local void @InstrStopNode(ptr noundef captures(none) %0, double nound
 
 73:                                               ; preds = %68
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %75 = load i8, ptr %74, align 1, !range !6, !noundef !7
+  %75 = load i8, ptr %74, align 1, !range !7, !noundef !8
   %76 = trunc nuw i8 %75 to i1
   %77 = fcmp olt double %5, 1.000000e+00
   %or.cond = select i1 %76, i1 %77, i1 false
@@ -481,7 +481,7 @@ define dso_local void @InstrUpdateTupleCount(ptr noundef captures(none) %0, doub
 ; Function Attrs: nounwind uwtable
 define dso_local void @InstrEndLoop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i8, ptr %2, align 4, !range !6, !noundef !7
+  %3 = load i8, ptr %2, align 4, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   br i1 %4, label %5, label %33
 
@@ -534,10 +534,10 @@ define dso_local void @InstrEndLoop(ptr noundef captures(none) %0) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %4 = load i8, ptr %3, align 4, !range !6, !noundef !7
+  %4 = load i8, ptr %3, align 4, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %7 = load i8, ptr %6, align 4, !range !6, !noundef !7
+  %7 = load i8, ptr %6, align 4, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   br i1 %5, label %14, label %9
 
@@ -623,7 +623,7 @@ define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef r
   %67 = fadd double %64, %66
   store double %67, ptr %65, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %69 = load i8, ptr %68, align 1, !range !6, !noundef !7
+  %69 = load i8, ptr %68, align 1, !range !7, !noundef !8
   %70 = trunc nuw i8 %69 to i1
   br i1 %70, label %71, label %152
 
@@ -728,7 +728,7 @@ define dso_local void @InstrAggNode(ptr noundef captures(none) %0, ptr noundef r
 
 152:                                              ; preds = %71, %22
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %154 = load i8, ptr %153, align 2, !range !6, !noundef !7
+  %154 = load i8, ptr %153, align 2, !range !7, !noundef !8
   %155 = trunc nuw i8 %154 to i1
   br i1 %155, label %156, label %177
 
@@ -928,7 +928,8 @@ attributes #14 = { cold nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{i8 0, i8 2}
-!7 = !{}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = !{i8 0, i8 2}
+!8 = !{}

@@ -279,7 +279,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 5
   %76 = getelementptr i8, ptr %73, i64 %.idx
-  %77 = load i8, ptr %76, align 1, !tbaa !47
+  %77 = load i8, ptr %76, align 1, !tbaa !48
   %.not223 = icmp eq i8 %77, -1
   br i1 %.not223, label %74, label %._crit_edge
 
@@ -294,7 +294,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %.not224, label %.preheader, label %81
 
 .preheader:                                       ; preds = %78, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !49
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 104
@@ -310,32 +310,32 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %90 = load i32, ptr %89, align 4, !tbaa !41
   tail call void @lv_area_move(ptr noundef nonnull %83, i32 noundef %88, i32 noundef %90) #5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !48
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %80, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !50
   %91 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i64 80, ptr %91, align 8, !tbaa !37
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %93 = load i32, ptr %92, align 8, !tbaa !54
+  %93 = load i32, ptr %92, align 8, !tbaa !56
   %94 = getelementptr inbounds nuw i8, ptr %80, i64 48
-  store i32 %93, ptr %94, align 8, !tbaa !55
+  store i32 %93, ptr %94, align 8, !tbaa !57
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 52
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 121
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %95, ptr noundef nonnull align 1 dereferenceable(3) %96, i64 3, i1 false), !tbaa.struct !56
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %95, ptr noundef nonnull align 1 dereferenceable(3) %96, i64 3, i1 false), !tbaa.struct !58
   %97 = load i32, ptr %10, align 4, !tbaa !38
   %98 = getelementptr inbounds nuw i8, ptr %80, i64 56
-  store i32 %97, ptr %98, align 8, !tbaa !58
+  store i32 %97, ptr %98, align 8, !tbaa !60
   %99 = load i32, ptr %84, align 8, !tbaa !39
   %100 = getelementptr inbounds nuw i8, ptr %80, i64 60
-  store i32 %99, ptr %100, align 4, !tbaa !59
+  store i32 %99, ptr %100, align 4, !tbaa !61
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %102 = load i8, ptr %101, align 4, !tbaa !22
   %103 = getelementptr inbounds nuw i8, ptr %80, i64 72
   store i8 %102, ptr %103, align 8, !tbaa !35
   %104 = load i32, ptr %87, align 8, !tbaa !40
   %105 = getelementptr inbounds nuw i8, ptr %80, i64 64
-  store i32 %104, ptr %105, align 8, !tbaa !60
+  store i32 %104, ptr %105, align 8, !tbaa !62
   %106 = load i32, ptr %89, align 4, !tbaa !41
   %107 = getelementptr inbounds nuw i8, ptr %80, i64 68
-  store i32 %106, ptr %107, align 4, !tbaa !61
+  store i32 %106, ptr %107, align 4, !tbaa !63
   %108 = getelementptr inbounds nuw i8, ptr %80, i64 73
   %109 = load i8, ptr %108, align 1
   %110 = and i8 %109, -2
@@ -351,7 +351,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
 
 114:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !64
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %116 = load i32, ptr %115, align 4, !tbaa !43
   %117 = icmp sgt i32 %116, 1
@@ -364,7 +364,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
 
 121:                                              ; preds = %118
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %123 = load i32, ptr %122, align 8, !tbaa !54
+  %123 = load i32, ptr %122, align 8, !tbaa !56
   %.not225 = icmp eq i32 %123, 0
   br i1 %.not225, label %146, label %124
 
@@ -374,29 +374,29 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %127 = lshr i8 %126, 2
   %.lobit = and i8 %127, 1
   %128 = zext nneg i8 %.lobit to i32
-  %129 = load i32, ptr %4, align 4, !tbaa !63
+  %129 = load i32, ptr %4, align 4, !tbaa !65
   %130 = add nsw i32 %129, %128
-  store i32 %130, ptr %4, align 4, !tbaa !63
+  store i32 %130, ptr %4, align 4, !tbaa !65
   %131 = lshr i8 %126, 1
   %.lobit228 = and i8 %131, 1
   %132 = zext nneg i8 %.lobit228 to i32
   %133 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %134 = load i32, ptr %133, align 4, !tbaa !64
+  %134 = load i32, ptr %133, align 4, !tbaa !66
   %135 = add nsw i32 %134, %132
-  store i32 %135, ptr %133, align 4, !tbaa !64
+  store i32 %135, ptr %133, align 4, !tbaa !66
   %136 = lshr i8 %126, 3
   %.lobit230 = and i8 %136, 1
   %137 = zext nneg i8 %.lobit230 to i32
   %138 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %139 = load i32, ptr %138, align 4, !tbaa !65
+  %139 = load i32, ptr %138, align 4, !tbaa !67
   %140 = sub nsw i32 %139, %137
-  store i32 %140, ptr %138, align 4, !tbaa !65
+  store i32 %140, ptr %138, align 4, !tbaa !67
   %141 = and i8 %126, 1
   %142 = zext nneg i8 %141 to i32
   %143 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %144 = load i32, ptr %143, align 4, !tbaa !66
+  %144 = load i32, ptr %143, align 4, !tbaa !68
   %145 = sub nsw i32 %144, %142
-  store i32 %145, ptr %143, align 4, !tbaa !66
+  store i32 %145, ptr %143, align 4, !tbaa !68
   br label %146
 
 146:                                              ; preds = %124, %121, %118, %114
@@ -406,7 +406,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %.not232, label %.preheader245, label %149
 
 .preheader245:                                    ; preds = %146, %.preheader245
-  br label %.preheader245
+  br label %.preheader245, !llvm.loop !69
 
 149:                                              ; preds = %146
   call void @lv_memset(ptr noundef nonnull %148, i8 noundef zeroext 0, i64 noundef 72) #5
@@ -416,18 +416,18 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   store i64 72, ptr %151, align 8, !tbaa !25
   %152 = getelementptr inbounds nuw i8, ptr %147, i64 104
   store ptr %148, ptr %152, align 8, !tbaa !31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %148, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %148, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !50
   store i64 72, ptr %151, align 8, !tbaa !25
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %154 = load i32, ptr %153, align 8, !tbaa !54
+  %154 = load i32, ptr %153, align 8, !tbaa !56
   %155 = getelementptr inbounds nuw i8, ptr %148, i64 48
-  store i32 %154, ptr %155, align 8, !tbaa !67
+  store i32 %154, ptr %155, align 8, !tbaa !70
   %156 = getelementptr inbounds nuw i8, ptr %148, i64 53
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 53
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %156, ptr noundef nonnull align 1 dereferenceable(3) %157, i64 3, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %156, ptr noundef nonnull align 1 dereferenceable(3) %157, i64 3, i1 false), !tbaa.struct !58
   %158 = getelementptr inbounds nuw i8, ptr %148, i64 56
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %158, ptr noundef nonnull align 8 dereferenceable(12) %159, i64 12, i1 false), !tbaa.struct !68
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %158, ptr noundef nonnull align 8 dereferenceable(12) %159, i64 12, i1 false), !tbaa.struct !71
   %160 = load i8, ptr %33, align 4, !tbaa !18
   store i8 %160, ptr %150, align 4, !tbaa !23
   %161 = getelementptr inbounds nuw i8, ptr %147, i64 8
@@ -460,7 +460,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
 
 172:                                              ; preds = %167
   %173 = getelementptr inbounds nuw i8, ptr %1, i64 93
-  %174 = load i8, ptr %173, align 1, !tbaa !69
+  %174 = load i8, ptr %173, align 1, !tbaa !72
   %.not234 = icmp eq i8 %174, 0
   br i1 %.not234, label %177, label %175
 
@@ -470,21 +470,21 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
 
 177:                                              ; preds = %172
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #5
-  store i32 0, ptr %6, align 4, !tbaa !63
+  store i32 0, ptr %6, align 4, !tbaa !65
   %178 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %178, align 4, !tbaa !64
+  store i32 0, ptr %178, align 4, !tbaa !66
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %180 = load i64, ptr %5, align 8
   %181 = lshr i64 %180, 32
   %182 = trunc nuw i64 %181 to i32
   %183 = and i32 %182, 65535
   %184 = add nsw i32 %183, -1
-  store i32 %184, ptr %179, align 4, !tbaa !65
+  store i32 %184, ptr %179, align 4, !tbaa !67
   %185 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %186 = lshr i64 %180, 48
   %187 = trunc nuw nsw i64 %186 to i32
   %188 = add nsw i32 %187, -1
-  store i32 %188, ptr %185, align 4, !tbaa !66
+  store i32 %188, ptr %185, align 4, !tbaa !68
   call void @lv_area_align(ptr noundef %2, ptr noundef nonnull %6, i32 noundef 9, i32 noundef 0, i32 noundef 0) #5
   %189 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #5
@@ -497,29 +497,29 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %.not235, label %.preheader246, label %192
 
 .preheader246:                                    ; preds = %190, %.preheader246
-  br label %.preheader246
+  br label %.preheader246, !llvm.loop !73
 
 192:                                              ; preds = %190
   call void @lv_draw_image_dsc_init(ptr noundef nonnull %191) #5
   %193 = getelementptr inbounds nuw i8, ptr %.0211, i64 104
   store ptr %191, ptr %193, align 8, !tbaa !31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %191, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %191, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !50
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 32
-  store i64 144, ptr %194, align 8, !tbaa !70
+  store i64 144, ptr %194, align 8, !tbaa !74
   %195 = load ptr, ptr %164, align 8, !tbaa !42
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 48
-  store ptr %195, ptr %196, align 8, !tbaa !76
+  store ptr %195, ptr %196, align 8, !tbaa !80
   %197 = load i8, ptr %36, align 1, !tbaa !19
   %198 = getelementptr inbounds nuw i8, ptr %191, i64 100
-  store i8 %197, ptr %198, align 4, !tbaa !77
+  store i8 %197, ptr %198, align 4, !tbaa !81
   %199 = getelementptr inbounds nuw i8, ptr %191, i64 96
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %199, ptr noundef nonnull align 8 dereferenceable(3) %200, i64 3, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %199, ptr noundef nonnull align 8 dereferenceable(3) %200, i64 3, i1 false), !tbaa.struct !58
   %201 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %202 = load i8, ptr %201, align 4, !tbaa !78
+  %202 = load i8, ptr %201, align 4, !tbaa !82
   %203 = getelementptr inbounds nuw i8, ptr %191, i64 99
-  store i8 %202, ptr %203, align 1, !tbaa !79
-  %204 = load i8, ptr %173, align 1, !tbaa !69
+  store i8 %202, ptr %203, align 1, !tbaa !83
+  %204 = load i8, ptr %173, align 1, !tbaa !72
   %205 = getelementptr inbounds nuw i8, ptr %191, i64 101
   %206 = load i8, ptr %205, align 1
   %207 = shl i8 %204, 4
@@ -528,13 +528,13 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %210 = or disjoint i8 %209, %208
   store i8 %210, ptr %205, align 1
   %211 = getelementptr inbounds nuw i8, ptr %191, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %211, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %211, ptr noundef nonnull align 8 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !84
   %212 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %213 = load i32, ptr %212, align 8, !tbaa !54
+  %213 = load i32, ptr %212, align 8, !tbaa !56
   %214 = getelementptr inbounds nuw i8, ptr %191, i64 128
-  store i32 %213, ptr %214, align 8, !tbaa !81
+  store i32 %213, ptr %214, align 8, !tbaa !85
   %215 = getelementptr inbounds nuw i8, ptr %191, i64 112
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !64
   %216 = getelementptr inbounds nuw i8, ptr %.0211, i64 8
   store i32 6, ptr %216, align 8, !tbaa !26
   call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %.0211) #5
@@ -547,18 +547,18 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %220 = load ptr, ptr %219, align 8, !tbaa !17
   call void @lv_text_get_size(ptr noundef nonnull %7, ptr noundef %218, ptr noundef %220, i32 noundef 0, i32 noundef 0, i32 noundef 536870911, i32 noundef 0) #5
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #5
-  store i32 0, ptr %8, align 4, !tbaa !63
+  store i32 0, ptr %8, align 4, !tbaa !65
   %221 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %221, align 4, !tbaa !64
+  store i32 0, ptr %221, align 4, !tbaa !66
   %222 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %223 = load i32, ptr %7, align 4, !tbaa !82
+  %223 = load i32, ptr %7, align 4, !tbaa !86
   %224 = add nsw i32 %223, -1
-  store i32 %224, ptr %222, align 4, !tbaa !65
+  store i32 %224, ptr %222, align 4, !tbaa !67
   %225 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %226 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %227 = load i32, ptr %226, align 4, !tbaa !83
+  %227 = load i32, ptr %226, align 4, !tbaa !87
   %228 = add nsw i32 %227, -1
-  store i32 %228, ptr %225, align 4, !tbaa !66
+  store i32 %228, ptr %225, align 4, !tbaa !68
   call void @lv_area_align(ptr noundef %2, ptr noundef nonnull %8, i32 noundef 9, i32 noundef 0, i32 noundef 0) #5
   %229 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %8) #5
   %230 = call ptr @lv_malloc(i64 noundef 144) #5
@@ -566,24 +566,24 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %.not233, label %.preheader249, label %231
 
 .preheader249:                                    ; preds = %217, %.preheader249
-  br label %.preheader249
+  br label %.preheader249, !llvm.loop !88
 
 231:                                              ; preds = %217
   call void @lv_draw_label_dsc_init(ptr noundef nonnull %230) #5
   %232 = getelementptr inbounds nuw i8, ptr %229, i64 104
   store ptr %230, ptr %232, align 8, !tbaa !31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %230, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %230, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !50
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 32
-  store i64 144, ptr %233, align 8, !tbaa !84
+  store i64 144, ptr %233, align 8, !tbaa !89
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 80
   %235 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %234, ptr noundef nonnull align 8 dereferenceable(3) %235, i64 3, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %234, ptr noundef nonnull align 8 dereferenceable(3) %235, i64 3, i1 false), !tbaa.struct !58
   %236 = load ptr, ptr %219, align 8, !tbaa !17
   %237 = getelementptr inbounds nuw i8, ptr %230, i64 64
-  store ptr %236, ptr %237, align 8, !tbaa !89
+  store ptr %236, ptr %237, align 8, !tbaa !94
   %238 = load ptr, ptr %164, align 8, !tbaa !42
   %239 = getelementptr inbounds nuw i8, ptr %230, i64 48
-  store ptr %238, ptr %239, align 8, !tbaa !90
+  store ptr %238, ptr %239, align 8, !tbaa !95
   %240 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i32 5, ptr %240, align 8, !tbaa !26
   call void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %229) #5
@@ -605,28 +605,28 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %.not236, label %.preheader247, label %246
 
 .preheader247:                                    ; preds = %243, %.preheader247
-  br label %.preheader247
+  br label %.preheader247, !llvm.loop !96
 
 246:                                              ; preds = %243
   %247 = getelementptr inbounds nuw i8, ptr %244, i64 104
   store ptr %245, ptr %247, align 8, !tbaa !31
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %245, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %245, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !50
   %248 = getelementptr inbounds nuw i8, ptr %245, i64 32
   store i64 64, ptr %248, align 8, !tbaa !34
   %249 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %250 = load i32, ptr %249, align 8, !tbaa !54
+  %250 = load i32, ptr %249, align 8, !tbaa !56
   %251 = getelementptr inbounds nuw i8, ptr %245, i64 48
-  store i32 %250, ptr %251, align 8, !tbaa !91
+  store i32 %250, ptr %251, align 8, !tbaa !97
   %252 = getelementptr inbounds nuw i8, ptr %245, i64 52
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %252, ptr noundef nonnull align 2 dereferenceable(3) %253, i64 3, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %252, ptr noundef nonnull align 2 dereferenceable(3) %253, i64 3, i1 false), !tbaa.struct !58
   %254 = load i8, ptr %44, align 8, !tbaa !21
   %255 = getelementptr inbounds nuw i8, ptr %245, i64 60
   store i8 %254, ptr %255, align 4, !tbaa !32
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %257 = load i32, ptr %256, align 4, !tbaa !43
   %258 = getelementptr inbounds nuw i8, ptr %245, i64 56
-  store i32 %257, ptr %258, align 8, !tbaa !92
+  store i32 %257, ptr %258, align 8, !tbaa !98
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 105
   %260 = load i8, ptr %259, align 1
   %261 = and i8 %260, 31
@@ -645,11 +645,11 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
 
 268:                                              ; preds = %267
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !62
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !64
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %270 = load i32, ptr %269, align 8, !tbaa !44
   %271 = getelementptr inbounds nuw i8, ptr %1, i64 116
-  %272 = load i32, ptr %271, align 4, !tbaa !93
+  %272 = load i32, ptr %271, align 4, !tbaa !99
   %273 = add nsw i32 %272, %270
   call void @lv_area_increase(ptr noundef nonnull %9, i32 noundef %273, i32 noundef %273) #5
   %274 = call ptr @lv_draw_add_task(ptr noundef %0, ptr noundef nonnull %9) #5
@@ -658,7 +658,7 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   br i1 %.not237, label %.preheader248, label %276
 
 .preheader248:                                    ; preds = %268, %.preheader248
-  br label %.preheader248
+  br label %.preheader248, !llvm.loop !100
 
 276:                                              ; preds = %268
   %277 = getelementptr inbounds nuw i8, ptr %274, i64 104
@@ -666,36 +666,36 @@ define void @lv_draw_rect(ptr noundef %0, ptr noundef readonly %1, ptr noundef %
   %278 = getelementptr inbounds nuw i8, ptr %274, i64 28
   %279 = load i32, ptr %269, align 8, !tbaa !44
   call void @lv_area_increase(ptr noundef nonnull %278, i32 noundef %279, i32 noundef %279) #5
-  %280 = load i32, ptr %271, align 4, !tbaa !93
+  %280 = load i32, ptr %271, align 4, !tbaa !99
   call void @lv_area_increase(ptr noundef nonnull %278, i32 noundef %280, i32 noundef %280) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %275, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %275, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !tbaa.struct !50
   %281 = getelementptr inbounds nuw i8, ptr %275, i64 32
   store i64 64, ptr %281, align 8, !tbaa !34
   %282 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %283 = load i32, ptr %282, align 8, !tbaa !54
+  %283 = load i32, ptr %282, align 8, !tbaa !56
   %284 = icmp eq i32 %283, 32767
   br i1 %284, label %290, label %285
 
 285:                                              ; preds = %276
   %286 = load i32, ptr %269, align 8, !tbaa !44
   %287 = add nsw i32 %286, %283
-  %288 = load i32, ptr %271, align 4, !tbaa !93
+  %288 = load i32, ptr %271, align 4, !tbaa !99
   %289 = add nsw i32 %287, %288
   br label %290
 
 290:                                              ; preds = %276, %285
   %291 = phi i32 [ %289, %285 ], [ 32767, %276 ]
   %292 = getelementptr inbounds nuw i8, ptr %275, i64 48
-  store i32 %291, ptr %292, align 8, !tbaa !91
+  store i32 %291, ptr %292, align 8, !tbaa !97
   %293 = getelementptr inbounds nuw i8, ptr %275, i64 52
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 106
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %293, ptr noundef nonnull align 2 dereferenceable(3) %294, i64 3, i1 false), !tbaa.struct !56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %293, ptr noundef nonnull align 2 dereferenceable(3) %294, i64 3, i1 false), !tbaa.struct !58
   %295 = load i8, ptr %58, align 8, !tbaa !20
   %296 = getelementptr inbounds nuw i8, ptr %275, i64 60
   store i8 %295, ptr %296, align 4, !tbaa !32
   %297 = load i32, ptr %269, align 8, !tbaa !44
   %298 = getelementptr inbounds nuw i8, ptr %275, i64 56
-  store i32 %297, ptr %298, align 8, !tbaa !92
+  store i32 %297, ptr %298, align 8, !tbaa !98
   %299 = getelementptr inbounds nuw i8, ptr %275, i64 61
   %300 = load i8, ptr %299, align 1
   %301 = and i8 %300, -32
@@ -789,52 +789,59 @@ attributes #5 = { nounwind }
 !42 = !{!9, !12, i64 72}
 !43 = !{!9, !13, i64 100}
 !44 = !{!9, !13, i64 112}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!4, !6, i64 3}
-!48 = !{i64 0, i64 8, !49, i64 8, i64 4, !50, i64 12, i64 4, !50, i64 16, i64 4, !50, i64 24, i64 8, !51, i64 32, i64 8, !52, i64 40, i64 8, !53}
-!49 = !{!11, !11, i64 0}
-!50 = !{!13, !13, i64 0}
-!51 = !{!14, !14, i64 0}
-!52 = !{!15, !15, i64 0}
-!53 = !{!12, !12, i64 0}
-!54 = !{!9, !13, i64 48}
-!55 = !{!36, !13, i64 48}
-!56 = !{i64 0, i64 1, !57, i64 1, i64 1, !57, i64 2, i64 1, !57}
-!57 = !{!6, !6, i64 0}
-!58 = !{!36, !13, i64 56}
-!59 = !{!36, !13, i64 60}
-!60 = !{!36, !13, i64 64}
-!61 = !{!36, !13, i64 68}
-!62 = !{i64 0, i64 4, !50, i64 4, i64 4, !50, i64 8, i64 4, !50, i64 12, i64 4, !50}
-!63 = !{!29, !13, i64 0}
-!64 = !{!29, !13, i64 4}
-!65 = !{!29, !13, i64 8}
-!66 = !{!29, !13, i64 12}
-!67 = !{!24, !13, i64 48}
-!68 = !{i64 0, i64 10, !57, i64 10, i64 1, !57, i64 11, i64 1, !57}
-!69 = !{!9, !6, i64 93}
-!70 = !{!71, !15, i64 32}
-!71 = !{!"_lv_draw_image_dsc_t", !10, i64 0, !12, i64 48, !72, i64 56, !13, i64 68, !13, i64 72, !13, i64 76, !13, i64 80, !13, i64 84, !73, i64 88, !5, i64 96, !6, i64 99, !6, i64 100, !13, i64 101, !74, i64 101, !74, i64 101, !75, i64 104, !29, i64 112, !13, i64 128, !12, i64 136}
-!72 = !{!"", !13, i64 0, !13, i64 1, !13, i64 2, !13, i64 4, !13, i64 6, !13, i64 8, !13, i64 10}
-!73 = !{!"", !13, i64 0, !13, i64 4}
-!74 = !{!"short", !6, i64 0}
-!75 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !12, i64 0}
-!76 = !{!71, !12, i64 48}
-!77 = !{!71, !6, i64 100}
-!78 = !{!9, !6, i64 92}
-!79 = !{!71, !6, i64 99}
-!80 = !{i64 0, i64 8, !57, i64 8, i64 4, !57}
-!81 = !{!71, !13, i64 128}
-!82 = !{!73, !13, i64 0}
-!83 = !{!73, !13, i64 4}
-!84 = !{!85, !15, i64 32}
-!85 = !{!"", !10, i64 0, !86, i64 48, !13, i64 56, !87, i64 64, !13, i64 72, !13, i64 76, !5, i64 80, !5, i64 83, !5, i64 86, !13, i64 92, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !6, i64 112, !13, i64 116, !13, i64 120, !13, i64 124, !13, i64 128, !13, i64 128, !6, i64 128, !6, i64 128, !88, i64 136}
-!86 = !{!"p1 omnipotent char", !12, i64 0}
-!87 = !{!"p1 _ZTS10_lv_font_t", !12, i64 0}
-!88 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !12, i64 0}
-!89 = !{!85, !87, i64 64}
-!90 = !{!85, !86, i64 48}
-!91 = !{!33, !13, i64 48}
-!92 = !{!33, !13, i64 56}
-!93 = !{!9, !13, i64 116}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!4, !6, i64 3}
+!49 = distinct !{!49, !47}
+!50 = !{i64 0, i64 8, !51, i64 8, i64 4, !52, i64 12, i64 4, !52, i64 16, i64 4, !52, i64 24, i64 8, !53, i64 32, i64 8, !54, i64 40, i64 8, !55}
+!51 = !{!11, !11, i64 0}
+!52 = !{!13, !13, i64 0}
+!53 = !{!14, !14, i64 0}
+!54 = !{!15, !15, i64 0}
+!55 = !{!12, !12, i64 0}
+!56 = !{!9, !13, i64 48}
+!57 = !{!36, !13, i64 48}
+!58 = !{i64 0, i64 1, !59, i64 1, i64 1, !59, i64 2, i64 1, !59}
+!59 = !{!6, !6, i64 0}
+!60 = !{!36, !13, i64 56}
+!61 = !{!36, !13, i64 60}
+!62 = !{!36, !13, i64 64}
+!63 = !{!36, !13, i64 68}
+!64 = !{i64 0, i64 4, !52, i64 4, i64 4, !52, i64 8, i64 4, !52, i64 12, i64 4, !52}
+!65 = !{!29, !13, i64 0}
+!66 = !{!29, !13, i64 4}
+!67 = !{!29, !13, i64 8}
+!68 = !{!29, !13, i64 12}
+!69 = distinct !{!69, !47}
+!70 = !{!24, !13, i64 48}
+!71 = !{i64 0, i64 10, !59, i64 10, i64 1, !59, i64 11, i64 1, !59}
+!72 = !{!9, !6, i64 93}
+!73 = distinct !{!73, !47}
+!74 = !{!75, !15, i64 32}
+!75 = !{!"_lv_draw_image_dsc_t", !10, i64 0, !12, i64 48, !76, i64 56, !13, i64 68, !13, i64 72, !13, i64 76, !13, i64 80, !13, i64 84, !77, i64 88, !5, i64 96, !6, i64 99, !6, i64 100, !13, i64 101, !78, i64 101, !78, i64 101, !79, i64 104, !29, i64 112, !13, i64 128, !12, i64 136}
+!76 = !{!"", !13, i64 0, !13, i64 1, !13, i64 2, !13, i64 4, !13, i64 6, !13, i64 8, !13, i64 10}
+!77 = !{!"", !13, i64 0, !13, i64 4}
+!78 = !{!"short", !6, i64 0}
+!79 = !{!"p1 _ZTS20_lv_draw_image_sup_t", !12, i64 0}
+!80 = !{!75, !12, i64 48}
+!81 = !{!75, !6, i64 100}
+!82 = !{!9, !6, i64 92}
+!83 = !{!75, !6, i64 99}
+!84 = !{i64 0, i64 8, !59, i64 8, i64 4, !59}
+!85 = !{!75, !13, i64 128}
+!86 = !{!77, !13, i64 0}
+!87 = !{!77, !13, i64 4}
+!88 = distinct !{!88, !47}
+!89 = !{!90, !15, i64 32}
+!90 = !{!"", !10, i64 0, !91, i64 48, !13, i64 56, !92, i64 64, !13, i64 72, !13, i64 76, !5, i64 80, !5, i64 83, !5, i64 86, !13, i64 92, !13, i64 96, !13, i64 100, !13, i64 104, !13, i64 108, !6, i64 112, !13, i64 116, !13, i64 120, !13, i64 124, !13, i64 128, !13, i64 128, !6, i64 128, !6, i64 128, !93, i64 136}
+!91 = !{!"p1 omnipotent char", !12, i64 0}
+!92 = !{!"p1 _ZTS10_lv_font_t", !12, i64 0}
+!93 = !{!"p1 _ZTS21_lv_draw_label_hint_t", !12, i64 0}
+!94 = !{!90, !92, i64 64}
+!95 = !{!90, !91, i64 48}
+!96 = distinct !{!96, !47}
+!97 = !{!33, !13, i64 48}
+!98 = !{!33, !13, i64 56}
+!99 = !{!9, !13, i64 116}
+!100 = distinct !{!100, !47}

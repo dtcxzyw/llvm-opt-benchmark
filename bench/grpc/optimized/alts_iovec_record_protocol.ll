@@ -205,10 +205,10 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   store i64 0, ptr %8, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !24
-  %57 = load ptr, ptr %0, align 8, !tbaa !25
+  %56 = load ptr, ptr %55, align 8, !tbaa !25
+  %57 = load ptr, ptr %0, align 8, !tbaa !26
   %58 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %57)
-  %59 = load ptr, ptr %0, align 8, !tbaa !25
+  %59 = load ptr, ptr %0, align 8, !tbaa !26
   %60 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %59)
   %61 = call noundef i32 @_Z31gsec_aead_crypter_encrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %56, ptr noundef %58, i64 noundef %60, ptr noundef %1, i64 noundef %2, ptr noundef null, i64 noundef 0, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
   %.not37 = icmp eq i32 %61, 0
@@ -225,7 +225,7 @@ _ZL28ensure_header_and_tag_lengthPK26alts_iovec_record_protocol5iovecS2_PPc.exit
   br label %69
 
 66:                                               ; preds = %62
-  %67 = load ptr, ptr %0, align 8, !tbaa !25
+  %67 = load ptr, ptr %0, align 8, !tbaa !26
   %68 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %67, ptr noundef %6)
   br label %69
 
@@ -277,13 +277,13 @@ define internal fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr
 
 5:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #11
-  store i8 0, ptr %3, align 1, !tbaa !26
+  store i8 0, ptr %3, align 1, !tbaa !27
   %6 = call noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %1)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
 7:                                                ; preds = %5
-  %8 = load i8, ptr %3, align 1, !tbaa !26, !range !15, !noundef !16
+  %8 = load i8, ptr %3, align 1, !tbaa !27, !range !15, !noundef !16
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %_ZL20maybe_copy_error_msgPKcPPc.exit
 
@@ -474,10 +474,10 @@ _ZL19verify_frame_headermPhPPc.exit:              ; preds = %59
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   store i64 0, ptr %8, align 8, !tbaa !19
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %66 = load ptr, ptr %65, align 8, !tbaa !24
-  %67 = load ptr, ptr %0, align 8, !tbaa !25
+  %66 = load ptr, ptr %65, align 8, !tbaa !25
+  %67 = load ptr, ptr %0, align 8, !tbaa !26
   %68 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %67)
-  %69 = load ptr, ptr %0, align 8, !tbaa !25
+  %69 = load ptr, ptr %0, align 8, !tbaa !26
   %70 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %69)
   %71 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %66, ptr noundef %68, i64 noundef %70, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %9, ptr noundef nonnull %8, ptr noundef %6)
   %72 = icmp ne i32 %71, 0
@@ -491,7 +491,7 @@ _ZL19verify_frame_headermPhPPc.exit:              ; preds = %59
   br label %79
 
 76:                                               ; preds = %_ZL19verify_frame_headermPhPPc.exit
-  %77 = load ptr, ptr %0, align 8, !tbaa !25
+  %77 = load ptr, ptr %0, align 8, !tbaa !26
   %78 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %77, ptr noundef %6)
   br label %79
 
@@ -699,10 +699,10 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   store i64 0, ptr %7, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = load ptr, ptr %0, align 8, !tbaa !25
+  %53 = load ptr, ptr %52, align 8, !tbaa !25
+  %54 = load ptr, ptr %0, align 8, !tbaa !26
   %55 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %54)
-  %56 = load ptr, ptr %0, align 8, !tbaa !25
+  %56 = load ptr, ptr %0, align 8, !tbaa !26
   %57 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %56)
   store ptr %49, ptr %8, align 8, !tbaa !18
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -723,7 +723,7 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
   br label %67
 
 64:                                               ; preds = %59
-  %65 = load ptr, ptr %0, align 8, !tbaa !25
+  %65 = load ptr, ptr %0, align 8, !tbaa !26
   %66 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %65, ptr noundef %5)
   br label %67
 
@@ -864,10 +864,10 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   store i64 0, ptr %8, align 8, !tbaa !19
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !24
-  %57 = load ptr, ptr %0, align 8, !tbaa !25
+  %56 = load ptr, ptr %55, align 8, !tbaa !25
+  %57 = load ptr, ptr %0, align 8, !tbaa !26
   %58 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %57)
-  %59 = load ptr, ptr %0, align 8, !tbaa !25
+  %59 = load ptr, ptr %0, align 8, !tbaa !26
   %60 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %59)
   %61 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %56, ptr noundef %58, i64 noundef %60, ptr noundef null, i64 noundef 0, ptr noundef %3, i64 noundef %4, ptr noundef nonnull byval(%struct.iovec) align 8 %5, ptr noundef nonnull %8, ptr noundef %6)
   %.not40 = icmp eq i32 %61, 0
@@ -889,7 +889,7 @@ _ZL16get_total_lengthPK5iovecm.exit:              ; preds = %.lr.ph.i, %27
   br label %71
 
 68:                                               ; preds = %63
-  %69 = load ptr, ptr %0, align 8, !tbaa !25
+  %69 = load ptr, ptr %0, align 8, !tbaa !26
   %70 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %69, ptr noundef %6)
   br label %71
 
@@ -946,16 +946,16 @@ define noundef range(i32 0, 10) i32 @_Z33alts_iovec_record_protocol_createP17gse
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %0, ptr %26, align 8, !tbaa !24
+  store ptr %0, ptr %26, align 8, !tbaa !25
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 %9, ptr %27, align 8, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 25
   store i8 %10, ptr %28, align 1, !tbaa !17
-  store ptr %17, ptr %5, align 8, !tbaa !27
+  store ptr %17, ptr %5, align 8, !tbaa !28
   br label %31
 
 29:                                               ; preds = %22, %19, %16
-  %30 = load ptr, ptr %17, align 8, !tbaa !25
+  %30 = load ptr, ptr %17, align 8, !tbaa !26
   call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %30)
   call void @gpr_free(ptr noundef nonnull %17)
   br label %31
@@ -988,10 +988,10 @@ define void @_Z34alts_iovec_record_protocol_destroyP26alts_iovec_record_protocol
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !25
+  %3 = load ptr, ptr %0, align 8, !tbaa !26
   tail call void @_Z20alts_counter_destroyP12alts_counter(ptr noundef %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !24
+  %5 = load ptr, ptr %4, align 8, !tbaa !25
   tail call void @_Z25gsec_aead_crypter_destroyP17gsec_aead_crypter(ptr noundef %5)
   tail call void @gpr_free(ptr noundef nonnull %0)
   br label %6
@@ -1054,10 +1054,11 @@ attributes #13 = { nounwind allocsize(1) }
 !19 = !{!10, !10, i64 0}
 !20 = !{!21, !10, i64 8}
 !21 = !{!"_ZTS5iovec", !6, i64 0, !10, i64 8}
-!22 = distinct !{!22, !23}
+!22 = distinct !{!22, !23, !24}
 !23 = !{!"llvm.loop.mustprogress"}
-!24 = !{!4, !9, i64 8}
-!25 = !{!4, !5, i64 0}
-!26 = !{!11, !11, i64 0}
-!27 = !{!28, !28, i64 0}
-!28 = !{!"p1 _ZTS26alts_iovec_record_protocol", !6, i64 0}
+!24 = !{!"llvm.loop.estimated_trip_count"}
+!25 = !{!4, !9, i64 8}
+!26 = !{!4, !5, i64 0}
+!27 = !{!11, !11, i64 0}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS26alts_iovec_record_protocol", !6, i64 0}

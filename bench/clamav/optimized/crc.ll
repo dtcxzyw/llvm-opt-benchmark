@@ -35,7 +35,7 @@ define void @_Z9InitCRC32Pj(ptr noundef captures(none) %0) local_unnamed_addr #0
   %11 = select i1 %.not13, i32 %9, i32 %10
   %12 = add nuw nsw i32 %.016, 1
   %exitcond.not = icmp eq i32 %12, 8
-  br i1 %exitcond.not, label %5, label %7, !llvm.loop !9
+  br i1 %exitcond.not, label %5, label %7, !llvm.loop !10
 
 .loopexit:                                        ; preds = %5, %1
   ret void
@@ -61,7 +61,7 @@ define noundef i32 @_Z5CRC32jPKvm(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %.037 = phi i32 [ %17, %.lr.ph ], [ %0, %3 ]
   %.02836 = phi ptr [ %19, %.lr.ph ], [ %1, %3 ]
   %.03135 = phi i64 [ %18, %.lr.ph ], [ %2, %3 ]
-  %10 = load i8, ptr %.02836, align 1, !tbaa !10
+  %10 = load i8, ptr %.02836, align 1, !tbaa !11
   %11 = trunc i32 %.037 to i8
   %12 = xor i8 %10, %11
   %13 = zext i8 %12 to i64
@@ -76,7 +76,7 @@ define noundef i32 @_Z5CRC32jPKvm(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %22 = and i64 %21, 7
   %23 = icmp ne i64 %22, 0
   %24 = select i1 %20, i1 %23, i1 false
-  br i1 %24, label %.lr.ph, label %.preheader34, !llvm.loop !11
+  br i1 %24, label %.lr.ph, label %.preheader34, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph43, %.preheader34
   %.132.lcssa = phi i64 [ %.031.lcssa, %.preheader34 ], [ %72, %.lr.ph43 ]
@@ -139,13 +139,13 @@ define noundef i32 @_Z5CRC32jPKvm(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %72 = add i64 %.13240, -8
   %73 = getelementptr inbounds nuw i8, ptr %.12941, i64 8
   %74 = icmp ugt i64 %72, 7
-  br i1 %74, label %.lr.ph43, label %.preheader, !llvm.loop !12
+  br i1 %74, label %.lr.ph43, label %.preheader, !llvm.loop !13
 
 .lr.ph51:                                         ; preds = %.preheader, %.lr.ph51
   %.250 = phi i32 [ %82, %.lr.ph51 ], [ %.1.lcssa, %.preheader ]
   %.23049 = phi ptr [ %84, %.lr.ph51 ], [ %.129.lcssa, %.preheader ]
   %.23348 = phi i64 [ %83, %.lr.ph51 ], [ %.132.lcssa, %.preheader ]
-  %75 = load i8, ptr %.23049, align 1, !tbaa !10
+  %75 = load i8, ptr %.23049, align 1, !tbaa !11
   %76 = trunc i32 %.250 to i8
   %77 = xor i8 %75, %76
   %78 = zext i8 %77 to i64
@@ -156,7 +156,7 @@ define noundef i32 @_Z5CRC32jPKvm(i32 noundef %0, ptr noundef %1, i64 noundef %2
   %83 = add nsw i64 %.23348, -1
   %84 = getelementptr inbounds nuw i8, ptr %.23049, i64 1
   %.not = icmp eq i64 %83, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !13
+  br i1 %.not, label %._crit_edge, label %.lr.ph51, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph51, %.preheader
   %.2.lcssa = phi i32 [ %.1.lcssa, %.preheader ], [ %82, %.lr.ph51 ]
@@ -176,13 +176,13 @@ define noundef zeroext i16 @_Z10Checksum14tPKvm(i16 noundef zeroext %0, ptr noun
   %.011 = phi i64 [ %7, %.lr.ph ], [ 0, %3 ]
   %.0910 = phi i16 [ %6, %.lr.ph ], [ %0, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %.011
-  %5 = load i8, ptr %4, align 1, !tbaa !10
+  %5 = load i8, ptr %4, align 1, !tbaa !11
   %.tr = zext i8 %5 to i16
   %.narrow = add i16 %.0910, %.tr
   %6 = tail call i16 @llvm.fshl.i16(i16 %.narrow, i16 %.narrow, i16 1)
   %7 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %7, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
@@ -216,7 +216,7 @@ _Z9InitCRC32Pj.exit.i.i.i.preheader:              ; preds = %3, %0
   %9 = select i1 %.not13.i.i.i.i, i32 %7, i32 %8
   %10 = add nuw nsw i32 %.016.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i32 %10, 8
-  br i1 %exitcond.not.i.i.i.i, label %3, label %5, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i, label %3, label %5, !llvm.loop !10
 
 _Z9InitCRC32Pj.exit.i.i.i:                        ; preds = %_Z9InitCRC32Pj.exit.i.i.i.preheader, %13
   %indvars.iv16.i.i.i = phi i64 [ %indvars.iv.next17.i.i.i, %13 ], [ 0, %_Z9InitCRC32Pj.exit.i.i.i.preheader ]
@@ -227,7 +227,7 @@ _Z9InitCRC32Pj.exit.i.i.i:                        ; preds = %_Z9InitCRC32Pj.exit
 13:                                               ; preds = %14
   %indvars.iv.next17.i.i.i = add nuw nsw i64 %indvars.iv16.i.i.i, 1
   %exitcond19.not.i.i.i = icmp eq i64 %indvars.iv.next17.i.i.i, 256
-  br i1 %exitcond19.not.i.i.i, label %__cxx_global_var_init.exit, label %_Z9InitCRC32Pj.exit.i.i.i, !llvm.loop !15
+  br i1 %exitcond19.not.i.i.i, label %__cxx_global_var_init.exit, label %_Z9InitCRC32Pj.exit.i.i.i, !llvm.loop !16
 
 14:                                               ; preds = %14, %_Z9InitCRC32Pj.exit.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %_Z9InitCRC32Pj.exit.i.i.i ], [ %indvars.iv.next.i.i.i, %14 ]
@@ -242,7 +242,7 @@ _Z9InitCRC32Pj.exit.i.i.i:                        ; preds = %_Z9InitCRC32Pj.exit
   store i32 %20, ptr %gep.i.i.i, align 4, !tbaa !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %13, label %14, !llvm.loop !16
+  br i1 %exitcond.not.i.i.i, label %13, label %14, !llvm.loop !17
 
 __cxx_global_var_init.exit:                       ; preds = %13
   ret void
@@ -266,13 +266,14 @@ attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memo
 !4 = !{!"int", !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !8, !9}
+!11 = !{!5, !5, i64 0}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !8, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}

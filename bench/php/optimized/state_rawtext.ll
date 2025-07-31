@@ -368,7 +368,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %162
   %.1 = phi ptr [ %.069129, %10 ], [ %.069129, %175 ], [ %spec.select, %92 ]
   %181 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.not = icmp eq ptr %181, %2
-  br i1 %.not, label %._crit_edge.loopexit, label %10
+  br i1 %.not, label %._crit_edge.loopexit, label %10, !llvm.loop !42
 
 ._crit_edge.loopexit:                             ; preds = %180
   %.pre139 = load ptr, ptr %4, align 8, !tbaa !29
@@ -454,7 +454,7 @@ define internal noundef ptr @lxb_html_tokenizer_state_rawtext_end_tag_open(ptr n
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %5
-  %7 = load i64, ptr %6, align 8, !tbaa !42
+  %7 = load i64, ptr %6, align 8, !tbaa !44
   %.not = icmp eq i64 %7, 255
   br i1 %.not, label %._crit_edge, label %8
 
@@ -465,7 +465,7 @@ define internal noundef ptr @lxb_html_tokenizer_state_rawtext_end_tag_open(ptr n
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %1, ptr %9, align 8, !tbaa !43
+  store ptr %1, ptr %9, align 8, !tbaa !45
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = getelementptr inbounds i8, ptr %11, i64 -1
@@ -475,7 +475,7 @@ define internal noundef ptr @lxb_html_tokenizer_state_rawtext_end_tag_open(ptr n
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i64 %17, ptr %18, align 8, !tbaa !44
+  store i64 %17, ptr %18, align 8, !tbaa !46
   br label %19
 
 19:                                               ; preds = %._crit_edge, %8
@@ -599,11 +599,11 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %11
   store ptr %36, ptr %12, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !45
+  %38 = load ptr, ptr %37, align 8, !tbaa !47
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %40 = load ptr, ptr %39, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %42 = load i64, ptr %41, align 8, !tbaa !44
+  %42 = load i64, ptr %41, align 8, !tbaa !46
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   %45 = ptrtoint ptr %36 to i64
@@ -620,13 +620,13 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %18
 
 52:                                               ; preds = %33
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %54 = load i64, ptr %53, align 8, !tbaa !46
+  %54 = load i64, ptr %53, align 8, !tbaa !48
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %56 = load ptr, ptr %55, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
   store i64 %54, ptr %57, align 8, !tbaa !36
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %59 = load i64, ptr %58, align 8, !tbaa !50
+  %59 = load i64, ptr %58, align 8, !tbaa !52
   %.not160 = icmp eq i64 %59, %54
   br i1 %.not160, label %272, label %271
 
@@ -676,11 +676,11 @@ lxb_html_tokenizer_temp_append_data.exit170:      ; preds = %69
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 %62
   store ptr %87, ptr %63, align 8, !tbaa !19
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %89 = load ptr, ptr %88, align 8, !tbaa !45
+  %89 = load ptr, ptr %88, align 8, !tbaa !47
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %91 = load ptr, ptr %90, align 8, !tbaa !18
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %93 = load i64, ptr %92, align 8, !tbaa !44
+  %93 = load i64, ptr %92, align 8, !tbaa !46
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 2
   %96 = ptrtoint ptr %87 to i64
@@ -697,13 +697,13 @@ lxb_html_tokenizer_temp_append_data.exit170:      ; preds = %69
 
 103:                                              ; preds = %84
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %105 = load i64, ptr %104, align 8, !tbaa !46
+  %105 = load i64, ptr %104, align 8, !tbaa !48
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %107 = load ptr, ptr %106, align 8, !tbaa !20
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 80
   store i64 %105, ptr %108, align 8, !tbaa !36
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %110 = load i64, ptr %109, align 8, !tbaa !50
+  %110 = load i64, ptr %109, align 8, !tbaa !52
   %.not158 = icmp eq i64 %110, %105
   br i1 %.not158, label %272, label %271
 
@@ -753,11 +753,11 @@ lxb_html_tokenizer_temp_append_data.exit174:      ; preds = %120
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 %113
   store ptr %138, ptr %114, align 8, !tbaa !19
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %140 = load ptr, ptr %139, align 8, !tbaa !45
+  %140 = load ptr, ptr %139, align 8, !tbaa !47
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %142 = load ptr, ptr %141, align 8, !tbaa !18
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %144 = load i64, ptr %143, align 8, !tbaa !44
+  %144 = load i64, ptr %143, align 8, !tbaa !46
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 2
   %147 = ptrtoint ptr %138 to i64
@@ -774,13 +774,13 @@ lxb_html_tokenizer_temp_append_data.exit174:      ; preds = %120
 
 154:                                              ; preds = %135
   %155 = getelementptr inbounds nuw i8, ptr %150, i64 40
-  %156 = load i64, ptr %155, align 8, !tbaa !46
+  %156 = load i64, ptr %155, align 8, !tbaa !48
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %158 = load ptr, ptr %157, align 8, !tbaa !20
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 80
   store i64 %156, ptr %159, align 8, !tbaa !36
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %161 = load i64, ptr %160, align 8, !tbaa !50
+  %161 = load i64, ptr %160, align 8, !tbaa !52
   %.not154 = icmp eq i64 %161, %156
   br i1 %.not154, label %162, label %271
 
@@ -788,7 +788,7 @@ lxb_html_tokenizer_temp_append_data.exit174:      ; preds = %120
   store ptr @lxb_html_tokenizer_state_data_before, ptr %0, align 8, !tbaa !28
   store i64 2, ptr %159, align 8, !tbaa !36
   %163 = load ptr, ptr %141, align 8, !tbaa !18
-  %164 = load i64, ptr %143, align 8, !tbaa !44
+  %164 = load i64, ptr %143, align 8, !tbaa !46
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 %164
   store ptr %165, ptr %114, align 8, !tbaa !19
   %166 = getelementptr inbounds nuw i8, ptr %158, i64 32
@@ -826,19 +826,19 @@ lxb_html_tokenizer_temp_append_data.exit174:      ; preds = %120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %184, i8 0, i64 96, i1 false)
   %185 = load ptr, ptr %141, align 8, !tbaa !18
   store ptr %185, ptr %114, align 8, !tbaa !19
-  %186 = load i64, ptr %160, align 8, !tbaa !50
+  %186 = load i64, ptr %160, align 8, !tbaa !52
   %187 = load ptr, ptr %157, align 8, !tbaa !20
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 80
   store i64 %186, ptr %188, align 8, !tbaa !36
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %190 = load ptr, ptr %189, align 8, !tbaa !43
+  %190 = load ptr, ptr %189, align 8, !tbaa !45
   store ptr %190, ptr %187, align 8, !tbaa !21
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 8
   store ptr %.0144209, ptr %191, align 8, !tbaa !33
   %192 = getelementptr inbounds nuw i8, ptr %187, i64 88
-  %193 = load i32, ptr %192, align 8, !tbaa !51
+  %193 = load i32, ptr %192, align 8, !tbaa !53
   %194 = or i32 %193, 1
-  store i32 %194, ptr %192, align 8, !tbaa !51
+  store i32 %194, ptr %192, align 8, !tbaa !53
   %.not156 = icmp eq ptr %190, %.0144209
   br i1 %.not156, label %207, label %195
 
@@ -873,7 +873,7 @@ lxb_html_tokenizer_temp_append_data.exit174:      ; preds = %120
 211:                                              ; preds = %.lr.ph
   %212 = zext i8 %8 to i64
   %213 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %212
-  %214 = load i64, ptr %213, align 8, !tbaa !42
+  %214 = load i64, ptr %213, align 8, !tbaa !44
   %215 = icmp eq i64 %214, 255
   br i1 %215, label %216, label %243
 
@@ -927,7 +927,7 @@ lxb_html_tokenizer_temp_append_data.exit178:      ; preds = %225
 243:                                              ; preds = %211
   %244 = getelementptr inbounds nuw i8, ptr %.0144209, i64 1
   %.not = icmp eq ptr %244, %2
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %243
   %.pre = ptrtoint ptr %2 to i64
@@ -995,7 +995,7 @@ lxb_html_tokenizer_temp_append_data.exit182:      ; preds = %252
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %277 = load ptr, ptr %276, align 8, !tbaa !18
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %279 = load i64, ptr %278, align 8, !tbaa !44
+  %279 = load i64, ptr %278, align 8, !tbaa !46
   %280 = getelementptr inbounds nuw i8, ptr %277, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %280, ptr %281, align 8, !tbaa !19
@@ -1035,19 +1035,19 @@ lxb_html_tokenizer_temp_append_data.exit182:      ; preds = %252
   %301 = load ptr, ptr %276, align 8, !tbaa !18
   store ptr %301, ptr %281, align 8, !tbaa !19
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %303 = load i64, ptr %302, align 8, !tbaa !50
+  %303 = load i64, ptr %302, align 8, !tbaa !52
   %304 = load ptr, ptr %274, align 8, !tbaa !20
   %305 = getelementptr inbounds nuw i8, ptr %304, i64 80
   store i64 %303, ptr %305, align 8, !tbaa !36
   %306 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %307 = load ptr, ptr %306, align 8, !tbaa !43
+  %307 = load ptr, ptr %306, align 8, !tbaa !45
   store ptr %307, ptr %304, align 8, !tbaa !21
   %308 = getelementptr inbounds nuw i8, ptr %304, i64 8
   store ptr %.0144209, ptr %308, align 8, !tbaa !33
   %309 = getelementptr inbounds nuw i8, ptr %304, i64 88
-  %310 = load i32, ptr %309, align 8, !tbaa !51
+  %310 = load i32, ptr %309, align 8, !tbaa !53
   %311 = or i32 %310, 1
-  store i32 %311, ptr %309, align 8, !tbaa !51
+  store i32 %311, ptr %309, align 8, !tbaa !53
   %312 = getelementptr inbounds nuw i8, ptr %.0144209, i64 1
   br label %313
 
@@ -1119,13 +1119,16 @@ attributes #6 = { nounwind }
 !39 = !{!5, !6, i64 16}
 !40 = !{!5, !6, i64 24}
 !41 = !{!5, !6, i64 88}
-!42 = !{!12, !12, i64 0}
-!43 = !{!5, !11, i64 112}
-!44 = !{!5, !12, i64 200}
-!45 = !{!5, !9, i64 32}
-!46 = !{!47, !12, i64 40}
-!47 = !{!"", !48, i64 0, !12, i64 40, !12, i64 48, !14, i64 56}
-!48 = !{!"lexbor_hash_entry", !7, i64 0, !12, i64 24, !49, i64 32}
-!49 = !{!"p1 _ZTS17lexbor_hash_entry", !6, i64 0}
-!50 = !{!5, !12, i64 120}
-!51 = !{!22, !13, i64 88}
+!42 = distinct !{!42, !43}
+!43 = !{!"llvm.loop.estimated_trip_count"}
+!44 = !{!12, !12, i64 0}
+!45 = !{!5, !11, i64 112}
+!46 = !{!5, !12, i64 200}
+!47 = !{!5, !9, i64 32}
+!48 = !{!49, !12, i64 40}
+!49 = !{!"", !50, i64 0, !12, i64 40, !12, i64 48, !14, i64 56}
+!50 = !{!"lexbor_hash_entry", !7, i64 0, !12, i64 24, !51, i64 32}
+!51 = !{!"p1 _ZTS17lexbor_hash_entry", !6, i64 0}
+!52 = !{!5, !12, i64 120}
+!53 = !{!22, !13, i64 88}
+!54 = distinct !{!54, !43}

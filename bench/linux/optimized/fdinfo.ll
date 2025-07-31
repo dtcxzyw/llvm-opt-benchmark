@@ -177,7 +177,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
 84:                                               ; preds = %.loopexit22, %44
   %85 = add nuw i32 %41, 1
   %86 = icmp eq i32 %85, %35
-  br i1 %86, label %.loopexit23, label %40, !llvm.loop !8
+  br i1 %86, label %.loopexit23, label %40, !llvm.loop !9
 
 .loopexit23:                                      ; preds = %84, %40, %2
   %87 = sub i32 %21, %19
@@ -218,7 +218,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11) #4
   %111 = add nuw i32 %94, 1
   %112 = icmp eq i32 %111, %89
-  br i1 %112, label %.loopexit21, label %93, !llvm.loop !9
+  br i1 %112, label %.loopexit21, label %93, !llvm.loop !10
 
 .loopexit21:                                      ; preds = %110, %.loopexit23
   %113 = tail call i32 @mutex_trylock(ptr noundef nonnull %8) #4
@@ -269,7 +269,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %143 = load i32, ptr %142, align 8
   %144 = and i32 %143, 67108864
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %154, label %146, !prof !10
+  br i1 %145, label %154, label %146, !prof !11
 
 146:                                              ; preds = %140
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 168
@@ -298,7 +298,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %162 = load i32, ptr %129, align 32
   %163 = zext i32 %162 to i64
   %164 = icmp samesign ult i64 %161, %163
-  br i1 %164, label %.lr.ph, label %._crit_edge
+  br i1 %164, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 .thread:                                          ; preds = %.loopexit21
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef -1) #4
@@ -336,7 +336,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %184 = load i32, ptr %169, align 4
   %185 = zext i32 %184 to i64
   %186 = icmp samesign ult i64 %183, %185
-  br i1 %186, label %.lr.ph25, label %._crit_edge26
+  br i1 %186, label %.lr.ph25, label %._crit_edge26, !llvm.loop !13
 
 ._crit_edge26:                                    ; preds = %.lr.ph25, %._crit_edge
   %187 = getelementptr inbounds nuw i8, ptr %5, i64 1016
@@ -360,7 +360,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   call fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %196, ptr noundef nonnull %194) #5
   %197 = call ptr @xa_find_after(ptr noundef nonnull %187, ptr noundef nonnull %3, i64 noundef -1, i32 noundef 8) #4
   %198 = icmp eq ptr %197, null
-  br i1 %198, label %.loopexit20, label %.preheader19, !llvm.loop !11
+  br i1 %198, label %.loopexit20, label %.preheader19, !llvm.loop !14
 
 .loopexit20:                                      ; preds = %.preheader19, %191
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
@@ -406,7 +406,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %227 = getelementptr i8, ptr %225, i64 -160
   %228 = icmp eq ptr %227, null
   %229 = or i1 %226, %228
-  br i1 %229, label %.loopexit18, label %.preheader17, !llvm.loop !12
+  br i1 %229, label %.loopexit18, label %.preheader17, !llvm.loop !15
 
 .loopexit18:                                      ; preds = %.preheader17, %.backedge
   call void @_raw_spin_unlock(ptr noundef %206) #4
@@ -439,7 +439,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   %250 = getelementptr i8, ptr %248, i64 -160
   %251 = icmp eq ptr %250, null
   %252 = or i1 %249, %251
-  br i1 %252, label %.loopexit16, label %.preheader15, !llvm.loop !13
+  br i1 %252, label %.loopexit16, label %.preheader15, !llvm.loop !16
 
 .loopexit16:                                      ; preds = %.preheader15, %230
   %253 = add i32 %203, 1
@@ -450,7 +450,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
 
 .backedge.backedge:                               ; preds = %.loopexit16, %.thread13
   %.be = phi i32 [ %253, %.loopexit16 ], [ %257, %.thread13 ]
-  br label %.backedge, !llvm.loop !14
+  br label %.backedge, !llvm.loop !17
 
 .thread13:                                        ; preds = %.loopexit18
   %257 = add i32 %203, 1
@@ -483,7 +483,7 @@ define dso_local void @io_uring_show_fdinfo(ptr noundef %0, ptr noundef readonly
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.26, i64 noundef %268, i32 noundef %270, i32 noundef %272) #4
   %273 = load ptr, ptr %266, align 8
   %274 = icmp eq ptr %273, %263
-  br i1 %274, label %.loopexit, label %.preheader, !llvm.loop !15
+  br i1 %274, label %.loopexit, label %.preheader, !llvm.loop !18
 
 .loopexit:                                        ; preds = %.preheader, %.thread14
   call void @_raw_spin_unlock(ptr noundef nonnull %262) #4
@@ -594,7 +594,7 @@ define internal fastcc void @io_uring_show_cred(ptr noundef %0, i32 noundef %1, 
   %70 = load i32, ptr %54, align 4
   %71 = sext i32 %70 to i64
   %72 = icmp slt i64 %69, %71
-  br i1 %72, label %59, label %.loopexit, !llvm.loop !16
+  br i1 %72, label %59, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %59, %3
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.34) #4
@@ -646,15 +646,18 @@ attributes #5 = { cold }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = distinct !{!8, !6, !7}
-!9 = distinct !{!9, !6, !7}
-!10 = !{!"branch_weights", i32 2000, i32 1}
-!11 = distinct !{!11, !6, !7}
-!12 = distinct !{!12, !6, !7}
-!13 = distinct !{!13, !6, !7}
-!14 = distinct !{!14, !6, !7}
-!15 = distinct !{!15, !6, !7}
-!16 = distinct !{!16, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !6, !7, !8}
+!10 = distinct !{!10, !6, !7, !8}
+!11 = !{!"branch_weights", i32 2000, i32 1}
+!12 = distinct !{!12, !8}
+!13 = distinct !{!13, !8}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = distinct !{!15, !6, !7, !8}
+!16 = distinct !{!16, !6, !7, !8}
+!17 = distinct !{!17, !6, !7, !8}
+!18 = distinct !{!18, !6, !7, !8}
+!19 = distinct !{!19, !6, !7, !8}

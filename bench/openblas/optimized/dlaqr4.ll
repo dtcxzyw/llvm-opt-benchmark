@@ -389,7 +389,7 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %241 = getelementptr inbounds double, ptr %40, i64 %indvars.iv568
   call void @dlanv2_(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %238, ptr noundef nonnull %239, ptr noundef nonnull %240, ptr noundef nonnull %241, ptr noundef nonnull %27, ptr noundef nonnull %28) #5
   %.not519 = icmp slt i64 %indvars.iv.next569, %213
-  br i1 %.not519, label %._crit_edge.loopexit, label %.lr.ph542, !llvm.loop !12
+  br i1 %.not519, label %._crit_edge.loopexit, label %.lr.ph542, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph542
   %.pre573 = load i32, ptr %19, align 4, !tbaa !3
@@ -544,14 +544,14 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %339 = phi double [ %336, %334 ], [ %328, %311 ]
   %.2 = phi i32 [ 0, %334 ], [ %.1536, %311 ]
   %.not516.not = icmp slt i64 %indvars.iv.next560, %indvars.iv562
-  br i1 %.not516.not, label %311, label %340, !llvm.loop !13
+  br i1 %.not516.not, label %311, label %340, !llvm.loop !14
 
 340:                                              ; preds = %338
   %indvars.iv.next563 = add nsw i64 %indvars.iv562, -1
   %341 = icmp sle i64 %indvars.iv.next563, %309
   %342 = icmp ne i32 %.2, 0
   %or.cond = select i1 %341, i1 true, i1 %342
-  br i1 %or.cond, label %.loopexit532, label %.preheader, !llvm.loop !14
+  br i1 %or.cond, label %.loopexit532, label %.preheader, !llvm.loop !15
 
 .loopexit532:                                     ; preds = %340, %304
   %343 = add nsw i32 %.1471, 2
@@ -601,7 +601,7 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 365:                                              ; preds = %.lr.ph._crit_edge, %353
   %indvars.iv.next566.pre-phi = phi i64 [ %.pre577, %.lr.ph._crit_edge ], [ %358, %353 ]
   %.not517 = icmp slt i64 %indvars.iv.next566.pre-phi, %345
-  br i1 %.not517, label %.loopexit, label %.lr.ph, !llvm.loop !15
+  br i1 %.not517, label %.loopexit, label %.lr.ph, !llvm.loop !16
 
 .loopexit:                                        ; preds = %365, %.loopexit532, %._crit_edge, %244
   %.0470 = phi i32 [ %208, %244 ], [ %208, %._crit_edge ], [ %.1471, %.loopexit532 ], [ %.1471, %365 ]
@@ -688,7 +688,7 @@ define void @dlaqr4_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %421 = add nuw nsw i32 %.0472552, 1
   %422 = load i32, ptr %17, align 4, !tbaa !3
   %.not500.not = icmp slt i32 %.0472552, %422
-  br i1 %.not500.not, label %115, label %._crit_edge555.loopexit, !llvm.loop !16
+  br i1 %.not500.not, label %115, label %._crit_edge555.loopexit, !llvm.loop !17
 
 ._crit_edge555.loopexit:                          ; preds = %418
   %.pre575 = load i32, ptr %18, align 4, !tbaa !3
@@ -781,10 +781,11 @@ attributes #5 = { nounwind }
 !7 = !{!5, !5, i64 0}
 !8 = !{!9, !9, i64 0}
 !9 = !{!"double", !5, i64 0}
-!10 = distinct !{!10, !11}
+!10 = distinct !{!10, !11, !12}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
-!13 = distinct !{!13, !11}
-!14 = distinct !{!14, !11}
-!15 = distinct !{!15, !11}
-!16 = distinct !{!16, !11}
+!12 = !{!"llvm.loop.estimated_trip_count"}
+!13 = distinct !{!13, !11, !12}
+!14 = distinct !{!14, !11, !12}
+!15 = distinct !{!15, !11, !12}
+!16 = distinct !{!16, !11, !12}
+!17 = distinct !{!17, !11, !12}

@@ -185,7 +185,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %.lr.ph300, label %.preheader292, !llvm.loop !13
+  br i1 %88, label %.lr.ph300, label %.preheader292, !llvm.loop !14
 
 .thread254:                                       ; preds = %.preheader292, %.lr.ph305.preheader
   %89 = call i32 @ilaenv_(ptr noundef nonnull @c__1, ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 2) #5
@@ -194,7 +194,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %92 = add nsw i32 %91, 4160
   %93 = sitofp i32 %92 to double
   %.pr260.pr.pr.pre = load i32, ptr %12, align 4, !tbaa !3
-  store double %93, ptr %10, align 8, !tbaa !14
+  store double %93, ptr %10, align 8, !tbaa !15
   %.not234 = icmp eq i32 %.pr260.pr.pr.pre, 0
   br i1 %.not234, label %97, label %.thread261
 
@@ -211,7 +211,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %180
 
 .sink.split:                                      ; preds = %64
-  store double 1.000000e+00, ptr %10, align 8, !tbaa !14
+  store double 1.000000e+00, ptr %10, align 8, !tbaa !15
   br label %97
 
 97:                                               ; preds = %.sink.split, %.thread254
@@ -298,7 +298,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %134 = getelementptr inbounds nuw i8, ptr %.1309, i64 1
   store i8 %133, ptr %.1309, align 1, !tbaa !10
   %exitcond334.not = icmp eq ptr %.1309, %scevgep333
-  br i1 %exitcond334.not, label %._crit_edge312.loopexit, label %.lr.ph311, !llvm.loop !16
+  br i1 %exitcond334.not, label %._crit_edge312.loopexit, label %.lr.ph311, !llvm.loop !17
 
 ._crit_edge312.loopexit:                          ; preds = %.lr.ph311
   %.pre342 = load i32, ptr @c__2, align 4, !tbaa !3
@@ -310,7 +310,7 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv.next336 = add nuw nsw i64 %indvars.iv335, 1
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next336, %136
-  br i1 %137, label %.lr.ph318, label %.preheader, !llvm.loop !17
+  br i1 %137, label %.lr.ph318, label %.preheader, !llvm.loop !18
 
 ._crit_edge324:                                   ; preds = %.lr.ph323.preheader, %.preheader
   %138 = call i32 @ilaenv_(ptr noundef nonnull @c__2, ptr noundef nonnull @.str.4, ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull @c_n1, i32 noundef 6, i32 noundef 2) #5
@@ -403,10 +403,10 @@ define void @dormrq_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %178 = icmp sge i64 %indvars.iv.next339, %161
   %179 = icmp sle i64 %indvars.iv.next339, %161
   %.in = select i1 %153, i1 %178, i1 %179
-  br i1 %.in, label %162, label %.loopexit, !llvm.loop !18
+  br i1 %.in, label %162, label %.loopexit, !llvm.loop !19
 
 .loopexit:                                        ; preds = %162, %150, %.thread272
-  store double %.1206288, ptr %10, align 8, !tbaa !14
+  store double %.1206288, ptr %10, align 8, !tbaa !15
   br label %180
 
 180:                                              ; preds = %98, %101, %97, %.loopexit, %.thread261
@@ -474,11 +474,12 @@ attributes #5 = { nounwind }
 !8 = !{!"p1 omnipotent char", !9, i64 0}
 !9 = !{!"any pointer", !5, i64 0}
 !10 = !{!5, !5, i64 0}
-!11 = distinct !{!11, !12}
+!11 = distinct !{!11, !12, !13}
 !12 = !{!"llvm.loop.mustprogress"}
-!13 = distinct !{!13, !12}
-!14 = !{!15, !15, i64 0}
-!15 = !{!"double", !5, i64 0}
-!16 = distinct !{!16, !12}
-!17 = distinct !{!17, !12}
-!18 = distinct !{!18, !12}
+!13 = !{!"llvm.loop.estimated_trip_count"}
+!14 = distinct !{!14, !12, !13}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"double", !5, i64 0}
+!17 = distinct !{!17, !12, !13}
+!18 = distinct !{!18, !12, !13}
+!19 = distinct !{!19, !12, !13}

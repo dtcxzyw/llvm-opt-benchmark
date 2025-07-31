@@ -1120,7 +1120,7 @@ _ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3: ; preds = %.lr.ph.i,
   %18 = load ptr, ptr %.sroa.04.08.i.i.i.i.i.i, align 8, !tbaa !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.04.08.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %.not.i.i.i.i.i.i = icmp eq ptr %18, %17
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !66
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !67
 
 _ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3
   tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 16) #29
@@ -1244,6 +1244,7 @@ attributes #30 = { nounwind willreturn memory(none) }
 !61 = distinct !{!61, !"_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_"}
 !62 = !{!63, !51, i64 8}
 !63 = !{!"_ZTSSt9type_info", !51, i64 8}
-!64 = distinct !{!64, !65}
+!64 = distinct !{!64, !65, !66}
 !65 = !{!"llvm.loop.mustprogress"}
-!66 = distinct !{!66, !65}
+!66 = !{!"llvm.loop.estimated_trip_count"}
+!67 = distinct !{!67, !65, !66}

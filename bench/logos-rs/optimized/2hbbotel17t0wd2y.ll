@@ -320,7 +320,7 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams4find17heb
 
 14:                                               ; preds = %10
   %15 = call zeroext i1 @_ZN3syn4path4Path8is_ident17he8279a7fd07af695E(ptr align 8 %2, ptr nonnull align 8 %11)
-  br i1 %15, label %17, label %10
+  br i1 %15, label %17, label %10, !llvm.loop !3
 
 16:                                               ; preds = %22, %21, %13
   ret void
@@ -526,7 +526,7 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams8generics1
 74:                                               ; preds = %76, %72
   %75 = add i64 %.sroa.04.0, 1
   invoke void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd968260794a784bbE"(ptr nonnull align 8 %68, ptr nonnull align 8 %5)
-          to label %67 unwind label %.loopexit
+          to label %67 unwind label %.loopexit, !llvm.loop !5
 
 76:                                               ; preds = %72
   invoke void @_ZN5quote9__private10push_comma17hb9968d74a2bb33eaE(ptr nonnull align 8 %5)
@@ -571,7 +571,7 @@ define hidden void @_ZN13logos_codegen6parser11type_params10TypeParams8generics1
           to label %.backedge.backedge unwind label %.loopexit21
 
 .backedge.backedge:                               ; preds = %89, %94
-  br label %.backedge
+  br label %.backedge, !llvm.loop !6
 
 91:                                               ; preds = %80
   invoke void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd2ba6679e2317ca1E"(ptr nonnull align 8 %53, ptr nonnull align 8 %9)
@@ -838,3 +838,7 @@ attributes #7 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.79.0 (129f3b996 2024-06-10)"}
+!3 = distinct !{!3, !4}
+!4 = !{!"llvm.loop.estimated_trip_count"}
+!5 = distinct !{!5, !4}
+!6 = distinct !{!6, !4}

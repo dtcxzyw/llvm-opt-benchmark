@@ -253,7 +253,7 @@ gv_alloc.exit:                                    ; preds = %agxbuse.exit
 
 119:                                              ; preds = %103
   %120 = getelementptr inbounds nuw i8, ptr %105, i64 163
-  %121 = load i8, ptr %120, align 1, !tbaa !51
+  %121 = load i8, ptr %120, align 1, !tbaa !52
   %.not85 = icmp eq i8 %121, 3
   br i1 %.not85, label %122, label %159
 
@@ -365,7 +365,7 @@ gv_alloc.exit104:                                 ; preds = %agxbuse.exit103
   %.1 = phi i32 [ %.0135, %103 ], [ %.0135, %119 ], [ 1, %158 ]
   %160 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.064134) #14
   %.not79 = icmp eq ptr %160, null
-  br i1 %.not79, label %._crit_edge, label %103, !llvm.loop !52
+  br i1 %.not79, label %._crit_edge, label %103, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %159, %.loopexit
   %.170.lcssa = phi ptr [ %.069, %.loopexit ], [ %.271, %159 ]
@@ -514,11 +514,11 @@ gv_alloc.exit121:                                 ; preds = %agxbuse.exit120
   %.5 = phi i64 [ %.4140, %169 ], [ %187, %gv_alloc.exit121 ]
   %222 = call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.165141) #14
   %.not81 = icmp eq ptr %222, null
-  br i1 %.not81, label %._crit_edge144, label %169, !llvm.loop !53
+  br i1 %.not81, label %._crit_edge144, label %169, !llvm.loop !54
 
 ._crit_edge144:                                   ; preds = %221, %163
   %.4.lcssa = phi i64 [ %.168.lcssa, %163 ], [ %.5, %221 ]
-  %223 = load i64, ptr %23, align 8, !tbaa !54
+  %223 = load i64, ptr %23, align 8, !tbaa !55
   %224 = icmp ugt i64 %223, 64
   br i1 %224, label %225, label %bitarray_reset.exit
 
@@ -554,7 +554,7 @@ agxbfree.exit:                                    ; preds = %bitarray_reset.exit
   br i1 %.not83, label %235, label %234
 
 234:                                              ; preds = %233
-  store i32 %.0.lcssa, ptr %2, align 4, !tbaa !56
+  store i32 %.0.lcssa, ptr %2, align 4, !tbaa !57
   br label %235
 
 235:                                              ; preds = %234, %233
@@ -598,14 +598,14 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %242
   %.063148 = phi ptr [ %251, %.lr.ph149 ], [ %249, %gv_calloc.exit ]
   %.473147 = phi ptr [ %252, %.lr.ph149 ], [ %250, %gv_calloc.exit ]
   %251 = getelementptr inbounds nuw i8, ptr %.063148, i64 8
-  store ptr %.473147, ptr %.063148, align 8, !tbaa !57
+  store ptr %.473147, ptr %.063148, align 8, !tbaa !58
   %252 = call ptr @agnxtsubg(ptr noundef nonnull %.473147) #14
   %.not84 = icmp eq ptr %252, null
-  br i1 %.not84, label %._crit_edge150, label %.lr.ph149, !llvm.loop !58
+  br i1 %.not84, label %._crit_edge150, label %.lr.ph149, !llvm.loop !59
 
 ._crit_edge150:                                   ; preds = %.lr.ph149, %gv_calloc.exit
   %.063.lcssa = phi ptr [ %249, %gv_calloc.exit ], [ %251, %.lr.ph149 ]
-  store ptr null, ptr %.063.lcssa, align 8, !tbaa !57
+  store ptr null, ptr %.063.lcssa, align 8, !tbaa !58
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #14
   ret ptr %249
@@ -764,7 +764,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %9 = load i32, ptr %8, align 4, !tbaa !43
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load i64, ptr %11, align 8, !tbaa !54
+  %12 = load i64, ptr %11, align 8, !tbaa !55
   %13 = icmp ult i64 %12, 65
   br i1 %13, label %bitarray_set.exit, label %14
 
@@ -799,7 +799,7 @@ bitarray_set.exit:                                ; preds = %4, %14
   %.idx = select i1 %29, i64 0, i64 64
   %30 = getelementptr inbounds nuw i8, ptr %.02329, i64 %.idx
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %32 = load ptr, ptr %31, align 8, !tbaa !59
+  %32 = load ptr, ptr %31, align 8, !tbaa !60
   %33 = icmp eq ptr %32, %1
   br i1 %33, label %34, label %39
 
@@ -808,7 +808,7 @@ bitarray_set.exit:                                ; preds = %4, %14
   %.idx25 = select i1 %35, i64 0, i64 -64
   %36 = getelementptr inbounds i8, ptr %.02329, i64 %.idx25
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %38 = load ptr, ptr %37, align 8, !tbaa !59
+  %38 = load ptr, ptr %37, align 8, !tbaa !60
   br label %39
 
 39:                                               ; preds = %34, %26
@@ -843,7 +843,7 @@ bitarray_set.exit:                                ; preds = %4, %14
 56:                                               ; preds = %39, %55
   %57 = tail call ptr @agnxtedge(ptr noundef %0, ptr noundef nonnull %.02329, ptr noundef nonnull %1) #14
   %.not = icmp eq ptr %57, null
-  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !63
+  br i1 %.not, label %._crit_edge, label %26, !llvm.loop !64
 
 ._crit_edge:                                      ; preds = %56, %bitarray_set.exit
   ret void
@@ -1054,18 +1054,19 @@ attributes #19 = { cold noreturn nounwind }
 !46 = !{!"p1 double", !5, i64 0}
 !47 = !{!"elist", !48, i64 0, !12, i64 8}
 !48 = !{!"p2 _ZTS8Agedge_s", !5, i64 0}
-!49 = distinct !{!49, !50}
+!49 = distinct !{!49, !50, !51}
 !50 = !{!"llvm.loop.mustprogress"}
-!51 = !{!44, !6, i64 163}
-!52 = distinct !{!52, !50}
-!53 = distinct !{!53, !50}
-!54 = !{!55, !12, i64 8}
-!55 = !{!"", !6, i64 0, !12, i64 8}
-!56 = !{!11, !11, i64 0}
-!57 = !{!30, !30, i64 0}
-!58 = distinct !{!58, !50}
-!59 = !{!60, !31, i64 56}
-!60 = !{!"Agedge_s", !9, i64 0, !61, i64 24, !61, i64 40, !31, i64 56}
-!61 = !{!"dtlink_s_", !62, i64 0, !6, i64 8}
-!62 = !{!"p1 _ZTS9dtlink_s_", !5, i64 0}
-!63 = distinct !{!63, !50}
+!51 = !{!"llvm.loop.estimated_trip_count"}
+!52 = !{!44, !6, i64 163}
+!53 = distinct !{!53, !50, !51}
+!54 = distinct !{!54, !50, !51}
+!55 = !{!56, !12, i64 8}
+!56 = !{!"", !6, i64 0, !12, i64 8}
+!57 = !{!11, !11, i64 0}
+!58 = !{!30, !30, i64 0}
+!59 = distinct !{!59, !50, !51}
+!60 = !{!61, !31, i64 56}
+!61 = !{!"Agedge_s", !9, i64 0, !62, i64 24, !62, i64 40, !31, i64 56}
+!62 = !{!"dtlink_s_", !63, i64 0, !6, i64 8}
+!63 = !{!"p1 _ZTS9dtlink_s_", !5, i64 0}
+!64 = distinct !{!64, !50, !51}

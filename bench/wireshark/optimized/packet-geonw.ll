@@ -1980,7 +1980,7 @@ dissect_sec_recipient_info.exit.i:                ; preds = %227, %219
   %.neg1.i = add i32 %.115610.i, %209
   %234 = sub i32 %.neg1.i, %233
   %.not162.i = icmp eq i32 %234, 0
-  br i1 %.not162.i, label %.loopexit7.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not162.i, label %.loopexit7.i, label %.lr.ph.i, !llvm.loop !11
 
 235:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
@@ -2040,7 +2040,7 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %249, %246
   %.neg164.i = add i32 %.015115.i, %137
   %268 = sub i32 %.neg164.i, %267
   %.not.i = icmp eq i32 %268, 0
-  br i1 %.not.i, label %._crit_edge.i, label %136, !llvm.loop !11
+  br i1 %.not.i, label %._crit_edge.i, label %136, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.loopexit7.i, %128
   %269 = phi i32 [ %.pre25.i, %128 ], [ %267, %.loopexit7.i ]
@@ -2068,7 +2068,7 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %249, %246
   %281 = sub i32 %280, %279
   %.not161.i = icmp ult i32 %.1152.i, %281
   %282 = sub nuw i32 %.1152.i, %281
-  br i1 %.not161.i, label %dissect_secured_message.exit, label %277, !llvm.loop !12
+  br i1 %.not161.i, label %dissect_secured_message.exit, label %277, !llvm.loop !13
 
 283:                                              ; preds = %._crit_edge.i
   call fastcc void @dissect_sec_payload(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %1, ptr noundef %274)
@@ -2126,7 +2126,7 @@ dissect_sec_encryption_parameters.exit.i:         ; preds = %249, %246
   %.neg.i = add i32 %.318.i, %291
   %313 = sub i32 %.neg.i, %312
   %.not160.i = icmp eq i32 %313, 0
-  br i1 %.not160.i, label %._crit_edge21.i, label %.lr.ph20.i, !llvm.loop !13
+  br i1 %.not160.i, label %._crit_edge21.i, label %.lr.ph20.i, !llvm.loop !14
 
 ._crit_edge21.i:                                  ; preds = %310, %.loopexit.i
   %314 = phi i32 [ %.pre27.i, %.loopexit.i ], [ %312, %310 ]
@@ -3528,7 +3528,7 @@ define internal fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef capt
   %21 = and i32 %17, %19
   %22 = icmp ne i32 %21, 0
   %23 = select i1 %20, i1 %22, i1 false
-  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %24 = phi i32 [ %9, %4 ], [ %14, %.lr.ph ]
@@ -3593,7 +3593,7 @@ define internal fastcc i32 @dissect_sec_intx(ptr noundef %0, ptr noundef capture
   %23 = and i64 %15, %21
   %24 = icmp ne i64 %23, 0
   %25 = select i1 %22, i1 %24, i1 false
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !15
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %26 = phi i32 [ %11, %6 ], [ %20, %.lr.ph ]
@@ -3731,7 +3731,7 @@ define internal fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef 
   tail call void @proto_item_set_end(ptr noundef %42, ptr noundef %0, i32 noundef %46)
   %47 = sub i32 %.077, %45
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !16
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
 48:                                               ; preds = %16
   %49 = load i32, ptr @hf_sgeonw_public_key_algorithm, align 4
@@ -3927,7 +3927,7 @@ define internal fastcc i32 @dissect_sec_certificate(ptr noundef %0, ptr noundef 
   %22 = sub i32 %21, %20
   store i32 %22, ptr %11, align 4
   %.not = icmp eq i32 %21, %20
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
 23:                                               ; preds = %5
   %24 = call fastcc i32 @dissect_sec_signer_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext %4)
@@ -4077,7 +4077,7 @@ dissect_sec_publickey.exit.i:                     ; preds = %75, %70, %69
   %103 = sub nuw i32 %106, %105
   store i32 %103, ptr %10, align 4
   %.not116.i = icmp eq i32 %106, %105
-  br i1 %.not116.i, label %.loopexit.i, label %.lr.ph126.i, !llvm.loop !18
+  br i1 %.not116.i, label %.loopexit.i, label %.lr.ph126.i, !llvm.loop !19
 
 .lr.ph126.i:                                      ; preds = %100, %102
   %104 = load i32, ptr @hf_sgeonw_app_id, align 4
@@ -4104,7 +4104,7 @@ dissect_sec_publickey.exit.i:                     ; preds = %75, %70, %69
   %113 = sub nuw i32 %135, %134
   store i32 %113, ptr %10, align 4
   %.not114.i = icmp eq i32 %135, %134
-  br i1 %.not114.i, label %.loopexit.i, label %.lr.ph124.i, !llvm.loop !19
+  br i1 %.not114.i, label %.loopexit.i, label %.lr.ph124.i, !llvm.loop !20
 
 .lr.ph124.i:                                      ; preds = %112, %.lr.ph124.preheader.i
   %114 = phi i32 [ %.pre131.i, %.lr.ph124.preheader.i ], [ %133, %112 ]
@@ -4160,7 +4160,7 @@ dissect_sec_itsaidssp.exit.i:                     ; preds = %124, %122
   %142 = sub nuw i32 %152, %151
   store i32 %142, ptr %10, align 4
   %.not112.i = icmp eq i32 %152, %151
-  br i1 %.not112.i, label %.loopexit.i, label %.lr.ph122.i, !llvm.loop !20
+  br i1 %.not112.i, label %.loopexit.i, label %.lr.ph122.i, !llvm.loop !21
 
 .lr.ph122.i:                                      ; preds = %141, %.lr.ph122.preheader.i
   %143 = phi i32 [ %.pre130.i, %.lr.ph122.preheader.i ], [ %150, %141 ]
@@ -4195,7 +4195,7 @@ dissect_sec_itsaidssp.exit.i:                     ; preds = %124, %122
   %159 = sub nuw i32 %178, %177
   store i32 %159, ptr %10, align 4
   %.not.i = icmp eq i32 %178, %177
-  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %158, %.lr.ph.preheader.i
   %160 = phi i32 [ %.pre.i, %.lr.ph.preheader.i ], [ %176, %158 ]
@@ -4254,7 +4254,7 @@ dissect_sec_subject_attributes.exit:              ; preds = %108, %137, %154, %1
   %191 = add i32 %.0.i.neg, %190
   store i32 %191, ptr %11, align 4
   %.not50 = icmp eq i32 %191, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph60, !llvm.loop !22
+  br i1 %.not50, label %._crit_edge, label %.lr.ph60, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %dissect_sec_subject_attributes.exit, %dissect_sec_subject_info.exit
   %192 = call fastcc i32 @dissect_sec_var_len(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -4398,7 +4398,7 @@ dissect_sec_subject_attributes.exit:              ; preds = %108, %137, %154, %1
   store i32 %276, ptr %1, align 4
   %277 = add i32 %.020.i.i.i, -8
   %or.cond.i.i.i = icmp ult i32 %.020.i.i.i, 9
-  br i1 %or.cond.i.i.i, label %dissect_sec_geographicregion.exit.i, label %.lr.ph.i.i.i, !llvm.loop !23
+  br i1 %or.cond.i.i.i, label %dissect_sec_geographicregion.exit.i, label %.lr.ph.i.i.i, !llvm.loop !24
 
 278:                                              ; preds = %230
   %279 = load i32, ptr @hf_sgeonw_region_dictionary, align 4
@@ -4447,7 +4447,7 @@ dissect_sec_validity_restrictions.exit:           ; preds = %199, %204, %213, %d
   %305 = add i32 %.neg, %304
   store i32 %305, ptr %11, align 4
   %.not52 = icmp eq i32 %305, 0
-  br i1 %.not52, label %._crit_edge64, label %.lr.ph63, !llvm.loop !24
+  br i1 %.not52, label %._crit_edge64, label %.lr.ph63, !llvm.loop !25
 
 ._crit_edge64:                                    ; preds = %dissect_sec_validity_restrictions.exit, %._crit_edge
   call fastcc void @dissect_sec_signature(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -4713,20 +4713,21 @@ attributes #15 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
-!16 = distinct !{!16, !9}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = distinct !{!19, !9}
-!20 = distinct !{!20, !9}
-!21 = distinct !{!21, !9}
-!22 = distinct !{!22, !9}
-!23 = distinct !{!23, !9}
-!24 = distinct !{!24, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !9, !10}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = distinct !{!20, !9, !10}
+!21 = distinct !{!21, !9, !10}
+!22 = distinct !{!22, !9, !10}
+!23 = distinct !{!23, !9, !10}
+!24 = distinct !{!24, !9, !10}
+!25 = distinct !{!25, !9, !10}

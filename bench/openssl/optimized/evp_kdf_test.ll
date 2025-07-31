@@ -515,32 +515,32 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_128() #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %16 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_kbkdf_6803_128.input_key, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   %18 = getelementptr inbounds nuw [3 x [5 x i8]], ptr @test_kdf_kbkdf_6803_128.constants, i64 0, i64 %indvars.iv
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.71, ptr noundef nonnull %18, i64 noundef 5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.81, ptr noundef nonnull @test_kdf_kbkdf_6803_128.iv, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %19 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef null) #6
   %20 = call ptr @EVP_KDF_CTX_new(ptr noundef %19) #6
@@ -598,38 +598,38 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_6803_256() #0 {
 16:                                               ; preds = %25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !17
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !18
 
 17:                                               ; preds = %0, %16
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %16 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.87, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.79, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_kbkdf_6803_256.input_key, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   %18 = getelementptr inbounds nuw [3 x [5 x i8]], ptr @test_kdf_kbkdf_6803_256.constants, i64 0, i64 %indvars.iv
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.71, ptr noundef nonnull %18, i64 noundef 5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.81, ptr noundef nonnull @test_kdf_kbkdf_6803_256.iv, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %19 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef null) #6
   %20 = call ptr @EVP_KDF_CTX_new(ptr noundef %19) #6
@@ -934,27 +934,27 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_8009_prf1() #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.89, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_kbkdf_8009_prf1.input_key, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.90, i64 noundef 3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.91, i64 noundef 4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %13 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef null) #6
   %14 = call ptr @EVP_KDF_CTX_new(ptr noundef %13) #6
@@ -999,27 +999,27 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_8009_prf2() #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.89, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_kbkdf_8009_prf2.input_key, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.90, i64 noundef 3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.91, i64 noundef 4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %13 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef null) #6
   %14 = call ptr @EVP_KDF_CTX_new(ptr noundef %13) #6
@@ -1073,36 +1073,36 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_fixedinfo() #0 {
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.77, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.92, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_kbkdf_fixedinfo.input_key, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.93, ptr noundef nonnull @test_kdf_kbkdf_fixedinfo.fixed_input, i64 noundef 60) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.100, ptr noundef nonnull %2) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 280
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.101, ptr noundef nonnull %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
   %19 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef null) #6
   %20 = call ptr @EVP_KDF_CTX_new(ptr noundef %19) #6
@@ -1151,21 +1151,21 @@ define internal range(i32 0, 2) i32 @test_kdf_kbkdf_kmac() #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_kbkdf_kmac.input_key, i64 noundef 41) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.93, ptr noundef nonnull @test_kdf_kbkdf_kmac.context, i64 noundef 512) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.71, ptr noundef nonnull @test_kdf_kbkdf_kmac.label, i64 noundef 54) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %11 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef null) #6
   %12 = call ptr @EVP_KDF_CTX_new(ptr noundef %11) #6
@@ -1774,7 +1774,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hkdf_derive_set_params_fail() #0 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %10 = call i32 @EVP_KDF_derive(ptr noundef %6, ptr noundef nonnull %3, i64 noundef 10, ptr noundef nonnull %2) #6
   %11 = call i32 @test_int_eq(ptr noundef nonnull @.str.53, i32 noundef 334, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.67, i32 noundef %10, i32 noundef 0) #6
@@ -1812,7 +1812,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hkdf_set_invalid_mode() #0 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %10 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %6, ptr noundef nonnull %2) #6
   %11 = call i32 @test_int_eq(ptr noundef nonnull @.str.53, i32 noundef 353, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.67, i32 noundef %10, i32 noundef 0) #6
@@ -1822,7 +1822,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hkdf_set_invalid_mode() #0 {
 12:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.78, ptr noundef nonnull %1) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %13 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %6, ptr noundef nonnull %2) #6
   %14 = call i32 @test_int_eq(ptr noundef nonnull @.str.53, i32 noundef 357, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.67, i32 noundef %13, i32 noundef 0) #6
@@ -2128,7 +2128,7 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_salt_pkcs5() #0 {
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %22 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %10, ptr noundef nonnull %4) #6
   %23 = icmp ne i32 %22, 0
@@ -2202,7 +2202,7 @@ define internal range(i32 0, 2) i32 @test_kdf_pbkdf2_small_iterations_pkcs5() #0
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %22 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %10, ptr noundef nonnull %4) #6
   %23 = icmp ne i32 %22, 0
@@ -2299,31 +2299,31 @@ define internal range(i32 0, 2) i32 @test_kdf_scrypt() #0 {
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.144, i64 noundef 4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.145, ptr noundef nonnull %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.94, ptr noundef nonnull %4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.146, ptr noundef nonnull %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.147, ptr noundef nonnull %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #6
   %19 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.149, ptr noundef null) #6
   %20 = call ptr @EVP_KDF_CTX_new(ptr noundef %19) #6
@@ -2390,7 +2390,7 @@ define internal range(i32 0, 2) i32 @test_kdf_scrypt() #0 {
   call void @EVP_KDF_CTX_reset(ptr noundef %20) #6
   %51 = icmp ne i32 %50, 0
   %52 = and i1 %51, %22
-  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+  br i1 %52, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.critedge, %41, %.critedge.thread29, %0
   %.023.lcssa = phi i32 [ 0, %0 ], [ %49, %.critedge ], [ 0, %41 ], [ %50, %.critedge.thread29 ]
@@ -2418,16 +2418,16 @@ define internal range(i32 0, 2) i32 @test_kdf_ss_hash() #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_ss_hash.z, i64 noundef 56) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.93, ptr noundef nonnull @test_kdf_ss_hash.other, i64 noundef 47) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %9 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.154, ptr noundef null) #6
   %10 = call ptr @EVP_KDF_CTX_new(ptr noundef %9) #6
@@ -2472,26 +2472,26 @@ define internal range(i32 0, 2) i32 @test_kdf_ss_hmac() #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.60, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_ss_hmac.z, i64 noundef 14) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.93, ptr noundef nonnull @test_kdf_ss_hmac.other, i64 noundef 12) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.71, ptr noundef nonnull @test_kdf_ss_hmac.salt, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %13 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.154, ptr noundef null) #6
   %14 = call ptr @EVP_KDF_CTX_new(ptr noundef %13) #6
@@ -2534,37 +2534,37 @@ define internal range(i32 0, 2) i32 @test_kdf_ss_kmac() #0 {
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %1) #6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 20, ptr %3, align 8, !tbaa !15
+  store i64 20, ptr %3, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %1, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.155, i64 noundef 0) #6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.156, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_ss_kmac.z, i64 noundef 14) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.93, ptr noundef nonnull @test_kdf_ss_kmac.other, i64 noundef 12) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.71, ptr noundef nonnull @test_kdf_ss_kmac.salt, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_size_t(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.157, ptr noundef nonnull %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %16 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.154, ptr noundef null) #6
   %17 = call ptr @EVP_KDF_CTX_new(ptr noundef %16) #6
@@ -2629,33 +2629,33 @@ define internal range(i32 0, 2) i32 @test_kdf_sshkdf() #0 {
   %8 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %1) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #6
-  store i8 65, ptr %2, align 1, !tbaa !19
+  store i8 65, ptr %2, align 1, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %1, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.60, i64 noundef 0) #6
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_sshkdf.key, i64 noundef 133) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.158, ptr noundef nonnull @test_kdf_sshkdf.xcghash, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.159, ptr noundef nonnull @test_kdf_sshkdf.sessid, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.160, ptr noundef nonnull %2, i64 noundef 1) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %14 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.162, ptr noundef null) #6
   %15 = call ptr @EVP_KDF_CTX_new(ptr noundef %14) #6
@@ -2699,16 +2699,16 @@ define internal range(i32 0, 2) i32 @test_kdf_x963() #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_x963.z, i64 noundef 66) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.93, ptr noundef nonnull @test_kdf_x963.shared, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %9 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.165, ptr noundef null) #6
   %10 = call ptr @EVP_KDF_CTX_new(ptr noundef %9) #6
@@ -2751,16 +2751,16 @@ define internal range(i32 0, 2) i32 @test_kdf_x942_asn1() #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_x942_asn1.z, i64 noundef 20) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.168, ptr noundef nonnull @.str.166, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %9 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.170, ptr noundef null) #6
   %10 = call ptr @EVP_KDF_CTX_new(ptr noundef %9) #6
@@ -2803,16 +2803,16 @@ define internal range(i32 0, 2) i32 @test_kdf_krb5kdf() #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kdf_krb5kdf.key, i64 noundef 16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.172, ptr noundef nonnull @test_kdf_krb5kdf.constant, i64 noundef 5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %9 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.174, ptr noundef null) #6
   %10 = call ptr @EVP_KDF_CTX_new(ptr noundef %9) #6
@@ -2887,7 +2887,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %27) #6
-  %28 = load ptr, ptr %21, align 8, !tbaa !20
+  %28 = load ptr, ptr %21, align 8, !tbaa !21
   %.not2333 = icmp eq ptr %28, null
   br i1 %.not2333, label %._crit_edge, label %.lr.ph
 
@@ -2900,12 +2900,12 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 
 31:                                               ; preds = %.lr.ph
   %32 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %indvars.iv
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %33 = load ptr, ptr %32, align 8, !tbaa !21
   call void (ptr, ...) @test_note(ptr noundef nonnull @.str.179, ptr noundef %33) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
-  %34 = load ptr, ptr %32, align 8, !tbaa !20
+  %34 = load ptr, ptr %32, align 8, !tbaa !21
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef %34, ptr noundef nonnull %1) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %35 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %18, ptr noundef nonnull %2) #6
   %36 = call i32 @test_int_le(ptr noundef nonnull @.str.53, i32 noundef 1896, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.67, i32 noundef %35, i32 noundef 0) #6
@@ -2915,33 +2915,33 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 37:                                               ; preds = %.lr.ph, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %21, i64 %indvars.iv.next
-  %39 = load ptr, ptr %38, align 8, !tbaa !20
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
   %.not23 = icmp eq ptr %39, null
-  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  br i1 %.not23, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %37, %26
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.180, ptr noundef nonnull @test_kdf_hmac_drbg_settables.ent, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.181, ptr noundef nonnull @test_kdf_hmac_drbg_settables.ent, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.156, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.122, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %42, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
   %43 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %18, ptr noundef nonnull %2) #6
   %44 = call i32 @test_int_eq(ptr noundef nonnull @.str.53, i32 noundef 1910, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.123, i32 noundef %43, i32 noundef 1) #6
@@ -2957,15 +2957,15 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 48:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.73, ptr noundef nonnull %4, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.76, ptr noundef nonnull %5, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #6
   %49 = call i32 @EVP_KDF_CTX_get_params(ptr noundef %18, ptr noundef nonnull %2) #6
   %50 = call i32 @test_int_eq(ptr noundef nonnull @.str.53, i32 noundef 1920, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.123, i32 noundef %49, i32 noundef 1) #6
@@ -2974,14 +2974,14 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %53 = load i64, ptr %52, align 16, !tbaa !23
+  %53 = load i64, ptr %52, align 16, !tbaa !24
   %54 = call i32 @test_mem_eq(ptr noundef nonnull @.str.53, i32 noundef 1921, ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.184, ptr noundef nonnull %4, i64 noundef %53, ptr noundef nonnull @.str.185, i64 noundef 8) #6
   %.not27 = icmp eq i32 %54, 0
   br i1 %.not27, label %.loopexit, label %55
 
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %57 = load i64, ptr %56, align 8, !tbaa !23
+  %57 = load i64, ptr %56, align 8, !tbaa !24
   %58 = call i32 @test_mem_eq(ptr noundef nonnull @.str.53, i32 noundef 1922, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.187, ptr noundef nonnull %5, i64 noundef %57, ptr noundef nonnull @.str.89, i64 noundef 4) #6
   %.not28 = icmp eq i32 %58, 0
   br i1 %.not28, label %.loopexit, label %59
@@ -2995,11 +2995,11 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_settables() #0 {
 62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.188, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #6
   %63 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %18, ptr noundef nonnull %2) #6
   %64 = call i32 @test_int_le(ptr noundef nonnull @.str.53, i32 noundef 1933, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.67, i32 noundef %63, i32 noundef 0) #6
@@ -3046,19 +3046,19 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13) #6
-  %14 = load ptr, ptr %10, align 8, !tbaa !20
+  %14 = load ptr, ptr %10, align 8, !tbaa !21
   %.not1621 = icmp eq ptr %14, null
   br i1 %.not1621, label %.loopexit, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %10, i64 %indvars.iv.next
-  %17 = load ptr, ptr %16, align 8, !tbaa !20
+  %17 = load ptr, ptr %16, align 8, !tbaa !21
   %.not16 = icmp eq ptr %17, null
-  br i1 %.not16, label %.preheader, label %.lr.ph, !llvm.loop !24
+  br i1 %.not16, label %.preheader, label %.lr.ph, !llvm.loop !25
 
 .preheader:                                       ; preds = %15
-  %.pre = load ptr, ptr %10, align 8, !tbaa !20
+  %.pre = load ptr, ptr %10, align 8, !tbaa !21
   %.not1723 = icmp eq ptr %.pre, null
   br i1 %.not1723, label %.loopexit, label %.lr.ph25
 
@@ -3067,7 +3067,7 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %12 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull %18, ptr noundef nonnull %1) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %19 = call i32 @EVP_KDF_CTX_get_params(ptr noundef %7, ptr noundef nonnull %2) #6
   %20 = call i32 @test_int_le(ptr noundef nonnull @.str.53, i32 noundef 1959, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.67, i32 noundef %19, i32 noundef 0) #6
@@ -3077,16 +3077,16 @@ define internal range(i32 0, 2) i32 @test_kdf_hmac_drbg_gettables() #0 {
 21:                                               ; preds = %.lr.ph25
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %22 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %10, i64 %indvars.iv.next31
-  %23 = load ptr, ptr %22, align 8, !tbaa !20
+  %23 = load ptr, ptr %22, align 8, !tbaa !21
   %.not17 = icmp eq ptr %23, null
-  br i1 %.not17, label %.loopexit, label %.lr.ph25, !llvm.loop !25
+  br i1 %.not17, label %.loopexit, label %.lr.ph25, !llvm.loop !26
 
 .lr.ph25:                                         ; preds = %.preheader, %21
   %24 = phi ptr [ %23, %21 ], [ %.pre, %.preheader ]
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %21 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull %24, ptr noundef nonnull %3, i64 noundef 64) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %25 = call i32 @EVP_KDF_CTX_get_params(ptr noundef %7, ptr noundef nonnull %2) #6
   %26 = call i32 @test_int_le(ptr noundef nonnull @.str.53, i32 noundef 1966, ptr noundef nonnull @.str.182, ptr noundef nonnull @.str.67, i32 noundef %25, i32 noundef 0) #6
@@ -3131,7 +3131,7 @@ define internal range(i32 0, 2) i32 @test_kbkdf_mac_change() #0 {
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %17 = call ptr @EVP_KDF_fetch(ptr noundef null, ptr noundef nonnull @.str.82, ptr noundef null) #6
   %18 = call ptr @EVP_KDF_CTX_new(ptr noundef %17) #6
@@ -3151,46 +3151,46 @@ define internal range(i32 0, 2) i32 @test_kbkdf_mac_change() #0 {
 25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.92, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.89, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.156, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %26, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.100, ptr noundef nonnull %2) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.101, ptr noundef nonnull %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.94, ptr noundef nonnull %4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #6
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 280
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13, ptr noundef nonnull @.str.80, ptr noundef nonnull @test_kbkdf_mac_change.key, i64 noundef 32) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #6
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 320
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.93, ptr noundef nonnull @test_kbkdf_mac_change.info, i64 noundef 60) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %15) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %15) #6
   %33 = call i32 @EVP_KDF_derive(ptr noundef %18, ptr noundef nonnull %5, i64 noundef 16, ptr noundef nonnull %1) #6
   %34 = icmp ne i32 %33, 0
@@ -3247,26 +3247,26 @@ define internal fastcc noalias ptr @construct_pbkdf1_params(ptr noundef nonnull 
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %2, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.59, i64 noundef 24) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %2, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %3, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.61, i64 noundef 36) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #6
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.72, ptr noundef nonnull %0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.73, ptr noundef nonnull @.str.60, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   br label %14
 
@@ -3335,41 +3335,41 @@ define internal fastcc noalias ptr @construct_kbkdf_params(ptr noundef %0, ptr n
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.73, ptr noundef %0, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.76, ptr noundef %1, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.92, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.80, ptr noundef %2, i64 noundef %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.90, i64 noundef 3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 240
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.91, i64 noundef 4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 280
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.94, ptr noundef nonnull %4) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %13) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull align 8 dereferenceable(40) %13, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13) #6
   br label %24
 
@@ -3438,23 +3438,23 @@ define internal fastcc noalias ptr @construct_tls1_prf_params(ptr noundef %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %4, ptr noundef nonnull @.str.73, ptr noundef %0, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %4, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.118, ptr noundef nonnull %1, i64 noundef %13) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.81, ptr noundef nonnull %2, i64 noundef %15) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   br label %16
 
@@ -3482,7 +3482,7 @@ define internal fastcc noalias ptr @construct_hkdf_params(ptr noundef %0, ptr no
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.73, ptr noundef nonnull %0, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   br label %17
 
@@ -3492,12 +3492,12 @@ define internal fastcc noalias ptr @construct_hkdf_params(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.71, ptr noundef nonnull %3, i64 noundef %19) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.0, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %20 = getelementptr inbounds nuw i8, ptr %.0, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.80, ptr noundef %1, i64 noundef %2) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %.not22 = icmp eq ptr %4, null
   br i1 %.not22, label %23, label %21
@@ -3506,14 +3506,14 @@ define internal fastcc noalias ptr @construct_hkdf_params(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.93, ptr noundef nonnull %4, i64 noundef %22) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   br label %24
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10, ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.127, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   br label %24
 
@@ -3521,7 +3521,7 @@ define internal fastcc noalias ptr @construct_hkdf_params(ptr noundef %0, ptr no
   %.1 = getelementptr inbounds nuw i8, ptr %.0, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.1, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #6
   br label %25
 
@@ -3536,7 +3536,7 @@ define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef ra
   %5 = alloca %struct.ossl_param_st, align 8
   %6 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #6
-  store i64 0, ptr %3, align 8, !tbaa !15
+  store i64 0, ptr %3, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #6
   %.not = icmp eq i32 %1, 0
   %7 = select i1 %.not, ptr null, ptr @.str.60
@@ -3580,7 +3580,7 @@ define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef ra
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %28 = call i32 @EVP_KDF_CTX_get_params(ptr noundef %13, ptr noundef nonnull %4) #6
   br i1 %.not, label %35, label %29
@@ -3591,7 +3591,7 @@ define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef ra
   br i1 %.not21, label %40, label %31
 
 31:                                               ; preds = %29
-  %32 = load i64, ptr %3, align 8, !tbaa !15
+  %32 = load i64, ptr %3, align 8, !tbaa !16
   %33 = select i1 %.not14, i64 -1, i64 32
   %34 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.53, i32 noundef 269, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134, i64 noundef %32, i64 noundef %33) #6
   %.not22 = icmp eq i32 %34, 0
@@ -3605,7 +3605,7 @@ define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_gettables(i32 noundef ra
 37:                                               ; preds = %35, %31
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %38 = call i32 @EVP_KDF_CTX_get_params(ptr noundef %13, ptr noundef nonnull %4) #6
   %39 = call i32 @test_int_eq(ptr noundef nonnull @.str.53, i32 noundef 278, ptr noundef nonnull @.str.132, ptr noundef nonnull @.str.123, i32 noundef %38, i32 noundef 1) #6
@@ -3661,7 +3661,7 @@ define internal fastcc range(i32 0, 2) i32 @do_kdf_hkdf_set_invalid_param(ptr no
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %15 = call i32 @EVP_KDF_CTX_set_params(ptr noundef %7, ptr noundef nonnull %3) #6
   %16 = call i32 @test_int_eq(ptr noundef nonnull @.str.53, i32 noundef 381, ptr noundef nonnull @.str.65, ptr noundef nonnull @.str.67, i32 noundef %15, i32 noundef 0) #6
@@ -3693,32 +3693,32 @@ define internal fastcc noalias ptr @construct_pbkdf2_params(ptr noundef %0, ptr 
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #6
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %5, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.59, i64 noundef 24) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #6
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 80
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #6
   %16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull @.str.71, ptr noundef nonnull %1, i64 noundef %16) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #6
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 120
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #6
   call void @OSSL_PARAM_construct_uint(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7, ptr noundef nonnull @.str.72, ptr noundef nonnull %2) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #6
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 160
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #6
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %8, ptr noundef nonnull @.str.73, ptr noundef %0, i64 noundef 0) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #6
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 200
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #6
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %9, ptr noundef nonnull @.str.138, ptr noundef nonnull %3) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #6
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #6
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %10) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false), !tbaa.struct !11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #6
   br label %20
 
@@ -3761,21 +3761,22 @@ attributes #7 = { nounwind willreturn memory(read) }
 !5 = !{!"int", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = !{i64 0, i64 8, !11, i64 8, i64 4, !4, i64 16, i64 8, !14, i64 24, i64 8, !15, i64 32, i64 8, !15}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 omnipotent char", !13, i64 0}
-!13 = !{!"any pointer", !6, i64 0}
-!14 = !{!13, !13, i64 0}
-!15 = !{!16, !16, i64 0}
-!16 = !{!"long", !6, i64 0}
-!17 = distinct !{!17, !9}
-!18 = distinct !{!18, !9}
-!19 = !{!6, !6, i64 0}
-!20 = !{!21, !12, i64 0}
-!21 = !{!"ossl_param_st", !12, i64 0, !5, i64 8, !13, i64 16, !16, i64 24, !16, i64 32}
-!22 = distinct !{!22, !9}
-!23 = !{!21, !16, i64 32}
-!24 = distinct !{!24, !9}
-!25 = distinct !{!25, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = !{i64 0, i64 8, !12, i64 8, i64 4, !4, i64 16, i64 8, !15, i64 24, i64 8, !16, i64 32, i64 8, !16}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"p1 omnipotent char", !14, i64 0}
+!14 = !{!"any pointer", !6, i64 0}
+!15 = !{!14, !14, i64 0}
+!16 = !{!17, !17, i64 0}
+!17 = !{!"long", !6, i64 0}
+!18 = distinct !{!18, !9, !10}
+!19 = distinct !{!19, !9, !10}
+!20 = !{!6, !6, i64 0}
+!21 = !{!22, !13, i64 0}
+!22 = !{!"ossl_param_st", !13, i64 0, !5, i64 8, !14, i64 16, !17, i64 24, !17, i64 32}
+!23 = distinct !{!23, !9, !10}
+!24 = !{!22, !17, i64 32}
+!25 = distinct !{!25, !9, !10}
+!26 = distinct !{!26, !9, !10}

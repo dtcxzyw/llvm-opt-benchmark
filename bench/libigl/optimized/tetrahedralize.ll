@@ -779,7 +779,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 
 109:                                              ; preds = %108, %._crit_edge
   %110 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %111 = load ptr, ptr %110, align 8, !tbaa !97
+  %111 = load ptr, ptr %110, align 8, !tbaa !98
   %.not89 = icmp eq ptr %111, null
   br i1 %.not89, label %113, label %112
 
@@ -792,7 +792,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %114 = load i32, ptr %88, align 8, !tbaa !89
   %115 = sext i32 %114 to i64
   %116 = icmp slt i64 %indvars.iv.next104, %115
-  br i1 %116, label %.lr.ph94, label %._crit_edge95, !llvm.loop !98
+  br i1 %116, label %.lr.ph94, label %._crit_edge95, !llvm.loop !99
 
 ._crit_edge95:                                    ; preds = %113
   %.pre112 = load ptr, ptr %86, align 8, !tbaa !88
@@ -806,7 +806,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 
 119:                                              ; preds = %._crit_edge95, %._crit_edge95.thread, %85
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %121 = load ptr, ptr %120, align 8, !tbaa !99
+  %121 = load ptr, ptr %120, align 8, !tbaa !100
   %.not78 = icmp eq ptr %121, null
   br i1 %.not78, label %123, label %122
 
@@ -836,14 +836,14 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 
 131:                                              ; preds = %130, %127
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %133 = load ptr, ptr %132, align 8, !tbaa !100
+  %133 = load ptr, ptr %132, align 8, !tbaa !101
   %.not81 = icmp eq ptr %133, null
   br i1 %.not81, label %138, label %134
 
 134:                                              ; preds = %131
   tail call void @_ZdaPv(ptr noundef nonnull %133) #15
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %136 = load ptr, ptr %135, align 8, !tbaa !101
+  %136 = load ptr, ptr %135, align 8, !tbaa !102
   %.not82 = icmp eq ptr %136, null
   br i1 %.not82, label %138, label %137
 
@@ -873,7 +873,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 
 146:                                              ; preds = %145, %142
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %148 = load ptr, ptr %147, align 8, !tbaa !102
+  %148 = load ptr, ptr %147, align 8, !tbaa !103
   %.not85 = icmp eq ptr %148, null
   br i1 %.not85, label %150, label %149
 
@@ -883,7 +883,7 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 
 150:                                              ; preds = %149, %146
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %152 = load ptr, ptr %151, align 8, !tbaa !103
+  %152 = load ptr, ptr %151, align 8, !tbaa !104
   %.not86 = icmp eq ptr %152, null
   br i1 %.not86, label %154, label %153
 
@@ -893,28 +893,28 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 
 154:                                              ; preds = %153, %150
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 360
-  %156 = load ptr, ptr %155, align 8, !tbaa !104
+  %156 = load ptr, ptr %155, align 8, !tbaa !105
   %.not87 = icmp eq ptr %156, null
   br i1 %.not87, label %172, label %.preheader90
 
 .preheader90:                                     ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %158 = load i32, ptr %157, align 8, !tbaa !105
+  %158 = load i32, ptr %157, align 8, !tbaa !106
   %159 = icmp sgt i32 %158, 0
   br i1 %159, label %.lr.ph97, label %._crit_edge98.thread
 
 .lr.ph97:                                         ; preds = %.preheader90, %166
   %160 = phi i32 [ %167, %166 ], [ %158, %.preheader90 ]
   %indvars.iv106 = phi i64 [ %indvars.iv.next107, %166 ], [ 0, %.preheader90 ]
-  %161 = load ptr, ptr %155, align 8, !tbaa !104
+  %161 = load ptr, ptr %155, align 8, !tbaa !105
   %162 = getelementptr inbounds nuw %"struct.tetgenio::vorofacet", ptr %161, i64 %indvars.iv106, i32 2
-  %163 = load ptr, ptr %162, align 8, !tbaa !106
+  %163 = load ptr, ptr %162, align 8, !tbaa !107
   %164 = icmp eq ptr %163, null
   br i1 %164, label %166, label %165
 
 165:                                              ; preds = %.lr.ph97
   tail call void @_ZdaPv(ptr noundef nonnull %163) #15
-  %.pre113 = load i32, ptr %157, align 8, !tbaa !105
+  %.pre113 = load i32, ptr %157, align 8, !tbaa !106
   br label %166
 
 166:                                              ; preds = %.lr.ph97, %165
@@ -922,10 +922,10 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %168 = sext i32 %167 to i64
   %169 = icmp slt i64 %indvars.iv.next107, %168
-  br i1 %169, label %.lr.ph97, label %._crit_edge98, !llvm.loop !108
+  br i1 %169, label %.lr.ph97, label %._crit_edge98, !llvm.loop !109
 
 ._crit_edge98:                                    ; preds = %166
-  %.pre114 = load ptr, ptr %155, align 8, !tbaa !104
+  %.pre114 = load ptr, ptr %155, align 8, !tbaa !105
   %170 = icmp eq ptr %.pre114, null
   br i1 %170, label %172, label %._crit_edge98.thread
 
@@ -936,28 +936,28 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
 
 172:                                              ; preds = %._crit_edge98, %._crit_edge98.thread, %154
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %174 = load ptr, ptr %173, align 8, !tbaa !109
+  %174 = load ptr, ptr %173, align 8, !tbaa !110
   %.not88 = icmp eq ptr %174, null
   br i1 %.not88, label %190, label %.preheader
 
 .preheader:                                       ; preds = %172
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %176 = load i32, ptr %175, align 4, !tbaa !110
+  %176 = load i32, ptr %175, align 4, !tbaa !111
   %177 = icmp sgt i32 %176, 0
   br i1 %177, label %.lr.ph100, label %._crit_edge101.thread
 
 .lr.ph100:                                        ; preds = %.preheader, %184
   %178 = phi i32 [ %185, %184 ], [ %176, %.preheader ]
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %184 ], [ 0, %.preheader ]
-  %179 = load ptr, ptr %173, align 8, !tbaa !109
+  %179 = load ptr, ptr %173, align 8, !tbaa !110
   %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %indvars.iv109
-  %181 = load ptr, ptr %180, align 8, !tbaa !111
+  %181 = load ptr, ptr %180, align 8, !tbaa !112
   %182 = icmp eq ptr %181, null
   br i1 %182, label %184, label %183
 
 183:                                              ; preds = %.lr.ph100
   tail call void @_ZdaPv(ptr noundef nonnull %181) #15
-  %.pre115 = load i32, ptr %175, align 4, !tbaa !110
+  %.pre115 = load i32, ptr %175, align 4, !tbaa !111
   br label %184
 
 184:                                              ; preds = %.lr.ph100, %183
@@ -965,10 +965,10 @@ define linkonce_odr dso_local void @_ZN8tetgenio12clean_memoryEv(ptr noundef non
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %186 = sext i32 %185 to i64
   %187 = icmp slt i64 %indvars.iv.next110, %186
-  br i1 %187, label %.lr.ph100, label %._crit_edge101, !llvm.loop !112
+  br i1 %187, label %.lr.ph100, label %._crit_edge101, !llvm.loop !113
 
 ._crit_edge101:                                   ; preds = %184
-  %.pre116 = load ptr, ptr %173, align 8, !tbaa !109
+  %.pre116 = load ptr, ptr %173, align 8, !tbaa !110
   %188 = icmp eq ptr %.pre116, null
   br i1 %188, label %190, label %._crit_edge101.thread
 
@@ -1122,21 +1122,22 @@ attributes #17 = { noreturn }
 !92 = !{!91, !7, i64 0}
 !93 = !{!94, !18, i64 0}
 !94 = !{!"_ZTSN8tetgenio7polygonE", !18, i64 0, !26, i64 8}
-!95 = distinct !{!95, !96}
+!95 = distinct !{!95, !96, !97}
 !96 = !{!"llvm.loop.mustprogress"}
-!97 = !{!91, !23, i64 16}
-!98 = distinct !{!98, !96}
-!99 = !{!25, !18, i64 152}
-!100 = !{!25, !18, i64 200}
-!101 = !{!25, !23, i64 208}
-!102 = !{!25, !23, i64 344}
-!103 = !{!25, !7, i64 352}
-!104 = !{!25, !7, i64 360}
-!105 = !{!25, !26, i64 384}
-!106 = !{!107, !18, i64 8}
-!107 = !{!"_ZTSN8tetgenio9vorofacetE", !26, i64 0, !26, i64 4, !18, i64 8}
-!108 = distinct !{!108, !96}
-!109 = !{!25, !27, i64 368}
-!110 = !{!25, !26, i64 388}
-!111 = !{!18, !18, i64 0}
-!112 = distinct !{!112, !96}
+!97 = !{!"llvm.loop.estimated_trip_count"}
+!98 = !{!91, !23, i64 16}
+!99 = distinct !{!99, !96, !97}
+!100 = !{!25, !18, i64 152}
+!101 = !{!25, !18, i64 200}
+!102 = !{!25, !23, i64 208}
+!103 = !{!25, !23, i64 344}
+!104 = !{!25, !7, i64 352}
+!105 = !{!25, !7, i64 360}
+!106 = !{!25, !26, i64 384}
+!107 = !{!108, !18, i64 8}
+!108 = !{!"_ZTSN8tetgenio9vorofacetE", !26, i64 0, !26, i64 4, !18, i64 8}
+!109 = distinct !{!109, !96, !97}
+!110 = !{!25, !27, i64 368}
+!111 = !{!25, !26, i64 388}
+!112 = !{!18, !18, i64 0}
+!113 = distinct !{!113, !96, !97}

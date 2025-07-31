@@ -119,14 +119,14 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %25
   %51 = lshr i64 %45, 32
   %52 = trunc nuw i64 %51 to i32
   %53 = and i32 %52, 65535
-  store i32 %53, ptr %40, align 4, !tbaa !25
+  store i32 %53, ptr %40, align 4, !tbaa !26
   br label %.thread113.i
 
 54:                                               ; preds = %42
   %55 = lshr i64 %45, 32
   %56 = trunc nuw i64 %55 to i32
   %57 = and i32 %56, 65535
-  store i32 %57, ptr %39, align 8, !tbaa !26
+  store i32 %57, ptr %39, align 8, !tbaa !27
   br label %.thread113.i
 
 58:                                               ; preds = %42
@@ -141,8 +141,8 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %25
   br i1 %64, label %65, label %70
 
 65:                                               ; preds = %62
-  %66 = load i32, ptr %39, align 8, !tbaa !26
-  %67 = load i32, ptr %40, align 4, !tbaa !25
+  %66 = load i32, ptr %39, align 8, !tbaa !27
+  %67 = load i32, ptr %40, align 4, !tbaa !26
   %68 = tail call i32 @ff_dnxhd_get_hr_frame_size(i32 noundef %60, i32 noundef %66, i32 noundef %67) #2
   %69 = icmp slt i32 %68, 1
   br i1 %69, label %.thread113.i, label %70
@@ -174,7 +174,7 @@ ff_dnxhd_check_header_prefix.exit.thread.i:       ; preds = %25
 .thread113.i:                                     ; preds = %65, %58, %54, %50, %42
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %exitcond147.not.i = icmp eq i64 %indvars.iv.next144.i, %wide.trip.count146.i
-  br i1 %exitcond147.not.i, label %.critedge.i, label %42, !llvm.loop !27
+  br i1 %exitcond147.not.i, label %.critedge.i, label %42, !llvm.loop !28
 
 79:                                               ; preds = %34
   %80 = icmp sgt i32 %.pre.i, %5
@@ -267,8 +267,9 @@ attributes #2 = { nounwind }
 !20 = !{!21, !10, i64 48}
 !21 = !{!"", !17, i64 0, !10, i64 48, !10, i64 52, !10, i64 56, !10, i64 60}
 !22 = !{!21, !10, i64 52}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!21, !10, i64 60}
-!26 = !{!21, !10, i64 56}
-!27 = distinct !{!27, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!21, !10, i64 60}
+!27 = !{!21, !10, i64 56}
+!28 = distinct !{!28, !24, !25}

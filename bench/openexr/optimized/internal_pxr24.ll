@@ -160,7 +160,7 @@ define hidden i32 @internal_exr_apply_pxr24(ptr noundef %0) local_unnamed_addr #
   store i8 %80, ptr %.sroa.525.0238.i, align 1, !tbaa !27
   %82 = add nuw nsw i32 %.0166242.i, 1
   %exitcond269.not.i = icmp eq i32 %82, %26
-  br i1 %exitcond269.not.i, label %.loopexit.i, label %.lr.ph243.i, !llvm.loop !30
+  br i1 %exitcond269.not.i, label %.loopexit.i, label %.lr.ph243.i, !llvm.loop !31
 
 83:                                               ; preds = %37
   %84 = mul nsw i64 %27, 3
@@ -235,7 +235,7 @@ float_to_float24.exit.i:                          ; preds = %105, %99, %98
   store i8 %123, ptr %.sroa.8.0232.i, align 1, !tbaa !27
   %125 = add nuw nsw i32 %.0154237.i, 1
   %exitcond.not.i = icmp eq i32 %125, %26
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !32
 
 .loopexit.i:                                      ; preds = %float_to_float24.exit.i, %.lr.ph243.i, %.lr.ph251.i, %87, %69, %44, %35, %.lr.ph256.i
   %.3160.i = phi ptr [ %.1158253.i, %35 ], [ %.1158253.i, %.lr.ph256.i ], [ %45, %44 ], [ %70, %69 ], [ %90, %87 ], [ %45, %.lr.ph251.i ], [ %70, %.lr.ph243.i ], [ %90, %float_to_float24.exit.i ]
@@ -245,7 +245,7 @@ float_to_float24.exit.i:                          ; preds = %105, %99, %98
   %126 = load i16, ptr %15, align 8, !tbaa !17
   %127 = sext i16 %126 to i64
   %128 = icmp slt i64 %indvars.iv.next.i, %127
-  br i1 %128, label %.lr.ph256.i, label %._crit_edge.loopexit.i, !llvm.loop !32
+  br i1 %128, label %.lr.ph256.i, label %._crit_edge.loopexit.i, !llvm.loop !33
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
   %.pre272.i = load i32, ptr %12, align 4, !tbaa !16
@@ -259,7 +259,7 @@ float_to_float24.exit.i:                          ; preds = %105, %99, %98
   %.1138.lcssa.i = phi ptr [ %.0137263.i, %17 ], [ %.3140.i, %._crit_edge.loopexit.i ]
   %131 = add nuw nsw i32 %.0165260.i, 1
   %.not187.i = icmp slt i32 %131, %129
-  br i1 %.not187.i, label %17, label %.thread222.loopexit.i, !llvm.loop !33
+  br i1 %.not187.i, label %17, label %.thread222.loopexit.i, !llvm.loop !34
 
 .thread222.loopexit.i:                            ; preds = %._crit_edge.i
   %.pre273.i = load ptr, ptr %3, align 8, !tbaa !14
@@ -269,23 +269,23 @@ float_to_float24.exit.i:                          ; preds = %105, %99, %98
   %132 = phi ptr [ %9, %8 ], [ %.pre273.i, %.thread222.loopexit.i ]
   %.0145.lcssa.i = phi i64 [ 0, %8 ], [ %.2147.lcssa.i, %.thread222.loopexit.i ]
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %134 = load ptr, ptr %133, align 8, !tbaa !34
+  %134 = load ptr, ptr %133, align 8, !tbaa !35
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %136 = load ptr, ptr %135, align 8, !tbaa !35
+  %136 = load ptr, ptr %135, align 8, !tbaa !36
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %138 = load i64, ptr %137, align 8, !tbaa !36
+  %138 = load i64, ptr %137, align 8, !tbaa !37
   %139 = call i32 @exr_compress_buffer(ptr noundef %134, i32 noundef -1, ptr noundef %132, i64 noundef %.0145.lcssa.i, ptr noundef %136, i64 noundef %138, ptr noundef nonnull %2) #5
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %apply_pxr24_impl.exit
 
 141:                                              ; preds = %.thread222.i
-  %142 = load i64, ptr %2, align 8, !tbaa !37
+  %142 = load i64, ptr %2, align 8, !tbaa !38
   %143 = load i64, ptr %5, align 8, !tbaa !3
   %144 = icmp ugt i64 %142, %143
   br i1 %144, label %145, label %149
 
 145:                                              ; preds = %141
-  %146 = load ptr, ptr %135, align 8, !tbaa !35
+  %146 = load ptr, ptr %135, align 8, !tbaa !36
   %147 = load ptr, ptr %10, align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %146, ptr align 1 %147, i64 %143, i1 false)
   %148 = load i64, ptr %5, align 8, !tbaa !3
@@ -294,7 +294,7 @@ float_to_float24.exit.i:                          ; preds = %105, %99, %98
 149:                                              ; preds = %145, %141
   %150 = phi i64 [ %148, %145 ], [ %142, %141 ]
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i64 %150, ptr %151, align 8, !tbaa !38
+  store i64 %150, ptr %151, align 8, !tbaa !39
   br label %apply_pxr24_impl.exit
 
 apply_pxr24_impl.exit:                            ; preds = %37, %40, %65, %83, %.thread222.i, %149
@@ -326,22 +326,22 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not, label %11, label %135
 
 11:                                               ; preds = %5
-  %12 = load ptr, ptr %7, align 8, !tbaa !39
-  %13 = load i64, ptr %8, align 8, !tbaa !41
+  %12 = load ptr, ptr %7, align 8, !tbaa !40
+  %13 = load i64, ptr %8, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5
   %14 = icmp ult i64 %13, %4
   br i1 %14, label %undo_pxr24_impl.exit, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !42
+  %17 = load ptr, ptr %16, align 8, !tbaa !43
   %18 = call i32 @exr_uncompress_buffer(ptr noundef %17, ptr noundef %1, i64 noundef %2, ptr noundef %12, i64 noundef %13, ptr noundef nonnull %6) #5
   %.not.i = icmp eq i32 %18, 0
   br i1 %.not.i, label %.preheader215.i, label %undo_pxr24_impl.exit
 
 .preheader215.i:                                  ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %20 = load i32, ptr %19, align 4, !tbaa !43
+  %20 = load i32, ptr %19, align 4, !tbaa !44
   %.not175251.i = icmp sgt i32 %20, 0
   br i1 %.not175251.i, label %.lr.ph257.i, label %.thread207.i
 
@@ -349,7 +349,7 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre.i = load i16, ptr %22, align 8, !tbaa !44
+  %.pre.i = load i16, ptr %22, align 8, !tbaa !45
   br label %24
 
 24:                                               ; preds = %._crit_edge.i, %.lr.ph257.i
@@ -361,7 +361,7 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %.0142254.i = phi i64 [ 0, %.lr.ph257.i ], [ %.1143.lcssa.i, %._crit_edge.i ]
   %.0150253.i = phi ptr [ %12, %.lr.ph257.i ], [ %.1151.lcssa.i, %._crit_edge.i ]
   %.0162252.i = phi i32 [ 0, %.lr.ph257.i ], [ %133, %._crit_edge.i ]
-  %28 = load i32, ptr %21, align 8, !tbaa !45
+  %28 = load i32, ptr %21, align 8, !tbaa !46
   %29 = add nsw i32 %28, %.0162252.i
   %30 = icmp sgt i16 %27, 0
   br i1 %30, label %.lr.ph247.i, label %._crit_edge.i
@@ -373,13 +373,13 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %.2136244.i = phi i64 [ %.4138.i, %126 ], [ %.0134255.i, %24 ]
   %.1143243.i = phi i64 [ %.3145.i, %126 ], [ %.0142254.i, %24 ]
   %.1151242.i = phi ptr [ %.3153.i, %126 ], [ %.0150253.i, %24 ]
-  %32 = load ptr, ptr %23, align 8, !tbaa !46
+  %32 = load ptr, ptr %23, align 8, !tbaa !47
   %33 = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %32, i64 %indvars.iv.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = load i32, ptr %34, align 4, !tbaa !20
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 25
-  %38 = load i8, ptr %37, align 1, !tbaa !47
+  %38 = load i8, ptr %37, align 1, !tbaa !48
   %39 = sext i8 %38 to i64
   %40 = mul nsw i64 %39, %36
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -456,7 +456,7 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %82 = getelementptr inbounds nuw i8, ptr %.0140238.i, i64 4
   %83 = add nuw nsw i32 %.0139239.i, 1
   %exitcond262.not.i = icmp eq i32 %83, %35
-  br i1 %exitcond262.not.i, label %.loopexit.i, label %.lr.ph240.i, !llvm.loop !48
+  br i1 %exitcond262.not.i, label %.loopexit.i, label %.lr.ph240.i, !llvm.loop !49
 
 84:                                               ; preds = %53
   %85 = getelementptr inbounds i8, ptr %.1151242.i, i64 %36
@@ -488,7 +488,7 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %98 = getelementptr inbounds nuw i8, ptr %.0132230.i, i64 2
   %99 = add nuw nsw i32 %.0131231.i, 1
   %exitcond261.not.i = icmp eq i32 %99, %35
-  br i1 %exitcond261.not.i, label %.loopexit.i, label %.lr.ph232.i, !llvm.loop !49
+  br i1 %exitcond261.not.i, label %.loopexit.i, label %.lr.ph232.i, !llvm.loop !50
 
 100:                                              ; preds = %53
   %101 = getelementptr inbounds i8, ptr %.1151242.i, i64 %36
@@ -530,13 +530,13 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %123 = getelementptr inbounds nuw i8, ptr %.0125225.i, i64 4
   %124 = add nuw nsw i32 %.0124226.i, 1
   %exitcond.not.i = icmp eq i32 %124, %35
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !51
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph232.i, %.lr.ph240.i, %.preheader213.i, %.preheader211.i, %.preheader.i
   %.4154.i = phi ptr [ %60, %.preheader.i ], [ %86, %.preheader211.i ], [ %103, %.preheader213.i ], [ %60, %.lr.ph240.i ], [ %86, %.lr.ph232.i ], [ %103, %.lr.ph.i ]
   %.5147.i = phi i64 [ %61, %.preheader.i ], [ %87, %.preheader211.i ], [ %106, %.preheader213.i ], [ %61, %.lr.ph240.i ], [ %87, %.lr.ph232.i ], [ %106, %.lr.ph.i ]
   %125 = getelementptr inbounds nuw i8, ptr %.1128245.i, i64 %40
-  %.pre264.i = load i16, ptr %22, align 8, !tbaa !44
+  %.pre264.i = load i16, ptr %22, align 8, !tbaa !45
   br label %126
 
 126:                                              ; preds = %.loopexit.i, %48, %.lr.ph247.i
@@ -548,10 +548,10 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %128 = sext i16 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next.i, %128
-  br i1 %129, label %.lr.ph247.i, label %._crit_edge.loopexit.i, !llvm.loop !51
+  br i1 %129, label %.lr.ph247.i, label %._crit_edge.loopexit.i, !llvm.loop !52
 
 ._crit_edge.loopexit.i:                           ; preds = %126
-  %.pre265.i = load i32, ptr %19, align 4, !tbaa !43
+  %.pre265.i = load i32, ptr %19, align 4, !tbaa !44
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %24
@@ -564,12 +564,12 @@ define hidden i32 @internal_exr_undo_pxr24(ptr noundef %0, ptr noundef %1, i64 n
   %.1128.lcssa.i = phi ptr [ %.0127256.i, %24 ], [ %.3130.i, %._crit_edge.loopexit.i ]
   %133 = add nuw nsw i32 %.0162252.i, 1
   %.not175.i = icmp slt i32 %133, %130
-  br i1 %.not175.i, label %24, label %.thread207.i, !llvm.loop !52
+  br i1 %.not175.i, label %24, label %.thread207.i, !llvm.loop !53
 
 .thread207.i:                                     ; preds = %._crit_edge.i, %.preheader215.i
   %.0134.lcssa.i = phi i64 [ 0, %.preheader215.i ], [ %.2136.lcssa.i, %._crit_edge.i ]
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %.0134.lcssa.i, ptr %134, align 8, !tbaa !53
+  store i64 %.0134.lcssa.i, ptr %134, align 8, !tbaa !54
   br label %undo_pxr24_impl.exit
 
 undo_pxr24_impl.exit:                             ; preds = %50, %53, %56, %84, %100, %11, %15, %.thread207.i
@@ -633,29 +633,30 @@ attributes #5 = { nounwind }
 !25 = !{!21, !9, i64 26}
 !26 = !{!4, !5, i64 200}
 !27 = !{!6, !6, i64 0}
-!28 = distinct !{!28, !29}
+!28 = distinct !{!28, !29, !30}
 !29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
-!31 = distinct !{!31, !29}
-!32 = distinct !{!32, !29}
-!33 = distinct !{!33, !29}
-!34 = !{!4, !11, i64 24}
-!35 = !{!4, !8, i64 168}
-!36 = !{!4, !5, i64 184}
-!37 = !{!5, !5, i64 0}
-!38 = !{!4, !5, i64 176}
-!39 = !{!40, !8, i64 184}
-!40 = !{!"_exr_decode_pipeline", !5, i64 0, !8, i64 8, !9, i64 16, !9, i64 18, !10, i64 20, !11, i64 24, !12, i64 32, !10, i64 96, !10, i64 100, !5, i64 104, !8, i64 112, !8, i64 120, !5, i64 128, !8, i64 136, !5, i64 144, !8, i64 152, !5, i64 160, !13, i64 168, !5, i64 176, !8, i64 184, !5, i64 192, !8, i64 200, !5, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !8, i64 256, !6, i64 264}
-!41 = !{!40, !5, i64 192}
-!42 = !{!40, !11, i64 24}
-!43 = !{!40, !10, i64 44}
-!44 = !{!40, !9, i64 16}
-!45 = !{!40, !10, i64 40}
-!46 = !{!40, !8, i64 8}
-!47 = !{!21, !6, i64 25}
-!48 = distinct !{!48, !29}
-!49 = distinct !{!49, !29}
-!50 = distinct !{!50, !29}
-!51 = distinct !{!51, !29}
-!52 = distinct !{!52, !29}
-!53 = !{!40, !5, i64 104}
+!30 = !{!"llvm.loop.estimated_trip_count"}
+!31 = distinct !{!31, !29, !30}
+!32 = distinct !{!32, !29, !30}
+!33 = distinct !{!33, !29, !30}
+!34 = distinct !{!34, !29, !30}
+!35 = !{!4, !11, i64 24}
+!36 = !{!4, !8, i64 168}
+!37 = !{!4, !5, i64 184}
+!38 = !{!5, !5, i64 0}
+!39 = !{!4, !5, i64 176}
+!40 = !{!41, !8, i64 184}
+!41 = !{!"_exr_decode_pipeline", !5, i64 0, !8, i64 8, !9, i64 16, !9, i64 18, !10, i64 20, !11, i64 24, !12, i64 32, !10, i64 96, !10, i64 100, !5, i64 104, !8, i64 112, !8, i64 120, !5, i64 128, !8, i64 136, !5, i64 144, !8, i64 152, !5, i64 160, !13, i64 168, !5, i64 176, !8, i64 184, !5, i64 192, !8, i64 200, !5, i64 208, !8, i64 216, !8, i64 224, !8, i64 232, !8, i64 240, !8, i64 248, !8, i64 256, !6, i64 264}
+!42 = !{!41, !5, i64 192}
+!43 = !{!41, !11, i64 24}
+!44 = !{!41, !10, i64 44}
+!45 = !{!41, !9, i64 16}
+!46 = !{!41, !10, i64 40}
+!47 = !{!41, !8, i64 8}
+!48 = !{!21, !6, i64 25}
+!49 = distinct !{!49, !29, !30}
+!50 = distinct !{!50, !29, !30}
+!51 = distinct !{!51, !29, !30}
+!52 = distinct !{!52, !29, !30}
+!53 = distinct !{!53, !29, !30}
+!54 = !{!41, !5, i64 104}

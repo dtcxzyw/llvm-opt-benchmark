@@ -923,7 +923,7 @@ define internal i32 @dissect_igmp_v3_report(ptr noundef %0, ptr noundef %1, ptr 
   %80 = load i32, ptr @hf_saddr, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %38, i32 noundef %80, ptr noundef %0, i32 noundef %.092.i, i32 noundef 4, i32 noundef 0)
   %82 = add i32 %.092.i, 4
-  br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
+  br i1 %.not89.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !11
 
 switch.lookup:                                    ; preds = %58
   %83 = zext nneg i8 %switch.tableidx to i64
@@ -956,7 +956,7 @@ dissect_v3_group_record.exit:                     ; preds = %._crit_edge.i, %85
   call void @proto_item_set_len(ptr noundef %90, i32 noundef %91)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   %.not19 = icmp eq i16 %30, 0
-  br i1 %.not19, label %._crit_edge, label %29, !llvm.loop !11
+  br i1 %.not19, label %._crit_edge, label %29, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %dissect_v3_group_record.exit, %22
   %storemerge.lcssa20 = phi i32 [ %26, %22 ], [ %.1.i, %dissect_v3_group_record.exit ]
@@ -1091,7 +1091,7 @@ define internal noundef i32 @dissect_igmp_mtrace(ptr noundef %0, ptr noundef %1,
   %100 = add i32 %.0128135, 32
   %101 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %100)
   %102 = icmp sgt i32 %101, 31
-  br i1 %102, label %51, label %.loopexit, !llvm.loop !12
+  br i1 %102, label %51, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %51, %.preheader, %27
   %.0 = phi i32 [ 24, %27 ], [ 24, %.preheader ], [ %100, %51 ]
@@ -1226,8 +1226,9 @@ attributes #4 = { nounwind }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}

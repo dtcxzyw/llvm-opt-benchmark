@@ -62,12 +62,12 @@ define range(i32 -1, 1) i32 @H5TS_pool_create(ptr noundef writeonly captures(add
 ._crit_edge:                                      ; preds = %27
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 %1, ptr %28, align 8, !tbaa !14
-  store ptr %6, ptr %0, align 8, !tbaa !17
+  store ptr %6, ptr %0, align 8, !tbaa !18
   br label %31
 
 29:                                               ; preds = %15, %12, %8, %24
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  store i8 1, ptr %30, align 8, !tbaa !19
+  store i8 1, ptr %30, align 8, !tbaa !20
   tail call fastcc void @H5TS__pool_free(ptr noundef %6)
   br label %31
 
@@ -92,7 +92,7 @@ declare i32 @H5TS_thread_create(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @H5TS__pool_do(ptr noundef %0) #0 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.thread, label %.preheader.i.preheader.lr.ph, !prof !20
+  br i1 %2, label %.thread, label %.preheader.i.preheader.lr.ph, !prof !21
 
 .preheader.i.preheader.lr.ph:                     ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -105,55 +105,55 @@ define internal noundef ptr @H5TS__pool_do(ptr noundef %0) #0 {
   switch i32 %6, label %.thread [
     i32 -1, label %7
     i32 0, label %H5TS_semaphore_wait.exit
-  ], !prof !21
+  ], !prof !22
 
 7:                                                ; preds = %.preheader.i
   %8 = tail call ptr @__errno_location() #7
-  %9 = load i32, ptr %8, align 4, !tbaa !22
+  %9 = load i32, ptr %8, align 4, !tbaa !23
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %.preheader.i.backedge, label %.thread
 
 .preheader.i.backedge:                            ; preds = %7, %21
-  br label %.preheader.i, !llvm.loop !23
+  br label %.preheader.i, !llvm.loop !24
 
 H5TS_semaphore_wait.exit:                         ; preds = %.preheader.i
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #6
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %.thread, !prof !24
+  br i1 %.not, label %12, label %.thread, !prof !25
 
 12:                                               ; preds = %H5TS_semaphore_wait.exit
-  %13 = load ptr, ptr %4, align 8, !tbaa !25
+  %13 = load ptr, ptr %4, align 8, !tbaa !26
   %.not20 = icmp eq ptr %13, null
   br i1 %.not20, label %.split.us, label %14, !prof !4
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %16 = load ptr, ptr %15, align 8, !tbaa !27
   %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %17, label %18
 
 17:                                               ; preds = %14
-  store ptr null, ptr %5, align 8, !tbaa !28
+  store ptr null, ptr %5, align 8, !tbaa !29
   br label %18
 
 18:                                               ; preds = %14, %17
-  store ptr %16, ptr %4, align 8, !tbaa !25
+  store ptr %16, ptr %4, align 8, !tbaa !26
   %19 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #6
   %.not23 = icmp eq i32 %19, 0
-  br i1 %.not23, label %21, label %.thread, !prof !24
+  br i1 %.not23, label %21, label %.thread, !prof !25
 
 .split.us:                                        ; preds = %12
   %20 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %3) #6
   %.not21 = icmp eq i32 %20, 0
-  br i1 %.not21, label %26, label %.thread, !prof !24
+  br i1 %.not21, label %26, label %.thread, !prof !25
 
 .thread:                                          ; preds = %18, %H5TS_semaphore_wait.exit, %.preheader.i, %7, %1, %.split.us
   br label %26
 
 21:                                               ; preds = %18
-  %22 = load ptr, ptr %13, align 8, !tbaa !29
+  %22 = load ptr, ptr %13, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !30
+  %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = tail call ptr %22(ptr noundef %24) #6
   tail call void @free(ptr noundef nonnull %13) #6
   br label %.preheader.i.backedge
@@ -179,13 +179,13 @@ define internal fastcc void @H5TS__pool_free(ptr noundef nonnull %0) unnamed_add
   %6 = load i32, ptr %2, align 8, !tbaa !14
   %7 = zext i32 %6 to i64
   %8 = icmp samesign ult i64 %indvars.iv.next, %7
-  br i1 %8, label %9, label %._crit_edge, !llvm.loop !31
+  br i1 %8, label %9, label %._crit_edge, !llvm.loop !32
 
 9:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %10 = load ptr, ptr %4, align 8, !tbaa !5
   %11 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv
-  %12 = load i64, ptr %11, align 8, !tbaa !32
+  %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = tail call i32 @H5TS_thread_join(i64 noundef %12, ptr noundef null) #6
   %14 = icmp slt i32 %13, 0
   br i1 %14, label %.loopexit, label %5, !prof !4
@@ -228,14 +228,14 @@ define range(i32 -1, 1) i32 @H5TS_pool_destroy(ptr noundef %0) local_unnamed_add
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %.thread, !prof !24
+  br i1 %.not, label %6, label %.thread, !prof !25
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i8 1, ptr %7, align 8, !tbaa !19
+  store i8 1, ptr %7, align 8, !tbaa !20
   %8 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #6
   %.not18 = icmp eq i32 %8, 0
-  br i1 %.not18, label %.preheader, label %39, !prof !24
+  br i1 %.not18, label %.preheader, label %39, !prof !25
 
 .preheader:                                       ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -247,13 +247,13 @@ define range(i32 -1, 1) i32 @H5TS_pool_destroy(ptr noundef %0) local_unnamed_add
   %12 = add nuw i32 %.01329, 1
   %13 = load i32, ptr %9, align 8, !tbaa !14
   %14 = icmp ult i32 %12, %13
-  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.preheader, %11
   %.01329 = phi i32 [ %12, %11 ], [ 0, %.preheader ]
   %15 = tail call i32 @sem_post(ptr noundef nonnull %0) #6
   %.not.i.not = icmp eq i32 %15, 0
-  br i1 %.not.i.not, label %11, label %.thread, !prof !24
+  br i1 %.not.i.not, label %11, label %.thread, !prof !25
 
 ._crit_edge:                                      ; preds = %11
   %16 = icmp eq i32 %13, 0
@@ -268,13 +268,13 @@ define range(i32 -1, 1) i32 @H5TS_pool_destroy(ptr noundef %0) local_unnamed_add
   %19 = load i32, ptr %9, align 8, !tbaa !14
   %20 = zext i32 %19 to i64
   %21 = icmp samesign ult i64 %indvars.iv.next.i, %20
-  br i1 %21, label %22, label %._crit_edge.i, !llvm.loop !31
+  br i1 %21, label %22, label %._crit_edge.i, !llvm.loop !32
 
 22:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
   %23 = load ptr, ptr %17, align 8, !tbaa !5
   %24 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.i
-  %25 = load i64, ptr %24, align 8, !tbaa !32
+  %25 = load i64, ptr %24, align 8, !tbaa !33
   %26 = tail call i32 @H5TS_thread_join(i64 noundef %25, ptr noundef null) #6
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.thread, label %18, !prof !4
@@ -365,23 +365,24 @@ attributes #7 = { nounwind willreturn memory(none) }
 !12 = !{!"int", !7, i64 0}
 !13 = !{!"p1 long", !11, i64 0}
 !14 = !{!6, !12, i64 96}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"p1 _ZTS11H5TS_pool_t", !11, i64 0}
-!19 = !{!6, !9, i64 72}
-!20 = !{!"branch_weights", i32 1, i32 127}
-!21 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
-!22 = !{!12, !12, i64 0}
-!23 = distinct !{!23, !16}
-!24 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!25 = !{!6, !10, i64 80}
-!26 = !{!27, !10, i64 16}
-!27 = !{!"H5TS_pool_task_t", !11, i64 0, !11, i64 8, !10, i64 16}
-!28 = !{!6, !10, i64 88}
-!29 = !{!27, !11, i64 0}
-!30 = !{!27, !11, i64 8}
-!31 = distinct !{!31, !16}
-!32 = !{!33, !33, i64 0}
-!33 = !{!"long", !7, i64 0}
-!34 = distinct !{!34, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTS11H5TS_pool_t", !11, i64 0}
+!20 = !{!6, !9, i64 72}
+!21 = !{!"branch_weights", i32 1, i32 127}
+!22 = !{!"branch_weights", i32 1, i32 2001, i32 2000}
+!23 = !{!12, !12, i64 0}
+!24 = distinct !{!24, !16, !17}
+!25 = !{!"branch_weights", !"expected", i32 2000, i32 1}
+!26 = !{!6, !10, i64 80}
+!27 = !{!28, !10, i64 16}
+!28 = !{!"H5TS_pool_task_t", !11, i64 0, !11, i64 8, !10, i64 16}
+!29 = !{!6, !10, i64 88}
+!30 = !{!28, !11, i64 0}
+!31 = !{!28, !11, i64 8}
+!32 = distinct !{!32, !16, !17}
+!33 = !{!34, !34, i64 0}
+!34 = !{!"long", !7, i64 0}
+!35 = distinct !{!35, !16, !17}

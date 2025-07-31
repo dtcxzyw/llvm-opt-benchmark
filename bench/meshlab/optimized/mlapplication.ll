@@ -1037,7 +1037,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %23, %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %.not.i = icmp eq ptr %25, %14
-  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit, label %.lr.ph.i, !llvm.loop !28
+  br i1 %.not.i, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit, label %.lr.ph.i, !llvm.loop !29
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i, %2
   %27 = load atomic i32, ptr %6 monotonic, align 4
@@ -1115,26 +1115,26 @@ define void @_ZN18MeshLabApplication20extraShadersLocationEv(ptr dead_on_unwind 
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   call void @_ZN14QStandardPaths17standardLocationsENS_16StandardLocationE(ptr dead_on_unwind nonnull writable sret(%class.QStringList) align 8 %3, i32 noundef 17)
-  %7 = load ptr, ptr %3, align 8, !noalias !29
-  %8 = load atomic i32, ptr %7 monotonic, align 4, !noalias !29
+  %7 = load ptr, ptr %3, align 8, !noalias !30
+  %8 = load atomic i32, ptr %7 monotonic, align 4, !noalias !30
   %9 = icmp ugt i32 %8, 1
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %12 = load i32, ptr %11, align 4, !noalias !29
+  %12 = load i32, ptr %11, align 4, !noalias !30
   invoke void @_ZN5QListI7QStringE13detach_helperEi(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %12)
           to label %.noexc unwind label %66
 
 .noexc:                                           ; preds = %10
-  %.pre.i.i = load ptr, ptr %3, align 8, !noalias !29
+  %.pre.i.i = load ptr, ptr %3, align 8, !noalias !30
   br label %13
 
 13:                                               ; preds = %.noexc, %1
   %14 = phi ptr [ %7, %1 ], [ %.pre.i.i, %.noexc ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load i32, ptr %16, align 8, !noalias !29
+  %17 = load i32, ptr %16, align 8, !noalias !30
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %15, i64 %18
   invoke void @_ZN4QDirC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %19)
@@ -1434,9 +1434,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !23 = !{!24}
 !24 = distinct !{!24, !25, !"_ZN5QListI7QStringE5beginEv: argument 0"}
 !25 = distinct !{!25, !"_ZN5QListI7QStringE5beginEv"}
-!26 = distinct !{!26, !27}
+!26 = distinct !{!26, !27, !28}
 !27 = !{!"llvm.loop.mustprogress"}
-!28 = distinct !{!28, !27}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5QListI7QStringE5beginEv: argument 0"}
-!31 = distinct !{!31, !"_ZN5QListI7QStringE5beginEv"}
+!28 = !{!"llvm.loop.estimated_trip_count"}
+!29 = distinct !{!29, !27, !28}
+!30 = !{!31}
+!31 = distinct !{!31, !32, !"_ZN5QListI7QStringE5beginEv: argument 0"}
+!32 = distinct !{!32, !"_ZN5QListI7QStringE5beginEv"}

@@ -169,7 +169,7 @@ define dso_local void @ourWriteOutJSON(ptr noundef %0, ptr noundef %1, i64 nound
   %.019 = phi i64 [ %13, %12 ], [ 0, %5 ]
   %6 = getelementptr inbounds nuw %struct.writeoutvar, ptr %1, i64 %.019
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !9
+  %8 = load ptr, ptr %7, align 8, !tbaa !10
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
 
@@ -185,7 +185,7 @@ define dso_local void @ourWriteOutJSON(ptr noundef %0, ptr noundef %1, i64 nound
 12:                                               ; preds = %.lr.ph, %9, %11
   %13 = add nuw i64 %.019, 1
   %exitcond.not = icmp eq i64 %13, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %12, %5
   %14 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %0, ptr noundef nonnull @.str.10) #6
@@ -207,9 +207,9 @@ define dso_local void @headerJSON(ptr noundef captures(none) %0, ptr noundef rea
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %6 = tail call i32 @fputc(i32 noundef 123, ptr noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = tail call ptr @curl_easy_nextheader(ptr noundef %8, i32 noundef 1, i32 noundef -1, ptr noundef null) #6
-  store ptr %9, ptr %5, align 8, !tbaa !30
+  store ptr %9, ptr %5, align 8, !tbaa !31
   %.not35 = icmp eq ptr %9, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
@@ -217,41 +217,41 @@ define dso_local void @headerJSON(ptr noundef captures(none) %0, ptr noundef rea
   %10 = phi ptr [ %88, %86 ], [ %9, %2 ]
   %.036 = phi ptr [ %.1, %86 ], [ null, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = load i64, ptr %11, align 8, !tbaa !32
+  %12 = load i64, ptr %11, align 8, !tbaa !33
   %13 = icmp ugt i64 %12, 1
   br i1 %13, label %14, label %73
 
 14:                                               ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %16 = load i64, ptr %15, align 8, !tbaa !34
+  %16 = load i64, ptr %15, align 8, !tbaa !35
   %.not28 = icmp eq i64 %16, 0
   br i1 %.not28, label %17, label %86
 
 17:                                               ; preds = %14
-  %18 = load ptr, ptr %10, align 8, !tbaa !35
+  %18 = load ptr, ptr %10, align 8, !tbaa !36
   %.not29 = icmp eq ptr %.036, null
   br i1 %.not29, label %21, label %19
 
 19:                                               ; preds = %17
   %20 = call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
-  %.pre37 = load ptr, ptr %5, align 8, !tbaa !30
-  %.pre38 = load ptr, ptr %.pre37, align 8, !tbaa !35
+  %.pre37 = load ptr, ptr %5, align 8, !tbaa !31
+  %.pre38 = load ptr, ptr %.pre37, align 8, !tbaa !36
   br label %21
 
 21:                                               ; preds = %19, %17
   %22 = phi ptr [ %.pre38, %19 ], [ %18, %17 ]
   call void @jsonWriteString(ptr noundef %0, ptr noundef %22, i1 noundef zeroext true)
   %23 = call i32 @fputc(i32 noundef 58, ptr noundef %0)
-  %24 = load ptr, ptr %5, align 8, !tbaa !30
+  %24 = load ptr, ptr %5, align 8, !tbaa !31
   %25 = call i32 @fputc(i32 noundef 91, ptr noundef %0)
   %26 = add i64 %12, -1
   br label %27
 
 27:                                               ; preds = %66, %21
   %.023 = phi i64 [ 0, %21 ], [ %67, %66 ]
-  %28 = load ptr, ptr %5, align 8, !tbaa !30
+  %28 = load ptr, ptr %5, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !36
+  %30 = load ptr, ptr %29, align 8, !tbaa !37
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #6
   call void @curlx_dyn_init(ptr noundef nonnull %4, i64 noundef 100000) #6
   %31 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %30) #7
@@ -351,10 +351,10 @@ jsonWriteString.exit:                             ; preds = %jsonquoted.exit, %6
 66:                                               ; preds = %jsonWriteString.exit
   %67 = add nuw i64 %.023, 1
   %68 = call i32 @fputc(i32 noundef 44, ptr noundef %0)
-  %69 = load ptr, ptr %7, align 8, !tbaa !15
+  %69 = load ptr, ptr %7, align 8, !tbaa !16
   %70 = call i32 @curl_easy_header(ptr noundef %69, ptr noundef %18, i64 noundef %67, i32 noundef 1, i32 noundef -1, ptr noundef nonnull %5) #6
   %.not31 = icmp eq i32 %70, 0
-  br i1 %.not31, label %27, label %71
+  br i1 %.not31, label %27, label %71, !llvm.loop !38
 
 71:                                               ; preds = %66, %jsonWriteString.exit
   %72 = call i32 @fputc(i32 noundef 93, ptr noundef %0)
@@ -366,30 +366,30 @@ jsonWriteString.exit:                             ; preds = %jsonquoted.exit, %6
 
 74:                                               ; preds = %73
   %75 = call i64 @fwrite(ptr nonnull @.str.12, i64 2, i64 1, ptr %0)
-  %.pre = load ptr, ptr %5, align 8, !tbaa !30
+  %.pre = load ptr, ptr %5, align 8, !tbaa !31
   br label %76
 
 76:                                               ; preds = %74, %73
   %77 = phi ptr [ %.pre, %74 ], [ %10, %73 ]
-  %78 = load ptr, ptr %77, align 8, !tbaa !35
+  %78 = load ptr, ptr %77, align 8, !tbaa !36
   call void @jsonWriteString(ptr noundef %0, ptr noundef %78, i1 noundef zeroext true)
   %79 = call i32 @fputc(i32 noundef 58, ptr noundef %0)
   %80 = call i32 @fputc(i32 noundef 91, ptr noundef %0)
-  %81 = load ptr, ptr %5, align 8, !tbaa !30
+  %81 = load ptr, ptr %5, align 8, !tbaa !31
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !36
+  %83 = load ptr, ptr %82, align 8, !tbaa !37
   call void @jsonWriteString(ptr noundef %0, ptr noundef %83, i1 noundef zeroext false)
   %84 = call i32 @fputc(i32 noundef 93, ptr noundef %0)
-  %85 = load ptr, ptr %5, align 8, !tbaa !30
+  %85 = load ptr, ptr %5, align 8, !tbaa !31
   br label %86
 
 86:                                               ; preds = %14, %71, %76
   %.1 = phi ptr [ %.036, %14 ], [ %24, %71 ], [ %85, %76 ]
-  %87 = load ptr, ptr %7, align 8, !tbaa !15
+  %87 = load ptr, ptr %7, align 8, !tbaa !16
   %88 = call ptr @curl_easy_nextheader(ptr noundef %87, i32 noundef 1, i32 noundef -1, ptr noundef %.1) #6
-  store ptr %88, ptr %5, align 8, !tbaa !30
+  store ptr %88, ptr %5, align 8, !tbaa !31
   %.not = icmp eq ptr %88, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 
 ._crit_edge:                                      ; preds = %86, %2
   %89 = call i64 @fwrite(ptr nonnull @.str.13, i64 2, i64 1, ptr %0)
@@ -422,34 +422,36 @@ attributes #7 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !12, i64 16}
-!10 = !{!"writeoutvar", !11, i64 0, !13, i64 8, !13, i64 12, !12, i64 16}
-!11 = !{!"p1 omnipotent char", !12, i64 0}
-!12 = !{!"any pointer", !5, i64 0}
-!13 = !{!"int", !5, i64 0}
-!14 = distinct !{!14, !8}
-!15 = !{!16, !12, i64 32}
-!16 = !{!"per_transfer", !17, i64 0, !17, i64 8, !18, i64 16, !19, i64 24, !12, i64 32, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !21, i64 72, !21, i64 88, !11, i64 104, !13, i64 112, !11, i64 120, !13, i64 128, !22, i64 136, !24, i64 208, !24, i64 248, !24, i64 288, !26, i64 328, !20, i64 384, !20, i64 392, !20, i64 400, !20, i64 408, !20, i64 416, !20, i64 424, !20, i64 432, !20, i64 440, !25, i64 448, !25, i64 449, !11, i64 456, !11, i64 464, !25, i64 472, !25, i64 473, !25, i64 474, !25, i64 475, !25, i64 476, !25, i64 477}
-!17 = !{!"p1 _ZTS12per_transfer", !12, i64 0}
-!18 = !{!"p1 _ZTS15OperationConfig", !12, i64 0}
-!19 = !{!"p1 _ZTS13curl_certinfo", !12, i64 0}
-!20 = !{!"long", !5, i64 0}
-!21 = !{!"timeval", !20, i64 0, !20, i64 8}
-!22 = !{!"ProgressData", !13, i64 0, !20, i64 8, !21, i64 16, !13, i64 32, !23, i64 40, !20, i64 48, !13, i64 56, !13, i64 60, !13, i64 64}
-!23 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!24 = !{!"OutStruct", !11, i64 0, !25, i64 8, !25, i64 9, !25, i64 10, !25, i64 11, !23, i64 16, !20, i64 24, !20, i64 32}
-!25 = !{!"_Bool", !5, i64 0}
-!26 = !{!"HdrCbData", !27, i64 0, !18, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !29, i64 40, !25, i64 48}
-!27 = !{!"p1 _ZTS12GlobalConfig", !12, i64 0}
-!28 = !{!"p1 _ZTS9OutStruct", !12, i64 0}
-!29 = !{!"p1 _ZTS10curl_slist", !12, i64 0}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"p1 _ZTS11curl_header", !12, i64 0}
-!32 = !{!33, !20, i64 16}
-!33 = !{!"curl_header", !11, i64 0, !11, i64 8, !20, i64 16, !20, i64 24, !13, i64 32, !12, i64 40}
-!34 = !{!33, !20, i64 24}
-!35 = !{!33, !11, i64 0}
-!36 = !{!33, !11, i64 8}
-!37 = distinct !{!37, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !13, i64 16}
+!11 = !{!"writeoutvar", !12, i64 0, !14, i64 8, !14, i64 12, !13, i64 16}
+!12 = !{!"p1 omnipotent char", !13, i64 0}
+!13 = !{!"any pointer", !5, i64 0}
+!14 = !{!"int", !5, i64 0}
+!15 = distinct !{!15, !8, !9}
+!16 = !{!17, !13, i64 32}
+!17 = !{!"per_transfer", !18, i64 0, !18, i64 8, !19, i64 16, !20, i64 24, !13, i64 32, !21, i64 40, !21, i64 48, !21, i64 56, !21, i64 64, !22, i64 72, !22, i64 88, !12, i64 104, !14, i64 112, !12, i64 120, !14, i64 128, !23, i64 136, !25, i64 208, !25, i64 248, !25, i64 288, !27, i64 328, !21, i64 384, !21, i64 392, !21, i64 400, !21, i64 408, !21, i64 416, !21, i64 424, !21, i64 432, !21, i64 440, !26, i64 448, !26, i64 449, !12, i64 456, !12, i64 464, !26, i64 472, !26, i64 473, !26, i64 474, !26, i64 475, !26, i64 476, !26, i64 477}
+!18 = !{!"p1 _ZTS12per_transfer", !13, i64 0}
+!19 = !{!"p1 _ZTS15OperationConfig", !13, i64 0}
+!20 = !{!"p1 _ZTS13curl_certinfo", !13, i64 0}
+!21 = !{!"long", !5, i64 0}
+!22 = !{!"timeval", !21, i64 0, !21, i64 8}
+!23 = !{!"ProgressData", !14, i64 0, !21, i64 8, !22, i64 16, !14, i64 32, !24, i64 40, !21, i64 48, !14, i64 56, !14, i64 60, !14, i64 64}
+!24 = !{!"p1 _ZTS8_IO_FILE", !13, i64 0}
+!25 = !{!"OutStruct", !12, i64 0, !26, i64 8, !26, i64 9, !26, i64 10, !26, i64 11, !24, i64 16, !21, i64 24, !21, i64 32}
+!26 = !{!"_Bool", !5, i64 0}
+!27 = !{!"HdrCbData", !28, i64 0, !19, i64 8, !29, i64 16, !29, i64 24, !29, i64 32, !30, i64 40, !26, i64 48}
+!28 = !{!"p1 _ZTS12GlobalConfig", !13, i64 0}
+!29 = !{!"p1 _ZTS9OutStruct", !13, i64 0}
+!30 = !{!"p1 _ZTS10curl_slist", !13, i64 0}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"p1 _ZTS11curl_header", !13, i64 0}
+!33 = !{!34, !21, i64 16}
+!34 = !{!"curl_header", !12, i64 0, !12, i64 8, !21, i64 16, !21, i64 24, !14, i64 32, !13, i64 40}
+!35 = !{!34, !21, i64 24}
+!36 = !{!34, !12, i64 0}
+!37 = !{!34, !12, i64 8}
+!38 = distinct !{!38, !9}
+!39 = distinct !{!39, !8, !9}

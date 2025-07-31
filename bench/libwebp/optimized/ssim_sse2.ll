@@ -129,7 +129,7 @@ define internal i32 @AccumulateSSE_SSE2(ptr noundef readonly captures(none) %0, 
   %71 = add i32 %70, %.14163
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !11
 
 ._crit_edge67:                                    ; preds = %.lr.ph66, %60
   %.141.lcssa = phi i32 [ %.040, %60 ], [ %71, %.lr.ph66 ]
@@ -303,7 +303,7 @@ define internal double @SSIMGet_SSE2(ptr noundef readonly captures(none) %0, i32
   %162 = zext i16 %.sroa.0.0.vec.extract.i to i32
   %163 = add nuw nsw i32 %161, %162
   %164 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 %163, ptr %164, align 4, !tbaa !11
+  store i32 %163, ptr %164, align 4, !tbaa !12
   %165 = shufflevector <8 x i16> %148, <8 x i16> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
   %166 = add <8 x i16> %148, %165
   %.sroa.0.6.vec.extract.i176 = extractelement <8 x i16> %166, i64 3
@@ -318,28 +318,28 @@ define internal double @SSIMGet_SSE2(ptr noundef readonly captures(none) %0, i32
   %172 = zext i16 %.sroa.0.0.vec.extract.i179 to i32
   %173 = add nuw nsw i32 %171, %172
   %174 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %173, ptr %174, align 4, !tbaa !14
+  store i32 %173, ptr %174, align 4, !tbaa !15
   %175 = shufflevector <4 x i32> %150, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %176 = add <4 x i32> %150, %175
   %177 = shufflevector <4 x i32> %176, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %178 = add <4 x i32> %176, %177
   %179 = extractelement <4 x i32> %178, i64 0
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %179, ptr %180, align 4, !tbaa !15
+  store i32 %179, ptr %180, align 4, !tbaa !16
   %181 = shufflevector <4 x i32> %152, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %182 = add <4 x i32> %152, %181
   %183 = shufflevector <4 x i32> %182, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %184 = add <4 x i32> %182, %183
   %185 = extractelement <4 x i32> %184, i64 0
   %186 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %185, ptr %186, align 4, !tbaa !16
+  store i32 %185, ptr %186, align 4, !tbaa !17
   %187 = shufflevector <4 x i32> %154, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> <i32 2, i32 3, i32 4, i32 5>
   %188 = add <4 x i32> %154, %187
   %189 = shufflevector <4 x i32> %188, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %190 = add <4 x i32> %188, %189
   %191 = extractelement <4 x i32> %190, i64 0
   %192 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  store i32 %191, ptr %192, align 4, !tbaa !17
+  store i32 %191, ptr %192, align 4, !tbaa !18
   %193 = call double @VP8SSIMFromStats(ptr noundef nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #7
   ret double %193
@@ -378,13 +378,14 @@ attributes #7 = { nounwind }
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!5, !5, i64 0}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = !{!12, !13, i64 4}
-!12 = !{!"", !13, i64 0, !13, i64 4, !13, i64 8, !13, i64 12, !13, i64 16, !13, i64 20}
-!13 = !{!"int", !5, i64 0}
-!14 = !{!12, !13, i64 8}
-!15 = !{!12, !13, i64 12}
-!16 = !{!12, !13, i64 16}
-!17 = !{!12, !13, i64 20}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = !{!13, !14, i64 4}
+!13 = !{!"", !14, i64 0, !14, i64 4, !14, i64 8, !14, i64 12, !14, i64 16, !14, i64 20}
+!14 = !{!"int", !5, i64 0}
+!15 = !{!13, !14, i64 8}
+!16 = !{!13, !14, i64 12}
+!17 = !{!13, !14, i64 16}
+!18 = !{!13, !14, i64 20}

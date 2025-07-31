@@ -67,28 +67,28 @@ _ZL10stack_initP9lua_StateS0_.exit:               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %31 = getelementptr i8, ptr %26, i64 640
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr %31, ptr %32, align 8, !tbaa !47
+  store ptr %31, ptr %32, align 8, !tbaa !48
   %33 = load ptr, ptr %16, align 8, !tbaa !39
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr %26, ptr %34, align 8, !tbaa !48
+  store ptr %26, ptr %34, align 8, !tbaa !49
   %35 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %35, ptr %30, align 8, !tbaa !51
+  store ptr %35, ptr %30, align 8, !tbaa !52
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 0, ptr %36, align 4, !tbaa !44
-  store ptr %35, ptr %33, align 8, !tbaa !52
+  store ptr %35, ptr %33, align 8, !tbaa !53
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %35, ptr %37, align 8, !tbaa !53
+  store ptr %35, ptr %37, align 8, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 336
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %38, ptr %39, align 8, !tbaa !54
+  store ptr %38, ptr %39, align 8, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %41 = load ptr, ptr %40, align 8, !tbaa !55
+  %41 = load ptr, ptr %40, align 8, !tbaa !56
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store ptr %41, ptr %42, align 8, !tbaa !55
+  store ptr %41, ptr %42, align 8, !tbaa !56
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %44 = load i8, ptr %43, align 2, !tbaa !56, !range !57, !noundef !58
+  %44 = load i8, ptr %43, align 2, !tbaa !57, !range !58, !noundef !59
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i8 %44, ptr %45, align 2, !tbaa !56
+  store i8 %44, ptr %45, align 2, !tbaa !57
   ret ptr %4
 }
 
@@ -99,7 +99,7 @@ define hidden void @_Z15luaE_freethreadP9lua_StateS0_P8lua_Page(ptr noundef %0, 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3312
-  %7 = load ptr, ptr %6, align 8, !tbaa !59
+  %7 = load ptr, ptr %6, align 8, !tbaa !60
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
 
@@ -141,12 +141,12 @@ define dso_local void @_Z15lua_resetthreadP9lua_State(ptr noundef %0) local_unna
   %5 = load ptr, ptr %4, align 8, !tbaa !40
   %6 = load ptr, ptr %2, align 8, !tbaa !38
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %6, ptr %7, align 8, !tbaa !48
+  store ptr %6, ptr %7, align 8, !tbaa !49
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %8, ptr %5, align 8, !tbaa !52
+  store ptr %8, ptr %5, align 8, !tbaa !53
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 336
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %9, ptr %10, align 8, !tbaa !54
+  store ptr %9, ptr %10, align 8, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %11, align 4, !tbaa !44
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -159,21 +159,21 @@ define dso_local void @_Z15lua_resetthreadP9lua_State(ptr noundef %0) local_unna
 15:                                               ; preds = %1
   tail call void @_Z14luaD_reallocCIP9lua_Statei(ptr noundef nonnull %0, i32 noundef 8)
   %.pre = load ptr, ptr %12, align 8, !tbaa !39
-  %.pre30 = load ptr, ptr %.pre, align 8, !tbaa !52
+  %.pre30 = load ptr, ptr %.pre, align 8, !tbaa !53
   br label %16
 
 16:                                               ; preds = %15, %1
   %17 = phi ptr [ %.pre30, %15 ], [ %8, %1 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 0, ptr %18, align 1, !tbaa !60
+  store i8 0, ptr %18, align 1, !tbaa !61
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %17, ptr %19, align 8, !tbaa !53
+  store ptr %17, ptr %19, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %17, ptr %20, align 8, !tbaa !51
+  store ptr %17, ptr %20, align 8, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 82
-  store i16 0, ptr %21, align 2, !tbaa !61
+  store i16 0, ptr %21, align 2, !tbaa !62
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i16 0, ptr %22, align 8, !tbaa !62
+  store i16 0, ptr %22, align 8, !tbaa !63
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %24 = load i32, ptr %23, align 8, !tbaa !43
   %.not27 = icmp eq i32 %24, 45
@@ -200,7 +200,7 @@ define dso_local void @_Z15lua_resetthreadP9lua_State(ptr noundef %0) local_unna
   store i32 0, ptr %30, align 4, !tbaa !44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge, label %29, !llvm.loop !64
 }
 
 declare hidden void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -220,15 +220,15 @@ define dso_local noundef range(i32 0, 2) i32 @_Z17lua_isthreadresetP9lua_State(p
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !53
+  %9 = load ptr, ptr %8, align 8, !tbaa !54
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !51
+  %11 = load ptr, ptr %10, align 8, !tbaa !52
   %12 = icmp eq ptr %9, %11
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %15 = load i8, ptr %14, align 1, !tbaa !60
+  %15 = load i8, ptr %14, align 1, !tbaa !61
   %16 = icmp eq i8 %15, 0
   %17 = zext i1 %16 to i32
   br label %18
@@ -266,51 +266,51 @@ define dso_local noundef ptr @_Z12lua_newstatePFPvS_S_mmES_(ptr noundef %0, ptr 
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %13, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  store ptr %0, ptr %15, align 8, !tbaa !64
+  store ptr %0, ptr %15, align 8, !tbaa !65
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  store ptr %1, ptr %16, align 8, !tbaa !65
+  store ptr %1, ptr %16, align 8, !tbaa !66
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 2936
-  store ptr %3, ptr %17, align 8, !tbaa !66
+  store ptr %3, ptr %17, align 8, !tbaa !67
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 2944
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 2960
-  store ptr %18, ptr %19, align 8, !tbaa !67
+  store ptr %18, ptr %19, align 8, !tbaa !68
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 2968
-  store ptr %18, ptr %20, align 8, !tbaa !67
+  store ptr %18, ptr %20, align 8, !tbaa !68
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  store i64 0, ptr %21, align 8, !tbaa !68
+  store i64 0, ptr %21, align 8, !tbaa !69
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 3360
-  store i32 0, ptr %22, align 8, !tbaa !69
+  store i32 0, ptr %22, align 8, !tbaa !70
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 3368
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 3384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store i64 1, ptr %24, align 8, !tbaa !70
+  store i64 1, ptr %24, align 8, !tbaa !71
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 3392
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 3340
-  store i32 0, ptr %26, align 4, !tbaa !71
+  store i32 0, ptr %26, align 4, !tbaa !72
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 3356
-  store i32 0, ptr %27, align 4, !tbaa !72
+  store i32 0, ptr %27, align 4, !tbaa !73
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 161
-  store i8 0, ptr %28, align 1, !tbaa !73
+  store i8 0, ptr %28, align 1, !tbaa !74
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  store i64 6808, ptr %30, align 8, !tbaa !74
+  store i64 6808, ptr %30, align 8, !tbaa !75
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 208
-  store i32 200, ptr %31, align 8, !tbaa !75
+  store i32 200, ptr %31, align 8, !tbaa !76
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 212
-  store i32 200, ptr %32, align 4, !tbaa !76
+  store i32 200, ptr %32, align 4, !tbaa !77
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 216
-  store i32 1024, ptr %33, align 8, !tbaa !77
+  store i32 1024, ptr %33, align 8, !tbaa !78
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 2984
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %35, i8 0, i64 88, i1 false), !tbaa !78
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %35, i8 0, i64 88, i1 false), !tbaa !79
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 3552
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 888
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2712) %34, i8 0, i64 2712, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3072) %36, i8 0, i64 3072, i1 false)
-  store i64 6808, ptr %37, align 8, !tbaa !70
+  store i64 6808, ptr %37, align 8, !tbaa !71
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 3416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %38, i8 0, i64 80, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 3496
@@ -371,46 +371,46 @@ _ZL10stack_initP9lua_StateS0_.exit:               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = getelementptr i8, ptr %14, i64 640
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %20, ptr %21, align 8, !tbaa !47
+  store ptr %20, ptr %21, align 8, !tbaa !48
   %22 = load ptr, ptr %9, align 8, !tbaa !39
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %14, ptr %23, align 8, !tbaa !48
+  store ptr %14, ptr %23, align 8, !tbaa !49
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %24, ptr %19, align 8, !tbaa !51
+  store ptr %24, ptr %19, align 8, !tbaa !52
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %25, align 4, !tbaa !44
-  store ptr %24, ptr %22, align 8, !tbaa !52
+  store ptr %24, ptr %22, align 8, !tbaa !53
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %24, ptr %26, align 8, !tbaa !53
+  store ptr %24, ptr %26, align 8, !tbaa !54
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 336
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %27, ptr %28, align 8, !tbaa !54
+  store ptr %27, ptr %28, align 8, !tbaa !55
   %29 = tail call noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %29, ptr %30, align 8, !tbaa !55
+  store ptr %29, ptr %30, align 8, !tbaa !56
   %31 = load ptr, ptr %3, align 8, !tbaa !19
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 3216
   %33 = tail call noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2)
-  store ptr %33, ptr %32, align 8, !tbaa !67
+  store ptr %33, ptr %32, align 8, !tbaa !68
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 3228
   store i32 6, ptr %34, align 4, !tbaa !44
   tail call void @_Z11luaS_resizeP9lua_Statei(ptr noundef nonnull %0, i32 noundef 32)
   tail call void @_Z9luaT_initP9lua_State(ptr noundef nonnull %0)
   %35 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str, i64 noundef 17)
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
-  %37 = load i8, ptr %36, align 1, !tbaa !79
+  %37 = load i8, ptr %36, align 1, !tbaa !80
   %38 = or i8 %37, 8
-  store i8 %38, ptr %36, align 1, !tbaa !79
+  store i8 %38, ptr %36, align 1, !tbaa !80
   %39 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i64 noundef 23)
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  %41 = load i8, ptr %40, align 1, !tbaa !79
+  %41 = load i8, ptr %40, align 1, !tbaa !80
   %42 = or i8 %41, 8
-  store i8 %42, ptr %40, align 1, !tbaa !79
+  store i8 %42, ptr %40, align 1, !tbaa !80
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %44 = load i64, ptr %43, align 8, !tbaa !74
+  %44 = load i64, ptr %43, align 8, !tbaa !75
   %45 = shl i64 %44, 2
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store i64 %45, ptr %46, align 8, !tbaa !68
+  store i64 %45, ptr %46, align 8, !tbaa !69
   ret void
 }
 
@@ -424,9 +424,9 @@ define internal fastcc void @_ZL11close_stateP9lua_State(ptr noundef %0) unnamed
   tail call void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef %0, ptr noundef %4)
   tail call void @_Z12luaC_freeallP9lua_State(ptr noundef %0)
   %5 = load ptr, ptr %1, align 8, !tbaa !19
-  %6 = load ptr, ptr %5, align 8, !tbaa !81
+  %6 = load ptr, ptr %5, align 8, !tbaa !82
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %8 = load i32, ptr %7, align 4, !tbaa !82
+  %8 = load i32, ptr %7, align 4, !tbaa !83
   %9 = sext i32 %8 to i64
   %10 = shl nsw i64 %9, 3
   tail call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %0, ptr noundef %6, i64 noundef %10, i8 noundef zeroext 0)
@@ -448,7 +448,7 @@ define internal fastcc void @_ZL11close_stateP9lua_State(ptr noundef %0) unnamed
   tail call void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %0, ptr noundef %19, i64 noundef %23, i8 noundef zeroext %24)
   %25 = load ptr, ptr %1, align 8, !tbaa !19
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 3376
-  %27 = load ptr, ptr %26, align 8, !tbaa !83
+  %27 = load ptr, ptr %26, align 8, !tbaa !84
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %29, label %28
 
@@ -458,9 +458,9 @@ define internal fastcc void @_ZL11close_stateP9lua_State(ptr noundef %0) unnamed
 
 29:                                               ; preds = %28, %.preheader.preheader
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !64
+  %31 = load ptr, ptr %30, align 8, !tbaa !65
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %33 = load ptr, ptr %32, align 8, !tbaa !65
+  %33 = load ptr, ptr %32, align 8, !tbaa !66
   %34 = tail call noundef ptr %31(ptr noundef %33, ptr noundef nonnull %0, i64 noundef 6808, i64 noundef 0)
   ret void
 }
@@ -470,7 +470,7 @@ define dso_local void @_Z9lua_closeP9lua_State(ptr noundef readonly captures(non
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2808
-  %5 = load ptr, ptr %4, align 8, !tbaa !66
+  %5 = load ptr, ptr %4, align 8, !tbaa !67
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !38
   tail call void @_Z10luaF_closeP9lua_StateP10lua_TValue(ptr noundef %5, ptr noundef %7)
@@ -544,42 +544,43 @@ attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 !42 = !{!5, !12, i64 56}
 !43 = !{!5, !13, i64 72}
 !44 = !{!29, !13, i64 12}
-!45 = distinct !{!45, !46}
+!45 = distinct !{!45, !46, !47}
 !46 = !{!"llvm.loop.mustprogress"}
-!47 = !{!5, !9, i64 40}
-!48 = !{!49, !9, i64 8}
-!49 = !{!"_ZTS8CallInfo", !9, i64 0, !9, i64 8, !9, i64 16, !50, i64 24, !13, i64 32, !13, i64 36}
-!50 = !{!"p1 int", !10, i64 0}
-!51 = !{!5, !9, i64 8}
-!52 = !{!49, !9, i64 0}
-!53 = !{!5, !9, i64 16}
-!54 = !{!49, !9, i64 16}
-!55 = !{!5, !15, i64 88}
-!56 = !{!5, !8, i64 6}
-!57 = !{i8 0, i8 2}
-!58 = !{}
-!59 = !{!21, !10, i64 3312}
-!60 = !{!5, !6, i64 3}
-!61 = !{!5, !14, i64 82}
-!62 = !{!5, !14, i64 80}
-!63 = distinct !{!63, !46}
-!64 = !{!21, !10, i64 16}
-!65 = !{!21, !10, i64 24}
-!66 = !{!21, !27, i64 2808}
-!67 = !{!6, !6, i64 0}
-!68 = !{!21, !25, i64 64}
-!69 = !{!21, !13, i64 3232}
-!70 = !{!25, !25, i64 0}
-!71 = !{!21, !13, i64 3212}
-!72 = !{!21, !13, i64 3228}
-!73 = !{!21, !6, i64 33}
-!74 = !{!21, !25, i64 72}
-!75 = !{!21, !13, i64 80}
-!76 = !{!21, !13, i64 84}
-!77 = !{!21, !13, i64 88}
-!78 = !{!15, !15, i64 0}
-!79 = !{!80, !6, i64 1}
-!80 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !18, i64 8, !13, i64 16, !13, i64 20, !6, i64 24}
-!81 = !{!21, !23, i64 0}
-!82 = !{!21, !13, i64 12}
-!83 = !{!21, !10, i64 3376}
+!47 = !{!"llvm.loop.estimated_trip_count"}
+!48 = !{!5, !9, i64 40}
+!49 = !{!50, !9, i64 8}
+!50 = !{!"_ZTS8CallInfo", !9, i64 0, !9, i64 8, !9, i64 16, !51, i64 24, !13, i64 32, !13, i64 36}
+!51 = !{!"p1 int", !10, i64 0}
+!52 = !{!5, !9, i64 8}
+!53 = !{!50, !9, i64 0}
+!54 = !{!5, !9, i64 16}
+!55 = !{!50, !9, i64 16}
+!56 = !{!5, !15, i64 88}
+!57 = !{!5, !8, i64 6}
+!58 = !{i8 0, i8 2}
+!59 = !{}
+!60 = !{!21, !10, i64 3312}
+!61 = !{!5, !6, i64 3}
+!62 = !{!5, !14, i64 82}
+!63 = !{!5, !14, i64 80}
+!64 = distinct !{!64, !46, !47}
+!65 = !{!21, !10, i64 16}
+!66 = !{!21, !10, i64 24}
+!67 = !{!21, !27, i64 2808}
+!68 = !{!6, !6, i64 0}
+!69 = !{!21, !25, i64 64}
+!70 = !{!21, !13, i64 3232}
+!71 = !{!25, !25, i64 0}
+!72 = !{!21, !13, i64 3212}
+!73 = !{!21, !13, i64 3228}
+!74 = !{!21, !6, i64 33}
+!75 = !{!21, !25, i64 72}
+!76 = !{!21, !13, i64 80}
+!77 = !{!21, !13, i64 84}
+!78 = !{!21, !13, i64 88}
+!79 = !{!15, !15, i64 0}
+!80 = !{!81, !6, i64 1}
+!81 = !{!"_ZTS7TString", !6, i64 0, !6, i64 1, !6, i64 2, !14, i64 4, !18, i64 8, !13, i64 16, !13, i64 20, !6, i64 24}
+!82 = !{!21, !23, i64 0}
+!83 = !{!21, !13, i64 12}
+!84 = !{!21, !10, i64 3376}

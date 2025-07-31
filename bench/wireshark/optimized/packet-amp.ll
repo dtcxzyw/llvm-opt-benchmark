@@ -526,14 +526,14 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %156 = add i32 %.7334, %155
   %157 = add nuw i32 %.0300333, 1
   %exitcond.not = icmp eq i32 %157, %123
-  br i1 %exitcond.not, label %._crit_edge336, label %.lr.ph335, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge336, label %.lr.ph335, !llvm.loop !9
 
 ._crit_edge336:                                   ; preds = %154, %150, %.preheader
   %.7.lcssa = phi i32 [ %120, %.preheader ], [ %.7334, %150 ], [ %156, %154 ]
   %158 = add i32 %.1302340, 1
   %159 = zext i32 %158 to i64
   %160 = icmp ugt i64 %.sroa.592.0.copyload94, %159
-  br i1 %160, label %.lr.ph343, label %.loopexit, !llvm.loop !9
+  br i1 %160, label %.lr.ph343, label %.loopexit, !llvm.loop !10
 
 161:                                              ; preds = %41
   %162 = load i32, ptr @ett_amp_message, align 4
@@ -556,7 +556,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
   %169 = add i32 %.0299345, 1
   %170 = zext i32 %169 to i64
   %171 = icmp ugt i64 %.sroa.10128.0.copyload, %170
-  br i1 %171, label %41, label %.critedge, !llvm.loop !10
+  br i1 %171, label %41, label %.critedge, !llvm.loop !11
 
 .critedge.sink.split:                             ; preds = %51, %.lr.ph, %107, %96
   %.lcssa363.sink = phi i32 [ %97, %96 ], [ %120, %107 ], [ %74, %.lr.ph ], [ %58, %51 ]
@@ -938,8 +938,9 @@ attributes #6 = { noreturn }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}

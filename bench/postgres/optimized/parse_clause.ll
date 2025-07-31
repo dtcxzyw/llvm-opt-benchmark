@@ -872,7 +872,7 @@ list_length.exit.i419:                            ; preds = %267, %250
 366:                                              ; preds = %.lr.ph.i422
   %indvars.iv.next.i424 = add nuw nsw i64 %indvars.iv.i423, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i424, %indvars.iv216.i517
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i422, !llvm.loop !8
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i422, !llvm.loop !9
 
 .lr.ph.i422:                                      ; preds = %365, %366
   %indvars.iv.i423 = phi i64 [ %indvars.iv.next.i424, %366 ], [ 0, %365 ]
@@ -1007,7 +1007,7 @@ list_length.exit.i419:                            ; preds = %267, %250
   %430 = load i32, ptr %300, align 4
   %431 = sext i32 %430 to i64
   %.not155.i = icmp slt i64 %indvars.iv.next226.i, %431
-  br i1 %.not155.i, label %383, label %.critedge164.i, !llvm.loop !9
+  br i1 %.not155.i, label %383, label %.critedge164.i, !llvm.loop !10
 
 432:                                              ; preds = %.critedge164.i, %.critedge.i421
   %433 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1256,7 +1256,7 @@ list_length.exit77.i:                             ; preds = %530, %list_length.e
   %563 = call ptr @lappend(ptr noundef %.0.i429, ptr noundef %562) #9
   %indvars.iv.next.i430 = add nuw nsw i64 %indvars.iv.i428, 1
   %.pre = load i32, ptr %500, align 4
-  br label %.preheader.split.split.i, !llvm.loop !10
+  br label %.preheader.split.split.i, !llvm.loop !11
 
 564:                                              ; preds = %.thread.i
   %565 = getelementptr inbounds nuw i8, ptr %495, i64 16
@@ -1607,7 +1607,7 @@ list_length.exit.i445:                            ; preds = %.thread.i443
   %733 = tail call ptr @makeSimpleA_Expr(i32 noundef 0, ptr noundef nonnull @.str.57, ptr noundef %731, ptr noundef %732, i32 noundef -1) #9
   %734 = tail call ptr @lappend(ptr noundef %.030.i, ptr noundef %733) #9
   %indvars.iv.next.i448 = add nuw nsw i64 %indvars.iv.i442, 1
-  br label %.split.split.i, !llvm.loop !11
+  br label %.split.split.i, !llvm.loop !12
 
 735:                                              ; preds = %list_length.exit.i445
   %736 = getelementptr i8, ptr %.030.i, i64 16
@@ -1828,7 +1828,7 @@ transformJoinUsingClause.exit:                    ; preds = %735, %list_length.e
   %845 = load i32, ptr %683, align 4
   %846 = sext i32 %845 to i64
   %.not385 = icmp slt i64 %indvars.iv.next696, %846
-  br i1 %.not385, label %690, label %.critedge416, !llvm.loop !12
+  br i1 %.not385, label %690, label %.critedge416, !llvm.loop !13
 
 847:                                              ; preds = %list_length.exit440
   %848 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2141,7 +2141,7 @@ buildMergedJoinVar.exit:                          ; preds = %990, %991, %994, %9
   br label %.split604.backedge
 
 .split604.backedge:                               ; preds = %1013, %1014, %1010
-  br label %.split604, !llvm.loop !13
+  br label %.split604, !llvm.loop !14
 
 1014:                                             ; preds = %1011
   %1015 = load i32, ptr %879, align 8
@@ -2207,7 +2207,7 @@ buildMergedJoinVar.exit:                          ; preds = %990, %991, %994, %9
   %1043 = getelementptr inbounds nuw i8, ptr %1039, i64 28
   store i16 %1042, ptr %1043, align 4
   %exitcond707.not = icmp eq i64 %indvars.iv.next704, %wide.trip.count706
-  br i1 %exitcond707.not, label %.loopexit, label %.lr.ph608, !llvm.loop !14
+  br i1 %exitcond707.not, label %.loopexit, label %.lr.ph608, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph608, %.thread467
   %1044 = load ptr, ptr %13, align 8
@@ -2254,7 +2254,7 @@ list_length.exit458:                              ; preds = %list_length.exit456
   %.1343 = add nsw i32 %.1343610, 1
   %1067 = load i32, ptr %879, align 8
   %1068 = icmp slt i32 %.1343, %1067
-  br i1 %1068, label %.lr.ph611, label %._crit_edge, !llvm.loop !15
+  br i1 %1068, label %.lr.ph611, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph611, %list_length.exit458
   %1069 = phi ptr [ %1058, %list_length.exit458 ], [ %1066, %.lr.ph611 ]
@@ -2778,7 +2778,7 @@ tailrecurse:                                      ; preds = %9
   %64 = load i32, ptr %6, align 4
   %65 = sext i32 %64 to i64
   %.not = icmp slt i64 %indvars.iv.next, %65
-  br i1 %.not, label %51, label %.critedge66, !llvm.loop !16
+  br i1 %.not, label %51, label %.critedge66, !llvm.loop !17
 
 .critedge66:                                      ; preds = %tailrecurse, %.lr.ph, %9, %63, %.critedge, %3, %.preheader, %.critedge._crit_edge, %19
   %.0 = phi ptr [ %50, %.critedge._crit_edge ], [ null, %19 ], [ null, %.preheader ], [ null, %3 ], [ %.054.lcssa, %.critedge ], [ %.153, %63 ], [ null, %tailrecurse ], [ %.tr78, %.lr.ph ], [ %.tr78, %9 ]
@@ -4315,7 +4315,7 @@ define internal fastcc noundef ptr @transformFrameOffset(ptr noundef %0, i32 nou
   %48 = load i32, ptr %23, align 8
   %49 = sext i32 %48 to i64
   %50 = icmp slt i64 %indvars.iv.next, %49
-  br i1 %50, label %27, label %._crit_edge, !llvm.loop !17
+  br i1 %50, label %27, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %47
   %51 = icmp eq i32 %.170, 0
@@ -4885,7 +4885,7 @@ assignSortGroupRef.exit:                          ; preds = %.lr.ph96, %.critedg
 targetIsInSortList.exit:                          ; preds = %.critedge.us.i, %103
   %.3 = phi ptr [ %106, %103 ], [ %.2, %.critedge.us.i ]
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  br label %.critedge74.split, !llvm.loop !18
+  br label %.critedge74.split, !llvm.loop !19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -4989,7 +4989,7 @@ define internal fastcc i32 @get_matching_location(i32 noundef %0, ptr noundef re
 
 25:                                               ; preds = %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %11, !llvm.loop !19
+  br label %11, !llvm.loop !20
 
 .critedge:                                        ; preds = %16, %18, %3
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -5416,7 +5416,7 @@ list_length.exit:                                 ; preds = %17, %19
 24:                                               ; preds = %list_length.exit
   %25 = tail call ptr @lappend(ptr noundef %18, ptr noundef null) #9
   store ptr %25, ptr %16, align 8
-  br label %17, !llvm.loop !20
+  br label %17, !llvm.loop !21
 
 26:                                               ; preds = %list_length.exit
   %27 = add i32 %.0, -1
@@ -5751,18 +5751,19 @@ attributes #11 = { nounwind willreturn memory(read) }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
-!14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}
-!16 = distinct !{!16, !7}
-!17 = distinct !{!17, !7}
-!18 = distinct !{!18, !7}
-!19 = distinct !{!19, !7}
-!20 = distinct !{!20, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}
+!15 = distinct !{!15, !7, !8}
+!16 = distinct !{!16, !7, !8}
+!17 = distinct !{!17, !7, !8}
+!18 = distinct !{!18, !7, !8}
+!19 = distinct !{!19, !7, !8}
+!20 = distinct !{!20, !7, !8}
+!21 = distinct !{!21, !7, !8}

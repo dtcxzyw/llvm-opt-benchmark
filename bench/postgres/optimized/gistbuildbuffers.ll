@@ -243,7 +243,7 @@ gistUnloadNodeBuffer.exit:                        ; preds = %10, %WriteTempFileB
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %10, label %._crit_edge, !llvm.loop !8
+  br i1 %41, label %10, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %gistUnloadNodeBuffer.exit, %1
   store i32 0, ptr %2, align 8
@@ -832,7 +832,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 84:                                               ; preds = %80, %._crit_edge131.us
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
   %85 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br i1 %85, label %.lr.ph130.us, label %._crit_edge136, !llvm.loop !9
+  br i1 %85, label %.lr.ph130.us, label %._crit_edge136, !llvm.loop !10
 
 86:                                               ; preds = %.lr.ph124.us, %115
   %indvars.iv142 = phi i64 [ 0, %.lr.ph124.us ], [ %indvars.iv.next143, %115 ]
@@ -872,7 +872,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %.292116.us = phi i32 [ %.5.ph.us, %._crit_edge.us ], [ %.292121.us, %102 ]
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge131.us, label %65, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge131.us, label %65, !llvm.loop !12
 
 104:                                              ; preds = %86
   store float %96, ptr %98, align 4
@@ -897,7 +897,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %116 = sext i32 %.pre-phi to i64
   %117 = icmp slt i64 %indvars.iv.next143, %116
-  br i1 %117, label %86, label %._crit_edge.us, !llvm.loop !12
+  br i1 %117, label %86, label %._crit_edge.us, !llvm.loop !13
 
 .lr.ph124.us:                                     ; preds = %65
   %118 = getelementptr inbounds nuw i8, ptr %66, i64 1024
@@ -935,7 +935,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 134:                                              ; preds = %131, %124
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
   %135 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
-  br i1 %135, label %124, label %._crit_edge136, !llvm.loop !13
+  br i1 %135, label %124, label %._crit_edge136, !llvm.loop !14
 
 ._crit_edge136:                                   ; preds = %84, %134, %.critedge.thread, %.critedge
   %136 = phi ptr [ %60, %.critedge.thread ], [ %39, %.critedge ], [ %120, %134 ], [ %39, %84 ]
@@ -998,11 +998,12 @@ attributes #7 = { cold nounwind }
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{i8 0, i8 2}
 !5 = !{}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7, !10}
-!10 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!11 = distinct !{!11, !7}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8, !11}
+!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!12 = distinct !{!12, !7, !8}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8}

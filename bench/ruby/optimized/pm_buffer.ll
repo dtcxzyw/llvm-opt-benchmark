@@ -481,7 +481,7 @@ define hidden void @pm_buffer_append_varuint(ptr noundef captures(none) %0, i32 
 pm_buffer_append_byte.exit17:                     ; preds = %43, %47
   %50 = lshr i32 %.028, 7
   %51 = icmp ugt i32 %.028, 16383
-  br i1 %51, label %28, label %52, !llvm.loop !18
+  br i1 %51, label %28, label %52, !llvm.loop !19
 
 52:                                               ; preds = %pm_buffer_append_byte.exit17
   %53 = trunc nuw nsw i32 %50 to i8
@@ -883,7 +883,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 7:                                                ; preds = %.lr.ph, %pm_buffer_append_string.exit
   %.0153 = phi i64 [ 0, %.lr.ph ], [ %269, %pm_buffer_append_string.exit ]
   %8 = getelementptr i8, ptr %1, i64 %.0153
-  %9 = load i8, ptr %8, align 1, !tbaa !19
+  %9 = load i8, ptr %8, align 1, !tbaa !20
   %10 = zext i8 %9 to i32
   %11 = icmp ult i8 %9, 7
   br i1 %11, label %15, label %12
@@ -1336,7 +1336,7 @@ define hidden void @pm_buffer_append_source(ptr noundef %0, ptr noundef readonly
 
 187:                                              ; preds = %184
   %188 = getelementptr i8, ptr %1, i64 %185
-  %189 = load i8, ptr %188, align 1, !tbaa !19
+  %189 = load i8, ptr %188, align 1, !tbaa !20
   switch i8 %189, label %pm_buffer_append_byte.exit [
     i8 123, label %190
     i8 64, label %190
@@ -1542,7 +1542,7 @@ pm_buffer_append_byte.exit:                       ; preds = %207, %203, %187, %1
 pm_buffer_append_string.exit:                     ; preds = %266, %262, %226, %222, %246, %242, %180, %176, %160, %156, %140, %136, %119, %115, %98, %94, %78, %74, %58, %54, %37, %33, %40, %122, %16, %17
   %269 = add nuw i64 %.0153, 1
   %exitcond.not = icmp eq i64 %269, %2
-  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !21
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -1690,7 +1690,7 @@ define hidden void @pm_buffer_rstrip(ptr noundef captures(none) %0) local_unname
   %5 = load ptr, ptr %2, align 8, !tbaa !15
   %6 = getelementptr i8, ptr %5, i64 %4
   %7 = getelementptr i8, ptr %6, i64 -1
-  %8 = load i8, ptr %7, align 1, !tbaa !19
+  %8 = load i8, ptr %7, align 1, !tbaa !20
   %9 = tail call zeroext i1 @pm_char_is_whitespace(i8 noundef zeroext %8) #19
   br i1 %9, label %10, label %.critedge
 
@@ -1699,7 +1699,7 @@ define hidden void @pm_buffer_rstrip(ptr noundef captures(none) %0) local_unname
   %12 = add i64 %11, -1
   store i64 %12, ptr %0, align 8, !tbaa !7
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %.critedge, label %3, !llvm.loop !21
+  br i1 %.not, label %.critedge, label %3, !llvm.loop !22
 
 .critedge:                                        ; preds = %3, %10, %1
   ret void
@@ -1919,9 +1919,10 @@ attributes #20 = { nounwind willreturn memory(read) }
 !13 = !{!"any pointer", !10, i64 0}
 !14 = !{!8, !9, i64 8}
 !15 = !{!8, !12, i64 16}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = distinct !{!18, !17}
-!19 = !{!10, !10, i64 0}
-!20 = distinct !{!20, !17}
-!21 = distinct !{!21, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = distinct !{!19, !17, !18}
+!20 = !{!10, !10, i64 0}
+!21 = distinct !{!21, !17, !18}
+!22 = distinct !{!22, !17, !18}

@@ -118,7 +118,7 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i: ; preds = %.lr.ph.i.i
 _ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i: ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i, %11
   %27 = add nuw i64 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %27, %.val.i.i.i
-  br i1 %exitcond.not.i.i, label %_ZN4lean18hashmap_visitor_fnclEP11lean_object.exit, label %11, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %_ZN4lean18hashmap_visitor_fnclEP11lean_object.exit, label %11, !llvm.loop !18
 
 _ZN4lean18hashmap_visitor_fnclEP11lean_object.exit: ; preds = %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i, %2
   ret void
@@ -186,7 +186,7 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i: ; preds = %.lr.ph.i
 _ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i: ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i, %14
   %30 = add nuw i64 %.06.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %30, %.val.i.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S1_EE.exit, label %14, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S1_EE.exit, label %14, !llvm.loop !18
 
 _ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S1_EE.exit: ; preds = %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i, %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -273,7 +273,7 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i.i.i.i.i: ; preds = %.lr.ph
 _ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i: ; preds = %.noexc2, %14
   %30 = add nuw i64 %.06.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %30, %.val.i.i.i.i.i
-  br i1 %exitcond.not.i.i.i.i, label %_ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S1_EE.exit.i, label %14, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i.i, label %_ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S1_EE.exit.i, label %14, !llvm.loop !18
 
 _ZN4lean15hashmap_foreachEP11lean_objectRKSt8functionIFvS1_S1_EE.exit.i: ; preds = %_ZN4lean18hashmap_visitor_fn16visit_assoc_listEP11lean_object.exit.i.i.i.i, %1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -353,7 +353,7 @@ define linkonce_odr hidden void @_ZN4lean16rbmap_visitor_fn5visitEP11lean_object
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   tail call void @_ZN4lean16rbmap_visitor_fn5visitEP11lean_object(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %9)
-  %10 = load ptr, ptr %0, align 8, !tbaa !18
+  %10 = load ptr, ptr %0, align 8, !tbaa !19
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -440,7 +440,7 @@ _ZL12lean_obj_tagP11lean_object.exit.i:           ; preds = %22, %19
   ]
 
 25:                                               ; preds = %_ZL12lean_obj_tagP11lean_object.exit.i
-  %26 = load ptr, ptr %0, align 8, !tbaa !20
+  %26 = load ptr, ptr %0, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !8
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -475,7 +475,7 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i7: ; preds = %25
 _ZN4lean19phashmap_visitor_fn11visit_entryEP11lean_object.exit: ; preds = %_ZL12lean_obj_tagP11lean_object.exit.i, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i7, %36
   %39 = add nuw i64 %.0.i9, 1
   %exitcond.not = icmp eq i64 %39, %.val.i
-  br i1 %exitcond.not, label %_ZN4lean19phashmap_visitor_fn13visit_entriesEP11lean_object.exit, label %14, !llvm.loop !22
+  br i1 %exitcond.not, label %_ZN4lean19phashmap_visitor_fn13visit_entriesEP11lean_object.exit, label %14, !llvm.loop !23
 
 40:                                               ; preds = %2
   br i1 %.not, label %_ZN4lean19phashmap_visitor_fn13visit_entriesEP11lean_object.exit, label %.lr.ph.i
@@ -489,7 +489,7 @@ _ZN4lean19phashmap_visitor_fn11visit_entryEP11lean_object.exit: ; preds = %_ZL12
 
 45:                                               ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i, %.lr.ph.i
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %56, %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i ]
-  %46 = load ptr, ptr %0, align 8, !tbaa !20
+  %46 = load ptr, ptr %0, align 8, !tbaa !21
   %47 = getelementptr inbounds nuw [0 x ptr], ptr %43, i64 0, i64 %.08.i
   %48 = load ptr, ptr %47, align 8, !tbaa !8
   %49 = getelementptr inbounds nuw [0 x ptr], ptr %44, i64 0, i64 %.08.i
@@ -515,7 +515,7 @@ _ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i: ; preds = %45
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %56 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %56, %.val.i
-  br i1 %exitcond.not.i, label %_ZN4lean19phashmap_visitor_fn13visit_entriesEP11lean_object.exit, label %45, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZN4lean19phashmap_visitor_fn13visit_entriesEP11lean_object.exit, label %45, !llvm.loop !24
 
 _ZN4lean19phashmap_visitor_fn13visit_entriesEP11lean_object.exit: ; preds = %_ZNKSt8functionIFvP11lean_objectS1_EEclES1_S1_.exit.i, %_ZN4lean19phashmap_visitor_fn11visit_entryEP11lean_object.exit, %12, %40
   ret void
@@ -604,12 +604,13 @@ attributes #10 = { noreturn nounwind }
 !12 = !{!"_ZTSSt14_Function_base", !6, i64 0, !5, i64 16}
 !13 = !{!14, !5, i64 24}
 !14 = !{!"_ZTSSt8functionIFvP11lean_objectS1_EE", !12, i64 0, !5, i64 24}
-!15 = distinct !{!15, !16}
+!15 = distinct !{!15, !16, !17}
 !16 = !{!"llvm.loop.mustprogress"}
-!17 = distinct !{!17, !16}
-!18 = !{!19, !4, i64 0}
-!19 = !{!"_ZTSN4lean16rbmap_visitor_fnE", !4, i64 0}
-!20 = !{!21, !4, i64 0}
-!21 = !{!"_ZTSN4lean19phashmap_visitor_fnE", !4, i64 0}
-!22 = distinct !{!22, !16}
-!23 = distinct !{!23, !16}
+!17 = !{!"llvm.loop.estimated_trip_count"}
+!18 = distinct !{!18, !16, !17}
+!19 = !{!20, !4, i64 0}
+!20 = !{!"_ZTSN4lean16rbmap_visitor_fnE", !4, i64 0}
+!21 = !{!22, !4, i64 0}
+!22 = !{!"_ZTSN4lean19phashmap_visitor_fnE", !4, i64 0}
+!23 = distinct !{!23, !16, !17}
+!24 = distinct !{!24, !16, !17}

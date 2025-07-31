@@ -349,7 +349,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %20, %23
   %45 = icmp ne i8 %44, 0
   %46 = icmp ne i64 %43, 0
   %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !54
+  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.loopexit, %lstopo_obj_cpukind_style.exit
   %48 = tail call i64 @fwrite(ptr nonnull @.str.31, i64 3, i64 1, ptr %11)
@@ -457,6 +457,7 @@ attributes #16 = { nounwind willreturn memory(read) }
 !49 = !{!"lstopo_style", !34, i64 0, !34, i64 8, !34, i64 16}
 !50 = !{!"lstopo_children_position", !10, i64 0, !10, i64 4, !10, i64 8, !10, i64 12, !10, i64 16, !10, i64 20, !34, i64 24}
 !51 = !{!5, !10, i64 944}
-!52 = distinct !{!52, !53}
+!52 = distinct !{!52, !53, !54}
 !53 = !{!"llvm.loop.mustprogress"}
-!54 = distinct !{!54, !53}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = distinct !{!55, !53, !54}

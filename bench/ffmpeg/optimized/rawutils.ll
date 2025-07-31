@@ -146,7 +146,7 @@ define range(i32 -1094995529, 2) i32 @ff_get_packet_palette(ptr noundef %0, ptr 
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = load i64, ptr %5, align 8, !tbaa !25
+  %8 = load i64, ptr %5, align 8, !tbaa !26
   %.not15 = icmp eq i64 %8, 1024
   br i1 %.not15, label %10, label %9
 
@@ -176,12 +176,12 @@ define range(i32 -1094995529, 2) i32 @ff_get_packet_palette(ptr noundef %0, ptr 
   %gep = getelementptr i8, ptr %invariant.gep, i64 %18
   %19 = shl nuw nsw i64 %indvars.iv, 2
   %20 = getelementptr inbounds nuw i8, ptr %gep, i64 %19
-  %21 = load i32, ptr %20, align 1, !tbaa !26
+  %21 = load i32, ptr %20, align 1, !tbaa !27
   %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
-  store i32 %21, ptr %22, align 4, !tbaa !27
+  store i32 %21, ptr %22, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !29
 
 .loopexit:                                        ; preds = %16, %11, %10, %9
   %.013 = phi i32 [ -1094995529, %9 ], [ 1, %10 ], [ 0, %11 ], [ 1, %16 ]
@@ -229,9 +229,10 @@ attributes #6 = { nounwind }
 !20 = !{!"p1 _ZTS11AVBufferRef", !6, i64 0}
 !21 = !{!10, !11, i64 72}
 !22 = !{!19, !12, i64 24}
-!23 = distinct !{!23, !24}
+!23 = distinct !{!23, !24, !25}
 !24 = !{!"llvm.loop.mustprogress"}
-!25 = !{!14, !14, i64 0}
-!26 = !{!7, !7, i64 0}
-!27 = !{!11, !11, i64 0}
-!28 = distinct !{!28, !24}
+!25 = !{!"llvm.loop.estimated_trip_count"}
+!26 = !{!14, !14, i64 0}
+!27 = !{!7, !7, i64 0}
+!28 = !{!11, !11, i64 0}
+!29 = distinct !{!29, !24, !25}

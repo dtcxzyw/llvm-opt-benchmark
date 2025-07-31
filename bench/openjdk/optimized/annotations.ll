@@ -332,7 +332,7 @@ define hidden noundef ptr @_ZN11Annotations15make_java_arrayEP5ArrayIhEP10JavaTh
   store i8 %13, ptr %19, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %11, !llvm.loop !9
 
 .loopexit:                                        ; preds = %11, %.preheader, %2, %3
   %.013 = phi ptr [ null, %3 ], [ null, %2 ], [ %5, %.preheader ], [ %5, %11 ]
@@ -686,7 +686,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI5Arr
   %19 = load i32, ptr %5, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next.i, %20
-  br i1 %21, label %13, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI5ArrayIhEE29metaspace_pointers_do_at_implEPS_PS1_IPS2_E.exit, !llvm.loop !9
+  br i1 %21, label %13, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI5ArrayIhEE29metaspace_pointers_do_at_implEPS_PS1_IPS2_E.exit, !llvm.loop !10
 
 _ZNK16MetaspaceClosure18MSOPointerArrayRefI5ArrayIhEE29metaspace_pointers_do_at_implEPS_PS1_IPS2_E.exit: ; preds = %13, %9
   ret void
@@ -728,7 +728,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure18MSOPointerArrayRefI5Arr
   %17 = load i32, ptr %2, align 8
   %18 = sext i32 %17 to i64
   %19 = icmp slt i64 %indvars.iv.next.i, %18
-  br i1 %19, label %11, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI5ArrayIhEE29metaspace_pointers_do_at_implEPS_PS1_IPS2_E.exit, !llvm.loop !9
+  br i1 %19, label %11, label %_ZNK16MetaspaceClosure18MSOPointerArrayRefI5ArrayIhEE29metaspace_pointers_do_at_implEPS_PS1_IPS2_E.exit, !llvm.loop !10
 
 _ZNK16MetaspaceClosure18MSOPointerArrayRefI5ArrayIhEE29metaspace_pointers_do_at_implEPS_PS1_IPS2_E.exit: ; preds = %11, %7
   ret void
@@ -778,7 +778,8 @@ attributes #7 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}

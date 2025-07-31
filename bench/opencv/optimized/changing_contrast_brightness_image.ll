@@ -1988,5 +1988,6 @@ attributes #19 = { noreturn }
 !62 = !{!63, !42, i64 0}
 !63 = !{!"_ZTSNSt12_Vector_baseIiSaIiEE17_Vector_impl_dataE", !42, i64 0, !42, i64 8, !42, i64 16}
 !64 = !{!47, !6, i64 16}
-!65 = distinct !{!65, !66}
+!65 = distinct !{!65, !66, !67}
 !66 = !{!"llvm.loop.mustprogress"}
+!67 = !{!"llvm.loop.estimated_trip_count"}

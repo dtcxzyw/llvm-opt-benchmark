@@ -5965,7 +5965,7 @@ define hidden zeroext i16 @de_plmn_list(ptr noundef %0, ptr noundef %1, ptr noun
   %.neg = sub i32 %3, %14
   %16 = add i32 %.neg, %4
   %17 = icmp ugt i32 %16, 2
-  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
+  br i1 %17, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %18 = add i32 %4, -3
@@ -6099,7 +6099,7 @@ define hidden void @proto_register_gsm_a_common() local_unnamed_addr #1 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next10 = add nuw nsw i64 %indvars.iv9, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
-  br i1 %exitcond.not, label %4, label %1, !llvm.loop !9
+  br i1 %exitcond.not, label %4, label %1, !llvm.loop !10
 
 4:                                                ; preds = %1
   %5 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.516, ptr noundef nonnull @.str.517, ptr noundef nonnull @.str.496)
@@ -6178,7 +6178,7 @@ define internal void @gsm_a_stat_reset(ptr noundef %0) #1 {
   %6 = add nuw i32 %.08, 1
   %7 = load i32, ptr %2, align 4
   %8 = icmp ult i32 %6, %7
-  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !10
+  br i1 %8, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -6651,7 +6651,7 @@ define internal fastcc void @gsm_a_stat_init(ptr noundef %0, ptr noundef %1, ptr
   call void @stat_tap_init_table_row(ptr noundef %14, i32 noundef %.02127, i32 noundef 3, ptr noundef nonnull %4)
   %24 = add nuw nsw i32 %.02127, 1
   %exitcond.not = icmp eq i32 %24, 256
-  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !12
 
 .loopexit:                                        ; preds = %23, %9, %12
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #8
@@ -6705,9 +6705,10 @@ attributes #10 = { allocsize(1) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

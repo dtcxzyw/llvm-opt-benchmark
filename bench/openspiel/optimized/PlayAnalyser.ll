@@ -343,7 +343,7 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %.1117.lcssa = phi i32 [ %.0116164, %46 ], [ %.2, %133 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %._crit_edge168, label %46, !llvm.loop !6
+  br i1 %exitcond176.not, label %._crit_edge168, label %46, !llvm.loop !7
 
 ._crit_edge168:                                   ; preds = %._crit_edge, %11
   %138 = shl nsw i32 %spec.select137, 2
@@ -489,7 +489,7 @@ _Z16PlaySingleCommonii.exit:                      ; preds = %18, %22
   %23 = tail call i64 @_ZN9Scheduler9GetNumberEi(ptr noundef nonnull align 8 dereferenceable(43416) @scheduler, i32 noundef %0)
   %24 = and i64 %23, 4294967295
   %25 = icmp eq i64 %24, 4294967295
-  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !7
+  br i1 %25, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %_Z16PlaySingleCommonii.exit, %1
   ret void
@@ -593,14 +593,14 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   store i32 %32, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %34, label %27, !llvm.loop !8
+  br i1 %exitcond.not, label %34, label %27, !llvm.loop !9
 
 34:                                               ; preds = %27
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %35 = load i32, ptr %0, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next46, %36
-  br i1 %37, label %12, label %._crit_edge, !llvm.loop !9
+  br i1 %37, label %12, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %34, %.preheader
   %38 = load i32, ptr %1, align 4
@@ -618,7 +618,7 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %43 = load i32, ptr %1, align 4
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next49, %44
-  br i1 %45, label %46, label %._crit_edge42, !llvm.loop !10
+  br i1 %45, label %46, label %._crit_edge42, !llvm.loop !11
 
 46:                                               ; preds = %.lr.ph41, %42
   %indvars.iv48 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next49, %42 ]
@@ -750,7 +750,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit13:             ; preds = %31, %33, %35, %37
   %51 = sub i64 %49, %50
   %52 = ashr exact i64 %51, 2
   %53 = icmp ugt i64 %52, %46
-  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+  br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEE6resizeEm.exit13
   ret void
@@ -932,11 +932,12 @@ attributes #17 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}
+!8 = distinct !{!8, !5, !6}
+!9 = distinct !{!9, !5, !6}
+!10 = distinct !{!10, !5, !6}
+!11 = distinct !{!11, !5, !6}
+!12 = distinct !{!12, !5, !6}

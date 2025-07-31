@@ -44,18 +44,18 @@ define void @ff_metadata_conv(ptr noundef %0, ptr noundef readonly captures(addr
 
 16:                                               ; preds = %.lr.ph.us
   %17 = getelementptr inbounds nuw i8, ptr %.02744.us, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !16
+  %18 = load ptr, ptr %17, align 8, !tbaa !17
   br label %.loopexit39.us
 
 .loopexit39.us:                                   ; preds = %13, %.preheader38.us, %16, %.lr.ph49.split.us
   %.0.us = phi ptr [ %18, %16 ], [ %10, %.lr.ph49.split.us ], [ %10, %.preheader38.us ], [ %10, %13 ]
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !17
+  %20 = load ptr, ptr %19, align 8, !tbaa !18
   %21 = call i32 @av_dict_set(ptr noundef nonnull %4, ptr noundef %.0.us, ptr noundef %20, i32 noundef 192) #3
   %22 = load ptr, ptr %0, align 8, !tbaa !4
   %23 = call ptr @av_dict_iterate(ptr noundef %22, ptr noundef nonnull %9) #3
   %.not.us = icmp eq ptr %23, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph49.split.us, !llvm.loop !18
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph49.split.us, !llvm.loop !19
 
 .preheader38.us:                                  ; preds = %.lr.ph49.split.us
   %24 = load ptr, ptr %2, align 8, !tbaa !12
@@ -75,7 +75,7 @@ define void @ff_metadata_conv(ptr noundef %0, ptr noundef readonly captures(addr
 .lr.ph47.us:                                      ; preds = %.preheader.us, %31
   %.02646.us = phi ptr [ %32, %31 ], [ %1, %.preheader.us ]
   %28 = getelementptr inbounds nuw i8, ptr %.02646.us, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !16
+  %29 = load ptr, ptr %28, align 8, !tbaa !17
   %30 = call i32 @av_strcasecmp(ptr noundef %26, ptr noundef %29) #3
   %.not37.us = icmp eq i32 %30, 0
   br i1 %.not37.us, label %34, label %31
@@ -84,7 +84,7 @@ define void @ff_metadata_conv(ptr noundef %0, ptr noundef readonly captures(addr
   %32 = getelementptr inbounds nuw i8, ptr %.02646.us, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !12
   %.not36.us = icmp eq ptr %33, null
-  br i1 %.not36.us, label %.loopexit.us, label %.lr.ph47.us, !llvm.loop !20
+  br i1 %.not36.us, label %.loopexit.us, label %.lr.ph47.us, !llvm.loop !21
 
 34:                                               ; preds = %.lr.ph47.us
   %35 = load ptr, ptr %.02646.us, align 8, !tbaa !12
@@ -93,12 +93,12 @@ define void @ff_metadata_conv(ptr noundef %0, ptr noundef readonly captures(addr
 .loopexit.us:                                     ; preds = %31, %.preheader.us, %34
   %.1.us51 = phi ptr [ %35, %34 ], [ %26, %.preheader.us ], [ %26, %31 ]
   %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !17
+  %37 = load ptr, ptr %36, align 8, !tbaa !18
   %38 = call i32 @av_dict_set(ptr noundef nonnull %4, ptr noundef %.1.us51, ptr noundef %37, i32 noundef 192) #3
   %39 = load ptr, ptr %0, align 8, !tbaa !4
   %40 = call ptr @av_dict_iterate(ptr noundef %39, ptr noundef nonnull %25) #3
   %.not.us52 = icmp eq ptr %40, null
-  br i1 %.not.us52, label %._crit_edge, label %.preheader.us, !llvm.loop !21
+  br i1 %.not.us52, label %._crit_edge, label %.preheader.us, !llvm.loop !22
 
 .preheader38:                                     ; preds = %.lr.ph49.split, %.loopexit
   %41 = phi ptr [ %65, %.loopexit ], [ %8, %.lr.ph49.split ]
@@ -116,7 +116,7 @@ define void @ff_metadata_conv(ptr noundef %0, ptr noundef readonly captures(addr
 
 46:                                               ; preds = %.lr.ph
   %47 = getelementptr inbounds nuw i8, ptr %.02744, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !16
+  %48 = load ptr, ptr %47, align 8, !tbaa !17
   br label %.preheader
 
 49:                                               ; preds = %.lr.ph
@@ -134,7 +134,7 @@ define void @ff_metadata_conv(ptr noundef %0, ptr noundef readonly captures(addr
 .lr.ph47:                                         ; preds = %.preheader, %58
   %.02646 = phi ptr [ %59, %58 ], [ %1, %.preheader ]
   %53 = getelementptr inbounds nuw i8, ptr %.02646, i64 8
-  %54 = load ptr, ptr %53, align 8, !tbaa !16
+  %54 = load ptr, ptr %53, align 8, !tbaa !17
   %55 = call i32 @av_strcasecmp(ptr noundef %.0, ptr noundef %54) #3
   %.not37 = icmp eq i32 %55, 0
   br i1 %.not37, label %56, label %58
@@ -147,17 +147,17 @@ define void @ff_metadata_conv(ptr noundef %0, ptr noundef readonly captures(addr
   %59 = getelementptr inbounds nuw i8, ptr %.02646, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %.not36 = icmp eq ptr %60, null
-  br i1 %.not36, label %.loopexit, label %.lr.ph47, !llvm.loop !20
+  br i1 %.not36, label %.loopexit, label %.lr.ph47, !llvm.loop !21
 
 .loopexit:                                        ; preds = %58, %.preheader, %56
   %.1 = phi ptr [ %57, %56 ], [ %.0, %.preheader ], [ %.0, %58 ]
   %61 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !17
+  %62 = load ptr, ptr %61, align 8, !tbaa !18
   %63 = call i32 @av_dict_set(ptr noundef nonnull %4, ptr noundef %.1, ptr noundef %62, i32 noundef 192) #3
   %64 = load ptr, ptr %0, align 8, !tbaa !4
   %65 = call ptr @av_dict_iterate(ptr noundef %64, ptr noundef nonnull %41) #3
   %.not = icmp eq ptr %65, null
-  br i1 %.not, label %._crit_edge, label %.preheader38, !llvm.loop !22
+  br i1 %.not, label %._crit_edge, label %.preheader38, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.loopexit, %.loopexit.us, %.loopexit39.us, %.preheader40
   call void @av_dict_free(ptr noundef nonnull %0) #3
@@ -189,7 +189,7 @@ define void @ff_metadata_conv_ctx(ptr noundef %0, ptr noundef readonly captures(
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @ff_metadata_conv(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %6 = load i32, ptr %5, align 4, !tbaa !23
+  %6 = load i32, ptr %5, align 4, !tbaa !24
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.preheader23, label %.lr.ph
 
@@ -199,7 +199,7 @@ define void @ff_metadata_conv_ctx(ptr noundef %0, ptr noundef readonly captures(
 
 .preheader23:                                     ; preds = %11, %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %9 = load i32, ptr %8, align 8, !tbaa !38
+  %9 = load i32, ptr %8, align 8, !tbaa !39
   %.not29 = icmp eq i32 %9, 0
   br i1 %.not29, label %.preheader, label %.lr.ph26
 
@@ -209,20 +209,20 @@ define void @ff_metadata_conv_ctx(ptr noundef %0, ptr noundef readonly captures(
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = load ptr, ptr %7, align 8, !tbaa !39
+  %12 = load ptr, ptr %7, align 8, !tbaa !40
   %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  %14 = load ptr, ptr %13, align 8, !tbaa !40
+  %14 = load ptr, ptr %13, align 8, !tbaa !41
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   tail call void @ff_metadata_conv(ptr noundef nonnull %15, ptr noundef %1, ptr noundef %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = load i32, ptr %5, align 4, !tbaa !23
+  %16 = load i32, ptr %5, align 4, !tbaa !24
   %17 = zext i32 %16 to i64
   %18 = icmp samesign ult i64 %indvars.iv.next, %17
-  br i1 %18, label %11, label %.preheader23, !llvm.loop !42
+  br i1 %18, label %11, label %.preheader23, !llvm.loop !43
 
 .preheader:                                       ; preds = %22, %.preheader23
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %20 = load i32, ptr %19, align 4, !tbaa !43
+  %20 = load i32, ptr %19, align 4, !tbaa !44
   %.not30 = icmp eq i32 %20, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph28
 
@@ -232,29 +232,29 @@ define void @ff_metadata_conv_ctx(ptr noundef %0, ptr noundef readonly captures(
 
 22:                                               ; preds = %.lr.ph26, %22
   %indvars.iv32 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next33, %22 ]
-  %23 = load ptr, ptr %10, align 8, !tbaa !44
+  %23 = load ptr, ptr %10, align 8, !tbaa !45
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv32
-  %25 = load ptr, ptr %24, align 8, !tbaa !45
+  %25 = load ptr, ptr %24, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   tail call void @ff_metadata_conv(ptr noundef nonnull %26, ptr noundef %1, ptr noundef %2)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
-  %27 = load i32, ptr %8, align 8, !tbaa !38
+  %27 = load i32, ptr %8, align 8, !tbaa !39
   %28 = zext i32 %27 to i64
   %29 = icmp samesign ult i64 %indvars.iv.next33, %28
-  br i1 %29, label %22, label %.preheader, !llvm.loop !47
+  br i1 %29, label %22, label %.preheader, !llvm.loop !48
 
 30:                                               ; preds = %.lr.ph28, %30
   %indvars.iv35 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next36, %30 ]
-  %31 = load ptr, ptr %21, align 8, !tbaa !48
+  %31 = load ptr, ptr %21, align 8, !tbaa !49
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv35
-  %33 = load ptr, ptr %32, align 8, !tbaa !49
+  %33 = load ptr, ptr %32, align 8, !tbaa !50
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
   tail call void @ff_metadata_conv(ptr noundef nonnull %34, ptr noundef %1, ptr noundef %2)
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
-  %35 = load i32, ptr %19, align 4, !tbaa !43
+  %35 = load i32, ptr %19, align 4, !tbaa !44
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next36, %36
-  br i1 %37, label %30, label %._crit_edge, !llvm.loop !51
+  br i1 %37, label %30, label %._crit_edge, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %30, %.preheader
   ret void
@@ -281,41 +281,42 @@ attributes #3 = { nounwind }
 !11 = !{!"p1 omnipotent char", !6, i64 0}
 !12 = !{!13, !11, i64 0}
 !13 = !{!"AVMetadataConv", !11, i64 0, !11, i64 8}
-!14 = distinct !{!14, !15}
+!14 = distinct !{!14, !15, !16}
 !15 = !{!"llvm.loop.mustprogress"}
-!16 = !{!13, !11, i64 8}
-!17 = !{!10, !11, i64 8}
-!18 = distinct !{!18, !15, !19}
-!19 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!20 = distinct !{!20, !15}
-!21 = distinct !{!21, !15, !19}
-!22 = distinct !{!22, !15}
-!23 = !{!24, !29, i64 44}
-!24 = !{!"AVFormatContext", !25, i64 0, !26, i64 8, !27, i64 16, !6, i64 24, !28, i64 32, !29, i64 40, !29, i64 44, !30, i64 48, !29, i64 56, !32, i64 64, !29, i64 72, !33, i64 80, !11, i64 88, !34, i64 96, !34, i64 104, !34, i64 112, !29, i64 120, !29, i64 124, !29, i64 128, !34, i64 136, !34, i64 144, !11, i64 152, !29, i64 160, !29, i64 164, !35, i64 168, !29, i64 176, !29, i64 180, !29, i64 184, !29, i64 188, !5, i64 192, !34, i64 200, !29, i64 208, !29, i64 212, !36, i64 216, !29, i64 232, !29, i64 236, !29, i64 240, !29, i64 244, !34, i64 248, !29, i64 256, !29, i64 260, !29, i64 264, !29, i64 268, !29, i64 272, !29, i64 276, !29, i64 280, !29, i64 284, !29, i64 288, !29, i64 292, !29, i64 296, !29, i64 300, !34, i64 304, !29, i64 312, !29, i64 316, !29, i64 320, !29, i64 324, !29, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !29, i64 368, !37, i64 376, !37, i64 384, !37, i64 392, !37, i64 400, !29, i64 408, !6, i64 416, !6, i64 424, !34, i64 432, !11, i64 440, !6, i64 448, !6, i64 456, !34, i64 464}
-!25 = !{!"p1 _ZTS7AVClass", !6, i64 0}
-!26 = !{!"p1 _ZTS13AVInputFormat", !6, i64 0}
-!27 = !{!"p1 _ZTS14AVOutputFormat", !6, i64 0}
-!28 = !{!"p1 _ZTS11AVIOContext", !6, i64 0}
-!29 = !{!"int", !7, i64 0}
-!30 = !{!"p2 _ZTS8AVStream", !31, i64 0}
-!31 = !{!"any p2 pointer", !6, i64 0}
-!32 = !{!"p2 _ZTS13AVStreamGroup", !31, i64 0}
-!33 = !{!"p2 _ZTS9AVChapter", !31, i64 0}
-!34 = !{!"long", !7, i64 0}
-!35 = !{!"p2 _ZTS9AVProgram", !31, i64 0}
-!36 = !{!"AVIOInterruptCB", !6, i64 0, !6, i64 8}
-!37 = !{!"p1 _ZTS7AVCodec", !6, i64 0}
-!38 = !{!24, !29, i64 72}
-!39 = !{!24, !30, i64 48}
-!40 = !{!41, !41, i64 0}
-!41 = !{!"p1 _ZTS8AVStream", !6, i64 0}
-!42 = distinct !{!42, !15}
-!43 = !{!24, !29, i64 164}
-!44 = !{!24, !33, i64 80}
-!45 = !{!46, !46, i64 0}
-!46 = !{!"p1 _ZTS9AVChapter", !6, i64 0}
-!47 = distinct !{!47, !15}
-!48 = !{!24, !35, i64 168}
-!49 = !{!50, !50, i64 0}
-!50 = !{!"p1 _ZTS9AVProgram", !6, i64 0}
-!51 = distinct !{!51, !15}
+!16 = !{!"llvm.loop.estimated_trip_count"}
+!17 = !{!13, !11, i64 8}
+!18 = !{!10, !11, i64 8}
+!19 = distinct !{!19, !15, !16, !20}
+!20 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!21 = distinct !{!21, !15, !16}
+!22 = distinct !{!22, !15, !16, !20}
+!23 = distinct !{!23, !15, !16}
+!24 = !{!25, !30, i64 44}
+!25 = !{!"AVFormatContext", !26, i64 0, !27, i64 8, !28, i64 16, !6, i64 24, !29, i64 32, !30, i64 40, !30, i64 44, !31, i64 48, !30, i64 56, !33, i64 64, !30, i64 72, !34, i64 80, !11, i64 88, !35, i64 96, !35, i64 104, !35, i64 112, !30, i64 120, !30, i64 124, !30, i64 128, !35, i64 136, !35, i64 144, !11, i64 152, !30, i64 160, !30, i64 164, !36, i64 168, !30, i64 176, !30, i64 180, !30, i64 184, !30, i64 188, !5, i64 192, !35, i64 200, !30, i64 208, !30, i64 212, !37, i64 216, !30, i64 232, !30, i64 236, !30, i64 240, !30, i64 244, !35, i64 248, !30, i64 256, !30, i64 260, !30, i64 264, !30, i64 268, !30, i64 272, !30, i64 276, !30, i64 280, !30, i64 284, !30, i64 288, !30, i64 292, !30, i64 296, !30, i64 300, !35, i64 304, !30, i64 312, !30, i64 316, !30, i64 320, !30, i64 324, !30, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !11, i64 360, !30, i64 368, !38, i64 376, !38, i64 384, !38, i64 392, !38, i64 400, !30, i64 408, !6, i64 416, !6, i64 424, !35, i64 432, !11, i64 440, !6, i64 448, !6, i64 456, !35, i64 464}
+!26 = !{!"p1 _ZTS7AVClass", !6, i64 0}
+!27 = !{!"p1 _ZTS13AVInputFormat", !6, i64 0}
+!28 = !{!"p1 _ZTS14AVOutputFormat", !6, i64 0}
+!29 = !{!"p1 _ZTS11AVIOContext", !6, i64 0}
+!30 = !{!"int", !7, i64 0}
+!31 = !{!"p2 _ZTS8AVStream", !32, i64 0}
+!32 = !{!"any p2 pointer", !6, i64 0}
+!33 = !{!"p2 _ZTS13AVStreamGroup", !32, i64 0}
+!34 = !{!"p2 _ZTS9AVChapter", !32, i64 0}
+!35 = !{!"long", !7, i64 0}
+!36 = !{!"p2 _ZTS9AVProgram", !32, i64 0}
+!37 = !{!"AVIOInterruptCB", !6, i64 0, !6, i64 8}
+!38 = !{!"p1 _ZTS7AVCodec", !6, i64 0}
+!39 = !{!25, !30, i64 72}
+!40 = !{!25, !31, i64 48}
+!41 = !{!42, !42, i64 0}
+!42 = !{!"p1 _ZTS8AVStream", !6, i64 0}
+!43 = distinct !{!43, !15, !16}
+!44 = !{!25, !30, i64 164}
+!45 = !{!25, !34, i64 80}
+!46 = !{!47, !47, i64 0}
+!47 = !{!"p1 _ZTS9AVChapter", !6, i64 0}
+!48 = distinct !{!48, !15, !16}
+!49 = !{!25, !36, i64 168}
+!50 = !{!51, !51, i64 0}
+!51 = !{!"p1 _ZTS9AVProgram", !6, i64 0}
+!52 = distinct !{!52, !15, !16}

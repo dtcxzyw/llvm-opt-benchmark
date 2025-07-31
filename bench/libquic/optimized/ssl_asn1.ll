@@ -502,12 +502,12 @@ define hidden i32 @i2d_SSL_SESSION(ptr noundef %0, ptr noundef captures(address_
   br i1 %.not, label %22, label %6
 
 6:                                                ; preds = %2
-  %7 = load i64, ptr %4, align 8, !tbaa !44
+  %7 = load i64, ptr %4, align 8, !tbaa !45
   %8 = icmp ugt i64 %7, 2147483647
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = load ptr, ptr %3, align 8, !tbaa !45
+  %10 = load ptr, ptr %3, align 8, !tbaa !46
   call void @free(ptr noundef %10) #7
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 69, ptr noundef nonnull @.str, i32 noundef 391) #7
   br label %22
@@ -517,19 +517,19 @@ define hidden i32 @i2d_SSL_SESSION(ptr noundef %0, ptr noundef captures(address_
   br i1 %.not6, label %18, label %12
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %1, align 8, !tbaa !45
-  %14 = load ptr, ptr %3, align 8, !tbaa !45
+  %13 = load ptr, ptr %1, align 8, !tbaa !46
+  %14 = load ptr, ptr %3, align 8, !tbaa !46
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr align 1 %14, i64 %7, i1 false)
-  %15 = load i64, ptr %4, align 8, !tbaa !44
-  %16 = load ptr, ptr %1, align 8, !tbaa !45
+  %15 = load i64, ptr %4, align 8, !tbaa !45
+  %16 = load ptr, ptr %1, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %15
-  store ptr %17, ptr %1, align 8, !tbaa !45
+  store ptr %17, ptr %1, align 8, !tbaa !46
   br label %18
 
 18:                                               ; preds = %12, %11
-  %19 = load ptr, ptr %3, align 8, !tbaa !45
+  %19 = load ptr, ptr %3, align 8, !tbaa !46
   call void @free(ptr noundef %19) #7
-  %20 = load i64, ptr %4, align 8, !tbaa !44
+  %20 = load i64, ptr %4, align 8, !tbaa !45
   %21 = trunc i64 %20 to i32
   br label %22
 
@@ -624,7 +624,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   br label %.thread91
 
 28:                                               ; preds = %25
-  %29 = load i64, ptr %4, align 8, !tbaa !44
+  %29 = load i64, ptr %4, align 8, !tbaa !45
   %30 = lshr i64 %29, 8
   switch i64 %30, label %31 [
     i64 3, label %32
@@ -658,7 +658,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   br label %.thread91
 
 41:                                               ; preds = %38
-  %42 = load i16, ptr %6, align 2, !tbaa !46
+  %42 = load i16, ptr %6, align 2, !tbaa !47
   %43 = call ptr @SSL_get_cipher_by_value(i16 noundef zeroext %42) #7
   %44 = getelementptr inbounds nuw i8, ptr %16, i64 184
   store ptr %43, ptr %44, align 8, !tbaa !6
@@ -740,7 +740,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   %83 = load ptr, ptr %82, align 8, !tbaa !27
   call void @X509_free(ptr noundef %83) #7
   store ptr null, ptr %82, align 8, !tbaa !27
-  %84 = load i32, ptr %10, align 4, !tbaa !48
+  %84 = load i32, ptr %10, align 4, !tbaa !49
   %.not62 = icmp eq i32 %84, 0
   br i1 %.not62, label %91, label %85
 
@@ -880,7 +880,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   br label %.thread91
 
 146:                                              ; preds = %143
-  %147 = load i32, ptr %13, align 4, !tbaa !48
+  %147 = load i32, ptr %13, align 4, !tbaa !49
   %148 = icmp ne i32 %147, 0
   %149 = getelementptr inbounds nuw i8, ptr %16, i64 376
   %150 = zext i1 %148 to i8
@@ -911,7 +911,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   %162 = load ptr, ptr %161, align 8, !tbaa !41
   call void @sk_pop_free(ptr noundef %162, ptr noundef nonnull @X509_free) #7
   store ptr null, ptr %161, align 8, !tbaa !41
-  %163 = load i32, ptr %15, align 4, !tbaa !48
+  %163 = load i32, ptr %15, align 4, !tbaa !49
   %.not81 = icmp eq i32 %163, 0
   br i1 %.not81, label %.loopexit, label %164
 
@@ -939,7 +939,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   %173 = load ptr, ptr %161, align 8, !tbaa !41
   %174 = call i64 @sk_push(ptr noundef %173, ptr noundef nonnull %170) #7
   %.not84 = icmp eq i64 %174, 0
-  br i1 %.not84, label %175, label %.preheader
+  br i1 %.not84, label %175, label %.preheader, !llvm.loop !50
 
 175:                                              ; preds = %172
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 664) #7
@@ -980,7 +980,7 @@ define hidden ptr @d2i_SSL_SESSION(ptr noundef captures(address_is_null) %0, ptr
 
 7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
-  %8 = load ptr, ptr %1, align 8, !tbaa !45
+  %8 = load ptr, ptr %1, align 8, !tbaa !46
   call void @CBS_init(ptr noundef nonnull %4, ptr noundef %8, i64 noundef %2) #7
   %9 = call fastcc ptr @SSL_SESSION_parse(ptr noundef %4)
   %10 = icmp eq ptr %9, null
@@ -991,14 +991,14 @@ define hidden ptr @d2i_SSL_SESSION(ptr noundef captures(address_is_null) %0, ptr
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %11
-  %13 = load ptr, ptr %0, align 8, !tbaa !49
+  %13 = load ptr, ptr %0, align 8, !tbaa !51
   call void @SSL_SESSION_free(ptr noundef %13) #7
-  store ptr %9, ptr %0, align 8, !tbaa !49
+  store ptr %9, ptr %0, align 8, !tbaa !51
   br label %14
 
 14:                                               ; preds = %12, %11
   %15 = call ptr @CBS_data(ptr noundef nonnull %4) #7
-  store ptr %15, ptr %1, align 8, !tbaa !45
+  store ptr %15, ptr %1, align 8, !tbaa !46
   br label %16
 
 16:                                               ; preds = %7, %14
@@ -1043,7 +1043,7 @@ define internal fastcc range(i32 0, 2) i32 @add_X509(ptr noundef nonnull %0, ptr
   br label %16
 
 10:                                               ; preds = %6
-  %11 = load ptr, ptr %3, align 8, !tbaa !45
+  %11 = load ptr, ptr %3, align 8, !tbaa !46
   %.not6 = icmp eq ptr %11, null
   br i1 %.not6, label %15, label %12
 
@@ -1108,7 +1108,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_long(ptr noundef n
   br label %12
 
 11:                                               ; preds = %4
-  store i64 %8, ptr %1, align 8, !tbaa !44
+  store i64 %8, ptr %1, align 8, !tbaa !45
   br label %12
 
 12:                                               ; preds = %11, %10
@@ -1138,14 +1138,14 @@ define internal fastcc ptr @parse_x509(ptr noundef nonnull %0) unnamed_addr #0 {
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   %7 = tail call ptr @CBS_data(ptr noundef nonnull %0) #7
-  store ptr %7, ptr %2, align 8, !tbaa !45
+  store ptr %7, ptr %2, align 8, !tbaa !46
   %8 = tail call i64 @CBS_len(ptr noundef nonnull %0) #7
   %9 = call ptr @d2i_X509(ptr noundef null, ptr noundef nonnull %2, i64 noundef %8) #7
   %10 = icmp eq ptr %9, null
   br i1 %10, label %18, label %11
 
 11:                                               ; preds = %6
-  %12 = load ptr, ptr %2, align 8, !tbaa !45
+  %12 = load ptr, ptr %2, align 8, !tbaa !46
   %13 = call ptr @CBS_data(ptr noundef nonnull %0) #7
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -1186,7 +1186,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_bounded_octet_stri
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %14, i64 %15, i1 false)
   %16 = call i64 @CBS_len(ptr noundef nonnull %6) #7
   %17 = trunc i64 %16 to i32
-  store i32 %17, ptr %2, align 4, !tbaa !48
+  store i32 %17, ptr %2, align 4, !tbaa !49
   br label %18
 
 18:                                               ; preds = %13, %12
@@ -1210,7 +1210,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_string(ptr noundef
   br label %18
 
 8:                                                ; preds = %3
-  %9 = load i32, ptr %5, align 4, !tbaa !48
+  %9 = load i32, ptr %5, align 4, !tbaa !49
   %.not5 = icmp eq i32 %9, 0
   br i1 %.not5, label %16, label %10
 
@@ -1233,9 +1233,9 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_string(ptr noundef
   br label %18
 
 16:                                               ; preds = %8
-  %17 = load ptr, ptr %1, align 8, !tbaa !45
+  %17 = load ptr, ptr %1, align 8, !tbaa !46
   call void @free(ptr noundef %17) #7
-  store ptr null, ptr %1, align 8, !tbaa !45
+  store ptr null, ptr %1, align 8, !tbaa !46
   br label %18
 
 18:                                               ; preds = %16, %13, %15, %12, %7
@@ -1262,7 +1262,7 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_parse_u32(ptr noundef no
 
 10:                                               ; preds = %3
   %11 = trunc nuw i64 %7 to i32
-  store i32 %11, ptr %1, align 4, !tbaa !48
+  store i32 %11, ptr %1, align 4, !tbaa !49
   br label %12
 
 12:                                               ; preds = %10, %9
@@ -1376,11 +1376,13 @@ attributes #8 = { nounwind willreturn memory(read) }
 !39 = !{!7, !11, i64 264}
 !40 = !{!7, !8, i64 8}
 !41 = !{!7, !14, i64 152}
-!42 = distinct !{!42, !43}
+!42 = distinct !{!42, !43, !44}
 !43 = !{!"llvm.loop.mustprogress"}
-!44 = !{!15, !15, i64 0}
-!45 = !{!11, !11, i64 0}
-!46 = !{!47, !47, i64 0}
-!47 = !{!"short", !9, i64 0}
-!48 = !{!8, !8, i64 0}
-!49 = !{!19, !19, i64 0}
+!44 = !{!"llvm.loop.estimated_trip_count"}
+!45 = !{!15, !15, i64 0}
+!46 = !{!11, !11, i64 0}
+!47 = !{!48, !48, i64 0}
+!48 = !{!"short", !9, i64 0}
+!49 = !{!8, !8, i64 0}
+!50 = distinct !{!50, !44}
+!51 = !{!19, !19, i64 0}

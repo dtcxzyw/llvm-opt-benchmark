@@ -970,7 +970,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %79 = load i32, ptr %24, align 8, !tbaa !47
   %80 = add nsw i32 %79, %2
   %81 = icmp slt i32 %78, %80
-  br i1 %81, label %.preheader402, label %.preheader398, !llvm.loop !63
+  br i1 %81, label %.preheader402, label %.preheader398, !llvm.loop !64
 
 .loopexit399:                                     ; preds = %.preheader397.preheader, %.preheader397.us.preheader, %.preheader398, %6
   %.0339 = phi ptr [ %11, %6 ], [ %.1340.lcssa, %.preheader398 ], [ %.1340.lcssa, %.preheader397.us.preheader ], [ %.1340.lcssa, %.preheader397.preheader ]
@@ -1029,7 +1029,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %.pre669, ptr %96, align 1, !tbaa !60
   %indvars.iv.next589 = add nuw nsw i64 %indvars.iv588, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next589, %wide.trip.count591
-  br i1 %exitcond.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !64
+  br i1 %exitcond.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !65
 
 ._crit_edge435:                                   ; preds = %.lr.ph434, %.preheader395
   %.0319.lcssa = phi i32 [ 0, %.preheader395 ], [ %3, %.lr.ph434 ]
@@ -1058,7 +1058,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %107 = add nsw i32 %106, %3
   %108 = sext i32 %107 to i64
   %109 = icmp slt i64 %indvars.iv.next593, %108
-  br i1 %109, label %.lr.ph438, label %.loopexit394.loopexit, !llvm.loop !65
+  br i1 %109, label %.lr.ph438, label %.loopexit394.loopexit, !llvm.loop !66
 
 110:                                              ; preds = %._crit_edge435
   %111 = getelementptr inbounds i8, ptr %.5444, i64 %86
@@ -1091,13 +1091,13 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %120, ptr %121, align 1, !tbaa !60
   %indvars.iv.next596 = add nsw i64 %indvars.iv595, 1
   %exitcond599.not = icmp eq i64 %indvars.iv.next596, %87
-  br i1 %exitcond599.not, label %._crit_edge443, label %.lr.ph442, !llvm.loop !66
+  br i1 %exitcond599.not, label %._crit_edge443, label %.lr.ph442, !llvm.loop !67
 
 ._crit_edge443:                                   ; preds = %.lr.ph442, %.loopexit394
   %122 = getelementptr inbounds i8, ptr %.5444, i64 %87
   %123 = add nuw nsw i32 %.0323445, 1
   %exitcond600.not = icmp eq i32 %123, %2
-  br i1 %exitcond600.not, label %.preheader392, label %.preheader395, !llvm.loop !67
+  br i1 %exitcond600.not, label %.preheader392, label %.preheader395, !llvm.loop !68
 
 .preheader391:                                    ; preds = %.preheader391.lr.ph, %._crit_edge460
   %.1324463 = phi i32 [ %.0323.lcssa, %.preheader391.lr.ph ], [ %155, %._crit_edge460 ]
@@ -1115,7 +1115,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %.pre670, ptr %124, align 1, !tbaa !60
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %exitcond605.not = icmp eq i64 %indvars.iv.next602, %wide.trip.count604
-  br i1 %exitcond605.not, label %._crit_edge450, label %.lr.ph449, !llvm.loop !68
+  br i1 %exitcond605.not, label %._crit_edge450, label %.lr.ph449, !llvm.loop !69
 
 ._crit_edge450:                                   ; preds = %.lr.ph449, %.preheader391
   %.0315.lcssa = phi i32 [ 0, %.preheader391 ], [ %3, %.lr.ph449 ]
@@ -1144,7 +1144,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %135 = add nsw i32 %134, %3
   %136 = sext i32 %135 to i64
   %137 = icmp slt i64 %indvars.iv.next607, %136
-  br i1 %137, label %.lr.ph453, label %.loopexit390.loopexit, !llvm.loop !69
+  br i1 %137, label %.lr.ph453, label %.loopexit390.loopexit, !llvm.loop !70
 
 138:                                              ; preds = %._crit_edge450
   %139 = getelementptr inbounds i8, ptr %.6462, i64 %94
@@ -1179,7 +1179,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %149, ptr %150, align 1, !tbaa !60
   %indvars.iv.next610 = add nsw i64 %indvars.iv609, 1
   %exitcond613.not = icmp eq i64 %indvars.iv.next610, %95
-  br i1 %exitcond613.not, label %._crit_edge460.loopexit, label %.lr.ph459, !llvm.loop !70
+  br i1 %exitcond613.not, label %._crit_edge460.loopexit, label %.lr.ph459, !llvm.loop !71
 
 ._crit_edge460.loopexit:                          ; preds = %.lr.ph459
   %.pre671 = load i32, ptr %93, align 4, !tbaa !46
@@ -1194,7 +1194,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %156 = load i32, ptr %88, align 8, !tbaa !47
   %157 = add nsw i32 %156, %2
   %158 = icmp slt i32 %155, %157
-  br i1 %158, label %.preheader391, label %._crit_edge464, !llvm.loop !71
+  br i1 %158, label %.preheader391, label %._crit_edge464, !llvm.loop !72
 
 ._crit_edge464:                                   ; preds = %._crit_edge460, %.preheader392.._crit_edge464_crit_edge
   %.pre-phi = phi i64 [ %.pre680, %.preheader392.._crit_edge464_crit_edge ], [ %152, %._crit_edge460 ]
@@ -1230,7 +1230,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %.pre673, ptr %166, align 1, !tbaa !60
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
   %exitcond618.not = icmp eq i64 %indvars.iv.next615, %wide.trip.count617
-  br i1 %exitcond618.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !72
+  br i1 %exitcond618.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !73
 
 ._crit_edge470:                                   ; preds = %.lr.ph469, %.preheader387
   %.0311.lcssa = phi i32 [ 0, %.preheader387 ], [ %3, %.lr.ph469 ]
@@ -1259,7 +1259,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %177 = add nsw i32 %176, %3
   %178 = sext i32 %177 to i64
   %179 = icmp slt i64 %indvars.iv.next620, %178
-  br i1 %179, label %.lr.ph473, label %.loopexit386.loopexit, !llvm.loop !73
+  br i1 %179, label %.lr.ph473, label %.loopexit386.loopexit, !llvm.loop !74
 
 180:                                              ; preds = %._crit_edge470
   %181 = getelementptr inbounds i8, ptr %.7481, i64 %164
@@ -1292,13 +1292,13 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %190, ptr %191, align 1, !tbaa !60
   %indvars.iv.next623 = add nsw i64 %indvars.iv622, 1
   %exitcond626.not = icmp eq i64 %indvars.iv.next623, %165
-  br i1 %exitcond626.not, label %._crit_edge480, label %.lr.ph479, !llvm.loop !74
+  br i1 %exitcond626.not, label %._crit_edge480, label %.lr.ph479, !llvm.loop !75
 
 ._crit_edge480:                                   ; preds = %.lr.ph479, %.loopexit386
   %192 = getelementptr inbounds i8, ptr %.7481, i64 %165
   %193 = add nuw nsw i32 %.2325482, 1
   %exitcond627.not = icmp eq i32 %193, %10
-  br i1 %exitcond627.not, label %.loopexit388, label %.preheader387, !llvm.loop !75
+  br i1 %exitcond627.not, label %.loopexit388, label %.preheader387, !llvm.loop !76
 
 .loopexit388:                                     ; preds = %._crit_edge480, %._crit_edge464, %.loopexit399
   %.2341 = phi ptr [ %.0339, %.loopexit399 ], [ %161, %._crit_edge464 ], [ %161, %._crit_edge480 ]
@@ -1356,7 +1356,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %216, ptr %217, align 1, !tbaa !60
   %indvars.iv.next629 = add nuw nsw i64 %indvars.iv628, 1
   %exitcond632.not = icmp eq i64 %indvars.iv.next629, %wide.trip.count631
-  br i1 %exitcond632.not, label %._crit_edge486.loopexit, label %.lr.ph485, !llvm.loop !76
+  br i1 %exitcond632.not, label %._crit_edge486.loopexit, label %.lr.ph485, !llvm.loop !77
 
 ._crit_edge486.loopexit:                          ; preds = %.lr.ph485
   %.pre674 = load i32, ptr %196, align 4, !tbaa !46
@@ -1389,7 +1389,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %228 = add nsw i32 %227, %3
   %229 = sext i32 %228 to i64
   %230 = icmp slt i64 %indvars.iv.next634, %229
-  br i1 %230, label %.lr.ph489, label %.loopexit383.loopexit, !llvm.loop !77
+  br i1 %230, label %.lr.ph489, label %.loopexit383.loopexit, !llvm.loop !78
 
 231:                                              ; preds = %._crit_edge486
   %232 = getelementptr inbounds i8, ptr %.8498, i64 %203
@@ -1428,7 +1428,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %244, ptr %245, align 1, !tbaa !60
   %indvars.iv.next637 = add nsw i64 %indvars.iv636, 1
   %exitcond640.not = icmp eq i64 %indvars.iv.next637, %204
-  br i1 %exitcond640.not, label %._crit_edge496.loopexit, label %.lr.ph495, !llvm.loop !78
+  br i1 %exitcond640.not, label %._crit_edge496.loopexit, label %.lr.ph495, !llvm.loop !79
 
 ._crit_edge496.loopexit:                          ; preds = %.lr.ph495
   %.pre675 = load i32, ptr %196, align 4, !tbaa !46
@@ -1442,7 +1442,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %250 = getelementptr inbounds i8, ptr %.4343497, i64 %249
   %251 = add nuw nsw i32 %.0308499, 1
   %exitcond641.not = icmp eq i32 %251, %2
-  br i1 %exitcond641.not, label %.preheader381, label %.preheader384, !llvm.loop !79
+  br i1 %exitcond641.not, label %.preheader381, label %.preheader384, !llvm.loop !80
 
 .preheader380:                                    ; preds = %.preheader380.lr.ph, %._crit_edge515
   %252 = phi i32 [ %206, %.preheader380.lr.ph ], [ %285, %._crit_edge515 ]
@@ -1460,7 +1460,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %255, ptr %256, align 1, !tbaa !60
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv642, 1
   %exitcond646.not = icmp eq i64 %indvars.iv.next643, %wide.trip.count645
-  br i1 %exitcond646.not, label %._crit_edge505.loopexit, label %.lr.ph504, !llvm.loop !80
+  br i1 %exitcond646.not, label %._crit_edge505.loopexit, label %.lr.ph504, !llvm.loop !81
 
 ._crit_edge505.loopexit:                          ; preds = %.lr.ph504
   %.pre676 = load i32, ptr %196, align 4, !tbaa !46
@@ -1493,7 +1493,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %267 = add nsw i32 %266, %3
   %268 = sext i32 %267 to i64
   %269 = icmp slt i64 %indvars.iv.next648, %268
-  br i1 %269, label %.lr.ph508, label %.loopexit379.loopexit, !llvm.loop !81
+  br i1 %269, label %.lr.ph508, label %.loopexit379.loopexit, !llvm.loop !82
 
 270:                                              ; preds = %._crit_edge505
   %271 = getelementptr inbounds i8, ptr %.9517, i64 %212
@@ -1532,7 +1532,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %283, ptr %284, align 1, !tbaa !60
   %indvars.iv.next651 = add nsw i64 %indvars.iv650, 1
   %exitcond654.not = icmp eq i64 %indvars.iv.next651, %213
-  br i1 %exitcond654.not, label %._crit_edge515.loopexit, label %.lr.ph514, !llvm.loop !82
+  br i1 %exitcond654.not, label %._crit_edge515.loopexit, label %.lr.ph514, !llvm.loop !83
 
 ._crit_edge515.loopexit:                          ; preds = %.lr.ph514
   %.pre677 = load i32, ptr %196, align 4, !tbaa !46
@@ -1547,7 +1547,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %290 = load i32, ptr %207, align 8, !tbaa !47
   %291 = add nsw i32 %290, %2
   %292 = icmp slt i32 %289, %291
-  br i1 %292, label %.preheader380, label %._crit_edge519, !llvm.loop !83
+  br i1 %292, label %.preheader380, label %._crit_edge519, !llvm.loop !84
 
 ._crit_edge519:                                   ; preds = %._crit_edge515, %.preheader381
   %293 = phi i32 [ %206, %.preheader381 ], [ %285, %._crit_edge515 ]
@@ -1584,7 +1584,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %305, ptr %306, align 1, !tbaa !60
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
   %exitcond659.not = icmp eq i64 %indvars.iv.next656, %wide.trip.count658
-  br i1 %exitcond659.not, label %._crit_edge525.loopexit, label %.lr.ph524, !llvm.loop !84
+  br i1 %exitcond659.not, label %._crit_edge525.loopexit, label %.lr.ph524, !llvm.loop !85
 
 ._crit_edge525.loopexit:                          ; preds = %.lr.ph524
   %.pre678 = load i32, ptr %196, align 4, !tbaa !46
@@ -1617,7 +1617,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %317 = add nsw i32 %316, %3
   %318 = sext i32 %317 to i64
   %319 = icmp slt i64 %indvars.iv.next661, %318
-  br i1 %319, label %.lr.ph528, label %.loopexit.loopexit, !llvm.loop !85
+  br i1 %319, label %.lr.ph528, label %.loopexit.loopexit, !llvm.loop !86
 
 320:                                              ; preds = %._crit_edge525
   %321 = getelementptr inbounds i8, ptr %.10537, i64 %300
@@ -1656,7 +1656,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   store i8 %333, ptr %334, align 1, !tbaa !60
   %indvars.iv.next664 = add nsw i64 %indvars.iv663, 1
   %exitcond667.not = icmp eq i64 %indvars.iv.next664, %301
-  br i1 %exitcond667.not, label %._crit_edge535.loopexit, label %.lr.ph534, !llvm.loop !86
+  br i1 %exitcond667.not, label %._crit_edge535.loopexit, label %.lr.ph534, !llvm.loop !87
 
 ._crit_edge535.loopexit:                          ; preds = %.lr.ph534
   %.pre679 = load i32, ptr %196, align 4, !tbaa !46
@@ -1670,7 +1670,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIaEEvRKNS_3MatERS1
   %339 = getelementptr inbounds i8, ptr %.6345536, i64 %338
   %340 = add nuw nsw i32 %.2310538, 1
   %exitcond668.not = icmp eq i32 %340, %10
-  br i1 %exitcond668.not, label %.loopexit377, label %.preheader376, !llvm.loop !87
+  br i1 %exitcond668.not, label %.loopexit377, label %.preheader376, !llvm.loop !88
 
 .loopexit377:                                     ; preds = %._crit_edge535, %._crit_edge519, %.loopexit388
   ret void
@@ -1717,16 +1717,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
 22:                                               ; preds = %.preheader404.us, %22
   %indvars.iv = phi i64 [ 0, %.preheader404.us ], [ %indvars.iv.next, %22 ]
   %23 = getelementptr inbounds nuw i16, ptr %.1336407.us, i64 %indvars.iv
-  store i16 %5, ptr %23, align 2, !tbaa !88
+  store i16 %5, ptr %23, align 2, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !90
+  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !91
 
 ._crit_edge.us:                                   ; preds = %22
   %24 = getelementptr inbounds nuw i16, ptr %.1336407.us, i64 %16
   %25 = add nuw nsw i32 %.0332408.us, 1
   %exitcond580.not = icmp eq i32 %25, %2
-  br i1 %exitcond580.not, label %.preheader403, label %.preheader404.us, !llvm.loop !91
+  br i1 %exitcond580.not, label %.preheader403, label %.preheader404.us, !llvm.loop !92
 
 .preheader403:                                    ; preds = %._crit_edge.us, %.preheader404.preheader, %.preheader405
   %.1336.lcssa = phi ptr [ %12, %.preheader405 ], [ %scevgep, %.preheader404.preheader ], [ %24, %._crit_edge.us ]
@@ -1785,24 +1785,24 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
 43:                                               ; preds = %.preheader397.us, %43
   %indvars.iv600 = phi i64 [ 0, %.preheader397.us ], [ %indvars.iv.next601, %43 ]
   %44 = getelementptr inbounds nuw i16, ptr %.3338429.us, i64 %indvars.iv600
-  store i16 %5, ptr %44, align 2, !tbaa !88
+  store i16 %5, ptr %44, align 2, !tbaa !89
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond604.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count603
-  br i1 %exitcond604.not, label %._crit_edge428.us, label %43, !llvm.loop !93
+  br i1 %exitcond604.not, label %._crit_edge428.us, label %43, !llvm.loop !94
 
 ._crit_edge428.us:                                ; preds = %43
   %45 = getelementptr inbounds nuw i16, ptr %.3338429.us, i64 %36
   %46 = add nuw nsw i32 %.2334430.us, 1
   %exitcond605.not = icmp eq i32 %46, %10
-  br i1 %exitcond605.not, label %.loopexit399, label %.preheader397.us, !llvm.loop !94
+  br i1 %exitcond605.not, label %.loopexit399, label %.preheader397.us, !llvm.loop !95
 
 .lr.ph:                                           ; preds = %.preheader402, %.lr.ph
   %indvars.iv581 = phi i64 [ %indvars.iv.next582, %.lr.ph ], [ 0, %.preheader402 ]
   %47 = getelementptr inbounds nuw i16, ptr %.2337421, i64 %indvars.iv581
-  store i16 %5, ptr %47, align 2, !tbaa !88
+  store i16 %5, ptr %47, align 2, !tbaa !89
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond585.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count584
-  br i1 %exitcond585.not, label %._crit_edge, label %.lr.ph, !llvm.loop !95
+  br i1 %exitcond585.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader402
   %.0327.lcssa = phi i32 [ 0, %.preheader402 ], [ %3, %.lr.ph ]
@@ -1824,12 +1824,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv589 = phi i64 [ %52, %.lr.ph414.preheader ], [ %indvars.iv.next590, %.lr.ph414 ]
   %53 = sub nsw i64 %indvars.iv589, %32
   %54 = getelementptr inbounds i16, ptr %.1340420, i64 %53
-  %55 = load i16, ptr %54, align 2, !tbaa !88
+  %55 = load i16, ptr %54, align 2, !tbaa !89
   %56 = getelementptr inbounds nuw i16, ptr %.2337421, i64 %indvars.iv589
-  store i16 %55, ptr %56, align 2, !tbaa !88
+  store i16 %55, ptr %56, align 2, !tbaa !89
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 1
   %exitcond593.not = icmp eq i64 %indvars.iv.next590, %wide.trip.count592
-  br i1 %exitcond593.not, label %.loopexit401, label %.lr.ph414, !llvm.loop !96
+  br i1 %exitcond593.not, label %.loopexit401, label %.lr.ph414, !llvm.loop !97
 
 57:                                               ; preds = %._crit_edge
   %58 = getelementptr inbounds i16, ptr %.2337421, i64 %32
@@ -1853,10 +1853,10 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
 .lr.ph418:                                        ; preds = %.lr.ph418.preheader, %.lr.ph418
   %indvars.iv594 = phi i64 [ %65, %.lr.ph418.preheader ], [ %indvars.iv.next595, %.lr.ph418 ]
   %66 = getelementptr inbounds i16, ptr %.2337421, i64 %indvars.iv594
-  store i16 %5, ptr %66, align 2, !tbaa !88
+  store i16 %5, ptr %66, align 2, !tbaa !89
   %indvars.iv.next595 = add nsw i64 %indvars.iv594, 1
   %exitcond598.not = icmp eq i64 %indvars.iv.next595, %33
-  br i1 %exitcond598.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !97
+  br i1 %exitcond598.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !98
 
 ._crit_edge419:                                   ; preds = %.lr.ph418, %.loopexit401
   %67 = sext i32 %63 to i64
@@ -1866,7 +1866,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %71 = load i32, ptr %26, align 8, !tbaa !47
   %72 = add nsw i32 %71, %2
   %73 = icmp slt i32 %70, %72
-  br i1 %73, label %.preheader402, label %.preheader398, !llvm.loop !98
+  br i1 %73, label %.preheader402, label %.preheader398, !llvm.loop !99
 
 .loopexit399:                                     ; preds = %._crit_edge428.us, %.preheader397.preheader, %.preheader398, %6
   %.0339 = phi ptr [ %11, %6 ], [ %.1340.lcssa, %.preheader398 ], [ %.1340.lcssa, %.preheader397.preheader ], [ %.1340.lcssa, %._crit_edge428.us ]
@@ -1893,7 +1893,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   br i1 %76, label %.lr.ph434.preheader, label %._crit_edge435
 
 .lr.ph434.preheader:                              ; preds = %.preheader395
-  %.pre = load i16, ptr %.0339, align 2, !tbaa !88
+  %.pre = load i16, ptr %.0339, align 2, !tbaa !89
   br label %.lr.ph434
 
 .preheader392:                                    ; preds = %._crit_edge443, %.preheader396
@@ -1922,10 +1922,10 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %.lr.ph434
   %indvars.iv606 = phi i64 [ 0, %.lr.ph434.preheader ], [ %indvars.iv.next607, %.lr.ph434 ]
   %88 = getelementptr inbounds nuw i16, ptr %.5444, i64 %indvars.iv606
-  store i16 %.pre, ptr %88, align 2, !tbaa !88
+  store i16 %.pre, ptr %88, align 2, !tbaa !89
   %indvars.iv.next607 = add nuw nsw i64 %indvars.iv606, 1
   %exitcond610.not = icmp eq i64 %indvars.iv.next607, %wide.trip.count609
-  br i1 %exitcond610.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !99
+  br i1 %exitcond610.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !100
 
 ._crit_edge435:                                   ; preds = %.lr.ph434, %.preheader395
   %.0319.lcssa = phi i32 [ 0, %.preheader395 ], [ %3, %.lr.ph434 ]
@@ -1947,12 +1947,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv614 = phi i64 [ %93, %.lr.ph438.preheader ], [ %indvars.iv.next615, %.lr.ph438 ]
   %94 = sub nsw i64 %indvars.iv614, %78
   %95 = getelementptr inbounds i16, ptr %.0339, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !88
+  %96 = load i16, ptr %95, align 2, !tbaa !89
   %97 = getelementptr inbounds nuw i16, ptr %.5444, i64 %indvars.iv614
-  store i16 %96, ptr %97, align 2, !tbaa !88
+  store i16 %96, ptr %97, align 2, !tbaa !89
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
   %exitcond618.not = icmp eq i64 %indvars.iv.next615, %wide.trip.count617
-  br i1 %exitcond618.not, label %.loopexit394, label %.lr.ph438, !llvm.loop !100
+  br i1 %exitcond618.not, label %.loopexit394, label %.lr.ph438, !llvm.loop !101
 
 98:                                               ; preds = %._crit_edge435
   %99 = getelementptr inbounds i16, ptr %.5444, i64 %78
@@ -1973,22 +1973,22 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %106 = sext i32 %104 to i64
   %gep = getelementptr i16, ptr %invariant.gep, i64 %106
   %107 = sext i32 %.2321 to i64
-  %.pre718 = load i16, ptr %gep, align 2, !tbaa !88
+  %.pre718 = load i16, ptr %gep, align 2, !tbaa !89
   br label %108
 
 108:                                              ; preds = %.lr.ph442, %108
   %indvars.iv619 = phi i64 [ %107, %.lr.ph442 ], [ %indvars.iv.next620, %108 ]
   %109 = getelementptr inbounds i16, ptr %.5444, i64 %indvars.iv619
-  store i16 %.pre718, ptr %109, align 2, !tbaa !88
+  store i16 %.pre718, ptr %109, align 2, !tbaa !89
   %indvars.iv.next620 = add nsw i64 %indvars.iv619, 1
   %exitcond623.not = icmp eq i64 %indvars.iv.next620, %79
-  br i1 %exitcond623.not, label %._crit_edge443, label %108, !llvm.loop !101
+  br i1 %exitcond623.not, label %._crit_edge443, label %108, !llvm.loop !102
 
 ._crit_edge443:                                   ; preds = %108, %.loopexit394
   %110 = getelementptr inbounds i16, ptr %.5444, i64 %79
   %111 = add nuw nsw i32 %.0323445, 1
   %exitcond624.not = icmp eq i32 %111, %2
-  br i1 %exitcond624.not, label %.preheader392, label %.preheader395, !llvm.loop !102
+  br i1 %exitcond624.not, label %.preheader392, label %.preheader395, !llvm.loop !103
 
 .preheader391:                                    ; preds = %.preheader391.lr.ph, %._crit_edge460
   %.1324463 = phi i32 [ %.0323.lcssa, %.preheader391.lr.ph ], [ %136, %._crit_edge460 ]
@@ -1997,16 +1997,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   br i1 %84, label %.lr.ph449.preheader, label %._crit_edge450
 
 .lr.ph449.preheader:                              ; preds = %.preheader391
-  %.pre719 = load i16, ptr %.3342461, align 2, !tbaa !88
+  %.pre719 = load i16, ptr %.3342461, align 2, !tbaa !89
   br label %.lr.ph449
 
 .lr.ph449:                                        ; preds = %.lr.ph449.preheader, %.lr.ph449
   %indvars.iv625 = phi i64 [ 0, %.lr.ph449.preheader ], [ %indvars.iv.next626, %.lr.ph449 ]
   %112 = getelementptr inbounds nuw i16, ptr %.6462, i64 %indvars.iv625
-  store i16 %.pre719, ptr %112, align 2, !tbaa !88
+  store i16 %.pre719, ptr %112, align 2, !tbaa !89
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond629.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count628
-  br i1 %exitcond629.not, label %._crit_edge450, label %.lr.ph449, !llvm.loop !103
+  br i1 %exitcond629.not, label %._crit_edge450, label %.lr.ph449, !llvm.loop !104
 
 ._crit_edge450:                                   ; preds = %.lr.ph449, %.preheader391
   %.0315.lcssa = phi i32 [ 0, %.preheader391 ], [ %3, %.lr.ph449 ]
@@ -2028,12 +2028,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv633 = phi i64 [ %117, %.lr.ph453.preheader ], [ %indvars.iv.next634, %.lr.ph453 ]
   %118 = sub nsw i64 %indvars.iv633, %86
   %119 = getelementptr inbounds i16, ptr %.3342461, i64 %118
-  %120 = load i16, ptr %119, align 2, !tbaa !88
+  %120 = load i16, ptr %119, align 2, !tbaa !89
   %121 = getelementptr inbounds nuw i16, ptr %.6462, i64 %indvars.iv633
-  store i16 %120, ptr %121, align 2, !tbaa !88
+  store i16 %120, ptr %121, align 2, !tbaa !89
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond637.not = icmp eq i64 %indvars.iv.next634, %wide.trip.count636
-  br i1 %exitcond637.not, label %.loopexit390, label %.lr.ph453, !llvm.loop !104
+  br i1 %exitcond637.not, label %.loopexit390, label %.lr.ph453, !llvm.loop !105
 
 122:                                              ; preds = %._crit_edge450
   %123 = getelementptr inbounds i16, ptr %.6462, i64 %86
@@ -2059,16 +2059,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %130 = sext i32 %128 to i64
   %gep456 = getelementptr i16, ptr %invariant.gep455, i64 %130
   %131 = sext i32 %.2317 to i64
-  %.pre720 = load i16, ptr %gep456, align 2, !tbaa !88
+  %.pre720 = load i16, ptr %gep456, align 2, !tbaa !89
   br label %132
 
 132:                                              ; preds = %.lr.ph459, %132
   %indvars.iv638 = phi i64 [ %131, %.lr.ph459 ], [ %indvars.iv.next639, %132 ]
   %133 = getelementptr inbounds i16, ptr %.6462, i64 %indvars.iv638
-  store i16 %.pre720, ptr %133, align 2, !tbaa !88
+  store i16 %.pre720, ptr %133, align 2, !tbaa !89
   %indvars.iv.next639 = add nsw i64 %indvars.iv638, 1
   %exitcond642.not = icmp eq i64 %indvars.iv.next639, %87
-  br i1 %exitcond642.not, label %._crit_edge460, label %132, !llvm.loop !105
+  br i1 %exitcond642.not, label %._crit_edge460, label %132, !llvm.loop !106
 
 ._crit_edge460:                                   ; preds = %132, %.loopexit390.._crit_edge460_crit_edge
   %.pre-phi726 = phi i64 [ %.pre725, %.loopexit390.._crit_edge460_crit_edge ], [ %130, %132 ]
@@ -2078,7 +2078,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %137 = load i32, ptr %80, align 8, !tbaa !47
   %138 = add nsw i32 %137, %2
   %139 = icmp slt i32 %136, %138
-  br i1 %139, label %.preheader391, label %._crit_edge464, !llvm.loop !106
+  br i1 %139, label %.preheader391, label %._crit_edge464, !llvm.loop !107
 
 ._crit_edge464:                                   ; preds = %._crit_edge460, %.preheader392.._crit_edge464_crit_edge
   %.pre-phi = phi i64 [ %.pre724, %.preheader392.._crit_edge464_crit_edge ], [ %.pre-phi726, %._crit_edge460 ]
@@ -2108,16 +2108,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   br i1 %145, label %.lr.ph469.preheader, label %._crit_edge470
 
 .lr.ph469.preheader:                              ; preds = %.preheader387
-  %.pre722 = load i16, ptr %143, align 2, !tbaa !88
+  %.pre722 = load i16, ptr %143, align 2, !tbaa !89
   br label %.lr.ph469
 
 .lr.ph469:                                        ; preds = %.lr.ph469.preheader, %.lr.ph469
   %indvars.iv643 = phi i64 [ 0, %.lr.ph469.preheader ], [ %indvars.iv.next644, %.lr.ph469 ]
   %150 = getelementptr inbounds nuw i16, ptr %.7481, i64 %indvars.iv643
-  store i16 %.pre722, ptr %150, align 2, !tbaa !88
+  store i16 %.pre722, ptr %150, align 2, !tbaa !89
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond647.not = icmp eq i64 %indvars.iv.next644, %wide.trip.count646
-  br i1 %exitcond647.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !107
+  br i1 %exitcond647.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !108
 
 ._crit_edge470:                                   ; preds = %.lr.ph469, %.preheader387
   %.0311.lcssa = phi i32 [ 0, %.preheader387 ], [ %3, %.lr.ph469 ]
@@ -2138,12 +2138,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv651 = phi i64 [ %154, %.lr.ph473.preheader ], [ %indvars.iv.next652, %.lr.ph473 ]
   %155 = sub nsw i64 %indvars.iv651, %146
   %156 = getelementptr inbounds i16, ptr %143, i64 %155
-  %157 = load i16, ptr %156, align 2, !tbaa !88
+  %157 = load i16, ptr %156, align 2, !tbaa !89
   %158 = getelementptr inbounds nuw i16, ptr %.7481, i64 %indvars.iv651
-  store i16 %157, ptr %158, align 2, !tbaa !88
+  store i16 %157, ptr %158, align 2, !tbaa !89
   %indvars.iv.next652 = add nuw nsw i64 %indvars.iv651, 1
   %exitcond655.not = icmp eq i64 %indvars.iv.next652, %wide.trip.count654
-  br i1 %exitcond655.not, label %.loopexit386, label %.lr.ph473, !llvm.loop !108
+  br i1 %exitcond655.not, label %.loopexit386, label %.lr.ph473, !llvm.loop !109
 
 159:                                              ; preds = %._crit_edge470
   %160 = getelementptr inbounds i16, ptr %.7481, i64 %146
@@ -2165,23 +2165,23 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %168 = sext i32 %165 to i64
   %gep476 = getelementptr i16, ptr %invariant.gep475, i64 %168
   %169 = sext i32 %.2313 to i64
-  %.pre723 = load i16, ptr %gep476, align 2, !tbaa !88
+  %.pre723 = load i16, ptr %gep476, align 2, !tbaa !89
   br label %170
 
 170:                                              ; preds = %.lr.ph479, %170
   %indvars.iv656 = phi i64 [ %169, %.lr.ph479 ], [ %indvars.iv.next657, %170 ]
   %171 = getelementptr inbounds i16, ptr %.7481, i64 %indvars.iv656
-  store i16 %.pre723, ptr %171, align 2, !tbaa !88
+  store i16 %.pre723, ptr %171, align 2, !tbaa !89
   %indvars.iv.next657 = add nsw i64 %indvars.iv656, 1
   %exitcond660.not = icmp eq i64 %indvars.iv.next657, %147
-  br i1 %exitcond660.not, label %._crit_edge480, label %170, !llvm.loop !109
+  br i1 %exitcond660.not, label %._crit_edge480, label %170, !llvm.loop !110
 
 ._crit_edge480:                                   ; preds = %170, %.loopexit386
   %172 = phi i32 [ %166, %.loopexit386 ], [ %165, %170 ]
   %173 = getelementptr inbounds i16, ptr %.7481, i64 %147
   %174 = add nuw nsw i32 %.2325482, 1
   %exitcond661.not = icmp eq i32 %174, %10
-  br i1 %exitcond661.not, label %.loopexit388, label %.preheader387, !llvm.loop !110
+  br i1 %exitcond661.not, label %.loopexit388, label %.preheader387, !llvm.loop !111
 
 .loopexit388:                                     ; preds = %._crit_edge480, %._crit_edge464, %.loopexit399
   %.2341 = phi ptr [ %.0339, %.loopexit399 ], [ %143, %._crit_edge464 ], [ %143, %._crit_edge480 ]
@@ -2234,12 +2234,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv662 = phi i64 [ %indvars.iv.next663, %.lr.ph485 ], [ 0, %.preheader384 ]
   %195 = sub nsw i64 %184, %indvars.iv662
   %196 = getelementptr inbounds nuw i16, ptr %.4343497, i64 %195
-  %197 = load i16, ptr %196, align 2, !tbaa !88
+  %197 = load i16, ptr %196, align 2, !tbaa !89
   %198 = getelementptr inbounds nuw i16, ptr %.8498, i64 %indvars.iv662
-  store i16 %197, ptr %198, align 2, !tbaa !88
+  store i16 %197, ptr %198, align 2, !tbaa !89
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %exitcond666.not = icmp eq i64 %indvars.iv.next663, %wide.trip.count665
-  br i1 %exitcond666.not, label %._crit_edge486, label %.lr.ph485, !llvm.loop !111
+  br i1 %exitcond666.not, label %._crit_edge486, label %.lr.ph485, !llvm.loop !112
 
 ._crit_edge486:                                   ; preds = %.lr.ph485, %.preheader384
   %.0304.lcssa = phi i32 [ 0, %.preheader384 ], [ %3, %.lr.ph485 ]
@@ -2260,12 +2260,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv670 = phi i64 [ %202, %.lr.ph489.preheader ], [ %indvars.iv.next671, %.lr.ph489 ]
   %203 = sub nsw i64 %indvars.iv670, %184
   %204 = getelementptr inbounds i16, ptr %.4343497, i64 %203
-  %205 = load i16, ptr %204, align 2, !tbaa !88
+  %205 = load i16, ptr %204, align 2, !tbaa !89
   %206 = getelementptr inbounds nuw i16, ptr %.8498, i64 %indvars.iv670
-  store i16 %205, ptr %206, align 2, !tbaa !88
+  store i16 %205, ptr %206, align 2, !tbaa !89
   %indvars.iv.next671 = add nuw nsw i64 %indvars.iv670, 1
   %exitcond674.not = icmp eq i64 %indvars.iv.next671, %wide.trip.count673
-  br i1 %exitcond674.not, label %.loopexit383, label %.lr.ph489, !llvm.loop !112
+  br i1 %exitcond674.not, label %.loopexit383, label %.lr.ph489, !llvm.loop !113
 
 207:                                              ; preds = %._crit_edge486
   %208 = getelementptr inbounds i16, ptr %.8498, i64 %184
@@ -2295,12 +2295,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %.reass = sub i32 %invariant.op, %217
   %218 = sext i32 %.reass to i64
   %gep492 = getelementptr i16, ptr %invariant.gep491, i64 %218
-  %219 = load i16, ptr %gep492, align 2, !tbaa !88
+  %219 = load i16, ptr %gep492, align 2, !tbaa !89
   %220 = getelementptr inbounds i16, ptr %.8498, i64 %indvars.iv675
-  store i16 %219, ptr %220, align 2, !tbaa !88
+  store i16 %219, ptr %220, align 2, !tbaa !89
   %indvars.iv.next676 = add nsw i64 %indvars.iv675, 1
   %exitcond679.not = icmp eq i64 %indvars.iv.next676, %185
-  br i1 %exitcond679.not, label %._crit_edge496, label %216, !llvm.loop !113
+  br i1 %exitcond679.not, label %._crit_edge496, label %216, !llvm.loop !114
 
 ._crit_edge496:                                   ; preds = %216, %.loopexit383
   %221 = getelementptr inbounds i16, ptr %.8498, i64 %185
@@ -2309,7 +2309,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %224 = getelementptr inbounds i16, ptr %.4343497, i64 %223
   %225 = add nuw nsw i32 %.0308499, 1
   %exitcond680.not = icmp eq i32 %225, %2
-  br i1 %exitcond680.not, label %.preheader381, label %.preheader384, !llvm.loop !114
+  br i1 %exitcond680.not, label %.preheader381, label %.preheader384, !llvm.loop !115
 
 .preheader380:                                    ; preds = %.preheader380.lr.ph, %._crit_edge515
   %226 = phi i32 [ %187, %.preheader380.lr.ph ], [ %245, %._crit_edge515 ]
@@ -2322,12 +2322,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv681 = phi i64 [ %indvars.iv.next682, %.lr.ph504 ], [ 0, %.preheader380 ]
   %227 = sub nsw i64 %193, %indvars.iv681
   %228 = getelementptr inbounds nuw i16, ptr %.5344518, i64 %227
-  %229 = load i16, ptr %228, align 2, !tbaa !88
+  %229 = load i16, ptr %228, align 2, !tbaa !89
   %230 = getelementptr inbounds nuw i16, ptr %.9519, i64 %indvars.iv681
-  store i16 %229, ptr %230, align 2, !tbaa !88
+  store i16 %229, ptr %230, align 2, !tbaa !89
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
   %exitcond685.not = icmp eq i64 %indvars.iv.next682, %wide.trip.count684
-  br i1 %exitcond685.not, label %._crit_edge505, label %.lr.ph504, !llvm.loop !115
+  br i1 %exitcond685.not, label %._crit_edge505, label %.lr.ph504, !llvm.loop !116
 
 ._crit_edge505:                                   ; preds = %.lr.ph504, %.preheader380
   %.0300.lcssa = phi i32 [ 0, %.preheader380 ], [ %3, %.lr.ph504 ]
@@ -2348,12 +2348,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv689 = phi i64 [ %234, %.lr.ph508.preheader ], [ %indvars.iv.next690, %.lr.ph508 ]
   %235 = sub nsw i64 %indvars.iv689, %193
   %236 = getelementptr inbounds i16, ptr %.5344518, i64 %235
-  %237 = load i16, ptr %236, align 2, !tbaa !88
+  %237 = load i16, ptr %236, align 2, !tbaa !89
   %238 = getelementptr inbounds nuw i16, ptr %.9519, i64 %indvars.iv689
-  store i16 %237, ptr %238, align 2, !tbaa !88
+  store i16 %237, ptr %238, align 2, !tbaa !89
   %indvars.iv.next690 = add nuw nsw i64 %indvars.iv689, 1
   %exitcond693.not = icmp eq i64 %indvars.iv.next690, %wide.trip.count692
-  br i1 %exitcond693.not, label %.loopexit379, label %.lr.ph508, !llvm.loop !116
+  br i1 %exitcond693.not, label %.loopexit379, label %.lr.ph508, !llvm.loop !117
 
 239:                                              ; preds = %._crit_edge505
   %240 = getelementptr inbounds i16, ptr %.9519, i64 %193
@@ -2383,12 +2383,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %.reass517 = sub i32 %invariant.op516, %249
   %250 = sext i32 %.reass517 to i64
   %gep511 = getelementptr i16, ptr %invariant.gep510, i64 %250
-  %251 = load i16, ptr %gep511, align 2, !tbaa !88
+  %251 = load i16, ptr %gep511, align 2, !tbaa !89
   %252 = getelementptr inbounds i16, ptr %.9519, i64 %indvars.iv694
-  store i16 %251, ptr %252, align 2, !tbaa !88
+  store i16 %251, ptr %252, align 2, !tbaa !89
   %indvars.iv.next695 = add nsw i64 %indvars.iv694, 1
   %exitcond698.not = icmp eq i64 %indvars.iv.next695, %194
-  br i1 %exitcond698.not, label %._crit_edge515, label %248, !llvm.loop !117
+  br i1 %exitcond698.not, label %._crit_edge515, label %248, !llvm.loop !118
 
 ._crit_edge515:                                   ; preds = %248, %.loopexit379
   %253 = sext i32 %245 to i64
@@ -2398,7 +2398,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %257 = load i32, ptr %188, align 8, !tbaa !47
   %258 = add nsw i32 %257, %2
   %259 = icmp slt i32 %256, %258
-  br i1 %259, label %.preheader380, label %._crit_edge521, !llvm.loop !118
+  br i1 %259, label %.preheader380, label %._crit_edge521, !llvm.loop !119
 
 ._crit_edge521:                                   ; preds = %._crit_edge515, %.preheader381
   %260 = phi i32 [ %187, %.preheader381 ], [ %245, %._crit_edge515 ]
@@ -2430,12 +2430,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv699 = phi i64 [ %indvars.iv.next700, %.lr.ph526 ], [ 0, %.preheader376 ]
   %270 = sub nsw i64 %267, %indvars.iv699
   %271 = getelementptr inbounds nuw i16, ptr %.6345540, i64 %270
-  %272 = load i16, ptr %271, align 2, !tbaa !88
+  %272 = load i16, ptr %271, align 2, !tbaa !89
   %273 = getelementptr inbounds nuw i16, ptr %.10541, i64 %indvars.iv699
-  store i16 %272, ptr %273, align 2, !tbaa !88
+  store i16 %272, ptr %273, align 2, !tbaa !89
   %indvars.iv.next700 = add nuw nsw i64 %indvars.iv699, 1
   %exitcond703.not = icmp eq i64 %indvars.iv.next700, %wide.trip.count702
-  br i1 %exitcond703.not, label %._crit_edge527, label %.lr.ph526, !llvm.loop !119
+  br i1 %exitcond703.not, label %._crit_edge527, label %.lr.ph526, !llvm.loop !120
 
 ._crit_edge527:                                   ; preds = %.lr.ph526, %.preheader376
   %.0.lcssa = phi i32 [ 0, %.preheader376 ], [ %3, %.lr.ph526 ]
@@ -2456,12 +2456,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %indvars.iv707 = phi i64 [ %277, %.lr.ph530.preheader ], [ %indvars.iv.next708, %.lr.ph530 ]
   %278 = sub nsw i64 %indvars.iv707, %267
   %279 = getelementptr inbounds i16, ptr %.6345540, i64 %278
-  %280 = load i16, ptr %279, align 2, !tbaa !88
+  %280 = load i16, ptr %279, align 2, !tbaa !89
   %281 = getelementptr inbounds nuw i16, ptr %.10541, i64 %indvars.iv707
-  store i16 %280, ptr %281, align 2, !tbaa !88
+  store i16 %280, ptr %281, align 2, !tbaa !89
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
   %exitcond711.not = icmp eq i64 %indvars.iv.next708, %wide.trip.count710
-  br i1 %exitcond711.not, label %.loopexit, label %.lr.ph530, !llvm.loop !120
+  br i1 %exitcond711.not, label %.loopexit, label %.lr.ph530, !llvm.loop !121
 
 282:                                              ; preds = %._crit_edge527
   %283 = getelementptr inbounds i16, ptr %.10541, i64 %267
@@ -2491,12 +2491,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %.reass539 = sub i32 %invariant.op538, %292
   %293 = sext i32 %.reass539 to i64
   %gep533 = getelementptr i16, ptr %invariant.gep532, i64 %293
-  %294 = load i16, ptr %gep533, align 2, !tbaa !88
+  %294 = load i16, ptr %gep533, align 2, !tbaa !89
   %295 = getelementptr inbounds i16, ptr %.10541, i64 %indvars.iv712
-  store i16 %294, ptr %295, align 2, !tbaa !88
+  store i16 %294, ptr %295, align 2, !tbaa !89
   %indvars.iv.next713 = add nsw i64 %indvars.iv712, 1
   %exitcond716.not = icmp eq i64 %indvars.iv.next713, %268
-  br i1 %exitcond716.not, label %._crit_edge537, label %291, !llvm.loop !121
+  br i1 %exitcond716.not, label %._crit_edge537, label %291, !llvm.loop !122
 
 ._crit_edge537:                                   ; preds = %291, %.loopexit
   %296 = getelementptr inbounds i16, ptr %.10541, i64 %268
@@ -2505,7 +2505,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageItEEvRKNS_3MatERS1
   %299 = getelementptr inbounds i16, ptr %.6345540, i64 %298
   %300 = add nuw nsw i32 %.2310542, 1
   %exitcond717.not = icmp eq i32 %300, %10
-  br i1 %exitcond717.not, label %.loopexit377, label %.preheader376, !llvm.loop !122
+  br i1 %exitcond717.not, label %.loopexit377, label %.preheader376, !llvm.loop !123
 
 .loopexit377:                                     ; preds = %._crit_edge537, %._crit_edge521, %.loopexit388
   ret void
@@ -2554,16 +2554,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
 22:                                               ; preds = %.preheader404.us, %22
   %indvars.iv = phi i64 [ 0, %.preheader404.us ], [ %indvars.iv.next, %22 ]
   %23 = getelementptr inbounds nuw float, ptr %.1336407.us, i64 %indvars.iv
-  store float %5, ptr %23, align 4, !tbaa !123
+  store float %5, ptr %23, align 4, !tbaa !124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !124
+  br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !125
 
 ._crit_edge.us:                                   ; preds = %22
   %24 = getelementptr inbounds nuw float, ptr %.1336407.us, i64 %16
   %25 = add nuw nsw i32 %.0332408.us, 1
   %exitcond580.not = icmp eq i32 %25, %2
-  br i1 %exitcond580.not, label %.preheader403, label %.preheader404.us, !llvm.loop !125
+  br i1 %exitcond580.not, label %.preheader403, label %.preheader404.us, !llvm.loop !126
 
 .preheader403:                                    ; preds = %._crit_edge.us, %.preheader404.preheader, %.preheader405
   %.1336.lcssa = phi ptr [ %12, %.preheader405 ], [ %scevgep, %.preheader404.preheader ], [ %24, %._crit_edge.us ]
@@ -2622,24 +2622,24 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
 43:                                               ; preds = %.preheader397.us, %43
   %indvars.iv600 = phi i64 [ 0, %.preheader397.us ], [ %indvars.iv.next601, %43 ]
   %44 = getelementptr inbounds nuw float, ptr %.3338429.us, i64 %indvars.iv600
-  store float %5, ptr %44, align 4, !tbaa !123
+  store float %5, ptr %44, align 4, !tbaa !124
   %indvars.iv.next601 = add nuw nsw i64 %indvars.iv600, 1
   %exitcond604.not = icmp eq i64 %indvars.iv.next601, %wide.trip.count603
-  br i1 %exitcond604.not, label %._crit_edge428.us, label %43, !llvm.loop !126
+  br i1 %exitcond604.not, label %._crit_edge428.us, label %43, !llvm.loop !127
 
 ._crit_edge428.us:                                ; preds = %43
   %45 = getelementptr inbounds nuw float, ptr %.3338429.us, i64 %36
   %46 = add nuw nsw i32 %.2334430.us, 1
   %exitcond605.not = icmp eq i32 %46, %10
-  br i1 %exitcond605.not, label %.loopexit399, label %.preheader397.us, !llvm.loop !127
+  br i1 %exitcond605.not, label %.loopexit399, label %.preheader397.us, !llvm.loop !128
 
 .lr.ph:                                           ; preds = %.preheader402, %.lr.ph
   %indvars.iv581 = phi i64 [ %indvars.iv.next582, %.lr.ph ], [ 0, %.preheader402 ]
   %47 = getelementptr inbounds nuw float, ptr %.2337421, i64 %indvars.iv581
-  store float %5, ptr %47, align 4, !tbaa !123
+  store float %5, ptr %47, align 4, !tbaa !124
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond585.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count584
-  br i1 %exitcond585.not, label %._crit_edge, label %.lr.ph, !llvm.loop !128
+  br i1 %exitcond585.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader402
   %.0327.lcssa = phi i32 [ 0, %.preheader402 ], [ %3, %.lr.ph ]
@@ -2661,12 +2661,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv589 = phi i64 [ %52, %.lr.ph414.preheader ], [ %indvars.iv.next590, %.lr.ph414 ]
   %53 = sub nsw i64 %indvars.iv589, %32
   %54 = getelementptr inbounds float, ptr %.1340420, i64 %53
-  %55 = load float, ptr %54, align 4, !tbaa !123
+  %55 = load float, ptr %54, align 4, !tbaa !124
   %56 = getelementptr inbounds nuw float, ptr %.2337421, i64 %indvars.iv589
-  store float %55, ptr %56, align 4, !tbaa !123
+  store float %55, ptr %56, align 4, !tbaa !124
   %indvars.iv.next590 = add nuw nsw i64 %indvars.iv589, 1
   %exitcond593.not = icmp eq i64 %indvars.iv.next590, %wide.trip.count592
-  br i1 %exitcond593.not, label %.loopexit401, label %.lr.ph414, !llvm.loop !129
+  br i1 %exitcond593.not, label %.loopexit401, label %.lr.ph414, !llvm.loop !130
 
 57:                                               ; preds = %._crit_edge
   %58 = getelementptr inbounds float, ptr %.2337421, i64 %32
@@ -2690,10 +2690,10 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
 .lr.ph418:                                        ; preds = %.lr.ph418.preheader, %.lr.ph418
   %indvars.iv594 = phi i64 [ %65, %.lr.ph418.preheader ], [ %indvars.iv.next595, %.lr.ph418 ]
   %66 = getelementptr inbounds float, ptr %.2337421, i64 %indvars.iv594
-  store float %5, ptr %66, align 4, !tbaa !123
+  store float %5, ptr %66, align 4, !tbaa !124
   %indvars.iv.next595 = add nsw i64 %indvars.iv594, 1
   %exitcond598.not = icmp eq i64 %indvars.iv.next595, %33
-  br i1 %exitcond598.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !130
+  br i1 %exitcond598.not, label %._crit_edge419, label %.lr.ph418, !llvm.loop !131
 
 ._crit_edge419:                                   ; preds = %.lr.ph418, %.loopexit401
   %67 = sext i32 %63 to i64
@@ -2703,7 +2703,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %71 = load i32, ptr %26, align 8, !tbaa !47
   %72 = add nsw i32 %71, %2
   %73 = icmp slt i32 %70, %72
-  br i1 %73, label %.preheader402, label %.preheader398, !llvm.loop !131
+  br i1 %73, label %.preheader402, label %.preheader398, !llvm.loop !132
 
 .loopexit399:                                     ; preds = %._crit_edge428.us, %.preheader397.preheader, %.preheader398, %6
   %.0339 = phi ptr [ %11, %6 ], [ %.1340.lcssa, %.preheader398 ], [ %.1340.lcssa, %.preheader397.preheader ], [ %.1340.lcssa, %._crit_edge428.us ]
@@ -2730,7 +2730,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   br i1 %76, label %.lr.ph434.preheader, label %._crit_edge435
 
 .lr.ph434.preheader:                              ; preds = %.preheader395
-  %.pre = load float, ptr %.0339, align 4, !tbaa !123
+  %.pre = load float, ptr %.0339, align 4, !tbaa !124
   br label %.lr.ph434
 
 .preheader392:                                    ; preds = %._crit_edge443, %.preheader396
@@ -2759,10 +2759,10 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
 .lr.ph434:                                        ; preds = %.lr.ph434.preheader, %.lr.ph434
   %indvars.iv606 = phi i64 [ 0, %.lr.ph434.preheader ], [ %indvars.iv.next607, %.lr.ph434 ]
   %88 = getelementptr inbounds nuw float, ptr %.5444, i64 %indvars.iv606
-  store float %.pre, ptr %88, align 4, !tbaa !123
+  store float %.pre, ptr %88, align 4, !tbaa !124
   %indvars.iv.next607 = add nuw nsw i64 %indvars.iv606, 1
   %exitcond610.not = icmp eq i64 %indvars.iv.next607, %wide.trip.count609
-  br i1 %exitcond610.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !132
+  br i1 %exitcond610.not, label %._crit_edge435, label %.lr.ph434, !llvm.loop !133
 
 ._crit_edge435:                                   ; preds = %.lr.ph434, %.preheader395
   %.0319.lcssa = phi i32 [ 0, %.preheader395 ], [ %3, %.lr.ph434 ]
@@ -2784,12 +2784,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv614 = phi i64 [ %93, %.lr.ph438.preheader ], [ %indvars.iv.next615, %.lr.ph438 ]
   %94 = sub nsw i64 %indvars.iv614, %78
   %95 = getelementptr inbounds float, ptr %.0339, i64 %94
-  %96 = load float, ptr %95, align 4, !tbaa !123
+  %96 = load float, ptr %95, align 4, !tbaa !124
   %97 = getelementptr inbounds nuw float, ptr %.5444, i64 %indvars.iv614
-  store float %96, ptr %97, align 4, !tbaa !123
+  store float %96, ptr %97, align 4, !tbaa !124
   %indvars.iv.next615 = add nuw nsw i64 %indvars.iv614, 1
   %exitcond618.not = icmp eq i64 %indvars.iv.next615, %wide.trip.count617
-  br i1 %exitcond618.not, label %.loopexit394, label %.lr.ph438, !llvm.loop !133
+  br i1 %exitcond618.not, label %.loopexit394, label %.lr.ph438, !llvm.loop !134
 
 98:                                               ; preds = %._crit_edge435
   %99 = getelementptr inbounds float, ptr %.5444, i64 %78
@@ -2810,22 +2810,22 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %106 = sext i32 %104 to i64
   %gep = getelementptr float, ptr %invariant.gep, i64 %106
   %107 = sext i32 %.2321 to i64
-  %.pre718 = load float, ptr %gep, align 4, !tbaa !123
+  %.pre718 = load float, ptr %gep, align 4, !tbaa !124
   br label %108
 
 108:                                              ; preds = %.lr.ph442, %108
   %indvars.iv619 = phi i64 [ %107, %.lr.ph442 ], [ %indvars.iv.next620, %108 ]
   %109 = getelementptr inbounds float, ptr %.5444, i64 %indvars.iv619
-  store float %.pre718, ptr %109, align 4, !tbaa !123
+  store float %.pre718, ptr %109, align 4, !tbaa !124
   %indvars.iv.next620 = add nsw i64 %indvars.iv619, 1
   %exitcond623.not = icmp eq i64 %indvars.iv.next620, %79
-  br i1 %exitcond623.not, label %._crit_edge443, label %108, !llvm.loop !134
+  br i1 %exitcond623.not, label %._crit_edge443, label %108, !llvm.loop !135
 
 ._crit_edge443:                                   ; preds = %108, %.loopexit394
   %110 = getelementptr inbounds float, ptr %.5444, i64 %79
   %111 = add nuw nsw i32 %.0323445, 1
   %exitcond624.not = icmp eq i32 %111, %2
-  br i1 %exitcond624.not, label %.preheader392, label %.preheader395, !llvm.loop !135
+  br i1 %exitcond624.not, label %.preheader392, label %.preheader395, !llvm.loop !136
 
 .preheader391:                                    ; preds = %.preheader391.lr.ph, %._crit_edge460
   %.1324463 = phi i32 [ %.0323.lcssa, %.preheader391.lr.ph ], [ %136, %._crit_edge460 ]
@@ -2834,16 +2834,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   br i1 %84, label %.lr.ph449.preheader, label %._crit_edge450
 
 .lr.ph449.preheader:                              ; preds = %.preheader391
-  %.pre719 = load float, ptr %.3342461, align 4, !tbaa !123
+  %.pre719 = load float, ptr %.3342461, align 4, !tbaa !124
   br label %.lr.ph449
 
 .lr.ph449:                                        ; preds = %.lr.ph449.preheader, %.lr.ph449
   %indvars.iv625 = phi i64 [ 0, %.lr.ph449.preheader ], [ %indvars.iv.next626, %.lr.ph449 ]
   %112 = getelementptr inbounds nuw float, ptr %.6462, i64 %indvars.iv625
-  store float %.pre719, ptr %112, align 4, !tbaa !123
+  store float %.pre719, ptr %112, align 4, !tbaa !124
   %indvars.iv.next626 = add nuw nsw i64 %indvars.iv625, 1
   %exitcond629.not = icmp eq i64 %indvars.iv.next626, %wide.trip.count628
-  br i1 %exitcond629.not, label %._crit_edge450, label %.lr.ph449, !llvm.loop !136
+  br i1 %exitcond629.not, label %._crit_edge450, label %.lr.ph449, !llvm.loop !137
 
 ._crit_edge450:                                   ; preds = %.lr.ph449, %.preheader391
   %.0315.lcssa = phi i32 [ 0, %.preheader391 ], [ %3, %.lr.ph449 ]
@@ -2865,12 +2865,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv633 = phi i64 [ %117, %.lr.ph453.preheader ], [ %indvars.iv.next634, %.lr.ph453 ]
   %118 = sub nsw i64 %indvars.iv633, %86
   %119 = getelementptr inbounds float, ptr %.3342461, i64 %118
-  %120 = load float, ptr %119, align 4, !tbaa !123
+  %120 = load float, ptr %119, align 4, !tbaa !124
   %121 = getelementptr inbounds nuw float, ptr %.6462, i64 %indvars.iv633
-  store float %120, ptr %121, align 4, !tbaa !123
+  store float %120, ptr %121, align 4, !tbaa !124
   %indvars.iv.next634 = add nuw nsw i64 %indvars.iv633, 1
   %exitcond637.not = icmp eq i64 %indvars.iv.next634, %wide.trip.count636
-  br i1 %exitcond637.not, label %.loopexit390, label %.lr.ph453, !llvm.loop !137
+  br i1 %exitcond637.not, label %.loopexit390, label %.lr.ph453, !llvm.loop !138
 
 122:                                              ; preds = %._crit_edge450
   %123 = getelementptr inbounds float, ptr %.6462, i64 %86
@@ -2896,16 +2896,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %130 = sext i32 %128 to i64
   %gep456 = getelementptr float, ptr %invariant.gep455, i64 %130
   %131 = sext i32 %.2317 to i64
-  %.pre720 = load float, ptr %gep456, align 4, !tbaa !123
+  %.pre720 = load float, ptr %gep456, align 4, !tbaa !124
   br label %132
 
 132:                                              ; preds = %.lr.ph459, %132
   %indvars.iv638 = phi i64 [ %131, %.lr.ph459 ], [ %indvars.iv.next639, %132 ]
   %133 = getelementptr inbounds float, ptr %.6462, i64 %indvars.iv638
-  store float %.pre720, ptr %133, align 4, !tbaa !123
+  store float %.pre720, ptr %133, align 4, !tbaa !124
   %indvars.iv.next639 = add nsw i64 %indvars.iv638, 1
   %exitcond642.not = icmp eq i64 %indvars.iv.next639, %87
-  br i1 %exitcond642.not, label %._crit_edge460, label %132, !llvm.loop !138
+  br i1 %exitcond642.not, label %._crit_edge460, label %132, !llvm.loop !139
 
 ._crit_edge460:                                   ; preds = %132, %.loopexit390.._crit_edge460_crit_edge
   %.pre-phi726 = phi i64 [ %.pre725, %.loopexit390.._crit_edge460_crit_edge ], [ %130, %132 ]
@@ -2915,7 +2915,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %137 = load i32, ptr %80, align 8, !tbaa !47
   %138 = add nsw i32 %137, %2
   %139 = icmp slt i32 %136, %138
-  br i1 %139, label %.preheader391, label %._crit_edge464, !llvm.loop !139
+  br i1 %139, label %.preheader391, label %._crit_edge464, !llvm.loop !140
 
 ._crit_edge464:                                   ; preds = %._crit_edge460, %.preheader392.._crit_edge464_crit_edge
   %.pre-phi = phi i64 [ %.pre724, %.preheader392.._crit_edge464_crit_edge ], [ %.pre-phi726, %._crit_edge460 ]
@@ -2945,16 +2945,16 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   br i1 %145, label %.lr.ph469.preheader, label %._crit_edge470
 
 .lr.ph469.preheader:                              ; preds = %.preheader387
-  %.pre722 = load float, ptr %143, align 4, !tbaa !123
+  %.pre722 = load float, ptr %143, align 4, !tbaa !124
   br label %.lr.ph469
 
 .lr.ph469:                                        ; preds = %.lr.ph469.preheader, %.lr.ph469
   %indvars.iv643 = phi i64 [ 0, %.lr.ph469.preheader ], [ %indvars.iv.next644, %.lr.ph469 ]
   %150 = getelementptr inbounds nuw float, ptr %.7481, i64 %indvars.iv643
-  store float %.pre722, ptr %150, align 4, !tbaa !123
+  store float %.pre722, ptr %150, align 4, !tbaa !124
   %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
   %exitcond647.not = icmp eq i64 %indvars.iv.next644, %wide.trip.count646
-  br i1 %exitcond647.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !140
+  br i1 %exitcond647.not, label %._crit_edge470, label %.lr.ph469, !llvm.loop !141
 
 ._crit_edge470:                                   ; preds = %.lr.ph469, %.preheader387
   %.0311.lcssa = phi i32 [ 0, %.preheader387 ], [ %3, %.lr.ph469 ]
@@ -2975,12 +2975,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv651 = phi i64 [ %154, %.lr.ph473.preheader ], [ %indvars.iv.next652, %.lr.ph473 ]
   %155 = sub nsw i64 %indvars.iv651, %146
   %156 = getelementptr inbounds float, ptr %143, i64 %155
-  %157 = load float, ptr %156, align 4, !tbaa !123
+  %157 = load float, ptr %156, align 4, !tbaa !124
   %158 = getelementptr inbounds nuw float, ptr %.7481, i64 %indvars.iv651
-  store float %157, ptr %158, align 4, !tbaa !123
+  store float %157, ptr %158, align 4, !tbaa !124
   %indvars.iv.next652 = add nuw nsw i64 %indvars.iv651, 1
   %exitcond655.not = icmp eq i64 %indvars.iv.next652, %wide.trip.count654
-  br i1 %exitcond655.not, label %.loopexit386, label %.lr.ph473, !llvm.loop !141
+  br i1 %exitcond655.not, label %.loopexit386, label %.lr.ph473, !llvm.loop !142
 
 159:                                              ; preds = %._crit_edge470
   %160 = getelementptr inbounds float, ptr %.7481, i64 %146
@@ -3002,23 +3002,23 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %168 = sext i32 %165 to i64
   %gep476 = getelementptr float, ptr %invariant.gep475, i64 %168
   %169 = sext i32 %.2313 to i64
-  %.pre723 = load float, ptr %gep476, align 4, !tbaa !123
+  %.pre723 = load float, ptr %gep476, align 4, !tbaa !124
   br label %170
 
 170:                                              ; preds = %.lr.ph479, %170
   %indvars.iv656 = phi i64 [ %169, %.lr.ph479 ], [ %indvars.iv.next657, %170 ]
   %171 = getelementptr inbounds float, ptr %.7481, i64 %indvars.iv656
-  store float %.pre723, ptr %171, align 4, !tbaa !123
+  store float %.pre723, ptr %171, align 4, !tbaa !124
   %indvars.iv.next657 = add nsw i64 %indvars.iv656, 1
   %exitcond660.not = icmp eq i64 %indvars.iv.next657, %147
-  br i1 %exitcond660.not, label %._crit_edge480, label %170, !llvm.loop !142
+  br i1 %exitcond660.not, label %._crit_edge480, label %170, !llvm.loop !143
 
 ._crit_edge480:                                   ; preds = %170, %.loopexit386
   %172 = phi i32 [ %166, %.loopexit386 ], [ %165, %170 ]
   %173 = getelementptr inbounds float, ptr %.7481, i64 %147
   %174 = add nuw nsw i32 %.2325482, 1
   %exitcond661.not = icmp eq i32 %174, %10
-  br i1 %exitcond661.not, label %.loopexit388, label %.preheader387, !llvm.loop !143
+  br i1 %exitcond661.not, label %.loopexit388, label %.preheader387, !llvm.loop !144
 
 .loopexit388:                                     ; preds = %._crit_edge480, %._crit_edge464, %.loopexit399
   %.2341 = phi ptr [ %.0339, %.loopexit399 ], [ %143, %._crit_edge464 ], [ %143, %._crit_edge480 ]
@@ -3071,12 +3071,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv662 = phi i64 [ %indvars.iv.next663, %.lr.ph485 ], [ 0, %.preheader384 ]
   %195 = sub nsw i64 %184, %indvars.iv662
   %196 = getelementptr inbounds nuw float, ptr %.4343497, i64 %195
-  %197 = load float, ptr %196, align 4, !tbaa !123
+  %197 = load float, ptr %196, align 4, !tbaa !124
   %198 = getelementptr inbounds nuw float, ptr %.8498, i64 %indvars.iv662
-  store float %197, ptr %198, align 4, !tbaa !123
+  store float %197, ptr %198, align 4, !tbaa !124
   %indvars.iv.next663 = add nuw nsw i64 %indvars.iv662, 1
   %exitcond666.not = icmp eq i64 %indvars.iv.next663, %wide.trip.count665
-  br i1 %exitcond666.not, label %._crit_edge486, label %.lr.ph485, !llvm.loop !144
+  br i1 %exitcond666.not, label %._crit_edge486, label %.lr.ph485, !llvm.loop !145
 
 ._crit_edge486:                                   ; preds = %.lr.ph485, %.preheader384
   %.0304.lcssa = phi i32 [ 0, %.preheader384 ], [ %3, %.lr.ph485 ]
@@ -3097,12 +3097,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv670 = phi i64 [ %202, %.lr.ph489.preheader ], [ %indvars.iv.next671, %.lr.ph489 ]
   %203 = sub nsw i64 %indvars.iv670, %184
   %204 = getelementptr inbounds float, ptr %.4343497, i64 %203
-  %205 = load float, ptr %204, align 4, !tbaa !123
+  %205 = load float, ptr %204, align 4, !tbaa !124
   %206 = getelementptr inbounds nuw float, ptr %.8498, i64 %indvars.iv670
-  store float %205, ptr %206, align 4, !tbaa !123
+  store float %205, ptr %206, align 4, !tbaa !124
   %indvars.iv.next671 = add nuw nsw i64 %indvars.iv670, 1
   %exitcond674.not = icmp eq i64 %indvars.iv.next671, %wide.trip.count673
-  br i1 %exitcond674.not, label %.loopexit383, label %.lr.ph489, !llvm.loop !145
+  br i1 %exitcond674.not, label %.loopexit383, label %.lr.ph489, !llvm.loop !146
 
 207:                                              ; preds = %._crit_edge486
   %208 = getelementptr inbounds float, ptr %.8498, i64 %184
@@ -3132,12 +3132,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %.reass = sub i32 %invariant.op, %217
   %218 = sext i32 %.reass to i64
   %gep492 = getelementptr float, ptr %invariant.gep491, i64 %218
-  %219 = load float, ptr %gep492, align 4, !tbaa !123
+  %219 = load float, ptr %gep492, align 4, !tbaa !124
   %220 = getelementptr inbounds float, ptr %.8498, i64 %indvars.iv675
-  store float %219, ptr %220, align 4, !tbaa !123
+  store float %219, ptr %220, align 4, !tbaa !124
   %indvars.iv.next676 = add nsw i64 %indvars.iv675, 1
   %exitcond679.not = icmp eq i64 %indvars.iv.next676, %185
-  br i1 %exitcond679.not, label %._crit_edge496, label %216, !llvm.loop !146
+  br i1 %exitcond679.not, label %._crit_edge496, label %216, !llvm.loop !147
 
 ._crit_edge496:                                   ; preds = %216, %.loopexit383
   %221 = getelementptr inbounds float, ptr %.8498, i64 %185
@@ -3146,7 +3146,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %224 = getelementptr inbounds float, ptr %.4343497, i64 %223
   %225 = add nuw nsw i32 %.0308499, 1
   %exitcond680.not = icmp eq i32 %225, %2
-  br i1 %exitcond680.not, label %.preheader381, label %.preheader384, !llvm.loop !147
+  br i1 %exitcond680.not, label %.preheader381, label %.preheader384, !llvm.loop !148
 
 .preheader380:                                    ; preds = %.preheader380.lr.ph, %._crit_edge515
   %226 = phi i32 [ %187, %.preheader380.lr.ph ], [ %245, %._crit_edge515 ]
@@ -3159,12 +3159,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv681 = phi i64 [ %indvars.iv.next682, %.lr.ph504 ], [ 0, %.preheader380 ]
   %227 = sub nsw i64 %193, %indvars.iv681
   %228 = getelementptr inbounds nuw float, ptr %.5344518, i64 %227
-  %229 = load float, ptr %228, align 4, !tbaa !123
+  %229 = load float, ptr %228, align 4, !tbaa !124
   %230 = getelementptr inbounds nuw float, ptr %.9519, i64 %indvars.iv681
-  store float %229, ptr %230, align 4, !tbaa !123
+  store float %229, ptr %230, align 4, !tbaa !124
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv681, 1
   %exitcond685.not = icmp eq i64 %indvars.iv.next682, %wide.trip.count684
-  br i1 %exitcond685.not, label %._crit_edge505, label %.lr.ph504, !llvm.loop !148
+  br i1 %exitcond685.not, label %._crit_edge505, label %.lr.ph504, !llvm.loop !149
 
 ._crit_edge505:                                   ; preds = %.lr.ph504, %.preheader380
   %.0300.lcssa = phi i32 [ 0, %.preheader380 ], [ %3, %.lr.ph504 ]
@@ -3185,12 +3185,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv689 = phi i64 [ %234, %.lr.ph508.preheader ], [ %indvars.iv.next690, %.lr.ph508 ]
   %235 = sub nsw i64 %indvars.iv689, %193
   %236 = getelementptr inbounds float, ptr %.5344518, i64 %235
-  %237 = load float, ptr %236, align 4, !tbaa !123
+  %237 = load float, ptr %236, align 4, !tbaa !124
   %238 = getelementptr inbounds nuw float, ptr %.9519, i64 %indvars.iv689
-  store float %237, ptr %238, align 4, !tbaa !123
+  store float %237, ptr %238, align 4, !tbaa !124
   %indvars.iv.next690 = add nuw nsw i64 %indvars.iv689, 1
   %exitcond693.not = icmp eq i64 %indvars.iv.next690, %wide.trip.count692
-  br i1 %exitcond693.not, label %.loopexit379, label %.lr.ph508, !llvm.loop !149
+  br i1 %exitcond693.not, label %.loopexit379, label %.lr.ph508, !llvm.loop !150
 
 239:                                              ; preds = %._crit_edge505
   %240 = getelementptr inbounds float, ptr %.9519, i64 %193
@@ -3220,12 +3220,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %.reass517 = sub i32 %invariant.op516, %249
   %250 = sext i32 %.reass517 to i64
   %gep511 = getelementptr float, ptr %invariant.gep510, i64 %250
-  %251 = load float, ptr %gep511, align 4, !tbaa !123
+  %251 = load float, ptr %gep511, align 4, !tbaa !124
   %252 = getelementptr inbounds float, ptr %.9519, i64 %indvars.iv694
-  store float %251, ptr %252, align 4, !tbaa !123
+  store float %251, ptr %252, align 4, !tbaa !124
   %indvars.iv.next695 = add nsw i64 %indvars.iv694, 1
   %exitcond698.not = icmp eq i64 %indvars.iv.next695, %194
-  br i1 %exitcond698.not, label %._crit_edge515, label %248, !llvm.loop !150
+  br i1 %exitcond698.not, label %._crit_edge515, label %248, !llvm.loop !151
 
 ._crit_edge515:                                   ; preds = %248, %.loopexit379
   %253 = sext i32 %245 to i64
@@ -3235,7 +3235,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %257 = load i32, ptr %188, align 8, !tbaa !47
   %258 = add nsw i32 %257, %2
   %259 = icmp slt i32 %256, %258
-  br i1 %259, label %.preheader380, label %._crit_edge521, !llvm.loop !151
+  br i1 %259, label %.preheader380, label %._crit_edge521, !llvm.loop !152
 
 ._crit_edge521:                                   ; preds = %._crit_edge515, %.preheader381
   %260 = phi i32 [ %187, %.preheader381 ], [ %245, %._crit_edge515 ]
@@ -3267,12 +3267,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv699 = phi i64 [ %indvars.iv.next700, %.lr.ph526 ], [ 0, %.preheader376 ]
   %270 = sub nsw i64 %267, %indvars.iv699
   %271 = getelementptr inbounds nuw float, ptr %.6345540, i64 %270
-  %272 = load float, ptr %271, align 4, !tbaa !123
+  %272 = load float, ptr %271, align 4, !tbaa !124
   %273 = getelementptr inbounds nuw float, ptr %.10541, i64 %indvars.iv699
-  store float %272, ptr %273, align 4, !tbaa !123
+  store float %272, ptr %273, align 4, !tbaa !124
   %indvars.iv.next700 = add nuw nsw i64 %indvars.iv699, 1
   %exitcond703.not = icmp eq i64 %indvars.iv.next700, %wide.trip.count702
-  br i1 %exitcond703.not, label %._crit_edge527, label %.lr.ph526, !llvm.loop !152
+  br i1 %exitcond703.not, label %._crit_edge527, label %.lr.ph526, !llvm.loop !153
 
 ._crit_edge527:                                   ; preds = %.lr.ph526, %.preheader376
   %.0.lcssa = phi i32 [ 0, %.preheader376 ], [ %3, %.lr.ph526 ]
@@ -3293,12 +3293,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %indvars.iv707 = phi i64 [ %277, %.lr.ph530.preheader ], [ %indvars.iv.next708, %.lr.ph530 ]
   %278 = sub nsw i64 %indvars.iv707, %267
   %279 = getelementptr inbounds float, ptr %.6345540, i64 %278
-  %280 = load float, ptr %279, align 4, !tbaa !123
+  %280 = load float, ptr %279, align 4, !tbaa !124
   %281 = getelementptr inbounds nuw float, ptr %.10541, i64 %indvars.iv707
-  store float %280, ptr %281, align 4, !tbaa !123
+  store float %280, ptr %281, align 4, !tbaa !124
   %indvars.iv.next708 = add nuw nsw i64 %indvars.iv707, 1
   %exitcond711.not = icmp eq i64 %indvars.iv.next708, %wide.trip.count710
-  br i1 %exitcond711.not, label %.loopexit, label %.lr.ph530, !llvm.loop !153
+  br i1 %exitcond711.not, label %.loopexit, label %.lr.ph530, !llvm.loop !154
 
 282:                                              ; preds = %._crit_edge527
   %283 = getelementptr inbounds float, ptr %.10541, i64 %267
@@ -3328,12 +3328,12 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %.reass539 = sub i32 %invariant.op538, %292
   %293 = sext i32 %.reass539 to i64
   %gep533 = getelementptr float, ptr %invariant.gep532, i64 %293
-  %294 = load float, ptr %gep533, align 4, !tbaa !123
+  %294 = load float, ptr %gep533, align 4, !tbaa !124
   %295 = getelementptr inbounds float, ptr %.10541, i64 %indvars.iv712
-  store float %294, ptr %295, align 4, !tbaa !123
+  store float %294, ptr %295, align 4, !tbaa !124
   %indvars.iv.next713 = add nsw i64 %indvars.iv712, 1
   %exitcond716.not = icmp eq i64 %indvars.iv.next713, %268
-  br i1 %exitcond716.not, label %._crit_edge537, label %291, !llvm.loop !154
+  br i1 %exitcond716.not, label %._crit_edge537, label %291, !llvm.loop !155
 
 ._crit_edge537:                                   ; preds = %291, %.loopexit
   %296 = getelementptr inbounds float, ptr %.10541, i64 %268
@@ -3342,7 +3342,7 @@ define internal fastcc void @_ZN4ncnnL22copy_make_border_imageIfEEvRKNS_3MatERS1
   %299 = getelementptr inbounds float, ptr %.6345540, i64 %298
   %300 = add nuw nsw i32 %.2310542, 1
   %exitcond717.not = icmp eq i32 %300, %10
-  br i1 %exitcond717.not, label %.loopexit377, label %.preheader376, !llvm.loop !155
+  br i1 %exitcond717.not, label %.loopexit377, label %.preheader376, !llvm.loop !156
 
 .loopexit377:                                     ; preds = %._crit_edge537, %._crit_edge521, %.loopexit388
   ret void
@@ -3435,18 +3435,18 @@ define internal void @_ZNK4ncnn7Padding7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 .noexc60:                                         ; preds = %.noexc60.lr.ph, %_ZN4ncnn3MatD2Ev.exit
   %indvars.iv78 = phi i64 [ %69, %.noexc60.lr.ph ], [ %indvars.iv.next79, %_ZN4ncnn3MatD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14) #10
-  call void @llvm.experimental.noalias.scope.decl(metadata !156)
-  %70 = load i32, ptr %24, align 4, !tbaa !46, !noalias !156
-  %71 = load i32, ptr %25, align 8, !tbaa !47, !noalias !156
-  %72 = load i32, ptr %26, align 4, !tbaa !48, !noalias !156
-  %73 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !156
-  %74 = load i64, ptr %27, align 8, !tbaa !17, !noalias !156
+  call void @llvm.experimental.noalias.scope.decl(metadata !157)
+  %70 = load i32, ptr %24, align 4, !tbaa !46, !noalias !157
+  %71 = load i32, ptr %25, align 8, !tbaa !47, !noalias !157
+  %72 = load i32, ptr %26, align 4, !tbaa !48, !noalias !157
+  %73 = load ptr, ptr %3, align 8, !tbaa !16, !noalias !157
+  %74 = load i64, ptr %27, align 8, !tbaa !17, !noalias !157
   %75 = mul i64 %74, %indvars.iv78
-  %76 = load i64, ptr %28, align 8, !tbaa !43, !noalias !156
+  %76 = load i64, ptr %28, align 8, !tbaa !43, !noalias !157
   %77 = mul i64 %75, %76
   %78 = getelementptr i8, ptr %73, i64 %77
-  %79 = load i32, ptr %29, align 8, !tbaa !44, !noalias !156
-  %80 = load ptr, ptr %30, align 8, !tbaa !15, !noalias !156
+  %79 = load i32, ptr %29, align 8, !tbaa !44, !noalias !157
+  %80 = load ptr, ptr %30, align 8, !tbaa !15, !noalias !157
   store ptr %78, ptr %14, align 8, !tbaa !16
   store ptr null, ptr %31, align 8, !tbaa !7
   store i64 %76, ptr %32, align 8, !tbaa !43
@@ -3464,14 +3464,14 @@ define internal void @_ZNK4ncnn7Padding7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %86 = and i64 %85, -16
   %87 = udiv i64 %86, %76
   store i64 %87, ptr %40, align 8, !tbaa !17
-  %88 = load i32, ptr %41, align 8, !tbaa !45, !noalias !156
+  %88 = load i32, ptr %41, align 8, !tbaa !45, !noalias !157
   %89 = add nsw i32 %88, -1
-  store i32 %89, ptr %35, align 8, !tbaa !45, !alias.scope !156
+  store i32 %89, ptr %35, align 8, !tbaa !45, !alias.scope !157
   %90 = icmp eq i32 %88, 4
   br i1 %90, label %91, label %_ZN4ncnn3Mat7channelEi.exit
 
 91:                                               ; preds = %.noexc60
-  store i64 %83, ptr %40, align 8, !tbaa !17, !alias.scope !156
+  store i64 %83, ptr %40, align 8, !tbaa !17, !alias.scope !157
   br label %_ZN4ncnn3Mat7channelEi.exit
 
 _ZN4ncnn3Mat7channelEi.exit:                      ; preds = %91, %.noexc60
@@ -3487,7 +3487,7 @@ _ZN4ncnn3Mat7channelEi.exit:                      ; preds = %91, %.noexc60
 
 97:                                               ; preds = %_ZN4ncnn3Mat7channelEi.exit, %94
   %.in = phi ptr [ %96, %94 ], [ %44, %_ZN4ncnn3Mat7channelEi.exit ]
-  %98 = load float, ptr %.in, align 4, !tbaa !123
+  %98 = load float, ptr %.in, align 4, !tbaa !124
   %99 = load i32, ptr %45, align 8, !tbaa !41
   %100 = sext i32 %99 to i64
   %101 = icmp slt i64 %indvars.iv78, %100
@@ -3565,10 +3565,10 @@ _ZN4ncnn3Mat4fillIaEEvT_.exit:                    ; preds = %.lr.ph.preheader, %
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next, %.lr.ph68 ]
   %136 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv
-  store i16 %132, ptr %136, align 2, !tbaa !88
+  store i16 %132, ptr %136, align 2, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN4ncnn3Mat4fillItEEvT_.exit, label %.lr.ph68, !llvm.loop !159
+  br i1 %exitcond.not, label %_ZN4ncnn3Mat4fillItEEvT_.exit, label %.lr.ph68, !llvm.loop !160
 
 _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph68, %112, %131, %_ZN4ncnn3Mat4fillIaEEvT_.exit
   %137 = load i64, ptr %6, align 8, !tbaa !51
@@ -3585,10 +3585,10 @@ _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph68, %112, %13
   %.0.i6270 = phi i32 [ %144, %.lr.ph71 ], [ 0, %139 ]
   %.05.i69 = phi ptr [ %143, %.lr.ph71 ], [ %78, %139 ]
   %143 = getelementptr inbounds nuw i8, ptr %.05.i69, i64 4
-  store float %98, ptr %.05.i69, align 4, !tbaa !123
+  store float %98, ptr %.05.i69, align 4, !tbaa !124
   %144 = add nuw nsw i32 %.0.i6270, 1
   %exitcond77.not = icmp eq i32 %144, %141
-  br i1 %exitcond77.not, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph71, !llvm.loop !160
+  br i1 %exitcond77.not, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph71, !llvm.loop !161
 
 ._crit_edge81:                                    ; preds = %102, %106
   %145 = phi i32 [ %107, %106 ], [ %.pre86, %102 ]
@@ -3618,19 +3618,19 @@ _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph68, %112, %13
 .noexc63:                                         ; preds = %._crit_edge81, %151, %.thread
   %.1 = phi i32 [ %157, %151 ], [ %., %.thread ], [ %147, %._crit_edge81 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #10
-  call void @llvm.experimental.noalias.scope.decl(metadata !161)
-  %158 = load i32, ptr %47, align 4, !tbaa !46, !noalias !161
-  %159 = load i32, ptr %48, align 8, !tbaa !47, !noalias !161
-  %160 = load i32, ptr %49, align 4, !tbaa !48, !noalias !161
-  %161 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !161
-  %162 = load i64, ptr %50, align 8, !tbaa !17, !noalias !161
+  call void @llvm.experimental.noalias.scope.decl(metadata !162)
+  %158 = load i32, ptr %47, align 4, !tbaa !46, !noalias !162
+  %159 = load i32, ptr %48, align 8, !tbaa !47, !noalias !162
+  %160 = load i32, ptr %49, align 4, !tbaa !48, !noalias !162
+  %161 = load ptr, ptr %8, align 8, !tbaa !16, !noalias !162
+  %162 = load i64, ptr %50, align 8, !tbaa !17, !noalias !162
   %163 = sext i32 %.1 to i64
   %164 = mul i64 %162, %163
-  %165 = load i64, ptr %51, align 8, !tbaa !43, !noalias !161
+  %165 = load i64, ptr %51, align 8, !tbaa !43, !noalias !162
   %166 = mul i64 %164, %165
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 %166
-  %168 = load i32, ptr %52, align 8, !tbaa !44, !noalias !161
-  %169 = load ptr, ptr %53, align 8, !tbaa !15, !noalias !161
+  %168 = load i32, ptr %52, align 8, !tbaa !44, !noalias !162
+  %169 = load ptr, ptr %53, align 8, !tbaa !15, !noalias !162
   store ptr %167, ptr %15, align 8, !tbaa !16
   store ptr null, ptr %54, align 8, !tbaa !7
   store i64 %165, ptr %55, align 8, !tbaa !43
@@ -3648,14 +3648,14 @@ _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph68, %112, %13
   %175 = and i64 %174, -16
   %176 = udiv i64 %175, %165
   store i64 %176, ptr %63, align 8, !tbaa !17
-  %177 = load i32, ptr %64, align 8, !tbaa !45, !noalias !161
+  %177 = load i32, ptr %64, align 8, !tbaa !45, !noalias !162
   %178 = add nsw i32 %177, -1
-  store i32 %178, ptr %58, align 8, !tbaa !45, !alias.scope !161
+  store i32 %178, ptr %58, align 8, !tbaa !45, !alias.scope !162
   %179 = icmp eq i32 %177, 4
   br i1 %179, label %180, label %_ZNK4ncnn3Mat7channelEi.exit
 
 180:                                              ; preds = %.noexc63
-  store i64 %172, ptr %63, align 8, !tbaa !17, !alias.scope !161
+  store i64 %172, ptr %63, align 8, !tbaa !17, !alias.scope !162
   br label %_ZNK4ncnn3Mat7channelEi.exit
 
 _ZNK4ncnn3Mat7channelEi.exit:                     ; preds = %180, %.noexc63
@@ -3725,7 +3725,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.lr.ph71, %139, %_Z
   %212 = load i32, ptr %11, align 4, !tbaa !50
   %213 = sext i32 %212 to i64
   %.not.not = icmp slt i64 %indvars.iv78, %213
-  br i1 %.not.not, label %.noexc60, label %._crit_edge
+  br i1 %.not.not, label %.noexc60, label %._crit_edge, !llvm.loop !165
 
 ._crit_edge:                                      ; preds = %_ZN4ncnn3MatD2Ev.exit, %18
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %20)
@@ -3762,7 +3762,7 @@ declare i32 @__kmpc_global_thread_num(ptr) local_unnamed_addr #10
 declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
-declare !callback !164 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
+declare !callback !166 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #10
 
 declare void @_ZN4ncnn3Mat6createEiiiimPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3858,7 +3858,7 @@ define internal void @_ZNK4ncnn7Padding7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
 
 74:                                               ; preds = %67, %71
   %.in = phi ptr [ %73, %71 ], [ %27, %67 ]
-  %75 = load float, ptr %.in, align 4, !tbaa !123
+  %75 = load float, ptr %.in, align 4, !tbaa !124
   %76 = load i32, ptr %4, align 4, !tbaa !50
   %77 = icmp sgt i32 %76, 0
   br i1 %77, label %.noexc80.lr.ph, label %._crit_edge
@@ -3880,21 +3880,21 @@ define internal void @_ZNK4ncnn7Padding7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_
   %83 = sext i32 %82 to i64
   %.not.not = icmp slt i64 %indvars.iv134, %83
   %indvar.next129 = add nuw nsw i64 %indvar128, 1
-  br i1 %.not.not, label %67, label %._crit_edge127
+  br i1 %.not.not, label %67, label %._crit_edge127, !llvm.loop !168
 
 .noexc80:                                         ; preds = %.noexc80.lr.ph, %_ZN4ncnn3MatD2Ev.exit
   %indvar = phi i64 [ 0, %.noexc80.lr.ph ], [ %indvar.next, %_ZN4ncnn3MatD2Ev.exit ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %15) #10
-  %84 = load i32, ptr %28, align 4, !tbaa !46, !noalias !166
-  %85 = load i32, ptr %29, align 8, !tbaa !47, !noalias !166
-  %86 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !166
-  %87 = load i64, ptr %30, align 8, !tbaa !17, !noalias !166
+  %84 = load i32, ptr %28, align 4, !tbaa !46, !noalias !169
+  %85 = load i32, ptr %29, align 8, !tbaa !47, !noalias !169
+  %86 = load ptr, ptr %5, align 8, !tbaa !16, !noalias !169
+  %87 = load i64, ptr %30, align 8, !tbaa !17, !noalias !169
   %88 = mul i64 %87, %indvars.iv134
-  %89 = load i64, ptr %31, align 8, !tbaa !43, !noalias !166
+  %89 = load i64, ptr %31, align 8, !tbaa !43, !noalias !169
   %90 = mul i64 %88, %89
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 %90
-  %92 = load i32, ptr %32, align 8, !tbaa !44, !noalias !166
-  %93 = load ptr, ptr %33, align 8, !tbaa !15, !noalias !166
+  %92 = load i32, ptr %32, align 8, !tbaa !44, !noalias !169
+  %93 = load ptr, ptr %33, align 8, !tbaa !15, !noalias !169
   %94 = sext i32 %84 to i64
   %95 = sext i32 %85 to i64
   %96 = mul nsw i64 %95, %94
@@ -3986,10 +3986,10 @@ _ZN4ncnn3Mat4fillIaEEvT_.exit:                    ; preds = %.lr.ph.preheader, %
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next, %.lr.ph117 ]
   %135 = getelementptr inbounds nuw i16, ptr %99, i64 %indvars.iv
-  store i16 %132, ptr %135, align 2, !tbaa !88
+  store i16 %132, ptr %135, align 2, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN4ncnn3Mat4fillItEEvT_.exit, label %.lr.ph117, !llvm.loop !159
+  br i1 %exitcond.not, label %_ZN4ncnn3Mat4fillItEEvT_.exit, label %.lr.ph117, !llvm.loop !160
 
 _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph117, %131, %_ZN4ncnn3Mat4fillIaEEvT_.exit
   %.pr = load i64, ptr %7, align 8, !tbaa !51
@@ -4005,10 +4005,10 @@ _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph117, %131, %_
   %.0.i82119 = phi i32 [ %141, %.lr.ph120 ], [ 0, %137 ]
   %.05.i118 = phi ptr [ %140, %.lr.ph120 ], [ %99, %137 ]
   %140 = getelementptr inbounds nuw i8, ptr %.05.i118, i64 4
-  store float %75, ptr %.05.i118, align 4, !tbaa !123
+  store float %75, ptr %.05.i118, align 4, !tbaa !124
   %141 = add nuw nsw i32 %.0.i82119, 1
   %exitcond132.not = icmp eq i32 %141, %138
-  br i1 %exitcond132.not, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph120, !llvm.loop !160
+  br i1 %exitcond132.not, label %_ZN4ncnn3MatD2Ev.exit, label %.lr.ph120, !llvm.loop !161
 
 ._crit_edge137:                                   ; preds = %103, %107
   %142 = phi i32 [ %108, %107 ], [ %.pre142, %103 ]
@@ -4038,16 +4038,16 @@ _ZN4ncnn3Mat4fillItEEvT_.exit:                    ; preds = %.lr.ph117, %131, %_
 .noexc83:                                         ; preds = %._crit_edge137, %148, %.thread
   %.1 = phi i32 [ %154, %148 ], [ %., %.thread ], [ %144, %._crit_edge137 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16) #10
-  %155 = load i32, ptr %46, align 4, !tbaa !46, !noalias !169
-  %156 = load i32, ptr %47, align 8, !tbaa !47, !noalias !169
-  %157 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !169
-  %158 = load i64, ptr %48, align 8, !tbaa !17, !noalias !169
+  %155 = load i32, ptr %46, align 4, !tbaa !46, !noalias !172
+  %156 = load i32, ptr %47, align 8, !tbaa !47, !noalias !172
+  %157 = load ptr, ptr %9, align 8, !tbaa !16, !noalias !172
+  %158 = load i64, ptr %48, align 8, !tbaa !17, !noalias !172
   %159 = mul i64 %158, %indvars.iv134
-  %160 = load i64, ptr %49, align 8, !tbaa !43, !noalias !169
+  %160 = load i64, ptr %49, align 8, !tbaa !43, !noalias !172
   %161 = mul i64 %159, %160
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 %161
-  %163 = load i32, ptr %50, align 8, !tbaa !44, !noalias !169
-  %164 = load ptr, ptr %51, align 8, !tbaa !15, !noalias !169
+  %163 = load i32, ptr %50, align 8, !tbaa !44, !noalias !172
+  %164 = load ptr, ptr %51, align 8, !tbaa !15, !noalias !172
   %165 = sext i32 %155 to i64
   %166 = sext i32 %156 to i64
   %167 = mul nsw i64 %166, %165
@@ -4125,7 +4125,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %.lr.ph120, %113, %1
   %198 = load i32, ptr %4, align 4, !tbaa !50
   %199 = sext i32 %198 to i64
   %200 = icmp slt i64 %indvar.next, %199
-  br i1 %200, label %.noexc80, label %._crit_edge.loopexit, !llvm.loop !172
+  br i1 %200, label %.noexc80, label %._crit_edge.loopexit, !llvm.loop !175
 
 ._crit_edge127:                                   ; preds = %._crit_edge, %19
   call void @__kmpc_for_static_fini(ptr nonnull @1, i32 %21)
@@ -4247,115 +4247,118 @@ attributes #18 = { builtin nounwind }
 !58 = !{!20, !21, i64 8}
 !59 = !{!20, !21, i64 9}
 !60 = !{!10, !10, i64 0}
-!61 = distinct !{!61, !62}
+!61 = distinct !{!61, !62, !63}
 !62 = !{!"llvm.loop.mustprogress"}
-!63 = distinct !{!63, !62}
-!64 = distinct !{!64, !62}
-!65 = distinct !{!65, !62}
-!66 = distinct !{!66, !62}
-!67 = distinct !{!67, !62}
-!68 = distinct !{!68, !62}
-!69 = distinct !{!69, !62}
-!70 = distinct !{!70, !62}
-!71 = distinct !{!71, !62}
-!72 = distinct !{!72, !62}
-!73 = distinct !{!73, !62}
-!74 = distinct !{!74, !62}
-!75 = distinct !{!75, !62}
-!76 = distinct !{!76, !62}
-!77 = distinct !{!77, !62}
-!78 = distinct !{!78, !62}
-!79 = distinct !{!79, !62}
-!80 = distinct !{!80, !62}
-!81 = distinct !{!81, !62}
-!82 = distinct !{!82, !62}
-!83 = distinct !{!83, !62}
-!84 = distinct !{!84, !62}
-!85 = distinct !{!85, !62}
-!86 = distinct !{!86, !62}
-!87 = distinct !{!87, !62}
-!88 = !{!89, !89, i64 0}
-!89 = !{!"short", !10, i64 0}
-!90 = distinct !{!90, !62}
-!91 = distinct !{!91, !62, !92}
-!92 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!93 = distinct !{!93, !62}
-!94 = distinct !{!94, !62, !92}
-!95 = distinct !{!95, !62}
-!96 = distinct !{!96, !62}
-!97 = distinct !{!97, !62}
-!98 = distinct !{!98, !62}
-!99 = distinct !{!99, !62}
-!100 = distinct !{!100, !62}
-!101 = distinct !{!101, !62}
-!102 = distinct !{!102, !62}
-!103 = distinct !{!103, !62}
-!104 = distinct !{!104, !62}
-!105 = distinct !{!105, !62}
-!106 = distinct !{!106, !62}
-!107 = distinct !{!107, !62}
-!108 = distinct !{!108, !62}
-!109 = distinct !{!109, !62}
-!110 = distinct !{!110, !62}
-!111 = distinct !{!111, !62}
-!112 = distinct !{!112, !62}
-!113 = distinct !{!113, !62}
-!114 = distinct !{!114, !62}
-!115 = distinct !{!115, !62}
-!116 = distinct !{!116, !62}
-!117 = distinct !{!117, !62}
-!118 = distinct !{!118, !62}
-!119 = distinct !{!119, !62}
-!120 = distinct !{!120, !62}
-!121 = distinct !{!121, !62}
-!122 = distinct !{!122, !62}
-!123 = !{!34, !34, i64 0}
-!124 = distinct !{!124, !62}
-!125 = distinct !{!125, !62, !92}
-!126 = distinct !{!126, !62}
-!127 = distinct !{!127, !62, !92}
-!128 = distinct !{!128, !62}
-!129 = distinct !{!129, !62}
-!130 = distinct !{!130, !62}
-!131 = distinct !{!131, !62}
-!132 = distinct !{!132, !62}
-!133 = distinct !{!133, !62}
-!134 = distinct !{!134, !62}
-!135 = distinct !{!135, !62}
-!136 = distinct !{!136, !62}
-!137 = distinct !{!137, !62}
-!138 = distinct !{!138, !62}
-!139 = distinct !{!139, !62}
-!140 = distinct !{!140, !62}
-!141 = distinct !{!141, !62}
-!142 = distinct !{!142, !62}
-!143 = distinct !{!143, !62}
-!144 = distinct !{!144, !62}
-!145 = distinct !{!145, !62}
-!146 = distinct !{!146, !62}
-!147 = distinct !{!147, !62}
-!148 = distinct !{!148, !62}
-!149 = distinct !{!149, !62}
-!150 = distinct !{!150, !62}
-!151 = distinct !{!151, !62}
-!152 = distinct !{!152, !62}
-!153 = distinct !{!153, !62}
-!154 = distinct !{!154, !62}
-!155 = distinct !{!155, !62}
-!156 = !{!157}
-!157 = distinct !{!157, !158, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!158 = distinct !{!158, !"_ZN4ncnn3Mat7channelEi"}
-!159 = distinct !{!159, !62}
-!160 = distinct !{!160, !62}
-!161 = !{!162}
-!162 = distinct !{!162, !163, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!163 = distinct !{!163, !"_ZNK4ncnn3Mat7channelEi"}
-!164 = !{!165}
-!165 = !{i64 2, i64 -1, i64 -1, i1 true}
+!63 = !{!"llvm.loop.estimated_trip_count"}
+!64 = distinct !{!64, !62, !63}
+!65 = distinct !{!65, !62, !63}
+!66 = distinct !{!66, !62, !63}
+!67 = distinct !{!67, !62, !63}
+!68 = distinct !{!68, !62, !63}
+!69 = distinct !{!69, !62, !63}
+!70 = distinct !{!70, !62, !63}
+!71 = distinct !{!71, !62, !63}
+!72 = distinct !{!72, !62, !63}
+!73 = distinct !{!73, !62, !63}
+!74 = distinct !{!74, !62, !63}
+!75 = distinct !{!75, !62, !63}
+!76 = distinct !{!76, !62, !63}
+!77 = distinct !{!77, !62, !63}
+!78 = distinct !{!78, !62, !63}
+!79 = distinct !{!79, !62, !63}
+!80 = distinct !{!80, !62, !63}
+!81 = distinct !{!81, !62, !63}
+!82 = distinct !{!82, !62, !63}
+!83 = distinct !{!83, !62, !63}
+!84 = distinct !{!84, !62, !63}
+!85 = distinct !{!85, !62, !63}
+!86 = distinct !{!86, !62, !63}
+!87 = distinct !{!87, !62, !63}
+!88 = distinct !{!88, !62, !63}
+!89 = !{!90, !90, i64 0}
+!90 = !{!"short", !10, i64 0}
+!91 = distinct !{!91, !62, !63}
+!92 = distinct !{!92, !62, !63, !93}
+!93 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!94 = distinct !{!94, !62, !63}
+!95 = distinct !{!95, !62, !63, !93}
+!96 = distinct !{!96, !62, !63}
+!97 = distinct !{!97, !62, !63}
+!98 = distinct !{!98, !62, !63}
+!99 = distinct !{!99, !62, !63}
+!100 = distinct !{!100, !62, !63}
+!101 = distinct !{!101, !62, !63}
+!102 = distinct !{!102, !62, !63}
+!103 = distinct !{!103, !62, !63}
+!104 = distinct !{!104, !62, !63}
+!105 = distinct !{!105, !62, !63}
+!106 = distinct !{!106, !62, !63}
+!107 = distinct !{!107, !62, !63}
+!108 = distinct !{!108, !62, !63}
+!109 = distinct !{!109, !62, !63}
+!110 = distinct !{!110, !62, !63}
+!111 = distinct !{!111, !62, !63}
+!112 = distinct !{!112, !62, !63}
+!113 = distinct !{!113, !62, !63}
+!114 = distinct !{!114, !62, !63}
+!115 = distinct !{!115, !62, !63}
+!116 = distinct !{!116, !62, !63}
+!117 = distinct !{!117, !62, !63}
+!118 = distinct !{!118, !62, !63}
+!119 = distinct !{!119, !62, !63}
+!120 = distinct !{!120, !62, !63}
+!121 = distinct !{!121, !62, !63}
+!122 = distinct !{!122, !62, !63}
+!123 = distinct !{!123, !62, !63}
+!124 = !{!34, !34, i64 0}
+!125 = distinct !{!125, !62, !63}
+!126 = distinct !{!126, !62, !63, !93}
+!127 = distinct !{!127, !62, !63}
+!128 = distinct !{!128, !62, !63, !93}
+!129 = distinct !{!129, !62, !63}
+!130 = distinct !{!130, !62, !63}
+!131 = distinct !{!131, !62, !63}
+!132 = distinct !{!132, !62, !63}
+!133 = distinct !{!133, !62, !63}
+!134 = distinct !{!134, !62, !63}
+!135 = distinct !{!135, !62, !63}
+!136 = distinct !{!136, !62, !63}
+!137 = distinct !{!137, !62, !63}
+!138 = distinct !{!138, !62, !63}
+!139 = distinct !{!139, !62, !63}
+!140 = distinct !{!140, !62, !63}
+!141 = distinct !{!141, !62, !63}
+!142 = distinct !{!142, !62, !63}
+!143 = distinct !{!143, !62, !63}
+!144 = distinct !{!144, !62, !63}
+!145 = distinct !{!145, !62, !63}
+!146 = distinct !{!146, !62, !63}
+!147 = distinct !{!147, !62, !63}
+!148 = distinct !{!148, !62, !63}
+!149 = distinct !{!149, !62, !63}
+!150 = distinct !{!150, !62, !63}
+!151 = distinct !{!151, !62, !63}
+!152 = distinct !{!152, !62, !63}
+!153 = distinct !{!153, !62, !63}
+!154 = distinct !{!154, !62, !63}
+!155 = distinct !{!155, !62, !63}
+!156 = distinct !{!156, !62, !63}
+!157 = !{!158}
+!158 = distinct !{!158, !159, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!159 = distinct !{!159, !"_ZN4ncnn3Mat7channelEi"}
+!160 = distinct !{!160, !62, !63}
+!161 = distinct !{!161, !62, !63}
+!162 = !{!163}
+!163 = distinct !{!163, !164, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!164 = distinct !{!164, !"_ZNK4ncnn3Mat7channelEi"}
+!165 = distinct !{!165, !63}
 !166 = !{!167}
-!167 = distinct !{!167, !168, !"_ZN4ncnn3Mat7channelEi: argument 0"}
-!168 = distinct !{!168, !"_ZN4ncnn3Mat7channelEi"}
+!167 = !{i64 2, i64 -1, i64 -1, i1 true}
+!168 = distinct !{!168, !63}
 !169 = !{!170}
-!170 = distinct !{!170, !171, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
-!171 = distinct !{!171, !"_ZNK4ncnn3Mat7channelEi"}
-!172 = distinct !{!172, !62}
+!170 = distinct !{!170, !171, !"_ZN4ncnn3Mat7channelEi: argument 0"}
+!171 = distinct !{!171, !"_ZN4ncnn3Mat7channelEi"}
+!172 = !{!173}
+!173 = distinct !{!173, !174, !"_ZNK4ncnn3Mat7channelEi: argument 0"}
+!174 = distinct !{!174, !"_ZNK4ncnn3Mat7channelEi"}
+!175 = distinct !{!175, !62, !63}

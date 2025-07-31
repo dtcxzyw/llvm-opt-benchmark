@@ -402,7 +402,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %133 = load i32, ptr %8, align 4
   %134 = zext i32 %133 to i64
   %135 = icmp samesign ult i64 %132, %134
-  br i1 %135, label %100, label %.loopexit21.loopexit, !llvm.loop !9
+  br i1 %135, label %100, label %.loopexit21.loopexit, !llvm.loop !10
 
 .loopexit21.loopexit:                             ; preds = %125
   %.pre = load ptr, ptr %88, align 8
@@ -457,7 +457,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   store volatile ptr %160, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %57, i64 272
   store ptr @trigger_event, ptr %162, align 8
-  %163 = call fastcc i32 @parse_features(ptr noundef nonnull %57, i32 noundef %138, ptr noundef %137, ptr noundef nonnull %9), !range !10
+  %163 = call fastcc i32 @parse_features(ptr noundef nonnull %57, i32 noundef %138, ptr noundef %137, ptr noundef nonnull %9), !range !11
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %180
 
@@ -513,7 +513,7 @@ define internal i32 @mirror_ctr(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %194 = load ptr, ptr %193, align 8
   call void @dm_put_device(ptr noundef %0, ptr noundef %194) #12
   %195 = icmp eq i64 %192, 0
-  br i1 %195, label %.loopexit, label %190, !llvm.loop !6
+  br i1 %195, label %.loopexit, label %190, !llvm.loop !12
 
 .loopexit:                                        ; preds = %190, %183
   %196 = load ptr, ptr %78, align 8
@@ -565,7 +565,7 @@ define internal void @mirror_dtr(ptr noundef %0) #2 align 16 {
   %23 = load ptr, ptr %22, align 8
   tail call void @dm_put_device(ptr noundef %0, ptr noundef %23) #12
   %24 = icmp eq i64 %21, 0
-  br i1 %24, label %.loopexit, label %19, !llvm.loop !6
+  br i1 %24, label %.loopexit, label %19, !llvm.loop !13
 
 .loopexit:                                        ; preds = %19, %1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -683,7 +683,7 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load volatile i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %88, label %75, !prof !11
+  br i1 %74, label %88, label %75, !prof !14
 
 75:                                               ; preds = %70
   %76 = getelementptr i8, ptr %71, i64 -40
@@ -702,11 +702,11 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %85 = sext i32 %84 to i64
   %86 = getelementptr [0 x %struct.mirror], ptr %64, i64 0, i64 %85
   %87 = icmp eq ptr %83, %86
-  br i1 %87, label %.thread, label %70, !llvm.loop !12
+  br i1 %87, label %.thread, label %70, !llvm.loop !15
 
 88:                                               ; preds = %70
   %89 = icmp eq ptr %71, null
-  br i1 %89, label %.thread, label %90, !prof !13
+  br i1 %89, label %.thread, label %90, !prof !16
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -749,7 +749,7 @@ define internal noundef range(i32 0, 5) i32 @mirror_map(ptr noundef readonly cap
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %127, label %117, !prof !14
+  br i1 %116, label %127, label %117, !prof !17
 
 117:                                              ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %71, i64 32
@@ -812,7 +812,7 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly 
   %29 = icmp ne i32 %28, 0
   %30 = icmp eq i8 %24, 0
   %31 = or i1 %30, %29
-  br i1 %31, label %76, label %32, !prof !15
+  br i1 %31, label %76, label %32, !prof !18
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -848,7 +848,7 @@ define internal noundef range(i32 0, 2) i32 @mirror_end_io(ptr noundef readonly 
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %41
-  %56 = tail call fastcc i32 @mirror_available(ptr noundef %9, ptr noundef %1), !range !16
+  %56 = tail call fastcc i32 @mirror_available(ptr noundef %9, ptr noundef %1), !range !19
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %74, label %58
 
@@ -934,7 +934,7 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
 
 24:                                               ; preds = %26, %18
   %25 = icmp eq ptr %15, null
-  br i1 %25, label %.critedge, label %.lr.ph, !llvm.loop !17
+  br i1 %25, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 26:                                               ; preds = %.lr.ph
   store ptr null, ptr %14, align 8
@@ -971,7 +971,7 @@ define internal void @mirror_presuspend(ptr noundef readonly captures(none) %0) 
   %41 = load ptr, ptr %5, align 8
   %42 = call i32 @dm_rh_recovery_in_flight(ptr noundef %41) #12
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.loopexit, label %.preheader
+  br i1 %43, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %35
   call void @finish_wait(ptr noundef nonnull @_kmirrord_recovery_stopped, ptr noundef nonnull %2) #12
@@ -1157,7 +1157,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %67 = load i32, ptr %21, align 8
   %68 = zext i32 %67 to i64
   %69 = icmp samesign ult i64 %66, %68
-  br i1 %69, label %26, label %.loopexit, !llvm.loop !18
+  br i1 %69, label %26, label %.loopexit, !llvm.loop !22
 
 .loopexit:                                        ; preds = %63, %19
   %70 = phi i64 [ 0, %19 ], [ %66, %63 ]
@@ -1252,7 +1252,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %139 = add nuw nsw i64 %120, 1
   %140 = zext i32 %136 to i64
   %141 = icmp samesign ult i64 %139, %140
-  br i1 %141, label %118, label %.loopexit24, !llvm.loop !19
+  br i1 %141, label %118, label %.loopexit24, !llvm.loop !23
 
 .loopexit24:                                      ; preds = %135, %110
   %142 = phi i32 [ %112, %110 ], [ %138, %135 ]
@@ -1445,7 +1445,7 @@ define internal void @mirror_status(ptr noundef readonly captures(none) %0, i32 
   %275 = load i32, ptr %218, align 8
   %276 = zext i32 %275 to i64
   %277 = icmp samesign ult i64 %274, %276
-  br i1 %277, label %223, label %.loopexit25, !llvm.loop !20
+  br i1 %277, label %223, label %.loopexit25, !llvm.loop !24
 
 .loopexit25:                                      ; preds = %271, %215
   %278 = phi i32 [ %217, %215 ], [ %273, %271 ]
@@ -1541,7 +1541,7 @@ define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr noundef readonly
   %13 = load i32, ptr %6, align 8
   %14 = zext i32 %13 to i64
   %15 = icmp samesign ult i64 %12, %14
-  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !21
+  br i1 %15, label %.preheader, label %.loopexit, !llvm.loop !25
 
 .preheader:                                       ; preds = %3, %11
   %16 = phi i64 [ %12, %11 ], [ 0, %3 ]
@@ -1553,7 +1553,7 @@ define internal i32 @mirror_iterate_devices(ptr noundef %0, ptr noundef readonly
   %22 = load i64, ptr %8, align 8
   %23 = tail call i32 %1(ptr noundef %0, ptr noundef %19, i64 noundef %21, i64 noundef %22, ptr noundef %2) #12
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %11, label %.loopexit, !llvm.loop !21
+  br i1 %24, label %11, label %.loopexit, !llvm.loop !26
 
 .loopexit:                                        ; preds = %.preheader, %11, %3
   %25 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %23, %.preheader ]
@@ -1711,7 +1711,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %94 = add nuw nsw i64 %72, 1
   %95 = zext i32 %92 to i64
   %96 = icmp samesign ult i64 %94, %95
-  br i1 %96, label %.preheader53, label %.loopexit54.loopexit, !llvm.loop !22
+  br i1 %96, label %.preheader53, label %.loopexit54.loopexit, !llvm.loop !27
 
 .loopexit54.loopexit:                             ; preds = %91
   %97 = add i32 %92, -1
@@ -1731,7 +1731,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %105 = load ptr, ptr %20, align 8
   %106 = call ptr @dm_rh_recovery_start(ptr noundef %105) #12
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %.loopexit55, label %40, !llvm.loop !23
+  br i1 %107, label %.loopexit55, label %40, !llvm.loop !28
 
 .loopexit55:                                      ; preds = %.loopexit54, %1
   %108 = getelementptr i8, ptr %0, i64 -32
@@ -1775,7 +1775,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   store i64 0, ptr %133, align 8
   %134 = add nuw nsw i64 %130, 1
   %135 = icmp eq i64 %134, %128
-  br i1 %135, label %.loopexit52, label %129, !llvm.loop !24
+  br i1 %135, label %.loopexit52, label %129, !llvm.loop !29
 
 .loopexit52:                                      ; preds = %129, %119, %111, %.loopexit55
   %136 = icmp eq ptr %15, null
@@ -1808,7 +1808,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %158 = call i32 @dm_rh_get_state(ptr noundef %157, i64 noundef %153, i32 noundef 1) #12
   %159 = add i32 %158, -3
   %160 = icmp ult i32 %159, -2
-  br i1 %160, label %183, label %161, !prof !14
+  br i1 %160, label %183, label %161, !prof !17
 
 161:                                              ; preds = %148
   %162 = load volatile i32, ptr %139, align 4
@@ -1821,7 +1821,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load volatile i32, ptr %167, align 4
   %169 = icmp eq i32 %168, 0
-  br i1 %169, label %189, label %170, !prof !11
+  br i1 %169, label %189, label %170, !prof !14
 
 170:                                              ; preds = %165
   %171 = getelementptr i8, ptr %166, i64 -40
@@ -1840,7 +1840,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %180 = sext i32 %179 to i64
   %181 = getelementptr [0 x %struct.mirror], ptr %138, i64 0, i64 %180
   %182 = icmp eq ptr %178, %181
-  br i1 %182, label %.thread, label %165, !llvm.loop !12
+  br i1 %182, label %.thread, label %165, !llvm.loop !30
 
 183:                                              ; preds = %148
   %184 = icmp eq ptr %156, null
@@ -1854,7 +1854,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 
 189:                                              ; preds = %165
   %190 = icmp eq ptr %166, null
-  br i1 %190, label %.thread, label %.thread39, !prof !25
+  br i1 %190, label %.thread, label %.thread39, !prof !31
 
 .thread39:                                        ; preds = %185, %189
   %191 = phi ptr [ %166, %189 ], [ %156, %185 ]
@@ -1877,7 +1877,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %198 = getelementptr inbounds nuw i8, ptr %149, i64 40
   %199 = load i32, ptr %198, align 8
   %200 = icmp eq i32 %199, 0
-  br i1 %200, label %211, label %201, !prof !14
+  br i1 %200, label %211, label %201, !prof !17
 
 201:                                              ; preds = %.thread39
   %202 = getelementptr inbounds nuw i8, ptr %149, i64 32
@@ -1900,11 +1900,11 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   store ptr %191, ptr %149, align 8
   %215 = call i32 @dm_io(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7, ptr noundef null) #12
   %216 = icmp eq i32 %215, 0
-  br i1 %216, label %218, label %217, !prof !11
+  br i1 %216, label %218, label %217, !prof !14
 
 217:                                              ; preds = %211
-  call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #12, !srcloc !26
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 557, i32 0, i64 12) #12, !srcloc !27
+  call void asm sideeffect "427: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 427b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 427) #12, !srcloc !32
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 557, i32 0, i64 12) #12, !srcloc !33
   unreachable
 
 218:                                              ; preds = %211
@@ -1919,7 +1919,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br label %220
 
 220:                                              ; preds = %.thread, %218
-  br i1 %151, label %.loopexit51, label %148, !llvm.loop !28
+  br i1 %151, label %.loopexit51, label %148, !llvm.loop !34
 
 .loopexit51:                                      ; preds = %220, %.loopexit52
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
@@ -1969,7 +1969,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %. = select i1 %247, ptr %4, ptr %246
   store ptr %235, ptr %., align 8
   store ptr %235, ptr %225, align 8
-  br i1 %237, label %.loopexit48, label %234, !llvm.loop !29
+  br i1 %237, label %.loopexit48, label %234, !llvm.loop !35
 
 248:                                              ; preds = %234
   %249 = load ptr, ptr %20, align 8
@@ -1996,7 +1996,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 
 261:                                              ; preds = %260, %258
   %262 = phi ptr [ %230, %260 ], [ %235, %258 ]
-  br i1 %237, label %.loopexit48, label %226, !llvm.loop !29
+  br i1 %237, label %.loopexit48, label %226, !llvm.loop !36
 
 263:                                              ; preds = %255, %248
   %264 = load ptr, ptr %20, align 8
@@ -2026,13 +2026,13 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %274 = select i1 %273, ptr %270, ptr %272
   store ptr %235, ptr %274, align 8
   store ptr %235, ptr %271, align 8
-  br i1 %237, label %.loopexit48, label %231, !llvm.loop !29
+  br i1 %237, label %.loopexit48, label %231, !llvm.loop !37
 
 .loopexit48:                                      ; preds = %261, %269, %245
   %275 = phi ptr [ %230, %245 ], [ %230, %269 ], [ %262, %261 ]
   %276 = phi ptr [ %229, %245 ], [ %229, %269 ], [ %235, %261 ]
   %277 = icmp eq ptr %275, null
-  br i1 %277, label %283, label %278, !prof !11
+  br i1 %277, label %283, label %278, !prof !14
 
 278:                                              ; preds = %.loopexit48
   call void @_raw_spin_lock_irq(ptr noundef %12) #12
@@ -2064,7 +2064,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 290:                                              ; preds = %283
   %291 = load i32, ptr %289, align 4
   %292 = icmp eq i32 %291, 0
-  br i1 %292, label %310, label %293, !prof !30
+  br i1 %292, label %310, label %293, !prof !38
 
 293:                                              ; preds = %.thread40, %290
   %294 = load i64, ptr %22, align 8
@@ -2165,7 +2165,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %346 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %347 = lshr i32 %344, 9
   %348 = zext nneg i32 %347 to i64
-  br i1 %345, label %.split.us, label %.split, !prof !14
+  br i1 %345, label %.split.us, label %.split, !prof !17
 
 .split.us:                                        ; preds = %342, %.split.us
   %349 = phi ptr [ %359, %.split.us ], [ %321, %342 ]
@@ -2183,7 +2183,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %358 = add nuw i32 %351, 1
   %359 = getelementptr i8, ptr %349, i64 40
   %360 = icmp eq i32 %358, %340
-  br i1 %360, label %.loopexit46, label %.split.us, !llvm.loop !31
+  br i1 %360, label %.loopexit46, label %.split.us, !llvm.loop !39
 
 .split:                                           ; preds = %342, %.split
   %361 = phi ptr [ %380, %.split ], [ %321, %342 ]
@@ -2210,7 +2210,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %379 = add nuw i32 %363, 1
   %380 = getelementptr i8, ptr %361, i64 40
   %381 = icmp eq i32 %379, %340
-  br i1 %381, label %.loopexit46, label %.split, !llvm.loop !33
+  br i1 %381, label %.loopexit46, label %.split, !llvm.loop !41
 
 .loopexit46:                                      ; preds = %.split, %.split.us, %339
   %382 = load volatile i32, ptr %323, align 4
@@ -2220,11 +2220,11 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %385 = load i32, ptr %322, align 8
   %386 = call i32 @dm_io(ptr noundef nonnull %3, i32 noundef %385, ptr noundef nonnull %2, ptr noundef null) #12
   %387 = icmp eq i32 %386, 0
-  br i1 %387, label %389, label %388, !prof !11
+  br i1 %387, label %389, label %388, !prof !14
 
 388:                                              ; preds = %.loopexit46
-  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #12, !srcloc !34
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 684, i32 0, i64 12) #12, !srcloc !35
+  call void asm sideeffect "428: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 428b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 428) #12, !srcloc !42
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.23, i32 684, i32 0, i64 12) #12, !srcloc !43
   unreachable
 
 389:                                              ; preds = %.loopexit46
@@ -2232,7 +2232,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %2) #12
   %390 = load ptr, ptr %4, align 8
   %391 = icmp eq ptr %390, null
-  br i1 %391, label %.loopexit47, label %324, !llvm.loop !36
+  br i1 %391, label %.loopexit47, label %324, !llvm.loop !44
 
 .loopexit47:                                      ; preds = %389, %310, %306
   %392 = load ptr, ptr %6, align 8
@@ -2260,7 +2260,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   store ptr null, ptr %403, align 8
   %406 = load ptr, ptr %20, align 8
   call void @dm_rh_delay(ptr noundef %406, ptr noundef nonnull %403) #12
-  br i1 %405, label %.loopexit132, label %.preheader131, !llvm.loop !37
+  br i1 %405, label %.loopexit132, label %.preheader131, !llvm.loop !45
 
 407:                                              ; preds = %458, %396
   %408 = phi ptr [ %394, %396 ], [ %459, %458 ]
@@ -2277,7 +2277,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   store ptr null, ptr %408, align 8
   %413 = load i32, ptr %398, align 8
   %414 = icmp eq i32 %413, 0
-  br i1 %414, label %425, label %415, !prof !11
+  br i1 %414, label %425, label %415, !prof !14
 
 415:                                              ; preds = %412
   %416 = load i64, ptr %22, align 8
@@ -2325,7 +2325,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   %441 = getelementptr inbounds nuw i8, ptr %408, i64 40
   %442 = load i32, ptr %441, align 8
   %443 = icmp eq i32 %442, 0
-  br i1 %443, label %455, label %444, !prof !14
+  br i1 %443, label %455, label %444, !prof !17
 
 444:                                              ; preds = %440
   %445 = getelementptr inbounds nuw i8, ptr %408, i64 32
@@ -2350,14 +2350,14 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 458:                                              ; preds = %455, %419
   %459 = load ptr, ptr %5, align 8
   %460 = icmp eq ptr %459, null
-  br i1 %460, label %.loopexit45, label %407, !llvm.loop !38
+  br i1 %460, label %.loopexit45, label %407, !llvm.loop !46
 
 .loopexit45:                                      ; preds = %458, %.loopexit132, %.loopexit51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
   %461 = icmp eq ptr %19, null
-  br i1 %461, label %.loopexit, label %462, !prof !11
+  br i1 %461, label %.loopexit, label %462, !prof !14
 
 462:                                              ; preds = %.loopexit45
   %463 = getelementptr i8, ptr %0, i64 -28
@@ -2397,11 +2397,11 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 483:                                              ; preds = %.preheader
   %484 = getelementptr i8, ptr %479, i64 40
   %485 = icmp ult ptr %484, %477
-  br i1 %485, label %.preheader, label %.thread42, !llvm.loop !39
+  br i1 %485, label %.preheader, label %.thread42, !llvm.loop !47
 
 486:                                              ; preds = %.preheader
   %487 = icmp eq ptr %479, null
-  br i1 %487, label %.thread42, label %488, !prof !40
+  br i1 %487, label %.thread42, label %488, !prof !48
 
 488:                                              ; preds = %486
   %489 = load i64, ptr %22, align 8
@@ -2412,7 +2412,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
 492:                                              ; preds = %488
   %493 = load i32, ptr %463, align 4
   %494 = icmp eq i32 %493, 0
-  br i1 %494, label %496, label %.thread42, !prof !11
+  br i1 %494, label %496, label %.thread42, !prof !14
 
 .thread42:                                        ; preds = %483, %474, %492, %486
   %495 = getelementptr inbounds nuw i8, ptr %467, i64 24
@@ -2434,7 +2434,7 @@ define internal void @do_mirror(ptr noundef %0) #2 align 16 {
   br label %501
 
 501:                                              ; preds = %500, %499, %.thread42
-  br i1 %469, label %.loopexit, label %466, !llvm.loop !41
+  br i1 %469, label %.loopexit, label %466, !llvm.loop !49
 
 .loopexit:                                        ; preds = %501, %.loopexit45
   ret void
@@ -2446,7 +2446,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @delayed_wake_fn(ptr noundef %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 -2, ptr elementtype(i8) %2) #12, !srcloc !42
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %2, i32 -2, ptr elementtype(i8) %2) #12, !srcloc !50
   %3 = getelementptr i8, ptr %0, i64 -40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -32
@@ -2523,7 +2523,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr noundef
   store i32 %38, ptr %3, align 4
   %39 = add nuw i32 %25, 1
   %40 = icmp eq i32 %39, %17
-  br i1 %40, label %.loopexit3, label %23, !llvm.loop !43
+  br i1 %40, label %.loopexit3, label %23, !llvm.loop !51
 
 .loopexit3:                                       ; preds = %33, %19
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2607,14 +2607,14 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
   %25 = getelementptr i8, ptr %18, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %26 = icmp samesign ult i64 %24, %16
-  br i1 %26, label %.preheader2, label %.loopexit3, !llvm.loop !44
+  br i1 %26, label %.preheader2, label %.loopexit3, !llvm.loop !52
 
 .loopexit3:                                       ; preds = %.preheader2, %1
   store i64 -1, ptr %2, align 8
   %27 = call i32 @dm_io(ptr noundef nonnull %4, i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %2) #12
   %28 = load i64, ptr %2, align 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.loopexit, label %30, !prof !11
+  br i1 %29, label %.loopexit, label %30, !prof !14
 
 30:                                               ; preds = %.loopexit3
   %31 = load i32, ptr %13, align 8
@@ -2623,7 +2623,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
 
 .preheader:                                       ; preds = %30, %39
   %33 = phi i64 [ %40, %39 ], [ 0, %30 ]
-  %34 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %33) #12, !srcloc !45
+  %34 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 %33) #12, !srcloc !53
   %35 = icmp ult i8 %34, 2
   call void @llvm.assume(i1 %35)
   %36 = icmp eq i8 %34, 0
@@ -2639,7 +2639,7 @@ define internal noundef range(i32 -5, 1) i32 @mirror_flush(ptr noundef readonly 
   %41 = load i32, ptr %13, align 8
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %40, %42
-  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !46
+  br i1 %43, label %.preheader, label %.loopexit, !llvm.loop !54
 
 .loopexit:                                        ; preds = %39, %30, %.loopexit3
   %44 = phi i32 [ 0, %.loopexit3 ], [ -5, %30 ], [ -5, %39 ]
@@ -2661,10 +2661,10 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #12, !srcloc !47
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, ptr nonnull elementtype(i32) %5) #12, !srcloc !55
   %6 = zext nneg i32 %1 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %6, ptr nonnull elementtype(i64) %7) #12, !srcloc !48
+  %8 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %6, ptr nonnull elementtype(i64) %7) #12, !srcloc !56
   %9 = icmp ult i8 %8, 2
   tail call void @llvm.assume(i1 %9)
   %10 = icmp eq i8 %8, 0
@@ -2720,7 +2720,7 @@ define internal fastcc void @fail_mirror(ptr noundef %0, i32 noundef range(i32 0
 45:                                               ; preds = %.preheader
   %46 = getelementptr i8, ptr %41, i64 40
   %47 = icmp ult ptr %46, %39
-  br i1 %47, label %.preheader, label %.thread, !llvm.loop !39
+  br i1 %47, label %.preheader, label %.thread, !llvm.loop !57
 
 48:                                               ; preds = %.preheader
   %49 = icmp eq ptr %41, null
@@ -2815,7 +2815,7 @@ define internal void @dispatch_bios(ptr noundef %0, ptr noundef captures(none) %
 27:                                               ; preds = %24, %17
   %28 = load ptr, ptr %1, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %12, !llvm.loop !49
+  br i1 %29, label %.loopexit, label %12, !llvm.loop !58
 
 .loopexit:                                        ; preds = %27, %2
   ret void
@@ -2969,7 +2969,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
 
 39:                                               ; preds = %32
   %40 = sext i32 %34 to i64
-  %41 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %40) #12, !srcloc !45
+  %41 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %40) #12, !srcloc !53
   %42 = icmp ult i8 %41, 2
   call void @llvm.assume(i1 %42)
   %43 = icmp eq i8 %41, 0
@@ -2990,7 +2990,7 @@ define internal void @recovery_complete(i32 noundef %0, i64 noundef %1, ptr noun
   %50 = phi i32 [ %34, %32 ], [ %47, %46 ]
   %51 = add nuw i32 %35, 1
   %52 = icmp ult i32 %51, %49
-  br i1 %52, label %32, label %.loopexit.loopexit, !llvm.loop !50
+  br i1 %52, label %32, label %.loopexit.loopexit, !llvm.loop !59
 
 .loopexit.loopexit:                               ; preds = %48
   %.pre1 = load i64, ptr %4, align 8
@@ -3025,7 +3025,7 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
   %3 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
   %4 = icmp eq i64 %0, 0
-  br i1 %4, label %5, label %6, !prof !11
+  br i1 %4, label %5, label %6, !prof !14
 
 5:                                                ; preds = %2
   tail call void @bio_endio(ptr noundef %1) #12
@@ -3042,10 +3042,10 @@ define internal void @read_callback(i64 noundef %0, ptr noundef %1) #2 align 16 
   %12 = getelementptr i8, ptr %11, i64 %.idx
   %13 = load volatile i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %18, label %15, !prof !11
+  br i1 %14, label %18, label %15, !prof !14
 
 15:                                               ; preds = %6
-  %16 = tail call fastcc i32 @mirror_available(ptr noundef %7, ptr noundef %1), !range !16
+  %16 = tail call fastcc i32 @mirror_available(ptr noundef %7, ptr noundef %1), !range !19
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %31, label %18
 
@@ -3122,7 +3122,7 @@ define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load volatile i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %38, label %25, !prof !11
+  br i1 %24, label %38, label %25, !prof !14
 
 25:                                               ; preds = %20
   %26 = getelementptr i8, ptr %21, i64 -40
@@ -3141,7 +3141,7 @@ define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr
   %35 = sext i32 %34 to i64
   %36 = getelementptr [0 x %struct.mirror], ptr %14, i64 0, i64 %35
   %37 = icmp eq ptr %33, %36
-  br i1 %37, label %38, label %20, !llvm.loop !12
+  br i1 %37, label %38, label %20, !llvm.loop !60
 
 38:                                               ; preds = %32, %20
   %39 = phi ptr [ %21, %20 ], [ null, %32 ]
@@ -3157,7 +3157,7 @@ define internal fastcc range(i32 0, 2) i32 @mirror_available(ptr noundef %0, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @delayed_wake(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 0, ptr nonnull elementtype(i64) %2) #12, !srcloc !48
+  %3 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2, i64 0, ptr nonnull elementtype(i64) %2) #12, !srcloc !56
   %4 = icmp ult i8 %3, 2
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq i8 %3, 0
@@ -3205,7 +3205,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
   %5 = load ptr, ptr %4, align 8
   store ptr null, ptr %1, align 8
   %6 = icmp eq i64 %0, 0
-  br i1 %6, label %7, label %8, !prof !11
+  br i1 %6, label %7, label %8, !prof !14
 
 7:                                                ; preds = %2
   tail call void @bio_endio(ptr noundef %1) #12
@@ -3236,7 +3236,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
 
 21:                                               ; preds = %28, %17
   %22 = phi i64 [ 0, %17 ], [ %29, %28 ]
-  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %22) #12, !srcloc !45
+  %23 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, i64 %22) #12, !srcloc !53
   %24 = icmp ult i8 %23, 2
   call void @llvm.assume(i1 %24)
   %25 = icmp eq i8 %23, 0
@@ -3252,7 +3252,7 @@ define internal void @write_callback(i64 noundef %0, ptr noundef %1) #2 align 16
   %30 = load i32, ptr %14, align 8
   %31 = zext i32 %30 to i64
   %32 = icmp samesign ult i64 %29, %31
-  br i1 %32, label %21, label %.loopexit, !llvm.loop !51
+  br i1 %32, label %21, label %.loopexit, !llvm.loop !61
 
 .loopexit:                                        ; preds = %28, %13
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3401,49 +3401,59 @@ attributes #14 = { nounwind allocsize(0) }
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{!"auto-init"}
-!6 = distinct !{!6, !7, !8}
+!6 = distinct !{!6, !7, !8, !9}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{!"llvm.loop.unroll.disable"}
-!9 = distinct !{!9, !7, !8}
-!10 = !{i32 -22, i32 1}
-!11 = !{!"branch_weights", i32 2000, i32 1}
-!12 = distinct !{!12, !7, !8}
-!13 = !{!"branch_weights", i32 1039667, i32 2146443981}
-!14 = !{!"branch_weights", i32 1, i32 2000}
-!15 = !{!"branch_weights", i32 4001, i32 1}
-!16 = !{i32 0, i32 2}
-!17 = distinct !{!17, !7, !8}
-!18 = distinct !{!18, !7, !8}
-!19 = distinct !{!19, !7, !8}
-!20 = distinct !{!20, !7, !8}
-!21 = distinct !{!21, !7, !8}
-!22 = distinct !{!22, !7, !8}
-!23 = distinct !{!23, !7, !8}
-!24 = distinct !{!24, !7, !8}
-!25 = !{!"branch_weights", i32 301995, i32 2147181653}
-!26 = !{i64 2156255595, i64 2156255404, i64 2156255456, i64 2156255502, i64 2156255530}
-!27 = !{i64 2156255669, i64 2156255698, i64 2156255744, i64 2156255802, i64 2156255856, i64 2156255910, i64 2156255965, i64 2156255996}
-!28 = distinct !{!28, !7, !8}
-!29 = distinct !{!29, !7, !8}
-!30 = !{!"branch_weights", i32 -2147483648, i32 0}
-!31 = distinct !{!31, !7, !8, !32}
-!32 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!33 = distinct !{!33, !7, !8}
-!34 = !{i64 2156258152, i64 2156257961, i64 2156258013, i64 2156258059, i64 2156258087}
-!35 = !{i64 2156258226, i64 2156258255, i64 2156258301, i64 2156258359, i64 2156258413, i64 2156258467, i64 2156258522, i64 2156258553}
-!36 = distinct !{!36, !7, !8}
-!37 = distinct !{!37, !7, !8}
-!38 = distinct !{!38, !7, !8}
-!39 = distinct !{!39, !7, !8}
-!40 = !{!"branch_weights", i32 0, i32 -2147483648}
-!41 = distinct !{!41, !7, !8}
-!42 = !{i64 2148479580, i64 2148479619, i64 2148479640, i64 2148479677, i64 2148479700, i64 2148479570}
-!43 = distinct !{!43, !7, !8}
-!44 = distinct !{!44, !7, !8}
-!45 = !{i64 2148491904, i64 2148491978}
-!46 = distinct !{!46, !7, !8}
-!47 = !{i64 2148960670, i64 2148960709, i64 2148960730, i64 2148960767, i64 2148960790, i64 2148960660}
-!48 = !{i64 2148484743, i64 2148484782, i64 2148484803, i64 2148484840, i64 2148484863, i64 2148484872, i64 2148484975}
-!49 = distinct !{!49, !7, !8}
-!50 = distinct !{!50, !7, !8}
-!51 = distinct !{!51, !7, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !7, !8, !9}
+!11 = !{i32 -22, i32 1}
+!12 = distinct !{!12, !7, !8, !9}
+!13 = distinct !{!13, !7, !8, !9}
+!14 = !{!"branch_weights", i32 2000, i32 1}
+!15 = distinct !{!15, !7, !8, !9}
+!16 = !{!"branch_weights", i32 1039667, i32 2146443981}
+!17 = !{!"branch_weights", i32 1, i32 2000}
+!18 = !{!"branch_weights", i32 4001, i32 1}
+!19 = !{i32 0, i32 2}
+!20 = distinct !{!20, !7, !8, !9}
+!21 = distinct !{!21, !9}
+!22 = distinct !{!22, !7, !8, !9}
+!23 = distinct !{!23, !7, !8, !9}
+!24 = distinct !{!24, !7, !8, !9}
+!25 = distinct !{!25, !7, !8, !9}
+!26 = distinct !{!26, !7, !8}
+!27 = distinct !{!27, !7, !8, !9}
+!28 = distinct !{!28, !7, !8, !9}
+!29 = distinct !{!29, !7, !8, !9}
+!30 = distinct !{!30, !7, !8, !9}
+!31 = !{!"branch_weights", i32 301995, i32 2147181653}
+!32 = !{i64 2156255595, i64 2156255404, i64 2156255456, i64 2156255502, i64 2156255530}
+!33 = !{i64 2156255669, i64 2156255698, i64 2156255744, i64 2156255802, i64 2156255856, i64 2156255910, i64 2156255965, i64 2156255996}
+!34 = distinct !{!34, !7, !8, !9}
+!35 = distinct !{!35, !7, !8, !9}
+!36 = distinct !{!36, !7, !8, !9}
+!37 = distinct !{!37, !7, !8, !9}
+!38 = !{!"branch_weights", i32 -2147483648, i32 0}
+!39 = distinct !{!39, !7, !8, !9, !40}
+!40 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!41 = distinct !{!41, !7, !8, !9}
+!42 = !{i64 2156258152, i64 2156257961, i64 2156258013, i64 2156258059, i64 2156258087}
+!43 = !{i64 2156258226, i64 2156258255, i64 2156258301, i64 2156258359, i64 2156258413, i64 2156258467, i64 2156258522, i64 2156258553}
+!44 = distinct !{!44, !7, !8, !9}
+!45 = distinct !{!45, !7, !8, !9}
+!46 = distinct !{!46, !7, !8, !9}
+!47 = distinct !{!47, !7, !8, !9}
+!48 = !{!"branch_weights", i32 0, i32 -2147483648}
+!49 = distinct !{!49, !7, !8, !9}
+!50 = !{i64 2148479580, i64 2148479619, i64 2148479640, i64 2148479677, i64 2148479700, i64 2148479570}
+!51 = distinct !{!51, !7, !8, !9}
+!52 = distinct !{!52, !7, !8, !9}
+!53 = !{i64 2148491904, i64 2148491978}
+!54 = distinct !{!54, !7, !8, !9}
+!55 = !{i64 2148960670, i64 2148960709, i64 2148960730, i64 2148960767, i64 2148960790, i64 2148960660}
+!56 = !{i64 2148484743, i64 2148484782, i64 2148484803, i64 2148484840, i64 2148484863, i64 2148484872, i64 2148484975}
+!57 = distinct !{!57, !7, !8, !9}
+!58 = distinct !{!58, !7, !8, !9}
+!59 = distinct !{!59, !7, !8, !9}
+!60 = distinct !{!60, !7, !8, !9}
+!61 = distinct !{!61, !7, !8, !9}

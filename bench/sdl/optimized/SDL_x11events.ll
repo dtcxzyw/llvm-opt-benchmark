@@ -709,7 +709,7 @@ define hidden ptr @X11_FindWindow(ptr noundef readonly captures(none) %0, i64 no
 17:                                               ; preds = %.lr.ph, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %13, %17, %.preheader, %2, %5
   %.013 = phi ptr [ null, %5 ], [ null, %2 ], [ null, %.preheader ], [ %12, %13 ], [ null, %17 ]
@@ -798,7 +798,7 @@ define hidden void @X11_HandleKeyEvent(ptr noundef readonly captures(none) %0, p
   %48 = load i8, ptr %.07.i.i, align 1
   %49 = icmp sgt i8 %48, -1
   %50 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
-  br i1 %49, label %44, label %51
+  br i1 %49, label %44, label %51, !llvm.loop !9
 
 51:                                               ; preds = %46
   %52 = add nsw i32 %43, 1
@@ -1251,7 +1251,7 @@ define hidden void @X11_EmitConfigureNotifyEvents(ptr noundef captures(none) %0,
   %36 = getelementptr inbounds nuw i8, ptr %.037, i64 448
   %.0 = load ptr, ptr %36, align 8
   %.not29 = icmp eq ptr %.0, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %35, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
@@ -1624,7 +1624,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %indvars.iv.next177.i = add nuw nsw i64 %indvars.iv176.i, 1
   %135 = load i64, ptr %121, align 8
   %136 = icmp ugt i64 %135, %indvars.iv.next177.i
-  br i1 %136, label %128, label %._crit_edge159.loopexit.i, !llvm.loop !9
+  br i1 %136, label %128, label %._crit_edge159.loopexit.i, !llvm.loop !11
 
 ._crit_edge159.loopexit.i:                        ; preds = %128
   %137 = trunc nuw i64 %indvars.iv.next179.i to i32
@@ -1662,7 +1662,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %indvars.iv.next174.i = add nuw nsw i64 %indvars.iv173.i, 1
   %150 = load i64, ptr %146, align 8
   %151 = icmp ugt i64 %150, %indvars.iv.next174.i
-  br i1 %151, label %152, label %.thread.i, !llvm.loop !10
+  br i1 %151, label %152, label %.thread.i, !llvm.loop !12
 
 152:                                              ; preds = %149, %.lr.ph154.i
   %indvars.iv173.i = phi i64 [ 0, %.lr.ph154.i ], [ %indvars.iv.next174.i, %149 ]
@@ -1767,7 +1767,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %210 = getelementptr inbounds nuw i8, ptr %.0113145.i, i64 8
   %211 = load i64, ptr %8, align 8
   %212 = icmp ugt i64 %211, %indvars.iv.next.i
-  br i1 %212, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+  br i1 %212, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %192
   %.0115.lcssa.i = phi i32 [ %199, %192 ], [ %207, %.lr.ph.i ]
@@ -1804,7 +1804,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %228 = getelementptr inbounds nuw i8, ptr %.1114147.i, i64 8
   %229 = load i64, ptr %8, align 8
   %230 = icmp ugt i64 %229, %indvars.iv.next171.i
-  br i1 %230, label %.lr.ph150.i, label %._crit_edge151.i, !llvm.loop !12
+  br i1 %230, label %.lr.ph150.i, label %._crit_edge151.i, !llvm.loop !14
 
 ._crit_edge151.i:                                 ; preds = %.lr.ph150.i, %215
   %.lcssa142.i = phi i64 [ 0, %215 ], [ %229, %.lr.ph150.i ]
@@ -1959,7 +1959,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
 296:                                              ; preds = %292, %.lr.ph.i540
   %indvars.iv.next.i542 = add nuw nsw i64 %indvars.iv.i541, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i542, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i540, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i540, !llvm.loop !8
 
 .loopexit:                                        ; preds = %296, %284, %._crit_edge571, %.preheader.i538
   %297 = load i32, ptr %1, align 8
@@ -2100,7 +2100,7 @@ define internal fastcc void @X11_DispatchEvent(ptr noundef %0, ptr noundef nonnu
   %366 = load i32, ptr %333, align 8
   %367 = sext i32 %366 to i64
   %368 = icmp slt i64 %indvars.iv.next, %367
-  br i1 %368, label %338, label %._crit_edge564, !llvm.loop !13
+  br i1 %368, label %338, label %._crit_edge564, !llvm.loop !15
 
 ._crit_edge564:                                   ; preds = %365, %332
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %12) #12
@@ -3300,7 +3300,7 @@ X11_FindWindow.exit:                              ; preds = %292
 1061:                                             ; preds = %1052, %1058, %1055, %1049
   %1062 = call ptr @SDL_strtok_r_REAL(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %24) #12
   %.not480 = icmp eq ptr %1062, null
-  br i1 %.not480, label %._crit_edge, label %.lr.ph, !llvm.loop !14
+  br i1 %.not480, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %1061, %1035
   %1063 = load ptr, ptr @X11_XFree, align 8
@@ -3424,7 +3424,7 @@ define hidden void @X11_PumpEvents(ptr noundef %0) local_unnamed_addr #1 {
   %43 = load i32, ptr %5, align 8
   %44 = sext i32 %43 to i64
   %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %9, label %._crit_edge, !llvm.loop !15
+  br i1 %45, label %9, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %42, %1
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 1648
@@ -3480,7 +3480,7 @@ define hidden void @X11_PumpEvents(ptr noundef %0) local_unnamed_addr #1 {
   %70 = load ptr, ptr @X11_XCheckIfEvent, align 8
   %71 = call i32 %70(ptr noundef %69, ptr noundef nonnull %2, ptr noundef nonnull @isAnyEvent, ptr noundef null) #12
   %.not.i.not = icmp eq i32 %71, 0
-  br i1 %.not.i.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !16
+  br i1 %.not.i.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !18
 
 ._crit_edge61:                                    ; preds = %.lr.ph60, %65
   call void @SDL_DBus_PumpEvents() #12
@@ -3580,7 +3580,7 @@ X11_DispatchFocusIn.exit.i:                       ; preds = %114, %111, %103, %9
   %117 = load i32, ptr %76, align 8
   %118 = sext i32 %117 to i64
   %119 = icmp slt i64 %indvars.iv.next.i, %118
-  br i1 %119, label %.lr.ph.i, label %X11_HandleFocusChanges.exit, !llvm.loop !17
+  br i1 %119, label %.lr.ph.i, label %X11_HandleFocusChanges.exit, !llvm.loop !19
 
 X11_HandleFocusChanges.exit:                      ; preds = %116, %._crit_edge61, %73, %.preheader.i
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -3626,7 +3626,7 @@ X11_HandleFocusChanges.exit:                      ; preds = %116, %._crit_edge61
   %142 = load i32, ptr %120, align 8
   %143 = sext i32 %142 to i64
   %144 = icmp slt i64 %indvars.iv.next67, %143
-  br i1 %144, label %124, label %._crit_edge64, !llvm.loop !18
+  br i1 %144, label %124, label %._crit_edge64, !llvm.loop !20
 
 ._crit_edge64:                                    ; preds = %141, %X11_HandleFocusChanges.exit
   %145 = getelementptr inbounds nuw i8, ptr %4, i64 1684
@@ -4020,7 +4020,7 @@ thread-pre-split:                                 ; preds = %16
   %19 = call i32 %17(ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef 0, i64 noundef %18, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5) #12
   %20 = load i64, ptr %9, align 8
   %.not9 = icmp eq i64 %20, 0
-  br i1 %.not9, label %21, label %thread-pre-split, !llvm.loop !19
+  br i1 %.not9, label %21, label %thread-pre-split, !llvm.loop !21
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %5, align 8
@@ -4107,7 +4107,7 @@ define internal fastcc i64 @X11_PickTarget(ptr noundef %0, ptr noundef readonly 
   %33 = icmp samesign ult i64 %indvars.iv.next, %5
   %34 = icmp eq i64 %.2, 0
   %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  br i1 %35, label %.lr.ph, label %._crit_edge, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %30, %3
   %.020.lcssa = phi i64 [ 0, %3 ], [ %.2, %30 ]
@@ -4217,19 +4217,21 @@ attributes #13 = { nounwind willreturn memory(none) }
 !2 = !{i32 7, !"uwtable", i32 2}
 !3 = !{i8 0, i8 2}
 !4 = !{}
-!5 = distinct !{!5, !6}
+!5 = distinct !{!5, !6, !7}
 !6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
-!10 = distinct !{!10, !6}
-!11 = distinct !{!11, !6}
-!12 = distinct !{!12, !6}
-!13 = distinct !{!13, !6}
-!14 = distinct !{!14, !6}
-!15 = distinct !{!15, !6}
-!16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}
-!18 = distinct !{!18, !6}
-!19 = distinct !{!19, !6}
-!20 = distinct !{!20, !6}
+!7 = !{!"llvm.loop.estimated_trip_count"}
+!8 = distinct !{!8, !6, !7}
+!9 = distinct !{!9, !7}
+!10 = distinct !{!10, !6, !7}
+!11 = distinct !{!11, !6, !7}
+!12 = distinct !{!12, !6, !7}
+!13 = distinct !{!13, !6, !7}
+!14 = distinct !{!14, !6, !7}
+!15 = distinct !{!15, !6, !7}
+!16 = distinct !{!16, !6, !7}
+!17 = distinct !{!17, !6, !7}
+!18 = distinct !{!18, !6, !7}
+!19 = distinct !{!19, !6, !7}
+!20 = distinct !{!20, !6, !7}
+!21 = distinct !{!21, !6, !7}
+!22 = distinct !{!22, !6, !7}

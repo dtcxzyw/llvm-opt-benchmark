@@ -218,7 +218,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %94
 .loopexit:                                        ; preds = %242
   %99 = load i16, ptr %46, align 2
   %100 = icmp ult i16 %99, %246
-  br i1 %100, label %._crit_edge, label %152, !llvm.loop !10
+  br i1 %100, label %._crit_edge, label %152, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
   %.lcssa = phi i16 [ %48, %.preheader ], [ %99, %.loopexit ]
@@ -435,7 +435,7 @@ BufferGetPage.exit.i:                             ; preds = %199, %193
   %224 = load i32, ptr %208, align 8
   %225 = sext i32 %224 to i64
   %226 = icmp slt i64 %indvars.iv.next.i, %225
-  br i1 %226, label %215, label %227, !llvm.loop !11
+  br i1 %226, label %215, label %227, !llvm.loop !12
 
 227:                                              ; preds = %215
   %228 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
@@ -484,7 +484,7 @@ getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
   tail call void @pfree(ptr noundef nonnull %238) #8
   %246 = load i16, ptr %47, align 8
   %247 = icmp eq i16 %246, 0
-  br i1 %247, label %179, label %.loopexit, !llvm.loop !10
+  br i1 %247, label %179, label %.loopexit, !llvm.loop !11
 
 .critedge:                                        ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %94, %getNextGISTSearchItem.exit.i, %.thread36.i, %63, %9, %149
   %.0 = phi i1 [ true, %149 ], [ false, %9 ], [ true, %.thread36.i ], [ false, %63 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %94 ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]
@@ -748,7 +748,7 @@ BufferGetPage.exit:                               ; preds = %23, %29
   %153 = load i32, ptr %101, align 4
   %154 = sext i32 %153 to i64
   %155 = icmp slt i64 %indvars.iv.next.i, %154
-  br i1 %155, label %148, label %gistindex_keytest.exit, !llvm.loop !12
+  br i1 %155, label %148, label %gistindex_keytest.exit, !llvm.loop !13
 
 156:                                              ; preds = %.thread191, %.lr.ph.i
   %.1152 = phi i8 [ 0, %.lr.ph.i ], [ %.2153, %.thread191 ]
@@ -902,7 +902,7 @@ index_getattr.exit140.thread:                     ; preds = %197
   %238 = getelementptr inbounds nuw i8, ptr %.07694.i, i64 72
   %239 = add nsw i32 %.07993.i, -1
   %240 = icmp sgt i32 %.07993.i, 1
-  br i1 %240, label %156, label %._crit_edge.i, !llvm.loop !13
+  br i1 %240, label %156, label %._crit_edge.i, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %219
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
@@ -1063,7 +1063,7 @@ index_getattr.exit.thread:                        ; preds = %290, %index_getattr
   %325 = getelementptr inbounds nuw i8, ptr %.08295.i, i64 16
   %326 = add nsw i32 %.28196.i, -1
   %327 = icmp sgt i32 %.28196.i, 1
-  br i1 %327, label %249, label %gistindex_keytest.exit, !llvm.loop !14
+  br i1 %327, label %249, label %gistindex_keytest.exit, !llvm.loop !15
 
 gistindex_keytest.exit:                           ; preds = %323, %148, %.preheader.i, %._crit_edge.i
   %.3 = phi i8 [ 0, %.preheader.i ], [ %.0151, %._crit_edge.i ], [ 0, %148 ], [ %.0151, %323 ]
@@ -1212,7 +1212,7 @@ gistindex_keytest.exit:                           ; preds = %323, %148, %.prehea
 405:                                              ; preds = %110, %.critedge, %336, %398, %365
   %406 = add i16 %.0169, 1
   %.not125 = icmp ugt i16 %406, %94
-  br i1 %.not125, label %._crit_edge, label %110, !llvm.loop !15
+  br i1 %.not125, label %._crit_edge, label %110, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %405, %86
   call void @UnlockReleaseBuffer(i32 noundef %17) #8
@@ -1329,7 +1329,7 @@ getNextGISTSearchItem.exit:                       ; preds = %32, %43
   %45 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %getNextGISTSearchItem.exit.thread, label %getNextGISTSearchItem.exit
+  br i1 %47, label %getNextGISTSearchItem.exit.thread, label %getNextGISTSearchItem.exit, !llvm.loop !17
 
 getNextGISTSearchItem.exit.thread:                ; preds = %getNextGISTSearchItem.exit, %43, %32
   %48 = load i64, ptr %3, align 8
@@ -1428,11 +1428,13 @@ attributes #8 = { nounwind }
 !5 = !{}
 !6 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !7 = !{!"branch_weights", !"expected", i32 2000, i32 1}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9}
-!13 = distinct !{!13, !9}
-!14 = distinct !{!14, !9}
-!15 = distinct !{!15, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10}
+!14 = distinct !{!14, !9, !10}
+!15 = distinct !{!15, !9, !10}
+!16 = distinct !{!16, !9, !10}
+!17 = distinct !{!17, !10}

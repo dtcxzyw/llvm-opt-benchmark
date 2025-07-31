@@ -180,7 +180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN
 
 .backedge.backedge:                               ; preds = %.loopexit39.i, %.loopexit39.i.thread
   %.02143.i.be = phi i32 [ %17, %.loopexit39.i ], [ 0, %.loopexit39.i.thread ]
-  br label %.backedge, !llvm.loop !19
+  br label %.backedge, !llvm.loop !20
 
 .loopexit39.i.thread:                             ; preds = %52
   %.not.i2 = icmp eq i32 %14, 0
@@ -272,7 +272,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i26.i: 
   store i8 0, ptr %101, align 1, !tbaa !15
   %indvars.iv.next59.i = add nuw nsw i64 %indvars.iv58.i, 1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next59.i, %wide.trip.count.i
-  br i1 %exitcond61.not.i, label %.preheader.i, label %.lr.ph51.i, !llvm.loop !20
+  br i1 %exitcond61.not.i, label %.preheader.i, label %.lr.ph51.i, !llvm.loop !21
 
 .lr.ph53.i:                                       ; preds = %.lr.ph53.i.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit33.i
   %.352.i = phi i32 [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit33.i ], [ %17, %.lr.ph53.i.preheader ]
@@ -378,7 +378,7 @@ define void @_ZN5arrow4util13base64_decodeB5cxx11ESt17basic_string_viewIcSt11cha
   store i8 %31, ptr %28, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %39, label %.preheader41, !llvm.loop !21
+  br i1 %exitcond.not, label %39, label %.preheader41, !llvm.loop !22
 
 .loopexit39:                                      ; preds = %104
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -472,12 +472,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   store i8 0, ptr %71, align 1, !tbaa !15
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond61.not = icmp eq i64 %indvars.iv.next59, 3
-  br i1 %exitcond61.not, label %.loopexit40, label %54, !llvm.loop !22
+  br i1 %exitcond61.not, label %.loopexit40, label %54, !llvm.loop !23
 
 .loopexit40:                                      ; preds = %67, %23
   %.1 = phi i32 [ %24, %23 ], [ 0, %67 ]
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %.critedge, label %13, !llvm.loop !23
+  br i1 %.not, label %.critedge, label %13, !llvm.loop !24
 
 .critedge:                                        ; preds = %17, %.loopexit40, %13
   %.026.lcssa = phi i32 [ %.02647, %17 ], [ %.1, %.loopexit40 ], [ %.02647, %13 ]
@@ -501,7 +501,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   store i8 %76, ptr %73, align 1, !tbaa !15
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond68.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count
-  br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !24
+  br i1 %exitcond68.not, label %._crit_edge, label %.lr.ph53, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph53, %.preheader
   %77 = load i8, ptr %4, align 1, !tbaa !15
@@ -567,7 +567,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i33: ; 
   store i8 0, ptr %109, align 1, !tbaa !15
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph56, !llvm.loop !25
+  br i1 %exitcond73.not, label %.loopexit, label %.lr.ph56, !llvm.loop !26
 
 .loopexit:                                        ; preds = %105, %3, %._crit_edge, %.critedge
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5) #13
@@ -598,10 +598,10 @@ define internal void @_GLOBAL__sub_I_base64.cpp() #9 section ".text.startup" per
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, i64 16), ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
-  store i64 64, ptr %1, align 8, !tbaa !26
+  store i64 64, ptr %1, align 8, !tbaa !27
   %3 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) @_ZN5arrow4utilL12base64_charsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef 0)
   store ptr %3, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, align 8, !tbaa !16
-  %4 = load i64, ptr %1, align 8, !tbaa !26
+  %4 = load i64, ptr %1, align 8, !tbaa !27
   store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, i64 16), align 8, !tbaa !15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %3, ptr noundef nonnull align 1 dereferenceable(64) @.str, i64 64, i1 false)
   store i64 %4, ptr getelementptr inbounds nuw (i8, ptr @_ZN5arrow4utilL12base64_charsB5cxx11E, i64 8), align 8, !tbaa !12
@@ -657,13 +657,14 @@ attributes #15 = { nounwind willreturn memory(read) }
 !14 = !{!"long", !10, i64 0}
 !15 = !{!10, !10, i64 0}
 !16 = !{!13, !8, i64 0}
-!17 = distinct !{!17, !18}
+!17 = distinct !{!17, !18, !19}
 !18 = !{!"llvm.loop.mustprogress"}
-!19 = distinct !{!19, !18}
-!20 = distinct !{!20, !18}
-!21 = distinct !{!21, !18}
-!22 = distinct !{!22, !18}
-!23 = distinct !{!23, !18}
-!24 = distinct !{!24, !18}
-!25 = distinct !{!25, !18}
-!26 = !{!14, !14, i64 0}
+!19 = !{!"llvm.loop.estimated_trip_count"}
+!20 = distinct !{!20, !18, !19}
+!21 = distinct !{!21, !18, !19}
+!22 = distinct !{!22, !18, !19}
+!23 = distinct !{!23, !18, !19}
+!24 = distinct !{!24, !18, !19}
+!25 = distinct !{!25, !18, !19}
+!26 = distinct !{!26, !18, !19}
+!27 = !{!14, !14, i64 0}

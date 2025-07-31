@@ -195,7 +195,7 @@ define internal fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr 
 17:                                               ; preds = %14, %8
   %.1.in.i.i = phi ptr [ %13, %8 ], [ %15, %14 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !10
 
 18:                                               ; preds = %.preheader.i
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -246,7 +246,7 @@ define internal fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr 
 40:                                               ; preds = %37, %31
   %.1.in.i126 = phi ptr [ %36, %31 ], [ %38, %37 ]
   %.1.i127 = load ptr, ptr %.1.in.i126, align 8
-  br label %27
+  br label %27, !llvm.loop !10
 
 type_flatten.exit128:                             ; preds = %27
   %41 = getelementptr inbounds nuw i8, ptr %29, i64 56
@@ -317,7 +317,7 @@ type_flatten.exit128:                             ; preds = %27
   tail call fastcc void @header_gen_maybe_generate_type(ptr noundef %0, ptr noundef %1, ptr noundef %73)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.critedge.i, %67
   %74 = tail call i64 @fwrite(ptr nonnull @.str.24, i64 8, i64 1, ptr %0)
@@ -399,7 +399,7 @@ type_flatten.exit128:                             ; preds = %27
 109:                                              ; preds = %107, %103
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !10
+  br i1 %exitcond181.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !12
 
 ._crit_edge149:                                   ; preds = %109, %93, %95
   %110 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %0)
@@ -476,7 +476,7 @@ type_flatten.exit128:                             ; preds = %27
 132:                                              ; preds = %129, %123
   %.1.in.i = phi ptr [ %128, %123 ], [ %130, %129 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.critedge
+  br label %.critedge, !llvm.loop !10
 
 133:                                              ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.header_gen_maybe_generate_type, ptr noundef nonnull @.str.2, i32 noundef 375) #5
@@ -485,7 +485,7 @@ type_flatten.exit128:                             ; preds = %27
 .backedge:                                        ; preds = %.critedge, %.critedge, %.critedge
   %.0112.be.in = getelementptr inbounds nuw i8, ptr %121, i64 56
   %.0112.be = load ptr, ptr %.0112.be.in, align 8
-  br label %.preheader
+  br label %.preheader, !llvm.loop !13
 
 134:                                              ; preds = %.critedge
   %135 = tail call ptr @htable_get(ptr noundef %1, ptr noundef nonnull %121) #6
@@ -538,7 +538,7 @@ type_flatten.exit128:                             ; preds = %27
   %165 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.22, ptr noundef %163, ptr noundef %164) #6
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
-  br i1 %exitcond191.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !11
+  br i1 %exitcond191.not, label %._crit_edge156, label %.lr.ph155, !llvm.loop !14
 
 ._crit_edge156:                                   ; preds = %.lr.ph155, %151, %158
   %166 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 3, i64 1, ptr %0)
@@ -574,7 +574,7 @@ type_flatten.exit128:                             ; preds = %27
   %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.26, ptr noundef %178, ptr noundef %178, ptr noundef %179, i32 noundef %180) #6
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
-  br i1 %exitcond186.not, label %header_gen_function_ptr.exit, label %.lr.ph152, !llvm.loop !12
+  br i1 %exitcond186.not, label %header_gen_function_ptr.exit, label %.lr.ph152, !llvm.loop !15
 
 182:                                              ; preds = %.critedge
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.header_gen_maybe_generate_type, ptr noundef nonnull @.str.2, i32 noundef 416) #5
@@ -725,17 +725,17 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 45:                                               ; preds = %.lr.ph, %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %45, %.lr.ph229, %34
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
-  br i1 %exitcond302.not, label %._crit_edge230, label %.lr.ph229, !llvm.loop !14
+  br i1 %exitcond302.not, label %._crit_edge230, label %.lr.ph229, !llvm.loop !17
 
 ._crit_edge230:                                   ; preds = %._crit_edge, %.lr.ph233, %27
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond307.not = icmp eq i64 %indvars.iv.next304, %wide.trip.count306
-  br i1 %exitcond307.not, label %._crit_edge234, label %.lr.ph233, !llvm.loop !15
+  br i1 %exitcond307.not, label %._crit_edge234, label %.lr.ph233, !llvm.loop !18
 
 ._crit_edge234:                                   ; preds = %._crit_edge230
   %46 = call i64 @fwrite(ptr nonnull @.str.16, i64 16, i64 1, ptr %7)
@@ -797,17 +797,17 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 67:                                               ; preds = %.lr.ph237, %66
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %exitcond312.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count311
-  br i1 %exitcond312.not, label %._crit_edge238, label %.lr.ph237, !llvm.loop !16
+  br i1 %exitcond312.not, label %._crit_edge238, label %.lr.ph237, !llvm.loop !19
 
 ._crit_edge238:                                   ; preds = %67, %.lr.ph241, %58
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %exitcond317.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count316
-  br i1 %exitcond317.not, label %._crit_edge242, label %.lr.ph241, !llvm.loop !17
+  br i1 %exitcond317.not, label %._crit_edge242, label %.lr.ph241, !llvm.loop !20
 
 ._crit_edge242:                                   ; preds = %._crit_edge238, %.lr.ph245, %51
   %indvars.iv.next319 = add nuw nsw i64 %indvars.iv318, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next319, %wide.trip.count321
-  br i1 %exitcond322.not, label %._crit_edge246, label %.lr.ph245, !llvm.loop !18
+  br i1 %exitcond322.not, label %._crit_edge246, label %.lr.ph245, !llvm.loop !21
 
 ._crit_edge246:                                   ; preds = %._crit_edge242
   %68 = call i64 @fwrite(ptr nonnull @.str.17, i64 15, i64 1, ptr %7)
@@ -869,17 +869,17 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
 89:                                               ; preds = %.lr.ph249, %88
   %indvars.iv.next324 = add nuw nsw i64 %indvars.iv323, 1
   %exitcond327.not = icmp eq i64 %indvars.iv.next324, %wide.trip.count326
-  br i1 %exitcond327.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !19
+  br i1 %exitcond327.not, label %._crit_edge250, label %.lr.ph249, !llvm.loop !22
 
 ._crit_edge250:                                   ; preds = %89, %.lr.ph253, %80
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond332.not = icmp eq i64 %indvars.iv.next329, %wide.trip.count331
-  br i1 %exitcond332.not, label %._crit_edge254, label %.lr.ph253, !llvm.loop !20
+  br i1 %exitcond332.not, label %._crit_edge254, label %.lr.ph253, !llvm.loop !23
 
 ._crit_edge254:                                   ; preds = %._crit_edge250, %.lr.ph257, %73
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond337.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count336
-  br i1 %exitcond337.not, label %._crit_edge258, label %.lr.ph257, !llvm.loop !21
+  br i1 %exitcond337.not, label %._crit_edge258, label %.lr.ph257, !llvm.loop !24
 
 ._crit_edge258:                                   ; preds = %._crit_edge254
   %90 = call i64 @fwrite(ptr nonnull @.str.18, i64 17, i64 1, ptr %7)
@@ -931,17 +931,17 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
   call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %106)
   %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
   %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
-  br i1 %exitcond342.not, label %._crit_edge262, label %.lr.ph261, !llvm.loop !22
+  br i1 %exitcond342.not, label %._crit_edge262, label %.lr.ph261, !llvm.loop !25
 
 ._crit_edge262:                                   ; preds = %.lr.ph261, %.lr.ph265, %102
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %exitcond347.not = icmp eq i64 %indvars.iv.next344, %wide.trip.count346
-  br i1 %exitcond347.not, label %._crit_edge266, label %.lr.ph265, !llvm.loop !23
+  br i1 %exitcond347.not, label %._crit_edge266, label %.lr.ph265, !llvm.loop !26
 
 ._crit_edge266:                                   ; preds = %._crit_edge262, %.lr.ph269, %95
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond352.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count351
-  br i1 %exitcond352.not, label %._crit_edge270, label %.lr.ph269, !llvm.loop !24
+  br i1 %exitcond352.not, label %._crit_edge270, label %.lr.ph269, !llvm.loop !27
 
 ._crit_edge270:                                   ; preds = %._crit_edge266
   %107 = call i64 @fwrite(ptr nonnull @.str.19, i64 15, i64 1, ptr %7)
@@ -959,7 +959,7 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
   %111 = getelementptr inbounds nuw i8, ptr %.0183, i64 72
   %112 = load ptr, ptr %111, align 8
   %.not = icmp eq ptr %112, null
-  br i1 %.not, label %113, label %110, !llvm.loop !25
+  br i1 %.not, label %113, label %110, !llvm.loop !28
 
 113:                                              ; preds = %110
   %114 = load ptr, ptr %.0183, align 8
@@ -1011,17 +1011,17 @@ define dso_local void @header_gen(ptr noundef readonly captures(none) %0, i32 no
   call fastcc void @header_gen_function(ptr noundef %7, ptr noundef %8, ptr noundef %3, ptr noundef %133)
   %indvars.iv.next354 = add nuw nsw i64 %indvars.iv353, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next354, %wide.trip.count356
-  br i1 %exitcond357.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !26
+  br i1 %exitcond357.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !29
 
 ._crit_edge274:                                   ; preds = %.lr.ph273, %.lr.ph277, %129
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %exitcond362.not = icmp eq i64 %indvars.iv.next359, %wide.trip.count361
-  br i1 %exitcond362.not, label %.loopexit, label %.lr.ph277, !llvm.loop !27
+  br i1 %exitcond362.not, label %.loopexit, label %.lr.ph277, !llvm.loop !30
 
 .loopexit:                                        ; preds = %._crit_edge274, %119, %122, %113
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
-  br i1 %exitcond367.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !28
+  br i1 %exitcond367.not, label %._crit_edge281, label %.lr.ph280, !llvm.loop !31
 
 ._crit_edge281:                                   ; preds = %.loopexit, %._crit_edge234.thread
   %134 = call i32 @fclose(ptr noundef %7)
@@ -1107,7 +1107,7 @@ define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %
 34:                                               ; preds = %31, %25
   %.1.in.i = phi ptr [ %30, %25 ], [ %32, %31 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %.critedge91
+  br label %.critedge91, !llvm.loop !10
 
 35:                                               ; preds = %.critedge91
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 56
@@ -1246,7 +1246,7 @@ define internal fastcc void @header_gen_global_var(ptr noundef %0, ptr noundef %
   %104 = load i32, ptr %89, align 8
   %105 = zext i32 %104 to i64
   %106 = icmp samesign ult i64 %indvars.iv.next, %105
-  br i1 %106, label %92, label %._crit_edge, !llvm.loop !29
+  br i1 %106, label %92, label %._crit_edge, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %103, %87
   %107 = tail call i64 @fwrite(ptr nonnull @.str.79, i64 2, i64 1, ptr %0)
@@ -1410,7 +1410,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 61:                                               ; preds = %59, %.lr.ph.split.us
   %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
-  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !30
+  br i1 %exitcond88.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.lr.ph ]
@@ -1440,7 +1440,7 @@ define internal fastcc void @header_gen_function(ptr noundef %0, ptr noundef %1,
 73:                                               ; preds = %66, %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count87
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %73, %61, %47, %49
   %74 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 3, i64 1, ptr %0)
@@ -1499,7 +1499,7 @@ tailrecurse:                                      ; preds = %89, %2
 16:                                               ; preds = %13, %7
   %.1.in.i.i = phi ptr [ %12, %7 ], [ %14, %13 ]
   %.1.i.i = load ptr, ptr %.1.in.i.i, align 8
-  br label %.preheader.i
+  br label %.preheader.i, !llvm.loop !10
 
 type_is_func_pointer.exit:                        ; preds = %.preheader.i
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -1590,7 +1590,7 @@ type_is_func_pointer.exit.thread:                 ; preds = %type_is_func_pointe
 38:                                               ; preds = %35, %29
   %.1.in.i = phi ptr [ %34, %29 ], [ %36, %35 ]
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  br label %type_is_func_pointer.exit.thread
+  br label %type_is_func_pointer.exit.thread, !llvm.loop !10
 
 39:                                               ; preds = %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread, %type_is_func_pointer.exit.thread
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.header_print_type, ptr noundef nonnull @.str.2, i32 noundef 52) #5
@@ -1820,7 +1820,7 @@ define internal fastcc void @header_gen_members(ptr noundef %0, i32 noundef %1, 
   %17 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %18 = add nuw nsw i32 %.03.i, 1
   %exitcond.not.i = icmp eq i32 %18, %1
-  br i1 %exitcond.not.i, label %indent_line.exit, label %.lr.ph.i, !llvm.loop !33
+  br i1 %exitcond.not.i, label %indent_line.exit, label %.lr.ph.i, !llvm.loop !36
 
 indent_line.exit:                                 ; preds = %.lr.ph.i, %16
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 72
@@ -1861,7 +1861,7 @@ indent_line.exit:                                 ; preds = %.lr.ph.i, %16
   %39 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %40 = add nuw nsw i32 %.03.i36, 1
   %exitcond.not.i37 = icmp eq i32 %40, %1
-  br i1 %exitcond.not.i37, label %indent_line.exit38, label %.lr.ph.i35, !llvm.loop !33
+  br i1 %exitcond.not.i37, label %indent_line.exit38, label %.lr.ph.i35, !llvm.loop !36
 
 .split21.i:                                       ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -1896,7 +1896,7 @@ header_gen_struct_union.exit:                     ; preds = %48, %52
   %54 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %55 = add nuw nsw i32 %.03.i32, 1
   %exitcond.not.i33 = icmp eq i32 %55, %1
-  br i1 %exitcond.not.i33, label %indent_line.exit34, label %.lr.ph.i31, !llvm.loop !33
+  br i1 %exitcond.not.i33, label %indent_line.exit34, label %.lr.ph.i31, !llvm.loop !36
 
 indent_line.exit34:                               ; preds = %.lr.ph.i31
   %56 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 2, i64 1, ptr %0)
@@ -1910,7 +1910,7 @@ indent_line.exit34:                               ; preds = %.lr.ph.i31
   %59 = tail call i32 @fputc(i32 noundef 9, ptr noundef %0)
   %60 = add nuw nsw i32 %.03.i28, 1
   %exitcond.not.i29 = icmp eq i32 %60, %1
-  br i1 %exitcond.not.i29, label %indent_line.exit30, label %.lr.ph.i27, !llvm.loop !33
+  br i1 %exitcond.not.i29, label %indent_line.exit30, label %.lr.ph.i27, !llvm.loop !36
 
 indent_line.exit30.critedge:                      ; preds = %header_gen_struct_union.exit
   %61 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 2, i64 1, ptr %0)
@@ -1930,7 +1930,7 @@ indent_line.exit30:                               ; preds = %.lr.ph.i27, %indent
 66:                                               ; preds = %25, %35, %indent_line.exit30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !34
+  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !37
 
 ._crit_edge:                                      ; preds = %66, %3, %4
   ret void
@@ -1973,31 +1973,34 @@ attributes #6 = { nounwind }
 !4 = !{i32 7, !"PIE Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i32 7, !"frame-pointer", i32 2}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = distinct !{!9, !8}
-!10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}
-!13 = distinct !{!13, !8}
-!14 = distinct !{!14, !8}
-!15 = distinct !{!15, !8}
-!16 = distinct !{!16, !8}
-!17 = distinct !{!17, !8}
-!18 = distinct !{!18, !8}
-!19 = distinct !{!19, !8}
-!20 = distinct !{!20, !8}
-!21 = distinct !{!21, !8}
-!22 = distinct !{!22, !8}
-!23 = distinct !{!23, !8}
-!24 = distinct !{!24, !8}
-!25 = distinct !{!25, !8}
-!26 = distinct !{!26, !8}
-!27 = distinct !{!27, !8}
-!28 = distinct !{!28, !8}
-!29 = distinct !{!29, !8}
-!30 = distinct !{!30, !8, !31}
-!31 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!32 = distinct !{!32, !8}
-!33 = distinct !{!33, !8}
-!34 = distinct !{!34, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}
+!11 = distinct !{!11, !8, !9}
+!12 = distinct !{!12, !8, !9}
+!13 = distinct !{!13, !9}
+!14 = distinct !{!14, !8, !9}
+!15 = distinct !{!15, !8, !9}
+!16 = distinct !{!16, !8, !9}
+!17 = distinct !{!17, !8, !9}
+!18 = distinct !{!18, !8, !9}
+!19 = distinct !{!19, !8, !9}
+!20 = distinct !{!20, !8, !9}
+!21 = distinct !{!21, !8, !9}
+!22 = distinct !{!22, !8, !9}
+!23 = distinct !{!23, !8, !9}
+!24 = distinct !{!24, !8, !9}
+!25 = distinct !{!25, !8, !9}
+!26 = distinct !{!26, !8, !9}
+!27 = distinct !{!27, !8, !9}
+!28 = distinct !{!28, !8, !9}
+!29 = distinct !{!29, !8, !9}
+!30 = distinct !{!30, !8, !9}
+!31 = distinct !{!31, !8, !9}
+!32 = distinct !{!32, !8, !9}
+!33 = distinct !{!33, !8, !9, !34}
+!34 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!35 = distinct !{!35, !8, !9}
+!36 = distinct !{!36, !8, !9}
+!37 = distinct !{!37, !8, !9}

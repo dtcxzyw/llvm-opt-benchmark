@@ -800,7 +800,7 @@ define hidden noundef zeroext i1 @SDL_X11_LoadSymbols() local_unnamed_addr #0 {
 9:                                                ; preds = %.preheader, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !5
+  br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !6
 
 10:                                               ; preds = %9
   store i32 1, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -833,7 +833,7 @@ define hidden noundef zeroext i1 @SDL_X11_LoadSymbols() local_unnamed_addr #0 {
 16:                                               ; preds = %14, %11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.not.i, label %17, label %11, !llvm.loop !6
+  br i1 %exitcond.not.i, label %17, label %11, !llvm.loop !7
 
 17:                                               ; preds = %16
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -859,7 +859,7 @@ X11_GetSym.exit:                                  ; preds = %14, %17
 23:                                               ; preds = %21, %18
   %indvars.iv.next.i245 = add nuw nsw i64 %indvars.iv.i241, 1
   %exitcond.not.i246 = icmp eq i64 %indvars.iv.next.i245, 8
-  br i1 %exitcond.not.i246, label %24, label %18, !llvm.loop !6
+  br i1 %exitcond.not.i246, label %24, label %18, !llvm.loop !7
 
 24:                                               ; preds = %23
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -885,7 +885,7 @@ X11_GetSym.exit247:                               ; preds = %21, %24
 30:                                               ; preds = %28, %25
   %indvars.iv.next.i252 = add nuw nsw i64 %indvars.iv.i248, 1
   %exitcond.not.i253 = icmp eq i64 %indvars.iv.next.i252, 8
-  br i1 %exitcond.not.i253, label %31, label %25, !llvm.loop !6
+  br i1 %exitcond.not.i253, label %31, label %25, !llvm.loop !7
 
 31:                                               ; preds = %30
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -911,7 +911,7 @@ X11_GetSym.exit254:                               ; preds = %28, %31
 37:                                               ; preds = %35, %32
   %indvars.iv.next.i259 = add nuw nsw i64 %indvars.iv.i255, 1
   %exitcond.not.i260 = icmp eq i64 %indvars.iv.next.i259, 8
-  br i1 %exitcond.not.i260, label %38, label %32, !llvm.loop !6
+  br i1 %exitcond.not.i260, label %38, label %32, !llvm.loop !7
 
 38:                                               ; preds = %37
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -937,7 +937,7 @@ X11_GetSym.exit261:                               ; preds = %35, %38
 44:                                               ; preds = %42, %39
   %indvars.iv.next.i266 = add nuw nsw i64 %indvars.iv.i262, 1
   %exitcond.not.i267 = icmp eq i64 %indvars.iv.next.i266, 8
-  br i1 %exitcond.not.i267, label %45, label %39, !llvm.loop !6
+  br i1 %exitcond.not.i267, label %45, label %39, !llvm.loop !7
 
 45:                                               ; preds = %44
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -963,7 +963,7 @@ X11_GetSym.exit268:                               ; preds = %42, %45
 51:                                               ; preds = %49, %46
   %indvars.iv.next.i273 = add nuw nsw i64 %indvars.iv.i269, 1
   %exitcond.not.i274 = icmp eq i64 %indvars.iv.next.i273, 8
-  br i1 %exitcond.not.i274, label %52, label %46, !llvm.loop !6
+  br i1 %exitcond.not.i274, label %52, label %46, !llvm.loop !7
 
 52:                                               ; preds = %51
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -989,7 +989,7 @@ X11_GetSym.exit275:                               ; preds = %49, %52
 58:                                               ; preds = %56, %53
   %indvars.iv.next.i280 = add nuw nsw i64 %indvars.iv.i276, 1
   %exitcond.not.i281 = icmp eq i64 %indvars.iv.next.i280, 8
-  br i1 %exitcond.not.i281, label %59, label %53, !llvm.loop !6
+  br i1 %exitcond.not.i281, label %59, label %53, !llvm.loop !7
 
 59:                                               ; preds = %58
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1015,7 +1015,7 @@ X11_GetSym.exit282:                               ; preds = %56, %59
 65:                                               ; preds = %63, %60
   %indvars.iv.next.i287 = add nuw nsw i64 %indvars.iv.i283, 1
   %exitcond.not.i288 = icmp eq i64 %indvars.iv.next.i287, 8
-  br i1 %exitcond.not.i288, label %66, label %60, !llvm.loop !6
+  br i1 %exitcond.not.i288, label %66, label %60, !llvm.loop !7
 
 66:                                               ; preds = %65
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1041,7 +1041,7 @@ X11_GetSym.exit289:                               ; preds = %63, %66
 72:                                               ; preds = %70, %67
   %indvars.iv.next.i294 = add nuw nsw i64 %indvars.iv.i290, 1
   %exitcond.not.i295 = icmp eq i64 %indvars.iv.next.i294, 8
-  br i1 %exitcond.not.i295, label %73, label %67, !llvm.loop !6
+  br i1 %exitcond.not.i295, label %73, label %67, !llvm.loop !7
 
 73:                                               ; preds = %72
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1067,7 +1067,7 @@ X11_GetSym.exit296:                               ; preds = %70, %73
 79:                                               ; preds = %77, %74
   %indvars.iv.next.i301 = add nuw nsw i64 %indvars.iv.i297, 1
   %exitcond.not.i302 = icmp eq i64 %indvars.iv.next.i301, 8
-  br i1 %exitcond.not.i302, label %80, label %74, !llvm.loop !6
+  br i1 %exitcond.not.i302, label %80, label %74, !llvm.loop !7
 
 80:                                               ; preds = %79
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1093,7 +1093,7 @@ X11_GetSym.exit303:                               ; preds = %77, %80
 86:                                               ; preds = %84, %81
   %indvars.iv.next.i308 = add nuw nsw i64 %indvars.iv.i304, 1
   %exitcond.not.i309 = icmp eq i64 %indvars.iv.next.i308, 8
-  br i1 %exitcond.not.i309, label %87, label %81, !llvm.loop !6
+  br i1 %exitcond.not.i309, label %87, label %81, !llvm.loop !7
 
 87:                                               ; preds = %86
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1119,7 +1119,7 @@ X11_GetSym.exit310:                               ; preds = %84, %87
 93:                                               ; preds = %91, %88
   %indvars.iv.next.i315 = add nuw nsw i64 %indvars.iv.i311, 1
   %exitcond.not.i316 = icmp eq i64 %indvars.iv.next.i315, 8
-  br i1 %exitcond.not.i316, label %94, label %88, !llvm.loop !6
+  br i1 %exitcond.not.i316, label %94, label %88, !llvm.loop !7
 
 94:                                               ; preds = %93
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1145,7 +1145,7 @@ X11_GetSym.exit317:                               ; preds = %91, %94
 100:                                              ; preds = %98, %95
   %indvars.iv.next.i322 = add nuw nsw i64 %indvars.iv.i318, 1
   %exitcond.not.i323 = icmp eq i64 %indvars.iv.next.i322, 8
-  br i1 %exitcond.not.i323, label %101, label %95, !llvm.loop !6
+  br i1 %exitcond.not.i323, label %101, label %95, !llvm.loop !7
 
 101:                                              ; preds = %100
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1171,7 +1171,7 @@ X11_GetSym.exit324:                               ; preds = %98, %101
 107:                                              ; preds = %105, %102
   %indvars.iv.next.i329 = add nuw nsw i64 %indvars.iv.i325, 1
   %exitcond.not.i330 = icmp eq i64 %indvars.iv.next.i329, 8
-  br i1 %exitcond.not.i330, label %108, label %102, !llvm.loop !6
+  br i1 %exitcond.not.i330, label %108, label %102, !llvm.loop !7
 
 108:                                              ; preds = %107
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1197,7 +1197,7 @@ X11_GetSym.exit331:                               ; preds = %105, %108
 114:                                              ; preds = %112, %109
   %indvars.iv.next.i336 = add nuw nsw i64 %indvars.iv.i332, 1
   %exitcond.not.i337 = icmp eq i64 %indvars.iv.next.i336, 8
-  br i1 %exitcond.not.i337, label %115, label %109, !llvm.loop !6
+  br i1 %exitcond.not.i337, label %115, label %109, !llvm.loop !7
 
 115:                                              ; preds = %114
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1223,7 +1223,7 @@ X11_GetSym.exit338:                               ; preds = %112, %115
 121:                                              ; preds = %119, %116
   %indvars.iv.next.i343 = add nuw nsw i64 %indvars.iv.i339, 1
   %exitcond.not.i344 = icmp eq i64 %indvars.iv.next.i343, 8
-  br i1 %exitcond.not.i344, label %122, label %116, !llvm.loop !6
+  br i1 %exitcond.not.i344, label %122, label %116, !llvm.loop !7
 
 122:                                              ; preds = %121
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1249,7 +1249,7 @@ X11_GetSym.exit345:                               ; preds = %119, %122
 128:                                              ; preds = %126, %123
   %indvars.iv.next.i350 = add nuw nsw i64 %indvars.iv.i346, 1
   %exitcond.not.i351 = icmp eq i64 %indvars.iv.next.i350, 8
-  br i1 %exitcond.not.i351, label %129, label %123, !llvm.loop !6
+  br i1 %exitcond.not.i351, label %129, label %123, !llvm.loop !7
 
 129:                                              ; preds = %128
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1275,7 +1275,7 @@ X11_GetSym.exit352:                               ; preds = %126, %129
 135:                                              ; preds = %133, %130
   %indvars.iv.next.i357 = add nuw nsw i64 %indvars.iv.i353, 1
   %exitcond.not.i358 = icmp eq i64 %indvars.iv.next.i357, 8
-  br i1 %exitcond.not.i358, label %136, label %130, !llvm.loop !6
+  br i1 %exitcond.not.i358, label %136, label %130, !llvm.loop !7
 
 136:                                              ; preds = %135
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1301,7 +1301,7 @@ X11_GetSym.exit359:                               ; preds = %133, %136
 142:                                              ; preds = %140, %137
   %indvars.iv.next.i364 = add nuw nsw i64 %indvars.iv.i360, 1
   %exitcond.not.i365 = icmp eq i64 %indvars.iv.next.i364, 8
-  br i1 %exitcond.not.i365, label %143, label %137, !llvm.loop !6
+  br i1 %exitcond.not.i365, label %143, label %137, !llvm.loop !7
 
 143:                                              ; preds = %142
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1327,7 +1327,7 @@ X11_GetSym.exit366:                               ; preds = %140, %143
 149:                                              ; preds = %147, %144
   %indvars.iv.next.i371 = add nuw nsw i64 %indvars.iv.i367, 1
   %exitcond.not.i372 = icmp eq i64 %indvars.iv.next.i371, 8
-  br i1 %exitcond.not.i372, label %150, label %144, !llvm.loop !6
+  br i1 %exitcond.not.i372, label %150, label %144, !llvm.loop !7
 
 150:                                              ; preds = %149
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1353,7 +1353,7 @@ X11_GetSym.exit373:                               ; preds = %147, %150
 156:                                              ; preds = %154, %151
   %indvars.iv.next.i378 = add nuw nsw i64 %indvars.iv.i374, 1
   %exitcond.not.i379 = icmp eq i64 %indvars.iv.next.i378, 8
-  br i1 %exitcond.not.i379, label %157, label %151, !llvm.loop !6
+  br i1 %exitcond.not.i379, label %157, label %151, !llvm.loop !7
 
 157:                                              ; preds = %156
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1379,7 +1379,7 @@ X11_GetSym.exit380:                               ; preds = %154, %157
 163:                                              ; preds = %161, %158
   %indvars.iv.next.i385 = add nuw nsw i64 %indvars.iv.i381, 1
   %exitcond.not.i386 = icmp eq i64 %indvars.iv.next.i385, 8
-  br i1 %exitcond.not.i386, label %164, label %158, !llvm.loop !6
+  br i1 %exitcond.not.i386, label %164, label %158, !llvm.loop !7
 
 164:                                              ; preds = %163
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1405,7 +1405,7 @@ X11_GetSym.exit387:                               ; preds = %161, %164
 170:                                              ; preds = %168, %165
   %indvars.iv.next.i392 = add nuw nsw i64 %indvars.iv.i388, 1
   %exitcond.not.i393 = icmp eq i64 %indvars.iv.next.i392, 8
-  br i1 %exitcond.not.i393, label %171, label %165, !llvm.loop !6
+  br i1 %exitcond.not.i393, label %171, label %165, !llvm.loop !7
 
 171:                                              ; preds = %170
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1431,7 +1431,7 @@ X11_GetSym.exit394:                               ; preds = %168, %171
 177:                                              ; preds = %175, %172
   %indvars.iv.next.i399 = add nuw nsw i64 %indvars.iv.i395, 1
   %exitcond.not.i400 = icmp eq i64 %indvars.iv.next.i399, 8
-  br i1 %exitcond.not.i400, label %178, label %172, !llvm.loop !6
+  br i1 %exitcond.not.i400, label %178, label %172, !llvm.loop !7
 
 178:                                              ; preds = %177
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1457,7 +1457,7 @@ X11_GetSym.exit401:                               ; preds = %175, %178
 184:                                              ; preds = %182, %179
   %indvars.iv.next.i406 = add nuw nsw i64 %indvars.iv.i402, 1
   %exitcond.not.i407 = icmp eq i64 %indvars.iv.next.i406, 8
-  br i1 %exitcond.not.i407, label %185, label %179, !llvm.loop !6
+  br i1 %exitcond.not.i407, label %185, label %179, !llvm.loop !7
 
 185:                                              ; preds = %184
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1483,7 +1483,7 @@ X11_GetSym.exit408:                               ; preds = %182, %185
 191:                                              ; preds = %189, %186
   %indvars.iv.next.i413 = add nuw nsw i64 %indvars.iv.i409, 1
   %exitcond.not.i414 = icmp eq i64 %indvars.iv.next.i413, 8
-  br i1 %exitcond.not.i414, label %192, label %186, !llvm.loop !6
+  br i1 %exitcond.not.i414, label %192, label %186, !llvm.loop !7
 
 192:                                              ; preds = %191
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1509,7 +1509,7 @@ X11_GetSym.exit415:                               ; preds = %189, %192
 198:                                              ; preds = %196, %193
   %indvars.iv.next.i420 = add nuw nsw i64 %indvars.iv.i416, 1
   %exitcond.not.i421 = icmp eq i64 %indvars.iv.next.i420, 8
-  br i1 %exitcond.not.i421, label %199, label %193, !llvm.loop !6
+  br i1 %exitcond.not.i421, label %199, label %193, !llvm.loop !7
 
 199:                                              ; preds = %198
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1535,7 +1535,7 @@ X11_GetSym.exit422:                               ; preds = %196, %199
 205:                                              ; preds = %203, %200
   %indvars.iv.next.i427 = add nuw nsw i64 %indvars.iv.i423, 1
   %exitcond.not.i428 = icmp eq i64 %indvars.iv.next.i427, 8
-  br i1 %exitcond.not.i428, label %206, label %200, !llvm.loop !6
+  br i1 %exitcond.not.i428, label %206, label %200, !llvm.loop !7
 
 206:                                              ; preds = %205
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1561,7 +1561,7 @@ X11_GetSym.exit429:                               ; preds = %203, %206
 212:                                              ; preds = %210, %207
   %indvars.iv.next.i434 = add nuw nsw i64 %indvars.iv.i430, 1
   %exitcond.not.i435 = icmp eq i64 %indvars.iv.next.i434, 8
-  br i1 %exitcond.not.i435, label %213, label %207, !llvm.loop !6
+  br i1 %exitcond.not.i435, label %213, label %207, !llvm.loop !7
 
 213:                                              ; preds = %212
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1587,7 +1587,7 @@ X11_GetSym.exit436:                               ; preds = %210, %213
 219:                                              ; preds = %217, %214
   %indvars.iv.next.i441 = add nuw nsw i64 %indvars.iv.i437, 1
   %exitcond.not.i442 = icmp eq i64 %indvars.iv.next.i441, 8
-  br i1 %exitcond.not.i442, label %220, label %214, !llvm.loop !6
+  br i1 %exitcond.not.i442, label %220, label %214, !llvm.loop !7
 
 220:                                              ; preds = %219
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1613,7 +1613,7 @@ X11_GetSym.exit443:                               ; preds = %217, %220
 226:                                              ; preds = %224, %221
   %indvars.iv.next.i448 = add nuw nsw i64 %indvars.iv.i444, 1
   %exitcond.not.i449 = icmp eq i64 %indvars.iv.next.i448, 8
-  br i1 %exitcond.not.i449, label %227, label %221, !llvm.loop !6
+  br i1 %exitcond.not.i449, label %227, label %221, !llvm.loop !7
 
 227:                                              ; preds = %226
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1639,7 +1639,7 @@ X11_GetSym.exit450:                               ; preds = %224, %227
 233:                                              ; preds = %231, %228
   %indvars.iv.next.i455 = add nuw nsw i64 %indvars.iv.i451, 1
   %exitcond.not.i456 = icmp eq i64 %indvars.iv.next.i455, 8
-  br i1 %exitcond.not.i456, label %234, label %228, !llvm.loop !6
+  br i1 %exitcond.not.i456, label %234, label %228, !llvm.loop !7
 
 234:                                              ; preds = %233
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1665,7 +1665,7 @@ X11_GetSym.exit457:                               ; preds = %231, %234
 240:                                              ; preds = %238, %235
   %indvars.iv.next.i462 = add nuw nsw i64 %indvars.iv.i458, 1
   %exitcond.not.i463 = icmp eq i64 %indvars.iv.next.i462, 8
-  br i1 %exitcond.not.i463, label %241, label %235, !llvm.loop !6
+  br i1 %exitcond.not.i463, label %241, label %235, !llvm.loop !7
 
 241:                                              ; preds = %240
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1691,7 +1691,7 @@ X11_GetSym.exit464:                               ; preds = %238, %241
 247:                                              ; preds = %245, %242
   %indvars.iv.next.i469 = add nuw nsw i64 %indvars.iv.i465, 1
   %exitcond.not.i470 = icmp eq i64 %indvars.iv.next.i469, 8
-  br i1 %exitcond.not.i470, label %248, label %242, !llvm.loop !6
+  br i1 %exitcond.not.i470, label %248, label %242, !llvm.loop !7
 
 248:                                              ; preds = %247
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1717,7 +1717,7 @@ X11_GetSym.exit471:                               ; preds = %245, %248
 254:                                              ; preds = %252, %249
   %indvars.iv.next.i476 = add nuw nsw i64 %indvars.iv.i472, 1
   %exitcond.not.i477 = icmp eq i64 %indvars.iv.next.i476, 8
-  br i1 %exitcond.not.i477, label %255, label %249, !llvm.loop !6
+  br i1 %exitcond.not.i477, label %255, label %249, !llvm.loop !7
 
 255:                                              ; preds = %254
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1743,7 +1743,7 @@ X11_GetSym.exit478:                               ; preds = %252, %255
 261:                                              ; preds = %259, %256
   %indvars.iv.next.i483 = add nuw nsw i64 %indvars.iv.i479, 1
   %exitcond.not.i484 = icmp eq i64 %indvars.iv.next.i483, 8
-  br i1 %exitcond.not.i484, label %262, label %256, !llvm.loop !6
+  br i1 %exitcond.not.i484, label %262, label %256, !llvm.loop !7
 
 262:                                              ; preds = %261
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1769,7 +1769,7 @@ X11_GetSym.exit485:                               ; preds = %259, %262
 268:                                              ; preds = %266, %263
   %indvars.iv.next.i490 = add nuw nsw i64 %indvars.iv.i486, 1
   %exitcond.not.i491 = icmp eq i64 %indvars.iv.next.i490, 8
-  br i1 %exitcond.not.i491, label %269, label %263, !llvm.loop !6
+  br i1 %exitcond.not.i491, label %269, label %263, !llvm.loop !7
 
 269:                                              ; preds = %268
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1795,7 +1795,7 @@ X11_GetSym.exit492:                               ; preds = %266, %269
 275:                                              ; preds = %273, %270
   %indvars.iv.next.i497 = add nuw nsw i64 %indvars.iv.i493, 1
   %exitcond.not.i498 = icmp eq i64 %indvars.iv.next.i497, 8
-  br i1 %exitcond.not.i498, label %276, label %270, !llvm.loop !6
+  br i1 %exitcond.not.i498, label %276, label %270, !llvm.loop !7
 
 276:                                              ; preds = %275
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1821,7 +1821,7 @@ X11_GetSym.exit499:                               ; preds = %273, %276
 282:                                              ; preds = %280, %277
   %indvars.iv.next.i504 = add nuw nsw i64 %indvars.iv.i500, 1
   %exitcond.not.i505 = icmp eq i64 %indvars.iv.next.i504, 8
-  br i1 %exitcond.not.i505, label %283, label %277, !llvm.loop !6
+  br i1 %exitcond.not.i505, label %283, label %277, !llvm.loop !7
 
 283:                                              ; preds = %282
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1847,7 +1847,7 @@ X11_GetSym.exit506:                               ; preds = %280, %283
 289:                                              ; preds = %287, %284
   %indvars.iv.next.i511 = add nuw nsw i64 %indvars.iv.i507, 1
   %exitcond.not.i512 = icmp eq i64 %indvars.iv.next.i511, 8
-  br i1 %exitcond.not.i512, label %290, label %284, !llvm.loop !6
+  br i1 %exitcond.not.i512, label %290, label %284, !llvm.loop !7
 
 290:                                              ; preds = %289
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1873,7 +1873,7 @@ X11_GetSym.exit513:                               ; preds = %287, %290
 296:                                              ; preds = %294, %291
   %indvars.iv.next.i518 = add nuw nsw i64 %indvars.iv.i514, 1
   %exitcond.not.i519 = icmp eq i64 %indvars.iv.next.i518, 8
-  br i1 %exitcond.not.i519, label %297, label %291, !llvm.loop !6
+  br i1 %exitcond.not.i519, label %297, label %291, !llvm.loop !7
 
 297:                                              ; preds = %296
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1899,7 +1899,7 @@ X11_GetSym.exit520:                               ; preds = %294, %297
 303:                                              ; preds = %301, %298
   %indvars.iv.next.i525 = add nuw nsw i64 %indvars.iv.i521, 1
   %exitcond.not.i526 = icmp eq i64 %indvars.iv.next.i525, 8
-  br i1 %exitcond.not.i526, label %304, label %298, !llvm.loop !6
+  br i1 %exitcond.not.i526, label %304, label %298, !llvm.loop !7
 
 304:                                              ; preds = %303
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1925,7 +1925,7 @@ X11_GetSym.exit527:                               ; preds = %301, %304
 310:                                              ; preds = %308, %305
   %indvars.iv.next.i532 = add nuw nsw i64 %indvars.iv.i528, 1
   %exitcond.not.i533 = icmp eq i64 %indvars.iv.next.i532, 8
-  br i1 %exitcond.not.i533, label %311, label %305, !llvm.loop !6
+  br i1 %exitcond.not.i533, label %311, label %305, !llvm.loop !7
 
 311:                                              ; preds = %310
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1951,7 +1951,7 @@ X11_GetSym.exit534:                               ; preds = %308, %311
 317:                                              ; preds = %315, %312
   %indvars.iv.next.i539 = add nuw nsw i64 %indvars.iv.i535, 1
   %exitcond.not.i540 = icmp eq i64 %indvars.iv.next.i539, 8
-  br i1 %exitcond.not.i540, label %318, label %312, !llvm.loop !6
+  br i1 %exitcond.not.i540, label %318, label %312, !llvm.loop !7
 
 318:                                              ; preds = %317
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -1977,7 +1977,7 @@ X11_GetSym.exit541:                               ; preds = %315, %318
 324:                                              ; preds = %322, %319
   %indvars.iv.next.i546 = add nuw nsw i64 %indvars.iv.i542, 1
   %exitcond.not.i547 = icmp eq i64 %indvars.iv.next.i546, 8
-  br i1 %exitcond.not.i547, label %325, label %319, !llvm.loop !6
+  br i1 %exitcond.not.i547, label %325, label %319, !llvm.loop !7
 
 325:                                              ; preds = %324
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2003,7 +2003,7 @@ X11_GetSym.exit548:                               ; preds = %322, %325
 331:                                              ; preds = %329, %326
   %indvars.iv.next.i553 = add nuw nsw i64 %indvars.iv.i549, 1
   %exitcond.not.i554 = icmp eq i64 %indvars.iv.next.i553, 8
-  br i1 %exitcond.not.i554, label %332, label %326, !llvm.loop !6
+  br i1 %exitcond.not.i554, label %332, label %326, !llvm.loop !7
 
 332:                                              ; preds = %331
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2029,7 +2029,7 @@ X11_GetSym.exit555:                               ; preds = %329, %332
 338:                                              ; preds = %336, %333
   %indvars.iv.next.i560 = add nuw nsw i64 %indvars.iv.i556, 1
   %exitcond.not.i561 = icmp eq i64 %indvars.iv.next.i560, 8
-  br i1 %exitcond.not.i561, label %339, label %333, !llvm.loop !6
+  br i1 %exitcond.not.i561, label %339, label %333, !llvm.loop !7
 
 339:                                              ; preds = %338
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2055,7 +2055,7 @@ X11_GetSym.exit562:                               ; preds = %336, %339
 345:                                              ; preds = %343, %340
   %indvars.iv.next.i567 = add nuw nsw i64 %indvars.iv.i563, 1
   %exitcond.not.i568 = icmp eq i64 %indvars.iv.next.i567, 8
-  br i1 %exitcond.not.i568, label %346, label %340, !llvm.loop !6
+  br i1 %exitcond.not.i568, label %346, label %340, !llvm.loop !7
 
 346:                                              ; preds = %345
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2081,7 +2081,7 @@ X11_GetSym.exit569:                               ; preds = %343, %346
 352:                                              ; preds = %350, %347
   %indvars.iv.next.i574 = add nuw nsw i64 %indvars.iv.i570, 1
   %exitcond.not.i575 = icmp eq i64 %indvars.iv.next.i574, 8
-  br i1 %exitcond.not.i575, label %353, label %347, !llvm.loop !6
+  br i1 %exitcond.not.i575, label %353, label %347, !llvm.loop !7
 
 353:                                              ; preds = %352
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2107,7 +2107,7 @@ X11_GetSym.exit576:                               ; preds = %350, %353
 359:                                              ; preds = %357, %354
   %indvars.iv.next.i581 = add nuw nsw i64 %indvars.iv.i577, 1
   %exitcond.not.i582 = icmp eq i64 %indvars.iv.next.i581, 8
-  br i1 %exitcond.not.i582, label %360, label %354, !llvm.loop !6
+  br i1 %exitcond.not.i582, label %360, label %354, !llvm.loop !7
 
 360:                                              ; preds = %359
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2133,7 +2133,7 @@ X11_GetSym.exit583:                               ; preds = %357, %360
 366:                                              ; preds = %364, %361
   %indvars.iv.next.i588 = add nuw nsw i64 %indvars.iv.i584, 1
   %exitcond.not.i589 = icmp eq i64 %indvars.iv.next.i588, 8
-  br i1 %exitcond.not.i589, label %367, label %361, !llvm.loop !6
+  br i1 %exitcond.not.i589, label %367, label %361, !llvm.loop !7
 
 367:                                              ; preds = %366
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2159,7 +2159,7 @@ X11_GetSym.exit590:                               ; preds = %364, %367
 373:                                              ; preds = %371, %368
   %indvars.iv.next.i595 = add nuw nsw i64 %indvars.iv.i591, 1
   %exitcond.not.i596 = icmp eq i64 %indvars.iv.next.i595, 8
-  br i1 %exitcond.not.i596, label %374, label %368, !llvm.loop !6
+  br i1 %exitcond.not.i596, label %374, label %368, !llvm.loop !7
 
 374:                                              ; preds = %373
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2185,7 +2185,7 @@ X11_GetSym.exit597:                               ; preds = %371, %374
 380:                                              ; preds = %378, %375
   %indvars.iv.next.i602 = add nuw nsw i64 %indvars.iv.i598, 1
   %exitcond.not.i603 = icmp eq i64 %indvars.iv.next.i602, 8
-  br i1 %exitcond.not.i603, label %381, label %375, !llvm.loop !6
+  br i1 %exitcond.not.i603, label %381, label %375, !llvm.loop !7
 
 381:                                              ; preds = %380
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2211,7 +2211,7 @@ X11_GetSym.exit604:                               ; preds = %378, %381
 387:                                              ; preds = %385, %382
   %indvars.iv.next.i609 = add nuw nsw i64 %indvars.iv.i605, 1
   %exitcond.not.i610 = icmp eq i64 %indvars.iv.next.i609, 8
-  br i1 %exitcond.not.i610, label %388, label %382, !llvm.loop !6
+  br i1 %exitcond.not.i610, label %388, label %382, !llvm.loop !7
 
 388:                                              ; preds = %387
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2237,7 +2237,7 @@ X11_GetSym.exit611:                               ; preds = %385, %388
 394:                                              ; preds = %392, %389
   %indvars.iv.next.i616 = add nuw nsw i64 %indvars.iv.i612, 1
   %exitcond.not.i617 = icmp eq i64 %indvars.iv.next.i616, 8
-  br i1 %exitcond.not.i617, label %395, label %389, !llvm.loop !6
+  br i1 %exitcond.not.i617, label %395, label %389, !llvm.loop !7
 
 395:                                              ; preds = %394
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2263,7 +2263,7 @@ X11_GetSym.exit618:                               ; preds = %392, %395
 401:                                              ; preds = %399, %396
   %indvars.iv.next.i623 = add nuw nsw i64 %indvars.iv.i619, 1
   %exitcond.not.i624 = icmp eq i64 %indvars.iv.next.i623, 8
-  br i1 %exitcond.not.i624, label %402, label %396, !llvm.loop !6
+  br i1 %exitcond.not.i624, label %402, label %396, !llvm.loop !7
 
 402:                                              ; preds = %401
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2289,7 +2289,7 @@ X11_GetSym.exit625:                               ; preds = %399, %402
 408:                                              ; preds = %406, %403
   %indvars.iv.next.i630 = add nuw nsw i64 %indvars.iv.i626, 1
   %exitcond.not.i631 = icmp eq i64 %indvars.iv.next.i630, 8
-  br i1 %exitcond.not.i631, label %409, label %403, !llvm.loop !6
+  br i1 %exitcond.not.i631, label %409, label %403, !llvm.loop !7
 
 409:                                              ; preds = %408
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2315,7 +2315,7 @@ X11_GetSym.exit632:                               ; preds = %406, %409
 415:                                              ; preds = %413, %410
   %indvars.iv.next.i637 = add nuw nsw i64 %indvars.iv.i633, 1
   %exitcond.not.i638 = icmp eq i64 %indvars.iv.next.i637, 8
-  br i1 %exitcond.not.i638, label %416, label %410, !llvm.loop !6
+  br i1 %exitcond.not.i638, label %416, label %410, !llvm.loop !7
 
 416:                                              ; preds = %415
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2341,7 +2341,7 @@ X11_GetSym.exit639:                               ; preds = %413, %416
 422:                                              ; preds = %420, %417
   %indvars.iv.next.i644 = add nuw nsw i64 %indvars.iv.i640, 1
   %exitcond.not.i645 = icmp eq i64 %indvars.iv.next.i644, 8
-  br i1 %exitcond.not.i645, label %423, label %417, !llvm.loop !6
+  br i1 %exitcond.not.i645, label %423, label %417, !llvm.loop !7
 
 423:                                              ; preds = %422
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2367,7 +2367,7 @@ X11_GetSym.exit646:                               ; preds = %420, %423
 429:                                              ; preds = %427, %424
   %indvars.iv.next.i651 = add nuw nsw i64 %indvars.iv.i647, 1
   %exitcond.not.i652 = icmp eq i64 %indvars.iv.next.i651, 8
-  br i1 %exitcond.not.i652, label %430, label %424, !llvm.loop !6
+  br i1 %exitcond.not.i652, label %430, label %424, !llvm.loop !7
 
 430:                                              ; preds = %429
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2393,7 +2393,7 @@ X11_GetSym.exit653:                               ; preds = %427, %430
 436:                                              ; preds = %434, %431
   %indvars.iv.next.i658 = add nuw nsw i64 %indvars.iv.i654, 1
   %exitcond.not.i659 = icmp eq i64 %indvars.iv.next.i658, 8
-  br i1 %exitcond.not.i659, label %437, label %431, !llvm.loop !6
+  br i1 %exitcond.not.i659, label %437, label %431, !llvm.loop !7
 
 437:                                              ; preds = %436
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2419,7 +2419,7 @@ X11_GetSym.exit660:                               ; preds = %434, %437
 443:                                              ; preds = %441, %438
   %indvars.iv.next.i665 = add nuw nsw i64 %indvars.iv.i661, 1
   %exitcond.not.i666 = icmp eq i64 %indvars.iv.next.i665, 8
-  br i1 %exitcond.not.i666, label %444, label %438, !llvm.loop !6
+  br i1 %exitcond.not.i666, label %444, label %438, !llvm.loop !7
 
 444:                                              ; preds = %443
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2445,7 +2445,7 @@ X11_GetSym.exit667:                               ; preds = %441, %444
 450:                                              ; preds = %448, %445
   %indvars.iv.next.i672 = add nuw nsw i64 %indvars.iv.i668, 1
   %exitcond.not.i673 = icmp eq i64 %indvars.iv.next.i672, 8
-  br i1 %exitcond.not.i673, label %451, label %445, !llvm.loop !6
+  br i1 %exitcond.not.i673, label %451, label %445, !llvm.loop !7
 
 451:                                              ; preds = %450
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2471,7 +2471,7 @@ X11_GetSym.exit674:                               ; preds = %448, %451
 457:                                              ; preds = %455, %452
   %indvars.iv.next.i679 = add nuw nsw i64 %indvars.iv.i675, 1
   %exitcond.not.i680 = icmp eq i64 %indvars.iv.next.i679, 8
-  br i1 %exitcond.not.i680, label %458, label %452, !llvm.loop !6
+  br i1 %exitcond.not.i680, label %458, label %452, !llvm.loop !7
 
 458:                                              ; preds = %457
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2497,7 +2497,7 @@ X11_GetSym.exit681:                               ; preds = %455, %458
 464:                                              ; preds = %462, %459
   %indvars.iv.next.i686 = add nuw nsw i64 %indvars.iv.i682, 1
   %exitcond.not.i687 = icmp eq i64 %indvars.iv.next.i686, 8
-  br i1 %exitcond.not.i687, label %465, label %459, !llvm.loop !6
+  br i1 %exitcond.not.i687, label %465, label %459, !llvm.loop !7
 
 465:                                              ; preds = %464
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2523,7 +2523,7 @@ X11_GetSym.exit688:                               ; preds = %462, %465
 471:                                              ; preds = %469, %466
   %indvars.iv.next.i693 = add nuw nsw i64 %indvars.iv.i689, 1
   %exitcond.not.i694 = icmp eq i64 %indvars.iv.next.i693, 8
-  br i1 %exitcond.not.i694, label %472, label %466, !llvm.loop !6
+  br i1 %exitcond.not.i694, label %472, label %466, !llvm.loop !7
 
 472:                                              ; preds = %471
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2549,7 +2549,7 @@ X11_GetSym.exit695:                               ; preds = %469, %472
 478:                                              ; preds = %476, %473
   %indvars.iv.next.i700 = add nuw nsw i64 %indvars.iv.i696, 1
   %exitcond.not.i701 = icmp eq i64 %indvars.iv.next.i700, 8
-  br i1 %exitcond.not.i701, label %479, label %473, !llvm.loop !6
+  br i1 %exitcond.not.i701, label %479, label %473, !llvm.loop !7
 
 479:                                              ; preds = %478
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2575,7 +2575,7 @@ X11_GetSym.exit702:                               ; preds = %476, %479
 485:                                              ; preds = %483, %480
   %indvars.iv.next.i707 = add nuw nsw i64 %indvars.iv.i703, 1
   %exitcond.not.i708 = icmp eq i64 %indvars.iv.next.i707, 8
-  br i1 %exitcond.not.i708, label %486, label %480, !llvm.loop !6
+  br i1 %exitcond.not.i708, label %486, label %480, !llvm.loop !7
 
 486:                                              ; preds = %485
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2601,7 +2601,7 @@ X11_GetSym.exit709:                               ; preds = %483, %486
 492:                                              ; preds = %490, %487
   %indvars.iv.next.i714 = add nuw nsw i64 %indvars.iv.i710, 1
   %exitcond.not.i715 = icmp eq i64 %indvars.iv.next.i714, 8
-  br i1 %exitcond.not.i715, label %493, label %487, !llvm.loop !6
+  br i1 %exitcond.not.i715, label %493, label %487, !llvm.loop !7
 
 493:                                              ; preds = %492
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2627,7 +2627,7 @@ X11_GetSym.exit716:                               ; preds = %490, %493
 499:                                              ; preds = %497, %494
   %indvars.iv.next.i721 = add nuw nsw i64 %indvars.iv.i717, 1
   %exitcond.not.i722 = icmp eq i64 %indvars.iv.next.i721, 8
-  br i1 %exitcond.not.i722, label %500, label %494, !llvm.loop !6
+  br i1 %exitcond.not.i722, label %500, label %494, !llvm.loop !7
 
 500:                                              ; preds = %499
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2653,7 +2653,7 @@ X11_GetSym.exit723:                               ; preds = %497, %500
 506:                                              ; preds = %504, %501
   %indvars.iv.next.i728 = add nuw nsw i64 %indvars.iv.i724, 1
   %exitcond.not.i729 = icmp eq i64 %indvars.iv.next.i728, 8
-  br i1 %exitcond.not.i729, label %507, label %501, !llvm.loop !6
+  br i1 %exitcond.not.i729, label %507, label %501, !llvm.loop !7
 
 507:                                              ; preds = %506
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2679,7 +2679,7 @@ X11_GetSym.exit730:                               ; preds = %504, %507
 513:                                              ; preds = %511, %508
   %indvars.iv.next.i735 = add nuw nsw i64 %indvars.iv.i731, 1
   %exitcond.not.i736 = icmp eq i64 %indvars.iv.next.i735, 8
-  br i1 %exitcond.not.i736, label %514, label %508, !llvm.loop !6
+  br i1 %exitcond.not.i736, label %514, label %508, !llvm.loop !7
 
 514:                                              ; preds = %513
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2705,7 +2705,7 @@ X11_GetSym.exit737:                               ; preds = %511, %514
 520:                                              ; preds = %518, %515
   %indvars.iv.next.i742 = add nuw nsw i64 %indvars.iv.i738, 1
   %exitcond.not.i743 = icmp eq i64 %indvars.iv.next.i742, 8
-  br i1 %exitcond.not.i743, label %521, label %515, !llvm.loop !6
+  br i1 %exitcond.not.i743, label %521, label %515, !llvm.loop !7
 
 521:                                              ; preds = %520
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2731,7 +2731,7 @@ X11_GetSym.exit744:                               ; preds = %518, %521
 527:                                              ; preds = %525, %522
   %indvars.iv.next.i749 = add nuw nsw i64 %indvars.iv.i745, 1
   %exitcond.not.i750 = icmp eq i64 %indvars.iv.next.i749, 8
-  br i1 %exitcond.not.i750, label %528, label %522, !llvm.loop !6
+  br i1 %exitcond.not.i750, label %528, label %522, !llvm.loop !7
 
 528:                                              ; preds = %527
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2757,7 +2757,7 @@ X11_GetSym.exit751:                               ; preds = %525, %528
 534:                                              ; preds = %532, %529
   %indvars.iv.next.i756 = add nuw nsw i64 %indvars.iv.i752, 1
   %exitcond.not.i757 = icmp eq i64 %indvars.iv.next.i756, 8
-  br i1 %exitcond.not.i757, label %535, label %529, !llvm.loop !6
+  br i1 %exitcond.not.i757, label %535, label %529, !llvm.loop !7
 
 535:                                              ; preds = %534
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2783,7 +2783,7 @@ X11_GetSym.exit758:                               ; preds = %532, %535
 541:                                              ; preds = %539, %536
   %indvars.iv.next.i763 = add nuw nsw i64 %indvars.iv.i759, 1
   %exitcond.not.i764 = icmp eq i64 %indvars.iv.next.i763, 8
-  br i1 %exitcond.not.i764, label %542, label %536, !llvm.loop !6
+  br i1 %exitcond.not.i764, label %542, label %536, !llvm.loop !7
 
 542:                                              ; preds = %541
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2809,7 +2809,7 @@ X11_GetSym.exit765:                               ; preds = %539, %542
 548:                                              ; preds = %546, %543
   %indvars.iv.next.i770 = add nuw nsw i64 %indvars.iv.i766, 1
   %exitcond.not.i771 = icmp eq i64 %indvars.iv.next.i770, 8
-  br i1 %exitcond.not.i771, label %549, label %543, !llvm.loop !6
+  br i1 %exitcond.not.i771, label %549, label %543, !llvm.loop !7
 
 549:                                              ; preds = %548
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2835,7 +2835,7 @@ X11_GetSym.exit772:                               ; preds = %546, %549
 555:                                              ; preds = %553, %550
   %indvars.iv.next.i777 = add nuw nsw i64 %indvars.iv.i773, 1
   %exitcond.not.i778 = icmp eq i64 %indvars.iv.next.i777, 8
-  br i1 %exitcond.not.i778, label %556, label %550, !llvm.loop !6
+  br i1 %exitcond.not.i778, label %556, label %550, !llvm.loop !7
 
 556:                                              ; preds = %555
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2861,7 +2861,7 @@ X11_GetSym.exit779:                               ; preds = %553, %556
 562:                                              ; preds = %560, %557
   %indvars.iv.next.i784 = add nuw nsw i64 %indvars.iv.i780, 1
   %exitcond.not.i785 = icmp eq i64 %indvars.iv.next.i784, 8
-  br i1 %exitcond.not.i785, label %563, label %557, !llvm.loop !6
+  br i1 %exitcond.not.i785, label %563, label %557, !llvm.loop !7
 
 563:                                              ; preds = %562
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2887,7 +2887,7 @@ X11_GetSym.exit786:                               ; preds = %560, %563
 569:                                              ; preds = %567, %564
   %indvars.iv.next.i791 = add nuw nsw i64 %indvars.iv.i787, 1
   %exitcond.not.i792 = icmp eq i64 %indvars.iv.next.i791, 8
-  br i1 %exitcond.not.i792, label %570, label %564, !llvm.loop !6
+  br i1 %exitcond.not.i792, label %570, label %564, !llvm.loop !7
 
 570:                                              ; preds = %569
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2913,7 +2913,7 @@ X11_GetSym.exit793:                               ; preds = %567, %570
 576:                                              ; preds = %574, %571
   %indvars.iv.next.i798 = add nuw nsw i64 %indvars.iv.i794, 1
   %exitcond.not.i799 = icmp eq i64 %indvars.iv.next.i798, 8
-  br i1 %exitcond.not.i799, label %577, label %571, !llvm.loop !6
+  br i1 %exitcond.not.i799, label %577, label %571, !llvm.loop !7
 
 577:                                              ; preds = %576
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2939,7 +2939,7 @@ X11_GetSym.exit800:                               ; preds = %574, %577
 583:                                              ; preds = %581, %578
   %indvars.iv.next.i805 = add nuw nsw i64 %indvars.iv.i801, 1
   %exitcond.not.i806 = icmp eq i64 %indvars.iv.next.i805, 8
-  br i1 %exitcond.not.i806, label %584, label %578, !llvm.loop !6
+  br i1 %exitcond.not.i806, label %584, label %578, !llvm.loop !7
 
 584:                                              ; preds = %583
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2965,7 +2965,7 @@ X11_GetSym.exit807:                               ; preds = %581, %584
 590:                                              ; preds = %588, %585
   %indvars.iv.next.i812 = add nuw nsw i64 %indvars.iv.i808, 1
   %exitcond.not.i813 = icmp eq i64 %indvars.iv.next.i812, 8
-  br i1 %exitcond.not.i813, label %591, label %585, !llvm.loop !6
+  br i1 %exitcond.not.i813, label %591, label %585, !llvm.loop !7
 
 591:                                              ; preds = %590
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -2991,7 +2991,7 @@ X11_GetSym.exit814:                               ; preds = %588, %591
 597:                                              ; preds = %595, %592
   %indvars.iv.next.i819 = add nuw nsw i64 %indvars.iv.i815, 1
   %exitcond.not.i820 = icmp eq i64 %indvars.iv.next.i819, 8
-  br i1 %exitcond.not.i820, label %598, label %592, !llvm.loop !6
+  br i1 %exitcond.not.i820, label %598, label %592, !llvm.loop !7
 
 598:                                              ; preds = %597
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3017,7 +3017,7 @@ X11_GetSym.exit821:                               ; preds = %595, %598
 604:                                              ; preds = %602, %599
   %indvars.iv.next.i826 = add nuw nsw i64 %indvars.iv.i822, 1
   %exitcond.not.i827 = icmp eq i64 %indvars.iv.next.i826, 8
-  br i1 %exitcond.not.i827, label %605, label %599, !llvm.loop !6
+  br i1 %exitcond.not.i827, label %605, label %599, !llvm.loop !7
 
 605:                                              ; preds = %604
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3043,7 +3043,7 @@ X11_GetSym.exit828:                               ; preds = %602, %605
 611:                                              ; preds = %609, %606
   %indvars.iv.next.i833 = add nuw nsw i64 %indvars.iv.i829, 1
   %exitcond.not.i834 = icmp eq i64 %indvars.iv.next.i833, 8
-  br i1 %exitcond.not.i834, label %612, label %606, !llvm.loop !6
+  br i1 %exitcond.not.i834, label %612, label %606, !llvm.loop !7
 
 612:                                              ; preds = %611
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3069,7 +3069,7 @@ X11_GetSym.exit835:                               ; preds = %609, %612
 618:                                              ; preds = %616, %613
   %indvars.iv.next.i840 = add nuw nsw i64 %indvars.iv.i836, 1
   %exitcond.not.i841 = icmp eq i64 %indvars.iv.next.i840, 8
-  br i1 %exitcond.not.i841, label %619, label %613, !llvm.loop !6
+  br i1 %exitcond.not.i841, label %619, label %613, !llvm.loop !7
 
 619:                                              ; preds = %618
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3095,7 +3095,7 @@ X11_GetSym.exit842:                               ; preds = %616, %619
 625:                                              ; preds = %623, %620
   %indvars.iv.next.i847 = add nuw nsw i64 %indvars.iv.i843, 1
   %exitcond.not.i848 = icmp eq i64 %indvars.iv.next.i847, 8
-  br i1 %exitcond.not.i848, label %626, label %620, !llvm.loop !6
+  br i1 %exitcond.not.i848, label %626, label %620, !llvm.loop !7
 
 626:                                              ; preds = %625
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3121,7 +3121,7 @@ X11_GetSym.exit849:                               ; preds = %623, %626
 632:                                              ; preds = %630, %627
   %indvars.iv.next.i854 = add nuw nsw i64 %indvars.iv.i850, 1
   %exitcond.not.i855 = icmp eq i64 %indvars.iv.next.i854, 8
-  br i1 %exitcond.not.i855, label %633, label %627, !llvm.loop !6
+  br i1 %exitcond.not.i855, label %633, label %627, !llvm.loop !7
 
 633:                                              ; preds = %632
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3147,7 +3147,7 @@ X11_GetSym.exit856:                               ; preds = %630, %633
 639:                                              ; preds = %637, %634
   %indvars.iv.next.i861 = add nuw nsw i64 %indvars.iv.i857, 1
   %exitcond.not.i862 = icmp eq i64 %indvars.iv.next.i861, 8
-  br i1 %exitcond.not.i862, label %640, label %634, !llvm.loop !6
+  br i1 %exitcond.not.i862, label %640, label %634, !llvm.loop !7
 
 640:                                              ; preds = %639
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3173,7 +3173,7 @@ X11_GetSym.exit863:                               ; preds = %637, %640
 646:                                              ; preds = %644, %641
   %indvars.iv.next.i868 = add nuw nsw i64 %indvars.iv.i864, 1
   %exitcond.not.i869 = icmp eq i64 %indvars.iv.next.i868, 8
-  br i1 %exitcond.not.i869, label %647, label %641, !llvm.loop !6
+  br i1 %exitcond.not.i869, label %647, label %641, !llvm.loop !7
 
 647:                                              ; preds = %646
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3199,7 +3199,7 @@ X11_GetSym.exit870:                               ; preds = %644, %647
 653:                                              ; preds = %651, %648
   %indvars.iv.next.i875 = add nuw nsw i64 %indvars.iv.i871, 1
   %exitcond.not.i876 = icmp eq i64 %indvars.iv.next.i875, 8
-  br i1 %exitcond.not.i876, label %654, label %648, !llvm.loop !6
+  br i1 %exitcond.not.i876, label %654, label %648, !llvm.loop !7
 
 654:                                              ; preds = %653
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3225,7 +3225,7 @@ X11_GetSym.exit877:                               ; preds = %651, %654
 660:                                              ; preds = %658, %655
   %indvars.iv.next.i882 = add nuw nsw i64 %indvars.iv.i878, 1
   %exitcond.not.i883 = icmp eq i64 %indvars.iv.next.i882, 8
-  br i1 %exitcond.not.i883, label %661, label %655, !llvm.loop !6
+  br i1 %exitcond.not.i883, label %661, label %655, !llvm.loop !7
 
 661:                                              ; preds = %660
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3251,7 +3251,7 @@ X11_GetSym.exit884:                               ; preds = %658, %661
 667:                                              ; preds = %665, %662
   %indvars.iv.next.i889 = add nuw nsw i64 %indvars.iv.i885, 1
   %exitcond.not.i890 = icmp eq i64 %indvars.iv.next.i889, 8
-  br i1 %exitcond.not.i890, label %668, label %662, !llvm.loop !6
+  br i1 %exitcond.not.i890, label %668, label %662, !llvm.loop !7
 
 668:                                              ; preds = %667
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3277,7 +3277,7 @@ X11_GetSym.exit891:                               ; preds = %665, %668
 674:                                              ; preds = %672, %669
   %indvars.iv.next.i896 = add nuw nsw i64 %indvars.iv.i892, 1
   %exitcond.not.i897 = icmp eq i64 %indvars.iv.next.i896, 8
-  br i1 %exitcond.not.i897, label %675, label %669, !llvm.loop !6
+  br i1 %exitcond.not.i897, label %675, label %669, !llvm.loop !7
 
 675:                                              ; preds = %674
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3303,7 +3303,7 @@ X11_GetSym.exit898:                               ; preds = %672, %675
 681:                                              ; preds = %679, %676
   %indvars.iv.next.i903 = add nuw nsw i64 %indvars.iv.i899, 1
   %exitcond.not.i904 = icmp eq i64 %indvars.iv.next.i903, 8
-  br i1 %exitcond.not.i904, label %682, label %676, !llvm.loop !6
+  br i1 %exitcond.not.i904, label %682, label %676, !llvm.loop !7
 
 682:                                              ; preds = %681
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3329,7 +3329,7 @@ X11_GetSym.exit905:                               ; preds = %679, %682
 688:                                              ; preds = %686, %683
   %indvars.iv.next.i910 = add nuw nsw i64 %indvars.iv.i906, 1
   %exitcond.not.i911 = icmp eq i64 %indvars.iv.next.i910, 8
-  br i1 %exitcond.not.i911, label %689, label %683, !llvm.loop !6
+  br i1 %exitcond.not.i911, label %689, label %683, !llvm.loop !7
 
 689:                                              ; preds = %688
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3355,7 +3355,7 @@ X11_GetSym.exit912:                               ; preds = %686, %689
 695:                                              ; preds = %693, %690
   %indvars.iv.next.i917 = add nuw nsw i64 %indvars.iv.i913, 1
   %exitcond.not.i918 = icmp eq i64 %indvars.iv.next.i917, 8
-  br i1 %exitcond.not.i918, label %696, label %690, !llvm.loop !6
+  br i1 %exitcond.not.i918, label %696, label %690, !llvm.loop !7
 
 696:                                              ; preds = %695
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3381,7 +3381,7 @@ X11_GetSym.exit919:                               ; preds = %693, %696
 702:                                              ; preds = %700, %697
   %indvars.iv.next.i924 = add nuw nsw i64 %indvars.iv.i920, 1
   %exitcond.not.i925 = icmp eq i64 %indvars.iv.next.i924, 8
-  br i1 %exitcond.not.i925, label %703, label %697, !llvm.loop !6
+  br i1 %exitcond.not.i925, label %703, label %697, !llvm.loop !7
 
 703:                                              ; preds = %702
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3407,7 +3407,7 @@ X11_GetSym.exit926:                               ; preds = %700, %703
 709:                                              ; preds = %707, %704
   %indvars.iv.next.i931 = add nuw nsw i64 %indvars.iv.i927, 1
   %exitcond.not.i932 = icmp eq i64 %indvars.iv.next.i931, 8
-  br i1 %exitcond.not.i932, label %710, label %704, !llvm.loop !6
+  br i1 %exitcond.not.i932, label %710, label %704, !llvm.loop !7
 
 710:                                              ; preds = %709
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3433,7 +3433,7 @@ X11_GetSym.exit933:                               ; preds = %707, %710
 716:                                              ; preds = %714, %711
   %indvars.iv.next.i938 = add nuw nsw i64 %indvars.iv.i934, 1
   %exitcond.not.i939 = icmp eq i64 %indvars.iv.next.i938, 8
-  br i1 %exitcond.not.i939, label %717, label %711, !llvm.loop !6
+  br i1 %exitcond.not.i939, label %717, label %711, !llvm.loop !7
 
 717:                                              ; preds = %716
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3459,7 +3459,7 @@ X11_GetSym.exit940:                               ; preds = %714, %717
 723:                                              ; preds = %721, %718
   %indvars.iv.next.i945 = add nuw nsw i64 %indvars.iv.i941, 1
   %exitcond.not.i946 = icmp eq i64 %indvars.iv.next.i945, 8
-  br i1 %exitcond.not.i946, label %724, label %718, !llvm.loop !6
+  br i1 %exitcond.not.i946, label %724, label %718, !llvm.loop !7
 
 724:                                              ; preds = %723
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3485,7 +3485,7 @@ X11_GetSym.exit947:                               ; preds = %721, %724
 730:                                              ; preds = %728, %725
   %indvars.iv.next.i952 = add nuw nsw i64 %indvars.iv.i948, 1
   %exitcond.not.i953 = icmp eq i64 %indvars.iv.next.i952, 8
-  br i1 %exitcond.not.i953, label %731, label %725, !llvm.loop !6
+  br i1 %exitcond.not.i953, label %731, label %725, !llvm.loop !7
 
 731:                                              ; preds = %730
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3511,7 +3511,7 @@ X11_GetSym.exit954:                               ; preds = %728, %731
 737:                                              ; preds = %735, %732
   %indvars.iv.next.i959 = add nuw nsw i64 %indvars.iv.i955, 1
   %exitcond.not.i960 = icmp eq i64 %indvars.iv.next.i959, 8
-  br i1 %exitcond.not.i960, label %738, label %732, !llvm.loop !6
+  br i1 %exitcond.not.i960, label %738, label %732, !llvm.loop !7
 
 738:                                              ; preds = %737
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3537,7 +3537,7 @@ X11_GetSym.exit961:                               ; preds = %735, %738
 744:                                              ; preds = %742, %739
   %indvars.iv.next.i966 = add nuw nsw i64 %indvars.iv.i962, 1
   %exitcond.not.i967 = icmp eq i64 %indvars.iv.next.i966, 8
-  br i1 %exitcond.not.i967, label %745, label %739, !llvm.loop !6
+  br i1 %exitcond.not.i967, label %745, label %739, !llvm.loop !7
 
 745:                                              ; preds = %744
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3563,7 +3563,7 @@ X11_GetSym.exit968:                               ; preds = %742, %745
 751:                                              ; preds = %749, %746
   %indvars.iv.next.i973 = add nuw nsw i64 %indvars.iv.i969, 1
   %exitcond.not.i974 = icmp eq i64 %indvars.iv.next.i973, 8
-  br i1 %exitcond.not.i974, label %752, label %746, !llvm.loop !6
+  br i1 %exitcond.not.i974, label %752, label %746, !llvm.loop !7
 
 752:                                              ; preds = %751
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3589,7 +3589,7 @@ X11_GetSym.exit975:                               ; preds = %749, %752
 758:                                              ; preds = %756, %753
   %indvars.iv.next.i980 = add nuw nsw i64 %indvars.iv.i976, 1
   %exitcond.not.i981 = icmp eq i64 %indvars.iv.next.i980, 8
-  br i1 %exitcond.not.i981, label %759, label %753, !llvm.loop !6
+  br i1 %exitcond.not.i981, label %759, label %753, !llvm.loop !7
 
 759:                                              ; preds = %758
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3615,7 +3615,7 @@ X11_GetSym.exit982:                               ; preds = %756, %759
 765:                                              ; preds = %763, %760
   %indvars.iv.next.i987 = add nuw nsw i64 %indvars.iv.i983, 1
   %exitcond.not.i988 = icmp eq i64 %indvars.iv.next.i987, 8
-  br i1 %exitcond.not.i988, label %766, label %760, !llvm.loop !6
+  br i1 %exitcond.not.i988, label %766, label %760, !llvm.loop !7
 
 766:                                              ; preds = %765
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3641,7 +3641,7 @@ X11_GetSym.exit989:                               ; preds = %763, %766
 772:                                              ; preds = %770, %767
   %indvars.iv.next.i994 = add nuw nsw i64 %indvars.iv.i990, 1
   %exitcond.not.i995 = icmp eq i64 %indvars.iv.next.i994, 8
-  br i1 %exitcond.not.i995, label %773, label %767, !llvm.loop !6
+  br i1 %exitcond.not.i995, label %773, label %767, !llvm.loop !7
 
 773:                                              ; preds = %772
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3667,7 +3667,7 @@ X11_GetSym.exit996:                               ; preds = %770, %773
 779:                                              ; preds = %777, %774
   %indvars.iv.next.i1001 = add nuw nsw i64 %indvars.iv.i997, 1
   %exitcond.not.i1002 = icmp eq i64 %indvars.iv.next.i1001, 8
-  br i1 %exitcond.not.i1002, label %780, label %774, !llvm.loop !6
+  br i1 %exitcond.not.i1002, label %780, label %774, !llvm.loop !7
 
 780:                                              ; preds = %779
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3693,7 +3693,7 @@ X11_GetSym.exit1003:                              ; preds = %777, %780
 786:                                              ; preds = %784, %781
   %indvars.iv.next.i1008 = add nuw nsw i64 %indvars.iv.i1004, 1
   %exitcond.not.i1009 = icmp eq i64 %indvars.iv.next.i1008, 8
-  br i1 %exitcond.not.i1009, label %787, label %781, !llvm.loop !6
+  br i1 %exitcond.not.i1009, label %787, label %781, !llvm.loop !7
 
 787:                                              ; preds = %786
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3719,7 +3719,7 @@ X11_GetSym.exit1010:                              ; preds = %784, %787
 793:                                              ; preds = %791, %788
   %indvars.iv.next.i1015 = add nuw nsw i64 %indvars.iv.i1011, 1
   %exitcond.not.i1016 = icmp eq i64 %indvars.iv.next.i1015, 8
-  br i1 %exitcond.not.i1016, label %794, label %788, !llvm.loop !6
+  br i1 %exitcond.not.i1016, label %794, label %788, !llvm.loop !7
 
 794:                                              ; preds = %793
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3745,7 +3745,7 @@ X11_GetSym.exit1017:                              ; preds = %791, %794
 800:                                              ; preds = %798, %795
   %indvars.iv.next.i1022 = add nuw nsw i64 %indvars.iv.i1018, 1
   %exitcond.not.i1023 = icmp eq i64 %indvars.iv.next.i1022, 8
-  br i1 %exitcond.not.i1023, label %801, label %795, !llvm.loop !6
+  br i1 %exitcond.not.i1023, label %801, label %795, !llvm.loop !7
 
 801:                                              ; preds = %800
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3771,7 +3771,7 @@ X11_GetSym.exit1024:                              ; preds = %798, %801
 807:                                              ; preds = %805, %802
   %indvars.iv.next.i1029 = add nuw nsw i64 %indvars.iv.i1025, 1
   %exitcond.not.i1030 = icmp eq i64 %indvars.iv.next.i1029, 8
-  br i1 %exitcond.not.i1030, label %808, label %802, !llvm.loop !6
+  br i1 %exitcond.not.i1030, label %808, label %802, !llvm.loop !7
 
 808:                                              ; preds = %807
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3797,7 +3797,7 @@ X11_GetSym.exit1031:                              ; preds = %805, %808
 814:                                              ; preds = %812, %809
   %indvars.iv.next.i1036 = add nuw nsw i64 %indvars.iv.i1032, 1
   %exitcond.not.i1037 = icmp eq i64 %indvars.iv.next.i1036, 8
-  br i1 %exitcond.not.i1037, label %815, label %809, !llvm.loop !6
+  br i1 %exitcond.not.i1037, label %815, label %809, !llvm.loop !7
 
 815:                                              ; preds = %814
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3823,7 +3823,7 @@ X11_GetSym.exit1038:                              ; preds = %812, %815
 821:                                              ; preds = %819, %816
   %indvars.iv.next.i1043 = add nuw nsw i64 %indvars.iv.i1039, 1
   %exitcond.not.i1044 = icmp eq i64 %indvars.iv.next.i1043, 8
-  br i1 %exitcond.not.i1044, label %822, label %816, !llvm.loop !6
+  br i1 %exitcond.not.i1044, label %822, label %816, !llvm.loop !7
 
 822:                                              ; preds = %821
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3849,7 +3849,7 @@ X11_GetSym.exit1045:                              ; preds = %819, %822
 828:                                              ; preds = %826, %823
   %indvars.iv.next.i1050 = add nuw nsw i64 %indvars.iv.i1046, 1
   %exitcond.not.i1051 = icmp eq i64 %indvars.iv.next.i1050, 8
-  br i1 %exitcond.not.i1051, label %829, label %823, !llvm.loop !6
+  br i1 %exitcond.not.i1051, label %829, label %823, !llvm.loop !7
 
 829:                                              ; preds = %828
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3875,7 +3875,7 @@ X11_GetSym.exit1052:                              ; preds = %826, %829
 835:                                              ; preds = %833, %830
   %indvars.iv.next.i1057 = add nuw nsw i64 %indvars.iv.i1053, 1
   %exitcond.not.i1058 = icmp eq i64 %indvars.iv.next.i1057, 8
-  br i1 %exitcond.not.i1058, label %836, label %830, !llvm.loop !6
+  br i1 %exitcond.not.i1058, label %836, label %830, !llvm.loop !7
 
 836:                                              ; preds = %835
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3901,7 +3901,7 @@ X11_GetSym.exit1059:                              ; preds = %833, %836
 842:                                              ; preds = %840, %837
   %indvars.iv.next.i1064 = add nuw nsw i64 %indvars.iv.i1060, 1
   %exitcond.not.i1065 = icmp eq i64 %indvars.iv.next.i1064, 8
-  br i1 %exitcond.not.i1065, label %843, label %837, !llvm.loop !6
+  br i1 %exitcond.not.i1065, label %843, label %837, !llvm.loop !7
 
 843:                                              ; preds = %842
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3927,7 +3927,7 @@ X11_GetSym.exit1066:                              ; preds = %840, %843
 849:                                              ; preds = %847, %844
   %indvars.iv.next.i1071 = add nuw nsw i64 %indvars.iv.i1067, 1
   %exitcond.not.i1072 = icmp eq i64 %indvars.iv.next.i1071, 8
-  br i1 %exitcond.not.i1072, label %850, label %844, !llvm.loop !6
+  br i1 %exitcond.not.i1072, label %850, label %844, !llvm.loop !7
 
 850:                                              ; preds = %849
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3953,7 +3953,7 @@ X11_GetSym.exit1073:                              ; preds = %847, %850
 856:                                              ; preds = %854, %851
   %indvars.iv.next.i1078 = add nuw nsw i64 %indvars.iv.i1074, 1
   %exitcond.not.i1079 = icmp eq i64 %indvars.iv.next.i1078, 8
-  br i1 %exitcond.not.i1079, label %857, label %851, !llvm.loop !6
+  br i1 %exitcond.not.i1079, label %857, label %851, !llvm.loop !7
 
 857:                                              ; preds = %856
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -3979,7 +3979,7 @@ X11_GetSym.exit1080:                              ; preds = %854, %857
 863:                                              ; preds = %861, %858
   %indvars.iv.next.i1085 = add nuw nsw i64 %indvars.iv.i1081, 1
   %exitcond.not.i1086 = icmp eq i64 %indvars.iv.next.i1085, 8
-  br i1 %exitcond.not.i1086, label %864, label %858, !llvm.loop !6
+  br i1 %exitcond.not.i1086, label %864, label %858, !llvm.loop !7
 
 864:                                              ; preds = %863
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4005,7 +4005,7 @@ X11_GetSym.exit1087:                              ; preds = %861, %864
 870:                                              ; preds = %868, %865
   %indvars.iv.next.i1092 = add nuw nsw i64 %indvars.iv.i1088, 1
   %exitcond.not.i1093 = icmp eq i64 %indvars.iv.next.i1092, 8
-  br i1 %exitcond.not.i1093, label %871, label %865, !llvm.loop !6
+  br i1 %exitcond.not.i1093, label %871, label %865, !llvm.loop !7
 
 871:                                              ; preds = %870
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4031,7 +4031,7 @@ X11_GetSym.exit1094:                              ; preds = %868, %871
 877:                                              ; preds = %875, %872
   %indvars.iv.next.i1099 = add nuw nsw i64 %indvars.iv.i1095, 1
   %exitcond.not.i1100 = icmp eq i64 %indvars.iv.next.i1099, 8
-  br i1 %exitcond.not.i1100, label %878, label %872, !llvm.loop !6
+  br i1 %exitcond.not.i1100, label %878, label %872, !llvm.loop !7
 
 878:                                              ; preds = %877
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4057,7 +4057,7 @@ X11_GetSym.exit1101:                              ; preds = %875, %878
 884:                                              ; preds = %882, %879
   %indvars.iv.next.i1106 = add nuw nsw i64 %indvars.iv.i1102, 1
   %exitcond.not.i1107 = icmp eq i64 %indvars.iv.next.i1106, 8
-  br i1 %exitcond.not.i1107, label %885, label %879, !llvm.loop !6
+  br i1 %exitcond.not.i1107, label %885, label %879, !llvm.loop !7
 
 885:                                              ; preds = %884
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4083,7 +4083,7 @@ X11_GetSym.exit1108:                              ; preds = %882, %885
 891:                                              ; preds = %889, %886
   %indvars.iv.next.i1113 = add nuw nsw i64 %indvars.iv.i1109, 1
   %exitcond.not.i1114 = icmp eq i64 %indvars.iv.next.i1113, 8
-  br i1 %exitcond.not.i1114, label %892, label %886, !llvm.loop !6
+  br i1 %exitcond.not.i1114, label %892, label %886, !llvm.loop !7
 
 892:                                              ; preds = %891
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4109,7 +4109,7 @@ X11_GetSym.exit1115:                              ; preds = %889, %892
 898:                                              ; preds = %896, %893
   %indvars.iv.next.i1120 = add nuw nsw i64 %indvars.iv.i1116, 1
   %exitcond.not.i1121 = icmp eq i64 %indvars.iv.next.i1120, 8
-  br i1 %exitcond.not.i1121, label %899, label %893, !llvm.loop !6
+  br i1 %exitcond.not.i1121, label %899, label %893, !llvm.loop !7
 
 899:                                              ; preds = %898
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4135,7 +4135,7 @@ X11_GetSym.exit1122:                              ; preds = %896, %899
 905:                                              ; preds = %903, %900
   %indvars.iv.next.i1127 = add nuw nsw i64 %indvars.iv.i1123, 1
   %exitcond.not.i1128 = icmp eq i64 %indvars.iv.next.i1127, 8
-  br i1 %exitcond.not.i1128, label %906, label %900, !llvm.loop !6
+  br i1 %exitcond.not.i1128, label %906, label %900, !llvm.loop !7
 
 906:                                              ; preds = %905
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4161,7 +4161,7 @@ X11_GetSym.exit1129:                              ; preds = %903, %906
 912:                                              ; preds = %910, %907
   %indvars.iv.next.i1134 = add nuw nsw i64 %indvars.iv.i1130, 1
   %exitcond.not.i1135 = icmp eq i64 %indvars.iv.next.i1134, 8
-  br i1 %exitcond.not.i1135, label %913, label %907, !llvm.loop !6
+  br i1 %exitcond.not.i1135, label %913, label %907, !llvm.loop !7
 
 913:                                              ; preds = %912
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4187,7 +4187,7 @@ X11_GetSym.exit1136:                              ; preds = %910, %913
 919:                                              ; preds = %917, %914
   %indvars.iv.next.i1141 = add nuw nsw i64 %indvars.iv.i1137, 1
   %exitcond.not.i1142 = icmp eq i64 %indvars.iv.next.i1141, 8
-  br i1 %exitcond.not.i1142, label %920, label %914, !llvm.loop !6
+  br i1 %exitcond.not.i1142, label %920, label %914, !llvm.loop !7
 
 920:                                              ; preds = %919
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4213,7 +4213,7 @@ X11_GetSym.exit1143:                              ; preds = %917, %920
 926:                                              ; preds = %924, %921
   %indvars.iv.next.i1148 = add nuw nsw i64 %indvars.iv.i1144, 1
   %exitcond.not.i1149 = icmp eq i64 %indvars.iv.next.i1148, 8
-  br i1 %exitcond.not.i1149, label %927, label %921, !llvm.loop !6
+  br i1 %exitcond.not.i1149, label %927, label %921, !llvm.loop !7
 
 927:                                              ; preds = %926
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4239,7 +4239,7 @@ X11_GetSym.exit1150:                              ; preds = %924, %927
 933:                                              ; preds = %931, %928
   %indvars.iv.next.i1155 = add nuw nsw i64 %indvars.iv.i1151, 1
   %exitcond.not.i1156 = icmp eq i64 %indvars.iv.next.i1155, 8
-  br i1 %exitcond.not.i1156, label %934, label %928, !llvm.loop !6
+  br i1 %exitcond.not.i1156, label %934, label %928, !llvm.loop !7
 
 934:                                              ; preds = %933
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4265,7 +4265,7 @@ X11_GetSym.exit1157:                              ; preds = %931, %934
 940:                                              ; preds = %938, %935
   %indvars.iv.next.i1162 = add nuw nsw i64 %indvars.iv.i1158, 1
   %exitcond.not.i1163 = icmp eq i64 %indvars.iv.next.i1162, 8
-  br i1 %exitcond.not.i1163, label %941, label %935, !llvm.loop !6
+  br i1 %exitcond.not.i1163, label %941, label %935, !llvm.loop !7
 
 941:                                              ; preds = %940
   store i32 0, ptr @SDL_X11_HAVE_BASEXLIB, align 4
@@ -4291,7 +4291,7 @@ X11_GetSym.exit1164:                              ; preds = %938, %941
 947:                                              ; preds = %945, %942
   %indvars.iv.next.i1169 = add nuw nsw i64 %indvars.iv.i1165, 1
   %exitcond.not.i1170 = icmp eq i64 %indvars.iv.next.i1169, 8
-  br i1 %exitcond.not.i1170, label %948, label %942, !llvm.loop !6
+  br i1 %exitcond.not.i1170, label %948, label %942, !llvm.loop !7
 
 948:                                              ; preds = %947
   store i32 0, ptr @SDL_X11_HAVE_XFIXES, align 4
@@ -4317,7 +4317,7 @@ X11_GetSym.exit1171:                              ; preds = %945, %948
 954:                                              ; preds = %952, %949
   %indvars.iv.next.i1176 = add nuw nsw i64 %indvars.iv.i1172, 1
   %exitcond.not.i1177 = icmp eq i64 %indvars.iv.next.i1176, 8
-  br i1 %exitcond.not.i1177, label %955, label %949, !llvm.loop !6
+  br i1 %exitcond.not.i1177, label %955, label %949, !llvm.loop !7
 
 955:                                              ; preds = %954
   store i32 0, ptr @SDL_X11_HAVE_XFIXES, align 4
@@ -4343,7 +4343,7 @@ X11_GetSym.exit1178:                              ; preds = %952, %955
 961:                                              ; preds = %959, %956
   %indvars.iv.next.i1183 = add nuw nsw i64 %indvars.iv.i1179, 1
   %exitcond.not.i1184 = icmp eq i64 %indvars.iv.next.i1183, 8
-  br i1 %exitcond.not.i1184, label %962, label %956, !llvm.loop !6
+  br i1 %exitcond.not.i1184, label %962, label %956, !llvm.loop !7
 
 962:                                              ; preds = %961
   store i32 0, ptr @SDL_X11_HAVE_XFIXES, align 4
@@ -4369,7 +4369,7 @@ X11_GetSym.exit1185:                              ; preds = %959, %962
 968:                                              ; preds = %966, %963
   %indvars.iv.next.i1190 = add nuw nsw i64 %indvars.iv.i1186, 1
   %exitcond.not.i1191 = icmp eq i64 %indvars.iv.next.i1190, 8
-  br i1 %exitcond.not.i1191, label %969, label %963, !llvm.loop !6
+  br i1 %exitcond.not.i1191, label %969, label %963, !llvm.loop !7
 
 969:                                              ; preds = %968
   store i32 0, ptr @SDL_X11_HAVE_XFIXES, align 4
@@ -4395,7 +4395,7 @@ X11_GetSym.exit1192:                              ; preds = %966, %969
 975:                                              ; preds = %973, %970
   %indvars.iv.next.i1197 = add nuw nsw i64 %indvars.iv.i1193, 1
   %exitcond.not.i1198 = icmp eq i64 %indvars.iv.next.i1197, 8
-  br i1 %exitcond.not.i1198, label %976, label %970, !llvm.loop !6
+  br i1 %exitcond.not.i1198, label %976, label %970, !llvm.loop !7
 
 976:                                              ; preds = %975
   store i32 0, ptr @SDL_X11_HAVE_XFIXES, align 4
@@ -4421,7 +4421,7 @@ X11_GetSym.exit1199:                              ; preds = %973, %976
 982:                                              ; preds = %980, %977
   %indvars.iv.next.i1204 = add nuw nsw i64 %indvars.iv.i1200, 1
   %exitcond.not.i1205 = icmp eq i64 %indvars.iv.next.i1204, 8
-  br i1 %exitcond.not.i1205, label %983, label %977, !llvm.loop !6
+  br i1 %exitcond.not.i1205, label %983, label %977, !llvm.loop !7
 
 983:                                              ; preds = %982
   store i32 0, ptr @SDL_X11_HAVE_XSYNC, align 4
@@ -4447,7 +4447,7 @@ X11_GetSym.exit1206:                              ; preds = %980, %983
 989:                                              ; preds = %987, %984
   %indvars.iv.next.i1211 = add nuw nsw i64 %indvars.iv.i1207, 1
   %exitcond.not.i1212 = icmp eq i64 %indvars.iv.next.i1211, 8
-  br i1 %exitcond.not.i1212, label %990, label %984, !llvm.loop !6
+  br i1 %exitcond.not.i1212, label %990, label %984, !llvm.loop !7
 
 990:                                              ; preds = %989
   store i32 0, ptr @SDL_X11_HAVE_XSYNC, align 4
@@ -4473,7 +4473,7 @@ X11_GetSym.exit1213:                              ; preds = %987, %990
 996:                                              ; preds = %994, %991
   %indvars.iv.next.i1218 = add nuw nsw i64 %indvars.iv.i1214, 1
   %exitcond.not.i1219 = icmp eq i64 %indvars.iv.next.i1218, 8
-  br i1 %exitcond.not.i1219, label %997, label %991, !llvm.loop !6
+  br i1 %exitcond.not.i1219, label %997, label %991, !llvm.loop !7
 
 997:                                              ; preds = %996
   store i32 0, ptr @SDL_X11_HAVE_XSYNC, align 4
@@ -4499,7 +4499,7 @@ X11_GetSym.exit1220:                              ; preds = %994, %997
 1003:                                             ; preds = %1001, %998
   %indvars.iv.next.i1225 = add nuw nsw i64 %indvars.iv.i1221, 1
   %exitcond.not.i1226 = icmp eq i64 %indvars.iv.next.i1225, 8
-  br i1 %exitcond.not.i1226, label %1004, label %998, !llvm.loop !6
+  br i1 %exitcond.not.i1226, label %1004, label %998, !llvm.loop !7
 
 1004:                                             ; preds = %1003
   store i32 0, ptr @SDL_X11_HAVE_XSYNC, align 4
@@ -4525,7 +4525,7 @@ X11_GetSym.exit1227:                              ; preds = %1001, %1004
 1010:                                             ; preds = %1008, %1005
   %indvars.iv.next.i1232 = add nuw nsw i64 %indvars.iv.i1228, 1
   %exitcond.not.i1233 = icmp eq i64 %indvars.iv.next.i1232, 8
-  br i1 %exitcond.not.i1233, label %1011, label %1005, !llvm.loop !6
+  br i1 %exitcond.not.i1233, label %1011, label %1005, !llvm.loop !7
 
 1011:                                             ; preds = %1010
   store i32 0, ptr @SDL_X11_HAVE_XSYNC, align 4
@@ -4551,7 +4551,7 @@ X11_GetSym.exit1234:                              ; preds = %1008, %1011
 1017:                                             ; preds = %1015, %1012
   %indvars.iv.next.i1239 = add nuw nsw i64 %indvars.iv.i1235, 1
   %exitcond.not.i1240 = icmp eq i64 %indvars.iv.next.i1239, 8
-  br i1 %exitcond.not.i1240, label %1018, label %1012, !llvm.loop !6
+  br i1 %exitcond.not.i1240, label %1018, label %1012, !llvm.loop !7
 
 1018:                                             ; preds = %1017
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4577,7 +4577,7 @@ X11_GetSym.exit1241:                              ; preds = %1015, %1018
 1024:                                             ; preds = %1022, %1019
   %indvars.iv.next.i1246 = add nuw nsw i64 %indvars.iv.i1242, 1
   %exitcond.not.i1247 = icmp eq i64 %indvars.iv.next.i1246, 8
-  br i1 %exitcond.not.i1247, label %1025, label %1019, !llvm.loop !6
+  br i1 %exitcond.not.i1247, label %1025, label %1019, !llvm.loop !7
 
 1025:                                             ; preds = %1024
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4603,7 +4603,7 @@ X11_GetSym.exit1248:                              ; preds = %1022, %1025
 1031:                                             ; preds = %1029, %1026
   %indvars.iv.next.i1253 = add nuw nsw i64 %indvars.iv.i1249, 1
   %exitcond.not.i1254 = icmp eq i64 %indvars.iv.next.i1253, 8
-  br i1 %exitcond.not.i1254, label %1032, label %1026, !llvm.loop !6
+  br i1 %exitcond.not.i1254, label %1032, label %1026, !llvm.loop !7
 
 1032:                                             ; preds = %1031
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4629,7 +4629,7 @@ X11_GetSym.exit1255:                              ; preds = %1029, %1032
 1038:                                             ; preds = %1036, %1033
   %indvars.iv.next.i1260 = add nuw nsw i64 %indvars.iv.i1256, 1
   %exitcond.not.i1261 = icmp eq i64 %indvars.iv.next.i1260, 8
-  br i1 %exitcond.not.i1261, label %1039, label %1033, !llvm.loop !6
+  br i1 %exitcond.not.i1261, label %1039, label %1033, !llvm.loop !7
 
 1039:                                             ; preds = %1038
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4655,7 +4655,7 @@ X11_GetSym.exit1262:                              ; preds = %1036, %1039
 1045:                                             ; preds = %1043, %1040
   %indvars.iv.next.i1267 = add nuw nsw i64 %indvars.iv.i1263, 1
   %exitcond.not.i1268 = icmp eq i64 %indvars.iv.next.i1267, 8
-  br i1 %exitcond.not.i1268, label %1046, label %1040, !llvm.loop !6
+  br i1 %exitcond.not.i1268, label %1046, label %1040, !llvm.loop !7
 
 1046:                                             ; preds = %1045
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4681,7 +4681,7 @@ X11_GetSym.exit1269:                              ; preds = %1043, %1046
 1052:                                             ; preds = %1050, %1047
   %indvars.iv.next.i1274 = add nuw nsw i64 %indvars.iv.i1270, 1
   %exitcond.not.i1275 = icmp eq i64 %indvars.iv.next.i1274, 8
-  br i1 %exitcond.not.i1275, label %1053, label %1047, !llvm.loop !6
+  br i1 %exitcond.not.i1275, label %1053, label %1047, !llvm.loop !7
 
 1053:                                             ; preds = %1052
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4707,7 +4707,7 @@ X11_GetSym.exit1276:                              ; preds = %1050, %1053
 1059:                                             ; preds = %1057, %1054
   %indvars.iv.next.i1281 = add nuw nsw i64 %indvars.iv.i1277, 1
   %exitcond.not.i1282 = icmp eq i64 %indvars.iv.next.i1281, 8
-  br i1 %exitcond.not.i1282, label %1060, label %1054, !llvm.loop !6
+  br i1 %exitcond.not.i1282, label %1060, label %1054, !llvm.loop !7
 
 1060:                                             ; preds = %1059
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4733,7 +4733,7 @@ X11_GetSym.exit1283:                              ; preds = %1057, %1060
 1066:                                             ; preds = %1064, %1061
   %indvars.iv.next.i1288 = add nuw nsw i64 %indvars.iv.i1284, 1
   %exitcond.not.i1289 = icmp eq i64 %indvars.iv.next.i1288, 8
-  br i1 %exitcond.not.i1289, label %1067, label %1061, !llvm.loop !6
+  br i1 %exitcond.not.i1289, label %1067, label %1061, !llvm.loop !7
 
 1067:                                             ; preds = %1066
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4759,7 +4759,7 @@ X11_GetSym.exit1290:                              ; preds = %1064, %1067
 1073:                                             ; preds = %1071, %1068
   %indvars.iv.next.i1295 = add nuw nsw i64 %indvars.iv.i1291, 1
   %exitcond.not.i1296 = icmp eq i64 %indvars.iv.next.i1295, 8
-  br i1 %exitcond.not.i1296, label %1074, label %1068, !llvm.loop !6
+  br i1 %exitcond.not.i1296, label %1074, label %1068, !llvm.loop !7
 
 1074:                                             ; preds = %1073
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4785,7 +4785,7 @@ X11_GetSym.exit1297:                              ; preds = %1071, %1074
 1080:                                             ; preds = %1078, %1075
   %indvars.iv.next.i1302 = add nuw nsw i64 %indvars.iv.i1298, 1
   %exitcond.not.i1303 = icmp eq i64 %indvars.iv.next.i1302, 8
-  br i1 %exitcond.not.i1303, label %1081, label %1075, !llvm.loop !6
+  br i1 %exitcond.not.i1303, label %1081, label %1075, !llvm.loop !7
 
 1081:                                             ; preds = %1080
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4811,7 +4811,7 @@ X11_GetSym.exit1304:                              ; preds = %1078, %1081
 1087:                                             ; preds = %1085, %1082
   %indvars.iv.next.i1309 = add nuw nsw i64 %indvars.iv.i1305, 1
   %exitcond.not.i1310 = icmp eq i64 %indvars.iv.next.i1309, 8
-  br i1 %exitcond.not.i1310, label %1088, label %1082, !llvm.loop !6
+  br i1 %exitcond.not.i1310, label %1088, label %1082, !llvm.loop !7
 
 1088:                                             ; preds = %1087
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4837,7 +4837,7 @@ X11_GetSym.exit1311:                              ; preds = %1085, %1088
 1094:                                             ; preds = %1092, %1089
   %indvars.iv.next.i1316 = add nuw nsw i64 %indvars.iv.i1312, 1
   %exitcond.not.i1317 = icmp eq i64 %indvars.iv.next.i1316, 8
-  br i1 %exitcond.not.i1317, label %1095, label %1089, !llvm.loop !6
+  br i1 %exitcond.not.i1317, label %1095, label %1089, !llvm.loop !7
 
 1095:                                             ; preds = %1094
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4863,7 +4863,7 @@ X11_GetSym.exit1318:                              ; preds = %1092, %1095
 1101:                                             ; preds = %1099, %1096
   %indvars.iv.next.i1323 = add nuw nsw i64 %indvars.iv.i1319, 1
   %exitcond.not.i1324 = icmp eq i64 %indvars.iv.next.i1323, 8
-  br i1 %exitcond.not.i1324, label %1102, label %1096, !llvm.loop !6
+  br i1 %exitcond.not.i1324, label %1102, label %1096, !llvm.loop !7
 
 1102:                                             ; preds = %1101
   store i32 0, ptr @SDL_X11_HAVE_XTEST, align 4
@@ -4889,7 +4889,7 @@ X11_GetSym.exit1325:                              ; preds = %1099, %1102
 1108:                                             ; preds = %1106, %1103
   %indvars.iv.next.i1330 = add nuw nsw i64 %indvars.iv.i1326, 1
   %exitcond.not.i1331 = icmp eq i64 %indvars.iv.next.i1330, 8
-  br i1 %exitcond.not.i1331, label %1109, label %1103, !llvm.loop !6
+  br i1 %exitcond.not.i1331, label %1109, label %1103, !llvm.loop !7
 
 1109:                                             ; preds = %1108
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -4915,7 +4915,7 @@ X11_GetSym.exit1332:                              ; preds = %1106, %1109
 1115:                                             ; preds = %1113, %1110
   %indvars.iv.next.i1337 = add nuw nsw i64 %indvars.iv.i1333, 1
   %exitcond.not.i1338 = icmp eq i64 %indvars.iv.next.i1337, 8
-  br i1 %exitcond.not.i1338, label %1116, label %1110, !llvm.loop !6
+  br i1 %exitcond.not.i1338, label %1116, label %1110, !llvm.loop !7
 
 1116:                                             ; preds = %1115
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -4941,7 +4941,7 @@ X11_GetSym.exit1339:                              ; preds = %1113, %1116
 1122:                                             ; preds = %1120, %1117
   %indvars.iv.next.i1344 = add nuw nsw i64 %indvars.iv.i1340, 1
   %exitcond.not.i1345 = icmp eq i64 %indvars.iv.next.i1344, 8
-  br i1 %exitcond.not.i1345, label %1123, label %1117, !llvm.loop !6
+  br i1 %exitcond.not.i1345, label %1123, label %1117, !llvm.loop !7
 
 1123:                                             ; preds = %1122
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -4967,7 +4967,7 @@ X11_GetSym.exit1346:                              ; preds = %1120, %1123
 1129:                                             ; preds = %1127, %1124
   %indvars.iv.next.i1351 = add nuw nsw i64 %indvars.iv.i1347, 1
   %exitcond.not.i1352 = icmp eq i64 %indvars.iv.next.i1351, 8
-  br i1 %exitcond.not.i1352, label %1130, label %1124, !llvm.loop !6
+  br i1 %exitcond.not.i1352, label %1130, label %1124, !llvm.loop !7
 
 1130:                                             ; preds = %1129
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -4993,7 +4993,7 @@ X11_GetSym.exit1353:                              ; preds = %1127, %1130
 1136:                                             ; preds = %1134, %1131
   %indvars.iv.next.i1358 = add nuw nsw i64 %indvars.iv.i1354, 1
   %exitcond.not.i1359 = icmp eq i64 %indvars.iv.next.i1358, 8
-  br i1 %exitcond.not.i1359, label %1137, label %1131, !llvm.loop !6
+  br i1 %exitcond.not.i1359, label %1137, label %1131, !llvm.loop !7
 
 1137:                                             ; preds = %1136
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5019,7 +5019,7 @@ X11_GetSym.exit1360:                              ; preds = %1134, %1137
 1143:                                             ; preds = %1141, %1138
   %indvars.iv.next.i1365 = add nuw nsw i64 %indvars.iv.i1361, 1
   %exitcond.not.i1366 = icmp eq i64 %indvars.iv.next.i1365, 8
-  br i1 %exitcond.not.i1366, label %1144, label %1138, !llvm.loop !6
+  br i1 %exitcond.not.i1366, label %1144, label %1138, !llvm.loop !7
 
 1144:                                             ; preds = %1143
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5045,7 +5045,7 @@ X11_GetSym.exit1367:                              ; preds = %1141, %1144
 1150:                                             ; preds = %1148, %1145
   %indvars.iv.next.i1372 = add nuw nsw i64 %indvars.iv.i1368, 1
   %exitcond.not.i1373 = icmp eq i64 %indvars.iv.next.i1372, 8
-  br i1 %exitcond.not.i1373, label %1151, label %1145, !llvm.loop !6
+  br i1 %exitcond.not.i1373, label %1151, label %1145, !llvm.loop !7
 
 1151:                                             ; preds = %1150
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5071,7 +5071,7 @@ X11_GetSym.exit1374:                              ; preds = %1148, %1151
 1157:                                             ; preds = %1155, %1152
   %indvars.iv.next.i1379 = add nuw nsw i64 %indvars.iv.i1375, 1
   %exitcond.not.i1380 = icmp eq i64 %indvars.iv.next.i1379, 8
-  br i1 %exitcond.not.i1380, label %1158, label %1152, !llvm.loop !6
+  br i1 %exitcond.not.i1380, label %1158, label %1152, !llvm.loop !7
 
 1158:                                             ; preds = %1157
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5097,7 +5097,7 @@ X11_GetSym.exit1381:                              ; preds = %1155, %1158
 1164:                                             ; preds = %1162, %1159
   %indvars.iv.next.i1386 = add nuw nsw i64 %indvars.iv.i1382, 1
   %exitcond.not.i1387 = icmp eq i64 %indvars.iv.next.i1386, 8
-  br i1 %exitcond.not.i1387, label %1165, label %1159, !llvm.loop !6
+  br i1 %exitcond.not.i1387, label %1165, label %1159, !llvm.loop !7
 
 1165:                                             ; preds = %1164
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5123,7 +5123,7 @@ X11_GetSym.exit1388:                              ; preds = %1162, %1165
 1171:                                             ; preds = %1169, %1166
   %indvars.iv.next.i1393 = add nuw nsw i64 %indvars.iv.i1389, 1
   %exitcond.not.i1394 = icmp eq i64 %indvars.iv.next.i1393, 8
-  br i1 %exitcond.not.i1394, label %1172, label %1166, !llvm.loop !6
+  br i1 %exitcond.not.i1394, label %1172, label %1166, !llvm.loop !7
 
 1172:                                             ; preds = %1171
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5149,7 +5149,7 @@ X11_GetSym.exit1395:                              ; preds = %1169, %1172
 1178:                                             ; preds = %1176, %1173
   %indvars.iv.next.i1400 = add nuw nsw i64 %indvars.iv.i1396, 1
   %exitcond.not.i1401 = icmp eq i64 %indvars.iv.next.i1400, 8
-  br i1 %exitcond.not.i1401, label %1179, label %1173, !llvm.loop !6
+  br i1 %exitcond.not.i1401, label %1179, label %1173, !llvm.loop !7
 
 1179:                                             ; preds = %1178
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5175,7 +5175,7 @@ X11_GetSym.exit1402:                              ; preds = %1176, %1179
 1185:                                             ; preds = %1183, %1180
   %indvars.iv.next.i1407 = add nuw nsw i64 %indvars.iv.i1403, 1
   %exitcond.not.i1408 = icmp eq i64 %indvars.iv.next.i1407, 8
-  br i1 %exitcond.not.i1408, label %1186, label %1180, !llvm.loop !6
+  br i1 %exitcond.not.i1408, label %1186, label %1180, !llvm.loop !7
 
 1186:                                             ; preds = %1185
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5201,7 +5201,7 @@ X11_GetSym.exit1409:                              ; preds = %1183, %1186
 1192:                                             ; preds = %1190, %1187
   %indvars.iv.next.i1414 = add nuw nsw i64 %indvars.iv.i1410, 1
   %exitcond.not.i1415 = icmp eq i64 %indvars.iv.next.i1414, 8
-  br i1 %exitcond.not.i1415, label %1193, label %1187, !llvm.loop !6
+  br i1 %exitcond.not.i1415, label %1193, label %1187, !llvm.loop !7
 
 1193:                                             ; preds = %1192
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5227,7 +5227,7 @@ X11_GetSym.exit1416:                              ; preds = %1190, %1193
 1199:                                             ; preds = %1197, %1194
   %indvars.iv.next.i1421 = add nuw nsw i64 %indvars.iv.i1417, 1
   %exitcond.not.i1422 = icmp eq i64 %indvars.iv.next.i1421, 8
-  br i1 %exitcond.not.i1422, label %1200, label %1194, !llvm.loop !6
+  br i1 %exitcond.not.i1422, label %1200, label %1194, !llvm.loop !7
 
 1200:                                             ; preds = %1199
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5253,7 +5253,7 @@ X11_GetSym.exit1423:                              ; preds = %1197, %1200
 1206:                                             ; preds = %1204, %1201
   %indvars.iv.next.i1428 = add nuw nsw i64 %indvars.iv.i1424, 1
   %exitcond.not.i1429 = icmp eq i64 %indvars.iv.next.i1428, 8
-  br i1 %exitcond.not.i1429, label %1207, label %1201, !llvm.loop !6
+  br i1 %exitcond.not.i1429, label %1207, label %1201, !llvm.loop !7
 
 1207:                                             ; preds = %1206
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -5279,7 +5279,7 @@ X11_GetSym.exit1430:                              ; preds = %1204, %1207
 1213:                                             ; preds = %1211, %1208
   %indvars.iv.next.i1435 = add nuw nsw i64 %indvars.iv.i1431, 1
   %exitcond.not.i1436 = icmp eq i64 %indvars.iv.next.i1435, 8
-  br i1 %exitcond.not.i1436, label %1214, label %1208, !llvm.loop !6
+  br i1 %exitcond.not.i1436, label %1214, label %1208, !llvm.loop !7
 
 1214:                                             ; preds = %1213
   store i32 0, ptr @SDL_X11_HAVE_SHM, align 4
@@ -5305,7 +5305,7 @@ X11_GetSym.exit1437:                              ; preds = %1211, %1214
 1220:                                             ; preds = %1218, %1215
   %indvars.iv.next.i1442 = add nuw nsw i64 %indvars.iv.i1438, 1
   %exitcond.not.i1443 = icmp eq i64 %indvars.iv.next.i1442, 8
-  br i1 %exitcond.not.i1443, label %1221, label %1215, !llvm.loop !6
+  br i1 %exitcond.not.i1443, label %1221, label %1215, !llvm.loop !7
 
 1221:                                             ; preds = %1220
   store i32 0, ptr @SDL_X11_HAVE_SHM, align 4
@@ -5331,7 +5331,7 @@ X11_GetSym.exit1444:                              ; preds = %1218, %1221
 1227:                                             ; preds = %1225, %1222
   %indvars.iv.next.i1449 = add nuw nsw i64 %indvars.iv.i1445, 1
   %exitcond.not.i1450 = icmp eq i64 %indvars.iv.next.i1449, 8
-  br i1 %exitcond.not.i1450, label %1228, label %1222, !llvm.loop !6
+  br i1 %exitcond.not.i1450, label %1228, label %1222, !llvm.loop !7
 
 1228:                                             ; preds = %1227
   store i32 0, ptr @SDL_X11_HAVE_SHM, align 4
@@ -5357,7 +5357,7 @@ X11_GetSym.exit1451:                              ; preds = %1225, %1228
 1234:                                             ; preds = %1232, %1229
   %indvars.iv.next.i1456 = add nuw nsw i64 %indvars.iv.i1452, 1
   %exitcond.not.i1457 = icmp eq i64 %indvars.iv.next.i1456, 8
-  br i1 %exitcond.not.i1457, label %1235, label %1229, !llvm.loop !6
+  br i1 %exitcond.not.i1457, label %1235, label %1229, !llvm.loop !7
 
 1235:                                             ; preds = %1234
   store i32 0, ptr @SDL_X11_HAVE_SHM, align 4
@@ -5383,7 +5383,7 @@ X11_GetSym.exit1458:                              ; preds = %1232, %1235
 1241:                                             ; preds = %1239, %1236
   %indvars.iv.next.i1463 = add nuw nsw i64 %indvars.iv.i1459, 1
   %exitcond.not.i1464 = icmp eq i64 %indvars.iv.next.i1463, 8
-  br i1 %exitcond.not.i1464, label %1242, label %1236, !llvm.loop !6
+  br i1 %exitcond.not.i1464, label %1242, label %1236, !llvm.loop !7
 
 1242:                                             ; preds = %1241
   store i32 0, ptr @SDL_X11_HAVE_SHM, align 4
@@ -5409,7 +5409,7 @@ X11_GetSym.exit1465:                              ; preds = %1239, %1242
 1248:                                             ; preds = %1246, %1243
   %indvars.iv.next.i1470 = add nuw nsw i64 %indvars.iv.i1466, 1
   %exitcond.not.i1471 = icmp eq i64 %indvars.iv.next.i1470, 8
-  br i1 %exitcond.not.i1471, label %1249, label %1243, !llvm.loop !6
+  br i1 %exitcond.not.i1471, label %1249, label %1243, !llvm.loop !7
 
 1249:                                             ; preds = %1248
   store i32 0, ptr @SDL_X11_HAVE_SHM, align 4
@@ -5435,7 +5435,7 @@ X11_GetSym.exit1472:                              ; preds = %1246, %1249
 1255:                                             ; preds = %1253, %1250
   %indvars.iv.next.i1477 = add nuw nsw i64 %indvars.iv.i1473, 1
   %exitcond.not.i1478 = icmp eq i64 %indvars.iv.next.i1477, 8
-  br i1 %exitcond.not.i1478, label %1256, label %1250, !llvm.loop !6
+  br i1 %exitcond.not.i1478, label %1256, label %1250, !llvm.loop !7
 
 1256:                                             ; preds = %1255
   store i32 0, ptr @SDL_X11_HAVE_IO_32BIT, align 4
@@ -5461,7 +5461,7 @@ X11_GetSym.exit1479:                              ; preds = %1253, %1256
 1262:                                             ; preds = %1260, %1257
   %indvars.iv.next.i1484 = add nuw nsw i64 %indvars.iv.i1480, 1
   %exitcond.not.i1485 = icmp eq i64 %indvars.iv.next.i1484, 8
-  br i1 %exitcond.not.i1485, label %1263, label %1257, !llvm.loop !6
+  br i1 %exitcond.not.i1485, label %1263, label %1257, !llvm.loop !7
 
 1263:                                             ; preds = %1262
   store i32 0, ptr @SDL_X11_HAVE_IO_32BIT, align 4
@@ -5487,7 +5487,7 @@ X11_GetSym.exit1486:                              ; preds = %1260, %1263
 1269:                                             ; preds = %1267, %1264
   %indvars.iv.next.i1491 = add nuw nsw i64 %indvars.iv.i1487, 1
   %exitcond.not.i1492 = icmp eq i64 %indvars.iv.next.i1491, 8
-  br i1 %exitcond.not.i1492, label %1270, label %1264, !llvm.loop !6
+  br i1 %exitcond.not.i1492, label %1270, label %1264, !llvm.loop !7
 
 1270:                                             ; preds = %1269
   store i32 0, ptr @SDL_X11_HAVE_XCURSOR, align 4
@@ -5513,7 +5513,7 @@ X11_GetSym.exit1493:                              ; preds = %1267, %1270
 1276:                                             ; preds = %1274, %1271
   %indvars.iv.next.i1498 = add nuw nsw i64 %indvars.iv.i1494, 1
   %exitcond.not.i1499 = icmp eq i64 %indvars.iv.next.i1498, 8
-  br i1 %exitcond.not.i1499, label %1277, label %1271, !llvm.loop !6
+  br i1 %exitcond.not.i1499, label %1277, label %1271, !llvm.loop !7
 
 1277:                                             ; preds = %1276
   store i32 0, ptr @SDL_X11_HAVE_XCURSOR, align 4
@@ -5539,7 +5539,7 @@ X11_GetSym.exit1500:                              ; preds = %1274, %1277
 1283:                                             ; preds = %1281, %1278
   %indvars.iv.next.i1505 = add nuw nsw i64 %indvars.iv.i1501, 1
   %exitcond.not.i1506 = icmp eq i64 %indvars.iv.next.i1505, 8
-  br i1 %exitcond.not.i1506, label %1284, label %1278, !llvm.loop !6
+  br i1 %exitcond.not.i1506, label %1284, label %1278, !llvm.loop !7
 
 1284:                                             ; preds = %1283
   store i32 0, ptr @SDL_X11_HAVE_XCURSOR, align 4
@@ -5565,7 +5565,7 @@ X11_GetSym.exit1507:                              ; preds = %1281, %1284
 1290:                                             ; preds = %1288, %1285
   %indvars.iv.next.i1512 = add nuw nsw i64 %indvars.iv.i1508, 1
   %exitcond.not.i1513 = icmp eq i64 %indvars.iv.next.i1512, 8
-  br i1 %exitcond.not.i1513, label %1291, label %1285, !llvm.loop !6
+  br i1 %exitcond.not.i1513, label %1291, label %1285, !llvm.loop !7
 
 1291:                                             ; preds = %1290
   store i32 0, ptr @SDL_X11_HAVE_XCURSOR, align 4
@@ -5591,7 +5591,7 @@ X11_GetSym.exit1514:                              ; preds = %1288, %1291
 1297:                                             ; preds = %1295, %1292
   %indvars.iv.next.i1519 = add nuw nsw i64 %indvars.iv.i1515, 1
   %exitcond.not.i1520 = icmp eq i64 %indvars.iv.next.i1519, 8
-  br i1 %exitcond.not.i1520, label %1298, label %1292, !llvm.loop !6
+  br i1 %exitcond.not.i1520, label %1298, label %1292, !llvm.loop !7
 
 1298:                                             ; preds = %1297
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5617,7 +5617,7 @@ X11_GetSym.exit1521:                              ; preds = %1295, %1298
 1304:                                             ; preds = %1302, %1299
   %indvars.iv.next.i1526 = add nuw nsw i64 %indvars.iv.i1522, 1
   %exitcond.not.i1527 = icmp eq i64 %indvars.iv.next.i1526, 8
-  br i1 %exitcond.not.i1527, label %1305, label %1299, !llvm.loop !6
+  br i1 %exitcond.not.i1527, label %1305, label %1299, !llvm.loop !7
 
 1305:                                             ; preds = %1304
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5643,7 +5643,7 @@ X11_GetSym.exit1528:                              ; preds = %1302, %1305
 1311:                                             ; preds = %1309, %1306
   %indvars.iv.next.i1533 = add nuw nsw i64 %indvars.iv.i1529, 1
   %exitcond.not.i1534 = icmp eq i64 %indvars.iv.next.i1533, 8
-  br i1 %exitcond.not.i1534, label %1312, label %1306, !llvm.loop !6
+  br i1 %exitcond.not.i1534, label %1312, label %1306, !llvm.loop !7
 
 1312:                                             ; preds = %1311
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5669,7 +5669,7 @@ X11_GetSym.exit1535:                              ; preds = %1309, %1312
 1318:                                             ; preds = %1316, %1313
   %indvars.iv.next.i1540 = add nuw nsw i64 %indvars.iv.i1536, 1
   %exitcond.not.i1541 = icmp eq i64 %indvars.iv.next.i1540, 8
-  br i1 %exitcond.not.i1541, label %1319, label %1313, !llvm.loop !6
+  br i1 %exitcond.not.i1541, label %1319, label %1313, !llvm.loop !7
 
 1319:                                             ; preds = %1318
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5695,7 +5695,7 @@ X11_GetSym.exit1542:                              ; preds = %1316, %1319
 1325:                                             ; preds = %1323, %1320
   %indvars.iv.next.i1547 = add nuw nsw i64 %indvars.iv.i1543, 1
   %exitcond.not.i1548 = icmp eq i64 %indvars.iv.next.i1547, 8
-  br i1 %exitcond.not.i1548, label %1326, label %1320, !llvm.loop !6
+  br i1 %exitcond.not.i1548, label %1326, label %1320, !llvm.loop !7
 
 1326:                                             ; preds = %1325
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5721,7 +5721,7 @@ X11_GetSym.exit1549:                              ; preds = %1323, %1326
 1332:                                             ; preds = %1330, %1327
   %indvars.iv.next.i1554 = add nuw nsw i64 %indvars.iv.i1550, 1
   %exitcond.not.i1555 = icmp eq i64 %indvars.iv.next.i1554, 8
-  br i1 %exitcond.not.i1555, label %1333, label %1327, !llvm.loop !6
+  br i1 %exitcond.not.i1555, label %1333, label %1327, !llvm.loop !7
 
 1333:                                             ; preds = %1332
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5747,7 +5747,7 @@ X11_GetSym.exit1556:                              ; preds = %1330, %1333
 1339:                                             ; preds = %1337, %1334
   %indvars.iv.next.i1561 = add nuw nsw i64 %indvars.iv.i1557, 1
   %exitcond.not.i1562 = icmp eq i64 %indvars.iv.next.i1561, 8
-  br i1 %exitcond.not.i1562, label %1340, label %1334, !llvm.loop !6
+  br i1 %exitcond.not.i1562, label %1340, label %1334, !llvm.loop !7
 
 1340:                                             ; preds = %1339
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5773,7 +5773,7 @@ X11_GetSym.exit1563:                              ; preds = %1337, %1340
 1346:                                             ; preds = %1344, %1341
   %indvars.iv.next.i1568 = add nuw nsw i64 %indvars.iv.i1564, 1
   %exitcond.not.i1569 = icmp eq i64 %indvars.iv.next.i1568, 8
-  br i1 %exitcond.not.i1569, label %1347, label %1341, !llvm.loop !6
+  br i1 %exitcond.not.i1569, label %1347, label %1341, !llvm.loop !7
 
 1347:                                             ; preds = %1346
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5799,7 +5799,7 @@ X11_GetSym.exit1570:                              ; preds = %1344, %1347
 1353:                                             ; preds = %1351, %1348
   %indvars.iv.next.i1575 = add nuw nsw i64 %indvars.iv.i1571, 1
   %exitcond.not.i1576 = icmp eq i64 %indvars.iv.next.i1575, 8
-  br i1 %exitcond.not.i1576, label %1354, label %1348, !llvm.loop !6
+  br i1 %exitcond.not.i1576, label %1354, label %1348, !llvm.loop !7
 
 1354:                                             ; preds = %1353
   store i32 0, ptr @SDL_X11_HAVE_XDBE, align 4
@@ -5825,7 +5825,7 @@ X11_GetSym.exit1577:                              ; preds = %1351, %1354
 1360:                                             ; preds = %1358, %1355
   %indvars.iv.next.i1582 = add nuw nsw i64 %indvars.iv.i1578, 1
   %exitcond.not.i1583 = icmp eq i64 %indvars.iv.next.i1582, 8
-  br i1 %exitcond.not.i1583, label %1361, label %1355, !llvm.loop !6
+  br i1 %exitcond.not.i1583, label %1361, label %1355, !llvm.loop !7
 
 1361:                                             ; preds = %1360
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -5851,7 +5851,7 @@ X11_GetSym.exit1584:                              ; preds = %1358, %1361
 1367:                                             ; preds = %1365, %1362
   %indvars.iv.next.i1589 = add nuw nsw i64 %indvars.iv.i1585, 1
   %exitcond.not.i1590 = icmp eq i64 %indvars.iv.next.i1589, 8
-  br i1 %exitcond.not.i1590, label %1368, label %1362, !llvm.loop !6
+  br i1 %exitcond.not.i1590, label %1368, label %1362, !llvm.loop !7
 
 1368:                                             ; preds = %1367
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -5877,7 +5877,7 @@ X11_GetSym.exit1591:                              ; preds = %1365, %1368
 1374:                                             ; preds = %1372, %1369
   %indvars.iv.next.i1596 = add nuw nsw i64 %indvars.iv.i1592, 1
   %exitcond.not.i1597 = icmp eq i64 %indvars.iv.next.i1596, 8
-  br i1 %exitcond.not.i1597, label %1375, label %1369, !llvm.loop !6
+  br i1 %exitcond.not.i1597, label %1375, label %1369, !llvm.loop !7
 
 1375:                                             ; preds = %1374
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -5903,7 +5903,7 @@ X11_GetSym.exit1598:                              ; preds = %1372, %1375
 1381:                                             ; preds = %1379, %1376
   %indvars.iv.next.i1603 = add nuw nsw i64 %indvars.iv.i1599, 1
   %exitcond.not.i1604 = icmp eq i64 %indvars.iv.next.i1603, 8
-  br i1 %exitcond.not.i1604, label %1382, label %1376, !llvm.loop !6
+  br i1 %exitcond.not.i1604, label %1382, label %1376, !llvm.loop !7
 
 1382:                                             ; preds = %1381
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -5929,7 +5929,7 @@ X11_GetSym.exit1605:                              ; preds = %1379, %1382
 1388:                                             ; preds = %1386, %1383
   %indvars.iv.next.i1610 = add nuw nsw i64 %indvars.iv.i1606, 1
   %exitcond.not.i1611 = icmp eq i64 %indvars.iv.next.i1610, 8
-  br i1 %exitcond.not.i1611, label %1389, label %1383, !llvm.loop !6
+  br i1 %exitcond.not.i1611, label %1389, label %1383, !llvm.loop !7
 
 1389:                                             ; preds = %1388
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -5955,7 +5955,7 @@ X11_GetSym.exit1612:                              ; preds = %1386, %1389
 1395:                                             ; preds = %1393, %1390
   %indvars.iv.next.i1617 = add nuw nsw i64 %indvars.iv.i1613, 1
   %exitcond.not.i1618 = icmp eq i64 %indvars.iv.next.i1617, 8
-  br i1 %exitcond.not.i1618, label %1396, label %1390, !llvm.loop !6
+  br i1 %exitcond.not.i1618, label %1396, label %1390, !llvm.loop !7
 
 1396:                                             ; preds = %1395
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -5981,7 +5981,7 @@ X11_GetSym.exit1619:                              ; preds = %1393, %1396
 1402:                                             ; preds = %1400, %1397
   %indvars.iv.next.i1624 = add nuw nsw i64 %indvars.iv.i1620, 1
   %exitcond.not.i1625 = icmp eq i64 %indvars.iv.next.i1624, 8
-  br i1 %exitcond.not.i1625, label %1403, label %1397, !llvm.loop !6
+  br i1 %exitcond.not.i1625, label %1403, label %1397, !llvm.loop !7
 
 1403:                                             ; preds = %1402
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -6007,7 +6007,7 @@ X11_GetSym.exit1626:                              ; preds = %1400, %1403
 1409:                                             ; preds = %1407, %1404
   %indvars.iv.next.i1631 = add nuw nsw i64 %indvars.iv.i1627, 1
   %exitcond.not.i1632 = icmp eq i64 %indvars.iv.next.i1631, 8
-  br i1 %exitcond.not.i1632, label %1410, label %1404, !llvm.loop !6
+  br i1 %exitcond.not.i1632, label %1410, label %1404, !llvm.loop !7
 
 1410:                                             ; preds = %1409
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -6033,7 +6033,7 @@ X11_GetSym.exit1633:                              ; preds = %1407, %1410
 1416:                                             ; preds = %1414, %1411
   %indvars.iv.next.i1638 = add nuw nsw i64 %indvars.iv.i1634, 1
   %exitcond.not.i1639 = icmp eq i64 %indvars.iv.next.i1638, 8
-  br i1 %exitcond.not.i1639, label %1417, label %1411, !llvm.loop !6
+  br i1 %exitcond.not.i1639, label %1417, label %1411, !llvm.loop !7
 
 1417:                                             ; preds = %1416
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -6059,7 +6059,7 @@ X11_GetSym.exit1640:                              ; preds = %1414, %1417
 1423:                                             ; preds = %1421, %1418
   %indvars.iv.next.i1645 = add nuw nsw i64 %indvars.iv.i1641, 1
   %exitcond.not.i1646 = icmp eq i64 %indvars.iv.next.i1645, 8
-  br i1 %exitcond.not.i1646, label %1424, label %1418, !llvm.loop !6
+  br i1 %exitcond.not.i1646, label %1424, label %1418, !llvm.loop !7
 
 1424:                                             ; preds = %1423
   store i32 0, ptr @SDL_X11_HAVE_XINPUT2, align 4
@@ -6085,7 +6085,7 @@ X11_GetSym.exit1647:                              ; preds = %1421, %1424
 1430:                                             ; preds = %1428, %1425
   %indvars.iv.next.i1652 = add nuw nsw i64 %indvars.iv.i1648, 1
   %exitcond.not.i1653 = icmp eq i64 %indvars.iv.next.i1652, 8
-  br i1 %exitcond.not.i1653, label %1431, label %1425, !llvm.loop !6
+  br i1 %exitcond.not.i1653, label %1431, label %1425, !llvm.loop !7
 
 1431:                                             ; preds = %1430
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6111,7 +6111,7 @@ X11_GetSym.exit1654:                              ; preds = %1428, %1431
 1437:                                             ; preds = %1435, %1432
   %indvars.iv.next.i1659 = add nuw nsw i64 %indvars.iv.i1655, 1
   %exitcond.not.i1660 = icmp eq i64 %indvars.iv.next.i1659, 8
-  br i1 %exitcond.not.i1660, label %1438, label %1432, !llvm.loop !6
+  br i1 %exitcond.not.i1660, label %1438, label %1432, !llvm.loop !7
 
 1438:                                             ; preds = %1437
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6137,7 +6137,7 @@ X11_GetSym.exit1661:                              ; preds = %1435, %1438
 1444:                                             ; preds = %1442, %1439
   %indvars.iv.next.i1666 = add nuw nsw i64 %indvars.iv.i1662, 1
   %exitcond.not.i1667 = icmp eq i64 %indvars.iv.next.i1666, 8
-  br i1 %exitcond.not.i1667, label %1445, label %1439, !llvm.loop !6
+  br i1 %exitcond.not.i1667, label %1445, label %1439, !llvm.loop !7
 
 1445:                                             ; preds = %1444
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6163,7 +6163,7 @@ X11_GetSym.exit1668:                              ; preds = %1442, %1445
 1451:                                             ; preds = %1449, %1446
   %indvars.iv.next.i1673 = add nuw nsw i64 %indvars.iv.i1669, 1
   %exitcond.not.i1674 = icmp eq i64 %indvars.iv.next.i1673, 8
-  br i1 %exitcond.not.i1674, label %1452, label %1446, !llvm.loop !6
+  br i1 %exitcond.not.i1674, label %1452, label %1446, !llvm.loop !7
 
 1452:                                             ; preds = %1451
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6189,7 +6189,7 @@ X11_GetSym.exit1675:                              ; preds = %1449, %1452
 1458:                                             ; preds = %1456, %1453
   %indvars.iv.next.i1680 = add nuw nsw i64 %indvars.iv.i1676, 1
   %exitcond.not.i1681 = icmp eq i64 %indvars.iv.next.i1680, 8
-  br i1 %exitcond.not.i1681, label %1459, label %1453, !llvm.loop !6
+  br i1 %exitcond.not.i1681, label %1459, label %1453, !llvm.loop !7
 
 1459:                                             ; preds = %1458
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6215,7 +6215,7 @@ X11_GetSym.exit1682:                              ; preds = %1456, %1459
 1465:                                             ; preds = %1463, %1460
   %indvars.iv.next.i1687 = add nuw nsw i64 %indvars.iv.i1683, 1
   %exitcond.not.i1688 = icmp eq i64 %indvars.iv.next.i1687, 8
-  br i1 %exitcond.not.i1688, label %1466, label %1460, !llvm.loop !6
+  br i1 %exitcond.not.i1688, label %1466, label %1460, !llvm.loop !7
 
 1466:                                             ; preds = %1465
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6241,7 +6241,7 @@ X11_GetSym.exit1689:                              ; preds = %1463, %1466
 1472:                                             ; preds = %1470, %1467
   %indvars.iv.next.i1694 = add nuw nsw i64 %indvars.iv.i1690, 1
   %exitcond.not.i1695 = icmp eq i64 %indvars.iv.next.i1694, 8
-  br i1 %exitcond.not.i1695, label %1473, label %1467, !llvm.loop !6
+  br i1 %exitcond.not.i1695, label %1473, label %1467, !llvm.loop !7
 
 1473:                                             ; preds = %1472
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6267,7 +6267,7 @@ X11_GetSym.exit1696:                              ; preds = %1470, %1473
 1479:                                             ; preds = %1477, %1474
   %indvars.iv.next.i1701 = add nuw nsw i64 %indvars.iv.i1697, 1
   %exitcond.not.i1702 = icmp eq i64 %indvars.iv.next.i1701, 8
-  br i1 %exitcond.not.i1702, label %1480, label %1474, !llvm.loop !6
+  br i1 %exitcond.not.i1702, label %1480, label %1474, !llvm.loop !7
 
 1480:                                             ; preds = %1479
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6293,7 +6293,7 @@ X11_GetSym.exit1703:                              ; preds = %1477, %1480
 1486:                                             ; preds = %1484, %1481
   %indvars.iv.next.i1708 = add nuw nsw i64 %indvars.iv.i1704, 1
   %exitcond.not.i1709 = icmp eq i64 %indvars.iv.next.i1708, 8
-  br i1 %exitcond.not.i1709, label %1487, label %1481, !llvm.loop !6
+  br i1 %exitcond.not.i1709, label %1487, label %1481, !llvm.loop !7
 
 1487:                                             ; preds = %1486
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6319,7 +6319,7 @@ X11_GetSym.exit1710:                              ; preds = %1484, %1487
 1493:                                             ; preds = %1491, %1488
   %indvars.iv.next.i1715 = add nuw nsw i64 %indvars.iv.i1711, 1
   %exitcond.not.i1716 = icmp eq i64 %indvars.iv.next.i1715, 8
-  br i1 %exitcond.not.i1716, label %1494, label %1488, !llvm.loop !6
+  br i1 %exitcond.not.i1716, label %1494, label %1488, !llvm.loop !7
 
 1494:                                             ; preds = %1493
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6345,7 +6345,7 @@ X11_GetSym.exit1717:                              ; preds = %1491, %1494
 1500:                                             ; preds = %1498, %1495
   %indvars.iv.next.i1722 = add nuw nsw i64 %indvars.iv.i1718, 1
   %exitcond.not.i1723 = icmp eq i64 %indvars.iv.next.i1722, 8
-  br i1 %exitcond.not.i1723, label %1501, label %1495, !llvm.loop !6
+  br i1 %exitcond.not.i1723, label %1501, label %1495, !llvm.loop !7
 
 1501:                                             ; preds = %1500
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6371,7 +6371,7 @@ X11_GetSym.exit1724:                              ; preds = %1498, %1501
 1507:                                             ; preds = %1505, %1502
   %indvars.iv.next.i1729 = add nuw nsw i64 %indvars.iv.i1725, 1
   %exitcond.not.i1730 = icmp eq i64 %indvars.iv.next.i1729, 8
-  br i1 %exitcond.not.i1730, label %1508, label %1502, !llvm.loop !6
+  br i1 %exitcond.not.i1730, label %1508, label %1502, !llvm.loop !7
 
 1508:                                             ; preds = %1507
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6397,7 +6397,7 @@ X11_GetSym.exit1731:                              ; preds = %1505, %1508
 1514:                                             ; preds = %1512, %1509
   %indvars.iv.next.i1736 = add nuw nsw i64 %indvars.iv.i1732, 1
   %exitcond.not.i1737 = icmp eq i64 %indvars.iv.next.i1736, 8
-  br i1 %exitcond.not.i1737, label %1515, label %1509, !llvm.loop !6
+  br i1 %exitcond.not.i1737, label %1515, label %1509, !llvm.loop !7
 
 1515:                                             ; preds = %1514
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6423,7 +6423,7 @@ X11_GetSym.exit1738:                              ; preds = %1512, %1515
 1521:                                             ; preds = %1519, %1516
   %indvars.iv.next.i1743 = add nuw nsw i64 %indvars.iv.i1739, 1
   %exitcond.not.i1744 = icmp eq i64 %indvars.iv.next.i1743, 8
-  br i1 %exitcond.not.i1744, label %1522, label %1516, !llvm.loop !6
+  br i1 %exitcond.not.i1744, label %1522, label %1516, !llvm.loop !7
 
 1522:                                             ; preds = %1521
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6449,7 +6449,7 @@ X11_GetSym.exit1745:                              ; preds = %1519, %1522
 1528:                                             ; preds = %1526, %1523
   %indvars.iv.next.i1750 = add nuw nsw i64 %indvars.iv.i1746, 1
   %exitcond.not.i1751 = icmp eq i64 %indvars.iv.next.i1750, 8
-  br i1 %exitcond.not.i1751, label %1529, label %1523, !llvm.loop !6
+  br i1 %exitcond.not.i1751, label %1529, label %1523, !llvm.loop !7
 
 1529:                                             ; preds = %1528
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6475,7 +6475,7 @@ X11_GetSym.exit1752:                              ; preds = %1526, %1529
 1535:                                             ; preds = %1533, %1530
   %indvars.iv.next.i1757 = add nuw nsw i64 %indvars.iv.i1753, 1
   %exitcond.not.i1758 = icmp eq i64 %indvars.iv.next.i1757, 8
-  br i1 %exitcond.not.i1758, label %1536, label %1530, !llvm.loop !6
+  br i1 %exitcond.not.i1758, label %1536, label %1530, !llvm.loop !7
 
 1536:                                             ; preds = %1535
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6501,7 +6501,7 @@ X11_GetSym.exit1759:                              ; preds = %1533, %1536
 1542:                                             ; preds = %1540, %1537
   %indvars.iv.next.i1764 = add nuw nsw i64 %indvars.iv.i1760, 1
   %exitcond.not.i1765 = icmp eq i64 %indvars.iv.next.i1764, 8
-  br i1 %exitcond.not.i1765, label %1543, label %1537, !llvm.loop !6
+  br i1 %exitcond.not.i1765, label %1543, label %1537, !llvm.loop !7
 
 1543:                                             ; preds = %1542
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6527,7 +6527,7 @@ X11_GetSym.exit1766:                              ; preds = %1540, %1543
 1549:                                             ; preds = %1547, %1544
   %indvars.iv.next.i1771 = add nuw nsw i64 %indvars.iv.i1767, 1
   %exitcond.not.i1772 = icmp eq i64 %indvars.iv.next.i1771, 8
-  br i1 %exitcond.not.i1772, label %1550, label %1544, !llvm.loop !6
+  br i1 %exitcond.not.i1772, label %1550, label %1544, !llvm.loop !7
 
 1550:                                             ; preds = %1549
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6553,7 +6553,7 @@ X11_GetSym.exit1773:                              ; preds = %1547, %1550
 1556:                                             ; preds = %1554, %1551
   %indvars.iv.next.i1778 = add nuw nsw i64 %indvars.iv.i1774, 1
   %exitcond.not.i1779 = icmp eq i64 %indvars.iv.next.i1778, 8
-  br i1 %exitcond.not.i1779, label %1557, label %1551, !llvm.loop !6
+  br i1 %exitcond.not.i1779, label %1557, label %1551, !llvm.loop !7
 
 1557:                                             ; preds = %1556
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6579,7 +6579,7 @@ X11_GetSym.exit1780:                              ; preds = %1554, %1557
 1563:                                             ; preds = %1561, %1558
   %indvars.iv.next.i1785 = add nuw nsw i64 %indvars.iv.i1781, 1
   %exitcond.not.i1786 = icmp eq i64 %indvars.iv.next.i1785, 8
-  br i1 %exitcond.not.i1786, label %1564, label %1558, !llvm.loop !6
+  br i1 %exitcond.not.i1786, label %1564, label %1558, !llvm.loop !7
 
 1564:                                             ; preds = %1563
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6605,7 +6605,7 @@ X11_GetSym.exit1787:                              ; preds = %1561, %1564
 1570:                                             ; preds = %1568, %1565
   %indvars.iv.next.i1792 = add nuw nsw i64 %indvars.iv.i1788, 1
   %exitcond.not.i1793 = icmp eq i64 %indvars.iv.next.i1792, 8
-  br i1 %exitcond.not.i1793, label %1571, label %1565, !llvm.loop !6
+  br i1 %exitcond.not.i1793, label %1571, label %1565, !llvm.loop !7
 
 1571:                                             ; preds = %1570
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6631,7 +6631,7 @@ X11_GetSym.exit1794:                              ; preds = %1568, %1571
 1577:                                             ; preds = %1575, %1572
   %indvars.iv.next.i1799 = add nuw nsw i64 %indvars.iv.i1795, 1
   %exitcond.not.i1800 = icmp eq i64 %indvars.iv.next.i1799, 8
-  br i1 %exitcond.not.i1800, label %1578, label %1572, !llvm.loop !6
+  br i1 %exitcond.not.i1800, label %1578, label %1572, !llvm.loop !7
 
 1578:                                             ; preds = %1577
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6657,7 +6657,7 @@ X11_GetSym.exit1801:                              ; preds = %1575, %1578
 1584:                                             ; preds = %1582, %1579
   %indvars.iv.next.i1806 = add nuw nsw i64 %indvars.iv.i1802, 1
   %exitcond.not.i1807 = icmp eq i64 %indvars.iv.next.i1806, 8
-  br i1 %exitcond.not.i1807, label %1585, label %1579, !llvm.loop !6
+  br i1 %exitcond.not.i1807, label %1585, label %1579, !llvm.loop !7
 
 1585:                                             ; preds = %1584
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6683,7 +6683,7 @@ X11_GetSym.exit1808:                              ; preds = %1582, %1585
 1591:                                             ; preds = %1589, %1586
   %indvars.iv.next.i1813 = add nuw nsw i64 %indvars.iv.i1809, 1
   %exitcond.not.i1814 = icmp eq i64 %indvars.iv.next.i1813, 8
-  br i1 %exitcond.not.i1814, label %1592, label %1586, !llvm.loop !6
+  br i1 %exitcond.not.i1814, label %1592, label %1586, !llvm.loop !7
 
 1592:                                             ; preds = %1591
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6709,7 +6709,7 @@ X11_GetSym.exit1815:                              ; preds = %1589, %1592
 1598:                                             ; preds = %1596, %1593
   %indvars.iv.next.i1820 = add nuw nsw i64 %indvars.iv.i1816, 1
   %exitcond.not.i1821 = icmp eq i64 %indvars.iv.next.i1820, 8
-  br i1 %exitcond.not.i1821, label %1599, label %1593, !llvm.loop !6
+  br i1 %exitcond.not.i1821, label %1599, label %1593, !llvm.loop !7
 
 1599:                                             ; preds = %1598
   store i32 0, ptr @SDL_X11_HAVE_XRANDR, align 4
@@ -6735,7 +6735,7 @@ X11_GetSym.exit1822:                              ; preds = %1596, %1599
 1605:                                             ; preds = %1603, %1600
   %indvars.iv.next.i1827 = add nuw nsw i64 %indvars.iv.i1823, 1
   %exitcond.not.i1828 = icmp eq i64 %indvars.iv.next.i1827, 8
-  br i1 %exitcond.not.i1828, label %1606, label %1600, !llvm.loop !6
+  br i1 %exitcond.not.i1828, label %1606, label %1600, !llvm.loop !7
 
 1606:                                             ; preds = %1605
   store i32 0, ptr @SDL_X11_HAVE_XSS, align 4
@@ -6761,7 +6761,7 @@ X11_GetSym.exit1829:                              ; preds = %1603, %1606
 1612:                                             ; preds = %1610, %1607
   %indvars.iv.next.i1834 = add nuw nsw i64 %indvars.iv.i1830, 1
   %exitcond.not.i1835 = icmp eq i64 %indvars.iv.next.i1834, 8
-  br i1 %exitcond.not.i1835, label %1613, label %1607, !llvm.loop !6
+  br i1 %exitcond.not.i1835, label %1613, label %1607, !llvm.loop !7
 
 1613:                                             ; preds = %1612
   store i32 0, ptr @SDL_X11_HAVE_XSS, align 4
@@ -6787,7 +6787,7 @@ X11_GetSym.exit1836:                              ; preds = %1610, %1613
 1619:                                             ; preds = %1617, %1614
   %indvars.iv.next.i1841 = add nuw nsw i64 %indvars.iv.i1837, 1
   %exitcond.not.i1842 = icmp eq i64 %indvars.iv.next.i1841, 8
-  br i1 %exitcond.not.i1842, label %1620, label %1614, !llvm.loop !6
+  br i1 %exitcond.not.i1842, label %1620, label %1614, !llvm.loop !7
 
 1620:                                             ; preds = %1619
   store i32 0, ptr @SDL_X11_HAVE_XSS, align 4
@@ -6813,7 +6813,7 @@ X11_GetSym.exit1843:                              ; preds = %1617, %1620
 1626:                                             ; preds = %1624, %1621
   %indvars.iv.next.i1848 = add nuw nsw i64 %indvars.iv.i1844, 1
   %exitcond.not.i1849 = icmp eq i64 %indvars.iv.next.i1848, 8
-  br i1 %exitcond.not.i1849, label %1627, label %1621, !llvm.loop !6
+  br i1 %exitcond.not.i1849, label %1627, label %1621, !llvm.loop !7
 
 1627:                                             ; preds = %1626
   store i32 0, ptr @SDL_X11_HAVE_XSHAPE, align 4
@@ -6839,7 +6839,7 @@ X11_GetSym.exit1850:                              ; preds = %1624, %1627
 1633:                                             ; preds = %1631, %1628
   %indvars.iv.next.i1855 = add nuw nsw i64 %indvars.iv.i1851, 1
   %exitcond.not.i1856 = icmp eq i64 %indvars.iv.next.i1855, 8
-  br i1 %exitcond.not.i1856, label %1634, label %1628, !llvm.loop !6
+  br i1 %exitcond.not.i1856, label %1634, label %1628, !llvm.loop !7
 
 1634:                                             ; preds = %1633
   store i32 0, ptr @SDL_X11_HAVE_XSHAPE, align 4
@@ -6865,7 +6865,7 @@ X11_GetSym.exit1857:                              ; preds = %1631, %1634
 1640:                                             ; preds = %1638, %1635
   %indvars.iv.next.i1862 = add nuw nsw i64 %indvars.iv.i1858, 1
   %exitcond.not.i1863 = icmp eq i64 %indvars.iv.next.i1862, 8
-  br i1 %exitcond.not.i1863, label %1641, label %1635, !llvm.loop !6
+  br i1 %exitcond.not.i1863, label %1641, label %1635, !llvm.loop !7
 
 1641:                                             ; preds = %1640
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -6891,7 +6891,7 @@ X11_GetSym.exit1864:                              ; preds = %1638, %1641
 1647:                                             ; preds = %1645, %1642
   %indvars.iv.next.i1869 = add nuw nsw i64 %indvars.iv.i1865, 1
   %exitcond.not.i1870 = icmp eq i64 %indvars.iv.next.i1869, 8
-  br i1 %exitcond.not.i1870, label %1648, label %1642, !llvm.loop !6
+  br i1 %exitcond.not.i1870, label %1648, label %1642, !llvm.loop !7
 
 1648:                                             ; preds = %1647
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -6917,7 +6917,7 @@ X11_GetSym.exit1871:                              ; preds = %1645, %1648
 1654:                                             ; preds = %1652, %1649
   %indvars.iv.next.i1876 = add nuw nsw i64 %indvars.iv.i1872, 1
   %exitcond.not.i1877 = icmp eq i64 %indvars.iv.next.i1876, 8
-  br i1 %exitcond.not.i1877, label %1655, label %1649, !llvm.loop !6
+  br i1 %exitcond.not.i1877, label %1655, label %1649, !llvm.loop !7
 
 1655:                                             ; preds = %1654
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -6943,7 +6943,7 @@ X11_GetSym.exit1878:                              ; preds = %1652, %1655
 1661:                                             ; preds = %1659, %1656
   %indvars.iv.next.i1883 = add nuw nsw i64 %indvars.iv.i1879, 1
   %exitcond.not.i1884 = icmp eq i64 %indvars.iv.next.i1883, 8
-  br i1 %exitcond.not.i1884, label %1662, label %1656, !llvm.loop !6
+  br i1 %exitcond.not.i1884, label %1662, label %1656, !llvm.loop !7
 
 1662:                                             ; preds = %1661
   store i32 0, ptr @SDL_X11_HAVE_UTF8, align 4
@@ -6984,7 +6984,8 @@ attributes #2 = { nounwind }
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = distinct !{!3, !4}
+!3 = distinct !{!3, !4, !5}
 !4 = !{!"llvm.loop.mustprogress"}
-!5 = distinct !{!5, !4}
-!6 = distinct !{!6, !4}
+!5 = !{!"llvm.loop.estimated_trip_count"}
+!6 = distinct !{!6, !4, !5}
+!7 = distinct !{!7, !4, !5}

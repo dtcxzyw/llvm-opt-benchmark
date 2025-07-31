@@ -175,10 +175,10 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIchEEvPKT_RKNS_9Compone
 
 _ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %22 = load i32, ptr %21, align 4, !tbaa !18
-  %23 = load i8, ptr %4, align 1, !tbaa !13, !range !22, !noundef !23
+  %22 = load i32, ptr %21, align 4, !tbaa !19
+  %23 = load i8, ptr %4, align 1, !tbaa !13, !range !23, !noundef !24
   %24 = trunc nuw i8 %23 to i1
-  %.0..0..0. = load i8, ptr %5, align 1, !range !22
+  %.0..0..0. = load i8, ptr %5, align 1, !range !23
   %25 = trunc nuw i8 %.0..0..0. to i1
   %or.cond = select i1 %24, i1 true, i1 %25
   %26 = getelementptr inbounds i8, ptr %0, i64 %12
@@ -203,12 +203,12 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 64, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %35, ptr %33, align 8, !tbaa !24
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi64EEE, i64 16), ptr %6, align 8, !tbaa !25
+  store ptr %35, ptr %33, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi64EEE, i64 16), ptr %6, align 8, !tbaa !26
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !24
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #10
-  %38 = load i32, ptr %21, align 4, !tbaa !18
+  %38 = load i32, ptr %21, align 4, !tbaa !19
   %39 = sub nsw i32 %38, %22
   %.sroa.2.0.insert.ext.i = zext i32 %39 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -223,16 +223,16 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIchEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
   %41 = load i32, ptr %2, align 4, !tbaa !3
   %42 = and i32 %41, -2
   %spec.select.i = icmp eq i32 %42, 2
-  %.pre1 = load ptr, ptr %33, align 8, !tbaa !24
+  %.pre1 = load ptr, ptr %33, align 8, !tbaa !25
   br i1 %spec.select.i, label %43, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
 43:                                               ; preds = %40
-  store i32 %22, ptr %21, align 4, !tbaa !18
+  store i32 %22, ptr %21, align 4, !tbaa !19
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %45 = load i32, ptr %44, align 4, !tbaa !18
+  %45 = load i32, ptr %44, align 4, !tbaa !19
   %46 = add nsw i32 %45, %22
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load i32, ptr %47, align 8, !tbaa !27
+  %48 = load i32, ptr %47, align 8, !tbaa !28
   %49 = icmp sgt i32 %46, %48
   br i1 %49, label %select.unfold.i.preheader.i, label %.noexc
 
@@ -249,10 +249,10 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.pre
 52:                                               ; preds = %select.unfold.i.i
   %53 = shl nsw i32 %.0.i.i, 1
   %54 = icmp slt i32 %53, %46
-  br i1 %54, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !28
+  br i1 %54, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !29
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %52
-  %55 = load ptr, ptr %1, align 8, !tbaa !25
+  %55 = load ptr, ptr %1, align 8, !tbaa !26
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8
   invoke void %57(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %53)
@@ -267,18 +267,18 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %52
   br label %61
 
 ._crit_edge.i:                                    ; preds = %61, %.noexc
-  %59 = load i32, ptr %21, align 4, !tbaa !18
+  %59 = load i32, ptr %21, align 4, !tbaa !19
   %60 = add nsw i32 %59, %45
-  store i32 %60, ptr %21, align 4, !tbaa !18
-  %.pre = load ptr, ptr %33, align 8, !tbaa !24
+  store i32 %60, ptr %21, align 4, !tbaa !19
+  %.pre = load ptr, ptr %33, align 8, !tbaa !25
   br label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
 61:                                               ; preds = %61, %.lr.ph.i33
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i33 ], [ %indvars.iv.next.i35, %61 ]
   %62 = getelementptr inbounds nuw i8, ptr %.pre1, i64 %indvars.iv.i34
   %63 = load i8, ptr %62, align 1, !tbaa !15
-  %64 = load ptr, ptr %36, align 8, !tbaa !24
-  %65 = load i32, ptr %21, align 4, !tbaa !18
+  %64 = load ptr, ptr %36, align 8, !tbaa !25
+  %65 = load i32, ptr %21, align 4, !tbaa !19
   %66 = trunc nuw nsw i64 %indvars.iv.i34 to i32
   %67 = add nsw i32 %65, %66
   %68 = sext i32 %67 to i64
@@ -286,7 +286,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %52
   store i8 %63, ptr %69, align 1, !tbaa !15
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %61, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %61, !llvm.loop !30
 
 70:                                               ; preds = %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i
   %71 = landingpad { ptr, i32 }
@@ -301,7 +301,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %52
 
 _ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, %._crit_edge.i, %40
   %74 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre1, %40 ], [ %.pre1, %select.unfold.i.i ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %6, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %6, align 8, !tbaa !26
   %.not.i = icmp eq ptr %74, %35
   %75 = icmp eq ptr %74, null
   %or.cond.i = or i1 %.not.i, %75
@@ -317,8 +317,8 @@ _ZN3url15RawCanonOutputTIcLi64EED2Ev.exit:        ; preds = %_ZN3url12CanonOutpu
 
 77:                                               ; preds = %72, %70
   %.pn = phi { ptr, i32 } [ %71, %70 ], [ %73, %72 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %6, align 8, !tbaa !25
-  %78 = load ptr, ptr %33, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %6, align 8, !tbaa !26
+  %78 = load ptr, ptr %33, align 8, !tbaa !25
   %.not.i37 = icmp eq ptr %78, %35
   %79 = icmp eq ptr %78, null
   %or.cond.i38 = or i1 %.not.i37, %79
@@ -336,7 +336,7 @@ _ZN3url15RawCanonOutputTIcLi64EED2Ev.exit39:      ; preds = %77, %80
 
 81:                                               ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, %31
   %.sroa.0.0.insert.ext.i42.pre-phi = phi i64 [ %.sroa.0.0.insert.ext.i, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit ], [ %.pre2, %31 ]
-  %82 = load i32, ptr %21, align 4, !tbaa !18
+  %82 = load i32, ptr %21, align 4, !tbaa !19
   %83 = sub nsw i32 %82, %22
   %.sroa.2.0.insert.ext.i40 = zext i32 %83 to i64
   %.sroa.2.0.insert.shift.i41 = shl nuw i64 %.sroa.2.0.insert.ext.i40, 32
@@ -409,7 +409,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9Compone
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %13, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %20 ]
   %15 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
-  %16 = load i16, ptr %15, align 2, !tbaa !30
+  %16 = load i16, ptr %15, align 2, !tbaa !31
   %17 = icmp ugt i16 %16, 127
   br i1 %17, label %.sink.split.i, label %18
 
@@ -425,14 +425,14 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_16DoHostIttEEvPKT_RKNS_9Compone
 20:                                               ; preds = %.sink.split.i, %18
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %21 = icmp slt i64 %indvars.iv.next.i, %14
-  br i1 %21, label %.lr.ph.i, label %_ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit, !llvm.loop !32
+  br i1 %21, label %.lr.ph.i, label %_ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit, !llvm.loop !33
 
 _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %23 = load i32, ptr %22, align 4, !tbaa !18
-  %.0..0..0.1 = load i8, ptr %5, align 1, !tbaa !13, !range !22, !noundef !23
+  %23 = load i32, ptr %22, align 4, !tbaa !19
+  %.0..0..0.1 = load i8, ptr %5, align 1, !tbaa !13, !range !23, !noundef !24
   %24 = trunc nuw i8 %.0..0..0.1 to i1
-  %.0..0..0. = load i8, ptr %6, align 1, !range !22
+  %.0..0..0. = load i8, ptr %6, align 1, !range !23
   %25 = trunc nuw i8 %.0..0..0. to i1
   %or.cond = select i1 %24, i1 true, i1 %25
   %26 = getelementptr inbounds i16, ptr %0, i64 %13
@@ -450,7 +450,7 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
   %storemerge53.i = phi i32 [ 0, %.lr.ph.i33 ], [ %164, %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
   %31 = sext i32 %storemerge53.i to i64
   %32 = getelementptr inbounds i16, ptr %26, i64 %31
-  %33 = load i16, ptr %32, align 2, !tbaa !30
+  %33 = load i16, ptr %32, align 2, !tbaa !31
   %.sroa.0.0.extract.trunc.i = trunc i16 %33 to i8
   %34 = and i16 %33, -256
   %35 = icmp eq i16 %33, 37
@@ -463,13 +463,13 @@ _ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit: ; preds
 
 39:                                               ; preds = %36
   %40 = getelementptr i8, ptr %32, i64 2
-  %41 = load i16, ptr %40, align 2, !tbaa !30
+  %41 = load i16, ptr %40, align 2, !tbaa !31
   %42 = icmp ult i16 %41, 256
   br i1 %42, label %43, label %72
 
 43:                                               ; preds = %39
   %44 = getelementptr i8, ptr %32, i64 4
-  %45 = load i16, ptr %44, align 2, !tbaa !30
+  %45 = load i16, ptr %44, align 2, !tbaa !31
   %46 = icmp ult i16 %45, 256
   br i1 %46, label %47, label %72
 
@@ -508,8 +508,8 @@ _ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i:      ; preds = %54
   br label %121
 
 72:                                               ; preds = %54, %47, %43, %39, %36
-  %73 = load i32, ptr %22, align 4, !tbaa !18
-  %74 = load i32, ptr %27, align 8, !tbaa !27
+  %73 = load i32, ptr %22, align 4, !tbaa !19
+  %74 = load i32, ptr %27, align 8, !tbaa !28
   %75 = icmp slt i32 %73, %74
   br i1 %75, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i, label %select.unfold.i.preheader.i.i.i
 
@@ -526,26 +526,26 @@ select.unfold.i.i.i.i:                            ; preds = %select.unfold.i.pre
 78:                                               ; preds = %select.unfold.i.i.i.i
   %79 = shl nsw i32 %.0.i.i.i.i, 1
   %.not.i.i.i = icmp sgt i32 %79, %74
-  br i1 %.not.i.i.i, label %80, label %select.unfold.i.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i.i, label %80, label %select.unfold.i.i.i.i, !llvm.loop !29
 
 80:                                               ; preds = %78
-  %81 = load ptr, ptr %1, align 8, !tbaa !25
+  %81 = load ptr, ptr %1, align 8, !tbaa !26
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   tail call void %83(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %79)
-  %84 = load i32, ptr %22, align 4, !tbaa !18
+  %84 = load i32, ptr %22, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i: ; preds = %80, %72
   %.sink.i.i.i = phi i32 [ %84, %80 ], [ %73, %72 ]
-  %.sink3.i.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !24
+  %.sink3.i.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !25
   %85 = sext i32 %.sink.i.i.i to i64
   %86 = getelementptr inbounds i8, ptr %.sink3.i.i.i, i64 %85
   store i8 37, ptr %86, align 1, !tbaa !15
-  %87 = load i32, ptr %22, align 4, !tbaa !18
+  %87 = load i32, ptr %22, align 4, !tbaa !19
   %88 = add nsw i32 %87, 1
-  store i32 %88, ptr %22, align 4, !tbaa !18
-  %.pre.i.i = load i32, ptr %27, align 8, !tbaa !27
+  store i32 %88, ptr %22, align 4, !tbaa !19
+  %.pre.i.i = load i32, ptr %27, align 8, !tbaa !28
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i.i:    ; preds = %select.unfold.i.i.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i.i
@@ -567,26 +567,26 @@ select.unfold.i.i6.i.i:                           ; preds = %select.unfold.i.pre
 94:                                               ; preds = %select.unfold.i.i6.i.i
   %95 = shl nsw i32 %.0.i.i7.i.i, 1
   %.not.i8.i.i = icmp sgt i32 %95, %89
-  br i1 %.not.i8.i.i, label %96, label %select.unfold.i.i6.i.i, !llvm.loop !28
+  br i1 %.not.i8.i.i, label %96, label %select.unfold.i.i6.i.i, !llvm.loop !29
 
 96:                                               ; preds = %94
-  %97 = load ptr, ptr %1, align 8, !tbaa !25
+  %97 = load ptr, ptr %1, align 8, !tbaa !26
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %95)
-  %100 = load i32, ptr %22, align 4, !tbaa !18
+  %100 = load i32, ptr %22, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9.i.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9.i.i: ; preds = %96, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i
   %.sink.i10.i.i = phi i32 [ %100, %96 ], [ %90, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i ]
-  %.sink3.i12.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !24
+  %.sink3.i12.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !25
   %101 = sext i32 %.sink.i10.i.i to i64
   %102 = getelementptr inbounds i8, ptr %.sink3.i12.i.i, i64 %101
   store i8 %28, ptr %102, align 1, !tbaa !15
-  %103 = load i32, ptr %22, align 4, !tbaa !18
+  %103 = load i32, ptr %22, align 4, !tbaa !19
   %104 = add nsw i32 %103, 1
-  store i32 %104, ptr %22, align 4, !tbaa !18
-  %.pre32.i.i = load i32, ptr %27, align 8, !tbaa !27
+  store i32 %104, ptr %22, align 4, !tbaa !19
+  %.pre32.i.i = load i32, ptr %27, align 8, !tbaa !28
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit13.i.i:  ; preds = %select.unfold.i.i6.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9.i.i
@@ -608,25 +608,25 @@ select.unfold.i.i16.i.i:                          ; preds = %select.unfold.i.pre
 110:                                              ; preds = %select.unfold.i.i16.i.i
   %111 = shl nsw i32 %.0.i.i17.i.i, 1
   %.not.i18.i.i = icmp sgt i32 %111, %105
-  br i1 %.not.i18.i.i, label %112, label %select.unfold.i.i16.i.i, !llvm.loop !28
+  br i1 %.not.i18.i.i, label %112, label %select.unfold.i.i16.i.i, !llvm.loop !29
 
 112:                                              ; preds = %110
-  %113 = load ptr, ptr %1, align 8, !tbaa !25
+  %113 = load ptr, ptr %1, align 8, !tbaa !26
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %115 = load ptr, ptr %114, align 8
   tail call void %115(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %111)
-  %116 = load i32, ptr %22, align 4, !tbaa !18
+  %116 = load i32, ptr %22, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i.i: ; preds = %112, %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i.i
   %.sink.i20.i.i = phi i32 [ %116, %112 ], [ %106, %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i.i ]
-  %.sink3.i22.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !24
+  %.sink3.i22.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !25
   %117 = sext i32 %.sink.i20.i.i to i64
   %118 = getelementptr inbounds i8, ptr %.sink3.i22.i.i, i64 %117
   store i8 %29, ptr %118, align 1, !tbaa !15
-  %119 = load i32, ptr %22, align 4, !tbaa !18
+  %119 = load i32, ptr %22, align 4, !tbaa !19
   %120 = add nsw i32 %119, 1
-  store i32 %120, ptr %22, align 4, !tbaa !18
+  store i32 %120, ptr %22, align 4, !tbaa !19
   br label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
 121:                                              ; preds = %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i, %30
@@ -656,8 +656,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i.i: ; preds = %112, %_ZN3ur
   br label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
 130:                                              ; preds = %124
-  %131 = load i32, ptr %22, align 4, !tbaa !18
-  %132 = load i32, ptr %27, align 8, !tbaa !27
+  %131 = load i32, ptr %22, align 4, !tbaa !19
+  %132 = load i32, ptr %27, align 8, !tbaa !28
   %133 = icmp slt i32 %131, %132
   br i1 %133, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, label %select.unfold.i.preheader.i.i
 
@@ -674,30 +674,30 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.pre
 136:                                              ; preds = %select.unfold.i.i.i
   %137 = shl nsw i32 %.0.i.i.i, 1
   %.not.i19.i = icmp sgt i32 %137, %132
-  br i1 %.not.i19.i, label %138, label %select.unfold.i.i.i, !llvm.loop !28
+  br i1 %.not.i19.i, label %138, label %select.unfold.i.i.i, !llvm.loop !29
 
 138:                                              ; preds = %136
-  %139 = load ptr, ptr %1, align 8, !tbaa !25
+  %139 = load ptr, ptr %1, align 8, !tbaa !26
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = load ptr, ptr %140, align 8
   tail call void %141(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %137)
-  %142 = load i32, ptr %22, align 4, !tbaa !18
+  %142 = load i32, ptr %22, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %138, %130
   %.sink.i.i = phi i32 [ %142, %138 ], [ %131, %130 ]
-  %.sink3.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !24
+  %.sink3.i.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !25
   %143 = sext i32 %.sink.i.i to i64
   %144 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %143
   store i8 %127, ptr %144, align 1, !tbaa !15
-  %145 = load i32, ptr %22, align 4, !tbaa !18
+  %145 = load i32, ptr %22, align 4, !tbaa !19
   %146 = add nsw i32 %145, 1
-  store i32 %146, ptr %22, align 4, !tbaa !18
+  store i32 %146, ptr %22, align 4, !tbaa !19
   br label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
 147:                                              ; preds = %121
-  %148 = load i32, ptr %22, align 4, !tbaa !18
-  %149 = load i32, ptr %27, align 8, !tbaa !27
+  %148 = load i32, ptr %22, align 4, !tbaa !19
+  %149 = load i32, ptr %27, align 8, !tbaa !28
   %150 = icmp slt i32 %148, %149
   br i1 %150, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25.i, label %select.unfold.i.preheader.i20.i
 
@@ -714,25 +714,25 @@ select.unfold.i.i22.i:                            ; preds = %select.unfold.i.pre
 153:                                              ; preds = %select.unfold.i.i22.i
   %154 = shl nsw i32 %.0.i.i23.i, 1
   %.not.i24.i = icmp sgt i32 %154, %149
-  br i1 %.not.i24.i, label %155, label %select.unfold.i.i22.i, !llvm.loop !28
+  br i1 %.not.i24.i, label %155, label %select.unfold.i.i22.i, !llvm.loop !29
 
 155:                                              ; preds = %153
-  %156 = load ptr, ptr %1, align 8, !tbaa !25
+  %156 = load ptr, ptr %1, align 8, !tbaa !26
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load ptr, ptr %157, align 8
   tail call void %158(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %154)
-  %159 = load i32, ptr %22, align 4, !tbaa !18
+  %159 = load i32, ptr %22, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25.i: ; preds = %155, %147
   %.sink.i26.i = phi i32 [ %159, %155 ], [ %148, %147 ]
-  %.sink3.i28.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !24
+  %.sink3.i28.i = load ptr, ptr %.sink3.in.i27.i, align 8, !tbaa !25
   %160 = sext i32 %.sink.i26.i to i64
   %161 = getelementptr inbounds i8, ptr %.sink3.i28.i, i64 %160
   store i8 %.sroa.0.0.i, ptr %161, align 1, !tbaa !15
-  %162 = load i32, ptr %22, align 4, !tbaa !18
+  %162 = load i32, ptr %22, align 4, !tbaa !19
   %163 = add nsw i32 %162, 1
-  store i32 %163, ptr %22, align 4, !tbaa !18
+  store i32 %163, ptr %22, align 4, !tbaa !19
   br label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
 _ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %select.unfold.i.i22.i, %select.unfold.i.i.i, %select.unfold.i.i16.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, %129, %128, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i.i
@@ -740,7 +740,7 @@ _ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %se
   %.1.i = phi i1 [ false, %128 ], [ %.054.i, %129 ], [ false, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i.i ], [ %.054.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i ], [ %.054.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25.i ], [ false, %select.unfold.i.i16.i.i ], [ %.054.i, %select.unfold.i.i.i ], [ %.054.i, %select.unfold.i.i22.i ]
   %164 = add nsw i32 %.134.i, 1
   %165 = icmp slt i32 %164, %.4.val
-  br i1 %165, label %30, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit, !llvm.loop !33
+  br i1 %165, label %30, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit, !llvm.loop !34
 
 166:                                              ; preds = %_ZN3url12_GLOBAL__N_112ScanHostnameIttEEvPKT_RKNS_9ComponentEPbS8_.exit
   br i1 %25, label %167, label %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread7
@@ -750,9 +750,9 @@ _ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %se
   %168 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %169 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 1024, ptr %169, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !26
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %170, ptr %168, align 8, !tbaa !24
+  store ptr %170, ptr %168, align 8, !tbaa !25
   %171 = invoke noundef zeroext i1 @_ZN3url18ConvertUTF16ToUTF8EPKtiPNS_12CanonOutputTIcEE(ptr noundef %26, i32 noundef %.4.val, ptr noundef nonnull %4)
           to label %172 unwind label %174
 
@@ -766,8 +766,8 @@ _ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %se
 174:                                              ; preds = %179, %173, %167
   %175 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
-  %176 = load ptr, ptr %168, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !26
+  %176 = load ptr, ptr %168, align 8, !tbaa !25
   %.not.i.i35 = icmp eq ptr %176, %170
   %177 = icmp eq ptr %176, null
   %or.cond.i.i = or i1 %.not.i.i35, %177
@@ -786,16 +786,16 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit.i:    ; preds = %178, %174
   br label %common.resume
 
 179:                                              ; preds = %172
-  %180 = load ptr, ptr %168, align 8, !tbaa !24
+  %180 = load ptr, ptr %168, align 8, !tbaa !25
   %181 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %182 = load i32, ptr %181, align 4, !tbaa !18
+  %182 = load i32, ptr %181, align 4, !tbaa !19
   %183 = invoke fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostEPKcibbPNS_12CanonOutputTIcEE(ptr noundef %180, i32 noundef %182, i1 noundef zeroext true, ptr noundef nonnull %1)
           to label %184 unwind label %174
 
 184:                                              ; preds = %179, %173
   %.0.i = phi i1 [ false, %173 ], [ %183, %179 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
-  %185 = load ptr, ptr %168, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %4, align 8, !tbaa !26
+  %185 = load ptr, ptr %168, align 8, !tbaa !25
   %.not.i15.i = icmp eq ptr %185, %170
   %186 = icmp eq ptr %185, null
   %or.cond.i16.i = or i1 %.not.i15.i, %186
@@ -827,12 +827,12 @@ _ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.th
   %190 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 64, ptr %190, align 8
   %191 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %191, ptr %189, align 8, !tbaa !24
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi64EEE, i64 16), ptr %7, align 8, !tbaa !25
+  store ptr %191, ptr %189, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url14RawCanonOutputILi64EEE, i64 16), ptr %7, align 8, !tbaa !26
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %193 = load ptr, ptr %192, align 8, !tbaa !24
+  %193 = load ptr, ptr %192, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
-  %194 = load i32, ptr %22, align 4, !tbaa !18
+  %194 = load i32, ptr %22, align 4, !tbaa !19
   %195 = sub nsw i32 %194, %23
   %.sroa.2.0.insert.ext.i = zext i32 %195 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
@@ -847,16 +847,16 @@ _ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.th
   %197 = load i32, ptr %2, align 4, !tbaa !3
   %198 = and i32 %197, -2
   %spec.select.i37 = icmp eq i32 %198, 2
-  %.pre30 = load ptr, ptr %189, align 8, !tbaa !24
+  %.pre30 = load ptr, ptr %189, align 8, !tbaa !25
   br i1 %spec.select.i37, label %199, label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
 199:                                              ; preds = %196
-  store i32 %23, ptr %22, align 4, !tbaa !18
+  store i32 %23, ptr %22, align 4, !tbaa !19
   %200 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %201 = load i32, ptr %200, align 4, !tbaa !18
+  %201 = load i32, ptr %200, align 4, !tbaa !19
   %202 = add nsw i32 %201, %23
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %204 = load i32, ptr %203, align 8, !tbaa !27
+  %204 = load i32, ptr %203, align 8, !tbaa !28
   %205 = icmp sgt i32 %202, %204
   br i1 %205, label %select.unfold.i.preheader.i, label %.noexc
 
@@ -873,10 +873,10 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.pre
 208:                                              ; preds = %select.unfold.i.i
   %209 = shl nsw i32 %.0.i.i, 1
   %210 = icmp slt i32 %209, %202
-  br i1 %210, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !28
+  br i1 %210, label %select.unfold.i.i, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i, !llvm.loop !29
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %208
-  %211 = load ptr, ptr %1, align 8, !tbaa !25
+  %211 = load ptr, ptr %1, align 8, !tbaa !26
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load ptr, ptr %212, align 8
   invoke void %213(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %209)
@@ -891,18 +891,18 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %208
   br label %217
 
 ._crit_edge.i:                                    ; preds = %217, %.noexc
-  %215 = load i32, ptr %22, align 4, !tbaa !18
+  %215 = load i32, ptr %22, align 4, !tbaa !19
   %216 = add nsw i32 %215, %201
-  store i32 %216, ptr %22, align 4, !tbaa !18
-  %.pre = load ptr, ptr %189, align 8, !tbaa !24
+  store i32 %216, ptr %22, align 4, !tbaa !19
+  %.pre = load ptr, ptr %189, align 8, !tbaa !25
   br label %_ZN3url12CanonOutputTIcE6AppendEPKci.exit
 
 217:                                              ; preds = %217, %.lr.ph.i38
   %indvars.iv.i39 = phi i64 [ 0, %.lr.ph.i38 ], [ %indvars.iv.next.i40, %217 ]
   %218 = getelementptr inbounds nuw i8, ptr %.pre30, i64 %indvars.iv.i39
   %219 = load i8, ptr %218, align 1, !tbaa !15
-  %220 = load ptr, ptr %192, align 8, !tbaa !24
-  %221 = load i32, ptr %22, align 4, !tbaa !18
+  %220 = load ptr, ptr %192, align 8, !tbaa !25
+  %221 = load i32, ptr %22, align 4, !tbaa !19
   %222 = trunc nuw nsw i64 %indvars.iv.i39 to i32
   %223 = add nsw i32 %221, %222
   %224 = sext i32 %223 to i64
@@ -910,7 +910,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %208
   store i8 %219, ptr %225, align 1, !tbaa !15
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %217, !llvm.loop !29
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %217, !llvm.loop !30
 
 226:                                              ; preds = %_ZN3url12_GLOBAL__N_112DoSimpleHostItcEEbPKT_iPNS_12CanonOutputTIT0_EEPb.exit.thread
   %227 = landingpad { ptr, i32 }
@@ -925,7 +925,7 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.thread.i:    ; preds = %208
 
 _ZN3url12CanonOutputTIcE6AppendEPKci.exit:        ; preds = %select.unfold.i.i, %._crit_edge.i, %196
   %230 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre30, %196 ], [ %.pre30, %select.unfold.i.i ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %7, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %7, align 8, !tbaa !26
   %.not.i = icmp eq ptr %230, %191
   %231 = icmp eq ptr %230, null
   %or.cond.i = or i1 %.not.i, %231
@@ -941,8 +941,8 @@ _ZN3url15RawCanonOutputTIcLi64EED2Ev.exit:        ; preds = %_ZN3url12CanonOutpu
 
 233:                                              ; preds = %228, %226
   %.pn = phi { ptr, i32 } [ %229, %228 ], [ %227, %226 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %234 = load ptr, ptr %189, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %7, align 8, !tbaa !26
+  %234 = load ptr, ptr %189, align 8, !tbaa !25
   %.not.i42 = icmp eq ptr %234, %191
   %235 = icmp eq ptr %234, null
   %or.cond.i43 = or i1 %.not.i42, %235
@@ -960,7 +960,7 @@ _ZN3url15RawCanonOutputTIcLi64EED2Ev.exit44:      ; preds = %233, %236
 
 237:                                              ; preds = %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit, %188
   %.sroa.0.0.insert.ext.i47.pre-phi = phi i64 [ %.sroa.0.0.insert.ext.i, %_ZN3url15RawCanonOutputTIcLi64EED2Ev.exit ], [ %.pre31, %188 ]
-  %238 = load i32, ptr %22, align 4, !tbaa !18
+  %238 = load i32, ptr %22, align 4, !tbaa !19
   %239 = sub nsw i32 %238, %23
   %.sroa.2.0.insert.ext.i45 = zext i32 %239 to i64
   %.sroa.2.0.insert.shift.i46 = shl nuw i64 %.sroa.2.0.insert.ext.i45, 32
@@ -1062,8 +1062,8 @@ _ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit:        ; preds = %27
   br label %94
 
 45:                                               ; preds = %15, %27, %18
-  %46 = load i32, ptr %6, align 4, !tbaa !18
-  %47 = load i32, ptr %7, align 8, !tbaa !27
+  %46 = load i32, ptr %6, align 4, !tbaa !19
+  %47 = load i32, ptr %7, align 8, !tbaa !28
   %48 = icmp slt i32 %46, %47
   br i1 %48, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i, label %select.unfold.i.preheader.i.i
 
@@ -1080,26 +1080,26 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.pre
 51:                                               ; preds = %select.unfold.i.i.i
   %52 = shl nsw i32 %.0.i.i.i, 1
   %.not.i.i = icmp sgt i32 %52, %47
-  br i1 %.not.i.i, label %53, label %select.unfold.i.i.i, !llvm.loop !28
+  br i1 %.not.i.i, label %53, label %select.unfold.i.i.i, !llvm.loop !29
 
 53:                                               ; preds = %51
-  %54 = load ptr, ptr %2, align 8, !tbaa !25
+  %54 = load ptr, ptr %2, align 8, !tbaa !26
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %52)
-  %57 = load i32, ptr %6, align 4, !tbaa !18
+  %57 = load i32, ptr %6, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i: ; preds = %53, %45
   %.sink.i.i = phi i32 [ %57, %53 ], [ %46, %45 ]
-  %.sink3.i.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !24
+  %.sink3.i.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !25
   %58 = sext i32 %.sink.i.i to i64
   %59 = getelementptr inbounds i8, ptr %.sink3.i.i, i64 %58
   store i8 37, ptr %59, align 1, !tbaa !15
-  %60 = load i32, ptr %6, align 4, !tbaa !18
+  %60 = load i32, ptr %6, align 4, !tbaa !19
   %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %6, align 4, !tbaa !18
-  %.pre.i = load i32, ptr %7, align 8, !tbaa !27
+  store i32 %61, ptr %6, align 4, !tbaa !19
+  %.pre.i = load i32, ptr %7, align 8, !tbaa !28
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit.i:      ; preds = %select.unfold.i.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i.i
@@ -1121,26 +1121,26 @@ select.unfold.i.i6.i:                             ; preds = %select.unfold.i.pre
 67:                                               ; preds = %select.unfold.i.i6.i
   %68 = shl nsw i32 %.0.i.i7.i, 1
   %.not.i8.i = icmp sgt i32 %68, %62
-  br i1 %.not.i8.i, label %69, label %select.unfold.i.i6.i, !llvm.loop !28
+  br i1 %.not.i8.i, label %69, label %select.unfold.i.i6.i, !llvm.loop !29
 
 69:                                               ; preds = %67
-  %70 = load ptr, ptr %2, align 8, !tbaa !25
+  %70 = load ptr, ptr %2, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %68)
-  %73 = load i32, ptr %6, align 4, !tbaa !18
+  %73 = load i32, ptr %6, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9.i: ; preds = %69, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i
   %.sink.i10.i = phi i32 [ %73, %69 ], [ %63, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i ]
-  %.sink3.i12.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !24
+  %.sink3.i12.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !25
   %74 = sext i32 %.sink.i10.i to i64
   %75 = getelementptr inbounds i8, ptr %.sink3.i12.i, i64 %74
   store i8 %8, ptr %75, align 1, !tbaa !15
-  %76 = load i32, ptr %6, align 4, !tbaa !18
+  %76 = load i32, ptr %6, align 4, !tbaa !19
   %77 = add nsw i32 %76, 1
-  store i32 %77, ptr %6, align 4, !tbaa !18
-  %.pre32.i = load i32, ptr %7, align 8, !tbaa !27
+  store i32 %77, ptr %6, align 4, !tbaa !19
+  %.pre32.i = load i32, ptr %7, align 8, !tbaa !28
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit13.i:    ; preds = %select.unfold.i.i6.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9.i
@@ -1162,25 +1162,25 @@ select.unfold.i.i16.i:                            ; preds = %select.unfold.i.pre
 83:                                               ; preds = %select.unfold.i.i16.i
   %84 = shl nsw i32 %.0.i.i17.i, 1
   %.not.i18.i = icmp sgt i32 %84, %78
-  br i1 %.not.i18.i, label %85, label %select.unfold.i.i16.i, !llvm.loop !28
+  br i1 %.not.i18.i, label %85, label %select.unfold.i.i16.i, !llvm.loop !29
 
 85:                                               ; preds = %83
-  %86 = load ptr, ptr %2, align 8, !tbaa !25
+  %86 = load ptr, ptr %2, align 8, !tbaa !26
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %88 = load ptr, ptr %87, align 8
   tail call void %88(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %84)
-  %89 = load i32, ptr %6, align 4, !tbaa !18
+  %89 = load i32, ptr %6, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i: ; preds = %85, %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i
   %.sink.i20.i = phi i32 [ %89, %85 ], [ %79, %_ZN3url12CanonOutputTIcE9push_backEc.exit13.i ]
-  %.sink3.i22.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !24
+  %.sink3.i22.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !25
   %90 = sext i32 %.sink.i20.i to i64
   %91 = getelementptr inbounds i8, ptr %.sink3.i22.i, i64 %90
   store i8 %9, ptr %91, align 1, !tbaa !15
-  %92 = load i32, ptr %6, align 4, !tbaa !18
+  %92 = load i32, ptr %6, align 4, !tbaa !19
   %93 = add nsw i32 %92, 1
-  store i32 %93, ptr %6, align 4, !tbaa !18
+  store i32 %93, ptr %6, align 4, !tbaa !19
   br label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit
 
 94:                                               ; preds = %_ZN3url13DecodeEscapedIcEEbPKT_PiiPh.exit, %10
@@ -1211,8 +1211,8 @@ _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i: ; preds = %85, %_ZN3url12
   br label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit
 
 102:                                              ; preds = %96
-  %103 = load i32, ptr %6, align 4, !tbaa !18
-  %104 = load i32, ptr %7, align 8, !tbaa !27
+  %103 = load i32, ptr %6, align 4, !tbaa !19
+  %104 = load i32, ptr %7, align 8, !tbaa !28
   %105 = icmp slt i32 %103, %104
   br i1 %105, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i, label %select.unfold.i.preheader.i
 
@@ -1229,30 +1229,30 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.pre
 108:                                              ; preds = %select.unfold.i.i
   %109 = shl nsw i32 %.0.i.i, 1
   %.not.i19 = icmp sgt i32 %109, %104
-  br i1 %.not.i19, label %110, label %select.unfold.i.i, !llvm.loop !28
+  br i1 %.not.i19, label %110, label %select.unfold.i.i, !llvm.loop !29
 
 110:                                              ; preds = %108
-  %111 = load ptr, ptr %2, align 8, !tbaa !25
+  %111 = load ptr, ptr %2, align 8, !tbaa !26
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load ptr, ptr %112, align 8
   tail call void %113(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %109)
-  %114 = load i32, ptr %6, align 4, !tbaa !18
+  %114 = load i32, ptr %6, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %102, %110
   %.sink.i = phi i32 [ %114, %110 ], [ %103, %102 ]
-  %.sink3.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !24
+  %.sink3.i = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !25
   %115 = sext i32 %.sink.i to i64
   %116 = getelementptr inbounds i8, ptr %.sink3.i, i64 %115
   store i8 %99, ptr %116, align 1, !tbaa !15
-  %117 = load i32, ptr %6, align 4, !tbaa !18
+  %117 = load i32, ptr %6, align 4, !tbaa !19
   %118 = add nsw i32 %117, 1
-  store i32 %118, ptr %6, align 4, !tbaa !18
+  store i32 %118, ptr %6, align 4, !tbaa !19
   br label %_ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit
 
 119:                                              ; preds = %94
-  %120 = load i32, ptr %6, align 4, !tbaa !18
-  %121 = load i32, ptr %7, align 8, !tbaa !27
+  %120 = load i32, ptr %6, align 4, !tbaa !19
+  %121 = load i32, ptr %7, align 8, !tbaa !28
   %122 = icmp slt i32 %120, %121
   br i1 %122, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25, label %select.unfold.i.preheader.i20
 
@@ -1269,25 +1269,25 @@ select.unfold.i.i22:                              ; preds = %select.unfold.i.pre
 125:                                              ; preds = %select.unfold.i.i22
   %126 = shl nsw i32 %.0.i.i23, 1
   %.not.i24 = icmp sgt i32 %126, %121
-  br i1 %.not.i24, label %127, label %select.unfold.i.i22, !llvm.loop !28
+  br i1 %.not.i24, label %127, label %select.unfold.i.i22, !llvm.loop !29
 
 127:                                              ; preds = %125
-  %128 = load ptr, ptr %2, align 8, !tbaa !25
+  %128 = load ptr, ptr %2, align 8, !tbaa !26
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8
   tail call void %130(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %126)
-  %131 = load i32, ptr %6, align 4, !tbaa !18
+  %131 = load i32, ptr %6, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25: ; preds = %119, %127
   %.sink.i26 = phi i32 [ %131, %127 ], [ %120, %119 ]
-  %.sink3.i28 = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !24
+  %.sink3.i28 = load ptr, ptr %.sink3.in.i27, align 8, !tbaa !25
   %132 = sext i32 %.sink.i26 to i64
   %133 = getelementptr inbounds i8, ptr %.sink3.i28, i64 %132
   store i8 %.sroa.0.0, ptr %133, align 1, !tbaa !15
-  %134 = load i32, ptr %6, align 4, !tbaa !18
+  %134 = load i32, ptr %6, align 4, !tbaa !19
   %135 = add nsw i32 %134, 1
-  store i32 %135, ptr %6, align 4, !tbaa !18
+  store i32 %135, ptr %6, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit29
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit29:      ; preds = %select.unfold.i.i22, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i25
@@ -1299,7 +1299,7 @@ _ZN3url17AppendEscapedCharIccEEvT_PNS_12CanonOutputTIT0_EE.exit: ; preds = %sele
   %.1 = phi i1 [ false, %100 ], [ %.053, %101 ], [ %.053, %_ZN3url12CanonOutputTIcE9push_backEc.exit29 ], [ false, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19.i ], [ %.053, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ false, %select.unfold.i.i16.i ], [ %.053, %select.unfold.i.i ]
   %136 = add nsw i32 %.134, 1
   %137 = icmp slt i32 %136, %1
-  br i1 %137, label %10, label %._crit_edge, !llvm.loop !34
+  br i1 %137, label %10, label %._crit_edge, !llvm.loop !35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1308,7 +1308,7 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostE
   %6 = alloca %"class.url::RawCanonOutputT.0", align 8
   %7 = alloca %"class.url::RawCanonOutputT.2", align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %9 = load i32, ptr %8, align 4, !tbaa !18
+  %9 = load i32, ptr %8, align 4, !tbaa !19
   br i1 %2, label %10, label %22
 
 10:                                               ; preds = %4
@@ -1316,16 +1316,16 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostE
   br i1 %11, label %12, label %82
 
 12:                                               ; preds = %10
-  %13 = load i8, ptr %5, align 1, !tbaa !13, !range !22, !noundef !23
+  %13 = load i8, ptr %5, align 1, !tbaa !13, !range !23, !noundef !24
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %82
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !24
+  %17 = load ptr, ptr %16, align 8, !tbaa !25
   %18 = sext i32 %9 to i64
   %19 = getelementptr inbounds i8, ptr %17, i64 %18
-  %20 = load i32, ptr %8, align 4, !tbaa !18
+  %20 = load i32, ptr %8, align 4, !tbaa !19
   %21 = sub nsw i32 %20, %9
   br label %22
 
@@ -1336,9 +1336,9 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostE
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 1024, ptr %24, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %6, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %6, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %25, ptr %23, align 8, !tbaa !35
+  store ptr %25, ptr %23, align 8, !tbaa !36
   %26 = invoke noundef zeroext i1 @_ZN3url18ConvertUTF8ToUTF16EPKciPNS_12CanonOutputTItEE(ptr noundef %.031, i32 noundef %.030, ptr noundef nonnull %6)
           to label %27 unwind label %36
 
@@ -1350,9 +1350,9 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostE
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 1024, ptr %30, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %31, ptr %29, align 8, !tbaa !24
+  store ptr %31, ptr %29, align 8, !tbaa !25
   %32 = icmp sgt i32 %.030, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
@@ -1362,13 +1362,13 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostE
   br label %38
 
 ._crit_edge.loopexit:                             ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit
-  %.pre = load ptr, ptr %29, align 8, !tbaa !24
+  %.pre = load ptr, ptr %29, align 8, !tbaa !25
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %28
   %34 = phi i32 [ %57, %._crit_edge.loopexit ], [ 0, %28 ]
   %35 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %31, %28 ]
-  store i32 %9, ptr %8, align 4, !tbaa !18
+  store i32 %9, ptr %8, align 4, !tbaa !19
   invoke void @_ZN3url25AppendInvalidNarrowStringEPKciiPNS_12CanonOutputTIcEE(ptr noundef %35, i32 noundef 0, i32 noundef %34, ptr noundef nonnull %3)
           to label %60 unwind label %64
 
@@ -1378,7 +1378,7 @@ define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_113DoComplexHostE
   br label %78
 
 thread-pre-split:                                 ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit
-  %.pr = load i32, ptr %30, align 8, !tbaa !27
+  %.pr = load i32, ptr %30, align 8, !tbaa !28
   br label %38
 
 38:                                               ; preds = %thread-pre-split, %.lr.ph
@@ -1403,35 +1403,35 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.pre
 46:                                               ; preds = %select.unfold.i.i
   %47 = shl nsw i32 %.0.i.i, 1
   %.not.i = icmp sgt i32 %47, %39
-  br i1 %.not.i, label %48, label %select.unfold.i.i, !llvm.loop !28
+  br i1 %.not.i, label %48, label %select.unfold.i.i, !llvm.loop !29
 
 48:                                               ; preds = %46
-  %49 = load ptr, ptr %7, align 8, !tbaa !25
+  %49 = load ptr, ptr %7, align 8, !tbaa !26
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   invoke void %51(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %47)
           to label %.noexc unwind label %58
 
 .noexc:                                           ; preds = %48
-  %52 = load i32, ptr %33, align 4, !tbaa !18
+  %52 = load i32, ptr %33, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %38, %.noexc
   %.sink.i = phi i32 [ %52, %.noexc ], [ %40, %38 ]
-  %.sink3.i = load ptr, ptr %29, align 8, !tbaa !24
+  %.sink3.i = load ptr, ptr %29, align 8, !tbaa !25
   %53 = sext i32 %.sink.i to i64
   %54 = getelementptr inbounds i8, ptr %.sink3.i, i64 %53
   store i8 %42, ptr %54, align 1, !tbaa !15
-  %55 = load i32, ptr %33, align 4, !tbaa !18
+  %55 = load i32, ptr %33, align 4, !tbaa !19
   %56 = add nsw i32 %55, 1
-  store i32 %56, ptr %33, align 4, !tbaa !18
+  store i32 %56, ptr %33, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
   %57 = phi i32 [ %56, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i ], [ %40, %select.unfold.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %thread-pre-split, !llvm.loop !38
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %thread-pre-split, !llvm.loop !39
 
 58:                                               ; preds = %48
   %59 = landingpad { ptr, i32 }
@@ -1439,8 +1439,8 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, 
   br label %66
 
 60:                                               ; preds = %._crit_edge
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %61 = load ptr, ptr %29, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !26
+  %61 = load ptr, ptr %29, align 8, !tbaa !25
   %.not.i38 = icmp eq ptr %61, %31
   %62 = icmp eq ptr %61, null
   %or.cond.i = or i1 %.not.i38, %62
@@ -1461,8 +1461,8 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit:      ; preds = %60, %63
 
 66:                                               ; preds = %64, %58
   %.pn = phi { ptr, i32 } [ %59, %58 ], [ %65, %64 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !25
-  %67 = load ptr, ptr %29, align 8, !tbaa !24
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %7, align 8, !tbaa !26
+  %67 = load ptr, ptr %29, align 8, !tbaa !25
   %.not.i39 = icmp eq ptr %67, %31
   %68 = icmp eq ptr %67, null
   %or.cond.i40 = or i1 %.not.i39, %68
@@ -1477,16 +1477,16 @@ _ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit41:    ; preds = %69, %66
   br label %78
 
 70:                                               ; preds = %27
-  store i32 %9, ptr %8, align 4, !tbaa !18
-  %71 = load ptr, ptr %23, align 8, !tbaa !35
+  store i32 %9, ptr %8, align 4, !tbaa !19
+  %71 = load ptr, ptr %23, align 8, !tbaa !36
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  %73 = load i32, ptr %72, align 4, !tbaa !39
+  %73 = load i32, ptr %72, align 4, !tbaa !40
   invoke fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutputTIcEE(ptr noundef %71, i32 noundef %73, ptr noundef nonnull %3)
           to label %74 unwind label %36
 
 74:                                               ; preds = %70, %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %6, align 8, !tbaa !25
-  %75 = load ptr, ptr %23, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %6, align 8, !tbaa !26
+  %75 = load ptr, ptr %23, align 8, !tbaa !36
   %.not.i42 = icmp eq ptr %75, %25
   %76 = icmp eq ptr %75, null
   %or.cond.i43 = or i1 %.not.i42, %76
@@ -1502,8 +1502,8 @@ _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit:      ; preds = %74, %77
 
 78:                                               ; preds = %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit41, %36
   %.pn36 = phi { ptr, i32 } [ %37, %36 ], [ %.pn, %_ZN3url15RawCanonOutputTIcLi1024EED2Ev.exit41 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %6, align 8, !tbaa !25
-  %79 = load ptr, ptr %23, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %6, align 8, !tbaa !26
+  %79 = load ptr, ptr %23, align 8, !tbaa !36
   %.not.i44 = icmp eq ptr %79, %25
   %80 = icmp eq ptr %79, null
   %or.cond.i45 = or i1 %.not.i44, %80
@@ -1528,9 +1528,9 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi64EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -1548,9 +1548,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi64EED2Ev(ptr noundef nonnu
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN3url17AppendEscapedCharIjcEEvT_PNS_12CanonOutputTIT0_EE(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 comdat {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %4 = load i32, ptr %3, align 4, !tbaa !18
+  %4 = load i32, ptr %3, align 4, !tbaa !19
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = load i32, ptr %5, align 8, !tbaa !27
+  %6 = load i32, ptr %5, align 8, !tbaa !28
   %7 = icmp slt i32 %4, %6
   br i1 %7, label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i, label %select.unfold.i.preheader.i
 
@@ -1567,27 +1567,27 @@ select.unfold.i.i:                                ; preds = %select.unfold.i.pre
 10:                                               ; preds = %select.unfold.i.i
   %11 = shl nsw i32 %.0.i.i, 1
   %.not.i = icmp sgt i32 %11, %6
-  br i1 %.not.i, label %12, label %select.unfold.i.i, !llvm.loop !28
+  br i1 %.not.i, label %12, label %select.unfold.i.i, !llvm.loop !29
 
 12:                                               ; preds = %10
-  %13 = load ptr, ptr %1, align 8, !tbaa !25
+  %13 = load ptr, ptr %1, align 8, !tbaa !26
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %11)
-  %16 = load i32, ptr %3, align 4, !tbaa !18
+  %16 = load i32, ptr %3, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i: ; preds = %2, %12
   %.sink.i = phi i32 [ %16, %12 ], [ %4, %2 ]
   %.sink3.in.i = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sink3.i = load ptr, ptr %.sink3.in.i, align 8, !tbaa !24
+  %.sink3.i = load ptr, ptr %.sink3.in.i, align 8, !tbaa !25
   %17 = sext i32 %.sink.i to i64
   %18 = getelementptr inbounds i8, ptr %.sink3.i, i64 %17
   store i8 37, ptr %18, align 1, !tbaa !15
-  %19 = load i32, ptr %3, align 4, !tbaa !18
+  %19 = load i32, ptr %3, align 4, !tbaa !19
   %20 = add nsw i32 %19, 1
-  store i32 %20, ptr %3, align 4, !tbaa !18
-  %.pre = load i32, ptr %5, align 8, !tbaa !27
+  store i32 %20, ptr %3, align 4, !tbaa !19
+  %.pre = load i32, ptr %5, align 8, !tbaa !28
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit:        ; preds = %select.unfold.i.i, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i
@@ -1614,27 +1614,27 @@ select.unfold.i.i6:                               ; preds = %select.unfold.i.pre
 31:                                               ; preds = %select.unfold.i.i6
   %32 = shl nsw i32 %.0.i.i7, 1
   %.not.i8 = icmp sgt i32 %32, %21
-  br i1 %.not.i8, label %33, label %select.unfold.i.i6, !llvm.loop !28
+  br i1 %.not.i8, label %33, label %select.unfold.i.i6, !llvm.loop !29
 
 33:                                               ; preds = %31
-  %34 = load ptr, ptr %1, align 8, !tbaa !25
+  %34 = load ptr, ptr %1, align 8, !tbaa !26
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %32)
-  %37 = load i32, ptr %3, align 4, !tbaa !18
+  %37 = load i32, ptr %3, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit, %33
   %.sink.i10 = phi i32 [ %37, %33 ], [ %22, %_ZN3url12CanonOutputTIcE9push_backEc.exit ]
   %.sink3.in.i11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sink3.i12 = load ptr, ptr %.sink3.in.i11, align 8, !tbaa !24
+  %.sink3.i12 = load ptr, ptr %.sink3.in.i11, align 8, !tbaa !25
   %38 = sext i32 %.sink.i10 to i64
   %39 = getelementptr inbounds i8, ptr %.sink3.i12, i64 %38
   store i8 %27, ptr %39, align 1, !tbaa !15
-  %40 = load i32, ptr %3, align 4, !tbaa !18
+  %40 = load i32, ptr %3, align 4, !tbaa !19
   %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %3, align 4, !tbaa !18
-  %.pre32 = load i32, ptr %5, align 8, !tbaa !27
+  store i32 %41, ptr %3, align 4, !tbaa !19
+  %.pre32 = load i32, ptr %5, align 8, !tbaa !28
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit13
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit13:      ; preds = %select.unfold.i.i6, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i9
@@ -1660,26 +1660,26 @@ select.unfold.i.i16:                              ; preds = %select.unfold.i.pre
 51:                                               ; preds = %select.unfold.i.i16
   %52 = shl nsw i32 %.0.i.i17, 1
   %.not.i18 = icmp sgt i32 %52, %42
-  br i1 %.not.i18, label %53, label %select.unfold.i.i16, !llvm.loop !28
+  br i1 %.not.i18, label %53, label %select.unfold.i.i16, !llvm.loop !29
 
 53:                                               ; preds = %51
-  %54 = load ptr, ptr %1, align 8, !tbaa !25
+  %54 = load ptr, ptr %1, align 8, !tbaa !26
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %52)
-  %57 = load i32, ptr %3, align 4, !tbaa !18
+  %57 = load i32, ptr %3, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19
 
 _ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19: ; preds = %_ZN3url12CanonOutputTIcE9push_backEc.exit13, %53
   %.sink.i20 = phi i32 [ %57, %53 ], [ %43, %_ZN3url12CanonOutputTIcE9push_backEc.exit13 ]
   %.sink3.in.i21 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sink3.i22 = load ptr, ptr %.sink3.in.i21, align 8, !tbaa !24
+  %.sink3.i22 = load ptr, ptr %.sink3.in.i21, align 8, !tbaa !25
   %58 = sext i32 %.sink.i20 to i64
   %59 = getelementptr inbounds i8, ptr %.sink3.i22, i64 %58
   store i8 %47, ptr %59, align 1, !tbaa !15
-  %60 = load i32, ptr %3, align 4, !tbaa !18
+  %60 = load i32, ptr %3, align 4, !tbaa !19
   %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %3, align 4, !tbaa !18
+  store i32 %61, ptr %3, align 4, !tbaa !19
   br label %_ZN3url12CanonOutputTIcE9push_backEc.exit23
 
 _ZN3url12CanonOutputTIcE9push_backEc.exit23:      ; preds = %select.unfold.i.i16, %_ZN3url12CanonOutputTIcE4GrowEi.exit.sink.split.i19
@@ -1692,9 +1692,9 @@ declare void @_ZN3url25AppendInvalidNarrowStringEPKciiPNS_12CanonOutputTIcEE(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -1718,8 +1718,8 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutp
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 1024, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %8, ptr %6, align 8, !tbaa !35
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputWILi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
+  store ptr %8, ptr %6, align 8, !tbaa !36
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputWILi1024EEE, i64 16), ptr %4, align 8, !tbaa !26
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph.i, label %.loopexit
 
@@ -1751,7 +1751,7 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutp
   %storemerge140.i = phi i32 [ 0, %.lr.ph.i ], [ %258, %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i ]
   %21 = sext i32 %storemerge140.i to i64
   %22 = getelementptr inbounds i16, ptr %0, i64 %21
-  %23 = load i16, ptr %22, align 2, !tbaa !30
+  %23 = load i16, ptr %22, align 2, !tbaa !31
   %.sroa.0.0.extract.trunc.i = trunc i16 %23 to i8
   %24 = and i16 %23, -256
   %25 = icmp eq i16 %23, 37
@@ -1764,13 +1764,13 @@ define internal fastcc void @_ZN3url12_GLOBAL__N_19DoIDNHostEPKtiPNS_12CanonOutp
 
 29:                                               ; preds = %26
   %30 = getelementptr i8, ptr %22, i64 2
-  %31 = load i16, ptr %30, align 2, !tbaa !30
+  %31 = load i16, ptr %30, align 2, !tbaa !31
   %32 = icmp ult i16 %31, 256
   br i1 %32, label %33, label %62
 
 33:                                               ; preds = %29
   %34 = getelementptr i8, ptr %22, i64 4
-  %35 = load i16, ptr %34, align 2, !tbaa !30
+  %35 = load i16, ptr %34, align 2, !tbaa !31
   %36 = icmp ult i16 %35, 256
   br i1 %36, label %37, label %62
 
@@ -1809,7 +1809,7 @@ _ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i:      ; preds = %44
   br label %104
 
 62:                                               ; preds = %44, %37, %33, %29, %26
-  %63 = load i32, ptr %7, align 8, !tbaa !40
+  %63 = load i32, ptr %7, align 8, !tbaa !41
   %64 = icmp slt i32 %16, %63
   br i1 %64, label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i.i, label %select.unfold.i.preheader.i.i.i
 
@@ -1826,19 +1826,19 @@ select.unfold.i.i.i.i:                            ; preds = %select.unfold.i.pre
 67:                                               ; preds = %select.unfold.i.i.i.i
   %68 = shl nsw i32 %.0.i.i.i.i, 1
   %.not.i.i.i = icmp sgt i32 %68, %63
-  br i1 %.not.i.i.i, label %69, label %select.unfold.i.i.i.i, !llvm.loop !41
+  br i1 %.not.i.i.i, label %69, label %select.unfold.i.i.i.i, !llvm.loop !42
 
 69:                                               ; preds = %67
-  %70 = load ptr, ptr %4, align 8, !tbaa !25
+  %70 = load ptr, ptr %4, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = load ptr, ptr %71, align 8
   invoke void %72(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %68)
           to label %.noexc unwind label %270
 
 .noexc:                                           ; preds = %69
-  %73 = load i32, ptr %10, align 4, !tbaa !39
-  %.pre.pre.i.i = load i32, ptr %7, align 8, !tbaa !40
-  %.sink3.i.i.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %73 = load i32, ptr %10, align 4, !tbaa !40
+  %.pre.pre.i.i = load i32, ptr %7, align 8, !tbaa !41
+  %.sink3.i.i.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i.i
 
 _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i.i: ; preds = %.noexc, %62
@@ -1849,9 +1849,9 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i.i: ; preds = %.noexc, %62
   %.sink.i.i.i = phi i32 [ %73, %.noexc ], [ %16, %62 ]
   %74 = sext i32 %.sink.i.i.i to i64
   %75 = getelementptr inbounds i16, ptr %.sink3.i.i.i, i64 %74
-  store i16 37, ptr %75, align 2, !tbaa !30
+  store i16 37, ptr %75, align 2, !tbaa !31
   %76 = add nsw i32 %.sink.i.i.i, 1
-  store i32 %76, ptr %10, align 4, !tbaa !39
+  store i32 %76, ptr %10, align 4, !tbaa !40
   br label %_ZN3url12CanonOutputTItE9push_backEt.exit.i.i
 
 _ZN3url12CanonOutputTItE9push_backEt.exit.i.i:    ; preds = %select.unfold.i.i.i.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i.i
@@ -1884,19 +1884,19 @@ select.unfold.i.i6.i.i:                           ; preds = %select.unfold.i.pre
 82:                                               ; preds = %select.unfold.i.i6.i.i
   %83 = shl nsw i32 %.0.i.i7.i.i, 1
   %.not.i8.i.i = icmp sgt i32 %83, %78
-  br i1 %.not.i8.i.i, label %84, label %select.unfold.i.i6.i.i, !llvm.loop !41
+  br i1 %.not.i8.i.i, label %84, label %select.unfold.i.i6.i.i, !llvm.loop !42
 
 84:                                               ; preds = %82
-  %85 = load ptr, ptr %4, align 8, !tbaa !25
+  %85 = load ptr, ptr %4, align 8, !tbaa !26
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load ptr, ptr %86, align 8
   invoke void %87(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %83)
           to label %.noexc11 unwind label %270
 
 .noexc11:                                         ; preds = %84
-  %88 = load i32, ptr %10, align 4, !tbaa !39
-  %.pre32.pre.i.i = load i32, ptr %7, align 8, !tbaa !40
-  %.sink3.i12.i.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %88 = load i32, ptr %10, align 4, !tbaa !40
+  %.pre32.pre.i.i = load i32, ptr %7, align 8, !tbaa !41
+  %.sink3.i12.i.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i.i
 
 _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i.i: ; preds = %.noexc11, %_ZN3url12CanonOutputTItE9push_backEt.exit.i.i
@@ -1906,9 +1906,9 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i.i: ; preds = %.noexc11, %_Z
   %.sink.i10.i.i = phi i32 [ %88, %.noexc11 ], [ %77, %_ZN3url12CanonOutputTItE9push_backEt.exit.i.i ]
   %89 = sext i32 %.sink.i10.i.i to i64
   %90 = getelementptr inbounds i16, ptr %.sink3.i12.i.i, i64 %89
-  store i16 %12, ptr %90, align 2, !tbaa !30
+  store i16 %12, ptr %90, align 2, !tbaa !31
   %91 = add nsw i32 %.sink.i10.i.i, 1
-  store i32 %91, ptr %10, align 4, !tbaa !39
+  store i32 %91, ptr %10, align 4, !tbaa !40
   br label %_ZN3url12CanonOutputTItE9push_backEt.exit13.i.i
 
 _ZN3url12CanonOutputTItE9push_backEt.exit13.i.i:  ; preds = %select.unfold.i.i6.i.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i.i
@@ -1941,18 +1941,18 @@ select.unfold.i.i16.i.i:                          ; preds = %select.unfold.i.pre
 97:                                               ; preds = %select.unfold.i.i16.i.i
   %98 = shl nsw i32 %.0.i.i17.i.i, 1
   %.not.i18.i.i = icmp sgt i32 %98, %93
-  br i1 %.not.i18.i.i, label %99, label %select.unfold.i.i16.i.i, !llvm.loop !41
+  br i1 %.not.i18.i.i, label %99, label %select.unfold.i.i16.i.i, !llvm.loop !42
 
 99:                                               ; preds = %97
-  %100 = load ptr, ptr %4, align 8, !tbaa !25
+  %100 = load ptr, ptr %4, align 8, !tbaa !26
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load ptr, ptr %101, align 8
   invoke void %102(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %98)
           to label %.noexc12 unwind label %270
 
 .noexc12:                                         ; preds = %99
-  %103 = load i32, ptr %10, align 4, !tbaa !39
-  %.sink3.i22.i.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %103 = load i32, ptr %10, align 4, !tbaa !40
+  %.sink3.i22.i.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split
 
 104:                                              ; preds = %_ZN3url13DecodeEscapedItEEbPKT_PiiPh.exit.i, %15
@@ -1974,7 +1974,7 @@ select.unfold.i.i16.i.i:                          ; preds = %select.unfold.i.pre
   ]
 
 111:                                              ; preds = %107
-  %112 = load i32, ptr %7, align 8, !tbaa !40
+  %112 = load i32, ptr %7, align 8, !tbaa !41
   %113 = icmp slt i32 %18, %112
   br i1 %113, label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i46.i, label %select.unfold.i.preheader.i.i18.i
 
@@ -1991,19 +1991,19 @@ select.unfold.i.i.i20.i:                          ; preds = %select.unfold.i.pre
 116:                                              ; preds = %select.unfold.i.i.i20.i
   %117 = shl nsw i32 %.0.i.i.i21.i, 1
   %.not.i.i44.i = icmp sgt i32 %117, %112
-  br i1 %.not.i.i44.i, label %118, label %select.unfold.i.i.i20.i, !llvm.loop !41
+  br i1 %.not.i.i44.i, label %118, label %select.unfold.i.i.i20.i, !llvm.loop !42
 
 118:                                              ; preds = %116
-  %119 = load ptr, ptr %4, align 8, !tbaa !25
+  %119 = load ptr, ptr %4, align 8, !tbaa !26
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8
   invoke void %121(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %117)
           to label %.noexc13 unwind label %270
 
 .noexc13:                                         ; preds = %118
-  %122 = load i32, ptr %10, align 4, !tbaa !39
-  %.pre.pre.i45.i = load i32, ptr %7, align 8, !tbaa !40
-  %.sink3.i.i50.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %122 = load i32, ptr %10, align 4, !tbaa !40
+  %.pre.pre.i45.i = load i32, ptr %7, align 8, !tbaa !41
+  %.sink3.i.i50.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i46.i
 
 _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i46.i: ; preds = %.noexc13, %111
@@ -2018,9 +2018,9 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i46.i: ; preds = %.noexc13, %1
   %.sink.i.i48.i = phi i32 [ %122, %.noexc13 ], [ %18, %111 ]
   %123 = sext i32 %.sink.i.i48.i to i64
   %124 = getelementptr inbounds i16, ptr %.sink3.i.i50.i, i64 %123
-  store i16 37, ptr %124, align 2, !tbaa !30
+  store i16 37, ptr %124, align 2, !tbaa !31
   %125 = add nsw i32 %.sink.i.i48.i, 1
-  store i32 %125, ptr %10, align 4, !tbaa !39
+  store i32 %125, ptr %10, align 4, !tbaa !40
   br label %_ZN3url12CanonOutputTItE9push_backEt.exit.i22.i
 
 _ZN3url12CanonOutputTItE9push_backEt.exit.i22.i:  ; preds = %select.unfold.i.i.i20.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i46.i
@@ -2060,19 +2060,19 @@ select.unfold.i.i6.i25.i:                         ; preds = %select.unfold.i.pre
 138:                                              ; preds = %select.unfold.i.i6.i25.i
   %139 = shl nsw i32 %.0.i.i7.i26.i, 1
   %.not.i8.i37.i = icmp sgt i32 %139, %129
-  br i1 %.not.i8.i37.i, label %140, label %select.unfold.i.i6.i25.i, !llvm.loop !41
+  br i1 %.not.i8.i37.i, label %140, label %select.unfold.i.i6.i25.i, !llvm.loop !42
 
 140:                                              ; preds = %138
-  %141 = load ptr, ptr %4, align 8, !tbaa !25
+  %141 = load ptr, ptr %4, align 8, !tbaa !26
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
   invoke void %143(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %139)
           to label %.noexc14 unwind label %270
 
 .noexc14:                                         ; preds = %140
-  %144 = load i32, ptr %10, align 4, !tbaa !39
-  %.pre32.pre.i38.i = load i32, ptr %7, align 8, !tbaa !40
-  %.sink3.i12.i43.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %144 = load i32, ptr %10, align 4, !tbaa !40
+  %.pre32.pre.i38.i = load i32, ptr %7, align 8, !tbaa !41
+  %.sink3.i12.i43.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i39.i
 
 _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i39.i: ; preds = %.noexc14, %_ZN3url12CanonOutputTItE9push_backEt.exit.i22.i
@@ -2086,9 +2086,9 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i39.i: ; preds = %.noexc14, %
   %.sink.i10.i41.i = phi i32 [ %144, %.noexc14 ], [ %128, %_ZN3url12CanonOutputTItE9push_backEt.exit.i22.i ]
   %145 = sext i32 %.sink.i10.i41.i to i64
   %146 = getelementptr inbounds i16, ptr %.sink3.i12.i43.i, i64 %145
-  store i16 %134, ptr %146, align 2, !tbaa !30
+  store i16 %134, ptr %146, align 2, !tbaa !31
   %147 = add nsw i32 %.sink.i10.i41.i, 1
-  store i32 %147, ptr %10, align 4, !tbaa !39
+  store i32 %147, ptr %10, align 4, !tbaa !40
   br label %_ZN3url12CanonOutputTItE9push_backEt.exit13.i27.i
 
 _ZN3url12CanonOutputTItE9push_backEt.exit13.i27.i: ; preds = %select.unfold.i.i6.i25.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i39.i
@@ -2128,22 +2128,22 @@ select.unfold.i.i16.i30.i:                        ; preds = %select.unfold.i.pre
 160:                                              ; preds = %select.unfold.i.i16.i30.i
   %161 = shl nsw i32 %.0.i.i17.i31.i, 1
   %.not.i18.i32.i = icmp sgt i32 %161, %151
-  br i1 %.not.i18.i32.i, label %162, label %select.unfold.i.i16.i30.i, !llvm.loop !41
+  br i1 %.not.i18.i32.i, label %162, label %select.unfold.i.i16.i30.i, !llvm.loop !42
 
 162:                                              ; preds = %160
-  %163 = load ptr, ptr %4, align 8, !tbaa !25
+  %163 = load ptr, ptr %4, align 8, !tbaa !26
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %165 = load ptr, ptr %164, align 8
   invoke void %165(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %161)
           to label %.noexc15 unwind label %270
 
 .noexc15:                                         ; preds = %162
-  %166 = load i32, ptr %10, align 4, !tbaa !39
-  %.sink3.i22.i36.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %166 = load i32, ptr %10, align 4, !tbaa !40
+  %.sink3.i22.i36.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split
 
 167:                                              ; preds = %107
-  %168 = load i32, ptr %7, align 8, !tbaa !40
+  %168 = load i32, ptr %7, align 8, !tbaa !41
   %169 = icmp slt i32 %19, %168
   br i1 %169, label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i79.i, label %select.unfold.i.preheader.i.i51.i
 
@@ -2160,19 +2160,19 @@ select.unfold.i.i.i53.i:                          ; preds = %select.unfold.i.pre
 172:                                              ; preds = %select.unfold.i.i.i53.i
   %173 = shl nsw i32 %.0.i.i.i54.i, 1
   %.not.i.i77.i = icmp sgt i32 %173, %168
-  br i1 %.not.i.i77.i, label %174, label %select.unfold.i.i.i53.i, !llvm.loop !41
+  br i1 %.not.i.i77.i, label %174, label %select.unfold.i.i.i53.i, !llvm.loop !42
 
 174:                                              ; preds = %172
-  %175 = load ptr, ptr %4, align 8, !tbaa !25
+  %175 = load ptr, ptr %4, align 8, !tbaa !26
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load ptr, ptr %176, align 8
   invoke void %177(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %173)
           to label %.noexc16 unwind label %270
 
 .noexc16:                                         ; preds = %174
-  %178 = load i32, ptr %10, align 4, !tbaa !39
-  %.pre.pre.i78.i = load i32, ptr %7, align 8, !tbaa !40
-  %.sink3.i.i83.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %178 = load i32, ptr %10, align 4, !tbaa !40
+  %.pre.pre.i78.i = load i32, ptr %7, align 8, !tbaa !41
+  %.sink3.i.i83.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i79.i
 
 _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i79.i: ; preds = %.noexc16, %167
@@ -2190,9 +2190,9 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i79.i: ; preds = %.noexc16, %1
   %.sink.i.i81.i = phi i32 [ %178, %.noexc16 ], [ %19, %167 ]
   %179 = sext i32 %.sink.i.i81.i to i64
   %180 = getelementptr inbounds i16, ptr %.sink3.i.i83.i, i64 %179
-  store i16 37, ptr %180, align 2, !tbaa !30
+  store i16 37, ptr %180, align 2, !tbaa !31
   %181 = add nsw i32 %.sink.i.i81.i, 1
-  store i32 %181, ptr %10, align 4, !tbaa !39
+  store i32 %181, ptr %10, align 4, !tbaa !40
   br label %_ZN3url12CanonOutputTItE9push_backEt.exit.i55.i
 
 _ZN3url12CanonOutputTItE9push_backEt.exit.i55.i:  ; preds = %select.unfold.i.i.i53.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i.i79.i
@@ -2233,19 +2233,19 @@ select.unfold.i.i6.i58.i:                         ; preds = %select.unfold.i.pre
 195:                                              ; preds = %select.unfold.i.i6.i58.i
   %196 = shl nsw i32 %.0.i.i7.i59.i, 1
   %.not.i8.i70.i = icmp sgt i32 %196, %186
-  br i1 %.not.i8.i70.i, label %197, label %select.unfold.i.i6.i58.i, !llvm.loop !41
+  br i1 %.not.i8.i70.i, label %197, label %select.unfold.i.i6.i58.i, !llvm.loop !42
 
 197:                                              ; preds = %195
-  %198 = load ptr, ptr %4, align 8, !tbaa !25
+  %198 = load ptr, ptr %4, align 8, !tbaa !26
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load ptr, ptr %199, align 8
   invoke void %200(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %196)
           to label %.noexc17 unwind label %270
 
 .noexc17:                                         ; preds = %197
-  %201 = load i32, ptr %10, align 4, !tbaa !39
-  %.pre32.pre.i71.i = load i32, ptr %7, align 8, !tbaa !40
-  %.sink3.i12.i76.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %201 = load i32, ptr %10, align 4, !tbaa !40
+  %.pre32.pre.i71.i = load i32, ptr %7, align 8, !tbaa !41
+  %.sink3.i12.i76.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i72.i
 
 _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i72.i: ; preds = %.noexc17, %_ZN3url12CanonOutputTItE9push_backEt.exit.i55.i
@@ -2262,9 +2262,9 @@ _ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i72.i: ; preds = %.noexc17, %
   %.sink.i10.i74.i = phi i32 [ %201, %.noexc17 ], [ %185, %_ZN3url12CanonOutputTItE9push_backEt.exit.i55.i ]
   %202 = sext i32 %.sink.i10.i74.i to i64
   %203 = getelementptr inbounds i16, ptr %.sink3.i12.i76.i, i64 %202
-  store i16 %191, ptr %203, align 2, !tbaa !30
+  store i16 %191, ptr %203, align 2, !tbaa !31
   %204 = add nsw i32 %.sink.i10.i74.i, 1
-  store i32 %204, ptr %10, align 4, !tbaa !39
+  store i32 %204, ptr %10, align 4, !tbaa !40
   br label %_ZN3url12CanonOutputTItE9push_backEt.exit13.i60.i
 
 _ZN3url12CanonOutputTItE9push_backEt.exit13.i60.i: ; preds = %select.unfold.i.i6.i58.i, %_ZN3url12CanonOutputTItE4GrowEi.exit.sink.split.i9.i72.i
@@ -2305,23 +2305,23 @@ select.unfold.i.i16.i63.i:                        ; preds = %select.unfold.i.pre
 218:                                              ; preds = %select.unfold.i.i16.i63.i
   %219 = shl nsw i32 %.0.i.i17.i64.i, 1
   %.not.i18.i65.i = icmp sgt i32 %219, %209
-  br i1 %.not.i18.i65.i, label %220, label %select.unfold.i.i16.i63.i, !llvm.loop !41
+  br i1 %.not.i18.i65.i, label %220, label %select.unfold.i.i16.i63.i, !llvm.loop !42
 
 220:                                              ; preds = %218
-  %221 = load ptr, ptr %4, align 8, !tbaa !25
+  %221 = load ptr, ptr %4, align 8, !tbaa !26
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %223 = load ptr, ptr %222, align 8
   invoke void %223(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %219)
           to label %.noexc18 unwind label %270
 
 .noexc18:                                         ; preds = %220
-  %224 = load i32, ptr %10, align 4, !tbaa !39
-  %.sink3.i22.i69.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %224 = load i32, ptr %10, align 4, !tbaa !40
+  %.sink3.i22.i69.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split
 
 225:                                              ; preds = %107
   %226 = zext i8 %110 to i16
-  %227 = load i32, ptr %7, align 8, !tbaa !40
+  %227 = load i32, ptr %7, align 8, !tbaa !41
   %228 = icmp slt i32 %17, %227
   br i1 %228, label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split, label %select.unfold.i.preheader.i.i
 
@@ -2338,22 +2338,22 @@ select.unfold.i.i.i:                              ; preds = %select.unfold.i.pre
 231:                                              ; preds = %select.unfold.i.i.i
   %232 = shl nsw i32 %.0.i.i.i, 1
   %.not.i86.i = icmp sgt i32 %232, %227
-  br i1 %.not.i86.i, label %233, label %select.unfold.i.i.i, !llvm.loop !41
+  br i1 %.not.i86.i, label %233, label %select.unfold.i.i.i, !llvm.loop !42
 
 233:                                              ; preds = %231
-  %234 = load ptr, ptr %4, align 8, !tbaa !25
+  %234 = load ptr, ptr %4, align 8, !tbaa !26
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 16
   %236 = load ptr, ptr %235, align 8
   invoke void %236(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %232)
           to label %.noexc19 unwind label %270
 
 .noexc19:                                         ; preds = %233
-  %237 = load i32, ptr %10, align 4, !tbaa !39
-  %.sink3.i.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %237 = load i32, ptr %10, align 4, !tbaa !40
+  %.sink3.i.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split
 
 238:                                              ; preds = %104
-  %239 = load i32, ptr %7, align 8, !tbaa !40
+  %239 = load i32, ptr %7, align 8, !tbaa !41
   %240 = icmp slt i32 %20, %239
   br i1 %240, label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split, label %select.unfold.i.preheader.i87.i
 
@@ -2370,18 +2370,18 @@ select.unfold.i.i89.i:                            ; preds = %select.unfold.i.pre
 243:                                              ; preds = %select.unfold.i.i89.i
   %244 = shl nsw i32 %.0.i.i90.i, 1
   %.not.i91.i = icmp sgt i32 %244, %239
-  br i1 %.not.i91.i, label %245, label %select.unfold.i.i89.i, !llvm.loop !41
+  br i1 %.not.i91.i, label %245, label %select.unfold.i.i89.i, !llvm.loop !42
 
 245:                                              ; preds = %243
-  %246 = load ptr, ptr %4, align 8, !tbaa !25
+  %246 = load ptr, ptr %4, align 8, !tbaa !26
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %248 = load ptr, ptr %247, align 8
   invoke void %248(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %244)
           to label %.noexc20 unwind label %270
 
 .noexc20:                                         ; preds = %245
-  %249 = load i32, ptr %10, align 4, !tbaa !39
-  %.sink3.i95.i.pre = load ptr, ptr %6, align 8, !tbaa !35
+  %249 = load i32, ptr %10, align 4, !tbaa !40
+  %.sink3.i95.i.pre = load ptr, ptr %6, align 8, !tbaa !36
   br label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split
 
 _ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split: ; preds = %238, %.noexc20, %225, %.noexc19, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i60.i, %.noexc18, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i27.i, %.noexc15, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i.i, %.noexc12
@@ -2401,9 +2401,9 @@ _ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split: ; 
   %.1101.i.ph = phi i32 [ %storemerge140.i, %.noexc12 ], [ %storemerge140.i, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i.i ], [ %.0100.i, %.noexc15 ], [ %.0100.i, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i27.i ], [ %.0100.i, %.noexc18 ], [ %.0100.i, %_ZN3url12CanonOutputTItE9push_backEt.exit13.i60.i ], [ %.0100.i, %.noexc19 ], [ %.0100.i, %225 ], [ %.0100.i, %.noexc20 ], [ %.0100.i, %238 ]
   %250 = sext i32 %.sink.i93.i.sink271 to i64
   %251 = getelementptr inbounds i16, ptr %.sink3.i95.i.sink, i64 %250
-  store i16 %.sroa.0.0.insert.insert126.i.sink, ptr %251, align 2, !tbaa !30
+  store i16 %.sroa.0.0.insert.insert126.i.sink, ptr %251, align 2, !tbaa !31
   %252 = add nsw i32 %.sink.i93.i.sink271, 1
-  store i32 %252, ptr %10, align 4, !tbaa !39
+  store i32 %252, ptr %10, align 4, !tbaa !40
   br label %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i
 
 _ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %select.unfold.i.i89.i, %select.unfold.i.i16.i63.i, %select.unfold.i.i16.i30.i, %select.unfold.i.i.i, %select.unfold.i.i16.i.i, %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split
@@ -2426,22 +2426,22 @@ _ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %se
   %.1101.i = phi i32 [ %.1101.i.ph, %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i.sink.split ], [ %storemerge140.i, %select.unfold.i.i16.i.i ], [ %.0100.i, %select.unfold.i.i.i ], [ %.0100.i, %select.unfold.i.i16.i30.i ], [ %.0100.i, %select.unfold.i.i16.i63.i ], [ %.0100.i, %select.unfold.i.i89.i ]
   %258 = add nsw i32 %.1101.i, 1
   %259 = icmp slt i32 %258, %1
-  br i1 %259, label %15, label %.loopexit, !llvm.loop !42
+  br i1 %259, label %15, label %.loopexit, !llvm.loop !43
 
 .loopexit:                                        ; preds = %_ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i, %3
   call void @llvm.lifetime.start.p0(i64 2072, ptr nonnull %5) #10
   %260 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %261 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 1024, ptr %261, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %5, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %5, align 8, !tbaa !26
   %262 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr %262, ptr %260, align 8, !tbaa !35
+  store ptr %262, ptr %260, align 8, !tbaa !36
   invoke void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr noundef %0, i32 noundef 0, i32 noundef %1, ptr noundef nonnull %2)
           to label %263 unwind label %272
 
 263:                                              ; preds = %.loopexit
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %5, align 8, !tbaa !25
-  %264 = load ptr, ptr %260, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %5, align 8, !tbaa !26
+  %264 = load ptr, ptr %260, align 8, !tbaa !36
   %.not.i = icmp eq ptr %264, %262
   %265 = icmp eq ptr %264, null
   %or.cond.i = or i1 %.not.i, %265
@@ -2453,8 +2453,8 @@ _ZN3url17AppendEscapedCharIctEEvT_PNS_12CanonOutputTIT0_EE.exit.i: ; preds = %se
 
 _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit:      ; preds = %263, %266
   call void @llvm.lifetime.end.p0(i64 2072, ptr nonnull %5) #10
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
-  %267 = load ptr, ptr %6, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %4, align 8, !tbaa !26
+  %267 = load ptr, ptr %6, align 8, !tbaa !36
   %.not.i21 = icmp eq ptr %267, %8
   %268 = icmp eq ptr %267, null
   %or.cond.i22 = or i1 %.not.i21, %268
@@ -2476,8 +2476,8 @@ _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit23:    ; preds = %_ZN3url15RawCanonOu
 272:                                              ; preds = %.loopexit
   %273 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %5, align 8, !tbaa !25
-  %274 = load ptr, ptr %260, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %5, align 8, !tbaa !26
+  %274 = load ptr, ptr %260, align 8, !tbaa !36
   %.not.i24 = icmp eq ptr %274, %262
   %275 = icmp eq ptr %274, null
   %or.cond.i25 = or i1 %.not.i24, %275
@@ -2493,8 +2493,8 @@ _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit26:    ; preds = %276, %272
 
 277:                                              ; preds = %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit26, %270
   %.pn.pn = phi { ptr, i32 } [ %273, %_ZN3url15RawCanonOutputTItLi1024EED2Ev.exit26 ], [ %271, %270 ]
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %4, align 8, !tbaa !25
-  %278 = load ptr, ptr %6, align 8, !tbaa !35
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %4, align 8, !tbaa !26
+  %278 = load ptr, ptr %6, align 8, !tbaa !36
   %.not.i27 = icmp eq ptr %278, %8
   %279 = icmp eq ptr %278, null
   %or.cond.i28 = or i1 %.not.i27, %279
@@ -2511,9 +2511,9 @@ _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit29:    ; preds = %277, %280
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED2Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -2530,9 +2530,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED2Ev(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -2556,9 +2556,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EE6ResizeEi(ptr nounde
   %6 = select i1 %4, i64 -1, i64 %5
   %7 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %6) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !35
+  %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %11 = load i32, ptr %10, align 4, !tbaa !39
+  %11 = load i32, ptr %10, align 4, !tbaa !40
   %. = tail call i32 @llvm.smin.i32(i32 %11, i32 %1)
   %12 = sext i32 %. to i64
   %13 = shl nsw i64 %12, 1
@@ -2574,9 +2574,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTItLi1024EE6ResizeEi(ptr nounde
   br label %17
 
 17:                                               ; preds = %16, %2
-  store ptr %7, ptr %8, align 8, !tbaa !35
+  store ptr %7, ptr %8, align 8, !tbaa !36
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %18, align 8, !tbaa !40
+  store i32 %1, ptr %18, align 8, !tbaa !41
   ret void
 }
 
@@ -2591,9 +2591,9 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -2615,9 +2615,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr nounde
   %3 = sext i32 %narrow to i64
   %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !18
+  %8 = load i32, ptr %7, align 4, !tbaa !19
   %. = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
   %9 = sext i32 %. to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %6, i64 %9, i1 false)
@@ -2632,9 +2632,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi1024EE6ResizeEi(ptr nounde
   br label %13
 
 13:                                               ; preds = %12, %2
-  store ptr %4, ptr %5, align 8, !tbaa !24
+  store ptr %4, ptr %5, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %14, align 8, !tbaa !27
+  store i32 %1, ptr %14, align 8, !tbaa !28
   ret void
 }
 
@@ -2642,9 +2642,9 @@ declare void @_ZN3url25AppendInvalidNarrowStringEPKtiiPNS_12CanonOutputTIcEE(ptr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputWILi1024EED0Ev(ptr noundef nonnull align 8 dereferenceable(2072) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTItLi1024EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !35
+  %3 = load ptr, ptr %2, align 8, !tbaa !36
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -2662,9 +2662,9 @@ _ZN3url15RawCanonOutputTItLi1024EED2Ev.exit:      ; preds = %1, %6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url14RawCanonOutputILi64EED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -2686,9 +2686,9 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi64EE6ResizeEi(ptr noundef 
   %3 = sext i32 %narrow to i64
   %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %3) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %8 = load i32, ptr %7, align 4, !tbaa !18
+  %8 = load i32, ptr %7, align 4, !tbaa !19
   %. = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
   %9 = sext i32 %. to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %4, ptr align 1 %6, i64 %9, i1 false)
@@ -2703,17 +2703,17 @@ define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi64EE6ResizeEi(ptr noundef 
   br label %13
 
 13:                                               ; preds = %12, %2
-  store ptr %4, ptr %5, align 8, !tbaa !24
+  store ptr %4, ptr %5, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %1, ptr %14, align 8, !tbaa !27
+  store i32 %1, ptr %14, align 8, !tbaa !28
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3url15RawCanonOutputTIcLi64EED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %0, align 8, !tbaa !25
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3url15RawCanonOutputTIcLi64EEE, i64 16), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not.i = icmp eq ptr %3, %4
   %5 = icmp eq ptr %3, null
@@ -2769,30 +2769,31 @@ attributes #12 = { builtin allocsize(0) }
 !13 = !{!14, !14, i64 0}
 !14 = !{!"bool", !6, i64 0}
 !15 = !{!6, !6, i64 0}
-!16 = distinct !{!16, !17}
+!16 = distinct !{!16, !17, !18}
 !17 = !{!"llvm.loop.mustprogress"}
-!18 = !{!19, !8, i64 20}
-!19 = !{!"_ZTSN3url12CanonOutputTIcEE", !20, i64 8, !8, i64 16, !8, i64 20}
-!20 = !{!"p1 omnipotent char", !21, i64 0}
-!21 = !{!"any pointer", !6, i64 0}
-!22 = !{i8 0, i8 2}
-!23 = !{}
-!24 = !{!19, !20, i64 8}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"vtable pointer", !7, i64 0}
-!27 = !{!19, !8, i64 16}
-!28 = distinct !{!28, !17}
-!29 = distinct !{!29, !17}
-!30 = !{!31, !31, i64 0}
-!31 = !{!"short", !6, i64 0}
-!32 = distinct !{!32, !17}
-!33 = distinct !{!33, !17}
-!34 = distinct !{!34, !17}
-!35 = !{!36, !37, i64 8}
-!36 = !{!"_ZTSN3url12CanonOutputTItEE", !37, i64 8, !8, i64 16, !8, i64 20}
-!37 = !{!"p1 short", !21, i64 0}
-!38 = distinct !{!38, !17}
-!39 = !{!36, !8, i64 20}
-!40 = !{!36, !8, i64 16}
-!41 = distinct !{!41, !17}
-!42 = distinct !{!42, !17}
+!18 = !{!"llvm.loop.estimated_trip_count"}
+!19 = !{!20, !8, i64 20}
+!20 = !{!"_ZTSN3url12CanonOutputTIcEE", !21, i64 8, !8, i64 16, !8, i64 20}
+!21 = !{!"p1 omnipotent char", !22, i64 0}
+!22 = !{!"any pointer", !6, i64 0}
+!23 = !{i8 0, i8 2}
+!24 = !{}
+!25 = !{!20, !21, i64 8}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"vtable pointer", !7, i64 0}
+!28 = !{!20, !8, i64 16}
+!29 = distinct !{!29, !17, !18}
+!30 = distinct !{!30, !17, !18}
+!31 = !{!32, !32, i64 0}
+!32 = !{!"short", !6, i64 0}
+!33 = distinct !{!33, !17, !18}
+!34 = distinct !{!34, !17, !18}
+!35 = distinct !{!35, !17, !18}
+!36 = !{!37, !38, i64 8}
+!37 = !{!"_ZTSN3url12CanonOutputTItEE", !38, i64 8, !8, i64 16, !8, i64 20}
+!38 = !{!"p1 short", !22, i64 0}
+!39 = distinct !{!39, !17, !18}
+!40 = !{!37, !8, i64 20}
+!41 = !{!37, !8, i64 16}
+!42 = distinct !{!42, !17, !18}
+!43 = distinct !{!43, !17, !18}

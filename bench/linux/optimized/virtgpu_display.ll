@@ -209,7 +209,7 @@ define dso_local void @virtio_gpu_modeset_fini(ptr noundef readonly captures(non
   %11 = add nuw i32 %7, 1
   %12 = load i32, ptr %2, align 8
   %13 = icmp ult i32 %11, %12
-  br i1 %13, label %6, label %.loopexit, !llvm.loop !10
+  br i1 %13, label %6, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %6, %1
   ret void
@@ -241,20 +241,20 @@ define internal noundef ptr @virtio_gpu_user_framebuffer_create(ptr noundef %0, 
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %11
-  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #6, !srcloc !11
+  %16 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #6, !srcloc !12
   %17 = icmp eq i32 %16, 1
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %15
   %19 = icmp sgt i32 %16, 0
-  br i1 %19, label %.thread, label %20, !prof !12
+  br i1 %19, label %.thread, label %20, !prof !13
 
 20:                                               ; preds = %18
   tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #6
   br label %.thread
 
 21:                                               ; preds = %15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
   br label %33
 
 22:                                               ; preds = %11
@@ -268,20 +268,20 @@ define internal noundef ptr @virtio_gpu_user_framebuffer_create(ptr noundef %0, 
 26:                                               ; preds = %22
   store ptr null, ptr %23, align 8
   tail call void @kfree(ptr noundef nonnull %13) #6
-  %27 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #6, !srcloc !11
+  %27 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %9, i32 -1, ptr nonnull elementtype(i32) %9) #6, !srcloc !12
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %26
   %30 = icmp sgt i32 %27, 0
-  br i1 %30, label %.thread, label %31, !prof !12
+  br i1 %30, label %.thread, label %31, !prof !13
 
 31:                                               ; preds = %29
   tail call void @refcount_warn_saturate(ptr noundef nonnull %9, i32 noundef 3) #6
   br label %.thread
 
 32:                                               ; preds = %26
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !13
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
   br label %33
 
 33:                                               ; preds = %32, %21
@@ -620,10 +620,11 @@ attributes #7 = { nounwind allocsize(2) }
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
 !5 = !{i8 0, i8 2}
 !6 = !{}
-!7 = distinct !{!7, !8, !9}
+!7 = distinct !{!7, !8, !9, !10}
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = !{!"llvm.loop.unroll.disable"}
-!10 = distinct !{!10, !8, !9}
-!11 = !{i64 2148827178, i64 2148827217, i64 2148827238, i64 2148827275, i64 2148827298, i64 2148827307}
-!12 = !{!"branch_weights", i32 2000, i32 1}
-!13 = !{i64 2150302418}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !8, !9, !10}
+!12 = !{i64 2148827178, i64 2148827217, i64 2148827238, i64 2148827275, i64 2148827298, i64 2148827307}
+!13 = !{!"branch_weights", i32 2000, i32 1}
+!14 = !{i64 2150302418}

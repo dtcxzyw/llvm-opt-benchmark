@@ -911,7 +911,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %171 = sext i32 %.3159 to i64
   %172 = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %170, i64 %171
   %173 = getelementptr i8, ptr %172, i64 -1
-  %174 = load i8, ptr %173, align 1, !tbaa !48
+  %174 = load i8, ptr %173, align 1, !tbaa !49
   %.mask.i193 = and i8 %174, -16
   %175 = icmp eq i8 %.mask.i193, 32
   %176 = icmp eq i8 %174, 1
@@ -935,7 +935,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
   %indvars.iv430.in = phi i64 [ %180, %.lr.ph375.preheader ], [ %indvars.iv430, %187 ]
   %indvars.iv430 = add nsw i64 %indvars.iv430.in, -1
   %183 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %170, i64 %indvars.iv430
-  %184 = load i8, ptr %183, align 1, !tbaa !48
+  %184 = load i8, ptr %183, align 1, !tbaa !49
   %.mask.i197 = and i8 %184, -16
   %185 = icmp eq i8 %.mask.i197, 32
   %186 = icmp eq i8 %184, 1
@@ -944,7 +944,7 @@ define noundef zeroext i1 @_ZNK6icu_7731FormattedValueStringBuilderImpl16nextPos
 
 187:                                              ; preds = %.lr.ph375
   %.not184.not = icmp sgt i64 %indvars.iv430, %181
-  br i1 %.not184.not, label %.lr.ph375, label %.critedge11, !llvm.loop !49
+  br i1 %.not184.not, label %.lr.ph375, label %.critedge11, !llvm.loop !50
 
 .critedge11.split.loop.exit:                      ; preds = %.lr.ph375
   %188 = trunc nsw i64 %indvars.iv430 to i32
@@ -1082,7 +1082,7 @@ switch.early.test:                                ; preds = %.critedge13
   %250 = load i32, ptr %48, align 4, !tbaa !40
   %251 = add nsw i32 %250, %249
   %.not.not = icmp slt i32 %.2158262, %251
-  br i1 %.not.not, label %64, label %.thread291.loopexit, !llvm.loop !50
+  br i1 %.not.not, label %64, label %.thread291.loopexit, !llvm.loop !51
 
 .thread291.loopexit:                              ; preds = %.thread252, %.critedge15..thread291.loopexit_crit_edge
   %.pre436 = phi i32 [ %.pre436.pre, %.critedge15..thread291.loopexit_crit_edge ], [ %250, %.thread252 ]
@@ -1106,7 +1106,7 @@ switch.early.test:                                ; preds = %.critedge13
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7731FormattedValueStringBuilderImpl17nextFieldPositionERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.icu_77::ConstrainedFieldPosition", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %6 = load i32, ptr %5, align 8, !tbaa !51
+  %6 = load i32, ptr %5, align 8, !tbaa !52
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %53, label %8
 
@@ -1126,9 +1126,9 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7731FormattedValueStringBuild
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %13 = load i32, ptr %12, align 4, !tbaa !54
+  %13 = load i32, ptr %12, align 4, !tbaa !55
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i32, ptr %14, align 8, !tbaa !55
+  %15 = load i32, ptr %14, align 8, !tbaa !56
   invoke void @_ZN6icu_7724ConstrainedFieldPosition8setStateEiiii(ptr noundef nonnull align 8 dereferenceable(25) %4, i32 noundef 2, i32 noundef %6, i32 noundef %13, i32 noundef %15)
           to label %16 unwind label %24
 
@@ -1141,8 +1141,8 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7731FormattedValueStringBuild
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %21 = load i32, ptr %20, align 4, !tbaa !56
-  store i32 %21, ptr %12, align 4, !tbaa !54
+  %21 = load i32, ptr %20, align 4, !tbaa !57
+  store i32 %21, ptr %12, align 4, !tbaa !55
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %23 = load i32, ptr %22, align 8, !tbaa !39
   br label %.sink.split
@@ -1201,7 +1201,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7731FormattedValueStringBuild
   %.130 = phi i1 [ false, %48 ], [ true, %46 ], [ true, %46 ], [ true, %46 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %49 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %49, label %46, label %._crit_edge, !llvm.loop !57
+  br i1 %49, label %46, label %._crit_edge, !llvm.loop !58
 
 ._crit_edge.loopexit.split.loop.exit:             ; preds = %48
   %50 = trunc nsw i64 %indvars.iv to i32
@@ -1210,13 +1210,13 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7731FormattedValueStringBuild
 ._crit_edge:                                      ; preds = %.critedge, %._crit_edge.loopexit.split.loop.exit, %30
   %.028.lcssa = phi i32 [ %32, %30 ], [ %50, %._crit_edge.loopexit.split.loop.exit ], [ %smax, %.critedge ]
   %51 = sub nsw i32 %.028.lcssa, %32
-  store i32 %51, ptr %12, align 4, !tbaa !54
+  store i32 %51, ptr %12, align 4, !tbaa !55
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %._crit_edge
   %.sink = phi i32 [ %51, %._crit_edge ], [ %23, %19 ]
   %.1.ph = phi i8 [ 0, %._crit_edge ], [ 1, %19 ]
-  store i32 %.sink, ptr %14, align 8, !tbaa !55
+  store i32 %.sink, ptr %14, align 8, !tbaa !56
   br label %52
 
 52:                                               ; preds = %.sink.split, %26
@@ -1266,13 +1266,13 @@ define void @_ZNK6icu_7731FormattedValueStringBuilderImpl20getAllFieldPositionsE
 
 11:                                               ; preds = %10
   %12 = load i32, ptr %5, align 8, !tbaa !37
-  %13 = load i32, ptr %6, align 4, !tbaa !56
+  %13 = load i32, ptr %6, align 4, !tbaa !57
   %14 = load i32, ptr %7, align 8, !tbaa !39
   %15 = load ptr, ptr %1, align 8, !tbaa !15
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %12, i32 noundef %13, i32 noundef %14)
-          to label %8 unwind label %18, !llvm.loop !58
+          to label %8 unwind label %18, !llvm.loop !59
 
 18:                                               ; preds = %11, %8
   %19 = landingpad { ptr, i32 }
@@ -1415,7 +1415,7 @@ _ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit: ; preds = %23, %3
   %34 = phi i32 [ %.pre, %_ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit ], [ %14, %._crit_edge ]
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds %"struct.icu_77::SpanInfo", ptr %33, i64 %35
-  store i32 %1, ptr %36, align 4, !tbaa !59
+  store i32 %1, ptr %36, align 4, !tbaa !60
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1497,7 +1497,7 @@ _ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit: ; preds = %23, %3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %32
   %36 = load ptr, ptr %10, align 8, !tbaa !18
-  store i32 %1, ptr %36, align 4, !tbaa !59
+  store i32 %1, ptr %36, align 4, !tbaa !60
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %2, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !12
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1515,9 +1515,9 @@ _ZN6icu_7715MaybeStackArrayINS_8SpanInfoELi8EE6resizeEii.exit: ; preds = %23, %3
   %39 = load ptr, ptr %10, align 8, !tbaa !18
   %40 = getelementptr inbounds nuw %"struct.icu_77::SpanInfo", ptr %39, i64 %indvars.iv.next
   %41 = getelementptr inbounds nuw %"struct.icu_77::SpanInfo", ptr %39, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !60
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !61
   %42 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !61
+  br i1 %42, label %.lr.ph, label %._crit_edge, !llvm.loop !62
 
 43:                                               ; preds = %6, %._crit_edge, %31
   ret void
@@ -1600,19 +1600,20 @@ attributes #15 = { noreturn nounwind }
 !43 = !{!26, !27, i64 0}
 !44 = !{}
 !45 = !{!33, !9, i64 12}
-!46 = distinct !{!46, !47}
+!46 = distinct !{!46, !47, !48}
 !47 = !{!"llvm.loop.mustprogress"}
-!48 = !{!28, !7, i64 0}
-!49 = distinct !{!49, !47}
-!50 = distinct !{!50, !47}
-!51 = !{!52, !9, i64 8}
-!52 = !{!"_ZTSN6icu_7713FieldPositionE", !53, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
-!53 = !{!"_ZTSN6icu_777UObjectE"}
-!54 = !{!52, !9, i64 12}
-!55 = !{!52, !9, i64 16}
-!56 = !{!30, !9, i64 12}
-!57 = distinct !{!57, !47}
-!58 = distinct !{!58, !47}
-!59 = !{!34, !34, i64 0}
-!60 = !{i64 0, i64 4, !59, i64 4, i64 4, !12, i64 8, i64 4, !12, i64 12, i64 4, !12}
-!61 = distinct !{!61, !47}
+!48 = !{!"llvm.loop.estimated_trip_count"}
+!49 = !{!28, !7, i64 0}
+!50 = distinct !{!50, !47, !48}
+!51 = distinct !{!51, !47, !48}
+!52 = !{!53, !9, i64 8}
+!53 = !{!"_ZTSN6icu_7713FieldPositionE", !54, i64 0, !9, i64 8, !9, i64 12, !9, i64 16}
+!54 = !{!"_ZTSN6icu_777UObjectE"}
+!55 = !{!53, !9, i64 12}
+!56 = !{!53, !9, i64 16}
+!57 = !{!30, !9, i64 12}
+!58 = distinct !{!58, !47, !48}
+!59 = distinct !{!59, !47, !48}
+!60 = !{!34, !34, i64 0}
+!61 = !{i64 0, i64 4, !60, i64 4, i64 4, !12, i64 8, i64 4, !12, i64 12, i64 4, !12}
+!62 = distinct !{!62, !47, !48}

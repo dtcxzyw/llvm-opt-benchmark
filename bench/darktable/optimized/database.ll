@@ -1174,7 +1174,7 @@ define void @dt_database_backup(ptr noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1, !tbaa !16
   %.not = icmp eq i8 %7, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .lr.ph:                                           ; preds = %1, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 0, %1 ]
@@ -1193,7 +1193,7 @@ define void @dt_database_backup(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %5, %1, %10
   %12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.17, ptr noundef %0, ptr noundef nonnull %3) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !21
   %13 = tail call i32 @g_file_test(ptr noundef %12, i32 noundef 16) #18
   %.not33 = icmp eq i32 %13, 0
   br i1 %.not33, label %14, label %25
@@ -1263,19 +1263,19 @@ define i32 @_get_pragma_int_val(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   br i1 %6, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = load ptr, ptr %3, align 8, !tbaa !23
   %9 = call i32 @sqlite3_step(ptr noundef %8) #18
   %10 = icmp eq i32 %9, 100
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %3, align 8, !tbaa !21
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
   %13 = call i32 @sqlite3_column_int(ptr noundef %12, i32 noundef 0) #18
   br label %14
 
 14:                                               ; preds = %11, %7, %2
   %.0 = phi i32 [ %13, %11 ], [ -1, %7 ], [ -1, %2 ]
-  %15 = load ptr, ptr %3, align 8, !tbaa !21
+  %15 = load ptr, ptr %3, align 8, !tbaa !23
   %16 = call i32 @sqlite3_finalize(ptr noundef %15) #18
   call void @g_free(ptr noundef %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
@@ -1300,23 +1300,23 @@ define ptr @_get_pragma_string_val(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = load ptr, ptr %3, align 8, !tbaa !21
+  %8 = load ptr, ptr %3, align 8, !tbaa !23
   %9 = call i32 @sqlite3_step(ptr noundef %8) #18
   %10 = icmp eq i32 %9, 100
   br i1 %10, label %11, label %.loopexit
 
 11:                                               ; preds = %7
-  %12 = load ptr, ptr %3, align 8, !tbaa !21
+  %12 = load ptr, ptr %3, align 8, !tbaa !23
   %13 = call ptr @sqlite3_column_text(ptr noundef %12, i32 noundef 0) #18
   %14 = call noalias ptr @g_strdup(ptr noundef %13) #18
-  %15 = load ptr, ptr %3, align 8, !tbaa !21
+  %15 = load ptr, ptr %3, align 8, !tbaa !23
   %16 = call i32 @sqlite3_step(ptr noundef %15) #18
   %17 = icmp eq i32 %16, 100
   br i1 %17, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.111 = phi ptr [ %22, %.lr.ph ], [ %14, %11 ]
-  %18 = load ptr, ptr %3, align 8, !tbaa !21
+  %18 = load ptr, ptr %3, align 8, !tbaa !23
   %19 = call ptr @sqlite3_column_text(ptr noundef %18, i32 noundef 0) #18
   %20 = call noalias ptr @g_strdup(ptr noundef %19) #18
   %21 = call noalias ptr @g_strdup(ptr noundef %.111) #18
@@ -1324,14 +1324,14 @@ define ptr @_get_pragma_string_val(ptr noundef %0, ptr noundef %1) local_unnamed
   %22 = call noalias ptr (ptr, ...) @g_strconcat(ptr noundef %21, ptr noundef nonnull @.str.20, ptr noundef %20, ptr noundef null) #18
   call void @g_free(ptr noundef %20) #18
   call void @g_free(ptr noundef %21) #18
-  %23 = load ptr, ptr %3, align 8, !tbaa !21
+  %23 = load ptr, ptr %3, align 8, !tbaa !23
   %24 = call i32 @sqlite3_step(ptr noundef %23) #18
   %25 = icmp eq i32 %24, 100
-  br i1 %25, label %.lr.ph, label %.loopexit
+  br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %7, %2
   %.0 = phi ptr [ null, %7 ], [ null, %2 ], [ %14, %11 ], [ %22, %.lr.ph ]
-  %26 = load ptr, ptr %3, align 8, !tbaa !21
+  %26 = load ptr, ptr %3, align 8, !tbaa !23
   %27 = call i32 @sqlite3_finalize(ptr noundef %26) #18
   call void @g_free(ptr noundef %4) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
@@ -1505,10 +1505,10 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %73 = call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #21
   %74 = call noalias ptr @g_strdup(ptr noundef nonnull %11) #18
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %74, ptr %75, align 8, !tbaa !23
+  store ptr %74, ptr %75, align 8, !tbaa !26
   %76 = call noalias ptr @g_strdup(ptr noundef nonnull %9) #18
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
-  store ptr %76, ptr %77, align 8, !tbaa !24
+  store ptr %76, ptr %77, align 8, !tbaa !27
   store atomic i32 0, ptr @_trxid seq_cst, align 4
   %78 = call i32 @g_strcmp0(ptr noundef nonnull %11, ptr noundef nonnull @.str.23) #18
   %.not245 = icmp eq i32 %78, 0
@@ -1534,7 +1534,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   br label %87
 
 87:                                               ; preds = %82, %84
-  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %89 = and i32 %88, 256
   %.not247 = icmp eq i32 %89, 0
   br i1 %.not247, label %91, label %90
@@ -1544,21 +1544,21 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   br label %91
 
 91:                                               ; preds = %87, %90
-  %92 = load ptr, ptr %75, align 8, !tbaa !23
+  %92 = load ptr, ptr %75, align 8, !tbaa !26
   %93 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %94 = call fastcc i32 @_lock_single_database(ptr noundef nonnull %73, ptr noundef %92, ptr noundef nonnull %93)
   %.not.i278 = icmp eq i32 %94, 0
   br i1 %.not.i278, label %.loopexit, label %95
 
 95:                                               ; preds = %91
-  %96 = load ptr, ptr %77, align 8, !tbaa !24
+  %96 = load ptr, ptr %77, align 8, !tbaa !27
   %97 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %98 = call fastcc i32 @_lock_single_database(ptr noundef nonnull %73, ptr noundef %96, ptr noundef nonnull %97)
   %.not7.i = icmp eq i32 %98, 0
   br i1 %.not7.i, label %99, label %102
 
 99:                                               ; preds = %95
-  %100 = load ptr, ptr %93, align 8, !tbaa !62
+  %100 = load ptr, ptr %93, align 8, !tbaa !65
   %101 = call i32 @g_unlink(ptr noundef %100) #18
   br label %.loopexit
 
@@ -1569,7 +1569,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 
 102:                                              ; preds = %95
   store i32 1, ptr %73, align 8, !tbaa !14
-  %103 = load ptr, ptr %77, align 8, !tbaa !24
+  %103 = load ptr, ptr %77, align 8, !tbaa !27
   %104 = getelementptr inbounds nuw i8, ptr %73, i64 40
   %105 = call i32 @sqlite3_open(ptr noundef %103, ptr noundef nonnull %104) #18
   %.not249 = icmp eq i32 %105, 0
@@ -1587,13 +1587,13 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %110 = load ptr, ptr %104, align 8, !tbaa !6
   %111 = call i32 @sqlite3_close(ptr noundef %110) #18
   call void @g_free(ptr noundef %.0208) #18
-  %112 = load ptr, ptr %93, align 8, !tbaa !62
+  %112 = load ptr, ptr %93, align 8, !tbaa !65
   call void @g_free(ptr noundef %112) #18
-  %113 = load ptr, ptr %75, align 8, !tbaa !23
+  %113 = load ptr, ptr %75, align 8, !tbaa !26
   call void @g_free(ptr noundef %113) #18
-  %114 = load ptr, ptr %97, align 8, !tbaa !63
+  %114 = load ptr, ptr %97, align 8, !tbaa !66
   call void @g_free(ptr noundef %114) #18
-  %115 = load ptr, ptr %77, align 8, !tbaa !24
+  %115 = load ptr, ptr %77, align 8, !tbaa !27
   call void @g_free(ptr noundef %115) #18
   br label %.thread291
 
@@ -1611,26 +1611,26 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %123 = phi i1 [ false, %116 ], [ %121, %119 ]
   %124 = load ptr, ptr %104, align 8, !tbaa !6
   %125 = call i32 @sqlite3_prepare_v2(ptr noundef %124, ptr noundef nonnull @.str.39, i32 noundef -1, ptr noundef nonnull %12, ptr noundef null) #18
-  %126 = load ptr, ptr %12, align 8, !tbaa !21
+  %126 = load ptr, ptr %12, align 8, !tbaa !23
   %127 = call i32 @sqlite3_bind_text(ptr noundef %126, i32 noundef 1, ptr noundef nonnull %11, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
   %.not250 = icmp eq i32 %125, 0
   br i1 %.not250, label %128, label %131
 
 128:                                              ; preds = %122
-  %129 = load ptr, ptr %12, align 8, !tbaa !21
+  %129 = load ptr, ptr %12, align 8, !tbaa !23
   %130 = call i32 @sqlite3_step(ptr noundef %129) #18
   %.not251 = icmp eq i32 %130, 101
   br i1 %.not251, label %134, label %131
 
 131:                                              ; preds = %128, %122
-  %132 = load ptr, ptr %12, align 8, !tbaa !21
+  %132 = load ptr, ptr %12, align 8, !tbaa !23
   %133 = call i32 @sqlite3_finalize(ptr noundef %132) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.40, ptr noundef nonnull %11) #18
   call void @dt_database_destroy(ptr noundef nonnull %73)
   br label %.thread291
 
 134:                                              ; preds = %128
-  %135 = load ptr, ptr %12, align 8, !tbaa !21
+  %135 = load ptr, ptr %12, align 8, !tbaa !23
   %136 = call i32 @sqlite3_finalize(ptr noundef %135) #18
   %137 = load ptr, ptr %104, align 8, !tbaa !6
   %138 = call i32 @sqlite3_exec(ptr noundef %137, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -1648,11 +1648,11 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   %147 = call i32 @sqlite3_exec(ptr noundef %146, ptr noundef nonnull @.str.157, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %148 = load ptr, ptr %104, align 8, !tbaa !6
   %149 = call i32 @sqlite3_prepare_v2(ptr noundef %148, ptr noundef nonnull @.str.158, i32 noundef -1, ptr noundef nonnull %7, ptr noundef null) #18
-  %150 = load ptr, ptr %7, align 8, !tbaa !21
+  %150 = load ptr, ptr %7, align 8, !tbaa !23
   %151 = call i32 @sqlite3_bind_int(ptr noundef %150, i32 noundef 1, i32 noundef 10) #18
-  %152 = load ptr, ptr %7, align 8, !tbaa !21
+  %152 = load ptr, ptr %7, align 8, !tbaa !23
   %153 = call i32 @sqlite3_step(ptr noundef %152) #18
-  %154 = load ptr, ptr %7, align 8, !tbaa !21
+  %154 = load ptr, ptr %7, align 8, !tbaa !23
   %155 = call i32 @sqlite3_finalize(ptr noundef %154) #18
   %156 = load ptr, ptr %104, align 8, !tbaa !6
   %157 = call i32 @sqlite3_exec(ptr noundef %156, ptr noundef nonnull @.str.159, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -1688,16 +1688,16 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   br i1 %or.cond, label %183, label %203
 
 183:                                              ; preds = %175
-  %184 = load ptr, ptr %12, align 8, !tbaa !21
+  %184 = load ptr, ptr %12, align 8, !tbaa !23
   %185 = call i32 @sqlite3_step(ptr noundef %184) #18
   %186 = icmp eq i32 %185, 100
   br i1 %186, label %187, label %203
 
 187:                                              ; preds = %183
   call void @g_free(ptr noundef %177) #18
-  %188 = load ptr, ptr %12, align 8, !tbaa !21
+  %188 = load ptr, ptr %12, align 8, !tbaa !23
   %189 = call i32 @sqlite3_column_int(ptr noundef %188, i32 noundef 0) #18
-  %190 = load ptr, ptr %12, align 8, !tbaa !21
+  %190 = load ptr, ptr %12, align 8, !tbaa !23
   %191 = call i32 @sqlite3_finalize(ptr noundef %190) #18
   %192 = icmp slt i32 %189, 12
   br i1 %192, label %193, label %201
@@ -1810,7 +1810,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 
 244:                                              ; preds = %239
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #18
-  store ptr null, ptr %13, align 8, !tbaa !19
+  store ptr null, ptr %13, align 8, !tbaa !21
   %245 = call i32 @g_file_test(ptr noundef nonnull %11, i32 noundef 16) #18
   %.not253 = icmp eq i32 %245, 0
   br i1 %.not253, label %246, label %260
@@ -1874,16 +1874,16 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
   br i1 %or.cond7, label %268, label %290
 
 268:                                              ; preds = %.thread295
-  %269 = load ptr, ptr %12, align 8, !tbaa !21
+  %269 = load ptr, ptr %12, align 8, !tbaa !23
   %270 = call i32 @sqlite3_step(ptr noundef %269) #18
   %271 = icmp eq i32 %270, 100
   br i1 %271, label %272, label %290
 
 272:                                              ; preds = %268
   call void @g_free(ptr noundef %262) #18
-  %273 = load ptr, ptr %12, align 8, !tbaa !21
+  %273 = load ptr, ptr %12, align 8, !tbaa !23
   %274 = call i32 @sqlite3_column_int(ptr noundef %273, i32 noundef 0) #18
-  %275 = load ptr, ptr %12, align 8, !tbaa !21
+  %275 = load ptr, ptr %12, align 8, !tbaa !23
   %276 = call i32 @sqlite3_finalize(ptr noundef %275) #18
   %277 = icmp slt i32 %274, 56
   br i1 %277, label %278, label %288
@@ -1900,7 +1900,7 @@ _database_migrate_to_xdg_structure.exit:          ; preds = %19, %21, %33
 281:                                              ; preds = %279
   %282 = call fastcc i32 @_upgrade_library_schema_step(ptr noundef nonnull %73, i32 noundef %.08.i)
   %.not.i279 = icmp eq i32 %282, %.08.i
-  br i1 %.not.i279, label %283, label %279
+  br i1 %.not.i279, label %283, label %279, !llvm.loop !67
 
 283:                                              ; preds = %281
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.48, ptr noundef %.0208, i32 noundef %274, i32 noundef 56) #18
@@ -2016,7 +2016,7 @@ switch.early.test:                                ; preds = %290
 
 332:                                              ; preds = %327
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #18
-  store ptr null, ptr %14, align 8, !tbaa !19
+  store ptr null, ptr %14, align 8, !tbaa !21
   %333 = call i32 @g_file_test(ptr noundef nonnull %9, i32 noundef 16) #18
   %.not263 = icmp eq i32 %333, 0
   br i1 %.not263, label %334, label %348
@@ -2063,7 +2063,7 @@ switch.early.test:                                ; preds = %290
   br label %.backedge
 
 349:                                              ; preds = %switch.early.test
-  %350 = load ptr, ptr %12, align 8, !tbaa !21
+  %350 = load ptr, ptr %12, align 8, !tbaa !23
   %351 = call i32 @sqlite3_finalize(ptr noundef %350) #18
   %352 = load ptr, ptr %104, align 8, !tbaa !6
   %353 = call i32 @sqlite3_prepare_v2(ptr noundef %352, ptr noundef nonnull @.str.73, i32 noundef -1, ptr noundef nonnull %12, ptr noundef null) #18
@@ -2071,16 +2071,16 @@ switch.early.test:                                ; preds = %290
   br i1 %354, label %355, label %371
 
 355:                                              ; preds = %349
-  %356 = load ptr, ptr %12, align 8, !tbaa !21
+  %356 = load ptr, ptr %12, align 8, !tbaa !23
   %357 = call i32 @sqlite3_step(ptr noundef %356) #18
   %358 = icmp eq i32 %357, 100
   br i1 %358, label %359, label %371
 
 359:                                              ; preds = %355
-  %360 = load ptr, ptr %12, align 8, !tbaa !21
+  %360 = load ptr, ptr %12, align 8, !tbaa !23
   %361 = call ptr @sqlite3_column_blob(ptr noundef %360, i32 noundef 0) #18
-  %362 = load i32, ptr %361, align 4, !tbaa !64
-  %363 = load ptr, ptr %12, align 8, !tbaa !21
+  %362 = load i32, ptr %361, align 4, !tbaa !68
+  %363 = load ptr, ptr %12, align 8, !tbaa !23
   %364 = call i32 @sqlite3_finalize(ptr noundef %363) #18
   %365 = call fastcc i32 @_migrate_schema(ptr noundef nonnull %73, i32 noundef %362)
   %.not260 = icmp eq i32 %365, 0
@@ -2099,7 +2099,7 @@ switch.early.test:                                ; preds = %290
 368:                                              ; preds = %.preheader
   %369 = call fastcc i32 @_upgrade_library_schema_step(ptr noundef nonnull %73, i32 noundef %.08.i280)
   %.not.i282 = icmp eq i32 %369, %.08.i280
-  br i1 %.not.i282, label %370, label %.preheader
+  br i1 %.not.i282, label %370, label %.preheader, !llvm.loop !67
 
 370:                                              ; preds = %368
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.75, ptr noundef %.0208, i32 noundef 56) #18
@@ -2107,18 +2107,18 @@ switch.early.test:                                ; preds = %290
   br label %.thread291
 
 371:                                              ; preds = %355, %349
-  %372 = load ptr, ptr %12, align 8, !tbaa !21
+  %372 = load ptr, ptr %12, align 8, !tbaa !23
   %373 = call i32 @sqlite3_finalize(ptr noundef %372) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
   %374 = load ptr, ptr %104, align 8, !tbaa !6
   %375 = call i32 @sqlite3_exec(ptr noundef %374, ptr noundef nonnull @.str.865, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %376 = load ptr, ptr %104, align 8, !tbaa !6
   %377 = call i32 @sqlite3_prepare_v2(ptr noundef %376, ptr noundef nonnull @.str.857, i32 noundef -1, ptr noundef nonnull %6, ptr noundef null) #18
-  %378 = load ptr, ptr %6, align 8, !tbaa !21
+  %378 = load ptr, ptr %6, align 8, !tbaa !23
   %379 = call i32 @sqlite3_bind_int(ptr noundef %378, i32 noundef 1, i32 noundef 55) #18
-  %380 = load ptr, ptr %6, align 8, !tbaa !21
+  %380 = load ptr, ptr %6, align 8, !tbaa !23
   %381 = call i32 @sqlite3_step(ptr noundef %380) #18
-  %382 = load ptr, ptr %6, align 8, !tbaa !21
+  %382 = load ptr, ptr %6, align 8, !tbaa !23
   %383 = call i32 @sqlite3_finalize(ptr noundef %382) #18
   %384 = load ptr, ptr %104, align 8, !tbaa !6
   %385 = call i32 @sqlite3_exec(ptr noundef %384, ptr noundef nonnull @.str.941, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -2236,7 +2236,7 @@ switch.early.test:                                ; preds = %290
 492:                                              ; preds = %490
   %493 = call fastcc i32 @_upgrade_library_schema_step(ptr noundef nonnull %73, i32 noundef %.08.i.i)
   %.not.i.i = icmp eq i32 %493, %.08.i.i
-  br i1 %.not.i.i, label %_create_library_schema.exit, label %490
+  br i1 %.not.i.i, label %_create_library_schema.exit, label %490, !llvm.loop !67
 
 _create_library_schema.exit:                      ; preds = %490, %492
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
@@ -2275,15 +2275,15 @@ _upgrade_library_schema.exit283:                  ; preds = %.preheader, %_upgra
   %521 = call i32 @sqlite3_prepare_v2(ptr noundef %520, ptr noundef nonnull @.str.977, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
   %522 = load ptr, ptr %104, align 8, !tbaa !6
   %523 = call i32 @sqlite3_prepare_v2(ptr noundef %522, ptr noundef nonnull @.str.978, i32 noundef -1, ptr noundef nonnull %5, ptr noundef null) #18
-  %524 = load ptr, ptr %4, align 8, !tbaa !21
+  %524 = load ptr, ptr %4, align 8, !tbaa !23
   %525 = call i32 @sqlite3_step(ptr noundef %524) #18
   %526 = icmp eq i32 %525, 100
   br i1 %526, label %.lr.ph.i, label %_sanitize_db.exit
 
 .lr.ph.i:                                         ; preds = %_upgrade_library_schema.exit283, %545
-  %527 = load ptr, ptr %4, align 8, !tbaa !21
+  %527 = load ptr, ptr %4, align 8, !tbaa !23
   %528 = call i32 @sqlite3_column_int(ptr noundef %527, i32 noundef 0) #18
-  %529 = load ptr, ptr %4, align 8, !tbaa !21
+  %529 = load ptr, ptr %4, align 8, !tbaa !23
   %530 = call ptr @sqlite3_column_text(ptr noundef %529, i32 noundef 1) #18
   %.not.i284 = icmp eq ptr %530, null
   br i1 %.not.i284, label %545, label %531
@@ -2296,29 +2296,29 @@ _upgrade_library_schema.exit283:                  ; preds = %.preheader, %_upgra
 533:                                              ; preds = %531
   %534 = call ptr @dt_util_foo_to_utf8(ptr noundef nonnull %530) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.979, ptr noundef nonnull %530, ptr noundef %534) #18
-  %535 = load ptr, ptr %5, align 8, !tbaa !21
+  %535 = load ptr, ptr %5, align 8, !tbaa !23
   %536 = call i32 @sqlite3_bind_text(ptr noundef %535, i32 noundef 1, ptr noundef %534, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %537 = load ptr, ptr %5, align 8, !tbaa !21
+  %537 = load ptr, ptr %5, align 8, !tbaa !23
   %538 = call i32 @sqlite3_bind_int(ptr noundef %537, i32 noundef 2, i32 noundef %528) #18
-  %539 = load ptr, ptr %5, align 8, !tbaa !21
+  %539 = load ptr, ptr %5, align 8, !tbaa !23
   %540 = call i32 @sqlite3_step(ptr noundef %539) #18
-  %541 = load ptr, ptr %5, align 8, !tbaa !21
+  %541 = load ptr, ptr %5, align 8, !tbaa !23
   %542 = call i32 @sqlite3_reset(ptr noundef %541) #18
-  %543 = load ptr, ptr %5, align 8, !tbaa !21
+  %543 = load ptr, ptr %5, align 8, !tbaa !23
   %544 = call i32 @sqlite3_clear_bindings(ptr noundef %543) #18
   call void @g_free(ptr noundef %534) #18
   br label %545
 
 545:                                              ; preds = %533, %531, %.lr.ph.i
-  %546 = load ptr, ptr %4, align 8, !tbaa !21
+  %546 = load ptr, ptr %4, align 8, !tbaa !23
   %547 = call i32 @sqlite3_step(ptr noundef %546) #18
   %548 = icmp eq i32 %547, 100
-  br i1 %548, label %.lr.ph.i, label %_sanitize_db.exit
+  br i1 %548, label %.lr.ph.i, label %_sanitize_db.exit, !llvm.loop !69
 
 _sanitize_db.exit:                                ; preds = %545, %_upgrade_library_schema.exit283
-  %549 = load ptr, ptr %4, align 8, !tbaa !21
+  %549 = load ptr, ptr %4, align 8, !tbaa !23
   %550 = call i32 @sqlite3_finalize(ptr noundef %549) #18
-  %551 = load ptr, ptr %5, align 8, !tbaa !21
+  %551 = load ptr, ptr %5, align 8, !tbaa !23
   %552 = call i32 @sqlite3_finalize(ptr noundef %551) #18
   %553 = load ptr, ptr %104, align 8, !tbaa !6
   %554 = call i32 @sqlite3_exec(ptr noundef %553, ptr noundef nonnull @.str.980, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -2326,7 +2326,7 @@ _sanitize_db.exit:                                ; preds = %545, %_upgrade_libr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   %555 = load ptr, ptr %104, align 8, !tbaa !6
   %556 = call i32 @sqlite3_prepare_v2(ptr noundef %555, ptr noundef nonnull @.str.77, i32 noundef -1, ptr noundef nonnull %12, ptr noundef null) #18
-  %557 = load ptr, ptr %12, align 8, !tbaa !21
+  %557 = load ptr, ptr %12, align 8, !tbaa !23
   %558 = call i32 @sqlite3_finalize(ptr noundef %557) #18
   %.not270 = icmp eq i32 %556, 0
   br i1 %.not270, label %.thread291, label %559
@@ -2397,34 +2397,34 @@ define void @dt_database_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = tail call i32 @sqlite3_close(ptr noundef %3) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load ptr, ptr %5, align 8, !tbaa !62
+  %6 = load ptr, ptr %5, align 8, !tbaa !65
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
   %8 = tail call i32 @g_unlink(ptr noundef nonnull %6) #18
-  %9 = load ptr, ptr %5, align 8, !tbaa !62
+  %9 = load ptr, ptr %5, align 8, !tbaa !65
   tail call void @g_free(ptr noundef %9) #18
   br label %10
 
 10:                                               ; preds = %7, %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !63
+  %12 = load ptr, ptr %11, align 8, !tbaa !66
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %16, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @g_unlink(ptr noundef nonnull %12) #18
-  %15 = load ptr, ptr %11, align 8, !tbaa !63
+  %15 = load ptr, ptr %11, align 8, !tbaa !66
   tail call void @g_free(ptr noundef %15) #18
   br label %16
 
 16:                                               ; preds = %13, %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !23
+  %18 = load ptr, ptr %17, align 8, !tbaa !26
   tail call void @g_free(ptr noundef %18) #18
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !24
+  %20 = load ptr, ptr %19, align 8, !tbaa !27
   tail call void @g_free(ptr noundef %20) #18
   tail call void @g_free(ptr noundef nonnull %0) #18
   %21 = tail call i32 @sqlite3_shutdown() #18
@@ -2494,7 +2494,7 @@ define internal fastcc range(i32 0, 2) i32 @_upgrade_data_schema(ptr noundef rea
   %10 = load ptr, ptr %5, align 8, !tbaa !6
   %11 = call i32 @sqlite3_exec(ptr noundef %10, ptr noundef nonnull @.str.173, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store ptr null, ptr %4, align 8, !tbaa !21
+  store ptr null, ptr %4, align 8, !tbaa !23
   %12 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef 1) #18
   %13 = load ptr, ptr %5, align 8, !tbaa !6
   %14 = call i32 @sqlite3_exec(ptr noundef %13, ptr noundef nonnull @.str.174, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -2513,27 +2513,27 @@ define internal fastcc range(i32 0, 2) i32 @_upgrade_data_schema(ptr noundef rea
 
 .lr.ph.i:                                         ; preds = %.preheader233.i, %29
   %.0188235.i = phi ptr [ %33, %29 ], [ %12, %.preheader233.i ]
-  %18 = load ptr, ptr %.0188235.i, align 8, !tbaa !65
+  %18 = load ptr, ptr %.0188235.i, align 8, !tbaa !70
   %19 = load ptr, ptr %5, align 8, !tbaa !6
   %20 = call i32 @sqlite3_prepare_v2(ptr noundef %19, ptr noundef nonnull @.str.177, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %21 = load ptr, ptr %3, align 8, !tbaa !21
+  %21 = load ptr, ptr %3, align 8, !tbaa !23
   %22 = load double, ptr %18, align 8, !tbaa !16
   %23 = call i32 @sqlite3_bind_double(ptr noundef %21, i32 noundef 1, double noundef %22) #18
-  %24 = load ptr, ptr %3, align 8, !tbaa !21
+  %24 = load ptr, ptr %3, align 8, !tbaa !23
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = call i32 @sqlite3_bind_text(ptr noundef %24, i32 noundef 2, ptr noundef nonnull %25, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %27 = load ptr, ptr %3, align 8, !tbaa !21
+  %27 = load ptr, ptr %3, align 8, !tbaa !23
   %28 = call i32 @sqlite3_step(ptr noundef %27) #18
   %.not226.i = icmp eq i32 %28, 101
   br i1 %.not226.i, label %29, label %34
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = load ptr, ptr %3, align 8, !tbaa !21
+  %30 = load ptr, ptr %3, align 8, !tbaa !23
   %31 = call i32 @sqlite3_finalize(ptr noundef %30) #18
   %32 = getelementptr inbounds nuw i8, ptr %.0188235.i, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !67
+  %33 = load ptr, ptr %32, align 8, !tbaa !72
   %.not225.i = icmp eq ptr %33, null
-  br i1 %.not225.i, label %.critedge.i, label %.lr.ph.i
+  br i1 %.not225.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !73
 
 34:                                               ; preds = %.lr.ph.i
   %35 = load ptr, ptr %5, align 8, !tbaa !6
@@ -2560,7 +2560,7 @@ define internal fastcc range(i32 0, 2) i32 @_upgrade_data_schema(ptr noundef rea
   br i1 %.not228.i, label %.preheader.i, label %47
 
 .preheader.i:                                     ; preds = %42
-  %44 = load ptr, ptr %4, align 8, !tbaa !21
+  %44 = load ptr, ptr %4, align 8, !tbaa !23
   %45 = call i32 @sqlite3_step(ptr noundef %44) #18
   %46 = icmp eq i32 %45, 100
   br i1 %46, label %.lr.ph236.i, label %._crit_edge.i
@@ -2572,16 +2572,16 @@ define internal fastcc range(i32 0, 2) i32 @_upgrade_data_schema(ptr noundef rea
   br label %.thread230.i
 
 .lr.ph236.i:                                      ; preds = %.preheader.i, %.lr.ph236.i
-  %50 = load ptr, ptr %4, align 8, !tbaa !21
+  %50 = load ptr, ptr %4, align 8, !tbaa !23
   %51 = call ptr @sqlite3_column_text(ptr noundef %50, i32 noundef 0) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.185, ptr noundef %51) #18
-  %52 = load ptr, ptr %4, align 8, !tbaa !21
+  %52 = load ptr, ptr %4, align 8, !tbaa !23
   %53 = call i32 @sqlite3_step(ptr noundef %52) #18
   %54 = icmp eq i32 %53, 100
-  br i1 %54, label %.lr.ph236.i, label %._crit_edge.i
+  br i1 %54, label %.lr.ph236.i, label %._crit_edge.i, !llvm.loop !74
 
 ._crit_edge.i:                                    ; preds = %.lr.ph236.i, %.preheader.i
-  %55 = load ptr, ptr %4, align 8, !tbaa !21
+  %55 = load ptr, ptr %4, align 8, !tbaa !23
   %56 = call i32 @sqlite3_finalize(ptr noundef %55) #18
   %57 = load ptr, ptr %5, align 8, !tbaa !6
   %58 = call i32 @sqlite3_exec(ptr noundef %57, ptr noundef nonnull @.str.186, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -3048,11 +3048,11 @@ define internal fastcc range(i32 0, 2) i32 @_upgrade_data_schema(ptr noundef rea
   %.1187.i = phi i32 [ 2, %64 ], [ 3, %103 ], [ 4, %136 ], [ 5, %169 ], [ 6, %216 ], [ %.08, %308 ], [ 1, %8 ], [ 7, %218 ], [ 8, %226 ], [ 9, %234 ], [ 10, %264 ], [ 11, %286 ], [ 12, %301 ]
   %310 = load ptr, ptr %5, align 8, !tbaa !6
   %311 = call i32 @sqlite3_prepare_v2(ptr noundef %310, ptr noundef nonnull @.str.158, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %312 = load ptr, ptr %3, align 8, !tbaa !21
+  %312 = load ptr, ptr %3, align 8, !tbaa !23
   %313 = call i32 @sqlite3_bind_int(ptr noundef %312, i32 noundef 1, i32 noundef %.1187.i) #18
-  %314 = load ptr, ptr %3, align 8, !tbaa !21
+  %314 = load ptr, ptr %3, align 8, !tbaa !23
   %315 = call i32 @sqlite3_step(ptr noundef %314) #18
-  %316 = load ptr, ptr %3, align 8, !tbaa !21
+  %316 = load ptr, ptr %3, align 8, !tbaa !23
   %317 = call i32 @sqlite3_finalize(ptr noundef %316) #18
   br label %_upgrade_data_schema_step.exit
 
@@ -3060,7 +3060,7 @@ _upgrade_data_schema_step.exit:                   ; preds = %.thread230.i, %71, 
   %.0.i = phi i32 [ %.1187.i, %309 ], [ 2, %71 ], [ 2, %78 ], [ 2, %85 ], [ 2, %92 ], [ 2, %99 ], [ 3, %111 ], [ 3, %118 ], [ 3, %125 ], [ 3, %132 ], [ 4, %144 ], [ 4, %151 ], [ 4, %158 ], [ 4, %165 ], [ 5, %177 ], [ 5, %184 ], [ 5, %191 ], [ 5, %198 ], [ 5, %205 ], [ 5, %212 ], [ 6, %221 ], [ 7, %229 ], [ 8, %237 ], [ 9, %246 ], [ 9, %253 ], [ 9, %260 ], [ 9, %266 ], [ 10, %275 ], [ 10, %282 ], [ 10, %288 ], [ 11, %297 ], [ 11, %303 ], [ 1, %.thread230.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   %.not = icmp eq i32 %.0.i, %.08
-  br i1 %.not, label %318, label %6
+  br i1 %.not, label %318, label %6, !llvm.loop !75
 
 318:                                              ; preds = %_upgrade_data_schema_step.exit, %6
   %.2 = phi i32 [ 0, %_upgrade_data_schema_step.exit ], [ 1, %6 ]
@@ -3094,7 +3094,7 @@ define noalias ptr @dt_database_get_most_recent_snap(ptr noundef %0) local_unnam
   br i1 %.not, label %69, label %4
 
 4:                                                ; preds = %1
-  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %6 = and i32 %5, 256
   %.not61 = icmp eq i32 %6, 0
   br i1 %.not61, label %8, label %7
@@ -3110,7 +3110,7 @@ define noalias ptr @dt_database_get_most_recent_snap(ptr noundef %0) local_unnam
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %14 = and i32 %13, 256
   %.not70 = icmp eq i32 %14, 0
   br i1 %.not70, label %16, label %15
@@ -3125,28 +3125,28 @@ define noalias ptr @dt_database_get_most_recent_snap(ptr noundef %0) local_unnam
 
 17:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !21
   %18 = call ptr @g_file_enumerate_children(ptr noundef nonnull %10, ptr noundef nonnull @.str.120, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2) #18
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %17
-  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %21 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %22 = and i32 %21, 256
   %.not69 = icmp eq i32 %22, 0
   br i1 %.not69, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = load ptr, ptr %2, align 8, !tbaa !19
+  %24 = load ptr, ptr %2, align 8, !tbaa !21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !68
+  %26 = load ptr, ptr %25, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.136, ptr noundef %26) #18
   br label %27
 
 27:                                               ; preds = %23, %20
   call void @g_object_unref(ptr noundef nonnull %10) #18
   call void @g_object_unref(ptr noundef %9) #18
-  %28 = load ptr, ptr %2, align 8, !tbaa !19
+  %28 = load ptr, ptr %2, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %28) #18
   br label %68
 
@@ -3175,7 +3175,7 @@ define noalias ptr @dt_database_get_most_recent_snap(ptr noundef %0) local_unnam
   br i1 %.not67, label %50, label %39
 
 39:                                               ; preds = %.lr.ph, %37
-  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %41 = and i32 %40, 256
   %.not68 = icmp eq i32 %41, 0
   br i1 %.not68, label %43, label %42
@@ -3207,32 +3207,32 @@ define noalias ptr @dt_database_get_most_recent_snap(ptr noundef %0) local_unnam
   call void @g_object_unref(ptr noundef nonnull %34) #18
   %51 = call ptr @g_file_enumerator_next_file(ptr noundef nonnull %18, ptr noundef null, ptr noundef nonnull %2) #18
   %.not62 = icmp eq ptr %51, null
-  br i1 %.not62, label %._crit_edge, label %.lr.ph
+  br i1 %.not62, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %50, %29
   %.052.lcssa = phi ptr [ null, %29 ], [ %.254, %50 ]
   call void @g_free(ptr noundef %31) #18
   call void @g_free(ptr noundef %32) #18
-  %52 = load ptr, ptr %2, align 8, !tbaa !19
+  %52 = load ptr, ptr %2, align 8, !tbaa !21
   %.not63 = icmp eq ptr %52, null
   br i1 %.not63, label %62, label %53
 
 53:                                               ; preds = %._crit_edge
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %55 = and i32 %54, 256
   %.not65 = icmp eq i32 %55, 0
   br i1 %.not65, label %59, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !68
+  %58 = load ptr, ptr %57, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.137, ptr noundef %58) #18
   br label %59
 
 59:                                               ; preds = %56, %53
   %60 = call i32 @g_file_enumerator_close(ptr noundef nonnull %18, ptr noundef null, ptr noundef null) #18
   call void @g_object_unref(ptr noundef nonnull %18) #18
-  %61 = load ptr, ptr %2, align 8, !tbaa !19
+  %61 = load ptr, ptr %2, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %61) #18
   call void @g_free(ptr noundef %.052.lcssa) #18
   br label %68
@@ -3674,7 +3674,7 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %213 = tail call i32 @sqlite3_exec(ptr noundef %212, ptr noundef nonnull @.str.929, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %214 = load ptr, ptr %6, align 8, !tbaa !6
   %215 = call i32 @sqlite3_prepare_v2(ptr noundef %214, ptr noundef nonnull @.str.930, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %216 = load ptr, ptr %3, align 8, !tbaa !21
+  %216 = load ptr, ptr %3, align 8, !tbaa !23
   %217 = call i32 @sqlite3_step(ptr noundef %216) #18
   %218 = icmp eq i32 %217, 100
   br i1 %218, label %.lr.ph, label %._crit_edge
@@ -3684,13 +3684,13 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %.0132218 = phi ptr [ %.1133, %266 ], [ null, %203 ]
   %.0134217 = phi i32 [ %.1135, %266 ], [ 0, %203 ]
   %.0136216 = phi i32 [ %.2138, %266 ], [ 0, %203 ]
-  %219 = load ptr, ptr %3, align 8, !tbaa !21
+  %219 = load ptr, ptr %3, align 8, !tbaa !23
   %220 = call i32 @sqlite3_column_int(ptr noundef %219, i32 noundef 0) #18
-  %221 = load ptr, ptr %3, align 8, !tbaa !21
+  %221 = load ptr, ptr %3, align 8, !tbaa !23
   %222 = call ptr @sqlite3_column_text(ptr noundef %221, i32 noundef 1) #18
-  %223 = load ptr, ptr %3, align 8, !tbaa !21
+  %223 = load ptr, ptr %3, align 8, !tbaa !23
   %224 = call ptr @sqlite3_column_text(ptr noundef %223, i32 noundef 2) #18
-  %225 = load ptr, ptr %3, align 8, !tbaa !21
+  %225 = load ptr, ptr %3, align 8, !tbaa !23
   %226 = call i32 @sqlite3_column_int(ptr noundef %225, i32 noundef 3) #18
   %.not195 = icmp eq ptr %.0130219, null
   br i1 %.not195, label %233, label %227
@@ -3727,52 +3727,52 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
 
 239:                                              ; preds = %251, %236
   %.2138 = phi i32 [ %.1137, %236 ], [ %255, %251 ]
-  %240 = load ptr, ptr %4, align 8, !tbaa !21
+  %240 = load ptr, ptr %4, align 8, !tbaa !23
   %241 = call i32 @sqlite3_bind_text(ptr noundef %240, i32 noundef 1, ptr noundef %222, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %242 = load ptr, ptr %4, align 8, !tbaa !21
+  %242 = load ptr, ptr %4, align 8, !tbaa !23
   %243 = call i32 @sqlite3_bind_int(ptr noundef %242, i32 noundef 2, i32 noundef %.2138) #18
-  %244 = load ptr, ptr %4, align 8, !tbaa !21
+  %244 = load ptr, ptr %4, align 8, !tbaa !23
   %245 = call i32 @sqlite3_bind_text(ptr noundef %244, i32 noundef 3, ptr noundef %224, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %246 = load ptr, ptr %4, align 8, !tbaa !21
+  %246 = load ptr, ptr %4, align 8, !tbaa !23
   %247 = call i32 @sqlite3_bind_int(ptr noundef %246, i32 noundef 4, i32 noundef %226) #18
-  %248 = load ptr, ptr %4, align 8, !tbaa !21
+  %248 = load ptr, ptr %4, align 8, !tbaa !23
   %249 = call i32 @sqlite3_step(ptr noundef %248) #18
   %.not198 = icmp eq i32 %249, 100
-  %250 = load ptr, ptr %4, align 8, !tbaa !21
+  %250 = load ptr, ptr %4, align 8, !tbaa !23
   br i1 %.not198, label %251, label %256
 
 251:                                              ; preds = %239
   %252 = call i32 @sqlite3_reset(ptr noundef %250) #18
-  %253 = load ptr, ptr %4, align 8, !tbaa !21
+  %253 = load ptr, ptr %4, align 8, !tbaa !23
   %254 = call i32 @sqlite3_clear_bindings(ptr noundef %253) #18
   %255 = add nsw i32 %.2138, 1
-  br label %239
+  br label %239, !llvm.loop !79
 
 256:                                              ; preds = %239
   %257 = call i32 @sqlite3_finalize(ptr noundef %250) #18
   %258 = load ptr, ptr %6, align 8, !tbaa !6
   %259 = call i32 @sqlite3_prepare_v2(ptr noundef %258, ptr noundef nonnull @.str.932, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
-  %260 = load ptr, ptr %4, align 8, !tbaa !21
+  %260 = load ptr, ptr %4, align 8, !tbaa !23
   %261 = call i32 @sqlite3_bind_int(ptr noundef %260, i32 noundef 1, i32 noundef %.2138) #18
-  %262 = load ptr, ptr %4, align 8, !tbaa !21
+  %262 = load ptr, ptr %4, align 8, !tbaa !23
   %263 = call i32 @sqlite3_bind_int(ptr noundef %262, i32 noundef 2, i32 noundef %220) #18
-  %264 = load ptr, ptr %4, align 8, !tbaa !21
+  %264 = load ptr, ptr %4, align 8, !tbaa !23
   %265 = call i32 @sqlite3_step(ptr noundef %264) #18
   %.not199 = icmp eq i32 %265, 101
   br i1 %.not199, label %266, label %.thread208
 
 266:                                              ; preds = %256
-  %267 = load ptr, ptr %4, align 8, !tbaa !21
+  %267 = load ptr, ptr %4, align 8, !tbaa !23
   %268 = call i32 @sqlite3_finalize(ptr noundef %267) #18
-  %269 = load ptr, ptr %3, align 8, !tbaa !21
+  %269 = load ptr, ptr %3, align 8, !tbaa !23
   %270 = call i32 @sqlite3_step(ptr noundef %269) #18
   %271 = icmp eq i32 %270, 100
-  br i1 %271, label %.lr.ph, label %._crit_edge
+  br i1 %271, label %.lr.ph, label %._crit_edge, !llvm.loop !80
 
 ._crit_edge:                                      ; preds = %266, %203
   %.0132.lcssa = phi ptr [ null, %203 ], [ %.1133, %266 ]
   %.0130.lcssa = phi ptr [ null, %203 ], [ %.1131, %266 ]
-  %272 = load ptr, ptr %3, align 8, !tbaa !21
+  %272 = load ptr, ptr %3, align 8, !tbaa !23
   %273 = call i32 @sqlite3_finalize(ptr noundef %272) #18
   call void @g_free(ptr noundef %.0130.lcssa) #18
   call void @g_free(ptr noundef %.0132.lcssa) #18
@@ -3804,37 +3804,37 @@ define internal fastcc range(i32 0, 2) i32 @_migrate_schema(ptr noundef readonly
   %287 = call i32 @sqlite3_prepare_v2(ptr noundef %286, ptr noundef nonnull @.str.937, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %288 = load ptr, ptr %6, align 8, !tbaa !6
   %289 = call i32 @sqlite3_prepare_v2(ptr noundef %288, ptr noundef nonnull @.str.938, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
-  %290 = load ptr, ptr %3, align 8, !tbaa !21
+  %290 = load ptr, ptr %3, align 8, !tbaa !23
   %291 = call i32 @sqlite3_step(ptr noundef %290) #18
   %292 = icmp eq i32 %291, 100
   br i1 %292, label %.lr.ph222, label %._crit_edge223
 
 .lr.ph222:                                        ; preds = %285, %.lr.ph222
-  %293 = load ptr, ptr %3, align 8, !tbaa !21
+  %293 = load ptr, ptr %3, align 8, !tbaa !23
   %294 = call i32 @sqlite3_column_int(ptr noundef %293, i32 noundef 0) #18
-  %295 = load ptr, ptr %3, align 8, !tbaa !21
+  %295 = load ptr, ptr %3, align 8, !tbaa !23
   %296 = call ptr @sqlite3_column_text(ptr noundef %295, i32 noundef 1) #18
   %297 = call noalias ptr @g_path_get_basename(ptr noundef %296) #18
-  %298 = load ptr, ptr %4, align 8, !tbaa !21
+  %298 = load ptr, ptr %4, align 8, !tbaa !23
   %299 = call i32 @sqlite3_bind_text(ptr noundef %298, i32 noundef 1, ptr noundef %297, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %300 = load ptr, ptr %4, align 8, !tbaa !21
+  %300 = load ptr, ptr %4, align 8, !tbaa !23
   %301 = call i32 @sqlite3_bind_int(ptr noundef %300, i32 noundef 2, i32 noundef %294) #18
-  %302 = load ptr, ptr %4, align 8, !tbaa !21
+  %302 = load ptr, ptr %4, align 8, !tbaa !23
   %303 = call i32 @sqlite3_step(ptr noundef %302) #18
-  %304 = load ptr, ptr %4, align 8, !tbaa !21
+  %304 = load ptr, ptr %4, align 8, !tbaa !23
   %305 = call i32 @sqlite3_reset(ptr noundef %304) #18
-  %306 = load ptr, ptr %4, align 8, !tbaa !21
+  %306 = load ptr, ptr %4, align 8, !tbaa !23
   %307 = call i32 @sqlite3_clear_bindings(ptr noundef %306) #18
   call void @g_free(ptr noundef %297) #18
-  %308 = load ptr, ptr %3, align 8, !tbaa !21
+  %308 = load ptr, ptr %3, align 8, !tbaa !23
   %309 = call i32 @sqlite3_step(ptr noundef %308) #18
   %310 = icmp eq i32 %309, 100
-  br i1 %310, label %.lr.ph222, label %._crit_edge223
+  br i1 %310, label %.lr.ph222, label %._crit_edge223, !llvm.loop !81
 
 ._crit_edge223:                                   ; preds = %.lr.ph222, %285
-  %311 = load ptr, ptr %3, align 8, !tbaa !21
+  %311 = load ptr, ptr %3, align 8, !tbaa !23
   %312 = call i32 @sqlite3_finalize(ptr noundef %311) #18
-  %313 = load ptr, ptr %4, align 8, !tbaa !21
+  %313 = load ptr, ptr %4, align 8, !tbaa !23
   %314 = call i32 @sqlite3_finalize(ptr noundef %313) #18
   %315 = load ptr, ptr %6, align 8, !tbaa !6
   %316 = call i32 @sqlite3_exec(ptr noundef %315, ptr noundef nonnull @.str.939, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -3873,13 +3873,13 @@ define void @dt_upgrade_maker_model(ptr noundef readonly captures(none) %0) loca
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = call i32 @sqlite3_prepare_v2(ptr noundef %6, ptr noundef nonnull @.str.79, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
-  %8 = load ptr, ptr %4, align 8, !tbaa !21
+  %8 = load ptr, ptr %4, align 8, !tbaa !23
   %9 = call i32 @sqlite3_step(ptr noundef %8) #18
   %10 = icmp eq i32 %9, 100
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr %4, align 8, !tbaa !21
+  %12 = load ptr, ptr %4, align 8, !tbaa !23
   %13 = call ptr @sqlite3_column_text(ptr noundef %12, i32 noundef 0) #18
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.thread, label %14
@@ -3896,48 +3896,48 @@ define void @dt_upgrade_maker_model(ptr noundef readonly captures(none) %0) loca
   %17 = call i32 @sqlite3_prepare_v2(ptr noundef %16, ptr noundef nonnull @.str.981, i32 noundef -1, ptr noundef nonnull %2, ptr noundef null) #18
   %18 = load ptr, ptr %5, align 8, !tbaa !6
   %19 = call i32 @sqlite3_prepare_v2(ptr noundef %18, ptr noundef nonnull @.str.982, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %20 = load ptr, ptr %2, align 8, !tbaa !21
+  %20 = load ptr, ptr %2, align 8, !tbaa !23
   %21 = call i32 @sqlite3_step(ptr noundef %20) #18
   %22 = icmp eq i32 %21, 100
   br i1 %22, label %.lr.ph.i, label %_upgrade_camera_table.exit
 
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
-  %23 = load ptr, ptr %2, align 8, !tbaa !21
+  %23 = load ptr, ptr %2, align 8, !tbaa !23
   %24 = call i32 @sqlite3_column_int(ptr noundef %23, i32 noundef 0) #18
-  %25 = load ptr, ptr %2, align 8, !tbaa !21
+  %25 = load ptr, ptr %2, align 8, !tbaa !23
   %26 = call ptr @sqlite3_column_text(ptr noundef %25, i32 noundef 1) #18
-  %27 = load ptr, ptr %2, align 8, !tbaa !21
+  %27 = load ptr, ptr %2, align 8, !tbaa !23
   %28 = call ptr @sqlite3_column_text(ptr noundef %27, i32 noundef 2) #18
   %29 = call i32 @dt_image_get_camera_id(ptr noundef %26, ptr noundef %28) #18
-  %30 = load ptr, ptr %3, align 8, !tbaa !21
+  %30 = load ptr, ptr %3, align 8, !tbaa !23
   %31 = call i32 @sqlite3_bind_int(ptr noundef %30, i32 noundef 1, i32 noundef %29) #18
-  %32 = load ptr, ptr %3, align 8, !tbaa !21
+  %32 = load ptr, ptr %3, align 8, !tbaa !23
   %33 = call i32 @sqlite3_bind_int(ptr noundef %32, i32 noundef 2, i32 noundef %24) #18
-  %34 = load ptr, ptr %3, align 8, !tbaa !21
+  %34 = load ptr, ptr %3, align 8, !tbaa !23
   %35 = call i32 @sqlite3_step(ptr noundef %34) #18
-  %36 = load ptr, ptr %3, align 8, !tbaa !21
+  %36 = load ptr, ptr %3, align 8, !tbaa !23
   %37 = call i32 @sqlite3_reset(ptr noundef %36) #18
-  %38 = load ptr, ptr %3, align 8, !tbaa !21
+  %38 = load ptr, ptr %3, align 8, !tbaa !23
   %39 = call i32 @sqlite3_clear_bindings(ptr noundef %38) #18
-  %40 = load ptr, ptr %2, align 8, !tbaa !21
+  %40 = load ptr, ptr %2, align 8, !tbaa !23
   %41 = call i32 @sqlite3_step(ptr noundef %40) #18
   %42 = icmp eq i32 %41, 100
-  br i1 %42, label %.lr.ph.i, label %_upgrade_camera_table.exit
+  br i1 %42, label %.lr.ph.i, label %_upgrade_camera_table.exit, !llvm.loop !82
 
 _upgrade_camera_table.exit:                       ; preds = %.lr.ph.i, %.thread
-  %43 = load ptr, ptr %2, align 8, !tbaa !21
+  %43 = load ptr, ptr %2, align 8, !tbaa !23
   %44 = call i32 @sqlite3_finalize(ptr noundef %43) #18
-  %45 = load ptr, ptr %3, align 8, !tbaa !21
+  %45 = load ptr, ptr %3, align 8, !tbaa !23
   %46 = call i32 @sqlite3_finalize(ptr noundef %45) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
-  %47 = load ptr, ptr %4, align 8, !tbaa !21
+  %47 = load ptr, ptr %4, align 8, !tbaa !23
   %48 = call i32 @sqlite3_finalize(ptr noundef %47) #18
   %49 = load ptr, ptr %5, align 8, !tbaa !6
   %50 = call i32 @sqlite3_prepare_v2(ptr noundef %49, ptr noundef nonnull @.str.80, i32 noundef -1, ptr noundef nonnull %4, ptr noundef null) #18
-  %51 = load ptr, ptr %4, align 8, !tbaa !21
+  %51 = load ptr, ptr %4, align 8, !tbaa !23
   %52 = call i32 @sqlite3_bind_text(ptr noundef %51, i32 noundef 1, ptr noundef nonnull @darktable_package_version, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %53 = load ptr, ptr %4, align 8, !tbaa !21
+  %53 = load ptr, ptr %4, align 8, !tbaa !23
   %54 = call i32 @sqlite3_step(ptr noundef %53) #18
   %.not6 = icmp eq i32 %54, 101
   br i1 %.not6, label %56, label %55
@@ -3947,7 +3947,7 @@ _upgrade_camera_table.exit:                       ; preds = %.lr.ph.i, %.thread
   br label %56
 
 56:                                               ; preds = %_upgrade_camera_table.exit, %55, %14
-  %57 = load ptr, ptr %4, align 8, !tbaa !21
+  %57 = load ptr, ptr %4, align 8, !tbaa !23
   %58 = call i32 @sqlite3_finalize(ptr noundef %57) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
   ret void
@@ -3973,7 +3973,7 @@ define ptr @dt_database_get(ptr noundef readonly captures(address_is_null) %0) l
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @dt_database_get_path(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %3 = load ptr, ptr %2, align 8, !tbaa !24
+  %3 = load ptr, ptr %2, align 8, !tbaa !27
   ret ptr %3
 }
 
@@ -3996,7 +3996,7 @@ define void @dt_database_cleanup_busy_statements(ptr noundef readonly captures(n
   %6 = tail call ptr @sqlite3_sql(ptr noundef nonnull %5) #18
   %7 = tail call i32 @sqlite3_stmt_busy(ptr noundef nonnull %5) #18
   %.not7 = icmp eq i32 %7, 0
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %9 = and i32 %8, 256
   %.not8 = icmp eq i32 %9, 0
   br i1 %.not7, label %14, label %10
@@ -4024,7 +4024,7 @@ define void @dt_database_cleanup_busy_statements(ptr noundef readonly captures(n
   %18 = load ptr, ptr %2, align 8, !tbaa !6
   %19 = tail call ptr @sqlite3_next_stmt(ptr noundef %18, ptr noundef null) #18
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %16, %1
   ret void
@@ -4048,7 +4048,7 @@ define void @dt_database_perform_maintenance(ptr noundef readonly captures(none)
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.84) #18
@@ -4058,19 +4058,19 @@ define void @dt_database_perform_maintenance(ptr noundef readonly captures(none)
   br i1 %13, label %14, label %_get_pragma_int_val.exit
 
 14:                                               ; preds = %1
-  %15 = load ptr, ptr %7, align 8, !tbaa !21
+  %15 = load ptr, ptr %7, align 8, !tbaa !23
   %16 = call i32 @sqlite3_step(ptr noundef %15) #18
   %17 = icmp eq i32 %16, 100
   br i1 %17, label %18, label %_get_pragma_int_val.exit
 
 18:                                               ; preds = %14
-  %19 = load ptr, ptr %7, align 8, !tbaa !21
+  %19 = load ptr, ptr %7, align 8, !tbaa !23
   %20 = call i32 @sqlite3_column_int(ptr noundef %19, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit
 
 _get_pragma_int_val.exit:                         ; preds = %1, %14, %18
   %.0.i = phi i32 [ %20, %18 ], [ -1, %14 ], [ -1, %1 ]
-  %21 = load ptr, ptr %7, align 8, !tbaa !21
+  %21 = load ptr, ptr %7, align 8, !tbaa !23
   %22 = call i32 @sqlite3_finalize(ptr noundef %21) #18
   call void @g_free(ptr noundef %11) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
@@ -4082,19 +4082,19 @@ _get_pragma_int_val.exit:                         ; preds = %1, %14, %18
   br i1 %26, label %27, label %_get_pragma_int_val.exit86
 
 27:                                               ; preds = %_get_pragma_int_val.exit
-  %28 = load ptr, ptr %6, align 8, !tbaa !21
+  %28 = load ptr, ptr %6, align 8, !tbaa !23
   %29 = call i32 @sqlite3_step(ptr noundef %28) #18
   %30 = icmp eq i32 %29, 100
   br i1 %30, label %31, label %_get_pragma_int_val.exit86
 
 31:                                               ; preds = %27
-  %32 = load ptr, ptr %6, align 8, !tbaa !21
+  %32 = load ptr, ptr %6, align 8, !tbaa !23
   %33 = call i32 @sqlite3_column_int(ptr noundef %32, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit86
 
 _get_pragma_int_val.exit86:                       ; preds = %_get_pragma_int_val.exit, %27, %31
   %.0.i85 = phi i32 [ %33, %31 ], [ -1, %27 ], [ -1, %_get_pragma_int_val.exit ]
-  %34 = load ptr, ptr %6, align 8, !tbaa !21
+  %34 = load ptr, ptr %6, align 8, !tbaa !23
   %35 = call i32 @sqlite3_finalize(ptr noundef %34) #18
   call void @g_free(ptr noundef %24) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
@@ -4106,19 +4106,19 @@ _get_pragma_int_val.exit86:                       ; preds = %_get_pragma_int_val
   br i1 %39, label %40, label %_get_pragma_int_val.exit88
 
 40:                                               ; preds = %_get_pragma_int_val.exit86
-  %41 = load ptr, ptr %5, align 8, !tbaa !21
+  %41 = load ptr, ptr %5, align 8, !tbaa !23
   %42 = call i32 @sqlite3_step(ptr noundef %41) #18
   %43 = icmp eq i32 %42, 100
   br i1 %43, label %44, label %_get_pragma_int_val.exit88
 
 44:                                               ; preds = %40
-  %45 = load ptr, ptr %5, align 8, !tbaa !21
+  %45 = load ptr, ptr %5, align 8, !tbaa !23
   %46 = call i32 @sqlite3_column_int(ptr noundef %45, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit88
 
 _get_pragma_int_val.exit88:                       ; preds = %_get_pragma_int_val.exit86, %40, %44
   %.0.i87 = phi i32 [ %46, %44 ], [ -1, %40 ], [ -1, %_get_pragma_int_val.exit86 ]
-  %47 = load ptr, ptr %5, align 8, !tbaa !21
+  %47 = load ptr, ptr %5, align 8, !tbaa !23
   %48 = call i32 @sqlite3_finalize(ptr noundef %47) #18
   call void @g_free(ptr noundef %37) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
@@ -4130,19 +4130,19 @@ _get_pragma_int_val.exit88:                       ; preds = %_get_pragma_int_val
   br i1 %52, label %53, label %_get_pragma_int_val.exit90
 
 53:                                               ; preds = %_get_pragma_int_val.exit88
-  %54 = load ptr, ptr %4, align 8, !tbaa !21
+  %54 = load ptr, ptr %4, align 8, !tbaa !23
   %55 = call i32 @sqlite3_step(ptr noundef %54) #18
   %56 = icmp eq i32 %55, 100
   br i1 %56, label %57, label %_get_pragma_int_val.exit90
 
 57:                                               ; preds = %53
-  %58 = load ptr, ptr %4, align 8, !tbaa !21
+  %58 = load ptr, ptr %4, align 8, !tbaa !23
   %59 = call i32 @sqlite3_column_int(ptr noundef %58, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit90
 
 _get_pragma_int_val.exit90:                       ; preds = %_get_pragma_int_val.exit88, %53, %57
   %.0.i89 = phi i32 [ %59, %57 ], [ -1, %53 ], [ -1, %_get_pragma_int_val.exit88 ]
-  %60 = load ptr, ptr %4, align 8, !tbaa !21
+  %60 = load ptr, ptr %4, align 8, !tbaa !23
   %61 = call i32 @sqlite3_finalize(ptr noundef %60) #18
   call void @g_free(ptr noundef %50) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
@@ -4151,7 +4151,7 @@ _get_pragma_int_val.exit90:                       ; preds = %_get_pragma_int_val
   %64 = add nsw i32 %63, %62
   %65 = sext i32 %64 to i64
   %66 = icmp eq i32 %64, 0
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %68 = and i32 %67, 256
   %.not72 = icmp eq i32 %68, 0
   br i1 %66, label %69, label %140
@@ -4161,7 +4161,7 @@ _get_pragma_int_val.exit90:                       ; preds = %_get_pragma_int_val
 
 70:                                               ; preds = %69
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.88) #18
-  %.pre116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %.pre116 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %.pre120 = and i32 %.pre116, 256
   %71 = icmp eq i32 %.pre120, 0
   br i1 %71, label %.thread, label %72
@@ -4177,8 +4177,8 @@ _get_pragma_int_val.exit90:                       ; preds = %_get_pragma_int_val
   br i1 %.not74, label %84, label %75
 
 75:                                               ; preds = %.thread
-  %76 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %76 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %dt_database_get.exit, label %78
 
@@ -4194,29 +4194,29 @@ dt_database_get.exit:                             ; preds = %75, %78
   br label %84
 
 84:                                               ; preds = %dt_database_get.exit, %.thread
-  %85 = load ptr, ptr %8, align 8, !tbaa !70
+  %85 = load ptr, ptr %8, align 8, !tbaa !84
   %.not75 = icmp eq ptr %85, null
   br i1 %.not75, label %92, label %86
 
 86:                                               ; preds = %84
-  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %87 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %88 = and i32 %87, 256
   %.not76 = icmp eq i32 %88, 0
   br i1 %.not76, label %90, label %89
 
 89:                                               ; preds = %86
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %85) #18
-  %.pre117 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre117 = load ptr, ptr %8, align 8, !tbaa !84
   br label %90
 
 90:                                               ; preds = %89, %86
   %91 = phi ptr [ %.pre117, %89 ], [ %85, %86 ]
   call void @sqlite3_free(ptr noundef %91) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %92
 
 92:                                               ; preds = %90, %84
-  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %93 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %94 = and i32 %93, 256
   %.not77 = icmp eq i32 %94, 0
   br i1 %.not77, label %96, label %95
@@ -4232,8 +4232,8 @@ dt_database_get.exit:                             ; preds = %75, %78
   br i1 %.not78, label %108, label %99
 
 99:                                               ; preds = %96
-  %100 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %100 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i91 = icmp eq ptr %101, null
   br i1 %.not.i91, label %dt_database_get.exit92, label %102
 
@@ -4249,29 +4249,29 @@ dt_database_get.exit92:                           ; preds = %99, %102
   br label %108
 
 108:                                              ; preds = %dt_database_get.exit92, %96
-  %109 = load ptr, ptr %8, align 8, !tbaa !70
+  %109 = load ptr, ptr %8, align 8, !tbaa !84
   %.not79 = icmp eq ptr %109, null
   br i1 %.not79, label %116, label %110
 
 110:                                              ; preds = %108
-  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %112 = and i32 %111, 256
   %.not80 = icmp eq i32 %112, 0
   br i1 %.not80, label %114, label %113
 
 113:                                              ; preds = %110
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %109) #18
-  %.pre118 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre118 = load ptr, ptr %8, align 8, !tbaa !84
   br label %114
 
 114:                                              ; preds = %113, %110
   %115 = phi ptr [ %.pre118, %113 ], [ %109, %110 ]
   call void @sqlite3_free(ptr noundef %115) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %116
 
 116:                                              ; preds = %114, %108
-  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %117 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %118 = and i32 %117, 256
   %.not81 = icmp eq i32 %118, 0
   br i1 %.not81, label %120, label %119
@@ -4287,8 +4287,8 @@ dt_database_get.exit92:                           ; preds = %99, %102
   br i1 %.not82, label %132, label %123
 
 123:                                              ; preds = %120
-  %124 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %124 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i93 = icmp eq ptr %125, null
   br i1 %.not.i93, label %dt_database_get.exit94, label %126
 
@@ -4304,19 +4304,19 @@ dt_database_get.exit94:                           ; preds = %123, %126
   br label %132
 
 132:                                              ; preds = %dt_database_get.exit94, %120
-  %133 = load ptr, ptr %8, align 8, !tbaa !70
+  %133 = load ptr, ptr %8, align 8, !tbaa !84
   %.not83 = icmp eq ptr %133, null
   br i1 %.not83, label %322, label %134
 
 134:                                              ; preds = %132
-  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %135 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %136 = and i32 %135, 256
   %.not84 = icmp eq i32 %136, 0
   br i1 %.not84, label %138, label %137
 
 137:                                              ; preds = %134
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %133) #18
-  %.pre119 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre119 = load ptr, ptr %8, align 8, !tbaa !84
   br label %138
 
 138:                                              ; preds = %137, %134
@@ -4338,8 +4338,8 @@ dt_database_get.exit94:                           ; preds = %123, %126
   br i1 %.not46, label %154, label %145
 
 145:                                              ; preds = %142
-  %146 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %146 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i95 = icmp eq ptr %147, null
   br i1 %.not.i95, label %dt_database_get.exit96, label %148
 
@@ -4355,29 +4355,29 @@ dt_database_get.exit96:                           ; preds = %145, %148
   br label %154
 
 154:                                              ; preds = %dt_database_get.exit96, %142
-  %155 = load ptr, ptr %8, align 8, !tbaa !70
+  %155 = load ptr, ptr %8, align 8, !tbaa !84
   %.not47 = icmp eq ptr %155, null
   br i1 %.not47, label %162, label %156
 
 156:                                              ; preds = %154
-  %157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %158 = and i32 %157, 256
   %.not48 = icmp eq i32 %158, 0
   br i1 %.not48, label %160, label %159
 
 159:                                              ; preds = %156
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %155) #18
-  %.pre = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre = load ptr, ptr %8, align 8, !tbaa !84
   br label %160
 
 160:                                              ; preds = %159, %156
   %161 = phi ptr [ %.pre, %159 ], [ %155, %156 ]
   call void @sqlite3_free(ptr noundef %161) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %162
 
 162:                                              ; preds = %160, %154
-  %163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %163 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %164 = and i32 %163, 256
   %.not49 = icmp eq i32 %164, 0
   br i1 %.not49, label %166, label %165
@@ -4393,8 +4393,8 @@ dt_database_get.exit96:                           ; preds = %145, %148
   br i1 %.not50, label %178, label %169
 
 169:                                              ; preds = %166
-  %170 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %170 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %171 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i97 = icmp eq ptr %171, null
   br i1 %.not.i97, label %dt_database_get.exit98, label %172
 
@@ -4410,29 +4410,29 @@ dt_database_get.exit98:                           ; preds = %169, %172
   br label %178
 
 178:                                              ; preds = %dt_database_get.exit98, %166
-  %179 = load ptr, ptr %8, align 8, !tbaa !70
+  %179 = load ptr, ptr %8, align 8, !tbaa !84
   %.not51 = icmp eq ptr %179, null
   br i1 %.not51, label %186, label %180
 
 180:                                              ; preds = %178
-  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %181 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %182 = and i32 %181, 256
   %.not52 = icmp eq i32 %182, 0
   br i1 %.not52, label %184, label %183
 
 183:                                              ; preds = %180
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %179) #18
-  %.pre111 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre111 = load ptr, ptr %8, align 8, !tbaa !84
   br label %184
 
 184:                                              ; preds = %183, %180
   %185 = phi ptr [ %.pre111, %183 ], [ %179, %180 ]
   call void @sqlite3_free(ptr noundef %185) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %186
 
 186:                                              ; preds = %184, %178
-  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %187 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %188 = and i32 %187, 256
   %.not53 = icmp eq i32 %188, 0
   br i1 %.not53, label %190, label %189
@@ -4448,8 +4448,8 @@ dt_database_get.exit98:                           ; preds = %169, %172
   br i1 %.not54, label %202, label %193
 
 193:                                              ; preds = %190
-  %194 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %194 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %195 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i99 = icmp eq ptr %195, null
   br i1 %.not.i99, label %dt_database_get.exit100, label %196
 
@@ -4465,29 +4465,29 @@ dt_database_get.exit100:                          ; preds = %193, %196
   br label %202
 
 202:                                              ; preds = %dt_database_get.exit100, %190
-  %203 = load ptr, ptr %8, align 8, !tbaa !70
+  %203 = load ptr, ptr %8, align 8, !tbaa !84
   %.not55 = icmp eq ptr %203, null
   br i1 %.not55, label %210, label %204
 
 204:                                              ; preds = %202
-  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %206 = and i32 %205, 256
   %.not56 = icmp eq i32 %206, 0
   br i1 %.not56, label %208, label %207
 
 207:                                              ; preds = %204
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %203) #18
-  %.pre112 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre112 = load ptr, ptr %8, align 8, !tbaa !84
   br label %208
 
 208:                                              ; preds = %207, %204
   %209 = phi ptr [ %.pre112, %207 ], [ %203, %204 ]
   call void @sqlite3_free(ptr noundef %209) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %210
 
 210:                                              ; preds = %208, %202
-  %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %212 = and i32 %211, 256
   %.not57 = icmp eq i32 %212, 0
   br i1 %.not57, label %214, label %213
@@ -4503,8 +4503,8 @@ dt_database_get.exit100:                          ; preds = %193, %196
   br i1 %.not58, label %226, label %217
 
 217:                                              ; preds = %214
-  %218 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %218 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %219 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i101 = icmp eq ptr %219, null
   br i1 %.not.i101, label %dt_database_get.exit102, label %220
 
@@ -4520,29 +4520,29 @@ dt_database_get.exit102:                          ; preds = %217, %220
   br label %226
 
 226:                                              ; preds = %dt_database_get.exit102, %214
-  %227 = load ptr, ptr %8, align 8, !tbaa !70
+  %227 = load ptr, ptr %8, align 8, !tbaa !84
   %.not59 = icmp eq ptr %227, null
   br i1 %.not59, label %234, label %228
 
 228:                                              ; preds = %226
-  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %229 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %230 = and i32 %229, 256
   %.not60 = icmp eq i32 %230, 0
   br i1 %.not60, label %232, label %231
 
 231:                                              ; preds = %228
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %227) #18
-  %.pre113 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre113 = load ptr, ptr %8, align 8, !tbaa !84
   br label %232
 
 232:                                              ; preds = %231, %228
   %233 = phi ptr [ %.pre113, %231 ], [ %227, %228 ]
   call void @sqlite3_free(ptr noundef %233) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %234
 
 234:                                              ; preds = %232, %226
-  %235 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %235 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %236 = and i32 %235, 256
   %.not61 = icmp eq i32 %236, 0
   br i1 %.not61, label %238, label %237
@@ -4558,8 +4558,8 @@ dt_database_get.exit102:                          ; preds = %217, %220
   br i1 %.not62, label %250, label %241
 
 241:                                              ; preds = %238
-  %242 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %242 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %243 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i103 = icmp eq ptr %243, null
   br i1 %.not.i103, label %dt_database_get.exit104, label %244
 
@@ -4575,29 +4575,29 @@ dt_database_get.exit104:                          ; preds = %241, %244
   br label %250
 
 250:                                              ; preds = %dt_database_get.exit104, %238
-  %251 = load ptr, ptr %8, align 8, !tbaa !70
+  %251 = load ptr, ptr %8, align 8, !tbaa !84
   %.not63 = icmp eq ptr %251, null
   br i1 %.not63, label %258, label %252
 
 252:                                              ; preds = %250
-  %253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %253 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %254 = and i32 %253, 256
   %.not64 = icmp eq i32 %254, 0
   br i1 %.not64, label %256, label %255
 
 255:                                              ; preds = %252
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %251) #18
-  %.pre114 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre114 = load ptr, ptr %8, align 8, !tbaa !84
   br label %256
 
 256:                                              ; preds = %255, %252
   %257 = phi ptr [ %.pre114, %255 ], [ %251, %252 ]
   call void @sqlite3_free(ptr noundef %257) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %258
 
 258:                                              ; preds = %256, %250
-  %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %260 = and i32 %259, 256
   %.not65 = icmp eq i32 %260, 0
   br i1 %.not65, label %262, label %261
@@ -4613,8 +4613,8 @@ dt_database_get.exit104:                          ; preds = %241, %244
   br i1 %.not66, label %274, label %265
 
 265:                                              ; preds = %262
-  %266 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %266 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %267 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i105 = icmp eq ptr %267, null
   br i1 %.not.i105, label %dt_database_get.exit106, label %268
 
@@ -4630,25 +4630,25 @@ dt_database_get.exit106:                          ; preds = %265, %268
   br label %274
 
 274:                                              ; preds = %dt_database_get.exit106, %262
-  %275 = load ptr, ptr %8, align 8, !tbaa !70
+  %275 = load ptr, ptr %8, align 8, !tbaa !84
   %.not67 = icmp eq ptr %275, null
   br i1 %.not67, label %282, label %276
 
 276:                                              ; preds = %274
-  %277 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %277 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %278 = and i32 %277, 256
   %.not68 = icmp eq i32 %278, 0
   br i1 %.not68, label %280, label %279
 
 279:                                              ; preds = %276
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.92, ptr noundef nonnull %275) #18
-  %.pre115 = load ptr, ptr %8, align 8, !tbaa !70
+  %.pre115 = load ptr, ptr %8, align 8, !tbaa !84
   br label %280
 
 280:                                              ; preds = %279, %276
   %281 = phi ptr [ %.pre115, %279 ], [ %275, %276 ]
   call void @sqlite3_free(ptr noundef %281) #18
-  store ptr null, ptr %8, align 8, !tbaa !70
+  store ptr null, ptr %8, align 8, !tbaa !84
   br label %282
 
 282:                                              ; preds = %280, %274
@@ -4660,19 +4660,19 @@ dt_database_get.exit106:                          ; preds = %265, %268
   br i1 %286, label %287, label %_get_pragma_int_val.exit108
 
 287:                                              ; preds = %282
-  %288 = load ptr, ptr %3, align 8, !tbaa !21
+  %288 = load ptr, ptr %3, align 8, !tbaa !23
   %289 = call i32 @sqlite3_step(ptr noundef %288) #18
   %290 = icmp eq i32 %289, 100
   br i1 %290, label %291, label %_get_pragma_int_val.exit108
 
 291:                                              ; preds = %287
-  %292 = load ptr, ptr %3, align 8, !tbaa !21
+  %292 = load ptr, ptr %3, align 8, !tbaa !23
   %293 = call i32 @sqlite3_column_int(ptr noundef %292, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit108
 
 _get_pragma_int_val.exit108:                      ; preds = %282, %287, %291
   %.0.i107 = phi i32 [ %293, %291 ], [ -1, %287 ], [ -1, %282 ]
-  %294 = load ptr, ptr %3, align 8, !tbaa !21
+  %294 = load ptr, ptr %3, align 8, !tbaa !23
   %295 = call i32 @sqlite3_finalize(ptr noundef %294) #18
   call void @g_free(ptr noundef %284) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
@@ -4684,26 +4684,26 @@ _get_pragma_int_val.exit108:                      ; preds = %282, %287, %291
   br i1 %299, label %300, label %_get_pragma_int_val.exit110
 
 300:                                              ; preds = %_get_pragma_int_val.exit108
-  %301 = load ptr, ptr %2, align 8, !tbaa !21
+  %301 = load ptr, ptr %2, align 8, !tbaa !23
   %302 = call i32 @sqlite3_step(ptr noundef %301) #18
   %303 = icmp eq i32 %302, 100
   br i1 %303, label %304, label %_get_pragma_int_val.exit110
 
 304:                                              ; preds = %300
-  %305 = load ptr, ptr %2, align 8, !tbaa !21
+  %305 = load ptr, ptr %2, align 8, !tbaa !23
   %306 = call i32 @sqlite3_column_int(ptr noundef %305, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit110
 
 _get_pragma_int_val.exit110:                      ; preds = %_get_pragma_int_val.exit108, %300, %304
   %.0.i109 = phi i32 [ %306, %304 ], [ -1, %300 ], [ -1, %_get_pragma_int_val.exit108 ]
-  %307 = load ptr, ptr %2, align 8, !tbaa !21
+  %307 = load ptr, ptr %2, align 8, !tbaa !23
   %308 = call i32 @sqlite3_finalize(ptr noundef %307) #18
   call void @g_free(ptr noundef %297) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
   %309 = mul nsw i32 %.0.i107, %.0.i85
   %310 = mul nsw i32 %.0.i109, %.0.i89
   %311 = add nsw i32 %310, %309
-  %312 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %312 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %313 = and i32 %312, 256
   %.not69 = icmp eq i32 %313, 0
   br i1 %.not69, label %317, label %314
@@ -4719,7 +4719,7 @@ _get_pragma_int_val.exit110:                      ; preds = %_get_pragma_int_val
   br i1 %.not70, label %322, label %318
 
 318:                                              ; preds = %317
-  %319 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %319 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %320 = and i32 %319, 256
   %.not71 = icmp eq i32 %320, 0
   br i1 %.not71, label %322, label %321
@@ -4749,14 +4749,14 @@ define range(i32 0, 2) i32 @dt_database_maybe_maintenance(ptr noundef readonly c
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !23
+  %9 = load ptr, ptr %8, align 8, !tbaa !26
   %10 = tail call i32 @g_strcmp0(ptr noundef %9, ptr noundef nonnull @.str.23) #18
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_is_mem_db.exit.thread, label %_is_mem_db.exit
 
 _is_mem_db.exit:                                  ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %12 = load ptr, ptr %11, align 8, !tbaa !24
+  %12 = load ptr, ptr %11, align 8, !tbaa !27
   %13 = tail call i32 @g_strcmp0(ptr noundef %12, ptr noundef nonnull @.str.23) #18
   %.not2.i.not = icmp eq i32 %13, 0
   br i1 %.not2.i.not, label %_is_mem_db.exit.thread, label %14
@@ -4771,19 +4771,19 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %19, label %20, label %_get_pragma_int_val.exit
 
 20:                                               ; preds = %14
-  %21 = load ptr, ptr %7, align 8, !tbaa !21
+  %21 = load ptr, ptr %7, align 8, !tbaa !23
   %22 = call i32 @sqlite3_step(ptr noundef %21) #18
   %23 = icmp eq i32 %22, 100
   br i1 %23, label %24, label %_get_pragma_int_val.exit
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %7, align 8, !tbaa !21
+  %25 = load ptr, ptr %7, align 8, !tbaa !23
   %26 = call i32 @sqlite3_column_int(ptr noundef %25, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit
 
 _get_pragma_int_val.exit:                         ; preds = %14, %20, %24
   %.0.i = phi i32 [ %26, %24 ], [ -1, %20 ], [ -1, %14 ]
-  %27 = load ptr, ptr %7, align 8, !tbaa !21
+  %27 = load ptr, ptr %7, align 8, !tbaa !23
   %28 = call i32 @sqlite3_finalize(ptr noundef %27) #18
   call void @g_free(ptr noundef %17) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
@@ -4795,19 +4795,19 @@ _get_pragma_int_val.exit:                         ; preds = %14, %20, %24
   br i1 %32, label %33, label %_get_pragma_int_val.exit38
 
 33:                                               ; preds = %_get_pragma_int_val.exit
-  %34 = load ptr, ptr %6, align 8, !tbaa !21
+  %34 = load ptr, ptr %6, align 8, !tbaa !23
   %35 = call i32 @sqlite3_step(ptr noundef %34) #18
   %36 = icmp eq i32 %35, 100
   br i1 %36, label %37, label %_get_pragma_int_val.exit38
 
 37:                                               ; preds = %33
-  %38 = load ptr, ptr %6, align 8, !tbaa !21
+  %38 = load ptr, ptr %6, align 8, !tbaa !23
   %39 = call i32 @sqlite3_column_int(ptr noundef %38, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit38
 
 _get_pragma_int_val.exit38:                       ; preds = %_get_pragma_int_val.exit, %33, %37
   %.0.i37 = phi i32 [ %39, %37 ], [ -1, %33 ], [ -1, %_get_pragma_int_val.exit ]
-  %40 = load ptr, ptr %6, align 8, !tbaa !21
+  %40 = load ptr, ptr %6, align 8, !tbaa !23
   %41 = call i32 @sqlite3_finalize(ptr noundef %40) #18
   call void @g_free(ptr noundef %30) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
@@ -4819,19 +4819,19 @@ _get_pragma_int_val.exit38:                       ; preds = %_get_pragma_int_val
   br i1 %45, label %46, label %_get_pragma_int_val.exit40
 
 46:                                               ; preds = %_get_pragma_int_val.exit38
-  %47 = load ptr, ptr %5, align 8, !tbaa !21
+  %47 = load ptr, ptr %5, align 8, !tbaa !23
   %48 = call i32 @sqlite3_step(ptr noundef %47) #18
   %49 = icmp eq i32 %48, 100
   br i1 %49, label %50, label %_get_pragma_int_val.exit40
 
 50:                                               ; preds = %46
-  %51 = load ptr, ptr %5, align 8, !tbaa !21
+  %51 = load ptr, ptr %5, align 8, !tbaa !23
   %52 = call i32 @sqlite3_column_int(ptr noundef %51, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit40
 
 _get_pragma_int_val.exit40:                       ; preds = %_get_pragma_int_val.exit38, %46, %50
   %.0.i39 = phi i32 [ %52, %50 ], [ -1, %46 ], [ -1, %_get_pragma_int_val.exit38 ]
-  %53 = load ptr, ptr %5, align 8, !tbaa !21
+  %53 = load ptr, ptr %5, align 8, !tbaa !23
   %54 = call i32 @sqlite3_finalize(ptr noundef %53) #18
   call void @g_free(ptr noundef %43) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
@@ -4843,19 +4843,19 @@ _get_pragma_int_val.exit40:                       ; preds = %_get_pragma_int_val
   br i1 %58, label %59, label %_get_pragma_int_val.exit42
 
 59:                                               ; preds = %_get_pragma_int_val.exit40
-  %60 = load ptr, ptr %4, align 8, !tbaa !21
+  %60 = load ptr, ptr %4, align 8, !tbaa !23
   %61 = call i32 @sqlite3_step(ptr noundef %60) #18
   %62 = icmp eq i32 %61, 100
   br i1 %62, label %63, label %_get_pragma_int_val.exit42
 
 63:                                               ; preds = %59
-  %64 = load ptr, ptr %4, align 8, !tbaa !21
+  %64 = load ptr, ptr %4, align 8, !tbaa !23
   %65 = call i32 @sqlite3_column_int(ptr noundef %64, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit42
 
 _get_pragma_int_val.exit42:                       ; preds = %_get_pragma_int_val.exit40, %59, %63
   %.0.i41 = phi i32 [ %65, %63 ], [ -1, %59 ], [ -1, %_get_pragma_int_val.exit40 ]
-  %66 = load ptr, ptr %4, align 8, !tbaa !21
+  %66 = load ptr, ptr %4, align 8, !tbaa !23
   %67 = call i32 @sqlite3_finalize(ptr noundef %66) #18
   call void @g_free(ptr noundef %56) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
@@ -4867,19 +4867,19 @@ _get_pragma_int_val.exit42:                       ; preds = %_get_pragma_int_val
   br i1 %71, label %72, label %_get_pragma_int_val.exit44
 
 72:                                               ; preds = %_get_pragma_int_val.exit42
-  %73 = load ptr, ptr %3, align 8, !tbaa !21
+  %73 = load ptr, ptr %3, align 8, !tbaa !23
   %74 = call i32 @sqlite3_step(ptr noundef %73) #18
   %75 = icmp eq i32 %74, 100
   br i1 %75, label %76, label %_get_pragma_int_val.exit44
 
 76:                                               ; preds = %72
-  %77 = load ptr, ptr %3, align 8, !tbaa !21
+  %77 = load ptr, ptr %3, align 8, !tbaa !23
   %78 = call i32 @sqlite3_column_int(ptr noundef %77, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit44
 
 _get_pragma_int_val.exit44:                       ; preds = %_get_pragma_int_val.exit42, %72, %76
   %.0.i43 = phi i32 [ %78, %76 ], [ -1, %72 ], [ -1, %_get_pragma_int_val.exit42 ]
-  %79 = load ptr, ptr %3, align 8, !tbaa !21
+  %79 = load ptr, ptr %3, align 8, !tbaa !23
   %80 = call i32 @sqlite3_finalize(ptr noundef %79) #18
   call void @g_free(ptr noundef %69) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
@@ -4891,23 +4891,23 @@ _get_pragma_int_val.exit44:                       ; preds = %_get_pragma_int_val
   br i1 %84, label %85, label %_get_pragma_int_val.exit46
 
 85:                                               ; preds = %_get_pragma_int_val.exit44
-  %86 = load ptr, ptr %2, align 8, !tbaa !21
+  %86 = load ptr, ptr %2, align 8, !tbaa !23
   %87 = call i32 @sqlite3_step(ptr noundef %86) #18
   %88 = icmp eq i32 %87, 100
   br i1 %88, label %89, label %_get_pragma_int_val.exit46
 
 89:                                               ; preds = %85
-  %90 = load ptr, ptr %2, align 8, !tbaa !21
+  %90 = load ptr, ptr %2, align 8, !tbaa !23
   %91 = call i32 @sqlite3_column_int(ptr noundef %90, i32 noundef 0) #18
   br label %_get_pragma_int_val.exit46
 
 _get_pragma_int_val.exit46:                       ; preds = %_get_pragma_int_val.exit44, %85, %89
   %.0.i45 = phi i32 [ %91, %89 ], [ -1, %85 ], [ -1, %_get_pragma_int_val.exit44 ]
-  %92 = load ptr, ptr %2, align 8, !tbaa !21
+  %92 = load ptr, ptr %2, align 8, !tbaa !23
   %93 = call i32 @sqlite3_finalize(ptr noundef %92) #18
   call void @g_free(ptr noundef %82) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
-  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %95 = and i32 %94, 256
   %.not32 = icmp eq i32 %95, 0
   br i1 %.not32, label %97, label %96
@@ -4923,7 +4923,7 @@ _get_pragma_int_val.exit46:                       ; preds = %_get_pragma_int_val
   br i1 %or.cond, label %100, label %104
 
 100:                                              ; preds = %97
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %102 = and i32 %101, 256
   %.not36 = icmp eq i32 %102, 0
   br i1 %.not36, label %_is_mem_db.exit.thread, label %103
@@ -4946,7 +4946,7 @@ _get_pragma_int_val.exit46:                       ; preds = %_get_pragma_int_val
   br i1 %.not34, label %_is_mem_db.exit.thread, label %111
 
 111:                                              ; preds = %108, %104
-  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %112 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %113 = and i32 %112, 256
   %.not35 = icmp eq i32 %113, 0
   br i1 %.not35, label %_is_mem_db.exit.thread, label %114
@@ -4969,20 +4969,20 @@ declare i32 @dt_conf_get_int(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @dt_database_optimize(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef nonnull @.str.23) #18
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_is_mem_db.exit.thread, label %_is_mem_db.exit
 
 _is_mem_db.exit:                                  ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = tail call i32 @g_strcmp0(ptr noundef %6, ptr noundef nonnull @.str.23) #18
   %.not2.i.not = icmp eq i32 %7, 0
   br i1 %.not2.i.not, label %_is_mem_db.exit.thread, label %8
 
 8:                                                ; preds = %_is_mem_db.exit
-  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %10 = and i32 %9, 256
   %.not2 = icmp eq i32 %10, 0
   br i1 %.not2, label %12, label %11
@@ -4999,8 +4999,8 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not3, label %_is_mem_db.exit.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %17 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i4 = icmp eq ptr %18, null
   br i1 %.not.i4, label %dt_database_get.exit, label %19
 
@@ -5022,14 +5022,14 @@ _is_mem_db.exit.thread:                           ; preds = %1, %12, %dt_databas
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @dt_database_snapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !23
+  %3 = load ptr, ptr %2, align 8, !tbaa !26
   %4 = tail call i32 @g_strcmp0(ptr noundef %3, ptr noundef nonnull @.str.23) #18
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %_is_mem_db.exit.thread, label %_is_mem_db.exit
 
 _is_mem_db.exit:                                  ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load ptr, ptr %5, align 8, !tbaa !24
+  %6 = load ptr, ptr %5, align 8, !tbaa !27
   %7 = tail call i32 @g_strcmp0(ptr noundef %6, ptr noundef nonnull @.str.23) #18
   %.not2.i.not = icmp eq i32 %7, 0
   br i1 %.not2.i.not, label %_is_mem_db.exit.thread, label %8
@@ -5038,9 +5038,9 @@ _is_mem_db.exit:                                  ; preds = %1
   %9 = tail call ptr @g_date_time_new_now_local() #18
   %10 = tail call noalias ptr @g_date_time_format(ptr noundef %9, ptr noundef nonnull @.str.104) #18
   tail call void @g_date_time_unref(ptr noundef %9) #18
-  %11 = load ptr, ptr %5, align 8, !tbaa !24
+  %11 = load ptr, ptr %5, align 8, !tbaa !27
   %12 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.105, ptr noundef %11, ptr noundef %10) #18
-  %13 = load ptr, ptr %5, align 8, !tbaa !24
+  %13 = load ptr, ptr %5, align 8, !tbaa !27
   %14 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.106, ptr noundef %13, ptr noundef %10) #18
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !6
@@ -5057,9 +5057,9 @@ _is_mem_db.exit:                                  ; preds = %1
   %21 = tail call i32 @rename(ptr noundef %14, ptr noundef %12) #18
   tail call void @g_free(ptr noundef %14) #18
   tail call void @g_free(ptr noundef %12) #18
-  %22 = load ptr, ptr %2, align 8, !tbaa !23
+  %22 = load ptr, ptr %2, align 8, !tbaa !26
   %23 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.105, ptr noundef %22, ptr noundef %10) #18
-  %24 = load ptr, ptr %2, align 8, !tbaa !23
+  %24 = load ptr, ptr %2, align 8, !tbaa !26
   %25 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.106, ptr noundef %24, ptr noundef %10) #18
   tail call void @g_free(ptr noundef %10) #18
   %26 = load ptr, ptr %15, align 8, !tbaa !6
@@ -5104,13 +5104,13 @@ define internal fastcc i32 @_backup_db(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %7, label %8, label %47
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8, !tbaa !74
+  %9 = load ptr, ptr %5, align 8, !tbaa !88
   %10 = call ptr @sqlite3_backup_init(ptr noundef %9, ptr noundef nonnull @.str.107, ptr noundef %0, ptr noundef %1) #18
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %44, label %11
 
 11:                                               ; preds = %8
-  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %13 = and i32 %12, 256
   %.not42 = icmp eq i32 %13, 0
   br i1 %.not42, label %15, label %14
@@ -5128,20 +5128,20 @@ define internal fastcc i32 @_backup_db(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %19, label %20, label %_get_pragma_int_val.exit
 
 20:                                               ; preds = %15
-  %21 = load ptr, ptr %4, align 8, !tbaa !21
+  %21 = load ptr, ptr %4, align 8, !tbaa !23
   %22 = call i32 @sqlite3_step(ptr noundef %21) #18
   %23 = icmp eq i32 %22, 100
   br i1 %23, label %24, label %_get_pragma_int_val.exit
 
 24:                                               ; preds = %20
-  %25 = load ptr, ptr %4, align 8, !tbaa !21
+  %25 = load ptr, ptr %4, align 8, !tbaa !23
   %26 = call i32 @sqlite3_column_int(ptr noundef %25, i32 noundef 0) #18
   %27 = freeze i32 %26
   br label %_get_pragma_int_val.exit
 
 _get_pragma_int_val.exit:                         ; preds = %15, %20, %24
   %.0.i = phi i32 [ %27, %24 ], [ -1, %20 ], [ -1, %15 ]
-  %28 = load ptr, ptr %4, align 8, !tbaa !21
+  %28 = load ptr, ptr %4, align 8, !tbaa !23
   %29 = call i32 @sqlite3_finalize(ptr noundef %28) #18
   call void @g_free(ptr noundef %17) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
@@ -5156,7 +5156,7 @@ _get_pragma_int_val.exit:                         ; preds = %15, %20, %24
   %33 = call i32 @sqlite3_backup_step(ptr noundef nonnull %10, i32 noundef %32) #18
   %34 = call i32 @sqlite3_backup_remaining(ptr noundef nonnull %10) #18
   %35 = call i32 @sqlite3_backup_pagecount(ptr noundef nonnull %10) #18
-  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %37 = and i32 %36, 256
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %_print_backup_progress.exit, label %38
@@ -5182,20 +5182,20 @@ _print_backup_progress.exit:                      ; preds = %.critedge, %38
   ]
 
 .critedge.backedge:                               ; preds = %40, %40, %40
-  br label %.critedge
+  br label %.critedge, !llvm.loop !89
 
 42:                                               ; preds = %_print_backup_progress.exit, %40
   %43 = call i32 @sqlite3_backup_finish(ptr noundef nonnull %10) #18
   br label %44
 
 44:                                               ; preds = %42, %8
-  %45 = load ptr, ptr %5, align 8, !tbaa !74
+  %45 = load ptr, ptr %5, align 8, !tbaa !88
   %46 = call i32 @sqlite3_errcode(ptr noundef %45) #18
   br label %47
 
 47:                                               ; preds = %44, %3
   %.0 = phi i32 [ %46, %44 ], [ %6, %3 ]
-  %48 = load ptr, ptr %5, align 8, !tbaa !74
+  %48 = load ptr, ptr %5, align 8, !tbaa !88
   %49 = call i32 @sqlite3_close(ptr noundef %48) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   ret i32 %.0
@@ -5208,14 +5208,14 @@ declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef rea
 define range(i32 0, 2) i32 @dt_database_maybe_snapshot(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !23
+  %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = tail call i32 @g_strcmp0(ptr noundef %4, ptr noundef nonnull @.str.23) #18
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_is_mem_db.exit.thread, label %_is_mem_db.exit
 
 _is_mem_db.exit:                                  ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !24
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.23) #18
   %.not2.i.not = icmp eq i32 %8, 0
   br i1 %.not2.i.not, label %_is_mem_db.exit.thread, label %9
@@ -5227,7 +5227,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not65, label %12, label %16
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %13 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %14 = and i32 %13, 256
   %.not66 = icmp eq i32 %14, 0
   br i1 %.not66, label %_is_mem_db.exit.thread, label %15
@@ -5242,7 +5242,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not67, label %18, label %22
 
 18:                                               ; preds = %16
-  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %20 = and i32 %19, 256
   %.not68 = icmp eq i32 %20, 0
   br i1 %.not68, label %_is_mem_db.exit.thread, label %21
@@ -5267,7 +5267,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not71, label %32, label %28
 
 28:                                               ; preds = %26
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %30 = and i32 %29, 256
   %.not82 = icmp eq i32 %30, 0
   br i1 %.not82, label %_is_mem_db.exit.thread, label %31
@@ -5278,7 +5278,7 @@ _is_mem_db.exit:                                  ; preds = %1
 
 32:                                               ; preds = %26, %24, %22
   %.055 = phi i64 [ 86400000000, %22 ], [ 604800000000, %24 ], [ 2592000000000, %26 ]
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %34 = and i32 %33, 256
   %.not72 = icmp eq i32 %34, 0
   br i1 %.not72, label %36, label %35
@@ -5288,14 +5288,14 @@ _is_mem_db.exit:                                  ; preds = %1
   br label %36
 
 36:                                               ; preds = %35, %32
-  %37 = load ptr, ptr %6, align 8, !tbaa !24
+  %37 = load ptr, ptr %6, align 8, !tbaa !27
   %38 = tail call ptr @g_file_parse_name(ptr noundef %37) #18
   %39 = tail call ptr @g_file_get_parent(ptr noundef %38) #18
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %36
-  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %42 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %43 = and i32 %42, 256
   %.not81 = icmp eq i32 %43, 0
   br i1 %.not81, label %45, label %44
@@ -5310,28 +5310,28 @@ _is_mem_db.exit:                                  ; preds = %1
 
 46:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !21
   %47 = call ptr @g_file_enumerate_children(ptr noundef nonnull %39, ptr noundef nonnull @.str.120, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2) #18
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %58
 
 49:                                               ; preds = %46
-  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %50 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %51 = and i32 %50, 256
   %.not80 = icmp eq i32 %51, 0
   br i1 %.not80, label %56, label %52
 
 52:                                               ; preds = %49
-  %53 = load ptr, ptr %2, align 8, !tbaa !19
+  %53 = load ptr, ptr %2, align 8, !tbaa !21
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !68
+  %55 = load ptr, ptr %54, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.121, ptr noundef %55) #18
   br label %56
 
 56:                                               ; preds = %52, %49
   call void @g_object_unref(ptr noundef nonnull %39) #18
   call void @g_object_unref(ptr noundef %38) #18
-  %57 = load ptr, ptr %2, align 8, !tbaa !19
+  %57 = load ptr, ptr %2, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %57) #18
   br label %101
 
@@ -5359,7 +5359,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not78, label %76, label %68
 
 68:                                               ; preds = %.lr.ph, %66
-  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %70 = and i32 %69, 256
   %.not79 = icmp eq i32 %70, 0
   br i1 %.not79, label %72, label %71
@@ -5382,33 +5382,33 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_object_unref(ptr noundef nonnull %63) #18
   %77 = call ptr @g_file_enumerator_next_file(ptr noundef nonnull %47, ptr noundef null, ptr noundef nonnull %2) #18
   %.not73 = icmp eq ptr %77, null
-  br i1 %.not73, label %._crit_edge, label %.lr.ph
+  br i1 %.not73, label %._crit_edge, label %.lr.ph, !llvm.loop !90
 
 ._crit_edge:                                      ; preds = %76, %58
   %.056.lcssa = phi i64 [ 0, %58 ], [ %.258, %76 ]
   call void @g_object_unref(ptr noundef nonnull %39) #18
   call void @g_free(ptr noundef %60) #18
   call void @g_free(ptr noundef %61) #18
-  %78 = load ptr, ptr %2, align 8, !tbaa !19
+  %78 = load ptr, ptr %2, align 8, !tbaa !21
   %.not74 = icmp eq ptr %78, null
   br i1 %.not74, label %88, label %79
 
 79:                                               ; preds = %._crit_edge
-  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %81 = and i32 %80, 256
   %.not76 = icmp eq i32 %81, 0
   br i1 %.not76, label %85, label %82
 
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !68
+  %84 = load ptr, ptr %83, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.126, ptr noundef %84) #18
   br label %85
 
 85:                                               ; preds = %82, %79
   %86 = call i32 @g_file_enumerator_close(ptr noundef nonnull %47, ptr noundef null, ptr noundef null) #18
   call void @g_object_unref(ptr noundef nonnull %47) #18
-  %87 = load ptr, ptr %2, align 8, !tbaa !19
+  %87 = load ptr, ptr %2, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %87) #18
   br label %101
 
@@ -5419,7 +5419,7 @@ _is_mem_db.exit:                                  ; preds = %1
   %91 = call ptr @g_date_time_new_from_unix_local(i64 noundef %.056.lcssa) #18
   %92 = call noalias ptr @g_date_time_format(ptr noundef %90, ptr noundef nonnull @.str.104) #18
   %93 = call noalias ptr @g_date_time_format(ptr noundef %91, ptr noundef nonnull @.str.104) #18
-  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %94 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %95 = and i32 %94, 256
   %.not75 = icmp eq i32 %95, 0
   br i1 %.not75, label %97, label %96
@@ -5477,14 +5477,14 @@ define ptr @dt_database_snaps_to_remove(ptr noundef readonly captures(none) %0) 
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !23
+  %5 = load ptr, ptr %4, align 8, !tbaa !26
   %6 = tail call i32 @g_strcmp0(ptr noundef %5, ptr noundef nonnull @.str.23) #18
   %.not.i = icmp eq i32 %6, 0
   br i1 %.not.i, label %_is_mem_db.exit.thread, label %_is_mem_db.exit
 
 _is_mem_db.exit:                                  ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load ptr, ptr %7, align 8, !tbaa !24
+  %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = tail call i32 @g_strcmp0(ptr noundef %8, ptr noundef nonnull @.str.23) #18
   %.not2.i.not = icmp eq i32 %9, 0
   br i1 %.not2.i.not, label %_is_mem_db.exit.thread, label %10
@@ -5495,7 +5495,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %12, label %_is_mem_db.exit.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %14 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %15 = and i32 %14, 256
   %.not208 = icmp eq i32 %15, 0
   br i1 %.not208, label %17, label %16
@@ -5505,14 +5505,14 @@ _is_mem_db.exit:                                  ; preds = %1
   br label %17
 
 17:                                               ; preds = %16, %13
-  %18 = load ptr, ptr %7, align 8, !tbaa !24
+  %18 = load ptr, ptr %7, align 8, !tbaa !27
   %19 = tail call ptr @g_file_parse_name(ptr noundef %18) #18
   %20 = tail call ptr @g_file_get_parent(ptr noundef %19) #18
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %27
 
 22:                                               ; preds = %17
-  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %24 = and i32 %23, 256
   %.not239 = icmp eq i32 %24, 0
   br i1 %.not239, label %26, label %25
@@ -5526,14 +5526,14 @@ _is_mem_db.exit:                                  ; preds = %1
   br label %_is_mem_db.exit.thread
 
 27:                                               ; preds = %17
-  %28 = load ptr, ptr %4, align 8, !tbaa !23
+  %28 = load ptr, ptr %4, align 8, !tbaa !26
   %29 = tail call ptr @g_file_parse_name(ptr noundef %28) #18
   %30 = tail call ptr @g_file_get_parent(ptr noundef %29) #18
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %27
-  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %34 = and i32 %33, 256
   %.not209 = icmp eq i32 %34, 0
   br i1 %.not209, label %36, label %35
@@ -5569,7 +5569,7 @@ _is_mem_db.exit:                                  ; preds = %1
 
 49:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #18
-  store ptr null, ptr %2, align 8, !tbaa !19
+  store ptr null, ptr %2, align 8, !tbaa !21
   %50 = call ptr @g_file_enumerate_children(ptr noundef nonnull %20, ptr noundef nonnull @.str.131, i32 noundef 0, ptr noundef null, ptr noundef nonnull %2) #18
   %51 = icmp eq ptr %50, null
   br i1 %51, label %53, label %.preheader245
@@ -5580,15 +5580,15 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not227246, label %._crit_edge, label %.lr.ph
 
 53:                                               ; preds = %49
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %55 = and i32 %54, 256
   %.not236 = icmp eq i32 %55, 0
   br i1 %.not236, label %.critedge, label %56
 
 56:                                               ; preds = %53
-  %57 = load ptr, ptr %2, align 8, !tbaa !19
+  %57 = load ptr, ptr %2, align 8, !tbaa !21
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !68
+  %59 = load ptr, ptr %58, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.121, ptr noundef %59) #18
   br label %.critedge
 
@@ -5603,7 +5603,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_queue_free(ptr noundef %45) #18
   call void @g_queue_free(ptr noundef %46) #18
   call void @g_queue_free(ptr noundef %47) #18
-  %60 = load ptr, ptr %2, align 8, !tbaa !19
+  %60 = load ptr, ptr %2, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %60) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
   br label %_is_mem_db.exit.thread
@@ -5616,7 +5616,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not230, label %70, label %64
 
 64:                                               ; preds = %.lr.ph
-  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %65 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %66 = and i32 %65, 256
   %.not235 = icmp eq i32 %66, 0
   br i1 %.not235, label %68, label %67
@@ -5636,7 +5636,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not231, label %78, label %72
 
 72:                                               ; preds = %70
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %74 = and i32 %73, 256
   %.not234 = icmp eq i32 %74, 0
   br i1 %.not234, label %76, label %75
@@ -5669,24 +5669,24 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_object_unref(ptr noundef nonnull %61) #18
   %85 = call ptr @g_file_enumerator_next_file(ptr noundef nonnull %50, ptr noundef null, ptr noundef nonnull %2) #18
   %.not227 = icmp eq ptr %85, null
-  br i1 %.not227, label %._crit_edge, label %.lr.ph
+  br i1 %.not227, label %._crit_edge, label %.lr.ph, !llvm.loop !91
 
 ._crit_edge:                                      ; preds = %84, %.preheader245
   call void @g_free(ptr noundef %39) #18
   call void @g_free(ptr noundef %42) #18
-  %86 = load ptr, ptr %2, align 8, !tbaa !19
+  %86 = load ptr, ptr %2, align 8, !tbaa !21
   %.not228 = icmp eq ptr %86, null
   br i1 %.not228, label %.thread, label %87
 
 87:                                               ; preds = %._crit_edge
-  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %89 = and i32 %88, 256
   %.not229 = icmp eq i32 %89, 0
   br i1 %.not229, label %94, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !68
+  %92 = load ptr, ptr %91, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.126, ptr noundef %92) #18
   br label %94
 
@@ -5707,28 +5707,28 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_queue_free_full(ptr noundef %47, ptr noundef nonnull @g_free) #18
   %95 = call i32 @g_file_enumerator_close(ptr noundef nonnull %50, ptr noundef null, ptr noundef null) #18
   call void @g_object_unref(ptr noundef nonnull %50) #18
-  %96 = load ptr, ptr %2, align 8, !tbaa !19
+  %96 = load ptr, ptr %2, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %96) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #18
   br label %_is_mem_db.exit.thread
 
 97:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  store ptr null, ptr %3, align 8, !tbaa !19
+  store ptr null, ptr %3, align 8, !tbaa !21
   %98 = call ptr @g_file_enumerate_children(ptr noundef nonnull %20, ptr noundef nonnull @.str.131, i32 noundef 0, ptr noundef null, ptr noundef nonnull %3) #18
   %99 = icmp eq ptr %98, null
   br i1 %99, label %100, label %109
 
 100:                                              ; preds = %97
-  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %101 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %102 = and i32 %101, 256
   %.not226 = icmp eq i32 %102, 0
   br i1 %.not226, label %107, label %103
 
 103:                                              ; preds = %100
-  %104 = load ptr, ptr %3, align 8, !tbaa !19
+  %104 = load ptr, ptr %3, align 8, !tbaa !21
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %106 = load ptr, ptr %105, align 8, !tbaa !68
+  %106 = load ptr, ptr %105, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.121, ptr noundef %106) #18
   br label %107
 
@@ -5739,7 +5739,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_free(ptr noundef %42) #18
   call void @g_free(ptr noundef %40) #18
   call void @g_free(ptr noundef %43) #18
-  %108 = load ptr, ptr %3, align 8, !tbaa !19
+  %108 = load ptr, ptr %3, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %108) #18
   call void @g_queue_free(ptr noundef %44) #18
   call void @g_queue_free(ptr noundef %45) #18
@@ -5758,15 +5758,15 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not211247, label %._crit_edge249, label %.lr.ph248
 
 113:                                              ; preds = %109
-  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %115 = and i32 %114, 256
   %.not225 = icmp eq i32 %115, 0
   br i1 %.not225, label %120, label %116
 
 116:                                              ; preds = %113
-  %117 = load ptr, ptr %3, align 8, !tbaa !19
+  %117 = load ptr, ptr %3, align 8, !tbaa !21
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %119 = load ptr, ptr %118, align 8, !tbaa !68
+  %119 = load ptr, ptr %118, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.132, ptr noundef %119) #18
   br label %120
 
@@ -5779,7 +5779,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_free(ptr noundef %43) #18
   %121 = call i32 @g_file_enumerator_close(ptr noundef nonnull %98, ptr noundef null, ptr noundef null) #18
   call void @g_object_unref(ptr noundef nonnull %98) #18
-  %122 = load ptr, ptr %3, align 8, !tbaa !19
+  %122 = load ptr, ptr %3, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %122) #18
   call void @g_queue_free(ptr noundef %44) #18
   call void @g_queue_free(ptr noundef %45) #18
@@ -5795,7 +5795,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not221, label %132, label %126
 
 126:                                              ; preds = %.lr.ph248
-  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %128 = and i32 %127, 256
   %.not224 = icmp eq i32 %128, 0
   br i1 %.not224, label %130, label %129
@@ -5828,23 +5828,23 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_object_unref(ptr noundef nonnull %123) #18
   %139 = call ptr @g_file_enumerator_next_file(ptr noundef nonnull %98, ptr noundef null, ptr noundef nonnull %3) #18
   %.not211 = icmp eq ptr %139, null
-  br i1 %.not211, label %._crit_edge249, label %.lr.ph248
+  br i1 %.not211, label %._crit_edge249, label %.lr.ph248, !llvm.loop !92
 
 ._crit_edge249:                                   ; preds = %138, %.preheader244
   call void @g_free(ptr noundef %39) #18
-  %140 = load ptr, ptr %3, align 8, !tbaa !19
+  %140 = load ptr, ptr %3, align 8, !tbaa !21
   %.not212 = icmp eq ptr %140, null
   br i1 %.not212, label %151, label %141
 
 141:                                              ; preds = %._crit_edge249
-  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %142 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %143 = and i32 %142, 256
   %.not220 = icmp eq i32 %143, 0
   br i1 %.not220, label %147, label %144
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !68
+  %146 = load ptr, ptr %145, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.126, ptr noundef %146) #18
   br label %147
 
@@ -5861,7 +5861,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_object_unref(ptr noundef nonnull %98) #18
   %149 = call i32 @g_file_enumerator_close(ptr noundef nonnull %110, ptr noundef null, ptr noundef null) #18
   call void @g_object_unref(ptr noundef nonnull %110) #18
-  %150 = load ptr, ptr %3, align 8, !tbaa !19
+  %150 = load ptr, ptr %3, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %150) #18
   br label %.critedge241
 
@@ -5880,7 +5880,7 @@ _is_mem_db.exit:                                  ; preds = %1
   br i1 %.not216, label %163, label %157
 
 157:                                              ; preds = %.lr.ph252
-  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %159 = and i32 %158, 256
   %.not219 = icmp eq i32 %159, 0
   br i1 %.not219, label %161, label %160
@@ -5913,25 +5913,25 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_object_unref(ptr noundef nonnull %154) #18
   %170 = call ptr @g_file_enumerator_next_file(ptr noundef nonnull %110, ptr noundef null, ptr noundef nonnull %3) #18
   %.not213 = icmp eq ptr %170, null
-  br i1 %.not213, label %._crit_edge253, label %.lr.ph252
+  br i1 %.not213, label %._crit_edge253, label %.lr.ph252, !llvm.loop !93
 
 ._crit_edge253:                                   ; preds = %169, %151
   call void @g_free(ptr noundef %42) #18
   call void @g_free(ptr noundef %40) #18
   call void @g_free(ptr noundef %43) #18
-  %171 = load ptr, ptr %3, align 8, !tbaa !19
+  %171 = load ptr, ptr %3, align 8, !tbaa !21
   %.not214 = icmp eq ptr %171, null
   br i1 %.not214, label %181, label %172
 
 172:                                              ; preds = %._crit_edge253
-  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %174 = and i32 %173, 256
   %.not215 = icmp eq i32 %174, 0
   br i1 %.not215, label %178, label %175
 
 175:                                              ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  %177 = load ptr, ptr %176, align 8, !tbaa !68
+  %177 = load ptr, ptr %176, align 8, !tbaa !76
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.134, ptr noundef %177) #18
   br label %178
 
@@ -5944,7 +5944,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_queue_free_full(ptr noundef %47, ptr noundef nonnull @g_free) #18
   %179 = call i32 @g_file_enumerator_close(ptr noundef nonnull %110, ptr noundef null, ptr noundef null) #18
   call void @g_object_unref(ptr noundef nonnull %110) #18
-  %180 = load ptr, ptr %3, align 8, !tbaa !19
+  %180 = load ptr, ptr %3, align 8, !tbaa !21
   call void @g_error_free(ptr noundef %180) #18
   br label %.critedge241
 
@@ -5974,7 +5974,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_free(ptr noundef %189) #18
   %191 = call i32 @g_queue_get_length(ptr noundef %44) #18
   %192 = icmp ugt i32 %191, %11
-  br i1 %192, label %.lr.ph255, label %.preheader243
+  br i1 %192, label %.lr.ph255, label %.preheader243, !llvm.loop !94
 
 .lr.ph257:                                        ; preds = %.preheader243, %.lr.ph257
   %193 = call ptr @g_queue_pop_head(ptr noundef %46) #18
@@ -5983,7 +5983,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_free(ptr noundef %193) #18
   %195 = call i32 @g_queue_is_empty(ptr noundef %46) #18
   %.not237 = icmp eq i32 %195, 0
-  br i1 %.not237, label %.lr.ph257, label %._crit_edge258
+  br i1 %.not237, label %.lr.ph257, label %._crit_edge258, !llvm.loop !95
 
 ._crit_edge258:                                   ; preds = %.lr.ph257, %.preheader243
   call void @g_free(ptr noundef %185) #18
@@ -6007,7 +6007,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_free(ptr noundef %200) #18
   %202 = call i32 @g_queue_get_length(ptr noundef %45) #18
   %203 = icmp ugt i32 %202, %11
-  br i1 %203, label %.lr.ph260, label %.preheader
+  br i1 %203, label %.lr.ph260, label %.preheader, !llvm.loop !96
 
 .lr.ph262:                                        ; preds = %.preheader, %.lr.ph262
   %204 = call ptr @g_queue_pop_head(ptr noundef %47) #18
@@ -6016,7 +6016,7 @@ _is_mem_db.exit:                                  ; preds = %1
   call void @g_free(ptr noundef %204) #18
   %206 = call i32 @g_queue_is_empty(ptr noundef %47) #18
   %.not238 = icmp eq i32 %206, 0
-  br i1 %.not238, label %.lr.ph262, label %._crit_edge263
+  br i1 %.not238, label %.lr.ph262, label %._crit_edge263, !llvm.loop !97
 
 ._crit_edge263:                                   ; preds = %.lr.ph262, %.preheader
   call void @g_free(ptr noundef %196) #18
@@ -6073,7 +6073,7 @@ define internal i32 @_db_snap_sort(ptr noundef %0, ptr noundef %1, ptr readnone 
   %19 = add i32 %18, %17
   %20 = add nuw nsw i64 %.02125.i, 1
   %exitcond.not.i = icmp eq i64 %20, 4
-  br i1 %exitcond.not.i, label %_get_iso8601_int.exit, label %11
+  br i1 %exitcond.not.i, label %_get_iso8601_int.exit, label %11, !llvm.loop !98
 
 _get_iso8601_int.exit:                            ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 9
@@ -6095,7 +6095,7 @@ _get_iso8601_int.exit:                            ; preds = %15
   %30 = add i32 %29, %28
   %31 = add nuw nsw i64 %.02125.i41, 1
   %exitcond.not.i44 = icmp eq i64 %31, 2
-  br i1 %exitcond.not.i44, label %_get_iso8601_int.exit45, label %22
+  br i1 %exitcond.not.i44, label %_get_iso8601_int.exit45, label %22, !llvm.loop !98
 
 _get_iso8601_int.exit45:                          ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 11
@@ -6117,7 +6117,7 @@ _get_iso8601_int.exit45:                          ; preds = %26
   %41 = add i32 %40, %39
   %42 = add nuw nsw i64 %.02125.i47, 1
   %exitcond.not.i50 = icmp eq i64 %42, 2
-  br i1 %exitcond.not.i50, label %_get_iso8601_int.exit51, label %33
+  br i1 %exitcond.not.i50, label %_get_iso8601_int.exit51, label %33, !llvm.loop !98
 
 _get_iso8601_int.exit51:                          ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 13
@@ -6139,7 +6139,7 @@ _get_iso8601_int.exit51:                          ; preds = %37
   %52 = add i32 %51, %50
   %53 = add nuw nsw i64 %.02125.i53, 1
   %exitcond.not.i56 = icmp eq i64 %53, 2
-  br i1 %exitcond.not.i56, label %_get_iso8601_int.exit57, label %44
+  br i1 %exitcond.not.i56, label %_get_iso8601_int.exit57, label %44, !llvm.loop !98
 
 _get_iso8601_int.exit57:                          ; preds = %48
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 15
@@ -6161,7 +6161,7 @@ _get_iso8601_int.exit57:                          ; preds = %48
   %63 = add i32 %62, %61
   %64 = add nuw nsw i64 %.02125.i59, 1
   %exitcond.not.i62 = icmp eq i64 %64, 2
-  br i1 %exitcond.not.i62, label %_get_iso8601_int.exit63, label %55
+  br i1 %exitcond.not.i62, label %_get_iso8601_int.exit63, label %55, !llvm.loop !98
 
 _get_iso8601_int.exit63:                          ; preds = %59
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 17
@@ -6183,7 +6183,7 @@ _get_iso8601_int.exit63:                          ; preds = %59
   %74 = add i32 %73, %72
   %75 = add nuw nsw i64 %.02125.i65, 1
   %exitcond.not.i68 = icmp eq i64 %75, 2
-  br i1 %exitcond.not.i68, label %_get_iso8601_int.exit69, label %66
+  br i1 %exitcond.not.i68, label %_get_iso8601_int.exit69, label %66, !llvm.loop !98
 
 _get_iso8601_int.exit69:                          ; preds = %70
   %76 = sitofp i32 %74 to double
@@ -6206,7 +6206,7 @@ _get_iso8601_int.exit69:                          ; preds = %70
   %86 = add i32 %85, %84
   %87 = add nuw nsw i64 %.02125.i71, 1
   %exitcond.not.i74 = icmp eq i64 %87, 4
-  br i1 %exitcond.not.i74, label %_get_iso8601_int.exit75, label %78
+  br i1 %exitcond.not.i74, label %_get_iso8601_int.exit75, label %78, !llvm.loop !98
 
 _get_iso8601_int.exit75:                          ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %5, i64 9
@@ -6228,7 +6228,7 @@ _get_iso8601_int.exit75:                          ; preds = %82
   %97 = add i32 %96, %95
   %98 = add nuw nsw i64 %.02125.i77, 1
   %exitcond.not.i80 = icmp eq i64 %98, 2
-  br i1 %exitcond.not.i80, label %_get_iso8601_int.exit81, label %89
+  br i1 %exitcond.not.i80, label %_get_iso8601_int.exit81, label %89, !llvm.loop !98
 
 _get_iso8601_int.exit81:                          ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %5, i64 11
@@ -6250,7 +6250,7 @@ _get_iso8601_int.exit81:                          ; preds = %93
   %108 = add i32 %107, %106
   %109 = add nuw nsw i64 %.02125.i83, 1
   %exitcond.not.i86 = icmp eq i64 %109, 2
-  br i1 %exitcond.not.i86, label %_get_iso8601_int.exit87, label %100
+  br i1 %exitcond.not.i86, label %_get_iso8601_int.exit87, label %100, !llvm.loop !98
 
 _get_iso8601_int.exit87:                          ; preds = %104
   %110 = getelementptr inbounds nuw i8, ptr %5, i64 13
@@ -6272,7 +6272,7 @@ _get_iso8601_int.exit87:                          ; preds = %104
   %119 = add i32 %118, %117
   %120 = add nuw nsw i64 %.02125.i89, 1
   %exitcond.not.i92 = icmp eq i64 %120, 2
-  br i1 %exitcond.not.i92, label %_get_iso8601_int.exit93, label %111
+  br i1 %exitcond.not.i92, label %_get_iso8601_int.exit93, label %111, !llvm.loop !98
 
 _get_iso8601_int.exit93:                          ; preds = %115
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 15
@@ -6294,7 +6294,7 @@ _get_iso8601_int.exit93:                          ; preds = %115
   %130 = add i32 %129, %128
   %131 = add nuw nsw i64 %.02125.i95, 1
   %exitcond.not.i98 = icmp eq i64 %131, 2
-  br i1 %exitcond.not.i98, label %_get_iso8601_int.exit99, label %122
+  br i1 %exitcond.not.i98, label %_get_iso8601_int.exit99, label %122, !llvm.loop !98
 
 _get_iso8601_int.exit99:                          ; preds = %126
   %132 = getelementptr inbounds nuw i8, ptr %5, i64 17
@@ -6316,7 +6316,7 @@ _get_iso8601_int.exit99:                          ; preds = %126
   %141 = add i32 %140, %139
   %142 = add nuw nsw i64 %.02125.i101, 1
   %exitcond.not.i104 = icmp eq i64 %142, 2
-  br i1 %exitcond.not.i104, label %_get_iso8601_int.exit105, label %133
+  br i1 %exitcond.not.i104, label %_get_iso8601_int.exit105, label %133, !llvm.loop !98
 
 _get_iso8601_int.exit105:                         ; preds = %137
   %143 = sitofp i32 %141 to double
@@ -6362,7 +6362,7 @@ define void @dt_database_start_transaction(ptr noundef readonly captures(address
   br i1 %4, label %5, label %24
 
 5:                                                ; preds = %1
-  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %7 = and i32 %6, 256
   %.not7 = icmp eq i32 %7, 0
   br i1 %.not7, label %9, label %8
@@ -6387,8 +6387,8 @@ dt_database_get.exit:                             ; preds = %9, %10
   br i1 %.not8, label %.thread, label %15
 
 15:                                               ; preds = %dt_database_get.exit
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i9 = icmp eq ptr %17, null
   br i1 %.not.i9, label %dt_database_get.exit10, label %18
 
@@ -6407,7 +6407,7 @@ dt_database_get.exit10:                           ; preds = %15, %18
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %25 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %2, i64 noundef 32, ptr noundef nonnull @.str.139, i32 noundef %3) #18
-  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %27 = and i32 %26, 256
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %29, label %28
@@ -6432,8 +6432,8 @@ dt_database_get.exit12:                           ; preds = %29, %30
   br i1 %.not6, label %44, label %35
 
 35:                                               ; preds = %dt_database_get.exit12
-  %36 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %36 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i13 = icmp eq ptr %37, null
   br i1 %.not.i13, label %dt_database_get.exit14, label %38
 
@@ -6479,7 +6479,7 @@ define void @dt_database_release_transaction(ptr noundef readonly captures(addre
   br i1 %6, label %7, label %26
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %9 = and i32 %8, 256
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %11, label %10
@@ -6504,8 +6504,8 @@ dt_database_get.exit:                             ; preds = %11, %12
   br i1 %.not8, label %48, label %17
 
 17:                                               ; preds = %dt_database_get.exit
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i9 = icmp eq ptr %19, null
   br i1 %.not.i9, label %dt_database_get.exit10, label %20
 
@@ -6525,7 +6525,7 @@ dt_database_get.exit10:                           ; preds = %17, %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %27 = add nsw i32 %3, -1
   %28 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.143, i32 noundef %27) #18
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %30 = and i32 %29, 256
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %32, label %31
@@ -6550,8 +6550,8 @@ dt_database_get.exit12:                           ; preds = %32, %33
   br i1 %.not6, label %47, label %38
 
 38:                                               ; preds = %dt_database_get.exit12
-  %39 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %39 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i13 = icmp eq ptr %40, null
   br i1 %.not.i13, label %dt_database_get.exit14, label %41
 
@@ -6590,7 +6590,7 @@ define void @dt_database_rollback_transaction(ptr noundef readonly captures(addr
   br i1 %6, label %7, label %26
 
 7:                                                ; preds = %5
-  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %9 = and i32 %8, 256
   %.not7 = icmp eq i32 %9, 0
   br i1 %.not7, label %11, label %10
@@ -6615,8 +6615,8 @@ dt_database_get.exit:                             ; preds = %11, %12
   br i1 %.not8, label %48, label %17
 
 17:                                               ; preds = %dt_database_get.exit
-  %18 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %18 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i9 = icmp eq ptr %19, null
   br i1 %.not.i9, label %dt_database_get.exit10, label %20
 
@@ -6636,7 +6636,7 @@ dt_database_get.exit10:                           ; preds = %17, %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %27 = add nsw i32 %3, -1
   %28 = call i32 (ptr, i64, ptr, ...) @g_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.146, i32 noundef %27) #18
-  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !25
+  %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !28
   %30 = and i32 %29, 256
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %32, label %31
@@ -6661,8 +6661,8 @@ dt_database_get.exit12:                           ; preds = %32, %33
   br i1 %.not6, label %47, label %38
 
 38:                                               ; preds = %dt_database_get.exit12
-  %39 = load ptr, ptr @stderr, align 8, !tbaa !71
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !73
+  %39 = load ptr, ptr @stderr, align 8, !tbaa !85
+  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !87
   %.not.i13 = icmp eq ptr %40, null
   br i1 %.not.i13, label %dt_database_get.exit14, label %41
 
@@ -6699,9 +6699,9 @@ define internal fastcc range(i32 0, 2) i32 @_lock_single_database(ptr noundef ca
 
 11:                                               ; preds = %3
   %12 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.148, ptr noundef null) #18
-  store ptr %12, ptr %2, align 8, !tbaa !70
+  store ptr %12, ptr %2, align 8, !tbaa !84
   %13 = tail call i32 @umask(i32 noundef 0) #18
-  %14 = load ptr, ptr %2, align 8, !tbaa !70
+  %14 = load ptr, ptr %2, align 8, !tbaa !84
   %15 = tail call i32 (ptr, i32, ...) @open(ptr noundef %14, i32 noundef 194, i32 noundef 438) #18
   %16 = tail call i32 @umask(i32 noundef %13) #18
   %.not3866 = icmp eq i32 %15, -1
@@ -6725,7 +6725,7 @@ define internal fastcc range(i32 0, 2) i32 @_lock_single_database(ptr noundef ca
   %24 = phi i32 [ 1, %.lr.ph ], [ %64, %62 ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)
-  %25 = load ptr, ptr %2, align 8, !tbaa !70
+  %25 = load ptr, ptr %2, align 8, !tbaa !84
   %26 = call i32 (ptr, i32, ...) @open(ptr noundef %25, i32 noundef 66, i32 noundef 438) #18
   %.not39 = icmp eq i32 %26, -1
   br i1 %.not39, label %54, label %27
@@ -6746,7 +6746,7 @@ define internal fastcc range(i32 0, 2) i32 @_lock_single_database(ptr noundef ca
 
 36:                                               ; preds = %31
   %37 = tail call ptr @__errno_location() #22
-  %38 = load i32, ptr %37, align 4, !tbaa !64
+  %38 = load i32, ptr %37, align 4, !tbaa !68
   %.not4.i = icmp eq i32 %38, 3
   br i1 %.not4.i, label %pid_is_alive.exit.thread, label %.thread.i
 
@@ -6766,7 +6766,7 @@ pid_is_alive.exit.thread44:                       ; preds = %.thread.i
   br label %.loopexit
 
 pid_is_alive.exit:                                ; preds = %.thread.i
-  %41 = load ptr, ptr %4, align 8, !tbaa !70
+  %41 = load ptr, ptr %4, align 8, !tbaa !84
   %42 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) @.str.156) #19
   %.not52 = icmp eq ptr %42, null
   call void @g_free(ptr noundef nonnull %41) #18
@@ -6776,7 +6776,7 @@ pid_is_alive.exit:                                ; preds = %.thread.i
   br i1 %.not52, label %pid_is_alive.exit.thread, label %.loopexit
 
 pid_is_alive.exit.thread:                         ; preds = %36, %pid_is_alive.exit
-  %43 = load ptr, ptr %2, align 8, !tbaa !70
+  %43 = load ptr, ptr %2, align 8, !tbaa !84
   %44 = call i32 @g_unlink(ptr noundef %43) #18
   %exitcond.not = icmp eq i32 %24, 5
   br i1 %exitcond.not, label %.thread, label %62
@@ -6807,7 +6807,7 @@ pid_is_alive.exit.thread:                         ; preds = %36, %pid_is_alive.e
 
 54:                                               ; preds = %23
   %55 = tail call ptr @__errno_location() #22
-  %56 = load i32, ptr %55, align 4, !tbaa !64
+  %56 = load i32, ptr %55, align 4, !tbaa !68
   %57 = call ptr @strerror(i32 noundef %56) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.153, ptr noundef %57) #18
   %58 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.154, i32 noundef 5) #18
@@ -6826,11 +6826,11 @@ pid_is_alive.exit.thread:                         ; preds = %36, %pid_is_alive.e
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #18
   %64 = add nuw nsw i32 %24, 1
   %65 = call i32 @umask(i32 noundef 0) #18
-  %66 = load ptr, ptr %2, align 8, !tbaa !70
+  %66 = load ptr, ptr %2, align 8, !tbaa !84
   %67 = call i32 (ptr, i32, ...) @open(ptr noundef %66, i32 noundef 194, i32 noundef 438) #18
   %68 = call i32 @umask(i32 noundef %65) #18
   %.not38 = icmp eq i32 %67, -1
-  br i1 %.not38, label %23, label %._crit_edge
+  br i1 %.not38, label %23, label %._crit_edge, !llvm.loop !99
 
 69:                                               ; preds = %.thread49, %3, %._crit_edge
   %.0 = phi i32 [ %spec.select, %._crit_edge ], [ 1, %3 ], [ 0, %.thread49 ]
@@ -6917,8 +6917,8 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %20 = alloca ptr, align 8
   %21 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  switch i32 %1, label %3565 [
-    i32 0, label %3736
+  switch i32 %1, label %3567 [
+    i32 0, label %3738
     i32 1, label %22
     i32 2, label %42
     i32 3, label %55
@@ -6940,35 +6940,35 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
     i32 19, label %1347
     i32 20, label %1395
     i32 21, label %1415
-    i32 22, label %1610
-    i32 23, label %1651
-    i32 24, label %1763
-    i32 25, label %1772
-    i32 26, label %1781
-    i32 27, label %1822
-    i32 28, label %1870
-    i32 29, label %1890
-    i32 30, label %1980
-    i32 31, label %2063
-    i32 32, label %2090
-    i32 33, label %2572
-    i32 34, label %2592
-    i32 35, label %2730
-    i32 36, label %2794
-    i32 37, label %2803
-    i32 38, label %2819
-    i32 39, label %3060
-    i32 40, label %3105
-    i32 41, label %3114
-    i32 42, label %3166
-    i32 43, label %3175
-    i32 44, label %3247
-    i32 45, label %3313
-    i32 46, label %3322
-    i32 47, label %3331
-    i32 48, label %3340
-    i32 49, label %3395
-    i32 50, label %3415
+    i32 22, label %1612
+    i32 23, label %1653
+    i32 24, label %1765
+    i32 25, label %1774
+    i32 26, label %1783
+    i32 27, label %1824
+    i32 28, label %1872
+    i32 29, label %1892
+    i32 30, label %1982
+    i32 31, label %2065
+    i32 32, label %2092
+    i32 33, label %2574
+    i32 34, label %2594
+    i32 35, label %2732
+    i32 36, label %2796
+    i32 37, label %2805
+    i32 38, label %2821
+    i32 39, label %3062
+    i32 40, label %3107
+    i32 41, label %3116
+    i32 42, label %3168
+    i32 43, label %3177
+    i32 44, label %3249
+    i32 45, label %3315
+    i32 46, label %3324
+    i32 47, label %3333
+    i32 48, label %3342
+    i32 49, label %3397
+    i32 50, label %3417
   ]
 
 22:                                               ; preds = %2
@@ -7003,7 +7003,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 40:                                               ; preds = %33
   %41 = tail call i32 @sqlite3_exec(ptr noundef %35, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 42:                                               ; preds = %2
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7024,7 +7024,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 53:                                               ; preds = %42
   %54 = tail call i32 @sqlite3_exec(ptr noundef %48, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 55:                                               ; preds = %2
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7084,7 +7084,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 87:                                               ; preds = %80
   %88 = tail call i32 @sqlite3_exec(ptr noundef %82, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 89:                                               ; preds = %2
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7144,7 +7144,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 121:                                              ; preds = %114
   %122 = tail call i32 @sqlite3_exec(ptr noundef %116, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 123:                                              ; preds = %2
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7165,7 +7165,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 134:                                              ; preds = %123
   %135 = tail call i32 @sqlite3_exec(ptr noundef %129, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 136:                                              ; preds = %2
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7232,7 +7232,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 172:                                              ; preds = %165, %136
   %173 = load ptr, ptr %137, align 8, !tbaa !6
   %174 = tail call i32 @sqlite3_exec(ptr noundef %173, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 175:                                              ; preds = %2
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7292,7 +7292,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 207:                                              ; preds = %200
   %208 = tail call i32 @sqlite3_exec(ptr noundef %202, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 209:                                              ; preds = %2
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7326,7 +7326,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 227:                                              ; preds = %220
   %228 = tail call i32 @sqlite3_exec(ptr noundef %222, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 229:                                              ; preds = %2
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7347,7 +7347,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 240:                                              ; preds = %229
   %241 = tail call i32 @sqlite3_exec(ptr noundef %235, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 242:                                              ; preds = %2
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7381,7 +7381,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 260:                                              ; preds = %253
   %261 = tail call i32 @sqlite3_exec(ptr noundef %255, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 262:                                              ; preds = %2
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -7454,23 +7454,23 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 301:                                              ; preds = %294
   %302 = tail call i32 @sqlite3_exec(ptr noundef %296, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 303:                                              ; preds = %2
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %305 = load ptr, ptr %304, align 8, !tbaa !6
   %306 = tail call i32 @sqlite3_exec(ptr noundef %305, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  store ptr null, ptr %3, align 8, !tbaa !21
+  store ptr null, ptr %3, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
-  store ptr null, ptr %4, align 8, !tbaa !21
+  store ptr null, ptr %4, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
-  store ptr null, ptr %5, align 8, !tbaa !21
+  store ptr null, ptr %5, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
-  store ptr null, ptr %6, align 8, !tbaa !21
+  store ptr null, ptr %6, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
-  store ptr null, ptr %7, align 8, !tbaa !21
+  store ptr null, ptr %7, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
-  store ptr null, ptr %8, align 8, !tbaa !21
+  store ptr null, ptr %8, align 8, !tbaa !23
   %307 = load ptr, ptr %304, align 8, !tbaa !6
   %308 = tail call i32 @sqlite3_exec(ptr noundef %307, ptr noundef nonnull @.str.303, ptr noundef null, ptr noundef null, ptr noundef null) #18
   %.not2269 = icmp eq i32 %308, 0
@@ -7499,17 +7499,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 323:                                              ; preds = %320
   %324 = call ptr @sqlite3_errmsg(ptr noundef %322) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.306, ptr noundef %324) #18
-  %325 = load ptr, ptr %3, align 8, !tbaa !21
+  %325 = load ptr, ptr %3, align 8, !tbaa !23
   %326 = call i32 @sqlite3_finalize(ptr noundef %325) #18
-  %327 = load ptr, ptr %6, align 8, !tbaa !21
+  %327 = load ptr, ptr %6, align 8, !tbaa !23
   %328 = call i32 @sqlite3_finalize(ptr noundef %327) #18
-  %329 = load ptr, ptr %7, align 8, !tbaa !21
+  %329 = load ptr, ptr %7, align 8, !tbaa !23
   %330 = call i32 @sqlite3_finalize(ptr noundef %329) #18
-  %331 = load ptr, ptr %8, align 8, !tbaa !21
+  %331 = load ptr, ptr %8, align 8, !tbaa !23
   %332 = call i32 @sqlite3_finalize(ptr noundef %331) #18
-  %333 = load ptr, ptr %4, align 8, !tbaa !21
+  %333 = load ptr, ptr %4, align 8, !tbaa !23
   %334 = call i32 @sqlite3_finalize(ptr noundef %333) #18
-  %335 = load ptr, ptr %5, align 8, !tbaa !21
+  %335 = load ptr, ptr %5, align 8, !tbaa !23
   %336 = call i32 @sqlite3_finalize(ptr noundef %335) #18
   %337 = load ptr, ptr %304, align 8, !tbaa !6
   %338 = call i32 @sqlite3_exec(ptr noundef %337, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7524,17 +7524,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 342:                                              ; preds = %339
   %343 = call ptr @sqlite3_errmsg(ptr noundef %341) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.308, ptr noundef %343) #18
-  %344 = load ptr, ptr %3, align 8, !tbaa !21
+  %344 = load ptr, ptr %3, align 8, !tbaa !23
   %345 = call i32 @sqlite3_finalize(ptr noundef %344) #18
-  %346 = load ptr, ptr %6, align 8, !tbaa !21
+  %346 = load ptr, ptr %6, align 8, !tbaa !23
   %347 = call i32 @sqlite3_finalize(ptr noundef %346) #18
-  %348 = load ptr, ptr %7, align 8, !tbaa !21
+  %348 = load ptr, ptr %7, align 8, !tbaa !23
   %349 = call i32 @sqlite3_finalize(ptr noundef %348) #18
-  %350 = load ptr, ptr %8, align 8, !tbaa !21
+  %350 = load ptr, ptr %8, align 8, !tbaa !23
   %351 = call i32 @sqlite3_finalize(ptr noundef %350) #18
-  %352 = load ptr, ptr %4, align 8, !tbaa !21
+  %352 = load ptr, ptr %4, align 8, !tbaa !23
   %353 = call i32 @sqlite3_finalize(ptr noundef %352) #18
-  %354 = load ptr, ptr %5, align 8, !tbaa !21
+  %354 = load ptr, ptr %5, align 8, !tbaa !23
   %355 = call i32 @sqlite3_finalize(ptr noundef %354) #18
   %356 = load ptr, ptr %304, align 8, !tbaa !6
   %357 = call i32 @sqlite3_exec(ptr noundef %356, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7549,17 +7549,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 361:                                              ; preds = %358
   %362 = call ptr @sqlite3_errmsg(ptr noundef %360) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.310, ptr noundef %362) #18
-  %363 = load ptr, ptr %3, align 8, !tbaa !21
+  %363 = load ptr, ptr %3, align 8, !tbaa !23
   %364 = call i32 @sqlite3_finalize(ptr noundef %363) #18
-  %365 = load ptr, ptr %6, align 8, !tbaa !21
+  %365 = load ptr, ptr %6, align 8, !tbaa !23
   %366 = call i32 @sqlite3_finalize(ptr noundef %365) #18
-  %367 = load ptr, ptr %7, align 8, !tbaa !21
+  %367 = load ptr, ptr %7, align 8, !tbaa !23
   %368 = call i32 @sqlite3_finalize(ptr noundef %367) #18
-  %369 = load ptr, ptr %8, align 8, !tbaa !21
+  %369 = load ptr, ptr %8, align 8, !tbaa !23
   %370 = call i32 @sqlite3_finalize(ptr noundef %369) #18
-  %371 = load ptr, ptr %4, align 8, !tbaa !21
+  %371 = load ptr, ptr %4, align 8, !tbaa !23
   %372 = call i32 @sqlite3_finalize(ptr noundef %371) #18
-  %373 = load ptr, ptr %5, align 8, !tbaa !21
+  %373 = load ptr, ptr %5, align 8, !tbaa !23
   %374 = call i32 @sqlite3_finalize(ptr noundef %373) #18
   %375 = load ptr, ptr %304, align 8, !tbaa !6
   %376 = call i32 @sqlite3_exec(ptr noundef %375, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7574,17 +7574,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 380:                                              ; preds = %377
   %381 = call ptr @sqlite3_errmsg(ptr noundef %379) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.312, ptr noundef %381) #18
-  %382 = load ptr, ptr %3, align 8, !tbaa !21
+  %382 = load ptr, ptr %3, align 8, !tbaa !23
   %383 = call i32 @sqlite3_finalize(ptr noundef %382) #18
-  %384 = load ptr, ptr %6, align 8, !tbaa !21
+  %384 = load ptr, ptr %6, align 8, !tbaa !23
   %385 = call i32 @sqlite3_finalize(ptr noundef %384) #18
-  %386 = load ptr, ptr %7, align 8, !tbaa !21
+  %386 = load ptr, ptr %7, align 8, !tbaa !23
   %387 = call i32 @sqlite3_finalize(ptr noundef %386) #18
-  %388 = load ptr, ptr %8, align 8, !tbaa !21
+  %388 = load ptr, ptr %8, align 8, !tbaa !23
   %389 = call i32 @sqlite3_finalize(ptr noundef %388) #18
-  %390 = load ptr, ptr %4, align 8, !tbaa !21
+  %390 = load ptr, ptr %4, align 8, !tbaa !23
   %391 = call i32 @sqlite3_finalize(ptr noundef %390) #18
-  %392 = load ptr, ptr %5, align 8, !tbaa !21
+  %392 = load ptr, ptr %5, align 8, !tbaa !23
   %393 = call i32 @sqlite3_finalize(ptr noundef %392) #18
   %394 = load ptr, ptr %304, align 8, !tbaa !6
   %395 = call i32 @sqlite3_exec(ptr noundef %394, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7599,17 +7599,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 399:                                              ; preds = %396
   %400 = call ptr @sqlite3_errmsg(ptr noundef %398) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.314, ptr noundef %400) #18
-  %401 = load ptr, ptr %3, align 8, !tbaa !21
+  %401 = load ptr, ptr %3, align 8, !tbaa !23
   %402 = call i32 @sqlite3_finalize(ptr noundef %401) #18
-  %403 = load ptr, ptr %6, align 8, !tbaa !21
+  %403 = load ptr, ptr %6, align 8, !tbaa !23
   %404 = call i32 @sqlite3_finalize(ptr noundef %403) #18
-  %405 = load ptr, ptr %7, align 8, !tbaa !21
+  %405 = load ptr, ptr %7, align 8, !tbaa !23
   %406 = call i32 @sqlite3_finalize(ptr noundef %405) #18
-  %407 = load ptr, ptr %8, align 8, !tbaa !21
+  %407 = load ptr, ptr %8, align 8, !tbaa !23
   %408 = call i32 @sqlite3_finalize(ptr noundef %407) #18
-  %409 = load ptr, ptr %4, align 8, !tbaa !21
+  %409 = load ptr, ptr %4, align 8, !tbaa !23
   %410 = call i32 @sqlite3_finalize(ptr noundef %409) #18
-  %411 = load ptr, ptr %5, align 8, !tbaa !21
+  %411 = load ptr, ptr %5, align 8, !tbaa !23
   %412 = call i32 @sqlite3_finalize(ptr noundef %411) #18
   %413 = load ptr, ptr %304, align 8, !tbaa !6
   %414 = call i32 @sqlite3_exec(ptr noundef %413, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7621,7 +7621,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   br i1 %.not2275, label %.preheader2386, label %420
 
 .preheader2386:                                   ; preds = %415
-  %417 = load ptr, ptr %6, align 8, !tbaa !21
+  %417 = load ptr, ptr %6, align 8, !tbaa !23
   %418 = call i32 @sqlite3_step(ptr noundef %417) #18
   %419 = icmp eq i32 %418, 100
   br i1 %419, label %.lr.ph2428, label %.critedge2337.preheader
@@ -7630,57 +7630,57 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %421 = load ptr, ptr %304, align 8, !tbaa !6
   %422 = call ptr @sqlite3_errmsg(ptr noundef %421) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.316, ptr noundef %422) #18
-  %423 = load ptr, ptr %3, align 8, !tbaa !21
+  %423 = load ptr, ptr %3, align 8, !tbaa !23
   %424 = call i32 @sqlite3_finalize(ptr noundef %423) #18
-  %425 = load ptr, ptr %6, align 8, !tbaa !21
+  %425 = load ptr, ptr %6, align 8, !tbaa !23
   %426 = call i32 @sqlite3_finalize(ptr noundef %425) #18
-  %427 = load ptr, ptr %7, align 8, !tbaa !21
+  %427 = load ptr, ptr %7, align 8, !tbaa !23
   %428 = call i32 @sqlite3_finalize(ptr noundef %427) #18
-  %429 = load ptr, ptr %8, align 8, !tbaa !21
+  %429 = load ptr, ptr %8, align 8, !tbaa !23
   %430 = call i32 @sqlite3_finalize(ptr noundef %429) #18
-  %431 = load ptr, ptr %4, align 8, !tbaa !21
+  %431 = load ptr, ptr %4, align 8, !tbaa !23
   %432 = call i32 @sqlite3_finalize(ptr noundef %431) #18
-  %433 = load ptr, ptr %5, align 8, !tbaa !21
+  %433 = load ptr, ptr %5, align 8, !tbaa !23
   %434 = call i32 @sqlite3_finalize(ptr noundef %433) #18
   %435 = load ptr, ptr %304, align 8, !tbaa !6
   %436 = call i32 @sqlite3_exec(ptr noundef %435, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2347
 
 .lr.ph2428:                                       ; preds = %.preheader2386, %480
-  %437 = load ptr, ptr %6, align 8, !tbaa !21
+  %437 = load ptr, ptr %6, align 8, !tbaa !23
   %438 = call i32 @sqlite3_column_int(ptr noundef %437, i32 noundef 0) #18
-  %439 = load ptr, ptr %6, align 8, !tbaa !21
+  %439 = load ptr, ptr %6, align 8, !tbaa !23
   %440 = call i32 @sqlite3_column_int(ptr noundef %439, i32 noundef 1) #18
   br label %441
 
 441:                                              ; preds = %454, %.lr.ph2428
   %.01895 = phi i32 [ 0, %.lr.ph2428 ], [ %442, %454 ]
   %442 = add nuw nsw i32 %.01895, 1
-  %443 = load ptr, ptr %7, align 8, !tbaa !21
+  %443 = load ptr, ptr %7, align 8, !tbaa !23
   %444 = call i32 @sqlite3_reset(ptr noundef %443) #18
-  %445 = load ptr, ptr %7, align 8, !tbaa !21
+  %445 = load ptr, ptr %7, align 8, !tbaa !23
   %446 = call i32 @sqlite3_clear_bindings(ptr noundef %445) #18
-  %447 = load ptr, ptr %7, align 8, !tbaa !21
+  %447 = load ptr, ptr %7, align 8, !tbaa !23
   %448 = call i32 @sqlite3_bind_int(ptr noundef %447, i32 noundef 1, i32 noundef %440) #18
-  %449 = load ptr, ptr %7, align 8, !tbaa !21
+  %449 = load ptr, ptr %7, align 8, !tbaa !23
   %450 = call i32 @sqlite3_bind_int(ptr noundef %449, i32 noundef 2, i32 noundef %442) #18
-  %451 = load ptr, ptr %7, align 8, !tbaa !21
+  %451 = load ptr, ptr %7, align 8, !tbaa !23
   %452 = call i32 @sqlite3_step(ptr noundef %451) #18
   %453 = icmp eq i32 %452, 100
   br i1 %453, label %454, label %.critedge
 
 454:                                              ; preds = %441
-  %455 = load ptr, ptr %7, align 8, !tbaa !21
+  %455 = load ptr, ptr %7, align 8, !tbaa !23
   %456 = call i32 @sqlite3_column_int(ptr noundef %455, i32 noundef 0) #18
   %457 = icmp sgt i32 %456, 0
-  br i1 %457, label %441, label %.critedge
+  br i1 %457, label %441, label %.critedge, !llvm.loop !100
 
 .critedge:                                        ; preds = %441, %454
-  %458 = load ptr, ptr %8, align 8, !tbaa !21
+  %458 = load ptr, ptr %8, align 8, !tbaa !23
   %459 = call i32 @sqlite3_bind_int(ptr noundef %458, i32 noundef 1, i32 noundef %442) #18
-  %460 = load ptr, ptr %8, align 8, !tbaa !21
+  %460 = load ptr, ptr %8, align 8, !tbaa !23
   %461 = call i32 @sqlite3_bind_int(ptr noundef %460, i32 noundef 2, i32 noundef %438) #18
-  %462 = load ptr, ptr %8, align 8, !tbaa !21
+  %462 = load ptr, ptr %8, align 8, !tbaa !23
   %463 = call i32 @sqlite3_step(ptr noundef %462) #18
   %.not2305 = icmp eq i32 %463, 101
   br i1 %.not2305, label %480, label %.thread
@@ -7689,89 +7689,89 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %464 = load ptr, ptr %304, align 8, !tbaa !6
   %465 = call ptr @sqlite3_errmsg(ptr noundef %464) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.317, ptr noundef %465) #18
-  %466 = load ptr, ptr %3, align 8, !tbaa !21
+  %466 = load ptr, ptr %3, align 8, !tbaa !23
   %467 = call i32 @sqlite3_finalize(ptr noundef %466) #18
-  %468 = load ptr, ptr %6, align 8, !tbaa !21
+  %468 = load ptr, ptr %6, align 8, !tbaa !23
   %469 = call i32 @sqlite3_finalize(ptr noundef %468) #18
-  %470 = load ptr, ptr %7, align 8, !tbaa !21
+  %470 = load ptr, ptr %7, align 8, !tbaa !23
   %471 = call i32 @sqlite3_finalize(ptr noundef %470) #18
-  %472 = load ptr, ptr %8, align 8, !tbaa !21
+  %472 = load ptr, ptr %8, align 8, !tbaa !23
   %473 = call i32 @sqlite3_finalize(ptr noundef %472) #18
-  %474 = load ptr, ptr %4, align 8, !tbaa !21
+  %474 = load ptr, ptr %4, align 8, !tbaa !23
   %475 = call i32 @sqlite3_finalize(ptr noundef %474) #18
-  %476 = load ptr, ptr %5, align 8, !tbaa !21
+  %476 = load ptr, ptr %5, align 8, !tbaa !23
   %477 = call i32 @sqlite3_finalize(ptr noundef %476) #18
   %478 = load ptr, ptr %304, align 8, !tbaa !6
   %479 = call i32 @sqlite3_exec(ptr noundef %478, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2347
 
 480:                                              ; preds = %.critedge
-  %481 = load ptr, ptr %8, align 8, !tbaa !21
+  %481 = load ptr, ptr %8, align 8, !tbaa !23
   %482 = call i32 @sqlite3_reset(ptr noundef %481) #18
-  %483 = load ptr, ptr %8, align 8, !tbaa !21
+  %483 = load ptr, ptr %8, align 8, !tbaa !23
   %484 = call i32 @sqlite3_reset(ptr noundef %483) #18
-  %485 = load ptr, ptr %6, align 8, !tbaa !21
+  %485 = load ptr, ptr %6, align 8, !tbaa !23
   %486 = call i32 @sqlite3_step(ptr noundef %485) #18
   %487 = icmp eq i32 %486, 100
-  br i1 %487, label %.lr.ph2428, label %.critedge2337.preheader
+  br i1 %487, label %.lr.ph2428, label %.critedge2337.preheader, !llvm.loop !101
 
 .critedge2337.preheader:                          ; preds = %480, %.preheader2386
   br label %.critedge2337
 
 .critedge2337:                                    ; preds = %.critedge2337.preheader, %506
-  %488 = load ptr, ptr %3, align 8, !tbaa !21
+  %488 = load ptr, ptr %3, align 8, !tbaa !23
   %489 = call i32 @sqlite3_step(ptr noundef %488) #18
   %490 = icmp eq i32 %489, 100
   br i1 %490, label %491, label %532
 
 491:                                              ; preds = %.critedge2337
-  %492 = load ptr, ptr %3, align 8, !tbaa !21
+  %492 = load ptr, ptr %3, align 8, !tbaa !23
   %493 = call i32 @sqlite3_column_int(ptr noundef %492, i32 noundef 0) #18
   br label %494
 
 494:                                              ; preds = %494, %491
   %.01897 = phi i32 [ 0, %491 ], [ %495, %494 ]
   %495 = add nuw nsw i32 %.01897, 1
-  %496 = load ptr, ptr %4, align 8, !tbaa !21
+  %496 = load ptr, ptr %4, align 8, !tbaa !23
   %497 = call i32 @sqlite3_reset(ptr noundef %496) #18
-  %498 = load ptr, ptr %4, align 8, !tbaa !21
+  %498 = load ptr, ptr %4, align 8, !tbaa !23
   %499 = call i32 @sqlite3_clear_bindings(ptr noundef %498) #18
-  %500 = load ptr, ptr %4, align 8, !tbaa !21
+  %500 = load ptr, ptr %4, align 8, !tbaa !23
   %501 = call i32 @sqlite3_bind_int(ptr noundef %500, i32 noundef 1, i32 noundef %495) #18
-  %502 = load ptr, ptr %4, align 8, !tbaa !21
+  %502 = load ptr, ptr %4, align 8, !tbaa !23
   %503 = call i32 @sqlite3_bind_int(ptr noundef %502, i32 noundef 2, i32 noundef %493) #18
-  %504 = load ptr, ptr %4, align 8, !tbaa !21
+  %504 = load ptr, ptr %4, align 8, !tbaa !23
   %505 = call i32 @sqlite3_step(ptr noundef %504) #18
   %.not2303 = icmp eq i32 %505, 101
-  br i1 %.not2303, label %506, label %494
+  br i1 %.not2303, label %506, label %494, !llvm.loop !102
 
 506:                                              ; preds = %494
-  %507 = load ptr, ptr %5, align 8, !tbaa !21
+  %507 = load ptr, ptr %5, align 8, !tbaa !23
   %508 = call i32 @sqlite3_reset(ptr noundef %507) #18
-  %509 = load ptr, ptr %5, align 8, !tbaa !21
+  %509 = load ptr, ptr %5, align 8, !tbaa !23
   %510 = call i32 @sqlite3_clear_bindings(ptr noundef %509) #18
-  %511 = load ptr, ptr %5, align 8, !tbaa !21
+  %511 = load ptr, ptr %5, align 8, !tbaa !23
   %512 = call i32 @sqlite3_bind_int(ptr noundef %511, i32 noundef 1, i32 noundef %493) #18
-  %513 = load ptr, ptr %5, align 8, !tbaa !21
+  %513 = load ptr, ptr %5, align 8, !tbaa !23
   %514 = call i32 @sqlite3_step(ptr noundef %513) #18
   %.not2304 = icmp eq i32 %514, 101
-  br i1 %.not2304, label %.critedge2337, label %515
+  br i1 %.not2304, label %.critedge2337, label %515, !llvm.loop !103
 
 515:                                              ; preds = %506
   %516 = load ptr, ptr %304, align 8, !tbaa !6
   %517 = call ptr @sqlite3_errmsg(ptr noundef %516) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.318, ptr noundef %517) #18
-  %518 = load ptr, ptr %3, align 8, !tbaa !21
+  %518 = load ptr, ptr %3, align 8, !tbaa !23
   %519 = call i32 @sqlite3_finalize(ptr noundef %518) #18
-  %520 = load ptr, ptr %6, align 8, !tbaa !21
+  %520 = load ptr, ptr %6, align 8, !tbaa !23
   %521 = call i32 @sqlite3_finalize(ptr noundef %520) #18
-  %522 = load ptr, ptr %7, align 8, !tbaa !21
+  %522 = load ptr, ptr %7, align 8, !tbaa !23
   %523 = call i32 @sqlite3_finalize(ptr noundef %522) #18
-  %524 = load ptr, ptr %8, align 8, !tbaa !21
+  %524 = load ptr, ptr %8, align 8, !tbaa !23
   %525 = call i32 @sqlite3_finalize(ptr noundef %524) #18
-  %526 = load ptr, ptr %4, align 8, !tbaa !21
+  %526 = load ptr, ptr %4, align 8, !tbaa !23
   %527 = call i32 @sqlite3_finalize(ptr noundef %526) #18
-  %528 = load ptr, ptr %5, align 8, !tbaa !21
+  %528 = load ptr, ptr %5, align 8, !tbaa !23
   %529 = call i32 @sqlite3_finalize(ptr noundef %528) #18
   %530 = load ptr, ptr %304, align 8, !tbaa !6
   %531 = call i32 @sqlite3_exec(ptr noundef %530, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7787,17 +7787,17 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 536:                                              ; preds = %532
   %537 = call ptr @sqlite3_errmsg(ptr noundef %535) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.320, ptr noundef %537) #18
-  %538 = load ptr, ptr %3, align 8, !tbaa !21
+  %538 = load ptr, ptr %3, align 8, !tbaa !23
   %539 = call i32 @sqlite3_finalize(ptr noundef %538) #18
-  %540 = load ptr, ptr %6, align 8, !tbaa !21
+  %540 = load ptr, ptr %6, align 8, !tbaa !23
   %541 = call i32 @sqlite3_finalize(ptr noundef %540) #18
-  %542 = load ptr, ptr %7, align 8, !tbaa !21
+  %542 = load ptr, ptr %7, align 8, !tbaa !23
   %543 = call i32 @sqlite3_finalize(ptr noundef %542) #18
-  %544 = load ptr, ptr %8, align 8, !tbaa !21
+  %544 = load ptr, ptr %8, align 8, !tbaa !23
   %545 = call i32 @sqlite3_finalize(ptr noundef %544) #18
-  %546 = load ptr, ptr %4, align 8, !tbaa !21
+  %546 = load ptr, ptr %4, align 8, !tbaa !23
   %547 = call i32 @sqlite3_finalize(ptr noundef %546) #18
-  %548 = load ptr, ptr %5, align 8, !tbaa !21
+  %548 = load ptr, ptr %5, align 8, !tbaa !23
   %549 = call i32 @sqlite3_finalize(ptr noundef %548) #18
   %550 = load ptr, ptr %304, align 8, !tbaa !6
   %551 = call i32 @sqlite3_exec(ptr noundef %550, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -7812,46 +7812,46 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %555 = load ptr, ptr %304, align 8, !tbaa !6
   %556 = call ptr @sqlite3_errmsg(ptr noundef %555) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.320, ptr noundef %556) #18
-  %557 = load ptr, ptr %3, align 8, !tbaa !21
+  %557 = load ptr, ptr %3, align 8, !tbaa !23
   %558 = call i32 @sqlite3_finalize(ptr noundef %557) #18
-  %559 = load ptr, ptr %6, align 8, !tbaa !21
+  %559 = load ptr, ptr %6, align 8, !tbaa !23
   %560 = call i32 @sqlite3_finalize(ptr noundef %559) #18
-  %561 = load ptr, ptr %7, align 8, !tbaa !21
+  %561 = load ptr, ptr %7, align 8, !tbaa !23
   %562 = call i32 @sqlite3_finalize(ptr noundef %561) #18
-  %563 = load ptr, ptr %8, align 8, !tbaa !21
+  %563 = load ptr, ptr %8, align 8, !tbaa !23
   %564 = call i32 @sqlite3_finalize(ptr noundef %563) #18
-  %565 = load ptr, ptr %4, align 8, !tbaa !21
+  %565 = load ptr, ptr %4, align 8, !tbaa !23
   %566 = call i32 @sqlite3_finalize(ptr noundef %565) #18
-  %567 = load ptr, ptr %5, align 8, !tbaa !21
+  %567 = load ptr, ptr %5, align 8, !tbaa !23
   %568 = call i32 @sqlite3_finalize(ptr noundef %567) #18
   %569 = load ptr, ptr %304, align 8, !tbaa !6
   %570 = call i32 @sqlite3_exec(ptr noundef %569, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2347
 
 571:                                              ; preds = %552
-  %572 = load ptr, ptr %3, align 8, !tbaa !21
+  %572 = load ptr, ptr %3, align 8, !tbaa !23
   %573 = call i32 @sqlite3_finalize(ptr noundef %572) #18
-  %574 = load ptr, ptr %6, align 8, !tbaa !21
+  %574 = load ptr, ptr %6, align 8, !tbaa !23
   %575 = call i32 @sqlite3_finalize(ptr noundef %574) #18
-  %576 = load ptr, ptr %7, align 8, !tbaa !21
+  %576 = load ptr, ptr %7, align 8, !tbaa !23
   %577 = call i32 @sqlite3_finalize(ptr noundef %576) #18
-  %578 = load ptr, ptr %8, align 8, !tbaa !21
+  %578 = load ptr, ptr %8, align 8, !tbaa !23
   %579 = call i32 @sqlite3_finalize(ptr noundef %578) #18
-  %580 = load ptr, ptr %4, align 8, !tbaa !21
+  %580 = load ptr, ptr %4, align 8, !tbaa !23
   %581 = call i32 @sqlite3_finalize(ptr noundef %580) #18
-  %582 = load ptr, ptr %5, align 8, !tbaa !21
+  %582 = load ptr, ptr %5, align 8, !tbaa !23
   %583 = call i32 @sqlite3_finalize(ptr noundef %582) #18
-  store ptr null, ptr %3, align 8, !tbaa !21
-  store ptr null, ptr %6, align 8, !tbaa !21
-  store ptr null, ptr %8, align 8, !tbaa !21
-  store ptr null, ptr %4, align 8, !tbaa !21
-  store ptr null, ptr %5, align 8, !tbaa !21
+  store ptr null, ptr %3, align 8, !tbaa !23
+  store ptr null, ptr %6, align 8, !tbaa !23
+  store ptr null, ptr %8, align 8, !tbaa !23
+  store ptr null, ptr %4, align 8, !tbaa !23
+  store ptr null, ptr %5, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #18
-  store ptr null, ptr %9, align 8, !tbaa !21
+  store ptr null, ptr %9, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #18
-  store ptr null, ptr %10, align 8, !tbaa !21
+  store ptr null, ptr %10, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #18
-  store ptr null, ptr %11, align 8, !tbaa !21
+  store ptr null, ptr %11, align 8, !tbaa !23
   %584 = load ptr, ptr %304, align 8, !tbaa !6
   %585 = call i32 @sqlite3_prepare_v2(ptr noundef %584, ptr noundef nonnull @.str.322, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
   %.not2278 = icmp eq i32 %585, 0
@@ -7861,21 +7861,21 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 587:                                              ; preds = %571
   %588 = call ptr @sqlite3_errmsg(ptr noundef %586) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.323, ptr noundef %588) #18
-  %589 = load ptr, ptr %3, align 8, !tbaa !21
+  %589 = load ptr, ptr %3, align 8, !tbaa !23
   %590 = call i32 @sqlite3_finalize(ptr noundef %589) #18
-  %591 = load ptr, ptr %4, align 8, !tbaa !21
+  %591 = load ptr, ptr %4, align 8, !tbaa !23
   %592 = call i32 @sqlite3_finalize(ptr noundef %591) #18
-  %593 = load ptr, ptr %6, align 8, !tbaa !21
+  %593 = load ptr, ptr %6, align 8, !tbaa !23
   %594 = call i32 @sqlite3_finalize(ptr noundef %593) #18
-  %595 = load ptr, ptr %5, align 8, !tbaa !21
+  %595 = load ptr, ptr %5, align 8, !tbaa !23
   %596 = call i32 @sqlite3_finalize(ptr noundef %595) #18
-  %597 = load ptr, ptr %8, align 8, !tbaa !21
+  %597 = load ptr, ptr %8, align 8, !tbaa !23
   %598 = call i32 @sqlite3_finalize(ptr noundef %597) #18
-  %599 = load ptr, ptr %9, align 8, !tbaa !21
+  %599 = load ptr, ptr %9, align 8, !tbaa !23
   %600 = call i32 @sqlite3_finalize(ptr noundef %599) #18
-  %601 = load ptr, ptr %10, align 8, !tbaa !21
+  %601 = load ptr, ptr %10, align 8, !tbaa !23
   %602 = call i32 @sqlite3_finalize(ptr noundef %601) #18
-  %603 = load ptr, ptr %11, align 8, !tbaa !21
+  %603 = load ptr, ptr %11, align 8, !tbaa !23
   %604 = call i32 @sqlite3_finalize(ptr noundef %603) #18
   br label %.thread2351
 
@@ -7888,21 +7888,21 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 608:                                              ; preds = %605
   %609 = call ptr @sqlite3_errmsg(ptr noundef %607) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.325, ptr noundef %609) #18
-  %610 = load ptr, ptr %3, align 8, !tbaa !21
+  %610 = load ptr, ptr %3, align 8, !tbaa !23
   %611 = call i32 @sqlite3_finalize(ptr noundef %610) #18
-  %612 = load ptr, ptr %4, align 8, !tbaa !21
+  %612 = load ptr, ptr %4, align 8, !tbaa !23
   %613 = call i32 @sqlite3_finalize(ptr noundef %612) #18
-  %614 = load ptr, ptr %6, align 8, !tbaa !21
+  %614 = load ptr, ptr %6, align 8, !tbaa !23
   %615 = call i32 @sqlite3_finalize(ptr noundef %614) #18
-  %616 = load ptr, ptr %5, align 8, !tbaa !21
+  %616 = load ptr, ptr %5, align 8, !tbaa !23
   %617 = call i32 @sqlite3_finalize(ptr noundef %616) #18
-  %618 = load ptr, ptr %8, align 8, !tbaa !21
+  %618 = load ptr, ptr %8, align 8, !tbaa !23
   %619 = call i32 @sqlite3_finalize(ptr noundef %618) #18
-  %620 = load ptr, ptr %9, align 8, !tbaa !21
+  %620 = load ptr, ptr %9, align 8, !tbaa !23
   %621 = call i32 @sqlite3_finalize(ptr noundef %620) #18
-  %622 = load ptr, ptr %10, align 8, !tbaa !21
+  %622 = load ptr, ptr %10, align 8, !tbaa !23
   %623 = call i32 @sqlite3_finalize(ptr noundef %622) #18
-  %624 = load ptr, ptr %11, align 8, !tbaa !21
+  %624 = load ptr, ptr %11, align 8, !tbaa !23
   %625 = call i32 @sqlite3_finalize(ptr noundef %624) #18
   br label %.thread2351
 
@@ -7915,21 +7915,21 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 629:                                              ; preds = %626
   %630 = call ptr @sqlite3_errmsg(ptr noundef %628) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.327, ptr noundef %630) #18
-  %631 = load ptr, ptr %3, align 8, !tbaa !21
+  %631 = load ptr, ptr %3, align 8, !tbaa !23
   %632 = call i32 @sqlite3_finalize(ptr noundef %631) #18
-  %633 = load ptr, ptr %4, align 8, !tbaa !21
+  %633 = load ptr, ptr %4, align 8, !tbaa !23
   %634 = call i32 @sqlite3_finalize(ptr noundef %633) #18
-  %635 = load ptr, ptr %6, align 8, !tbaa !21
+  %635 = load ptr, ptr %6, align 8, !tbaa !23
   %636 = call i32 @sqlite3_finalize(ptr noundef %635) #18
-  %637 = load ptr, ptr %5, align 8, !tbaa !21
+  %637 = load ptr, ptr %5, align 8, !tbaa !23
   %638 = call i32 @sqlite3_finalize(ptr noundef %637) #18
-  %639 = load ptr, ptr %8, align 8, !tbaa !21
+  %639 = load ptr, ptr %8, align 8, !tbaa !23
   %640 = call i32 @sqlite3_finalize(ptr noundef %639) #18
-  %641 = load ptr, ptr %9, align 8, !tbaa !21
+  %641 = load ptr, ptr %9, align 8, !tbaa !23
   %642 = call i32 @sqlite3_finalize(ptr noundef %641) #18
-  %643 = load ptr, ptr %10, align 8, !tbaa !21
+  %643 = load ptr, ptr %10, align 8, !tbaa !23
   %644 = call i32 @sqlite3_finalize(ptr noundef %643) #18
-  %645 = load ptr, ptr %11, align 8, !tbaa !21
+  %645 = load ptr, ptr %11, align 8, !tbaa !23
   %646 = call i32 @sqlite3_finalize(ptr noundef %645) #18
   br label %.thread2351
 
@@ -7942,21 +7942,21 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 650:                                              ; preds = %647
   %651 = call ptr @sqlite3_errmsg(ptr noundef %649) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.329, ptr noundef %651) #18
-  %652 = load ptr, ptr %3, align 8, !tbaa !21
+  %652 = load ptr, ptr %3, align 8, !tbaa !23
   %653 = call i32 @sqlite3_finalize(ptr noundef %652) #18
-  %654 = load ptr, ptr %4, align 8, !tbaa !21
+  %654 = load ptr, ptr %4, align 8, !tbaa !23
   %655 = call i32 @sqlite3_finalize(ptr noundef %654) #18
-  %656 = load ptr, ptr %6, align 8, !tbaa !21
+  %656 = load ptr, ptr %6, align 8, !tbaa !23
   %657 = call i32 @sqlite3_finalize(ptr noundef %656) #18
-  %658 = load ptr, ptr %5, align 8, !tbaa !21
+  %658 = load ptr, ptr %5, align 8, !tbaa !23
   %659 = call i32 @sqlite3_finalize(ptr noundef %658) #18
-  %660 = load ptr, ptr %8, align 8, !tbaa !21
+  %660 = load ptr, ptr %8, align 8, !tbaa !23
   %661 = call i32 @sqlite3_finalize(ptr noundef %660) #18
-  %662 = load ptr, ptr %9, align 8, !tbaa !21
+  %662 = load ptr, ptr %9, align 8, !tbaa !23
   %663 = call i32 @sqlite3_finalize(ptr noundef %662) #18
-  %664 = load ptr, ptr %10, align 8, !tbaa !21
+  %664 = load ptr, ptr %10, align 8, !tbaa !23
   %665 = call i32 @sqlite3_finalize(ptr noundef %664) #18
-  %666 = load ptr, ptr %11, align 8, !tbaa !21
+  %666 = load ptr, ptr %11, align 8, !tbaa !23
   %667 = call i32 @sqlite3_finalize(ptr noundef %666) #18
   br label %.thread2351
 
@@ -7969,21 +7969,21 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 671:                                              ; preds = %668
   %672 = call ptr @sqlite3_errmsg(ptr noundef %670) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.331, ptr noundef %672) #18
-  %673 = load ptr, ptr %3, align 8, !tbaa !21
+  %673 = load ptr, ptr %3, align 8, !tbaa !23
   %674 = call i32 @sqlite3_finalize(ptr noundef %673) #18
-  %675 = load ptr, ptr %4, align 8, !tbaa !21
+  %675 = load ptr, ptr %4, align 8, !tbaa !23
   %676 = call i32 @sqlite3_finalize(ptr noundef %675) #18
-  %677 = load ptr, ptr %6, align 8, !tbaa !21
+  %677 = load ptr, ptr %6, align 8, !tbaa !23
   %678 = call i32 @sqlite3_finalize(ptr noundef %677) #18
-  %679 = load ptr, ptr %5, align 8, !tbaa !21
+  %679 = load ptr, ptr %5, align 8, !tbaa !23
   %680 = call i32 @sqlite3_finalize(ptr noundef %679) #18
-  %681 = load ptr, ptr %8, align 8, !tbaa !21
+  %681 = load ptr, ptr %8, align 8, !tbaa !23
   %682 = call i32 @sqlite3_finalize(ptr noundef %681) #18
-  %683 = load ptr, ptr %9, align 8, !tbaa !21
+  %683 = load ptr, ptr %9, align 8, !tbaa !23
   %684 = call i32 @sqlite3_finalize(ptr noundef %683) #18
-  %685 = load ptr, ptr %10, align 8, !tbaa !21
+  %685 = load ptr, ptr %10, align 8, !tbaa !23
   %686 = call i32 @sqlite3_finalize(ptr noundef %685) #18
-  %687 = load ptr, ptr %11, align 8, !tbaa !21
+  %687 = load ptr, ptr %11, align 8, !tbaa !23
   %688 = call i32 @sqlite3_finalize(ptr noundef %687) #18
   br label %.thread2351
 
@@ -7996,21 +7996,21 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 692:                                              ; preds = %689
   %693 = call ptr @sqlite3_errmsg(ptr noundef %691) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.333, ptr noundef %693) #18
-  %694 = load ptr, ptr %3, align 8, !tbaa !21
+  %694 = load ptr, ptr %3, align 8, !tbaa !23
   %695 = call i32 @sqlite3_finalize(ptr noundef %694) #18
-  %696 = load ptr, ptr %4, align 8, !tbaa !21
+  %696 = load ptr, ptr %4, align 8, !tbaa !23
   %697 = call i32 @sqlite3_finalize(ptr noundef %696) #18
-  %698 = load ptr, ptr %6, align 8, !tbaa !21
+  %698 = load ptr, ptr %6, align 8, !tbaa !23
   %699 = call i32 @sqlite3_finalize(ptr noundef %698) #18
-  %700 = load ptr, ptr %5, align 8, !tbaa !21
+  %700 = load ptr, ptr %5, align 8, !tbaa !23
   %701 = call i32 @sqlite3_finalize(ptr noundef %700) #18
-  %702 = load ptr, ptr %8, align 8, !tbaa !21
+  %702 = load ptr, ptr %8, align 8, !tbaa !23
   %703 = call i32 @sqlite3_finalize(ptr noundef %702) #18
-  %704 = load ptr, ptr %9, align 8, !tbaa !21
+  %704 = load ptr, ptr %9, align 8, !tbaa !23
   %705 = call i32 @sqlite3_finalize(ptr noundef %704) #18
-  %706 = load ptr, ptr %10, align 8, !tbaa !21
+  %706 = load ptr, ptr %10, align 8, !tbaa !23
   %707 = call i32 @sqlite3_finalize(ptr noundef %706) #18
-  %708 = load ptr, ptr %11, align 8, !tbaa !21
+  %708 = load ptr, ptr %11, align 8, !tbaa !23
   %709 = call i32 @sqlite3_finalize(ptr noundef %708) #18
   br label %.thread2351
 
@@ -8023,21 +8023,21 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 713:                                              ; preds = %710
   %714 = call ptr @sqlite3_errmsg(ptr noundef %712) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.335, ptr noundef %714) #18
-  %715 = load ptr, ptr %3, align 8, !tbaa !21
+  %715 = load ptr, ptr %3, align 8, !tbaa !23
   %716 = call i32 @sqlite3_finalize(ptr noundef %715) #18
-  %717 = load ptr, ptr %4, align 8, !tbaa !21
+  %717 = load ptr, ptr %4, align 8, !tbaa !23
   %718 = call i32 @sqlite3_finalize(ptr noundef %717) #18
-  %719 = load ptr, ptr %6, align 8, !tbaa !21
+  %719 = load ptr, ptr %6, align 8, !tbaa !23
   %720 = call i32 @sqlite3_finalize(ptr noundef %719) #18
-  %721 = load ptr, ptr %5, align 8, !tbaa !21
+  %721 = load ptr, ptr %5, align 8, !tbaa !23
   %722 = call i32 @sqlite3_finalize(ptr noundef %721) #18
-  %723 = load ptr, ptr %8, align 8, !tbaa !21
+  %723 = load ptr, ptr %8, align 8, !tbaa !23
   %724 = call i32 @sqlite3_finalize(ptr noundef %723) #18
-  %725 = load ptr, ptr %9, align 8, !tbaa !21
+  %725 = load ptr, ptr %9, align 8, !tbaa !23
   %726 = call i32 @sqlite3_finalize(ptr noundef %725) #18
-  %727 = load ptr, ptr %10, align 8, !tbaa !21
+  %727 = load ptr, ptr %10, align 8, !tbaa !23
   %728 = call i32 @sqlite3_finalize(ptr noundef %727) #18
-  %729 = load ptr, ptr %11, align 8, !tbaa !21
+  %729 = load ptr, ptr %11, align 8, !tbaa !23
   %730 = call i32 @sqlite3_finalize(ptr noundef %729) #18
   br label %.thread2351
 
@@ -8047,7 +8047,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   br i1 %.not2285, label %.preheader2385, label %736
 
 .preheader2385:                                   ; preds = %731
-  %733 = load ptr, ptr %3, align 8, !tbaa !21
+  %733 = load ptr, ptr %3, align 8, !tbaa !23
   %734 = call i32 @sqlite3_step(ptr noundef %733) #18
   %735 = icmp eq i32 %734, 100
   br i1 %735, label %.lr.ph2429, label %._crit_edge2430
@@ -8056,32 +8056,32 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %737 = load ptr, ptr %304, align 8, !tbaa !6
   %738 = call ptr @sqlite3_errmsg(ptr noundef %737) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.337, ptr noundef %738) #18
-  %739 = load ptr, ptr %3, align 8, !tbaa !21
+  %739 = load ptr, ptr %3, align 8, !tbaa !23
   %740 = call i32 @sqlite3_finalize(ptr noundef %739) #18
-  %741 = load ptr, ptr %4, align 8, !tbaa !21
+  %741 = load ptr, ptr %4, align 8, !tbaa !23
   %742 = call i32 @sqlite3_finalize(ptr noundef %741) #18
-  %743 = load ptr, ptr %6, align 8, !tbaa !21
+  %743 = load ptr, ptr %6, align 8, !tbaa !23
   %744 = call i32 @sqlite3_finalize(ptr noundef %743) #18
-  %745 = load ptr, ptr %5, align 8, !tbaa !21
+  %745 = load ptr, ptr %5, align 8, !tbaa !23
   %746 = call i32 @sqlite3_finalize(ptr noundef %745) #18
-  %747 = load ptr, ptr %8, align 8, !tbaa !21
+  %747 = load ptr, ptr %8, align 8, !tbaa !23
   %748 = call i32 @sqlite3_finalize(ptr noundef %747) #18
-  %749 = load ptr, ptr %9, align 8, !tbaa !21
+  %749 = load ptr, ptr %9, align 8, !tbaa !23
   %750 = call i32 @sqlite3_finalize(ptr noundef %749) #18
-  %751 = load ptr, ptr %10, align 8, !tbaa !21
+  %751 = load ptr, ptr %10, align 8, !tbaa !23
   %752 = call i32 @sqlite3_finalize(ptr noundef %751) #18
-  %753 = load ptr, ptr %11, align 8, !tbaa !21
+  %753 = load ptr, ptr %11, align 8, !tbaa !23
   %754 = call i32 @sqlite3_finalize(ptr noundef %753) #18
   br label %.thread2351
 
 .lr.ph2429:                                       ; preds = %.preheader2385, %931
-  %755 = load ptr, ptr %3, align 8, !tbaa !21
+  %755 = load ptr, ptr %3, align 8, !tbaa !23
   %756 = call i32 @sqlite3_column_int(ptr noundef %755, i32 noundef 0) #18
-  %757 = load ptr, ptr %3, align 8, !tbaa !21
+  %757 = load ptr, ptr %3, align 8, !tbaa !23
   %758 = call ptr @sqlite3_column_text(ptr noundef %757, i32 noundef 1) #18
-  %759 = load ptr, ptr %6, align 8, !tbaa !21
+  %759 = load ptr, ptr %6, align 8, !tbaa !23
   %760 = call i32 @sqlite3_bind_text(ptr noundef %759, i32 noundef 1, ptr noundef %758, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %761 = load ptr, ptr %6, align 8, !tbaa !21
+  %761 = load ptr, ptr %6, align 8, !tbaa !23
   %762 = call i32 @sqlite3_step(ptr noundef %761) #18
   %763 = icmp eq i32 %762, 100
   br i1 %763, label %.preheader, label %805
@@ -8092,31 +8092,31 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %764 = add nuw nsw i32 %.01898, 1
   call void @g_free(ptr noundef %.01899) #18
   %765 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.338, ptr noundef %758, i32 noundef %764) #18
-  %766 = load ptr, ptr %6, align 8, !tbaa !21
+  %766 = load ptr, ptr %6, align 8, !tbaa !23
   %767 = call i32 @sqlite3_reset(ptr noundef %766) #18
-  %768 = load ptr, ptr %6, align 8, !tbaa !21
+  %768 = load ptr, ptr %6, align 8, !tbaa !23
   %769 = call i32 @sqlite3_clear_bindings(ptr noundef %768) #18
-  %770 = load ptr, ptr %6, align 8, !tbaa !21
+  %770 = load ptr, ptr %6, align 8, !tbaa !23
   %771 = call i32 @sqlite3_bind_text(ptr noundef %770, i32 noundef 1, ptr noundef %765, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %772 = load ptr, ptr %6, align 8, !tbaa !21
+  %772 = load ptr, ptr %6, align 8, !tbaa !23
   %773 = call i32 @sqlite3_step(ptr noundef %772) #18
   %774 = icmp eq i32 %773, 100
-  br i1 %774, label %.preheader, label %775
+  br i1 %774, label %.preheader, label %775, !llvm.loop !104
 
 775:                                              ; preds = %.preheader
-  %776 = load ptr, ptr %8, align 8, !tbaa !21
+  %776 = load ptr, ptr %8, align 8, !tbaa !23
   %777 = call i32 @sqlite3_bind_text(ptr noundef %776, i32 noundef 1, ptr noundef %765, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %778 = load ptr, ptr %8, align 8, !tbaa !21
+  %778 = load ptr, ptr %8, align 8, !tbaa !23
   %779 = call i32 @sqlite3_bind_int(ptr noundef %778, i32 noundef 2, i32 noundef %756) #18
-  %780 = load ptr, ptr %8, align 8, !tbaa !21
+  %780 = load ptr, ptr %8, align 8, !tbaa !23
   %781 = call i32 @sqlite3_step(ptr noundef %780) #18
   %.not2297 = icmp eq i32 %781, 101
   br i1 %.not2297, label %.thread2346, label %786
 
 .thread2346:                                      ; preds = %775
-  %782 = load ptr, ptr %8, align 8, !tbaa !21
+  %782 = load ptr, ptr %8, align 8, !tbaa !23
   %783 = call i32 @sqlite3_reset(ptr noundef %782) #18
-  %784 = load ptr, ptr %8, align 8, !tbaa !21
+  %784 = load ptr, ptr %8, align 8, !tbaa !23
   %785 = call i32 @sqlite3_clear_bindings(ptr noundef %784) #18
   call void @g_free(ptr noundef %765) #18
   br label %805
@@ -8125,28 +8125,28 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %787 = load ptr, ptr %304, align 8, !tbaa !6
   %788 = call ptr @sqlite3_errmsg(ptr noundef %787) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.339, ptr noundef %788) #18
-  %789 = load ptr, ptr %3, align 8, !tbaa !21
+  %789 = load ptr, ptr %3, align 8, !tbaa !23
   %790 = call i32 @sqlite3_finalize(ptr noundef %789) #18
-  %791 = load ptr, ptr %4, align 8, !tbaa !21
+  %791 = load ptr, ptr %4, align 8, !tbaa !23
   %792 = call i32 @sqlite3_finalize(ptr noundef %791) #18
-  %793 = load ptr, ptr %6, align 8, !tbaa !21
+  %793 = load ptr, ptr %6, align 8, !tbaa !23
   %794 = call i32 @sqlite3_finalize(ptr noundef %793) #18
-  %795 = load ptr, ptr %5, align 8, !tbaa !21
+  %795 = load ptr, ptr %5, align 8, !tbaa !23
   %796 = call i32 @sqlite3_finalize(ptr noundef %795) #18
-  %797 = load ptr, ptr %8, align 8, !tbaa !21
+  %797 = load ptr, ptr %8, align 8, !tbaa !23
   %798 = call i32 @sqlite3_finalize(ptr noundef %797) #18
-  %799 = load ptr, ptr %9, align 8, !tbaa !21
+  %799 = load ptr, ptr %9, align 8, !tbaa !23
   %800 = call i32 @sqlite3_finalize(ptr noundef %799) #18
-  %801 = load ptr, ptr %10, align 8, !tbaa !21
+  %801 = load ptr, ptr %10, align 8, !tbaa !23
   %802 = call i32 @sqlite3_finalize(ptr noundef %801) #18
-  %803 = load ptr, ptr %11, align 8, !tbaa !21
+  %803 = load ptr, ptr %11, align 8, !tbaa !23
   %804 = call i32 @sqlite3_finalize(ptr noundef %803) #18
   br label %.thread2351
 
 805:                                              ; preds = %.thread2346, %.lr.ph2429
-  %806 = load ptr, ptr %4, align 8, !tbaa !21
+  %806 = load ptr, ptr %4, align 8, !tbaa !23
   %807 = call i32 @sqlite3_bind_int(ptr noundef %806, i32 noundef 1, i32 noundef %756) #18
-  %808 = load ptr, ptr %4, align 8, !tbaa !21
+  %808 = load ptr, ptr %4, align 8, !tbaa !23
   %809 = call i32 @sqlite3_step(ptr noundef %808) #18
   %.not2298 = icmp eq i32 %809, 101
   %810 = load ptr, ptr %304, align 8, !tbaa !6
@@ -8155,29 +8155,29 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 811:                                              ; preds = %805
   %812 = call ptr @sqlite3_errmsg(ptr noundef %810) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.340, ptr noundef %812) #18
-  %813 = load ptr, ptr %3, align 8, !tbaa !21
+  %813 = load ptr, ptr %3, align 8, !tbaa !23
   %814 = call i32 @sqlite3_finalize(ptr noundef %813) #18
-  %815 = load ptr, ptr %4, align 8, !tbaa !21
+  %815 = load ptr, ptr %4, align 8, !tbaa !23
   %816 = call i32 @sqlite3_finalize(ptr noundef %815) #18
-  %817 = load ptr, ptr %6, align 8, !tbaa !21
+  %817 = load ptr, ptr %6, align 8, !tbaa !23
   %818 = call i32 @sqlite3_finalize(ptr noundef %817) #18
-  %819 = load ptr, ptr %5, align 8, !tbaa !21
+  %819 = load ptr, ptr %5, align 8, !tbaa !23
   %820 = call i32 @sqlite3_finalize(ptr noundef %819) #18
-  %821 = load ptr, ptr %8, align 8, !tbaa !21
+  %821 = load ptr, ptr %8, align 8, !tbaa !23
   %822 = call i32 @sqlite3_finalize(ptr noundef %821) #18
-  %823 = load ptr, ptr %9, align 8, !tbaa !21
+  %823 = load ptr, ptr %9, align 8, !tbaa !23
   %824 = call i32 @sqlite3_finalize(ptr noundef %823) #18
-  %825 = load ptr, ptr %10, align 8, !tbaa !21
+  %825 = load ptr, ptr %10, align 8, !tbaa !23
   %826 = call i32 @sqlite3_finalize(ptr noundef %825) #18
-  %827 = load ptr, ptr %11, align 8, !tbaa !21
+  %827 = load ptr, ptr %11, align 8, !tbaa !23
   %828 = call i32 @sqlite3_finalize(ptr noundef %827) #18
   br label %.thread2351
 
 829:                                              ; preds = %805
   %830 = call i64 @sqlite3_last_insert_rowid(ptr noundef %810) #18
-  %831 = load ptr, ptr %5, align 8, !tbaa !21
+  %831 = load ptr, ptr %5, align 8, !tbaa !23
   %832 = call i32 @sqlite3_bind_int(ptr noundef %831, i32 noundef 1, i32 noundef %756) #18
-  %833 = load ptr, ptr %5, align 8, !tbaa !21
+  %833 = load ptr, ptr %5, align 8, !tbaa !23
   %834 = call i32 @sqlite3_step(ptr noundef %833) #18
   %.not2299 = icmp eq i32 %834, 101
   br i1 %.not2299, label %854, label %835
@@ -8186,29 +8186,29 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %836 = load ptr, ptr %304, align 8, !tbaa !6
   %837 = call ptr @sqlite3_errmsg(ptr noundef %836) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.341, ptr noundef %837) #18
-  %838 = load ptr, ptr %3, align 8, !tbaa !21
+  %838 = load ptr, ptr %3, align 8, !tbaa !23
   %839 = call i32 @sqlite3_finalize(ptr noundef %838) #18
-  %840 = load ptr, ptr %4, align 8, !tbaa !21
+  %840 = load ptr, ptr %4, align 8, !tbaa !23
   %841 = call i32 @sqlite3_finalize(ptr noundef %840) #18
-  %842 = load ptr, ptr %6, align 8, !tbaa !21
+  %842 = load ptr, ptr %6, align 8, !tbaa !23
   %843 = call i32 @sqlite3_finalize(ptr noundef %842) #18
-  %844 = load ptr, ptr %5, align 8, !tbaa !21
+  %844 = load ptr, ptr %5, align 8, !tbaa !23
   %845 = call i32 @sqlite3_finalize(ptr noundef %844) #18
-  %846 = load ptr, ptr %8, align 8, !tbaa !21
+  %846 = load ptr, ptr %8, align 8, !tbaa !23
   %847 = call i32 @sqlite3_finalize(ptr noundef %846) #18
-  %848 = load ptr, ptr %9, align 8, !tbaa !21
+  %848 = load ptr, ptr %9, align 8, !tbaa !23
   %849 = call i32 @sqlite3_finalize(ptr noundef %848) #18
-  %850 = load ptr, ptr %10, align 8, !tbaa !21
+  %850 = load ptr, ptr %10, align 8, !tbaa !23
   %851 = call i32 @sqlite3_finalize(ptr noundef %850) #18
-  %852 = load ptr, ptr %11, align 8, !tbaa !21
+  %852 = load ptr, ptr %11, align 8, !tbaa !23
   %853 = call i32 @sqlite3_finalize(ptr noundef %852) #18
   br label %.thread2351
 
 854:                                              ; preds = %829
-  %855 = load ptr, ptr %9, align 8, !tbaa !21
+  %855 = load ptr, ptr %9, align 8, !tbaa !23
   %856 = trunc i64 %830 to i32
   %857 = call i32 @sqlite3_bind_int(ptr noundef %855, i32 noundef 1, i32 noundef %856) #18
-  %858 = load ptr, ptr %9, align 8, !tbaa !21
+  %858 = load ptr, ptr %9, align 8, !tbaa !23
   %859 = call i32 @sqlite3_step(ptr noundef %858) #18
   %.not2300 = icmp eq i32 %859, 100
   br i1 %.not2300, label %879, label %860
@@ -8217,32 +8217,32 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %861 = load ptr, ptr %304, align 8, !tbaa !6
   %862 = call ptr @sqlite3_errmsg(ptr noundef %861) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.342, ptr noundef %862) #18
-  %863 = load ptr, ptr %3, align 8, !tbaa !21
+  %863 = load ptr, ptr %3, align 8, !tbaa !23
   %864 = call i32 @sqlite3_finalize(ptr noundef %863) #18
-  %865 = load ptr, ptr %4, align 8, !tbaa !21
+  %865 = load ptr, ptr %4, align 8, !tbaa !23
   %866 = call i32 @sqlite3_finalize(ptr noundef %865) #18
-  %867 = load ptr, ptr %6, align 8, !tbaa !21
+  %867 = load ptr, ptr %6, align 8, !tbaa !23
   %868 = call i32 @sqlite3_finalize(ptr noundef %867) #18
-  %869 = load ptr, ptr %5, align 8, !tbaa !21
+  %869 = load ptr, ptr %5, align 8, !tbaa !23
   %870 = call i32 @sqlite3_finalize(ptr noundef %869) #18
-  %871 = load ptr, ptr %8, align 8, !tbaa !21
+  %871 = load ptr, ptr %8, align 8, !tbaa !23
   %872 = call i32 @sqlite3_finalize(ptr noundef %871) #18
-  %873 = load ptr, ptr %9, align 8, !tbaa !21
+  %873 = load ptr, ptr %9, align 8, !tbaa !23
   %874 = call i32 @sqlite3_finalize(ptr noundef %873) #18
-  %875 = load ptr, ptr %10, align 8, !tbaa !21
+  %875 = load ptr, ptr %10, align 8, !tbaa !23
   %876 = call i32 @sqlite3_finalize(ptr noundef %875) #18
-  %877 = load ptr, ptr %11, align 8, !tbaa !21
+  %877 = load ptr, ptr %11, align 8, !tbaa !23
   %878 = call i32 @sqlite3_finalize(ptr noundef %877) #18
   br label %.thread2351
 
 879:                                              ; preds = %854
-  %880 = load ptr, ptr %9, align 8, !tbaa !21
+  %880 = load ptr, ptr %9, align 8, !tbaa !23
   %881 = call i32 @sqlite3_column_int(ptr noundef %880, i32 noundef 0) #18
-  %882 = load ptr, ptr %10, align 8, !tbaa !21
+  %882 = load ptr, ptr %10, align 8, !tbaa !23
   %883 = call i32 @sqlite3_bind_int(ptr noundef %882, i32 noundef 1, i32 noundef %881) #18
-  %884 = load ptr, ptr %10, align 8, !tbaa !21
+  %884 = load ptr, ptr %10, align 8, !tbaa !23
   %885 = call i32 @sqlite3_bind_int(ptr noundef %884, i32 noundef 2, i32 noundef %756) #18
-  %886 = load ptr, ptr %10, align 8, !tbaa !21
+  %886 = load ptr, ptr %10, align 8, !tbaa !23
   %887 = call i32 @sqlite3_step(ptr noundef %886) #18
   %.not2301 = icmp eq i32 %887, 101
   br i1 %.not2301, label %907, label %888
@@ -8251,28 +8251,28 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %889 = load ptr, ptr %304, align 8, !tbaa !6
   %890 = call ptr @sqlite3_errmsg(ptr noundef %889) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.343, ptr noundef %890) #18
-  %891 = load ptr, ptr %3, align 8, !tbaa !21
+  %891 = load ptr, ptr %3, align 8, !tbaa !23
   %892 = call i32 @sqlite3_finalize(ptr noundef %891) #18
-  %893 = load ptr, ptr %4, align 8, !tbaa !21
+  %893 = load ptr, ptr %4, align 8, !tbaa !23
   %894 = call i32 @sqlite3_finalize(ptr noundef %893) #18
-  %895 = load ptr, ptr %6, align 8, !tbaa !21
+  %895 = load ptr, ptr %6, align 8, !tbaa !23
   %896 = call i32 @sqlite3_finalize(ptr noundef %895) #18
-  %897 = load ptr, ptr %5, align 8, !tbaa !21
+  %897 = load ptr, ptr %5, align 8, !tbaa !23
   %898 = call i32 @sqlite3_finalize(ptr noundef %897) #18
-  %899 = load ptr, ptr %8, align 8, !tbaa !21
+  %899 = load ptr, ptr %8, align 8, !tbaa !23
   %900 = call i32 @sqlite3_finalize(ptr noundef %899) #18
-  %901 = load ptr, ptr %9, align 8, !tbaa !21
+  %901 = load ptr, ptr %9, align 8, !tbaa !23
   %902 = call i32 @sqlite3_finalize(ptr noundef %901) #18
-  %903 = load ptr, ptr %10, align 8, !tbaa !21
+  %903 = load ptr, ptr %10, align 8, !tbaa !23
   %904 = call i32 @sqlite3_finalize(ptr noundef %903) #18
-  %905 = load ptr, ptr %11, align 8, !tbaa !21
+  %905 = load ptr, ptr %11, align 8, !tbaa !23
   %906 = call i32 @sqlite3_finalize(ptr noundef %905) #18
   br label %.thread2351
 
 907:                                              ; preds = %879
-  %908 = load ptr, ptr %11, align 8, !tbaa !21
+  %908 = load ptr, ptr %11, align 8, !tbaa !23
   %909 = call i32 @sqlite3_bind_int(ptr noundef %908, i32 noundef 1, i32 noundef %756) #18
-  %910 = load ptr, ptr %11, align 8, !tbaa !21
+  %910 = load ptr, ptr %11, align 8, !tbaa !23
   %911 = call i32 @sqlite3_step(ptr noundef %910) #18
   %.not2302 = icmp eq i32 %911, 101
   br i1 %.not2302, label %931, label %912
@@ -8281,70 +8281,70 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   %913 = load ptr, ptr %304, align 8, !tbaa !6
   %914 = call ptr @sqlite3_errmsg(ptr noundef %913) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.344, ptr noundef %914) #18
-  %915 = load ptr, ptr %3, align 8, !tbaa !21
+  %915 = load ptr, ptr %3, align 8, !tbaa !23
   %916 = call i32 @sqlite3_finalize(ptr noundef %915) #18
-  %917 = load ptr, ptr %4, align 8, !tbaa !21
+  %917 = load ptr, ptr %4, align 8, !tbaa !23
   %918 = call i32 @sqlite3_finalize(ptr noundef %917) #18
-  %919 = load ptr, ptr %6, align 8, !tbaa !21
+  %919 = load ptr, ptr %6, align 8, !tbaa !23
   %920 = call i32 @sqlite3_finalize(ptr noundef %919) #18
-  %921 = load ptr, ptr %5, align 8, !tbaa !21
+  %921 = load ptr, ptr %5, align 8, !tbaa !23
   %922 = call i32 @sqlite3_finalize(ptr noundef %921) #18
-  %923 = load ptr, ptr %8, align 8, !tbaa !21
+  %923 = load ptr, ptr %8, align 8, !tbaa !23
   %924 = call i32 @sqlite3_finalize(ptr noundef %923) #18
-  %925 = load ptr, ptr %9, align 8, !tbaa !21
+  %925 = load ptr, ptr %9, align 8, !tbaa !23
   %926 = call i32 @sqlite3_finalize(ptr noundef %925) #18
-  %927 = load ptr, ptr %10, align 8, !tbaa !21
+  %927 = load ptr, ptr %10, align 8, !tbaa !23
   %928 = call i32 @sqlite3_finalize(ptr noundef %927) #18
-  %929 = load ptr, ptr %11, align 8, !tbaa !21
+  %929 = load ptr, ptr %11, align 8, !tbaa !23
   %930 = call i32 @sqlite3_finalize(ptr noundef %929) #18
   br label %.thread2351
 
 931:                                              ; preds = %907
-  %932 = load ptr, ptr %4, align 8, !tbaa !21
+  %932 = load ptr, ptr %4, align 8, !tbaa !23
   %933 = call i32 @sqlite3_reset(ptr noundef %932) #18
-  %934 = load ptr, ptr %4, align 8, !tbaa !21
+  %934 = load ptr, ptr %4, align 8, !tbaa !23
   %935 = call i32 @sqlite3_clear_bindings(ptr noundef %934) #18
-  %936 = load ptr, ptr %6, align 8, !tbaa !21
+  %936 = load ptr, ptr %6, align 8, !tbaa !23
   %937 = call i32 @sqlite3_reset(ptr noundef %936) #18
-  %938 = load ptr, ptr %6, align 8, !tbaa !21
+  %938 = load ptr, ptr %6, align 8, !tbaa !23
   %939 = call i32 @sqlite3_clear_bindings(ptr noundef %938) #18
-  %940 = load ptr, ptr %5, align 8, !tbaa !21
+  %940 = load ptr, ptr %5, align 8, !tbaa !23
   %941 = call i32 @sqlite3_reset(ptr noundef %940) #18
-  %942 = load ptr, ptr %5, align 8, !tbaa !21
+  %942 = load ptr, ptr %5, align 8, !tbaa !23
   %943 = call i32 @sqlite3_clear_bindings(ptr noundef %942) #18
-  %944 = load ptr, ptr %9, align 8, !tbaa !21
+  %944 = load ptr, ptr %9, align 8, !tbaa !23
   %945 = call i32 @sqlite3_reset(ptr noundef %944) #18
-  %946 = load ptr, ptr %9, align 8, !tbaa !21
+  %946 = load ptr, ptr %9, align 8, !tbaa !23
   %947 = call i32 @sqlite3_clear_bindings(ptr noundef %946) #18
-  %948 = load ptr, ptr %10, align 8, !tbaa !21
+  %948 = load ptr, ptr %10, align 8, !tbaa !23
   %949 = call i32 @sqlite3_reset(ptr noundef %948) #18
-  %950 = load ptr, ptr %10, align 8, !tbaa !21
+  %950 = load ptr, ptr %10, align 8, !tbaa !23
   %951 = call i32 @sqlite3_clear_bindings(ptr noundef %950) #18
-  %952 = load ptr, ptr %11, align 8, !tbaa !21
+  %952 = load ptr, ptr %11, align 8, !tbaa !23
   %953 = call i32 @sqlite3_reset(ptr noundef %952) #18
-  %954 = load ptr, ptr %11, align 8, !tbaa !21
+  %954 = load ptr, ptr %11, align 8, !tbaa !23
   %955 = call i32 @sqlite3_clear_bindings(ptr noundef %954) #18
-  %956 = load ptr, ptr %3, align 8, !tbaa !21
+  %956 = load ptr, ptr %3, align 8, !tbaa !23
   %957 = call i32 @sqlite3_step(ptr noundef %956) #18
   %958 = icmp eq i32 %957, 100
-  br i1 %958, label %.lr.ph2429, label %._crit_edge2430
+  br i1 %958, label %.lr.ph2429, label %._crit_edge2430, !llvm.loop !105
 
 ._crit_edge2430:                                  ; preds = %931, %.preheader2385
-  %959 = load ptr, ptr %3, align 8, !tbaa !21
+  %959 = load ptr, ptr %3, align 8, !tbaa !23
   %960 = call i32 @sqlite3_finalize(ptr noundef %959) #18
-  %961 = load ptr, ptr %4, align 8, !tbaa !21
+  %961 = load ptr, ptr %4, align 8, !tbaa !23
   %962 = call i32 @sqlite3_finalize(ptr noundef %961) #18
-  %963 = load ptr, ptr %6, align 8, !tbaa !21
+  %963 = load ptr, ptr %6, align 8, !tbaa !23
   %964 = call i32 @sqlite3_finalize(ptr noundef %963) #18
-  %965 = load ptr, ptr %5, align 8, !tbaa !21
+  %965 = load ptr, ptr %5, align 8, !tbaa !23
   %966 = call i32 @sqlite3_finalize(ptr noundef %965) #18
-  %967 = load ptr, ptr %8, align 8, !tbaa !21
+  %967 = load ptr, ptr %8, align 8, !tbaa !23
   %968 = call i32 @sqlite3_finalize(ptr noundef %967) #18
-  %969 = load ptr, ptr %9, align 8, !tbaa !21
+  %969 = load ptr, ptr %9, align 8, !tbaa !23
   %970 = call i32 @sqlite3_finalize(ptr noundef %969) #18
-  %971 = load ptr, ptr %10, align 8, !tbaa !21
+  %971 = load ptr, ptr %10, align 8, !tbaa !23
   %972 = call i32 @sqlite3_finalize(ptr noundef %971) #18
-  %973 = load ptr, ptr %11, align 8, !tbaa !21
+  %973 = load ptr, ptr %11, align 8, !tbaa !23
   %974 = call i32 @sqlite3_finalize(ptr noundef %973) #18
   %975 = load ptr, ptr %304, align 8, !tbaa !6
   %976 = call i32 @sqlite3_exec(ptr noundef %975, ptr noundef nonnull @.str.345, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8498,7 +8498,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #18
-  br label %3736
+  br label %3738
 
 1034:                                             ; preds = %2
   %1035 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8545,7 +8545,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 1059:                                             ; preds = %1052
   %1060 = tail call i32 @sqlite3_exec(ptr noundef %1054, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 1061:                                             ; preds = %2
   %1062 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8618,7 +8618,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 1100:                                             ; preds = %1093
   %1101 = tail call i32 @sqlite3_exec(ptr noundef %1095, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 1102:                                             ; preds = %2
   %1103 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8665,7 +8665,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 1127:                                             ; preds = %1120
   %1128 = tail call i32 @sqlite3_exec(ptr noundef %1122, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 1129:                                             ; preds = %2
   %1130 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8699,7 +8699,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 1147:                                             ; preds = %1140
   %1148 = tail call i32 @sqlite3_exec(ptr noundef %1142, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 1149:                                             ; preds = %2
   %1150 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -8882,27 +8882,27 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 .lr.ph2425:                                       ; preds = %.preheader2388, %1257
   %.019002424 = phi ptr [ %1261, %1257 ], [ %1210, %.preheader2388 ]
-  %1246 = load ptr, ptr %.019002424, align 8, !tbaa !65
+  %1246 = load ptr, ptr %.019002424, align 8, !tbaa !70
   %1247 = load ptr, ptr %1150, align 8, !tbaa !6
   %1248 = call i32 @sqlite3_prepare_v2(ptr noundef %1247, ptr noundef nonnull @.str.177, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %1249 = load ptr, ptr %3, align 8, !tbaa !21
+  %1249 = load ptr, ptr %3, align 8, !tbaa !23
   %1250 = load double, ptr %1246, align 8, !tbaa !16
   %1251 = call i32 @sqlite3_bind_double(ptr noundef %1249, i32 noundef 1, double noundef %1250) #18
-  %1252 = load ptr, ptr %3, align 8, !tbaa !21
+  %1252 = load ptr, ptr %3, align 8, !tbaa !23
   %1253 = getelementptr inbounds nuw i8, ptr %1246, i64 8
   %1254 = call i32 @sqlite3_bind_text(ptr noundef %1252, i32 noundef 2, ptr noundef nonnull %1253, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %1255 = load ptr, ptr %3, align 8, !tbaa !21
+  %1255 = load ptr, ptr %3, align 8, !tbaa !23
   %1256 = call i32 @sqlite3_step(ptr noundef %1255) #18
   %.not2252 = icmp eq i32 %1256, 101
   br i1 %.not2252, label %1257, label %1262
 
 1257:                                             ; preds = %.lr.ph2425
-  %1258 = load ptr, ptr %3, align 8, !tbaa !21
+  %1258 = load ptr, ptr %3, align 8, !tbaa !23
   %1259 = call i32 @sqlite3_finalize(ptr noundef %1258) #18
   %1260 = getelementptr inbounds nuw i8, ptr %.019002424, i64 8
-  %1261 = load ptr, ptr %1260, align 8, !tbaa !67
+  %1261 = load ptr, ptr %1260, align 8, !tbaa !72
   %.not2251 = icmp eq ptr %1261, null
-  br i1 %.not2251, label %.critedge2341, label %.lr.ph2425
+  br i1 %.not2251, label %.critedge2341, label %.lr.ph2425, !llvm.loop !106
 
 1262:                                             ; preds = %.lr.ph2425
   %1263 = load ptr, ptr %1150, align 8, !tbaa !6
@@ -8935,7 +8935,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   br i1 %.not2254, label %.preheader2387, label %1280
 
 .preheader2387:                                   ; preds = %1274
-  %1277 = load ptr, ptr %12, align 8, !tbaa !21
+  %1277 = load ptr, ptr %12, align 8, !tbaa !23
   %1278 = call i32 @sqlite3_step(ptr noundef %1277) #18
   %1279 = icmp eq i32 %1278, 100
   br i1 %1279, label %.lr.ph2426, label %._crit_edge2427
@@ -8947,16 +8947,16 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   br label %.thread2359
 
 .lr.ph2426:                                       ; preds = %.preheader2387, %.lr.ph2426
-  %1283 = load ptr, ptr %12, align 8, !tbaa !21
+  %1283 = load ptr, ptr %12, align 8, !tbaa !23
   %1284 = call ptr @sqlite3_column_text(ptr noundef %1283, i32 noundef 0) #18
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.421, ptr noundef %1284) #18
-  %1285 = load ptr, ptr %12, align 8, !tbaa !21
+  %1285 = load ptr, ptr %12, align 8, !tbaa !23
   %1286 = call i32 @sqlite3_step(ptr noundef %1285) #18
   %1287 = icmp eq i32 %1286, 100
-  br i1 %1287, label %.lr.ph2426, label %._crit_edge2427
+  br i1 %1287, label %.lr.ph2426, label %._crit_edge2427, !llvm.loop !107
 
 ._crit_edge2427:                                  ; preds = %.lr.ph2426, %.preheader2387
-  %1288 = load ptr, ptr %12, align 8, !tbaa !21
+  %1288 = load ptr, ptr %12, align 8, !tbaa !23
   %1289 = call i32 @sqlite3_finalize(ptr noundef %1288) #18
   %1290 = load ptr, ptr %1150, align 8, !tbaa !6
   %1291 = call i32 @sqlite3_exec(ptr noundef %1290, ptr noundef nonnull @.str.186, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -8978,7 +8978,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 1297:                                             ; preds = %._crit_edge2427
   %1298 = call i32 @sqlite3_exec(ptr noundef %1292, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #18
-  br label %3736
+  br label %3738
 
 1299:                                             ; preds = %2
   %1300 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9064,7 +9064,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 1345:                                             ; preds = %1338
   %1346 = tail call i32 @sqlite3_exec(ptr noundef %1340, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 1347:                                             ; preds = %2
   %1348 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9150,7 +9150,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 1393:                                             ; preds = %1386
   %1394 = tail call i32 @sqlite3_exec(ptr noundef %1388, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 1395:                                             ; preds = %2
   %1396 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9184,7 +9184,7 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
 
 1413:                                             ; preds = %1406
   %1414 = tail call i32 @sqlite3_exec(ptr noundef %1408, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+  br label %3738
 
 1415:                                             ; preds = %2
   %1416 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -9219,4199 +9219,4202 @@ define internal fastcc range(i32 -2147483648, 57) i32 @_upgrade_library_schema_s
   br label %.thread2371
 
 1434:                                             ; preds = %1426
-  %1435 = load ptr, ptr %13, align 8, !tbaa !21
+  %1435 = load ptr, ptr %13, align 8, !tbaa !23
   %1436 = call i32 @sqlite3_step(ptr noundef %1435) #18
   %1437 = icmp eq i32 %1436, 100
   br i1 %1437, label %.lr.ph2421, label %._crit_edge2422
 
-.lr.ph2421:                                       ; preds = %1434, %1520
-  %.019012419 = phi ptr [ %1524, %1520 ], [ null, %1434 ]
-  %.019062418 = phi i32 [ %.11907, %1520 ], [ 0, %1434 ]
-  %.019092417 = phi i32 [ %.11910, %1520 ], [ -1, %1434 ]
-  %1438 = load ptr, ptr %13, align 8, !tbaa !21
+.lr.ph2421:                                       ; preds = %1434, %1522
+  %.019012419 = phi ptr [ %1526, %1522 ], [ null, %1434 ]
+  %.019062418 = phi i32 [ %.11907, %1522 ], [ 0, %1434 ]
+  %.019092417 = phi i32 [ %.11910, %1522 ], [ -1, %1434 ]
+  %1438 = load ptr, ptr %13, align 8, !tbaa !23
   %1439 = call i32 @sqlite3_column_int(ptr noundef %1438, i32 noundef 0) #18
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %14) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %14, i8 0, i64 20, i1 false)
-  %1440 = load ptr, ptr %13, align 8, !tbaa !21
+  %1440 = load ptr, ptr %13, align 8, !tbaa !23
   %1441 = call ptr @sqlite3_column_text(ptr noundef %1440, i32 noundef 1) #18
   %1442 = call i64 @g_strlcpy(ptr noundef nonnull %14, ptr noundef %1441, i64 noundef 20) #18
-  %1443 = load ptr, ptr %13, align 8, !tbaa !21
+  %1443 = load ptr, ptr %13, align 8, !tbaa !23
   %1444 = call i32 @sqlite3_column_int(ptr noundef %1443, i32 noundef 2) #18
-  %1445 = load ptr, ptr %13, align 8, !tbaa !21
+  %1445 = load ptr, ptr %13, align 8, !tbaa !23
   %1446 = call reassoc nsz arcp contract afn double @sqlite3_column_double(ptr noundef %1445, i32 noundef 3) #18
-  %1447 = load ptr, ptr %13, align 8, !tbaa !21
+  %1447 = load ptr, ptr %13, align 8, !tbaa !23
   %1448 = call i32 @sqlite3_column_int(ptr noundef %1447, i32 noundef 4) #18
-  %1449 = load ptr, ptr %13, align 8, !tbaa !21
+  %1449 = load ptr, ptr %13, align 8, !tbaa !23
   %1450 = call i32 @sqlite3_step(ptr noundef %1449) #18
   %1451 = icmp eq i32 %1450, 100
   %1452 = icmp eq i32 %1439, %.019062418
   %or.cond = select i1 %1452, i1 %1451, i1 false
-  br i1 %or.cond, label %1520, label %1453
+  br i1 %or.cond, label %1522, label %1453
 
 1453:                                             ; preds = %.lr.ph2421
   %.not2213 = icmp eq ptr %.019012419, null
-  br i1 %.not2213, label %1520, label %1454
+  br i1 %.not2213, label %1522, label %1454
 
 1454:                                             ; preds = %1453
   %1455 = icmp eq i32 %.019092417, 2
   %1456 = select i1 %1455, i32 1, i32 2
   %1457 = call ptr @dt_ioppr_get_iop_order_list_version(i32 noundef %1456) #18
-  br label %.loopexit
+  br label %1458
 
-.loopexit:                                        ; preds = %1472, %1454
-  %.019132409 = phi ptr [ %1457, %1454 ], [ %.11914, %1472 ]
-  %.019162408 = phi ptr [ %.019012419, %1454 ], [ %1471, %1472 ]
-  %1458 = load ptr, ptr %.019162408, align 8, !tbaa !65
+1458:                                             ; preds = %1477, %1454
+  %.019132409 = phi ptr [ %1457, %1454 ], [ %.11914, %1477 ]
+  %.019162408 = phi ptr [ %.019012419, %1454 ], [ %1472, %1477 ]
+  %1459 = load ptr, ptr %.019162408, align 8, !tbaa !70
   %.not22202404 = icmp eq ptr %.019132409, null
   br i1 %.not22202404, label %.critedge2342, label %.lr.ph2407
 
-.lr.ph2407:                                       ; preds = %.loopexit
-  %1459 = getelementptr inbounds nuw i8, ptr %1458, i64 8
-  br label %1460
+.lr.ph2407:                                       ; preds = %1458
+  %1460 = getelementptr inbounds nuw i8, ptr %1459, i64 8
+  br label %1461
 
-1460:                                             ; preds = %.lr.ph2407, %1464
-  %.019242405 = phi ptr [ %.019132409, %.lr.ph2407 ], [ %1466, %1464 ]
-  %1461 = load ptr, ptr %.019242405, align 8, !tbaa !65
-  %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 8
-  %1463 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1462, ptr noundef nonnull dereferenceable(1) %1459) #19
-  %.not2221 = icmp eq i32 %1463, 0
-  br i1 %.not2221, label %.critedge19, label %1464
+1461:                                             ; preds = %.lr.ph2407, %1465
+  %.019242405 = phi ptr [ %.019132409, %.lr.ph2407 ], [ %1467, %1465 ]
+  %1462 = load ptr, ptr %.019242405, align 8, !tbaa !70
+  %1463 = getelementptr inbounds nuw i8, ptr %1462, i64 8
+  %1464 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1463, ptr noundef nonnull dereferenceable(1) %1460) #19
+  %.not2221 = icmp eq i32 %1464, 0
+  br i1 %.not2221, label %.critedge19, label %1465
 
-1464:                                             ; preds = %1460
-  %1465 = getelementptr inbounds nuw i8, ptr %.019242405, i64 8
-  %1466 = load ptr, ptr %1465, align 8, !tbaa !67
-  %.not2220 = icmp eq ptr %1466, null
-  br i1 %.not2220, label %.critedge2342, label %1460
+1465:                                             ; preds = %1461
+  %1466 = getelementptr inbounds nuw i8, ptr %.019242405, i64 8
+  %1467 = load ptr, ptr %1466, align 8, !tbaa !72
+  %.not2220 = icmp eq ptr %1467, null
+  br i1 %.not2220, label %.critedge2342, label %1461, !llvm.loop !108
 
-.critedge19:                                      ; preds = %1460
-  %1467 = call ptr @g_list_delete_link(ptr noundef nonnull %.019132409, ptr noundef nonnull %.019242405) #18
+.critedge19:                                      ; preds = %1461
+  %1468 = call ptr @g_list_delete_link(ptr noundef nonnull %.019132409, ptr noundef nonnull %.019242405) #18
   br label %.critedge2342
 
-.critedge2342:                                    ; preds = %1464, %.loopexit, %.critedge19
-  %.11914 = phi ptr [ %1467, %.critedge19 ], [ null, %.loopexit ], [ %.019132409, %1464 ]
-  %1468 = getelementptr inbounds nuw i8, ptr %1458, i64 8
-  br label %1469
+.critedge2342:                                    ; preds = %1465, %1458, %.critedge19
+  %.11914 = phi ptr [ %1468, %.critedge19 ], [ null, %1458 ], [ %.019132409, %1465 ]
+  %1469 = getelementptr inbounds nuw i8, ptr %1459, i64 8
+  br label %1470
 
-1469:                                             ; preds = %1472, %.critedge2342
-  %.01918 = phi ptr [ %.019162408, %.critedge2342 ], [ %1471, %1472 ]
-  %1470 = getelementptr inbounds nuw i8, ptr %.01918, i64 8
-  %1471 = load ptr, ptr %1470, align 8, !tbaa !67
-  %.not2222 = icmp eq ptr %1471, null
-  br i1 %.not2222, label %.preheader2389, label %1472
+1470:                                             ; preds = %1473, %.critedge2342
+  %.01918 = phi ptr [ %.019162408, %.critedge2342 ], [ %1472, %1473 ]
+  %1471 = getelementptr inbounds nuw i8, ptr %.01918, i64 8
+  %1472 = load ptr, ptr %1471, align 8, !tbaa !72
+  %.not2222 = icmp eq ptr %1472, null
+  br i1 %.not2222, label %.preheader2389, label %1473
 
-1472:                                             ; preds = %1469
-  %1473 = load ptr, ptr %1471, align 8, !tbaa !65
-  %1474 = getelementptr inbounds nuw i8, ptr %1473, i64 8
-  %1475 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1474, ptr noundef nonnull dereferenceable(1) %1468) #19
-  %.not2223 = icmp eq i32 %1475, 0
-  br i1 %.not2223, label %1469, label %.loopexit
+1473:                                             ; preds = %1470
+  %1474 = load ptr, ptr %1472, align 8, !tbaa !70
+  %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 8
+  %1476 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1475, ptr noundef nonnull dereferenceable(1) %1469) #19
+  %.not2223 = icmp eq i32 %1476, 0
+  br i1 %.not2223, label %1470, label %1477, !llvm.loop !109
 
-.preheader2389:                                   ; preds = %1469, %.preheader2389
-  %.219152411 = phi ptr [ %1477, %.preheader2389 ], [ %.11914, %1469 ]
-  %.119172410 = phi ptr [ %1479, %.preheader2389 ], [ %.019012419, %1469 ]
-  %1476 = load ptr, ptr %.119172410, align 8, !tbaa !65
-  %1477 = call ptr @g_list_prepend(ptr noundef %.219152411, ptr noundef %1476) #18
-  %1478 = getelementptr inbounds nuw i8, ptr %.119172410, i64 8
-  %1479 = load ptr, ptr %1478, align 8, !tbaa !67
-  %.not2215 = icmp eq ptr %1479, null
-  br i1 %.not2215, label %1480, label %.preheader2389
+1477:                                             ; preds = %1473
+  br label %1458, !llvm.loop !110
 
-1480:                                             ; preds = %.preheader2389
-  %1481 = call ptr @g_list_sort(ptr noundef %1477, ptr noundef nonnull @dt_sort_iop_list_by_order_f) #18
-  %1482 = call i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef %1481) #18
-  %.not22162412 = icmp eq ptr %1481, null
+.preheader2389:                                   ; preds = %1470, %.preheader2389
+  %.219152411 = phi ptr [ %1479, %.preheader2389 ], [ %.11914, %1470 ]
+  %.119172410 = phi ptr [ %1481, %.preheader2389 ], [ %.019012419, %1470 ]
+  %1478 = load ptr, ptr %.119172410, align 8, !tbaa !70
+  %1479 = call ptr @g_list_prepend(ptr noundef %.219152411, ptr noundef %1478) #18
+  %1480 = getelementptr inbounds nuw i8, ptr %.119172410, i64 8
+  %1481 = load ptr, ptr %1480, align 8, !tbaa !72
+  %.not2215 = icmp eq ptr %1481, null
+  br i1 %.not2215, label %1482, label %.preheader2389, !llvm.loop !111
+
+1482:                                             ; preds = %.preheader2389
+  %1483 = call ptr @g_list_sort(ptr noundef %1479, ptr noundef nonnull @dt_sort_iop_list_by_order_f) #18
+  %1484 = call i32 @dt_ioppr_get_iop_order_list_kind(ptr noundef %1483) #18
+  %.not22162412 = icmp eq ptr %1483, null
   br i1 %.not22162412, label %._crit_edge2416, label %.lr.ph2415
 
-.lr.ph2415:                                       ; preds = %1480, %1485
-  %.019192413 = phi ptr [ %1484, %1485 ], [ %1481, %1480 ]
-  %1483 = getelementptr inbounds nuw i8, ptr %.019192413, i64 8
-  %1484 = load ptr, ptr %1483, align 8, !tbaa !67
-  %cond = icmp eq ptr %1484, null
-  br i1 %cond, label %._crit_edge2416, label %1485
+.lr.ph2415:                                       ; preds = %1482, %1487
+  %.019192413 = phi ptr [ %1486, %1487 ], [ %1483, %1482 ]
+  %1485 = getelementptr inbounds nuw i8, ptr %.019192413, i64 8
+  %1486 = load ptr, ptr %1485, align 8, !tbaa !72
+  %cond = icmp eq ptr %1486, null
+  br i1 %cond, label %._crit_edge2416, label %1487
 
-1485:                                             ; preds = %.lr.ph2415
-  %1486 = load ptr, ptr %.019192413, align 8, !tbaa !65
-  %1487 = getelementptr inbounds nuw i8, ptr %1486, i64 8
-  %1488 = load ptr, ptr %1484, align 8, !tbaa !65
+1487:                                             ; preds = %.lr.ph2415
+  %1488 = load ptr, ptr %.019192413, align 8, !tbaa !70
   %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 8
-  %1490 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1487, ptr noundef nonnull dereferenceable(1) %1489) #19
-  %1491 = icmp eq i32 %1490, 0
-  br i1 %1491, label %.thread2366, label %.lr.ph2415
+  %1490 = load ptr, ptr %1486, align 8, !tbaa !70
+  %1491 = getelementptr inbounds nuw i8, ptr %1490, i64 8
+  %1492 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1489, ptr noundef nonnull dereferenceable(1) %1491) #19
+  %1493 = icmp eq i32 %1492, 0
+  br i1 %1493, label %.thread2366, label %.lr.ph2415
 
-.thread2366:                                      ; preds = %1485
+.thread2366:                                      ; preds = %1487
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #18
-  store ptr null, ptr %15, align 8, !tbaa !21
-  br label %1493
+  store ptr null, ptr %15, align 8, !tbaa !23
+  br label %1495
 
-._crit_edge2416:                                  ; preds = %.lr.ph2415, %1480
+._crit_edge2416:                                  ; preds = %.lr.ph2415, %1482
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #18
-  store ptr null, ptr %15, align 8, !tbaa !21
-  %1492 = icmp eq i32 %1482, 0
-  br i1 %1492, label %1493, label %1507
+  store ptr null, ptr %15, align 8, !tbaa !23
+  %1494 = icmp eq i32 %1484, 0
+  br i1 %1494, label %1495, label %1509
 
-1493:                                             ; preds = %.thread2366, %._crit_edge2416
-  %1494 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %1481) #18
-  %1495 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1496 = call i32 @sqlite3_prepare_v2(ptr noundef %1495, ptr noundef nonnull @.str.448, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
-  %1497 = load ptr, ptr %15, align 8, !tbaa !21
-  %1498 = call i32 @sqlite3_bind_int(ptr noundef %1497, i32 noundef 1, i32 noundef %.019062418) #18
-  %1499 = load ptr, ptr %15, align 8, !tbaa !21
-  %1500 = call i32 @sqlite3_bind_int(ptr noundef %1499, i32 noundef 2, i32 noundef %1482) #18
-  %1501 = load ptr, ptr %15, align 8, !tbaa !21
-  %1502 = call i32 @sqlite3_bind_text(ptr noundef %1501, i32 noundef 3, ptr noundef %1494, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %1503 = load ptr, ptr %15, align 8, !tbaa !21
-  %1504 = call i32 @sqlite3_step(ptr noundef %1503) #18
-  %.not2219 = icmp eq i32 %1504, 101
+1495:                                             ; preds = %.thread2366, %._crit_edge2416
+  %1496 = call ptr @dt_ioppr_serialize_text_iop_order_list(ptr noundef %1483) #18
+  %1497 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1498 = call i32 @sqlite3_prepare_v2(ptr noundef %1497, ptr noundef nonnull @.str.448, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
+  %1499 = load ptr, ptr %15, align 8, !tbaa !23
+  %1500 = call i32 @sqlite3_bind_int(ptr noundef %1499, i32 noundef 1, i32 noundef %.019062418) #18
+  %1501 = load ptr, ptr %15, align 8, !tbaa !23
+  %1502 = call i32 @sqlite3_bind_int(ptr noundef %1501, i32 noundef 2, i32 noundef %1484) #18
+  %1503 = load ptr, ptr %15, align 8, !tbaa !23
+  %1504 = call i32 @sqlite3_bind_text(ptr noundef %1503, i32 noundef 3, ptr noundef %1496, i32 noundef -1, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
+  %1505 = load ptr, ptr %15, align 8, !tbaa !23
+  %1506 = call i32 @sqlite3_step(ptr noundef %1505) #18
+  %.not2219 = icmp eq i32 %1506, 101
   br i1 %.not2219, label %.thread2369, label %.critedge2344.critedge
 
-.thread2369:                                      ; preds = %1493
-  %1505 = load ptr, ptr %15, align 8, !tbaa !21
-  %1506 = call i32 @sqlite3_finalize(ptr noundef %1505) #18
-  call void @g_free(ptr noundef %1494) #18
-  br label %1519
+.thread2369:                                      ; preds = %1495
+  %1507 = load ptr, ptr %15, align 8, !tbaa !23
+  %1508 = call i32 @sqlite3_finalize(ptr noundef %1507) #18
+  call void @g_free(ptr noundef %1496) #18
+  br label %1521
 
-1507:                                             ; preds = %._crit_edge2416
-  %1508 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1509 = call i32 @sqlite3_prepare_v2(ptr noundef %1508, ptr noundef nonnull @.str.450, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
-  %1510 = load ptr, ptr %15, align 8, !tbaa !21
-  %1511 = call i32 @sqlite3_bind_int(ptr noundef %1510, i32 noundef 1, i32 noundef %.019062418) #18
-  %1512 = load ptr, ptr %15, align 8, !tbaa !21
-  %1513 = call i32 @sqlite3_bind_int(ptr noundef %1512, i32 noundef 2, i32 noundef %1482) #18
-  %1514 = load ptr, ptr %15, align 8, !tbaa !21
-  %1515 = call i32 @sqlite3_step(ptr noundef %1514) #18
-  %.not2218 = icmp eq i32 %1515, 101
-  br i1 %.not2218, label %1516, label %.critedge2344.critedge
+1509:                                             ; preds = %._crit_edge2416
+  %1510 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1511 = call i32 @sqlite3_prepare_v2(ptr noundef %1510, ptr noundef nonnull @.str.450, i32 noundef -1, ptr noundef nonnull %15, ptr noundef null) #18
+  %1512 = load ptr, ptr %15, align 8, !tbaa !23
+  %1513 = call i32 @sqlite3_bind_int(ptr noundef %1512, i32 noundef 1, i32 noundef %.019062418) #18
+  %1514 = load ptr, ptr %15, align 8, !tbaa !23
+  %1515 = call i32 @sqlite3_bind_int(ptr noundef %1514, i32 noundef 2, i32 noundef %1484) #18
+  %1516 = load ptr, ptr %15, align 8, !tbaa !23
+  %1517 = call i32 @sqlite3_step(ptr noundef %1516) #18
+  %.not2218 = icmp eq i32 %1517, 101
+  br i1 %.not2218, label %1518, label %.critedge2344.critedge
 
-1516:                                             ; preds = %1507
-  %1517 = load ptr, ptr %15, align 8, !tbaa !21
-  %1518 = call i32 @sqlite3_finalize(ptr noundef %1517) #18
-  br label %1519
+1518:                                             ; preds = %1509
+  %1519 = load ptr, ptr %15, align 8, !tbaa !23
+  %1520 = call i32 @sqlite3_finalize(ptr noundef %1519) #18
+  br label %1521
 
-1519:                                             ; preds = %.thread2369, %1516
+1521:                                             ; preds = %.thread2369, %1518
   call void @g_list_free(ptr noundef nonnull %.019012419) #18
-  call void @g_list_free_full(ptr noundef %1481, ptr noundef nonnull @free) #18
+  call void @g_list_free_full(ptr noundef %1483, ptr noundef nonnull @free) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
-  br label %1520
+  br label %1522
 
-1520:                                             ; preds = %1519, %1453, %.lr.ph2421
-  %.11910 = phi i32 [ %.019092417, %.lr.ph2421 ], [ %1448, %1519 ], [ %1448, %1453 ]
-  %.11907 = phi i32 [ %.019062418, %.lr.ph2421 ], [ %1439, %1519 ], [ %1439, %1453 ]
-  %.11902 = phi ptr [ %.019012419, %.lr.ph2421 ], [ null, %1519 ], [ null, %1453 ]
-  %1521 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
-  %1522 = getelementptr inbounds nuw i8, ptr %1521, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1522, ptr noundef nonnull align 16 dereferenceable(20) %14, i64 20, i1 false)
-  %1523 = getelementptr inbounds nuw i8, ptr %1521, i64 28
-  store i32 %1444, ptr %1523, align 4, !tbaa !75
-  store double %1446, ptr %1521, align 8, !tbaa !16
-  %1524 = call ptr @g_list_append(ptr noundef %.11902, ptr noundef nonnull %1521) #18
+1522:                                             ; preds = %1521, %1453, %.lr.ph2421
+  %.11910 = phi i32 [ %.019092417, %.lr.ph2421 ], [ %1448, %1521 ], [ %1448, %1453 ]
+  %.11907 = phi i32 [ %.019062418, %.lr.ph2421 ], [ %1439, %1521 ], [ %1439, %1453 ]
+  %.11902 = phi ptr [ %.019012419, %.lr.ph2421 ], [ null, %1521 ], [ null, %1453 ]
+  %1523 = call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #21
+  %1524 = getelementptr inbounds nuw i8, ptr %1523, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %1524, ptr noundef nonnull align 16 dereferenceable(20) %14, i64 20, i1 false)
+  %1525 = getelementptr inbounds nuw i8, ptr %1523, i64 28
+  store i32 %1444, ptr %1525, align 4, !tbaa !112
+  store double %1446, ptr %1523, align 8, !tbaa !16
+  %1526 = call ptr @g_list_append(ptr noundef %.11902, ptr noundef nonnull %1523) #18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #18
-  br i1 %1451, label %.lr.ph2421, label %._crit_edge2422
+  br i1 %1451, label %.lr.ph2421, label %._crit_edge2422, !llvm.loop !114
 
-._crit_edge2422:                                  ; preds = %1520, %1434
-  %1525 = load ptr, ptr %13, align 8, !tbaa !21
-  %1526 = call i32 @sqlite3_finalize(ptr noundef %1525) #18
-  %1527 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1528 = call i32 @sqlite3_exec(ptr noundef %1527, ptr noundef nonnull @.str.452, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2202 = icmp eq i32 %1528, 0
+._crit_edge2422:                                  ; preds = %1522, %1434
+  %1527 = load ptr, ptr %13, align 8, !tbaa !23
+  %1528 = call i32 @sqlite3_finalize(ptr noundef %1527) #18
   %1529 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2202, label %1534, label %1530
+  %1530 = call i32 @sqlite3_exec(ptr noundef %1529, ptr noundef nonnull @.str.452, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2202 = icmp eq i32 %1530, 0
+  %1531 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2202, label %1536, label %1532
 
-1530:                                             ; preds = %._crit_edge2422
-  %1531 = call ptr @sqlite3_errmsg(ptr noundef %1529) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1531) #18
-  %1532 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1533 = call i32 @sqlite3_exec(ptr noundef %1532, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1532:                                             ; preds = %._crit_edge2422
+  %1533 = call ptr @sqlite3_errmsg(ptr noundef %1531) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1533) #18
+  %1534 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1535 = call i32 @sqlite3_exec(ptr noundef %1534, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1534:                                             ; preds = %._crit_edge2422
-  %1535 = call i32 @sqlite3_exec(ptr noundef %1529, ptr noundef nonnull @.str.454, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2203 = icmp eq i32 %1535, 0
-  %1536 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2203, label %1541, label %1537
+1536:                                             ; preds = %._crit_edge2422
+  %1537 = call i32 @sqlite3_exec(ptr noundef %1531, ptr noundef nonnull @.str.454, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2203 = icmp eq i32 %1537, 0
+  %1538 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2203, label %1543, label %1539
 
-1537:                                             ; preds = %1534
-  %1538 = call ptr @sqlite3_errmsg(ptr noundef %1536) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.455, ptr noundef %1538) #18
-  %1539 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1540 = call i32 @sqlite3_exec(ptr noundef %1539, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1539:                                             ; preds = %1536
+  %1540 = call ptr @sqlite3_errmsg(ptr noundef %1538) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.455, ptr noundef %1540) #18
+  %1541 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1542 = call i32 @sqlite3_exec(ptr noundef %1541, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1541:                                             ; preds = %1534
-  %1542 = call i32 @sqlite3_exec(ptr noundef %1536, ptr noundef nonnull @.str.456, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2204 = icmp eq i32 %1542, 0
-  %1543 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2204, label %1548, label %1544
+1543:                                             ; preds = %1536
+  %1544 = call i32 @sqlite3_exec(ptr noundef %1538, ptr noundef nonnull @.str.456, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2204 = icmp eq i32 %1544, 0
+  %1545 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2204, label %1550, label %1546
 
-1544:                                             ; preds = %1541
-  %1545 = call ptr @sqlite3_errmsg(ptr noundef %1543) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1545) #18
-  %1546 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1547 = call i32 @sqlite3_exec(ptr noundef %1546, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1546:                                             ; preds = %1543
+  %1547 = call ptr @sqlite3_errmsg(ptr noundef %1545) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.453, ptr noundef %1547) #18
+  %1548 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1549 = call i32 @sqlite3_exec(ptr noundef %1548, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1548:                                             ; preds = %1541
-  %1549 = call i32 @sqlite3_exec(ptr noundef %1543, ptr noundef nonnull @.str.457, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2205 = icmp eq i32 %1549, 0
-  %1550 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2205, label %1555, label %1551
+1550:                                             ; preds = %1543
+  %1551 = call i32 @sqlite3_exec(ptr noundef %1545, ptr noundef nonnull @.str.457, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2205 = icmp eq i32 %1551, 0
+  %1552 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2205, label %1557, label %1553
 
-1551:                                             ; preds = %1548
-  %1552 = call ptr @sqlite3_errmsg(ptr noundef %1550) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.458, ptr noundef %1552) #18
-  %1553 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1554 = call i32 @sqlite3_exec(ptr noundef %1553, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1553:                                             ; preds = %1550
+  %1554 = call ptr @sqlite3_errmsg(ptr noundef %1552) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.458, ptr noundef %1554) #18
+  %1555 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1556 = call i32 @sqlite3_exec(ptr noundef %1555, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1555:                                             ; preds = %1548
-  %1556 = call i32 @sqlite3_exec(ptr noundef %1550, ptr noundef nonnull @.str.459, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2206 = icmp eq i32 %1556, 0
-  %1557 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2206, label %1562, label %1558
+1557:                                             ; preds = %1550
+  %1558 = call i32 @sqlite3_exec(ptr noundef %1552, ptr noundef nonnull @.str.459, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2206 = icmp eq i32 %1558, 0
+  %1559 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2206, label %1564, label %1560
 
-1558:                                             ; preds = %1555
-  %1559 = call ptr @sqlite3_errmsg(ptr noundef %1557) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.460, ptr noundef %1559) #18
-  %1560 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1561 = call i32 @sqlite3_exec(ptr noundef %1560, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1560:                                             ; preds = %1557
+  %1561 = call ptr @sqlite3_errmsg(ptr noundef %1559) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.460, ptr noundef %1561) #18
+  %1562 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1563 = call i32 @sqlite3_exec(ptr noundef %1562, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1562:                                             ; preds = %1555
-  %1563 = call i32 @sqlite3_exec(ptr noundef %1557, ptr noundef nonnull @.str.461, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2207 = icmp eq i32 %1563, 0
-  %1564 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2207, label %1569, label %1565
+1564:                                             ; preds = %1557
+  %1565 = call i32 @sqlite3_exec(ptr noundef %1559, ptr noundef nonnull @.str.461, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2207 = icmp eq i32 %1565, 0
+  %1566 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2207, label %1571, label %1567
 
-1565:                                             ; preds = %1562
-  %1566 = call ptr @sqlite3_errmsg(ptr noundef %1564) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.462, ptr noundef %1566) #18
-  %1567 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1568 = call i32 @sqlite3_exec(ptr noundef %1567, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1567:                                             ; preds = %1564
+  %1568 = call ptr @sqlite3_errmsg(ptr noundef %1566) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.462, ptr noundef %1568) #18
+  %1569 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1570 = call i32 @sqlite3_exec(ptr noundef %1569, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1569:                                             ; preds = %1562
-  %1570 = call i32 @sqlite3_exec(ptr noundef %1564, ptr noundef nonnull @.str.463, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2208 = icmp eq i32 %1570, 0
-  %1571 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2208, label %1576, label %1572
+1571:                                             ; preds = %1564
+  %1572 = call i32 @sqlite3_exec(ptr noundef %1566, ptr noundef nonnull @.str.463, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2208 = icmp eq i32 %1572, 0
+  %1573 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2208, label %1578, label %1574
 
-1572:                                             ; preds = %1569
-  %1573 = call ptr @sqlite3_errmsg(ptr noundef %1571) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.464, ptr noundef %1573) #18
-  %1574 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1575 = call i32 @sqlite3_exec(ptr noundef %1574, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1574:                                             ; preds = %1571
+  %1575 = call ptr @sqlite3_errmsg(ptr noundef %1573) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.464, ptr noundef %1575) #18
+  %1576 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1577 = call i32 @sqlite3_exec(ptr noundef %1576, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1576:                                             ; preds = %1569
-  %1577 = call i32 @sqlite3_exec(ptr noundef %1571, ptr noundef nonnull @.str.465, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2209 = icmp eq i32 %1577, 0
-  %1578 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2209, label %1583, label %1579
+1578:                                             ; preds = %1571
+  %1579 = call i32 @sqlite3_exec(ptr noundef %1573, ptr noundef nonnull @.str.465, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2209 = icmp eq i32 %1579, 0
+  %1580 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2209, label %1585, label %1581
 
-1579:                                             ; preds = %1576
-  %1580 = call ptr @sqlite3_errmsg(ptr noundef %1578) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.466, ptr noundef %1580) #18
-  %1581 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1582 = call i32 @sqlite3_exec(ptr noundef %1581, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1581:                                             ; preds = %1578
+  %1582 = call ptr @sqlite3_errmsg(ptr noundef %1580) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.466, ptr noundef %1582) #18
+  %1583 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1584 = call i32 @sqlite3_exec(ptr noundef %1583, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1583:                                             ; preds = %1576
-  %1584 = call i32 @sqlite3_exec(ptr noundef %1578, ptr noundef nonnull @.str.467, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2210 = icmp eq i32 %1584, 0
-  %1585 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2210, label %1590, label %1586
+1585:                                             ; preds = %1578
+  %1586 = call i32 @sqlite3_exec(ptr noundef %1580, ptr noundef nonnull @.str.467, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2210 = icmp eq i32 %1586, 0
+  %1587 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2210, label %1592, label %1588
 
-1586:                                             ; preds = %1583
-  %1587 = call ptr @sqlite3_errmsg(ptr noundef %1585) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.468, ptr noundef %1587) #18
-  %1588 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1589 = call i32 @sqlite3_exec(ptr noundef %1588, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1588:                                             ; preds = %1585
+  %1589 = call ptr @sqlite3_errmsg(ptr noundef %1587) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.468, ptr noundef %1589) #18
+  %1590 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1591 = call i32 @sqlite3_exec(ptr noundef %1590, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1590:                                             ; preds = %1583
-  %1591 = call i32 @sqlite3_exec(ptr noundef %1585, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2211 = icmp eq i32 %1591, 0
-  %1592 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2211, label %1597, label %1593
+1592:                                             ; preds = %1585
+  %1593 = call i32 @sqlite3_exec(ptr noundef %1587, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2211 = icmp eq i32 %1593, 0
+  %1594 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2211, label %1599, label %1595
 
-1593:                                             ; preds = %1590
-  %1594 = call ptr @sqlite3_errmsg(ptr noundef %1592) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1594) #18
-  %1595 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1596 = call i32 @sqlite3_exec(ptr noundef %1595, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1595:                                             ; preds = %1592
+  %1596 = call ptr @sqlite3_errmsg(ptr noundef %1594) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1596) #18
+  %1597 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1598 = call i32 @sqlite3_exec(ptr noundef %1597, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2371
 
-1597:                                             ; preds = %1590
-  %1598 = call i32 @sqlite3_exec(ptr noundef %1592, ptr noundef nonnull @.str.471, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2212 = icmp eq i32 %1598, 0
-  %1599 = load ptr, ptr %1416, align 8, !tbaa !6
-  br i1 %.not2212, label %1608, label %1600
+1599:                                             ; preds = %1592
+  %1600 = call i32 @sqlite3_exec(ptr noundef %1594, ptr noundef nonnull @.str.471, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2212 = icmp eq i32 %1600, 0
+  %1601 = load ptr, ptr %1416, align 8, !tbaa !6
+  br i1 %.not2212, label %1610, label %1602
 
-1600:                                             ; preds = %1597
-  %1601 = call ptr @sqlite3_errmsg(ptr noundef %1599) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1601) #18
-  %1602 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1603 = call i32 @sqlite3_exec(ptr noundef %1602, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2371
-
-.critedge2344.critedge:                           ; preds = %1507, %1493
-  %.str.449.sink = phi ptr [ @.str.449, %1493 ], [ @.str.451, %1507 ]
+1602:                                             ; preds = %1599
+  %1603 = call ptr @sqlite3_errmsg(ptr noundef %1601) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1603) #18
   %1604 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1605 = call ptr @sqlite3_errmsg(ptr noundef %1604) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull %.str.449.sink, ptr noundef %1605) #18
+  %1605 = call i32 @sqlite3_exec(ptr noundef %1604, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2371
+
+.critedge2344.critedge:                           ; preds = %1509, %1495
+  %.str.449.sink = phi ptr [ @.str.449, %1495 ], [ @.str.451, %1509 ]
   %1606 = load ptr, ptr %1416, align 8, !tbaa !6
-  %1607 = call i32 @sqlite3_exec(ptr noundef %1606, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1607 = call ptr @sqlite3_errmsg(ptr noundef %1606) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull %.str.449.sink, ptr noundef %1607) #18
+  %1608 = load ptr, ptr %1416, align 8, !tbaa !6
+  %1609 = call i32 @sqlite3_exec(ptr noundef %1608, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14) #18
   br label %.thread2371
 
-.thread2371:                                      ; preds = %1429, %1530, %1537, %1544, %1551, %1558, %1565, %1572, %1579, %1586, %1593, %1600, %.critedge2344.critedge
+.thread2371:                                      ; preds = %1429, %1532, %1539, %1546, %1553, %1560, %1567, %1574, %1581, %1588, %1595, %1602, %.critedge2344.critedge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #18
   br label %.thread2355
 
-1608:                                             ; preds = %1597
-  %1609 = call i32 @sqlite3_exec(ptr noundef %1599, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1610:                                             ; preds = %1599
+  %1611 = call i32 @sqlite3_exec(ptr noundef %1601, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #18
-  br label %3736
+  br label %3738
 
-1610:                                             ; preds = %2
-  %1611 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1612 = load ptr, ptr %1611, align 8, !tbaa !6
-  %1613 = tail call i32 @sqlite3_exec(ptr noundef %1612, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %1614 = load ptr, ptr %1611, align 8, !tbaa !6
-  %1615 = tail call i32 @sqlite3_exec(ptr noundef %1614, ptr noundef nonnull @.str.473, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2195 = icmp eq i32 %1615, 0
-  %1616 = load ptr, ptr %1611, align 8, !tbaa !6
-  br i1 %.not2195, label %1621, label %1617
+1612:                                             ; preds = %2
+  %1613 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1614 = load ptr, ptr %1613, align 8, !tbaa !6
+  %1615 = tail call i32 @sqlite3_exec(ptr noundef %1614, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1616 = load ptr, ptr %1613, align 8, !tbaa !6
+  %1617 = tail call i32 @sqlite3_exec(ptr noundef %1616, ptr noundef nonnull @.str.473, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2195 = icmp eq i32 %1617, 0
+  %1618 = load ptr, ptr %1613, align 8, !tbaa !6
+  br i1 %.not2195, label %1623, label %1619
 
-1617:                                             ; preds = %1610
-  %1618 = tail call ptr @sqlite3_errmsg(ptr noundef %1616) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.474, ptr noundef %1618) #18
-  %1619 = load ptr, ptr %1611, align 8, !tbaa !6
-  %1620 = tail call i32 @sqlite3_exec(ptr noundef %1619, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1619:                                             ; preds = %1612
+  %1620 = tail call ptr @sqlite3_errmsg(ptr noundef %1618) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.474, ptr noundef %1620) #18
+  %1621 = load ptr, ptr %1613, align 8, !tbaa !6
+  %1622 = tail call i32 @sqlite3_exec(ptr noundef %1621, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-1621:                                             ; preds = %1610
-  %1622 = tail call i32 @sqlite3_exec(ptr noundef %1616, ptr noundef nonnull @.str.475, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2196 = icmp eq i32 %1622, 0
-  %1623 = load ptr, ptr %1611, align 8, !tbaa !6
-  br i1 %.not2196, label %1628, label %1624
+1623:                                             ; preds = %1612
+  %1624 = tail call i32 @sqlite3_exec(ptr noundef %1618, ptr noundef nonnull @.str.475, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2196 = icmp eq i32 %1624, 0
+  %1625 = load ptr, ptr %1613, align 8, !tbaa !6
+  br i1 %.not2196, label %1630, label %1626
 
-1624:                                             ; preds = %1621
-  %1625 = tail call ptr @sqlite3_errmsg(ptr noundef %1623) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.476, ptr noundef %1625) #18
-  %1626 = load ptr, ptr %1611, align 8, !tbaa !6
-  %1627 = tail call i32 @sqlite3_exec(ptr noundef %1626, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1626:                                             ; preds = %1623
+  %1627 = tail call ptr @sqlite3_errmsg(ptr noundef %1625) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.476, ptr noundef %1627) #18
+  %1628 = load ptr, ptr %1613, align 8, !tbaa !6
+  %1629 = tail call i32 @sqlite3_exec(ptr noundef %1628, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-1628:                                             ; preds = %1621
-  %1629 = tail call i32 @sqlite3_exec(ptr noundef %1623, ptr noundef nonnull @.str.477, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2197 = icmp eq i32 %1629, 0
-  %1630 = load ptr, ptr %1611, align 8, !tbaa !6
-  br i1 %.not2197, label %1635, label %1631
+1630:                                             ; preds = %1623
+  %1631 = tail call i32 @sqlite3_exec(ptr noundef %1625, ptr noundef nonnull @.str.477, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2197 = icmp eq i32 %1631, 0
+  %1632 = load ptr, ptr %1613, align 8, !tbaa !6
+  br i1 %.not2197, label %1637, label %1633
 
-1631:                                             ; preds = %1628
-  %1632 = tail call ptr @sqlite3_errmsg(ptr noundef %1630) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.478, ptr noundef %1632) #18
-  %1633 = load ptr, ptr %1611, align 8, !tbaa !6
-  %1634 = tail call i32 @sqlite3_exec(ptr noundef %1633, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1633:                                             ; preds = %1630
+  %1634 = tail call ptr @sqlite3_errmsg(ptr noundef %1632) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.478, ptr noundef %1634) #18
+  %1635 = load ptr, ptr %1613, align 8, !tbaa !6
+  %1636 = tail call i32 @sqlite3_exec(ptr noundef %1635, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-1635:                                             ; preds = %1628
-  %1636 = tail call i32 @sqlite3_exec(ptr noundef %1630, ptr noundef nonnull @.str.479, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2198 = icmp eq i32 %1636, 0
-  %1637 = load ptr, ptr %1611, align 8, !tbaa !6
-  br i1 %.not2198, label %1642, label %1638
+1637:                                             ; preds = %1630
+  %1638 = tail call i32 @sqlite3_exec(ptr noundef %1632, ptr noundef nonnull @.str.479, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2198 = icmp eq i32 %1638, 0
+  %1639 = load ptr, ptr %1613, align 8, !tbaa !6
+  br i1 %.not2198, label %1644, label %1640
 
-1638:                                             ; preds = %1635
-  %1639 = tail call ptr @sqlite3_errmsg(ptr noundef %1637) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.480, ptr noundef %1639) #18
-  %1640 = load ptr, ptr %1611, align 8, !tbaa !6
-  %1641 = tail call i32 @sqlite3_exec(ptr noundef %1640, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1640:                                             ; preds = %1637
+  %1641 = tail call ptr @sqlite3_errmsg(ptr noundef %1639) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.480, ptr noundef %1641) #18
+  %1642 = load ptr, ptr %1613, align 8, !tbaa !6
+  %1643 = tail call i32 @sqlite3_exec(ptr noundef %1642, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-1642:                                             ; preds = %1635
-  %1643 = tail call i32 @sqlite3_exec(ptr noundef %1637, ptr noundef nonnull @.str.481, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2199 = icmp eq i32 %1643, 0
-  %1644 = load ptr, ptr %1611, align 8, !tbaa !6
-  br i1 %.not2199, label %1649, label %1645
+1644:                                             ; preds = %1637
+  %1645 = tail call i32 @sqlite3_exec(ptr noundef %1639, ptr noundef nonnull @.str.481, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2199 = icmp eq i32 %1645, 0
+  %1646 = load ptr, ptr %1613, align 8, !tbaa !6
+  br i1 %.not2199, label %1651, label %1647
 
-1645:                                             ; preds = %1642
-  %1646 = tail call ptr @sqlite3_errmsg(ptr noundef %1644) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.482, ptr noundef %1646) #18
-  %1647 = load ptr, ptr %1611, align 8, !tbaa !6
-  %1648 = tail call i32 @sqlite3_exec(ptr noundef %1647, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1647:                                             ; preds = %1644
+  %1648 = tail call ptr @sqlite3_errmsg(ptr noundef %1646) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.482, ptr noundef %1648) #18
+  %1649 = load ptr, ptr %1613, align 8, !tbaa !6
+  %1650 = tail call i32 @sqlite3_exec(ptr noundef %1649, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-1649:                                             ; preds = %1642
-  %1650 = tail call i32 @sqlite3_exec(ptr noundef %1644, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+1651:                                             ; preds = %1644
+  %1652 = tail call i32 @sqlite3_exec(ptr noundef %1646, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
 
-1651:                                             ; preds = %2
-  %1652 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1653 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1654 = tail call i32 @sqlite3_exec(ptr noundef %1653, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %1655 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1656 = tail call i32 @sqlite3_exec(ptr noundef %1655, ptr noundef nonnull @.str.483, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2186 = icmp eq i32 %1656, 0
-  br i1 %.not2186, label %1662, label %1657
+1653:                                             ; preds = %2
+  %1654 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1655 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1656 = tail call i32 @sqlite3_exec(ptr noundef %1655, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1657 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1658 = tail call i32 @sqlite3_exec(ptr noundef %1657, ptr noundef nonnull @.str.483, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2186 = icmp eq i32 %1658, 0
+  br i1 %.not2186, label %1664, label %1659
 
-1657:                                             ; preds = %1651
-  %1658 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1659 = tail call ptr @sqlite3_errmsg(ptr noundef %1658) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.484, ptr noundef %1659) #18
-  %1660 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1661 = tail call i32 @sqlite3_exec(ptr noundef %1660, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1659:                                             ; preds = %1653
+  %1660 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1661 = tail call ptr @sqlite3_errmsg(ptr noundef %1660) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.484, ptr noundef %1661) #18
+  %1662 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1663 = tail call i32 @sqlite3_exec(ptr noundef %1662, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-1662:                                             ; preds = %1651
+1664:                                             ; preds = %1653
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #18
-  %1663 = tail call i32 @dt_is_display_referred() #18
-  %.not2187 = icmp eq i32 %1663, 0
-  %1664 = select i1 %.not2187, ptr @.str.34, ptr @.str.486
-  %1665 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.485, ptr noundef nonnull %1664) #18
-  %1666 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1667 = call i32 @sqlite3_prepare_v2(ptr noundef %1666, ptr noundef %1665, i32 noundef -1, ptr noundef nonnull %16, ptr noundef null) #18
-  %.not2188 = icmp eq i32 %1667, 0
-  br i1 %.not2188, label %.preheader2390, label %1671
+  %1665 = tail call i32 @dt_is_display_referred() #18
+  %.not2187 = icmp eq i32 %1665, 0
+  %1666 = select i1 %.not2187, ptr @.str.34, ptr @.str.486
+  %1667 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.485, ptr noundef nonnull %1666) #18
+  %1668 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1669 = call i32 @sqlite3_prepare_v2(ptr noundef %1668, ptr noundef %1667, i32 noundef -1, ptr noundef nonnull %16, ptr noundef null) #18
+  %.not2188 = icmp eq i32 %1669, 0
+  br i1 %.not2188, label %.preheader2390, label %1673
 
-.preheader2390:                                   ; preds = %1662
-  %1668 = load ptr, ptr %16, align 8, !tbaa !21
-  %1669 = call i32 @sqlite3_step(ptr noundef %1668) #18
-  %1670 = icmp eq i32 %1669, 100
-  br i1 %1670, label %.lr.ph2402, label %._crit_edge2403
+.preheader2390:                                   ; preds = %1664
+  %1670 = load ptr, ptr %16, align 8, !tbaa !23
+  %1671 = call i32 @sqlite3_step(ptr noundef %1670) #18
+  %1672 = icmp eq i32 %1671, 100
+  br i1 %1672, label %.lr.ph2402, label %._crit_edge2403
 
-1671:                                             ; preds = %1662
-  %1672 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1673 = call ptr @sqlite3_errmsg(ptr noundef %1672) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.487, ptr noundef %1673) #18
-  %1674 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1675 = call i32 @sqlite3_exec(ptr noundef %1674, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+1673:                                             ; preds = %1664
+  %1674 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1675 = call ptr @sqlite3_errmsg(ptr noundef %1674) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.487, ptr noundef %1675) #18
+  %1676 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1677 = call i32 @sqlite3_exec(ptr noundef %1676, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2376
 
-.lr.ph2402:                                       ; preds = %.preheader2390, %1753
-  %1676 = load ptr, ptr %16, align 8, !tbaa !21
-  %1677 = call i32 @sqlite3_column_int(ptr noundef %1676, i32 noundef 0) #18
-  %1678 = load ptr, ptr %16, align 8, !tbaa !21
-  %1679 = call i32 @sqlite3_column_int(ptr noundef %1678, i32 noundef 1) #18
-  %1680 = call ptr @g_checksum_new(i32 noundef 0) #18
+.lr.ph2402:                                       ; preds = %.preheader2390, %1755
+  %1678 = load ptr, ptr %16, align 8, !tbaa !23
+  %1679 = call i32 @sqlite3_column_int(ptr noundef %1678, i32 noundef 0) #18
+  %1680 = load ptr, ptr %16, align 8, !tbaa !23
+  %1681 = call i32 @sqlite3_column_int(ptr noundef %1680, i32 noundef 1) #18
+  %1682 = call ptr @g_checksum_new(i32 noundef 0) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #18
-  store i64 0, ptr %17, align 8, !tbaa !77
+  store i64 0, ptr %17, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #18
-  %1681 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1682 = call i32 @sqlite3_prepare_v2(ptr noundef %1681, ptr noundef nonnull @.str.488, i32 noundef -1, ptr noundef nonnull %18, ptr noundef null) #18
-  %1683 = load ptr, ptr %18, align 8, !tbaa !21
-  %1684 = call i32 @sqlite3_bind_int(ptr noundef %1683, i32 noundef 1, i32 noundef %1677) #18
-  %1685 = load ptr, ptr %18, align 8, !tbaa !21
-  %1686 = call i32 @sqlite3_step(ptr noundef %1685) #18
-  %1687 = icmp eq i32 %1686, 100
-  br i1 %1687, label %.lr.ph2400, label %._crit_edge2401
+  %1683 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1684 = call i32 @sqlite3_prepare_v2(ptr noundef %1683, ptr noundef nonnull @.str.488, i32 noundef -1, ptr noundef nonnull %18, ptr noundef null) #18
+  %1685 = load ptr, ptr %18, align 8, !tbaa !23
+  %1686 = call i32 @sqlite3_bind_int(ptr noundef %1685, i32 noundef 1, i32 noundef %1679) #18
+  %1687 = load ptr, ptr %18, align 8, !tbaa !23
+  %1688 = call i32 @sqlite3_step(ptr noundef %1687) #18
+  %1689 = icmp eq i32 %1688, 100
+  br i1 %1689, label %.lr.ph2400, label %._crit_edge2401
 
-.lr.ph2400:                                       ; preds = %.lr.ph2402, %1705
-  %1688 = load ptr, ptr %18, align 8, !tbaa !21
-  %1689 = call ptr @sqlite3_column_text(ptr noundef %1688, i32 noundef 0) #18
-  %.not2192 = icmp eq ptr %1689, null
-  br i1 %.not2192, label %1691, label %1690
+.lr.ph2400:                                       ; preds = %.lr.ph2402, %1707
+  %1690 = load ptr, ptr %18, align 8, !tbaa !23
+  %1691 = call ptr @sqlite3_column_text(ptr noundef %1690, i32 noundef 0) #18
+  %.not2192 = icmp eq ptr %1691, null
+  br i1 %.not2192, label %1693, label %1692
 
-1690:                                             ; preds = %.lr.ph2400
-  call void @g_checksum_update(ptr noundef %1680, ptr noundef nonnull %1689, i64 noundef -1) #18
-  br label %1691
+1692:                                             ; preds = %.lr.ph2400
+  call void @g_checksum_update(ptr noundef %1682, ptr noundef nonnull %1691, i64 noundef -1) #18
+  br label %1693
 
-1691:                                             ; preds = %1690, %.lr.ph2400
-  %1692 = load ptr, ptr %18, align 8, !tbaa !21
-  %1693 = call ptr @sqlite3_column_blob(ptr noundef %1692, i32 noundef 1) #18
-  %1694 = load ptr, ptr %18, align 8, !tbaa !21
-  %1695 = call i32 @sqlite3_column_bytes(ptr noundef %1694, i32 noundef 1) #18
-  %.not2193 = icmp eq ptr %1693, null
-  br i1 %.not2193, label %1698, label %1696
+1693:                                             ; preds = %1692, %.lr.ph2400
+  %1694 = load ptr, ptr %18, align 8, !tbaa !23
+  %1695 = call ptr @sqlite3_column_blob(ptr noundef %1694, i32 noundef 1) #18
+  %1696 = load ptr, ptr %18, align 8, !tbaa !23
+  %1697 = call i32 @sqlite3_column_bytes(ptr noundef %1696, i32 noundef 1) #18
+  %.not2193 = icmp eq ptr %1695, null
+  br i1 %.not2193, label %1700, label %1698
 
-1696:                                             ; preds = %1691
-  %1697 = sext i32 %1695 to i64
-  call void @g_checksum_update(ptr noundef %1680, ptr noundef nonnull %1693, i64 noundef %1697) #18
-  br label %1698
+1698:                                             ; preds = %1693
+  %1699 = sext i32 %1697 to i64
+  call void @g_checksum_update(ptr noundef %1682, ptr noundef nonnull %1695, i64 noundef %1699) #18
+  br label %1700
 
-1698:                                             ; preds = %1696, %1691
-  %1699 = load ptr, ptr %18, align 8, !tbaa !21
-  %1700 = call ptr @sqlite3_column_blob(ptr noundef %1699, i32 noundef 2) #18
-  %1701 = load ptr, ptr %18, align 8, !tbaa !21
-  %1702 = call i32 @sqlite3_column_bytes(ptr noundef %1701, i32 noundef 2) #18
-  %.not2194 = icmp eq ptr %1700, null
-  br i1 %.not2194, label %1705, label %1703
+1700:                                             ; preds = %1698, %1693
+  %1701 = load ptr, ptr %18, align 8, !tbaa !23
+  %1702 = call ptr @sqlite3_column_blob(ptr noundef %1701, i32 noundef 2) #18
+  %1703 = load ptr, ptr %18, align 8, !tbaa !23
+  %1704 = call i32 @sqlite3_column_bytes(ptr noundef %1703, i32 noundef 2) #18
+  %.not2194 = icmp eq ptr %1702, null
+  br i1 %.not2194, label %1707, label %1705
 
-1703:                                             ; preds = %1698
-  %1704 = sext i32 %1702 to i64
-  call void @g_checksum_update(ptr noundef %1680, ptr noundef nonnull %1700, i64 noundef %1704) #18
-  br label %1705
+1705:                                             ; preds = %1700
+  %1706 = sext i32 %1704 to i64
+  call void @g_checksum_update(ptr noundef %1682, ptr noundef nonnull %1702, i64 noundef %1706) #18
+  br label %1707
 
-1705:                                             ; preds = %1703, %1698
-  %1706 = load ptr, ptr %18, align 8, !tbaa !21
-  %1707 = call i32 @sqlite3_step(ptr noundef %1706) #18
-  %1708 = icmp eq i32 %1707, 100
-  br i1 %1708, label %.lr.ph2400, label %._crit_edge2401
+1707:                                             ; preds = %1705, %1700
+  %1708 = load ptr, ptr %18, align 8, !tbaa !23
+  %1709 = call i32 @sqlite3_step(ptr noundef %1708) #18
+  %1710 = icmp eq i32 %1709, 100
+  br i1 %1710, label %.lr.ph2400, label %._crit_edge2401, !llvm.loop !116
 
-._crit_edge2401:                                  ; preds = %1705, %.lr.ph2402
-  %1709 = load ptr, ptr %18, align 8, !tbaa !21
-  %1710 = call i32 @sqlite3_finalize(ptr noundef %1709) #18
-  store ptr null, ptr %18, align 8, !tbaa !21
-  %1711 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1712 = call i32 @sqlite3_prepare_v2(ptr noundef %1711, ptr noundef nonnull @.str.489, i32 noundef -1, ptr noundef nonnull %18, ptr noundef null) #18
-  %1713 = load ptr, ptr %18, align 8, !tbaa !21
-  %1714 = call i32 @sqlite3_bind_int(ptr noundef %1713, i32 noundef 1, i32 noundef %1677) #18
-  %1715 = load ptr, ptr %18, align 8, !tbaa !21
-  %1716 = call i32 @sqlite3_step(ptr noundef %1715) #18
-  %1717 = icmp eq i32 %1716, 100
-  br i1 %1717, label %1718, label %1728
+._crit_edge2401:                                  ; preds = %1707, %.lr.ph2402
+  %1711 = load ptr, ptr %18, align 8, !tbaa !23
+  %1712 = call i32 @sqlite3_finalize(ptr noundef %1711) #18
+  store ptr null, ptr %18, align 8, !tbaa !23
+  %1713 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1714 = call i32 @sqlite3_prepare_v2(ptr noundef %1713, ptr noundef nonnull @.str.489, i32 noundef -1, ptr noundef nonnull %18, ptr noundef null) #18
+  %1715 = load ptr, ptr %18, align 8, !tbaa !23
+  %1716 = call i32 @sqlite3_bind_int(ptr noundef %1715, i32 noundef 1, i32 noundef %1679) #18
+  %1717 = load ptr, ptr %18, align 8, !tbaa !23
+  %1718 = call i32 @sqlite3_step(ptr noundef %1717) #18
+  %1719 = icmp eq i32 %1718, 100
+  br i1 %1719, label %1720, label %1730
 
-1718:                                             ; preds = %._crit_edge2401
+1720:                                             ; preds = %._crit_edge2401
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #18
-  %1719 = load ptr, ptr %18, align 8, !tbaa !21
-  %1720 = call i32 @sqlite3_column_int(ptr noundef %1719, i32 noundef 0) #18
-  store i32 %1720, ptr %19, align 4, !tbaa !64
-  call void @g_checksum_update(ptr noundef %1680, ptr noundef nonnull %19, i64 noundef 4) #18
-  %1721 = load i32, ptr %19, align 4, !tbaa !64
-  %1722 = icmp eq i32 %1721, 0
-  br i1 %1722, label %1723, label %1727
+  %1721 = load ptr, ptr %18, align 8, !tbaa !23
+  %1722 = call i32 @sqlite3_column_int(ptr noundef %1721, i32 noundef 0) #18
+  store i32 %1722, ptr %19, align 4, !tbaa !68
+  call void @g_checksum_update(ptr noundef %1682, ptr noundef nonnull %19, i64 noundef 4) #18
+  %1723 = load i32, ptr %19, align 4, !tbaa !68
+  %1724 = icmp eq i32 %1723, 0
+  br i1 %1724, label %1725, label %1729
 
-1723:                                             ; preds = %1718
-  %1724 = load ptr, ptr %18, align 8, !tbaa !21
-  %1725 = call ptr @sqlite3_column_text(ptr noundef %1724, i32 noundef 1) #18
-  %.not2189 = icmp eq ptr %1725, null
-  br i1 %.not2189, label %1727, label %1726
+1725:                                             ; preds = %1720
+  %1726 = load ptr, ptr %18, align 8, !tbaa !23
+  %1727 = call ptr @sqlite3_column_text(ptr noundef %1726, i32 noundef 1) #18
+  %.not2189 = icmp eq ptr %1727, null
+  br i1 %.not2189, label %1729, label %1728
 
-1726:                                             ; preds = %1723
-  call void @g_checksum_update(ptr noundef %1680, ptr noundef nonnull %1725, i64 noundef -1) #18
-  br label %1727
+1728:                                             ; preds = %1725
+  call void @g_checksum_update(ptr noundef %1682, ptr noundef nonnull %1727, i64 noundef -1) #18
+  br label %1729
 
-1727:                                             ; preds = %1723, %1726, %1718
+1729:                                             ; preds = %1725, %1728, %1720
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #18
-  br label %1728
+  br label %1730
 
-1728:                                             ; preds = %1727, %._crit_edge2401
-  %1729 = load ptr, ptr %18, align 8, !tbaa !21
-  %1730 = call i32 @sqlite3_finalize(ptr noundef %1729) #18
-  %1731 = call i64 @g_checksum_type_get_length(i32 noundef 0) #18
-  %1732 = call noalias ptr @g_malloc(i64 noundef %1731) #21
-  store i64 %1731, ptr %17, align 8, !tbaa !77
-  call void @g_checksum_get_digest(ptr noundef %1680, ptr noundef %1732, ptr noundef nonnull %17) #18
-  call void @g_checksum_free(ptr noundef %1680) #18
-  store ptr null, ptr %18, align 8, !tbaa !21
-  %1733 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1734 = call i32 @sqlite3_prepare_v2(ptr noundef %1733, ptr noundef nonnull @.str.490, i32 noundef -1, ptr noundef nonnull %18, ptr noundef null) #18
-  %1735 = load ptr, ptr %18, align 8, !tbaa !21
-  %1736 = call i32 @sqlite3_bind_int(ptr noundef %1735, i32 noundef 1, i32 noundef %1677) #18
-  %1737 = load ptr, ptr %18, align 8, !tbaa !21
-  %.not2190 = icmp eq i32 %1679, 0
-  %1738 = select i1 %.not2190, ptr %1732, ptr null
-  %1739 = load i64, ptr %17, align 8
-  %1740 = trunc i64 %1739 to i32
-  %1741 = select i1 %.not2190, i32 %1740, i32 0
-  %1742 = call i32 @sqlite3_bind_blob(ptr noundef %1737, i32 noundef 2, ptr noundef %1738, i32 noundef %1741, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %1743 = load ptr, ptr %18, align 8, !tbaa !21
-  %1744 = load i64, ptr %17, align 8, !tbaa !77
-  %1745 = trunc i64 %1744 to i32
-  %1746 = call i32 @sqlite3_bind_blob(ptr noundef %1743, i32 noundef 3, ptr noundef %1732, i32 noundef %1745, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
-  %1747 = load ptr, ptr %18, align 8, !tbaa !21
-  %1748 = call i32 @sqlite3_step(ptr noundef %1747) #18
-  %.not2191 = icmp eq i32 %1748, 101
-  br i1 %.not2191, label %1753, label %.thread2374
+1730:                                             ; preds = %1729, %._crit_edge2401
+  %1731 = load ptr, ptr %18, align 8, !tbaa !23
+  %1732 = call i32 @sqlite3_finalize(ptr noundef %1731) #18
+  %1733 = call i64 @g_checksum_type_get_length(i32 noundef 0) #18
+  %1734 = call noalias ptr @g_malloc(i64 noundef %1733) #21
+  store i64 %1733, ptr %17, align 8, !tbaa !115
+  call void @g_checksum_get_digest(ptr noundef %1682, ptr noundef %1734, ptr noundef nonnull %17) #18
+  call void @g_checksum_free(ptr noundef %1682) #18
+  store ptr null, ptr %18, align 8, !tbaa !23
+  %1735 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1736 = call i32 @sqlite3_prepare_v2(ptr noundef %1735, ptr noundef nonnull @.str.490, i32 noundef -1, ptr noundef nonnull %18, ptr noundef null) #18
+  %1737 = load ptr, ptr %18, align 8, !tbaa !23
+  %1738 = call i32 @sqlite3_bind_int(ptr noundef %1737, i32 noundef 1, i32 noundef %1679) #18
+  %1739 = load ptr, ptr %18, align 8, !tbaa !23
+  %.not2190 = icmp eq i32 %1681, 0
+  %1740 = select i1 %.not2190, ptr %1734, ptr null
+  %1741 = load i64, ptr %17, align 8
+  %1742 = trunc i64 %1741 to i32
+  %1743 = select i1 %.not2190, i32 %1742, i32 0
+  %1744 = call i32 @sqlite3_bind_blob(ptr noundef %1739, i32 noundef 2, ptr noundef %1740, i32 noundef %1743, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
+  %1745 = load ptr, ptr %18, align 8, !tbaa !23
+  %1746 = load i64, ptr %17, align 8, !tbaa !115
+  %1747 = trunc i64 %1746 to i32
+  %1748 = call i32 @sqlite3_bind_blob(ptr noundef %1745, i32 noundef 3, ptr noundef %1734, i32 noundef %1747, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #18
+  %1749 = load ptr, ptr %18, align 8, !tbaa !23
+  %1750 = call i32 @sqlite3_step(ptr noundef %1749) #18
+  %.not2191 = icmp eq i32 %1750, 101
+  br i1 %.not2191, label %1755, label %.thread2374
 
-.thread2374:                                      ; preds = %1728
-  %1749 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1750 = call ptr @sqlite3_errmsg(ptr noundef %1749) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.491, ptr noundef %1750) #18
-  %1751 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1752 = call i32 @sqlite3_exec(ptr noundef %1751, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+.thread2374:                                      ; preds = %1730
+  %1751 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1752 = call ptr @sqlite3_errmsg(ptr noundef %1751) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.491, ptr noundef %1752) #18
+  %1753 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1754 = call i32 @sqlite3_exec(ptr noundef %1753, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
   br label %.thread2376
 
-1753:                                             ; preds = %1728
-  %1754 = load ptr, ptr %18, align 8, !tbaa !21
-  %1755 = call i32 @sqlite3_finalize(ptr noundef %1754) #18
-  call void @g_free(ptr noundef %1732) #18
+1755:                                             ; preds = %1730
+  %1756 = load ptr, ptr %18, align 8, !tbaa !23
+  %1757 = call i32 @sqlite3_finalize(ptr noundef %1756) #18
+  call void @g_free(ptr noundef %1734) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #18
-  %1756 = load ptr, ptr %16, align 8, !tbaa !21
-  %1757 = call i32 @sqlite3_step(ptr noundef %1756) #18
-  %1758 = icmp eq i32 %1757, 100
-  br i1 %1758, label %.lr.ph2402, label %._crit_edge2403
+  %1758 = load ptr, ptr %16, align 8, !tbaa !23
+  %1759 = call i32 @sqlite3_step(ptr noundef %1758) #18
+  %1760 = icmp eq i32 %1759, 100
+  br i1 %1760, label %.lr.ph2402, label %._crit_edge2403, !llvm.loop !117
 
-.thread2376:                                      ; preds = %1671, %.thread2374
+.thread2376:                                      ; preds = %1673, %.thread2374
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #18
   br label %.thread2355
 
-._crit_edge2403:                                  ; preds = %1753, %.preheader2390
-  %1759 = load ptr, ptr %16, align 8, !tbaa !21
-  %1760 = call i32 @sqlite3_finalize(ptr noundef %1759) #18
-  call void @g_free(ptr noundef %1665) #18
-  %1761 = load ptr, ptr %1652, align 8, !tbaa !6
-  %1762 = call i32 @sqlite3_exec(ptr noundef %1761, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+._crit_edge2403:                                  ; preds = %1755, %.preheader2390
+  %1761 = load ptr, ptr %16, align 8, !tbaa !23
+  %1762 = call i32 @sqlite3_finalize(ptr noundef %1761) #18
+  call void @g_free(ptr noundef %1667) #18
+  %1763 = load ptr, ptr %1654, align 8, !tbaa !6
+  %1764 = call i32 @sqlite3_exec(ptr noundef %1763, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #18
-  br label %3736
-
-1763:                                             ; preds = %2
-  %1764 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1765 = load ptr, ptr %1764, align 8, !tbaa !6
-  %1766 = tail call i32 @sqlite3_exec(ptr noundef %1765, ptr noundef nonnull @.str.492, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2185 = icmp eq i32 %1766, 0
-  br i1 %.not2185, label %3736, label %1767
-
-1767:                                             ; preds = %1763
-  %1768 = load ptr, ptr %1764, align 8, !tbaa !6
-  %1769 = tail call ptr @sqlite3_errmsg(ptr noundef %1768) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.493, ptr noundef %1769) #18
-  %1770 = load ptr, ptr %1764, align 8, !tbaa !6
-  %1771 = tail call i32 @sqlite3_exec(ptr noundef %1770, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1772:                                             ; preds = %2
-  %1773 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1774 = load ptr, ptr %1773, align 8, !tbaa !6
-  %1775 = tail call i32 @sqlite3_exec(ptr noundef %1774, ptr noundef nonnull @.str.494, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2184 = icmp eq i32 %1775, 0
-  br i1 %.not2184, label %3736, label %1776
-
-1776:                                             ; preds = %1772
-  %1777 = load ptr, ptr %1773, align 8, !tbaa !6
-  %1778 = tail call ptr @sqlite3_errmsg(ptr noundef %1777) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.495, ptr noundef %1778) #18
-  %1779 = load ptr, ptr %1773, align 8, !tbaa !6
-  %1780 = tail call i32 @sqlite3_exec(ptr noundef %1779, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1781:                                             ; preds = %2
-  %1782 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1783 = load ptr, ptr %1782, align 8, !tbaa !6
-  %1784 = tail call i32 @sqlite3_exec(ptr noundef %1783, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %1785 = load ptr, ptr %1782, align 8, !tbaa !6
-  %1786 = tail call i32 @sqlite3_exec(ptr noundef %1785, ptr noundef nonnull @.str.496, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2179 = icmp eq i32 %1786, 0
-  %1787 = load ptr, ptr %1782, align 8, !tbaa !6
-  br i1 %.not2179, label %1792, label %1788
-
-1788:                                             ; preds = %1781
-  %1789 = tail call ptr @sqlite3_errmsg(ptr noundef %1787) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.497, ptr noundef %1789) #18
-  %1790 = load ptr, ptr %1782, align 8, !tbaa !6
-  %1791 = tail call i32 @sqlite3_exec(ptr noundef %1790, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1792:                                             ; preds = %1781
-  %1793 = tail call i32 @sqlite3_exec(ptr noundef %1787, ptr noundef nonnull @.str.498, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2180 = icmp eq i32 %1793, 0
-  %1794 = load ptr, ptr %1782, align 8, !tbaa !6
-  br i1 %.not2180, label %1799, label %1795
-
-1795:                                             ; preds = %1792
-  %1796 = tail call ptr @sqlite3_errmsg(ptr noundef %1794) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.499, ptr noundef %1796) #18
-  %1797 = load ptr, ptr %1782, align 8, !tbaa !6
-  %1798 = tail call i32 @sqlite3_exec(ptr noundef %1797, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1799:                                             ; preds = %1792
-  %1800 = tail call i32 @sqlite3_exec(ptr noundef %1794, ptr noundef nonnull @.str.500, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2181 = icmp eq i32 %1800, 0
-  %1801 = load ptr, ptr %1782, align 8, !tbaa !6
-  br i1 %.not2181, label %1806, label %1802
-
-1802:                                             ; preds = %1799
-  %1803 = tail call ptr @sqlite3_errmsg(ptr noundef %1801) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.501, ptr noundef %1803) #18
-  %1804 = load ptr, ptr %1782, align 8, !tbaa !6
-  %1805 = tail call i32 @sqlite3_exec(ptr noundef %1804, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1806:                                             ; preds = %1799
-  %1807 = tail call i32 @sqlite3_exec(ptr noundef %1801, ptr noundef nonnull @.str.502, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2182 = icmp eq i32 %1807, 0
-  %1808 = load ptr, ptr %1782, align 8, !tbaa !6
-  br i1 %.not2182, label %1813, label %1809
-
-1809:                                             ; preds = %1806
-  %1810 = tail call ptr @sqlite3_errmsg(ptr noundef %1808) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.503, ptr noundef %1810) #18
-  %1811 = load ptr, ptr %1782, align 8, !tbaa !6
-  %1812 = tail call i32 @sqlite3_exec(ptr noundef %1811, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1813:                                             ; preds = %1806
-  %1814 = tail call i32 @sqlite3_exec(ptr noundef %1808, ptr noundef nonnull @.str.504, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2183 = icmp eq i32 %1814, 0
-  %1815 = load ptr, ptr %1782, align 8, !tbaa !6
-  br i1 %.not2183, label %1820, label %1816
-
-1816:                                             ; preds = %1813
-  %1817 = tail call ptr @sqlite3_errmsg(ptr noundef %1815) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.505, ptr noundef %1817) #18
-  %1818 = load ptr, ptr %1782, align 8, !tbaa !6
-  %1819 = tail call i32 @sqlite3_exec(ptr noundef %1818, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1820:                                             ; preds = %1813
-  %1821 = tail call i32 @sqlite3_exec(ptr noundef %1815, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-1822:                                             ; preds = %2
-  %1823 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1824 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1825 = tail call i32 @sqlite3_exec(ptr noundef %1824, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %1826 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1827 = tail call i32 @sqlite3_exec(ptr noundef %1826, ptr noundef nonnull @.str.506, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2173 = icmp eq i32 %1827, 0
-  %1828 = load ptr, ptr %1823, align 8, !tbaa !6
-  br i1 %.not2173, label %1833, label %1829
-
-1829:                                             ; preds = %1822
-  %1830 = tail call ptr @sqlite3_errmsg(ptr noundef %1828) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.507, ptr noundef %1830) #18
-  %1831 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1832 = tail call i32 @sqlite3_exec(ptr noundef %1831, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1833:                                             ; preds = %1822
-  %1834 = tail call i32 @sqlite3_exec(ptr noundef %1828, ptr noundef nonnull @.str.508, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2174 = icmp eq i32 %1834, 0
-  %1835 = load ptr, ptr %1823, align 8, !tbaa !6
-  br i1 %.not2174, label %1840, label %1836
-
-1836:                                             ; preds = %1833
-  %1837 = tail call ptr @sqlite3_errmsg(ptr noundef %1835) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.509, ptr noundef %1837) #18
-  %1838 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1839 = tail call i32 @sqlite3_exec(ptr noundef %1838, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1840:                                             ; preds = %1833
-  %1841 = tail call i32 @sqlite3_exec(ptr noundef %1835, ptr noundef nonnull @.str.510, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2175 = icmp eq i32 %1841, 0
-  %1842 = load ptr, ptr %1823, align 8, !tbaa !6
-  br i1 %.not2175, label %1847, label %1843
-
-1843:                                             ; preds = %1840
-  %1844 = tail call ptr @sqlite3_errmsg(ptr noundef %1842) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.511, ptr noundef %1844) #18
-  %1845 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1846 = tail call i32 @sqlite3_exec(ptr noundef %1845, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1847:                                             ; preds = %1840
-  %1848 = tail call i32 @sqlite3_exec(ptr noundef %1842, ptr noundef nonnull @.str.512, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2176 = icmp eq i32 %1848, 0
-  %1849 = load ptr, ptr %1823, align 8, !tbaa !6
-  br i1 %.not2176, label %1854, label %1850
-
-1850:                                             ; preds = %1847
-  %1851 = tail call ptr @sqlite3_errmsg(ptr noundef %1849) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.513, ptr noundef %1851) #18
-  %1852 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1853 = tail call i32 @sqlite3_exec(ptr noundef %1852, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1854:                                             ; preds = %1847
-  %1855 = tail call i32 @sqlite3_exec(ptr noundef %1849, ptr noundef nonnull @.str.514, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2177 = icmp eq i32 %1855, 0
-  %1856 = load ptr, ptr %1823, align 8, !tbaa !6
-  br i1 %.not2177, label %1861, label %1857
-
-1857:                                             ; preds = %1854
-  %1858 = tail call ptr @sqlite3_errmsg(ptr noundef %1856) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.515, ptr noundef %1858) #18
-  %1859 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1860 = tail call i32 @sqlite3_exec(ptr noundef %1859, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1861:                                             ; preds = %1854
-  %1862 = tail call i32 @sqlite3_exec(ptr noundef %1856, ptr noundef nonnull @.str.516, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2178 = icmp eq i32 %1862, 0
-  %1863 = load ptr, ptr %1823, align 8, !tbaa !6
-  br i1 %.not2178, label %1868, label %1864
-
-1864:                                             ; preds = %1861
-  %1865 = tail call ptr @sqlite3_errmsg(ptr noundef %1863) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.517, ptr noundef %1865) #18
-  %1866 = load ptr, ptr %1823, align 8, !tbaa !6
-  %1867 = tail call i32 @sqlite3_exec(ptr noundef %1866, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1868:                                             ; preds = %1861
-  %1869 = tail call i32 @sqlite3_exec(ptr noundef %1863, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-1870:                                             ; preds = %2
-  %1871 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1872 = load ptr, ptr %1871, align 8, !tbaa !6
-  %1873 = tail call i32 @sqlite3_exec(ptr noundef %1872, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %1874 = load ptr, ptr %1871, align 8, !tbaa !6
-  %1875 = tail call i32 @sqlite3_exec(ptr noundef %1874, ptr noundef nonnull @.str.518, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2171 = icmp eq i32 %1875, 0
-  %1876 = load ptr, ptr %1871, align 8, !tbaa !6
-  br i1 %.not2171, label %1881, label %1877
-
-1877:                                             ; preds = %1870
-  %1878 = tail call ptr @sqlite3_errmsg(ptr noundef %1876) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.519, ptr noundef %1878) #18
-  %1879 = load ptr, ptr %1871, align 8, !tbaa !6
-  %1880 = tail call i32 @sqlite3_exec(ptr noundef %1879, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1881:                                             ; preds = %1870
-  %1882 = tail call i32 @sqlite3_exec(ptr noundef %1876, ptr noundef nonnull @.str.520, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2172 = icmp eq i32 %1882, 0
-  %1883 = load ptr, ptr %1871, align 8, !tbaa !6
-  br i1 %.not2172, label %1888, label %1884
-
-1884:                                             ; preds = %1881
-  %1885 = tail call ptr @sqlite3_errmsg(ptr noundef %1883) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.521, ptr noundef %1885) #18
-  %1886 = load ptr, ptr %1871, align 8, !tbaa !6
-  %1887 = tail call i32 @sqlite3_exec(ptr noundef %1886, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1888:                                             ; preds = %1881
-  %1889 = tail call i32 @sqlite3_exec(ptr noundef %1883, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-1890:                                             ; preds = %2
-  %1891 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1892 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1893 = tail call i32 @sqlite3_exec(ptr noundef %1892, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %1894 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1895 = tail call i32 @sqlite3_exec(ptr noundef %1894, ptr noundef nonnull @.str.522, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2159 = icmp eq i32 %1895, 0
-  %1896 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2159, label %1901, label %1897
-
-1897:                                             ; preds = %1890
-  %1898 = tail call ptr @sqlite3_errmsg(ptr noundef %1896) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.523, ptr noundef %1898) #18
-  %1899 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1900 = tail call i32 @sqlite3_exec(ptr noundef %1899, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1901:                                             ; preds = %1890
-  %1902 = tail call i32 @sqlite3_exec(ptr noundef %1896, ptr noundef nonnull @.str.524, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2160 = icmp eq i32 %1902, 0
-  %1903 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2160, label %1908, label %1904
-
-1904:                                             ; preds = %1901
-  %1905 = tail call ptr @sqlite3_errmsg(ptr noundef %1903) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.525, ptr noundef %1905) #18
-  %1906 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1907 = tail call i32 @sqlite3_exec(ptr noundef %1906, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1908:                                             ; preds = %1901
-  %1909 = tail call i32 @sqlite3_exec(ptr noundef %1903, ptr noundef nonnull @.str.526, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2161 = icmp eq i32 %1909, 0
-  %1910 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2161, label %1915, label %1911
-
-1911:                                             ; preds = %1908
-  %1912 = tail call ptr @sqlite3_errmsg(ptr noundef %1910) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.527, ptr noundef %1912) #18
-  %1913 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1914 = tail call i32 @sqlite3_exec(ptr noundef %1913, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1915:                                             ; preds = %1908
-  %1916 = tail call i32 @sqlite3_exec(ptr noundef %1910, ptr noundef nonnull @.str.528, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2162 = icmp eq i32 %1916, 0
-  %1917 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2162, label %1922, label %1918
-
-1918:                                             ; preds = %1915
-  %1919 = tail call ptr @sqlite3_errmsg(ptr noundef %1917) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.529, ptr noundef %1919) #18
-  %1920 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1921 = tail call i32 @sqlite3_exec(ptr noundef %1920, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1922:                                             ; preds = %1915
-  %1923 = tail call i32 @sqlite3_exec(ptr noundef %1917, ptr noundef nonnull @.str.530, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2163 = icmp eq i32 %1923, 0
-  %1924 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2163, label %1929, label %1925
-
-1925:                                             ; preds = %1922
-  %1926 = tail call ptr @sqlite3_errmsg(ptr noundef %1924) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.531, ptr noundef %1926) #18
-  %1927 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1928 = tail call i32 @sqlite3_exec(ptr noundef %1927, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1929:                                             ; preds = %1922
-  %1930 = tail call i32 @sqlite3_exec(ptr noundef %1924, ptr noundef nonnull @.str.532, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2164 = icmp eq i32 %1930, 0
-  %1931 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2164, label %1936, label %1932
-
-1932:                                             ; preds = %1929
-  %1933 = tail call ptr @sqlite3_errmsg(ptr noundef %1931) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.533, ptr noundef %1933) #18
-  %1934 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1935 = tail call i32 @sqlite3_exec(ptr noundef %1934, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1936:                                             ; preds = %1929
-  %1937 = tail call i32 @sqlite3_exec(ptr noundef %1931, ptr noundef nonnull @.str.534, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2165 = icmp eq i32 %1937, 0
-  %1938 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2165, label %1943, label %1939
-
-1939:                                             ; preds = %1936
-  %1940 = tail call ptr @sqlite3_errmsg(ptr noundef %1938) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1940) #18
-  %1941 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1942 = tail call i32 @sqlite3_exec(ptr noundef %1941, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1943:                                             ; preds = %1936
-  %1944 = tail call i32 @sqlite3_exec(ptr noundef %1938, ptr noundef nonnull @.str.535, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2166 = icmp eq i32 %1944, 0
-  %1945 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2166, label %1950, label %1946
-
-1946:                                             ; preds = %1943
-  %1947 = tail call ptr @sqlite3_errmsg(ptr noundef %1945) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1947) #18
-  %1948 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1949 = tail call i32 @sqlite3_exec(ptr noundef %1948, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1950:                                             ; preds = %1943
-  %1951 = tail call i32 @sqlite3_exec(ptr noundef %1945, ptr noundef nonnull @.str.536, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2167 = icmp eq i32 %1951, 0
-  %1952 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2167, label %1957, label %1953
-
-1953:                                             ; preds = %1950
-  %1954 = tail call ptr @sqlite3_errmsg(ptr noundef %1952) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.537, ptr noundef %1954) #18
-  %1955 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1956 = tail call i32 @sqlite3_exec(ptr noundef %1955, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1957:                                             ; preds = %1950
-  %1958 = tail call i32 @sqlite3_exec(ptr noundef %1952, ptr noundef nonnull @.str.538, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2168 = icmp eq i32 %1958, 0
-  %1959 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2168, label %1964, label %1960
-
-1960:                                             ; preds = %1957
-  %1961 = tail call ptr @sqlite3_errmsg(ptr noundef %1959) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.539, ptr noundef %1961) #18
-  %1962 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1963 = tail call i32 @sqlite3_exec(ptr noundef %1962, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1964:                                             ; preds = %1957
-  %1965 = tail call i32 @sqlite3_exec(ptr noundef %1959, ptr noundef nonnull @.str.265, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2169 = icmp eq i32 %1965, 0
-  %1966 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2169, label %1971, label %1967
-
-1967:                                             ; preds = %1964
-  %1968 = tail call ptr @sqlite3_errmsg(ptr noundef %1966) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.540, ptr noundef %1968) #18
-  %1969 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1970 = tail call i32 @sqlite3_exec(ptr noundef %1969, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1971:                                             ; preds = %1964
-  %1972 = tail call i32 @sqlite3_exec(ptr noundef %1966, ptr noundef nonnull @.str.385, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2170 = icmp eq i32 %1972, 0
-  %1973 = load ptr, ptr %1891, align 8, !tbaa !6
-  br i1 %.not2170, label %1978, label %1974
-
-1974:                                             ; preds = %1971
-  %1975 = tail call ptr @sqlite3_errmsg(ptr noundef %1973) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.541, ptr noundef %1975) #18
-  %1976 = load ptr, ptr %1891, align 8, !tbaa !6
-  %1977 = tail call i32 @sqlite3_exec(ptr noundef %1976, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1978:                                             ; preds = %1971
-  %1979 = tail call i32 @sqlite3_exec(ptr noundef %1973, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-1980:                                             ; preds = %2
-  %1981 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %1982 = load ptr, ptr %1981, align 8, !tbaa !6
-  %1983 = tail call i32 @sqlite3_exec(ptr noundef %1982, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %1984 = load ptr, ptr %1981, align 8, !tbaa !6
-  %1985 = tail call i32 @sqlite3_exec(ptr noundef %1984, ptr noundef nonnull @.str.542, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2148 = icmp eq i32 %1985, 0
-  %1986 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2148, label %1991, label %1987
-
-1987:                                             ; preds = %1980
-  %1988 = tail call ptr @sqlite3_errmsg(ptr noundef %1986) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.543, ptr noundef %1988) #18
-  %1989 = load ptr, ptr %1981, align 8, !tbaa !6
-  %1990 = tail call i32 @sqlite3_exec(ptr noundef %1989, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1991:                                             ; preds = %1980
-  %1992 = tail call i32 @sqlite3_exec(ptr noundef %1986, ptr noundef nonnull @.str.544, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2149 = icmp eq i32 %1992, 0
-  %1993 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2149, label %1998, label %1994
-
-1994:                                             ; preds = %1991
-  %1995 = tail call ptr @sqlite3_errmsg(ptr noundef %1993) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %1995) #18
-  %1996 = load ptr, ptr %1981, align 8, !tbaa !6
-  %1997 = tail call i32 @sqlite3_exec(ptr noundef %1996, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-1998:                                             ; preds = %1991
-  %1999 = tail call i32 @sqlite3_exec(ptr noundef %1993, ptr noundef nonnull @.str.546, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2150 = icmp eq i32 %1999, 0
-  %2000 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2150, label %2005, label %2001
-
-2001:                                             ; preds = %1998
-  %2002 = tail call ptr @sqlite3_errmsg(ptr noundef %2000) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.547, ptr noundef %2002) #18
-  %2003 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2004 = tail call i32 @sqlite3_exec(ptr noundef %2003, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2005:                                             ; preds = %1998
-  %2006 = tail call i32 @sqlite3_exec(ptr noundef %2000, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2151 = icmp eq i32 %2006, 0
-  %2007 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2151, label %2012, label %2008
-
-2008:                                             ; preds = %2005
-  %2009 = tail call ptr @sqlite3_errmsg(ptr noundef %2007) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2009) #18
-  %2010 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2011 = tail call i32 @sqlite3_exec(ptr noundef %2010, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2012:                                             ; preds = %2005
-  %2013 = tail call i32 @sqlite3_exec(ptr noundef %2007, ptr noundef nonnull @.str.550, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2152 = icmp eq i32 %2013, 0
-  %2014 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2152, label %2019, label %2015
-
-2015:                                             ; preds = %2012
-  %2016 = tail call ptr @sqlite3_errmsg(ptr noundef %2014) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.551, ptr noundef %2016) #18
-  %2017 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2018 = tail call i32 @sqlite3_exec(ptr noundef %2017, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2019:                                             ; preds = %2012
-  %2020 = tail call i32 @sqlite3_exec(ptr noundef %2014, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2153 = icmp eq i32 %2020, 0
-  %2021 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2153, label %2026, label %2022
-
-2022:                                             ; preds = %2019
-  %2023 = tail call ptr @sqlite3_errmsg(ptr noundef %2021) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2023) #18
-  %2024 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2025 = tail call i32 @sqlite3_exec(ptr noundef %2024, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2026:                                             ; preds = %2019
-  %2027 = tail call i32 @sqlite3_exec(ptr noundef %2021, ptr noundef nonnull @.str.554, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2154 = icmp eq i32 %2027, 0
-  %2028 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2154, label %2033, label %2029
-
-2029:                                             ; preds = %2026
-  %2030 = tail call ptr @sqlite3_errmsg(ptr noundef %2028) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.555, ptr noundef %2030) #18
-  %2031 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2032 = tail call i32 @sqlite3_exec(ptr noundef %2031, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2033:                                             ; preds = %2026
-  %2034 = tail call i32 @sqlite3_exec(ptr noundef %2028, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2155 = icmp eq i32 %2034, 0
-  %2035 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2155, label %2040, label %2036
-
-2036:                                             ; preds = %2033
-  %2037 = tail call ptr @sqlite3_errmsg(ptr noundef %2035) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2037) #18
-  %2038 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2039 = tail call i32 @sqlite3_exec(ptr noundef %2038, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2040:                                             ; preds = %2033
-  %2041 = tail call i32 @sqlite3_exec(ptr noundef %2035, ptr noundef nonnull @.str.558, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2156 = icmp eq i32 %2041, 0
-  %2042 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2156, label %2047, label %2043
-
-2043:                                             ; preds = %2040
-  %2044 = tail call ptr @sqlite3_errmsg(ptr noundef %2042) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.559, ptr noundef %2044) #18
-  %2045 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2046 = tail call i32 @sqlite3_exec(ptr noundef %2045, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2047:                                             ; preds = %2040
-  %2048 = tail call i32 @sqlite3_exec(ptr noundef %2042, ptr noundef nonnull @.str.560, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2157 = icmp eq i32 %2048, 0
-  %2049 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2157, label %2054, label %2050
-
-2050:                                             ; preds = %2047
-  %2051 = tail call ptr @sqlite3_errmsg(ptr noundef %2049) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.561, ptr noundef %2051) #18
-  %2052 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2053 = tail call i32 @sqlite3_exec(ptr noundef %2052, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2054:                                             ; preds = %2047
-  %2055 = tail call i32 @sqlite3_exec(ptr noundef %2049, ptr noundef nonnull @.str.562, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2158 = icmp eq i32 %2055, 0
-  %2056 = load ptr, ptr %1981, align 8, !tbaa !6
-  br i1 %.not2158, label %2061, label %2057
-
-2057:                                             ; preds = %2054
-  %2058 = tail call ptr @sqlite3_errmsg(ptr noundef %2056) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.563, ptr noundef %2058) #18
-  %2059 = load ptr, ptr %1981, align 8, !tbaa !6
-  %2060 = tail call i32 @sqlite3_exec(ptr noundef %2059, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2061:                                             ; preds = %2054
-  %2062 = tail call i32 @sqlite3_exec(ptr noundef %2056, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-2063:                                             ; preds = %2
-  %2064 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2065 = load ptr, ptr %2064, align 8, !tbaa !6
-  %2066 = tail call i32 @sqlite3_exec(ptr noundef %2065, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2067 = load ptr, ptr %2064, align 8, !tbaa !6
-  %2068 = tail call i32 @sqlite3_exec(ptr noundef %2067, ptr noundef nonnull @.str.564, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2145 = icmp eq i32 %2068, 0
-  %2069 = load ptr, ptr %2064, align 8, !tbaa !6
-  br i1 %.not2145, label %2074, label %2070
-
-2070:                                             ; preds = %2063
-  %2071 = tail call ptr @sqlite3_errmsg(ptr noundef %2069) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.565, ptr noundef %2071) #18
-  %2072 = load ptr, ptr %2064, align 8, !tbaa !6
-  %2073 = tail call i32 @sqlite3_exec(ptr noundef %2072, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2074:                                             ; preds = %2063
-  %2075 = tail call i32 @sqlite3_exec(ptr noundef %2069, ptr noundef nonnull @.str.566, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2146 = icmp eq i32 %2075, 0
-  %2076 = load ptr, ptr %2064, align 8, !tbaa !6
-  br i1 %.not2146, label %2081, label %2077
-
-2077:                                             ; preds = %2074
-  %2078 = tail call ptr @sqlite3_errmsg(ptr noundef %2076) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.567, ptr noundef %2078) #18
-  %2079 = load ptr, ptr %2064, align 8, !tbaa !6
-  %2080 = tail call i32 @sqlite3_exec(ptr noundef %2079, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2081:                                             ; preds = %2074
-  %2082 = tail call i32 @sqlite3_exec(ptr noundef %2076, ptr noundef nonnull @.str.568, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2147 = icmp eq i32 %2082, 0
-  %2083 = load ptr, ptr %2064, align 8, !tbaa !6
-  br i1 %.not2147, label %2088, label %2084
-
-2084:                                             ; preds = %2081
-  %2085 = tail call ptr @sqlite3_errmsg(ptr noundef %2083) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.569, ptr noundef %2085) #18
-  %2086 = load ptr, ptr %2064, align 8, !tbaa !6
-  %2087 = tail call i32 @sqlite3_exec(ptr noundef %2086, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2088:                                             ; preds = %2081
-  %2089 = tail call i32 @sqlite3_exec(ptr noundef %2083, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-2090:                                             ; preds = %2
-  %2091 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2092 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2093 = tail call i32 @sqlite3_exec(ptr noundef %2092, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2094 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2095 = tail call i32 @sqlite3_exec(ptr noundef %2094, ptr noundef nonnull @.str.570, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2077 = icmp eq i32 %2095, 0
-  %2096 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2077, label %2101, label %2097
-
-2097:                                             ; preds = %2090
-  %2098 = tail call ptr @sqlite3_errmsg(ptr noundef %2096) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %2098) #18
-  %2099 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2100 = tail call i32 @sqlite3_exec(ptr noundef %2099, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2101:                                             ; preds = %2090
-  %2102 = tail call i32 @sqlite3_exec(ptr noundef %2096, ptr noundef nonnull @.str.572, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2078 = icmp eq i32 %2102, 0
-  %2103 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2078, label %2108, label %2104
-
-2104:                                             ; preds = %2101
-  %2105 = tail call ptr @sqlite3_errmsg(ptr noundef %2103) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2105) #18
-  %2106 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2107 = tail call i32 @sqlite3_exec(ptr noundef %2106, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2108:                                             ; preds = %2101
-  %2109 = tail call i32 @sqlite3_exec(ptr noundef %2103, ptr noundef nonnull @.str.574, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2079 = icmp eq i32 %2109, 0
-  %2110 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2079, label %2115, label %2111
-
-2111:                                             ; preds = %2108
-  %2112 = tail call ptr @sqlite3_errmsg(ptr noundef %2110) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.575, ptr noundef %2112) #18
-  %2113 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2114 = tail call i32 @sqlite3_exec(ptr noundef %2113, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2115:                                             ; preds = %2108
-  %2116 = tail call i32 @sqlite3_exec(ptr noundef %2110, ptr noundef nonnull @.str.576, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2080 = icmp eq i32 %2116, 0
-  %2117 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2080, label %2122, label %2118
-
-2118:                                             ; preds = %2115
-  %2119 = tail call ptr @sqlite3_errmsg(ptr noundef %2117) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.577, ptr noundef %2119) #18
-  %2120 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2121 = tail call i32 @sqlite3_exec(ptr noundef %2120, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2122:                                             ; preds = %2115
-  %2123 = tail call i32 @sqlite3_exec(ptr noundef %2117, ptr noundef nonnull @.str.578, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2081 = icmp eq i32 %2123, 0
-  %2124 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2081, label %2129, label %2125
-
-2125:                                             ; preds = %2122
-  %2126 = tail call ptr @sqlite3_errmsg(ptr noundef %2124) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.579, ptr noundef %2126) #18
-  %2127 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2128 = tail call i32 @sqlite3_exec(ptr noundef %2127, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2129:                                             ; preds = %2122
-  %2130 = tail call i32 @sqlite3_exec(ptr noundef %2124, ptr noundef nonnull @.str.580, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2082 = icmp eq i32 %2130, 0
-  %2131 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2082, label %2136, label %2132
-
-2132:                                             ; preds = %2129
-  %2133 = tail call ptr @sqlite3_errmsg(ptr noundef %2131) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.581, ptr noundef %2133) #18
-  %2134 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2135 = tail call i32 @sqlite3_exec(ptr noundef %2134, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2136:                                             ; preds = %2129
-  %2137 = tail call i32 @sqlite3_exec(ptr noundef %2131, ptr noundef nonnull @.str.582, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2083 = icmp eq i32 %2137, 0
-  %2138 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2083, label %2143, label %2139
-
-2139:                                             ; preds = %2136
-  %2140 = tail call ptr @sqlite3_errmsg(ptr noundef %2138) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2140) #18
-  %2141 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2142 = tail call i32 @sqlite3_exec(ptr noundef %2141, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2143:                                             ; preds = %2136
-  %2144 = tail call i32 @sqlite3_exec(ptr noundef %2138, ptr noundef nonnull @.str.546, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2084 = icmp eq i32 %2144, 0
-  %2145 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2084, label %2150, label %2146
-
-2146:                                             ; preds = %2143
-  %2147 = tail call ptr @sqlite3_errmsg(ptr noundef %2145) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.547, ptr noundef %2147) #18
-  %2148 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2149 = tail call i32 @sqlite3_exec(ptr noundef %2148, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2150:                                             ; preds = %2143
-  %2151 = tail call i32 @sqlite3_exec(ptr noundef %2145, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2085 = icmp eq i32 %2151, 0
-  %2152 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2085, label %2157, label %2153
-
-2153:                                             ; preds = %2150
-  %2154 = tail call ptr @sqlite3_errmsg(ptr noundef %2152) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2154) #18
-  %2155 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2156 = tail call i32 @sqlite3_exec(ptr noundef %2155, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2157:                                             ; preds = %2150
-  %2158 = tail call i32 @sqlite3_exec(ptr noundef %2152, ptr noundef nonnull @.str.550, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2086 = icmp eq i32 %2158, 0
-  %2159 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2086, label %2164, label %2160
-
-2160:                                             ; preds = %2157
-  %2161 = tail call ptr @sqlite3_errmsg(ptr noundef %2159) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.584, ptr noundef %2161) #18
-  %2162 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2163 = tail call i32 @sqlite3_exec(ptr noundef %2162, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2164:                                             ; preds = %2157
-  %2165 = tail call i32 @sqlite3_exec(ptr noundef %2159, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2087 = icmp eq i32 %2165, 0
-  %2166 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2087, label %2171, label %2167
-
-2167:                                             ; preds = %2164
-  %2168 = tail call ptr @sqlite3_errmsg(ptr noundef %2166) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2168) #18
-  %2169 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2170 = tail call i32 @sqlite3_exec(ptr noundef %2169, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2171:                                             ; preds = %2164
-  %2172 = tail call i32 @sqlite3_exec(ptr noundef %2166, ptr noundef nonnull @.str.554, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2088 = icmp eq i32 %2172, 0
-  %2173 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2088, label %2178, label %2174
-
-2174:                                             ; preds = %2171
-  %2175 = tail call ptr @sqlite3_errmsg(ptr noundef %2173) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.555, ptr noundef %2175) #18
-  %2176 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2177 = tail call i32 @sqlite3_exec(ptr noundef %2176, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2178:                                             ; preds = %2171
-  %2179 = tail call i32 @sqlite3_exec(ptr noundef %2173, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2089 = icmp eq i32 %2179, 0
-  %2180 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2089, label %2185, label %2181
-
-2181:                                             ; preds = %2178
-  %2182 = tail call ptr @sqlite3_errmsg(ptr noundef %2180) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2182) #18
-  %2183 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2184 = tail call i32 @sqlite3_exec(ptr noundef %2183, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2185:                                             ; preds = %2178
-  %2186 = tail call i32 @sqlite3_exec(ptr noundef %2180, ptr noundef nonnull @.str.585, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2090 = icmp eq i32 %2186, 0
-  %2187 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2090, label %2192, label %2188
-
-2188:                                             ; preds = %2185
-  %2189 = tail call ptr @sqlite3_errmsg(ptr noundef %2187) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.586, ptr noundef %2189) #18
-  %2190 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2191 = tail call i32 @sqlite3_exec(ptr noundef %2190, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2192:                                             ; preds = %2185
-  %2193 = tail call i32 @sqlite3_exec(ptr noundef %2187, ptr noundef nonnull @.str.587, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2091 = icmp eq i32 %2193, 0
-  %2194 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2091, label %2199, label %2195
-
-2195:                                             ; preds = %2192
-  %2196 = tail call ptr @sqlite3_errmsg(ptr noundef %2194) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %2196) #18
-  %2197 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2198 = tail call i32 @sqlite3_exec(ptr noundef %2197, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2199:                                             ; preds = %2192
-  %2200 = tail call i32 @sqlite3_exec(ptr noundef %2194, ptr noundef nonnull @.str.589, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2092 = icmp eq i32 %2200, 0
-  %2201 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2092, label %2206, label %2202
-
-2202:                                             ; preds = %2199
-  %2203 = tail call ptr @sqlite3_errmsg(ptr noundef %2201) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %2203) #18
-  %2204 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2205 = tail call i32 @sqlite3_exec(ptr noundef %2204, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2206:                                             ; preds = %2199
-  %2207 = tail call i32 @sqlite3_exec(ptr noundef %2201, ptr noundef nonnull @.str.591, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2093 = icmp eq i32 %2207, 0
-  %2208 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2093, label %2213, label %2209
-
-2209:                                             ; preds = %2206
-  %2210 = tail call ptr @sqlite3_errmsg(ptr noundef %2208) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.592, ptr noundef %2210) #18
-  %2211 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2212 = tail call i32 @sqlite3_exec(ptr noundef %2211, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2213:                                             ; preds = %2206
-  %2214 = tail call i32 @sqlite3_exec(ptr noundef %2208, ptr noundef nonnull @.str.593, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2094 = icmp eq i32 %2214, 0
-  %2215 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2094, label %2220, label %2216
-
-2216:                                             ; preds = %2213
-  %2217 = tail call ptr @sqlite3_errmsg(ptr noundef %2215) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.594, ptr noundef %2217) #18
-  %2218 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2219 = tail call i32 @sqlite3_exec(ptr noundef %2218, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2220:                                             ; preds = %2213
-  %2221 = tail call i32 @sqlite3_exec(ptr noundef %2215, ptr noundef nonnull @.str.595, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2095 = icmp eq i32 %2221, 0
-  %2222 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2095, label %2227, label %2223
-
-2223:                                             ; preds = %2220
-  %2224 = tail call ptr @sqlite3_errmsg(ptr noundef %2222) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.596, ptr noundef %2224) #18
-  %2225 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2226 = tail call i32 @sqlite3_exec(ptr noundef %2225, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2227:                                             ; preds = %2220
-  %2228 = tail call i32 @sqlite3_exec(ptr noundef %2222, ptr noundef nonnull @.str.597, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2096 = icmp eq i32 %2228, 0
-  %2229 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2096, label %2234, label %2230
-
-2230:                                             ; preds = %2227
-  %2231 = tail call ptr @sqlite3_errmsg(ptr noundef %2229) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.598, ptr noundef %2231) #18
-  %2232 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2233 = tail call i32 @sqlite3_exec(ptr noundef %2232, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2234:                                             ; preds = %2227
-  %2235 = tail call i32 @sqlite3_exec(ptr noundef %2229, ptr noundef nonnull @.str.542, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2097 = icmp eq i32 %2235, 0
-  %2236 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2097, label %2241, label %2237
-
-2237:                                             ; preds = %2234
-  %2238 = tail call ptr @sqlite3_errmsg(ptr noundef %2236) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.543, ptr noundef %2238) #18
-  %2239 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2240 = tail call i32 @sqlite3_exec(ptr noundef %2239, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2241:                                             ; preds = %2234
-  %2242 = tail call i32 @sqlite3_exec(ptr noundef %2236, ptr noundef nonnull @.str.599, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2098 = icmp eq i32 %2242, 0
-  %2243 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2098, label %2248, label %2244
-
-2244:                                             ; preds = %2241
-  %2245 = tail call ptr @sqlite3_errmsg(ptr noundef %2243) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %2245) #18
-  %2246 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2247 = tail call i32 @sqlite3_exec(ptr noundef %2246, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2248:                                             ; preds = %2241
-  %2249 = tail call i32 @sqlite3_exec(ptr noundef %2243, ptr noundef nonnull @.str.600, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2099 = icmp eq i32 %2249, 0
-  %2250 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2099, label %2255, label %2251
-
-2251:                                             ; preds = %2248
-  %2252 = tail call ptr @sqlite3_errmsg(ptr noundef %2250) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %2252) #18
-  %2253 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2254 = tail call i32 @sqlite3_exec(ptr noundef %2253, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2255:                                             ; preds = %2248
-  %2256 = tail call i32 @sqlite3_exec(ptr noundef %2250, ptr noundef nonnull @.str.601, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2100 = icmp eq i32 %2256, 0
-  %2257 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2100, label %2262, label %2258
-
-2258:                                             ; preds = %2255
-  %2259 = tail call ptr @sqlite3_errmsg(ptr noundef %2257) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.602, ptr noundef %2259) #18
-  %2260 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2261 = tail call i32 @sqlite3_exec(ptr noundef %2260, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2262:                                             ; preds = %2255
-  %2263 = tail call i32 @sqlite3_exec(ptr noundef %2257, ptr noundef nonnull @.str.603, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2101 = icmp eq i32 %2263, 0
-  %2264 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2101, label %2269, label %2265
-
-2265:                                             ; preds = %2262
-  %2266 = tail call ptr @sqlite3_errmsg(ptr noundef %2264) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.604, ptr noundef %2266) #18
-  %2267 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2268 = tail call i32 @sqlite3_exec(ptr noundef %2267, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2269:                                             ; preds = %2262
-  %2270 = tail call i32 @sqlite3_exec(ptr noundef %2264, ptr noundef nonnull @.str.605, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2102 = icmp eq i32 %2270, 0
-  %2271 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2102, label %2276, label %2272
-
-2272:                                             ; preds = %2269
-  %2273 = tail call ptr @sqlite3_errmsg(ptr noundef %2271) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.606, ptr noundef %2273) #18
-  %2274 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2275 = tail call i32 @sqlite3_exec(ptr noundef %2274, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2276:                                             ; preds = %2269
-  %2277 = tail call i32 @sqlite3_exec(ptr noundef %2271, ptr noundef nonnull @.str.607, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2103 = icmp eq i32 %2277, 0
-  %2278 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2103, label %2283, label %2279
-
-2279:                                             ; preds = %2276
-  %2280 = tail call ptr @sqlite3_errmsg(ptr noundef %2278) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.608, ptr noundef %2280) #18
-  %2281 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2282 = tail call i32 @sqlite3_exec(ptr noundef %2281, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2283:                                             ; preds = %2276
-  %2284 = tail call i32 @sqlite3_exec(ptr noundef %2278, ptr noundef nonnull @.str.609, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2104 = icmp eq i32 %2284, 0
-  %2285 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2104, label %2290, label %2286
-
-2286:                                             ; preds = %2283
-  %2287 = tail call ptr @sqlite3_errmsg(ptr noundef %2285) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.610, ptr noundef %2287) #18
-  %2288 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2289 = tail call i32 @sqlite3_exec(ptr noundef %2288, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2290:                                             ; preds = %2283
-  %2291 = tail call i32 @sqlite3_exec(ptr noundef %2285, ptr noundef nonnull @.str.611, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2105 = icmp eq i32 %2291, 0
-  %2292 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2105, label %2297, label %2293
-
-2293:                                             ; preds = %2290
-  %2294 = tail call ptr @sqlite3_errmsg(ptr noundef %2292) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.612, ptr noundef %2294) #18
-  %2295 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2296 = tail call i32 @sqlite3_exec(ptr noundef %2295, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2297:                                             ; preds = %2290
-  %2298 = tail call i32 @sqlite3_exec(ptr noundef %2292, ptr noundef nonnull @.str.613, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2106 = icmp eq i32 %2298, 0
-  %2299 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2106, label %2304, label %2300
-
-2300:                                             ; preds = %2297
-  %2301 = tail call ptr @sqlite3_errmsg(ptr noundef %2299) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.614, ptr noundef %2301) #18
-  %2302 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2303 = tail call i32 @sqlite3_exec(ptr noundef %2302, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2304:                                             ; preds = %2297
-  %2305 = tail call i32 @sqlite3_exec(ptr noundef %2299, ptr noundef nonnull @.str.615, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2107 = icmp eq i32 %2305, 0
-  %2306 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2107, label %2311, label %2307
-
-2307:                                             ; preds = %2304
-  %2308 = tail call ptr @sqlite3_errmsg(ptr noundef %2306) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.616, ptr noundef %2308) #18
-  %2309 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2310 = tail call i32 @sqlite3_exec(ptr noundef %2309, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2311:                                             ; preds = %2304
-  %2312 = tail call i32 @sqlite3_exec(ptr noundef %2306, ptr noundef nonnull @.str.617, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2108 = icmp eq i32 %2312, 0
-  %2313 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2108, label %2318, label %2314
-
-2314:                                             ; preds = %2311
-  %2315 = tail call ptr @sqlite3_errmsg(ptr noundef %2313) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.618, ptr noundef %2315) #18
-  %2316 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2317 = tail call i32 @sqlite3_exec(ptr noundef %2316, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2318:                                             ; preds = %2311
-  %2319 = tail call i32 @sqlite3_exec(ptr noundef %2313, ptr noundef nonnull @.str.619, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2109 = icmp eq i32 %2319, 0
-  %2320 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2109, label %2325, label %2321
-
-2321:                                             ; preds = %2318
-  %2322 = tail call ptr @sqlite3_errmsg(ptr noundef %2320) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.620, ptr noundef %2322) #18
-  %2323 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2324 = tail call i32 @sqlite3_exec(ptr noundef %2323, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2325:                                             ; preds = %2318
-  %2326 = tail call i32 @sqlite3_exec(ptr noundef %2320, ptr noundef nonnull @.str.621, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2110 = icmp eq i32 %2326, 0
-  %2327 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2110, label %2332, label %2328
-
-2328:                                             ; preds = %2325
-  %2329 = tail call ptr @sqlite3_errmsg(ptr noundef %2327) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.622, ptr noundef %2329) #18
-  %2330 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2331 = tail call i32 @sqlite3_exec(ptr noundef %2330, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2332:                                             ; preds = %2325
-  %2333 = tail call i32 @sqlite3_exec(ptr noundef %2327, ptr noundef nonnull @.str.623, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2111 = icmp eq i32 %2333, 0
-  %2334 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2111, label %2339, label %2335
-
-2335:                                             ; preds = %2332
-  %2336 = tail call ptr @sqlite3_errmsg(ptr noundef %2334) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.624, ptr noundef %2336) #18
-  %2337 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2338 = tail call i32 @sqlite3_exec(ptr noundef %2337, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2339:                                             ; preds = %2332
-  %2340 = tail call i32 @sqlite3_exec(ptr noundef %2334, ptr noundef nonnull @.str.625, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2112 = icmp eq i32 %2340, 0
-  %2341 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2112, label %2346, label %2342
-
-2342:                                             ; preds = %2339
-  %2343 = tail call ptr @sqlite3_errmsg(ptr noundef %2341) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.626, ptr noundef %2343) #18
-  %2344 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2345 = tail call i32 @sqlite3_exec(ptr noundef %2344, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2346:                                             ; preds = %2339
-  %2347 = tail call i32 @sqlite3_exec(ptr noundef %2341, ptr noundef nonnull @.str.627, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2113 = icmp eq i32 %2347, 0
-  %2348 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2113, label %2353, label %2349
-
-2349:                                             ; preds = %2346
-  %2350 = tail call ptr @sqlite3_errmsg(ptr noundef %2348) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.628, ptr noundef %2350) #18
-  %2351 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2352 = tail call i32 @sqlite3_exec(ptr noundef %2351, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2353:                                             ; preds = %2346
-  %2354 = tail call i32 @sqlite3_exec(ptr noundef %2348, ptr noundef nonnull @.str.629, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2114 = icmp eq i32 %2354, 0
-  %2355 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2114, label %2360, label %2356
-
-2356:                                             ; preds = %2353
-  %2357 = tail call ptr @sqlite3_errmsg(ptr noundef %2355) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.630, ptr noundef %2357) #18
-  %2358 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2359 = tail call i32 @sqlite3_exec(ptr noundef %2358, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2360:                                             ; preds = %2353
-  %2361 = tail call i32 @sqlite3_exec(ptr noundef %2355, ptr noundef nonnull @.str.631, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2115 = icmp eq i32 %2361, 0
-  %2362 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2115, label %2367, label %2363
-
-2363:                                             ; preds = %2360
-  %2364 = tail call ptr @sqlite3_errmsg(ptr noundef %2362) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.632, ptr noundef %2364) #18
-  %2365 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2366 = tail call i32 @sqlite3_exec(ptr noundef %2365, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2367:                                             ; preds = %2360
-  %2368 = tail call i32 @sqlite3_exec(ptr noundef %2362, ptr noundef nonnull @.str.633, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2116 = icmp eq i32 %2368, 0
-  %2369 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2116, label %2374, label %2370
-
-2370:                                             ; preds = %2367
-  %2371 = tail call ptr @sqlite3_errmsg(ptr noundef %2369) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.634, ptr noundef %2371) #18
-  %2372 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2373 = tail call i32 @sqlite3_exec(ptr noundef %2372, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2374:                                             ; preds = %2367
-  %2375 = tail call i32 @sqlite3_exec(ptr noundef %2369, ptr noundef nonnull @.str.635, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2117 = icmp eq i32 %2375, 0
-  %2376 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2117, label %2381, label %2377
-
-2377:                                             ; preds = %2374
-  %2378 = tail call ptr @sqlite3_errmsg(ptr noundef %2376) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.636, ptr noundef %2378) #18
-  %2379 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2380 = tail call i32 @sqlite3_exec(ptr noundef %2379, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2381:                                             ; preds = %2374
-  %2382 = tail call i32 @sqlite3_exec(ptr noundef %2376, ptr noundef nonnull @.str.637, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2118 = icmp eq i32 %2382, 0
-  %2383 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2118, label %2388, label %2384
-
-2384:                                             ; preds = %2381
-  %2385 = tail call ptr @sqlite3_errmsg(ptr noundef %2383) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.638, ptr noundef %2385) #18
-  %2386 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2387 = tail call i32 @sqlite3_exec(ptr noundef %2386, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2388:                                             ; preds = %2381
-  %2389 = tail call i32 @sqlite3_exec(ptr noundef %2383, ptr noundef nonnull @.str.639, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2119 = icmp eq i32 %2389, 0
-  %2390 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2119, label %2395, label %2391
-
-2391:                                             ; preds = %2388
-  %2392 = tail call ptr @sqlite3_errmsg(ptr noundef %2390) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.640, ptr noundef %2392) #18
-  %2393 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2394 = tail call i32 @sqlite3_exec(ptr noundef %2393, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2395:                                             ; preds = %2388
-  %2396 = tail call i32 @sqlite3_exec(ptr noundef %2390, ptr noundef nonnull @.str.558, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2120 = icmp eq i32 %2396, 0
-  %2397 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2120, label %2402, label %2398
-
-2398:                                             ; preds = %2395
-  %2399 = tail call ptr @sqlite3_errmsg(ptr noundef %2397) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.559, ptr noundef %2399) #18
-  %2400 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2401 = tail call i32 @sqlite3_exec(ptr noundef %2400, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2402:                                             ; preds = %2395
-  %2403 = tail call i32 @sqlite3_exec(ptr noundef %2397, ptr noundef nonnull @.str.641, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2121 = icmp eq i32 %2403, 0
-  %2404 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2121, label %2409, label %2405
-
-2405:                                             ; preds = %2402
-  %2406 = tail call ptr @sqlite3_errmsg(ptr noundef %2404) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.561, ptr noundef %2406) #18
-  %2407 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2408 = tail call i32 @sqlite3_exec(ptr noundef %2407, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2409:                                             ; preds = %2402
-  %2410 = tail call i32 @sqlite3_exec(ptr noundef %2404, ptr noundef nonnull @.str.642, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2122 = icmp eq i32 %2410, 0
-  %2411 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2122, label %2416, label %2412
-
-2412:                                             ; preds = %2409
-  %2413 = tail call ptr @sqlite3_errmsg(ptr noundef %2411) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.643, ptr noundef %2413) #18
-  %2414 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2415 = tail call i32 @sqlite3_exec(ptr noundef %2414, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2416:                                             ; preds = %2409
-  %2417 = tail call i32 @sqlite3_exec(ptr noundef %2411, ptr noundef nonnull @.str.644, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2123 = icmp eq i32 %2417, 0
-  %2418 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2123, label %2423, label %2419
-
-2419:                                             ; preds = %2416
-  %2420 = tail call ptr @sqlite3_errmsg(ptr noundef %2418) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.645, ptr noundef %2420) #18
-  %2421 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2422 = tail call i32 @sqlite3_exec(ptr noundef %2421, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2423:                                             ; preds = %2416
-  %2424 = tail call i32 @sqlite3_exec(ptr noundef %2418, ptr noundef nonnull @.str.646, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2124 = icmp eq i32 %2424, 0
-  %2425 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2124, label %2430, label %2426
-
-2426:                                             ; preds = %2423
-  %2427 = tail call ptr @sqlite3_errmsg(ptr noundef %2425) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.647, ptr noundef %2427) #18
-  %2428 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2429 = tail call i32 @sqlite3_exec(ptr noundef %2428, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2430:                                             ; preds = %2423
-  %2431 = tail call i32 @sqlite3_exec(ptr noundef %2425, ptr noundef nonnull @.str.648, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2125 = icmp eq i32 %2431, 0
-  %2432 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2125, label %2437, label %2433
-
-2433:                                             ; preds = %2430
-  %2434 = tail call ptr @sqlite3_errmsg(ptr noundef %2432) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.649, ptr noundef %2434) #18
-  %2435 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2436 = tail call i32 @sqlite3_exec(ptr noundef %2435, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2437:                                             ; preds = %2430
-  %2438 = tail call i32 @sqlite3_exec(ptr noundef %2432, ptr noundef nonnull @.str.650, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2126 = icmp eq i32 %2438, 0
-  %2439 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2126, label %2444, label %2440
-
-2440:                                             ; preds = %2437
-  %2441 = tail call ptr @sqlite3_errmsg(ptr noundef %2439) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.651, ptr noundef %2441) #18
-  %2442 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2443 = tail call i32 @sqlite3_exec(ptr noundef %2442, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2444:                                             ; preds = %2437
-  %2445 = tail call i32 @sqlite3_exec(ptr noundef %2439, ptr noundef nonnull @.str.652, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2127 = icmp eq i32 %2445, 0
-  %2446 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2127, label %2451, label %2447
-
-2447:                                             ; preds = %2444
-  %2448 = tail call ptr @sqlite3_errmsg(ptr noundef %2446) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.653, ptr noundef %2448) #18
-  %2449 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2450 = tail call i32 @sqlite3_exec(ptr noundef %2449, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2451:                                             ; preds = %2444
-  %2452 = tail call i32 @sqlite3_exec(ptr noundef %2446, ptr noundef nonnull @.str.654, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2128 = icmp eq i32 %2452, 0
-  %2453 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2128, label %2458, label %2454
-
-2454:                                             ; preds = %2451
-  %2455 = tail call ptr @sqlite3_errmsg(ptr noundef %2453) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.655, ptr noundef %2455) #18
-  %2456 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2457 = tail call i32 @sqlite3_exec(ptr noundef %2456, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2458:                                             ; preds = %2451
-  %2459 = tail call i32 @sqlite3_exec(ptr noundef %2453, ptr noundef nonnull @.str.656, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2129 = icmp eq i32 %2459, 0
-  %2460 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2129, label %2465, label %2461
-
-2461:                                             ; preds = %2458
-  %2462 = tail call ptr @sqlite3_errmsg(ptr noundef %2460) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.657, ptr noundef %2462) #18
-  %2463 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2464 = tail call i32 @sqlite3_exec(ptr noundef %2463, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2465:                                             ; preds = %2458
-  %2466 = tail call i32 @sqlite3_exec(ptr noundef %2460, ptr noundef nonnull @.str.658, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2130 = icmp eq i32 %2466, 0
-  %2467 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2130, label %2472, label %2468
-
-2468:                                             ; preds = %2465
-  %2469 = tail call ptr @sqlite3_errmsg(ptr noundef %2467) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.659, ptr noundef %2469) #18
-  %2470 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2471 = tail call i32 @sqlite3_exec(ptr noundef %2470, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2472:                                             ; preds = %2465
-  %2473 = tail call i32 @sqlite3_exec(ptr noundef %2467, ptr noundef nonnull @.str.660, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2131 = icmp eq i32 %2473, 0
-  %2474 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2131, label %2479, label %2475
-
-2475:                                             ; preds = %2472
-  %2476 = tail call ptr @sqlite3_errmsg(ptr noundef %2474) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.661, ptr noundef %2476) #18
-  %2477 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2478 = tail call i32 @sqlite3_exec(ptr noundef %2477, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2479:                                             ; preds = %2472
-  %2480 = tail call i32 @sqlite3_exec(ptr noundef %2474, ptr noundef nonnull @.str.662, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2132 = icmp eq i32 %2480, 0
-  %2481 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2132, label %2486, label %2482
-
-2482:                                             ; preds = %2479
-  %2483 = tail call ptr @sqlite3_errmsg(ptr noundef %2481) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.663, ptr noundef %2483) #18
-  %2484 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2485 = tail call i32 @sqlite3_exec(ptr noundef %2484, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2486:                                             ; preds = %2479
-  %2487 = tail call i32 @sqlite3_exec(ptr noundef %2481, ptr noundef nonnull @.str.664, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2133 = icmp eq i32 %2487, 0
-  %2488 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2133, label %2493, label %2489
-
-2489:                                             ; preds = %2486
-  %2490 = tail call ptr @sqlite3_errmsg(ptr noundef %2488) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.665, ptr noundef %2490) #18
-  %2491 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2492 = tail call i32 @sqlite3_exec(ptr noundef %2491, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2493:                                             ; preds = %2486
-  %2494 = tail call i32 @sqlite3_exec(ptr noundef %2488, ptr noundef nonnull @.str.666, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2134 = icmp eq i32 %2494, 0
-  %2495 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2134, label %2500, label %2496
-
-2496:                                             ; preds = %2493
-  %2497 = tail call ptr @sqlite3_errmsg(ptr noundef %2495) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %2497) #18
-  %2498 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2499 = tail call i32 @sqlite3_exec(ptr noundef %2498, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2500:                                             ; preds = %2493
-  %2501 = tail call i32 @sqlite3_exec(ptr noundef %2495, ptr noundef nonnull @.str.668, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2135 = icmp eq i32 %2501, 0
-  %2502 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2135, label %2507, label %2503
-
-2503:                                             ; preds = %2500
-  %2504 = tail call ptr @sqlite3_errmsg(ptr noundef %2502) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.669, ptr noundef %2504) #18
-  %2505 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2506 = tail call i32 @sqlite3_exec(ptr noundef %2505, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2507:                                             ; preds = %2500
-  %2508 = tail call i32 @sqlite3_exec(ptr noundef %2502, ptr noundef nonnull @.str.670, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2136 = icmp eq i32 %2508, 0
-  %2509 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2136, label %2514, label %2510
-
-2510:                                             ; preds = %2507
-  %2511 = tail call ptr @sqlite3_errmsg(ptr noundef %2509) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.671, ptr noundef %2511) #18
-  %2512 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2513 = tail call i32 @sqlite3_exec(ptr noundef %2512, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2514:                                             ; preds = %2507
-  %2515 = tail call i32 @sqlite3_exec(ptr noundef %2509, ptr noundef nonnull @.str.672, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2137 = icmp eq i32 %2515, 0
-  %2516 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2137, label %2521, label %2517
-
-2517:                                             ; preds = %2514
-  %2518 = tail call ptr @sqlite3_errmsg(ptr noundef %2516) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.673, ptr noundef %2518) #18
-  %2519 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2520 = tail call i32 @sqlite3_exec(ptr noundef %2519, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2521:                                             ; preds = %2514
-  %2522 = tail call i32 @sqlite3_exec(ptr noundef %2516, ptr noundef nonnull @.str.674, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2138 = icmp eq i32 %2522, 0
-  %2523 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2138, label %2528, label %2524
-
-2524:                                             ; preds = %2521
-  %2525 = tail call ptr @sqlite3_errmsg(ptr noundef %2523) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.675, ptr noundef %2525) #18
-  %2526 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2527 = tail call i32 @sqlite3_exec(ptr noundef %2526, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2528:                                             ; preds = %2521
-  %2529 = tail call i32 @sqlite3_exec(ptr noundef %2523, ptr noundef nonnull @.str.676, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2139 = icmp eq i32 %2529, 0
-  %2530 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2139, label %2535, label %2531
-
-2531:                                             ; preds = %2528
-  %2532 = tail call ptr @sqlite3_errmsg(ptr noundef %2530) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.677, ptr noundef %2532) #18
-  %2533 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2534 = tail call i32 @sqlite3_exec(ptr noundef %2533, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2535:                                             ; preds = %2528
-  %2536 = tail call i32 @sqlite3_exec(ptr noundef %2530, ptr noundef nonnull @.str.678, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2140 = icmp eq i32 %2536, 0
-  %2537 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2140, label %2542, label %2538
-
-2538:                                             ; preds = %2535
-  %2539 = tail call ptr @sqlite3_errmsg(ptr noundef %2537) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.679, ptr noundef %2539) #18
-  %2540 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2541 = tail call i32 @sqlite3_exec(ptr noundef %2540, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2542:                                             ; preds = %2535
-  %2543 = tail call i32 @sqlite3_exec(ptr noundef %2537, ptr noundef nonnull @.str.680, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2141 = icmp eq i32 %2543, 0
-  %2544 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2141, label %2549, label %2545
-
-2545:                                             ; preds = %2542
-  %2546 = tail call ptr @sqlite3_errmsg(ptr noundef %2544) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.681, ptr noundef %2546) #18
-  %2547 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2548 = tail call i32 @sqlite3_exec(ptr noundef %2547, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2549:                                             ; preds = %2542
-  %2550 = tail call i32 @sqlite3_exec(ptr noundef %2544, ptr noundef nonnull @.str.682, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2142 = icmp eq i32 %2550, 0
-  %2551 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2142, label %2556, label %2552
-
-2552:                                             ; preds = %2549
-  %2553 = tail call ptr @sqlite3_errmsg(ptr noundef %2551) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.683, ptr noundef %2553) #18
-  %2554 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2555 = tail call i32 @sqlite3_exec(ptr noundef %2554, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2556:                                             ; preds = %2549
-  %2557 = tail call i32 @sqlite3_exec(ptr noundef %2551, ptr noundef nonnull @.str.684, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2143 = icmp eq i32 %2557, 0
-  %2558 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2143, label %2563, label %2559
-
-2559:                                             ; preds = %2556
-  %2560 = tail call ptr @sqlite3_errmsg(ptr noundef %2558) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.685, ptr noundef %2560) #18
-  %2561 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2562 = tail call i32 @sqlite3_exec(ptr noundef %2561, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2563:                                             ; preds = %2556
-  %2564 = tail call i32 @sqlite3_exec(ptr noundef %2558, ptr noundef nonnull @.str.686, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2144 = icmp eq i32 %2564, 0
-  %2565 = load ptr, ptr %2091, align 8, !tbaa !6
-  br i1 %.not2144, label %2570, label %2566
-
-2566:                                             ; preds = %2563
-  %2567 = tail call ptr @sqlite3_errmsg(ptr noundef %2565) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.687, ptr noundef %2567) #18
-  %2568 = load ptr, ptr %2091, align 8, !tbaa !6
-  %2569 = tail call i32 @sqlite3_exec(ptr noundef %2568, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2570:                                             ; preds = %2563
-  %2571 = tail call i32 @sqlite3_exec(ptr noundef %2565, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-2572:                                             ; preds = %2
-  %2573 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2574 = load ptr, ptr %2573, align 8, !tbaa !6
-  %2575 = tail call i32 @sqlite3_exec(ptr noundef %2574, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2576 = load ptr, ptr %2573, align 8, !tbaa !6
-  %2577 = tail call i32 @sqlite3_exec(ptr noundef %2576, ptr noundef nonnull @.str.688, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2075 = icmp eq i32 %2577, 0
-  %2578 = load ptr, ptr %2573, align 8, !tbaa !6
-  br i1 %.not2075, label %2583, label %2579
-
-2579:                                             ; preds = %2572
-  %2580 = tail call ptr @sqlite3_errmsg(ptr noundef %2578) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %2580) #18
-  %2581 = load ptr, ptr %2573, align 8, !tbaa !6
-  %2582 = tail call i32 @sqlite3_exec(ptr noundef %2581, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2583:                                             ; preds = %2572
-  %2584 = tail call i32 @sqlite3_exec(ptr noundef %2578, ptr noundef nonnull @.str.690, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2076 = icmp eq i32 %2584, 0
-  %2585 = load ptr, ptr %2573, align 8, !tbaa !6
-  br i1 %.not2076, label %2590, label %2586
-
-2586:                                             ; preds = %2583
-  %2587 = tail call ptr @sqlite3_errmsg(ptr noundef %2585) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.691, ptr noundef %2587) #18
-  %2588 = load ptr, ptr %2573, align 8, !tbaa !6
-  %2589 = tail call i32 @sqlite3_exec(ptr noundef %2588, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2590:                                             ; preds = %2583
-  %2591 = tail call i32 @sqlite3_exec(ptr noundef %2585, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-2592:                                             ; preds = %2
-  %2593 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2594 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2595 = tail call i32 @sqlite3_exec(ptr noundef %2594, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2596 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2597 = tail call i32 @sqlite3_exec(ptr noundef %2596, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2598 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2599 = tail call i32 @sqlite3_exec(ptr noundef %2598, ptr noundef nonnull @.str.693, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2059 = icmp eq i32 %2599, 0
-  %2600 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2059, label %2605, label %2601
-
-2601:                                             ; preds = %2592
-  %2602 = tail call ptr @sqlite3_errmsg(ptr noundef %2600) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2602) #18
-  %2603 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2604 = tail call i32 @sqlite3_exec(ptr noundef %2603, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2605:                                             ; preds = %2592
-  %2606 = tail call i32 @sqlite3_exec(ptr noundef %2600, ptr noundef nonnull @.str.694, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2060 = icmp eq i32 %2606, 0
-  %2607 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2060, label %2612, label %2608
-
-2608:                                             ; preds = %2605
-  %2609 = tail call ptr @sqlite3_errmsg(ptr noundef %2607) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.695, ptr noundef %2609) #18
-  %2610 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2611 = tail call i32 @sqlite3_exec(ptr noundef %2610, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2612:                                             ; preds = %2605
-  %2613 = call i32 @sqlite3_prepare_v2(ptr noundef %2607, ptr noundef nonnull @.str.696, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %.not2061 = icmp eq i32 %2613, 0
-  br i1 %.not2061, label %.preheader2391, label %2617
-
-.preheader2391:                                   ; preds = %2612
-  %2614 = load ptr, ptr %3, align 8, !tbaa !21
-  %2615 = call i32 @sqlite3_step(ptr noundef %2614) #18
-  %2616 = icmp eq i32 %2615, 100
-  br i1 %2616, label %.lr.ph2397, label %._crit_edge2398
-
-2617:                                             ; preds = %2612
-  %2618 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2619 = call ptr @sqlite3_errmsg(ptr noundef %2618) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.697, ptr noundef %2619) #18
-  %2620 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2621 = call i32 @sqlite3_exec(ptr noundef %2620, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-.lr.ph2397:                                       ; preds = %.preheader2391, %2662
+  br label %3738
+
+1765:                                             ; preds = %2
+  %1766 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1767 = load ptr, ptr %1766, align 8, !tbaa !6
+  %1768 = tail call i32 @sqlite3_exec(ptr noundef %1767, ptr noundef nonnull @.str.492, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2185 = icmp eq i32 %1768, 0
+  br i1 %.not2185, label %3738, label %1769
+
+1769:                                             ; preds = %1765
+  %1770 = load ptr, ptr %1766, align 8, !tbaa !6
+  %1771 = tail call ptr @sqlite3_errmsg(ptr noundef %1770) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.493, ptr noundef %1771) #18
+  %1772 = load ptr, ptr %1766, align 8, !tbaa !6
+  %1773 = tail call i32 @sqlite3_exec(ptr noundef %1772, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1774:                                             ; preds = %2
+  %1775 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1776 = load ptr, ptr %1775, align 8, !tbaa !6
+  %1777 = tail call i32 @sqlite3_exec(ptr noundef %1776, ptr noundef nonnull @.str.494, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2184 = icmp eq i32 %1777, 0
+  br i1 %.not2184, label %3738, label %1778
+
+1778:                                             ; preds = %1774
+  %1779 = load ptr, ptr %1775, align 8, !tbaa !6
+  %1780 = tail call ptr @sqlite3_errmsg(ptr noundef %1779) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.495, ptr noundef %1780) #18
+  %1781 = load ptr, ptr %1775, align 8, !tbaa !6
+  %1782 = tail call i32 @sqlite3_exec(ptr noundef %1781, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1783:                                             ; preds = %2
+  %1784 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1785 = load ptr, ptr %1784, align 8, !tbaa !6
+  %1786 = tail call i32 @sqlite3_exec(ptr noundef %1785, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1787 = load ptr, ptr %1784, align 8, !tbaa !6
+  %1788 = tail call i32 @sqlite3_exec(ptr noundef %1787, ptr noundef nonnull @.str.496, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2179 = icmp eq i32 %1788, 0
+  %1789 = load ptr, ptr %1784, align 8, !tbaa !6
+  br i1 %.not2179, label %1794, label %1790
+
+1790:                                             ; preds = %1783
+  %1791 = tail call ptr @sqlite3_errmsg(ptr noundef %1789) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.497, ptr noundef %1791) #18
+  %1792 = load ptr, ptr %1784, align 8, !tbaa !6
+  %1793 = tail call i32 @sqlite3_exec(ptr noundef %1792, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1794:                                             ; preds = %1783
+  %1795 = tail call i32 @sqlite3_exec(ptr noundef %1789, ptr noundef nonnull @.str.498, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2180 = icmp eq i32 %1795, 0
+  %1796 = load ptr, ptr %1784, align 8, !tbaa !6
+  br i1 %.not2180, label %1801, label %1797
+
+1797:                                             ; preds = %1794
+  %1798 = tail call ptr @sqlite3_errmsg(ptr noundef %1796) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.499, ptr noundef %1798) #18
+  %1799 = load ptr, ptr %1784, align 8, !tbaa !6
+  %1800 = tail call i32 @sqlite3_exec(ptr noundef %1799, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1801:                                             ; preds = %1794
+  %1802 = tail call i32 @sqlite3_exec(ptr noundef %1796, ptr noundef nonnull @.str.500, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2181 = icmp eq i32 %1802, 0
+  %1803 = load ptr, ptr %1784, align 8, !tbaa !6
+  br i1 %.not2181, label %1808, label %1804
+
+1804:                                             ; preds = %1801
+  %1805 = tail call ptr @sqlite3_errmsg(ptr noundef %1803) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.501, ptr noundef %1805) #18
+  %1806 = load ptr, ptr %1784, align 8, !tbaa !6
+  %1807 = tail call i32 @sqlite3_exec(ptr noundef %1806, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1808:                                             ; preds = %1801
+  %1809 = tail call i32 @sqlite3_exec(ptr noundef %1803, ptr noundef nonnull @.str.502, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2182 = icmp eq i32 %1809, 0
+  %1810 = load ptr, ptr %1784, align 8, !tbaa !6
+  br i1 %.not2182, label %1815, label %1811
+
+1811:                                             ; preds = %1808
+  %1812 = tail call ptr @sqlite3_errmsg(ptr noundef %1810) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.503, ptr noundef %1812) #18
+  %1813 = load ptr, ptr %1784, align 8, !tbaa !6
+  %1814 = tail call i32 @sqlite3_exec(ptr noundef %1813, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1815:                                             ; preds = %1808
+  %1816 = tail call i32 @sqlite3_exec(ptr noundef %1810, ptr noundef nonnull @.str.504, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2183 = icmp eq i32 %1816, 0
+  %1817 = load ptr, ptr %1784, align 8, !tbaa !6
+  br i1 %.not2183, label %1822, label %1818
+
+1818:                                             ; preds = %1815
+  %1819 = tail call ptr @sqlite3_errmsg(ptr noundef %1817) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.505, ptr noundef %1819) #18
+  %1820 = load ptr, ptr %1784, align 8, !tbaa !6
+  %1821 = tail call i32 @sqlite3_exec(ptr noundef %1820, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1822:                                             ; preds = %1815
+  %1823 = tail call i32 @sqlite3_exec(ptr noundef %1817, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+1824:                                             ; preds = %2
+  %1825 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1826 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1827 = tail call i32 @sqlite3_exec(ptr noundef %1826, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1828 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1829 = tail call i32 @sqlite3_exec(ptr noundef %1828, ptr noundef nonnull @.str.506, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2173 = icmp eq i32 %1829, 0
+  %1830 = load ptr, ptr %1825, align 8, !tbaa !6
+  br i1 %.not2173, label %1835, label %1831
+
+1831:                                             ; preds = %1824
+  %1832 = tail call ptr @sqlite3_errmsg(ptr noundef %1830) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.507, ptr noundef %1832) #18
+  %1833 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1834 = tail call i32 @sqlite3_exec(ptr noundef %1833, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1835:                                             ; preds = %1824
+  %1836 = tail call i32 @sqlite3_exec(ptr noundef %1830, ptr noundef nonnull @.str.508, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2174 = icmp eq i32 %1836, 0
+  %1837 = load ptr, ptr %1825, align 8, !tbaa !6
+  br i1 %.not2174, label %1842, label %1838
+
+1838:                                             ; preds = %1835
+  %1839 = tail call ptr @sqlite3_errmsg(ptr noundef %1837) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.509, ptr noundef %1839) #18
+  %1840 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1841 = tail call i32 @sqlite3_exec(ptr noundef %1840, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1842:                                             ; preds = %1835
+  %1843 = tail call i32 @sqlite3_exec(ptr noundef %1837, ptr noundef nonnull @.str.510, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2175 = icmp eq i32 %1843, 0
+  %1844 = load ptr, ptr %1825, align 8, !tbaa !6
+  br i1 %.not2175, label %1849, label %1845
+
+1845:                                             ; preds = %1842
+  %1846 = tail call ptr @sqlite3_errmsg(ptr noundef %1844) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.511, ptr noundef %1846) #18
+  %1847 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1848 = tail call i32 @sqlite3_exec(ptr noundef %1847, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1849:                                             ; preds = %1842
+  %1850 = tail call i32 @sqlite3_exec(ptr noundef %1844, ptr noundef nonnull @.str.512, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2176 = icmp eq i32 %1850, 0
+  %1851 = load ptr, ptr %1825, align 8, !tbaa !6
+  br i1 %.not2176, label %1856, label %1852
+
+1852:                                             ; preds = %1849
+  %1853 = tail call ptr @sqlite3_errmsg(ptr noundef %1851) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.513, ptr noundef %1853) #18
+  %1854 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1855 = tail call i32 @sqlite3_exec(ptr noundef %1854, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1856:                                             ; preds = %1849
+  %1857 = tail call i32 @sqlite3_exec(ptr noundef %1851, ptr noundef nonnull @.str.514, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2177 = icmp eq i32 %1857, 0
+  %1858 = load ptr, ptr %1825, align 8, !tbaa !6
+  br i1 %.not2177, label %1863, label %1859
+
+1859:                                             ; preds = %1856
+  %1860 = tail call ptr @sqlite3_errmsg(ptr noundef %1858) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.515, ptr noundef %1860) #18
+  %1861 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1862 = tail call i32 @sqlite3_exec(ptr noundef %1861, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1863:                                             ; preds = %1856
+  %1864 = tail call i32 @sqlite3_exec(ptr noundef %1858, ptr noundef nonnull @.str.516, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2178 = icmp eq i32 %1864, 0
+  %1865 = load ptr, ptr %1825, align 8, !tbaa !6
+  br i1 %.not2178, label %1870, label %1866
+
+1866:                                             ; preds = %1863
+  %1867 = tail call ptr @sqlite3_errmsg(ptr noundef %1865) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.517, ptr noundef %1867) #18
+  %1868 = load ptr, ptr %1825, align 8, !tbaa !6
+  %1869 = tail call i32 @sqlite3_exec(ptr noundef %1868, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1870:                                             ; preds = %1863
+  %1871 = tail call i32 @sqlite3_exec(ptr noundef %1865, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+1872:                                             ; preds = %2
+  %1873 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1874 = load ptr, ptr %1873, align 8, !tbaa !6
+  %1875 = tail call i32 @sqlite3_exec(ptr noundef %1874, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1876 = load ptr, ptr %1873, align 8, !tbaa !6
+  %1877 = tail call i32 @sqlite3_exec(ptr noundef %1876, ptr noundef nonnull @.str.518, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2171 = icmp eq i32 %1877, 0
+  %1878 = load ptr, ptr %1873, align 8, !tbaa !6
+  br i1 %.not2171, label %1883, label %1879
+
+1879:                                             ; preds = %1872
+  %1880 = tail call ptr @sqlite3_errmsg(ptr noundef %1878) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.519, ptr noundef %1880) #18
+  %1881 = load ptr, ptr %1873, align 8, !tbaa !6
+  %1882 = tail call i32 @sqlite3_exec(ptr noundef %1881, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1883:                                             ; preds = %1872
+  %1884 = tail call i32 @sqlite3_exec(ptr noundef %1878, ptr noundef nonnull @.str.520, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2172 = icmp eq i32 %1884, 0
+  %1885 = load ptr, ptr %1873, align 8, !tbaa !6
+  br i1 %.not2172, label %1890, label %1886
+
+1886:                                             ; preds = %1883
+  %1887 = tail call ptr @sqlite3_errmsg(ptr noundef %1885) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.521, ptr noundef %1887) #18
+  %1888 = load ptr, ptr %1873, align 8, !tbaa !6
+  %1889 = tail call i32 @sqlite3_exec(ptr noundef %1888, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1890:                                             ; preds = %1883
+  %1891 = tail call i32 @sqlite3_exec(ptr noundef %1885, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+1892:                                             ; preds = %2
+  %1893 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1894 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1895 = tail call i32 @sqlite3_exec(ptr noundef %1894, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1896 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1897 = tail call i32 @sqlite3_exec(ptr noundef %1896, ptr noundef nonnull @.str.522, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2159 = icmp eq i32 %1897, 0
+  %1898 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2159, label %1903, label %1899
+
+1899:                                             ; preds = %1892
+  %1900 = tail call ptr @sqlite3_errmsg(ptr noundef %1898) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.523, ptr noundef %1900) #18
+  %1901 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1902 = tail call i32 @sqlite3_exec(ptr noundef %1901, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1903:                                             ; preds = %1892
+  %1904 = tail call i32 @sqlite3_exec(ptr noundef %1898, ptr noundef nonnull @.str.524, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2160 = icmp eq i32 %1904, 0
+  %1905 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2160, label %1910, label %1906
+
+1906:                                             ; preds = %1903
+  %1907 = tail call ptr @sqlite3_errmsg(ptr noundef %1905) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.525, ptr noundef %1907) #18
+  %1908 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1909 = tail call i32 @sqlite3_exec(ptr noundef %1908, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1910:                                             ; preds = %1903
+  %1911 = tail call i32 @sqlite3_exec(ptr noundef %1905, ptr noundef nonnull @.str.526, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2161 = icmp eq i32 %1911, 0
+  %1912 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2161, label %1917, label %1913
+
+1913:                                             ; preds = %1910
+  %1914 = tail call ptr @sqlite3_errmsg(ptr noundef %1912) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.527, ptr noundef %1914) #18
+  %1915 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1916 = tail call i32 @sqlite3_exec(ptr noundef %1915, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1917:                                             ; preds = %1910
+  %1918 = tail call i32 @sqlite3_exec(ptr noundef %1912, ptr noundef nonnull @.str.528, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2162 = icmp eq i32 %1918, 0
+  %1919 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2162, label %1924, label %1920
+
+1920:                                             ; preds = %1917
+  %1921 = tail call ptr @sqlite3_errmsg(ptr noundef %1919) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.529, ptr noundef %1921) #18
+  %1922 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1923 = tail call i32 @sqlite3_exec(ptr noundef %1922, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1924:                                             ; preds = %1917
+  %1925 = tail call i32 @sqlite3_exec(ptr noundef %1919, ptr noundef nonnull @.str.530, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2163 = icmp eq i32 %1925, 0
+  %1926 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2163, label %1931, label %1927
+
+1927:                                             ; preds = %1924
+  %1928 = tail call ptr @sqlite3_errmsg(ptr noundef %1926) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.531, ptr noundef %1928) #18
+  %1929 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1930 = tail call i32 @sqlite3_exec(ptr noundef %1929, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1931:                                             ; preds = %1924
+  %1932 = tail call i32 @sqlite3_exec(ptr noundef %1926, ptr noundef nonnull @.str.532, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2164 = icmp eq i32 %1932, 0
+  %1933 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2164, label %1938, label %1934
+
+1934:                                             ; preds = %1931
+  %1935 = tail call ptr @sqlite3_errmsg(ptr noundef %1933) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.533, ptr noundef %1935) #18
+  %1936 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1937 = tail call i32 @sqlite3_exec(ptr noundef %1936, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1938:                                             ; preds = %1931
+  %1939 = tail call i32 @sqlite3_exec(ptr noundef %1933, ptr noundef nonnull @.str.534, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2165 = icmp eq i32 %1939, 0
+  %1940 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2165, label %1945, label %1941
+
+1941:                                             ; preds = %1938
+  %1942 = tail call ptr @sqlite3_errmsg(ptr noundef %1940) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %1942) #18
+  %1943 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1944 = tail call i32 @sqlite3_exec(ptr noundef %1943, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1945:                                             ; preds = %1938
+  %1946 = tail call i32 @sqlite3_exec(ptr noundef %1940, ptr noundef nonnull @.str.535, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2166 = icmp eq i32 %1946, 0
+  %1947 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2166, label %1952, label %1948
+
+1948:                                             ; preds = %1945
+  %1949 = tail call ptr @sqlite3_errmsg(ptr noundef %1947) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.472, ptr noundef %1949) #18
+  %1950 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1951 = tail call i32 @sqlite3_exec(ptr noundef %1950, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1952:                                             ; preds = %1945
+  %1953 = tail call i32 @sqlite3_exec(ptr noundef %1947, ptr noundef nonnull @.str.536, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2167 = icmp eq i32 %1953, 0
+  %1954 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2167, label %1959, label %1955
+
+1955:                                             ; preds = %1952
+  %1956 = tail call ptr @sqlite3_errmsg(ptr noundef %1954) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.537, ptr noundef %1956) #18
+  %1957 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1958 = tail call i32 @sqlite3_exec(ptr noundef %1957, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1959:                                             ; preds = %1952
+  %1960 = tail call i32 @sqlite3_exec(ptr noundef %1954, ptr noundef nonnull @.str.538, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2168 = icmp eq i32 %1960, 0
+  %1961 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2168, label %1966, label %1962
+
+1962:                                             ; preds = %1959
+  %1963 = tail call ptr @sqlite3_errmsg(ptr noundef %1961) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.539, ptr noundef %1963) #18
+  %1964 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1965 = tail call i32 @sqlite3_exec(ptr noundef %1964, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1966:                                             ; preds = %1959
+  %1967 = tail call i32 @sqlite3_exec(ptr noundef %1961, ptr noundef nonnull @.str.265, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2169 = icmp eq i32 %1967, 0
+  %1968 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2169, label %1973, label %1969
+
+1969:                                             ; preds = %1966
+  %1970 = tail call ptr @sqlite3_errmsg(ptr noundef %1968) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.540, ptr noundef %1970) #18
+  %1971 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1972 = tail call i32 @sqlite3_exec(ptr noundef %1971, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1973:                                             ; preds = %1966
+  %1974 = tail call i32 @sqlite3_exec(ptr noundef %1968, ptr noundef nonnull @.str.385, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2170 = icmp eq i32 %1974, 0
+  %1975 = load ptr, ptr %1893, align 8, !tbaa !6
+  br i1 %.not2170, label %1980, label %1976
+
+1976:                                             ; preds = %1973
+  %1977 = tail call ptr @sqlite3_errmsg(ptr noundef %1975) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.541, ptr noundef %1977) #18
+  %1978 = load ptr, ptr %1893, align 8, !tbaa !6
+  %1979 = tail call i32 @sqlite3_exec(ptr noundef %1978, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1980:                                             ; preds = %1973
+  %1981 = tail call i32 @sqlite3_exec(ptr noundef %1975, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+1982:                                             ; preds = %2
+  %1983 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %1984 = load ptr, ptr %1983, align 8, !tbaa !6
+  %1985 = tail call i32 @sqlite3_exec(ptr noundef %1984, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %1986 = load ptr, ptr %1983, align 8, !tbaa !6
+  %1987 = tail call i32 @sqlite3_exec(ptr noundef %1986, ptr noundef nonnull @.str.542, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2148 = icmp eq i32 %1987, 0
+  %1988 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2148, label %1993, label %1989
+
+1989:                                             ; preds = %1982
+  %1990 = tail call ptr @sqlite3_errmsg(ptr noundef %1988) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.543, ptr noundef %1990) #18
+  %1991 = load ptr, ptr %1983, align 8, !tbaa !6
+  %1992 = tail call i32 @sqlite3_exec(ptr noundef %1991, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+1993:                                             ; preds = %1982
+  %1994 = tail call i32 @sqlite3_exec(ptr noundef %1988, ptr noundef nonnull @.str.544, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2149 = icmp eq i32 %1994, 0
+  %1995 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2149, label %2000, label %1996
+
+1996:                                             ; preds = %1993
+  %1997 = tail call ptr @sqlite3_errmsg(ptr noundef %1995) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %1997) #18
+  %1998 = load ptr, ptr %1983, align 8, !tbaa !6
+  %1999 = tail call i32 @sqlite3_exec(ptr noundef %1998, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2000:                                             ; preds = %1993
+  %2001 = tail call i32 @sqlite3_exec(ptr noundef %1995, ptr noundef nonnull @.str.546, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2150 = icmp eq i32 %2001, 0
+  %2002 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2150, label %2007, label %2003
+
+2003:                                             ; preds = %2000
+  %2004 = tail call ptr @sqlite3_errmsg(ptr noundef %2002) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.547, ptr noundef %2004) #18
+  %2005 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2006 = tail call i32 @sqlite3_exec(ptr noundef %2005, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2007:                                             ; preds = %2000
+  %2008 = tail call i32 @sqlite3_exec(ptr noundef %2002, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2151 = icmp eq i32 %2008, 0
+  %2009 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2151, label %2014, label %2010
+
+2010:                                             ; preds = %2007
+  %2011 = tail call ptr @sqlite3_errmsg(ptr noundef %2009) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2011) #18
+  %2012 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2013 = tail call i32 @sqlite3_exec(ptr noundef %2012, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2014:                                             ; preds = %2007
+  %2015 = tail call i32 @sqlite3_exec(ptr noundef %2009, ptr noundef nonnull @.str.550, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2152 = icmp eq i32 %2015, 0
+  %2016 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2152, label %2021, label %2017
+
+2017:                                             ; preds = %2014
+  %2018 = tail call ptr @sqlite3_errmsg(ptr noundef %2016) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.551, ptr noundef %2018) #18
+  %2019 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2020 = tail call i32 @sqlite3_exec(ptr noundef %2019, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2021:                                             ; preds = %2014
+  %2022 = tail call i32 @sqlite3_exec(ptr noundef %2016, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2153 = icmp eq i32 %2022, 0
+  %2023 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2153, label %2028, label %2024
+
+2024:                                             ; preds = %2021
+  %2025 = tail call ptr @sqlite3_errmsg(ptr noundef %2023) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2025) #18
+  %2026 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2027 = tail call i32 @sqlite3_exec(ptr noundef %2026, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2028:                                             ; preds = %2021
+  %2029 = tail call i32 @sqlite3_exec(ptr noundef %2023, ptr noundef nonnull @.str.554, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2154 = icmp eq i32 %2029, 0
+  %2030 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2154, label %2035, label %2031
+
+2031:                                             ; preds = %2028
+  %2032 = tail call ptr @sqlite3_errmsg(ptr noundef %2030) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.555, ptr noundef %2032) #18
+  %2033 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2034 = tail call i32 @sqlite3_exec(ptr noundef %2033, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2035:                                             ; preds = %2028
+  %2036 = tail call i32 @sqlite3_exec(ptr noundef %2030, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2155 = icmp eq i32 %2036, 0
+  %2037 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2155, label %2042, label %2038
+
+2038:                                             ; preds = %2035
+  %2039 = tail call ptr @sqlite3_errmsg(ptr noundef %2037) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2039) #18
+  %2040 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2041 = tail call i32 @sqlite3_exec(ptr noundef %2040, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2042:                                             ; preds = %2035
+  %2043 = tail call i32 @sqlite3_exec(ptr noundef %2037, ptr noundef nonnull @.str.558, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2156 = icmp eq i32 %2043, 0
+  %2044 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2156, label %2049, label %2045
+
+2045:                                             ; preds = %2042
+  %2046 = tail call ptr @sqlite3_errmsg(ptr noundef %2044) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.559, ptr noundef %2046) #18
+  %2047 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2048 = tail call i32 @sqlite3_exec(ptr noundef %2047, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2049:                                             ; preds = %2042
+  %2050 = tail call i32 @sqlite3_exec(ptr noundef %2044, ptr noundef nonnull @.str.560, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2157 = icmp eq i32 %2050, 0
+  %2051 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2157, label %2056, label %2052
+
+2052:                                             ; preds = %2049
+  %2053 = tail call ptr @sqlite3_errmsg(ptr noundef %2051) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.561, ptr noundef %2053) #18
+  %2054 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2055 = tail call i32 @sqlite3_exec(ptr noundef %2054, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2056:                                             ; preds = %2049
+  %2057 = tail call i32 @sqlite3_exec(ptr noundef %2051, ptr noundef nonnull @.str.562, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2158 = icmp eq i32 %2057, 0
+  %2058 = load ptr, ptr %1983, align 8, !tbaa !6
+  br i1 %.not2158, label %2063, label %2059
+
+2059:                                             ; preds = %2056
+  %2060 = tail call ptr @sqlite3_errmsg(ptr noundef %2058) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.563, ptr noundef %2060) #18
+  %2061 = load ptr, ptr %1983, align 8, !tbaa !6
+  %2062 = tail call i32 @sqlite3_exec(ptr noundef %2061, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2063:                                             ; preds = %2056
+  %2064 = tail call i32 @sqlite3_exec(ptr noundef %2058, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+2065:                                             ; preds = %2
+  %2066 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2067 = load ptr, ptr %2066, align 8, !tbaa !6
+  %2068 = tail call i32 @sqlite3_exec(ptr noundef %2067, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2069 = load ptr, ptr %2066, align 8, !tbaa !6
+  %2070 = tail call i32 @sqlite3_exec(ptr noundef %2069, ptr noundef nonnull @.str.564, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2145 = icmp eq i32 %2070, 0
+  %2071 = load ptr, ptr %2066, align 8, !tbaa !6
+  br i1 %.not2145, label %2076, label %2072
+
+2072:                                             ; preds = %2065
+  %2073 = tail call ptr @sqlite3_errmsg(ptr noundef %2071) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.565, ptr noundef %2073) #18
+  %2074 = load ptr, ptr %2066, align 8, !tbaa !6
+  %2075 = tail call i32 @sqlite3_exec(ptr noundef %2074, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2076:                                             ; preds = %2065
+  %2077 = tail call i32 @sqlite3_exec(ptr noundef %2071, ptr noundef nonnull @.str.566, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2146 = icmp eq i32 %2077, 0
+  %2078 = load ptr, ptr %2066, align 8, !tbaa !6
+  br i1 %.not2146, label %2083, label %2079
+
+2079:                                             ; preds = %2076
+  %2080 = tail call ptr @sqlite3_errmsg(ptr noundef %2078) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.567, ptr noundef %2080) #18
+  %2081 = load ptr, ptr %2066, align 8, !tbaa !6
+  %2082 = tail call i32 @sqlite3_exec(ptr noundef %2081, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2083:                                             ; preds = %2076
+  %2084 = tail call i32 @sqlite3_exec(ptr noundef %2078, ptr noundef nonnull @.str.568, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2147 = icmp eq i32 %2084, 0
+  %2085 = load ptr, ptr %2066, align 8, !tbaa !6
+  br i1 %.not2147, label %2090, label %2086
+
+2086:                                             ; preds = %2083
+  %2087 = tail call ptr @sqlite3_errmsg(ptr noundef %2085) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.569, ptr noundef %2087) #18
+  %2088 = load ptr, ptr %2066, align 8, !tbaa !6
+  %2089 = tail call i32 @sqlite3_exec(ptr noundef %2088, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2090:                                             ; preds = %2083
+  %2091 = tail call i32 @sqlite3_exec(ptr noundef %2085, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+2092:                                             ; preds = %2
+  %2093 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2094 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2095 = tail call i32 @sqlite3_exec(ptr noundef %2094, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2096 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2097 = tail call i32 @sqlite3_exec(ptr noundef %2096, ptr noundef nonnull @.str.570, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2077 = icmp eq i32 %2097, 0
+  %2098 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2077, label %2103, label %2099
+
+2099:                                             ; preds = %2092
+  %2100 = tail call ptr @sqlite3_errmsg(ptr noundef %2098) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %2100) #18
+  %2101 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2102 = tail call i32 @sqlite3_exec(ptr noundef %2101, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2103:                                             ; preds = %2092
+  %2104 = tail call i32 @sqlite3_exec(ptr noundef %2098, ptr noundef nonnull @.str.572, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2078 = icmp eq i32 %2104, 0
+  %2105 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2078, label %2110, label %2106
+
+2106:                                             ; preds = %2103
+  %2107 = tail call ptr @sqlite3_errmsg(ptr noundef %2105) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2107) #18
+  %2108 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2109 = tail call i32 @sqlite3_exec(ptr noundef %2108, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2110:                                             ; preds = %2103
+  %2111 = tail call i32 @sqlite3_exec(ptr noundef %2105, ptr noundef nonnull @.str.574, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2079 = icmp eq i32 %2111, 0
+  %2112 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2079, label %2117, label %2113
+
+2113:                                             ; preds = %2110
+  %2114 = tail call ptr @sqlite3_errmsg(ptr noundef %2112) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.575, ptr noundef %2114) #18
+  %2115 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2116 = tail call i32 @sqlite3_exec(ptr noundef %2115, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2117:                                             ; preds = %2110
+  %2118 = tail call i32 @sqlite3_exec(ptr noundef %2112, ptr noundef nonnull @.str.576, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2080 = icmp eq i32 %2118, 0
+  %2119 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2080, label %2124, label %2120
+
+2120:                                             ; preds = %2117
+  %2121 = tail call ptr @sqlite3_errmsg(ptr noundef %2119) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.577, ptr noundef %2121) #18
+  %2122 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2123 = tail call i32 @sqlite3_exec(ptr noundef %2122, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2124:                                             ; preds = %2117
+  %2125 = tail call i32 @sqlite3_exec(ptr noundef %2119, ptr noundef nonnull @.str.578, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2081 = icmp eq i32 %2125, 0
+  %2126 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2081, label %2131, label %2127
+
+2127:                                             ; preds = %2124
+  %2128 = tail call ptr @sqlite3_errmsg(ptr noundef %2126) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.579, ptr noundef %2128) #18
+  %2129 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2130 = tail call i32 @sqlite3_exec(ptr noundef %2129, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2131:                                             ; preds = %2124
+  %2132 = tail call i32 @sqlite3_exec(ptr noundef %2126, ptr noundef nonnull @.str.580, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2082 = icmp eq i32 %2132, 0
+  %2133 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2082, label %2138, label %2134
+
+2134:                                             ; preds = %2131
+  %2135 = tail call ptr @sqlite3_errmsg(ptr noundef %2133) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.581, ptr noundef %2135) #18
+  %2136 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2137 = tail call i32 @sqlite3_exec(ptr noundef %2136, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2138:                                             ; preds = %2131
+  %2139 = tail call i32 @sqlite3_exec(ptr noundef %2133, ptr noundef nonnull @.str.582, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2083 = icmp eq i32 %2139, 0
+  %2140 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2083, label %2145, label %2141
+
+2141:                                             ; preds = %2138
+  %2142 = tail call ptr @sqlite3_errmsg(ptr noundef %2140) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2142) #18
+  %2143 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2144 = tail call i32 @sqlite3_exec(ptr noundef %2143, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2145:                                             ; preds = %2138
+  %2146 = tail call i32 @sqlite3_exec(ptr noundef %2140, ptr noundef nonnull @.str.546, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2084 = icmp eq i32 %2146, 0
+  %2147 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2084, label %2152, label %2148
+
+2148:                                             ; preds = %2145
+  %2149 = tail call ptr @sqlite3_errmsg(ptr noundef %2147) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.547, ptr noundef %2149) #18
+  %2150 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2151 = tail call i32 @sqlite3_exec(ptr noundef %2150, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2152:                                             ; preds = %2145
+  %2153 = tail call i32 @sqlite3_exec(ptr noundef %2147, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2085 = icmp eq i32 %2153, 0
+  %2154 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2085, label %2159, label %2155
+
+2155:                                             ; preds = %2152
+  %2156 = tail call ptr @sqlite3_errmsg(ptr noundef %2154) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2156) #18
+  %2157 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2158 = tail call i32 @sqlite3_exec(ptr noundef %2157, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2159:                                             ; preds = %2152
+  %2160 = tail call i32 @sqlite3_exec(ptr noundef %2154, ptr noundef nonnull @.str.550, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2086 = icmp eq i32 %2160, 0
+  %2161 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2086, label %2166, label %2162
+
+2162:                                             ; preds = %2159
+  %2163 = tail call ptr @sqlite3_errmsg(ptr noundef %2161) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.584, ptr noundef %2163) #18
+  %2164 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2165 = tail call i32 @sqlite3_exec(ptr noundef %2164, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2166:                                             ; preds = %2159
+  %2167 = tail call i32 @sqlite3_exec(ptr noundef %2161, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2087 = icmp eq i32 %2167, 0
+  %2168 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2087, label %2173, label %2169
+
+2169:                                             ; preds = %2166
+  %2170 = tail call ptr @sqlite3_errmsg(ptr noundef %2168) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2170) #18
+  %2171 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2172 = tail call i32 @sqlite3_exec(ptr noundef %2171, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2173:                                             ; preds = %2166
+  %2174 = tail call i32 @sqlite3_exec(ptr noundef %2168, ptr noundef nonnull @.str.554, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2088 = icmp eq i32 %2174, 0
+  %2175 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2088, label %2180, label %2176
+
+2176:                                             ; preds = %2173
+  %2177 = tail call ptr @sqlite3_errmsg(ptr noundef %2175) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.555, ptr noundef %2177) #18
+  %2178 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2179 = tail call i32 @sqlite3_exec(ptr noundef %2178, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2180:                                             ; preds = %2173
+  %2181 = tail call i32 @sqlite3_exec(ptr noundef %2175, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2089 = icmp eq i32 %2181, 0
+  %2182 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2089, label %2187, label %2183
+
+2183:                                             ; preds = %2180
+  %2184 = tail call ptr @sqlite3_errmsg(ptr noundef %2182) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2184) #18
+  %2185 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2186 = tail call i32 @sqlite3_exec(ptr noundef %2185, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2187:                                             ; preds = %2180
+  %2188 = tail call i32 @sqlite3_exec(ptr noundef %2182, ptr noundef nonnull @.str.585, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2090 = icmp eq i32 %2188, 0
+  %2189 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2090, label %2194, label %2190
+
+2190:                                             ; preds = %2187
+  %2191 = tail call ptr @sqlite3_errmsg(ptr noundef %2189) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.586, ptr noundef %2191) #18
+  %2192 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2193 = tail call i32 @sqlite3_exec(ptr noundef %2192, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2194:                                             ; preds = %2187
+  %2195 = tail call i32 @sqlite3_exec(ptr noundef %2189, ptr noundef nonnull @.str.587, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2091 = icmp eq i32 %2195, 0
+  %2196 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2091, label %2201, label %2197
+
+2197:                                             ; preds = %2194
+  %2198 = tail call ptr @sqlite3_errmsg(ptr noundef %2196) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %2198) #18
+  %2199 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2200 = tail call i32 @sqlite3_exec(ptr noundef %2199, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2201:                                             ; preds = %2194
+  %2202 = tail call i32 @sqlite3_exec(ptr noundef %2196, ptr noundef nonnull @.str.589, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2092 = icmp eq i32 %2202, 0
+  %2203 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2092, label %2208, label %2204
+
+2204:                                             ; preds = %2201
+  %2205 = tail call ptr @sqlite3_errmsg(ptr noundef %2203) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %2205) #18
+  %2206 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2207 = tail call i32 @sqlite3_exec(ptr noundef %2206, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2208:                                             ; preds = %2201
+  %2209 = tail call i32 @sqlite3_exec(ptr noundef %2203, ptr noundef nonnull @.str.591, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2093 = icmp eq i32 %2209, 0
+  %2210 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2093, label %2215, label %2211
+
+2211:                                             ; preds = %2208
+  %2212 = tail call ptr @sqlite3_errmsg(ptr noundef %2210) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.592, ptr noundef %2212) #18
+  %2213 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2214 = tail call i32 @sqlite3_exec(ptr noundef %2213, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2215:                                             ; preds = %2208
+  %2216 = tail call i32 @sqlite3_exec(ptr noundef %2210, ptr noundef nonnull @.str.593, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2094 = icmp eq i32 %2216, 0
+  %2217 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2094, label %2222, label %2218
+
+2218:                                             ; preds = %2215
+  %2219 = tail call ptr @sqlite3_errmsg(ptr noundef %2217) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.594, ptr noundef %2219) #18
+  %2220 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2221 = tail call i32 @sqlite3_exec(ptr noundef %2220, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2222:                                             ; preds = %2215
+  %2223 = tail call i32 @sqlite3_exec(ptr noundef %2217, ptr noundef nonnull @.str.595, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2095 = icmp eq i32 %2223, 0
+  %2224 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2095, label %2229, label %2225
+
+2225:                                             ; preds = %2222
+  %2226 = tail call ptr @sqlite3_errmsg(ptr noundef %2224) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.596, ptr noundef %2226) #18
+  %2227 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2228 = tail call i32 @sqlite3_exec(ptr noundef %2227, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2229:                                             ; preds = %2222
+  %2230 = tail call i32 @sqlite3_exec(ptr noundef %2224, ptr noundef nonnull @.str.597, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2096 = icmp eq i32 %2230, 0
+  %2231 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2096, label %2236, label %2232
+
+2232:                                             ; preds = %2229
+  %2233 = tail call ptr @sqlite3_errmsg(ptr noundef %2231) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.598, ptr noundef %2233) #18
+  %2234 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2235 = tail call i32 @sqlite3_exec(ptr noundef %2234, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2236:                                             ; preds = %2229
+  %2237 = tail call i32 @sqlite3_exec(ptr noundef %2231, ptr noundef nonnull @.str.542, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2097 = icmp eq i32 %2237, 0
+  %2238 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2097, label %2243, label %2239
+
+2239:                                             ; preds = %2236
+  %2240 = tail call ptr @sqlite3_errmsg(ptr noundef %2238) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.543, ptr noundef %2240) #18
+  %2241 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2242 = tail call i32 @sqlite3_exec(ptr noundef %2241, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2243:                                             ; preds = %2236
+  %2244 = tail call i32 @sqlite3_exec(ptr noundef %2238, ptr noundef nonnull @.str.599, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2098 = icmp eq i32 %2244, 0
+  %2245 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2098, label %2250, label %2246
+
+2246:                                             ; preds = %2243
+  %2247 = tail call ptr @sqlite3_errmsg(ptr noundef %2245) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %2247) #18
+  %2248 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2249 = tail call i32 @sqlite3_exec(ptr noundef %2248, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2250:                                             ; preds = %2243
+  %2251 = tail call i32 @sqlite3_exec(ptr noundef %2245, ptr noundef nonnull @.str.600, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2099 = icmp eq i32 %2251, 0
+  %2252 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2099, label %2257, label %2253
+
+2253:                                             ; preds = %2250
+  %2254 = tail call ptr @sqlite3_errmsg(ptr noundef %2252) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.545, ptr noundef %2254) #18
+  %2255 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2256 = tail call i32 @sqlite3_exec(ptr noundef %2255, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2257:                                             ; preds = %2250
+  %2258 = tail call i32 @sqlite3_exec(ptr noundef %2252, ptr noundef nonnull @.str.601, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2100 = icmp eq i32 %2258, 0
+  %2259 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2100, label %2264, label %2260
+
+2260:                                             ; preds = %2257
+  %2261 = tail call ptr @sqlite3_errmsg(ptr noundef %2259) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.602, ptr noundef %2261) #18
+  %2262 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2263 = tail call i32 @sqlite3_exec(ptr noundef %2262, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2264:                                             ; preds = %2257
+  %2265 = tail call i32 @sqlite3_exec(ptr noundef %2259, ptr noundef nonnull @.str.603, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2101 = icmp eq i32 %2265, 0
+  %2266 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2101, label %2271, label %2267
+
+2267:                                             ; preds = %2264
+  %2268 = tail call ptr @sqlite3_errmsg(ptr noundef %2266) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.604, ptr noundef %2268) #18
+  %2269 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2270 = tail call i32 @sqlite3_exec(ptr noundef %2269, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2271:                                             ; preds = %2264
+  %2272 = tail call i32 @sqlite3_exec(ptr noundef %2266, ptr noundef nonnull @.str.605, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2102 = icmp eq i32 %2272, 0
+  %2273 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2102, label %2278, label %2274
+
+2274:                                             ; preds = %2271
+  %2275 = tail call ptr @sqlite3_errmsg(ptr noundef %2273) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.606, ptr noundef %2275) #18
+  %2276 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2277 = tail call i32 @sqlite3_exec(ptr noundef %2276, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2278:                                             ; preds = %2271
+  %2279 = tail call i32 @sqlite3_exec(ptr noundef %2273, ptr noundef nonnull @.str.607, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2103 = icmp eq i32 %2279, 0
+  %2280 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2103, label %2285, label %2281
+
+2281:                                             ; preds = %2278
+  %2282 = tail call ptr @sqlite3_errmsg(ptr noundef %2280) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.608, ptr noundef %2282) #18
+  %2283 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2284 = tail call i32 @sqlite3_exec(ptr noundef %2283, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2285:                                             ; preds = %2278
+  %2286 = tail call i32 @sqlite3_exec(ptr noundef %2280, ptr noundef nonnull @.str.609, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2104 = icmp eq i32 %2286, 0
+  %2287 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2104, label %2292, label %2288
+
+2288:                                             ; preds = %2285
+  %2289 = tail call ptr @sqlite3_errmsg(ptr noundef %2287) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.610, ptr noundef %2289) #18
+  %2290 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2291 = tail call i32 @sqlite3_exec(ptr noundef %2290, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2292:                                             ; preds = %2285
+  %2293 = tail call i32 @sqlite3_exec(ptr noundef %2287, ptr noundef nonnull @.str.611, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2105 = icmp eq i32 %2293, 0
+  %2294 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2105, label %2299, label %2295
+
+2295:                                             ; preds = %2292
+  %2296 = tail call ptr @sqlite3_errmsg(ptr noundef %2294) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.612, ptr noundef %2296) #18
+  %2297 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2298 = tail call i32 @sqlite3_exec(ptr noundef %2297, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2299:                                             ; preds = %2292
+  %2300 = tail call i32 @sqlite3_exec(ptr noundef %2294, ptr noundef nonnull @.str.613, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2106 = icmp eq i32 %2300, 0
+  %2301 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2106, label %2306, label %2302
+
+2302:                                             ; preds = %2299
+  %2303 = tail call ptr @sqlite3_errmsg(ptr noundef %2301) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.614, ptr noundef %2303) #18
+  %2304 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2305 = tail call i32 @sqlite3_exec(ptr noundef %2304, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2306:                                             ; preds = %2299
+  %2307 = tail call i32 @sqlite3_exec(ptr noundef %2301, ptr noundef nonnull @.str.615, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2107 = icmp eq i32 %2307, 0
+  %2308 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2107, label %2313, label %2309
+
+2309:                                             ; preds = %2306
+  %2310 = tail call ptr @sqlite3_errmsg(ptr noundef %2308) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.616, ptr noundef %2310) #18
+  %2311 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2312 = tail call i32 @sqlite3_exec(ptr noundef %2311, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2313:                                             ; preds = %2306
+  %2314 = tail call i32 @sqlite3_exec(ptr noundef %2308, ptr noundef nonnull @.str.617, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2108 = icmp eq i32 %2314, 0
+  %2315 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2108, label %2320, label %2316
+
+2316:                                             ; preds = %2313
+  %2317 = tail call ptr @sqlite3_errmsg(ptr noundef %2315) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.618, ptr noundef %2317) #18
+  %2318 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2319 = tail call i32 @sqlite3_exec(ptr noundef %2318, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2320:                                             ; preds = %2313
+  %2321 = tail call i32 @sqlite3_exec(ptr noundef %2315, ptr noundef nonnull @.str.619, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2109 = icmp eq i32 %2321, 0
+  %2322 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2109, label %2327, label %2323
+
+2323:                                             ; preds = %2320
+  %2324 = tail call ptr @sqlite3_errmsg(ptr noundef %2322) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.620, ptr noundef %2324) #18
+  %2325 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2326 = tail call i32 @sqlite3_exec(ptr noundef %2325, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2327:                                             ; preds = %2320
+  %2328 = tail call i32 @sqlite3_exec(ptr noundef %2322, ptr noundef nonnull @.str.621, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2110 = icmp eq i32 %2328, 0
+  %2329 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2110, label %2334, label %2330
+
+2330:                                             ; preds = %2327
+  %2331 = tail call ptr @sqlite3_errmsg(ptr noundef %2329) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.622, ptr noundef %2331) #18
+  %2332 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2333 = tail call i32 @sqlite3_exec(ptr noundef %2332, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2334:                                             ; preds = %2327
+  %2335 = tail call i32 @sqlite3_exec(ptr noundef %2329, ptr noundef nonnull @.str.623, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2111 = icmp eq i32 %2335, 0
+  %2336 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2111, label %2341, label %2337
+
+2337:                                             ; preds = %2334
+  %2338 = tail call ptr @sqlite3_errmsg(ptr noundef %2336) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.624, ptr noundef %2338) #18
+  %2339 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2340 = tail call i32 @sqlite3_exec(ptr noundef %2339, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2341:                                             ; preds = %2334
+  %2342 = tail call i32 @sqlite3_exec(ptr noundef %2336, ptr noundef nonnull @.str.625, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2112 = icmp eq i32 %2342, 0
+  %2343 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2112, label %2348, label %2344
+
+2344:                                             ; preds = %2341
+  %2345 = tail call ptr @sqlite3_errmsg(ptr noundef %2343) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.626, ptr noundef %2345) #18
+  %2346 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2347 = tail call i32 @sqlite3_exec(ptr noundef %2346, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2348:                                             ; preds = %2341
+  %2349 = tail call i32 @sqlite3_exec(ptr noundef %2343, ptr noundef nonnull @.str.627, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2113 = icmp eq i32 %2349, 0
+  %2350 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2113, label %2355, label %2351
+
+2351:                                             ; preds = %2348
+  %2352 = tail call ptr @sqlite3_errmsg(ptr noundef %2350) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.628, ptr noundef %2352) #18
+  %2353 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2354 = tail call i32 @sqlite3_exec(ptr noundef %2353, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2355:                                             ; preds = %2348
+  %2356 = tail call i32 @sqlite3_exec(ptr noundef %2350, ptr noundef nonnull @.str.629, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2114 = icmp eq i32 %2356, 0
+  %2357 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2114, label %2362, label %2358
+
+2358:                                             ; preds = %2355
+  %2359 = tail call ptr @sqlite3_errmsg(ptr noundef %2357) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.630, ptr noundef %2359) #18
+  %2360 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2361 = tail call i32 @sqlite3_exec(ptr noundef %2360, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2362:                                             ; preds = %2355
+  %2363 = tail call i32 @sqlite3_exec(ptr noundef %2357, ptr noundef nonnull @.str.631, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2115 = icmp eq i32 %2363, 0
+  %2364 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2115, label %2369, label %2365
+
+2365:                                             ; preds = %2362
+  %2366 = tail call ptr @sqlite3_errmsg(ptr noundef %2364) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.632, ptr noundef %2366) #18
+  %2367 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2368 = tail call i32 @sqlite3_exec(ptr noundef %2367, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2369:                                             ; preds = %2362
+  %2370 = tail call i32 @sqlite3_exec(ptr noundef %2364, ptr noundef nonnull @.str.633, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2116 = icmp eq i32 %2370, 0
+  %2371 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2116, label %2376, label %2372
+
+2372:                                             ; preds = %2369
+  %2373 = tail call ptr @sqlite3_errmsg(ptr noundef %2371) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.634, ptr noundef %2373) #18
+  %2374 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2375 = tail call i32 @sqlite3_exec(ptr noundef %2374, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2376:                                             ; preds = %2369
+  %2377 = tail call i32 @sqlite3_exec(ptr noundef %2371, ptr noundef nonnull @.str.635, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2117 = icmp eq i32 %2377, 0
+  %2378 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2117, label %2383, label %2379
+
+2379:                                             ; preds = %2376
+  %2380 = tail call ptr @sqlite3_errmsg(ptr noundef %2378) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.636, ptr noundef %2380) #18
+  %2381 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2382 = tail call i32 @sqlite3_exec(ptr noundef %2381, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2383:                                             ; preds = %2376
+  %2384 = tail call i32 @sqlite3_exec(ptr noundef %2378, ptr noundef nonnull @.str.637, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2118 = icmp eq i32 %2384, 0
+  %2385 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2118, label %2390, label %2386
+
+2386:                                             ; preds = %2383
+  %2387 = tail call ptr @sqlite3_errmsg(ptr noundef %2385) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.638, ptr noundef %2387) #18
+  %2388 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2389 = tail call i32 @sqlite3_exec(ptr noundef %2388, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2390:                                             ; preds = %2383
+  %2391 = tail call i32 @sqlite3_exec(ptr noundef %2385, ptr noundef nonnull @.str.639, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2119 = icmp eq i32 %2391, 0
+  %2392 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2119, label %2397, label %2393
+
+2393:                                             ; preds = %2390
+  %2394 = tail call ptr @sqlite3_errmsg(ptr noundef %2392) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.640, ptr noundef %2394) #18
+  %2395 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2396 = tail call i32 @sqlite3_exec(ptr noundef %2395, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2397:                                             ; preds = %2390
+  %2398 = tail call i32 @sqlite3_exec(ptr noundef %2392, ptr noundef nonnull @.str.558, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2120 = icmp eq i32 %2398, 0
+  %2399 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2120, label %2404, label %2400
+
+2400:                                             ; preds = %2397
+  %2401 = tail call ptr @sqlite3_errmsg(ptr noundef %2399) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.559, ptr noundef %2401) #18
+  %2402 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2403 = tail call i32 @sqlite3_exec(ptr noundef %2402, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2404:                                             ; preds = %2397
+  %2405 = tail call i32 @sqlite3_exec(ptr noundef %2399, ptr noundef nonnull @.str.641, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2121 = icmp eq i32 %2405, 0
+  %2406 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2121, label %2411, label %2407
+
+2407:                                             ; preds = %2404
+  %2408 = tail call ptr @sqlite3_errmsg(ptr noundef %2406) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.561, ptr noundef %2408) #18
+  %2409 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2410 = tail call i32 @sqlite3_exec(ptr noundef %2409, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2411:                                             ; preds = %2404
+  %2412 = tail call i32 @sqlite3_exec(ptr noundef %2406, ptr noundef nonnull @.str.642, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2122 = icmp eq i32 %2412, 0
+  %2413 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2122, label %2418, label %2414
+
+2414:                                             ; preds = %2411
+  %2415 = tail call ptr @sqlite3_errmsg(ptr noundef %2413) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.643, ptr noundef %2415) #18
+  %2416 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2417 = tail call i32 @sqlite3_exec(ptr noundef %2416, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2418:                                             ; preds = %2411
+  %2419 = tail call i32 @sqlite3_exec(ptr noundef %2413, ptr noundef nonnull @.str.644, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2123 = icmp eq i32 %2419, 0
+  %2420 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2123, label %2425, label %2421
+
+2421:                                             ; preds = %2418
+  %2422 = tail call ptr @sqlite3_errmsg(ptr noundef %2420) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.645, ptr noundef %2422) #18
+  %2423 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2424 = tail call i32 @sqlite3_exec(ptr noundef %2423, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2425:                                             ; preds = %2418
+  %2426 = tail call i32 @sqlite3_exec(ptr noundef %2420, ptr noundef nonnull @.str.646, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2124 = icmp eq i32 %2426, 0
+  %2427 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2124, label %2432, label %2428
+
+2428:                                             ; preds = %2425
+  %2429 = tail call ptr @sqlite3_errmsg(ptr noundef %2427) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.647, ptr noundef %2429) #18
+  %2430 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2431 = tail call i32 @sqlite3_exec(ptr noundef %2430, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2432:                                             ; preds = %2425
+  %2433 = tail call i32 @sqlite3_exec(ptr noundef %2427, ptr noundef nonnull @.str.648, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2125 = icmp eq i32 %2433, 0
+  %2434 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2125, label %2439, label %2435
+
+2435:                                             ; preds = %2432
+  %2436 = tail call ptr @sqlite3_errmsg(ptr noundef %2434) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.649, ptr noundef %2436) #18
+  %2437 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2438 = tail call i32 @sqlite3_exec(ptr noundef %2437, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2439:                                             ; preds = %2432
+  %2440 = tail call i32 @sqlite3_exec(ptr noundef %2434, ptr noundef nonnull @.str.650, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2126 = icmp eq i32 %2440, 0
+  %2441 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2126, label %2446, label %2442
+
+2442:                                             ; preds = %2439
+  %2443 = tail call ptr @sqlite3_errmsg(ptr noundef %2441) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.651, ptr noundef %2443) #18
+  %2444 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2445 = tail call i32 @sqlite3_exec(ptr noundef %2444, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2446:                                             ; preds = %2439
+  %2447 = tail call i32 @sqlite3_exec(ptr noundef %2441, ptr noundef nonnull @.str.652, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2127 = icmp eq i32 %2447, 0
+  %2448 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2127, label %2453, label %2449
+
+2449:                                             ; preds = %2446
+  %2450 = tail call ptr @sqlite3_errmsg(ptr noundef %2448) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.653, ptr noundef %2450) #18
+  %2451 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2452 = tail call i32 @sqlite3_exec(ptr noundef %2451, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2453:                                             ; preds = %2446
+  %2454 = tail call i32 @sqlite3_exec(ptr noundef %2448, ptr noundef nonnull @.str.654, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2128 = icmp eq i32 %2454, 0
+  %2455 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2128, label %2460, label %2456
+
+2456:                                             ; preds = %2453
+  %2457 = tail call ptr @sqlite3_errmsg(ptr noundef %2455) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.655, ptr noundef %2457) #18
+  %2458 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2459 = tail call i32 @sqlite3_exec(ptr noundef %2458, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2460:                                             ; preds = %2453
+  %2461 = tail call i32 @sqlite3_exec(ptr noundef %2455, ptr noundef nonnull @.str.656, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2129 = icmp eq i32 %2461, 0
+  %2462 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2129, label %2467, label %2463
+
+2463:                                             ; preds = %2460
+  %2464 = tail call ptr @sqlite3_errmsg(ptr noundef %2462) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.657, ptr noundef %2464) #18
+  %2465 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2466 = tail call i32 @sqlite3_exec(ptr noundef %2465, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2467:                                             ; preds = %2460
+  %2468 = tail call i32 @sqlite3_exec(ptr noundef %2462, ptr noundef nonnull @.str.658, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2130 = icmp eq i32 %2468, 0
+  %2469 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2130, label %2474, label %2470
+
+2470:                                             ; preds = %2467
+  %2471 = tail call ptr @sqlite3_errmsg(ptr noundef %2469) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.659, ptr noundef %2471) #18
+  %2472 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2473 = tail call i32 @sqlite3_exec(ptr noundef %2472, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2474:                                             ; preds = %2467
+  %2475 = tail call i32 @sqlite3_exec(ptr noundef %2469, ptr noundef nonnull @.str.660, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2131 = icmp eq i32 %2475, 0
+  %2476 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2131, label %2481, label %2477
+
+2477:                                             ; preds = %2474
+  %2478 = tail call ptr @sqlite3_errmsg(ptr noundef %2476) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.661, ptr noundef %2478) #18
+  %2479 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2480 = tail call i32 @sqlite3_exec(ptr noundef %2479, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2481:                                             ; preds = %2474
+  %2482 = tail call i32 @sqlite3_exec(ptr noundef %2476, ptr noundef nonnull @.str.662, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2132 = icmp eq i32 %2482, 0
+  %2483 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2132, label %2488, label %2484
+
+2484:                                             ; preds = %2481
+  %2485 = tail call ptr @sqlite3_errmsg(ptr noundef %2483) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.663, ptr noundef %2485) #18
+  %2486 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2487 = tail call i32 @sqlite3_exec(ptr noundef %2486, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2488:                                             ; preds = %2481
+  %2489 = tail call i32 @sqlite3_exec(ptr noundef %2483, ptr noundef nonnull @.str.664, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2133 = icmp eq i32 %2489, 0
+  %2490 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2133, label %2495, label %2491
+
+2491:                                             ; preds = %2488
+  %2492 = tail call ptr @sqlite3_errmsg(ptr noundef %2490) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.665, ptr noundef %2492) #18
+  %2493 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2494 = tail call i32 @sqlite3_exec(ptr noundef %2493, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2495:                                             ; preds = %2488
+  %2496 = tail call i32 @sqlite3_exec(ptr noundef %2490, ptr noundef nonnull @.str.666, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2134 = icmp eq i32 %2496, 0
+  %2497 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2134, label %2502, label %2498
+
+2498:                                             ; preds = %2495
+  %2499 = tail call ptr @sqlite3_errmsg(ptr noundef %2497) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %2499) #18
+  %2500 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2501 = tail call i32 @sqlite3_exec(ptr noundef %2500, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2502:                                             ; preds = %2495
+  %2503 = tail call i32 @sqlite3_exec(ptr noundef %2497, ptr noundef nonnull @.str.668, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2135 = icmp eq i32 %2503, 0
+  %2504 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2135, label %2509, label %2505
+
+2505:                                             ; preds = %2502
+  %2506 = tail call ptr @sqlite3_errmsg(ptr noundef %2504) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.669, ptr noundef %2506) #18
+  %2507 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2508 = tail call i32 @sqlite3_exec(ptr noundef %2507, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2509:                                             ; preds = %2502
+  %2510 = tail call i32 @sqlite3_exec(ptr noundef %2504, ptr noundef nonnull @.str.670, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2136 = icmp eq i32 %2510, 0
+  %2511 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2136, label %2516, label %2512
+
+2512:                                             ; preds = %2509
+  %2513 = tail call ptr @sqlite3_errmsg(ptr noundef %2511) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.671, ptr noundef %2513) #18
+  %2514 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2515 = tail call i32 @sqlite3_exec(ptr noundef %2514, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2516:                                             ; preds = %2509
+  %2517 = tail call i32 @sqlite3_exec(ptr noundef %2511, ptr noundef nonnull @.str.672, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2137 = icmp eq i32 %2517, 0
+  %2518 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2137, label %2523, label %2519
+
+2519:                                             ; preds = %2516
+  %2520 = tail call ptr @sqlite3_errmsg(ptr noundef %2518) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.673, ptr noundef %2520) #18
+  %2521 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2522 = tail call i32 @sqlite3_exec(ptr noundef %2521, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2523:                                             ; preds = %2516
+  %2524 = tail call i32 @sqlite3_exec(ptr noundef %2518, ptr noundef nonnull @.str.674, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2138 = icmp eq i32 %2524, 0
+  %2525 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2138, label %2530, label %2526
+
+2526:                                             ; preds = %2523
+  %2527 = tail call ptr @sqlite3_errmsg(ptr noundef %2525) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.675, ptr noundef %2527) #18
+  %2528 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2529 = tail call i32 @sqlite3_exec(ptr noundef %2528, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2530:                                             ; preds = %2523
+  %2531 = tail call i32 @sqlite3_exec(ptr noundef %2525, ptr noundef nonnull @.str.676, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2139 = icmp eq i32 %2531, 0
+  %2532 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2139, label %2537, label %2533
+
+2533:                                             ; preds = %2530
+  %2534 = tail call ptr @sqlite3_errmsg(ptr noundef %2532) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.677, ptr noundef %2534) #18
+  %2535 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2536 = tail call i32 @sqlite3_exec(ptr noundef %2535, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2537:                                             ; preds = %2530
+  %2538 = tail call i32 @sqlite3_exec(ptr noundef %2532, ptr noundef nonnull @.str.678, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2140 = icmp eq i32 %2538, 0
+  %2539 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2140, label %2544, label %2540
+
+2540:                                             ; preds = %2537
+  %2541 = tail call ptr @sqlite3_errmsg(ptr noundef %2539) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.679, ptr noundef %2541) #18
+  %2542 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2543 = tail call i32 @sqlite3_exec(ptr noundef %2542, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2544:                                             ; preds = %2537
+  %2545 = tail call i32 @sqlite3_exec(ptr noundef %2539, ptr noundef nonnull @.str.680, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2141 = icmp eq i32 %2545, 0
+  %2546 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2141, label %2551, label %2547
+
+2547:                                             ; preds = %2544
+  %2548 = tail call ptr @sqlite3_errmsg(ptr noundef %2546) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.681, ptr noundef %2548) #18
+  %2549 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2550 = tail call i32 @sqlite3_exec(ptr noundef %2549, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2551:                                             ; preds = %2544
+  %2552 = tail call i32 @sqlite3_exec(ptr noundef %2546, ptr noundef nonnull @.str.682, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2142 = icmp eq i32 %2552, 0
+  %2553 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2142, label %2558, label %2554
+
+2554:                                             ; preds = %2551
+  %2555 = tail call ptr @sqlite3_errmsg(ptr noundef %2553) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.683, ptr noundef %2555) #18
+  %2556 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2557 = tail call i32 @sqlite3_exec(ptr noundef %2556, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2558:                                             ; preds = %2551
+  %2559 = tail call i32 @sqlite3_exec(ptr noundef %2553, ptr noundef nonnull @.str.684, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2143 = icmp eq i32 %2559, 0
+  %2560 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2143, label %2565, label %2561
+
+2561:                                             ; preds = %2558
+  %2562 = tail call ptr @sqlite3_errmsg(ptr noundef %2560) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.685, ptr noundef %2562) #18
+  %2563 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2564 = tail call i32 @sqlite3_exec(ptr noundef %2563, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2565:                                             ; preds = %2558
+  %2566 = tail call i32 @sqlite3_exec(ptr noundef %2560, ptr noundef nonnull @.str.686, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2144 = icmp eq i32 %2566, 0
+  %2567 = load ptr, ptr %2093, align 8, !tbaa !6
+  br i1 %.not2144, label %2572, label %2568
+
+2568:                                             ; preds = %2565
+  %2569 = tail call ptr @sqlite3_errmsg(ptr noundef %2567) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.687, ptr noundef %2569) #18
+  %2570 = load ptr, ptr %2093, align 8, !tbaa !6
+  %2571 = tail call i32 @sqlite3_exec(ptr noundef %2570, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2572:                                             ; preds = %2565
+  %2573 = tail call i32 @sqlite3_exec(ptr noundef %2567, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+2574:                                             ; preds = %2
+  %2575 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2576 = load ptr, ptr %2575, align 8, !tbaa !6
+  %2577 = tail call i32 @sqlite3_exec(ptr noundef %2576, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2578 = load ptr, ptr %2575, align 8, !tbaa !6
+  %2579 = tail call i32 @sqlite3_exec(ptr noundef %2578, ptr noundef nonnull @.str.688, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2075 = icmp eq i32 %2579, 0
+  %2580 = load ptr, ptr %2575, align 8, !tbaa !6
+  br i1 %.not2075, label %2585, label %2581
+
+2581:                                             ; preds = %2574
+  %2582 = tail call ptr @sqlite3_errmsg(ptr noundef %2580) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %2582) #18
+  %2583 = load ptr, ptr %2575, align 8, !tbaa !6
+  %2584 = tail call i32 @sqlite3_exec(ptr noundef %2583, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2585:                                             ; preds = %2574
+  %2586 = tail call i32 @sqlite3_exec(ptr noundef %2580, ptr noundef nonnull @.str.690, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2076 = icmp eq i32 %2586, 0
+  %2587 = load ptr, ptr %2575, align 8, !tbaa !6
+  br i1 %.not2076, label %2592, label %2588
+
+2588:                                             ; preds = %2585
+  %2589 = tail call ptr @sqlite3_errmsg(ptr noundef %2587) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.691, ptr noundef %2589) #18
+  %2590 = load ptr, ptr %2575, align 8, !tbaa !6
+  %2591 = tail call i32 @sqlite3_exec(ptr noundef %2590, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2592:                                             ; preds = %2585
+  %2593 = tail call i32 @sqlite3_exec(ptr noundef %2587, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+2594:                                             ; preds = %2
+  %2595 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2596 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2597 = tail call i32 @sqlite3_exec(ptr noundef %2596, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2598 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2599 = tail call i32 @sqlite3_exec(ptr noundef %2598, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2600 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2601 = tail call i32 @sqlite3_exec(ptr noundef %2600, ptr noundef nonnull @.str.693, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2059 = icmp eq i32 %2601, 0
+  %2602 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2059, label %2607, label %2603
+
+2603:                                             ; preds = %2594
+  %2604 = tail call ptr @sqlite3_errmsg(ptr noundef %2602) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2604) #18
+  %2605 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2606 = tail call i32 @sqlite3_exec(ptr noundef %2605, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2607:                                             ; preds = %2594
+  %2608 = tail call i32 @sqlite3_exec(ptr noundef %2602, ptr noundef nonnull @.str.694, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2060 = icmp eq i32 %2608, 0
+  %2609 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2060, label %2614, label %2610
+
+2610:                                             ; preds = %2607
+  %2611 = tail call ptr @sqlite3_errmsg(ptr noundef %2609) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.695, ptr noundef %2611) #18
+  %2612 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2613 = tail call i32 @sqlite3_exec(ptr noundef %2612, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2614:                                             ; preds = %2607
+  %2615 = call i32 @sqlite3_prepare_v2(ptr noundef %2609, ptr noundef nonnull @.str.696, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
+  %.not2061 = icmp eq i32 %2615, 0
+  br i1 %.not2061, label %.preheader2391, label %2619
+
+.preheader2391:                                   ; preds = %2614
+  %2616 = load ptr, ptr %3, align 8, !tbaa !23
+  %2617 = call i32 @sqlite3_step(ptr noundef %2616) #18
+  %2618 = icmp eq i32 %2617, 100
+  br i1 %2618, label %.lr.ph2397, label %._crit_edge2398
+
+2619:                                             ; preds = %2614
+  %2620 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2621 = call ptr @sqlite3_errmsg(ptr noundef %2620) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.697, ptr noundef %2621) #18
+  %2622 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2623 = call i32 @sqlite3_exec(ptr noundef %2622, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+.lr.ph2397:                                       ; preds = %.preheader2391, %2664
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #18
-  %2622 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2623 = call i32 @sqlite3_prepare_v2(ptr noundef %2622, ptr noundef nonnull @.str.698, i32 noundef -1, ptr noundef nonnull %20, ptr noundef null) #18
-  %2624 = load ptr, ptr %20, align 8, !tbaa !21
-  %2625 = load ptr, ptr %3, align 8, !tbaa !21
-  %2626 = call i32 @sqlite3_column_int(ptr noundef %2625, i32 noundef 0) #18
-  %2627 = call i32 @sqlite3_bind_int(ptr noundef %2624, i32 noundef 1, i32 noundef %2626) #18
-  %2628 = load ptr, ptr %3, align 8, !tbaa !21
-  %2629 = call i32 @sqlite3_column_type(ptr noundef %2628, i32 noundef 1) #18
-  %.not2070 = icmp eq i32 %2629, 5
-  br i1 %.not2070, label %.preheader2466, label %2630
+  %2624 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2625 = call i32 @sqlite3_prepare_v2(ptr noundef %2624, ptr noundef nonnull @.str.698, i32 noundef -1, ptr noundef nonnull %20, ptr noundef null) #18
+  %2626 = load ptr, ptr %20, align 8, !tbaa !23
+  %2627 = load ptr, ptr %3, align 8, !tbaa !23
+  %2628 = call i32 @sqlite3_column_int(ptr noundef %2627, i32 noundef 0) #18
+  %2629 = call i32 @sqlite3_bind_int(ptr noundef %2626, i32 noundef 1, i32 noundef %2628) #18
+  %2630 = load ptr, ptr %3, align 8, !tbaa !23
+  %2631 = call i32 @sqlite3_column_type(ptr noundef %2630, i32 noundef 1) #18
+  %.not2070 = icmp eq i32 %2631, 5
+  br i1 %.not2070, label %.preheader2466, label %2632
 
-.preheader2466:                                   ; preds = %2630, %2635, %.lr.ph2397
-  br label %2642
+.preheader2466:                                   ; preds = %2632, %2637, %.lr.ph2397
+  br label %2644
 
-2630:                                             ; preds = %.lr.ph2397
-  %2631 = load ptr, ptr %3, align 8, !tbaa !21
-  %2632 = call ptr @sqlite3_column_text(ptr noundef %2631, i32 noundef 1) #18
-  %2633 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3328), align 8, !tbaa !78
-  %2634 = call ptr @dt_datetime_exif_to_gdatetime(ptr noundef %2632, ptr noundef %2633) #18
-  %.not2071 = icmp eq ptr %2634, null
-  br i1 %.not2071, label %.preheader2466, label %2635
+2632:                                             ; preds = %.lr.ph2397
+  %2633 = load ptr, ptr %3, align 8, !tbaa !23
+  %2634 = call ptr @sqlite3_column_text(ptr noundef %2633, i32 noundef 1) #18
+  %2635 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3328), align 8, !tbaa !118
+  %2636 = call ptr @dt_datetime_exif_to_gdatetime(ptr noundef %2634, ptr noundef %2635) #18
+  %.not2071 = icmp eq ptr %2636, null
+  br i1 %.not2071, label %.preheader2466, label %2637
 
-2635:                                             ; preds = %2630
-  %2636 = load ptr, ptr %20, align 8, !tbaa !21
-  %2637 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2634) #18
-  %2638 = call i32 @sqlite3_bind_int64(ptr noundef %2636, i32 noundef 2, i64 noundef %2637) #18
-  call void @g_date_time_unref(ptr noundef nonnull %2634) #18
+2637:                                             ; preds = %2632
+  %2638 = load ptr, ptr %20, align 8, !tbaa !23
+  %2639 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2636) #18
+  %2640 = call i32 @sqlite3_bind_int64(ptr noundef %2638, i32 noundef 2, i64 noundef %2639) #18
+  call void @g_date_time_unref(ptr noundef nonnull %2636) #18
   br label %.preheader2466
 
-2639:                                             ; preds = %2656
-  %2640 = load ptr, ptr %20, align 8, !tbaa !21
-  %2641 = call i32 @sqlite3_step(ptr noundef %2640) #18
-  %.not2072 = icmp eq i32 %2641, 101
-  br i1 %.not2072, label %2662, label %.thread2379
+2641:                                             ; preds = %2658
+  %2642 = load ptr, ptr %20, align 8, !tbaa !23
+  %2643 = call i32 @sqlite3_step(ptr noundef %2642) #18
+  %.not2072 = icmp eq i32 %2643, 101
+  br i1 %.not2072, label %2664, label %.thread2379
 
-2642:                                             ; preds = %.preheader2466, %2656
-  %.018962396 = phi i32 [ %2657, %2656 ], [ 0, %.preheader2466 ]
-  %2643 = load ptr, ptr %3, align 8, !tbaa !21
-  %2644 = add nuw nsw i32 %.018962396, 2
-  %2645 = call i32 @sqlite3_column_type(ptr noundef %2643, i32 noundef %2644) #18
-  %.not2073 = icmp eq i32 %2645, 5
-  br i1 %.not2073, label %2656, label %2646
+2644:                                             ; preds = %.preheader2466, %2658
+  %.018962396 = phi i32 [ %2659, %2658 ], [ 0, %.preheader2466 ]
+  %2645 = load ptr, ptr %3, align 8, !tbaa !23
+  %2646 = add nuw nsw i32 %.018962396, 2
+  %2647 = call i32 @sqlite3_column_type(ptr noundef %2645, i32 noundef %2646) #18
+  %.not2073 = icmp eq i32 %2647, 5
+  br i1 %.not2073, label %2658, label %2648
 
-2646:                                             ; preds = %2642
-  %2647 = load ptr, ptr %3, align 8, !tbaa !21
-  %2648 = call i32 @sqlite3_column_int(ptr noundef %2647, i32 noundef %2644) #18
-  %2649 = sext i32 %2648 to i64
-  %2650 = call ptr @g_date_time_new_from_unix_utc(i64 noundef %2649) #18
-  %.not2074 = icmp eq ptr %2650, null
-  br i1 %.not2074, label %2656, label %2651
+2648:                                             ; preds = %2644
+  %2649 = load ptr, ptr %3, align 8, !tbaa !23
+  %2650 = call i32 @sqlite3_column_int(ptr noundef %2649, i32 noundef %2646) #18
+  %2651 = sext i32 %2650 to i64
+  %2652 = call ptr @g_date_time_new_from_unix_utc(i64 noundef %2651) #18
+  %.not2074 = icmp eq ptr %2652, null
+  br i1 %.not2074, label %2658, label %2653
 
-2651:                                             ; preds = %2646
-  %2652 = load ptr, ptr %20, align 8, !tbaa !21
-  %2653 = add nuw nsw i32 %.018962396, 3
-  %2654 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2650) #18
-  %2655 = call i32 @sqlite3_bind_int64(ptr noundef %2652, i32 noundef %2653, i64 noundef %2654) #18
-  call void @g_date_time_unref(ptr noundef nonnull %2650) #18
-  br label %2656
+2653:                                             ; preds = %2648
+  %2654 = load ptr, ptr %20, align 8, !tbaa !23
+  %2655 = add nuw nsw i32 %.018962396, 3
+  %2656 = call i64 @dt_datetime_gdatetime_to_gtimespan(ptr noundef nonnull %2652) #18
+  %2657 = call i32 @sqlite3_bind_int64(ptr noundef %2654, i32 noundef %2655, i64 noundef %2656) #18
+  call void @g_date_time_unref(ptr noundef nonnull %2652) #18
+  br label %2658
 
-2656:                                             ; preds = %2646, %2651, %2642
-  %2657 = add nuw nsw i32 %.018962396, 1
-  %exitcond.not = icmp eq i32 %2657, 4
-  br i1 %exitcond.not, label %2639, label %2642
+2658:                                             ; preds = %2648, %2653, %2644
+  %2659 = add nuw nsw i32 %.018962396, 1
+  %exitcond.not = icmp eq i32 %2659, 4
+  br i1 %exitcond.not, label %2641, label %2644, !llvm.loop !119
 
-.thread2379:                                      ; preds = %2639
-  %2658 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2659 = call ptr @sqlite3_errmsg(ptr noundef %2658) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.699, ptr noundef %2659) #18
-  %2660 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2661 = call i32 @sqlite3_exec(ptr noundef %2660, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+.thread2379:                                      ; preds = %2641
+  %2660 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2661 = call ptr @sqlite3_errmsg(ptr noundef %2660) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.699, ptr noundef %2661) #18
+  %2662 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2663 = call i32 @sqlite3_exec(ptr noundef %2662, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #18
   br label %.thread2355
 
-2662:                                             ; preds = %2639
-  %2663 = load ptr, ptr %20, align 8, !tbaa !21
-  %2664 = call i32 @sqlite3_finalize(ptr noundef %2663) #18
+2664:                                             ; preds = %2641
+  %2665 = load ptr, ptr %20, align 8, !tbaa !23
+  %2666 = call i32 @sqlite3_finalize(ptr noundef %2665) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #18
-  %2665 = load ptr, ptr %3, align 8, !tbaa !21
-  %2666 = call i32 @sqlite3_step(ptr noundef %2665) #18
-  %2667 = icmp eq i32 %2666, 100
-  br i1 %2667, label %.lr.ph2397, label %._crit_edge2398
+  %2667 = load ptr, ptr %3, align 8, !tbaa !23
+  %2668 = call i32 @sqlite3_step(ptr noundef %2667) #18
+  %2669 = icmp eq i32 %2668, 100
+  br i1 %2669, label %.lr.ph2397, label %._crit_edge2398, !llvm.loop !120
 
-._crit_edge2398:                                  ; preds = %2662, %.preheader2391
-  %2668 = load ptr, ptr %3, align 8, !tbaa !21
-  %2669 = call i32 @sqlite3_finalize(ptr noundef %2668) #18
-  %2670 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2671 = call i32 @sqlite3_exec(ptr noundef %2670, ptr noundef nonnull @.str.700, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2062 = icmp eq i32 %2671, 0
-  %2672 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2062, label %2677, label %2673
+._crit_edge2398:                                  ; preds = %2664, %.preheader2391
+  %2670 = load ptr, ptr %3, align 8, !tbaa !23
+  %2671 = call i32 @sqlite3_finalize(ptr noundef %2670) #18
+  %2672 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2673 = call i32 @sqlite3_exec(ptr noundef %2672, ptr noundef nonnull @.str.700, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2062 = icmp eq i32 %2673, 0
+  %2674 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2062, label %2679, label %2675
 
-2673:                                             ; preds = %._crit_edge2398
-  %2674 = call ptr @sqlite3_errmsg(ptr noundef %2672) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.701, ptr noundef %2674) #18
-  %2675 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2676 = call i32 @sqlite3_exec(ptr noundef %2675, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2675:                                             ; preds = %._crit_edge2398
+  %2676 = call ptr @sqlite3_errmsg(ptr noundef %2674) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.701, ptr noundef %2676) #18
+  %2677 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2678 = call i32 @sqlite3_exec(ptr noundef %2677, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2677:                                             ; preds = %._crit_edge2398
-  %2678 = call i32 @sqlite3_exec(ptr noundef %2672, ptr noundef nonnull @.str.702, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2063 = icmp eq i32 %2678, 0
-  %2679 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2063, label %2684, label %2680
+2679:                                             ; preds = %._crit_edge2398
+  %2680 = call i32 @sqlite3_exec(ptr noundef %2674, ptr noundef nonnull @.str.702, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2063 = icmp eq i32 %2680, 0
+  %2681 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2063, label %2686, label %2682
 
-2680:                                             ; preds = %2677
-  %2681 = call ptr @sqlite3_errmsg(ptr noundef %2679) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.703, ptr noundef %2681) #18
-  %2682 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2683 = call i32 @sqlite3_exec(ptr noundef %2682, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2682:                                             ; preds = %2679
+  %2683 = call ptr @sqlite3_errmsg(ptr noundef %2681) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.703, ptr noundef %2683) #18
+  %2684 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2685 = call i32 @sqlite3_exec(ptr noundef %2684, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2684:                                             ; preds = %2677
-  %2685 = call i32 @sqlite3_exec(ptr noundef %2679, ptr noundef nonnull @.str.582, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2064 = icmp eq i32 %2685, 0
-  %2686 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2064, label %2691, label %2687
+2686:                                             ; preds = %2679
+  %2687 = call i32 @sqlite3_exec(ptr noundef %2681, ptr noundef nonnull @.str.582, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2064 = icmp eq i32 %2687, 0
+  %2688 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2064, label %2693, label %2689
 
-2687:                                             ; preds = %2684
-  %2688 = call ptr @sqlite3_errmsg(ptr noundef %2686) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2688) #18
-  %2689 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2690 = call i32 @sqlite3_exec(ptr noundef %2689, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2689:                                             ; preds = %2686
+  %2690 = call ptr @sqlite3_errmsg(ptr noundef %2688) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2690) #18
+  %2691 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2692 = call i32 @sqlite3_exec(ptr noundef %2691, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2691:                                             ; preds = %2684
-  %2692 = call i32 @sqlite3_exec(ptr noundef %2686, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2065 = icmp eq i32 %2692, 0
-  %2693 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2065, label %2698, label %2694
+2693:                                             ; preds = %2686
+  %2694 = call i32 @sqlite3_exec(ptr noundef %2688, ptr noundef nonnull @.str.548, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2065 = icmp eq i32 %2694, 0
+  %2695 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2065, label %2700, label %2696
 
-2694:                                             ; preds = %2691
-  %2695 = call ptr @sqlite3_errmsg(ptr noundef %2693) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2695) #18
-  %2696 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2697 = call i32 @sqlite3_exec(ptr noundef %2696, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2696:                                             ; preds = %2693
+  %2697 = call ptr @sqlite3_errmsg(ptr noundef %2695) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2697) #18
+  %2698 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2699 = call i32 @sqlite3_exec(ptr noundef %2698, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2698:                                             ; preds = %2691
-  %2699 = call i32 @sqlite3_exec(ptr noundef %2693, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2066 = icmp eq i32 %2699, 0
-  %2700 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2066, label %2705, label %2701
+2700:                                             ; preds = %2693
+  %2701 = call i32 @sqlite3_exec(ptr noundef %2695, ptr noundef nonnull @.str.552, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2066 = icmp eq i32 %2701, 0
+  %2702 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2066, label %2707, label %2703
 
-2701:                                             ; preds = %2698
-  %2702 = call ptr @sqlite3_errmsg(ptr noundef %2700) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2702) #18
-  %2703 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2704 = call i32 @sqlite3_exec(ptr noundef %2703, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2703:                                             ; preds = %2700
+  %2704 = call ptr @sqlite3_errmsg(ptr noundef %2702) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2704) #18
+  %2705 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2706 = call i32 @sqlite3_exec(ptr noundef %2705, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2705:                                             ; preds = %2698
-  %2706 = call i32 @sqlite3_exec(ptr noundef %2700, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2067 = icmp eq i32 %2706, 0
-  %2707 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2067, label %2712, label %2708
+2707:                                             ; preds = %2700
+  %2708 = call i32 @sqlite3_exec(ptr noundef %2702, ptr noundef nonnull @.str.556, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2067 = icmp eq i32 %2708, 0
+  %2709 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2067, label %2714, label %2710
 
-2708:                                             ; preds = %2705
-  %2709 = call ptr @sqlite3_errmsg(ptr noundef %2707) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2709) #18
-  %2710 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2711 = call i32 @sqlite3_exec(ptr noundef %2710, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2710:                                             ; preds = %2707
+  %2711 = call ptr @sqlite3_errmsg(ptr noundef %2709) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %2711) #18
+  %2712 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2713 = call i32 @sqlite3_exec(ptr noundef %2712, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2712:                                             ; preds = %2705
-  %2713 = call i32 @sqlite3_exec(ptr noundef %2707, ptr noundef nonnull @.str.587, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2068 = icmp eq i32 %2713, 0
-  %2714 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2068, label %2719, label %2715
+2714:                                             ; preds = %2707
+  %2715 = call i32 @sqlite3_exec(ptr noundef %2709, ptr noundef nonnull @.str.587, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2068 = icmp eq i32 %2715, 0
+  %2716 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2068, label %2721, label %2717
 
-2715:                                             ; preds = %2712
-  %2716 = call ptr @sqlite3_errmsg(ptr noundef %2714) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %2716) #18
-  %2717 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2718 = call i32 @sqlite3_exec(ptr noundef %2717, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2717:                                             ; preds = %2714
+  %2718 = call ptr @sqlite3_errmsg(ptr noundef %2716) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %2718) #18
+  %2719 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2720 = call i32 @sqlite3_exec(ptr noundef %2719, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2719:                                             ; preds = %2712
-  %2720 = call i32 @sqlite3_exec(ptr noundef %2714, ptr noundef nonnull @.str.704, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2069 = icmp eq i32 %2720, 0
-  %2721 = load ptr, ptr %2593, align 8, !tbaa !6
-  br i1 %.not2069, label %2726, label %2722
+2721:                                             ; preds = %2714
+  %2722 = call i32 @sqlite3_exec(ptr noundef %2716, ptr noundef nonnull @.str.704, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2069 = icmp eq i32 %2722, 0
+  %2723 = load ptr, ptr %2595, align 8, !tbaa !6
+  br i1 %.not2069, label %2728, label %2724
 
-2722:                                             ; preds = %2719
-  %2723 = call ptr @sqlite3_errmsg(ptr noundef %2721) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %2723) #18
-  %2724 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2725 = call i32 @sqlite3_exec(ptr noundef %2724, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2724:                                             ; preds = %2721
+  %2725 = call ptr @sqlite3_errmsg(ptr noundef %2723) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %2725) #18
+  %2726 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2727 = call i32 @sqlite3_exec(ptr noundef %2726, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2726:                                             ; preds = %2719
-  %2727 = call i32 @sqlite3_exec(ptr noundef %2721, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2728 = load ptr, ptr %2593, align 8, !tbaa !6
-  %2729 = call i32 @sqlite3_exec(ptr noundef %2728, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+2728:                                             ; preds = %2721
+  %2729 = call i32 @sqlite3_exec(ptr noundef %2723, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2730 = load ptr, ptr %2595, align 8, !tbaa !6
+  %2731 = call i32 @sqlite3_exec(ptr noundef %2730, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
 
-2730:                                             ; preds = %2
-  %2731 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2732 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2733 = tail call i32 @sqlite3_exec(ptr noundef %2732, ptr noundef nonnull @.str.705, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2054 = icmp eq i32 %2733, 0
-  br i1 %.not2054, label %2739, label %2734
+2732:                                             ; preds = %2
+  %2733 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2734 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2735 = tail call i32 @sqlite3_exec(ptr noundef %2734, ptr noundef nonnull @.str.705, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2054 = icmp eq i32 %2735, 0
+  br i1 %.not2054, label %2741, label %2736
 
-2734:                                             ; preds = %2730
-  %2735 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2736 = tail call ptr @sqlite3_errmsg(ptr noundef %2735) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2736) #18
-  %2737 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2738 = tail call i32 @sqlite3_exec(ptr noundef %2737, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2736:                                             ; preds = %2732
+  %2737 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2738 = tail call ptr @sqlite3_errmsg(ptr noundef %2737) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.573, ptr noundef %2738) #18
+  %2739 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2740 = tail call i32 @sqlite3_exec(ptr noundef %2739, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2739:                                             ; preds = %2730
-  %2740 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.706, i32 noundef 224) #18
-  %2741 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2742 = tail call i32 @sqlite3_exec(ptr noundef %2741, ptr noundef %2740, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2055 = icmp eq i32 %2742, 0
-  %2743 = load ptr, ptr %2731, align 8, !tbaa !6
-  br i1 %.not2055, label %2748, label %2744
+2741:                                             ; preds = %2732
+  %2742 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.706, i32 noundef 224) #18
+  %2743 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2744 = tail call i32 @sqlite3_exec(ptr noundef %2743, ptr noundef %2742, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2055 = icmp eq i32 %2744, 0
+  %2745 = load ptr, ptr %2733, align 8, !tbaa !6
+  br i1 %.not2055, label %2750, label %2746
 
-2744:                                             ; preds = %2739
-  %2745 = tail call ptr @sqlite3_errmsg(ptr noundef %2743) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.695, ptr noundef %2745) #18
-  %2746 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2747 = tail call i32 @sqlite3_exec(ptr noundef %2746, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2746:                                             ; preds = %2741
+  %2747 = tail call ptr @sqlite3_errmsg(ptr noundef %2745) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.695, ptr noundef %2747) #18
+  %2748 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2749 = tail call i32 @sqlite3_exec(ptr noundef %2748, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-2748:                                             ; preds = %2739
-  %2749 = call i32 @sqlite3_prepare_v2(ptr noundef %2743, ptr noundef nonnull @.str.707, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %.not2056 = icmp eq i32 %2749, 0
-  br i1 %.not2056, label %.preheader2392, label %2753
+2750:                                             ; preds = %2741
+  %2751 = call i32 @sqlite3_prepare_v2(ptr noundef %2745, ptr noundef nonnull @.str.707, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
+  %.not2056 = icmp eq i32 %2751, 0
+  br i1 %.not2056, label %.preheader2392, label %2755
 
-.preheader2392:                                   ; preds = %2748
-  %2750 = load ptr, ptr %3, align 8, !tbaa !21
-  %2751 = call i32 @sqlite3_step(ptr noundef %2750) #18
-  %2752 = icmp eq i32 %2751, 100
-  br i1 %2752, label %.lr.ph, label %._crit_edge
+.preheader2392:                                   ; preds = %2750
+  %2752 = load ptr, ptr %3, align 8, !tbaa !23
+  %2753 = call i32 @sqlite3_step(ptr noundef %2752) #18
+  %2754 = icmp eq i32 %2753, 100
+  br i1 %2754, label %.lr.ph, label %._crit_edge
 
-2753:                                             ; preds = %2748
-  %2754 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2755 = call ptr @sqlite3_errmsg(ptr noundef %2754) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.708, ptr noundef %2755) #18
-  %2756 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2757 = call i32 @sqlite3_exec(ptr noundef %2756, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+2755:                                             ; preds = %2750
+  %2756 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2757 = call ptr @sqlite3_errmsg(ptr noundef %2756) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.183, ptr noundef nonnull @.str.708, ptr noundef %2757) #18
+  %2758 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2759 = call i32 @sqlite3_exec(ptr noundef %2758, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-.lr.ph:                                           ; preds = %.preheader2392, %2779
+.lr.ph:                                           ; preds = %.preheader2392, %2781
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #18
-  %2758 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2759 = call i32 @sqlite3_prepare_v2(ptr noundef %2758, ptr noundef nonnull @.str.709, i32 noundef -1, ptr noundef nonnull %21, ptr noundef null) #18
-  %2760 = load ptr, ptr %21, align 8, !tbaa !21
-  %2761 = load ptr, ptr %3, align 8, !tbaa !21
-  %2762 = call i32 @sqlite3_column_int(ptr noundef %2761, i32 noundef 0) #18
-  %2763 = call i32 @sqlite3_bind_int(ptr noundef %2760, i32 noundef 1, i32 noundef %2762) #18
-  %2764 = load ptr, ptr %3, align 8, !tbaa !21
-  %2765 = call i32 @sqlite3_column_int(ptr noundef %2764, i32 noundef 2) #18
-  %2766 = load ptr, ptr %3, align 8, !tbaa !21
-  %2767 = call ptr @sqlite3_column_text(ptr noundef %2766, i32 noundef 1) #18
-  %2768 = call ptr @g_strrstr(ptr noundef %2767, ptr noundef nonnull @.str.710) #18
-  %2769 = call i32 @dt_imageio_get_type_from_extension(ptr noundef %2768) #18
-  %2770 = or i32 %2769, %2765
-  %2771 = load ptr, ptr %21, align 8, !tbaa !21
-  %2772 = call i32 @sqlite3_bind_int(ptr noundef %2771, i32 noundef 2, i32 noundef %2770) #18
-  %2773 = load ptr, ptr %21, align 8, !tbaa !21
-  %2774 = call i32 @sqlite3_step(ptr noundef %2773) #18
-  %.not2058 = icmp eq i32 %2774, 101
-  br i1 %.not2058, label %2779, label %.thread2380
+  %2760 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2761 = call i32 @sqlite3_prepare_v2(ptr noundef %2760, ptr noundef nonnull @.str.709, i32 noundef -1, ptr noundef nonnull %21, ptr noundef null) #18
+  %2762 = load ptr, ptr %21, align 8, !tbaa !23
+  %2763 = load ptr, ptr %3, align 8, !tbaa !23
+  %2764 = call i32 @sqlite3_column_int(ptr noundef %2763, i32 noundef 0) #18
+  %2765 = call i32 @sqlite3_bind_int(ptr noundef %2762, i32 noundef 1, i32 noundef %2764) #18
+  %2766 = load ptr, ptr %3, align 8, !tbaa !23
+  %2767 = call i32 @sqlite3_column_int(ptr noundef %2766, i32 noundef 2) #18
+  %2768 = load ptr, ptr %3, align 8, !tbaa !23
+  %2769 = call ptr @sqlite3_column_text(ptr noundef %2768, i32 noundef 1) #18
+  %2770 = call ptr @g_strrstr(ptr noundef %2769, ptr noundef nonnull @.str.710) #18
+  %2771 = call i32 @dt_imageio_get_type_from_extension(ptr noundef %2770) #18
+  %2772 = or i32 %2771, %2767
+  %2773 = load ptr, ptr %21, align 8, !tbaa !23
+  %2774 = call i32 @sqlite3_bind_int(ptr noundef %2773, i32 noundef 2, i32 noundef %2772) #18
+  %2775 = load ptr, ptr %21, align 8, !tbaa !23
+  %2776 = call i32 @sqlite3_step(ptr noundef %2775) #18
+  %.not2058 = icmp eq i32 %2776, 101
+  br i1 %.not2058, label %2781, label %.thread2380
 
 .thread2380:                                      ; preds = %.lr.ph
-  %2775 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2776 = call ptr @sqlite3_errmsg(ptr noundef %2775) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.711, ptr noundef %2776) #18
-  %2777 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2778 = call i32 @sqlite3_exec(ptr noundef %2777, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2777 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2778 = call ptr @sqlite3_errmsg(ptr noundef %2777) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.711, ptr noundef %2778) #18
+  %2779 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2780 = call i32 @sqlite3_exec(ptr noundef %2779, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #18
   br label %.thread2355
 
-2779:                                             ; preds = %.lr.ph
-  %2780 = load ptr, ptr %21, align 8, !tbaa !21
-  %2781 = call i32 @sqlite3_finalize(ptr noundef %2780) #18
+2781:                                             ; preds = %.lr.ph
+  %2782 = load ptr, ptr %21, align 8, !tbaa !23
+  %2783 = call i32 @sqlite3_finalize(ptr noundef %2782) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #18
-  %2782 = load ptr, ptr %3, align 8, !tbaa !21
-  %2783 = call i32 @sqlite3_step(ptr noundef %2782) #18
-  %2784 = icmp eq i32 %2783, 100
-  br i1 %2784, label %.lr.ph, label %._crit_edge
-
-._crit_edge:                                      ; preds = %2779, %.preheader2392
-  %2785 = load ptr, ptr %3, align 8, !tbaa !21
-  %2786 = call i32 @sqlite3_finalize(ptr noundef %2785) #18
-  %2787 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2788 = call i32 @sqlite3_exec(ptr noundef %2787, ptr noundef nonnull @.str.712, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2057 = icmp eq i32 %2788, 0
-  br i1 %.not2057, label %3736, label %2789
-
-2789:                                             ; preds = %._crit_edge
-  %2790 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2791 = call ptr @sqlite3_errmsg(ptr noundef %2790) #18
-  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.713, ptr noundef %2791) #18
-  %2792 = load ptr, ptr %2731, align 8, !tbaa !6
-  %2793 = call i32 @sqlite3_exec(ptr noundef %2792, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2794:                                             ; preds = %2
-  %2795 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2796 = load ptr, ptr %2795, align 8, !tbaa !6
-  %2797 = tail call i32 @sqlite3_exec(ptr noundef %2796, ptr noundef nonnull @.str.714, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2053 = icmp eq i32 %2797, 0
-  br i1 %.not2053, label %3736, label %2798
-
-2798:                                             ; preds = %2794
-  %2799 = load ptr, ptr %2795, align 8, !tbaa !6
-  %2800 = tail call ptr @sqlite3_errmsg(ptr noundef %2799) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.715, ptr noundef %2800) #18
-  %2801 = load ptr, ptr %2795, align 8, !tbaa !6
-  %2802 = tail call i32 @sqlite3_exec(ptr noundef %2801, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2803:                                             ; preds = %2
-  %2804 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2805 = load ptr, ptr %2804, align 8, !tbaa !6
-  %2806 = tail call i32 @sqlite3_exec(ptr noundef %2805, ptr noundef nonnull @.str.716, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2051 = icmp eq i32 %2806, 0
-  %2807 = load ptr, ptr %2804, align 8, !tbaa !6
-  br i1 %.not2051, label %2812, label %2808
-
-2808:                                             ; preds = %2803
-  %2809 = tail call ptr @sqlite3_errmsg(ptr noundef %2807) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.229, ptr noundef %2809) #18
-  %2810 = load ptr, ptr %2804, align 8, !tbaa !6
-  %2811 = tail call i32 @sqlite3_exec(ptr noundef %2810, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2812:                                             ; preds = %2803
-  %2813 = tail call i32 @sqlite3_exec(ptr noundef %2807, ptr noundef nonnull @.str.717, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2052 = icmp eq i32 %2813, 0
-  br i1 %.not2052, label %3736, label %2814
-
-2814:                                             ; preds = %2812
-  %2815 = load ptr, ptr %2804, align 8, !tbaa !6
-  %2816 = tail call ptr @sqlite3_errmsg(ptr noundef %2815) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.231, ptr noundef %2816) #18
-  %2817 = load ptr, ptr %2804, align 8, !tbaa !6
-  %2818 = tail call i32 @sqlite3_exec(ptr noundef %2817, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2819:                                             ; preds = %2
-  %2820 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %2821 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2822 = tail call i32 @sqlite3_exec(ptr noundef %2821, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2823 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2824 = tail call i32 @sqlite3_exec(ptr noundef %2823, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %2825 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2826 = tail call i32 @sqlite3_exec(ptr noundef %2825, ptr noundef nonnull @.str.718, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2018 = icmp eq i32 %2826, 0
-  %2827 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2018, label %2832, label %2828
-
-2828:                                             ; preds = %2819
-  %2829 = tail call ptr @sqlite3_errmsg(ptr noundef %2827) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.719, ptr noundef %2829) #18
-  %2830 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2831 = tail call i32 @sqlite3_exec(ptr noundef %2830, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2832:                                             ; preds = %2819
-  %2833 = tail call i32 @sqlite3_exec(ptr noundef %2827, ptr noundef nonnull @.str.720, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2019 = icmp eq i32 %2833, 0
-  %2834 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2019, label %2839, label %2835
-
-2835:                                             ; preds = %2832
-  %2836 = tail call ptr @sqlite3_errmsg(ptr noundef %2834) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.721, ptr noundef %2836) #18
-  %2837 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2838 = tail call i32 @sqlite3_exec(ptr noundef %2837, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2839:                                             ; preds = %2832
-  %2840 = tail call i32 @sqlite3_exec(ptr noundef %2834, ptr noundef nonnull @.str.722, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2020 = icmp eq i32 %2840, 0
-  %2841 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2020, label %2846, label %2842
-
-2842:                                             ; preds = %2839
-  %2843 = tail call ptr @sqlite3_errmsg(ptr noundef %2841) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.723, ptr noundef %2843) #18
-  %2844 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2845 = tail call i32 @sqlite3_exec(ptr noundef %2844, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2846:                                             ; preds = %2839
-  %2847 = tail call i32 @sqlite3_exec(ptr noundef %2841, ptr noundef nonnull @.str.724, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2021 = icmp eq i32 %2847, 0
-  %2848 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2021, label %2853, label %2849
-
-2849:                                             ; preds = %2846
-  %2850 = tail call ptr @sqlite3_errmsg(ptr noundef %2848) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.725, ptr noundef %2850) #18
-  %2851 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2852 = tail call i32 @sqlite3_exec(ptr noundef %2851, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2853:                                             ; preds = %2846
-  %2854 = tail call i32 @sqlite3_exec(ptr noundef %2848, ptr noundef nonnull @.str.726, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2022 = icmp eq i32 %2854, 0
-  %2855 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2022, label %2860, label %2856
-
-2856:                                             ; preds = %2853
-  %2857 = tail call ptr @sqlite3_errmsg(ptr noundef %2855) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.727, ptr noundef %2857) #18
-  %2858 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2859 = tail call i32 @sqlite3_exec(ptr noundef %2858, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2860:                                             ; preds = %2853
-  %2861 = tail call i32 @sqlite3_exec(ptr noundef %2855, ptr noundef nonnull @.str.728, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2023 = icmp eq i32 %2861, 0
-  %2862 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2023, label %2867, label %2863
-
-2863:                                             ; preds = %2860
-  %2864 = tail call ptr @sqlite3_errmsg(ptr noundef %2862) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.729, ptr noundef %2864) #18
-  %2865 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2866 = tail call i32 @sqlite3_exec(ptr noundef %2865, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2867:                                             ; preds = %2860
-  %2868 = tail call i32 @sqlite3_exec(ptr noundef %2862, ptr noundef nonnull @.str.730, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2024 = icmp eq i32 %2868, 0
-  %2869 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2024, label %2874, label %2870
-
-2870:                                             ; preds = %2867
-  %2871 = tail call ptr @sqlite3_errmsg(ptr noundef %2869) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.731, ptr noundef %2871) #18
-  %2872 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2873 = tail call i32 @sqlite3_exec(ptr noundef %2872, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2874:                                             ; preds = %2867
-  %2875 = tail call i32 @sqlite3_exec(ptr noundef %2869, ptr noundef nonnull @.str.732, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2025 = icmp eq i32 %2875, 0
-  %2876 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2025, label %2881, label %2877
-
-2877:                                             ; preds = %2874
-  %2878 = tail call ptr @sqlite3_errmsg(ptr noundef %2876) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.733, ptr noundef %2878) #18
-  %2879 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2880 = tail call i32 @sqlite3_exec(ptr noundef %2879, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2881:                                             ; preds = %2874
-  %2882 = tail call i32 @sqlite3_exec(ptr noundef %2876, ptr noundef nonnull @.str.734, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2026 = icmp eq i32 %2882, 0
-  %2883 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2026, label %2888, label %2884
-
-2884:                                             ; preds = %2881
-  %2885 = tail call ptr @sqlite3_errmsg(ptr noundef %2883) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.735, ptr noundef %2885) #18
-  %2886 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2887 = tail call i32 @sqlite3_exec(ptr noundef %2886, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2888:                                             ; preds = %2881
-  %2889 = tail call i32 @sqlite3_exec(ptr noundef %2883, ptr noundef nonnull @.str.736, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2027 = icmp eq i32 %2889, 0
-  %2890 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2027, label %2895, label %2891
-
-2891:                                             ; preds = %2888
-  %2892 = tail call ptr @sqlite3_errmsg(ptr noundef %2890) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.737, ptr noundef %2892) #18
-  %2893 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2894 = tail call i32 @sqlite3_exec(ptr noundef %2893, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2895:                                             ; preds = %2888
-  %2896 = tail call i32 @sqlite3_exec(ptr noundef %2890, ptr noundef nonnull @.str.738, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2028 = icmp eq i32 %2896, 0
-  %2897 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2028, label %2902, label %2898
-
-2898:                                             ; preds = %2895
-  %2899 = tail call ptr @sqlite3_errmsg(ptr noundef %2897) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.739, ptr noundef %2899) #18
-  %2900 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2901 = tail call i32 @sqlite3_exec(ptr noundef %2900, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2902:                                             ; preds = %2895
-  %2903 = tail call i32 @sqlite3_exec(ptr noundef %2897, ptr noundef nonnull @.str.740, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2029 = icmp eq i32 %2903, 0
-  %2904 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2029, label %2909, label %2905
-
-2905:                                             ; preds = %2902
-  %2906 = tail call ptr @sqlite3_errmsg(ptr noundef %2904) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.741, ptr noundef %2906) #18
-  %2907 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2908 = tail call i32 @sqlite3_exec(ptr noundef %2907, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2909:                                             ; preds = %2902
-  %2910 = tail call i32 @sqlite3_exec(ptr noundef %2904, ptr noundef nonnull @.str.742, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2030 = icmp eq i32 %2910, 0
-  %2911 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2030, label %2916, label %2912
-
-2912:                                             ; preds = %2909
-  %2913 = tail call ptr @sqlite3_errmsg(ptr noundef %2911) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.743, ptr noundef %2913) #18
-  %2914 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2915 = tail call i32 @sqlite3_exec(ptr noundef %2914, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2916:                                             ; preds = %2909
-  %2917 = tail call i32 @sqlite3_exec(ptr noundef %2911, ptr noundef nonnull @.str.744, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2031 = icmp eq i32 %2917, 0
-  %2918 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2031, label %2923, label %2919
-
-2919:                                             ; preds = %2916
-  %2920 = tail call ptr @sqlite3_errmsg(ptr noundef %2918) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.745, ptr noundef %2920) #18
-  %2921 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2922 = tail call i32 @sqlite3_exec(ptr noundef %2921, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2923:                                             ; preds = %2916
-  %2924 = tail call i32 @sqlite3_exec(ptr noundef %2918, ptr noundef nonnull @.str.746, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2032 = icmp eq i32 %2924, 0
-  %2925 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2032, label %2930, label %2926
-
-2926:                                             ; preds = %2923
-  %2927 = tail call ptr @sqlite3_errmsg(ptr noundef %2925) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.747, ptr noundef %2927) #18
-  %2928 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2929 = tail call i32 @sqlite3_exec(ptr noundef %2928, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2930:                                             ; preds = %2923
-  %2931 = tail call i32 @sqlite3_exec(ptr noundef %2925, ptr noundef nonnull @.str.748, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2033 = icmp eq i32 %2931, 0
-  %2932 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2033, label %2937, label %2933
-
-2933:                                             ; preds = %2930
-  %2934 = tail call ptr @sqlite3_errmsg(ptr noundef %2932) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.749, ptr noundef %2934) #18
-  %2935 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2936 = tail call i32 @sqlite3_exec(ptr noundef %2935, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2937:                                             ; preds = %2930
-  %2938 = tail call i32 @sqlite3_exec(ptr noundef %2932, ptr noundef nonnull @.str.750, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2034 = icmp eq i32 %2938, 0
-  %2939 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2034, label %2944, label %2940
-
-2940:                                             ; preds = %2937
-  %2941 = tail call ptr @sqlite3_errmsg(ptr noundef %2939) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.751, ptr noundef %2941) #18
-  %2942 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2943 = tail call i32 @sqlite3_exec(ptr noundef %2942, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2944:                                             ; preds = %2937
-  %2945 = tail call i32 @sqlite3_exec(ptr noundef %2939, ptr noundef nonnull @.str.752, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2035 = icmp eq i32 %2945, 0
-  %2946 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2035, label %2951, label %2947
-
-2947:                                             ; preds = %2944
-  %2948 = tail call ptr @sqlite3_errmsg(ptr noundef %2946) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.753, ptr noundef %2948) #18
-  %2949 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2950 = tail call i32 @sqlite3_exec(ptr noundef %2949, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2951:                                             ; preds = %2944
-  %2952 = tail call i32 @sqlite3_exec(ptr noundef %2946, ptr noundef nonnull @.str.754, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2036 = icmp eq i32 %2952, 0
-  %2953 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2036, label %2958, label %2954
-
-2954:                                             ; preds = %2951
-  %2955 = tail call ptr @sqlite3_errmsg(ptr noundef %2953) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %2955) #18
-  %2956 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2957 = tail call i32 @sqlite3_exec(ptr noundef %2956, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2958:                                             ; preds = %2951
-  %2959 = tail call i32 @sqlite3_exec(ptr noundef %2953, ptr noundef nonnull @.str.756, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2037 = icmp eq i32 %2959, 0
-  %2960 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2037, label %2965, label %2961
-
-2961:                                             ; preds = %2958
-  %2962 = tail call ptr @sqlite3_errmsg(ptr noundef %2960) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %2962) #18
-  %2963 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2964 = tail call i32 @sqlite3_exec(ptr noundef %2963, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2965:                                             ; preds = %2958
-  %2966 = tail call i32 @sqlite3_exec(ptr noundef %2960, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2038 = icmp eq i32 %2966, 0
-  %2967 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2038, label %2972, label %2968
-
-2968:                                             ; preds = %2965
-  %2969 = tail call ptr @sqlite3_errmsg(ptr noundef %2967) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %2969) #18
-  %2970 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2971 = tail call i32 @sqlite3_exec(ptr noundef %2970, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2972:                                             ; preds = %2965
-  %2973 = tail call i32 @sqlite3_exec(ptr noundef %2967, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2039 = icmp eq i32 %2973, 0
-  %2974 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2039, label %2979, label %2975
-
-2975:                                             ; preds = %2972
-  %2976 = tail call ptr @sqlite3_errmsg(ptr noundef %2974) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %2976) #18
-  %2977 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2978 = tail call i32 @sqlite3_exec(ptr noundef %2977, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2979:                                             ; preds = %2972
-  %2980 = tail call i32 @sqlite3_exec(ptr noundef %2974, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2040 = icmp eq i32 %2980, 0
-  %2981 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2040, label %2986, label %2982
-
-2982:                                             ; preds = %2979
-  %2983 = tail call ptr @sqlite3_errmsg(ptr noundef %2981) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2983) #18
-  %2984 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2985 = tail call i32 @sqlite3_exec(ptr noundef %2984, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2986:                                             ; preds = %2979
-  %2987 = tail call i32 @sqlite3_exec(ptr noundef %2981, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2041 = icmp eq i32 %2987, 0
-  %2988 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2041, label %2993, label %2989
-
-2989:                                             ; preds = %2986
-  %2990 = tail call ptr @sqlite3_errmsg(ptr noundef %2988) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2990) #18
-  %2991 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2992 = tail call i32 @sqlite3_exec(ptr noundef %2991, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-2993:                                             ; preds = %2986
-  %2994 = tail call i32 @sqlite3_exec(ptr noundef %2988, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2042 = icmp eq i32 %2994, 0
-  %2995 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2042, label %3000, label %2996
-
-2996:                                             ; preds = %2993
-  %2997 = tail call ptr @sqlite3_errmsg(ptr noundef %2995) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2997) #18
-  %2998 = load ptr, ptr %2820, align 8, !tbaa !6
-  %2999 = tail call i32 @sqlite3_exec(ptr noundef %2998, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3000:                                             ; preds = %2993
-  %3001 = tail call i32 @sqlite3_exec(ptr noundef %2995, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2043 = icmp eq i32 %3001, 0
-  %3002 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2043, label %3007, label %3003
-
-3003:                                             ; preds = %3000
-  %3004 = tail call ptr @sqlite3_errmsg(ptr noundef %3002) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3004) #18
-  %3005 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3006 = tail call i32 @sqlite3_exec(ptr noundef %3005, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3007:                                             ; preds = %3000
-  %3008 = tail call i32 @sqlite3_exec(ptr noundef %3002, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2044 = icmp eq i32 %3008, 0
-  %3009 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2044, label %3014, label %3010
-
-3010:                                             ; preds = %3007
-  %3011 = tail call ptr @sqlite3_errmsg(ptr noundef %3009) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3011) #18
-  %3012 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3013 = tail call i32 @sqlite3_exec(ptr noundef %3012, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3014:                                             ; preds = %3007
-  %3015 = tail call i32 @sqlite3_exec(ptr noundef %3009, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2045 = icmp eq i32 %3015, 0
-  %3016 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2045, label %3021, label %3017
-
-3017:                                             ; preds = %3014
-  %3018 = tail call ptr @sqlite3_errmsg(ptr noundef %3016) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3018) #18
-  %3019 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3020 = tail call i32 @sqlite3_exec(ptr noundef %3019, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3021:                                             ; preds = %3014
-  %3022 = tail call i32 @sqlite3_exec(ptr noundef %3016, ptr noundef nonnull @.str.765, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2046 = icmp eq i32 %3022, 0
-  %3023 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2046, label %3028, label %3024
-
-3024:                                             ; preds = %3021
-  %3025 = tail call ptr @sqlite3_errmsg(ptr noundef %3023) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.766, ptr noundef %3025) #18
-  %3026 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3027 = tail call i32 @sqlite3_exec(ptr noundef %3026, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3028:                                             ; preds = %3021
-  %3029 = tail call i32 @sqlite3_exec(ptr noundef %3023, ptr noundef nonnull @.str.767, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2047 = icmp eq i32 %3029, 0
-  %3030 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2047, label %3035, label %3031
-
-3031:                                             ; preds = %3028
-  %3032 = tail call ptr @sqlite3_errmsg(ptr noundef %3030) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.768, ptr noundef %3032) #18
-  %3033 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3034 = tail call i32 @sqlite3_exec(ptr noundef %3033, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3035:                                             ; preds = %3028
-  %3036 = tail call i32 @sqlite3_exec(ptr noundef %3030, ptr noundef nonnull @.str.769, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2048 = icmp eq i32 %3036, 0
-  %3037 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2048, label %3042, label %3038
-
-3038:                                             ; preds = %3035
-  %3039 = tail call ptr @sqlite3_errmsg(ptr noundef %3037) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.770, ptr noundef %3039) #18
-  %3040 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3041 = tail call i32 @sqlite3_exec(ptr noundef %3040, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3042:                                             ; preds = %3035
-  %3043 = tail call i32 @sqlite3_exec(ptr noundef %3037, ptr noundef nonnull @.str.771, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2049 = icmp eq i32 %3043, 0
-  %3044 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2049, label %3049, label %3045
-
-3045:                                             ; preds = %3042
-  %3046 = tail call ptr @sqlite3_errmsg(ptr noundef %3044) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.772, ptr noundef %3046) #18
-  %3047 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3048 = tail call i32 @sqlite3_exec(ptr noundef %3047, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3049:                                             ; preds = %3042
-  %3050 = tail call i32 @sqlite3_exec(ptr noundef %3044, ptr noundef nonnull @.str.773, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2050 = icmp eq i32 %3050, 0
-  %3051 = load ptr, ptr %2820, align 8, !tbaa !6
-  br i1 %.not2050, label %3056, label %3052
-
-3052:                                             ; preds = %3049
-  %3053 = tail call ptr @sqlite3_errmsg(ptr noundef %3051) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3053) #18
-  %3054 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3055 = tail call i32 @sqlite3_exec(ptr noundef %3054, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3056:                                             ; preds = %3049
-  %3057 = tail call i32 @sqlite3_exec(ptr noundef %3051, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3058 = load ptr, ptr %2820, align 8, !tbaa !6
-  %3059 = tail call i32 @sqlite3_exec(ptr noundef %3058, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3060:                                             ; preds = %2
-  %3061 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3062 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3063 = tail call i32 @sqlite3_exec(ptr noundef %3062, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3064 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3065 = tail call i32 @sqlite3_exec(ptr noundef %3064, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3066 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3067 = tail call i32 @sqlite3_exec(ptr noundef %3066, ptr noundef nonnull @.str.775, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2013 = icmp eq i32 %3067, 0
-  %3068 = load ptr, ptr %3061, align 8, !tbaa !6
-  br i1 %.not2013, label %3073, label %3069
-
-3069:                                             ; preds = %3060
-  %3070 = tail call ptr @sqlite3_errmsg(ptr noundef %3068) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.776, ptr noundef %3070) #18
-  %3071 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3072 = tail call i32 @sqlite3_exec(ptr noundef %3071, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3073:                                             ; preds = %3060
-  %3074 = tail call i32 @sqlite3_exec(ptr noundef %3068, ptr noundef nonnull @.str.777, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2014 = icmp eq i32 %3074, 0
-  %3075 = load ptr, ptr %3061, align 8, !tbaa !6
-  br i1 %.not2014, label %3080, label %3076
-
-3076:                                             ; preds = %3073
-  %3077 = tail call ptr @sqlite3_errmsg(ptr noundef %3075) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.725, ptr noundef %3077) #18
-  %3078 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3079 = tail call i32 @sqlite3_exec(ptr noundef %3078, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3080:                                             ; preds = %3073
-  %3081 = tail call i32 @sqlite3_exec(ptr noundef %3075, ptr noundef nonnull @.str.778, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2015 = icmp eq i32 %3081, 0
-  %3082 = load ptr, ptr %3061, align 8, !tbaa !6
-  br i1 %.not2015, label %3087, label %3083
-
-3083:                                             ; preds = %3080
-  %3084 = tail call ptr @sqlite3_errmsg(ptr noundef %3082) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.733, ptr noundef %3084) #18
-  %3085 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3086 = tail call i32 @sqlite3_exec(ptr noundef %3085, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3087:                                             ; preds = %3080
-  %3088 = tail call i32 @sqlite3_exec(ptr noundef %3082, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2016 = icmp eq i32 %3088, 0
-  %3089 = load ptr, ptr %3061, align 8, !tbaa !6
-  br i1 %.not2016, label %3094, label %3090
-
-3090:                                             ; preds = %3087
-  %3091 = tail call ptr @sqlite3_errmsg(ptr noundef %3089) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3091) #18
-  %3092 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3093 = tail call i32 @sqlite3_exec(ptr noundef %3092, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3094:                                             ; preds = %3087
-  %3095 = tail call i32 @sqlite3_exec(ptr noundef %3089, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2017 = icmp eq i32 %3095, 0
-  %3096 = load ptr, ptr %3061, align 8, !tbaa !6
-  br i1 %.not2017, label %3101, label %3097
-
-3097:                                             ; preds = %3094
-  %3098 = tail call ptr @sqlite3_errmsg(ptr noundef %3096) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3098) #18
-  %3099 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3100 = tail call i32 @sqlite3_exec(ptr noundef %3099, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3101:                                             ; preds = %3094
-  %3102 = tail call i32 @sqlite3_exec(ptr noundef %3096, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3103 = load ptr, ptr %3061, align 8, !tbaa !6
-  %3104 = tail call i32 @sqlite3_exec(ptr noundef %3103, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3105:                                             ; preds = %2
-  %3106 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3107 = load ptr, ptr %3106, align 8, !tbaa !6
-  %3108 = tail call i32 @sqlite3_exec(ptr noundef %3107, ptr noundef nonnull @.str.782, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2012 = icmp eq i32 %3108, 0
-  br i1 %.not2012, label %3736, label %3109
-
-3109:                                             ; preds = %3105
-  %3110 = load ptr, ptr %3106, align 8, !tbaa !6
-  %3111 = tail call ptr @sqlite3_errmsg(ptr noundef %3110) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.783, ptr noundef %3111) #18
-  %3112 = load ptr, ptr %3106, align 8, !tbaa !6
-  %3113 = tail call i32 @sqlite3_exec(ptr noundef %3112, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3114:                                             ; preds = %2
-  %3115 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3116 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3117 = tail call i32 @sqlite3_exec(ptr noundef %3116, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3118 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3119 = tail call i32 @sqlite3_exec(ptr noundef %3118, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3120 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3121 = tail call i32 @sqlite3_exec(ptr noundef %3120, ptr noundef nonnull @.str.784, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2006 = icmp eq i32 %3121, 0
-  %3122 = load ptr, ptr %3115, align 8, !tbaa !6
-  br i1 %.not2006, label %3127, label %3123
-
-3123:                                             ; preds = %3114
-  %3124 = tail call ptr @sqlite3_errmsg(ptr noundef %3122) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %3124) #18
-  %3125 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3126 = tail call i32 @sqlite3_exec(ptr noundef %3125, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3127:                                             ; preds = %3114
-  %3128 = tail call i32 @sqlite3_exec(ptr noundef %3122, ptr noundef nonnull @.str.785, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2007 = icmp eq i32 %3128, 0
-  %3129 = load ptr, ptr %3115, align 8, !tbaa !6
-  br i1 %.not2007, label %3134, label %3130
-
-3130:                                             ; preds = %3127
-  %3131 = tail call ptr @sqlite3_errmsg(ptr noundef %3129) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %3131) #18
-  %3132 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3133 = tail call i32 @sqlite3_exec(ptr noundef %3132, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3134:                                             ; preds = %3127
-  %3135 = tail call i32 @sqlite3_exec(ptr noundef %3129, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2008 = icmp eq i32 %3135, 0
-  %3136 = load ptr, ptr %3115, align 8, !tbaa !6
-  br i1 %.not2008, label %3141, label %3137
-
-3137:                                             ; preds = %3134
-  %3138 = tail call ptr @sqlite3_errmsg(ptr noundef %3136) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3138) #18
-  %3139 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3140 = tail call i32 @sqlite3_exec(ptr noundef %3139, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3141:                                             ; preds = %3134
-  %3142 = tail call i32 @sqlite3_exec(ptr noundef %3136, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2009 = icmp eq i32 %3142, 0
-  %3143 = load ptr, ptr %3115, align 8, !tbaa !6
-  br i1 %.not2009, label %3148, label %3144
-
-3144:                                             ; preds = %3141
-  %3145 = tail call ptr @sqlite3_errmsg(ptr noundef %3143) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %3145) #18
-  %3146 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3147 = tail call i32 @sqlite3_exec(ptr noundef %3146, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3148:                                             ; preds = %3141
-  %3149 = tail call i32 @sqlite3_exec(ptr noundef %3143, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2010 = icmp eq i32 %3149, 0
-  %3150 = load ptr, ptr %3115, align 8, !tbaa !6
-  br i1 %.not2010, label %3155, label %3151
-
-3151:                                             ; preds = %3148
-  %3152 = tail call ptr @sqlite3_errmsg(ptr noundef %3150) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %3152) #18
-  %3153 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3154 = tail call i32 @sqlite3_exec(ptr noundef %3153, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3155:                                             ; preds = %3148
-  %3156 = tail call i32 @sqlite3_exec(ptr noundef %3150, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2011 = icmp eq i32 %3156, 0
-  %3157 = load ptr, ptr %3115, align 8, !tbaa !6
-  br i1 %.not2011, label %3162, label %3158
-
-3158:                                             ; preds = %3155
-  %3159 = tail call ptr @sqlite3_errmsg(ptr noundef %3157) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3159) #18
-  %3160 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3161 = tail call i32 @sqlite3_exec(ptr noundef %3160, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3162:                                             ; preds = %3155
-  %3163 = tail call i32 @sqlite3_exec(ptr noundef %3157, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3164 = load ptr, ptr %3115, align 8, !tbaa !6
-  %3165 = tail call i32 @sqlite3_exec(ptr noundef %3164, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3166:                                             ; preds = %2
-  %3167 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3168 = load ptr, ptr %3167, align 8, !tbaa !6
-  %3169 = tail call i32 @sqlite3_exec(ptr noundef %3168, ptr noundef nonnull @.str.786, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2005 = icmp eq i32 %3169, 0
-  br i1 %.not2005, label %3736, label %3170
-
-3170:                                             ; preds = %3166
-  %3171 = load ptr, ptr %3167, align 8, !tbaa !6
-  %3172 = tail call ptr @sqlite3_errmsg(ptr noundef %3171) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.787, ptr noundef %3172) #18
-  %3173 = load ptr, ptr %3167, align 8, !tbaa !6
-  %3174 = tail call i32 @sqlite3_exec(ptr noundef %3173, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3175:                                             ; preds = %2
-  %3176 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3177 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3178 = tail call i32 @sqlite3_exec(ptr noundef %3177, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1995 = icmp eq i32 %3178, 0
-  %3179 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not1995, label %3184, label %3180
-
-3180:                                             ; preds = %3175
-  %3181 = tail call ptr @sqlite3_errmsg(ptr noundef %3179) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %3181) #18
-  %3182 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3183 = tail call i32 @sqlite3_exec(ptr noundef %3182, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3184:                                             ; preds = %3175
-  %3185 = tail call i32 @sqlite3_exec(ptr noundef %3179, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1996 = icmp eq i32 %3185, 0
-  %3186 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not1996, label %3191, label %3187
-
-3187:                                             ; preds = %3184
-  %3188 = tail call ptr @sqlite3_errmsg(ptr noundef %3186) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %3188) #18
-  %3189 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3190 = tail call i32 @sqlite3_exec(ptr noundef %3189, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3191:                                             ; preds = %3184
-  %3192 = tail call i32 @sqlite3_exec(ptr noundef %3186, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1997 = icmp eq i32 %3192, 0
-  %3193 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not1997, label %3198, label %3194
-
-3194:                                             ; preds = %3191
-  %3195 = tail call ptr @sqlite3_errmsg(ptr noundef %3193) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %3195) #18
-  %3196 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3197 = tail call i32 @sqlite3_exec(ptr noundef %3196, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3198:                                             ; preds = %3191
-  %3199 = tail call i32 @sqlite3_exec(ptr noundef %3193, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1998 = icmp eq i32 %3199, 0
-  %3200 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not1998, label %3205, label %3201
-
-3201:                                             ; preds = %3198
-  %3202 = tail call ptr @sqlite3_errmsg(ptr noundef %3200) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3202) #18
-  %3203 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3204 = tail call i32 @sqlite3_exec(ptr noundef %3203, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3205:                                             ; preds = %3198
-  %3206 = tail call i32 @sqlite3_exec(ptr noundef %3200, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1999 = icmp eq i32 %3206, 0
-  %3207 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not1999, label %3212, label %3208
-
-3208:                                             ; preds = %3205
-  %3209 = tail call ptr @sqlite3_errmsg(ptr noundef %3207) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3209) #18
-  %3210 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3211 = tail call i32 @sqlite3_exec(ptr noundef %3210, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3212:                                             ; preds = %3205
-  %3213 = tail call i32 @sqlite3_exec(ptr noundef %3207, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2000 = icmp eq i32 %3213, 0
-  %3214 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not2000, label %3219, label %3215
-
-3215:                                             ; preds = %3212
-  %3216 = tail call ptr @sqlite3_errmsg(ptr noundef %3214) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3216) #18
-  %3217 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3218 = tail call i32 @sqlite3_exec(ptr noundef %3217, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3219:                                             ; preds = %3212
-  %3220 = tail call i32 @sqlite3_exec(ptr noundef %3214, ptr noundef nonnull @.str.765, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2001 = icmp eq i32 %3220, 0
-  %3221 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not2001, label %3226, label %3222
-
-3222:                                             ; preds = %3219
-  %3223 = tail call ptr @sqlite3_errmsg(ptr noundef %3221) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.766, ptr noundef %3223) #18
-  %3224 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3225 = tail call i32 @sqlite3_exec(ptr noundef %3224, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3226:                                             ; preds = %3219
-  %3227 = tail call i32 @sqlite3_exec(ptr noundef %3221, ptr noundef nonnull @.str.767, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2002 = icmp eq i32 %3227, 0
-  %3228 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not2002, label %3233, label %3229
-
-3229:                                             ; preds = %3226
-  %3230 = tail call ptr @sqlite3_errmsg(ptr noundef %3228) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.768, ptr noundef %3230) #18
-  %3231 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3232 = tail call i32 @sqlite3_exec(ptr noundef %3231, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3233:                                             ; preds = %3226
-  %3234 = tail call i32 @sqlite3_exec(ptr noundef %3228, ptr noundef nonnull @.str.769, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2003 = icmp eq i32 %3234, 0
-  %3235 = load ptr, ptr %3176, align 8, !tbaa !6
-  br i1 %.not2003, label %3240, label %3236
-
-3236:                                             ; preds = %3233
-  %3237 = tail call ptr @sqlite3_errmsg(ptr noundef %3235) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.770, ptr noundef %3237) #18
-  %3238 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3239 = tail call i32 @sqlite3_exec(ptr noundef %3238, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3240:                                             ; preds = %3233
-  %3241 = tail call i32 @sqlite3_exec(ptr noundef %3235, ptr noundef nonnull @.str.771, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not2004 = icmp eq i32 %3241, 0
-  br i1 %.not2004, label %3736, label %3242
-
-3242:                                             ; preds = %3240
-  %3243 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3244 = tail call ptr @sqlite3_errmsg(ptr noundef %3243) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.772, ptr noundef %3244) #18
-  %3245 = load ptr, ptr %3176, align 8, !tbaa !6
-  %3246 = tail call i32 @sqlite3_exec(ptr noundef %3245, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3247:                                             ; preds = %2
-  %3248 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3249 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3250 = tail call i32 @sqlite3_exec(ptr noundef %3249, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3251 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3252 = tail call i32 @sqlite3_exec(ptr noundef %3251, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3253 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3254 = tail call i32 @sqlite3_exec(ptr noundef %3253, ptr noundef nonnull @.str.788, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1987 = icmp eq i32 %3254, 0
-  %3255 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1987, label %3260, label %3256
-
-3256:                                             ; preds = %3247
-  %3257 = tail call ptr @sqlite3_errmsg(ptr noundef %3255) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.789, ptr noundef %3257) #18
-  %3258 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3259 = tail call i32 @sqlite3_exec(ptr noundef %3258, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3260:                                             ; preds = %3247
-  %3261 = tail call i32 @sqlite3_exec(ptr noundef %3255, ptr noundef nonnull @.str.790, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1988 = icmp eq i32 %3261, 0
-  %3262 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1988, label %3267, label %3263
-
-3263:                                             ; preds = %3260
-  %3264 = tail call ptr @sqlite3_errmsg(ptr noundef %3262) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.791, ptr noundef %3264) #18
-  %3265 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3266 = tail call i32 @sqlite3_exec(ptr noundef %3265, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3267:                                             ; preds = %3260
-  %3268 = tail call i32 @sqlite3_exec(ptr noundef %3262, ptr noundef nonnull @.str.792, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1989 = icmp eq i32 %3268, 0
-  %3269 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1989, label %3274, label %3270
-
-3270:                                             ; preds = %3267
-  %3271 = tail call ptr @sqlite3_errmsg(ptr noundef %3269) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.793, ptr noundef %3271) #18
-  %3272 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3273 = tail call i32 @sqlite3_exec(ptr noundef %3272, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3274:                                             ; preds = %3267
-  %3275 = tail call i32 @sqlite3_exec(ptr noundef %3269, ptr noundef nonnull @.str.794, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1990 = icmp eq i32 %3275, 0
-  %3276 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1990, label %3281, label %3277
-
-3277:                                             ; preds = %3274
-  %3278 = tail call ptr @sqlite3_errmsg(ptr noundef %3276) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.795, ptr noundef %3278) #18
-  %3279 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3280 = tail call i32 @sqlite3_exec(ptr noundef %3279, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3281:                                             ; preds = %3274
-  %3282 = tail call i32 @sqlite3_exec(ptr noundef %3276, ptr noundef nonnull @.str.796, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1991 = icmp eq i32 %3282, 0
-  %3283 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1991, label %3288, label %3284
-
-3284:                                             ; preds = %3281
-  %3285 = tail call ptr @sqlite3_errmsg(ptr noundef %3283) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.797, ptr noundef %3285) #18
-  %3286 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3287 = tail call i32 @sqlite3_exec(ptr noundef %3286, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3288:                                             ; preds = %3281
-  %3289 = tail call i32 @sqlite3_exec(ptr noundef %3283, ptr noundef nonnull @.str.798, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1992 = icmp eq i32 %3289, 0
-  %3290 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1992, label %3295, label %3291
-
-3291:                                             ; preds = %3288
-  %3292 = tail call ptr @sqlite3_errmsg(ptr noundef %3290) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.799, ptr noundef %3292) #18
-  %3293 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3294 = tail call i32 @sqlite3_exec(ptr noundef %3293, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3295:                                             ; preds = %3288
-  %3296 = tail call i32 @sqlite3_exec(ptr noundef %3290, ptr noundef nonnull @.str.800, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1993 = icmp eq i32 %3296, 0
-  %3297 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1993, label %3302, label %3298
-
-3298:                                             ; preds = %3295
-  %3299 = tail call ptr @sqlite3_errmsg(ptr noundef %3297) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.783, ptr noundef %3299) #18
-  %3300 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3301 = tail call i32 @sqlite3_exec(ptr noundef %3300, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3302:                                             ; preds = %3295
-  %3303 = tail call i32 @sqlite3_exec(ptr noundef %3297, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1994 = icmp eq i32 %3303, 0
-  %3304 = load ptr, ptr %3248, align 8, !tbaa !6
-  br i1 %.not1994, label %3309, label %3305
-
-3305:                                             ; preds = %3302
-  %3306 = tail call ptr @sqlite3_errmsg(ptr noundef %3304) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.787, ptr noundef %3306) #18
-  %3307 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3308 = tail call i32 @sqlite3_exec(ptr noundef %3307, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3309:                                             ; preds = %3302
-  %3310 = tail call i32 @sqlite3_exec(ptr noundef %3304, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3311 = load ptr, ptr %3248, align 8, !tbaa !6
-  %3312 = tail call i32 @sqlite3_exec(ptr noundef %3311, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3313:                                             ; preds = %2
-  %3314 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3315 = load ptr, ptr %3314, align 8, !tbaa !6
-  %3316 = tail call i32 @sqlite3_exec(ptr noundef %3315, ptr noundef nonnull @.str.802, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1986 = icmp eq i32 %3316, 0
-  br i1 %.not1986, label %3736, label %3317
-
-3317:                                             ; preds = %3313
-  %3318 = load ptr, ptr %3314, align 8, !tbaa !6
-  %3319 = tail call ptr @sqlite3_errmsg(ptr noundef %3318) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.803, ptr noundef %3319) #18
-  %3320 = load ptr, ptr %3314, align 8, !tbaa !6
-  %3321 = tail call i32 @sqlite3_exec(ptr noundef %3320, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3322:                                             ; preds = %2
-  %3323 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3324 = load ptr, ptr %3323, align 8, !tbaa !6
-  %3325 = tail call i32 @sqlite3_exec(ptr noundef %3324, ptr noundef nonnull @.str.804, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1985 = icmp eq i32 %3325, 0
-  br i1 %.not1985, label %3736, label %3326
-
-3326:                                             ; preds = %3322
-  %3327 = load ptr, ptr %3323, align 8, !tbaa !6
-  %3328 = tail call ptr @sqlite3_errmsg(ptr noundef %3327) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.805, ptr noundef %3328) #18
-  %3329 = load ptr, ptr %3323, align 8, !tbaa !6
-  %3330 = tail call i32 @sqlite3_exec(ptr noundef %3329, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3331:                                             ; preds = %2
-  %3332 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3333 = load ptr, ptr %3332, align 8, !tbaa !6
-  %3334 = tail call i32 @sqlite3_exec(ptr noundef %3333, ptr noundef nonnull @.str.806, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1984 = icmp eq i32 %3334, 0
-  br i1 %.not1984, label %3736, label %3335
-
-3335:                                             ; preds = %3331
-  %3336 = load ptr, ptr %3332, align 8, !tbaa !6
-  %3337 = tail call ptr @sqlite3_errmsg(ptr noundef %3336) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.807, ptr noundef %3337) #18
-  %3338 = load ptr, ptr %3332, align 8, !tbaa !6
-  %3339 = tail call i32 @sqlite3_exec(ptr noundef %3338, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3340:                                             ; preds = %2
-  %3341 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3342 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3343 = tail call i32 @sqlite3_exec(ptr noundef %3342, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3344 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3345 = tail call i32 @sqlite3_exec(ptr noundef %3344, ptr noundef nonnull @.str.808, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1977 = icmp eq i32 %3345, 0
-  %3346 = load ptr, ptr %3341, align 8, !tbaa !6
-  br i1 %.not1977, label %3351, label %3347
-
-3347:                                             ; preds = %3340
-  %3348 = tail call ptr @sqlite3_errmsg(ptr noundef %3346) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.809, ptr noundef %3348) #18
-  %3349 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3350 = tail call i32 @sqlite3_exec(ptr noundef %3349, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3351:                                             ; preds = %3340
-  %3352 = tail call i32 @sqlite3_exec(ptr noundef %3346, ptr noundef nonnull @.str.810, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1978 = icmp eq i32 %3352, 0
-  %3353 = load ptr, ptr %3341, align 8, !tbaa !6
-  br i1 %.not1978, label %3358, label %3354
-
-3354:                                             ; preds = %3351
-  %3355 = tail call ptr @sqlite3_errmsg(ptr noundef %3353) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.811, ptr noundef %3355) #18
-  %3356 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3357 = tail call i32 @sqlite3_exec(ptr noundef %3356, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3358:                                             ; preds = %3351
-  %3359 = tail call i32 @sqlite3_exec(ptr noundef %3353, ptr noundef nonnull @.str.812, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1979 = icmp eq i32 %3359, 0
-  %3360 = load ptr, ptr %3341, align 8, !tbaa !6
-  br i1 %.not1979, label %3365, label %3361
-
-3361:                                             ; preds = %3358
-  %3362 = tail call ptr @sqlite3_errmsg(ptr noundef %3360) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.813, ptr noundef %3362) #18
-  %3363 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3364 = tail call i32 @sqlite3_exec(ptr noundef %3363, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3365:                                             ; preds = %3358
-  %3366 = tail call i32 @sqlite3_exec(ptr noundef %3360, ptr noundef nonnull @.str.814, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1980 = icmp eq i32 %3366, 0
-  %3367 = load ptr, ptr %3341, align 8, !tbaa !6
-  br i1 %.not1980, label %3372, label %3368
-
-3368:                                             ; preds = %3365
-  %3369 = tail call ptr @sqlite3_errmsg(ptr noundef %3367) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.815, ptr noundef %3369) #18
-  %3370 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3371 = tail call i32 @sqlite3_exec(ptr noundef %3370, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3372:                                             ; preds = %3365
-  %3373 = tail call i32 @sqlite3_exec(ptr noundef %3367, ptr noundef nonnull @.str.816, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1981 = icmp eq i32 %3373, 0
-  %3374 = load ptr, ptr %3341, align 8, !tbaa !6
-  br i1 %.not1981, label %3379, label %3375
-
-3375:                                             ; preds = %3372
-  %3376 = tail call ptr @sqlite3_errmsg(ptr noundef %3374) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3376) #18
-  %3377 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3378 = tail call i32 @sqlite3_exec(ptr noundef %3377, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3379:                                             ; preds = %3372
-  %3380 = tail call i32 @sqlite3_exec(ptr noundef %3374, ptr noundef nonnull @.str.818, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1982 = icmp eq i32 %3380, 0
-  %3381 = load ptr, ptr %3341, align 8, !tbaa !6
-  br i1 %.not1982, label %3386, label %3382
-
-3382:                                             ; preds = %3379
-  %3383 = tail call ptr @sqlite3_errmsg(ptr noundef %3381) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.819, ptr noundef %3383) #18
-  %3384 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3385 = tail call i32 @sqlite3_exec(ptr noundef %3384, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3386:                                             ; preds = %3379
-  %3387 = tail call i32 @sqlite3_exec(ptr noundef %3381, ptr noundef nonnull @.str.820, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1983 = icmp eq i32 %3387, 0
-  %3388 = load ptr, ptr %3341, align 8, !tbaa !6
-  br i1 %.not1983, label %3393, label %3389
-
-3389:                                             ; preds = %3386
-  %3390 = tail call ptr @sqlite3_errmsg(ptr noundef %3388) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.821, ptr noundef %3390) #18
-  %3391 = load ptr, ptr %3341, align 8, !tbaa !6
-  %3392 = tail call i32 @sqlite3_exec(ptr noundef %3391, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3393:                                             ; preds = %3386
-  %3394 = tail call i32 @sqlite3_exec(ptr noundef %3388, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3395:                                             ; preds = %2
-  %3396 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3397 = load ptr, ptr %3396, align 8, !tbaa !6
-  %3398 = tail call i32 @sqlite3_exec(ptr noundef %3397, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3399 = load ptr, ptr %3396, align 8, !tbaa !6
-  %3400 = tail call i32 @sqlite3_exec(ptr noundef %3399, ptr noundef nonnull @.str.822, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1975 = icmp eq i32 %3400, 0
-  %3401 = load ptr, ptr %3396, align 8, !tbaa !6
-  br i1 %.not1975, label %3406, label %3402
-
-3402:                                             ; preds = %3395
-  %3403 = tail call ptr @sqlite3_errmsg(ptr noundef %3401) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.823, ptr noundef %3403) #18
-  %3404 = load ptr, ptr %3396, align 8, !tbaa !6
-  %3405 = tail call i32 @sqlite3_exec(ptr noundef %3404, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3406:                                             ; preds = %3395
-  %3407 = tail call i32 @sqlite3_exec(ptr noundef %3401, ptr noundef nonnull @.str.824, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1976 = icmp eq i32 %3407, 0
-  %3408 = load ptr, ptr %3396, align 8, !tbaa !6
-  br i1 %.not1976, label %3413, label %3409
-
-3409:                                             ; preds = %3406
-  %3410 = tail call ptr @sqlite3_errmsg(ptr noundef %3408) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3410) #18
-  %3411 = load ptr, ptr %3396, align 8, !tbaa !6
-  %3412 = tail call i32 @sqlite3_exec(ptr noundef %3411, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3413:                                             ; preds = %3406
-  %3414 = tail call i32 @sqlite3_exec(ptr noundef %3408, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3415:                                             ; preds = %2
-  %3416 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3417 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3418 = tail call i32 @sqlite3_exec(ptr noundef %3417, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3419 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3420 = tail call i32 @sqlite3_exec(ptr noundef %3419, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3421 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3422 = tail call i32 @sqlite3_exec(ptr noundef %3421, ptr noundef nonnull @.str.825, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1955 = icmp eq i32 %3422, 0
-  %3423 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1955, label %3428, label %3424
-
-3424:                                             ; preds = %3415
-  %3425 = tail call ptr @sqlite3_errmsg(ptr noundef %3423) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.826, ptr noundef %3425) #18
-  %3426 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3427 = tail call i32 @sqlite3_exec(ptr noundef %3426, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3428:                                             ; preds = %3415
-  %3429 = tail call i32 @sqlite3_exec(ptr noundef %3423, ptr noundef nonnull @.str.827, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1956 = icmp eq i32 %3429, 0
-  %3430 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1956, label %3435, label %3431
-
-3431:                                             ; preds = %3428
-  %3432 = tail call ptr @sqlite3_errmsg(ptr noundef %3430) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.828, ptr noundef %3432) #18
-  %3433 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3434 = tail call i32 @sqlite3_exec(ptr noundef %3433, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3435:                                             ; preds = %3428
-  %3436 = tail call i32 @sqlite3_exec(ptr noundef %3430, ptr noundef nonnull @.str.829, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1957 = icmp eq i32 %3436, 0
-  %3437 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1957, label %3442, label %3438
-
-3438:                                             ; preds = %3435
-  %3439 = tail call ptr @sqlite3_errmsg(ptr noundef %3437) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.830, ptr noundef %3439) #18
-  %3440 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3441 = tail call i32 @sqlite3_exec(ptr noundef %3440, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3442:                                             ; preds = %3435
-  %3443 = tail call i32 @sqlite3_exec(ptr noundef %3437, ptr noundef nonnull @.str.831, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1958 = icmp eq i32 %3443, 0
-  %3444 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1958, label %3449, label %3445
-
-3445:                                             ; preds = %3442
-  %3446 = tail call ptr @sqlite3_errmsg(ptr noundef %3444) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.832, ptr noundef %3446) #18
-  %3447 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3448 = tail call i32 @sqlite3_exec(ptr noundef %3447, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3449:                                             ; preds = %3442
-  %3450 = tail call i32 @sqlite3_exec(ptr noundef %3444, ptr noundef nonnull @.str.833, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1959 = icmp eq i32 %3450, 0
-  %3451 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1959, label %3456, label %3452
-
-3452:                                             ; preds = %3449
-  %3453 = tail call ptr @sqlite3_errmsg(ptr noundef %3451) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.834, ptr noundef %3453) #18
-  %3454 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3455 = tail call i32 @sqlite3_exec(ptr noundef %3454, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3456:                                             ; preds = %3449
-  %3457 = tail call i32 @sqlite3_exec(ptr noundef %3451, ptr noundef nonnull @.str.835, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1960 = icmp eq i32 %3457, 0
-  %3458 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1960, label %3463, label %3459
-
-3459:                                             ; preds = %3456
-  %3460 = tail call ptr @sqlite3_errmsg(ptr noundef %3458) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.836, ptr noundef %3460) #18
-  %3461 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3462 = tail call i32 @sqlite3_exec(ptr noundef %3461, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3463:                                             ; preds = %3456
-  %3464 = tail call i32 @sqlite3_exec(ptr noundef %3458, ptr noundef nonnull @.str.837, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1961 = icmp eq i32 %3464, 0
-  %3465 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1961, label %3470, label %3466
-
-3466:                                             ; preds = %3463
-  %3467 = tail call ptr @sqlite3_errmsg(ptr noundef %3465) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.838, ptr noundef %3467) #18
-  %3468 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3469 = tail call i32 @sqlite3_exec(ptr noundef %3468, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3470:                                             ; preds = %3463
-  %3471 = tail call i32 @sqlite3_exec(ptr noundef %3465, ptr noundef nonnull @.str.839, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1962 = icmp eq i32 %3471, 0
-  %3472 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1962, label %3477, label %3473
-
-3473:                                             ; preds = %3470
-  %3474 = tail call ptr @sqlite3_errmsg(ptr noundef %3472) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.840, ptr noundef %3474) #18
-  %3475 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3476 = tail call i32 @sqlite3_exec(ptr noundef %3475, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3477:                                             ; preds = %3470
-  %3478 = tail call i32 @sqlite3_exec(ptr noundef %3472, ptr noundef nonnull @.str.841, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1963 = icmp eq i32 %3478, 0
-  %3479 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1963, label %3484, label %3480
-
-3480:                                             ; preds = %3477
-  %3481 = tail call ptr @sqlite3_errmsg(ptr noundef %3479) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %3481) #18
-  %3482 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3483 = tail call i32 @sqlite3_exec(ptr noundef %3482, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3484:                                             ; preds = %3477
-  %3485 = tail call i32 @sqlite3_exec(ptr noundef %3479, ptr noundef nonnull @.str.842, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1964 = icmp eq i32 %3485, 0
-  %3486 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1964, label %3491, label %3487
-
-3487:                                             ; preds = %3484
-  %3488 = tail call ptr @sqlite3_errmsg(ptr noundef %3486) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %3488) #18
-  %3489 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3490 = tail call i32 @sqlite3_exec(ptr noundef %3489, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3491:                                             ; preds = %3484
-  %3492 = tail call i32 @sqlite3_exec(ptr noundef %3486, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1965 = icmp eq i32 %3492, 0
-  %3493 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1965, label %3498, label %3494
-
-3494:                                             ; preds = %3491
-  %3495 = tail call ptr @sqlite3_errmsg(ptr noundef %3493) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3495) #18
-  %3496 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3497 = tail call i32 @sqlite3_exec(ptr noundef %3496, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3498:                                             ; preds = %3491
-  %3499 = tail call i32 @sqlite3_exec(ptr noundef %3493, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1966 = icmp eq i32 %3499, 0
-  %3500 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1966, label %3505, label %3501
-
-3501:                                             ; preds = %3498
-  %3502 = tail call ptr @sqlite3_errmsg(ptr noundef %3500) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %3502) #18
-  %3503 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3504 = tail call i32 @sqlite3_exec(ptr noundef %3503, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3505:                                             ; preds = %3498
-  %3506 = tail call i32 @sqlite3_exec(ptr noundef %3500, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1967 = icmp eq i32 %3506, 0
-  %3507 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1967, label %3512, label %3508
-
-3508:                                             ; preds = %3505
-  %3509 = tail call ptr @sqlite3_errmsg(ptr noundef %3507) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %3509) #18
-  %3510 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3511 = tail call i32 @sqlite3_exec(ptr noundef %3510, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3512:                                             ; preds = %3505
-  %3513 = tail call i32 @sqlite3_exec(ptr noundef %3507, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1968 = icmp eq i32 %3513, 0
-  %3514 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1968, label %3519, label %3515
-
-3515:                                             ; preds = %3512
-  %3516 = tail call ptr @sqlite3_errmsg(ptr noundef %3514) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3516) #18
-  %3517 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3518 = tail call i32 @sqlite3_exec(ptr noundef %3517, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3519:                                             ; preds = %3512
-  %3520 = tail call i32 @sqlite3_exec(ptr noundef %3514, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1969 = icmp eq i32 %3520, 0
-  %3521 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1969, label %3526, label %3522
-
-3522:                                             ; preds = %3519
-  %3523 = tail call ptr @sqlite3_errmsg(ptr noundef %3521) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %3523) #18
-  %3524 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3525 = tail call i32 @sqlite3_exec(ptr noundef %3524, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3526:                                             ; preds = %3519
-  %3527 = tail call i32 @sqlite3_exec(ptr noundef %3521, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1970 = icmp eq i32 %3527, 0
-  %3528 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1970, label %3533, label %3529
-
-3529:                                             ; preds = %3526
-  %3530 = tail call ptr @sqlite3_errmsg(ptr noundef %3528) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %3530) #18
-  %3531 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3532 = tail call i32 @sqlite3_exec(ptr noundef %3531, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3533:                                             ; preds = %3526
-  %3534 = tail call i32 @sqlite3_exec(ptr noundef %3528, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1971 = icmp eq i32 %3534, 0
-  %3535 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1971, label %3540, label %3536
-
-3536:                                             ; preds = %3533
-  %3537 = tail call ptr @sqlite3_errmsg(ptr noundef %3535) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %3537) #18
-  %3538 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3539 = tail call i32 @sqlite3_exec(ptr noundef %3538, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3540:                                             ; preds = %3533
-  %3541 = tail call i32 @sqlite3_exec(ptr noundef %3535, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1972 = icmp eq i32 %3541, 0
-  %3542 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1972, label %3547, label %3543
-
-3543:                                             ; preds = %3540
-  %3544 = tail call ptr @sqlite3_errmsg(ptr noundef %3542) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3544) #18
-  %3545 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3546 = tail call i32 @sqlite3_exec(ptr noundef %3545, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3547:                                             ; preds = %3540
-  %3548 = tail call i32 @sqlite3_exec(ptr noundef %3542, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1973 = icmp eq i32 %3548, 0
-  %3549 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1973, label %3554, label %3550
-
-3550:                                             ; preds = %3547
-  %3551 = tail call ptr @sqlite3_errmsg(ptr noundef %3549) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3551) #18
-  %3552 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3553 = tail call i32 @sqlite3_exec(ptr noundef %3552, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3554:                                             ; preds = %3547
-  %3555 = tail call i32 @sqlite3_exec(ptr noundef %3549, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1974 = icmp eq i32 %3555, 0
-  %3556 = load ptr, ptr %3416, align 8, !tbaa !6
-  br i1 %.not1974, label %3561, label %3557
-
-3557:                                             ; preds = %3554
-  %3558 = tail call ptr @sqlite3_errmsg(ptr noundef %3556) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3558) #18
-  %3559 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3560 = tail call i32 @sqlite3_exec(ptr noundef %3559, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3561:                                             ; preds = %3554
-  %3562 = tail call i32 @sqlite3_exec(ptr noundef %3556, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3563 = load ptr, ptr %3416, align 8, !tbaa !6
-  %3564 = tail call i32 @sqlite3_exec(ptr noundef %3563, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3565:                                             ; preds = %2
-  %3566 = add i32 %1, -51
-  %or.cond23 = icmp ult i32 %3566, 2
-  br i1 %or.cond23, label %3567, label %3594
-
-3567:                                             ; preds = %3565
-  %3568 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3569 = load ptr, ptr %3568, align 8, !tbaa !6
-  %3570 = tail call i32 @sqlite3_exec(ptr noundef %3569, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3571 = load ptr, ptr %3568, align 8, !tbaa !6
-  %3572 = tail call i32 @sqlite3_exec(ptr noundef %3571, ptr noundef nonnull @.str.812, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1952 = icmp eq i32 %3572, 0
-  %3573 = load ptr, ptr %3568, align 8, !tbaa !6
-  br i1 %.not1952, label %3578, label %3574
-
-3574:                                             ; preds = %3567
-  %3575 = tail call ptr @sqlite3_errmsg(ptr noundef %3573) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.813, ptr noundef %3575) #18
-  %3576 = load ptr, ptr %3568, align 8, !tbaa !6
-  %3577 = tail call i32 @sqlite3_exec(ptr noundef %3576, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3578:                                             ; preds = %3567
-  %3579 = tail call i32 @sqlite3_exec(ptr noundef %3573, ptr noundef nonnull @.str.843, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1953 = icmp eq i32 %3579, 0
-  %3580 = load ptr, ptr %3568, align 8, !tbaa !6
-  br i1 %.not1953, label %3585, label %3581
-
-3581:                                             ; preds = %3578
-  %3582 = tail call ptr @sqlite3_errmsg(ptr noundef %3580) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.844, ptr noundef %3582) #18
-  %3583 = load ptr, ptr %3568, align 8, !tbaa !6
-  %3584 = tail call i32 @sqlite3_exec(ptr noundef %3583, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3585:                                             ; preds = %3578
-  %3586 = tail call i32 @sqlite3_exec(ptr noundef %3580, ptr noundef nonnull @.str.824, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1954 = icmp eq i32 %3586, 0
-  %3587 = load ptr, ptr %3568, align 8, !tbaa !6
-  br i1 %.not1954, label %3592, label %3588
-
-3588:                                             ; preds = %3585
-  %3589 = tail call ptr @sqlite3_errmsg(ptr noundef %3587) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3589) #18
-  %3590 = load ptr, ptr %3568, align 8, !tbaa !6
-  %3591 = tail call i32 @sqlite3_exec(ptr noundef %3590, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %.thread2355
-
-3592:                                             ; preds = %3585
-  %3593 = tail call i32 @sqlite3_exec(ptr noundef %3587, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
-
-3594:                                             ; preds = %3565
-  switch i32 %1, label %3736 [
-    i32 53, label %3595
-    i32 54, label %3675
-    i32 55, label %3691
+  %2784 = load ptr, ptr %3, align 8, !tbaa !23
+  %2785 = call i32 @sqlite3_step(ptr noundef %2784) #18
+  %2786 = icmp eq i32 %2785, 100
+  br i1 %2786, label %.lr.ph, label %._crit_edge, !llvm.loop !121
+
+._crit_edge:                                      ; preds = %2781, %.preheader2392
+  %2787 = load ptr, ptr %3, align 8, !tbaa !23
+  %2788 = call i32 @sqlite3_finalize(ptr noundef %2787) #18
+  %2789 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2790 = call i32 @sqlite3_exec(ptr noundef %2789, ptr noundef nonnull @.str.712, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2057 = icmp eq i32 %2790, 0
+  br i1 %.not2057, label %3738, label %2791
+
+2791:                                             ; preds = %._crit_edge
+  %2792 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2793 = call ptr @sqlite3_errmsg(ptr noundef %2792) #18
+  call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.713, ptr noundef %2793) #18
+  %2794 = load ptr, ptr %2733, align 8, !tbaa !6
+  %2795 = call i32 @sqlite3_exec(ptr noundef %2794, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2796:                                             ; preds = %2
+  %2797 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2798 = load ptr, ptr %2797, align 8, !tbaa !6
+  %2799 = tail call i32 @sqlite3_exec(ptr noundef %2798, ptr noundef nonnull @.str.714, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2053 = icmp eq i32 %2799, 0
+  br i1 %.not2053, label %3738, label %2800
+
+2800:                                             ; preds = %2796
+  %2801 = load ptr, ptr %2797, align 8, !tbaa !6
+  %2802 = tail call ptr @sqlite3_errmsg(ptr noundef %2801) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.715, ptr noundef %2802) #18
+  %2803 = load ptr, ptr %2797, align 8, !tbaa !6
+  %2804 = tail call i32 @sqlite3_exec(ptr noundef %2803, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2805:                                             ; preds = %2
+  %2806 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2807 = load ptr, ptr %2806, align 8, !tbaa !6
+  %2808 = tail call i32 @sqlite3_exec(ptr noundef %2807, ptr noundef nonnull @.str.716, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2051 = icmp eq i32 %2808, 0
+  %2809 = load ptr, ptr %2806, align 8, !tbaa !6
+  br i1 %.not2051, label %2814, label %2810
+
+2810:                                             ; preds = %2805
+  %2811 = tail call ptr @sqlite3_errmsg(ptr noundef %2809) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.229, ptr noundef %2811) #18
+  %2812 = load ptr, ptr %2806, align 8, !tbaa !6
+  %2813 = tail call i32 @sqlite3_exec(ptr noundef %2812, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2814:                                             ; preds = %2805
+  %2815 = tail call i32 @sqlite3_exec(ptr noundef %2809, ptr noundef nonnull @.str.717, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2052 = icmp eq i32 %2815, 0
+  br i1 %.not2052, label %3738, label %2816
+
+2816:                                             ; preds = %2814
+  %2817 = load ptr, ptr %2806, align 8, !tbaa !6
+  %2818 = tail call ptr @sqlite3_errmsg(ptr noundef %2817) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.231, ptr noundef %2818) #18
+  %2819 = load ptr, ptr %2806, align 8, !tbaa !6
+  %2820 = tail call i32 @sqlite3_exec(ptr noundef %2819, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2821:                                             ; preds = %2
+  %2822 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %2823 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2824 = tail call i32 @sqlite3_exec(ptr noundef %2823, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2825 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2826 = tail call i32 @sqlite3_exec(ptr noundef %2825, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %2827 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2828 = tail call i32 @sqlite3_exec(ptr noundef %2827, ptr noundef nonnull @.str.718, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2018 = icmp eq i32 %2828, 0
+  %2829 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2018, label %2834, label %2830
+
+2830:                                             ; preds = %2821
+  %2831 = tail call ptr @sqlite3_errmsg(ptr noundef %2829) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.719, ptr noundef %2831) #18
+  %2832 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2833 = tail call i32 @sqlite3_exec(ptr noundef %2832, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2834:                                             ; preds = %2821
+  %2835 = tail call i32 @sqlite3_exec(ptr noundef %2829, ptr noundef nonnull @.str.720, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2019 = icmp eq i32 %2835, 0
+  %2836 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2019, label %2841, label %2837
+
+2837:                                             ; preds = %2834
+  %2838 = tail call ptr @sqlite3_errmsg(ptr noundef %2836) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.721, ptr noundef %2838) #18
+  %2839 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2840 = tail call i32 @sqlite3_exec(ptr noundef %2839, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2841:                                             ; preds = %2834
+  %2842 = tail call i32 @sqlite3_exec(ptr noundef %2836, ptr noundef nonnull @.str.722, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2020 = icmp eq i32 %2842, 0
+  %2843 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2020, label %2848, label %2844
+
+2844:                                             ; preds = %2841
+  %2845 = tail call ptr @sqlite3_errmsg(ptr noundef %2843) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.723, ptr noundef %2845) #18
+  %2846 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2847 = tail call i32 @sqlite3_exec(ptr noundef %2846, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2848:                                             ; preds = %2841
+  %2849 = tail call i32 @sqlite3_exec(ptr noundef %2843, ptr noundef nonnull @.str.724, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2021 = icmp eq i32 %2849, 0
+  %2850 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2021, label %2855, label %2851
+
+2851:                                             ; preds = %2848
+  %2852 = tail call ptr @sqlite3_errmsg(ptr noundef %2850) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.725, ptr noundef %2852) #18
+  %2853 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2854 = tail call i32 @sqlite3_exec(ptr noundef %2853, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2855:                                             ; preds = %2848
+  %2856 = tail call i32 @sqlite3_exec(ptr noundef %2850, ptr noundef nonnull @.str.726, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2022 = icmp eq i32 %2856, 0
+  %2857 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2022, label %2862, label %2858
+
+2858:                                             ; preds = %2855
+  %2859 = tail call ptr @sqlite3_errmsg(ptr noundef %2857) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.727, ptr noundef %2859) #18
+  %2860 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2861 = tail call i32 @sqlite3_exec(ptr noundef %2860, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2862:                                             ; preds = %2855
+  %2863 = tail call i32 @sqlite3_exec(ptr noundef %2857, ptr noundef nonnull @.str.728, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2023 = icmp eq i32 %2863, 0
+  %2864 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2023, label %2869, label %2865
+
+2865:                                             ; preds = %2862
+  %2866 = tail call ptr @sqlite3_errmsg(ptr noundef %2864) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.729, ptr noundef %2866) #18
+  %2867 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2868 = tail call i32 @sqlite3_exec(ptr noundef %2867, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2869:                                             ; preds = %2862
+  %2870 = tail call i32 @sqlite3_exec(ptr noundef %2864, ptr noundef nonnull @.str.730, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2024 = icmp eq i32 %2870, 0
+  %2871 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2024, label %2876, label %2872
+
+2872:                                             ; preds = %2869
+  %2873 = tail call ptr @sqlite3_errmsg(ptr noundef %2871) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.731, ptr noundef %2873) #18
+  %2874 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2875 = tail call i32 @sqlite3_exec(ptr noundef %2874, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2876:                                             ; preds = %2869
+  %2877 = tail call i32 @sqlite3_exec(ptr noundef %2871, ptr noundef nonnull @.str.732, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2025 = icmp eq i32 %2877, 0
+  %2878 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2025, label %2883, label %2879
+
+2879:                                             ; preds = %2876
+  %2880 = tail call ptr @sqlite3_errmsg(ptr noundef %2878) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.733, ptr noundef %2880) #18
+  %2881 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2882 = tail call i32 @sqlite3_exec(ptr noundef %2881, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2883:                                             ; preds = %2876
+  %2884 = tail call i32 @sqlite3_exec(ptr noundef %2878, ptr noundef nonnull @.str.734, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2026 = icmp eq i32 %2884, 0
+  %2885 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2026, label %2890, label %2886
+
+2886:                                             ; preds = %2883
+  %2887 = tail call ptr @sqlite3_errmsg(ptr noundef %2885) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.735, ptr noundef %2887) #18
+  %2888 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2889 = tail call i32 @sqlite3_exec(ptr noundef %2888, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2890:                                             ; preds = %2883
+  %2891 = tail call i32 @sqlite3_exec(ptr noundef %2885, ptr noundef nonnull @.str.736, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2027 = icmp eq i32 %2891, 0
+  %2892 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2027, label %2897, label %2893
+
+2893:                                             ; preds = %2890
+  %2894 = tail call ptr @sqlite3_errmsg(ptr noundef %2892) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.737, ptr noundef %2894) #18
+  %2895 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2896 = tail call i32 @sqlite3_exec(ptr noundef %2895, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2897:                                             ; preds = %2890
+  %2898 = tail call i32 @sqlite3_exec(ptr noundef %2892, ptr noundef nonnull @.str.738, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2028 = icmp eq i32 %2898, 0
+  %2899 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2028, label %2904, label %2900
+
+2900:                                             ; preds = %2897
+  %2901 = tail call ptr @sqlite3_errmsg(ptr noundef %2899) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.739, ptr noundef %2901) #18
+  %2902 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2903 = tail call i32 @sqlite3_exec(ptr noundef %2902, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2904:                                             ; preds = %2897
+  %2905 = tail call i32 @sqlite3_exec(ptr noundef %2899, ptr noundef nonnull @.str.740, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2029 = icmp eq i32 %2905, 0
+  %2906 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2029, label %2911, label %2907
+
+2907:                                             ; preds = %2904
+  %2908 = tail call ptr @sqlite3_errmsg(ptr noundef %2906) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.741, ptr noundef %2908) #18
+  %2909 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2910 = tail call i32 @sqlite3_exec(ptr noundef %2909, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2911:                                             ; preds = %2904
+  %2912 = tail call i32 @sqlite3_exec(ptr noundef %2906, ptr noundef nonnull @.str.742, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2030 = icmp eq i32 %2912, 0
+  %2913 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2030, label %2918, label %2914
+
+2914:                                             ; preds = %2911
+  %2915 = tail call ptr @sqlite3_errmsg(ptr noundef %2913) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.743, ptr noundef %2915) #18
+  %2916 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2917 = tail call i32 @sqlite3_exec(ptr noundef %2916, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2918:                                             ; preds = %2911
+  %2919 = tail call i32 @sqlite3_exec(ptr noundef %2913, ptr noundef nonnull @.str.744, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2031 = icmp eq i32 %2919, 0
+  %2920 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2031, label %2925, label %2921
+
+2921:                                             ; preds = %2918
+  %2922 = tail call ptr @sqlite3_errmsg(ptr noundef %2920) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.745, ptr noundef %2922) #18
+  %2923 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2924 = tail call i32 @sqlite3_exec(ptr noundef %2923, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2925:                                             ; preds = %2918
+  %2926 = tail call i32 @sqlite3_exec(ptr noundef %2920, ptr noundef nonnull @.str.746, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2032 = icmp eq i32 %2926, 0
+  %2927 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2032, label %2932, label %2928
+
+2928:                                             ; preds = %2925
+  %2929 = tail call ptr @sqlite3_errmsg(ptr noundef %2927) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.747, ptr noundef %2929) #18
+  %2930 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2931 = tail call i32 @sqlite3_exec(ptr noundef %2930, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2932:                                             ; preds = %2925
+  %2933 = tail call i32 @sqlite3_exec(ptr noundef %2927, ptr noundef nonnull @.str.748, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2033 = icmp eq i32 %2933, 0
+  %2934 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2033, label %2939, label %2935
+
+2935:                                             ; preds = %2932
+  %2936 = tail call ptr @sqlite3_errmsg(ptr noundef %2934) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.749, ptr noundef %2936) #18
+  %2937 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2938 = tail call i32 @sqlite3_exec(ptr noundef %2937, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2939:                                             ; preds = %2932
+  %2940 = tail call i32 @sqlite3_exec(ptr noundef %2934, ptr noundef nonnull @.str.750, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2034 = icmp eq i32 %2940, 0
+  %2941 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2034, label %2946, label %2942
+
+2942:                                             ; preds = %2939
+  %2943 = tail call ptr @sqlite3_errmsg(ptr noundef %2941) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.751, ptr noundef %2943) #18
+  %2944 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2945 = tail call i32 @sqlite3_exec(ptr noundef %2944, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2946:                                             ; preds = %2939
+  %2947 = tail call i32 @sqlite3_exec(ptr noundef %2941, ptr noundef nonnull @.str.752, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2035 = icmp eq i32 %2947, 0
+  %2948 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2035, label %2953, label %2949
+
+2949:                                             ; preds = %2946
+  %2950 = tail call ptr @sqlite3_errmsg(ptr noundef %2948) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.753, ptr noundef %2950) #18
+  %2951 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2952 = tail call i32 @sqlite3_exec(ptr noundef %2951, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2953:                                             ; preds = %2946
+  %2954 = tail call i32 @sqlite3_exec(ptr noundef %2948, ptr noundef nonnull @.str.754, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2036 = icmp eq i32 %2954, 0
+  %2955 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2036, label %2960, label %2956
+
+2956:                                             ; preds = %2953
+  %2957 = tail call ptr @sqlite3_errmsg(ptr noundef %2955) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %2957) #18
+  %2958 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2959 = tail call i32 @sqlite3_exec(ptr noundef %2958, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2960:                                             ; preds = %2953
+  %2961 = tail call i32 @sqlite3_exec(ptr noundef %2955, ptr noundef nonnull @.str.756, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2037 = icmp eq i32 %2961, 0
+  %2962 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2037, label %2967, label %2963
+
+2963:                                             ; preds = %2960
+  %2964 = tail call ptr @sqlite3_errmsg(ptr noundef %2962) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %2964) #18
+  %2965 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2966 = tail call i32 @sqlite3_exec(ptr noundef %2965, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2967:                                             ; preds = %2960
+  %2968 = tail call i32 @sqlite3_exec(ptr noundef %2962, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2038 = icmp eq i32 %2968, 0
+  %2969 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2038, label %2974, label %2970
+
+2970:                                             ; preds = %2967
+  %2971 = tail call ptr @sqlite3_errmsg(ptr noundef %2969) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %2971) #18
+  %2972 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2973 = tail call i32 @sqlite3_exec(ptr noundef %2972, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2974:                                             ; preds = %2967
+  %2975 = tail call i32 @sqlite3_exec(ptr noundef %2969, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2039 = icmp eq i32 %2975, 0
+  %2976 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2039, label %2981, label %2977
+
+2977:                                             ; preds = %2974
+  %2978 = tail call ptr @sqlite3_errmsg(ptr noundef %2976) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %2978) #18
+  %2979 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2980 = tail call i32 @sqlite3_exec(ptr noundef %2979, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2981:                                             ; preds = %2974
+  %2982 = tail call i32 @sqlite3_exec(ptr noundef %2976, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2040 = icmp eq i32 %2982, 0
+  %2983 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2040, label %2988, label %2984
+
+2984:                                             ; preds = %2981
+  %2985 = tail call ptr @sqlite3_errmsg(ptr noundef %2983) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %2985) #18
+  %2986 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2987 = tail call i32 @sqlite3_exec(ptr noundef %2986, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2988:                                             ; preds = %2981
+  %2989 = tail call i32 @sqlite3_exec(ptr noundef %2983, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2041 = icmp eq i32 %2989, 0
+  %2990 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2041, label %2995, label %2991
+
+2991:                                             ; preds = %2988
+  %2992 = tail call ptr @sqlite3_errmsg(ptr noundef %2990) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %2992) #18
+  %2993 = load ptr, ptr %2822, align 8, !tbaa !6
+  %2994 = tail call i32 @sqlite3_exec(ptr noundef %2993, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+2995:                                             ; preds = %2988
+  %2996 = tail call i32 @sqlite3_exec(ptr noundef %2990, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2042 = icmp eq i32 %2996, 0
+  %2997 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2042, label %3002, label %2998
+
+2998:                                             ; preds = %2995
+  %2999 = tail call ptr @sqlite3_errmsg(ptr noundef %2997) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %2999) #18
+  %3000 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3001 = tail call i32 @sqlite3_exec(ptr noundef %3000, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3002:                                             ; preds = %2995
+  %3003 = tail call i32 @sqlite3_exec(ptr noundef %2997, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2043 = icmp eq i32 %3003, 0
+  %3004 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2043, label %3009, label %3005
+
+3005:                                             ; preds = %3002
+  %3006 = tail call ptr @sqlite3_errmsg(ptr noundef %3004) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3006) #18
+  %3007 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3008 = tail call i32 @sqlite3_exec(ptr noundef %3007, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3009:                                             ; preds = %3002
+  %3010 = tail call i32 @sqlite3_exec(ptr noundef %3004, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2044 = icmp eq i32 %3010, 0
+  %3011 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2044, label %3016, label %3012
+
+3012:                                             ; preds = %3009
+  %3013 = tail call ptr @sqlite3_errmsg(ptr noundef %3011) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3013) #18
+  %3014 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3015 = tail call i32 @sqlite3_exec(ptr noundef %3014, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3016:                                             ; preds = %3009
+  %3017 = tail call i32 @sqlite3_exec(ptr noundef %3011, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2045 = icmp eq i32 %3017, 0
+  %3018 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2045, label %3023, label %3019
+
+3019:                                             ; preds = %3016
+  %3020 = tail call ptr @sqlite3_errmsg(ptr noundef %3018) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3020) #18
+  %3021 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3022 = tail call i32 @sqlite3_exec(ptr noundef %3021, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3023:                                             ; preds = %3016
+  %3024 = tail call i32 @sqlite3_exec(ptr noundef %3018, ptr noundef nonnull @.str.765, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2046 = icmp eq i32 %3024, 0
+  %3025 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2046, label %3030, label %3026
+
+3026:                                             ; preds = %3023
+  %3027 = tail call ptr @sqlite3_errmsg(ptr noundef %3025) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.766, ptr noundef %3027) #18
+  %3028 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3029 = tail call i32 @sqlite3_exec(ptr noundef %3028, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3030:                                             ; preds = %3023
+  %3031 = tail call i32 @sqlite3_exec(ptr noundef %3025, ptr noundef nonnull @.str.767, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2047 = icmp eq i32 %3031, 0
+  %3032 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2047, label %3037, label %3033
+
+3033:                                             ; preds = %3030
+  %3034 = tail call ptr @sqlite3_errmsg(ptr noundef %3032) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.768, ptr noundef %3034) #18
+  %3035 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3036 = tail call i32 @sqlite3_exec(ptr noundef %3035, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3037:                                             ; preds = %3030
+  %3038 = tail call i32 @sqlite3_exec(ptr noundef %3032, ptr noundef nonnull @.str.769, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2048 = icmp eq i32 %3038, 0
+  %3039 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2048, label %3044, label %3040
+
+3040:                                             ; preds = %3037
+  %3041 = tail call ptr @sqlite3_errmsg(ptr noundef %3039) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.770, ptr noundef %3041) #18
+  %3042 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3043 = tail call i32 @sqlite3_exec(ptr noundef %3042, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3044:                                             ; preds = %3037
+  %3045 = tail call i32 @sqlite3_exec(ptr noundef %3039, ptr noundef nonnull @.str.771, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2049 = icmp eq i32 %3045, 0
+  %3046 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2049, label %3051, label %3047
+
+3047:                                             ; preds = %3044
+  %3048 = tail call ptr @sqlite3_errmsg(ptr noundef %3046) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.772, ptr noundef %3048) #18
+  %3049 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3050 = tail call i32 @sqlite3_exec(ptr noundef %3049, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3051:                                             ; preds = %3044
+  %3052 = tail call i32 @sqlite3_exec(ptr noundef %3046, ptr noundef nonnull @.str.773, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2050 = icmp eq i32 %3052, 0
+  %3053 = load ptr, ptr %2822, align 8, !tbaa !6
+  br i1 %.not2050, label %3058, label %3054
+
+3054:                                             ; preds = %3051
+  %3055 = tail call ptr @sqlite3_errmsg(ptr noundef %3053) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3055) #18
+  %3056 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3057 = tail call i32 @sqlite3_exec(ptr noundef %3056, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3058:                                             ; preds = %3051
+  %3059 = tail call i32 @sqlite3_exec(ptr noundef %3053, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3060 = load ptr, ptr %2822, align 8, !tbaa !6
+  %3061 = tail call i32 @sqlite3_exec(ptr noundef %3060, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3062:                                             ; preds = %2
+  %3063 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3064 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3065 = tail call i32 @sqlite3_exec(ptr noundef %3064, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3066 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3067 = tail call i32 @sqlite3_exec(ptr noundef %3066, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3068 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3069 = tail call i32 @sqlite3_exec(ptr noundef %3068, ptr noundef nonnull @.str.775, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2013 = icmp eq i32 %3069, 0
+  %3070 = load ptr, ptr %3063, align 8, !tbaa !6
+  br i1 %.not2013, label %3075, label %3071
+
+3071:                                             ; preds = %3062
+  %3072 = tail call ptr @sqlite3_errmsg(ptr noundef %3070) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.776, ptr noundef %3072) #18
+  %3073 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3074 = tail call i32 @sqlite3_exec(ptr noundef %3073, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3075:                                             ; preds = %3062
+  %3076 = tail call i32 @sqlite3_exec(ptr noundef %3070, ptr noundef nonnull @.str.777, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2014 = icmp eq i32 %3076, 0
+  %3077 = load ptr, ptr %3063, align 8, !tbaa !6
+  br i1 %.not2014, label %3082, label %3078
+
+3078:                                             ; preds = %3075
+  %3079 = tail call ptr @sqlite3_errmsg(ptr noundef %3077) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.725, ptr noundef %3079) #18
+  %3080 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3081 = tail call i32 @sqlite3_exec(ptr noundef %3080, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3082:                                             ; preds = %3075
+  %3083 = tail call i32 @sqlite3_exec(ptr noundef %3077, ptr noundef nonnull @.str.778, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2015 = icmp eq i32 %3083, 0
+  %3084 = load ptr, ptr %3063, align 8, !tbaa !6
+  br i1 %.not2015, label %3089, label %3085
+
+3085:                                             ; preds = %3082
+  %3086 = tail call ptr @sqlite3_errmsg(ptr noundef %3084) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.733, ptr noundef %3086) #18
+  %3087 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3088 = tail call i32 @sqlite3_exec(ptr noundef %3087, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3089:                                             ; preds = %3082
+  %3090 = tail call i32 @sqlite3_exec(ptr noundef %3084, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2016 = icmp eq i32 %3090, 0
+  %3091 = load ptr, ptr %3063, align 8, !tbaa !6
+  br i1 %.not2016, label %3096, label %3092
+
+3092:                                             ; preds = %3089
+  %3093 = tail call ptr @sqlite3_errmsg(ptr noundef %3091) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3093) #18
+  %3094 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3095 = tail call i32 @sqlite3_exec(ptr noundef %3094, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3096:                                             ; preds = %3089
+  %3097 = tail call i32 @sqlite3_exec(ptr noundef %3091, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2017 = icmp eq i32 %3097, 0
+  %3098 = load ptr, ptr %3063, align 8, !tbaa !6
+  br i1 %.not2017, label %3103, label %3099
+
+3099:                                             ; preds = %3096
+  %3100 = tail call ptr @sqlite3_errmsg(ptr noundef %3098) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3100) #18
+  %3101 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3102 = tail call i32 @sqlite3_exec(ptr noundef %3101, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3103:                                             ; preds = %3096
+  %3104 = tail call i32 @sqlite3_exec(ptr noundef %3098, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3105 = load ptr, ptr %3063, align 8, !tbaa !6
+  %3106 = tail call i32 @sqlite3_exec(ptr noundef %3105, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3107:                                             ; preds = %2
+  %3108 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3109 = load ptr, ptr %3108, align 8, !tbaa !6
+  %3110 = tail call i32 @sqlite3_exec(ptr noundef %3109, ptr noundef nonnull @.str.782, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2012 = icmp eq i32 %3110, 0
+  br i1 %.not2012, label %3738, label %3111
+
+3111:                                             ; preds = %3107
+  %3112 = load ptr, ptr %3108, align 8, !tbaa !6
+  %3113 = tail call ptr @sqlite3_errmsg(ptr noundef %3112) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.783, ptr noundef %3113) #18
+  %3114 = load ptr, ptr %3108, align 8, !tbaa !6
+  %3115 = tail call i32 @sqlite3_exec(ptr noundef %3114, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3116:                                             ; preds = %2
+  %3117 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3118 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3119 = tail call i32 @sqlite3_exec(ptr noundef %3118, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3120 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3121 = tail call i32 @sqlite3_exec(ptr noundef %3120, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3122 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3123 = tail call i32 @sqlite3_exec(ptr noundef %3122, ptr noundef nonnull @.str.784, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2006 = icmp eq i32 %3123, 0
+  %3124 = load ptr, ptr %3117, align 8, !tbaa !6
+  br i1 %.not2006, label %3129, label %3125
+
+3125:                                             ; preds = %3116
+  %3126 = tail call ptr @sqlite3_errmsg(ptr noundef %3124) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %3126) #18
+  %3127 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3128 = tail call i32 @sqlite3_exec(ptr noundef %3127, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3129:                                             ; preds = %3116
+  %3130 = tail call i32 @sqlite3_exec(ptr noundef %3124, ptr noundef nonnull @.str.785, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2007 = icmp eq i32 %3130, 0
+  %3131 = load ptr, ptr %3117, align 8, !tbaa !6
+  br i1 %.not2007, label %3136, label %3132
+
+3132:                                             ; preds = %3129
+  %3133 = tail call ptr @sqlite3_errmsg(ptr noundef %3131) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %3133) #18
+  %3134 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3135 = tail call i32 @sqlite3_exec(ptr noundef %3134, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3136:                                             ; preds = %3129
+  %3137 = tail call i32 @sqlite3_exec(ptr noundef %3131, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2008 = icmp eq i32 %3137, 0
+  %3138 = load ptr, ptr %3117, align 8, !tbaa !6
+  br i1 %.not2008, label %3143, label %3139
+
+3139:                                             ; preds = %3136
+  %3140 = tail call ptr @sqlite3_errmsg(ptr noundef %3138) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3140) #18
+  %3141 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3142 = tail call i32 @sqlite3_exec(ptr noundef %3141, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3143:                                             ; preds = %3136
+  %3144 = tail call i32 @sqlite3_exec(ptr noundef %3138, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2009 = icmp eq i32 %3144, 0
+  %3145 = load ptr, ptr %3117, align 8, !tbaa !6
+  br i1 %.not2009, label %3150, label %3146
+
+3146:                                             ; preds = %3143
+  %3147 = tail call ptr @sqlite3_errmsg(ptr noundef %3145) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.590, ptr noundef %3147) #18
+  %3148 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3149 = tail call i32 @sqlite3_exec(ptr noundef %3148, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3150:                                             ; preds = %3143
+  %3151 = tail call i32 @sqlite3_exec(ptr noundef %3145, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2010 = icmp eq i32 %3151, 0
+  %3152 = load ptr, ptr %3117, align 8, !tbaa !6
+  br i1 %.not2010, label %3157, label %3153
+
+3153:                                             ; preds = %3150
+  %3154 = tail call ptr @sqlite3_errmsg(ptr noundef %3152) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %3154) #18
+  %3155 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3156 = tail call i32 @sqlite3_exec(ptr noundef %3155, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3157:                                             ; preds = %3150
+  %3158 = tail call i32 @sqlite3_exec(ptr noundef %3152, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2011 = icmp eq i32 %3158, 0
+  %3159 = load ptr, ptr %3117, align 8, !tbaa !6
+  br i1 %.not2011, label %3164, label %3160
+
+3160:                                             ; preds = %3157
+  %3161 = tail call ptr @sqlite3_errmsg(ptr noundef %3159) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3161) #18
+  %3162 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3163 = tail call i32 @sqlite3_exec(ptr noundef %3162, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3164:                                             ; preds = %3157
+  %3165 = tail call i32 @sqlite3_exec(ptr noundef %3159, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3166 = load ptr, ptr %3117, align 8, !tbaa !6
+  %3167 = tail call i32 @sqlite3_exec(ptr noundef %3166, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3168:                                             ; preds = %2
+  %3169 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3170 = load ptr, ptr %3169, align 8, !tbaa !6
+  %3171 = tail call i32 @sqlite3_exec(ptr noundef %3170, ptr noundef nonnull @.str.786, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2005 = icmp eq i32 %3171, 0
+  br i1 %.not2005, label %3738, label %3172
+
+3172:                                             ; preds = %3168
+  %3173 = load ptr, ptr %3169, align 8, !tbaa !6
+  %3174 = tail call ptr @sqlite3_errmsg(ptr noundef %3173) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.787, ptr noundef %3174) #18
+  %3175 = load ptr, ptr %3169, align 8, !tbaa !6
+  %3176 = tail call i32 @sqlite3_exec(ptr noundef %3175, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3177:                                             ; preds = %2
+  %3178 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3179 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3180 = tail call i32 @sqlite3_exec(ptr noundef %3179, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1995 = icmp eq i32 %3180, 0
+  %3181 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not1995, label %3186, label %3182
+
+3182:                                             ; preds = %3177
+  %3183 = tail call ptr @sqlite3_errmsg(ptr noundef %3181) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %3183) #18
+  %3184 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3185 = tail call i32 @sqlite3_exec(ptr noundef %3184, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3186:                                             ; preds = %3177
+  %3187 = tail call i32 @sqlite3_exec(ptr noundef %3181, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1996 = icmp eq i32 %3187, 0
+  %3188 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not1996, label %3193, label %3189
+
+3189:                                             ; preds = %3186
+  %3190 = tail call ptr @sqlite3_errmsg(ptr noundef %3188) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %3190) #18
+  %3191 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3192 = tail call i32 @sqlite3_exec(ptr noundef %3191, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3193:                                             ; preds = %3186
+  %3194 = tail call i32 @sqlite3_exec(ptr noundef %3188, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1997 = icmp eq i32 %3194, 0
+  %3195 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not1997, label %3200, label %3196
+
+3196:                                             ; preds = %3193
+  %3197 = tail call ptr @sqlite3_errmsg(ptr noundef %3195) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %3197) #18
+  %3198 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3199 = tail call i32 @sqlite3_exec(ptr noundef %3198, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3200:                                             ; preds = %3193
+  %3201 = tail call i32 @sqlite3_exec(ptr noundef %3195, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1998 = icmp eq i32 %3201, 0
+  %3202 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not1998, label %3207, label %3203
+
+3203:                                             ; preds = %3200
+  %3204 = tail call ptr @sqlite3_errmsg(ptr noundef %3202) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3204) #18
+  %3205 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3206 = tail call i32 @sqlite3_exec(ptr noundef %3205, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3207:                                             ; preds = %3200
+  %3208 = tail call i32 @sqlite3_exec(ptr noundef %3202, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1999 = icmp eq i32 %3208, 0
+  %3209 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not1999, label %3214, label %3210
+
+3210:                                             ; preds = %3207
+  %3211 = tail call ptr @sqlite3_errmsg(ptr noundef %3209) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3211) #18
+  %3212 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3213 = tail call i32 @sqlite3_exec(ptr noundef %3212, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3214:                                             ; preds = %3207
+  %3215 = tail call i32 @sqlite3_exec(ptr noundef %3209, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2000 = icmp eq i32 %3215, 0
+  %3216 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not2000, label %3221, label %3217
+
+3217:                                             ; preds = %3214
+  %3218 = tail call ptr @sqlite3_errmsg(ptr noundef %3216) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3218) #18
+  %3219 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3220 = tail call i32 @sqlite3_exec(ptr noundef %3219, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3221:                                             ; preds = %3214
+  %3222 = tail call i32 @sqlite3_exec(ptr noundef %3216, ptr noundef nonnull @.str.765, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2001 = icmp eq i32 %3222, 0
+  %3223 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not2001, label %3228, label %3224
+
+3224:                                             ; preds = %3221
+  %3225 = tail call ptr @sqlite3_errmsg(ptr noundef %3223) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.766, ptr noundef %3225) #18
+  %3226 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3227 = tail call i32 @sqlite3_exec(ptr noundef %3226, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3228:                                             ; preds = %3221
+  %3229 = tail call i32 @sqlite3_exec(ptr noundef %3223, ptr noundef nonnull @.str.767, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2002 = icmp eq i32 %3229, 0
+  %3230 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not2002, label %3235, label %3231
+
+3231:                                             ; preds = %3228
+  %3232 = tail call ptr @sqlite3_errmsg(ptr noundef %3230) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.768, ptr noundef %3232) #18
+  %3233 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3234 = tail call i32 @sqlite3_exec(ptr noundef %3233, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3235:                                             ; preds = %3228
+  %3236 = tail call i32 @sqlite3_exec(ptr noundef %3230, ptr noundef nonnull @.str.769, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2003 = icmp eq i32 %3236, 0
+  %3237 = load ptr, ptr %3178, align 8, !tbaa !6
+  br i1 %.not2003, label %3242, label %3238
+
+3238:                                             ; preds = %3235
+  %3239 = tail call ptr @sqlite3_errmsg(ptr noundef %3237) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.770, ptr noundef %3239) #18
+  %3240 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3241 = tail call i32 @sqlite3_exec(ptr noundef %3240, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3242:                                             ; preds = %3235
+  %3243 = tail call i32 @sqlite3_exec(ptr noundef %3237, ptr noundef nonnull @.str.771, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not2004 = icmp eq i32 %3243, 0
+  br i1 %.not2004, label %3738, label %3244
+
+3244:                                             ; preds = %3242
+  %3245 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3246 = tail call ptr @sqlite3_errmsg(ptr noundef %3245) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.772, ptr noundef %3246) #18
+  %3247 = load ptr, ptr %3178, align 8, !tbaa !6
+  %3248 = tail call i32 @sqlite3_exec(ptr noundef %3247, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3249:                                             ; preds = %2
+  %3250 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3251 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3252 = tail call i32 @sqlite3_exec(ptr noundef %3251, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3253 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3254 = tail call i32 @sqlite3_exec(ptr noundef %3253, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3255 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3256 = tail call i32 @sqlite3_exec(ptr noundef %3255, ptr noundef nonnull @.str.788, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1987 = icmp eq i32 %3256, 0
+  %3257 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1987, label %3262, label %3258
+
+3258:                                             ; preds = %3249
+  %3259 = tail call ptr @sqlite3_errmsg(ptr noundef %3257) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.789, ptr noundef %3259) #18
+  %3260 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3261 = tail call i32 @sqlite3_exec(ptr noundef %3260, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3262:                                             ; preds = %3249
+  %3263 = tail call i32 @sqlite3_exec(ptr noundef %3257, ptr noundef nonnull @.str.790, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1988 = icmp eq i32 %3263, 0
+  %3264 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1988, label %3269, label %3265
+
+3265:                                             ; preds = %3262
+  %3266 = tail call ptr @sqlite3_errmsg(ptr noundef %3264) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.791, ptr noundef %3266) #18
+  %3267 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3268 = tail call i32 @sqlite3_exec(ptr noundef %3267, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3269:                                             ; preds = %3262
+  %3270 = tail call i32 @sqlite3_exec(ptr noundef %3264, ptr noundef nonnull @.str.792, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1989 = icmp eq i32 %3270, 0
+  %3271 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1989, label %3276, label %3272
+
+3272:                                             ; preds = %3269
+  %3273 = tail call ptr @sqlite3_errmsg(ptr noundef %3271) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.793, ptr noundef %3273) #18
+  %3274 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3275 = tail call i32 @sqlite3_exec(ptr noundef %3274, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3276:                                             ; preds = %3269
+  %3277 = tail call i32 @sqlite3_exec(ptr noundef %3271, ptr noundef nonnull @.str.794, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1990 = icmp eq i32 %3277, 0
+  %3278 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1990, label %3283, label %3279
+
+3279:                                             ; preds = %3276
+  %3280 = tail call ptr @sqlite3_errmsg(ptr noundef %3278) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.795, ptr noundef %3280) #18
+  %3281 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3282 = tail call i32 @sqlite3_exec(ptr noundef %3281, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3283:                                             ; preds = %3276
+  %3284 = tail call i32 @sqlite3_exec(ptr noundef %3278, ptr noundef nonnull @.str.796, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1991 = icmp eq i32 %3284, 0
+  %3285 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1991, label %3290, label %3286
+
+3286:                                             ; preds = %3283
+  %3287 = tail call ptr @sqlite3_errmsg(ptr noundef %3285) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.797, ptr noundef %3287) #18
+  %3288 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3289 = tail call i32 @sqlite3_exec(ptr noundef %3288, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3290:                                             ; preds = %3283
+  %3291 = tail call i32 @sqlite3_exec(ptr noundef %3285, ptr noundef nonnull @.str.798, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1992 = icmp eq i32 %3291, 0
+  %3292 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1992, label %3297, label %3293
+
+3293:                                             ; preds = %3290
+  %3294 = tail call ptr @sqlite3_errmsg(ptr noundef %3292) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.799, ptr noundef %3294) #18
+  %3295 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3296 = tail call i32 @sqlite3_exec(ptr noundef %3295, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3297:                                             ; preds = %3290
+  %3298 = tail call i32 @sqlite3_exec(ptr noundef %3292, ptr noundef nonnull @.str.800, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1993 = icmp eq i32 %3298, 0
+  %3299 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1993, label %3304, label %3300
+
+3300:                                             ; preds = %3297
+  %3301 = tail call ptr @sqlite3_errmsg(ptr noundef %3299) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.783, ptr noundef %3301) #18
+  %3302 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3303 = tail call i32 @sqlite3_exec(ptr noundef %3302, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3304:                                             ; preds = %3297
+  %3305 = tail call i32 @sqlite3_exec(ptr noundef %3299, ptr noundef nonnull @.str.801, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1994 = icmp eq i32 %3305, 0
+  %3306 = load ptr, ptr %3250, align 8, !tbaa !6
+  br i1 %.not1994, label %3311, label %3307
+
+3307:                                             ; preds = %3304
+  %3308 = tail call ptr @sqlite3_errmsg(ptr noundef %3306) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.787, ptr noundef %3308) #18
+  %3309 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3310 = tail call i32 @sqlite3_exec(ptr noundef %3309, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3311:                                             ; preds = %3304
+  %3312 = tail call i32 @sqlite3_exec(ptr noundef %3306, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3313 = load ptr, ptr %3250, align 8, !tbaa !6
+  %3314 = tail call i32 @sqlite3_exec(ptr noundef %3313, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3315:                                             ; preds = %2
+  %3316 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3317 = load ptr, ptr %3316, align 8, !tbaa !6
+  %3318 = tail call i32 @sqlite3_exec(ptr noundef %3317, ptr noundef nonnull @.str.802, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1986 = icmp eq i32 %3318, 0
+  br i1 %.not1986, label %3738, label %3319
+
+3319:                                             ; preds = %3315
+  %3320 = load ptr, ptr %3316, align 8, !tbaa !6
+  %3321 = tail call ptr @sqlite3_errmsg(ptr noundef %3320) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.803, ptr noundef %3321) #18
+  %3322 = load ptr, ptr %3316, align 8, !tbaa !6
+  %3323 = tail call i32 @sqlite3_exec(ptr noundef %3322, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3324:                                             ; preds = %2
+  %3325 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3326 = load ptr, ptr %3325, align 8, !tbaa !6
+  %3327 = tail call i32 @sqlite3_exec(ptr noundef %3326, ptr noundef nonnull @.str.804, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1985 = icmp eq i32 %3327, 0
+  br i1 %.not1985, label %3738, label %3328
+
+3328:                                             ; preds = %3324
+  %3329 = load ptr, ptr %3325, align 8, !tbaa !6
+  %3330 = tail call ptr @sqlite3_errmsg(ptr noundef %3329) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.805, ptr noundef %3330) #18
+  %3331 = load ptr, ptr %3325, align 8, !tbaa !6
+  %3332 = tail call i32 @sqlite3_exec(ptr noundef %3331, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3333:                                             ; preds = %2
+  %3334 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3335 = load ptr, ptr %3334, align 8, !tbaa !6
+  %3336 = tail call i32 @sqlite3_exec(ptr noundef %3335, ptr noundef nonnull @.str.806, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1984 = icmp eq i32 %3336, 0
+  br i1 %.not1984, label %3738, label %3337
+
+3337:                                             ; preds = %3333
+  %3338 = load ptr, ptr %3334, align 8, !tbaa !6
+  %3339 = tail call ptr @sqlite3_errmsg(ptr noundef %3338) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.807, ptr noundef %3339) #18
+  %3340 = load ptr, ptr %3334, align 8, !tbaa !6
+  %3341 = tail call i32 @sqlite3_exec(ptr noundef %3340, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3342:                                             ; preds = %2
+  %3343 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3344 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3345 = tail call i32 @sqlite3_exec(ptr noundef %3344, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3346 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3347 = tail call i32 @sqlite3_exec(ptr noundef %3346, ptr noundef nonnull @.str.808, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1977 = icmp eq i32 %3347, 0
+  %3348 = load ptr, ptr %3343, align 8, !tbaa !6
+  br i1 %.not1977, label %3353, label %3349
+
+3349:                                             ; preds = %3342
+  %3350 = tail call ptr @sqlite3_errmsg(ptr noundef %3348) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.809, ptr noundef %3350) #18
+  %3351 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3352 = tail call i32 @sqlite3_exec(ptr noundef %3351, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3353:                                             ; preds = %3342
+  %3354 = tail call i32 @sqlite3_exec(ptr noundef %3348, ptr noundef nonnull @.str.810, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1978 = icmp eq i32 %3354, 0
+  %3355 = load ptr, ptr %3343, align 8, !tbaa !6
+  br i1 %.not1978, label %3360, label %3356
+
+3356:                                             ; preds = %3353
+  %3357 = tail call ptr @sqlite3_errmsg(ptr noundef %3355) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.811, ptr noundef %3357) #18
+  %3358 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3359 = tail call i32 @sqlite3_exec(ptr noundef %3358, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3360:                                             ; preds = %3353
+  %3361 = tail call i32 @sqlite3_exec(ptr noundef %3355, ptr noundef nonnull @.str.812, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1979 = icmp eq i32 %3361, 0
+  %3362 = load ptr, ptr %3343, align 8, !tbaa !6
+  br i1 %.not1979, label %3367, label %3363
+
+3363:                                             ; preds = %3360
+  %3364 = tail call ptr @sqlite3_errmsg(ptr noundef %3362) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.813, ptr noundef %3364) #18
+  %3365 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3366 = tail call i32 @sqlite3_exec(ptr noundef %3365, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3367:                                             ; preds = %3360
+  %3368 = tail call i32 @sqlite3_exec(ptr noundef %3362, ptr noundef nonnull @.str.814, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1980 = icmp eq i32 %3368, 0
+  %3369 = load ptr, ptr %3343, align 8, !tbaa !6
+  br i1 %.not1980, label %3374, label %3370
+
+3370:                                             ; preds = %3367
+  %3371 = tail call ptr @sqlite3_errmsg(ptr noundef %3369) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.815, ptr noundef %3371) #18
+  %3372 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3373 = tail call i32 @sqlite3_exec(ptr noundef %3372, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3374:                                             ; preds = %3367
+  %3375 = tail call i32 @sqlite3_exec(ptr noundef %3369, ptr noundef nonnull @.str.816, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1981 = icmp eq i32 %3375, 0
+  %3376 = load ptr, ptr %3343, align 8, !tbaa !6
+  br i1 %.not1981, label %3381, label %3377
+
+3377:                                             ; preds = %3374
+  %3378 = tail call ptr @sqlite3_errmsg(ptr noundef %3376) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3378) #18
+  %3379 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3380 = tail call i32 @sqlite3_exec(ptr noundef %3379, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3381:                                             ; preds = %3374
+  %3382 = tail call i32 @sqlite3_exec(ptr noundef %3376, ptr noundef nonnull @.str.818, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1982 = icmp eq i32 %3382, 0
+  %3383 = load ptr, ptr %3343, align 8, !tbaa !6
+  br i1 %.not1982, label %3388, label %3384
+
+3384:                                             ; preds = %3381
+  %3385 = tail call ptr @sqlite3_errmsg(ptr noundef %3383) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.819, ptr noundef %3385) #18
+  %3386 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3387 = tail call i32 @sqlite3_exec(ptr noundef %3386, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3388:                                             ; preds = %3381
+  %3389 = tail call i32 @sqlite3_exec(ptr noundef %3383, ptr noundef nonnull @.str.820, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1983 = icmp eq i32 %3389, 0
+  %3390 = load ptr, ptr %3343, align 8, !tbaa !6
+  br i1 %.not1983, label %3395, label %3391
+
+3391:                                             ; preds = %3388
+  %3392 = tail call ptr @sqlite3_errmsg(ptr noundef %3390) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.821, ptr noundef %3392) #18
+  %3393 = load ptr, ptr %3343, align 8, !tbaa !6
+  %3394 = tail call i32 @sqlite3_exec(ptr noundef %3393, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3395:                                             ; preds = %3388
+  %3396 = tail call i32 @sqlite3_exec(ptr noundef %3390, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3397:                                             ; preds = %2
+  %3398 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3399 = load ptr, ptr %3398, align 8, !tbaa !6
+  %3400 = tail call i32 @sqlite3_exec(ptr noundef %3399, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3401 = load ptr, ptr %3398, align 8, !tbaa !6
+  %3402 = tail call i32 @sqlite3_exec(ptr noundef %3401, ptr noundef nonnull @.str.822, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1975 = icmp eq i32 %3402, 0
+  %3403 = load ptr, ptr %3398, align 8, !tbaa !6
+  br i1 %.not1975, label %3408, label %3404
+
+3404:                                             ; preds = %3397
+  %3405 = tail call ptr @sqlite3_errmsg(ptr noundef %3403) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.823, ptr noundef %3405) #18
+  %3406 = load ptr, ptr %3398, align 8, !tbaa !6
+  %3407 = tail call i32 @sqlite3_exec(ptr noundef %3406, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3408:                                             ; preds = %3397
+  %3409 = tail call i32 @sqlite3_exec(ptr noundef %3403, ptr noundef nonnull @.str.824, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1976 = icmp eq i32 %3409, 0
+  %3410 = load ptr, ptr %3398, align 8, !tbaa !6
+  br i1 %.not1976, label %3415, label %3411
+
+3411:                                             ; preds = %3408
+  %3412 = tail call ptr @sqlite3_errmsg(ptr noundef %3410) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3412) #18
+  %3413 = load ptr, ptr %3398, align 8, !tbaa !6
+  %3414 = tail call i32 @sqlite3_exec(ptr noundef %3413, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3415:                                             ; preds = %3408
+  %3416 = tail call i32 @sqlite3_exec(ptr noundef %3410, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3417:                                             ; preds = %2
+  %3418 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3419 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3420 = tail call i32 @sqlite3_exec(ptr noundef %3419, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3421 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3422 = tail call i32 @sqlite3_exec(ptr noundef %3421, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3423 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3424 = tail call i32 @sqlite3_exec(ptr noundef %3423, ptr noundef nonnull @.str.825, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1955 = icmp eq i32 %3424, 0
+  %3425 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1955, label %3430, label %3426
+
+3426:                                             ; preds = %3417
+  %3427 = tail call ptr @sqlite3_errmsg(ptr noundef %3425) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.826, ptr noundef %3427) #18
+  %3428 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3429 = tail call i32 @sqlite3_exec(ptr noundef %3428, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3430:                                             ; preds = %3417
+  %3431 = tail call i32 @sqlite3_exec(ptr noundef %3425, ptr noundef nonnull @.str.827, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1956 = icmp eq i32 %3431, 0
+  %3432 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1956, label %3437, label %3433
+
+3433:                                             ; preds = %3430
+  %3434 = tail call ptr @sqlite3_errmsg(ptr noundef %3432) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.828, ptr noundef %3434) #18
+  %3435 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3436 = tail call i32 @sqlite3_exec(ptr noundef %3435, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3437:                                             ; preds = %3430
+  %3438 = tail call i32 @sqlite3_exec(ptr noundef %3432, ptr noundef nonnull @.str.829, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1957 = icmp eq i32 %3438, 0
+  %3439 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1957, label %3444, label %3440
+
+3440:                                             ; preds = %3437
+  %3441 = tail call ptr @sqlite3_errmsg(ptr noundef %3439) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.830, ptr noundef %3441) #18
+  %3442 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3443 = tail call i32 @sqlite3_exec(ptr noundef %3442, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3444:                                             ; preds = %3437
+  %3445 = tail call i32 @sqlite3_exec(ptr noundef %3439, ptr noundef nonnull @.str.831, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1958 = icmp eq i32 %3445, 0
+  %3446 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1958, label %3451, label %3447
+
+3447:                                             ; preds = %3444
+  %3448 = tail call ptr @sqlite3_errmsg(ptr noundef %3446) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.832, ptr noundef %3448) #18
+  %3449 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3450 = tail call i32 @sqlite3_exec(ptr noundef %3449, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3451:                                             ; preds = %3444
+  %3452 = tail call i32 @sqlite3_exec(ptr noundef %3446, ptr noundef nonnull @.str.833, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1959 = icmp eq i32 %3452, 0
+  %3453 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1959, label %3458, label %3454
+
+3454:                                             ; preds = %3451
+  %3455 = tail call ptr @sqlite3_errmsg(ptr noundef %3453) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.834, ptr noundef %3455) #18
+  %3456 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3457 = tail call i32 @sqlite3_exec(ptr noundef %3456, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3458:                                             ; preds = %3451
+  %3459 = tail call i32 @sqlite3_exec(ptr noundef %3453, ptr noundef nonnull @.str.835, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1960 = icmp eq i32 %3459, 0
+  %3460 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1960, label %3465, label %3461
+
+3461:                                             ; preds = %3458
+  %3462 = tail call ptr @sqlite3_errmsg(ptr noundef %3460) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.836, ptr noundef %3462) #18
+  %3463 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3464 = tail call i32 @sqlite3_exec(ptr noundef %3463, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3465:                                             ; preds = %3458
+  %3466 = tail call i32 @sqlite3_exec(ptr noundef %3460, ptr noundef nonnull @.str.837, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1961 = icmp eq i32 %3466, 0
+  %3467 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1961, label %3472, label %3468
+
+3468:                                             ; preds = %3465
+  %3469 = tail call ptr @sqlite3_errmsg(ptr noundef %3467) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.838, ptr noundef %3469) #18
+  %3470 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3471 = tail call i32 @sqlite3_exec(ptr noundef %3470, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3472:                                             ; preds = %3465
+  %3473 = tail call i32 @sqlite3_exec(ptr noundef %3467, ptr noundef nonnull @.str.839, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1962 = icmp eq i32 %3473, 0
+  %3474 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1962, label %3479, label %3475
+
+3475:                                             ; preds = %3472
+  %3476 = tail call ptr @sqlite3_errmsg(ptr noundef %3474) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.840, ptr noundef %3476) #18
+  %3477 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3478 = tail call i32 @sqlite3_exec(ptr noundef %3477, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3479:                                             ; preds = %3472
+  %3480 = tail call i32 @sqlite3_exec(ptr noundef %3474, ptr noundef nonnull @.str.841, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1963 = icmp eq i32 %3480, 0
+  %3481 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1963, label %3486, label %3482
+
+3482:                                             ; preds = %3479
+  %3483 = tail call ptr @sqlite3_errmsg(ptr noundef %3481) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.755, ptr noundef %3483) #18
+  %3484 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3485 = tail call i32 @sqlite3_exec(ptr noundef %3484, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3486:                                             ; preds = %3479
+  %3487 = tail call i32 @sqlite3_exec(ptr noundef %3481, ptr noundef nonnull @.str.842, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1964 = icmp eq i32 %3487, 0
+  %3488 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1964, label %3493, label %3489
+
+3489:                                             ; preds = %3486
+  %3490 = tail call ptr @sqlite3_errmsg(ptr noundef %3488) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.757, ptr noundef %3490) #18
+  %3491 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3492 = tail call i32 @sqlite3_exec(ptr noundef %3491, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3493:                                             ; preds = %3486
+  %3494 = tail call i32 @sqlite3_exec(ptr noundef %3488, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1965 = icmp eq i32 %3494, 0
+  %3495 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1965, label %3500, label %3496
+
+3496:                                             ; preds = %3493
+  %3497 = tail call ptr @sqlite3_errmsg(ptr noundef %3495) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3497) #18
+  %3498 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3499 = tail call i32 @sqlite3_exec(ptr noundef %3498, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3500:                                             ; preds = %3493
+  %3501 = tail call i32 @sqlite3_exec(ptr noundef %3495, ptr noundef nonnull @.str.469, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1966 = icmp eq i32 %3501, 0
+  %3502 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1966, label %3507, label %3503
+
+3503:                                             ; preds = %3500
+  %3504 = tail call ptr @sqlite3_errmsg(ptr noundef %3502) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.470, ptr noundef %3504) #18
+  %3505 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3506 = tail call i32 @sqlite3_exec(ptr noundef %3505, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3507:                                             ; preds = %3500
+  %3508 = tail call i32 @sqlite3_exec(ptr noundef %3502, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1967 = icmp eq i32 %3508, 0
+  %3509 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1967, label %3514, label %3510
+
+3510:                                             ; preds = %3507
+  %3511 = tail call ptr @sqlite3_errmsg(ptr noundef %3509) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.571, ptr noundef %3511) #18
+  %3512 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3513 = tail call i32 @sqlite3_exec(ptr noundef %3512, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3514:                                             ; preds = %3507
+  %3515 = tail call i32 @sqlite3_exec(ptr noundef %3509, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1968 = icmp eq i32 %3515, 0
+  %3516 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1968, label %3521, label %3517
+
+3517:                                             ; preds = %3514
+  %3518 = tail call ptr @sqlite3_errmsg(ptr noundef %3516) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3518) #18
+  %3519 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3520 = tail call i32 @sqlite3_exec(ptr noundef %3519, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3521:                                             ; preds = %3514
+  %3522 = tail call i32 @sqlite3_exec(ptr noundef %3516, ptr noundef nonnull @.str.759, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1969 = icmp eq i32 %3522, 0
+  %3523 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1969, label %3528, label %3524
+
+3524:                                             ; preds = %3521
+  %3525 = tail call ptr @sqlite3_errmsg(ptr noundef %3523) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.583, ptr noundef %3525) #18
+  %3526 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3527 = tail call i32 @sqlite3_exec(ptr noundef %3526, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3528:                                             ; preds = %3521
+  %3529 = tail call i32 @sqlite3_exec(ptr noundef %3523, ptr noundef nonnull @.str.760, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1970 = icmp eq i32 %3529, 0
+  %3530 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1970, label %3535, label %3531
+
+3531:                                             ; preds = %3528
+  %3532 = tail call ptr @sqlite3_errmsg(ptr noundef %3530) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.549, ptr noundef %3532) #18
+  %3533 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3534 = tail call i32 @sqlite3_exec(ptr noundef %3533, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3535:                                             ; preds = %3528
+  %3536 = tail call i32 @sqlite3_exec(ptr noundef %3530, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1971 = icmp eq i32 %3536, 0
+  %3537 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1971, label %3542, label %3538
+
+3538:                                             ; preds = %3535
+  %3539 = tail call ptr @sqlite3_errmsg(ptr noundef %3537) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.553, ptr noundef %3539) #18
+  %3540 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3541 = tail call i32 @sqlite3_exec(ptr noundef %3540, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3542:                                             ; preds = %3535
+  %3543 = tail call i32 @sqlite3_exec(ptr noundef %3537, ptr noundef nonnull @.str.762, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1972 = icmp eq i32 %3543, 0
+  %3544 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1972, label %3549, label %3545
+
+3545:                                             ; preds = %3542
+  %3546 = tail call ptr @sqlite3_errmsg(ptr noundef %3544) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.557, ptr noundef %3546) #18
+  %3547 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3548 = tail call i32 @sqlite3_exec(ptr noundef %3547, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3549:                                             ; preds = %3542
+  %3550 = tail call i32 @sqlite3_exec(ptr noundef %3544, ptr noundef nonnull @.str.763, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1973 = icmp eq i32 %3550, 0
+  %3551 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1973, label %3556, label %3552
+
+3552:                                             ; preds = %3549
+  %3553 = tail call ptr @sqlite3_errmsg(ptr noundef %3551) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.588, ptr noundef %3553) #18
+  %3554 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3555 = tail call i32 @sqlite3_exec(ptr noundef %3554, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3556:                                             ; preds = %3549
+  %3557 = tail call i32 @sqlite3_exec(ptr noundef %3551, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1974 = icmp eq i32 %3557, 0
+  %3558 = load ptr, ptr %3418, align 8, !tbaa !6
+  br i1 %.not1974, label %3563, label %3559
+
+3559:                                             ; preds = %3556
+  %3560 = tail call ptr @sqlite3_errmsg(ptr noundef %3558) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.689, ptr noundef %3560) #18
+  %3561 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3562 = tail call i32 @sqlite3_exec(ptr noundef %3561, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3563:                                             ; preds = %3556
+  %3564 = tail call i32 @sqlite3_exec(ptr noundef %3558, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3565 = load ptr, ptr %3418, align 8, !tbaa !6
+  %3566 = tail call i32 @sqlite3_exec(ptr noundef %3565, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3567:                                             ; preds = %2
+  %3568 = add i32 %1, -51
+  %or.cond23 = icmp ult i32 %3568, 2
+  br i1 %or.cond23, label %3569, label %3596
+
+3569:                                             ; preds = %3567
+  %3570 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3571 = load ptr, ptr %3570, align 8, !tbaa !6
+  %3572 = tail call i32 @sqlite3_exec(ptr noundef %3571, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3573 = load ptr, ptr %3570, align 8, !tbaa !6
+  %3574 = tail call i32 @sqlite3_exec(ptr noundef %3573, ptr noundef nonnull @.str.812, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1952 = icmp eq i32 %3574, 0
+  %3575 = load ptr, ptr %3570, align 8, !tbaa !6
+  br i1 %.not1952, label %3580, label %3576
+
+3576:                                             ; preds = %3569
+  %3577 = tail call ptr @sqlite3_errmsg(ptr noundef %3575) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.813, ptr noundef %3577) #18
+  %3578 = load ptr, ptr %3570, align 8, !tbaa !6
+  %3579 = tail call i32 @sqlite3_exec(ptr noundef %3578, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3580:                                             ; preds = %3569
+  %3581 = tail call i32 @sqlite3_exec(ptr noundef %3575, ptr noundef nonnull @.str.843, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1953 = icmp eq i32 %3581, 0
+  %3582 = load ptr, ptr %3570, align 8, !tbaa !6
+  br i1 %.not1953, label %3587, label %3583
+
+3583:                                             ; preds = %3580
+  %3584 = tail call ptr @sqlite3_errmsg(ptr noundef %3582) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.844, ptr noundef %3584) #18
+  %3585 = load ptr, ptr %3570, align 8, !tbaa !6
+  %3586 = tail call i32 @sqlite3_exec(ptr noundef %3585, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3587:                                             ; preds = %3580
+  %3588 = tail call i32 @sqlite3_exec(ptr noundef %3582, ptr noundef nonnull @.str.824, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1954 = icmp eq i32 %3588, 0
+  %3589 = load ptr, ptr %3570, align 8, !tbaa !6
+  br i1 %.not1954, label %3594, label %3590
+
+3590:                                             ; preds = %3587
+  %3591 = tail call ptr @sqlite3_errmsg(ptr noundef %3589) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.817, ptr noundef %3591) #18
+  %3592 = load ptr, ptr %3570, align 8, !tbaa !6
+  %3593 = tail call i32 @sqlite3_exec(ptr noundef %3592, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %.thread2355
+
+3594:                                             ; preds = %3587
+  %3595 = tail call i32 @sqlite3_exec(ptr noundef %3589, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
+
+3596:                                             ; preds = %3567
+  switch i32 %1, label %3738 [
+    i32 53, label %3597
+    i32 54, label %3677
+    i32 55, label %3693
   ]
 
-3595:                                             ; preds = %3594
-  %3596 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3597 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3598 = tail call i32 @sqlite3_exec(ptr noundef %3597, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3599 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3600 = tail call i32 @sqlite3_exec(ptr noundef %3599, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3601 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3602 = tail call i32 @sqlite3_exec(ptr noundef %3601, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1942 = icmp eq i32 %3602, 0
-  %3603 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1942, label %3608, label %3604
+3597:                                             ; preds = %3596
+  %3598 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3599 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3600 = tail call i32 @sqlite3_exec(ptr noundef %3599, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3601 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3602 = tail call i32 @sqlite3_exec(ptr noundef %3601, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3603 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3604 = tail call i32 @sqlite3_exec(ptr noundef %3603, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1942 = icmp eq i32 %3604, 0
+  %3605 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1942, label %3610, label %3606
 
-3604:                                             ; preds = %3595
-  %3605 = tail call ptr @sqlite3_errmsg(ptr noundef %3603) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3605) #18
-  %3606 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3607 = tail call i32 @sqlite3_exec(ptr noundef %3606, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3606:                                             ; preds = %3597
+  %3607 = tail call ptr @sqlite3_errmsg(ptr noundef %3605) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3607) #18
+  %3608 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3609 = tail call i32 @sqlite3_exec(ptr noundef %3608, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3608:                                             ; preds = %3595
-  %3609 = tail call i32 @sqlite3_exec(ptr noundef %3603, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1943 = icmp eq i32 %3609, 0
-  %3610 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1943, label %3615, label %3611
+3610:                                             ; preds = %3597
+  %3611 = tail call i32 @sqlite3_exec(ptr noundef %3605, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1943 = icmp eq i32 %3611, 0
+  %3612 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1943, label %3617, label %3613
 
-3611:                                             ; preds = %3608
-  %3612 = tail call ptr @sqlite3_errmsg(ptr noundef %3610) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3612) #18
-  %3613 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3614 = tail call i32 @sqlite3_exec(ptr noundef %3613, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3613:                                             ; preds = %3610
+  %3614 = tail call ptr @sqlite3_errmsg(ptr noundef %3612) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3614) #18
+  %3615 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3616 = tail call i32 @sqlite3_exec(ptr noundef %3615, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3615:                                             ; preds = %3608
-  %3616 = tail call i32 @sqlite3_exec(ptr noundef %3610, ptr noundef nonnull @.str.656, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1944 = icmp eq i32 %3616, 0
-  %3617 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1944, label %3622, label %3618
+3617:                                             ; preds = %3610
+  %3618 = tail call i32 @sqlite3_exec(ptr noundef %3612, ptr noundef nonnull @.str.656, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1944 = icmp eq i32 %3618, 0
+  %3619 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1944, label %3624, label %3620
 
-3618:                                             ; preds = %3615
-  %3619 = tail call ptr @sqlite3_errmsg(ptr noundef %3617) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.657, ptr noundef %3619) #18
-  %3620 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3621 = tail call i32 @sqlite3_exec(ptr noundef %3620, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3620:                                             ; preds = %3617
+  %3621 = tail call ptr @sqlite3_errmsg(ptr noundef %3619) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.657, ptr noundef %3621) #18
+  %3622 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3623 = tail call i32 @sqlite3_exec(ptr noundef %3622, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3622:                                             ; preds = %3615
-  %3623 = tail call i32 @sqlite3_exec(ptr noundef %3617, ptr noundef nonnull @.str.658, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1945 = icmp eq i32 %3623, 0
-  %3624 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1945, label %3629, label %3625
+3624:                                             ; preds = %3617
+  %3625 = tail call i32 @sqlite3_exec(ptr noundef %3619, ptr noundef nonnull @.str.658, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1945 = icmp eq i32 %3625, 0
+  %3626 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1945, label %3631, label %3627
 
-3625:                                             ; preds = %3622
-  %3626 = tail call ptr @sqlite3_errmsg(ptr noundef %3624) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.659, ptr noundef %3626) #18
-  %3627 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3628 = tail call i32 @sqlite3_exec(ptr noundef %3627, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3627:                                             ; preds = %3624
+  %3628 = tail call ptr @sqlite3_errmsg(ptr noundef %3626) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.659, ptr noundef %3628) #18
+  %3629 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3630 = tail call i32 @sqlite3_exec(ptr noundef %3629, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3629:                                             ; preds = %3622
-  %3630 = tail call i32 @sqlite3_exec(ptr noundef %3624, ptr noundef nonnull @.str.660, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1946 = icmp eq i32 %3630, 0
-  %3631 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1946, label %3636, label %3632
+3631:                                             ; preds = %3624
+  %3632 = tail call i32 @sqlite3_exec(ptr noundef %3626, ptr noundef nonnull @.str.660, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1946 = icmp eq i32 %3632, 0
+  %3633 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1946, label %3638, label %3634
 
-3632:                                             ; preds = %3629
-  %3633 = tail call ptr @sqlite3_errmsg(ptr noundef %3631) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.661, ptr noundef %3633) #18
-  %3634 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3635 = tail call i32 @sqlite3_exec(ptr noundef %3634, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3634:                                             ; preds = %3631
+  %3635 = tail call ptr @sqlite3_errmsg(ptr noundef %3633) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.661, ptr noundef %3635) #18
+  %3636 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3637 = tail call i32 @sqlite3_exec(ptr noundef %3636, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3636:                                             ; preds = %3629
-  %3637 = tail call i32 @sqlite3_exec(ptr noundef %3631, ptr noundef nonnull @.str.662, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1947 = icmp eq i32 %3637, 0
-  %3638 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1947, label %3643, label %3639
+3638:                                             ; preds = %3631
+  %3639 = tail call i32 @sqlite3_exec(ptr noundef %3633, ptr noundef nonnull @.str.662, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1947 = icmp eq i32 %3639, 0
+  %3640 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1947, label %3645, label %3641
 
-3639:                                             ; preds = %3636
-  %3640 = tail call ptr @sqlite3_errmsg(ptr noundef %3638) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.663, ptr noundef %3640) #18
-  %3641 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3642 = tail call i32 @sqlite3_exec(ptr noundef %3641, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3641:                                             ; preds = %3638
+  %3642 = tail call ptr @sqlite3_errmsg(ptr noundef %3640) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.663, ptr noundef %3642) #18
+  %3643 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3644 = tail call i32 @sqlite3_exec(ptr noundef %3643, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3643:                                             ; preds = %3636
-  %3644 = tail call i32 @sqlite3_exec(ptr noundef %3638, ptr noundef nonnull @.str.664, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1948 = icmp eq i32 %3644, 0
-  %3645 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1948, label %3650, label %3646
+3645:                                             ; preds = %3638
+  %3646 = tail call i32 @sqlite3_exec(ptr noundef %3640, ptr noundef nonnull @.str.664, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1948 = icmp eq i32 %3646, 0
+  %3647 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1948, label %3652, label %3648
 
-3646:                                             ; preds = %3643
-  %3647 = tail call ptr @sqlite3_errmsg(ptr noundef %3645) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.665, ptr noundef %3647) #18
-  %3648 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3649 = tail call i32 @sqlite3_exec(ptr noundef %3648, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3648:                                             ; preds = %3645
+  %3649 = tail call ptr @sqlite3_errmsg(ptr noundef %3647) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.665, ptr noundef %3649) #18
+  %3650 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3651 = tail call i32 @sqlite3_exec(ptr noundef %3650, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3650:                                             ; preds = %3643
-  %3651 = tail call i32 @sqlite3_exec(ptr noundef %3645, ptr noundef nonnull @.str.666, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1949 = icmp eq i32 %3651, 0
-  %3652 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1949, label %3657, label %3653
+3652:                                             ; preds = %3645
+  %3653 = tail call i32 @sqlite3_exec(ptr noundef %3647, ptr noundef nonnull @.str.666, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1949 = icmp eq i32 %3653, 0
+  %3654 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1949, label %3659, label %3655
 
-3653:                                             ; preds = %3650
-  %3654 = tail call ptr @sqlite3_errmsg(ptr noundef %3652) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %3654) #18
-  %3655 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3656 = tail call i32 @sqlite3_exec(ptr noundef %3655, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3655:                                             ; preds = %3652
+  %3656 = tail call ptr @sqlite3_errmsg(ptr noundef %3654) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %3656) #18
+  %3657 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3658 = tail call i32 @sqlite3_exec(ptr noundef %3657, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3657:                                             ; preds = %3650
-  %3658 = tail call i32 @sqlite3_exec(ptr noundef %3652, ptr noundef nonnull @.str.845, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1950 = icmp eq i32 %3658, 0
-  %3659 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1950, label %3664, label %3660
+3659:                                             ; preds = %3652
+  %3660 = tail call i32 @sqlite3_exec(ptr noundef %3654, ptr noundef nonnull @.str.845, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1950 = icmp eq i32 %3660, 0
+  %3661 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1950, label %3666, label %3662
 
-3660:                                             ; preds = %3657
-  %3661 = tail call ptr @sqlite3_errmsg(ptr noundef %3659) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %3661) #18
-  %3662 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3663 = tail call i32 @sqlite3_exec(ptr noundef %3662, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3662:                                             ; preds = %3659
+  %3663 = tail call ptr @sqlite3_errmsg(ptr noundef %3661) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.667, ptr noundef %3663) #18
+  %3664 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3665 = tail call i32 @sqlite3_exec(ptr noundef %3664, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3664:                                             ; preds = %3657
-  %3665 = tail call i32 @sqlite3_exec(ptr noundef %3659, ptr noundef nonnull @.str.846, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1951 = icmp eq i32 %3665, 0
-  %3666 = load ptr, ptr %3596, align 8, !tbaa !6
-  br i1 %.not1951, label %3671, label %3667
+3666:                                             ; preds = %3659
+  %3667 = tail call i32 @sqlite3_exec(ptr noundef %3661, ptr noundef nonnull @.str.846, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1951 = icmp eq i32 %3667, 0
+  %3668 = load ptr, ptr %3598, align 8, !tbaa !6
+  br i1 %.not1951, label %3673, label %3669
 
-3667:                                             ; preds = %3664
-  %3668 = tail call ptr @sqlite3_errmsg(ptr noundef %3666) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.715, ptr noundef %3668) #18
-  %3669 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3670 = tail call i32 @sqlite3_exec(ptr noundef %3669, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3669:                                             ; preds = %3666
+  %3670 = tail call ptr @sqlite3_errmsg(ptr noundef %3668) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.715, ptr noundef %3670) #18
+  %3671 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3672 = tail call i32 @sqlite3_exec(ptr noundef %3671, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3671:                                             ; preds = %3664
-  %3672 = tail call i32 @sqlite3_exec(ptr noundef %3666, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3673 = load ptr, ptr %3596, align 8, !tbaa !6
-  %3674 = tail call i32 @sqlite3_exec(ptr noundef %3673, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+3673:                                             ; preds = %3666
+  %3674 = tail call i32 @sqlite3_exec(ptr noundef %3668, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3675 = load ptr, ptr %3598, align 8, !tbaa !6
+  %3676 = tail call i32 @sqlite3_exec(ptr noundef %3675, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
 
-3675:                                             ; preds = %3594
-  %3676 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3677 = load ptr, ptr %3676, align 8, !tbaa !6
-  %3678 = tail call i32 @sqlite3_exec(ptr noundef %3677, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1940 = icmp eq i32 %3678, 0
-  %3679 = load ptr, ptr %3676, align 8, !tbaa !6
-  br i1 %.not1940, label %3684, label %3680
+3677:                                             ; preds = %3596
+  %3678 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3679 = load ptr, ptr %3678, align 8, !tbaa !6
+  %3680 = tail call i32 @sqlite3_exec(ptr noundef %3679, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1940 = icmp eq i32 %3680, 0
+  %3681 = load ptr, ptr %3678, align 8, !tbaa !6
+  br i1 %.not1940, label %3686, label %3682
 
-3680:                                             ; preds = %3675
-  %3681 = tail call ptr @sqlite3_errmsg(ptr noundef %3679) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3681) #18
-  %3682 = load ptr, ptr %3676, align 8, !tbaa !6
-  %3683 = tail call i32 @sqlite3_exec(ptr noundef %3682, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3682:                                             ; preds = %3677
+  %3683 = tail call ptr @sqlite3_errmsg(ptr noundef %3681) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.780, ptr noundef %3683) #18
+  %3684 = load ptr, ptr %3678, align 8, !tbaa !6
+  %3685 = tail call i32 @sqlite3_exec(ptr noundef %3684, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3684:                                             ; preds = %3675
-  %3685 = tail call i32 @sqlite3_exec(ptr noundef %3679, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1941 = icmp eq i32 %3685, 0
-  br i1 %.not1941, label %3736, label %3686
+3686:                                             ; preds = %3677
+  %3687 = tail call i32 @sqlite3_exec(ptr noundef %3681, ptr noundef nonnull @.str.781, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1941 = icmp eq i32 %3687, 0
+  br i1 %.not1941, label %3738, label %3688
 
-3686:                                             ; preds = %3684
-  %3687 = load ptr, ptr %3676, align 8, !tbaa !6
-  %3688 = tail call ptr @sqlite3_errmsg(ptr noundef %3687) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3688) #18
-  %3689 = load ptr, ptr %3676, align 8, !tbaa !6
-  %3690 = tail call i32 @sqlite3_exec(ptr noundef %3689, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3688:                                             ; preds = %3686
+  %3689 = load ptr, ptr %3678, align 8, !tbaa !6
+  %3690 = tail call ptr @sqlite3_errmsg(ptr noundef %3689) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.774, ptr noundef %3690) #18
+  %3691 = load ptr, ptr %3678, align 8, !tbaa !6
+  %3692 = tail call i32 @sqlite3_exec(ptr noundef %3691, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3691:                                             ; preds = %3594
-  %3692 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3693 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3694 = tail call i32 @sqlite3_exec(ptr noundef %3693, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3695 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3696 = tail call i32 @sqlite3_exec(ptr noundef %3695, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3697 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3698 = tail call i32 @sqlite3_exec(ptr noundef %3697, ptr noundef nonnull @.str.847, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not = icmp eq i32 %3698, 0
-  %3699 = load ptr, ptr %3692, align 8, !tbaa !6
-  br i1 %.not, label %3704, label %3700
+3693:                                             ; preds = %3596
+  %3694 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3695 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3696 = tail call i32 @sqlite3_exec(ptr noundef %3695, ptr noundef nonnull @.str.692, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3697 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3698 = tail call i32 @sqlite3_exec(ptr noundef %3697, ptr noundef nonnull @.str.138, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3699 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3700 = tail call i32 @sqlite3_exec(ptr noundef %3699, ptr noundef nonnull @.str.847, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not = icmp eq i32 %3700, 0
+  %3701 = load ptr, ptr %3694, align 8, !tbaa !6
+  br i1 %.not, label %3706, label %3702
 
-3700:                                             ; preds = %3691
-  %3701 = tail call ptr @sqlite3_errmsg(ptr noundef %3699) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.848, ptr noundef %3701) #18
-  %3702 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3703 = tail call i32 @sqlite3_exec(ptr noundef %3702, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3702:                                             ; preds = %3693
+  %3703 = tail call ptr @sqlite3_errmsg(ptr noundef %3701) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.848, ptr noundef %3703) #18
+  %3704 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3705 = tail call i32 @sqlite3_exec(ptr noundef %3704, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3704:                                             ; preds = %3691
-  %3705 = tail call i32 @sqlite3_exec(ptr noundef %3699, ptr noundef nonnull @.str.849, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1936 = icmp eq i32 %3705, 0
-  %3706 = load ptr, ptr %3692, align 8, !tbaa !6
-  br i1 %.not1936, label %3711, label %3707
+3706:                                             ; preds = %3693
+  %3707 = tail call i32 @sqlite3_exec(ptr noundef %3701, ptr noundef nonnull @.str.849, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1936 = icmp eq i32 %3707, 0
+  %3708 = load ptr, ptr %3694, align 8, !tbaa !6
+  br i1 %.not1936, label %3713, label %3709
 
-3707:                                             ; preds = %3704
-  %3708 = tail call ptr @sqlite3_errmsg(ptr noundef %3706) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.850, ptr noundef %3708) #18
-  %3709 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3710 = tail call i32 @sqlite3_exec(ptr noundef %3709, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3709:                                             ; preds = %3706
+  %3710 = tail call ptr @sqlite3_errmsg(ptr noundef %3708) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.850, ptr noundef %3710) #18
+  %3711 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3712 = tail call i32 @sqlite3_exec(ptr noundef %3711, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3711:                                             ; preds = %3704
-  %3712 = tail call i32 @sqlite3_exec(ptr noundef %3706, ptr noundef nonnull @.str.851, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1937 = icmp eq i32 %3712, 0
-  %3713 = load ptr, ptr %3692, align 8, !tbaa !6
-  br i1 %.not1937, label %3718, label %3714
+3713:                                             ; preds = %3706
+  %3714 = tail call i32 @sqlite3_exec(ptr noundef %3708, ptr noundef nonnull @.str.851, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1937 = icmp eq i32 %3714, 0
+  %3715 = load ptr, ptr %3694, align 8, !tbaa !6
+  br i1 %.not1937, label %3720, label %3716
 
-3714:                                             ; preds = %3711
-  %3715 = tail call ptr @sqlite3_errmsg(ptr noundef %3713) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.852, ptr noundef %3715) #18
-  %3716 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3717 = tail call i32 @sqlite3_exec(ptr noundef %3716, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3716:                                             ; preds = %3713
+  %3717 = tail call ptr @sqlite3_errmsg(ptr noundef %3715) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.852, ptr noundef %3717) #18
+  %3718 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3719 = tail call i32 @sqlite3_exec(ptr noundef %3718, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3718:                                             ; preds = %3711
-  %3719 = tail call i32 @sqlite3_exec(ptr noundef %3713, ptr noundef nonnull @.str.853, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1938 = icmp eq i32 %3719, 0
-  %3720 = load ptr, ptr %3692, align 8, !tbaa !6
-  br i1 %.not1938, label %3725, label %3721
+3720:                                             ; preds = %3713
+  %3721 = tail call i32 @sqlite3_exec(ptr noundef %3715, ptr noundef nonnull @.str.853, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1938 = icmp eq i32 %3721, 0
+  %3722 = load ptr, ptr %3694, align 8, !tbaa !6
+  br i1 %.not1938, label %3727, label %3723
 
-3721:                                             ; preds = %3718
-  %3722 = tail call ptr @sqlite3_errmsg(ptr noundef %3720) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.854, ptr noundef %3722) #18
-  %3723 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3724 = tail call i32 @sqlite3_exec(ptr noundef %3723, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3723:                                             ; preds = %3720
+  %3724 = tail call ptr @sqlite3_errmsg(ptr noundef %3722) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.854, ptr noundef %3724) #18
+  %3725 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3726 = tail call i32 @sqlite3_exec(ptr noundef %3725, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3725:                                             ; preds = %3718
-  %3726 = tail call i32 @sqlite3_exec(ptr noundef %3720, ptr noundef nonnull @.str.855, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %.not1939 = icmp eq i32 %3726, 0
-  %3727 = load ptr, ptr %3692, align 8, !tbaa !6
-  br i1 %.not1939, label %3732, label %3728
+3727:                                             ; preds = %3720
+  %3728 = tail call i32 @sqlite3_exec(ptr noundef %3722, ptr noundef nonnull @.str.855, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %.not1939 = icmp eq i32 %3728, 0
+  %3729 = load ptr, ptr %3694, align 8, !tbaa !6
+  br i1 %.not1939, label %3734, label %3730
 
-3728:                                             ; preds = %3725
-  %3729 = tail call ptr @sqlite3_errmsg(ptr noundef %3727) #18
-  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.856, ptr noundef %3729) #18
-  %3730 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3731 = tail call i32 @sqlite3_exec(ptr noundef %3730, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
+3730:                                             ; preds = %3727
+  %3731 = tail call ptr @sqlite3_errmsg(ptr noundef %3729) #18
+  tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.175, ptr noundef nonnull @.str.856, ptr noundef %3731) #18
+  %3732 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3733 = tail call i32 @sqlite3_exec(ptr noundef %3732, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef null) #18
   br label %.thread2355
 
-3732:                                             ; preds = %3725
-  %3733 = tail call i32 @sqlite3_exec(ptr noundef %3727, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  %3734 = load ptr, ptr %3692, align 8, !tbaa !6
-  %3735 = tail call i32 @sqlite3_exec(ptr noundef %3734, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
-  br label %3736
+3734:                                             ; preds = %3727
+  %3735 = tail call i32 @sqlite3_exec(ptr noundef %3729, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  %3736 = load ptr, ptr %3694, align 8, !tbaa !6
+  %3737 = tail call i32 @sqlite3_exec(ptr noundef %3736, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef null) #18
+  br label %3738
 
-3736:                                             ; preds = %._crit_edge, %._crit_edge2403, %1608, %1297, %1032, %3594, %3684, %2, %3331, %3322, %3313, %3240, %3166, %3105, %2812, %2794, %1772, %1763, %53, %121, %172, %227, %260, %1100, %1147, %1345, %1413, %1649, %1820, %1888, %2061, %2570, %2726, %3056, %3309, %3393, %3561, %3671, %3732, %3592, %3413, %3162, %3101, %2590, %2088, %1978, %1868, %1393, %1127, %1059, %301, %240, %207, %134, %87, %40
-  %.81871 = phi i32 [ 2, %40 ], [ 3, %53 ], [ 4, %87 ], [ 5, %121 ], [ 6, %134 ], [ 7, %172 ], [ 8, %207 ], [ 9, %227 ], [ 10, %240 ], [ 11, %260 ], [ 12, %301 ], [ 13, %1032 ], [ 14, %1059 ], [ 15, %1100 ], [ 16, %1127 ], [ 17, %1147 ], [ 18, %1297 ], [ 19, %1345 ], [ 20, %1393 ], [ 21, %1413 ], [ 22, %1608 ], [ 23, %1649 ], [ 24, %._crit_edge2403 ], [ 27, %1820 ], [ 28, %1868 ], [ 29, %1888 ], [ 30, %1978 ], [ 31, %2061 ], [ 32, %2088 ], [ 33, %2570 ], [ 34, %2590 ], [ 35, %2726 ], [ 39, %3056 ], [ 40, %3101 ], [ 42, %3162 ], [ 45, %3309 ], [ 49, %3393 ], [ 50, %3413 ], [ 51, %3561 ], [ 53, %3592 ], [ 54, %3671 ], [ 56, %3732 ], [ 1, %2 ], [ 25, %1763 ], [ 26, %1772 ], [ 37, %2794 ], [ 38, %2812 ], [ 41, %3105 ], [ 43, %3166 ], [ 44, %3240 ], [ 46, %3313 ], [ 47, %3322 ], [ 48, %3331 ], [ 55, %3684 ], [ %1, %3594 ], [ 36, %._crit_edge ]
-  %3737 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3738 = load ptr, ptr %3737, align 8, !tbaa !6
-  %3739 = call i32 @sqlite3_prepare_v2(ptr noundef %3738, ptr noundef nonnull @.str.857, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
-  %3740 = load ptr, ptr %3, align 8, !tbaa !21
-  %3741 = call i32 @sqlite3_bind_int(ptr noundef %3740, i32 noundef 1, i32 noundef %.81871) #18
-  %3742 = load ptr, ptr %3, align 8, !tbaa !21
-  %3743 = call i32 @sqlite3_step(ptr noundef %3742) #18
-  %3744 = load ptr, ptr %3, align 8, !tbaa !21
-  %3745 = call i32 @sqlite3_finalize(ptr noundef %3744) #18
+3738:                                             ; preds = %._crit_edge, %._crit_edge2403, %1610, %1297, %1032, %3596, %3686, %2, %3333, %3324, %3315, %3242, %3168, %3107, %2814, %2796, %1774, %1765, %53, %121, %172, %227, %260, %1100, %1147, %1345, %1413, %1651, %1822, %1890, %2063, %2572, %2728, %3058, %3311, %3395, %3563, %3673, %3734, %3594, %3415, %3164, %3103, %2592, %2090, %1980, %1870, %1393, %1127, %1059, %301, %240, %207, %134, %87, %40
+  %.81871 = phi i32 [ 2, %40 ], [ 3, %53 ], [ 4, %87 ], [ 5, %121 ], [ 6, %134 ], [ 7, %172 ], [ 8, %207 ], [ 9, %227 ], [ 10, %240 ], [ 11, %260 ], [ 12, %301 ], [ 13, %1032 ], [ 14, %1059 ], [ 15, %1100 ], [ 16, %1127 ], [ 17, %1147 ], [ 18, %1297 ], [ 19, %1345 ], [ 20, %1393 ], [ 21, %1413 ], [ 22, %1610 ], [ 23, %1651 ], [ 24, %._crit_edge2403 ], [ 27, %1822 ], [ 28, %1870 ], [ 29, %1890 ], [ 30, %1980 ], [ 31, %2063 ], [ 32, %2090 ], [ 33, %2572 ], [ 34, %2592 ], [ 35, %2728 ], [ 39, %3058 ], [ 40, %3103 ], [ 42, %3164 ], [ 45, %3311 ], [ 49, %3395 ], [ 50, %3415 ], [ 51, %3563 ], [ 53, %3594 ], [ 54, %3673 ], [ 56, %3734 ], [ 1, %2 ], [ 25, %1765 ], [ 26, %1774 ], [ 37, %2796 ], [ 38, %2814 ], [ 41, %3107 ], [ 43, %3168 ], [ 44, %3242 ], [ 46, %3315 ], [ 47, %3324 ], [ 48, %3333 ], [ 55, %3686 ], [ %1, %3596 ], [ 36, %._crit_edge ]
+  %3739 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %3740 = load ptr, ptr %3739, align 8, !tbaa !6
+  %3741 = call i32 @sqlite3_prepare_v2(ptr noundef %3740, ptr noundef nonnull @.str.857, i32 noundef -1, ptr noundef nonnull %3, ptr noundef null) #18
+  %3742 = load ptr, ptr %3, align 8, !tbaa !23
+  %3743 = call i32 @sqlite3_bind_int(ptr noundef %3742, i32 noundef 1, i32 noundef %.81871) #18
+  %3744 = load ptr, ptr %3, align 8, !tbaa !23
+  %3745 = call i32 @sqlite3_step(ptr noundef %3744) #18
+  %3746 = load ptr, ptr %3, align 8, !tbaa !23
+  %3747 = call i32 @sqlite3_finalize(ptr noundef %3746) #18
   br label %.thread2355
 
-.thread2355:                                      ; preds = %.thread2380, %2789, %2753, %2744, %1262, %1269, %1241, %1235, %1228, %1221, %1214, %.thread2379, %.thread2376, %.thread2371, %.thread2359, %.thread2351, %.thread2347, %3736, %3728, %3721, %3714, %3707, %3700, %3686, %3680, %3667, %3660, %3653, %3646, %3639, %3632, %3625, %3618, %3611, %3604, %3588, %3581, %3574, %3557, %3550, %3543, %3536, %3529, %3522, %3515, %3508, %3501, %3494, %3487, %3480, %3473, %3466, %3459, %3452, %3445, %3438, %3431, %3424, %3409, %3402, %3389, %3382, %3375, %3368, %3361, %3354, %3347, %3335, %3326, %3317, %3305, %3298, %3291, %3284, %3277, %3270, %3263, %3256, %3242, %3236, %3229, %3222, %3215, %3208, %3201, %3194, %3187, %3180, %3170, %3158, %3151, %3144, %3137, %3130, %3123, %3109, %3097, %3090, %3083, %3076, %3069, %3052, %3045, %3038, %3031, %3024, %3017, %3010, %3003, %2996, %2989, %2982, %2975, %2968, %2961, %2954, %2947, %2940, %2933, %2926, %2919, %2912, %2905, %2898, %2891, %2884, %2877, %2870, %2863, %2856, %2849, %2842, %2835, %2828, %2814, %2808, %2798, %2734, %2722, %2715, %2708, %2701, %2694, %2687, %2680, %2673, %2617, %2608, %2601, %2586, %2579, %2566, %2559, %2552, %2545, %2538, %2531, %2524, %2517, %2510, %2503, %2496, %2489, %2482, %2475, %2468, %2461, %2454, %2447, %2440, %2433, %2426, %2419, %2412, %2405, %2398, %2391, %2384, %2377, %2370, %2363, %2356, %2349, %2342, %2335, %2328, %2321, %2314, %2307, %2300, %2293, %2286, %2279, %2272, %2265, %2258, %2251, %2244, %2237, %2230, %2223, %2216, %2209, %2202, %2195, %2188, %2181, %2174, %2167, %2160, %2153, %2146, %2139, %2132, %2125, %2118, %2111, %2104, %2097, %2084, %2077, %2070, %2057, %2050, %2043, %2036, %2029, %2022, %2015, %2008, %2001, %1994, %1987, %1974, %1967, %1960, %1953, %1946, %1939, %1932, %1925, %1918, %1911, %1904, %1897, %1884, %1877, %1864, %1857, %1850, %1843, %1836, %1829, %1816, %1809, %1802, %1795, %1788, %1776, %1767, %1657, %1645, %1638, %1631, %1624, %1617, %1421, %1409, %1402, %1389, %1382, %1375, %1368, %1361, %1354, %1341, %1334, %1327, %1320, %1313, %1306, %1204, %1198, %1191, %1184, %1177, %1170, %1163, %1156, %1143, %1136, %1123, %1116, %1109, %1096, %1089, %1082, %1075, %1068, %1055, %1048, %1041, %297, %290, %283, %276, %269, %256, %249, %236, %223, %216, %203, %196, %189, %182, %167, %161, %154, %147, %130, %117, %110, %103, %96, %83, %76, %69, %62, %49, %36, %29
-  %.0 = phi i32 [ %.81871, %3736 ], [ 1, %29 ], [ 1, %36 ], [ 2, %49 ], [ 3, %62 ], [ 3, %69 ], [ 3, %76 ], [ 3, %83 ], [ 4, %96 ], [ 4, %103 ], [ 4, %110 ], [ 4, %117 ], [ 5, %130 ], [ 6, %147 ], [ 6, %154 ], [ 6, %161 ], [ 6, %167 ], [ 7, %182 ], [ 7, %189 ], [ 7, %196 ], [ 7, %203 ], [ 8, %216 ], [ 8, %223 ], [ 9, %236 ], [ 10, %249 ], [ 10, %256 ], [ 11, %269 ], [ 11, %276 ], [ 11, %283 ], [ 11, %290 ], [ 11, %297 ], [ 13, %1041 ], [ 13, %1048 ], [ 13, %1055 ], [ 14, %1068 ], [ 14, %1075 ], [ 14, %1082 ], [ 14, %1089 ], [ 14, %1096 ], [ 15, %1109 ], [ 15, %1116 ], [ 15, %1123 ], [ 16, %1136 ], [ 16, %1143 ], [ 17, %1156 ], [ 17, %1163 ], [ 17, %1170 ], [ 17, %1177 ], [ 17, %1184 ], [ 17, %1191 ], [ 17, %1198 ], [ 17, %1204 ], [ 18, %1306 ], [ 18, %1313 ], [ 18, %1320 ], [ 18, %1327 ], [ 18, %1334 ], [ 18, %1341 ], [ 19, %1354 ], [ 19, %1361 ], [ 19, %1368 ], [ 19, %1375 ], [ 19, %1382 ], [ 19, %1389 ], [ 20, %1402 ], [ 20, %1409 ], [ 21, %1421 ], [ 22, %1617 ], [ 22, %1624 ], [ 22, %1631 ], [ 22, %1638 ], [ 22, %1645 ], [ 23, %1657 ], [ 24, %1767 ], [ 25, %1776 ], [ 26, %1788 ], [ 26, %1795 ], [ 26, %1802 ], [ 26, %1809 ], [ 26, %1816 ], [ 27, %1829 ], [ 27, %1836 ], [ 27, %1843 ], [ 27, %1850 ], [ 27, %1857 ], [ 27, %1864 ], [ 28, %1877 ], [ 28, %1884 ], [ 29, %1897 ], [ 29, %1904 ], [ 29, %1911 ], [ 29, %1918 ], [ 29, %1925 ], [ 29, %1932 ], [ 29, %1939 ], [ 29, %1946 ], [ 29, %1953 ], [ 29, %1960 ], [ 29, %1967 ], [ 29, %1974 ], [ 30, %1987 ], [ 30, %1994 ], [ 30, %2001 ], [ 30, %2008 ], [ 30, %2015 ], [ 30, %2022 ], [ 30, %2029 ], [ 30, %2036 ], [ 30, %2043 ], [ 30, %2050 ], [ 30, %2057 ], [ 31, %2070 ], [ 31, %2077 ], [ 31, %2084 ], [ 32, %2097 ], [ 32, %2104 ], [ 32, %2111 ], [ 32, %2118 ], [ 32, %2125 ], [ 32, %2132 ], [ 32, %2139 ], [ 32, %2146 ], [ 32, %2153 ], [ 32, %2160 ], [ 32, %2167 ], [ 32, %2174 ], [ 32, %2181 ], [ 32, %2188 ], [ 32, %2195 ], [ 32, %2202 ], [ 32, %2209 ], [ 32, %2216 ], [ 32, %2223 ], [ 32, %2230 ], [ 32, %2237 ], [ 32, %2244 ], [ 32, %2251 ], [ 32, %2258 ], [ 32, %2265 ], [ 32, %2272 ], [ 32, %2279 ], [ 32, %2286 ], [ 32, %2293 ], [ 32, %2300 ], [ 32, %2307 ], [ 32, %2314 ], [ 32, %2321 ], [ 32, %2328 ], [ 32, %2335 ], [ 32, %2342 ], [ 32, %2349 ], [ 32, %2356 ], [ 32, %2363 ], [ 32, %2370 ], [ 32, %2377 ], [ 32, %2384 ], [ 32, %2391 ], [ 32, %2398 ], [ 32, %2405 ], [ 32, %2412 ], [ 32, %2419 ], [ 32, %2426 ], [ 32, %2433 ], [ 32, %2440 ], [ 32, %2447 ], [ 32, %2454 ], [ 32, %2461 ], [ 32, %2468 ], [ 32, %2475 ], [ 32, %2482 ], [ 32, %2489 ], [ 32, %2496 ], [ 32, %2503 ], [ 32, %2510 ], [ 32, %2517 ], [ 32, %2524 ], [ 32, %2531 ], [ 32, %2538 ], [ 32, %2545 ], [ 32, %2552 ], [ 32, %2559 ], [ 32, %2566 ], [ 33, %2579 ], [ 33, %2586 ], [ 34, %2601 ], [ 34, %2608 ], [ 34, %2617 ], [ 34, %2673 ], [ 34, %2680 ], [ 34, %2687 ], [ 34, %2694 ], [ 34, %2701 ], [ 34, %2708 ], [ 34, %2715 ], [ 34, %2722 ], [ 35, %2734 ], [ 36, %2798 ], [ 37, %2808 ], [ 37, %2814 ], [ 38, %2828 ], [ 38, %2835 ], [ 38, %2842 ], [ 38, %2849 ], [ 38, %2856 ], [ 38, %2863 ], [ 38, %2870 ], [ 38, %2877 ], [ 38, %2884 ], [ 38, %2891 ], [ 38, %2898 ], [ 38, %2905 ], [ 38, %2912 ], [ 38, %2919 ], [ 38, %2926 ], [ 38, %2933 ], [ 38, %2940 ], [ 38, %2947 ], [ 38, %2954 ], [ 38, %2961 ], [ 38, %2968 ], [ 38, %2975 ], [ 38, %2982 ], [ 38, %2989 ], [ 38, %2996 ], [ 38, %3003 ], [ 38, %3010 ], [ 38, %3017 ], [ 38, %3024 ], [ 38, %3031 ], [ 38, %3038 ], [ 38, %3045 ], [ 38, %3052 ], [ 39, %3069 ], [ 39, %3076 ], [ 39, %3083 ], [ 39, %3090 ], [ 39, %3097 ], [ 40, %3109 ], [ 41, %3123 ], [ 41, %3130 ], [ 41, %3137 ], [ 41, %3144 ], [ 41, %3151 ], [ 41, %3158 ], [ 42, %3170 ], [ 43, %3180 ], [ 43, %3187 ], [ 43, %3194 ], [ 43, %3201 ], [ 43, %3208 ], [ 43, %3215 ], [ 43, %3222 ], [ 43, %3229 ], [ 43, %3236 ], [ 43, %3242 ], [ 44, %3256 ], [ 44, %3263 ], [ 44, %3270 ], [ 44, %3277 ], [ 44, %3284 ], [ 44, %3291 ], [ 44, %3298 ], [ 44, %3305 ], [ 45, %3317 ], [ 46, %3326 ], [ 47, %3335 ], [ 48, %3347 ], [ 48, %3354 ], [ 48, %3361 ], [ 48, %3368 ], [ 48, %3375 ], [ 48, %3382 ], [ 48, %3389 ], [ 49, %3402 ], [ 49, %3409 ], [ 50, %3424 ], [ 50, %3431 ], [ 50, %3438 ], [ 50, %3445 ], [ 50, %3452 ], [ 50, %3459 ], [ 50, %3466 ], [ 50, %3473 ], [ 50, %3480 ], [ 50, %3487 ], [ 50, %3494 ], [ 50, %3501 ], [ 50, %3508 ], [ 50, %3515 ], [ 50, %3522 ], [ 50, %3529 ], [ 50, %3536 ], [ 50, %3543 ], [ 50, %3550 ], [ 50, %3557 ], [ %1, %3574 ], [ %1, %3581 ], [ %1, %3588 ], [ 53, %3604 ], [ 53, %3611 ], [ 53, %3618 ], [ 53, %3625 ], [ 53, %3632 ], [ 53, %3639 ], [ 53, %3646 ], [ 53, %3653 ], [ 53, %3660 ], [ 53, %3667 ], [ 54, %3680 ], [ 54, %3686 ], [ 55, %3700 ], [ 55, %3707 ], [ 55, %3714 ], [ 55, %3721 ], [ 55, %3728 ], [ 12, %.thread2347 ], [ 12, %.thread2351 ], [ 17, %.thread2359 ], [ 21, %.thread2371 ], [ 23, %.thread2376 ], [ 34, %.thread2379 ], [ 17, %1214 ], [ 17, %1221 ], [ 17, %1228 ], [ 17, %1235 ], [ 17, %1241 ], [ 17, %1269 ], [ 17, %1262 ], [ 35, %2744 ], [ 35, %2753 ], [ 35, %2789 ], [ 35, %.thread2380 ]
+.thread2355:                                      ; preds = %.thread2380, %2791, %2755, %2746, %1262, %1269, %1241, %1235, %1228, %1221, %1214, %.thread2379, %.thread2376, %.thread2371, %.thread2359, %.thread2351, %.thread2347, %3738, %3730, %3723, %3716, %3709, %3702, %3688, %3682, %3669, %3662, %3655, %3648, %3641, %3634, %3627, %3620, %3613, %3606, %3590, %3583, %3576, %3559, %3552, %3545, %3538, %3531, %3524, %3517, %3510, %3503, %3496, %3489, %3482, %3475, %3468, %3461, %3454, %3447, %3440, %3433, %3426, %3411, %3404, %3391, %3384, %3377, %3370, %3363, %3356, %3349, %3337, %3328, %3319, %3307, %3300, %3293, %3286, %3279, %3272, %3265, %3258, %3244, %3238, %3231, %3224, %3217, %3210, %3203, %3196, %3189, %3182, %3172, %3160, %3153, %3146, %3139, %3132, %3125, %3111, %3099, %3092, %3085, %3078, %3071, %3054, %3047, %3040, %3033, %3026, %3019, %3012, %3005, %2998, %2991, %2984, %2977, %2970, %2963, %2956, %2949, %2942, %2935, %2928, %2921, %2914, %2907, %2900, %2893, %2886, %2879, %2872, %2865, %2858, %2851, %2844, %2837, %2830, %2816, %2810, %2800, %2736, %2724, %2717, %2710, %2703, %2696, %2689, %2682, %2675, %2619, %2610, %2603, %2588, %2581, %2568, %2561, %2554, %2547, %2540, %2533, %2526, %2519, %2512, %2505, %2498, %2491, %2484, %2477, %2470, %2463, %2456, %2449, %2442, %2435, %2428, %2421, %2414, %2407, %2400, %2393, %2386, %2379, %2372, %2365, %2358, %2351, %2344, %2337, %2330, %2323, %2316, %2309, %2302, %2295, %2288, %2281, %2274, %2267, %2260, %2253, %2246, %2239, %2232, %2225, %2218, %2211, %2204, %2197, %2190, %2183, %2176, %2169, %2162, %2155, %2148, %2141, %2134, %2127, %2120, %2113, %2106, %2099, %2086, %2079, %2072, %2059, %2052, %2045, %2038, %2031, %2024, %2017, %2010, %2003, %1996, %1989, %1976, %1969, %1962, %1955, %1948, %1941, %1934, %1927, %1920, %1913, %1906, %1899, %1886, %1879, %1866, %1859, %1852, %1845, %1838, %1831, %1818, %1811, %1804, %1797, %1790, %1778, %1769, %1659, %1647, %1640, %1633, %1626, %1619, %1421, %1409, %1402, %1389, %1382, %1375, %1368, %1361, %1354, %1341, %1334, %1327, %1320, %1313, %1306, %1204, %1198, %1191, %1184, %1177, %1170, %1163, %1156, %1143, %1136, %1123, %1116, %1109, %1096, %1089, %1082, %1075, %1068, %1055, %1048, %1041, %297, %290, %283, %276, %269, %256, %249, %236, %223, %216, %203, %196, %189, %182, %167, %161, %154, %147, %130, %117, %110, %103, %96, %83, %76, %69, %62, %49, %36, %29
+  %.0 = phi i32 [ %.81871, %3738 ], [ 1, %29 ], [ 1, %36 ], [ 2, %49 ], [ 3, %62 ], [ 3, %69 ], [ 3, %76 ], [ 3, %83 ], [ 4, %96 ], [ 4, %103 ], [ 4, %110 ], [ 4, %117 ], [ 5, %130 ], [ 6, %147 ], [ 6, %154 ], [ 6, %161 ], [ 6, %167 ], [ 7, %182 ], [ 7, %189 ], [ 7, %196 ], [ 7, %203 ], [ 8, %216 ], [ 8, %223 ], [ 9, %236 ], [ 10, %249 ], [ 10, %256 ], [ 11, %269 ], [ 11, %276 ], [ 11, %283 ], [ 11, %290 ], [ 11, %297 ], [ 13, %1041 ], [ 13, %1048 ], [ 13, %1055 ], [ 14, %1068 ], [ 14, %1075 ], [ 14, %1082 ], [ 14, %1089 ], [ 14, %1096 ], [ 15, %1109 ], [ 15, %1116 ], [ 15, %1123 ], [ 16, %1136 ], [ 16, %1143 ], [ 17, %1156 ], [ 17, %1163 ], [ 17, %1170 ], [ 17, %1177 ], [ 17, %1184 ], [ 17, %1191 ], [ 17, %1198 ], [ 17, %1204 ], [ 18, %1306 ], [ 18, %1313 ], [ 18, %1320 ], [ 18, %1327 ], [ 18, %1334 ], [ 18, %1341 ], [ 19, %1354 ], [ 19, %1361 ], [ 19, %1368 ], [ 19, %1375 ], [ 19, %1382 ], [ 19, %1389 ], [ 20, %1402 ], [ 20, %1409 ], [ 21, %1421 ], [ 22, %1619 ], [ 22, %1626 ], [ 22, %1633 ], [ 22, %1640 ], [ 22, %1647 ], [ 23, %1659 ], [ 24, %1769 ], [ 25, %1778 ], [ 26, %1790 ], [ 26, %1797 ], [ 26, %1804 ], [ 26, %1811 ], [ 26, %1818 ], [ 27, %1831 ], [ 27, %1838 ], [ 27, %1845 ], [ 27, %1852 ], [ 27, %1859 ], [ 27, %1866 ], [ 28, %1879 ], [ 28, %1886 ], [ 29, %1899 ], [ 29, %1906 ], [ 29, %1913 ], [ 29, %1920 ], [ 29, %1927 ], [ 29, %1934 ], [ 29, %1941 ], [ 29, %1948 ], [ 29, %1955 ], [ 29, %1962 ], [ 29, %1969 ], [ 29, %1976 ], [ 30, %1989 ], [ 30, %1996 ], [ 30, %2003 ], [ 30, %2010 ], [ 30, %2017 ], [ 30, %2024 ], [ 30, %2031 ], [ 30, %2038 ], [ 30, %2045 ], [ 30, %2052 ], [ 30, %2059 ], [ 31, %2072 ], [ 31, %2079 ], [ 31, %2086 ], [ 32, %2099 ], [ 32, %2106 ], [ 32, %2113 ], [ 32, %2120 ], [ 32, %2127 ], [ 32, %2134 ], [ 32, %2141 ], [ 32, %2148 ], [ 32, %2155 ], [ 32, %2162 ], [ 32, %2169 ], [ 32, %2176 ], [ 32, %2183 ], [ 32, %2190 ], [ 32, %2197 ], [ 32, %2204 ], [ 32, %2211 ], [ 32, %2218 ], [ 32, %2225 ], [ 32, %2232 ], [ 32, %2239 ], [ 32, %2246 ], [ 32, %2253 ], [ 32, %2260 ], [ 32, %2267 ], [ 32, %2274 ], [ 32, %2281 ], [ 32, %2288 ], [ 32, %2295 ], [ 32, %2302 ], [ 32, %2309 ], [ 32, %2316 ], [ 32, %2323 ], [ 32, %2330 ], [ 32, %2337 ], [ 32, %2344 ], [ 32, %2351 ], [ 32, %2358 ], [ 32, %2365 ], [ 32, %2372 ], [ 32, %2379 ], [ 32, %2386 ], [ 32, %2393 ], [ 32, %2400 ], [ 32, %2407 ], [ 32, %2414 ], [ 32, %2421 ], [ 32, %2428 ], [ 32, %2435 ], [ 32, %2442 ], [ 32, %2449 ], [ 32, %2456 ], [ 32, %2463 ], [ 32, %2470 ], [ 32, %2477 ], [ 32, %2484 ], [ 32, %2491 ], [ 32, %2498 ], [ 32, %2505 ], [ 32, %2512 ], [ 32, %2519 ], [ 32, %2526 ], [ 32, %2533 ], [ 32, %2540 ], [ 32, %2547 ], [ 32, %2554 ], [ 32, %2561 ], [ 32, %2568 ], [ 33, %2581 ], [ 33, %2588 ], [ 34, %2603 ], [ 34, %2610 ], [ 34, %2619 ], [ 34, %2675 ], [ 34, %2682 ], [ 34, %2689 ], [ 34, %2696 ], [ 34, %2703 ], [ 34, %2710 ], [ 34, %2717 ], [ 34, %2724 ], [ 35, %2736 ], [ 36, %2800 ], [ 37, %2810 ], [ 37, %2816 ], [ 38, %2830 ], [ 38, %2837 ], [ 38, %2844 ], [ 38, %2851 ], [ 38, %2858 ], [ 38, %2865 ], [ 38, %2872 ], [ 38, %2879 ], [ 38, %2886 ], [ 38, %2893 ], [ 38, %2900 ], [ 38, %2907 ], [ 38, %2914 ], [ 38, %2921 ], [ 38, %2928 ], [ 38, %2935 ], [ 38, %2942 ], [ 38, %2949 ], [ 38, %2956 ], [ 38, %2963 ], [ 38, %2970 ], [ 38, %2977 ], [ 38, %2984 ], [ 38, %2991 ], [ 38, %2998 ], [ 38, %3005 ], [ 38, %3012 ], [ 38, %3019 ], [ 38, %3026 ], [ 38, %3033 ], [ 38, %3040 ], [ 38, %3047 ], [ 38, %3054 ], [ 39, %3071 ], [ 39, %3078 ], [ 39, %3085 ], [ 39, %3092 ], [ 39, %3099 ], [ 40, %3111 ], [ 41, %3125 ], [ 41, %3132 ], [ 41, %3139 ], [ 41, %3146 ], [ 41, %3153 ], [ 41, %3160 ], [ 42, %3172 ], [ 43, %3182 ], [ 43, %3189 ], [ 43, %3196 ], [ 43, %3203 ], [ 43, %3210 ], [ 43, %3217 ], [ 43, %3224 ], [ 43, %3231 ], [ 43, %3238 ], [ 43, %3244 ], [ 44, %3258 ], [ 44, %3265 ], [ 44, %3272 ], [ 44, %3279 ], [ 44, %3286 ], [ 44, %3293 ], [ 44, %3300 ], [ 44, %3307 ], [ 45, %3319 ], [ 46, %3328 ], [ 47, %3337 ], [ 48, %3349 ], [ 48, %3356 ], [ 48, %3363 ], [ 48, %3370 ], [ 48, %3377 ], [ 48, %3384 ], [ 48, %3391 ], [ 49, %3404 ], [ 49, %3411 ], [ 50, %3426 ], [ 50, %3433 ], [ 50, %3440 ], [ 50, %3447 ], [ 50, %3454 ], [ 50, %3461 ], [ 50, %3468 ], [ 50, %3475 ], [ 50, %3482 ], [ 50, %3489 ], [ 50, %3496 ], [ 50, %3503 ], [ 50, %3510 ], [ 50, %3517 ], [ 50, %3524 ], [ 50, %3531 ], [ 50, %3538 ], [ 50, %3545 ], [ 50, %3552 ], [ 50, %3559 ], [ %1, %3576 ], [ %1, %3583 ], [ %1, %3590 ], [ 53, %3606 ], [ 53, %3613 ], [ 53, %3620 ], [ 53, %3627 ], [ 53, %3634 ], [ 53, %3641 ], [ 53, %3648 ], [ 53, %3655 ], [ 53, %3662 ], [ 53, %3669 ], [ 54, %3682 ], [ 54, %3688 ], [ 55, %3702 ], [ 55, %3709 ], [ 55, %3716 ], [ 55, %3723 ], [ 55, %3730 ], [ 12, %.thread2347 ], [ 12, %.thread2351 ], [ 17, %.thread2359 ], [ 21, %.thread2371 ], [ 23, %.thread2376 ], [ 34, %.thread2379 ], [ 17, %1214 ], [ 17, %1221 ], [ 17, %1228 ], [ 17, %1235 ], [ 17, %1241 ], [ 17, %1269 ], [ 17, %1262 ], [ 35, %2746 ], [ 35, %2755 ], [ 35, %2791 ], [ 35, %.thread2380 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   ret i32 %.0
 }
@@ -13590,63 +13593,106 @@ attributes #23 = { cold nounwind }
 !16 = !{!9, !9, i64 0}
 !17 = !{!7, !8, i64 64}
 !18 = !{!7, !11, i64 48}
-!19 = !{!20, !20, i64 0}
-!20 = !{!"p1 _ZTS7_GError", !12, i64 0}
+!19 = distinct !{!19, !20}
+!20 = !{!"llvm.loop.estimated_trip_count"}
 !21 = !{!22, !22, i64 0}
-!22 = !{!"p1 _ZTS12sqlite3_stmt", !12, i64 0}
-!23 = !{!7, !11, i64 8}
-!24 = !{!7, !11, i64 24}
-!25 = !{!26, !8, i64 8}
-!26 = !{!"darktable_t", !27, i64 0, !8, i64 4, !8, i64 8, !28, i64 16, !28, i64 24, !28, i64 32, !28, i64 40, !29, i64 48, !30, i64 56, !31, i64 64, !32, i64 72, !33, i64 80, !34, i64 88, !35, i64 96, !36, i64 104, !37, i64 112, !38, i64 120, !39, i64 128, !40, i64 136, !41, i64 144, !42, i64 152, !43, i64 160, !44, i64 168, !45, i64 176, !46, i64 184, !47, i64 192, !48, i64 200, !49, i64 208, !50, i64 216, !51, i64 224, !9, i64 232, !52, i64 2792, !52, i64 2832, !52, i64 2872, !52, i64 2912, !52, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !53, i64 3096, !28, i64 3104, !54, i64 3112, !28, i64 3120, !8, i64 3128, !9, i64 3132, !8, i64 3320, !8, i64 3324, !55, i64 3328, !56, i64 3336, !57, i64 3344, !60, i64 3384, !61, i64 3416}
-!27 = !{!"dt_codepath_t", !8, i64 0}
-!28 = !{!"p1 _ZTS6_GList", !12, i64 0}
-!29 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
-!30 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
-!31 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
-!32 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
-!33 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
-!34 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
-!35 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
-!36 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
-!37 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
-!38 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
-!39 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
-!40 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
-!41 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
-!42 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
-!43 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
-!44 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
-!45 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
-!46 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
-!47 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
-!48 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
-!49 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
-!50 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
-!51 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
-!52 = !{!"dt_pthread_mutex_t", !9, i64 0}
-!53 = !{!"", !8, i64 0}
-!54 = !{!"double", !9, i64 0}
-!55 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
-!56 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
-!57 = !{!"dt_sys_resources_t", !58, i64 0, !58, i64 8, !59, i64 16, !59, i64 24, !8, i64 32}
-!58 = !{!"long", !9, i64 0}
-!59 = !{!"p1 int", !12, i64 0}
-!60 = !{!"dt_backthumb_t", !54, i64 0, !54, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
-!61 = !{!"dt_gimp_t", !8, i64 0, !11, i64 8, !11, i64 16, !8, i64 24, !8, i64 28}
-!62 = !{!7, !11, i64 16}
-!63 = !{!7, !11, i64 32}
-!64 = !{!8, !8, i64 0}
-!65 = !{!66, !12, i64 0}
-!66 = !{!"_GList", !12, i64 0, !28, i64 8, !28, i64 16}
-!67 = !{!66, !28, i64 8}
-!68 = !{!69, !11, i64 8}
-!69 = !{!"_GError", !8, i64 0, !8, i64 4, !11, i64 8}
-!70 = !{!11, !11, i64 0}
-!71 = !{!72, !72, i64 0}
-!72 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
-!73 = !{!26, !40, i64 136}
-!74 = !{!13, !13, i64 0}
-!75 = !{!76, !8, i64 28}
-!76 = !{!"dt_iop_order_entry_t", !9, i64 0, !9, i64 8, !8, i64 28, !9, i64 32}
-!77 = !{!58, !58, i64 0}
-!78 = !{!26, !55, i64 3328}
+!22 = !{!"p1 _ZTS7_GError", !12, i64 0}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"p1 _ZTS12sqlite3_stmt", !12, i64 0}
+!25 = distinct !{!25, !20}
+!26 = !{!7, !11, i64 8}
+!27 = !{!7, !11, i64 24}
+!28 = !{!29, !8, i64 8}
+!29 = !{!"darktable_t", !30, i64 0, !8, i64 4, !8, i64 8, !31, i64 16, !31, i64 24, !31, i64 32, !31, i64 40, !32, i64 48, !33, i64 56, !34, i64 64, !35, i64 72, !36, i64 80, !37, i64 88, !38, i64 96, !39, i64 104, !40, i64 112, !41, i64 120, !42, i64 128, !43, i64 136, !44, i64 144, !45, i64 152, !46, i64 160, !47, i64 168, !48, i64 176, !49, i64 184, !50, i64 192, !51, i64 200, !52, i64 208, !53, i64 216, !54, i64 224, !9, i64 232, !55, i64 2792, !55, i64 2832, !55, i64 2872, !55, i64 2912, !55, i64 2952, !11, i64 2992, !11, i64 3000, !11, i64 3008, !11, i64 3016, !11, i64 3024, !11, i64 3032, !11, i64 3040, !11, i64 3048, !11, i64 3056, !11, i64 3064, !11, i64 3072, !11, i64 3080, !11, i64 3088, !56, i64 3096, !31, i64 3104, !57, i64 3112, !31, i64 3120, !8, i64 3128, !9, i64 3132, !8, i64 3320, !8, i64 3324, !58, i64 3328, !59, i64 3336, !60, i64 3344, !63, i64 3384, !64, i64 3416}
+!30 = !{!"dt_codepath_t", !8, i64 0}
+!31 = !{!"p1 _ZTS6_GList", !12, i64 0}
+!32 = !{!"p1 _ZTS11_JsonParser", !12, i64 0}
+!33 = !{!"p1 _ZTS9dt_conf_t", !12, i64 0}
+!34 = !{!"p1 _ZTS12dt_develop_t", !12, i64 0}
+!35 = !{!"p1 _ZTS8dt_lib_t", !12, i64 0}
+!36 = !{!"p1 _ZTS17dt_view_manager_t", !12, i64 0}
+!37 = !{!"p1 _ZTS12dt_control_t", !12, i64 0}
+!38 = !{!"p1 _ZTS19dt_control_signal_t", !12, i64 0}
+!39 = !{!"p1 _ZTS12dt_gui_gtk_t", !12, i64 0}
+!40 = !{!"p1 _ZTS17dt_mipmap_cache_t", !12, i64 0}
+!41 = !{!"p1 _ZTS16dt_image_cache_t", !12, i64 0}
+!42 = !{!"p1 _ZTS12dt_bauhaus_t", !12, i64 0}
+!43 = !{!"p1 _ZTS13dt_database_t", !12, i64 0}
+!44 = !{!"p1 _ZTS14dt_pwstorage_t", !12, i64 0}
+!45 = !{!"p1 _ZTS11dt_camctl_t", !12, i64 0}
+!46 = !{!"p1 _ZTS15dt_collection_t", !12, i64 0}
+!47 = !{!"p1 _ZTS14dt_selection_t", !12, i64 0}
+!48 = !{!"p1 _ZTS11dt_points_t", !12, i64 0}
+!49 = !{!"p1 _ZTS12dt_imageio_t", !12, i64 0}
+!50 = !{!"p1 _ZTS11dt_opencl_t", !12, i64 0}
+!51 = !{!"p1 _ZTS9dt_dbus_t", !12, i64 0}
+!52 = !{!"p1 _ZTS9dt_undo_t", !12, i64 0}
+!53 = !{!"p1 _ZTS16dt_colorspaces_t", !12, i64 0}
+!54 = !{!"p1 _ZTS9dt_l10n_t", !12, i64 0}
+!55 = !{!"dt_pthread_mutex_t", !9, i64 0}
+!56 = !{!"", !8, i64 0}
+!57 = !{!"double", !9, i64 0}
+!58 = !{!"p1 _ZTS10_GTimeZone", !12, i64 0}
+!59 = !{!"p1 _ZTS10_GDateTime", !12, i64 0}
+!60 = !{!"dt_sys_resources_t", !61, i64 0, !61, i64 8, !62, i64 16, !62, i64 24, !8, i64 32}
+!61 = !{!"long", !9, i64 0}
+!62 = !{!"p1 int", !12, i64 0}
+!63 = !{!"dt_backthumb_t", !57, i64 0, !57, i64 8, !8, i64 16, !8, i64 20, !8, i64 24, !8, i64 28}
+!64 = !{!"dt_gimp_t", !8, i64 0, !11, i64 8, !11, i64 16, !8, i64 24, !8, i64 28}
+!65 = !{!7, !11, i64 16}
+!66 = !{!7, !11, i64 32}
+!67 = distinct !{!67, !20}
+!68 = !{!8, !8, i64 0}
+!69 = distinct !{!69, !20}
+!70 = !{!71, !12, i64 0}
+!71 = !{!"_GList", !12, i64 0, !31, i64 8, !31, i64 16}
+!72 = !{!71, !31, i64 8}
+!73 = distinct !{!73, !20}
+!74 = distinct !{!74, !20}
+!75 = distinct !{!75, !20}
+!76 = !{!77, !11, i64 8}
+!77 = !{!"_GError", !8, i64 0, !8, i64 4, !11, i64 8}
+!78 = distinct !{!78, !20}
+!79 = distinct !{!79, !20}
+!80 = distinct !{!80, !20}
+!81 = distinct !{!81, !20}
+!82 = distinct !{!82, !20}
+!83 = distinct !{!83, !20}
+!84 = !{!11, !11, i64 0}
+!85 = !{!86, !86, i64 0}
+!86 = !{!"p1 _ZTS8_IO_FILE", !12, i64 0}
+!87 = !{!29, !43, i64 136}
+!88 = !{!13, !13, i64 0}
+!89 = distinct !{!89, !20}
+!90 = distinct !{!90, !20}
+!91 = distinct !{!91, !20}
+!92 = distinct !{!92, !20}
+!93 = distinct !{!93, !20}
+!94 = distinct !{!94, !20}
+!95 = distinct !{!95, !20}
+!96 = distinct !{!96, !20}
+!97 = distinct !{!97, !20}
+!98 = distinct !{!98, !20}
+!99 = distinct !{!99, !20}
+!100 = distinct !{!100, !20}
+!101 = distinct !{!101, !20}
+!102 = distinct !{!102, !20}
+!103 = distinct !{!103, !20}
+!104 = distinct !{!104, !20}
+!105 = distinct !{!105, !20}
+!106 = distinct !{!106, !20}
+!107 = distinct !{!107, !20}
+!108 = distinct !{!108, !20}
+!109 = distinct !{!109, !20}
+!110 = distinct !{!110, !20}
+!111 = distinct !{!111, !20}
+!112 = !{!113, !8, i64 28}
+!113 = !{!"dt_iop_order_entry_t", !9, i64 0, !9, i64 8, !8, i64 28, !9, i64 32}
+!114 = distinct !{!114, !20}
+!115 = !{!61, !61, i64 0}
+!116 = distinct !{!116, !20}
+!117 = distinct !{!117, !20}
+!118 = !{!29, !58, i64 3328}
+!119 = distinct !{!119, !20}
+!120 = distinct !{!120, !20}
+!121 = distinct !{!121, !20}

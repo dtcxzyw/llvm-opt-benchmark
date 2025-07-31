@@ -151,7 +151,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %79 ]
   %.idx = mul nuw nsw i64 %indvars.iv, 5
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
-  %80 = load i8, ptr %gep, align 1, !tbaa !37
+  %80 = load i8, ptr %gep, align 1, !tbaa !38
   %.not = icmp eq i8 %80, -1
   br i1 %.not, label %79, label %81
 
@@ -161,7 +161,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !39
+  %85 = load ptr, ptr %84, align 8, !tbaa !40
   %86 = getelementptr inbounds i8, ptr %85, i64 %70
   %87 = getelementptr inbounds i8, ptr %86, i64 %74
   br label %.thread
@@ -170,7 +170,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %88 = phi i32 [ 2, %83 ], [ 2, %81 ], [ 1, %66 ], [ 1, %79 ]
   %.1153 = phi ptr [ %87, %83 ], [ null, %81 ], [ null, %66 ], [ null, %79 ]
   %89 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 15, ptr %89, align 4, !tbaa !40
+  store i32 15, ptr %89, align 4, !tbaa !41
   br label %90
 
 90:                                               ; preds = %.thread, %55
@@ -213,7 +213,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %112 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %9, ptr noundef %.0, i32 noundef %111, i32 noundef %103, i32 noundef %50) #6
   %113 = icmp eq i32 %112, 1
   %spec.select179 = select i1 %113, i32 2, i32 %112
-  store i32 %spec.select179, ptr %94, align 8, !tbaa !41
+  store i32 %spec.select179, ptr %94, align 8, !tbaa !42
   %114 = load i32, ptr %91, align 4, !tbaa !17
   %.not174 = icmp slt i32 %103, %114
   br i1 %.not174, label %140, label %115
@@ -230,7 +230,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %64, label %117, label %.preheader184
 
 .preheader184:                                    ; preds = %116, %.preheader184
-  br label %.preheader184
+  br label %.preheader184, !llvm.loop !43
 
 117:                                              ; preds = %116
   %118 = load ptr, ptr %63, align 8, !tbaa !31
@@ -239,7 +239,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %121 = sext i32 %120 to i64
   %122 = getelementptr inbounds %struct.lv_color_t, ptr %118, i64 %121
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %122, i64 3, i1 false), !tbaa.struct !20
-  %123 = load ptr, ptr %98, align 8, !tbaa !39
+  %123 = load ptr, ptr %98, align 8, !tbaa !40
   %124 = getelementptr inbounds i8, ptr %123, i64 %121
   %125 = load i8, ptr %124, align 1, !tbaa !21
   store i8 %125, ptr %62, align 8, !tbaa !26
@@ -272,10 +272,10 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 138:                                              ; preds = %.lr.ph189, %130
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
-  br i1 %exitcond210.not, label %._crit_edge, label %.lr.ph189, !llvm.loop !42
+  br i1 %exitcond210.not, label %._crit_edge, label %.lr.ph189, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %138, %.preheader186
-  store i32 2, ptr %94, align 8, !tbaa !41
+  store i32 2, ptr %94, align 8, !tbaa !42
   br label %.thread181
 
 .thread181:                                       ; preds = %117, %115, %._crit_edge, %126
@@ -303,7 +303,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   br i1 %64, label %144, label %.preheader
 
 .preheader:                                       ; preds = %143, %.preheader
-  br label %.preheader
+  br label %.preheader, !llvm.loop !45
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr %63, align 8, !tbaa !31
@@ -312,7 +312,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %148 = sext i32 %147 to i64
   %149 = getelementptr inbounds %struct.lv_color_t, ptr %145, i64 %148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %149, i64 3, i1 false), !tbaa.struct !20
-  %150 = load ptr, ptr %98, align 8, !tbaa !39
+  %150 = load ptr, ptr %98, align 8, !tbaa !40
   %151 = getelementptr inbounds i8, ptr %150, i64 %148
   %152 = load i8, ptr %151, align 1, !tbaa !21
   store i8 %152, ptr %62, align 8, !tbaa !26
@@ -360,10 +360,10 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 171:                                              ; preds = %.lr.ph192, %163
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next212, %wide.trip.count214
-  br i1 %exitcond215.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !43
+  br i1 %exitcond215.not, label %._crit_edge193, label %.lr.ph192, !llvm.loop !46
 
 ._crit_edge193:                                   ; preds = %171, %.thread219
-  store i32 2, ptr %94, align 8, !tbaa !41
+  store i32 2, ptr %94, align 8, !tbaa !42
   br label %172
 
 172:                                              ; preds = %153, %144, %._crit_edge193, %154
@@ -373,7 +373,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 173:                                              ; preds = %140, %172, %101
   %174 = add nuw nsw i32 %.0150194, 1
   %exitcond216.not = icmp eq i32 %174, %49
-  br i1 %exitcond216.not, label %._crit_edge197, label %101, !llvm.loop !44
+  br i1 %exitcond216.not, label %._crit_edge197, label %101, !llvm.loop !47
 
 ._crit_edge197:                                   ; preds = %173, %90
   br i1 %32, label %175, label %182
@@ -404,18 +404,18 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 183:                                              ; preds = %182
   %184 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 1, ptr %184, align 8, !tbaa !41
+  store i32 1, ptr %184, align 8, !tbaa !42
   br label %189
 
 185:                                              ; preds = %182
   %186 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 2, ptr %186, align 8, !tbaa !41
+  store i32 2, ptr %186, align 8, !tbaa !42
   store ptr %.0152, ptr %60, align 8, !tbaa !28
   br label %189
 
 187:                                              ; preds = %182, %182, %182
   %188 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 %.0155, ptr %188, align 8, !tbaa !41
+  store i32 %.0155, ptr %188, align 8, !tbaa !42
   store ptr %.0152, ptr %60, align 8, !tbaa !28
   br label %189
 
@@ -454,7 +454,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %208 = sext i32 %207 to i64
   %209 = getelementptr inbounds %struct.lv_color_t, ptr %205, i64 %208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %34, ptr noundef nonnull align 1 dereferenceable(3) %209, i64 3, i1 false), !tbaa.struct !20
-  %210 = load ptr, ptr %203, align 8, !tbaa !39
+  %210 = load ptr, ptr %203, align 8, !tbaa !40
   %211 = getelementptr inbounds i8, ptr %210, i64 %208
   %212 = load i8, ptr %211, align 1, !tbaa !21
   %213 = zext i8 %212 to i16
@@ -466,7 +466,7 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
   %217 = add i32 %.1151199.us, 1
   %exitcond218.not = icmp eq i32 %.1151199.us, %199
-  br i1 %exitcond218.not, label %.loopexit, label %.lr.ph201.split.us, !llvm.loop !45
+  br i1 %exitcond218.not, label %.loopexit, label %.lr.ph201.split.us, !llvm.loop !48
 
 .lr.ph201.split:                                  ; preds = %.lr.ph201, %.lr.ph201.split
   %.1151199 = phi i32 [ %218, %.lr.ph201.split ], [ %194, %.lr.ph201 ]
@@ -475,10 +475,10 @@ define void @lv_draw_sw_fill(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
   %218 = add i32 %.1151199, 1
   %exitcond217.not = icmp eq i32 %.1151199, %199
-  br i1 %exitcond217.not, label %.loopexit, label %.lr.ph201.split, !llvm.loop !47
+  br i1 %exitcond217.not, label %.loopexit, label %.lr.ph201.split, !llvm.loop !50
 
 .preheader185:                                    ; preds = %.lr.ph201.split.us, %.preheader185
-  br label %.preheader185
+  br label %.preheader185, !llvm.loop !51
 
 .loopexit:                                        ; preds = %.lr.ph201.split, %204, %189, %175
   %.not173 = icmp eq ptr %.0, null
@@ -603,16 +603,20 @@ attributes #6 = { nounwind }
 !32 = !{!"", !7, i64 0, !25, i64 8, !10, i64 16}
 !33 = !{!24, !7, i64 8}
 !34 = !{!4, !8, i64 66}
-!35 = distinct !{!35, !36}
+!35 = distinct !{!35, !36, !37}
 !36 = !{!"llvm.loop.mustprogress"}
-!37 = !{!38, !8, i64 3}
-!38 = !{!"", !13, i64 0, !8, i64 3, !8, i64 4}
-!39 = !{!32, !25, i64 8}
-!40 = !{!24, !10, i64 20}
-!41 = !{!24, !10, i64 48}
-!42 = distinct !{!42, !36}
-!43 = distinct !{!43, !36}
-!44 = distinct !{!44, !36}
-!45 = distinct !{!45, !36, !46}
-!46 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!47 = distinct !{!47, !36}
+!37 = !{!"llvm.loop.estimated_trip_count"}
+!38 = !{!39, !8, i64 3}
+!39 = !{!"", !13, i64 0, !8, i64 3, !8, i64 4}
+!40 = !{!32, !25, i64 8}
+!41 = !{!24, !10, i64 20}
+!42 = !{!24, !10, i64 48}
+!43 = distinct !{!43, !37}
+!44 = distinct !{!44, !36, !37}
+!45 = distinct !{!45, !37}
+!46 = distinct !{!46, !36, !37}
+!47 = distinct !{!47, !36, !37}
+!48 = distinct !{!48, !36, !37, !49}
+!49 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!50 = distinct !{!50, !36, !37}
+!51 = distinct !{!51, !37}

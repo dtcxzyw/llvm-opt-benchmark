@@ -669,7 +669,7 @@ define hidden void @proto_reg_handoff_amr() local_unnamed_addr #1 {
   %18 = getelementptr i8, ptr %.013, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %17
   ret void
@@ -718,7 +718,7 @@ define internal i32 @dissect_amr_name(ptr noundef %0, ptr noundef readonly captu
   %15 = getelementptr i8, ptr %.010.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %find_cap.exit.thread, label %.lr.ph.i, !llvm.loop !9
+  br i1 %.not.i, label %find_cap.exit.thread, label %.lr.ph.i, !llvm.loop !10
 
 find_cap.exit:                                    ; preds = %.lr.ph.i
   %.not20 = icmp eq ptr %.010.i, null
@@ -913,7 +913,7 @@ proto_item_set_generated.exit47:                  ; preds = %36, %40, %43
   %82 = add i32 %.096.us.i, 8
   %83 = add i32 %.0.us.i, 1
   %.not103.us.i = icmp sgt i8 %60, -1
-  br i1 %.not103.us.i, label %.split108.us.i, label %.split.us.i, !llvm.loop !10
+  br i1 %.not103.us.i, label %.split108.us.i, label %.split.us.i, !llvm.loop !11
 
 .split.i:                                         ; preds = %57, %104
   %.098.i = phi i32 [ %94, %104 ], [ 0, %57 ]
@@ -949,7 +949,7 @@ proto_item_set_generated.exit47:                  ; preds = %36, %40, %43
   %105 = add i32 %.096.i, 8
   %106 = add i32 %.0.i, 1
   %.not103.i = icmp sgt i8 %84, -1
-  br i1 %.not103.i, label %.split108.us.i, label %.split.i, !llvm.loop !12
+  br i1 %.not103.i, label %.split108.us.i, label %.split.i, !llvm.loop !13
 
 .split108.us.i:                                   ; preds = %104, %81
   %.us-phi.i = phi i32 [ %83, %81 ], [ %106, %104 ]
@@ -1061,7 +1061,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   %28 = sdiv i32 %24, 8
   %29 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
   %30 = icmp sgt i32 %29, 2
-  br i1 %30, label %.split.us, label %.critedge, !llvm.loop !13
+  br i1 %30, label %.split.us, label %.critedge, !llvm.loop !14
 
 .split:                                           ; preds = %.split.preheader, %46
   %.082 = phi i32 [ %44, %46 ], [ 3, %.split.preheader ]
@@ -1090,7 +1090,7 @@ define internal fastcc void @dissect_amr_be(ptr noundef %0, ptr noundef %1, ptr 
   %48 = sdiv i32 %44, 8
   %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %48)
   %50 = icmp sgt i32 %49, 2
-  br i1 %50, label %.split, label %.critedge, !llvm.loop !14
+  br i1 %50, label %.split, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %46, %.split, %.split.us, %26
   %.us-phi = phi i32 [ %.1.us, %26 ], [ %.1.us, %.split.us ], [ %.1, %.split ], [ %.1, %46 ]
@@ -1219,12 +1219,13 @@ attributes #6 = { nounwind willreturn memory(read) }
 !3 = !{i32 4, !"probe-stack", !"inline-asm"}
 !4 = !{i32 8, !"PIC Level", i32 2}
 !5 = !{i32 7, !"uwtable", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7, !11}
-!11 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7, !11}
-!14 = distinct !{!14, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8, !12}
+!12 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!13 = distinct !{!13, !7, !8}
+!14 = distinct !{!14, !7, !8, !12}
+!15 = distinct !{!15, !7, !8}

@@ -105,7 +105,7 @@ linear_rand.exit22:                               ; preds = %37
 linear_rand.exit24:                               ; preds = %60
   %68 = fptosi double %64 to i32
   %69 = icmp eq i32 %68, %45
-  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  br i1 %69, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %linear_rand.exit24, %linear_rand.exit22
   %.0 = phi i32 [ %46, %linear_rand.exit22 ], [ %68, %linear_rand.exit24 ]
@@ -145,6 +145,7 @@ attributes #4 = { nounwind }
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = distinct !{!4, !5}
+!4 = distinct !{!4, !5, !6}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!6 = !{!"llvm.loop.estimated_trip_count"}
+!7 = distinct !{!7, !5, !6}

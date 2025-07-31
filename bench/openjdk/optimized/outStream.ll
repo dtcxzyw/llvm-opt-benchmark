@@ -782,7 +782,7 @@ define hidden zeroext i16 @outStream_skipBytes(ptr noundef captures(none) %0, i3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
   %6 = add nuw nsw i32 %.04, 1
   %exitcond.not = icmp eq i32 %6, %1
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -874,7 +874,7 @@ define hidden void @outStream_sendReply(ptr noundef %0) local_unnamed_addr #0 {
   %23 = getelementptr inbounds nuw i8, ptr %.032.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %25, label %.preheader36.i, !llvm.loop !9
+  br i1 %.not.i, label %25, label %.preheader36.i, !llvm.loop !10
 
 25:                                               ; preds = %.preheader36.i
   %26 = tail call ptr @jvmtiAllocate(i32 noundef %22) #7
@@ -895,7 +895,7 @@ define hidden void @outStream_sendReply(ptr noundef %0) local_unnamed_addr #0 {
   %35 = getelementptr inbounds nuw i8, ptr %.137.i, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not35.i = icmp eq ptr %36, null
-  br i1 %.not35.i, label %37, label %.preheader.i, !llvm.loop !10
+  br i1 %.not35.i, label %37, label %.preheader.i, !llvm.loop !11
 
 37:                                               ; preds = %.preheader.i
   %38 = add nsw i32 %22, 11
@@ -956,7 +956,7 @@ define hidden void @outStream_sendCommand(ptr noundef %0) local_unnamed_addr #0 
   %19 = getelementptr inbounds nuw i8, ptr %.032.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %21, label %.preheader36.i, !llvm.loop !9
+  br i1 %.not.i, label %21, label %.preheader36.i, !llvm.loop !10
 
 21:                                               ; preds = %.preheader36.i
   %22 = tail call ptr @jvmtiAllocate(i32 noundef %18) #7
@@ -977,7 +977,7 @@ define hidden void @outStream_sendCommand(ptr noundef %0) local_unnamed_addr #0 
   %31 = getelementptr inbounds nuw i8, ptr %.137.i, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not35.i = icmp eq ptr %32, null
-  br i1 %.not35.i, label %33, label %.preheader.i, !llvm.loop !10
+  br i1 %.not35.i, label %33, label %.preheader.i, !llvm.loop !11
 
 33:                                               ; preds = %.preheader.i
   %34 = add nsw i32 %18, 11
@@ -1038,7 +1038,7 @@ define hidden void @outStream_destroy(ptr noundef readonly captures(none) %0) lo
   tail call void @jvmtiDeallocate(ptr noundef %17) #7
   tail call void @jvmtiDeallocate(ptr noundef nonnull %.013) #7
   %.not11 = icmp eq ptr %15, null
-  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -1104,9 +1104,10 @@ attributes #8 = { nounwind willreturn memory(read) }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
-!9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}
-!11 = distinct !{!11, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}
+!10 = distinct !{!10, !7, !8}
+!11 = distinct !{!11, !7, !8}
+!12 = distinct !{!12, !7, !8}

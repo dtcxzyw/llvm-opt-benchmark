@@ -57,7 +57,7 @@ define range(i32 0, 2) i32 @ASN1_i2d_fp(ptr noundef readonly captures(none) %0, 
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 %26
   %28 = call i32 @BIO_write(ptr noundef nonnull %6, ptr noundef nonnull %27, i32 noundef %25) #3
   %29 = icmp eq i32 %28, %25
-  br i1 %29, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %29, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %23, %.lr.ph.i, %17
   %.0.i = phi i32 [ 1, %17 ], [ 1, %23 ], [ 0, %.lr.ph.i ]
@@ -125,7 +125,7 @@ define range(i32 0, 2) i32 @ASN1_i2d_bio(ptr noundef readonly captures(none) %0,
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 %20
   %22 = call i32 @BIO_write(ptr noundef %1, ptr noundef nonnull %21, i32 noundef %19) #3
   %23 = icmp eq i32 %22, %19
-  br i1 %23, label %._crit_edge, label %.lr.ph
+  br i1 %23, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %17, %.lr.ph, %11
   %.0 = phi i32 [ 1, %11 ], [ 0, %.lr.ph ], [ 1, %17 ]
@@ -211,7 +211,7 @@ define range(i32 0, 2) i32 @ASN1_item_i2d_bio(ptr noundef %0, ptr noundef %1, pt
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
   %20 = call i32 @BIO_write(ptr noundef %1, ptr noundef nonnull %19, i32 noundef %16) #3
   %21 = icmp eq i32 %20, %16
-  br i1 %21, label %._crit_edge, label %.lr.ph
+  br i1 %21, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %14, %.lr.ph, %.preheader
   %.0 = phi i32 [ 1, %.preheader ], [ 0, %.lr.ph ], [ 1, %14 ]
@@ -277,3 +277,6 @@ attributes #3 = { nounwind }
 !5 = !{!"any pointer", !6, i64 0}
 !6 = !{!"omnipotent char", !7, i64 0}
 !7 = !{!"Simple C/C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = distinct !{!10, !9}

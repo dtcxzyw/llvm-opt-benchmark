@@ -271,7 +271,7 @@ define internal void @hqx_idct_put(ptr noundef writeonly captures(none) %0, i64 
   store i16 %227, ptr %142, align 2, !tbaa !9
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 8
-  br i1 %exitcond40.not, label %.preheader29, label %.preheader30, !llvm.loop !14
+  br i1 %exitcond40.not, label %.preheader29, label %.preheader30, !llvm.loop !15
 
 .preheader:                                       ; preds = %.preheader29, %238
   %indvars.iv45 = phi i64 [ 0, %.preheader29 ], [ %indvars.iv.next46, %238 ]
@@ -298,13 +298,13 @@ define internal void @hqx_idct_put(ptr noundef writeonly captures(none) %0, i64 
   store i16 %236, ptr %237, align 2, !tbaa !9
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 8
-  br i1 %exitcond44.not, label %238, label %228, !llvm.loop !15
+  br i1 %exitcond44.not, label %238, label %228, !llvm.loop !16
 
 238:                                              ; preds = %228
   %239 = getelementptr inbounds i16, ptr %.035, i64 %127
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 8
-  br i1 %exitcond48.not, label %240, label %.preheader, !llvm.loop !16
+  br i1 %exitcond48.not, label %240, label %.preheader, !llvm.loop !17
 
 240:                                              ; preds = %238
   ret void
@@ -327,8 +327,9 @@ attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !9 = !{!10, !10, i64 0}
 !10 = !{!"short", !7, i64 0}
 !11 = !{!7, !7, i64 0}
-!12 = distinct !{!12, !13}
+!12 = distinct !{!12, !13, !14}
 !13 = !{!"llvm.loop.mustprogress"}
-!14 = distinct !{!14, !13}
-!15 = distinct !{!15, !13}
-!16 = distinct !{!16, !13}
+!14 = !{!"llvm.loop.estimated_trip_count"}
+!15 = distinct !{!15, !13, !14}
+!16 = distinct !{!16, !13, !14}
+!17 = distinct !{!17, !13, !14}

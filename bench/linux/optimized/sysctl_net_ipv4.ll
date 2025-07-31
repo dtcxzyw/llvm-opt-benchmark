@@ -459,7 +459,7 @@ define internal i32 @ipv4_ping_group_range(ptr noundef readonly captures(none) %
   %6 = alloca [2 x i64], align 16
   %7 = alloca %struct.ctl_table, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 32, i1 false)
@@ -489,21 +489,21 @@ define internal i32 @ipv4_ping_group_range(ptr noundef readonly captures(none) %
   br i1 %23, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %20, %.preheader
-  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
+  call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   %24 = load volatile i32, ptr %18, align 4
   %25 = and i32 %24, 1
   %26 = icmp eq i32 %25, 0
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !10
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %20
   %27 = phi i32 [ %21, %20 ], [ %24, %.preheader ]
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %28 = load i32, ptr %17, align 4
   %29 = load i32, ptr %19, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !13
   %30 = load volatile i32, ptr %18, align 4
   %31 = icmp eq i32 %30, %27
-  br i1 %31, label %32, label %20, !llvm.loop !13
+  br i1 %31, label %32, label %20, !llvm.loop !14
 
 32:                                               ; preds = %.loopexit
   %33 = icmp eq i32 %28, -1
@@ -545,11 +545,11 @@ define internal i32 @ipv4_ping_group_range(ptr noundef readonly captures(none) %
   %62 = load i32, ptr %60, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %60, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
   store i32 %57, ptr %59, align 4
   %64 = getelementptr i8, ptr %59, i64 4
   store i32 %58, ptr %64, align 4
-  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   %65 = load i32, ptr %60, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %60, align 4
@@ -619,7 +619,7 @@ define internal i32 @ipv4_local_port_range(ptr noundef readonly captures(none) %
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 1104
-  %41 = load i8, ptr %40, align 4, !range !16, !noundef !17
+  %41 = load i8, ptr %40, align 4, !range !17, !noundef !18
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %48
 
@@ -676,7 +676,7 @@ define internal i32 @proc_tcp_congestion_control(ptr noundef readonly captures(n
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -1240
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !9
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
@@ -794,8 +794,8 @@ define internal i32 @proc_tcp_fastopen_key(ptr noundef readonly captures(none) %
   br i1 %18, label %119, label %19
 
 19:                                               ; preds = %5
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 0, i64 32, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !9
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 0, i64 32, i1 false), !annotation !9
   %20 = call i32 @tcp_fastopen_get_cipher(ptr noundef %13, ptr noundef null, ptr noundef nonnull %10) #11
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.thread, label %22
@@ -859,12 +859,12 @@ define internal i32 @proc_tcp_fastopen_key(ptr noundef readonly captures(none) %
   %63 = load i32, ptr %14, align 8
   %64 = add i32 %63, -1
   %65 = icmp slt i32 %62, %64
-  br i1 %65, label %67, label %66, !prof !18
+  br i1 %65, label %67, label %66, !prof !19
 
 66:                                               ; preds = %35
-  call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #11, !srcloc !19
-  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.133, i32 321, i32 2307, i64 12) #11, !srcloc !20
-  call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #11, !srcloc !21
+  call void asm sideeffect "911: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 911b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 911) #11, !srcloc !20
+  call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.133, i32 321, i32 2307, i64 12) #11, !srcloc !21
+  call void asm sideeffect "912: nop\0A\09.pushsection .discard.instr_end\0A\09.long 912b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 912) #11, !srcloc !22
   br label %.loopexit
 
 67:                                               ; preds = %35
@@ -886,7 +886,7 @@ define internal i32 @proc_tcp_fastopen_key(ptr noundef readonly captures(none) %
   %79 = phi ptr [ %71, %70 ], [ %37, %67 ]
   %80 = phi i32 [ %77, %70 ], [ %62, %67 ]
   %81 = icmp eq i64 %68, %34
-  br i1 %81, label %.loopexit, label %35, !llvm.loop !22
+  br i1 %81, label %.loopexit, label %35, !llvm.loop !23
 
 .loopexit:                                        ; preds = %78, %66, %30
   %82 = call i32 @proc_dostring(ptr noundef nonnull %8, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
@@ -911,7 +911,7 @@ define internal i32 @proc_tcp_fastopen_key(ptr noundef readonly captures(none) %
   %93 = phi ptr [ %.pre8, %90 ], [ %87, %86 ]
   %94 = phi ptr [ %91, %90 ], [ null, %86 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !9
   %95 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %97 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -927,7 +927,7 @@ define internal i32 @proc_tcp_fastopen_key(ptr noundef readonly captures(none) %
 
 102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !9
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -1096,7 +1096,7 @@ define internal i32 @proc_tcp_ehash_entries(ptr noundef readonly captures(none) 
 
 17:                                               ; preds = %5
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %19 = load i8, ptr %18, align 8, !range !16, !noundef !17
+  %19 = load i8, ptr %18, align 8, !range !17, !noundef !18
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %23
 
@@ -1219,21 +1219,22 @@ attributes #14 = { cold nounwind }
 !2 = !{i32 4, !"function_return_thunk_extern", i32 1}
 !3 = !{i32 4, !"indirect_branch_cs_prefix", i32 1}
 !4 = !{i32 4, !"SkipRaxSetup", i32 1}
-!5 = distinct !{!5, !6, !7}
+!5 = distinct !{!5, !6, !7, !8}
 !6 = !{!"llvm.loop.mustprogress"}
 !7 = !{!"llvm.loop.unroll.disable"}
-!8 = !{!"auto-init"}
-!9 = !{i64 2076595}
-!10 = distinct !{!10, !6, !7}
-!11 = !{i64 2150115962}
-!12 = !{i64 2150104073}
-!13 = distinct !{!13, !6, !7}
-!14 = !{i64 2150104346}
-!15 = !{i64 2150104619}
-!16 = !{i8 0, i8 2}
-!17 = !{}
-!18 = !{!"branch_weights", i32 2000, i32 1}
-!19 = !{i64 2160660741, i64 2160660550, i64 2160660602, i64 2160660648, i64 2160660676}
-!20 = !{i64 2160660815, i64 2160660844, i64 2160660890, i64 2160660948, i64 2160661002, i64 2160661056, i64 2160661111, i64 2160661142, i64 2160661450, i64 2160661456, i64 2160661503, i64 2160661526, i64 2160661552}
-!21 = !{i64 2160662011, i64 2160661822, i64 2160661872, i64 2160661918, i64 2160661946}
-!22 = distinct !{!22, !6, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = !{!"auto-init"}
+!10 = !{i64 2076595}
+!11 = distinct !{!11, !6, !7, !8}
+!12 = !{i64 2150115962}
+!13 = !{i64 2150104073}
+!14 = distinct !{!14, !6, !7, !8}
+!15 = !{i64 2150104346}
+!16 = !{i64 2150104619}
+!17 = !{i8 0, i8 2}
+!18 = !{}
+!19 = !{!"branch_weights", i32 2000, i32 1}
+!20 = !{i64 2160660741, i64 2160660550, i64 2160660602, i64 2160660648, i64 2160660676}
+!21 = !{i64 2160660815, i64 2160660844, i64 2160660890, i64 2160660948, i64 2160661002, i64 2160661056, i64 2160661111, i64 2160661142, i64 2160661450, i64 2160661456, i64 2160661503, i64 2160661526, i64 2160661552}
+!22 = !{i64 2160662011, i64 2160661822, i64 2160661872, i64 2160661918, i64 2160661946}
+!23 = distinct !{!23, !6, !7, !8}

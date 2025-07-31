@@ -288,7 +288,7 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %195 = fcmp oge double %173, %194
   %196 = select i1 %195, double %173, double %194
   %exitcond514.not = icmp eq i64 %indvars.iv.next511, %171
-  br i1 %exitcond514.not, label %._crit_edge472, label %.lr.ph471, !llvm.loop !11
+  br i1 %exitcond514.not, label %._crit_edge472, label %.lr.ph471, !llvm.loop !12
 
 ._crit_edge472:                                   ; preds = %190
   store double %196, ptr %21, align 8, !tbaa !7
@@ -428,7 +428,7 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %257 = fcmp oge double %.0378489, %256
   %258 = select i1 %257, double %.0378489, double %256
   %259 = icmp sgt i64 %indvars.iv518, 2
-  br i1 %259, label %.lr.ph493, label %._crit_edge494, !llvm.loop !12
+  br i1 %259, label %.lr.ph493, label %._crit_edge494, !llvm.loop !13
 
 ._crit_edge494:                                   ; preds = %250, %222
   %.0378.lcssa = phi double [ %229, %222 ], [ %258, %250 ]
@@ -501,7 +501,7 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %299 = fcmp oge double %.1379478, %298
   %300 = select i1 %299, double %.1379478, double %298
   %301 = icmp samesign ugt i64 %indvars.iv515, 2
-  br i1 %301, label %.lr.ph482, label %._crit_edge483, !llvm.loop !13
+  br i1 %301, label %.lr.ph482, label %._crit_edge483, !llvm.loop !14
 
 ._crit_edge483:                                   ; preds = %293, %266
   %.1379.lcssa = phi double [ %273, %266 ], [ %300, %293 ]
@@ -537,7 +537,7 @@ define void @dlarrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %.0388.be = phi double [ %311, %307 ], [ %.1395, %318 ]
   %.0387.be = phi double [ %317, %307 ], [ %106, %318 ]
   %.0385.be = phi double [ %315, %307 ], [ %.1395, %318 ]
-  br label %.backedge
+  br label %.backedge, !llvm.loop !15
 
 318:                                              ; preds = %.critedge
   %319 = fcmp olt double %.1392, %95
@@ -606,8 +606,10 @@ attributes #6 = { nounwind }
 !6 = !{!"Simple C/C++ TBAA"}
 !7 = !{!8, !8, i64 0}
 !8 = !{!"double", !5, i64 0}
-!9 = distinct !{!9, !10}
+!9 = distinct !{!9, !10, !11}
 !10 = !{!"llvm.loop.mustprogress"}
-!11 = distinct !{!11, !10}
-!12 = distinct !{!12, !10}
-!13 = distinct !{!13, !10}
+!11 = !{!"llvm.loop.estimated_trip_count"}
+!12 = distinct !{!12, !10, !11}
+!13 = distinct !{!13, !10, !11}
+!14 = distinct !{!14, !10, !11}
+!15 = distinct !{!15, !11}

@@ -115,7 +115,7 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly captures(addr
   %56 = shl i32 %.04167, 4
   call void (ptr, ptr, ...) %3(ptr noundef %4, ptr noundef nonnull @.str.1, i32 noundef %56, ptr noundef nonnull %6) #4
   %.not54 = icmp eq ptr %.2, %14
-  br i1 %.not54, label %.critedge, label %.lr.ph, !llvm.loop !8
+  br i1 %.not54, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %.loopexit, %10, %5
   ret void
@@ -181,6 +181,7 @@ attributes #4 = { nounwind }
 !3 = !{i32 8, !"PIC Level", i32 2}
 !4 = !{i32 7, !"uwtable", i32 2}
 !5 = !{i32 7, !"frame-pointer", i32 2}
-!6 = distinct !{!6, !7}
+!6 = distinct !{!6, !7, !8}
 !7 = !{!"llvm.loop.mustprogress"}
-!8 = distinct !{!8, !7}
+!8 = !{!"llvm.loop.estimated_trip_count"}
+!9 = distinct !{!9, !7, !8}

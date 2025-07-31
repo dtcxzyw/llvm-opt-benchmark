@@ -940,7 +940,7 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   %79 = add nuw nsw i32 %.0116199.i.i, 1
   %.0133.i.i = fmul double %.0133200.i.i, 9.000000e-01
   %exitcond.not.i.i = icmp eq i32 %79, 10
-  br i1 %exitcond.not.i.i, label %80, label %48
+  br i1 %exitcond.not.i.i, label %80, label %48, !llvm.loop !53
 
 80:                                               ; preds = %78, %76
   %.0130.lcssa.i.i = phi double [ %.0130198.i.i, %76 ], [ %.0133200.i.i, %78 ]
@@ -999,7 +999,7 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   %112 = fmul double %.1131202.i.i, 1.100000e+00
   %113 = add nuw nsw i32 %.1117203.i.i, 1
   %exitcond245.not.i.i = icmp eq i32 %113, 10
-  br i1 %exitcond245.not.i.i, label %114, label %.preheader.i.i
+  br i1 %exitcond245.not.i.i, label %114, label %.preheader.i.i, !llvm.loop !55
 
 114:                                              ; preds = %111, %109
   %.1134.lcssa.i.i = phi double [ %.1134201.i.i, %109 ], [ %.1131202.i.i, %111 ]
@@ -1211,7 +1211,7 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   %236 = getelementptr inbounds nuw i8, ptr %223, i64 168
   %237 = load i32, ptr %236, align 8, !tbaa !23
   %238 = icmp slt i32 %235, %237
-  br i1 %238, label %123, label %arkRelaxNewtonSolve.exit.thread52.i
+  br i1 %238, label %123, label %arkRelaxNewtonSolve.exit.thread52.i, !llvm.loop !56
 
 239:                                              ; preds = %35
   %240 = load ptr, ptr %6, align 8, !tbaa !17
@@ -1238,7 +1238,7 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   %255 = getelementptr inbounds nuw i8, ptr %.pre.pre.i, i64 168
   %256 = load i32, ptr %255, align 8, !tbaa !23
   %257 = icmp slt i32 %254, %256
-  br i1 %257, label %258, label %arkRelaxNewtonSolve.exit.thread.i
+  br i1 %257, label %258, label %arkRelaxNewtonSolve.exit.thread.i, !llvm.loop !57
 
 258:                                              ; preds = %253, %.lr.ph.i41.i
   %259 = phi double [ %.pre.i42.i, %.lr.ph.i41.i ], [ %315, %253 ]
@@ -1283,7 +1283,7 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   %287 = load double, ptr %241, align 8, !tbaa !48
   %288 = load ptr, ptr %22, align 8, !tbaa !46
   %289 = load ptr, ptr %246, align 8, !tbaa !51
-  %290 = load ptr, ptr %249, align 8, !tbaa !53
+  %290 = load ptr, ptr %249, align 8, !tbaa !58
   %291 = getelementptr inbounds nuw i8, ptr %272, i64 72
   %292 = load double, ptr %291, align 8, !tbaa !50
   %293 = load ptr, ptr %27, align 8, !tbaa !47
@@ -1314,7 +1314,7 @@ define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captu
   %310 = tail call double @llvm.fabs.f64(double %309)
   %311 = load double, ptr %251, align 8, !tbaa !27
   %312 = tail call double @llvm.fmuladd.f64(double %308, double %310, double %311)
-  %313 = load double, ptr %245, align 8, !tbaa !54
+  %313 = load double, ptr %245, align 8, !tbaa !59
   %314 = fdiv double %313, %307
   %315 = fsub double %309, %314
   store double %315, ptr %241, align 8, !tbaa !48
@@ -1345,7 +1345,7 @@ arkRelaxNewtonSolve.exit.i:                       ; preds = %67, %100, %150, %13
   %.3.i.lcssa.sink.i = phi double [ %.3.i.i, %139 ], [ %.3.i.i, %150 ], [ %.1131202.i.i, %100 ], [ %.0133200.i.i, %67 ]
   %321 = phi ptr [ %125, %139 ], [ %125, %150 ], [ %94, %100 ], [ %61, %67 ]
   %322 = getelementptr inbounds nuw i8, ptr %42, i64 80
-  store double %.lcssa154.sink.i, ptr %322, align 8, !tbaa !54
+  store double %.lcssa154.sink.i, ptr %322, align 8, !tbaa !59
   store double %.3.i.lcssa.sink.i, ptr %43, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #8
@@ -1400,9 +1400,9 @@ arkRelaxSolve.exit.thread.thread:                 ; preds = %336, %34, %arkRelax
   %343 = load i64, ptr %342, align 8, !tbaa !32
   %344 = add nsw i64 %343, 1
   store i64 %344, ptr %342, align 8, !tbaa !32
-  %345 = load i32, ptr %1, align 4, !tbaa !55
+  %345 = load i32, ptr %1, align 4, !tbaa !60
   %346 = add nsw i32 %345, 1
-  store i32 %346, ptr %1, align 4, !tbaa !55
+  store i32 %346, ptr %1, align 4, !tbaa !60
   %347 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %348 = load i32, ptr %347, align 8, !tbaa !22
   %349 = icmp eq i32 %346, %348
@@ -1410,17 +1410,17 @@ arkRelaxSolve.exit.thread.thread:                 ; preds = %336, %34, %arkRelax
 
 350:                                              ; preds = %arkRelaxSolve.exit.thread.thread
   %351 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %352 = load double, ptr %351, align 8, !tbaa !56
+  %352 = load double, ptr %351, align 8, !tbaa !61
   %353 = call double @llvm.fabs.f64(double %352)
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %355 = load double, ptr %354, align 8, !tbaa !57
+  %355 = load double, ptr %354, align 8, !tbaa !62
   %356 = fmul double %355, 0x3FF000010C6F7A0B
   %357 = fcmp ugt double %353, %356
   br i1 %357, label %358, label %arkRelaxSolve.exit.thread36
 
 358:                                              ; preds = %350
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %360 = load i32, ptr %359, align 8, !tbaa !58
+  %360 = load i32, ptr %359, align 8, !tbaa !63
   %.not27 = icmp eq i32 %360, 0
   br i1 %.not27, label %361, label %arkRelaxSolve.exit.thread36
 
@@ -1428,15 +1428,15 @@ arkRelaxSolve.exit.thread.thread:                 ; preds = %336, %34, %arkRelax
   %362 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %363 = load double, ptr %362, align 8, !tbaa !19
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 744
-  store double %363, ptr %364, align 8, !tbaa !59
+  store double %363, ptr %364, align 8, !tbaa !64
   br label %arkRelaxSolve.exit.thread36
 
 365:                                              ; preds = %arkRelaxSolve.exit.thread.thread42, %arkRelaxSolve.exit.thread
   %.0293246 = phi double [ %328, %arkRelaxSolve.exit.thread.thread42 ], [ undef, %arkRelaxSolve.exit.thread ]
   %366 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %367 = load double, ptr %366, align 8, !tbaa !56
+  %367 = load double, ptr %366, align 8, !tbaa !61
   %368 = fmul double %.0293246, %367
-  store double %368, ptr %366, align 8, !tbaa !56
+  store double %368, ptr %366, align 8, !tbaa !61
   %369 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %370 = load ptr, ptr %369, align 8, !tbaa !43
   %371 = call i32 %370(ptr noundef nonnull %0) #8
@@ -1616,10 +1616,15 @@ attributes #8 = { nounwind }
 !50 = !{!20, !9, i64 72}
 !51 = !{!4, !11, i64 632}
 !52 = !{!9, !9, i64 0}
-!53 = !{!4, !11, i64 640}
-!54 = !{!20, !9, i64 80}
-!55 = !{!10, !10, i64 0}
-!56 = !{!4, !9, i64 704}
-!57 = !{!4, !9, i64 712}
-!58 = !{!4, !10, i64 768}
-!59 = !{!4, !9, i64 744}
+!53 = distinct !{!53, !54}
+!54 = !{!"llvm.loop.estimated_trip_count"}
+!55 = distinct !{!55, !54}
+!56 = distinct !{!56, !54}
+!57 = distinct !{!57, !54}
+!58 = !{!4, !11, i64 640}
+!59 = !{!20, !9, i64 80}
+!60 = !{!10, !10, i64 0}
+!61 = !{!4, !9, i64 704}
+!62 = !{!4, !9, i64 712}
+!63 = !{!4, !10, i64 768}
+!64 = !{!4, !9, i64 744}

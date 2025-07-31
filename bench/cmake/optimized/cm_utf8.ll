@@ -69,7 +69,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(add
 
 31:                                               ; preds = %._crit_edge
   %32 = getelementptr inbounds nuw [7 x i32], ptr @cm_utf8_min, i64 0, i64 %14
-  %33 = load i32, ptr %32, align 4, !tbaa !9
+  %33 = load i32, ptr %32, align 4, !tbaa !10
   %34 = icmp ult i32 %26, %33
   %35 = and i32 %.02941, 67108832
   %or.cond = icmp eq i32 %35, 864
@@ -81,7 +81,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(add
 .loopexit.sink.split:                             ; preds = %31, %11
   %.sink = phi i32 [ %12, %11 ], [ %26, %31 ]
   %.030.ph = phi ptr [ %6, %11 ], [ %22, %31 ]
-  store i32 %.sink, ptr %2, align 4, !tbaa !9
+  store i32 %.sink, ptr %2, align 4, !tbaa !10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %13, %5, %5, %5, %._crit_edge, %31, %3
@@ -154,7 +154,7 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly capt
 
 28:                                               ; preds = %._crit_edge.i
   %29 = getelementptr inbounds nuw [7 x i32], ptr @cm_utf8_min, i64 0, i64 %11
-  %30 = load i32, ptr %29, align 4, !tbaa !9
+  %30 = load i32, ptr %29, align 4, !tbaa !10
   %31 = icmp ult i32 %23, %30
   %32 = and i32 %.02941.i, 67108832
   %or.cond.i = icmp eq i32 %32, 864
@@ -166,7 +166,7 @@ define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly capt
 cm_utf8_decode_character.exit:                    ; preds = %28, %.lr.ph
   %.030.ph.i = phi ptr [ %19, %28 ], [ %5, %.lr.ph ]
   %.not15 = icmp eq ptr %.030.ph.i, %4
-  br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !12
 
 .critedge:                                        ; preds = %10, %._crit_edge.i, %28, %.lr.ph, %.lr.ph, %.lr.ph, %cm_utf8_decode_character.exit, %.lr.ph.i, %2, %1
   %.010 = phi i32 [ 0, %1 ], [ 1, %2 ], [ 0, %.lr.ph.i ], [ 1, %cm_utf8_decode_character.exit ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %.lr.ph ], [ 0, %28 ], [ 0, %._crit_edge.i ], [ 0, %10 ]
@@ -190,8 +190,9 @@ attributes #3 = { nounwind willreturn memory(read) }
 !4 = !{!5, !5, i64 0}
 !5 = !{!"omnipotent char", !6, i64 0}
 !6 = !{!"Simple C/C++ TBAA"}
-!7 = distinct !{!7, !8}
+!7 = distinct !{!7, !8, !9}
 !8 = !{!"llvm.loop.mustprogress"}
-!9 = !{!10, !10, i64 0}
-!10 = !{!"int", !5, i64 0}
-!11 = distinct !{!11, !8}
+!9 = !{!"llvm.loop.estimated_trip_count"}
+!10 = !{!11, !11, i64 0}
+!11 = !{!"int", !5, i64 0}
+!12 = distinct !{!12, !8, !9}

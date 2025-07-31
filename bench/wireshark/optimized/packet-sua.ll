@@ -2592,7 +2592,7 @@ dissect_parameter.exit:                           ; preds = %334, %switch.early.
   %650 = add i32 %.027, %.067
   %651 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %650)
   %.not = icmp eq i32 %651, 0
-  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !10
+  br i1 %.not, label %._crit_edge, label %12, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %649, %6
   ret void
@@ -2712,7 +2712,7 @@ define internal fastcc void @dissect_affected_destinations_parameter(ptr noundef
   %19 = add nuw nsw i32 %.01618, 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %18, %3
   %20 = icmp eq i32 %8, 1
@@ -2887,7 +2887,7 @@ define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr 
   %48 = add nuw nsw i32 %37, 1
   %49 = and i32 %48, 65535
   %50 = icmp samesign ult i32 %49, %34
-  br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !12
+  br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %63
   %51 = phi i32 [ %65, %63 ], [ 12, %.lr.ph ]
@@ -2911,7 +2911,7 @@ define internal fastcc void @dissect_global_title_parameter(ptr noundef %0, ptr 
   %64 = add nuw nsw i32 %51, 1
   %65 = and i32 %64, 65535
   %66 = icmp samesign ult i32 %65, %34
-  br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !14
+  br i1 %66, label %.lr.ph.split, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %63, %.lr.ph.split.us, %3
   %67 = load i32, ptr @hf_sua_source_global_title_digits, align 4
@@ -3018,10 +3018,11 @@ attributes #9 = { nounwind willreturn memory(read) }
 !5 = !{i32 7, !"uwtable", i32 2}
 !6 = !{i8 0, i8 2}
 !7 = !{}
-!8 = distinct !{!8, !9}
+!8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
-!10 = distinct !{!10, !9}
-!11 = distinct !{!11, !9}
-!12 = distinct !{!12, !9, !13}
-!13 = !{!"llvm.loop.unswitch.nontrivial.disable"}
-!14 = distinct !{!14, !9}
+!10 = !{!"llvm.loop.estimated_trip_count"}
+!11 = distinct !{!11, !9, !10}
+!12 = distinct !{!12, !9, !10}
+!13 = distinct !{!13, !9, !10, !14}
+!14 = !{!"llvm.loop.unswitch.nontrivial.disable"}
+!15 = distinct !{!15, !9, !10}
